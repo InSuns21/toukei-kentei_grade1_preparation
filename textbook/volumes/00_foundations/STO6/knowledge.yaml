@@ -93,7 +93,7 @@ concepts:
   - id: stochastic.stochastic-integral-bracket
     name: quadratic variation of stochastic integral
     kind: theorem
-    aliases: ["bracket of stochastic integral", "[H dot M]", "STO6 の bracket 公式", "確率積分の bracket 公式"]
+    aliases: ["bracket of stochastic integral", "[H dot M]", "STO6 の bracket 公式", "確率積分の bracket 公式", "確率積分の二次変分公式"]
     introduction: formal
     introduction_aliases: ["定理（確率積分の二次変分）"]
     requires:
