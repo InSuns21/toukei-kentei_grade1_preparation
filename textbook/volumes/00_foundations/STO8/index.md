@@ -548,15 +548,16 @@ $$
 > が成り立つ。
 <!-- formal-statement-end -->
 
+<!-- proof-start -->
 ### 証明
 
 Tanaka formula と
 
-$$
+$
 B_t-a
 =
 B_0-a+\int_0^t1\,dB_s
-$$
+$
 
 を加減します。
 
@@ -584,7 +585,22 @@ $\operatorname{sgn}(0)=0$ のため level 上では integrand が $1/2$ にな�
 
 従って integrand を $1_{\{B_s>a\}}$ に置き換えられます。
 
-negative part も同じ恒等式から得られます。
+negative part は
+$(B_t-a)^-=(|B_t-a|-(B_t-a))/2$
+へ同じ二式を代入すると
+
+$
+(B_t-a)^-
+=
+(B_0-a)^-
+-
+\int_0^t1_{\{B_s<a\}}\,dB_s
++
+\frac12L_t^a
+$
+
+となります。
+<!-- proof-end -->
 
 ---
 
@@ -1221,7 +1237,7 @@ E|B_t-B_0|
 E|B_t|.
 $$
 
-Tanaka formula から同様に
+Tanaka formula で stochastic integral の平均が 0 であることを使うと
 
 $$
 0\le E[L_t^a]\le E|B_t|.
@@ -1271,25 +1287,94 @@ almost surely です。
 
 #### $C_c$ から Borel functions へ
 
-rational endpoints と rational values を持つ compactly supported piecewise-linear functions は可算です。
+固定した $t$ と標本路 $\omega$ に対し、二つの Borel measure
 
-その中の非負関数全てについて上の等式が同時に成り立つ probability-one event を取れます。
-
-連続な cutoff を単調に interval indicator へ近づけることで、open interval について
-
-$$
-\int_0^t1_{\{B_s\in I\}}ds
+$
+\mu_t^\omega(A)
 =
-\int_I L_t^a\,da
-$$
+\int_0^t
+1_{\{B_s(\omega)\in A\}}\,ds,
+$
+
+$
+\nu_t^\omega(A)
+=
+\int_A
+L_t^a(\omega)\,da
+$
+
+を考えます。
+
+まず、rational endpoints を持つ bounded open interval $I=(p,q)$ を一つ固定します。$1_I$ を下から近似する compactly supported continuous functions $g_n$ を選べます。例えば $g_n$ を $I$ の内部で 1、境界から距離 $1/n$ の層で線形に 0 へ落とし、$I$ の外で 0 とすれば
+
+$
+0\le g_n\uparrow1_I.
+$
+
+既に示した $C_c$ の場合と monotone convergence から
+
+$
+\mu_t(I)
+=
+\nu_t(I)
+$
+
+almost surely です。
+
+rational bounded intervals は可算なので、一つの probability-one event $\Omega_t$ 上で全てのそのような $I$ について同時に等式が成り立つようにできます。
+
+$\omega\in\Omega_t$ を固定します。$\mu_t^\omega$ と $\nu_t^\omega$ はともに有限 measure です。実際
+
+$
+\mu_t^\omega(\mathbb R)=t,
+$
+
+また $g_n\uparrow1$ となる compactly supported continuous cutoff を $C_c$ の等式へ入れて monotone convergence を使えば
+
+$
+\nu_t^\omega(\mathbb R)=t.
+$
+
+rational bounded intervals は有限交差で閉じる $\pi$-system で Borel $\sigma$-algebraを生成します。
+
+そこで
+
+$
+\mathcal D
+=
+\{A\in\mathcal B(\mathbb R):
+\mu_t^\omega(A)=\nu_t^\omega(A)\}
+$
+
+と置きます。二つの measure の全質量が等しいため $\mathbb R\in\mathcal D$、また $A\subset C$ で $A,C\in\mathcal D$ なら差集合について等式が保たれ、互いに素な可算和についても measure の可算加法性から等式が保たれます。従って $\mathcal D$ は Dynkin 族です。
+
+[F0-00D3A の π–λ 定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda) により
+
+$
+\mathcal B(\mathbb R)
+\subset
+\mathcal D.
+$
+
+従って全ての Borel set $A$ について
+
+$
+\int_0^t1_{\{B_s\in A\}}ds
+=
+\int_A L_t^a\,da.
+$
+
+非負 simple function へ線形性を使い、さらに非負 Borel $g$ を simple functions で下から近似して monotone convergence を適用すれば
+
+$
+\int_0^tg(B_s)ds
+=
+\int_{\mathbb R}g(a)L_t^a\,da
+$
 
 を得ます。
 
-有限個の disjoint intervals へ加法性を使い、さらに increasing limits を取れば open sets へ拡張できます。
-
-open sets から生成される Borel $\sigma$-algebra へ、indicator の単調極限を繰り返すことで非負 Borel $g$ へ拡張できます。
-
-符号を持つ $g$ は positive / negative parts に分け、両辺の絶対可積分性の下で差を取ればよいです。
+符号を持つ $g$ は positive / negative parts に分け、両辺の絶対可積分性の下で差を取ります。
 <!-- proof-end -->
 
 この定理により
@@ -2595,14 +2680,49 @@ $$
 
 $|a|\ge b$ では Brown 運動は停止前に level $a$ へ到達しないので local time は $0$ です。
 
-occupation formula を stopped path へ適用すると
+occupation formula をまず deterministic time $n$ に適用すると
 
-$$
+$
+\int_0^{n}g(B_s)\,ds
+=
+\int_{\mathbb R}
+g(a)L_{n}^a\,da.
+$
+
+同じ等式を stopped process $B_{s\wedge\tau_b}$ に新たに適用する必要はありません。元の Brownian path の等式で時刻を $\tau_b\wedge n$ まで切れば、indicator $1_{\{s\le\tau_b\}}$ を時間側へ入れた形として
+
+$
+\int_0^{\tau_b\wedge n}g(B_s)\,ds
+=
+\int_{\mathbb R}
+g(a)L_{\tau_b\wedge n}^a\,da
+$
+
+が得られます。これは deterministic-time occupation formula を simple nonnegative functions から時間停止へ延長し、monotone convergence を使うだけです。
+
+$n\uparrow\infty$ とすると、左辺は非負 integrand に対する monotone convergence で
+
+$
+\int_0^{\tau_b}g(B_s)\,ds
+$
+
+へ、右辺も $L_{\tau_b\wedge n}^a\uparrow L_{\tau_b}^a$ と Tonelli / monotone convergence により
+
+$
+\int_{\mathbb R}
+g(a)L_{\tau_b}^a\,da
+$
+
+へ収束します。
+
+したがって
+
+$
 \int_0^{\tau_b}g(B_s)\,ds
 =
 \int_{\mathbb R}
 g(a)L_{\tau_b}^a\,da.
-$$
+$
 
 両辺は非負なので Tonelli により期待値と $a$ 積分を交換でき、
 
