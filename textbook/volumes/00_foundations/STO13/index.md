@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念への参照**：[マルチンゲール](../STO2/index.md#def-sto2-martingale)、[予測可能過程](../STO1/index.md#def-sto1-predictable)、[積測度](../F0_00D2C_積測度_Tonelli_Fubini/index.md#def-f0-00d2c-01) を直接参照します。一般の [マルコフ半群](../STO11/index.md#def-sto11-印ov-semigroup)・[生成作用素](../STO11/index.md#def-sto11-生成作用素) は後で対応関係を確認するための補助参照であり、本章の証明 prerequisite にはしません。
+> **既出概念への参照**：[マルチンゲール](../STO2/index.md#def-sto2-martingale)、[予測可能過程](../STO1/index.md#def-sto1-predictable)、[積測度](../F0_00D2C_積測度_Tonelli_Fubini/index.md#def-f0-00d2c-01) を直接参照します。一般の [マルコフ半群](../STO11/index.md#def-sto11-markov-semigroup)・[生成作用素](../STO11/index.md#def-sto11-generator) は後で対応関係を確認するための補助参照であり、本章の証明 prerequisite にはしません。
 
 ブラウン運動では、非常に短い時間でも標本路は連続に揺れ続けます。
 
@@ -24,7 +24,7 @@ $$
 \boxed{
 \text{時刻}
 \times
-\text{跳躍の種類}
+\text{跳躍 の種類}
 }
 $$
 
@@ -34,7 +34,7 @@ $$
 
 $$
 \boxed{
-\text{Poisson 計数ing}
+\text{Poisson counting}
 \to
 \text{compensator}
 \to
@@ -42,21 +42,36 @@ $$
 \to
 \text{ポアソンランダム測度}
 \to
-\text{補償ランダム測度}
+\text{compensated ランダム測度}
 }
 $$
 
 です。
 
-STO14 では、このランダム測度を使って 跳躍型確率積分、Lévy 過程、Lévy--Itô 分解、跳躍を含む Itô 公式へ進みます。本章ではそこまで逆輸入しません。
+STO14 では、このランダム測度を使って 跳躍 stochastic 積分、Lévy process、Lévy--Itô 分解、跳躍 を含む Itô 公式へ進みます。本章ではそこまで逆輸入しません。
 
 ---
+
+### 本章で使うマルチンゲールの範囲
+
+[STO2 のマルチンゲール](../STO2/index.md#def-sto2-martingale)は離散時間で定義しました。本章では同じ条件を連続時間添字へそのまま拡張し、
+
+$
+E|M_t|<\infty,
+\qquad
+E[M_t\mid\mathcal F_s]=M_s
+\quad(0\le s\le t)
+$
+
+を満たす適合過程をマルチンゲールと呼びます。
+
+本章で必要なのはこの条件付き期待値の等式を具体的に検証することだけです。連続局所マルチンゲールや Doob--Meyer 分解の一般論は使いません。
 
 ## 1. ポアソン過程
 
 率 $\lambda>0$ を固定します。
 
-<a id="def-sto13-poisson-過程"></a>
+<a id="def-sto13-poisson-process"></a>
 
 <!-- formal-statement-start -->
 > **定義（率 $\lambda$ のポアソン過程）**  
@@ -89,7 +104,7 @@ e^{-\lambda(t-s)}
 $$
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-sto13-poisson-過程 -->
+<!-- definition-example-start: def-sto13-poisson-process -->
 ### 直接例：短い時間では「0 回」か「1 回」が支配的
 
 $h\downarrow0$ とします。
@@ -144,7 +159,7 @@ $$
 
 ---
 
-## 2. 到着時刻と exponential 待ち時間
+## 2. 到着時刻と 指数待ち時間
 
 $n$ 回目の 跳躍 時刻を
 
@@ -216,7 +231,7 @@ $$
 
 なので $W_1=T_1$ は exponential です。
 
-一般の独立性は、順序付けた到着時刻 の 同時密度 を独立増分から求め、gap variables へ変数変換すると 積に分解 することから出します。
+一般の独立性は、ordered arrival times の 同時密度 を独立増分から求め、gap variables へ変数変換すると factorize することから出します。
 
 <!-- proof-start -->
 ### 証明
@@ -243,7 +258,7 @@ $$
 
 次に $0<t_1<\cdots<t_n$ を固定します。
 
-小さい $h_1,\ldots,h_n>0$ を取り、各区間 $[t_k,t_k+h_k)$ にちょうど 1 跳躍があり、$[0,t_n+h_n]$ のそれ以外の部分に 跳躍がない事象を考えます。
+小さい $h_1,\ldots,h_n>0$ を取り、各区間 $[t_k,t_k+h_k)$ にちょうど 1 跳躍 があり、$[0,t_n+h_n]$ のそれ以外の部分に 跳躍 がない事象を考えます。
 
 独立増分より、その確率は
 
@@ -263,7 +278,7 @@ o\left(\prod_{k=1}^n h_k\right).
 \end{aligned}
 $$
 
-従って 順序付けた到着時刻 の 同時密度 は
+従って ordered arrival times の 同時密度 は
 
 $$
 f_{T_1,\ldots,T_n}(t_1,\ldots,t_n)
@@ -304,7 +319,7 @@ w_k>0.
 \end{aligned}
 $$
 
-同時密度 が各変数の密度の積へ 積に分解 したので、
+同時密度 が各変数の密度の積へ factorize したので、
 
 $$
 W_1,\ldots,W_n
@@ -329,9 +344,9 @@ $$
 
 $$
 \boxed{
-\text{計数の側}
+\text{count の側}
 \leftrightarrow
-\text{exponential 待ち時間 の側}
+\text{指数待ち時間 の側}
 }
 $$
 
@@ -347,7 +362,7 @@ $$
 E[N_t]=\lambda t.
 $$
 
-したがって 中心化 過程
+したがって 中心化 process
 
 $$
 M_t=N_t-\lambda t
@@ -439,7 +454,7 @@ $$
 >
 > 1. $A_0=0$,
 > 2. $A$ は予測可能で非減少,
-> 3. $N-A$ が局所マルチンゲール,
+> 3. $N-A$ がマルチンゲール,
 >
 > を満たすことをいう。
 <!-- formal-statement-end -->
@@ -447,7 +462,7 @@ $$
 <!-- definition-example-start: def-sto13-compensator -->
 ### 直接例：ポアソン過程では $A_t=\lambda t$
 
-$A_t=\lambda t$ は deterministic continuous 過程 なので予測可能で、非減少です。
+$A_t=\lambda t$ は 決定論的 continuous process なので予測可能で、非減少です。
 
 前節で
 
@@ -467,10 +482,12 @@ $$
 
 は率 $\lambda$ のポアソン過程の補償過程です。
 
-「観測計数」から「予測可能な平均蓄積量」を引くことで martingale noise が残る、と読めます。
+「observed count」から「予測可能な平均蓄積量」を引くことで マルチンゲール noise が残る、と読めます。
 <!-- definition-example-end -->
 
-一般の point 過程 では $A_t$ は deterministic とは限りません。
+ここでは可積分な計数過程に対する基本形だけを扱っています。一般の局所マルチンゲール補償や Doob--Meyer 理論は本章の prerequisite にしません。
+
+一般の point process では $A_t$ は 決定論的 とは限りません。
 
 例えば時刻 $t$ 直前の情報に依存する 強度 $\lambda_t$ を持つ場合、適切な条件下で
 
@@ -484,7 +501,7 @@ $$
 
 ---
 
-## 5. 連続時間マルコフ連鎖と Q-matrix
+## 5. 連続時間マルコフ連鎖と Q-行列
 
 ここから有限状態空間
 
@@ -497,14 +514,14 @@ $$
 <a id="def-sto13-ctmc-qmatrix"></a>
 
 <!-- formal-statement-start -->
-> **定義（有限状態 Q-matrix と連続時間マルコフ連鎖）**  
+> **定義（有限状態 Q-行列 と連続時間マルコフ連鎖）**  
 > 行列
 >
 $$
 Q=(q_{ij})_{i,j\in S}
 $$
 >
-> が Q-matrix であるとは、
+> が Q-行列 であるとは、
 >
 $$
 q_{ij}\ge0
@@ -529,9 +546,9 @@ q_i:=-q_{ii}
 \sum_{j\ne i}q_{ij}
 $$
 >
-> を 状態 $i$ からの total 跳躍率 と呼ぶ。
+> を 状態 $i$ からの total 跳躍 率 と呼ぶ。
 >
-> $S$-値 càdlàg 過程 $X=(X_t)$ がこの Q-matrix を持つ連続時間マルコフ連鎖であるとは、時間一様 Markov property を持ち、短時間遷移が
+> $S$-値 càdlàg 過程 $X=(X_t)$ がこの Q-行列 を持つ連続時間マルコフ連鎖であるとは、時間一様 マルコフ性 を持ち、短時間遷移が
 >
 $$
 P(X_{t+h}=j\mid X_t=i)
@@ -577,14 +594,14 @@ $$
 
 したがって $q_1=\alpha$、$q_2=\beta$ です。
 
-この「stay probability の一次項が 対角、跳躍確率 の一次項が 非対角」という構造が Q-matrix の意味です。
+この「stay probability の一次項が diagonal、跳躍 probability の一次項が off-diagonal」という構造が Q-行列 の意味です。
 <!-- definition-example-end -->
 
 ---
 
 ## 6. 跳躍連鎖 と 滞在時間
 
-Q-matrix から、離散時間の 跳躍連鎖 と各状態での滞在時間を読み出せます。
+Q-行列 から、離散時間の 跳躍連鎖 と各状態での滞在時間を読み出せます。
 
 $q_i>0$ のとき
 
@@ -610,10 +627,10 @@ $$
 <a id="thm-sto13-ctmc-construction"></a>
 
 <!-- formal-statement-start -->
-> **定理（有限状態 CTMC の跳躍連鎖・滞在時間構成）**  
-> 有限状態 Q-matrix $Q$ を与える。
+> **定理（有限状態 CTMC の 跳躍-chain / holding-time 構成）**  
+> 有限状態 Q-行列 $Q$ を与える。
 >
-> 遷移確率 $P=(p_{ij})$ を上の式で定め、離散時間 Markov chain
+> 遷移確率 $P=(p_{ij})$ を上の式で定め、離散時間 マルコフ連鎖
 >
 $$
 Y_0,Y_1,\ldots
@@ -633,7 +650,7 @@ $$
 >
 > とする。
 >
-> 跳躍時刻
+> 跳躍 times
 >
 $$
 T_0=0,
@@ -651,7 +668,7 @@ $$
 >
 > と置く。
 >
-> このとき有限時間内に無限個の 跳躍は起こらず、$X$ は Q-matrix $Q$ を持つ時間一様連続時間マルコフ連鎖である。
+> このとき有限時間内に無限個の 跳躍 は起こらず、$X$ は Q-行列 $Q$ を持つ時間一様連続時間マルコフ連鎖である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -668,20 +685,22 @@ $$
 H_n\ge E_n/q_*.
 $$
 
-右辺の和は無限大へ発散するため explosion は起きません。
+右辺の和は無限大へ発散するため 爆発 は起きません。
 
-Markov property は exponential distribution の 無記憶性 が担います。
+マルコフ性 は 指数分布 の memoryless property が担います。
 
 <!-- proof-start -->
 ### 証明
 
 まず
 
-$$
+$
 q_*=\max_{i\in S}q_i<\infty
-$$
+$
 
 です。
+
+$q_*=0$ なら全ての状態が absorbing であり、標本路は一定なので非爆発性もマルコフ性も自明です。以下では $q_*>0$ とします。
 
 $q_{Y_n}>0$ なら
 
@@ -741,19 +760,19 @@ T_n\ge \frac{S_n}{q_*}\to\infty
 $$
 です。
 
-よって有限時間内に無限個の 跳躍は起こりません。
+よって有限時間内に無限個の 跳躍 は起こりません。
 
 次に現在 状態 が $i$ であるとします。
 
-その 状態 での残り 滞在時間 は exponential distribution の 無記憶性 により、経過時間に依存せず再び $\operatorname{Exp}(q_i)$ です。
+その 状態 での残り 滞在時間 は 指数分布 の memoryless property により、経過時間に依存せず再び $\operatorname{Exp}(q_i)$ です。
 
-跳躍が起きたとき次 状態 は $p_{ij}$ で選ばれ、過去とは条件付き独立です。
+跳躍 が起きたとき次 状態 は $p_{ij}$ で選ばれ、過去とは条件付き独立です。
 
-したがって未来の分布は現在 状態 $i$ のみに依存し、時間一様 Markov property が成り立ちます。
+したがって未来の分布は現在 状態 $i$ のみに依存し、時間一様 マルコフ性 が成り立ちます。
 
 最後に短時間 $h$ の遷移を計算します。
 
-$i\ne j$ に対し、$i$ から最初の 跳躍が $[0,h]$ に起こり、その行き先が $j$ である確率は
+$i\ne j$ に対し、$i$ から最初の 跳躍 が $[0,h]$ に起こり、その行き先が $j$ である確率は
 
 $$
 \left(1-e^{-q_i h}\right)p_{ij}
@@ -763,9 +782,9 @@ q_i h\,p_{ij}+o(h)
 q_{ij}h+o(h).
 $$
 
-二回以上の 跳躍が起こる確率は $O(h^2)$ です。
+二回以上の 跳躍 が起こる確率は $O(h^2)$ です。
 
-実際、各 滞在時間 は $E/q_*$ 以上なので、二回 跳躍する事象は独立 $\operatorname{Exp}(q_*)$ 二個の和が $h$ 以下である事象に含まれ、その確率は $O(h^2)$ です。
+実際、各 滞在時間 は $E/q_*$ 以上なので、二回 跳躍 する事象は独立 $\operatorname{Exp}(q_*)$ 二個の和が $h$ 以下である事象に含まれ、その確率は $O(h^2)$ です。
 
 従って
 
@@ -794,7 +813,7 @@ P(X_h=j\mid X_0=i)
 \delta_{ij}+q_{ij}h+o(h).
 $$
 
-したがって $X$ の Q-matrix は $Q$ です。
+したがって $X$ の Q-行列 は $Q$ です。
 <!-- proof-end -->
 
 ---
@@ -809,7 +828,7 @@ $$
 
 を column vector と同一視します。
 
-Q-matrix の作用は
+Q-行列 の作用は
 
 $$
 (Qf)(i)
@@ -819,7 +838,7 @@ $$
 
 です。
 
-行和 が 0 なので
+row sum が 0 なので
 
 $$
 \begin{aligned}
@@ -834,7 +853,7 @@ q_{ij}
 \end{aligned}
 $$
 
-この形は「状態 $i$ から $j$ へ 率 $q_{ij}$ で 跳躍するときの $f$ の変化率」の総和です。
+この形は「状態 $i$ から $j$ へ 率 $q_{ij}$ で 跳躍 するときの $f$ の変化率」の総和です。
 
 短時間式から
 
@@ -864,11 +883,11 @@ $$
 
 です。
 
-これは [STO11 の一般の生成作用素](../STO11/index.md#def-sto11-生成作用素) の有限状態版そのものです。
+これは [STO11 の一般の生成作用素](../STO11/index.md#def-sto11-generator) の有限状態版そのものです。
 
 ---
 
-## 8. Kolmogorov backward / forward equations
+## 8. Kolmogorov 後退・前進方程式
 
 遷移確率を
 
@@ -890,7 +909,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（有限状態 CTMC の Kolmogorov 方程式）**  
-> 有限状態 Q-matrix $Q$ を持つ CTMC の 遷移行列 $(P_t)_{t\ge0}$ は
+> 有限状態 Q-行列 $Q$ を持つ CTMC の 遷移行列 $(P_t)_{t\ge0}$ は
 >
 $$
 P_0=I
@@ -906,7 +925,7 @@ QP_t
 }
 $$
 >
-> を満たす。これを Kolmogorov backward equation と呼ぶ。
+> を満たす。これを Kolmogorov 後退方程式 と呼ぶ。
 >
 > また
 >
@@ -918,7 +937,7 @@ P_tQ
 }
 $$
 >
-> も満たす。これを Kolmogorov forward equation と呼ぶ。
+> も満たす。これを Kolmogorov 前進方程式 と呼ぶ。
 >
 > 従って
 >
@@ -934,7 +953,7 @@ $$
 
 ### 証明の見取り図
 
-Markov property から semigroup law
+マルコフ性 から 半群則
 
 $$
 P_{s+t}=P_sP_t
@@ -953,7 +972,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-Markov property より
+マルコフ性 より
 
 $$
 P_{t+h}=P_hP_t.
@@ -982,7 +1001,7 @@ $$
 \frac{d}{dt}P_t=QP_t.
 $$
 
-一方 semigroup law を
+一方 半群則 を
 
 $$
 P_{t+h}=P_tP_h
@@ -1020,7 +1039,7 @@ $$
 
 です。
 
-実際 項別微分 により
+実際 termwise differentiation により
 
 $$
 \frac{d}{dt}e^{tQ}
@@ -1042,8 +1061,98 @@ $$
 Qe^{tQ}=e^{tQ}Q
 $$
 
-となり、forward equation も同じ解で満たされます。
+となり、前進方程式 も同じ解で満たされます。
 <!-- proof-end -->
+
+<a id="prop-sto13-ctmc-generator-martingale"></a>
+
+<!-- formal-statement-start -->
+> **命題（有限状態 CTMC の生成作用素マルチンゲール）**  
+> 有限状態 Q-行列 $Q$ を持つ CTMC $X$ と関数 $f:S\to\mathbb R$ を考える。
+>
+> このとき
+>
+$$
+M_t^f
+=
+f(X_t)-f(X_0)
+-
+\int_0^t(Qf)(X_s)\,ds
+$$
+>
+> は自然なフィルトレーションに関するマルチンゲールである。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+有限状態なので $f$ と $Qf$ は bounded です。マルコフ性 と Kolmogorov 前進方程式 を使うと、時刻 $s$ 以後の $f(X)$ の平均変化と $Qf$ の時間積分の平均が同じになります。
+
+<!-- proof-start -->
+### 証明
+
+$0\le s<t$ とします。マルコフ性 より
+
+$$
+E[f(X_t)\mid\mathcal F_s]
+=
+(P_{t-s}f)(X_s).
+$$
+
+従って
+
+$$
+E[f(X_t)-f(X_s)\mid\mathcal F_s]
+=
+(P_{t-s}f-f)(X_s).
+$$
+
+一方、有限状態なので $Qf$ は bounded です。したがって conditional Fubini が使え、
+
+$$
+\begin{aligned}
+E\left[
+\int_s^t(Qf)(X_r)\,dr
+\middle|
+\mathcal F_s
+\right]
+&=
+\int_s^t
+E[(Qf)(X_r)\mid\mathcal F_s]\,dr\\
+&=
+\int_0^{t-s}
+(P_uQf)(X_s)\,du.
+\end{aligned}
+$$
+
+前節の 前進方程式
+
+$$
+\frac{d}{du}P_u=P_uQ
+$$
+
+から
+
+$$
+\frac{d}{du}(P_uf)=P_uQf.
+$$
+
+よって
+
+$$
+\int_0^{t-s}P_uQf\,du
+=
+P_{t-s}f-f.
+$$
+
+したがって
+
+$$
+E[M_t^f-M_s^f\mid\mathcal F_s]=0.
+$$
+
+$f,Qf$ は bounded なので $M_t^f$ は可積分です。従って $M^f$ はマルチンゲールです。
+<!-- proof-end -->
+
 
 ---
 
@@ -1061,7 +1170,7 @@ $$
 
 を解きます。
 
-定常ベクトル は
+stationary vector は
 
 $$
 \pi
@@ -1074,13 +1183,13 @@ $$
 
 です。
 
-初期状態 1 について
+starting 状態 1 について
 
 $$
 p(t)=P_1(X_t=1)
 $$
 
-と置くと forward equation から
+と置くと 前進方程式 から
 
 $$
 p'(t)
@@ -1127,13 +1236,13 @@ $$
 c=\alpha+\beta.
 $$
 
-$t\to\infty$ では各 行 が $\pi$ へ収束します。
+$t\to\infty$ では各 row が $\pi$ へ収束します。
 
-連続時間でも「生成作用素 の固有値が 緩和率 を決める」という線形代数構造がそのまま現れています。
+連続時間でも「生成作用素 の固有値が relaxation 率 を決める」という線形代数構造がそのまま現れています。
 
 ---
 
-## 10. ポアソン過程は pure-birth CTMC である
+## 10. ポアソン過程は 純粋出生 CTMC である
 
 状態空間を
 
@@ -1162,25 +1271,25 @@ $$
 
 この chain は 状態 $n$ に $\operatorname{Exp}(\lambda)$ 時間滞在して必ず $n+1$ へ 跳躍 します。
 
-したがって 跳躍回数 自身が 率 $\lambda$ のポアソン過程です。
+したがって 跳躍 count 自身が 率 $\lambda$ のポアソン過程です。
 
-有限状態 CTMC の議論をそのまま 計数able 状態 へ移すには explosion の検討が必要ですが、この例では 滞在時間 が iid $\operatorname{Exp}(\lambda)$ なので
+有限状態 CTMC の議論をそのまま countable 状態 へ移すには 爆発 の検討が必要ですが、この例では holding times が iid $\operatorname{Exp}(\lambda)$ なので
 
 $$
 T_n=W_1+\cdots+W_n\to\infty
 $$
 
-a.s. であり、explosion は起きません。
+a.s. であり、爆発 は起きません。
 
 ---
 
-## 11. 可算状態 Q-matrix では explosion があり得る
+## 11. 可算状態 Q-行列 では 爆発 があり得る
 
 有限状態では 率 が一様有界だったため、自動的に non-explosive でした。
 
-計数able 状態 では違います。
+countable 状態 では違います。
 
-pure-birth rates
+純粋出生 rates
 
 $$
 q_{n,n+1}=n^2,
@@ -1202,7 +1311,7 @@ $$
 E[H_n]=\frac1{n^2}.
 $$
 
-従って explosion time
+従って 爆発 time
 
 $$
 T_\infty
@@ -1219,7 +1328,7 @@ E[T_\infty]
 <\infty.
 $$
 
-非負 random variable が有限期待値を持つので
+非負 確率変数 が有限期待値を持つので
 
 $$
 T_\infty<\infty
@@ -1228,15 +1337,15 @@ $$
 
 です。
 
-つまり有限時間内に無限個の 跳躍が起こります。
+つまり有限時間内に無限個の 跳躍 が起こります。
 
 したがって
 
 $$
 \boxed{
-\text{可算状態 Q-matrix}
+\text{可算状態 Q-行列}
 \not\Rightarrow
-\text{自動的 non-explosive 過程}
+\text{自動的 non-explosive process}
 }
 $$
 
@@ -1248,7 +1357,7 @@ $$
 
 ## 12. ポアソンランダム測度
 
-計数 $N_t$ だけでは、跳躍の大きさや種類を記録できません。
+count $N_t$ だけでは、跳躍 の大きさや種類を記録できません。
 
 印空間 $(E,\mathcal E)$ と $\sigma$-finite measure $\nu$ を取ります。
 
@@ -1258,7 +1367,7 @@ $$
 (0,\infty)\times E
 $$
 
-上に random 計数ing measure を置きます。
+上に random counting measure を置きます。
 
 <a id="def-sto13-poisson-random-measure"></a>
 
@@ -1291,7 +1400,7 @@ N(B)
 \right),
 $$
 >
-> かつ pairwise disjoint な有限 強度 sets
+> かつ pairwise 互いに素 な有限 強度 sets
 >
 $$
 B_1,\ldots,B_k
@@ -1339,7 +1448,7 @@ $$
 
 はそれぞれ 率 $\lambda p$ と $\lambda(1-p)$ の独立ポアソン過程です。
 
-総計数
+total count
 
 $$
 N_t^++N_t^-
@@ -1347,15 +1456,15 @@ $$
 
 は 率 $\lambda$ のポアソン過程です。
 
-一方 signed 跳躍和
+一方 signed 跳躍 sum
 
 $$
 X_t=N_t^+-N_t^-
 $$
 
-は $+1$ 跳躍と $-1$ 跳躍の両方を記録します。
+は $+1$ 跳躍 と $-1$ 跳躍 の両方を記録します。
 
-単なる計数過程から印付き跳躍過程へ進む最小例です。
+単なる count から 印付き 跳躍 process へ進む最小例です。
 <!-- definition-example-end -->
 
 任意の $A\in\mathcal E$ で $\nu(A)<\infty$ なら
@@ -1402,11 +1511,11 @@ $$
 >
 > と書く。
 >
-> 無限 強度 set では右辺を 各点ごと な差としてではなく、可積分な integrand に対する積分として解釈する。
+> 無限 強度 set では右辺を pointwise な差としてではなく、可積分な 被積分関数 に対する積分として解釈する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sto13-compensated-prm -->
-### 直接例：有限 印 set の 中心化した計数
+### 直接例：有限 印 set の 中心化 counts
 
 前節の $E=\{-1,+1\}$ では
 
@@ -1451,9 +1560,9 @@ $$
 
 ---
 
-## 14. 単関数型被積分関数 に対する compensated integral
+## 14. 単関数型被積分関数 に対する compensated 積分
 
-STO14 の一般 跳躍型確率積分へ進む前に、決定論的単関数型被積分関数 で核心を確認します。
+STO14 の一般 跳躍 stochastic 積分へ進む前に、決定論的 単関数型被積分関数 で核心を確認します。
 
 互いに素な有限 強度 sets
 
@@ -1486,11 +1595,11 @@ $$
 
 と定義します。
 
-<a id="thm-sto13-prm-simple-等長性"></a>
+<a id="thm-sto13-prm-simple-isometry"></a>
 
 <!-- formal-statement-start -->
 > **定理（補償ポアソンランダム測度の 単関数に対する $L^2$ 等長性）**  
-> 上の deterministic 単関数型 $f$ に対し
+> 上の 決定論的 simple $f$ に対し
 >
 $$
 E\left[
@@ -1529,7 +1638,7 @@ $$
 
 ### 証明の見取り図
 
-disjoint sets 上の Poisson 計数 は独立です。
+互いに素 sets 上の Poisson counts は独立です。
 
 Poisson variable $K\sim\operatorname{Poisson}(\mu)$ について
 
@@ -1539,7 +1648,7 @@ E[K-\mu]=0,
 \operatorname{Var}(K)=\mu.
 $$
 
-したがって 中心化した計数 の 交差項s が消え、分散だけが 強度測度 と一致します。
+したがって 中心化 counts の cross terms が消え、分散だけが 強度測度 と一致します。
 
 <!-- proof-start -->
 ### 証明
@@ -1606,7 +1715,7 @@ c_k^2\mu_k.
 \end{aligned}
 $$
 
-一方 $B_k$ は disjoint なので
+一方 $B_k$ は 互いに素 なので
 
 $$
 \int f^2\,ds\,\nu(dz)
@@ -1621,13 +1730,13 @@ $$
 
 最後に $0\le s<t\le T$ とします。
 
-increment
+増分
 
 $$
 M_t-M_s
 $$
 
-は $(s,t]\times E$ 上の compensated 計数 の有限線形結合であり、$[0,s]\times E$ から生成される過去の情報と独立、かつ平均 0 です。
+は $(s,t]\times E$ 上の compensated count の有限線形結合であり、$[0,s]\times E$ から生成される過去の情報と独立、かつ平均 0 です。
 
 したがって
 
@@ -1644,264 +1753,54 @@ $$
 二乗可積分性は 等長性 から従います。
 <!-- proof-end -->
 
-STO14 ではこの 等長性 を 完備化 に使い、ランダムな予測可能被積分関数 まで拡張します。
+STO14 ではこの 等長性 を 完備化 に使い、random 予測可能 被積分関数 まで拡張します。
 
 ブラウン積分の STO6 と全く同じ設計思想が再登場することに注目してください。
 
 ---
 
-## 15. 複合ポアソン過程 は ランダム測度 integral で書ける
+## 15. 有限強度の 印 付き 跳躍 から STO14 へ
 
-$\nu(E)=\lambda<\infty$ とします。
+$\nu(E)<\infty$ のとき、ポアソンランダム測度 の各点に 印 を付けて 跳躍 size を足し合わせると、STO14 で扱う 複合ポアソン過程 が得られます。
 
-probability measure
-
-$$
-\mu(dz)
-=
-\frac{\nu(dz)}{\lambda}
-$$
-
-を 印の分布 と考えます。
-
-$$
-X_t
-=
-\int_{(0,t]\times E}
-z\,N(ds,dz)
-$$
-
-と置くと、これは 率 $\lambda$ の 跳躍時刻 ごとに iid 印 $Z_k\sim\mu$ を足す 過程 です。
-
-つまり
-
-$$
-X_t
-=
-\sum_{k=1}^{N_t}Z_k.
-$$
-
-<a id="prop-sto13-compound-poisson"></a>
-
-<!-- formal-statement-start -->
-> **命題（複合ポアソン過程 の特性関数と補償）**  
-> $\nu(E)<\infty$ とし、
->
-$$
-X_t
-=
-\int_{(0,t]\times E}
-z\,N(ds,dz)
-$$
->
-> とする。
->
-> 任意の $u\in\mathbb R$ について
->
-$$
-\boxed{
-E[e^{iuX_t}]
-=
-\exp\left(
-t\int_E
-(e^{iuz}-1)\nu(dz)
-\right).
-}
-$$
->
-> さらに
->
-$$
-\int_E|z|\,\nu(dz)<\infty
-$$
->
-> なら
->
-$$
-\boxed{
-X_t
--
-t\int_E z\,\nu(dz)
-}
-$$
->
-> はマルチンゲールである。
-<!-- formal-statement-end -->
-
-<!-- proof-start -->
-### 証明
-
-$\lambda=\nu(E)$ とし、$\mu=\nu/\lambda$ とします。
-
-$N_t\sim\operatorname{Poisson}(\lambda t)$ とし、印 $Z_k$ は iid $\mu$ です。
-
-$$
-\varphi_Z(u)
-=
-E[e^{iuZ_1}]
-=
-\int_E e^{iuz}\mu(dz)
-$$
-
-と置きます。
-
-$N_t=n$ で条件付けると
-
-$$
-E[e^{iuX_t}\mid N_t=n]
-=
-\varphi_Z(u)^n.
-$$
-
-従って
-
-$$
-\begin{aligned}
-E[e^{iuX_t}]
-&=
-\sum_{n=0}^\infty
-e^{-\lambda t}
-\frac{(\lambda t)^n}{n!}
-\varphi_Z(u)^n\\
-&=
-\exp\left(
-\lambda t(\varphi_Z(u)-1)
-\right).
-\end{aligned}
-$$
-
-ここで
-
-$$
-\lambda\varphi_Z(u)
-=
-\int_E e^{iuz}\nu(dz)
-$$
-
-なので
-
-$$
-\lambda(\varphi_Z(u)-1)
-=
-\int_E(e^{iuz}-1)\nu(dz).
-$$
-
-したがって
-
-$$
-E[e^{iuX_t}]
-=
-\exp\left(
-t\int_E(e^{iuz}-1)\nu(dz)
-\right).
-$$
-
-次に $\int|z|\,d\nu<\infty$ とします。
-
-$0\le s<t$ では increment
-
-$$
-X_t-X_s
-$$
-
-は $(s,t]\times E$ の ポアソンランダム測度 だけで決まり、過去と独立です。
-
-また
-
-$$
-E[X_t-X_s]
-=
-(t-s)\int_E z\,\nu(dz).
-$$
-
-従って
-
-$$
-\begin{aligned}
-&E\left[
-X_t-t\int_Ez\,\nu(dz)
-\mid\mathcal F_s
-\right]\\
-&=
-X_s
-+
-E[X_t-X_s]
--
-t\int_Ez\,\nu(dz)\\
-&=
-X_s
--
-s\int_Ez\,\nu(dz).
-\end{aligned}
-$$
-
-よって compensated 過程 はマルチンゲールです。
-<!-- proof-end -->
-
-この 特性指数 は STO14 の Lévy--Khintchine formula の finite-activity 部分になります。
+ただし、複合ポアソン過程 の特性関数、Lévy exponent、Lévy process としての位置付けは **STO14 の canonical content** とします。本章では ポアソンランダム測度 とその compensation を構成するところで止めます。
 
 ---
 
-## 16. 三つの「生成作用素」を同じ目で見る
+## 16. 二つの「生成作用素」を同じ目で見る
 
-ここまでの三例を並べます。
+### Poisson count
 
-### ポアソン 計数
-
-$$
+$
 (Qf)(n)
 =
 \lambda(f(n+1)-f(n)).
-$$
+$
 
 ### 有限状態 CTMC
 
-$$
+$
 (Qf)(i)
 =
 \sum_{j\ne i}
 q_{ij}(f(j)-f(i)).
-$$
+$
 
-### 複合ポアソン 跳躍過程
+どちらも
 
-形式的には
-
-$$
-(Lf)(x)
-=
-\int_E
-\left(
-f(x+z)-f(x)
-\right)\nu(dz).
-$$
-
-いずれも
-
-$$
+$
 \boxed{
-\text{跳躍率}
+\text{跳躍 率}
 \times
-\text{跳躍後と 跳躍前の function value の差}
+\text{跳躍 後と 跳躍 前の function value の差}
 }
-$$
+$
 
 を足し合わせています。
 
-ブラウン拡散の 生成作用素
+これは「短時間の条件付き平均変化率」という [STO11 の一般の生成作用素](../STO11/index.md#def-sto11-generator) と同じ見方です。
 
-$$
-Lf
-=
-b\cdot\nabla f
-+
-\frac12
-\operatorname{tr}(aD^2f)
-$$
-
-とは見た目が大きく違いますが、「短時間の条件付き平均変化率」という定義は共通です。
-
-これが STO11 の 生成作用素理論 と STO14 の Lévy 生成作用素 をつなぐ接点です。
+印-dependent な 跳躍 size を持つ 生成作用素 は STO14 で Lévy process とともに正本化します。
 
 ---
 
@@ -1931,15 +1830,15 @@ $$
 N_t-\lambda t
 $$
 
-の martingale property も壊れます。
+の マルチンゲール property も壊れます。
 
-### 17.2 Q-matrix だけでは 可算状態 chain の global existence は出ない
+### 17.2 Q-行列 だけでは 可算状態 chain の global existence は出ない
 
-前節の $q_n=n^2$ pure-birth chain では explosion が起こります。
+前節の $q_n=n^2$ 純粋出生 chain では 爆発 が起こります。
 
-したがって 計数able 状態 で 生成作用素 を与えるときは non-explosion 条件が別に必要です。
+したがって countable 状態 で 生成作用素 を与えるときは 非爆発 条件が別に必要です。
 
-### 17.3 補償 measure を 各点ごと に引き算しない
+### 17.3 補償 measure を pointwise に引き算しない
 
 $\nu(E)=\infty$ なら
 
@@ -1955,9 +1854,9 @@ $$
 N-dt\,\nu
 $$
 
-を「$\infty-\infty$」の 各点ごと signed measure と読むのは誤りです。
+を「$\infty-\infty$」の pointwise signed measure と読むのは誤りです。
 
-可積分性 条件を満たす integrand に対して compensated integral を定義する必要があります。
+integrability 条件を満たす 被積分関数 に対して compensated 積分 を定義する必要があります。
 
 STO14 の $L^2$ construction はまさにこの問題を処理します。
 
@@ -1982,18 +1881,18 @@ $$
 H(s,z)\widetilde N(ds,dz)
 $$
 
-を random predictable $H$ へ拡張します。
+を random 予測可能 $H$ へ拡張します。
 
 そこから
 
 - 複合ポアソン過程
-- Lévy 過程
+- Lévy process
 - infinitely divisible law
 - Lévy--Khintchine formula
 - Lévy measure
-- finite / infinite activity
+- finite / in有限活動度
 - Lévy--Itô decomposition
-- 跳躍セミマルチンゲール の Itô formula
+- 跳躍 semimartingale の Itô formula
 
 へ進みます。
 
@@ -2003,14 +1902,14 @@ $$
 
 ## 19. 演習
 
-#### STO13-A01 Poisson 計数 と 待ち時間
+#### STO13-A01 Poisson count と waiting time
 - Level: A
 - 目安時間: 15分
 
 率 $\lambda>0$ のポアソン過程 $N$ について次を示せ。
 
 1. $P(N_t=0)=e^{-\lambda t}$。
-2. 最初の 到着時刻 $T_1$ は $\operatorname{Exp}(\lambda)$ に従う。
+2. 最初の arrival time $T_1$ は $\operatorname{Exp}(\lambda)$ に従う。
 3. $E[T_1]=1/\lambda$。
 4. $P(T_1>s+t\mid T_1>s)=P(T_1>t)$ を確認せよ。
 
@@ -2031,7 +1930,7 @@ $$
 \{T_1>t\}
 $$
 
-は時刻 $t$ まで 跳躍が 1 回もない事象なので
+は時刻 $t$ まで 跳躍 が 1 回もない事象なので
 
 $$
 \{T_1>t\}
@@ -2047,9 +1946,9 @@ P(T_1>t)
 e^{-\lambda t}.
 $$
 
-これは 率 $\lambda$ の exponential distribution の 生存関数 です。
+これは 率 $\lambda$ の 指数分布 の survival function です。
 
-3. 非負 random variable の tail integral formula より
+3. 非負 確率変数 の tail 積分 formula より
 
 $$
 E[T_1]
@@ -2077,10 +1976,10 @@ P(T_1>t).
 \end{aligned}
 $$
 
-したがって exponential 待ち時間 は 無記憶 です。
+したがって 指数待ち時間 は memoryless です。
 <!-- solution-end -->
 
-#### STO13-A02 compensated Poisson martingale
+#### STO13-A02 compensated Poisson マルチンゲール
 - Level: A
 - 目安時間: 15分
 
@@ -2139,7 +2038,7 @@ M_s.
 \end{aligned}
 $$
 
-3. deterministic term は variance に影響しないので
+3. 決定論的 term は variance に影響しないので
 
 $$
 \operatorname{Var}(M_t)
@@ -2170,7 +2069,7 @@ $$
 
 を考える。
 
-1. 滞在時間分布 を各 状態 で答えよ。
+1. 滞在時間 distribution を各 状態 で答えよ。
 2. 跳躍連鎖 の 遷移行列 を求めよ。
 3. $p(t)=P_1(X_t=1)$ が満たす ODE を書け。
 4. $p(t)$ を解け。
@@ -2178,7 +2077,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-1. 状態 1 の total 跳躍率 は
+1. 状態 1 の total 跳躍 率 は
 
 $$
 q_1=\alpha,
@@ -2190,7 +2089,7 @@ $$
 q_2=\beta.
 $$
 
-従って 滞在時間 はそれぞれ
+従って holding times はそれぞれ
 
 $$
 \operatorname{Exp}(\alpha),
@@ -2210,7 +2109,7 @@ P=
 \end{pmatrix}.
 $$
 
-3. forward equation から
+3. 前進方程式 から
 
 $$
 p'(t)
@@ -2220,13 +2119,13 @@ p'(t)
 \beta-(\alpha+\beta)p(t).
 $$
 
-初期状態 1 なので
+starting 状態 1 なので
 
 $$
 p(0)=1.
 $$
 
-4. 平衡 value は
+4. equilibrium value は
 
 $$
 p_*=\frac{\beta}{\alpha+\beta}.
@@ -2316,9 +2215,9 @@ $$
 (0,t]\times\{b\}
 $$
 
-は disjoint です。
+は 互いに素 です。
 
-PRM の定義より、その 計数 は独立です。
+PRM の定義より、その counts は独立です。
 
 4. 独立 Poisson variables の和は mean の和を持つ Poisson variable なので
 
@@ -2342,7 +2241,7 @@ $$
 の 強度 が $(\lambda_a+\lambda_b)t$ と読むこともできます。
 <!-- solution-end -->
 
-#### STO13-B01 Q-matrix から 跳躍 construction
+#### STO13-B01 Q-行列 から 跳躍 construction
 - Level: B
 - 目安時間: 30分
 
@@ -2359,10 +2258,10 @@ $$
 
 とする。
 
-1. 各 状態 の total 跳躍率 $q_i$ を求めよ。
+1. 各 状態 の total 跳躍 率 $q_i$ を求めよ。
 2. 跳躍連鎖 遷移行列 $P$ を求めよ。
 3. 状態 1 から最初の 跳躍 までの平均時間を求めよ。
-4. 状態 1 から最初の 跳躍が 状態 3 へ行く確率を求めよ。
+4. 状態 1 から最初の 跳躍 が 状態 3 へ行く確率を求めよ。
 5. 短時間で $P(X_h=3\mid X_0=1)=2h+o(h)$ となることを確認せよ。
 
 <!-- solution-start -->
@@ -2378,7 +2277,7 @@ q_2=4,
 q_3=5.
 $$
 
-2. 非対角 rates を total 率 で割るので
+2. off-diagonal rates を total 率 で割るので
 
 $$
 P=
@@ -2397,7 +2296,7 @@ E[H_0\mid Y_0=1]
 \frac13.
 $$
 
-4. 最初の 跳躍の行き先は 跳躍連鎖 の 第1行 に従うので
+4. 最初の 跳躍 の行き先は 跳躍連鎖 の row 1 に従うので
 
 $$
 P(Y_1=3\mid Y_0=1)
@@ -2405,7 +2304,7 @@ P(Y_1=3\mid Y_0=1)
 \frac23.
 $$
 
-5. 最初の 跳躍が $h$ までに起こる確率は
+5. 最初の 跳躍 が $h$ までに起こる確率は
 
 $$
 1-e^{-3h}
@@ -2423,7 +2322,7 @@ $$
 2h+o(h).
 $$
 
-二回以上 跳躍する確率は $O(h^2)=o(h)$ なので
+二回以上 跳躍 する確率は $O(h^2)=o(h)$ なので
 
 $$
 \boxed{
@@ -2453,7 +2352,7 @@ $$
 1. 定常分布 $\pi=(\pi_1,\pi_2)$ を $\pi Q=0$ と $\pi_1+\pi_2=1$ から求めよ。
 2. $P_t(1,2)$ を求めよ。
 3. $t\to\infty$ で $P_t(1,\cdot)\to\pi$ を確認せよ。
-4. 緩和率 が $\alpha+\beta$ であることを説明せよ。
+4. relaxation 率 が $\alpha+\beta$ であることを説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -2499,7 +2398,7 @@ $$
 
 を得ました。
 
-行和 は 1 なので
+row sum は 1 なので
 
 $$
 \begin{aligned}
@@ -2530,7 +2429,7 @@ P_t(1,2)\to
 \pi_2.
 $$
 
-4. 平衡 からの偏差は
+4. equilibrium からの偏差は
 
 $$
 P_t(1,1)-\pi_1
@@ -2539,7 +2438,7 @@ P_t(1,1)-\pi_1
 e^{-(\alpha+\beta)t}.
 $$
 
-従って 減衰指数 は
+従って decay exponent は
 
 $$
 \boxed{
@@ -2549,14 +2448,14 @@ $$
 
 です。
 
-生成作用素 $Q$ の固有値は $0$ と $-(\alpha+\beta)$ であり、非零固有値が 緩和率 を与えています。
+生成作用素 $Q$ の固有値は $0$ と $-(\alpha+\beta)$ であり、非零固有値が relaxation 率 を与えています。
 <!-- solution-end -->
 
 #### STO13-B03 compensated PRM の 等長性
 - Level: B
 - 目安時間: 30分
 
-互いに disjoint な finite-強度 sets $B_1,B_2$ と
+互いに 互いに素 な finite-強度 sets $B_1,B_2$ と
 
 $$
 f=c_1 1_{B_1}+c_2 1_{B_2}
@@ -2572,7 +2471,7 @@ $$
 
 とする。
 
-1. $\int f\,d\widetilde N$ を 中心化した計数 で書け。
+1. $\int f\,d\widetilde N$ を 中心化 counts で書け。
 2. その期待値が 0 であることを示せ。
 3. その二乗平均を求めよ。
 4. $\int f^2\,ds\,\nu(dz)$ と一致することを確認せよ。
@@ -2618,9 +2517,9 @@ E\left[\int f\,d\widetilde N\right]
 0.
 $$
 
-3. $B_1,B_2$ は disjoint なので 計数 は独立です。
+3. $B_1,B_2$ は 互いに素 なので counts は独立です。
 
-従って 中心化した計数 も独立で 交差項 の期待値は 0 です。
+従って 中心化 counts も独立で cross term の期待値は 0 です。
 
 また
 
@@ -2667,255 +2566,267 @@ $$
 前問と一致します。
 <!-- solution-end -->
 
-#### STO13-C01 複合ポアソン過程 を ランダム測度 から再構成する
+#### STO13-C01 有限状態 CTMC の生成作用素マルチンゲールを再構成する
 - Level: C
 - 目安時間: 50分
 
-$\nu(E)=\lambda<\infty$ とし、$\mu=\nu/\lambda$ とする。
+有限状態 CTMC $X$ の 生成作用素 を
 
-$N(ds,dz)$ を 強度 $ds\,\nu(dz)$ の PRM とし、
+$
+Q=
+\begin{pmatrix}
+-2&2&0\\
+1&-3&2\\
+0&1&-1
+\end{pmatrix}
+$
 
-$$
-X_t
-=
-\int_{(0,t]\times E}
-z\,N(ds,dz)
-$$
+とし、
+
+$
+f(1)=0,
+\qquad
+f(2)=1,
+\qquad
+f(3)=3
+$
 
 とする。
 
-さらに
-
-$$
-\int_E z^2\,\nu(dz)<\infty
-$$
-
-を仮定する。
-
-1. total 跳躍回数
-   $$
-   K_t=N((0,t]\times E)
-   $$
-   が 率 $\lambda$ の ポアソン過程 であることを示せ。
-2. 条件付きで $K_t=n$ で、$X_t$ が iid $\mu$ 印 の和として表されることを説明せよ。
-3. 特性関数
-   $$
-   E[e^{iuX_t}]
-   $$
-   を計算せよ。
-4. 
-   $$
-   m=\int_Ez\,\nu(dz)
-   $$
-   と置き、
-   $$
-   M_t=X_t-tm
-   $$
-   が martingale であることを示せ。
-5. 
-   $$
-   E[M_t^2]
+1. $Qf$ を各 状態 で計算せよ。
+2. マルコフ性 から
+   $
+   E[f(X_t)\mid\mathcal F_s]
    =
-   t\int_E z^2\,\nu(dz)
-   $$
-   を示せ。
+   (P_{t-s}f)(X_s)
+   $
+   を書け。
+3. Kolmogorov 前進方程式 を使って
+   $
+   \int_0^uP_rQf\,dr
+   =
+   P_uf-f
+   $
+   を導け。
+4.
+   $
+   M_t
+   =
+   f(X_t)-f(X_0)
+   -
+   \int_0^t(Qf)(X_r)\,dr
+   $
+   が マルチンゲール であることを、条件付き期待値を直接計算して示せ。
+5. $X_0=1$ とし、$E[M_t]=0$ から
+   $
+   E_1[f(X_t)]
+   =
+   f(1)
+   +
+   E_1\int_0^t(Qf)(X_r)\,dr
+   $
+   を導き、この式が 有限状態 Dynkin formula であることを説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-1. set $(0,t]\times E$ の 強度 は
+1. vector
 
-$$
-(\operatorname{Leb}\times\nu)
-\bigl((0,t]\times E\bigr)
+$
+f=
+\begin{pmatrix}
+0\\
+1\\
+3
+\end{pmatrix}
+$
+
+に $Q$ を掛けます。
+
+$
+(Qf)(1)
 =
-t\nu(E)
+-2\cdot0+2\cdot1
 =
-\lambda t.
-$$
+2,
+$
 
-したがって
-
-$$
-K_t
-\sim
-\operatorname{Poisson}(\lambda t).
-$$
-
-また disjoint time intervals の rectangles は disjoint なので increments は独立です。
-
-よって $(K_t)$ は 率 $\lambda$ の ポアソン過程 です。
-
-2. 有限強度 PRM では、各 point の 印の分布 は normalized 強度
-
-$$
-\mu(dz)
+$
+(Qf)(2)
 =
-\frac{\nu(dz)}{\lambda}
-$$
+1\cdot0-3\cdot1+2\cdot3
+=
+3,
+$
+
+$
+(Qf)(3)
+=
+0\cdot0+1\cdot1-1\cdot3
+=
+-2.
+$
+
+従って
+
+$
+\boxed{
+Qf=
+\begin{pmatrix}
+2\\
+3\\
+-2
+\end{pmatrix}.
+}
+$
+
+跳躍-difference 形式でも
+
+$
+(Qf)(i)
+=
+\sum_{j\ne i}q_{ij}(f(j)-f(i))
+$
+
+となることを確認できます。
+
+2. 時刻 $s$ までの履歴を条件にしても、未来の分布は現在 状態 $X_s$ だけで決まります。従って
+
+$
+\begin{aligned}
+E[f(X_t)\mid\mathcal F_s]
+&=
+E_{X_s}[f(X_{t-s})]\\
+&=
+\boxed{(P_{t-s}f)(X_s)}.
+\end{aligned}
+$
+
+3. Kolmogorov 前進方程式 は
+
+$
+\frac{d}{dr}P_r=P_rQ
+$
 
 です。
 
-したがって $K_t=n$ の条件下で 印 を $Z_1,\ldots,Z_n$ と書けば
+$f$ を右から掛けると
 
-$$
-Z_1,\ldots,Z_n
-\stackrel{\mathrm{iid}}{\sim}
-\mu
-$$
-
-で
-
-$$
-X_t
+$
+\frac{d}{dr}(P_rf)
 =
-\sum_{k=1}^{n}Z_k.
-$$
+P_rQf.
+$
 
-つまり 無条件では には
+$0$ から $u$ まで積分して
 
-$$
-X_t
+$
+P_uf-P_0f
 =
-\sum_{k=1}^{K_t}Z_k.
-$$
+\int_0^uP_rQf\,dr.
+$
 
-3.
+$P_0=I$ なので
 
-$$
-\varphi_Z(u)
-=
-E[e^{iuZ_1}]
-=
-\int_Ee^{iuz}\mu(dz)
-$$
-
-と置きます。
-
-条件付きで $K_t=n$ では
-
-$$
-E[e^{iuX_t}\mid K_t=n]
-=
-\varphi_Z(u)^n.
-$$
-
-従って
-
-$$
-\begin{aligned}
-E[e^{iuX_t}]
-&=
-\sum_{n=0}^\infty
-e^{-\lambda t}
-\frac{(\lambda t)^n}{n!}
-\varphi_Z(u)^n\\
-&=
-\exp\left(
-\lambda t(\varphi_Z(u)-1)
-\right).
-\end{aligned}
-$$
-
-さらに
-
-$$
-\lambda\varphi_Z(u)
-=
-\int_Ee^{iuz}\nu(dz)
-$$
-
-なので
-
-$$
+$
 \boxed{
-E[e^{iuX_t}]
+\int_0^uP_rQf\,dr
 =
-\exp\left(
-t\int_E
-(e^{iuz}-1)\nu(dz)
-\right).
+P_uf-f.
 }
-$$
+$
 
 4. $0\le s<t$ とします。
 
-increment
+2 より
 
-$$
-X_t-X_s
-$$
-
-は $(s,t]\times E$ 上の PRM だけで決まり、$\mathcal F_s$ と独立です。
-
-期待値は
-
-$$
-E[X_t-X_s]
+$
+E[f(X_t)-f(X_s)\mid\mathcal F_s]
 =
-(t-s)\int_Ez\,\nu(dz)
+(P_{t-s}f-f)(X_s).
+$
+
+また $S$ は有限なので $Qf$ は bounded です。conditional Fubini と マルコフ性 により
+
+$
+\begin{aligned}
+&E\left[
+\int_s^t(Qf)(X_r)\,dr
+\middle|
+\mathcal F_s
+\right]\\
+&=
+\int_s^t
+E[(Qf)(X_r)\mid\mathcal F_s]\,dr\\
+&=
+\int_0^{t-s}
+(P_uQf)(X_s)\,du.
+\end{aligned}
+$
+
+3 を $u=t-s$ に適用すると、最後の式は
+
+$
+(P_{t-s}f-f)(X_s)
+$
+
+です。
+
+従って二つの条件付き平均が打ち消し合い、
+
+$
+E[M_t-M_s\mid\mathcal F_s]=0.
+$
+
+よって
+
+$
+\boxed{
+M_t
 =
-(t-s)m.
-$$
+f(X_t)-f(X_0)
+-
+\int_0^t(Qf)(X_r)\,dr
+}
+$
+
+は マルチンゲール です。
+
+5. $X_0=1$ なら $f(X_0)=f(1)=0$ です。
+
+マルチンゲール property から
+
+$
+E_1[M_t]=E_1[M_0]=0.
+$
 
 従って
 
-$$
-\begin{aligned}
-E[M_t\mid\mathcal F_s]
-&=
-X_s+(t-s)m-tm\\
-&=
-X_s-sm\\
-&=
-M_s.
-\end{aligned}
-$$
-
-よって $M$ は martingale です。
-
-5. 補償ランダム測度 を使えば
-
-$$
-M_t
+$
+E_1[f(X_t)]
+-
+f(1)
+-
+E_1\int_0^t(Qf)(X_r)\,dr
 =
-\int_{(0,t]\times E}
-z\,\widetilde N(ds,dz).
-$$
+0.
+$
 
-まず $z$ を deterministic 単関数 で $L^2(\nu)$ 近似します。
+すなわち
 
-単関数型 等長性 から近似列 $f_n$ に対し
-
-$$
-E\left[
-\left(
-\int f_n\,d\widetilde N
-\right)^2
-\right]
-=
-\int f_n^2\,ds\,\nu(dz).
-$$
-
-両辺で $L^2$ limit を取ると
-
-$$
-E[M_t^2]
-=
-\int_0^t\int_E z^2\,\nu(dz)\,ds.
-$$
-
-したがって
-
-$$
+$
 \boxed{
-E[M_t^2]
+E_1[f(X_t)]
 =
-t\int_Ez^2\,\nu(dz).
+f(1)
++
+E_1\int_0^t(Qf)(X_r)\,dr.
 }
-$$
+$
 
-ここで使った 完備化 は deterministic $L^2$ integrand に限る最小限のものです。ランダムな予測可能被積分関数 への一般拡張は STO14 で行います。
+これは 有限状態 CTMC について、observable $f$ の平均変化を 生成作用素 の時間積分で表す Dynkin formula です。
+
+STO11 では diffusion を含む一般 マルコフ過程 に対して同じ構造を扱いました。本問では有限状態性のおかげで domain や integrability の技術を持ち込まず、行列 $Q$ だけから同じ式を再構成できました。
 <!-- solution-end -->
 
 ---
@@ -2974,9 +2885,9 @@ $$
 
 $$
 \boxed{
-\text{計数}
+\text{count}
 +
-\text{rate}
+\text{率}
 +
 \text{印}
 +
@@ -2986,4 +2897,4 @@ $$
 
 が基本語彙になります。
 
-次の STO14 では、この語彙を Lévy 過程 と 跳躍 stochastic calculus へ持ち上げます。
+次の STO14 では、この語彙を Lévy process と 跳躍 stochastic calculus へ持ち上げます。
