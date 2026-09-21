@@ -1372,7 +1372,7 @@ $$
 \sum_{i,j}a^{ij}\partial_{ij}
 $$
 
-は STO11 で generator として再登場します。
+は STO11 で [生成作用素](../STO11/index.md#def-sto11-generator) として再登場します。
 
 ### 例：$d$ 次元ブラウン運動の二乗長さ
 
@@ -2173,7 +2173,7 @@ $$
 }
 $$
 
-この式をベクトル場ごとに足すと、STO9 で Stratonovich SDE を Itô SDE へ直すドリフト補正
+この式をベクトル場ごとに足すと、STO9 で扱う [ブラウン SDE](../STO9/index.md#def-sto9-sde) を Stratonovich 表示から Itô 表示へ直すドリフト補正
 
 $$
 \frac12
