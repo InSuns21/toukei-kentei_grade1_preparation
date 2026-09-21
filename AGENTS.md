@@ -358,6 +358,8 @@ Level C（本番標準）を中心にし、久保川『現代数理統計学の�
 # 数式と品質
 
 - Markdown + KaTeX。インラインは `$...$`、別行立ては `$$...$$`。
+- **GitHub Contents API、JavaScript、スクリプト等で Markdown を機械編集するとき、数式区切り `$$` を通常の replacement string に通さない。** JavaScript の `String.prototype.replace` では replacement string 内の `$$` がリテラル `$` として解釈されるため、`$$...$$` を `$...$` へ破壊し得る。数式を含む置換は callback replacer（例：`.replace(old, () => replacement)`）または同等に `$` を特殊解釈しない方法を使う。
+- Markdown を機械編集した後は、対象ファイルと差分について **空白を除いて `$` だけの行が存在しないこと**を確認する。単独行 `$` は表示数式 `$$` の破損候補として扱い、見つけたままコミット・PR・merge しない。この検査は `npm run validate` でも blocking とする。
 - `\(...\)`、`\[...\]`、`align`、`equation`、独自マクロ、`\label`、`\ref`、`\tag` は使わない。
 - 分布の台、パラメータ空間、正則性条件、標本の独立同分布性、極限定理の仮定を省略しない。
 - 名前付き分布を定理・問題で使うときは、必要な台・母数・確率質量関数/確率密度関数を読者が追える位置に置く。
