@@ -31,7 +31,7 @@ canonical_examples:
   - 球座標の尺度因子と体積要素
   - 放射対称スカラー場の勾配とラプラシアン
   - 逆二乗放射状場の発散
-  - 軸対称方位角方向場の回転
+  - 軸対称な方位角方向のベクトル場の回転
 problem_patterns:
   - VC6-SCALE-FACTOR-1
   - VC6-GRAD-DIV-CURL-1
