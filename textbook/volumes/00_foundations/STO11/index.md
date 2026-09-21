@@ -1839,7 +1839,7 @@ STO4 では Brown 運動について stopping-time approximation を用いた [s
 
 ---
 
-## 15. Feller semigroup は generator と標本路理論の橋
+## 15. $C_0$ 上の強連続性を加える
 
 <a id="def-sto11-feller-semigroup"></a>
 
