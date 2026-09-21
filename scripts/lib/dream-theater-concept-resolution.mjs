@@ -42,6 +42,8 @@ export function stripNonReaderContent(source) {
 
   let value = input;
   value = value.replace(/<!--[\s\S]*?-->/gu, preserveLines);
+  // Stable-anchor markup is navigation metadata, not reader-facing terminology.
+  value = value.replace(/<a\s+id=[^>]+><\/a>/gu, preserveWidth);
   value = value.replace(/```[\s\S]*?```/gu, preserveLines);
   value = value.replace(/`[^`\n]*`/gu, preserveWidth);
   value = value.replace(/\$\$[\s\S]*?\$\$/gu, preserveLines);
