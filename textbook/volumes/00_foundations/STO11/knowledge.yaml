@@ -6,6 +6,7 @@ prerequisites:
   - STO5
   - STO7
   - STO9
+  - F0-00P3A
 
 concepts:
   - id: stochastic.transition-kernel
