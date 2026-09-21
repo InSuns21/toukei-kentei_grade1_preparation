@@ -358,19 +358,19 @@ $$
 > **命題（向き付き flux の再パラメータ表示不変性）**  
 > $r:U\to S$ を向きと整合した正則パラメータ表示とし、
 >
-$
+$$
 \psi:\widetilde U\to U
-$
+$$
 >
 > を $C^1$ 級の全単射で逆写像も $C^1$ 級、かつ
 >
-$
+$$
 \det D\psi>0
-$
+$$
 >
 > とする。$\widetilde r=r\circ\psi$ と置くと、連続 vector field $F$ に対し
 >
-$
+$$
 \iint_{\widetilde U}
 F(\widetilde r)
 \cdot
@@ -378,7 +378,7 @@ F(\widetilde r)
 =
 \iint_U
 F(r)\cdot(r_u\times r_v)\,du\,dv.
-$
+$$
 >
 > $\det D\psi<0$ の再パラメータ表示は反対向きを表し、flux の符号を反転させる。
 <!-- formal-statement-end -->
@@ -392,16 +392,16 @@ $
 
 前定理の計算から
 
-$
+$$
 \widetilde r_s\times\widetilde r_t
 =
 \det D\psi\,
 (r_u\times r_v)\circ\psi.
-$
+$$
 
 従って $\det D\psi>0$ なら
 
-$
+$$
 \begin{aligned}
 &
 \iint_{\widetilde U}
@@ -415,24 +415,24 @@ F(r)\cdot(r_u\times r_v)
 \right]\circ\psi\,
 \det D\psi\,ds\,dt.
 \end{aligned}
-$
+$$
 
 [RA7 の変数変換定理](../RA7/index.md#thm-ra7-change-of-variables) を適用すると
 
-$
+$$
 \iint_U
 F(r(u,v))
 \cdot
 (r_u\times r_v)\,du\,dv
-$
+$$
 
 になります。
 
 一方 $\det D\psi<0$ なら
 
-$
+$$
 \widetilde r_s\times\widetilde r_t
-$
+$$
 
 は元の oriented normal と逆方向を向きます。したがって同じ幾何学的曲面を反対向きで表しており、oriented flux は符号を反転します。
 <!-- proof-end -->
