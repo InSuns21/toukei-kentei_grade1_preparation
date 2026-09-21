@@ -172,7 +172,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（弱ホワイトノイズ）**  
-> 実確率過程 $(\varepsilon_t)_{t\in\mathbb Z}$ が分散 $\sigma^2>0$ の弱ホワイトノイズであるとは、
+> 各 $\varepsilon_t\in L^2$ である実確率過程 $(\varepsilon_t)_{t\in\mathbb Z}$ が、分散 $\sigma^2>0$ の弱ホワイトノイズであるとは、
 >
 > $$
 > E[\varepsilon_t]=0,
@@ -818,7 +818,15 @@ $$
 \mathcal H_{t-1}.
 $$
 
-また $E[Y_t]=0$ で、定数0も予測空間の元なので射影も平均0の線形結合の $L^2$ 極限です。従って
+また $E[Y_t]=0$ で、$P_{\mathcal H_{t-1}}Y_t$ は平均0の有限線形結合の $L^2$ 極限です。確率測度上では Cauchy--Schwarz の不等式から
+
+$$
+|E[Z]|
+\le
+\|Z\|_2
+$$
+
+なので期待値は $L^2$ ノルムについて連続です。従って射影の平均も0で、
 
 $$
 E[\varepsilon_t]=0.
@@ -1454,31 +1462,29 @@ $$
 P_{M_p}x=P_{M_p}y.
 $$
 
-一方、$M$ は $\bigcup_pM_p$ の閉包なので、$y\in M$ に対して
+一方、$M$ は $\bigcup_pM_p$ の閉包です。任意の $\eta>0$ を取ります。$y\in M$ なので、ある $q$ と $z\in M_q$ が存在して
 
 $$
-z_n\in\bigcup_pM_p,
-\qquad
-\|z_n-y\|_2\to0
+\|y-z\|_2<\eta
 $$
 
-となる列を取れます。
+となります。
 
-各 $z_n$ はある $M_{p_n}$ に属します。$M_p$ は増加列なので、添字を取り直して $z_p\in M_p$ かつ
-
-$$
-\|z_p-y\|_2\to0
-$$
-
-としてよいです。
-
-$P_{M_p}y$ は $M_p$ 内の最良近似なので
+$p\ge q$ なら $M_q\subseteq M_p$ なので $z\in M_p$ です。$P_{M_p}y$ は $M_p$ 内の最良近似だから
 
 $$
 \|y-P_{M_p}y\|_2
 \le
-\|y-z_p\|_2
-\to0.
+\|y-z\|_2
+<
+\eta.
+$$
+
+$\eta>0$ は任意なので
+
+$$
+P_{M_p}y\to y
+\qquad\text{in }L^2.
 $$
 
 従って
