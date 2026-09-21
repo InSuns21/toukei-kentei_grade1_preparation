@@ -128,7 +128,7 @@ $$
 <!-- formal-statement-start -->
 ### 定理（C0 は Banach lattice）
 
-$C_0(X)$ は上で定めた $\|\cdot\|_\infty$ に関して実 Banach 空間であり、さらに
+$C_0(X)$ は上で定めた $\|\cdot\|_\infty$ に関して完備であり、さらに
 
 $$
 |f|,
