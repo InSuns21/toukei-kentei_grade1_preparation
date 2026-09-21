@@ -1,8 +1,10 @@
-# TSA3 Encore IV 時系列解析 III：Herglotz の定理とスペクトル表現
+# TSA3 Encore IV 時系列解析 III：Herglotz の定理と周波数領域表現
 
 <!-- definition-example-audit: strict -->
 
 TSA1 では、二次定常過程の [自己共分散関数](../TSA1/index.md#def-tsa1-autocovariance) が [正定値性](../TSA1/index.md#prop-tsa1-covariance-kernel)を持つことを、有限線形結合の分散から示しました。本章では、その正定値列を周波数領域の有限測度へ移し、さらに過程そのものを直交増分ランダム測度の積分として表します。
+
+**用語：時系列のスペクトル** — 本章では、二次定常過程の自己共分散を周波数ごとの測度で表した二次構造を **スペクトル** と呼びます。関数解析で作用素に対して使う「作用素のスペクトル」とは対象が異なります。
 
 中心線は
 
@@ -352,7 +354,7 @@ $$
 
 ### 証明の見取り図
 
-$C(K)$ 全体でいきなり部分列を選ぶのではなく、まず可算稠密集合だけで対角部分列を取ります。全測度の質量が $M$ 以下なので $|\int g\,d\mu_n|\le M\sup_K|g|$ と一様に抑えられ、稠密集合上の収束が $C(K)$ 全体へ延長されます。最後に、その極限を正線形汎関数として Riesz--Markov で測度へ戻します。
+$C(K)$ 全体でいきなり部分列を選ぶのではなく、まず可算稠密集合だけで対角部分列を取ります。全測度の質量が $M$ 以下なので $|\int g\,d\mu_n|\le M\sup_K|g|$ と一様に抑えられ、稠密集合上の収束が $C(K)$ 全体へ延長されます。最後に、その極限を正線形汎関数として [MT5 の Riesz–Markov 正汎関数版](../MT5/index.md#thm-mt5-riesz-markov-positive)で測度へ戻します。
 
 <!-- proof-start -->
 ### 証明
@@ -542,7 +544,7 @@ $$
 g_m(x):=\min\{1,m\,d_{\mathbb T}(x,O^c)\}
 $$
 
-と置けば $g_m\uparrow\mathbf1_O$ です。単調収束定理から $F(O)=G(O)$。開集合全体は有限共通部分で閉じ Borel $\sigma$ 代数を生成します。[π–λ定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda)を有限測度の一致する集合族へ適用すれば $F=G$ です。
+と置けば $g_m\uparrow\mathbf1_O$ です。[単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)から $F(O)=G(O)$。開集合全体は有限共通部分で閉じ Borel $\sigma$ 代数を生成します。[π–λ定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda)を有限測度の一致する集合族へ適用すれば $F=G$ です。
 
 これでHerglotz の定理の一意性まで証明できました。
 <!-- proof-end -->
@@ -622,7 +624,7 @@ $$
 > をスペクトル密度と呼びます。
 <!-- formal-statement-end -->
 
-[Radon--Nikodym定理](../F0_00P2_密度_期待値_Radon_Nikodym/index.md#thm-f0-00p2-radon-nikodym)から、この密度はLebesgue-a.e. の意味で一意です。
+[Radon--Nikodym定理](../F0_00P2_密度_期待値_Radon_Nikodym/index.md#thm-f0-00p2-radon-nikodym)から、この密度はLebesgue 測度に関してほとんど至る所の意味で一意です。
 
 ### 5.1 例：弱ホワイトノイズは平坦なスペクトル
 
@@ -690,7 +692,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-絶対可算和可能性から Fourier 級数は Weierstrass の M-testにより $\lambda$ に一様収束し、連続関数 $f$ を定めます。
+絶対可算和可能性から Fourier 級数は [Weierstrass の M-test](../RA5/index.md#thm-ra5-mtest)により $\lambda$ に一様収束し、連続関数 $f$ を定めます。
 
 Herglotz証明で作った近似密度は
 
@@ -900,7 +902,7 @@ $$
 <a id="lem-tsa3-continuous-density"></a>
 
 <!-- formal-statement-start -->
-> **補題（連続関数の $L^2(F)$ 稠密性）**  
+> **補題（連続関数の二乗平均稠密性）**  
 > 円周 $\mathbb T$ 上の有限 Borel 測度 $F$ に対し、$C(\mathbb T)$ は $L^2(F)$ に稠密である。
 <!-- formal-statement-end -->
 
@@ -931,7 +933,7 @@ $$
 g_m(x)\uparrow\mathbf1_O(x).
 $$
 
-従って優収束定理から
+従って [Lebesgue の優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)から
 
 $$
 \|g_m-\mathbf1_O\|_{L^2(F)}^2
@@ -992,7 +994,7 @@ $$
 <a id="thm-tsa3-trig-density"></a>
 
 <!-- formal-statement-start -->
-> **定理（三角多項式の $L^2(F)$ 稠密性）**  
+> **定理（三角多項式の二乗平均稠密性）**  
 > 円周上の有限 Borel 測度 $F$ に対し、次の三角多項式全体は $L^2(F)$ に稠密である。
 
 $$
@@ -1761,7 +1763,7 @@ $$
 g_m(x)=\min\{1,m\,d_{\mathbb T}(x,O^c)\}
 $$
 
-と置けば $0\le g_m\uparrow\mathbf1_O$ です。単調収束定理から
+と置けば $0\le g_m\uparrow\mathbf1_O$ です。[単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)から
 
 $$
 F(O)=\lim_m\int g_m\,dF
