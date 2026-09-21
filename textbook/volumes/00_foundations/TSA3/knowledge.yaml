@@ -140,7 +140,7 @@ concepts:
     kind: theorem
     aliases: ["spectral representation theorem for stationary processes"]
     introduction: formal
-    introduction_aliases: ["定理（定常過程の スペクトル表現定理）", "定理（定常過程のスペクトル表現定理）"]
+    introduction_aliases: ["定理（定常過程のスペクトル表現定理）"]
     requires:
       - timeseries.spectral-stochastic-integral
       - timeseries.trigonometric-l2-density
