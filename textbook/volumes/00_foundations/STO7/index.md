@@ -1425,10 +1425,10 @@ $$
 ordinary exponential $e^{\theta B_t}$ ではなく、$-\theta^2t/2$ を引いた形が自然に現れます。
 <!-- definition-example-end -->
 
-<a id="prop-sto7-stochastic-exponential-equation"></a>
+<a id="prop-sto7-stochastic-exponential-identity"></a>
 
 <!-- formal-statement-start -->
-> **命題（stochastic exponential の積分方程式）**  
+> **命題（stochastic exponential の基本恒等式）**  
 > $M$ を continuous local martingale とし
 >
 > $$
