@@ -5,6 +5,7 @@ prerequisites:
   - STO5
   - STO6
   - STO7
+  - RA5
 
 concepts:
   - id: stochastic.brownian-sde
@@ -66,6 +67,7 @@ concepts:
       - stochastic.pathwise-uniqueness
       - stochastic.sde-picard-factorial-estimate
       - stochastic.integral-gronwall
+      - analysis.uniform-limit-continuity
 
   - id: stochastic.sde-l2-supremum-moment
     name: finite-horizon L2 supremum moment estimate
