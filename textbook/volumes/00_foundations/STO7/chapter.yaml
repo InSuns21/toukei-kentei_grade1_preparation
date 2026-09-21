@@ -3,6 +3,7 @@ title: "Encore IV 確率解析 VII：multidimensional Itô calculus・Stratonovi
 volume: "foundations"
 status: supplementary
 prerequisites:
+  - VC1
   - STO5
   - STO6
   - RA3
