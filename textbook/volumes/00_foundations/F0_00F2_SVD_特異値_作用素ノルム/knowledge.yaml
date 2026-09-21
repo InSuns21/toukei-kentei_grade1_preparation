@@ -22,8 +22,8 @@ concepts:
   - id: linear.singular-value
     name: 特異値
     kind: definition
-    introduction_aliases: [特異値・右特異ベクトル]
-    aliases: [特異値, 特異値・右特異ベクトル]
+    introduction_aliases: [特異値]
+    aliases: [特異値]
     requires:
       - linear.spectral-theorem
       - linear.positive-semidefinite-matrix
@@ -31,8 +31,8 @@ concepts:
   - id: linear.right-singular-vector
     name: 右特異ベクトル
     kind: definition
-    introduction_aliases: [特異値・右特異ベクトル]
-    aliases: [右特異ベクトル, 特異値・右特異ベクトル]
+    introduction_aliases: [右特異ベクトル]
+    aliases: [右特異ベクトル]
     requires:
       - linear.singular-value
       - linear.eigenvector
@@ -56,10 +56,10 @@ concepts:
       - linear.orthogonality
 
   - id: linear.spectral-norm
-    name: 行列の作用素ノルム（スペクトルノルム）
+    name: 行列の2-作用素ノルム
     kind: definition
-    introduction_aliases: [作用素ノルム]
-    aliases: [行列の作用素ノルム（スペクトルノルム）, 作用素ノルム, "定義（作用素ノルム）"]
+    introduction_aliases: [2-作用素ノルム]
+    aliases: [行列の2-作用素ノルム, 2-作用素ノルム, "定義（2-作用素ノルム）"]
     requires:
       - linear.inner-product-induced-norm
       - linear.singular-value-decomposition
