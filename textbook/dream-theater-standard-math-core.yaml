@@ -315,7 +315,7 @@ nodes:
     implementation_path: textbook/volumes/00_foundations/VC6/index.md
     prerequisites: [VC5]
   - id: VC7
-    title: デカルトテンソル・添字記法
+    title: 添字記法・直交基底・成分変換
     area: vector-calculus
     tier: core-advanced-standard
     status: implemented
