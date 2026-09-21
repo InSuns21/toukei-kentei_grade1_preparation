@@ -1,4 +1,4 @@
-# TSA2 Encore IV 時系列解析 II：Wold 分解
+# TSA2 Encore IV 時系列解析 II：イノベーションから無限移動平均表示へ
 
 <!-- definition-example-audit: strict -->
 
@@ -9,18 +9,18 @@ TSA1 では、中心化した二次定常過程を $L^2$ のベクトルと見�
 $$
 \text{過去空間}
 \longrightarrow
-\text{一段差としてのイノベーション部分空間}
+\text{一段差としての新情報空間}
 \longrightarrow
-\text{無限遠過去}
+\text{遠い過去に残る成分}
 \longrightarrow
 \text{直交和}
 \longrightarrow
-\text{Wold 分解}
+\text{直交分解から得る無限移動平均表示}
 $$
 
-という一本の Hilbert 空間論になります。
+という一本の $L^2$ の射影幾何になります。
 
-前章の [過去の線形予測空間](../TSA1/index.md#def-tsa1-past-space)、[イノベーション](../TSA1/index.md#def-tsa1-innovation)、[時間移動作用素](../TSA1/index.md#lem-tsa1-unitary-shift) を正本として使います。Herglotz の定理や周波数領域の表現は次章 TSA3 の内容であり、Wold 分解の証明へ逆輸入しません。
+前章の [過去の線形予測空間](../TSA1/index.md#def-tsa1-past-space)、[イノベーション](../TSA1/index.md#def-tsa1-innovation)、[時間移動作用素](../TSA1/index.md#lem-tsa1-unitary-shift) を正本として使います。Herglotz の定理や周波数領域の表現は次章 TSA3 の内容であり、本章の分解定理の証明へ逆輸入しません。
 
 ---
 
@@ -49,11 +49,11 @@ $$
 \mathcal H_{t-1}\subseteq \mathcal H_t
 $$
 
-です。Wold 分解の出発点は、この包含で増えた部分だけを取り出すことです。
+です。本章の出発点は、この包含で増えた部分だけを取り出すことです。
 
 ---
 
-## 2. イノベーション部分空間
+## 2. 一時刻で増える新情報を取り出す
 
 <a id="def-tsa2-innovation-subspace"></a>
 
@@ -186,7 +186,7 @@ $$
 \mathcal I_s\perp\mathcal I_t.
 $$
 
-従って、時刻ごとの「新情報」は Hilbert 空間の意味で互いに直交します。
+従って、時刻ごとの「新情報」は内積の意味で互いに直交します。
 
 さらに TSA1 の [時間移動作用素](../TSA1/index.md#lem-tsa1-unitary-shift)を $U Y_t=Y_{t+1}$ とすると
 
@@ -200,9 +200,9 @@ $$
 
 ---
 
-## 3. 無限遠過去
+## 3. どこまで過去へ戻っても残る成分
 
-一段ずつ新情報を分離しても、どこまで過去へ押し戻しても消えない成分が残ることがあります。それが無限遠過去です。
+一段ずつ新情報を分離しても、どこまで過去へ押し戻しても消えない成分が残ることがあります。次に、その共通部分を正式に定義します。
 
 <a id="def-tsa2-remote-past"></a>
 
@@ -309,13 +309,13 @@ $$
 
 ## 4. 減少する閉部分空間への射影
 
-Wold 分解では $\mathcal H_{t-n}$ を $n\to\infty$ と遠い過去へ送ります。そのとき射影も $\mathcal H_{-\infty}$ への射影へ収束する必要があります。
+本章の分解では $\mathcal H_{t-n}$ を $n\to\infty$ と遠い過去へ送ります。そのとき射影も $\mathcal H_{-\infty}$ への射影へ収束する必要があります。
 
 <a id="lem-tsa2-decreasing-projection"></a>
 
 <!-- formal-statement-start -->
 > **補題（減少閉部分空間への射影収束）**  
-> Hilbert 空間 $H$ の閉部分空間列
+> 完備な内積空間 $H$ の閉部分空間列
 >
 $$
 M_1\supseteq M_2\supseteq M_3\supseteq\cdots
@@ -382,7 +382,7 @@ $$
 \|x_n\|^2-\|x_m\|^2.
 $$
 
-$\|x_n\|$ は非増加かつ非負なので極限を持ちます。従って右辺は $n,m\to\infty$ で0へ行き、$(x_n)$ は Cauchy 列です。Hilbert 空間の完備性から、ある $y\in H$ が存在して
+$\|x_n\|$ は非増加かつ非負なので極限を持ちます。従って右辺は $n,m\to\infty$ で0へ行き、$(x_n)$ は Cauchy 列です。$H$ の完備性から、ある $y\in H$ が存在して
 
 $$
 x_n\to y.
@@ -545,11 +545,11 @@ $$
 $$
 <!-- proof-end -->
 
-この命題が Wold 分解の空間版です。あとは各 $\mathcal I_t$ がスカラー時系列では標準イノベーション1本で生成されることを使えば、無限移動平均表示が出ます。
+この命題が最終的な分解定理の空間版です。あとは各 $\mathcal I_t$ がスカラー時系列では標準イノベーション1本で生成されることを使えば、無限移動平均表示が出ます。
 
 ---
 
-## 6. Wold 分解
+## 6. 直交分解から無限移動平均表示を得る
 
 <a id="def-tsa2-wold-deterministic-component"></a>
 
@@ -577,7 +577,7 @@ $$
 - 弱ホワイトノイズでは $\mathcal H_{-\infty}=\{0\}$ なので $D_t=0$、$N_t=Y_t$。
 - ランダム正弦波では $\mathcal H_t=\mathcal H_{-\infty}$ なので $D_t=Y_t$、$N_t=0$。
 
-Wold 分解は、この二つの極端な挙動を同じ定理の中で足し合わせます。
+次の定理は、この二つの極端な挙動を同じ枠組みで足し合わせます。
 <!-- definition-example-end -->
 
 <a id="thm-tsa2-wold"></a>
@@ -942,14 +942,14 @@ $\sigma_\varepsilon^2=0$ の場合は Step 4 で $N_t=0$ を示しているの�
 
 - **二次定常性**：時間移動作用素をユニタリにし、イノベーション分散と Wold 係数を時刻に依存させない。
 - **閉線形包**：有限線形結合だけでなく $L^2$ 極限まで予測空間に含める。
-- **Hilbert 空間の完備性**：無限直交和と減少射影の極限を $L^2$ 内で閉じる。
+- **完備性**：無限直交和と減少射影の極限を $L^2$ 内で閉じる。
 - **スカラー時系列**：一時刻で新しく加わる観測が1個なので $\mathcal I_t$ は高々1次元になる。
 
 ベクトル時系列では $\mathcal I_t$ が多次元になり、係数は行列になります。この章ではスカラー時系列に限定します。
 
 ---
 
-## 7. Wold 分解の一意性
+## 7. 分解の一意性
 
 <a id="prop-tsa2-wold-uniqueness"></a>
 
@@ -1656,7 +1656,7 @@ $$
 - Level: B
 - 目安時間: 24分
 
-Hilbert 空間 $H$ の閉部分空間列
+完備な内積空間 $H$ の閉部分空間列
 
 $$
 M_1\supseteq M_2\supseteq\cdots
