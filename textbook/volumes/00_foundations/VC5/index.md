@@ -1,4 +1,4 @@
-# VC5 曲面上の積分定理・回転・位相構造
+# VC5 境界循環と曲面上の回転
 
 VC4 までで、二次元の Green の定理と三次元の [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence) がそろいました。本章では残る古典的な **曲面上の境界積分定理** を証明し、
 
