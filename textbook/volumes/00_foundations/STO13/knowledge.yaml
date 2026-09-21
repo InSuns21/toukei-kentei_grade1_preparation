@@ -71,7 +71,7 @@ concepts:
   - id: stochastic.ctmc-kolmogorov-equations
     name: 有限状態 CTMC の Kolmogorov 後退・前進方程式
     kind: theorem
-    aliases: ["Kolmogorov backward equation", "Kolmogorov forward equation", "P_t=e^{tQ}"]
+    aliases: ["finite-state CTMC Kolmogorov equations", "CTMC Kolmogorov equations"]
     introduction: formal
     introduction_aliases: ["定理（有限状態 CTMC の Kolmogorov 方程式）"]
     requires:
