@@ -36,13 +36,14 @@
 16. [TOP3 連結性・弧状連結性・連結成分](textbook/volumes/00_foundations/TOP3/index.md)
 17. [TOP4 分離公理・可算性公理](textbook/volumes/00_foundations/TOP4/index.md)
 18. [TOP5 コンパクト性の一般論](textbook/volumes/00_foundations/TOP5/index.md)
-19. [F0-00C2 最大最小・最近点](textbook/volumes/00_foundations/F0_00C2_コンパクト性の応用_最大最小_最近点/index.md)
-20. [F0-00D Cauchy列・完備性](textbook/volumes/00_foundations/F0_00D_Cauchy列_完備性_無限次元/index.md)
-21. [F0-00D0 Cauchy完備化：有理数から実数](textbook/volumes/00_foundations/F0_00D0_Cauchy完備化_有理数から実数/index.md)
-22. [F0-00D0A 一般距離空間の完備化](textbook/volumes/00_foundations/F0_00D0A_一般距離空間の完備化/index.md)
-23. [F0-00D0B Dedekind切断：順序の穴から実数](textbook/volumes/00_foundations/F0_00D0B_Dedekind切断_実数の構成/index.md)
-24. [F0-00D0C Cauchy構成とDedekind構成の同値](textbook/volumes/00_foundations/F0_00D0C_Cauchy構成_Dedekind構成_同値/index.md)
-25. [TOP6 全有界性・Baire・net/filter](textbook/volumes/00_foundations/TOP6/index.md)
+19. [TOP5A Urysohn の補題・局所コンパクト性・cutoff](textbook/volumes/00_foundations/TOP5A/index.md)
+20. [F0-00C2 最大最小・最近点](textbook/volumes/00_foundations/F0_00C2_コンパクト性の応用_最大最小_最近点/index.md)
+21. [F0-00D Cauchy列・完備性](textbook/volumes/00_foundations/F0_00D_Cauchy列_完備性_無限次元/index.md)
+22. [F0-00D0 Cauchy完備化：有理数から実数](textbook/volumes/00_foundations/F0_00D0_Cauchy完備化_有理数から実数/index.md)
+23. [F0-00D0A 一般距離空間の完備化](textbook/volumes/00_foundations/F0_00D0A_一般距離空間の完備化/index.md)
+24. [F0-00D0B Dedekind切断：順序の穴から実数](textbook/volumes/00_foundations/F0_00D0B_Dedekind切断_実数の構成/index.md)
+25. [F0-00D0C Cauchy構成とDedekind構成の同値](textbook/volumes/00_foundations/F0_00D0C_Cauchy構成_Dedekind構成_同値/index.md)
+26. [TOP6 全有界性・Baire・net/filter](textbook/volumes/00_foundations/TOP6/index.md)
 
 ### 標準実解析コア
 

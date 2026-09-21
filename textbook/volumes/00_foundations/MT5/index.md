@@ -38,7 +38,7 @@ open set 上の一致から一意性
 
 を一段ずつ閉じます。
 
-位相的な唯一の新しい道具は [TOP5 補遺：局所コンパクト Hausdorff 空間の縮小と cutoff](../TOP5/index.md#thm-top5-lch-cutoff) に正本化しました。したがって本章では Urysohn 補題、partition of unity、one-point compactification を暗黙に使いません。
+位相的な唯一の新しい道具は [TOP5A「Urysohn の補題・局所コンパクト性・cutoff」](../TOP5A/index.md#thm-top5a-lch-cutoff) に正本化しました。したがって本章では Urysohn 補題、partition of unity、one-point compactification を暗黙に使いません。
 
 また Hahn–Banach、Banach 双対、Jordan 分解された汎関数も使いません。まず **正汎関数版**だけを完全に証明します。
 
@@ -49,23 +49,17 @@ open set 上の一致から一意性
 $X$ は以下、局所コンパクト Hausdorff 空間とします。
 
 <a id="def-mt5-cc"></a>
-<!-- formal-statement-start -->
-### 定義（$C_c(X)$）
+### 記法の再確認：$C_c(X)$
+
+[TOP5A の定義](../TOP5A/index.md#def-top5a-compact-support-cc)に従い、
 
 $$
 C_c(X)
-:=
-\{f:X\to\mathbb R:\ f\text{ continuous},\ \operatorname{supp}f\text{ compact}\},
+=
+\{f:X\to\mathbb R:\ f\text{ は連続で }\operatorname{supp}f\text{ はコンパクト}\}
 $$
 
-ただし
-
-$$
-\operatorname{supp}f
-:=
-\overline{\{x\in X:f(x)\ne0\}}.
-$$
-<!-- formal-statement-end -->
+とします。ここではこの記法を再定義せず、TOP5A の定義をそのまま使います。
 
 $a,b\in\mathbb R$ と $f,g\in C_c(X)$ に対し
 
@@ -144,7 +138,7 @@ $$
 \boxed{f\le g\Longrightarrow L(f)\le L(g).}
 $$
 
-ここでは $L$ のノルムや Banach 空間としての双対を仮定しません。それでも compact support を固定すれば、cutoff により必要な有界性が出ます。
+ここでは $L$ の連続性や Banach 双対としての表現を仮定しません。それでも compact support を固定すれば、cutoff により必要な有界性が出ます。
 
 <a id="lem-mt5-local-order-bound"></a>
 <!-- formal-statement-start -->
@@ -189,7 +183,7 @@ $$
 よって $|L(h)|\le ML(\chi)$ です。$\square$
 <!-- proof-end -->
 
-これは「$L$ は $C_c(X)$ 上で有界」という主張ではありません。**support を一つの compact 集合に閉じ込めたときだけ**一様ノルム評価が出る、という局所的な主張です。
+これは「$L$ は $C_c(X)$ 全体で一様に制御できる」という主張ではありません。**support を一つの compact 集合に閉じ込めたときだけ**上の評価が得られる、という局所的な主張です。
 
 ---
 
@@ -246,7 +240,7 @@ $$
 
 ## 4. 有限 open cover に従属する有限分解
 
-open set の可算劣加法性を証明するには、compact support を有限個の open set へ分解する必要があります。一般の partition of unity は使いません。TOP5 の cutoff を有限回掛け合わせるだけで十分です。
+open set の可算劣加法性を証明するには、compact support を有限個の open set へ分解する必要があります。一般の partition of unity は使いません。TOP5A の cutoff を有限回掛け合わせるだけで十分です。
 
 <a id="lem-mt5-finite-cutoff-partition"></a>
 <!-- formal-statement-start -->
@@ -278,7 +272,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-各 $x\in K$ について $x\in U_{j(x)}$ となる添字 $j(x)$ を一つ選びます。TOP5 の compact-open cutoff を singleton $\{x\}\subset U_{j(x)}$ に適用し、
+各 $x\in K$ について $x\in U_{j(x)}$ となる添字 $j(x)$ を一つ選びます。TOP5A の compact-open cutoff を singleton $\{x\}\subset U_{j(x)}$ に適用し、
 
 $$
 0\le c_x\le1,
@@ -460,7 +454,7 @@ $$
 
 とします。$K\subseteq U\cup V$ かつ $U\cap V=\varnothing$ なので、$K_U,K_V$ は互いに補集合となる clopen subset of $K$、従って compact です。
 
-TOP5 の cutoff により $\chi_U,\chi_V\in C_c(X)$ を
+TOP5A の cutoff により $\chi_U,\chi_V\in C_c(X)$ を
 
 $$
 0\le\chi_U,\chi_V\le1,
@@ -533,7 +527,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-TOP5 の cutoff により $\chi\in C_c(X)$ と open $N\supseteq K$ を
+TOP5A の cutoff により $\chi\in C_c(X)$ と open $N\supseteq K$ を
 
 $$
 0\le\chi\le1,
@@ -752,7 +746,7 @@ m(U)
 m(U\cap G)+\mu^*(U\setminus G)}
 $$
 
-compact $K\subseteq U\cap G$ を任意に取ります。TOP5 の cutoff を $K\subseteq U\cap G$ に適用し、$K$ の open neighborhood $W$ で
+compact $K\subseteq U\cap G$ を任意に取ります。TOP5A の cutoff を $K\subseteq U\cap G$ に適用し、$K$ の open neighborhood $W$ で
 
 $$
 K\subseteq W,
@@ -977,7 +971,7 @@ $$
 L(g_k)>m(U_k)-\frac1n
 $$
 
-となるように取ります。一方 TOP5 の cutoff により $c_k\prec U_k$ で
+となるように取ります。一方 TOP5A の cutoff により $c_k\prec U_k$ で
 
 $$
 c_k=1\text{ on }K_k
@@ -1232,7 +1226,7 @@ $$
 m(U)\le\nu(U).
 $$
 
-逆に compact $K\subseteq U$ を任意に取ります。TOP5 の cutoff から $f\prec U$ で $f=1$ on $K$ となるものを取れます。すると
+逆に compact $K\subseteq U$ を任意に取ります。TOP5A の cutoff から $f\prec U$ で $f=1$ on $K$ となるものを取れます。すると
 
 $$
 \nu(K)
@@ -1303,7 +1297,7 @@ $$
 
 | 段階 | 本当に使ったもの |
 |---|---|
-| cutoff | TOP4 の分離公理 + TOP5 の compactness + TOP5補遺の dyadic construction |
+| cutoff | TOP4 の分離公理 + TOP5 の compactness + TOP5A の Urysohn 構成 |
 | $m(U)$ の劣加法性 | compact support の有限部分被覆 + 有限 cutoff partition |
 | compact-finite | $K$ の近傍上で1となる一つの cutoff |
 | outer measure | open content の可算劣加法性 |
@@ -1458,7 +1452,7 @@ MT2 には符号付き測度・全変動がありますが、**任意の有界�
 
 ## 15.5 定義の横断確認：二点離散空間
 
-<!-- definition-example-start: def-mt5-cc, def-mt5-radon, def-mt5-positive-functional, def-mt5-open-content, def-mt5-compact-content, def-mt5-outer-measure -->
+<!-- definition-example-start: def-mt5-radon, def-mt5-positive-functional, def-mt5-open-content, def-mt5-compact-content, def-mt5-outer-measure -->
 $X=\{a,b\}$ に離散位相を入れ、$L(f)=2f(a)+3f(b)$ とします。有限離散空間では全ての部分集合が open かつ compact で、全ての実数値関数が $C_c(X)$ に属します。
 
 **定義の確認**：$f\ge0$ なら $L(f)\ge0$ なので $L$ は正線形汎関数です。$\mu=2\delta_a+3\delta_b$ は compact-finite で、内正則性・外正則性は各集合自身を compact/open 候補に取れば直ちに成立するため Radon 測度です。open $U$ では $1_U\in C_c(X)$ を候補にでき、$0\le f\le1_U$ なら $L(f)\le L(1_U)$ なので $m(U)=2\,1_U(a)+3\,1_U(b)=\mu(U)$。同様に compact content は $m_K=\mu(K)$ です。全ての $A\subseteq X$ が open なので、外測度の定義でも $\mu^*(A)=\inf_{U\supseteq A}m(U)=m(A)=\mu(A)$。六つの定義が同じ模型で整合します。
@@ -1584,7 +1578,7 @@ $$
 
 $x_0\notin U$ なら、$f\prec U$ の support は $U$ に含まれるので $f(x_0)=0$。従って全候補で $L(f)=0$ となり $m(U)=0$ です。
 
-$x_0\in U$ なら TOP5 の cutoff により $f\prec U$ で $f(x_0)=1$ となるものがあります。従って $m(U)\ge1$。一方全候補で $0\le f(x_0)\le1$ だから $m(U)\le1$。よって $m(U)=1$ です。
+$x_0\in U$ なら TOP5A の cutoff により $f\prec U$ で $f(x_0)=1$ となるものがあります。従って $m(U)\ge1$。一方全候補で $0\le f(x_0)\le1$ だから $m(U)\le1$。よって $m(U)=1$ です。
 
 これは outer measure 構成前の段階ですでに Dirac 測度の open set 上の値が現れていることを示します。
 
@@ -1627,7 +1621,7 @@ $$
 =m_K.
 $$
 
-有限性には cutoff を使います。TOP5 により $K$ のある open neighborhood $N$ 上で $\chi=1$、$0\le\chi\le1$ となる $\chi\in C_c(X)$ を取れます。$f\prec N$ なら全点で $0\le f\le\chi$ なので
+有限性には cutoff を使います。TOP5A により $K$ のある open neighborhood $N$ 上で $\chi=1$、$0\le\chi\le1$ となる $\chi\in C_c(X)$ を取れます。$f\prec N$ なら全点で $0\le f\le\chi$ なので
 
 $$
 L(f)\le L(\chi).
@@ -1649,7 +1643,7 @@ $$
 K=\operatorname{supp}f
 $$
 
-を持ちます。従って可算 open cover から必要なのは $K$ を覆う有限部分だけです。その有限 cover に対して TOP5 の cutoff を有限個作り、積
+を持ちます。従って可算 open cover から必要なのは $K$ を覆う有限部分だけです。その有限 cover に対して TOP5A の cutoff を有限個作り、積
 
 $$
 h_j=g_j\prod_{i<j}(1-g_i)
@@ -1685,7 +1679,7 @@ $$
 
 ## B3 解答
 
-compact $K\subseteq U\cap G$ を任意に取ります。TOP5 の shrinking/cutoff により open $W$ を
+compact $K\subseteq U\cap G$ を任意に取ります。TOP5A の shrinking/cutoff により open $W$ を
 
 $$
 K\subseteq W,

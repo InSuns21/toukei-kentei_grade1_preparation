@@ -36,7 +36,7 @@ concepts:
     introduction_aliases: ["### 定理（CcのLp稠密性）"]
     requires:
       - measure.lp-simple-dense
-      - measure.cc-space
+      - topology.compact-support-cc
       - measure.radon-measure
 
   - id: measure.lp-duality-sigma-finite

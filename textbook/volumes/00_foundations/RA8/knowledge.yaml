@@ -4,13 +4,14 @@ coverage: complete
 prerequisites:
   - RA5
   - TOP5
+  - F0-00D1
 forward_references: []
 
 concepts:
   - id: analysis.ck-uniform-norm
     name: C(K)の一様ノルム
     kind: definition
-    aliases: [C(K)の一様ノルム, C(K) と一様ノルム, 一様ノルム, ノルム, sup norm on C(K)]
+    aliases: [C(K)の一様ノルム, C(K) と一様ノルム, 一様ノルム, sup norm on C(K)]
     requires:
       - topology.compact-space
 

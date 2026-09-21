@@ -51,7 +51,7 @@ $$
 g_k:=|f_{n_{k+1}}-f_{n_k}|
 $$
 
-と置き、その有限部分和を
+と置き、その有限和を
 
 $$
 G_N:=\sum_{k=1}^N g_k
@@ -101,7 +101,7 @@ $$
 |f_{n_k}-f|\le H_k.
 $$
 
-有限部分和に [Minkowski の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-02)を使って $N\to\infty$ とすれば
+有限和に [Minkowski の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-02)を使って $N\to\infty$ とすれば
 
 $$
 \|H_k\|_p
@@ -291,7 +291,7 @@ $$
 \mu(U\setminus K)<\eta.
 $$
 
-[TOP5 の compact-open cutoff](../TOP5/index.md#thm-top5-lch-cutoff)により
+[TOP5A の cutoff 存在定理](../TOP5A/index.md#thm-top5a-lch-cutoff)により
 
 $$
 \varphi\in C_c(X),
@@ -741,7 +741,7 @@ $$
 \left\|1_{\bigcup_{j>N}A_j}\right\|_\infty=1.
 $$
 
-従って有限部分和の指示関数は、和集合の指示関数へ $L^\infty$ で収束しません。連続線形汎関数 $T$ の連続性から
+従って有限和の指示関数は、和集合の指示関数へ $L^\infty$ で収束しません。連続線形汎関数 $T$ の連続性から
 
 $$
 T(1_{\bigcup_{j=1}^NA_j})

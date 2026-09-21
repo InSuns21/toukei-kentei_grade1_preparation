@@ -1,0 +1,26 @@
+chapter: "TOP5A"
+terms:
+  - term: 局所コンパクト空間
+    english: locally compact space
+    meaning: 各点がコンパクトな近傍を持つ位相空間。本教材ではHausdorff性を定義に含めない。
+  - term: 局所コンパクトHausdorff空間
+    english: locally compact Hausdorff space
+    meaning: 局所コンパクト性とHausdorff性の両方を満たす位相空間。
+  - term: 縮小
+    english: shrinking
+    meaning: 閉集合Fを開集合Uの中で、F⊂V⊂cl(V)⊂Uとなる開集合Vへ縮める操作。
+  - term: Urysohnの補題
+    english: Urysohn lemma
+    meaning: 正規空間の互いに素な二つの閉集合を、0と1を取る[0,1]値連続関数で分離できることをいう。
+  - term: 台
+    english: support
+    meaning: 関数fに対する非零点集合{x:f(x)≠0}の閉包。supp fと書く。
+  - term: コンパクト台
+    english: compact support
+    meaning: 関数の台がコンパクトであること。
+  - term: C_c(X)
+    english: compactly supported continuous functions
+    meaning: X上の実数値連続関数のうち、台がコンパクトなもの全体。
+  - term: cutoff関数
+    english: cutoff function
+    meaning: 指定した集合の近傍で1となり、台が指定した開集合内に収まり、かつコンパクト台を持つ連続関数。
