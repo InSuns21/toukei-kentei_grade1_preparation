@@ -29,7 +29,8 @@ definitions:
   - { id: STO11-DEF-07, name: "Feller semigroup" }
 theorems:
   - { id: STO11-PROP-01, name: "Chapman--Kolmogorovとsemigroup law" }
-  - { id: STO11-PROP-02, name: "Itô diffusionのgenerator" }
+  - { id: STO11-PROP-02, name: "global Lipschitz SDEのsolution familyはMarkov" }
+  - { id: STO11-PROP-03, name: "Itô diffusionのgenerator" }
   - { id: STO11-THM-01, name: "Dynkin formula" }
   - { id: STO11-THM-02, name: "backward Kolmogorov equation" }
   - { id: STO11-THM-03, name: "forward Kolmogorov equationの弱形式とFokker--Planck" }
