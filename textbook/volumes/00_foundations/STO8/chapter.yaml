@@ -1,0 +1,55 @@
+id: "STO8"
+title: "Encore IV Stochastic Analysis VIII：local time・Tanaka formula"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - STO3
+  - STO4
+  - STO5
+  - STO6
+  - STO7
+  - F0-00D2C
+official_scope: []
+learning_objectives:
+  - 絶対値のkinkで通常のC2 Itô formulaが止まる理由を説明し、平滑化で欠けた二階項を局所時間として取り出せる
+  - Brown運動のlevel aにおけるlocal timeをoccupation kernelの極限として構成し、Tanaka formulaを証明できる
+  - Tanaka formulaからpositive part / negative partの公式を導出できる
+  - local timeの増加測度がlevel set {B=a}に支えられる一方、そのlevel setのLebesgue時間が0であることを証明できる
+  - Brownian local timeの空間変数aに関する連続versionをmoment estimateとKolmogorov--Chentsovで構成できる
+  - occupation time formulaをkernel近似とTonelli/Fubiniから証明し、local timeが滞在時間密度であることを説明できる
+  - interval occupationからL_t^aを回収する近似公式を導ける
+  - Skorokhod reflection lemmaとLevy transformを用い、|B|とlocal timeを反射Brown運動として表現できる
+  - reflection principleを使いL_t^0の分布を計算し、局所時間とrunning maximumの関係を説明できる
+definitions:
+  - { id: STO8-DEF-01, name: "Brownian local time at a level" }
+theorems:
+  - { id: STO8-THM-01, name: "Brownian local timeの存在・Tanaka formula" }
+  - { id: STO8-COR-01, name: "positive / negative part Tanaka formula" }
+  - { id: STO8-PROP-01, name: "local timeの増加はlevel setに支えられる" }
+  - { id: STO8-PROP-02, name: "Brownian level setのLebesgue時間は0" }
+  - { id: STO8-LEM-01, name: "interval occupation moment bound" }
+  - { id: STO8-THM-02, name: "Brownian local timeの空間連続性" }
+  - { id: STO8-THM-03, name: "occupation time formula" }
+  - { id: STO8-COR-02, name: "interval occupationによるlocal time近似" }
+  - { id: STO8-LEM-02, name: "Skorokhod reflection lemma" }
+  - { id: STO8-PROP-03, name: "Levy transformはBrown運動" }
+  - { id: STO8-THM-04, name: "Brownian reflection representation by local time" }
+canonical_examples:
+  - "a=0でE[L_t^0]=sqrt(2t/pi)"
+  - "Brownian zero setはLebesgue measure 0だがL^0はそこでのみ増える"
+  - "1/(2epsilon) integral 1{|B_s-a|<epsilon} ds -> L_t^a"
+  - "|B_t|=beta_t+L_t^0 と L_t^0=-min_{s<=t} beta_s"
+  - "L_t^0 has the same law as sup_{s<=t} B_s and |B_t|"
+problem_patterns:
+  - STO8-SMOOTH-ABS-1
+  - STO8-TANAKA-PARTS-1
+  - STO8-ZERO-SET-1
+  - STO8-OCCUPATION-APPROX-1
+  - STO8-SPATIAL-REGULARITY-1
+  - STO8-REFLECTION-1
+  - STO8-CONVEX-PIECEWISE-1
+  - STO8-INTEGRATED-LOCAL-TIME-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11.0, exercises: 7.5, review: 1.5 }
