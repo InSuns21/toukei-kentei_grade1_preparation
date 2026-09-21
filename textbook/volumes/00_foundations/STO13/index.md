@@ -1273,7 +1273,7 @@ $$
 
 したがって 跳躍 計数 自身が 率 $\lambda$ のポアソン過程です。
 
-有限状態 CTMC の議論をそのまま 可算状態 へ移すには 爆発 の検討が必要ですが、この例では 滞在時間 が i.i.d. $\operatorname{Exp}(\lambda)$ なので
+有限状態 CTMC の議論をそのまま 可算状態 へ移すには 爆発 の検討が必要ですが、この例では 滞在時間 が 独立同分布 $\operatorname{Exp}(\lambda)$ なので
 
 $$
 T_n=W_1+\cdots+W_n\to\infty
