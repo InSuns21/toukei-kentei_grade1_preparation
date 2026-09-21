@@ -46,7 +46,7 @@ concepts:
     kind: proposition
     aliases: ["support of Brownian local time", "local time grows on the level set"]
     introduction: formal
-    introduction_aliases: ["命題（局所時間の増加はレベル集合に支えられる）"]
+    introduction_aliases: ["命題（局所時間はレベル集合の外では増加しない）"]
     requires:
       - stochastic.tanaka-formula
 
