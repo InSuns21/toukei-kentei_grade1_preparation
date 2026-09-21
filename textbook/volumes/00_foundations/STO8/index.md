@@ -2680,49 +2680,103 @@ $$
 
 $|a|\ge b$ では Brown 運動は停止前に level $a$ へ到達しないので local time は $0$ です。
 
-occupation formula をまず deterministic time $n$ に適用すると
+停止時刻版の occupation formula も、本文の kernel approximation と同じ機構で得られます。
 
-$
-\int_0^{n}g(B_s)\,ds
+まず bounded stopping time
+
+$$
+\sigma_n=\tau_b\wedge n
+$$
+
+を固定します。$g\in C_c(\mathbb R)$ なら
+
+$$
+L_{\sigma_n}^{a,\varepsilon}
 =
+\int_0^{\sigma_n}
+\rho_\varepsilon(B_s-a)\,ds
+$$
+
+として Tonelli / Fubini を使うと
+
+$$
+\begin{aligned}
 \int_{\mathbb R}
-g(a)L_{n}^a\,da.
-$
+g(a)L_{\sigma_n}^{a,\varepsilon}\,da
+&=
+\int_0^{\sigma_n}
+(g*\rho_\varepsilon)(B_s)\,ds.
+\end{aligned}
+$$
 
-同じ等式を stopped process $B_{s\wedge\tau_b}$ に新たに適用する必要はありません。元の Brownian path の等式で時刻を $\tau_b\wedge n$ まで切れば、indicator $1_{\{s\le\tau_b\}}$ を時間側へ入れた形として
+右辺は $g$ の一様連続性から pathwise に
 
-$
-\int_0^{\tau_b\wedge n}g(B_s)\,ds
-=
-\int_{\mathbb R}
-g(a)L_{\tau_b\wedge n}^a\,da
-$
-
-が得られます。これは deterministic-time occupation formula を simple nonnegative functions から時間停止へ延長し、monotone convergence を使うだけです。
-
-$n\uparrow\infty$ とすると、左辺は非負 integrand に対する monotone convergence で
-
-$
-\int_0^{\tau_b}g(B_s)\,ds
-$
-
-へ、右辺も $L_{\tau_b\wedge n}^a\uparrow L_{\tau_b}^a$ と Tonelli / monotone convergence により
-
-$
-\int_{\mathbb R}
-g(a)L_{\tau_b}^a\,da
-$
+$$
+\int_0^{\sigma_n}g(B_s)\,ds
+$$
 
 へ収束します。
 
+一方 Tanaka theorem の証明で得た $[0,n]$ 上の $L^2$-supremum convergence から、各固定 $a$ について
+
+$$
+L_{\sigma_n}^{a,\varepsilon}
+\to
+L_{\sigma_n}^a
+$$
+
+in $L^2$ です。$g$ の compact support 上では本文と同じ一様な $L^1$ bound を使えるので dominated convergence により
+
+$$
+\int g(a)L_{\sigma_n}^{a,\varepsilon}\,da
+\to
+\int g(a)L_{\sigma_n}^a\,da
+$$
+
+in $L^1$ です。
+
+従って確率極限の一意性から
+
+$$
+\int_0^{\sigma_n}g(B_s)\,ds
+=
+\int_{\mathbb R}
+g(a)L_{\sigma_n}^a\,da
+$$
+
+almost surely です。
+
+本文と同じ π–λ argument で非負 Borel $g$ へ拡張できます。
+
+最後に $n\uparrow\infty$ とすると、左辺は monotone convergence で
+
+$$
+\int_0^{\tau_b}g(B_s)\,ds
+$$
+
+へ進みます。右辺も各 $a$ で
+
+$$
+L_{\sigma_n}^a\uparrow L_{\tau_b}^a
+$$
+
+なので Tonelli と monotone convergence により
+
+$$
+\int_{\mathbb R}
+g(a)L_{\tau_b}^a\,da
+$$
+
+へ進みます。
+
 したがって
 
-$
+$$
 \int_0^{\tau_b}g(B_s)\,ds
 =
 \int_{\mathbb R}
 g(a)L_{\tau_b}^a\,da.
-$
+$$
 
 両辺は非負なので Tonelli により期待値と $a$ 積分を交換でき、
 
