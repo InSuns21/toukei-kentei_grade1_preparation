@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念への参照**：STO1 の [フィルトレーション](../STO1/index.md#def-sto1-filtration-usual)、[予測可能過程](../STO1/index.md#def-sto1-predictable)、[停止時刻](../STO1/index.md#def-sto1-stopping-time)、[停止時刻までの σ-代数](../STO1/index.md#def-sto1-stopping-sigma-field) を既知として使います。
+> **既出概念への参照**：STO1 の [フィルトレーション](../STO1/index.md#def-sto1-フィルトレーション-usual)、[予測可能過程](../STO1/index.md#def-sto1-予測可能)、[停止時刻](../STO1/index.md#def-sto1-停止操作-time)、[停止時刻までの σ-代数](../STO1/index.md#def-sto1-停止操作-sigma-field) を既知として使います。
 
 STO1 では、時間とともに情報が増えるフィルトレーションと、未来を見ずに停止する停止時刻を作りました。
 
@@ -275,9 +275,9 @@ $$
 
 ---
 
-## 3. stopping は「増分を途中から 0 にする」予測可能変換
+## 3. 停止は「増分を途中から 0 にする」予測可能変換
 
-STO1 の [停止時刻](../STO1/index.md#def-sto1-stopping-time) に対し
+STO1 の [停止時刻](../STO1/index.md#def-sto1-停止操作-time) に対し
 
 $$
 X_n^\tau=X_{n\wedge\tau}
@@ -371,7 +371,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（有界任意抽出）**  
-> $X$ を劣マルチンゲールとし、$\sigma,\tau$ を stopping times とする。ある決定論的 $N<\infty$ が存在して
+> $X$ を劣マルチンゲールとし、$\sigma,\tau$ を停止操作 times とする。ある決定論的 $N<\infty$ が存在して
 >
 $$
 0\le\sigma\le\tau\le N
@@ -412,7 +412,7 @@ $$
 
 を、$\sigma$ から $\tau$ の間だけ増分を足す telescoping sum にします。
 
-次に $A\in\mathcal F_\sigma$ を固定します。STO1 の [停止時刻までの sigma-field](../STO1/index.md#def-sto1-stopping-sigma-field) により
+次に $A\in\mathcal F_\sigma$ を固定します。STO1 の [停止時刻までの sigma-field](../STO1/index.md#def-sto1-停止操作-sigma-field) により
 
 $$
 A\cap\{\sigma\le k\}\in\mathcal F_k.
@@ -670,7 +670,7 @@ $$
 > が成り立つ。ここで $x^+=\max(x,0)$ である。
 <!-- formal-statement-end -->
 
-### なぜ first hitting time を入れるのか
+### なぜ初到達時刻を入れるのか
 
 最大値の事象を
 
@@ -818,7 +818,7 @@ $$
 U_5[1,2]=3.
 $$
 
-上向き横断は単なる符号変化ではなく、「下側 level まで戻った後、上側 level へ到達する」という一往復の片側を数えます。
+上向き横断は単なる符号変化ではなく、「下側水準まで戻った後、上側水準へ到達する」という一往復の片側を数えます。
 <!-- definition-example-end -->
 
 ---
@@ -964,7 +964,7 @@ $$
 cU_n[a,b].
 $$
 
-次に $K_k:=1-H_k$ と置きます。$K$ も非負有界予測可能です。[予測可能変換の命題](#prop-sto2-predictable-transform) から $K\cdot Y$ は劣マルチンゲールで、初期値 0 なので
+次に $K_k:=1-H_k$ と置きます。$K$ も非負有界予測可能です。[予測可能変換の命題](#prop-sto2-予測可能-transform) から $K\cdot Y$ は劣マルチンゲールで、初期値 0 なので
 
 $$
 E[(K\cdot Y)_n]\ge0.
@@ -1411,7 +1411,7 @@ $$
 
 ### 証明の見取り図
 
-$M_{\tau\wedge n}$ は有界 stopping により全て同じ期待値を持ちます。
+$M_{\tau\wedge n}$ は有界停止操作により全て同じ期待値を持ちます。
 
 一方 $\tau<\infty$ a.s. なので
 
@@ -1458,7 +1458,7 @@ E[M_0].
 $$
 <!-- proof-end -->
 
-### 反例：倍賭けでは stopped family が UI でない
+### 反例：倍賭けでは停止した family が UI でない
 
 公平コインを
 
@@ -1579,7 +1579,7 @@ $$
 
 は $K\to\infty$ でも 0 へ行きません。
 
-つまり stopped family は UI ではありません。
+つまり停止した family は UI ではありません。
 
 **壊れた証明機構**は
 
@@ -2376,4 +2376,4 @@ $$
 - 条件付き期待値マルチンゲールの極限を Lévy上昇定理と接続できる。
 - 倍賭け反例で、任意停止の失敗原因を「極限と期待値の交換不能」「UI の欠如」として定量的に説明できる。
 
-次の STO3 では、有限次元分布から確率過程そのものを構成し、Kolmogorov--Chentsov continuity theorem で連続修正を作る問題へ進みます。
+次の STO3 では、有限次元分布から確率過程そのものを構成し、Kolmogorov--Chentsov 連続性 theorem で連続修正を作る問題へ進みます。
