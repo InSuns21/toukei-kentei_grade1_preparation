@@ -1,13 +1,13 @@
 # VC6 曲線座標の幾何と微分演算子
 
-Cartesian coordinates では basis vectors $e_x,e_y,e_z$ がどこでも同じ向きを向くため、grad・div・curl の公式は簡単です。
+Cartesian 座標では基底ベクトル $e_x,e_y,e_z$ がどこでも同じ向きを向くため、勾配・発散・回転の公式は簡単です。
 
 しかし理論物理や PDE では、
 
-- 円柱対称なら cylindrical coordinates
-- 球対称なら spherical coordinates
+- 円柱対称なら円柱座標
+- 球対称なら球座標
 
-を使いたくなります。このとき basis vector 自身が位置によって回転し、座標の一目盛りの物理的長さも場所によって変わります。
+を使いたくなります。このとき基底ベクトル自身が位置によって回転し、座標の一目盛りの物理的長さも場所によって変わります。
 
 本章では公式を暗記せず、
 
@@ -25,7 +25,7 @@ $$
 
 ---
 
-## 1. 曲線座標と coordinate tangent
+## 1. 曲線座標と座標接ベクトル
 
 開領域 $Q\subset\mathbb R^3$ から Euclidean 空間への $C^1$ 座標写像
 
@@ -35,7 +35,7 @@ $$
 
 を考えます。
 
-各座標だけを動かしたときの接 vector は
+各座標だけを動かしたときの接ベクトルは
 
 $$
 a_i
@@ -62,7 +62,7 @@ $$
 \det Dr\ne0
 $$
 >
-> を満たし、さらに coordinate tangent vectors
+> を満たし、さらに座標接ベクトル
 >
 $$
 a_i=\frac{\partial r}{\partial q_i}
@@ -81,7 +81,7 @@ $$
 <!-- definition-example-start: def-vc6-orthogonal-curvilinear -->
 **定義の確認**
 
-例：cylindrical coordinates
+例：円柱座標
 
 $\rho>0$ で
 
@@ -91,7 +91,7 @@ r(\rho,\phi,z)
 (\rho\cos\phi,\rho\sin\phi,z)
 $$
 
-とします。coordinate tangent vectors は
+とします。座標接ベクトルは
 
 $$
 r_\rho=(\cos\phi,\sin\phi,0),
@@ -118,12 +118,12 @@ $$
 
 ---
 
-## 2. 座標方向の長さ補正と位置依存 orthonormal basis
+## 2. 座標方向の長さ補正と位置依存正規直交基底
 
 <a id="def-vc6-scale-factor"></a>
 
 <!-- formal-statement-start -->
-> **定義（scale factor と位置依存 orthonormal basis）**  
+> **定義（尺度因子と位置依存正規直交基底）**  
 > 直交曲線座標に対して
 >
 $$
@@ -137,7 +137,7 @@ h_i
 >0
 $$
 >
-> を **scale factor** とし、
+> を **尺度因子** とし、
 >
 $$
 e_i
@@ -147,13 +147,13 @@ $$
 >
 > と置く。
 >
-> このとき $e_1,e_2,e_3$ は各点で orthonormal basis をなす。
+> このとき $e_1,e_2,e_3$ は各点で正規直交基底をなす。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-vc6-scale-factor -->
 **定義の確認**
 
-例：cylindrical coordinates
+例：円柱座標
 
 $$
 r(\rho,\phi,z)
@@ -203,7 +203,7 @@ $$
 e_z=(0,0,1).
 $$
 
-ここで $e_\rho,e_\phi$ は $\phi$ とともに回転します。Cartesian basis と違い、**成分が一定でも vector field 自体が一定とは限りません。**
+ここで $e_\rho,e_\phi$ は $\phi$ とともに回転します。Cartesian 基底と違い、**成分が一定でもベクトル場自体が一定とは限りません。**
 <!-- definition-example-end -->
 
 ---
@@ -261,13 +261,13 @@ $$
 
 ### 証明の見取り図
 
-直交しているので、微小 coordinate box の三辺の長さは
+直交しているので、微小座標直方体の三辺の長さは
 
 $$
 h_1dq_1,\quad h_2dq_2,\quad h_3dq_3
 $$
 
-です。面積は二辺の積、体積は三辺の積になります。Jacobian は三つの coordinate tangents の scalar triple product です。
+です。面積は二辺の積、体積は三辺の積になります。Jacobian は三つの座標接ベクトルのスカラー三重積です。
 
 <!-- proof-start -->
 ### 証明
@@ -283,7 +283,7 @@ $$
 
 なので線素公式を得ます。
 
-$q_1=\text{const}$ の座標面の二つの tangent vectors は
+$q_1=\text{const}$ の座標面の二つの接ベクトルは
 
 $$
 a_2=h_2e_2,
@@ -342,13 +342,13 @@ h_1h_2h_3\,dq_1dq_2dq_3.
 $$
 <!-- proof-end -->
 
-scale factor は単なる補助記号ではなく、幾何学的な長さ・面積・体積の倍率そのものです。
+尺度因子は単なる補助記号ではなく、幾何学的な長さ・面積・体積の倍率そのものです。
 
 ---
 
-## 4. gradient は全微分から出る
+## 4. 勾配は全微分から出る
 
-scalar field $f$ を $q$ の関数として書くと
+スカラー場 $f$ を $q$ の関数として書くと
 
 $$
 df
@@ -360,7 +360,7 @@ df
 \frac{\partial f}{\partial q_3}dq_3.
 $$
 
-一方、gradient の定義から
+一方、勾配の定義から
 
 $$
 df
@@ -371,7 +371,7 @@ $$
 <a id="prop-vc6-gradient"></a>
 
 <!-- formal-statement-start -->
-> **命題（直交曲線座標の gradient）**  
+> **命題（直交曲線座標の勾配）**  
 > $f$ が $C^1$ なら
 >
 $$
@@ -432,13 +432,13 @@ $$
 $$
 <!-- proof-end -->
 
-gradient の公式は memorization ではなく、**一目盛りの物理長さが $h_i\,dq_i$ であることの補正**です。
+勾配の公式は暗記ではなく、**一目盛りの物理長さが $h_i\,dq_i$ であることの補正**です。
 
 ---
 
-## 5. divergence は微小 coordinate box の flux balance
+## 5. 発散は微小座標直方体の流束収支
 
-vector field を orthonormal basis で
+ベクトル場を正規直交基底で
 
 $$
 A
@@ -454,7 +454,7 @@ $$
 h_2h_3\,dq_2dq_3.
 $$
 
-そこを通る 正味の外向き flux は一次まで
+そこを通る正味の外向き流束は一次まで
 
 $$
 \frac{\partial}{\partial q_1}
@@ -467,7 +467,7 @@ $$
 <a id="prop-vc6-divergence"></a>
 
 <!-- formal-statement-start -->
-> **命題（直交曲線座標の divergence）**  
+> **命題（直交曲線座標の発散）**  
 > $A=A_1e_1+A_2e_2+A_3e_3$ が $C^1$ なら
 >
 $$
@@ -490,13 +490,13 @@ $$
 
 ### 証明の見取り図
 
-微小 coordinate box の六面 flux を足し、体積
+微小座標直方体の六面流束を足し、体積
 
 $$
 h_1h_2h_3\,dq_1dq_2dq_3
 $$
 
-で割ります。VC1 で見た「単位体積あたりの 正味の外向き flux」という divergence の意味を曲線座標へ移したものです。
+で割ります。VC1 で見た「単位体積あたりの正味の外向き流束」という発散の意味を曲線座標へ移したものです。
 
 <!-- proof-start -->
 ### 証明
@@ -511,13 +511,13 @@ $$
 
 と置きます。
 
-微小 coordinate box の $q_1$ 正側の面では outward flux が
+微小座標直方体の $q_1$ 正側の面では外向き流束が
 
 $$
 B_1(q_1+dq_1,q_2,q_3)\,dq_2dq_3,
 $$
 
-負側の面では outward normal が逆なので
+負側の面では外向き法線が逆なので
 
 $$
 -B_1(q_1,q_2,q_3)\,dq_2dq_3
@@ -542,7 +542,7 @@ $$
 o(dq_1dq_2dq_3).
 $$
 
-同じ計算を残り二方向へ行うと、正味の flux は
+同じ計算を残り二方向へ行うと、正味の流束は
 
 $$
 \left[
@@ -557,7 +557,7 @@ $$
 
 に高次の項を加えたものです。
 
-一方、coordinate box の体積は主項として
+一方、座標直方体の体積は主項として
 
 $$
 h_1h_2h_3\,dq_1dq_2dq_3
@@ -565,7 +565,7 @@ $$
 
 です。
 
-正味の flux を体積で割って box を一点へ縮めると高次項が消え、
+正味の流束を体積で割って直方体を一点へ縮めると高次項が消え、
 
 $$
 \nabla\cdot A
@@ -581,11 +581,11 @@ $$
 $$
 <!-- proof-end -->
 
-Cartesian coordinates では $h_1=h_2=h_3=1$ なので通常公式へ戻ります。
+Cartesian 座標では $h_1=h_2=h_3=1$ なので通常公式へ戻ります。
 
 ---
 
-## 6. curl は微小 coordinate rectangle の circulation
+## 6. 回転は微小座標長方形の循環
 
 $(\nabla\times A)\cdot e_1$ を求めるには、$q_1=\text{const}$ の微小長方形を考えます。
 
@@ -608,7 +608,7 @@ $$
 <a id="prop-vc6-curl"></a>
 
 <!-- formal-statement-start -->
-> **命題（直交曲線座標の curl）**  
+> **命題（直交曲線座標の回転）**  
 > $A=A_1e_1+A_2e_2+A_3e_3$ が $C^1$ なら
 >
 $$
@@ -651,14 +651,14 @@ $$
 
 ### 証明の見取り図
 
-VC5 で curl は単位面積あたりの循環密度でした。各辺の線素は $h_i\,dq_i$ なので、四辺の circulation を足して $h_jh_k\,dq_jdq_k$ で割れば公式が出ます。
+VC5 で回転は単位面積あたりの循環密度でした。各辺の線素は $h_i\,dq_i$ なので、四辺の循環を足して $h_jh_k\,dq_jdq_k$ で割れば公式が出ます。
 
 <!-- proof-start -->
 ### 証明
 
 $q_1$ を固定し、$(q_2,q_3)$ 平面の正向き微小長方形を考えます。
 
-基点を $(q_2,q_3)$ とすると、四辺の circulation の主項は
+基点を $(q_2,q_3)$ とすると、四辺の循環の主項は
 
 $$
 h_2A_2(q_2,q_3)\,dq_2
@@ -704,7 +704,7 @@ dq_2dq_3
 o(dq_2dq_3).
 $$
 
-一方、この coordinate rectangle の面積は主項として
+一方、この座標長方形の面積は主項として
 
 $$
 h_2h_3\,dq_2dq_3
@@ -712,7 +712,7 @@ $$
 
 です。
 
-VC5 の [curl の循環密度](../VC5/index.md#prop-vc5-curl-density) により、循環を面積で割って rectangle を一点へ縮めた極限が $(\nabla\times A)\cdot e_1$ です。
+VC5 の [回転の循環密度](../VC5/index.md#prop-vc5-curl-density) により、循環を面積で割って長方形を一点へ縮めた極限が $(\nabla\times A)\cdot e_1$ です。
 
 したがって
 
@@ -732,12 +732,12 @@ $$
 
 ---
 
-## 7. scalar Laplacian は div grad
+## 7. スカラー・ラプラシアンは勾配の発散
 
 <a id="prop-vc6-scalar-laplacian"></a>
 
 <!-- formal-statement-start -->
-> **命題（直交曲線座標の scalar Laplacian）**  
+> **命題（直交曲線座標のスカラー・ラプラシアン）**  
 > $f\in C^2$ なら
 >
 $$
@@ -760,7 +760,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[直交曲線座標の gradient](#prop-vc6-gradient) から
+[直交曲線座標の勾配](#prop-vc6-gradient) から
 
 $$
 (\nabla f)_i
@@ -768,7 +768,7 @@ $$
 \frac1{h_i}f_{q_i}.
 $$
 
-これを [直交曲線座標の divergence](#prop-vc6-divergence) に代入します。
+これを [直交曲線座標の発散](#prop-vc6-divergence) に代入します。
 
 第一項は
 
@@ -791,7 +791,7 @@ $$
 
 ---
 
-## 8. cylindrical coordinates
+## 8. 円柱座標
 
 $$
 x=\rho\cos\phi,
@@ -816,7 +816,7 @@ $$
 <a id="prop-vc6-cylindrical"></a>
 
 <!-- formal-statement-start -->
-> **命題（cylindrical coordinates の公式）**  
+> **命題（円柱座標の公式）**  
 > $\rho>0$ で
 >
 $$
@@ -896,7 +896,7 @@ $$
 
 を代入しただけです。
 
-### basis 自身が回る
+### 基底自身が回る
 
 $$
 e_\rho=(\cos\phi,\sin\phi,0),
@@ -918,11 +918,11 @@ e_\phi,
 -e_\rho.
 $$
 
-この項があるため、vector field の微分では「物理成分だけを微分」してはいけません。
+この項があるため、ベクトル場の微分では「物理成分だけを微分」してはいけません。
 
 ---
 
-## 9. 例：axisymmetric azimuthal field
+## 9. 例：軸対称な方位角方向のベクトル場
 
 $$
 A=A_\phi(\rho)e_\phi
@@ -930,13 +930,13 @@ $$
 
 とし、$\phi,z$ に依存しないとします。
 
-divergence は
+発散は
 
 $$
 \nabla\cdot A=0.
 $$
 
-curl は $z$ 成分だけが残り、
+回転は $z$ 成分だけが残り、
 
 $$
 \nabla\times A
@@ -947,7 +947,7 @@ e_z
 (\rho A_\phi).
 $$
 
-特に rigid rotation 型
+特に剛体回転型
 
 $$
 A_\phi(\rho)=\Omega\rho
@@ -969,7 +969,7 @@ VC1 の Cartesian 計算 $(-\Omega y,\Omega x,0)$ と一致します。
 
 ---
 
-## 10. spherical coordinates
+## 10. 球座標
 
 本章では
 
@@ -987,7 +987,7 @@ $$
 
 を使います。
 
-$\theta$ は $+z$ 軸から測る polar angle、$\phi$ は $xy$ 平面内の azimuth です。
+$\theta$ は $+z$ 軸から測る極角、$\phi$ は $xy$ 平面内の方位角です。
 
 微分すると
 
@@ -1012,7 +1012,7 @@ $$
 <a id="prop-vc6-spherical"></a>
 
 <!-- formal-statement-start -->
-> **命題（spherical coordinates の公式）**  
+> **命題（球座標の公式）**  
 > $r>0$ かつ $0<\theta<\pi$ で
 >
 $$
@@ -1091,7 +1091,7 @@ r^2\frac{\partial f}{\partial r}
 $$
 <!-- formal-statement-end -->
 
-### spherical basis の位置依存
+### 球座標基底の位置依存
 
 $$
 e_r
@@ -1141,13 +1141,13 @@ $$
 \cos\theta\,e_\theta.
 $$
 
-これが spherical vector calculus に現れる追加項の源です。
+これが球座標でのベクトル解析に現れる追加項の源です。
 
 ---
 
-## 11. radial scalar field
+## 11. 放射対称スカラー場
 
-$f=f(r)$ だけに依存するなら angular derivatives は消えて
+$f=f(r)$ だけに依存するなら角度方向の微分項は消えて
 
 $$
 \nabla f=f'(r)e_r,
@@ -1193,11 +1193,11 @@ $$
 0.
 $$
 
-ただし $r=0$ では $1/r$ 自体が未定義です。PDE6 の fundamental solution と同じく、**原点を含む領域へこの計算をそのまま延長してはいけません。**
+ただし $r=0$ では $1/r$ 自体が未定義です。PDE6 の基本解と同じく、**原点を含む領域へこの計算をそのまま延長してはいけません。**
 
 ---
 
-## 12. inverse-square radial field
+## 12. 逆二乗放射状場
 
 $$
 A
@@ -1240,30 +1240,30 @@ $$
 4\pi C.
 $$
 
-これは VC4 の特異場と同じ現象です。原点を含む球へ [Gauss--Ostrogradsky theorem](../VC4/index.md#thm-vc4-gauss-divergence) を直接適用できないのは、$A$ が $r=0$ で $C^1$ どころか未定義だからです。
+これは VC4 の特異場と同じ現象です。原点を含む球へ [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence) を直接適用できないのは、$A$ が $r=0$ で $C^1$ どころか未定義だからです。
 
 ---
 
-## 13. 座標の退化と field 自体の未定義性は別物
+## 13. 座標の退化と場自体の未定義性は別物
 
-cylindrical coordinates では $\rho=0$ で $\phi$ が定まりません。
+円柱座標では $\rho=0$ で $\phi$ が定まりません。
 
-spherical coordinates では
+球座標では
 
 - $r=0$
 - $\theta=0,\pi$
 
-で一部の座標や basis が退化します。
+で一部の座標や基底が退化します。
 
-これは **座標表示の退化** であり、元の vector field が未定義だとは限りません。
+これは **座標表示の退化** であり、元のベクトル場が未定義だとは限りません。
 
-例えば Cartesian field
+例えば Cartesian 座標で表した場
 
 $$
 F=(1,0,0)
 $$
 
-は原点で完全に滑らかですが、spherical components は角度に依存し、$r=0$ で spherical basis 自体が定まりません。
+は原点で完全に滑らかですが、球座標成分は角度に依存し、$r=0$ で球座標基底自体が定まりません。
 
 逆に
 
@@ -1271,15 +1271,15 @@ $$
 \frac{1}{r^2}e_r
 $$
 
-は原点で field 自体が未定義で、長さも発散します。
+は原点で場自体が未定義で、長さも発散します。
 
 この区別は PDE・電磁気・流体で重要です。
 
 ---
 
-## 14. vector Laplacian：成分ごとの scalar Laplacian ではない
+## 14. ベクトル・ラプラシアン：成分ごとのスカラー・ラプラシアンではない
 
-Euclidean 三次元で vector Laplacian は
+Euclidean 三次元でベクトル・ラプラシアンは
 
 $$
 \boxed{
@@ -1293,7 +1293,7 @@ $$
 
 として扱えます。
 
-Cartesian basis は一定なので
+Cartesian 基底は一定なので
 
 $$
 \Delta A
@@ -1303,9 +1303,9 @@ $$
 
 です。
 
-しかし曲線座標では basis が位置依存なので、physical components $A_i$ に scalar Laplacian を一つずつかけるだけでは不足します。
+しかし曲線座標では基底が位置依存なので、物理成分 $A_i$ にスカラー・ラプラシアンを一つずつかけるだけでは不足します。
 
-cylindrical coordinates では、右辺の $\Delta$ を scalar Laplacian として
+円柱座標では、右辺の $\Delta$ をスカラー・ラプラシアンとして
 
 $$
 (\Delta A)_\rho
@@ -1341,7 +1341,7 @@ $$
 A=e_\rho
 $$
 
-は physical components が
+は物理成分が
 
 $$
 A_\rho=1,\qquad A_\phi=A_z=0
@@ -1356,21 +1356,21 @@ $$
 \qquad(\rho>0).
 $$
 
-basis 自身が $\phi$ とともに回るためです。
+基底自身が $\phi$ とともに回るためです。
 
-spherical coordinates でも同じ原理で、必要なら
+球座標でも同じ原理で、必要なら
 
 $$
 \nabla(\nabla\cdot A)-\nabla\times(\nabla\times A)
 $$
 
-から構成します。本章では長い成分公式を暗記表として追加せず、**basis variation を含めて再構成できる方法**を正本とします。
+から構成します。本章では長い成分公式を暗記表として追加せず、**基底の変化を含めて再構成できる方法**を正本とします。
 
 ---
 
 ## 15. 演習
 
-#### VC6-A01 cylindrical scale factors
+#### VC6-A01 円柱座標の尺度因子
 - Level: A
 - 目安時間: 15分
 
@@ -1380,7 +1380,7 @@ r(\rho,\phi,z)
 (\rho\cos\phi,\rho\sin\phi,z)
 $$
 
-について coordinate tangent vectors を計算し、
+について座標接ベクトルを計算し、
 
 $$
 h_\rho=1,\qquad
@@ -1458,7 +1458,7 @@ $$
 で、$r_z$ は他の二本と直交するので直交曲線座標であることも確認できます。
 <!-- solution-end -->
 
-#### VC6-A02 cylindrical gradient
+#### VC6-A02 円柱座標の勾配
 - Level: A
 - 目安時間: 15分
 
@@ -1468,7 +1468,7 @@ f(\rho,\phi,z)
 \rho^2z+\sin\phi
 $$
 
-について $\nabla f$ を cylindrical coordinates で求めよ。
+について $\nabla f$ を円柱座標で求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1483,7 +1483,7 @@ f_\phi=\cos\phi,
 f_z=\rho^2.
 $$
 
-[cylindrical coordinates の公式](#prop-vc6-cylindrical) から
+[円柱座標の公式](#prop-vc6-cylindrical) から
 
 $$
 \nabla f
@@ -1510,11 +1510,11 @@ $$
 $$
 <!-- solution-end -->
 
-#### VC6-A03 spherical volume element
+#### VC6-A03 球座標の体積要素
 - Level: A
 - 目安時間: 18分
 
-spherical coordinates の scale factors
+球座標の尺度因子
 
 $$
 h_r=1,\qquad
@@ -1574,7 +1574,7 @@ r^2\sin\theta
 $$
 <!-- solution-end -->
 
-#### VC6-A04 radial scalar Laplacian
+#### VC6-A04 放射状スカラー・ラプラシアン
 - Level: A
 - 目安時間: 18分
 
@@ -1589,7 +1589,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-radial function なので
+放射状関数なので
 
 $$
 \Delta f
@@ -1633,7 +1633,7 @@ $$
 $m=-1$ なら $\Delta(1/r)=0$ が再現されます。
 <!-- solution-end -->
 
-#### VC6-B01 cylindrical div と curl
+#### VC6-B01 円柱座標の発散と回転
 - Level: B
 - 目安時間: 25分
 
@@ -1667,7 +1667,7 @@ A_\phi=\rho z,
 A_z=z^2.
 $$
 
-1. divergence は
+1. 発散は
 
 $$
 \nabla\cdot A
@@ -1701,7 +1701,7 @@ $$
 }.
 $$
 
-2. curl は
+2. 回転は
 
 $$
 (\nabla\times A)_\rho
@@ -1742,7 +1742,7 @@ $$
 $$
 <!-- solution-end -->
 
-#### VC6-B02 axisymmetric swirl の vorticity
+#### VC6-B02 軸対称旋回流の渦度
 - Level: B
 - 目安時間: 25分
 
@@ -1754,7 +1754,7 @@ $$
 
 1. $\nabla\cdot u=0$ を示せ。
 2. $\nabla\times u$ を求めよ。
-3. $U(\rho)=\Omega\rho$ のとき curl を求めよ。
+3. $U(\rho)=\Omega\rho$ のとき回転を求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1785,7 +1785,7 @@ $$
 \boxed{0}.
 $$
 
-2. curl の $\rho,\phi$ 成分は 0 で、
+2. 回転の $\rho,\phi$ 成分は 0 で、
 
 $$
 (\nabla\times u)_z
@@ -1825,7 +1825,7 @@ $$
 $$
 <!-- solution-end -->
 
-#### VC6-B03 inverse-square field と [Gauss--Ostrogradsky theorem](../VC4/index.md#thm-vc4-gauss-divergence)
+#### VC6-B03 逆二乗場と [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)
 - Level: B
 - 目安時間: 30分
 
@@ -1836,13 +1836,13 @@ $$
 について、
 
 1. $r>0$ で $\nabla\cdot A=0$ を示せ。
-2. 半径 $R$ の球面 flux を求めよ。
-3. 1. と 2. が [Gauss--Ostrogradsky theorem](../VC4/index.md#thm-vc4-gauss-divergence) と矛盾しない理由を説明せよ。
+2. 半径 $R$ の球面流束を求めよ。
+3. 1. と 2. が [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence) と矛盾しない理由を説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-1. radial field なので
+1. 放射状場なので
 
 $$
 \nabla\cdot A
@@ -1891,18 +1891,18 @@ $$
 \boxed{4\pi C}.
 $$
 
-3. [Gauss--Ostrogradsky theorem](../VC4/index.md#thm-vc4-gauss-divergence) は球内部を含む閉領域上で $A\in C^1$ であることを要求します。しかし $A=C e_r/r^2$ は $r=0$ で未定義です。
+3. [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence) は球内部を含む閉領域上で $A\in C^1$ であることを要求します。しかし $A=C e_r/r^2$ は $r=0$ で未定義です。
 
-従って原点を含む球へ [Gauss--Ostrogradsky theorem](../VC4/index.md#thm-vc4-gauss-divergence) を直接適用できません。
+従って原点を含む球へ [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence) を直接適用できません。
 
-原点を半径 $\varepsilon$ の小球でくり抜けば、外球の flux $4\pi C$ と内球境界の outward flux $-4\pi C$ が相殺し、divergence の体積積分 0 と一致します。
+原点を半径 $\varepsilon$ の小球でくり抜けば、外球の流束 $4\pi C$ と内球境界の外向き流束 $-4\pi C$ が相殺し、発散の体積積分 0 と一致します。
 <!-- solution-end -->
 
-#### VC6-C01 radial Laplace 方程式の解と原点での未定義性
+#### VC6-C01 放射対称な Laplace 方程式の解と原点での未定義性
 - Level: C
 - 目安時間: 40分
 
-三次元の radial function
+三次元の放射状関数
 
 $$
 f=f(r)
@@ -1922,13 +1922,13 @@ $$
    $$
    であることを導け。
 2. $\nabla f$ を求めよ。
-3. 半径 $R$ の球面で $\nabla f$ の outward flux を求めよ。
-4. $b\ne0$ のとき、$\Delta f=0$ なのに flux が 0 でない理由を、regularity と領域の観点から説明せよ。
+3. 半径 $R$ の球面で $\nabla f$ の外向き流束を求めよ。
+4. $b\ne0$ のとき、$\Delta f=0$ なのに流束が 0 でない理由を、正則性と領域の観点から説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-1. radial Laplacian 公式から
+1. 放射状ラプラシアン公式から
 
 $$
 \Delta f
@@ -1981,7 +1981,7 @@ f'(r)
 -\frac{b}{r^2}.
 $$
 
-$f=f(r)$ なので、[spherical coordinates の gradient 公式](#prop-vc6-spherical) では角度微分項が消え
+$f=f(r)$ なので、[球座標の勾配公式](#prop-vc6-spherical) では角度微分項が消え
 
 $$
 \boxed{
@@ -2022,7 +2022,7 @@ $$
 
 しかし $b\ne0$ なら $f=a+b/r$ も $\nabla f=-b e_r/r^2$ も $r=0$ で未定義で、絶対値が発散します。
 
-[Gauss--Ostrogradsky theorem](../VC4/index.md#thm-vc4-gauss-divergence) を半径 $R$ の球全体へ適用するには、field $\nabla f$ が閉球上で $C^1$ である必要があります。この仮定が原点で壊れています。
+[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence) を半径 $R$ の球全体へ適用するには、場 $\nabla f$ が閉球上で $C^1$ である必要があります。この仮定が原点で壊れています。
 
 したがって
 
@@ -2030,9 +2030,9 @@ $$
 \iiint_{B_R}\Delta f\,dV=0
 $$
 
-と書いて flux が 0 だと結論することはできません。
+と書いて流束が 0 だと結論することはできません。
 
-原点をくり抜いた領域では内側境界 flux が現れ、外側の $-4\pi b$ と相殺します。
+原点をくり抜いた領域では内側境界流束が現れ、外側の $-4\pi b$ と相殺します。
 
-これは spherical coordinates の計算、VC4 の punctured-domain argument、PDE6 の fundamental solution が同じ構造を持つことを示しています。
+これは球座標の計算、VC4 の穴あき領域の議論、PDE6 の基本解が同じ構造を持つことを示しています。
 <!-- solution-end -->

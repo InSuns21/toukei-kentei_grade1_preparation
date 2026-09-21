@@ -1,15 +1,15 @@
-# VC5 曲面上の積分定理・curl・topology
+# VC5 境界循環と曲面上の回転
 
-VC4 までで、二次元の Green theorem と三次元の [Gauss--Ostrogradsky theorem](../VC4/index.md#thm-vc4-gauss-divergence) がそろいました。本章では残る古典的な **曲面上の境界積分定理** を証明し、
+VC4 までで、二次元の Green の定理と三次元の [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence) がそろいました。本章では残る古典的な **曲面上の境界積分定理** を証明し、
 
 - 境界の循環
-- 曲面上の curl の flux
+- 曲面上の回転の流束
 - 曲面の向きと境界の向き
-- 穴のある領域で global potential が壊れる理由
+- 穴のある領域で大域ポテンシャルが壊れる理由
 
 を一つの構造として結びます。
 
-この曲面上の積分定理の核心は、曲面をパラメータ平面へ戻すと Green theorem になることです。一般の微分形式や多様体上の一般定理は使いません。
+この曲面上の積分定理の核心は、曲面をパラメータ平面へ戻すと Green の定理になることです。一般の微分形式や多様体上の一般定理は使いません。
 
 ---
 
@@ -21,7 +21,7 @@ VC3 では曲面の向きを連続な単位法線場で表しました。本章�
 
 <!-- formal-statement-start -->
 > **定義（曲面から誘導される境界向き）**  
-> 向き付けられた正則曲面 patch
+> 向き付けられた正則曲面パッチ
 >
 $$
 r:D\to\mathbb R^3
@@ -37,7 +37,7 @@ $$
 >
 > と整合しているとき、$r(\partial D)$ に入る向きを **曲面から誘導される境界向き** とする。
 >
-> 有限個の patch からなる向き付けられた曲面では、各 patch 上のこの規則が共有境界で整合する向きを境界 $\partial S$ の向きとする。
+> 有限個のパッチからなる向き付けられた曲面では、各パッチ上のこの規則が共有境界で整合する向きを境界 $\partial S$ の向きとする。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-vc5-boundary-orientation -->
@@ -73,15 +73,15 @@ $$
 
 ---
 
-## 2. 境界循環と曲面上の curl
+## 2. 境界循環と曲面上の回転
 
 <a id="thm-vc5-stokes"></a>
 
 <!-- formal-statement-start -->
-> **定理（Kelvin--Stokes theorem）**  
-> $S\subset\mathbb R^3$ を向き付けられた曲面とし、有限個の $C^2$ 正則 surface patches に分割できるとする。共有 patch 境界は有限本の区分的 $C^1$ 曲線からなり、外部境界 $\partial S$ も区分的 $C^1$ とする。
+> **定理（Kelvin--Stokes の定理）**  
+> $S\subset\mathbb R^3$ を向き付けられた曲面とし、有限個の $C^2$ 正則曲面パッチに分割できるとする。共有パッチ境界は有限本の区分的 $C^1$ 曲線からなり、外部境界 $\partial S$ も区分的 $C^1$ とする。
 >
-> $F$ を $S$ の近傍で $C^1$ 級の vector field とする。
+> $F$ を $S$ の近傍で $C^1$ 級のベクトル場とする。
 >
 > $n$ を選んだ曲面向きに対応する単位法線、$\partial S$ を [誘導された境界向き](#def-vc5-boundary-orientation) で向き付けると、
 >
@@ -98,7 +98,7 @@ $$
 
 ### 何が新しいのか
 
-[Gauss--Ostrogradsky theorem](../VC4/index.md#thm-vc4-gauss-divergence) は
+[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence) は
 
 $$
 \text{closed surface の flux}
@@ -108,7 +108,7 @@ $$
 
 を結びました。
 
-[Stokes theorem](#thm-vc5-stokes) は
+[Stokes の定理](#thm-vc5-stokes) は
 
 $$
 \text{boundary curve の circulation}
@@ -118,11 +118,11 @@ $$
 
 を結びます。
 
-境界次元が一つ下がる、という意味で Green theorem と同じ型です。
+境界次元が一つ下がる、という意味で Green の定理と同じ型です。
 
 ### 証明の見取り図
 
-一枚の surface patch
+一枚の曲面パッチ
 
 $$
 r(u,v)
@@ -144,13 +144,13 @@ $$
 \int_{\partial D}P\,du+Q\,dv
 $$
 
-へ戻ります。一方、Green theorem の integrand
+へ戻ります。一方、Green の定理の被積分関数
 
 $$
 Q_u-P_v
 $$
 
-を 合成関数の微分則 で展開すると、ちょうど
+を合成関数の微分則で展開すると、ちょうど
 
 $$
 (\nabla\times F)(r(u,v))
@@ -160,12 +160,12 @@ $$
 
 になります。
 
-複数 patch の場合は全部足し、共有境界が逆向きに二度現れて消えることを使います。
+複数パッチの場合は全部足し、共有境界が逆向きに二度現れて消えることを使います。
 
 <!-- proof-start -->
 ### 証明
 
-まず $S=r(D)$ が一枚の $C^2$ 正則 patch で、
+まず $S=r(D)$ が一枚の $C^2$ 正則パッチで、
 
 $$
 r_u\times r_v
@@ -189,7 +189,7 @@ $$
 
 です。
 
-合成関数の微分則 から
+合成関数の微分則から
 
 $$
 \gamma'(t)
@@ -221,7 +221,7 @@ $$
 \int_{\partial D}P\,du+Q\,dv.
 $$
 
-VC4 の [Green theorem](../VC4/index.md#thm-vc4-green-circulation) により
+VC4 の [Green の定理](../VC4/index.md#thm-vc4-green-circulation) により
 
 $$
 \int_{\partial D}P\,du+Q\,dv
@@ -271,7 +271,7 @@ Q_u-P_v
 (DF(r)r_v)\cdot r_u.
 $$
 
-任意の vector
+任意のベクトル
 
 $$
 a=(a_1,a_2,a_3),
@@ -330,9 +330,9 @@ $$
 \end{aligned}
 $$
 
-これで一枚の patch について示されました。
+これで一枚のパッチについて示されました。
 
-一般の $S$ を有限個の向きの整合した patch
+一般の $S$ を有限個の向きの整合したパッチ
 
 $$
 S_1,\ldots,S_m
@@ -340,7 +340,7 @@ $$
 
 に分割します。各 $S_j$ に上の公式を適用して足します。
 
-二つの patch が共有する内部境界 $\Gamma$ では、一方の誘導向きと他方の誘導向きが逆になるので
+二つのパッチが共有する内部境界 $\Gamma$ では、一方の誘導向きと他方の誘導向きが逆になるので
 
 $$
 \int_\Gamma F\cdot dr
@@ -352,7 +352,7 @@ $$
 
 したがって内部境界はすべて相殺し、外部境界 $\partial S$ だけが残ります。
 
-曲面積分側は patch ごとの積分を足せば $S$ 全体の積分になるため、
+曲面積分側はパッチごとの積分を足せば $S$ 全体の積分になるため、
 
 $$
 \int_{\partial S}F\cdot dr
@@ -365,7 +365,7 @@ $$
 
 ---
 
-## 3. graph surface では Green theorem がそのまま見える
+## 3. グラフ曲面では Green の定理がそのまま見える
 
 曲面
 
@@ -394,7 +394,7 @@ $$
 r_x\times r_y=(-g_x,-g_y,1).
 $$
 
-[Stokes theorem](#thm-vc5-stokes) の右辺は
+[Stokes の定理](#thm-vc5-stokes) の右辺は
 
 $$
 \iint_D
@@ -403,9 +403,9 @@ $$
 (-g_x,-g_y,1)\,dx\,dy.
 $$
 
-左辺は $F(r)\cdot r_x\,dx+F(r)\cdot r_y\,dy$ なので、まさに二変数 Green theorem の形へ戻ります。
+左辺は $F(r)\cdot r_x\,dx+F(r)\cdot r_y\,dy$ なので、まさに二変数 Green の定理の形へ戻ります。
 
-一般 [Stokes theorem](#thm-vc5-stokes) を抽象的な別物として覚える必要はありません。**曲面上の線積分をパラメータ平面へ引き戻した Green theorem** が古典的 [Stokes theorem](#thm-vc5-stokes) です。
+一般 [Stokes の定理](#thm-vc5-stokes) を抽象的な別物として覚える必要はありません。**曲面上の線積分をパラメータ平面へ引き戻した Green の定理** が古典的 [Stokes の定理](#thm-vc5-stokes) です。
 
 ---
 
@@ -433,7 +433,7 @@ $$
 
 を上向きに向けると、境界は反時計回りです。
 
-[Stokes theorem](#thm-vc5-stokes) から
+[Stokes の定理](#thm-vc5-stokes) から
 
 $$
 \int_{\partial S}F\cdot dr
@@ -483,15 +483,15 @@ $$
 
 ---
 
-## 5. curl は単位面積あたりの循環密度
+## 5. 回転は単位面積あたりの循環密度
 
-VC1 では curl を成分公式で定義しました。[Stokes theorem](#thm-vc5-stokes) により、その幾何学的意味を極限として回収できます。
+VC1 では回転を成分公式で定義しました。[Stokes の定理](#thm-vc5-stokes) により、その幾何学的意味を極限として回収できます。
 
 <a id="prop-vc5-curl-density"></a>
 
 <!-- formal-statement-start -->
-> **命題（curl は局所循環密度）**  
-> $F$ を点 $p$ の近傍で $C^1$ 級とし、単位 vector $n$ を固定する。
+> **命題（回転は局所循環密度）**  
+> $F$ を点 $p$ の近傍で $C^1$ 級とし、単位ベクトル $n$ を固定する。
 >
 > $p$ を中心とし法線 $n$ を持つ半径 $\varepsilon$ の平面円板を $S_\varepsilon$、その境界を誘導向きで $\partial S_\varepsilon$ とする。
 >
@@ -512,12 +512,12 @@ $$
 
 ### 証明の見取り図
 
-[Stokes theorem](#thm-vc5-stokes) で分子を curl の面積分へ変えると、左辺は $(\nabla\times F)\cdot n$ の円板上平均になります。円板を一点へ縮めれば、連続性により平均値は点値へ収束します。
+[Stokes の定理](#thm-vc5-stokes) で分子を回転の面積分へ変えると、左辺は $(\nabla\times F)\cdot n$ の円板上平均になります。円板を一点へ縮めれば、連続性により平均値は点値へ収束します。
 
 <!-- proof-start -->
 ### 証明
 
-[Stokes theorem](#thm-vc5-stokes) より
+[Stokes の定理](#thm-vc5-stokes) より
 
 $$
 \int_{\partial S_\varepsilon}F\cdot dr
@@ -571,11 +571,11 @@ $$
 したがって極限は $g(p)$ です。
 <!-- proof-end -->
 
-curl は「回転して見えるか」という曖昧な図形的印象ではなく、**微小ループの循環を面積で割った極限**です。
+回転は「回転して見えるか」という曖昧な図形的印象ではなく、**微小ループの循環を面積で割った極限**です。
 
 ---
 
-## 6. curl grad = 0 と div curl = 0 の積分的意味
+## 6. 「勾配の回転は 0」「回転の発散は 0」の積分的意味
 
 VC1 で
 
@@ -587,7 +587,7 @@ $$
 
 を成分計算で証明しました。積分定理を使うと、これらの意味が見えます。
 
-### 6.1 curl grad = 0
+### 6.1 勾配の回転は 0
 
 $F=\nabla\phi$ とし、$\partial S$ が $S$ の境界なら
 
@@ -602,9 +602,9 @@ $$
 
 これは VC2 の線積分の基本定理が閉曲線上で 0 を与えることと同じです。
 
-### 6.2 div curl = 0
+### 6.2 回転の発散は 0
 
-$F=\nabla\times A$ とし、$\Omega$ が適切な三次元領域なら VC4 の [Gauss--Ostrogradsky theorem](../VC4/index.md#thm-vc4-gauss-divergence) から
+$F=\nabla\times A$ とし、$\Omega$ が適切な三次元領域なら VC4 の [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence) から
 
 $$
 \int_{\partial\Omega}
@@ -616,29 +616,29 @@ $$
 0.
 $$
 
-つまり curl field は閉曲面から正味の source を作りません。
+つまり回転場は閉曲面から正味の湧き出しを作りません。
 
 ---
 
-## 7. irrotational と solenoidal は別の条件
+## 7. 無回転と無発散は別の条件
 
 <a id="def-vc5-irrotational-solenoidal"></a>
 
 <!-- formal-statement-start -->
-> **定義（irrotational・solenoidal）**  
-> $C^1$ vector field $F$ に対して、
+> **定義（無回転・無発散）**  
+> $C^1$ ベクトル場 $F$ に対して、
 >
 $$
 \nabla\times F=0
 $$
 >
-> が成り立つとき $F$ は **irrotational**、
+> が成り立つとき $F$ は **無回転**、
 >
 $$
 \nabla\cdot F=0
 $$
 >
-> が成り立つとき $F$ は **solenoidal**
+> が成り立つとき $F$ は **無発散**
 >
 > とする。
 <!-- formal-statement-end -->
@@ -658,7 +658,7 @@ $$
 \nabla\cdot F=3,
 $$
 
-なので irrotational ですが solenoidal ではありません。
+なので無回転ですが無発散ではありません。
 
 一方
 
@@ -674,21 +674,21 @@ $$
 \nabla\times G=(0,0,2),
 $$
 
-なので solenoidal ですが irrotational ではありません。
+なので無発散ですが無回転ではありません。
 <!-- definition-example-end -->
 
 二つを混同しないことが重要です。
 
-- irrotational は scalar potential と関係する
-- solenoidal は curl による場の表示と関係する
+- 無回転はスカラーポテンシャルと関係する
+- 無発散は回転による場の表示と関係する
 
 という役割分担があります。
 
 ---
 
-## 8. 穴があると curl F = 0 だけでは global potential は出ない
+## 8. 穴があると回転 F = 0 だけでは大域ポテンシャルは出ない
 
-三次元でも VC2 の punctured-plane 現象がそのまま残ります。
+三次元でも VC2 の穴あき平面現象がそのまま残ります。
 
 $$
 U
@@ -744,12 +744,12 @@ $$
 2\pi.
 $$
 
-したがって VC2 の [保存場・経路独立・閉曲線積分の同値](../VC2/index.md#thm-vc2-conservative-equivalence) により、$F$ は $U$ 上で global scalar potential を持ちません。
+したがって VC2 の [保存場・経路独立・閉曲線積分の同値](../VC2/index.md#thm-vc2-conservative-equivalence) により、$F$ は $U$ 上で大域スカラーポテンシャルを持ちません。
 
 <a id="prop-vc5-hole-obstruction"></a>
 
 <!-- formal-statement-start -->
-> **命題（穴は global potential を壊し得る）**  
+> **命題（穴は大域ポテンシャルを壊し得る）**  
 > 上の領域
 >
 $$
@@ -762,20 +762,20 @@ $$
 \nabla\times F=0
 $$
 >
-> を満たすが conservative ではない。
+> を満たすが保存的ではない。
 >
-> このとき単位円 $\gamma$ を境界に持つ通常の円板は $z$ 軸と交わるため、$F$ が $C^1$ である $U$ の内部に spanning surface を取って [Stokes theorem](#thm-vc5-stokes) を適用することはできない。
+> このとき単位円 $\gamma$ を境界に持つ通常の円板は $z$ 軸と交わるため、$F$ が $C^1$ である $U$ の内部に境界を張る曲面を取って [Stokes の定理](#thm-vc5-stokes) を適用することはできない。
 <!-- formal-statement-end -->
 
 ### どの証明機構が壊れたか
 
-「curl が 0 なら [Stokes theorem](#thm-vc5-stokes) で任意の閉曲線積分が 0」と言いたくなります。
+「回転が 0 なら [Stokes の定理](#thm-vc5-stokes) で任意の閉曲線積分が 0」と言いたくなります。
 
-しかしそのためには、閉曲線 $\gamma$ が **field の定義域の中で** 曲面 $S$ の境界になっていなければなりません。
+しかしそのためには、閉曲線 $\gamma$ が **場の定義域の中で** 曲面 $S$ の境界になっていなければなりません。
 
 この例では $\gamma$ が $z$ 軸を一周しているため、通常の円板は除外された軸を横切ります。
 
-さらに、もし $U$ の内部に [Stokes theorem](#thm-vc5-stokes) の仮定を満たす oriented spanning surface $S$ が存在したなら、
+さらに、もし $U$ の内部に [Stokes の定理](#thm-vc5-stokes) の仮定を満たす向き付けられた曲面 $S$ が存在したなら、
 
 $$
 \int_\gamma F\cdot dr
@@ -785,25 +785,25 @@ $$
 0
 $$
 
-となるはずですが、直接計算では左辺は $2\pi$ でした。したがって、そのような spanning surface は $U$ 内には存在しません。
+となるはずですが、直接計算では左辺は $2\pi$ でした。したがって、そのような境界を張る曲面は $U$ 内には存在しません。
 
-失われたものは微分可能性ではなく、領域の topology です。
+失われたものは微分可能性ではなく、領域の位相構造です。
 
 ---
 
-## 9. curl による場の表示とその非一意性
+## 9. 回転による場の表示とその非一意性
 
 <a id="def-vc5-vector-potential"></a>
 
 <!-- formal-statement-start -->
-> **定義（vector potential）**  
-> vector field $F$ に対して
+> **定義（ベクトルポテンシャル）**  
+> ベクトル場 $F$ に対して
 >
 $$
 \nabla\times A=F
 $$
 >
-> を満たす vector field $A$ を、$F$ の **vector potential** とする。
+> を満たすベクトル場 $A$ を、$F$ の **ベクトルポテンシャル** とする。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-vc5-vector-potential -->
@@ -846,13 +846,13 @@ $$
 F.
 $$
 
-したがって $A$ は $F$ の vector potential です。
+したがって $A$ は $F$ のベクトルポテンシャルです。
 <!-- definition-example-end -->
 
 <a id="prop-vc5-vector-potential-solenoidal"></a>
 
 <!-- formal-statement-start -->
-> **命題（vector potential が存在すれば solenoidal）**  
+> **命題（ベクトルポテンシャルが存在すれば無発散）**  
 > $A\in C^2$ とし
 >
 $$
@@ -869,7 +869,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-VC1 の [div curl = 0](../VC1/index.md#thm-vc1-div-curl) から
+VC1 の [回転の発散は 0](../VC1/index.md#thm-vc1-div-curl) から
 
 $$
 \nabla\cdot F
@@ -880,13 +880,13 @@ $$
 $$
 <!-- proof-end -->
 
-逆に「solenoidal なら global vector potential が必ず存在する」とは、領域の topology と境界・減衰条件を無視しては言えません。この逆向きの存在論は後続の分解定理の章で正本化します。
+逆に「無発散なら大域ベクトルポテンシャルが必ず存在する」とは、領域の位相構造と境界・減衰条件を無視しては言えません。この逆向きの存在論は後続の分解定理の章で正本化します。
 
 <a id="prop-vc5-vector-potential-gauge"></a>
 
 <!-- formal-statement-start -->
-> **命題（vector potential の gauge freedom）**  
-> $A$ が $F$ の vector potential で、$\phi\in C^2$ なら
+> **命題（ベクトルポテンシャルのゲージ自由度）**  
+> $A$ が $F$ のベクトルポテンシャルで、$\phi\in C^2$ なら
 >
 $$
 A^\ast
@@ -894,7 +894,7 @@ A^\ast
 A+\nabla\phi
 $$
 >
-> も $F$ の vector potential である。
+> も $F$ のベクトルポテンシャルである。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -908,7 +908,7 @@ $$
 \nabla\times\nabla\phi.
 $$
 
-VC1 の [curl grad = 0](../VC1/index.md#thm-vc1-curl-grad) より第二項は 0 なので
+VC1 の [勾配の回転は 0](../VC1/index.md#thm-vc1-curl-grad) より第二項は 0 なので
 
 $$
 \nabla\times A^\ast
@@ -917,13 +917,13 @@ F.
 $$
 <!-- proof-end -->
 
-つまり vector potential は一般に一意ではありません。物理で現れる gauge freedom の最初の形です。
+つまりベクトルポテンシャルは一般に一意ではありません。物理で現れるゲージ自由度の最初の形です。
 
 ---
 
 ## 10. 同じ境界を持つ二つの曲面
 
-[Stokes theorem](#thm-vc5-stokes) の実用上重要な帰結があります。
+[Stokes の定理](#thm-vc5-stokes) の実用上重要な帰結があります。
 
 $S_1,S_2$ が同じ境界曲線 $C$ を持ち、向きも $C$ 上で一致するように選ばれているなら、
 
@@ -937,14 +937,14 @@ $$
 (\nabla\times F)\cdot n_2\,dS.
 $$
 
-したがって curl の flux は、field が途中で特異にならない限り **どの spanning surface を選ぶかに依りません**。
+したがって回転の流束は、場が途中で特異にならない限り **どの境界を張る曲面を選ぶかに依りません**。
 
 例えば単位円 $C$ に対し、
 
 - $z=0$ の円板
 - 上半球
 
-のどちらを使っても、compatible orientation を選べば同じ値になります。
+のどちらを使っても、整合する向きを選べば同じ値になります。
 
 これは磁場や渦度の計算で、積分しやすい面へ自由に取り替えるための基本技法です。
 
@@ -995,7 +995,7 @@ $$
 
 です。
 
-法線を下向きへ反転すると曲面 orientation が反転するため、誘導境界向きも反転します。したがって 2. は
+法線を下向きへ反転すると曲面向きが反転するため、誘導境界向きも反転します。したがって 2. は
 
 $$
 \gamma_-(t)=(\cos t,-\sin t,0)
@@ -1004,7 +1004,7 @@ $$
 のような時計回りです。
 <!-- solution-end -->
 
-#### VC5-A02 Stokes theorem で円周積分
+#### VC5-A02 Stokes の定理で円周積分
 - Level: A
 - 目安時間: 15分
 
@@ -1021,7 +1021,7 @@ $$
 \int_CF\cdot dr
 $$
 
-を [Stokes theorem](#thm-vc5-stokes) で求めよ。
+を [Stokes の定理](#thm-vc5-stokes) で求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1032,7 +1032,7 @@ $$
 \nabla\times F=(0,0,1).
 $$
 
-よって [Stokes theorem](#thm-vc5-stokes) から
+よって [Stokes の定理](#thm-vc5-stokes) から
 
 $$
 \int_CF\cdot dr
@@ -1049,7 +1049,7 @@ $$
 $$
 <!-- solution-end -->
 
-#### VC5-A03 curl の循環密度
+#### VC5-A03 回転の循環密度
 - Level: A
 - 目安時間: 18分
 
@@ -1073,7 +1073,7 @@ $$
 \nabla\times F=(0,0,2).
 $$
 
-円板を上向きに向けると [Stokes theorem](#thm-vc5-stokes) より
+円板を上向きに向けると [Stokes の定理](#thm-vc5-stokes) より
 
 $$
 \int_{\partial S_\varepsilon}F\cdot dr
@@ -1095,11 +1095,11 @@ $$
 半径に依存せず、$(\nabla\times F)\cdot e_z=2$ と一致します。
 <!-- solution-end -->
 
-#### VC5-A04 irrotational / solenoidal の判定
+#### VC5-A04 無回転 / 無発散の判定
 - Level: A
 - 目安時間: 18分
 
-次の場を irrotational / solenoidal の観点から分類せよ。
+次の場を無回転 / 無発散の観点から分類せよ。
 
 $$
 F_1=(x,y,z),
@@ -1126,7 +1126,7 @@ $$
 \nabla\cdot F_1=3.
 $$
 
-したがって irrotational ですが solenoidal ではありません。
+したがって無回転ですが無発散ではありません。
 
 次に
 
@@ -1142,7 +1142,7 @@ $$
 \nabla\cdot F_2=0.
 $$
 
-したがって solenoidal ですが irrotational ではありません。
+したがって無発散ですが無回転ではありません。
 
 最後に
 
@@ -1174,10 +1174,10 @@ $$
 (-1,-1,-1).
 $$
 
-したがって $F_3$ は solenoidal ですが irrotational ではありません。
+したがって $F_3$ は無発散ですが無回転ではありません。
 <!-- solution-end -->
 
-#### VC5-B01 paraboloid をまたぐ循環
+#### VC5-B01 放物面をまたぐ循環
 - Level: B
 - 目安時間: 25分
 
@@ -1208,7 +1208,7 @@ $$
 \nabla\times F=(0,0,2).
 $$
 
-graph
+グラフ
 
 $$
 z=g(x,y)=1-x^2-y^2
@@ -1226,7 +1226,7 @@ $$
 r_x\times r_y=(-g_x,-g_y,1).
 $$
 
-したがって上向き oriented vector area element は
+したがって上向き向き付きベクトル面積要素は
 
 $$
 n\,dS=(r_x\times r_y)\,dx\,dy
@@ -1258,10 +1258,10 @@ $$
 \boxed{2\pi}.
 $$
 
-曲面自体の面積を計算する必要はありません。curl が $z$ 成分だけを持つため、oriented vector area の $z$ 成分だけが効きます。
+曲面自体の面積を計算する必要はありません。回転が $z$ 成分だけを持つため、向き付きベクトル面積の $z$ 成分だけが効きます。
 <!-- solution-end -->
 
-#### VC5-B02 穴あき領域で Stokes が使えない理由
+#### VC5-B02 穴あき領域で Stokes の定理が使えない理由
 - Level: B
 - 目安時間: 28分
 
@@ -1285,12 +1285,12 @@ $$
 
 1. $U$ 上で $\nabla\times F=0$ を確認せよ。
 2. 単位円 $\gamma(t)=(\cos t,\sin t,0)$ の循環を求めよ。
-3. 1. と 2. が [Stokes theorem](#thm-vc5-stokes) と矛盾しない理由を説明せよ。
+3. 1. と 2. が [Stokes の定理](#thm-vc5-stokes) と矛盾しない理由を説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-1. $F_3=0$ で $z$ 依存もないので curl の $x,y$ 成分は 0 です。$z$ 成分は
+1. $F_3=0$ で $z$ 依存もないので回転の $x,y$ 成分は 0 です。$z$ 成分は
 
 $$
 \frac{\partial}{\partial x}
@@ -1337,14 +1337,14 @@ $$
 \boxed{2\pi}.
 $$
 
-3. [Stokes theorem](#thm-vc5-stokes) を適用するには、$\gamma$ を境界に持つ曲面 $S$ 全体の近傍で $F$ が $C^1$ でなければなりません。
+3. [Stokes の定理](#thm-vc5-stokes) を適用するには、$\gamma$ を境界に持つ曲面 $S$ 全体の近傍で $F$ が $C^1$ でなければなりません。
 
-通常の spanning disk は $z$ 軸と交わりますが、$z$ 軸は $U$ から除かれ、そこで $F$ は未定義です。
+通常の境界を張る円板は $z$ 軸と交わりますが、$z$ 軸は $U$ から除かれ、そこで $F$ は未定義です。
 
-したがって「$\nabla\times F=0$ だから spanning surface 上の curl flux が 0」という議論に必要な曲面が定義域内に存在しません。壊れているのは [Stokes theorem](#thm-vc5-stokes) ではなく、その適用仮定です。
+したがって「$\nabla\times F=0$ だから境界を張る曲面上の回転の流束が 0」という議論に必要な曲面が定義域内に存在しません。壊れているのは [Stokes の定理](#thm-vc5-stokes) ではなく、その適用仮定です。
 <!-- solution-end -->
 
-#### VC5-B03 vector potential と gauge
+#### VC5-B03 ベクトルポテンシャルとゲージ自由度
 - Level: B
 - 目安時間: 25分
 
@@ -1367,7 +1367,7 @@ $$
 
 1. $\nabla\times A=F$ を確認せよ。
 2. $\phi(x,y,z)=xyz$ とし $A^\ast=A+\nabla\phi$ とする。$\nabla\times A^\ast=F$ を示せ。
-3. $F$ が solenoidal であることを確認せよ。
+3. $F$ が無発散であることを確認せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1407,7 +1407,7 @@ xy
 \right).
 $$
 
-直接計算してもよいですが、VC1 の [curl grad = 0](../VC1/index.md#thm-vc1-curl-grad) を使うと
+直接計算してもよいですが、VC1 の [勾配の回転は 0](../VC1/index.md#thm-vc1-curl-grad) を使うと
 
 $$
 \nabla\times A^\ast
@@ -1431,10 +1431,10 @@ $$
 0.
 $$
 
-よって $F$ は solenoidal です。これは vector potential が存在する場は solenoidal という一般命題とも一致します。
+よって $F$ は無発散です。これはベクトルポテンシャルが存在する場は無発散という一般命題とも一致します。
 <!-- solution-end -->
 
-#### VC5-C01 spanning surface の取り替えと field の未定義点
+#### VC5-C01 境界を張る曲面の取り替えと場の未定義点
 - Level: C
 - 目安時間: 40分
 
@@ -1461,9 +1461,9 @@ $$
 を、どちらも境界向きが $C$ と一致するように向き付ける。
 
 1. $\int_{S_1}(\nabla\times A)\cdot n\,dS$ を求めよ。
-2. [Stokes theorem](#thm-vc5-stokes) を使い、$S_2$ 上の同じ flux を曲面積分を直接計算せず求めよ。
-3. 一般に二つの spanning surface $S_1,S_2$ が同じ境界 $C$ を持つとき、field が両曲面の近傍で $C^1$ なら curl flux が一致する理由を説明せよ。
-4. field が両曲面の間のある点で未定義になる場合、この議論でどの仮定を再確認すべきか述べよ。
+2. [Stokes の定理](#thm-vc5-stokes) を使い、$S_2$ 上の同じ流束を曲面積分を直接計算せず求めよ。
+3. 一般に二つの境界を張る曲面 $S_1,S_2$ が同じ境界 $C$ を持つとき、場が両曲面の近傍で $C^1$ なら回転の流束が一致する理由を説明せよ。
+4. 場が両曲面の間のある点で未定義になる場合、この議論でどの仮定を再確認すべきか述べよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1484,7 +1484,7 @@ $$
 \boxed{\pi}.
 $$
 
-2. [Stokes theorem](#thm-vc5-stokes) を $S_1$ に使うと
+2. [Stokes の定理](#thm-vc5-stokes) を $S_1$ に使うと
 
 $$
 \int_C A\cdot dr
@@ -1494,7 +1494,7 @@ $$
 \pi.
 $$
 
-同じ向きの $C$ を境界に持つ $S_2$ にも [Stokes theorem](#thm-vc5-stokes) を使えば
+同じ向きの $C$ を境界に持つ $S_2$ にも [Stokes の定理](#thm-vc5-stokes) を使えば
 
 $$
 \int_{S_2}(\nabla\times A)\cdot n\,dS
@@ -1516,9 +1516,9 @@ $$
 \int_{S_2}(\nabla\times F)\cdot n_2\,dS.
 $$
 
-したがって両者は一致します。重要なのは、両曲面の境界向きが同じ $C$ になるよう orientation をそろえることです。
+したがって両者は一致します。重要なのは、両曲面の境界向きが同じ $C$ になるよう向きをそろえることです。
 
-4. [Stokes theorem](#thm-vc5-stokes) は $F$ が各曲面の近傍で $C^1$ であることを要求します。したがって field が $S_1$ または $S_2$ 上の点で未定義になる、あるいは spanning surface を定義域内に取れない場合、定理をそのまま適用できません。
+4. [Stokes の定理](#thm-vc5-stokes) は $F$ が各曲面の近傍で $C^1$ であることを要求します。したがって場が $S_1$ または $S_2$ 上の点で未定義になる、あるいは境界を張る曲面を定義域内に取れない場合、定理をそのまま適用できません。
 
-穴あき領域では「同じ境界ならどの面でもよい」と無条件に言ってはいけません。**選んだ曲面全体が field の定義域内にあり、必要な正則性を満たすか**を確認する必要があります。
+穴あき領域では「同じ境界ならどの面でもよい」と無条件に言ってはいけません。**選んだ曲面全体が場の定義域内にあり、必要な正則性を満たすか**を確認する必要があります。
 <!-- solution-end -->

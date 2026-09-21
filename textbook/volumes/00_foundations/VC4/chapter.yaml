@@ -1,5 +1,5 @@
 id: "VC4"
-title: "標準ベクトル解析 IV：Green・Gauss--Ostrogradsky と保存則"
+title: "標準ベクトル解析 IV：Green の定理・Gauss--Ostrogradsky の発散定理と保存則"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -8,27 +8,27 @@ prerequisites:
   - RA7
 official_scope: []
 learning_objectives:
-  - Green theoremのcirculation formをsimple regionでFTCから証明し、有限分割へ拡張できる
-  - Green theoremのflux formを外向き法線と正向き境界の関係から導ける
-  - 三次元boxでdivergence theoremを直接証明し、graph domainへ拡張できる
-  - finite decompositionで内部境界fluxが反対向き法線により相殺することを説明できる
-  - Gauss--Ostrogradsky divergence theoremを仮定込みで述べて適用できる
-  - 特異場ではC1仮定が壊れることを確認し、punctured domainで内側境界fluxを追える
+  - Green の定理の循環形を単純領域で微積分学の基本定理から証明し、有限分割へ拡張できる
+  - Green の定理の流束形を外向き法線と正向き境界の関係から導ける
+  - 三次元直方体で発散定理を直接証明し、グラフ領域へ拡張できる
+  - 有限分割で内部境界流束が反対向き法線により相殺することを説明できる
+  - Gauss--Ostrogradsky の発散定理を仮定込みで述べて適用できる
+  - 特異場ではC1仮定が壊れることを確認し、穴あき領域で内側境界流束を追える
   - 局所保存則から積分保存則を導き、任意の小領域での積分形から局所式へ戻る条件を説明できる
-  - PDE6のGreen第一恒等式がVC1のproduct ruleとVC4のdivergence theoremから導かれることを説明できる
+  - PDE6 の Green 第一恒等式がVC1の積の微分則とVC4の発散定理から導かれることを説明できる
 definitions:
   - { id: VC4-DEF-01, name: 局所保存則 }
 theorems:
-  - { id: VC4-THM-01, name: Green theorem circulation form }
-  - { id: VC4-COR-01, name: Green theorem flux form }
-  - { id: VC4-THM-02, name: Gauss--Ostrogradsky divergence theorem }
+  - { id: VC4-THM-01, name: Green の定理（循環形） }
+  - { id: VC4-COR-01, name: Green の定理（流束形） }
+  - { id: VC4-THM-02, name: Gauss--Ostrogradsky の発散定理 }
   - { id: VC4-THM-03, name: 局所保存則から積分保存則 }
   - { id: VC4-PROP-01, name: 任意の小領域での積分保存則から局所式 }
 canonical_examples:
-  - 単位円板の回転場とGreen theorem
-  - radial field x の球面flux
-  - inverse-square fieldのpunctured-domain flux
-  - 固定領域のcontinuity equation
+  - 単位円板の回転場と Green の定理
+  - 放射状ベクトル場 x の球面流束
+  - 逆二乗場の穴あき領域での流束
+  - 固定領域の連続の式
 problem_patterns:
   - VC4-GREEN-CIRCULATION-1
   - VC4-GREEN-FLUX-1

@@ -12,27 +12,28 @@ forward_references:
 
 concepts:
   - id: vector-calculus.green-circulation
-    name: Green theorem circulation form
+    name: Green の定理（循環形）
     kind: theorem
-    aliases: [Green theorem, Greenの定理, circulation form]
-    introduction: inline
+    aliases: [Green theorem, Green の定理, circulation form]
+    introduction: formal
+    introduction_aliases: ["定理（Green の定理：循環形）"]
     requires:
       - vector-calculus.vector-line-integral
       - analysis.iterated-riemann-integral-rectangle
       - analysis.ftc-2
 
   - id: vector-calculus.green-flux
-    name: Green theorem flux form
+    name: Green の定理（流束形）
     kind: corollary
     aliases: [Green theorem flux form, 平面版発散定理]
     introduction: formal
-    introduction_aliases: ["系（Green theorem：flux form）"]
+    introduction_aliases: ["系（Green の定理：流束形）"]
     requires:
       - vector-calculus.green-circulation
       - vector-calculus.divergence
 
   - id: vector-calculus.gauss-divergence
-    name: Gauss--Ostrogradsky divergence theorem
+    name: Gauss--Ostrogradsky の発散定理
     kind: theorem
     aliases: [Gauss theorem, divergence theorem, 発散定理, Gauss--Ostrogradsky]
     introduction: inline

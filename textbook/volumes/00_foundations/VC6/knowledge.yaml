@@ -19,11 +19,11 @@ concepts:
       - vector-calculus.surface-tangent-normal
 
   - id: vector-calculus.curvilinear-scale-factors
-    name: scale factor・位置依存orthonormal basis
+    name: 尺度因子・位置依存正規直交基底
     kind: definition
     aliases: [scale factor, Lamé coefficient, h1 h2 h3, coordinate basis]
     introduction: formal
-    introduction_aliases: ["定義（scale factor と位置依存 orthonormal basis）"]
+    introduction_aliases: ["定義（尺度因子と位置依存正規直交基底）"]
     requires:
       - vector-calculus.orthogonal-curvilinear-coordinates
 
@@ -38,54 +38,54 @@ concepts:
       - analysis.multivariable-riemann-change-of-variables
 
   - id: vector-calculus.curvilinear-gradient
-    name: 直交曲線座標のgradient
+    name: 直交曲線座標の勾配
     kind: proposition
     aliases: [gradient in orthogonal curvilinear coordinates]
     introduction: formal
-    introduction_aliases: ["命題（直交曲線座標の gradient）"]
+    introduction_aliases: ["命題（直交曲線座標の勾配）"]
     requires:
       - vector-calculus.gradient
       - vector-calculus.curvilinear-scale-factors
 
   - id: vector-calculus.curvilinear-divergence
-    name: 直交曲線座標のdivergence
+    name: 直交曲線座標の発散
     kind: proposition
     aliases: [divergence in orthogonal curvilinear coordinates]
     introduction: formal
-    introduction_aliases: ["命題（直交曲線座標の divergence）"]
+    introduction_aliases: ["命題（直交曲線座標の発散）"]
     requires:
       - vector-calculus.divergence
       - vector-calculus.curvilinear-elements
       - vector-calculus.flux-integral
 
   - id: vector-calculus.curvilinear-curl
-    name: 直交曲線座標のcurl
+    name: 直交曲線座標の回転
     kind: proposition
     aliases: [curl in orthogonal curvilinear coordinates]
     introduction: formal
-    introduction_aliases: ["命題（直交曲線座標の curl）"]
+    introduction_aliases: ["命題（直交曲線座標の回転）"]
     requires:
       - vector-calculus.curl
       - vector-calculus.curvilinear-elements
       - vector-calculus.vector-line-integral
 
   - id: vector-calculus.curvilinear-scalar-laplacian
-    name: 直交曲線座標のscalar Laplacian
+    name: 直交曲線座標のスカラー・ラプラシアン
     kind: proposition
     aliases: [Laplacian in orthogonal curvilinear coordinates]
     introduction: formal
-    introduction_aliases: ["命題（直交曲線座標の scalar Laplacian）"]
+    introduction_aliases: ["命題（直交曲線座標のスカラー・ラプラシアン）"]
     requires:
       - vector-calculus.scalar-laplacian
       - vector-calculus.curvilinear-gradient
       - vector-calculus.curvilinear-divergence
 
   - id: vector-calculus.cylindrical-coordinate-formulas
-    name: cylindrical coordinate formulas
+    name: 円柱座標の公式
     kind: proposition
     aliases: [cylindrical coordinate formulas, cylindrical coordinates の公式, 円柱座標の微分演算子公式]
     introduction: formal
-    introduction_aliases: ["命題（cylindrical coordinates の公式）"]
+    introduction_aliases: ["命題（円柱座標の公式）"]
     requires:
       - vector-calculus.curvilinear-gradient
       - vector-calculus.curvilinear-divergence
@@ -93,11 +93,11 @@ concepts:
       - vector-calculus.curvilinear-scalar-laplacian
 
   - id: vector-calculus.spherical-coordinate-formulas
-    name: spherical coordinate formulas
+    name: 球座標の公式
     kind: proposition
     aliases: [spherical coordinate formulas, spherical coordinates の公式, 球座標の微分演算子公式]
     introduction: formal
-    introduction_aliases: ["命題（spherical coordinates の公式）"]
+    introduction_aliases: ["命題（球座標の公式）"]
     requires:
       - vector-calculus.curvilinear-gradient
       - vector-calculus.curvilinear-divergence
