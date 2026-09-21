@@ -1,0 +1,26 @@
+chapter: "TSA3"
+terms:
+  - term: 正定値列
+    english: positive-definite sequence
+    meaning: 任意の有限個の整数時刻と複素係数に対する二次形式が非負になる整数添字列。
+  - term: Herglotz の定理
+    english: Herglotz theorem
+    meaning: 正定値列と円周上の有限非負 Borel 測度の Fourier 係数列とを一対一に対応させる定理。
+  - term: スペクトル測度
+    english: spectral measure
+    meaning: 二次定常過程の自己共分散列を Fourier 係数として持つ一意な有限非負測度。
+  - term: スペクトル密度
+    english: spectral density
+    meaning: スペクトル測度が Lebesgue 測度に絶対連続なときの Radon--Nikodym 密度。
+  - term: 線スペクトル
+    english: line spectrum
+    meaning: スペクトル測度が一点に正の原子質量を持つ周波数成分。
+  - term: 直交増分ランダム測度
+    english: orthogonal-increment random measure
+    meaning: 互いに素な周波数集合の増分が L2 で直交し、制御測度との二次モーメント関係と L2 可算加法性を持つランダム測度。
+  - term: スペクトル確率積分
+    english: spectral stochastic integral
+    meaning: L2(F) と過程が生成する閉線形空間の等長写像を用いて定義する、直交増分ランダム測度に関する L2 積分。
+  - term: スペクトル表現
+    english: spectral representation
+    meaning: 二次定常過程を X_t=∫exp(itλ)Z(dλ) の形で周波数成分の直交積分として表すこと。
