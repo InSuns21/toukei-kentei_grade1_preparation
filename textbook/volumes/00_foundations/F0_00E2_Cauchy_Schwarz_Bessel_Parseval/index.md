@@ -361,9 +361,6 @@ $$
 
 ---
 
-
----
-
 ## 7. Bessel不等式
 
 <a id="thm-f0-00e2-bessel-inequality"></a>
@@ -428,9 +425,6 @@ $$
 \sum_{i=1}^k|\langle x,q_i\rangle|^2.
 $$
 <!-- proof-end -->
-
----
-
 
 ---
 
@@ -507,9 +501,6 @@ $$
 
 の右辺は0です。従ってParseval等式が得られます。
 <!-- proof-end -->
-
----
-
 
 ---
 
