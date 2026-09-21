@@ -1,0 +1,54 @@
+id: "VC7"
+title: "標準ベクトル解析 VII：添字記法・直交基底・成分変換"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - VC4
+  - F0-00E1
+official_scope: []
+learning_objectives:
+  - Einstein の総和規約を用い、自由添字とダミー添字を混同せず成分式を展開・縮約できる
+  - Kronecker のデルタと Levi--Civita 記号を使い、外積と epsilon--epsilon 縮約公式を再構成し、軸性ベクトルの鏡映時の変換を説明できる
+  - 直交デカルト基底変換の下でのスカラー・ベクトル・二階デカルトテンソルの変換則を説明できる
+  - 二項積・縮約・跡・二重縮約・対称部分・反対称部分を計算し、基底不変量を識別できる
+  - ベクトル場の勾配を二階テンソルとして扱い、発散・回転・回転の回転恒等式を添字記法で導ける
+  - 二階テンソル場の発散を定義し、Gauss--Ostrogradsky の発散定理を成分ごとに適用してテンソル版発散定理を導ける
+  - 応力テンソル・表面力・慣性テンソルを計算し、慣性テンソルの半正定値性を説明できる
+  - すべての直交変換で不変な二階テンソルがスカラー倍の単位テンソルに限ることを証明できる
+  - デカルト基底が一定であることと、曲線座標で基底微分が必要になることの境界を説明できる
+definitions:
+  - { id: VC7-DEF-01, name: Einstein の総和規約と自由添字・ダミー添字 }
+  - { id: VC7-DEF-02, name: Kronecker のデルタ }
+  - { id: VC7-DEF-03, name: Levi--Civita 記号 }
+  - { id: VC7-DEF-04, name: 二階デカルトテンソル }
+  - { id: VC7-DEF-05, name: 二項積 }
+  - { id: VC7-DEF-06, name: 二階テンソル場の発散 }
+  - { id: VC7-DEF-07, name: 応力テンソルと表面力 }
+  - { id: VC7-DEF-08, name: 慣性テンソル }
+  - { id: VC7-DEF-09, name: 縮約 }
+  - { id: VC7-DEF-10, name: 跡・二重縮約 }
+  - { id: VC7-DEF-11, name: 軸性ベクトル }
+theorems:
+  - { id: VC7-PROP-01, name: Levi--Civita 記号の縮約公式 }
+  - { id: VC7-PROP-02, name: 二階テンソルの対称・反対称分解 }
+  - { id: VC7-PROP-03, name: ベクトル場の勾配・発散・回転の添字表示 }
+  - { id: VC7-THM-01, name: 二階テンソル版 Gauss--Ostrogradsky の発散定理 }
+  - { id: VC7-PROP-04, name: 慣性テンソルの半正定値性 }
+  - { id: VC7-THM-02, name: 二階等方テンソルの形 }
+canonical_examples:
+  - Kronecker のデルタによる添字の縮約
+  - Levi--Civita 記号による外積と 回転の回転恒等式
+  - 直交基底変換による二階テンソル成分の変換
+  - 速度勾配の対称・反対称分解
+  - 応力テンソルの表面力と発散
+  - 離散点質量系の慣性テンソル
+problem_patterns:
+  - VC7-INDEX-CONTRACTION-1
+  - VC7-BASIS-TRANSFORM-1
+  - VC7-SYMMETRIC-SKEW-1
+  - VC7-TENSOR-DIVERGENCE-1
+  - VC7-STRESS-INERTIA-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 5.0, review: 1.0 }

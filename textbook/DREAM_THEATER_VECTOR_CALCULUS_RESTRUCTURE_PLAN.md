@@ -20,14 +20,18 @@
   - VC5 Stokes theorem・curl・topology
   - VC6 直交曲線座標
   - 各章に `knowledge.yaml` / `glossary.yaml`、A4/B3/C1 演習、全問詳細解答を実装。
-- **公開導線：VC1--VC6 を反映済み**
+- **Phase 3：VC7 実装完了（2026-09-22）**
+  - VC7 デカルトテンソル・添字記法
+  - Einstein の総和規約、Kronecker のデルタ、Levi--Civita 記号、二階テンソル、応力・慣性テンソルまでを実装。
+  - A4/B3/C1 演習、全問詳細解答、`knowledge.yaml` / `glossary.yaml` を実装。
+- **公開導線：VC1--VC7 を反映済み**
   - `dream-theater-index.json`
   - `dream-theater-standard-math-core.yaml` / `.md`
   - `dream-theater.md`
 - **未実装**
-  - Phase 3：VC7 Cartesian tensor、VC8 Helmholtz decomposition、VC9 数理物理 bridge
+  - Phase 3 後半：VC8 Helmholtz decomposition、VC9 数理物理 bridge
 
-未実装の VC7--VC9 は reader index / concept owner として先行公開しない。
+未実装の VC8--VC9 は reader index / concept owner として先行公開しない。
 
 ## 0. 位置付け
 
@@ -491,7 +495,7 @@ Stokes            mechanics
 | VC4 | VC2 + VC3 + RA7 |
 | VC5 | VC2 + VC3 + VC4 |
 | VC6 | VC5 |
-| VC7 | VC1 + LA1 + LA3C |
+| VC7 | VC4 + F0-00E1 |
 | VC8 | VC5 + PDE6 |
 | VC9 | VC7 + VC8 |
 
@@ -627,10 +631,10 @@ VC5 → VC6
 ### Phase 3：理論物理向け拡張
 
 ```text
-VC7 → VC8 → VC9
+VC7 ✅ → VC8 → VC9
 ```
 
-Cartesian tensor、Helmholtz decomposition、保存則・流体・Maxwell bridge を整備する。
+VC7 のデカルトテンソル・添字記法は実装完了。次に Helmholtz decomposition、保存則・流体・Maxwell bridge を整備する。
 
 ### Phase 4：PDE6 再監査
 

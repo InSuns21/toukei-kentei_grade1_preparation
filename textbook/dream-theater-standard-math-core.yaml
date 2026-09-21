@@ -323,6 +323,14 @@ nodes:
     implemented_at: 2026-09-22
     implementation_path: textbook/volumes/00_foundations/VC6/index.md
     prerequisites: [VC5]
+  - id: VC7
+    title: 添字記法・直交基底・成分変換
+    area: vector-calculus
+    tier: core-advanced-standard
+    status: implemented
+    implemented_at: 2026-09-22
+    implementation_path: textbook/volumes/00_foundations/VC7/index.md
+    prerequisites: [VC4]
 
   - id: MT0
     title: Borel・測度・Caratheodory・Lebesgue正則性
@@ -567,7 +575,7 @@ implementation_batches:
     nodes: [RA6A, RA7, RA8]
   - order: 9
     id: vector-calculus-core
-    nodes: [VC1, VC2, VC3, VC4, VC5, VC6]
+    nodes: [VC1, VC2, VC3, VC4, VC5, VC6, VC7]
 
 deferred_integrations:
   - id: dream-theater-facade-entrypoint
