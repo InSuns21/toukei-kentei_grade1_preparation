@@ -84,31 +84,34 @@ $$
 <!-- definition-example-start: def-f0-00f2-singular-values-right-vectors -->
 ### 2.1 例：対角行列の特異値
 
-$$
+**定義の確認**：上の定義条件をこの具体例で直接確認します。
+
+
+$
 A=
 \begin{pmatrix}
 3&0\\
 0&2
 \end{pmatrix}
-$$
+$
 
 なら
 
-$$
+$
 A^{\mathsf T}A=
 \begin{pmatrix}
 9&0\\
 0&4
 \end{pmatrix}.
-$$
+$
 
 従って $\lambda_1=9,\lambda_2=4$ で、
 
-$$
+$
 \sigma_1=3,
 \qquad
 \sigma_2=2.
-$$
+$
 
 対応する右特異ベクトルは $v_1=e_1,v_2=e_2$ と取れます。
 <!-- definition-example-end -->
@@ -164,19 +167,22 @@ $$
 <!-- definition-example-start: def-f0-00f2-left-singular-vectors -->
 ### 3.1 例：左特異ベクトルを作る
 
+**定義の確認**：上の定義条件をこの具体例で直接確認します。
+
+
 前節の
 
-$$
+$
 A=\operatorname{diag}(3,2)
-$$
+$
 
 では
 
-$$
+$
 u_1=\frac{Ae_1}{3}=e_1,
 \qquad
 u_2=\frac{Ae_2}{2}=e_2.
-$$
+$
 
 従って左特異ベクトルも標準基底になります。
 <!-- definition-example-end -->
@@ -408,16 +414,19 @@ $$
 <!-- definition-example-start: def-f0-00f2-operator-norm -->
 ### 8.1 例：対角行列の最大伸長
 
+**定義の確認**：上の定義条件をこの具体例で直接確認します。
+
+
 $A=\operatorname{diag}(3,2)$ とし、$\|x\|=1$ とします。すると
 
-$$
+$
 \|Ax\|^2
 =
 9x_1^2+4x_2^2
 \le
 9(x_1^2+x_2^2)
 =9.
-$$
+$
 
 従って $\|Ax\|\le3$ で、$x=e_1$ なら等号です。よって $\|A\|_{\mathrm{op}}=3$ です。
 <!-- definition-example-end -->
