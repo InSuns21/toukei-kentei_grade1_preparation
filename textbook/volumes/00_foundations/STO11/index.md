@@ -1,4 +1,4 @@
-# STO11：Markov process・semigroup・generator・martingale problem — 確率過程を局所作用素で読む
+# STO11：状態から未来を記述する — 確率過程を局所作用素で読む
 
 <!-- definition-example-audit: strict -->
 
@@ -12,23 +12,23 @@ $$
 
 本章では視点を反転します。
 
-$$
+$
 \boxed{
-\text{path の未来分布}
+\text{現在状態からの未来分布}
 \longleftrightarrow
-\text{semigroup}
+\text{時間発展作用素}
 \longleftrightarrow
-\text{generator}
+\text{局所微分作用素}
 \longleftrightarrow
-\text{martingale problem}
+\text{標本路法則の特徴付け}
 }
-$$
+$
 
 を作ります。
 
-この対応が重要なのは、generator
+この対応が重要なのは、SDE の drift と diffusion coefficient から得られる二階微分作用素
 
-$$
+$
 Lf
 =
 b\cdot\nabla f
@@ -36,15 +36,15 @@ b\cdot\nabla f
 \frac12\operatorname{tr}(aD^2f),
 \qquad
 a=\sigma\sigma^\top
-$$
+$
 
 が、同時に
 
 - diffusion の infinitesimal dynamics
-- backward Kolmogorov equation
-- forward Kolmogorov / Fokker--Planck equation
-- Feynman--Kac formula
-- martingale problem
+- 時間後向きの関数発展
+- 分布の前向き発展
+- Feynman--Kac による確率表現
+- 標本路法則の特徴付け
 - 後続の stochastic control / HJB
 
 の共通言語になるからです。
@@ -63,7 +63,7 @@ $$
 
 が $B_s$ の関数だけで書けました。
 
-一般の Markov process では、この「現在状態から未来分布を返す装置」を transition kernel として切り出します。
+一般化するときは、この「現在状態から未来分布を返す装置」そのものを最初の対象として切り出します。
 
 <a id="def-sto11-transition-kernel"></a>
 
@@ -276,7 +276,7 @@ P_{s+t}f(x).
 \end{aligned}
 $$
 
-semigroup law は「時間 $s$ 進めてから $t$ 進めること」と「一度に $s+t$ 進めること」が一致することを表しています。
+この時間合成則は「時間 $s$ 進めてから $t$ 進めること」と「一度に $s+t$ 進めること」が一致することを表しています。
 <!-- definition-example-end -->
 
 <a id="prop-sto11-chapman-kolmogorov"></a>
@@ -449,15 +449,15 @@ P_tf(X_s^x).
 $$
 <!-- proof-end -->
 
-この命題により、以下で SDE solution family に対して semigroup と generator を使う論理が閉じます。
+この命題により、以下で SDE solution family の時間発展作用素とその局所変化率を扱う論理が閉じます。
 
 ---
 
-## 5. infinitesimal generator
+## 5. 時刻 0 直後の変化率を取り出す
 
-semigroup は全時間の遷移を持っています。
+前節までの作用素族は全時間の遷移を持っています。
 
-generator はそのうち $t=0$ 直後の一次変化だけを抜き出します。
+ここから、そのうち $t=0$ 直後の一次変化だけを抜き出します。
 
 <a id="def-sto11-generator"></a>
 
@@ -476,12 +476,12 @@ $$
 >
 > が有限値として存在するとき、$f$ は pointwise generator の domain $D(L)$ に属するといい、この極限で $Lf$ を定める。
 >
-> 一方、後半で扱う Feller semigroup のように $C_0(\mathbb R^d)$ 上で sup norm に関して強連続な場合には
+> 一方、後半で扱う $C_0(\mathbb R^d)$ 上の作用素族のように sup norm に関して強連続な場合には
 >
 $$
 \left\|
 \frac{P_tf-f}{t}-Lf
-\right\|_{\mathcal X}
+\right\|_\infty
 \to0
 $$
 >
@@ -490,7 +490,7 @@ $$
 
 本章の diffusion 計算ではまず pointwise generator を直接求めます。
 
-後半の Feller semigroup ではこの sup-norm 版が標準です。pointwise limit に加えて sup-norm convergence まで確認できる関数では、両者は同じ微分作用素表示を与えます。
+後半の $C_0$ 上の理論ではこの sup-norm 版が標準です。pointwise limit に加えて sup-norm convergence まで確認できる関数では、両者は同じ微分作用素表示を与えます。
 
 どちらの場合も
 
@@ -532,7 +532,7 @@ $$
 
 ---
 
-## 6. Itô diffusion の generator
+## 6. SDE から局所微分作用素を計算する
 
 STO9 の SDE
 
@@ -676,9 +676,9 @@ $$
 
 ---
 
-## 7. Dynkin formula
+## 7. 瞬間的な平均変化率を有限時間へ積分する
 
-generator は「瞬間的な平均変化率」です。
+前節で得た局所作用素は「瞬間的な平均変化率」を表します。
 
 それを時間積分すれば有限時間の平均変化になります。
 
@@ -806,7 +806,7 @@ generator は Brown 運動の variance growth を再構成しています。
 
 ---
 
-## 8. backward Kolmogorov equation
+## 8. 時間発展作用素を微分する
 
 semigroup law
 
@@ -1287,11 +1287,11 @@ $$
 
 ---
 
-## 11. generator から law を定める：martingale problem
+## 11. 局所作用素から標本路法則を特徴付ける
 
 SDE は Brown 運動 $W$ を明示します。
 
-martingale problem では Brown 運動を最初から書かず、
+ここでは Brown 運動を最初から書かず、
 
 $$
 \boxed{
