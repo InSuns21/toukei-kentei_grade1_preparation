@@ -297,6 +297,7 @@ Encore III 本線では distributional solution、variational 弱解、energy so
 11. [STO10 弱解・Girsanov](textbook/volumes/00_foundations/STO10/index.md)
 12. [STO11 マルコフ過程・半群・生成作用素・マルチンゲール問題](textbook/volumes/00_foundations/STO11/index.md)
 13. [STO12 ブラウン運動のマルチンゲール表現](textbook/volumes/00_foundations/STO12/index.md)
+14. [STO13 ポアソン過程・連続時間マルコフ連鎖・ランダム測度](textbook/volumes/00_foundations/STO13/index.md)
 
 旧 Encore IV の SP / TS 個別章は backup / migration source として残しますが、現行主線からは外しています。新 STO / TSA 章は、本文・証明・直接例・演習・詳細解答・検証まで完成した章だけ順次ここへ追加します。
 

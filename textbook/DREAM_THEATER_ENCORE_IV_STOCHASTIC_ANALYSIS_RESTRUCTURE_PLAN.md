@@ -593,7 +593,7 @@ ARMA / ergodicity / Kalman
 
 ## 13. 実装進捗
 
-最終更新: 2026-09-21
+最終更新: 2026-09-22
 
 - Phase 0「ルーティングと設計台帳」：完了。
 - 旧 Encore IV の SP / TS 章を archive / migration source 扱いへ切り替え、reader-facing index と目次から除外した。
@@ -647,4 +647,9 @@ ARMA / ergodicity / Kalman
 - representation theorem は terminal stochastic integral の closed range を Itô isometry から証明し、deterministic exponential martingale がその値域に入ることを確認した上で、Gaussian exponential vectors の totality を一次元 Gaussian の signed-measure / characteristic-function argument、有限独立 Gaussian product、dyadic Brownian information、Lévy 上昇定理で閉じた。
 - terminal variable representation から conditional expectation process と Brownian predictable representation property を導き、独立 Brownian noise による enlarged filtration では PRP が失敗する機構を quadratic covariation で示した。stochastic control / mathematical finance への橋は存在・一意性と explicit integrand 同定を分離して記述し、Clark--Ocone formula は停止線の外に保った。
 - STO12 は本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで実装済み。
-- 現在地：Phase 3 は STO12 完了。次の実装対象は STO13「Poisson process・continuous-time Markov chain・random measure」。
+- Phase 4：STO13「ポアソン過程・連続時間マルコフ連鎖・ランダム測度」を実装。ポアソン過程 / 指数待ち時間 / 補償ポアソンマルチンゲール / 計数過程の補償過程 / 有限状態 CTMC / Q-行列 / 跳躍連鎖・滞在時間 / Kolmogorov 後退・前進方程式 / 生成作用素マルチンゲール / ポアソンランダム測度 / 補償ポアソンランダム測度を、主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで閉じた。
+- STO13 の direct prerequisite は STO2・F0-00D2C とした。連続時間マルチンゲールは STO2 の条件付き期待値による定義を連続時間添字へ直接拡張して逐一検証し、STO5 の連続局所マルチンゲール一般論や STO11 の一般生成作用素理論を theorem 本体の prerequisite にしない。STO11 は有限状態 Q の生成作用素構造を一般論と対応付ける補助参照に留めた。
+- 有限状態 CTMC は Q-行列から跳躍連鎖と指数滞在時間で構成し、最大跳躍率 q_* が 0 の全吸収状態の場合を分離した上で、q_*>0 では exponential 変数の部分和が a.s. 発散することを直接評価して非爆発性を証明した。可算状態では q_n=n^2 の純粋出生過程が a.s. 有限時間で爆発する反例を置き、有限状態仮定が使われる場所を明示した。
+- ポアソンランダム測度では有限強度集合上の Poisson 計数と互いに素な集合の独立性から補償ランダム測度を構成し、決定論的単関数に対する平均0・L2 等長性・マルチンゲール性を証明した。複合ポアソン過程の特性関数、Lévy exponent、一般の予測可能被積分関数に対する確率積分は STO14 の canonical content として先取りしない。
+- STO13 は本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答・chapter / knowledge / glossary まで実装済み。
+- 現在地：Phase 4 は STO13 完了。次の実装対象は STO14「jump stochastic calculus・Lévy process」。

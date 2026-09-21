@@ -1,0 +1,118 @@
+chapter: STO13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - STO2
+  - F0-00D2C
+
+forward_references:
+  - stochastic.markov-generator
+  - stochastic.dynkin-formula
+
+concepts:
+  - id: stochastic.poisson-process
+    name: ポアソン過程
+    kind: definition
+    aliases: ["Poisson process", "Poisson counting process"]
+    introduction: formal
+    introduction_aliases: ["定義（ポアソン過程）"]
+    requires:
+      - stochastic.stochastic-process
+      - stochastic.filtration
+
+  - id: stochastic.poisson-exponential-waiting
+    name: ポアソン過程の指数待ち時間
+    kind: theorem
+    aliases: ["exponential waiting time", "Poisson arrival times"]
+    introduction: formal
+    introduction_aliases: ["定理（ポアソン過程の待ち時間）"]
+    requires:
+      - stochastic.poisson-process
+
+  - id: stochastic.compensated-poisson-martingale
+    name: 補償ポアソンマルチンゲール
+    kind: proposition
+    aliases: ["compensated Poisson martingale", "N_t-lambda t"]
+    introduction: formal
+    introduction_aliases: ["命題（補償ポアソン過程はマルチンゲール）"]
+    requires:
+      - stochastic.poisson-process
+      - stochastic.discrete-martingale
+
+  - id: stochastic.counting-process-compensator
+    name: 計数過程の補償過程
+    kind: definition
+    aliases: ["counting-process compensator", "compensator"]
+    introduction: formal
+    introduction_aliases: ["定義（計数過程の補償過程）"]
+    requires:
+      - stochastic.predictable-process
+      - stochastic.discrete-martingale
+
+  - id: stochastic.ctmc-q-matrix
+    name: 有限状態 Q-行列と連続時間マルコフ連鎖
+    kind: definition
+    aliases: ["Q-matrix", "continuous-time Markov chain", "CTMC"]
+    introduction: formal
+    introduction_aliases: ["定義（有限状態 Q-行列と連続時間マルコフ連鎖）"]
+    requires:
+      - stochastic.stochastic-process
+
+  - id: stochastic.ctmc-jump-chain-holding-time
+    name: 有限状態 CTMC の跳躍連鎖・滞在時間構成
+    kind: theorem
+    aliases: ["jump chain and holding time construction", "CTMC construction"]
+    introduction: formal
+    introduction_aliases: ["定理（有限状態 CTMC の跳躍連鎖・滞在時間構成）"]
+    requires:
+      - stochastic.ctmc-q-matrix
+      - stochastic.poisson-exponential-waiting
+
+  - id: stochastic.ctmc-kolmogorov-equations
+    name: 有限状態 CTMC の Kolmogorov 後退・前進方程式
+    kind: theorem
+    aliases: ["finite-state CTMC Kolmogorov equations", "CTMC Kolmogorov equations"]
+    introduction: formal
+    introduction_aliases: ["定理（有限状態 CTMC の Kolmogorov 方程式）"]
+    requires:
+      - stochastic.ctmc-jump-chain-holding-time
+
+  - id: stochastic.ctmc-generator-martingale
+    name: 有限状態 CTMC の生成作用素マルチンゲール
+    kind: proposition
+    aliases: ["CTMC generator martingale", "finite-state Dynkin martingale"]
+    introduction: formal
+    introduction_aliases: ["命題（有限状態 CTMC の生成作用素マルチンゲール）"]
+    requires:
+      - stochastic.ctmc-kolmogorov-equations
+      - stochastic.discrete-martingale
+
+  - id: stochastic.poisson-random-measure
+    name: ポアソンランダム測度
+    kind: definition
+    aliases: ["Poisson random measure", "PRM"]
+    introduction: formal
+    introduction_aliases: ["定義（ポアソンランダム測度）"]
+    requires:
+      - stochastic.poisson-process
+      - measure.product-measure
+
+  - id: stochastic.compensated-poisson-random-measure
+    name: 補償ポアソンランダム測度
+    kind: definition
+    aliases: ["compensated Poisson random measure", "compensated PRM"]
+    introduction: formal
+    introduction_aliases: ["定義（補償ポアソンランダム測度）"]
+    requires:
+      - stochastic.poisson-random-measure
+
+  - id: stochastic.compensated-prm-simple-isometry
+    name: 補償ポアソンランダム測度の単関数 L2 等長性
+    kind: theorem
+    aliases: ["simple compensated PRM isometry", "Poisson random measure L2 isometry"]
+    introduction: formal
+    introduction_aliases: ["定理（補償ポアソンランダム測度の単関数 L2 等長性）"]
+    requires:
+      - stochastic.compensated-poisson-random-measure
+      - measure.product-measure
+      - stochastic.discrete-martingale

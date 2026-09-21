@@ -56,7 +56,7 @@ TSA1--TSA6
 10. [STO10：弱解・Girsanov](../STO10/index.md) — 実装済み
 11. [STO11：マルコフ過程・半群・生成作用素・マルチンゲール問題](../STO11/index.md) — 実装済み
 12. [STO12：ブラウン運動のマルチンゲール表現](../STO12/index.md) — 実装済み
-13. STO13：ポアソン process・continuous-time Markov chain・random measure
+13. [STO13：ポアソン過程・連続時間マルコフ連鎖・ランダム測度](../STO13/index.md) — 実装済み
 14. STO14：Lévy process・jump stochastic calculus
 
 ---
@@ -171,4 +171,6 @@ STO5 では STO2 の bounded optional sampling を dyadic approximation で連�
 
 [STO11「マルコフ過程・半群・生成作用素・マルチンゲール問題」](../STO11/index.md#def-sto11-markov-process) も実装済みです。遷移核と Markov 半群から生成作用素を定義し、global Lipschitz SDE の Markov 性、拡散生成作用素、Dynkin formula、backward / forward Kolmogorov equation、Fokker--Planck、Feynman--Kac verification formula まで接続しました。さらに SDE からマルチンゲール問題への移行と、nondegenerate 拡散でのブラウン運動復元による逆向きを証明し、well-posed マルチンゲール問題から強マルコフ性が生じる一般定理は canonical-space regularity を要する技術的入力として境界を明示しています。
 
-[STO12「ブラウン運動のマルチンゲール表現」](../STO12/index.md#thm-sto12-martingale-representation) も実装済みです。ブラウン natural フィルトレーション上で terminal 確率積分の closed range を Itô isometry から示し、deterministic exponential マルチンゲールの Gaussian totalityを一次元特性関数の一意性・有限独立 Gaussian product・dyadic information・Lévy 上昇定理から証明しました。その稠密性を closed range へ回収して任意の $L^2(\mathcal F_T^B)$ terminal variable の一意な確率積分 representation を得て、conditional expectation process と predictable representation property まで閉じています。独立ブラウン雑音でフィルトレーションを拡大すると PRP が壊れる反例と、Ornstein--Uhlenbeck terminal payoff の explicit integrand まで演習で確認します。\n\n現在地は **Phase 3：STO12 完了。次は STO13「ポアソン process・continuous-time Markov chain・random measure」** です。
+[STO12「ブラウン運動のマルチンゲール表現」](../STO12/index.md#thm-sto12-martingale-representation) も実装済みです。ブラウン natural フィルトレーション上で terminal 確率積分の closed range を Itô isometry から示し、deterministic exponential マルチンゲールの Gaussian totalityを一次元特性関数の一意性・有限独立 Gaussian product・dyadic information・Lévy 上昇定理から証明しました。その稠密性を closed range へ回収して任意の $L^2(\mathcal F_T^B)$ terminal variable の一意な確率積分 representation を得て、conditional expectation process と predictable representation property まで閉じています。独立ブラウン雑音でフィルトレーションを拡大すると PRP が壊れる反例と、Ornstein--Uhlenbeck terminal payoff の explicit integrand まで演習で確認します。\n\n[STO13「ポアソン過程・連続時間マルコフ連鎖・ランダム測度」](../STO13/index.md#def-sto13-poisson-process) も実装済みです。ポアソン過程の指数待ち時間と補償マルチンゲール、有限状態 Q-行列からの跳躍連鎖・滞在時間構成、Kolmogorov 後退・前進方程式、生成作用素マルチンゲールを章内で閉じました。さらにポアソンランダム測度と補償ランダム測度を定義し、決定論的単関数に対する L2 等長性まで証明しています。可算状態では q_n=n^2 の純粋出生過程が有限時間で爆発する反例を置き、有限状態仮定が非爆発性を保証する機構も明示しました。複合ポアソン過程・Lévy 理論・一般の予測可能被積分関数に対する跳躍型確率積分は STO14 の正本として先取りしていません。
+
+現在地は **Phase 4：STO13 完了。次は STO14「Lévy process・jump stochastic calculus」** です。

@@ -1,0 +1,52 @@
+id: "STO13"
+title: "Encore IV 確率解析 XIII：ポアソン過程・連続時間マルコフ連鎖・ランダム測度"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - STO2
+  - F0-00D2C
+official_scope: []
+learning_objectives:
+  - ポアソン過程を独立定常増分とポアソン分布で定義し、到着時刻と指数待ち時間の関係を導ける
+  - 補償ポアソン過程 N_t-lambda t がマルチンゲールであることを条件付き期待値から証明できる
+  - 計数過程の補償過程の意味を説明し、ポアソン過程では lambda t が補償過程になることを確認できる
+  - 有限状態連続時間マルコフ連鎖の Q-行列、跳躍連鎖、滞在時間を相互に変換できる
+  - 有限状態 CTMC を跳躍連鎖と指数滞在時間から構成し、非爆発性を証明できる
+  - CTMC の生成作用素 Qf と短時間遷移確率を結び、Kolmogorov 後退・前進方程式を導ける
+  - 有限状態 CTMC の f(X_t)-f(X_0)-int_0^t Qf(X_s)ds がマルチンゲールになることを証明できる
+  - ポアソンランダム測度と強度測度を定義し、有限強度集合上の計数過程をポアソン過程として読み出せる
+  - 補償ポアソンランダム測度に対する決定論的単関数型積分のマルチンゲール性と L2 等長性を証明できる
+  - 可算状態 Q-行列では爆発が起こり得ることを純粋出生過程の例で説明できる
+definitions:
+  - { id: STO13-DEF-01, name: "ポアソン過程" }
+  - { id: STO13-DEF-02, name: "計数過程の補償過程" }
+  - { id: STO13-DEF-03, name: "有限状態 Q-行列と連続時間マルコフ連鎖" }
+  - { id: STO13-DEF-04, name: "ポアソンランダム測度" }
+  - { id: STO13-DEF-05, name: "補償ポアソンランダム測度" }
+theorems:
+  - { id: STO13-THM-01, name: "ポアソン過程の待ち時間は独立同分布の指数分布" }
+  - { id: STO13-PROP-01, name: "補償ポアソン過程はマルチンゲール" }
+  - { id: STO13-THM-02, name: "有限状態 CTMC の跳躍連鎖・滞在時間構成" }
+  - { id: STO13-THM-03, name: "有限状態 CTMC の Kolmogorov 後退・前進方程式" }
+  - { id: STO13-PROP-02, name: "有限状態 CTMC の生成作用素マルチンゲール" }
+  - { id: STO13-THM-04, name: "補償ポアソンランダム測度の単関数 L2 等長性" }
+canonical_examples:
+  - "率 lambda のポアソン過程と指数待ち時間"
+  - "N_t-lambda t の補償ポアソンマルチンゲール"
+  - "二状態 CTMC の明示的な遷移行列"
+  - "有限印空間上の印付きポアソンランダム測度"
+  - "有限状態 CTMC の生成作用素マルチンゲール"
+  - "q_n=n^2 純粋出生過程の爆発"
+problem_patterns:
+  - STO13-POISSON-WAITING-1
+  - STO13-COMPENSATED-POISSON-1
+  - STO13-TWO-STATE-CTMC-1
+  - STO13-PRM-BASIC-1
+  - STO13-QMATRIX-CONSTRUCTION-1
+  - STO13-KOLMOGOROV-EQUATION-1
+  - STO13-COMPENSATED-PRM-ISOMETRY-1
+  - STO13-CTMC-GENERATOR-MARTINGALE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10.0, exercises: 7.0, review: 2.0 }
