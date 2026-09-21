@@ -38,7 +38,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-vc3-regular-surface -->
-**定義の確認：球面 patch**
+**定義の確認**
+
+球面 patch を直接確認します。
 
 単位球面のうち極を除く部分を
 
@@ -427,7 +429,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-vc3-oriented-area-flux -->
-**定義の確認：平面を通る一定場**
+**定義の確認**
+
+平面を通る一定場で直接確認します。
 
 $$
 r(u,v)=(u,v,0),
