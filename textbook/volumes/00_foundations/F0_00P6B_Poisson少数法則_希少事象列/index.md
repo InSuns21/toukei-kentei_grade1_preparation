@@ -1,4 +1,4 @@
-# F0-00P6B：希少 Bernoulli 三角配列の Poisson 極限
+# F0-00P6B：成功確率がばらつく Bernoulli 配列の Poisson 極限
 
 通常教材 P4-02 では、二項分布
 
