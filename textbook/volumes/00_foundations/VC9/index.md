@@ -504,11 +504,17 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（非圧縮平面流の流れ関数）**  
-> $D\subset\mathbb R^2$ を [VC2 の星型領域](../VC2/index.md#def-vc2-star-shaped)とし、
+> $D\subset\mathbb R^2$ を領域とし、ある $a\in D$ が存在して、すべての $x\in D$ と $0\le t\le1$ に対し
 >
-$$
+$
+(1-t)a+tx\in D
+$
+>
+> が成り立つとする。また
+>
+$
 u=(u_1,u_2,0)\in C^1(D;\mathbb R^3)
-$$
+$
 >
 > が
 >
@@ -564,7 +570,7 @@ $$
 0.
 $$
 
-$D$ は星型であり、平面回転が 0 なので、[VC2 の星型領域上の初等 Poincaré の補題](../VC2/index.md#thm-vc2-poincare-star)から、ある $\psi$ が存在して
+上で仮定した線分条件と平面回転が 0 であることから、[VC2 の初等 Poincaré の補題](../VC2/index.md#thm-vc2-poincare-star)を適用でき、ある $\psi$ が存在して
 
 $$
 \nabla\psi=F.
