@@ -1576,7 +1576,7 @@ $$
 K=\{|f|\ge\varepsilon\}
 $$
 
-を取り、[TOP5A の cutoff 存在定理](../TOP5A/index.md#thm-top5a-lch-cutoff)から $g\in C_c(X)$ で $\|f-g\|_\infty<\varepsilon$ を構成せよ。
+を取り、[局所コンパクト Hausdorff 空間での局所化関数の存在](../TOP5A/index.md#thm-top5a-lch-cutoff)から $g\in C_c(X)$ で $\|f-g\|_\infty<\varepsilon$ を構成せよ。
 
 ## B1. 正汎関数の表現測度が有限になる理由
 
