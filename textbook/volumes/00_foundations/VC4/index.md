@@ -514,7 +514,7 @@ VC3 で球面を直接パラメータ表示して得た値と一致します。
 
 ---
 
-## 8. 特異点があると theorem はそのまま使えない
+## 8. field が未定義の点を含むと theorem はそのまま使えない
 
 $$
 F(x)
@@ -586,7 +586,7 @@ $$
 \iiint_\Omega\operatorname{div}F\,dV.
 $$
 
-divergence が正の領域では 正味の流出、負の領域では net inflow が生じます。
+divergence が正の領域では 正味の流出、負の領域では正味の流入が生じます。
 
 ---
 
