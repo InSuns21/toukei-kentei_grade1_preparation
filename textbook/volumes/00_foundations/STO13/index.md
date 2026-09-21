@@ -703,20 +703,42 @@ T_n
 \frac1{q_*}\sum_{k=0}^{n-1}E_k.
 $$
 
-独立同分布 $\operatorname{Exp}(1)$ 変数の強法則により
-
+ここで
 $$
-\frac1n\sum_{k=0}^{n-1}E_k\to1
+S_n=\sum_{k=0}^{n-1}E_k
+$$
+と置きます。任意の $a>0$ について Markov inequality を $e^{-S_n}$ に使うと
+$$
+\begin{aligned}
+P(S_n\le a)
+&=
+P(e^{-S_n}\ge e^{-a})\\
+&\le
+e^aE[e^{-S_n}]\\
+&=
+e^a\left(E[e^{-E_0}]\right)^n\\
+&=
+e^a2^{-n}.
+\end{aligned}
+$$
+従って固定した $a$ について
+$$
+P\left(\sup_nS_n\le a\right)
+=
+\lim_{n\to\infty}P(S_n\le a)
+=
+0.
+$$
+$a=1,2,\ldots$ の可算和を取れば
+$$
+S_n\to\infty
 \qquad\text{a.s.}
 $$
-
-なので
-
+です。よって
 $$
-T_n\to\infty
+T_n\ge \frac{S_n}{q_*}\to\infty
 \qquad\text{a.s.}
 $$
-
 です。
 
 よって有限時間内に無限個の jump は起こりません。
@@ -2705,7 +2727,7 @@ $$
 
 $$
 (\operatorname{Leb}\times\nu)
-((0,t]\times E)
+\bigl((0,t]\times E\bigr)
 =
 t\nu(E)
 =
@@ -2904,10 +2926,8 @@ $$
 
 $$
 \boxed{
-N_t
--
-\lambda t
-\text{ is a martingale}
+N_t-\lambda t
+\text{ はマルチンゲール}
 }
 $$
 
