@@ -4,7 +4,7 @@
 
 時系列解析では、未来予測を始める前に「時間をずらしても二次の構造が変わらない」とは何かを固定する必要があります。
 
-この章の中心は、平均を引いた時系列を Hilbert 空間のベクトルとして見て、
+この章の中心は、平均を引いた時系列を [Hilbert 空間](../F0_00D2E_L2完備性_Riesz_Fischer/index.md#def-f0-00d2e-04)のベクトルとして見て、
 
 $$
 \text{過去の閉線形包}
@@ -24,7 +24,7 @@ Wold 分解、remote past、純非決定論性は次章 TSA2 の主役です。�
 
 ---
 
-## 1. 狭義定常性と二次定常性
+## 1. 時間移動で変わらない分布と二次構造
 
 まず「分布全体が時間移動で不変」という強い条件と、「平均・共分散だけが時間移動で不変」という二次の条件を分けます。
 
@@ -33,12 +33,12 @@ Wold 分解、remote past、純非決定論性は次章 TSA2 の主役です。�
 <!-- formal-statement-start -->
 > **定義（狭義定常性）**  
 > 実確率変数列 $(X_t)_{t\in\mathbb Z}$ が狭義定常（strictly stationary）であるとは、任意の $n\ge1$、任意の時刻 $t_1,\dots,t_n\in\mathbb Z$、任意の整数 $h$ に対して
->
-> $$
-> (X_{t_1},\dots,X_{t_n})
-> \overset{d}{=}
-> (X_{t_1+h},\dots,X_{t_n+h})
-> $$
+
+$$
+(X_{t_1},\dots,X_{t_n})
+\overset{d}{=}
+(X_{t_1+h},\dots,X_{t_n+h})
+$$
 >
 > が成り立つことをいう。
 <!-- formal-statement-end -->
@@ -65,14 +65,29 @@ $$
 <!-- formal-statement-start -->
 > **定義（二次定常性）**  
 > 実確率変数列 $(X_t)_{t\in\mathbb Z}$ が二次定常であるとは、各 $X_t\in L^2$ であり、ある定数 $\mu$ と関数 $\gamma:\mathbb Z\to\mathbb R$ が存在して
+
+$$
+E[X_t]=\mu,
+\qquad
+\operatorname{Cov}(X_t,X_s)=\gamma(t-s)
+$$
 >
-> $$
-> E[X_t]=\mu,
-> \qquad
-> \operatorname{Cov}(X_t,X_s)=\gamma(t-s)
-> $$
->
-> が全ての $s,t\in\mathbb Z$ で成り立つことをいう。$\gamma$ を自己共分散関数と呼ぶ。
+> が全ての $s,t\in\mathbb Z$ で成り立つことをいう。
+<!-- formal-statement-end -->
+
+<a id="def-tsa1-autocovariance"></a>
+
+<!-- formal-statement-start -->
+> **定義（自己共分散関数）**  
+> 二次定常な実確率変数列 $(X_t)$ の平均を $\mu$ とする。整数 $h$ に対して
+
+$$
+\gamma(h)
+:=
+E[(X_{t+h}-\mu)(X_t-\mu)]
+$$
+
+> と定めると、二次定常性により右辺は $t$ に依存しない。この $\gamma:\mathbb Z\to\mathbb R$ を自己共分散関数という。
 <!-- formal-statement-end -->
 
 ### 1.2 直接例：分布は時刻で変わるが二次構造は同じ列
@@ -82,7 +97,7 @@ $$
 - 偶数 $t$ では $X_t=\pm1$ を各確率 $1/2$ で取る。
 - 奇数 $t$ では $X_t=0$ を確率 $2/3$、$X_t=\pm\sqrt3$ を各確率 $1/6$ で取る。
 
-<!-- definition-example-start: def-tsa1-second-order-stationarity -->
+<!-- definition-example-start: def-tsa1-second-order-stationarity, def-tsa1-autocovariance -->
 **定義の確認**  
 どちらの分布でも
 
@@ -173,17 +188,17 @@ $$
 <!-- formal-statement-start -->
 > **定義（弱ホワイトノイズ）**  
 > 各 $\varepsilon_t\in L^2$ である実確率変数列 $(\varepsilon_t)_{t\in\mathbb Z}$ が、分散 $\sigma^2>0$ の弱ホワイトノイズであるとは、
->
-> $$
-> E[\varepsilon_t]=0,
-> \qquad
-> \operatorname{Cov}(\varepsilon_t,\varepsilon_s)
-> =
-> \begin{cases}
-> \sigma^2,&t=s,\\
-> 0,&t\ne s
-> \end{cases}
-> $$
+
+$$
+E[\varepsilon_t]=0,
+\qquad
+\operatorname{Cov}(\varepsilon_t,\varepsilon_s)
+=
+\begin{cases}
+\sigma^2,&t=s,\\
+0,&t\ne s
+\end{cases}
+$$
 >
 > が成り立つことをいう。
 <!-- formal-statement-end -->
@@ -234,19 +249,19 @@ $$
 <!-- formal-statement-start -->
 > **命題（自己共分散関数の正定値性）**  
 > $(X_t)$ を二次定常過程、$\gamma$ を自己共分散関数とする。このとき
->
-> $$
-> \gamma(-h)=\gamma(h),
-> \qquad
-> |\gamma(h)|\le\gamma(0)
-> $$
+
+$$
+\gamma(-h)=\gamma(h),
+\qquad
+|\gamma(h)|\le\gamma(0)
+$$
 >
 > が全ての $h\in\mathbb Z$ で成り立つ。さらに任意の $n$、任意の実数 $c_1,\dots,c_n$、任意の整数 $t_1,\dots,t_n$ に対して
->
-> $$
-> \sum_{i=1}^n\sum_{j=1}^n
-> c_ic_j\gamma(t_i-t_j)\ge0.
-> $$
+
+$$
+\sum_{i=1}^n\sum_{j=1}^n
+c_ic_j\gamma(t_i-t_j)\ge0.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -322,13 +337,13 @@ $$
 <!-- formal-statement-start -->
 > **定義（過去の線形予測空間）**  
 > 平均 $\mu$ の二次定常過程 $(X_t)$ に対し $Y_t=X_t-\mu$ とする。時刻 $t$ までの過去の線形予測空間を
->
-> $$
-> \mathcal H_t
-> :=
-> \overline{\operatorname{span}}
-> \{Y_s:s\le t\}^{L^2}
-> $$
+
+$$
+\mathcal H_t
+:=
+\overline{\operatorname{span}}
+\{Y_s:s\le t\}^{L^2}
+$$
 >
 > と定める。
 <!-- formal-statement-end -->
@@ -358,13 +373,13 @@ $$
 <!-- formal-statement-start -->
 > **定義（有限過去予測空間）**  
 > 正整数 $p$ に対して
->
-> $$
-> \mathcal H_{t-1}^{(p)}
-> :=
-> \operatorname{span}
-> \{Y_{t-1},\dots,Y_{t-p}\}
-> $$
+
+$$
+\mathcal H_{t-1}^{(p)}
+:=
+\operatorname{span}
+\{Y_{t-1},\dots,Y_{t-p}\}
+$$
 >
 > と定める。
 <!-- formal-statement-end -->
@@ -401,38 +416,38 @@ $$
 <!-- formal-statement-start -->
 > **定理（有限過去線形予測の正規方程式）**  
 > $(X_t)$ を平均 $\mu$ の二次定常過程、$Y_t=X_t-\mu$ とする。$p$ 個の過去
->
-> $$
-> Y_{t-1},\dots,Y_{t-p}
-> $$
+
+$$
+Y_{t-1},\dots,Y_{t-p}
+$$
 >
 > から $Y_t$ を最小二乗線形予測する。予測量を
->
-> $$
-> \widehat Y_t^{(p)}
-> =
-> \sum_{j=1}^p a_jY_{t-j}
-> $$
+
+$$
+\widehat Y_t^{(p)}
+=
+\sum_{j=1}^p a_jY_{t-j}
+$$
 >
 > と書くと、係数は
->
-> $$
-> \Gamma_pa=\gamma_p,
-> $$
->
-> $$
-> \Gamma_p
-> =
-> \bigl(\gamma(k-j)\bigr)_{1\le k,j\le p},
-> \qquad
-> \gamma_p
-> =
-> \begin{pmatrix}
-> \gamma(1)\\
-> \vdots\\
-> \gamma(p)
-> \end{pmatrix}
-> $$
+
+$$
+\Gamma_pa=\gamma_p,
+$$
+
+$$
+\Gamma_p
+=
+\bigl(\gamma(k-j)\bigr)_{1\le k,j\le p},
+\qquad
+\gamma_p
+=
+\begin{pmatrix}
+\gamma(1)\\
+\vdots\\
+\gamma(p)
+\end{pmatrix}
+$$
 >
 > を満たす。$\Gamma_p$ が正定値なら係数 $a$ は一意である。$\Gamma_p$ が特異でも、最良予測確率変数 $\widehat Y_t^{(p)}$ 自体は $L^2$ の元として一意である。
 <!-- formal-statement-end -->
@@ -522,26 +537,26 @@ $$
 <!-- formal-statement-start -->
 > **定理（無限過去に基づく最良線形予測）**  
 > 二次定常過程 $(X_t)$ を中心化して $Y_t=X_t-\mu$ とする。時刻 $t-1$ までの過去から $Y_t$ を線形予測する問題
->
-> $$
-> \inf_{Z\in\mathcal H_{t-1}}E[(Y_t-Z)^2]
-> $$
+
+$$
+\inf_{Z\in\mathcal H_{t-1}}E[(Y_t-Z)^2]
+$$
 >
 > は一意な解を持ち、
->
-> $$
-> \widehat Y_t
-> =
-> P_{\mathcal H_{t-1}}Y_t
-> $$
+
+$$
+\widehat Y_t
+=
+P_{\mathcal H_{t-1}}Y_t
+$$
 >
 > で与えられる。さらに
->
-> $$
-> Y_t-\widehat Y_t
-> \perp
-> \mathcal H_{t-1}.
-> $$
+
+$$
+Y_t-\widehat Y_t
+\perp
+\mathcal H_{t-1}.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -551,7 +566,7 @@ $\mathcal H_{t-1}$ は定義により閉線形部分空間です。従って Hil
 <!-- proof-start -->
 ### 証明
 
-$L^2$ は Hilbert 空間であり、$\mathcal H_{t-1}$ は閉線形部分空間です。[Hilbert 射影定理](../F0_02C1A_Hilbert射影定理_直交分解/index.md#thm-hilbert-projection)より
+$L^2$ は [Hilbert 空間](../F0_00D2E_L2完備性_Riesz_Fischer/index.md#def-f0-00d2e-04)であり、$\mathcal H_{t-1}$ は閉線形部分空間です。[Hilbert 射影定理](../F0_02C1A_Hilbert射影定理_直交分解/index.md#thm-hilbert-projection)より
 
 $$
 P_{\mathcal H_{t-1}}Y_t
@@ -583,13 +598,13 @@ $$
 <!-- formal-statement-start -->
 > **命題（有限過去予測から無限過去予測への収束）**  
 > $\widehat Y_t^{(p)}=P_{\mathcal H_{t-1}^{(p)}}Y_t$、$\widehat Y_t=P_{\mathcal H_{t-1}}Y_t$ とする。このとき
->
-> $$
-> \widehat Y_t^{(p)}
-> \longrightarrow
-> \widehat Y_t
-> \qquad\text{in }L^2
-> $$
+
+$$
+\widehat Y_t^{(p)}
+\longrightarrow
+\widehat Y_t
+\qquad\text{in }L^2
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -647,7 +662,7 @@ $$
 
 ## 7. 定常性は時間移動をユニタリ作用素にする
 
-「同じ予測問題が全時刻で同じ形を持つ」ことを Hilbert 空間上で表します。
+「同じ予測問題が全時刻で同じ形を持つ」ことを [Hilbert 空間](../F0_00D2E_L2完備性_Riesz_Fischer/index.md#def-f0-00d2e-04)上で表します。
 
 全時刻の中心化変数が張る閉部分空間を
 
@@ -664,22 +679,22 @@ $$
 <!-- formal-statement-start -->
 > **補題（二次定常過程の時間移動作用素）**  
 > 二次定常過程の中心化列 $(Y_t)$ に対し
->
-> $$
-> UY_t:=Y_{t+1}
-> $$
+
+$$
+UY_t:=Y_{t+1}
+$$
 >
 > と定める。この対応は有限線形結合上で矛盾なく定義された等長写像となり、一意にユニタリ作用素
->
-> $$
-> U:\mathcal H_X\to\mathcal H_X
-> $$
+
+$$
+U:\mathcal H_X\to\mathcal H_X
+$$
 >
 > へ延長される。さらに
->
-> $$
-> U\mathcal H_t=\mathcal H_{t+1}.
-> $$
+
+$$
+U\mathcal H_t=\mathcal H_{t+1}.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -740,7 +755,7 @@ $$
 
 ---
 
-## 8. イノベーション
+## 8. 一段先予測誤差を取り出す
 
 過去で説明できなかった直交成分を取り出します。
 
@@ -749,12 +764,12 @@ $$
 <!-- formal-statement-start -->
 > **定義（イノベーション）**  
 > 二次定常過程の中心化列 $Y_t=X_t-\mu$ に対し、一段先最良線形予測誤差
->
-> $$
-> \varepsilon_t
-> :=
-> Y_t-P_{\mathcal H_{t-1}}Y_t
-> $$
+
+$$
+\varepsilon_t
+:=
+Y_t-P_{\mathcal H_{t-1}}Y_t
+$$
 >
 > を時刻 $t$ のイノベーション（innovation）という。
 <!-- formal-statement-end -->
@@ -787,18 +802,18 @@ $$
 <!-- formal-statement-start -->
 > **命題（イノベーション列の直交性と定常分散）**  
 > 二次定常過程から得られるイノベーション列 $(\varepsilon_t)$ は平均0であり、$s\ne t$ なら
->
-> $$
-> E[\varepsilon_t\varepsilon_s]=0.
-> $$
+
+$$
+E[\varepsilon_t\varepsilon_s]=0.
+$$
 >
 > さらに
->
-> $$
-> E[\varepsilon_t^2]
-> =
-> \sigma_\varepsilon^2
-> $$
+
+$$
+E[\varepsilon_t^2]
+=
+\sigma_\varepsilon^2
+$$
 >
 > は時刻 $t$ に依存しない。$\sigma_\varepsilon^2>0$ なら $(\varepsilon_t)$ は分散 $\sigma_\varepsilon^2$ の弱ホワイトノイズである。
 <!-- formal-statement-end -->
@@ -900,11 +915,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（線形決定論的過程）**  
 > 二次定常過程 $(X_t)$ の中心化列 $Y_t=X_t-\mu$ が
->
-> $$
-> Y_t\in\mathcal H_{t-1}
-> \qquad(\forall t\in\mathbb Z)
-> $$
+
+$$
+Y_t\in\mathcal H_{t-1}
+\qquad(\forall t\in\mathbb Z)
+$$
 >
 > を満たすとき、線形決定論的であるという。同値に、全ての時刻でイノベーションが0である。
 <!-- formal-statement-end -->
