@@ -279,6 +279,7 @@ Encore III 本線では distributional solution、variational weak solution、en
 7. [STO6 stochastic integral](textbook/volumes/00_foundations/STO6/index.md)
 8. [STO7 multidimensional Itô calculus・Stratonovich](textbook/volumes/00_foundations/STO7/index.md)
 9. [STO8 local time・Tanaka formula](textbook/volumes/00_foundations/STO8/index.md)
+10. [STO9 SDE・strong solution・存在一意性・局所化](textbook/volumes/00_foundations/STO9/index.md)
 
 旧 Encore IV の SP / TS 個別章は backup / migration source として残しますが、現行主線からは外しています。新 STO / TSA 章は、本文・証明・直接例・演習・詳細解答・検証まで完成した章だけ順次ここへ追加します。
 

@@ -1,0 +1,32 @@
+chapter: "STO9"
+terms:
+  - term: stochastic differential equation
+    english: stochastic differential equation
+    meaning: Brown運動などの確率的入力を含む微分方程式。本章ではItô積分を用いた積分方程式として定義する。
+  - term: strong solution
+    english: strong solution
+    meaning: 与えられたBrown運動と初期値が作る情報の上で構成され、同じ確率空間・同じ駆動Brown運動を使ってSDEを満たす解。
+  - term: pathwise uniqueness
+    english: pathwise uniqueness
+    meaning: 同じ確率空間、同じBrown運動、同じ初期値を使う二つの解がindistinguishableになるという一意性。
+  - term: Picard iteration
+    english: Picard iteration
+    meaning: SDEの積分方程式へ前の近似過程を代入し続け、L2 supremum評価で収束させる逐次近似。
+  - term: local Lipschitz condition
+    english: local Lipschitz condition
+    meaning: 任意の有界球内では共通Lipschitz定数が取れるが、空間全体で一つの定数を要求しない条件。
+  - term: explosion time
+    english: explosion time
+    meaning: local solutionを半径ごとのexit timeで貼り合わせたとき、それ以上有限値の連続解として延長できなくなる最大時刻。
+  - term: localization
+    english: localization
+    meaning: 係数や過程を停止時刻・cutoffで有界またはglobal Lipschitzな問題へ落とし、停止前の整合性から元の局所問題へ戻す方法。
+  - term: non-explosion
+    english: non-explosion
+    meaning: maximal solutionのexplosion timeがalmost surely無限大で、全ての有限時刻まで解が存在すること。
+  - term: Lyapunov function
+    english: Lyapunov function
+    meaning: 空間無限遠で発散し、Itô formulaで得られるdriftを上から制御することでSDE解の遠方への逃走を抑える関数。
+  - term: comparison theorem
+    english: comparison theorem
+    meaning: 一次元SDEで初期値とdriftの順序が保たれ、同一diffusion係数の下で解の順序も標本路ごとに保たれることを述べる定理。

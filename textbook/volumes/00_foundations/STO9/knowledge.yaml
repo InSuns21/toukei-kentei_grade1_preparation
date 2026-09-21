@@ -1,0 +1,144 @@
+chapter: STO9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - STO5
+  - STO6
+  - STO7
+  - RA5
+
+concepts:
+  - id: stochastic.brownian-sde
+    name: Brownian SDE
+    kind: definition
+    aliases: ["Brownian stochastic differential equation", "Itô SDE"]
+    introduction: formal
+    introduction_aliases: ["定義（Brownian SDE）"]
+    requires:
+      - stochastic.vector-brownian-motion
+      - stochastic.local-stochastic-integral
+
+  - id: stochastic.strong-solution
+    name: strong solution
+    kind: definition
+    aliases: ["strong solution of an SDE", "SDEの強解"]
+    introduction: formal
+    introduction_aliases: ["定義（strong solution）"]
+    requires:
+      - stochastic.brownian-sde
+      - stochastic.filtration
+      - stochastic.adapted-process
+
+  - id: stochastic.pathwise-uniqueness
+    name: pathwise uniqueness
+    kind: definition
+    aliases: ["pathwise uniqueness for SDE", "標本路ごとの一意性"]
+    introduction: formal
+    introduction_aliases: ["定義（pathwise uniqueness）"]
+    requires:
+      - stochastic.strong-solution
+
+  - id: stochastic.integral-gronwall
+    name: 積分形Gronwall lemma
+    kind: lemma
+    aliases: ["Gronwall inequality", "Gronwall lemma"]
+    introduction: formal
+    introduction_aliases: ["補題（積分形 Gronwall lemma）"]
+    requires: []
+
+  - id: stochastic.sde-picard-factorial-estimate
+    name: Picard差分のfactorial estimate
+    kind: lemma
+    aliases: ["Picard iteration factorial estimate", "SDE Picard estimate"]
+    introduction: formal
+    introduction_aliases: ["補題（Picard 差分の factorial estimate）"]
+    requires:
+      - stochastic.stochastic-integral-l2
+      - stochastic.continuous-doob-l2
+
+  - id: stochastic.global-lipschitz-sde-existence-uniqueness
+    name: global Lipschitz SDEのstrong existence・pathwise uniqueness
+    kind: theorem
+    aliases: ["global existence and uniqueness theorem for Lipschitz SDE", "Lipschitz SDE existence uniqueness"]
+    introduction: formal
+    introduction_aliases: ["定理（global Lipschitz SDE の strong existence・pathwise uniqueness）"]
+    requires:
+      - stochastic.strong-solution
+      - stochastic.pathwise-uniqueness
+      - stochastic.sde-picard-factorial-estimate
+      - stochastic.integral-gronwall
+      - analysis.uniform-limit-continuity
+
+  - id: stochastic.sde-l2-supremum-moment
+    name: finite-horizon L2 supremum moment estimate
+    kind: proposition
+    aliases: ["SDE moment estimate", "finite-horizon SDE second moment estimate"]
+    introduction: formal
+    introduction_aliases: ["命題（finite-horizon L2 supremum moment estimate）"]
+    requires:
+      - stochastic.global-lipschitz-sde-existence-uniqueness
+      - stochastic.continuous-doob-l2
+      - stochastic.integral-gronwall
+
+  - id: stochastic.sde-stability
+    name: 初期値・係数に対する stability estimate
+    kind: theorem
+    aliases: ["SDE stability estimate", "continuous dependence of SDE solutions"]
+    introduction: formal
+    introduction_aliases: ["定理（初期値・係数に対する stability estimate）"]
+    requires:
+      - stochastic.sde-l2-supremum-moment
+      - stochastic.integral-gronwall
+
+  - id: stochastic.maximal-strong-solution
+    name: maximal strong solution・explosion time
+    kind: definition
+    aliases: ["maximal solution of an SDE", "explosion time", "SDE maximal strong solution"]
+    introduction: formal
+    introduction_aliases: ["定義（maximal strong solution・explosion time）"]
+    requires:
+      - stochastic.strong-solution
+      - stochastic.stopping-time
+
+  - id: stochastic.local-lipschitz-maximal-solution
+    name: local Lipschitz SDEのmaximal strong solution
+    kind: theorem
+    aliases: ["local existence and uniqueness for SDE", "maximal solution under local Lipschitz coefficients"]
+    introduction: formal
+    introduction_aliases: ["定理（local Lipschitz SDE の maximal strong solution）"]
+    requires:
+      - stochastic.maximal-strong-solution
+      - stochastic.global-lipschitz-sde-existence-uniqueness
+      - stochastic.pathwise-uniqueness
+
+  - id: stochastic.linear-growth-nonexplosion
+    name: linear growthによるnon-explosion
+    kind: theorem
+    aliases: ["non-explosion under linear growth", "linear growth nonexplosion theorem"]
+    introduction: formal
+    introduction_aliases: ["定理（linear growth による non-explosion）"]
+    requires:
+      - stochastic.local-lipschitz-maximal-solution
+      - stochastic.sde-l2-supremum-moment
+
+  - id: stochastic.lyapunov-nonexplosion
+    name: Lyapunov型non-explosion criterion
+    kind: theorem
+    aliases: ["Lyapunov non-explosion criterion", "Lyapunov criterion for SDE nonexplosion"]
+    introduction: formal
+    introduction_aliases: ["定理（Lyapunov 型 non-explosion criterion）"]
+    requires:
+      - stochastic.local-lipschitz-maximal-solution
+      - stochastic.ito-process-formula
+      - stochastic.integral-gronwall
+
+  - id: stochastic.one-dimensional-sde-comparison
+    name: 一次元 SDE の comparison theorem
+    kind: theorem
+    aliases: ["one-dimensional SDE comparison theorem", "SDE comparison principle"]
+    introduction: formal
+    introduction_aliases: ["定理（一次元 SDE の comparison theorem）"]
+    requires:
+      - stochastic.global-lipschitz-sde-existence-uniqueness
+      - stochastic.ito-process-formula
+      - stochastic.integral-gronwall
