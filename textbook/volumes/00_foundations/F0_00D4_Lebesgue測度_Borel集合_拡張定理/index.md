@@ -1559,15 +1559,15 @@ E\subset\bigcup_nA_n,\ A_n\in\mathcal A
 \right\}
 $$
 
-と定めます。1で $P_0$ が premeasure であることを確認したので、10節の補題から $P^*$ は外測度です。
+と定めます。1で $P_0$ が premeasure であることを確認したので、[premeasureから作る外測度](#lem-premeasure-outer)より $P^*$ は外測度です。
 
-さらに11節の結果から、任意の $A\in\mathcal A$ について
+[外測度はpremeasureを拡張する](#lem-extension-agrees)から、任意の $A\in\mathcal A$ について
 
 $$
 P^*(A)=P_0(A).
 $$
 
-12節の結果から、各 $A\in\mathcal A$ は $P^*$-Carathéodory 可測です。
+[algebra集合のCarathéodory可測性](#lem-algebra-caratheodory)から、各 $A\in\mathcal A$ は $P^*$-Carathéodory 可測です。
 
 #### 3. 生成 σ 代数へ拡張する
 
