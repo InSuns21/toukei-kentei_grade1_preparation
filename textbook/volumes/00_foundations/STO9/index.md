@@ -105,6 +105,8 @@ $$
 <!-- definition-example-start: def-sto9-sde -->
 ### 直接例：定数係数なら積分するだけ
 
+**定義の確認**
+
 $b(x)\equiv\mu\in\mathbb R^d$、$\sigma(x)\equiv\Sigma\in\mathbb R^{d\times m}$ とします。
 
 すると
@@ -216,6 +218,8 @@ $$
 <!-- definition-example-start: def-sto9-strong-solution -->
 ### 直接例：geometric Brownian motion は Brown 運動の明示関数
 
+**定義の確認**
+
 1 次元で
 
 $$
@@ -228,7 +232,7 @@ $$
 
 候補
 
-$$
+$
 X_t
 =
 x\exp\left\{
@@ -237,7 +241,7 @@ x\exp\left\{
 \right\}
 $$
 
-は $W_t$ の連続関数なので $\mathcal F_t^{W}$-adapted です。
+は $W_t$ の連続関数なので $\mathcal F_t^{W}$-adapted かつ continuous です。各有限区間では標本関数が bounded なので、$|\mu X_s|$ と $|\alpha X_s|^2$ の時間積分も almost surely 有限です。
 
 $f(t,w)=x\exp((\mu-\alpha^2/2)t+\alpha w)$ に
 [Itô process 版の時間依存 Itô formula](../STO7/index.md#thm-sto7-ito-process-formula)
@@ -323,7 +327,9 @@ $$
 <!-- definition-example-start: def-sto9-pathwise-uniqueness -->
 ### 直接例：定数係数では差を取れば消える
 
-$$
+**定義の確認**
+
+$
 dX_t=\mu\,dt+\alpha\,dW_t,
 \qquad
 dY_t=\mu\,dt+\alpha\,dW_t,
@@ -1420,6 +1426,8 @@ $$
 <!-- definition-example-start: def-sto9-maximal-solution -->
 ### 直接例：deterministic equation も SDE の特殊例で、実際に爆発する
 
+**定義の確認**
+
 1 次元で
 
 $$
@@ -1452,14 +1460,36 @@ X_t=\frac1{1-t},
 0\le t<1.
 $$
 
-従って
+整数 $n>1$ に対する exit time は
 
-$$
-\tau_{\mathrm e}=1,
-\qquad
+$
+\tau_n
+=
+\inf\{t:X_t\ge n\}
+=
+1-\frac1n
+$
+
+なので
+
+$
+\tau_n\uparrow1.
+$
+
+また
+
+$
 X_t\to\infty
 \quad(t\uparrow1).
-$$
+$
+
+従って定義どおり
+
+$
+\tau_{\mathrm e}=1
+$
+
+で、finite explosion 時には $\limsup_{t\uparrow\tau_{\mathrm e}}|X_t|=\infty$ も確認できます。
 
 係数 $b(x)=x^2$ は各 bounded interval では Lipschitz ですが global Lipschitz ではありません。
 
