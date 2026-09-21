@@ -669,7 +669,7 @@ F\cdot(\nabla\times G).
 \end{aligned}
 $$
 
-最後に $H=F\times G$ と置きます。curl の第一成分は
+最後に $H=F\times G$ と置きます。回転の第一成分は
 
 $$
 \begin{aligned}
@@ -1031,7 +1031,7 @@ $$
 
 こちらは両方 0 です。
 
-この比較だけでも、$\operatorname{div}$ と $\operatorname{curl}$ が同じ情報を測っていないことが分かります。
+この比較だけでも、発散 $\operatorname{div}$ と回転 $\operatorname{curl}$ が同じ情報を測っていないことが分かります。
 <!-- solution-end -->
 
 #### VC1-C01 局所情報を全部つなぐ
