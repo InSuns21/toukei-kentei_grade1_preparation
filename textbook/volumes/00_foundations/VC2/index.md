@@ -446,7 +446,7 @@ $$
 なので、原点から $x$ への線分全体が開球内に残ります。
 <!-- definition-example-end -->
 
-凸集合なら任意の点を中心として star-shaped です。
+Euclidean 空間の凸領域なら任意の点を中心として star-shaped です。
 
 <a id="thm-vc2-poincare-star"></a>
 
