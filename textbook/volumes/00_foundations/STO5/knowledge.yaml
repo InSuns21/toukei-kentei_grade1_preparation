@@ -34,7 +34,7 @@ concepts:
   - id: stochastic.continuous-bounded-optional-sampling
     name: bounded stoppingによるcontinuous martingaleの停止
     kind: theorem
-    aliases: ["continuous bounded optional sampling", "bounded stopping theorem"]
+    aliases: ["continuous bounded optional sampling", "bounded stopping theorem", "有界 stopping 定理", "連続マルチンゲールの有界停止定理"]
     introduction: formal
     introduction_aliases: ["定理（有界停止時刻による連続マルチンゲールの停止）"]
     requires:
@@ -92,7 +92,7 @@ concepts:
   - id: stochastic.continuous-local-martingale-qv
     name: continuous local martingaleのquadratic variation theorem
     kind: theorem
-    aliases: ["quadratic variation theorem", "quadratic variation of continuous local martingales"]
+    aliases: ["quadratic variation theorem", "quadratic variation of continuous local martingales", "連続局所マルチンゲールの二次変分定理"]
     introduction: formal
     introduction_aliases: ["定理（連続局所マルチンゲールの二次変分定理）"]
     requires:
