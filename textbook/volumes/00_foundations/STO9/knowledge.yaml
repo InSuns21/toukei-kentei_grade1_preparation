@@ -51,7 +51,7 @@ concepts:
     kind: lemma
     aliases: ["Picard iteration factorial estimate", "SDE Picard estimate"]
     introduction: formal
-    introduction_aliases: ["補題（Picard 差分の factorial estimate）"]
+    introduction_aliases: ["補題（Picard 差分の階乗評価）"]
     requires:
       - stochastic.stochastic-integral-l2
       - stochastic.continuous-doob-l2
@@ -61,7 +61,7 @@ concepts:
     kind: theorem
     aliases: ["global existence and uniqueness theorem for Lipschitz SDE", "Lipschitz SDE existence uniqueness"]
     introduction: formal
-    introduction_aliases: ["定理（大域 Lipschitz SDE の strong 存在・経路ごとの一意性）"]
+    introduction_aliases: ["定理（大域 Lipschitz SDE の強解の存在・経路ごとの一意性）"]
     requires:
       - stochastic.strong-solution
       - stochastic.pathwise-uniqueness
@@ -74,18 +74,18 @@ concepts:
     kind: proposition
     aliases: ["SDE moment estimate", "finite-horizon SDE second moment estimate"]
     introduction: formal
-    introduction_aliases: ["命題（finite-horizon L2 supremum モーメント評価）"]
+    introduction_aliases: ["命題（有限時間区間の L2 上限モーメント評価）"]
     requires:
       - stochastic.global-lipschitz-sde-existence-uniqueness
       - stochastic.continuous-doob-l2
       - stochastic.integral-gronwall
 
   - id: stochastic.sde-stability
-    name: 初期値・係数に対する stability estimate
+    name: 初期値・係数に対する安定性評価
     kind: theorem
     aliases: ["SDE stability estimate", "continuous dependence of SDE solutions"]
     introduction: formal
-    introduction_aliases: ["定理（初期値・係数に対する stability estimate）"]
+    introduction_aliases: ["定理（初期値・係数に対する安定性評価）"]
     requires:
       - stochastic.sde-l2-supremum-moment
       - stochastic.integral-gronwall
@@ -95,7 +95,7 @@ concepts:
     kind: definition
     aliases: ["maximal solution of an SDE", "explosion time", "SDE maximal strong solution"]
     introduction: formal
-    introduction_aliases: ["定義（maximal 強解・爆発時刻）"]
+    introduction_aliases: ["定義（極大強解・爆発時刻）"]
     requires:
       - stochastic.strong-solution
       - stochastic.stopping-time
@@ -105,7 +105,7 @@ concepts:
     kind: theorem
     aliases: ["local existence and uniqueness for SDE", "maximal solution under local Lipschitz coefficients"]
     introduction: formal
-    introduction_aliases: ["定理（局所 Lipschitz SDE の maximal 強解）"]
+    introduction_aliases: ["定理（局所 Lipschitz SDE の 極大強解）"]
     requires:
       - stochastic.maximal-strong-solution
       - stochastic.global-lipschitz-sde-existence-uniqueness
