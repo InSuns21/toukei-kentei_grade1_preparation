@@ -12,7 +12,7 @@ $$
 
 本章では視点を反転します。
 
-$
+$$
 \boxed{
 \text{現在状態からの未来分布}
 \longleftrightarrow
@@ -22,13 +22,13 @@ $
 \longleftrightarrow
 \text{標本路法則の特徴付け}
 }
-$
+$$
 
 を作ります。
 
 この対応が重要なのは、SDE の drift と diffusion coefficient から得られる二階微分作用素
 
-$
+$$
 Lf
 =
 b\cdot\nabla f
@@ -36,7 +36,7 @@ b\cdot\nabla f
 \frac12\operatorname{tr}(aD^2f),
 \qquad
 a=\sigma\sigma^\top
-$
+$$
 
 が、同時に
 
