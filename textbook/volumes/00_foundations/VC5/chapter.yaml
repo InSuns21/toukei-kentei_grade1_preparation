@@ -1,5 +1,5 @@
 id: "VC5"
-title: "標準ベクトル解析 V：Kelvin--Stokes の定理・回転・位相構造"
+title: "標準ベクトル解析 V：境界循環と曲面上の回転"
 volume: "foundations"
 status: supplementary
 prerequisites:
