@@ -1,6 +1,6 @@
 # VC2 曲線・線積分・保存場
 
-VC1 では vector field の局所微分を調べました。本章では field を **曲線に沿って積分**し、仕事・循環・potential を結びます。
+VC1 では ベクトル場 の局所微分を調べました。本章では 場 を **曲線に沿って積分**し、仕事・循環・ポテンシャル を結びます。
 
 中心となる問いは
 
@@ -115,13 +115,13 @@ $$
 
 ---
 
-## 2. scalar field の線積分
+## 2. スカラー場 の線積分
 
 <a id="def-vc2-scalar-line-integral"></a>
 
 <!-- formal-statement-start -->
-> **定義（scalar line integral）**  
-> scalar field $f$ と正則曲線 $\gamma:[a,b]\to\Omega$ に対し
+> **定義（スカラー線積分）**  
+> スカラー場 $f$ と正則曲線 $\gamma:[a,b]\to\Omega$ に対し
 >
 $$
 \int_\gamma f\,ds
@@ -145,7 +145,7 @@ $$
 2\pi.
 $$
 
-一定密度 1 の scalar line integral が曲線の長さそのものになることを確認できます。
+一定密度 1 の スカラー線積分 が曲線の長さそのものになることを確認できます。
 <!-- definition-example-end -->
 
 これは曲線に沿った「密度 × 長さ」の総和です。向きを反転しても $ds$ は正なので値は変わりません。
@@ -162,13 +162,13 @@ $$
 
 ---
 
-## 3. vector field の線積分：仕事と循環
+## 3. ベクトル場 の線積分：仕事と循環
 
 <a id="def-vc2-vector-line-integral"></a>
 
 <!-- formal-statement-start -->
-> **定義（vector line integral）**  
-> $F:\Omega\to\mathbb R^n$ を連続 vector field、$\gamma:[a,b]\to\Omega$ を区分的 $C^1$ 曲線とする。
+> **定義（ベクトル線積分）**  
+> $F:\Omega\to\mathbb R^n$ を連続 ベクトル場、$\gamma:[a,b]\to\Omega$ を区分的 $C^1$ 曲線とする。
 >
 $$
 \int_\gamma F\cdot dr
@@ -209,11 +209,11 @@ $$
 回転場に沿って一周すると正の循環が現れます。
 <!-- definition-example-end -->
 
-向きを保つ再パラメータ表示では値は不変です。向きを反転すれば $\gamma'$ の符号が反転するので、vector line integral の符号も反転します。
+向きを保つ再パラメータ表示では値は不変です。向きを反転すれば $\gamma'$ の符号が反転するので、ベクトル線積分 の符号も反転します。
 
 ---
 
-## 4. gradient field では積分が端点だけで決まる
+## 4. 勾配場 では積分が端点だけで決まる
 
 <a id="thm-vc2-line-ftc"></a>
 
@@ -272,26 +272,26 @@ $$
 
 ---
 
-## 5. 保存場と path independence
+## 5. 保存場と 経路独立性
 
 <a id="def-vc2-conservative"></a>
 
 <!-- formal-statement-start -->
-> **定義（保存場・potential）**  
-> 開集合 $\Omega\subset\mathbb R^n$ 上の連続 vector field $F$ が、ある $\phi\in C^1(\Omega)$ により
+> **定義（保存場・ポテンシャル）**  
+> 開集合 $\Omega\subset\mathbb R^n$ 上の連続 ベクトル場 $F$ が、ある $\phi\in C^1(\Omega)$ により
 >
 $$
 F=\nabla\phi
 $$
 >
-> と書けるとき、$F$ を保存場、$\phi$ を $F$ の scalar potential と呼ぶ。
+> と書けるとき、$F$ を保存場、$\phi$ を $F$ の スカラーポテンシャル と呼ぶ。
 <!-- formal-statement-end -->
 
 <a id="def-vc2-path-independent"></a>
 
 <!-- formal-statement-start -->
 > **定義（経路独立）**  
-> path-connected な $\Omega$ 上の vector field $F$ について、同じ始点 $p$ と終点 $q$ を持つ任意の区分的 $C^1$ 曲線 $\gamma_1,\gamma_2$ に対し
+> 経路連結 な $\Omega$ 上の ベクトル場 $F$ について、同じ始点 $p$ と終点 $q$ を持つ任意の区分的 $C^1$ 曲線 $\gamma_1,\gamma_2$ に対し
 >
 $$
 \int_{\gamma_1}F\cdot dr
@@ -321,14 +321,14 @@ $$
 2.
 $$
 
-したがって $F$ は実際に potential $\phi$ を持つ保存場であり、積分値は経路に依存しません。
+したがって $F$ は実際に ポテンシャル $\phi$ を持つ保存場であり、積分値は経路に依存しません。
 <!-- definition-example-end -->
 
 <a id="thm-vc2-conservative-equivalence"></a>
 
 <!-- formal-statement-start -->
 > **定理（保存場・経路独立・閉曲線積分の同値）**  
-> $\Omega$ を path-connected な開集合、$F$ を連続 vector field とする。次は同値である。
+> $\Omega$ を 経路連結 な開集合、$F$ を連続 ベクトル場 とする。次は同値である。
 >
 > 1. $F$ は保存場である。
 > 2. $F$ の線積分は経路独立である。
@@ -341,7 +341,7 @@ $$
 
 ### 証明の見取り図
 
-1 から 2 は線積分の基本定理です。2 から 3 は閉曲線を定数曲線と比較します。3 から 1 では基準点から $x$ までの線積分を potential の定義にして、短い線分を足したときの増分を計算します。
+1 から 2 は線積分の基本定理です。2 から 3 は閉曲線を定数曲線と比較します。3 から 1 では基準点から $x$ までの線積分を ポテンシャル の定義にして、短い線分を足したときの増分を計算します。
 
 <!-- proof-start -->
 ### 証明
@@ -413,13 +413,13 @@ $$
 
 ---
 
-## 6. curl が 0 なら保存場か：star-shaped では Yes
+## 6. 回転 が 0 なら保存場か：星型 では Yes
 
 <a id="def-vc2-star-shaped"></a>
 
 <!-- formal-statement-start -->
-> **定義（star-shaped domain）**  
-> 開集合 $\Omega\subset\mathbb R^n$ が点 $a\in\Omega$ に関して star-shaped であるとは、任意の $x\in\Omega$ と $0\le t\le1$ に対して
+> **定義（星型領域）**  
+> 開集合 $\Omega\subset\mathbb R^n$ が点 $a\in\Omega$ に関して 星型 であるとは、任意の $x\in\Omega$ と $0\le t\le1$ に対して
 >
 $$
 a+t(x-a)\in\Omega
@@ -437,7 +437,7 @@ $$
 B(0,1)=\{x\in\mathbb R^n:|x|<1\}
 $$
 
-は原点に関して star-shaped です。実際 $x\in B(0,1)$ と $0\le t\le1$ に対し
+は原点に関して 星型 です。実際 $x\in B(0,1)$ と $0\le t\le1$ に対し
 
 $$
 |tx|=t|x|<1
@@ -446,13 +446,13 @@ $$
 なので、原点から $x$ への線分全体が開球内に残ります。
 <!-- definition-example-end -->
 
-Euclidean 空間の凸領域なら任意の点を中心として star-shaped です。
+Euclidean 空間の凸領域なら任意の点を中心として 星型 です。
 
 <a id="thm-vc2-poincare-star"></a>
 
 <!-- formal-statement-start -->
-> **定理（star-shaped domain 上の初等 Poincaré lemma）**  
-> $\Omega\subset\mathbb R^3$ を $a$ に関して star-shaped とし、$F\in C^1(\Omega;\mathbb R^3)$ が
+> **定理（星型領域 上の初等 Poincaré の補題）**  
+> $\Omega\subset\mathbb R^3$ を $a$ に関して 星型 とし、$F\in C^1(\Omega;\mathbb R^3)$ が
 >
 $$
 \nabla\times F=0
@@ -471,7 +471,7 @@ $$
 \int_0^1F(a+t(x-a))\cdot(x-a)\,dt
 $$
 
-と potential を明示的に作ります。curl-free 条件は Jacobian の対称性
+と ポテンシャル を明示的に作ります。回転が 0 の 条件は Jacobian の対称性
 
 $$
 \partial_iF_j=\partial_jF_i
@@ -508,7 +508,7 @@ t\sum_{j=1}^3
 \right)dt.
 $$
 
-curl-free より
+回転が 0 の より
 
 $$
 \frac{\partial F_j}{\partial x_i}
@@ -545,11 +545,11 @@ $$
 $$
 <!-- proof-end -->
 
-ここで star-shaped 仮定は、$a$ から $x$ への線分全体が $\Omega$ 内に残り、上の potential が定義できるために使われています。
+ここで 星型 仮定は、$a$ から $x$ への線分全体が $\Omega$ 内に残り、上の ポテンシャル が定義できるために使われています。
 
 ---
 
-## 7. 穴があると curl-free でも保存場とは限らない
+## 7. 穴があると 回転が 0 の でも保存場とは限らない
 
 $\mathbb R^2\setminus\{0\}$ 上で
 
@@ -574,7 +574,7 @@ $$
 0.
 $$
 
-二次元の意味で curl-free です。
+二次元の意味で 回転が 0 の です。
 
 ところが単位円
 
@@ -601,19 +601,19 @@ $$
 
 壊れたのは局所微分ではなく、**領域に原点という穴があり、閉曲線をそのまま一点へ縮める単純な幾何が使えないこと**です。
 
-一般の simply connected domain で curl-free から保存場を導く議論は、VC5 の Stokes 定理を得てから閉じます。VC2 で後続定理を逆輸入しません。
+一般の 単連結領域 で 回転が 0 の から保存場を導く議論は、VC5 の Stokes 定理を得てから閉じます。VC2 で後続定理を逆輸入しません。
 
 ---
 
-## 8. simply connected の意味
+## 8. 単連結 の意味
 
-本系列で simply connected は直感的に「領域内の任意の閉曲線を、領域の外へ出ずに一点へ連続的に縮められる」ことを表します。
+本系列で 単連結 は直感的に「領域内の任意の閉曲線を、領域の外へ出ずに一点へ連続的に縮められる」ことを表します。
 
-- 円板・球は simply connected。
-- 穴あき平面 $\mathbb R^2\setminus\{0\}$ は simply connected ではない。
-- star-shaped ⇒ simply connected。
+- 円板・球は 単連結。
+- 穴あき平面 $\mathbb R^2\setminus\{0\}$ は 単連結 ではない。
+- 星型 ⇒ 単連結。
 
-ただし一般位相空間の fundamental group はここでは導入しません。VC5 では古典 Stokes theorem の適用範囲の中で、この条件が potential existence をどう支えるかを扱います。
+ただし一般位相空間の fundamental group はここでは導入しません。VC5 では古典 Stokes の定理 の適用範囲の中で、この条件が ポテンシャル existence をどう支えるかを扱います。
 
 ---
 
@@ -654,7 +654,7 @@ L
 $$
 <!-- solution-end -->
 
-#### VC2-A02 scalar line integral
+#### VC2-A02 スカラー線積分
 - Level: A
 - 目安時間: 12分
 
@@ -686,7 +686,7 @@ $$
 $$
 <!-- solution-end -->
 
-#### VC2-A03 vector line integral と向き
+#### VC2-A03 ベクトル線積分 と向き
 - Level: A
 - 目安時間: 15分
 
@@ -717,7 +717,7 @@ $$
 2\pi.
 $$
 
-向きを反転すると vector line integral は符号を変えるので、時計回りでは
+向きを反転すると ベクトル線積分 は符号を変えるので、時計回りでは
 
 $$
 -2\pi.
@@ -730,7 +730,7 @@ $$
 $$
 <!-- solution-end -->
 
-#### VC2-A04 potential から積分を求める
+#### VC2-A04 ポテンシャル から積分を求める
 - Level: A
 - 目安時間: 12分
 
@@ -768,7 +768,7 @@ $$
 経路の具体形は不要です。
 <!-- solution-end -->
 
-#### VC2-B01 path independence から potential を作る
+#### VC2-B01 経路独立性 から ポテンシャル を作る
 - Level: B
 - 目安時間: 25分
 
@@ -776,7 +776,7 @@ $$
 F(x,y)=(2x+y,x+2y)
 $$
 
-について potential を求め、$(0,0)$ から $(1,2)$ までの線積分を求めよ。
+について ポテンシャル を求め、$(0,0)$ から $(1,2)$ までの線積分を求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -805,7 +805,7 @@ $$
 C(y)=y^2+C_0.
 $$
 
-よって potential は
+よって ポテンシャル は
 
 $$
 \phi=x^2+xy+y^2+C_0.
@@ -824,7 +824,7 @@ $$
 $$
 <!-- solution-end -->
 
-#### VC2-B02 star-shaped Poincaré lemma の構成
+#### VC2-B02 星型 Poincaré の補題 の構成
 - Level: B
 - 目安時間: 30分
 
@@ -832,7 +832,7 @@ $$
 F(x,y,z)=(y+z,\ x+z,\ x+y)
 $$
 
-について curl が 0 であることを確認し、
+について 回転 が 0 であることを確認し、
 
 $$
 \phi(x)
@@ -840,7 +840,7 @@ $$
 \int_0^1F(tx)\cdot x\,dt
 $$
 
-から potential を構成せよ。
+から ポテンシャル を構成せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -904,7 +904,7 @@ F.
 $$
 <!-- solution-end -->
 
-#### VC2-B03 punctured plane の反例
+#### VC2-B03 穴あき平面 の反例
 - Level: B
 - 目安時間: 25分
 
@@ -917,7 +917,7 @@ F(x,y)
 \right)
 $$
 
-について、原点以外で scalar curl が 0 であることを直接確認し、半径 $R>0$ の円周上の循環を求めよ。
+について、原点以外で スカラー回転 が 0 であることを直接確認し、半径 $R>0$ の円周上の循環を求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -983,7 +983,7 @@ $$
 \boxed{2\pi}.
 $$
 
-curl-free でも閉曲線積分が消えないため保存場ではありません。
+回転が 0 の でも閉曲線積分が消えないため保存場ではありません。
 <!-- solution-end -->
 
 #### VC2-C01 同じ端点を二経路で照合する
@@ -996,14 +996,14 @@ $$
 
 を考える。
 
-1. scalar curl が 0 であることを確認せよ。
-2. $\mathbb R^2$ が star-shaped であることを使って保存場であると結論せよ。
+1. スカラー回転 が 0 であることを確認せよ。
+2. $\mathbb R^2$ が 星型 であることを使って保存場であると結論せよ。
 3. $(0,0)$ から $(1,1)$ へ、直線 $\gamma_1(t)=(t,t)$ と折れ線
    $$
    (0,0)\to(1,0)\to(1,1)
    $$
    の二経路で線積分を直接計算し、一致を確認せよ。
-4. potential を求め、その端点差とも一致することを確認せよ。
+4. ポテンシャル を求め、その端点差とも一致することを確認せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1016,9 +1016,9 @@ Q_x=2x+2y,
 P_y=2x+2y.
 $$
 
-従って scalar curl は 0 です。
+従って スカラー回転 は 0 です。
 
-2. $\mathbb R^2$ は原点に関して star-shaped です。従って [star-shaped domain 上の初等 Poincaré lemma](#thm-vc2-poincare-star) の二次元版により $F$ は保存場です。
+2. $\mathbb R^2$ は原点に関して 星型 です。従って [星型領域 上の初等 Poincaré の補題](#thm-vc2-poincare-star) の二次元版により $F$ は保存場です。
 
 3. 直線では
 
