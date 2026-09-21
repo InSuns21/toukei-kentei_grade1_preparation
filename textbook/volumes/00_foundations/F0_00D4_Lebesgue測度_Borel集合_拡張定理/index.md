@@ -1474,7 +1474,7 @@ $$
 ここでは rectangle set function が premeasure であること自体は仮定しました。その確認は積測度を本格的に扱う D2C で行い、本問では **premeasure から積測度へ進む拡張部分**だけを切り出しています。
 <!-- solution-end -->
 
-## F0-00D4-C01 有限加法性から一意な測度拡張まで
+## F0-00D4-C01 Carathéodory拡張定理の再構成
 
 - Level: C
 - 目安時間: 35分
