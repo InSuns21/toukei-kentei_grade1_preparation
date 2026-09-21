@@ -5,6 +5,9 @@ prerequisites:
   - F0-00P1
   - F0-00P3C
 
+forward_references:
+  - stochastic.predictable-transform
+
 concepts:
   - id: stochastic.measurable-map
     name: 可測写像
