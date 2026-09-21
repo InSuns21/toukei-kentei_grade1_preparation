@@ -36,7 +36,7 @@ $$
 
 ---
 
-## 1. vector Brownian motion：成分を並べるだけでは終わらない
+## 1. Brown 運動を複数成分へ広げる
 
 <a id="def-sto7-vector-brownian"></a>
 
@@ -459,7 +459,7 @@ $$
 
 ---
 
-## 4. multidimensional Itô formula
+## 4. 二次 Taylor 展開を確率過程へ適用する
 
 ここが本章の主定理です。
 
@@ -833,7 +833,7 @@ $$
 
 ---
 
-## 6. Itô process：drift と noise を同じ式で扱う
+## 6. drift と noise を同じ式で扱う
 
 STO9 では SDE の解を構成します。その前に、本章ではすでに積分表示を持つ process に Itô formula を適用する準備をします。
 
@@ -1384,7 +1384,7 @@ $$
 
 ---
 
-## 8. stochastic exponential：Itô correction を打ち消す
+## 8. 指数関数で Itô correction を打ち消す
 
 <a id="def-sto7-stochastic-exponential"></a>
 
@@ -1621,7 +1621,7 @@ $$
 
 ---
 
-## 9. なぜ Stratonovich integral を作るのか
+## 9. 対称和を使う理由
 
 Itô formula は正しい。しかし 連鎖律 に二階補正が付きます。
 
@@ -1812,9 +1812,9 @@ $$
 
 ---
 
-## 11. covariation の連鎖律
+## 11. 合成関数と covariation
 
-Stratonovich の連鎖律を示すには
+通常形の微分公式を示すには
 
 $$
 [\partial_i f(X),X^i]
