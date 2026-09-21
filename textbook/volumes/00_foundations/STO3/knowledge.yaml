@@ -62,7 +62,7 @@ concepts:
   - id: stochastic.kolmogorov-chentsov-continuity
     name: Kolmogorov--Chentsov continuity theorem
     kind: theorem
-    aliases: ["Kolmogorov--Chentsov continuity theorem", "Kolmogorov-Chentsov continuity theorem", "Kolmogorov continuity theorem"]
+    aliases: ["Kolmogorov--Chentsov continuity theorem", "Kolmogorov-Chentsov continuity theorem", "Kolmogorov continuity theorem", "Kolmogorov--Chentsov 連続定理"]
     introduction: formal
     introduction_aliases: ["定理（Kolmogorov--Chentsov 連続定理：1 パラメータ版）"]
     requires:
