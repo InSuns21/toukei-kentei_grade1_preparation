@@ -76,6 +76,30 @@ $$
 > と定義する。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-vc1-gradient -->
+**定義の確認**
+
+$$
+f(x,y,z)=x^2+2y^2+3z
+$$
+
+なら
+
+$$
+\nabla f=(2x,4y,3).
+$$
+
+点 $(1,1,0)$ で方向 $v=(1,0,0)$ を選ぶと
+
+$$
+D_vf=2
+=
+\nabla f(1,1,0)\cdot v.
+$$
+
+定義どおり、gradient との内積が方向微分を再現します。
+<!-- definition-example-end -->
+
 単位ベクトル $v$ 方向の方向微分は、Fréchet 微分の表示から
 
 $$
