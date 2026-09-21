@@ -1255,7 +1255,7 @@ $$
 
 で、右辺は $a$ に依存しません。
 
-$g$ が 0 でない範囲は有限区間に含まれるので、[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)を $a$ 変数へ使い
+$g$ が 0 でない範囲は有限区間に含まれるので、[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)を $a$ 変数へ使い
 
 $$
 E\left|
@@ -2760,7 +2760,7 @@ L_{\sigma_n}^{a,\varepsilon}
 L_{\sigma_n}^a
 $$
 
-in $L^2$ です。$g$ が 0 でない範囲を含むコンパクト区間上では本文と同じ一様な $L^1$ 評価を使えるので [優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)により
+in $L^2$ です。$g$ が 0 でない範囲を含むコンパクト区間上では本文と同じ一様な $L^1$ 評価を使えるので [優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)により
 
 $$
 \int g(a)L_{\sigma_n}^{a,\varepsilon}\,da
