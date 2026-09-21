@@ -265,6 +265,40 @@ nodes:
     reuses: [F0_00F1, F0_00F2]
     prerequisites: [LA5]
 
+
+  - id: VC1
+    title: ベクトル場と微分演算子
+    area: vector-calculus
+    tier: core
+    status: implemented
+    implemented_at: 2026-09-21
+    implementation_path: textbook/volumes/00_foundations/VC1/index.md
+    prerequisites: [RA6A]
+  - id: VC2
+    title: 曲線・線積分・保存場
+    area: vector-calculus
+    tier: core
+    status: implemented
+    implemented_at: 2026-09-21
+    implementation_path: textbook/volumes/00_foundations/VC2/index.md
+    prerequisites: [VC1, RA4, TOP3]
+  - id: VC3
+    title: 曲面・向き・曲面積分・flux
+    area: vector-calculus
+    tier: core
+    status: implemented
+    implemented_at: 2026-09-21
+    implementation_path: textbook/volumes/00_foundations/VC3/index.md
+    prerequisites: [VC1, RA7, LA3C]
+  - id: VC4
+    title: Green・Gauss--Ostrogradskyと保存則
+    area: vector-calculus
+    tier: core
+    status: implemented
+    implemented_at: 2026-09-21
+    implementation_path: textbook/volumes/00_foundations/VC4/index.md
+    prerequisites: [VC2, VC3, RA7]
+
   - id: MT0
     title: Borel・測度・Caratheodory・Lebesgue正則性
     area: measure-theory
@@ -497,6 +531,9 @@ implementation_batches:
   - order: 8
     id: real-analysis-multivariable-and-compactness
     nodes: [RA6A, RA7, RA8]
+  - order: 9
+    id: vector-calculus-core
+    nodes: [VC1, VC2, VC3, VC4]
 
 deferred_integrations:
   - id: dream-theater-facade-entrypoint

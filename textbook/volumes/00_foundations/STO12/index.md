@@ -1510,7 +1510,7 @@ E\int_0^T H_t^2dt
 <\infty.
 $$
 
-したがって pointwise な係数の発散だけを見て integrability を否定してはいけません。
+したがって pointwise な係数が大きくなることだけを見て integrability を否定してはいけません。
 
 ---
 

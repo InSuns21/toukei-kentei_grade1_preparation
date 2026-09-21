@@ -1,0 +1,68 @@
+chapter: VC4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - VC2
+  - VC3
+  - RA7
+
+forward_references:
+  - pde.pde1-partial-differential-equation
+
+concepts:
+  - id: vector-calculus.green-circulation
+    name: Green theorem circulation form
+    kind: theorem
+    aliases: [Green theorem, Greenの定理, circulation form]
+    introduction: inline
+    requires:
+      - vector-calculus.vector-line-integral
+      - analysis.iterated-riemann-integral-rectangle
+      - analysis.ftc-2
+
+  - id: vector-calculus.green-flux
+    name: Green theorem flux form
+    kind: corollary
+    aliases: [Green theorem flux form, 平面版発散定理]
+    introduction: formal
+    introduction_aliases: ["系（Green theorem：flux form）"]
+    requires:
+      - vector-calculus.green-circulation
+      - vector-calculus.divergence
+
+  - id: vector-calculus.gauss-divergence
+    name: Gauss--Ostrogradsky divergence theorem
+    kind: theorem
+    aliases: [Gauss theorem, divergence theorem, 発散定理, Gauss--Ostrogradsky]
+    introduction: inline
+    requires:
+      - vector-calculus.flux-integral
+      - vector-calculus.divergence
+      - vector-calculus.graph-surface-formulas
+      - analysis.iterated-riemann-integral-rectangle
+
+  - id: vector-calculus.local-conservation-law
+    name: 局所保存則
+    kind: definition
+    aliases: [local conservation law, continuity equation, 保存則]
+    introduction: inline
+    requires:
+      - vector-calculus.divergence
+
+  - id: vector-calculus.local-to-integral-conservation
+    name: 局所保存則から積分保存則
+    kind: theorem
+    aliases: [integral conservation law]
+    introduction: inline
+    requires:
+      - vector-calculus.local-conservation-law
+      - vector-calculus.gauss-divergence
+
+  - id: vector-calculus.integral-to-local-conservation
+    name: 任意の小領域での積分保存則から局所式
+    kind: proposition
+    aliases: [integral-to-local conservation]
+    introduction: formal
+    introduction_aliases: ["命題（任意の小領域での積分保存則から局所式）"]
+    requires:
+      - vector-calculus.local-conservation-law

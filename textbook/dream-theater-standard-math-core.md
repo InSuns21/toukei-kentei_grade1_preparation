@@ -49,6 +49,15 @@ flowchart TD
   RA5 --> RA8["Arzela-Ascoli・Stone-Weierstrass<br/>RA8"]
   TOP5 --> RA8
 
+  RA6A --> VC1["ベクトル解析 I<br/>grad・div・curl・Laplacian<br/>VC1"]
+  VC1 --> VC2["ベクトル解析 II<br/>曲線・線積分・保存場<br/>VC2"]
+  TOP3 --> VC2
+  VC1 --> VC3["ベクトル解析 III<br/>曲面・向き・flux<br/>VC3"]
+  RA7 --> VC3
+  LA3C --> VC3
+  VC2 --> VC4["ベクトル解析 IV<br/>Green・Gauss・保存則<br/>VC4"]
+  VC3 --> VC4
+
   TOP0 --> TOP1["位相の生成・initial/final<br/>積・商 TOP1"]
   TOP1 --> TOP2["同値関係による商・貼り合わせ<br/>TOP2"]
   TOP2 --> TOP3["連結性<br/>TOP3"]
@@ -323,6 +332,53 @@ flowchart TD
 - 複素特異値分解へ拡張
 
 `rational canonical form`、tensor/exterior algebra は `advanced-standard` 候補とし、主DAGの必須前提にはしません。
+
+---
+
+
+# 4A. ベクトル解析：Euclidean な場と積分定理
+
+多変数微分・多重積分を、曲線・曲面・場の積分へ接続します。PDE6 内に局所実装されていた法線・flux・発散定理を独立した canonical series へ移し、後続の PDE・流体・電磁気・連続体力学から再利用できる形にします。
+
+## VC1 ベクトル場と微分演算子 `core`
+
+- scalar/vector field、gradient、divergence、curl、Laplacian
+- level surface と gradient の法線性
+- `curl grad = 0`、`div curl = 0`、主要 product rules
+- 微小 flux / circulation による局所的意味
+
+実装: [VC1](volumes/00_foundations/VC1/index.md)
+
+## VC2 曲線・線積分・保存場 `core`
+
+- regular curve、arc length、scalar/vector line integral
+- 線積分の基本定理
+- conservative / potential / path independence
+- star-shaped domain 上の初等 Poincaré lemma
+- punctured plane の irrotational 非 conservative 反例
+
+実装: [VC2](volumes/00_foundations/VC2/index.md)
+
+## VC3 曲面・向き・曲面積分・flux `core`
+
+- regular parametrized surface、接平面、法線、orientation
+- surface area element と再パラメータ表示不変性
+- scalar surface integral、oriented flux
+- graph / sphere / cylinder の具体計算
+
+実装: [VC3](volumes/00_foundations/VC3/index.md)
+
+## VC4 Green・Gauss--Ostrogradsky と保存則 `core`
+
+- Green theorem の circulation / flux form
+- Gauss--Ostrogradsky divergence theorem
+- graph domain と finite decomposition、内部境界 flux の相殺
+- 特異場の punctured-domain 処理
+- 局所保存則と積分保存則
+
+実装: [VC4](volumes/00_foundations/VC4/index.md)
+
+VC4 までが PDE6 の direct prerequisite です。VC5 以降の Stokes、直交曲線座標、Cartesian tensor、Helmholtz decomposition は [再編計画](DREAM_THEATER_VECTOR_CALCULUS_RESTRUCTURE_PLAN.md) に従って後続実装します。
 
 ---
 

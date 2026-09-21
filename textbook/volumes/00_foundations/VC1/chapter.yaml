@@ -1,0 +1,41 @@
+id: "VC1"
+title: "標準ベクトル解析 I：ベクトル場と微分演算子"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RA6A
+official_scope: []
+learning_objectives:
+  - scalar fieldとvector fieldを区別し、方向微分をgradientとの内積で表せる
+  - regular level surfaceでgradientが接方向に直交することを連鎖律から証明できる
+  - divergenceを定義し、微小直方体の正味flux密度として説明できる
+  - curlを定義し、微小長方形の循環密度として説明できる
+  - scalar Laplacianをdiv gradとして定義し、調和性を判定できる
+  - C2正則性の下でcurl grad=0とdiv curl=0を成分計算から証明できる
+  - div(fF), curl(fF), div(F×G), curl(F×G)の主要恒等式を成分計算から導出して使える
+definitions:
+  - { id: VC1-DEF-01, name: scalar field・vector field }
+  - { id: VC1-DEF-02, name: gradient }
+  - { id: VC1-DEF-03, name: divergence }
+  - { id: VC1-DEF-04, name: curl }
+  - { id: VC1-DEF-05, name: scalar Laplacian }
+theorems:
+  - { id: VC1-THM-01, name: 正則level surfaceとgradientの直交 }
+  - { id: VC1-THM-02, name: curl grad = 0 }
+  - { id: VC1-THM-03, name: div curl = 0 }
+  - { id: VC1-PROP-01, name: 主要な積の微分則 }
+canonical_examples:
+  - x^2+y^2+z^2のgradientとlevel sphere
+  - radial field (x,y,z) のdivergence
+  - rigid rotation field (-y,x,0) のcurl
+  - harmonic polynomialのLaplacian
+problem_patterns:
+  - VC1-GRAD-LEVEL-1
+  - VC1-DIV-1
+  - VC1-CURL-1
+  - VC1-LAPLACIAN-1
+  - VC1-IDENTITY-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 3.5, review: 1.0 }
