@@ -33,7 +33,7 @@ $$
 \to
 \text{強解}
 \to
-\text{Picard 反復}
+\text{Picard 型逐次近似}
 \to
 \text{経路ごとの一意性}
 \to
@@ -45,7 +45,7 @@ $$
 
 です。
 
-弱解、法則の一意性、Girsanov theorem は次の STO10 に送ります。本章では **同じ確率空間・同じブラウン運動を固定した上で解を作る** ことに集中します。
+[弱解](../STO10/index.md#def-sto10-weak-solution)、[法則の一意性](../STO10/index.md#def-sto10-uniqueness-in-law)、[Girsanov 定理](../STO10/index.md#thm-sto10-girsanov)は次の STO10 に送ります。本章では **同じ確率空間・同じブラウン運動を固定した上で解を作る** ことに集中します。
 
 ---
 
@@ -358,7 +358,7 @@ $$
 
 ## 4. まず Gronwall の機械を用意する
 
-Picard 反復と一意性の両方で同じ積分不等式が現れます。
+Picard 型逐次近似と一意性の両方で同じ積分不等式が現れます。
 
 <a id="lem-sto9-gronwall"></a>
 
@@ -1500,7 +1500,7 @@ $$
 
 ---
 
-## 12. 切断した大域問題を貼り合わせる
+## 12. 射影で大域化した問題を貼り合わせる
 
 半径 $n$ の閉球への metric projection を
 
@@ -1958,7 +1958,7 @@ P(\tau_{\mathrm e}=\infty)=1.
 $$
 <!-- formal-statement-end -->
 
-この theorem は STO11 の generator を先取りせず、Itô 公式に現れるドリフト combination をそのまま書いています。
+この定理は STO11 の [生成作用素](../STO11/index.md#def-sto11-generator) を定義として使わず、Itô 公式に現れるドリフト項をそのまま書いています。
 
 ### 証明の見取り図
 
@@ -3568,9 +3568,9 @@ $$
 \begin{array}{c}
 \text{局所 Lipschitz}\\
 \Downarrow\\
-\text{maximal solution up to }\tau_{\mathrm e}\\
+\text{爆発時刻までの極大解}\\
 \Downarrow\\
-\text{線形成長 or Lyapunov control}\\
+\text{線形成長または Lyapunov 制御}\\
 \Downarrow\\
 \tau_{\mathrm e}=\infty
 \end{array}
@@ -3579,7 +3579,7 @@ $$
 
 も証明しました。
 
-比較定理では、同じ雑音を共有する一次元 SDE が pathwise order まで保持できることも確認しました。
+比較定理では、同じ雑音を共有する一次元 SDE が 経路ごとの順序 まで保持できることも確認しました。
 
 ---
 
@@ -3602,13 +3602,13 @@ $$
 
 - 弱解
 - 強解との違い
-- equivalent change of measure
-- exponential martingale
-- Novikov condition
-- Girsanov theorem
-- ドリフト removal
-- weak 存在への応用
-- 経路ごとの一意性と法則の一意性の位置付け
+- [同値な確率測度](../STO10/index.md#def-sto10-equivalent-measures)と測度変換
+- [確率指数関数](../STO7/index.md#def-sto7-stochastic-exponential)と指数マルチンゲール
+- [Novikov 条件](../STO10/index.md#thm-sto10-novikov)
+- [Girsanov 定理](../STO10/index.md#thm-sto10-girsanov)
+- [ドリフト除去](../STO10/index.md#cor-sto10-drift-removal)
+- [弱解の存在への応用](../STO10/index.md#thm-sto10-girsanov-weak-existence)
+- 経路ごとの一意性と[法則の一意性](../STO10/index.md#def-sto10-uniqueness-in-law)の位置付け
 
 へ進みます。
 
