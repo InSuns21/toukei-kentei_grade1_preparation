@@ -1,0 +1,14 @@
+chapter: "PDE10"
+terms:
+  - term: 多次元基本解
+    english: fundamental solution of the Laplacian
+    meaning: 原点外で調和的で、原点を囲む球面を通る負の法線流束が1となる核。
+  - term: Newton ポテンシャル
+    english: Newton potential
+    meaning: Laplacian の基本解と source を畳み込んで作る Poisson 方程式の特解。
+  - term: Kelvin 変換
+    english: Kelvin transform
+    meaning: 球面反転と重みを組み合わせ調和関数を別の調和関数へ移す変換。
+  - term: 鏡像法
+    english: method of images
+    meaning: 境界の反対側へ仮想 source を置き境界条件を満たす Green 関数を構成する方法。

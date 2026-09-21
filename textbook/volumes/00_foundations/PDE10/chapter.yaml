@@ -1,0 +1,41 @@
+id: "PDE10"
+title: "標準偏微分方程式 X：多次元 Laplace・Poisson 方程式とポテンシャル論"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PDE6
+  - VC4
+  - VC6
+official_scope: []
+learning_objectives:
+  - 放射対称関数の n 次元 Laplacian を使って基本解の形を導ける
+  - n 次元負 Laplacian の基本解の調和性と単位流束を証明できる
+  - Newton ポテンシャルが Poisson 方程式を解く機構を小球除外の積分計算から説明できる
+  - 多次元調和関数の球面平均値性質を発散定理から証明できる
+  - Kelvin 変換を定義し調和性保存の計算を追える
+  - 半空間の Dirichlet Green 関数と Poisson kernel を鏡像法から構成できる
+definitions:
+  - { id: PDE10-DEF-01, name: "n 次元負 Laplacian の基本解" }
+  - { id: PDE10-DEF-02, name: "n 次元 Newton ポテンシャル" }
+  - { id: PDE10-DEF-03, name: "Kelvin 変換" }
+theorems:
+  - { id: PDE10-PROP-01, name: "多次元基本解の調和性と単位流束" }
+  - { id: PDE10-THM-01, name: "Newton ポテンシャルと Poisson 方程式" }
+  - { id: PDE10-THM-02, name: "多次元調和関数の球面平均値性質" }
+  - { id: PDE10-PROP-02, name: "Kelvin 変換は調和性を保つ" }
+  - { id: PDE10-PROP-03, name: "半空間の Dirichlet Green 関数" }
+canonical_examples:
+  - "三次元 Newton 核"
+  - "一次関数の球面平均"
+  - "定数関数の Kelvin 変換"
+  - "半空間の鏡像法"
+problem_patterns:
+  - PDE10-FUNDAMENTAL-1
+  - PDE10-NEWTON-1
+  - PDE10-MEAN-VALUE-1
+  - PDE10-KELVIN-1
+  - PDE10-HALFSPACE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 5.0, review: 1.0 }
