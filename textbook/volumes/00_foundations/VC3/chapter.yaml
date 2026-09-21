@@ -1,0 +1,41 @@
+id: "VC3"
+title: "標準ベクトル解析 III：曲面・向き・曲面積分・flux"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - VC1
+  - RA7
+  - LA3C
+official_scope: []
+learning_objectives:
+  - 正則パラメータ曲面を定義し、coordinate tangent vectors・接平面・法線を計算できる
+  - 古典的な向き付け可能性を連続単位法線場として説明し、球面と非向き付け例を区別できる
+  - cross productから曲面積要素を導き、再パラメータ表示不変性を証明できる
+  - scalar surface integralと向き付きflux integralを定義して計算できる
+  - graph surfaceの面積要素と上向きvector area elementを導ける
+  - sphere・cylinder・planeで面積とfluxを直接計算できる
+  - surface orientationとboundary orientationの関係をVC5のStokes theoremへの入口として説明できる
+definitions:
+  - { id: VC3-DEF-01, name: 正則パラメータ曲面 }
+  - { id: VC3-DEF-02, name: 接平面・法線 }
+  - { id: VC3-DEF-03, name: 向き付け可能な曲面 }
+  - { id: VC3-DEF-04, name: 曲面積要素 }
+  - { id: VC3-DEF-05, name: scalar surface integral }
+  - { id: VC3-DEF-06, name: 向き付き面素・flux }
+theorems:
+  - { id: VC3-THM-01, name: 曲面積要素の再パラメータ表示不変性 }
+  - { id: VC3-PROP-01, name: graph surfaceの面積・上向きflux }
+canonical_examples:
+  - 球面patchの正則性
+  - graph surfaceの面積要素
+  - 球面のradial flux
+  - 閉円柱の面ごとのflux
+problem_patterns:
+  - VC3-TANGENT-NORMAL-1
+  - VC3-SURFACE-AREA-1
+  - VC3-FLUX-1
+  - VC3-REPARAM-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 4.0, review: 1.0 }
