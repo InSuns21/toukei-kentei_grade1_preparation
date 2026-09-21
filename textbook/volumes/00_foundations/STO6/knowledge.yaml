@@ -7,6 +7,9 @@ prerequisites:
   - F0-00D2E
   - F0-00D3A
 
+forward_references:
+  - stochastic.stochastic-exponential
+
 concepts:
   - id: stochastic.simple-predictable-integrand
     name: simple predictable integrand
