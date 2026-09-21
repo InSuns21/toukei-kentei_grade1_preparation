@@ -41,6 +41,14 @@ concepts:
       - linear.inner-product
       - topology.extreme-value-theorem
 
+  - id: linear.symmetric-distinct-eigenspaces-orthogonal
+    name: 実対称行列の異なる固有空間は直交する
+    kind: theorem
+    aliases: [実対称行列の異なる固有空間は直交する, 異なる固有値の固有ベクトルは直交する]
+    requires:
+      - linear.eigen-data-recap-f1
+      - linear.inner-product
+
   - id: linear.spectral-theorem
     name: 実対称行列のスペクトル定理
     kind: theorem
@@ -70,3 +78,20 @@ concepts:
     requires:
       - linear.spectral-theorem
       - linear.eigenvalue
+
+  - id: linear.pd-psd-eigenvalue-characterization
+    name: 正定値・半正定値の固有値判定
+    kind: theorem
+    aliases: [正定値・半正定値の固有値判定]
+    requires:
+      - linear.positive-definite-matrix
+      - linear.positive-semidefinite-matrix
+      - linear.spectral-theorem
+
+  - id: linear.psd-square-root
+    name: 半正定値行列の平方根
+    kind: theorem
+    aliases: [半正定値行列の平方根]
+    requires:
+      - linear.positive-semidefinite-matrix
+      - linear.spectral-theorem
