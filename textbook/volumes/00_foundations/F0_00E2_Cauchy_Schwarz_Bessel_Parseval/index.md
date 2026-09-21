@@ -2,7 +2,7 @@
 
 [F0-00E1](../F0_00E1_内積_Gram_Schmidt_射影_QR/index.md) では、内積から正規直交基底・Gram--Schmidt・射影・QRまでを構成しました。
 
-この講義では、その幾何を支える基本不等式と正規直交展開を証明します。
+この講義では、その幾何を支える基本不等式と正規直交座標での展開公式を証明します。
 
 ```text
 Cauchy--Schwarz
@@ -204,7 +204,7 @@ $$
 
 です。
 
-内積の非負性・正定値性・斉次性と、いま示した三角不等式を合わせると、$\|x\|=\sqrt{\langle x,x\rangle}$ は確かにノルムの公理を満たします。
+内積公理の $\langle x,x\rangle\ge0$、$\langle x,x\rangle=0\Longleftrightarrow x=0$、斉次性と、いま示した三角不等式を合わせると、$\|x\|=\sqrt{\langle x,x\rangle}$ は確かにノルムの公理を満たします。
 
 ---
 
@@ -273,7 +273,7 @@ $$
 
 ---
 
-## 6. Fourier係数と正規直交展開
+## 6. 正規直交座標の係数と展開
 
 <a id="def-f0-00e2-fourier-coefficient"></a>
 
