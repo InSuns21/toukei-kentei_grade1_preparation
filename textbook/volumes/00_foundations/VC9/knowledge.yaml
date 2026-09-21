@@ -18,7 +18,7 @@ concepts:
   - id: vector-calculus.mass-continuity
     name: 質量保存の連続の式
     kind: proposition
-    aliases: [continuity equation, mass continuity equation, 連続の式]
+    aliases: [mass continuity equation, 質量保存の連続の式]
     introduction: formal
     introduction_aliases: ["命題（質量保存の連続の式）"]
     requires:
@@ -92,7 +92,7 @@ concepts:
     requires:
       - vector-calculus.stream-function
       - vector-calculus.vorticity
-      - vector-calculus.conservative-equivalence
+      - vector-calculus.poincare-star-shaped
       - vector-calculus.scalar-laplacian
 
   - id: vector-calculus.momentum-balance-integral
