@@ -16,7 +16,7 @@ concepts:
     kind: definition
     aliases: ["Markov transition kernel", "transition probability kernel"]
     introduction: formal
-    introduction_aliases: ["定義（transition kernel）"]
+    introduction_aliases: ["定義（遷移核）"]
     requires:
       - stochastic.stochastic-process
 
@@ -25,7 +25,7 @@ concepts:
     kind: definition
     aliases: ["Markov process", "time homogeneous Markov process"]
     introduction: formal
-    introduction_aliases: ["定義（time-homogeneous Markov process）"]
+    introduction_aliases: ["定義（time-homogeneous Markov 過程）"]
     requires:
       - stochastic.transition-kernel
       - prob.conditional-expectation
@@ -36,7 +36,7 @@ concepts:
     kind: definition
     aliases: ["transition semigroup", "Markov transition semigroup"]
     introduction: formal
-    introduction_aliases: ["定義（Markov semigroup）"]
+    introduction_aliases: ["定義（マルコフ半群）"]
     requires:
       - stochastic.time-homogeneous-markov-process
 
@@ -45,7 +45,7 @@ concepts:
     kind: proposition
     aliases: ["Chapman-Kolmogorov equation", "semigroup law"]
     introduction: formal
-    introduction_aliases: ["命題（Chapman--Kolmogorov と semigroup law）"]
+    introduction_aliases: ["命題（Chapman--Kolmogorov と半群法則）"]
     requires:
       - stochastic.markov-semigroup
       - prob.tower-property
@@ -55,7 +55,7 @@ concepts:
     kind: proposition
     aliases: ["Markov property of Lipschitz SDE", "SDE solution family is Markov"]
     introduction: formal
-    introduction_aliases: ["命題（global Lipschitz SDE の solution family は Markov）"]
+    introduction_aliases: ["命題（大域 Lipschitz SDE の solution family は Markov）"]
     requires:
       - stochastic.global-lipschitz-sde-existence-uniqueness
       - stochastic.brownian-markov-property
@@ -65,7 +65,7 @@ concepts:
     kind: definition
     aliases: ["generator", "infinitesimal generator", "Markov generator"]
     introduction: formal
-    introduction_aliases: ["定義（generator）"]
+    introduction_aliases: ["定義（生成作用素）"]
     requires:
       - stochastic.markov-semigroup
 
@@ -74,7 +74,7 @@ concepts:
     kind: proposition
     aliases: ["diffusion generator", "generator of an Ito diffusion"]
     introduction: formal
-    introduction_aliases: ["命題（Itô diffusion の generator）"]
+    introduction_aliases: ["命題（Itô 拡散の生成作用素）"]
     requires:
       - stochastic.markov-generator
       - stochastic.lipschitz-sde-markov-family
@@ -86,7 +86,7 @@ concepts:
     kind: theorem
     aliases: ["Dynkin formula", "Dynkin's formula"]
     introduction: formal
-    introduction_aliases: ["定理（Dynkin formula）"]
+    introduction_aliases: ["定理（Dynkin 公式）"]
     requires:
       - stochastic.diffusion-generator
       - stochastic.continuous-local-martingale
@@ -97,7 +97,7 @@ concepts:
     kind: theorem
     aliases: ["Kolmogorov backward equation", "backward equation"]
     introduction: formal
-    introduction_aliases: ["定理（backward Kolmogorov equation）"]
+    introduction_aliases: ["定理（Kolmogorov 後退方程式）"]
     requires:
       - stochastic.markov-semigroup
       - stochastic.markov-generator
@@ -108,7 +108,7 @@ concepts:
     kind: theorem
     aliases: ["Kolmogorov forward equation", "weak forward equation"]
     introduction: formal
-    introduction_aliases: ["定理（forward Kolmogorov equation の弱形式と Fokker--Planck）"]
+    introduction_aliases: ["定理（Kolmogorov 前進方程式の弱形式と Fokker--Planck）"]
     requires:
       - stochastic.dynkin-formula
 
@@ -117,7 +117,7 @@ concepts:
     kind: theorem
     aliases: ["Fokker-Planck equation", "forward equation for diffusion density"]
     introduction: formal
-    introduction_aliases: ["定理（forward Kolmogorov equation の弱形式と Fokker--Planck）"]
+    introduction_aliases: ["定理（Kolmogorov 前進方程式の弱形式と Fokker--Planck）"]
     requires:
       - stochastic.forward-kolmogorov-weak
 
@@ -126,7 +126,7 @@ concepts:
     kind: theorem
     aliases: ["Feynman-Kac formula", "Feynman--Kac representation"]
     introduction: formal
-    introduction_aliases: ["定理（Feynman--Kac verification formula）"]
+    introduction_aliases: ["定理（Feynman--Kac 検証公式）"]
     requires:
       - stochastic.diffusion-generator
       - stochastic.ito-process-formula
@@ -136,7 +136,7 @@ concepts:
     kind: definition
     aliases: ["martingale problem for a generator", "Stroock-Varadhan martingale problem"]
     introduction: formal
-    introduction_aliases: ["定義（martingale problem）"]
+    introduction_aliases: ["定義（マルチンゲール問題）"]
     requires:
       - stochastic.markov-generator
       - stochastic.continuous-local-martingale
@@ -146,7 +146,7 @@ concepts:
     kind: theorem
     aliases: ["SDE implies martingale problem", "Ito diffusion solves martingale problem"]
     introduction: formal
-    introduction_aliases: ["定理（SDE から martingale problem）"]
+    introduction_aliases: ["定理（SDE からマルチンゲール問題）"]
     requires:
       - stochastic.martingale-problem
       - stochastic.brownian-sde
@@ -157,7 +157,7 @@ concepts:
     kind: theorem
     aliases: ["martingale problem implies weak SDE", "nondegenerate diffusion representation"]
     introduction: formal
-    introduction_aliases: ["定理（nondegenerate martingale problem から SDE 表現）"]
+    introduction_aliases: ["定理（非退化マルチンゲール問題から SDE 表現）"]
     requires:
       - stochastic.martingale-problem
       - stochastic.levy-characterization
@@ -168,7 +168,7 @@ concepts:
     kind: definition
     aliases: ["well posed martingale problem", "uniqueness for martingale problem"]
     introduction: formal
-    introduction_aliases: ["定義（martingale problem の存在・law 一意性）"]
+    introduction_aliases: ["定義（マルチンゲール問題の存在・法則一意性）"]
     requires:
       - stochastic.martingale-problem
 
@@ -177,7 +177,7 @@ concepts:
     kind: theorem
     aliases: ["well-posed martingale problem implies strong Markov property"]
     introduction: formal
-    introduction_aliases: ["定理（martingale problem の存在・law 一意性から strong Markov property）"]
+    introduction_aliases: ["定理（マルチンゲール問題の存在・法則一意性から強マルコフ性）"]
     requires:
       - stochastic.well-posed-martingale-problem
       - stochastic.stopping-time
@@ -187,6 +187,6 @@ concepts:
     kind: definition
     aliases: ["Feller semigroup", "Feller process"]
     introduction: formal
-    introduction_aliases: ["定義（Feller semigroup）"]
+    introduction_aliases: ["定義（Feller 半群）"]
     requires:
       - stochastic.markov-semigroup
