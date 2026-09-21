@@ -865,7 +865,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-VC1 の [div curl = 0](../VC1/index.md#thm-vc1-div-curl-zero) から
+VC1 の [div curl = 0](../VC1/index.md#thm-vc1-div-curl) から
 
 $$
 \nabla\cdot F
@@ -904,7 +904,7 @@ $$
 \nabla\times\nabla\phi.
 $$
 
-VC1 の [curl grad = 0](../VC1/index.md#thm-vc1-curl-grad-zero) より第二項は 0 なので
+VC1 の [curl grad = 0](../VC1/index.md#thm-vc1-curl-grad) より第二項は 0 なので
 
 $$
 \nabla\times A^\ast
