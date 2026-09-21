@@ -68,6 +68,29 @@ $$
 
 を確率空間とし、時間集合は離散時間 $\mathbb N_0=\{0,1,2,\ldots\}$ または連続時間 $[0,\infty)$ とします。
 
+まず、状態空間が一般の可測空間であるときの可測性記法を固定します。
+
+<a id="def-sto1-measurable-map"></a>
+
+<!-- formal-statement-start -->
+> **定義（$\mathcal F/\mathcal E$ 可測）**  
+> 可測空間 $(\Omega,\mathcal F)$ と $(E,\mathcal E)$ の間の写像
+>
+$$
+f:\Omega\to E
+$$
+>
+> が、任意の $B\in\mathcal E$ に対して
+>
+$$
+f^{-1}(B)\in\mathcal F
+$$
+>
+> を満たすとき、$f$ は **$\mathcal F/\mathcal E$ 可測**であるという。
+<!-- formal-statement-end -->
+
+$(E,\mathcal E)=(\mathbb R,\mathcal B(\mathbb R))$ の場合は、[実数値確率変数の定義](../F0_00P1_確率空間_確率変数_分布/index.md#def-f0-00p1-random-variable)で使った可測性と同じです。
+
 <a id="def-sto1-stochastic-process"></a>
 
 <!-- formal-statement-start -->
@@ -78,7 +101,7 @@ $$
 X_t:\Omega\to E
 $$
 >
-> が [$\mathcal F/\mathcal E$ 可測](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#def-f0-00d2-measurable-map) であるとき、族
+> が [$\mathcal F/\mathcal E$ 可測](#def-sto1-measurable-map) であるとき、族
 >
 $$
 X=(X_t)_{t\in T}
