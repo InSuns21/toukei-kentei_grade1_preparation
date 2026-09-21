@@ -21,7 +21,7 @@ concepts:
     name: 法線微分
     kind: definition
     aliases: [normal derivative, 外向き法線微分]
-    introduction: formal
+    introduction: inline
     introduction_aliases: ["定義（法線微分）"]
     requires:
       - pde.pde5-boundary-problems
