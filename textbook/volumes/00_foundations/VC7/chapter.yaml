@@ -3,9 +3,8 @@ title: "標準ベクトル解析 VII：デカルトテンソル・添字記法"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - VC1
+  - VC4
   - F0-00E1
-  - LA3C
 official_scope: []
 learning_objectives:
   - Einstein の総和規約を用い、自由添字とダミー添字を混同せず成分式を展開・縮約できる
