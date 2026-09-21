@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念への参照**：STO1 の [確率過程](../STO1/index.md#def-sto1-stochastic-process) と [修正・識別不能性](../STO1/index.md#def-sto1-修正-識別不能) を既知として使います。
+> **既出概念への参照**：STO1 の [確率過程](../STO1/index.md#def-sto1-stochastic-process) と [修正・識別不能性](../STO1/index.md#def-sto1-modification-indistinguishable) を既知として使います。
 
 STO1 では、確率過程を「時刻で添字付けされた確率変数族」として定義し、修正と識別不能性を区別しました。
 
@@ -203,7 +203,7 @@ $\mathcal F^\ast$ は円筒集合全体が生成する $\sigma$ 代数です。
 
 ここで大切なのは、$\Omega^\ast$ に入る経路の大半が連続でなくても構わないことです。まず「有限次元分布を持つ過程を存在させる」仕事だけを行います。連続性は後半で別に回収します。
 
-<!-- definition-example-start: def-sto3-標準-trajectory-space -->
+<!-- definition-example-start: def-sto3-canonical-trajectory-space -->
 ### 直接例：二時刻だけを観測する円筒集合
 
 **定義の確認**
@@ -523,7 +523,7 @@ $$
 
 1. 円筒集合に有限次元分布から確率を入れる。
 2. その確率が前測度であることを示す。
-3. [D4 の測度拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-拡張)で $\sigma$ 代数へ拡張する。
+3. [D4 の測度拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)で $\sigma$ 代数へ拡張する。
 
 最も非自明なのは 2 です。
 
@@ -913,7 +913,7 @@ $$
 
 #### Step 5：Carathéodory 拡張
 
-[D4 の拡張結果](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-拡張)から、$\mu_0$ は
+[D4 の拡張結果](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)から、$\mu_0$ は
 
 $$
 \sigma(\mathcal C)=\mathcal F^\ast
@@ -967,7 +967,7 @@ $$
 
 従って、連続標本路が欲しいなら追加情報が必要です。
 
-ここで STO1 の [修正の定義](../STO1/index.md#def-sto1-修正-識別不能) が効きます。
+ここで STO1 の [修正の定義](../STO1/index.md#def-sto1-modification-indistinguishable) が効きます。
 
 元の過程 $X$ と各固定時刻でほとんど確実に一致しつつ、よりよい標本路を持つ過程 $\widetilde X$ を作ればよいのです。
 
@@ -1004,7 +1004,7 @@ $$
 
 で抑えられます。
 
-<!-- definition-example-start: def-sto3-holder-連続性 -->
+<!-- definition-example-start: def-sto3-holder-continuity -->
 ### 直接例：$f(t)=\sqrt t$ は $1/2$-Hölder
 
 **定義の確認**
@@ -2447,7 +2447,7 @@ $$
 
 **1. 過程の存在。**
 
-$(\mu_I)$ は整合的なので [Kolmogorov 拡張定理](#thm-sto3-kolmogorov-拡張)を適用できます。
+$(\mu_I)$ は整合的なので [Kolmogorov 拡張定理](#thm-sto3-kolmogorov-extension)を適用できます。
 
 従って
 
@@ -2545,7 +2545,7 @@ $$
 
 です。
 
-$Y$ と $\widetilde X$ はともに連続標本路を持つので、[連続な modifications は識別不能](#prop-sto3-連続-modifications-識別不能) を適用して
+$Y$ と $\widetilde X$ はともに連続標本路を持つので、[連続な modifications は識別不能](#prop-sto3-continuous-modifications-indistinguishable) を適用して
 
 $$
 P^\ast(
