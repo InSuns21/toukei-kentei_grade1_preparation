@@ -50,7 +50,7 @@ TSA1--TSA6
 4. [STO4：Brown 運動・hitting time・strong Markov property](../STO4/index.md) — 実装済み
 5. [STO5：continuous local martingale・quadratic variation・semimartingale](../STO5/index.md) — 実装済み
 6. [STO6：stochastic integral](../STO6/index.md) — 実装済み
-7. STO7：multidimensional Itô calculus・Stratonovich
+7. [STO7：multidimensional Itô calculus・Stratonovich](../STO7/index.md) — 実装済み
 8. STO8：local time・Tanaka formula
 9. STO9：SDE の strong solution・存在一意性・局所化
 10. STO10：weak solution・Girsanov
@@ -161,4 +161,6 @@ STO5 では STO2 の bounded optional sampling を dyadic approximation で連�
 
 [STO6「stochastic integral」](../STO6/index.md#thm-sto6-l2-construction) も実装済みです。simple predictable integrand から増分和を定義し、Itô isometry と L2 completion で一般 predictable integrand へ拡張しました。continuous-time Doob L2 inequality、積分の bracket、stopping との交換、localization まで閉じ、一般 p の BDG inequality は標準形と用途を示したうえで、p=2 を章内証明し、一般 p の完全証明は意図的 black box として境界を明記しています。
 
-現在地は **Phase 2：STO5 → STO6 完了 → 次は STO7「multidimensional Itô calculus・Stratonovich」** です。
+[STO7「multidimensional Itô calculus・Stratonovich」](../STO7/index.md#thm-sto7-multidimensional-ito) も実装済みです。vector Brownian motion の covariation から始め、weighted covariation sum を介して multidimensional Itô formula を二次 Taylor 展開から証明し、product rule、Itô process、stochastic exponential、Brownian exponential martingaleまで接続しました。さらに symmetric sum から Stratonovich integral を構成し、Itô--Stratonovich conversion と Euclidean chain rule、vector field 形式の drift correctionまで閉じています。manifold 上の確率解析は先取りしていません。
+
+現在地は **Phase 2：STO5 → STO6 → STO7 完了 → 次は STO8「local time・Tanaka formula」** です。

@@ -609,4 +609,8 @@ ARMA / ergodicity / Kalman
 - Phase 2：STO6「stochastic integral」を実装。simple predictable integrand の増分和から始め、Itô isometry、predictable simple process の L2 density、Doob L2 maximal inequality、L2 completion、quadratic variation、stopping との交換、local square integrability と localization までを、主要証明・直接例・A4/B3/C1・全問詳細解答まで閉じた。
 - STO6 の direct prerequisite は STO2・STO5・F0-00D2E・F0-00D3A とした。STO2 の Doob maximal inequalityを dyadic grid で連続時間へ持ち上げ、F0-00D2E の L2 completion を stochastic integral construction に実際に使う。predictable simple process の稠密性では F0-00D3A の π--λ 定理を生成 σ 代数への拡張に使う。旧 SP 系列は prerequisite / proof dependency にしない。
 - 一般 p の Burkholder--Davis--Gundy inequality は、good-lambda / stopping decomposition を要する独立した大きな証明であるため標準定理として境界明示し、p=2 の比較は Itô isometry と Doob L2 inequality から章内で完全証明した。
-- 現在地：Phase 2 は STO5 → STO6 完了。次の実装対象は STO7「multidimensional Itô calculus・Stratonovich」。
+- Phase 2：STO7「multidimensional Itô calculus・Stratonovich」を実装。vector Brownian motion / semimartingale integral / weighted covariation / multidimensional Itô formula / product rule / Itô process / stochastic exponential / Stratonovich integral / Itô--Stratonovich conversion を、主要証明・直接例・A4/B3/C1・全問詳細解答まで閉じた。
+- STO7 の direct prerequisite は STO5・STO6・RA3 とした。STO5 の quadratic variation / covariation と semimartingale 分解、STO6 の local stochastic integral、RA3 の Taylor theorem を実際の証明に使い、旧 SP4 や後続 STO8 / STO9 は prerequisite / proof dependency にしない。
+- multidimensional Itô formula は weighted covariation sum を補題として、二次 Taylor 展開の一次和・二次和・remainder をそれぞれ stochastic integral・covariation integral・0 へ送る核心証明を本文で閉じた。
+- Stratonovich integral は symmetric Riemann sum から定義し、Itô integral との差が covariation の半分になること、covariation chain rule、Euclidean Stratonovich chain rule、vector field 形式の drift correctionまで導いた。manifold / connection は停止線の外に保った。
+- 現在地：Phase 2 は STO5 → STO6 → STO7 完了。次の実装対象は STO8「local time・Tanaka formula」。

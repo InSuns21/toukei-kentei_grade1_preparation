@@ -1,0 +1,26 @@
+chapter: "STO7"
+terms:
+  - term: vector Brownian motion
+    english: vector Brownian motion
+    meaning: filtrationに対して過去から独立なN_d(0,(t-s)I_d)増分と連続標本路を持つR^d値process。成分間covariationはdelta_ij tになる。
+  - term: semimartingale integral
+    english: semimartingale integral
+    meaning: X=M+Aという一意なcontinuous semimartingale分解に対し、local martingale partはstochastic integral、finite-variation partはLebesgue--Stieltjes integralで積分するもの。
+  - term: multidimensional Itô formula
+    english: multidimensional Ito formula
+    meaning: C2関数f(X)の増分を一次積分と1/2倍のHessian-covariation項に分解する連鎖律。
+  - term: Itô process
+    english: Ito process
+    meaning: driftの時間積分とBrownian stochastic integralの和で表されるEuclidean semimartingale。
+  - term: stochastic exponential
+    english: stochastic exponential
+    meaning: continuous local martingale Mに対するexp(M_t-M_0-[M]_t/2)。dZ=Z dMを満たす正のlocal martingale。
+  - term: exponential martingale
+    english: exponential martingale
+    meaning: Brownian motionではexp(theta dot B_t-|theta|^2 t/2)で与えられ、独立Gaussian増分により真のmartingaleになる。
+  - term: Stratonovich integral
+    english: Stratonovich integral
+    meaning: 対称Riemann和の極限として得られる積分。continuous semimartingaleではItô integralにcovariationの半分を加えたものに等しい。
+  - term: Itô--Stratonovich conversion
+    english: Ito--Stratonovich conversion
+    meaning: Itô積分とStratonovich積分の差をquadratic covariation、Itô processでは分散共分散行列によるdrift correctionとして書く公式。
