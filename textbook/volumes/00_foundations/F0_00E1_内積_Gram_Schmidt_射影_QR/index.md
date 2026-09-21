@@ -717,7 +717,7 @@ $$
 
 ---
 
-## 11. Gram--SchmidtとQR分解
+## 11. Gram--Schmidtを行列分解として読む
 
 <a id="def-f0-00e1-thin-qr"></a>
 
