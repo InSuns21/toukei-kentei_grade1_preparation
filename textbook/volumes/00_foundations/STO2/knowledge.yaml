@@ -6,6 +6,9 @@ prerequisites:
   - F0-00P3C
   - F0-00P4A
 
+forward_references:
+  - stochastic.finite-dimensional-distribution-consistency
+
 concepts:
   - id: stochastic.discrete-martingale
     name: 離散時間martingale・submartingale・supermartingale
