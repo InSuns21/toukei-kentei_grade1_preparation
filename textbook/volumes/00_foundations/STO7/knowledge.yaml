@@ -6,6 +6,10 @@ prerequisites:
   - STO6
   - RA3
 
+forward_references:
+  - stochastic.markov-generator
+  - stochastic.brownian-sde
+
 concepts:
   - id: stochastic.vector-brownian-motion
     name: d次元Brown運動
