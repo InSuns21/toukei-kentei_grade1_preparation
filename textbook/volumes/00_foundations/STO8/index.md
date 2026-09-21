@@ -211,7 +211,7 @@ $$
 
 ---
 
-## 3. Tanaka formula：滑らかでない Itô formula
+## 3. kink を含む関数の補正公式
 
 <a id="thm-sto8-tanaka"></a>
 
