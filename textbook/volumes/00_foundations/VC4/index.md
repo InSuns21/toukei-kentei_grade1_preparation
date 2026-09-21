@@ -75,7 +75,7 @@ D
 \{(x,y):a\le x\le b,\ \alpha(x)\le y\le\beta(x)\}
 $$
 
-を考えます。[RA7 の反復積分](../RA7/index.md#thm-ra7-iterated-integral) と [RA4 の微積分学の基本定理](../RA4/index.md#thm-ra4-ftc2) から
+を考えます。[矩形上の反復積分定理](../RA7/index.md#thm-ra7-iterated-integral) と [微積分学の基本定理II](../RA4/index.md#thm-ra4-ftc2) から
 
 $$
 \begin{aligned}
