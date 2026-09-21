@@ -1,0 +1,26 @@
+chapter: "STO10"
+terms:
+  - term: weak solution
+    english: weak solution
+    meaning: SDEを満たす確率空間・filtration・Brown運動・解processをまとめて選ぶ解概念。与えられたBrown運動上で解を作るstrong solutionより、存在に関する自由度が大きい。
+  - term: equivalent probability measures
+    english: equivalent probability measures
+    meaning: 同じ可測空間上の二つの確率測度が互いに絶対連続であり、零確率事象をちょうど共有すること。
+  - term: density process
+    english: density process
+    meaning: 有限時刻TでのRadon--Nikodym密度Z_T=dQ/dPを、Z_t=E_P[Z_T|F_t]として途中時刻へ戻した正のmartingale。
+  - term: Novikov condition
+    english: Novikov condition
+    meaning: stochastic exponentialを単なる正のlocal martingaleではなく真のmartingaleとして使うための代表的十分条件。
+  - term: Girsanov theorem
+    english: Girsanov theorem
+    meaning: stochastic exponentialで確率測度を変えると、Brown運動のfinite-variation driftを吸収したprocessが新しい測度の下でBrown運動になることを述べる定理。
+  - term: drift removal
+    english: drift removal
+    meaning: SDEのdrift bがdiffusion係数sigmaを通じてb=sigma thetaと書けるとき、Girsanov変換でそのdriftをBrown運動側へ移す操作。
+  - term: uniqueness in law
+    english: uniqueness in law
+    meaning: 同じ初期分布を持つ任意のweak solutionsで、解process Xのpath-space上の確率法則が一致するという一意性。
+  - term: Yamada--Watanabe theorem
+    english: Yamada--Watanabe theorem
+    meaning: Brownian SDEでweak existenceとpathwise uniquenessからstrong existenceとuniqueness in lawを結び付ける基本定理。
