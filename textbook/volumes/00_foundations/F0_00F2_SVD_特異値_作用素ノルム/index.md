@@ -1,6 +1,6 @@
-# F0-00F2 SVD・特異値・作用素ノルム
+# F0-00F2 SVD・特異値・最大伸長率
 
-F0-00F1のスペクトル定理を $A^{\mathsf T}A$ に適用し、任意の長方形行列を方向別の伸縮へ分解します。
+F0-00F1で得た実対称行列の直交対角化を $A^{\mathsf T}A$ に適用し、任意の長方形行列を方向別の伸縮へ分解します。
 
 ```text
 A^T A
@@ -11,7 +11,7 @@ SVD
  ↓
 rank・kernel・image
  ↓
-作用素ノルム
+最大伸長率
  ↓
 有限次元線形代数から関数解析へ
 ```
@@ -52,13 +52,13 @@ $$
 
 なので半正定値です。
 
-従ってF0-00F1のスペクトル定理を適用できます。
+従ってF0-00F1で得た実対称行列の直交対角化を適用できます。
 
 ---
 
 ## 2. 特異値と右特異ベクトル
 
-[スペクトル定理](../F0_00F1_固有空間_スペクトル定理_PSD/index.md#thm-real-symmetric-spectral)を $A^{\mathsf T}A$ に適用します。$A^{\mathsf T}A$ は実対称半正定値なので、正規直交固有基底 $v_1,\dots,v_n$ と固有値 $\lambda_i\ge0$ を取れます。
+[実対称行列の直交対角化](../F0_00F1_固有空間_スペクトル定理_PSD/index.md#thm-real-symmetric-spectral)を $A^{\mathsf T}A$ に適用します。$A^{\mathsf T}A$ は実対称半正定値なので、正規直交固有基底 $v_1,\dots,v_n$ と固有値 $\lambda_i\ge0$ を取れます。
 
 <a id="def-f0-00f2-singular-values-right-vectors"></a>
 
@@ -316,7 +316,7 @@ $$
 
 ## 6. 固有値分解との違い
 
-| | 一般の対角化 | 実対称のスペクトル分解 | SVD |
+| | 一般の対角化 | 実対称の直交対角化 | SVD |
 |---|---|---|---|
 | 対象 | 正方行列の一部 | 実対称正方行列 | 任意の長方形行列 |
 | 形 | $A=PDP^{-1}$ | $A=Q\Lambda Q^{\mathsf T}$ | $A=U\Sigma V^{\mathsf T}$ |
@@ -357,7 +357,7 @@ $$
 > である。
 <!-- formal-statement-end -->
 
-SVDから
+[SVD](#thm-f0-00f2-svd)から
 
 $$
 Ax
@@ -386,7 +386,7 @@ $$
 
 ---
 
-## 8. 作用素ノルム
+## 8. 行列の最大伸長率
 
 <a id="def-f0-00f2-operator-norm"></a>
 
@@ -478,7 +478,7 @@ $$
 
 と置きます。
 
-Cauchy--Schwarzから
+[Cauchy--Schwarz不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 |\ell_a(x)|
@@ -557,7 +557,7 @@ $$
 - 相似・一般の対角化
 - 内積・正規直交基底
 - 射影・QR
-- 実対称行列のスペクトル定理
+- 実対称行列の直交対角化
 - SVD
 - 作用素ノルム
 
@@ -721,7 +721,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-Cauchy--Schwarz不等式より
+[Cauchy--Schwarz不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)より
 
 $$
 |\ell_a(x)|
@@ -768,7 +768,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-SVDから
+[SVD](#thm-f0-00f2-svd)から
 
 $$
 \operatorname{Im}A
@@ -853,7 +853,7 @@ $$
 - Level: B
 - 目安時間: 15分
 
-SVDを用いて
+[SVD](#thm-f0-00f2-svd)を用いて
 
 $$
 \|A\|_{\mathrm{op}}=\sigma_1
