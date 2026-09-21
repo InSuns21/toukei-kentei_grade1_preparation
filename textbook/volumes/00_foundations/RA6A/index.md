@@ -793,9 +793,59 @@ $$
 
 ---
 
-## 7. 正則なレベル集合は局所的にグラフになる
+## 7. レベル集合と正則なレベル集合
 
-[陰関数定理](#thm-ra6a-implicit-function)から、曲線・曲面を「方程式の解集合」として扱う基本結果が得られます。
+まず、この先で使う「レベル集合」「レベル曲面」を定義します。
+
+<a id="def-ra6a-level-set"></a>
+<!-- formal-statement-start -->
+> **定義（レベル集合・レベル曲面）**  
+> 開集合 $U\subset\mathbb R^n$ 上の関数 $f:U\to\mathbb R$ と定数 $c\in\mathbb R$ に対し、
+>
+> $$
+> L_c
+> :=
+> f^{-1}(c)
+> =
+> \{x\in U:f(x)=c\}
+> $$
+>
+> を $f$ の **レベル集合** と呼ぶ。特に $n=3$ で、この集合が局所的に二次元の滑らかな曲面をなす場合を **レベル曲面** と呼ぶ。点 $p\in L_c$ で
+>
+> $$
+> \nabla f(p)\neq0
+> $$
+>
+> なら $p$ を正則点と呼び、その近くの $L_c$ を **正則レベル曲面**（一般の $n$ では正則レベル集合）と呼ぶ。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-ra6a-level-set -->
+### 例：球面はレベル曲面
+
+**定義の確認**
+
+$$
+f(x,y,z)=x^2+y^2+z^2
+$$
+
+とすると、$c>0$ に対するレベル集合
+
+$$
+L_c
+=
+\{(x,y,z):x^2+y^2+z^2=c\}
+$$
+
+は半径 $\sqrt c$ の球面です。また球面上では
+
+$$
+\nabla f(x,y,z)=2(x,y,z)\neq0
+$$
+
+なので、これは正則レベル曲面です。
+<!-- definition-example-end -->
+
+[陰関数定理](#thm-ra6a-implicit-function)から、この「正則」という条件が局所的なグラフ表示を保証します。
 
 <a id="cor-ra6a-regular-level-set"></a>
 <!-- formal-statement-start -->
