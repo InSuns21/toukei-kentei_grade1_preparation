@@ -7,6 +7,8 @@ prerequisites:
 
 # §9 と §11 は、有限次元で得た式が後続の関数解析でどう一般化されるかを明示する予告。
 forward_references:
+  - functional.norm
+  - functional.operator-norm
   - functional.normed-space
   - functional.banach-space
   - functional.banach-space-recap-d2e
