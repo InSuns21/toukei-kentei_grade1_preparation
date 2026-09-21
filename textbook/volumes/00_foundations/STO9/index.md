@@ -508,7 +508,7 @@ $$
 
 ---
 
-## 6. Picard 反復を確率積分で回す
+## 6. Picard 型逐次近似を確率積分で回す
 
 初期値 $\xi\in L^2$ とし、
 
@@ -530,7 +530,7 @@ $$
 
 と定義します。
 
-決定論的方程式の Picard 反復と同じ形ですが、確率積分の差を [continuous-time Doob $L^2$ inequality](../STO6/index.md#thm-sto6-doob-l2) で制御する点が新しいところです。
+決定論的方程式の Picard 型逐次近似と同じ形ですが、確率積分の差を [continuous-time Doob $L^2$ inequality](../STO6/index.md#thm-sto6-doob-l2) で制御する点が新しいところです。
 
 <a id="lem-sto9-picard-estimate"></a>
 
@@ -1574,10 +1574,10 @@ $$
 
 ### 証明の見取り図
 
-1. 切断 coefficients $(b_n,\sigma_n)$ の大域的 solution $X^{(n)}$ を作る。
+1. 射影で大域化した係数 $(b_n,\sigma_n)$ の大域的な解 $X^{(n)}$ を作る。
 2. ball $n$ を出るまでは $b_n=b_m=b$ なので $X^{(n)}$ と $X^{(m)}$ は一致する。
 3. exit times を増大列にして、その前まで過程を貼り合わせる。
-4. 有限爆発時刻まで解の値が有界なら、もっと大きい切断 solution で延長できて maximality に反する。
+4. 有限爆発時刻まで解の値が有界なら、より大きい半径で大域化した方程式の解を使って延長でき、極大性に反する。
 
 <!-- proof-start -->
 ### 証明
@@ -1741,9 +1741,9 @@ $n\uparrow\infty$ とすれば爆発前の経路ごとの一意性を得ます�
 $$
 \boxed{
 \text{局所問題}
-\overset{\text{切断}}{\longrightarrow}
+\overset{\text{射影による大域化}}{\longrightarrow}
 \text{大域 Lipschitz 問題}
-\overset{\text{stop before 切断}}{\longrightarrow}
+\overset{\text{射影半径を出る前に停止}}{\longrightarrow}
 \text{元の問題}
 }
 $$
@@ -2999,7 +2999,7 @@ $$
 
 # 18. 演習 B
 
-#### STO9-B01 Picard 反復の最初の二段
+#### STO9-B01 Picard 型逐次近似の最初の二段
 - Level: B
 - 目安時間: 30分
 
@@ -3013,7 +3013,7 @@ $$
 
 を考える。
 
-Picard 反復を
+Picard 型逐次近似を
 
 $$
 X_t^{(0)}=x
