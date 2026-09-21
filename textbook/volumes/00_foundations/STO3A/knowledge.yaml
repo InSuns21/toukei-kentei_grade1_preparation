@@ -129,7 +129,7 @@ concepts:
   - id: stochastic.random-walk-bounded-fourth-increment
     name: bounded incrementsの四次増分評価
     kind: lemma
-    aliases: [bounded incrementsの四次増分評価, bounded increments の四次増分評価]
+    aliases: [bounded incrementsの四次増分評価]
     introduction: formal
     introduction_aliases: ["補題（bounded increments の四次増分評価）"]
     requires:
