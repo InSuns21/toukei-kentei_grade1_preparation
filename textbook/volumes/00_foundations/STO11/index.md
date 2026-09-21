@@ -463,23 +463,36 @@ generator はそのうち $t=0$ 直後の一次変化だけを抜き出します
 
 <!-- formal-statement-start -->
 > **定義（generator）**  
-> Markov semigroup $(P_t)$ が関数空間 $\mathcal X$ 上に作用しているとする。
+> Markov semigroup $(P_t)$ を考える。
 >
-> 極限
-
+> 本章では、関数 $f$ に対して各 $x\in\mathbb R^d$ で極限
+>
 $$
-Lf
+Lf(x)
 =
 \lim_{t\downarrow0}
-\frac{P_tf-f}{t}
+\frac{P_tf(x)-f(x)}{t}
 $$
-
-> が $\mathcal X$ の意味で存在する関数 $f$ 全体を $D(L)$ と書き、この $L$ を semigroup の generator という。
+>
+> が有限値として存在するとき、$f$ は pointwise generator の domain $D(L)$ に属するといい、この極限で $Lf$ を定める。
+>
+> 一方、$(P_t)$ が Banach 空間 $\mathcal X$ 上の strongly continuous semigroup である場合には
+>
+$$
+\left\|
+\frac{P_tf-f}{t}-Lf
+\right\|_{\mathcal X}
+\to0
+$$
+>
+> を満たす $f$ を domain とする作用素を strong generator という。
 <!-- formal-statement-end -->
 
-generator は全ての関数上に定義されるとは限りません。
+本章の diffusion 計算ではまず pointwise generator を直接求めます。
 
-したがって
+後半の Feller semigroup では $\mathcal X=C_0(\mathbb R^d)$、$\|\cdot\|_{\mathcal X}=\|\cdot\|_\infty$ とした strong generator が標準です。適切な core 上では両者の微分作用素表示が一致します。
+
+どちらの場合も
 
 $$
 \boxed{
