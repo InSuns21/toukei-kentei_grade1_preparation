@@ -1,13 +1,13 @@
 # VC6 曲線座標の幾何と微分演算子
 
-Cartesian 座標 では 基底ベクトル $e_x,e_y,e_z$ がどこでも同じ向きを向くため、grad・div・回転 の公式は簡単です。
+Cartesian 座標では基底ベクトル $e_x,e_y,e_z$ がどこでも同じ向きを向くため、勾配・発散・回転 の公式は簡単です。
 
 しかし理論物理や PDE では、
 
 - 円柱対称なら 円柱座標
 - 球対称なら 球座標
 
-を使いたくなります。このとき 基底ベクトル 自身が位置によって回転し、座標の一目盛りの物理的長さも場所によって変わります。
+を使いたくなります。このとき基底ベクトル 自身が位置によって回転し、座標の一目盛りの物理的長さも場所によって変わります。
 
 本章では公式を暗記せず、
 
@@ -35,7 +35,7 @@ $$
 
 を考えます。
 
-各座標だけを動かしたときの接 vector は
+各座標だけを動かしたときの接ベクトル は
 
 $$
 a_i
@@ -267,7 +267,7 @@ $$
 h_1dq_1,\quad h_2dq_2,\quad h_3dq_3
 $$
 
-です。面積は二辺の積、体積は三辺の積になります。Jacobian は三つの 座標接ベクトルs の スカラー三重積 です。
+です。面積は二辺の積、体積は三辺の積になります。Jacobian は三つの 座標接ベクトル の スカラー三重積 です。
 
 <!-- proof-start -->
 ### 証明
@@ -283,7 +283,7 @@ $$
 
 なので線素公式を得ます。
 
-$q_1=\text{const}$ の座標面の二つの tangent vectors は
+$q_1=\text{const}$ の座標面の二つの 接ベクトル は
 
 $$
 a_2=h_2e_2,
@@ -517,7 +517,7 @@ $$
 B_1(q_1+dq_1,q_2,q_3)\,dq_2dq_3,
 $$
 
-負側の面では 外向き normal が逆なので
+負側の面では 外向き法線 が逆なので
 
 $$
 -B_1(q_1,q_2,q_3)\,dq_2dq_3
@@ -565,7 +565,7 @@ $$
 
 です。
 
-正味の 流束 を体積で割って box を一点へ縮めると高次項が消え、
+正味の 流束 を体積で割って直方体を一点へ縮めると高次項が消え、
 
 $$
 \nabla\cdot A
@@ -581,7 +581,7 @@ $$
 $$
 <!-- proof-end -->
 
-Cartesian 座標 では $h_1=h_2=h_3=1$ なので通常公式へ戻ります。
+Cartesian 座標では $h_1=h_2=h_3=1$ なので通常公式へ戻ります。
 
 ---
 
@@ -712,7 +712,7 @@ $$
 
 です。
 
-VC5 の [回転 の循環密度](../VC5/index.md#prop-vc5-curl-density) により、循環を面積で割って rectangle を一点へ縮めた極限が $(\nabla\times A)\cdot e_1$ です。
+VC5 の [回転 の循環密度](../VC5/index.md#prop-vc5-curl-density) により、循環を面積で割って長方形を一点へ縮めた極限が $(\nabla\times A)\cdot e_1$ です。
 
 したがって
 
@@ -732,7 +732,7 @@ $$
 
 ---
 
-## 7. スカラー・ラプラシアン は div grad
+## 7. スカラー・ラプラシアンは勾配の発散
 
 <a id="prop-vc6-scalar-laplacian"></a>
 
@@ -813,7 +813,7 @@ h_\phi=\rho,
 h_z=1.
 $$
 
-<a id="prop-vc6-cylindrical"></a>
+<a id="prop-vc6-円柱座標"></a>
 
 <!-- formal-statement-start -->
 > **命題（円柱座標 の公式）**  
@@ -947,7 +947,7 @@ e_z
 (\rho A_\phi).
 $$
 
-特に rigid rotation 型
+特に 剛体回転型
 
 $$
 A_\phi(\rho)=\Omega\rho
@@ -987,7 +987,7 @@ $$
 
 を使います。
 
-$\theta$ は $+z$ 軸から測る polar angle、$\phi$ は $xy$ 平面内の azimuth です。
+$\theta$ は $+z$ 軸から測る 極角、$\phi$ は $xy$ 平面内の 方位角 です。
 
 微分すると
 
@@ -1009,7 +1009,7 @@ $$
 
 これは RA7 の球座標 Jacobian と一致します。
 
-<a id="prop-vc6-spherical"></a>
+<a id="prop-vc6-球座標"></a>
 
 <!-- formal-statement-start -->
 > **命題（球座標 の公式）**  
@@ -1091,7 +1091,7 @@ r^2\frac{\partial f}{\partial r}
 $$
 <!-- formal-statement-end -->
 
-### spherical 基底 の位置依存
+### 球座標基底 の位置依存
 
 $$
 e_r
@@ -1141,13 +1141,13 @@ $$
 \cos\theta\,e_\theta.
 $$
 
-これが spherical ベクトル解析 に現れる追加項の源です。
+これが 球座標でのベクトル解析 に現れる追加項の源です。
 
 ---
 
 ## 11. 放射対称スカラー場
 
-$f=f(r)$ だけに依存するなら angular derivatives は消えて
+$f=f(r)$ だけに依存するなら 角度方向の微分項 は消えて
 
 $$
 \nabla f=f'(r)e_r,
@@ -1244,7 +1244,7 @@ $$
 
 ---
 
-## 13. 座標の退化と field 自体の未定義性は別物
+## 13. 座標の退化と 場自体の未定義性は別物
 
 円柱座標 では $\rho=0$ で $\phi$ が定まりません。
 
@@ -1257,13 +1257,13 @@ $$
 
 これは **座標表示の退化** であり、元の ベクトル場 が未定義だとは限りません。
 
-例えば Cartesian field
+例えば Cartesian 座標で表した場
 
 $$
 F=(1,0,0)
 $$
 
-は原点で完全に滑らかですが、spherical components は角度に依存し、$r=0$ で spherical 基底 自体が定まりません。
+は原点で完全に滑らかですが、球座標成分 は角度に依存し、$r=0$ で 球座標基底 自体が定まりません。
 
 逆に
 
@@ -1271,7 +1271,7 @@ $$
 \frac{1}{r^2}e_r
 $$
 
-は原点で field 自体が未定義で、長さも発散します。
+は原点で 場自体が未定義で、長さも発散します。
 
 この区別は PDE・電磁気・流体で重要です。
 
@@ -1370,7 +1370,7 @@ $$
 
 ## 15. 演習
 
-#### VC6-A01 cylindrical 尺度因子
+#### VC6-A01 円柱座標の尺度因子
 - Level: A
 - 目安時間: 15分
 
@@ -1458,7 +1458,7 @@ $$
 で、$r_z$ は他の二本と直交するので直交曲線座標であることも確認できます。
 <!-- solution-end -->
 
-#### VC6-A02 cylindrical 勾配
+#### VC6-A02 円柱座標の勾配
 - Level: A
 - 目安時間: 15分
 
@@ -1483,7 +1483,7 @@ f_\phi=\cos\phi,
 f_z=\rho^2.
 $$
 
-[円柱座標 の公式](#prop-vc6-cylindrical) から
+[円柱座標 の公式](#prop-vc6-円柱座標) から
 
 $$
 \nabla f
@@ -1510,7 +1510,7 @@ $$
 $$
 <!-- solution-end -->
 
-#### VC6-A03 spherical 体積要素
+#### VC6-A03 球座標の体積要素
 - Level: A
 - 目安時間: 18分
 
@@ -1589,7 +1589,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-放射状 function なので
+放射状 関数 なので
 
 $$
 \Delta f
@@ -1633,7 +1633,7 @@ $$
 $m=-1$ なら $\Delta(1/r)=0$ が再現されます。
 <!-- solution-end -->
 
-#### VC6-B01 cylindrical div と 回転
+#### VC6-B01 円柱座標の発散と回転
 - Level: B
 - 目安時間: 25分
 
@@ -1742,7 +1742,7 @@ $$
 $$
 <!-- solution-end -->
 
-#### VC6-B02 axisymmetric swirl の vorticity
+#### VC6-B02 軸対称旋回流の渦度
 - Level: B
 - 目安時間: 25分
 
@@ -1825,7 +1825,7 @@ $$
 $$
 <!-- solution-end -->
 
-#### VC6-B03 inverse-square field と [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)
+#### VC6-B03 逆二乗場 と [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)
 - Level: B
 - 目安時間: 30分
 
@@ -1898,11 +1898,11 @@ $$
 原点を半径 $\varepsilon$ の小球でくり抜けば、外球の 流束 $4\pi C$ と内球境界の 外向き 流束 $-4\pi C$ が相殺し、発散 の体積積分 0 と一致します。
 <!-- solution-end -->
 
-#### VC6-C01 放射状 Laplace 方程式の解と原点での未定義性
+#### VC6-C01 放射対称な Laplace 方程式の解と原点での未定義性
 - Level: C
 - 目安時間: 40分
 
-三次元の 放射状 function
+三次元の 放射状 関数
 
 $$
 f=f(r)
@@ -1981,7 +1981,7 @@ f'(r)
 -\frac{b}{r^2}.
 $$
 
-$f=f(r)$ なので、[球座標 の 勾配 公式](#prop-vc6-spherical) では角度微分項が消え
+$f=f(r)$ なので、[球座標 の 勾配 公式](#prop-vc6-球座標) では角度微分項が消え
 
 $$
 \boxed{
@@ -2022,7 +2022,7 @@ $$
 
 しかし $b\ne0$ なら $f=a+b/r$ も $\nabla f=-b e_r/r^2$ も $r=0$ で未定義で、絶対値が発散します。
 
-[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence) を半径 $R$ の球全体へ適用するには、field $\nabla f$ が閉球上で $C^1$ である必要があります。この仮定が原点で壊れています。
+[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence) を半径 $R$ の球全体へ適用するには、場 $\nabla f$ が閉球上で $C^1$ である必要があります。この仮定が原点で壊れています。
 
 したがって
 
