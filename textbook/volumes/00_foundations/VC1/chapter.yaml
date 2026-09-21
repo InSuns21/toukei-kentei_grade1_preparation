@@ -12,7 +12,7 @@ learning_objectives:
   - curlを定義し、微小長方形の循環密度として説明できる
   - scalar Laplacianをdiv gradとして定義し、調和性を判定できる
   - C2正則性の下でcurl grad=0とdiv curl=0を成分計算から証明できる
-  - div(fF), curl(fF), div(F×G)の積の微分則を導出して使える
+  - div(fF), curl(fF), div(F×G), curl(F×G)の主要恒等式を成分計算から導出して使える
 definitions:
   - { id: VC1-DEF-01, name: scalar field・vector field }
   - { id: VC1-DEF-02, name: gradient }
