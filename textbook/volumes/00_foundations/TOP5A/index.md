@@ -118,7 +118,7 @@ $$
 
 $A=\varnothing$ または $B=\varnothing$ なら、一方を空集合、他方を $X$ とする開集合で分離できるので自明です。以下、$A,B$ はともに非空とします。
 
-$A,B$ はコンパクト空間 $X$ の閉部分集合なので、TOP5 の定理により両方ともコンパクトです。
+$A,B$ はコンパクト空間 $X$ の閉部分集合なので、[コンパクト空間の閉部分集合はコンパクト](../TOP5/index.md#thm-top5-closed-subset)から両方ともコンパクトです。
 
 まず $a\in A$ を一つ固定します。各 $b\in B$ に対し Hausdorff 性から開集合 $U_{a,b},V_{a,b}$ を
 
@@ -348,7 +348,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $A\subseteq X\setminus B$ で、$A$ は閉、$X\setminus B$ は開です。直前の縮小補題から開集合 $U_0$ を
+まず $A\subseteq X\setminus B$ で、$A$ は閉、$X\setminus B$ は開です。[正規空間の縮小](#lem-top5a-normal-shrinking)から開集合 $U_0$ を
 
 $$
 A\subseteq U_0
