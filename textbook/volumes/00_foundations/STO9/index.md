@@ -80,7 +80,7 @@ $$
 $$
 X_t
 =
-\xi
+x
 +
 \int_0^t b(X_s)\,ds
 +
@@ -154,6 +154,8 @@ W_s:0\le s\le t
 $$
 
 と書きます。
+
+本章では $W$ がこの joint filtration $(\mathcal F_t^{\xi,W})$ に関しても Brown 運動であることを仮定します。例えば $\xi$ と Brown 運動 $W$ が independent ならこの条件を満たします。これにより「初期値を最初から知っている」ことが、未来の Brownian increments を先取りすることはありません。
 
 <a id="def-sto9-strong-solution"></a>
 
@@ -731,7 +733,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（global Lipschitz SDE の strong existence・pathwise uniqueness）**  
-> $\xi$ を $E|\xi|^2<\infty$ を満たす $\mathcal F_0$-可測 $\mathbb R^d$-値確率変数、$W$ を $m$ 次元 Brown 運動とする。
+> $\xi$ を $E|\xi|^2<\infty$ を満たす $\mathcal F_0$-可測 $\mathbb R^d$-値確率変数、$W$ を $m$ 次元 Brown 運動とし、$W$ は joint filtration $(\mathcal F_t^{\xi,W})$ に関して Brown 運動であるとする。
 >
 > $b:\mathbb R^d\to\mathbb R^d$、$\sigma:\mathbb R^d\to\mathbb R^{d\times m}$ が global Lipschitz であるとする。
 >
@@ -871,9 +873,26 @@ almost surely です。
 
 各固定 $t$ で $X_t^{(n)}$ は $\mathcal F_t^{\xi,W}$-可測なので、極限 $X_t$ も $\mathcal F_t^{\xi,W}$-可測です。
 
+さらに $m>n$ に対し Minkowski inequality を使うと
+
+$
+\left\|
+\sup_{t\le T}|X_t^{(m)}-X_t^{(n)}|
+\right\|_{L^2}
+\le
+\sum_{k=n}^{m-1}
+\sqrt{D_{k+1}(T)}.
+$
+
+右辺は $n,m\to\infty$ で $0$ へ行くので、Picard sequence は supremum norm の $L^2$ でも Cauchy です。almost sure uniform limit と $L^2$ limit は一致するため、
+
+$
+E\sup_{t\le T}|X_t^{(n)}-X_t|^2\to0.
+$
+
 #### Step 3：極限は積分方程式を満たす
 
-Picard estimate から $X^{(n)}\to X$ は $L^2$ supremum の意味でも収束します。
+従って $X^{(n)}\to X$ は $L^2$ supremum の意味でも収束します。
 
 Lipschitz 条件より
 
@@ -1333,7 +1352,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（maximal strong solution・explosion time）**  
-> $b,\sigma$ を local Lipschitz とする。
+> $b,\sigma$ を local Lipschitz とし、初期状態 $x\in\mathbb R^d$ を固定する。
 >
 > stopping time $\tau_{\mathrm e}\in(0,\infty]$ と continuous adapted process
 >
@@ -1341,13 +1360,13 @@ $$
 X=(X_t)_{0\le t<\tau_{\mathrm e}}
 $$
 >
-> の組が **maximal strong solution** であるとは、任意の $n\in\mathbb N$ に対し
+> の組が **maximal strong solution** であるとは、任意の整数 $n>|x|$ に対し
 >
-$$
+$
 \tau_n
 =
 \inf\{t\ge0:|X_t|\ge n\}
-$$
+$
 >
 > と置くと
 >
@@ -1480,19 +1499,19 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（local Lipschitz SDE の maximal strong solution）**  
-> $b:\mathbb R^d\to\mathbb R^d$、$\sigma:\mathbb R^d\to\mathbb R^{d\times m}$ が local Lipschitz で、$E|\xi|^2<\infty$ とする。
+> $b:\mathbb R^d\to\mathbb R^d$、$\sigma:\mathbb R^d\to\mathbb R^{d\times m}$ が local Lipschitz とし、初期状態 $x\in\mathbb R^d$ を固定する。
 >
 > このとき SDE
 >
-$$
+$
 dX_t=b(X_t)\,dt+\sigma(X_t)\,dW_t,
 \qquad
-X_0=\xi
-$$
+X_0=x
+$
 >
 > は maximal strong solution $(X,\tau_{\mathrm e})$ を持つ。
 >
-> また explosion 前の pathwise uniqueness が成り立つ。すなわち二つの maximal solutions $X,Y$ が同じ $W,\xi$ で駆動されるなら
+> また explosion 前の pathwise uniqueness が成り立つ。すなわち二つの maximal solutions $X,Y$ が同じ $W,x$ で駆動されるなら
 >
 $$
 X_t=Y_t
@@ -1517,17 +1536,19 @@ $$
 <!-- proof-start -->
 ### 証明
 
+整数 $n_0>|x|$ を一つ固定し、以下 $n\ge n_0$ とします。
+
 各 $n$ について
 
-$$
+$
 dX_t^{(n)}
 =
 b_n(X_t^{(n)})\,dt
 +
 \sigma_n(X_t^{(n)})\,dW_t,
 \qquad
-X_0^{(n)}=\xi
-$$
+X_0^{(n)}=x
+$
 
 の unique global strong solution を取ります。
 
@@ -1711,7 +1732,7 @@ $$
 >
 > が全ての $x$ で成り立つとする。
 >
-> $E|\xi|^2<\infty$ なら、maximal strong solution の explosion time $\tau_{\mathrm e}$ は
+> 初期状態 $x\in\mathbb R^d$ から出発する maximal strong solution の explosion time $\tau_{\mathrm e}$ は
 >
 $$
 P(\tau_{\mathrm e}=\infty)=1
@@ -1751,10 +1772,10 @@ $$
 
 積分方程式は
 
-$$
+$
 X_{t\wedge\tau_n}
 =
-\xi
+x
 +
 \int_0^{t\wedge\tau_n}b(X_s)\,ds
 +
@@ -1769,8 +1790,8 @@ E\left[
 |X_{t\wedge\tau_n}|^2
 \right]
 \le
-C_T(1+E|\xi|^2)
-$$
+C_T(1+|x|^2)
+$
 
 を得ます。
 
@@ -1796,7 +1817,7 @@ $$
 P(\tau_n\le T)
 \le
 \frac{
-C_T(1+E|\xi|^2)
+C_T(1+|x|^2)
 }{n^2}.
 $$
 
@@ -1852,7 +1873,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Lyapunov 型 non-explosion criterion）**  
-> $b,\sigma$ は local Lipschitz とし、$(X,\tau_{\mathrm e})$ を maximal strong solution とする。
+> $b,\sigma$ は local Lipschitz とし、初期状態 $x_0\in\mathbb R^d$ から出発する $(X,\tau_{\mathrm e})$ を maximal strong solution とする。
 >
 > $V\in C^2(\mathbb R^d;[0,\infty))$ が
 >
@@ -1879,8 +1900,6 @@ $$
 >
 > とする。
 >
-> さらに $E[V(\xi)]<\infty$ とする。
->
 > このとき
 >
 $$
@@ -1899,7 +1918,7 @@ stochastic integral の期待値を $0$ にして drift inequality を入れる�
 $$
 E[V(X_{t\wedge\tau_n})]
 \le
-E[V(\xi)]
+V(x_0)
 +
 C\int_0^t
 \{1+E[V(X_{s\wedge\tau_n})]\}\,ds.
@@ -1925,7 +1944,7 @@ $$
 \begin{aligned}
 V(X_{t\wedge\tau_n})
 &=
-V(\xi)\\
+V(x_0)\\
 &\quad+
 \int_0^{t\wedge\tau_n}
 \nabla V(X_s)\cdot b(X_s)\,ds\\
@@ -1943,7 +1962,7 @@ D^2V(X_s)
 \end{aligned}
 $$
 
-停止前は $|X_s|\le n$ なので、local boundedness により stochastic integrand は square-integrable on $[0,T]$ after stopping。
+停止前は $|X_s|\le n$ です。$\nabla V$、$\sigma$ は compact ball 上で bounded なので、停止した stochastic integrand は $[0,T]$ 上 square-integrable です。
 
 従って stochastic integral の期待値は $0$ です。
 
@@ -1952,7 +1971,7 @@ $$
 $$
 E[V(X_{t\wedge\tau_n})]
 \le
-E[V(\xi)]
+V(x_0)
 +
 C
 E\int_0^{t\wedge\tau_n}
@@ -1964,7 +1983,7 @@ $V\ge0$ なので
 $$
 E[V(X_{t\wedge\tau_n})]
 \le
-E[V(\xi)]
+V(x_0)
 +
 C
 \int_0^t
@@ -1979,7 +1998,7 @@ $$
 E[V(X_{t\wedge\tau_n})]
 \le
 C_T
-\{1+E[V(\xi)]\}.
+\{1+V(x_0)\}.
 $$
 
 次に
@@ -2011,7 +2030,7 @@ a_nP(\tau_n\le T)
 \le
 E[V(X_{T\wedge\tau_n})]
 \le
-C_T\{1+E[V(\xi)]\}.
+C_T\{1+V(x_0)\}.
 $$
 
 よって
@@ -2019,7 +2038,7 @@ $$
 $$
 P(\tau_n\le T)
 \le
-\frac{C_T\{1+E[V(\xi)]\}}{a_n}
+\frac{C_T\{1+V(x_0)\}}{a_n}
 \to0.
 $$
 
@@ -2390,7 +2409,7 @@ $$
 
 almost surely です。
 
-非負整数を分母に持つ rational times の可算集合で同時に成り立つ event を取り、$X,Y$ の continuity を使えば全ての $t\ge0$ で
+非負の rational times の可算集合で同時に成り立つ event を取り、$X,Y$ の continuity を使えば全ての $t\ge0$ で
 
 $$
 X_t\le Y_t
@@ -3294,10 +3313,10 @@ dX_t
 +
 \gamma\,dW_t,
 \qquad
-X_0=\xi
-$$
+X_0=x_0
+$
 
-を考える。$\beta\in\mathbb R$、$\gamma\in\mathbb R$ とし、$E|\xi|^2<\infty$ とする。
+を考える。$\beta\in\mathbb R$、$\gamma\in\mathbb R$、$x_0\in\mathbb R$ とする。
 
 1. coefficients が local Lipschitz であることを示せ。
 2. $b(x)=-x^3+\beta x$ は一般に global linear growth を満たさないことを確認せよ。
@@ -3435,15 +3454,11 @@ V(x)\to\infty
 (|x|\to\infty).
 $$
 
-また
+また初期値では
 
-$$
-E[V(\xi)]
-=
-1+E|\xi|^2
-<
-\infty.
-$$
+$
+V(x_0)=1+x_0^2<\infty.
+$
 
 従って [Lyapunov 型 non-explosion criterion](#thm-sto9-lyapunov-nonexplosion) の条件を全て満たします。
 
