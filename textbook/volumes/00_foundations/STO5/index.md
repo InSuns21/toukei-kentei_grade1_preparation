@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念への参照**：[マルチンゲール](../STO2/index.md#def-sto2-martingale)、[停止時刻](../STO1/index.md#def-sto1-stopping-time)、[ブラウン運動](../STO4/index.md#def-sto4-brownian-motion) を既知として使います。
+> **既出概念への参照**：[マルチンゲール](../STO2/index.md#def-sto2-マルチンゲール)、[停止時刻](../STO1/index.md#def-sto1-停止時刻)、[ブラウン運動](../STO4/index.md#def-sto4-brownian-motion) を既知として使います。
 
 STO4 まででブラウン運動を構成し、強マルコフ性と到達時刻まで閉じました。ここから連続時間の確率解析へ入ります。
 
@@ -24,7 +24,7 @@ $$
 \to
 \text{交差変分}
 \to
-\text{martingale + 有限変動}
+\text{マルチンゲール + 有限変動}
 \to
 \text{Lévy characterization}
 }
@@ -38,7 +38,7 @@ STO6 では確率積分を単純過程から構成します。その前に、積
 
 ## 1. 連続時間マルチンゲールと局所化
 
-離散時間 martingale の条件
+離散時間マルチンゲールの条件
 
 $$
 E[M_n\mid\mathcal F_m]=M_m
@@ -75,7 +75,7 @@ $$
 > が連続時間マルチンゲールになるとき、$M$ を **連続局所マルチンゲール** という。この $(\tau_n)$ を局所化列という。
 <!-- formal-statement-end -->
 
-局所マルチンゲールの “局所” は、時間の短い区間という意味ではありません。stopping により暴走する領域を切り落とすと、各段階では真の martingale になるという意味です。
+局所マルチンゲールの “局所” は、時間の短い区間という意味ではありません。停止操作により暴走する領域を切り落とすと、各段階では真のマルチンゲールになるという意味です。
 
 典型的には
 
@@ -87,8 +87,8 @@ $$
 
 のように、値が大きくなる前に止めます。
 
-<!-- definition-example-start: def-sto5-continuous-局所-martingale -->
-### 直接例：ブラウン運動で martingale 条件を確認する
+<!-- definition-example-start: def-sto5-continuous-局所-マルチンゲール -->
+### 直接例：ブラウン運動でマルチンゲール条件を確認する
 
 **定義の確認**
 
@@ -120,32 +120,32 @@ E|B_t|
 \sqrt t<\infty.
 $$
 
-標本路は連続なので、$B$ は continuous martingale、従って連続局所マルチンゲールです。局所化列として単に $\tau_n=n$ を取れます。
+標本路は連続なので、$B$ は continuous マルチンゲール、従って連続局所マルチンゲールです。局所化列として単に $\tau_n=n$ を取れます。
 <!-- definition-example-end -->
 
 <a id="prop-sto5-brownian-martingale"></a>
 
 <!-- formal-statement-start -->
-> **命題（ブラウン運動は continuous martingale）**  
-> standard ブラウン運動 $B$ は、その通常条件を満たす自然なフィルトレーションに関して平方可積分な continuous martingale である。
+> **命題（ブラウン運動は continuous マルチンゲール）**  
+> standard ブラウン運動 $B$ は、その通常条件を満たす自然なフィルトレーションに関して平方可積分な continuous マルチンゲールである。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
 
-上の直接例で martingale 条件を確認しました。平方可積分性は
+上の直接例でマルチンゲール条件を確認しました。平方可積分性は
 
 $$
 E[B_t^2]=t
 $$
 
-から従います。usual augmentation で追加される null set は条件付き期待値の almost-sure identity を変えません。
+から従います。usual augmentation で追加される null set は条件付き期待値の almost-sure 恒等式を変えません。
 <!-- proof-end -->
 
 <a id="thm-sto5-bounded-optional-sampling"></a>
 
 <!-- formal-statement-start -->
-> **定理（有界 stopping による continuous martingale の停止）**  
+> **定理（有界停止操作による continuous マルチンゲールの停止）**  
 > $M$ を連続標本路を持つ連続時間マルチンゲールとし、$\sigma\le\tau$ を有界な停止時刻とする。このとき
 
 $$
@@ -186,7 +186,7 @@ $$
 M^{(n)}_k=M_{k\delta_n}
 $$
 
-を $0\le k\le R/\delta_n$ で見ると、これは martingale です。STO2 の有界任意抽出を grid-valued stopping times $\sigma_n/\delta_n$、$\tau_n/\delta_n$ に適用すると、任意の $A\in\mathcal F_\sigma\subset\mathcal F_{\sigma_n}$ について
+を $0\le k\le R/\delta_n$ で見ると、これはマルチンゲールです。STO2 の有界任意抽出を grid-valued 停止操作 times $\sigma_n/\delta_n$、$\tau_n/\delta_n$ に適用すると、任意の $A\in\mathcal F_\sigma\subset\mathcal F_{\sigma_n}$ について
 
 $$
 E[1_A M_{\tau_n}]
@@ -288,7 +288,7 @@ E[M_{t\wedge\tau}\mid\mathcal F_s]
 M_{s\wedge\tau}.
 $$
 
-従って $M^\tau$ は martingale です。
+従って $M^\tau$ はマルチンゲールです。
 <!-- proof-end -->
 
 ---
@@ -394,7 +394,7 @@ $$
 従って $A$ は有限変動です。
 <!-- definition-example-end -->
 
-smooth drift は一次変分を持ちます。ブラウン noise は後で見るように二次変分を持ち、この違いが semimartingale 分解の意味になります。
+smooth drift は一次変分を持ちます。ブラウン雑音は後で見るように二次変分を持ち、この違いがセミマルチンゲール分解の意味になります。
 
 ---
 
@@ -671,7 +671,7 @@ $$
 
 ---
 
-## 6. 一般の連続局所 martingale へ
+## 6. 一般の連続局所マルチンゲールへ
 
 ブラウン運動では独立ガウス increments を直接使えました。一般の連続局所マルチンゲールには独立増分はありません。それでも二次変分は存在します。
 
@@ -707,19 +707,19 @@ $$
 
 ### 何が難しいのか
 
-ブラウン proof で使った「二乗増分が独立」という武器は一般 martingale では消えます。存在証明では、$M^2$ が submartingale であることから増加部分を抽出する **continuous-time Doob--Meyer theorem** と、離散分割上の martingale difference 評価を使います。
+ブラウン proof で使った「二乗増分が独立」という武器は一般マルチンゲールでは消えます。存在証明では、$M^2$ が劣マルチンゲールであることから増加部分を抽出する **continuous-time Doob--Meyer theorem** と、離散分割上のマルチンゲール difference 評価を使います。
 
-continuous-time Doob--Meyer theorem の一般証明は class D、regularization、予測可能 compensator を独立に展開する大きな理論です。この Encore IV 主線ではそれ自体を別章化していないため、**本定理の存在部分だけはその定理を技術的入力として使います**。一方、本章で必要な特徴付け・一意性・stopping・交差変分・有限変動分解への帰結は以下で閉じます。
+continuous-time Doob--Meyer theorem の一般証明は class D、regularization、予測可能 compensator を独立に展開する大きな理論です。この Encore IV 主線ではそれ自体を別章化していないため、**本定理の存在部分だけはその定理を技術的入力として使います**。一方、本章で必要な特徴付け・一意性・停止操作・交差変分・有限変動分解への帰結は以下で閉じます。
 
 ### 存在証明の構造
 
-局所化列でまず有界 continuous martingale へ落とします。continuous-time Doob--Meyer theorem を $M^2$ に適用すると
+局所化列でまず有界 continuous マルチンゲールへ落とします。continuous-time Doob--Meyer theorem を $M^2$ に適用すると
 
 $$
 M_t^2=M_0^2+N_t+A_t
 $$
 
-と分解でき、$N$ は continuous martingale、$A$ は continuous 予測可能 increasing 過程、$A_0=0$ です。
+と分解でき、$N$ は continuous マルチンゲール、$A$ は continuous 予測可能 increasing 過程、$A_0=0$ です。
 
 細分割上では
 
@@ -729,7 +729,7 @@ $$
 \Delta(M^2)-2M_{\mathrm{left}}\Delta M.
 $$
 
-右辺の martingale difference 部分を離散時間の二乗平均評価で制御すると、二乗増分和は $A$ へ ucp 収束します。この $A$ を $[M]$ と置きます。stopping した過程では同じ構成が停止前だけ残るため
+右辺のマルチンゲール difference 部分を離散時間の二乗平均評価で制御すると、二乗増分和は $A$ へ ucp 収束します。この $A$ を $[M]$ と置きます。停止操作した過程では同じ構成が停止前だけ残るため
 
 $$
 [M^\tau]=[M]^\tau
@@ -737,7 +737,7 @@ $$
 
 です。
 
-異なる局所化列で構成しても、共通停止時刻 $\tau_n\wedge\sigma_m$ 上では有界 martingale の一意性により一致します。$n,m\to\infty$ として大域的過程が貼り合わさります。
+異なる局所化列で構成しても、共通停止時刻 $\tau_n\wedge\sigma_m$ 上では有界マルチンゲールの一意性により一致します。$n,m\to\infty$ として大域的過程が貼り合わさります。
 
 この技術的入力は STO6 の確率積分を仮定していません。むしろ STO6 が本定理を使います。
 
@@ -745,7 +745,7 @@ $$
 
 ## 7. ブラケットの一意性と有限変動局所マルチンゲール
 
-[連続局所マルチンゲールの二次変分 theorem](#thm-sto5-local-martingale-qv) の
+[連続局所マルチンゲールの二次変分 theorem](#thm-sto5-局所-マルチンゲール-qv) の
 
 $$
 M^2-[M]
@@ -776,7 +776,7 @@ $$
 [L]\equiv0.
 $$
 
-[連続局所マルチンゲールの二次変分 theorem](#thm-sto5-local-martingale-qv) により
+[連続局所マルチンゲールの二次変分 theorem](#thm-sto5-局所-マルチンゲール-qv) により
 
 $$
 L_t^2-[L]_t=L_t^2
@@ -907,7 +907,7 @@ $$
 Q^\pi(M+N)-Q^\pi(M-N).
 $$
 
-[連続局所マルチンゲールの二次変分 theorem](#thm-sto5-local-martingale-qv) で右辺は ucp で
+[連続局所マルチンゲールの二次変分 theorem](#thm-sto5-局所-マルチンゲール-qv) で右辺は ucp で
 
 $$
 [M+N]-[M-N]
@@ -977,7 +977,7 @@ $$
 > とする。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-sto5-continuous-semimartingale -->
+<!-- definition-example-start: def-sto5-continuous-セミマルチンゲール -->
 ### 直接例：ブラウン運動 + drift
 
 **定義の確認**
@@ -996,7 +996,7 @@ $$
 
 は連続セミマルチンゲールです。
 
-noise $B$ と drift $A$ を同じ過程の中で分離して扱えることが semimartingale の強みです。
+雑音 $B$ と drift $A$ を同じ過程の中で分離して扱えることがセミマルチンゲールの強みです。
 <!-- definition-example-end -->
 
 <a id="prop-sto5-fv-no-qv"></a>
@@ -1085,7 +1085,7 @@ M=M',
 A=A'
 $$
 
-> up to indistinguishability.
+> up to 識別不能性.
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -1099,7 +1099,7 @@ $$
 
 左辺は連続局所マルチンゲール、右辺は continuous 有限変動です。
 
-従って共通の過程は [有限変動局所マルチンゲールは定数](#lem-sto5-fv-local-martingale-constant) という補題から定数です。初期値は
+従って共通の過程は [有限変動局所マルチンゲールは定数](#lem-sto5-fv-局所-マルチンゲール-constant) という補題から定数です。初期値は
 
 $$
 (M_0-M'_0)=0
@@ -1108,7 +1108,7 @@ $$
 なのでその定数は 0。従って $M=M'$、さらに $A=A'$ です。
 <!-- proof-end -->
 
-この一意性により「二次変分は semimartingale の noise part だけを見る」という言い方が分解の選び方に依存しません。
+この一意性により「二次変分はセミマルチンゲールの雑音 part だけを見る」という言い方が分解の選び方に依存しません。
 
 ---
 
@@ -1208,7 +1208,7 @@ $$
 
 を示せれば、右辺は $N(0,t-s)$ の characteristic function で、しかも過去情報に依存しません。従って増分はガウスかつ $\mathcal F_s$ と独立です。
 
-この式を出すため、二次 Taylor 展開を細分割上で足します。一次項は martingale difference なので conditional expectation で消え、二次項だけが二次変分
+この式を出すため、二次 Taylor 展開を細分割上で足します。一次項はマルチンゲール difference なので conditional expectation で消え、二次項だけが二次変分
 
 $$
 [M]_t-[M]_s=t-s
@@ -1219,9 +1219,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\theta\in\mathbb R$ を固定します。局所マルチンゲールを直接有界 martingale と呼び替えるのではなく、停止後のブラケットも同時に追います。
+$\theta\in\mathbb R$ を固定します。局所マルチンゲールを直接有界マルチンゲールと呼び替えるのではなく、停止後のブラケットも同時に追います。
 
-#### Step 1：有界 martingale へ局所化する
+#### Step 1：有界マルチンゲールへ局所化する
 
 元の局所化列と exit time を minimum で合わせ、
 
@@ -1234,9 +1234,9 @@ $$
 \wedge n
 $$
 
-と取ります。ここで $(\rho_n)$ は $M^{\rho_n}$ を真の martingale にする局所化列です。[有界 stopping theorem](#thm-sto5-bounded-optional-sampling) により $M^{\sigma_n}$ も有界 martingale です。
+と取ります。ここで $(\rho_n)$ は $M^{\rho_n}$ を真のマルチンゲールにする局所化列です。[有界停止操作 theorem](#thm-sto5-bounded-optional-sampling) により $M^{\sigma_n}$ も有界マルチンゲールです。
 
-二次変分の stopping property と仮定 $[M]_t=t$ から
+二次変分の停止操作 property と仮定 $[M]_t=t$ から
 
 $$
 [M^{\sigma_n}]_t
@@ -1349,7 +1349,7 @@ Z_t^{(n)}-Z_s^{(n)}
 \end{aligned}
 $$
 
-第一和の係数は $\mathcal F_{t_{k-1}}$-measurable で有界です。$X^{(n)}$ は martingale なので、任意の $C\in\mathcal F_s$ に対し
+第一和の係数は $\mathcal F_{t_{k-1}}$-measurable で有界です。$X^{(n)}$ はマルチンゲールなので、任意の $C\in\mathcal F_s$ に対し
 
 $$
 E\left[
@@ -1364,7 +1364,7 @@ $$
 [X^{(n)}]=A^{(n)}
 $$
 
-なので [連続局所マルチンゲールの二次変分 theorem](#thm-sto5-local-martingale-qv) により、各 coarse block $[u,v]$ で
+なので [連続局所マルチンゲールの二次変分 theorem](#thm-sto5-局所-マルチンゲール-qv) により、各 coarse block $[u,v]$ で
 
 $$
 \sum_{u<t_k\le v}(\Delta_kX)^2
@@ -1403,9 +1403,9 @@ $$
 (X_t^{(n)})^2-A_t^{(n)}
 $$
 
-は [連続局所マルチンゲールの二次変分 theorem](#thm-sto5-local-martingale-qv) により局所マルチンゲールで、$[0,T]$ 上有界なので真の martingale です。
+は [連続局所マルチンゲールの二次変分 theorem](#thm-sto5-局所-マルチンゲール-qv) により局所マルチンゲールで、$[0,T]$ 上有界なので真のマルチンゲールです。
 
-従って決定論的 partition $u=t_0<\cdots<t_m=v$ に対して martingale increments の直交性を使うと
+従って決定論的 partition $u=t_0<\cdots<t_m=v$ に対してマルチンゲール increments の直交性を使うと
 
 $$
 \begin{aligned}
@@ -1419,7 +1419,7 @@ E[A_v^{(n)}-A_u^{(n)}].
 \end{aligned}
 $$
 
-一方、[連続局所マルチンゲールの二次変分 theorem](#thm-sto5-local-martingale-qv) から左辺の random sum 自体は $A_v^{(n)}-A_u^{(n)}$ へ in probability で収束します。両者は非負で期待値も極限の期待値へ一致しているので、この収束は $L^1$ convergence です。
+一方、[連続局所マルチンゲールの二次変分 theorem](#thm-sto5-局所-マルチンゲール-qv) から左辺の random sum 自体は $A_v^{(n)}-A_u^{(n)}$ へ in probability で収束します。両者は非負で期待値も極限の期待値へ一致しているので、この収束は $L^1$ convergence です。
 
 したがって coarse block ごとの二次変分誤差は $L^1$ でも 0 へ行きます。$F_{xx}$ は有界なので、先ほどの finite-block 近似をそのまま $L^1$ で行えて
 
@@ -1442,9 +1442,9 @@ $$
 \right)
 $$
 
-で $\eta_\pi\to0$ in probability、かつ $\eta_\pi$ は compact set 上の導関数の modulus of continuity で一様に有界です。従って右辺も $L^1$ で 0 へ行きます。
+で $\eta_\pi\to0$ in probability、かつ $\eta_\pi$ は compact set 上の導関数の modulus of 連続性で一様に有界です。従って右辺も $L^1$ で 0 へ行きます。
 
-以上を各 partition の Taylor identity の期待値へ入れます。第一和の期待値は各段階でちょうど 0、残り二項は $L^1$ で 0 へ行くため
+以上を各 partition の Taylor 恒等式の期待値へ入れます。第一和の期待値は各段階でちょうど 0、残り二項は $L^1$ で 0 へ行くため
 
 $$
 E[1_C Z_t^{(n)}]
@@ -1452,7 +1452,7 @@ E[1_C Z_t^{(n)}]
 E[1_C Z_s^{(n)}]
 $$
 
-が全ての $C\in\mathcal F_s$ で成り立ち、$Z^{(n)}$ は martingale です。
+が全ての $C\in\mathcal F_s$ で成り立ち、$Z^{(n)}$ はマルチンゲールです。
 
 #### Step 3：局所化を外す
 
@@ -1486,7 +1486,7 @@ $$
 e^{\theta^2T/2},
 $$
 
-なので dominated convergence により martingale identity を極限へ移せます。従って $Z$ も martingale です。
+なので dominated convergence によりマルチンゲール恒等式を極限へ移せます。従って $Z$ もマルチンゲールです。
 
 よって $0\le s<t$ に対し
 
@@ -1510,7 +1510,7 @@ e^{i\theta(M_t-M_s)}
 e^{-\theta^2(t-s)/2}.
 $$
 
-右辺は決定論的で、$N(0,t-s)$ の characteristic function です。全ての $\theta$ についてこの identity が成り立つので、characteristic function の一意性と monotone class argument により
+右辺は決定論的で、$N(0,t-s)$ の characteristic function です。全ての $\theta$ についてこの恒等式が成り立つので、characteristic function の一意性と monotone class argument により
 
 $$
 M_t-M_s\sim N(0,t-s)
@@ -1521,7 +1521,7 @@ $$
 $M_0=0$、標本路の連続性は仮定済みです。従って $M$ は $(\mathcal F_t)$ に関する standard ブラウン運動です。
 <!-- proof-end -->
 
-Lévy characterization は重要です。「ブラウン運動らしい増分法則」を最初から仮定せず、**martingale 性 + 二次変分が時間**だけからブラウン運動を回収できます。
+Lévy characterization は重要です。「ブラウン運動らしい増分法則」を最初から仮定せず、**マルチンゲール性 + 二次変分が時間**だけからブラウン運動を回収できます。
 
 ---
 
@@ -1593,7 +1593,7 @@ $$
 とする。
 
 1. $\tau_n$ が停止時刻であることを説明せよ。
-2. $B^{\tau_n}$ が有界 continuous martingale であることを示せ。
+2. $B^{\tau_n}$ が有界 continuous マルチンゲールであることを示せ。
 3. $\tau_n\uparrow\infty$ ほとんど確実にを説明せよ。
 
 <!-- solution-start -->
@@ -1601,7 +1601,7 @@ $$
 
 1. $B$ は continuous 適合過程です。closed set $(-\infty,-n]\cup[n,\infty)$ への到達時刻は [STO1 の閉集合への初到達時刻定理](../STO1/index.md#thm-sto1-closed-hitting-time) から停止時刻です。定数 $n$ との minimum も停止時刻です。
 
-2. $B$ は continuous martingale です。[有界 stopping theorem](#thm-sto5-bounded-optional-sampling) を $\tau_n$ に適用すると
+2. $B$ は continuous マルチンゲールです。[有界停止操作 theorem](#thm-sto5-bounded-optional-sampling) を $\tau_n$ に適用すると
 
 $$
 E[B_{t\wedge\tau_n}\mid\mathcal F_s]
@@ -1797,7 +1797,7 @@ $$
 [L]\equiv0.
 $$
 
-[連続局所マルチンゲールの二次変分 theorem](#thm-sto5-local-martingale-qv) により
+[連続局所マルチンゲールの二次変分 theorem](#thm-sto5-局所-マルチンゲール-qv) により
 
 $$
 L^2-[L]=L^2
@@ -1805,7 +1805,7 @@ $$
 
 も局所マルチンゲールです。
 
-$L$ と $L^2$ を同時に有界にする局所化列 $(\tau_n)$ を取ります。すると $L^{\tau_n}$ と $(L^{\tau_n})^2$ は真の martingale なので
+$L$ と $L^2$ を同時に有界にする局所化列 $(\tau_n)$ を取ります。すると $L^{\tau_n}$ と $(L^{\tau_n})^2$ は真のマルチンゲールなので
 
 $$
 E[(L_{t\wedge\tau_n})^2]
@@ -1879,7 +1879,7 @@ $$
 となり 0 へ消えます。ブラウン運動の増分は $O(\!\sqrt{\Delta t})$ なので二乗が $O(\Delta t)$ となり、和が有限に残ります。
 <!-- solution-end -->
 
-## STO5-B03 semimartingale 分解の一意性
+## STO5-B03 セミマルチンゲール分解の一意性
 
 - Level: B
 - 目安時間: 20分
@@ -1995,7 +1995,7 @@ X_r=M_{r\wedge\sigma_n},
 A_r=r\wedge\sigma_n
 $$
 
-とします。すると $X$ は有界 martingale で、
+とします。すると $X$ は有界マルチンゲールで、
 
 $$
 [X]_r=A_r
@@ -2019,7 +2019,7 @@ R_\pi.
 \end{aligned}
 $$
 
-第一和の係数は $\mathcal F_{t_{k-1}}$-measurable で有界なので、conditional expectation では各 martingale 増分が消えます。
+第一和の係数は $\mathcal F_{t_{k-1}}$-measurable で有界なので、conditional expectation では各マルチンゲール増分が消えます。
 
 また
 
@@ -2045,7 +2045,7 @@ i\theta M_{r\wedge\sigma_n}
 \right)
 $$
 
-は martingale です。
+はマルチンゲールです。
 
 3. $\sigma_n\uparrow\infty$ ほとんど確実にで、固定 $T$ 上
 
@@ -2064,7 +2064,7 @@ i\theta M_r+\frac12\theta^2r
 \right)
 $$
 
-も martingale です。
+もマルチンゲールです。
 
 従って $0\le s<t$ について
 
@@ -2094,13 +2094,13 @@ $M_0=0$ と標本路の連続性も仮定されているので、$M$ は standar
 
 ## 章末チェック
 
-- continuous martingale と局所マルチンゲールの違いを stopping で説明できる。
-- ucp convergence が固定時刻収束より強い過程-level の収束であると説明できる。
+- continuous マルチンゲールと局所マルチンゲールの違いを停止操作で説明できる。
+- ucp convergence が固定時刻収束より強い過程-水準の収束であると説明できる。
 - 有限変動 function の二次変分が 0 になる評価を書ける。
 - ブラウン二次変分 $[B]_t=t$ を一般分割で $L^2$ 計算できる。
 - 連続局所マルチンゲールの二次変分 theorem で、技術的入力と本章内で閉じた帰結を区別できる。
 - 偏極恒等式から共変分を構成し、$MN-[M,N]$ の局所マルチンゲール性を導ける。
-- semimartingale の有限変動 part が二次変分から消えることを証明できる。
+- セミマルチンゲールの有限変動 part が二次変分から消えることを証明できる。
 - 局所マルチンゲールかつ有限変動なら定数、という事実から分解一意性を示せる。
 - Lévy characterization の conditional characteristic function 証明を再構成できる。
 - $(dB)^2=dt$ が differential の代数則ではなく二次変分の極限を表す記憶法だと説明できる。
