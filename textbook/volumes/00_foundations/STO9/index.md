@@ -47,7 +47,7 @@ weak solution、uniqueness in law、Girsanov theorem は次の STO10 に送り�
 
 ---
 
-## 1. SDE は積分方程式として読む
+## 1. SDE は積分表示として読む
 
 $W=(W^1,\ldots,W^m)$ を [STO7 の $m$ 次元 Brown 運動](../STO7/index.md#def-sto7-vector-brownian) とします。
 
@@ -87,7 +87,7 @@ X_t
 \int_0^t \sigma(X_s)\,dW_s
 $$
 >
-> を全ての $t$ で almost surely 満たすとき、この積分方程式を
+> を全ての $t$ で almost surely 満たすとき、この積分表示を
 >
 $$
 dX_t=b(X_t)\,dt+\sigma(X_t)\,dW_t,
@@ -100,7 +100,7 @@ $$
 
 右辺の stochastic integral は STO6 で構成した Itô integral です。
 
-したがって SDE を「解く」とは、Brown 運動の rough path を通常微分することではなく、**積分方程式の固定点を探すこと**です。
+したがって SDE を「解く」とは、Brown 運動の標本軌道を通常微分することではなく、**積分表示の固定点を探すこと**です。
 
 <!-- definition-example-start: def-sto9-sde -->
 ### 直接例：定数係数なら積分するだけ
@@ -131,7 +131,7 @@ $$
 \Sigma W_t
 $$
 
-なので、定義の積分方程式をそのまま満たします。
+なので、定義の積分表示をそのまま満たします。
 
 ここでは SDE が「Brown 運動に drift を足したもの」として目で確認できます。
 <!-- definition-example-end -->
@@ -446,7 +446,7 @@ $a=0$ なら $f(t)\le0$ なので $f\equiv0$ です。
 
 ---
 
-## 5. global Lipschitz 条件と linear growth
+## 5. global Lipschitz 係数と linear growth
 
 存在一意性を保証する最も標準的な条件を置きます。
 
@@ -522,7 +522,7 @@ $$
 
 と定義します。
 
-通常 ODE の Picard iteration と同じ形ですが、stochastic integral の差を [continuous-time Doob $L^2$ inequality](../STO6/index.md#thm-sto6-doob-l2) で制御する点が新しいところです。
+deterministic equation の Picard iteration と同じ形ですが、stochastic integral の差を [continuous-time Doob $L^2$ inequality](../STO6/index.md#thm-sto6-doob-l2) で制御する点が新しいところです。
 
 <a id="lem-sto9-picard-estimate"></a>
 
@@ -884,17 +884,25 @@ $$
 \sqrt{D_{k+1}(T)}.
 $$
 
-右辺は $n,m\to\infty$ で $0$ へ行くので、Picard sequence は supremum norm の $L^2$ でも Cauchy です。almost sure uniform limit と $L^2$ limit は一致するため、
+右辺は $n,m\to\infty$ で $0$ へ行きます。さらに $m\to\infty$ で $X^{(m)}\to X$ almost surely uniformly なので、Fatou の補題から
 
 $$
-E\sup_{t\le T}|X_t^{(n)}-X_t|^2\to0.
+\left\|
+\sup_{t\le T}|X_t-X_t^{(n)}|
+\right\|_{L^2}
+\le
+\sum_{k=n}^{\infty}
+\sqrt{D_{k+1}(T)}
+\to0.
 $$
 
-#### Step 3：極限は積分方程式を満たす
+従って Picard sequence は $X$ へ $L^2$ supremum の意味でも収束します。
+
+#### Step 3：極限は積分表示を満たす
 
 従って $X^{(n)}\to X$ は $L^2$ supremum の意味でも収束します。
 
-Lipschitz 条件より
+Lipschitz estimate より
 
 $$
 E\int_0^T
@@ -997,7 +1005,7 @@ global Lipschitz はかなり強い仮定ですが、まずここで「SDE の�
 <a id="prop-sto9-moment-estimate"></a>
 
 <!-- formal-statement-start -->
-> **命題（finite-horizon $L^2$ supremum moment estimate）**  
+> **命題（finite-horizon L2 supremum moment estimate）**  
 > 前定理の仮定の下で、各 $T<\infty$ に対して $C_T<\infty$ が存在し
 >
 $$
@@ -1016,7 +1024,7 @@ $$
 
 ### 証明の見取り図
 
-積分方程式を
+積分表示を
 
 $$
 \xi+\text{drift}+\text{martingale}
@@ -1424,7 +1432,7 @@ $$
 
 を考えます。
 
-これは通常 ODE
+これは通常の微分方程式
 
 $$
 \frac{dX_t}{dt}=X_t^2
@@ -1647,7 +1655,7 @@ X_t=X_t^{(n)}
 (0\le t\le T),
 $$
 
-したがって $X$ は continuous adapted で、元の coefficients $b,\sigma$ に対する積分方程式を満たします。
+したがって $X$ は continuous adapted で、元の coefficients $b,\sigma$ に対する積分表示を満たします。
 
 もし $\tau_{\mathrm e}<\infty$ なのに
 
@@ -1776,7 +1784,7 @@ $$
 
 を考えます。
 
-積分方程式は
+積分表示は
 
 $$
 X_{t\wedge\tau_n}
@@ -1829,23 +1837,28 @@ $$
 
 $n\to\infty$ で右辺は $0$ へ行きます。
 
-$\tau_n\uparrow\tau_{\mathrm e}$ なので
+$\tau_n\uparrow\tau_{\mathrm e}$ なので、任意の $n>|x|$ について
 
 $$
 \{\tau_{\mathrm e}\le T\}
-=
-\bigcap_{n>|x|}
+\subset
 \{\tau_n\le T\}.
 $$
 
-従って continuity from above により
+したがって
 
 $$
 P(\tau_{\mathrm e}\le T)
-=
-\lim_{n\to\infty}P(\tau_n\le T)
-=
-0.
+\le
+P(\tau_n\le T)
+\le
+\frac{C_T(1+|x|^2)}{n^2}.
+$$
+
+$n\to\infty$ とすれば
+
+$$
+P(\tau_{\mathrm e}\le T)=0.
 $$
 
 $T=1,2,\ldots$ について可算和を取れば
@@ -1930,7 +1943,7 @@ C\int_0^t
 \{1+E[V(X_{s\wedge\tau_n})]\}\,ds.
 $$
 
-一方、$\tau_n\le T$ なら $X_{\tau_n}$ は sphere $|x|=n$ 上にいるため、coercivity によって $V$ は大きくなります。
+一方、$\tau_n\le T$ なら $X_{\tau_n}$ は sphere $|x|=n$ 上にいるため、$V(x)\to\infty$ という無限遠での発散性によって $V$ は大きくなります。
 
 <!-- proof-start -->
 ### 証明
@@ -2883,7 +2896,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-1. $\sigma\equiv0$ なので通常 ODE
+1. $\sigma\equiv0$ なので通常の微分方程式
 
 $$
 \frac{dX_t}{dt}=X_t^2
@@ -3110,7 +3123,7 @@ $$
 を満たすと仮定する。
 
 1. $P(\tau_n\le T)\le C_T/n^2$ を示せ。
-2. $\tau_n\uparrow\tau_{\mathrm e}$ から $P(\tau_{\mathrm e}\le T)=0$ を示せ。
+2. $\{\tau_{\mathrm e}\le T\}\subset\{\tau_n\le T\}$ を使って $P(\tau_{\mathrm e}\le T)=0$ を示せ。
 3. なぜ $C_T$ が $n$ に依存しないことが本質か説明せよ。
 
 <!-- solution-start -->
@@ -3151,27 +3164,28 @@ P(\tau_n\le T)
 \frac{C_T}{n^2}.
 $$
 
-2. $\tau_n\uparrow\tau_{\mathrm e}$ なので
+2. $\tau_n\le\tau_{\mathrm e}$ なので、$\tau_{\mathrm e}\le T$ なら必ず $\tau_n\le T$ です。従って各 $n$ について
 
 $$
 \{\tau_{\mathrm e}\le T\}
-=
-\bigcap_{n=1}^{\infty}
+\subset
 \{\tau_n\le T\}.
 $$
 
-events は減少列です。
-
-従って probability の continuity from above から
+よって
 
 $$
 P(\tau_{\mathrm e}\le T)
-=
-\lim_{n\to\infty}P(\tau_n\le T)
 \le
-\lim_{n\to\infty}\frac{C_T}{n^2}
-=
-0.
+P(\tau_n\le T)
+\le
+\frac{C_T}{n^2}.
+$$
+
+$n\to\infty$ とすれば
+
+$$
+P(\tau_{\mathrm e}\le T)=0.
 $$
 
 3. もし estimate が
@@ -3269,7 +3283,7 @@ $$
 D_0=y-x\ge0.
 $$
 
-3. 線形 ODE
+3. 線形微分方程式
 
 $$
 D_t'=c-D_t
