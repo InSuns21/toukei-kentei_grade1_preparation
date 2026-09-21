@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念への参照**：[多次元ブラウン運動](../STO7/index.md#def-sto7-vector-brownian)、[確率積分の $L^2$ 構成](../STO6/index.md#thm-sto6-l2-construction)、[時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-過程-formula)、[連続局所マルチンゲール](../STO5/index.md#def-sto5-continuous-局所-martingale) を既知として使います。
+> **既出概念への参照**：[多次元ブラウン運動](../STO7/index.md#def-sto7-vector-brownian)、[確率積分の $L^2$ 構成](../STO6/index.md#thm-sto6-l2-construction)、[時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula)、[連続局所マルチンゲール](../STO5/index.md#def-sto5-continuous-local-martingale) を既知として使います。
 
 STO7 までで、ブラウン運動に沿った確率積分と Itô 公式を使えるようになりました。
 
@@ -246,7 +246,7 @@ $$
 は $W_t$ の連続関数なので $\mathcal F_t^{W}$-適合かつ continuous です。各有限区間では標本関数が有界なので、$|\mu X_s|$ と $|\alpha X_s|^2$ の時間積分もほとんど確実に有限です。
 
 $f(t,w)=x\exp((\mu-\alpha^2/2)t+\alpha w)$ に
-[Itô 過程版の時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-過程-formula)
+[Itô 過程版の時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula)
 を使うと
 
 $$
@@ -326,7 +326,7 @@ $$
 
 という主張です。
 
-<!-- definition-example-start: def-sto9-pathwise-一意性 -->
+<!-- definition-example-start: def-sto9-pathwise-uniqueness -->
 ### 直接例：定数係数では差を取れば消える
 
 **定義の確認**
@@ -1990,7 +1990,7 @@ $$
 
 とします。
 
-[Itô 過程版の時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-過程-formula)
+[Itô 過程版の時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula)
 を時間に依存しない $V$ へ適用すると
 
 $$
