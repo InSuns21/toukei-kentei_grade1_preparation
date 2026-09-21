@@ -9,29 +9,29 @@ prerequisites:
 official_scope: []
 learning_objectives:
   - 正則曲線・向き・再パラメータ表示・弧長・単位接ベクトルを定義して計算できる
-  - scalar line integralとvector line integralを定義し、向きによる符号の違いを説明できる
+  - スカラー線積分とベクトル線積分を定義し、向きによる符号の違いを説明できる
   - 線積分の基本定理を連鎖律と一変数FTCから証明できる
-  - 保存場・potential・経路独立・閉曲線積分ゼロの同値を証明できる
-  - star-shaped domain上でcurl-free fieldからpotentialを明示的に構成できる
-  - punctured planeでcurl-freeだが非保存的な場を計算し、失われたdomain条件を説明できる
-  - simply connectedの役割をVC5への依存を逆輸入せず説明できる
+  - 保存場・ポテンシャル・経路独立・閉曲線積分ゼロの同値を証明できる
+  - 星型領域上で回転が0の場からポテンシャルを明示的に構成できる
+  - 穴あき平面でcurl-freeだが非保存的な場を計算し、失われた領域条件を説明できる
+  - 単連結の役割をVC5への依存を逆輸入せず説明できる
 definitions:
   - { id: VC2-DEF-01, name: 正則曲線 }
   - { id: VC2-DEF-02, name: 弧長・単位接ベクトル }
-  - { id: VC2-DEF-03, name: scalar line integral }
-  - { id: VC2-DEF-04, name: vector line integral }
-  - { id: VC2-DEF-05, name: 保存場・potential }
+  - { id: VC2-DEF-03, name: スカラー線積分 }
+  - { id: VC2-DEF-04, name: ベクトル線積分 }
+  - { id: VC2-DEF-05, name: 保存場・ポテンシャル }
   - { id: VC2-DEF-06, name: 経路独立 }
-  - { id: VC2-DEF-07, name: star-shaped domain }
+  - { id: VC2-DEF-07, name: 星型領域 }
 theorems:
   - { id: VC2-THM-01, name: 線積分の基本定理 }
   - { id: VC2-THM-02, name: 保存場・経路独立・閉曲線積分の同値 }
-  - { id: VC2-THM-03, name: star-shaped domain上の初等Poincare lemma }
+  - { id: VC2-THM-03, name: 星型領域上の初等Poincare の補題 }
 canonical_examples:
   - 単位円の弧長と循環
-  - gradient fieldの端点差
-  - star-shaped domainでのpotential構成
-  - punctured planeのirrotational非conservative field
+  - 勾配場の端点差
+  - 星型領域でのポテンシャル構成
+  - 穴あき平面の無回転だが非保存的な場
 problem_patterns:
   - VC2-ARC-LENGTH-1
   - VC2-LINE-INTEGRAL-1
