@@ -88,7 +88,7 @@ concepts:
       - linear.positive-semidefinite-matrix
       - linear.spectral-theorem
 
-  - id: linear.psd-square-root
+  - id: linear.real-psd-square-root-f1
     name: 半正定値行列の平方根
     kind: theorem
     aliases: [半正定値行列の平方根]
