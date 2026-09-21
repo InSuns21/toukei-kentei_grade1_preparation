@@ -343,7 +343,7 @@ $$
 とします。
 
 <!-- definition-example-start: def-sto10-equivalent-measures -->
-**同値性の確認**
+**定義の確認**
 
 両測度は $a,b$ に正の質量を持つので、零確率になるのは空集合だけです。従って
 
@@ -387,7 +387,7 @@ E_P[Z_T]
 $$
 
 <!-- definition-example-start: def-sto10-density-process -->
-**density process の確認**
+**定義の確認**
 
 filtration を
 
@@ -1418,7 +1418,7 @@ $$
 
 になることです。
 
-確率測度を変えると「典型的な path の重み」が変わります。
+確率測度を変えると「典型的な標本路の重み」が変わります。
 
 ---
 
@@ -1981,7 +1981,7 @@ $$
 
 と比較すること自体が意味を持たない場合があります。
 
-そこで path の確率法則を比較します。
+そこで標本路の確率法則を比較します。
 
 <a id="def-sto10-uniqueness-in-law"></a>
 
@@ -2011,7 +2011,7 @@ $$
 > \mu
 > $$
 >
-> を満たすとき、path space
+> を満たすとき、連続関数空間
 >
 > $$
 > C([0,T],\mathbb R^d)
@@ -2031,6 +2031,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sto10-uniqueness-in-law -->
+**定義の確認**
+
 ### 直接例：定数係数 SDE は law が一意
 
 $$
@@ -2061,7 +2063,7 @@ $$
 
 の分布は Brownian motion の Gaussian law だけで決まります。
 
-さらに path は continuous なので、path-space law もこの Brownian image として一意です。
+さらに標本路は continuous なので、連続関数空間上の law もこの Brownian image として一意です。
 
 ここでは確率空間が違っても $X$ の law は変わりません。
 <!-- definition-example-end -->
@@ -2077,7 +2079,7 @@ $$
 | strong existence | Brown 運動と確率空間を先に固定 | その noise 上に解を作れる |
 | weak existence | 確率空間と Brown 運動も選べる | どこかに解を作れる |
 | pathwise uniqueness | 同じ空間・同じ Brown 運動・同じ初期値 | 二つの解は indistinguishable |
-| uniqueness in law | 初期分布だけ共通 | 解 $X$ の path-space law が同じ |
+| uniqueness in law | 初期分布だけ共通 | 解 $X$ の $C([0,T],\mathbb R^d)$ 上の law が同じ |
 
 特に
 
@@ -2109,7 +2111,7 @@ $$
 > dX_t=b(X_t)\,dt+\sigma(X_t)\,dW_t
 > $$
 >
-> を通常の filtered probability space の枠組みで考え、係数は積分方程式が意味を持つ Borel 可測係数とする。
+> を通常の filtered probability space の枠組みで考え、係数は drift / diffusion の各積分が well-defined となる Borel 可測係数とする。
 >
 > ある指定初期分布について
 >
@@ -2142,7 +2144,7 @@ $$
 異なる確率空間上の weak solutions を共通の空間へ持ち上げ、
 
 - regular conditional law
-- path space 上の coupling
+- 連続関数空間上の coupling
 - noise を固定した条件付き law
 - measurable selection / measurable functional representation
 
@@ -2572,7 +2574,7 @@ $$
 
 1. 「同じ確率空間、同じ Brown 運動、同じ初期値で作った二つの解は indistinguishable である。」
 2. 「確率空間と Brown 運動をこちらで選べば、少なくとも一組の解が作れる。」
-3. 「初期分布が同じ任意の二つの weak solutions は、$X$ の path-space law が一致する。」
+3. 「初期分布が同じ任意の二つの weak solutions は、$X$ の $C([0,T],\mathbb R^d)$ 上の law が一致する。」
 4. 「先に与えられた Brown 運動と初期値が生成する情報の上で解を構成できる。」
 
 <!-- solution-start -->
@@ -2588,7 +2590,7 @@ $$
 
 3. **uniqueness in law** です。
 
-異なる確率空間にいる解同士を直接比較せず、path space 上の law を比較しています。
+異なる確率空間にいる解同士を直接比較せず、$C([0,T],\mathbb R^d)$ 上の law を比較しています。
 
 4. **strong existence** です。
 
@@ -2898,7 +2900,7 @@ $$
 \mathcal L(X)
 $$
 
-という path-space law が一致することを比較します。
+という $C([0,T],\mathbb R^d)$ 上の law が一致することを比較します。
 
 確率空間や Brown 運動そのものを同一視する必要はありません。
 
