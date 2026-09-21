@@ -112,11 +112,11 @@ concepts:
       - stochastic.continuous-local-martingale-qv
 
   - id: stochastic.stochastic-exponential-equation
-    name: stochastic exponentialはdZ=Z dMを満たす
+    name: stochastic exponentialの積分方程式
     kind: proposition
     aliases: ["stochastic exponential equation", "stochastic exponential solves dZ=Z dM"]
     introduction: formal
-    introduction_aliases: ["命題（stochastic exponential は dZ=Z dM を満たす）"]
+    introduction_aliases: ["命題（stochastic exponential の積分方程式）"]
     requires:
       - stochastic.stochastic-exponential
       - stochastic.multidimensional-ito-formula
@@ -162,7 +162,7 @@ concepts:
       - stochastic.covariation
 
   - id: stochastic.stratonovich-chain-rule
-    name: Euclidean Stratonovich 連鎖律
+    name: Euclidean Stratonovich の連鎖律
     kind: theorem
     aliases: ["Stratonovich chain rule", "ordinary chain rule for Stratonovich calculus"]
     introduction: formal
