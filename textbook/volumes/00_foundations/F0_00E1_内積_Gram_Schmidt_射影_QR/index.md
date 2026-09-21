@@ -157,7 +157,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Gram--Schmidt直交化法）**  
-> 実内積空間で一次独立な $v_1,\dots,v_k$ が与えられたとする。このとき
+> 内積空間で一次独立な $v_1,\dots,v_k$ が与えられたとする。このとき
 >
 > $$
 > \operatorname{span}(v_1,\dots,v_j)
@@ -425,7 +425,7 @@ $$
 <a id="thm-f0-00e1-orthogonal-decomposition"></a>
 
 <!-- formal-statement-start -->
-> **定理（有限次元の直交分解）**  
+> **定理（射影による有限次元分解）**  
 > $V\subset\mathbb R^n$ を部分空間とする。このとき任意の $x\in\mathbb R^n$ は一意に
 >
 > $$
@@ -802,7 +802,7 @@ $$
 
 ---
 
-## 13. 有限次元の直交分解をまとめる
+## 13. 有限次元の射影分解をまとめる
 
 有限次元内積空間では、部分空間 $V$ に正規直交基底
 
