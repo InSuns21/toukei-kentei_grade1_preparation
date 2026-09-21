@@ -14,7 +14,8 @@ learning_objectives:
   - 陰関数定理を逆関数定理から導き Dφ=-(D_yF)^{-1}D_xF を計算できる
   - 正則レベル集合の局所グラフ表示と接空間 ker DF を説明できる
   - Lagrange未定乗数法を陰関数定理の系として導ける
-definitions: []
+definitions:
+  - { id: RA6A-DEF-01, name: レベル集合・レベル曲面 }
 theorems:
   - { id: RA6A-THM-01, name: 線分上の微分の積分表示 }
   - { id: RA6A-THM-02, name: 閉球上の収縮写像 }
