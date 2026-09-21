@@ -126,7 +126,7 @@ $$
 <a id="prop-sto5-brownian-martingale"></a>
 
 <!-- formal-statement-start -->
-> **命題（ブラウン運動は continuous マルチンゲール）**  
+> **命題（ブラウン運動は連続マルチンゲール）**  
 > standard ブラウン運動 $B$ は、その通常条件を満たす自然なフィルトレーションに関して平方可積分な continuous マルチンゲールである。
 <!-- formal-statement-end -->
 
@@ -145,7 +145,7 @@ $$
 <a id="thm-sto5-bounded-optional-sampling"></a>
 
 <!-- formal-statement-start -->
-> **定理（有界停止操作による continuous マルチンゲールの停止）**  
+> **定理（有界停止時刻による連続マルチンゲールの停止）**  
 > $M$ を連続標本路を持つ連続時間マルチンゲールとし、$\sigma\le\tau$ を有界な停止時刻とする。このとき
 
 $$
@@ -342,7 +342,7 @@ $$
 <a id="def-sto5-finite-variation"></a>
 
 <!-- formal-statement-start -->
-> **定義（continuous finite-variation 過程）**  
+> **定義（連続有限変動過程）**  
 > continuous 適合過程 $A=(A_t)_{t\ge0}$ が **有限変動** であるとは、ほとんど確実に全ての $T>0$ について
 
 $$
@@ -482,8 +482,8 @@ smooth function では二次の増分は消えます。
 <a id="prop-sto5-finite-variation-zero-qv"></a>
 
 <!-- formal-statement-start -->
-> **命題（continuous finite-variation 過程の二次変分は 0）**  
-> $A$ を continuous finite-variation 過程とする。このとき
+> **命題（連続有限変動過程の二次変分は 0）**  
+> $A$ を 連続有限変動過程とする。このとき
 
 $$
 [A]_t=0
@@ -678,7 +678,7 @@ $$
 <a id="thm-sto5-local-martingale-qv"></a>
 
 <!-- formal-statement-start -->
-> **定理（連続局所マルチンゲールの二次変分 theorem）**  
+> **定理（連続局所マルチンゲールの二次変分定理）**  
 > $M$ を連続局所マルチンゲールとする。このとき一意な continuous increasing 適合過程 $[M]$、$[M]_0=0$ が存在し、
 >
 > 1. 任意の決定論的 partition 列で mesh が compact interval 上 0 へ行くとき
@@ -745,7 +745,7 @@ $$
 
 ## 7. ブラケットの一意性と有限変動局所マルチンゲール
 
-[連続局所マルチンゲールの二次変分 theorem](#thm-sto5-local-martingale-qv) の
+[連続局所マルチンゲールの二次変分定理](#thm-sto5-local-martingale-qv) の
 
 $$
 M^2-[M]
@@ -757,7 +757,7 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（連続局所マルチンゲールかつ有限変動なら定数）**  
-> $L$ が連続局所マルチンゲールかつ continuous finite-variation 過程なら
+> $L$ が連続局所マルチンゲールかつ 連続有限変動過程なら
 
 $$
 L_t=L_0
@@ -776,7 +776,7 @@ $$
 [L]\equiv0.
 $$
 
-[連続局所マルチンゲールの二次変分 theorem](#thm-sto5-local-martingale-qv) により
+[連続局所マルチンゲールの二次変分定理](#thm-sto5-local-martingale-qv) により
 
 $$
 L_t^2-[L]_t=L_t^2
@@ -907,7 +907,7 @@ $$
 Q^\pi(M+N)-Q^\pi(M-N).
 $$
 
-[連続局所マルチンゲールの二次変分 theorem](#thm-sto5-local-martingale-qv) で右辺は ucp で
+[連続局所マルチンゲールの二次変分定理](#thm-sto5-local-martingale-qv) で右辺は ucp で
 
 $$
 [M+N]-[M-N]
@@ -964,7 +964,7 @@ $$
 X_t=M_t+A_t
 $$
 
-> と表せ、$M$ が連続局所マルチンゲール、$A$ が continuous finite-variation 過程であることをいう。
+> と表せ、$M$ が連続局所マルチンゲール、$A$ が 連続有限変動過程であることをいう。
 >
 > 分解を正規化するときは
 
@@ -988,7 +988,7 @@ $$
 A_t=\int_0^t b_s\,ds
 $$
 
-を continuous finite-variation 過程とします。このとき
+を 連続有限変動過程とします。このとき
 
 $$
 X_t=B_t+A_t
@@ -1223,7 +1223,7 @@ $\theta\in\mathbb R$ を固定します。局所マルチンゲールを直接�
 
 #### Step 1：有界マルチンゲールへ局所化する
 
-元の局所化列と exit time を minimum で合わせ、
+元の局所化列と 脱出時刻 を minimum で合わせ、
 
 $$
 \sigma_n
@@ -1364,7 +1364,7 @@ $$
 [X^{(n)}]=A^{(n)}
 $$
 
-なので [連続局所マルチンゲールの二次変分 theorem](#thm-sto5-local-martingale-qv) により、各 coarse block $[u,v]$ で
+なので [連続局所マルチンゲールの二次変分定理](#thm-sto5-local-martingale-qv) により、各 coarse block $[u,v]$ で
 
 $$
 \sum_{u<t_k\le v}(\Delta_kX)^2
@@ -1403,7 +1403,7 @@ $$
 (X_t^{(n)})^2-A_t^{(n)}
 $$
 
-は [連続局所マルチンゲールの二次変分 theorem](#thm-sto5-local-martingale-qv) により局所マルチンゲールで、$[0,T]$ 上有界なので真のマルチンゲールです。
+は [連続局所マルチンゲールの二次変分定理](#thm-sto5-local-martingale-qv) により局所マルチンゲールで、$[0,T]$ 上有界なので真のマルチンゲールです。
 
 従って決定論的 partition $u=t_0<\cdots<t_m=v$ に対してマルチンゲール increments の直交性を使うと
 
@@ -1419,7 +1419,7 @@ E[A_v^{(n)}-A_u^{(n)}].
 \end{aligned}
 $$
 
-一方、[連続局所マルチンゲールの二次変分 theorem](#thm-sto5-local-martingale-qv) から左辺の random sum 自体は $A_v^{(n)}-A_u^{(n)}$ へ in probability で収束します。両者は非負で期待値も極限の期待値へ一致しているので、この収束は $L^1$ convergence です。
+一方、[連続局所マルチンゲールの二次変分定理](#thm-sto5-local-martingale-qv) から左辺の random sum 自体は $A_v^{(n)}-A_u^{(n)}$ へ in probability で収束します。両者は非負で期待値も極限の期待値へ一致しているので、この収束は $L^1$ convergence です。
 
 したがって coarse block ごとの二次変分誤差は $L^1$ でも 0 へ行きます。$F_{xx}$ は有界なので、先ほどの finite-block 近似をそのまま $L^1$ で行えて
 
@@ -1577,7 +1577,7 @@ $$
 
 # 13. 演習
 
-## STO5-A01 ブラウン運動を exit time で局所化する
+## STO5-A01 ブラウン運動を 脱出時刻 で局所化する
 
 - Level: A
 - 目安時間: 12分
@@ -1797,7 +1797,7 @@ $$
 [L]\equiv0.
 $$
 
-[連続局所マルチンゲールの二次変分 theorem](#thm-sto5-local-martingale-qv) により
+[連続局所マルチンゲールの二次変分定理](#thm-sto5-local-martingale-qv) により
 
 $$
 L^2-[L]=L^2
@@ -1976,7 +1976,7 @@ $$
 F_t+\frac12F_{xx}=0.
 $$
 
-2. ここで $M$ は局所マルチンゲールなので、いきなり増分の conditional mean を 0 としてはいけません。まず局所化列 $(\rho_n)$ と exit time を合わせて
+2. ここで $M$ は局所マルチンゲールなので、いきなり増分の conditional mean を 0 としてはいけません。まず局所化列 $(\rho_n)$ と 脱出時刻 を合わせて
 
 $$
 \sigma_n
@@ -2098,7 +2098,7 @@ $M_0=0$ と標本路の連続性も仮定されているので、$M$ は standar
 - ucp convergence が固定時刻収束より強い過程-水準の収束であると説明できる。
 - 有限変動 function の二次変分が 0 になる評価を書ける。
 - ブラウン二次変分 $[B]_t=t$ を一般分割で $L^2$ 計算できる。
-- 連続局所マルチンゲールの二次変分 theorem で、技術的入力と本章内で閉じた帰結を区別できる。
+- 連続局所マルチンゲールの二次変分定理 で、技術的入力と本章内で閉じた帰結を区別できる。
 - 偏極恒等式から共変分を構成し、$MN-[M,N]$ の局所マルチンゲール性を導ける。
 - セミマルチンゲールの有限変動 part が二次変分から消えることを証明できる。
 - 局所マルチンゲールかつ有限変動なら定数、という事実から分解一意性を示せる。
