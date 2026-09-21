@@ -69,7 +69,7 @@ concepts:
   - id: stochastic.global-lipschitz-sde-existence-uniqueness
     name: global Lipschitz SDEのstrong existence・pathwise uniqueness
     kind: theorem
-    aliases: ["global existence and uniqueness theorem for Lipschitz SDE", "Lipschitz SDE existence uniqueness"]
+    aliases: ["global existence and uniqueness theorem for Lipschitz SDE", "Lipschitz SDE existence uniqueness", "大域 Lipschitz 存在・経路ごとの一意性定理"]
     introduction: formal
     introduction_aliases: ["定理（大域 Lipschitz SDE の強解の存在・経路ごとの一意性）"]
     requires:
