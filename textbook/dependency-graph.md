@@ -74,16 +74,15 @@ Lebesgue測度そのものの建設まで追う場合はD2の直後に次を読�
 F0-00D2
   ↓
 F0-00D3 外測度・Caratheodory可測性
-  ├→ F0-00D3A π--λ定理・Dynkin族
-  ↓
-F0-00D4 Lebesgue測度・Borel集合・拡張定理
-  ↓
-F0-00D5 Vitali集合・非可測集合・選択公理
+  ├────────────→ F0-00D4 Lebesgue測度・Borel集合・拡張定理
+  └→ F0-00D3A π--λ定理・Dynkin族 ─→ F0-00D4
+                                      ↓
+                         F0-00D5 Vitali集合・非可測集合・選択公理
   ↓
 F0-00D2Aへ復帰
 ```
 
-D4〜D5は関数解析・RKHSにも確率論補講にも必須前提としない。一方、P4で Kolmogorov の 0--1 則を証明するときは D3A の π--λ定理を局所前提として使う。D3A 自身の前提はその knowledge / dependency metadata を正本とする。
+D4 は拡張の一意性証明で D3A の π--λ 定理を使うため、局所前提を D3 と D3A の両方とする。D4〜D5は関数解析・RKHSにも確率論補講にも必須前提としない。一方、P4で Kolmogorov の 0--1 則を証明するときも D3A の π--λ定理を局所前提として使う。D3A 自身の前提はその knowledge / dependency metadata を正本とする。
 
 ---
 
