@@ -105,6 +105,7 @@ DREAM THEATER では各演習に詳細解答を必須とし、本番答案・20�
 - 英語名・略語を知ること自体に教育的価値や検索上の価値がある場合は、初出で「日本語名（English term）」のように補助的に併記してよい。その後の説明は日本語主表記へ戻す。
 - 日本語と英語を不必要に混在させた「正則 level surface」「gradient の方向」のような表記は避け、日本語だけで自然に書ける箇所は日本語にする。
 - 数式中の演算子・記号、コード、ファイル名、stable ID、anchor、URL、引用した原題、既存の機械参照用 alias は機械的に日本語化しない。たとえば本文では「回転」と書いても、数式の `\operatorname{curl}` や既存 anchor は必要なら保持する。
+- **人名・人名由来の定理名・補題名は、原則として人名部分の英字表記を保持し、一般名詞側を日本語にする。** たとえば `Green theorem` は「Green の定理」、`Gauss--Ostrogradsky divergence theorem` は「Gauss--Ostrogradsky の発散定理」、`Kelvin--Stokes theorem` は「Kelvin--Stokes の定理」、`Poincaré lemma` は「Poincaré の補題」、`Cauchy--Schwarz inequality` は「Cauchy--Schwarz の不等式」、`Fréchet derivative` は「Fréchet 微分」とする。人名を機械的にカタカナ化しない。
 - 固有名詞・人名由来の名称・日本語訳が定着していない語を、不自然な直訳へ置き換えない。日本語化は読みやすさのために行い、専門的な識別可能性を失わせない。
 - 既存章の用語を改稿したときは、近接する見出し・本文・演習だけでなく、`chapter.yaml`、`knowledge.yaml` などの読者向け名称も必要に応じて同期する。一方、stable ID・anchor・後方互換に必要な alias は安易に変更しない。
 - 既出概念を参照するときは、リンク文字列も原則として日本語の定着名を使い、stable anchor へ直接リンクする。
