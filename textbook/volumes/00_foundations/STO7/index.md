@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念への参照**：[連続セミマルチンゲール](../STO5/index.md#def-sto5-continuous-セミマルチンゲール)、[共変分](../STO5/index.md#def-sto5-共変分)、[確率積分の $L^2$ 構成](../STO6/index.md#thm-sto6-l2-construction)、[予測可能過程](../STO1/index.md#def-sto1-予測可能) を直接参照します。
+> **既出概念への参照**：[連続セミマルチンゲール](../STO5/index.md#def-sto5-continuous-semimartingale)、[共変分](../STO5/index.md#def-sto5-covariation)、[確率積分の $L^2$ 構成](../STO6/index.md#thm-sto6-l2-construction)、[予測可能過程](../STO1/index.md#def-sto1-predictable) を直接参照します。
 
 STO5 で二次変分 / 共変分を作り、STO6 で予測可能被積分過程の確率積分を構成しました。ここで二つが合流します。
 
@@ -279,9 +279,9 @@ $$
 > と定義する。右辺第1項は STO6 の確率積分、第2項は標本路ごとの Lebesgue--Stieltjes integral である。
 <!-- formal-statement-end -->
 
-[セミマルチンゲール分解の一意性](../STO5/index.md#thm-sto5-セミマルチンゲール-一意性) により、この定義は分解の選び方に依存しません。
+[セミマルチンゲール分解の一意性](../STO5/index.md#thm-sto5-semimartingale-uniqueness) により、この定義は分解の選び方に依存しません。
 
-<!-- definition-example-start: def-sto7-セミマルチンゲール-integral -->
+<!-- definition-example-start: def-sto7-semimartingale-integral -->
 **定義の確認**
 
 ### 直接例：drifted ブラウン運動
@@ -552,7 +552,7 @@ $$
 2. 二次和 $\to \int \partial_{ij}f(X)\,d[X^i,X^j]$。
 3. 剰余項 $\to0$。
 
-2 は [重み付き共変分 sum](#lem-sto7-weighted-共変分) です。3 では Hessian の一様連続性と、二乗増分和が有界 in probability であることを使います。
+2 は [重み付き共変分 sum](#lem-sto7-weighted-covariation) です。3 では Hessian の一様連続性と、二乗増分和が有界 in probability であることを使います。
 
 <!-- proof-start -->
 ### 証明
@@ -674,7 +674,7 @@ $$
 
 #### Step 5：二次和
 
-[重み付き共変分 sum](#lem-sto7-weighted-共変分) を
+[重み付き共変分 sum](#lem-sto7-weighted-covariation) を
 
 $$
 H_s=\partial_{ij}f(X_s)
@@ -891,7 +891,7 @@ $$
 > が各 $T<\infty$ でほとんど確実に成り立つとき、$X$ を **Itô 過程** という。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-sto7-ito-過程 -->
+<!-- definition-example-start: def-sto7-ito-process -->
 **定義の確認**
 
 ### 直接例：constant coefficients
@@ -1040,7 +1040,7 @@ K_r^\beta
 $$
 
 共変分の bilinearity と
-[多次元ブラウン運動の共変分](#prop-sto7-vector-brownian-共変分) から
+[多次元ブラウン運動の共変分](#prop-sto7-vector-brownian-covariation) から
 
 $$
 \begin{aligned}
@@ -1922,7 +1922,7 @@ $$
 \sum_kr_k\Delta_kY.
 $$
 
-第一項は [重み付き共変分 sum](#lem-sto7-weighted-共変分) から
+第一項は [重み付き共変分 sum](#lem-sto7-weighted-covariation) から
 
 $$
 \sum_j
@@ -2003,7 +2003,7 @@ $$
 [\partial_i f(X),X^i]_t.
 $$
 
-[共変分連鎖律](#lem-sto7-共変分-composition) を
+[共変分連鎖律](#lem-sto7-covariation-composition) を
 
 $$
 g=\partial_i f,
@@ -2247,7 +2247,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-1. bilinearity と [vector ブラウン共変分](#prop-sto7-vector-brownian-共変分) から
+1. bilinearity と [vector ブラウン共変分](#prop-sto7-vector-brownian-covariation) から
 
 $$
 \begin{aligned}
@@ -2835,7 +2835,7 @@ $$
 \int_0^tV_\beta^j(X_s)\,dB_s^\beta.
 $$
 
-[vector ブラウン stochastic integrals の共変分](#lem-sto7-vector-brownian-integral-共変分) と
+[vector ブラウン stochastic integrals の共変分](#lem-sto7-vector-brownian-integral-covariation) と
 
 $$
 [B^\beta,B^\alpha]_t
