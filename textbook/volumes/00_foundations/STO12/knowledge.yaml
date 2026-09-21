@@ -17,7 +17,7 @@ concepts:
     kind: definition
     aliases: ["Brownian L2 predictable integrand", "H_B^2"]
     introduction: formal
-    introduction_aliases: ["定義（ブラウン二乗可積分被積分過程 space）"]
+    introduction_aliases: ["定義（ブラウン運動に対する二乗可積分被積分過程空間）"]
     requires:
       - stochastic.brownian-motion
       - stochastic.stochastic-integral-l2
@@ -37,7 +37,7 @@ concepts:
     kind: lemma
     aliases: ["closed range of Brownian stochastic integrals"]
     introduction: formal
-    introduction_aliases: ["補題（ブラウン終端確率積分の値域は closed）"]
+    introduction_aliases: ["補題（ブラウン運動の終端確率積分の値域は閉じている）"]
     requires:
       - stochastic.brownian-l2-integrand-space
       - stochastic.stochastic-integral-l2
@@ -47,7 +47,7 @@ concepts:
     kind: lemma
     aliases: ["deterministic Brownian exponential vector", "Cameron-Martin exponential"]
     introduction: formal
-    introduction_aliases: ["補題（deterministic 被積分過程の指数型マルチンゲール）"]
+    introduction_aliases: ["補題（決定論的被積分過程の指数型マルチンゲール）"]
     requires:
       - stochastic.deterministic-brownian-integral-gaussian
       - stochastic.stochastic-exponential-equation
@@ -80,7 +80,7 @@ concepts:
     kind: corollary
     aliases: ["conditional expectation martingale representation"]
     introduction: formal
-    introduction_aliases: ["系（conditional expectation 過程の表現）"]
+    introduction_aliases: ["系（条件付き期待値過程の表現）"]
     requires:
       - stochastic.brownian-martingale-representation
       - prob.tower-property
