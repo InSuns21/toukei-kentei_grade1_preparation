@@ -30,6 +30,16 @@ concepts:
       - vector-calculus.scalar-vector-field
       - functional.frechet-derivative
 
+  - id: vector-calculus.level-surface
+    name: レベル集合・レベル曲面
+    kind: definition
+    aliases: [レベル集合, レベル曲面, level set, level surface, 正則点]
+    introduction: formal
+    introduction_aliases: ["定義（レベル集合・レベル曲面）"]
+    requires:
+      - vector-calculus.gradient
+      - analysis.regular-level-set-local-graph
+
   - id: vector-calculus.level-gradient-normal
     name: 正則レベル曲面と勾配の直交
     kind: theorem
@@ -38,6 +48,7 @@ concepts:
     introduction_aliases: ["定理（正則レベル曲面と勾配の直交）"]
     requires:
       - vector-calculus.gradient
+      - vector-calculus.level-surface
       - analysis.regular-level-set-local-graph
 
   - id: vector-calculus.divergence
@@ -68,7 +79,7 @@ concepts:
   - id: vector-calculus.curl-gradient-zero
     name: 勾配の回転は 0
     kind: theorem
-    aliases: [curl grad = 0, curl grad zero, 勾配の回転は0]
+    aliases: [curl grad = 0, curl grad zero]
     introduction: formal
     introduction_aliases: ["定理（勾配の回転は 0）"]
     requires:
@@ -78,7 +89,7 @@ concepts:
   - id: vector-calculus.divergence-curl-zero
     name: 回転の発散は 0
     kind: theorem
-    aliases: [div curl = 0, div curl zero, 回転の発散は0]
+    aliases: [div curl = 0, div curl zero]
     introduction: formal
     introduction_aliases: ["定理（回転の発散は 0）"]
     requires:
