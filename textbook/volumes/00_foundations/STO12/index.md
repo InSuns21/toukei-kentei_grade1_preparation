@@ -473,9 +473,9 @@ e^{-q_t/2}e^{q_t/2}
 1.
 $$
 
-同様に
+同じ Gaussian moment formula に係数 $2$ を代入すると
 
-$$
+$
 \begin{aligned}
 E[(Z_t^h)^2]
 &=
@@ -1089,7 +1089,7 @@ Z_T^{h_{n,j}}-1
 \end{aligned}
 $$
 
-[第4節の補題](#lem-sto12-exponential-vector) から各
+[deterministic integrand の exponential martingale](#lem-sto12-exponential-vector) から各
 
 $$
 Z_T^{h_{n,j}}-1
