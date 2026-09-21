@@ -58,15 +58,6 @@ concepts:
       - vector-calculus.surface-area-element
       - analysis.multivariable-riemann-change-of-variables
 
-  - id: vector-calculus.flux-reparam-invariance
-    name: 向き付きfluxの再パラメータ表示不変性
-    kind: proposition
-    aliases: [oriented flux reparametrization invariance]
-    introduction: formal
-    introduction_aliases: ["命題（向き付き flux の再パラメータ表示不変性）"]
-    requires:
-      - vector-calculus.surface-area-reparam-invariance
-      - analysis.multivariable-riemann-change-of-variables
 
   - id: vector-calculus.scalar-surface-integral
     name: scalar surface integral
@@ -86,6 +77,17 @@ concepts:
     requires:
       - vector-calculus.orientable-surface
       - vector-calculus.surface-area-element
+
+  - id: vector-calculus.flux-reparam-invariance
+    name: 向き付きfluxの再パラメータ表示不変性
+    kind: proposition
+    aliases: [oriented flux reparametrization invariance]
+    introduction: formal
+    introduction_aliases: ["命題（向き付き flux の再パラメータ表示不変性）"]
+    requires:
+      - vector-calculus.flux-integral
+      - vector-calculus.surface-area-reparam-invariance
+      - analysis.multivariable-riemann-change-of-variables
 
   - id: vector-calculus.graph-surface-formulas
     name: graph surfaceの面積・上向きflux
