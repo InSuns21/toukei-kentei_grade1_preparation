@@ -95,7 +95,7 @@ $$
 
 です。一般の三次元閉曲面では [Gauss--Ostrogradsky divergence theorem](../VC4/index.md#thm-vc4-gauss-divergence) が対応します。
 
-VC4 では、simple region で一変数の微積分学の基本定理を使い、有限分割で生じる内部境界が反対向き法線により相殺するところまで証明済みです。PDE6 ではこの証明を繰り返さず、PDE 固有の選び方
+VC4 では、simple region で [微積分学の基本定理II](../RA4/index.md#thm-ra4-ftc2) を使い、有限分割で生じる内部境界が反対向き法線により相殺するところまで証明済みです。PDE6 ではこの証明を繰り返さず、PDE 固有の選び方
 
 $$
 F=u\nabla v
