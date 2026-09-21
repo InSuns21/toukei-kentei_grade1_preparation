@@ -94,7 +94,7 @@ $$
 
 と置きます。
 
-$\rho_\varepsilon$ は $[-\varepsilon,\varepsilon]$ に支えられるので
+$\rho_\varepsilon$ は $[-\varepsilon,\varepsilon]$ の外で 0 なので
 
 $$
 |F_\varepsilon(x)-|x||
@@ -624,7 +624,7 @@ $$
 >
 > に質量を与えない。
 >
-> すなわちコンパクト集合区間 $[u,v]$ 上で $B_t\ne a$ が全ての $t\in[u,v]$ に対して成り立つなら
+> すなわちコンパクト区間 $[u,v]$ 上で $B_t\ne a$ が全ての $t\in[u,v]$ に対して成り立つなら
 >
 $$
 L_v^a=L_u^a.
@@ -641,14 +641,14 @@ $$
 
 なら $0$ です。
 
-レベル集合を避けるコンパクト集合区間では continuity により水準から正の距離を持つため、十分小さい $\varepsilon$ では近似局所時間自体が全く増えません。
+レベル集合を避けるコンパクト区間では連続性により水準から正の距離を持つため、十分小さい $\varepsilon$ では近似局所時間自体が全く増えません。
 
 <!-- proof-start -->
 ### 証明
 
 $B_t\ne a$ for all $t\in[u,v]$ とします。
 
-$t\mapsto|B_t-a|$ は連続で、コンパクト集合区間 $[u,v]$ 上で正です。
+$t\mapsto|B_t-a|$ は連続で、コンパクト区間 $[u,v]$ 上で正です。
 
 従って
 
@@ -659,7 +659,7 @@ $$
 >0.
 $$
 
-$\varepsilon<\delta$ なら $\rho_\varepsilon$ の support は $[-\varepsilon,\varepsilon]$ なので
+$\varepsilon<\delta$ なら $\rho_\varepsilon$ は $[-\varepsilon,\varepsilon]$ の外で 0 なので
 
 $$
 \rho_\varepsilon(B_s-a)=0
@@ -950,7 +950,7 @@ $$
 >
 > 各固定 $t\ge0$ について、$a\mapsto L_t^a$ は連続な modification を持つ。
 >
-> さらにコンパクト集合区間上で、任意の
+> さらにコンパクト区間上で、任意の
 >
 $$
 0<\gamma<\frac14
@@ -1061,7 +1061,7 @@ E|L_t^a-L_t^b|^4
 C_t(h^4+h^2).
 $$
 
-コンパクト集合区間上では $h$ が大きい場合を定数へ吸収できるため
+コンパクト区間上では $h$ が大きい場合を定数へ吸収できるため
 
 $$
 E|L_t^a-L_t^b|^4
@@ -1190,7 +1190,7 @@ $$
 (g*\rho_\varepsilon)(B_s).
 $$
 
-$g$ はコンパクト集合 support 上 continuous なので uniformly continuous です。
+$g$ はあるコンパクト区間の外で 0 であり、その区間上で連続なので一様連続です。
 
 従って
 
@@ -1255,7 +1255,7 @@ $$
 
 で、右辺は $a$ に依存しません。
 
-$g$ の support は有限長なので、dominated convergence を $a$ 変数へ使い
+$g$ が 0 でない範囲は有限区間に含まれるので、[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)を $a$ 変数へ使い
 
 $$
 E\left|
@@ -1514,7 +1514,7 @@ $$
 
 $y=x+k\ge0$ なので、$k$ は過去の負の落ち込みを少なくとも全部埋めなければなりません。
 
-一方、必要以上に $k$ が増えた瞬間には $y>0$ になり、support 条件に反します。
+一方、必要以上に $k$ が増えた瞬間には $y>0$ になり、$k$ は $y=0$ のときだけ増えるという条件に反します。
 
 <!-- proof-start -->
 ### 証明
@@ -1581,7 +1581,7 @@ $$
 \{s\le t:y(s)>0\}.
 $$
 
-support 条件から
+$k$ は $y=0$ のときだけ増えるという条件から
 
 $$
 \int_0^t
@@ -1754,7 +1754,7 @@ $$
 
 $|B_t|\ge0$、$L^0$ は continuous nondecreasing、$L_0^0=0$ です。
 
-さらに [局所時間の support](#prop-sto8-local-time-support) から $L^0$ が増加するのは
+さらに [局所時間が増える場所](#prop-sto8-local-time-support) から $L^0$ が増加するのは
 
 $$
 B_t=0
@@ -1946,7 +1946,7 @@ $$
 \end{aligned}
 $$
 
-$\rho_\varepsilon$ は $[-\varepsilon,\varepsilon]$ に支えられ、積分が $1$ なので
+$\rho_\varepsilon$ は $[-\varepsilon,\varepsilon]$ の外で 0 であり、積分が $1$ なので
 
 $$
 \int|y|\rho_\varepsilon(y)\,dy
@@ -1980,7 +1980,7 @@ F_\varepsilon''(x)
 2\rho_\varepsilon(x).
 $$
 
-3. $x>\varepsilon$ なら support 上の全ての $y$ について $x-y>0$ なので
+3. $x>\varepsilon$ なら $|y|\le\varepsilon$ を満たす全ての $y$ について $x-y>0$ なので
 
 $$
 F_\varepsilon'(x)
@@ -2424,7 +2424,7 @@ $$
 
 $|B|\ge0$、$L^0$ は continuous increasing、$L_0^0=0$ です。
 
-さらに $dL^0$ は $\{B=0\}=\{|B|=0\}$ に支えられます。
+さらに $dL^0$ は $\{B=0\}=\{|B|=0\}$ の外に質量を与えません。
 
 従って [Skorokhod 反射 lemma](#lem-sto8-skorokhod-reflection) の条件を全て満たし
 
@@ -2760,7 +2760,7 @@ L_{\sigma_n}^{a,\varepsilon}
 L_{\sigma_n}^a
 $$
 
-in $L^2$ です。$g$ のコンパクト集合 support 上では本文と同じ一様な $L^1$ bound を使えるので dominated convergence により
+in $L^2$ です。$g$ が 0 でない範囲を含むコンパクト区間上では本文と同じ一様な $L^1$ 評価を使えるので [優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)により
 
 $$
 \int g(a)L_{\sigma_n}^{a,\varepsilon}\,da
