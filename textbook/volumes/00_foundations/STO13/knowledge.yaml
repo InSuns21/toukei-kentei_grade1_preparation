@@ -5,13 +5,17 @@ prerequisites:
   - STO2
   - F0-00D2C
 
+forward_references:
+  - stochastic.markov-generator
+  - stochastic.dynkin-formula
+
 concepts:
   - id: stochastic.poisson-process
     name: ポアソン過程
     kind: definition
     aliases: ["Poisson process", "Poisson counting process"]
     introduction: formal
-    introduction_aliases: ['定義（率 $\lambda$ のポアソン過程）']
+    introduction_aliases: ["定義（ポアソン過程）"]
     requires:
       - stochastic.stochastic-process
       - stochastic.filtration
@@ -107,7 +111,7 @@ concepts:
     kind: theorem
     aliases: ["simple compensated PRM isometry", "Poisson random measure L2 isometry"]
     introduction: formal
-    introduction_aliases: ['定理（補償ポアソンランダム測度の単関数に対する $L^2$ 等長性）']
+    introduction_aliases: ["定理（補償ポアソンランダム測度の単関数 L2 等長性）"]
     requires:
       - stochastic.compensated-poisson-random-measure
       - measure.product-measure
