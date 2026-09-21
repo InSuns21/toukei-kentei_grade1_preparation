@@ -1,6 +1,6 @@
 # VC5 Stokes theorem・curl・topology
 
-VC4 までで、二次元の Green theorem と三次元の Gauss--Ostrogradsky theorem がそろいました。本章では残る古典的積分定理である **Kelvin--Stokes theorem** を証明し、
+VC4 までで、二次元の Green theorem と三次元の [Gauss--Ostrogradsky theorem](../VC4/index.md#thm-vc4-gauss-divergence) がそろいました。本章では残る古典的積分定理である **[Kelvin--Stokes theorem](#thm-vc5-stokes)** を証明し、
 
 - 境界の循環
 - 曲面上の curl の flux
@@ -9,13 +9,13 @@ VC4 までで、二次元の Green theorem と三次元の Gauss--Ostrogradsky t
 
 を一つの構造として結びます。
 
-Stokes theorem の核心は、曲面をパラメータ平面へ戻すと Green theorem になることです。一般の微分形式や多様体上の Stokes theorem は使いません。
+[Stokes theorem](#thm-vc5-stokes) の核心は、曲面をパラメータ平面へ戻すと Green theorem になることです。一般の微分形式や多様体上の一般定理は使いません。
 
 ---
 
 ## 1. 曲面の向きは境界曲線の向きを決める
 
-VC3 では曲面の向きを連続な単位法線場で表しました。Stokes theorem では、その向きから境界曲線の向きを一意に決める必要があります。
+VC3 では曲面の向きを連続な単位法線場で表しました。[Stokes theorem](#thm-vc5-stokes) では、その向きから境界曲線の向きを一意に決める必要があります。
 
 <a id="def-vc5-boundary-orientation"></a>
 
@@ -106,7 +106,7 @@ $$
 
 を結びました。
 
-Stokes theorem は
+[Stokes theorem](#thm-vc5-stokes) は
 
 $$
 \text{boundary curve の circulation}
@@ -148,7 +148,7 @@ $$
 Q_u-P_v
 $$
 
-を chain rule で展開すると、ちょうど
+を 合成関数の微分則 で展開すると、ちょうど
 
 $$
 (\nabla\times F)(r(u,v))
@@ -187,7 +187,7 @@ $$
 
 です。
 
-chain rule から
+合成関数の微分則 から
 
 $$
 \gamma'(t)
@@ -392,7 +392,7 @@ $$
 r_x\times r_y=(-g_x,-g_y,1).
 $$
 
-Stokes theorem の右辺は
+[Stokes theorem](#thm-vc5-stokes) の右辺は
 
 $$
 \iint_D
@@ -403,7 +403,7 @@ $$
 
 左辺は $F(r)\cdot r_x\,dx+F(r)\cdot r_y\,dy$ なので、まさに二変数 Green theorem の形へ戻ります。
 
-一般 Stokes theorem を抽象的な別物として覚える必要はありません。**曲面上の線積分をパラメータ平面へ引き戻した Green theorem** が古典的 Stokes theorem です。
+一般 [Stokes theorem](#thm-vc5-stokes) を抽象的な別物として覚える必要はありません。**曲面上の線積分をパラメータ平面へ引き戻した Green theorem** が古典的 [Stokes theorem](#thm-vc5-stokes) です。
 
 ---
 
@@ -431,7 +431,7 @@ $$
 
 を上向きに向けると、境界は反時計回りです。
 
-Stokes theorem から
+[Stokes theorem](#thm-vc5-stokes) から
 
 $$
 \int_{\partial S}F\cdot dr
@@ -483,7 +483,7 @@ $$
 
 ## 5. curl は単位面積あたりの循環密度
 
-VC1 では curl を成分公式で定義しました。Stokes theorem により、その幾何学的意味を極限として回収できます。
+VC1 では curl を成分公式で定義しました。[Stokes theorem](#thm-vc5-stokes) により、その幾何学的意味を極限として回収できます。
 
 <a id="prop-vc5-curl-density"></a>
 
@@ -510,12 +510,12 @@ $$
 
 ### 証明の見取り図
 
-Stokes theorem で分子を curl の面積分へ変えると、左辺は $(\nabla\times F)\cdot n$ の円板上平均になります。円板を一点へ縮めれば、連続性により平均値は点値へ収束します。
+[Stokes theorem](#thm-vc5-stokes) で分子を curl の面積分へ変えると、左辺は $(\nabla\times F)\cdot n$ の円板上平均になります。円板を一点へ縮めれば、連続性により平均値は点値へ収束します。
 
 <!-- proof-start -->
 ### 証明
 
-Stokes theorem より
+[Stokes theorem](#thm-vc5-stokes) より
 
 $$
 \int_{\partial S_\varepsilon}F\cdot dr
@@ -602,7 +602,7 @@ $$
 
 ### 6.2 div curl = 0
 
-$F=\nabla\times A$ とし、$\Omega$ が適切な三次元領域なら VC4 の Gauss theorem から
+$F=\nabla\times A$ とし、$\Omega$ が適切な三次元領域なら VC4 の [Gauss--Ostrogradsky theorem](../VC4/index.md#thm-vc4-gauss-divergence) から
 
 $$
 \int_{\partial\Omega}
@@ -762,18 +762,18 @@ $$
 >
 > を満たすが conservative ではない。
 >
-> このとき単位円 $\gamma$ を境界に持つ通常の円板は $z$ 軸と交わるため、$F$ が $C^1$ である $U$ の内部に spanning surface を取って Stokes theorem を適用することはできない。
+> このとき単位円 $\gamma$ を境界に持つ通常の円板は $z$ 軸と交わるため、$F$ が $C^1$ である $U$ の内部に spanning surface を取って [Stokes theorem](#thm-vc5-stokes) を適用することはできない。
 <!-- formal-statement-end -->
 
 ### どの証明機構が壊れたか
 
-「curl が 0 なら Stokes theorem で任意の閉曲線積分が 0」と言いたくなります。
+「curl が 0 なら [Stokes theorem](#thm-vc5-stokes) で任意の閉曲線積分が 0」と言いたくなります。
 
 しかしそのためには、閉曲線 $\gamma$ が **field の定義域の中で** 曲面 $S$ の境界になっていなければなりません。
 
 この例では $\gamma$ が $z$ 軸を一周しているため、通常の円板は除外された軸を横切ります。
 
-さらに、もし $U$ の内部に Stokes theorem の仮定を満たす oriented spanning surface $S$ が存在したなら、
+さらに、もし $U$ の内部に [Stokes theorem](#thm-vc5-stokes) の仮定を満たす oriented spanning surface $S$ が存在したなら、
 
 $$
 \int_\gamma F\cdot dr
@@ -919,7 +919,7 @@ $$
 
 ## 10. 同じ境界を持つ二つの曲面
 
-Stokes theorem の実用上重要な帰結があります。
+[Stokes theorem](#thm-vc5-stokes) の実用上重要な帰結があります。
 
 $S_1,S_2$ が同じ境界曲線 $C$ を持ち、向きも $C$ 上で一致するように選ばれているなら、
 
@@ -1017,7 +1017,7 @@ $$
 \int_CF\cdot dr
 $$
 
-を Stokes theorem で求めよ。
+を [Stokes theorem](#thm-vc5-stokes) で求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1028,7 +1028,7 @@ $$
 \nabla\times F=(0,0,1).
 $$
 
-よって Stokes theorem から
+よって [Stokes theorem](#thm-vc5-stokes) から
 
 $$
 \int_CF\cdot dr
@@ -1069,7 +1069,7 @@ $$
 \nabla\times F=(0,0,2).
 $$
 
-円板を上向きに向けると Stokes theorem より
+円板を上向きに向けると [Stokes theorem](#thm-vc5-stokes) より
 
 $$
 \int_{\partial S_\varepsilon}F\cdot dr
@@ -1267,7 +1267,7 @@ $$
 
 1. $U$ 上で $\nabla\times F=0$ を確認せよ。
 2. 単位円 $\gamma(t)=(\cos t,\sin t,0)$ の循環を求めよ。
-3. 1. と 2. が Stokes theorem と矛盾しない理由を説明せよ。
+3. 1. と 2. が [Stokes theorem](#thm-vc5-stokes) と矛盾しない理由を説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1319,11 +1319,11 @@ $$
 \boxed{2\pi}.
 $$
 
-3. Stokes theorem を適用するには、$\gamma$ を境界に持つ曲面 $S$ 全体の近傍で $F$ が $C^1$ でなければなりません。
+3. [Stokes theorem](#thm-vc5-stokes) を適用するには、$\gamma$ を境界に持つ曲面 $S$ 全体の近傍で $F$ が $C^1$ でなければなりません。
 
 通常の spanning disk は $z$ 軸と交わりますが、$z$ 軸は $U$ から除かれ、そこで $F$ は未定義です。
 
-したがって「$\nabla\times F=0$ だから spanning surface 上の curl flux が 0」という議論に必要な曲面が定義域内に存在しません。壊れているのは Stokes theorem ではなく、その適用仮定です。
+したがって「$\nabla\times F=0$ だから spanning surface 上の curl flux が 0」という議論に必要な曲面が定義域内に存在しません。壊れているのは [Stokes theorem](#thm-vc5-stokes) ではなく、その適用仮定です。
 <!-- solution-end -->
 
 #### VC5-B03 vector potential と gauge
@@ -1389,7 +1389,7 @@ xy
 \right).
 $$
 
-直接計算してもよいですが、VC1 の curl grad = 0 を使うと
+直接計算してもよいですが、VC1 の [curl grad = 0](../VC1/index.md#thm-vc1-curl-grad) を使うと
 
 $$
 \nabla\times A^\ast
@@ -1416,7 +1416,7 @@ $$
 よって $F$ は solenoidal です。これは vector potential が存在する場は solenoidal という一般命題とも一致します。
 <!-- solution-end -->
 
-#### VC5-C01 spanning surface の取り替えと特異点
+#### VC5-C01 spanning surface の取り替えと field の未定義点
 - Level: C
 - 目安時間: 40分
 
@@ -1443,9 +1443,9 @@ $$
 を、どちらも境界向きが $C$ と一致するように向き付ける。
 
 1. $\int_{S_1}(\nabla\times A)\cdot n\,dS$ を求めよ。
-2. Stokes theorem を使い、$S_2$ 上の同じ flux を曲面積分を直接計算せず求めよ。
+2. [Stokes theorem](#thm-vc5-stokes) を使い、$S_2$ 上の同じ flux を曲面積分を直接計算せず求めよ。
 3. 一般に二つの spanning surface $S_1,S_2$ が同じ境界 $C$ を持つとき、field が両曲面の近傍で $C^1$ なら curl flux が一致する理由を説明せよ。
-4. field に両曲面の間の特異点がある場合、この議論でどの仮定を再確認すべきか述べよ。
+4. field が両曲面の間のある点で未定義になる場合、この議論でどの仮定を再確認すべきか述べよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1466,7 +1466,7 @@ $$
 \boxed{\pi}.
 $$
 
-2. Stokes theorem を $S_1$ に使うと
+2. [Stokes theorem](#thm-vc5-stokes) を $S_1$ に使うと
 
 $$
 \int_C A\cdot dr
@@ -1476,7 +1476,7 @@ $$
 \pi.
 $$
 
-同じ向きの $C$ を境界に持つ $S_2$ にも Stokes theorem を使えば
+同じ向きの $C$ を境界に持つ $S_2$ にも [Stokes theorem](#thm-vc5-stokes) を使えば
 
 $$
 \int_{S_2}(\nabla\times A)\cdot n\,dS
@@ -1500,7 +1500,7 @@ $$
 
 したがって両者は一致します。重要なのは、両曲面の境界向きが同じ $C$ になるよう orientation をそろえることです。
 
-4. Stokes theorem は $F$ が各曲面の近傍で $C^1$ であることを要求します。したがって特異点が $S_1$ または $S_2$ 上にある、あるいは spanning surface を定義域内に取れない場合、定理をそのまま適用できません。
+4. [Stokes theorem](#thm-vc5-stokes) は $F$ が各曲面の近傍で $C^1$ であることを要求します。したがって field が $S_1$ または $S_2$ 上の点で未定義になる、あるいは spanning surface を定義域内に取れない場合、定理をそのまま適用できません。
 
 穴あき領域では「同じ境界ならどの面でもよい」と無条件に言ってはいけません。**選んだ曲面全体が field の定義域内にあり、必要な正則性を満たすか**を確認する必要があります。
 <!-- solution-end -->
