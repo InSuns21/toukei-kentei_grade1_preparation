@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - VC1
   - RA4
+  - TOP3
 official_scope: []
 learning_objectives:
   - 正則曲線・向き・再パラメータ表示・弧長・単位接ベクトルを定義して計算できる
