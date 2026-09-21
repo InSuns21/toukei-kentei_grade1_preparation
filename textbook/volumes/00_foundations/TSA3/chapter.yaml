@@ -5,12 +5,13 @@ status: supplementary
 prerequisites:
   - TSA1
   - FOU2
-  - F0-00D4
+  - F0-00D3A
+  - MT5
   - F0-00P2
 official_scope: []
 learning_objectives:
   - 正定値列を定義し、二次定常過程の自己共分散列が正定値になることを複素係数まで含めて確認できる
-  - Herglotz の定理の存在を非負近似測度と有限測度列の部分列収束から証明できる
+  - Herglotz の定理の存在を非負近似測度・可算稠密集合での対角選択・Riesz--Markov 表現から証明できる
   - Herglotz 表現の一意性を三角多項式の一様稠密性から証明できる
   - スペクトル測度を自己共分散列の Fourier 表現として定義し、全質量が分散に一致することを説明できる
   - スペクトル密度を Radon--Nikodym 密度として定義し、自己共分散の絶対可算和可能性から連続な密度を導ける
