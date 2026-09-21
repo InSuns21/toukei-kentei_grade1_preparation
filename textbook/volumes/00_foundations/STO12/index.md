@@ -48,7 +48,7 @@ $$
 \to
 \text{terminal variable representation}
 \to
-\text{martingale representation / PRP}
+\text{martingale representation / predictable representation property}
 }
 $$
 
@@ -188,6 +188,8 @@ $$
 >
 > integrand は $dt\otimes dP$-a.e. の意味で一意であることも要求する。
 <!-- formal-statement-end -->
+
+以下では predictable representation property を **PRP** と略記します。
 
 <!-- definition-example-start: def-sto12-prp -->
 ### 直接例：$|B_t|^2-dt$ はすでに representation を持つ
@@ -744,7 +746,7 @@ $$
 
 ---
 
-## 7. Brownian path 全体へ：dyadic information を増やす
+## 7. Brownian 標本路 全体へ：dyadic information を増やす
 
 <a id="lem-sto12-exponential-totality"></a>
 
@@ -784,7 +786,7 @@ $$
 
 有限段階では情報は独立 Gaussian increments の有限個の vector です。前二節の有限次元 totality が使えます。
 
-最後に [Lévy 上昇定理](../F0_00P3C_Levy上昇定理_情報の増加/index.md#thm-f0-00p3c-levy-upward) で有限段階の情報を Brownian path 全体へ増やします。
+最後に [Lévy 上昇定理](../F0_00P3C_Levy上昇定理_情報の増加/index.md#thm-f0-00p3c-levy-upward) で有限段階の情報を Brownian 標本路 全体へ増やします。
 
 <!-- proof-start -->
 ### 証明
@@ -906,7 +908,7 @@ $$
 
 です。
 
-Brownian path は continuous なので、dyadic times の値全体から全時刻の値が復元できます。
+Brownian 標本路 は continuous なので、dyadic times の値全体から全時刻の値が復元できます。
 
 従って augmentation 前には
 
@@ -1593,7 +1595,7 @@ $$
 \xi=g(X_T)
 $$
 
-が $L^2$ なら、$X_T$ は Brownian path の measurable functional なので
+が $L^2$ なら、$X_T$ は Brownian 標本路 の measurable functional なので
 
 $$
 \xi\in L^2(\mathcal F_T^B).
@@ -1719,7 +1721,7 @@ exponential vectors $Z_T^h$ は $B$ の情報しか見ないので、$C_T$ の�
 
 augmentation は $P$-null sets とその部分集合を追加します。
 
-$L^2$ random variables は a.s. 同値類で扱うので、raw Brownian filtration と usual augmentation の違いは representation の a.s. statement を変えません。
+$L^2$ random variables は almost surely 同じもので扱うので、raw Brownian filtration と usual augmentation の違いは representation の a.s. statement を変えません。
 
 ### 16.4 Clark--Ocone は存在定理より強い
 
@@ -2064,7 +2066,7 @@ $$
 とする。
 
 1. $M_t=E[\xi\mid\mathcal F_t^B]$ を $t<T$ で求めよ。
-2. $M_t=u(t,B_t)$ と書き、$u$ が backward heat equation を満たすことを確認せよ。
+2. $M_t=u(t,B_t)$ と書き、$u$ が 前節と同じ cancellation identity を満たすことを確認せよ。
 3. Itô formula から representation integrand を求めよ。
 4. integrand は $t\uparrow T$ で singular に見えるのに、$\mathcal H_B^2$ に属する理由を説明せよ。
 
@@ -2280,7 +2282,7 @@ $$
 \end{aligned}
 $$
 
-4. Jordan decomposition $\nu=\nu^+-\nu^-$ を取ります。
+4. $g_+=\max\{g,0\}$、$g_-=\max\{-g,0\}$ から $\nu_\pm(A)=\int_Ag_\pm\,d\gamma_v$ と置き、$\nu=\nu^+-\nu^-$ と分けます。
 
 $t=0$ で両者の total mass は等しいです。共通質量が正なら正規化して二つの確率測度を得ます。
 
