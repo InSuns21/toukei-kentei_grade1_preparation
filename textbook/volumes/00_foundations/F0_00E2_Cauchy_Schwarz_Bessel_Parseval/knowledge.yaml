@@ -17,23 +17,22 @@ concepts:
     requires:
       - linear.inner-product
 
-  - id: linear.triangle-inequality-inner-product
-    name: 内積から導く三角不等式
-    kind: theorem
-    introduction_aliases: ["定理（三角不等式）"]
-    aliases: [内積から導く三角不等式, "定理（三角不等式）"]
+  - id: linear.inner-product-induced-norm
+    name: 内積から定まるノルム
+    kind: term
+    introduction_aliases: [内積から定まるノルム]
+    aliases: [内積から定まるノルム, 内積ノルム]
     requires:
-      - linear.cauchy-schwarz
       - linear.inner-product
 
-  - id: linear.inner-product-induced-norm
-    name: 内積が定めるノルム
-    kind: corollary
-    introduction_aliases: [内積が定めるノルム]
-    aliases: [内積が定めるノルム, 内積から定まるノルム, ノルム]
+  - id: linear.triangle-inequality-inner-product
+    name: 内積ノルムの三角不等式
+    kind: theorem
+    introduction_aliases: ["定理（三角不等式）"]
+    aliases: [内積ノルムの三角不等式, "定理（三角不等式）"]
     requires:
-      - linear.triangle-inequality-inner-product
-      - linear.inner-product
+      - linear.cauchy-schwarz
+      - linear.inner-product-induced-norm
 
   - id: linear.reverse-triangle-inequality
     name: 逆三角不等式
@@ -41,7 +40,6 @@ concepts:
     aliases: [逆三角不等式]
     requires:
       - linear.triangle-inequality-inner-product
-      - linear.inner-product-induced-norm
 
   - id: linear.fourier-coefficient
     name: Fourier係数
