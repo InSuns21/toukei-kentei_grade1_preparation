@@ -1940,7 +1940,7 @@ f(X_0)
 \frac12\int_0^t f''(X_s)\,d[X]_s
 $$
 
-という Itô formula を導きます。多次元版、積の公式、stochastic exponential、Euclidean Stratonovich まで進みます。
+という Itô formula を導きます。多次元版、積の公式、[確率指数関数](../STO7/index.md#def-sto7-stochastic-exponential)、ユークリッド空間での Stratonovich 積分まで進みます。
 
 ---
 
