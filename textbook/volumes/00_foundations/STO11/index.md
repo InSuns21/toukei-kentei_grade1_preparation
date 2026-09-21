@@ -476,7 +476,7 @@ $$
 >
 > が有限値として存在するとき、$f$ は pointwise generator の domain $D(L)$ に属するといい、この極限で $Lf$ を定める。
 >
-> 一方、$(P_t)$ が Banach 空間 $\mathcal X$ 上の strongly continuous semigroup である場合には
+> 一方、後半で扱う Feller semigroup のように $C_0(\mathbb R^d)$ 上で sup norm に関して強連続な場合には
 >
 $$
 \left\|
@@ -485,12 +485,12 @@ $$
 \to0
 $$
 >
-> を満たす $f$ を domain とする作用素を strong generator という。
+> を満たす $f$ を domain とする作用素を $C_0$ 上の strong generator という。
 <!-- formal-statement-end -->
 
 本章の diffusion 計算ではまず pointwise generator を直接求めます。
 
-後半の Feller semigroup では $\mathcal X=C_0(\mathbb R^d)$、$\|\cdot\|_{\mathcal X}=\|\cdot\|_\infty$ とした strong generator が標準です。適切な core 上では両者の微分作用素表示が一致します。
+後半の Feller semigroup ではこの sup-norm 版が標準です。pointwise limit に加えて sup-norm convergence まで確認できる関数では、両者は同じ微分作用素表示を与えます。
 
 どちらの場合も
 
