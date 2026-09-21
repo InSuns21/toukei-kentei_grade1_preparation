@@ -79,6 +79,17 @@ concepts:
       - stochastic.vector-brownian-motion
       - stochastic.local-stochastic-integral
 
+  - id: stochastic.vector-brownian-integral-covariation
+    name: vector Brownian stochastic integralsのcovariation
+    kind: lemma
+    aliases: ["covariation of vector Brownian integrals", "Brownian stochastic integral cross variation"]
+    introduction: formal
+    introduction_aliases: ["補題（vector Brownian stochastic integrals の covariation）"]
+    requires:
+      - stochastic.vector-brownian-covariation
+      - stochastic.local-stochastic-integral
+      - stochastic.stochastic-integral-bracket
+
   - id: stochastic.ito-process-formula
     name: Itô process版の時間依存Itô formula
     kind: theorem
