@@ -37,7 +37,7 @@ theorems:
   - { id: STO11-THM-03, name: "forward Kolmogorov equationの弱形式とFokker--Planck" }
   - { id: STO11-THM-04, name: "Feynman--Kac verification formula" }
   - { id: STO11-THM-05, name: "SDEからmartingale problem" }
-  - { id: STO11-THM-06, name: "nondegenerate martingale problemからweak SDE" }
+  - { id: STO11-THM-06, name: "nondegenerate martingale problemからSDE表現" }
   - { id: STO11-THM-07, name: "well-posed martingale problemからstrong Markov property" }
 canonical_examples:
   - "Brown運動のGaussian transition kernelとheat semigroup"
