@@ -614,6 +614,6 @@ ARMA / ergodicity / Kalman
 - multidimensional Itô formula は weighted covariation sum を補題として、二次 Taylor 展開の一次和・二次和・remainder をそれぞれ stochastic integral・covariation integral・0 へ送る核心証明を本文で閉じた。
 - Stratonovich integral は symmetric Riemann sum から定義し、Itô integral との差が covariation の半分になること、covariation chain rule、Euclidean Stratonovich chain rule、vector field 形式の drift correctionまで導いた。manifold / connection は停止線の外に保った。
 - Phase 2：STO8「local time・Tanaka formula」を実装。absolute value の smooth approximation から Brownian local time を occupation kernel の ucp limit として構成し、Tanaka formula、positive / negative part、level-set support、Brownian level set の Lebesgue 時間 0、空間連続性、occupation time formula、interval occupation approximation、Skorokhod reflection、Levy transform まで閉じた。
-- STO8 の direct prerequisite は STO3・STO4・STO5・STO6・STO7・F0-00D2C・F0-00D3A とした。空間連続性で Kolmogorov--Chentsov、reflection law で reflection principle / Levy characterization、高次 moment で BDG、occupation formula で Tonelli / Fubini / π–λ 定理を実際に使うためであり、旧 SP 系列は prerequisite / proof dependency にしない。
+- STO8 の direct prerequisite は STO3・STO4・STO5・STO6・STO7・F0-00D2C とした。空間連続性で Kolmogorov--Chentsov、reflection law で reflection principle / Levy characterization、高次 moment で BDG、occupation formula で Tonelli / Fubini を使い、π–λ 定理は concept-level dependency として canonical result を直接参照するためであり、旧 SP 系列は prerequisite / proof dependency にしない。
 - Phase 2「連続確率解析」STO5--STO8 は完了。
 - 現在地：次の実装対象は Phase 3 の STO9「SDE：strong solution・存在一意性・局所化」。
