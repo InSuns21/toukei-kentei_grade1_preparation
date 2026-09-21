@@ -1959,7 +1959,7 @@ E[\varepsilon_t^2]
 \sigma_\varepsilon^2.
 $$
 
-Wold 係数の射影公式より
+[Wold 分解](index.md#thm-tsa2-wold)で得た係数表示より
 
 $$
 \psi_0
