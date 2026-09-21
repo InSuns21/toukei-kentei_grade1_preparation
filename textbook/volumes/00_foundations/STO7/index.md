@@ -68,6 +68,8 @@ $$
 です。
 
 <!-- definition-example-start: def-sto7-vector-brownian -->
+**定義の確認**
+
 ### 直接例：2 次元 Brown 運動
 
 独立な Brown 運動 $B^1,B^2$ を取り
@@ -266,6 +268,8 @@ STO6 の stochastic integral は continuous local martingale に対して構成�
 [semimartingale 分解の一意性](../STO5/index.md#thm-sto5-semimartingale-uniqueness) により、この定義は分解の選び方に依存しません。
 
 <!-- definition-example-start: def-sto7-semimartingale-integral -->
+**定義の確認**
+
 ### 直接例：drifted Brownian motion
 
 $$
@@ -874,6 +878,8 @@ STO9 では SDE の解を構成します。その前に、本章ではすでに�
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sto7-ito-process -->
+**定義の確認**
+
 ### 直接例：constant coefficients
 
 定数 vector $b\in\mathbb R^d$、定数 matrix $\Sigma\in\mathbb R^{d\times m}$ に対し
@@ -1404,6 +1410,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sto7-stochastic-exponential -->
+**定義の確認**
+
 ### 直接例：Brownian motion
 
 $M_t=\theta B_t$、$M_0=0$ なら
@@ -1667,6 +1675,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sto7-stratonovich-integral -->
+**定義の確認**
+
 ### 直接例：定数 integrand
 
 $H\equiv c$ なら任意の partition で
