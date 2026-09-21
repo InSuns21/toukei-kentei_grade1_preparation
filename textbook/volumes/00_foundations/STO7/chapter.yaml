@@ -29,7 +29,7 @@ theorems:
   - { id: STO7-LEM-01, name: "weighted covariation sum" }
   - { id: STO7-THM-01, name: "multidimensional Itô formula" }
   - { id: STO7-COR-01, name: "product rule / integration by parts" }
-  - { id: STO7-THM-02, name: "Itô process版の時間依存Itô formula" }
+  - { id: STO7-LEM-03, name: "vector Brownian stochastic integralsのcovariation" }\n  - { id: STO7-THM-02, name: "Itô process版の時間依存Itô formula" }
   - { id: STO7-PROP-02, name: "stochastic exponential solves dZ=Z dM" }
   - { id: STO7-PROP-03, name: "Brownian exponential martingale" }
   - { id: STO7-THM-03, name: "Stratonovich integralとItô integralの変換" }
