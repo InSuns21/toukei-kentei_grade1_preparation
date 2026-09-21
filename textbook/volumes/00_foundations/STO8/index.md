@@ -1331,7 +1331,7 @@ $$
 \mu_t^\omega(\mathbb R)=t,
 $$
 
-また $g_n\uparrow1$ となり、各 $g_n$ がある有界区間の外では 0 となる連続近似を $C_c$ の等式へ入れて単調収束定理を使えば
+また $g_n\uparrow1$ となり、各 $g_n$ がある有界区間の外では 0 となる連続近似を $C_c$ の等式へ入れて [単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange) を使えば
 
 $$
 \nu_t^\omega(\mathbb R)=t.
