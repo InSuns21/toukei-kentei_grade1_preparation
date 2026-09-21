@@ -1,0 +1,44 @@
+chapter: "VC9"
+terms:
+  - term: 質量流束
+    english: mass flux
+    meaning: 質量密度 rho と速度 u の積 rho u。単位面積・単位時間に面を通過する質量を法線成分で表す。
+  - term: 連続の式
+    english: continuity equation
+    meaning: 質量生成率 q_m を持つとき partial_t rho + div(rho u)=q_m と書く局所質量収支。q_m=0 なら質量保存を表す。
+  - term: 物質微分
+    english: material derivative
+    meaning: partial_t + u dot grad で定まる微分。速度場 u に沿って移動する粒子が観測する時間変化率を表す。
+  - term: 非圧縮条件
+    english: incompressibility condition
+    meaning: 速度場が div u=0 を満たす条件。生成項なしの質量保存と組み合わせると密度は粒子軌道に沿って一定になる。
+  - term: 渦度
+    english: vorticity
+    meaning: 速度場 u の回転 omega=curl u。Kelvin--Stokes の定理により局所循環密度として解釈できる。
+  - term: 流れ関数
+    english: stream function
+    meaning: 二次元速度場を u_1=partial_y psi, u_2=-partial_x psi と表すスカラー関数。単連結領域上の非圧縮平面流で構成できる。
+  - term: 変形速度テンソル
+    english: rate-of-deformation tensor
+    meaning: D(u)=(grad u + grad u^T)/2 で定まる速度勾配の対称部分。
+  - term: Newton 流体
+    english: Newtonian fluid
+    meaning: 応力が -pI + 2 mu D(u) + lambda(div u)I の形で速度勾配に線形に依存する等方的な粘性流体モデル。
+  - term: 運動量収支
+    english: momentum balance
+    meaning: 運動量の時間変化を移流流束、応力による表面力、体積力で釣り合わせる保存則。
+  - term: Maxwell 方程式
+    english: Maxwell equations
+    meaning: 電場・磁束密度の発散と回転を電荷密度・電流密度・時間変化へ結ぶ四本の電磁場方程式。
+  - term: 電流密度
+    english: current density
+    meaning: 電荷の流束を表すベクトル場 j。電荷保存では partial_t rho_e + div j=0 を満たす。
+  - term: 界面跳躍条件
+    english: interface jump condition
+    meaning: Maxwell 方程式の積分形を薄い箱や細いループへ適用して得る、界面両側の場の法線・接線成分の差に対する条件。
+  - term: 表面電荷密度
+    english: surface charge density
+    meaning: 界面の単位面積あたりに集中する電荷量 sigma_s。電場の法線成分の跳びを生む。
+  - term: 表面電流密度
+    english: surface current density
+    meaning: 界面上を流れる単位幅あたりの電流 K。磁束密度の接線成分の跳びを生む。
