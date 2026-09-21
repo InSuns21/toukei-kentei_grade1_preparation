@@ -596,7 +596,7 @@ a_{ij}(X_s)\partial_{ij}f(X_s)\,ds\\
 \end{aligned}
 $$
 
-$f$ は compact support を持ち、一階・二階微分は bounded です。
+$f$ は 台がコンパクトで、一階・二階微分は bounded です。
 
 linear growth と STO9 の finite-horizon moment estimate により stochastic integral の integrand は各有限時間で二乗可積分です。従って stochastic integral の期待値は 0 です。
 
@@ -723,7 +723,7 @@ $$
 
 $\tau\le T$ a.s. となる $T<\infty$ を取ります。
 
-$\nabla f$ は bounded で compact support を持ち、$\sigma$ は compact set 上で bounded なので
+$\nabla f$ は bounded で 台がコンパクトで、$\sigma$ は compact set 上で bounded なので
 
 $$
 E_x\left[
@@ -765,7 +765,7 @@ $$
 \tau_n=\inf\{t:|B_t|\ge n\}\wedge t
 $$
 
-を入れ、$[-n,n]$ 上で $x^2$ と一致する compact-support smooth cutoff を使えば局所化できます。
+を入れ、$[-n,n]$ 上で $x^2$ と一致する smooth cutoff を使えば局所化できます。
 
 $Lf=1$ なので
 
@@ -968,7 +968,7 @@ $$
 
 ### 証明の見取り図
 
-弱形式は Dynkin formula を初期分布について平均し、時間微分するだけです。
+弱形式は [Dynkin formula](#thm-sto11-dynkin) を初期分布について平均し、時間微分するだけです。
 
 密度形は
 
@@ -1078,7 +1078,7 @@ $$
 
 ---
 
-## 10. Feynman--Kac：PDE を path expectation へ変える
+## 10. Feynman--Kac：微分方程式を標本路期待値へ変える
 
 generator と backward equationへ potential と running term を加えます。
 
@@ -1284,7 +1284,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（martingale problem）**  
-> path space
+> 標本路空間
 
 $$
 \Omega=C([0,\infty),\mathbb R^d)
@@ -1354,7 +1354,7 @@ M_t^f
 \int_0^t\nabla f(B_s)^\top dB_s.
 $$
 
-$f$ は compact support smooth なので $\nabla f$ は bounded です。
+$f$ は 台がコンパクトな smooth 関数なので $\nabla f$ は bounded です。
 
 従って右辺は square-integrable martingale であり、Brown 運動の law は $\frac12\Delta$ の martingale problem を解きます。
 <!-- definition-example-end -->
@@ -1389,7 +1389,7 @@ $$
 
 > と置く。
 >
-> このとき $X$ の path law は $(L,\mathcal L(X_0))$ の martingale problem を解く。
+> このとき $X$ の標本路法則 は $(L,\mathcal L(X_0))$ の martingale problem を解く。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1425,7 +1425,7 @@ $$
 
 局所化すれば右辺は continuous local martingale です。
 
-この性質は $(X_t)$ の path functional として canonical path space 上へ押し出せます。
+この性質は $(X_t)$ の 標本路汎関数 として canonical 標本路空間 上へ押し出せます。
 
 したがって $X$ の law は martingale problem を解きます。
 <!-- proof-end -->
@@ -1477,7 +1477,7 @@ $$
 
 ### 証明の見取り図
 
-coordinate function $x_i$ は compact support ではありません。
+coordinate function $x_i$ は 台はコンパクトではありません。
 
 そこで exit time
 
@@ -1532,7 +1532,7 @@ $$
 f_i^{(n)}(x)=\chi_n(x)x_i
 $$
 
-を martingale problem の test function に取ります。
+を martingale problem の domain の関数 に取ります。
 
 $t<\tau_n$ では $f_i^{(n)}(X_t)=X_t^i$ かつ導関数も coordinate function と一致するため
 
@@ -1713,7 +1713,7 @@ $$
 > 各初期状態 $x\in\mathbb R^d$ に対し martingale problem for $(L,\delta_x)$ の solution law $P_x$ が
 >
 > 1. 存在し、
-> 2. path law として一意
+> 2. 標本路法則として一意
 >
 > であるとき、その martingale problem は well-posed であるという。
 <!-- formal-statement-end -->
@@ -1744,7 +1744,7 @@ $
 
 <!-- formal-statement-start -->
 > **定理（well-posed martingale problem から strong Markov property）**  
-> $\Omega=C([0,\infty),\mathbb R^d)$ を canonical path space とし、$X$ を coordinate process とする。線形作用素 $L$ の martingale problem が各初期状態 $x\in\mathbb R^d$ について well-posed で、その一意な solution law を $P_x$ とする。
+> $\Omega=C([0,\infty),\mathbb R^d)$ を canonical 標本路空間 とし、$X$ を coordinate process とする。線形作用素 $L$ の martingale problem が各初期状態 $x\in\mathbb R^d$ について well-posed で、その一意な solution law を $P_x$ とする。
 >
 > さらに各標本路空間の Borel 集合 $A$ に対して $x\mapsto P_x(A)$ が Borel 可測であり、$D(L)$ に martingale problem を決定する countable subclass が存在すると仮定する。
 >
@@ -1762,7 +1762,7 @@ $
 
 ### この定理の機構
 
-deterministic time $s$ で future path を条件付けます。
+deterministic time $s$ で未来の標本路を条件付けます。
 
 regular conditional law
 
@@ -1792,8 +1792,8 @@ stopping time へ拡張するときは、停止時刻近似と canonical shift�
 
 完全証明には
 
-- Polish path space 上の regular conditional probabilities
-- path shift の可測性
+- Polish 標本路空間上の regular conditional probabilities
+- 標本路 shift の可測性
 - stopped martingale problem の保存
 - stopping time を離散化した conditional laws の極限
 - $x\mapsto P_x$ の measurable kernel 性
@@ -1808,7 +1808,7 @@ STO4 では Brown 運動について stopping-time approximation を用いた [s
 
 ---
 
-## 15. Feller semigroup は generator と path theory の橋
+## 15. Feller semigroup は generator と標本路理論の橋
 
 <a id="def-sto11-feller-semigroup"></a>
 
@@ -1970,13 +1970,13 @@ $$
 
 とは限りません。
 
-Dynkin / Feynman--Kac では bounded test function、bounded stopping、square-integrability などを使って true martingale 性を確認しました。
+Dynkin / Feynman--Kac では bounded な domain function、bounded stopping、square-integrability などを使って true martingale 性を確認しました。
 
 ### 16.4 martingale problem の existence と uniqueness は別問題
 
 solution law が一つ存在しても well-posed とは限りません。
 
-複数の path law が同じ formal generator を満たすとき、semigroup や Markov selection が一意に決まりません。
+複数の標本路法則 が同じ formal generator を満たすとき、semigroup や Markov selection が一意に決まりません。
 
 strong Markov property を generator 側から得る主役は「martingale 条件」だけでなく **law の一意性**です。
 
@@ -2082,7 +2082,7 @@ $$
 である。
 
 1. $f(x)=x^2$ に形式的に $L$ を作用させよ。
-2. localization を前提に Dynkin formula を適用し、$B_0=0$ から $E[B_t^2]=t$ を導け。
+2. localization を前提に [Dynkin formula](#thm-sto11-dynkin) を適用し、$B_0=0$ から $E[B_t^2]=t$ を導け。
 3. $f(x)=x$ では何が得られるか。
 
 <!-- solution-start -->
@@ -2106,7 +2106,7 @@ Lf(x)
 \boxed{1}.
 $$
 
-2. $x^2$ は compact support を持たないので、そのまま本章の Dynkin theorem の仮定には入りません。
+2. $x^2$ は 台がコンパクトではないので、そのまま本章の [Dynkin formula](#thm-sto11-dynkin) の仮定には入りません。
 
 exit time
 
@@ -2184,7 +2184,7 @@ Lf
 }
 $$
 
-2. compact support test function $f$ に対し
+2. 台がコンパクトな関数 $f$ に対し
 
 $$
 \int \mu f' p\,dx
@@ -2485,7 +2485,7 @@ e^{-\lambda(s-t)}q\,ds
 \right].
 $$
 
-integrand は path に依存しないため期待値は外れ、
+integrand は標本路に依存しないため期待値は外れ、
 
 $$
 u(t,x)
@@ -2630,7 +2630,7 @@ $$
 
 を定め、$[W]_t$ を計算せよ。
 2. Lévy characterization から何が言えるか。
-3. $X$ が weak SDE solution になることを示せ。
+3. martingale problem から Brown 運動を構成し、$X$ の SDE 表現を復元せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -3086,7 +3086,7 @@ nondegenerate diffusion では
 
 $$
 \boxed{
-\text{weak SDE}
+\text{Brownian SDE representation}
 \Longleftrightarrow
 \text{martingale problem}
 }
