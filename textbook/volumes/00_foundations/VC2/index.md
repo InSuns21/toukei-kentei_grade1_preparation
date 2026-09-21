@@ -428,6 +428,24 @@ $$
 > が成り立つことをいう。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-vc2-star-shaped -->
+**定義の確認**
+
+開球
+
+$$
+B(0,1)=\{x\in\mathbb R^n:|x|<1\}
+$$
+
+は原点に関して star-shaped です。実際 $x\in B(0,1)$ と $0\le t\le1$ に対し
+
+$$
+|tx|=t|x|<1
+$$
+
+なので、原点から $x$ への線分全体が開球内に残ります。
+<!-- definition-example-end -->
+
 凸集合なら任意の点を中心として star-shaped です。
 
 <a id="thm-vc2-poincare-star"></a>
