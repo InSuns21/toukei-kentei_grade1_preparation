@@ -1,5 +1,5 @@
 id: "STO2"
-title: "Encore IV Stochastic Analysis II：離散時間 martingale・不等式・収束"
+title: "Encore IV 確率解析 II：離散時間マルチンゲール・不等式・収束"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -8,37 +8,37 @@ prerequisites:
   - F0-00P4A
 official_scope: []
 learning_objectives:
-  - martingale・submartingale・supermartingaleを条件付き期待値で定義し、有限状態例で三条件を直接検証できる
-  - 離散時間predictable processとpredictable transformを定義し、martingale差分へ掛ける係数が一時刻前の情報で決まる意味を説明できる
-  - stopped martingale/submartingale theoremを差分表示から証明できる
-  - bounded optional sampling theoremを停止時刻sigma-fieldに関する条件付き不等式・等式まで証明できる
-  - 離散時間Doob decompositionを構成し、predictable compensatorの非減少性と分解の一意性を証明できる
-  - Doob maximal inequalityを初到達時刻とoptional samplingから導き、最大偏差確率を評価できる
-  - upcrossing numberを定義し、Doob upcrossing inequalityをpredictable trading strategyから証明できる
-  - upcrossing inequalityからsubmartingaleのa.s. convergence theoremを導き、極限が有限かつ可積分になる理由を追える
-  - UI martingale convergence theoremをVitaliとLévy上昇定理へ接続し、a.s.収束・L1収束・terminal representationを区別できる
+  - マルチンゲール・劣マルチンゲール・優マルチンゲールを条件付き期待値で定義し、有限状態例で三条件を直接検証できる
+  - 離散時間予測可能過程と予測可能変換を定義し、マルチンゲール差分へ掛ける係数が一時刻前の情報で決まる意味を説明できる
+  - stopped マルチンゲール/劣マルチンゲール theoremを差分表示から証明できる
+  - bounded 任意抽出 theoremを停止時刻sigma-fieldに関する条件付き不等式・等式まで証明できる
+  - 離散時間Doob 分解を構成し、predictable compensatorの非減少性と分解の一意性を証明できる
+  - Doob 最大不等式を初到達時刻と任意抽出から導き、最大偏差確率を評価できる
+  - 上向き横断 numberを定義し、Doob 上向き横断 inequalityをpredictable trading strategyから証明できる
+  - 上向き横断 inequalityから劣マルチンゲールの概収束 theoremを導き、極限が有限かつ可積分になる理由を追える
+  - UI マルチンゲール convergence theoremをVitaliとLévy上昇定理へ接続し、a.s.収束・L1収束・終端表現を区別できる
   - optional stoppingの条件を外すと結論が壊れることを倍賭け反例でUIの失敗まで計算できる
 definitions:
-  - { id: STO2-DEF-01, name: "martingale・submartingale・supermartingale" }
-  - { id: STO2-DEF-02, name: "離散時間predictable processとpredictable transform" }
-  - { id: STO2-DEF-03, name: "upcrossing number" }
+  - { id: STO2-DEF-01, name: "マルチンゲール・劣マルチンゲール・優マルチンゲール" }
+  - { id: STO2-DEF-02, name: "離散時間予測可能過程と予測可能変換" }
+  - { id: STO2-DEF-03, name: "上向き横断 number" }
 theorems:
-  - { id: STO2-PROP-01, name: "predictable transform of a martingale/submartingale" }
-  - { id: STO2-THM-01, name: "stopped martingale/submartingale theorem" }
-  - { id: STO2-THM-02, name: "bounded optional sampling theorem" }
-  - { id: STO2-THM-03, name: "discrete Doob decomposition" }
-  - { id: STO2-THM-04, name: "Doob maximal inequality" }
-  - { id: STO2-THM-05, name: "Doob upcrossing inequality" }
-  - { id: STO2-THM-06, name: "submartingale almost-sure convergence theorem" }
-  - { id: STO2-THM-07, name: "uniformly integrable martingale convergence theorem" }
+  - { id: STO2-PROP-01, name: "予測可能変換 of a マルチンゲール/劣マルチンゲール" }
+  - { id: STO2-THM-01, name: "stopped マルチンゲール/劣マルチンゲール theorem" }
+  - { id: STO2-THM-02, name: "bounded 任意抽出 theorem" }
+  - { id: STO2-THM-03, name: "discrete Doob 分解" }
+  - { id: STO2-THM-04, name: "Doob 最大不等式" }
+  - { id: STO2-THM-05, name: "Doob 上向き横断 inequality" }
+  - { id: STO2-THM-06, name: "劣マルチンゲール almost-sure convergence theorem" }
+  - { id: STO2-THM-07, name: "uniformly integrable マルチンゲール convergence theorem" }
   - { id: STO2-COR-01, name: "UIを仮定したoptional stopping" }
 canonical_examples:
-  - "centered random walk martingale"
-  - "squared martingale as submartingale"
+  - "centered random walk マルチンゲール"
+  - "squared マルチンゲール as 劣マルチンゲール"
   - "predictable betting strategy"
   - "stopped random walk"
-  - "Doob decomposition of squared random walk"
-  - "finite-path upcrossing count"
+  - "Doob 分解 of squared random walk"
+  - "finite-path 上向き横断 count"
   - "doubling strategy failure of optional stopping"
 problem_patterns:
   - STO2-MARTINGALE-CHECK-1
