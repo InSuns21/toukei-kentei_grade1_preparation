@@ -439,15 +439,15 @@ $$
 > **定義（可測写像）**  
 > 可測空間 $(\Omega,\mathcal F)$ と $(E,\mathcal E)$ の間の写像
 >
-$
+$$
 f:\Omega\to E
-$
+$$
 >
 > が、任意の $B\in\mathcal E$ に対して
 >
-$
+$$
 f^{-1}(B)\in\mathcal F
-$
+$$
 >
 > を満たすとき、$f$ を **可測写像** という。本教材では、この条件を「$f$ は $\mathcal F/\mathcal E$ 可測である」と表す。
 <!-- formal-statement-end -->
