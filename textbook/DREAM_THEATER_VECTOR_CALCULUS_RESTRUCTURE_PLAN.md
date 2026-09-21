@@ -2,6 +2,30 @@
 
 作成日: 2026-09-21
 
+
+## 実装進捗（2026-09-21）
+
+- **Phase 0：完了**
+  - PDE6 の vector-calculus 部分を棚卸しし、法線・flux・発散定理を VC 系列の canonical owner へ移す方針を確定。
+- **Phase 1：VC1--VC4 実装完了**
+  - VC1 ベクトル場と微分演算子
+  - VC2 曲線・線積分・保存場
+  - VC3 曲面・向き・曲面積分・flux
+  - VC4 Green・Gauss--Ostrogradsky と保存則
+  - 各章に `knowledge.yaml` / `glossary.yaml`、A4/B3/C1 演習、全問詳細解答を実装。
+- **Phase 4 の PDE6 再監査：完了**
+  - PDE6 の prerequisite を VC4 へ接続。
+  - 発散定理の重複証明を除去し、Green 恒等式・基本解・Green 関数中心へ再編集。
+- **公開導線：VC1--VC4 のみ反映済み**
+  - `dream-theater-index.json`
+  - `dream-theater-standard-math-core.yaml` / `.md`
+  - `dream-theater.md`
+- **未実装**
+  - Phase 2：VC5 Stokes theorem、VC6 直交曲線座標
+  - Phase 3：VC7 Cartesian tensor、VC8 Helmholtz decomposition、VC9 数理物理 bridge
+
+未実装の VC5--VC9 は reader index / concept owner として先行公開しない。
+
 ## 0. 位置付け
 
 この文書は、DREAM THEATER に独立した **標準ベクトル解析（Vector Calculus / Vector Analysis）系列**を新設するための設計台帳である。
