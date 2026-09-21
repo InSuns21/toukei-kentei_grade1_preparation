@@ -1,0 +1,38 @@
+id: "PDE11"
+title: "標準偏微分方程式 XI：変数分離・Bessel 方程式・Legendre 方程式・球面調和関数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PDE10
+  - ODE6
+  - VC6
+official_scope: []
+learning_objectives:
+  - 円板の Helmholtz 固有値問題を変数分離し Bessel 方程式を導ける
+  - Bessel 関数の零点と円板 Dirichlet 固有値を結び付けられる
+  - 円板上の熱・波動方程式で Bessel モードの時間発展を説明できる
+  - 球面 Laplacian の固有値問題から Legendre 方程式を導ける
+  - associated Legendre 関数から標準球面調和モードを構成できる
+  - 球面調和関数から球内部・外部の調和関数を構成できる
+definitions:
+  - { id: PDE11-DEF-01, name: "円板の Bessel モード" }
+  - { id: PDE11-DEF-02, name: "球面調和関数" }
+theorems:
+  - { id: PDE11-PROP-01, name: "円板の変数分離と Bessel 方程式" }
+  - { id: PDE11-PROP-02, name: "球面固有値問題と Legendre 方程式" }
+  - { id: PDE11-PROP-03, name: "標準球面調和モード" }
+  - { id: PDE11-PROP-04, name: "球面調和関数から得る solid harmonic" }
+canonical_examples:
+  - "放射対称 J0 モード"
+  - "Legendre P0・P1・P2"
+  - "次数1の球面調和関数"
+  - "有限球面調和境界データの調和延長"
+problem_patterns:
+  - PDE11-BESSEL-1
+  - PDE11-DISK-EIGENMODE-1
+  - PDE11-LEGENDRE-1
+  - PDE11-SPHERICAL-HARMONIC-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 5.0, review: 1.0 }
