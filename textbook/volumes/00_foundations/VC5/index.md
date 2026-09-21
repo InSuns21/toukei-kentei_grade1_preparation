@@ -1214,13 +1214,22 @@ $$
 z=g(x,y)=1-x^2-y^2
 $$
 
-の上向き vector area element は VC3 の公式から
-
-$$
-n\,dS=(-g_x,-g_y,1)\,dx\,dy
+を
+$
+r(x,y)=(x,y,g(x,y))
+$
+とパラメータ表示すると、
+$
+r_x\times r_y=(-g_x,-g_y,1).
+$
+したがって上向き oriented vector area element は
+$
+n\,dS=(r_x\times r_y)\,dx\,dy
+=
+(-g_x,-g_y,1)\,dx\,dy
 =
 (2x,2y,1)\,dx\,dy.
-$$
+$
 
 したがって
 
