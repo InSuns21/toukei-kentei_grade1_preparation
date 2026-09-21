@@ -620,4 +620,10 @@ ARMA / ergodicity / Kalman
 - STO9 の direct prerequisite は STO5・STO6・STO7・RA5 とした。STO6 の Itô integral / Doob L2 estimate、STO7 の multidimensional Itô formula、RA5 の一様極限の連続性を使い、comparison theorem は smooth positive-part approximation で証明して STO8 を prerequisite にしない。STO10 の weak solution / Girsanov と STO11 の generator も逆輸入しない。
 - local Lipschitz 係数は radial cutoff で global Lipschitz 問題へ落とし、exit time 前の pathwise uniqueness から maximal strong solution を貼り合わせた。finite-time explosion の具体例、linear growth による non-explosion、coercive C2 Lyapunov function による non-explosion まで扱った。
 - STO9 は本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで実装済み。
-- 現在地：Phase 3 は STO9 完了。次の実装対象は STO10「weak solution・Girsanov」。
+- Phase 3：STO10「weak solution・Girsanov」を実装。weak solution / equivalent change of measure / density process / Novikov condition / Girsanov theorem / drift removal / uniqueness in law を定義し、Girsanov local-martingale transform と Lévy characterization から Brownian drift shift の核心証明を閉じた。
+- STO10 の direct prerequisite は STO5・STO6・STO7・STO9・F0-00P2・F0-00P3A・F0-00P4A とした。STO5 の covariation / Lévy characterization、STO6 の stochastic integral、STO7 の stochastic exponential / product rule、STO9 の strong solution / pathwise uniqueness、P2 の Radon--Nikodym、P3A の条件付き期待値、P4A の一様可積分性を実際に使う。
+- stochastic exponential が density になるための true-martingale 問題を明示し、bounded quadratic energy の場合は L2 boundedness から完全証明した。一般 Novikov criterion は停止後の一様可積分性 lemma の技術部分だけを意図的黒箱として境界明示し、Girsanov 本体の drift cancellation は章内で完全証明した。
+- bounded Borel drift $dX=b(X)dt+dB$ は driftless Brownian motion から measure change で finite-horizon weak solution を構成し、STO9 の Lipschitz Picard construction より weak existence が柔軟であることを直接例と演習で確認した。
+- Yamada--Watanabe theorem は weak existence + pathwise uniqueness から strong existence + uniqueness in law を結ぶ定理として位置付け、regular conditional distribution / coupling / measurable selection を要する完全証明は独立した大規模論証として本章では技術的黒箱にした。
+- STO10 は本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで実装済み。
+- 現在地：Phase 3 は STO10 完了。次の実装対象は STO11「Markov process・semigroup・generator・martingale problem」。
