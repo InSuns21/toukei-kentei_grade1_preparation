@@ -1,6 +1,8 @@
-# STO10：SDE の law と Girsanov — noise を固定せず law を作る
+# STO10：SDE の法則と Girsanov — 雑音を固定せず解の法則を作る
 
 <!-- definition-example-audit: strict -->
+
+> **既出概念への参照**：[強解](../STO9/index.md#def-sto9-strong-solution)、[確率指数関数](../STO7/index.md#def-sto7-stochastic-exponential)、[連続局所マルチンゲール](../STO5/index.md#def-sto5-continuous-local-martingale)、[Lévy の特徴付け定理](../STO5/index.md#thm-sto5-levy-characterization) を直接参照します。
 
 STO9 では
 
@@ -8,14 +10,14 @@ $$
 dX_t=b(X_t)\,dt+\sigma(X_t)\,dW_t
 $$
 
-に対し、初期値と Brown 運動を先に固定し、その同じ noise の上で解を作りました。
+に対し、初期値とブラウン運動を先に固定し、その同じ雑音の上で解を作りました。
 
 しかし存在問題には、もう一つ自然な自由度があります。
 
 $$
 \boxed{
-\text{確率空間も Brown 運動もこちらで選んでよいなら、
-SDE の law は作れるか}
+\text{確率空間もブラウン運動もこちらで選んでよいなら、
+SDE の法則は作れるか}
 }
 $$
 
@@ -27,19 +29,19 @@ $$
 
 $$
 \boxed{
-\text{probability space も選べる解}
+\text{確率空間も選べる解}
 \to
-\text{change of measure}
+\text{測度変換}
 \to
-\text{stochastic exponential}
+\text{確率指数関数}
 \to
 \text{Novikov}
 \to
 \text{Girsanov}
 \to
-\text{drift removal}
+\text{ドリフト除去}
 \to
-\text{weak existence}
+\text{弱解の存在}
 }
 $$
 
@@ -51,14 +53,14 @@ $$
 
 ---
 
-## 1. strong solution では何を先に固定していたか
+## 1. 強解では何を先に固定していたか
 
-STO9 の [strong solution](../STO9/index.md#def-sto9-strong-solution) では、
+STO9 の [強解](../STO9/index.md#def-sto9-strong-solution) では、
 
 - 確率空間
 - 初期値
-- Brown 運動
-- それらが作る filtration
+- ブラウン運動
+- それらが作るフィルトレーション
 
 を先に固定しました。
 
@@ -81,24 +83,24 @@ $$
 
 ---
 
-## 2. 確率空間と Brown 運動も解の一部
+## 2. 確率空間とブラウン運動も解の一部
 
 <a id="def-sto10-weak-solution"></a>
 
 <!-- formal-statement-start -->
-> **定義（weak solution）**  
+> **定義（弱解）**  
 > $b:\mathbb R^d\to\mathbb R^d$、$\sigma:\mathbb R^d\to\mathbb R^{d\times m}$ を Borel 可測とし、初期分布 $\mu$ を $\mathbb R^d$ 上の確率測度とする。
 >
-> 時間区間 $[0,T]$ 上の **weak solution** とは、
+> 時間区間 $[0,T]$ 上の **弱解** とは、
 >
-> 1. filtered probability space
+> 1. フィルトレーション付き確率空間
 >
 $$
 (\Omega,\mathcal F,(\mathcal F_t)_{0\le t\le T},P),
 $$
 >
-> 2. この filtration に関する $m$ 次元 Brown 運動 $W$,
-> 3. continuous adapted $\mathbb R^d$-値 process $X$
+> 2. このフィルトレーションに関する $m$ 次元ブラウン運動 $W$,
+> 3. continuous 適合 $\mathbb R^d$-値過程 $X$
 >
 > の組であって、
 >
@@ -135,9 +137,9 @@ $$
 > が全ての $t\in[0,T]$ で $P$-a.s. 成り立つものをいう。
 <!-- formal-statement-end -->
 
-strong solution との違いは、方程式そのものではありません。
+強解との違いは、方程式そのものではありません。
 
-weak solution では
+弱解では
 
 $$
 \boxed{
@@ -149,7 +151,7 @@ $$
 ことが本質です。
 
 <!-- definition-example-start: def-sto10-weak-solution -->
-### 直接例：定数係数なら weak solution の全要素を手で確認できる
+### 直接例：定数係数なら弱解の全要素を手で確認できる
 
 $d=m=1$ とし
 
@@ -161,7 +163,7 @@ $$
 
 を考えます。
 
-standard Brown 運動 $W$ を持つ任意の usual filtered probability space を一つ取り、
+standard ブラウン運動 $W$ を持つ任意の usual フィルトレーション付き確率空間を一つ取り、
 
 $$
 X_t=x+\mu t+\sigma W_t
@@ -171,8 +173,8 @@ $$
 
 **定義の確認**
 
-1. $W$ は選んだ filtration に関する Brown 運動です。
-2. $X$ は $W$ の連続関数なので continuous adapted です。
+1. $W$ は選んだフィルトレーションに関するブラウン運動です。
+2. $X$ は $W$ の連続関数なので continuous 適合です。
 3. 係数は定数なので
 
 $$
@@ -196,7 +198,7 @@ x+\mu t+\sigma W_t
 X_t.
 $$
 
-従って、確率空間・Brown 運動・process $X$ を合わせたこの組は weak solution です。
+従って、確率空間・ブラウン運動・過程 $X$ を合わせたこの組は弱解です。
 <!-- definition-example-end -->
 
 weak という語は「近似が粗い」「方程式を近似的にしか満たさない」という意味ではありません。
@@ -205,13 +207,13 @@ SDE の積分表示は同じように $P$-a.s. 満たします。違うのは **
 
 ---
 
-## 3. strong solution は自動的に weak solution である
+## 3. 強解は自動的に弱解である
 
 <a id="prop-sto10-strong-implies-weak"></a>
 
 <!-- formal-statement-start -->
-> **命題（strong solution は weak solution を与える）**  
-> STO9 の意味で、ある filtered probability space 上に初期値 $\xi$、Brown 運動 $W$、strong solution $X$ が与えられているとする。
+> **命題（強解は弱解を与える）**  
+> STO9 の意味で、あるフィルトレーション付き確率空間上に初期値 $\xi$、ブラウン運動 $W$、強解 $X$ が与えられているとする。
 >
 > このとき、その同じ
 >
@@ -219,37 +221,37 @@ $$
 (\Omega,\mathcal F,(\mathcal F_t),P,W,X)
 $$
 >
-> を用いれば $X$ は weak solution でもある。
+> を用いれば $X$ は弱解でもある。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-weak solution は確率空間を「選んでよい」と言っているだけです。
+弱解は確率空間を「選んでよい」と言っているだけです。
 
-strong solution ですでに使える確率空間が一つ与えられているなら、それをそのまま選べばよいだけです。
+強解ですでに使える確率空間が一つ与えられているなら、それをそのまま選べばよいだけです。
 
 <!-- proof-start -->
 ### 証明
 
-strong solution の定義から、
+強解の定義から、
 
-- $W$ は指定 filtration に関する Brown 運動
-- $X$ は continuous adapted
-- 必要な時間積分と stochastic integral は well-defined
+- $W$ は指定フィルトレーションに関するブラウン運動
+- $X$ は continuous 適合
+- 必要な時間積分と確率積分は well-defined
 - SDE の積分表示を満たす
 
 ことが既に成立しています。
 
 さらに $X_0=\xi$ なので初期分布は $\mathcal L_P(\xi)$ です。
 
-したがって weak solution の全条件を満たします。
+したがって弱解の全条件を満たします。
 <!-- proof-end -->
 
 逆向きは自明ではありません。
 
-weak solution では、解を作るために都合のよい確率空間や Brown 運動を選べるからです。
+弱解では、解を作るために都合のよい確率空間やブラウン運動を選べるからです。
 
-この「逆向き」を pathwise uniqueness と結び付ける標準的な接続定理を章末で位置付けます。
+この「逆向き」を経路ごとの一意性と結び付ける標準的な接続定理を章末で位置付けます。
 
 ---
 
@@ -273,7 +275,7 @@ P\ll Q
 Q\ll P
 $$
 >
-> を満たすとき、$P,Q$ は **equivalent** であるといい
+> を満たすとき、$P,Q$ は **同値** であるといい
 >
 $$
 P\sim Q
@@ -285,7 +287,7 @@ $$
 <a id="def-sto10-density-process"></a>
 
 <!-- formal-statement-start -->
-> **定義（density process）**  
+> **定義（密度過程）**  
 > $Q\ll P$ とし、
 >
 $$
@@ -294,7 +296,7 @@ Z_T
 \frac{dQ}{dP}
 $$
 >
-> とする。filtration $(\mathcal F_t)_{0\le t\le T}$ に対して
+> とする。フィルトレーション $(\mathcal F_t)_{0\le t\le T}$ に対して
 >
 $$
 Z_t
@@ -302,7 +304,7 @@ Z_t
 E_P[Z_T\mid\mathcal F_t]
 $$
 >
-> を **density process** と呼ぶ。
+> を **密度過程** と呼ぶ。
 <!-- formal-statement-end -->
 
 $P\sim Q$ は「全ての事象の確率が同じ」という意味ではありません。
@@ -320,11 +322,11 @@ $$
 - 平均
 - 分布
 - martingale 性
-- Brownian motion であること
+- ブラウン運動であること
 
 は測度を変えると変わり得ます。
 
-### 直接例：二点空間で測度と density process を直接確認する
+### 直接例：二点空間で測度と密度過程を直接確認する
 
 $$
 \Omega=\{a,b\}
@@ -342,7 +344,7 @@ $$
 
 とします。
 
-<!-- definition-example-start: def-sto10-equivalent-measures -->
+<!-- definition-example-start: def-sto10-同値-measures -->
 **定義の確認**
 
 両測度は $a,b$ に正の質量を持つので、零確率になるのは空集合だけです。従って
@@ -386,10 +388,10 @@ E_P[Z_T]
 1.
 $$
 
-<!-- definition-example-start: def-sto10-density-process -->
+<!-- definition-example-start: def-sto10-密度-過程 -->
 **定義の確認**
 
-filtration を
+フィルトレーションを
 
 $$
 \mathcal F_0=\{\varnothing,\Omega\},
@@ -417,7 +419,7 @@ E_P[Z_T\mid\mathcal F_T]
 Z_T.
 $$
 
-従ってこの二時点 filtration に対する density process は
+従ってこの二時点フィルトレーションに対する密度過程は
 
 $$
 Z_0=1,
@@ -440,12 +442,12 @@ $$
 
 ---
 
-## 5. density process は martingale になる
+## 5. 密度過程は martingale になる
 
 <a id="prop-sto10-density-martingale"></a>
 
 <!-- formal-statement-start -->
-> **命題（density process の martingale 性）**  
+> **命題（密度過程の martingale 性）**  
 > $Q\ll P$ とし
 >
 $$
@@ -540,15 +542,15 @@ E_P[Z_tY].
 $$
 <!-- proof-end -->
 
-この命題は、測度変換を process の言葉へ持ち込む入口です。
+この命題は、測度変換を過程の言葉へ持ち込む入口です。
 
 ---
 
-## 6. Girsanov に使いたい density は stochastic exponential
+## 6. Girsanov に使いたい密度は確率指数関数
 
-$W=(W^1,\ldots,W^m)$ を $P$ の下の $m$ 次元 Brown 運動とします。
+$W=(W^1,\ldots,W^m)$ を $P$ の下の $m$ 次元ブラウン運動とします。
 
-progressively measurable $\mathbb R^m$-値 process $\theta$ が
+progressively measurable $\mathbb R^m$-値過程 $\theta$ が
 
 $$
 \int_0^T|\theta_s|^2\,ds<\infty
@@ -557,7 +559,7 @@ $$
 
 を満たすとします。
 
-continuous local martingale
+continuous 局所マルチンゲール
 
 $$
 M_t
@@ -567,7 +569,7 @@ $$
 
 を作ります。
 
-STO6 の bracket formula から
+STO6 の bracket 公式から
 
 $$
 [M]_t
@@ -575,7 +577,7 @@ $$
 \int_0^t|\theta_s|^2\,ds.
 $$
 
-[STO7 の stochastic exponential](../STO7/index.md#def-sto7-stochastic-exponential) は
+[STO7 の確率指数関数](../STO7/index.md#def-sto7-stochastic-exponential) は
 
 $$
 \begin{aligned}
@@ -600,13 +602,13 @@ dZ_t
 -Z_t\theta_t^\top dW_t.
 $$
 
-したがって $Z$ は正の continuous local martingale です。
+したがって $Z$ は正の continuous 局所マルチンゲールです。
 
 ここで重要な落とし穴があります。
 
 $$
 \boxed{
-\text{positive local martingale}
+\text{positive 局所マルチンゲール}
 \not\Rightarrow
 \text{martingale with }E[Z_T]=1
 }
@@ -614,7 +616,7 @@ $$
 
 です。
 
-非負 local martingale は supermartingale なので
+非負局所マルチンゲールは supermartingale なので
 
 $$
 E_P[Z_T]\le1
@@ -642,19 +644,19 @@ $$
 
 となり、確率測度を作れません。
 
-したがって Girsanov の前に「stochastic exponential が真の martingale である」ことを保証する条件が必要です。
+したがって Girsanov の前に「確率指数関数が真の martingale である」ことを保証する条件が必要です。
 
 ---
 
-## 7. まず bounded quadratic energy なら完全に閉じる
+## 7. まず有界二次エネルギーなら完全に閉じる
 
 一般の指数積分 criterion の前に、機構が目で追える場合を証明します。
 
 <a id="lem-sto10-bounded-energy-exponential"></a>
 
 <!-- formal-statement-start -->
-> **補題（bounded quadratic energy なら stochastic exponential は真の martingale）**  
-> $M$ を $M_0=0$ の continuous local martingale とし、ある定数 $C<\infty$ に対して
+> **補題（有界二次エネルギーなら確率指数関数は真の martingale）**  
+> $M$ を $M_0=0$ の continuous 局所マルチンゲールとし、ある定数 $C<\infty$ に対して
 >
 $$
 [M]_T\le C
@@ -680,7 +682,7 @@ $$
 
 ### 証明の見取り図
 
-local martingale $Z$ を bounded stopping time で止めて真の martingale にします。
+局所マルチンゲール $Z$ を有界 stopping time で止めて真の martingale にします。
 
 核心は stopped family に一様な $L^2$ bound を作ることです。
 
@@ -711,7 +713,7 @@ $L^2$ boundedness は一様可積分性を与えるので、localization を外�
 <!-- proof-start -->
 ### 証明
 
-$Z=\mathcal E(M)$ は正の continuous local martingale です。
+$Z=\mathcal E(M)$ は正の continuous 局所マルチンゲールです。
 
 $$
 \tau_n
@@ -727,7 +729,7 @@ $$
 0<Z_{t\wedge\tau_n}\le n
 $$
 
-なので $Z^{\tau_n}$ は bounded local martingale、従って真の martingale です。
+なので $Z^{\tau_n}$ は有界局所マルチンゲール、従って真の martingale です。
 
 次に
 
@@ -757,7 +759,7 @@ Z_{t\wedge\tau_n}^2
 \end{aligned}
 $$
 
-非負 local martingale は supermartingale なので
+非負局所マルチンゲールは supermartingale なので
 
 $$
 E_P[\mathcal E(2M^{\tau_n})_t]\le1.
@@ -787,7 +789,7 @@ $$
 \{Z_{t\wedge\tau_n}:n\ge1\}
 $$
 
-は $L^2$ bounded であり、[F0-00P4A の $L^p$ boundedness から UI](../F0_00P4A_一様可積分性_Vitali/index.md#thm-f0-00p4a-lp-ui) により一様可積分です。
+は $L^2$ 有界であり、[F0-00P4A の $L^p$ boundedness から UI](../F0_00P4A_一様可積分性_Vitali/index.md#thm-f0-00p4a-lp-ui) により一様可積分です。
 
 $n\to\infty$ で
 
@@ -824,7 +826,7 @@ $$
 従って $Z$ は真の martingale です。
 <!-- proof-end -->
 
-特に $\theta$ が bounded なら
+特に $\theta$ が有界なら
 
 $$
 [M]_T
@@ -838,9 +840,9 @@ $$
 
 ---
 
-## 8. random energy でも density を保つ条件
+## 8. ランダムなエネルギーでも密度を保つ条件
 
-bounded $\theta$ は便利ですが、Girsanov を使いたい場面では
+有界 $\theta$ は便利ですが、Girsanov を使いたい場面では
 
 $$
 \int_0^T|\theta_s|^2ds
@@ -852,7 +854,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Novikov condition）**  
-> $W$ を $P$-Brownian motion とし、progressively measurable $\theta$ が
+> $W$ を $P$-ブラウン運動とし、progressively measurable $\theta$ が
 >
 $$
 \int_0^T|\theta_s|^2ds<\infty
@@ -897,9 +899,9 @@ E_P[Z_T]=1.
 $$
 <!-- formal-statement-end -->
 
-この条件は stochastic exponential の martingale 性を保証しますが、必要条件ではありません。
+この条件は確率指数関数の martingale 性を保証しますが、必要条件ではありません。
 
-これを満たさないからといって、stochastic exponential が martingale でないとは限りません。
+これを満たさないからといって、確率指数関数が martingale でないとは限りません。
 
 ### 証明の見取り図
 
@@ -917,7 +919,7 @@ $$
 
 を入れます。
 
-停止後は前節の bounded-energy lemma により
+停止後は前節の有界-energy lemma により
 
 $$
 Z^{\rho_n}
@@ -950,7 +952,7 @@ $$
 [M]_{T\wedge\rho_n}\le n
 $$
 
-なので、[bounded-energy lemma](#lem-sto10-bounded-energy-exponential) から
+なので、[有界-energy lemma](#lem-sto10-bounded-energy-exponential) から
 
 $$
 Z^{\rho_n}=\mathcal E(M^{\rho_n})
@@ -964,9 +966,9 @@ $$
 E_P[e^{[M]_T/2}]<\infty
 $$
 
-から、この stopped exponential family が一様可積分であることを示す martingale-UI lemma です。
+から、この stopped 指数型 family が一様可積分であることを示す martingale-UI lemma です。
 
-この UI lemma の完全証明は、停止区間を細分して指数積分可能性を局所化し、各区間で exponential martingale の $L^1$ mass を繰り返し制御する技術論を要します。本章では **Novikov criterion のこの UI lemma を標準的な技術的入力**として用います。bounded-energy の場合に同じ機構が $L^2$ estimate で閉じることは前節で完全証明しました。
+この UI lemma の完全証明は、停止区間を細分して指数積分可能性を局所化し、各区間で指数型 martingale の $L^1$ mass を繰り返し制御する技術論を要します。本章では **Novikov criterion のこの UI lemma を標準的な技術的入力**として用います。有界-energy の場合に同じ機構が $L^2$ estimate で閉じることは前節で完全証明しました。
 
 UI lemma により
 
@@ -991,15 +993,15 @@ $$
 
 ここで黒箱にしたのは **Novikov の UI criterion の技術部分だけ**です。
 
-次節以降の測度変換で起きる drift cancellation は章内で完全に証明します。
+次節以降の測度変換で起きるドリフト cancellation は章内で完全に証明します。
 
 ---
 
-## 9. measure change で local martingale はどう変わるか
+## 9. 測度変換で局所マルチンゲールはどう変わるか
 
-Girsanov の Brownian 版をいきなり計算するより、まず continuous local martingale の一般形を一段だけ証明します。
+Girsanov のブラウン版をいきなり計算するより、まず continuous 局所マルチンゲールの一般形を一段だけ証明します。
 
-$M$ を $P$-continuous local martingale とし
+$M$ を $P$-continuous 局所マルチンゲールとし
 
 $$
 Z=\mathcal E(M)
@@ -1022,8 +1024,8 @@ $$
 <a id="lem-sto10-girsanov-local-martingale"></a>
 
 <!-- formal-statement-start -->
-> **補題（Girsanov local-martingale transform）**  
-> 上の設定で $N$ を continuous $P$-local martingale とする。
+> **補題（Girsanov 局所-martingale transform）**  
+> 上の設定で $N$ を continuous $P$-局所マルチンゲールとする。
 >
 > このとき
 >
@@ -1033,7 +1035,7 @@ $$
 N_t-[N,M]_t
 $$
 >
-> は continuous $Q$-local martingale である。
+> は continuous $Q$-局所マルチンゲールである。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1046,7 +1048,7 @@ $$
 
 を Itô product rule で微分します。
 
-$\widetilde N$ の finite-variation correction
+$\widetilde N$ の有限-variation correction
 
 $$
 -d[N,M]
@@ -1060,7 +1062,7 @@ $$
 
 が正確に打ち消し合います。
 
-この cancellation が後で使う Brownian drift-shift の代数的心臓部です。
+この cancellation が後で使うブラウンドリフト-shift の代数的心臓部です。
 
 <!-- proof-start -->
 ### 証明
@@ -1081,13 +1083,13 @@ d\widetilde N_t
 dN_t-d[N,M]_t.
 $$
 
-finite-variation process は covariation に寄与しないため
+有限-variation 過程は covariation に寄与しないため
 
 $$
 [Z,\widetilde N]=[Z,N].
 $$
 
-さらに $Z$ の local martingale part は $\int Z\,dM$ なので stochastic integral の covariation formula から
+さらに $Z$ の局所マルチンゲール part は $\int Z\,dM$ なので確率積分の covariation 公式から
 
 $$
 d[Z,N]_t
@@ -1121,11 +1123,11 @@ Z_t\,dN_t.
 \end{aligned}
 $$
 
-最後の二項は local martingale 項です。
+最後の二項は局所マルチンゲール項です。
 
-したがって $Z\widetilde N$ は $P$-local martingale です。
+したがって $Z\widetilde N$ は $P$-局所マルチンゲールです。
 
-localizing sequence をさらに止め、$Z\widetilde N$ と $\widetilde N$ が必要な可積分性を持つ区間を取ります。その停止区間では $0\le s\le t$ と bounded $\mathcal F_s$-可測 $H$ に対して
+localizing sequence をさらに止め、$Z\widetilde N$ と $\widetilde N$ が必要な可積分性を持つ区間を取ります。その停止区間では $0\le s\le t$ と有界 $\mathcal F_s$-可測 $H$ に対して
 
 $$
 E_P[Z_tH\widetilde N_t]
@@ -1133,7 +1135,7 @@ E_P[Z_tH\widetilde N_t]
 E_P[Z_sH\widetilde N_s].
 $$
 
-[density process の martingale 性](#prop-sto10-density-martingale) から
+[密度過程の martingale 性](#prop-sto10-density-martingale) から
 
 $$
 E_Q[H\widetilde N_t]
@@ -1157,16 +1159,16 @@ $$
 
 従って停止した $\widetilde N$ は $Q$-martingale です。
 
-localization を外せば $\widetilde N$ は $Q$-local martingale です。
+localization を外せば $\widetilde N$ は $Q$-局所マルチンゲールです。
 <!-- proof-end -->
 
 この補題は
 
 $$
 \boxed{
-P\text{-local martingale}
+P\text{-局所マルチンゲール}
 \quad\longrightarrow\quad
-Q\text{-local martingale}
+Q\text{-局所マルチンゲール}
 }
 $$
 
@@ -1174,21 +1176,21 @@ $$
 
 ---
 
-## 10. change of measure で Brownian drift を移す
+## 10. 測度変換でブラウンドリフトを移す
 
 <a id="thm-sto10-girsanov"></a>
 
 <!-- formal-statement-start -->
-> **定理（Girsanov theorem：Brownian drift shift）**  
-> $W=(W^1,\ldots,W^m)$ を filtered probability space
+> **定理（Girsanov 定理：ブラウンドリフト shift）**  
+> $W=(W^1,\ldots,W^m)$ をフィルトレーション付き確率空間
 >
 $$
 (\Omega,\mathcal F,(\mathcal F_t)_{0\le t\le T},P)
 $$
 >
-> 上の $m$ 次元 Brown 運動とする。
+> 上の $m$ 次元ブラウン運動とする。
 >
-> progressively measurable $\mathbb R^m$-値 process $\theta$ が Novikov condition
+> progressively measurable $\mathbb R^m$-値過程 $\theta$ が Novikov condition
 >
 $$
 E_P\left[
@@ -1231,12 +1233,12 @@ W_t+\int_0^t\theta_s\,ds
 }
 $$
 >
-> は $Q$ の下で $m$ 次元 Brown 運動である。
+> は $Q$ の下で $m$ 次元ブラウン運動である。
 <!-- formal-statement-end -->
 
-### なぜ測度は equivalent なのか
+### なぜ測度は同値なのか
 
-[Novikov theorem](#thm-sto10-novikov) により
+[Novikov 定理](#thm-sto10-novikov) により
 
 $$
 E_P[Z_T]=1,
@@ -1244,7 +1246,7 @@ $$
 
 したがって $Q$ は確率測度です。
 
-さらに exponential は常に正なので
+さらに指数型は常に正なので
 
 $$
 Z_T>0
@@ -1277,13 +1279,13 @@ $$
 
 と置きます。
 
-各成分 $W^i$ に前節の local-martingale transform を適用すると
+各成分 $W^i$ に前節の局所-martingale transform を適用すると
 
 $$
 W^i-[W^i,M]
 $$
 
-が $Q$-local martingale です。
+が $Q$-局所マルチンゲールです。
 
 ところが
 
@@ -1301,9 +1303,9 @@ W^{Q,i}
 W^i+\int\theta^i ds
 $$
 
-が $Q$-local martingale になります。
+が $Q$-局所マルチンゲールになります。
 
-あとは finite-variation shift は quadratic variation を変えないため
+あとは有限-variation shift は quadratic variation を変えないため
 
 $$
 [W^{Q,i},W^{Q,j}]_t
@@ -1311,12 +1313,12 @@ $$
 \delta_{ij}t.
 $$
 
-[STO5 の Lévy characterization](../STO5/index.md#thm-sto5-levy-characterization) が Brown 運動を同定します。
+[STO5 の Lévy characterization](../STO5/index.md#thm-sto5-levy-characterization) がブラウン運動を同定します。
 
 <!-- proof-start -->
 ### 証明
 
-[Novikov theorem](#thm-sto10-novikov) から $Z=\mathcal E(M)$ は真の $P$-martingale で
+[Novikov 定理](#thm-sto10-novikov) から $Z=\mathcal E(M)$ は真の $P$-martingale で
 
 $$
 E_P[Z_T]=1.
@@ -1332,9 +1334,9 @@ $$
 
 と置きます。
 
-$W^i$ は continuous $P$-local martingale です。
+$W^i$ は continuous $P$-局所マルチンゲールです。
 
-また stochastic integral の covariation から
+また確率積分の covariation から
 
 $$
 \begin{aligned}
@@ -1354,7 +1356,7 @@ W^i,
 \end{aligned}
 $$
 
-したがって [Girsanov local-martingale transform](#lem-sto10-girsanov-local-martingale) により
+したがって [Girsanov 局所-martingale transform](#lem-sto10-girsanov-local-martingale) により
 
 $$
 \begin{aligned}
@@ -1368,9 +1370,9 @@ W_t^{Q,i}
 \end{aligned}
 $$
 
-は $Q$-local martingale です。
+は $Q$-局所マルチンゲールです。
 
-vector として $W^Q$ は continuous $Q$-local martingale で $W_0^Q=0$ です。
+vector として $W^Q$ は continuous $Q$-局所マルチンゲールで $W_0^Q=0$ です。
 
 次に
 
@@ -1378,9 +1380,9 @@ $$
 A_t^i=\int_0^t\theta_s^i\,ds
 $$
 
-は continuous finite variation です。
+は continuous 有限 variation です。
 
-STO5 の finite-variation zero quadratic variation から
+STO5 の有限-variation zero quadratic variation から
 
 $$
 [A^i,A^j]=0,
@@ -1402,7 +1404,7 @@ $$
 \end{aligned}
 $$
 
-Lévy characterization を $Q$ の下で適用すると、$W^Q$ は $m$ 次元 standard Brownian motion です。
+Lévy characterization を $Q$ の下で適用すると、$W^Q$ は $m$ 次元 standard ブラウン運動です。
 <!-- proof-end -->
 
 ここで重要なのは、同じ coordinate map
@@ -1413,8 +1415,8 @@ $$
 
 を見ていても、
 
-- $P$ の下では $W$ が Brown 運動
-- $Q$ の下では $W+\int\theta ds$ が Brown 運動
+- $P$ の下では $W$ がブラウン運動
+- $Q$ の下では $W+\int\theta ds$ がブラウン運動
 
 になることです。
 
@@ -1422,11 +1424,11 @@ $$
 
 ---
 
-## 11. 最小例：Brown 運動へ定数 drift を付ける
+## 11. 最小例：ブラウン運動へ定数ドリフトを付ける
 
 $\mu\in\mathbb R$ を定数とします。
 
-$P$ の下で $W$ を standard Brown 運動とし
+$P$ の下で $W$ を standard ブラウン運動とし
 
 $$
 \theta_t=-\mu
@@ -1454,7 +1456,7 @@ $$
 
 と直ちに確認できます。
 
-density は
+密度は
 
 $$
 \begin{aligned}
@@ -1472,9 +1474,9 @@ Z_T
 \end{aligned}
 $$
 
-これは [STO7 の Brownian exponential martingale](../STO7/index.md#prop-sto7-brownian-exponential-martingale) そのものです。
+これは [STO7 のブラウン指数型 martingale](../STO7/index.md#prop-sto7-brownian-exponential-martingale) そのものです。
 
-[Girsanov theorem](#thm-sto10-girsanov) から
+[Girsanov 定理](#thm-sto10-girsanov) から
 
 $$
 B_t
@@ -1482,9 +1484,9 @@ B_t
 W_t-\mu t
 $$
 
-は $Q$-Brownian motion です。
+は $Q$-ブラウン運動です。
 
-従って同じ coordinate process $W$ は $Q$ の下で
+従って同じ coordinate 過程 $W$ は $Q$ の下で
 
 $$
 W_t=\mu t+B_t
@@ -1508,14 +1510,14 @@ $$
 
 ---
 
-## 12. SDE の drift removal
+## 12. SDE のドリフト除去
 
-Girsanov は Brownian motion の drift shift ですが、SDE へ代入すると drift を消せます。
+Girsanov はブラウン運動のドリフト shift ですが、SDE へ代入するとドリフトを消せます。
 
 <a id="cor-sto10-drift-removal"></a>
 
 <!-- formal-statement-start -->
-> **系（Girsanov による drift removal）**  
+> **系（Girsanov によるドリフト除去）**  
 > $P$ の下で
 >
 $$
@@ -1524,7 +1526,7 @@ dX_t
 b_t\,dt+\sigma_t\,dW_t
 $$
 >
-> が成り立つとする。ここで $W$ は $m$ 次元 Brown 運動、
+> が成り立つとする。ここで $W$ は $m$ 次元ブラウン運動、
 >
 $$
 b_t\in\mathbb R^d,
@@ -1560,7 +1562,7 @@ W_t^Q
 W_t+\int_0^t\theta_sds
 $$
 >
-> は $Q$-Brownian motion であり、$Q$ の下で
+> は $Q$-ブラウン運動であり、$Q$ の下で
 >
 $$
 \boxed{
@@ -1583,7 +1585,7 @@ $$
 
 これを元の SDE へ代入するだけです。
 
-drift は
+ドリフトは
 
 $$
 b_t-\sigma_t\theta_t
@@ -1594,7 +1596,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[Girsanov theorem](#thm-sto10-girsanov) により $W^Q$ は $Q$-Brownian motion です。
+[Girsanov 定理](#thm-sto10-girsanov) により $W^Q$ は $Q$-ブラウン運動です。
 
 定義から
 
@@ -1626,7 +1628,7 @@ $$
 
 と選べます。
 
-一般の長方形行列では、drift removal が可能であるためには
+一般の長方形行列では、ドリフト除去が可能であるためには
 
 $$
 b_t\in\operatorname{Im}\sigma_t
@@ -1634,23 +1636,23 @@ $$
 
 が必要です。
 
-Girsanov は「任意の drift を魔法のように消す」のではなく、**noise が動かせる方向にある drift を測度へ移す** 定理です。
+Girsanov は「任意のドリフトを魔法のように消す」のではなく、**雑音が動かせる方向にあるドリフトを測度へ移す** 定理です。
 
 ---
 
-## 13. weak existence を Girsanov で作る
+## 13. 弱解の存在を Girsanov で作る
 
-ここまでの drift removal は、すでに $P$ の下で SDE がある場合の書き換えでした。
+ここまでのドリフト除去は、すでに $P$ の下で SDE がある場合の書き換えでした。
 
 今度は逆に使います。
 
-まず簡単な Brown 運動を用意し、測度を変えて目的の drift を作ります。
+まず簡単なブラウン運動を用意し、測度を変えて目的のドリフトを作ります。
 
 <a id="thm-sto10-bounded-borel-weak-existence"></a>
 
 <!-- formal-statement-start -->
-> **定理（bounded Borel drift SDE の finite-horizon weak existence）**  
-> $b:\mathbb R^d\to\mathbb R^d$ を bounded Borel 関数とし、$x\in\mathbb R^d$、$T<\infty$ とする。
+> **定理（有界 Borel ドリフト SDE の有限-horizon 弱解の存在）**  
+> $b:\mathbb R^d\to\mathbb R^d$ を有界 Borel 関数とし、$x\in\mathbb R^d$、$T<\infty$ とする。
 >
 > このとき
 >
@@ -1662,10 +1664,10 @@ X_0=x,
 0\le t\le T
 $$
 >
-> は weak solution を持つ。
+> は弱解を持つ。
 <!-- formal-statement-end -->
 
-これは STO9 の Picard theorem より仮定が弱いです。
+これは [STO9 の大域的存在一意性定理](../STO9/index.md#thm-sto9-global-existence-uniqueness)より仮定が弱いです。
 
 $b$ に Lipschitz continuity を要求していません。
 
@@ -1679,9 +1681,9 @@ $$
 
 と置きます。
 
-つまり最初は drift 0 の process を使います。
+つまり最初はドリフト 0 の過程を使います。
 
-目的の drift $b(X_t)$ を作るため
+目的のドリフト $b(X_t)$ を作るため
 
 $$
 \theta_t=-b(X_t)
@@ -1689,9 +1691,9 @@ $$
 
 と選びます。
 
-$b$ は bounded なので Novikov condition は自動的に成立します。
+$b$ は有界なので Novikov condition は自動的に成立します。
 
-Girsanov 後の Brown 運動は
+Girsanov 後のブラウン運動は
 
 $$
 B_t
@@ -1707,12 +1709,12 @@ X_t=x+W_t
 x+\int_0^tb(X_s)ds+B_t.
 $$
 
-これで weak solution が完成します。
+これで弱解が完成します。
 
 <!-- proof-start -->
 ### 証明
 
-$P$ の下で $d$ 次元 Brown 運動 $W$ を一つ取ります。
+$P$ の下で $d$ 次元ブラウン運動 $W$ を一つ取ります。
 
 $$
 X_t=x+W_t
@@ -1720,9 +1722,9 @@ $$
 
 と置きます。
 
-$X$ は continuous adapted です。
+$X$ は continuous 適合です。
 
-$b$ は Borel、$X$ は adapted continuous なので
+$b$ は Borel、$X$ は適合 continuous なので
 
 $$
 b(X_t)
@@ -1772,7 +1774,7 @@ $$
 
 Novikov condition が成立します。
 
-density を
+密度を
 
 $$
 \begin{aligned}
@@ -1798,7 +1800,7 @@ $$
 
 と置きます。
 
-[Girsanov theorem](#thm-sto10-girsanov) から
+[Girsanov 定理](#thm-sto10-girsanov) から
 
 $$
 \begin{aligned}
@@ -1810,7 +1812,7 @@ W_t-\int_0^tb(X_s)ds
 \end{aligned}
 $$
 
-は $Q$ の下で $d$ 次元 Brown 運動です。
+は $Q$ の下で $d$ 次元ブラウン運動です。
 
 したがって
 
@@ -1845,35 +1847,35 @@ $$
 (\Omega,\mathcal F,(\mathcal F_t),Q,B,X)
 $$
 
-は目的の SDE の weak solution です。
+は目的の SDE の弱解です。
 <!-- proof-end -->
 
 ここで非常に重要な点があります。
 
-$b$ が discontinuous でも bounded Borel なら、上の weak existence construction は動きます。
+$b$ が不連続でも有界 Borel なら、上の弱解の存在 construction は動きます。
 
-一方 STO9 の global Lipschitz Picard theorem はそのような $b$ へ直接適用できません。
+一方 STO9 の大域 Lipschitz Picard 定理はそのような $b$ へ直接適用できません。
 
 したがって
 
 $$
 \boxed{
-\text{weak existence}
+\text{弱解の存在}
 \text{ は }
-\text{STO9 の strong Picard construction}
+\text{STO9 の strong Picard 構成}
 \text{ より柔軟}
 }
 $$
 
 であることを実例で確認できました。
 
-ただし、この事実だけから strong solution が存在しないとは言えません。
+ただし、この事実だけから強解が存在しないとは言えません。
 
-weak construction ができることと strong existence の否定は別の主張です。
+weak construction ができることと強解の存在の否定は別の主張です。
 
 ---
 
-## 14. 直接例：不連続 drift でも weak solution を作れる
+## 14. 直接例：不連続ドリフトでも弱解を作れる
 
 1 次元で
 
@@ -1885,7 +1887,7 @@ $$
 
 とします。
 
-$b$ は $0$ で discontinuous なので global Lipschitz ではありません。
+$b$ は $0$ で不連続なので大域 Lipschitz ではありません。
 
 しかし
 
@@ -1895,7 +1897,7 @@ $$
 
 です。
 
-$P$-Brownian motion $W$ に対し
+$P$-ブラウン運動 $W$ に対し
 
 $$
 X_t=x+W_t
@@ -1940,7 +1942,7 @@ W_t
 \lambda\mathbf1_{\{X_s\ge0\}}\,ds
 $$
 
-は Brown 運動です。
+はブラウン運動です。
 
 よって
 
@@ -1965,15 +1967,15 @@ dX_t
 \lambda\mathbf1_{\{X_t\ge0\}}dt+dB_t
 $$
 
-の weak solution が得られました。
+の弱解が得られました。
 
 「係数が滑らかでないから SDE が存在しない」とは限らないことが分かります。
 
 ---
 
-## 15. noise を比較せず law を比較する
+## 15. 雑音を比較せず法則を比較する
 
-weak solution は確率空間自体が違ってよいので、二つの weak solutions を pathwise に
+弱解は確率空間自体が違ってよいので、二つの weak solutions を pathwise に
 
 $$
 X_t(\omega)=Y_t(\omega)
@@ -1986,10 +1988,10 @@ $$
 <a id="def-sto10-uniqueness-in-law"></a>
 
 <!-- formal-statement-start -->
-> **定義（uniqueness in law）**  
+> **定義（法則の一意性）**  
 > 初期分布 $\mu$ を固定する。
 >
-> 同じ Brownian SDE に対する任意の二つの weak solutions
+> 同じブラウン SDE に対する任意の二つの weak solutions
 >
 $$
 (\Omega,\mathcal F,(\mathcal F_t),P,W,X),
@@ -2027,13 +2029,13 @@ $$
 }
 $$
 >
-> が必ず成り立つなら、その SDE は **uniqueness in law** を持つという。
+> が必ず成り立つなら、その SDE は **法則の一意性** を持つという。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-sto10-uniqueness-in-law -->
+<!-- definition-example-start: def-sto10-一意性-in-法則 -->
 **定義の確認**
 
-### 直接例：定数係数 SDE は law が一意
+### 直接例：定数係数 SDE は法則が一意
 
 $$
 dX_t=\mu\,dt+\Sigma\,dW_t,
@@ -2041,7 +2043,7 @@ dX_t=\mu\,dt+\Sigma\,dW_t,
 X_0=x
 $$
 
-の任意の weak solution は積分表示から
+の任意の弱解は積分表示から
 
 $$
 X_t=x+\mu t+\Sigma W_t
@@ -2061,11 +2063,11 @@ $$
 (X_{t_1},\ldots,X_{t_n})
 $$
 
-の分布は Brownian motion の Gaussian law だけで決まります。
+の分布はブラウン運動のガウス法則だけで決まります。
 
-さらに標本路は continuous なので、連続関数空間上の law もこの Brownian image として一意です。
+さらに標本路は continuous なので、連続関数空間上の法則もこのブラウン image として一意です。
 
-ここでは確率空間が違っても $X$ の law は変わりません。
+ここでは確率空間が違っても $X$ の法則は変わりません。
 <!-- definition-example-end -->
 
 ---
@@ -2076,26 +2078,26 @@ $$
 
 | 性質 | 比較するとき何を固定するか | 主張 |
 |---|---|---|
-| strong existence | Brown 運動と確率空間を先に固定 | その noise 上に解を作れる |
-| weak existence | 確率空間と Brown 運動も選べる | どこかに解を作れる |
-| pathwise uniqueness | 同じ空間・同じ Brown 運動・同じ初期値 | 二つの解は indistinguishable |
-| uniqueness in law | 初期分布だけ共通 | 解 $X$ の $C([0,T],\mathbb R^d)$ 上の law が同じ |
+| 強解の存在 | ブラウン運動と確率空間を先に固定 | その雑音上に解を作れる |
+| 弱解の存在 | 確率空間とブラウン運動も選べる | どこかに解を作れる |
+| 経路ごとの一意性 | 同じ空間・同じブラウン運動・同じ初期値 | 二つの解は indistinguishable |
+| 法則の一意性 | 初期分布だけ共通 | 解 $X$ の $C([0,T],\mathbb R^d)$ 上の法則が同じ |
 
 特に
 
 $$
-\text{pathwise uniqueness}
+\text{経路ごとの一意性}
 $$
 
 と
 
 $$
-\text{uniqueness in law}
+\text{法則の一意性}
 $$
 
 は別物です。
 
-前者は同じ noise の上での比較、後者は異なる確率空間をまたいだ分布の比較です。
+前者は同じ雑音の上での比較、後者は異なる確率空間をまたいだ分布の比較です。
 
 ---
 
@@ -2104,34 +2106,34 @@ $$
 <a id="thm-sto10-yamada-watanabe"></a>
 
 <!-- formal-statement-start -->
-> **定理（Yamada--Watanabe theorem の位置付け）**  
-> Euclidean Brownian SDE
+> **定理（Yamada--Watanabe 定理の位置付け）**  
+> Euclidean ブラウン SDE
 >
 $$
 dX_t=b(X_t)\,dt+\sigma(X_t)\,dW_t
 $$
 >
-> を通常の filtered probability space の枠組みで考え、係数は drift / diffusion の各積分が well-defined となる Borel 可測係数とする。
+> を通常のフィルトレーション付き確率空間の枠組みで考え、係数はドリフト / 拡散の各積分が well-defined となる Borel 可測係数とする。
 >
 > ある指定初期分布について
 >
-> 1. weak solution が存在し、
-> 2. pathwise uniqueness が成り立つ
+> 1. 弱解が存在し、
+> 2. 経路ごとの一意性が成り立つ
 >
-> なら、その初期分布に対して strong solution が存在し、さらに uniqueness in law が成り立つ。
+> なら、その初期分布に対して強解が存在し、さらに法則の一意性が成り立つ。
 <!-- formal-statement-end -->
 
 この定理は
 
 $$
 \boxed{
-\text{weak existence}
+\text{弱解の存在}
 +
-\text{pathwise uniqueness}
+\text{経路ごとの一意性}
 \Longrightarrow
-\text{strong existence}
+\text{強解の存在}
 +
-\text{uniqueness in law}
+\text{法則の一意性}
 }
 $$
 
@@ -2143,22 +2145,22 @@ $$
 
 異なる確率空間上の weak solutions を共通の空間へ持ち上げ、
 
-- regular conditional law
+- regular conditional 法則
 - 連続関数空間上の coupling
-- noise を固定した条件付き law
-- measurable selection / measurable functional representation
+- 雑音を固定した条件付き法則
+- measurable selection / measurable functional 表現
 
 を精密に扱う必要があります。
 
-これらは STO10 の主題である「Girsanov による measure change」とは別の大きな論証系です。
+これらは STO10 の主題である「Girsanov による測度変換」とは別の大きな論証系です。
 
-したがって本章では [Yamada--Watanabe theorem](#thm-sto10-yamada-watanabe) を **strong / weak theory の接続定理として明示的な技術的入力**とし、完全証明は独立した確率論補講の規模になるため扱いません。
+したがって本章では [Yamada--Watanabe 定理](#thm-sto10-yamada-watanabe) を **strong / weak theory の接続定理として明示的な技術的入力**とし、完全証明は独立した確率論補講の規模になるため扱いません。
 
 重要なのは、定理の向きを誤らないことです。
 
-weak existence だけから strong existence は出ません。
+弱解の存在だけから強解の存在は出ません。
 
-pathwise uniqueness だけでも existence は出ません。
+経路ごとの一意性だけでも存在は出ません。
 
 二つを組み合わせたときに橋が架かります。
 
@@ -2166,9 +2168,9 @@ pathwise uniqueness だけでも existence は出ません。
 
 ## 18. 仮定を外すとどこが壊れるか
 
-### 18.1 stochastic exponential が true martingale でなければ測度を作れない
+### 18.1 確率指数関数が真のマルチンゲールでなければ測度を作れない
 
-$Z=\mathcal E(M)$ が正の local martingale でも
+$Z=\mathcal E(M)$ が正の局所マルチンゲールでも
 
 $$
 E_P[Z_T]<1
@@ -2182,7 +2184,7 @@ $$
 
 したがって確率測度 $Q$ ではありません。
 
-Girsanov の density に stochastic exponential を書くだけでは不十分で、Novikov condition などにより
+Girsanov の密度に確率指数関数を書くだけでは不十分で、Novikov condition などにより
 
 $$
 E_P[Z_T]=1
@@ -2192,13 +2194,13 @@ $$
 
 壊れる機構は **probability mass の loss** です。
 
-### 18.2 drift が diffusion の像に入らなければ単純な drift removal はできない
+### 18.2 ドリフトが拡散の像に入らなければ単純なドリフト除去はできない
 
 $$
 dX_t=b_tdt+\sigma_tdW_t
 $$
 
-で Girsanov が Brownian motion に加えられるのは
+で Girsanov がブラウン運動に加えられるのは
 
 $$
 \sigma_t\theta_tdt
@@ -2218,11 +2220,11 @@ $$
 b_t=\sigma_t\theta_t
 $$
 
-を解けず、前節の drift removal は使えません。
+を解けず、前節のドリフト除去は使えません。
 
-壊れるのは measure-change theorem ではなく、**消したい drift と noise direction の線形代数的対応**です。
+壊れるのは measure-change 定理ではなく、**消したいドリフトと雑音 direction の線形代数的対応**です。
 
-### 18.3 finite horizon の同値性を無限時間へ自動延長しない
+### 18.3 有限時間区間の同値性を無限時間へ自動延長しない
 
 本章では $[0,T]$ を固定しました。
 
@@ -2240,13 +2242,13 @@ $$
 
 とは言えません。
 
-無限時間では density martingale の長時間極限と一様可積分性を別途調べる必要があります。
+無限時間では密度 martingale の長時間極限と一様可積分性を別途調べる必要があります。
 
 ---
 
 ## 19. 演習
 
-#### STO10-A01 二点空間の equivalent change of measure
+#### STO10-A01 二点空間の同値測度変換
 - Level: A
 - 目安時間: 12分
 
@@ -2386,11 +2388,11 @@ E_Q[Y]=E_P[ZY].
 $$
 <!-- solution-end -->
 
-#### STO10-A02 constant drift の density と Novikov condition
+#### STO10-A02 定数ドリフトの密度と Novikov condition
 - Level: A
 - 目安時間: 15分
 
-$W$ を $P$-Brownian motion、$\mu\in\mathbb R$、$T<\infty$ とする。
+$W$ を $P$-ブラウン運動、$\mu\in\mathbb R$、$T<\infty$ とする。
 
 $$
 \theta_t=-\mu
@@ -2399,9 +2401,9 @@ $$
 と置く。
 
 1. Novikov condition を確認せよ。
-2. density $Z_T$ を明示せよ。
-3. [STO7 の Brownian exponential martingale](../STO7/index.md#prop-sto7-brownian-exponential-martingale) を使って $E_P[Z_T]=1$ を確認せよ。
-4. $Q$ の下で Brown 運動になる process を書け。
+2. 密度 $Z_T$ を明示せよ。
+3. [STO7 のブラウン指数型 martingale](../STO7/index.md#prop-sto7-brownian-exponential-martingale) を使って $E_P[Z_T]=1$ を確認せよ。
+4. $Q$ の下でブラウン運動になる過程を書け。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -2452,9 +2454,9 @@ Z_T
 \end{aligned}
 $$
 
-3. [STO7 の Brownian exponential martingale](../STO7/index.md#prop-sto7-brownian-exponential-martingale) を parameter $\mu$ で使えます。
+3. [STO7 のブラウン指数型 martingale](../STO7/index.md#prop-sto7-brownian-exponential-martingale) を parameter $\mu$ で使えます。
 
-その命題の仮定は $W$ が standard Brownian motion、$\mu$ が定数であることです。本問では両方を満たします。
+その命題の仮定は $W$ が standard ブラウン運動、$\mu$ が定数であることです。本問では両方を満たします。
 
 従って
 
@@ -2462,7 +2464,7 @@ $$
 E_P[Z_T]=1.
 $$
 
-4. [Girsanov theorem](#thm-sto10-girsanov) から
+4. [Girsanov 定理](#thm-sto10-girsanov) から
 
 $$
 W_t^Q
@@ -2472,10 +2474,10 @@ W_t+\int_0^t(-\mu)ds
 \boxed{W_t-\mu t}
 $$
 
-が $Q$-Brownian motion です。
+が $Q$-ブラウン運動です。
 <!-- solution-end -->
 
-#### STO10-A03 drift removal の符号を確認する
+#### STO10-A03 ドリフト除去の符号を確認する
 - Level: A
 - 目安時間: 15分
 
@@ -2493,14 +2495,14 @@ $$
 
 が Novikov condition を満たすとする。
 
-1. Girsanov 後の Brown 運動 $W^Q$ を書け。
+1. Girsanov 後のブラウン運動 $W^Q$ を書け。
 2. $dW_t$ を $dW_t^Q$ で表せ。
-3. 元の SDE へ代入し drift が消えることを一行ずつ確認せよ。
+3. 元の SDE へ代入しドリフトが消えることを一行ずつ確認せよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-1. 本章の符号規約では density は
+1. 本章の符号規約では密度は
 
 $$
 Z_T
@@ -2523,7 +2525,7 @@ W_t+\int_0^t\theta_sds
 }
 $$
 
-が $Q$-Brownian motion です。
+が $Q$-ブラウン運動です。
 
 2. 微分表示では
 
@@ -2570,34 +2572,34 @@ $$
 - Level: A
 - 目安時間: 15分
 
-次の各主張が何を述べているか、strong existence / weak existence / pathwise uniqueness / uniqueness in law から選び、理由を述べよ。
+次の各主張が何を述べているか、強解の存在 / 弱解の存在 / 経路ごとの一意性 / 法則の一意性から選び、理由を述べよ。
 
-1. 「同じ確率空間、同じ Brown 運動、同じ初期値で作った二つの解は indistinguishable である。」
-2. 「確率空間と Brown 運動をこちらで選べば、少なくとも一組の解が作れる。」
-3. 「初期分布が同じ任意の二つの weak solutions は、$X$ の $C([0,T],\mathbb R^d)$ 上の law が一致する。」
-4. 「先に与えられた Brown 運動と初期値が生成する情報の上で解を構成できる。」
+1. 「同じ確率空間、同じブラウン運動、同じ初期値で作った二つの解は indistinguishable である。」
+2. 「確率空間とブラウン運動をこちらで選べば、少なくとも一組の解が作れる。」
+3. 「初期分布が同じ任意の二つの weak solutions は、$X$ の $C([0,T],\mathbb R^d)$ 上の法則が一致する。」
+4. 「先に与えられたブラウン運動と初期値が生成する情報の上で解を構成できる。」
 
 <!-- solution-start -->
 ### 詳細解答
 
-1. **pathwise uniqueness** です。
+1. **経路ごとの一意性** です。
 
-比較時に「同じ確率空間・同じ Brown 運動・同じ初期値」を固定し、二つの解そのものを標本路ごとに比較しています。
+比較時に「同じ確率空間・同じブラウン運動・同じ初期値」を固定し、二つの解そのものを標本路ごとに比較しています。
 
-2. **weak existence** です。
+2. **弱解の存在** です。
 
-確率空間と Brown 運動も解の一部として選べる、という量化順序になっています。
+確率空間とブラウン運動も解の一部として選べる、という量化順序になっています。
 
-3. **uniqueness in law** です。
+3. **法則の一意性** です。
 
-異なる確率空間にいる解同士を直接比較せず、$C([0,T],\mathbb R^d)$ 上の law を比較しています。
+異なる確率空間にいる解同士を直接比較せず、$C([0,T],\mathbb R^d)$ 上の法則を比較しています。
 
-4. **strong existence** です。
+4. **強解の存在** です。
 
-noise と初期値が先に固定され、その情報上に解を構成することを要求しています。
+雑音と初期値が先に固定され、その情報上に解を構成することを要求しています。
 <!-- solution-end -->
 
-#### STO10-B01 density process の途中時刻公式
+#### STO10-B01 密度過程の途中時刻公式
 - Level: B
 - 目安時間: 22分
 
@@ -2611,7 +2613,7 @@ $$
 
 とする。
 
-$0\le s\le t\le T$ と bounded $\mathcal F_s$-可測確率変数 $H$ に対し
+$0\le s\le t\le T$ と有界 $\mathcal F_s$-可測確率変数 $H$ に対し
 
 $$
 E_Q[H Z_t^{-1}]
@@ -2711,7 +2713,7 @@ $$
 は Radon--Nikodym 密度を反転した測度変換そのものです。
 <!-- solution-end -->
 
-#### STO10-B02 bounded Borel drift の weak existence を再構成する
+#### STO10-B02 有界 Borel ドリフトの弱解の存在を再構成する
 - Level: B
 - 目安時間: 30分
 
@@ -2723,7 +2725,7 @@ $$
 
 を満たす Borel 関数とする。
 
-$P$-Brownian motion $W$ に対して
+$P$-ブラウン運動 $W$ に対して
 
 $$
 X_t=x+W_t
@@ -2732,8 +2734,8 @@ $$
 と置く。
 
 1. $\theta_t=-b(X_t)$ が Novikov condition を満たすことを示せ。
-2. density $Z_T$ を $b(X)$ と $W$ で書け。
-3. $Q$ の下で Brown 運動となる $B$ を書け。
+2. 密度 $Z_T$ を $b(X)$ と $W$ で書け。
+3. $Q$ の下でブラウン運動となる $B$ を書け。
 4. $X$ が
 
 $$
@@ -2741,7 +2743,7 @@ X_t=x+\int_0^tb(X_s)ds+B_t
 $$
 
 を満たすことを導け。
-5. なぜこれは strong existence の証明ではなく weak existence の証明なのか説明せよ。
+5. なぜこれは強解の存在の証明ではなく弱解の存在の証明なのか説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -2810,7 +2812,7 @@ Z_T
 }.
 $$
 
-3. [Girsanov theorem](#thm-sto10-girsanov) から
+3. [Girsanov 定理](#thm-sto10-girsanov) から
 
 $$
 \begin{aligned}
@@ -2824,7 +2826,7 @@ W_t-\int_0^tb(X_s)ds
 \end{aligned}
 $$
 
-が $Q$-Brownian motion です。
+が $Q$-ブラウン運動です。
 
 4. 前式を変形すると
 
@@ -2848,9 +2850,9 @@ x+\int_0^tb(X_s)ds+B_t
 \end{aligned}
 $$
 
-5. 最初に与えられた Brown 運動の上で target SDE の解を直接構成したのではありません。
+5. 最初に与えられたブラウン運動の上で target SDE の解を直接構成したのではありません。
 
-まず $P$ の下で driftless process $X=x+W$ を置き、その後に確率測度を $Q$ へ変更して、新しい Brown 運動 $B$ と target equation を得ました。
+まず $P$ の下で driftless 過程 $X=x+W$ を置き、その後に確率測度を $Q$ へ変更して、新しいブラウン運動 $B$ と target equation を得ました。
 
 つまり
 
@@ -2860,66 +2862,66 @@ $$
 
 という解の組をこちらで選んでいます。
 
-これは weak existence の量化順序です。
+これは弱解の存在の量化順序です。
 <!-- solution-end -->
 
 #### STO10-B03 Yamada--Watanabe の論理を読む
 - Level: B
 - 目安時間: 20分
 
-ある Brownian SDE について次が分かっているとする。
+あるブラウン SDE について次が分かっているとする。
 
-- weak solution は少なくとも一つ存在する。
-- pathwise uniqueness が成立する。
+- 弱解は少なくとも一つ存在する。
+- 経路ごとの一意性が成立する。
 
-1. [Yamada--Watanabe theorem](#thm-sto10-yamada-watanabe) から何が従うか。
-2. uniqueness in law は何を比較する性質か。
-3. 「weak solution が存在するから strong solution も存在する」とだけ言うのが誤りである理由を説明せよ。
-4. STO9 の global Lipschitz theorem では、なぜ Yamada--Watanabe を使わなくても strong existence が得られていたか。
+1. [Yamada--Watanabe 定理](#thm-sto10-yamada-watanabe) から何が従うか。
+2. 法則の一意性は何を比較する性質か。
+3. 「弱解が存在するから強解も存在する」とだけ言うのが誤りである理由を説明せよ。
+4. STO9 の大域 Lipschitz 定理では、なぜ Yamada--Watanabe を使わなくても強解の存在が得られていたか。
 
 <!-- solution-start -->
 ### 詳細解答
 
-1. [Yamada--Watanabe theorem](#thm-sto10-yamada-watanabe) から
+1. [Yamada--Watanabe 定理](#thm-sto10-yamada-watanabe) から
 
 $$
 \boxed{
-\text{strong existence}
+\text{強解の存在}
 +
-\text{uniqueness in law}
+\text{法則の一意性}
 }
 $$
 
 が従います。
 
-入力は weak existence **だけではなく** pathwise uniqueness との組です。
+入力は弱解の存在 **だけではなく** 経路ごとの一意性との組です。
 
-2. uniqueness in law は、同じ初期分布を持つ任意の weak solutions に対して
+2. 法則の一意性は、同じ初期分布を持つ任意の weak solutions に対して
 
 $$
 \mathcal L(X)
 $$
 
-という $C([0,T],\mathbb R^d)$ 上の law が一致することを比較します。
+という $C([0,T],\mathbb R^d)$ 上の法則が一致することを比較します。
 
-確率空間や Brown 運動そのものを同一視する必要はありません。
+確率空間やブラウン運動そのものを同一視する必要はありません。
 
-3. weak existence では、解を作るために確率空間と Brown 運動を選んでよいという自由があります。
+3. 弱解の存在では、解を作るために確率空間とブラウン運動を選んでよいという自由があります。
 
-strong existence は、先に固定された noise の情報上で解を作るという追加要求です。
+強解の存在は、先に固定された雑音の情報上で解を作るという追加要求です。
 
-したがって weak existence 単独では量化順序の差を埋められません。
+したがって弱解の存在単独では量化順序の差を埋められません。
 
-Yamada--Watanabe では pathwise uniqueness がその差を埋める追加入力になります。
+Yamada--Watanabe では経路ごとの一意性がその差を埋める追加入力になります。
 
-4. STO9 では global Lipschitz 係数に対して Picard iteration を **最初から指定された Brown 運動上で**回しました。
+4. STO9 では大域 Lipschitz 係数に対して Picard iteration を **最初から指定されたブラウン運動上で**回しました。
 
-従って strong solution を直接構成しています。
+従って強解を直接構成しています。
 
 Yamada--Watanabe を介して weak から strong へ持ち上げる必要がありませんでした。
 <!-- solution-end -->
 
-#### STO10-C01 discontinuous bounded drift を Girsanov で作る
+#### STO10-C01 不連続有界ドリフトを Girsanov で作る
 - Level: C
 - 目安時間: 40分
 
@@ -2943,22 +2945,22 @@ dX_t
 X_0=x
 $$
 
-の weak solution を Girsanov で構成せよ。
+の弱解を Girsanov で構成せよ。
 
 次を順に行うこと。
 
-1. $P$-Brownian motion $W$ から出発し $X_t=x+W_t$ と置く。
-2. target drift を作るための $\theta_t$ を選ぶ。
-3. $\theta$ の progressive measurability と Novikov condition を確認する。
-4. density $Z_T$ を明示する。
-5. $Q$-Brownian motion $B$ を明示する。
+1. $P$-ブラウン運動 $W$ から出発し $X_t=x+W_t$ と置く。
+2. target ドリフトを作るための $\theta_t$ を選ぶ。
+3. $\theta$ の発展的可測 measurability と Novikov condition を確認する。
+4. 密度 $Z_T$ を明示する。
+5. $Q$-ブラウン運動 $B$ を明示する。
 6. target SDE の積分表示を導く。
-7. STO9 の global Lipschitz theorem をこの $b$ に直接適用できない理由と、それでも本問の weak construction が動く理由を説明する。
+7. STO9 の大域 Lipschitz 定理をこの $b$ に直接適用できない理由と、それでも本問の weak construction が動く理由を説明する。
 
 <!-- solution-start -->
 ### 詳細解答
 
-1. standard Brown 運動 $W$ を持つ filtered probability space を一つ取ります。
+1. standard ブラウン運動 $W$ を持つフィルトレーション付き確率空間を一つ取ります。
 
 $$
 X_t=x+W_t
@@ -2966,9 +2968,9 @@ $$
 
 と置きます。
 
-$X$ は continuous adapted です。
+$X$ は continuous 適合です。
 
-2. weak existence theorem の符号に合わせ
+2. 弱解の存在定理の符号に合わせ
 
 $$
 \boxed{
@@ -2982,7 +2984,7 @@ $$
 
 と選びます。
 
-3. $X$ は adapted continuous process なので progressively measurable です。
+3. $X$ は適合 continuous 過程なので progressively measurable です。
 
 写像
 
@@ -3034,7 +3036,7 @@ $$
 
 Novikov condition が成立します。
 
-4. density は
+4. 密度は
 
 $$
 Z_T
@@ -3066,7 +3068,7 @@ $$
 
 指示関数は二乗しても同じなので second term は上の形になります。
 
-[Novikov theorem](#thm-sto10-novikov) から
+[Novikov 定理](#thm-sto10-novikov) から
 
 $$
 E_P[Z_T]=1.
@@ -3080,7 +3082,7 @@ $$
 
 で確率測度 $Q$ を作れます。
 
-5. [Girsanov theorem](#thm-sto10-girsanov) から
+5. [Girsanov 定理](#thm-sto10-girsanov) から
 
 $$
 \begin{aligned}
@@ -3096,7 +3098,7 @@ W_t
 \end{aligned}
 $$
 
-が $Q$-Brownian motion です。
+が $Q$-ブラウン運動です。
 
 6. これを変形すると
 
@@ -3141,17 +3143,17 @@ $$
 (\Omega,\mathcal F,(\mathcal F_t),Q,B,X)
 $$
 
-は target SDE の weak solution です。
+は target SDE の弱解です。
 
-7. drift
+7. ドリフト
 
 $$
 b(x)=\lambda\mathbf1_{\{x\ge0\}}
 $$
 
-は $x=0$ で discontinuous です。
+は $x=0$ で不連続です。
 
-したがって global Lipschitz ではなく、STO9 の global Lipschitz Picard theorem の仮定を満たしません。
+したがって大域 Lipschitz ではなく、STO9 の大域 Lipschitz Picard 定理の仮定を満たしません。
 
 一方 Girsanov construction で必要だったのは、本問では主に
 
@@ -3169,7 +3171,7 @@ $$
 
 なので energy を deterministic constant で抑えられました。
 
-したがって Picard theorem が直接使えないことと weak existence が失敗することは同義ではありません。
+したがって Picard 定理が直接使えないことと弱解の存在が失敗することは同義ではありません。
 <!-- solution-end -->
 
 ---
@@ -3180,9 +3182,9 @@ STO9 では
 
 $$
 \boxed{
-\text{noise を固定}
+\text{雑音を固定}
 \to
-\text{strong solution}
+\text{強解}
 }
 $$
 
@@ -3192,15 +3194,15 @@ STO10 では量化順序を広げ
 
 $$
 \boxed{
-\text{probability space / noise も選ぶ}
+\text{確率空間 / 雑音も選ぶ}
 \to
-\text{weak solution}
+\text{弱解}
 }
 $$
 
 を定義しました。
 
-さらに measure change について
+さらに測度変換について
 
 $$
 \boxed{
@@ -3210,7 +3212,7 @@ E_Q[Y]=E_P[Z_tY]
 }
 $$
 
-を確認し、stochastic exponential
+を確認し、確率指数関数
 
 $$
 Z_t
@@ -3222,11 +3224,11 @@ Z_t
 \right)
 $$
 
-が density になるために true martingale 性が必要であることを見ました。
+が密度になるために真のマルチンゲール性が必要であることを見ました。
 
 Novikov condition はその代表的な判定条件です。
 
-[Girsanov theorem](#thm-sto10-girsanov) の核心は
+[Girsanov 定理](#thm-sto10-girsanov) の核心は
 
 $$
 \boxed{
@@ -3236,7 +3238,7 @@ W_t+\int_0^t\theta_sds
 }
 $$
 
-が $Q$-Brownian motion になることでした。
+が $Q$-ブラウン運動になることでした。
 
 証明は
 
@@ -3245,7 +3247,7 @@ $$
 \to
 \text{covariation cancellation}
 \to
-Q\text{-local martingale}
+Q\text{-局所マルチンゲール}
 \to
 \text{same quadratic variation}
 \to
@@ -3268,27 +3270,27 @@ dX=b\,dt+\sigma\,dW
 dX=\sigma\,dW^Q
 $$
 
-と drift を測度側へ移せます。
+とドリフトを測度側へ移せます。
 
-逆向きに使えば bounded Borel drift について
+逆向きに使えば有界 Borel ドリフトについて
 
 $$
 dX_t=b(X_t)dt+dB_t
 $$
 
-の weak solution を Brown 運動から構成できます。
+の弱解をブラウン運動から構成できます。
 
 最後に
 
 $$
 \boxed{
-\text{weak existence}
+\text{弱解の存在}
 +
-\text{pathwise uniqueness}
+\text{経路ごとの一意性}
 \overset{\text{Yamada--Watanabe}}{\Longrightarrow}
-\text{strong existence}
+\text{強解の存在}
 +
-\text{uniqueness in law}
+\text{法則の一意性}
 }
 $$
 
@@ -3298,9 +3300,9 @@ $$
 
 ## 21. 次章への橋
 
-Girsanov は「測度を変えると drift がどう動くか」を教えました。
+Girsanov は「測度を変えるとドリフトがどう動くか」を教えました。
 
-次の STO11 では、今度は process を **時刻ごとの写像の族**として読みます。
+次の STO11 では、今度は過程を **時刻ごとの写像の族**として読みます。
 
 中心となる問いは
 
@@ -3316,15 +3318,15 @@ $$
 
 次章では
 
-- Markov process
-- transition kernel
-- Markov semigroup
-- generator
-- Dynkin formula
-- backward Kolmogorov equation
-- forward equation / Fokker--Planck equation
-- Feynman--Kac formula
-- martingale problem
+- Markov 過程
+- 遷移核
+- マルコフ半群
+- 生成作用素
+- Dynkin 公式
+- Kolmogorov 後退方程式
+- 前進方程式 / Fokker--Planck equation
+- Feynman--Kac 公式
+- マルチンゲール問題
 
 へ進みます。
 
