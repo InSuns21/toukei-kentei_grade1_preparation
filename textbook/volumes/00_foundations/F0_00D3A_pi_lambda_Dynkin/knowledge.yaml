@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - F0-00A
+  - F0-00A1C
   - F0-00D3
 
 # 冒頭・末尾では、π–λ定理が後続の拡張定理・積測度でどう使われるかを予告する。
