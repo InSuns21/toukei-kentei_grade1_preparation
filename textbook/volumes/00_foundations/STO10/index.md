@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念への参照**：[強解](../STO9/index.md#def-sto9-strong-solution)、[確率指数関数](../STO7/index.md#def-sto7-stochastic-exponential)、[連続局所マルチンゲール](../STO5/index.md#def-sto5-continuous-local-martingale)、[Lévy の特徴付け定理](../STO5/index.md#thm-sto5-levy-characterization) を直接参照します。
+> **既出概念への参照**：[強解](../STO9/index.md#def-sto9-strong-solution)、[確率指数関数](../STO7/index.md#def-sto7-stochastic-指数型)、[連続局所マルチンゲール](../STO5/index.md#def-sto5-continuous-局所-マルチンゲール)、[Lévy の特徴付け定理](../STO5/index.md#thm-sto5-levy-characterization) を直接参照します。
 
 STO9 では
 
@@ -47,7 +47,7 @@ $$
 
 です。
 
-最後に strong / weak それぞれの一意性概念を整理し、両者を結ぶ標準的な接続定理の位置を明確にします。
+最後に強解 / 弱解それぞれの一意性概念を整理し、両者を結ぶ標準的な接続定理の位置を明確にします。
 
 本章の Girsanov 部分は有限時間区間 $[0,T]$ を固定して扱います。これは単なる書きやすさではありません。有限時間ごとの同値性と無限時間全体での同値性は別問題です。
 
@@ -321,7 +321,7 @@ $$
 
 - 平均
 - 分布
-- martingale 性
+- マルチンゲール性
 - ブラウン運動であること
 
 は測度を変えると変わり得ます。
@@ -442,12 +442,12 @@ $$
 
 ---
 
-## 5. 密度過程は martingale になる
+## 5. 密度過程はマルチンゲールになる
 
 <a id="prop-sto10-density-martingale"></a>
 
 <!-- formal-statement-start -->
-> **命題（密度過程の martingale 性）**  
+> **命題（密度過程のマルチンゲール性）**  
 > $Q\ll P$ とし
 >
 $$
@@ -456,7 +456,7 @@ Z_T=\frac{dQ}{dP},
 Z_t=E_P[Z_T\mid\mathcal F_t]
 $$
 >
-> とする。このとき $(Z_t)_{0\le t\le T}$ は非負 $P$-martingale で
+> とする。このとき $(Z_t)_{0\le t\le T}$ は非負 $P$-マルチンゲールで
 >
 $$
 E_P[Z_t]=1
@@ -475,7 +475,7 @@ $$
 
 ### 証明の見取り図
 
-martingale 性は条件付き期待値の tower property そのものです。
+マルチンゲール性は条件付き期待値の tower property そのものです。
 
 期待値変換は Radon--Nikodym 密度の定義
 
@@ -507,7 +507,7 @@ Z_s.
 \end{aligned}
 $$
 
-従って $Z$ は $P$-martingale です。
+従って $Z$ は $P$-マルチンゲールです。
 
 また
 
@@ -577,7 +577,7 @@ $$
 \int_0^t|\theta_s|^2\,ds.
 $$
 
-[STO7 の確率指数関数](../STO7/index.md#def-sto7-stochastic-exponential) は
+[STO7 の確率指数関数](../STO7/index.md#def-sto7-stochastic-指数型) は
 
 $$
 \begin{aligned}
@@ -594,7 +594,7 @@ $$
 
 です。
 
-[基本恒等式](../STO7/index.md#prop-sto7-stochastic-exponential-identity) から
+[基本恒等式](../STO7/index.md#prop-sto7-stochastic-指数型-identity) から
 
 $$
 dZ_t
@@ -610,7 +610,7 @@ $$
 \boxed{
 \text{positive 局所マルチンゲール}
 \not\Rightarrow
-\text{martingale with }E[Z_T]=1
+\text{マルチンゲール with }E[Z_T]=1
 }
 $$
 
@@ -644,7 +644,7 @@ $$
 
 となり、確率測度を作れません。
 
-したがって Girsanov の前に「確率指数関数が真の martingale である」ことを保証する条件が必要です。
+したがって Girsanov の前に「確率指数関数が真のマルチンゲールである」ことを保証する条件が必要です。
 
 ---
 
@@ -655,7 +655,7 @@ $$
 <a id="lem-sto10-bounded-energy-exponential"></a>
 
 <!-- formal-statement-start -->
-> **補題（有界二次エネルギーなら確率指数関数は真の martingale）**  
+> **補題（有界二次エネルギーなら確率指数関数は真のマルチンゲール）**  
 > $M$ を $M_0=0$ の continuous 局所マルチンゲールとし、ある定数 $C<\infty$ に対して
 >
 $$
@@ -671,7 +671,7 @@ $$
 Z_t=\mathcal E(M)_t
 $$
 >
-> は $[0,T]$ 上の真の martingale で、
+> は $[0,T]$ 上の真のマルチンゲールで、
 >
 $$
 E_P[Z_t]=1
@@ -682,7 +682,7 @@ $$
 
 ### 証明の見取り図
 
-局所マルチンゲール $Z$ を有界 stopping time で止めて真の martingale にします。
+局所マルチンゲール $Z$ を有界 stopping time で止めて真のマルチンゲールにします。
 
 核心は stopped family に一様な $L^2$ bound を作ることです。
 
@@ -729,7 +729,7 @@ $$
 0<Z_{t\wedge\tau_n}\le n
 $$
 
-なので $Z^{\tau_n}$ は有界局所マルチンゲール、従って真の martingale です。
+なので $Z^{\tau_n}$ は有界局所マルチンゲール、従って真のマルチンゲールです。
 
 次に
 
@@ -823,7 +823,7 @@ $$
 E_P[Z_t\mid\mathcal F_s]=Z_s.
 $$
 
-従って $Z$ は真の martingale です。
+従って $Z$ は真のマルチンゲールです。
 <!-- proof-end -->
 
 特に $\theta$ が有界なら
@@ -892,16 +892,16 @@ Z_t
 \right)
 $$
 >
-> は $[0,T]$ 上の一様可積分な $P$-martingale であり
+> は $[0,T]$ 上の一様可積分な $P$-マルチンゲールであり
 >
 $$
 E_P[Z_T]=1.
 $$
 <!-- formal-statement-end -->
 
-この条件は確率指数関数の martingale 性を保証しますが、必要条件ではありません。
+この条件は確率指数関数のマルチンゲール性を保証しますが、必要条件ではありません。
 
-これを満たさないからといって、確率指数関数が martingale でないとは限りません。
+これを満たさないからといって、確率指数関数がマルチンゲールでないとは限りません。
 
 ### 証明の見取り図
 
@@ -925,7 +925,7 @@ $$
 Z^{\rho_n}
 $$
 
-は真の martingale です。
+は真のマルチンゲールです。
 
 残る仕事は
 
@@ -952,13 +952,13 @@ $$
 [M]_{T\wedge\rho_n}\le n
 $$
 
-なので、[有界-energy lemma](#lem-sto10-bounded-energy-exponential) から
+なので、[有界-energy lemma](#lem-sto10-有界-energy-指数型) から
 
 $$
 Z^{\rho_n}=\mathcal E(M^{\rho_n})
 $$
 
-は真の martingale です。
+は真のマルチンゲールです。
 
 一般の Novikov criterion の核心は、仮定
 
@@ -966,9 +966,9 @@ $$
 E_P[e^{[M]_T/2}]<\infty
 $$
 
-から、この stopped 指数型 family が一様可積分であることを示す martingale-UI lemma です。
+から、この stopped 指数型 family が一様可積分であることを示すマルチンゲール-UI lemma です。
 
-この UI lemma の完全証明は、停止区間を細分して指数積分可能性を局所化し、各区間で指数型 martingale の $L^1$ mass を繰り返し制御する技術論を要します。本章では **Novikov criterion のこの UI lemma を標準的な技術的入力**として用います。有界-energy の場合に同じ機構が $L^2$ estimate で閉じることは前節で完全証明しました。
+この UI lemma の完全証明は、停止区間を細分して指数積分可能性を局所化し、各区間で指数型マルチンゲールの $L^1$ mass を繰り返し制御する技術論を要します。本章では **Novikov criterion のこの UI lemma を標準的な技術的入力**として用います。有界-energy の場合に同じ機構が $L^2$ estimate で閉じることは前節で完全証明しました。
 
 UI lemma により
 
@@ -988,7 +988,7 @@ $$
 E_P[Z_t]=1.
 $$
 
-さらに stopped martingale identity の $L^1$ 極限から $Z$ 自身が martingale です。
+さらに stopped マルチンゲール identity の $L^1$ 極限から $Z$ 自身がマルチンゲールです。
 <!-- proof-end -->
 
 ここで黒箱にしたのは **Novikov の UI criterion の技術部分だけ**です。
@@ -1007,7 +1007,7 @@ $$
 Z=\mathcal E(M)
 $$
 
-が正の真の martingale で
+が正の真のマルチンゲールで
 
 $$
 E_P[Z_T]=1
@@ -1024,7 +1024,7 @@ $$
 <a id="lem-sto10-girsanov-local-martingale"></a>
 
 <!-- formal-statement-start -->
-> **補題（Girsanov 局所-martingale transform）**  
+> **補題（Girsanov 局所-マルチンゲール transform）**  
 > 上の設定で $N$ を continuous $P$-局所マルチンゲールとする。
 >
 > このとき
@@ -1135,7 +1135,7 @@ E_P[Z_tH\widetilde N_t]
 E_P[Z_sH\widetilde N_s].
 $$
 
-[密度過程の martingale 性](#prop-sto10-density-martingale) から
+[密度過程のマルチンゲール性](#prop-sto10-密度-マルチンゲール) から
 
 $$
 E_Q[H\widetilde N_t]
@@ -1157,7 +1157,7 @@ E_Q[H\widetilde N_t]
 E_Q[H\widetilde N_s].
 $$
 
-従って停止した $\widetilde N$ は $Q$-martingale です。
+従って停止した $\widetilde N$ は $Q$-マルチンゲールです。
 
 localization を外せば $\widetilde N$ は $Q$-局所マルチンゲールです。
 <!-- proof-end -->
@@ -1279,7 +1279,7 @@ $$
 
 と置きます。
 
-各成分 $W^i$ に前節の局所-martingale transform を適用すると
+各成分 $W^i$ に前節の局所-マルチンゲール transform を適用すると
 
 $$
 W^i-[W^i,M]
@@ -1318,7 +1318,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[Novikov 定理](#thm-sto10-novikov) から $Z=\mathcal E(M)$ は真の $P$-martingale で
+[Novikov 定理](#thm-sto10-novikov) から $Z=\mathcal E(M)$ は真の $P$-マルチンゲールで
 
 $$
 E_P[Z_T]=1.
@@ -1356,7 +1356,7 @@ W^i,
 \end{aligned}
 $$
 
-したがって [Girsanov 局所-martingale transform](#lem-sto10-girsanov-local-martingale) により
+したがって [Girsanov 局所-マルチンゲール transform](#lem-sto10-girsanov-局所-マルチンゲール) により
 
 $$
 \begin{aligned}
@@ -1474,7 +1474,7 @@ Z_T
 \end{aligned}
 $$
 
-これは [STO7 のブラウン指数型 martingale](../STO7/index.md#prop-sto7-brownian-exponential-martingale) そのものです。
+これは [STO7 のブラウン指数型マルチンゲール](../STO7/index.md#prop-sto7-brownian-指数型-マルチンゲール) そのものです。
 
 [Girsanov 定理](#thm-sto10-girsanov) から
 
@@ -1667,7 +1667,7 @@ $$
 > は弱解を持つ。
 <!-- formal-statement-end -->
 
-これは [STO9 の大域的存在一意性定理](../STO9/index.md#thm-sto9-global-existence-uniqueness)より仮定が弱いです。
+これは [STO9 の大域的存在一意性定理](../STO9/index.md#thm-sto9-大域的-existence-uniqueness)より仮定が弱いです。
 
 $b$ に Lipschitz continuity を要求していません。
 
@@ -2101,7 +2101,7 @@ $$
 
 ---
 
-## 17. strong / weak の橋
+## 17. 強解 / 弱解の橋
 
 <a id="thm-sto10-yamada-watanabe"></a>
 
@@ -2154,7 +2154,7 @@ $$
 
 これらは STO10 の主題である「Girsanov による測度変換」とは別の大きな論証系です。
 
-したがって本章では [Yamada--Watanabe 定理](#thm-sto10-yamada-watanabe) を **strong / weak theory の接続定理として明示的な技術的入力**とし、完全証明は独立した確率論補講の規模になるため扱いません。
+したがって本章では [Yamada--Watanabe 定理](#thm-sto10-yamada-watanabe) を **強解 / 弱解 theory の接続定理として明示的な技術的入力**とし、完全証明は独立した確率論補講の規模になるため扱いません。
 
 重要なのは、定理の向きを誤らないことです。
 
@@ -2242,7 +2242,7 @@ $$
 
 とは言えません。
 
-無限時間では密度 martingale の長時間極限と一様可積分性を別途調べる必要があります。
+無限時間では密度マルチンゲールの長時間極限と一様可積分性を別途調べる必要があります。
 
 ---
 
@@ -2402,7 +2402,7 @@ $$
 
 1. Novikov condition を確認せよ。
 2. 密度 $Z_T$ を明示せよ。
-3. [STO7 のブラウン指数型 martingale](../STO7/index.md#prop-sto7-brownian-exponential-martingale) を使って $E_P[Z_T]=1$ を確認せよ。
+3. [STO7 のブラウン指数型マルチンゲール](../STO7/index.md#prop-sto7-brownian-指数型-マルチンゲール) を使って $E_P[Z_T]=1$ を確認せよ。
 4. $Q$ の下でブラウン運動になる過程を書け。
 
 <!-- solution-start -->
@@ -2454,7 +2454,7 @@ Z_T
 \end{aligned}
 $$
 
-3. [STO7 のブラウン指数型 martingale](../STO7/index.md#prop-sto7-brownian-exponential-martingale) を parameter $\mu$ で使えます。
+3. [STO7 のブラウン指数型マルチンゲール](../STO7/index.md#prop-sto7-brownian-指数型-マルチンゲール) を parameter $\mu$ で使えます。
 
 その命題の仮定は $W$ が standard ブラウン運動、$\mu$ が定数であることです。本問では両方を満たします。
 
@@ -3169,7 +3169,7 @@ $$
 |b(x)|\le|\lambda|
 $$
 
-なので energy を deterministic constant で抑えられました。
+なので energy を deterministic 定数で抑えられました。
 
 したがって Picard 定理が直接使えないことと弱解の存在が失敗することは同義ではありません。
 <!-- solution-end -->
@@ -3294,7 +3294,7 @@ $$
 }
 $$
 
-という strong / weak theory の橋を位置付けました。
+という強解 / 弱解 theory の橋を位置付けました。
 
 ---
 
