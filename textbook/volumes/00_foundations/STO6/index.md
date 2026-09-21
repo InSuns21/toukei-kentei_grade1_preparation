@@ -575,7 +575,7 @@ $$
 <a id="lem-sto6-simple-density"></a>
 
 <!-- formal-statement-start -->
-> **補題（単純予測可能 integrands の L2 density）**  
+> **補題（単純予測可能被積分過程の L2 稠密性）**  
 > 固定した $T$ で、有界単純予測可能 integrands は
 >
 $$
@@ -750,16 +750,16 @@ E\int_0^tH_s^2\,d[M]_s.
 $$
 <!-- formal-statement-end -->
 
-この定理には「なぜ終端値だけでなく過程全体が収束するのか」という一点があります。そこを埋めるのが continuous-time Doob $L^2$ inequality です。
+この定理には「なぜ終端値だけでなく過程全体が収束するのか」という一点があります。そこを埋めるのが 連続時間 Doob $L^2$ 最大不等式 です。
 
 ---
 
-## 7. continuous-time Doob $L^2$ inequality
+## 7. 連続時間 Doob $L^2$ 最大不等式
 
 <a id="thm-sto6-doob-l2"></a>
 
 <!-- formal-statement-start -->
-> **定理（continuous-time Doob L2 maximal inequality）**  
+> **定理（連続時間 Doob L2 最大不等式）**  
 > $N=(N_t)_{0\le t\le T}$ を continuous square-integrable マルチンゲールとする。このとき
 >
 $$
