@@ -2,7 +2,7 @@
 
 ベクトル解析では、各点に数を割り当てる **スカラー場** と、各点にベクトルを割り当てる **ベクトル場** を微分して、局所的な増加、湧き出し、回転を読み取ります。
 
-本章の出発点は [RA6A の多変数微分・正則レベル集合](../RA6A/index.md#cor-ra6a-regular-level-set) です。偏微分や連鎖律そのものは再構築せず、
+本章の出発点は [RA6A の多変数微分と陰関数定理から得られる局所表示](../RA6A/index.md#cor-ra6a-regular-level-set) です。偏微分や連鎖律そのものは再構築せず、
 
 $$
 \nabla f,\qquad \operatorname{div}F,\qquad \operatorname{curl}F,\qquad \Delta f
