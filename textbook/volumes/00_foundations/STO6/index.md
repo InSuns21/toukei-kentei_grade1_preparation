@@ -1,8 +1,10 @@
-# STO6：stochastic integral — 単純予測可能過程から局所 martingale まで
+# STO6：確率積分 — 単純予測可能過程から局所マルチンゲールまで
 
 <!-- definition-example-audit: strict -->
 
-STO5 では、Brown 運動や一般の continuous local martingale が持つ二次変分を先に作りました。ここでようやく
+> **既出概念への参照**：[予測可能過程](../STO1/index.md#def-sto1-predictable)、[連続局所マルチンゲール](../STO5/index.md#def-sto5-continuous-local-martingale)、[二次変分](../STO5/index.md#def-sto5-quadratic-variation) を既知として使います。
+
+STO5 では、ブラウン運動や一般の連続局所マルチンゲールが持つ二次変分を先に作りました。ここでようやく
 
 $$
 \int_0^t H_s\,dM_s
@@ -10,21 +12,21 @@ $$
 
 を数学的対象として構成します。
 
-普通の Riemann 積分のように「各標本路について微小量を足す」と考えるのではありません。Brown 運動の標本路は almost surely finite variation ではないため、標本路ごとの Riemann--Stieltjes 積分を主役にはできないからです。
+普通の Riemann 積分のように「各標本路について微小量を足す」と考えるのではありません。ブラウン運動の標本路はほとんど確実に有限変動ではないため、標本路ごとの Riemann--Stieltjes 積分を主役にはできないからです。
 
 代わりに、
 
 $$
 \boxed{
-\text{simple predictable integrand}
+\text{単純予測可能被積分過程}
 \to
 \text{増分和}
 \to
-\text{Itô isometry}
+\text{Itô 等長性}
 \to
-L^2\text{ completion}
+L^2\text{ 完備化}
 \to
-\text{localization}
+\text{局所化}
 }
 $$
 
@@ -32,8 +34,8 @@ $$
 
 この構成で最も大切なのは二点です。
 
-1. 係数は未来の increment を見ないこと。
-2. 積分の誤差を標本路ごとの variation ではなく二乗平均と bracket で測ること。
+1. 係数は未来の増分を見ないこと。
+2. 積分の誤差を標本路ごとの variation ではなく二乗平均とブラケットで測ること。
 
 STO7 の Itô formula は、この章で積分が完成して初めて厳密に書けるようになります。
 
@@ -41,19 +43,19 @@ STO7 の Itô formula は、この章で積分が完成して初めて厳密に�
 
 ## 1. 係数を過去情報で固定する
 
-まず有限個の時間区間だけで値が変わる process から始めます。
+まず有限個の時間区間だけで値が変わる過程から始めます。
 
 <a id="def-sto6-simple-predictable"></a>
 
 <!-- formal-statement-start -->
-> **定義（simple predictable integrand）**  
-> deterministic partition
+> **定義（単純予測可能被積分過程）**  
+> 決定論的 partition
 >
 $$
 0=t_0<t_1<\cdots<t_n=T
 $$
 >
-> と、各 $k=0,\ldots,n-1$ について bounded な $\mathcal F_{t_k}$-measurable random variable $\xi_k$ を取る。
+> と、各 $k=0,\ldots,n-1$ について有界な $\mathcal F_{t_k}$-measurable random variable $\xi_k$ を取る。
 >
 $$
 H_t
@@ -62,13 +64,13 @@ H_t
 \xi_k\,1_{(t_k,t_{k+1}]}(t)
 $$
 >
-> と表される process $H$ を、$[0,T]$ 上の **simple predictable integrand** という。
+> と表される過程 $H$ を、$[0,T]$ 上の **単純予測可能被積分過程** という。
 <!-- formal-statement-end -->
 
-区間 $(t_k,t_{k+1}]$ に入る瞬間には、係数 $\xi_k$ はすでに $\mathcal F_{t_k}$ で決まっています。これが predictable の最小模型です。
+区間 $(t_k,t_{k+1}]$ に入る瞬間には、係数 $\xi_k$ はすでに $\mathcal F_{t_k}$ で決まっています。これが予測可能の最小模型です。
 
-<!-- definition-example-start: def-sto6-simple-predictable -->
-### 直接例：過去の Brownian 値を次の区間の係数にする
+<!-- definition-example-start: def-sto6-simple-予測可能 -->
+### 直接例：過去のブラウン値を次の区間の係数にする
 
 **定義の確認**
 
@@ -86,28 +88,28 @@ $$
 
 とします。
 
-最初の係数 $1$ は $\mathcal F_0$-measurable、二つ目の係数 $\xi_s$ は bounded かつ $\mathcal F_s$-measurable です。従って定義どおり $H$ は simple predictable です。
+最初の係数 $1$ は $\mathcal F_0$-measurable、二つ目の係数 $\xi_s$ は有界かつ $\mathcal F_s$-measurable です。従って定義どおり $H$ は simple 予測可能です。
 
-重要なのは、二つ目の区間で $B_T-B_s$ を積分するとき、その係数 $\xi_s$ は increment が始まる時点ですでに分かっていることです。
+重要なのは、二つ目の区間で $B_T-B_s$ を積分するとき、その係数 $\xi_s$ は増分が始まる時点ですでに分かっていることです。
 <!-- definition-example-end -->
 
 ---
 
 ## 2. martingale 増分の有限和で積分を定める
 
-continuous martingale $M$ に対して、simple integrand の積分は増分和で定義できます。
+continuous martingale $M$ に対して、simple 被積分過程の積分は増分和で定義できます。
 
 <a id="def-sto6-simple-integral"></a>
 
 <!-- formal-statement-start -->
-> **定義（simple stochastic integral）**  
+> **定義（simple 確率積分）**  
 > $M=(M_t)_{0\le t\le T}$ を continuous martingale、$H$ を
 >
 $$
 H_t=\sum_{k=0}^{n-1}\xi_k1_{(t_k,t_{k+1}]}(t)
 $$
 >
-> と表される simple predictable integrand とする。
+> と表される単純予測可能被積分過程とする。
 >
 $$
 (H\cdot M)_t
@@ -120,7 +122,7 @@ M_{t\wedge t_{k+1}}-M_{t\wedge t_k}
 \qquad 0\le t\le T
 $$
 >
-> を $H$ の $M$ に関する **simple stochastic integral** といい、
+> を $H$ の $M$ に関する **simple 確率積分** といい、
 >
 $$
 \int_0^t H_s\,dM_s
@@ -129,12 +131,12 @@ $$
 > とも書く。
 <!-- formal-statement-end -->
 
-この定義は representation に依存しません。分割を細かくして同じ process を書き直しても、同じ増分を小分けしているだけだからです。
+この定義は representation に依存しません。分割を細かくして同じ過程を書き直しても、同じ増分を小分けしているだけだからです。
 
-各項は continuous なので $(H\cdot M)_t$ も continuous です。また $t$ までに現れる係数と increment は $\mathcal F_t$-measurable なので adapted です。
+各項は continuous なので $(H\cdot M)_t$ も continuous です。また $t$ までに現れる係数と増分は $\mathcal F_t$-measurable なので適合です。
 
 <!-- definition-example-start: def-sto6-simple-integral -->
-### 直接例：二段階の Brownian stochastic integral
+### 直接例：二段階のブラウン運動に関する確率積分
 
 **定義の確認**
 
@@ -146,7 +148,7 @@ H_t
 1_{(0,s]}(t)+1_{\{B_s\ge0\}}1_{(s,T]}(t)
 $$
 
-を Brown 運動 $B$ に対して積分すると、
+をブラウン運動 $B$ に対して積分すると、
 
 $$
 (H\cdot B)_t
@@ -179,15 +181,15 @@ predictability が martingale cancellation を保っていることが見えま�
 
 ---
 
-## 3. bracket を測度として読む
+## 3. ブラケットを測度として読む
 
-stochastic integral は $M$ の増分だけで定義されるため、$M_0\neq0$ でも
+確率積分は $M$ の増分だけで定義されるため、$M_0\neq0$ でも
 $$
 \widetilde M_t:=M_t-M_0
 $$
 へ置き換えれば積分は変わりません。また $[\widetilde M]=[M]$ です。したがって $L^2$ 構成では、必要な箇所で $M_0=0$ と正規化しても一般性を失いません。
 
-STO5 で continuous local martingale $M$ に対する increasing process $[M]$ を構成しました。
+STO5 で連続局所マルチンゲール $M$ に対する increasing 過程 $[M]$ を構成しました。
 
 ただし次節の二乗平均の等長性では、STO5 の
 
@@ -195,12 +197,12 @@ $$
 M^2-[M]
 $$
 
-が **local** martingale であるだけでは足りません。square-integrable $M$ ではこれが真の martingale になり、bracket increment の条件付き平均を使えることを先に確認します。
+が **局所** martingale であるだけでは足りません。square-integrable $M$ ではこれが真の martingale になり、ブラケット増分の条件付き平均を使えることを先に確認します。
 
 <a id="lem-sto6-bracket-compensation"></a>
 
 <!-- formal-statement-start -->
-> **補題（square-integrable martingale の bracket compensation）**  
+> **補題（square-integrable martingale のブラケット compensation）**  
 > $M$ を $M_0=0$ の continuous square-integrable martingale とする。このとき
 >
 $$
@@ -226,9 +228,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-STO5 から $L:=M^2-[M]$ は continuous local martingale です。
+STO5 から $L:=M^2-[M]$ は連続局所マルチンゲールです。
 
-$|M|$ と $[M]$ を同時に止める increasing stopping time $\tau_n\uparrow\infty$ を取り、$L^{\tau_n}$ を真の martingale にします。すると
+$|M|$ と $[M]$ を同時に止める increasing 停止時刻 $\tau_n\uparrow\infty$ を取り、$L^{\tau_n}$ を真の martingale にします。すると
 
 $$
 E[M_{T\wedge\tau_n}^2]
@@ -236,7 +238,7 @@ E[M_{T\wedge\tau_n}^2]
 E[M]_{T\wedge\tau_n}.
 $$
 
-一方、STO5 の [bounded stopping theorem](../STO5/index.md#thm-sto5-bounded-optional-sampling) と square-integrability から
+一方、STO5 の [有界 stopping theorem](../STO5/index.md#thm-sto5-bounded-optional-sampling) と square-integrability から
 
 $$
 M_{T\wedge\tau_n}
@@ -259,7 +261,7 @@ E[M]_T
 \le E[M_T^2].
 $$
 
-逆に $M_{T\wedge\tau_n}\to M_T$ almost surely なので Fatou から
+逆に $M_{T\wedge\tau_n}\to M_T$ ほとんど確実になので Fatou から
 
 $$
 E[M_T^2]
@@ -277,13 +279,13 @@ $$
 
 次に $L=M^2-[M]$ が真の martingale であることを示します。
 
-上で使った localizing sequence $\tau_n$ に対し、各固定 $t\le T$ で
+上で使った局所化列 $\tau_n$ に対し、各固定 $t\le T$ で
 
 $$
 L_{t\wedge\tau_n}\to L_t
 $$
 
-almost surely です。しかも
+ほとんど確実にです。しかも
 
 $$
 |L_{t\wedge\tau_n}|
@@ -291,7 +293,7 @@ $$
 M_{t\wedge\tau_n}^2+[M]_{t\wedge\tau_n}.
 $$
 
-[bounded stopping theorem](../STO5/index.md#thm-sto5-bounded-optional-sampling) から
+[有界 stopping theorem](../STO5/index.md#thm-sto5-bounded-optional-sampling) から
 
 $$
 M_{t\wedge\tau_n}
@@ -375,7 +377,7 @@ E\left[
 \right]
 $$
 
-は predictable sigma-field 上の有限測度になります。stochastic integral の integrand は、この測度に関する $L^2$ 空間で完成させます。
+は予測可能 sigma-field 上の有限測度になります。確率積分の被積分過程は、この測度に関する $L^2$ 空間で完成させます。
 
 ---
 
@@ -384,8 +386,8 @@ $$
 <a id="thm-sto6-ito-isometry-simple"></a>
 
 <!-- formal-statement-start -->
-> **定理（Itô isometry：simple predictable integrand）**  
-> $M$ を $M_0=0$ の continuous square-integrable martingale とし、$H$ を bounded simple predictable integrand とする。このとき
+> **定理（Itô 等長性：単純予測可能被積分過程）**  
+> $M$ を $M_0=0$ の continuous square-integrable martingale とし、$H$ を有界単純予測可能被積分過程とする。このとき
 >
 $$
 E\left[
@@ -399,7 +401,7 @@ E\left[
 \right].
 $$
 >
-> 特に Brown 運動 $B$ では $[B]_t=t$ なので
+> 特にブラウン運動 $B$ では $[B]_t=t$ なので
 >
 $$
 E\left[
@@ -422,13 +424,13 @@ $$
 \sum_k\xi_k\Delta_kM
 $$
 
-です。異なる時間区間の項は martingale increment の直交性で消えます。対角項だけが残り、
+です。異なる時間区間の項は martingale 増分の直交性で消えます。対角項だけが残り、
 
 $$
 E[\xi_k^2(\Delta_kM)^2]
 $$
 
-を bracket increment
+をブラケット増分
 
 $$
 E[\xi_k^2\Delta_k[M]]
@@ -482,7 +484,7 @@ E[\Delta_jM\mid\mathcal F_{t_j}]
 \end{aligned}
 $$
 
-[square-integrable martingale の bracket compensation](#lem-sto6-bracket-compensation) から
+[square-integrable martingale のブラケット compensation](#lem-sto6-bracket-compensation) から
 
 $$
 E\left[
@@ -513,10 +515,10 @@ E\left[
 \right].
 $$
 
-Brown 運動では $d[B]_s=ds$ なので最後の式は通常の時間積分になります。
+ブラウン運動では $d[B]_s=ds$ なので最後の式は通常の時間積分になります。
 <!-- proof-end -->
 
-この定理が construction のエンジンです。積分そのものをまだ一般 process に対して定義していなくても、simple integrand の距離
+この定理が construction のエンジンです。積分そのものをまだ一般過程に対して定義していなくても、simple 被積分過程の距離
 
 $$
 \|H\|_{M,T}^2
@@ -528,29 +530,29 @@ $$
 
 ---
 
-## 5. $L^2(M)$ integrand と simple process の稠密性
+## 5. $L^2(M)$ 被積分過程と simple 過程の稠密性
 
 <a id="def-sto6-l2m"></a>
 
 <!-- formal-statement-start -->
-> **定義（L2(M) integrand）**  
-> $M$ を $M_0=0$ の continuous square-integrable martingale とする。predictable process $H$ が
+> **定義（L2(M) 被積分過程）**  
+> $M$ を $M_0=0$ の continuous square-integrable martingale とする。予測可能過程 $H$ が
 >
 $$
 E\int_0^T H_s^2\,d[M]_s<\infty
 $$
 >
-> を満たすとき、$H$ を $[0,T]$ 上の **$L^2(M)$ integrand** という。
+> を満たすとき、$H$ を $[0,T]$ 上の **$L^2(M)$ 被積分過程** という。
 >
-> $d\mu_M=dP\,d[M]$ に関して同値な process は同一視する。
+> $d\mu_M=dP\,d[M]$ に関して同値な過程は同一視する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sto6-l2m -->
-### 直接例：Brown 運動と deterministic integrand
+### 直接例：ブラウン運動と決定論的被積分過程
 
 **定義の確認**
 
-$h\in L^2([0,T])$ を deterministic とします。deterministic Borel process は predictable なので
+$h\in L^2([0,T])$ を決定論的とします。決定論的 Borel 過程は予測可能なので
 
 $$
 E\int_0^T h(s)^2\,d[B]_s
@@ -559,28 +561,28 @@ E\int_0^T h(s)^2\,d[B]_s
 <\infty.
 $$
 
-従って $h$ は $L^2(B)$ integrand です。
+従って $h$ は $L^2(B)$ 被積分過程です。
 
-この場合 stochastic integral は後で
+この場合確率積分は後で
 
 $$
 \int_0^T h(s)\,dB_s
 $$
 
-として構成され、平均 0、分散 $\int_0^T h^2$ の Gaussian random variable になります。
+として構成され、平均 0、分散 $\int_0^T h^2$ のガウス random variable になります。
 <!-- definition-example-end -->
 
 <a id="lem-sto6-simple-density"></a>
 
 <!-- formal-statement-start -->
-> **補題（simple predictable integrands の L2 density）**  
-> 固定した $T$ で、bounded simple predictable integrands は
+> **補題（simple 予測可能 integrands の L2 density）**  
+> 固定した $T$ で、有界 simple 予測可能 integrands は
 >
 $$
 L^2(\Omega\times(0,T],\mathcal P,\mu_M)
 $$
 >
-> に稠密である。ここで $\mathcal P$ は predictable sigma-field、
+> に稠密である。ここで $\mathcal P$ は予測可能 sigma-field、
 >
 $$
 \mu_M(A)=E\int_0^T1_A\,d[M]
@@ -591,7 +593,7 @@ $$
 
 ### なぜ稠密なのか
 
-predictable sigma-field は
+予測可能 sigma-field は
 
 $$
 A\times(s,t],
@@ -607,15 +609,15 @@ $$
 1_A(\omega)1_{(s,t]}(u)
 $$
 
-で、simple predictable integrand そのものです。
+で、単純予測可能被積分過程そのものです。
 
-$\mu_M$ は有限測度なので、一般の $L^2(\mu_M)$ predictable function は
+$\mu_M$ は有限測度なので、一般の $L^2(\mu_M)$ 予測可能 function は
 
-1. 値を $[-r,r]$ に切り詰めて bounded にし、
-2. bounded measurable function を simple function で近似し、
+1. 値を $[-r,r]$ に切り詰めて有界にし、
+2. 有界 measurable function を simple function で近似し、
 3. measurable set の indicator を生成 algebra の有限和で近似する
 
-ことで simple predictable integrand へ近似できます。
+ことで単純予測可能被積分過程へ近似できます。
 
 <!-- proof-start -->
 ### 証明
@@ -634,13 +636,13 @@ $$
 \|H^{(r)}-H\|_{L^2(\mu_M)}\to0
 $$
 
-です。従って bounded predictable function だけを考えれば十分です。
+です。従って有界予測可能 function だけを考えれば十分です。
 
-bounded predictable function は predictable sigma-field 上の simple measurable functions で $L^2$ 近似できます。
+有界予測可能 function は予測可能 sigma-field 上の simple measurable functions で $L^2$ 近似できます。
 
-残るのは predictable set の indicator を simple predictable rectangles で近似することです。
+残るのは予測可能 set の indicator を simple 予測可能 rectangles で近似することです。
 
-simple predictable rectangles の有限和で作る algebra を $\mathcal A$ とします。$\mathcal A$ は predictable sigma-field $\mathcal P$ を生成します。
+simple 予測可能 rectangles の有限和で作る algebra を $\mathcal A$ とします。$\mathcal A$ は予測可能 sigma-field $\mathcal P$ を生成します。
 
 有限測度 $\mu_M$ のもとで、
 
@@ -700,20 +702,20 @@ $$
 \mathcal P=\sigma(\mathcal A)\subset\mathcal C.
 $$
 
-逆包含は定義から明らかなので $\mathcal C=\mathcal P$。よって predictable simple functions、さらに simple predictable integrands が $L^2(\mu_M)$ に稠密です。
+逆包含は定義から明らかなので $\mathcal C=\mathcal P$。よって予測可能 simple functions、さらに simple 予測可能 integrands が $L^2(\mu_M)$ に稠密です。
 <!-- proof-end -->
 
 ---
 
-## 6. $L^2$ completion で stochastic integral を作る
+## 6. $L^2$ 完備化で確率積分を作る
 
 <a id="thm-sto6-l2-construction"></a>
 
 <!-- formal-statement-start -->
-> **定理（L2 completion による stochastic integral の構成）**  
+> **定理（L2 完備化による確率積分の構成）**  
 > $M$ を $M_0=0$ の continuous square-integrable martingale、$H\in L^2(M)$ とする。
 >
-> simple predictable $H^{(n)}$ で
+> simple 予測可能 $H^{(n)}$ で
 >
 $$
 E\int_0^T|H_s^{(n)}-H_s|^2\,d[M]_s\to0
@@ -729,7 +731,7 @@ I_t^{(n)}
 \int_0^tH_s^{(n)}\,dM_s
 $$
 >
-> は $[0,T]$ 上一様に probability で収束し、適切な subsequence では almost surely sup 距離で収束する。
+> は $[0,T]$ 上一様に probability で収束し、適切な subsequence ではほとんど確実に sup 距離で収束する。
 >
 > 極限 $I$ は近似列に依存せず、continuous square-integrable martingale となる。この $I$ を
 >
@@ -748,7 +750,7 @@ E\int_0^tH_s^2\,d[M]_s.
 $$
 <!-- formal-statement-end -->
 
-この定理には「なぜ終端値だけでなく process 全体が収束するのか」という一点があります。そこを埋めるのが continuous-time Doob $L^2$ inequality です。
+この定理には「なぜ終端値だけでなく過程全体が収束するのか」という一点があります。そこを埋めるのが continuous-time Doob $L^2$ inequality です。
 
 ---
 
@@ -771,12 +773,12 @@ $$
 
 ### 証明の見取り図
 
-STO2 の離散時間 Doob maximal inequality を dyadic time grid に適用し、grid を細かくします。連続性があるため grid 上最大値は 標本路上の supremum へ増加します。
+[STO2 の離散時間 Doob 最大不等式](../STO2/index.md#thm-sto2-doob-maximal)を dyadic time grid に適用し、grid を細かくします。連続性があるため grid 上最大値は標本路上の supremum へ増加します。
 
 <!-- proof-start -->
 ### 証明
 
-$n\ge1$ に対し dyadic grid
+$n\ge1$ に対し二進格子
 
 $$
 D_n
@@ -802,7 +804,7 @@ X_n^*
 \max_{t\in D_n}|N_t|
 $$
 
-と書きます。$|N|$ は submartingale なので、STO2 の [Doob maximal inequality](../STO2/index.md#thm-sto2-doob-maximal) の stopping-time proof を事象 $\{X_n^*\ge\lambda\}$ まで保持すると
+と書きます。$|N|$ は submartingale なので、STO2 の [Doob 最大不等式](../STO2/index.md#thm-sto2-doob-maximal) の停止時刻 proof を事象 $\{X_n^*\ge\lambda\}$ まで保持すると
 
 $$
 \lambda P(X_n^*\ge\lambda)
@@ -879,16 +881,16 @@ E\left[
 $$
 <!-- proof-end -->
 
-この証明では STO2 の stopping-time argument から得られる tail inequality を実際に積分して $p=2$ 形まで導いたので、未証明の連続時間 maximal theorem は使っていません。
+この証明では STO2 の停止時刻 argument から得られる tail inequality を実際に積分して $p=2$ 形まで導いたので、未証明の連続時間 maximal theorem は使っていません。
 
 ---
 
-## 8. completion theorem の論証
+## 8. 完備化定理の論証
 
 <!-- proof-start -->
 ### 証明
 
-$H^{(n)}$ を [simple predictable density](#lem-sto6-simple-density) で選び、
+$H^{(n)}$ を [simple 予測可能 density](#lem-sto6-simple-density) で選び、
 
 $$
 I^{(n)}=H^{(n)}\cdot M
@@ -896,7 +898,7 @@ $$
 
 と置きます。
 
-$n,m$ に対して [Itô isometry](#thm-sto6-ito-isometry-simple) と [Doob $L^2$ inequality](#thm-sto6-doob-l2) から
+$n,m$ に対して [Itô 等長性](#thm-sto6-ito-isometry-simple) と [Doob $L^2$ inequality](#thm-sto6-doob-l2) から
 
 $$
 \begin{aligned}
@@ -913,7 +915,7 @@ E\left[
 \end{aligned}
 $$
 
-右辺は 0 へ行くので、$I^{(n)}$ は 標本路上の supremum の $L^2$ 距離で Cauchy です。
+右辺は 0 へ行くので、$I^{(n)}$ は標本路上の supremum の $L^2$ 距離で Cauchy です。
 
 subsequence $(n_j)$ を
 
@@ -939,7 +941,7 @@ E\left[
 \sum_j2^{-j}<\infty.
 $$
 
-従って almost surely
+従ってほとんど確実に
 
 $$
 \sum_j
@@ -948,9 +950,9 @@ $$
 <\infty.
 $$
 
-ゆえに subsequence は almost surely sup 距離で Cauchy で、continuous limit $I$ を持ちます。
+ゆえに subsequence はほとんど確実に sup 距離で Cauchy で、continuous limit $I$ を持ちます。
 
-元の列全体についても先ほどの $L^2$ estimate と subsequence limit を使えば
+元の列全体についても先ほどの $L^2$ 評価と subsequence limit を使えば
 
 $$
 E\sup_{t\le T}|I_t^{(n)}-I_t|^2\to0.
@@ -972,7 +974,7 @@ $$
 
 従って $I$ は martingale です。
 
-Itô isometry も
+Itô 等長性も
 
 $$
 E[(I_t^{(n)})^2]
@@ -982,21 +984,21 @@ $$
 
 へ $L^2$ convergence と $L^2(\mu_M)$ convergence を入れて極限を取れば得られます。
 
-別の近似列を使っても、両者を交互に並べた近似列へ同じ estimate を適用すれば極限差の supremum $L^2$ norm が 0 です。従って積分は近似列に依存しません。
+別の近似列を使っても、両者を交互に並べた近似列へ同じ評価を適用すれば極限差の supremum $L^2$ norm が 0 です。従って積分は近似列に依存しません。
 <!-- proof-end -->
 
-ここで $L^2$ 完備性は F0-00D2E の Riesz--Fischer 的な発想そのものです。今回は「確率変数の $L^2$」だけでなく、predictable process を random measure $d[M]$ で測った $L^2$ を使っています。
+ここで $L^2$ 完備性は F0-00D2E の Riesz--Fischer 的な発想そのものです。今回は「確率変数の $L^2$」だけでなく、予測可能過程を random measure $d[M]$ で測った $L^2$ を使っています。
 
 ---
 
-## 9. stochastic integral の quadratic variation
+## 9. 確率積分の二次変分
 
-stochastic integral が単に martingale になるだけではありません。bracket も integrand から直接読めます。
+確率積分が単に martingale になるだけではありません。ブラケットも被積分過程から直接読めます。
 
 <a id="thm-sto6-integral-bracket"></a>
 
 <!-- formal-statement-start -->
-> **定理（stochastic integral の quadratic variation）**  
+> **定理（確率積分の二次変分）**  
 > $M$ を $M_0=0$ の continuous square-integrable martingale、$H\in L^2(M)$ とし、
 >
 $$
@@ -1016,7 +1018,7 @@ $$
 
 ### 証明の見取り図
 
-simple integrand なら、各区間で
+simple 被積分過程なら、各区間で
 
 $$
 \Delta I=\xi_k\Delta M
@@ -1024,13 +1026,13 @@ $$
 
 なので「二乗増分は係数の二乗倍」になります。
 
-一般 integrand では simple approximation を使います。ただし partition limit を直接二重に追うのではなく、
+一般被積分過程では simple 近似を使います。ただし partition limit を直接二重に追うのではなく、
 
 $$
 I^2-A
 $$
 
-が martingale になる increasing process $A$ の一意性を STO5 から使う方がきれいです。
+が martingale になる increasing 過程 $A$ の一意性を STO5 から使う方がきれいです。
 
 <!-- proof-start -->
 ### 証明
@@ -1094,13 +1096,13 @@ $$
 \right\}.
 $$
 
-第一項は predictable coefficient を掛けた martingale increment、第二項も STO5 の
+第一項は予測可能な係数を掛けた martingale 増分、第二項も STO5 の
 
 $$
 M^2-[M]
 $$
 
-の martingale increment から martingale です。
+の martingale 増分から martingale です。
 
 従って区間ごとに貼り合わせると
 
@@ -1120,7 +1122,7 @@ A_t^{(n)}
 \int_0^t(H_s^{(n)})^2\,d[M]_s.
 $$
 
-completion theorem から
+完備化定理から
 
 $$
 I^{(n)}\to I
@@ -1167,7 +1169,7 @@ $$
 
 は martingale です。
 
-$A$ は continuous increasing adapted process、$A_0=0$ です。STO5 の quadratic variation theorem における bracket の一意性から
+$A$ は continuous increasing 適合過程、$A_0=0$ です。STO5 の二次変分 theorem におけるブラケットの一意性から
 
 $$
 [I]=A.
@@ -1182,7 +1184,7 @@ $$
 $$
 <!-- proof-end -->
 
-Brown 運動なら
+ブラウン運動なら
 
 $$
 \boxed{
@@ -1198,13 +1200,13 @@ $$
 
 ---
 
-## 10. stopping と stochastic integral
+## 10. stopping と確率積分
 
 <a id="prop-sto6-stopping"></a>
 
 <!-- formal-statement-start -->
-> **命題（stopping と stochastic integral の交換）**  
-> $\tau$ を stopping time とする。積分が定義される範囲で
+> **命題（stopping と確率積分の交換）**  
+> $\tau$ を停止時刻とする。積分が定義される範囲で
 >
 $$
 (H\cdot M)^\tau
@@ -1225,7 +1227,7 @@ $$
 
 ### 証明の見取り図
 
-simple integrand では stopped increment を書き下すだけです。一般 integrand では simple approximation と Itô isometry で極限を移します。
+simple 被積分過程では stopped 増分を書き下すだけです。一般被積分過程では simple 近似と Itô 等長性で極限を移します。
 
 <!-- proof-start -->
 ### 証明
@@ -1259,15 +1261,15 @@ $$
 H\cdot M^\tau=(H\cdot M)^\tau.
 $$
 
-また $1_{(0,\tau]}$ は adapted かつ $(0,\infty)$ 上 left-continuous なので predictable です。
+また $1_{(0,\tau]}$ は適合かつ $(0,\infty)$ 上 left-continuous なので予測可能です。
 
-右側 dyadic approximation $\tau_n\downarrow\tau$ を取ります。$\tau_n$ は grid-valued なので、simple $H$ に対して
+右側二進近似 $\tau_n\downarrow\tau$ を取ります。$\tau_n$ は grid-valued なので、simple $H$ に対して
 
 $$
 1_{(0,\tau_n]}H
 $$
 
-は時間 grid を共通 refinement に取れば simple predictable integrand です。従って [simple stochastic integral](#def-sto6-simple-integral) の定義から
+は時間 grid を共通 refinement に取れば単純予測可能被積分過程です。従って [simple 確率積分](#def-sto6-simple-integral) の定義から
 
 $$
 (1_{(0,\tau_n]}H)\cdot M
@@ -1275,7 +1277,7 @@ $$
 (H\cdot M)^{\tau_n}.
 $$
 
-右辺は標本路の連続性により、各 bounded horizon 上
+右辺は標本路の連続性により、各有界 horizon 上
 
 $$
 (H\cdot M)^{\tau_n}
@@ -1283,9 +1285,9 @@ $$
 (H\cdot M)^\tau
 $$
 
-uniformly almost surely です。
+uniformly ほとんど確実にです。
 
-左辺は [Itô isometry](#thm-sto6-ito-isometry-simple) から
+左辺は [Itô 等長性](#thm-sto6-ito-isometry-simple) から
 
 $$
 \begin{aligned}
@@ -1298,7 +1300,7 @@ E\int_0^T
 \end{aligned}
 $$
 
-bounded simple $H$ なので、右辺は $[M]$ の標本路の連続性と $\tau_n\downarrow\tau$ から 0 へ行きます。必要なら $[M]_T$ を level で止めて dominated convergence を使い、その後 monotone convergence で停止を外せます。
+有界 simple $H$ なので、右辺は $[M]$ の標本路の連続性と $\tau_n\downarrow\tau$ から 0 へ行きます。必要なら $[M]_T$ を level で止めて dominated convergence を使い、その後 monotone convergence で停止を外せます。
 
 従って simple $H$ について
 
@@ -1310,13 +1312,13 @@ $$
 H\cdot M^\tau.
 $$
 
-一般の $H\in L^2(M)$ では simple $H^{(n)}\to H$ in $L^2(\mu_M)$ を取ります。Itô isometry と
+一般の $H\in L^2(M)$ では simple $H^{(n)}\to H$ in $L^2(\mu_M)$ を取ります。Itô 等長性と
 
 $$
 [M^\tau]_t=[M]_{t\wedge\tau}
 $$
 
-から、各 bounded horizon で
+から、各有界 horizon で
 
 $$
 H^{(n)}\cdot M^\tau\to H\cdot M^\tau,
@@ -1328,7 +1330,7 @@ $$
 (1_{(0,\tau]}H)\cdot M
 $$
 
-in $L^2$。Doob $L^2$ inequality で process supremum の $L^2$ convergence にも持ち上がります。
+in $L^2$。Doob $L^2$ inequality で過程 supremum の $L^2$ convergence にも持ち上がります。
 
 simple case の等式を極限へ移して
 
@@ -1342,7 +1344,7 @@ $$
 
 を得ます。
 
-bracket formula は [stochastic integral の quadratic variation](#thm-sto6-integral-bracket) と STO5 の stopping property から
+ブラケット formula は [確率積分の二次変分](#thm-sto6-integral-bracket) と STO5 の stopping property から
 
 $$
 \begin{aligned}
@@ -1355,25 +1357,25 @@ $$
 $$
 <!-- proof-end -->
 
-この交換則は localization の貼り合わせに使います。
+この交換則は局所化の貼り合わせに使います。
 
 ---
 
-## 11. global $L^2$ 条件を localization で外す
+## 11. 大域的 $L^2$ 条件を局所化で外す
 
-global $L^2$ 条件は便利ですが、SDE では係数が bounded でないことが普通です。そこで stopping で有限化します。
+大域的 $L^2$ 条件は便利ですが、SDE では係数が有界でないことが普通です。そこで stopping で有限化します。
 
 <a id="def-sto6-local-l2"></a>
 
 <!-- formal-statement-start -->
-> **定義（locally square-integrable integrand）**  
-> $M$ を continuous local martingale、$H$ を predictable process とする。
+> **定義（locally square-integrable 被積分過程）**  
+> $M$ を連続局所マルチンゲール、$H$ を予測可能過程とする。
 >
 > 各 $t<\infty$ について
 >
 $$
 \int_0^tH_s^2\,d[M]_s<\infty
-\qquad\text{almost surely}
+\qquad\text{ほとんど確実に}
 $$
 >
 > が成り立つとき、$H$ を $M$ に関して **locally square-integrable** という。
@@ -1385,7 +1387,7 @@ $$
 A_t:=\int_0^tH_s^2\,d[M]_s
 $$
 
-は continuous increasing process なので、
+は continuous increasing 過程なので、
 
 $$
 \beta_n
@@ -1393,7 +1395,7 @@ $$
 \inf\{t\ge0:A_t\ge n\}\wedge n
 $$
 
-と置けば $\beta_n\uparrow\infty$ almost surely かつ
+と置けば $\beta_n\uparrow\infty$ ほとんど確実にかつ
 
 $$
 A_{T\wedge\beta_n}\le n
@@ -1406,20 +1408,20 @@ E\int_0^{T\wedge\beta_n}H_s^2\,d[M]_s
 \le n.
 $$
 
-逆に increasing stopping times $\beta_n\uparrow\infty$ があり、各 $n,T$ で stopped energy の期待値が有限なら、stopped energy 自体は almost surely 有限です。固定した $T$ では almost surely 十分大きい $n$ で $\beta_n>T$ となるので、元の $A_T$ も almost surely 有限です。
+逆に increasing stopping times $\beta_n\uparrow\infty$ があり、各 $n,T$ で stopped energy の期待値が有限なら、stopped energy 自体はほとんど確実に有限です。固定した $T$ ではほとんど確実に十分大きい $n$ で $\beta_n>T$ となるので、元の $A_T$ もほとんど確実に有限です。
 
-<!-- definition-example-start: def-sto6-local-l2 -->
+<!-- definition-example-start: def-sto6-局所-l2 -->
 ### 直接例：$H_t=e^{B_t^2}$ は局所化すれば積分できる
 
 **定義の確認**
 
-Brown 運動 $B$ に対し
+ブラウン運動 $B$ に対し
 
 $$
 H_t=e^{B_t^2}
 $$
 
-とします。continuous adapted process は left-continuous adapted process でもあるため、predictable sigma-field の定義から predictable です。
+とします。continuous 適合過程は left-continuous 適合過程でもあるため、予測可能 sigma-field の定義から予測可能です。
 
 exit time
 
@@ -1455,18 +1457,18 @@ E[e^{2B_t^2}]
 (1-4t)^{-1/2}
 $$
 
-は $t<1/4$ でのみ有限で、$t>1/4$ では発散します。従って十分長い時間区間では global $L^2(B)$ 条件は失われます。
+は $t<1/4$ でのみ有限で、$t>1/4$ では発散します。従って十分長い時間区間では大域的 $L^2(B)$ 条件は失われます。
 
-localization は単なる形式ではなく、global moment が壊れる integrand を扱うために必要です。
+局所化は単なる形式ではなく、大域的モーメントが壊れる被積分過程を扱うために必要です。
 <!-- definition-example-end -->
 
 <a id="thm-sto6-local-integral"></a>
 
 <!-- formal-statement-start -->
-> **定理（local stochastic integral）**  
-> $M$ を continuous local martingale、$H$ を $M$ に関して locally square-integrable predictable process とする。
+> **定理（局所確率積分）**  
+> $M$ を連続局所マルチンゲール、$H$ を $M$ に関して locally square-integrable 予測可能過程とする。
 >
-> このとき一意な continuous local martingale
+> このとき一意な連続局所マルチンゲール
 >
 $$
 H\cdot M
@@ -1478,7 +1480,7 @@ $$
 E\int_0^T1_{\{s\le\tau_n\}}H_s^2\,d[M]_s<\infty
 $$
 >
-> を各 $n,T$ で満たす increasing stopping time 列 $\tau_n\uparrow\infty$ を取れば、
+> を各 $n,T$ で満たす increasing 停止時刻列 $\tau_n\uparrow\infty$ を取れば、
 >
 $$
 (H\cdot M)^{\tau_n}
@@ -1499,7 +1501,7 @@ $$
 
 ### 証明の見取り図
 
-$M$ 自身の localizing sequence、$|M|$ の exit time、energy
+$M$ 自身の局所化列、$|M|$ の exit time、energy
 
 $$
 \int H^2\,d[M]
@@ -1512,7 +1514,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$M$ を真の martingale にする localizing sequenceを $\rho_n$ とします。
+$M$ を真の martingale にする局所化列を $\rho_n$ とします。
 
 さらに
 
@@ -1539,7 +1541,7 @@ $$
 
 と置きます。
 
-すると $M^{\tau_n}$ は bounded continuous martingale なので square-integrable です。また
+すると $M^{\tau_n}$ は有界 continuous martingale なので square-integrable です。また
 
 $$
 E\int_0^T
@@ -1549,7 +1551,7 @@ $$
 
 です。
 
-従って global $L^2$ theory を square-integrable martingale $M^{\tau_n}$ に適用し、
+従って大域的 $L^2$ theory を square-integrable martingale $M^{\tau_n}$ に適用し、
 
 $$
 I^{(n)}
@@ -1584,9 +1586,9 @@ $$
 
 と定義できます。
 
-$\tau_n\uparrow\infty$ almost surely なので $I$ は全時間上で定まり、各 $I^{\tau_n}=I^{(n)}$ は martingale。従って $I$ は continuous local martingale です。
+$\tau_n\uparrow\infty$ ほとんど確実になので $I$ は全時間上で定まり、各 $I^{\tau_n}=I^{(n)}$ は martingale。従って $I$ は連続局所マルチンゲールです。
 
-各停止区間上で bracket formula が成り立つので
+各停止区間上でブラケット formula が成り立つので
 
 $$
 [I]_{t\wedge\tau_n}
@@ -1602,14 +1604,14 @@ $$
 \int_0^tH_s^2\,d[M]_s.
 $$
 
-一意性も、任意の二つの候補が各 $\tau_n$ 上で同じ global $L^2$ integral に一致することから従います。
+一意性も、任意の二つの候補が各 $\tau_n$ 上で同じ大域的 $L^2$ integral に一致することから従います。
 <!-- proof-end -->
 
 ---
 
-## 12. Brownian stochastic integral
+## 12. ブラウン運動に関する確率積分
 
-Brown 運動では
+ブラウン運動では
 
 $$
 [B]_t=t
@@ -1617,7 +1619,7 @@ $$
 
 なので、全てが見慣れた Lebesgue 時間積分に変わります。
 
-$H$ predictable で
+$H$ 予測可能で
 
 $$
 E\int_0^T H_s^2\,ds<\infty
@@ -1647,21 +1649,21 @@ $$
 \int_0^tH_s^2\,ds.
 $$
 
-deterministic $h\in L^2[0,T]$ なら simple deterministic functions $h_n$ で近似できます。各
+決定論的 $h\in L^2[0,T]$ なら simple 決定論的 functions $h_n$ で近似できます。各
 
 $$
 \int_0^T h_n(s)\,dB_s
 $$
 
-は Brownian increments の有限線形結合なので Gaussian です。
+はブラウン increments の有限線形結合なのでガウスです。
 
 $L^2$ 極限の characteristic function を取れば
 
 <a id="prop-sto6-deterministic-gaussian"></a>
 
 <!-- formal-statement-start -->
-> **命題（deterministic Brownian integral は Gaussian）**  
-> deterministic $h\in L^2([0,T])$ に対し
+> **命題（決定論的ブラウン integral はガウス）**  
+> 決定論的 $h\in L^2([0,T])$ に対し
 >
 $$
 \int_0^T h(s)\,dB_s
@@ -1676,7 +1678,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-simple deterministic
+simple 決定論的
 
 $$
 h_n=\sum_k a_{k,n}1_{(t_{k,n},t_{k+1,n}]}
@@ -1690,7 +1692,7 @@ $$
 \sum_k a_{k,n}(B_{t_{k+1,n}}-B_{t_{k,n}})
 $$
 
-は独立 centered Gaussian の線形結合なので Gaussian で、分散は
+は独立 centered ガウスの線形結合なのでガウスで、分散は
 
 $$
 \sum_ka_{k,n}^2(t_{k+1,n}-t_{k,n})
@@ -1698,7 +1700,7 @@ $$
 \int_0^T h_n^2\,ds.
 $$
 
-$h_n\to h$ in $L^2[0,T]$ とすると [Itô isometry](#thm-sto6-ito-isometry-simple) により
+$h_n\to h$ in $L^2[0,T]$ とすると [Itô 等長性](#thm-sto6-ito-isometry-simple) により
 
 $$
 X_n:=\int h_n\,dB
@@ -1725,7 +1727,7 @@ $$
 \int h_n^2\to\int h^2
 $$
 
-なので、$X_n$ の Gaussian characteristic function
+なので、$X_n$ のガウス characteristic function
 
 $$
 \exp\left(
@@ -1741,22 +1743,22 @@ $$
 \right).
 $$
 
-従って characteristic function の一意性から $X$ は主張した centered Gaussian law を持ちます。
+従って characteristic function の一意性から $X$ は主張した centered ガウス法則を持ちます。
 <!-- proof-end -->
 
-random integrand のとき、積分は一般には Gaussian ではありません。この区別は重要です。
+random 被積分過程のとき、積分は一般にはガウスではありません。この区別は重要です。
 
 ---
 
-## 13. 最大過程と bracket の高次 moment を比較する
+## 13. 最大過程とブラケットの高次モーメントを比較する
 
-Doob $L^2$ inequality は終端値を通して標本路上の supremum を抑えました。次の定理はさらに最大過程を bracket と直接比較します。
+Doob $L^2$ inequality は終端値を通して標本路上の supremum を抑えました。次の定理はさらに最大過程をブラケットと直接比較します。
 
 <a id="thm-sto6-bdg"></a>
 
 <!-- formal-statement-start -->
 > **定理（Burkholder--Davis--Gundy inequality）**  
-> $p>0$ とする。$p$ のみに依存する定数 $0<c_p\le C_p<\infty$ が存在し、$N_0=0$ の任意の continuous local martingale $N$ と任意の stopping time $\tau$ に対し
+> $p>0$ とする。$p$ のみに依存する定数 $0<c_p\le C_p<\infty$ が存在し、$N_0=0$ の任意の連続局所マルチンゲール $N$ と任意の停止時刻 $\tau$ に対し
 >
 $$
 c_p\,
@@ -1811,21 +1813,21 @@ E(N_T^*)^2
 4E[N]_T.
 $$
 
-local martingale では stopping してから monotone convergence を使えば同じ比較が得られます。
+局所マルチンゲールでは stopping してから monotone convergence を使えば同じ比較が得られます。
 
 ### 一般 $p$ の証明境界
 
-一般 $p$ の完全証明には stopping-time decomposition、good-$\lambda$ inequality、または Burkholder function の議論が必要で、STO6 の learning objective である「stochastic integral の構成」から大きく外れます。
+一般 $p$ の完全証明には停止時刻 decomposition、good-$\lambda$ inequality、または Burkholder function の議論が必要で、STO6 の learning objective である「確率積分の構成」から大きく外れます。
 
 そのため本章では **一般 $p$ の BDG inequality 自体は標準定理として意図的 black box** とします。代わりに、
 
 - $p=2$ は完全に証明する。
-- stochastic integral へどう適用するかは明示する。
-- 後続 SDE で必要な moment estimate の場所を示す。
+- 確率積分へどう適用するかは明示する。
+- 後続 SDE で必要なモーメント評価の場所を示す。
 
 という境界にします。
 
-[stochastic integral の bracket](#thm-sto6-integral-bracket) を代入すると
+[確率積分のブラケット](#thm-sto6-integral-bracket) を代入すると
 
 $$
 E\left[
@@ -1842,13 +1844,13 @@ E\left[
 \right].
 $$
 
-STO9 の SDE で Picard iteration や解の moment estimate を標本路上の supremum まで持ち上げるとき、この形を使います。
+STO9 の SDE で Picard iteration や解のモーメント評価を標本路上の supremum まで持ち上げるとき、この形を使います。
 
 ---
 
-## 14. なぜ predictable でなければならないのか
+## 14. なぜ予測可能でなければならないのか
 
-もし未来の increment を見て係数を決めてよいなら、martingale cancellation は壊れます。
+もし未来の増分を見て係数を決めてよいなら、martingale cancellation は壊れます。
 
 partition
 
@@ -1876,7 +1878,7 @@ $$
 \sum_k|B_{t_{k+1}}-B_{t_k}|.
 $$
 
-右辺は非負で、平均 0 の martingale increment sum ではありません。さらに partition を細かくすると Brownian 標本路の infinite variation が顔を出します。
+右辺は非負で、平均 0 の martingale 増分 sum ではありません。さらに partition を細かくするとブラウン標本路の infinite variation が顔を出します。
 
 つまり predictability は単なる technical convention ではなく、
 
@@ -1884,7 +1886,7 @@ $$
 \boxed{
 \text{係数を決める}
 \quad\text{then}\quad
-\text{新しい noise increment が来る}
+\text{新しい noise 増分が来る}
 }
 $$
 
@@ -1918,13 +1920,13 @@ $$
 \sum f'(X)\Delta X
 $$
 
-を stochastic integral へ、
+を確率積分へ、
 
 $$
 \sum f''(X)(\Delta X)^2
 $$
 
-を bracket integral へ送る準備ができました。
+をブラケット integral へ送る準備ができました。
 
 次の STO7 ではこの二つを合成して
 
@@ -1944,7 +1946,7 @@ $$
 
 # 16. 演習
 
-## STO6-A01 simple Brownian integral を計算する
+## STO6-A01 simple ブラウン integral を計算する
 
 - Level: A
 - 目安時間: 12分
@@ -1957,14 +1959,14 @@ $$
 
 とする。$a,b\in\mathbb R$ は定数とする。
 
-1. $\int_0^T H_t\,dB_t$ を Brownian increments で書け。
+1. $\int_0^T H_t\,dB_t$ をブラウン increments で書け。
 2. 平均と分散を求めよ。
-3. quadratic variation $[H\cdot B]_T$ を求めよ。
+3. 二次変分 $[H\cdot B]_T$ を求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-1. [simple stochastic integral](#def-sto6-simple-integral) の定義から
+1. [simple 確率積分](#def-sto6-simple-integral) の定義から
 
 $$
 \int_0^T H_t\,dB_t
@@ -1972,7 +1974,7 @@ $$
 aB_s+b(B_T-B_s).
 $$
 
-2. $B_s$ と $B_T-B_s$ は独立 centered Gaussian なので平均は 0。
+2. $B_s$ と $B_T-B_s$ は独立 centered ガウスなので平均は 0。
 
 分散は
 
@@ -1984,7 +1986,7 @@ b^2\operatorname{Var}(B_T-B_s)
 a^2s+b^2(T-s).
 $$
 
-Itô isometry でも
+Itô 等長性でも
 
 $$
 E\int_0^T H_t^2\,dt
@@ -1994,7 +1996,7 @@ $$
 
 と同じ値が出ます。
 
-3. bracket formula から
+3. ブラケット formula から
 
 $$
 [H\cdot B]_T
@@ -2005,7 +2007,7 @@ a^2s+b^2(T-s).
 $$
 <!-- solution-end -->
 
-## STO6-A02 random predictable coefficient の isometry
+## STO6-A02 random 予測可能な係数の等長性
 
 - Level: A
 - 目安時間: 15分
@@ -2018,14 +2020,14 @@ $$
 
 とする。
 
-1. $H$ が simple predictable であることを確認せよ。
+1. $H$ が simple 予測可能であることを確認せよ。
 2. 積分を明示せよ。
-3. [Itô isometry](#thm-sto6-ito-isometry-simple) によりその二乗平均を求めよ。
+3. [Itô 等長性](#thm-sto6-ito-isometry-simple) によりその二乗平均を求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-1. 係数 $1_{\{B_s\ge0\}}$ は bounded かつ $\mathcal F_s$-measurable なので、定義どおり $(s,T]$ 上の simple predictable coefficient です。
+1. 係数 $1_{\{B_s\ge0\}}$ は有界かつ $\mathcal F_s$-measurable なので、定義どおり $(s,T]$ 上の simple 予測可能な係数です。
 
 2.
 
@@ -2035,7 +2037,7 @@ $$
 1_{\{B_s\ge0\}}(B_T-B_s).
 $$
 
-3. [Itô isometry](#thm-sto6-ito-isometry-simple) から
+3. [Itô 等長性](#thm-sto6-ito-isometry-simple) から
 
 $$
 E\left[
@@ -2053,7 +2055,7 @@ $$
 \frac{T-s}{2},
 $$
 
-です。$s>0$ なら $B_s$ は centered nondegenerate Gaussian なので対称性から
+です。$s>0$ なら $B_s$ は centered nondegenerate ガウスなので対称性から
 $P(B_s\ge0)=1/2$ です。
 
 独立増分を使って直接計算しても
@@ -2068,7 +2070,7 @@ $$
 となります。
 <!-- solution-end -->
 
-## STO6-A03 Doob $L^2$ estimate を積分へ適用する
+## STO6-A03 Doob $L^2$ 評価を積分へ適用する
 
 - Level: A
 - 目安時間: 10分
@@ -2102,7 +2104,7 @@ E\sup_{t\le T}|I_t|^2
 4E|I_T|^2.
 $$
 
-[Itô isometry](#thm-sto6-ito-isometry-simple) により
+[Itô 等長性](#thm-sto6-ito-isometry-simple) により
 
 $$
 E|I_T|^2
@@ -2119,12 +2121,12 @@ E\sup_{t\le T}|I_t|^2
 $$
 <!-- solution-end -->
 
-## STO6-A04 stopping identity を simple integrand で確認する
+## STO6-A04 stopping identity を simple 被積分過程で確認する
 
 - Level: A
 - 目安時間: 15分
 
-$H_t=\xi1_{(a,b]}(t)$、$\xi\in L^\infty(\mathcal F_a)$ とし、$\tau$ を stopping time とする。
+$H_t=\xi1_{(a,b]}(t)$、$\xi\in L^\infty(\mathcal F_a)$ とし、$\tau$ を停止時刻とする。
 
 $$
 (H\cdot M)_{t\wedge\tau}
@@ -2137,7 +2139,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-[simple stochastic integral](#def-sto6-simple-integral) の定義から
+[simple 確率積分](#def-sto6-simple-integral) の定義から
 
 $$
 (H\cdot M)_{t\wedge\tau}
@@ -2189,12 +2191,12 @@ $$
 従って両者は等しいです。
 <!-- solution-end -->
 
-## STO6-B01 $L^2$ approximation から 標本路の sup 距離による approximation へ
+## STO6-B01 $L^2$ 近似から標本路の sup 距離による近似へ
 
 - Level: B
 - 目安時間: 20分
 
-simple predictable $H^{(n)}$ が
+simple 予測可能 $H^{(n)}$ が
 
 $$
 E\int_0^T|H_s^{(n)}-H_s|^2\,d[M]_s\to0
@@ -2208,7 +2210,7 @@ $$
 E\sup_{t\le T}|I_t^{(n)}-I_t|^2\to0
 $$
 
-となる continuous martingale $I$ を持つことを、[Doob $L^2$ inequality](#thm-sto6-doob-l2) と [Itô isometry](#thm-sto6-ito-isometry-simple) から説明せよ。
+となる continuous martingale $I$ を持つことを、[Doob $L^2$ inequality](#thm-sto6-doob-l2) と [Itô 等長性](#thm-sto6-ito-isometry-simple) から説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -2229,7 +2231,7 @@ E\sup_{t\le T}|I_t^{(n)}-I_t^{(m)}|^2
 4E|I_T^{(n)}-I_T^{(m)}|^2.
 $$
 
-Itô isometry を右辺へ使うと
+Itô 等長性を右辺へ使うと
 
 $$
 E\sup_{t\le T}|I_t^{(n)}-I_t^{(m)}|^2
@@ -2260,14 +2262,14 @@ E\sum_j
 <\infty.
 $$
 
-ゆえに almost surely この級数は有限で、subsequence は sup 距離で収束します。各 $I^{(n_j)}$ は continuous なので極限 $I$ も continuous です。
+ゆえにほとんど確実にこの級数は有限で、subsequence は sup 距離で収束します。各 $I^{(n_j)}$ は continuous なので極限 $I$ も continuous です。
 
 元の列は supremum $L^2$ で Cauchy だったため、この $I$ へ列全体が supremum $L^2$ 収束します。
 
 各固定時刻で $L^2$ 収束し、martingale identity も conditional expectation の $L^2$ continuity で極限へ移るため、$I$ は martingale です。
 <!-- solution-end -->
 
-## STO6-B02 bracket を piecewise integrand で計算する
+## STO6-B02 ブラケットを piecewise 被積分過程で計算する
 
 - Level: B
 - 目安時間: 18分
@@ -2290,7 +2292,7 @@ $[I]_t$ を $[M]$ で明示せよ。
 <!-- solution-start -->
 ### 詳細解答
 
-bracket formula から
+ブラケット formula から
 
 $$
 [I]_t
@@ -2327,7 +2329,7 @@ a^2[M]_s+b^2([M]_t-[M]_s),&t>s.
 \end{cases}
 $$
 
-Brown 運動なら $[M]_t=t$ なので
+ブラウン運動なら $[M]_t=t$ なので
 
 $$
 [I]_t
@@ -2339,12 +2341,12 @@ a^2s+b^2(t-s),&t>s.
 $$
 <!-- solution-end -->
 
-## STO6-B03 global $L^2$ が壊れても local integral は作れる
+## STO6-B03 大域的 $L^2$ が壊れても局所 integral は作れる
 
 - Level: B
 - 目安時間: 25分
 
-Brown 運動 $B$ と
+ブラウン運動 $B$ と
 
 $$
 H_t=e^{B_t^2}
@@ -2352,7 +2354,7 @@ $$
 
 を考える。
 
-1. $H$ が predictable であることを示せ。
+1. $H$ が予測可能であることを示せ。
 2. $\tau_n=\inf\{t:|B_t|\ge n\}\wedge n$ に対して
    $$
    E\int_0^{T\wedge\tau_n}H_t^2\,dt<\infty
@@ -2367,7 +2369,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-1. $B$ は continuous adapted process です。continuous adapted process は left-continuous adapted process でもあるので predictable です。連続写像 $x\mapsto e^{x^2}$ を合成しても predictability は保たれるので $H$ は predictable です。
+1. $B$ は continuous 適合過程です。continuous 適合過程は left-continuous 適合過程でもあるので予測可能です。連続写像 $x\mapsto e^{x^2}$ を合成しても predictability は保たれるので $H$ は予測可能です。
 
 2. $t\le\tau_n$ なら $|B_t|\le n$ です。従って
 
@@ -2383,7 +2385,7 @@ E\int_0^{T\wedge\tau_n}H_t^2\,dt
 Te^{2n^2}<\infty.
 $$
 
-3. $B_t\sim N(0,t)$ です。standard Gaussian $Z$ に対し
+3. $B_t\sim N(0,t)$ です。standard ガウス $Z$ に対し
 
 $$
 E[e^{cZ^2}]
@@ -2413,38 +2415,38 @@ E\int_0^T H_t^2\,dt
 \int_0^T E[e^{2B_t^2}]\,dt.
 $$
 
-$T>1/4$ なら positive measure の区間 $(1/4,T]$ で integrand が無限なので、全体も無限です。
+$T>1/4$ なら positive measure の区間 $(1/4,T]$ で被積分過程が無限なので、全体も無限です。
 
-したがって global $L^2(B)$ integrand ではありませんが、local stochastic integral は構成できます。
+したがって大域的 $L^2(B)$ 被積分過程ではありませんが、局所確率積分は構成できます。
 <!-- solution-end -->
 
-## STO6-C01 localization に依存しないことを証明する
+## STO6-C01 局所化に依存しないことを証明する
 
 - Level: C
 - 目安時間: 40分
 
-$M$ を continuous local martingale、$H$ を locally square-integrable predictable process とする。
+$M$ を連続局所マルチンゲール、$H$ を locally square-integrable 予測可能過程とする。
 
-二つの localizing sequence $(\tau_n)$、$(\sigma_m)$ を使って local stochastic integral を構成したとする。それぞれの候補を $I$、$J$ とする。
+二つの局所化列 $(\tau_n)$、$(\sigma_m)$ を使って局所確率積分を構成したとする。それぞれの候補を $I$、$J$ とする。
 
 1. $\rho_{n,m}=\tau_n\wedge\sigma_m$ 上で $I$ と $J$ が一致することを示せ。
 2. $I$ と $J$ が indistinguishable であることを示せ。
-3. bracket identity
+3. ブラケット identity
    $$
    [I]_t=\int_0^tH_s^2\,d[M]_s
    $$
-   が global に成り立つことを示せ。
+   が大域的に成り立つことを示せ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-1. $\rho_{n,m}$ で止めると、両方の構成は同じ integrand
+1. $\rho_{n,m}$ で止めると、両方の構成は同じ被積分過程
 
 $$
 1_{(0,\rho_{n,m}]}H
 $$
 
-を同じ stopped martingale $M^{\rho_{n,m}}$ に対して積分した global $L^2$ integral になります。
+を同じ stopped martingale $M^{\rho_{n,m}}$ に対して積分した大域的 $L^2$ integral になります。
 
 stopping identity から
 
@@ -2458,7 +2460,7 @@ $$
 
 従って $\rho_{n,m}$ 以前では両者は一致します。
 
-2. almost surely
+2. ほとんど確実に
 
 $$
 \tau_n\uparrow\infty,
@@ -2466,7 +2468,7 @@ $$
 \sigma_m\uparrow\infty.
 $$
 
-従って任意の deterministic $T$ について、ほとんど全ての $\omega$ で十分大きい $n,m$ を取れば
+従って任意の決定論的 $T$ について、ほとんど全ての $\omega$ で十分大きい $n,m$ を取れば
 
 $$
 \rho_{n,m}(\omega)>T.
@@ -2478,9 +2480,9 @@ $$
 I_t(\omega)=J_t(\omega).
 $$
 
-$T=1,2,3,\ldots$ を可算個同時に取れば、probability one の event 上で全 $t\ge0$ について一致します。両 process は continuous なので indistinguishable です。
+$T=1,2,3,\ldots$ を可算個同時に取れば、probability one の event 上で全 $t\ge0$ について一致します。両過程は continuous なので indistinguishable です。
 
-3. 各 $\tau_n$ 上では global $L^2$ theory から
+3. 各 $\tau_n$ 上では大域的 $L^2$ theory から
 
 $$
 [I]_{t\wedge\tau_n}
@@ -2488,7 +2490,7 @@ $$
 \int_0^{t\wedge\tau_n}H_s^2\,d[M]_s.
 $$
 
-固定 $t$ に対し $\tau_n\uparrow\infty$ なので、almost surely 十分大きい $n$ では $t<\tau_n$。従って
+固定 $t$ に対し $\tau_n\uparrow\infty$ なので、ほとんど確実に十分大きい $n$ では $t<\tau_n$。従って
 
 $$
 [I]_t
@@ -2496,9 +2498,9 @@ $$
 \int_0^tH_s^2\,d[M]_s.
 $$
 
-continuous process 同士の等式なので、rational $t$ 上の probability-one event を取って連続性で全 $t$ へ延長できます。
+continuous 過程同士の等式なので、rational $t$ 上の probability-one event を取って連続性で全 $t$ へ延長できます。
 
-これで bracket identity は localizing sequence の選択に依存せず global に成立します。
+これでブラケット identity は局所化列の選択に依存せず大域的に成立します。
 <!-- solution-end -->
 
 ---
@@ -2519,14 +2521,14 @@ $$
 
 この一式から
 
-- simple process の積分が $L^2$ completion できる
+- simple 過程の積分が $L^2$ 完備化できる
 - continuous martingale limit が得られる
 - 標本路上の supremum は Doob inequality で制御できる
-- bracket は $\int H^2\,d[M]$
+- ブラケットは $\int H^2\,d[M]$
 - stopping と integral が交換できる
-- localization で local martingale まで拡張できる
-- BDG により higher moment の標本路 estimate へ進める
+- 局所化で局所マルチンゲールまで拡張できる
+- BDG により higher モーメントの標本路評価へ進める
 
 という構造が一本につながりました。
 
-次は STO7 で、quadratic variation と stochastic integral を Taylor expansion に差し込み、multidimensional Itô calculus と Euclidean Stratonovich calculus を構成します。
+次は STO7 で、二次変分と確率積分を Taylor expansion に差し込み、multidimensional Itô calculus と Euclidean Stratonovich calculus を構成します。
