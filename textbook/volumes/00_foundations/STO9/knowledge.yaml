@@ -74,7 +74,7 @@ concepts:
     kind: proposition
     aliases: ["SDE moment estimate", "finite-horizon SDE second moment estimate"]
     introduction: formal
-    introduction_aliases: ["命題（finite-horizon $L^2$ supremum moment estimate）"]
+    introduction_aliases: ["命題（finite-horizon L2 supremum moment estimate）"]
     requires:
       - stochastic.global-lipschitz-sde-existence-uniqueness
       - stochastic.continuous-doob-l2
