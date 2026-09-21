@@ -1379,7 +1379,7 @@ $f$ は 台がコンパクトな smooth 関数なので $\nabla f$ は bounded �
 > **定理（SDE から martingale problem）**  
 > ある filtered probability space 上に Brown 運動 $W$ と continuous adapted process $X$ が存在し、任意の $t\ge0$ について
 
-$
+$$
 X_t
 =
 X_0
@@ -1387,7 +1387,7 @@ X_0
 \int_0^t b(X_s)ds
 +
 \int_0^t\sigma(X_s)dW_s
-$
+$$
 
 > が almost surely 成り立つとする。さらに $X$ は non-explosive であるとする。
 >
