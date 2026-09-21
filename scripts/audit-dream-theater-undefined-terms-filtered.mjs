@@ -108,10 +108,6 @@ function hasHighConfidenceTechnicalContext(rawLine, candidate) {
   const needle = normalizeText(candidate);
   if (!needle) return false;
 
-  // Chapter/exercise headings such as "F0-00E1-A03 直交補空間" are navigation labels,
-  // not first-use declarations of the trailing mathematical term.
-  if (/^#{1,6}\s+F0-[A-Za-z0-9-]+(?:\s+|$)/u.test(line.trim())) return false;
-
   const boldSpans = [...line.matchAll(/\*\*([^*]{1,120})\*\*/gu)].map((match) => match[1]);
   if (boldSpans.some((span) => normalizeText(span) === needle)) return true;
 
@@ -167,8 +163,6 @@ function runFilterSelfTest() {
     ['この証明で必要な条件を確認する。', '必要な条件'],
     ['得られる関数は連続である。', '得られる関数'],
     ['任意の関数に対して同じ議論を使う。', '任意の関数'],
-    ['# F0-00F1 固有空間・実対称行列', 'F0-00F1 固有空間'],
-    ['### F0-00E1-A03 直交補空間', 'F0-00E1-A03 直交補空間'],
   ];
 
   for (const [line, candidate] of keepCases) {
