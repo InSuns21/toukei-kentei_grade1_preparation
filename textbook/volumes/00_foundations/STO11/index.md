@@ -2,13 +2,15 @@
 
 <!-- definition-example-audit: strict -->
 
-STO4 では Brown 運動について Markov property と strong Markov property を標本路側から学び、STO9 では
+> **既出概念への参照**：[ブラウン運動のマルコフ性](../STO4/index.md#thm-sto4-brownian-markov)、[SDE の大域的存在一意性](../STO9/index.md#thm-sto9-global-existence-uniqueness)、[時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula)、[Lévy の特徴付け定理](../STO5/index.md#thm-sto5-levy-characterization) を再利用します。
+
+STO4 ではブラウン運動についてマルコフ性と強マルコフ性を標本路側から学び、STO9 では
 
 $$
 dX_t=b(X_t)\,dt+\sigma(X_t)\,dW_t
 $$
 
-という SDE を noise から構成しました。
+という SDE を雑音から構成しました。
 
 本章では視点を反転します。
 
@@ -26,7 +28,7 @@ $$
 
 を作ります。
 
-この対応が重要なのは、SDE の drift と diffusion coefficient から得られる二階微分作用素
+この対応が重要なのは、SDE のドリフトと拡散係数から得られる二階微分作用素
 
 $$
 Lf
@@ -40,22 +42,22 @@ $$
 
 が、同時に
 
-- diffusion の infinitesimal dynamics
+- 拡散の無限小時間発展
 - 時間後向きの関数発展
 - 分布の前向き発展
 - Feynman--Kac による確率表現
 - 標本路法則の特徴付け
-- 後続の stochastic control / HJB
+- 後続の確率制御 / HJB
 
 の共通言語になるからです。
 
-本章の停止線は Euclidean diffusion です。jump process は STO13--STO14、多様体上の diffusion は幾何学系列完成後へ送ります。
+本章の停止線は Euclidean 拡散です。jump 過程は STO13--STO14、多様体上の拡散は幾何学系列完成後へ送ります。
 
 ---
 
 ## 1. 「過去全部」ではなく「現在状態」だけを見る
 
-STO4 の [Brown 運動の Markov property](../STO4/index.md#thm-sto4-brownian-markov) では、Brown 運動の未来の増分が過去と独立であることから
+STO4 の [ブラウン運動のマルコフ性](../STO4/index.md#thm-sto4-brownian-markov) では、ブラウン運動の未来の増分が過去と独立であることから
 
 $$
 E[f(B_{s+t})\mid\mathcal F_s]
@@ -68,26 +70,26 @@ $$
 <a id="def-sto11-transition-kernel"></a>
 
 <!-- formal-statement-start -->
-> **定義（transition kernel）**  
+> **定義（遷移核）**  
 > 状態空間を $\mathbb R^d$ とする。各 $t\ge0$ に対し
 
 $$
 P_t:\mathbb R^d\times\mathcal B(\mathbb R^d)\to[0,1]
 $$
 
-> が次を満たすとき、$(P_t)_{t\ge0}$ を transition kernel の族という。
+> が次を満たすとき、$(P_t)_{t\ge0}$ を遷移核の族という。
 >
 > 1. 各 $x$ に対して $A\mapsto P_t(x,A)$ は $\mathbb R^d$ 上の確率測度である。
 > 2. 各 Borel 集合 $A$ に対して $x\mapsto P_t(x,A)$ は Borel 可測である。
 > 3. $P_0(x,A)=\mathbf1_A(x)$ である。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-sto11-transition-kernel -->
-### 直接例：Brown 運動の Gaussian kernel
+<!-- definition-example-start: def-sto11-transition-核 -->
+### 直接例：ブラウン運動のガウス核
 
 **定義の確認**
 
-$d$ 次元 Brown 運動を初期点 $x$ から出発させます。
+$d$ 次元ブラウン運動を初期点 $x$ から出発させます。
 
 $t>0$ では
 
@@ -107,7 +109,7 @@ P_t(x,A)
 \right)dy.
 $$
 
-固定した $x$ について Gaussian density の積分なので
+固定した $x$ についてガウス密度の積分なので
 
 $$
 P_t(x,\mathbb R^d)=1.
@@ -123,20 +125,20 @@ $$
 
 と置きます。
 
-したがって Brown 運動の未来分布は transition kernel の具体例になっています。
+したがってブラウン運動の未来分布は遷移核の具体例になっています。
 <!-- definition-example-end -->
 
 ---
 
-## 2. time-homogeneous Markov property
+## 2. 時間一様マルコフ性
 
 <a id="def-sto11-markov-process"></a>
 
 <!-- formal-statement-start -->
-> **定義（time-homogeneous Markov process）**  
-> filtered probability space 上の adapted process $X=(X_t)_{t\ge0}$ と transition kernel $(P_t)_{t\ge0}$ を考える。
+> **定義（time-homogeneous Markov 過程）**  
+> フィルトレーション付き確率空間上の適合過程 $X=(X_t)_{t\ge0}$ と遷移核 $(P_t)_{t\ge0}$ を考える。
 >
-> 任意の bounded Borel 関数 $f:\mathbb R^d\to\mathbb R$ と $s,t\ge0$ に対して
+> 任意の有界 Borel 関数 $f:\mathbb R^d\to\mathbb R$ と $s,t\ge0$ に対して
 
 $$
 E[f(X_{s+t})\mid\mathcal F_s]
@@ -145,7 +147,7 @@ P_tf(X_s)
 \qquad\text{a.s.}
 $$
 
-> が成り立つとき、$X$ を time-homogeneous Markov process という。ここで
+> が成り立つとき、$X$ を time-homogeneous Markov 過程という。ここで
 
 $$
 P_tf(x)
@@ -156,8 +158,8 @@ $$
 
 time-homogeneous という語は「未来分布が絶対時刻 $s$ に依存せず、経過時間 $t$ だけに依存する」ことを表します。
 
-<!-- definition-example-start: def-sto11-markov-process -->
-### 直接例：Brown 運動では現在位置を引けば未来が新しい Brown 運動になる
+<!-- definition-example-start: def-sto11-markov-過程 -->
+### 直接例：ブラウン運動では現在位置を引けば未来が新しいブラウン運動になる
 
 **定義の確認**
 
@@ -179,7 +181,7 @@ $$
 
 は $\mathcal F_s$ と独立で $N(0,tI_d)$ に従います。
 
-したがって bounded Borel $f$ について
+したがって有界 Borel $f$ について
 
 $$
 \begin{aligned}
@@ -198,13 +200,13 @@ $$
 
 ---
 
-## 3. kernel を関数作用素として束ねる
+## 3. 核を関数作用素として束ねる
 
 <a id="def-sto11-markov-semigroup"></a>
 
 <!-- formal-statement-start -->
-> **定義（Markov semigroup）**  
-> transition kernel $(P_t)$ に対して
+> **定義（マルコフ半群）**  
+> 遷移核 $(P_t)$ に対して
 
 $$
 P_tf(x)
@@ -214,7 +216,7 @@ $$
 
 > と定める。
 >
-> bounded Borel 関数を bounded Borel 関数へ送る作用素族 $(P_t)_{t\ge0}$ が
+> 有界 Borel 関数を有界 Borel 関数へ送る作用素族 $(P_t)_{t\ge0}$ が
 
 $$
 P_0=I,
@@ -230,11 +232,11 @@ f\ge0\Longrightarrow P_tf\ge0,
 P_t1=1
 $$
 
-> を満たすとき、Markov semigroup という。
+> を満たすとき、マルコフ半群という。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-sto11-markov-semigroup -->
-### 直接例：deterministic flow は最も単純な semigroup
+<!-- definition-example-start: def-sto11-markov-半群 -->
+### 直接例：deterministic flow は最も単純な半群
 
 **定義の確認**
 
@@ -282,8 +284,8 @@ $$
 <a id="prop-sto11-chapman-kolmogorov"></a>
 
 <!-- formal-statement-start -->
-> **命題（Chapman--Kolmogorov と semigroup law）**  
-> $X$ が time-homogeneous Markov process で transition kernel $(P_t)$ を持つとする。
+> **命題（Chapman--Kolmogorov と半群法則）**  
+> $X$ が time-homogeneous Markov 過程で遷移核 $(P_t)$ を持つとする。
 >
 > このとき任意の $s,t\ge0$ と Borel 集合 $A$ について
 
@@ -294,7 +296,7 @@ P_{s+t}(x,A)
 P_t(y,A)P_s(x,dy),
 $$
 
-> したがって bounded Borel 関数上で
+> したがって有界 Borel 関数上で
 
 $$
 P_{s+t}=P_sP_t
@@ -305,7 +307,7 @@ $$
 
 ### 証明の見取り図
 
-時刻 $s+t$ の条件付き期待値をまず時刻 $s$ まで戻し、Markov property を一回使います。
+時刻 $s+t$ の条件付き期待値をまず時刻 $s$ まで戻し、マルコフ性を一回使います。
 
 その後初期状態 $x$ から平均すれば、途中状態 $X_s$ を積分消去できます。
 
@@ -314,7 +316,7 @@ $$
 
 初期状態を $X_0=x$ と固定します。
 
-bounded Borel $f$ に対し tower property と Markov property から
+有界 Borel $f$ に対し tower property とマルコフ性から
 
 $$
 \begin{aligned}
@@ -349,15 +351,15 @@ $$
 
 ---
 
-## 4. SDE の解族はなぜ Markov process になるか
+## 4. SDE の解族はなぜ Markov 過程になるか
 
-STO9 の global Lipschitz SDE では、同じ係数から各初期点 $x$ に対する strong solution $X^x$ を一意に作れます。
+STO9 の大域 Lipschitz SDE では、同じ係数から各初期点 $x$ に対する強解 $X^x$ を一意に作れます。
 
 <a id="prop-sto11-lipschitz-sde-markov"></a>
 
 <!-- formal-statement-start -->
-> **命題（global Lipschitz SDE の solution family は Markov）**  
-> $b,\sigma$ が global Lipschitz かつ linear growth を満たし、
+> **命題（大域 Lipschitz SDE の solution family は Markov）**  
+> $b,\sigma$ が大域 Lipschitz かつ線形成長を満たし、
 >
 $$
 dX_t=b(X_t)dt+\sigma(X_t)dW_t,
@@ -365,9 +367,9 @@ dX_t=b(X_t)dt+\sigma(X_t)dW_t,
 X_0=x
 $$
 >
-> の strong solution $X^x$ を各 $x\in\mathbb R^d$ から取る。
+> の強解 $X^x$ を各 $x\in\mathbb R^d$ から取る。
 >
-> bounded Borel $f$ に対して
+> 有界 Borel $f$ に対して
 >
 $$
 P_tf(x):=E[f(X_t^x)]
@@ -393,11 +395,11 @@ $$
 \widetilde W_r=W_{s+r}-W_s
 $$
 
-は $\mathcal F_s$ と独立な Brown 運動です。
+は $\mathcal F_s$ と独立なブラウン運動です。
 
-時刻 $s$ 以後の $X$ は、初期値 $X_s$ と noise $\widetilde W$ から同じ SDE を解きます。
+時刻 $s$ 以後の $X$ は、初期値 $X_s$ と雑音 $\widetilde W$ から同じ SDE を解きます。
 
-STO9 の pathwise uniqueness により、この continuation は「初期値 $X_s$ から新しい Brown 運動で作った solution」と一致します。
+STO9 の経路ごとの一意性により、この continuation は「初期値 $X_s$ から新しいブラウン運動で作った solution」と一致します。
 
 <!-- proof-start -->
 ### 証明
@@ -430,15 +432,15 @@ $$
 
 です。
 
-Brown 運動の independent increments により $\widetilde W$ は $\mathcal F_s$ と独立な Brown 運動です。
+ブラウン運動の independent increments により $\widetilde W$ は $\mathcal F_s$ と独立なブラウン運動です。
 
-STO9 の Picard construction は各反復を初期値と Brownian 標本路の可測関数として作るため、極限 solution も可測な solution map で表せます。さらに global Lipschitz existence・pathwise uniqueness theorem により、固定した初期値 $y$ と Brown 運動 $\widetilde W$ に対する solution は一意です。
+STO9 の Picard 構成は各反復を初期値とブラウン標本路の可測関数として作るため、極限 solution も可測な solution map で表せます。さらに大域 Lipschitz 存在・経路ごとの一意性定理により、固定した初期値 $y$ とブラウン運動 $\widetilde W$ に対する solution は一意です。
 
-したがって $\mathcal F_s$ を条件にしたとき、未来の標本路 $(Y_r)_{r\ge0}$ の条件付き law は現在値 $X_s^x$ と独立な future noise $\widetilde W$ だけで決まり、初期点 $X_s^x$ から同じ係数で再始動した solution law に一致します。
+したがって $\mathcal F_s$ を条件にしたとき、未来の標本路 $(Y_r)_{r\ge0}$ の条件付き法則は現在値 $X_s^x$ と独立な future 雑音 $\widetilde W$ だけで決まり、初期点 $X_s^x$ から同じ係数で再始動した solution 法則に一致します。
 
-まず bounded continuous $f$ に対してこの条件付き期待値公式が得られます。公式を満たす bounded Borel 関数の族は bounded monotone pointwise limit で閉じ、bounded continuous functions は $\mathcal B(\mathbb R^d)$ を生成するので、monotone class argument により bounded Borel $f$ 全体へ拡張できます。
+まず有界 continuous $f$ に対してこの条件付き期待値公式が得られます。公式を満たす有界 Borel 関数の族は有界 monotone pointwise limit で閉じ、有界 continuous functions は $\mathcal B(\mathbb R^d)$ を生成するので、monotone class argument により有界 Borel $f$ 全体へ拡張できます。
 
-よって bounded Borel $f$ に対し
+よって有界 Borel $f$ に対し
 
 $$
 E[f(X_{s+t}^x)\mid\mathcal F_s]
@@ -462,8 +464,8 @@ $$
 <a id="def-sto11-generator"></a>
 
 <!-- formal-statement-start -->
-> **定義（generator）**  
-> Markov semigroup $(P_t)$ を考える。
+> **定義（生成作用素）**  
+> マルコフ半群 $(P_t)$ を考える。
 >
 > 本章では、関数 $f$ に対して各 $x\in\mathbb R^d$ で極限
 >
@@ -474,7 +476,7 @@ Lf(x)
 \frac{P_tf(x)-f(x)}{t}
 $$
 >
-> が有限値として存在するとき、$f$ は pointwise generator の domain $D(L)$ に属するといい、この極限で $Lf$ を定める。
+> が有限値として存在するとき、$f$ は pointwise 生成作用素の domain $D(L)$ に属するといい、この極限で $Lf$ を定める。
 >
 > 一方、後半で扱う $C_0(\mathbb R^d)$ 上の作用素族のように sup norm に関して強連続な場合には
 >
@@ -485,10 +487,10 @@ $$
 \to0
 $$
 >
-> を満たす $f$ を domain とする作用素を $C_0$ 上の strong generator という。
+> を満たす $f$ を domain とする作用素を $C_0$ 上の strong 生成作用素という。
 <!-- formal-statement-end -->
 
-本章の diffusion 計算ではまず pointwise generator を直接求めます。
+本章の拡散計算ではまず pointwise 生成作用素を直接求めます。
 
 後半の $C_0$ 上の理論ではこの sup-norm 版が標準です。pointwise limit に加えて sup-norm convergence まで確認できる関数では、両者は同じ微分作用素表示を与えます。
 
@@ -502,8 +504,8 @@ $$
 
 です。
 
-<!-- definition-example-start: def-sto11-generator -->
-### 直接例：deterministic flow の generator は一次微分になる
+<!-- definition-example-start: def-sto11-生成作用素 -->
+### 直接例：deterministic flow の生成作用素は一次微分になる
 
 **定義の確認**
 
@@ -527,7 +529,7 @@ $$
 Lf(x)=cf'(x).
 $$
 
-時間発展の速度 $c$ が generator の一次微分係数として現れました。
+時間発展の速度 $c$ が生成作用素の一次微分係数として現れました。
 <!-- definition-example-end -->
 
 ---
@@ -555,12 +557,12 @@ $$
 <a id="prop-sto11-diffusion-generator"></a>
 
 <!-- formal-statement-start -->
-> **命題（Itô diffusion の generator）**  
-> $b:\mathbb R^d\to\mathbb R^d$、$\sigma:\mathbb R^d\to\mathbb R^{d\times m}$ を global Lipschitz かつ linear growth とし、各初期値 $x$ から STO9 の strong solution $X^x$ を取る。
+> **命題（Itô 拡散の生成作用素）**  
+> $b:\mathbb R^d\to\mathbb R^d$、$\sigma:\mathbb R^d\to\mathbb R^{d\times m}$ を大域 Lipschitz かつ線形成長とし、各初期値 $x$ から STO9 の強解 $X^x$ を取る。
 >
 > $f\in C_c^2(\mathbb R^d)$ とする。
 >
-> この diffusion の generator は
+> この拡散の生成作用素は
 
 $$
 \boxed{
@@ -579,7 +581,7 @@ $$
 
 ### 証明の見取り図
 
-[STO7 の時間依存 Itô formula](../STO7/index.md#thm-sto7-ito-process-formula) を時間に依存しない $f$ へ適用すると
+[STO7 の時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula) を時間に依存しない $f$ へ適用すると
 
 $$
 f(X_t)-f(x)
@@ -596,7 +598,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-Itô formula から
+Itô 公式から
 
 $$
 \begin{aligned}
@@ -617,9 +619,9 @@ a_{ij}(X_s)\partial_{ij}f(X_s)\,ds\\
 \end{aligned}
 $$
 
-$f$ は 台がコンパクトで、一階・二階微分は bounded です。
+$f$ は台がコンパクトで、一階・二階微分は有界です。
 
-linear growth と STO9 の finite-horizon moment estimate により stochastic integral の integrand は各有限時間で二乗可積分です。従って stochastic integral の期待値は 0 です。
+線形成長と STO9 の有限-horizon moment estimate により確率積分の被積分過程は各有限時間で二乗可積分です。従って確率積分の期待値は 0 です。
 
 よって
 
@@ -643,7 +645,7 @@ $$
 E_x[Lf(X_s)]\,ds.
 $$
 
-$X_s\to x$ a.s.、$Lf$ は bounded continuous なので dominated convergence により
+$X_s\to x$ a.s.、$Lf$ は有界 continuous なので dominated convergence により
 
 $$
 E_x[Lf(X_s)]\to Lf(x).
@@ -659,10 +661,10 @@ E_x[Lf(X_s)]ds
 Lf(x).
 $$
 
-よって generator は所望の式です。
+よって生成作用素は所望の式です。
 <!-- proof-end -->
 
-### Brown 運動は Laplacian を持つ
+### ブラウン運動は Laplacian を持つ
 
 $b=0$、$\sigma=I_d$ なら $a=I_d$ なので
 
@@ -672,7 +674,7 @@ L=\frac12\Delta
 }.
 $$
 
-確率過程 Brown 運動の generator が Laplacian の半分になることが分かりました。
+確率過程ブラウン運動の生成作用素が Laplacian の半分になることが分かりました。
 
 ---
 
@@ -685,10 +687,10 @@ $$
 <a id="thm-sto11-dynkin"></a>
 
 <!-- formal-statement-start -->
-> **定理（Dynkin formula）**  
-> 前節の diffusion $X$ と generator $L$ を考える。
+> **定理（Dynkin 公式）**  
+> 前節の拡散 $X$ と生成作用素 $L$ を考える。
 >
-> $f\in C_c^2(\mathbb R^d)$ とし、$\tau$ を bounded stopping time とする。
+> $f\in C_c^2(\mathbb R^d)$ とし、$\tau$ を有界 stopping time とする。
 >
 > このとき
 
@@ -707,7 +709,7 @@ $$
 
 ### 証明の見取り図
 
-Itô formula の stochastic integral 部分を martingale $M_t$ と書けば
+Itô 公式の確率積分部分を martingale $M_t$ と書けば
 
 $$
 f(X_t)
@@ -715,12 +717,12 @@ f(X_t)
 f(x)+\int_0^tLf(X_s)ds+M_t.
 $$
 
-bounded stopping time で止め、optional sampling により $E[M_\tau]=0$ とします。
+有界 stopping time で止め、optional sampling により $E[M_\tau]=0$ とします。
 
 <!-- proof-start -->
 ### 証明
 
-Itô formula から
+Itô 公式から
 
 $$
 f(X_t)
@@ -744,7 +746,7 @@ $$
 
 $\tau\le T$ a.s. となる $T<\infty$ を取ります。
 
-$\nabla f$ は bounded で 台がコンパクトで、$\sigma$ は compact set 上で bounded なので
+$\nabla f$ は有界で台がコンパクトで、$\sigma$ は compact set 上で有界なので
 
 $$
 E_x\left[
@@ -757,15 +759,15 @@ E_x\left[
 \infty.
 $$
 
-従って $M$ は $[0,T]$ 上の square-integrable martingale です。
+従って $M$ は $[0,T]$ 上の二乗可積分 martingale です。
 
-[STO5 の bounded stopping theorem](../STO5/index.md#thm-sto5-bounded-optional-sampling) により
+[STO5 の有界 stopping 定理](../STO5/index.md#thm-sto5-bounded-optional-sampling) により
 
 $$
 E_x[M_\tau]=E_x[M_0]=0.
 $$
 
-$t=\tau$ とした Itô formula の期待値を取れば
+$t=\tau$ とした Itô 公式の期待値を取れば
 
 $$
 E_x[f(X_\tau)]
@@ -778,9 +780,9 @@ E_x\left[
 $$
 <!-- proof-end -->
 
-### 最小例：Brown 運動の二乗平均
+### 最小例：ブラウン運動の二乗平均
 
-1 次元 Brown 運動で $f(x)=x^2$ を使うと本来 $f\notin C_c^2$ ですが、停止時刻
+1 次元ブラウン運動で $f(x)=x^2$ を使うと本来 $f\notin C_c^2$ ですが、停止時刻
 
 $$
 \tau_n=\inf\{t:|B_t|\ge n\}\wedge t
@@ -802,25 +804,25 @@ $$
 E[B_t^2]=t.
 $$
 
-generator は Brown 運動の variance growth を再構成しています。
+生成作用素はブラウン運動の variance growth を再構成しています。
 
 ---
 
 ## 8. 時間発展作用素を微分する
 
-semigroup law
+半群法則
 
 $$
 P_{t+h}=P_tP_h
 $$
 
-を $h$ で微分すると generator が現れます。
+を $h$ で微分すると生成作用素が現れます。
 
 <a id="thm-sto11-backward-kolmogorov"></a>
 
 <!-- formal-statement-start -->
-> **定理（backward Kolmogorov equation）**  
-> Markov semigroup $(P_t)$ と generator $L$ を考える。
+> **定理（Kolmogorov 後退方程式）**  
+> マルコフ半群 $(P_t)$ と生成作用素 $L$ を考える。
 >
 > $f\in D(L)$ とし、各 $t\ge0$ で $P_tf\in D(L)$、かつ
 
@@ -849,7 +851,7 @@ $$
 \frac{P_{t+h}f-P_tf}{h}
 $$
 
-とし、semigroup law で
+とし、半群法則で
 
 $$
 P_{t+h}f=P_hP_tf
@@ -857,7 +859,7 @@ $$
 
 と書きます。
 
-あとは generator の定義そのものです。
+あとは生成作用素の定義そのものです。
 
 <!-- proof-start -->
 ### 証明
@@ -897,7 +899,7 @@ u(0,x)=f(x).
 $$
 <!-- proof-end -->
 
-diffusion generator なら
+拡散生成作用素なら
 
 $$
 \partial_tu
@@ -929,11 +931,11 @@ $$
 
 ---
 
-## 9. forward equation と Fokker--Planck
+## 9. 前進方程式と Fokker--Planck
 
 backward equation は観測関数 $f$ を時間発展させます。
 
-forward equation は確率分布そのものを時間発展させます。
+前進方程式は確率分布そのものを時間発展させます。
 
 初期分布を $\mu_0$ とし
 
@@ -948,8 +950,8 @@ $$
 <a id="thm-sto11-forward-fokker-planck"></a>
 
 <!-- formal-statement-start -->
-> **定理（forward Kolmogorov equation の弱形式と Fokker--Planck）**  
-> diffusion generator
+> **定理（Kolmogorov 前進方程式の弱形式と Fokker--Planck）**  
+> 拡散生成作用素
 
 $$
 Lf
@@ -989,7 +991,7 @@ $$
 
 ### 証明の見取り図
 
-弱形式は [Dynkin formula](#thm-sto11-dynkin) を初期分布について平均し、時間微分するだけです。
+弱形式は [Dynkin 公式](#thm-sto11-dynkin) を初期分布について平均し、時間微分するだけです。
 
 密度形は
 
@@ -1002,7 +1004,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[Dynkin formula](#thm-sto11-dynkin) から
+[Dynkin 公式](#thm-sto11-dynkin) から
 
 $$
 E[f(X_t)]
@@ -1025,7 +1027,7 @@ $$
 \right)ds.
 $$
 
-右辺の integrand が連続であると仮定すれば微分して
+右辺の被積分過程が連続であると仮定すれば微分して
 
 $$
 \frac{d}{dt}
@@ -1084,7 +1086,7 @@ $$
 0.
 $$
 
-十分な滑らかさの下で integrand は点ごとに 0 となり、所望の PDE を得ます。
+十分な滑らかさの下で被積分過程は点ごとに 0 となり、所望の PDE を得ます。
 <!-- proof-end -->
 
 重要なのは、密度 $p$ の存在や滑らかさをこの導出だけでは証明していないことです。
@@ -1101,19 +1103,19 @@ $$
 
 ## 10. Feynman--Kac：微分方程式を標本路期待値へ変える
 
-generator と backward equationへ potential と running term を加えます。
+生成作用素と backward equationへポテンシャルと積分項を加えます。
 
-時間区間 $[t,T]$ で、$X^{t,x}$ を時刻 $t$ に $x$ から出発する diffusion とします。
+時間区間 $[t,T]$ で、$X^{t,x}$ を時刻 $t$ に $x$ から出発する拡散とします。
 
 <a id="thm-sto11-feynman-kac"></a>
 
 <!-- formal-statement-start -->
-> **定理（Feynman--Kac verification formula）**  
-> $L$ を前節の diffusion generator とする。
+> **定理（Feynman--Kac 検証公式）**  
+> $L$ を前節の拡散生成作用素とする。
 >
-> bounded continuous な $V:[0,T]\times\mathbb R^d\to[0,\infty)$、$g:[0,T]\times\mathbb R^d\to\mathbb R$、$h:\mathbb R^d\to\mathbb R$ を考える。
+> 有界 continuous な $V:[0,T]\times\mathbb R^d\to[0,\infty)$、$g:[0,T]\times\mathbb R^d\to\mathbb R$、$h:\mathbb R^d\to\mathbb R$ を考える。
 >
-> $u\in C^{1,2}([0,T)\times\mathbb R^d)\cap C([0,T]\times\mathbb R^d)$ が bounded で必要な導関数も stochastic integral を真の martingale にするだけ bounded であり、
+> $u\in C^{1,2}([0,T)\times\mathbb R^d)\cap C([0,T]\times\mathbb R^d)$ が有界で必要な導関数も確率積分を真の martingale にするだけ有界であり、
 
 $$
 \partial_tu+Lu-Vu+g=0,
@@ -1139,7 +1141,7 @@ e^{-\int_t^sV(r,X_r)dr}g(s,X_s)ds
 $$
 <!-- formal-statement-end -->
 
-これは existence theorem ではなく verification theorem として述べています。
+これは存在定理ではなく verification 定理として述べています。
 
 すなわち classical solution が十分な正則性で存在するとき、その値を確率表示し、その class での一意性を得ます。
 
@@ -1147,7 +1149,7 @@ PDE 側で classical solution が存在する条件そのものは Encore II / I
 
 ### 証明の見取り図
 
-discount factor
+割引項 factor
 
 $$
 D_s
@@ -1165,7 +1167,7 @@ $$
 D_su(s,X_s)
 $$
 
-へ [STO7 の product rule](../STO7/index.md#cor-sto7-product-rule) を適用すると drift は
+へ [STO7 の product rule](../STO7/index.md#cor-sto7-product-rule) を適用するとドリフトは
 
 $$
 D_s(\partial_su+Lu-Vu)ds
@@ -1194,9 +1196,9 @@ dD_s
 -V(s,X_s)D_s\,ds.
 $$
 
-$D$ は finite variation なので $[D,u(\cdot,X)]=0$ です。
+$D$ は有限 variation なので $[D,u(\cdot,X)]=0$ です。
 
-時間依存 Itô formula から
+時間依存 Itô 公式から
 
 $$
 du(s,X_s)
@@ -1261,7 +1263,7 @@ $$
 終端条件 $u(T,\cdot)=h$ を代入して所望の表示を得ます。
 <!-- proof-end -->
 
-### 直接例：定数 potential
+### 直接例：定数ポテンシャル
 
 $L=\frac12\Delta$、$g=0$、$h\equiv1$、$V\equiv\lambda\ge0$ とします。
 
@@ -1289,9 +1291,9 @@ $$
 
 ## 11. 局所作用素から標本路法則を特徴付ける
 
-SDE は Brown 運動 $W$ を明示します。
+SDE はブラウン運動 $W$ を明示します。
 
-ここでは Brown 運動を最初から書かず、
+ここではブラウン運動を最初から書かず、
 
 $$
 \boxed{
@@ -1304,20 +1306,20 @@ $$
 <a id="def-sto11-martingale-problem"></a>
 
 <!-- formal-statement-start -->
-> **定義（martingale problem）**  
+> **定義（マルチンゲール問題）**  
 > 標本路空間
 
 $$
 \Omega=C([0,\infty),\mathbb R^d)
 $$
 
-> 上の coordinate process を
+> 上の coordinate 過程を
 
 $$
 X_t(\omega)=\omega(t)
 $$
 
-> とし、canonical filtration を $(\mathcal F_t)$ とする。
+> とし、canonical フィルトレーションを $(\mathcal F_t)$ とする。
 >
 > 線形作用素
 
@@ -1327,7 +1329,7 @@ $$
 
 > と初期分布 $\mu$ を固定する。
 >
-> 確率測度 $P$ が martingale problem for $(L,\mu)$ の solution であるとは、
+> 確率測度 $P$ がマルチンゲール問題 for $(L,\mu)$ の solution であるとは、
 
 $$
 P\circ X_0^{-1}=\mu
@@ -1341,15 +1343,15 @@ M_t^f
 f(X_t)-f(X_0)-\int_0^tLf(X_s)ds
 $$
 
-> が $P$ の下で local martingale であることをいう。
+> が $P$ の下で局所マルチンゲールであることをいう。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sto11-martingale-problem -->
-### 直接例：Brown 運動は $\frac12\Delta$ の martingale problem を解く
+### 直接例：ブラウン運動は $\frac12\Delta$ のマルチンゲール問題を解く
 
 **定義の確認**
 
-$X=B$ を $d$ 次元 Brown 運動とし
+$X=B$ を $d$ 次元ブラウン運動とし
 
 $$
 L=\frac12\Delta,
@@ -1359,7 +1361,7 @@ $$
 
 とします。
 
-Itô formula から
+Itô 公式から
 
 $$
 f(B_t)-f(B_0)
@@ -1377,20 +1379,20 @@ M_t^f
 \int_0^t\nabla f(B_s)^\top dB_s.
 $$
 
-$f$ は 台がコンパクトな smooth 関数なので $\nabla f$ は bounded です。
+$f$ は台がコンパクトな smooth 関数なので $\nabla f$ は有界です。
 
-従って右辺は square-integrable martingale であり、Brown 運動の law は $\frac12\Delta$ の martingale problem を解きます。
+従って右辺は二乗可積分 martingale であり、ブラウン運動の法則は $\frac12\Delta$ のマルチンゲール問題を解きます。
 <!-- definition-example-end -->
 
 ---
 
-## 12. SDE は martingale problem を解く
+## 12. SDE はマルチンゲール問題を解く
 
 <a id="thm-sto11-sde-to-mp"></a>
 
 <!-- formal-statement-start -->
-> **定理（SDE から martingale problem）**  
-> ある filtered probability space 上に Brown 運動 $W$ と continuous adapted process $X$ が存在し、任意の $t\ge0$ について
+> **定理（SDE からマルチンゲール問題）**  
+> あるフィルトレーション付き確率空間上にブラウン運動 $W$ と continuous 適合過程 $X$ が存在し、任意の $t\ge0$ について
 
 $$
 X_t
@@ -1418,21 +1420,21 @@ $$
 
 > と置く。
 >
-> このとき $X$ の標本路法則 は $(L,\mathcal L(X_0))$ の martingale problem を解く。
+> このとき $X$ の標本路法則は $(L,\mathcal L(X_0))$ のマルチンゲール問題を解く。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-これは diffusion generator の計算を標本路法則の言葉へ移したものです。
+これは拡散生成作用素の計算を標本路法則の言葉へ移したものです。
 
-Itô formula から drift 部分を左辺へ移せば stochastic integral だけが残ります。
+Itô 公式からドリフト部分を左辺へ移せば確率積分だけが残ります。
 
 <!-- proof-start -->
 ### 証明
 
 $f\in C_c^\infty$ を固定します。
 
-Itô formula から
+Itô 公式から
 
 $$
 f(X_t)-f(X_0)
@@ -1452,27 +1454,27 @@ M_t^f
 \nabla f(X_s)^\top\sigma(X_s)dW_s.
 $$
 
-局所化すれば右辺は continuous local martingale です。
+局所化すれば右辺は continuous 局所マルチンゲールです。
 
-この性質は $(X_t)$ の 標本路汎関数 として canonical 標本路空間 上へ押し出せます。
+この性質は $(X_t)$ の標本路汎関数として canonical 標本路空間上へ押し出せます。
 
-したがって $X$ の law は martingale problem を解きます。
+したがって $X$ の法則はマルチンゲール問題を解きます。
 <!-- proof-end -->
 
-この方向では Brown 運動を消すのは簡単です。
+この方向ではブラウン運動を消すのは簡単です。
 
 難しいのは逆方向です。
 
 ---
 
-## 13. nondegenerate なら martingale problem から Brown 運動と SDE 表現を復元できる
+## 13. 非退化ならマルチンゲール問題からブラウン運動と SDE 表現を復元できる
 
-$a=\sigma\sigma^\top$ が正定値で $\sigma$ が可逆なら、martingale problem に埋め込まれた drift と quadratic variation を取り出し、Brown 運動を再構成できます。
+$a=\sigma\sigma^\top$ が正定値で $\sigma$ が可逆なら、マルチンゲール問題に埋め込まれたドリフトと quadratic variation を取り出し、ブラウン運動を再構成できます。
 
 <a id="thm-sto11-mp-to-sde"></a>
 
 <!-- formal-statement-start -->
-> **定理（nondegenerate martingale problem から SDE 表現）**  
+> **定理（非退化マルチンゲール問題から SDE 表現）**  
 > $b:\mathbb R^d\to\mathbb R^d$、$\sigma:\mathbb R^d\to\mathbb R^{d\times d}$ を continuous とし、局所有界とする。
 >
 > 各 $x$ で $\sigma(x)$ は可逆で、$\sigma^{-1}$ も局所有界とする。
@@ -1489,7 +1491,7 @@ $$
 
 > on $C_c^\infty(\mathbb R^d)$ を考える。
 >
-> continuous non-explosive coordinate process $X$ の law $P$ がこの martingale problem を解くなら、同じ probability space 上で $d$ 次元 Brown 運動 $W$ を構成でき、
+> continuous non-explosive coordinate 過程 $X$ の法則 $P$ がこのマルチンゲール問題を解くなら、同じ確率空間上で $d$ 次元ブラウン運動 $W$ を構成でき、
 
 $$
 X_t
@@ -1506,7 +1508,7 @@ $$
 
 ### 証明の見取り図
 
-coordinate function $x_i$ は 台はコンパクトではありません。
+coordinate function $x_i$ は台はコンパクトではありません。
 
 そこで exit time
 
@@ -1524,7 +1526,7 @@ M_t^i
 X_t^i-X_0^i-\int_0^tb_i(X_s)ds
 $$
 
-が local martingale で、
+が局所マルチンゲールで、
 
 $$
 [M^i,M^j]_t
@@ -1561,7 +1563,7 @@ $$
 f_i^{(n)}(x)=\chi_n(x)x_i
 $$
 
-を martingale problem の domain の関数 に取ります。
+をマルチンゲール問題の domain の関数に取ります。
 
 $t<\tau_n$ では $f_i^{(n)}(X_t)=X_t^i$ かつ導関数も coordinate function と一致するため
 
@@ -1583,7 +1585,7 @@ X_0^i
 \int_0^{t\wedge\tau_n}b_i(X_s)ds
 $$
 
-は local martingale です。
+は局所マルチンゲールです。
 
 $n$ を増やして貼り合わせれば
 
@@ -1593,7 +1595,7 @@ M_t^i
 X_t^i-X_0^i-\int_0^tb_i(X_s)ds
 $$
 
-は continuous local martingale です。
+は continuous 局所マルチンゲールです。
 
 次に
 
@@ -1623,7 +1625,7 @@ X_t^j\,dX_t^i
 d[X^i,X^j]_t.
 $$
 
-$X^i=M^i+\int b_i ds$ で finite-variation part は quadratic covariation に寄与しません。
+$X^i=M^i+\int b_i ds$ で有限-variation part は quadratic covariation に寄与しません。
 
 coordinate decomposition と product rule から
 
@@ -1638,9 +1640,9 @@ b_i(X_s)X_s^j+b_j(X_s)X_s^i
 [M^i,M^j]_t
 $$
 
-は local martingale です。
+は局所マルチンゲールです。
 
-一方、$x_ix_j$ を局所化して martingale problem に入れると
+一方、$x_ix_j$ を局所化してマルチンゲール問題に入れると
 
 $$
 X_t^iX_t^j-X_0^iX_0^j
@@ -1651,7 +1653,7 @@ b_i(X_s)X_s^j+b_j(X_s)X_s^i+a_{ij}(X_s)
 \right)ds
 $$
 
-も local martingale です。
+も局所マルチンゲールです。
 
 両者の差
 
@@ -1661,7 +1663,7 @@ $$
 \int_0^ta_{ij}(X_s)ds
 $$
 
-は continuous finite-variation process かつ local martingale です。[STO5 の finite-variation local martingale の定数性](../STO5/index.md#lem-sto5-fv-local-martingale-constant) から、初期値 0 のこの差は恒等的に 0 です。従って
+は continuous 有限-variation 過程かつ局所マルチンゲールです。[STO5 の有限-variation 局所マルチンゲールの定数性](../STO5/index.md#lem-sto5-fv-local-martingale-constant) から、初期値 0 のこの差は恒等的に 0 です。従って
 
 $$
 [M^i,M^j]_t
@@ -1669,7 +1671,7 @@ $$
 \int_0^ta_{ij}(X_s)ds.
 $$
 
-ここで $P$ の下で canonical filtration を usual augmentation し、vector local martingale $M=(M^1,\ldots,M^d)$ に対し
+ここで $P$ の下で canonical フィルトレーションを usual augmentation し、vector 局所マルチンゲール $M=(M^1,\ldots,M^d)$ に対し
 
 $$
 W_t
@@ -1679,7 +1681,7 @@ $$
 
 と置きます。
 
-局所有界性により stochastic integral は localization 後に well-defined です。
+局所有界性により確率積分は localization 後に well-defined です。
 
 covariation は
 
@@ -1698,9 +1700,9 @@ tI_d.
 \end{aligned}
 $$
 
-また $W_0=0$ で $W$ は continuous local martingale です。
+また $W_0=0$ で $W$ は continuous 局所マルチンゲールです。
 
-[STO5 の Lévy characterization](../STO5/index.md#thm-sto5-levy-characterization) により $W$ は $d$ 次元 Brown 運動です。
+[STO5 の Lévy characterization](../STO5/index.md#thm-sto5-levy-characterization) により $W$ は $d$ 次元ブラウン運動です。
 
 定義から
 
@@ -1727,36 +1729,36 @@ dX_t=b(X_t)dt+\sigma(X_t)dW_t.
 $$
 <!-- proof-end -->
 
-退化した $\sigma$ では、この単純な逆行列による Brown 運動復元は使えません。
+退化した $\sigma$ では、この単純な逆行列によるブラウン運動復元は使えません。
 
-一般の退化 diffusion では martingale representation / probability space の拡大が必要になる場合があり、STO12 より先にその一般論を逆輸入しません。
+一般の退化拡散では martingale 表現 / 確率空間の拡大が必要になる場合があり、STO12 より先にその一般論を逆輸入しません。
 
 ---
 
-## 14. martingale problem の存在と law の一意性
+## 14. マルチンゲール問題の存在と法則の一意性
 
 <a id="def-sto11-mp-law-uniqueness"></a>
 
 <!-- formal-statement-start -->
-> **定義（martingale problem の存在・law 一意性）**  
-> 各初期状態 $x\in\mathbb R^d$ に対し martingale problem for $(L,\delta_x)$ の solution law $P_x$ が
+> **定義（マルチンゲール問題の存在・法則一意性）**  
+> 各初期状態 $x\in\mathbb R^d$ に対しマルチンゲール問題 for $(L,\delta_x)$ の solution 法則 $P_x$ が
 >
 > 1. 存在し、
 > 2. 標本路法則として一意
 >
-> であるとき、その martingale problem は **存在・law 一意性を持つ**という。
+> であるとき、そのマルチンゲール問題は **存在・法則一意性を持つ**という。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-sto11-mp-law-uniqueness -->
-### 直接例：Brown 運動では存在と law の一意性を確認できる
+<!-- definition-example-start: def-sto11-mp-法則-一意性 -->
+### 直接例：ブラウン運動では存在と法則の一意性を確認できる
 
 **定義の確認**
 
 $L=\frac12\Delta$、$D(L)=C_c^\infty(\mathbb R^d)$ とします。
 
-Brown 運動がこの martingale problem の solution を与えることは [直接例](#def-sto11-martingale-problem) で確認しました。
+ブラウン運動がこのマルチンゲール問題の solution を与えることは [直接例](#def-sto11-martingale-problem) で確認しました。
 
-逆に任意の solution law $P$ を取ります。coordinate functions $x_i$ と products $x_ix_j$ を cutoff で局所化して martingale problem へ入れると、各座標 $X^i-X_0^i$ は continuous local martingale で
+逆に任意の solution 法則 $P$ を取ります。coordinate functions $x_i$ と products $x_ix_j$ を cutoff で局所化してマルチンゲール問題へ入れると、各座標 $X^i-X_0^i$ は continuous 局所マルチンゲールで
 
 $$
 [X^i-X_0^i,X^j-X_0^j]_t
@@ -1766,20 +1768,20 @@ $$
 
 を得ます。
 
-[STO5 の Lévy characterization](../STO5/index.md#thm-sto5-levy-characterization) により $X-X_0$ は standard Brownian motion です。
+[STO5 の Lévy characterization](../STO5/index.md#thm-sto5-levy-characterization) により $X-X_0$ は standard ブラウン運動です。
 
-したがって初期点 $x$ を固定すれば solution law は Brownian law 以外にありえません。存在と law の一意性がともに確認できるので、定義の二条件を満たします。
+したがって初期点 $x$ を固定すれば solution 法則はブラウン法則以外にありえません。存在と法則の一意性がともに確認できるので、定義の二条件を満たします。
 <!-- definition-example-end -->
 
 <a id="thm-sto11-mp-strong-markov"></a>
 
 <!-- formal-statement-start -->
-> **定理（martingale problem の存在・law 一意性から strong Markov property）**  
-> $\Omega=C([0,\infty),\mathbb R^d)$ を canonical 標本路空間 とし、$X$ を coordinate process とする。線形作用素 $L$ の martingale problem が各初期状態 $x\in\mathbb R^d$ について存在・law 一意性を持ち、その一意な solution law を $P_x$ とする。
+> **定理（マルチンゲール問題の存在・法則一意性から強マルコフ性）**  
+> $\Omega=C([0,\infty),\mathbb R^d)$ を canonical 標本路空間とし、$X$ を coordinate 過程とする。線形作用素 $L$ のマルチンゲール問題が各初期状態 $x\in\mathbb R^d$ について存在・法則一意性を持ち、その一意な solution 法則を $P_x$ とする。
 >
-> さらに各標本路空間の Borel 集合 $A$ に対して $x\mapsto P_x(A)$ が Borel 可測であり、$D(L)$ に martingale problem を決定する countable subclass が存在すると仮定する。
+> さらに各標本路空間の Borel 集合 $A$ に対して $x\mapsto P_x(A)$ が Borel 可測であり、$D(L)$ にマルチンゲール問題を決定する countable subclass が存在すると仮定する。
 >
-> $P_tf(x):=E_x[f(X_t)]$ と置く。このとき、任意の a.s. finite stopping time $\tau$、$t\ge0$、bounded Borel $f$ に対して
+> $P_tf(x):=E_x[f(X_t)]$ と置く。このとき、任意の a.s. 有限 stopping time $\tau$、$t\ge0$、有界 Borel $f$ に対して
 >
 $$
 E_x[f(X_{\tau+t})\mid\mathcal F_\tau]
@@ -1788,14 +1790,14 @@ P_tf(X_\tau)
 \qquad P_x\text{-a.s.}
 $$
 >
-> が成り立つ。従って coordinate process は strong Markov process である。
+> が成り立つ。従って coordinate 過程は strong Markov 過程である。
 <!-- formal-statement-end -->
 
 ### この定理の機構
 
 deterministic time $s$ で未来の標本路を条件付けます。
 
-regular conditional law
+regular conditional 法則
 
 $$
 P_x(
@@ -1805,9 +1807,9 @@ X_{s+\cdot}\in\cdot
 )
 $$
 
-を取ると、martingale increment の性質から、この conditional law も「初期点 $X_s$ から出発する同じ martingale problem」を解きます。
+を取ると、martingale increment の性質から、この conditional 法則も「初期点 $X_s$ から出発する同じマルチンゲール問題」を解きます。
 
-solution law の一意性により、その law は
+solution 法則の一意性により、その法則は
 
 $$
 P_{X_s}
@@ -1815,7 +1817,7 @@ $$
 
 以外にありません。
 
-したがって未来分布は現在状態だけで決まり、Markov property が出ます。
+したがって未来分布は現在状態だけで決まり、マルコフ性が出ます。
 
 stopping time へ拡張するときは、停止時刻近似と canonical shift、regular conditional probability の可測性を同時に扱います。
 
@@ -1825,17 +1827,17 @@ stopping time へ拡張するときは、停止時刻近似と canonical shift�
 
 - Polish 標本路空間上の regular conditional probabilities
 - 標本路 shift の可測性
-- stopped martingale problem の保存
+- stopped マルチンゲール問題の保存
 - stopping time を離散化した conditional laws の極限
-- $x\mapsto P_x$ の measurable kernel 性
+- $x\mapsto P_x$ の measurable 核性
 
 が必要です。
 
-これは generator / Dynkin / Kolmogorov / Feynman--Kac の核心計算とは独立した canonical-space probability の大きな論証です。
+これは生成作用素 / Dynkin / Kolmogorov / Feynman--Kac の核心計算とは独立した canonical-space probability の大きな論証です。
 
 本章では deterministic-time の機構を上で明示し、strong Markov への一般拡張を標準定理として使います。
 
-STO4 では Brown 運動について stopping-time approximation を用いた [strong Markov property](../STO4/index.md#thm-sto4-brownian-strong-markov) をすでに完全証明しているため、ここでは「Brown 運動固有の independent increments」ではなく「law の一意性」が Markov 性を作る別ルートを学ぶことが目的です。
+STO4 ではブラウン運動について stopping-time approximation を用いた [強マルコフ性](../STO4/index.md#thm-sto4-brownian-strong-markov) をすでに完全証明しているため、ここでは「ブラウン運動固有の independent increments」ではなく「法則の一意性」が Markov 性を作る別ルートを学ぶことが目的です。
 
 ---
 
@@ -1844,10 +1846,10 @@ STO4 では Brown 運動について stopping-time approximation を用いた [s
 <a id="def-sto11-feller-semigroup"></a>
 
 <!-- formal-statement-start -->
-> **定義（Feller semigroup）**  
+> **定義（Feller 半群）**  
 > $C_0(\mathbb R^d)$ を infinity で 0 に収束する連続関数の空間とする。
 >
-> Markov semigroup $(P_t)$ が Feller semigroup であるとは、
+> マルコフ半群 $(P_t)$ が Feller 半群であるとは、
 >
 > 1. $P_tC_0\subset C_0$,
 > 2. $\|P_tf\|_\infty\le\|f\|_\infty$,
@@ -1864,12 +1866,12 @@ $$
 > を満たすことをいう。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-sto11-feller-semigroup -->
-### 直接例：Brown 運動の heat semigroup
+<!-- definition-example-start: def-sto11-feller-半群 -->
+### 直接例：ブラウン運動の熱半群
 
 **定義の確認**
 
-Brown 運動では
+ブラウン運動では
 
 $$
 P_tf(x)
@@ -1928,7 +1930,7 @@ $$
 \|P_tf-f\|_\infty\to0.
 $$
 
-従って Brownian heat semigroup は Feller semigroup の標準例です。
+従ってブラウン熱半群は Feller 半群の標準例です。
 <!-- definition-example-end -->
 
 Feller theory は本章では bridge に留めます。
@@ -1937,11 +1939,11 @@ Feller theory は本章では bridge に留めます。
 
 $$
 \boxed{
-\text{strongly continuous semigroup}
+\text{strongly continuous 半群}
 \leftrightarrow
-\text{closed generator}
+\text{closed 生成作用素}
 \leftrightarrow
-\text{Markov process}
+\text{Markov 過程}
 }
 $$
 
@@ -1953,7 +1955,7 @@ Hille--Yosida の一般論を本章へ展開せず、後続で必要になった
 
 ## 16. 仮定を外すとどこが壊れるか
 
-### 16.1 generator の differential expression だけでは process は決まらない
+### 16.1 生成作用素の微分表示だけでは過程は決まらない
 
 形式的に
 
@@ -1969,11 +1971,11 @@ $$
 
 が未指定です。
 
-例えば bounded interval では absorbing / reflecting など boundary behavior により process が変わります。
+例えば有界 interval では absorbing / reflecting など boundary behavior により過程が変わります。
 
-壊れるのは generator の計算式ではなく、**operator domain と boundary condition による law の識別**です。
+壊れるのは生成作用素の計算式ではなく、**operator domain と boundary condition による法則の識別**です。
 
-### 16.2 Fokker--Planck の密度形は density の存在を自動保証しない
+### 16.2 Fokker--Planck の密度形は密度の存在を自動保証しない
 
 弱形式
 
@@ -1991,11 +1993,11 @@ $$
 
 へ進むには $\mu_t(dx)=p(t,x)dx$ が必要です。
 
-singular law を持つ過程では density PDE をそのまま書けません。
+singular 法則を持つ過程では密度 PDE をそのまま書けません。
 
-### 16.3 local martingale を期待値 0 として消すには条件が要る
+### 16.3 局所マルチンゲールを期待値 0 として消すには条件が要る
 
-Itô formula で stochastic integral が local martingale になっても、そのまま
+Itô 公式で確率積分が局所マルチンゲールになっても、そのまま
 
 $$
 E[M_t]=0
@@ -2003,25 +2005,25 @@ $$
 
 とは限りません。
 
-Dynkin / Feynman--Kac では bounded な domain function、bounded stopping、square-integrability などを使って true martingale 性を確認しました。
+Dynkin / Feynman--Kac では有界な domain function、有界 stopping、square-integrability などを使って真のマルチンゲール性を確認しました。
 
-### 16.4 martingale problem の existence と uniqueness は別問題
+### 16.4 マルチンゲール問題の存在と一意性は別問題
 
-solution law が一つ存在するだけでは、存在と一意性の二条件はそろいません。
+solution 法則が一つ存在するだけでは、存在と一意性の二条件はそろいません。
 
-複数の標本路法則 が同じ formal generator を満たすとき、semigroup や Markov selection が一意に決まりません。
+複数の標本路法則が同じ formal 生成作用素を満たすとき、半群や Markov selection が一意に決まりません。
 
-strong Markov property を generator 側から得る主役は「martingale 条件」だけでなく **law の一意性**です。
+強マルコフ性を生成作用素側から得る主役は「martingale 条件」だけでなく **法則の一意性**です。
 
 ---
 
 ## 17. 演習
 
-#### STO11-A01 deterministic flow の kernel・semigroup・generator
+#### STO11-A01 deterministic flow の核・半群・生成作用素
 - Level: A
 - 目安時間: 15分
 
-1 次元 process
+1 次元過程
 
 $$
 X_t=x+ct
@@ -2029,10 +2031,10 @@ $$
 
 を考える。
 
-1. transition kernel $P_t(x,A)$ を書け。
+1. 遷移核 $P_t(x,A)$ を書け。
 2. $P_tf(x)$ を求めよ。
-3. semigroup law を確認せよ。
-4. $f\in C^1$ に対する generator を求めよ。
+3. 半群法則を確認せよ。
+4. $f\in C^1$ に対する生成作用素を求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -2102,11 +2104,11 @@ $$
 $$
 <!-- solution-end -->
 
-#### STO11-A02 Brown 運動の generator と二乗平均
+#### STO11-A02 ブラウン運動の生成作用素と二乗平均
 - Level: A
 - 目安時間: 18分
 
-1 次元 Brown 運動 $B$ に対し generator は
+1 次元ブラウン運動 $B$ に対し生成作用素は
 
 $$
 L=\frac12\frac{d^2}{dx^2}
@@ -2115,7 +2117,7 @@ $$
 である。
 
 1. $f(x)=x^2$ に形式的に $L$ を作用させよ。
-2. localization を前提に [Dynkin formula](#thm-sto11-dynkin) を適用し、$B_0=0$ から $E[B_t^2]=t$ を導け。
+2. localization を前提に [Dynkin 公式](#thm-sto11-dynkin) を適用し、$B_0=0$ から $E[B_t^2]=t$ を導け。
 3. $f(x)=x$ では何が得られるか。
 
 <!-- solution-start -->
@@ -2139,7 +2141,7 @@ Lf(x)
 \boxed{1}.
 $$
 
-2. $x^2$ は 台がコンパクトではないので、そのまま本章の [Dynkin formula](#thm-sto11-dynkin) の仮定には入りません。
+2. $x^2$ は台がコンパクトではないので、そのまま本章の [Dynkin 公式](#thm-sto11-dynkin) の仮定には入りません。
 
 exit time
 
@@ -2151,7 +2153,7 @@ $$
 
 を入れ、$[-n,n]$ 上で $x^2$ と一致する $C_c^2$ 関数へ置き換えます。
 
-[Dynkin formula](#thm-sto11-dynkin) から
+[Dynkin 公式](#thm-sto11-dynkin) から
 
 $$
 E[B_{\tau_n}^2]
@@ -2183,10 +2185,10 @@ $$
 \boxed{E[B_t]=0}.
 $$
 
-generator は平均の保存と variance の線形成長を同じ枠組みで与えます。
+生成作用素は平均の保存と variance の線形成長を同じ枠組みで与えます。
 <!-- solution-end -->
 
-#### STO11-A03 定数係数 diffusion の Fokker--Planck
+#### STO11-A03 定数係数拡散の Fokker--Planck
 - Level: A
 - 目安時間: 18分
 
@@ -2198,7 +2200,7 @@ $$
 
 を考える。$\sigma\ne0$ とする。
 
-1. generator $L$ を書け。
+1. 生成作用素 $L$ を書け。
 2. formal adjoint $L^*$ を計算せよ。
 3. 密度 $p(t,x)$ が十分滑らかなら満たす Fokker--Planck equation を書け。
 
@@ -2259,14 +2261,14 @@ $$
 }
 $$
 
-drift は transport 項、diffusion は heat 項として現れます。
+ドリフトは transport 項、拡散は heat 項として現れます。
 <!-- solution-end -->
 
-#### STO11-A04 martingale problem の補償項
+#### STO11-A04 マルチンゲール問題の補償項
 - Level: A
 - 目安時間: 18分
 
-1 次元 diffusion operator
+1 次元拡散 operator
 
 $$
 Lf(x)=b(x)f'(x)+\frac12a(x)f''(x)
@@ -2276,9 +2278,9 @@ $$
 
 coordinate functionsを cutoff で局所化して使えるものとする。
 
-1. $f(x)=x$ から得られる local martingale を書け。
+1. $f(x)=x$ から得られる局所マルチンゲールを書け。
 2. $f(x)=x^2$ の $Lf$ を求めよ。
-3. 1 と 2 から local martingale part $M$ の quadratic variation が
+3. 1 と 2 から局所マルチンゲール part $M$ の quadratic variation が
 
 $$
 [M]_t=\int_0^ta(X_s)ds
@@ -2305,7 +2307,7 @@ X_t-X_0-\int_0^tb(X_s)ds
 }
 $$
 
-が local martingale です。
+が局所マルチンゲールです。
 
 2. $f(x)=x^2$ では
 
@@ -2339,13 +2341,13 @@ d(X_t^2)
 2X_t\,dX_t+d[X]_t.
 $$
 
-finite variation part $A$ は quadratic variation に寄与しないので
+有限 variation part $A$ は quadratic variation に寄与しないので
 
 $$
 [X]=[M].
 $$
 
-一方 martingale problem の $x^2$ test では compensator が
+一方マルチンゲール問題の $x^2$ test では compensator が
 
 $$
 \int_0^t
@@ -2356,7 +2358,7 @@ $$
 
 です。
 
-$2X_sdX_s$ の finite-variation 部分は
+$2X_sdX_s$ の有限-variation 部分は
 
 $$
 2X_sb(X_s)ds.
@@ -2381,7 +2383,7 @@ $$
 - Level: B
 - 目安時間: 25分
 
-1 次元 Brown 運動について
+1 次元ブラウン運動について
 
 $$
 f(x)=x^2,
@@ -2392,7 +2394,7 @@ $$
 とする。
 
 1. $u(t,x)$ を直接求めよ。
-2. $\partial_tu$ と $\frac12\partial_{xx}u$ を計算し backward Kolmogorov equation を確認せよ。
+2. $\partial_tu$ と $\frac12\partial_{xx}u$ を計算し Kolmogorov 後退方程式を確認せよ。
 3. $v(s,x)=P_{T-s}f(x)$ と置き、$\partial_sv+\frac12v_{xx}=0$ の向きを確認せよ。
 
 <!-- solution-start -->
@@ -2472,14 +2474,14 @@ $$
 }
 $$
 
-semigroup を前向きに進める時間 $t$ と、終端時刻から逆向きに測る calendar time $s$ では符号が反転することが確認できます。
+半群を前向きに進める時間 $t$ と、終端時刻から逆向きに測る calendar time $s$ では符号が反転することが確認できます。
 <!-- solution-end -->
 
-#### STO11-B02 Feynman--Kac の discount と running term
+#### STO11-B02 Feynman--Kac の割引項と積分項
 - Level: B
 - 目安時間: 28分
 
-Brown 運動 generator
+ブラウン運動生成作用素
 
 $$
 L=\frac12\partial_{xx}
@@ -2497,7 +2499,7 @@ $$
 
 を考える。
 
-1. [Feynman--Kac verification formula](#thm-sto11-feynman-kac) から $u(t,x)$ を積分表示せよ。
+1. [Feynman--Kac 検証公式](#thm-sto11-feynman-kac) から $u(t,x)$ を積分表示せよ。
 2. $\lambda>0$ の場合に閉形式を求めよ。
 3. $\lambda=0$ の場合を別に求めよ。
 4. 得た式を PDE へ代入して確認せよ。
@@ -2518,7 +2520,7 @@ e^{-\lambda(s-t)}q\,ds
 \right].
 $$
 
-integrand は標本路に依存しないため期待値は外れ、
+被積分過程は標本路に依存しないため期待値は外れ、
 
 $$
 u(t,x)
@@ -2621,7 +2623,7 @@ $$
 終端値 $u(T,x)=1$ も両方で成立します。
 <!-- solution-end -->
 
-#### STO11-B03 nondegenerate martingale problem から Brown 運動を作る
+#### STO11-B03 非退化マルチンゲール問題からブラウン運動を作る
 - Level: B
 - 目安時間: 30分
 
@@ -2637,7 +2639,7 @@ $$
 
 とし、$\sigma(x)\ne0$、$1/\sigma$ は局所有界とする。
 
-martingale problem の solution $X$ から
+マルチンゲール問題の solution $X$ から
 
 $$
 M_t
@@ -2645,7 +2647,7 @@ M_t
 X_t-X_0-\int_0^tb(X_s)ds
 $$
 
-が continuous local martingale で
+が continuous 局所マルチンゲールで
 
 $$
 [M]_t
@@ -2663,12 +2665,12 @@ $$
 
 を定め、$[W]_t$ を計算せよ。
 2. Lévy characterization から何が言えるか。
-3. martingale problem から Brown 運動を構成し、$X$ の SDE 表現を復元せよ。
+3. マルチンゲール問題からブラウン運動を構成し、$X$ の SDE 表現を復元せよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-1. stochastic integral の quadratic variation 公式から
+1. 確率積分の quadratic variation 公式から
 
 $$
 \begin{aligned}
@@ -2686,7 +2688,7 @@ d[M]_s\\
 \end{aligned}
 $$
 
-$W$ は continuous local martingale で $W_0=0$ です。
+$W$ は continuous 局所マルチンゲールで $W_0=0$ です。
 
 2. [STO5 の Lévy characterization](../STO5/index.md#thm-sto5-levy-characterization) の仮定
 
@@ -2699,7 +2701,7 @@ $$
 を満たすので
 
 $$
-\boxed{W\text{ は standard Brownian motion}}
+\boxed{W\text{ は standard ブラウン運動}}
 $$
 
 です。
@@ -2740,10 +2742,10 @@ b(X_t)dt
 }
 $$
 
-Brown 運動を martingale problem の solution から構成し、元の SDE の積分表示を同じ空間上で復元できました。
+ブラウン運動をマルチンゲール問題の solution から構成し、元の SDE の積分表示を同じ空間上で復元できました。
 <!-- solution-end -->
 
-#### STO11-C01 Ornstein--Uhlenbeck diffusion を generator から統合して読む
+#### STO11-C01 Ornstein--Uhlenbeck 拡散を生成作用素から統合して読む
 - Level: C
 - 目安時間: 55分
 
@@ -2757,7 +2759,7 @@ $$
 
 を考える。
 
-1. generator $L$ を求めよ。
+1. 生成作用素 $L$ を求めよ。
 2. $m(t,x)=E_x[X_t]$ を SDE から求め、backward equation
 $$
 \partial_tm=Lm,
@@ -2767,13 +2769,13 @@ $$
 を確認せよ。
 3. $u(t,x)=E_x[X_t^2]$ を求め、backward equationを確認せよ。
 4. 密度 $p(t,y)$ が十分滑らかなときの Fokker--Planck equation を書け。
-5. martingale problem で $f(y)=y$、$f(y)=y^2$ を局所化して用いたとき、drift と quadratic variation がどう復元されるか示せ。
-6. この例が stochastic control / HJB への入口になる理由を generator の形から説明せよ。
+5. マルチンゲール問題で $f(y)=y$、$f(y)=y^2$ を局所化して用いたとき、ドリフトと quadratic variation がどう復元されるか示せ。
+6. この例が確率制御 / HJB への入口になる理由を生成作用素の形から説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-1. drift と diffusion coefficient は
+1. ドリフトと拡散係数は
 
 $$
 b(y)=-\theta y,
@@ -2813,7 +2815,7 @@ xe^{-\theta t}
 e^{-\theta(t-s)}dW_s.
 $$
 
-stochastic integral の期待値は 0 なので
+確率積分の期待値は 0 なので
 
 $$
 \boxed{
@@ -2977,7 +2979,7 @@ M_t
 X_t-X_0+\theta\int_0^tX_sds
 $$
 
-が local martingale です。
+が局所マルチンゲールです。
 
 $f(y)=y^2$ では
 
@@ -3001,13 +3003,13 @@ $$
 W_t=\frac1\sigma M_t
 $$
 
-は continuous local martingale で
+は continuous 局所マルチンゲールで
 
 $$
 [W]_t=t.
 $$
 
-Lévy characterization により $W$ は Brown 運動で、
+Lévy characterization により $W$ はブラウン運動で、
 
 $$
 dX_t=-\theta X_tdt+\sigma dW_t
@@ -3015,7 +3017,7 @@ $$
 
 を復元できます。
 
-6. stochastic control では control $\alpha$ により drift や diffusion が
+6. 確率制御では control $\alpha$ によりドリフトや拡散が
 
 $$
 b(x,\alpha),
@@ -3025,7 +3027,7 @@ $$
 
 へ変わります。
 
-そのとき control ごとの generator は
+そのとき control ごとの生成作用素は
 
 $$
 L^\alpha f
@@ -3037,7 +3039,7 @@ b(x,\alpha)\cdot\nabla f
 (a(x,\alpha)D^2f).
 $$
 
-動的計画法では「短時間だけ control $\alpha$ を使った価値の変化率」を比較するため、まさに generator が現れます。
+動的計画法では「短時間だけ control $\alpha$ を使った価値の変化率」を比較するため、まさに生成作用素が現れます。
 
 最適化を入れると典型的に
 
@@ -3059,14 +3061,14 @@ $$
 したがって本章の
 
 $$
-\text{semigroup}
+\text{半群}
 \to
-\text{generator}
+\text{生成作用素}
 \to
 \text{backward equation}
 $$
 
-が stochastic control の direct bridge です。
+が確率制御の direct bridge です。
 <!-- solution-end -->
 
 ---
@@ -3089,7 +3091,7 @@ L
 \to
 \text{Feynman--Kac}
 \to
-\text{martingale problem}
+\text{マルチンゲール問題}
 }
 $$
 
@@ -3098,37 +3100,37 @@ $$
 SDE は
 
 $$
-\text{Brownian noise}
+\text{ブラウン雑音}
 \to
 \text{path}
 $$
 
 という構成です。
 
-martingale problem は逆に
+マルチンゲール問題は逆に
 
 $$
-\text{generator}
+\text{生成作用素}
 \to
-\text{path law}
+\text{path 法則}
 $$
 
 を問います。
 
-nondegenerate diffusion では
+非退化拡散では
 
 $$
 \boxed{
-\text{Brownian SDE representation}
+\text{ブラウン SDE 表現}
 \Longleftrightarrow
-\text{martingale problem}
+\text{マルチンゲール問題}
 }
 $$
 
-を Brown 運動の復元まで追えました。
+をブラウン運動の復元まで追えました。
 
-さらに martingale problem の存在と law の一意性がそろえば、その一意性から Markov / strong Markov structure が生まれます。
+さらにマルチンゲール問題の存在と法則の一意性がそろえば、その一意性から Markov / strong Markov structure が生まれます。
 
-これで Encore IV の確率解析は、pathwise calculus から PDE・stochastic control 側へ接続できる位置まで到達しました。
+これで Encore IV の確率解析は、pathwise calculus から PDE・確率制御側へ接続できる位置まで到達しました。
 
-次の STO12 では、Brownian filtration 上の martingale 自体を stochastic integral として表す predictable representation property へ進みます。
+次の STO12 では、ブラウン運動のフィルトレーション上の martingale 自体を確率積分として表す予測可能表現性へ進みます。
