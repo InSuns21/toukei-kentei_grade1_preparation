@@ -63,7 +63,7 @@ concepts:
   - id: stochastic.markov-generator
     name: infinitesimal generator
     kind: definition
-    aliases: ["generator", "infinitesimal generator", "Markov generator"]
+    aliases: ["generator", "infinitesimal generator", "Markov generator", "生成作用素"]
     introduction: formal
     introduction_aliases: ["定義（生成作用素）"]
     requires:
