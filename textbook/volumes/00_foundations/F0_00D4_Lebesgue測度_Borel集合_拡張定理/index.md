@@ -36,8 +36,8 @@ Carathéodory可測性
 
 本章では混同を避けるため、
 
-- 有限加法性と空集合への連続性から premeasure 性を得る部分を **Hopf 型の premeasure 判定**、
-- premeasure から外測度を作り、生成 σ 代数へ測度を延長する部分を **Carathéodory 拡張定理（Hopf / Hahn--Kolmogorov 型）**
+- 有限加法性と空集合への連続性から premeasure 性を得るための判定を先に証明し、
+- premeasure から外測度を作り、生成 σ 代数へ測度を延長する定理を **Carathéodory 拡張定理（Hopf / Hahn--Kolmogorov 型）**として扱います。
 
 と呼び分けます。
 
@@ -1476,7 +1476,7 @@ $$
 ここでは rectangle set function が premeasure であること自体は仮定しました。その確認は積測度を本格的に扱う D2C で行い、本問では **premeasure から積測度へ進む拡張部分**だけを切り出しています。
 <!-- solution-end -->
 
-## F0-00D4-C01 Hopf 型判定から一意な測度拡張まで
+## F0-00D4-C01 有限加法性から一意な測度拡張まで
 
 - Level: C
 - 目安時間: 35分
