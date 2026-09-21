@@ -68,6 +68,61 @@ $$
 
 を確率空間とし、時間集合は離散時間 $\mathbb N_0=\{0,1,2,\ldots\}$ または連続時間 $[0,\infty)$ とします。
 
+まず、状態空間が一般の可測空間であるときの可測性記法を固定します。
+
+<a id="def-sto1-measurable-map"></a>
+
+<!-- formal-statement-start -->
+> **定義（可測写像）**  
+> 可測空間 $(\Omega,\mathcal F)$ と $(E,\mathcal E)$ の間の写像
+>
+$$
+f:\Omega\to E
+$$
+>
+> が、任意の $B\in\mathcal E$ に対して
+>
+$$
+f^{-1}(B)\in\mathcal F
+$$
+>
+> を満たすとき、$f$ を **可測写像**といい、$f$ は **$\mathcal F/\mathcal E$ 可測**であるという。
+<!-- formal-statement-end -->
+
+$(E,\mathcal E)=(\mathbb R,\mathcal B(\mathbb R))$ の場合は、[実数値確率変数の定義](../F0_00P1_確率空間_確率変数_分布/index.md#def-f0-00p1-random-variable)で使った可測性と同じです。
+
+<!-- definition-example-start: def-sto1-measurable-map -->
+### 直接例：有限集合間の可測写像
+
+**定義の確認**
+
+$$
+\Omega=\{H,T\},
+\qquad
+\mathcal F=2^\Omega,
+\qquad
+E=\{0,1\},
+\qquad
+\mathcal E=2^E
+$$
+
+とし、
+
+$$
+f(H)=1,
+\qquad
+f(T)=0
+$$
+
+とします。任意の $B\in\mathcal E$ に対して $f^{-1}(B)$ は
+
+$$
+\varnothing,\ \{H\},\ \{T\},\ \Omega
+$$
+
+のいずれかで、すべて $\mathcal F$ に属します。したがって $f$ は $\mathcal F/\mathcal E$ 可測です。
+<!-- definition-example-end -->
+
 <a id="def-sto1-stochastic-process"></a>
 
 <!-- formal-statement-start -->
@@ -78,7 +133,7 @@ $$
 X_t:\Omega\to E
 $$
 >
-> が $\mathcal F/\mathcal E$ 可測であるとき、族
+> が [$\mathcal F/\mathcal E$ 可測](#def-sto1-measurable-map) であるとき、族
 >
 $$
 X=(X_t)_{t\in T}
@@ -266,11 +321,95 @@ F0-00P3C では[増加する部分 $\sigma$ 代数列](../F0_00P3C_Levy上昇定
 
 確率過程では、その「情報の増加」を時間全体に配置します。
 
+まず、この節で使う「部分 $\sigma$ 代数」と「$P$-零集合を最初から情報に含める」という条件を明示します。
+
+<a id="def-sto1-sub-sigma-algebra"></a>
+
+<!-- formal-statement-start -->
+> **定義（部分σ代数）**  
+> $(\Omega,\mathcal F)$ を可測空間とする。集合族 $\mathcal G$ が
+>
+$$
+\mathcal G\subseteq\mathcal F
+$$
+>
+> を満たし、かつ $\mathcal G$ 自身が $\Omega$ 上の [$\sigma$ 代数](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#def-f0-00d2-01) であるとき、$\mathcal G$ を $\mathcal F$ の **部分 $\sigma$ 代数**という。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-sto1-sub-sigma-algebra -->
+### 直接例：一回目のコインだけを記録する部分 $\sigma$ 代数
+
+**定義の確認**
+
+$$
+\Omega=\{HH,HT,TH,TT\},
+\qquad
+\mathcal F=2^\Omega
+$$
+
+とし、
+
+$$
+A_H=\{HH,HT\},
+\qquad
+A_T=\{TH,TT\},
+$$
+
+$$
+\mathcal G
+=
+\{\varnothing,A_H,A_T,\Omega\}
+$$
+
+と置きます。明らかに $\mathcal G\subseteq\mathcal F$ です。また $A_H^c=A_T$、$A_T^c=A_H$ で、$\mathcal G$ は補集合と可算和に閉じます。従って $\mathcal G$ は $\Omega$ 上の $\sigma$ 代数であり、$\mathcal F$ の部分 $\sigma$ 代数です。
+<!-- definition-example-end -->
+
+<a id="def-sto1-p-complete-sub-sigma-algebra"></a>
+
+<!-- formal-statement-start -->
+> **定義（P に関して complete な部分σ代数）**  
+> 確率空間 $(\Omega,\mathcal F,P)$ と、その部分 $\sigma$ 代数 $\mathcal G\subseteq\mathcal F$ を考える。任意の $A\in\mathcal F$ と任意の $N\subseteq A$ に対して
+>
+$$
+P(A)=0
+\quad\Longrightarrow\quad
+N\in\mathcal G
+$$
+>
+> が成り立つとき、$\mathcal G$ は **$P$ に関して complete** であるという。
+<!-- formal-statement-end -->
+
+ここでは「$A$ 自身が $\mathcal G$ に入っている場合だけ」ではなく、全体側の $\mathcal F$ の $P$-零集合の部分集合をすべて $\mathcal G$ に入れる、という強い条件を使っています。これは usual conditions で必要になる意味です。
+
+<!-- definition-example-start: def-sto1-p-complete-sub-sigma-algebra -->
+### 直接例：零集合をすべて含む場合
+
+**定義の確認**
+
+有限集合
+
+$$
+\Omega=\{a,b,c\},
+\qquad
+\mathcal F=2^\Omega
+$$
+
+上で
+
+$$
+P(\{a\})=P(\{b\})=0,
+\qquad
+P(\{c\})=1
+$$
+
+とします。このとき $P$-零集合は $\varnothing,\{a\},\{b\},\{a,b\}$ です。$\mathcal G=\mathcal F$ とすれば、それらの任意の部分集合もすべて $\mathcal G$ に属するので、$\mathcal G$ は $P$ に関して complete です。
+<!-- definition-example-end -->
+
 <a id="def-sto1-filtration-usual"></a>
 
 <!-- formal-statement-start -->
 > **定義（filtration と usual conditions）**  
-> 確率空間 $(\Omega,\mathcal F,P)$ 上で、各 $t\ge0$ に部分 $\sigma$ 代数 $\mathcal F_t\subseteq\mathcal F$ が与えられ、
+> 確率空間 $(\Omega,\mathcal F,P)$ 上で、各 $t\ge0$ に [$\mathcal F$ の部分 $\sigma$ 代数](#def-sto1-sub-sigma-algebra) $\mathcal F_t$ が与えられ、
 >
 $$
 s\le t
@@ -290,7 +429,7 @@ $$
 >
 > が全ての $t\ge0$ で成り立つことをいう。
 >
-> また各 $\mathcal F_t$ が $P$ に関して complete、すなわち $P$-零集合の任意の部分集合を含むとする。right-continuity と completeness の両方を満たすとき、filtration は **usual conditions** を満たすという。
+> また $\mathcal F_0$ が [$P$ に関して complete](#def-sto1-p-complete-sub-sigma-algebra)、すなわち全体側の $\mathcal F$ の $P$-零集合の任意の部分集合をすべて含むとする。filtration の単調性から、このとき全ての $\mathcal F_t$ もそれらを含む。right-continuity とこの completeness の両方を満たすとき、filtration は **usual conditions** を満たすという。
 <!-- formal-statement-end -->
 
 $\mathcal F_t$ は「時刻 $t$ までに判定できる事象」の集合です。

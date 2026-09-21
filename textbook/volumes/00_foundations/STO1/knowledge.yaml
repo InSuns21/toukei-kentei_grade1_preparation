@@ -6,6 +6,34 @@ prerequisites:
   - F0-00P3C
 
 concepts:
+  - id: stochastic.measurable-map
+    name: 可測写像
+    kind: definition
+    aliases: ["可測写像", "F/E 可測", "F/E可測"]
+    introduction: formal
+    introduction_aliases: ["定義（可測写像）"]
+    requires:
+      - measure.sigma-algebra
+
+  - id: stochastic.sub-sigma-algebra
+    name: 部分σ代数
+    kind: definition
+    aliases: ["部分σ代数", "部分 sigma 代数", "sub-sigma-algebra"]
+    introduction: formal
+    introduction_aliases: ["定義（部分σ代数）"]
+    requires:
+      - measure.sigma-algebra
+
+  - id: stochastic.p-complete-sub-sigma-algebra
+    name: Pに関してcompleteな部分σ代数
+    kind: definition
+    aliases: ["P に関して complete", "P-complete", "complete な部分 σ 代数"]
+    introduction: formal
+    introduction_aliases: ["定義（P に関して complete な部分σ代数）"]
+    requires:
+      - prob.probability-space
+      - stochastic.sub-sigma-algebra
+
   - id: stochastic.stochastic-process
     name: 確率過程
     kind: definition
@@ -14,7 +42,7 @@ concepts:
     introduction_aliases: ["定義（確率過程と標本路）"]
     requires:
       - prob.probability-space
-      - measure.measurable-function
+      - stochastic.measurable-map
 
   - id: stochastic.modification-indistinguishability
     name: modificationとindistinguishability
@@ -33,7 +61,8 @@ concepts:
     introduction_aliases: ["定義（filtration と usual conditions）"]
     requires:
       - prob.probability-space
-      - measure.sigma-algebra
+      - stochastic.sub-sigma-algebra
+      - stochastic.p-complete-sub-sigma-algebra
       - prob.increasing-sigma-fields
 
   - id: stochastic.adapted-process
