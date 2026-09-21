@@ -31,9 +31,9 @@ concepts:
     requires: [complex-analysis.locally-uniform-convergence]
 
   - id: complex-analysis.normal-series-termwise-differentiation
-    name: 正規収束する正則関数級数の項別微分
+    name: 正規収束する正則関数級数と微分の交換
     kind: corollary
-    aliases: [正規収束する正則関数級数の項別微分, termwise differentiation of normally convergent holomorphic series]
+    aliases: [正規収束する正則関数級数と微分の交換, differentiation of normally convergent holomorphic series]
     requires: [complex-analysis.normal-convergence, complex-analysis.derivative-local-uniform-convergence]
 
   - id: complex-analysis.locally-bounded-holomorphic-family
@@ -49,9 +49,9 @@ concepts:
     requires: [complex-analysis.locally-uniform-convergence]
 
   - id: complex-analysis.cauchy-equicontinuity
-    name: Cauchy評価による同程度連続性
+    name: Cauchy 評価による族共通連続性評価
     kind: lemma
-    aliases: [Cauchy評価による同程度連続性, Cauchy equicontinuity estimate]
+    aliases: [Cauchy 評価による族共通連続性評価, Cauchy family continuity estimate]
     requires: [complex-analysis.locally-bounded-holomorphic-family, complex-analysis.cauchy-estimate]
 
   - id: complex-analysis.compact-subsequence-extraction
@@ -61,15 +61,15 @@ concepts:
     requires: [complex-analysis.cauchy-equicontinuity, topology.compact-space]
 
   - id: complex-analysis.montel-theorem
-    name: Montelの定理
+    name: Montel の定理
     kind: theorem
-    aliases: [Montelの定理, Montel theorem]
+    aliases: [Montel の定理, Montel theorem]
     requires: [complex-analysis.normal-family, complex-analysis.compact-subsequence-extraction, complex-analysis.holomorphic-locally-uniform-limit]
 
   - id: complex-analysis.hurwitz-theorem
-    name: Hurwitzの定理
+    name: Hurwitz の定理
     kind: theorem
-    aliases: [Hurwitzの定理, Hurwitz theorem]
+    aliases: [Hurwitz の定理, Hurwitz theorem]
     requires: [complex-analysis.holomorphic-locally-uniform-limit, complex-analysis.rouche-theorem]
 
   - id: complex-analysis.injective-limit-theorem
@@ -85,31 +85,31 @@ concepts:
     requires: [complex-analysis.cauchy-simply-connected, complex-analysis.local-primitive]
 
   - id: complex-analysis.riemann-map-class-nonempty
-    name: Riemann写像候補族の非空性
+    name: Riemann 写像候補族の非空性
     kind: lemma
-    aliases: [Riemann写像候補族の非空性, nonemptiness of the Riemann mapping extremal family]
+    aliases: [Riemann 写像候補族の非空性, nonemptiness of the Riemann mapping extremal family]
     requires: [complex-analysis.holomorphic-square-root, complex-analysis.standard-disk-automorphism]
 
   - id: complex-analysis.riemann-mapping-theorem
-    name: Riemann写像定理
+    name: Riemann 写像定理
     kind: theorem
-    aliases: [Riemann写像定理, Riemann mapping theorem]
-    requires: [complex-analysis.riemann-map-class-nonempty, complex-analysis.montel-theorem, complex-analysis.injective-limit-theorem, complex-analysis.schwarz-lemma]
+    aliases: [Riemann 写像定理, Riemann mapping theorem]
+    requires: [complex-analysis.riemann-map-class-nonempty, complex-analysis.montel-theorem, complex-analysis.injective-limit-theorem, complex-analysis.holomorphic-square-root, complex-analysis.cauchy-estimate, complex-analysis.maximum-modulus-principle, complex-analysis.rouche-theorem, complex-analysis.open-mapping-theorem, complex-analysis.schwarz-lemma]
 
   - id: complex-analysis.normalized-riemann-map-uniqueness
-    name: 正規化Riemann写像の一意性
+    name: 正規化 Riemann 写像の一意性
     kind: corollary
-    aliases: [正規化Riemann写像の一意性, uniqueness of normalized Riemann map]
+    aliases: [正規化 Riemann 写像の一意性, uniqueness of normalized Riemann map]
     requires: [complex-analysis.riemann-mapping-theorem, complex-analysis.disk-automorphism-classification]
 
   - id: complex-analysis.morera-theorem
-    name: Moreraの定理
+    name: Morera の定理
     kind: lemma
-    aliases: [Moreraの定理, Morera theorem]
-    requires: [complex-analysis.line-integral, complex-analysis.local-primitive]
+    aliases: [Morera の定理, Morera theorem]
+    requires: [complex-analysis.complex-line-integral, complex-analysis.cauchy-goursat-triangle, complex-analysis.cauchy-differentiation-formula]
 
   - id: complex-analysis.schwarz-reflection-principle
-    name: Schwarzの鏡像原理
+    name: Schwarz の鏡像原理
     kind: theorem
-    aliases: [Schwarzの鏡像原理, Schwarz reflection principle]
+    aliases: [Schwarz の鏡像原理, Schwarz reflection principle]
     requires: [complex-analysis.morera-theorem, complex-analysis.holomorphic-function]
