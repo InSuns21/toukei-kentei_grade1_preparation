@@ -186,7 +186,11 @@ $$
 > $\gamma$ が実数値かつ偶関数なら $F$ は $\lambda\mapsto-\lambda$ に関して対称です。
 <!-- formal-statement-end -->
 
-ここから証明します。存在証明の核は「正定値性から最初から非負な近似密度を作る」ことです。
+### 証明の見取り図
+
+逆向きは、測度表示を二次形式へ代入すると絶対値二乗の積分になります。順向きは、正定値性から非負な近似密度 $f_n$ を作り、同じ質量を持つ有限測度列から弱収束部分列を抜き、その Fourier 係数を極限へ送ります。最後に三角多項式の一様稠密性で表現測度の一意性を示します。
+
+存在証明の核は「正定値性から最初から非負な近似密度を作る」ことです。
 
 ### 3.1 逆向き：測度表示があれば正定値
 
@@ -450,13 +454,15 @@ $$
 F_{n_r}\Longrightarrow \widetilde F
 $$
 
-を取れます。端点を同一視する商写像 $q:[-\pi,\pi]\to\mathbb T$ で押し出して
+を取れます。端点を同一視する商写像 $q:[-\pi,\pi]\to\mathbb T$ による押し出し測度を
 
 $$
-F:=q_\#\widetilde F
+F(A):=\widetilde F(q^{-1}(A))
+\qquad
+(A\in\mathcal B(\mathbb T))
 $$
 
-とします。
+と定めます。これを $F=q_\#\widetilde F$ と書きます。$q$ は連続なので $q^{-1}(A)$ は Borel 集合であり、$F$ は円周上の有限非負 Borel 測度です。
 
 固定した $h\in\mathbb Z$ に対して $e^{ih\lambda}$ は円周上の連続関数なので
 
@@ -517,7 +523,7 @@ $$
 連続関数の積分が全て一致すれば有限 Borel 測度は一致します。実際、開集合 $O\subset\mathbb T$ に対して
 
 $$
-g_m(x):=\min\{1,m\,d(x,O^c)\}
+g_m(x):=\min\{1,m\,d_{\mathbb T}(x,O^c)\}
 $$
 
 と置けば $g_m\uparrow\mathbf1_O$ です。単調収束定理から $F(O)=G(O)$。開集合全体は有限共通部分で閉じ Borel $\sigma$ 代数を生成します。[π–λ定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda)を有限測度の一致する集合族へ適用すれば $F=G$ です。
@@ -556,7 +562,7 @@ $$
 
 <!-- definition-example-start: def-tsa3-spectral-measure -->
 **定義の確認**  
-Fourier直交性から
+Fourier 直交性から
 
 $$
 \int_{-\pi}^{\pi}e^{ih\lambda}
@@ -661,10 +667,14 @@ $$
 > を持ちます。
 <!-- formal-statement-end -->
 
+### 証明の見取り図
+
+絶対可算和可能性で逆 Fourier 級数を一様収束させます。Herglotz の存在証明で使った非負近似密度も同じ極限へ一様収束するので極限関数は非負です。最後に Fourier 係数を計算し、Herglotz 表現の一意性で測度そのものを同定します。
+
 <!-- proof-start -->
 ### 証明
 
-絶対可算和可能性からFourier級数はWeierstrassのM-testにより $\lambda$ に一様収束し、連続関数 $f$ を定めます。
+絶対可算和可能性から Fourier 級数はWeierstrassのM-testにより $\lambda$ に一様収束し、連続関数 $f$ を定めます。
 
 Herglotz証明で作った近似密度は
 
@@ -752,7 +762,7 @@ $$
 F(\{\lambda_0\})>0
 $$
 >
-> を満たすとき、$\lambda_0$ に線スペクトルを持つという。これに対し、$F\ll d\lambda$ である部分を絶対連続スペクトルという。
+> を満たすとき、$\lambda_0$ に線スペクトルを持つという。また、スペクトル測度全体が Lebesgue 測度に絶対連続、すなわち $F\ll d\lambda$ であるとき、その過程は絶対連続スペクトルを持つという。
 <!-- formal-statement-end -->
 
 ### 8.1 直接例：ランダム正弦波
@@ -834,7 +844,7 @@ $$
 
 ### 9.1 二つの Hilbert 空間
 
-周波数表示では $e^{it\lambda}$ が現れるため、確率変数空間を複素Hilbert空間として
+周波数表示では $e^{it\lambda}$ が現れるため、確率変数空間を複素 Hilbert 空間として
 
 $$
 \langle Y,W\rangle_{L^2(\Omega)}
@@ -881,10 +891,20 @@ $$
 <!-- proof-start -->
 ### 証明
 
-開集合 $O\subset\mathbb T$ を考えます。$O=\mathbb T$ は定数関数1でよいので、$O\ne\mathbb T$ とします。円周上の距離を $d$ として
+円周上の距離を、代表元 $x,y\in\mathbb R$ に対して
 
 $$
-g_m(x):=\min\{1,m\,d(x,O^c)\}
+d_{\mathbb T}(x,y)
+:=
+\min_{k\in\mathbb Z}|x-y+2\pi k|
+$$
+
+とします。これは代表元の取り方によらず定まります。
+
+開集合 $O\subset\mathbb T$ を考えます。$O=\mathbb T$ は定数関数1でよいので、$O\ne\mathbb T$ とします。$d_{\mathbb T}$ を使って
+
+$$
+g_m(x):=\min\{1,m\,d_{\mathbb T}(x,O^c)\}
 $$
 
 と置けば、$g_m$ は連続で
@@ -944,7 +964,7 @@ $$
 \mathcal D=\mathcal B(\mathbb T).
 $$
 
-よって全Borel 集合の指示関数、したがって全単関数が $C(\mathbb T)$ の $L^2(F)$ 閉包に属します。単関数は $L^2(F)$ に稠密なので、$C(\mathbb T)$ も稠密です。$\square$
+よって全 Borel 集合の指示関数、したがって全単関数が $C(\mathbb T)$ の $L^2(F)$ 閉包に属します。単関数は $L^2(F)$ に稠密なので、$C(\mathbb T)$ も稠密です。$\square$
 <!-- proof-end -->
 
 ---
@@ -1057,7 +1077,7 @@ $$
 
 $$
 p_n\to f
-\qquad\text{in }L^2(F)
+\qquad(L^2(F)\text{ において})
 $$
 
 と取ります。等長性より
@@ -1239,6 +1259,10 @@ X_t=\int_{\mathbb T}e^{it\lambda}Z(d\lambda)
 }
 $$
 <!-- formal-statement-end -->
+
+### 証明の見取り図
+
+構成はすでに終わっています。三角多項式上で $e^{it\lambda}\mapsto X_t$ と定めた等長写像を $L^2(F)$ 全体へ延長し、指示関数から $Z(A)=U\mathbf1_A$ を作りました。したがって指数関数 $e^{it\lambda}$ をスペクトル確率積分へ入れるだけで $X_t$ が戻ります。
 
 <!-- proof-start -->
 ### 証明
@@ -1719,7 +1743,7 @@ $$
 開集合 $O$ に対して
 
 $$
-g_m(x)=\min\{1,m\,d(x,O^c)\}
+g_m(x)=\min\{1,m\,d_{\mathbb T}(x,O^c)\}
 $$
 
 と置けば $0\le g_m\uparrow\mathbf1_O$ です。単調収束定理から
