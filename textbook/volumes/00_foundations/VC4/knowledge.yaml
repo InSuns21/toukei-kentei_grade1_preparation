@@ -14,8 +14,9 @@ concepts:
   - id: vector-calculus.green-circulation
     name: Green の定理（循環形）
     kind: theorem
-    aliases: [Green theorem, Greenの定理, circulation form]
-    introduction: inline
+    aliases: [Green theorem, Green の定理, circulation form]
+    introduction: formal
+    introduction_aliases: ["定理（Green の定理：循環形）"]
     requires:
       - vector-calculus.vector-line-integral
       - analysis.iterated-riemann-integral-rectangle
