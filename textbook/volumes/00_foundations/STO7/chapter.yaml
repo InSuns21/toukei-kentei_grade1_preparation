@@ -15,7 +15,7 @@ learning_objectives:
   - Itô processをdriftとBrownian stochastic integralの和として定義し、generator型のdrift補正を含む時間依存Itô公式を計算できる
   - continuous local martingaleのstochastic exponentialをItô公式から導き、Brownian exponential martingaleが真のmartingaleになることを独立増分から証明できる
   - Stratonovich integralを対称Riemann和から構成し、Itô integralとの差がcovariationの半分になることを証明できる
-  - Euclidean Stratonovich 連鎖律をcovariation 連鎖律とItô公式から導き、通常の連鎖律が回復する機構を説明できる
+  - Euclidean Stratonovich の連鎖律をcovariation 連鎖律とItô公式から導き、通常の連鎖律が回復する機構を説明できる
   - Itô--Stratonovich conversionをItô processの分散共分散行列で明示し、後続SDEで現れるdrift correctionを計算できる
   - manifold上の確率解析を本章へ逆輸入せず、Euclidean calculusがその入口になる位置付けを説明できる
 definitions:
@@ -31,11 +31,11 @@ theorems:
   - { id: STO7-COR-01, name: "product rule / integration by parts" }
   - { id: STO7-LEM-02, name: "vector Brownian stochastic integralsのcovariation" }
   - { id: STO7-THM-02, name: "Itô process版の時間依存Itô formula" }
-  - { id: STO7-PROP-02, name: "stochastic exponentialはdZ=Z dMを満たす" }
+  - { id: STO7-PROP-02, name: "stochastic exponentialの積分方程式" }
   - { id: STO7-PROP-03, name: "Brownian exponential martingale" }
   - { id: STO7-THM-03, name: "Stratonovich integralとItô integralの変換" }
   - { id: STO7-LEM-03, name: "covariation 連鎖律" }
-  - { id: STO7-THM-04, name: "Euclidean Stratonovich 連鎖律" }
+  - { id: STO7-THM-04, name: "Euclidean Stratonovich の連鎖律" }
   - { id: STO7-COR-02, name: "Itô processに対するItô--Stratonovich conversion" }
 canonical_examples:
   - "2次元Brown運動とcross variation [B1,B2]=0"
