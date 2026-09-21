@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念への参照**：[ブラウン運動のマルコフ性](../STO4/index.md#thm-sto4-brownian-markov)、[SDE の大域的存在一意性](../STO9/index.md#thm-sto9-global-existence-uniqueness)、[時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula)、[Lévy の特徴付け定理](../STO5/index.md#thm-sto5-levy-characterization) を再利用します。
+> **既出概念への参照**：[ブラウン運動のマルコフ性](../STO4/index.md#thm-sto4-brownian-markov)、[SDE の大域的存在一意性](../STO9/index.md#thm-sto9-大域的-existence-uniqueness)、[時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula)、[Lévy の特徴付け定理](../STO5/index.md#thm-sto5-levy-characterization) を再利用します。
 
 STO4 ではブラウン運動についてマルコフ性と強マルコフ性を標本路側から学び、STO9 では
 
@@ -588,7 +588,7 @@ f(X_t)-f(x)
 =
 \int_0^tLf(X_s)\,ds
 +
-\text{martingale term}.
+\text{マルチンゲール term}.
 $$
 
 期待値を取り $t$ で割り、$t\downarrow0$ とします。
@@ -709,7 +709,7 @@ $$
 
 ### 証明の見取り図
 
-Itô 公式の確率積分部分を martingale $M_t$ と書けば
+Itô 公式の確率積分部分をマルチンゲール $M_t$ と書けば
 
 $$
 f(X_t)
@@ -759,9 +759,9 @@ E_x\left[
 \infty.
 $$
 
-従って $M$ は $[0,T]$ 上の二乗可積分 martingale です。
+従って $M$ は $[0,T]$ 上の二乗可積分マルチンゲールです。
 
-[STO5 の有界 stopping 定理](../STO5/index.md#thm-sto5-bounded-optional-sampling) により
+[STO5 の有界 stopping 定理](../STO5/index.md#thm-sto5-有界-optional-sampling) により
 
 $$
 E_x[M_\tau]=E_x[M_0]=0.
@@ -1115,7 +1115,7 @@ $$
 >
 > 有界 continuous な $V:[0,T]\times\mathbb R^d\to[0,\infty)$、$g:[0,T]\times\mathbb R^d\to\mathbb R$、$h:\mathbb R^d\to\mathbb R$ を考える。
 >
-> $u\in C^{1,2}([0,T)\times\mathbb R^d)\cap C([0,T]\times\mathbb R^d)$ が有界で必要な導関数も確率積分を真の martingale にするだけ有界であり、
+> $u\in C^{1,2}([0,T)\times\mathbb R^d)\cap C([0,T]\times\mathbb R^d)$ が有界で必要な導関数も確率積分を真のマルチンゲールにするだけ有界であり、
 
 $$
 \partial_tu+Lu-Vu+g=0,
@@ -1183,7 +1183,7 @@ D_su(s,X_s)
 \int_t^sD_rg(r,X_r)dr
 $$
 
-が martingale になります。
+がマルチンゲールになります。
 
 <!-- proof-start -->
 ### 証明
@@ -1246,7 +1246,7 @@ D_su(s,X_s)
 D_s\nabla u^\top\sigma\,dW_s.
 $$
 
-仮定した boundedness / integrability により右辺は真の martingale です。
+仮定した boundedness / integrability により右辺は真のマルチンゲールです。
 
 時刻 $t$ から $T$ まで期待値を取ると
 
@@ -1301,7 +1301,7 @@ f(X_t)-f(X_0)-\int_0^tLf(X_s)ds
 }
 $$
 
-が martingale になることだけを要求します。
+がマルチンゲールになることだけを要求します。
 
 <a id="def-sto11-martingale-problem"></a>
 
@@ -1346,7 +1346,7 @@ $$
 > が $P$ の下で局所マルチンゲールであることをいう。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-sto11-martingale-problem -->
+<!-- definition-example-start: def-sto11-マルチンゲール-problem -->
 ### 直接例：ブラウン運動は $\frac12\Delta$ のマルチンゲール問題を解く
 
 **定義の確認**
@@ -1381,7 +1381,7 @@ $$
 
 $f$ は台がコンパクトな smooth 関数なので $\nabla f$ は有界です。
 
-従って右辺は二乗可積分 martingale であり、ブラウン運動の法則は $\frac12\Delta$ のマルチンゲール問題を解きます。
+従って右辺は二乗可積分マルチンゲールであり、ブラウン運動の法則は $\frac12\Delta$ のマルチンゲール問題を解きます。
 <!-- definition-example-end -->
 
 ---
@@ -1663,7 +1663,7 @@ $$
 \int_0^ta_{ij}(X_s)ds
 $$
 
-は continuous 有限-variation 過程かつ局所マルチンゲールです。[STO5 の有限-variation 局所マルチンゲールの定数性](../STO5/index.md#lem-sto5-fv-local-martingale-constant) から、初期値 0 のこの差は恒等的に 0 です。従って
+は continuous 有限-variation 過程かつ局所マルチンゲールです。[STO5 の有限-variation 局所マルチンゲールの定数性](../STO5/index.md#lem-sto5-fv-局所-マルチンゲール-定数) から、初期値 0 のこの差は恒等的に 0 です。従って
 
 $$
 [M^i,M^j]_t
@@ -1731,7 +1731,7 @@ $$
 
 退化した $\sigma$ では、この単純な逆行列によるブラウン運動復元は使えません。
 
-一般の退化拡散では martingale 表現 / 確率空間の拡大が必要になる場合があり、STO12 より先にその一般論を逆輸入しません。
+一般の退化拡散ではマルチンゲール表現 / 確率空間の拡大が必要になる場合があり、STO12 より先にその一般論を逆輸入しません。
 
 ---
 
@@ -1756,7 +1756,7 @@ $$
 
 $L=\frac12\Delta$、$D(L)=C_c^\infty(\mathbb R^d)$ とします。
 
-ブラウン運動がこのマルチンゲール問題の solution を与えることは [直接例](#def-sto11-martingale-problem) で確認しました。
+ブラウン運動がこのマルチンゲール問題の solution を与えることは [直接例](#def-sto11-マルチンゲール-problem) で確認しました。
 
 逆に任意の solution 法則 $P$ を取ります。coordinate functions $x_i$ と products $x_ix_j$ を cutoff で局所化してマルチンゲール問題へ入れると、各座標 $X^i-X_0^i$ は continuous 局所マルチンゲールで
 
@@ -1807,7 +1807,7 @@ X_{s+\cdot}\in\cdot
 )
 $$
 
-を取ると、martingale increment の性質から、この conditional 法則も「初期点 $X_s$ から出発する同じマルチンゲール問題」を解きます。
+を取ると、マルチンゲール increment の性質から、この conditional 法則も「初期点 $X_s$ から出発する同じマルチンゲール問題」を解きます。
 
 solution 法則の一意性により、その法則は
 
@@ -2013,7 +2013,7 @@ solution 法則が一つ存在するだけでは、存在と一意性の二条�
 
 複数の標本路法則が同じ formal 生成作用素を満たすとき、半群や Markov selection が一意に決まりません。
 
-強マルコフ性を生成作用素側から得る主役は「martingale 条件」だけでなく **法則の一意性**です。
+強マルコフ性を生成作用素側から得る主役は「マルチンゲール条件」だけでなく **法則の一意性**です。
 
 ---
 
@@ -2379,7 +2379,7 @@ $$
 $$
 <!-- solution-end -->
 
-#### STO11-B01 backward Kolmogorov を直接確認する
+#### STO11-B01 Kolmogorov 後退を直接確認する
 - Level: B
 - 目安時間: 25分
 
@@ -3133,4 +3133,4 @@ $$
 
 これで Encore IV の確率解析は、pathwise calculus から PDE・確率制御側へ接続できる位置まで到達しました。
 
-次の STO12 では、ブラウン運動のフィルトレーション上の martingale 自体を確率積分として表す予測可能表現性へ進みます。
+次の STO12 では、ブラウン運動のフィルトレーション上のマルチンゲール自体を確率積分として表す予測可能表現性へ進みます。
