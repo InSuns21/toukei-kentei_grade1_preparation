@@ -4,7 +4,8 @@ coverage: complete
 prerequisites:
   - F0-00P6
 
-forward_references: []
+forward_references:
+  - stochastic.poisson-random-measure
 
 concepts:
   - id: prob.rare-bernoulli-triangular-array
