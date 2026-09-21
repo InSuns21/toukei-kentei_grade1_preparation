@@ -24,13 +24,13 @@ concepts:
   - id: measure.dynkin-system
     name: Dynkin族
     kind: definition
-    aliases: [Dynkin族, Dynkin 族, λ-system, λ系]
+    aliases: [λ-system, λ系]
     requires: []
 
   - id: measure.pi-lambda-theorem
     name: π–λ定理
     kind: theorem
-    aliases: [π–λ定理, π–λ 定理, π-λ定理, Dynkinのπ–λ定理]
+    aliases: [Dynkinのπ–λ定理]
     requires:
       - measure.pi-system
       - measure.dynkin-system
