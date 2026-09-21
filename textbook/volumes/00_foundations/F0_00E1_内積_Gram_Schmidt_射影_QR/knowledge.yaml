@@ -59,10 +59,10 @@ concepts:
     requires:
       - linear.orthogonal-complement
 
-  - id: linear.finite-dimensional-orthogonal-decomposition
-    name: 有限次元の直交分解
+  - id: linear.finite-dimensional-projection-decomposition
+    name: 射影による有限次元分解
     kind: theorem
-    aliases: [有限次元の直交分解, 直交分解]
+    aliases: [射影による有限次元分解, 有限次元の射影分解]
     requires:
       - linear.orthogonal-projection
       - linear.orthogonal-complement
@@ -72,7 +72,7 @@ concepts:
     kind: theorem
     aliases: [直交射影の最短距離性]
     requires:
-      - linear.finite-dimensional-orthogonal-decomposition
+      - linear.finite-dimensional-projection-decomposition
 
   - id: linear.normal-equations
     name: 最小二乗の正規方程式
