@@ -5,6 +5,12 @@ prerequisites:
   - F0-00P1
   - F0-00P3C
 
+forward_references:
+  - stochastic.discrete-martingale
+  - stochastic.predictable-transform
+  - stochastic.doob-decomposition
+  - stochastic.upcrossing-number
+
 concepts:
   - id: stochastic.measurable-map
     name: 可測写像
@@ -133,11 +139,11 @@ concepts:
       - prob.probability-space
 
   - id: stochastic.stopping-time-min-max-measurability
-    name: stopping timeの最小・最大と切断時刻の可測性
+    name: stopping timeの最小・最大と固定時刻minの可測性
     kind: proposition
-    aliases: ["stopping time の最小・最大", "切断時刻の可測性", "tau wedge t の可測性", "t vee tau の可測性"]
+    aliases: ["stopping time の最小・最大", "固定時刻 min の可測性", "tau wedge t の可測性", "t vee tau の可測性"]
     introduction: formal
-    introduction_aliases: ["命題（stopping time の最小・最大と切断時刻の可測性）"]
+    introduction_aliases: ["命題（stopping time の最小・最大と固定時刻 min の可測性）"]
     requires:
       - stochastic.stopping-time
       - stochastic.random-time-min-max
