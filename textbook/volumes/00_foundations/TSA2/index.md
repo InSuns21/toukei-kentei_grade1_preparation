@@ -571,7 +571,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-tsa2-wold-deterministic-component -->
-**定義の確認：二つの極端例**
+**定義の確認**  
+二つの極端例を確認します。
 
 - 弱ホワイトノイズでは $\mathcal H_{-\infty}=\{0\}$ なので $D_t=0$、$N_t=Y_t$。
 - ランダム正弦波では $\mathcal H_t=\mathcal H_{-\infty}$ なので $D_t=Y_t$、$N_t=0$。
