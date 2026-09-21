@@ -91,6 +91,26 @@ $$
 > とする。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-vc2-arclength -->
+**定義の確認**
+
+単位円
+
+$$
+\gamma(t)=(\cos t,\sin t)
+$$
+
+では
+
+$$
+|\gamma'(t)|=1,
+\qquad
+T(t)=(-\sin t,\cos t).
+$$
+
+したがって $0\le t\le2\pi$ の弧長は $2\pi$ で、$T$ は各点で長さ 1 の接方向です。
+<!-- definition-example-end -->
+
 向きを保つ再パラメータ表示では、1 変数の変数変換により弧長は変わりません。
 
 ---
