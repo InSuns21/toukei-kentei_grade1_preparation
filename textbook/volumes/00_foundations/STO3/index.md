@@ -994,7 +994,7 @@ $$
 > が成り立つとき、$f$ は指数 $\gamma$ で **Hölder 連続** であるという。
 <!-- formal-statement-end -->
 
-$\gamma=1$ は Lipschitz 連続性です。
+$\gamma=1$ は上の評価で指数が 1 の場合です。
 
 $\gamma<1$ では、短い時間差 $h$ に対する変動が
 
@@ -2577,7 +2577,7 @@ $$
 - 円筒集合が有限個の時刻だけを見る事象であることを説明できる。
 - Kolmogorov 拡張定理 で consistency が well-definedness に使われる箇所を示せる。
 - 円筒集合前測度の「空集合への減少列で確率が0へ下がる性質」 を有限次元 compact approximation と countable compactness から証明できる。
-- Carathéodory 拡張定理 を使って標準 process を完成できる。
+- [Carathéodory 拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)を使って標準過程を完成できる。
 - 拡張定理 が標本路連続性を保証しない理由を説明できる。
 - Kolmogorov--Chentsov theorem の exponent $\beta/\alpha$ をモーメント評価から計算できる。
 - 二進格子、Markov inequality、union bound、Borel--Cantelli、連鎖評価の順で連続性 theorem の核心証明を再構成できる。
