@@ -1,0 +1,108 @@
+chapter: VC8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - VC5
+  - PDE6
+
+concepts:
+  - id: vector-calculus.newton-kernel
+    name: Newton 核
+    kind: definition
+    aliases: [Newton kernel, three-dimensional Laplace fundamental solution, 三次元 Newton 核]
+    introduction: formal
+    introduction_aliases: ["定義（Newton 核）"]
+    requires:
+      - vector-calculus.gauss-divergence
+      - vector-calculus.scalar-laplacian
+
+  - id: vector-calculus.newton-unit-source
+    name: Newton 核の調和性と単位流束
+    kind: proposition
+    aliases: [unit flux of Newton kernel, Newton kernel unit source]
+    introduction: formal
+    introduction_aliases: ["命題（Newton 核の調和性と単位流束）"]
+    requires:
+      - vector-calculus.newton-kernel
+      - vector-calculus.gauss-divergence
+
+  - id: vector-calculus.newton-potential
+    name: Newton ポテンシャル
+    kind: definition
+    aliases: [Newton potential, Newtonian potential]
+    introduction: formal
+    introduction_aliases: ["定義（Newton ポテンシャル）"]
+    requires:
+      - vector-calculus.newton-kernel
+
+  - id: vector-calculus.newton-poisson
+    name: Newton ポテンシャルは Poisson 方程式を解く
+    kind: theorem
+    aliases: [Newton potential solves Poisson equation]
+    introduction: formal
+    introduction_aliases: ["定理（Newton ポテンシャルは Poisson 方程式を解く）"]
+    requires:
+      - vector-calculus.newton-potential
+      - vector-calculus.gauss-divergence
+      - pde.pde6-fundamental-solution
+
+  - id: vector-calculus.helmholtz-potentials
+    name: Helmholtz のスカラーポテンシャル・ベクトルポテンシャル
+    kind: definition
+    aliases: [Helmholtz scalar potential, Helmholtz vector potential]
+    introduction: formal
+    introduction_aliases: ["定義（Helmholtz のスカラーポテンシャル・ベクトルポテンシャル）"]
+    requires:
+      - vector-calculus.newton-potential
+      - vector-calculus.divergence
+      - vector-calculus.curl
+
+  - id: vector-calculus.helmholtz-decomposition
+    name: Helmholtz 分解
+    kind: theorem
+    aliases: [Helmholtz decomposition, Helmholtz theorem]
+    introduction: formal
+    introduction_aliases: ["定理（Helmholtz 分解：コンパクトな台を持つ場合）"]
+    requires:
+      - vector-calculus.helmholtz-potentials
+      - vector-calculus.newton-poisson
+      - vector-calculus.curl-gradient-zero
+      - vector-calculus.divergence-curl-zero
+
+  - id: vector-calculus.gauge-coulomb
+    name: ゲージ同値と Coulomb ゲージ
+    kind: definition
+    aliases: [gauge equivalence, gauge freedom, Coulomb gauge, ゲージ自由度]
+    introduction: formal
+    introduction_aliases: ["定義（ゲージ同値と Coulomb ゲージ）"]
+    requires:
+      - vector-calculus.vector-potential-gauge
+      - vector-calculus.helmholtz-decomposition
+
+  - id: vector-calculus.longitudinal-transverse
+    name: 縦成分・横成分
+    kind: definition
+    aliases: [longitudinal component, transverse component, longitudinal transverse decomposition]
+    introduction: formal
+    introduction_aliases: ["定義（縦成分・横成分）"]
+    requires:
+      - vector-calculus.helmholtz-decomposition
+
+  - id: vector-calculus.harmonic-ambiguity
+    name: 調和ベクトル場による曖昧さ
+    kind: proposition
+    aliases: [harmonic vector field ambiguity, harmonic ambiguity]
+    introduction: formal
+    introduction_aliases: ["命題（調和ベクトル場による曖昧さ）"]
+    requires:
+      - vector-calculus.irrotational-solenoidal
+
+  - id: vector-calculus.biot-savart-vorticity
+    name: Biot--Savart 型の渦度再構成
+    kind: corollary
+    aliases: [Biot-Savart law, Biot--Savart vorticity reconstruction, vorticity inversion]
+    introduction: formal
+    introduction_aliases: ["系（Biot--Savart 型の渦度再構成）"]
+    requires:
+      - vector-calculus.helmholtz-decomposition
+      - vector-calculus.gauge-coulomb
