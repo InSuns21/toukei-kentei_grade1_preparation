@@ -71,7 +71,7 @@ STO6 の $L^2$ 確率積分をブラウン運動へ特殊化します。
 <a id="def-sto12-brownian-h2"></a>
 
 <!-- formal-statement-start -->
-> **定義（ブラウン二乗可積分被積分過程 space）**  
+> **定義（ブラウン運動に対する二乗可積分被積分過程空間）**  
 > $[0,T]\times\Omega$ 上の $\mathbb R^d$-値予測可能過程 $H$ で
 >
 $$
@@ -261,7 +261,7 @@ $$
 <a id="lem-sto12-closed-range"></a>
 
 <!-- formal-statement-start -->
-> **補題（ブラウン終端確率積分の値域は closed）**  
+> **補題（ブラウン運動の終端確率積分の値域は閉じている）**  
 > $\mathcal K_T$ は centered space
 >
 $$
@@ -344,7 +344,7 @@ $Y_n$ の $L^2$ 極限は一意なので、その極限は $I_T(H)\in\mathcal K_
 
 ---
 
-## 4. deterministic 被積分過程から指数ベクトルを作る
+## 4. 決定論的被積分過程から指数ベクトルを作る
 
 deterministic
 
@@ -375,7 +375,7 @@ $$
 <a id="lem-sto12-exponential-vector"></a>
 
 <!-- formal-statement-start -->
-> **補題（deterministic 被積分過程の指数型マルチンゲール）**  
+> **補題（決定論的被積分過程の指数型マルチンゲール）**  
 > deterministic $h\in L^2([0,T];\mathbb R^d)$ に対し
 >
 $$
@@ -684,7 +684,7 @@ $$
 
 ---
 
-## 6. 独立ガウス vector へ積み上げる
+## 6. 独立ガウスベクトル へ積み上げる
 
 ブラウン increments を有限個だけ観測すると、独立な一次元ガウスの直積になります。
 
@@ -1091,7 +1091,7 @@ Z_T^{h_{n,j}}-1
 \end{aligned}
 $$
 
-[deterministic 被積分過程の指数型マルチンゲール](#lem-sto12-exponential-vector) から各
+[決定論的被積分過程の指数型マルチンゲール](#lem-sto12-exponential-vector) から各
 
 $$
 Z_T^{h_{n,j}}-1
@@ -1189,7 +1189,7 @@ $$
 <a id="cor-sto12-conditional-representation"></a>
 
 <!-- formal-statement-start -->
-> **系（conditional expectation 過程の表現）**  
+> **系（条件付き期待値過程の表現）**  
 > $\xi\in L^2(\mathcal F_T^B)$ とし、[ブラウン運動のマルチンゲール表現定理](#thm-sto12-martingale-representation) の被積分過程を $H$ とする。
 >
 > このとき全ての $0\le t\le T$ について
@@ -1260,7 +1260,7 @@ E[\xi]
 \int_0^tH_s\cdot dB_s.
 $$
 
-右辺は continuous 確率積分なので、conditional expectation 過程の continuous version になっています。
+右辺は continuous 確率積分なので、条件付き期待値過程の continuous version になっています。
 <!-- proof-end -->
 
 ブラウン運動のフィルトレーション上では「終端ペイオフの条件付き期待値」という抽象的なマルチンゲールが、実際にブラウン雑音の逐次積分へ変換されます。
@@ -1305,7 +1305,7 @@ E[M_T\mid\mathcal F_t^B]
 E[\xi\mid\mathcal F_t^B].
 $$
 
-[conditional expectation 過程の表現](#cor-sto12-conditional-representation) より
+[条件付き期待値過程の表現](#cor-sto12-conditional-representation) より
 
 $$
 M_t
@@ -1848,7 +1848,7 @@ $$
 とする。
 
 1. $E[\xi]$ を求めよ。
-2. conditional expectation 過程 $M_t=E[\xi\mid\mathcal F_t^B]$ を求めよ。
+2. 条件付き期待値過程 $M_t=E[\xi\mid\mathcal F_t^B]$ を求めよ。
 3. $M_t=M_0+\int_0^tH_s\,dB_s$ の $H$ を求めよ。
 4. $E\int_0^T H_s^2ds<\infty$ を確認せよ。
 
@@ -1945,7 +1945,7 @@ $$
 
 1. $N_t=\int_0^tH_s\cdot dB_s$ が二乗可積分マルチンゲールである理由を述べよ。
 2. $E[\xi\mid\mathcal F_t^B]$ を求めよ。
-3. 終端確率変数が同じなら conditional expectation 過程も一意であることを説明せよ。
+3. 終端確率変数が同じなら 条件付き期待値過程も一意であることを説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
