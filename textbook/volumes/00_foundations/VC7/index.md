@@ -835,6 +835,7 @@ $$
 > $$
 <!-- formal-statement-end -->
 
+<!-- proof-start -->
 ### 証明
 
 $x=Q^Tx'$ なので連鎖律から
@@ -876,6 +877,7 @@ $$
 $$
 
 発散と回転の式は VC1 の Cartesian 成分定義を添字で書き直したものです。
+<!-- proof-end -->
 
 ### 速度勾配の対称・反対称分解
 
@@ -995,6 +997,54 @@ VC6 で見たように、曲線座標で物理成分へこの式をそのまま�
 > と定義する。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-vc7-tensor-divergence -->
+**定義の確認**
+
+$$
+T(x,y,z)
+=
+\begin{pmatrix}
+x^2 & y & 0\\
+0 & xy & z\\
+x & 0 & yz
+\end{pmatrix}
+$$
+
+とすると
+
+$$
+(\operatorname{div}T)_1
+=
+\partial_x(x^2)+\partial_y y+\partial_z0
+=
+2x+1,
+$$
+
+$$
+(\operatorname{div}T)_2
+=
+\partial_x0+\partial_y(xy)+\partial_z z
+=
+x+1,
+$$
+
+$$
+(\operatorname{div}T)_3
+=
+\partial_xx+\partial_y0+\partial_z(yz)
+=
+1+y.
+$$
+
+したがって
+
+$$
+\operatorname{div}T
+=
+(2x+1,x+1,y+1)^T.
+$$
+<!-- definition-example-end -->
+
 行ごとに通常のベクトル場の発散を取る約束です。
 
 例えば $T=a\otimes b$ なら
@@ -1080,7 +1130,7 @@ $$
 (\operatorname{div}T)_i.
 $$
 
-[T の各行は $C^1$ 級](#def-vc7-tensor-divergence)なので VC4 の [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)を適用でき、
+$T$ の各行は $C^1$ 級なので VC4 の [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)を適用でき、
 
 $$
 \int_{\partial\Omega}(Tn)_i\,dS
@@ -1205,6 +1255,34 @@ $$
 >
 > と定義する。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-vc7-inertia -->
+**定義の確認**
+
+質量 $m$ の点質量が $x=(a,0,0)$ に一つある場合、積分の離散版から
+
+$$
+I
+=
+m\left(
+a^2 I
+-
+\begin{pmatrix}
+a^2&0&0\\
+0&0&0\\
+0&0&0
+\end{pmatrix}
+\right)
+=
+\begin{pmatrix}
+0&0&0\\
+0&ma^2&0\\
+0&0&ma^2
+\end{pmatrix}.
+$$
+
+$x$ 軸そのものを回転軸にすると慣性モーメントが 0 になり、直交する $y,z$ 軸まわりでは $ma^2$ になることが式に現れています。
+<!-- definition-example-end -->
 
 明らかに
 
