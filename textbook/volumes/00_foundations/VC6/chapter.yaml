@@ -1,0 +1,46 @@
+id: "VC6"
+title: "標準ベクトル解析 VI：直交曲線座標"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - VC1
+  - VC3
+  - RA7
+official_scope: []
+learning_objectives:
+  - 直交曲線座標を正則座標写像と直交するcoordinate tangent vectorsで定義し、scale factorsと位置依存orthonormal basisを構成できる
+  - scale factorsから線素・座標面素・体積要素を導き、Jacobianの絶対値がh1h2h3になることを説明できる
+  - 全微分と線素からgradient公式を導ける
+  - 微小coordinate boxのflux balanceからdivergence公式を導ける
+  - 微小coordinate rectangleのcirculationからcurl公式を導ける
+  - div gradからscalar Laplacian公式を導ける
+  - cylindrical coordinatesとspherical coordinatesのscale factors・basis variation・grad/div/curl/Laplacianを再構成できる
+  - vector Laplacianでは位置依存basisの微分が必要であり、物理成分へscalar Laplacianを機械的に適用できないことを説明できる
+  - radial field・inverse-square field・axisymmetric fieldを円柱・球座標で計算し、VC4のGauss theoremと照合できる
+definitions:
+  - { id: VC6-DEF-01, name: 直交曲線座標 }
+  - { id: VC6-DEF-02, name: scale factor・位置依存orthonormal basis }
+theorems:
+  - { id: VC6-PROP-01, name: 線素・面素・体積要素 }
+  - { id: VC6-PROP-02, name: 直交曲線座標のgradient }
+  - { id: VC6-PROP-03, name: 直交曲線座標のdivergence }
+  - { id: VC6-PROP-04, name: 直交曲線座標のcurl }
+  - { id: VC6-PROP-05, name: 直交曲線座標のscalar Laplacian }
+  - { id: VC6-PROP-06, name: cylindrical coordinate formulas }
+  - { id: VC6-PROP-07, name: spherical coordinate formulas }
+canonical_examples:
+  - cylindrical coordinatesのscale factorsとbasis derivatives
+  - spherical coordinatesのscale factorsとvolume element
+  - radial scalar fieldのgradientとLaplacian
+  - inverse-square radial fieldのdivergence
+  - axisymmetric azimuthal fieldのcurl
+problem_patterns:
+  - VC6-SCALE-FACTOR-1
+  - VC6-GRAD-DIV-CURL-1
+  - VC6-CYLINDRICAL-1
+  - VC6-SPHERICAL-1
+  - VC6-RADIAL-HARMONIC-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 5.0, review: 1.0 }
