@@ -475,7 +475,7 @@ $$
 
 同じ Gaussian moment formula に係数 $2$ を代入すると
 
-$
+$$
 \begin{aligned}
 E[(Z_t^h)^2]
 &=
