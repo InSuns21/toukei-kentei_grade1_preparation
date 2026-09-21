@@ -35,6 +35,15 @@ concepts:
       - timeseries.strict-stationarity
       - timeseries.second-order-stationarity
 
+  - id: timeseries.autocovariance-function
+    name: 自己共分散関数
+    kind: definition
+    aliases: ["autocovariance function", "自己共分散"]
+    introduction: formal
+    introduction_aliases: ["定義（自己共分散関数）"]
+    requires:
+      - timeseries.second-order-stationarity
+
   - id: timeseries.white-noise
     name: 弱ホワイトノイズ
     kind: definition
@@ -52,6 +61,7 @@ concepts:
     introduction_aliases: ["命題（自己共分散関数の正定値性）"]
     requires:
       - timeseries.second-order-stationarity
+      - timeseries.autocovariance-function
       - functional.l2-inner-product
 
   - id: timeseries.past-linear-space
