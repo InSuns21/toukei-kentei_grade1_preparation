@@ -1,0 +1,96 @@
+chapter: STO12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - STO4
+  - STO6
+  - STO7
+  - STO9
+  - F0-00D2C
+  - F0-00P3A
+  - F0-00P3C
+  - F0-00P6
+
+concepts:
+  - id: stochastic.brownian-l2-integrand-space
+    name: Brownian square-integrable integrand space
+    kind: definition
+    aliases: ["Brownian L2 predictable integrand", "H_B^2"]
+    introduction: formal
+    introduction_aliases: ["定義（Brownian square-integrable integrand space）"]
+    requires:
+      - stochastic.brownian-motion
+      - stochastic.stochastic-integral-l2
+
+  - id: stochastic.predictable-representation-property
+    name: predictable representation property
+    kind: definition
+    aliases: ["PRP", "martingale representation property"]
+    introduction: formal
+    introduction_aliases: ["定義（predictable representation property）"]
+    requires:
+      - stochastic.brownian-natural-filtration
+      - stochastic.brownian-l2-integrand-space
+
+  - id: stochastic.brownian-terminal-integral-closed-range
+    name: Brownian terminal stochastic integralの値域はclosed
+    kind: lemma
+    aliases: ["closed range of Brownian stochastic integrals"]
+    introduction: formal
+    introduction_aliases: ["補題（Brownian terminal stochastic integral の値域は closed）"]
+    requires:
+      - stochastic.brownian-l2-integrand-space
+      - stochastic.stochastic-integral-l2
+
+  - id: stochastic.deterministic-integrand-exponential-martingale
+    name: deterministic integrandのexponential martingale
+    kind: lemma
+    aliases: ["deterministic Brownian exponential vector", "Cameron-Martin exponential"]
+    introduction: formal
+    introduction_aliases: ["補題（deterministic integrand の exponential martingale）"]
+    requires:
+      - stochastic.deterministic-brownian-integral-gaussian
+      - stochastic.stochastic-exponential-equation
+
+  - id: stochastic.gaussian-exponential-totality
+    name: Gaussian exponential vectorsのtotality
+    kind: lemma
+    aliases: ["totality of Gaussian exponential vectors", "density of exponential vectors"]
+    introduction: formal
+    introduction_aliases: ["補題（Gaussian exponential vectors の totality）"]
+    requires:
+      - stochastic.deterministic-integrand-exponential-martingale
+      - prob.characteristic-function-uniqueness
+      - prob.conditional-expectation
+      - prob.levy-upward-theorem
+      - measure.fubini-theorem
+
+  - id: stochastic.brownian-martingale-representation
+    name: Brownian martingale representation theorem
+    kind: theorem
+    aliases: ["Brownian representation theorem", "martingale representation theorem for Brownian motion"]
+    introduction: formal
+    introduction_aliases: ["定理（Brownian martingale representation theorem）"]
+    requires:
+      - stochastic.brownian-terminal-integral-closed-range
+      - stochastic.gaussian-exponential-totality
+
+  - id: stochastic.brownian-conditional-expectation-representation
+    name: conditional expectation processのrepresentation
+    kind: corollary
+    aliases: ["conditional expectation martingale representation"]
+    introduction: formal
+    introduction_aliases: ["系（conditional expectation process の representation）"]
+    requires:
+      - stochastic.brownian-martingale-representation
+      - prob.tower-property
+
+  - id: stochastic.brownian-prp
+    name: Brownian filtrationのpredictable representation property
+    kind: corollary
+    aliases: ["Brownian PRP", "predictable representation theorem"]
+    introduction: formal
+    introduction_aliases: ["系（Brownian filtration の predictable representation property）"]
+    requires:
+      - stochastic.predictable-representation-property
+      - stochastic.brownian-conditional-expectation-representation

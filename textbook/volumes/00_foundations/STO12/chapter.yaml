@@ -1,0 +1,53 @@
+id: "STO12"
+title: "Encore IV Stochastic Analysis XII：Brownian martingale representation"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - STO4
+  - STO6
+  - STO7
+  - STO9
+  - F0-00D2C
+  - F0-00P3A
+  - F0-00P3C
+  - F0-00P6
+official_scope: []
+learning_objectives:
+  - Brownian natural filtration上のsquare-integrable martingaleとBrownian stochastic integralの関係を説明できる
+  - Brownian square-integrable integrand spaceを定義し、Itô isometryからterminal stochastic integralの値域がclosedであることを証明できる
+  - predictable representation propertyを定義し、Brownian filtrationに限定する理由を直接例と反例で説明できる
+  - deterministic integrandからexponential martingaleを構成し、そのL2評価とstochastic integral representationを導ける
+  - 一次元Gaussian exponentialのtotalityを特性関数の一意性から証明し、独立Gaussian積へ拡張できる
+  - dyadic Brownian informationとLévy上昇定理を用いてexponential martingale族がL2(F_T^B)でtotalであることを証明できる
+  - Brownian martingale representation theoremをclosed rangeとGaussian exponentialのtotalityから証明できる
+  - terminal variable representationからconditional expectation processとsquare-integrable martingaleのpredictable representationを導ける
+  - strong SDEのterminal payoffへrepresentation theoremを適用し、stochastic control・mathematical financeへの橋を説明できる
+definitions:
+  - { id: STO12-DEF-01, name: "Brownian square-integrable integrand space" }
+  - { id: STO12-DEF-02, name: "predictable representation property" }
+theorems:
+  - { id: STO12-LEM-01, name: "Brownian terminal stochastic integralの値域はclosed" }
+  - { id: STO12-LEM-02, name: "deterministic integrandのexponential martingale" }
+  - { id: STO12-LEM-03, name: "Gaussian exponential vectorsのtotality" }
+  - { id: STO12-THM-01, name: "Brownian martingale representation theorem" }
+  - { id: STO12-COR-01, name: "conditional expectation processのrepresentation" }
+  - { id: STO12-COR-02, name: "Brownian filtrationのpredictable representation property" }
+canonical_examples:
+  - "B_T^2-T=2∫_0^T B_t dB_t"
+  - "deterministic hに対するCameron--Martin型exponential martingale"
+  - "digital terminal payoff 1_{B_T>a}のBrownian representation"
+  - "Brownian filtrationを独立Brownian motionで拡大するとPRPが壊れる反例"
+  - "Ornstein--Uhlenbeck terminal square payoffのexplicit representation"
+problem_patterns:
+  - STO12-ITO-REPRESENTATION-1
+  - STO12-EXPONENTIAL-1
+  - STO12-CONDITIONAL-PROCESS-1
+  - STO12-UNIQUENESS-1
+  - STO12-DIGITAL-1
+  - STO12-GAUSSIAN-TOTALITY-1
+  - STO12-FILTRATION-COUNTEREXAMPLE-1
+  - STO12-OU-INTEGRATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10.0, exercises: 7.0, review: 2.0 }

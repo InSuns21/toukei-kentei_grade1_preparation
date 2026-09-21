@@ -632,4 +632,9 @@ ARMA / ergodicity / Kalman
 - martingale problem については SDE からの導出に加え、nondegenerate diffusion では coordinate / product test functions から drift と quadratic covariation を復元し、Lévy characterization により Brown 運動を構成して weak SDE へ戻すところまで証明した。
 - well-posed martingale problem から strong Markov property を得る一般 canonical-space theorem は、regular conditional probability・path shift・stopped martingale problem の可測性を要する独立した大規模論証のため、その機構を本文で説明した上で技術的入力として境界を明示した。
 - STO11 は本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで実装済み。
-- 現在地：Phase 3 は STO11 完了。次の実装対象は STO12「Brownian martingale representation」。
+- Phase 3：STO12「Brownian martingale representation」を実装。Brownian natural filtration / Brownian square-integrable integrand space / predictable representation property / terminal variable representation / conditional expectation process representation を、主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで閉じた。
+- STO12 の direct prerequisite は STO4・STO6・STO7・STO9・F0-00D2C・F0-00P3A・F0-00P3C・F0-00P6 とした。Brownian natural filtration、Itô isometry / L2 stochastic integral、stochastic exponential、strong SDE application、Fubini、conditional expectation、Lévy 上昇定理、特性関数の一意性を実際の証明・演習で使い、STO11 や Malliavin calculus は theorem 本体へ逆輸入しない。
+- representation theorem は terminal stochastic integral の closed range を Itô isometry から証明し、deterministic exponential martingale がその値域に入ることを確認した上で、Gaussian exponential vectors の totality を一次元 Gaussian の signed-measure / characteristic-function argument、有限独立 Gaussian product、dyadic Brownian information、Lévy 上昇定理で閉じた。
+- terminal variable representation から conditional expectation process と Brownian predictable representation property を導き、独立 Brownian noise による enlarged filtration では PRP が失敗する機構を quadratic covariation で示した。stochastic control / mathematical finance への橋は存在・一意性と explicit integrand 同定を分離して記述し、Clark--Ocone formula は停止線の外に保った。
+- STO12 は本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで実装済み。
+- 現在地：Phase 3 は STO12 完了。次の実装対象は STO13「Poisson process・continuous-time Markov chain・random measure」。

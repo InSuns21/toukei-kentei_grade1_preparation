@@ -1,0 +1,17 @@
+chapter: "STO12"
+terms:
+  - term: Brownian square-integrable integrand space
+    english: Brownian square-integrable predictable integrand space
+    meaning: Brownian motionに関して予測可能で、E∫_0^T|H_t|^2dt<∞を満たすintegrandのL2空間。Itô isometryによりterminal stochastic integralと等長に対応する。
+  - term: predictable representation property
+    english: predictable representation property
+    meaning: filtration上のsquare-integrable martingaleが、初期値と基準martingaleに関するpredictable stochastic integralの和として一意に表せる性質。
+  - term: Brownian martingale representation theorem
+    english: Brownian martingale representation theorem
+    meaning: Brownian natural filtrationの任意のL2 terminal variableを、その平均とBrownian stochastic integralの和として一意に表す定理。
+  - term: exponential vector
+    english: Gaussian exponential vector
+    meaning: deterministic hに対するexp(∫h dB - 1/2∫|h|^2)型の確率変数。Brownian L2空間の稠密性を示すtest familyとして働く。
+  - term: terminal variable representation
+    english: terminal random variable representation
+    meaning: ξ=Eξ+∫_0^T H_t・dB_tとterminal random variableを表す形。条件付き期待値を取るとmartingale process全体のrepresentationになる。
