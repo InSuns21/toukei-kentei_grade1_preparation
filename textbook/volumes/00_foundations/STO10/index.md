@@ -3294,7 +3294,7 @@ $$
 }
 $$
 
-という強解 / 弱解 theory の橋を位置付けました。
+という強解・弱解の理論を結ぶ橋を位置付けました。
 
 ---
 
@@ -3318,15 +3318,15 @@ $$
 
 次章では
 
-- Markov 過程
-- 遷移核
-- マルコフ半群
-- 生成作用素
-- Dynkin 公式
-- Kolmogorov 後退方程式
-- 前進方程式 / Fokker--Planck equation
-- Feynman--Kac 公式
-- マルチンゲール問題
+- [マルコフ過程](../STO11/index.md#def-sto11-markov-process)
+- [遷移核](../STO11/index.md#def-sto11-transition-kernel)
+- [マルコフ半群](../STO11/index.md#def-sto11-markov-semigroup)
+- [生成作用素](../STO11/index.md#def-sto11-generator)
+- [Dynkin 公式](../STO11/index.md#thm-sto11-dynkin)
+- [Kolmogorov 後退方程式](../STO11/index.md#thm-sto11-backward-kolmogorov)
+- [Kolmogorov 前進方程式と Fokker--Planck 方程式](../STO11/index.md#thm-sto11-forward-fokker-planck)
+- [Feynman--Kac 公式](../STO11/index.md#thm-sto11-feynman-kac)
+- [マルチンゲール問題](../STO11/index.md#def-sto11-martingale-problem)
 
 へ進みます。
 
