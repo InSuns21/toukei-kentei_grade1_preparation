@@ -327,7 +327,7 @@ $$
 h_1h_2h_3.
 $$
 
-RA7 の多変数変数変換定理から
+RA7 の [多変数変数変換定理](../RA7/index.md#thm-ra7-change-of-variables) から
 
 $$
 dV
@@ -450,7 +450,7 @@ $$
 h_2h_3\,dq_2dq_3.
 $$
 
-そこを通る net outward flux は一次まで
+そこを通る 正味の外向き flux は一次まで
 
 $$
 \frac{\partial}{\partial q_1}
@@ -492,7 +492,7 @@ $$
 h_1h_2h_3\,dq_1dq_2dq_3
 $$
 
-で割ります。VC1 で見た「単位体積あたりの net outward flux」という divergence の意味を曲線座標へ移したものです。
+で割ります。VC1 で見た「単位体積あたりの 正味の外向き flux」という divergence の意味を曲線座標へ移したものです。
 
 <!-- proof-start -->
 ### 証明
@@ -538,7 +538,7 @@ $$
 o(dq_1dq_2dq_3).
 $$
 
-同じ計算を残り二方向へ行うと、net flux は
+同じ計算を残り二方向へ行うと、正味の flux は
 
 $$
 \left[
@@ -561,7 +561,7 @@ $$
 
 です。
 
-net flux を体積で割って box を一点へ縮めると高次項が消え、
+正味の flux を体積で割って box を一点へ縮めると高次項が消え、
 
 $$
 \nabla\cdot A
@@ -1236,11 +1236,11 @@ $$
 4\pi C.
 $$
 
-これは VC4 の特異場と同じ現象です。原点を含む球へ Gauss theorem を直接適用できないのは、$A$ が $r=0$ で $C^1$ どころか未定義だからです。
+これは VC4 の特異場と同じ現象です。原点を含む球へ [Gauss--Ostrogradsky theorem](../VC4/index.md#thm-vc4-gauss-divergence) を直接適用できないのは、$A$ が $r=0$ で $C^1$ どころか未定義だからです。
 
 ---
 
-## 13. coordinate singularity と field singularity は別物
+## 13. 座標の退化と field 自体の未定義性は別物
 
 cylindrical coordinates では $\rho=0$ で $\phi$ が定まりません。
 
@@ -1251,7 +1251,7 @@ spherical coordinates では
 
 で一部の座標や basis が退化します。
 
-これは **座標表示の singularity** であり、元の vector field が singular だとは限りません。
+これは **座標表示の退化** であり、元の vector field が未定義だとは限りません。
 
 例えば Cartesian field
 
@@ -1267,7 +1267,7 @@ $$
 \frac{1}{r^2}e_r
 $$
 
-は原点で field 自体が本当に singular です。
+は原点で field 自体が未定義で、長さも発散します。
 
 この区別は PDE・電磁気・流体で重要です。
 
@@ -1821,7 +1821,7 @@ $$
 $$
 <!-- solution-end -->
 
-#### VC6-B03 inverse-square field と Gauss theorem
+#### VC6-B03 inverse-square field と [Gauss--Ostrogradsky theorem](../VC4/index.md#thm-vc4-gauss-divergence)
 - Level: B
 - 目安時間: 30分
 
@@ -1833,7 +1833,7 @@ $$
 
 1. $r>0$ で $\nabla\cdot A=0$ を示せ。
 2. 半径 $R$ の球面 flux を求めよ。
-3. 1. と 2. が Gauss theorem と矛盾しない理由を説明せよ。
+3. 1. と 2. が [Gauss--Ostrogradsky theorem](../VC4/index.md#thm-vc4-gauss-divergence) と矛盾しない理由を説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1887,14 +1887,14 @@ $$
 \boxed{4\pi C}.
 $$
 
-3. Gauss theorem は球内部を含む閉領域上で $A\in C^1$ であることを要求します。しかし $A=C e_r/r^2$ は $r=0$ で未定義です。
+3. [Gauss--Ostrogradsky theorem](../VC4/index.md#thm-vc4-gauss-divergence) は球内部を含む閉領域上で $A\in C^1$ であることを要求します。しかし $A=C e_r/r^2$ は $r=0$ で未定義です。
 
-従って原点を含む球へ Gauss theorem を直接適用できません。
+従って原点を含む球へ [Gauss--Ostrogradsky theorem](../VC4/index.md#thm-vc4-gauss-divergence) を直接適用できません。
 
 原点を半径 $\varepsilon$ の小球でくり抜けば、外球の flux $4\pi C$ と内球境界の outward flux $-4\pi C$ が相殺し、divergence の体積積分 0 と一致します。
 <!-- solution-end -->
 
-#### VC6-C01 radial harmonic function と原点の特異性
+#### VC6-C01 radial Laplace 方程式の解と原点での未定義性
 - Level: C
 - 目安時間: 40分
 
@@ -2016,9 +2016,9 @@ $$
 0.
 $$
 
-しかし $b\ne0$ なら $f=a+b/r$ も $\nabla f=-b e_r/r^2$ も $r=0$ で singular です。
+しかし $b\ne0$ なら $f=a+b/r$ も $\nabla f=-b e_r/r^2$ も $r=0$ で未定義で、絶対値が発散します。
 
-Gauss theorem を半径 $R$ の球全体へ適用するには、field $\nabla f$ が閉球上で $C^1$ である必要があります。この仮定が原点で壊れています。
+[Gauss--Ostrogradsky theorem](../VC4/index.md#thm-vc4-gauss-divergence) を半径 $R$ の球全体へ適用するには、field $\nabla f$ が閉球上で $C^1$ である必要があります。この仮定が原点で壊れています。
 
 したがって
 
