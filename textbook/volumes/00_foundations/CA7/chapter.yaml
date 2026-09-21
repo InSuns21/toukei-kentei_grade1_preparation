@@ -21,8 +21,8 @@ definitions:
 theorems:
   - { id: CA7-THM-01, name: 正則関数列の局所一様極限 }
   - { id: CA7-COR-01, name: 導関数列の局所一様収束 }
-  - { id: CA7-COR-02, name: 正規収束する正則関数級数の項別微分 }
-  - { id: CA7-LEM-01, name: Cauchy評価による同程度連続性 }
+  - { id: CA7-COR-02, name: 正規収束する正則関数級数と微分の交換 }
+  - { id: CA7-LEM-01, name: Cauchy 評価による族共通連続性評価 }
   - { id: CA7-LEM-02, name: コンパクト集合上の部分列抽出 }
   - { id: CA7-THM-02, name: Montel の定理 }
   - { id: CA7-THM-03, name: Hurwitz の定理 }
