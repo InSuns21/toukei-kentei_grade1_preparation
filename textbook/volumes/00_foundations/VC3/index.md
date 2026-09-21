@@ -5,8 +5,8 @@ VC2 では 1 次元の曲線に沿う積分を作りました。VC3 では 2 変
 - 曲面に沿う二つの独立な接方向
 - 曲面に垂直な方向
 - パラメータ平面から曲面への微小面積倍率
-- scalar field を曲面上で積み上げる積分
-- vector field が曲面を横切る総量
+- スカラー場 を曲面上で積み上げる積分
+- ベクトル場 が曲面を横切る総量
 
 を順に構成します。
 
@@ -352,13 +352,13 @@ $$
 あとは RA7 の変数変換公式を適用すれば、面積積分の値は一致します。
 <!-- proof-end -->
 
-## 6. scalar field を曲面上で積分する
+## 6. スカラー場 を曲面上で積分する
 
 <a id="def-vc3-scalar-surface-integral"></a>
 
 <!-- formal-statement-start -->
-> **定義（scalar surface integral）**  
-> 連続 scalar field $f$ と正則パラメータ曲面 $r:U\to S$ に対し
+> **定義（スカラー曲面積分）**  
+> 連続 スカラー場 $f$ と正則パラメータ曲面 $r:U\to S$ に対し
 >
 $$
 \int_S f\,dS
@@ -381,7 +381,7 @@ r(u,v)=(u,v,0),
 \qquad 0\le u,v\le1
 $$
 
-と一定 scalar field $f=2$ では $|r_u\times r_v|=1$ なので
+と一定 スカラー場 $f=2$ では $|r_u\times r_v|=1$ なので
 
 $$
 \int_S f\,dS
@@ -398,12 +398,12 @@ $f=1$ なら曲面積そのものです。
 
 ## 7. 向きを入れて曲面通過量を測る
 
-向きを選ぶと絶対値を外して vector-valued area element を使えます。
+向きを選ぶと絶対値を外して ベクトル面積要素 を使えます。
 
 <a id="def-vc3-oriented-area-flux"></a>
 
 <!-- formal-statement-start -->
-> **定義（向き付き面素・flux）**  
+> **定義（向き付き面素・流束）**  
 > 向き付き曲面 $S$ の局所パラメータ表示 $r(u,v)$ が選択した向きと整合しているとする。
 >
 $$
@@ -414,7 +414,7 @@ $$
 >
 > と置く。
 >
-> 連続 vector field $F$ の $S$ を通る flux を
+> 連続 ベクトル場 $F$ の $S$ を通る 流束 を
 >
 $$
 \int_S F\cdot n\,dS
@@ -456,14 +456,14 @@ $$
 「法線方向成分 $c$ × 面積 $ab$」と一致します。
 <!-- definition-example-end -->
 
-向きを反転すると $n$ が $-n$ になるので flux の符号は反転します。
+向きを反転すると $n$ が $-n$ になるので 流束 の符号は反転します。
 
 ---
 
 <a id="prop-vc3-flux-reparam-invariance"></a>
 
 <!-- formal-statement-start -->
-> **命題（向き付き flux の再パラメータ表示不変性）**  
+> **命題（向き付き 流束 の再パラメータ表示不変性）**  
 > $r:U\to S$ を向きと整合した正則パラメータ表示とし、
 >
 $$
@@ -476,7 +476,7 @@ $$
 \det D\psi>0
 $$
 >
-> とする。$\widetilde r=r\circ\psi$ と置くと、連続 vector field $F$ に対し
+> とする。$\widetilde r=r\circ\psi$ と置くと、連続 ベクトル場 $F$ に対し
 >
 $$
 \iint_{\widetilde U}
@@ -488,12 +488,12 @@ F(\widetilde r)
 F(r)\cdot(r_u\times r_v)\,du\,dv.
 $$
 >
-> $\det D\psi<0$ の再パラメータ表示は反対向きを表し、flux の符号を反転させる。
+> $\det D\psi<0$ の再パラメータ表示は反対向きを表し、流束 の符号を反転させる。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-面積の場合と違い絶対値を取らないため、Jacobian determinant の符号がそのまま orientation の符号になります。
+面積の場合と違い絶対値を取らないため、Jacobian の行列式 の符号がそのまま 向き の符号になります。
 
 <!-- proof-start -->
 ### 証明
@@ -542,12 +542,12 @@ $$
 \widetilde r_s\times\widetilde r_t
 $$
 
-は元の oriented normal と逆方向を向きます。したがって同じ幾何学的曲面を反対向きで表しており、oriented flux は符号を反転します。
+は元の 向き付き法線 と逆方向を向きます。したがって同じ幾何学的曲面を反対向きで表しており、向き付き流束 は符号を反転します。
 <!-- proof-end -->
 
 ---
 
-## 8. graph surface の公式
+## 8. グラフ曲面 の公式
 
 $$
 S=\{(x,y,g(x,y)):(x,y)\in D\}
@@ -574,8 +574,8 @@ $$
 <a id="prop-vc3-graph-formulas"></a>
 
 <!-- formal-statement-start -->
-> **命題（graph surface の面積・上向き flux）**  
-> $g\in C^1(D)$ とする。graph surface $z=g(x,y)$ について
+> **命題（グラフ曲面 の面積・上向き 流束）**  
+> $g\in C^1(D)$ とする。グラフ曲面 $z=g(x,y)$ について
 >
 $$
 dS
@@ -645,7 +645,7 @@ $$
 n=\frac{r}{R}.
 $$
 
-radial field
+放射状ベクトル場
 
 $$
 F(x)=x
@@ -707,7 +707,7 @@ $$
 
 向き付き曲面に境界があるとき、境界の向きは独立に好き勝手には選びません。
 
-VC5 で Stokes theorem
+VC5 で Stokes の定理
 
 $$
 \int_{\partial S}F\cdot dr
@@ -765,7 +765,7 @@ $$
 $$
 <!-- solution-end -->
 
-#### VC3-A02 graph surface の面積要素
+#### VC3-A02 グラフ曲面 の面積要素
 - Level: A
 - 目安時間: 12分
 
@@ -782,7 +782,7 @@ $$
 g_x=2x,\qquad g_y=2y.
 $$
 
-[graph surface の面積・上向きflux](#prop-vc3-graph-formulas) より
+[グラフ曲面 の面積・上向き流束](#prop-vc3-graph-formulas) より
 
 $$
 dS
@@ -833,7 +833,7 @@ R^2\sin\varphi\,d\varphi\,d\theta\\
 $$
 <!-- solution-end -->
 
-#### VC3-A04 平面を通る flux
+#### VC3-A04 平面を通る 流束
 - Level: A
 - 目安時間: 12分
 
@@ -843,7 +843,7 @@ $$
 S=\{(x,y,1):0\le x\le2,\ 0\le y\le3\}
 $$
 
-を上向きに取り、$F=(x,y,4)$ の flux を求めよ。
+を上向きに取り、$F=(x,y,4)$ の 流束 を求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -873,7 +873,7 @@ $$
 $$
 <!-- solution-end -->
 
-#### VC3-B01 paraboloid の scalar surface integral
+#### VC3-B01 paraboloid の スカラー曲面積分
 - Level: B
 - 目安時間: 25分
 
@@ -936,7 +936,7 @@ $$
 $$
 <!-- solution-end -->
 
-#### VC3-B02 sphere の radial flux
+#### VC3-B02 球面 の 放射状 流束
 - Level: B
 - 目安時間: 20分
 
@@ -946,7 +946,7 @@ $$
 F(x)=\frac{x}{|x|^3}
 $$
 
-の flux を求めよ。
+の 流束 を求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -981,7 +981,7 @@ $$
 \boxed{4\pi}.
 $$
 
-半径に依らない点が重要です。原点でこの field が定義されないため、VC4 の divergence theorem を原点を含む球へそのまま適用してはいけません。
+半径に依らない点が重要です。原点でこの 場 が定義されないため、VC4 の divergence theorem を原点を含む球へそのまま適用してはいけません。
 <!-- solution-end -->
 
 #### VC3-B03 再パラメータ表示と向き
@@ -1051,7 +1051,7 @@ $$
 1.
 $$
 
-3. しかし vector-valued area element は
+3. しかし ベクトル面積要素 は
 
 $$
 (0,0,1)\to(0,0,-1)
@@ -1060,7 +1060,7 @@ $$
 と反転します。これは $\det D\psi<0$ が向きを反転することと一致します。
 <!-- solution-end -->
 
-#### VC3-C01 閉円柱の flux を面ごとに計算する
+#### VC3-C01 閉円柱の 流束 を面ごとに計算する
 - Level: C
 - 目安時間: 40分
 
@@ -1076,7 +1076,7 @@ $$
 F=(x,y,2z)
 $$
 
-の total flux を側面・上面・下面に分けて直接計算せよ。
+の 総流束 を側面・上面・下面に分けて直接計算せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1109,7 +1109,7 @@ R\cos^2\theta+R\sin^2\theta
 R.
 $$
 
-従って側面 flux は
+従って側面 流束 は
 
 $$
 \int_0^H\int_0^{2\pi}R\cdot R\,d\theta\,dz
@@ -1131,7 +1131,7 @@ $$
 2H\pi R^2.
 $$
 
-下面 $z=0$ では $n=(0,0,-1)$ ですが $F_3=0$ なので flux は 0 です。
+下面 $z=0$ では $n=(0,0,-1)$ ですが $F_3=0$ なので 流束 は 0 です。
 
 合計は
 
@@ -1154,7 +1154,7 @@ $$
 
 ## 12. 次章への接続
 
-VC3 で法線と flux が定義できました。次の VC4 では、
+VC3 で法線と 流束 が定義できました。次の VC4 では、
 
 $$
 \text{内部の divergence}
@@ -1162,6 +1162,6 @@ $$
 \text{境界を通る flux}
 $$
 
-を Green theorem と Gauss--Ostrogradsky theorem として証明します。
+を Green の定理 と Gauss--Ostrogradsky の発散定理 として証明します。
 
 これが PDE6 の Green 恒等式へ入る canonical route になります。
