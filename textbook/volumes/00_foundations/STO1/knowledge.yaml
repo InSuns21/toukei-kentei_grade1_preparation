@@ -6,7 +6,10 @@ prerequisites:
   - F0-00P3C
 
 forward_references:
+  - stochastic.discrete-martingale
   - stochastic.predictable-transform
+  - stochastic.doob-decomposition
+  - stochastic.upcrossing-number
 
 concepts:
   - id: stochastic.measurable-map
@@ -126,6 +129,27 @@ concepts:
     requires:
       - stochastic.filtration
 
+
+  - id: stochastic.random-time-min-max
+    name: ランダム時刻の最小・最大記法
+    kind: definition
+    aliases: ["ランダム時刻の最小・最大記法", "random time の min/max", "tau wedge t", "t vee tau"]
+    introduction: formal
+    introduction_aliases: ["定義（ランダム時刻の最小・最大記法）"]
+    requires:
+      - prob.probability-space
+
+  - id: stochastic.stopping-time-min-max-measurability
+    name: 停止時刻の最小・最大と固定時刻との最小の可測性
+    kind: proposition
+    aliases: ["停止時刻の最小・最大", "固定時刻との最小の可測性", "tau wedge t の可測性", "t vee tau の可測性"]
+    introduction: formal
+    introduction_aliases: ["命題（停止時刻の最小・最大と固定時刻との最小の可測性）"]
+    requires:
+      - stochastic.stopping-time
+      - stochastic.random-time-min-max
+      - stochastic.measurable-map
+
   - id: stochastic.closed-set-hitting-time
     name: continuous adapted processのclosed-set hitting time
     kind: theorem
@@ -145,6 +169,7 @@ concepts:
     requires:
       - stochastic.stochastic-process
       - stochastic.stopping-time
+      - stochastic.random-time-min-max
 
   - id: stochastic.stopping-sigma-field
     name: stopping timeまでのsigma-field
@@ -174,5 +199,6 @@ concepts:
     requires:
       - stochastic.progressive-process
       - stochastic.stopping-time
+      - stochastic.stopping-time-min-max-measurability
       - stochastic.stopping-sigma-field
       - stochastic.stopped-process

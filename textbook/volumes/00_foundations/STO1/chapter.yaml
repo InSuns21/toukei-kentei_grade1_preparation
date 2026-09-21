@@ -13,6 +13,7 @@ learning_objectives:
   - 発展的可測性を定義し、right-continuous 適合過程がprogressiveであることを証明できる
   - 予測可能 σ-代数と予測可能過程を定義し、単純予測可能過程の可測性を生成集合から確認できる
   - 停止時刻を定義し、離散時間の初到達時刻と連続pathのclosed-set 到達時刻が停止時刻になることを証明できる
+  - 停止時刻の最小・最大演算を扱い、tau∧t の F_t 可測性と t∨tau が一般に F_t 可測でないことを説明できる
   - 停止過程と停止時刻までのsigma代数 F_tau を定義し、F_tauがsigma代数であることと S<=T なら F_S subset F_T を証明できる
   - progressive processを停止時刻で評価した X_tau のF_tau可測性と停止過程のadaptednessを証明できる
   - 未来情報を使うランダム時刻が停止時刻でない理由を情報構造から判定できる
@@ -27,11 +28,13 @@ definitions:
   - { id: STO1-DEF-05, name: "progressively measurable process" }
   - { id: STO1-DEF-06, name: "予測可能 σ-代数と予測可能過程" }
   - { id: STO1-DEF-07, name: "停止時刻" }
+  - { id: STO1-DEF-07A, name: "ランダム時刻の最小・最大記法" }
   - { id: STO1-DEF-08, name: "停止過程" }
   - { id: STO1-DEF-09, name: "停止時刻までの sigma-field" }
 theorems:
   - { id: STO1-THM-01, name: "right-continuous 適合過程 is progressive" }
   - { id: STO1-PROP-01, name: "予測可能過程 is progressive" }
+  - { id: STO1-PROP-03, name: "停止時刻の最小・最大と固定時刻との最小の可測性" }
   - { id: STO1-THM-02, name: "continuous 適合過程 closed-set 到達時刻" }
   - { id: STO1-PROP-02, name: "F_tau is a sigma-field and monotone in stopping times" }
   - { id: STO1-THM-03, name: "evaluation of a progressive process at a 停止時刻" }

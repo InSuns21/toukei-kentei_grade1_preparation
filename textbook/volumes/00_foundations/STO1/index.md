@@ -874,7 +874,7 @@ $$
 区間 $(s,t]$ で使う係数を $\mathcal F_s$ で決める、という形がそのまま定義に入っています。
 
 <!-- definition-example-start: def-sto1-predictable -->
-### 直接例：単純予測可能過程
+### 直接例：一区間だけで非零な予測可能過程
 
 **定義の確認**
 
@@ -1093,6 +1093,234 @@ $$
 
 失った仮定は「停止判定が現在までの情報だけでできること」です。したがって一般に last exit time は停止時刻ではありません。
 
+### 7.1 $\wedge$ と $\vee$：ランダム時刻の最小・最大
+
+後で過程を停止時刻で止めるとき、$t\wedge\tau$ が頻出します。ここで $\wedge,\vee$ は論理記号ではなく、ランダム時刻を **標本ごとに最小・最大する記法**として使います。
+
+<a id="def-sto1-random-time-min-max"></a>
+
+<!-- formal-statement-start -->
+> **定義（ランダム時刻の最小・最大記法）**  
+> $\sigma,\tau:\Omega\to[0,\infty]$ を二つのランダム時刻とする。各 $\omega\in\Omega$ に対して
+>
+$$
+(\sigma\wedge\tau)(\omega)
+=
+\min\{\sigma(\omega),\tau(\omega)\},
+$$
+>
+$$
+(\sigma\vee\tau)(\omega)
+=
+\max\{\sigma(\omega),\tau(\omega)\}
+$$
+>
+> と定める。固定時刻 $t\ge0$ は定数写像 $\omega\mapsto t$ と同一視し、
+>
+$$
+\tau\wedge t
+=
+\min\{\tau,t\},
+\qquad
+t\vee\tau
+=
+\max\{t,\tau\}
+$$
+>
+> と書く。
+<!-- formal-statement-end -->
+
+$\wedge$ と $\vee$ は可換なので
+
+$$
+\tau\wedge t=t\wedge\tau,
+\qquad
+\tau\vee t=t\vee\tau
+$$
+
+です。
+
+<!-- definition-example-start: def-sto1-random-time-min-max -->
+### 直接例：時刻 3 で切る場合
+
+**定義の確認**
+
+三つの標本 $\omega_1,\omega_2,\omega_3$ で
+
+$$
+\tau(\omega_1)=1,
+\qquad
+\tau(\omega_2)=4,
+\qquad
+\tau(\omega_3)=\infty
+$$
+
+とします。$t=3$ とすると
+
+$$
+(\tau\wedge3)(\omega_1)=1,
+\qquad
+(\tau\wedge3)(\omega_2)=3,
+\qquad
+(\tau\wedge3)(\omega_3)=3,
+$$
+
+一方
+
+$$
+(3\vee\tau)(\omega_1)=3,
+\qquad
+(3\vee\tau)(\omega_2)=4,
+\qquad
+(3\vee\tau)(\omega_3)=\infty.
+$$
+
+したがって $\tau\wedge3$ は「3より後は3に切り詰める」操作、$3\vee\tau$ は「3より前なら3まで待つ」操作です。
+<!-- definition-example-end -->
+
+<a id="prop-sto1-stopping-time-min-max"></a>
+
+<!-- formal-statement-start -->
+> **命題（停止時刻の最小・最大と固定時刻との最小の可測性）**  
+> $(\mathcal F_t)_{t\ge0}$ をフィルトレーションとし、$\sigma,\tau$ を停止時刻とする。このとき
+>
+$$
+\sigma\wedge\tau,
+\qquad
+\sigma\vee\tau
+$$
+>
+> はともに停止時刻である。  
+> また固定した $t\ge0$ に対し、$\tau\wedge t$ は $[0,t]$ 値の $\mathcal F_t$ 可測確率変数である。  
+> 一方、$t\vee\tau$ は停止時刻ではあるが、一般には $\mathcal F_t$ 可測ではない。
+<!-- formal-statement-end -->
+
+この差は重要です。$\tau\wedge t$ は「時刻 $t$ までに見えた範囲だけへ切る」ので $\mathcal F_t$ で読めますが、$t\vee\tau$ は $t$ より後の正確な停止時刻を保持するため、未来情報を含み得ます。
+
+<!-- proof-start -->
+### 証明
+
+任意の $u\ge0$ について
+
+$$
+\{\sigma\wedge\tau\le u\}
+=
+\{\sigma\le u\}
+\cup
+\{\tau\le u\}.
+$$
+
+$\sigma,\tau$ は停止時刻なので右辺の二事象はともに $\mathcal F_u$ に属します。従って
+
+$$
+\{\sigma\wedge\tau\le u\}
+\in
+\mathcal F_u.
+$$
+
+よって $\sigma\wedge\tau$ は停止時刻です。
+
+同様に
+
+$$
+\{\sigma\vee\tau\le u\}
+=
+\{\sigma\le u\}
+\cap
+\{\tau\le u\},
+$$
+
+なので $\sigma\vee\tau$ も停止時刻です。
+
+次に $t\ge0$ を固定し
+
+$$
+\rho=\tau\wedge t
+$$
+
+と置きます。$\rho$ は常に $[0,t]$ に値を取ります。
+
+$0\le a<t$ なら
+
+$$
+\{\rho\le a\}
+=
+\{\tau\le a\}
+\in
+\mathcal F_a
+\subseteq
+\mathcal F_t,
+$$
+
+$a\ge t$ なら
+
+$$
+\{\rho\le a\}
+=
+\Omega,
+$$
+
+また $a<0$ なら空集合です。半直線 $(-\infty,a]$ が $\mathbb R$ の Borel $\sigma$ 代数を生成するので、これで $\rho$ は $\mathcal F_t/\mathcal B([0,t])$ 可測です。
+
+最後に $t\vee\tau$ が一般には $\mathcal F_t$ 可測でないことを具体例で確認します。
+
+標準的な無限コイントス空間
+
+$$
+\Omega=\{H,T\}^{\mathbb N}
+$$
+
+で、$\xi_n=1$ を第 $n$ 回が表、$\xi_n=-1$ を裏とし、
+
+$$
+\mathcal F_n
+=
+\sigma(\xi_1,\ldots,\xi_n)
+$$
+
+とします。さらに
+
+$$
+\tau
+=
+\inf\{n\ge1:\xi_n=1\}
+$$
+
+を最初の表の時刻とします。$t=1$ とすると $\tau\ge1$ なので
+
+$$
+1\vee\tau=\tau.
+$$
+
+もし $1\vee\tau$ が $\mathcal F_1$ 可測なら
+
+$$
+\{1\vee\tau\le2\}
+=
+\{\tau\le2\}
+$$
+
+も $\mathcal F_1$ に属するはずです。しかし
+
+$$
+\{\tau\le2\}
+=
+\{\xi_1=1\}
+\cup
+\{\xi_1=-1,\ \xi_2=1\}
+$$
+
+は、一回目が裏だった場合に二回目の結果まで見ないと判定できません。実際、$\{\xi_1=-1\}$ の中で $\xi_2=1$ の標本だけを選び出しているため、$\mathcal F_1$ の事象ではありません。従って
+
+$$
+\{\tau\le2\}
+\notin
+\mathcal F_1.
+$$
+
+よって $1\vee\tau$ は一般には $\mathcal F_1$ 可測ではありません。
+<!-- proof-end -->
+
 ---
 
 ## 8. 連続な標本路の到達時刻は停止時刻になる
@@ -1269,6 +1497,16 @@ $$
 >
 > を $\tau$ で **停止過程** という。
 <!-- formal-statement-end -->
+
+ここで $t\wedge\tau$ は[ランダム時刻の最小・最大記法](#def-sto1-random-time-min-max)で定義した
+
+$$
+t\wedge\tau
+=
+\min\{t,\tau\}
+$$
+
+です。
 
 <!-- definition-example-start: def-sto1-stopped-process -->
 ### 直接例：ランダムウォークを初到達時刻で止める
@@ -1633,27 +1871,7 @@ $$
 
 と置きます。
 
-$\rho$ が $\mathcal F_t$ 可測であることを確認します。
-
-$0\le a<t$ なら
-
-$$
-\{\rho\le a\}
-=
-\{\tau\le a\}
-\in
-\mathcal F_a
-\subseteq
-\mathcal F_t.
-$$
-
-$a\ge t$ なら
-
-$$
-\{\rho\le a\}=\Omega.
-$$
-
-従って $\rho$ は $\mathcal F_t$ 可測な $[0,t]$ 値確率変数です。
+[停止時刻の最小・最大と固定時刻との最小の可測性](#prop-sto1-stopping-time-min-max)から、$\rho$ は $\mathcal F_t$ 可測な $[0,t]$ 値確率変数です。
 
 次に写像
 
@@ -2535,7 +2753,15 @@ $$
 
 と置きます。
 
-$a<t$ なら
+$a<0$ なら
+
+$$
+\{\rho\le a\}
+=
+\varnothing.
+$$
+
+$0\le a<t$ なら
 
 $$
 \{\rho\le a\}
@@ -2545,9 +2771,23 @@ $$
 \subseteq\mathcal F_t.
 $$
 
-$a\ge t$ なら $\{\rho\le a\}=\Omega$ です。
+$a\ge t$ なら
 
-従って $\rho$ は $\mathcal F_t$ 可測です。
+$$
+\{\rho\le a\}
+=
+\Omega.
+$$
+
+したがって任意の $a\in\mathbb R$ について
+
+$$
+\{\rho\le a\}
+\in
+\mathcal F_t.
+$$
+
+半直線 $(-\infty,a]$ が $\mathbb R$ の Borel $\sigma$ 代数を生成するので、$\rho$ は $\mathcal F_t/\mathcal B([0,t])$ 可測です。
 
 発展的可測性により
 
