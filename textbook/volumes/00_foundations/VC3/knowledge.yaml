@@ -24,7 +24,8 @@ concepts:
     name: 接平面・法線
     kind: definition
     aliases: [接平面, tangent plane, 法線, normal vector]
-    introduction: inline
+    introduction: formal
+    introduction_aliases: ["定義（接平面・法線）"]
     requires:
       - vector-calculus.regular-parametrized-surface
 
@@ -71,7 +72,8 @@ concepts:
     name: scalar surface integral
     kind: definition
     aliases: [scalar surface integral, 第一種曲面積分]
-    introduction: inline
+    introduction: formal
+    introduction_aliases: ["定義（scalar surface integral）"]
     requires:
       - vector-calculus.surface-area-element
 
@@ -79,7 +81,8 @@ concepts:
     name: 向き付き面素・flux
     kind: definition
     aliases: [flux, flux integral, 向き付き面素, 流束]
-    introduction: inline
+    introduction: formal
+    introduction_aliases: ["定義（向き付き面素・flux）"]
     requires:
       - vector-calculus.orientable-surface
       - vector-calculus.surface-area-element
