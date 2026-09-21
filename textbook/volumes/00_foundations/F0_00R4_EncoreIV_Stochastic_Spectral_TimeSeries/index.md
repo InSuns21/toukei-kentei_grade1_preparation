@@ -96,8 +96,8 @@ manifold-valued SDE / stochastic development
 
 1. [TSA1：定常過程・Hilbert 予測](../TSA1/index.md) — 実装済み
 2. [TSA2：Wold 分解](../TSA2/index.md) — 実装済み
-3. TSA3：Herglotz・スペクトル表現
-4. TSA4：linear フィルタ・ARMA / ARIMA・周波数領域
+3. [TSA3：Herglotz の定理・スペクトル表現](../TSA3/index.md) — 実装済み
+4. TSA4：線形フィルタ・ARMA / ARIMA・周波数領域
 5. TSA5：エルゴード性・mixing・従属極限定理 theory
 6. TSA6：状態空間・Kalman フィルタ・innovations
 
@@ -184,4 +184,6 @@ STO5 では STO2 の bounded optional sampling を dyadic approximation で連�
 
 [TSA2「Wold 分解」](../TSA2/index.md#thm-tsa2-wold) も実装済みです。TSA1 の過去空間と標準イノベーションを出発点に、イノベーション部分空間、無限遠過去、純非決定論性、減少閉部分空間への射影収束を導入し、過去空間を 無限遠過去と時刻別イノベーション空間の無限直交和へ分解しました。そこから Wold の決定論成分、標準イノベーションによる因果的無限移動平均表示、係数の平方可和性と一意性まで証明しています。安定 AR(1) と可逆 MA(1) を純非決定論側、ランダム正弦波を完全決定論側の直接例として検証しました。
 
-現在地は **Phase 5：TSA1 → TSA2 完了。次は TSA3「Herglotz・spectral representation」** です。
+[TSA3「Herglotz の定理・スペクトル表現」](../TSA3/index.md#thm-tsa3-herglotz) も実装済みです。正定値列から非負近似測度を作る Herglotz の存在証明、一様近似による一意性、スペクトル測度・スペクトル密度、絶対可算和可能な自己共分散からの連続密度、弱ホワイトノイズとランダム正弦波の対比まで閉じました。さらに $L^2(F)$ と過程が生成する閉線形空間の等長対応から直交増分ランダム測度を構成し、[定常過程のスペクトル表現定理](../TSA3/index.md#thm-tsa3-spectral-representation)まで証明しています。
+
+現在地は **Phase 5：TSA1 → TSA2 → TSA3 完了。次は TSA4「線形フィルタ・ARMA / ARIMA・周波数領域」** です。
