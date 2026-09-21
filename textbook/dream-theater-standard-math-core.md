@@ -103,6 +103,8 @@ flowchart TD
   CA3 --> CA4["Laurent・留数<br/>CA4"]
   CA4 --> CA5["偏角原理・Rouche・解析接続<br/>CA5"]
   CA5 --> CA6["Möbius・調和関数・Poisson核<br/>CA6"]
+  CA6 --> CA7["正則関数列・正規族・Riemann写像<br/>CA7"]
+  TOP5 --> CA7
 
   MTP --> FA0["関数解析 I<br/>Banach/Hilbert・有界作用素<br/>既存 D1/C1/C3"]
   LA6 --> FA0
@@ -606,9 +608,9 @@ Caratheodory 外測度をスケール依存の幾何量へ拡張し、後続の 
 
 ---
 
-# 7. 複素解析：Cauchy 理論から留数・調和関数まで
+# 7. 複素解析：Cauchy 理論から正規族・Riemann 写像まで
 
-複素解析は FA5 の補助定理置き場ではなく、Fourier解析・PDE・スペクトル論へ共通に流れ込む独立した標準系列とする。現段階では **定義・定理・例・演習の骨格を先に固定し、定理の証明は TODO** とする。証明完成まで YAML 上の状態は `planned` のままにする。
+複素解析は FA5 の補助定理置き場ではなく、Fourier解析・PDE・スペクトル論へ共通に流れ込む独立した標準系列とする。CA1--CA7 は証明・例・演習まで実装済みで、CA7 から後半の「複素解析 II」へ入り、正則関数族のコンパクト性と Riemann 写像定理を正本化する。
 
 ## CA1 複素微分・Cauchy–Riemann・初等正則関数 `core`
 複素微分、holomorphic/entire、Cauchy–Riemann、Wirtinger微分、複素指数・三角関数。
@@ -626,9 +628,12 @@ Laurent展開、可除特異点・極・真性特異点、留数定理、contour
 winding number、偏角原理、Rouché、解析接続、monodromy。
 
 ## CA6 Möbius変換・Schwarz補題・調和関数・Poisson核 `advanced-standard / bridge`
-Möbius変換、Schwarz lemma、調和関数、平均値性質、Poisson kernel。Fourier級数とDirichlet問題へ直接接続する。
+Möbius変換、Schwarz の補題、調和関数、平均値性質、Poisson kernel。Fourier級数とDirichlet問題へ直接接続する。
 
-**証明境界**：Riemann mapping theorem、normal family、Montel theorem は既知扱いせず、RA8 と接続する後続 advanced-standard 拡張へ送る。
+## CA7 正則関数列・正規族・Riemann 写像定理 `core / advanced-standard`
+局所一様収束、正規収束、局所有界族、Montel の定理、Hurwitz の定理、Riemann 写像定理、Schwarz の鏡像原理。一般 Arzelà--Ascoli を黒箱にせず、Cauchy 評価・有限ネット・対角化で Montel の定理を閉じ、極値法で Riemann 写像定理を証明する。
+
+**証明境界**：Riemann 面・一様化定理・Runge 近似・Picard の定理は CA7 では使わず、後続の複素解析 II または将来拡張へ送る。
 
 ---
 
@@ -712,7 +717,7 @@ Möbius変換、Schwarz lemma、調和関数、平均値性質、Poisson kernel�
 4. **TOP1–TOP7（TOP5Aを含む）**：位相の生成・initial/final → 同値関係による商・貼り合わせ → 連結 → 可算性/分離 → compact → Urysohn・局所コンパクト性 → Baire/net/filter → 一様構造。
 5. **MT0・MT1–MT5**：Lebesgue正則性 → 収束様式 → signed measure → RN → differentiation/Radon。
 6. **FA1–FA4**：Baire系三大定理 → weak/weak* → Banach–Alaoglu・反射性。
-7. **CA1–CA6**：複素微分 → Cauchy理論 → Liouville → Laurent/留数 → 偏角原理 → Poisson核。
+7. **CA1–CA7**：複素微分 → Cauchy理論 → Liouville → Laurent/留数 → 偏角原理 → Poisson核 → 正規族 → Riemann写像。
 8. **FA5–FA7**：CA3を受けて spectrum/resolvent → compact operator → compact self-adjoint spectral theorem/Fredholm alternative。
 9. **RA6A–RA8**：RA6は既存F0-02C3再利用で閉じ、逆関数定理・陰関数定理 → 多重積分・変数変換 → Arzela–Ascoli/Stone–Weierstrassを最適化・関数解析へ接続。
 
@@ -735,7 +740,7 @@ Möbius変換、Schwarz lemma、調和関数、平均値性質、Poisson kernel�
 - **線形代数**：実/複素線形空間・商・代数的双対・通常行列式・抽象行列式・最小多項式・Jordan構造・複素スペクトル・二次形式・polar decompositionまで一周。抽象行列式は発展分岐、Jordan標準形は数学科標準コアに含めるが統計検定1級通常ルートの必修前提にはしない。
 - **位相**：位相の生成・initial/final topology、積・商・貼り合わせ、連結・可算性・分離・コンパクト性の一般論まで一周。
 - **測度論**：Lebesgue積分の構成とLebesgue正則性に加え、収束様式・signed measure・Radon–Nikodymまで一周。
-- **複素解析**：複素微分・Cauchy理論・Taylor/Liouville・Laurent/留数・偏角原理・調和関数・Poisson核まで一周し、Fourier/PDE/スペクトル論の共通前提を正本化。
+- **複素解析**：複素微分・Cauchy理論・Taylor/Liouville・Laurent/留数・偏角原理・調和関数・Poisson核・正規族・Riemann 写像定理までを証明付きでつなぎ、後半複素解析への入口を正本化。
 - **関数解析**：Banach/Hilbertから一様有界性・開写像・閉グラフ・弱位相・スペクトル・compact operatorまで一周。
 
 その上で確率論・統計理論・凸解析・RKHS・PDEへ進み、「知らない定理が地下から突然生えてくる」状態を減らします。
