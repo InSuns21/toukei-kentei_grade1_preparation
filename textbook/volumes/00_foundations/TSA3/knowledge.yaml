@@ -1,0 +1,146 @@
+chapter: TSA3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TSA1
+  - FOU2
+  - F0-00D4
+  - F0-00P2
+
+concepts:
+  - id: timeseries.positive-definite-sequence
+    name: 正定値列
+    kind: definition
+    aliases: ["positive-definite sequence"]
+    introduction: formal
+    introduction_aliases: ["定義（正定値列）"]
+    requires:
+      - timeseries.autocovariance-function
+
+  - id: timeseries.positive-definite-sequence-basic
+    name: 正定値列の Hermite 対称性と有界性
+    kind: lemma
+    aliases: ["Hermitian symmetry and boundedness of a positive-definite sequence"]
+    introduction: formal
+    introduction_aliases: ["補題（正定値列のHermite対称性と有界性）", "補題（正定値列の Hermite 対称性と有界性）"]
+    requires:
+      - timeseries.positive-definite-sequence
+
+  - id: timeseries.herglotz-approximation
+    name: Herglotz 近似密度
+    kind: lemma
+    aliases: ["Herglotz approximation density", "Fejer-type Herglotz approximation"]
+    introduction: formal
+    introduction_aliases: ["補題（Herglotz近似密度）", "補題（Herglotz 近似密度）"]
+    requires:
+      - timeseries.positive-definite-sequence
+
+  - id: timeseries.compact-measure-subsequence
+    name: コンパクト区間上の有限測度列の部分列選択
+    kind: lemma
+    aliases: ["subsequence selection for finite measures on a compact interval"]
+    introduction: formal
+    introduction_aliases: ["補題（コンパクト区間上の有限測度列の部分列選択）"]
+    requires:
+      - measure.caratheodory-extension-theorem
+
+  - id: timeseries.herglotz-theorem
+    name: Herglotz の定理
+    kind: theorem
+    aliases: ["Herglotz theorem"]
+    introduction: formal
+    introduction_aliases: ["定理（Herglotz定理）", "定理（Herglotz の定理）"]
+    requires:
+      - timeseries.positive-definite-sequence
+      - fourier.fou2-trig-density
+      - measure.pi-lambda-theorem
+
+  - id: timeseries.spectral-measure
+    name: スペクトル測度
+    kind: definition
+    aliases: ["spectral measure"]
+    introduction: formal
+    introduction_aliases: ["定義（スペクトル測度）"]
+    requires:
+      - timeseries.autocovariance-function
+      - timeseries.herglotz-theorem
+
+  - id: timeseries.spectral-density
+    name: スペクトル密度
+    kind: definition
+    aliases: ["spectral density"]
+    introduction: formal
+    introduction_aliases: ["定義（スペクトル密度）"]
+    requires:
+      - timeseries.spectral-measure
+      - measure.radon-nikodym-theorem
+
+  - id: timeseries.absolute-summable-spectral-density
+    name: 絶対可算和可能な自己共分散のスペクトル密度
+    kind: theorem
+    aliases: ["spectral density for absolutely summable autocovariance"]
+    introduction: formal
+    introduction_aliases: ["定理（絶対可算和可能な自己共分散のスペクトル密度）"]
+    requires:
+      - timeseries.spectral-density
+      - timeseries.herglotz-theorem
+
+  - id: timeseries.line-spectrum
+    name: 線スペクトル
+    kind: definition
+    aliases: ["line spectrum", "spectral atom"]
+    introduction: formal
+    introduction_aliases: ["定義（線スペクトル）"]
+    requires:
+      - timeseries.spectral-measure
+
+  - id: timeseries.continuous-l2-density
+    name: 連続関数の L2(F) 稠密性
+    kind: lemma
+    aliases: ["density of continuous functions in L2(F)"]
+    introduction: formal
+    introduction_aliases: ["補題（連続関数の $L^2(F)$ 稠密性）"]
+    requires:
+      - measure.pi-lambda-theorem
+      - functional.l2-completeness
+
+  - id: timeseries.trigonometric-l2-density
+    name: 三角多項式の L2(F) 稠密性
+    kind: theorem
+    aliases: ["density of trigonometric polynomials in L2(F)"]
+    introduction: formal
+    introduction_aliases: ["定理（三角多項式の $L^2(F)$ 稠密性）"]
+    requires:
+      - timeseries.continuous-l2-density
+      - fourier.fou2-trig-density
+
+  - id: timeseries.orthogonal-increment-random-measure
+    name: 直交増分ランダム測度
+    kind: definition
+    aliases: ["orthogonal-increment random measure", "orthogonal random measure"]
+    introduction: formal
+    introduction_aliases: ["定義（直交増分ランダム測度）"]
+    requires:
+      - timeseries.spectral-measure
+      - timeseries.trigonometric-l2-density
+      - functional.l2-completeness
+
+  - id: timeseries.spectral-stochastic-integral
+    name: スペクトル確率積分
+    kind: definition
+    aliases: ["spectral stochastic integral"]
+    introduction: formal
+    introduction_aliases: ["定義（スペクトル確率積分）"]
+    requires:
+      - timeseries.orthogonal-increment-random-measure
+
+  - id: timeseries.spectral-representation-theorem
+    name: 定常過程のスペクトル表現定理
+    kind: theorem
+    aliases: ["spectral representation theorem for stationary processes"]
+    introduction: formal
+    introduction_aliases: ["定理（定常過程の スペクトル表現定理）", "定理（定常過程のスペクトル表現定理）"]
+    requires:
+      - timeseries.spectral-stochastic-integral
+      - timeseries.trigonometric-l2-density
+      - timeseries.spectral-measure
