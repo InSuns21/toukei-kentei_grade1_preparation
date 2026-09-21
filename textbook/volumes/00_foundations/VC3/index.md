@@ -244,6 +244,28 @@ $$
 > と定義する。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-vc3-area-element -->
+**定義の確認**
+
+同じ平面 $r(u,v)=(u,v,u+v)$ では
+
+$$
+|r_u\times r_v|
+=
+|(-1,-1,1)|
+=
+\sqrt3.
+$$
+
+したがってパラメータ平面の面積 $du\,dv$ は曲面上で
+
+$$
+dS=\sqrt3\,du\,dv
+$$
+
+へ拡大されます。
+<!-- definition-example-end -->
+
 従って曲面積は
 
 $$
