@@ -342,7 +342,7 @@ $$
 <a id="lem-sto7-weighted-covariation"></a>
 
 <!-- formal-statement-start -->
-> **補題（重み付き共変分 sum）**  
+> **補題（重み付き共変分和）**  
 > $X,Y$ を連続セミマルチンゲール、$H$ を continuous 適合過程とする。固定 $T>0$ に対し、必要なら stopping により $H$ を有界に局所化する。
 >
 > 決定論的 partition $\pi_n$ の mesh が 0 へ行くとき
@@ -552,7 +552,7 @@ $$
 2. 二次和 $\to \int \partial_{ij}f(X)\,d[X^i,X^j]$。
 3. 剰余項 $\to0$。
 
-2 は [重み付き共変分 sum](#lem-sto7-weighted-covariation) です。3 では Hessian の一様連続性と、二乗増分和が有界 in probability であることを使います。
+2 は [重み付き共変分和](#lem-sto7-weighted-covariation) です。3 では Hessian の一様連続性と、二乗増分和が有界 in probability であることを使います。
 
 <!-- proof-start -->
 ### 証明
@@ -674,7 +674,7 @@ $$
 
 #### Step 5：二次和
 
-[重み付き共変分 sum](#lem-sto7-weighted-covariation) を
+[重み付き共変分和](#lem-sto7-weighted-covariation) を
 
 $$
 H_s=\partial_{ij}f(X_s)
@@ -935,7 +935,7 @@ vector ブラウン共変分を stochastic integrals へ移すため、次の補
 <a id="lem-sto7-vector-brownian-integral-covariation"></a>
 
 <!-- formal-statement-start -->
-> **補題（vector ブラウン stochastic integrals の共変分）**  
+> **補題（多次元ブラウン確率積分の共変分）**  
 > $B=(B^1,\ldots,B^m)$ を $m$ 次元 standard ブラウン運動とし、予測可能過程
 
 $$
@@ -1011,7 +1011,7 @@ $$
 
 が有界になる場合へ帰着します。
 
-#### Step 1：simple 予測可能被積分過程
+#### Step 1：単純予測可能被積分過程
 
 $H,K$ が共通の決定論的 partition
 
@@ -1877,7 +1877,7 @@ $$
 
 を $\Delta Y$ と掛けます。
 
-main 項は重み付き共変分 sum へ行きます。剰余項は
+main 項は重み付き共変分和 へ行きます。剰余項は
 
 $$
 o(|\Delta X|)\,|\Delta Y|
@@ -1922,7 +1922,7 @@ $$
 \sum_kr_k\Delta_kY.
 $$
 
-第一項は [重み付き共変分 sum](#lem-sto7-weighted-covariation) から
+第一項は [重み付き共変分和](#lem-sto7-weighted-covariation) から
 
 $$
 \sum_j
@@ -2835,7 +2835,7 @@ $$
 \int_0^tV_\beta^j(X_s)\,dB_s^\beta.
 $$
 
-[vector ブラウン stochastic integrals の共変分](#lem-sto7-vector-brownian-integral-covariation) と
+[多次元ブラウン確率積分の共変分](#lem-sto7-vector-brownian-integral-covariation) と
 
 $$
 [B^\beta,B^\alpha]_t
