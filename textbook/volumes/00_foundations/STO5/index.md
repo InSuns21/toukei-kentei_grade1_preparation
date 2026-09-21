@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念への参照**：[マルチンゲール](../STO2/index.md#def-sto2-マルチンゲール)、[停止時刻](../STO1/index.md#def-sto1-停止時刻)、[ブラウン運動](../STO4/index.md#def-sto4-brownian-motion) を既知として使います。
+> **既出概念への参照**：[マルチンゲール](../STO2/index.md#def-sto2-martingale)、[停止時刻](../STO1/index.md#def-sto1-stopping-time)、[ブラウン運動](../STO4/index.md#def-sto4-brownian-motion) を既知として使います。
 
 STO4 まででブラウン運動を構成し、強マルコフ性と到達時刻まで閉じました。ここから連続時間の確率解析へ入ります。
 
