@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念への参照**：[予測可能過程](../STO1/index.md#def-sto1-予測可能)、[連続局所マルチンゲール](../STO5/index.md#def-sto5-continuous-局所-マルチンゲール)、[二次変分](../STO5/index.md#def-sto5-quadratic-variation) を既知として使います。
+> **既出概念への参照**：[予測可能過程](../STO1/index.md#def-sto1-predictable)、[連続局所マルチンゲール](../STO5/index.md#def-sto5-continuous-local-martingale)、[二次変分](../STO5/index.md#def-sto5-quadratic-variation) を既知として使います。
 
 STO5 では、ブラウン運動や一般の連続局所マルチンゲールが持つ二次変分を先に作りました。ここでようやく
 
@@ -69,7 +69,7 @@ $$
 
 区間 $(t_k,t_{k+1}]$ に入る瞬間には、係数 $\xi_k$ はすでに $\mathcal F_{t_k}$ で決まっています。これが予測可能の最小模型です。
 
-<!-- definition-example-start: def-sto6-単純-予測可能 -->
+<!-- definition-example-start: def-sto6-simple-predictable -->
 ### 直接例：過去のブラウン値を次の区間の係数にする
 
 **定義の確認**
@@ -135,7 +135,7 @@ $$
 
 各項は continuous なので $(H\cdot M)_t$ も continuous です。また $t$ までに現れる係数と増分は $\mathcal F_t$-measurable なので適合です。
 
-<!-- definition-example-start: def-sto6-単純-integral -->
+<!-- definition-example-start: def-sto6-simple-integral -->
 ### 直接例：二段階のブラウン運動に関する確率積分
 
 **定義の確認**
@@ -890,7 +890,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$H^{(n)}$ を [単純予測可能 density](#lem-sto6-単純-density) で選び、
+$H^{(n)}$ を [単純予測可能 density](#lem-sto6-simple-density) で選び、
 
 $$
 I^{(n)}=H^{(n)}\cdot M
@@ -898,7 +898,7 @@ $$
 
 と置きます。
 
-$n,m$ に対して [Itô 等長性](#thm-sto6-ito-isometry-単純) と [Doob $L^2$ inequality](#thm-sto6-doob-l2) から
+$n,m$ に対して [Itô 等長性](#thm-sto6-ito-isometry-simple) と [Doob $L^2$ inequality](#thm-sto6-doob-l2) から
 
 $$
 \begin{aligned}
@@ -1269,7 +1269,7 @@ $$
 1_{(0,\tau_n]}H
 $$
 
-は時間 grid を共通 refinement に取れば単純予測可能被積分過程です。従って [単純確率積分](#def-sto6-単純-integral) の定義から
+は時間 grid を共通 refinement に取れば単純予測可能被積分過程です。従って [単純確率積分](#def-sto6-simple-integral) の定義から
 
 $$
 (1_{(0,\tau_n]}H)\cdot M
@@ -1287,7 +1287,7 @@ $$
 
 uniformly ほとんど確実にです。
 
-左辺は [Itô 等長性](#thm-sto6-ito-isometry-単純) から
+左辺は [Itô 等長性](#thm-sto6-ito-isometry-simple) から
 
 $$
 \begin{aligned}
@@ -1410,7 +1410,7 @@ $$
 
 逆に increasing 停止操作 times $\beta_n\uparrow\infty$ があり、各 $n,T$ で stopped energy の期待値が有限なら、stopped energy 自体はほとんど確実に有限です。固定した $T$ ではほとんど確実に十分大きい $n$ で $\beta_n>T$ となるので、元の $A_T$ もほとんど確実に有限です。
 
-<!-- definition-example-start: def-sto6-局所-l2 -->
+<!-- definition-example-start: def-sto6-local-l2 -->
 ### 直接例：$H_t=e^{B_t^2}$ は局所化すれば積分できる
 
 **定義の確認**
@@ -1700,7 +1700,7 @@ $$
 \int_0^T h_n^2\,ds.
 $$
 
-$h_n\to h$ in $L^2[0,T]$ とすると [Itô 等長性](#thm-sto6-ito-isometry-単純) により
+$h_n\to h$ in $L^2[0,T]$ とすると [Itô 等長性](#thm-sto6-ito-isometry-simple) により
 
 $$
 X_n:=\int h_n\,dB
@@ -1966,7 +1966,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-1. [単純確率積分](#def-sto6-単純-integral) の定義から
+1. [単純確率積分](#def-sto6-simple-integral) の定義から
 
 $$
 \int_0^T H_t\,dB_t
@@ -2022,7 +2022,7 @@ $$
 
 1. $H$ が単純予測可能であることを確認せよ。
 2. 積分を明示せよ。
-3. [Itô 等長性](#thm-sto6-ito-isometry-単純) によりその二乗平均を求めよ。
+3. [Itô 等長性](#thm-sto6-ito-isometry-simple) によりその二乗平均を求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -2037,7 +2037,7 @@ $$
 1_{\{B_s\ge0\}}(B_T-B_s).
 $$
 
-3. [Itô 等長性](#thm-sto6-ito-isometry-単純) から
+3. [Itô 等長性](#thm-sto6-ito-isometry-simple) から
 
 $$
 E\left[
@@ -2104,7 +2104,7 @@ E\sup_{t\le T}|I_t|^2
 4E|I_T|^2.
 $$
 
-[Itô 等長性](#thm-sto6-ito-isometry-単純) により
+[Itô 等長性](#thm-sto6-ito-isometry-simple) により
 
 $$
 E|I_T|^2
@@ -2139,7 +2139,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-[単純確率積分](#def-sto6-単純-integral) の定義から
+[単純確率積分](#def-sto6-simple-integral) の定義から
 
 $$
 (H\cdot M)_{t\wedge\tau}
@@ -2210,7 +2210,7 @@ $$
 E\sup_{t\le T}|I_t^{(n)}-I_t|^2\to0
 $$
 
-となる continuous マルチンゲール $I$ を持つことを、[Doob $L^2$ inequality](#thm-sto6-doob-l2) と [Itô 等長性](#thm-sto6-ito-isometry-単純) から説明せよ。
+となる continuous マルチンゲール $I$ を持つことを、[Doob $L^2$ inequality](#thm-sto6-doob-l2) と [Itô 等長性](#thm-sto6-ito-isometry-simple) から説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
