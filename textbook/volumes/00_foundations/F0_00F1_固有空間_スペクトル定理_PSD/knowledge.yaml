@@ -53,7 +53,7 @@ concepts:
     name: 実対称行列のスペクトル定理
     kind: theorem
     introduction_aliases: [実対称行列の直交対角化定理]
-    aliases: [実対称行列のスペクトル定理, スペクトル定理, spectral theorem, 実対称行列の直交対角化定理]
+    aliases: [実対称行列のスペクトル定理, スペクトル定理, 実対称行列の直交対角化定理]
     requires:
       - linear.invariant-subspace
       - linear.rayleigh-quotient
