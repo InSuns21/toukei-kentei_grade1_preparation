@@ -666,6 +666,6 @@ ARMA / ergodicity / Kalman
 - TSA2 の direct prerequisite は TSA1 のみとし、過去の閉線形包・Hilbert 射影によるイノベーション・時間移動作用素・イノベーション列の直交性を canonical dependency として再利用する。Herglotz・スペクトル測度・スペクトル表現は TSA3 の canonical content として先取りしない。
 - 安定 AR(1) と可逆 MA(1) では駆動ホワイトノイズが標準イノベーションになること、無限遠過去が消えること、Wold 係数を観測過去から直接検証した。ランダム正弦波は無限遠過去が全過去空間に残る完全決定論側の直接例として対比した。
 - Phase 5：TSA3「Herglotz の定理・スペクトル表現」を実装。正定値列 / Herglotz の定理 / スペクトル測度 / スペクトル密度 / 線スペクトル / 絶対連続スペクトル / 直交増分ランダム測度 / スペクトル確率積分 / スペクトル表現定理を、主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで閉じた。
-- TSA3 の direct prerequisite は TSA1・FOU2・F0-00D3A・MT5・F0-00P2 とした。TSA1 の自己共分散の正定値性、FOU2 の Fejér 一様近似・三角多項式の一様稠密性、D3A の π–λ 定理、MT5 の Riesz--Markov 正汎関数版、P2 系列の $L^2$ 完備性と Radon--Nikodym 定理を canonical dependency として再利用する。旧 F0-00TS2 / F0-00TS2A は migration source に留め、prerequisite / proof dependency にしない。
+- TSA3 の direct prerequisite は TSA1・TSA2・FOU2・RA5・F0-00D3A・MT5・F0-00P2 とした。TSA2 は系列の読順と Wold 分解との対比のために置くが、Herglotz の存在・一意性やスペクトル表現の証明入力には使わない。TSA1 の自己共分散の正定値性、FOU2 の Fejér 一様近似・三角多項式の一様稠密性、RA5 の一様収束・Weierstrass の M-test、D3A の π–λ 定理、MT5 の Riesz--Markov 正汎関数版、P2 系列の $L^2$ 完備性と Radon--Nikodym 定理を canonical dependency として再利用する。旧 F0-00TS2 / F0-00TS2A は migration source に留め、prerequisite / proof dependency にしない。
 - Herglotz の存在は正定値性から非負な Fejér 型近似測度を作り、$C([-π,π])$ の可算稠密集合で対角部分列を取り、極限の正線形汎関数を MT5 の Riesz--Markov で有限測度へ戻して Fourier 係数を極限へ送る形で閉じた。一意性は FOU2 の三角多項式一様稠密性を使う。スペクトル表現は $L^2(F)$ 上の三角多項式から過程空間への等長写像を完備化し、$Z(A)=U1_A$ によって直交増分ランダム測度を構成した。
 - 現在地：Phase 5 は TSA1 → TSA2 → TSA3 完了。次の実装対象は TSA4「線形フィルタ・ARMA / ARIMA・周波数領域」。
