@@ -51,6 +51,7 @@ flowchart TD
 
   RA6A --> VC1["ベクトル解析 I<br/>grad・div・curl・Laplacian<br/>VC1"]
   VC1 --> VC2["ベクトル解析 II<br/>曲線・線積分・保存場<br/>VC2"]
+  TOP3 --> VC2
   VC1 --> VC3["ベクトル解析 III<br/>曲面・向き・flux<br/>VC3"]
   RA7 --> VC3
   LA3C --> VC3
