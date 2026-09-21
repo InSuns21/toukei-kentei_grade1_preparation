@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念への参照**：[停止時刻](../STO1/index.md#def-sto1-停止時刻)、[Kolmogorov 拡張定理](../STO3/index.md#thm-sto3-kolmogorov-extension)、[Kolmogorov--Chentsov 連続定理](../STO3/index.md#thm-sto3-kolmogorov-chentsov) を直接参照します。
+> **既出概念への参照**：[停止時刻](../STO1/index.md#def-sto1-stopping-time)、[Kolmogorov 拡張定理](../STO3/index.md#thm-sto3-kolmogorov-extension)、[Kolmogorov--Chentsov 連続定理](../STO3/index.md#thm-sto3-kolmogorov-chentsov) を直接参照します。
 
 STO3 では、整合的な有限次元分布から確率過程を作り、モーメント評価から連続な修正を得るところまで閉じました。
 
@@ -83,7 +83,7 @@ $$
 
 が有限次元分布を決めます。
 
-<!-- definition-example-start: def-sto4-gaussian-過程 -->
+<!-- definition-example-start: def-sto4-gaussian-process -->
 ### 直接例：$X_t=tZ$ はガウスだがブラウン運動ではない
 
 **定義の確認**
@@ -424,7 +424,7 @@ $$
 > null set を補い、必要に応じて右連続化したフィルトレーションを stochastic calculus では usual augmentation として用いる。本章の強マルコフ性の核心証明では、情報の出所を明示するためまず raw natural フィルトレーション $(\mathcal F_t^B)$ で議論する。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-sto4-brownian-フィルトレーション -->
+<!-- definition-example-start: def-sto4-brownian-filtration -->
 ### 直接例：過去の事象と未来増分を分ける
 
 **定義の確認**
@@ -674,7 +674,7 @@ A_k
 A\cap\{\sigma=k\delta\}
 $$
 
-と置くと、[停止時刻までの sigma-field の定義](../STO1/index.md#def-sto1-停止操作-sigma-field)から
+と置くと、[停止時刻までの sigma-field の定義](../STO1/index.md#def-sto1-stopping-sigma-field)から
 
 $$
 A_k\in\mathcal F_{k\delta}^B.
@@ -1766,7 +1766,7 @@ $$
 
 と置きます。
 
-[停止時刻までの sigma-field の定義](../STO1/index.md#def-sto1-停止操作-sigma-field)から
+[停止時刻までの sigma-field の定義](../STO1/index.md#def-sto1-stopping-sigma-field)から
 
 $$
 A_k\in\mathcal F_{s_k}^B.
