@@ -232,7 +232,7 @@ $$
 
 候補
 
-$
+$$
 X_t
 =
 x\exp\left\{
@@ -318,7 +318,7 @@ $$
 +
 \text{same initial state}
 \Longrightarrow
-\text{same sample path}
+\text{same realization}
 }
 $$
 
@@ -329,7 +329,7 @@ $$
 
 **定義の確認**
 
-$
+$$
 dX_t=\mu\,dt+\alpha\,dW_t,
 \qquad
 dY_t=\mu\,dt+\alpha\,dW_t,
@@ -1462,32 +1462,32 @@ $$
 
 整数 $n>1$ に対する exit time は
 
-$
+$$
 \tau_n
 =
 \inf\{t:X_t\ge n\}
 =
 1-\frac1n
-$
+$$
 
 なので
 
-$
+$$
 \tau_n\uparrow1.
-$
+$$
 
 また
 
-$
+$$
 X_t\to\infty
 \quad(t\uparrow1).
-$
+$$
 
 従って定義どおり
 
-$
+$$
 \tau_{\mathrm e}=1
-$
+$$
 
 で、finite explosion 時には $\limsup_{t\uparrow\tau_{\mathrm e}}|X_t|=\infty$ も確認できます。
 
