@@ -5,6 +5,9 @@ prerequisites:
   - F0-00P1
   - F0-00P3C
 
+forward_references:
+  - stochastic.predictable-transform
+
 concepts:
   - id: stochastic.measurable-map
     name: 可測写像
@@ -49,7 +52,7 @@ concepts:
     kind: definition
     aliases: ["modification", "indistinguishability", "indistinguishable"]
     introduction: formal
-    introduction_aliases: ["定義（modification と indistinguishability）"]
+    introduction_aliases: ["定義（修正と識別不能性）"]
     requires:
       - stochastic.stochastic-process
 
@@ -58,7 +61,7 @@ concepts:
     kind: definition
     aliases: ["filtration", "usual conditions", "right-continuous filtration"]
     introduction: formal
-    introduction_aliases: ["定義（filtration と usual conditions）"]
+    introduction_aliases: ["定義（フィルトレーションと usual conditions）"]
     requires:
       - prob.probability-space
       - stochastic.sub-sigma-algebra
@@ -70,7 +73,7 @@ concepts:
     kind: definition
     aliases: ["adapted process", "adapted", "natural filtration"]
     introduction: formal
-    introduction_aliases: ["定義（adapted process と natural filtration）"]
+    introduction_aliases: ["定義（適合過程と自然なフィルトレーション）"]
     requires:
       - stochastic.stochastic-process
       - stochastic.filtration
@@ -80,7 +83,7 @@ concepts:
     kind: definition
     aliases: ["progressively measurable process", "progressive measurability", "progressive process"]
     introduction: formal
-    introduction_aliases: ["定義（progressively measurable process）"]
+    introduction_aliases: ["定義（発展的可測過程）"]
     requires:
       - stochastic.stochastic-process
       - stochastic.filtration
@@ -90,7 +93,7 @@ concepts:
     kind: theorem
     aliases: ["right-continuous adapted process is progressive"]
     introduction: formal
-    introduction_aliases: ["定理（right-continuous adapted process は progressive）"]
+    introduction_aliases: ["定理（右連続適合過程は発展的可測）"]
     requires:
       - stochastic.adapted-process
       - stochastic.progressive-process
@@ -98,9 +101,9 @@ concepts:
   - id: stochastic.predictable-process
     name: predictable sigma-fieldとpredictable process
     kind: definition
-    aliases: ["predictable sigma-field", "predictable process", "predictable"]
+    aliases: ["predictable sigma-field", "predictable process", "predictable", "予測可能 sigma-field", "予測可能 σ-代数"]
     introduction: formal
-    introduction_aliases: ["定義（predictable sigma-field と predictable process）"]
+    introduction_aliases: ["定義（予測可能 σ-代数と予測可能過程）"]
     requires:
       - stochastic.filtration
 
@@ -109,7 +112,7 @@ concepts:
     kind: proposition
     aliases: ["predictable process is progressive"]
     introduction: formal
-    introduction_aliases: ["命題（predictable process は progressive）"]
+    introduction_aliases: ["命題（予測可能過程は発展的可測）"]
     requires:
       - stochastic.predictable-process
       - stochastic.progressive-process
@@ -119,7 +122,7 @@ concepts:
     kind: definition
     aliases: ["stopping time", "停止時刻"]
     introduction: formal
-    introduction_aliases: ["定義（stopping time）"]
+    introduction_aliases: ["定義（停止時刻）"]
     requires:
       - stochastic.filtration
 
@@ -128,7 +131,7 @@ concepts:
     kind: theorem
     aliases: ["closed-set hitting time", "first hitting time"]
     introduction: formal
-    introduction_aliases: ["定理（continuous adapted process の closed-set hitting time）"]
+    introduction_aliases: ["定理（連続適合過程の閉集合への到達時刻）"]
     requires:
       - stochastic.adapted-process
       - stochastic.stopping-time
@@ -138,7 +141,7 @@ concepts:
     kind: definition
     aliases: ["stopped process", "停止過程"]
     introduction: formal
-    introduction_aliases: ["定義（stopped process）"]
+    introduction_aliases: ["定義（停止過程）"]
     requires:
       - stochastic.stochastic-process
       - stochastic.stopping-time
@@ -146,9 +149,9 @@ concepts:
   - id: stochastic.stopping-sigma-field
     name: stopping timeまでのsigma-field
     kind: definition
-    aliases: ["stopping sigma-field", "F_tau"]
+    aliases: ["stopping sigma-field", "F_tau", "停止時刻までの sigma-field", "停止時刻までの σ-代数"]
     introduction: formal
-    introduction_aliases: ["定義（stopping time までの sigma-field）"]
+    introduction_aliases: ["定義（停止時刻までの sigma-field）"]
     requires:
       - stochastic.filtration
       - stochastic.stopping-time
@@ -158,7 +161,7 @@ concepts:
     kind: proposition
     aliases: ["F_tau is a sigma-field", "stopping sigma-field monotonicity"]
     introduction: formal
-    introduction_aliases: ["命題（stopping sigma-field の sigma-field 性と単調性）"]
+    introduction_aliases: ["命題（停止時刻までの σ-代数の sigma-field 性と単調性）"]
     requires:
       - stochastic.stopping-sigma-field
 
@@ -167,7 +170,7 @@ concepts:
     kind: theorem
     aliases: ["evaluation of a progressive process at a stopping time", "stopped process adaptedness"]
     introduction: formal
-    introduction_aliases: ["定理（progressive process の stopping time 評価）"]
+    introduction_aliases: ["定理（発展的可測過程の停止時刻評価）"]
     requires:
       - stochastic.progressive-process
       - stochastic.stopping-time

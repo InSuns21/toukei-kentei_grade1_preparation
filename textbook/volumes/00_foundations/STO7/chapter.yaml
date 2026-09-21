@@ -1,5 +1,5 @@
 id: "STO7"
-title: "Encore IV Stochastic Analysis VII：multidimensional Itô calculus・Stratonovich"
+title: "Encore IV 確率解析 VII：multidimensional Itô calculus・Stratonovich"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -8,42 +8,42 @@ prerequisites:
   - RA3
 official_scope: []
 learning_objectives:
-  - d次元Brown運動をfiltrationに対する独立Gaussian増分と連続性で定義し、成分間covariationがKronecker deltaで決まることを証明できる
-  - continuous semimartingaleに対する積分をlocal martingale partとfinite-variation partへ分解して定義し、分解一意性によりwell-definedであることを説明できる
-  - weighted covariation sumの収束を使い、continuous semimartingaleに対する多次元Itô公式を二次Taylor展開から証明できる
-  - 多次元Itô公式からproduct ruleとintegration by partsを導き、quadratic covariationが通常の積の微分則を補正する理由を説明できる
-  - Itô processをdriftとBrownian stochastic integralの和として定義し、generator型のdrift補正を含む時間依存Itô公式を計算できる
-  - continuous local martingaleのstochastic exponentialをItô公式から導き、Brownian exponential martingaleが真のmartingaleになることを独立増分から証明できる
-  - Stratonovich integralを対称Riemann和から構成し、Itô integralとの差がcovariationの半分になることを証明できる
-  - Euclidean Stratonovich の連鎖律をcovariation 連鎖律とItô公式から導き、通常の連鎖律が回復する機構を説明できる
-  - Itô--Stratonovich conversionをItô processの分散共分散行列で明示し、後続SDEで現れるdrift correctionを計算できる
+  - d次元ブラウン運動をfiltrationに対する独立Gaussian増分と連続性で定義し、成分間共変分がKronecker deltaで決まることを証明できる
+  - 連続セミマルチンゲールに対する積分を局所マルチンゲール partとfinite-variation partへ分解して定義し、分解一意性によりwell-definedであることを説明できる
+  - weighted 共変分 sumの収束を使い、連続セミマルチンゲールに対する多次元Itô公式を二次Taylor展開から証明できる
+  - 多次元Itô公式から積の公式と部分積分公式を導き、quadratic 共変分が通常の積の微分則を補正する理由を説明できる
+  - Itô 過程をドリフトとブラウン確率積分の和として定義し、生成作用素型のドリフト補正を含む時間依存Itô公式を計算できる
+  - 連続局所マルチンゲールの確率指数関数をItô公式から導き、ブラウン exponential マルチンゲールが真のマルチンゲールになることを独立増分から証明できる
+  - Stratonovich 積分を対称Riemann和から構成し、Itô integralとの差が共変分の半分になることを証明できる
+  - Euclidean Stratonovich の連鎖律を共変分連鎖律とItô公式から導き、通常の連鎖律が回復する機構を説明できる
+  - Itô--Stratonovich 変換をItô 過程の分散共分散行列で明示し、後続SDEで現れるドリフト補正を計算できる
   - manifold上の確率解析を本章へ逆輸入せず、Euclidean calculusがその入口になる位置付けを説明できる
 definitions:
-  - { id: STO7-DEF-01, name: "d次元Brown運動" }
-  - { id: STO7-DEF-02, name: "continuous semimartingaleに対する積分" }
-  - { id: STO7-DEF-03, name: "Itô process" }
-  - { id: STO7-DEF-04, name: "stochastic exponential" }
-  - { id: STO7-DEF-05, name: "Stratonovich integral" }
+  - { id: STO7-DEF-01, name: "d次元ブラウン運動" }
+  - { id: STO7-DEF-02, name: "連続セミマルチンゲールに対する積分" }
+  - { id: STO7-DEF-03, name: "Itô 過程" }
+  - { id: STO7-DEF-04, name: "確率指数関数" }
+  - { id: STO7-DEF-05, name: "Stratonovich 積分" }
 theorems:
-  - { id: STO7-PROP-01, name: "vector Brownian motionのcovariation" }
-  - { id: STO7-LEM-01, name: "weighted covariation sum" }
-  - { id: STO7-THM-01, name: "multidimensional Itô formula" }
-  - { id: STO7-COR-01, name: "product rule / integration by parts" }
-  - { id: STO7-LEM-02, name: "vector Brownian stochastic integralsのcovariation" }
-  - { id: STO7-THM-02, name: "Itô process版の時間依存Itô formula" }
-  - { id: STO7-PROP-02, name: "stochastic exponentialの基本恒等式" }
-  - { id: STO7-PROP-03, name: "Brownian exponential martingale" }
-  - { id: STO7-THM-03, name: "Stratonovich integralとItô integralの変換" }
-  - { id: STO7-LEM-03, name: "covariation 連鎖律" }
+  - { id: STO7-PROP-01, name: "vector ブラウン運動の共変分" }
+  - { id: STO7-LEM-01, name: "weighted 共変分 sum" }
+  - { id: STO7-THM-01, name: "多次元 Itô 公式" }
+  - { id: STO7-COR-01, name: "積の公式 / 部分積分公式" }
+  - { id: STO7-LEM-02, name: "vector ブラウン stochastic integralsの共変分" }
+  - { id: STO7-THM-02, name: "Itô 過程版の時間依存Itô formula" }
+  - { id: STO7-PROP-02, name: "確率指数関数の基本恒等式" }
+  - { id: STO7-PROP-03, name: "ブラウン exponential マルチンゲール" }
+  - { id: STO7-THM-03, name: "Stratonovich 積分とItô integralの変換" }
+  - { id: STO7-LEM-03, name: "共変分連鎖律" }
   - { id: STO7-THM-04, name: "Euclidean Stratonovich の連鎖律" }
-  - { id: STO7-COR-02, name: "Itô processに対するItô--Stratonovich conversion" }
+  - { id: STO7-COR-02, name: "Itô 過程に対するItô--Stratonovich 変換" }
 canonical_examples:
-  - "2次元Brown運動とcross variation [B1,B2]=0"
-  - "f(x,y)=xyからproduct ruleを導く"
-  - "d次元Brown運動の二乗長さ |B_t|^2-dt"
-  - "Brownian exponential exp(theta dot B_t-|theta|^2 t/2)"
+  - "2次元ブラウン運動とcross variation [B1,B2]=0"
+  - "f(x,y)=xyから積の公式を導く"
+  - "d次元ブラウン運動の二乗長さ |B_t|^2-dt"
+  - "ブラウン exponential exp(theta dot B_t-|theta|^2 t/2)"
   - "integral B circ dB = B_T^2/2 と integral B dB=(B_T^2-T)/2"
-  - "constant-coefficient multidimensional Itô process"
+  - "constant-coefficient multidimensional Itô 過程"
 problem_patterns:
   - STO7-VECTOR-BROWNIAN-1
   - STO7-MULTIDIM-ITO-1

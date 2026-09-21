@@ -43,7 +43,7 @@
 23. [F0-00D0A 一般距離空間の完備化](textbook/volumes/00_foundations/F0_00D0A_一般距離空間の完備化/index.md)
 24. [F0-00D0B Dedekind切断：順序の穴から実数](textbook/volumes/00_foundations/F0_00D0B_Dedekind切断_実数の構成/index.md)
 25. [F0-00D0C Cauchy構成とDedekind構成の同値](textbook/volumes/00_foundations/F0_00D0C_Cauchy構成_Dedekind構成_同値/index.md)
-26. [TOP6 全有界性・Baire・net/filter](textbook/volumes/00_foundations/TOP6/index.md)
+26. [TOP6 全有界性・Baire・net/フィルタ](textbook/volumes/00_foundations/TOP6/index.md)
 
 ### 標準実解析コア
 
@@ -81,7 +81,7 @@
 14. [LA6 スペクトル・二次形式・polar decomposition・複素SVD](textbook/volumes/00_foundations/LA6/index.md)
 15. [LA3D 交代多重線形形式・抽象行列式（発展分岐）](textbook/volumes/00_foundations/LA3D/index.md)
 
-**院試・編入の計算演習**：[線形代数・院試／編入 計算演習（A8・B10・C4、計22題）](textbook/volumes/00_foundations/F0_00CALC_線形代数_院試編入計算演習/index.md)。
+**院試・編入の計算演習**：[線形代数・院試／編入計算演習（A8・B10・C4、計22題）](textbook/volumes/00_foundations/F0_00CALC_線形代数_院試編入計算演習/index.md)。
 
 ### ノルム空間・測度・Lebesgue積分
 
@@ -135,9 +135,9 @@
 3. [CA3 Cauchy積分公式・Taylor展開・Liouville・最大値原理](textbook/volumes/00_foundations/CA3/index.md)
 4. [CA4 Laurent展開・孤立特異点・留数・偏角原理・Rouché](textbook/volumes/00_foundations/CA4/index.md)
 5. [CA5 winding number・解析接続・monodromy](textbook/volumes/00_foundations/CA5/index.md)
-6. [CA6 Möbius変換・Schwarz補題・調和関数・Poisson核](textbook/volumes/00_foundations/CA6/index.md)
+6. [CA6 Möbius変換・Schwarz補題・調和関数・ポアソン核](textbook/volumes/00_foundations/CA6/index.md)
 
-**院試・編入の計算演習**：[複素解析・院試／編入 計算演習（A8・B10・C4、計22題）](textbook/volumes/00_foundations/F0_00CALC_複素解析_院試編入計算演習/index.md)。
+**院試・編入の計算演習**：[複素解析・院試／編入計算演習（A8・B10・C4、計22題）](textbook/volumes/00_foundations/F0_00CALC_複素解析_院試編入計算演習/index.md)。
 
 ### 凸解析・凸最適化
 
@@ -214,7 +214,7 @@
 15. [PDE2 二階線形PDEの分類](textbook/volumes/00_foundations/PDE2/index.md)
 16. [PDE3 熱方程式](textbook/volumes/00_foundations/PDE3/index.md)
 17. [PDE4 波動方程式](textbook/volumes/00_foundations/PDE4/index.md)
-18. [PDE5 Laplace・Poisson方程式と調和関数](textbook/volumes/00_foundations/PDE5/index.md)
+18. [PDE5 Laplace・ポアソン方程式と調和関数](textbook/volumes/00_foundations/PDE5/index.md)
 19. [PDE6 Greenの恒等式・基本解・Green関数](textbook/volumes/00_foundations/PDE6/index.md)
 20. [PDE7 固有関数展開・Green表現・三類型の統合](textbook/volumes/00_foundations/PDE7/index.md)
 
@@ -264,7 +264,7 @@ GPDE10 Galerkin・時間発展PDEの弱解
 
 再編前の `F0-00DS1`、`F0-00DS2`、`F0-00SOB1`、`F0-00SOB2`、`F0-00WK1`、`F0-00WK2`、`F0-00WK3` は移植元・履歴確認用として保持しますが、**現行の主線・通常導線には表示しません**。新 GPDE 系列から prerequisite / concept owner / proof dependency にもしません。
 
-Encore III 本線では distributional solution、variational weak solution、energy solution を扱い、mild solution は bridge に留めます。entropy / viscosity / renormalized / measure-valued solution、Navier--Stokes の本格弱解理論、geometric analysis は別系列として扱います。
+Encore III 本線では distributional solution、variational 弱解、energy solution を扱い、mild solution は bridge に留めます。entropy / viscosity / renormalized / measure-valued solution、Navier--Stokes の本格弱解理論、geometric analysis は別系列として扱います。
 
 ---
 
@@ -272,22 +272,22 @@ Encore III 本線では distributional solution、variational weak solution、en
 
 1. [Encore IV ロードマップ](textbook/volumes/00_foundations/F0_00R4_EncoreIV_Stochastic_Spectral_TimeSeries/index.md)
 
-2. [STO1 確率過程・filtration・stopping time](textbook/volumes/00_foundations/STO1/index.md)
-3. [STO2 離散時間 martingale・不等式・収束](textbook/volumes/00_foundations/STO2/index.md)
+2. [STO1 確率過程・フィルトレーション・停止時刻](textbook/volumes/00_foundations/STO1/index.md)
+3. [STO2 離散時間マルチンゲール・不等式・収束](textbook/volumes/00_foundations/STO2/index.md)
 4. [STO3 確率過程の構成・Kolmogorov continuity](textbook/volumes/00_foundations/STO3/index.md)
-5. [STO4 Brown 運動・hitting time・strong Markov property](textbook/volumes/00_foundations/STO4/index.md)
-6. [STO5 continuous local martingale・quadratic variation・semimartingale](textbook/volumes/00_foundations/STO5/index.md)
-7. [STO6 stochastic integral](textbook/volumes/00_foundations/STO6/index.md)
-8. [STO7 multidimensional Itô calculus・Stratonovich](textbook/volumes/00_foundations/STO7/index.md)
-9. [STO8 local time・Tanaka formula](textbook/volumes/00_foundations/STO8/index.md)
-10. [STO9 SDE・strong solution・存在一意性・局所化](textbook/volumes/00_foundations/STO9/index.md)
-11. [STO10 weak solution・Girsanov](textbook/volumes/00_foundations/STO10/index.md)
-12. [STO11 Markov process・semigroup・generator・martingale problem](textbook/volumes/00_foundations/STO11/index.md)
-13. [STO12 Brownian martingale representation](textbook/volumes/00_foundations/STO12/index.md)
+5. [STO4 ブラウン運動・到達時刻・強マルコフ性](textbook/volumes/00_foundations/STO4/index.md)
+6. [STO5 連続局所マルチンゲール・二次変分・セミマルチンゲール](textbook/volumes/00_foundations/STO5/index.md)
+7. [STO6 確率積分](textbook/volumes/00_foundations/STO6/index.md)
+8. [STO7 多次元 Itô 解析・Stratonovich](textbook/volumes/00_foundations/STO7/index.md)
+9. [STO8 局所時間・Tanaka 公式](textbook/volumes/00_foundations/STO8/index.md)
+10. [STO9 SDE・強解・存在一意性・局所化](textbook/volumes/00_foundations/STO9/index.md)
+11. [STO10 弱解・Girsanov](textbook/volumes/00_foundations/STO10/index.md)
+12. [STO11 マルコフ過程・半群・生成作用素・マルチンゲール問題](textbook/volumes/00_foundations/STO11/index.md)
+13. [STO12 ブラウン運動のマルチンゲール表現](textbook/volumes/00_foundations/STO12/index.md)
 
 旧 Encore IV の SP / TS 個別章は backup / migration source として残しますが、現行主線からは外しています。新 STO / TSA 章は、本文・証明・直接例・演習・詳細解答・検証まで完成した章だけ順次ここへ追加します。
 
-再編後は、STO 系列で martingale・Brown 運動・quadratic variation・確率積分・SDE・Girsanov・Markov / generator・martingale representation・Poisson / Lévy / jump calculus まで、TSA 系列で定常過程・予測・Wold・spectral representation・ARMA・ergodicity・Kalman filter までを扱います。
+再編後は、STO 系列でマルチンゲール・ブラウン運動・二次変分・確率積分・SDE・Girsanov・Markov / 生成作用素・マルチンゲール representation・ポアソン / Lévy / 跳躍型確率解析まで、TSA 系列で定常過程・予測・Wold・スペクトル表現・ARMA・エルゴード性・Kalman フィルタまでを扱います。
 
 ---
 
@@ -298,7 +298,7 @@ Encore III 本線では distributional solution、variational weak solution、en
 3. [NA2 数値線形代数・CG・前処理](textbook/volumes/00_foundations/F0_00NA2_数値線形代数_疎行列_CG_前処理/index.md)
 4. [NA3 補間・数値微分・数値積分](textbook/volumes/00_foundations/F0_00NA3_補間_数値微分_数値積分/index.md)
 5. [NA4 ODE数値解法・Runge–Kutta](textbook/volumes/00_foundations/F0_00NA4_ODE数値解法_Runge_Kutta_安定性/index.md)
-6. [FEM1 メッシュ・基底・assembly・Poisson](textbook/volumes/00_foundations/F0_00FEM1_メッシュ_基底_assembly_Poisson/index.md)
+6. [FEM1 メッシュ・基底・assembly・ポアソン](textbook/volumes/00_foundations/F0_00FEM1_メッシュ_基底_assembly_Poisson/index.md)
 7. [MC1 Monte Carlo積分・LLN・CLT](textbook/volumes/00_foundations/F0_00MC1_Monte_Carlo積分_LLN_CLT_誤差/index.md)
 8. [MC2 分散削減・importance・control variate](textbook/volumes/00_foundations/F0_00MC2_分散削減_importance_control_variate/index.md)
 9. [SDE1 Euler–Maruyama・strong/weak](textbook/volumes/00_foundations/F0_00SDE1_Euler_Maruyama_strong_weak/index.md)

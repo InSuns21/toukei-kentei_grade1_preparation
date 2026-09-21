@@ -40,7 +40,7 @@ $$
 
 です。
 
-この章では、後続の martingale・Brown 運動・確率積分で毎回使う
+この章では、後続のマルチンゲール・ブラウン運動・確率積分で毎回使う
 
 $$
 \text{growing information}
@@ -49,9 +49,9 @@ $$
 \to
 \text{time--sample measurability}
 \to
-\text{random stopping rules}
+\text{random 停止操作 rules}
 \to
-\text{information at the random time}
+\text{information at the ランダム時刻}
 $$
 
 を、有限例と完全な可測性確認から組み立てます。
@@ -201,7 +201,7 @@ $$
 
 は離散時間確率過程です。
 
-例えば $\omega=HT$ を固定すれば 標本路 は
+例えば $\omega=HT$ を固定すれば標本路は
 
 $$
 0\to1\to0
@@ -235,7 +235,7 @@ $$
 <a id="def-sto1-modification-indistinguishable"></a>
 
 <!-- formal-statement-start -->
-> **定義（modification と indistinguishability）**  
+> **定義（修正と識別不能性）**  
 > 同じ確率空間上の二つの過程 $X=(X_t)_{t\in T}$、$Y=(Y_t)_{t\in T}$ を考える。
 >
 > - 各固定 $t\in T$ について
@@ -244,7 +244,7 @@ $$
 P(X_t=Y_t)=1
 $$
 >
-> が成り立つとき、$X$ と $Y$ は互いに **modification** であるという。
+> が成り立つとき、$X$ と $Y$ は互いに **修正** であるという。
 >
 > - 一つの確率 1 の事象 $\Omega_0$ が存在し、全ての $\omega\in\Omega_0$ と全ての $t\in T$ に対して
 >
@@ -252,13 +252,13 @@ $$
 X_t(\omega)=Y_t(\omega)
 $$
 >
-> が成り立つとき、$X$ と $Y$ は **indistinguishable** であるという。
+> が成り立つとき、$X$ と $Y$ は **識別不能** であるという。
 <!-- formal-statement-end -->
 
-indistinguishable なら modification ですが、逆は連続時間では壊れます。
+識別不能なら修正ですが、逆は連続時間では壊れます。
 
 <!-- definition-example-start: def-sto1-modification-indistinguishable -->
-### 直接例：modification だが indistinguishable ではない
+### 直接例：修正だが識別不能ではない
 
 **定義の確認**
 
@@ -288,7 +288,7 @@ $$
 P(X_t=Y_t)=1.
 $$
 
-よって $X$ と $Y$ は modification です。
+よって $X$ と $Y$ は修正です。
 
 しかし各 $\omega\in[0,1]$ に対して時刻 $t=\omega$ を選ぶと
 
@@ -306,12 +306,12 @@ $$
 \varnothing.
 $$
 
-ゆえに indistinguishable ではありません。
+ゆえに識別不能ではありません。
 
 壊れた機構は「各 $t$ ごとの零集合を一つにまとめる」部分です。可算個なら零集合の可算和は零集合ですが、$t\in[0,1]$ は非可算個なので、その議論は使えません。
 <!-- definition-example-end -->
 
-この区別は STO3 の連続 modification、STO4 の Brown 運動で重要になります。
+この区別は STO3 の連続修正、STO4 のブラウン運動で重要になります。
 
 ---
 
@@ -408,7 +408,7 @@ $$
 <a id="def-sto1-filtration-usual"></a>
 
 <!-- formal-statement-start -->
-> **定義（filtration と usual conditions）**  
+> **定義（フィルトレーションと usual conditions）**  
 > 確率空間 $(\Omega,\mathcal F,P)$ 上で、各 $t\ge0$ に [$\mathcal F$ の部分 $\sigma$ 代数](#def-sto1-sub-sigma-algebra) $\mathcal F_t$ が与えられ、
 >
 $$
@@ -417,9 +417,9 @@ s\le t
 \mathcal F_s\subseteq\mathcal F_t
 $$
 >
-> を満たすとき、族 $(\mathcal F_t)_{t\ge0}$ を **filtration** という。
+> を満たすとき、族 $(\mathcal F_t)_{t\ge0}$ を **フィルトレーション** という。
 >
-> filtration が **right-continuous** であるとは
+> フィルトレーションが **右連続** であるとは
 >
 $$
 \mathcal F_t
@@ -429,7 +429,7 @@ $$
 >
 > が全ての $t\ge0$ で成り立つことをいう。
 >
-> また $\mathcal F_0$ が [$P$ に関して complete](#def-sto1-p-complete-sub-sigma-algebra)、すなわち全体側の $\mathcal F$ の $P$-零集合の任意の部分集合をすべて含むとする。filtration の単調性から、このとき全ての $\mathcal F_t$ もそれらを含む。right-continuity とこの completeness の両方を満たすとき、filtration は **usual conditions** を満たすという。
+> また $\mathcal F_0$ が [$P$ に関して complete](#def-sto1-p-complete-sub-sigma-algebra)、すなわち全体側の $\mathcal F$ の $P$-零集合の任意の部分集合をすべて含むとする。フィルトレーションの単調性から、このとき全ての $\mathcal F_t$ もそれらを含む。right-連続性とこの completeness の両方を満たすとき、フィルトレーションは **usual conditions** を満たすという。
 <!-- formal-statement-end -->
 
 $\mathcal F_t$ は「時刻 $t$ までに判定できる事象」の集合です。
@@ -453,7 +453,7 @@ $$
 \Omega=\{HH,HT,TH,TT\}
 $$
 
-で、連続時間の filtration を
+で、連続時間のフィルトレーションを
 
 $$
 \mathcal F_t
@@ -491,7 +491,7 @@ $$
 2^\Omega
 $$
 
-なので filtration です。
+なのでフィルトレーションです。
 
 例えば $t=1.4$ では一枚目だけ見えており、
 
@@ -509,10 +509,10 @@ $$
 
 は「二枚目が表」という事象で、まだ二枚目を見ていないため $\mathcal F_{1.4}$ には入りません。
 
-有限標本空間では全ての零集合は空集合だけなので complete です。また上の filtration は各ジャンプ時刻の値を右側の情報に合わせて定義しているため right-continuous です。従って usual conditions を満たします。
+有限標本空間では全ての零集合は空集合だけなので complete です。また上のフィルトレーションは各ジャンプ時刻の値を右側の情報に合わせて定義しているため右連続です。従って usual conditions を満たします。
 <!-- definition-example-end -->
 
-usual conditions は STO4 以降でランダムな停止ルールと標本路の正則性を安定に組み合わせるために使います。本章では、どの定理に right-continuity が本当に必要かを区別し、無条件には仮定しません。
+usual conditions は STO4 以降でランダムな停止ルールと標本路の正則性を安定に組み合わせるために使います。本章では、どの定理に right-連続性が本当に必要かを区別し、無条件には仮定しません。
 
 ---
 
@@ -521,8 +521,8 @@ usual conditions は STO4 以降でランダムな停止ルールと標本路の
 <a id="def-sto1-adapted-natural-filtration"></a>
 
 <!-- formal-statement-start -->
-> **定義（adapted process と natural filtration）**  
-> filtration $(\mathcal F_t)_{t\ge0}$ に対し、過程 $X=(X_t)_{t\ge0}$ が **adapted** であるとは、各 $t\ge0$ について
+> **定義（適合過程と自然なフィルトレーション）**  
+> フィルトレーション $(\mathcal F_t)_{t\ge0}$ に対し、過程 $X=(X_t)_{t\ge0}$ が **適合** であるとは、各 $t\ge0$ について
 >
 $$
 X_t
@@ -538,13 +538,13 @@ $$
 \sigma(X_s:0\le s\le t)
 $$
 >
-> を $X$ の **natural filtration** という。
+> を $X$ の **自然なフィルトレーション** という。
 <!-- formal-statement-end -->
 
-natural filtration は「$X$ の過去だけを観測して得られる最小の情報」です。
+自然なフィルトレーションは「$X$ の過去だけを観測して得られる最小の情報」です。
 
 <!-- definition-example-start: def-sto1-adapted-natural-filtration -->
-### 直接例：random walk は自分の natural filtration に adapted
+### 直接例：ランダムウォークは自分の自然なフィルトレーションに適合
 
 **定義の確認**
 
@@ -564,7 +564,7 @@ $$
 
 とします。
 
-定義から $S_n$ 自身は $\mathcal F_n^S$ を生成する確率変数の一つです。従って $S_n$ は $\mathcal F_n^S$ 可測であり、$S$ は natural filtration に adapted です。
+定義から $S_n$ 自身は $\mathcal F_n^S$ を生成する確率変数の一つです。従って $S_n$ は $\mathcal F_n^S$ 可測であり、$S$ は自然なフィルトレーションに適合です。
 
 さらに
 
@@ -574,7 +574,7 @@ $$
 
 なので、$n\ge1$ では $\xi_n$ も $\mathcal F_n^S$ 可測です。
 
-逆に simple random walk では
+逆に simple ランダムウォークでは
 
 $$
 S_k=\sum_{j=1}^k\xi_j
@@ -600,8 +600,8 @@ $$
 <a id="def-sto1-progressive"></a>
 
 <!-- formal-statement-start -->
-> **定義（progressively measurable process）**  
-> $E$ を可測空間とし、filtration $(\mathcal F_t)$ に対する過程 $X:[0,\infty)\times\Omega\to E$ を考える。  
+> **定義（発展的可測過程）**  
+> $E$ を可測空間とし、フィルトレーション $(\mathcal F_t)$ に対する過程 $X:[0,\infty)\times\Omega\to E$ を考える。  
 > 任意の $T>0$ について制限
 >
 $$
@@ -628,7 +628,7 @@ $$
 上で、時間の Borel 情報と $\mathcal F_T$ の情報だけを使って $X$ を読めます。
 
 <!-- definition-example-start: def-sto1-progressive -->
-### 直接例：有限個の時刻で値が切り替わる adapted process
+### 直接例：有限個の時刻で値が切り替わる適合過程
 
 **定義の確認**
 
@@ -661,18 +661,18 @@ $$
 
 は $\mathcal B([0,T])\otimes\mathcal F_T$ 可測です。
 
-有限和も可測なので $X$ は $[0,T]$ 上で積可測です。この確認を任意の終端時刻に対して行えば progressive です。
+有限和も可測なので $X$ は $[0,T]$ 上で積可測です。この確認を任意の終端時刻に対して行えば発展的可測です。
 <!-- definition-example-end -->
 
-### adapted だけではなく 標本路の正則性 を足す
+### 適合だけではなく標本路の正則性を足す
 
-確率積分では progressive な過程を大量に作る必要があります。毎回積可測性を直接証明する代わりに、標本路の右連続性を使います。
+確率積分では発展的可測な過程を大量に作る必要があります。毎回積可測性を直接証明する代わりに、標本路の右連続性を使います。
 
 <a id="thm-sto1-adapted-right-cont-progressive"></a>
 
 <!-- formal-statement-start -->
-> **定理（right-continuous adapted process は progressive）**  
-> $(\mathcal F_t)_{t\ge0}$ を filtration とし、$X=(X_t)_{t\ge0}$ を実数値 adapted process とする。ほとんど全ての $\omega$ ではなく、各 $\omega$ について標本路
+> **定理（右連続適合過程は発展的可測）**  
+> $(\mathcal F_t)_{t\ge0}$ をフィルトレーションとし、$X=(X_t)_{t\ge0}$ を実数値適合過程とする。ほとんど全ての $\omega$ ではなく、各 $\omega$ について標本路
 >
 $$
 t\longmapsto X_t(\omega)
@@ -693,7 +693,7 @@ $[0,T]$ を細かい区間へ切り、各区間で **右端の値**を使う ste
 
 $T>0$ を固定します。
 
-$n\ge1$ に対し dyadic grid
+$n\ge1$ に対し二進格子
 
 $$
 t_k^{(n)}
@@ -719,7 +719,7 @@ $$
 
 と定めます。
 
-$X$ は adapted なので
+$X$ は適合なので
 
 $$
 X_{t_{k+1}^{(n)}}
@@ -826,24 +826,24 @@ $T>0$ は任意だったので $X$ は progressively measurable です。
 
 この定理で使った仮定の役割は明確です。
 
-- adaptedness：grid の右端値を $\mathcal F_T$ 可測にする。
+- 適合性：grid の右端値を $\mathcal F_T$ 可測にする。
 - 右連続性：step approximation を $X_t$ へ戻す。
 
-標本路の正則性 が joint measurability を生みます。
+標本路の正則性が joint measurability を生みます。
 
 ---
 
 ## 6. 「現在」ではなく「直前まで」で決める
 
-STO2 の離散時間変換、STO6 の stochastic integral では、integrand が未来の増分を見てから賭け方を決めてはいけません。
+STO2 の離散時間変換、STO6 の確率積分では、被積分過程が未来の増分を見てから賭け方を決めてはいけません。
 
 この「先読み禁止」を measurable structure にします。
 
 <a id="def-sto1-predictable"></a>
 
 <!-- formal-statement-start -->
-> **定義（predictable sigma-field と predictable process）**  
-> filtration $(\mathcal F_t)_{t\ge0}$ に対し、$[0,\infty)\times\Omega$ 上の **predictable sigma-field** $\mathcal P$ を
+> **定義（予測可能 σ-代数と予測可能過程）**  
+> フィルトレーション $(\mathcal F_t)_{t\ge0}$ に対し、$[0,\infty)\times\Omega$ 上の **予測可能 σ-代数** $\mathcal P$ を
 >
 $$
 \{0\}\times A,
@@ -868,13 +868,13 @@ $$
 \mathcal P/\mathcal B(\mathbb R)
 $$
 >
-> 可測であるとき、$H$ を **predictable process** という。
+> 可測であるとき、$H$ を **予測可能過程** という。
 <!-- formal-statement-end -->
 
 区間 $(s,t]$ で使う係数を $\mathcal F_s$ で決める、という形がそのまま定義に入っています。
 
 <!-- definition-example-start: def-sto1-predictable -->
-### 直接例：simple predictable process
+### 直接例：単純予測可能過程
 
 **定義の確認**
 
@@ -896,9 +896,9 @@ $$
 (s,t]\times A
 $$
 
-は predictable sigma-field の生成集合そのものです。
+は予測可能 σ-代数の生成集合そのものです。
 
-従って $H$ は predictable です。
+従って $H$ は予測可能です。
 
 意味としては、時刻 $s$ の時点で事象 $A$ が起きたかを判定し、その判定だけを使って $(s,t]$ の間の操作を決めています。区間の内部で得た新情報は係数 $1_A$ に反映されません。
 <!-- definition-example-end -->
@@ -906,13 +906,13 @@ $$
 <a id="prop-sto1-predictable-progressive"></a>
 
 <!-- formal-statement-start -->
-> **命題（predictable process は progressive）**  
-> 実数値 predictable process は progressively measurable である。
+> **命題（予測可能過程は発展的可測）**  
+> 実数値予測可能過程は progressively measurable である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-predictable sigma-field の生成集合を $[0,T]\times\Omega$ に切ります。
+予測可能 σ-代数の生成集合を $[0,T]\times\Omega$ に切ります。
 
 $(s,t]\times A$ で $A\in\mathcal F_s$ なら、$s\le T$ の部分では $A\in\mathcal F_T$ です。従って生成集合は全て $\mathcal B([0,T])\otimes\mathcal F_T$ に入ります。
 
@@ -921,7 +921,7 @@ $(s,t]\times A$ で $A\in\mathcal F_s$ なら、$s\le T$ の部分では $A\in\m
 
 $T>0$ を固定します。
 
-predictable sigma-field の生成集合
+予測可能 σ-代数の生成集合
 
 $$
 \{0\}\times A,
@@ -977,7 +977,7 @@ $$
 \mathcal B([0,T])\otimes\mathcal F_T.
 $$
 
-よって predictable sigma-field $\mathcal P$ の全ての集合は $[0,T]\times\Omega$ へ制限すると
+よって予測可能 σ-代数 $\mathcal P$ の全ての集合は $[0,T]\times\Omega$ へ制限すると
 
 $$
 \mathcal B([0,T])\otimes\mathcal F_T
@@ -999,7 +999,7 @@ H_n
 \text{ 可測}
 $$
 
-という形に対応します。STO2 ではこれを「第 $n$ 回の増分を見る前に係数を決める」という predictable transform として使います。
+という形に対応します。STO2 ではこの離散時間版を、[予測可能変換](../STO2/index.md#def-sto2-predictable-transform)として「第 $n$ 回の増分を見る前に係数を決める」ために使います。
 
 ---
 
@@ -1008,8 +1008,8 @@ $$
 <a id="def-sto1-stopping-time"></a>
 
 <!-- formal-statement-start -->
-> **定義（stopping time）**  
-> $[0,\infty]$ 値確率変数 $\tau$ が filtration $(\mathcal F_t)_{t\ge0}$ に関する **stopping time** であるとは、任意の $t\ge0$ に対して
+> **定義（停止時刻）**  
+> $[0,\infty]$ 値確率変数 $\tau$ がフィルトレーション $(\mathcal F_t)_{t\ge0}$ に関する **停止時刻** であるとは、任意の $t\ge0$ に対して
 >
 $$
 \{\tau\le t\}
@@ -1022,7 +1022,7 @@ $$
 
 $\{\tau\le t\}$ は「時刻 $t$ までにもう停止したか」という yes/no の事象です。
 
-stopping time の定義は、停止する正確な未来時刻を時刻 0 で知ることを要求していません。各 $t$ まで進んだ時点で「もう止まったか」を判定できればよいのです。
+停止時刻の定義は、停止する正確な未来時刻を時刻 0 で知ることを要求していません。各 $t$ まで進んだ時点で「もう止まったか」を判定できればよいのです。
 
 <!-- definition-example-start: def-sto1-stopping-time -->
 ### 直接例：最初の表が出る時刻
@@ -1062,7 +1062,7 @@ $$
 \{\tau\le n\}\in\mathcal F_n.
 $$
 
-従って $\tau$ は stopping time です。
+従って $\tau$ は停止時刻です。
 
 一方、「最初の表が出る時刻」は未来を先読みして決めていません。その時点で表を観測した瞬間に停止できます。
 <!-- definition-example-end -->
@@ -1091,11 +1091,11 @@ $$
 
 に、一回目が表か裏かを問わない事象を加味した形であり、$\mathcal F_1$ では判定できません。
 
-失った仮定は「停止判定が現在までの情報だけでできること」です。したがって一般に last exit time は stopping time ではありません。
+失った仮定は「停止判定が現在までの情報だけでできること」です。したがって一般に last exit time は停止時刻ではありません。
 
 ---
 
-## 8. 連続な標本路 の hitting time は stopping time になる
+## 8. 連続な標本路の到達時刻は停止時刻になる
 
 確率解析では
 
@@ -1107,13 +1107,13 @@ $$
 
 という初到達時刻が頻出します。
 
-「初めて入った時刻」は未来の情報を使っているように見えますが、連続な標本路 と closed set の組合せでは現在までの観測から判定できます。
+「初めて入った時刻」は未来の情報を使っているように見えますが、連続な標本路と閉集合の組合せでは現在までの観測から判定できます。
 
 <a id="thm-sto1-closed-hitting-time"></a>
 
 <!-- formal-statement-start -->
-> **定理（continuous adapted process の closed-set hitting time）**  
-> $X=(X_t)_{t\ge0}$ を $\mathbb R^d$ 値 adapted process とし、各 標本路 が連続であるとする。$C\subseteq\mathbb R^d$ を閉集合とし、
+> **定理（連続適合過程の閉集合への到達時刻）**  
+> $X=(X_t)_{t\ge0}$ を $\mathbb R^d$ 値適合過程とし、各標本路が連続であるとする。$C\subseteq\mathbb R^d$ を閉集合とし、
 >
 $$
 \tau_C
@@ -1122,7 +1122,7 @@ $$
 $$
 >
 > 空集合の infimum は $\infty$ と定める。  
-> このとき $\tau_C$ は stopping time である。
+> このとき $\tau_C$ は停止時刻である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1162,7 +1162,7 @@ $$
 
 を考えます。
 
-$\rho$ は 1-Lipschitz なので連続です。各 標本路 $s\mapsto X_s(\omega)$ も連続だから
+$\rho$ は 1-Lipschitz なので連続です。各標本路 $s\mapsto X_s(\omega)$ も連続だから
 
 $$
 s\longmapsto
@@ -1214,7 +1214,7 @@ $$
 \right\}.
 $$
 
-$q\le t$ について $X_q$ は adaptedness により $\mathcal F_q$ 可測であり、
+$q\le t$ について $X_q$ は適合性により $\mathcal F_q$ 可測であり、
 
 $$
 \mathcal F_q\subseteq\mathcal F_t.
@@ -1238,10 +1238,10 @@ $$
 \mathcal F_t.
 $$
 
-$t$ は任意なので $\tau_C$ は stopping time です。
+$t$ は任意なので $\tau_C$ は停止時刻です。
 <!-- proof-end -->
 
-ここで 連続な標本路 は、非可算個の時刻を有理時刻へ圧縮するために使いました。closedness は
+ここで連続な標本路は、非可算個の時刻を有理時刻へ圧縮するために使いました。closedness は
 
 $$
 d(x,C)=0\Rightarrow x\in C
@@ -1256,8 +1256,8 @@ $$
 <a id="def-sto1-stopped-process"></a>
 
 <!-- formal-statement-start -->
-> **定義（stopped process）**  
-> 過程 $X=(X_t)_{t\ge0}$ と $[0,\infty]$ 値 stopping time $\tau$ に対し、
+> **定義（停止過程）**  
+> 過程 $X=(X_t)_{t\ge0}$ と $[0,\infty]$ 値停止時刻 $\tau$ に対し、
 >
 $$
 X_t^\tau
@@ -1267,15 +1267,15 @@ X_{t\wedge\tau},
 t\ge0,
 $$
 >
-> を $\tau$ で **stopped process** という。
+> を $\tau$ で **停止過程** という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sto1-stopped-process -->
-### 直接例：random walk を初到達時刻で止める
+### 直接例：ランダムウォークを初到達時刻で止める
 
 **定義の確認**
 
-simple random walk $S_n$ に対し
+simple ランダムウォーク $S_n$ に対し
 
 $$
 \tau
@@ -1285,7 +1285,7 @@ $$
 
 とします。
 
-例えば 標本路 が
+例えば標本路が
 
 $$
 0,1,0,1,2,1,\ldots
@@ -1293,7 +1293,7 @@ $$
 
 なら $\tau=4$ です。
 
-stopped process は
+停止過程は
 
 $$
 S_{n\wedge\tau}
@@ -1317,8 +1317,8 @@ $n<\tau$ では元の過程と同じで、$n\ge\tau$ では値 $S_\tau$ に固�
 <a id="def-sto1-stopping-sigma-field"></a>
 
 <!-- formal-statement-start -->
-> **定義（stopping time までの sigma-field）**  
-> stopping time $\tau$ に対し、
+> **定義（停止時刻までの sigma-field）**  
+> 停止時刻 $\tau$ に対し、
 >
 $$
 \mathcal F_\tau
@@ -1336,7 +1336,7 @@ $$
 意味は、「時刻 $t$ までに停止していた場合には、$A$ が起きたかどうかも時刻 $t$ までの情報で判定できる」です。
 
 <!-- definition-example-start: def-sto1-stopping-sigma-field -->
-### 直接例：定数 stopping time では元の filtration に戻る
+### 直接例：定数停止時刻では元のフィルトレーションに戻る
 
 **定義の確認**
 
@@ -1379,7 +1379,7 @@ $$
 A\cap\{\tau\le t\}=A.
 $$
 
-filtration の単調性から
+フィルトレーションの単調性から
 
 $$
 A\in\mathcal F_c\subseteq\mathcal F_t.
@@ -1395,15 +1395,15 @@ $$
 }
 $$
 
-です。random time の定義が deterministic time の情報と整合していることを直接確認できました。
+です。ランダム時刻の定義が deterministic time の情報と整合していることを直接確認できました。
 <!-- definition-example-end -->
 
 <a id="prop-sto1-stopping-sigma-field"></a>
 
 <!-- formal-statement-start -->
-> **命題（stopping sigma-field の sigma-field 性と単調性）**  
-> $\tau$ を stopping time とする。このとき $\mathcal F_\tau$ は $\mathcal F$ の部分 $\sigma$ 代数である。  
-> さらに stopping time $\sigma,\tau$ が
+> **命題（停止時刻までの σ-代数の sigma-field 性と単調性）**  
+> $\tau$ を停止時刻とする。このとき $\mathcal F_\tau$ は $\mathcal F$ の部分 $\sigma$ 代数である。  
+> さらに停止時刻 $\sigma,\tau$ が
 >
 $$
 \sigma\le\tau
@@ -1436,7 +1436,7 @@ $$
 \{\sigma\le t\}.
 $$
 
-したがって「早い stopping time までに知っている事象」は、遅い stopping time までには当然知っています。
+したがって「早い停止時刻までに知っている事象」は、遅い停止時刻までには当然知っています。
 
 <!-- proof-start -->
 ### 証明
@@ -1530,7 +1530,7 @@ $$
 A\cap\{\sigma\le t\}\in\mathcal F_t.
 $$
 
-また $\tau$ は stopping time なので
+また $\tau$ は停止時刻なので
 
 $$
 \{\tau\le t\}\in\mathcal F_t.
@@ -1555,11 +1555,11 @@ $$
 
 ---
 
-## 11. progressive なら random time に代入できる
+## 11. 発展的可測ならランダム時刻に代入できる
 
-ここで progressive measurability の目的が回収されます。
+ここで発展的可測性の目的が回収されます。
 
-fixed time $t$ で $X_t$ が measurable なだけでは、random time $\tau(\omega)$ を代入した
+fixed time $t$ で $X_t$ が measurable なだけでは、ランダム時刻 $\tau(\omega)$ を代入した
 
 $$
 X_{\tau(\omega)}(\omega)
@@ -1567,13 +1567,13 @@ $$
 
 の可測性は自動ではありません。
 
-progressive なら、$\tau$ を時間変数へ代入できます。
+発展的可測なら、$\tau$ を時間変数へ代入できます。
 
 <a id="thm-sto1-stopping-evaluation"></a>
 
 <!-- formal-statement-start -->
-> **定理（progressive process の stopping time 評価）**  
-> $X=(X_t)_{t\ge0}$ を実数値 progressively measurable process、$\tau$ を stopping time とする。  
+> **定理（発展的可測過程の停止時刻評価）**  
+> $X=(X_t)_{t\ge0}$ を実数値発展的可測過程、$\tau$ を停止時刻とする。  
 > $\tau<\infty$ のとき
 >
 $$
@@ -1595,14 +1595,14 @@ $$
 X_{t\wedge\tau}
 $$
 >
-> は $\mathcal F_t$ 可測であり、stopped process $X^\tau$ は adapted である。
+> は $\mathcal F_t$ 可測であり、停止過程 $X^\tau$ は適合である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
 固定した $t$ に対し、$\tau\wedge t$ は $\mathcal F_t$ 可測な $[0,t]$ 値確率変数です。
 
-progressive measurability により
+発展的可測性により
 
 $$
 (s,\omega)\mapsto X_s(\omega)
@@ -1688,7 +1688,7 @@ $$
 
 可測です。
 
-$X$ は progressive なので、その $[0,t]\times\Omega$ 制限は
+$X$ は発展的可測なので、その $[0,t]\times\Omega$ 制限は
 
 $$
 \mathcal B([0,t])\otimes\mathcal F_t
@@ -1708,7 +1708,7 @@ $$
 
 は $\mathcal F_t$ 可測です。
 
-これで stopped process $X^\tau$ が adapted であることが示されました。
+これで停止過程 $X^\tau$ が適合であることが示されました。
 
 次に
 
@@ -1752,7 +1752,7 @@ $$
 \{\tau\le t\}.
 $$
 
-右辺は、$X_{\tau\wedge t}$ の $\mathcal F_t$ 可測性と stopping time の定義から $\mathcal F_t$ に属します。
+右辺は、$X_{\tau\wedge t}$ の $\mathcal F_t$ 可測性と停止時刻の定義から $\mathcal F_t$ に属します。
 
 従って
 
@@ -1777,9 +1777,9 @@ $$
 
 $$
 \boxed{
-\text{progressive}
+\text{発展的可測}
 \Rightarrow
-\text{random time に安全に代入できる}
+\text{ランダム時刻に安全に代入できる}
 }
 $$
 
@@ -1787,21 +1787,21 @@ $$
 
 ---
 
-## 12. discrete time では何が簡単になるか
+## 12. 離散時間では何が簡単になるか
 
 離散時間 $n=0,1,2,\ldots$ では、時刻集合が可算なので連続時間特有の joint measurability の問題がかなり軽くなります。
 
 特に、
 
-- adapted：$X_n$ が $\mathcal F_n$ 可測
-- predictable：$H_0$ が $\mathcal F_0$ 可測で、$n\ge1$ では $H_n$ が $\mathcal F_{n-1}$ 可測
-- stopping time：$\{\tau\le n\}\in\mathcal F_n$
-- stopped process：$X_{n\wedge\tau}$
-- stopping sigma-field：$\mathcal F_\tau$
+- 適合：$X_n$ が $\mathcal F_n$ 可測
+- 予測可能：$H_0$ が $\mathcal F_0$ 可測で、$n\ge1$ では $H_n$ が $\mathcal F_{n-1}$ 可測
+- 停止時刻：$\{\tau\le n\}\in\mathcal F_n$
+- 停止過程：$X_{n\wedge\tau}$
+- 停止時刻までの σ-代数：$\mathcal F_\tau$
 
 という形で扱えます。
 
-STO2 の martingale では
+STO2 のマルチンゲールでは
 
 $$
 E[M_{n+1}\mid\mathcal F_n]=M_n
@@ -1817,12 +1817,12 @@ $$
 
 | 条件 | 何を保証するか | 後続での主用途 |
 |---|---|---|
-| stochastic process | 各固定時刻の値が確率変数 | 過程を定義する最小条件 |
-| adapted | $X_t$ を時刻 $t$ の情報で読める | martingale、SDE |
-| progressive | $[0,T]\times\Omega$ 上で時間と標本を同時に扱える | stopping time 評価、確率積分 |
-| predictable | 直前までの情報で integrand / strategy を決める | predictable transform、Itô integral |
-| stopping time | 「もう止まったか」を現在までに判定できる | optional sampling、hitting time |
-| $\mathcal F_\tau$ | random time $\tau$ までの情報 | $X_\tau$、strong Markov property |
+| 確率過程 | 各固定時刻の値が確率変数 | 過程を定義する最小条件 |
+| 適合 | $X_t$ を時刻 $t$ の情報で読める | マルチンゲール、SDE |
+| 発展的可測 | $[0,T]\times\Omega$ 上で時間と標本を同時に扱える | 停止時刻評価、確率積分 |
+| 予測可能 | 直前までの情報で被積分過程 / strategy を決める | 予測可能変換、Itô integral |
+| 停止時刻 | 「もう止まったか」を現在までに判定できる | 任意抽出、到達時刻 |
+| $\mathcal F_\tau$ | ランダム時刻 $\tau$ までの情報 | $X_\tau$、strong Markov property |
 
 この章で重要なのは、これらを単なる用語一覧として覚えないことです。
 
@@ -1841,7 +1841,7 @@ $$
 ### Level A
 
 <a id="ex-sto1-a01"></a>
-#### STO1-A01 二回コイントス filtration と adaptedness
+#### STO1-A01 二回コイントスフィルトレーションと適合性
 - Level: A
 
 $$
@@ -1865,7 +1865,7 @@ $$
 とする。
 
 1. $\mathcal F_1$ の要素を全て書け。
-2. $S_1=\xi_1$、$S_2=\xi_1+\xi_2$ とするとき、$(S_0,S_1,S_2)$ が $(\mathcal F_0,\mathcal F_1,\mathcal F_2)$ に adapted であることを確認せよ。
+2. $S_1=\xi_1$、$S_2=\xi_1+\xi_2$ とするとき、$(S_0,S_1,S_2)$ が $(\mathcal F_0,\mathcal F_1,\mathcal F_2)$ に適合であることを確認せよ。
 3. $Y_1=\xi_2$ は $\mathcal F_1$ 可測でないことを示せ。
 
 <!-- solution-start -->
@@ -1903,7 +1903,7 @@ $$
 
 $S_2$ は $\Omega$ 上の関数で、$\mathcal F_2=2^\Omega$ だから自動的に $\mathcal F_2$ 可測です。
 
-よって $S$ は adapted です。
+よって $S$ は適合です。
 
 一方、
 
@@ -1925,7 +1925,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-sto1-a02"></a>
-#### STO1-A02 modification と indistinguishability
+#### STO1-A02 修正と識別不能性
 - Level: A
 
 $$
@@ -1945,8 +1945,8 @@ $$
 とする。
 
 1. 各固定 $t$ で $P(X_t=Y_t)=1$ を示せ。
-2. $X,Y$ が modification であることを述べよ。
-3. indistinguishable でないことを、全時刻同時一致の事象を求めて示せ。
+2. $X,Y$ が修正であることを述べよ。
+3. 識別不能でないことを、全時刻同時一致の事象を求めて示せ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -1977,7 +1977,7 @@ $$
 P(X_t=Y_t)=1.
 $$
 
-これは全ての固定 $t$ で成り立つので、定義により $X,Y$ は modification です。
+これは全ての固定 $t$ で成り立つので、定義により $X,Y$ は修正です。
 
 一方、任意の $\omega\in[0,1]$ について $t=\omega$ を選べば
 
@@ -1999,7 +1999,7 @@ $$
 
 その確率は 0 です。
 
-よって $X,Y$ は indistinguishable ではありません。
+よって $X,Y$ は識別不能ではありません。
 
 各時刻の零集合
 
@@ -2013,11 +2013,11 @@ $$
 \bigcup_{t\in[0,1]}N_t=[0,1]
 $$
 
-となることが、modification から indistinguishability が出ない理由です。
+となることが、修正から識別不能性が出ない理由です。
 <!-- solution-end -->
 
 <a id="ex-sto1-a03"></a>
-#### STO1-A03 stopping time と future-dependent random time
+#### STO1-A03 停止時刻と未来依存ランダム時刻
 - Level: A
 
 離散時間コイントスで
@@ -2044,8 +2044,8 @@ $$
 
 を考える。後者では表が一度も出なければ $\sigma=0$ とする。
 
-1. $\tau$ が stopping time であることを示せ。
-2. $\sigma$ が stopping time でないことを、$\{\sigma\le1\}$ を使って示せ。
+1. $\tau$ が停止時刻であることを示せ。
+2. $\sigma$ が停止時刻でないことを、$\{\sigma\le1\}$ を使って示せ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -2071,7 +2071,7 @@ $$
 \{\tau\le n\}\in\mathcal F_n.
 $$
 
-従って $\tau$ は stopping time です。
+従って $\tau$ は停止時刻です。
 
 次に $\sigma$ を考えます。
 
@@ -2099,11 +2099,11 @@ $$
 \{\sigma\le1\}\notin\mathcal F_1.
 $$
 
-よって $\sigma$ は stopping time ではありません。
+よって $\sigma$ は停止時刻ではありません。
 <!-- solution-end -->
 
 <a id="ex-sto1-a04"></a>
-#### STO1-A04 simple predictable process
+#### STO1-A04 単純予測可能過程
 - Level: A
 
 $0\le s<t$、$A\in\mathcal F_s$ とし、
@@ -2118,14 +2118,14 @@ $$
 
 とする。
 
-1. 第一項が predictable であることを示せ。
-2. 第二項が predictable であるために必要な情報時刻を確認せよ。
-3. $H$ が predictable であることを示せ。
+1. 第一項が予測可能であることを示せ。
+2. 第二項が予測可能であるために必要な情報時刻を確認せよ。
+3. $H$ が予測可能であることを示せ。
 
 <!-- solution-start -->
 **詳細解答**
 
-第一項の support は
+第一項が 0 でない領域は
 
 $$
 (s,t]\times A
@@ -2133,13 +2133,13 @@ $$
 
 です。
 
-$A\in\mathcal F_s$ なので、これは predictable sigma-field の生成集合です。従って
+$A\in\mathcal F_s$ なので、これは予測可能 σ-代数の生成集合です。従って
 
 $$
 1_A1_{(s,t]}
 $$
 
-は predictable です。
+は予測可能です。
 
 第二項について係数は $1_{A^c}$ です。
 
@@ -2161,7 +2161,7 @@ $$
 (t,t+1]\times A^c
 $$
 
-も predictable sigma-field の生成集合です。
+も予測可能 σ-代数の生成集合です。
 
 よって
 
@@ -2169,9 +2169,9 @@ $$
 1_{A^c}1_{(t,t+1]}
 $$
 
-は predictable です。
+は予測可能です。
 
-predictable 可測関数の定数倍と有限和は predictable なので
+予測可能可測関数の定数倍と有限和は予測可能なので
 
 $$
 H
@@ -2181,7 +2181,7 @@ H
 2\,1_{A^c}1_{(t,t+1]}
 $$
 
-も predictable です。
+も予測可能です。
 
 第二区間の係数を決める時刻は $t$ であり、$A$ はそれ以前の時刻 $s$ に既に判定可能なので future information は使っていません。
 <!-- solution-end -->
@@ -2189,10 +2189,10 @@ $$
 ### Level B
 
 <a id="ex-sto1-b01"></a>
-#### STO1-B01 right-continuous adapted process の progressive 性を再構成する
+#### STO1-B01 右連続適合過程の発展的可測性を再構成する
 - Level: B
 
-$X$ を実数値 adapted process とし、全ての 標本路 が右連続であるとする。
+$X$ を実数値適合過程とし、全ての標本路が右連続であるとする。
 
 固定した $T>0$ に対し
 
@@ -2218,13 +2218,13 @@ $$
 
 1. $X^{(n)}$ が $\mathcal B([0,T])\otimes\mathcal F_T$ 可測であることを示せ。
 2. 各 $(t,\omega)$ で $X_t^{(n)}(\omega)\to X_t(\omega)$ を示せ。
-3. $X$ が progressive であることを結論せよ。
+3. $X$ が発展的可測であることを結論せよ。
 4. 右連続性が証明のどこで使われたかを明記せよ。
 
 <!-- solution-start -->
 **詳細解答**
 
-adaptedness から各 grid point で
+適合性から各 grid point で
 
 $$
 X_{t_{k+1}^{(n)}}
@@ -2244,7 +2244,7 @@ $$
 t_{k+1}^{(n)}\le T
 $$
 
-なので filtration の単調性より
+なのでフィルトレーションの単調性より
 
 $$
 \mathcal F_{t_{k+1}^{(n)}}
@@ -2313,7 +2313,7 @@ $$
 
 可測です。
 
-$T$ は任意だったため $X$ は progressive です。
+$T$ は任意だったため $X$ は発展的可測です。
 
 右連続性は
 
@@ -2321,14 +2321,14 @@ $$
 X_{r_n(t)}(\omega)\to X_t(\omega)
 $$
 
-を得る箇所で使いました。adaptedness だけでは、この step approximation が元の process へ収束する保証はありません。
+を得る箇所で使いました。適合性だけでは、この step approximation が元の process へ収束する保証はありません。
 <!-- solution-end -->
 
 <a id="ex-sto1-b02"></a>
-#### STO1-B02 closed set への first hitting time
+#### STO1-B02 閉集合への初到達時刻
 - Level: B
 
-$X$ を $\mathbb R^d$ 値 continuous adapted process、$C\subseteq\mathbb R^d$ を closed set とする。
+$X$ を $\mathbb R^d$ 値連続適合過程、$C\subseteq\mathbb R^d$ を閉集合とする。
 
 $$
 \tau_C
@@ -2338,7 +2338,7 @@ $$
 
 と置く。
 
-1. 距離関数 $\rho(x)=d(x,C)$ が continuous であることを示せ。
+1. 距離関数 $\rho(x)=d(x,C)$ が連続であることを示せ。
 2. fixed $t$ に対し
    $$
    \{\tau_C\le t\}
@@ -2350,7 +2350,7 @@ $$
    $$
    を示せ。
 3. 右辺を可算和・可算共通部分で表し、$\mathcal F_t$ 可測性を示せ。
-4. closedness と 標本路の連続性 がそれぞれどこで必要か説明せよ。
+4. closedness と標本路の連続性がそれぞれどこで必要か説明せよ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -2379,7 +2379,7 @@ $$
 |x-y|.
 $$
 
-よって $\rho$ は 1-Lipschitz、特に continuous です。
+よって $\rho$ は 1-Lipschitz、特に連続です。
 
 $C$ が closed なので
 
@@ -2403,7 +2403,7 @@ $$
 
 と同値です。
 
-$s\mapsto\rho(X_s)$ は continuous で、$\mathbb Q\cap[0,t]$ は dense だから
+$s\mapsto\rho(X_s)$ は連続で、$\mathbb Q\cap[0,t]$ は dense だから
 
 $$
 \inf_{0\le s\le t}\rho(X_s)
@@ -2442,13 +2442,13 @@ $$
 \right\}.
 $$
 
-$q\le t$ なら adaptedness から $X_q$ は $\mathcal F_q$ 可測で、
+$q\le t$ なら適合性から $X_q$ は $\mathcal F_q$ 可測で、
 
 $$
 \mathcal F_q\subseteq\mathcal F_t.
 $$
 
-$\rho$ は continuous だから
+$\rho$ は連続だから
 
 $$
 \{\rho(X_q)<1/m\}\in\mathcal F_t.
@@ -2456,7 +2456,7 @@ $$
 
 右辺は可算演算なので $\mathcal F_t$ に属します。
 
-従って $\tau_C$ は stopping time です。
+従って $\tau_C$ は停止時刻です。
 
 closedness は
 
@@ -2464,20 +2464,20 @@ $$
 d(x,C)=0\Rightarrow x\in C
 $$
 
-に使い、標本路の連続性 は全時刻の infimum を有理時刻の infimumへ落とす箇所に使いました。
+に使い、標本路の連続性は全時刻の infimum を有理時刻の infimumへ落とす箇所に使いました。
 <!-- solution-end -->
 
 <a id="ex-sto1-b03"></a>
-#### STO1-B03 stopping sigma-field と stopped value
+#### STO1-B03 停止時刻までの σ-代数と停止した value
 - Level: B
 
-$\sigma,\tau$ を stopping time とし
+$\sigma,\tau$ を停止時刻とし
 
 $$
 \sigma\le\tau
 $$
 
-とする。$X$ は real-valued progressive process とする。
+とする。$X$ は real-valued 発展的可測過程とする。
 
 1. $\mathcal F_\sigma\subseteq\mathcal F_\tau$ を定義から証明せよ。
 2. fixed $t$ に対し $\tau\wedge t$ が $\mathcal F_t$ 可測であることを示せ。
@@ -2507,7 +2507,7 @@ A\cap\{\tau\le t\}
 \{\tau\le t\}.
 $$
 
-$A\in\mathcal F_\sigma$ から第一因子は $\mathcal F_t$ に属し、$\tau$ が stopping time だから第二因子も $\mathcal F_t$ に属します。
+$A\in\mathcal F_\sigma$ から第一因子は $\mathcal F_t$ に属し、$\tau$ が停止時刻だから第二因子も $\mathcal F_t$ に属します。
 
 よって
 
@@ -2549,7 +2549,7 @@ $a\ge t$ なら $\{\rho\le a\}=\Omega$ です。
 
 従って $\rho$ は $\mathcal F_t$ 可測です。
 
-progressive measurability により
+発展的可測性により
 
 $$
 (s,\omega)\mapsto X_s(\omega)
@@ -2611,7 +2611,7 @@ $$
 ### Level C
 
 <a id="ex-sto1-c01"></a>
-#### STO1-C01 random walk を「情報・停止・predictability」まで一つにまとめる
+#### STO1-C01 ランダムウォークを「情報・停止・予測可能性」まで一つにまとめる
 - Level: C
 
 $\xi_1,\xi_2,\ldots$ を $\{-1,1\}$ 値確率変数列とし、
@@ -2652,9 +2652,9 @@ $$
 
 とする。
 
-1. $S$ が $(\mathcal F_n)$ に adapted であることを示せ。
-2. $\tau$ が stopping time であることを示せ。
-3. $H_n$ が $\mathcal F_{n-1}$ 可測であり、離散時間の意味で predictable であることを示せ。
+1. $S$ が $(\mathcal F_n)$ に適合であることを示せ。
+2. $\tau$ が停止時刻であることを示せ。
+3. $H_n$ が $\mathcal F_{n-1}$ 可測であり、離散時間の意味で予測可能であることを示せ。
 4. identity
    $$
    S_{n\wedge\tau}
@@ -2664,12 +2664,12 @@ $$
    $$
    を pathwise に証明せよ。
 5. 右辺で係数 $H_k$ が $\xi_k$ を観測する前に決まっていることを説明せよ。
-6. $\sigma=\sup\{k\le N:S_k=0\}$ のような last visit time が一般に stopping time でない理由を説明せよ。
+6. $\sigma=\sup\{k\le N:S_k=0\}$ のような last visit time が一般に停止時刻でない理由を説明せよ。
 
 <!-- solution-start -->
 **詳細解答**
 
-#### 1. adaptedness
+#### 1. 適合性
 
 各 $n$ について
 
@@ -2681,9 +2681,9 @@ $$
 
 $\xi_1,\ldots,\xi_n$ は全て $\mathcal F_n$ 可測なので、その有限和 $S_n$ も $\mathcal F_n$ 可測です。
 
-従って $S$ は adapted です。
+従って $S$ は適合です。
 
-#### 2. first boundary hitting time
+#### 2. 境界への初到達時刻
 
 $n\ge0$ に対し
 
@@ -2710,9 +2710,9 @@ $$
 \{\tau\le n\}\in\mathcal F_n.
 $$
 
-従って $\tau$ は stopping time です。
+従って $\tau$ は停止時刻です。
 
-#### 3. $H_n$ の predictability
+#### 3. $H_n$ の予測可能性
 
 $$
 H_n
@@ -2730,7 +2730,7 @@ $$
 \{\tau\le n-1\}^c.
 $$
 
-$\tau$ が stopping time だから
+$\tau$ が停止時刻だから
 
 $$
 \{\tau\le n-1\}\in\mathcal F_{n-1}.
@@ -2746,9 +2746,9 @@ $$
 
 つまり第 $n$ 増分 $\xi_n$ を見る前に $H_n$ を決められます。
 
-#### 4. stopped random walk の predictable transform 表現
+#### 4. 停止したランダムウォークの予測可能変換表現
 
-固定した 標本路 を一つ取ります。
+固定した標本路を一つ取ります。
 
 $\tau>n$ なら $H_k=1$ が $k=1,\ldots,n$ で成り立つので
 
@@ -2818,9 +2818,9 @@ $$
 
 現在の増分 $\xi_k$ はまだ見ていません。
 
-この「係数を先に決め、その後で増分が来る」という順序が STO2 の predictable transform と martingale gain の基本形になります。
+この「係数を先に決め、その後で増分が来る」という順序が STO2 の予測可能変換とマルチンゲール gain の基本形になります。
 
-#### 6. last visit time が stopping time でない理由
+#### 6. 最終訪問時刻が停止時刻でない理由
 
 $$
 \sigma
@@ -2848,7 +2848,7 @@ $$
 
 は $\mathcal F_n$ では判定できず、future information を使います。
 
-first hitting time と last visit time の差は
+初到達時刻と last visit time の差は
 
 $$
 \boxed{
@@ -2873,21 +2873,21 @@ $$
 }
 $$
 
-が filtration の核です。
+がフィルトレーションの核です。
 
 その上で
 
 $$
 \boxed{
-\text{adapted}
+\text{適合}
 =
 \text{時刻 }t\text{ の値を }\mathcal F_t\text{ で読める}
 }
 $$
 
-とし、右連続な標本路 を加えることで progressive measurability を導きました。
+とし、右連続な標本路を加えることで発展的可測性を導きました。
 
-predictable process はさらに強く、
+予測可能過程はさらに強く、
 
 $$
 \boxed{
@@ -2897,7 +2897,7 @@ $$
 
 ための可測性です。
 
-stopping time は
+停止時刻は
 
 $$
 \boxed{
@@ -2905,7 +2905,7 @@ $$
 }
 $$
 
-によって、「もう止まったか」を現在の情報だけで判定できる random time として定義しました。
+によって、「もう止まったか」を現在の情報だけで判定できるランダム時刻として定義しました。
 
 そして
 
@@ -2913,13 +2913,13 @@ $$
 \mathcal F_\tau
 $$
 
-と progressive process の stopping-time evaluation を通して
+と発展的可測過程の停止操作-time evaluation を通して
 
 $$
 X_\tau
 $$
 
-を random time の情報として正しく扱えるところまで閉じました。
+をランダム時刻の情報として正しく扱えるところまで閉じました。
 
 次の STO2 では、この情報構造の上に
 
@@ -2927,4 +2927,4 @@ $$
 E[M_{n+1}\mid\mathcal F_n]=M_n
 $$
 
-を置き、martingale・optional sampling・Doob decomposition・maximal inequality・upcrossing・収束定理へ進みます。
+を置き、マルチンゲール・任意抽出・Doob 分解・maximal inequality・上向き横断・収束定理へ進みます。

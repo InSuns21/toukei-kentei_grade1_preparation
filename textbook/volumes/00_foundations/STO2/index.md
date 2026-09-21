@@ -2,7 +2,9 @@
 
 <!-- definition-example-audit: strict -->
 
-STO1 では、時間とともに情報が増える filtration と、未来を見ずに停止する stopping time を作りました。
+> **既出概念への参照**：STO1 の [フィルトレーション](../STO1/index.md#def-sto1-filtration-usual)、[予測可能過程](../STO1/index.md#def-sto1-predictable)、[停止時刻](../STO1/index.md#def-sto1-stopping-time)、[停止時刻までの σ-代数](../STO1/index.md#def-sto1-stopping-sigma-field) を既知として使います。
+
+STO1 では、時間とともに情報が増えるフィルトレーションと、未来を見ずに停止する停止時刻を作りました。
 
 この章では、その情報構造の上で「現在までの情報を使って次の平均を読む」という考えを定式化します。
 
@@ -12,12 +14,12 @@ STO1 では、時間とともに情報が増える filtration と、未来を見
 2. 終端時刻の情報から、途中の最大偏差や上下往復の回数をどう抑えるか。
 3. その評価から、標本路がほとんど確実に一つの極限へ落ち着くことをどう導くか。
 
-最後には、一様可積分性がある場合に概収束を $L^1$ 収束へ上げ、非有界 stopping time で期待値を極限へ通す条件まで整理します。
+最後には、一様可積分性がある場合に概収束を $L^1$ 収束へ上げ、非有界停止時刻で期待値を極限へ通す条件まで整理します。
 
-特に収束論では、「期待値が bounded だから収束する」と飛ばさず、
+特に収束論では、「期待値が有界だから収束する」と飛ばさず、
 
 - 二つの高さの間を無限回往復する標本路を排除する、
-- extended real 値の極限を得る、
+- 拡張実数値の極限を得る、
 - 一様 $L^1$ 評価から無限大への発散を排除する、
 
 という機構を順に追います。
@@ -26,12 +28,12 @@ STO1 では、時間とともに情報が増える filtration と、未来を見
 
 ## 1. 条件付き平均で公平性を定義する
 
-以後、$(\Omega,\mathcal F,P)$ を確率空間、$(\mathcal F_n)_{n\ge0}$ を filtration とします。
+以後、$(\Omega,\mathcal F,P)$ を確率空間、$(\mathcal F_n)_{n\ge0}$ をフィルトレーションとします。
 
 <a id="def-sto2-martingale"></a>
 
 <!-- formal-statement-start -->
-> **定義（martingale・submartingale・supermartingale）**  
+> **定義（マルチンゲール・劣マルチンゲール・優マルチンゲール）**  
 > 実数値過程 $X=(X_n)_{n\ge0}$ が各 $n$ で $\mathcal F_n$ 可測かつ
 >
 $$
@@ -46,7 +48,7 @@ $$
 E[X_{n+1}\mid\mathcal F_n]=X_n
 $$
 >
-> が成り立つとき、$X$ を **martingale** という。
+> が成り立つとき、$X$ を **マルチンゲール** という。
 >
 > - 各 $n$ で
 >
@@ -54,7 +56,7 @@ $$
 E[X_{n+1}\mid\mathcal F_n]\ge X_n
 $$
 >
-> が成り立つとき、$X$ を **submartingale** という。
+> が成り立つとき、$X$ を **劣マルチンゲール** という。
 >
 > - 各 $n$ で
 >
@@ -62,13 +64,13 @@ $$
 E[X_{n+1}\mid\mathcal F_n]\le X_n
 $$
 >
-> が成り立つとき、$X$ を **supermartingale** という。
+> が成り立つとき、$X$ を **優マルチンゲール** という。
 <!-- formal-statement-end -->
 
-adaptedness と integrability は飾りではありません。条件付き期待値
+適合性と integrability は飾りではありません。条件付き期待値
 $E[X_{n+1}\mid\mathcal F_n]$ を現在値 $X_n$ と比較するために必要です。
 
-martingale なら [tower property](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md#thm-f0-00p3a-tower) により、$m\ge n$ に対して
+マルチンゲールなら [tower property](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md#thm-f0-00p3a-tower) により、$m\ge n$ に対して
 
 $$
 E[M_m\mid\mathcal F_n]=M_n.
@@ -80,7 +82,7 @@ $$
 E[M_m]=E[M_n]=E[M_0].
 $$
 
-ただし「平均が一定」だけでは martingale とは限りません。現在の情報を条件にした平均が保存されることが本質です。
+ただし「平均が一定」だけではマルチンゲールとは限りません。現在の情報を条件にした平均が保存されることが本質です。
 
 <!-- definition-example-start: def-sto2-martingale -->
 ### 直接例：公平ランダムウォークとその二乗
@@ -105,7 +107,7 @@ $$
 
 と置きます。
 
-**martingale の確認。**
+**マルチンゲールの確認。**
 
 $S_n$ は $\mathcal F_n$ 可測で $E|S_n|<\infty$ です。また $\xi_{n+1}$ は $\mathcal F_n$ と独立で平均 0 なので
 
@@ -117,9 +119,9 @@ S_n+E[\xi_{n+1}\mid\mathcal F_n]
 S_n.
 $$
 
-従って $(S_n)$ は martingale です。
+従って $(S_n)$ はマルチンゲールです。
 
-**submartingale の確認。**
+**劣マルチンゲールの確認。**
 
 $$
 S_{n+1}^2
@@ -136,7 +138,7 @@ S_n^2+1
 \ge S_n^2.
 $$
 
-従って $(S_n^2)$ は submartingale です。
+従って $(S_n^2)$ は劣マルチンゲールです。
 
 同じ式から
 
@@ -144,28 +146,28 @@ $$
 S_n^2-n
 $$
 
-は martingale になります。二乗の平均増加分 $1$ を差し引く発想は、後で扱う「平均増加を予測可能部分として分離する」定理の最小例です。
+はマルチンゲールになります。二乗の平均増加分 $1$ を差し引く発想は、後で扱う「平均増加を予測可能部分として分離する」定理の最小例です。
 
-また $-S_n^2$ は supermartingale です。
+また $-S_n^2$ は優マルチンゲールです。
 <!-- definition-example-end -->
 
 ---
 
 ## 2. 「次の増分を見る前に」係数を決める
 
-STO1 では predictable process を連続時間も含む形で導入しました。離散時間では意味が非常に具体的です。
+STO1 では予測可能過程を連続時間も含む形で導入しました。離散時間では意味が非常に具体的です。
 
 <a id="def-sto2-predictable-transform"></a>
 
 <!-- formal-statement-start -->
-> **定義（離散時間 predictable process と predictable transform）**  
+> **定義（離散時間予測可能過程と予測可能変換）**  
 > 過程 $H=(H_n)_{n\ge1}$ が
 >
 $$
 H_n\text{ は }\mathcal F_{n-1}\text{ 可測}
 $$
 >
-> を全ての $n\ge1$ で満たすとき、$H$ を離散時間の **predictable process** という。
+> を全ての $n\ge1$ で満たすとき、$H$ を離散時間の **予測可能過程** という。
 >
 > 過程 $X=(X_n)$ に対し
 >
@@ -178,7 +180,7 @@ $$
 H_k(X_k-X_{k-1})
 $$
 >
-> を **predictable transform** という。
+> を **予測可能変換** という。
 <!-- formal-statement-end -->
 
 $H_k$ は $k$ 番目の増分
@@ -204,7 +206,7 @@ $$
 
 と置きます。
 
-$S_{k-1}$ は $\mathcal F_{k-1}$ 可測なので $H_k$ も $\mathcal F_{k-1}$ 可測です。従って $H$ は predictable です。
+$S_{k-1}$ は $\mathcal F_{k-1}$ 可測なので $H_k$ も $\mathcal F_{k-1}$ 可測です。従って $H$ は予測可能です。
 
 変換
 
@@ -217,30 +219,30 @@ $$
 
 は、「直前までの情報で参加するかを決め、次のコイントスの結果だけを損益に入れる」戦略です。
 
-もし $H_k=1_{\{S_k\ge0\}}$ とすれば、$k$ 回目の結果を見た後で係数を選んでおり、一般には predictable ではありません。
+もし $H_k=1_{\{S_k\ge0\}}$ とすれば、$k$ 回目の結果を見た後で係数を選んでおり、一般には予測可能ではありません。
 <!-- definition-example-end -->
 
 <a id="prop-sto2-predictable-transform"></a>
 
 <!-- formal-statement-start -->
-> **命題（predictable transform）**  
-> $M$ を martingale、$H$ を bounded predictable process とする。このとき $H\cdot M$ は martingale である。
+> **命題（予測可能変換）**  
+> $M$ をマルチンゲール、$H$ を有界予測可能過程とする。このとき $H\cdot M$ はマルチンゲールである。
 >
-> また $X$ を submartingale、$H$ を **非負** bounded predictable process とする。このとき $H\cdot X$ は submartingale である。
+> また $X$ を劣マルチンゲール、$H$ を **非負** 有界予測可能過程とする。このとき $H\cdot X$ は劣マルチンゲールである。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-predictable であるため $H_{n+1}$ を $\mathcal F_n$ 条件付き期待値の外へ出せます。
+予測可能であるため $H_{n+1}$ を $\mathcal F_n$ 条件付き期待値の外へ出せます。
 
-martingale では次増分の条件付き平均が 0、submartingale では 0 以上です。submartingale の場合に $H\ge0$ が必要なのは、不等号の向きを保つためです。
+マルチンゲールでは次増分の条件付き平均が 0、劣マルチンゲールでは 0 以上です。劣マルチンゲールの場合に $H\ge0$ が必要なのは、不等号の向きを保つためです。
 
 <!-- proof-start -->
 ### 証明
 
-$G:=H\cdot X$ とします。$H$ が bounded なので各有限時刻の $G_n$ は可積分で、adapted です。
+$G:=H\cdot X$ とします。$H$ が有界なので各有限時刻の $G_n$ は可積分で、適合です。
 
-submartingale の場合、
+劣マルチンゲールの場合、
 
 $$
 G_{n+1}-G_n
@@ -260,37 +262,37 @@ E[X_{n+1}-X_n\mid\mathcal F_n]\\
 \end{aligned}
 $$
 
-従って $G$ は submartingale です。
+従って $G$ は劣マルチンゲールです。
 
-$X=M$ が martingale なら右辺の条件付き平均は 0 なので、$H$ の符号に関係なく
+$X=M$ がマルチンゲールなら右辺の条件付き平均は 0 なので、$H$ の符号に関係なく
 
 $$
 E[G_{n+1}\mid\mathcal F_n]=G_n.
 $$
 
-よって $H\cdot M$ は martingale です。
+よって $H\cdot M$ はマルチンゲールです。
 <!-- proof-end -->
 
 ---
 
-## 3. stopping は「増分を途中から 0 にする」predictable transform
+## 3. 停止は「増分を途中から 0 にする」予測可能変換
 
-STO1 の [stopping time](../STO1/index.md#def-sto1-stopping-time) に対し
+STO1 の [停止時刻](../STO1/index.md#def-sto1-stopping-time) に対し
 
 $$
 X_n^\tau=X_{n\wedge\tau}
 $$
 
-を stopped process と呼びました。
+を停止過程と呼びました。
 
 <a id="thm-sto2-stopped-martingale"></a>
 
 <!-- formal-statement-start -->
-> **定理（stopped martingale / submartingale）**  
-> $\tau$ を stopping time とする。
+> **定理（停止マルチンゲール / 劣マルチンゲール）**  
+> $\tau$ を停止時刻とする。
 >
-> - $M$ が martingale なら $M^\tau=(M_{n\wedge\tau})$ も martingale である。
-> - $X$ が submartingale なら $X^\tau=(X_{n\wedge\tau})$ も submartingale である。
+> - $M$ がマルチンゲールなら $M^\tau=(M_{n\wedge\tau})$ もマルチンゲールである。
+> - $X$ が劣マルチンゲールなら $X^\tau=(X_{n\wedge\tau})$ も劣マルチンゲールである。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -303,7 +305,7 @@ X_{(n+1)\wedge\tau}-X_{n\wedge\tau}
 1_{\{\tau>n\}}(X_{n+1}-X_n).
 $$
 
-stopping time 性により
+停止時刻性により
 
 $$
 \{\tau>n\}\in\mathcal F_n.
@@ -326,7 +328,7 @@ $$
 
 $\tau\le n$ なら両辺 0、$\tau>n$ なら整数値停止時刻なので両辺とも $X_{n+1}-X_n$ です。
 
-$1_{\{\tau>n\}}$ は $\mathcal F_n$ 可測かつ非負です。従って $X$ が submartingale なら
+$1_{\{\tau>n\}}$ は $\mathcal F_n$ 可測かつ非負です。従って $X$ が劣マルチンゲールなら
 
 $$
 \begin{aligned}
@@ -338,7 +340,7 @@ E[X_{n+1}-X_n\mid\mathcal F_n]
 \end{aligned}
 $$
 
-martingale なら等号 0 です。
+マルチンゲールなら等号 0 です。
 
 また $X_{n\wedge\tau}$ は $X_0,\ldots,X_n$ の有限個の値から選ばれるので可積分です。従って結論が従います。
 <!-- proof-end -->
@@ -349,13 +351,13 @@ $$
 H_{n+1}=1_{\{\tau>n\}}
 $$
 
-という predictable 係数で増分を切る操作だと読むこともできます。
+という予測可能係数で増分を切る操作だと読むこともできます。
 
 ---
 
-## 4. random time でも条件付き平均を比較する
+## 4. ランダム時刻でも条件付き平均を比較する
 
-決定論的時刻 $m\le n$ なら submartingale は
+決定論的時刻 $m\le n$ なら劣マルチンゲールは
 
 $$
 E[X_n\mid\mathcal F_m]\ge X_m
@@ -363,13 +365,13 @@ $$
 
 を満たします。
 
-optional sampling は $m,n$ を stopping time に置き換えます。
+任意抽出は $m,n$ を停止時刻に置き換えます。
 
 <a id="thm-sto2-bounded-optional-sampling"></a>
 
 <!-- formal-statement-start -->
-> **定理（bounded optional sampling）**  
-> $X$ を submartingale とし、$\sigma,\tau$ を stopping times とする。ある決定論的 $N<\infty$ が存在して
+> **定理（有界任意抽出）**  
+> $X$ を劣マルチンゲールとし、$\sigma,\tau$ を停止操作 times とする。ある決定論的 $N<\infty$ が存在して
 >
 $$
 0\le\sigma\le\tau\le N
@@ -385,7 +387,7 @@ $$
 >
 > a.s. が成り立つ。
 >
-> 特に $M$ が martingale なら
+> 特に $M$ がマルチンゲールなら
 >
 $$
 \boxed{
@@ -410,7 +412,7 @@ $$
 
 を、$\sigma$ から $\tau$ の間だけ増分を足す telescoping sum にします。
 
-次に $A\in\mathcal F_\sigma$ を固定します。STO1 の [stopping time までの sigma-field](../STO1/index.md#def-sto1-stopping-sigma-field) により
+次に $A\in\mathcal F_\sigma$ を固定します。STO1 の [停止時刻までの sigma-field](../STO1/index.md#def-sto1-stopping-sigma-field) により
 
 $$
 A\cap\{\sigma\le k\}\in\mathcal F_k.
@@ -455,7 +457,7 @@ $$
 
 なので $B_k\in\mathcal F_k$ です。
 
-従って submartingale 性から
+従って劣マルチンゲール性から
 
 $$
 \begin{aligned}
@@ -481,7 +483,7 @@ $$
 E[X_\tau\mid\mathcal F_\sigma]\ge X_\sigma.
 $$
 
-$X=M$ が martingale なら各増分の条件付き平均が 0 なので、全ての不等号が等号になり
+$X=M$ がマルチンゲールなら各増分の条件付き平均が 0 なので、全ての不等号が等号になり
 
 $$
 E[M_\tau\mid\mathcal F_\sigma]=M_\sigma.
@@ -494,19 +496,19 @@ E[M_\tau]=E[M_\sigma]=E[M_0].
 $$
 <!-- proof-end -->
 
-停止時刻が bounded であるため、この証明には極限交換がありません。非有界 stopping time で難しくなるのは、この先です。
+停止時刻が有界であるため、この証明には極限交換がありません。非有界停止時刻で難しくなるのは、この先です。
 
 ---
 
-## 5. submartingale の平均増加を分離する
+## 5. 劣マルチンゲールの平均増加を分離する
 
-submartingale は「martingale + 予測可能な上向き drift」と考えられます。
+劣マルチンゲールは「マルチンゲール + 予測可能な上向き drift」と考えられます。
 
 <a id="thm-sto2-doob-decomposition"></a>
 
 <!-- formal-statement-start -->
-> **定理（離散時間 Doob decomposition）**  
-> $X=(X_n)_{n\ge0}$ を可積分 submartingale とする。このとき
+> **定理（離散時間 Doob 分解）**  
+> $X=(X_n)_{n\ge0}$ を可積分劣マルチンゲールとする。このとき
 >
 $$
 X_n=M_n+A_n
@@ -514,7 +516,7 @@ $$
 >
 > と一意に表せる。ここで
 >
-> - $M$ は martingale、
+> - $M$ はマルチンゲール、
 > - $A_0=0$、
 > - $A_n$ は可積分、
 > - $A_n$ は $n\ge1$ で $\mathcal F_{n-1}$ 可測、
@@ -525,7 +527,7 @@ $$
 
 ### まず何を引けばよいか
 
-submartingale の一段平均増加は
+劣マルチンゲールの一段平均増加は
 
 $$
 E[X_n-X_{n-1}\mid\mathcal F_{n-1}]
@@ -552,7 +554,7 @@ A_n=n,
 M_n=S_n^2-n.
 $$
 
-まさに先ほど見た martingale が現れます。
+まさに先ほど見たマルチンゲールが現れます。
 
 ### 証明の見取り図
 
@@ -567,7 +569,7 @@ $$
 
 と置き、$M_n=X_n-A_n$ とします。
 
-存在は一段ずつ条件付き平均を消せば終わります。一意性では、二つの分解の差が「martingale かつ一時刻前に既知」になるため、時間方向に変化できないことを使います。
+存在は一段ずつ条件付き平均を消せば終わります。一意性では、二つの分解の差が「マルチンゲールかつ一時刻前に既知」になるため、時間方向に変化できないことを使います。
 
 <!-- proof-start -->
 ### 証明
@@ -591,7 +593,7 @@ $$
 E[X_k-X_{k-1}\mid\mathcal F_{k-1}]
 $$
 
-は $\mathcal F_{k-1}$ 可測で、submartingale 性から非負です。従って $A_n$ は $\mathcal F_{n-1}$ 可測で非減少です。
+は $\mathcal F_{k-1}$ 可測で、劣マルチンゲール性から非負です。従って $A_n$ は $\mathcal F_{n-1}$ 可測で非減少です。
 
 $M_n:=X_n-A_n$ とすると
 
@@ -605,7 +607,7 @@ E[X_n-X_{n-1}\mid\mathcal F_{n-1}]\\
 \end{aligned}
 $$
 
-よって $M$ は martingale です。
+よって $M$ はマルチンゲールです。
 
 一意性を示します。別の分解
 
@@ -619,7 +621,7 @@ $$
 D_n:=M_n-M_n'=A_n'-A_n
 $$
 
-と置くと、$D$ は martingale であり、$n\ge1$ では $\mathcal F_{n-1}$ 可測です。
+と置くと、$D$ はマルチンゲールであり、$n\ge1$ では $\mathcal F_{n-1}$ 可測です。
 
 従って
 
@@ -646,13 +648,13 @@ $$
 \max_{0\le k\le n}X_k
 $$
 
-のような 標本路全体の最大値を制御したくなります。
+のような標本路全体の最大値を制御したくなります。
 
 <a id="thm-sto2-doob-maximal"></a>
 
 <!-- formal-statement-start -->
-> **定理（Doob maximal inequality）**  
-> $X=(X_k)_{k=0}^n$ を submartingale とし、$\lambda>0$ とする。このとき
+> **定理（Doob 最大不等式）**  
+> $X=(X_k)_{k=0}^n$ を劣マルチンゲールとし、$\lambda>0$ とする。このとき
 >
 $$
 \boxed{
@@ -668,7 +670,7 @@ $$
 > が成り立つ。ここで $x^+=\max(x,0)$ である。
 <!-- formal-statement-end -->
 
-### なぜ first hitting time を入れるのか
+### なぜ初到達時刻を入れるのか
 
 最大値の事象を
 
@@ -680,7 +682,7 @@ A
 \right\}
 $$
 
-とすると、「いつ初めて $\lambda$ に達したか」を stopping time で切り出せます。
+とすると、「いつ初めて $\lambda$ に達したか」を停止時刻で切り出せます。
 
 ### 証明の見取り図
 
@@ -692,7 +694,7 @@ $$
 
 とし、$\sigma=\tau\wedge n$ とします。
 
-$A=\{\tau\le n\}$ 上では $X_\sigma\ge\lambda$ です。[bounded optional sampling](#thm-sto2-bounded-optional-sampling) を $\sigma\le n$ に使い、$A$ 上で積分します。
+$A=\{\tau\le n\}$ 上では $X_\sigma\ge\lambda$ です。[有界任意抽出](#thm-sto2-bounded-optional-sampling) を $\sigma\le n$ に使い、$A$ 上で積分します。
 
 <!-- proof-start -->
 ### 証明
@@ -709,7 +711,7 @@ $$
 
 とします。
 
-$\sigma=\tau\wedge n$ は bounded stopping time です。また $A\in\mathcal F_\sigma$ です。実際、$k<n$ なら
+$\sigma=\tau\wedge n$ は有界停止時刻です。また $A\in\mathcal F_\sigma$ です。実際、$k<n$ なら
 
 $$
 A\cap\{\sigma\le k\}
@@ -719,7 +721,7 @@ $$
 
 $k\ge n$ なら $A\in\mathcal F_n\subseteq\mathcal F_k$ です。
 
-[bounded optional sampling](#thm-sto2-bounded-optional-sampling) より
+[有界任意抽出](#thm-sto2-bounded-optional-sampling) より
 
 $$
 E[X_n\mid\mathcal F_\sigma]\ge X_\sigma.
@@ -767,8 +769,8 @@ a.s.収束を示すには、「値が上下に揺れ続ける可能性」を消�
 <a id="def-sto2-upcrossing"></a>
 
 <!-- formal-statement-start -->
-> **定義（upcrossing number）**  
-> 実数列 $x_0,\ldots,x_n$ と $a<b$ に対し、区間 $[a,b]$ の **upcrossing** とは、時刻
+> **定義（上向き横断回数）**  
+> 実数列 $x_0,\ldots,x_n$ と $a<b$ に対し、区間 $[a,b]$ の **上向き横断** とは、時刻
 >
 $$
 s_1<t_1<s_2<t_2<\cdots<s_m<t_m\le n
@@ -816,7 +818,7 @@ $$
 U_5[1,2]=3.
 $$
 
-upcrossing は単なる符号変化ではなく、「下側 level まで戻った後、上側 level へ到達する」という一往復の片側を数えます。
+上向き横断は単なる符号変化ではなく、「下側水準まで戻った後、上側水準へ到達する」という一往復の片側を数えます。
 <!-- definition-example-end -->
 
 ---
@@ -826,8 +828,8 @@ upcrossing は単なる符号変化ではなく、「下側 level まで戻っ�
 <a id="thm-sto2-upcrossing"></a>
 
 <!-- formal-statement-start -->
-> **定理（Doob upcrossing inequality）**  
-> $X=(X_k)_{k\ge0}$ を submartingale、$a<b$ とする。このとき任意の $n$ について
+> **定理（Doob 上向き横断不等式）**  
+> $X=(X_k)_{k\ge0}$ を劣マルチンゲール、$a<b$ とする。このとき任意の $n$ について
 >
 $$
 \boxed{
@@ -850,9 +852,9 @@ $$
 
 ### 何をしている不等式か
 
-区間 $[a,b]$ を一回 upcrossing するたび、少なくとも $b-a$ の上昇があります。
+区間 $[a,b]$ を一回上向き横断するたび、少なくとも $b-a$ の上昇があります。
 
-ただし submartingale 自体は負値も取るため、そのまま「買って売る」議論をすると未決済ポジションの損失が邪魔になります。
+ただし劣マルチンゲール自体は負値も取るため、そのまま「買って売る」議論をすると未決済ポジションの損失が邪魔になります。
 
 そこで
 
@@ -860,17 +862,17 @@ $$
 Y_k=(X_k-a)^+
 $$
 
-と切り上げます。$Y$ は非負で、$X$ の $[a,b]$ upcrossing は $Y$ の $[0,b-a]$ upcrossing と一致します。
+と切り上げます。$Y$ は非負で、$X$ の $[a,b]$ 上向き横断は $Y$ の $[0,b-a]$ 上向き横断と一致します。
 
 ### 証明の見取り図
 
-1. $Y=(X-a)^+$ が submartingale であることを示す。
-2. $Y=0$ で買い、$Y\ge b-a$ で売る predictable strategy $H$ を作る。
+1. $Y=(X-a)^+$ が劣マルチンゲールであることを示す。
+2. $Y=0$ で買い、$Y\ge b-a$ で売る予測可能 strategy $H$ を作る。
 3. 完了した一回ごとに $b-a$ 以上の利益を得るため
    $$
    (H\cdot Y)_n\ge(b-a)U_n[a,b].
    $$
-4. 補戦略 $1-H$ も非負 predictable なので、その期待利益が非負であることから
+4. 補戦略 $1-H$ も非負予測可能なので、その期待利益が非負であることから
    $$
    E[(H\cdot Y)_n]\le E[Y_n]-E[Y_0].
    $$
@@ -904,7 +906,7 @@ E[Y_{k+1}\mid\mathcal F_k]
 Y_k.
 $$
 
-よって $Y$ は非負 submartingale です。
+よって $Y$ は非負劣マルチンゲールです。
 
 $Y_k\le |X_k|+|a|$ なので各 $Y_k$ は可積分です。
 
@@ -950,11 +952,11 @@ $$
 \in\mathcal F_{k-1},
 $$
 
-なので $H_k$ は $\mathcal F_{k-1}$ 可測です。従って $H$ は非負 bounded predictable process です。
+なので $H_k$ は $\mathcal F_{k-1}$ 可測です。従って $H$ は非負有界予測可能過程です。
 
-$S_j$ では $Y_{S_j}=0$、完了した $T_j$ では $Y_{T_j}\ge c$ です。従って一回の完了 upcrossing ごとに少なくとも $c$ の利益を得ます。
+$S_j$ では $Y_{S_j}=0$、完了した $T_j$ では $Y_{T_j}\ge c$ です。従って一回の完了上向き横断ごとに少なくとも $c$ の利益を得ます。
 
-時刻 $n$ に最後の取引が未決済なら、その買値も 0 で現在値 $Y_n\ge0$ なので、その未決済部分は負の寄与を持ちません。したがって 標本路ごとに
+時刻 $n$ に最後の取引が未決済なら、その買値も 0 で現在値 $Y_n\ge0$ なので、その未決済部分は負の寄与を持ちません。したがって標本路ごとに
 
 $$
 (H\cdot Y)_n
@@ -962,7 +964,7 @@ $$
 cU_n[a,b].
 $$
 
-次に $K_k:=1-H_k$ と置きます。$K$ も非負 bounded predictable です。[predictable transform の命題](#prop-sto2-predictable-transform) から $K\cdot Y$ は submartingale で、初期値 0 なので
+次に $K_k:=1-H_k$ と置きます。$K$ も非負有界予測可能です。[予測可能変換の命題](#prop-sto2-predictable-transform) から $K\cdot Y$ は劣マルチンゲールで、初期値 0 なので
 
 $$
 E[(K\cdot Y)_n]\ge0.
@@ -1013,17 +1015,17 @@ $$
 より第二の評価も従います。
 <!-- proof-end -->
 
-この不等式が、標本路 の無限振動を確率 0 へ追い込む主役です。
+この不等式が、標本路の無限振動を確率 0 へ追い込む主役です。
 
 ---
 
-## 9. submartingale a.s. convergence theorem
+## 9. 劣マルチンゲールの概収束
 
 <a id="thm-sto2-submartingale-convergence"></a>
 
 <!-- formal-statement-start -->
-> **定理（submartingale a.s. convergence）**  
-> $X=(X_n)_{n\ge0}$ を submartingale とし
+> **定理（劣マルチンゲールの概収束）**  
+> $X=(X_n)_{n\ge0}$ を劣マルチンゲールとし
 >
 $$
 \sup_{n\ge0}E[X_n^+]<\infty
@@ -1041,9 +1043,9 @@ $$
 > が成り立つ。
 <!-- formal-statement-end -->
 
-### なぜ「正部分の期待値 bounded」でよいのか
+### なぜ「正部分の期待値有界」でよいのか
 
-submartingale では
+劣マルチンゲールでは
 
 $$
 E[X_n]\ge E[X_0].
@@ -1071,11 +1073,11 @@ $$
 
 ### 証明の見取り図
 
-1. 任意の有理数 $a<b$ に対し、[Doob upcrossing inequality](#thm-sto2-upcrossing) から
+1. 任意の有理数 $a<b$ に対し、[Doob 上向き横断不等式](#thm-sto2-upcrossing) から
    $E[U_\infty[a,b]]<\infty$ を得る。
 2. よって $U_\infty[a,b]<\infty$ a.s.
-3. 標本路の十分先での下側境界 $\ell$ と上側境界 $u$ が異なれば、その間に有理数 $a<b$ を選べて無限回 upcrossing が起きる。矛盾。
-4. 従って extended real 値の極限は存在する。
+3. 標本路の十分先での下側境界 $\ell$ と上側境界 $u$ が異なれば、その間に有理数 $a<b$ を選べて無限回上向き横断が起きる。矛盾。
+4. 従って拡張実数値の極限は存在する。
 5. 一様 $L^1$ bound と Fatou により $\pm\infty$ を排除し、極限を $L^1$ に入れる。
 
 <!-- proof-start -->
@@ -1098,7 +1100,7 @@ $$
 
 が存在します。
 
-[Doob upcrossing inequality](#thm-sto2-upcrossing) から
+[Doob 上向き横断不等式](#thm-sto2-upcrossing) から
 
 $$
 (b-a)E[U_n[a,b]]
@@ -1123,7 +1125,7 @@ $$
 P(U_\infty[a,b]=\infty)=0.
 $$
 
-有理数対 $(a,b)$ は可算個なので、確率 1 の一つの事象上で全ての有理数 $a<b$ について upcrossing 回数が有限です。
+有理数対 $(a,b)$ は可算個なので、確率 1 の一つの事象上で全ての有理数 $a<b$ について上向き横断回数が有限です。
 
 その事象上で、標本路を一つ固定し
 
@@ -1145,9 +1147,9 @@ $$
 \ell<a<b<u
 $$
 
-を選べます。$a>\ell$ なので任意の十分先にも $a$ 以下の項が現れ、$b<u$ なので任意の十分先にも $b$ 以上の項が現れます。従って「$a$ 以下へ戻る → その後 $b$ 以上へ上がる」を何度でも繰り返せて、$[a,b]$ の upcrossing が無限回になります。これは矛盾です。
+を選べます。$a>\ell$ なので任意の十分先にも $a$ 以下の項が現れ、$b<u$ なので任意の十分先にも $b$ 以上の項が現れます。従って「$a$ 以下へ戻る → その後 $b$ 以上へ上がる」を何度でも繰り返せて、$[a,b]$ の上向き横断が無限回になります。これは矛盾です。
 
-よって $\ell=u$ であり、extended real 値で
+よって $\ell=u$ であり、拡張実数値で
 
 $$
 X_n\to X_\infty
@@ -1155,7 +1157,7 @@ $$
 
 が a.s. に存在します。
 
-次に極限が有限であることを示します。submartingale 性から
+次に極限が有限であることを示します。劣マルチンゲール性から
 
 $$
 E[X_n]\ge E[X_0].
@@ -1208,13 +1210,13 @@ $L^1$ 収束には tail を一様に制御する一様可積分性が必要に�
 
 ## 10. 一様可積分性で a.s.収束を $L^1$ へ上げる
 
-一様可積分性と Vitali は [F0-00P4A](../F0_00P4A_一様可積分性_Vitali/index.md) の canonical result を使います。
+一様可積分性と Vitali は [F0-00P4A](../F0_00P4A_一様可積分性_Vitali/index.md) の標準 result を使います。
 
 <a id="thm-sto2-ui-martingale-convergence"></a>
 
 <!-- formal-statement-start -->
-> **定理（UI martingale convergence）**  
-> $M=(M_n)_{n\ge0}$ を uniformly integrable martingale とする。このとき、ある $M_\infty\in L^1$ が存在して
+> **定理（UI マルチンゲール convergence）**  
+> $M=(M_n)_{n\ge0}$ を uniformly integrable マルチンゲールとする。このとき、ある $M_\infty\in L^1$ が存在して
 >
 $$
 M_n\to M_\infty
@@ -1242,11 +1244,11 @@ $$
 \sup_nE|M_n|<\infty
 $$
 
-が従います。従って前節の a.s. convergence theorem が使えます。
+が従います。従って前節の概収束定理が使えます。
 
 その後、a.s.収束と UI を Vitali に入れて $L^1$ 収束へ上げます。
 
-最後に martingale の tower property を極限へ渡し、terminal variable の条件付き期待値表示を得ます。
+最後にマルチンゲールの tower property を極限へ渡し、終端確率変数の条件付き期待値表示を得ます。
 
 <!-- proof-start -->
 ### 証明
@@ -1263,7 +1265,7 @@ $$
 \sup_nE[M_n^+]<\infty
 $$
 
-なので、submartingale a.s. convergence theorem を martingale $M$ に適用できます。ある $M_\infty\in L^1$ が存在して
+なので、劣マルチンゲール概収束定理をマルチンゲール $M$ に適用できます。ある $M_\infty\in L^1$ が存在して
 
 $$
 M_n\to M_\infty
@@ -1280,7 +1282,7 @@ $$
 
 よって $L^1$ 収束も得ました。
 
-固定した $n$ と $A\in\mathcal F_n$ を取ります。$m\ge n$ なら martingale 性から
+固定した $n$ と $A\in\mathcal F_n$ を取ります。$m\ge n$ ならマルチンゲール性から
 
 $$
 E[1_AM_m]
@@ -1314,7 +1316,7 @@ E[M_\infty\mid\mathcal F_n].
 $$
 <!-- proof-end -->
 
-### 条件付き期待値 martingale はどこへ収束するか
+### 条件付き期待値マルチンゲールはどこへ収束するか
 
 $Z\in L^1$ とし
 
@@ -1352,13 +1354,13 @@ $$
 
 a.s. かつ $L^1$ です。
 
-ここで STO2 の一般 UI martingale convergence と、P3C の「条件付き期待値 martingale の極限」が一致します。
+ここで STO2 の一般 UI マルチンゲール convergence と、P3C の「条件付き期待値マルチンゲールの極限」が一致します。
 
 ---
 
-## 11. 非有界 optional stopping：必要なのは極限交換の根拠
+## 11. 非有界任意停止：必要なのは極限交換の根拠
 
-bounded stopping time では極限操作がありませんでした。
+有界停止時刻では極限操作がありませんでした。
 
 $\tau$ が非有界なら、まず
 
@@ -1366,7 +1368,7 @@ $$
 \tau_n:=\tau\wedge n
 $$
 
-へ [bounded optional sampling](#thm-sto2-bounded-optional-sampling) を使って
+へ [有界任意抽出](#thm-sto2-bounded-optional-sampling) を使って
 
 $$
 E[M_{\tau_n}]=E[M_0]
@@ -1385,14 +1387,14 @@ $$
 <a id="cor-sto2-ui-optional-stopping"></a>
 
 <!-- formal-statement-start -->
-> **系（UI を仮定した optional stopping）**  
-> $M$ を martingale、$\tau$ を
+> **系（UI を仮定した任意停止）**  
+> $M$ をマルチンゲール、$\tau$ を
 >
 $$
 P(\tau<\infty)=1
 $$
 >
-> を満たす stopping time とする。族
+> を満たす停止時刻とする。族
 >
 $$
 \{M_{\tau\wedge n}:n\ge0\}
@@ -1409,7 +1411,7 @@ $$
 
 ### 証明の見取り図
 
-$M_{\tau\wedge n}$ は bounded stopping により全て同じ期待値を持ちます。
+$M_{\tau\wedge n}$ は有界停止操作により全て同じ期待値を持ちます。
 
 一方 $\tau<\infty$ a.s. なので
 
@@ -1422,7 +1424,7 @@ a.s.。ここで UI + Vitali が初めて必要になります。
 <!-- proof-start -->
 ### 証明
 
-各 $n$ について $\tau\wedge n$ は bounded stopping time なので
+各 $n$ について $\tau\wedge n$ は有界停止時刻なので
 
 $$
 E[M_{\tau\wedge n}]
@@ -1456,7 +1458,7 @@ E[M_0].
 $$
 <!-- proof-end -->
 
-### 反例：倍賭けでは stopped family が UI でない
+### 反例：倍賭けでは停止族 が UI でない
 
 公平コインを
 
@@ -1476,7 +1478,7 @@ $$
 \tau=\inf\{k\ge1:\xi_k=1\}
 $$
 
-とします。これは stopping time で
+とします。これは停止時刻で
 
 $$
 P(\tau<\infty)=1.
@@ -1504,7 +1506,7 @@ G_n
 \sum_{k=1}^nH_k\xi_k
 $$
 
-と置けば、各有限 $n$ では finite predictable transform なので $G$ は martingale です。
+と置けば、各有限 $n$ では finite 予測可能変換なので $G$ はマルチンゲールです。
 
 最初に表が出た時点までの損益は
 
@@ -1526,7 +1528,7 @@ $$
 E[G_\tau]=1\ne0=E[G_0].
 $$
 
-これは optional stopping theorem の矛盾ではありません。
+これは任意停止定理の矛盾ではありません。
 
 $n$ 回連続で裏が出る事象を
 
@@ -1577,7 +1579,7 @@ $$
 
 は $K\to\infty$ でも 0 へ行きません。
 
-つまり stopped family は UI ではありません。
+つまり停止族 は UI ではありません。
 
 **壊れた証明機構**は
 
@@ -1591,13 +1593,13 @@ $$
 E[G_{\tau\wedge n}]\to E[G_\tau]
 $$
 
-へ移る極限交換です。まれな長い連敗 標本路 が巨大な負値を持ち、各有限 $n$ の期待値 0 を支え続けています。
+へ移る極限交換です。まれな長い連敗標本路が巨大な負値を持ち、各有限 $n$ の期待値 0 を支え続けています。
 
 ---
 
 # 12. 演習 A
 
-#### STO2-A01 二乗補正 martingale
+#### STO2-A01 二乗補正マルチンゲール
 - Level: A
 
 独立な確率変数 $\xi_k$ が
@@ -1622,7 +1624,7 @@ $$
 M_n=S_n^2-n\sigma^2
 $$
 
-が martingale であることを示せ。
+がマルチンゲールであることを示せ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1668,13 +1670,13 @@ S_n^2-n\sigma^2\\
 \end{aligned}
 $$
 
-したがって $M$ は martingale です。
+したがって $M$ はマルチンゲールです。
 <!-- solution-end -->
 
-#### STO2-A02 stopped martingale の差分
+#### STO2-A02 停止マルチンゲールの差分
 - Level: A
 
-$M$ を martingale、$\tau$ を stopping time とする。
+$M$ をマルチンゲール、$\tau$ を停止時刻とする。
 
 1. 次を場合分けで示せ。
    $$
@@ -1682,7 +1684,7 @@ $M$ を martingale、$\tau$ を stopping time とする。
    =
    1_{\{\tau>n\}}(M_{n+1}-M_n).
    $$
-2. この恒等式から $M^\tau$ が martingale であることを示せ。
+2. この恒等式から $M^\tau$ がマルチンゲールであることを示せ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1695,7 +1697,7 @@ $$
 
 なので左辺は 0 です。右辺も $1_{\{\tau>n\}}=0$ なので 0 です。
 
-$\tau>n$ なら、整数値 stopping time なので $\tau\ge n+1$ です。従って
+$\tau>n$ なら、整数値停止時刻なので $\tau\ge n+1$ です。従って
 
 $$
 (n+1)\wedge\tau=n+1,
@@ -1719,10 +1721,10 @@ $$
 
 また $M_{n\wedge\tau}$ は $M_0,\ldots,M_n$ の有限混合なので可積分です。
 
-従って $M^\tau$ は martingale です。
+従って $M^\tau$ はマルチンゲールです。
 <!-- solution-end -->
 
-#### STO2-A03 $S_n^2$ の Doob decomposition
+#### STO2-A03 $S_n^2$ の Doob 分解
 - Level: A
 
 公平単純ランダムウォーク $S_n$ に対し
@@ -1733,7 +1735,7 @@ $$
 
 と置く。
 
-Doob decomposition
+Doob 分解
 
 $$
 X_n=M_n+A_n
@@ -1768,7 +1770,7 @@ E[S_n^2-S_{n-1}^2\mid\mathcal F_{n-1}]
 1.
 $$
 
-Doob decomposition の predictable part は
+Doob 分解の予測可能 part は
 
 $$
 A_n
@@ -1778,7 +1780,7 @@ A_n
 n.
 $$
 
-したがって martingale part は
+したがってマルチンゲール part は
 
 $$
 M_n
@@ -1788,7 +1790,7 @@ X_n-A_n
 S_n^2-n.
 $$
 
-実際 A01 の計算から $S_n^2-n$ は martingale です。
+実際 A01 の計算から $S_n^2-n$ はマルチンゲールです。
 
 よって
 
@@ -1798,10 +1800,10 @@ S_n^2=(S_n^2-n)+n
 }
 $$
 
-が Doob decomposition です。
+が Doob 分解です。
 <!-- solution-end -->
 
-#### STO2-A04 Doob maximal inequalityで random walk の最大偏差を抑える
+#### STO2-A04 Doob 最大不等式でランダムウォークの最大偏差を抑える
 - Level: A
 
 公平単純ランダムウォーク $S_n$ について、任意の $r>0$ に対し
@@ -1819,7 +1821,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$(S_k^2)$ は非負 submartingale です。
+$(S_k^2)$ は非負劣マルチンゲールです。
 
 事象
 
@@ -1839,7 +1841,7 @@ $$
 
 と同じです。
 
-Doob maximal inequality を $X_k=S_k^2$、$\lambda=r^2$ に適用すると
+Doob 最大不等式を $X_k=S_k^2$、$\lambda=r^2$ に適用すると
 
 $$
 r^2
@@ -1871,7 +1873,7 @@ $$
 
 # 13. 演習 B
 
-#### STO2-B01 gambler's ruin と bounded optional sampling
+#### STO2-B01 破産問題と有界任意抽出
 - Level: B
 
 $S_0=i$、$0<i<a$ とし、$S_n$ を $\pm1$ の公平単純ランダムウォークとする。
@@ -1888,7 +1890,7 @@ $$
 P_i(S_\tau=a)=\frac{i}{a}
 $$
 
-を [bounded optional sampling](#thm-sto2-bounded-optional-sampling) から導け。
+を [有界任意抽出](#thm-sto2-bounded-optional-sampling) から導け。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1897,7 +1899,7 @@ $$
 \tau_N:=\tau\wedge N
 $$
 
-と置きます。$\tau_N$ は bounded stopping time なので martingale $S_n$ へ optional sampling を適用して
+と置きます。$\tau_N$ は有界停止時刻なのでマルチンゲール $S_n$ へ任意抽出を適用して
 
 $$
 E_i[S_{\tau_N}]
@@ -1948,13 +1950,13 @@ P_i(S_\tau=a)=\frac{i}{a}.
 }
 $$
 
-ここでは非有界 $\tau$ へ直接 optional stopping を適用したのではなく、$\tau\wedge N$ へ適用した後、$0\le S_{\tau_N}\le a$ という支配で極限交換を正当化しています。
+ここでは非有界 $\tau$ へ直接任意停止を適用したのではなく、$\tau\wedge N$ へ適用した後、$0\le S_{\tau_N}\le a$ という支配で極限交換を正当化しています。
 <!-- solution-end -->
 
-#### STO2-B02 upcrossing から a.s.収束へ
+#### STO2-B02 上向き横断から a.s.収束へ
 - Level: B
 
-$X_n$ を submartingale とし
+$X_n$ を劣マルチンゲールとし
 
 $$
 \sup_nE[X_n^+]<\infty
@@ -1983,9 +1985,9 @@ $$
 
 とします。
 
-**1. upcrossing 回数。**
+**1. 上向き横断回数。**
 
-[Doob upcrossing inequality](#thm-sto2-upcrossing) から
+[Doob 上向き横断不等式](#thm-sto2-upcrossing) から
 
 $$
 (b-a)E[U_n[a,b]]
@@ -2012,7 +2014,7 @@ $$
 
 **2. 二つの漸近境界を一致させる。**
 
-有理数対 $(a,b)$ は可算個なので、確率 1 の事象上で全ての有理数 $a<b$ の upcrossing 回数が有限です。
+有理数対 $(a,b)$ は可算個なので、確率 1 の事象上で全ての有理数 $a<b$ の上向き横断回数が有限です。
 
 その事象上で
 
@@ -2030,13 +2032,13 @@ $$
 \ell<a<b<u
 $$
 
-となる有理数 $a<b$ を選べます。すると任意の十分先にも $a$ 以下の項と $b$ 以上の項が現れるため、$[a,b]$ を無限回 upcrossing できます。矛盾です。
+となる有理数 $a<b$ を選べます。すると任意の十分先にも $a$ 以下の項と $b$ 以上の項が現れるため、$[a,b]$ を無限回上向き横断できます。矛盾です。
 
-従って $\ell=u$ であり、extended real 値で極限 $X_\infty$ が存在します。
+従って $\ell=u$ であり、拡張実数値で極限 $X_\infty$ が存在します。
 
 **3. 有限性と可積分性。**
 
-submartingale 性から
+劣マルチンゲール性から
 
 $$
 E[X_n]\ge E[X_0].
@@ -2070,7 +2072,7 @@ $$
 従って $X_\infty$ は有限 a.s. で $L^1$ に属します。
 <!-- solution-end -->
 
-#### STO2-B03 条件付き期待値 martingale の UI と極限
+#### STO2-B03 条件付き期待値マルチンゲールの UI と極限
 - Level: B
 
 $Z\in L^1$、$\mathcal F_0\subseteq\mathcal F_1\subseteq\cdots$ とし
@@ -2081,7 +2083,7 @@ $$
 
 と置く。
 
-1. $M$ が martingale であることを示せ。
+1. $M$ がマルチンゲールであることを示せ。
 2. $\{M_n\}$ が UI であることを F0-00P4A の結果から説明せよ。
 3. $\mathcal F_\infty=\sigma(\bigcup_n\mathcal F_n)$ としたとき
    $$
@@ -2092,7 +2094,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-**1. martingale 性。**
+**1. マルチンゲール性。**
 
 $M_n$ は定義から $\mathcal F_n$ 可測で、条件付き期待値の $L^1$ 縮小性から
 
@@ -2116,7 +2118,7 @@ E[Z\mid\mathcal F_n]\\
 \end{aligned}
 $$
 
-従って $M$ は martingale です。
+従って $M$ はマルチンゲールです。
 
 **2. UI。**
 
@@ -2178,7 +2180,7 @@ $$
 次を全て示せ。
 
 1. $H_k$ は $\mathcal F_{k-1}$ 可測であり、各有限時刻で $G_n$ は可積分である。
-2. $G$ は martingale である。
+2. $G$ はマルチンゲールである。
 3. $P(\tau<\infty)=1$ かつ $G_\tau=1$ a.s.
 4. 各 $n$ で
    $$
@@ -2189,12 +2191,12 @@ $$
    E[G_\tau]=1
    $$
    となることを確認せよ。
-5. $\{G_{\tau\wedge n}\}$ が UI でないことを tail expectation から示し、optional stopping のどの極限操作が壊れたか説明せよ。
+5. $\{G_{\tau\wedge n}\}$ が UI でないことを tail expectation から示し、任意停止のどの極限操作が壊れたか説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-**1. predictable 性と可積分性。**
+**1. 予測可能性と可積分性。**
 
 事象
 
@@ -2222,7 +2224,7 @@ $$
 
 なので $G_n\in L^1$ です。
 
-**2. martingale 性。**
+**2. マルチンゲール性。**
 
 $$
 G_{n+1}-G_n
@@ -2242,7 +2244,7 @@ E[\xi_{n+1}\mid\mathcal F_n]\\
 \end{aligned}
 $$
 
-従って $G$ は martingale です。
+従って $G$ はマルチンゲールです。
 
 **3. $\tau$ の有限性と停止時損益。**
 
@@ -2273,7 +2275,7 @@ $$
 
 **4. 期待値の不一致。**
 
-$\tau\wedge n$ は bounded stopping time なので
+$\tau\wedge n$ は有界停止時刻なので
 
 $$
 E[G_{\tau\wedge n}]
@@ -2361,17 +2363,17 @@ $$
 
 この章を終えた時点で、次を本文だけから再構成できることを目標にします。
 
-- martingale / submartingale / supermartingale の三条件を有限例で直接確認できる。
-- predictable が「次増分を見る前に係数が決まる」ことを数式で説明できる。
-- stopped process の差分表示から martingale 性を証明できる。
-- [bounded optional sampling](#thm-sto2-bounded-optional-sampling) を $\mathcal F_\sigma$ に関する条件付き等式・不等式まで証明できる。
-- Doob decomposition の compensator を条件付き平均増分から構成し、一意性を示せる。
-- Doob maximal inequality で 標本路 最大値の確率を終端分布から評価できる。
-- upcrossing number を 標本路上で数え、predictable strategy から [Doob upcrossing inequality](#thm-sto2-upcrossing) を証明できる。
-- 有理数区間の upcrossing が有限であることから、十分先の下側境界と上側境界が一致して標本路の極限が存在することを導ける。
-- submartingale convergence theorem で極限の有限性・可積分性まで閉じられる。
+- マルチンゲール / 劣マルチンゲール / 優マルチンゲールの三条件を有限例で直接確認できる。
+- 予測可能が「次増分を見る前に係数が決まる」ことを数式で説明できる。
+- 停止過程の差分表示からマルチンゲール性を証明できる。
+- [有界任意抽出](#thm-sto2-bounded-optional-sampling) を $\mathcal F_\sigma$ に関する条件付き等式・不等式まで証明できる。
+- Doob 分解の compensator を条件付き平均増分から構成し、一意性を示せる。
+- Doob 最大不等式で標本路最大値の確率を終端分布から評価できる。
+- 上向き横断回数を標本路上で数え、予測可能 strategy から [Doob 上向き横断不等式](#thm-sto2-upcrossing) を証明できる。
+- 有理数区間の上向き横断が有限であることから、十分先の下側境界と上側境界が一致して標本路の極限が存在することを導ける。
+- 劣マルチンゲール convergence theorem で極限の有限性・可積分性まで閉じられる。
 - UI が a.s.収束を $L^1$ 収束へ上げる役割を Vitali と結びつけられる。
-- 条件付き期待値 martingale の極限を Lévy上昇定理と接続できる。
-- 倍賭け反例で、optional stopping の失敗原因を「極限と期待値の交換不能」「UI の欠如」として定量的に説明できる。
+- 条件付き期待値マルチンゲールの極限を Lévy上昇定理と接続できる。
+- 倍賭け反例で、任意停止の失敗原因を「極限と期待値の交換不能」「UI の欠如」として定量的に説明できる。
 
-次の STO3 では、有限次元分布から確率過程そのものを構成し、Kolmogorov--Chentsov continuity theorem で連続 modification を作る問題へ進みます。
+次の STO3 では、[有限次元分布と整合性](../STO3/index.md#def-sto3-fdd-consistency)から確率過程そのものを構成し、[Kolmogorov--Chentsov 連続定理](../STO3/index.md#thm-sto3-kolmogorov-chentsov)で連続修正を作る問題へ進みます。

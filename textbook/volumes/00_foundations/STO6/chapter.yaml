@@ -1,5 +1,5 @@
 id: "STO6"
-title: "Encore IV Stochastic Analysis VI：stochastic integral"
+title: "Encore IV 確率解析 VI：確率積分"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -9,39 +9,39 @@ prerequisites:
   - F0-00D3A
 official_scope: []
 learning_objectives:
-  - simple predictable integrandを定義し、係数が各区間の左端情報で決まることを具体例で確認できる
-  - simple predictable integrandに対するcontinuous martingale積分を増分和として定義し、adaptednessと連続性を確認できる
-  - Itô isometryをmartingale incrementの直交性とbracketのcharacterizationから証明できる
-  - simple predictable integrandがL2(d[M]dP)で稠密である理由を説明し、L2 completionによりstochastic integralを構成できる
+  - 単純予測可能被積分過程を定義し、係数が各区間の左端情報で決まることを具体例で確認できる
+  - 単純予測可能被積分過程に対するcontinuous マルチンゲール積分を増分和として定義し、adaptednessと連続性を確認できる
+  - Itô 等長性をマルチンゲール incrementの直交性とブラケットのcharacterizationから証明できる
+  - 単純予測可能被積分過程がL2(d[M]dP)で稠密である理由を説明し、L2 completionにより確率積分を構成できる
   - Doob L2 inequalityを連続時間へ持ち上げ、積分近似がsupremum normでも収束することを示せる
-  - stochastic integralがcontinuous square-integrable martingaleになり、そのquadratic variationがintegrandの二乗をbracketで積分したものになることを証明できる
-  - stoppingとstochastic integralの交換をsimple integrandから一般L2 integrandへ延長できる
-  - locally square-integrable integrandに対する積分をlocalizationで貼り合わせ、continuous local martingaleを得られる
-  - Brownian stochastic integralでbracketがLebesgue時間に退化することを用い、平均二乗評価を具体計算できる
-  - BDG inequalityの標準形とp=2の場合の意味を説明し、path supremumとquadratic variationの対応を使える
+  - 確率積分がcontinuous square-integrable マルチンゲールになり、その二次変分が被積分過程の二乗をブラケットで積分したものになることを証明できる
+  - stoppingと確率積分の交換をsimple 被積分過程から一般L2 被積分過程へ延長できる
+  - locally square-integrable 被積分過程に対する積分を局所化で貼り合わせ、連続局所マルチンゲールを得られる
+  - ブラウン確率積分でブラケットがLebesgue時間に退化することを用い、平均二乗評価を具体計算できる
+  - BDG inequalityの標準形とp=2の場合の意味を説明し、path supremumと二次変分の対応を使える
   - predictabilityが未来のincrementを使わせない条件であり、adaptednessだけでは積分構成の直交性を保証しない理由を説明できる
 definitions:
-  - { id: STO6-DEF-01, name: "simple predictable integrand" }
-  - { id: STO6-DEF-02, name: "simple stochastic integral" }
-  - { id: STO6-DEF-03, name: "L2(M) integrand" }
-  - { id: STO6-DEF-04, name: "locally square-integrable integrand" }
+  - { id: STO6-DEF-01, name: "単純予測可能被積分過程" }
+  - { id: STO6-DEF-02, name: "simple 確率積分" }
+  - { id: STO6-DEF-03, name: "L2(M) 被積分過程" }
+  - { id: STO6-DEF-04, name: "locally square-integrable 被積分過程" }
 theorems:
-  - { id: STO6-LEM-00, name: "square-integrable martingaleのbracket compensation" }
-  - { id: STO6-THM-01, name: "Itô isometry for simple predictable integrands" }
-  - { id: STO6-LEM-01, name: "simple predictable integrandsのL2 density" }
-  - { id: STO6-THM-02, name: "L2 completionによるstochastic integralの構成" }
+  - { id: STO6-LEM-00, name: "square-integrable マルチンゲールのブラケット compensation" }
+  - { id: STO6-THM-01, name: "Itô 等長性 for simple 予測可能 integrands" }
+  - { id: STO6-LEM-01, name: "simple 予測可能 integrandsのL2 density" }
+  - { id: STO6-THM-02, name: "L2 completionによる確率積分の構成" }
   - { id: STO6-THM-03, name: "continuous-time Doob L2 maximal inequality" }
-  - { id: STO6-THM-04, name: "quadratic variation of stochastic integral" }
-  - { id: STO6-PROP-01, name: "stoppingとstochastic integralの交換" }
-  - { id: STO6-THM-05, name: "local stochastic integral" }
+  - { id: STO6-THM-04, name: "二次変分 of 確率積分" }
+  - { id: STO6-PROP-01, name: "stoppingと確率積分の交換" }
+  - { id: STO6-THM-05, name: "local 確率積分" }
   - { id: STO6-THM-06, name: "Burkholder--Davis--Gundy inequality" }
-  - { id: STO6-PROP-02, name: "deterministic Brownian integralはGaussian" }
+  - { id: STO6-PROP-02, name: "deterministic ブラウン integralはGaussian" }
 canonical_examples:
-  - "piecewise predictable Brownian integrand"
-  - "deterministic step function integrated against Brownian motion"
+  - "piecewise 予測可能ブラウン被積分過程"
+  - "deterministic step function integrated against ブラウン運動"
   - "bounded F_s-measurable coefficient on a future interval (s,t]"
-  - "Brownian integral stopped at an exit time"
-  - "H_t=exp(B_t^2) as a locally square-integrable integrand after exit-time localization"
+  - "ブラウン integral stopped at an exit time"
+  - "H_t=exp(B_t^2) as a locally square-integrable 被積分過程 after exit-time 局所化"
 problem_patterns:
   - STO6-SIMPLE-INTEGRAL-1
   - STO6-ITO-ISOMETRY-1
