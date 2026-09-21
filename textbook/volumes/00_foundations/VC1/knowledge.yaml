@@ -17,7 +17,7 @@ concepts:
     name: scalar field・vector field
     kind: definition
     aliases: [scalar field, vector field, スカラー場, ベクトル場]
-    introduction: formal
+    introduction: inline
     introduction_aliases: ["定義（scalar field・vector field）"]
     requires:
       - functional.frechet-derivative
@@ -26,7 +26,7 @@ concepts:
     name: gradient
     kind: definition
     aliases: [gradient, grad, 勾配]
-    introduction: formal
+    introduction: inline
     introduction_aliases: ["定義（gradient）"]
     requires:
       - vector-calculus.scalar-vector-field
@@ -46,7 +46,7 @@ concepts:
     name: divergence
     kind: definition
     aliases: [divergence, div, 発散]
-    introduction: formal
+    introduction: inline
     introduction_aliases: ["定義（divergence）"]
     requires:
       - vector-calculus.scalar-vector-field
@@ -55,7 +55,7 @@ concepts:
     name: curl
     kind: definition
     aliases: [curl, rotation, rot, 回転]
-    introduction: formal
+    introduction: inline
     introduction_aliases: ["定義（curl）"]
     requires:
       - vector-calculus.scalar-vector-field
@@ -64,7 +64,7 @@ concepts:
     name: scalar Laplacian
     kind: definition
     aliases: [scalar Laplacian, Laplacian, ラプラシアン]
-    introduction: formal
+    introduction: inline
     introduction_aliases: ["定義（scalar Laplacian）"]
     requires:
       - vector-calculus.gradient
