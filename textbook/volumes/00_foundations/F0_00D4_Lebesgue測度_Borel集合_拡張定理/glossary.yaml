@@ -17,7 +17,13 @@ terms:
     meaning: algebra上で定義され、適用可能な可算分割について可算加法性を満たす集合関数。
   - term: Carathéodory拡張定理
     english: Caratheodory extension theorem
-    meaning: algebra上のpremeasureを、そのalgebraが生成するsigma代数上の測度へ拡張できることを述べる定理。
+    meaning: algebra上のpremeasureを、そのalgebraが生成するsigma代数上の測度へ拡張できることを述べる定理。文献によってHopfの拡張定理、Hahn--Kolmogorovの拡張定理と呼ばれる範囲と重なる。
+  - term: Hopf型のpremeasure判定
+    english: continuity-from-above criterion for premeasures
+    meaning: 有限加法的で全質量が有限な集合関数について、空集合へ減少する列の値が0へ収束することとpremeasure性が同値になる判定。
+  - term: Hopfの拡張定理
+    english: Hopf extension theorem
+    meaning: 測度拡張定理の名称の一つ。本章では有限加法性からpremeasureへ進む判定とCarathéodoryによる拡張機構を区別して説明する。
   - term: sigma有限
     english: sigma-finite
     meaning: 全体空間を有限測度の可測集合の可算和で覆える性質。
