@@ -1,17 +1,17 @@
 chapter: "VC4"
 terms:
-  - term: Greenの定理
+  - term: Green の定理
     english: Green theorem
-    meaning: 平面領域で境界の循環またはfluxを内部のscalar curlまたはdivergenceの面積分へ移す積分定理。
-  - term: Gauss--Ostrogradskyの発散定理
+    meaning: 平面領域で境界の循環または流束を内部のスカラー回転または発散の面積分へ移す積分定理。
+  - term: Gauss--Ostrogradsky の発散定理
     english: Gauss--Ostrogradsky divergence theorem
-    meaning: 三次元領域の境界を通るtotal outward fluxと内部divergenceの体積積分を等置する定理。
+    meaning: 三次元領域の境界を通る総外向き流束と内部の発散の体積積分を等置する定理。
   - term: 外向き法線
     english: outward unit normal
     meaning: 閉曲面・閉曲線境界で領域の外側を向く単位法線。
   - term: 局所保存則
     english: local conservation law
-    meaning: 密度の時間変化、fluxのdivergence、source termを点ごとに結ぶ微分方程式。
+    meaning: 密度の時間変化、流束の発散、生成項を点ごとに結ぶ微分方程式。
   - term: 積分保存則
     english: integral conservation law
-    meaning: 固定領域内のtotal amountの時間変化を境界fluxと内部sourceの総和で表す形。
+    meaning: 固定領域内の総量の時間変化を境界流束と内部生成量の総和で表す形。
