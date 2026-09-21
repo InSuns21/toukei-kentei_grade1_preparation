@@ -168,7 +168,7 @@ concepts:
     kind: definition
     aliases: ["well posed martingale problem", "uniqueness for martingale problem"]
     introduction: formal
-    introduction_aliases: ["定義（well-posed martingale problem）"]
+    introduction_aliases: ["定義（martingale problem の存在・law 一意性）"]
     requires:
       - stochastic.martingale-problem
 
@@ -177,7 +177,7 @@ concepts:
     kind: theorem
     aliases: ["well-posed martingale problem implies strong Markov property"]
     introduction: formal
-    introduction_aliases: ["定理（well-posed martingale problem から strong Markov property）"]
+    introduction_aliases: ["定理（martingale problem の存在・law 一意性から strong Markov property）"]
     requires:
       - stochastic.well-posed-martingale-problem
       - stochastic.stopping-time
