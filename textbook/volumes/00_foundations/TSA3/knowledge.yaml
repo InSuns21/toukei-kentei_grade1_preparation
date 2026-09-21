@@ -3,7 +3,9 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - TSA1
+  - TSA2
   - FOU2
+  - RA5
   - F0-00D3A
   - MT5
   - F0-00P2
@@ -100,7 +102,7 @@ concepts:
     kind: lemma
     aliases: ["density of continuous functions in L2(F)"]
     introduction: formal
-    introduction_aliases: ["補題（連続関数の $L^2(F)$ 稠密性）"]
+    introduction_aliases: ["補題（連続関数の $L^2(F)$ 稠密性）", "補題（連続関数の 稠密性）"]
     requires:
       - measure.pi-lambda-theorem
       - functional.l2-completeness
@@ -110,7 +112,7 @@ concepts:
     kind: theorem
     aliases: ["density of trigonometric polynomials in L2(F)"]
     introduction: formal
-    introduction_aliases: ["定理（三角多項式の $L^2(F)$ 稠密性）"]
+    introduction_aliases: ["定理（三角多項式の $L^2(F)$ 稠密性）", "定理（三角多項式の 稠密性）"]
     requires:
       - timeseries.continuous-l2-density
       - fourier.fou2-trig-density
