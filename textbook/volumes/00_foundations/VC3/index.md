@@ -371,6 +371,27 @@ $$
 > と定義する。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-vc3-scalar-surface-integral -->
+**定義の確認**
+
+水平な単位正方形
+
+$$
+r(u,v)=(u,v,0),
+\qquad 0\le u,v\le1
+$$
+
+と一定 scalar field $f=2$ では $|r_u\times r_v|=1$ なので
+
+$$
+\int_S f\,dS
+=
+\int_0^1\int_0^1 2\,du\,dv
+=
+2.
+$$
+<!-- definition-example-end -->
+
 $f=1$ なら曲面積そのものです。
 
 ---
