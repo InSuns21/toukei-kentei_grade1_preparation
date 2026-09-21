@@ -416,7 +416,7 @@ $$
 角速度が $\Omega$ であるのに渦度が $2\Omega$ になる点が重要です。渦度は角速度そのものではなく、局所循環密度として定義されています。
 <!-- definition-example-end -->
 
-[VC5 の「回転は局所循環密度」](../VC5/index.md#prop-vc5-curl-circulation-density)を速度場へ適用すれば、渦度はそのまま速度の局所循環密度です。
+[VC5 の「回転は局所循環密度」](../VC5/index.md#prop-vc5-curl-density)を速度場へ適用すれば、渦度はそのまま速度の局所循環密度です。
 
 <a id="cor-vc9-circulation-vorticity"></a>
 
