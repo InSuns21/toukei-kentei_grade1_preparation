@@ -1,0 +1,23 @@
+chapter: "STO13"
+terms:
+  - term: ポアソン過程
+    english: Poisson process
+    meaning: 独立定常増分を持ち、長さ t の区間での事象回数が平均 lambda t の Poisson 分布に従う計数過程。
+  - term: 補償過程
+    english: compensator
+    meaning: 計数過程から差し引く予測可能な増加過程。差をマルチンゲールにすることで、予測可能な平均成分とランダムな揺らぎを分離する。
+  - term: Q-行列
+    english: Q-matrix
+    meaning: 連続時間マルコフ連鎖の短時間遷移率を表す行列。非対角成分は非負で、各行の和は0になる。
+  - term: 跳躍連鎖
+    english: jump chain
+    meaning: 連続時間マルコフ連鎖が跳躍するたびに訪れる状態だけを並べた離散時間マルコフ連鎖。
+  - term: 滞在時間
+    english: holding time
+    meaning: 連続時間マルコフ連鎖が一つの状態に留まる時間。有限状態 Q-行列では状態 i で rate q_i の指数分布になる。
+  - term: ポアソンランダム測度
+    english: Poisson random measure
+    meaning: 時刻と印の積空間上の互いに素な集合の点数を独立な Poisson 変数として記録するランダム測度。強度測度が平均点数を与える。
+  - term: 補償ポアソンランダム測度
+    english: compensated Poisson random measure
+    meaning: Poisson random measure から強度測度を差し引いて中心化したランダム測度。単関数型積分では平均0のマルチンゲールと L2 等長性を与える。
