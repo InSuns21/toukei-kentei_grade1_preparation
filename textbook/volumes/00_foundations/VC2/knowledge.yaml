@@ -4,6 +4,16 @@ coverage: complete
 prerequisites:
   - VC1
   - RA4
+  - TOP3
+
+forward_references:
+  - vector-calculus.surface-tangent-normal
+  - vector-calculus.flux-integral
+  - vector-calculus.gauss-divergence
+  - complex-analysis.complex-line-integral
+  - complex-analysis.path-independence
+  - complex-analysis.star-shaped-domain
+  - complex-analysis.simply-connected-domain
 
 concepts:
   - id: vector-calculus.regular-curve
