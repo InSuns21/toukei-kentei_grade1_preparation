@@ -1,20 +1,20 @@
-# STO3A：経路空間の弱収束・tightness・Donsker 不変原理
+# STO3A：経路全体の収束とランダムウォークの Brown 運動極限
 
-通常教材 [E2-04](../../05_engineering/E2_04_ブラウン運動_拡散極限/index.md) では、ランダムウォークを時間方向に $n$、空間方向に $\sqrt n$ で縮尺すると Brown 運動が現れることを説明し、「厳密には Donsker の定理が必要」としました。
+通常教材 [E2-04](../../05_engineering/E2_04_ブラウン運動_拡散極限/index.md) では、ランダムウォークを時間方向に $n$、空間方向に $\sqrt n$ で縮尺すると Brown 運動が現れることを説明し、「厳密には関数型中心極限定理が必要」としました。
 
 本章ではその橋を閉じます。
 
 中心となる考えは二つです。
 
 1. **有限個の時刻だけを見る**と、[中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt)から Brown 運動の有限次元分布が現れる。
-2. **経路全体が暴れない**ことを tightness で示す。
+2. **経路全体が暴れない**ことを、確率質量を compact set に押し込める制御で示す。
 
-有限次元分布の収束だけでは、時刻の間で激しく振動する経路を排除できません。Donsker の定理は
+有限次元分布の収束だけでは、時刻の間で激しく振動する経路を排除できません。本章の主定理は
 
 $$
 \text{finite-dimensional convergence}
 +
-\text{tightness}
+\text{compactness control}
 $$
 
 を組み合わせて、確率変数の[中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt)を **経路全体の中心極限定理**へ持ち上げます。
@@ -134,7 +134,7 @@ $$
 
 ---
 
-## 2. tightness は「確率質量を compact set に押し込める」
+## 2. 確率質量を compact set に押し込める
 
 <a id="def-sto3a-tightness"></a>
 
@@ -493,7 +493,7 @@ $$
 
 ---
 
-## 5. polygonal interpolation
+## 5. 折れ線補間で経路を作る
 
 $X_1,X_2,\ldots$ を独立同分布とし
 
@@ -1057,7 +1057,7 @@ $W_n(0)=0$ なので初期値の tightness は自明です。modulus criterion �
 
 ---
 
-## 11. Donsker 不変原理
+## 11. 関数型中心極限定理
 
 <a id="thm-sto3a-donsker"></a>
 
@@ -1111,7 +1111,9 @@ $C([0,1])$ は sup metric で完備です。実際、sup norm Cauchy 列は一�
 
 従って $C([0,1])$ は separable complete metric space、すなわち Polish space です。
 
-### 意図的黒箱：Prokhorov theoremこのような空間では、
+### 意図的黒箱：Prokhorov theorem
+
+このような空間では、
 
 > tight な確率測度列の任意の列から弱収束部分列を取れる
 
@@ -1169,7 +1171,7 @@ $$
 
 ---
 
-## 12. なぜ「不変原理」と呼ぶのか
+## 12. なぜ極限は分布の細部を忘れるのか
 
 極限 Brown 運動は $X_1$ の細かい分布形を覚えていません。
 
