@@ -10,7 +10,7 @@ official_scope: []
 learning_objectives:
   - 正則パラメータ曲面を定義し、coordinate tangent vectors・接平面・法線を計算できる
   - 古典的な向き付け可能性を連続単位法線場として説明し、球面と非向き付け例を区別できる
-  - cross productから曲面積要素を導き、再パラメータ表示不変性を証明できる
+  - cross productから曲面積要素を導き、surface areaとoriented fluxの再パラメータ表示不変性を証明できる
   - scalar surface integralと向き付きflux integralを定義して計算できる
   - graph surfaceの面積要素と上向きvector area elementを導ける
   - sphere・cylinder・planeで面積とfluxを直接計算できる
@@ -25,6 +25,7 @@ definitions:
 theorems:
   - { id: VC3-THM-01, name: 曲面積要素の再パラメータ表示不変性 }
   - { id: VC3-PROP-01, name: graph surfaceの面積・上向きflux }
+  - { id: VC3-PROP-02, name: 向き付きfluxの再パラメータ表示不変性 }
 canonical_examples:
   - 球面patchの正則性
   - graph surfaceの面積要素
