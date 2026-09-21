@@ -1,0 +1,95 @@
+chapter: TSA2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TSA1
+
+concepts:
+  - id: timeseries.innovation-subspace
+    name: イノベーション部分空間
+    kind: definition
+    aliases: ["innovation subspace"]
+    introduction: formal
+    introduction_aliases: ["定義（イノベーション部分空間）"]
+    requires:
+      - timeseries.past-linear-space
+      - timeseries.innovation
+
+  - id: timeseries.innovation-subspace-span
+    name: イノベーション部分空間の一次元性
+    kind: proposition
+    aliases: ["innovation subspace is spanned by the innovation"]
+    introduction: formal
+    introduction_aliases: ["命題（イノベーション部分空間の一次元性）"]
+    requires:
+      - timeseries.innovation-subspace
+      - timeseries.innovation
+
+  - id: timeseries.remote-past
+    name: 無限遠過去
+    kind: definition
+    aliases: ["remote past", "remote past subspace"]
+    introduction: formal
+    introduction_aliases: ["定義（無限遠過去）"]
+    requires:
+      - timeseries.past-linear-space
+
+  - id: timeseries.purely-nondeterministic
+    name: 純非決定論性
+    kind: definition
+    aliases: ["purely nondeterministic", "pure nondeterminism"]
+    introduction: formal
+    introduction_aliases: ["定義（純非決定論性）"]
+    requires:
+      - timeseries.remote-past
+
+  - id: timeseries.decreasing-projection-limit
+    name: 減少閉部分空間への射影収束
+    kind: lemma
+    aliases: ["projection convergence for decreasing closed subspaces"]
+    introduction: formal
+    introduction_aliases: ["補題（減少閉部分空間への射影収束）"]
+    requires:
+      - functional.hilbert-projection-theorem
+
+  - id: timeseries.past-orthogonal-decomposition
+    name: 過去空間の直交分解
+    kind: proposition
+    aliases: ["orthogonal decomposition of the past space"]
+    introduction: formal
+    introduction_aliases: ["命題（過去空間の直交分解）"]
+    requires:
+      - timeseries.innovation-subspace
+      - timeseries.remote-past
+      - timeseries.decreasing-projection-limit
+
+  - id: timeseries.wold-deterministic-component
+    name: Wold の決定論成分
+    kind: definition
+    aliases: ["Wold deterministic component", "deterministic component"]
+    introduction: formal
+    introduction_aliases: ["定義（Wold の決定論成分）"]
+    requires:
+      - timeseries.remote-past
+
+  - id: timeseries.wold-decomposition
+    name: Wold 分解
+    kind: theorem
+    aliases: ["Wold decomposition"]
+    introduction: formal
+    introduction_aliases: ["定理（Wold 分解）"]
+    requires:
+      - timeseries.past-orthogonal-decomposition
+      - timeseries.innovation-subspace-span
+      - timeseries.stationary-shift-unitary
+      - timeseries.innovation-white-noise
+
+  - id: timeseries.wold-uniqueness
+    name: Wold 分解の一意性
+    kind: proposition
+    aliases: ["uniqueness of Wold decomposition"]
+    introduction: formal
+    introduction_aliases: ["命題（Wold 分解の一意性）"]
+    requires:
+      - timeseries.wold-decomposition
+      - timeseries.remote-past
