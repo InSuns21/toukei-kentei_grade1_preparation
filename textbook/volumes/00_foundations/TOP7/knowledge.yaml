@@ -40,7 +40,7 @@ concepts:
   - id: topology.uniform-continuity
     name: 一様連続写像
     kind: definition
-    aliases: [一様連続, 一様連続写像, uniformly continuous, uniform continuity]
+    aliases: [一様連続写像, uniformly continuous map]
     introduction: formal
     introduction_aliases: [定義（一様連続写像）]
     requires:
@@ -129,7 +129,7 @@ concepts:
   - id: topology.metric-cauchy-filter-equivalence
     name: 距離Cauchy列とCauchy filter
     kind: proposition
-    aliases: [距離Cauchy列とCauchy filter, 距離 Cauchy 列と Cauchy filter]
+    aliases: [距離Cauchy列とCauchy filter]
     introduction: formal
     introduction_aliases: ["命題（距離 Cauchy 列と Cauchy filter）"]
     requires:
@@ -138,7 +138,7 @@ concepts:
   - id: topology.separated-uniform-hausdorff
     name: 分離性とHausdorff性
     kind: proposition
-    aliases: [分離性とHausdorff性, 分離性と Hausdorff 性]
+    aliases: [分離性とHausdorff性]
     introduction: formal
     introduction_aliases: ["命題（分離性と Hausdorff 性）"]
     requires:
@@ -148,7 +148,7 @@ concepts:
   - id: topology.uniform-continuity-preserves-cauchy-filter
     name: 一様連続写像はCauchy filterを送る
     kind: proposition
-    aliases: [一様連続写像はCauchy filterを送る, 一様連続写像は Cauchy filter を送る]
+    aliases: [一様連続写像はCauchy filterを送る]
     introduction: formal
     introduction_aliases: ["命題（一様連続写像は Cauchy filter を送る）"]
     requires:
