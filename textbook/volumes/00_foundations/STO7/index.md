@@ -1071,12 +1071,12 @@ $$
 
 in $L^1$ です。$K^{(n)}\to K$ にも同じ bracket identity を適用すると
 
-$
+$$
 [J^{(n)}-J]_T
 =
 \int_0^T|K_s^{(n)}-K_s|^2ds
 \to0
-$
+$$
 
 in $L^1$ です。
 
@@ -1116,9 +1116,9 @@ in probability です。
 
 今度は $U=I$, $V=J^{(n)}-J$ として同じ bracket matrix の評価を使うと
 
-$
+$$
 [I,J^{(n)}-J]_t\to0
-$
+$$
 
 in probability です。したがって
 
@@ -2533,19 +2533,19 @@ $$
 
 各固定 $s$ で
 
-$
+$$
 E|B_s|^2=d\,s
-$
+$$
 
 なので、各有限 $T$ について
 
-$
+$$
 E\int_0^T|B_s|^2\,ds
 =
 d\int_0^T s\,ds
 =
 \frac d2T^2<\infty.
-$
+$$
 
 従って右辺は square-integrable martingale です。
 
