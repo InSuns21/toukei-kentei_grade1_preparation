@@ -2165,7 +2165,7 @@ $$
 
 $n\to\infty$ で $\tau_n\uparrow t$ a.s. です。
 
-$B_{\tau_n}^2$ の一様可積分性は、例えば $E[\sup_{s\le t}|B_s|^2]<\infty$ と Doob の不等式から従います。従って極限を通して
+$B_{\tau_n}^2$ の一様可積分性は、$E[\sup_{s\le t}|B_s|^2]<\infty$ と [STO6 の continuous-time Doob L2 maximal inequality](../STO6/index.md#thm-sto6-doob-l2) から従います。従って極限を通して
 
 $$
 \boxed{E[B_t^2]=t}.
