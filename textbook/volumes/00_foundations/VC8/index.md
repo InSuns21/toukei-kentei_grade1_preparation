@@ -1,10 +1,10 @@
-# VC8 場を源と渦へ分ける：Helmholtz 分解
+# VC8 場を源と渦へ分ける
 
 VC5 では、無回転場・無発散場とベクトルポテンシャルの入口まで進みました。本章ではその問いを三次元全空間で完成させます。
 
 > ベクトル場の **発散** と **回転** が分かれば、その場をどこまで復元できるのか。
 
-答えが **[Helmholtz 分解](#thm-vc8-helmholtz)**です。適切な正則性と無限遠での条件の下で、ベクトル場は
+本章では、適切な正則性と無限遠での条件の下で、ベクトル場を
 
 $$
 F
@@ -14,9 +14,9 @@ F
 \nabla\times A
 $$
 
-と、無回転な成分と無発散な成分へ分かれます。
+という無回転な成分と無発散な成分の和へ分け、その復元公式を証明します。
 
-直接の前提は [VC5 の Kelvin--Stokes の定理・ベクトルポテンシャル](../VC5/index.md#def-vc5-vector-potential) と [PDE6 の基本解・Green 表現の考え方](../PDE6/index.md#def-pde6-fundamental-solution) です。PDE6 は二次元の Laplace・Poisson 方程式を扱うため、本章では三次元全空間に必要な Newton 核だけを直接構成します。Green 関数一般論は重複して作りません。
+直接の前提は [VC5 の Kelvin--Stokes の定理・ベクトルポテンシャル](../VC5/index.md#def-vc5-vector-potential) と [PDE6 の基本解・Green 表現の考え方](../PDE6/index.md#def-pde6-fundamental-solution) です。PDE6 は二次元の Laplace・Poisson 方程式を扱うため、本章では三次元全空間に必要な点源の核だけを直接構成します。Green 関数一般論は重複して作りません。
 
 本章の主定理は、境界項を確実に消せるようまず
 
@@ -28,7 +28,7 @@ $$
 
 ---
 
-## 1. 三次元で一点源を表す Newton 核
+## 1. 三次元で一点源を表す核
 
 <a id="def-vc8-newton-kernel"></a>
 
@@ -526,7 +526,7 @@ $$
 
 ---
 
-## 4. Helmholtz 分解
+## 4. 発散と回転から場を復元する
 
 <a id="thm-vc8-helmholtz"></a>
 
@@ -743,7 +743,7 @@ $$
 
 ---
 
-## 5. ゲージ自由度と Coulomb ゲージ
+## 5. ベクトルポテンシャルの非一意性
 
 VC5 では、ベクトルポテンシャルに勾配を足しても回転が変わらないことを見ました。本章では [Helmholtz 分解](#thm-vc8-helmholtz)の積分表示と結びます。
 
@@ -820,7 +820,7 @@ Helmholtz 定理で構成した $A$ は自動的に Coulomb ゲージに入っ�
 
 ---
 
-## 6. 縦成分と横成分
+## 6. 無回転部分と無発散部分
 
 <a id="def-vc8-longitudinal-transverse"></a>
 
@@ -1023,7 +1023,7 @@ $$
 
 ---
 
-## 9. 無発散場を渦度から戻す：Biot--Savart 形
+## 9. 無発散場を渦度から戻す
 
 特に
 
