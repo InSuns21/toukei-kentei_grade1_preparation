@@ -406,7 +406,7 @@ flowchart TD
 
 - Einstein の総和規約、自由添字・ダミー添字
 - Kronecker のデルタ、Levi--Civita 記号、縮約公式
-- 直交 Cartesian 基底変換と二階デカルトテンソル
+- 直交デカルト基底変換と二階デカルトテンソル
 - 二項積、縮約、跡、対称・反対称分解
 - ベクトル場の勾配と二階テンソル場の発散
 - 二階テンソル版 Gauss--Ostrogradsky の発散定理
@@ -414,7 +414,7 @@ flowchart TD
 
 実装: [VC7](volumes/00_foundations/VC7/index.md)
 
-VC4 までが PDE6 の direct prerequisite です。VC5--VC6 で古典ベクトル解析の積分定理と円柱・球座標までを閉じ、VC7 で連続体力学・流体・電磁気へ進むための Cartesian 添字計算を整備しました。Helmholtz 分解と数理物理 bridge は [再編計画](DREAM_THEATER_VECTOR_CALCULUS_RESTRUCTURE_PLAN.md) に従って VC8--VC9 で後続実装します。
+VC4 までが PDE6 の direct prerequisite です。VC5--VC6 で古典ベクトル解析の積分定理と円柱・球座標までを閉じ、VC7 で連続体力学・流体・電磁気へ進むための デカルト座標の添字計算を整備しました。Helmholtz 分解と数理物理 bridge は [再編計画](DREAM_THEATER_VECTOR_CALCULUS_RESTRUCTURE_PLAN.md) に従って VC8--VC9 で後続実装します。
 
 ---
 
