@@ -1264,7 +1264,13 @@ $$
 
 最後に $t\vee\tau$ が一般には $\mathcal F_t$ 可測でないことを具体例で確認します。
 
-離散時間コイントスで
+標準的な無限コイントス空間
+
+$$
+\Omega=\{H,T\}^{\mathbb N}
+$$
+
+で、$\xi_n=1$ を第 $n$ 回が表、$\xi_n=-1$ を裏とし、
 
 $$
 \mathcal F_n
@@ -1272,7 +1278,7 @@ $$
 \sigma(\xi_1,\ldots,\xi_n)
 $$
 
-とし、
+とします。さらに
 
 $$
 \tau
@@ -1304,7 +1310,13 @@ $$
 \{\xi_1=-1,\ \xi_2=1\}
 $$
 
-は、一回目が裏だった場合に二回目の結果まで見ないと判定できません。従って
+は、一回目が裏だった場合に二回目の結果まで見ないと判定できません。実際、$\mathcal F_1$ の「一回目が裏」という atom
+
+$$
+\{\xi_1=-1\}
+$$
+
+の中で、$\xi_2=1$ の標本だけを選び出しているため $\mathcal F_1$ の事象ではありません。従って
 
 $$
 \{\tau\le2\}
@@ -2747,7 +2759,15 @@ $$
 
 と置きます。
 
-$a<t$ なら
+$a<0$ なら
+
+$$
+\{\rho\le a\}
+=
+\varnothing.
+$$
+
+$0\le a<t$ なら
 
 $$
 \{\rho\le a\}
@@ -2757,9 +2777,23 @@ $$
 \subseteq\mathcal F_t.
 $$
 
-$a\ge t$ なら $\{\rho\le a\}=\Omega$ です。
+$a\ge t$ なら
 
-従って $\rho$ は $\mathcal F_t$ 可測です。
+$$
+\{\rho\le a\}
+=
+\Omega.
+$$
+
+したがって任意の $a\in\mathbb R$ について
+
+$$
+\{\rho\le a\}
+\in
+\mathcal F_t.
+$$
+
+半直線 $(-\infty,a]$ が $\mathbb R$ の Borel $\sigma$ 代数を生成するので、$\rho$ は $\mathcal F_t/\mathcal B([0,t])$ 可測です。
 
 progressive measurability により
 
