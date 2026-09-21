@@ -1,8 +1,8 @@
 # VC1 ベクトル場と微分演算子
 
-ベクトル解析では、各点に数を割り当てる **scalar field** と、各点にベクトルを割り当てる **vector field** を微分して、局所的な増加、湧き出し、回転を読み取ります。
+ベクトル解析では、各点に数を割り当てる **スカラー場** と、各点にベクトルを割り当てる **ベクトル場** を微分して、局所的な増加、湧き出し、回転を読み取ります。
 
-本章の出発点は [RA6A の多変数微分・正則レベル集合](../RA6A/index.md#cor-ra6a-regular-level-set) です。偏微分や連鎖律そのものは再構築せず、
+本章の出発点は [RA6A の多変数微分と局所表示](../RA6A/index.md#cor-ra6a-regular-level-set) です。偏微分や連鎖律そのものは再構築せず、
 
 $$
 \nabla f,\qquad \operatorname{div}F,\qquad \operatorname{curl}F,\qquad \Delta f
@@ -10,32 +10,32 @@ $$
 
 を「座標公式」ではなく、何を測る演算子なのかまで含めて正本化します。
 
-本章では Euclidean 空間 $\mathbb R^2,\mathbb R^3$ に限定します。曲線積分は VC2、曲面積分と flux は VC3、積分定理は VC4--VC5 で扱います。
+本章ではユークリッド空間 $\mathbb R^2,\mathbb R^3$ に限定します。曲線積分は VC2、曲面積分と流束は VC3、積分定理は VC4--VC5 で扱います。
 
 ---
 
-## 1. scalar field と vector field
+## 1. スカラー場とベクトル場
 
 <a id="def-vc1-fields"></a>
 
 <!-- formal-statement-start -->
-> **定義（scalar field・vector field）**  
+> **定義（スカラー場・ベクトル場）**  
 > 開集合 $\Omega\subset\mathbb R^n$ 上の写像
 >
 $$
 f:\Omega\to\mathbb R
 $$
 >
-> を scalar field、写像
+> を **スカラー場**、写像
 >
 $$
 F:\Omega\to\mathbb R^n
 $$
 >
-> を vector field と呼ぶ。
+> を **ベクトル場** と呼ぶ。
 <!-- formal-statement-end -->
 
-温度 $T(x)$ は scalar field、流速 $u(x)$ や力 $F(x)$ は vector field の典型です。
+温度 $T(x)$ はスカラー場、流速 $u(x)$ や力 $F(x)$ はベクトル場の典型です。
 
 <!-- definition-example-start: def-vc1-fields -->
 **定義の確認**
@@ -50,18 +50,18 @@ $$
 F(x,y,z)=(-y,x,z)
 $$
 
-は各点へ 3 成分ベクトルを割り当てます。前者が scalar field、後者が vector field です。
+は各点へ 3 成分ベクトルを割り当てます。前者がスカラー場、後者がベクトル場です。
 <!-- definition-example-end -->
 
 ---
 
-## 2. 方向微分を一つのベクトルでまとめる：gradient
+## 2. 方向微分を一つのベクトルでまとめる：勾配
 
 <a id="def-vc1-gradient"></a>
 
 <!-- formal-statement-start -->
-> **定義（gradient）**  
-> $f\in C^1(\Omega)$ とする。点 $x\in\Omega$ における gradient を
+> **定義（勾配）**  
+> $f\in C^1(\Omega)$ とする。点 $x\in\Omega$ における **勾配** を
 >
 $$
 \nabla f(x)
@@ -97,34 +97,143 @@ D_vf=2
 \nabla f(1,1,0)\cdot v.
 $$
 
-定義どおり、gradient との内積が方向微分を再現します。
+定義どおり、勾配との内積が方向微分を再現します。
 <!-- definition-example-end -->
 
-単位ベクトル $v$ 方向の方向微分は、Fréchet 微分の表示から
+単位ベクトル $v$ を固定します。[方向微分](../F0_02C3_Frechet微分_線形作用素_随伴/index.md#def-f0-02c3-directional-derivative)の定義は
 
 $$
 D_vf(x)
 =
+\lim_{t\to0}
+\frac{f(x+tv)-f(x)}{t}
+$$
+
+です。一方、$f$ が $x$ で [Fréchet 微分可能](../F0_02C3_Frechet微分_線形作用素_随伴/index.md#def-f0-02c3-frechet-derivative) なら
+
+$$
+f(x+h)
+=
+f(x)+Df(x)[h]+r(h),
+\qquad
+\frac{|r(h)|}{\|h\|}\to0
+$$
+
+と書けます。ここで $h=tv$ と置くと、$Df(x)$ の線形性から
+
+$$
+\frac{f(x+tv)-f(x)}{t}
+=
+Df(x)[v]
++
+\frac{r(tv)}{t}.
+$$
+
+$v$ は単位ベクトルなので $\|tv\|=|t|$ です。したがって $r(tv)/t\to0$ となり、
+
+$$
+D_vf(x)=Df(x)[v]
+$$
+
+を得ます。
+
+さらに $f:\Omega\to\mathbb R$ では、Fréchet 微分 $Df(x)$ は各偏微分を係数にもつ線形写像なので
+
+$$
 Df(x)[v]
 =
-\nabla f(x)\cdot v
+\sum_{j=1}^n
+\frac{\partial f}{\partial x_j}(x)v_j
+=
+\nabla f(x)\cdot v.
 $$
 
-です。Cauchy--Schwarz より
+従って
 
 $$
-D_vf(x)\le |\nabla f(x)|
+\boxed{
+D_vf(x)=\nabla f(x)\cdot v
+}
 $$
 
-であり、$\nabla f(x)\neq0$ なら最大増加方向は
+です。[Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
-v=\frac{\nabla f(x)}{|\nabla f(x)|}
+|D_vf(x)|
+=
+|\nabla f(x)\cdot v|
+\le
+\|\nabla f(x)\|\,\|v\|
+=
+\|\nabla f(x)\|
 $$
 
-です。
+となります。特に $\nabla f(x)\neq0$ なら
 
-### 例：球面の法線が gradient になる
+$$
+v
+=
+\frac{\nabla f(x)}{\|\nabla f(x)\|}
+$$
+
+と選ぶことで
+
+$$
+D_vf(x)=\|\nabla f(x)\|
+$$
+
+となります。つまり **勾配は最も急に増加する単位方向を向き、その最大増加率は $\|\nabla f(x)\|$** です。反対向き $-\nabla f(x)/\|\nabla f(x)\|$ では最も急に減少します。
+
+<a id="def-vc1-level-surface"></a>
+
+<!-- formal-statement-start -->
+> **定義（レベル集合・レベル曲面）**  
+> 関数 $f:\Omega\subset\mathbb R^n\to\mathbb R$ と定数 $c\in\mathbb R$ に対し、
+
+$$
+L_c
+:=
+f^{-1}(c)
+=
+\{x\in\Omega:f(x)=c\}
+$$
+
+> を $f$ の **レベル集合** と呼ぶ。特に $n=3$ のとき $L_c$ を **レベル曲面** と呼ぶ。
+>
+> さらに $f\in C^1(\Omega)$ とし、$p\in L_c$ で
+
+$$
+\nabla f(p)\neq0
+$$
+
+> なら $p$ を正則点と呼ぶ。この条件を満たす点の近くでは、[RA6A の正則レベル集合の局所グラフ表示](../RA6A/index.md#cor-ra6a-regular-level-set)により $L_c$ は $C^1$ 級曲面になる。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-vc1-level-surface -->
+**定義の確認**
+
+$$
+f(x,y,z)=x^2+y^2+z^2
+$$
+
+に対し、$c>0$ のレベル集合は
+
+$$
+L_c
+=
+\{(x,y,z):x^2+y^2+z^2=c\},
+$$
+
+すなわち半径 $\sqrt c$ の球面です。球面上では
+
+$$
+\nabla f(x,y,z)=2(x,y,z)\neq0
+$$
+
+なので、すべての点が正則点です。
+<!-- definition-example-end -->
+
+### 例：球面の法線が勾配になる
 
 $$
 f(x,y,z)=x^2+y^2+z^2
@@ -136,35 +245,35 @@ $$
 \nabla f=(2x,2y,2z).
 $$
 
-level surface $f=c$ は半径 $\sqrt c$ の球面で、gradient は半径方向を向きます。
+[レベル曲面](#def-vc1-level-surface) $f=c$ は半径 $\sqrt c$ の球面で、勾配は半径方向を向きます。
 
 <a id="thm-vc1-level-normal"></a>
 
 <!-- formal-statement-start -->
-> **定理（正則 level surface と gradient の直交）**  
+> **定理（正則レベル曲面と勾配の直交）**  
 > $f\in C^1(\Omega)$、$x_0\in\Omega$ とし、
 >
 $$
 \nabla f(x_0)\neq0
 $$
 >
-> とする。$f(x)=f(x_0)$ の level surface 上の任意の $C^1$ 曲線 $\gamma$ が $\gamma(0)=x_0$ を満たすなら
+> とする。$f(x)=f(x_0)$ の正則レベル曲面上の任意の $C^1$ 曲線 $\gamma$ が $\gamma(0)=x_0$ を満たすなら
 >
 $$
 \nabla f(x_0)\cdot\gamma'(0)=0.
 $$
 >
-> 従って $\nabla f(x_0)$ は level surface の接方向すべてに直交する。
+> 従って $\nabla f(x_0)$ はレベル曲面の接方向すべてに直交する。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-level surface 上では $f(\gamma(t))$ が定数です。連鎖律で微分すると、その一次変化が 0 になります。
+レベル曲面上では $f(\gamma(t))$ が定数です。連鎖律で微分すると、その一次変化が 0 になります。
 
 <!-- proof-start -->
 ### 証明
 
-$\gamma(t)$ が level surface 上にあるので
+$\gamma(t)$ がレベル曲面上にあるので
 
 $$
 f(\gamma(t))=f(x_0)
@@ -187,9 +296,9 @@ $$
 
 ---
 
-## 3. divergence：微小体積からの正味の湧き出し
+## 3. 発散：微小体積からの正味の湧き出し
 
-3 次元 vector field
+3 次元ベクトル場
 
 $$
 F=(F_1,F_2,F_3)
@@ -200,7 +309,7 @@ $$
 <a id="def-vc1-divergence"></a>
 
 <!-- formal-statement-start -->
-> **定義（divergence）**  
+> **定義（発散）**  
 > $F\in C^1(\Omega;\mathbb R^3)$ に対し
 >
 $$
@@ -219,7 +328,7 @@ $$
 <!-- definition-example-start: def-vc1-divergence -->
 **定義の確認**
 
-radial field
+放射状ベクトル場
 
 $$
 F(x,y,z)=(x,y,z)
@@ -231,7 +340,7 @@ $$
 \operatorname{div}F=1+1+1=3.
 $$
 
-どの点でも正なので、局所的には source のように外へ押し出す場です。
+どの点でも正なので、局所的には湧き出し源のように外へ押し出す場です。
 <!-- definition-example-end -->
 
 微小直方体
@@ -240,7 +349,7 @@ $$
 [x,x+h]\times[y,y+k]\times[z,z+\ell]
 $$
 
-を考えると、$x$ 方向の二面からの正味の外向き flux は一次近似で
+を考えると、$x$ 方向の二面からの正味の外向き流束は一次近似で
 
 $$
 \left(F_1(x+h,y,z)-F_1(x,y,z)\right)k\ell
@@ -251,21 +360,21 @@ $$
 $y,z$ 方向も加えると
 
 $$
-\text{正味 flux}
+\text{正味流束}
 =
 (\operatorname{div}F)\,hk\ell+o(hk\ell).
 $$
 
-したがって divergence は「単位体積あたりの正味流出率」の局所密度です。これを有限領域へ積分した正確な等式が VC4 の Gauss--Ostrogradsky 定理です。
+したがって発散は「単位体積あたりの正味流出率」の局所密度です。これを有限領域へ積分した正確な等式が VC4 の Gauss--Ostrogradsky 定理です。
 
 ---
 
-## 4. curl：微小循環の軸と強さ
+## 4. 回転（curl）：微小循環の軸と強さ
 
 <a id="def-vc1-curl"></a>
 
 <!-- formal-statement-start -->
-> **定義（curl）**  
+> **定義（回転）**  
 > $F=(P,Q,R)\in C^1(\Omega;\mathbb R^3)$ に対し
 >
 $$
@@ -286,7 +395,7 @@ $$
 <!-- definition-example-start: def-vc1-curl -->
 **定義の確認**
 
-rigid rotation field
+剛体回転場
 
 $$
 F(x,y,z)=(-y,x,0)
@@ -298,7 +407,7 @@ $$
 \nabla\times F=(0,0,2).
 $$
 
-$xy$ 平面内で反時計回りに回る場の回転軸が $z$ 軸で、curl も $+z$ 方向を向きます。
+$xy$ 平面内で反時計回りに回る場の回転軸が $z$ 軸で、回転ベクトルも $+z$ 方向を向きます。
 <!-- definition-example-end -->
 
 なぜ第 3 成分が $Q_x-P_y$ なのかを、小長方形の循環で確認します。$xy$ 平面の
@@ -319,16 +428,16 @@ $$
 Q_x-P_y
 $$
 
-が残ります。したがって curl の法線成分は「単位面積あたりの局所循環」を測ります。厳密な面積分との関係は VC5 の Stokes 定理で閉じます。
+が残ります。したがって回転の法線成分は「単位面積あたりの局所循環」を測ります。厳密な面積分との関係は VC5 の Stokes 定理で閉じます。
 
 ---
 
-## 5. Laplacian：gradient の divergence
+## 5. ラプラシアン：勾配の発散
 
 <a id="def-vc1-laplacian"></a>
 
 <!-- formal-statement-start -->
-> **定義（scalar Laplacian）**  
+> **定義（スカラー・ラプラシアン）**  
 > $f\in C^2(\Omega)$ に対し
 >
 $$
@@ -383,13 +492,13 @@ $$
 
 このように $\Delta f=0$ を満たす関数が PDE5 で扱う調和関数です。
 
-vector field $F=(F_1,F_2,F_3)$ に対する vector Laplacian は本系列では成分ごとに
+ベクトル場 $F=(F_1,F_2,F_3)$ に対するベクトル・ラプラシアンは本系列では成分ごとに
 
 $$
 \Delta F=(\Delta F_1,\Delta F_2,\Delta F_3)
 $$
 
-と置きます。曲線座標での vector Laplacian は VC6 で扱います。
+と置きます。曲線座標でのベクトル・ラプラシアンは VC6 で扱います。
 
 ---
 
@@ -398,7 +507,7 @@ $$
 <a id="thm-vc1-curl-grad"></a>
 
 <!-- formal-statement-start -->
-> **定理（curl grad = 0）**  
+> **定理（勾配の回転は 0）**  
 > $f\in C^2(\Omega)$ なら
 >
 $$
@@ -427,7 +536,7 @@ $f\in C^2$ では混合偏微分が交換できるため、各成分は 0 です
 <a id="thm-vc1-div-curl"></a>
 
 <!-- formal-statement-start -->
-> **定理（div curl = 0）**  
+> **定理（回転の発散は 0）**  
 > $F\in C^2(\Omega;\mathbb R^3)$ なら
 >
 $$
@@ -460,8 +569,8 @@ $$
 
 この二つは単なる記号上の偶然ではありません。後で
 
-- gradient field の任意の閉曲線循環が 0
-- curl field の任意の閉曲面 flux が 0
+- 勾配場の任意の閉曲線に沿う循環が 0
+- 回転場の任意の閉曲面を通る流束が 0
 
 という積分的事実と対応します。
 
@@ -469,7 +578,7 @@ $$
 
 ## 7. 積の微分則
 
-vector field $F=(F_1,F_2,F_3)$ と $G=(G_1,G_2,G_3)$ に対し、
+ベクトル場 $F=(F_1,F_2,F_3)$ と $G=(G_1,G_2,G_3)$ に対し、
 
 $$
 ((G\cdot\nabla)F)_i
@@ -478,7 +587,7 @@ $$
 G_j\frac{\partial F_i}{\partial x_j}
 $$
 
-と書きます。これは「$G$ 方向へ $F$ の各成分を微分した vector」です。
+と書きます。これは「$G$ 方向へ $F$ の各成分を微分して得るベクトル」です。
 
 <a id="prop-vc1-product-rules"></a>
 
@@ -609,7 +718,7 @@ F\cdot(\nabla\times G).
 \end{aligned}
 $$
 
-最後に $H=F\times G$ と置きます。curl の第一成分は
+最後に $H=F\times G$ と置きます。回転の第一成分は
 
 $$
 \begin{aligned}
@@ -650,7 +759,7 @@ $$
 (A,B,C)
 $$
 
-を同時に cyclic permutation した同一の展開です。従って三成分すべてで
+を同時に巡回置換した同一の展開です。従って三成分すべてで
 
 $$
 \nabla\times(F\times G)
@@ -673,9 +782,9 @@ $$
 
 三つの一次微分演算子を並べると役割が違います。
 
-- $\nabla f$：scalar field の最急増加方向
-- $\operatorname{div}F$：vector field の source / sink density
-- $\nabla\times F$：vector field の circulation density
+- $\nabla f$：スカラー場の最急増加方向
+- $\operatorname{div}F$：ベクトル場の湧き出し・吸い込みの密度
+- $\nabla\times F$：ベクトル場の循環密度
 
 したがって
 
@@ -687,15 +796,15 @@ $$
 ではありません。入力と出力の型も
 
 $$
-\text{scalar}\xrightarrow{\nabla}\text{vector},
+\text{スカラー}\xrightarrow{\nabla}\text{ベクトル},
 $$
 
 $$
-\text{vector}\xrightarrow{\operatorname{div}}\text{scalar},
+\text{ベクトル}\xrightarrow{\operatorname{div}}\text{スカラー},
 $$
 
 $$
-\text{vector}\xrightarrow{\operatorname{curl}}\text{vector}
+\text{ベクトル}\xrightarrow{\operatorname{curl}}\text{ベクトル}
 $$
 
 と異なります。
@@ -704,7 +813,7 @@ $$
 
 ## 9. 演習
 
-#### VC1-A01 gradient と level surface
+#### VC1-A01 勾配とレベル曲面
 - Level: A
 - 目安時間: 12分
 
@@ -712,7 +821,7 @@ $$
 f(x,y,z)=x^2+2y^2+3z^2
 $$
 
-について $(1,1,1)$ での gradient を求め、level surface の接方向
+について $(1,1,1)$ での勾配を求め、レベル曲面の接方向
 
 $$
 v=(2,-1,0)
@@ -739,10 +848,10 @@ $$
 (2,4,6)\cdot(2,-1,0)=4-4=0.
 $$
 
-従って $v$ は level surface の接方向として gradient と直交しています。
+従って $v$ はレベル曲面の接方向として勾配と直交しています。
 <!-- solution-end -->
 
-#### VC1-A02 divergence の計算
+#### VC1-A02 発散の計算
 - Level: A
 - 目安時間: 10分
 
@@ -750,7 +859,7 @@ $$
 F=(x^2y,\ yz,\ zx)
 $$
 
-の divergence を求めよ。
+の発散を求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -770,7 +879,7 @@ $$
 $$
 <!-- solution-end -->
 
-#### VC1-A03 curl の計算
+#### VC1-A03 回転の計算
 - Level: A
 - 目安時間: 10分
 
@@ -778,7 +887,7 @@ $$
 F=(-2y,2x,z)
 $$
 
-の curl を求め、回転軸を説明せよ。
+の回転を求め、回転軸を説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -799,10 +908,10 @@ $$
 \boxed{\nabla\times F=(0,0,4)}.
 $$
 
-curl は $+z$ 方向なので、局所循環の軸は $z$ 軸方向です。
+回転ベクトルは $+z$ 方向なので、局所循環の軸は $z$ 軸方向です。
 <!-- solution-end -->
 
-#### VC1-A04 Laplacian と調和性
+#### VC1-A04 ラプラシアンと調和性
 - Level: A
 - 目安時間: 12分
 
@@ -830,7 +939,7 @@ $$
 よって $f$ は $\mathbb R^3$ 上で調和です。
 <!-- solution-end -->
 
-#### VC1-B01 product rule を直接確認する
+#### VC1-B01 積の微分則を直接確認する
 - Level: B
 - 目安時間: 20分
 
@@ -891,7 +1000,7 @@ $$
 両辺が一致しました。
 <!-- solution-end -->
 
-#### VC1-B02 curl grad の仮定
+#### VC1-B02 「勾配の回転は 0」の仮定
 - Level: B
 - 目安時間: 20分
 
@@ -929,11 +1038,11 @@ $$
 $$
 <!-- solution-end -->
 
-#### VC1-B03 divergence-free と curl-free は別物
+#### VC1-B03 発散ゼロと回転ゼロは別物
 - Level: B
 - 目安時間: 20分
 
-次の二つを計算し、divergence-free と curl-free が異なる条件であることを示せ。
+次の二つを計算し、発散が 0 であることと回転が 0 であることが異なる条件であることを示せ。
 
 $$
 F=(-y,x,0),\qquad
@@ -955,7 +1064,7 @@ $$
 \nabla\times F=(0,0,2)\neq0.
 $$
 
-したがって $F$ は divergence-free ですが curl-free ではありません。
+したがって $F$ は発散が 0 ですが、回転は 0 ではありません。
 
 $G$ について
 
@@ -971,7 +1080,7 @@ $$
 
 こちらは両方 0 です。
 
-この比較だけでも、$\operatorname{div}$ と $\operatorname{curl}$ が同じ情報を測っていないことが分かります。
+この比較だけでも、発散 $\operatorname{div}$ と回転 $\operatorname{curl}$ が同じ情報を測っていないことが分かります。
 <!-- solution-end -->
 
 #### VC1-C01 局所情報を全部つなぐ
@@ -988,7 +1097,7 @@ $$
 
 1. $\nabla f,\operatorname{div}F,\nabla\times F,\Delta f$ を求めよ。
 2. 単位球面 $f=1$ 上で $\nabla f$ が法線方向を向くことを説明せよ。
-3. $F$ の水平成分 $(-y,x,0)$ が局所回転を、鉛直成分 $(0,0,z)$ が source を持つことを div/curl から説明せよ。
+3. $F$ の水平成分 $(-y,x,0)$ が局所回転を、鉛直成分 $(0,0,z)$ が湧き出しを持つことを発散と回転から説明せよ。
 4. $\operatorname{div}(fF)$ を積の微分則で求めよ。
 
 <!-- solution-start -->
@@ -1018,7 +1127,7 @@ $$
 \Delta f=2+2+2=6.
 $$
 
-2. 単位球面は $f=1$ という level surface です。[正則 level surface と gradient の直交](#thm-vc1-level-normal) より、$\nabla f$ はすべての接方向に直交します。実際
+2. 単位球面は $f=1$ という[レベル曲面](#def-vc1-level-surface)です。[正則レベル曲面と勾配の直交](#thm-vc1-level-normal) より、$\nabla f$ はすべての接方向に直交します。実際
 
 $$
 \nabla f=2(x,y,z)
@@ -1077,12 +1186,12 @@ $$
 
 ## 10. 次章への接続
 
-VC1 では局所微分だけを扱いました。次の VC2 では、vector field を曲線に沿って積分し、
+VC1 では局所微分だけを扱いました。次の VC2 では、ベクトル場を曲線に沿って積分し、
 
 $$
 \nabla\phi
 \quad\Longleftrightarrow\quad
-\text{path independence}
+\text{経路独立性}
 $$
 
 という局所微分と大域的な積分の対応へ進みます。

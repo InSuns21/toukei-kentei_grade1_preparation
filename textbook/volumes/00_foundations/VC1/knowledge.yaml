@@ -14,7 +14,7 @@ forward_references:
 
 concepts:
   - id: vector-calculus.scalar-vector-field
-    name: scalar field・vector field
+    name: スカラー場・ベクトル場
     kind: definition
     aliases: [scalar field, vector field, スカラー場, ベクトル場]
     introduction: inline
@@ -22,7 +22,7 @@ concepts:
       - functional.frechet-derivative
 
   - id: vector-calculus.gradient
-    name: gradient
+    name: 勾配
     kind: definition
     aliases: [gradient, grad, 勾配]
     introduction: inline
@@ -30,18 +30,29 @@ concepts:
       - vector-calculus.scalar-vector-field
       - functional.frechet-derivative
 
-  - id: vector-calculus.level-gradient-normal
-    name: 正則level surfaceとgradientの直交
-    kind: theorem
-    aliases: [level surfaceの法線, gradientの法線性]
+  - id: vector-calculus.level-surface
+    name: レベル集合・レベル曲面
+    kind: definition
+    aliases: [レベル集合, レベル曲面, level set, level surface, 正則点]
     introduction: formal
-    introduction_aliases: ["定理（正則 level surface と gradient の直交）"]
+    introduction_aliases: ["定義（レベル集合・レベル曲面）"]
     requires:
       - vector-calculus.gradient
       - analysis.regular-level-set-local-graph
 
+  - id: vector-calculus.level-gradient-normal
+    name: 正則レベル曲面と勾配の直交
+    kind: theorem
+    aliases: [正則level surfaceとgradientの直交, level surfaceの法線, gradientの法線性, 正則レベル曲面と勾配の直交]
+    introduction: formal
+    introduction_aliases: ["定理（正則レベル曲面と勾配の直交）"]
+    requires:
+      - vector-calculus.gradient
+      - vector-calculus.level-surface
+      - analysis.regular-level-set-local-graph
+
   - id: vector-calculus.divergence
-    name: divergence
+    name: 発散
     kind: definition
     aliases: [divergence, div, 発散]
     introduction: inline
@@ -49,7 +60,7 @@ concepts:
       - vector-calculus.scalar-vector-field
 
   - id: vector-calculus.curl
-    name: curl
+    name: 回転
     kind: definition
     aliases: [curl, rotation, rot, 回転]
     introduction: inline
@@ -57,7 +68,7 @@ concepts:
       - vector-calculus.scalar-vector-field
 
   - id: vector-calculus.scalar-laplacian
-    name: scalar Laplacian
+    name: スカラー・ラプラシアン
     kind: definition
     aliases: [scalar Laplacian, Laplacian, ラプラシアン]
     introduction: inline
@@ -66,21 +77,21 @@ concepts:
       - vector-calculus.divergence
 
   - id: vector-calculus.curl-gradient-zero
-    name: curl grad = 0
+    name: 勾配の回転は 0
     kind: theorem
-    aliases: [curl grad zero]
+    aliases: [curl grad = 0, curl grad zero]
     introduction: formal
-    introduction_aliases: ["定理（curl grad = 0）"]
+    introduction_aliases: ["定理（勾配の回転は 0）"]
     requires:
       - vector-calculus.gradient
       - vector-calculus.curl
 
   - id: vector-calculus.divergence-curl-zero
-    name: div curl = 0
+    name: 回転の発散は 0
     kind: theorem
-    aliases: [div curl zero]
+    aliases: [div curl = 0, div curl zero]
     introduction: formal
-    introduction_aliases: ["定理（div curl = 0）"]
+    introduction_aliases: ["定理（回転の発散は 0）"]
     requires:
       - vector-calculus.divergence
       - vector-calculus.curl
