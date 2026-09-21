@@ -613,6 +613,34 @@ divergence が正の領域では net outflow、負の領域では net inflow が
 > $s=0$ のとき source-free conservation law である。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-vc4-local-conservation -->
+**定義の確認**
+
+$$
+\rho(t,x,y,z)=e^{-3t},
+\qquad
+J(t,x,y,z)=e^{-3t}(x,y,z),
+\qquad
+s=0
+$$
+
+とします。このとき
+
+$$
+\partial_t\rho=-3e^{-3t},
+\qquad
+\operatorname{div}J=3e^{-3t},
+$$
+
+なので
+
+$$
+\partial_t\rho+\operatorname{div}J=0=s.
+$$
+
+したがってこの組は source-free の局所保存則を実際に満たします。
+<!-- definition-example-end -->
+
 <a id="thm-vc4-local-to-integral"></a>
 
 <!-- formal-statement-start -->
