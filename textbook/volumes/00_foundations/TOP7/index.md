@@ -218,7 +218,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-top7-induced-topology -->
-### 直接例：離散一様構造が誘導する位相
+### 直接例：離散一様構造から開集合を具体計算する
 
 **定義の確認**
 
