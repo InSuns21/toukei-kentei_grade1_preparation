@@ -22,15 +22,15 @@ $$
 > **定義（scalar field・vector field）**  
 > 開集合 $\Omega\subset\mathbb R^n$ 上の写像
 >
-> $$
-> f:\Omega\to\mathbb R
-> $$
+$$
+f:\Omega\to\mathbb R
+$$
 >
 > を scalar field、写像
 >
-> $$
-> F:\Omega\to\mathbb R^n
-> $$
+$$
+F:\Omega\to\mathbb R^n
+$$
 >
 > を vector field と呼ぶ。
 <!-- formal-statement-end -->
@@ -63,15 +63,15 @@ $$
 > **定義（gradient）**  
 > $f\in C^1(\Omega)$ とする。点 $x\in\Omega$ における gradient を
 >
-> $$
-> \nabla f(x)
-> =
-> \left(
-> \frac{\partial f}{\partial x_1}(x),
-> \ldots,
-> \frac{\partial f}{\partial x_n}(x)
-> \right)
-> $$
+$$
+\nabla f(x)
+=
+\left(
+\frac{\partial f}{\partial x_1}(x),
+\ldots,
+\frac{\partial f}{\partial x_n}(x)
+\right)
+$$
 >
 > と定義する。
 <!-- formal-statement-end -->
@@ -144,15 +144,15 @@ level surface $f=c$ は半径 $\sqrt c$ の球面で、gradient は半径方向�
 > **定理（正則 level surface と gradient の直交）**  
 > $f\in C^1(\Omega)$、$x_0\in\Omega$ とし、
 >
-> $$
-> \nabla f(x_0)\neq0
-> $$
+$$
+\nabla f(x_0)\neq0
+$$
 >
 > とする。$f(x)=f(x_0)$ の level surface 上の任意の $C^1$ 曲線 $\gamma$ が $\gamma(0)=x_0$ を満たすなら
 >
-> $$
-> \nabla f(x_0)\cdot\gamma'(0)=0.
-> $$
+$$
+\nabla f(x_0)\cdot\gamma'(0)=0.
+$$
 >
 > 従って $\nabla f(x_0)$ は level surface の接方向すべてに直交する。
 <!-- formal-statement-end -->
@@ -203,15 +203,15 @@ $$
 > **定義（divergence）**  
 > $F\in C^1(\Omega;\mathbb R^3)$ に対し
 >
-> $$
-> \operatorname{div}F
-> =
-> \frac{\partial F_1}{\partial x}
-> +
-> \frac{\partial F_2}{\partial y}
-> +
-> \frac{\partial F_3}{\partial z}
-> $$
+$$
+\operatorname{div}F
+=
+\frac{\partial F_1}{\partial x}
++
+\frac{\partial F_2}{\partial y}
++
+\frac{\partial F_3}{\partial z}
+$$
 >
 > と定義する。二次元では第三成分を除いた式を用いる。
 <!-- formal-statement-end -->
@@ -268,17 +268,17 @@ $$
 > **定義（curl）**  
 > $F=(P,Q,R)\in C^1(\Omega;\mathbb R^3)$ に対し
 >
-> $$
-> \operatorname{curl}F
-> =
-> \nabla\times F
-> =
-> \left(
-> R_y-Q_z,\,
-> P_z-R_x,\,
-> Q_x-P_y
-> \right)
-> $$
+$$
+\operatorname{curl}F
+=
+\nabla\times F
+=
+\left(
+R_y-Q_z,\,
+P_z-R_x,\,
+Q_x-P_y
+\right)
+$$
 >
 > と定義する。
 <!-- formal-statement-end -->
@@ -331,14 +331,14 @@ $$
 > **定義（scalar Laplacian）**  
 > $f\in C^2(\Omega)$ に対し
 >
-> $$
-> \Delta f
-> :=
-> \operatorname{div}(\nabla f)
-> =
-> \sum_{j=1}^n
-> \frac{\partial^2f}{\partial x_j^2}
-> $$
+$$
+\Delta f
+:=
+\operatorname{div}(\nabla f)
+=
+\sum_{j=1}^n
+\frac{\partial^2f}{\partial x_j^2}
+$$
 >
 > と定義する。
 <!-- formal-statement-end -->
@@ -401,9 +401,9 @@ $$
 > **定理（curl grad = 0）**  
 > $f\in C^2(\Omega)$ なら
 >
-> $$
-> \nabla\times(\nabla f)=0.
-> $$
+$$
+\nabla\times(\nabla f)=0.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -430,9 +430,9 @@ $f\in C^2$ では混合偏微分が交換できるため、各成分は 0 です
 > **定理（div curl = 0）**  
 > $F\in C^2(\Omega;\mathbb R^3)$ なら
 >
-> $$
-> \operatorname{div}(\nabla\times F)=0.
-> $$
+$$
+\operatorname{div}(\nabla\times F)=0.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -475,29 +475,29 @@ $$
 > **命題（主要な積の微分則）**  
 > $f\in C^1(\Omega)$、$F,G\in C^1(\Omega;\mathbb R^3)$ とする。このとき
 >
-> $$
-> \operatorname{div}(fF)
-> =
-> \nabla f\cdot F
-> +
-> f\,\operatorname{div}F,
-> $$
+$$
+\operatorname{div}(fF)
+=
+\nabla f\cdot F
++
+f\,\operatorname{div}F,
+$$
 >
-> $$
-> \nabla\times(fF)
-> =
-> \nabla f\times F
-> +
-> f(\nabla\times F),
-> $$
+$$
+\nabla\times(fF)
+=
+\nabla f\times F
++
+f(\nabla\times F),
+$$
 >
-> $$
-> \operatorname{div}(F\times G)
-> =
-> G\cdot(\nabla\times F)
-> -
-> F\cdot(\nabla\times G)
-> $$
+$$
+\operatorname{div}(F\times G)
+=
+G\cdot(\nabla\times F)
+-
+F\cdot(\nabla\times G)
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
