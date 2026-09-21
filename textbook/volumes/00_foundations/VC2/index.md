@@ -247,7 +247,7 @@ $$
 \nabla\phi(\gamma(t))\cdot\gamma'(t).
 $$
 
-従って [RA4 の微積分学の基本定理](../RA4/index.md#thm-ra4-ftc2) より
+従って [微積分学の基本定理II](../RA4/index.md#thm-ra4-ftc2) より
 
 $$
 \begin{aligned}
