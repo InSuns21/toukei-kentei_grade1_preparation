@@ -157,7 +157,11 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（三角不等式）**  
-> 実内積空間で内積から定まるノルム $\|x\|=\sqrt{\langle x,x\rangle}$ は、任意の $x,y$ に対して
+> 内積空間で
+>
+> $\|x\|:=\sqrt{\langle x,x\rangle}$
+>
+> と置く。この量は任意の $x,y$ に対して
 
 $$
 \boxed{
@@ -204,7 +208,28 @@ $$
 
 です。
 
-つまり内積から作ったノルムが本当にノルムの三角不等式を満たすことは、Cauchy--Schwarzから従います。
+ここまでで、$\|x\|=\sqrt{\langle x,x\rangle}$ が三角不等式を満たすことまで確認できました。
+
+<a id="cor-f0-00e2-inner-product-norm"></a>
+
+<!-- formal-statement-start -->
+> **系（内積が定めるノルム）**  
+> 内積空間 $V$ に対して
+
+$$
+\|x\|:=\sqrt{\langle x,x\rangle}
+$$
+
+> と置くと、$\|\cdot\|$ は $V$ 上のノルムである。
+<!-- formal-statement-end -->
+
+実際、非負性と $\|x\|=0\Longleftrightarrow x=0$ は内積の正定値性から従い、
+
+$$
+\|ax\|=|a|\,\|x\|
+$$
+
+は内積の斉次性から従います。残る三角不等式が、いまCauchy--Schwarzから証明した内容です。
 
 ---
 
@@ -279,7 +304,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（Fourier係数）**  
-> 実内積空間の正規直交系 $q_1,\dots,q_k$ とベクトル $x$ に対し
+> 内積空間の正規直交系 $q_1,\dots,q_k$ とベクトル $x$ に対し
 
 $$
 c_i=\langle x,q_i\rangle
@@ -292,7 +317,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（正規直交展開）**  
-> $q_1,\dots,q_n$ が有限次元実内積空間 $V$ の正規直交基底であるとき、任意の $x\in V$ を
+> $q_1,\dots,q_n$ が有限次元内積空間 $V$ の正規直交基底であるとき、任意の $x\in V$ を
 
 $$
 x=\sum_{i=1}^n\langle x,q_i\rangle q_i
@@ -361,7 +386,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Bessel不等式）**  
-> $q_1,\dots,q_k$ を実内積空間の正規直交系とする。このとき任意の $x$ に対して
+> $q_1,\dots,q_k$ を内積空間の正規直交系とする。このとき任意の $x$ に対して
 
 $$
 \sum_{i=1}^k|\langle x,q_i\rangle|^2
@@ -455,7 +480,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（有限次元Parseval等式）**  
-> $q_1,\dots,q_n$ が有限次元実内積空間 $V$ の正規直交基底なら、任意の $x\in V$ に対して
+> $q_1,\dots,q_n$ が有限次元内積空間 $V$ の正規直交基底なら、任意の $x\in V$ に対して
 
 $$
 \|x\|^2
