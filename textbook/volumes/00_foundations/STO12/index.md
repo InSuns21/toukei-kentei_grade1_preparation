@@ -265,7 +265,7 @@ $$
 
 ### 証明の見取り図
 
-Itô isometry が
+[Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) が
 
 $$
 \|I_T(H)-I_T(K)\|_2
@@ -294,7 +294,7 @@ $$
 
 次に $Y_n=I_T(H^{(n)})\in\mathcal K_T$ が $L^2$ で Cauchy とします。
 
-[Itô isometry](../STO6/index.md#thm-sto6-l2-construction) より
+[Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) より
 
 $$
 \begin{aligned}
@@ -317,7 +317,7 @@ H^{(n)}\to H
 \text{in }\mathcal H_B^2.
 $$
 
-再び Itô isometry から
+再び [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) から
 
 $$
 I_T(H^{(n)})\to I_T(H)
@@ -704,7 +704,7 @@ g_v(x_1)
 \int f(x_1,x_2)v(x_2)\gamma_2(dx_2)
 $$
 
-と置くと、Fubini と Cauchy--Schwarz により $g_v\in L^2(\gamma_1)$ です。
+と置くと、[Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02) と Cauchy--Schwarz により $g_v\in L^2(\gamma_1)$ です。
 
 全ての $u$ について
 
@@ -1001,7 +1001,7 @@ $$
    $$
 4. centered variable を exponential vectors で近似し、各近似から平均を引けば $\mathcal K_T$ 内の近似になる。
 5. closedness で極限を $\mathcal K_T$ に戻す。
-6. 一意性は Itô isometry。
+6. 一意性は [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple)。
 
 <!-- proof-start -->
 ### 証明
@@ -1035,7 +1035,7 @@ $$
 
 となるようにできます。
 
-各 exponential martingale は期待値 1 なので
+各 $Z_T^h$ は期待値 1 なので
 
 $$
 E[Y_n]
@@ -1073,7 +1073,7 @@ Z_T^{h_{n,j}}-1
 \end{aligned}
 $$
 
-[deterministic exponential martingale の補題](#lem-sto12-exponential-vector) から各
+[第4節の補題](#lem-sto12-exponential-vector) から各
 
 $$
 Z_T^{h_{n,j}}-1
@@ -1127,7 +1127,7 @@ $$
 
 です。
 
-Itô isometry から
+[Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) から
 
 $$
 E\int_0^T|H_t-K_t|^2dt
@@ -1162,7 +1162,7 @@ $$
 
 で存在を出しています。
 
-これは functional analysis 的ですが、必要な部分は Itô isometry と Gaussian exponential の稠密性まで章内で展開しました。
+これは functional analysis 的ですが、必要な部分は [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) と Gaussian exponential の稠密性まで章内で展開しました。
 
 ---
 
@@ -1287,7 +1287,7 @@ E[M_T\mid\mathcal F_t^B]
 E[\xi\mid\mathcal F_t^B].
 $$
 
-前節の系より
+[conditional expectation process の representation](#cor-sto12-conditional-representation) より
 
 $$
 M_t
@@ -1317,7 +1317,7 @@ M_t
 M_0+\int_0^tH_s\cdot dB_s.
 $$
 
-integrand の一意性は terminal time $T$ での Itô isometry から従います。
+integrand の一意性は terminal time $T$ での [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) から従います。
 <!-- proof-end -->
 
 ---
@@ -1477,7 +1477,7 @@ $$
 
 です。
 
-$t=T$ 近傍で見かけ上 $(T-t)^{-1/2}$ が現れますが、Itô isometry と
+$t=T$ 近傍で見かけ上 $(T-t)^{-1/2}$ が現れますが、[Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) と
 
 $$
 \xi-M_0=\int_0^T H_t\,dB_t
@@ -1693,7 +1693,7 @@ $$
 
 ### 16.1 $L^2$ を外すと closed-range proof をそのまま使えない
 
-本章では Itô isometry
+本章では [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple)
 
 $$
 E\left|
@@ -1978,7 +1978,7 @@ $$
 
 は各 $t$ で a.s. 一意です。
 
-さらに右辺は continuous version なので、有理時刻上の a.s. 一致と path continuity から全時刻で indistinguishable です。
+さらに右辺は continuous version なので、有理時刻上の a.s. 一致と 標本路の連続性 から全時刻で indistinguishable です。
 <!-- solution-end -->
 
 #### STO12-A04 integrand の一意性
@@ -1996,7 +1996,7 @@ $$
 
 を満たすとする。
 
-Itô isometry を使って
+[Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) を使って
 
 $$
 H=K
@@ -2018,7 +2018,7 @@ $$
 
 です。
 
-二乗して期待値を取り、Itô isometry を使うと
+二乗して期待値を取り、[Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) を使うと
 
 $$
 \begin{aligned}
@@ -2171,7 +2171,7 @@ $$
 \int_0^T H_t\,dB_t
 $$
 
-in $L^2$ であり、Itô isometry から
+in $L^2$ であり、[Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) から
 
 $$
 E\int_0^T H_t^2dt
@@ -2208,7 +2208,7 @@ $$
    を満たすことを示せ。
 2. 全ての moment $\int x^k\nu(dx)$ が 0 であることを示せ。
 3. $\int e^{itx}\nu(dx)=0$ を示せ。
-4. 特性関数の一意性から $g=0$ a.e. を導け。
+4. [特性関数の一意性](../F0_00P6_特性関数_中心極限定理/index.md#thm-f0-00p6-uniqueness) から $g=0$ a.e. を導け。
 5. この結果から独立 Gaussian variables の有限直積でも product exponential family が total になる理由を説明せよ。
 
 <!-- solution-start -->
@@ -2310,7 +2310,7 @@ $$
 
 第一変数の全 exponential と直交するので 4 から $g_v=0$ です。
 
-第二変数側で countable dense subset を取り、Fubini を使えば、a.e. $x_1$ に対し $f(x_1,\cdot)$ が第二変数の dense family 全体に直交すると分かります。
+第二変数側で countable dense subset を取り、[Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02) を使えば、a.e. $x_1$ に対し $f(x_1,\cdot)$ が第二変数の dense family 全体に直交すると分かります。
 
 再び 4 により $f=0$ a.e.
 
@@ -2366,7 +2366,7 @@ $$
 \int_0^tH_sds=0.
 $$
 
-$H\in L^1([0,T]\times\Omega)$ であり、全ての区間 $(a,b]$ について $\int_a^bH_sds=0$ です。step functions に対する積分が全て 0 になるので、simple functions の $L^1$ approximation を使うと
+各標本路について $t\mapsto\int_0^tH_sds$ は恒等的に 0 です。したがって、この indefinite Lebesgue integral の integrand の一意性から
 
 $$
 H_s=0
@@ -2431,7 +2431,7 @@ $$
    $$
    の $H$ を求めよ。
 4. $H\in\mathcal H_B^2([0,T])$ を確認せよ。
-5. Itô isometry から
+5. [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) から
    $$
    \operatorname{Var}(X_T^2)
    =
@@ -2494,7 +2494,7 @@ $$
 
 後半は $\mathcal F_t^B$ と独立で平均 0 です。
 
-その variance は Itô isometry により
+その variance は [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) により
 
 $$
 \begin{aligned}
@@ -2630,7 +2630,7 @@ X_T^2-E[X_T^2]
 \int_0^T H_s\,dB_s.
 $$
 
-Itô isometry より
+[Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) より
 
 $$
 \begin{aligned}
@@ -2676,7 +2676,7 @@ $$
 
 核心は
 
-1. Itô isometry による stochastic integral の closed range
+1. [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) による stochastic integral の closed range
 2. deterministic exponential martingale
 3. 一次元 Gaussian exponential の totality
 4. 独立 Gaussian product への拡張
