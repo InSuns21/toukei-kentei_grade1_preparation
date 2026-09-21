@@ -1,0 +1,145 @@
+chapter: TSA1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00P3B
+  - F0-02C1A
+
+concepts:
+  - id: timeseries.strict-stationarity
+    name: 狭義定常性
+    kind: definition
+    aliases: ["strict stationarity", "strictly stationary"]
+    introduction: formal
+    introduction_aliases: ["定義（狭義定常性）"]
+    requires:
+      - stochastic.stochastic-process
+
+  - id: timeseries.second-order-stationarity
+    name: 二次定常性
+    kind: definition
+    aliases: ["second-order stationarity", "weak stationarity"]
+    introduction: formal
+    introduction_aliases: ["定義（二次定常性）"]
+    requires:
+      - stochastic.stochastic-process
+      - functional.l2-inner-product
+
+  - id: timeseries.strict-implies-second-order
+    name: 狭義定常性から二次定常性
+    kind: theorem
+    aliases: ["strict stationarity implies second-order stationarity"]
+    introduction: formal
+    introduction_aliases: ["定理（狭義定常性から二次定常性）"]
+    requires:
+      - timeseries.strict-stationarity
+      - timeseries.second-order-stationarity
+
+  - id: timeseries.white-noise
+    name: 弱ホワイトノイズ
+    kind: definition
+    aliases: ["weak white noise", "white noise"]
+    introduction: formal
+    introduction_aliases: ["定義（弱ホワイトノイズ）"]
+    requires:
+      - timeseries.second-order-stationarity
+
+  - id: timeseries.covariance-positive-definite
+    name: 自己共分散関数の正定値性
+    kind: proposition
+    aliases: ["positive-definite autocovariance", "covariance kernel positive definiteness"]
+    introduction: formal
+    introduction_aliases: ["命題（自己共分散関数の正定値性）"]
+    requires:
+      - timeseries.second-order-stationarity
+      - functional.l2-inner-product
+
+  - id: timeseries.past-linear-space
+    name: 過去の線形予測空間
+    kind: definition
+    aliases: ["past linear prediction space", "closed linear span of the past"]
+    introduction: formal
+    introduction_aliases: ["定義（過去の線形予測空間）"]
+    requires:
+      - timeseries.second-order-stationarity
+      - functional.hilbert-space
+
+  - id: timeseries.finite-past-linear-space
+    name: 有限過去予測空間
+    kind: definition
+    aliases: ["finite past prediction space"]
+    introduction: formal
+    introduction_aliases: ["定義（有限過去予測空間）"]
+    requires:
+      - timeseries.past-linear-space
+
+  - id: timeseries.finite-prediction-normal-equations
+    name: 有限過去線形予測の正規方程式
+    kind: theorem
+    aliases: ["finite-past normal equations", "Yule--Walker prediction equations"]
+    introduction: formal
+    introduction_aliases: ["定理（有限過去線形予測の正規方程式）"]
+    requires:
+      - timeseries.finite-past-linear-space
+      - timeseries.covariance-positive-definite
+      - functional.hilbert-projection-theorem
+
+  - id: timeseries.best-linear-prediction
+    name: 無限過去に基づく最良線形予測
+    kind: theorem
+    aliases: ["best linear prediction", "infinite-past linear prediction"]
+    introduction: formal
+    introduction_aliases: ["定理（無限過去に基づく最良線形予測）"]
+    requires:
+      - timeseries.past-linear-space
+      - functional.hilbert-projection-theorem
+
+  - id: timeseries.finite-to-infinite-prediction
+    name: 有限過去予測から無限過去予測への収束
+    kind: proposition
+    aliases: ["finite-past prediction converges to infinite-past prediction"]
+    introduction: formal
+    introduction_aliases: ["命題（有限過去予測から無限過去予測への収束）"]
+    requires:
+      - timeseries.finite-past-linear-space
+      - timeseries.best-linear-prediction
+
+  - id: timeseries.stationary-shift-unitary
+    name: 二次定常過程の時間移動作用素
+    kind: lemma
+    aliases: ["unitary shift for stationary process", "stationary shift operator"]
+    introduction: formal
+    introduction_aliases: ["補題（二次定常過程の時間移動作用素）"]
+    requires:
+      - timeseries.second-order-stationarity
+      - timeseries.past-linear-space
+
+  - id: timeseries.innovation
+    name: イノベーション
+    kind: definition
+    aliases: ["innovation", "linear prediction innovation"]
+    introduction: formal
+    introduction_aliases: ["定義（イノベーション）"]
+    requires:
+      - timeseries.best-linear-prediction
+
+  - id: timeseries.innovation-white-noise
+    name: イノベーション列の直交性と定常分散
+    kind: proposition
+    aliases: ["innovation white noise", "orthogonal innovations"]
+    introduction: formal
+    introduction_aliases: ["命題（イノベーション列の直交性と定常分散）"]
+    requires:
+      - timeseries.innovation
+      - timeseries.stationary-shift-unitary
+      - timeseries.white-noise
+
+  - id: timeseries.linearly-deterministic
+    name: 線形決定論的過程
+    kind: definition
+    aliases: ["linearly deterministic process", "deterministic linear process"]
+    introduction: formal
+    introduction_aliases: ["定義（線形決定論的過程）"]
+    requires:
+      - timeseries.innovation
+      - timeseries.past-linear-space
