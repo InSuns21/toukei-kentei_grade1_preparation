@@ -51,7 +51,7 @@ TSA1--TSA6
 5. [STO5：continuous local martingale・quadratic variation・semimartingale](../STO5/index.md) — 実装済み
 6. [STO6：stochastic integral](../STO6/index.md) — 実装済み
 7. [STO7：multidimensional Itô calculus・Stratonovich](../STO7/index.md) — 実装済み
-8. STO8：local time・Tanaka formula
+8. [STO8：local time・Tanaka formula](../STO8/index.md) — 実装済み
 9. STO9：SDE の strong solution・存在一意性・局所化
 10. STO10：weak solution・Girsanov
 11. STO11：Markov process・semigroup・generator・martingale problem
@@ -163,4 +163,6 @@ STO5 では STO2 の bounded optional sampling を dyadic approximation で連�
 
 [STO7「multidimensional Itô calculus・Stratonovich」](../STO7/index.md#thm-sto7-multidimensional-ito) も実装済みです。vector Brownian motion の covariation から始め、weighted covariation sum を介して multidimensional Itô formula を二次 Taylor 展開から証明し、product rule、Itô process、stochastic exponential、Brownian exponential martingaleまで接続しました。さらに symmetric sum から Stratonovich integral を構成し、Itô--Stratonovich conversion と Euclidean chain rule、vector field 形式の drift correctionまで閉じています。manifold 上の確率解析は先取りしていません。
 
-現在地は **Phase 2：STO5 → STO6 → STO7 完了 → 次は STO8「local time・Tanaka formula」** です。
+[STO8「local time・Tanaka formula」](../STO8/index.md#thm-sto8-tanaka) も実装済みです。絶対値の smooth approximation から Brownian local time を構成し、Tanaka formula、positive / negative part、level-set support、空間連続性、occupation time formula、interval occupation approximation、Skorokhod reflection、Levy transform まで閉じています。
+
+現在地は **Phase 2：STO5 → STO6 → STO7 → STO8 完了。次は Phase 3 の STO9「SDE：strong solution・存在一意性・局所化」** です。

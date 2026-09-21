@@ -1,0 +1,20 @@
+chapter: "STO8"
+terms:
+  - term: local time
+    english: local time
+    meaning: Brown運動があるlevelの近傍へ滞在した時間を空間幅で割った極限として現れる密度。時刻方向には連続増加し、その増加はlevel set上に支えられる。
+  - term: Tanaka formula
+    english: Tanaka formula
+    meaning: C2でない絶対値やpositive partへItô calculusを拡張し、kinkで失われた二階項をlocal timeとして補う公式。
+  - term: occupation time formula
+    english: occupation time formula
+    meaning: Brown運動の時間積分を空間積分へ変換し、occupation measureの密度がlocal timeであることを表す公式。
+  - term: level set
+    english: level set
+    meaning: 固定したaに対する時刻集合 {t:B_t=a}。Brown運動ではLebesgue時間0だがlocal timeの増加はこの集合に集中する。
+  - term: Skorokhod reflection
+    english: Skorokhod reflection
+    meaning: 連続pathを0以上へ押し上げる最小の非減少regulatorをrunning minimumから構成する一次元反射問題。
+  - term: Levy transform
+    english: Levy transform
+    meaning: beta_t=integral sign(B_s)dB_sで定まるBrown運動。Tanaka formulaにより|B|=beta+L^0と結び付く。
