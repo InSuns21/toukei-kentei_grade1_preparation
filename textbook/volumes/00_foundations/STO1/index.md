@@ -326,7 +326,7 @@ F0-00P3C では[増加する部分 $\sigma$ 代数列](../F0_00P3C_Levy上昇定
 <a id="def-sto1-sub-sigma-algebra"></a>
 
 <!-- formal-statement-start -->
-> **定義（部分 $\sigma$ 代数）**  
+> **定義（部分σ代数）**  
 > $(\Omega,\mathcal F)$ を可測空間とする。集合族 $\mathcal G$ が
 >
 $$
@@ -367,7 +367,7 @@ $$
 <a id="def-sto1-p-complete-sub-sigma-algebra"></a>
 
 <!-- formal-statement-start -->
-> **定義（$P$ に関して complete な部分 $\sigma$ 代数）**  
+> **定義（P に関して complete な部分σ代数）**  
 > 確率空間 $(\Omega,\mathcal F,P)$ と、その部分 $\sigma$ 代数 $\mathcal G\subseteq\mathcal F$ を考える。任意の $A\in\mathcal F$ と任意の $N\subseteq A$ に対して
 >
 $$
@@ -429,7 +429,7 @@ $$
 >
 > が全ての $t\ge0$ で成り立つことをいう。
 >
-> また $\mathcal F_0$ が [$P$ に関して complete](#def-sto1-p-complete-sub-sigma-algebra)、すなわち 全体側の $\mathcal F$ の $P$-零集合の任意の部分集合をすべて含むとする。filtration の単調性から、このとき全ての $\mathcal F_t$ もそれらを含む。right-continuity とこの completeness の両方を満たすとき、filtration は **usual conditions** を満たすという。
+> また $\mathcal F_0$ が [$P$ に関して complete](#def-sto1-p-complete-sub-sigma-algebra)、すなわち全体側の $\mathcal F$ の $P$-零集合の任意の部分集合をすべて含むとする。filtration の単調性から、このとき全ての $\mathcal F_t$ もそれらを含む。right-continuity とこの completeness の両方を満たすとき、filtration は **usual conditions** を満たすという。
 <!-- formal-statement-end -->
 
 $\mathcal F_t$ は「時刻 $t$ までに判定できる事象」の集合です。
