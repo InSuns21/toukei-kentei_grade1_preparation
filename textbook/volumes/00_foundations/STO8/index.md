@@ -610,7 +610,7 @@ $$
 
 局所時間は increasing ですが、ブラウン運動が水準から離れている時間には増えません。
 
-<a id="prop-sto8-local-time-support"></a>
+<a id="prop-sto8-local-time-level-increase"></a>
 
 <!-- formal-statement-start -->
 > **命題（局所時間はレベル集合の外では増加しない）**  
@@ -1754,7 +1754,7 @@ $$
 
 $|B_t|\ge0$、$L^0$ は continuous nondecreasing、$L_0^0=0$ です。
 
-さらに [局所時間が増える場所](#prop-sto8-local-time-support) から $L^0$ が増加するのは
+さらに [局所時間が増える場所](#prop-sto8-local-time-level-increase) から $L^0$ が増加するのは
 
 $$
 B_t=0
