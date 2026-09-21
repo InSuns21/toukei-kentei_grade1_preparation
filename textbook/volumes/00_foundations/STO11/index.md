@@ -135,7 +135,7 @@ $$
 <a id="def-sto11-markov-process"></a>
 
 <!-- formal-statement-start -->
-> **定義（time-homogeneous Markov 過程）**  
+> **定義（時間一様マルコフ過程）**  
 > フィルトレーション付き確率空間上の適合過程 $X=(X_t)_{t\ge0}$ と遷移核 $(P_t)_{t\ge0}$ を考える。
 >
 > 任意の有界 Borel 関数 $f:\mathbb R^d\to\mathbb R$ と $s,t\ge0$ に対して
@@ -147,7 +147,7 @@ P_tf(X_s)
 \qquad\text{a.s.}
 $$
 
-> が成り立つとき、$X$ を time-homogeneous Markov 過程という。ここで
+> が成り立つとき、$X$ を 時間一様マルコフ過程という。ここで
 
 $$
 P_tf(x)
@@ -236,7 +236,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sto11-markov-semigroup -->
-### 直接例：deterministic flow は最も単純な半群
+### 直接例：決定論的フロー は最も単純な半群
 
 **定義の確認**
 
@@ -285,7 +285,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（Chapman--Kolmogorov と半群法則）**  
-> $X$ が time-homogeneous Markov 過程で遷移核 $(P_t)$ を持つとする。
+> $X$ が 時間一様マルコフ過程で遷移核 $(P_t)$ を持つとする。
 >
 > このとき任意の $s,t\ge0$ と Borel 集合 $A$ について
 
@@ -358,7 +358,7 @@ STO9 の大域 Lipschitz SDE では、同じ係数から各初期点 $x$ に対�
 <a id="prop-sto11-lipschitz-sde-markov"></a>
 
 <!-- formal-statement-start -->
-> **命題（大域 Lipschitz SDE の solution family は Markov）**  
+> **命題（大域 Lipschitz SDE の解族はマルコフ過程）**  
 > $b,\sigma$ が大域 Lipschitz かつ線形成長を満たし、
 >
 $$
@@ -505,7 +505,7 @@ $$
 です。
 
 <!-- definition-example-start: def-sto11-generator -->
-### 直接例：deterministic flow の生成作用素は一次微分になる
+### 直接例：決定論的フロー の生成作用素は一次微分になる
 
 **定義の確認**
 
@@ -2019,7 +2019,7 @@ solution 法則が一つ存在するだけでは、存在と一意性の二条�
 
 ## 17. 演習
 
-#### STO11-A01 deterministic flow の核・半群・生成作用素
+#### STO11-A01 決定論的フロー の核・半群・生成作用素
 - Level: A
 - 目安時間: 15分
 
