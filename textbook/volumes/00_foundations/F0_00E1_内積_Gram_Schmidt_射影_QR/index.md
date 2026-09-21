@@ -13,7 +13,7 @@ $$\boxed{\text{内積}\to\text{Gram--Schmidt}\to\text{射影}\to\text{最小二�
 <a id="def-f0-00e1-inner-product"></a>
 
 <!-- formal-statement-start -->
-> **定義（実内積）**  
+> **定義（内積の公理）**  
 > 実ベクトル空間 $V$ 上の写像
 >
 > $$
@@ -43,7 +43,7 @@ $$\boxed{\text{内積}\to\text{Gram--Schmidt}\to\text{射影}\to\text{最小二�
 > \|x\|=\sqrt{\langle x,x\rangle}
 > $$
 >
-> とノルムを定めます。
+> を長さを表す記号として使います。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-f0-00e1-inner-product -->
@@ -86,7 +86,7 @@ $$
 \end{aligned}
 $$
 
-これがPythagorasの等式で、射影・最小二乗・Hilbert空間の射影定理を支えます。
+これがPythagorasの等式で、射影・最小二乗までを支えます。
 
 ---
 
@@ -503,7 +503,7 @@ $$
 等号は $p-v=0$、すなわち $v=p$ のときだけです。
 <!-- proof-end -->
 
-後のHilbert空間の射影定理は、この有限次元の事実を無限次元へ一般化します。
+後の無限次元版では、この有限次元の最近点性をより一般の空間へ拡張します。
 
 ---
 
@@ -704,7 +704,7 @@ $$
 z^{\mathsf T}X^{\mathsf T}Xz=\|Xz\|^2>0,
 $$
 
-だから $X^{\mathsf T}X$ は正定値で可逆です。従って解の公式が従います。
+です。もし $X^{\mathsf T}Xz=0$ なら左辺は0になり、上式と矛盾するので $z=0$ です。従って $X^{\mathsf T}X$ の核は $\{0\}$ であり、正方行列なので可逆です。よって解の公式が従います。
 
 ---
 
@@ -834,7 +834,7 @@ H=M\oplus M^\perp
 }
 $$
 
-というHilbert空間の閉部分空間に対する直交分解へ一般化されます。
+という無限次元の直交分解へ一般化されます。
 
 有限次元では「部分空間は自動的に閉」であるため、閉性をほぼ意識しません。
 
@@ -960,7 +960,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-列 $a_1=(1,1,0)^{\mathsf T}$、$a_2=(1,-1,0)^{\mathsf T}$ は直交し、どちらもノルム $\sqrt2$ です。従って
+列 $a_1=(1,1,0)^{\mathsf T}$、$a_2=(1,-1,0)^{\mathsf T}$ は直交し、どちらも長さ $\sqrt2$ です。従って
 
 $$
 Q=\frac1{\sqrt2}
@@ -1255,6 +1255,6 @@ $$
 
 ## 15. 次に進む
 
-内積が作るノルムと直交展開の基本不等式を次講で証明します。
+内積から作った長さが三角不等式を満たすことと、直交展開の基本不等式を次講で証明します。
 
 **次：[F0-00E2 Cauchy--Schwarz・Bessel・Parseval](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md)**
