@@ -613,16 +613,16 @@ $$
 <a id="prop-sto8-local-time-support"></a>
 
 <!-- formal-statement-start -->
-> **命題（局所時間の増加はレベル集合に支えられる）**  
+> **命題（局所時間はレベル集合の外では増加しない）**  
 > $B$ を standard ブラウン運動、$a\in\mathbb R$ とする。
 >
 > 局所時間 $L^a$ の Stieltjes 増加測度 $dL_t^a$ は
 >
 $$
-\{t\ge0:B_t=a\}
+\{t\ge0:B_t\ne a\}
 $$
 >
-> に支えられる。
+> に質量を与えない。
 >
 > すなわちコンパクト集合区間 $[u,v]$ 上で $B_t\ne a$ が全ての $t\in[u,v]$ に対して成り立つなら
 >
@@ -1307,7 +1307,7 @@ $$
 
 を考えます。
 
-まず、rational endpoints を持つ有界 open 区間 $I=(p,q)$ を一つ固定します。$1_I$ を下から近似する compactly supported continuous functions $g_n$ を選べます。例えば $g_n$ を $I$ の内部で 1、境界から距離 $1/n$ の層で線形に 0 へ落とし、$I$ の外で 0 とすれば
+まず、rational endpoints を持つ有界 open 区間 $I=(p,q)$ を一つ固定します。$1_I$ を下から近似し、ある有界区間の外では 0 となる連続関数 $g_n$ を選べます。例えば $g_n$ を $I$ の内部で 1、境界から距離 $1/n$ の層で線形に 0 へ落とし、$I$ の外で 0 とすれば
 
 $$
 0\le g_n\uparrow1_I.
@@ -1331,7 +1331,7 @@ $$
 \mu_t^\omega(\mathbb R)=t,
 $$
 
-また $g_n\uparrow1$ となる compactly supported continuous 切断を $C_c$ の等式へ入れて monotone convergence を使えば
+また $g_n\uparrow1$ となり、各 $g_n$ がある有界区間の外では 0 となる連続近似を $C_c$ の等式へ入れて単調収束定理を使えば
 
 $$
 \nu_t^\omega(\mathbb R)=t.
@@ -2871,18 +2871,18 @@ $$
 dX_t=b(X_t)\,dt+\sigma(X_t)\,dB_t
 $$
 
-という stochastic differential equation 自体の解を構成します。
+という確率微分方程式自体の解を構成します。
 
 そこで必要になるのは、
 
 - 強解
 - 標本路ごと一意性
-- Picard 反復
+- Picard 型逐次近似
 - 大域的 / 局所 Lipschitz
 - 線形成長
 - 爆発時刻
-- localization
+- 局所化
 
 です。
 
-STO7 の Itô 解析と STO8 の標本路ごと補正を持った状態で、いよいよ「与えられた stochastic differential equation に過程が存在するか」という問題へ進みます。
+STO7 の Itô 解析と STO8 の標本路ごと補正を持った状態で、いよいよ「与えられた確率微分方程式に過程が存在するか」という問題へ進みます。
