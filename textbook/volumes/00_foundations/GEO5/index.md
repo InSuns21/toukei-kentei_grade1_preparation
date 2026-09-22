@@ -67,7 +67,7 @@ $$
 <!-- definition-example-start: def-geo5-vector-field -->
 **定義の確認**
 
-球面上の円周方向ベクトル場
+球面上の円周方向を向く滑らかなベクトル場
 
 $S^2\subset\mathbb R^3$ 上で
 
@@ -182,7 +182,7 @@ $$
 
 <a id="prop-geo5-vector-field-derivation"></a>
 <!-- formal-statement-start -->
-> **命題（ベクトル場は $C^\infty(M)$ 上の導分を定める）**  
+> **命題（滑らかなベクトル場は滑らかな関数環上の導分を定める）**  
 > 任意の $f,g\in C^\infty(M)$ と $a,b\in\mathbb R$ に対して
 >
 > $$
