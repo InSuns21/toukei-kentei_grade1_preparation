@@ -492,7 +492,7 @@ VC4 / VC5 の Green・Gauss--Ostrogradsky・Kelvin--Stokes は特殊例として
 
 **tier: advanced-standard**
 
-**prerequisites:** GEO10
+**prerequisites:** GEO10, GEO6, GEO9
 
 主な内容：
 
@@ -945,12 +945,12 @@ Phase 1 完了。GEO1 → GEO2 → GEO3 → GEO4 完了。
 - GEO9 de Rham 入門 ✅ 2026-09-22
 
 Phase 2 完了。GEO5 → GEO6 → GEO7 → GEO8 → GEO9 完了。
-Phase 3 の GEO10 まで完了。次の実装開始点は **GEO11「Euclid 空間の超曲面 II：構造方程式・Gauss--Codazzi・基本定理」** とする。
+Phase 3 の GEO11 まで完了。次の実装開始点は **GEO12「Riemann 計量・長さ・距離・体積」** とする。
 
 ### Phase 3：古典曲面論から Riemann 幾何へ
 
 - GEO10 曲線・超曲面 I ✅ 2026-09-22
-- GEO11 超曲面 II
+- GEO11 超曲面 II ✅ 2026-09-23
 - GEO12 Riemann 計量
 - GEO13 接続
 - GEO14 測地線・指数写像
