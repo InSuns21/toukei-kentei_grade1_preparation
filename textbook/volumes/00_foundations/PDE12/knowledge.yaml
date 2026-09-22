@@ -34,9 +34,9 @@ concepts:
     aliases: ["Hamilton 特性からの局所古典解の再構成"]
     introduction: formal
   - id: pde.pde12-caustic
-    name: 特性 caustic
+    name: 特性焦散
     kind: definition
-    aliases: ["特性 caustic"]
+    aliases: ["特性焦散", "characteristic caustic"]
     introduction: formal
   - id: pde.pde12-burgers
     name: Hamilton--Jacobi から Burgers 方程式
@@ -44,7 +44,7 @@ concepts:
     aliases: ["Hamilton--Jacobi から Burgers 方程式"]
     introduction: formal
   - id: pde.pde12-eikonal
-    name: eikonal 方程式
+    name: アイコナール方程式
     kind: definition
-    aliases: ["eikonal 方程式"]
+    aliases: ["アイコナール方程式", "eikonal equation"]
     introduction: formal
