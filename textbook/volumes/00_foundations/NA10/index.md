@@ -64,7 +64,13 @@ $$
 
 を残差としました。
 
-固有値問題では右辺にも未知量があるため、近似固有値 $\mu$ と近似固有ベクトル $x$ に対して
+固有値問題では右辺にも未知量があるため、近似固有値と近似固有ベクトルを組にして残差を定めます。
+
+<a id="def-na10-eigenpair-residual"></a>
+<!-- formal-statement-start -->
+### 定義（固有対残差）
+
+$A\in\mathbb R^{n\times n}$、$\mu\in\mathbb R$、非零ベクトル $x\in\mathbb R^n$ に対して
 
 $$
 \boxed{
@@ -72,29 +78,81 @@ r=Ax-\mu x
 }
 $$
 
-を見ます。
+を近似固有対 $(\mu,x)$ の **固有対残差**という。
+<!-- formal-statement-end -->
 
-これをこの章では **固有対残差**と呼びます。
+<!-- definition-example-start: def-na10-eigenpair-residual -->
+### 例：残差が0なら厳密な固有対である
 
-もし
+**定義の確認**。
 
 $$
-r=0
+A=
+\begin{pmatrix}
+2&0\\
+0&3
+\end{pmatrix},
+\qquad
+\mu=3,
+\qquad
+x=
+\begin{pmatrix}
+0\\1
+\end{pmatrix}
+$$
+
+とすると
+
+$$
+Ax-\mu x
+=
+\begin{pmatrix}
+0\\3
+\end{pmatrix}
+-
+3
+\begin{pmatrix}
+0\\1
+\end{pmatrix}
+=
+0.
+$$
+
+従って $(3,x)$ は厳密な固有対です。
+
+一方、
+
+$$
+\widetilde x
+=
+\frac1{\sqrt2}
+\begin{pmatrix}
+1\\1
+\end{pmatrix},
+\qquad
+\widetilde\mu=\frac52
 $$
 
 なら
 
 $$
-Ax=\mu x
+A\widetilde x-\widetilde\mu\widetilde x
+=
+\frac1{2\sqrt2}
+\begin{pmatrix}
+-1\\1
+\end{pmatrix}
+\ne0.
 $$
 
-なので、$(\mu,x)$ は厳密な固有対です。
+この非零ベクトルが、固有値方程式をどれだけ満たしていないかを表します。
+<!-- definition-example-end -->
 
 したがって数値計算では
 
 > 近似値そのものだけでなく、元の固有値方程式へ戻したときどれだけ満たしているか
 
-を残差で確認します。
+を固有対残差で確認します。
 
 ---
 
@@ -2426,7 +2484,64 @@ $$
 
 を収束した固有値として切り離し、残りの $(n-1)\times(n-1)$ 問題へ進めます。
 
-この切り離しを **デフレーション**と呼びます。
+<a id="def-na10-deflation"></a>
+<!-- formal-statement-start -->
+### 定義（デフレーション）
+
+固有値反復により、行列が数値的に
+
+$$
+A_k
+\approx
+\begin{pmatrix}
+B_k&0\\
+0&\lambda
+\end{pmatrix}
+$$
+
+というブロック対角形へ分離したとき、収束した固有値 $\lambda$ に対応する行・列を後続計算から切り離し、残りの小さい固有値問題
+
+$$
+B_k
+$$
+
+へ移る操作を **デフレーション**という。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-na10-deflation -->
+### 例：3次問題を2次問題へ縮約する
+
+**定義の確認**。
+
+反復の結果
+
+$$
+A_k
+\approx
+\begin{pmatrix}
+4&1&0\\
+1&2&0\\
+0&0&7
+\end{pmatrix}
+$$
+
+となったとします。
+
+第3行・第3列は他の成分と結合していないので、$7$ はすでに切り離された固有値です。
+
+したがって残る計算は
+
+$$
+\begin{pmatrix}
+4&1\\
+1&2
+\end{pmatrix}
+$$
+
+の2次固有値問題だけです。
+
+このように、収束済みの固有値を再計算対象から外して問題の次元を下げるのがデフレーションです。
+<!-- definition-example-end -->
 
 実装上は、対称行列をまず直交相似変換で三重対角行列へ落としてから、シフト付き QR 法を行うのが標準的です。
 
