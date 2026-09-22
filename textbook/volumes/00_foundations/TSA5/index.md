@@ -49,7 +49,7 @@ $$
 \Omega=\mathbb R^{\mathbb Z}
 $$
 
-とし、座標写像を
+とし、座標過程を
 
 $$
 X_t(\omega)=\omega_t
