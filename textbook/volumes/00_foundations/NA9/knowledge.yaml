@@ -20,20 +20,20 @@ concepts:
       - numerical.residual
 
   - id: numerical.spectral-radius
-    name: 行列のスペクトル半径
+    name: 行列に対するスペクトル半径
     kind: definition
-    aliases: [matrix spectral radius, 行列のスペクトル半径, スペクトル半径]
+    aliases: [matrix spectral radius, 行列に対するスペクトル半径]
     introduction: formal
-    introduction_aliases: [スペクトル半径, "定義（スペクトル半径）"]
+    introduction_aliases: ["定義（行列に対するスペクトル半径）"]
     requires:
       - linear.eigenvalue
 
   - id: numerical.stationary-iteration-convergence
-    name: 定常反復法のスペクトル半径による収束判定
+    name: 行列に対するスペクトル半径による定常反復法の収束判定
     kind: theorem
     aliases: [spectral-radius criterion for stationary iteration]
     introduction: formal
-    introduction_aliases: ["定理（定常反復法のスペクトル半径による収束判定）"]
+    introduction_aliases: ["定理（行列に対するスペクトル半径による定常反復法の収束判定）"]
     requires:
       - numerical.stationary-iteration
       - numerical.spectral-radius
