@@ -340,3 +340,4 @@ STO 系列ではマルチンゲール・ブラウン運動・二次変分・確�
 10. [NA9 数値線形代数 II：反復法・Krylov 法](textbook/volumes/00_foundations/NA9/index.md)
 11. [NA10 固有値数値計算](textbook/volumes/00_foundations/NA10/index.md)
 12. [NA11 Perron–Frobenius 理論と PageRank](textbook/volumes/00_foundations/NA11/index.md)
+13. [NA12 無制約最適化と共役勾配法](textbook/volumes/00_foundations/NA12/index.md)

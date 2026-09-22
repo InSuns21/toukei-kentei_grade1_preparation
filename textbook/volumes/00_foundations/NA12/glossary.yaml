@@ -1,0 +1,29 @@
+chapter: "NA12"
+terms:
+  - term: 無制約最適化
+    english: unconstrained optimization
+    meaning: 変数に等式・不等式制約を課さず、目的関数を最小化する問題。
+  - term: 局所最小点
+    english: local minimizer
+    meaning: ある近傍の中で目的関数値がそれ以上小さくならない点。
+  - term: 大域最小点
+    english: global minimizer
+    meaning: 定義域全体のすべての点と比べて目的関数値が最小となる点。
+  - term: 降下方向
+    english: descent direction
+    meaning: 勾配との内積が負で、十分小さい正の歩幅なら目的関数を減らす方向。
+  - term: 厳密直線探索
+    english: exact line search
+    meaning: 与えた探索方向上で目的関数を最小にする歩幅を選ぶ操作。
+  - term: 最急降下法
+    english: steepest descent method
+    meaning: Euclid ノルムを基準に負の勾配方向へ反復する無制約最適化法。
+  - term: 実対称正定値二次目的関数
+    english: symmetric positive definite quadratic objective
+    meaning: q(x)=x^T A x/2-b^T x+c で A が実対称正定値である二次目的関数。最小化は Ax=b と同値。
+  - term: Newton 法
+    english: Newton method for unconstrained optimization
+    meaning: Hessian と勾配から Hs=-g を解き、二次近似の停留点へ進む最適化法。
+  - term: 共役勾配法
+    english: conjugate gradient method
+    meaning: NA9 で導入した SPD 線形系の Krylov 法。NA12 では同値な二次目的関数の逐次最小化として解釈する。

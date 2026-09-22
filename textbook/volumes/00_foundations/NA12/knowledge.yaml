@@ -1,0 +1,175 @@
+chapter: NA12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00G
+  - NA9
+forward_references: []
+
+concepts:
+  - id: optimization.unconstrained-minimization
+    name: 無制約最適化問題
+    kind: definition
+    aliases: [unconstrained optimization problem]
+    introduction: formal
+    introduction_aliases: ["定義（無制約最適化問題・局所最小点・大域最小点）"]
+    requires: []
+
+  - id: optimization.local-minimizer
+    name: 局所最小点
+    kind: definition
+    aliases: [local minimizer]
+    introduction: formal
+    introduction_aliases: ["定義（無制約最適化問題・局所最小点・大域最小点）"]
+    requires:
+      - optimization.unconstrained-minimization
+
+  - id: optimization.global-minimizer
+    name: 大域最小点
+    kind: definition
+    aliases: [global minimizer]
+    introduction: formal
+    introduction_aliases: ["定義（無制約最適化問題・局所最小点・大域最小点）"]
+    requires:
+      - optimization.unconstrained-minimization
+
+  - id: optimization.first-order-necessary-condition
+    name: 無制約最適化の一階必要条件
+    kind: proposition
+    aliases: [first-order necessary condition for unconstrained minimization]
+    introduction: formal
+    introduction_aliases: ["命題（一階必要条件）"]
+    requires:
+      - optimization.local-minimizer
+
+  - id: optimization.second-order-minimum-conditions
+    name: 無制約最適化の二階最小条件
+    kind: proposition
+    aliases: [second-order minimum conditions for unconstrained optimization]
+    introduction: formal
+    introduction_aliases: ["命題（二階必要条件と正定値 Hessian による十分条件）"]
+    requires:
+      - optimization.first-order-necessary-condition
+
+  - id: optimization.descent-direction
+    name: 降下方向
+    kind: definition
+    aliases: [descent direction]
+    introduction: formal
+    introduction_aliases: ["定義（降下方向・厳密直線探索）"]
+    requires: []
+
+  - id: optimization.exact-line-search
+    name: 厳密直線探索
+    kind: definition
+    aliases: [exact line search]
+    introduction: formal
+    introduction_aliases: ["定義（降下方向・厳密直線探索）"]
+    requires:
+      - optimization.descent-direction
+
+  - id: optimization.descent-direction-local-decrease
+    name: 降下方向の局所減少性
+    kind: proposition
+    aliases: [local decrease along a descent direction]
+    introduction: formal
+    introduction_aliases: ["命題（降下方向では十分小さい正の歩幅で関数値が下がる）"]
+    requires:
+      - optimization.descent-direction
+
+  - id: optimization.steepest-descent
+    name: 最急降下法
+    kind: definition
+    aliases: [steepest descent method]
+    introduction: formal
+    introduction_aliases: ["定義（最急降下法）"]
+    requires:
+      - optimization.descent-direction
+
+  - id: optimization.euclidean-steepest-direction
+    name: Euclid ノルムに関する最急降下方向
+    kind: proposition
+    aliases: [Euclidean steepest descent direction]
+    introduction: formal
+    introduction_aliases: ["命題（負の勾配は Euclid ノルムに関する最急降下方向）"]
+    requires:
+      - optimization.steepest-descent
+
+  - id: optimization.spd-quadratic-objective
+    name: 実対称正定値二次目的関数
+    kind: definition
+    aliases: [symmetric positive definite quadratic objective]
+    introduction: formal
+    introduction_aliases: ["定義（実対称正定値二次目的関数）"]
+    requires:
+      - numerical.a-inner-product
+
+  - id: optimization.spd-quadratic-gap
+    name: 実対称正定値二次関数の目的関数差恒等式
+    kind: proposition
+    aliases: [objective gap identity for SPD quadratics]
+    introduction: formal
+    introduction_aliases: ["命題（実対称正定値二次関数の一意な最小点と目的関数差）"]
+    requires:
+      - optimization.spd-quadratic-objective
+      - numerical.a-inner-product
+
+  - id: optimization.quadratic-exact-line-search
+    name: 実対称正定値二次関数の厳密直線探索
+    kind: proposition
+    aliases: [exact line search for SPD quadratics]
+    introduction: formal
+    introduction_aliases: ["命題（実対称正定値二次関数の厳密直線探索）"]
+    requires:
+      - optimization.spd-quadratic-objective
+      - optimization.exact-line-search
+
+  - id: optimization.steepest-descent-condition-bound
+    name: 最急降下法の条件数依存収束評価
+    kind: theorem
+    aliases: [condition-number convergence bound for steepest descent]
+    introduction: formal
+    introduction_aliases: ["定理（厳密直線探索付き最急降下法の条件数依存収束評価）"]
+    requires:
+      - optimization.steepest-descent
+      - optimization.spd-quadratic-gap
+      - numerical.matrix-condition-number
+
+  - id: optimization.newton-unconstrained
+    name: 無制約最適化に対する Newton 法
+    kind: definition
+    aliases: [Newton method for unconstrained optimization]
+    introduction: formal
+    introduction_aliases: ["定義（無制約最適化に対する Newton 法）"]
+    requires: []
+
+  - id: optimization.quadratic-newton-one-step
+    name: 実対称正定値二次関数に対する Newton 法の1回終了
+    kind: proposition
+    aliases: [one-step Newton convergence for SPD quadratics]
+    introduction: formal
+    introduction_aliases: ["命題（実対称正定値二次関数に対する Newton 法の1回終了）"]
+    requires:
+      - optimization.newton-unconstrained
+      - optimization.spd-quadratic-objective
+
+  - id: optimization.cg-line-search-interpretation
+    name: 共役勾配法の厳密直線探索解釈
+    kind: proposition
+    aliases: [exact-line-search interpretation of conjugate gradients]
+    introduction: formal
+    introduction_aliases: ["命題（共役勾配法の歩幅は二次目的関数の厳密直線探索である）"]
+    requires:
+      - numerical.conjugate-gradient-method
+      - numerical.cg-orthogonality-finite-termination
+      - optimization.quadratic-exact-line-search
+
+  - id: optimization.cg-quadratic-minimization
+    name: 共役勾配法の二次目的関数最小化性
+    kind: theorem
+    aliases: [quadratic minimization property of conjugate gradients]
+    introduction: formal
+    introduction_aliases: ["定理（共役勾配法の Krylov アフィン空間上の二次目的関数最小化）"]
+    requires:
+      - numerical.cg-best-approximation
+      - optimization.spd-quadratic-gap
