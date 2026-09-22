@@ -13,6 +13,11 @@ concepts:
     kind: proposition
     aliases: ["円板の変数分離と Bessel 方程式"]
     introduction: formal
+  - id: pde.pde11-bessel-zeros
+    name: 整数次数 Bessel 関数の正零点
+    kind: lemma
+    aliases: ["整数次数 Bessel 関数の正零点"]
+    introduction: formal
   - id: pde.pde11-bessel-mode
     name: 円板の Bessel モード
     kind: definition
