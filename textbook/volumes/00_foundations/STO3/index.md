@@ -1049,7 +1049,53 @@ $$
 
 と置きます。
 
-仮定より $\Sigma_I$ は対称な半正定値行列です。従って、退化を許せば平均 $m_I$、共分散 $\Sigma_I$ を持つ多変量ガウス分布 $\mu_I$ が存在します。
+仮定より $\Sigma_I$ は対称な半正定値行列です。[有限次元スペクトル定理](../F0_00F1_固有空間_スペクトル定理_PSD/index.md#thm-spectral-real-symmetric)により、ある直交行列 $Q$ と非負数 $\lambda_1,\ldots,\lambda_n$ が存在して
+
+$$
+\Sigma_I
+=
+Q\operatorname{diag}(\lambda_1,\ldots,\lambda_n)Q^\mathsf T
+$$
+
+と書けます。そこで
+
+$$
+A
+=
+Q\operatorname{diag}(\sqrt{\lambda_1},\ldots,\sqrt{\lambda_n})
+$$
+
+と置けば
+
+$$
+AA^\mathsf T=\Sigma_I.
+$$
+
+独立な標準正規確率変数を並べたベクトル
+
+$$
+Z=(Z_1,\ldots,Z_n)^\mathsf T
+$$
+
+を取り、
+
+$$
+Y=m_I+AZ
+$$
+
+と置きます。$Y$ は多変量ガウスで、
+
+$$
+E[Y]=m_I,
+\qquad
+\operatorname{Cov}(Y)
+=
+AA^\mathsf T
+=
+\Sigma_I.
+$$
+
+従って、退化を許せば平均 $m_I$、共分散 $\Sigma_I$ を持つ多変量ガウス分布 $\mu_I$ が存在します。$\lambda_k=0$ を許しているため、$\Sigma_I$ が正定値でなくてもこの構成は成立します。
 
 次に $I\subset J$ とします。$\mu_J$ に従うガウスベクトルから $J\setminus I$ の座標を捨てると、残ったベクトルもガウスで、その平均ベクトルと共分散行列はそれぞれ $m_I$ と $\Sigma_I$ です。多変量ガウス分布は平均と共分散で一意に決まるため、
 
