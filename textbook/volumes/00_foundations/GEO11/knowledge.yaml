@@ -1,0 +1,94 @@
+chapter: GEO11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEO10
+  - GEO6
+  - GEO9
+concepts:
+  - id: geometry.gauss-formula
+    name: Gauss 公式
+    kind: proposition
+    aliases: [Gauss 公式, Gauss formula]
+    requires:
+      - geometry.first-fundamental-form
+      - geometry.second-fundamental-form
+      - geometry.euclidean-hypersurface
+
+  - id: geometry.christoffel-from-metric
+    name: 第一基本形式からの Christoffel 係数
+    kind: proposition
+    aliases: [第一基本形式からの Christoffel 係数]
+    requires:
+      - geometry.gauss-formula
+      - geometry.first-fundamental-form
+
+  - id: geometry.weingarten-formula
+    name: Weingarten 公式
+    kind: proposition
+    aliases: [Weingarten 公式, Weingarten formula]
+    requires:
+      - geometry.shape-operator
+      - geometry.coordinate-fundamental-forms
+
+  - id: geometry.gauss-equation
+    name: Gauss 方程式
+    kind: theorem
+    aliases: [Gauss 方程式, Gauss equation]
+    requires:
+      - geometry.gauss-formula
+      - geometry.weingarten-formula
+      - geometry.christoffel-from-metric
+
+  - id: geometry.codazzi-equation
+    name: Codazzi 方程式
+    kind: theorem
+    aliases: [Codazzi 方程式, Codazzi equation]
+    requires:
+      - geometry.gauss-formula
+      - geometry.weingarten-formula
+      - geometry.christoffel-from-metric
+
+  - id: geometry.gauss-weingarten-structure-equations
+    name: Gauss--Weingarten 構造方程式
+    kind: proposition
+    aliases: [Gauss--Weingarten 構造方程式]
+    requires:
+      - geometry.gauss-equation
+      - geometry.codazzi-equation
+      - geometry.exterior-derivative
+
+  - id: geometry.theorema-egregium
+    name: Gauss の驚異の定理
+    kind: theorem
+    aliases: [Gauss の驚異の定理, Theorema Egregium]
+    requires:
+      - geometry.gauss-equation
+      - geometry.gauss-curvature
+      - geometry.christoffel-from-metric
+
+  - id: geometry.fundamental-theorem-hypersurfaces
+    name: 超曲面の基本定理
+    kind: theorem
+    aliases: [超曲面の基本定理, fundamental theorem of hypersurfaces]
+    requires:
+      - geometry.gauss-equation
+      - geometry.codazzi-equation
+      - geometry.gauss-weingarten-structure-equations
+      - geometry.frobenius-theorem
+      - geometry.poincare-lemma
+
+  - id: geometry.totally-umbilic-hypersurface
+    name: 全臍的超曲面
+    kind: definition
+    aliases: [全臍的超曲面, totally umbilic hypersurface]
+    requires:
+      - geometry.shape-operator
+
+  - id: geometry.totally-umbilic-rigidity
+    name: 全臍的超曲面の剛性
+    kind: theorem
+    aliases: [全臍的超曲面の剛性]
+    requires:
+      - geometry.totally-umbilic-hypersurface
+      - geometry.codazzi-equation
