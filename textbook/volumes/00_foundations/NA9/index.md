@@ -1745,18 +1745,35 @@ $$
 
 したがって
 
-$$
+$
 r_{k+1}
 \perp
 \operatorname{span}\{p_0,\dots,p_k\}.
-$$
+$
 
-特に、この空間は $r_0,\dots,r_k$ の張る空間とも一致するため、
+ここで
 
-$$
+$
+p_0=r_0,
+\qquad
+p_j=r_j+\beta_{j-1}p_{j-1}
+\quad(j\ge1)
+$
+
+なので、三角形の関係を順に解けば
+
+$
+\operatorname{span}\{p_0,\dots,p_k\}
+=
+\operatorname{span}\{r_0,\dots,r_k\}.
+$
+
+従って
+
+$
 r_{k+1}^{\mathsf T}r_j=0
 \qquad(j=0,\dots,k).
-$$
+$
 
 これで残差の相互直交性が一段進みます。
 
@@ -3982,34 +3999,47 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-まず正定値性を確認します。
+まず正定値性を定義から確認します。
 
-$A$ の首座主小行列式は
+任意の
 
-$$
-\Delta_1=2>0,
-$$
-
-$$
-\Delta_2
-=
-\det
+$
+z=
 \begin{pmatrix}
-2&-1\\
--1&2
+z_1\\z_2\\z_3
 \end{pmatrix}
-=3>0,
-$$
+$
 
-$$
-\Delta_3
-=
-\det A
-=
-4>0.
-$$
+に対して
 
-従って Sylvester の判定法により $A$ は正定値です。
+$
+\begin{aligned}
+z^{\mathsf T}Az
+&=
+2z_1^2-2z_1z_2+2z_2^2-2z_2z_3+2z_3^2\\
+&=
+z_1^2+(z_1-z_2)^2+(z_2-z_3)^2+z_3^2.
+\end{aligned}
+$
+
+右辺は非負項の和です。これが0なら
+
+$
+z_1=0,\qquad
+z_1-z_2=0,\qquad
+z_2-z_3=0,\qquad
+z_3=0
+$
+
+なので $z=0$ です。
+
+従って $z\ne0$ なら
+
+$
+z^{\mathsf T}Az>0.
+$
+
+また $A^{\mathsf T}=A$ なので、定義により $A$ は実対称正定値です。
 
 ここから CG を実行します。
 
