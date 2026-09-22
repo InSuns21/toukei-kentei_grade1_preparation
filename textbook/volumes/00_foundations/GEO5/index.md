@@ -1786,7 +1786,7 @@ $\square$
 <!-- proof-start -->
 ### 証明
 
-$[X,Y]=0$ とします。[流れによる Lie 括弧の解釈](#thm-geo5-bracket-flow)の一般時刻公式から
+$[X,Y]=0$ とします。[流れによる Lie 括弧の解釈](#thm-geo5-bracket-flow)より、
 
 $$
 \frac{d}{dt}
