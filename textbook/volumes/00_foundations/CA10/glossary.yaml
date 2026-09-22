@@ -12,9 +12,6 @@ terms:
   - term: Weierstrass 因数分解
     english: Weierstrass factorization
     meaning: 整関数を、その零点を表す canonical product と零点を持たない指数因子 e^g の積として表す定理。
-  - term: 主要部
-    english: principal part
-    meaning: 孤立極での Laurent 展開の負冪部分。極の位置・位数・係数を有限和として記録する。
   - term: Mittag--Leffler の定理
     english: Mittag-Leffler theorem
     meaning: 離散な極集合の各点で 主要部を指定すると、それらを正確に持つ有理型関数が存在するという構成定理。
