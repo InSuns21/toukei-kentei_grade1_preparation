@@ -37,10 +37,10 @@ concepts:
       - functional.normed-space-recap-c1
 
   - id: functional.banach-space-recap-c1
-    name: Banach空間の再掲
+    name: 関数解析導入で使うBanach空間の再掲
     kind: definition
     introduction_aliases: [Banach空間]
-    aliases: [Banach空間の再掲]
+    aliases: [関数解析導入で使うBanach空間の再掲]
     requires:
       - functional.banach-space
       - functional.normed-space-recap-c1
