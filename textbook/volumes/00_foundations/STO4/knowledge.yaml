@@ -5,15 +5,6 @@ prerequisites:
   - STO3
 
 concepts:
-  - id: stochastic.gaussian-process
-    name: Gaussian process
-    kind: definition
-    aliases: ["Gaussian process", "Gaussian過程"]
-    introduction: formal
-    introduction_aliases: ["定義（ガウス過程）"]
-    requires:
-      - stochastic.stochastic-process
-
   - id: stochastic.brownian-motion
     name: standard Brownian motion
     kind: definition
@@ -31,8 +22,7 @@ concepts:
     introduction: formal
     introduction_aliases: ["定理（ブラウン運動の構成）"]
     requires:
-      - stochastic.gaussian-process
-      - stochastic.kolmogorov-extension
+      - stochastic.gaussian-process-existence
       - stochastic.kolmogorov-chentsov-continuity
 
   - id: stochastic.brownian-scaling
