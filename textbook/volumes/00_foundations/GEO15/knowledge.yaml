@@ -1,0 +1,160 @@
+chapter: GEO15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEO14
+  - TOP5
+
+forward_references:
+  - geometry.jacobi-field
+  - geometry.conjugate-point
+
+concepts:
+  - id: geometry.riemannian-metric-completeness
+    name: Riemann 多様体の距離完備性
+    kind: definition
+    aliases: [Riemann 多様体の距離完備性, metric completeness of a Riemannian manifold]
+    introduction: formal
+    introduction_aliases: ["定義（距離完備な Riemann 多様体）"]
+    requires:
+      - geometry.riemannian-distance
+      - topology.complete-metric-space
+
+  - id: geometry.geodesic-completeness
+    name: 測地完備性
+    kind: definition
+    aliases: [測地完備性, geodesic completeness]
+    introduction: formal
+    introduction_aliases: ["定義（測地完備な Riemann 多様体）"]
+    requires:
+      - geometry.geodesic
+      - geometry.geodesic-local-existence-uniqueness
+
+  - id: geometry.geodesic-completeness-exponential-domain
+    name: 測地完備性と指数写像の定義域
+    kind: proposition
+    aliases: [測地完備性と指数写像の定義域]
+    requires:
+      - geometry.geodesic-completeness
+      - geometry.exponential-map
+      - geometry.geodesic-affine-reparametrization
+      - geometry.geodesic-local-existence-uniqueness
+
+  - id: geometry.minimizing-geodesic
+    name: 最短測地線
+    kind: definition
+    aliases: [最短測地線, minimizing geodesic]
+    introduction: formal
+    requires:
+      - geometry.geodesic
+      - geometry.riemannian-distance
+      - geometry.riemannian-curve-length
+
+  - id: geometry.metric-complete-implies-geodesic-complete
+    name: 距離完備なら測地完備
+    kind: theorem
+    aliases: [距離完備なら測地完備]
+    requires:
+      - geometry.riemannian-metric-completeness
+      - geometry.geodesic-constant-speed
+      - geometry.geodesic-equation
+      - geometry.geodesic-local-existence-uniqueness
+
+  - id: geometry.normal-sphere-distance-drop
+    name: 小さい正規球面上の距離減少点
+    kind: lemma
+    aliases: [小さい正規球面上の距離減少点]
+    requires:
+      - geometry.normal-ball
+      - geometry.normal-distance
+      - geometry.riemannian-distance
+      - topology.continuous-image-compact-space
+
+  - id: geometry.minimizing-broken-geodesic-no-corner
+    name: 最短な区分的測地線に角はない
+    kind: lemma
+    aliases: [最短な区分的測地線に角はない]
+    requires:
+      - geometry.minimizing-geodesic
+      - geometry.convex-normal-neighborhood
+      - geometry.convex-normal-neighborhood-existence
+
+  - id: geometry.total-exponential-map-minimizer
+    name: 全域指数写像から最短測地線を得る
+    kind: theorem
+    aliases: [全域指数写像から最短測地線を得る]
+    requires:
+      - geometry.exponential-map
+      - geometry.normal-sphere-distance-drop
+      - geometry.minimizing-broken-geodesic-no-corner
+      - geometry.geodesic-local-existence-uniqueness
+      - geometry.geodesic-constant-speed
+
+  - id: geometry.closed-ball-exponential-image
+    name: 閉距離球は接空間の閉球の指数像
+    kind: proposition
+    aliases: [閉距離球は接空間の閉球の指数像]
+    requires:
+      - geometry.total-exponential-map-minimizer
+      - geometry.exponential-map
+      - topology.continuous-image-compact-space
+
+  - id: geometry.closed-bounded-compact-implies-complete
+    name: 閉有界集合がコンパクトなら距離完備
+    kind: proposition
+    aliases: [閉有界集合がコンパクトなら距離完備]
+    requires:
+      - geometry.riemannian-distance
+      - topology.cauchy-sequence
+      - topology.compact-sequential-equivalence-metric-space
+
+  - id: geometry.hopf-rinow-theorem
+    name: Hopf--Rinow の定理
+    kind: theorem
+    aliases: [Hopf--Rinow の定理, Hopf-Rinow theorem]
+    introduction: formal
+    requires:
+      - geometry.riemannian-metric-completeness
+      - geometry.geodesic-completeness
+      - geometry.geodesic-completeness-exponential-domain
+      - geometry.metric-complete-implies-geodesic-complete
+      - geometry.total-exponential-map-minimizer
+      - geometry.closed-ball-exponential-image
+      - geometry.closed-bounded-compact-implies-complete
+
+  - id: geometry.complete-riemannian-closed-bounded-compact
+    name: 完備 Riemann 多様体の閉有界集合はコンパクト
+    kind: corollary
+    aliases: [完備 Riemann 多様体の閉有界集合はコンパクト]
+    requires:
+      - geometry.hopf-rinow-theorem
+
+  - id: geometry.cut-time
+    name: 切断時刻
+    kind: definition
+    aliases: [Riemann 幾何の切断時刻, cut time]
+    introduction: formal
+    introduction_aliases: ["定義（切断時刻 / cut time）"]
+    requires:
+      - geometry.geodesic-completeness
+      - geometry.exponential-map
+      - geometry.riemannian-distance
+
+  - id: geometry.cut-point
+    name: 切断点
+    kind: definition
+    aliases: [Riemann 幾何の切断点, Riemannian cut point]
+    introduction: formal
+    introduction_aliases: ["定義（切断点・切断跡）"]
+    requires:
+      - geometry.cut-time
+      - geometry.exponential-map
+
+  - id: geometry.cut-locus
+    name: 切断跡
+    kind: definition
+    aliases: [Riemann 幾何の切断跡, cut locus]
+    introduction: formal
+    introduction_aliases: ["定義（切断点・切断跡）"]
+    requires:
+      - geometry.cut-point
