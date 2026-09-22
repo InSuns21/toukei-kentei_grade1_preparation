@@ -13,7 +13,7 @@ concepts:
     kind: definition
     aliases: [差分格子, space-time finite-difference grid]
     introduction: formal
-    introduction_aliases: ["定義（時空間差分格子・格子関数）"]
+    introduction_aliases: ["時空間差分格子・格子関数", "定義（時空間差分格子・格子関数）"]
     requires:
       - pde.pde3-heat-equation
 
@@ -22,7 +22,7 @@ concepts:
     kind: definition
     aliases: [grid function]
     introduction: formal
-    introduction_aliases: ["定義（時空間差分格子・格子関数）"]
+    introduction_aliases: ["時空間差分格子・格子関数", "定義（時空間差分格子・格子関数）"]
     requires:
       - numerical.fdm-space-time-grid
 
@@ -31,7 +31,7 @@ concepts:
     kind: definition
     aliases: [forward time difference]
     introduction: formal
-    introduction_aliases: ["定義（前進時間差分・中心二階空間差分・一次元離散 Laplacian）"]
+    introduction_aliases: ["前進時間差分・中心二階空間差分・一次元離散 Laplacian", "定義（前進時間差分・中心二階空間差分・一次元離散 Laplacian）"]
     requires:
       - numerical.grid-function
 
@@ -40,7 +40,7 @@ concepts:
     kind: definition
     aliases: [centered second difference]
     introduction: formal
-    introduction_aliases: ["定義（前進時間差分・中心二階空間差分・一次元離散 Laplacian）"]
+    introduction_aliases: ["前進時間差分・中心二階空間差分・一次元離散 Laplacian", "定義（前進時間差分・中心二階空間差分・一次元離散 Laplacian）"]
     requires:
       - numerical.grid-function
 
@@ -49,7 +49,7 @@ concepts:
     kind: definition
     aliases: [one-dimensional discrete Laplacian]
     introduction: formal
-    introduction_aliases: ["定義（前進時間差分・中心二階空間差分・一次元離散 Laplacian）"]
+    introduction_aliases: ["前進時間差分・中心二階空間差分・一次元離散 Laplacian", "定義（前進時間差分・中心二階空間差分・一次元離散 Laplacian）"]
     requires:
       - numerical.centered-second-difference
 
@@ -58,7 +58,7 @@ concepts:
     kind: definition
     aliases: [explicit finite-difference method]
     introduction: formal
-    introduction_aliases: ["定義（差分法の陽解法・陰解法）"]
+    introduction_aliases: ["差分法の陽解法・陰解法", "定義（差分法の陽解法・陰解法）"]
     requires:
       - numerical.grid-function
 
@@ -67,7 +67,7 @@ concepts:
     kind: definition
     aliases: [implicit finite-difference method]
     introduction: formal
-    introduction_aliases: ["定義（差分法の陽解法・陰解法）"]
+    introduction_aliases: ["差分法の陽解法・陰解法", "定義（差分法の陽解法・陰解法）"]
     requires:
       - numerical.grid-function
 
