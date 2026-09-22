@@ -92,6 +92,9 @@ DREAM THEATER では各演習に詳細解答を必須とし、本番答案・20�
 - 後続章の理論を現在章の証明へ逆輸入しない。
 - CIを通すためだけに concept / dependency を追加しない。
 - 既存 canonical result があるなら重複定理を作らず stable anchor へ参照する。
+- `knowledge.yaml` の `aliases` は同じ概念・定理の真の別称だけに使う。関連語、検索語、構成要素、複合見出しを alias として登録しない。
+- 複数概念を同時導入する見出しや formal label は `introduction_aliases` で導入位置を照合し、global alias に昇格させない。
+- 既出概念の再掲は canonical concept を `requires` で参照し、canonical 名を別 concept の alias として取り直さない。
 - 参照先の定理を使うときは、現在の対象が仮定を満たすことを局所的に確認する。
 
 ### 7. 用語・日本語表記
@@ -104,10 +107,13 @@ DREAM THEATER では各演習に詳細解答を必須とし、本番答案・20�
 
 - 英語名・略語を知ること自体に教育的価値や検索上の価値がある場合は、初出で「日本語名（English term）」のように補助的に併記してよい。その後の説明は日本語主表記へ戻す。
 - 日本語と英語を不必要に混在させた「正則 level surface」「gradient の方向」のような表記は避け、日本語だけで自然に書ける箇所は日本語にする。
-- 数式中の演算子・記号、コード、ファイル名、stable ID、anchor、URL、引用した原題、既存の機械参照用 alias は機械的に日本語化しない。たとえば本文では「回転」と書いても、数式の `\operatorname{curl}` や既存 anchor は必要なら保持する。
+- 数式中の演算子・記号、コード、ファイル名、stable ID、anchor、URL、引用した原題は機械的に日本語化しない。たとえば本文では「回転」と書いても、数式の `\operatorname{curl}` や既存 anchor は必要なら保持する。
+- stable ID・anchor と alias を混同しない。後方互換性は stable ID・anchor で担保し、意味的に誤った alias を「互換性のため」という理由だけで残さない。
+- 短い一般語の alias が別分野の概念名まで捕捉する場合は、本文の標準用語を不自然に改名するのではなく、機械 alias 側を「Markov連鎖の可逆性」「関数列の下極限」のように文脈付きで限定する。
+- 数学的意味を持つ記号を alias 正規化で落とさない。特に「弱*位相」と「弱位相」、`weak* topology` と `weak topology` は別概念として保持する。Markdown の強調記号 `**` とは区別する。
 - **人名・人名由来の定理名・補題名は、原則として人名部分の英字表記を保持し、一般名詞側を日本語にする。** たとえば `Green theorem` は「Green の定理」、`Gauss--Ostrogradsky divergence theorem` は「Gauss--Ostrogradsky の発散定理」、`Kelvin--Stokes theorem` は「Kelvin--Stokes の定理」、`Poincaré lemma` は「Poincaré の補題」、`Cauchy--Schwarz inequality` は「Cauchy--Schwarz の不等式」、`Fréchet derivative` は「Fréchet 微分」とする。人名を機械的にカタカナ化しない。
 - 固有名詞・人名由来の名称・日本語訳が定着していない語を、不自然な直訳へ置き換えない。日本語化は読みやすさのために行い、専門的な識別可能性を失わせない。
-- 既存章の用語を改稿したときは、近接する見出し・本文・演習だけでなく、`chapter.yaml`、`knowledge.yaml` などの読者向け名称も必要に応じて同期する。一方、stable ID・anchor・後方互換に必要な alias は安易に変更しない。
+- 既存章の用語を改稿したときは、近接する見出し・本文・演習だけでなく、`chapter.yaml`、`knowledge.yaml` などの読者向け名称も必要に応じて同期する。stable ID・anchor は安易に変更しない。一方、alias は同義語規約に反するなら監査の上で修正し、関連語を後方互換 alias として温存しない。
 - 既出概念を参照するときは、リンク文字列も原則として日本語の定着名を使い、stable anchor へ直接リンクする。
 
 用語監査は「英単語をゼロにする」作業ではない。**日本語で十分に説明できる一般概念を英語のまま放置しないこと**と、**英語を残す合理的理由がある箇所を壊さないこと**の両方を守る。
