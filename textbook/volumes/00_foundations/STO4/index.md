@@ -192,7 +192,7 @@ $$
 
 は分散共分散行列になれます。
 
-**Step 2：STO3 の一般構成定理を適用する。**
+**Step 2：[平均関数と半正定値共分散核からのガウス過程構成](../STO3/index.md#thm-sto3-gaussian-process-existence)を適用する。**
 
 Step 1 により
 
