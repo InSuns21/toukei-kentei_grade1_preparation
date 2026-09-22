@@ -102,6 +102,8 @@ flowchart TD
   VC1 --> GEO12
   GEO5 --> GEO13["アフィン接続・Levi-Civita 接続・平行移動<br/>GEO13"]
   GEO12 --> GEO13
+  GEO13 --> GEO14["測地線・指数写像・正規座標<br/>GEO14"]
+  ODE4 -. "reuse" .-> GEO14
   TOP5 --> TOP5A["Urysohn・局所コンパクト性・cutoff<br/>TOP5A"]
   TOP5 --> BAIRE["全有界性・Baire・net/filter<br/>TOP6"]
   BAIRE --> UNIFORM["一様構造・一様連続・Cauchy構造<br/>TOP7"]
@@ -811,6 +813,24 @@ direct prerequisite は GEO4、GEO7、GEO8、LA5、VC1 です。GEO4 は局所 E
 実装: [GEO13](volumes/00_foundations/GEO13/index.md)
 
 direct prerequisite は GEO5、GEO12 です。GEO5 のベクトル場・Lie 括弧と、そこで再利用した ODE の存在一意性を平行移動の線形 ODE に用います。GEO12 の Riemann 計量と flat・sharp 同型を使い、計量両立性と捩率0から Koszul の公式を経て Levi-Civita 接続を一意に構成します。次の GEO14 ではこの接続から測地線・指数写像・正規座標へ進みます。
+
+## GEO14 測地線・指数写像・正規座標 `core`
+
+- 測地線を Levi-Civita 接続に関する自己平行曲線として定義し、座標で測地線方程式を導出
+- 二階測地線方程式を一次の非線形自律系へ変換し、初期位置・初期速度からの局所存在一意性と滑らかな依存を証明
+- 計量両立性から測地線の一定速性を証明
+- アフィン再パラメータ化と初期速度のスケーリング則を証明し、非線形再パラメータ化の失敗を反例で確認
+- 指数写像を構成し、滑らかさと $(d\exp_p)_0=\operatorname{id}$ を証明
+- 逆関数定理から正規近傍・正規球・正規座標を構成
+- 正規座標の基点で $g_{ij}=\delta_{ij}$、$\Gamma^k_{ij}=0$、$\partial_\ell g_{ij}=0$ を証明
+- Gauss の補題を計量両立性と捩率0から核心まで証明
+- Gauss の補題から放射測地線の最短性と測地線の局所最短性を導出
+- 端点指数写像の局所可逆性と正規座標の二乗半径の凸性から凸正規近傍の局所存在を証明
+- A4/B3/C1 の演習で Euclid・極座標・球面・上半平面・回転対称計量の測地線を具体計算
+
+実装: [GEO14](volumes/00_foundations/GEO14/index.md)
+
+章の prerequisite は GEO13、ODE4 です。GEO13 の Levi-Civita 接続・曲線に沿う共変微分・Christoffel 係数を測地線方程式へ使い、ODE4 の非線形自律系として局所存在一意性を扱います。標準数学コアの registry では ODE4 は系列外 node なので `reuse` として登録します。指数写像と正規座標、Gauss の補題、局所最短性、凸正規近傍までを閉じ、次の GEO15「完備性・Hopf--Rinow」の局所基盤を提供します。
 
 ---
 

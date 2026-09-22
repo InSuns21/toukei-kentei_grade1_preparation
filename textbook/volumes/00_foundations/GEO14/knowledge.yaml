@@ -1,0 +1,175 @@
+chapter: GEO14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEO13
+  - ODE4
+
+concepts:
+  - id: geometry.geodesic
+    name: 測地線
+    kind: definition
+    aliases: [測地線, geodesic]
+    introduction: formal
+    requires:
+      - geometry.covariant-derivative-along-curve
+      - geometry.levi-civita-connection
+
+  - id: geometry.geodesic-equation
+    name: 測地線方程式
+    kind: proposition
+    aliases: [測地線方程式, geodesic equation]
+    requires:
+      - geometry.geodesic
+      - geometry.christoffel-coefficients
+      - geometry.covariant-derivative-along-curve
+
+  - id: geometry.geodesic-local-existence-uniqueness
+    name: 測地線の局所存在・一意性と初期値への滑らかな依存
+    kind: theorem
+    aliases: [測地線の局所存在一意性]
+    requires:
+      - geometry.geodesic-equation
+      - ode.ode1-picard-lindelof
+      - ode.ode4-nonlinear-autonomous-system
+      - geometry.flow-smooth-dependence
+
+  - id: geometry.geodesic-constant-speed
+    name: 測地線の速さは一定
+    kind: proposition
+    aliases: [測地線の一定速性]
+    requires:
+      - geometry.geodesic
+      - geometry.metric-compatible-connection
+
+  - id: geometry.geodesic-affine-reparametrization
+    name: 測地線のアフィン再パラメータ化
+    kind: proposition
+    aliases: [測地線のアフィン再パラメータ化]
+    requires:
+      - geometry.geodesic
+      - geometry.geodesic-local-existence-uniqueness
+
+  - id: geometry.exponential-map
+    name: 指数写像
+    kind: definition
+    aliases: [指数写像, exponential map]
+    introduction: formal
+    requires:
+      - geometry.geodesic-local-existence-uniqueness
+      - geometry.geodesic-affine-reparametrization
+
+  - id: geometry.exponential-map-origin-differential
+    name: 指数写像の滑らかさと原点での微分
+    kind: proposition
+    aliases: [指数写像の原点での微分]
+    requires:
+      - geometry.exponential-map
+      - geometry.flow-smooth-dependence
+      - geometry.differential
+
+  - id: geometry.normal-neighborhood
+    name: 正規近傍
+    kind: definition
+    aliases: [正規近傍, normal neighborhood]
+    introduction: formal
+    introduction_aliases: ["定義（正規近傍）"]
+    requires:
+      - geometry.exponential-map-origin-differential
+      - analysis.inverse-function-theorem
+
+  - id: geometry.normal-ball
+    name: 正規球
+    kind: definition
+    aliases: [正規球, normal ball]
+    introduction: formal
+    introduction_aliases: ["定義（正規近傍）"]
+    requires:
+      - geometry.normal-neighborhood
+
+  - id: geometry.normal-coordinates
+    name: 正規座標
+    kind: definition
+    aliases: [正規座標, normal coordinates]
+    introduction: formal
+    requires:
+      - geometry.normal-neighborhood
+      - geometry.riemannian-metric
+
+  - id: geometry.normal-coordinate-properties
+    name: 正規座標の基点での基本性質
+    kind: theorem
+    aliases: [正規座標の基点でChristoffel係数が消える]
+    requires:
+      - geometry.normal-coordinates
+      - geometry.geodesic-equation
+      - geometry.connection-torsion
+      - geometry.metric-compatible-connection
+
+  - id: geometry.gauss-lemma
+    name: 指数写像に関する Gauss の補題
+    kind: theorem
+    aliases: [Riemann 幾何の Gauss の補題, Gauss lemma for the exponential map]
+    introduction: formal
+    introduction_aliases: ["定理（Gauss の補題）"]
+    requires:
+      - geometry.exponential-map
+      - geometry.geodesic-constant-speed
+      - geometry.metric-compatible-connection
+      - geometry.connection-torsion
+
+  - id: geometry.radial-geodesic
+    name: 放射測地線
+    kind: definition
+    aliases: [放射測地線, radial geodesic]
+    introduction: formal
+    requires:
+      - geometry.exponential-map
+      - geometry.geodesic-affine-reparametrization
+
+  - id: geometry.radial-geodesic-minimizing
+    name: 正規球内の放射測地線の最短性
+    kind: theorem
+    aliases: [放射測地線の最短性]
+    requires:
+      - geometry.gauss-lemma
+      - geometry.normal-ball
+      - geometry.radial-geodesic
+      - geometry.riemannian-curve-length
+
+  - id: geometry.geodesic-local-minimizing
+    name: 測地線の局所最短性
+    kind: theorem
+    aliases: [測地線の局所最短性]
+    requires:
+      - geometry.radial-geodesic-minimizing
+      - geometry.riemannian-distance
+      - geometry.geodesic-local-existence-uniqueness
+
+  - id: geometry.normal-distance
+    name: 正規球での基点からの距離
+    kind: proposition
+    aliases: [正規座標での距離公式]
+    requires:
+      - geometry.geodesic-local-minimizing
+      - geometry.normal-coordinates
+
+  - id: geometry.convex-normal-neighborhood
+    name: 凸正規近傍
+    kind: definition
+    aliases: [凸正規近傍, convex normal neighborhood]
+    introduction: formal
+    requires:
+      - geometry.normal-neighborhood
+      - geometry.geodesic-local-minimizing
+
+  - id: geometry.convex-normal-neighborhood-existence
+    name: 凸正規近傍の局所存在
+    kind: theorem
+    aliases: [凸正規近傍の存在]
+    requires:
+      - geometry.convex-normal-neighborhood
+      - geometry.exponential-map-origin-differential
+      - geometry.geodesic-local-existence-uniqueness
+      - geometry.riemannian-distance-topology
+      - analysis.inverse-function-theorem
