@@ -40,8 +40,8 @@ $$
 
 <a id="def-ode10-trapping-region"></a>
 <!-- formal-statement-start -->
-> **定義（trapping region）**  
-> コンパクト集合 $K$ が正方向不変で、その境界から出発する軌道が直後に内部へ入るとき、本章では $K$ を trapping region と呼ぶ。
+> **定義（捕捉領域（trapping region））**  
+> コンパクト集合 $K$ が正方向不変で、その境界から出発する軌道が直後に内部へ入るとき、本章では $K$ を 捕捉領域 と呼ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ode10-trapping-region -->
@@ -57,10 +57,10 @@ $$
 \frac d{dt}(x^2+y^2)=-2(x^2+y^2)=-2<0.
 $$
 
-したがって境界から出た軌道は直後に内部へ入り、$K$ はコンパクトかつ正方向不変なので trapping region です。
+したがって境界から出た軌道は直後に内部へ入り、$K$ はコンパクトかつ正方向不変なので 捕捉領域 です。
 <!-- definition-example-end -->
 
-ODE9 の Lyapunov 劣位集合は trapping region を作る代表的な方法です。
+ODE9 の Lyapunov 劣位集合は 捕捉領域 を作る代表的な方法です。
 
 ## 3. 重み付き発散で閉軌道を排除する
 
@@ -521,7 +521,7 @@ $x'=x-y$, $y'=x+y$ が周期軌道を持たないことを示せ。
 $\dot H=(1-1/x)x(1-y)+(1-1/y)y(x-1)=(x-1)(1-y)+(y-1)(x-1)=0$ です。
 <!-- solution-end -->
 
-#### ODE10-A04 trapping region
+#### ODE10-A04 捕捉領域
 - Level: A
 
 閉円板の境界でベクトル場が常に厳密に内向きなら、その円板が正方向不変である理由を説明せよ。
@@ -573,16 +573,16 @@ $$
 #### ODE10-C01 存在と不存在の道具
 - Level: C
 
-trapping region、Poincaré--Bendixson、Bendixson--Dulac をどのように使い分けるか説明せよ。
+捕捉領域、Poincaré--Bendixson、Bendixson--Dulac をどのように使い分けるか説明せよ。
 
 <!-- solution-start -->
 ##### 詳細解答
-周期軌道の存在を狙うなら前向き軌道を trapping region に閉じ込め、その正の極限集合から[平衡解](../ODE1/index.md#def-ode1-equilibrium)を排除して Poincaré--Bendixson を使います。不存在を狙うなら発散または Dulac 関数で符号一定性を作り、[Green の定理（流束形）](../VC4/index.md#cor-vc4-green-flux)から矛盾を出します。前者は存在側、後者は不存在側の道具です。
+周期軌道の存在を狙うなら前向き軌道を 捕捉領域 に閉じ込め、その正の極限集合から[平衡解](../ODE1/index.md#def-ode1-equilibrium)を排除して Poincaré--Bendixson を使います。不存在を狙うなら発散または Dulac 関数で符号一定性を作り、[Green の定理（流束形）](../VC4/index.md#cor-vc4-green-flux)から矛盾を出します。前者は存在側、後者は不存在側の道具です。
 <!-- solution-end -->
 
 ## 7. 章末チェック
 
 - 周期軌道と極限周期軌道を区別できる。
-- trapping region の役割を説明できる。
+- 捕捉領域 の役割を説明できる。
 - Bendixson--Dulac を [Green の定理（流束形）](../VC4/index.md#cor-vc4-green-flux)から証明できる。
 - Poincaré--Bendixson の仮定と平面特有の機構を説明できる。
