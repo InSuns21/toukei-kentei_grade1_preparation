@@ -45,7 +45,7 @@ $$
 <a id="thm-ode9-direct"></a>
 <!-- formal-statement-start -->
 > **定理（Lyapunov の直接法）**  
-> $x_*=0$ とする。ある近傍で $V\in C^1$ が正定値で $\dot V\le0$ なら原点は Lyapunov 安定である。さらに $\dot V(x)<0$ が全ての $x\ne0$ で成り立つなら原点は局所漸近安定である。
+> $F$ を原点の近傍で局所 Lipschitz とし、$F(0)=0$ とする。ある近傍で $V\in C^1$ が正定値で $\dot V\le0$ なら原点は Lyapunov 安定である。さらに同じ近傍で $\dot V(x)<0$ が全ての $x\ne0$ に対して成り立つなら原点は局所漸近安定である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -190,7 +190,7 @@ $$
 <a id="thm-ode9-lasalle"></a>
 <!-- formal-statement-start -->
 > **定理（LaSalle の不変性原理）**  
-> $K$ をコンパクトな正方向不変集合とし、$V\in C^1$ が $K$ 上で $\dot V\le0$ を満たすとする。
+> 開集合 $D\subset\mathbb R^d$ 上で $F:D\to\mathbb R^d$ を局所 Lipschitz とする。$K\subset D$ をコンパクトな正方向不変集合とし、$V$ は $K$ の近傍で $C^1$ 級かつ $K$ 上で $\dot V\le0$ を満たすとする。
 
 $$
 E=\{x\in K:\dot V(x)=0\}
