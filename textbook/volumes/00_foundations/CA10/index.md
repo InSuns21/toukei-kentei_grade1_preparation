@@ -1,6 +1,6 @@
 # CA10 標準複素解析 X：無限積・Weierstrass 因数分解・Mittag--Leffler
 
-> **複素解析 II の構成論編**。これまで Taylor / Laurent 展開は、すでに与えられた正則関数・有理型関数の局所構造を読み取る道具だった。本章では向きを逆にし、「この点列を零点にしたい」「各点でこの極部分を持たせたい」というデータから関数そのものを作る。無限積を局所一様収束まで制御し、Weierstrass 因数分解と Mittag--Leffler の定理を構成法として証明する。最後に整数格子へ特殊化して、$\pi\cot\pi z$ の部分分数展開と $\sin\pi z$ の Euler 積を導く。
+> **複素解析 II の構成論編**。これまで Taylor / Laurent 展開は、すでに与えられた正則関数・有理型関数の局所構造を読み取る道具だった。本章では向きを逆にし、「この点列を零点にしたい」「各点でこの極部分を持たせたい」というデータから関数そのものを作る。無限積を局所一様収束まで制御し、零点を担う積表示と、指定した極から有理型関数を作る構成法を証明する。最後に整数格子へ特殊化して、$\pi\cot\pi z$ の部分分数展開と $\sin\pi z$ の Euler 積を導く。
 
 <!-- definition-example-audit: strict -->
 
@@ -11,7 +11,7 @@
 ~~~text
 有限積
   ↓ 部分積を局所一様に制御
-関数の無限積
+部分積列の極限
   ↓
 E_p(w) で低次の非収束成分を打ち消す
   ↓
@@ -27,9 +27,9 @@ Mittag--Leffler
   ↓
 整数極へ特殊化 + 留数定理
   ↓
-pi cot(pi z) の部分分数展開
+整数極を持つ余接関数の部分分数表示
   ↓ 対数微分を積分
-sin(pi z) の Euler 積
+正弦関数の積表示
 ~~~
 
 Hadamard の有限位数因数分解、Runge / Mergelyan の近似定理、Picard の定理、Nevanlinna 理論は本章の停止線より先に置く。
@@ -189,7 +189,7 @@ $$
 
 ---
 
-## 2. Weierstrass の基本因子
+## 2. 低次項を消して積を収束させる
 
 零点を $w=1$ に置くだけなら $1-w$ で足りる。しかし
 
@@ -301,7 +301,7 @@ $$
 
 ---
 
-## 3. 標準積で任意の離散零点を作る
+## 3. 任意の離散零点を積で作る
 
 <a id="def-ca10-canonical-product"></a>
 <!-- formal-statement-start -->
@@ -445,7 +445,7 @@ $$
 \frac{h'(z)}{h(z)}
 $$
 
-は全平面で正則である。全平面 $\mathbb C$ は単連結だから、[単連結領域の Cauchy の定理](../CA2/index.md#thm-ca2-cauchy-simply-connected)により整関数 $G$ が存在して
+は全平面で正則である。全平面 $\mathbb C$ は単連結だから、[CA2 の原始関数存在結果](../CA2/index.md#thm-ca2-cauchy-simply-connected)により整関数 $G$ が存在して
 
 $$
 G'(z)=\frac{h'(z)}{h(z)}
@@ -487,7 +487,7 @@ $$
 
 ---
 
-## 5. Weierstrass 因数分解定理
+## 5. 零点データから整関数を因数分解する
 
 <a id="thm-ca10-weierstrass-factorization"></a>
 <!-- formal-statement-start -->
