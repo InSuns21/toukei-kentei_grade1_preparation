@@ -1,0 +1,14 @@
+chapter: "PDE12"
+terms:
+  - term: Charpit の特性系
+    english: Charpit characteristic system
+    meaning: 一般一階非線形 PDE で位置・関数値・勾配を同時に運ぶ常微分方程式系。
+  - term: Hamilton--Jacobi 方程式
+    english: Hamilton-Jacobi equation
+    meaning: u_t+H(x,grad u)=0 の形をした一階非線形 PDE。
+  - term: 特性 caustic
+    english: characteristic caustic
+    meaning: 特性写像の Jacobian が退化し初期ラベルから現在位置への局所逆写像が失われる集合。
+  - term: eikonal 方程式
+    english: eikonal equation
+    meaning: 勾配の大きさを指定する一階非線形 PDE で幾何光学や距離関数に現れる。
