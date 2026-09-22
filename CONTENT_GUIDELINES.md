@@ -38,6 +38,17 @@
 
 英字略語は、出典名、ファイル名、安定ID、コード、数式記号、公式シラバス自体が英字を標準名としている場合を除き、本文の主表記にしない。英語名を示す教育的理由がある場合は初出で併記してよいが、その後の説明は日本語正式名を使う。
 
+### 2.1 読者向け用語と機械語彙を混同しない
+
+読者向けの主表記と、metadata 上の機械解決用語は役割が異なる。stable ID、anchor、alias を「検索しやすそうだから」という理由で一つの欄へ混ぜない。
+
+- stable ID・anchor は参照の安定性を担う。
+- alias は同一概念の別称を表す。
+- 関連語、検索語、章内見出し、複数概念を束ねる表示名は alias ではない。
+- 数学的に標準的な短い用語が別分野でも使われる場合、本文を不自然に改名せず、機械語彙側へ必要な文脈を付ける。
+
+DREAM THEATER の `knowledge.yaml` における `aliases` / `introduction_aliases` / 再掲 concept の具体的な規約は `textbook/DREAM_THEATER_AUTHORING_STANDARD.md` と `references/terminology-guide.md` を正本とする。
+
 ## 3. 記号と分布
 
 同じ概念を教材ごとに別記号へしない。一般記号は `references/notation-guide.md`、分布固有の規約は `references/distribution-notation-guide.md` を共通正本とする。
