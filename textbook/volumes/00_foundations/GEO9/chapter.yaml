@@ -1,0 +1,53 @@
+id: "GEO9"
+title: "幾何学 IX：Poincaré の補題・de Rham コホモロジー入門"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEO7
+  - GEO8
+  - TOP3
+official_scope: []
+learning_objectives:
+  - 閉形式と完全形式を定義し、完全形式が閉形式であることを d²=0 から証明できる
+  - 穴あき平面の角度1形式が閉だが完全でないことを循環積分から示せる
+  - 滑らかなホモトピーとホモトピー作用素を定義し、Cartan の公式からホモトピー公式を証明できる
+  - 星型開集合の縮約ホモトピーから Poincaré の補題を構成的に証明できる
+  - de Rham 複体と de Rham コホモロジーを定義し、完全形式による商の意味を説明できる
+  - 連結多様体の H^0_dR が R に同型であることを局所定数性から証明できる
+  - 滑らかにホモトープな写像が de Rham コホモロジー上で同じ引き戻しを誘導することを証明できる
+  - H^1_dR(S^1)≅R を周期関数の原始関数と積分から直接計算できる
+  - 穴あき平面を S^1 へ変形レトラクトし、H^1_dR(R²\{0})≅R と角度1形式による生成を説明できる
+definitions:
+  - { id: GEO9-DEF-01, name: 閉形式・完全形式 }
+  - { id: GEO9-DEF-02, name: 滑らかなホモトピー }
+  - { id: GEO9-DEF-03, name: ホモトピー作用素 }
+  - { id: GEO9-DEF-04, name: de Rham 複体 }
+  - { id: GEO9-DEF-05, name: de Rham コホモロジー }
+theorems:
+  - { id: GEO9-PROP-01, name: 完全なら閉 }
+  - { id: GEO9-THM-01, name: ホモトピー公式 }
+  - { id: GEO9-THM-02, name: Poincaré の補題 }
+  - { id: GEO9-THM-03, name: 連結多様体の0次 de Rham コホモロジー }
+  - { id: GEO9-THM-04, name: de Rham コホモロジーの滑らかなホモトピー不変性 }
+  - { id: GEO9-THM-05, name: 円周の1次 de Rham コホモロジー }
+  - { id: GEO9-COR-01, name: 穴あき平面の1次 de Rham コホモロジー }
+canonical_examples:
+  - R2上の完全1形式と原始関数
+  - 穴あき平面の角度1形式
+  - 動径ホモトピーによる原始形式の構成
+  - 連結多様体の0次コホモロジー
+  - 円周上の周期1形式と積分
+  - 穴あき平面から円周への変形レトラクション
+problem_patterns:
+  - GEO9-CLOSED-EXACT-1
+  - GEO9-ANGULAR-FORM-1
+  - GEO9-DE-RHAM-COMPLEX-1
+  - GEO9-HOMOTOPY-OPERATOR-1
+  - GEO9-POINCARE-2FORM-1
+  - GEO9-HOMOTOPY-INVARIANCE-1
+  - GEO9-CIRCLE-H1-1
+  - GEO9-PUNCTURED-PLANE-H1-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 0.5 }
