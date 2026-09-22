@@ -104,6 +104,7 @@
 10. [GEO10 Euclid 空間の曲線・超曲面 I：基本形式と形作用素](textbook/volumes/00_foundations/GEO10/index.md)
 11. [GEO11 Euclid 空間の超曲面 II：構造方程式・Gauss--Codazzi・基本定理](textbook/volumes/00_foundations/GEO11/index.md)
 12. [GEO12 Riemann 計量・長さ・距離・体積](textbook/volumes/00_foundations/GEO12/index.md)
+13. [GEO13 アフィン接続・Levi-Civita 接続・平行移動](textbook/volumes/00_foundations/GEO13/index.md)
 
 ### 標準ベクトル解析コア
 
