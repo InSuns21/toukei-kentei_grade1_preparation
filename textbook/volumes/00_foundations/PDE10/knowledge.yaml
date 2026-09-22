@@ -11,6 +11,11 @@ forward_references:
   - complex-analysis.harmonic-function
   - complex-analysis.poisson-kernel
 concepts:
+  - id: pde.pde10-ball-divergence
+    name: n 次元球・穴あき球の発散公式
+    kind: lemma
+    aliases: ["n 次元球・穴あき球の発散公式"]
+    introduction: formal
   - id: pde.pde10-fundamental-solution
     name: 多次元負 Laplacian の基本解
     kind: definition
