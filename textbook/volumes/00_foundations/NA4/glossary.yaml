@@ -11,7 +11,7 @@ terms:
     meaning: 自分の節点で1、他のすべての節点で0を取る補間基底。
   - term: 分割差分
     english: divided difference
-    meaning: 補間多項式の最高次係数を表し、再帰公式で計算できる量。
+    meaning: 補間多項式の最高次係数を表し、漸化式で計算できる量。
   - term: Newton 補間
     english: Newton interpolation
     meaning: 分割差分を係数とし、節点を追加するたびに一項ずつ拡張できる補間表示。
