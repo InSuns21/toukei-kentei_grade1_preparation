@@ -1104,33 +1104,73 @@ $$
 <!-- proof-start -->
 ### 証明
 
-局所座標上で $V,W$ を一時的にベクトル場へ延長し、曲線の速度
+局所座標で
 
 $$
-\dot\gamma
-$$
-
-の方向へ計量両立性を適用します。
-
-すると
-
-$$
-\dot\gamma\bigl(g(V,W)\bigr)
-=
-g(\nabla_{\dot\gamma}V,W)
-+
-g(V,\nabla_{\dot\gamma}W).
-$$
-
-曲線に沿う共変微分の座標公式は、この右辺を延長の選び方に依存せず
-
-$$
-\frac{DV}{dt},
+V=V^i\partial_i,
 \qquad
-\frac{DW}{dt}
+W=W^j\partial_j
 $$
 
-として与えるので
+と書きます。まず左辺を直接微分すると
+
+$$
+\frac{d}{dt}g(V,W)
+=
+\frac{d}{dt}
+\left(
+g_{ij}(\gamma(t))V^iW^j
+\right).
+$$
+
+従って
+
+$$
+\begin{aligned}
+\frac{d}{dt}g(V,W)
+={}&
+\dot\gamma^k(\partial_kg_{ij})V^iW^j
++
+g_{ij}\frac{dV^i}{dt}W^j
++
+g_{ij}V^i\frac{dW^j}{dt}.
+\end{aligned}
+$$
+
+計量両立性を座標基底へ適用すると
+
+$$
+\partial_kg_{ij}
+=
+g_{\ell j}\Gamma^\ell_{ki}
++
+g_{i\ell}\Gamma^\ell_{kj}.
+$$
+
+これを代入して項をまとめれば
+
+$$
+\begin{aligned}
+\frac{d}{dt}g(V,W)
+={}&
+g_{ij}
+\left(
+\frac{dV^i}{dt}
++
+\Gamma^i_{k\ell}\dot\gamma^kV^\ell
+\right)W^j
+\\
+&+
+g_{ij}V^i
+\left(
+\frac{dW^j}{dt}
++
+\Gamma^j_{k\ell}\dot\gamma^kW^\ell
+\right).
+\end{aligned}
+$$
+
+括弧内は曲線に沿う共変微分の成分なので
 
 $$
 \frac{d}{dt}g(V,W)
@@ -3491,4 +3531,4 @@ $$
 
 と、計量だけから接続係数を計算できます。
 
-次の [GEO14](../GEO14/index.md) では、この Levi-Civita 接続を使い、速度ベクトルを自身に沿って平行に保つ曲線を測地線として構成します。測地線方程式、指数写像、Gauss の補題、正規座標へ進みます。
+次の GEO14 では、この Levi-Civita 接続を使い、速度ベクトルを自身に沿って平行に保つ曲線を測地線として構成します。測地線方程式、指数写像、Gauss の補題、正規座標へ進みます。
