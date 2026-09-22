@@ -97,8 +97,7 @@
 3. [GEO3 階数定理・はめ込み・沈め込み・部分多様体](textbook/volumes/00_foundations/GEO3/index.md)
 4. [GEO4 1 の分割・局所化・埋め込み](textbook/volumes/00_foundations/GEO4/index.md)
 5. [GEO5 ベクトル場・積分曲線・局所流・Lie 括弧](textbook/volumes/00_foundations/GEO5/index.md)
-
-GEO1 では、Hausdorff・第二可算・局所 Euclid 性から位相多様体を定義し、座標近傍・滑らかなアトラス・極大滑らかアトラスを経て、球面・トーラス・実射影空間と滑らかな写像までを構成します。GEO2 では、接ベクトルを曲線の速度と点での微分作用素の両面から構成して同値性を証明し、写像の微分・余接空間・引き戻し・接束・余接束までを定義します。GEO3 では、定数階数定理からはめ込み・沈め込みの局所標準形を導き、埋め込み・正則値・レベル集合・埋め込み部分多様体と接空間の核公式まで進みます。GEO4 では、第二可算性と局所コンパクト性から多様体のパラコンパクト性を証明し、滑らかな隆起関数・従属する 1 の分割・局所データの貼り合わせを構成します。さらにコンパクト滑らかな多様体について、有限個の座標と局所化関数だけで有限次元 Euclid 空間への埋め込みを完全証明します。GEO5 では、ベクトル場を接束の滑らかな切断として定義し、ODE の局所存在・一意性から積分曲線・最大流を構成します。さらに完備性、押し出し、Lie 括弧の座標公式と Jacobi 恒等式、流れによる Lie 括弧の解釈、ベクトル場の直線化定理までを証明し、GEO6 の Frobenius の定理へ接続します。
+6. [GEO6 線形分布・積分多様体・Frobenius の定理](textbook/volumes/00_foundations/GEO6/index.md)
 
 ### 標準ベクトル解析コア
 
@@ -113,8 +112,6 @@ GEO1 では、Hausdorff・第二可算・局所 Euclid 性から位相多様体�
 7. [VC7 添字記法・直交基底・成分変換](textbook/volumes/00_foundations/VC7/index.md)
 8. [VC8 Newton ポテンシャル・Helmholtz 分解](textbook/volumes/00_foundations/VC8/index.md)
 9. [VC9 保存則・流体・Maxwell 方程式](textbook/volumes/00_foundations/VC9/index.md)
-
-VC1--VC4 では場の微分・線積分・曲面積分から Green の定理と Gauss--Ostrogradsky の発散定理へ進み、PDE6 で使う法線・流束・発散定理を準備します。VC5--VC6 では Kelvin--Stokes の定理と円柱・球座標、VC7 では Einstein の総和規約、Kronecker のデルタ、Levi--Civita 記号、二階デカルトテンソル、応力・慣性テンソル、VC8 では Newton 核から Helmholtz 分解、ゲージ自由度、Biot--Savart 型再構成、VC9 では保存則・物質微分・非圧縮流・運動量収支・Maxwell 方程式を扱います。
 
 ### ノルム空間・測度・Lebesgue積分
 
