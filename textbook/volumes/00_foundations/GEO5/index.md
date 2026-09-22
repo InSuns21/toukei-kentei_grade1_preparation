@@ -7,23 +7,23 @@
 > **定義（滑らかなベクトル場）**  
 > $M$ を滑らかな多様体、$\pi:TM\to M$ を接束の射影とする。滑らかな写像
 >
-> $$
-> X:M\to TM
-> $$
+$$
+X:M\to TM
+$$
 >
 > が
 >
-> $$
-> \pi\circ X=\operatorname{id}_M
-> $$
+$$
+\pi\circ X=\operatorname{id}_M
+$$
 >
 > を満たすとき、$X$ を $M$ 上の **滑らかなベクトル場**という。
 >
 > 各 $p\in M$ に対して
 >
-> $$
-> X_p:=X(p)\in T_pM
-> $$
+$$
+X_p:=X(p)\in T_pM
+$$
 >
 > と書く。
 <!-- formal-statement-end -->
@@ -107,11 +107,11 @@ $$
 > **定義（ベクトル場が定める導分）**  
 > $X$ を $M$ 上の滑らかなベクトル場、$f\in C^\infty(M)$ とする。
 >
-> $$
-> Xf:M\to\mathbb R,
-> \qquad
-> (Xf)(p):=X_p(f)
-> $$
+$$
+Xf:M\to\mathbb R,
+\qquad
+(Xf)(p):=X_p(f)
+$$
 >
 > と定める。ここで $X_p$ は [GEO2](../GEO2/index.md#def-geo2-tangent-derivation) の意味で点 $p$ における微分作用素である。
 <!-- formal-statement-end -->
@@ -185,15 +185,15 @@ $$
 > **命題（滑らかなベクトル場は滑らかな関数環上の導分を定める）**  
 > 任意の $f,g\in C^\infty(M)$ と $a,b\in\mathbb R$ に対して
 >
-> $$
-> X(af+bg)=aXf+bXg
-> $$
+$$
+X(af+bg)=aXf+bXg
+$$
 >
 > および
 >
-> $$
-> X(fg)=f\,Xg+g\,Xf
-> $$
+$$
+X(fg)=f\,Xg+g\,Xf
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -243,16 +243,16 @@ $$
 > **定義（積分曲線）**  
 > $X$ を $M$ 上の滑らかなベクトル場とする。区間 $I\subset\mathbb R$ 上の滑らかな曲線
 >
-> $$
-> \gamma:I\to M
-> $$
+$$
+\gamma:I\to M
+$$
 >
 > が
 >
-> $$
-> \gamma'(t)=X_{\gamma(t)}
-> \qquad(t\in I)
-> $$
+$$
+\gamma'(t)=X_{\gamma(t)}
+\qquad(t\in I)
+$$
 >
 > を満たすとき、$\gamma$ を $X$ の **積分曲線**という。
 <!-- formal-statement-end -->
@@ -320,23 +320,23 @@ $$
 >
 > このとき、ある $\varepsilon>0$ と積分曲線
 >
-> $$
-> \gamma:(-\varepsilon,\varepsilon)\to M
-> $$
+$$
+\gamma:(-\varepsilon,\varepsilon)\to M
+$$
 >
 > が存在して
 >
-> $$
-> \gamma(0)=p
-> $$
+$$
+\gamma(0)=p
+$$
 >
 > となる。
 >
 > また、$\gamma_1,\gamma_2$ がともに $p$ を時刻0に通る積分曲線なら、両者の定義区間の共通部分上で
 >
-> $$
-> \gamma_1=\gamma_2
-> $$
+$$
+\gamma_1=\gamma_2
+$$
 >
 > である。
 <!-- formal-statement-end -->
@@ -444,19 +444,19 @@ $$
 > **補題（自律系の解の初期値への滑らかな依存）**  
 > $U\subset\mathbb R^n$ を開集合、$F:U\to\mathbb R^n$ を滑らかな写像とする。$a_0\in U$ に対し、ある $h>0$ と $a_0$ の開近傍 $V\subset U$ が存在して、各 $a\in V$ に対する方程式と初期条件
 >
-> $$
-> u'(t)=F(u(t)),
-> \qquad
-> u(0)=a
-> $$
+$$
+u'(t)=F(u(t)),
+\qquad
+u(0)=a
+$$
 >
 > の解が $|t|<h$ で存在し、
 >
-> $$
-> \Psi:(-h,h)\times V\to U,
-> \qquad
-> \Psi(t,a)=u_a(t)
-> $$
+$$
+\Psi:(-h,h)\times V\to U,
+\qquad
+\Psi(t,a)=u_a(t)
+$$
 >
 > は滑らかである。
 <!-- formal-statement-end -->
@@ -645,25 +645,25 @@ $$
 >
 > $0\in I_p\subset\mathbb R$ を満たす区間上の積分曲線
 >
-> $$
-> \gamma_p:I_p\to M,
-> \qquad
-> \gamma_p(0)=p
-> $$
+$$
+\gamma_p:I_p\to M,
+\qquad
+\gamma_p(0)=p
+$$
 >
 > が **最大**であるとは、同じ初期条件を持つ積分曲線
 >
-> $$
-> \widetilde\gamma:J\to M
-> $$
+$$
+\widetilde\gamma:J\to M
+$$
 >
 > に対して常に
 >
-> $$
-> J\subseteq I_p,
-> \qquad
-> \widetilde\gamma=\gamma_p|_J
-> $$
+$$
+J\subseteq I_p,
+\qquad
+\widetilde\gamma=\gamma_p|_J
+$$
 >
 > となることをいう。
 <!-- formal-statement-end -->
@@ -707,9 +707,9 @@ $a=0$ では $x(t)\equiv0$ なので $I_0=\mathbb R$ です。
 > **定理（最大積分曲線の存在・一意性）**  
 > 任意の $p\in M$ に対して、$p$ を時刻0に通る最大積分曲線
 >
-> $$
-> \gamma_p:I_p\to M
-> $$
+$$
+\gamma_p:I_p\to M
+$$
 >
 > が一意に存在する。
 >
@@ -765,27 +765,27 @@ $$
 > **定義（最大流）**  
 > $X$ の点 $p$ を通る最大積分曲線を $\gamma_p:I_p\to M$ とする。
 >
-> $$
-> \mathcal D_X
-> =
-> \{(t,p)\in\mathbb R\times M:t\in I_p\}
-> $$
+$$
+\mathcal D_X
+=
+\{(t,p)\in\mathbb R\times M:t\in I_p\}
+$$
 >
 > と置き、
 >
-> $$
-> \Phi:\mathcal D_X\to M,
-> \qquad
-> \Phi(t,p)=\gamma_p(t)
-> $$
+$$
+\Phi:\mathcal D_X\to M,
+\qquad
+\Phi(t,p)=\gamma_p(t)
+$$
 >
 > と定める。この $\Phi$ を $X$ の **最大流**という。
 >
 > 固定した $t$ に対して定義できる範囲では
 >
-> $$
-> \Phi_t(p):=\Phi(t,p)
-> $$
+$$
+\Phi_t(p):=\Phi(t,p)
+$$
 >
 > と書く。
 <!-- formal-statement-end -->
@@ -795,23 +795,23 @@ $$
 > **定義（局所流）**  
 > $M$ の開集合 $\mathcal D\subset\mathbb R\times M$ が $\{0\}\times M$ を含み、滑らかな写像
 >
-> $$
-> \Phi:\mathcal D\to M
-> $$
+$$
+\Phi:\mathcal D\to M
+$$
 >
 > が
 >
-> $$
-> \Phi_0(p)=p
-> $$
+$$
+\Phi_0(p)=p
+$$
 >
 > および、両辺が定義される全ての $s,t,p$ について
 >
-> $$
-> \Phi_t(\Phi_s(p))
-> =
-> \Phi_{t+s}(p)
-> $$
+$$
+\Phi_t(\Phi_s(p))
+=
+\Phi_{t+s}(p)
+$$
 >
 > を満たすとき、$\Phi$ を **局所流**という。
 <!-- formal-statement-end -->
@@ -851,9 +851,9 @@ $$
 > **定理（最大流の滑らかさと局所群則）**  
 > $X$ を滑らかなベクトル場とする。その最大流
 >
-> $$
-> \Phi:\mathcal D_X\to M
-> $$
+$$
+\Phi:\mathcal D_X\to M
+$$
 >
 > について次が成り立つ。
 >
@@ -862,11 +862,11 @@ $$
 > 3. $\Phi_0=\operatorname{id}_M$。
 > 4. 両辺が定義されるとき
 >
-> $$
-> \Phi_t(\Phi_s(p))
-> =
-> \Phi_{t+s}(p).
-> $$
+$$
+\Phi_t(\Phi_s(p))
+=
+\Phi_{t+s}(p).
+$$
 >
 > 5. $\Phi_t$ はその定義域から像への微分同相写像で、逆写像は $\Phi_{-t}$ である。
 <!-- formal-statement-end -->
@@ -962,17 +962,17 @@ $$
 > **定義（完備ベクトル場）**  
 > 滑らかなベクトル場 $X$ が **完備**であるとは、全ての $p\in M$ に対して最大積分曲線の定義域が
 >
-> $$
-> I_p=\mathbb R
-> $$
+$$
+I_p=\mathbb R
+$$
 >
 > となることをいう。
 >
 > 同値に、最大流の定義域が
 >
-> $$
-> \mathcal D_X=\mathbb R\times M
-> $$
+$$
+\mathcal D_X=\mathbb R\times M
+$$
 >
 > となる。
 <!-- formal-statement-end -->
@@ -1075,14 +1075,14 @@ $$
 >
 > $N$ 上の滑らかなベクトル場 $F_*X$ を
 >
-> $$
-> (F_*X)_q
-> =
-> dF_{F^{-1}(q)}
-> \left(
-> X_{F^{-1}(q)}
-> \right)
-> $$
+$$
+(F_*X)_q
+=
+dF_{F^{-1}(q)}
+\left(
+X_{F^{-1}(q)}
+\right)
+$$
 >
 > で定める。
 <!-- formal-statement-end -->
@@ -1094,10 +1094,10 @@ $$
 > **定義（F-関連なベクトル場）**  
 > 滑らかな写像 $F:M\to N$、$M$ 上の滑らかなベクトル場 $X$、$N$ 上の滑らかなベクトル場 $Y$ が
 >
-> $$
-> dF_p(X_p)=Y_{F(p)}
-> \qquad(p\in M)
-> $$
+$$
+dF_p(X_p)=Y_{F(p)}
+\qquad(p\in M)
+$$
 >
 > を満たすとき、$X$ と $Y$ は **$F$-関連**であるという。
 <!-- formal-statement-end -->
@@ -1167,11 +1167,11 @@ $$
 >
 > 両辺が定義される範囲で
 >
-> $$
-> F\circ\Phi_t
-> =
-> \Psi_t\circ F
-> $$
+$$
+F\circ\Phi_t
+=
+\Psi_t\circ F
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -1234,11 +1234,11 @@ $p$ は任意なので主張を得ます。$\square$
 >
 > 各 $f\in C^\infty(M)$ に対して
 >
-> $$
-> [X,Y]f
-> :=
-> X(Yf)-Y(Xf)
-> $$
+$$
+[X,Y]f
+:=
+X(Yf)-Y(Xf)
+$$
 >
 > と定める。
 >
@@ -1252,19 +1252,19 @@ $p$ は任意なので主張を得ます。$\square$
 > **命題（導分の可換子は再び導分）**  
 > $X,Y$ が滑らかなベクトル場なら、
 >
-> $$
-> \bigl([X,Y]\bigr)(fg)
-> =
-> f[X,Y]g+g[X,Y]f
-> $$
+$$
+\bigl([X,Y]\bigr)(fg)
+=
+f[X,Y]g+g[X,Y]f
+$$
 >
 > が成り立つ。
 >
 > 従って各 $p$ で
 >
-> $$
-> f\longmapsto([X,Y]f)(p)
-> $$
+$$
+f\longmapsto([X,Y]f)(p)
+$$
 >
 > は点 $p$ における導分を定める。
 <!-- formal-statement-end -->
@@ -1336,32 +1336,32 @@ $$
 > **定理（Lie 括弧の座標公式）**  
 > 局所座標 $x=(x^1,\dots,x^n)$ で
 >
-> $$
-> X
-> =
-> \sum_{i=1}^nX^i\frac{\partial}{\partial x^i},
-> \qquad
-> Y
-> =
-> \sum_{j=1}^nY^j\frac{\partial}{\partial x^j}
-> $$
+$$
+X
+=
+\sum_{i=1}^nX^i\frac{\partial}{\partial x^i},
+\qquad
+Y
+=
+\sum_{j=1}^nY^j\frac{\partial}{\partial x^j}
+$$
 >
 > とする。このとき
 >
-> $$
-> [X,Y]
-> =
-> \sum_{j=1}^n
-> \left(
-> \sum_{i=1}^n
-> \left[
-> X^i\frac{\partial Y^j}{\partial x^i}
-> -
-> Y^i\frac{\partial X^j}{\partial x^i}
-> \right]
-> \right)
-> \frac{\partial}{\partial x^j}.
-> $$
+$$
+[X,Y]
+=
+\sum_{j=1}^n
+\left(
+\sum_{i=1}^n
+\left[
+X^i\frac{\partial Y^j}{\partial x^i}
+-
+Y^i\frac{\partial X^j}{\partial x^i}
+\right]
+\right)
+\frac{\partial}{\partial x^j}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -1492,37 +1492,37 @@ $$
 >
 > 1. 双線形性
 >
-> $$
-> [aX+bY,Z]
-> =
-> a[X,Z]+b[Y,Z].
-> $$
+$$
+[aX+bY,Z]
+=
+a[X,Z]+b[Y,Z].
+$$
 >
 > 2. 反対称性
 >
-> $$
-> [X,Y]=-[Y,X].
-> $$
+$$
+[X,Y]=-[Y,X].
+$$
 >
 > 3. 関数倍との積の法則
 >
-> $$
-> [X,fY]
-> =
-> f[X,Y]+X(f)Y.
-> $$
+$$
+[X,fY]
+=
+f[X,Y]+X(f)Y.
+$$
 >
 > 4. Jacobi 恒等式
 >
-> $$
-> [X,[Y,Z]]
-> +
-> [Y,[Z,X]]
-> +
-> [Z,[X,Y]]
-> =
-> 0.
-> $$
+$$
+[X,[Y,Z]]
++
+[Y,[Z,X]]
++
+[Z,[X,Y]]
+=
+0.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -1615,30 +1615,30 @@ $$
 >
 > $t$ が0の近くで定義される範囲で
 >
-> $$
-> Y_t
-> :=
-> (\Phi_{-t})_*Y
-> $$
+$$
+Y_t
+:=
+(\Phi_{-t})_*Y
+$$
 >
 > と置く。このとき、両辺が定義される各時刻 $t$ で
 >
-> $$
-> \frac{d}{dt}Y_t
-> =
-> (\Phi_{-t})_*[X,Y].
-> $$
+$$
+\frac{d}{dt}Y_t
+=
+(\Phi_{-t})_*[X,Y].
+$$
 >
 > 特に
 >
-> $$
-> \left.
-> \frac{d}{dt}
-> \right|_{t=0}
-> Y_t
-> =
-> [X,Y].
-> $$
+$$
+\left.
+\frac{d}{dt}
+\right|_{t=0}
+Y_t
+=
+[X,Y].
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -1762,25 +1762,25 @@ $\square$
 > **系（Lie 括弧が0であることと局所流の可換性）**  
 > $X,Y$ の局所流をそれぞれ $\Phi_t,\Psi_s$ とする。
 >
-> $$
-> [X,Y]=0
-> $$
+$$
+[X,Y]=0
+$$
 >
 > なら、両辺が定義される十分小さい $s,t$ に対して
 >
-> $$
-> \Phi_t\circ\Psi_s
-> =
-> \Psi_s\circ\Phi_t
-> $$
+$$
+\Phi_t\circ\Psi_s
+=
+\Psi_s\circ\Phi_t
+$$
 >
 > が成り立つ。
 >
 > 逆に、局所流が全ての十分小さい $s,t$ で可換なら
 >
-> $$
-> [X,Y]=0.
-> $$
+$$
+[X,Y]=0.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -1859,25 +1859,25 @@ GEO6 の Frobenius の定理では、複数の滑らかなベクトル場を同�
 > **定理（ベクトル場の直線化定理・flow-box theorem）**  
 > $X$ を $n$ 次元滑らかな多様体 $M$ 上の滑らかなベクトル場とし、
 >
-> $$
-> X_p\neq0
-> $$
+$$
+X_p\neq0
+$$
 >
 > とする。
 >
 > このとき $p$ のある局所座標
 >
-> $$
-> (u^1,\dots,u^n)
-> $$
+$$
+(u^1,\dots,u^n)
+$$
 >
 > が存在して、その座標近傍上で
 >
-> $$
-> X
-> =
-> \frac{\partial}{\partial u^1}
-> $$
+$$
+X
+=
+\frac{\partial}{\partial u^1}
+$$
 >
 > となる。
 <!-- formal-statement-end -->
