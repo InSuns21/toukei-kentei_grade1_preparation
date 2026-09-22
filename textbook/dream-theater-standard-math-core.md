@@ -832,6 +832,36 @@ direct prerequisite は GEO5、GEO12 です。GEO5 のベクトル場・Lie 括�
 
 章の prerequisite は GEO13、ODE4 です。GEO13 の Levi-Civita 接続・曲線に沿う共変微分・Christoffel 係数を測地線方程式へ使い、ODE4 の非線形自律系として局所存在一意性を扱います。標準数学コアの registry では ODE4 は系列外 node なので `reuse` として登録します。指数写像と正規座標、Gauss の補題、局所最短性、凸正規近傍までを閉じ、次の GEO15「完備性・Hopf--Rinow」の局所基盤を提供します。
 
+## GEO15 完備性・Hopf--Rinow `advanced-standard`
+
+- 距離完備性と測地完備性を区別して定義
+- 距離完備性から有限時刻で終わる測地線を延長
+- 指数写像の全域定義から任意の二点間の最短測地線を構成
+- 閉距離球を接空間の閉球の指数像として表し、コンパクト性を証明
+- Hopf--Rinow の同値条件を循環なく証明
+- 切断時刻・切断点・切断点集合を導入
+- A4/B3/C1 の演習で完備性・測地線延長・切断点を再構成
+
+実装: [GEO15](volumes/00_foundations/GEO15/index.md)
+
+direct prerequisite は GEO14、TOP5 です。GEO14 の正規近傍・凸正規近傍・指数写像を局所から大域へ延ばし、TOP5 のコンパクト性を閉距離球の議論に使います。次の GEO16 では完備性とは独立な局所二階情報として Riemann 曲率を構成します。
+
+## GEO16 Riemann 曲率 `core-advanced-standard`
+
+- Levi-Civita 接続の交換子から曲率作用素と Riemann 曲率テンソルを定義
+- テンソル性と Christoffel 係数による座標公式を証明し、GEO11 の座標曲率と同一視
+- 正規座標で曲率を計量の二階微分として表示
+- 反対称性・対交換対称性・第一 Bianchi 恒等式・第二 Bianchi 恒等式を核心まで証明
+- 断面曲率を定義し、基底不変性と断面曲率から Riemann 曲率テンソルを復元する定理を証明
+- Ricci 曲率・スカラー曲率・定断面曲率を構成
+- GEO11 の Gauss 方程式を内在表示へ読み替え、二次元の Gauss 曲率と断面曲率の一致を確認
+- Euclid 空間・球面・上半平面模型をそれぞれ曲率 0、正、負の標準模型として計算
+- A4/B3/C1 の演習で共形計量・主曲率・回転対称計量まで直接計算
+
+実装: [GEO16](volumes/00_foundations/GEO16/index.md)
+
+direct prerequisite は GEO13、GEO11 です。GEO13 の Levi-Civita 接続・テンソル場の共変微分を曲率作用素と第二 Bianchi 恒等式へ使い、GEO11 の Gauss--Codazzi と Gauss の驚異の定理を抽象 Riemann 曲率へ接続します。次の GEO17 では曲率を Jacobi 方程式へ入れ、測地線変分・共役点・最短性の喪失を解析します。
+
 ---
 
 # 6. 測度論：標準教科書の第2段階
