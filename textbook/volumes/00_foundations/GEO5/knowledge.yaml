@@ -5,11 +5,6 @@ prerequisites:
   - GEO2
   - ODE1
   - ODE4
-forward_references:
-  - geometry.smooth-distribution
-  - geometry.involutive-distribution
-  - geometry.frobenius-theorem
-
 concepts:
   - id: geometry.smooth-vector-field
     name: 滑らかなベクトル場
