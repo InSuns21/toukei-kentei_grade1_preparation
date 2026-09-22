@@ -409,7 +409,7 @@ $$
 <a id="prop-pde8-semilinear-picard"></a>
 <!-- formal-statement-start -->
 > **命題（半線形熱方程式の Duhamel 反復評価）**  
-> $u_0:\mathbb R\to\mathbb R$ を有界連続関数、$N:\mathbb R\to\mathbb R$ を大域 Lipschitz 関数とし、その Lipschitz 定数を $L$ とする。任意の $T>0$ を固定し、
+> $u_0:\mathbb R\to\mathbb R$ を有界一様連続関数、$N:\mathbb R\to\mathbb R$ を大域 Lipschitz 関数とし、その Lipschitz 定数を $L$ とする。任意の $T>0$ を固定し、
 
 $$
 u^{(0)}(t)=S(t)u_0,
@@ -458,11 +458,20 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $G_{t-s}\ge0$ と
+有界一様連続な $u_0$ に対しては、熱核が近似恒等作用素になることから
 
-$$
+$
+\|S(t)u_0-u_0\|_\infty\to0
+\qquad(t\downarrow0)
+$
+
+です。従って $u^{(0)}(t)=S(t)u_0$ は $t=0$ を含め一様ノルムで連続です。
+
+また $G_{t-s}\ge0$ と
+
+$
 \int_{\mathbb R}G_{t-s}(y)\,dy=1
-$$
+$
 
 から、任意の有界関数 $h$ に対し
 
