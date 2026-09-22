@@ -58,7 +58,7 @@ concepts:
   - id: geometry.differential
     name: 滑らかな写像の微分
     kind: definition
-    aliases: [写像の微分, 微分, differential, tangent map]
+    aliases: [滑らかな写像の微分, 写像の微分, differential, tangent map]
     requires: [geometry.smooth-map, geometry.tangent-space]
 
   - id: geometry.differential-coordinate-formula
