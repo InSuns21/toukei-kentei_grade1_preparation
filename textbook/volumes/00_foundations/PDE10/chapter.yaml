@@ -11,7 +11,7 @@ learning_objectives:
   - 放射対称関数の n 次元 Laplacian を使って基本解の形を導ける
   - n 次元負 Laplacian の基本解の調和性と単位流束を証明できる
   - Newton ポテンシャルが Poisson 方程式を解く機構を小球除外の積分計算から説明できる
-  - 多次元調和関数の球面平均値性質を発散定理から証明できる
+  - 多次元調和関数の平均値性質を発散定理から証明できる
   - Kelvin 変換を定義し調和性保存の計算を追える
   - 半空間の Dirichlet Green 関数と Poisson kernel を鏡像法から構成できる
 definitions:
@@ -21,7 +21,7 @@ definitions:
 theorems:
   - { id: PDE10-PROP-01, name: "多次元基本解の調和性と単位流束" }
   - { id: PDE10-THM-01, name: "Newton ポテンシャルと Poisson 方程式" }
-  - { id: PDE10-THM-02, name: "多次元調和関数の球面平均値性質" }
+  - { id: PDE10-THM-02, name: "多次元調和関数の平均値性質" }
   - { id: PDE10-PROP-02, name: "Kelvin 変換は調和性を保つ" }
   - { id: PDE10-PROP-03, name: "半空間の Dirichlet Green 関数" }
 canonical_examples:
