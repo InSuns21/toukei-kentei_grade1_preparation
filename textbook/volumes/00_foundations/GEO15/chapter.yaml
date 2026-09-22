@@ -16,13 +16,13 @@ learning_objectives:
   - 一点で指数写像が全域定義されることから、任意点までの最短測地線を open-closed 型の延長論証で構成できる
   - 全域指数写像と最短測地線の存在から閉距離球を接空間の閉球の指数像として表し、コンパクト性を証明できる
   - Hopf--Rinow の距離完備・測地完備・指数写像の全域定義・閉有界集合のコンパクト性の同値を循環なく証明できる
-  - 切断時刻・切断点・切断跡を定義し、円周と球面で最短性の喪失を説明できる
+  - 切断時刻・切断点・切断点集合を定義し、円周と球面で最短性の喪失を説明できる
 definitions:
   - { id: GEO15-DEF-01, name: 距離完備な Riemann 多様体 }
   - { id: GEO15-DEF-02, name: 測地完備な Riemann 多様体 }
   - { id: GEO15-DEF-03, name: 最短測地線 }
   - { id: GEO15-DEF-04, name: 切断時刻 }
-  - { id: GEO15-DEF-05, name: 切断点・切断跡 }
+  - { id: GEO15-DEF-05, name: 切断点・切断点集合 }
 theorems:
   - { id: GEO15-PROP-01, name: 測地完備性と指数写像の定義域 }
   - { id: GEO15-THM-01, name: 距離完備なら測地完備 }
@@ -38,7 +38,7 @@ canonical_examples:
   - 開 Euclid 球の不完備性と最短測地線
   - 標準球面の完備性
   - 穴あき Euclid 平面の不完備性
-  - 円周の切断点と切断跡
+  - 円周の切断点と切断点集合
 problem_patterns:
   - GEO15-METRIC-GEODESIC-COMPLETENESS-1
   - GEO15-GEODESIC-EXTENSION-1
