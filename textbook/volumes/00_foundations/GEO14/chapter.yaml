@@ -21,8 +21,9 @@ definitions:
   - { id: GEO14-DEF-01, name: 測地線 }
   - { id: GEO14-DEF-02, name: 指数写像 }
   - { id: GEO14-DEF-03, name: 正規近傍・正規球 }
-  - { id: GEO14-DEF-04, name: 正規座標 }
-  - { id: GEO14-DEF-05, name: 凸正規近傍 }
+  - { id: GEO14-DEF-04, name: 放射測地線 }
+  - { id: GEO14-DEF-05, name: 正規座標 }
+  - { id: GEO14-DEF-06, name: 凸正規近傍 }
 theorems:
   - { id: GEO14-PROP-01, name: 測地線方程式 }
   - { id: GEO14-THM-01, name: 測地線の局所存在・一意性と初期値への滑らかな依存 }
