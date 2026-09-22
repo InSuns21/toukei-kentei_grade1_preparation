@@ -56,19 +56,31 @@ $\mu>0$ では正の根で $f'<0$、負の根で $f'>0$ なので、それぞれ
 <!-- proof-start -->
 ### 証明
 
-1. $f=x(\mu-x)$ なので[平衡解](../ODE1/index.md#def-ode1-equilibrium)は $0,\mu$。$f_x=\mu-2x$ より
+1. $f=x(\mu-x)$ なので[平衡解](../ODE1/index.md#def-ode1-equilibrium)は $x=0$ と $x=\mu$ です。$f_x=\mu-2x$ より
    $$
    f_x(0)=\mu,
    \qquad
    f_x(\mu)=-\mu.
    $$
-   従って $\mu=0$ で安定性を交換します。
+   従って $\mu<0$ では $x=0$ が安定・$x=\mu$ が不安定、$\mu>0$ では逆になり、$\mu=0$ で二枝が交差して安定性を交換します。
 
-2. $f=x(\mu-x^2)$。$\mu>0$ では $0,\pm\sqrt\mu$ が[平衡解](../ODE1/index.md#def-ode1-equilibrium)で
+2. $f=x(\mu-x^2)$ とします。$\mu<0$ では $\mu-x^2<0$ が全ての $x$ で成り立つため、平衡解は $x=0$ だけです。また
+   $$
+   f_x(0)=\mu<0
+   $$
+   なので原点は安定です。$\mu>0$ では
+   $$
+   x=0,\qquad x=\pm\sqrt\mu
+   $$
+   が[平衡解](../ODE1/index.md#def-ode1-equilibrium)で、
    $$
    f_x=\mu-3x^2.
    $$
-   原点では $f_x=\mu$、非零枝では $f_x=-2\mu<0$ です。
+   従って原点では $f_x(0)=\mu>0$ で不安定、非零枝では
+   $$
+   f_x(\pm\sqrt\mu)=-2\mu<0
+   $$
+   なので二枝とも安定です。
 <!-- proof-end -->
 
 ## 4. Hopf 正規形を直接解く
@@ -182,7 +194,43 @@ $$
 $P(s)=s_*/2+s/2$ なら $P(s_*)=s_*$ かつ $P'(s_*)=1/2$ で、帰還ごとに横断距離が半分になります。
 <!-- definition-example-end -->
 
+乗数と安定性の関係も一変数の平均値の定理から直接確認できます。$|P'(s_*)|<1$ なら、連続性からある近傍で
+
+$$
+|P'(s)|\le q<1
+$$
+
+とできます。従って
+
+$$
+|P(s)-s_*|
+=
+|P(s)-P(s_*)|
+\le
+q|s-s_*|,
+$$
+
+なので帰還ごとに横断距離が幾何級数的に縮みます。
+
+逆に $|P'(s_*)|>1$ なら、十分小さい近傍で
+
+$$
+|P'(s)|\ge q>1.
+$$
+
+固定点と異なる点がその近傍に留まる限り
+
+$$
+|P(s)-s_*|
+\ge
+q|s-s_*|
+$$
+
+となるため、帰還反復で固定点から離れます。これが周期軌道の横断方向の安定・不安定を一変数固定点へ還元できる理由です。
+
 ## 6. 平面では発散の一周積分が乗数になる
+
+乗数公式では、流れを初期値で微分した行列を使います。この事実は ODE8 の [流れの初期値微分と変分方程式](../ODE8/index.md#lem-ode8-flow-variational) を正本として使います。
 
 <a id="thm-ode11-planar-multiplier"></a>
 <!-- formal-statement-start -->
@@ -206,13 +254,21 @@ $$
 <!-- proof-start -->
 ### 証明
 
-変分方程式
+[流れの初期値微分と変分方程式](../ODE8/index.md#lem-ode8-flow-variational)により、周期軌道に沿う流れの初期値微分
 
 $$
-\xi'=DF(\gamma(t))\xi
+X(t)=D_x\Phi_t(\gamma(0))
 $$
 
-の基本行列を $X(0)=I$ で取ります。$A(t)=DF(\gamma(t))$ とし、
+は変分方程式
+
+$$
+X'(t)=DF(\gamma(t))X(t),
+\qquad
+X(0)=I
+$$
+
+を満たします。$A(t)=DF(\gamma(t))$ とし、
 
 $$
 A=
@@ -228,15 +284,31 @@ c&d
 \end{pmatrix}
 $$
 
-と書きます。$X'=AX$ を成分で代入して直接微分すると
+と書きます。$X'=AX$ を成分で代入すると
 
 $$
+a'=\alpha a+\beta c,
+\qquad
+b'=\alpha b+\beta d,
+$$
+
+$$
+c'=\gamma a+\delta c,
+\qquad
+d'=\gamma b+\delta d.
+$$
+
+従って
+
+$$
+\begin{aligned}
 (ad-bc)'
-=
-(\alpha+\delta)(ad-bc).
+&=a'd+ad'-b'c-bc'\\
+&=(\alpha+\delta)(ad-bc).
+\end{aligned}
 $$
 
-したがって
+すなわち
 
 $$
 \frac d{dt}\det X(t)
@@ -244,17 +316,181 @@ $$
 \operatorname{tr}(DF(\gamma(t)))\det X(t).
 $$
 
-平面でトレースは発散なので
+$\det X(0)=1$ なので一変数線形方程式を積分して
 
 $$
 \det X(T)
 =
 \exp\left(
-\int_0^T\operatorname{div}F(\gamma(t))dt
+\int_0^T
+\operatorname{tr}(DF(\gamma(t)))\,dt
 \right).
 $$
 
-自律性から $\xi(t)=\gamma'(t)$ も変分方程式の解で、周期性より $\gamma'(T)=\gamma'(0)$。従ってモノドロミー行列 $X(T)$ は接線方向に固有値1を持ちます。二つの固有値の積は行列式なので、残りの固有値は上の指数です。これは横断方向の Poincaré 写像の微分に一致します。
+平面では
+
+$$
+\operatorname{tr}(DF)
+=
+\partial_xF_1+\partial_yF_2
+=
+\operatorname{div}F
+$$
+
+だから
+
+$$
+\det X(T)
+=
+\exp\left(
+\int_0^T
+\operatorname{div}F(\gamma(t))\,dt
+\right).
+$$
+
+残る核心は、**なぜこの行列式が Poincaré 写像の微分そのものになるか**です。
+
+周期軌道上の基準点を
+
+$$
+q=\gamma(0)=\gamma(T),
+\qquad
+F_0=F(q)
+$$
+
+とします。非定常周期軌道なので $F_0\ne0$ です。$q$ を通る横断線 $\Sigma$ を $C^1$ 級に
+
+$$
+\sigma(s),
+\qquad
+\sigma(0)=q,
+\qquad
+v:=\sigma'(0)
+$$
+
+とパラメータ表示します。横断性は
+
+$$
+\det(F_0,v)\ne0
+$$
+
+と同値です。
+
+まず帰還時刻が初期点 $s$ に対して微分可能であることを確認します。$\Sigma$ の近くで $\Sigma=\{h=0\}$ と書ける $C^1$ 関数 $h$ を取り、
+
+$$
+Dh(q)F_0\ne0
+$$
+
+となるようにします。流れを $\Phi_t$ とし、
+
+$$
+G(s,\tau)
+=
+h(\Phi_\tau(\sigma(s)))
+$$
+
+と置けば
+
+$$
+G(0,T)=0,
+$$
+
+かつ
+
+$$
+\partial_\tau G(0,T)
+=
+Dh(q)F(q)
+\ne0.
+$$
+
+したがって [陰関数定理](../RA6A/index.md#thm-ra6a-implicit-function) により、$s=0$ の近くで次の帰還時刻を
+
+$$
+\tau=\tau(s),
+\qquad
+\tau(0)=T
+$$
+
+という $C^1$ 級関数として取れます。Poincaré 写像を横断線座標で $p(s)$ と書けば
+
+$$
+\Phi_{\tau(s)}(\sigma(s))
+=
+\sigma(p(s)),
+\qquad
+p(0)=0.
+$$
+
+この恒等式を $s=0$ で微分します。初期値に関する流れの微分は変分方程式の基本行列なので
+
+$$
+D_x\Phi_T(q)=X(T).
+$$
+
+また $\partial_t\Phi_t(x)=F(\Phi_t(x))$ だから
+
+$$
+X(T)v
++
+F_0\,\tau'(0)
+=
+v\,p'(0).
+$$
+
+両辺と $F_0$ の行列式を取ると、$F_0$ に平行な帰還時刻補正項は消えて
+
+$$
+\det(F_0,X(T)v)
+=
+p'(0)\det(F_0,v).
+$$
+
+一方、自律性から $\gamma'(t)=F(\gamma(t))$ は変分方程式を満たします。従って
+
+$$
+X(T)F_0
+=
+F(\gamma(T))
+=
+F_0.
+$$
+
+よって行列式の変換則から
+
+$$
+\begin{aligned}
+\det(F_0,X(T)v)
+&=
+\det(X(T)F_0,X(T)v)\\
+&=
+\det X(T)\,\det(F_0,v).
+\end{aligned}
+$$
+
+横断性により $\det(F_0,v)\ne0$ なので
+
+$$
+p'(0)
+=
+\det X(T).
+$$
+
+横断線座標での $p'(0)$ が定義した非自明な Poincaré 乗数 $\rho$ です。以上を組み合わせて
+
+$$
+\boxed{
+\rho
+=
+\exp\left(
+\int_0^T
+\operatorname{div}F(\gamma(t))\,dt
+\right)
+}
+$$
+
+を得ます。
 <!-- proof-end -->
 
 ## 演習
