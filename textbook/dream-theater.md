@@ -102,6 +102,7 @@
 8. [GEO8 向き・多様体上の積分・一般 Stokes の定理](textbook/volumes/00_foundations/GEO8/index.md)
 9. [GEO9 Poincaré の補題・de Rham コホモロジー入門](textbook/volumes/00_foundations/GEO9/index.md)
 10. [GEO10 Euclid 空間の曲線・超曲面 I：基本形式と形作用素](textbook/volumes/00_foundations/GEO10/index.md)
+11. [GEO11 Euclid 空間の超曲面 II：構造方程式・Gauss--Codazzi・基本定理](textbook/volumes/00_foundations/GEO11/index.md)
 
 ### 標準ベクトル解析コア
 

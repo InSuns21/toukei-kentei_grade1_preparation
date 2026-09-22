@@ -92,6 +92,9 @@ flowchart TD
   VC2 --> GEO10
   VC3 --> GEO10
   LA5 --> GEO10
+  GEO10 --> GEO11["Euclid 空間の超曲面 II<br/>Gauss--Codazzi・基本定理<br/>GEO11"]
+  GEO6 --> GEO11
+  GEO9 --> GEO11
   TOP5 --> TOP5A["Urysohn・局所コンパクト性・cutoff<br/>TOP5A"]
   TOP5 --> BAIRE["全有界性・Baire・net/filter<br/>TOP6"]
   BAIRE --> UNIFORM["一様構造・一様連続・Cauchy構造<br/>TOP7"]
@@ -747,7 +750,22 @@ direct prerequisite は GEO7、GEO8、TOP3 です。GEO7 の外微分・内部�
 
 実装: [GEO10](volumes/00_foundations/GEO10/index.md)
 
-direct prerequisite は GEO3、VC2、VC3、LA5 です。VC2 の正則曲線・弧長・単位接ベクトルを曲線論の canonical dependency として再利用し、GEO3 の埋め込み部分多様体・正則値定理を超曲面の基礎へ、VC3 の接平面・法線・パラメータ曲面を座標計算へ、LA5 までに整備した有限次元内積・スペクトル理論を形作用素の主方向分解へ使います。法線選択による符号差を明示し、外向き球面では主曲率が $-1/R$ となる $S=-dN$ の規約で統一します。次の GEO11 では Gauss 公式・Weingarten 公式・Gauss--Codazzi 方程式へ進みます。
+direct prerequisite は GEO3、VC2、VC3、LA5 です。VC2 の正則曲線・弧長・単位接ベクトルを曲線論の canonical dependency として再利用し、GEO3 の埋め込み部分多様体・正則値定理を超曲面の基礎へ、VC3 の接平面・法線・パラメータ曲面を座標計算へ、LA5 までに整備した有限次元内積・スペクトル理論を形作用素の主方向分解へ使います。法線選択による符号差を明示し、外向き球面では主曲率が $-1/R$ となる $S=-dN$ の規約で統一します。
+
+## GEO11 Euclid 空間の超曲面 II：構造方程式・Gauss--Codazzi・基本定理 `advanced-standard`
+
+- Gauss 公式と第一基本形式からの Christoffel 係数
+- Weingarten 公式と形作用素の座標表示
+- 混合偏微分の可換性から Gauss 方程式・Codazzi 方程式を導出
+- Gauss--Weingarten 系と $d\Omega+\Omega\wedge\Omega=0$ の構造方程式
+- $K=R_{1212}/\det G$ と Gauss の驚異の定理
+- Gauss--Codazzi を可積分条件として用いる超曲面の基本定理
+- 全臍的超曲面の剛性と平面・球面の局所分類
+- 球面・円柱・共形計量・回転対称型計量の直接計算
+
+実装: [GEO11](volumes/00_foundations/GEO11/index.md)
+
+direct prerequisite は GEO10、GEO6、GEO9 です。GEO10 の第一・第二基本形式と形作用素を出発点にし、GEO6 の Frobenius の定理を標構方程式の局所積分へ、GEO9 の Poincaré の補題を閉じたベクトル値1形式から位置ベクトルを復元する段階へ使います。Gauss--Codazzi を必要条件として導くだけでなく局所存在の十分条件へ反転し、次の GEO12 で抽象 Riemann 計量へ移るための「内在量と外在量」の境界を閉じます。
 
 ---
 

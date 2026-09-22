@@ -1,0 +1,32 @@
+chapter: "GEO11"
+terms:
+  - term: Gauss 公式
+    english: Gauss formula
+    meaning: 超曲面の二階微分を接成分と法線成分へ分解する公式。
+  - term: Christoffel 係数
+    english: Christoffel symbols
+    meaning: 座標接ベクトルの微分の接成分を表す係数で、第一基本形式とその一階微分から決まる。
+  - term: Weingarten 公式
+    english: Weingarten formula
+    meaning: 単位法線の微分を形作用素の座標成分で表す公式。
+  - term: Gauss 方程式
+    english: Gauss equation
+    meaning: 誘導された曲率と第二基本形式を結ぶ整合条件。
+  - term: Codazzi 方程式
+    english: Codazzi equation
+    meaning: 第二基本形式の共変微分の対称性を表す整合条件。
+  - term: 構造方程式
+    english: structure equations
+    meaning: Gauss 公式と Weingarten 公式を移動標構の一次方程式系としてまとめたもの。
+  - term: Gauss の驚異の定理
+    english: Theorema Egregium
+    meaning: 二次元曲面の Gauss 曲率が第一基本形式だけから決まることを述べる定理。
+  - term: 超曲面の基本定理
+    english: fundamental theorem of hypersurfaces
+    meaning: Gauss--Codazzi 条件を満たす第一・第二基本形式から局所超曲面が存在し、剛体運動を除いて一意であることを述べる定理。
+  - term: 全臍的超曲面
+    english: totally umbilic hypersurface
+    meaning: 各点で形作用素が恒等写像のスカラー倍になる超曲面。
+  - term: 剛体運動
+    english: Euclidean rigid motion
+    meaning: 直交変換と平行移動の合成で与えられる Euclid 空間の距離保存写像。
