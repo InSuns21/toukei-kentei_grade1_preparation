@@ -55,7 +55,7 @@ $$
 <a id="thm-pde12-charpit"></a>
 <!-- formal-statement-start -->
 > **定理（Charpit の特性系）**  
-> $F\in C^2$ とし、古典解 $u$ の上で
+> $F\in C^2$ とし、$u\in C^2(\Omega)$ が $F(x,u,\nabla u)=0$ を満たすとする。解のグラフ上で
 
 $$
 z=u(x),\qquad p=\nabla u(x)
@@ -200,27 +200,90 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$F(t,x,z,q,p)=q+H(x,p)$ と置き、$q=u_t$ とします。Charpit 系で $F_q=1$ なので時間そのものを特性パラメータに取れます。
-
-空間成分は
+独立変数を $(t,x)\in\mathbb R^{1+n}$、その勾配を
 
 $$
-\dot x=H_p,\qquad
+(q,p)=(u_t,\nabla_xu)
+$$
+
+とまとめ、
+
+$$
+F(t,x,z,q,p)
+=
+q+H(x,p)
+$$
+
+と置きます。一般 Charpit 系をこの $(1+n)$ 次元の独立変数へ適用します。
+
+まず
+
+$$
+F_q=1,
+\qquad
+F_p=H_p,
+\qquad
+F_z=0,
+\qquad
+F_t=0,
+\qquad
+F_x=H_x.
+$$
+
+従って特性パラメータを $s$ とすると
+
+$$
+\frac{dt}{ds}=F_q=1.
+$$
+
+よって定数をずらせば $s=t$ と取れます。空間勾配成分については
+
+$$
+\dot x=H_p,
+\qquad
 \dot p=-H_x.
 $$
 
-また
+時間方向の勾配 $q$ についても
 
 $$
-\dot z=u_t+\nabla u\cdot\dot x=-H+p\cdot H_p.
-$$
-
-最後に
-
-$$
-\frac d{dt}H
+\dot q
 =
-H_x\cdot H_p+H_p\cdot(-H_x)=0.
+-F_t-qF_z
+=
+0
+$$
+
+です。さらに関数値 $z$ は
+
+$$
+\dot z
+=
+qF_q+p\cdot F_p
+=
+q+p\cdot H_p.
+$$
+
+PDE 自身から $q=-H$ なので
+
+$$
+\dot z
+=
+p\cdot H_p-H.
+$$
+
+最後に $H$ は時刻に陽に依存しないから
+
+$$
+\frac d{dt}H(x(t),p(t))
+=
+H_x\cdot\dot x+H_p\cdot\dot p
+=
+H_x\cdot H_p
++
+H_p\cdot(-H_x)
+=
+0.
 $$
 <!-- proof-end -->
 
@@ -239,48 +302,108 @@ $$
 <a id="thm-pde12-reconstruction"></a>
 <!-- formal-statement-start -->
 > **定理（Hamilton 特性からの局所古典解の再構成）**  
-> 特性解 $(X(t,a),P(t,a),Z(t,a))$ が存在し、ある点で
+> $H\in C^2(\mathbb R^n\times\mathbb R^n)$、$u_0\in C^2(U)$ とする。初期ラベル $a\in U$ に対し
 
 $$
-\det D_aX(t,a)\ne0
+\dot X=H_p(X,P),
+\qquad
+\dot P=-H_x(X,P),
 $$
 
-> とする。[逆関数定理](../RA6A/index.md#thm-ra6a-inverse-function)により近傍で $a=A(t,x)$ と解ける。このとき
-
 $$
-u(t,x)=Z(t,A(t,x))
+\dot Z=P\cdot H_p(X,P)-H(X,P)
 $$
 
-> は局所古典解で、
+> を
 
 $$
-\nabla_xu(t,x)=P(t,A(t,x))
+X(0,a)=a,
+\qquad
+P(0,a)=\nabla u_0(a),
+\qquad
+Z(0,a)=u_0(a)
 $$
 
-> を満たす。
+> から解く。ある $(t_0,a_0)$ の近くでこの特性解が存在し、
+
+$$
+\det D_aX(t_0,a_0)\ne0
+$$
+
+> とする。このとき $(t_0,x_0)$、$x_0=X(t_0,a_0)$ の近くで初期ラベルを
+
+$$
+a=A(t,x)
+$$
+
+> と一意な $C^1$ 級関数として解ける。さらに
+
+$$
+u(t,x)
+=
+Z(t,A(t,x))
+$$
+
+> と定めると
+
+$$
+\nabla_xu(t,x)
+=
+P(t,A(t,x))
+$$
+
+> であり、$u$ は局所的に
+
+$$
+u_t+H(x,\nabla_xu)=0
+$$
+
+> と初期条件 $u(0,x)=u_0(x)$ を満たす古典解である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-核心は
+核心は二つです。
+
+1. 特性に沿って
 
 $$
 D_aZ=P^\top D_aX
 $$
 
-が特性に沿って保存されることです。これにより $P$ が再構成した $u$ の勾配であることが保証されます。
+が保存される。
+2. $\det D_aX\ne0$ なら $(t,a)\mapsto(t,X(t,a))$ が局所可逆なので、特性上の量 $(X,P,Z)$ を $(t,x)$ の関数へ戻せる。
+
+1 により、戻した $Z$ の空間勾配が本当に $P$ になることが保証されます。
 
 <!-- proof-start -->
 ### 証明
 
-$W=D_aZ-P^\top D_aX$ と置きます。初期時刻では
+まず
 
 $$
-D_aZ(0,a)=\nabla u_0(a)^\top
-=P(0,a)^\top D_aX(0,a)
+W(t,a)
+=
+D_aZ(t,a)
+-
+P(t,a)^\top D_aX(t,a)
 $$
 
-なので $W(0,a)=0$。
+と置きます。初期時刻では
+
+$$
+D_aZ(0,a)
+=
+\nabla u_0(a)^\top
+=
+P(0,a)^\top D_aX(0,a)
+$$
+
+なので
+
+$$
+W(0,a)=0.
+$$
 
 Hamilton 方程式を $a$ で微分すると
 
@@ -296,7 +419,35 @@ $$
 -H_{xx}D_aX-H_{xp}D_aP.
 $$
 
-また $\dot Z=P\cdot H_p-H$ を $a$ で微分すると
+次に
+
+$$
+\dot Z
+=
+P^\top H_p-H
+$$
+
+を $a$ で微分します。積の微分を省略せず書くと
+
+$$
+\begin{aligned}
+\partial_tD_aZ
+&=
+H_p^\top D_aP
++
+P^\top
+\left(
+H_{px}D_aX+H_{pp}D_aP
+\right)\\
+&\qquad
+-
+H_x^\top D_aX
+-
+H_p^\top D_aP.
+\end{aligned}
+$$
+
+最初と最後の項が打ち消されるので
 
 $$
 \partial_tD_aZ
@@ -308,33 +459,166 @@ P^\top H_{pp}D_aP
 H_x^\top D_aX.
 $$
 
-右辺は $\partial_t(P^\top D_aX)$ と一致するので $\partial_tW=0$。従って
+一方、
 
 $$
-D_aZ=P^\top D_aX.
+\begin{aligned}
+\partial_t(P^\top D_aX)
+&=
+(\partial_tP)^\top D_aX
++
+P^\top\partial_tD_aX\\
+&=
+(-H_x)^\top D_aX
++
+P^\top
+\left(
+H_{px}D_aX+H_{pp}D_aP
+\right),
+\end{aligned}
 $$
 
-$\det D_aX\ne0$ なら局所逆写像 $a=A(t,x)$ が存在し、連鎖律から
+で、これは $\partial_tD_aZ$ と一致します。従って
 
 $$
-\nabla_xu
+\partial_tW=0.
+$$
+
+$W(0,a)=0$ だったので
+
+$$
+\boxed{
+D_aZ=P^\top D_aX
+}.
+$$
+
+次に「固定した $t$ ごとの逆写像」だけでなく、$(t,x)$ に対して初期ラベルが滑らかに決まることを確認します。
+
+$$
+\Psi(t,a)
 =
-D_aZ(D_aX)^{-1}
+(t,X(t,a))
+$$
+
+と置くと、その微分行列はブロック形
+
+$$
+D\Psi
 =
+\begin{pmatrix}
+1&0\\
+\partial_tX&D_aX
+\end{pmatrix}
+$$
+
+なので
+
+$$
+\det D\Psi(t_0,a_0)
+=
+\det D_aX(t_0,a_0)
+\ne0.
+$$
+
+従って [逆関数定理](../RA6A/index.md#thm-ra6a-inverse-function) により、$(t_0,a_0)$ の近くで $\Psi$ は $C^1$ 級の局所逆写像を持ちます。時間成分はそのままなので、この逆写像を
+
+$$
+(t,x)\longmapsto(t,A(t,x))
+$$
+
+と書けます。
+
+そこで
+
+$$
+u(t,x)
+=
+Z(t,A(t,x))
+$$
+
+と定めます。固定した $t$ で
+
+$$
+X(t,A(t,x))=x
+$$
+
+を $x$ 微分すると
+
+$$
+D_aX\,D_xA=I,
+$$
+
+従って
+
+$$
+D_xA=(D_aX)^{-1}.
+$$
+
+よって
+
+$$
+\begin{aligned}
+D_xu
+&=
+D_aZ\,D_xA\\
+&=
+P^\top D_aX(D_aX)^{-1}\\
+&=
 P^\top.
+\end{aligned}
 $$
 
-さらに特性上で
+すなわち
 
 $$
-\frac d{dt}u(t,X(t,a))
+\nabla_xu(t,x)
 =
-u_t+\nabla u\cdot\dot X
-=
-u_t+P\cdot H_p.
+P(t,A(t,x)).
 $$
 
-左辺は $\dot Z=P\cdot H_p-H$ なので $u_t=-H$。よって Hamilton--Jacobi 方程式を満たします。
+最後に、任意の固定ラベル $a$ に沿って
+
+$$
+u(t,X(t,a))
+=
+Z(t,a).
+$$
+
+両辺を $t$ で微分すると
+
+$$
+u_t(t,X)
++
+\nabla_xu(t,X)\cdot\dot X
+=
+\dot Z.
+$$
+
+すでに $\nabla_xu=P$、$\dot X=H_p$、$\dot Z=P\cdot H_p-H$ を示したので
+
+$$
+u_t+P\cdot H_p
+=
+P\cdot H_p-H.
+$$
+
+従って
+
+$$
+u_t
+=
+-H(X,P)
+=
+-H(X,\nabla_xu),
+$$
+
+すなわち
+
+$$
+u_t+H(x,\nabla_xu)=0.
+$$
+
+$t=0$ では $A(0,x)=x$、$Z(0,x)=u_0(x)$ なので初期条件も満たします。
 <!-- proof-end -->
 
 ## 5. 特性写像が退化する場所
