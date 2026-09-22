@@ -1351,7 +1351,7 @@ Levi-Civita 接続の二つの特徴が、ここで同時に働きます。
 
 ## 10. 放射測地線は正規球内で最短
 
-[Gauss の補題](#thm-geo14-gauss-lemma)を長さ評価へ使います。
+[指数写像に関する Gauss の補題](#thm-geo14-gauss-lemma)を長さ評価へ使います。
 
 $p$ を中心とする正規球
 
@@ -1475,7 +1475,7 @@ $$
 \right).
 $$
 
-[Gauss の補題](#thm-geo14-gauss-lemma)により、放射成分
+[指数写像に関する Gauss の補題](#thm-geo14-gauss-lemma)により、放射成分
 
 $$
 (d\exp_p)_\beta(u)
@@ -1489,7 +1489,7 @@ $$
 
 は直交します。
 
-さらに [Gauss の補題](#thm-geo14-gauss-lemma)を $v=\beta=ru$ と $w=u$ に適用すると
+さらに [指数写像に関する Gauss の補題](#thm-geo14-gauss-lemma)を $v=\beta=ru$ と $w=u$ に適用すると
 
 $$
 g\left(
@@ -2261,7 +2261,7 @@ $$
 
 1. 端点写像 $E$ の局所可逆性で二点間の短い測地線を作り、
 2. 正規座標の二乗半径の凸性でその測地線を同じ小球へ閉じ込め、
-3. [Gauss の補題](#thm-geo14-gauss-lemma)で大域的な競合曲線より短いことを示しました。
+3. [指数写像に関する Gauss の補題](#thm-geo14-gauss-lemma)で大域的な競合曲線より短いことを示しました。
 
 この三段階が、GEO15 で局所結果を大域へ延ばすための土台になります。
 
@@ -3033,7 +3033,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-geo14-b03"></a>
-#### GEO14-B03 Gauss の補題から最短性へ
+#### GEO14-B03 指数写像に関する Gauss の補題から最短性へ
 - Level: B
 
 $p$ を中心とする正規球で曲線
@@ -3051,7 +3051,7 @@ $$
 を考える。
 
 1. $g_p(u,\dot u)=0$ を示せ。
-2. [Gauss の補題](#thm-geo14-gauss-lemma)から
+2. [指数写像に関する Gauss の補題](#thm-geo14-gauss-lemma)から
    $$
    |\dot\alpha|^2
    =
@@ -3101,7 +3101,7 @@ $$
    (\dot r\,u+r\dot u).
    $$
 
-   [Gauss の補題](#thm-geo14-gauss-lemma)より、$u$ 方向と $r\dot u$ 方向の像は直交します。
+   [指数写像に関する Gauss の補題](#thm-geo14-gauss-lemma)より、$u$ 方向と $r\dot u$ 方向の像は直交します。
 
    また
 
@@ -3463,7 +3463,7 @@ $$
 
 が成立します。
 
-さらに [Gauss の補題](#thm-geo14-gauss-lemma)から放射方向と角方向の直交性を導き、
+さらに [指数写像に関する Gauss の補題](#thm-geo14-gauss-lemma)から放射方向と角方向の直交性を導き、
 
 $$
 L(\alpha)\ge L(\text{放射測地線})
