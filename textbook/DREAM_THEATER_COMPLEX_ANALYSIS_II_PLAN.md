@@ -417,7 +417,7 @@ Weierstrass 因数分解と Mittag--Leffler を「存在定理」とだけ述べ
 
 Weierstrass では elementary factor が所与のコンパクト集合上で tail を制御する仕組みを示す。
 
-Mittag--Leffler では、極が外側へ逃げる順に並べ、各 principal part から低次 Taylor 多項式を差し引いて内側 compact 上の tail を一様小さくする構成を追う。
+Mittag--Leffler では、極が外側へ逃げる順に並べ、各 principal part から低次 Taylor 多項式を差し引いて内側 コンパクト集合上の tail を一様小さくする構成を追う。
 
 ### 6.5 直接例
 
@@ -778,7 +778,7 @@ Riemann 面・被覆・複素トーラスを実装し、TOP1/TOP2/TOP4/TOP5 へ�
 7. PR #364 ✅
 8. validation / pedagogy audit 🔧
 
-無限積・Weierstrass 因数分解・Mittag--Leffler を実装した。無限積は対数級数による局所一様収束判定から始め、Weierstrass の基本因子で低次項を消して任意の離散零点多重集合を持つ整関数を構成する。零点を持たない整関数の指数表示を介して Weierstrass 因数分解を閉じ、Mittag--Leffler では各主要部から Taylor 多項式を差し引いて compact 上の尾部を一様に小さくする構成を追う。最後に留数定理から $\pi\cot\pi z$ の部分分数展開を導き、その対数微分から $\sin\pi z$ の Euler 積へ接続する。
+無限積・Weierstrass 因数分解・Mittag--Leffler を実装した。無限積は対数級数による局所一様収束判定から始め、Weierstrass の基本因子で低次項を消して任意の離散零点多重集合を持つ整関数を構成する。零点を持たない整関数の指数表示を介して Weierstrass 因数分解を閉じ、Mittag--Leffler では各主部から Taylor 多項式を差し引いて コンパクト集合上の尾部を一様に小さくする構成を追う。最後に留数定理から $\pi\cot\pi z$ の部分分数展開を導き、その対数微分から $\sin\pi z$ の Euler 積へ接続する。
 
 **現在地（2026-09-22）**：CA10 の本文・演習 A4/B3/C1・詳細解答・stable anchor・knowledge/glossary・reader-facing index・standard math core の同期まで完了し、PR #364 を作成済み。CI / pedagogy audit の最終確認中であり、green 確認後に Phase 4 完了とする。
 
