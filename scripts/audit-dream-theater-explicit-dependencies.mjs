@@ -175,7 +175,8 @@ function isNavigationOrChecklistLine(line) {
 
 function extractNamedDependencyCandidates(line) {
   const text = line
-    .replace(/[*_>#`\[\]]/g, '')
+    .replace(/\*\*/g, '')
+    .replace(/[_>#`\[\]]/g, '')
     .replace(/\s+/g, ' ')
     .trim();
   const out = [];
@@ -418,7 +419,8 @@ function normalizeSemantic(value) {
   return String(value)
     .replace(/[‐‑‒–—−]/g, '-')
     .replace(/-+/g, '-')
-    .replace(/[\s*_>#`\[\]「」『』]/g, '')
+    .replace(/\*\*/g, '')
+    .replace(/[\s_>#`\[\]「」『』]/g, '')
     .replace(/\\,/g, '')
     .replace(/\\!/g, '')
     .toLocaleLowerCase('en-US');
