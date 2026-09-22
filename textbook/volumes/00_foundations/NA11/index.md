@@ -771,7 +771,7 @@ $$
 
 ## 5. ある冪が正になる条件が周期固有値を排除する
 
-<a id="def-na11-primitive"></a>
+<a id="def-na11-primitive-matrix"></a>
 <!-- formal-statement-start -->
 ### 定義（原始行列）
 
@@ -786,7 +786,7 @@ $$
 となるとき、$A$ を **原始行列**という。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-na11-primitive -->
+<!-- definition-example-start: def-na11-primitive-matrix -->
 ### 例：2乗すると正行列になる
 
 **定義の確認**。
@@ -878,7 +878,7 @@ $$
 A^mz=\lambda^mz.
 $$
 
-従って $\lambda^m$ は正行列 $A^m$ のスペクトル円周上の固有値です。
+従って $\lambda^m$ は $|\lambda^m|=\rho(A^m)$ を満たす正行列 $A^m$ の固有値です。
 
 正行列版 Perron--Frobenius 定理より、そのような固有値は
 
@@ -1442,7 +1442,7 @@ $$
 
 の固定点問題とみます。
 
-<a id="prop-na11-pagerank-contraction"></a>
+<a id="prop-na11-pagerank-l1-distance"></a>
 <!-- formal-statement-start -->
 ### 命題（PageRank 写像の1-ノルム縮小性）
 
