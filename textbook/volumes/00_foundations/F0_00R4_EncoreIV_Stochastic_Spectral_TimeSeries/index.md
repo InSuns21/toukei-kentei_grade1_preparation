@@ -98,7 +98,7 @@ manifold-valued SDE / stochastic development
 2. [TSA2：Wold 分解](../TSA2/index.md) — 実装済み
 3. [TSA3：Herglotz の定理・スペクトル表現](../TSA3/index.md) — 実装済み
 4. [TSA4：線形フィルタ・ARMA / ARIMA・周波数領域](../TSA4/index.md) — 実装済み
-5. TSA5：エルゴード性・mixing・従属極限定理 theory
+5. [TSA5：エルゴード性・混合性・従属極限定理](../TSA5/index.md) — 実装済み
 6. TSA6：状態空間・Kalman フィルタ・innovations
 
 統計検定1級本編の AR / MA / ARIMA は試験向け正本として独立に維持し、TSA はその数学的地下構造を扱います。
