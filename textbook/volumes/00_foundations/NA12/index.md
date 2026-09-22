@@ -13,7 +13,7 @@ $$
 ~~~text
 微分可能な目的関数
   ↓
-局所最小点で必要な微分条件
+最小候補で必要な微分条件
   ↓
 目的関数を減らす方向を選ぶ
   ↓
@@ -115,7 +115,7 @@ $$
 
 <a id="prop-na12-first-order-necessary"></a>
 <!-- formal-statement-start -->
-### 命題（一階必要条件）
+### 命題（無制約最適化の一階必要条件）
 
 $f:\mathbb R^n\to\mathbb R$ が $x_*$ で微分可能で、$x_*$ が局所最小点なら
 
@@ -194,7 +194,7 @@ $$
 
 <a id="prop-na12-second-order-conditions"></a>
 <!-- formal-statement-start -->
-### 命題（二階必要条件と正定値 Hessian による十分条件）
+### 命題（無制約最適化の二階最小条件）
 
 $f\in C^2(\mathbb R^n)$ とする。
 

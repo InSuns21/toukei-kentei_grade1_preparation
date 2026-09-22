@@ -39,7 +39,7 @@ concepts:
     kind: proposition
     aliases: [first-order necessary condition for unconstrained minimization]
     introduction: formal
-    introduction_aliases: ["命題（一階必要条件）"]
+    introduction_aliases: ["命題（無制約最適化の一階必要条件）"]
     requires:
       - optimization.local-minimizer
 
@@ -48,7 +48,7 @@ concepts:
     kind: proposition
     aliases: [second-order minimum conditions for unconstrained optimization]
     introduction: formal
-    introduction_aliases: ["命題（二階必要条件と正定値 Hessian による十分条件）"]
+    introduction_aliases: ["命題（無制約最適化の二階最小条件）"]
     requires:
       - optimization.first-order-necessary-condition
 

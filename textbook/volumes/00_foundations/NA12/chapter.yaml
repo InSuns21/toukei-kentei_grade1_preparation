@@ -23,8 +23,8 @@ definitions:
   - { id: NA12-DEF-04, name: 実対称正定値二次目的関数 }
   - { id: NA12-DEF-05, name: 無制約最適化に対する Newton 法 }
 theorems:
-  - { id: NA12-PROP-01, name: 一階必要条件 }
-  - { id: NA12-PROP-02, name: 二階必要条件と正定値 Hessian による十分条件 }
+  - { id: NA12-PROP-01, name: 無制約最適化の一階必要条件 }
+  - { id: NA12-PROP-02, name: 無制約最適化の二階最小条件 }
   - { id: NA12-PROP-03, name: 降下方向では十分小さい正の歩幅で関数値が下がる }
   - { id: NA12-PROP-04, name: 負の勾配は Euclid ノルムに関する最急降下方向 }
   - { id: NA12-PROP-05, name: 実対称正定値二次関数の一意な最小点と目的関数差 }
