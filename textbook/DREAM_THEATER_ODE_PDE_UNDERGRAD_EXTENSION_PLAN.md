@@ -50,7 +50,7 @@ Fourier 系列は FOU1--FOU5 のままとし、重複章を作らない。
 
 この拡張は **学部古典論** を対象にする。超関数・弱微分・Sobolev 空間・Lax--Milgram・変分弱解・Galerkin 弱解は Encore III の正本を使い、Encore II へ逆輸入しない。
 
-また、一般中心多様体定理、一般 Hopf 分岐定理の完全証明、保存則の entropy solution、Hamilton--Jacobi の viscosity solution、HJB、Navier--Stokes の弱解は後続発展へ送る。PDE12 は古典 Hamilton--Jacobi を正本化し、viscosity solution が必要になる地点で停止する。
+また、一般中心多様体定理、一般 Hopf 分岐定理の完全証明、保存則の entropy solution、Hamilton--Jacobi の粘性解（viscosity solution）、HJB、Navier--Stokes の弱解は後続発展へ送る。PDE12 は古典 Hamilton--Jacobi を正本化し、粘性解が必要になる地点で停止する。
 
 ## 2. ODE 拡張
 
@@ -84,7 +84,7 @@ Fourier 系列は FOU1--FOU5 のままとし、重複章を作らない。
 直接前提：ODE9、VC4。
 
 - 周期軌道・極限周期軌道
-- trapping region
+- 捕捉領域（trapping region）
 - Bendixson / Bendixson--Dulac
 - Poincaré--Bendixson
 - Lotka--Volterra
@@ -112,7 +112,7 @@ Poincaré--Bendixson の完全証明で必要な Jordan 曲線定理は平面位
 
 直接前提：PDE7、ODE8。
 
-熱核と d'Alembert 公式へ source term を積分して Duhamel 原理を導き、半線形熱方程式の Picard 反復へ接続する。抽象半群論は後続へ送る。
+熱核と d'Alembert 公式へ 非斉次項（source term）を積分して Duhamel 原理を導き、半線形熱方程式の Picard 反復へ接続する。抽象半群論は後続へ送る。
 
 ### PDE9 多次元波動方程式
 
@@ -124,7 +124,7 @@ Poincaré--Bendixson の完全証明で必要な Jordan 曲線定理は平面位
 
 直接前提：PDE6、VC4、VC6。
 
-$n$ 次元 radial Laplacian、$n\ge3$ の基本解、Newton ポテンシャル、平均値性質、Kelvin 変換、半空間の鏡像法・Poisson kernel を扱う。VC8 の三次元 Newton ポテンシャルと重複させず一般次元と境界値問題を正本化する。
+$n$ 次元放射対称関数の Laplacian、$n\ge3$ の基本解、Newton ポテンシャル、平均値性質、Kelvin 変換、半空間の鏡像法・Poisson 核 を扱う。VC8 の三次元 Newton ポテンシャルと重複させず一般次元と境界値問題を正本化する。
 
 ### PDE11 特殊関数と球面調和
 
@@ -136,7 +136,7 @@ $n$ 次元 radial Laplacian、$n\ge3$ の基本解、Newton ポテンシャル�
 
 直接前提：PDE1、ODE8、RA6A。
 
-$F(x,u,\nabla u)=0$ の Charpit 特性系、Hamilton--Jacobi、Hamilton の正準方程式、eikonal、特性交差と caustic、Burgers との関係を扱う。
+$F(x,u,\nabla u)=0$ の Charpit 特性系、Hamilton--Jacobi、Hamilton の正準方程式、アイコナール方程式、特性交差と特性焦散、Burgers との関係を扱う。
 
 ## 4. 共通完成条件
 
