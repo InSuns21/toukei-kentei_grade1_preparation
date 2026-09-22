@@ -1041,6 +1041,8 @@ GEO 系列を全て完了してから Lie 系列へ進む必要はない。GEO5 
 
 standard math core / knowledge DAG を変更した場合は対応する strict validation も実行する。
 
+概念依存監査の scope は `DREAM_THEATER_AUTHORING_STANDARD.md` に従う。通常の GEO / LIE 実装 PR では changed-only strict validation を原則とし、`dream-theater-index.json` への pure-add と新規章の `knowledge.yaml` 追加だけを理由に full audit を要求しない。既存章の `knowledge.yaml`、既存 index path の削除・移動・並べ替え、全体レジストリ・推論規則・監査エンジンを変更した場合は full audit とする。main への push では全体監査を行う。
+
 機械検証 green は完成の十分条件にしない。
 
 ---

@@ -126,6 +126,8 @@ DREAM THEATER では各演習に詳細解答を必須とし、本番答案・20�
 
 を使い、knowledge / standard math core を変更した場合は対応する strict validation も実行する。
 
+DREAM THEATER の概念依存検証は、PR では変更ページに対する changed-only strict validation を原則とする。新規章を index へ追加するだけの pure-add と、その新規章の `knowledge.yaml` 追加を理由に全体概念監査を強制しない。既存章の `knowledge.yaml` 変更、index の削除・移動・並べ替え、全体レジストリ・推論規則・監査エンジンの変更など、未変更ページへ波及しうる変更では full audit を実行する。main への push では全体監査を行う。具体的な scope 判定は `DREAM_THEATER_AUTHORING_STANDARD.md` と CI の scope detector を正本とする。
+
 監査警告を見出し・marker・metadata追加だけで消さず、本文を読んで実際の欠陥を直す。
 
 ### 9. 判断原則

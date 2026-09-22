@@ -277,6 +277,31 @@ npm run audit:formalism-pedagogy
 
 knowledge / standard math core を変更した場合は、対応する strict validation も実行する。
 
+### 10.1 概念依存監査の範囲
+
+概念依存監査は、変更の影響範囲に応じて使い分ける。PR では変更ページを対象にした changed-only strict validation を通常の blocking 検証とし、すべての教材変更で全 DREAM THEATER を再走査することは要求しない。
+
+次は **changed-only を原則**とする。
+
+- DREAM THEATER 本文・chapter metadata の通常編集
+- 新規章の追加
+- `dream-theater-index.json` への既存項目を壊さない path の純粋追加
+- その新規章に対する新規 `knowledge.yaml` の追加
+
+次は未変更ページへ判定が波及しうるため、PR でも **full audit** の対象とする。
+
+- 既存章の `knowledge.yaml` の変更・削除・移動
+- `dream-theater-index.json` における既存 path / section の削除・改名・移動・並べ替え
+- `textbook/dream-theater-knowledge.yaml`、`textbook/dream-theater-inference-rules.yaml` の変更
+- concept audit の判定ロジック・共通解決ロジック・workflow 自体の変更
+- 差分基準を安全に解決できない場合
+
+pure-add 判定は「既存 section と既存 path の順序・所属を保ったまま、新しい section または path だけを挿入した変更」とする。単に index ファイルが変更されたという理由だけで full audit を要求しない。
+
+main への push では全体監査を実行し、リポジトリ全体の drift を継続的に検出する。将来、依存 DAG の downstream closure や alias の逆参照から影響ページを正確に列挙できるようになった場合は、既存章の knowledge 変更についても full audit を impact audit へ段階的に置き換えてよい。
+
+具体的な CI 判定は `scripts/detect-dream-theater-concept-audit-scope.mjs` と `.github/workflows/validate-dream-theater-concepts.yml` を実装上の正本とする。
+
 監査コマンドの警告を、見出しを足すだけで機械的に消さない。本文を読み、実際の欠陥がある場合だけ修正する。
 
 ---
