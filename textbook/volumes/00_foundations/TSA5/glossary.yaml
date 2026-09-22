@@ -5,7 +5,7 @@ terms:
     meaning: 標準経路空間上で時系列を一時点ずらし、その確率法則を不変に保つ写像。
   - term: 不変σ-加法族
     english: invariant sigma-field
-    meaning: 時間シフトで変わらない事象を集めた sigma-field。
+    meaning: 時間シフトで変わらない事象を集めたσ-加法族。
   - term: エルゴード性
     english: ergodicity
     meaning: 不変事象が確率0または1しか持たず、時間方向に残る非自明なランダム成分がない性質。
@@ -17,7 +17,7 @@ terms:
     meaning: 過去とn時点以上先の未来の事象間に残る依存を同時確率と積の差の上限で測る係数。
   - term: m-依存
     english: m-dependence
-    meaning: m時点より大きく離れた過去と未来の σ-加法族 が独立になる有限範囲依存。
+    meaning: m時点より大きく離れた過去と未来のσ-加法族が独立になる有限範囲依存。
   - term: 長期分散
     english: long-run variance
     meaning: 部分和の分散を標本サイズで割った極限に現れる自己共分散の総和。
