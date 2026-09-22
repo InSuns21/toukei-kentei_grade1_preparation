@@ -365,6 +365,15 @@ nodes:
     implementation_path: textbook/volumes/00_foundations/GEO9/index.md
     prerequisites: [GEO7, GEO8, TOP3]
 
+  - id: GEO10
+    title: Euclid 空間の曲線・超曲面 I：基本形式と形作用素
+    area: differential-geometry
+    tier: core-advanced-standard
+    status: implemented
+    implemented_at: 2026-09-22
+    implementation_path: textbook/volumes/00_foundations/GEO10/index.md
+    prerequisites: [GEO3, VC3, LA5]
+
   - id: VC1
     title: ベクトル場と微分演算子
     area: vector-calculus
