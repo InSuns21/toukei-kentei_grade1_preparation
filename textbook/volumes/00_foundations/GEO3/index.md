@@ -1,4 +1,4 @@
-# GEO3 階数から部分多様体へ
+# GEO3 写像の局所標準形から部分多様体へ
 
 [GEO2](../GEO2/index.md) では、滑らかな写像 $f:M\to N$ の微分
 
@@ -6,14 +6,14 @@ $$
 df_p:T_pM\to T_{f(p)}N
 $$
 
-を座標に依存しない線形写像として定義しました。本章では、その線形写像の **階数** が局所的な幾何をどこまで支配するかを調べます。
+を座標に依存しない線形写像として定義しました。本章では、その線形写像の像の次元が局所的な幾何をどこまで支配するかを調べます。この量をまもなく [写像の階数](#def-geo3-map-rank) として定義します。
 
 中心となる流れは
 
 $$
-\text{階数}
+\text{微分の像の次元}
 \longrightarrow
-\text{定数階数定理}
+\text{局所標準形}
 \longrightarrow
 \text{はめ込み・沈め込み}
 \longrightarrow
@@ -24,13 +24,13 @@ $$
 
 です。
 
-直接 prerequisite は [GEO2](../GEO2/index.md) と [RA6A](../RA6A/index.md) です。定数階数定理の証明では、Euclid 空間上の [逆関数定理](../RA6A/index.md#thm-ra6a-inverse-function) を canonical result として使います。RA6A の [正則レベル集合の局所グラフ表示](../RA6A/index.md#cor-ra6a-regular-level-set) は本章の Euclid 空間版の前段階です。
+直接 prerequisite は [GEO2](../GEO2/index.md) と [RA6A](../RA6A/index.md) です。本章の中心となる局所標準形の証明では、Euclid 空間上の [逆関数定理](../RA6A/index.md#thm-ra6a-inverse-function) を canonical result として使います。RA6A の [正則レベル集合の局所グラフ表示](../RA6A/index.md#cor-ra6a-regular-level-set) は本章の Euclid 空間版の前段階です。
 
 <!-- definition-example-audit: strict -->
 
 ---
 
-## 1. 微分の階数は座標を変えても変わらない
+## 1. 微分の像の次元を定義する
 
 <a id="def-geo3-map-rank"></a>
 
@@ -681,7 +681,7 @@ $$
 
 ### 証明の見取り図
 
-$p\in f^{-1}(q)$ では $df_p$ が全射です。全射性はある $n\times n$ 小行列の行列式が非零という局所条件なので、$p$ の十分小さい近傍でも階数 $n$ が保たれます。そこで沈め込みの局所標準形を使うと、$f$ は局所的に最初の $n$ 座標を取り出す射影になります。レベル集合は、その $n$ 座標を固定した座標平面です。
+$p\in f^{-1}(q)$ では $df_p$ が全射です。全射性はある $n\times n$ 小行列の行列式が非零という局所条件なので、$p$ の十分小さい近傍でも階数 $n$ が保たれます。そこで [沈め込みの局所標準形](#cor-geo3-submersion-normal-form) を使うと、$f$ は局所的に最初の $n$ 座標を取り出す射影になります。レベル集合は、その $n$ 座標を固定した座標平面です。
 
 <!-- proof-start -->
 ### 証明
@@ -841,7 +841,7 @@ $$
 
 です。
 
-一方、正則値定理から
+一方、[正則値定理](#thm-geo3-regular-value)から
 
 $$
 \dim T_pS
@@ -1168,7 +1168,7 @@ dF_{(x,y,z)}(u,v,w)
 -(2x+y)u-xv+w.
 $$
 
-$w$ の係数が常に1なので、$dF$ は全ての点で $\mathbb R$ への全射です。従って $F$ は沈め込みで、0は正則値です。正則値定理から $S$ は
+$w$ の係数が常に1なので、$dF$ は全ての点で $\mathbb R$ への全射です。従って $F$ は沈め込みで、0は正則値です。[正則値定理](#thm-geo3-regular-value)から $S$ は
 
 $$
 3-1=2
@@ -1388,7 +1388,7 @@ $$
 
 $0$ と $\pi$ は $S^1$ 上で異なる点なので $\gamma$ は単射ではありません。埋め込みは像への同相写像、特に全単射でなければならないため、$\gamma$ は埋め込みではありません。
 
-3. はめ込みの局所標準形により、任意の $t_0$ の周りで適切な座標を選ぶと
+3. [はめ込みの局所標準形](#cor-geo3-immersion-normal-form)により、任意の $t_0$ の周りで適切な座標を選ぶと
 
 $$
 s\longmapsto(s,0)
@@ -1600,9 +1600,9 @@ $$
 
 任意の $S$ が像に入るので $dF_A$ は全射です。
 
-4. 3より $I\in\operatorname{Sym}_n$ は $F$ の正則値です。従って正則値定理から
+4. 3より $I\in\operatorname{Sym}_n$ は $F$ の正則値です。従って [正則値定理](#thm-geo3-regular-value)から
 
-$$
+$
 O(n)=F^{-1}(I)
 $$
 
@@ -1622,7 +1622,7 @@ n^2-\frac{n(n+1)}2\\
 \end{aligned}
 $$
 
-5. 正則レベル集合の接空間公式から
+5. [正則レベル集合の接空間](#thm-geo3-level-tangent-kernel)から
 
 $$
 T_AO(n)=\ker dF_A.
