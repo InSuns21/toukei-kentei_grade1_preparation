@@ -1,0 +1,47 @@
+id: "GEO18"
+title: "幾何学 XVIII：比較幾何入門"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEO15
+  - GEO17
+official_scope: []
+learning_objectives:
+  - 定断面曲率の模型空間と比較関数 s_kappa を定義し、s_kappa''+kappa s_kappa=0 と初期条件から Euclid・球面・双曲模型の法 Jacobi 場を統一的に記述できる
+  - 法 Jacobi 場 J の長さ f=|J| に対して f''+kappa f の符号を断面曲率上界から導き、Rauch の比較定理の定曲率模型版を証明できる
+  - 断面曲率 K<=kappa から最初の共役点の出現時刻を模型空間と比較し、K<=0 では共役点がないことを定量化できる
+  - Ricci 曲率下界 Ric>=(n-1)kappa g, kappa>0 の下で平行法標構と試験ベクトル場を指数形式へ代入し、Bonnet--Myers の直径評価を証明できる
+  - 完備性と Bonnet--Myers の直径評価から多様体のコンパクト性を Hopf--Rinow の定理を用いて導ける
+  - 非正断面曲率の下で指数写像の微分が長さを縮めないことを Jacobi 場比較と Gauss の補題から証明できる
+  - 完備な非正曲率多様体で指数写像が被覆写像になる機構を、局所逆写像の長さ制御と完備性から説明できる
+  - 単連結性を定義し、Cartan--Hadamard の定理から完備単連結非正曲率多様体が Euclid 空間と微分同相であることを導ける
+  - 正曲率下限・断面曲率上限・非正曲率が、それぞれ直径・共役点・指数写像・大域位相へどのように効くかを区別して説明できる
+definitions:
+  - { id: GEO18-DEF-01, name: 定曲率模型空間・比較関数 }
+  - { id: GEO18-DEF-02, name: 単連結 }
+theorems:
+  - { id: GEO18-LEM-01, name: 法 Jacobi 場の長さに対する微分不等式 }
+  - { id: GEO18-THM-01, name: Rauch の比較定理（定曲率模型・上曲率版） }
+  - { id: GEO18-COR-01, name: 断面曲率上界による共役半径の評価 }
+  - { id: GEO18-PROP-01, name: 非正曲率での指数写像の微分の拡大性 }
+  - { id: GEO18-THM-02, name: Bonnet--Myers の定理 }
+  - { id: GEO18-LEM-02, name: 拡大局所微分同相の被覆補題 }
+  - { id: GEO18-THM-03, name: Cartan--Hadamard の定理 }
+canonical_examples:
+  - Euclid 空間の比較関数 s_0(t)=t
+  - 半径 a の球面の比較関数 a sin(t/a) と最初の共役点 pi a
+  - 曲率 -1/a^2 の双曲模型の比較関数 a sinh(t/a)
+  - Bonnet--Myers の球面での等号例
+  - 完備単連結非正曲率多様体での指数写像
+problem_patterns:
+  - GEO18-MODEL-JACOBI-1
+  - GEO18-RAUCH-UPPER-1
+  - GEO18-CONJUGATE-RADIUS-1
+  - GEO18-BONNET-MYERS-1
+  - GEO18-EXP-METRIC-EXPANSION-1
+  - GEO18-CARTAN-HADAMARD-1
+  - GEO18-WARPED-MODEL-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 7.0, review: 0.5 }
