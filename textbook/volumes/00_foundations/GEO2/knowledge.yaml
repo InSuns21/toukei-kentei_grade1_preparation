@@ -28,7 +28,7 @@ concepts:
   - id: geometry.coordinate-tangent-basis
     name: 接空間の座標基底
     kind: definition
-    aliases: [座標基底, 接空間の座標基底, coordinate tangent basis]
+    aliases: [座標方向の接ベクトル, 座標基底, 接空間の座標基底, coordinate tangent basis]
     requires: [geometry.tangent-space, geometry.coordinate-chart]
 
   - id: geometry.local-first-order-decomposition
