@@ -5,8 +5,7 @@ prerequisites:
   - PDE3
   - NA7
   - NA8
-forward_references:
-  - FDM2
+forward_references: []
 
 concepts:
   - id: numerical.fdm-space-time-grid
