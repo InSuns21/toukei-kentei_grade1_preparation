@@ -26,9 +26,9 @@ concepts:
     requires: [numerical.root, analysis.intermediate-value-theorem]
 
   - id: numerical.bisection-method
-    name: 二分法
+    name: 符号変化区間に対する二分法
     kind: definition
-    aliases: [二分法, bisection method]
+    aliases: [符号変化区間の二分法]
     introduction: formal
     introduction_aliases: ["定義（二分法）"]
     requires: [numerical.root-bracketing]
@@ -50,9 +50,9 @@ concepts:
     requires: []
 
   - id: numerical.fixed-point-iteration
-    name: 不動点反復
+    name: 数値反復としての不動点反復
     kind: definition
-    aliases: [不動点反復, fixed-point iteration]
+    aliases: [数値反復としての不動点反復]
     introduction: formal
     introduction_aliases: ["定義（不動点反復）"]
     requires: [numerical.fixed-point]
@@ -82,17 +82,17 @@ concepts:
     requires: [numerical.fixed-point-iteration, numerical.contraction, topology.closed-subset-complete]
 
   - id: numerical.order-of-convergence
-    name: 収束次数
+    name: 反復列の収束次数
     kind: definition
-    aliases: [収束次数, order of convergence, 線形収束, 二次収束]
+    aliases: [反復列の収束次数]
     introduction: formal
     introduction_aliases: ["定義（収束次数）"]
     requires: []
 
   - id: numerical.newton-method
-    name: Newton 法
+    name: 接線反復としての Newton 法
     kind: definition
-    aliases: [Newton 法, Newton method]
+    aliases: [接線による Newton 反復]
     introduction: formal
     introduction_aliases: ["定義（Newton 法）"]
     requires: [analysis.derivative]
