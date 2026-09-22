@@ -26,9 +26,9 @@ concepts:
     requires: [numerical.newton-method, functional.frechet-derivative]
 
   - id: numerical.jacobian-lipschitz
-    name: Newton 解析における Jacobian の Lipschitz 連続性
+    name: Jacobian の Lipschitz 連続性
     kind: definition
-    aliases: [Newton 解析における Jacobian の Lipschitz 連続性]
+    aliases: [Lipschitz 連続な Jacobian]
     introduction: formal
     introduction_aliases: ["定義（Jacobian の Lipschitz 連続性）"]
     requires: [functional.frechet-derivative, functional.operator-norm]
