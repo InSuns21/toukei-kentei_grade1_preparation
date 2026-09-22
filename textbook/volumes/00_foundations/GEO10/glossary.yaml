@@ -1,0 +1,50 @@
+chapter: "GEO10"
+terms:
+  - term: 正則曲線
+    english: regular curve
+    meaning: 速度ベクトルが全てのパラメータ値で0にならない滑らかな曲線。
+  - term: 弧長パラメータ
+    english: arc-length parameter
+    meaning: 曲線の速度の大きさが1になるように選んだパラメータ。
+  - term: 曲率
+    english: curvature
+    meaning: 単位接ベクトルが弧長に対して変化する速さ。
+  - term: Frenet 標構
+    english: Frenet frame
+    meaning: 曲率が正の空間曲線に沿う単位接ベクトル・主法線・従法線の正規直交標構。
+  - term: 捩率
+    english: torsion
+    meaning: Frenet 標構の従法線が主法線方向へ回転する速さを符号付きで表す量。
+  - term: 超曲面
+    english: hypersurface
+    meaning: Euclid 空間内の余次元1の埋め込み部分多様体。
+  - term: 単位法線場
+    english: unit normal field
+    meaning: 超曲面の各点で接空間に直交する長さ1のベクトルを滑らかに選んだ場。
+  - term: 第一基本形式
+    english: first fundamental form
+    meaning: 周囲の Euclid 内積を接空間へ制限して得る内積。
+  - term: Gauss 写像
+    english: Gauss map
+    meaning: 単位法線場を単位球面への写像とみなしたもの。
+  - term: 形作用素
+    english: shape operator
+    meaning: 単位法線場Nに対しS=-dNで定める接空間上の自己共役線形作用素。
+  - term: 第二基本形式
+    english: second fundamental form
+    meaning: II(v,w)=<Sv,w>で定まる対称双線形形式。
+  - term: 主曲率
+    english: principal curvature
+    meaning: 形作用素の固有値。
+  - term: 主方向
+    english: principal direction
+    meaning: 形作用素の固有ベクトルが張る接方向。
+  - term: Gauss 曲率
+    english: Gaussian curvature
+    meaning: 二次元曲面で二つの主曲率の積として定める曲率。
+  - term: 平均曲率
+    english: mean curvature
+    meaning: 超曲面で主曲率の算術平均として定める曲率。
+  - term: 正規曲率
+    english: normal curvature
+    meaning: 曲面上の曲線の加速度を曲面法線へ射影した成分で、単位接方向vに対しII(v,v)に等しい。
