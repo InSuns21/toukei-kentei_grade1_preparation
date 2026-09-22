@@ -1,0 +1,135 @@
+chapter: NA8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NA1
+  - F0-00E1
+  - F0-00F1
+forward_references: []
+
+concepts:
+  - id: numerical.triangular-substitution
+    name: 三角連立方程式の逐次解法
+    kind: proposition
+    aliases: [triangular solve, forward and backward substitution]
+    introduction: formal
+    introduction_aliases: ["命題（三角連立方程式の逐次解法）"]
+    requires: []
+
+  - id: numerical.gaussian-elimination
+    name: Gauss 消去法
+    kind: term
+    aliases: [Gaussian elimination]
+    introduction: inline
+    requires: []
+
+  - id: numerical.lu-factorization
+    name: LU 分解
+    kind: definition
+    aliases: [LU factorization, LU decomposition]
+    introduction: formal
+    introduction_aliases: ["定義（LU 分解）"]
+    requires:
+      - numerical.gaussian-elimination
+
+  - id: numerical.gaussian-elimination-lu
+    name: Gauss 消去法と LU 分解
+    kind: theorem
+    aliases: [Gaussian elimination and LU factorization]
+    introduction: formal
+    introduction_aliases: ["定理（Gauss 消去法と LU 分解）"]
+    requires:
+      - numerical.lu-factorization
+
+  - id: numerical.lu-leading-principal-minors
+    name: ピボット選択なし LU 分解の存在判定と一意性
+    kind: theorem
+    aliases: [LU criterion by leading principal minors]
+    introduction: formal
+    introduction_aliases: ["定理（ピボット選択なし LU 分解の存在判定と一意性）"]
+    requires:
+      - numerical.lu-factorization
+
+  - id: numerical.partial-pivoting
+    name: 部分ピボット選択
+    kind: definition
+    aliases: [partial pivoting]
+    introduction: formal
+    introduction_aliases: ["定義（部分ピボット選択）"]
+    requires:
+      - numerical.gaussian-elimination
+
+  - id: numerical.pivoted-lu
+    name: 部分ピボット選択付き LU 分解
+    kind: theorem
+    aliases: [LU factorization with partial pivoting, PLU factorization]
+    introduction: formal
+    introduction_aliases: ["定理（部分ピボット選択付き LU 分解）"]
+    requires:
+      - numerical.partial-pivoting
+      - numerical.lu-factorization
+
+  - id: numerical.element-growth-factor
+    name: 要素成長率
+    kind: definition
+    aliases: [element growth factor, pivot growth factor]
+    introduction: formal
+    introduction_aliases: ["定義（要素成長率）"]
+    requires:
+      - numerical.partial-pivoting
+
+  - id: numerical.cholesky-factorization
+    name: Cholesky 分解
+    kind: definition
+    aliases: [Cholesky factorization, Cholesky decomposition]
+    introduction: formal
+    introduction_aliases: ["定義（Cholesky 分解）"]
+    requires:
+      - linear.positive-definite-matrix
+
+  - id: numerical.cholesky-existence-uniqueness
+    name: Cholesky 分解の存在一意性
+    kind: theorem
+    aliases: [existence and uniqueness of Cholesky factorization]
+    introduction: formal
+    introduction_aliases: ["定理（Cholesky 分解の存在一意性）"]
+    requires:
+      - numerical.cholesky-factorization
+      - linear.positive-definite-matrix
+
+  - id: numerical.householder-reflector
+    name: Householder 反射
+    kind: definition
+    aliases: [Householder reflector, Householder reflection]
+    introduction: formal
+    introduction_aliases: ["定義（Householder 反射）"]
+    requires:
+      - linear.orthogonality
+
+  - id: numerical.householder-axis-map
+    name: Householder 反射の直交性と軸への写像
+    kind: proposition
+    aliases: [orthogonality of Householder reflectors]
+    introduction: formal
+    introduction_aliases: ["命題（Householder 反射の直交性と軸への写像）"]
+    requires:
+      - numerical.householder-reflector
+
+  - id: numerical.householder-qr
+    name: Householder 反射による QR 分解
+    kind: term
+    aliases: [Householder QR]
+    introduction: inline
+    requires:
+      - numerical.householder-reflector
+      - linear.qr-decomposition
+
+  - id: numerical.normal-equations-condition-squared
+    name: 正規方程式は2-ノルム条件数を二乗する
+    kind: proposition
+    aliases: [condition number squaring in normal equations]
+    introduction: formal
+    introduction_aliases: ["命題（正規方程式は2-ノルム条件数を二乗する）"]
+    requires:
+      - numerical.matrix-condition-number
+      - linear.qr-decomposition
