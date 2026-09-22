@@ -21,7 +21,7 @@ $$
 ~~~text
 定常反復
   ↓
-誤差伝播行列とスペクトル半径
+誤差伝播行列の固有値
   ↓
 Jacobi 法・Gauss--Seidel 法
   ↓
@@ -1337,7 +1337,7 @@ $$
 
 ## 6. 共役勾配法
 
-<a id="def-na9-conjugate-gradient"></a>
+<a id="def-na9-cg"></a>
 <!-- formal-statement-start -->
 ### 定義（共役勾配法）
 
@@ -1412,7 +1412,7 @@ $$
 この方法を **共役勾配法**という。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-na9-conjugate-gradient -->
+<!-- definition-example-start: def-na9-cg -->
 ### 例：2次 SPD 系は2反復以内で解ける
 
 $$
