@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - NA1
   - NA8
+  - NA4
   - LA4
   - F0-00F1
 forward_references: []
@@ -152,6 +153,7 @@ concepts:
     requires:
       - numerical.cg-best-approximation
       - numerical.matrix-condition-number
+      - numerical.chebyshev-monic-minimax
 
   - id: numerical.residual-a-norm-duality
     name: 残差と A-ノルム誤差の双対関係
