@@ -18,11 +18,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（Lyapunov 関数）**  
 > 自律系 $x'=F(x)$ の平衡点 $x_*$ の近傍で $V\in C^1$ とする。$V(x_*)=0$ かつ $V(x)>0$ $(x\ne x_*)$ なら $V$ を $x_*$ で正定値という。さらに
->
-> $$
-> \dot V(x):=\nabla V(x)\cdot F(x)
-> $$
->
+
+$$
+\dot V(x):=\nabla V(x)\cdot F(x)
+$$
+
 > が $\dot V\le0$ を満たすとき、$V$ を Lyapunov 関数という。
 <!-- formal-statement-end -->
 
@@ -104,13 +104,13 @@ $\dot V\le0$ なら任意の劣位集合 $\{V\le c\}$ は正方向不変です�
 <!-- formal-statement-start -->
 > **定義（正の極限集合）**  
 > 前向きに存在する軌道 $x(t)$ に対し、
->
-> $$
-> \omega(x_0)
-> =
-> \{y:\ t_n\to\infty\text{ で }x(t_n)\to y\text{ となる列が存在する}\}
-> $$
->
+
+$$
+\omega(x_0)
+=
+\{y:\ t_n\to\infty\text{ で }x(t_n)\to y\text{ となる列が存在する}\}
+$$
+
 > を正の極限集合という。
 <!-- formal-statement-end -->
 
@@ -122,16 +122,16 @@ $\dot V\le0$ なら任意の劣位集合 $\{V\le c\}$ は正方向不変です�
 <!-- formal-statement-start -->
 > **定理（LaSalle の不変性原理）**  
 > $K$ をコンパクトな正方向不変集合とし、$V\in C^1$ が $K$ 上で $\dot V\le0$ を満たすとする。
->
-> $$
-> E=\{x\in K:\dot V(x)=0\}
-> $$
->
+
+$$
+E=\{x\in K:\dot V(x)=0\}
+$$
+
 > と置き、$M$ を $E$ に含まれる最大の不変集合とする。このとき任意の $x_0\in K$ について
->
-> $$
-> \operatorname{dist}(x(t),M)\to0.
-> $$
+
+$$
+\operatorname{dist}(x(t),M)\to0.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
