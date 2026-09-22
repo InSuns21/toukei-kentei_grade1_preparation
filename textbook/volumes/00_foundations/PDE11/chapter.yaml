@@ -22,7 +22,7 @@ theorems:
   - { id: PDE11-LEM-01, name: "整数次数 Bessel 関数の正零点" }
   - { id: PDE11-PROP-02, name: "球面固有値問題と Legendre 方程式" }
   - { id: PDE11-PROP-03, name: "標準球面調和モード" }
-  - { id: PDE11-PROP-04, name: "標準球面調和モードから得る立体調和関数" }
+  - { id: PDE11-PROP-04, name: "立体調和関数の構成" }
 canonical_examples:
   - "放射対称 J0 モード"
   - "Legendre P0・P1・P2"
