@@ -859,35 +859,35 @@ $$
 
 また $df_p$ は全射なので、像の次元は $n$ です。ここで $\ker df_p$ の基底を $v_1,\dots,v_k$ とし、これを
 
-$
+$$
 v_1,\dots,v_k,w_1,\dots,w_{m-k}
-$
+$$
 
 まで $T_pM$ の基底へ延長します。$df_p(w_1),\dots,df_p(w_{m-k})$ は $\operatorname{Im}(df_p)$ を生成し、さらに一次独立です。実際、
 
-$
+$$
 \sum_j a_jdf_p(w_j)=0
-$
+$$
 
 なら $\sum_j a_jw_j\in\ker df_p$ であり、基底の一次独立性から全ての $a_j=0$ です。従って
 
-$
+$$
 n
 =
 \dim\operatorname{Im}(df_p)
 =
 m-k,
-$
+$$
 
 したがって
 
-$
+$$
 \dim\ker df_p
 =
 k
 =
 m-n.
-$
+$$
 
 有限次元ベクトル空間の部分空間で、包含関係と次元が一致するため
 
