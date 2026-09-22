@@ -5,12 +5,16 @@ prerequisites:
   - PDE6
   - VC4
   - VC6
-forward_references: []
+forward_references:
+  - vector-calculus.newton-kernel
+  - vector-calculus.newton-potential
+  - complex-analysis.harmonic-function
+  - complex-analysis.poisson-kernel
 concepts:
   - id: pde.pde10-fundamental-solution
-    name: n 次元負 Laplacian の基本解
+    name: 多次元負 Laplacian の基本解
     kind: definition
-    aliases: ["n 次元負 Laplacian の基本解"]
+    aliases: ["多次元負 Laplacian の基本解"]
     introduction: formal
   - id: pde.pde10-fundamental-flux
     name: 多次元基本解の調和性と単位流束
@@ -18,9 +22,9 @@ concepts:
     aliases: ["多次元基本解の調和性と単位流束"]
     introduction: formal
   - id: pde.pde10-newton-potential
-    name: n 次元 Newton ポテンシャル
+    name: 多次元 Newton ポテンシャル
     kind: definition
-    aliases: ["n 次元 Newton ポテンシャル"]
+    aliases: ["多次元 Newton ポテンシャル"]
     introduction: formal
   - id: pde.pde10-newton-poisson
     name: Newton ポテンシャルと Poisson 方程式
