@@ -250,6 +250,14 @@
 | Jacobi 方程式 | Jacobi equation | 人名部分は英字表記を保持。$D_t^2J+R(J,\dot\gamma)\dot\gamma=0$ |
 | 共役点 | conjugate point | 一本の測地線上で両端0の非零 Jacobi 場が存在する二点の関係 |
 | 共役点の重複度 | multiplicity of a conjugate point | 両端0の Jacobi 場の空間の次元 |
+| 定曲率模型空間 | constant-curvature model space | 一定の断面曲率を持つ標準的な完備単連結 Riemann 多様体 |
+| 比較関数 | comparison function | 定曲率模型の法 Jacobi 方程式を初期条件 $s_\kappa(0)=0$, $s_\kappa'(0)=1$ で解く関数 $s_\kappa$ |
+| Rauch の比較定理 | Rauch comparison theorem | 人名部分は英字表記を保持。断面曲率の大小から Jacobi 場の長さを比較する |
+| 共役半径 | conjugate radius | 基点から最初の共役点までの距離を測る量 |
+| Bonnet--Myers の定理 | Bonnet--Myers theorem | 人名部分は英字表記を保持。正の Ricci 曲率下界から直径上界とコンパクト性を導く |
+| 単連結 | simply connected | 弧状連結で、任意の閉曲線が定値曲線へ縮められる性質 |
+| 被覆写像 | covering map | 各点の近傍の逆像が、その近傍へ同相に写る互いに素な開集合の和へ分解される写像 |
+| Cartan--Hadamard の定理 | Cartan--Hadamard theorem | 人名部分は英字表記を保持。完備非正曲率では指数写像が被覆となり、単連結なら大域微分同相となる |
 
 ## DREAM THEATER：数値解析の主表記
 
