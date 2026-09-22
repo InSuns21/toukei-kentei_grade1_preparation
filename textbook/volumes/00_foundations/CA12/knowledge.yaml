@@ -1,0 +1,113 @@
+chapter: CA12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CA11
+  - FOU2
+  - FOU3
+  - F0-00D2C
+
+concepts:
+  - id: complex-analysis.riemann-zeta
+    name: Riemann ζ 関数
+    kind: definition
+    aliases: [Riemann ζ 関数, Riemann zeta function]
+    introduction: formal
+    introduction_aliases: ["定義（Riemann ζ 関数）"]
+    requires: [complex-analysis.holomorphic-locally-uniform-limit]
+
+  - id: complex-analysis.zeta-holomorphic-half-plane
+    name: Riemann ζ 関数の右半平面での正則性
+    kind: theorem
+    aliases: [Riemann ζ 関数の右半平面での正則性]
+    introduction: formal
+    introduction_aliases: ["定理（Riemann ζ 関数の右半平面での正則性）"]
+    requires: [complex-analysis.riemann-zeta, complex-analysis.holomorphic-locally-uniform-limit]
+
+  - id: complex-analysis.zeta-euler-product
+    name: Riemann ζ 関数の Euler 積と右半平面での零点不存在
+    kind: theorem
+    aliases: [Riemann ζ 関数の Euler 積, Euler product for Riemann zeta]
+    introduction: formal
+    introduction_aliases: ["定理（Riemann ζ 関数の Euler 積と右半平面での零点不存在）"]
+    requires: [complex-analysis.riemann-zeta, complex-analysis.infinite-product-local-uniform-criterion]
+
+  - id: complex-analysis.dirichlet-eta
+    name: Dirichlet eta 関数
+    kind: definition
+    aliases: [Dirichlet eta 関数, Dirichlet eta function]
+    introduction: formal
+    introduction_aliases: ["定義（Dirichlet eta 関数）"]
+    requires: []
+
+  - id: complex-analysis.eta-holomorphic-half-plane
+    name: Dirichlet eta 関数の右半平面での正則性
+    kind: theorem
+    aliases: [Dirichlet eta 関数の右半平面での正則性]
+    introduction: formal
+    introduction_aliases: ["命題（Dirichlet eta 関数の右半平面での正則性）"]
+    requires: [complex-analysis.dirichlet-eta]
+
+  - id: complex-analysis.jacobi-theta
+    name: Jacobi theta 関数
+    kind: definition
+    aliases: [Jacobi theta 関数, Jacobi theta function]
+    introduction: formal
+    introduction_aliases: ["定義（Jacobi theta 関数）"]
+    requires: [fourier.fou3-gaussian-transform]
+
+  - id: complex-analysis.theta-transformation
+    name: theta 変換
+    kind: theorem
+    aliases: [theta 変換, theta transformation]
+    introduction: formal
+    introduction_aliases: ["定理（theta 変換）"]
+    requires: [complex-analysis.jacobi-theta, fourier.fou2-dirichlet-convergence, fourier.fou3-gaussian-transform]
+
+  - id: complex-analysis.zeta-mellin-representation
+    name: theta Mellin 表現
+    kind: theorem
+    aliases: [theta Mellin 表現, Mellin representation of zeta]
+    introduction: formal
+    introduction_aliases: ["定理（theta Mellin 表現）"]
+    requires: [complex-analysis.jacobi-theta, complex-analysis.gamma-function, measure.fubini-theorem]
+
+  - id: complex-analysis.zeta-meromorphic-continuation
+    name: Riemann ζ 関数の有理型解析接続
+    kind: theorem
+    aliases: [Riemann ζ 関数の解析接続, meromorphic continuation of zeta]
+    introduction: formal
+    introduction_aliases: ["定理（Riemann ζ 関数の有理型解析接続）"]
+    requires: [complex-analysis.zeta-mellin-representation, complex-analysis.theta-transformation, complex-analysis.gamma-zero-free]
+
+  - id: complex-analysis.completed-zeta
+    name: 完成 zeta 因子と Riemann xi 関数
+    kind: definition
+    aliases: [completed zeta factor, Riemann xi function, Riemann xi 関数]
+    introduction: formal
+    introduction_aliases: ["定義（完成 zeta 因子と Riemann xi 関数）"]
+    requires: [complex-analysis.zeta-meromorphic-continuation, complex-analysis.gamma-function]
+
+  - id: complex-analysis.zeta-functional-equation
+    name: Riemann ζ 関数の関数等式
+    kind: theorem
+    aliases: [Riemann zeta functional equation, Riemann ζ 関数の関数等式]
+    introduction: formal
+    introduction_aliases: ["定理（Riemann ζ 関数の関数等式）"]
+    requires: [complex-analysis.completed-zeta, complex-analysis.gamma-reflection, complex-analysis.legendre-duplication]
+
+  - id: complex-analysis.zeta-trivial-zeros
+    name: 自明零点
+    kind: theorem
+    aliases: [trivial zeros, 自明零点]
+    introduction: formal
+    introduction_aliases: ["系（自明零点）"]
+    requires: [complex-analysis.zeta-functional-equation, complex-analysis.zeta-euler-product]
+
+  - id: complex-analysis.zeta-special-values
+    name: Riemann ζ 関数の標準特殊値
+    kind: theorem
+    aliases: [zeta special values, Riemann ζ 関数の特殊値]
+    introduction: formal
+    introduction_aliases: ["系（標準特殊値）"]
+    requires: [complex-analysis.zeta-functional-equation, complex-analysis.euler-sine-product, complex-analysis.zeta-meromorphic-continuation]
