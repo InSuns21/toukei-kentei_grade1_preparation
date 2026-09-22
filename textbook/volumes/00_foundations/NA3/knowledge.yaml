@@ -1,0 +1,81 @@
+chapter: NA3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NA1
+  - NA2
+  - F0-02C3
+  - RA4
+forward_references: []
+
+concepts:
+  - id: numerical.nonlinear-system-root-residual
+    name: 非線形連立方程式の根・残差
+    kind: definition
+    aliases: [非線形連立方程式の根]
+    introduction: formal
+    introduction_aliases: ["定義（非線形連立方程式の根・残差）"]
+    requires: [numerical.residual]
+
+  - id: numerical.system-newton-method
+    name: 非線形連立方程式に対する Newton 法
+    kind: definition
+    aliases: [多変数 Newton 法]
+    introduction: formal
+    introduction_aliases: ["定義（非線形連立方程式に対する Newton 法）"]
+    requires: [numerical.newton-method, functional.frechet-derivative]
+
+  - id: numerical.jacobian-lipschitz
+    name: Newton 解析における Jacobian の Lipschitz 連続性
+    kind: definition
+    aliases: [Newton 解析における Jacobian の Lipschitz 連続性]
+    introduction: formal
+    introduction_aliases: ["定義（Jacobian の Lipschitz 連続性）"]
+    requires: [functional.frechet-derivative, functional.operator-norm]
+
+  - id: numerical.jacobian-quadratic-remainder
+    name: Lipschitz Jacobian による二次線形化誤差
+    kind: proposition
+    aliases: [Lipschitz Jacobian による二次線形化誤差]
+    introduction: formal
+    introduction_aliases: ["命題（Lipschitz Jacobian による二次線形化誤差）"]
+    requires: [numerical.jacobian-lipschitz, analysis.ftc-2]
+
+  - id: numerical.inverse-matrix-perturbation
+    name: Newton 解析における可逆行列の摂動評価
+    kind: lemma
+    aliases: [Newton 解析における可逆行列の摂動評価]
+    introduction: formal
+    introduction_aliases: ["補題（可逆行列の摂動と逆行列ノルム）"]
+    requires: [functional.operator-norm]
+
+  - id: numerical.system-newton-local-convergence
+    name: 非線形連立方程式に対する Newton 法の局所収束
+    kind: theorem
+    aliases: [非線形連立方程式に対する Newton 法の局所収束]
+    introduction: formal
+    introduction_aliases: ["定理（非線形連立方程式に対する Newton 法の局所収束）"]
+    requires:
+      - numerical.system-newton-method
+      - numerical.jacobian-quadratic-remainder
+      - numerical.inverse-matrix-perturbation
+      - numerical.order-of-convergence
+
+  - id: numerical.local-root-absolute-condition
+    name: 非線形連立方程式の根の局所絶対条件数
+    kind: definition
+    aliases: [根の局所絶対条件数]
+    introduction: formal
+    introduction_aliases: ["定義（根の局所絶対条件数）"]
+    requires: [numerical.nonlinear-system-root-residual, functional.operator-norm]
+
+  - id: numerical.system-residual-root-error
+    name: 非線形連立方程式における残差から根誤差への局所評価
+    kind: proposition
+    aliases: [非線形連立方程式における残差から根誤差への局所評価]
+    introduction: formal
+    introduction_aliases: ["命題（近傍での残差から根誤差への評価）"]
+    requires:
+      - numerical.local-root-absolute-condition
+      - numerical.jacobian-quadratic-remainder
+      - numerical.condition-singular-values
