@@ -42,7 +42,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（線形正規状態空間モデル）**  
-> 状態 $X_t\in\mathbb R^d$、観測 $Y_t\in\mathbb R^m$ に対し
+> 状態 $X_t\in\mathbb R^d$、観測 $Y_t\in\mathbb R^m$ と、既知の決定論的行列 $F_t\in\mathbb R^{d\times d}$、$H_t\in\mathbb R^{m\times d}$ に対し
 >
 $$
 X_t=F_tX_{t-1}+W_t,
@@ -128,6 +128,16 @@ $$
 >
 > と書く。
 <!-- formal-statement-end -->
+
+再帰は
+
+$$
+m_0=a_0,
+\qquad
+C_0=P_0
+$$
+
+から開始します。これは、観測を一つも見ていない段階ではモデルで与えた $X_0\sim N_d(a_0,P_0)$ がそのまま時点 0 の状態推定になる、という意味です。
 
 <!-- definition-example-start: def-tsa6-prediction-filtering -->
 **定義の確認**  
@@ -1157,6 +1167,8 @@ $$
 
 最後に観測行列 $H=[1\ 0]$ を掛けると第一成分 $X_t$ を取り出せます。$\square$
 <!-- proof-end -->
+
+さらに、開始時点の $\xi_0$ が正規分布に従い、将来の $Z_1,Z_2,\dots$ と独立なら、この表示は観測雑音を 0 とした[線形正規状態空間モデル](#def-tsa6-linear-gaussian-state-space)そのものです。
 
 一般の ARMA$(p,q)$ でも、有限個の AR 過去値と MA 雑音過去値を状態へ積めば有限次元表現を作れます。状態表現は一意ではありません。異なる状態ベクトルが同じ観測過程を生成することもあります。
 
