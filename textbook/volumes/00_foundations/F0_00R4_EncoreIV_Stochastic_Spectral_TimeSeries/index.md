@@ -186,6 +186,6 @@ STO5 では STO2 の bounded optional sampling を dyadic approximation で連�
 
 [TSA3「Herglotz の定理・スペクトル表現」](../TSA3/index.md#thm-tsa3-herglotz) も実装済みです。正定値列から非負近似測度を作る Herglotz の存在証明、一様近似による一意性、スペクトル測度・スペクトル密度、絶対可算和可能な自己共分散からの連続密度、弱ホワイトノイズとランダム正弦波の対比まで閉じました。さらに $L^2(F)$ と過程が生成する閉線形空間の等長対応から直交増分ランダム測度を構成し、[定常過程のスペクトル表現定理](../TSA3/index.md#thm-tsa3-spectral-representation)まで証明しています。
 
-[TSA4「線形フィルタ・ARMA / ARIMA・周波数領域」](../TSA4/index.md#thm-tsa4-spectrum-transform) も実装済みです。絶対可算和可能な線形フィルタから伝達関数を導入し、TSA3 のスペクトル表現を用いて $F_Y=|H|^2F_X$ を証明しました。ARMA の単位円外根条件から因果性・可逆性を構成し、有理スペクトル密度、MA の ACF 打切り、AR の PACF 打切り、通常差分・季節差分の周波数零点、ARIMA で差分後系列を定常対象とする理由まで閉じています。一般 Kolmogorov--Szegő 因数分解は先取りせず、ARMA の有理スペクトル因子までを本章の射程としました。
+[TSA4「線形フィルタ・ARMA / ARIMA・周波数領域」](../TSA4/index.md#thm-tsa4-frequency-transform) も実装済みです。絶対可算和可能な線形フィルタから伝達関数を導入し、TSA3 のスペクトル表現を用いて $F_Y=|H|^2F_X$ を証明しました。ARMA の単位円外根条件から因果性・可逆性を構成し、有理スペクトル密度、MA の ACF 打切り、AR の PACF 打切り、通常差分・季節差分の周波数零点、ARIMA で差分後系列を定常対象とする理由まで閉じています。一般 Kolmogorov--Szegő 因数分解は先取りせず、ARMA の有理スペクトル因子までを本章の射程としました。
 
 現在地は **Phase 5：TSA1 → TSA2 → TSA3 → TSA4 完了。次は TSA5「エルゴード性・mixing・従属極限定理」** です。
