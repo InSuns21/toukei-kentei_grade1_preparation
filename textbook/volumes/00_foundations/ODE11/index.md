@@ -13,6 +13,8 @@
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ode11-bifurcation -->
+**定義の確認**：以下で定義の条件を直接確認します。
+
 ### 具体例：saddle-node
 
 $$
@@ -142,6 +144,24 @@ $$
 > 平面の周期軌道に横断的な短い線分 $\Sigma$ を取り、$s\in\Sigma$ から出た軌道が次に $\Sigma$ へ戻る点を $P(s)$ とする局所写像を Poincaré 写像という。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-ode11-poincare-map -->
+**定義の確認**：極座標系
+
+$$
+r'=1-r,
+\qquad
+\theta'=1
+$$
+
+を考えます。周期軌道 $r=1$ に横断する切断面 $\Sigma=\{\theta=0\}$ を取り、$r_0$ から出発すると一周後 $t=2\pi$ に再び $\Sigma$ へ戻ります。その半径は
+
+$$
+P(r_0)=1+(r_0-1)e^{-2\pi}.
+$$
+
+よって「次に切断面へ戻る点」を与える局所写像が実際に構成できています。
+<!-- definition-example-end -->
+
 周期軌道との交点 $s_*$ は $P(s_*)=s_*$。従って周期軌道の安定性は一変数固定点の安定性へ変わります。
 
 <a id="def-ode11-multiplier"></a>
@@ -157,6 +177,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ode11-multiplier -->
+**定義の確認**：以下で定義の条件を直接確認します。
+
 $P(s)=s_*/2+s/2$ なら $P(s_*)=s_*$ かつ $P'(s_*)=1/2$ で、帰還ごとに横断距離が半分になります。
 <!-- definition-example-end -->
 
@@ -190,7 +212,31 @@ $$
 \xi'=DF(\gamma(t))\xi
 $$
 
-の基本行列を $X(0)=I$ で取ります。行列式の微分公式から
+の基本行列を $X(0)=I$ で取ります。$A(t)=DF(\gamma(t))$ とし、
+
+$$
+A=
+\begin{pmatrix}
+\alpha&\beta\\
+\gamma&\delta
+\end{pmatrix},
+\qquad
+X=
+\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix}
+$$
+
+と書きます。$X'=AX$ を成分で代入して直接微分すると
+
+$$
+(ad-bc)'
+=
+(\alpha+\delta)(ad-bc).
+$$
+
+したがって
 
 $$
 \frac d{dt}\det X(t)
