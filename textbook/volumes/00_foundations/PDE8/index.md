@@ -12,7 +12,25 @@ $$
 \text{過去の各時刻に加わった入力の自由発展}
 $$
 
-という形が現れました。PDE で同じ考えを使うのが Duhamel 原理です。
+という形が現れました。PDE でも「各時刻の入力を、その後の自由発展で運んでから足し合わせる」という同じ考えを使います。
+
+<a id="def-pde8-duhamel-principle"></a>
+<!-- formal-statement-start -->
+> **定義（Duhamel 原理）**  
+> 線形発展方程式で、時刻 $s$ に加わる入力を残り時間 $t-s$ だけ自由発展させ、その寄与を $0\le s\le t$ で積分して非斉次解を構成する考え方を、本章では Duhamel 原理と呼ぶ。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-pde8-duhamel-principle -->
+### 直接例：微分だけの方程式
+
+$u'(t)=f(t)$, $u(0)=0$ なら自由発展は値をそのまま保つので、Duhamel 原理は
+
+$
+u(t)=\int_0^t f(s)\,ds
+$
+
+を与えます。微分すれば $u'=f$、$t=0$ で $u=0$ を直接確認できます。
+<!-- definition-example-end -->
 
 本章では抽象半群を前提にせず、PDE3 の [熱核](../PDE3/index.md#def-pde3-heat-kernel) と PDE4 の [d'Alembert 公式](../PDE4/index.md#thm-pde4-dalembert)から直接導きます。
 
@@ -136,7 +154,7 @@ $$
 v_t=f+\kappa v_{xx}.
 $$
 
-また積分区間の長さが0になるため $v(0,x)=0$。一方 $S(t)u_0$ は斉次熱方程式を満たし初期値 $u_0$ を持つので、和が主張の初期値問題を満たします。
+また積分区間の長さが0になるため $v(0,x)=0$。一方 $S(t)u_0$ は斉次熱方程式を満たし初期値 $u_0$ を持つので、和が主張の初期条件を満たします。
 <!-- proof-end -->
 
 ## 3. 一瞬だけ入る source は熱核そのものを作る
@@ -250,7 +268,7 @@ S(t)u_0
 \int_0^tS(t-s)N(u(s))ds.
 $$
 
-右辺にも未知関数 $u$ が現れるので、ODE1 の Picard 反復と同じ発想を使います。
+右辺にも未知関数 $u$ が現れるので、ODE1 の逐次近似と同じ発想を使います。
 
 <a id="prop-pde8-semilinear-picard"></a>
 <!-- formal-statement-start -->
@@ -274,7 +292,7 @@ L\int_0^t
 \sup_x|u_n(s,x)-u_{n-1}(s,x)|ds.
 $$
 
-> 従って短時間では Picard 反復が一様収束する。
+> 従って短時間ではこの逐次近似が一様収束する。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -431,4 +449,4 @@ $$
 - Duhamel 原理を「過去の入力の自由発展」と説明できる。
 - 熱核から非斉次熱方程式の公式を証明できる。
 - d'Alembert から非斉次波動方程式の公式を証明できる。
-- 半線形問題の Picard 反復評価を導ける。
+- 半線形問題の逐次近似評価を導ける。
