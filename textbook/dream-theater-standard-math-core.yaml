@@ -596,6 +596,14 @@ nodes:
     implemented_at: 2026-09-22
     implementation_path: textbook/volumes/00_foundations/CA11/index.md
     prerequisites: [CA10, CA7]
+  - id: CA12
+    title: Riemann ζ 関数・theta 変換・解析接続・関数等式
+    area: complex-analysis
+    tier: advanced-standard
+    status: implemented
+    implemented_at: 2026-09-22
+    implementation_path: textbook/volumes/00_foundations/CA12/index.md
+    prerequisites: [CA11, FOU2, FOU3, F0-00D2C]
   - id: FA5
     title: spectrum・resolvent
     area: functional-analysis
@@ -639,7 +647,7 @@ implementation_batches:
     nodes: [FA1, FA2, FA3, FA4]
   - order: 6
     id: complex-analysis-core
-    nodes: [CA1, CA2, CA3, CA4, CA5, CA6, CA7, CA8, CA9, CA10, CA11]
+    nodes: [CA1, CA2, CA3, CA4, CA5, CA6, CA7, CA8, CA9, CA10, CA11, CA12]
   - order: 7
     id: functional-analysis-spectral
     nodes: [FA5, FA6, FA7]
