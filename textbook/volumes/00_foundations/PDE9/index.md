@@ -25,14 +25,14 @@ $$
 <!-- formal-statement-start -->
 > **定義（球面平均）**  
 > $h:\mathbb R^3\to\mathbb R$ に対し、中心 $x$、半径 $r>0$ の球面平均を
->
-> $$
-> M_rh(x)
-> :=
-> \frac1{4\pi r^2}
-> \int_{|y-x|=r}h(y)\,dS_y
-> $$
->
+
+$$
+M_rh(x)
+:=
+\frac1{4\pi r^2}
+\int_{|y-x|=r}h(y)\,dS_y
+$$
+
 > と定める。
 <!-- formal-statement-end -->
 
@@ -54,12 +54,12 @@ $$
 <!-- formal-statement-start -->
 > **補題（球面平均の Euler--Poisson--Darboux 関係）**  
 > $h\in C^2(\mathbb R^3)$ とし $m(r,x)=M_rh(x)$ とする。このとき
->
-> $$
-> \frac{\partial^2}{\partial r^2}(r m(r,x))
-> =
-> r M_r(\Delta h)(x).
-> $$
+
+$$
+\frac{\partial^2}{\partial r^2}(r m(r,x))
+=
+r M_r(\Delta h)(x).
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -134,26 +134,26 @@ $$
 <!-- formal-statement-start -->
 > **定理（Kirchhoff 公式）**  
 > $f\in C^3(\mathbb R^3)$, $g\in C^2(\mathbb R^3)$ が十分な減衰を持つとする。三次元波動方程式
->
-> $$
-> u_{tt}-c^2\Delta u=0,
-> \qquad
-> u(0,x)=f(x),
-> \qquad
-> u_t(0,x)=g(x)
-> $$
->
+
+$$
+u_{tt}-c^2\Delta u=0,
+\qquad
+u(0,x)=f(x),
+\qquad
+u_t(0,x)=g(x)
+$$
+
 > の古典解は
->
-> $$
-> u(t,x)
-> =
-> \frac{\partial}{\partial t}
-> \left[tM_{ct}f(x)\right]
-> +
-> tM_{ct}g(x)
-> $$
->
+
+$$
+u(t,x)
+=
+\frac{\partial}{\partial t}
+\left[tM_{ct}f(x)\right]
++
+tM_{ct}g(x)
+$$
+
 > で与えられる。
 <!-- formal-statement-end -->
 
@@ -208,11 +208,11 @@ $$
 <!-- formal-statement-start -->
 > **系（三次元 Huygens 原理）**  
 > Kirchhoff 公式では $(t,x)$ の値は、初期時刻の球面
->
-> $$
-> |y-x|=ct
-> $$
->
+
+$$
+|y-x|=ct
+$$
+
 > 上のデータだけで決まり、球の内部の初期データは直接寄与しない。
 <!-- formal-statement-end -->
 
@@ -232,25 +232,25 @@ $$
 <!-- formal-statement-start -->
 > **定理（二次元波動方程式の Poisson 公式）**  
 > 二次元波動方程式の初期値 $f,g$ が十分滑らかなら
->
-> $$
-> u(t,x)
-> =
-> \frac{\partial}{\partial t}
-> \left[
-> \frac1{2\pi c}
-> \int_{|y-x|<ct}
-> \frac{f(y)}
-> {\sqrt{c^2t^2-|y-x|^2}}
-> dy
-> \right]
-> +
-> \frac1{2\pi c}
-> \int_{|y-x|<ct}
-> \frac{g(y)}
-> {\sqrt{c^2t^2-|y-x|^2}}
-> dy.
-> $$
+
+$$
+u(t,x)
+=
+\frac{\partial}{\partial t}
+\left[
+\frac1{2\pi c}
+\int_{|y-x|<ct}
+\frac{f(y)}
+{\sqrt{c^2t^2-|y-x|^2}}
+dy
+\right]
++
+\frac1{2\pi c}
+\int_{|y-x|<ct}
+\frac{g(y)}
+{\sqrt{c^2t^2-|y-x|^2}}
+dy.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
