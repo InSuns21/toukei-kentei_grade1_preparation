@@ -184,201 +184,7 @@ $P(s)=s_*/2+s/2$ なら $P(s_*)=s_*$ かつ $P'(s_*)=1/2$ で、帰還ごとに�
 
 ## 6. 平面では発散の一周積分が乗数になる
 
-乗数公式では、流れを初期値で微分した行列を使います。ODE8 では連続依存までしか証明していないので、ここで必要な一段を閉じます。
-
-<a id="lem-ode11-flow-variational"></a>
-<!-- formal-statement-start -->
-> **補題（流れの初期値微分と変分方程式）**  
-> $F:\mathbb R^d\to\mathbb R^d$ を $C^1$ 級とし、自律系
->
-> $$
-> x'=F(x)
-> $$
->
-> の流れを $\Phi_t(x_0)$ と書く。ある $T>0$ と初期点 $x_0$ の近傍で $0\le t\le T$ の解が共通に存在するとする。このとき $x\mapsto\Phi_t(x)$ は $x_0$ で微分可能で、その微分行列
->
-> $$
-> X(t):=D_x\Phi_t(x_0)
-> $$
->
-> は
->
-> $$
-> X'(t)=DF(\Phi_t(x_0))X(t),
-> \qquad
-> X(0)=I
-> $$
->
-> を満たす。
-<!-- formal-statement-end -->
-
-### 証明の見取り図
-
-初期値を $x_0+h$ だけずらした二本の解の差を、まず Grönwall で $O(\|h\|)$ に抑えます。その差が通る線分上で $DF$ を平均すると、差は「係数行列が少しずれた線形方程式」を満たします。$DF$ の一様連続性によりその係数行列が変分方程式の係数へ一様収束し、もう一度 Grönwall を使うと一次近似の誤差が $o(\|h\|)$ になります。
-
-<!-- proof-start -->
-### 証明
-
-基準軌道を
-
-$$
-x(t)=\Phi_t(x_0)
-$$
-
-とします。$x_0$ の十分小さい閉近傍から出る軌道は、[初期値に関する連続依存](../ODE8/index.md#thm-ode8-continuous-dependence)により $0\le t\le T$ で一つのコンパクト集合 $K$ に入るように取れます。$F\in C^1$ なので
-
-$$
-L:=\sup_{y\in K}\|DF(y)\|<\infty.
-$$
-
-$h$ を十分小さく取り、
-
-$$
-x_h(t)=\Phi_t(x_0+h),
-qquad
-y_h(t)=x_h(t)-x(t)
-$$
-
-と置きます。積分方程式の差から
-
-$$
-y_h(t)
-=
-h+
-\int_0^t
-\{F(x_h(s))-F(x(s))\},ds.
-$$
-
-平均値の積分形を使うと
-
-$$
-F(x_h)-F(x)
-=
-A_h(t)y_h,
-$$
-
-ただし
-
-$$
-A_h(t)
-=
-\int_0^1
-DF\bigl(x(t)+\theta y_h(t)\bigr),d\theta.
-$$
-
-従って
-
-$$
-y_h(t)
-=
-h+
-\int_0^tA_h(s)y_h(s),ds.
-$$
-
-$\|A_h\|\le L$ なので Grönwall の不等式から
-
-$$
-\|y_h(t)\|
-\le
-e^{Lt}\|h\|.
-$$
-
-よって
-
-$$
-\sup_{0\le t\le T}\|y_h(t)\|
-\le
-e^{LT}\|h\|
-\to0
-\qquad(h\to0).
-$$
-
-$DF$ はコンパクト集合 $K$ 上で一様連続だから
-
-$$
-A_h(t)
-\to
-A(t):=DF(x(t))
-$$
-
-が $0\le t\le T$ で一様に成り立ちます。
-
-次に行列方程式
-
-$$
-X'(t)=A(t)X(t),
-qquad
-X(0)=I
-$$
-
-の解 $X(t)$ を取ります。$X(t)h$ は
-
-$$
-X(t)h
-=
-h+
-\int_0^tA(s)X(s)h,ds
-$$
-
-を満たします。差
-
-$$
-r_h(t)
-=
-y_h(t)-X(t)h
-$$
-
-を取ると
-
-$$
-r_h(t)
-=
-\int_0^t
-A_h(s)r_h(s),ds
-+
-\int_0^t
-\{A_h(s)-A(s)\}X(s)h,ds.
-$$
-
-$M_T:=\sup_{0\le s\le T}\|X(s)\|<\infty$ とすると
-
-$$
-\|r_h(t)\|
-\le
-L\int_0^t\|r_h(s)\|,ds
-+
-T M_T
-\sup_{0\le s\le T}\|A_h(s)-A(s)\|
-\,\|h\|.
-$$
-
-再び Grönwall を使えば
-
-$$
-\sup_{0\le t\le T}
-\frac{\|r_h(t)\|}{\|h\|}
-\le
-T M_T e^{LT}
-\sup_{0\le s\le T}\|A_h(s)-A(s)\|
-\to0.
-$$
-
-従って
-
-$$
-\Phi_t(x_0+h)
-=
-\Phi_t(x_0)+X(t)h+o(\|h\|)
-$$
-
-であり、
-
-$$
-D_x\Phi_t(x_0)=X(t).
-$$
-
-$X$ の定義から変分方程式と $X(0)=I$ も成り立ちます。
-<!-- proof-end -->
+乗数公式では、流れを初期値で微分した行列を使います。この事実は ODE8 の [流れの初期値微分と変分方程式](../ODE8/index.md#lem-ode8-flow-variational) を正本として使います。
 
 <a id="thm-ode11-planar-multiplier"></a>
 <!-- formal-statement-start -->
@@ -402,13 +208,17 @@ $$
 <!-- proof-start -->
 ### 証明
 
-変分方程式
-
-$$
-\xi'=DF(\gamma(t))\xi
-$$
-
-の基本行列を $X(0)=I$ で取ります。$A(t)=DF(\gamma(t))$ とし、
+[流れの初期値微分と変分方程式](../ODE8/index.md#lem-ode8-flow-variational)により、周期軌道に沿う流れの初期値微分
+$
+X(t)=D_x\Phi_t(\gamma(0))
+$
+は変分方程式
+$
+X'(t)=DF(\gamma(t))X(t),
+\qquad
+X(0)=I
+$
+を満たします。$A(t)=DF(\gamma(t))$ とし、
 
 $$
 A=
