@@ -1,0 +1,182 @@
+chapter: GEO5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEO2
+  - ODE1
+  - ODE4
+forward_references:
+  - geometry.smooth-distribution
+  - geometry.involutive-distribution
+  - geometry.frobenius-theorem
+
+concepts:
+  - id: geometry.smooth-vector-field
+    name: 滑らかなベクトル場
+    kind: definition
+    aliases: [滑らかなベクトル場, ベクトル場, smooth vector field]
+    requires:
+      - geometry.tangent-bundle
+      - geometry.tangent-bundle-smooth-structure
+
+  - id: geometry.vector-field-derivation
+    name: ベクトル場が定める導分
+    kind: definition
+    aliases: [ベクトル場が定める導分, vector field as derivation]
+    requires:
+      - geometry.smooth-vector-field
+      - geometry.tangent-vector
+
+  - id: geometry.integral-curve
+    name: 積分曲線
+    kind: definition
+    aliases: [積分曲線, integral curve]
+    requires:
+      - geometry.smooth-vector-field
+      - geometry.curve-derivation-tangent-equivalence
+
+  - id: geometry.local-integral-curve-existence-uniqueness
+    name: 積分曲線の局所存在・一意性
+    kind: theorem
+    aliases: [積分曲線の局所存在一意性, local existence and uniqueness of integral curves]
+    requires:
+      - geometry.integral-curve
+      - ode.ode1-picard-lindelof
+      - ode.ode4-nonlinear-autonomous-system
+
+  - id: geometry.flow-smooth-dependence
+    name: 自律系の解の初期値への滑らかな依存
+    kind: lemma
+    aliases: [初期値への滑らかな依存, smooth dependence on initial data]
+    requires:
+      - geometry.local-integral-curve-existence-uniqueness
+
+  - id: geometry.maximal-integral-curve
+    name: 最大積分曲線
+    kind: definition
+    aliases: [最大積分曲線, maximal integral curve]
+    requires:
+      - geometry.integral-curve
+
+  - id: geometry.maximal-integral-curve-existence
+    name: 最大積分曲線の存在・一意性
+    kind: theorem
+    aliases: [最大積分曲線の存在一意性]
+    requires:
+      - geometry.maximal-integral-curve
+      - geometry.local-integral-curve-existence-uniqueness
+
+  - id: geometry.maximal-flow
+    name: 最大流
+    kind: definition
+    aliases: [最大流, maximal flow]
+    requires:
+      - geometry.maximal-integral-curve-existence
+
+  - id: geometry.local-flow
+    name: 局所流
+    kind: definition
+    aliases: [局所流, local flow]
+    requires:
+      - geometry.maximal-flow
+
+  - id: geometry.maximal-flow-local-group-law
+    name: 最大流の滑らかさと局所群則
+    kind: theorem
+    aliases: [最大流の局所群則, local group law of the maximal flow]
+    requires:
+      - geometry.maximal-flow
+      - geometry.local-flow
+      - geometry.flow-smooth-dependence
+
+  - id: geometry.complete-vector-field
+    name: 完備ベクトル場
+    kind: definition
+    aliases: [完備ベクトル場, complete vector field]
+    requires:
+      - geometry.maximal-flow
+
+  - id: geometry.compact-vector-field-complete
+    name: コンパクト多様体上の滑らかなベクトル場は完備
+    kind: proposition
+    aliases: [コンパクト多様体上のベクトル場の完備性]
+    requires:
+      - geometry.complete-vector-field
+      - geometry.maximal-flow-local-group-law
+
+  - id: geometry.vector-field-pushforward
+    name: 微分同相写像によるベクトル場の押し出し
+    kind: definition
+    aliases: [ベクトル場の押し出し, pushforward of vector fields]
+    requires:
+      - geometry.smooth-vector-field
+      - geometry.differential
+
+  - id: geometry.related-vector-fields
+    name: F-関連なベクトル場
+    kind: definition
+    aliases: [F-関連なベクトル場, F-related vector fields]
+    requires:
+      - geometry.smooth-vector-field
+      - geometry.differential
+
+  - id: geometry.flow-conjugacy
+    name: 押し出しと流れの共役
+    kind: proposition
+    aliases: [流れの共役, conjugacy of flows]
+    requires:
+      - geometry.vector-field-pushforward
+      - geometry.maximal-flow-local-group-law
+
+  - id: geometry.lie-bracket
+    name: Lie 括弧
+    kind: definition
+    aliases: [Lie 括弧, Lie bracket]
+    requires:
+      - geometry.vector-field-derivation
+
+  - id: geometry.lie-bracket-derivation
+    name: 導分の可換子は再び導分
+    kind: proposition
+    aliases: [導分の可換子]
+    requires:
+      - geometry.lie-bracket
+
+  - id: geometry.lie-bracket-coordinate-formula
+    name: Lie 括弧の座標公式
+    kind: theorem
+    aliases: [Lie括弧の座標公式]
+    requires:
+      - geometry.lie-bracket-derivation
+      - geometry.coordinate-tangent-basis
+
+  - id: geometry.lie-bracket-identities
+    name: Lie 括弧の基本恒等式
+    kind: theorem
+    aliases: [Jacobi恒等式, Jacobi identity, Lie括弧の積の法則]
+    requires:
+      - geometry.lie-bracket
+
+  - id: geometry.lie-bracket-flow-interpretation
+    name: 流れによる Lie 括弧の解釈
+    kind: theorem
+    aliases: [流れによるLie括弧, bracket from flow]
+    requires:
+      - geometry.lie-bracket
+      - geometry.vector-field-pushforward
+      - geometry.maximal-flow-local-group-law
+
+  - id: geometry.commuting-flows
+    name: Lie 括弧が0であることと局所流の可換性
+    kind: corollary
+    aliases: [可換流, commuting flows]
+    requires:
+      - geometry.lie-bracket-flow-interpretation
+
+  - id: geometry.flow-box-theorem
+    name: ベクトル場の直線化定理
+    kind: theorem
+    aliases: [直線化定理, flow-box theorem, straightening theorem]
+    requires:
+      - geometry.maximal-flow-local-group-law
+      - geometry.differential
