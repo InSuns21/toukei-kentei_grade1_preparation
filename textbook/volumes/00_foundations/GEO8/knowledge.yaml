@@ -14,14 +14,25 @@ concepts:
     requires:
       - linear.matrix-determinant
 
+  - id: geometry.oriented-atlas
+    name: 向き付けられたアトラス
+    kind: definition
+    aliases: [向き付けられたアトラス, oriented atlas]
+    introduction: formal
+    introduction_aliases: ["定義（向き付けられたアトラス・多様体の向き）"]
+    requires:
+      - geometry.smooth-atlas
+      - geometry.differential-coordinate-formula
+      - linear.matrix-determinant
+
   - id: geometry.manifold-orientation
     name: 多様体の向き
     kind: definition
     aliases: [多様体の向き, orientation of a manifold]
+    introduction: formal
+    introduction_aliases: ["定義（向き付けられたアトラス・多様体の向き）"]
     requires:
-      - geometry.smooth-manifold
-      - geometry.vector-space-orientation
-      - geometry.differential-coordinate-formula
+      - geometry.oriented-atlas
 
   - id: geometry.orientation-form
     name: 向き形式
@@ -69,7 +80,7 @@ concepts:
   - id: geometry.boundary-orientation
     name: 境界向き
     kind: definition
-    aliases: [境界向き, boundary orientation]
+    aliases: [境界向き, boundary orientation of a manifold]
     requires:
       - geometry.manifold-orientation
       - geometry.boundary-submanifold
@@ -101,17 +112,17 @@ concepts:
       - geometry.partition-of-unity-existence
 
   - id: geometry.global-top-form-integral-well-defined
-    name: 大域積分は1の分割に依存しない
+    name: 大域積分は 1 の分割に依存しない
     kind: proposition
-    aliases: [大域積分は1の分割に依存しない]
+    aliases: [大域積分は 1 の分割に依存しない]
     requires:
       - geometry.global-top-form-integral
       - topology.locally-finite-family
 
   - id: geometry.local-stokes-halfspace
-    name: 半空間上の局所Stokes
+    name: 半空間上の局所 Stokes
     kind: lemma
-    aliases: [半空間上の局所Stokes]
+    aliases: [半空間上の局所 Stokes]
     requires:
       - geometry.boundary-orientation
       - geometry.exterior-derivative
@@ -120,13 +131,12 @@ concepts:
       - analysis.iterated-riemann-integral-rectangle
 
   - id: geometry.general-stokes-theorem
-    name: 一般Stokesの定理
+    name: 一般 Stokes の定理
     kind: theorem
-    aliases: [一般Stokesの定理, generalized Stokes theorem]
+    aliases: [一般 Stokes の定理, generalized Stokes theorem]
     requires:
       - geometry.local-stokes-halfspace
       - geometry.partition-of-unity-existence
       - geometry.exterior-derivative-graded-leibniz
       - geometry.global-top-form-integral-well-defined
       - geometry.boundary-orientation
-      - vector-calculus.stokes-theorem
