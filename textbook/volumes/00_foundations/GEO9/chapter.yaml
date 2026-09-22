@@ -26,7 +26,7 @@ definitions:
 theorems:
   - { id: GEO9-PROP-01, name: 完全なら閉 }
   - { id: GEO9-THM-01, name: ホモトピー公式 }
-  - { id: GEO9-THM-02, name: Poincaré の補題 }
+  - { id: GEO9-THM-02, name: 微分形式の Poincaré の補題 }
   - { id: GEO9-THM-03, name: 連結多様体の0次 de Rham コホモロジー }
   - { id: GEO9-THM-04, name: de Rham コホモロジーの滑らかなホモトピー不変性 }
   - { id: GEO9-THM-05, name: 円周の1次 de Rham コホモロジー }
