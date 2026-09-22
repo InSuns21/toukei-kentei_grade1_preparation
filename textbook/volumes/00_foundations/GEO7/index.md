@@ -1116,19 +1116,19 @@ $$
 
 任意のベクトル $V$ に対して
 
-$
+$$
 (dx\wedge dy)(X,V)
 =
 dx(X)dy(V)-dy(X)dx(V)
-$
+$$
 
 なので、1形式として
 
-$
+$$
 \iota_X(dx\wedge dy)
 =
 dx(X)\,dy-dy(X)\,dx.
-$
+$$
 
 ここで
 
