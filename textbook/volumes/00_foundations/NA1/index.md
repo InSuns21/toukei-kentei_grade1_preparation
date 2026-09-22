@@ -613,7 +613,7 @@ $$
 \boxed{
 \kappa_2(A)
 =
-\|A\|_2_2\|A^{-1}\|_2_2
+\|A\|_2\|A^{-1}\|_2
 }
 $$
 
@@ -634,9 +634,9 @@ $$
 では最大特異値が $1$、最小特異値が $10^{-4}$ なので
 
 $$
-\|A\|_2_2=1,
+\|A\|_2=1,
 \qquad
-\|A^{-1}\|_2_2=10^4,
+\|A^{-1}\|_2=10^4,
 $$
 
 従って
@@ -669,13 +669,13 @@ $$
 [F0-00F2 の定理](../F0_00F2_SVD_特異値_作用素ノルム/index.md#thm-f0-00f2-operator-norm-largest-singular)より
 
 $$
-\|A\|_2_2=\sigma_{\max}.
+\|A\|_2=\sigma_{\max}.
 $$
 
 $A^{-1}$ の特異値は $A$ の特異値の逆数なので
 
 $$
-\|A^{-1}\|_2_2
+\|A^{-1}\|_2
 =
 \frac1{\sigma_{\min}}.
 $$
@@ -685,7 +685,7 @@ $$
 $$
 \kappa_2(A)
 =
-\|A\|_2_2\|A^{-1}\|_2_2
+\|A\|_2\|A^{-1}\|_2
 =
 \frac{\sigma_{\max}}{\sigma_{\min}}.
 $$
@@ -709,10 +709,10 @@ $$
 
 $$
 \boxed{
-\frac{\|\Delta x\|_2_2}{\|x\|_2_2}
+\frac{\|\Delta x\|_2}{\|x\|_2}
 \le
 \kappa_2(A)
-\frac{\|\Delta b\|_2_2}{\|b\|_2_2}
+\frac{\|\Delta b\|_2}{\|b\|_2}
 }
 $$
 
@@ -1080,14 +1080,14 @@ $$
 したがって
 
 $$
-\frac{\|r\|_2}{\|b\|_2_2}
+\frac{\|r\|_2}{\|b\|_2}
 \approx10^{-8}
 $$
 
 と非常に小さい一方、
 
 $$
-\frac{\|\widetilde x-x\|_2}{\|x\|_2_2}
+\frac{\|\widetilde x-x\|_2}{\|x\|_2}
 =
 \frac1{\sqrt2}
 \approx0.707.
@@ -1102,7 +1102,7 @@ $$
 前節の上界
 
 $$
-\frac{\|\widetilde x-x\|_2}{\|x\|_2_2}
+\frac{\|\widetilde x-x\|_2}{\|x\|_2}
 \le
 10^8\times10^{-8}
 \approx1
@@ -1568,7 +1568,7 @@ $$
    $$
    従って
    $$
-   \frac{\|r\|_2}{\|b\|_2_2}
+   \frac{\|r\|_2}{\|b\|_2}
    =
    \frac{\varepsilon}{\sqrt{1+\varepsilon^2}}
    \approx\varepsilon.
@@ -1585,7 +1585,7 @@ $$
    $$
    なので
    $$
-   \frac{\|\widetilde x-x\|_2}{\|x\|_2_2}
+   \frac{\|\widetilde x-x\|_2}{\|x\|_2}
    =
    \frac1{\sqrt2}.
    $$
@@ -1597,7 +1597,7 @@ $$
    本文の上界右辺は
    $$
    \kappa_2(A)
-   \frac{\|r\|_2}{\|b\|_2_2}
+   \frac{\|r\|_2}{\|b\|_2}
    =
    \frac1{\varepsilon}
    \frac{\varepsilon}{\sqrt{1+\varepsilon^2}}
