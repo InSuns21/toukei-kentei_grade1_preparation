@@ -198,7 +198,7 @@ $$
 従って $m'(r)=0$。$r\downarrow0$ で $m(r)\to u(x_0)$ です。
 <!-- proof-end -->
 
-## 5. Kelvin 変換
+## 5. 球面反転で調和関数を移す
 
 <a id="def-pde10-kelvin"></a>
 <!-- formal-statement-start -->
