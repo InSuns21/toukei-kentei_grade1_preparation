@@ -1630,7 +1630,7 @@ Y(f)g(Z,X)
 fYg(Z,X).
 $$
 
-Lie 括弧の積の法則から
+[GEO5 の Lie 括弧の基本恒等式](../GEO5/index.md#thm-geo5-bracket-identities)から
 
 $$
 [Y,fZ]
@@ -1831,9 +1831,9 @@ $$
 
 従って $\nabla$ は $g$ と両立します。
 
-以上で Koszul の公式から Levi-Civita 接続が存在することを示しました。
+以上で [Koszul の公式](#thm-geo13-koszul)から Levi-Civita 接続が存在することを示しました。
 
-一意性は Koszul の公式の定理ですでに示したので、Levi-Civita 接続は一意です。$\square$
+一意性は [Koszul の公式](#thm-geo13-koszul)ですでに示したので、Levi-Civita 接続は一意です。$\square$
 <!-- proof-end -->
 
 この定理の重要点は、**計量 $g$ を選ぶと、自然な接続をさらに選ぶ自由は残らない**ことです。
@@ -1842,7 +1842,7 @@ $$
 
 ## 8. Levi-Civita 接続の Christoffel 係数
 
-Koszul の公式へ座標基底を入れると、実際の計算に使う公式が得られます。
+[Koszul の公式](#thm-geo13-koszul)へ座標基底を入れると、実際の計算に使う公式が得られます。
 
 座標基底では
 
