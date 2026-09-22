@@ -3,21 +3,21 @@ terms:
   - term: 無限積
     english: infinite product
     meaning: 有限部分積の列の極限として定義する積。正則関数の積では局所一様収束を使って極限の正則性を保証する。
-  - term: Weierstrass の elementary factor
+  - term: Weierstrass の基本因子
     english: Weierstrass elementary factor
     meaning: E_p(w)=(1-w)exp(w+w^2/2+...+w^p/p)。w=1 に零点を置きつつ、w=0 近傍で低次項を消して積の tail を収束させる。
-  - term: canonical product
+  - term: 標準積
     english: canonical product
     meaning: 指定した離散零点列に対して elementary factor を掛け合わせて作る整関数の無限積。
   - term: Weierstrass 因数分解
     english: Weierstrass factorization
     meaning: 整関数を、その零点を表す canonical product と零点を持たない指数因子 e^g の積として表す定理。
-  - term: principal part
+  - term: 主要部
     english: principal part
     meaning: 孤立極での Laurent 展開の負冪部分。極の位置・位数・係数を有限和として記録する。
   - term: Mittag--Leffler の定理
     english: Mittag-Leffler theorem
-    meaning: 離散な極集合の各点で principal part を指定すると、それらを正確に持つ有理型関数が存在するという構成定理。
+    meaning: 離散な極集合の各点で 主要部を指定すると、それらを正確に持つ有理型関数が存在するという構成定理。
   - term: 部分分数展開
     english: partial fraction expansion
     meaning: 有理型関数を各極に由来する単純な分数項の級数として表す展開。本章では pi cot(pi z) を代表例とする。
