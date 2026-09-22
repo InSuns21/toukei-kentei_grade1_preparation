@@ -1,0 +1,57 @@
+id: "GEO7"
+title: "幾何学 VII：テンソル場・微分形式・外微分"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEO2
+  - GEO5
+  - LA3E
+official_scope: []
+learning_objectives:
+  - 滑らかな(r,s)型テンソル場を局所座標成分で定義し、ベクトル場・1形式との関係を説明できる
+  - k次微分形式を交代的な共変テンソル場として定義し、局所座標基底で表示・評価できる
+  - 微分形式の外積を計算し、結合性と次数付き交換則を使える
+  - 滑らかな写像による微分形式の引き戻しを定義から計算し、外積との可換性を説明できる
+  - 外微分を局所座標で構成し、Lie括弧を用いる座標不変表示からwell-defined性を説明できる
+  - 外微分の次数付きLeibniz 則を証明し、d²=0を混合偏導関数の対称性と外積の反対称性から証明できる
+  - 外微分が引き戻しと可換することをd²=0とLeibniz 則から証明できる
+  - 内部積を定義し、外積に対する符号付き積の法則を使える
+  - Lie 微分を局所流による引き戻しの変化率として定義し、具体的な流れで計算できる
+  - Cartanの公式を関数・座標1形式から証明し、内部積・外微分・Lie 微分を接続できる
+definitions:
+  - { id: GEO7-DEF-01, name: テンソル場 }
+  - { id: GEO7-DEF-02, name: 微分形式 }
+  - { id: GEO7-DEF-03, name: 微分形式の外積 }
+  - { id: GEO7-DEF-04, name: 微分形式の引き戻し }
+  - { id: GEO7-DEF-05, name: 外微分 }
+  - { id: GEO7-DEF-06, name: 微分形式の内部積 }
+  - { id: GEO7-DEF-07, name: 微分形式のLie 微分 }
+theorems:
+  - { id: GEO7-PROP-01, name: 微分形式の外積の基本則 }
+  - { id: GEO7-PROP-02, name: 引き戻しと外積 }
+  - { id: GEO7-THM-01, name: 外微分の座標に依らない表示 }
+  - { id: GEO7-THM-02, name: 外微分の次数付きLeibniz 則 }
+  - { id: GEO7-THM-03, name: 外微分の二乗は0 }
+  - { id: GEO7-THM-04, name: 外微分の自然性 }
+  - { id: GEO7-PROP-03, name: 内部積の符号付き積の法則 }
+  - { id: GEO7-THM-05, name: Cartanの公式 }
+canonical_examples:
+  - R2上の(1,1)型テンソル場
+  - R3上の2形式と交代性
+  - 非線形写像による面積形式の引き戻し
+  - R3上の1形式の外微分
+  - d²=0の三次元係数計算
+  - 動径ベクトル場によるLie 微分
+problem_patterns:
+  - GEO7-FORM-EVALUATION-1
+  - GEO7-WEDGE-SIGN-1
+  - GEO7-EXTERIOR-DERIVATIVE-1
+  - GEO7-PULLBACK-1
+  - GEO7-D-SQUARE-ZERO-1
+  - GEO7-PULLBACK-NATURALITY-1
+  - GEO7-CARTAN-1
+  - GEO7-CARTAN-COMMUTATOR-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 4.5, review: 0.5 }
