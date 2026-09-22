@@ -159,7 +159,7 @@ $$
 \|\gamma'(t)\|>0
 $$
 
-なので $s'(t)\ne0$ です。従って逆関数定理により、各点の近傍で $s$ は滑らかな逆関数 $t=t(s)$ を持ちます。
+なので $s'(t)\ne0$ です。従って [逆関数定理](../RA6A/index.md#thm-ra6a-inverse-function) により、各点の近傍で $s$ は滑らかな逆関数 $t=t(s)$ を持ちます。
 
 合成関数を微分すると
 
@@ -1326,7 +1326,7 @@ $$
 A^*=A,
 $$
 
-したがって $A$ は Hermitian、特に normal です。[LA5 の複素 normal 作用素のスペクトル定理](../LA5/index.md#thm-la5-normal-spectral)により、$\mathbb C^n$ は $A$ の固有空間の直交直和になります。また Hermitian 作用素の固有値は実数です。
+したがって $A$ は Hermitian、特に normal です。[LA5 の normal 作用素に対する正規直交対角化結果](../LA5/index.md#thm-la5-normal-spectral)により、$\mathbb C^n$ は $A$ の固有空間の直交直和になります。また [Hermitian 作用素の固有値は実数](../LA5/index.md#thm-la5-hermitian-real-eigenvalues) です。
 
 固有値を $\lambda\in\mathbb R$ とします。複素固有ベクトル
 
