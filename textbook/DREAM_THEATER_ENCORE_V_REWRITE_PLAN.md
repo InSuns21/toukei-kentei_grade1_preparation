@@ -112,6 +112,16 @@ facade は完成済み講座だけをリンクする。未完成章を先行表�
 
 旧個別 URL が外部参照されている場合は、必要に応じて非掲載の互換 stub を残し、新 canonical page へ誘導する。
 
+### 3.3 Phase 0 完了状況
+
+- [x] 旧 Encore V 11講を `textbook/archive/dream-theater/encore-v-legacy/` へ隔離
+- [x] reader-facing facade を新 Encore V「計算数理」へ切替
+- [x] `textbook/dream-theater-index.json` から旧講座を除外
+- [x] `textbook/dream-theater.md` の Encore V 目次を facade のみに整理
+- [x] standard math core / knowledge DAG に旧 Encore V の canonical owner が存在しないことを確認
+- 次の実装対象：**NA1「浮動小数点・誤差・条件数・安定性」**
+
+
 ---
 
 # 4. Phase 1：数値解析 NA1–NA12

@@ -1,366 +1,181 @@
-# F0-00R5 Encore V：Numerical Analysis, FEM & Monte Carlo
+# F0-00R5 Encore V：計算数理
 
-この系列は、Encore IIIの弱解・FEMへの橋とEncore IVのSDE・確率過程を、実際の数値計算へ延長する任意の発展補講です。
+Encore V は、連続数学で定式化した問題を有限個の計算へ落とし、その誤差と安定性を数学的に追うための発展系列です。
 
-通常カリキュラム・統計検定1級本編の必須前提にはしません。
+主線は次の5系列です。
+
+1. 数値解析
+2. 差分法
+3. 有限要素法
+4. Monte Carlo 法
+5. 準 Monte Carlo 法
+
+統計検定1級本編の必須前提ではありません。DREAM THEATER の解析・線形代数・微分方程式・確率論を、実際の計算可能な形へ接続する位置に置きます。
 
 ---
 
-## 1. 推奨通読ルート
+## 1. 全体像
 
 ```text
-共通数値基礎
-F0-00F   線形代数・スペクトル
-   ↓
-F0-00NA1 浮動小数点・誤差・条件数・安定性
-   ↓
-F0-00NA2 数値線形代数・疎行列・CG・前処理
-   ↓
-F0-00NA3 補間・数値微分・数値積分
-   ↓
-F0-00NA4 ODE数値解法・Runge--Kutta・安定性
+線形代数・解析・ODE
+        ↓
+      NA1–NA12
+        ↓
+   ┌────┴────┐
+   ↓         ↓
+FDM1–FDM4   FEM1–FEM7
 
-FEM branch                         Monte Carlo / SDE branch
-Encore III                         P5/P6A + Encore IV SP4
-WK3 Galerkin/FEM bridge             │
-   ↓                                ↓
-F0-00FEM1                        F0-00MC1
-mesh・basis・assembly              Monte Carlo・大数の法則/中心極限定理
-   │                                ↓
-   │                             F0-00MC2
-   │                             variance reduction
-   │                                ↓
-   │                             F0-00SDE1
-   │                             Euler--Maruyama
-   │                                │
-   └──────────────┬─────────────────┘
-                  ↓
-             F0-00UQ1
-       random PDE・Monte Carlo FEM
-                  ↓
-             F0-00MLMC
-       Multilevel Monte Carlo
+確率論・積分
+      ↓
+    MC1–MC4
+      ↓
+    QMC1–QMC8
 ```
 
-全講を一本道に読む場合は
+差分法と有限要素法では、連続問題を有限次元へ落としたときに
 
 ```text
-NA1 → NA2 → NA3 → NA4 → FEM1 → MC1 → MC2 → SDE1 → UQ1 → MLMC
+連続問題
+  ↓
+離散化
+  ↓
+整合性・近似性
+  ↓
+安定性
+  ↓
+誤差評価・収束
 ```
 
-を推奨します。
+という論理がどう現れるかを比較します。
+
+Monte Carlo 法と準 Monte Carlo 法では、同じ積分問題に対して
+
+- 確率的標本平均による誤差評価
+- 点集合の一様性による決定論的誤差評価
+
+という二つの考え方を並べます。
 
 ---
 
-## 2. NA1：まず誤差を分類する
+## 2. 数値解析 NA1–NA12
 
-数値結果が真値と違う原因を
+| ID | 講座 |
+|---|---|
+| NA1 | 浮動小数点・誤差・条件数・安定性 |
+| NA2 | 非線形方程式・不動点反復・Newton 法 |
+| NA3 | 非線形連立方程式 |
+| NA4 | 多項式補間 |
+| NA5 | 数値積分・直交多項式・Gauss 型積分 |
+| NA6 | ODE 数値解法 I：一段法と収束 |
+| NA7 | ODE 数値解法 II：Runge–Kutta・絶対安定性 |
+| NA8 | 数値線形代数 I：直接法 |
+| NA9 | 数値線形代数 II：反復法・Krylov 法 |
+| NA10 | 固有値数値計算 |
+| NA11 | Perron–Frobenius 理論と PageRank |
+| NA12 | 無制約最適化と共役勾配法 |
 
-- input/model error
-- discretization error
-- algebraic solver error
-- roundoff error
-- sampling error
+数値解析では、単にアルゴリズムを列挙するのではなく、
 
-へ分けます。
+- 問題そのものの条件の悪さ
+- 離散化誤差
+- 丸め誤差
+- アルゴリズムの安定性
+- 反復停止による代数誤差
 
-さらに
-
-- conditioning：問題の性質
-- stability：アルゴリズムの性質
-
-を区別します。
-
-以後の全章でこの誤差分解を再利用します。
-
----
-
-## 3. NA2：FEMのsolve()を開ける
-
-FEMは最終的に
-
-$$
-KU=F
-$$
-
-という巨大疎線形系になります。
-
-NA2では
-
-- LU / Cholesky
-- sparse matrix
-- residual
-- stationary iteration
-- Conjugate Gradient
-- Krylov subspace
-- preconditioning
-
-を扱います。
-
-coercivityから生まれたSPD構造が、CGを使える理由になります。
+を分離して考えます。
 
 ---
 
-## 4. NA3：連続量を有限個の値へ落とす
+## 3. 差分法 FDM1–FDM4
 
-- interpolation
-- finite difference
-- quadrature
-- Gaussian quadrature
+| ID | 講座 |
+|---|---|
+| FDM1 | 熱方程式と差分法の導入 |
+| FDM2 | 差分スキームの安定性 |
+| FDM3 | 整合性・安定性・収束性 |
+| FDM4 | 移流拡散と風上化 |
 
-を扱います。
-
-Sturm--Liouvilleで出た直交多項式がGaussian quadratureへ戻り、FEM element integralにも使われます。
-
----
-
-## 5. NA4：時間を離散化する
-
-ODEに対して
-
-- forward/backward Euler
-- Runge--Kutta
-- absolute stability
-- stiffness
-- adaptive step
-- method of lines
-
-を扱います。
-
-PDE空間離散化後のODE系にも、SDE数値法の比較対象にもなります。
+中心となる問いは、微分を差分商へ置き換えたとき、その近似が本当に元の PDE の解へ近づくのか、です。
 
 ---
 
-## 6. FEM1：弱形式を疎行列へ変換する
+## 4. 有限要素法 FEM1–FEM7
 
-Poisson問題から
+| ID | 講座 |
+|---|---|
+| FEM1 | Poisson 方程式・変分形式・Galerkin 法 |
+| FEM2 | 有限要素・三角形分割・基底 |
+| FEM3 | 有限要素補間とメッシュ |
+| FEM4 | 楕円型 FEM の誤差解析 |
+| FEM5 | 鞍点問題・Stokes 方程式 |
+| FEM6 | 放物型方程式の有限要素法 |
+| FEM7 | 移流拡散・安定化有限要素法 |
 
-$$
-\int\nabla u\cdot\nabla v
-=
-\int fv
-$$
-
-を有限要素空間へ制限し
-
-$$
-K_{ij}=a(\phi_j,\phi_i)
-$$
-
-を構成します。
-
-局所element matrixをglobal matrixへassemblyし、疎線形系として解きます。
-
-Ceaの補題から $h$ による誤差評価へ進みます。
+Encore III の Sobolev 空間・弱形式・Lax–Milgram・Galerkin 法を canonical dependency とし、Encore V では有限次元空間、メッシュ、補間、assembly、離散誤差へ重心を移します。
 
 ---
 
-## 7. MC1：積分を標本平均へ変換する
+## 5. Monte Carlo 法 MC1–MC4
 
-$$
-I=E[g(X)]
-$$
+| ID | 講座 |
+|---|---|
+| MC1 | Monte Carlo 法と統計的誤差 |
+| MC2 | 乱数生成とサンプリング |
+| MC3 | 分散減少法 |
+| MC4 | Multilevel Monte Carlo |
 
-を
-
-$$
-\widehat I_N
-=\frac1N\sum_i g(X_i)
-$$
-
-で推定します。
-
-P5の大数の法則がconsistency、P6の中心極限定理が
-
-$$
-O(N^{-1/2})
-$$
-
-の標準誤差を与えます。
-
-Monte Carloが確率論の応用ではなく、数値積分法として読めるようになります。
+ここでは積分を期待値と見なし、大数の法則・中心極限定理を数値積分の誤差論へ接続します。
 
 ---
 
-## 8. MC2：標本数を増やす前にvarianceを下げる
+## 6. 準 Monte Carlo 法 QMC1–QMC8
 
-- antithetic variates
-- control variate
-- stratification
-- importance sampling
-- common random numbers
+| ID | 講座 |
+|---|---|
+| QMC1 | 一様分布・discrepancy・Koksma–Hlawka |
+| QMC2 | RKHS・最悪誤差・重み付き空間 |
+| QMC3 | 格子則 |
+| QMC4 | (t,m,s)-net・(t,s)-sequence |
+| QMC5 | Walsh 解析と digital net の双対理論 |
+| QMC6 | polynomial lattice |
+| QMC7 | randomized QMC |
+| QMC8 | 高次 QMC |
 
-を扱います。
-
-control variateは回帰・直交射影、stratificationは標本抽出論、importance samplingは測度変更として既存理論へ戻ります。
-
----
-
-## 9. SDE1：確率微分方程式をsimulationする
-
-$$
-dX_t=b(X_t)dt+\sigma(X_t)dB_t
-$$
-
-を
-
-$$
-X_{n+1}
-=X_n+b(X_n)h+\sigma(X_n)\sqrt h Z_n
-$$
-
-と離散化します。
-
-ここでは
-
-- strong convergence
-- weak convergence
-- Euler--Maruyama
-- Milstein
-
-を区別します。
-
-期待値だけ欲しいときとpath精度が欲しいときでは数値法の評価基準が違います。
+準 Monte Carlo 法では、標本平均の確率変動ではなく、点集合がどれだけ一様に空間を埋めるかを誤差評価へ結びつけます。
 
 ---
 
-## 10. UQ1：FEMとMonte Carloを合流する
+## 7. 既存系列との接続
 
-random coefficient PDE
+数値解析・差分法・有限要素法は、主として次へ接続します。
 
-$$
--\nabla\cdot(a(x,\omega)\nabla u)=f
-$$
+- 線形代数
+- 実解析・関数解析
+- ODE
+- PDE
+- Encore III の Sobolev 空間・弱形式・楕円型 PDE
 
-をsampleごとにFEMで解きます。
+Monte Carlo・準 Monte Carlo は、主として次へ接続します。
 
-random fieldは共分散作用素のKarhunen--Loeve展開で有限parameter化できます。
+- 測度論・Lebesgue 積分
+- 確率論
+- 大数の法則・中心極限定理
+- RKHS
 
-Monte Carlo FEMの総誤差は
-
-$$
-\boxed{
-\text{model/truncation}
-+
-\text{FEM bias}
-+
-\text{sampling error}
-+
-\text{solver error}
-}
-$$
-
-として管理します。
-
-地下水流のrandom permeabilityを主要例にします。
+既存の canonical result は重複再証明せず、各講で必要な適用条件を局所的に確認して使います。
 
 ---
 
-## 11. MLMC：粗い計算も全部使う
+## 8. この系列で身につける見方
 
-$$
-E[Q_L]
-=E[Q_0]+
-\sum_{\ell=1}^L E[Q_\ell-Q_{\ell-1}]
-$$
+Encore V の狙いは「数値計算法を使える」だけではありません。
 
-と分解し、level差をMonte Carloします。
+連続問題を計算機で扱うとき、
 
-fine/coarseを同じ乱数でcoupleすることで差のvarianceを小さくし、sample数を
+1. 何を近似しているのか
+2. どの誤差が支配的なのか
+3. 安定性はどこで必要なのか
+4. 計算量を増やすとどの速さで誤差が減るのか
+5. 理論上の仮定が数値法のどこへ現れるのか
 
-$$
-N_\ell\propto\sqrt{V_\ell/C_\ell}
-$$
-
-の思想で配分します。
-
-FEM mesh hierarchyとSDE time-step hierarchyの両方に適用できます。
-
----
-
-## 12. Encore III/IVとの交点
-
-```text
-Encore III
-Sobolev → weak solution → Galerkin
-                         ↓
-                       FEM1
-                         ↓
-                     random PDE
-                         ↓
-                        MLMC
-
-Encore IV
-Brown → Ito → SDE
-               ↓
-          Euler--Maruyama
-               ↓
-          Monte Carlo
-               ↓
-              MLMC
-```
-
-IIIとIVはVの別々の地下水脈として合流します。
-
----
-
-## 13. 通読可能性の停止線
-
-Encore Vは次までで閉じます。
-
-- floating-point / conditioning / stability
-- sparse numerical linear algebra
-- interpolation / finite difference / quadrature
-- basic ODE solvers
-- basic conforming FEM
-- Monte Carlo integration and variance reduction
-- Euler--Maruyama / Milstein entry
-- Monte Carlo FEM
-- MLMC
-
-以下は必須にしません。
-
-- full multigrid theory
-- domain decomposition
-- discontinuous Galerkin
-- mixed FEM
-- spectral element method
-- finite volume method
-- advanced adaptive a posteriori theory
-- MCMC general theory
-- sequential Monte Carlo
-- polynomial chaos / stochastic Galerkin
-- quasi-Monte Carlo complete theory
-- stochastic PDE discretization
-
----
-
-## 14. 所要時間
-
-10講を読解・小演習・復習込みで
-
-$$
-\boxed{45\text{--}50\text{ 時間程度}}
-$$
-
-を想定します。
-
----
-
-## 15. 最終的な景色
-
-```text
-解析学 ─→ 弱解 ─→ FEM ───────────┐
-                                  │
-線形代数 ─→ 条件数 ─→ CG ─────────┤
-                                  ↓
-                            random PDE
-                                  ↓
-確率論 ─→ 大数の法則/中心極限定理 ─→ Monte Carlo ─┤
-                                  ↓
-Brown運動 ─→ SDE ─→ EM/Milstein ──┤
-                                  ↓
-                                 MLMC
-```
-
-**Encore V: Numerical Analysis, FEM & Monte Carlo** はここまでです。
+を追えることを目標にします。
