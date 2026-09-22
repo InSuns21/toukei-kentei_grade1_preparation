@@ -88,7 +88,7 @@ Hausdorff かつ第二可算で、各点が複素座標近傍を持ち、正則�
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ca8-riemann-surface -->
-**定義の確認**。複素平面の任意の領域 $\Omega$ は、恒等座標を使えば Riemann 面である。したがって Riemann 面は平面領域を捨てる概念ではなく、平面領域を含む拡張である。
+**定義の確認**。複素平面の任意の領域 $\Omega$ を考える。$\mathbb C$ は距離空間なので Hausdorff であり、$\Omega$ も部分空間として Hausdorff である。また中心と半径を有理数成分から選ぶ円板で可算基底を作れるので、$\Omega$ は第二可算である。各点の十分小さい開近傍に恒等座標を置けば、座標遷移は恒等写像で正則である。従って $\Omega$ は Riemann 面である。
 <!-- definition-example-end -->
 
 Hausdorff 性は異なる点を局所的に分離するため、第二可算性は過度に巨大な局所モデルを排除し、通常の解析で使う可算的な近似・選択を保つために入れている。
@@ -143,7 +143,26 @@ $$
 z=\frac1\zeta.
 $$
 
-どちらも $\mathbb C^\times$ 上正則である。CA6 で用いた球面位相では二つの 座標 は同相写像である。よって正則アトラスを成す。$\square$
+どちらも $\mathbb C^\times$ 上正則である。CA6 で用いた球面位相では二つの座標写像は同相写像である。
+
+Hausdorff 性も確認する。有限な相異なる二点は $\mathbb C$ 内の互いに素な小円板で分離できる。有限点 $z_0$ と $\infty$ については $R>|z_0|+1$ を取り、$z_0$ の十分小さい円板と
+
+$$
+U_R=\{\infty\}\cup\{z\in\mathbb C:|z|>R\}
+$$
+
+を取れば互いに素な開近傍になる。
+
+第二可算性については、$\mathbb C$ の中心・半径を有理数成分から選んだ可算な円板基底に加え、
+
+$$
+U_n=\{\infty\}\cup\{z\in\mathbb C:|z|>n\},
+\qquad n\in\mathbb N
+$$
+
+を加えれば球面の可算基底になる。実際、$\infty$ の任意の近傍はあるコンパクト集合の補集合を含み、そのコンパクト集合は十分大きい閉円板に入るから、ある $U_n$ を含む。
+
+従って Hausdorff 性・第二可算性・正則座標遷移の全てがそろい、$\widehat{\mathbb C}$ は Riemann 面である。$\square$
 <!-- proof-end -->
 
 「$\infty$ で正則」という表現は、$\zeta=1/z$ を局所座標にして $\zeta=0$ の通常の正則性を調べるという意味になる。
@@ -204,7 +223,15 @@ Riemann 面間の全単射 $F:X\to Y$ で、$F$ と $F^{-1}$ がともに正則�
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ca8-biholomorphism -->
-**定義の確認**。Riemann 写像定理で得た $\Omega\to\mathbb D$ は、平面領域を Riemann 面と見れば双正則写像である。
+**定義の確認**。写像
+
+$$
+F:\mathbb C\to\mathbb C,
+\qquad
+F(z)=2z
+$$
+
+は全単射で正則であり、逆写像 $F^{-1}(w)=w/2$ も正則である。従って $F$ は双正則写像である。
 <!-- definition-example-end -->
 
 ---
@@ -393,7 +420,13 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ca8-holomorphic-one-form -->
-**定義の確認**。後で作る複素トーラス $\mathbb C/\Lambda$ の 座標 同士は平行移動でつながるので $dz_\alpha/dz_\beta=1$ である。従って平面上の $dz$ は商へ降り、トーラス上の正則微分を与える。
+**定義の確認**。$X=\mathbb C$ で二つの座標 $z$ と $w=z+a$ を使う。座標遷移は平行移動なので
+
+$$
+dw=dz.
+$$
+
+従って $z$ 座標で $1\,dz$、$w$ 座標で $1\,dw$ と置いた局所データは重なりで一致し、$\mathbb C$ 上の正則微分を与える。後で作る複素トーラスでも同じ平行移動機構が働く。
 <!-- definition-example-end -->
 
 これは一般の微分形式論を導入するためではなく、「座標を変えると係数関数だけでなく $dz$ も変換する」ことを明示するための入口である。
