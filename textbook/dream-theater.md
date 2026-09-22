@@ -336,3 +336,4 @@ STO 系列ではマルチンゲール・ブラウン運動・二次変分・確�
 8. [NA7 ODE 数値解法 II：Runge–Kutta・絶対安定性](textbook/volumes/00_foundations/NA7/index.md)
 9. [NA8 数値線形代数 I：直接法](textbook/volumes/00_foundations/NA8/index.md)
 10. [NA9 数値線形代数 II：反復法・Krylov 法](textbook/volumes/00_foundations/NA9/index.md)
+11. [NA10 固有値数値計算](textbook/volumes/00_foundations/NA10/index.md)
