@@ -217,7 +217,7 @@ $V(x(t))\le V(x(0))\le c$ が全ての将来時刻で成り立つためです。
 $\dot V=xv+v(-x-\gamma v)=-\gamma v^2$ です。
 <!-- solution-end -->
 
-#### ODE9-A04 勾配系
+#### ODE9-A04 ポテンシャル降下系
 - Level: A
 
 $x'=-\nabla U(x)$ に対して $U(x(t))$ の微分を求めよ。
