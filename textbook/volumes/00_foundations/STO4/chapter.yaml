@@ -6,8 +6,8 @@ prerequisites:
   - STO3
 official_scope: []
 learning_objectives:
-  - ガウス過程を有限次元Gaussian vectorとして定義し、共分散 kernelが有限次元分布を決めることを説明できる
-  - 共分散 min(s,t)のpositive semidefinitenessを確認し、Kolmogorov extension theoremからガウス過程を構成できる
+  - STO3で定義したガウス過程を用い、平均関数と共分散核が有限次元分布を決めることを説明できる
+  - 共分散 min(s,t)の半正定値性を確認し、STO3のガウス過程構成定理を適用してブラウン運動の基礎過程を構成できる
   - Gaussian incrementの第4momentとKolmogorov--Chentsov continuity theoremからcontinuous ブラウン運動を構成できる
   - 共分散計算からstationary independent incrementsを導き、ブラウン scalingを証明できる
   - ブラウン自然なフィルトレーションに対するdeterministic-time マルコフ性を条件付き期待値の形で導ける
@@ -17,7 +17,6 @@ learning_objectives:
   - hitting probability 1とinfinite meanを区別し、1次元ブラウン運動の基本的再帰性を証明できる
   - scalingと反射原理を使ってブラウン時間反転を確認できる
 definitions:
-  - { id: STO4-DEF-01, name: "ガウス過程" }
   - { id: STO4-DEF-02, name: "standard ブラウン運動" }
   - { id: STO4-DEF-03, name: "ブラウン自然なフィルトレーション" }
   - { id: STO4-DEF-04, name: "ブラウン到達時刻" }
@@ -28,7 +27,7 @@ theorems:
   - { id: STO4-THM-03, name: "ブラウン運動の強マルコフ性" }
   - { id: STO4-THM-04, name: "反射原理" }
   - { id: STO4-THM-05, name: "ブラウン到達時刻の分布" }
-  - { id: STO4-THM-06, name: "1次元ブラウン運動の基本的再帰性" }
+  - { id: STO4-THM-06, name: "1次元ブラウン運動の全水準到達と0への無限回帰還" }
   - { id: STO4-PROP-02, name: "ブラウン時間反転" }
 canonical_examples:
   - "degenerate ガウス過程 X_t=tZ"
