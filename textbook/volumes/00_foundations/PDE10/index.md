@@ -298,13 +298,13 @@ $$
 \end{cases}
 $$
 
-> と定める。本章では、原点外で調和的であり、任意の $r>0$ について
+> と定め、これを本章の **負 Laplacian の基本解** と呼ぶ。この正規化では、原点外で調和的であり、任意の $r>0$ について
 
 $$
 -\int_{|x|=r}\partial_n\Phi_n\,dS=1
 $$
 
-> を満たすことを、負 Laplacian の基本解を特徴付ける古典的条件とする。
+> が成り立つ。後者は原点に単位の source を置いたことに対応する正規化条件である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pde10-fundamental-solution -->
