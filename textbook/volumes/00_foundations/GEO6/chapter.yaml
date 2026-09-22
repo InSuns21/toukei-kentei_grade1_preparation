@@ -1,0 +1,47 @@
+id: "GEO6"
+title: "幾何学 VI：線形分布・積分多様体・Frobenius の定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEO3
+  - GEO5
+official_scope: []
+learning_objectives:
+  - 階数kの滑らかな線形分布を局所枠によって定義し、局所切断を判定できる
+  - 積分多様体と可積分性を定義し、正則レベル集合から積分多様体を構成できる
+  - 対合的分布を定義し、局所枠のLie括弧だけで対合性を判定できる
+  - 可積分な分布が対合的であることを部分多様体座標から証明できる
+  - 対合性から局所流が分布を保存することを線形ODEで証明できる
+  - Frobeniusの定理の三条件を述べ、対合性から適応座標を作る帰納証明を再構成できる
+  - contact型の具体例でLie括弧が分布外へ出ることから非可積分性を判定できる
+  - 適応座標と局所第一積分D=ker dFの同値を説明できる
+definitions:
+  - { id: GEO6-DEF-01, name: 滑らかな線形分布 }
+  - { id: GEO6-DEF-02, name: 分布の局所切断 }
+  - { id: GEO6-DEF-03, name: 積分多様体・局所可積分性 }
+  - { id: GEO6-DEF-04, name: 対合的な分布 }
+  - { id: GEO6-DEF-05, name: 分布に適応した局所座標 }
+theorems:
+  - { id: GEO6-PROP-01, name: 局所枠での対合性判定 }
+  - { id: GEO6-PROP-02, name: 可積分なら対合的 }
+  - { id: GEO6-LEM-01, name: 対合的分布はその切断の局所流で保存される }
+  - { id: GEO6-THM-01, name: Frobeniusの定理 }
+  - { id: GEO6-PROP-03, name: 適応座標と局所第一積分 }
+canonical_examples:
+  - Euclid空間の定分布
+  - 正則レベル集合の接分布
+  - contact型の非可積分分布
+  - e^x∂yを含む対合的な非可換局所枠
+  - z-xyを第一積分にもつ分布
+problem_patterns:
+  - GEO6-CONSTANT-DISTRIBUTION-1
+  - GEO6-NONINTEGRABLE-BRACKET-1
+  - GEO6-KERNEL-DISTRIBUTION-1
+  - GEO6-FRAME-CRITERION-1
+  - GEO6-ADAPTED-COORDINATES-1
+  - GEO6-FLOW-INVARIANCE-1
+  - GEO6-FIRST-INTEGRALS-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.5, exercises: 4.5, review: 0.5 }
