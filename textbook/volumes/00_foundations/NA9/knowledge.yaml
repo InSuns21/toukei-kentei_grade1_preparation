@@ -1,0 +1,185 @@
+chapter: NA9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NA1
+  - NA8
+  - NA4
+  - LA4
+  - F0-00F1
+forward_references: []
+
+concepts:
+  - id: numerical.stationary-iteration
+    name: 定常反復法
+    kind: definition
+    aliases: [stationary iterative method, stationary iteration]
+    introduction: formal
+    introduction_aliases: ["定義（定常反復法）"]
+    requires:
+      - numerical.residual
+
+  - id: numerical.spectral-radius
+    name: 行列に対するスペクトル半径
+    kind: definition
+    aliases: [matrix spectral radius, 行列に対するスペクトル半径]
+    introduction: formal
+    introduction_aliases: ["定義（行列に対するスペクトル半径）"]
+    requires:
+      - linear.eigenvalue
+
+  - id: numerical.stationary-iteration-convergence
+    name: 行列に対するスペクトル半径による定常反復法の収束判定
+    kind: theorem
+    aliases: [spectral-radius criterion for stationary iteration]
+    introduction: formal
+    introduction_aliases: ["定理（行列に対するスペクトル半径による定常反復法の収束判定）"]
+    requires:
+      - numerical.stationary-iteration
+      - numerical.spectral-radius
+      - linear.jordan-canonical-form
+
+  - id: numerical.jacobi-method
+    name: Jacobi 法
+    kind: definition
+    aliases: [Jacobi method]
+    introduction: formal
+    introduction_aliases: ["定義（Jacobi 法）"]
+    requires:
+      - numerical.stationary-iteration
+
+  - id: numerical.gauss-seidel-method
+    name: Gauss--Seidel 法
+    kind: definition
+    aliases: [Gauss--Seidel method, Gauss-Seidel method]
+    introduction: formal
+    introduction_aliases: ["定義（Gauss--Seidel 法）"]
+    requires:
+      - numerical.stationary-iteration
+
+  - id: numerical.jacobi-diagonal-dominance
+    name: 狭義行優対角行列に対する Jacobi 法の収束
+    kind: proposition
+    aliases: [Jacobi convergence for strictly row diagonally dominant matrices]
+    introduction: formal
+    introduction_aliases: ["命題（狭義行優対角行列に対する Jacobi 法の収束）"]
+    requires:
+      - numerical.jacobi-method
+      - numerical.stationary-iteration-convergence
+
+  - id: numerical.krylov-subspace
+    name: Krylov 部分空間
+    kind: definition
+    aliases: [Krylov subspace]
+    introduction: formal
+    introduction_aliases: ["定義（Krylov 部分空間）"]
+    requires: []
+
+  - id: numerical.krylov-residual-polynomial
+    name: Krylov 反復の残差多項式表示
+    kind: proposition
+    aliases: [residual polynomial representation of Krylov iterations]
+    introduction: formal
+    introduction_aliases: ["命題（Krylov 反復の残差多項式表示）"]
+    requires:
+      - numerical.krylov-subspace
+      - numerical.residual
+      - linear.operator-polynomial
+
+  - id: numerical.a-inner-product
+    name: A-内積
+    kind: definition
+    aliases: [A-inner product]
+    introduction: formal
+    introduction_aliases: ["定義（A-内積と A-共役性）"]
+    requires:
+      - linear.positive-definite-matrix
+
+  - id: numerical.a-conjugacy
+    name: A-共役性
+    kind: definition
+    aliases: [A-conjugacy, A-conjugate directions]
+    introduction: formal
+    introduction_aliases: ["定義（A-内積と A-共役性）"]
+    requires:
+      - numerical.a-inner-product
+
+  - id: numerical.a-conjugate-independence
+    name: 非零 A-共役方向の線形独立性
+    kind: proposition
+    aliases: [linear independence of A-conjugate directions]
+    introduction: formal
+    introduction_aliases: ["命題（非零 A-共役方向の線形独立性）"]
+    requires:
+      - numerical.a-conjugacy
+
+  - id: numerical.conjugate-gradient-method
+    name: 共役勾配法
+    kind: definition
+    aliases: [conjugate gradient method, CG method]
+    introduction: formal
+    introduction_aliases: ["定義（共役勾配法）"]
+    requires:
+      - numerical.krylov-subspace
+      - numerical.a-conjugacy
+      - numerical.residual
+
+  - id: numerical.cg-orthogonality-finite-termination
+    name: 共役勾配法の直交性・A-共役性・有限回終了
+    kind: theorem
+    aliases: [orthogonality and finite termination of conjugate gradients]
+    introduction: formal
+    introduction_aliases: ["定理（共役勾配法の直交性・A-共役性・有限回終了）"]
+    requires:
+      - numerical.conjugate-gradient-method
+      - numerical.a-conjugate-independence
+
+  - id: numerical.cg-best-approximation
+    name: 共役勾配法の A-ノルム最良近似性
+    kind: theorem
+    aliases: [A-norm best approximation property of conjugate gradients]
+    introduction: formal
+    introduction_aliases: ["定理（共役勾配法の A-ノルム最良近似性）"]
+    requires:
+      - numerical.cg-orthogonality-finite-termination
+      - numerical.a-inner-product
+
+  - id: numerical.cg-chebyshev-bound
+    name: 共役勾配法の Chebyshev 収束評価
+    kind: theorem
+    aliases: [Chebyshev convergence bound for conjugate gradients]
+    introduction: formal
+    introduction_aliases: ["定理（共役勾配法の Chebyshev 収束評価）"]
+    requires:
+      - numerical.cg-best-approximation
+      - numerical.matrix-condition-number
+      - numerical.chebyshev-monic-minimax
+
+  - id: numerical.residual-a-norm-duality
+    name: 残差と A-ノルム誤差の双対関係
+    kind: proposition
+    aliases: [residual-error duality in the A norm]
+    introduction: formal
+    introduction_aliases: ["命題（残差と A-ノルム誤差の双対関係）"]
+    requires:
+      - numerical.residual
+      - numerical.a-inner-product
+
+  - id: numerical.preconditioning
+    name: 前処理
+    kind: definition
+    aliases: [preconditioning]
+    introduction: formal
+    introduction_aliases: ["定義（前処理と前処理行列）"]
+    requires:
+      - numerical.matrix-condition-number
+      - linear.positive-definite-matrix
+
+  - id: numerical.preconditioner
+    name: 前処理行列
+    kind: definition
+    aliases: [preconditioner, preconditioning matrix]
+    introduction: formal
+    introduction_aliases: ["定義（前処理と前処理行列）"]
+    requires:
+      - numerical.preconditioning

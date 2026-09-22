@@ -1,0 +1,32 @@
+chapter: "NA9"
+terms:
+  - term: 定常反復法
+    english: stationary iterative method
+    meaning: 反復行列 G とベクトル c を固定し、x^{(k+1)}=Gx^{(k)}+c の形で線形方程式を近似的に解く反復法。
+  - term: 行列に対するスペクトル半径
+    english: spectral radius
+    meaning: 正方行列の固有値の絶対値の最大値。定常反復法の漸近的な誤差増幅を支配する。
+  - term: Jacobi 法
+    english: Jacobi method
+    meaning: 連立方程式の各成分を、前反復の他成分だけを用いて同時更新する定常反復法。
+  - term: Gauss--Seidel 法
+    english: Gauss--Seidel method
+    meaning: 成分を順に更新し、その反復内ですでに得た新しい成分を直ちに利用する定常反復法。
+  - term: Krylov 部分空間
+    english: Krylov subspace
+    meaning: ベクトル r から r, Ar, ..., A^{m-1}r を生成して張る部分空間。
+  - term: A-内積
+    english: A-inner product
+    meaning: 実対称正定値行列 A により <u,v>_A=u^TAv と定める内積。
+  - term: A-共役
+    english: A-conjugate
+    meaning: 二つのベクトル p,q が p^TAq=0 を満たすこと。共役勾配法の探索方向が満たす直交性。
+  - term: 共役勾配法
+    english: conjugate gradient method
+    meaning: 実対称正定値連立方程式に対し、Krylov 部分空間内で A-共役な探索方向を逐次生成する反復法。
+  - term: 前処理
+    english: preconditioning
+    meaning: 元の解を保ちながら、反復法が見やすいスペクトルへ線形方程式を変換する操作。
+  - term: 前処理行列
+    english: preconditioner
+    meaning: 前処理で用いる行列。元の問題に近く、かつ逆作用を十分安く計算できることが望ましい。

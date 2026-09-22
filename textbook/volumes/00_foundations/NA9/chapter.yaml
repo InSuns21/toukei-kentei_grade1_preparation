@@ -1,0 +1,58 @@
+id: "NA9"
+title: "数値解析 IX：数値線形代数 II—反復法・Krylov 法"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NA1
+  - NA8
+  - NA4
+  - LA4
+  - F0-00F1
+official_scope: []
+learning_objectives:
+  - 行列分解 A=M-N から定常反復 x^{(k+1)}=Gx^{(k)}+c を導き、誤差伝播 e^{(k+1)}=Ge^{(k)} と残差の関係を説明できる
+  - スペクトル半径を定義し、Jordan 標準形を用いて定常反復が任意の初期値から収束する必要十分条件 rho(G)<1 を証明できる
+  - Jacobi 法と Gauss--Seidel 法を行列分解から導き、具体的な反復行列のスペクトル半径から収束・発散を判定できる
+  - Krylov 部分空間を定義し、Krylov 反復の残差が q_k(A)r_0 という残差多項式で表されることを導ける
+  - 実対称正定値行列が定める A-内積と A-共役性を使い、共役勾配法の残差直交性・探索方向の A-共役性・有限回終了を証明できる
+  - 共役勾配法の反復解が x_0+K_k(A,r_0) 上の A-ノルム最良近似であることを示せる
+  - Chebyshev 多項式を用いて共役勾配法の条件数依存収束評価を導き、条件数の平方根が収束率を支配する理由を説明できる
+  - 前処理を対称変換として理解し、前処理後の条件数と1反復あたりのコストのトレードオフを説明できる
+definitions:
+  - { id: NA9-DEF-01, name: 定常反復法 }
+  - { id: NA9-DEF-02, name: 行列に対するスペクトル半径 }
+  - { id: NA9-DEF-03, name: Jacobi 法 }
+  - { id: NA9-DEF-04, name: Gauss--Seidel 法 }
+  - { id: NA9-DEF-05, name: Krylov 部分空間 }
+  - { id: NA9-DEF-06, name: A-内積と A-共役性 }
+  - { id: NA9-DEF-07, name: 共役勾配法 }
+  - { id: NA9-DEF-08, name: 前処理と前処理行列 }
+theorems:
+  - { id: NA9-THM-01, name: 行列に対するスペクトル半径による定常反復法の収束判定 }
+  - { id: NA9-PROP-01, name: 狭義行優対角行列に対する Jacobi 法の収束 }
+  - { id: NA9-PROP-02, name: Krylov 反復の残差多項式表示 }
+  - { id: NA9-PROP-03, name: 非零 A-共役方向の線形独立性 }
+  - { id: NA9-THM-02, name: 共役勾配法の直交性・A-共役性・有限回終了 }
+  - { id: NA9-THM-03, name: 共役勾配法の A-ノルム最良近似性 }
+  - { id: NA9-THM-04, name: 共役勾配法の Chebyshev 収束評価 }
+  - { id: NA9-PROP-04, name: 残差と A-ノルム誤差の双対関係 }
+canonical_examples:
+  - 2次連立方程式に対する Jacobi 法と Gauss--Seidel 法の反復
+  - スペクトル半径が1を超えて Jacobi 法が発散する2次例
+  - 2次行列から生成される Krylov 部分空間
+  - 2次実対称正定値系を共役勾配法が2反復以内で解く例
+  - 不定値行列で共役勾配法の分母が0になる失敗例
+  - 対角前処理で条件数を改善する例
+problem_patterns:
+  - NA9-STATIONARY-RADIUS-1
+  - NA9-JACOBI-GS-1
+  - NA9-KRYLOV-1
+  - NA9-CG-ITERATION-1
+  - NA9-DIAGONAL-DOMINANCE-1
+  - NA9-RESIDUAL-POLYNOMIAL-1
+  - NA9-PRECONDITIONING-1
+  - NA9-CG-STRUCTURE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.0, review: 0.5 }
