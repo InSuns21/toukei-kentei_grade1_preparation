@@ -6,7 +6,7 @@
 
 ## 0. この章の主線
 
-本章で使う格子 $\Lambda$ と複素トーラスは、[CA8 の複素格子](../CA8/index.md#def-ca8-lattice)と[複素トーラス](../CA8/index.md#thm-ca8-complex-torus)を正本とする。正規収束は [CA7 の定義](../CA7/index.md#def-ca7-normal-convergence)、留数定理は [CA4](../CA4/index.md#thm-ca4-residue)、偏角原理は [CA5](../CA4/index.md#thm-ca4-argument-principle)を使う。
+本章で使う格子 $\Lambda$ と複素トーラスは、[CA8 の複素格子](../CA8/index.md#def-ca8-lattice)と[複素トーラス](../CA8/index.md#thm-ca8-complex-torus)を正本とする。正規収束は [CA7 の定義](../CA7/index.md#def-ca7-normal-convergence)、留数定理は [CA4](../CA4/index.md#thm-ca4-residue)、偏角原理は [CA4](../CA4/index.md#thm-ca4-argument-principle)を使う。
 
 ~~~text
 格子 Λ と基本平行四辺形
