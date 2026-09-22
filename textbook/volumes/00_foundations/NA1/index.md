@@ -605,27 +605,19 @@ $$
 
 <a id="def-na1-matrix-condition-number"></a>
 <!-- formal-statement-start -->
-### 定義（行列の条件数）
+### 定義（2-ノルム行列条件数）
 
-ベクトルノルムと、それに従属する作用素ノルムを固定する。可逆行列 $A\in\mathbb R^{n\times n}$ に対して
+可逆行列 $A\in\mathbb R^{n\times n}$ に対して、F0-00F2 で定義した 2-作用素ノルムを用い
 
 $$
 \boxed{
-\kappa(A)
+\kappa_2(A)
 =
-\|A\|\,\|A^{-1}\|
+\|A\|_2_2\|A^{-1}\|_2_2
 }
 $$
 
-を、その作用素ノルムに関する **条件数** と呼ぶ。
-
-特に 2-作用素ノルムでは
-
-$$
-\kappa_2(A)
-=
-\|A\|_2\|A^{-1}\|_2.
-$$
+を **2-ノルム条件数** と呼ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-na1-matrix-condition-number -->
@@ -642,9 +634,9 @@ $$
 では最大特異値が $1$、最小特異値が $10^{-4}$ なので
 
 $$
-\|A\|_2=1,
+\|A\|_2_2=1,
 \qquad
-\|A^{-1}\|_2=10^4,
+\|A^{-1}\|_2_2=10^4,
 $$
 
 従って
@@ -677,13 +669,13 @@ $$
 [F0-00F2 の定理](../F0_00F2_SVD_特異値_作用素ノルム/index.md#thm-f0-00f2-operator-norm-largest-singular)より
 
 $$
-\|A\|_2=\sigma_{\max}.
+\|A\|_2_2=\sigma_{\max}.
 $$
 
 $A^{-1}$ の特異値は $A$ の特異値の逆数なので
 
 $$
-\|A^{-1}\|_2
+\|A^{-1}\|_2_2
 =
 \frac1{\sigma_{\min}}.
 $$
@@ -693,7 +685,7 @@ $$
 $$
 \kappa_2(A)
 =
-\|A\|_2\|A^{-1}\|_2
+\|A\|_2_2\|A^{-1}\|_2_2
 =
 \frac{\sigma_{\max}}{\sigma_{\min}}.
 $$
@@ -717,10 +709,10 @@ $$
 
 $$
 \boxed{
-\frac{\|\Delta x\|}{\|x\|}
+\frac{\|\Delta x\|_2_2}{\|x\|_2_2}
 \le
-\kappa(A)
-\frac{\|\Delta b\|}{\|b\|}
+\kappa_2(A)
+\frac{\|\Delta b\|_2_2}{\|b\|_2_2}
 }
 $$
 
@@ -742,42 +734,42 @@ $$
 \Delta x=A^{-1}\Delta b.
 $$
 
-作用素ノルムの定義から
+2-作用素ノルムの定義から
 
 $$
-\|\Delta x\|
+\|\Delta x\|_2
 \le
-\|A^{-1}\|\|\Delta b\|.
+\|A^{-1}\|_2\|\Delta b\|_2.
 $$
 
 また
 
 $$
-\|b\|
+\|b\|_2
 =
-\|Ax\|
+\|Ax\|_2
 \le
-\|A\|\|x\|
+\|A\|_2\|x\|_2
 $$
 
 なので
 
 $$
-\frac1{\|x\|}
+\frac1{\|x\|_2}
 \le
-\frac{\|A\|}{\|b\|}.
+\frac{\|A\|_2}{\|b\|_2}.
 $$
 
 二つを掛けると
 
 $$
-\frac{\|\Delta x\|}{\|x\|}
+\frac{\|\Delta x\|_2}{\|x\|_2}
 \le
-\|A^{-1}\|\|A\|
-\frac{\|\Delta b\|}{\|b\|}
+\|A^{-1}\|_2\|A\|_2
+\frac{\|\Delta b\|_2}{\|b\|_2}
 =
-\kappa(A)
-\frac{\|\Delta b\|}{\|b\|}.
+\kappa_2(A)
+\frac{\|\Delta b\|_2}{\|b\|_2}.
 $$
 
 $\square$
@@ -909,7 +901,7 @@ $$
 \boxed{
 \eta_b
 =
-\frac{\|r\|}{\|b\|}
+\frac{\|r\|}{\|b\|_2}
 }
 $$
 
@@ -937,7 +929,7 @@ $$
 \Delta b=-r.
 $$
 
-従って必要な摂動のノルムは $\|r\|$ であり、$b$ に対する相対量は $\|r\|/\|b\|$ です。$\square$
+従って必要な摂動のノルムは $\|r\|$ であり、$b$ に対する相対量は $\|r\|/\|b\|_2$ です。$\square$
 <!-- proof-end -->
 
 <a id="cor-na1-forward-backward-condition"></a>
@@ -948,10 +940,10 @@ $A$ を可逆とし、$x$ を $Ax=b$ の厳密解、$\widetilde x$ を近似解�
 
 $$
 \boxed{
-\frac{\|\widetilde x-x\|}{\|x\|}
+\frac{\|\widetilde x-x\|}{\|x\|_2}
 \le
-\kappa(A)
-\frac{\|b-A\widetilde x\|}{\|b\|}
+\kappa_2(A)
+\frac{\|b-A\widetilde x\|}{\|b\|_2}
 }
 $$
 
@@ -970,19 +962,19 @@ $$
 だけ摂動した問題の厳密解です。従って [右辺摂動に対する感度定理](#thm-na1-linear-system-perturbation)を適用して
 
 $$
-\frac{\|\widetilde x-x\|}{\|x\|}
+\frac{\|\widetilde x-x\|}{\|x\|_2}
 \le
-\kappa(A)
-\frac{\|\Delta b\|}{\|b\|}
+\kappa_2(A)
+\frac{\|\Delta b\|_2}{\|b\|_2}
 =
-\kappa(A)
-\frac{\|r\|}{\|b\|}.
+\kappa_2(A)
+\frac{\|r\|}{\|b\|_2}.
 $$
 
 $\square$
 <!-- proof-end -->
 
-この式は重要です。残差が小さいだけでは前方誤差が小さいとは限りません。$\kappa(A)$ が巨大なら、小さい残差が大きい解誤差へ増幅され得ます。
+この式は重要です。残差が小さいだけでは前方誤差が小さいとは限りません。$\kappa_2(A)$ が巨大なら、小さい残差が大きい解誤差へ増幅され得ます。
 
 ---
 
@@ -1015,7 +1007,7 @@ $$
 $$
 (A+\Delta A)\widetilde x=b,
 \qquad
-\frac{\|\Delta A\|}{\|A\|}
+\frac{\|\Delta A\|}{\|A\|_2}
 \le100u
 $$
 
@@ -1088,14 +1080,14 @@ $$
 したがって
 
 $$
-\frac{\|r\|_2}{\|b\|_2}
+\frac{\|r\|_2}{\|b\|_2_2}
 \approx10^{-8}
 $$
 
 と非常に小さい一方、
 
 $$
-\frac{\|\widetilde x-x\|_2}{\|x\|_2}
+\frac{\|\widetilde x-x\|_2}{\|x\|_2_2}
 =
 \frac1{\sqrt2}
 \approx0.707.
@@ -1110,7 +1102,7 @@ $$
 前節の上界
 
 $$
-\frac{\|\widetilde x-x\|_2}{\|x\|_2}
+\frac{\|\widetilde x-x\|_2}{\|x\|_2_2}
 \le
 10^8\times10^{-8}
 \approx1
@@ -1576,7 +1568,7 @@ $$
    $$
    従って
    $$
-   \frac{\|r\|_2}{\|b\|_2}
+   \frac{\|r\|_2}{\|b\|_2_2}
    =
    \frac{\varepsilon}{\sqrt{1+\varepsilon^2}}
    \approx\varepsilon.
@@ -1593,7 +1585,7 @@ $$
    $$
    なので
    $$
-   \frac{\|\widetilde x-x\|_2}{\|x\|_2}
+   \frac{\|\widetilde x-x\|_2}{\|x\|_2_2}
    =
    \frac1{\sqrt2}.
    $$
@@ -1605,7 +1597,7 @@ $$
    本文の上界右辺は
    $$
    \kappa_2(A)
-   \frac{\|r\|_2}{\|b\|_2}
+   \frac{\|r\|_2}{\|b\|_2_2}
    =
    \frac1{\varepsilon}
    \frac{\varepsilon}{\sqrt{1+\varepsilon^2}}
@@ -1629,7 +1621,7 @@ f(x)
 \frac1{\sqrt{x+1}+\sqrt{x}}
 $$
 
-と書く。対数微分を使うと
+と書く。この表示を直接微分すると
 
 $$
 \frac{f'(x)}{f(x)}
