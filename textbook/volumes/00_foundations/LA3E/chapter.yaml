@@ -1,0 +1,51 @@
+id: "LA3E"
+title: "標準線形代数 III-E：テンソル積・外積代数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LA3A
+  - LA3D
+official_scope: []
+learning_objectives:
+  - テンソル積を二重線形写像の普遍性として定義し、有限次元で基底を構成できる
+  - 共変・反変テンソルと評価写像による因子消去を有限次元線形代数として計算できる
+  - 交代化と外冪を定義し、外冪の基底と次元公式を証明できる
+  - 外積の結合性と次数付き交換則を証明し、具体計算できる
+  - 最高次外積の基底変換が行列式で記述されることを説明できる
+  - 内部積を定義し、外積に対する符号付き積の法則を証明できる
+definitions:
+  - { id: LA3E-DEF-01, name: テンソル積 }
+  - { id: LA3E-DEF-02, name: 単純テンソル }
+  - { id: LA3E-DEF-03, name: "(r,s)型テンソル" }
+  - { id: LA3E-DEF-04, name: 評価写像による因子消去 }
+  - { id: LA3E-DEF-05, name: 交代化 }
+  - { id: LA3E-DEF-06, name: 外冪 }
+  - { id: LA3E-DEF-07, name: 外積 }
+  - { id: LA3E-DEF-08, name: 分解可能形式 }
+  - { id: LA3E-DEF-09, name: 内部積 }
+theorems:
+  - { id: LA3E-THM-01, name: 有限次元テンソル積の存在と基底 }
+  - { id: LA3E-THM-02, name: テンソル積の一意性 }
+  - { id: LA3E-PROP-01, name: 交代化は射影 }
+  - { id: LA3E-THM-03, name: 外冪の標準基底と次元 }
+  - { id: LA3E-THM-04, name: 外積の結合性と次数付き交換則 }
+  - { id: LA3E-THM-05, name: 最高次外積と基底変換 }
+  - { id: LA3E-THM-06, name: 内部積の基本恒等式 }
+canonical_examples:
+  - RテンソルRの普遍性
+  - R2テンソルR3の基底
+  - 線形作用素の縮約と跡
+  - R2の面積形式
+  - R4の分解可能でない2次形式
+  - 最高次外積と行列式
+problem_patterns:
+  - LA3E-TENSOR-UNIVERSAL-1
+  - LA3E-CONTRACTION-1
+  - LA3E-WEDGE-1
+  - LA3E-EXTERIOR-BASIS-1
+  - LA3E-INTERIOR-1
+  - LA3E-TOP-FORM-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 2.5, review: 0.5 }

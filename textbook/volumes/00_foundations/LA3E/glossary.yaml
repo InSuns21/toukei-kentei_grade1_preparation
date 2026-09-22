@@ -1,0 +1,35 @@
+chapter: "LA3E"
+terms:
+  - term: テンソル積
+    english: tensor product
+    meaning: 二重線形写像を一意な線形写像へ因子化する普遍性を持つベクトル空間。
+  - term: 単純テンソル
+    english: simple tensor
+    meaning: v tensor w の1項で表されるテンソル。一般のテンソルは単純テンソルの有限和だが、1項には限らない。
+  - term: 反変テンソル
+    english: contravariant tensor
+    meaning: V 因子を持つテンソル成分。型 (r,s) では r が反変次数。
+  - term: 共変テンソル
+    english: covariant tensor
+    meaning: V* 因子を持つテンソル成分。型 (r,s) では s が共変次数。
+  - term: 縮約
+    english: contraction
+    meaning: V と V* の1組を自然な評価で消し、テンソルの次数を1組下げる演算。
+  - term: 交代化
+    english: antisymmetrization
+    meaning: 置換の符号付き平均によって多重線形形式から交代形式を取り出す射影。
+  - term: 外冪
+    english: exterior power
+    meaning: V 上の交代 k 重線形形式全体からなる空間 Lambda^k V*。
+  - term: 外積
+    english: wedge product
+    meaning: p 次形式と q 次形式から p+q 次形式を作る結合的な積。次数付き交換則を満たす。
+  - term: 分解可能形式
+    english: decomposable form
+    meaning: 1次形式の外積 alpha_1 wedge ... wedge alpha_k の1項として表せる k 次形式。
+  - term: 内部積
+    english: interior product
+    meaning: k 次形式の最初の引数へベクトルを差し込み、k-1 次形式を作る演算。
+  - term: 最高次形式
+    english: top-degree form
+    meaning: n 次元空間上の n 次交代形式。基底変換で行列式に従って変換する。

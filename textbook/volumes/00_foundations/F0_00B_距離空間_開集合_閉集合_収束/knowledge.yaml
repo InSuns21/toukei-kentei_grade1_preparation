@@ -89,9 +89,11 @@ concepts:
       - topology.sequence-convergence
 
   - id: topology.interior
-    name: 内部
+    name: 位相的内部
     kind: definition
-    aliases: [内部]
+    aliases: [位相的内部, 集合の内部, topological interior]
+    introduction: formal
+    introduction_aliases: ["定義（内部）"]
     requires:
       - topology.open-set
 

@@ -1,0 +1,132 @@
+chapter: LA3E
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LA3A
+  - LA3D
+forward_references:
+  - vector-calculus.contraction
+
+concepts:
+  - id: linear.tensor-product
+    name: テンソル積
+    kind: definition
+    aliases: [テンソル積, tensor product]
+    requires:
+      - linear.linear-map
+
+  - id: linear.tensor-product-basis
+    name: 有限次元テンソル積の存在と基底
+    kind: theorem
+    aliases: [有限次元テンソル積の存在と基底, tensor product basis]
+    requires:
+      - linear.tensor-product
+      - linear.basis
+
+  - id: linear.tensor-product-uniqueness
+    name: テンソル積の一意性
+    kind: theorem
+    aliases: [テンソル積の一意性, uniqueness of tensor product]
+    requires:
+      - linear.tensor-product
+
+  - id: linear.simple-tensor
+    name: 単純テンソル
+    kind: definition
+    aliases: [単純テンソル, simple tensor]
+    requires:
+      - linear.tensor-product
+
+  - id: linear.rs-tensor
+    name: (r,s)型テンソル
+    kind: definition
+    introduction_aliases: [型テンソル]
+    aliases: ["(r,s)型テンソル", mixed tensor]
+    requires:
+      - linear.tensor-product
+      - linear.algebraic-dual-space
+
+  - id: linear.evaluation-factor-elimination
+    name: 評価写像による因子消去
+    kind: definition
+    aliases: [評価写像による因子消去, 因子消去写像]
+    requires:
+      - linear.rs-tensor
+      - linear.algebraic-dual-space
+
+  - id: linear.antisymmetrization
+    name: 交代化
+    kind: definition
+    aliases: [交代化, antisymmetrization]
+    requires:
+      - linear.alternating-multilinear-form
+
+  - id: linear.antisymmetrization-projection
+    name: 交代化は射影
+    kind: proposition
+    aliases: [交代化は射影]
+    requires:
+      - linear.antisymmetrization
+
+  - id: linear.exterior-power
+    name: 外冪
+    kind: definition
+    aliases: [外冪, exterior power]
+    requires:
+      - linear.alternating-multilinear-form
+      - linear.algebraic-dual-space
+
+  - id: linear.wedge-product
+    name: 外積
+    kind: definition
+    aliases: [外積, ウェッジ積, wedge product, exterior product]
+    requires:
+      - linear.exterior-power
+      - linear.antisymmetrization
+
+  - id: linear.exterior-power-basis-dimension
+    name: 外冪の標準基底と次元
+    kind: theorem
+    aliases: [外冪の標準基底と次元, 外冪の次元公式]
+    requires:
+      - linear.wedge-product
+      - linear.dual-basis
+
+  - id: linear.wedge-algebra-laws
+    name: 外積の結合性と次数付き交換則
+    kind: theorem
+    aliases: [外積の結合性と次数付き交換則, 外積の次数付き交換則, graded commutativity]
+    requires:
+      - linear.wedge-product
+
+  - id: linear.decomposable-form
+    name: 分解可能形式
+    kind: definition
+    aliases: [分解可能形式, decomposable form]
+    requires:
+      - linear.wedge-product
+
+  - id: linear.top-form-change-of-basis
+    name: 最高次外積と基底変換
+    kind: theorem
+    aliases: [最高次外積と基底変換]
+    requires:
+      - linear.wedge-product
+      - linear.abstract-determinant
+      - linear.dual-basis
+
+  - id: linear.interior-product
+    name: 内部積
+    kind: definition
+    aliases: [内部積, interior product]
+    requires:
+      - linear.exterior-power
+      - linear.wedge-product
+
+  - id: linear.interior-product-identities
+    name: 内部積の基本恒等式
+    kind: theorem
+    aliases: [内部積の基本恒等式]
+    requires:
+      - linear.interior-product
+      - linear.wedge-product

@@ -76,6 +76,8 @@ flowchart TD
   LA3B --> LA3C["行列式の計算・可逆性<br/>LA3C"]
   LA3C --> LA4["最小多項式・Cayley-Hamilton・Jordan構造<br/>LA4"]
   LA3C --> LA3D["交代多重線形形式・抽象行列式<br/>LA3D（発展分岐）"]
+  LA3A --> LA3E["テンソル積・外積代数<br/>LA3E"]
+  LA3D --> LA3E
   LA4 --> LA5["複素内積・有限次元随伴・normal<br/>LA5"]
   LA5 --> LA6["二次形式・polar decomposition・複素SVD<br/>既存 F1/F2 + LA6"]
 
@@ -314,6 +316,20 @@ flowchart TD
 - 表現行列の行列式との一致
 - 標準コアには含めるが、LA4へ進むための必須関門にはしない
 
+## LA3E テンソル積・外積代数 `core-advanced-standard`
+
+- テンソル積を二重線形写像の普遍性として構成
+- テンソル積の基底・次元、共変・反変テンソル、縮約
+- 交代化と外冪、外積の結合性・次数付き交換則
+- 外冪の基底と `dim Λ^kV^*=binom(n,k)`
+- 分解可能形式と、4次元での非分解可能2次形式
+- 最高次外積の基底変換と行列式
+- 内部積と符号付き積の法則
+
+実装: [LA3E](volumes/00_foundations/LA3E/index.md)
+
+LA3E は GEO7 の微分形式に対する代数的 prerequisite です。LA4 の Jordan 構造へ進む通常の線形代数主線には要求しません。
+
 ## LA4 作用素多項式・最小多項式・Jordan構造 `core`
 
 - 作用素多項式、特性多項式、最小多項式
@@ -338,7 +354,7 @@ flowchart TD
 - 既存F1/F2の実対称スペクトル定理・PSD・実SVDを正本として再利用
 - 複素特異値分解へ拡張
 
-`rational canonical form`、tensor/exterior algebra は `advanced-standard` 候補とし、主DAGの必須前提にはしません。
+`rational canonical form` は `advanced-standard` 候補とします。テンソル積・外積代数は LA3E として実装済みですが、Jordan 構造へ進む主線の必須前提にはせず、幾何学編への分岐として扱います。
 
 ---
 
