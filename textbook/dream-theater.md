@@ -157,6 +157,7 @@ VC4 までで PDE6 が必要とする法線・流束・発散定理を正本化�
 6. [CA6 Möbius変換・Schwarz補題・調和関数・ポアソン核](textbook/volumes/00_foundations/CA6/index.md)
 7. [CA7 正則関数列・正規族・Riemann 写像定理](textbook/volumes/00_foundations/CA7/index.md)
 8. [CA8 Riemann 面・被覆・多価関数](textbook/volumes/00_foundations/CA8/index.md)
+9. [CA9 楕円関数・Weierstrass wp 関数](textbook/volumes/00_foundations/CA9/index.md)
 
 **院試・編入の計算演習**：[複素解析・院試／編入計算演習（A8・B10・C4、計22題）](textbook/volumes/00_foundations/F0_00CALC_複素解析_院試編入計算演習/index.md)。
 

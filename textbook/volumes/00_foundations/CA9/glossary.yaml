@@ -1,0 +1,38 @@
+chapter: "CA9"
+terms:
+  - term: 基本平行四辺形
+    english: fundamental parallelogram
+    meaning: 格子の二つの生成元で張られる平行四辺形。半開版を取ると各格子同値類の代表元を一つずつ選べる。
+  - term: 楕円関数
+    english: elliptic function
+    meaning: 格子Lambdaの全ての元を周期に持つ有理型関数。複素トーラスC/Lambda上の有理型関数と同じ対象として読める。
+  - term: 格子冪和
+    english: lattice power sum
+    meaning: 非零格子点についてsum |omega|^{-s}を取った級数。二次元格子ではs>2で収束し、wp級数のmajorantを与える。
+  - term: Weierstrass wp 関数
+    english: Weierstrass wp function
+    meaning: 各格子点に二重極を持つよう補正付き格子級数から構成される偶な楕円関数。
+  - term: Eisenstein 級数
+    english: Eisenstein series
+    meaning: G_{2k}(Lambda)=sum_{omega neq 0} omega^{-2k}で定まる絶対収束格子和。本章ではk>=2を扱う。
+  - term: Weierstrass 不変量
+    english: Weierstrass invariants
+    meaning: g2=60G4、g3=140G6で定まる格子の量。wpの微分方程式と対応する三次曲線の係数になる。
+  - term: 半周期点
+    english: half-period point
+    meaning: 2倍すると格子点になるが自分自身は格子点でない複素トーラス上の2-torsion点。非零のものは三つある。
+  - term: 半周期値
+    english: half-period value
+    meaning: 三つの非零半周期点におけるwpの値e1,e2,e3。4x^3-g2x-g3の相異なる三根になる。
+  - term: 判別式
+    english: discriminant
+    meaning: Delta=g2^3-27g3^2。本章の格子から得られる場合は非零で、対応する三次曲線が非特異であることを表す。
+  - term: Weierstrass の微分方程式
+    english: Weierstrass differential equation
+    meaning: (wp')^2=4wp^3-g2wp-g3という恒等式。局所Laurent展開で極を消し、大域的な楕円関数の剛性で証明する。
+  - term: Weierstrass の加法公式
+    english: Weierstrass addition formula
+    meaning: wp(u+v)をwp(u),wp(v),wp'(u),wp'(v)で表す公式。三次曲線上の弦の傾きと対応する。
+  - term: 非特異三次曲線
+    english: nonsingular cubic curve
+    meaning: 重複する特異点を持たない三次曲線。本章ではy^2=4x^3-g2x-g3がDelta neq 0により非特異になる。

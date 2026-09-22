@@ -563,6 +563,14 @@ nodes:
     implemented_at: 2026-09-22
     implementation_path: textbook/volumes/00_foundations/CA8/index.md
     prerequisites: [CA7, TOP1, TOP2, TOP4, TOP5]
+  - id: CA9
+    title: 楕円関数・Weierstrass wp 関数
+    area: complex-analysis
+    tier: advanced-standard
+    status: implemented
+    implemented_at: 2026-09-22
+    implementation_path: textbook/volumes/00_foundations/CA9/index.md
+    prerequisites: [CA8, CA7]
   - id: FA5
     title: spectrum・resolvent
     area: functional-analysis
@@ -606,7 +614,7 @@ implementation_batches:
     nodes: [FA1, FA2, FA3, FA4]
   - order: 6
     id: complex-analysis-core
-    nodes: [CA1, CA2, CA3, CA4, CA5, CA6, CA7, CA8]
+    nodes: [CA1, CA2, CA3, CA4, CA5, CA6, CA7, CA8, CA9]
   - order: 7
     id: functional-analysis-spectral
     nodes: [FA5, FA6, FA7]

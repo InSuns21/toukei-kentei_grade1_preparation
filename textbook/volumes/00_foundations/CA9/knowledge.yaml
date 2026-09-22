@@ -1,0 +1,191 @@
+chapter: CA9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CA8
+  - CA7
+
+concepts:
+  - id: complex-analysis.fundamental-parallelogram
+    name: 基本平行四辺形
+    kind: definition
+    aliases: [基本平行四辺形, fundamental parallelogram]
+    introduction: formal
+    introduction_aliases: ["定義（基本平行四辺形）"]
+    requires: [complex-analysis.complex-lattice]
+
+  - id: complex-analysis.elliptic-function
+    name: 楕円関数
+    kind: definition
+    aliases: [楕円関数, elliptic function]
+    introduction: formal
+    introduction_aliases: ["定義（楕円関数）"]
+    requires: [complex-analysis.complex-lattice, complex-analysis.riemann-surface-meromorphic-function]
+
+  - id: complex-analysis.elliptic-opposite-side-cancellation
+    name: 対辺積分の相殺
+    kind: lemma
+    aliases: [対辺積分の相殺, cancellation on opposite sides of a fundamental parallelogram]
+    introduction: formal
+    introduction_aliases: ["補題（対辺積分の相殺）"]
+    requires: [complex-analysis.elliptic-function, complex-analysis.fundamental-parallelogram]
+
+  - id: complex-analysis.elliptic-residue-sum-zero
+    name: 楕円関数の留数和
+    kind: theorem
+    aliases: [楕円関数の留数和, residue sum of an elliptic function]
+    introduction: formal
+    introduction_aliases: ["定理（楕円関数の留数和）"]
+    requires: [complex-analysis.elliptic-opposite-side-cancellation]
+
+  - id: complex-analysis.elliptic-zero-pole-balance
+    name: 楕円関数の零点数と極数
+    kind: theorem
+    aliases: [楕円関数の零点数と極数, zero pole balance for elliptic functions]
+    introduction: formal
+    introduction_aliases: ["定理（楕円関数の零点数と極数）"]
+    requires: [complex-analysis.elliptic-opposite-side-cancellation]
+
+  - id: complex-analysis.elliptic-nonconstant-has-pole
+    name: 非定数楕円関数は極を持つ
+    kind: corollary
+    aliases: [非定数楕円関数は極を持つ, nonconstant elliptic function has a pole]
+    introduction: formal
+    introduction_aliases: ["系（非定数楕円関数は極を持つ）"]
+    requires: [complex-analysis.elliptic-function, complex-analysis.compact-riemann-holomorphic-rigidity]
+
+  - id: complex-analysis.lattice-point-quadratic-count
+    name: 格子点個数の二次評価
+    kind: lemma
+    aliases: [格子点個数の二次評価, quadratic lattice point count]
+    introduction: formal
+    introduction_aliases: ["補題（格子点個数の二次評価）"]
+    requires: [complex-analysis.complex-lattice]
+
+  - id: complex-analysis.lattice-power-summability
+    name: 格子冪和の収束
+    kind: corollary
+    aliases: [格子冪和の収束, lattice power summability]
+    introduction: formal
+    introduction_aliases: ["系（格子冪和の収束）"]
+    requires: [complex-analysis.lattice-point-quadratic-count]
+
+  - id: complex-analysis.weierstrass-p
+    name: Weierstrass wp 関数
+    kind: definition
+    aliases: [Weierstrass wp 関数, Weierstrass p function]
+    introduction: formal
+    introduction_aliases: ["定義（Weierstrass wp 関数）"]
+    requires: [complex-analysis.complex-lattice, complex-analysis.lattice-power-summability]
+
+  - id: complex-analysis.weierstrass-normal-convergence
+    name: wp 級数の正規収束
+    kind: theorem
+    aliases: [wp 級数の正規収束, normal convergence of the Weierstrass wp series]
+    introduction: formal
+    introduction_aliases: ["定理（wp 級数の正規収束）"]
+    requires: [complex-analysis.weierstrass-p, complex-analysis.normal-convergence, complex-analysis.normal-series-termwise-differentiation, complex-analysis.lattice-power-summability]
+
+  - id: complex-analysis.weierstrass-symmetry-periodicity
+    name: wp の偶性と周期性
+    kind: theorem
+    aliases: [wp の偶性と周期性, parity and periodicity of the Weierstrass wp function]
+    introduction: formal
+    introduction_aliases: ["定理（wp の偶性と周期性）"]
+    requires: [complex-analysis.weierstrass-normal-convergence]
+
+  - id: complex-analysis.weierstrass-invariants
+    name: Eisenstein 級数と Weierstrass 不変量
+    kind: definition
+    aliases: [Eisenstein 級数, Weierstrass 不変量, Weierstrass invariants]
+    introduction: formal
+    introduction_aliases: ["定義（Eisenstein 級数と Weierstrass 不変量）"]
+    requires: [complex-analysis.lattice-power-summability]
+
+  - id: complex-analysis.weierstrass-laurent-expansion
+    name: wp の原点での Laurent 展開
+    kind: proposition
+    aliases: [wp の原点での Laurent 展開, Laurent expansion of the Weierstrass wp function]
+    introduction: formal
+    introduction_aliases: ["命題（wp の原点での Laurent 展開）"]
+    requires: [complex-analysis.weierstrass-p, complex-analysis.weierstrass-invariants]
+
+  - id: complex-analysis.weierstrass-differential-equation
+    name: Weierstrass の微分方程式
+    kind: theorem
+    aliases: [Weierstrass の微分方程式, Weierstrass differential equation]
+    introduction: formal
+    introduction_aliases: ["定理（Weierstrass の微分方程式）"]
+    requires: [complex-analysis.weierstrass-symmetry-periodicity, complex-analysis.weierstrass-laurent-expansion, complex-analysis.compact-riemann-holomorphic-rigidity]
+
+  - id: complex-analysis.weierstrass-second-derivative
+    name: wp'' の表示
+    kind: corollary
+    aliases: [wp'' の表示, second derivative formula for Weierstrass wp]
+    introduction: formal
+    introduction_aliases: ["系（wp'' の表示）"]
+    requires: [complex-analysis.weierstrass-differential-equation]
+
+  - id: complex-analysis.weierstrass-half-periods
+    name: 非零半周期点
+    kind: definition
+    aliases: [非零半周期点, half-period points]
+    introduction: formal
+    introduction_aliases: ["定義（三つの非零半周期点）"]
+    requires: [complex-analysis.complex-lattice]
+
+  - id: complex-analysis.weierstrass-half-period-critical-points
+    name: wp' の零点と半周期
+    kind: theorem
+    aliases: [wp' の零点と半周期, zeros of wp prime at half periods]
+    introduction: formal
+    introduction_aliases: ["定理（wp' の零点と半周期）"]
+    requires: [complex-analysis.weierstrass-half-periods, complex-analysis.weierstrass-symmetry-periodicity, complex-analysis.elliptic-zero-pole-balance]
+
+  - id: complex-analysis.weierstrass-half-period-values
+    name: 半周期値
+    kind: definition
+    aliases: [半周期値, half-period values]
+    introduction: formal
+    introduction_aliases: ["定義（半周期値）"]
+    requires: [complex-analysis.weierstrass-half-period-critical-points]
+
+  - id: complex-analysis.weierstrass-degree-two
+    name: wp の二対一性
+    kind: proposition
+    aliases: [wp の二対一性, degree two property of Weierstrass wp]
+    introduction: formal
+    introduction_aliases: ["命題（wp の二対一性）"]
+    requires: [complex-analysis.weierstrass-symmetry-periodicity, complex-analysis.elliptic-zero-pole-balance]
+
+  - id: complex-analysis.weierstrass-discriminant
+    name: 三次多項式の非退化
+    kind: theorem
+    aliases: [三次多項式の非退化, nonzero Weierstrass discriminant]
+    introduction: formal
+    introduction_aliases: ["定理（三次多項式の非退化）"]
+    requires: [complex-analysis.weierstrass-half-period-values, complex-analysis.weierstrass-degree-two, complex-analysis.weierstrass-differential-equation]
+
+  - id: complex-analysis.weierstrass-scaling
+    name: 格子のスケーリング則
+    kind: proposition
+    aliases: [格子のスケーリング則, scaling law for Weierstrass invariants]
+    introduction: formal
+    introduction_aliases: ["命題（格子のスケーリング則）"]
+    requires: [complex-analysis.weierstrass-p, complex-analysis.weierstrass-invariants]
+
+  - id: complex-analysis.weierstrass-addition-formula
+    name: Weierstrass の加法公式
+    kind: theorem
+    aliases: [Weierstrass の加法公式, Weierstrass addition formula]
+    introduction: formal
+    introduction_aliases: ["定理（Weierstrass の加法公式）"]
+    requires: [complex-analysis.weierstrass-degree-two, complex-analysis.weierstrass-differential-equation, complex-analysis.compact-riemann-holomorphic-rigidity]
+
+  - id: complex-analysis.torus-cubic-parametrization
+    name: 複素トーラスの三次曲線表示の入口
+    kind: theorem
+    aliases: [複素トーラスの三次曲線表示の入口, complex torus cubic parametrization]
+    introduction: formal
+    introduction_aliases: ["定理（複素トーラスの三次曲線表示の入口）"]
+    requires: [complex-analysis.complex-torus, complex-analysis.weierstrass-discriminant, complex-analysis.weierstrass-degree-two, complex-analysis.weierstrass-differential-equation]
