@@ -1,0 +1,44 @@
+chapter: "GEO1"
+terms:
+  - term: 位相多様体
+    english: topological manifold
+    meaning: Hausdorff・第二可算で、各点がEuclid空間の開集合と同相な近傍を持つ位相空間。
+  - term: 座標近傍
+    english: coordinate chart
+    meaning: 多様体の開集合をEuclid空間の開集合へ同相に写す座標写像と、その定義域の組。
+  - term: 局所座標
+    english: local coordinates
+    meaning: 座標写像の各成分として得られる実数値座標。
+  - term: アトラス
+    english: atlas
+    meaning: 多様体全体を覆う座標近傍の族。
+  - term: 滑らかな両立性
+    english: smooth compatibility
+    meaning: 重なり上の座標変換と逆変換がともにC∞級になること。
+  - term: 滑らかなアトラス
+    english: smooth atlas
+    meaning: 任意の二つの座標近傍が滑らかに両立するアトラス。
+  - term: 極大滑らかアトラス
+    english: maximal smooth atlas
+    meaning: その全座標と両立する座標をすべて含む滑らかなアトラス。
+  - term: 滑らかな構造
+    english: smooth structure
+    meaning: 位相多様体上に指定した極大滑らかアトラス。
+  - term: 滑らかな多様体
+    english: smooth manifold
+    meaning: 滑らかな構造を指定した位相多様体。
+  - term: 積多様体
+    english: product manifold
+    meaning: 二つの滑らかな多様体の直積に積座標から入る自然な滑らかな構造。
+  - term: トーラス
+    english: torus
+    meaning: 円S1の有限直積として得られる滑らかな多様体。
+  - term: 実射影空間
+    english: real projective space
+    meaning: 球面上の反対点を同一視して得られ、射影座標で滑らかな構造を持つ空間。
+  - term: 滑らかな写像
+    english: smooth map
+    meaning: 局所座標表示がC∞級になる多様体間の写像。
+  - term: 微分同相写像
+    english: diffeomorphism
+    meaning: 全単射で、写像自身と逆写像がともに滑らかな多様体間写像。

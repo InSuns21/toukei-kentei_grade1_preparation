@@ -92,6 +92,18 @@
 | 外積（ウェッジ積） | wedge product / exterior product | 微分形式・外積代数の文脈では「外積」を主表記とし、ベクトルの外積との混同があり得る初出だけ「ウェッジ積」を補助併記 |
 | 分解可能形式 | decomposable form | 「単純形式」へ機械的に言い換えない |
 | 内部積 | interior product | 記号 `ι_v` は数式中で使用可 |
+| 位相多様体 | topological manifold | Hausdorff・第二可算・局所 Euclid を条件として明示 |
+| 座標近傍 | coordinate chart | 組 $(U,\varphi)$ を指す。写像単体は「座標写像」 |
+| 局所座標 | local coordinates | 座標写像の成分 |
+| アトラス | atlas | 定着したカタカナ表記を主表記とする |
+| 滑らかなアトラス | smooth atlas | 英語を本文主語彙にしない |
+| 極大滑らかアトラス | maximal smooth atlas | 滑らかな構造の正本 |
+| 滑らかな構造 | smooth structure | 極大滑らかアトラスとして定義 |
+| 滑らかな多様体 | smooth manifold | 英語を本文主語彙にしない |
+| 積多様体 | product manifold | 有限積の滑らかな構造 |
+| 実射影空間 | real projective space | 記号 $\mathbb{RP}^n$ は保持 |
+| 滑らかな写像 | smooth map | 座標表示が $C^\infty$ 級 |
+| 微分同相写像 | diffeomorphism | 英語を本文主語彙にしない |
 
 ## 公式シラバス用語例
 
