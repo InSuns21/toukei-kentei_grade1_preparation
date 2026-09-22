@@ -760,12 +760,12 @@ Riemann 面・被覆・複素トーラスを実装し、TOP1/TOP2/TOP4/TOP5 へ�
 4. stable anchors ✅
 5. knowledge / glossary ✅
 6. reader-facing index / standard math core 反映 ✅
-7. validation / pedagogy audit 🔧
-8. PR / merge 🔧
+7. validation / pedagogy audit ✅
+8. PR #362 / squash merge ✅
 
 楕円関数と Weierstrass $\wp$ を実装し、CA8 の複素トーラスを実際に canonical dependency として使用する。基本平行四辺形の対辺積分相殺、留数和0、零点・極の総重複度一致から始め、格子点個数評価と $\sum |\omega|^{-3}$ majorant により $\wp$ 級数の正規収束を閉じた。Laurent 展開から $g_2,g_3$ と微分方程式を導き、半周期・判別式非零・加法公式・非特異三次曲線との対応の入口まで実装した。
 
-**現在地（2026-09-22）**：CA9 本文・演習・詳細解答・stable anchor・knowledge/glossary・reader-facing index は実装済み。次は validation / pedagogy audit と PR / merge を完了し、その後 Phase 4 の CA10「無限積・Weierstrass 因数分解・Mittag--Leffler」へ進む。
+**現在地（2026-09-22）**：CA9 は本文・演習 A4/B3/C1・詳細解答・stable anchor・knowledge/glossary・reader-facing index・standard math core の同期まで完了。PR #362 で Pages / textbook / terminology / DREAM THEATER concepts / exercises / standard math core を green にし、通常CIに含まれる proof pedagogy / formalism pedagogy も通過した。次工程は Phase 4 の CA10「無限積・Weierstrass 因数分解・Mittag--Leffler」。
 
 ### Phase 4：CA10
 
