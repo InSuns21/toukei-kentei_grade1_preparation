@@ -67,15 +67,15 @@ $O\subseteq\mathbb R^n$ を開集合とします。
 > **定義（座標近傍・座標写像）**  
 > $M$ を $n$ 次元位相多様体とする。$U\subseteq M$ を開集合とし、
 >
-> $$
-> \varphi:U\to\varphi(U)\subseteq\mathbb R^n
-> $$
+$$
+\varphi:U\to\varphi(U)\subseteq\mathbb R^n
+$$
 >
 > が $\mathbb R^n$ の開集合 $\varphi(U)$ への同相写像であるとき、組 $(U,\varphi)$ を **座標近傍**という。$\varphi$ を **座標写像**という。
 >
-> $$
-> \varphi(p)=\bigl(x^1(p),\dots,x^n(p)\bigr)
-> $$
+$$
+\varphi(p)=\bigl(x^1(p),\dots,x^n(p)\bigr)
+$$
 >
 > と書くとき、$x^1,\dots,x^n$ をこの座標近傍の **局所座標**という。
 <!-- formal-statement-end -->
@@ -114,15 +114,15 @@ $$
 > **定義（アトラス）**  
 > $M$ を $n$ 次元位相多様体とする。座標近傍の族
 >
-> $$
-> \mathcal A=\{(U_\alpha,\varphi_\alpha)\}_{\alpha\in A}
-> $$
+$$
+\mathcal A=\{(U_\alpha,\varphi_\alpha)\}_{\alpha\in A}
+$$
 >
 > が
 >
-> $$
-> M=\bigcup_{\alpha\in A}U_\alpha
-> $$
+$$
+M=\bigcup_{\alpha\in A}U_\alpha
+$$
 >
 > を満たすとき、$\mathcal A$ を $M$ の **アトラス**という。
 <!-- formal-statement-end -->
@@ -179,13 +179,13 @@ $U\cap V$ は $M$ で開であり、$\varphi,\psi$ は同相写像なので、�
 > - $U\cap V=\varnothing$ である、または
 > - 座標変換
 >
-> $$
-> \psi\circ\varphi^{-1}
-> :
-> \varphi(U\cap V)\to\psi(U\cap V)
-> $$
+$$
+\psi\circ\varphi^{-1}
+:
+\varphi(U\cap V)\to\psi(U\cap V)
+$$
 >
-> が $C^\infty$ 級の微分同相写像である
+> とその逆写像がともに $C^\infty$ 級である
 >
 > ことをいう。
 <!-- formal-statement-end -->
@@ -272,16 +272,16 @@ $$
 
 ## 4. アトラス同士の両立性は同値関係になる
 
-個々の座標近傍についての「両立する」という関係は、一般には推移律を自動では持ちません。そこで滑らかな構造を比較するときは、**滑らかなアトラス全体**を比較します。
+個々の座標近傍についての「両立する」という関係は、一般には推移律を自動では持ちません。そこで「同じ滑らかさを表すか」を比較するときは、**滑らかなアトラス全体**を比較します。
 
 <a id="def-geo1-compatible-atlases"></a>
 <!-- formal-statement-start -->
 > **定義（滑らかなアトラスの両立性）**  
 > 同じ位相多様体 $M$ 上の二つの滑らかなアトラス $\mathcal A,\mathcal B$ が **両立する**とは、
 >
-> $$
-> \mathcal A\cup\mathcal B
-> $$
+$$
+\mathcal A\cup\mathcal B
+$$
 >
 > も滑らかなアトラスになることをいう。
 <!-- formal-statement-end -->
@@ -309,12 +309,12 @@ $$
 > **定理（滑らかなアトラスの両立性は同値関係）**  
 > 固定した位相多様体 $M$ 上の滑らかなアトラス全体に対し、
 >
-> $$
-> \mathcal A\sim\mathcal B
-> \quad\Longleftrightarrow\quad
-> \mathcal A\cup\mathcal B
-> \text{ が滑らかなアトラス}
-> $$
+$$
+\mathcal A\sim\mathcal B
+\quad\Longleftrightarrow\quad
+\mathcal A\cup\mathcal B
+\text{ が滑らかなアトラス}
+$$
 >
 > と定める。この関係は反射律・対称律・推移律を満たす。
 <!-- formal-statement-end -->
@@ -387,11 +387,11 @@ $$
 は滑らかなアトラスです。よって $\mathcal A\sim\mathcal C$ です。$\square$
 <!-- proof-end -->
 
-この定理のおかげで、「どの滑らかなアトラスを最初に選んだか」ではなく、そのアトラスと両立する座標すべてをまとめた **滑らかな構造**を考えられます。
+この定理のおかげで、「どの滑らかなアトラスを最初に選んだか」ではなく、そのアトラスと両立する座標すべてを一つにまとめる準備が整います。
 
 ---
 
-## 5. 極大滑らかアトラスと滑らかな構造
+## 5. アトラスを極大化する
 
 <a id="def-geo1-maximal-smooth-atlas"></a>
 <!-- formal-statement-start -->
@@ -607,9 +607,9 @@ $$
 > **命題（球面の標準滑らかな構造）**  
 > $S^n$ は部分空間位相により Hausdorff かつ第二可算な $n$ 次元位相多様体であり、
 >
-> $$
-> \{(U_N,\varphi_N),(U_S,\varphi_S)\}
-> $$
+$$
+\{(U_N,\varphi_N),(U_S,\varphi_S)\}
+$$
 >
 > は滑らかなアトラスをなす。従ってその極大化により $S^n$ は $n$ 次元滑らかな多様体になる。
 <!-- formal-statement-end -->
@@ -774,9 +774,9 @@ $$
 > **命題（実射影空間の標準滑らかな構造）**  
 > $\mathbb{RP}^n$ は $n$ 次元位相多様体であり、
 >
-> $$
-> \{(U_i,\varphi_i):0\le i\le n\}
-> $$
+$$
+\{(U_i,\varphi_i):0\le i\le n\}
+$$
 >
 > は滑らかなアトラスをなす。従って $\mathbb{RP}^n$ は標準的な $n$ 次元滑らかな多様体になる。
 <!-- formal-statement-end -->
@@ -802,21 +802,21 @@ $U_i$ は $q(\{x\in S^n:x_i\ne0\})$ であり、$q$ が開集合を開集合へ�
 >
 > $M,N$ の座標近傍
 >
-> $$
-> (U,\varphi),
-> \qquad
-> (V,\psi)
-> $$
+$$
+(U,\varphi),
+\qquad
+(V,\psi)
+$$
 >
 > に対し
 >
-> $$
-> (U\times V,\varphi\times\psi),
-> \qquad
-> (\varphi\times\psi)(p,q)
-> =
-> (\varphi(p),\psi(q))
-> $$
+$$
+(U\times V,\varphi\times\psi),
+\qquad
+(\varphi\times\psi)(p,q)
+=
+(\varphi(p),\psi(q))
+$$
 >
 > を取ると、これらは滑らかなアトラスをなし、$M\times N$ に自然な滑らかな構造を定める。
 <!-- formal-statement-end -->
@@ -873,9 +873,9 @@ $$
 > **定義（$n$ 次元トーラス）**  
 > 標準滑らかな円 $S^1$ の $n$ 個の積
 >
-> $$
-> T^n=(S^1)^n
-> $$
+$$
+T^n=(S^1)^n
+$$
 >
 > に積多様体の滑らかな構造を入れたものを **$n$ 次元トーラス**という。
 <!-- formal-statement-end -->
@@ -918,11 +918,11 @@ $$
 >
 > を、必要なら $U$ を縮めて $f(U)\subseteq V$ となるように選べて、座標表示
 >
-> $$
-> \psi\circ f\circ\varphi^{-1}
-> :
-> \varphi(U)\to\psi(V)
-> $$
+$$
+\psi\circ f\circ\varphi^{-1}
+:
+\varphi(U)\to\psi(V)
+$$
 >
 > が $C^\infty$ 級であるとき、$f$ を **滑らかな写像**という。
 <!-- formal-statement-end -->
@@ -970,17 +970,17 @@ $$
 >
 > ある $p$ 周りの座標 $(U,\varphi)$ と $f(p)$ 周りの座標 $(V,\psi)$ において
 >
-> $$
-> \psi\circ f\circ\varphi^{-1}
-> $$
+$$
+\psi\circ f\circ\varphi^{-1}
+$$
 >
 > が $p$ の近くで $C^\infty$ 級であるとする。
 >
 > このとき、任意の別の座標 $(U',\varphi')$ と $(V',\psi')$ を $p,f(p)$ の周りに取っても、十分小さい重なり上で
 >
-> $$
-> \psi'\circ f\circ(\varphi')^{-1}
-> $$
+$$
+\psi'\circ f\circ(\varphi')^{-1}
+$$
 >
 > は $C^\infty$ 級である。
 <!-- formal-statement-end -->
@@ -1050,9 +1050,9 @@ $$
 >
 > また
 >
-> $$
-> M\xrightarrow{f}N\xrightarrow{g}P
-> $$
+$$
+M\xrightarrow{f}N\xrightarrow{g}P
+$$
 >
 > が滑らかな写像なら、$g\circ f:M\to P$ も滑らかである。
 <!-- formal-statement-end -->
@@ -1085,16 +1085,16 @@ $$
 
 ---
 
-## 10. 微分同相写像
+## 10. 滑らかな全単射の逆も滑らかか
 
 <a id="def-geo1-diffeomorphism"></a>
 <!-- formal-statement-start -->
 > **定義（微分同相写像）**  
 > 滑らかな多様体 $M,N$ の間の写像
 >
-> $$
-> f:M\to N
-> $$
+$$
+f:M\to N
+$$
 >
 > が
 >
