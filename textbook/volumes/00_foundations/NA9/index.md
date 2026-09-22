@@ -2569,7 +2569,7 @@ $$
 
 <a id="def-na9-preconditioning"></a>
 <!-- formal-statement-start -->
-### 定義（前処理）
+### 定義（前処理と前処理行列）
 
 $A$ を実対称正定値行列とする。
 
