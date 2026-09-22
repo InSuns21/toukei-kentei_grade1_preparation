@@ -932,15 +932,17 @@ Phase 0 完了。次の実装開始点は **Phase 1：GEO1「滑らかな多様�
 - GEO3 階数定理・部分多様体 ✅ 2026-09-22
 - GEO4 1 の分割・局所化・埋め込み ✅ 2026-09-22
 
-Phase 1 完了。GEO1 → GEO2 → GEO3 → GEO4 完了。次の実装開始点は **Phase 2：GEO5「ベクトル場・積分曲線・局所流・Lie bracket」** とする。
+Phase 1 完了。GEO1 → GEO2 → GEO3 → GEO4 完了。
 
 ### Phase 2：ベクトル場・分布・微分形式
 
-- GEO5 ベクトル場・流れ・Lie bracket
+- GEO5 ベクトル場・流れ・Lie bracket ✅ 2026-09-22
 - GEO6 Frobenius
 - GEO7 テンソル場・微分形式
 - GEO8 一般 Stokes
 - GEO9 de Rham 入門
+
+GEO5 完了。次の実装開始点は **GEO6「線形分布・Frobenius の定理」** とする。
 
 ### Phase 3：古典曲面論から Riemann 幾何へ
 
