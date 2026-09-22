@@ -23,7 +23,8 @@ definitions:
   - { id: NA1-DEF-05, name: 相対条件数 }
   - { id: NA1-DEF-06, name: 行列の条件数 }
   - { id: NA1-DEF-07, name: 前方誤差・後方誤差 }
-  - { id: NA1-DEF-08, name: 後方安定性 }
+  - { id: NA1-DEF-08, name: 残差 }
+  - { id: NA1-DEF-09, name: 後方安定性 }
 theorems:
   - { id: NA1-THM-01, name: 最近接丸めの相対誤差モデル }
   - { id: NA1-LEM-01, name: 丸め因子の積の gamma_n 評価 }
