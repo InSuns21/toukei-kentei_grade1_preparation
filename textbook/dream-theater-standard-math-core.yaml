@@ -283,6 +283,15 @@ nodes:
     prerequisites: [LA5]
 
 
+  - id: GEO1
+    title: 滑らかな多様体・滑らかな写像
+    area: differential-geometry
+    tier: core
+    status: implemented
+    implemented_at: 2026-09-22
+    implementation_path: textbook/volumes/00_foundations/GEO1/index.md
+    prerequisites: [TOP4, RA6A]
+
   - id: VC1
     title: ベクトル場と微分演算子
     area: vector-calculus
@@ -608,6 +617,9 @@ implementation_batches:
   - order: 9
     id: vector-calculus-core
     nodes: [VC1, VC2, VC3, VC4, VC5, VC6, VC7, VC8, VC9]
+  - order: 10
+    id: differential-geometry-core
+    nodes: [GEO1]
 
 deferred_integrations:
   - id: dream-theater-facade-entrypoint

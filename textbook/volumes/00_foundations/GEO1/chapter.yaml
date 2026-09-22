@@ -1,0 +1,54 @@
+id: "GEO1"
+title: "幾何学 I：滑らかな多様体・滑らかな写像"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TOP4
+  - RA6A
+official_scope: []
+learning_objectives:
+  - 位相多様体を Hausdorff 性・第二可算性・局所 Euclid 性から定義し、具体例で各条件を検証できる
+  - 座標近傍・アトラス・滑らかな両立性を定義し、座標変換を具体計算できる
+  - 滑らかなアトラス同士の両立性が同値関係であることを証明できる
+  - 任意の滑らかなアトラスから一意な極大滑らかアトラスを構成できる
+  - 球面・トーラス・実射影空間の標準滑らかな構造を座標変換から構成できる
+  - 積多様体の滑らかな構造を構成できる
+  - 滑らかな写像の定義が座標選択に依存しないことを証明し、微分同相写像を判定できる
+definitions:
+  - { id: GEO1-DEF-01, name: 位相多様体 }
+  - { id: GEO1-DEF-02, name: 座標近傍・座標写像 }
+  - { id: GEO1-DEF-03, name: アトラス }
+  - { id: GEO1-DEF-04, name: 滑らかに両立する座標近傍 }
+  - { id: GEO1-DEF-05, name: 滑らかなアトラス }
+  - { id: GEO1-DEF-06, name: 滑らかなアトラスの両立性 }
+  - { id: GEO1-DEF-07, name: 極大滑らかアトラス }
+  - { id: GEO1-DEF-08, name: 滑らかな構造・滑らかな多様体 }
+  - { id: GEO1-DEF-09, name: n次元トーラス }
+  - { id: GEO1-DEF-10, name: 滑らかな写像 }
+  - { id: GEO1-DEF-11, name: 微分同相写像 }
+theorems:
+  - { id: GEO1-THM-01, name: 滑らかなアトラスの両立性は同値関係 }
+  - { id: GEO1-THM-02, name: 滑らかなアトラスからの極大化 }
+  - { id: GEO1-PROP-01, name: 球面の標準滑らかな構造 }
+  - { id: GEO1-PROP-02, name: 実射影空間の標準滑らかな構造 }
+  - { id: GEO1-THM-03, name: 積多様体の滑らかな構造 }
+  - { id: GEO1-THM-04, name: 滑らかさの座標独立性 }
+  - { id: GEO1-PROP-03, name: 恒等写像と合成の滑らかさ }
+canonical_examples:
+  - Rnの開集合
+  - 球面Snの立体射影アトラス
+  - n次元トーラス
+  - 実射影空間RPn
+  - x3座標による両立性の失敗
+  - 球面の高さ関数
+problem_patterns:
+  - GEO1-CHART-COMPATIBILITY-1
+  - GEO1-SPHERE-ATLAS-1
+  - GEO1-PROJECTIVE-ATLAS-1
+  - GEO1-PRODUCT-MANIFOLD-1
+  - GEO1-SMOOTH-MAP-1
+  - GEO1-CHART-INDEPENDENCE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 3.0, review: 0.5 }

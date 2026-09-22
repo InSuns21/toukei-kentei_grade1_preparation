@@ -65,6 +65,8 @@ flowchart TD
   TOP2 --> TOP3["連結性<br/>TOP3"]
   TOP3 --> TOP4["可算性・分離公理<br/>TOP4"]
   TOP4 --> TOP5["コンパクト性の一般論<br/>TOP5"]
+  TOP4 --> GEO1["滑らかな多様体・滑らかな写像<br/>GEO1"]
+  RA6A --> GEO1
   TOP5 --> TOP5A["Urysohn・局所コンパクト性・cutoff<br/>TOP5A"]
   TOP5 --> BAIRE["全有界性・Baire・net/filter<br/>TOP6"]
   BAIRE --> UNIFORM["一様構造・一様連続・Cauchy構造<br/>TOP7"]
@@ -540,6 +542,29 @@ Baire は関数解析の標準三大定理へ直接つなぎます。
 - 同じ位相でも異なる一様構造・異なる完備性を持ち得る具体例
 
 TOP6 の filter と全有界性を受け、距離空間で暗黙に使ってきた「二点の一様な近さ」を抽象化します。
+
+---
+
+# 5A. 多様体・微分幾何：滑らかな構造の入口
+
+位相空間の局所 Euclid 性を、多変数解析の滑らかさと結びつける系列です。一般多様体上の接空間・微分形式・Riemann 幾何へ進む canonical series として、実装済みの章だけを reader-facing DAG に登録します。
+
+## GEO1 滑らかな多様体・滑らかな写像 \`core\`
+
+- Hausdorff・第二可算・局所 Euclid 性による位相多様体
+- 座標近傍、局所座標、アトラス
+- 滑らかな座標変換と滑らかなアトラス
+- アトラス同士の両立性が同値関係になることの証明
+- 極大滑らかアトラスと滑らかな構造
+- 球面 $S^n$、トーラス $T^n$、実射影空間 $\mathbb{RP}^n$
+- 積多様体
+- 滑らかな写像の座標独立性
+- 微分同相写像
+- compact → Hausdorff の位相的同定道具は TOP2 の canonical result を再利用
+
+実装: [GEO1](volumes/00_foundations/GEO1/index.md)
+
+直接 prerequisite は TOP4 と RA6A です。接空間・余接空間・写像の微分は GEO2 へ送り、本章では「滑らかさそのものが座標に依存しない」段階までを閉じます。
 
 ---
 

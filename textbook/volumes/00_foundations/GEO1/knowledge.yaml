@@ -1,0 +1,122 @@
+chapter: GEO1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TOP4
+  - RA6A
+forward_references: []
+
+concepts:
+  - id: geometry.topological-manifold
+    name: 位相多様体
+    kind: definition
+    aliases: [位相多様体, topological manifold]
+    requires: [topology.hausdorff-space, topology.second-countable]
+
+  - id: geometry.coordinate-chart
+    name: 座標近傍・座標写像
+    kind: definition
+    aliases: [座標近傍, 座標写像, coordinate chart]
+    requires: [geometry.topological-manifold, topology.homeomorphism]
+
+  - id: geometry.atlas
+    name: アトラス
+    kind: definition
+    aliases: [アトラス, atlas]
+    requires: [geometry.coordinate-chart]
+
+  - id: geometry.compatible-charts
+    name: 滑らかに両立する座標近傍
+    kind: definition
+    aliases: [滑らかに両立する座標近傍, 座標近傍の滑らかな両立性, smooth compatibility of charts]
+    requires: [geometry.coordinate-chart]
+
+  - id: geometry.smooth-atlas
+    name: 滑らかなアトラス
+    kind: definition
+    aliases: [滑らかなアトラス, smooth atlas]
+    requires: [geometry.atlas, geometry.compatible-charts]
+
+  - id: geometry.compatible-atlases
+    name: 滑らかなアトラスの両立性
+    kind: definition
+    aliases: [滑らかなアトラスの両立性, compatible smooth atlases]
+    requires: [geometry.smooth-atlas]
+
+  - id: geometry.atlas-compatibility-equivalence
+    name: 滑らかなアトラスの両立性は同値関係
+    kind: theorem
+    aliases: [滑らかなアトラスの両立性は同値関係]
+    requires: [geometry.compatible-atlases]
+
+  - id: geometry.maximal-smooth-atlas
+    name: 極大滑らかアトラス
+    kind: definition
+    aliases: [極大滑らかアトラス, maximal smooth atlas]
+    requires: [geometry.smooth-atlas]
+
+  - id: geometry.maximal-atlas-extension
+    name: 滑らかなアトラスからの極大化
+    kind: theorem
+    aliases: [滑らかなアトラスからの極大化, 極大滑らかアトラスの一意性]
+    requires: [geometry.maximal-smooth-atlas, geometry.atlas-compatibility-equivalence]
+
+  - id: geometry.smooth-structure
+    name: 滑らかな構造
+    kind: definition
+    aliases: [滑らかな構造, smooth structure]
+    requires: [geometry.maximal-smooth-atlas]
+
+  - id: geometry.smooth-manifold
+    name: 滑らかな多様体
+    kind: definition
+    aliases: [滑らかな多様体, smooth manifold]
+    requires: [geometry.topological-manifold, geometry.smooth-structure]
+
+  - id: geometry.sphere-smooth-structure
+    name: 球面の標準滑らかな構造
+    kind: proposition
+    aliases: [球面の標準滑らかな構造, stereographic smooth atlas]
+    requires: [geometry.smooth-manifold, geometry.maximal-atlas-extension]
+
+  - id: geometry.projective-space-smooth-structure
+    name: 実射影空間の標準滑らかな構造
+    kind: proposition
+    aliases: [実射影空間の標準滑らかな構造, projective smooth atlas]
+    requires: [geometry.smooth-manifold, topology.quotient-topology-map]
+
+  - id: geometry.product-manifold
+    name: 積多様体の滑らかな構造
+    kind: theorem
+    aliases: [積多様体, 積多様体の滑らかな構造, product manifold]
+    requires: [geometry.smooth-manifold, topology.product-topology]
+
+  - id: geometry.torus
+    name: n次元トーラス
+    kind: definition
+    aliases: [トーラス, n次元トーラス, torus]
+    requires: [geometry.product-manifold, geometry.sphere-smooth-structure]
+
+  - id: geometry.smooth-map
+    name: 滑らかな写像
+    kind: definition
+    aliases: [滑らかな写像, smooth map]
+    requires: [geometry.smooth-manifold]
+
+  - id: geometry.smoothness-chart-independence
+    name: 滑らかさの座標独立性
+    kind: theorem
+    aliases: [滑らかさの座標独立性, chart independence of smoothness]
+    requires: [geometry.smooth-map, geometry.compatible-charts]
+
+  - id: geometry.smooth-composition
+    name: 恒等写像と合成の滑らかさ
+    kind: proposition
+    aliases: [恒等写像と合成の滑らかさ]
+    requires: [geometry.smooth-map]
+
+  - id: geometry.diffeomorphism
+    name: 微分同相写像
+    kind: definition
+    aliases: [微分同相写像, 微分同相, diffeomorphism]
+    requires: [geometry.smooth-map]
