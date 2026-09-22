@@ -830,7 +830,7 @@ direct prerequisite は GEO5、GEO12 です。GEO5 のベクトル場・Lie 括�
 
 実装: [GEO14](volumes/00_foundations/GEO14/index.md)
 
-direct prerequisite は GEO13、ODE4 です。GEO13 の Levi-Civita 接続・曲線に沿う共変微分・Christoffel 係数を測地線方程式へ使い、ODE4 の非線形自律系として局所存在一意性を扱います。指数写像と正規座標、Gauss の補題、局所最短性、凸正規近傍までを閉じ、次の GEO15「完備性・Hopf--Rinow」の局所基盤を提供します。
+章の prerequisite は GEO13、ODE4 です。GEO13 の Levi-Civita 接続・曲線に沿う共変微分・Christoffel 係数を測地線方程式へ使い、ODE4 の非線形自律系として局所存在一意性を扱います。標準数学コアの registry では ODE4 は系列外 node なので `reuse` として登録します。指数写像と正規座標、Gauss の補題、局所最短性、凸正規近傍までを閉じ、次の GEO15「完備性・Hopf--Rinow」の局所基盤を提供します。
 
 ---
 
