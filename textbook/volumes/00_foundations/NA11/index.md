@@ -2,28 +2,13 @@
 
 NA10 では、一般の固有値問題に対して冪乗法・逆反復法・Rayleigh 商反復・QR 法を扱いました。
 
-そこでは、固有値の絶対値が近いと冪乗法は遅くなり、絶対値最大の固有値が複数あれば方向が収束しないこともありました。
-
-ところが、行列の成分がすべて非負であると、固有値問題には強い順序構造が入ります。
-
-この章では
+この章では、成分が非負である行列に固有の順序構造を使い、
 
 $$
-Age0
+A\ge 0
 $$
 
-という単純な符号条件から、
-
-- スペクトル半径そのものが実固有値になること
-- 正の固有ベクトルが現れること
-- 既約性が正の Perron 固有ベクトルの一意性を与えること
-- 原始性が冪乗反復の周期振動を排除すること
-- 確率行列の定常確率ベクトルが Perron 固有ベクトルになること
-- PageRank の teleportation が一意性と収束を同時に保証すること
-
-を導きます。
-
-中心となる流れは
+から正の固有ベクトルを取り出します。さらに、確率行列と PageRank を
 
 ~~~text
 非負行列
@@ -36,35 +21,37 @@ Perron--Frobenius 理論
   ↓
 定常確率ベクトル
   ↓
-PageRank 行列
+PageRank
   ↓
-ℓ1 縮小性・停止判定・感度
+1-ノルム縮小性・停止判定・感度
 ~~~
 
-です。
+という一本の流れで結びます。
 
 直接の前提は、[NA9 の行列に対するスペクトル半径と Jordan 標準形による反復解析](../NA9/index.md#thm-na9-stationary-convergence)と、[NA10 の冪乗法](../NA10/index.md#def-na10-power-method)です。
 
+この章では確率ベクトルを列ベクトルで表します。そのため確率遷移に使う行列も **列和が1** の規約で統一します。
+
 ---
 
-## 0. 非負性が固有値問題を特別にする
+## 0. 非負性は固有値問題へ順序を持ち込む
 
 <a id="def-na11-nonnegative-positive-matrix"></a>
 <!-- formal-statement-start -->
 ### 定義（非負行列・正行列）
 
-実行列 $A=(a_{ij})inmathbb R^{n	imes n}$ について、
+実行列 $A=(a_{ij})\in\mathbb R^{n\times n}$ について、
 
 $$
-a_{ij}ge0
-qquad
-(1le i,jle n)
+a_{ij}\ge 0
+\qquad
+(1\le i,j\le n)
 $$
 
 がすべての成分で成り立つとき、$A$ を **非負行列**といい、
 
 $$
-Age0
+A\ge 0
 $$
 
 と書く。
@@ -73,8 +60,8 @@ $$
 
 $$
 a_{ij}>0
-qquad
-(1le i,jle n)
+\qquad
+(1\le i,j\le n)
 $$
 
 がすべての成分で成り立つとき、$A$ を **正行列**といい、
@@ -87,109 +74,85 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-na11-nonnegative-positive-matrix -->
-### 例：条件を成分ごとに確認する
+### 例：非負と正を成分で確認する
 
 **定義の確認**。
 
 $$
 A=
-egin{pmatrix}
+\begin{pmatrix}
 0&2\\
 1&3
-end{pmatrix}
+\end{pmatrix}
 $$
 
-では全成分が0以上なので
-
-$$
-Age0.
-$$
-
-しかし $(1,1)$ 成分が0なので $A>0$ ではありません。
+では全成分が0以上なので $A\ge0$ です。しかし $(1,1)$ 成分が0なので $A>0$ ではありません。
 
 一方、
 
 $$
 B=
-egin{pmatrix}
+\begin{pmatrix}
 1&2\\
 4&3
-end{pmatrix}
+\end{pmatrix}
 $$
 
-では4成分がすべて正だから
-
-$$
-B>0.
-$$
-
-したがって「非負」と「正」は区別が必要です。
+では全成分が正なので $B>0$ です。
 <!-- definition-example-end -->
 
-この符号条件が強いのは、複素ベクトル $z$ に対して成分ごとに
+非負性が強い理由は、複素ベクトル $z$ に対して成分ごとに
 
 $$
-|Az|
-le
-A|z|
+\boxed{
+|Az|\le A|z|
+}
 $$
 
-が成り立つからです。
-
-実際、第 $i$ 成分について
+が成り立つことです。実際、
 
 $$
-egin{aligned}
+\begin{aligned}
 |(Az)_i|
 &=
-left|
-sum_j a_{ij}z_j
-ight|\\
-&le
-sum_j a_{ij}|z_j|\\
+\left|
+\sum_j a_{ij}z_j
+\right|\\
+&\le
+\sum_j a_{ij}|z_j|\\
 &=
 (A|z|)_i.
-end{aligned}
+\end{aligned}
 $$
 
-ここで $|z|$ は成分ごとの絶対値です。
-
-Perron--Frobenius 理論の核心は、この「絶対値を外へ出しても不等号の向きが壊れない」ことにあります。
+ここで $|z|$ は成分ごとの絶対値です。負の成分がある一般行列では、この比較は使えません。
 
 ---
 
-## 1. スペクトル半径は行列冪の指数成長率である
+## 1. 行列冪の指数成長率はスペクトル半径で決まる
 
-Perron--Frobenius の証明では、成分ごとの不等式
-
-$$
-Ayge cy
-$$
-
-から
+Perron--Frobenius 理論では、
 
 $$
-ho(A)ge c
+Ay\ge cy
 $$
 
-を読み取る場面が出ます。
-
-その橋渡しとして、NA9 の Jordan 標準形による議論を一つの命題にまとめます。
+という成分ごとの下界から $\rho(A)\ge c$ を読み取ります。そのために NA9 の Jordan 標準形の議論を一度まとめます。
 
 <a id="prop-na11-spectral-radius-power-limit"></a>
 <!-- formal-statement-start -->
 ### 命題（有限次元でのスペクトル半径公式）
 
-$Ainmathbb C^{n	imes n}$ とし、$|cdot|$ を任意の劣乗法的行列ノルムとする。
+$A\in\mathbb C^{n\times n}$ とし、$\|\cdot\|$ を任意のベクトルノルムから誘導される行列ノルムとする。
 
 このとき
 
 $$
-oxed{
-lim_{k	oinfty}
-|A^k|^{1/k}
+\boxed{
+\lim_{k\to\infty}
+\|A^k\|^{1/k}
 =
-ho(A)
+\rho(A)
 }
 $$
 
@@ -198,198 +161,145 @@ $$
 
 ### 証明の見取り図
 
-下からの評価は、絶対値最大の固有値に対応する固有ベクトルへ $A^k$ を作用させれば得られます。
+下からの評価は、絶対値最大の固有値に対応する固有ベクトルへ $A^k$ を作用させます。
 
-上からの評価は、[NA9](../NA9/index.md#thm-na9-stationary-convergence) と同じく Jordan ブロックの冪を「指数関数 $	imes$ 多項式」で評価します。
+上からの評価は [NA9](../NA9/index.md#thm-na9-stationary-convergence) と同様に、Jordan ブロックの冪を「指数減衰または指数増加 × 多項式」として評価します。
 
 <!-- proof-start -->
 ### 証明
 
-まず
+$Av=\lambda v$、$v\ne0$、$|\lambda|=\rho(A)$ となる固有対を取ります。すると
 
 $$
-Av=lambda v,
-qquad
-v
-e0,
-qquad
-|lambda|=ho(A)
+A^kv=\lambda^kv
 $$
 
-となる固有対を取ります。
-
-すると
+なので、誘導ノルムの定義から
 
 $$
-A^kv=lambda^kv
-$$
-
-だから、
-
-$$
-|A^k|
-ge
-rac{|A^kv|}{|v|}
+\|A^k\|
+\ge
+\frac{\|A^kv\|}{\|v\|}
 =
-|lambda|^k
+|\lambda|^k
 =
-ho(A)^k.
+\rho(A)^k.
 $$
 
 従って
 
 $$
-liminf_{k	oinfty}
-|A^k|^{1/k}
-ge
-ho(A).
+\liminf_{k\to\infty}
+\|A^k\|^{1/k}
+\ge
+\rho(A).
 $$
 
 次に上から評価します。
 
-Jordan 標準形
+Jordan 標準形を
 
 $$
 A=SJS^{-1}
 $$
 
-を取り、各 Jordan ブロックを
+とします。各 Jordan ブロックを
 
 $$
-J_lambda=lambda I+N
+J_\lambda=\lambda I+N,
+\qquad
+N^m=0
 $$
 
-と書きます。$N$ は冪零です。
-
-$ho(A)=0$ なら全固有値が0なので $J$ 自体が冪零であり、十分大きい $k$ で $A^k=0$ です。したがって結論は明らかです。
-
-以下
+と書けば、
 
 $$
-ho(A)>0
-$$
-
-とします。
-
-任意の
-
-$$
-arepsilon>0
-$$
-
-を取り、
-
-$$
-q=ho(A)+arepsilon
-$$
-
-とします。
-
-各固有値は
-
-$$
-|lambda|leho(A)<q
-$$
-
-を満たします。
-
-Jordan ブロックの冪は
-
-$$
-J_lambda^k
+J_\lambda^k
 =
-sum_{j=0}^{m-1}
-inom{k}{j}
-lambda^{k-j}N^j
+\sum_{j=0}^{m-1}
+\binom{k}{j}\lambda^{k-j}N^j.
 $$
 
-と書けます。
-
-固定した $j$ に対して
+任意の $\varepsilon>0$ に対して
 
 $$
-inom{k}{j}|lambda|^{k-j}
+q=\rho(A)+\varepsilon
 $$
 
-は多項式因子と $|lambda|^k$ の積です。
+と置きます。すべての固有値について $|\lambda|<q$ です。
 
-$|lambda|/q<1$ なので、十分大きい $k$ ではある定数 $C_j$ を用いて
+固定した $j$ について、$k^j(|\lambda|/q)^k\to0$ なので、ある定数 $C_j$ が存在して
 
 $$
-inom{k}{j}|lambda|^{k-j}
-le
+\binom{k}{j}|\lambda|^{k-j}
+\le
 C_jq^k
 $$
 
-と評価できます。
-
-Jordan ブロックは有限個しかないため、ある定数 $C>0$ が存在して
+とできます。Jordan ブロックは有限個しかないため、ある $C>0$ が存在して
 
 $$
-|J^k|
-le
-Cq^k
+\|J^k\|\le Cq^k.
 $$
 
-となります。
-
-したがって
+従って
 
 $$
-|A^k|
-=
-|SJ^kS^{-1}|
-le
-|S|,|S^{-1}|,Cq^k.
+\|A^k\|
+\le
+\|S\|\,\|S^{-1}\|\,Cq^k.
 $$
 
-$k$ 乗根を取ると
+$k$ 乗根を取れば
 
 $$
-limsup_{k	oinfty}
-|A^k|^{1/k}
-le
-q.
+\limsup_{k\to\infty}
+\|A^k\|^{1/k}
+\le q.
 $$
 
-$arepsilon>0$ は任意なので
+$\varepsilon>0$ は任意なので
 
 $$
-limsup_{k	oinfty}
-|A^k|^{1/k}
-le
-ho(A).
+\limsup_{k\to\infty}
+\|A^k\|^{1/k}
+\le \rho(A).
 $$
 
-下からの評価と合わせて
-
-$$
-lim_{k	oinfty}
-|A^k|^{1/k}
-=
-ho(A).
-$$
+下からの評価と合わせて結論を得ます。
 <!-- proof-end -->
 
-この命題から、$y>0$ に対して
+特に $y>0$ かつ
 
 $$
-Ayge cy
+Ay\ge cy
 $$
 
-なら
+なら、帰納的に
 
 $$
-A^kyge c^ky
+A^ky\ge c^ky.
 $$
 
-なので
+例えば無限大ノルムを使えば
 
 $$
-ho(A)ge c
+\|A^k\|_\infty
+\ge
+\frac{\|A^ky\|_\infty}{\|y\|_\infty}
+\ge
+c^k
 $$
 
-と読めます。
+なので、スペクトル半径公式から
+
+$$
+\boxed{
+\rho(A)\ge c
+}
+$$
+
+が従います。
 
 ---
 
@@ -399,352 +309,207 @@ $$
 <!-- formal-statement-start -->
 ### 定理（正行列に対する Perron--Frobenius 定理）
 
-$Ainmathbb R^{n	imes n}$ を正行列 $A>0$ とする。
+$A\in\mathbb R^{n\times n}$ を正行列 $A>0$ とする。
 
 このとき次が成り立つ。
 
-1. $ho(A)>0$ は $A$ の実固有値である。
-2. あるベクトル $x>0$ が存在して
+1. $\rho(A)>0$ は $A$ の実固有値である。
+2. ある $x>0$ が存在して
    $$
-   Ax=ho(A)x
+   Ax=\rho(A)x
    $$
    を満たす。
-3. 正の固有ベクトルは定数倍を除いて一意である。
-4. $ho(A)$ は代数的に単純な固有値である。
-5. $lambda
-eho(A)$ が $A$ の固有値なら
+3. $\rho(A)$ の固有空間は1次元で、正の固有ベクトルは定数倍を除いて一意である。
+4. $\rho(A)$ は代数的に単純である。
+5. $\lambda\ne\rho(A)$ が $A$ の固有値なら
    $$
-   |lambda|<ho(A).
+   |\lambda|<\rho(A).
    $$
 
-同様に、ある $y>0$ が存在して
+さらに、ある $y>0$ が存在して
 
 $$
-y^{mathsf T}A
+y^{\mathsf T}A
 =
-ho(A)y^{mathsf T}
+\rho(A)y^{\mathsf T}
 $$
 
 を満たす。
 <!-- formal-statement-end -->
 
-### 証明の見取り図
-
-絶対値最大の複素固有値から出発し、その固有ベクトルの成分絶対値を取ります。
-
-非負性から
-
-$$
-A|z|ge|Az|
-$$
-
-が得られ、もしどこかで真に大きければスペクトル半径より速い成長が生じて矛盾します。
-
 <!-- proof-start -->
 ### 証明
 
-$A>0$ なので対角成分も正です。従って
+$A>0$ なので $\operatorname{tr}(A)>0$ です。従って全固有値が0ではなく、
 
 $$
-operatorname{tr}(A)>0
+\rho(A)>0.
 $$
 
-であり、すべての固有値が0ということはありません。よって
+$Az=\lambda z$、$z\ne0$、$|\lambda|=\rho(A)$ を満たす複素固有対を取ります。
 
 $$
-ho(A)>0.
+x=|z|\ge0
 $$
 
-絶対値最大の固有値 $lambda$ と複素固有ベクトル $z
-e0$ を取り、
-
-$$
-Az=lambda z,
-qquad
-|lambda|=ho(A)
-$$
-
-とします。
-
-成分ごとの絶対値を
-
-$$
-x=|z|ge0
-$$
-
-と置くと、
+と置くと、非負性から
 
 $$
 Ax
-ge
+\ge
 |Az|
 =
-|lambda||z|
-=
-ho(A)x.
+\rho(A)x.
 $$
 
 ここで
 
 $$
-d=Ax-ho(A)x
-ge0
+d=Ax-\rho(A)x\ge0
 $$
 
-と置きます。
+とします。
 
-もし $d
-e0$ なら、$A>0$ だから
-
-$$
-Ad>0.
-$$
-
-また
+もし $d\ne0$ なら $A>0$ なので $Ad>0$ です。また $u=Ax>0$ と置けば
 
 $$
-y=Ax>0
-$$
-
-です。
-
-したがって
-
-$$
-Ay
+Au
 =
 A^2x
 =
-ho(A)Ax+Ad
+\rho(A)Ax+Ad
 >
-ho(A)y.
-$$
-
-$y_i>0$ なので
-
-$$
-arepsilon
-=
-min_i
-left(
-rac{(Ay)_i}{y_i}
--
-ho(A)
-ight)
->0.
+\rho(A)u.
 $$
 
 従って
 
 $$
-Ay
-ge
-(ho(A)+arepsilon)y.
-$$
-
-反復すると
-
-$$
-A^ky
-ge
-(ho(A)+arepsilon)^ky.
-$$
-
-これは[スペクトル半径公式](#prop-na11-spectral-radius-power-limit)から
-
-$$
-ho(A)
-ge
-ho(A)+arepsilon
-$$
-
-を要求し、矛盾します。
-
-よって
-
-$$
-Ax=ho(A)x.
-$$
-
-さらに $A>0$、$x
-e0$、$ho(A)>0$ だから
-
-$$
-x
+\delta
 =
-rac1{ho(A)}Ax
->0.
+\min_i
+\left(
+\frac{(Au)_i}{u_i}-\rho(A)
+\right)
+>0
 $$
 
-したがって1と2が示されました。
-
-次に正固有ベクトルの一意性を示します。
-
-$x>0$ と $u>0$ がともに $ho(A)$ の固有ベクトルだとします。
+と取れて、
 
 $$
-t
+Au\ge(\rho(A)+\delta)u.
+$$
+
+前節の評価から
+
+$$
+\rho(A)\ge\rho(A)+\delta
+$$
+
+となり矛盾です。よって
+
+$$
+Ax=\rho(A)x.
+$$
+
+さらに $A>0$、$x\ne0$ なので $Ax>0$、従って $x>0$ です。
+
+次に $Au=\rho(A)u$ を満たす実ベクトル $u$ を任意に取ります。十分大きい $t>0$ で
+
+$$
+w=tx-u\ge0
+$$
+
+かつ少なくとも一つの成分を0にできます。
+
+$w\ne0$ なら $Aw>0$ ですが、
+
+$$
+Aw=\rho(A)w
+$$
+
+なので、$w$ の0成分に対応する成分は0でなければならず矛盾です。従って $u=tx$ です。符号を変えれば任意の実固有ベクトルが $x$ の定数倍だと分かります。
+
+複素固有ベクトルについても実部・虚部へ同じ議論を適用できるため、$\rho(A)$ の固有空間は1次元です。
+
+次に $Az=\lambda z$、$|\lambda|=\rho(A)$ とします。上と同じ議論から
+
+$$
+A|z|=\rho(A)|z|.
+$$
+
+したがって各行で
+
+$$
+\left|
+\sum_j a_{ij}z_j
+\right|
 =
-max_i
-rac{x_i}{u_i}
+\sum_j a_{ij}|z_j|
 $$
 
-と置けば
+が成立します。$a_{ij}>0$ なので、三角不等式の等号条件より全 $z_j$ は同じ複素偏角を持ちます。従って $z=cx$ と書け、
 
 $$
-w=tu-xge0
+Az=\rho(A)z.
 $$
 
-であり、少なくとも一つの成分は0です。
-
-もし $w
-e0$ なら $A>0$ なので
+よって $\lambda=\rho(A)$ です。従って他の固有値はすべて
 
 $$
-Aw>0.
+|\lambda|<\rho(A).
 $$
 
-しかし
+最後に $A^{\mathsf T}>0$ へ同じ存在論を適用し、
 
 $$
-Aw
-=
-ho(A)w
+y^{\mathsf T}A=\rho(A)y^{\mathsf T},
+\qquad
+y>0
 $$
 
-だから、$w$ の0成分に対応する成分も0でなければならず矛盾です。
+を取ります。
 
-したがって
-
-$$
-w=0,
-qquad
-x=tu.
-$$
-
-正固有ベクトルは定数倍を除いて一意です。
-
-次に周上の固有値を調べます。
-
-$Az=lambda z$、$|lambda|=ho(A)$ とすると、先ほどと同じ議論から
+もし $\rho(A)$ に大きさ2以上の Jordan ブロックがあれば、ある $w$ が存在して
 
 $$
-A|z|=ho(A)|z|.
+(A-\rho(A)I)w=x
 $$
 
-したがって三角不等式
-
-$$
-left|
-sum_j a_{ij}z_j
-ight|
-le
-sum_j a_{ij}|z_j|
-$$
-
-では、すべての行で等号が成立しています。
-
-$a_{ij}>0$ なので、等号成立条件から全 $z_j$ は同じ複素偏角を持ちます。
-
-従ってある複素数 $c
-e0$ と正ベクトル $x$ を用いて
-
-$$
-z=cx
-$$
-
-と書けます。
-
-すると
-
-$$
-Az
-=
-cAx
-=
-cho(A)x
-=
-ho(A)z.
-$$
-
-一方 $Az=lambda z$ なので
-
-$$
-lambda=ho(A).
-$$
-
-従って $ho(A)$ 以外の固有値はすべて
-
-$$
-|lambda|<ho(A)
-$$
-
-を満たします。
-
-最後に代数的単純性を示します。
-
-$A^{mathsf T}>0$ にも今までの議論を適用すると、ある $y>0$ が存在して
-
-$$
-y^{mathsf T}A
-=
-ho(A)y^{mathsf T}
-$$
-
-となります。
-
-もし $ho(A)$ に大きさ2以上の Jordan ブロックがあれば、ある $w$ が存在して
-
-$$
-(A-ho(A)I)w=x
-$$
-
-を満たします。
-
-左から $y^{mathsf T}$ を掛けると
+となります。左から $y^{\mathsf T}$ を掛けると
 
 $$
 0
 =
-y^{mathsf T}(A-ho(A)I)w
+y^{\mathsf T}(A-\rho(A)I)w
 =
-y^{mathsf T}x.
+y^{\mathsf T}x,
 $$
 
-しかし $x>0$、$y>0$ だから
+しかし $x>0$、$y>0$ だから $y^{\mathsf T}x>0$ であり矛盾です。
 
-$$
-y^{mathsf T}x>0
-$$
-
-であり矛盾です。
-
-従って $ho(A)$ は代数的に単純です。
+従って $\rho(A)$ は代数的に単純です。
 <!-- proof-end -->
 
-この定理は、NA10 の一般の冪乗法で必要だった
+NA10 の一般の冪乗法では
 
 $$
-|lambda_1|>|lambda_2|
+|\lambda_1|>|\lambda_2|
 $$
 
-を、正行列では構造そのものが保証することを意味します。
+を仮定しました。正行列では、この支配固有値の分離が行列構造から自動的に得られます。
 
 ---
 
-## 3. 既約性は「どの成分からも全体へ届く」ことを表す
+## 3. 既約性は「どこからでも全体へ届く」ことを表す
 
-正行列は非常に強い条件です。
-
-実際のネットワーク行列では0が大量に現れます。
-
-そこで0を許したまま「成分が分断されていない」ことを表す条件を導入します。
+正行列は0を一つも許しません。しかし疎なネットワーク行列では0が大量に現れます。
 
 <a id="def-na11-irreducible"></a>
 <!-- formal-statement-start -->
 ### 定義（既約非負行列）
 
-非負行列 $A=(a_{ij})inmathbb R^{n	imes n}$ に対し、頂点集合 ${1,dots,n}$ を持ち、
+非負行列 $A=(a_{ij})\in\mathbb R^{n\times n}$ に対し、頂点集合 $\{1,\dots,n\}$ を持ち、
 
 $$
 a_{ij}>0
@@ -753,7 +518,7 @@ $$
 のとき有向辺
 
 $$
-jlongrightarrow i
+j\longrightarrow i
 $$
 
 を引く。
@@ -768,35 +533,31 @@ $$
 
 $$
 P=
-egin{pmatrix}
+\begin{pmatrix}
 0&1\\
 1&0
-end{pmatrix}
+\end{pmatrix}
 $$
 
 では
 
 $$
-1	o2,
-qquad
-2	o1
+1\to2,
+\qquad
+2\to1
 $$
 
-という辺があります。
+という辺があります。従って $P$ は既約です。
 
-したがって1から2へ、2から1へ到達でき、自分自身へも長さ2の路で戻れます。
-
-従って $P$ は既約です。
-
-しかし
+一方、
 
 $$
 P^2=I
 $$
 
-であり、後で見るように冪乗反復は一般には収束しません。
+なので、後で見るように冪乗反復は一般には収束しません。
 
-既約性だけでは周期振動を消せないことが、この例の重要な点です。
+つまり **既約性だけでは周期性は消えません**。
 <!-- definition-example-end -->
 
 ---
@@ -807,26 +568,24 @@ $$
 <!-- formal-statement-start -->
 ### 定理（既約非負行列に対する Perron--Frobenius 定理）
 
-$Ainmathbb R^{n	imes n}$ を既約な非負行列とする。
+$A\in\mathbb R^{n\times n}$ を既約な非負行列とする。
 
-このとき
+このとき次が成り立つ。
 
-1. $ho(A)ge0$ は $A$ の固有値である。
+1. $\rho(A)$ は $A$ の実固有値である。
 2. ある $x>0$ が存在して
    $$
-   Ax=ho(A)x
+   Ax=\rho(A)x
    $$
    を満たす。
 3. 正の固有ベクトルは定数倍を除いて一意である。
-4. $ho(A)$ は代数的に単純である。
+4. $\rho(A)$ は代数的に単純である。
 
-ただし、$ho(A)$ と同じ絶対値を持つ別の固有値が存在することはあり得る。
+ただし、$\rho(A)$ と同じ絶対値を持つ別の固有値が存在することはあり得る。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
-
-まず
 
 $$
 B=I+A
@@ -834,140 +593,176 @@ $$
 
 と置きます。
 
-$A$ が既約なので、任意の $j$ から任意の $i$ へ、重複頂点を除けば長さ高々 $n-1$ の有向路があります。
+$A$ が既約なので、任意の頂点 $j$ から任意の頂点 $i$ へ、重複頂点を除けば長さ高々 $n-1$ の有向路があります。
 
-$B$ は対角成分に1を持つので、その路の途中または終点で自己ループを使って長さを $n-1$ まで延ばせます。
-
-従って
+$B$ は各頂点に自己ループを追加した行列です。短い路は自己ループで長さを $n-1$ まで延ばせるため、
 
 $$
-B^{n-1}>0
+C=B^{n-1}>0
 $$
 
 です。
 
-したがって $B^{n-1}$ は正行列であり、[正行列版 Perron--Frobenius 定理](#thm-na11-positive-perron-frobenius)を適用できます。
-
-より直接には $B^{n-1}>0$ から、$B$ 自身にも正の右固有ベクトル $x>0$ と正の左固有ベクトル $y>0$ があり、
+正行列 $C$ に前節の定理を適用し、
 
 $$
-Bx=mu x,
+Cx=\tau x,
+\qquad
+x>0,
 $$
 
 $$
-y^{mathsf T}B
+y^{\mathsf T}C=\tau y^{\mathsf T},
+\qquad
+y>0
+$$
+
+とします。$\tau=\rho(C)$ の固有空間は1次元です。
+
+$B$ と $C=B^{n-1}$ は可換なので
+
+$$
+C(Bx)=B(Cx)=\tau Bx.
+$$
+
+また $B\ge I$、$x>0$ だから $Bx>0$ です。従って $Bx$ は $C$ の Perron 固有空間に属し、
+
+$$
+Bx=\mu x
+$$
+
+となる $\mu>0$ が存在します。
+
+同様に
+
+$$
+y^{\mathsf T}B=\nu y^{\mathsf T}
+$$
+
+となる $\nu>0$ が存在します。
+
+両式から
+
+$$
+y^{\mathsf T}Bx
 =
-mu y^{mathsf T}
-$$
-
-となる実数 $mu>0$ が得られます。
-
-すると
-
-$$
-Ax=(mu-1)x.
-$$
-
-ここで
-
-$$
-r=mu-1.
-$$
-
-$Age0$、$x>0$ なので $rge0$ です。
-
-$r$ が $A$ のスペクトル半径であることを示します。
-
-$Az=lambda z$ とします。
-
-成分ごとに
-
-$$
-A|z|
-ge
-|Az|
+\mu y^{\mathsf T}x
 =
-|lambda||z|.
+\nu y^{\mathsf T}x.
 $$
 
-左から $y^{mathsf T}$ を掛けると
+$y^{\mathsf T}x>0$ なので $\mu=\nu$ です。
+
+よって
 
 $$
-y^{mathsf T}A|z|
-ge
-|lambda|y^{mathsf T}|z|.
+Ax=(\mu-1)x,
 $$
 
-一方
+$$
+y^{\mathsf T}A=(\mu-1)y^{\mathsf T}.
+$$
 
 $$
-y^{mathsf T}A
+r=\mu-1
+$$
+
+と置きます。$A\ge0$、$x>0$ だから $r\ge0$ です。
+
+任意の固有対 $Az=\lambda z$ に対して
+
+$$
+A|z|\ge|\lambda||z|.
+$$
+
+左から $y^{\mathsf T}$ を掛けると
+
+$$
+r\,y^{\mathsf T}|z|
 =
-r y^{mathsf T}
+y^{\mathsf T}A|z|
+\ge
+|\lambda|\,y^{\mathsf T}|z|.
 $$
 
-なので
+$y>0$、$z\ne0$ なので $y^{\mathsf T}|z|>0$、従って
 
 $$
-r y^{mathsf T}|z|
-ge
-|lambda|y^{mathsf T}|z|.
+|\lambda|\le r.
 $$
 
-$y>0$、$z
-e0$ だから
+$r$ 自身が固有値だから
 
 $$
-y^{mathsf T}|z|>0.
+r=\rho(A).
+$$
+
+これで正の Perron 固有ベクトルの存在が示されました。
+
+正固有ベクトルの一意性も $C$ を使えば直ちに従います。もし $Au=\rho(A)u$、$u>0$ なら
+
+$$
+Bu=\mu u,
 $$
 
 従って
 
 $$
-|lambda|le r.
+Cu=B^{n-1}u=\mu^{n-1}u.
 $$
 
-$r$ 自身が固有値なので
+一方 $Cx=\mu^{n-1}x$ であり、$C$ の Perron 固有空間は1次元なので $u$ は $x$ の定数倍です。
+
+最後に代数的単純性を示します。もし $A$ の $\rho(A)$ に Jordan 鎖
 
 $$
-r=ho(A).
+(A-\rho(A)I)w=x
 $$
 
-したがって
+があれば、$B=I+A$ について
 
 $$
-Ax=ho(A)x,
-qquad
-x>0.
+(B-\mu I)w=x
 $$
 
-正固有ベクトルの一意性は、正行列の場合と同じ最大比の議論で示せます。
+です。
 
-また $B=I+A$ では固有値が1だけ平行移動するため、$B$ の Perron 固有値の代数的単純性から $ho(A)$ の代数的単純性も従います。
+$m=n-1$ とすると、$Bx=\mu x$ から
+
+$$
+(B^m-\mu^mI)w
+=
+m\mu^{m-1}x
+\ne0
+$$
+
+が従います。したがって $C=B^m$ の Perron 固有値 $\mu^m$ にも非自明な Jordan 鎖が生じます。
+
+しかし $C>0$ の Perron 固有値は代数的に単純なので矛盾です。
+
+従って $\rho(A)$ は代数的に単純です。
 <!-- proof-end -->
 
-注意すべきなのは、最後に
+既約性は正の Perron 固有ベクトルを一意にします。しかし、まだ
 
 $$
-|lambda|<ho(A)
+|\lambda|<\rho(A)
 $$
 
-までは主張していないことです。
-
-既約でも周期性があると、スペクトル円周上に複数の固有値が残ります。
+を他の全固有値に対して保証してはいません。
 
 ---
 
-## 5. 原始性が周期性を排除する
+## 5. 原始性が周期固有値を排除する
 
 <a id="def-na11-primitive"></a>
 <!-- formal-statement-start -->
 ### 定義（原始行列）
 
-非負行列 $Age0$ に対し、ある正整数 $m$ が存在して
+非負行列 $A\ge0$ に対し、ある正整数 $m$ が存在して
 
 $$
-oxed{
+\boxed{
 A^m>0
 }
 $$
@@ -976,77 +771,74 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-na11-primitive -->
-### 例：1回では0が残るが2回で全成分が正になる
+### 例：2乗すると正行列になる
 
 **定義の確認**。
 
 $$
 A=
-egin{pmatrix}
+\begin{pmatrix}
 1&1\\
 1&0
-end{pmatrix}
+\end{pmatrix}
 $$
 
-は非負ですが $(2,2)$ 成分が0なので正行列ではありません。
+は非負ですが正行列ではありません。
 
 しかし
 
 $$
 A^2
 =
-egin{pmatrix}
+\begin{pmatrix}
 2&1\\
 1&1
-end{pmatrix}
+\end{pmatrix}
 >0.
 $$
 
 従って $A$ は原始行列です。
 <!-- definition-example-end -->
 
-先ほどの2周期行列
+一方、
 
 $$
 P=
-egin{pmatrix}
+\begin{pmatrix}
 0&1\\
 1&0
-end{pmatrix}
+\end{pmatrix}
 $$
 
 では
 
 $$
 P^{2k}=I,
-qquad
+\qquad
 P^{2k+1}=P
 $$
 
-なので、どの冪にも0が残ります。
-
-従って既約ですが原始ではありません。
+なので、どの冪にも0が残ります。従って $P$ は既約ですが原始ではありません。
 
 <a id="prop-na11-primitive-spectral-gap"></a>
 <!-- formal-statement-start -->
-### 命題（原始行列の Perron 固有値にはスペクトルギャップがある）
+### 命題（原始行列の Perron 固有値のスペクトルギャップ）
 
-$Age0$ を原始行列とする。
+$A\ge0$ を原始行列とする。
 
-このとき $ho(A)>0$ は代数的に単純な固有値であり、ある $x>0$ が存在して
+このとき $\rho(A)>0$ は代数的に単純な固有値で、ある $x>0$ が存在して
 
 $$
-Ax=ho(A)x
+Ax=\rho(A)x
 $$
 
 を満たす。
 
-さらに、$lambda
-eho(A)$ が $A$ の固有値なら
+さらに $\lambda\ne\rho(A)$ が $A$ の固有値なら
 
 $$
-oxed{
-|lambda|<ho(A)
+\boxed{
+|\lambda|<\rho(A)
 }.
 $$
 <!-- formal-statement-end -->
@@ -1054,91 +846,57 @@ $$
 <!-- proof-start -->
 ### 証明
 
-原始性から、ある $m$ で
-
-$$
-A^m>0.
-$$
-
-従って $A$ は既約であり、[既約版 Perron--Frobenius 定理](#thm-na11-irreducible-perron-frobenius)により正の Perron 固有ベクトルが存在します。
+ある $m$ で $A^m>0$ です。従って $A$ は既約であり、前節から正の Perron 固有ベクトル $x$ が存在し、$\rho(A)$ は代数的に単純です。
 
 もし
 
 $$
-A z=lambda z,
-qquad
-|lambda|=ho(A)
+Az=\lambda z,
+\qquad
+|\lambda|=\rho(A)
 $$
 
 なら
 
 $$
-A^m z=lambda^m z.
+A^mz=\lambda^mz.
 $$
 
-したがって $lambda^m$ は $A^m$ の固有値で、
+従って $\lambda^m$ は正行列 $A^m$ のスペクトル円周上の固有値です。
+
+正行列版 Perron--Frobenius 定理より、そのような固有値は
 
 $$
-|lambda^m|
-=
-ho(A)^m
-=
-ho(A^m).
+\rho(A^m)=\rho(A)^m
 $$
 
-しかし $A^m>0$ なので、正行列版 Perron--Frobenius 定理より、スペクトル円周上の固有値は
+だけで、対応固有空間も1次元です。
+
+一方 $A^mx=\rho(A)^mx$ なので $z=cx$ です。すると
 
 $$
-ho(A^m)
+Az=\rho(A)z,
 $$
 
-ただ一つです。
+従って $\lambda=\rho(A)$ です。
 
-従って $z$ は $A^m$ の正 Perron 固有ベクトルと同じ1次元固有空間に属します。
-
-つまり $z=cx$ です。
-
-すると
-
-$$
-Az
-=
-cAx
-=
-cho(A)x
-=
-ho(A)z
-$$
-
-なので
-
-$$
-lambda=ho(A).
-$$
-
-従って他の固有値はすべて厳密に内側にあります。
+よって他の固有値はすべてスペクトル円の内部にあります。
 <!-- proof-end -->
-
-ここで初めて、一般の冪乗法で必要だった「支配固有値の絶対値が一意」という条件が自動的に得られます。
 
 ---
 
-## 6. 列確率行列では Perron 固有値が1になる
-
-この章では確率ベクトルを列ベクトルで持ちます。
-
-したがって遷移行列は **列和が1** になる約束を採用します。
+## 6. 列確率行列では Perron 固有値が1である
 
 <a id="def-na11-column-stochastic-stationary"></a>
 <!-- formal-statement-start -->
 ### 定義（列確率行列・定常確率ベクトル）
 
-非負行列 $P=(p_{ij})inmathbb R^{n	imes n}$ が
+非負行列 $P=(p_{ij})\in\mathbb R^{n\times n}$ が
 
 $$
-sum_{i=1}^n p_{ij}=1
-qquad
-(j=1,dots,n)
+\sum_{i=1}^n p_{ij}=1
+\qquad
+(j=1,\dots,n)
 $$
 
 を満たすとき、$P$ を **列確率行列**という。
@@ -1146,20 +904,20 @@ $$
 確率ベクトル
 
 $$
-pige0,
-qquad
-mathbf 1^{mathsf T}pi=1
+\pi\ge0,
+\qquad
+\mathbf1^{\mathsf T}\pi=1
 $$
 
 が
 
 $$
-oxed{
-Ppi=pi
+\boxed{
+P\pi=\pi
 }
 $$
 
-を満たすとき、$pi$ を $P$ の **定常確率ベクトル**という。
+を満たすとき、$\pi$ を $P$ の **定常確率ベクトル**という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-na11-column-stochastic-stationary -->
@@ -1169,96 +927,72 @@ $$
 
 $$
 P=
-egin{pmatrix}
+\begin{pmatrix}
 1/2&1/4\\
 1/2&3/4
-end{pmatrix}
+\end{pmatrix}
 $$
 
-では、第1列・第2列の和はともに1です。
-
-したがって $P$ は列確率行列です。
+では各列の和が1なので列確率行列です。
 
 $$
-Ppi=pi,
-qquad
-pi=
-egin{pmatrix}
-pi_1\\
-pi_2
-end{pmatrix}
+P\pi=\pi
 $$
 
-と置くと、第1成分から
+を解くと
 
 $$
-rac12pi_1+rac14pi_2=pi_1.
+\frac12\pi_1+\frac14\pi_2=\pi_1,
 $$
 
-従って
+従って $\pi_2=2\pi_1$ です。
 
 $$
-pi_2=2pi_1.
+\pi_1+\pi_2=1
 $$
 
-さらに
+で正規化すると
 
 $$
-pi_1+pi_2=1
-$$
-
-だから
-
-$$
-oxed{
-pi=
-egin{pmatrix}
+\boxed{
+\pi=
+\begin{pmatrix}
 1/3\\
 2/3
-end{pmatrix}
+\end{pmatrix}
 }.
 $$
-
-実際に代入すると
-
-$$
-Ppi=pi
-$$
-
-を確認できます。
 <!-- definition-example-end -->
 
 列確率行列では
 
 $$
-mathbf1^{mathsf T}P
-=
-mathbf1^{mathsf T}.
+\mathbf1^{\mathsf T}P=\mathbf1^{\mathsf T}.
 $$
 
-従って $P^{mathsf T}$ は固有値1を持ち、$P$ も同じ特性多項式を持つので1は $P$ の固有値です。
+従って1は $P^{\mathsf T}$ の固有値であり、$P$ と $P^{\mathsf T}$ は同じ特性多項式を持つので1は $P$ の固有値です。
 
 また誘導1-ノルムは
 
 $$
-|P|_1
+\|P\|_1
 =
-max_jsum_i|p_{ij}|
+\max_j\sum_i|p_{ij}|
 =
 1.
 $$
 
-したがって
+従って
 
 $$
-ho(P)le1.
+\rho(P)\le1.
 $$
 
 1が固有値なので
 
 $$
-oxed{
-ho(P)=1
+\boxed{
+\rho(P)=1
 }.
 $$
 
@@ -1268,68 +1002,55 @@ $$
 
 $P$ を既約な列確率行列とする。
 
-このとき、成分がすべて正の定常確率ベクトル $pi>0$ がただ一つ存在する。
+このとき、成分がすべて正の定常確率ベクトル $\pi>0$ がただ一つ存在する。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
 
-列確率行列では
+$\rho(P)=1$ なので、既約版 Perron--Frobenius 定理から、ある $x>0$ が存在して
 
 $$
-ho(P)=1.
+Px=x.
 $$
 
-既約版 Perron--Frobenius 定理により、ある $x>0$ が存在して
-
-$$
-Px=x
-$$
-
-を満たし、正固有ベクトルは定数倍を除いて一意です。
+正固有ベクトルは定数倍を除いて一意です。
 
 そこで
 
 $$
-pi
+\pi
 =
-rac{x}{mathbf1^{mathsf T}x}
+\frac{x}{\mathbf1^{\mathsf T}x}
 $$
 
 と正規化すれば
 
 $$
-pi>0,
-qquad
-mathbf1^{mathsf T}pi=1,
-qquad
-Ppi=pi.
+\pi>0,
+\qquad
+\mathbf1^{\mathsf T}\pi=1,
+\qquad
+P\pi=\pi.
 $$
 
-正規化条件が定数倍の自由度を消すので、$pi$ は一意です。
+正規化が定数倍の自由度を消すため、$\pi$ は一意です。
 <!-- proof-end -->
 
 ---
 
-## 7. 「定常確率ベクトルが一意」と「反復が収束」は別である
+## 7. 一意な定常確率ベクトルがあっても反復は収束しないことがある
 
-既約性だけでは
+既約性と原始性を混同すると、最も小さい反例で破綻します。
 
-$$
-P^kx_0	opi
-$$
-
-は保証されません。
-
-<a id="example-na11-period-two"></a>
-### 反例：既約だが2周期で振動する
+### 反例：2周期で振動する既約行列
 
 $$
 P=
-egin{pmatrix}
+\begin{pmatrix}
 0&1\\
 1&0
-end{pmatrix}
+\end{pmatrix}
 $$
 
 は既約な列確率行列です。
@@ -1337,12 +1058,13 @@ $$
 定常確率ベクトルは
 
 $$
-pi
+\pi
 =
-rac12
-egin{pmatrix}
-1\\1
-end{pmatrix}
+\frac12
+\begin{pmatrix}
+1\\
+1
+\end{pmatrix}
 $$
 
 で一意です。
@@ -1351,75 +1073,65 @@ $$
 
 $$
 x_0=
-egin{pmatrix}
-1\\0
-end{pmatrix}
+\begin{pmatrix}
+1\\
+0
+\end{pmatrix}
 $$
 
-から始めると
+なら
 
 $$
 Px_0=
-egin{pmatrix}
-0\\1
-end{pmatrix},
-$$
-
-$$
+\begin{pmatrix}
+0\\
+1
+\end{pmatrix},
+\qquad
 P^2x_0=x_0.
 $$
 
-従って
+従って $P^kx_0$ は振動して収束しません。
+
+固有値は
 
 $$
-P^{2k}x_0=x_0,
-qquad
-P^{2k+1}x_0=Px_0
+1,\qquad -1
 $$
 
-であり、収束しません。
-
-壊れたのは既約性ではなく **原始性**です。
-
-実際、この行列の固有値は
-
-$$
-1,qquad -1
-$$
-
-なので、Perron 固有値1と同じ絶対値を持つ $-1$ が周期振動を保存しています。
+です。壊れたのは既約性ではなく、**原始性によるスペクトルギャップ**です。
 
 ---
 
-## 8. 原始列確率行列では冪乗反復が定常分布へ収束する
+## 8. 原始列確率行列では冪乗反復が定常確率ベクトルへ収束する
 
 <a id="thm-na11-primitive-stochastic-convergence"></a>
 <!-- formal-statement-start -->
 ### 定理（原始列確率行列の冪収束）
 
-$P$ を原始な列確率行列とし、$pi>0$ をその定常確率ベクトルとする。
+$P$ を原始な列確率行列とし、$\pi>0$ をその定常確率ベクトルとする。
 
-このとき任意の確率ベクトル $x_0$ に対して
+このとき
 
 $$
-oxed{
-P^kx_0
-longrightarrow
-pi
+\boxed{
+P^k
+\longrightarrow
+\pi\mathbf1^{\mathsf T}
+}
+$$
+
+である。
+
+従って任意の確率ベクトル $x_0$ に対して
+
+$$
+\boxed{
+P^kx_0\longrightarrow\pi
 }
 $$
 
 が成り立つ。
-
-さらに行列として
-
-$$
-oxed{
-P^k
-longrightarrow
-pimathbf1^{mathsf T}
-}.
-$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -1427,72 +1139,54 @@ $$
 
 列確率行列なので Perron 固有値は1です。
 
-原始性から[スペクトルギャップ](#prop-na11-primitive-spectral-gap)があり、1以外の固有値はすべて
+原始性から、1以外の全固有値は
 
 $$
-|lambda|<1
+|\lambda|<1
 $$
 
-を満たします。
+を満たし、1は代数的に単純です。
 
-また1は代数的に単純です。
-
-Jordan 標準形で、固有値1に対応する1次元ブロックと、それ以外のブロックへ分けます。
-
-1以外の Jordan ブロックでは、NA9 と同じ理由で
+Jordan 標準形で1に対応する1次元ブロックと、それ以外のブロックへ分けます。1以外のブロックでは [NA9](../NA9/index.md#thm-na9-stationary-convergence) と同じく
 
 $$
-k^j|lambda|^k	o0
+k^j|\lambda|^k\to0
 $$
 
-となるため、その寄与はすべて0へ収束します。
+なので、その寄与は0へ消えます。
 
-一方、固有値1の右固有ベクトルは $pi$、左固有ベクトルは $mathbf1$ です。
-
-正規化
+固有値1の右固有ベクトルは $\pi$、左固有ベクトルは $\mathbf1$ で、
 
 $$
-mathbf1^{mathsf T}pi=1
+\mathbf1^{\mathsf T}\pi=1.
 $$
 
-により、固有値1への射影は
+従って固有値1への射影は
 
 $$
-pimathbf1^{mathsf T}
+\pi\mathbf1^{\mathsf T}.
 $$
 
-です。
-
-従って
+よって
 
 $$
-P^k	opimathbf1^{mathsf T}.
+P^k\to\pi\mathbf1^{\mathsf T}.
 $$
 
-確率ベクトル $x_0$ では
-
-$$
-mathbf1^{mathsf T}x_0=1
-$$
-
-なので
+確率ベクトル $x_0$ では $\mathbf1^{\mathsf T}x_0=1$ だから
 
 $$
 P^kx_0
-	o
-pimathbf1^{mathsf T}x_0
+\to
+\pi\mathbf1^{\mathsf T}x_0
 =
-pi.
+\pi.
 $$
 <!-- proof-end -->
-
-これは NA10 の冪乗法を、確率ベクトルを保つ形へ特殊化した定理です。
 
 ---
 
 ## 9. Web グラフから列確率行列を作る
-
-PageRank では、各ページを頂点とし、リンクを有向辺とみなします。
 
 ページ $j$ から出るリンク数を $d_j$ とします。
 
@@ -1501,37 +1195,17 @@ $d_j>0$ なら
 $$
 p_{ij}
 =
-egin{cases}
-1/d_j, & j	ext{ から }i	ext{ へのリンクがある},\\
-0, & 	ext{それ以外}
-end{cases}
+\begin{cases}
+1/d_j, & j\text{ から }i\text{ へのリンクがある},\\
+0, & \text{それ以外}
+\end{cases}
 $$
 
-と置けば、第 $j$ 列の和は1です。
+と置けば第 $j$ 列の和は1です。
 
-問題は
+問題は $d_j=0$ のページです。これを **出リンクなし頂点（dangling node）**と呼びます。
 
-$$
-d_j=0
-$$
-
-となるページです。
-
-このような **出リンクなし頂点（dangling node）**では、そのままでは第 $j$ 列が0になり、確率質量が失われます。
-
-そこで確率ベクトル $v$ を一つ選び、その列を
-
-$$
-v
-$$
-
-で置き換えます。
-
-すると dangling node を含む場合でも列確率行列 $P$ を構成できます。
-
-この修正は単なる実装上の穴埋めではありません。
-
-後で PageRank の teleportation と同じ確率ベクトル $v$ を使うと、モデル全体を一つの確率遷移として読めます。
+その列を0のままにすると確率質量が失われるので、確率ベクトル $v$ を一つ選び、その列を $v$ で置き換えます。これで dangling node を含むグラフからも列確率行列 $P$ が得られます。
 
 ---
 
@@ -1544,19 +1218,18 @@ $$
 $P$ を列確率行列、$v>0$ を
 
 $$
-mathbf1^{mathsf T}v=1
+\mathbf1^{\mathsf T}v=1
 $$
 
-を満たす確率ベクトル、$0<alpha<1$ とする。
+を満たす確率ベクトル、$0<\alpha<1$ とする。
 
 $$
-oxed{
+\boxed{
 G
 =
-alpha P
+\alpha P
 +
-(1-alpha)
-vmathbf1^{mathsf T}
+(1-\alpha)v\mathbf1^{\mathsf T}
 }
 $$
 
@@ -1565,7 +1238,7 @@ $$
 確率ベクトル $r$ が
 
 $$
-oxed{
+\boxed{
 Gr=r
 }
 $$
@@ -1574,103 +1247,84 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-na11-pagerank -->
-### 例：3ページの PageRank を方程式から求める
+### 例：3ページの PageRank を解く
 
 **定義の確認**。
 
-ページ間リンクから
-
 $$
 P=
-egin{pmatrix}
+\begin{pmatrix}
 0&0&1\\
 1/2&0&0\\
 1/2&1&0
-end{pmatrix}
-$$
-
-が得られたとします。
-
-各列和は1なので $P$ は列確率行列です。
-
-$$
-alpha=rac12,
-qquad
+\end{pmatrix},
+\qquad
+\alpha=\frac12,
+\qquad
 v=
-rac13
-egin{pmatrix}
-1\\1\\1
-end{pmatrix}
+\frac13
+\begin{pmatrix}
+1\\
+1\\
+1
+\end{pmatrix}
 $$
 
 とします。
+
+各列和は1なので $P$ は列確率行列です。
 
 PageRank 方程式は
 
 $$
 r
 =
-rac12Pr
-+
-rac12v.
+\frac12Pr+\frac12v,
 $$
 
 すなわち
 
 $$
-left(
-I-rac12P
-ight)r
+\left(I-\frac12P\right)r
 =
-rac16
-egin{pmatrix}
-1\\1\\1
-end{pmatrix}.
+\frac16
+\begin{pmatrix}
+1\\
+1\\
+1
+\end{pmatrix}.
 $$
 
 これを解くと
 
 $$
-oxed{
+\boxed{
 r=
-egin{pmatrix}
+\begin{pmatrix}
 14/39\\
 10/39\\
 5/13
-end{pmatrix}
+\end{pmatrix}
 }.
 $$
 
-成分はすべて正で、和は
-
-$$
-rac{14}{39}
-+
-rac{10}{39}
-+
-rac{15}{39}
-=
-1.
-$$
-
-従って確率ベクトルになっています。
+全成分は正で、成分和は1です。
 <!-- definition-example-end -->
 
 <a id="thm-na11-pagerank-wellposedness"></a>
 <!-- formal-statement-start -->
 ### 定理（PageRank の存在・一意性）
 
-$P$ を任意の列確率行列、$v>0$ を確率ベクトル、$0<alpha<1$ とする。
+$P$ を任意の列確率行列、$v>0$ を確率ベクトル、$0<\alpha<1$ とする。
 
-このとき PageRank 行列
+このとき
 
 $$
 G
 =
-alpha P
+\alpha P
 +
-(1-alpha)
-vmathbf1^{mathsf T}
+(1-\alpha)v\mathbf1^{\mathsf T}
 $$
 
 は正の列確率行列である。
@@ -1681,101 +1335,68 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず各成分について
+各成分は
 
 $$
 g_{ij}
 =
-alpha p_{ij}
+\alpha p_{ij}
 +
-(1-alpha)v_i.
+(1-\alpha)v_i.
 $$
 
-$v_i>0$、$1-alpha>0$ だから
+$v_i>0$、$1-\alpha>0$ なので
 
 $$
 g_{ij}>0.
 $$
 
-従って
+従って $G>0$ です。
+
+また第 $j$ 列の和は
 
 $$
-G>0.
-$$
-
-次に第 $j$ 列の和は
-
-$$
-egin{aligned}
-sum_i g_{ij}
+\begin{aligned}
+\sum_i g_{ij}
 &=
-alphasum_i p_{ij}
+\alpha\sum_i p_{ij}
 +
-(1-alpha)sum_i v_i\\
+(1-\alpha)\sum_i v_i\\
 &=
-alpha+(1-alpha)\\
-&=
-1.
-end{aligned}
+\alpha+(1-\alpha)\\
+&=1.
+\end{aligned}
 $$
 
-したがって $G$ は列確率行列です。
+従って $G$ は正の列確率行列です。
 
-正行列版 Perron--Frobenius 定理より、Perron 固有値1に対応する正固有ベクトルが定数倍を除いて一意です。
-
-成分和を1へ正規化すれば、一意な確率ベクトル
-
-$$
-r>0,
-qquad
-Gr=r
-$$
-
-が得られます。
+正行列版 Perron--Frobenius 定理により、固有値1に対応する正固有ベクトルは定数倍を除いて一意です。成分和を1へ正規化すれば、一意な PageRank ベクトル $r>0$ が得られます。
 <!-- proof-end -->
 
-重要なのは、元の $P$ が
-
-- 既約でなくてもよい
-- 原始でなくてもよい
-- dangling node の修正後に複数の閉じた部分へ分かれていてもよい
-
-ことです。
-
-$v>0$ と $0<alpha<1$ が $G$ を正行列へ変え、Perron--Frobenius 定理の最も強い形を使えるようにします。
+ここで teleportation は「検索アルゴリズム上の小細工」ではなく、任意のリンク行列を **正の列確率行列**へ変える数学的機構になっています。
 
 ---
 
-## 11. PageRank 反復は ℓ1 で縮小する
+## 11. PageRank 反復は1-ノルムで縮小する
 
-Perron--Frobenius 理論だけでも一意性と収束は得られます。
-
-しかし PageRank にはさらに強い構造があります。
-
-確率ベクトル $x,y$ では
-
-$$
-mathbf1^{mathsf T}(x-y)=0
-$$
-
-だから
-
-$$
-Gx-Gy
-=
-alpha P(x-y).
-$$
-
-<a id="prop-na11-pagerank-contraction"></a>
-<!-- formal-statement-start -->
-### 命題（PageRank 写像の ℓ1 縮小性）
-
-$P$ を列確率行列とし、
+PageRank 方程式を
 
 $$
 T(x)
 =
-alpha Px+(1-alpha)v
+\alpha Px+(1-\alpha)v
+$$
+
+の固定点問題とみます。
+
+<a id="prop-na11-pagerank-contraction"></a>
+<!-- formal-statement-start -->
+### 命題（PageRank 写像の1-ノルム縮小性）
+
+$P$ を列確率行列、$v$ を確率ベクトル、$0<\alpha<1$ とし、
+
+$$
+T(x)=\alpha Px+(1-\alpha)v
 $$
 
 とする。
@@ -1783,10 +1404,10 @@ $$
 任意の確率ベクトル $x,y$ に対して
 
 $$
-oxed{
-|T(x)-T(y)|_1
-le
-alpha|x-y|_1
+\boxed{
+\|T(x)-T(y)\|_1
+\le
+\alpha\|x-y\|_1
 }
 $$
 
@@ -1801,10 +1422,10 @@ $$
 は一意な PageRank ベクトル $r$ に対して
 
 $$
-oxed{
-|x_k-r|_1
-le
-alpha^k|x_0-r|_1
+\boxed{
+\|x_k-r\|_1
+\le
+\alpha^k\|x_0-r\|_1
 }
 $$
 
@@ -1817,70 +1438,51 @@ $$
 任意のベクトル $z$ に対して
 
 $$
-egin{aligned}
-|Pz|_1
+\begin{aligned}
+\|Pz\|_1
 &=
-sum_i
-left|
-sum_jp_{ij}z_j
-ight|\\
-&le
-sum_isum_jp_{ij}|z_j|\\
+\sum_i
+\left|
+\sum_j p_{ij}z_j
+\right|\\
+&\le
+\sum_i\sum_jp_{ij}|z_j|\\
 &=
-sum_j|z_j|
-sum_ip_{ij}\\
+\sum_j|z_j|\sum_ip_{ij}\\
 &=
-sum_j|z_j|\\
-&=
-|z|_1.
-end{aligned}
+\|z\|_1.
+\end{aligned}
 $$
 
-したがって
+従って
 
 $$
-|P|_1le1.
+\|P\|_1=1.
 $$
 
-実際、列和が1なので $|P|_1=1$ です。
-
-確率ベクトル $x,y$ では
+また
 
 $$
-T(x)-T(y)
-=
-alpha P(x-y)
+T(x)-T(y)=\alpha P(x-y)
 $$
 
 だから
 
 $$
-|T(x)-T(y)|_1
-le
-alpha|x-y|_1.
+\|T(x)-T(y)\|_1
+\le
+\alpha\|x-y\|_1.
 $$
 
-PageRank ベクトル $r$ は
+$r=T(r)$ を使えば
 
 $$
-T(r)=r
+\|x_{k+1}-r\|_1
+\le
+\alpha\|x_k-r\|_1.
 $$
 
-を満たすので
-
-$$
-|x_{k+1}-r|_1
-le
-alpha|x_k-r|_1.
-$$
-
-これを反復すれば
-
-$$
-|x_k-r|_1
-le
-alpha^k|x_0-r|_1.
-$$
+帰納的に結論を得ます。
 <!-- proof-end -->
 
 この評価は、固有値を実際に計算しなくても収束率を保証します。
@@ -1889,21 +1491,13 @@ $$
 
 ## 12. PageRank は線形方程式としても解ける
 
-固定点方程式
+固定点方程式を移項すると
 
 $$
-r
+\boxed{
+(I-\alpha P)r
 =
-alpha Pr+(1-alpha)v
-$$
-
-を移項すると
-
-$$
-oxed{
-(I-alpha P)r
-=
-(1-alpha)v
+(1-\alpha)v
 }
 $$
 
@@ -1913,30 +1507,29 @@ $$
 <!-- formal-statement-start -->
 ### 命題（PageRank の線形方程式表示と Neumann 級数）
 
-$P$ を列確率行列、$0<alpha<1$ とする。
+$P$ を列確率行列、$0<\alpha<1$ とする。
 
-このとき $I-alpha P$ は可逆で、
+このとき $I-\alpha P$ は可逆で、
 
 $$
-oxed{
-(I-alpha P)^{-1}
+\boxed{
+(I-\alpha P)^{-1}
 =
-sum_{k=0}^{infty}
-alpha^kP^k
+\sum_{k=0}^{\infty}\alpha^kP^k
 }
 $$
 
 が成り立つ。
 
-したがって PageRank ベクトルは
+従って PageRank ベクトルは
 
 $$
-oxed{
+\boxed{
 r
 =
-(1-alpha)
-sum_{k=0}^{infty}
-alpha^kP^kv
+(1-\alpha)
+\sum_{k=0}^{\infty}
+\alpha^kP^kv
 }
 $$
 
@@ -1949,13 +1542,7 @@ $$
 列確率行列では
 
 $$
-|P|_1=1.
-$$
-
-従って
-
-$$
-|alpha P|_1=alpha<1.
+\|\alpha P\|_1=\alpha<1.
 $$
 
 部分和
@@ -1963,86 +1550,51 @@ $$
 $$
 S_m
 =
-sum_{k=0}^m
-(alpha P)^k
+\sum_{k=0}^m(\alpha P)^k
 $$
 
 に対し
 
 $$
-(I-alpha P)S_m
+(I-\alpha P)S_m
 =
-I-(alpha P)^{m+1}.
+I-(\alpha P)^{m+1}.
 $$
 
 また
 
 $$
-|(alpha P)^{m+1}|_1
-le
-alpha^{m+1}
-	o0.
+\|(\alpha P)^{m+1}\|_1
+\le
+\alpha^{m+1}
+\to0.
 $$
 
-従って
+従って $S_m$ は収束し、
 
 $$
-S_m
-	o
-sum_{k=0}^{infty}
-(alpha P)^k
-$$
-
-かつ
-
-$$
-(I-alpha P)
-sum_{k=0}^{infty}
-(alpha P)^k
+(I-\alpha P)
+\sum_{k=0}^{\infty}(\alpha P)^k
 =
 I.
 $$
 
-右から掛けても同様なので、これが逆行列です。
+右から掛けても同様なので、級数は $(I-\alpha P)^{-1}$ です。
 
-PageRank 方程式
-
-$$
-(I-alpha P)r
-=
-(1-alpha)v
-$$
-
-へ代入して
-
-$$
-r
-=
-(1-alpha)
-sum_{k=0}^{infty}
-alpha^kP^kv.
-$$
+PageRank 方程式へ代入して結論を得ます。
 <!-- proof-end -->
 
-この式は PageRank を
+この表示は PageRank を
 
-> $v$ から出発し、$P$ による0回、1回、2回、…のリンク追跡を、幾何級数の重みで平均したもの
+> $v$ から出発して0回、1回、2回、…リンクをたどった分布を、幾何級数の重みで平均したもの
 
 と読めることを示します。
 
 ---
 
-## 13. 反復差から真の誤差を評価できる
+## 13. 反復差だけで停止誤差を保証できる
 
-実際の計算では真の $r$ は未知なので
-
-$$
-|x_k-r|_1
-$$
-
-を直接計算できません。
-
-しかし縮小性から、連続する反復の差だけで誤差上界を作れます。
+真の $r$ は未知なので、計算中に $\|x_k-r\|_1$ を直接測れません。
 
 <a id="prop-na11-pagerank-stopping"></a>
 <!-- formal-statement-start -->
@@ -2059,7 +1611,7 @@ $$
 $$
 d_k
 =
-|x_{k+1}-x_k|_1
+\|x_{k+1}-x_k\|_1
 $$
 
 と置く。
@@ -2067,10 +1619,10 @@ $$
 このとき
 
 $$
-oxed{
-|x_k-r|_1
-le
-rac{d_k}{1-alpha}
+\boxed{
+\|x_k-r\|_1
+\le
+\frac{d_k}{1-\alpha}
 }
 $$
 
@@ -2083,81 +1635,66 @@ $$
 縮小性から
 
 $$
-|x_{k+j+1}-x_{k+j}|_1
-le
-alpha^j d_k.
+\|x_{k+j+1}-x_{k+j}\|_1
+\le
+\alpha^jd_k.
 $$
 
-また $x_{k+m}	o r$ なので
+また $x_{k+m}\to r$ なので
 
 $$
 r-x_k
 =
-sum_{j=0}^{infty}
+\sum_{j=0}^{\infty}
 (x_{k+j+1}-x_{k+j}).
 $$
 
 三角不等式より
 
 $$
-egin{aligned}
-|r-x_k|_1
-&le
-sum_{j=0}^{infty}
-|x_{k+j+1}-x_{k+j}|_1\\
-&le
-d_k
-sum_{j=0}^{infty}alpha^j\\
+\begin{aligned}
+\|r-x_k\|_1
+&\le
+\sum_{j=0}^{\infty}
+\|x_{k+j+1}-x_{k+j}\|_1\\
+&\le
+d_k\sum_{j=0}^{\infty}\alpha^j\\
 &=
-rac{d_k}{1-alpha}.
-end{aligned}
+\frac{d_k}{1-\alpha}.
+\end{aligned}
 $$
 <!-- proof-end -->
 
-したがって目標誤差を $arepsilon$ とするなら、
+目標誤差を $\varepsilon$ とするなら、
 
 $$
-d_k
-le
-(1-alpha)arepsilon
+d_k\le(1-\alpha)\varepsilon
 $$
 
 を停止条件にすれば十分です。
 
 ---
 
-## 14. α を1へ近づけるほどリンク構造を強く反映するが、収束と感度は悪化する
+## 14. ダンピング係数は収束速度と感度にも効く
 
-PageRank は
+$\alpha$ が大きいほどリンク行列 $P$ の影響が強くなります。一方、縮小率も $\alpha$ なので、$\alpha$ が1へ近いほど反復は遅くなります。
 
-$$
-r
-=
-alpha Pr+(1-alpha)v
-$$
-
-です。
-
-$alpha$ が大きいほどリンク行列 $P$ の影響が強く、teleportation の影響は弱くなります。
-
-一方、縮小率は $alpha$ そのものなので、$alpha$ が1へ近いほど反復収束は遅くなります。
-
-さらにリンク行列の摂動に対しても同じ $1-alpha$ が効きます。
+さらにリンク行列の摂動に対しても $1-\alpha$ が現れます。
 
 <a id="prop-na11-pagerank-perturbation"></a>
 <!-- formal-statement-start -->
-### 命題（PageRank のリンク行列に対する ℓ1 感度評価）
+### 命題（PageRank のリンク行列に対する1-ノルム感度評価）
 
-$P,Q$ を列確率行列とし、同じ $v>0$ と $0<alpha<1$ を用いて得られる PageRank ベクトルをそれぞれ $r_P,r_Q$ とする。
+$P,Q$ を列確率行列とし、同じ $v>0$ と $0<\alpha<1$ を用いて得られる PageRank ベクトルをそれぞれ $r_P,r_Q$ とする。
 
 このとき
 
 $$
-oxed{
-|r_P-r_Q|_1
-le
-rac{alpha}{1-alpha}
-|P-Q|_1
+\boxed{
+\|r_P-r_Q\|_1
+\le
+\frac{\alpha}{1-\alpha}
+\|P-Q\|_1
 }
 $$
 
@@ -2172,84 +1709,64 @@ $$
 $$
 r_P-r_Q
 =
-alpha P(r_P-r_Q)
+\alpha P(r_P-r_Q)
 +
-alpha(P-Q)r_Q.
+\alpha(P-Q)r_Q.
 $$
 
 1-ノルムを取り、
 
 $$
-|Pz|_1le|z|_1,
-qquad
-|r_Q|_1=1
+\|Pz\|_1\le\|z\|_1,
+\qquad
+\|r_Q\|_1=1
 $$
 
 を使うと
 
 $$
-|r_P-r_Q|_1
-le
-alpha|r_P-r_Q|_1
+\|r_P-r_Q\|_1
+\le
+\alpha\|r_P-r_Q\|_1
 +
-alpha|P-Q|_1.
+\alpha\|P-Q\|_1.
 $$
 
 従って
 
 $$
-(1-alpha)|r_P-r_Q|_1
-le
-alpha|P-Q|_1.
+(1-\alpha)\|r_P-r_Q\|_1
+\le
+\alpha\|P-Q\|_1.
 $$
 
-両辺を $1-alpha>0$ で割れば結論を得ます。
+$1-\alpha>0$ で割れば結論を得ます。
 <!-- proof-end -->
 
-この評価は上界なので、実際の変化が必ずこの大きさになるわけではありません。
-
-しかし
+これは上界ですから、実際の変化が必ずこの大きさになるわけではありません。しかし
 
 $$
-rac{alpha}{1-alpha}
+\frac{\alpha}{1-\alpha}
 $$
 
-が現れることで、
-
-> $alpha$ を1へ近づけると、リンク行列の細かな変化に対する最悪時感度も大きくなる
-
-ことが分かります。
+が現れることで、$\alpha\to1$ では最悪時の感度も悪化することが分かります。
 
 ---
 
-## 15. 数値計算として PageRank をどう解くか
+## 15. 数値計算では密な PageRank 行列を作らなくてよい
 
-PageRank には少なくとも二つの見方があります。
-
-### 15.1 固有値問題として解く
+PageRank は固有値問題
 
 $$
 Gr=r
 $$
 
-なので、$G$ の固有値1に対応する Perron 固有ベクトルを求めます。
+ですが、大規模 Web グラフで $G$ を密行列として保持する必要はありません。
 
-$G>0$ だから冪乗法は自然です。
-
-しかし大規模 Web グラフでは $G$ を密行列として明示的に作る必要はありません。
+確率ベクトル $x$ なら
 
 $$
-Gx
-=
-alpha Px
-+
-(1-alpha)v(mathbf1^{mathsf T}x)
-$$
-
-と計算すればよく、確率ベクトル $x$ なら
-
-$$
-mathbf1^{mathsf T}x=1
+\mathbf1^{\mathsf T}x=1
 $$
 
 なので
@@ -2257,30 +1774,28 @@ $$
 $$
 Gx
 =
-alpha Px+(1-alpha)v.
+\alpha Px+(1-\alpha)v.
 $$
 
-したがって疎な $P$ の行列ベクトル積だけで反復できます。
+従って疎な $P$ の行列ベクトル積だけで反復できます。
 
-### 15.2 線形方程式として解く
+一方、
 
 $$
-(I-alpha P)r=(1-alpha)v
+(I-\alpha P)r=(1-\alpha)v
 $$
 
-なので、NA8・NA9 の線形方程式解法も候補です。
+と見れば NA8・NA9 の線形方程式解法も候補です。
 
-ただし巨大疎行列では、因数分解で fill-in を生むより、疎行列ベクトル積だけを使う固定点反復が自然な場合があります。
-
-この判断は
+どちらを使うかは、
 
 - 行列サイズ
 - 疎性
 - 必要精度
-- 複数の $v$ を変えて何度解くか
-- 前処理を作るコスト
+- 1回だけ解くか、複数の $v$ で解くか
+- 前処理や因数分解を作るコスト
 
-で変わります。
+で決まります。
 
 ---
 
@@ -2288,61 +1803,29 @@ $$
 
 ### 16.1 非負性を失う
 
-成分に負値があると
+負の成分があると
 
 $$
-|Az|
-le
-A|z|
+|Az|\le A|z|
 $$
 
-という成分ごとの比較自体が意味を失います。
-
-Perron--Frobenius の順序構造は使えません。
+という成分比較が使えません。Perron--Frobenius の順序論的な証明機構が壊れます。
 
 ### 16.2 既約性を失う
 
-行列が複数の閉じた部分へ分かれると、固有値1に対応する非負固有ベクトルが複数存在することがあります。
-
-定常確率ベクトルの一意性が壊れます。
+閉じた部分が複数あると、固有値1に対応する非負固有ベクトルが複数存在し、定常確率ベクトルの一意性が壊れることがあります。
 
 ### 16.3 原始性を失う
 
-既約でも周期性が残ると、絶対値1の別固有値が現れ、
-
-$$
-P^kx_0
-$$
-
-が振動することがあります。
-
-2周期行列がその最小例です。
+既約でも周期性が残ると、スペクトル円周上に $-1$ などが残り、$P^kx_0$ が振動できます。
 
 ### 16.4 teleportation を失う
 
-$alpha=1$ では
-
-$$
-G=P
-$$
-
-です。
-
-元の $P$ が既約・原始でなければ、一意性や反復収束を保証できません。
-
-また感度評価の係数
-
-$$
-rac{alpha}{1-alpha}
-$$
-
-も発散します。
+$\alpha=1$ では $G=P$ です。元の $P$ が既約・原始でなければ、一意性と反復収束を一括保証できません。
 
 ### 16.5 $v>0$ を失う
 
-$v$ に0成分があると、$G$ が正行列になるとは限りません。
-
-PageRank 自体は場合によって定義できますが、「任意の $P$ に対して正行列版 Perron--Frobenius を即座に適用する」という証明機構は壊れます。
+$v$ に0成分があると $G$ が正行列になるとは限りません。「任意の $P$ に正行列版 Perron--Frobenius を適用する」という証明は使えなくなります。
 
 ---
 
@@ -2353,121 +1836,71 @@ PageRank 自体は場合によって定義できますが、「任意の $P$ に
 - Level: A
 - 目安時間: 15分
 
-次の行列を考える。
-
 $$
 A=
-egin{pmatrix}
+\begin{pmatrix}
 0&1\\
 1&0
-end{pmatrix},
-qquad
+\end{pmatrix},
+\qquad
 B=
-egin{pmatrix}
+\begin{pmatrix}
 1&1\\
 1&0
-end{pmatrix}.
+\end{pmatrix}
 $$
 
-1. $A,B$ がともに非負行列であることを確認せよ。
-2. $A$ が既約であることを有向グラフから確認せよ。
+とする。
+
+1. $A,B$ が非負行列であることを確認せよ。
+2. $A$ が既約であることを確認せよ。
 3. $A$ が原始でないことを示せ。
 4. $B^2$ を計算し、$B$ が原始であることを示せ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-両行列の全成分は0以上なので、
+両行列の成分はすべて0以上なので $A,B\ge0$ です。
+
+$A$ の有向グラフには
 
 $$
-Age0,
-qquad
-Bge0.
+1\to2,
+\qquad
+2\to1
 $$
 
-$A$ では
-
-$$
-a_{21}=1
-$$
-
-から
-
-$$
-1	o2,
-$$
-
-$$
-a_{12}=1
-$$
-
-から
-
-$$
-2	o1
-$$
-
-という有向辺があります。
-
-したがって任意の頂点から他方へ到達でき、$A$ は既約です。
+があるので既約です。
 
 一方、
 
 $$
-A^2=I.
+A^2=I
 $$
 
-従って
+なので
 
 $$
 A^{2k}=I,
-qquad
+\qquad
 A^{2k+1}=A.
 $$
 
-どの冪にも0成分が残るので、
-
-$$
-A^m>0
-$$
-
-となる $m$ は存在しません。
-
-よって $A$ は原始ではありません。
+どの冪にも0が残るため $A$ は原始ではありません。
 
 次に
 
 $$
 B^2
 =
-egin{pmatrix}
-1&1\\
-1&0
-end{pmatrix}
-egin{pmatrix}
-1&1\\
-1&0
-end{pmatrix}
-=
-egin{pmatrix}
+\begin{pmatrix}
 2&1\\
 1&1
-end{pmatrix}.
-$$
-
-全成分が正なので
-
-$$
-B^2>0.
+\end{pmatrix}
+>0.
 $$
 
 従って $B$ は原始です。
-
-この問題は
-
-> 既約性は到達可能性、原始性は十分長い同一ステップ数で全成分が正になること
-
-という違いを確認しています。
 <!-- solution-end -->
 
 ### NA11-A02 列確率行列の定常確率ベクトル
@@ -2477,17 +1910,17 @@ $$
 
 $$
 P=
-egin{pmatrix}
+\begin{pmatrix}
 1/2&1/4\\
 1/2&3/4
-end{pmatrix}
+\end{pmatrix}
 $$
 
 とする。
 
 1. $P$ が列確率行列であることを確認せよ。
-2. $Ppi=pi$、$mathbf1^{mathsf T}pi=1$ を満たす $pi$ を求めよ。
-3. $P>0$ であることから、$pi$ が一意である理由を説明せよ。
+2. $P\pi=\pi$、$\mathbf1^{\mathsf T}\pi=1$ を満たす $\pi$ を求めよ。
+3. $\pi$ が一意である理由を説明せよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -2495,76 +1928,50 @@ $$
 第1列の和は
 
 $$
-rac12+rac12=1,
+\frac12+\frac12=1,
 $$
 
 第2列の和は
 
 $$
-rac14+rac34=1.
+\frac14+\frac34=1.
 $$
 
-また全成分は非負なので $P$ は列確率行列です。
+従って $P$ は列確率行列です。
 
 $$
-pi=
-egin{pmatrix}
-pi_1\\
-pi_2
-end{pmatrix}
+\pi=
+\begin{pmatrix}
+\pi_1\\
+\pi_2
+\end{pmatrix}
 $$
 
-と置きます。
-
-$Ppi=pi$ の第1成分は
+と置くと、
 
 $$
-rac12pi_1+rac14pi_2=pi_1.
+\frac12\pi_1+\frac14\pi_2=\pi_1
 $$
 
-従って
+より
 
 $$
-rac14pi_2=rac12pi_1,
+\pi_2=2\pi_1.
 $$
 
-すなわち
+さらに $\pi_1+\pi_2=1$ なので
 
 $$
-pi_2=2pi_1.
-$$
-
-正規化条件
-
-$$
-pi_1+pi_2=1
-$$
-
-へ代入すると
-
-$$
-3pi_1=1.
-$$
-
-従って
-
-$$
-oxed{
-pi=
-egin{pmatrix}
+\boxed{
+\pi=
+\begin{pmatrix}
 1/3\\
 2/3
-end{pmatrix}
+\end{pmatrix}
 }.
 $$
 
-$P$ は全成分が正なので正行列です。
-
-正行列版 Perron--Frobenius 定理より、Perron 固有値1に対応する正固有ベクトルは定数倍を除いて一意です。
-
-さらに成分和1という正規化を課したため、定数倍の自由度も消えます。
-
-従って定常確率ベクトル $pi$ は一意です。
+$P>0$ なので正行列版 Perron--Frobenius 定理から固有値1の正固有ベクトルは定数倍を除いて一意です。成分和1の条件で定数倍も固定されるため、$\pi$ は一意です。
 <!-- solution-end -->
 
 ### NA11-A03 3ページの PageRank
@@ -2574,163 +1981,123 @@ $P$ は全成分が正なので正行列です。
 
 $$
 P=
-egin{pmatrix}
+\begin{pmatrix}
 0&0&1\\
 1/2&0&0\\
 1/2&1&0
-end{pmatrix},
-qquad
-alpha=rac12,
-qquad
+\end{pmatrix},
+\qquad
+\alpha=\frac12,
+\qquad
 v=
-rac13
-egin{pmatrix}
-1\\1\\1
-end{pmatrix}
+\frac13
+\begin{pmatrix}
+1\\
+1\\
+1
+\end{pmatrix}
 $$
 
 とする。
 
 1. $P$ が列確率行列であることを確認せよ。
-2. PageRank 方程式
-   $$
-   r=rac12Pr+rac12v
-   $$
-   を連立一次方程式へ書き直せ。
-3. PageRank ベクトル
+2. PageRank 方程式を連立一次方程式へ書き直せ。
+3.
    $$
    r=
-   egin{pmatrix}
+   \begin{pmatrix}
    14/39\\
    10/39\\
    5/13
-   end{pmatrix}
+   \end{pmatrix}
    $$
-   が方程式を満たすことを直接確認せよ。
+   が PageRank ベクトルであることを直接確認せよ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-各列の和は
+各列の和はそれぞれ
 
 $$
-0+rac12+rac12=1,
+1,\qquad1,\qquad1
 $$
 
-$$
-0+0+1=1,
-$$
-
-$$
-1+0+0=1.
-$$
-
-従って $P$ は列確率行列です。
+なので $P$ は列確率行列です。
 
 PageRank 方程式は
 
 $$
-r
-=
-rac12Pr
-+
-rac16
-egin{pmatrix}
-1\\1\\1
-end{pmatrix}.
+r=\frac12Pr+\frac12v,
 $$
 
-移項して
+従って
 
 $$
-oxed{
-left(
-I-rac12P
-ight)r
+\boxed{
+\left(I-\frac12P\right)r
 =
-rac16
-egin{pmatrix}
-1\\1\\1
-end{pmatrix}
+\frac16
+\begin{pmatrix}
+1\\
+1\\
+1
+\end{pmatrix}
 }.
 $$
 
-候補
+候補を
 
 $$
 r=
-egin{pmatrix}
+\begin{pmatrix}
 14/39\\
 10/39\\
 15/39
-end{pmatrix}
+\end{pmatrix}
 $$
 
-に対し
+と書けば
 
 $$
-Pr
-=
-egin{pmatrix}
+Pr=
+\begin{pmatrix}
 15/39\\
 7/39\\
 17/39
-end{pmatrix}.
+\end{pmatrix}.
 $$
 
-したがって
+従って
 
 $$
-rac12Pr
-+
-rac16
-egin{pmatrix}
-1\\1\\1
-end{pmatrix}
+\frac12Pr+\frac12v
 =
-egin{pmatrix}
+\begin{pmatrix}
 15/78\\
 7/78\\
 17/78
-end{pmatrix}
+\end{pmatrix}
 +
-egin{pmatrix}
+\begin{pmatrix}
 13/78\\
 13/78\\
 13/78
-end{pmatrix}.
-$$
-
-よって
-
-$$
-=
-egin{pmatrix}
-28/78\\
-20/78\\
-30/78
-end{pmatrix}
-=
-egin{pmatrix}
-14/39\\
-10/39\\
-15/39
-end{pmatrix}
+\end{pmatrix}
 =
 r.
 $$
 
-また
+さらに
 
 $$
-mathbf1^{mathsf T}r
+\mathbf1^{\mathsf T}r
 =
-rac{14+10+15}{39}
+\frac{14+10+15}{39}
 =
 1.
 $$
 
-従って確かに PageRank ベクトルです。
+よって確かに PageRank ベクトルです。
 <!-- solution-end -->
 
 ### NA11-A04 反復差から停止誤差を保証する
@@ -2738,277 +2105,171 @@ $$
 - Level: A
 - 目安時間: 10分
 
-PageRank のダンピング係数を
-
-$$
-alpha=0.85
-$$
-
-とする。
+$\alpha=0.85$ とする。
 
 ある反復で
 
 $$
 d_k
 =
-|x_{k+1}-x_k|_1
+\|x_{k+1}-x_k\|_1
 =
-3	imes10^{-9}
+3\times10^{-9}
 $$
 
 となった。
 
-1. [停止判定](#prop-na11-pagerank-stopping)から $|x_k-r|_1$ の上界を求めよ。
-2. $|x_k-r|_1le10^{-7}$ を保証するには、$d_k$ をいくつ以下にすればよいか。
+1. $\|x_k-r\|_1$ の上界を求めよ。
+2. $\|x_k-r\|_1\le10^{-7}$ を保証するための十分な $d_k$ の上限を求めよ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-停止判定は
+停止判定から
 
 $$
-|x_k-r|_1
-le
-rac{d_k}{1-alpha}
+\|x_k-r\|_1
+\le
+\frac{d_k}{1-\alpha}.
 $$
 
-です。
-
-ここで
+ここで $1-\alpha=0.15$ なので
 
 $$
-1-alpha=0.15.
-$$
-
-したがって
-
-$$
-|x_k-r|_1
-le
-rac{3	imes10^{-9}}{0.15}
+\|x_k-r\|_1
+\le
+\frac{3\times10^{-9}}{0.15}
 =
-2	imes10^{-8}.
-$$
-
-よって
-
-$$
-oxed{
-|x_k-r|_1
-le
-2	imes10^{-8}
+\boxed{
+2\times10^{-8}
 }.
 $$
 
 次に
 
 $$
-rac{d_k}{1-alpha}
-le
-10^{-7}
+\frac{d_k}{0.15}\le10^{-7}
 $$
 
-を要求します。
-
-従って
+とすればよいので
 
 $$
-d_k
-le
-0.15	imes10^{-7}
-=
-1.5	imes10^{-8}.
-$$
-
-したがって停止条件として
-
-$$
-oxed{
-d_kle1.5	imes10^{-8}
+\boxed{
+d_k\le1.5\times10^{-8}
 }
 $$
 
-を使えば十分です。
+で十分です。
 <!-- solution-end -->
 
-### NA11-B01 既約でも冪乗反復が収束しないことを証明する
+### NA11-B01 既約でも冪乗反復が収束しないことを示す
 
 - Level: B
 - 目安時間: 20分
 
 $$
 P=
-egin{pmatrix}
+\begin{pmatrix}
 0&1\\
 1&0
-end{pmatrix}
+\end{pmatrix}
 $$
 
 とする。
 
 1. $P$ が既約な列確率行列であることを示せ。
-2. 定常確率ベクトルが
-   $$
-   pi=rac12(1,1)^{mathsf T}
-   $$
-   で一意であることを示せ。
-3. $x_0=(1,0)^{mathsf T}$ からの反復 $x_{k+1}=Px_k$ が収束しないことを示せ。
-4. 固有値を求め、どの Perron--Frobenius の仮定が不足しているか説明せよ。
+2. 定常確率ベクトルを求めよ。
+3. $x_0=(1,0)^{\mathsf T}$ からの反復 $x_{k+1}=Px_k$ が収束しないことを示せ。
+4. 固有値を求め、不足している仮定を説明せよ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-各列和は1で、全成分は非負なので $P$ は列確率行列です。
-
-また有向グラフには
+各列和が1で、グラフには $1\to2$ と $2\to1$ があるので、$P$ は既約な列確率行列です。
 
 $$
-1	o2,
-qquad
-2	o1
+P\pi=\pi,
+\qquad
+\mathbf1^{\mathsf T}\pi=1
 $$
 
-があるため既約です。
-
-定常方程式
+を解けば
 
 $$
-Ppi=pi
-$$
-
-を
-
-$$
-pi=
-egin{pmatrix}
-a\\b
-end{pmatrix}
-$$
-
-で書くと
-
-$$
-b=a,
-qquad
-a=b.
-$$
-
-正規化
-
-$$
-a+b=1
-$$
-
-から
-
-$$
-a=b=rac12.
-$$
-
-従って
-
-$$
-oxed{
-pi=
-rac12
-egin{pmatrix}
-1\\1
-end{pmatrix}
+\boxed{
+\pi=
+\frac12
+\begin{pmatrix}
+1\\
+1
+\end{pmatrix}
 }.
 $$
-
-既約版 Perron--Frobenius 定理により、正の定常確率ベクトルは一意です。
 
 一方、
 
 $$
 x_0=
-egin{pmatrix}
-1\\0
-end{pmatrix}
+\begin{pmatrix}
+1\\
+0
+\end{pmatrix},
+\qquad
+x_1=
+\begin{pmatrix}
+0\\
+1
+\end{pmatrix},
+\qquad
+x_2=x_0.
 $$
 
-なら
-
-$$
-x_1=Px_0=
-egin{pmatrix}
-0\\1
-end{pmatrix},
-$$
-
-$$
-x_2=Px_1=
-egin{pmatrix}
-1\\0
-end{pmatrix}
-=x_0.
-$$
-
-従って
-
-$$
-x_{2k}=x_0,
-qquad
-x_{2k+1}=x_1
-$$
-
-であり、収束しません。
+従って偶数回と奇数回で交互に振動し、収束しません。
 
 特性方程式は
 
 $$
-det(P-lambda I)
-=
-lambda^2-1
+\lambda^2-1=0
 $$
 
-なので固有値は
+なので固有値は $1,-1$ です。
 
-$$
-1,qquad -1.
-$$
-
-$-1$ は Perron 固有値1と同じ絶対値を持ちます。
-
-不足しているのは **原始性**です。
-
-既約性は正の定常確率ベクトルの一意性を与えますが、スペクトル円周上の周期固有値までは排除しません。
+$-1$ が Perron 固有値1と同じ絶対値を持つため周期振動が残ります。不足しているのは **原始性**です。
 <!-- solution-end -->
 
-### NA11-B02 Neumann 級数から PageRank を近似する
+### NA11-B02 Neumann 級数の打切り誤差
 
 - Level: B
 - 目安時間: 25分
 
-列確率行列 $P$、確率ベクトル $v$、$0<alpha<1$ に対して
-
 $$
 r
 =
-(1-alpha)
-sum_{k=0}^{infty}
-alpha^kP^kv
+(1-\alpha)
+\sum_{k=0}^{\infty}
+\alpha^kP^kv
+$$
+
+とし、
+
+$$
+r^{(m)}
+=
+(1-\alpha)
+\sum_{k=0}^{m}
+\alpha^kP^kv
 $$
 
 とする。
 
-1. 第 $m$ 部分和
+1.
    $$
-   r^{(m)}
-   =
-   (1-alpha)
-   sum_{k=0}^{m}
-   alpha^kP^kv
-   $$
-   に対して
-   $$
-   |r-r^{(m)}|_1
-   le
-   alpha^{m+1}
+   \|r-r^{(m)}\|_1
+   \le
+   \alpha^{m+1}
    $$
    を示せ。
-2. $alpha=0.8$ のとき、この上界を $10^{-6}$ 以下にするための十分な $m$ を求めよ。
+2. $\alpha=0.8$ のとき、この上界を $10^{-6}$ 以下にする十分な $m$ を求めよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -3018,105 +2279,59 @@ $$
 $$
 r-r^{(m)}
 =
-(1-alpha)
-sum_{k=m+1}^{infty}
-alpha^kP^kv.
+(1-\alpha)
+\sum_{k=m+1}^{\infty}
+\alpha^kP^kv.
 $$
 
 列確率行列では
 
 $$
-|Pz|_1le|z|_1
+\|P^kv\|_1\le\|v\|_1=1
 $$
 
-です。
-
-また $v$ は確率ベクトルなので
+なので
 
 $$
-|v|_1=1.
-$$
-
-従って
-
-$$
-|P^kv|_1le1.
-$$
-
-三角不等式から
-
-$$
-egin{aligned}
-|r-r^{(m)}|_1
-&le
-(1-alpha)
-sum_{k=m+1}^{infty}
-alpha^k
-|P^kv|_1\\
-&le
-(1-alpha)
-sum_{k=m+1}^{infty}
-alpha^k\\
+\begin{aligned}
+\|r-r^{(m)}\|_1
+&\le
+(1-\alpha)
+\sum_{k=m+1}^{\infty}\alpha^k\\
 &=
-(1-alpha)
-rac{alpha^{m+1}}{1-alpha}\\
-&=
-oxed{
-alpha^{m+1}
+\boxed{
+\alpha^{m+1}
 }.
-end{aligned}
+\end{aligned}
 $$
 
-次に
+$\alpha=0.8$ では
 
 $$
-0.8^{m+1}le10^{-6}
+0.8^{m+1}\le10^{-6}
 $$
 
-を満たせば十分です。
-
-対数を取ると
-
-$$
-(m+1)log0.8
-le
-log10^{-6}.
-$$
-
-$log0.8<0$ なので不等号の向きに注意して
+を要求します。
 
 $$
 m+1
-ge
-rac{log10^{-6}}{log0.8}.
+\ge
+\frac{\log 10^{-6}}{\log 0.8}
+\approx61.9
 $$
 
-右辺は約
+なので
 
 $$
-61.9
-$$
-
-です。
-
-従って
-
-$$
-m+1ge62,
-$$
-
-すなわち
-
-$$
-oxed{
-mge61
+\boxed{
+m\ge61
 }
 $$
 
 で十分です。
 <!-- solution-end -->
 
-### NA11-B03 ダンピング係数とリンク行列感度
+### NA11-B03 ダンピング係数と感度
 
 - Level: B
 - 目安時間: 20分
@@ -3124,16 +2339,14 @@ $$
 二つの列確率行列 $P,Q$ が
 
 $$
-|P-Q|_1=0.01
+\|P-Q\|_1=0.01
 $$
 
 を満たすとする。
 
-同じ teleportation ベクトル $v$ を使う。
-
-1. $alpha=0.5$ のとき、PageRank ベクトル差の上界を求めよ。
-2. $alpha=0.9$ のとき、同じ上界を求めよ。
-3. この比較から、$alpha$ を大きくすることの数値的トレードオフを説明せよ。
+1. $\alpha=0.5$ のとき PageRank ベクトル差の上界を求めよ。
+2. $\alpha=0.9$ のとき同じ上界を求めよ。
+3. $\alpha$ を大きくすることの数値的トレードオフを説明せよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -3141,67 +2354,39 @@ $$
 感度評価は
 
 $$
-|r_P-r_Q|_1
-le
-rac{alpha}{1-alpha}
-|P-Q|_1
+\|r_P-r_Q\|_1
+\le
+\frac{\alpha}{1-\alpha}
+\|P-Q\|_1
 $$
 
 です。
 
-$alpha=0.5$ なら
+$\alpha=0.5$ なら係数は1なので
 
 $$
-rac{alpha}{1-alpha}
-=
-rac{0.5}{0.5}
-=
-1.
-$$
-
-従って
-
-$$
-oxed{
-|r_P-r_Q|_1
-le
-0.01
+\boxed{
+\|r_P-r_Q\|_1\le0.01
 }.
 $$
 
-$alpha=0.9$ なら
+$\alpha=0.9$ なら係数は9なので
 
 $$
-rac{alpha}{1-alpha}
-=
-rac{0.9}{0.1}
-=
-9.
-$$
-
-従って
-
-$$
-oxed{
-|r_P-r_Q|_1
-le
-0.09
+\boxed{
+\|r_P-r_Q\|_1\le0.09
 }.
 $$
 
-$alpha$ を大きくすると PageRank は元のリンク行列 $P$ を強く反映します。
+$\alpha$ を大きくすると元のリンク構造を強く反映する一方、
 
-一方で、
+- 固定点反復の縮小率 $\alpha$ が1へ近づいて収束が遅くなる
+- 最悪時感度係数 $\alpha/(1-\alpha)$ が大きくなる
 
-- 固定点反復の縮小率 $alpha$ が1へ近づき、収束が遅くなる
-- 最悪時感度係数 $alpha/(1-alpha)$ が大きくなる
-
-という数値的代償があります。
-
-したがって $alpha$ は「リンク構造をどれだけ残すか」と「反復収束・頑健性」の双方へ効くパラメータです。
+という代償があります。
 <!-- solution-end -->
 
-### NA11-C01 dangling node を含む小規模 PageRank を最後まで構成する
+### NA11-C01 dangling node を含む PageRank を構成する
 
 - Level: C
 - 目安時間: 35分
@@ -3216,359 +2401,241 @@ dangling node の置換と teleportation の両方に
 
 $$
 v=
-rac13
-egin{pmatrix}
-1\\1\\1
-end{pmatrix}
+\frac13
+\begin{pmatrix}
+1\\
+1\\
+1
+\end{pmatrix}
 $$
 
 を使い、
 
 $$
-alpha=rac12
+\alpha=\frac12
 $$
 
 とする。
 
 1. dangling node を修正した列確率行列 $P$ を作れ。
-2. PageRank 行列
-   $$
-   G=rac12P+rac12vmathbf1^{mathsf T}
-   $$
-   が正の列確率行列であることを確認せよ。
+2. PageRank 行列 $G$ が正の列確率行列であることを確認せよ。
 3. PageRank 方程式を解き、
    $$
    r=
-   egin{pmatrix}
+   \begin{pmatrix}
    5/16\\
    3/8\\
    5/16
-   end{pmatrix}
+   \end{pmatrix}
    $$
    を得よ。
-4. 任意の確率ベクトル $x_0$ から
+4. 任意の確率ベクトル $x_0$ に対して
    $$
-   x_{k+1}=Gx_k
-   $$
-   としたとき
-   $$
-   |x_k-r|_1
-   le
-   2^{-k}|x_0-r|_1
+   \|x_k-r\|_1
+   \le
+   2^{-k}\|x_0-r\|_1
    $$
    を説明せよ。
-5. teleportation を外して $alpha=1$ とすると、どの保証が失われるかを本文の仮定と結び付けて説明せよ。
+5. $\alpha=1$ とすると、どの保証が失われるか説明せよ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-まず列ごとにリンク確率を作ります。
-
-ページ1はページ2だけへリンクするので第1列は
+ページ1の列は
 
 $$
-egin{pmatrix}
-0\\1\\0
-end{pmatrix}.
+\begin{pmatrix}
+0\\
+1\\
+0
+\end{pmatrix},
 $$
 
-ページ2はページ1とページ3へ等確率でリンクするので第2列は
+ページ2の列は
 
 $$
-egin{pmatrix}
-1/2\\0\\1/2
-end{pmatrix}.
-$$
-
-ページ3は dangling node なので、指定された $v$ で置き換えます。
-
-したがって
-
-$$
-oxed{
-P=
-egin{pmatrix}
-0&1/2&1/3\\
-1&0&1/3\\
-0&1/2&1/3
-end{pmatrix}
-}.
-$$
-
-各列和は1で、全成分は非負です。
-
-次に
-
-$$
-G
-=
-rac12P
-+
-rac12vmathbf1^{mathsf T}.
-$$
-
-第2項では各列が
-
-$$
-rac12v
-=
-rac16
-egin{pmatrix}
-1\\1\\1
-end{pmatrix}
+\begin{pmatrix}
+1/2\\
+0\\
+1/2
+\end{pmatrix}
 $$
 
 です。
 
-したがって $P$ に0成分があっても、$G$ の各成分には少なくとも $1/6$ が加わります。
-
-よって
+ページ3は dangling node なので $v$ で置き換えます。従って
 
 $$
-G>0.
+\boxed{
+P=
+\begin{pmatrix}
+0&1/2&1/3\\
+1&0&1/3\\
+0&1/2&1/3
+\end{pmatrix}
+}.
 $$
 
-また第1項の各列和は $1/2$、第2項の各列和も $1/2$ なので、$G$ の各列和は1です。
+各列和は1です。
 
-従って $G$ は正の列確率行列です。
+PageRank 行列は
 
-PageRank 方程式は
+$$
+G
+=
+\frac12P
++
+\frac12v\mathbf1^{\mathsf T}.
+$$
+
+第2項の各列は
+
+$$
+\frac16
+\begin{pmatrix}
+1\\
+1\\
+1
+\end{pmatrix}
+$$
+
+なので、$G$ の全成分は正です。また二つの項の列和はそれぞれ $1/2$ なので、$G$ の列和は1です。
+
+PageRank 方程式
 
 $$
 r
 =
-rac12Pr
+\frac12Pr
 +
-rac16
-egin{pmatrix}
-1\\1\\1
-end{pmatrix}.
+\frac16
+\begin{pmatrix}
+1\\
+1\\
+1
+\end{pmatrix}
 $$
+
+を
 
 $$
 r=
-egin{pmatrix}
-r_1\\r_2\\r_3
-end{pmatrix}
+\begin{pmatrix}
+r_1\\
+r_2\\
+r_3
+\end{pmatrix}
 $$
 
-と書くと
+で書くと
 
 $$
 r_1
 =
-rac14r_2
-+
-rac16r_3
-+
-rac16,
+\frac14r_2+\frac16r_3+\frac16,
 $$
 
 $$
 r_2
 =
-rac12r_1
-+
-rac16r_3
-+
-rac16,
+\frac12r_1+\frac16r_3+\frac16,
 $$
 
 $$
 r_3
 =
-rac14r_2
-+
-rac16r_3
-+
-rac16.
+\frac14r_2+\frac16r_3+\frac16.
 $$
 
-第1式と第3式の右辺は同じなので
+第1式と第3式から $r_1=r_3=a$ と置けます。$r_2=b$ と置けば
 
 $$
-r_1=r_3.
+2a+b=1
 $$
 
-これを
+かつ
 
 $$
-r_1=r_3=a,
-qquad
-r_2=b
-$$
-
-と置きます。
-
-確率ベクトル条件から
-
-$$
-2a+b=1.
-$$
-
-第2式は
-
-$$
-b
-=
-rac12a
-+
-rac16a
-+
-rac16
-=
-rac23a+rac16.
-$$
-
-これを正規化条件へ代入すると
-
-$$
-2a+rac23a+rac16=1.
+b=\frac23a+\frac16.
 $$
 
 従って
 
 $$
-rac83a
-=
-rac56,
-$$
-
-$$
-a
-=
-rac{5}{16}.
-$$
-
-したがって
-
-$$
-b
-=
-1-2a
-=
-1-rac{10}{16}
-=
-rac{6}{16}
-=
-rac38.
+a=\frac5{16},
+\qquad
+b=\frac38.
 $$
 
 よって
 
 $$
-oxed{
+\boxed{
 r=
-egin{pmatrix}
+\begin{pmatrix}
 5/16\\
 3/8\\
 5/16
-end{pmatrix}
+\end{pmatrix}
 }.
 $$
 
-次に $alpha=1/2$ なので、PageRank 写像の縮小率は $1/2$ です。
-
-従って
+$\alpha=1/2$ なので縮小性から
 
 $$
-|x_{k+1}-r|_1
-le
-rac12|x_k-r|_1.
+\|x_{k+1}-r\|_1
+\le
+\frac12\|x_k-r\|_1.
 $$
 
-これを反復すれば
+帰納的に
 
 $$
-oxed{
-|x_k-r|_1
-le
-2^{-k}|x_0-r|_1
+\boxed{
+\|x_k-r\|_1
+\le
+2^{-k}\|x_0-r\|_1
 }.
 $$
 
-最後に $alpha=1$ とすると
-
-$$
-G=P
-$$
-
-となり、teleportation による正値化が消えます。
-
-この具体例の $P$ は dangling node 修正のおかげで列確率行列ですが、一般には
+最後に $\alpha=1$ とすると teleportation が消え、$G=P$ になります。一般の $P$ について
 
 - 正行列である保証
-- 任意のリンク構造に対する既約性
+- 既約性
 - 原始性
-- 縮小率 $alpha<1$
+- 縮小率 $\alpha<1$
 
-が失われます。
-
-したがって一意な正 PageRank ベクトルと、任意初期値からの幾何収束を一括して保証していた証明機構は使えなくなります。
+を一括して得られなくなります。従って一意な正 PageRank ベクトルと任意初期値からの幾何収束を保証していた仕組みが失われます。
 <!-- solution-end -->
 
 ---
 
 ## 18. この章の要点
 
-1. 非負行列では
-   $$
-   |Az|le A|z|
-   $$
-   という成分ごとの比較が使える。
-2. 有限次元では
-   $$
-   |A^k|^{1/k}	oho(A),
-   $$
-   なので成分ごとの成長下界をスペクトル半径へ接続できる。
-3. 正行列では $ho(A)$ は正の実固有値で、正固有ベクトルは定数倍を除いて一意であり、他の全固有値はスペクトル円の内側にある。
-4. 既約非負行列でも正の Perron 固有ベクトルは一意だが、スペクトル円周上に周期固有値が残ることがある。
-5. 原始性
-   $$
-   A^m>0
-   $$
-   は周期性を排除し、Perron 固有値に厳密なスペクトルギャップを与える。
-6. 列確率行列では
-   $$
-   ho(P)=1.
-   $$
+1. 非負行列では $|Az|\le A|z|$ という成分比較が使える。
+2. 行列冪の指数成長率はスペクトル半径 $\rho(A)$ で決まる。
+3. 正行列では $\rho(A)$ は正の単純固有値で、正固有ベクトルは一意であり、他の固有値はスペクトル円の内部にある。
+4. 既約非負行列でも正の Perron 固有ベクトルは一意だが、周期固有値がスペクトル円周上に残ることがある。
+5. 原始性 $A^m>0$ は周期性を排除し、Perron 固有値にスペクトルギャップを与える。
+6. 列確率行列では $\rho(P)=1$ である。
 7. 既約列確率行列は一意な正の定常確率ベクトルを持つ。
 8. 原始列確率行列では
    $$
-   P^k	opimathbf1^{mathsf T}.
+   P^k\to\pi\mathbf1^{\mathsf T}.
    $$
-9. PageRank 行列
-   $$
-   G=alpha P+(1-alpha)vmathbf1^{mathsf T}
-   $$
-   は $v>0$、$0<alpha<1$ により正の列確率行列になる。
+9. PageRank の teleportation は任意の列確率行列を正行列へ変える。
 10. PageRank 反復は
     $$
-    |T(x)-T(y)|_1
-    le
-    alpha|x-y|_1
+    \|T(x)-T(y)\|_1
+    \le
+    \alpha\|x-y\|_1
     $$
     という明示的な縮小率を持つ。
 11. PageRank は
     $$
-    (I-alpha P)r=(1-alpha)v
+    (I-\alpha P)r=(1-\alpha)v
     $$
-    という線形方程式でもあり、
-    $$
-    r=(1-alpha)sum_{kge0}alpha^kP^kv
-    $$
-    と表せる。
-12. 反復差 $d_k$ から
-    $$
-    |x_k-r|_1
-    le
-    rac{d_k}{1-alpha}
-    $$
-    と停止誤差を保証できる。
-13. リンク行列摂動に対する感度上界には
-    $$
-    rac{alpha}{1-alpha}
-    $$
-    が現れ、$alpha	o1$ では収束と最悪時感度の双方が悪化する。
+    という線形方程式でもあり、Neumann 級数で表せる。
+12. 反復差から停止誤差を評価でき、リンク行列摂動への感度には $\alpha/(1-\alpha)$ が現れる。
 
-次の NA12 では、線形方程式として導入した共役勾配法を、実対称正定値二次関数の最小化法として読み直します。最急降下法・Newton 法と比較しながら、線形代数と無制約最適化を接続します。
+次の NA12 では、NA9 で線形方程式の Krylov 法として導入した共役勾配法を、実対称正定値二次関数の最小化法として読み直します。
