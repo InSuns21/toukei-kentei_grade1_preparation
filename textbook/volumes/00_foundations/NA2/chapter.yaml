@@ -1,0 +1,53 @@
+id: "NA2"
+title: "数値解析 II：非線形方程式・不動点反復・Newton 法"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NA1
+  - RA2
+  - RA3
+  - F0-00D
+official_scope: []
+learning_objectives:
+  - 連続関数の符号変化から二分法を構成し、区間幅から誤差上界と必要反復回数を評価できる
+  - 不動点問題と不動点反復を定式化し、導関数評価から縮小性を判定できる
+  - 閉区間上の縮小写像について不動点の存在・一意性、反復収束、事前・事後誤差評価を証明できる
+  - 収束次数を定義し、線形収束と二次収束を区別できる
+  - Newton 法を接線から導出し、単純根近傍での局所二次収束を Taylor の定理から証明できる
+  - 重根で Newton 法の二次収束が失われる機構を説明できる
+  - 残差から根誤差を評価するために導関数下界が必要であることを示せる
+  - 二分法の大域保証と Newton 法の局所速度を使い分けられる
+definitions:
+  - { id: NA2-DEF-01, name: 零点・根 }
+  - { id: NA2-DEF-02, name: 根の区間囲い込み }
+  - { id: NA2-DEF-03, name: 不動点 }
+  - { id: NA2-DEF-04, name: 不動点反復 }
+  - { id: NA2-DEF-05, name: 縮小写像 }
+  - { id: NA2-DEF-06, name: 収束次数 }
+  - { id: NA2-DEF-07, name: Newton 法 }
+  - { id: NA2-DEF-08, name: 単純根・重根 }
+theorems:
+  - { id: NA2-THM-01, name: 二分法の収束と誤差上界 }
+  - { id: NA2-PROP-01, name: 導関数による縮小性判定 }
+  - { id: NA2-THM-02, name: 閉区間上の縮小不動点反復 }
+  - { id: NA2-THM-03, name: Newton 法の局所二次収束 }
+  - { id: NA2-COR-01, name: Newton 法の二次誤差定数 }
+  - { id: NA2-PROP-02, name: 導関数下界による残差から根誤差への評価 }
+canonical_examples:
+  - x^3+x-1 の二分法
+  - sqrt(2) の縮小不動点反復
+  - sqrt(2) の Newton 法
+  - (x-alpha)^m に対する重根での線形収束
+  - x^3-2x+2 の Newton 周期2
+problem_patterns:
+  - NA2-BISECTION-1
+  - NA2-CONTRACTION-1
+  - NA2-FIXED-POINT-1
+  - NA2-CONVERGENCE-ORDER-1
+  - NA2-NEWTON-1
+  - NA2-NEWTON-FAILURE-1
+  - NA2-STOPPING-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.0, review: 0.5 }
