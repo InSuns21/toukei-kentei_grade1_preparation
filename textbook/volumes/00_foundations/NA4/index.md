@@ -432,7 +432,7 @@ $$
 
 ---
 
-## 3. 分割差分は「補間多項式の最高次係数」を取り出す
+## 3. 補間係数を逐次計算する
 
 <a id="def-na4-divided-difference"></a>
 <!-- formal-statement-start -->
@@ -625,7 +625,7 @@ $\square$
 
 ---
 
-## 4. Newton 補間は、節点を一つずつ追加する形になっている
+## 4. 節点を一つずつ追加できる表示
 
 <a id="thm-na4-newton-interpolation"></a>
 <!-- formal-statement-start -->
@@ -1214,7 +1214,7 @@ $$
 
 ---
 
-## 8. Chebyshev 多項式と Chebyshev 節点
+## 8. Chebyshev 多項式から節点を設計する
 
 $m\ge0$ に対して
 
