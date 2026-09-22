@@ -130,19 +130,65 @@ $$
 
 座標表示
 
-$$
+$
 X=\sum_iX^i\frac{\partial}{\partial x^i}
-$$
+$
 
 を使えば
 
-$$
+$
 Xf
 =
 \sum_iX^i\frac{\partial f}{\partial x^i}.
-$$
+$
 
 従って $Xf$ は滑らかです。
+
+<!-- definition-example-start: def-geo5-vector-field-derivation -->
+**定義の確認：関数を実際に方向微分する**
+
+$\mathbb R^2$ 上で
+
+$
+X
+=
+\frac{\partial}{\partial x}
++
+y\frac{\partial}{\partial y},
+\qquad
+f(x,y)=x^2+y
+$
+
+とします。このとき
+
+$
+Xf
+=
+\frac{\partial f}{\partial x}
++
+y\frac{\partial f}{\partial y}
+=
+2x+y.
+$
+
+点 $(1,2)$ では
+
+$
+(Xf)(1,2)=4.
+$
+
+一方 $X_{(1,2)}=(1,2)$ なので、通常の方向微分として計算しても
+
+$
+Df_{(1,2)}(1,2)
+=
+(2,1)\cdot(1,2)
+=
+4.
+$
+
+従って「点ごとの接ベクトル $X_p$ を関数 $f$ に作用させる」という定義が通常の方向微分と一致することを直接確認できます。
+<!-- definition-example-end -->
 
 <a id="prop-geo5-vector-field-derivation"></a>
 <!-- formal-statement-start -->
@@ -928,12 +974,38 @@ $$
 >
 > 同値に、最大流の定義域が
 >
-> $$
+> $
 > \mathcal D_X=\mathbb R\times M
-> $$
+> $
 >
 > となる。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-geo5-complete-vector-field -->
+**定義の確認：定ベクトル場は完備**
+
+$\mathbb R^n$ 上の定ベクトル場
+
+$
+X=\sum_{i=1}^na^i\frac{\partial}{\partial x^i}
+$
+
+の最大流は
+
+$
+\Phi_t(x)=x+ta.
+$
+
+右辺は任意の $t\in\mathbb R$ と $x\in\mathbb R^n$ で定義されるため
+
+$
+\mathcal D_X
+=
+\mathbb R\times\mathbb R^n.
+$
+
+従って $X$ は完備です。対照的に、前節の $x^2\partial_x$ は一部の初期点で有限時刻に発散するため完備ではありません。
+<!-- definition-example-end -->
 
 <a id="prop-geo5-compact-complete"></a>
 <!-- formal-statement-start -->
@@ -1068,7 +1140,7 @@ $$
 
 従って
 
-$$
+$
 F_*
 \left(
 \frac{\partial}{\partial x}
@@ -1077,9 +1149,15 @@ F_*
 \frac{\partial}{\partial u}
 +
 v\frac{\partial}{\partial v}.
-$$
+$
 
-同じ幾何学的な方向が、座標を変えると成分を変えることが直接確認できます。
+$Y=F_*(\partial_x)$ と置けば、定義から
+
+$
+dF_p(\partial_x|_p)=Y_{F(p)}
+$
+
+なので $\partial_x$ と $Y$ が $F$-関連であることも直接確認できます。同じ幾何学的な方向が、微分同相写像で運ばれると成分を変える様子が見えます。
 <!-- definition-example-end -->
 
 <a id="prop-geo5-flow-conjugacy"></a>
