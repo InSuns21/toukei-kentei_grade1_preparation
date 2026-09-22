@@ -413,7 +413,9 @@ $$
 と書けます。境界接ベクトル $(v_1,\dots,v_{n-1})$ と並べた行列式は正の係数 $a$ だけを受けるため、正負の判定は変わりません。
 
 <!-- definition-example-start: def-geo8-boundary-orientation -->
-**定義の確認：円板**
+**定義の確認**
+
+### 円板
 
 $D^2$ を $dx\wedge dy$ で向き付けます。境界上の
 
@@ -995,8 +997,8 @@ $$
 $$
 \iiint_\Omega\operatorname{div}F\,dV
 =
-\iint_{\partial\Omega}F\cdot n\,dS,
-$$
+\iint_{\partial\Omega}F\cdot n\,dS,$$
+
 すなわち [VC4 の Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence) になります。
 
 この対応では「ベクトル場を体積形式へ差し込む」という操作が、ベクトル解析の流束を微分形式へ翻訳しています。
