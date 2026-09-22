@@ -10,7 +10,7 @@ learning_objectives:
   - 無限積の局所一様収束を対数級数で制御し、極限の正則性と零点の由来を説明できる
   - Weierstrass の基本因子の誤差評価を導き、任意の離散零点多重集合から整関数を構成できる
   - 零点を持たない整関数が指数関数として表せることを示し、Weierstrass 因数分解定理を証明できる
-  - 指定された主部 から Taylor 多項式を差し引く Mittag--Leffler 構成をコンパクト集合上一様収束まで追える
+  - 指定された主部から Taylor 多項式を差し引く Mittag--Leffler 構成をコンパクト集合上一様収束まで追える
   - 留数定理から pi cot(pi z) の部分分数展開を導き、そこから sin(pi z) の Euler 積を証明できる
 definitions:
   - { id: CA10-DEF-01, name: 関数の無限積 }
@@ -25,7 +25,7 @@ theorems:
   - { id: CA10-THM-05, name: Mittag--Leffler の定理 }
   - { id: CA10-THM-06, name: pi cot(pi z) の部分分数展開 }
   - { id: CA10-THM-07, name: sin(pi z) の Euler 積 }
-canonical_examples: [正規収束する一次因子積, 正の整数を零点に持つ 標準積, 正の整数に単純極を持つ Mittag--Leffler 級数, pi cot(pi z), sin(pi z) の Euler 積]
+canonical_examples: [正規収束する一次因子積, 正の整数を零点に持つ標準積, 正の整数に単純極を持つ Mittag--Leffler 級数, pi cot(pi z), sin(pi z) の Euler 積]
 problem_patterns: [CA10-INFINITE-PRODUCT-1, CA10-ELEMENTARY-FACTOR-1, CA10-ZERO-SET-1, CA10-MITTAG-LEFFLER-1, CA10-COT-PARTIAL-FRACTION-1, CA10-EULER-SINE-PRODUCT-1]
 past_exam_alignment: []
 integrated_exam_problems: []
