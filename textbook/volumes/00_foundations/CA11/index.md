@@ -476,7 +476,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-Euler の極限公式を書き換えると
+[Euler の極限公式](#thm-ca11-euler-limit)を書き換えると
 
 $$
 \frac1{\Gamma(z)}
@@ -934,7 +934,7 @@ $$
 
 #### 第3段階：正の実軸へ拡張する
 
-Euler の極限公式を $z=1+a$ に適用する。$0\le a\le1$ はコンパクト集合なので、その収束は $a$ について一様である。極限公式は
+[Euler の極限公式](#thm-ca11-euler-limit)を $z=1+a$ に適用する。$0\le a\le1$ はコンパクト集合なので、その収束は $a$ について一様である。極限公式は
 
 $$
 \Gamma(1+a)
@@ -1050,14 +1050,14 @@ $$
 $$
 \log\Gamma(z)
 =
-\left(z-\frac12\right)\Log z
+\left(z-\frac12\right)\log z
 -z
 +\frac12\log(2\pi)
 +
 O_\delta\left(\frac1{|z|}\right)
 $$
 
-という強化版が成り立つ。ここで $\Log$ はその sector 上の主値分枝である。
+という強化版が成り立つ。ここで $\log z$ はこの sector 上で主値に一致する正則な対数分枝を表す。
 
 本章で核心証明したのは正の実軸上の形である。sector 版の完全証明には Binet 表示または Euler--Maclaurin 展開を追加で準備する必要があるため、適用範囲だけを明示し、高次漸近展開とともに停止線の先へ送る。
 
@@ -1323,7 +1323,9 @@ $$
 
 ### Level A
 
-#### A1. 関数等式と階乗
+<a id="ex-ca11-a1"></a>
+#### CA11-A01 関数等式と階乗
+- Level: A
 
 $\Gamma(1)=1$ と関数等式だけから
 
@@ -1333,7 +1335,9 @@ $$
 
 を示せ。
 
-#### A2. 極と留数
+<a id="ex-ca11-a2"></a>
+#### CA11-A02 極と留数
+- Level: A
 
 $m\ge0$ に対して
 
@@ -1345,7 +1349,9 @@ $$
 
 を関数等式から導け。
 
-#### A3. 逆 Gamma 積の特殊化
+<a id="ex-ca11-a3"></a>
+#### CA11-A03 逆 Gamma 積の特殊化
+- Level: A
 
 逆 Gamma 関数の積表示へ $z=1$ を代入して
 
@@ -1359,7 +1365,9 @@ $$
 
 を示せ。
 
-#### A4. 反射公式の特殊値
+<a id="ex-ca11-a4"></a>
+#### CA11-A04 反射公式の特殊値
+- Level: A
 
 反射公式から
 
@@ -1373,11 +1381,15 @@ $$
 
 ### Level B
 
-#### B1. 積表示から反射公式を再構成
+<a id="ex-ca11-b1"></a>
+#### CA11-B01 積表示から反射公式を再構成
+- Level: B
 
 $1/\Gamma(z)$ と $1/\Gamma(-z)$ の積を取り、CA10 の正弦関数の Euler 積を使って反射公式を最初から導け。
 
-#### B2. Legendre の倍角公式
+<a id="ex-ca11-b2"></a>
+#### CA11-B02 Legendre の倍角公式
+- Level: B
 
 $$
 R(z)
@@ -1393,11 +1405,13 @@ $$
 
 1. $R(z+1)=R(z)$、
 2. $x\to+\infty$ で $R(x)\to1$、
-3. 恒等定理
+3. [恒等定理](../CA3/index.md#thm-ca3-isolated-zeros-identity)
 
 を用いて $R\equiv1$ を示せ。
 
-#### B3. Beta--Gamma 関係式
+<a id="ex-ca11-b3"></a>
+#### CA11-B03 Beta--Gamma 関係式
+- Level: B
 
 二重積分で
 
@@ -1425,7 +1439,9 @@ $$
 
 ### Level C
 
-#### C1. Stirling 公式を定数まで再構成
+<a id="ex-ca11-c1"></a>
+#### CA11-C01 Stirling 公式を定数まで再構成
+- Level: C
 
 $$
 S_n
@@ -1740,7 +1756,7 @@ $$
 
 $n\to\infty$ として $R(x)=1$。従って正の実軸上で $R=1$ である。
 
-$R$ は右半平面で正則で、正の実軸は右半平面内に集積点を持つため恒等定理から
+$R$ は右半平面で正則で、正の実軸は右半平面内に集積点を持つため[恒等定理](../CA3/index.md#thm-ca3-isolated-zeros-identity)から
 
 $$
 R(z)\equiv1
