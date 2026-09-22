@@ -167,6 +167,7 @@ VC4 までで PDE6 が必要とする法線・流束・発散定理を正本化�
 8. [CA8 Riemann 面・被覆・多価関数](textbook/volumes/00_foundations/CA8/index.md)
 9. [CA9 楕円関数・Weierstrass wp 関数](textbook/volumes/00_foundations/CA9/index.md)
 10. [CA10 無限積・Weierstrass 因数分解・Mittag--Leffler](textbook/volumes/00_foundations/CA10/index.md)
+11. [CA11 Gamma 関数・反射公式・Stirling 公式](textbook/volumes/00_foundations/CA11/index.md)
 
 **院試・編入の計算演習**：[複素解析・院試／編入計算演習（A8・B10・C4、計22題）](textbook/volumes/00_foundations/F0_00CALC_複素解析_院試編入計算演習/index.md)。
 
