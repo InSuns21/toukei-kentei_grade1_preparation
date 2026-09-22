@@ -208,7 +208,7 @@ $$
 x=(1,1,2)^{\mathsf T}.
 $$
 
-各 $i$ で高々 $i-1$ 個の既知成分との積和を取るため、演算回数の主要部は
+各 $i$ で高々 $i-1$ 個の既知成分との積和を取るため、演算回数を支配する和は
 
 $$
 1+2+\cdots+(n-1)
@@ -267,6 +267,8 @@ $$
 
 <!-- definition-example-start: def-na8-lu-factorization -->
 ### 例：実際に $LU=A$ を確認する
+
+**定義の確認**。直前の定義条件をこの具体例で実際に確かめます。
 
 $$
 A=
@@ -582,6 +584,8 @@ $$
 <!-- definition-example-start: def-na8-partial-pivoting -->
 ### 例：零ピボットを行交換で避ける
 
+**定義の確認**。直前の定義条件をこの具体例で実際に確かめます。
+
 $$
 A=
 \begin{pmatrix}
@@ -740,6 +744,8 @@ $$
 <!-- definition-example-start: def-na8-element-growth-factor -->
 ### 例：乗数は1以下でも成長率は4
 
+**定義の確認**。直前の定義条件をこの具体例で実際に確かめます。
+
 $$
 A=
 \begin{pmatrix}
@@ -867,6 +873,8 @@ $$
 
 <!-- definition-example-start: def-na8-cholesky-factorization -->
 ### 例：2次行列で定義を確認する
+
+**定義の確認**。直前の定義条件をこの具体例で実際に確かめます。
 
 $$
 A=
@@ -1131,6 +1139,8 @@ $$
 
 <!-- definition-example-start: def-na8-householder-reflector -->
 ### 例：2次元で座標を交換する反射
+
+**定義の確認**。直前の定義条件をこの具体例で実際に確かめます。
 
 $$
 v=
@@ -2770,8 +2780,8 @@ Householder QR
 
 - Jacobi 法
 - Gauss--Seidel 法
-- 共役勾配法
-- Krylov 部分空間
+- 対称正定値系の反復法
+- Krylov 部分空間法
 - 前処理
 
 という **反復法**へ進みます。
