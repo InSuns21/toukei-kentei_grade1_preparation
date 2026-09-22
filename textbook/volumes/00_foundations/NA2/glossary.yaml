@@ -21,6 +21,6 @@ terms:
   - term: 単純根
     english: simple root
     meaning: f(alpha)=0 かつ f'(alpha)≠0 を満たす根。Newton 法の局所二次収束の基本条件になる。
-  - term: 多重根
+  - term: 重複根
     english: multiple root
     meaning: f(x)=(x-alpha)^m h(x), m>=2, h(alpha)≠0 と局所的に因数分解できる根。
