@@ -121,13 +121,21 @@ concepts:
     introduction_aliases: ["定義（正則被覆）"]
     requires: [complex-analysis.covering-map, complex-analysis.biholomorphism]
 
+  - id: complex-analysis.compact-metric-lebesgue-number
+    name: コンパクト距離空間の Lebesgue 数
+    kind: lemma
+    aliases: [コンパクト距離空間の Lebesgue 数, Lebesgue number for compact metric spaces]
+    introduction: formal
+    introduction_aliases: ["補題（コンパクト距離空間の Lebesgue 数）"]
+    requires: [topology.compact-space]
+
   - id: complex-analysis.path-lifting
     name: 経路持ち上げの存在と一意性
     kind: theorem
     aliases: [経路持ち上げ, 経路持ち上げの存在と一意性, path lifting]
     introduction: formal
     introduction_aliases: ["定理（経路持ち上げの存在と一意性）"]
-    requires: [complex-analysis.covering-map, topology.compact-space]
+    requires: [complex-analysis.covering-map, complex-analysis.compact-metric-lebesgue-number]
 
   - id: complex-analysis.homotopy-lifting
     name: 経路ホモトピーの持ち上げ
@@ -135,7 +143,7 @@ concepts:
     aliases: [経路ホモトピーの持ち上げ, ホモトピー持ち上げ, homotopy lifting]
     introduction: formal
     introduction_aliases: ["定理（経路ホモトピーの持ち上げ）"]
-    requires: [complex-analysis.path-lifting, topology.compact-space]
+    requires: [complex-analysis.path-lifting, complex-analysis.compact-metric-lebesgue-number]
 
   - id: complex-analysis.lifted-homotopy-endpoint
     name: 端点固定ホモトピーと持ち上げの終点
