@@ -310,6 +310,15 @@ nodes:
     implementation_path: textbook/volumes/00_foundations/GEO3/index.md
     prerequisites: [GEO2, RA6A]
 
+  - id: GEO4
+    title: 1 の分割・局所化・埋め込み
+    area: differential-geometry
+    tier: core-advanced-standard
+    status: implemented
+    implemented_at: 2026-09-22
+    implementation_path: textbook/volumes/00_foundations/GEO4/index.md
+    prerequisites: [GEO3, TOP5A]
+
   - id: VC1
     title: ベクトル場と微分演算子
     area: vector-calculus
