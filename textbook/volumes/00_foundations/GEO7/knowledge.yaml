@@ -1,0 +1,132 @@
+chapter: GEO7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEO2
+  - GEO5
+  - LA3E
+concepts:
+  - id: geometry.tensor-field
+    name: テンソル場
+    kind: definition
+    aliases: [テンソル場, tensor field]
+    requires:
+      - geometry.tangent-space
+      - geometry.cotangent-space
+      - linear.rs-tensor
+
+  - id: geometry.differential-form
+    name: 微分形式
+    kind: definition
+    aliases: [微分形式, differential form]
+    requires:
+      - geometry.tensor-field
+      - linear.exterior-power
+
+  - id: geometry.form-wedge-product
+    name: 微分形式の外積
+    kind: definition
+    aliases: [微分形式の外積, wedge product of differential forms]
+    requires:
+      - geometry.differential-form
+      - linear.wedge-product
+
+  - id: geometry.form-wedge-laws
+    name: 微分形式の外積の基本則
+    kind: proposition
+    aliases: [微分形式の外積の基本則]
+    requires:
+      - geometry.form-wedge-product
+      - linear.wedge-algebra-laws
+
+  - id: geometry.differential-form-pullback
+    name: 微分形式の引き戻し
+    kind: definition
+    aliases: [微分形式の引き戻し, pullback of differential forms]
+    requires:
+      - geometry.differential-form
+      - geometry.differential
+
+  - id: geometry.pullback-wedge-functoriality
+    name: 引き戻しと外積
+    kind: proposition
+    aliases: [引き戻しと外積]
+    requires:
+      - geometry.differential-form-pullback
+      - geometry.form-wedge-product
+      - geometry.chain-rule-manifold
+
+  - id: geometry.exterior-derivative
+    name: 外微分
+    kind: definition
+    aliases: [外微分, exterior derivative]
+    requires:
+      - geometry.differential-form
+      - geometry.form-wedge-product
+
+  - id: geometry.exterior-derivative-invariant-formula
+    name: 外微分の座標に依らない表示
+    kind: theorem
+    aliases: [外微分の座標不変表示, coordinate-free formula for exterior derivative]
+    requires:
+      - geometry.exterior-derivative
+      - geometry.lie-bracket
+
+  - id: geometry.exterior-derivative-graded-leibniz
+    name: 外微分の次数付きLeibniz則
+    kind: theorem
+    aliases: [外微分の次数付きLeibniz則, graded Leibniz rule for exterior derivative]
+    requires:
+      - geometry.exterior-derivative
+      - geometry.form-wedge-laws
+
+  - id: geometry.exterior-derivative-square-zero
+    name: 外微分の二乗は0
+    kind: theorem
+    aliases: [d²=0, exterior derivative squares to zero]
+    requires:
+      - geometry.exterior-derivative
+
+  - id: geometry.pullback-commutes-exterior-derivative
+    name: 外微分の自然性
+    kind: theorem
+    aliases: [外微分の自然性, pullback commutes with exterior derivative]
+    requires:
+      - geometry.differential-form-pullback
+      - geometry.exterior-derivative-graded-leibniz
+      - geometry.exterior-derivative-square-zero
+      - geometry.pullback-wedge-functoriality
+
+  - id: geometry.form-interior-product
+    name: 微分形式の内部積
+    kind: definition
+    aliases: [微分形式の内部積, interior product on differential forms]
+    requires:
+      - geometry.differential-form
+      - linear.interior-product
+
+  - id: geometry.form-interior-product-wedge-rule
+    name: 内部積の符号付き積の法則
+    kind: proposition
+    aliases: [微分形式の内部積の積の法則]
+    requires:
+      - geometry.form-interior-product
+      - linear.interior-product-identities
+
+  - id: geometry.form-lie-derivative
+    name: 微分形式のLie微分
+    kind: definition
+    aliases: [微分形式のLie微分, Lie derivative of differential forms]
+    requires:
+      - geometry.differential-form-pullback
+      - geometry.maximal-flow-local-group-law
+
+  - id: geometry.cartan-formula
+    name: Cartan の公式
+    kind: theorem
+    aliases: [Cartan の公式, Cartan formula, Cartan magic formula]
+    requires:
+      - geometry.form-lie-derivative
+      - geometry.form-interior-product-wedge-rule
+      - geometry.exterior-derivative-graded-leibniz
+      - geometry.exterior-derivative-square-zero
