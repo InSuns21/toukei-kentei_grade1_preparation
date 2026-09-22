@@ -331,6 +331,10 @@ RA4 微積分学の基本定理 ──────┘
 
 RA3 Rolle・平均値・Taylor ────┐
 NA1 誤差・条件付け ──────────┴→ NA4 多項式補間
+
+RA4 Riemann積分・FTC ─────────────┐
+NA4 Lagrange補間・補間誤差 ───────┼→ NA5 数値積分・直交多項式・Gauss 型積分
+F0-00E1 内積・Gram--Schmidt ──────┘
 ~~~
 
 NA1 では、最近接丸めの標準相対誤差モデル、丸め因子の積の評価、桁落ち、スカラー関数の相対条件数、2-ノルム行列条件数、前方誤差・後方誤差、残差、後方安定性を扱う。
@@ -341,8 +345,10 @@ NA3 では、Fréchet 微分の行列表示として Jacobian を使い、多変
 
 NA4 では、Lagrange 補間の存在一意性、分割差分と Newton 補間、Rolle の定理による補間誤差公式を閉じる。節点選択では Chebyshev の最小最大性から Chebyshev 節点を導き、Runge 現象と Lebesgue 定数を通じて近似誤差・データ感度・丸め誤差を区別する。
 
-後続の NA5–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC8 は DREAM_THEATER_ENCORE_V_REWRITE_PLAN.md の計画対象であり、各講の実装完了時に実際の直接依存だけを追加する。
+NA5 では、NA4 の Lagrange 補間を積分して補間型求積公式と Newton--Cotes 公式を導き、複合台形則・複合 Simpson 則の大域誤差評価を証明する。さらに重み付き多項式内積と Gram--Schmidt から直交多項式を構成し、その零点定理を閉じた上で Gauss 求積の $2n-1$ 次正確性、重みの正値性、$n$ 点公式としての最適性、Hermite 補間と Rolle の定理による誤差公式まで導く。
 
-読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA4 までで、次の実装対象は NA5「数値積分・直交多項式・Gauss 型積分」である。
+後続の NA6–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC8 は DREAM_THEATER_ENCORE_V_REWRITE_PLAN.md の計画対象であり、各講の実装完了時に実際の直接依存だけを追加する。
+
+読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA5 までで、次の実装対象は NA6「ODE 数値解法 I：一段法と収束」である。
 
 ---
