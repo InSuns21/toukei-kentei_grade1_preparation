@@ -797,7 +797,7 @@ Euler 積分の局所一様収束から右半平面での正則性を示し、�
 
 **現在地（2026-09-22）**：CA11 の本文・演習 A4/B3/C1・詳細解答・stable anchor・knowledge/glossary・reader-facing index・standard math core の同期まで完了。PR #369 で Pages / textbook / terminology / DREAM THEATER concepts / exercises / standard math core の6 workflow が green、textbook workflow 内の proof pedagogy / formalism pedagogy も通過した。Phase 5 完了。次は Phase 6：CA12「Riemann ζ 関数・theta 変換・関数等式」へ進む。
 
-### Phase 6：CA12 🔧
+### Phase 6：CA12 ✅
 
 1. chapter.yaml ✅
 2. index.md ✅
@@ -806,11 +806,11 @@ Euler 積分の局所一様収束から右半平面での正則性を示し、�
 5. knowledge / glossary ✅
 6. reader-facing index / standard math core 反映 ✅
 7. PR #372 ✅
-8. validation / pedagogy audit 🔧
+8. validation / pedagogy audit ✅
 
 Riemann ζ 関数を Dirichlet 級数の局所一様絶対収束から構成し、一意分解から Euler 積と $\Re s>1$ での零点不存在を導いた。一般 Poisson 和公式を黒箱にせず、FOU3 の Gaussian Fourier 変換を周期化し、FOU2 の Fourier 級数収束から theta 変換を証明した。さらに Fubini の適用条件を絶対積分で確認して theta Mellin 表現へ進み、$t=1$ で積分を分割することで解析接続、$s=1$ の留数1、完成 zeta 因子の対称性、関数等式、自明零点まで一続きで閉じた。
 
-**現在地（2026-09-22）**：CA12 の本文・演習 A4/B3/C1・詳細解答・stable anchor・knowledge/glossary・reader-facing index・standard math core の同期まで実装済み。PR #372 を作成し、規定の validation / pedagogy audit を確認中。
+**現在地（2026-09-22）**：CA12 の本文・演習 A4/B3/C1・詳細解答・stable anchor・knowledge/glossary・reader-facing index・standard math core の同期を完了した。PR #372 で Pages / textbook / terminology / DREAM THEATER concepts / exercises / standard math core の6 workflow が green、textbook workflow 内の proof pedagogy / formalism pedagogy も通過した。Phase 6 完了。次は Phase 7：CA7--CA12 の横断監査へ進む。
 
 ### Phase 7：横断監査
 
