@@ -131,7 +131,8 @@ facade は完成済み講座だけをリンクする。未完成章を先行表�
 - [x] NA8「数値線形代数 I：直接法」を新正本として実装
 - [x] NA9「数値線形代数 II：反復法・Krylov 法」を新正本として実装
 - [x] NA10「固有値数値計算」を新正本として実装
-- 次の実装対象：**NA11「Perron–Frobenius 理論と PageRank」**
+- [x] NA11「Perron–Frobenius 理論と PageRank」を新正本として実装
+- 次の実装対象：**NA12「無制約最適化と共役勾配法」**
 
 
 ---
@@ -173,7 +174,7 @@ facade は完成済み講座だけをリンクする。未完成章を先行表�
 - [x] NA8：数値線形代数 I
 - [x] NA9：数値線形代数 II
 - [x] NA10：固有値数値計算
-- [ ] NA11：Perron–Frobenius 理論と PageRank
+- [x] NA11：Perron–Frobenius 理論と PageRank
 - [ ] NA12：無制約最適化と共役勾配法
 
 ---
