@@ -65,7 +65,9 @@ $$
 と一意に書けます。$X$ が滑らかであることは、各成分関数 $X^i$ が滑らかであることと同値です。
 
 <!-- definition-example-start: def-geo5-vector-field -->
-**定義の確認：球面上の円周方向ベクトル場**
+**定義の確認**
+
+球面上の円周方向ベクトル場
 
 $S^2\subset\mathbb R^3$ 上で
 
@@ -131,7 +133,9 @@ $$
 従って $Xf$ は滑らかです。
 
 <!-- definition-example-start: def-geo5-vector-field-derivation -->
-**定義の確認：関数を実際に方向微分する**
+**定義の確認**
+
+関数を実際に方向微分する
 
 $\mathbb R^2$ 上で
 
@@ -254,7 +258,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo5-integral-curve -->
-**定義の確認：実直線上の $X=x\,\partial_x$**
+**定義の確認**
+
+実直線上の $X=x\,\partial_x$
 
 $M=\mathbb R$ で
 
@@ -663,7 +669,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo5-maximal-integral-curve -->
-**定義の確認：有限時刻で解が無界になる $X=x^2\partial_x$**
+**定義の確認**
+
+有限時刻で解が無界になる $X=x^2\partial_x$
 
 $M=\mathbb R$ で
 
@@ -809,7 +817,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo5-maximal-flow, def-geo5-local-flow -->
-**定義の確認：平行移動**
+**定義の確認**
+
+平行移動
 
 $\mathbb R^n$ 上の係数一定の滑らかなベクトル場
 
@@ -968,7 +978,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo5-complete-vector-field -->
-**定義の確認：係数一定の滑らかなベクトル場は完備**
+**定義の確認**
+
+係数一定の滑らかなベクトル場は完備
 
 $\mathbb R^n$ 上の係数一定の滑らかなベクトル場
 
@@ -1091,7 +1103,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo5-pushforward-vector-field, def-geo5-related-vector-fields -->
-**定義の確認：座標変換で滑らかなベクトル場を運ぶ**
+**定義の確認**
+
+座標変換で滑らかなベクトル場を運ぶ
 
 $$
 F:\mathbb R^2\to\mathbb R^2,
@@ -1421,7 +1435,9 @@ $$
 <!-- proof-end -->
 
 <!-- definition-example-start: def-geo5-lie-bracket -->
-**定義の確認：$\partial_x$ と $x\partial_y$ は可換でない**
+**定義の確認**
+
+$\partial_x$ と $x\partial_y$ は可換でない
 
 $\mathbb R^2$ 上で
 
