@@ -27,3 +27,6 @@ terms:
   - term: 前処理
     english: preconditioning
     meaning: 元の解を保ちながら、反復法が見やすいスペクトルへ線形方程式を変換する操作。
+  - term: 前処理行列
+    english: preconditioner
+    meaning: 前処理で用いる行列。元の問題に近く、かつ逆作用を十分安く計算できることが望ましい。
