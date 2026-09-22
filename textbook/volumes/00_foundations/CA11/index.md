@@ -536,6 +536,19 @@ $$
 もし Gamma 関数が有限点 $z_0$ で零点を持てば、$1/\Gamma$ は $z_0$ で極を持つはずだが、右辺は整関数である。従って Gamma 関数は零点を持たない。$\square$
 <!-- proof-end -->
 
+<a id="cor-ca11-gamma-zero-free"></a>
+<!-- formal-statement-start -->
+### 系（Gamma 関数の零点不存在）
+
+有理型解析接続された Gamma 関数は、有限複素平面上に零点を持たない。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+[逆 Gamma 関数の Weierstrass 積](#thm-ca11-reciprocal-product)により $1/\Gamma$ は全平面で整関数である。Gamma 関数が有限点で零点を持てば、その逆数はその点に極を持つので矛盾する。$\square$
+<!-- proof-end -->
+
 ここで CA10 の構成論が単なる一般論ではなくなる。Gamma 関数の極集合は、その逆数では **指定された零点集合**になり、基本因子が収束を担当する。
 
 ---
@@ -1107,7 +1120,21 @@ $$
 <!-- proof-start -->
 ### 証明
 
-積分は絶対収束するので、積を二重積分として
+この補助節では、[Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02)と [多重積分の変数変換定理](../RA7/index.md#thm-ra7-change-of-variables)を使う。CA11 の主線そのものには必要ないので、これらを未修なら本節だけ後回しにしてよい。
+
+まず
+$$
+\left|
+x^{z-1}y^{w-1}e^{-(x+y)}
+\right|
+=
+x^{\Re z-1}y^{\Re w-1}e^{-(x+y)}
+$$
+であり、その絶対値の二重積分は
+$$
+\Gamma(\Re z)\Gamma(\Re w)<\infty
+$$
+である。従って [Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02)を適用でき、
 
 $$
 \Gamma(z)\Gamma(w)
@@ -1136,7 +1163,7 @@ x=rt,
 y=r(1-t),
 $$
 
-領域は $r>0$, $0<t<1$ であり、Jacobian の絶対値は $r$ である。従って
+領域は $r>0$, $0<t<1$ であり、Jacobian の絶対値は $r$ である。[多重積分の変数変換定理](../RA7/index.md#thm-ra7-change-of-variables)をこの写像に適用すると
 
 $$
 \Gamma(z)\Gamma(w)
@@ -1158,7 +1185,7 @@ $$
 右半平面では Gamma 関数は零点を持たないから $\Gamma(z+w)$ で割ることができ、主張を得る。$\square$
 <!-- proof-end -->
 
-この節だけは二重積分の変数変換を使う。主線の反射公式・Stirling・倍角公式には依存しないので、重積分を未修なら後回しにしてよい。
+この節だけは二重積分の順序交換と変数変換を使う。主線の反射公式・Stirling・倍角公式には依存せず、CA12 もこの補助節を prerequisite にしない。
 
 **直接例**。$z=w=1/2$ とすると
 
