@@ -106,6 +106,7 @@
 12. [GEO12 Riemann 計量・長さ・距離・体積](textbook/volumes/00_foundations/GEO12/index.md)
 13. [GEO13 アフィン接続・Levi-Civita 接続・平行移動](textbook/volumes/00_foundations/GEO13/index.md)
 14. [GEO14 測地線・指数写像・正規座標](textbook/volumes/00_foundations/GEO14/index.md)
+15. [GEO15 完備性・Hopf--Rinow](textbook/volumes/00_foundations/GEO15/index.md)
 
 ### 標準ベクトル解析コア
 

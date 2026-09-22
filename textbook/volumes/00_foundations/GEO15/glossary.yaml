@@ -1,0 +1,26 @@
+chapter: "GEO15"
+terms:
+  - term: 距離完備性
+    english: metric completeness
+    meaning: Riemann 距離に関する任意の Cauchy 列が多様体内で収束する性質。
+  - term: 測地完備性
+    english: geodesic completeness
+    meaning: 任意の初期位置・初期速度から出る最大測地線が全実数上へ延長できる性質。
+  - term: 最短測地線
+    english: minimizing geodesic
+    meaning: 両端点間の Riemann 距離と等しい長さを持つ測地線。
+  - term: Hopf--Rinow の定理
+    english: Hopf--Rinow theorem
+    meaning: 連結有限次元 Riemann 多様体で、距離完備性・測地完備性・指数写像の全域定義・閉有界集合のコンパクト性を結ぶ定理。
+  - term: 閉距離球
+    english: closed metric ball
+    meaning: 基点からの Riemann 距離が指定半径以下である点全体の集合。
+  - term: 切断時刻
+    english: cut time
+    meaning: 固定した単位方向の放射測地線が基点からの距離を実現し続ける最大時刻。
+  - term: 切断点
+    english: cut point
+    meaning: 有限な切断時刻に放射測地線が到達する点。
+  - term: 切断点集合
+    english: cut locus
+    meaning: 基点から各単位方向へ進んだときに得られる切断点全体の集合。

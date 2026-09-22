@@ -1,0 +1,54 @@
+id: "GEO15"
+title: "幾何学 XV：完備性・Hopf--Rinow"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEO14
+  - TOP5
+official_scope: []
+learning_objectives:
+  - Riemann 距離に関する距離完備性と、最大測地線が全実数へ延長できる測地完備性を区別して定義できる
+  - 測地完備性と指数写像が全接空間上で定義されることの同値を説明できる
+  - 最短測地線を定義し、その存在だけでは完備性を導けないことを開 Euclid 球で説明できる
+  - 距離完備性から有限時刻で終わる測地線を延長する証明を、位置の Cauchy 性・座標速度の有界性・Christoffel 係数の局所有界性まで追って再構成できる
+  - 距離の下限へ近づく曲線列と正規球面のコンパクト性から、小さい球面上の距離減少点を構成できる
+  - 最短な区分的測地線が角を持てないことを凸正規近傍から証明できる
+  - 一点で指数写像が全域定義されることから、任意点までの最短測地線を open-closed 型の延長論証で構成できる
+  - 全域指数写像と最短測地線の存在から閉距離球を接空間の閉球の指数像として表し、コンパクト性を証明できる
+  - Hopf--Rinow の距離完備・測地完備・指数写像の全域定義・閉有界集合のコンパクト性の同値を循環なく証明できる
+  - 切断時刻・切断点・切断点集合を定義し、円周と球面で最短性の喪失を説明できる
+definitions:
+  - { id: GEO15-DEF-01, name: 距離完備な Riemann 多様体 }
+  - { id: GEO15-DEF-02, name: 測地完備な Riemann 多様体 }
+  - { id: GEO15-DEF-03, name: 最短測地線 }
+  - { id: GEO15-DEF-04, name: 切断時刻 }
+  - { id: GEO15-DEF-05, name: 切断点・切断点集合 }
+theorems:
+  - { id: GEO15-PROP-01, name: 測地完備性と指数写像の定義域 }
+  - { id: GEO15-THM-01, name: 距離完備なら測地完備 }
+  - { id: GEO15-LEM-01, name: 小さい正規球面上の距離減少点 }
+  - { id: GEO15-LEM-02, name: 最短な区分的測地線に角はない }
+  - { id: GEO15-THM-02, name: 全域指数写像から最短測地線を得る }
+  - { id: GEO15-PROP-02, name: 閉距離球は接空間の閉球の指数像 }
+  - { id: GEO15-PROP-03, name: 閉有界集合がコンパクトなら距離完備 }
+  - { id: GEO15-THM-03, name: Hopf--Rinow の定理 }
+  - { id: GEO15-COR-01, name: 完備 Riemann 多様体の閉有界集合はコンパクト }
+canonical_examples:
+  - Euclid 空間の距離完備性・測地完備性
+  - 開 Euclid 球の不完備性と最短測地線
+  - 標準球面の完備性
+  - 穴あき Euclid 平面の不完備性
+  - 円周の切断点と切断点集合
+problem_patterns:
+  - GEO15-METRIC-GEODESIC-COMPLETENESS-1
+  - GEO15-GEODESIC-EXTENSION-1
+  - GEO15-DISTANCE-DROP-1
+  - GEO15-NO-CORNER-1
+  - GEO15-TOTAL-EXP-MINIMIZER-1
+  - GEO15-CLOSED-BALL-COMPACT-1
+  - GEO15-HOPF-RINOW-1
+  - GEO15-CUT-LOCUS-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.5, exercises: 6.5, review: 0.5 }
