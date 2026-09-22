@@ -374,6 +374,15 @@ nodes:
     implementation_path: textbook/volumes/00_foundations/GEO10/index.md
     prerequisites: [GEO3, VC2, VC3, LA5]
 
+  - id: GEO11
+    title: Euclid 空間の超曲面 II：構造方程式・Gauss--Codazzi・基本定理
+    area: differential-geometry
+    tier: advanced-standard
+    status: implemented
+    implemented_at: 2026-09-23
+    implementation_path: textbook/volumes/00_foundations/GEO11/index.md
+    prerequisites: [GEO10, GEO6, GEO9]
+
   - id: VC1
     title: ベクトル場と微分演算子
     area: vector-calculus
@@ -741,7 +750,7 @@ implementation_batches:
     nodes: [VC1, VC2, VC3, VC4, VC5, VC6, VC7, VC8, VC9]
   - order: 10
     id: differential-geometry-core
-    nodes: [GEO1, GEO2, GEO3, GEO4, GEO5, GEO6, GEO7, GEO8, GEO9, GEO10]
+    nodes: [GEO1, GEO2, GEO3, GEO4, GEO5, GEO6, GEO7, GEO8, GEO9, GEO10, GEO11]
 
 deferred_integrations:
   - id: dream-theater-facade-entrypoint
