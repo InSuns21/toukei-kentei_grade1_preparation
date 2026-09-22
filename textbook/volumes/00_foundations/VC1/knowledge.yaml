@@ -22,11 +22,10 @@ concepts:
       - functional.frechet-derivative
 
   - id: vector-calculus.gradient
-    name: スカラー場の勾配
+    name: 勾配
     kind: definition
-    aliases: [gradient, grad, ベクトル解析の勾配]
+    aliases: [gradient, grad, 勾配]
     introduction: inline
-    introduction_aliases: [勾配]
     requires:
       - vector-calculus.scalar-vector-field
       - functional.frechet-derivative
@@ -53,11 +52,10 @@ concepts:
       - analysis.regular-level-set-local-graph
 
   - id: vector-calculus.divergence
-    name: ベクトル場の発散
+    name: 発散
     kind: definition
-    aliases: [divergence, div, ベクトル解析の発散]
+    aliases: [divergence, div, 発散]
     introduction: inline
-    introduction_aliases: [発散]
     requires:
       - vector-calculus.scalar-vector-field
 
