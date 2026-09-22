@@ -617,7 +617,7 @@ $$
 となるよう定数倍を選んだものが Legendre 多項式 $P_\ell$ です。この係数漸化式は [ODE6 の Legendre 方程式](../ODE6/index.md) で得たものと一致します。
 <!-- proof-end -->
 
-## 6. 方位角を入れると associated Legendre 方程式になる
+## 6. 方位角を入れると Legendre の陪微分方程式になる
 
 $Y(\theta,\phi)=\Theta(\theta)e^{im\phi}$ と置けば
 
@@ -640,7 +640,7 @@ $$
 0.
 $$
 
-これは associated Legendre 方程式です。
+これは Legendre の陪微分方程式（associated Legendre equation）です。
 
 ここで「正則解を選ぶ」とだけ言って済ませず、Legendre 多項式から実際に作ります。$0\le m\le\ell$ に対して
 
@@ -657,7 +657,7 @@ $$
 <a id="prop-pde11-spherical-eigenmode"></a>
 <!-- formal-statement-start -->
 > **命題（標準球面調和モード）**  
-> $\ell=0,1,2,\ldots$、$|m|\le\ell$ とする。上の定義で得た associated Legendre 関数を用いれば
+> $\ell=0,1,2,\ldots$、$|m|\le\ell$ とする。上の定義で得た Legendre 陪関数を用いれば
 
 $$
 Y_\ell^m(\theta,\phi)
@@ -679,7 +679,7 @@ $$
 
 ### 証明の見取り図
 
-Legendre 方程式を $m$ 回微分すると、$Q=d^mP_\ell/dx^m$ が満たす方程式が得られます。そこへ $(1-x^2)^{m/2}$ を掛けると、極 $x=\pm1$ に見える特異項がちょうど associated Legendre 方程式の $m^2/(1-x^2)$ 項へ組み替わります。
+Legendre 方程式を $m$ 回微分すると、$Q=d^mP_\ell/dx^m$ が満たす方程式が得られます。そこへ $(1-x^2)^{m/2}$ を掛けると、極 $x=\pm1$ に見える特異項がちょうど Legendre の陪微分方程式の $m^2/(1-x^2)$ 項へ組み替わります。
 
 <!-- proof-start -->
 ### 証明
@@ -762,7 +762,7 @@ $$
 0.
 $$
 
-従って $\Theta=(-1)^mAQ=P_\ell^m$ は associated Legendre 方程式を満たします。
+従って $\Theta=(-1)^mAQ=P_\ell^m$ は Legendre の陪微分方程式を満たします。
 
 球面上の滑らかさも式から確認できます。$x=\cos\theta$ なら
 
@@ -815,7 +815,7 @@ $$
 
 <a id="prop-pde11-solid-harmonic"></a>
 <!-- formal-statement-start -->
-> **命題（標準球面調和モードから得る solid harmonic）**  
+> **命題（標準球面調和モードから得る 立体調和関数）**  
 > 標準球面調和モード $Y_\ell^m$ に対し
 
 $$
@@ -985,7 +985,7 @@ $P_0(x)=1$, $P_1(x)=x$ がそれぞれ $\ell=0,1$ の Legendre 方程式を満�
 $P_0'=P_0''=0$ なので $\ell=0$ の式は0。$P_1'=1,P_1''=0$ なので $-2x+2x=0$ です。
 <!-- solution-end -->
 
-#### PDE11-A04 solid harmonic
+#### PDE11-A04 立体調和関数
 - Level: A
 
 $\ell=1$ で $rY_1$ が一次調和多項式になることを $Y=x/r$ の例で確認せよ。
@@ -1034,7 +1034,7 @@ $$
 $$
 u(r,\theta)=r^2P_2(\cos\theta)
 $$
-です。各項は solid harmonic で、$r=1$ で境界値に一致します。
+です。各項は 立体調和関数 で、$r=1$ で境界値に一致します。
 <!-- solution-end -->
 
 ### Level C
@@ -1046,7 +1046,7 @@ PDE7 の長方形の正弦固有モードと、本章の円板 Bessel モード�
 
 <!-- solution-start -->
 ##### 詳細解答
-直交座標では Laplacian が各座標の二階微分の和で、境界条件から正弦・余弦が固有関数になります。極座標では尺度因子 $1/r,1/r^2$ が入り、半径方程式が Bessel 方程式になります。球座標では角度部分が球面 Laplacian の固有値問題となり Legendre / associated Legendre が現れます。特殊関数は「変な公式」ではなく、座標幾何と境界条件に適合した Laplacian の固有関数です。
+直交座標では Laplacian が各座標の二階微分の和で、境界条件から正弦・余弦が固有関数になります。極座標では尺度因子 $1/r,1/r^2$ が入り、半径方程式が Bessel 方程式になります。球座標では角度部分が球面 Laplacian の固有値問題となり Legendre / Legendre 陪関数 が現れます。特殊関数は「変な公式」ではなく、座標幾何と境界条件に適合した Laplacian の固有関数です。
 <!-- solution-end -->
 
 ## 9. 章末チェック
@@ -1054,5 +1054,5 @@ PDE7 の長方形の正弦固有モードと、本章の円板 Bessel モード�
 - 円板の変数分離から Bessel 方程式を導ける。
 - Bessel 零点と Dirichlet 固有値を結び付けられる。
 - 球面 Laplacian から Legendre 方程式を導ける。
-- 球面調和関数と solid harmonic を説明できる。
+- 球面調和関数と 立体調和関数 を説明できる。
 - Bessel / Legendre を熱・波動・Laplace の固有モードへ戻せる。
