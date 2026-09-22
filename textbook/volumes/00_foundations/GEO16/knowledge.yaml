@@ -1,0 +1,189 @@
+chapter: GEO16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEO13
+  - GEO11
+
+concepts:
+  - id: geometry.riemann-curvature-operator
+    name: Riemann 曲率作用素
+    kind: definition
+    aliases: [Riemann 曲率作用素, curvature operator]
+    introduction: formal
+    introduction_aliases: ["定義（曲率作用素・Riemann 曲率テンソル）"]
+    requires:
+      - geometry.levi-civita-connection
+      - geometry.lie-bracket
+
+  - id: geometry.riemann-curvature-tensor
+    name: Riemann 曲率テンソル
+    kind: definition
+    aliases: [Riemann 曲率テンソル, Riemann curvature tensor]
+    introduction: formal
+    introduction_aliases: ["定義（曲率作用素・Riemann 曲率テンソル）"]
+    requires:
+      - geometry.riemann-curvature-operator
+      - geometry.riemannian-metric
+
+  - id: geometry.curvature-tensoriality-coordinate
+    name: 曲率作用素のテンソル性と座標表示
+    kind: proposition
+    aliases: [曲率作用素のテンソル性, 曲率作用素の座標表示]
+    requires:
+      - geometry.riemann-curvature-operator
+      - geometry.christoffel-coefficients
+
+  - id: geometry.first-bianchi-identity
+    name: 第一 Bianchi 恒等式
+    kind: theorem
+    aliases: [第一 Bianchi 恒等式, first Bianchi identity]
+    requires:
+      - geometry.riemann-curvature-operator
+      - geometry.connection-torsion
+
+  - id: geometry.riemann-curvature-symmetries
+    name: Riemann 曲率テンソルの対称性
+    kind: theorem
+    aliases: [Riemann 曲率テンソルの対称性]
+    introduction_aliases: ["定理（Riemann 曲率テンソルの対称性と第一 Bianchi 恒等式）"]
+    requires:
+      - geometry.riemann-curvature-tensor
+      - geometry.first-bianchi-identity
+      - geometry.metric-compatible-connection
+
+  - id: geometry.normal-coordinate-curvature-second-derivatives
+    name: 正規座標における曲率と計量の二階微分
+    kind: proposition
+    aliases: [正規座標における曲率と計量の二階微分]
+    requires:
+      - geometry.riemann-curvature-tensor
+      - geometry.normal-coordinates
+      - geometry.levi-civita-christoffel-formula
+
+  - id: geometry.second-bianchi-identity
+    name: 第二 Bianchi 恒等式
+    kind: theorem
+    aliases: [第二 Bianchi 恒等式, second Bianchi identity]
+    requires:
+      - geometry.riemann-curvature-operator
+      - geometry.tensor-covariant-derivative
+      - geometry.normal-coordinates
+
+  - id: geometry.sectional-curvature
+    name: 断面曲率
+    kind: definition
+    aliases: [断面曲率, sectional curvature]
+    introduction: formal
+    requires:
+      - geometry.riemann-curvature-tensor
+      - geometry.riemannian-metric
+
+  - id: geometry.sectional-curvature-basis-invariance
+    name: 断面曲率の基底不変性
+    kind: proposition
+    aliases: [断面曲率の基底不変性]
+    requires:
+      - geometry.sectional-curvature
+      - geometry.riemann-curvature-symmetries
+
+  - id: geometry.sectional-determines-riemann
+    name: 断面曲率による Riemann 曲率テンソルの決定
+    kind: theorem
+    aliases: [断面曲率による Riemann 曲率テンソルの決定]
+    requires:
+      - geometry.sectional-curvature
+      - geometry.riemann-curvature-symmetries
+      - geometry.first-bianchi-identity
+
+  - id: geometry.ricci-curvature
+    name: Ricci 曲率
+    kind: definition
+    aliases: [Ricci 曲率, Ricci curvature]
+    introduction: formal
+    introduction_aliases: ["定義（Ricci 曲率・スカラー曲率）"]
+    requires:
+      - geometry.riemann-curvature-tensor
+
+  - id: geometry.scalar-curvature
+    name: スカラー曲率
+    kind: definition
+    aliases: [スカラー曲率, scalar curvature]
+    introduction: formal
+    introduction_aliases: ["定義（Ricci 曲率・スカラー曲率）"]
+    requires:
+      - geometry.ricci-curvature
+      - geometry.riemannian-metric
+
+  - id: geometry.ricci-symmetry
+    name: Ricci 曲率の対称性
+    kind: proposition
+    aliases: [Ricci 曲率の対称性]
+    requires:
+      - geometry.ricci-curvature
+      - geometry.riemann-curvature-symmetries
+
+  - id: geometry.constant-sectional-curvature
+    name: 定断面曲率
+    kind: definition
+    aliases: [定断面曲率, constant sectional curvature]
+    introduction: formal
+    requires:
+      - geometry.sectional-curvature
+
+  - id: geometry.constant-curvature-tensor
+    name: 定断面曲率の曲率テンソル
+    kind: proposition
+    aliases: [定断面曲率の曲率テンソル]
+    requires:
+      - geometry.constant-sectional-curvature
+      - geometry.sectional-determines-riemann
+
+  - id: geometry.constant-curvature-contractions
+    name: 定断面曲率空間の Ricci 曲率とスカラー曲率
+    kind: corollary
+    aliases: [定断面曲率空間の Ricci 曲率とスカラー曲率]
+    requires:
+      - geometry.constant-curvature-tensor
+      - geometry.ricci-curvature
+      - geometry.scalar-curvature
+
+  - id: geometry.gauss-equation-intrinsic-form
+    name: Gauss 方程式の内在表示
+    kind: proposition
+    aliases: [Gauss 方程式の内在表示]
+    requires:
+      - geometry.gauss-equation
+      - geometry.riemann-curvature-tensor
+
+  - id: geometry.surface-gauss-sectional-curvature
+    name: 二次元の Gauss 曲率と断面曲率の一致
+    kind: corollary
+    aliases: [二次元の Gauss 曲率と断面曲率の一致]
+    requires:
+      - geometry.gauss-equation-intrinsic-form
+      - geometry.theorema-egregium
+      - geometry.sectional-curvature
+
+  - id: geometry.euclidean-zero-curvature
+    name: Euclid 空間の曲率0
+    kind: example
+    aliases: [Euclid 空間の曲率0]
+    requires:
+      - geometry.riemann-curvature-operator
+
+  - id: geometry.sphere-positive-constant-curvature
+    name: 球面の正の定断面曲率
+    kind: example
+    aliases: [球面の正の定断面曲率]
+    requires:
+      - geometry.gauss-equation-intrinsic-form
+      - geometry.constant-sectional-curvature
+
+  - id: geometry.hyperbolic-upper-half-plane-curvature
+    name: 上半平面模型の負の定断面曲率
+    kind: example
+    aliases: [上半平面模型の負の定断面曲率]
+    requires:
+      - geometry.curvature-tensoriality-coordinate
+      - geometry.sectional-curvature
