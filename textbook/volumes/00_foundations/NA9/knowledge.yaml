@@ -22,7 +22,7 @@ concepts:
   - id: numerical.spectral-radius
     name: 行列のスペクトル半径
     kind: definition
-    aliases: [matrix spectral radius, 行列のスペクトル半径]
+    aliases: [matrix spectral radius, 行列のスペクトル半径, スペクトル半径]
     introduction: formal
     introduction_aliases: [スペクトル半径, "定義（スペクトル半径）"]
     requires:
