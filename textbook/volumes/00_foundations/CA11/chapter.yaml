@@ -1,0 +1,36 @@
+id: "CA11"
+title: "標準複素解析 XI：Gamma 関数・反射公式・Stirling 公式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CA10
+  - CA7
+official_scope: []
+learning_objectives:
+  - Euler 積分の局所一様収束から Gamma 関数が右半平面で正則であることを示し、関数等式と階乗との対応を導ける
+  - 関数等式を用いて Gamma 関数を全平面へ有理型解析接続し、非正整数での単純極と留数を計算できる
+  - Euler の極限公式から 1/Gamma の Weierstrass 積を導き、Gamma 関数が零点を持たないことを説明できる
+  - CA10 の sin(pi z) の Euler 積と 1/Gamma の積を比較して Euler の反射公式を証明できる
+  - Stirling 公式の定数 sqrt(2pi) を Wallis 積で決定し、正の実軸上の漸近公式を再構成できる
+  - Stirling 公式と関数等式から Legendre の倍角公式を証明し、Beta 関数との関係を追える
+definitions:
+  - { id: CA11-DEF-01, name: Gamma 関数 }
+  - { id: CA11-DEF-02, name: Euler--Mascheroni 定数 }
+  - { id: CA11-DEF-03, name: Beta 関数 }
+theorems:
+  - { id: CA11-THM-01, name: Gamma 関数の右半平面での正則性 }
+  - { id: CA11-THM-02, name: Gamma 関数の関数等式 }
+  - { id: CA11-THM-03, name: Gamma 関数の有理型解析接続と極 }
+  - { id: CA11-THM-04, name: Euler の極限公式 }
+  - { id: CA11-THM-05, name: 逆 Gamma 関数の Weierstrass 積 }
+  - { id: CA11-COR-01, name: Gamma 関数の零点不存在 }
+  - { id: CA11-THM-06, name: Euler の反射公式 }
+  - { id: CA11-THM-07, name: Stirling 公式 }
+  - { id: CA11-THM-08, name: Legendre の倍角公式 }
+  - { id: CA11-THM-09, name: Beta--Gamma 関係式 }
+canonical_examples: [Gamma(n+1)=n!, Gamma(1/2)=sqrt(pi), 非正整数での留数, 1/Gamma の Weierstrass 積, Gamma(1/3)Gamma(2/3), Stirling による階乗近似]
+problem_patterns: [CA11-GAMMA-RECURRENCE-1, CA11-GAMMA-POLE-1, CA11-RECIPROCAL-PRODUCT-1, CA11-REFLECTION-1, CA11-DUPLICATION-1, CA11-STIRLING-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 14.0, exercises: 9.0, review: 3.0 }

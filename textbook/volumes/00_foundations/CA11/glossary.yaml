@@ -1,0 +1,23 @@
+chapter: "CA11"
+terms:
+  - term: Gamma 関数
+    english: Gamma function
+    meaning: Re z>0 で Euler 積分 Gamma(z)=integral_0^infinity t^(z-1)e^(-t)dt により定義され、関数等式により全平面へ有理型解析接続される特殊関数。
+  - term: Euler--Mascheroni 定数
+    english: Euler--Mascheroni constant
+    meaning: 調和数 H_n と log n の差 H_n-log n の極限 gamma。逆 Gamma 関数の Weierstrass 積の指数因子に現れる。
+  - term: 逆 Gamma 関数
+    english: reciprocal Gamma function
+    meaning: 1/Gamma(z)。全平面で整関数となり、0,-1,-2,... をちょうど単純零点に持つ。
+  - term: Euler の反射公式
+    english: Euler reflection formula
+    meaning: Gamma(z)Gamma(1-z)=pi/sin(pi z) という恒等式。逆 Gamma 関数の積と CA10 の正弦関数の Euler 積を比較して導く。
+  - term: Stirling 公式
+    english: Stirling formula
+    meaning: x→+infinity で Gamma(x)~sqrt(2pi)x^(x-1/2)e^(-x) となる漸近公式。整数では n!~sqrt(2pi n)(n/e)^n。
+  - term: Legendre の倍角公式
+    english: Legendre duplication formula
+    meaning: Gamma(z)Gamma(z+1/2)=2^(1-2z)sqrt(pi)Gamma(2z) という二倍引数の恒等式。
+  - term: Beta 関数
+    english: Beta function
+    meaning: Re z,Re w>0 で B(z,w)=integral_0^1 t^(z-1)(1-t)^(w-1)dt と定義され、B(z,w)=Gamma(z)Gamma(w)/Gamma(z+w) を満たす。
