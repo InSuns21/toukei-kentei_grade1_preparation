@@ -239,6 +239,17 @@
 | Ricci 曲率 | Ricci curvature | 人名部分は英字表記を保持。Riemann 曲率テンソルの縮約 |
 | スカラー曲率 | scalar curvature | Ricci 曲率をさらに計量で縮約したスカラー量 |
 | 定断面曲率 | constant sectional curvature | 全ての点・2次元接平面で断面曲率が同じ定数となる性質 |
+| 曲線の変分 | variation of curves | 基準曲線を媒介変数で滑らかに動かす二変数写像 |
+| 変分ベクトル場 | variation vector field | 曲線の変分を変分方向に微分して得る基準曲線上のベクトル場 |
+| 固定端点変分 | fixed-endpoint variation | 変分中の全曲線が同じ二端点を持つ変分 |
+| 測地線変分 | geodesic variation | 変分中の各曲線が測地線である曲線の変分 |
+| 第一変分公式 | first variation formula | 長さ・エネルギーの一次変化を境界項と共変加速度で表す公式 |
+| 第二変分公式 | second variation formula | 測地線におけるエネルギーの二次変化を共変微分項と曲率項で表す公式 |
+| 指数形式 | index form | 測地線に沿うベクトル場に対して第二変分を与える対称双線形形式 |
+| Jacobi 場 | Jacobi field | 人名部分は英字表記を保持。測地線族の一次のずれを表す Jacobi 方程式の解 |
+| Jacobi 方程式 | Jacobi equation | 人名部分は英字表記を保持。$D_t^2J+R(J,\dot\gamma)\dot\gamma=0$ |
+| 共役点 | conjugate point | 一本の測地線上で両端0の非零 Jacobi 場が存在する二点の関係 |
+| 共役点の重複度 | multiplicity of a conjugate point | 両端0の Jacobi 場の空間の次元 |
 
 ## DREAM THEATER：数値解析の主表記
 
