@@ -876,7 +876,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo4-partition-of-unity, def-geo4-subordinate-partition -->
-**定義の確認：実直線上の二つの関数**
+**定義の確認**
+
+### 実直線上の二つの関数
 
 前節の平坦関数 $h$ を使って
 
