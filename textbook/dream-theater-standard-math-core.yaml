@@ -246,6 +246,14 @@ nodes:
     implemented_at: 2026-09-07
     implementation_path: textbook/volumes/00_foundations/LA3D/index.md
     prerequisites: [LA3C]
+  - id: LA3E
+    title: テンソル積・外積代数
+    area: linear-algebra
+    tier: core-advanced-standard
+    status: implemented
+    implemented_at: 2026-09-22
+    implementation_path: textbook/volumes/00_foundations/LA3E/index.md
+    prerequisites: [LA3A, LA3D]
   - id: LA4
     title: 作用素多項式・最小多項式・Jordan構造
     area: linear-algebra
@@ -570,7 +578,7 @@ implementation_batches:
     nodes: [RA1, RA1A, RA2, RA3, RA4, RA4A, RA5]
   - order: 2
     id: linear-algebra-core
-    nodes: [LA1, LA2, LA3A, LA3B, LA3C, LA3D, LA4, LA5, LA6]
+    nodes: [LA1, LA2, LA3A, LA3B, LA3C, LA3D, LA3E, LA4, LA5, LA6]
   - order: 3
     id: topology-core
     nodes: [TOP1, TOP2, TOP3, TOP4, TOP5, TOP5A, TOP6, TOP7]

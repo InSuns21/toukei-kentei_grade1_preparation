@@ -79,6 +79,20 @@
 - Lehmann–Scheffé は本文では「レーマン・シェッフェ」。
 - Cramér–Rao は本文では「クラーメル・ラオ」。
 
+## DREAM THEATER：線形代数・幾何の主表記
+
+| 主表記 | 補助的な英語表記 | 備考 |
+|---|---|---|
+| テンソル積 | tensor product | 初出で英語併記可。以後は日本語主表記 |
+| 反変テンソル | contravariant tensor | 型の説明では「反変次数」も使用 |
+| 共変テンソル | covariant tensor | 型の説明では「共変次数」も使用 |
+| 縮約 | contraction | 本文で contraction を主語彙にしない |
+| 交代化 | antisymmetrization | 記号 `Alt` は数式中で使用可 |
+| 外冪 | exterior power | `Λ^kV^*` は数式記号として保持 |
+| 外積（ウェッジ積） | wedge product / exterior product | 微分形式・外積代数の文脈では「外積」を主表記とし、ベクトルの外積との混同があり得る初出だけ「ウェッジ積」を補助併記 |
+| 分解可能形式 | decomposable form | 「単純形式」へ機械的に言い換えない |
+| 内部積 | interior product | 記号 `ι_v` は数式中で使用可 |
+
 ## 公式シラバス用語例
 
 以下は `anki/syllabus/syllabus.yaml` の `items[].terms` を、シラバスの小項目ごとに反映したものです。括弧を含む表記も公式用語例としてそのまま残します。

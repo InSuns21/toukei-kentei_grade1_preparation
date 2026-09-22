@@ -1,0 +1,114 @@
+chapter: LA3E
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LA3A
+  - LA3D
+forward_references:
+  - geometry.tensor-field
+  - geometry.differential-form
+  - geometry.exterior-derivative
+  - geometry.orientation
+  - geometry.integration-of-forms
+
+concepts:
+  - id: linear.tensor-product
+    name: テンソル積
+    kind: definition
+    aliases: [テンソル積, tensor product]
+    requires:
+      - linear.linear-map
+      - linear.bilinear-map
+
+  - id: linear.tensor-product-universal-property
+    name: テンソル積の普遍性
+    kind: theorem
+    aliases: [テンソル積の普遍性, universal property of tensor product]
+    requires:
+      - linear.tensor-product
+
+  - id: linear.tensor-product-basis
+    name: テンソル積の基底
+    kind: theorem
+    aliases: [テンソル積の基底, tensor product basis]
+    requires:
+      - linear.tensor-product
+      - linear.basis
+
+  - id: linear.rs-tensor
+    name: (r,s)型テンソル
+    kind: definition
+    aliases: ["(r,s)型テンソル", mixed tensor]
+    requires:
+      - linear.tensor-product
+      - linear.algebraic-dual-space
+
+  - id: linear.contraction
+    name: 縮約
+    kind: definition
+    aliases: [縮約, contraction]
+    requires:
+      - linear.rs-tensor
+      - linear.algebraic-dual-space
+
+  - id: linear.antisymmetrization
+    name: 交代化
+    kind: definition
+    aliases: [交代化, antisymmetrization]
+    requires:
+      - linear.alternating-multilinear-form
+
+  - id: linear.exterior-power
+    name: 外冪
+    kind: definition
+    aliases: [外冪, exterior power]
+    requires:
+      - linear.alternating-multilinear-form
+      - linear.algebraic-dual-space
+
+  - id: linear.wedge-product
+    name: 外積
+    kind: definition
+    aliases: [外積, ウェッジ積, wedge product, exterior product]
+    requires:
+      - linear.exterior-power
+      - linear.antisymmetrization
+
+  - id: linear.exterior-power-dimension
+    name: 外冪の次元公式
+    kind: theorem
+    aliases: [外冪の次元公式]
+    requires:
+      - linear.wedge-product
+      - linear.dual-basis
+
+  - id: linear.graded-commutativity
+    name: 外積の次数付き交換則
+    kind: theorem
+    aliases: [外積の次数付き交換則, graded commutativity]
+    requires:
+      - linear.wedge-product
+
+  - id: linear.decomposable-form
+    name: 分解可能形式
+    kind: definition
+    aliases: [分解可能形式, decomposable form]
+    requires:
+      - linear.wedge-product
+
+  - id: linear.top-form-change-of-basis
+    name: 最高次外積と基底変換
+    kind: theorem
+    aliases: [最高次外積と基底変換]
+    requires:
+      - linear.wedge-product
+      - linear.abstract-determinant
+      - linear.dual-basis
+
+  - id: linear.interior-product
+    name: 内部積
+    kind: definition
+    aliases: [内部積, interior product]
+    requires:
+      - linear.exterior-power
+      - linear.wedge-product
