@@ -77,7 +77,7 @@ concepts:
     kind: definition
     aliases: ["ARMA process", "ARMA(p,q)"]
     introduction: formal
-    introduction_aliases: ["定義（ARMA$(p,q)$ 過程）"]
+    introduction_aliases: ["定義（ARMA 過程）"]
     requires:
       - timeseries.backshift-operator
       - timeseries.white-noise
@@ -168,7 +168,7 @@ concepts:
     kind: definition
     aliases: ["ARIMA process", "ARIMA(p,d,q)"]
     introduction: formal
-    introduction_aliases: ["定義（ARIMA$(p,d,q)$ 過程）"]
+    introduction_aliases: ["定義（ARIMA 過程）"]
     requires:
       - timeseries.difference-operators
       - timeseries.arma-process
