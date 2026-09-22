@@ -42,11 +42,11 @@ concepts:
       - numerical.lu-factorization
 
   - id: numerical.lu-leading-principal-minors
-    name: ピボット選択なし LU 分解の存在判定と一意性
+    name: 可逆行列に対するピボット選択なし消去の判定と LU 一意性
     kind: theorem
     aliases: [LU criterion by leading principal minors]
     introduction: formal
-    introduction_aliases: ["定理（ピボット選択なし LU 分解の存在判定と一意性）"]
+    introduction_aliases: ["定理（可逆行列に対するピボット選択なし消去の判定と LU 一意性）"]
     requires:
       - numerical.lu-factorization
 
