@@ -12,11 +12,11 @@ $$
 \boxed{
 \text{共分散 }\min(s,t)
 \to
-\text{ガウス finite-dimensional laws}
+\text{ガウス有限次元分布}
 \to
 \text{Kolmogorov extension}
 \to
-\text{continuous 修正}
+\text{連続な修正}
 \to
 \text{ブラウン運動}
 }
@@ -48,7 +48,7 @@ $$
 
 ## 1. STO3 のガウス過程構成をブラウン運動へ特化する
 
-ガウス過程そのものの定義と存在原理は STO3 の [ガウス過程](../STO3/index.md#def-sto3-gaussian-process) と [平均関数と半正定値共分散核からのガウス過程構成](../STO3/index.md#thm-sto3-gaussian-process-existence) を canonical owner とします。
+ガウス過程そのものの定義と存在原理は STO3 の [ガウス過程](../STO3/index.md#def-sto3-gaussian-process) と [平均関数と半正定値共分散核からのガウス過程構成](../STO3/index.md#thm-sto3-gaussian-process-existence) を正本とします。
 
 この章では一般論を繰り返さず、
 
@@ -317,7 +317,7 @@ $$
 - $B_0=0$ ほとんど確実に,
 - disjoint increments が jointly ガウスかつ共分散 0 なので独立,
 - $B_t-B_s\sim N(0,t-s)$,
-- continuous 修正を選んだので標本路がほとんど確実に連続,
+- 連続な修正を選んだので標本路がほとんど確実に連続,
 
 を全て満たします。
 
