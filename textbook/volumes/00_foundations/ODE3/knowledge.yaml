@@ -67,7 +67,7 @@ concepts:
   - id: ode.ode3-variation-of-constants
     name: 非斉次線形系の定数変化公式
     kind: theorem
-    aliases: [非斉次線形系の定数変化公式, 定数変化公式, ODE3 の定数変化公式, variation of constants]
+    aliases: [非斉次線形系の定数変化公式, 定数変化公式, ODE3 の定数変化公式, variation of constants, Duhamel公式]
     introduction: formal
     requires:
       - ode.matrix-exponential-properties
