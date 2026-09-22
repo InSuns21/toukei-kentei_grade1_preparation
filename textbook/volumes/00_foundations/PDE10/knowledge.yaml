@@ -32,9 +32,9 @@ concepts:
     aliases: ["Newton ポテンシャルと Poisson 方程式"]
     introduction: formal
   - id: pde.pde10-mean-value
-    name: 多次元調和関数の球面平均値性質
+    name: 多次元調和関数の平均値性質
     kind: theorem
-    aliases: ["多次元調和関数の球面平均値性質"]
+    aliases: ["多次元調和関数の平均値性質"]
     introduction: formal
   - id: pde.pde10-kelvin
     name: Kelvin 変換
