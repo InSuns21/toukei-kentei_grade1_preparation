@@ -709,7 +709,7 @@ Euler 積分をコンパクト集合上一様に制御して右半平面での�
 ## CA12 Riemann ζ 関数・theta 変換・解析接続・関数等式 `advanced-standard`
 Dirichlet 級数を局所一様絶対収束で正則化し、一意分解から Euler 積と右半平面での零点不存在を導く。FOU3 の Gaussian Fourier 変換を周期化し、FOU2 の Fourier 級数収束を用いて一般 Poisson 和公式を黒箱にせず theta 変換を証明する。theta の Mellin 表現を Fubini の適用条件まで確認し、積分を $t=1$ で分割して Riemann ζ 関数の有理型解析接続、$s=1$ の留数1、完成 zeta 因子の対称性、関数等式、自明零点へ接続する。
 
-**証明境界**：素数定理、$Re s=1$ の零点不存在の完全証明、zero-free region、Riemann--von Mangoldt 公式、L 関数・モジュラー形式、Riemann 予想の証明論は CA12 では扱わない。
+**証明境界**：素数定理、$\Re s=1$ の零点不存在の完全証明、zero-free region、Riemann--von Mangoldt 公式、L 関数・モジュラー形式、Riemann 予想の証明論は CA12 では扱わない。
 
 ---
 
