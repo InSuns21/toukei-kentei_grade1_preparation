@@ -5,6 +5,12 @@ prerequisites:
   - TSA1
   - TSA2
   - TSA3
+forward_references:
+  - timeseries.measure-preserving-shift
+  - timeseries.ergodicity
+  - timeseries.mean-ergodic-theorem
+  - timeseries.dynamical-mixing
+
 
 concepts:
   - id: timeseries.backshift-operator
