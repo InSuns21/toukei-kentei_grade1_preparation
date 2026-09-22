@@ -117,6 +117,7 @@ flowchart TD
   CA8 --> CA9["楕円関数・Weierstrass wp<br/>CA9"]
   CA7 --> CA10["無限積・Weierstrass因数分解<br/>Mittag--Leffler CA10"]
   CA4 --> CA10
+  CA10 --> CA11["Gamma関数・反射公式・Stirling<br/>CA11"]
 
   MTP --> FA0["関数解析 I<br/>Banach/Hilbert・有界作用素<br/>既存 D1/C1/C3"]
   LA6 --> FA0
@@ -657,9 +658,9 @@ Caratheodory 外測度をスケール依存の幾何量へ拡張し、後続の 
 
 ---
 
-# 7. 複素解析：Cauchy 理論から Riemann 面・楕円関数まで
+# 7. 複素解析：Cauchy 理論から特殊関数まで
 
-複素解析は FA5 の補助定理置き場ではなく、Fourier解析・PDE・スペクトル論へ共通に流れ込む独立した標準系列とする。CA1--CA10 は証明・例・演習まで実装済みで、CA7 から後半の「複素解析 II」へ入り、正則関数族のコンパクト性・Riemann 写像定理、Riemann 面・被覆、複素トーラス上の楕円関数を経て、無限積と整関数・有理型関数の構成論へ進む。
+複素解析は FA5 の補助定理置き場ではなく、Fourier解析・PDE・スペクトル論へ共通に流れ込む独立した標準系列とする。CA1--CA11 は証明・例・演習まで実装済みで、CA7 から後半の「複素解析 II」へ入り、正則関数族のコンパクト性・Riemann 写像定理、Riemann 面・被覆、複素トーラス上の楕円関数、無限積と整関数・有理型関数の構成論を経て、Gamma 関数・反射公式・Stirling 公式へ進む。
 
 ## CA1 複素微分・Cauchy–Riemann・初等正則関数 `core`
 複素微分、holomorphic/entire、Cauchy–Riemann、Wirtinger微分、複素指数・三角関数。
@@ -698,6 +699,11 @@ Möbius変換、Schwarz の補題、調和関数、平均値性質、Poisson ker
 無限積の局所一様収束を対数級数で制御し、Weierstrass の基本因子によって任意の離散零点多重集合から整関数を構成する。零点を持たない整関数が指数関数として表せることから Weierstrass 因数分解を導く。さらに各極の主要部から Taylor 多項式を差し引く Mittag--Leffler 構成を証明し、整数格子では $\pi\cot\pi z$ の部分分数展開と $\sin\pi z$ の Euler 積へ接続する。
 
 **証明境界**：Hadamard の有限位数因数分解、Runge / Mergelyan の近似定理、Picard の定理、Nevanlinna 理論は CA10 では扱わない。
+
+## CA11 Gamma 関数・反射公式・Stirling 公式 `advanced-standard`
+Euler 積分をコンパクト集合上一様に制御して右半平面での正則性を示し、関数等式から全平面への有理型解析接続と非正整数での留数を導く。Euler の極限公式を経て逆 Gamma 関数の Weierstrass 積を構成し、CA10 の正弦関数の Euler 積との比較から Euler の反射公式を証明する。Stirling 公式は未定定数で止めず、Wallis 積から sqrt(2pi) を決定し、正の実軸まで拡張する。さらに Legendre の倍角公式と Beta--Gamma 関係式へ接続する。
+
+**証明境界**：複素 sector 上の Stirling 公式の完全証明、高次の Stirling 展開、Bohr--Mollerup の特徴付け、Barnes G 関数・多重 Gamma 関数は CA11 では扱わない。
 
 ---
 
@@ -781,7 +787,7 @@ Möbius変換、Schwarz の補題、調和関数、平均値性質、Poisson ker
 4. **TOP1–TOP7（TOP5Aを含む）**：位相の生成・initial/final → 同値関係による商・貼り合わせ → 連結 → 可算性/分離 → compact → Urysohn・局所コンパクト性 → Baire/net/filter → 一様構造。
 5. **MT0・MT1–MT5**：Lebesgue正則性 → 収束様式 → signed measure → RN → differentiation/Radon。
 6. **FA1–FA4**：Baire系三大定理 → weak/weak* → Banach–Alaoglu・反射性。
-7. **CA1–CA10**：複素微分 → Cauchy理論 → Liouville → Laurent/留数 → 偏角原理 → Poisson核 → 正規族 → Riemann写像 → Riemann面・被覆 → 楕円関数・Weierstrass wp → 無限積・Weierstrass 因数分解・Mittag--Leffler。
+7. **CA1–CA11**：複素微分 → Cauchy理論 → Liouville → Laurent/留数 → 偏角原理 → Poisson核 → 正規族 → Riemann写像 → Riemann面・被覆 → 楕円関数・Weierstrass wp → 無限積・Weierstrass 因数分解・Mittag--Leffler → Gamma 関数・反射公式・Stirling 公式。
 8. **FA5–FA7**：CA3を受けて spectrum/resolvent → compact operator → compact self-adjoint spectral theorem/Fredholm alternative。
 9. **RA6A–RA8**：RA6は既存F0-02C3再利用で閉じ、逆関数定理・陰関数定理 → 多重積分・変数変換 → Arzela–Ascoli/Stone–Weierstrassを最適化・関数解析へ接続。
 
