@@ -4,11 +4,12 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - GEO3
+  - VC2
   - VC3
   - LA5
 official_scope: []
 learning_objectives:
-  - 正則曲線・弧長・単位速曲線を定義し、正則曲線を局所的に弧長パラメータへ再表示できる
+  - VC2 の正則曲線・弧長を踏まえて弧長パラメータ・単位速曲線を定義し、正則曲線を局所的に弧長パラメータへ再表示できる
   - 単位速曲線の曲率・Frenet 標構・捩率を定義し、Frenet--Serret 公式を導出できる
   - 一般パラメータから曲率と捩率を計算し、円・らせんで直接検証できる
   - Euclid 空間の超曲面と単位法線場を部分多様体として定義し、第一基本形式を誘導内積として計算できる
@@ -18,7 +19,7 @@ learning_objectives:
   - 正規曲率を第二基本形式で表し、Euler の公式を主方向分解から導出できる
   - 平面・球面・円柱・トーラスの第一・第二基本形式と主曲率を直接計算できる
 definitions:
-  - { id: GEO10-DEF-01, name: 正則曲線・弧長パラメータ }
+  - { id: GEO10-DEF-01, name: 弧長パラメータ・単位速曲線 }
   - { id: GEO10-DEF-02, name: 曲率・Frenet 標構・捩率 }
   - { id: GEO10-DEF-03, name: Euclid 空間の超曲面・単位法線場 }
   - { id: GEO10-DEF-04, name: 第一基本形式 }
