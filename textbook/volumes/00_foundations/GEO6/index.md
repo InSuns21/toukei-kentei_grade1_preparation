@@ -1,4 +1,4 @@
-# GEO6 接方向の可積分性と局所座標
+# GEO6 幾何学 VI
 
 <!-- definition-example-audit: strict -->
 
@@ -524,7 +524,7 @@ $$
 W(t)=E(q)C(t)
 $$
 
-と置くと、$W(t)$ は $Z(t)=(Z_1(t),\dots,Z_k(t))$ と同じ線形系と同じ初期条件を満たします。線形初期値問題の一意性から
+と置くと、$W(t)$ は $Z(t)=(Z_1(t),\dots,Z_k(t))$ と同じ線形系と同じ初期条件を満たします。この線形系の解の一意性から
 
 $$
 Z(t)=W(t)=E(q)C(t).
@@ -668,7 +668,7 @@ $$
 
 ---
 
-## 8. Frobenius の定理
+## 8. 可積分性と Lie 括弧閉性の同値
 
 <a id="thm-geo6-frobenius"></a>
 <!-- formal-statement-start -->
