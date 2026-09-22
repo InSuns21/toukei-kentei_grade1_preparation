@@ -246,7 +246,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo10-frenet -->
-**定義の確認：円**
+**定義の確認**
+
+**例：円**
 
 半径 $R$ の円を弧長表示
 
@@ -620,7 +622,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo10-hypersurface-normal -->
-**定義の確認：球面**
+**定義の確認**
+
+**例：球面**
 
 $$
 S_R^n
@@ -863,7 +867,9 @@ $\square$
 <!-- proof-end -->
 
 <!-- definition-example-start: def-geo10-shape-operator -->
-**定義の確認：球面**
+**定義の確認**
+
+**例：球面**
 
 球面 $S_R^n$ で外向き単位法線
 
