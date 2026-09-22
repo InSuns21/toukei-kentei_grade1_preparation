@@ -635,7 +635,7 @@ $$
 
 ---
 
-## 6. 縮小不動点反復の収束定理
+## 6. 縮小反復が Cauchy 列を作る仕組み
 
 <a id="thm-na2-shrink-fixed-point"></a>
 <!-- formal-statement-start -->
