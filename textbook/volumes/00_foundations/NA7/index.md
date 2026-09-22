@@ -67,7 +67,7 @@ y' = lambda y
 直接の前提は [NA6 ODE 数値解法 I](../NA6/index.md) です。NA6 の
 [一段法](../NA6/index.md#def-na6-one-step)、
 [局所打切り誤差](../NA6/index.md#def-na6-local-error)、
-[大域収束定理](../NA6/index.md#thm-na6-one-step-convergence)
+[大域収束定理](../NA6/index.md#thm-na6-global-convergence)
 をそのまま使います。
 
 ---
@@ -944,7 +944,7 @@ $$
 \tau_{n+1}=O(h^4).
 $$
 
-さらに [NA6 の整合性と摂動安定性からの大域収束](../NA6/index.md#thm-na6-one-step-convergence)を適用できる範囲では、大域誤差も
+さらに [NA6 の整合性と摂動安定性からの大域収束](../NA6/index.md#thm-na6-global-convergence)を適用できる範囲では、大域誤差も
 
 $$
 O(h^4)
