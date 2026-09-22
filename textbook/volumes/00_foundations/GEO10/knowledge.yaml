@@ -1,0 +1,198 @@
+chapter: GEO10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEO3
+  - VC2
+  - VC3
+  - LA5
+concepts:
+  - id: geometry.arc-length-parameter
+    name: 弧長パラメータ
+    kind: definition
+    aliases: [弧長パラメータ, arc-length parameter]
+    introduction: formal
+    introduction_aliases: ["定義（弧長パラメータ・単位速曲線）"]
+    requires:
+      - vector-calculus.regular-curve
+      - vector-calculus.arc-length-unit-tangent
+      - linear.inner-product
+
+  - id: geometry.arc-length-reparametrization
+    name: 弧長パラメータへの再表示
+    kind: theorem
+    aliases: [弧長パラメータへの再表示, arc-length reparametrization]
+    requires:
+      - geometry.arc-length-parameter
+      - analysis.inverse-function-theorem
+
+  - id: geometry.curve-curvature
+    name: 曲線の曲率
+    kind: definition
+    aliases: [曲線の曲率, curvature of a curve]
+    introduction: formal
+    introduction_aliases: ["定義（曲率・Frenet 標構・捩率）"]
+    requires:
+      - geometry.arc-length-parameter
+
+  - id: geometry.frenet-frame
+    name: Frenet 標構
+    kind: definition
+    aliases: [Frenet 標構, Frenet frame]
+    introduction: formal
+    introduction_aliases: ["定義（曲率・Frenet 標構・捩率）"]
+    requires:
+      - geometry.curve-curvature
+      - linear.inner-product
+
+  - id: geometry.curve-torsion
+    name: 曲線の捩率
+    kind: definition
+    aliases: [曲線の捩率, torsion of a curve]
+    introduction: formal
+    introduction_aliases: ["定義（曲率・Frenet 標構・捩率）"]
+    requires:
+      - geometry.frenet-frame
+
+  - id: geometry.frenet-serret-formulas
+    name: Frenet--Serret 公式
+    kind: theorem
+    aliases: [Frenet--Serret 公式, Frenet--Serret formulas]
+    requires:
+      - geometry.frenet-frame
+      - geometry.curve-torsion
+
+  - id: geometry.euclidean-hypersurface
+    name: Euclid 空間の超曲面
+    kind: definition
+    aliases: [Euclid 空間の超曲面, Euclidean hypersurface]
+    introduction: formal
+    introduction_aliases: ["定義（超曲面と単位法線場）"]
+    requires:
+      - geometry.embedded-submanifold
+
+  - id: geometry.unit-normal-field
+    name: 単位法線場
+    kind: definition
+    aliases: [単位法線場, unit normal field]
+    introduction: formal
+    introduction_aliases: ["定義（超曲面と単位法線場）"]
+    requires:
+      - geometry.euclidean-hypersurface
+      - linear.inner-product
+
+  - id: geometry.first-fundamental-form
+    name: 第一基本形式
+    kind: definition
+    aliases: [第一基本形式, first fundamental form]
+    requires:
+      - geometry.euclidean-hypersurface
+      - linear.inner-product
+
+  - id: geometry.gauss-map
+    name: Gauss 写像
+    kind: definition
+    aliases: [Gauss 写像, Gauss map]
+    introduction: formal
+    introduction_aliases: ["定義（Gauss 写像・形作用素・第二基本形式）"]
+    requires:
+      - geometry.unit-normal-field
+
+  - id: geometry.shape-operator
+    name: 形作用素
+    kind: definition
+    aliases: [形作用素, shape operator, Weingarten map]
+    introduction: formal
+    introduction_aliases: ["定義（Gauss 写像・形作用素・第二基本形式）"]
+    requires:
+      - geometry.gauss-map
+      - geometry.differential
+
+  - id: geometry.second-fundamental-form
+    name: 第二基本形式
+    kind: definition
+    aliases: [第二基本形式, second fundamental form]
+    introduction: formal
+    introduction_aliases: ["定義（Gauss 写像・形作用素・第二基本形式）"]
+    requires:
+      - geometry.shape-operator
+      - geometry.first-fundamental-form
+
+  - id: geometry.shape-operator-tangent
+    name: 形作用素は接空間に値を取る
+    kind: proposition
+    aliases: [形作用素は接空間に値を取る]
+    requires:
+      - geometry.shape-operator
+      - geometry.unit-normal-field
+
+  - id: geometry.shape-operator-self-adjoint
+    name: 形作用素の自己共役性
+    kind: theorem
+    aliases: [形作用素の自己共役性, self-adjointness of the shape operator]
+    requires:
+      - geometry.second-fundamental-form
+      - geometry.shape-operator-tangent
+
+  - id: geometry.coordinate-fundamental-forms
+    name: 基本形式と形作用素の座標表示
+    kind: proposition
+    aliases: [基本形式と形作用素の座標表示]
+    requires:
+      - geometry.first-fundamental-form
+      - geometry.second-fundamental-form
+      - geometry.shape-operator-self-adjoint
+
+  - id: geometry.principal-curvature
+    name: 主曲率
+    kind: definition
+    aliases: [主曲率, principal curvature]
+    introduction: formal
+    introduction_aliases: ["定義（主曲率・Gauss 曲率・平均曲率）"]
+    requires:
+      - geometry.shape-operator-self-adjoint
+      - linear.eigenvalue
+
+  - id: geometry.gauss-curvature
+    name: Gauss 曲率
+    kind: definition
+    aliases: [Gauss 曲率, Gaussian curvature]
+    introduction: formal
+    introduction_aliases: ["定義（主曲率・Gauss 曲率・平均曲率）"]
+    requires:
+      - geometry.principal-curvature
+
+  - id: geometry.mean-curvature
+    name: 平均曲率
+    kind: definition
+    aliases: [平均曲率, mean curvature]
+    introduction: formal
+    introduction_aliases: ["定義（主曲率・Gauss 曲率・平均曲率）"]
+    requires:
+      - geometry.principal-curvature
+
+  - id: geometry.orthonormal-principal-directions
+    name: 主方向の正規直交基底
+    kind: theorem
+    aliases: [主方向の正規直交基底]
+    requires:
+      - geometry.shape-operator-self-adjoint
+      - linear.complex-normal-spectral-theorem
+
+  - id: geometry.normal-curvature
+    name: 正規曲率
+    kind: definition
+    aliases: [正規曲率, normal curvature]
+    requires:
+      - geometry.second-fundamental-form
+      - geometry.arc-length-parameter
+
+  - id: geometry.euler-normal-curvature-formula
+    name: 正規曲率と Euler の公式
+    kind: proposition
+    aliases: [正規曲率の Euler 公式, Euler formula for normal curvature]
+    introduction: formal
+    introduction_aliases: ["命題（正規曲率と Euler の公式）"]
+    requires:
+      - geometry.normal-curvature
+      - geometry.orthonormal-principal-directions
