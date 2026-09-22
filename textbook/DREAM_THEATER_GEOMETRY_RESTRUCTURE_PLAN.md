@@ -945,14 +945,14 @@ Phase 1 完了。GEO1 → GEO2 → GEO3 → GEO4 完了。
 - GEO9 de Rham 入門 ✅ 2026-09-22
 
 Phase 2 完了。GEO5 → GEO6 → GEO7 → GEO8 → GEO9 完了。
-Phase 3 の GEO12 まで完了。次の実装開始点は **GEO13「アフィン接続・Levi-Civita 接続・平行移動」** とする。
+Phase 3 の GEO13 まで完了。次の実装開始点は **GEO14「測地線・指数写像・正規座標」** とする。
 
 ### Phase 3：古典曲面論から Riemann 幾何へ
 
 - GEO10 曲線・超曲面 I ✅ 2026-09-22
 - GEO11 超曲面 II ✅ 2026-09-23
 - GEO12 Riemann 計量 ✅ 2026-09-23
-- GEO13 接続
+- GEO13 接続 ✅ 2026-09-23
 - GEO14 測地線・指数写像
 
 ### Phase 4：大域 Riemann 幾何
