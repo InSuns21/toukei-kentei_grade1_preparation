@@ -65,36 +65,36 @@ concepts:
   - id: geometry.regular-point
     name: 正則点
     kind: definition
-    aliases: [正則点, regular point]
-    introduction_aliases: ["定義（正則点・臨界点・正則値・臨界値）"]
+    aliases: [正則点, 滑らかな写像の正則点, regular point]
+    introduction_aliases: ["定義（滑らかな写像の点と値の分類）"]
     requires: [geometry.submersion]
 
   - id: geometry.critical-point
     name: 臨界点
     kind: definition
-    aliases: [臨界点, critical point]
-    introduction_aliases: ["定義（正則点・臨界点・正則値・臨界値）"]
+    aliases: [臨界点, 滑らかな写像の臨界点, critical point]
+    introduction_aliases: ["定義（滑らかな写像の点と値の分類）"]
     requires: [geometry.regular-point]
 
   - id: geometry.regular-value
     name: 正則値
     kind: definition
-    aliases: [正則値, regular value]
-    introduction_aliases: ["定義（正則点・臨界点・正則値・臨界値）"]
+    aliases: [正則値, 滑らかな写像の正則値, regular value]
+    introduction_aliases: ["定義（滑らかな写像の点と値の分類）"]
     requires: [geometry.regular-point]
 
   - id: geometry.critical-value
     name: 臨界値
     kind: definition
-    aliases: [臨界値, critical value]
-    introduction_aliases: ["定義（正則点・臨界点・正則値・臨界値）"]
+    aliases: [臨界値, 滑らかな写像の臨界値, critical value]
+    introduction_aliases: ["定義（滑らかな写像の点と値の分類）"]
     requires: [geometry.critical-point]
 
   - id: geometry.level-set
     name: レベル集合
     kind: definition
-    aliases: [レベル集合, level set]
-    introduction_aliases: ["定義（レベル集合）"]
+    aliases: [レベル集合, 滑らかな写像のレベル集合, level set]
+    introduction_aliases: ["定義（滑らかな写像のレベル集合）"]
     requires: [geometry.smooth-map]
 
   - id: geometry.regular-value-theorem
