@@ -16,7 +16,7 @@ concepts:
     name: ノルムの再掲
     kind: definition
     introduction_aliases: [ノルム・ノルム空間]
-    aliases: [ノルムの再掲, ノルム・ノルム空間]
+    aliases: [ノルムの再掲]
     requires:
       - functional.norm
 
@@ -24,7 +24,7 @@ concepts:
     name: ノルム空間の再掲
     kind: definition
     introduction_aliases: [ノルム・ノルム空間]
-    aliases: [ノルム空間の再掲, ノルム・ノルム空間]
+    aliases: [ノルム空間の再掲]
     requires:
       - functional.normed-space
       - functional.norm-recap-c1
@@ -40,7 +40,7 @@ concepts:
     name: Banach空間の再掲
     kind: definition
     introduction_aliases: [Banach空間]
-    aliases: [Banach空間の再掲, Banach空間]
+    aliases: [Banach空間の再掲]
     requires:
       - functional.banach-space
       - functional.normed-space-recap-c1
@@ -49,7 +49,7 @@ concepts:
     name: 実内積の再掲
     kind: definition
     introduction_aliases: [実内積]
-    aliases: [実内積の再掲, 実内積]
+    aliases: [実内積の再掲]
     requires:
       - linear.inner-product
       - linear.cauchy-schwarz
@@ -58,7 +58,7 @@ concepts:
     name: Hilbert空間の再掲
     kind: definition
     introduction_aliases: [Hilbert空間]
-    aliases: [Hilbert空間の再掲, Hilbert空間, 完備内積空間]
+    aliases: [Hilbert空間の再掲]
     requires:
       - functional.hilbert-space
       - linear.inner-product-recap-c1
