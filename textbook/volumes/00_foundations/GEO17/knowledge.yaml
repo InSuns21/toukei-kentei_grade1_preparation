@@ -97,7 +97,7 @@ concepts:
     kind: definition
     aliases: [Jacobi 場, Jacobi field]
     introduction: formal
-    introduction_aliases: ["定義（Jacobi 場）"]
+    introduction_aliases: ["定義（Jacobi 場・Jacobi 方程式）"]
     requires:
       - geometry.riemann-curvature-operator
       - geometry.geodesic
@@ -106,6 +106,8 @@ concepts:
     name: Jacobi 方程式
     kind: theorem
     aliases: [Jacobi 方程式, Jacobi equation]
+    introduction: formal
+    introduction_aliases: ["定義（Jacobi 場・Jacobi 方程式）"]
     requires:
       - geometry.jacobi-field
       - geometry.variation-covariant-derivative-commutation
@@ -129,7 +131,7 @@ concepts:
       - geometry.geodesic-local-existence-uniqueness
 
   - id: geometry.exponential-differential-jacobi
-    name: 指数写像の微分と Jacobi 場
+    name: Jacobi 場による指数写像の線形化
     kind: proposition
     aliases: [指数写像の微分と Jacobi 場]
     requires:
@@ -155,7 +157,7 @@ concepts:
       - geometry.conjugate-point
 
   - id: geometry.conjugate-exponential-singularity
-    name: 共役点と指数写像の微分の退化
+    name: 共役点と指数写像の特異性
     kind: theorem
     aliases: [共役点と指数写像の微分の退化]
     requires:
@@ -171,7 +173,7 @@ concepts:
       - geometry.constant-sectional-curvature
 
   - id: geometry.index-form-positive-before-conjugate
-    name: 共役点がない区間での指数形式の正定値性
+    name: 共役点がない区間での指数形式の正性
     kind: theorem
     aliases: [共役点がない区間での指数形式の正定値性]
     requires:
