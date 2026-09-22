@@ -355,6 +355,8 @@ F0-00E1 内積・Gram--Schmidt ──────┘
 ODE1 初期値問題・Lipschitz 条件 ───┐
 NA1 誤差・安定性の切り分け ────────┼→ NA6 ODE 数値解法 I：一段法と収束
 RA3 Taylor の定理 ─────────────────┘
+
+NA6 一段法・局所誤差・大域収束 ─────→ NA7 ODE 数値解法 II：Runge–Kutta・絶対安定性
 ~~~
 
 NA1 では、最近接丸めの標準相対誤差モデル、丸め因子の積の評価、桁落ち、スカラー関数の相対条件数、2-ノルム行列条件数、前方誤差・後方誤差、残差、後方安定性を扱う。
@@ -369,8 +371,10 @@ NA5 では、NA4 の Lagrange 補間を積分して補間型求積公式と Newt
 
 NA6 では、ODE1 の初期値問題と $y$ に関する Lipschitz 条件を数値時間発展へ接続する。Euler 法を含む一段法、局所打切り誤差、整合性、大域誤差を定義し、離散 Grönwall 型評価から有限時間摂動安定性を証明する。さらに局所打切り誤差 $O(h^p)$ と摂動安定性から大域誤差 $O(h^p)$ を導き、Euler 法の一次収束を閉じる。整合的でも摂動を過剰増幅する人工的一段法を反例として置き、固定有限時間での収束と NA7 で扱う絶対安定性を区別する。
 
-後続の NA7–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC8 は DREAM_THEATER_ENCORE_V_REWRITE_PLAN.md の計画対象であり、各講の実装完了時に実際の直接依存だけを追加する。
+NA7 では、NA6 の一段法と収束論を高次 Runge–Kutta 法へ拡張し、二次の次数条件と古典4段4次法の自律スカラー4次性を Taylor 展開から導く。さらに線形テスト方程式から安定関数・絶対安定領域・A 安定性・L 安定性を定義し、陽的 Runge–Kutta 法が A 安定になれないこと、後退 Euler 法が A/L 安定であること、台形法が A 安定だが L 安定でないことを証明する。速い減衰モードと遅いモードが共存する硬い系を具体例で解析し、theta 法が A 安定となる必要十分条件 theta >= 1/2 と L 安定となる theta=1 を閉じる。
 
-読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA6 までで、次の実装対象は NA7「ODE 数値解法 II：Runge–Kutta・絶対安定性」である。
+後続の NA8–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC8 は DREAM_THEATER_ENCORE_V_REWRITE_PLAN.md の計画対象であり、各講の実装完了時に実際の直接依存だけを追加する。
+
+読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA7 までで、次の実装対象は NA8「数値線形代数 I：直接法」である。
 
 ---
