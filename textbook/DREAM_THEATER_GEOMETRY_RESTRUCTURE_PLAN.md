@@ -14,7 +14,7 @@
 - 接空間・余接空間・ベクトル束
 - はめ込み・埋め込み・部分多様体
 - 1 の分割
-- ベクトル場・流れ・Lie bracket
+- ベクトル場・流れ・Lie 括弧
 - 線形分布と Frobenius の定理
 - テンソル場・微分形式・外微分
 - 多様体上の積分と一般 Stokes の定理
@@ -64,7 +64,7 @@ Lie 群・Lie 環は幾何学本線へ必須 prerequisite とせず、後述す�
 2. 接ベクトルを曲線・derivation・局所座標表示の間で行き来し、写像の微分を座標に依存しない対象として扱える。
 3. 階数定理から immersion / submersion / regular value / embedded submanifold を導き、具体的な level set の次元を判定できる。
 4. 1 の分割を局所データの大域化に使い、なぜ paracompactness / second countability が必要か説明できる。
-5. ベクトル場の積分曲線と局所流を ODE から構成し、Lie bracket を flow と derivation の両面から理解できる。
+5. ベクトル場の積分曲線と局所流を ODE から構成し、Lie 括弧 を flow と derivation の両面から理解できる。
 6. Frobenius の定理で「線形分布がいつ部分多様体へ積分できるか」を判定できる。
 7. 外積代数・微分形式・pullback・外微分を計算し、`d^2=0` を証明できる。
 8. 多様体の向き・境界向き・微分形式の積分を定義し、一般 Stokes の定理を局所座標と 1 の分割から証明できる。
@@ -307,7 +307,7 @@ GEO 系列完了後、次の後続理論へ自然に接続できるようにす�
 - Whitney 型 embedding theorem は、採用する版の proof dependency を事前に分解する。大規模 transversality を必要とする強い版を安易に黒箱化しない
 - 本系列で完全証明可能な Euclid embedding 版を canonical theorem として選定する
 
-### GEO5 ベクトル場・積分曲線・局所流・Lie bracket
+### GEO5 ベクトル場・積分曲線・局所流・Lie 括弧
 
 **tier: core**
 
@@ -322,7 +322,7 @@ GEO 系列完了後、次の後続理論へ自然に接続できるようにす�
 - local flow
 - complete vector field
 - pushforward of vector fields
-- Lie bracket
+- Lie 括弧
 - bracket as commutator of derivations
 - flow による bracket の解釈
 
@@ -330,7 +330,7 @@ GEO 系列完了後、次の後続理論へ自然に接続できるようにす�
 
 - 局所座標での積分曲線存在一意性
 - maximal flow の局所群則
-- Lie bracket の coordinate formula
+- Lie 括弧 の coordinate formula
 - Jacobi identity
 
 ### GEO6 線形分布・Frobenius の定理
@@ -900,7 +900,7 @@ DREAM THEATER の現行規約に従い、特に次を theorem-name catalog に�
 - tangent space の kernel 計算
 - regular value 判定
 - vector field の integral curve 計算
-- Lie bracket 計算
+- Lie 括弧 計算
 - integrability 判定
 - wedge / pullback / exterior derivative 計算
 - orientation / boundary orientation 判定
@@ -932,15 +932,17 @@ Phase 0 完了。次の実装開始点は **Phase 1：GEO1「滑らかな多様�
 - GEO3 階数定理・部分多様体 ✅ 2026-09-22
 - GEO4 1 の分割・局所化・埋め込み ✅ 2026-09-22
 
-Phase 1 完了。GEO1 → GEO2 → GEO3 → GEO4 完了。次の実装開始点は **Phase 2：GEO5「ベクトル場・積分曲線・局所流・Lie bracket」** とする。
+Phase 1 完了。GEO1 → GEO2 → GEO3 → GEO4 完了。
 
 ### Phase 2：ベクトル場・分布・微分形式
 
-- GEO5 ベクトル場・流れ・Lie bracket
+- GEO5 ベクトル場・流れ・Lie 括弧 ✅ 2026-09-22
 - GEO6 Frobenius
 - GEO7 テンソル場・微分形式
 - GEO8 一般 Stokes
 - GEO9 de Rham 入門
+
+GEO5 完了。次の実装開始点は **GEO6「線形分布・Frobenius の定理」** とする。
 
 ### Phase 3：古典曲面論から Riemann 幾何へ
 
@@ -1084,7 +1086,7 @@ Gauss--Bonnet
 Lie 群はこの主線から独立に、
 
 ```text
-GEO5 ベクトル場・Lie bracket
+GEO5 ベクトル場・Lie 括弧
   ↓
 LIE1 Lie 群・Lie 環
   ↓
