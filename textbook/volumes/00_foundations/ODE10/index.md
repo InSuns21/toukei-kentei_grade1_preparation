@@ -61,7 +61,7 @@ ODE9 の Lyapunov 劣位集合は trapping region を作る代表的な方法で
 <a id="thm-ode10-bendixson-dulac"></a>
 <!-- formal-statement-start -->
 > **定理（Bendixson--Dulac の判定）**  
-> 単連結領域 $D\subset\mathbb R^2$ 上で $P,Q,B\in C^1$ とする。
+> 領域 $D\subset\mathbb R^2$ 上で $P,Q,B\in C^1$ とし、$D$ 内の任意の単純閉曲線が囲む領域も $D$ に含まれるとする。
 >
 > $$
 > \partial_x(BP)+\partial_y(BQ)
@@ -101,7 +101,7 @@ $$
 
 $B=1$ とすれば通常の Bendixson 判定です。
 
-## 4. Poincaré--Bendixson の定理
+## 4. 平面の有界軌道が取り得る極限像
 
 <a id="thm-ode10-poincare-bendixson"></a>
 <!-- formal-statement-start -->
@@ -163,7 +163,7 @@ x''-\mu(1-x^2)x'+x=0,
 \qquad \mu>0
 $$
 
-では小振幅と大振幅で有効な減衰の向きが変わり、振幅を中間へ押し戻す機構があります。極限周期軌道の存在一意性を一般の Liénard 定理から閉じる理論は本章の停止線外とし、次章では周期軌道が与えられた後の安定性を Poincaré 写像で調べます。
+では小振幅と大振幅で有効な減衰の向きが変わり、振幅を中間へ押し戻す機構があります。極限周期軌道の存在一意性を一般の Liénard 定理から閉じる理論は本章の停止線外とし、次章では周期軌道が与えられた後の安定性を局所帰還写像で調べます。
 
 ## 演習
 
@@ -186,7 +186,7 @@ $x'=x-y$, $y'=x+y$ が周期軌道を持たないことを示せ。
 
 <!-- solution-start -->
 ##### 詳細解答
-発散は $1+1=2>0$。$B=1$ とした Bendixson--Dulac の判定から単連結な全平面に周期軌道は存在しません。
+発散は $1+1=2>0$。$B=1$ とした [Bendixson--Dulac の判定](#thm-ode10-bendixson-dulac)から全平面に周期軌道は存在しません。
 <!-- solution-end -->
 
 #### ODE10-A03 Lotka--Volterra
@@ -223,7 +223,7 @@ $$
 \partial_x(BP)+\partial_y(BQ)
 =-\frac1y-\frac1x<0.
 $$
-第一象限は単連結なので Bendixson--Dulac を適用できます。
+第一象限内の単純閉曲線が囲む領域も第一象限に含まれるので [Bendixson--Dulac の判定](#thm-ode10-bendixson-dulac)を適用できます。
 <!-- solution-end -->
 
 #### ODE10-B02 保存系と極限周期軌道
@@ -255,12 +255,12 @@ trapping region、Poincaré--Bendixson、Bendixson--Dulac をどのように使�
 
 <!-- solution-start -->
 ##### 詳細解答
-周期軌道の存在を狙うなら前向き軌道を trapping region に閉じ込め、その正の極限集合から平衡点を排除して Poincaré--Bendixson を使います。不存在を狙うなら発散または Dulac 関数で符号一定性を作り、Green の定理から矛盾を出します。前者は存在側、後者は不存在側の道具です。
+周期軌道の存在を狙うなら前向き軌道を trapping region に閉じ込め、その正の極限集合から平衡点を排除して Poincaré--Bendixson を使います。不存在を狙うなら発散または Dulac 関数で符号一定性を作り、[Green の定理（循環形）](../VC4/index.md#thm-vc4-green-circulation)から矛盾を出します。前者は存在側、後者は不存在側の道具です。
 <!-- solution-end -->
 
 ## 7. 章末チェック
 
 - 周期軌道と極限周期軌道を区別できる。
 - trapping region の役割を説明できる。
-- Bendixson--Dulac を Green の定理から証明できる。
+- Bendixson--Dulac を [Green の定理（循環形）](../VC4/index.md#thm-vc4-green-circulation)から証明できる。
 - Poincaré--Bendixson の仮定と平面特有の機構を説明できる。
