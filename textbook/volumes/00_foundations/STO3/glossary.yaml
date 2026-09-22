@@ -15,6 +15,12 @@ terms:
   - term: Kolmogorov extension theorem
     english: Kolmogorov extension theorem
     meaning: 整合的な有限次元分布族からcanonical path space上の確率測度と確率過程を構成する定理。
+  - term: ガウス過程
+    english: Gaussian process
+    meaning: 任意の有限個の時刻で取り出した確率ベクトルが多変量ガウス分布を持つ確率過程。平均関数と共分散核が有限次元分布を決める。
+  - term: 半正定値共分散核
+    english: positive semidefinite covariance kernel
+    meaning: 任意の有限時刻集合で作る行列(K(t_i,t_j))が半正定値となる対称核。Kolmogorov拡張定理と組み合わせるとガウス過程を構成できる。
   - term: Hölder continuity
     english: Hölder continuity
     meaning: あるgamma>0について|f(t)-f(s)|が定数倍の|t-s|^gammaで一様に抑えられる正則性。

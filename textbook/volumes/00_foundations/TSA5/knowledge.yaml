@@ -1,0 +1,187 @@
+chapter: TSA5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TSA1
+  - TSA4
+  - F0-00P3A
+  - F0-00P5
+  - F0-00P6A
+
+concepts:
+  - id: timeseries.measure-preserving-shift
+    name: 測度保存シフト
+    kind: definition
+    aliases: ["measure-preserving shift", "stationary path shift"]
+    introduction: formal
+    introduction_aliases: ["定義（測度保存シフト）"]
+    requires:
+      - timeseries.strict-stationarity
+
+  - id: timeseries.invariant-sigma-field
+    name: 不変σ-加法族
+    kind: definition
+    aliases: ["invariant sigma-field", "shift-invariant sigma-field"]
+    introduction: formal
+    introduction_aliases: ["定義（不変σ-加法族）"]
+    requires:
+      - timeseries.measure-preserving-shift
+
+  - id: timeseries.ergodicity
+    name: エルゴード性
+    kind: definition
+    aliases: ["ergodicity", "ergodic stationary process"]
+    introduction: formal
+    introduction_aliases: ["定義（エルゴード性）"]
+    requires:
+      - timeseries.invariant-sigma-field
+
+  - id: timeseries.stationarity-as-invariant-law
+    name: 狭義定常性と標準経路空間の測度保存シフト
+    kind: proposition
+    aliases: ["stationarity as shift-invariant law"]
+    introduction: formal
+    introduction_aliases: ["命題（狭義定常性と標準経路空間の測度保存シフト）"]
+    requires:
+      - timeseries.strict-stationarity
+      - timeseries.measure-preserving-shift
+
+  - id: timeseries.mean-ergodic-theorem
+    name: von Neumann の平均エルゴード定理
+    kind: theorem
+    aliases: ["mean ergodic theorem", "von Neumann mean ergodic theorem", "Hilbert mean ergodic theorem"]
+    introduction: formal
+    introduction_aliases: ["定理（von Neumann の平均エルゴード定理）"]
+    requires:
+      - timeseries.measure-preserving-shift
+      - timeseries.invariant-sigma-field
+      - functional.hilbert-projection-theorem
+
+  - id: timeseries.birkhoff-ergodic-theorem
+    name: Birkhoff のエルゴード定理
+    kind: theorem
+    aliases: ["Birkhoff ergodic theorem", "pointwise ergodic theorem"]
+    introduction: formal
+    introduction_aliases: ["定理（Birkhoff のエルゴード定理）"]
+    requires:
+      - timeseries.measure-preserving-shift
+      - timeseries.invariant-sigma-field
+      - prob.conditional-expectation
+
+  - id: timeseries.dynamical-mixing
+    name: 混合性
+    kind: definition
+    aliases: ["mixing", "strong mixing of a transformation"]
+    introduction: formal
+    introduction_aliases: ["定義（混合性）"]
+    requires:
+      - timeseries.measure-preserving-shift
+
+  - id: timeseries.mixing-implies-ergodic
+    name: 混合性はエルゴード性を含意する
+    kind: proposition
+    aliases: ["mixing implies ergodicity"]
+    introduction: formal
+    introduction_aliases: ["命題（混合性はエルゴード性を含意する）"]
+    requires:
+      - timeseries.dynamical-mixing
+      - timeseries.ergodicity
+
+  - id: timeseries.alpha-mixing
+    name: α-混合係数
+    kind: definition
+    aliases: ["alpha-mixing", "strong mixing coefficient", "alpha mixing coefficient"]
+    introduction: formal
+    introduction_aliases: ["定義（α-混合係数）"]
+    requires:
+      - timeseries.strict-stationarity
+
+  - id: timeseries.alpha-mixing-implies-mixing
+    name: α-混合は混合性を含意する
+    kind: proposition
+    aliases: ["alpha mixing implies dynamical mixing"]
+    introduction: formal
+    introduction_aliases: ["命題（α-混合は混合性を含意する）"]
+    requires:
+      - timeseries.alpha-mixing
+      - timeseries.dynamical-mixing
+
+  - id: timeseries.m-dependence
+    name: m-依存性
+    kind: definition
+    aliases: ["m-dependence", "m-dependent process"]
+    introduction: formal
+    introduction_aliases: ["定義（m-依存性）"]
+    requires:
+      - timeseries.strict-stationarity
+
+  - id: timeseries.m-dependent-alpha-mixing
+    name: m-依存過程の α-混合
+    kind: proposition
+    aliases: ["m-dependent processes are alpha-mixing"]
+    introduction: formal
+    introduction_aliases: ["命題（m-依存過程の α-混合）"]
+    requires:
+      - timeseries.m-dependence
+      - timeseries.alpha-mixing
+
+  - id: timeseries.ergodic-lln
+    name: 定常エルゴード過程の大数則
+    kind: corollary
+    aliases: ["ergodic law of large numbers", "stationary ergodic LLN"]
+    introduction: formal
+    introduction_aliases: ["系（定常エルゴード過程の大数則）"]
+    requires:
+      - timeseries.ergodicity
+      - timeseries.birkhoff-ergodic-theorem
+
+  - id: timeseries.sample-autocovariance-consistency
+    name: 固定ラグ標本自己共分散の一致性
+    kind: theorem
+    aliases: ["sample autocovariance consistency", "consistency of sample autocovariance"]
+    introduction: formal
+    introduction_aliases: ["定理（固定ラグ標本自己共分散の一致性）"]
+    requires:
+      - timeseries.ergodic-lln
+      - timeseries.autocovariance-function
+
+  - id: timeseries.long-run-variance
+    name: 長期分散
+    kind: definition
+    aliases: ["long-run variance", "asymptotic variance of partial sums"]
+    introduction: formal
+    introduction_aliases: ["定義（長期分散）"]
+    requires:
+      - timeseries.autocovariance-function
+
+  - id: timeseries.partial-sum-long-run-variance
+    name: 部分和分散と長期分散
+    kind: proposition
+    aliases: ["partial sum variance and long-run variance"]
+    introduction: formal
+    introduction_aliases: ["命題（部分和分散と長期分散）"]
+    requires:
+      - timeseries.long-run-variance
+      - timeseries.spectral-density
+
+  - id: timeseries.linear-process-clt
+    name: 絶対可算和可能な因果線形過程の中心極限定理
+    kind: theorem
+    aliases: ["linear process CLT", "CLT for absolutely summable causal linear process"]
+    introduction: formal
+    introduction_aliases: ["定理（絶対可算和可能な因果線形過程の中心極限定理）"]
+    requires:
+      - timeseries.causal-filter
+      - prob.iid-clt
+      - timeseries.long-run-variance
+
+  - id: timeseries.alpha-mixing-clt
+    name: α-混合過程の中心極限定理
+    kind: theorem
+    aliases: ["alpha-mixing CLT", "strong mixing CLT"]
+    introduction: formal
+    introduction_aliases: ["定理（α-混合過程の中心極限定理）"]
+    requires:
+      - timeseries.alpha-mixing
+      - timeseries.long-run-variance
+

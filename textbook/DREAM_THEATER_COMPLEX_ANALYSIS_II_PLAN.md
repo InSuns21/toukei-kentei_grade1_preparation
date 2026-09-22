@@ -417,7 +417,7 @@ Weierstrass 因数分解と Mittag--Leffler を「存在定理」とだけ述べ
 
 Weierstrass では elementary factor が所与のコンパクト集合上で tail を制御する仕組みを示す。
 
-Mittag--Leffler では、極が外側へ逃げる順に並べ、各 principal part から低次 Taylor 多項式を差し引いて内側 compact 上の tail を一様小さくする構成を追う。
+Mittag--Leffler では、極が外側へ逃げる順に並べ、各 principal part から低次 Taylor 多項式を差し引いて内側 コンパクト集合上の tail を一様小さくする構成を追う。
 
 ### 6.5 直接例
 
@@ -736,17 +736,51 @@ CA7 は CA8--CA12 全体の解析的コンパクト性の床なので、独立�
 
 **現在地（2026-09-22）**：CA7 は本文・演習・詳細解答・stable anchor・knowledge/glossary・reader-facing index まで実装済み。Riemann 写像定理は Montel の定理、Hurwitz の定理、正則平方根、極値法を用いて核心証明まで閉じた。PR #353 は全 CI green を確認して squash merge 済み。次は Phase 2 の CA8「Riemann 面・被覆・多価関数」へ進む。
 
-### Phase 2：CA8
+### Phase 2：CA8 ✅
 
-Riemann 面・被覆・複素トーラスを実装し、TOP1/TOP2/TOP4 への theorem-level link を確認する。
+1. chapter.yaml ✅
+2. index.md ✅
+3. A4/B3/C1 + 詳細解答 ✅
+4. stable anchors ✅
+5. knowledge / glossary ✅
+6. reader-facing index / standard math core 反映 ✅
+7. PR #359 ✅
+8. validation / pedagogy audit ✅
+9. merge 準備完了 ✅
 
-### Phase 3：CA9
+Riemann 面・被覆・複素トーラスを実装し、TOP1/TOP2/TOP4/TOP5 への theorem-level link を整備した。対数・平方根の多価性は正則被覆上の一価正則関数として構成し、経路持ち上げ・ホモトピー持ち上げから CA5 のモノドロミーを幾何的に再解釈する。複素トーラスは商位相からアトラス、Hausdorff 性、第二可算性、コンパクト性まで証明する。
 
-楕円関数と Weierstrass $\wp$ を実装する。CA8 の複素トーラスを「説明だけの前章」にせず実際に使う。
+**現在地（2026-09-22）**：CA8 の本文・演習・詳細解答・stable anchor・knowledge/glossary・reader-facing index を実装済み。PR #359 で Pages / textbook / terminology / DREAM THEATER concepts / exercises / standard math core の各 workflow が green、proof pedagogy / formalism pedagogy も green。次工程は Phase 3 の CA9「楕円関数・Weierstrass $\wp$ 関数」。
 
-### Phase 4：CA10
+### Phase 3：CA9 ✅
 
-無限積・Weierstrass 因数分解・Mittag--Leffler を実装する。
+1. chapter.yaml ✅
+2. index.md ✅
+3. A4/B3/C1 + 詳細解答 ✅
+4. stable anchors ✅
+5. knowledge / glossary ✅
+6. reader-facing index / standard math core 反映 ✅
+7. validation / pedagogy audit ✅
+8. PR #362 / squash merge ✅
+
+楕円関数と Weierstrass $\wp$ を実装し、CA8 の複素トーラスを実際に canonical dependency として使用する。基本平行四辺形の対辺積分相殺、留数和0、零点・極の総重複度一致から始め、格子点個数評価と $\sum |\omega|^{-3}$ majorant により $\wp$ 級数の正規収束を閉じた。Laurent 展開から $g_2,g_3$ と微分方程式を導き、半周期・判別式非零・加法公式・非特異三次曲線との対応の入口まで実装した。
+
+**現在地（2026-09-22）**：CA9 は本文・演習 A4/B3/C1・詳細解答・stable anchor・knowledge/glossary・reader-facing index・standard math core の同期まで完了。PR #362 で Pages / textbook / terminology / DREAM THEATER concepts / exercises / standard math core を green にし、通常CIに含まれる proof pedagogy / formalism pedagogy も通過した。次工程は Phase 4 の CA10「無限積・Weierstrass 因数分解・Mittag--Leffler」。
+
+### Phase 4：CA10 ✅
+
+1. chapter.yaml ✅
+2. index.md ✅
+3. A4/B3/C1 + 詳細解答 ✅
+4. stable anchors ✅
+5. knowledge / glossary ✅
+6. reader-facing index / standard math core 反映 ✅
+7. PR #364 ✅
+8. validation / pedagogy audit ✅
+
+無限積・Weierstrass 因数分解・Mittag--Leffler を実装した。無限積は対数級数による局所一様収束判定から始め、Weierstrass の基本因子で低次項を消して任意の離散零点多重集合を持つ整関数を構成する。零点を持たない整関数の指数表示を介して Weierstrass 因数分解を閉じ、Mittag--Leffler では各主部から Taylor 多項式を差し引いて コンパクト集合上の尾部を一様に小さくする構成を追う。最後に留数定理から $\pi\cot\pi z$ の部分分数展開を導き、その対数微分から $\sin\pi z$ の Euler 積へ接続する。
+
+**現在地（2026-09-22）**：CA10 の本文・演習 A4/B3/C1・詳細解答・stable anchor・knowledge/glossary・reader-facing index・standard math core の同期と、規定の validation / pedagogy audit を完了した。Phase 4 完了。次は Phase 5：CA11「Gamma 関数」へ進む。
 
 ### Phase 5：CA11
 

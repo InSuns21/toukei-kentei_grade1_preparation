@@ -1,0 +1,56 @@
+id: "TSA4"
+title: "Encore IV 時系列解析 IV：線形フィルタ・ARMA / ARIMA・周波数領域"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TSA1
+  - TSA2
+  - TSA3
+official_scope: []
+learning_objectives:
+  - 後退作用素と絶対可算和可能な線形フィルタを定義し、L2 収束と二次定常性の保存を証明できる
+  - 伝達関数を定義し、線形フィルタがスペクトル測度へ絶対値二乗を掛けることをスペクトル表現から証明できる
+  - ARMA 多項式の単位円外根条件から因果性と可逆性を導き、共通因子と既約性の意味を説明できる
+  - 因果 ARMA のスペクトル密度を白色雑音の平坦スペクトルと伝達関数から導ける
+  - MA(q) の自己相関関数打切りと AR(p) の偏自己相関関数打切りを線形予測の言葉で証明できる
+  - 通常差分と季節差分の伝達関数・零点周波数を計算し、ARIMA では差分後系列が定常対象であることを説明できる
+  - ARMA の有理スペクトル因数分解と Wold 表示の関係を説明できる
+definitions:
+  - { id: TSA4-DEF-01, name: "後退作用素" }
+  - { id: TSA4-DEF-02, name: "絶対可算和可能な線形フィルタ" }
+  - { id: TSA4-DEF-03, name: "伝達関数" }
+  - { id: TSA4-DEF-04, name: "因果線形フィルタ" }
+  - { id: TSA4-DEF-05, name: "絶対可算和可能な逆フィルタ" }
+  - { id: TSA4-DEF-06, name: "ARMA(p,q) 過程" }
+  - { id: TSA4-DEF-07, name: "既約 ARMA 表現" }
+  - { id: TSA4-DEF-08, name: "偏自己相関関数" }
+  - { id: TSA4-DEF-09, name: "通常差分と季節差分" }
+  - { id: TSA4-DEF-10, name: "ARIMA(p,d,q) 過程" }
+  - { id: TSA4-DEF-11, name: "スペクトル因子" }
+theorems:
+  - { id: TSA4-PROP-01, name: "線形フィルタは二次定常性を保つ" }
+  - { id: TSA4-THM-01, name: "線形フィルタによるスペクトル測度の変換" }
+  - { id: TSA4-THM-02, name: "単位円外の零点と絶対可算和可能な逆べき級数" }
+  - { id: TSA4-THM-03, name: "ARMA の因果性" }
+  - { id: TSA4-THM-04, name: "ARMA の可逆性" }
+  - { id: TSA4-THM-05, name: "因果 ARMA のスペクトル密度" }
+  - { id: TSA4-PROP-02, name: "MA の自己相関打切りと AR の偏自己相関打切り" }
+canonical_examples:
+  - "二点移動平均の低域通過特性"
+  - "AR(1) の低周波・高周波スペクトル"
+  - "MA(1) の可逆性"
+  - "ランダムウォークの一階差分"
+  - "周期12の季節差分"
+problem_patterns:
+  - TSA4-MOVING-AVERAGE-FILTER-1
+  - TSA4-AR1-SPECTRUM-1
+  - TSA4-MA1-INVERTIBILITY-1
+  - TSA4-DIFFERENCE-FREQUENCY-1
+  - TSA4-ARMA-ROOT-CONDITIONS-1
+  - TSA4-ACF-PACF-CUTOFF-1
+  - TSA4-FILTER-CASCADE-1
+  - TSA4-ARIMA-SEASONAL-INTEGRATION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 5.5, review: 1.5 }

@@ -1,0 +1,47 @@
+chapter: "CA8"
+terms:
+  - term: 複素座標近傍
+    english: complex chart
+    meaning: Riemann面の開集合を複素平面の開集合へ同相に写す局所座標。重なり上の座標遷移を通じて正則構造を記述する。
+  - term: 正則アトラス
+    english: holomorphic atlas
+    meaning: Riemann面を覆う複素座標近傍の族で、重なりにおける全ての座標遷移が正則になるもの。
+  - term: Riemann 面
+    english: Riemann surface
+    meaning: Hausdorffかつ第二可算で、複素1次元の正則アトラスを備えた位相空間。局所的には複素平面の開集合として解析できる。
+  - term: 双正則写像
+    english: biholomorphism
+    meaning: 全単射な正則写像で逆写像も正則なもの。Riemann面の複素解析的構造を保つ同値を与える。
+  - term: 有理型関数
+    english: meromorphic function
+    meaning: Riemann面の各局所座標で通常の一変数有理型関数として表される関数。
+  - term: 位数
+    english: order of a zero or pole
+    meaning: 有理型関数を局所座標で非零正則因子と座標の整数冪の積に分解したときの指数。正なら零点、負なら極の重複度を表す。
+  - term: 正則微分
+    english: holomorphic differential
+    meaning: 各局所座標でf(z)dzと書かれ、座標変換に対して同じ幾何学的量を表すように係数が変換する局所データ。
+  - term: 被覆写像
+    english: covering map
+    meaning: 基底空間の各点の近傍の逆像が互いに素な複数のシートへ分かれ、各シートがその近傍へ同相に写る連続全射。
+  - term: 正則被覆
+    english: holomorphic covering
+    meaning: Riemann面間の被覆写像で、各シートから均等被覆近傍への制限が双正則になるもの。
+  - term: 経路持ち上げ
+    english: path lifting
+    meaning: 基底空間の経路を、被覆空間内の指定した初期点から始まる経路として一意に追跡する操作。
+  - term: ホモトピー持ち上げ
+    english: homotopy lifting
+    meaning: 基底空間で連続変形される経路族を、被覆空間側へ連続的に持ち上げる操作。
+  - term: 対数の Riemann 面
+    english: Riemann surface of the logarithm
+    meaning: 指数写像CからCの非零部分への正則被覆を用い、対数の全ての局所枝を被覆上の一価正則関数としてまとめたもの。
+  - term: 平方根の Riemann 面
+    english: Riemann surface of the square root
+    meaning: Cの非零部分上の二枚被覆wからw^2を用い、平方根の二つの局所枝を一価関数としてまとめたもの。
+  - term: 複素格子
+    english: complex lattice
+    meaning: 実線形独立な二つの複素数omega_1, omega_2の整数結合全体からなる離散部分群。
+  - term: 複素トーラス
+    english: complex torus
+    meaning: 複素平面を格子Lambdaによる平行移動で同一視した商C/Lambda。コンパクトなRiemann面になる。

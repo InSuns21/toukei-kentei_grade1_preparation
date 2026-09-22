@@ -5,15 +5,6 @@ prerequisites:
   - STO3
 
 concepts:
-  - id: stochastic.gaussian-process
-    name: Gaussian process
-    kind: definition
-    aliases: ["Gaussian process", "Gaussian過程"]
-    introduction: formal
-    introduction_aliases: ["定義（ガウス過程）"]
-    requires:
-      - stochastic.stochastic-process
-
   - id: stochastic.brownian-motion
     name: standard Brownian motion
     kind: definition
@@ -31,8 +22,7 @@ concepts:
     introduction: formal
     introduction_aliases: ["定理（ブラウン運動の構成）"]
     requires:
-      - stochastic.gaussian-process
-      - stochastic.kolmogorov-extension
+      - stochastic.gaussian-process-existence
       - stochastic.kolmogorov-chentsov-continuity
 
   - id: stochastic.brownian-scaling
@@ -105,11 +95,11 @@ concepts:
       - stochastic.brownian-reflection-principle
 
   - id: stochastic.brownian-one-dimensional-recurrence
-    name: 1次元Brown運動の基本的recurrence
+    name: 1次元ブラウン運動の全水準到達と0への無限回帰還
     kind: theorem
     aliases: ["one-dimensional Brownian recurrence", "Brownian recurrence", "point recurrence"]
     introduction: formal
-    introduction_aliases: ["定理（1 次元ブラウン運動の基本的再帰性）"]
+    introduction_aliases: ["定理（1 次元ブラウン運動の全水準到達と 0 への無限回帰還）"]
     requires:
       - stochastic.brownian-hitting-time-distribution
       - stochastic.brownian-strong-markov-property

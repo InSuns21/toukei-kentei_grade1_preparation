@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - STO1
   - F0-00D4
+  - F0-00F1
   - F0-00P4
 
 forward_references:
@@ -50,6 +51,27 @@ concepts:
       - stochastic.canonical-trajectory-space
       - stochastic.finite-borel-compact-approximation
       - measure.caratheodory-extension-theorem
+
+  - id: stochastic.gaussian-process
+    name: ガウス過程
+    kind: definition
+    aliases: ["Gaussian process", "Gaussian過程", "ガウス過程"]
+    introduction: formal
+    introduction_aliases: ["定義（ガウス過程）"]
+    requires:
+      - stochastic.stochastic-process
+
+  - id: stochastic.gaussian-process-existence
+    name: 平均関数と半正定値共分散核からのガウス過程構成
+    kind: theorem
+    aliases: ["Gaussian process existence from covariance kernel", "ガウス過程の存在定理"]
+    introduction: formal
+    introduction_aliases: ["定理（平均関数と半正定値共分散核からのガウス過程構成）"]
+    requires:
+      - stochastic.gaussian-process
+      - stochastic.kolmogorov-extension
+      - linear.spectral-theorem
+      - linear.positive-semidefinite-matrix
 
   - id: stochastic.holder-continuity
     name: Hölder continuity

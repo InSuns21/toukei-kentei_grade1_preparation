@@ -142,6 +142,7 @@ F0-00P3C の上向き横断と F0-00P4A の一様可積分性を canonical depen
 - consistency
 - Kolmogorov extension theorem
 - canonical path space
+- 平均関数 / 半正定値共分散核からのガウス過程の存在
 - modification
 - Kolmogorov--Chentsov continuity theorem
 - moment estimate から Hölder regularity を得る機構
@@ -151,7 +152,7 @@ Brown 運動を「存在すると仮定」せず、次章で構成できる床�
 ### STO4 Brown 運動・hitting time・strong Markov property
 
 - Brownian motion の構成
-- Gaussian process と covariance
+- STO3 のガウス過程存在定理を共分散 $\min(s,t)$ へ適用
 - stationary independent increments
 - scaling
 - time inversion の位置付け
@@ -344,12 +345,12 @@ Lévy--Khintchine と Lévy--Itô の一般形は証明量が大きいため、�
 
 Herglotz と spectral representation を旧 TS2 / TS2A の二重正本にはせず、新章側で一貫した proof dependency を作る。
 
-### TSA4 linear filter・ARMA / ARIMA・周波数領域
+### TSA4 線形フィルタ・ARMA / ARIMA・周波数領域
 
-- backshift operator
-- linear filter
-- transfer function
-- causality / invertibility
+- 後退作用素
+- 線形フィルタ
+- 伝達関数
+- 因果性 / 可逆性
 - ARMA spectrum
 - differencing / seasonal differencing
 - time-domain ACF / PACF と frequency-domain の対応
@@ -364,7 +365,7 @@ Herglotz と spectral representation を旧 TS2 / TS2A の二重正本にはせ�
 - mixing coefficients の入口
 - stationary process の LLN
 - sample autocovariance の consistency
-- dependent CLT は仮定と適用範囲を限定して扱う
+- 従属中心極限定理 は仮定と適用範囲を限定して扱う
 
 一般 ergodic theory 全体へ拡張しないが、「標本平均が母平均へ近づく」ために stationarity だけでは足りないことを明示する。
 
@@ -602,8 +603,8 @@ ARMA / ergodicity / Kalman
 - STO1 の direct prerequisite は F0-00P1 と F0-00P3C に限定し、旧 SP1 は参照しない。
 - Phase 1：STO2「離散時間 martingale・不等式・収束」を実装。martingale / submartingale / predictable transform / stopped process / bounded optional sampling / Doob decomposition / maximal inequality / upcrossing inequality / a.s. convergence / UI・L1 convergence を、主要証明・直接例・A4/B3/C1・全問詳細解答まで閉じた。
 - STO2 の direct prerequisite は STO1・F0-00P3C・F0-00P4A とし、旧 SP2 は migration source に留めて prerequisite / proof dependency にしない。
-- Phase 1：STO3「確率過程の構成・Kolmogorov continuity」を実装。finite-dimensional distributions / consistency / canonical path space / Kolmogorov extension theorem / Hölder continuity / Kolmogorov--Chentsov continuity theorem / continuous modifications の一意性を、主要証明・直接例・A4/B3/C1・全問詳細解答まで閉じた。
-- STO3 の direct prerequisite は STO1・F0-00D4・F0-00P4 とし、読順上は STO2 の後に置くが、martingale 理論を不要な direct prerequisite として追加しない。
+- Phase 1：STO3「確率過程の構成・Kolmogorov continuity」を実装。有限次元分布 / 整合性 / 標準経路空間 / Kolmogorov 拡張定理 / 平均関数と半正定値共分散核からのガウス過程構成 / Hölder 連続性 / Kolmogorov--Chentsov 連続定理 / 連続修正の一意性を、主要証明・直接例・A4/B3/C1・全問詳細解答まで閉じた。
+- STO3 の direct prerequisite は STO1・F0-00D4・F0-00F1・F0-00P4 とする。F0-00F1 は半正定値共分散行列から退化を許す有限次元ガウス分布を構成する際のスペクトル定理に使う。読順上は STO2 の後に置くが、martingale 理論を不要な direct prerequisite として追加しない。
 - Kolmogorov extension theorem は cylinder algebra 上の well-definedness・有限加法性だけで済ませず、有限次元 Borel 測度の compact 内部近似、continuity from above、premeasure 性、Carathéodory extension まで本文で核心証明を閉じた。
 - Kolmogorov--Chentsov continuity theorem は dyadic grid・Markov inequality・union bound・Borel--Cantelli・chaining から continuous modification と Hölder exponent を構成するところまで証明した。
 - Phase 1：STO4「Brown 運動・hitting time・strong Markov property」を実装。covariance $\min(s,t)$ の Gaussian finite-dimensional laws から Kolmogorov extension / continuity を用いて Brown 運動を構成し、Markov property / strong Markov property / reflection principle / hitting time distribution / 1 次元 recurrence / time inversion を、主要証明・直接例・A4/B3/C1・全問詳細解答まで閉じた。
@@ -668,4 +669,12 @@ ARMA / ergodicity / Kalman
 - Phase 5：TSA3「Herglotz の定理・スペクトル表現」を実装。正定値列 / Herglotz の定理 / スペクトル測度 / スペクトル密度 / 線スペクトル / 絶対連続スペクトル / 直交増分ランダム測度 / スペクトル確率積分 / スペクトル表現定理を、主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで閉じた。
 - TSA3 の direct prerequisite は TSA1・TSA2・FOU2・RA5・F0-00D3A・MT5・F0-00P2 とした。TSA2 は系列の読順と Wold 分解との対比のために置くが、Herglotz の存在・一意性やスペクトル表現の証明入力には使わない。TSA1 の自己共分散の正定値性、FOU2 の Fejér 一様近似・三角多項式の一様稠密性、RA5 の一様収束・Weierstrass の M-test、D3A の π–λ 定理、MT5 の Riesz--Markov 正汎関数版、P2 系列の $L^2$ 完備性と Radon--Nikodym 定理を canonical dependency として再利用する。旧 F0-00TS2 / F0-00TS2A は migration source に留め、prerequisite / proof dependency にしない。
 - Herglotz の存在は正定値性から非負な Fejér 型近似測度を作り、$C([-π,π])$ の可算稠密集合で対角部分列を取り、極限の正線形汎関数を MT5 の Riesz--Markov で有限測度へ戻して Fourier 係数を極限へ送る形で閉じた。一意性は FOU2 の三角多項式一様稠密性を使う。スペクトル表現は $L^2(F)$ 上の三角多項式から過程空間への等長写像を完備化し、$Z(A)=U1_A$ によって直交増分ランダム測度を構成した。
-- 現在地：Phase 5 は TSA1 → TSA2 → TSA3 完了。次の実装対象は TSA4「線形フィルタ・ARMA / ARIMA・周波数領域」。
+- Phase 5：TSA4「線形フィルタ・ARMA / ARIMA・周波数領域」を実装。後退作用素 / 絶対可算和可能な線形フィルタ / 伝達関数 / 因果性・可逆性 / ARMA の単位円外根条件 / 有理スペクトル密度 / ACF・PACF の打切り / 通常差分・季節差分 / ARIMA / 有理スペクトル因数分解の入口を、主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで閉じた。
+- TSA4 の direct prerequisite は TSA1・TSA2・TSA3 とした。TSA1 の二次定常性・有限過去予測・イノベーション、TSA2 の Wold 分解、TSA3 のスペクトル測度・スペクトル密度・スペクトル表現を canonical dependency として再利用する。旧 F0-00TS 系列は migration source に留め、prerequisite / proof dependency にしない。
+- 線形フィルタでは絶対可算和可能性から L2 収束と二次定常性保存を証明し、TSA3 のスペクトル確率積分へ有限打切りから極限を送って $F_Y(d\lambda)=|H(\lambda)|^2F_X(d\lambda)$ を導いた。ARMA は多項式の単位円外根条件から逆べき級数の絶対可算和可能性を示し、因果解・逆フィルタ・スペクトル密度まで構成した。
+- ARIMA では差分後系列を定常対象として扱うことを明示し、通常差分の 0 周波数零点と季節差分の季節周波数零点を伝達関数から計算した。一般の Kolmogorov--Szegő 型スペクトル因数分解は本章へ逆輸入せず、ARMA の有理スペクトル因子と Wold 表示の対応までを扱った。
+- Phase 5：TSA5「エルゴード性・混合性・従属極限定理」を実装。標準経路空間の測度保存シフト / 不変σ-加法族 / エルゴード性 / Hilbert 空間の平均エルゴード定理 / Birkhoff のエルゴード定理 / 混合性 / α-混合係数 / m 依存 / 定常エルゴード大数則 / 固定ラグ標本自己共分散の一致性 / 長期分散 / 因果線形過程の中心極限定理 / α-混合中心極限定理を、直接例・主要証明・A4/B3/C1 演習・全問詳細解答まで閉じた。
+- TSA5 の direct prerequisite は TSA1・TSA4・F0-00P3A・F0-00P5・F0-00P6A とした。TSA1 の狭義定常性と Hilbert 空間の時間移動、TSA4 の因果線形フィルタと ARMA、P3A の条件付き期待値、P5 の部分和、P6A の独立同分布中心極限定理を canonical dependency として再利用する。TSA4 の ancestor である TSA3 のスペクトル密度を通じて長期分散 $\sigma_{\mathrm{LR}}^2=2\pi f(0)$ も接続する。
+- Hilbert 空間の平均エルゴード定理は $L^2=\operatorname{Fix}(U)\oplus\overline{\operatorname{Ran}(I-U)}$ と望遠鏡和から完全証明した。一般 $L^1$ の Birkhoff 定理と一般 α-混合中心極限定理 は、それぞれ最大エルゴード不等式・blocking argument を要するため技術的入力の境界を明示した一方、絶対可算和可能な因果線形過程の中心極限定理 は有限 MA 打切り・独立同分布中心極限定理・一様な $L^2$ 尾部評価から章内で完全証明した。
+- 定常性だけでは大数則が出ないランダム定数過程、弱ホワイトノイズでも通常の単一正規中心極限定理 が壊れる共通ランダム尺度 $X_t=Y\varepsilon_t$ を反例として置いた。因果 ARMA を 独立同分布雑音で駆動した場合は、標本平均の長期分散が $\sigma_Z^2\{\theta(1)/\phi(1)\}^2=2\pi f_X(0)$ と一致するところまで閉じた。
+- 現在地：Phase 5 は TSA1 → TSA2 → TSA3 → TSA4 → TSA5 完了。次の実装対象は TSA6「状態空間・Kalman フィルタ・innovations」。
