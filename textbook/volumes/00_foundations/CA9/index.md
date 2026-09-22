@@ -1836,7 +1836,7 @@ $$
 ### Level C
 
 <a id="ex-ca9-c01"></a>
-#### CA9-C01 二点の和の恒等式から倍角公式を導く
+#### CA9-C01 $\wp(2u)$ を $\wp(u)$ の有理式へ落とす
 - Level: C
 
 Weierstrass の加法公式を $v\to u$ と極限して、$\wp'(u)\ne0$ の点で
