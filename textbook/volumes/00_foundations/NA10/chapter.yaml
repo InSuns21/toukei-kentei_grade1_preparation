@@ -1,0 +1,56 @@
+id: "NA10"
+title: "数値解析 X：固有値数値計算"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NA1
+  - NA8
+  - NA9
+  - F0-00E1
+  - F0-00F1
+official_scope: []
+learning_objectives:
+  - 単位ベクトル x と Rayleigh 商 rho_A(x) から固有対残差 r=Ax-rho_A(x)x を構成し、残差が近似固有対の品質を表す理由を説明できる
+  - 実対称行列に対する冪乗法の収束を固有ベクトル展開から導き、支配固有値の絶対値比で方向誤差を評価できる
+  - 逆反復法とシフト付き逆反復法を線形方程式の反復として構成し、シフトに最も近い単純固有値へ収束する条件を説明できる
+  - Rayleigh 商反復を定義し、実対称行列の単純固有値近傍で方向誤差が局所的に3次で縮小することを証明できる
+  - 実対称行列について Rayleigh 商と残差から近傍固有値への距離を評価し、残差ノルムが対称摂動に対する後方誤差になることを示せる
+  - 直交反復法と QR 法を結び付け、1回の QR 更新が直交相似変換で固有値と対称性を保存することを証明できる
+  - 支配固有値の絶対値の重複、初期ベクトルの直交、シフトの選択、固有値の重複が各反復法へ与える影響を説明できる
+  - 冪乗法・シフト付き逆反復法・Rayleigh 商反復・QR 法の役割を、求めたい固有値の位置と1反復コストの観点から使い分けられる
+definitions:
+  - { id: NA10-DEF-01, name: 固有対残差 }
+  - { id: NA10-DEF-02, name: 冪乗法 }
+  - { id: NA10-DEF-03, name: 逆反復法 }
+  - { id: NA10-DEF-04, name: シフト付き逆反復法 }
+  - { id: NA10-DEF-05, name: Rayleigh 商反復 }
+  - { id: NA10-DEF-06, name: 直交反復法 }
+  - { id: NA10-DEF-07, name: QR 法 }
+  - { id: NA10-DEF-08, name: デフレーション }
+theorems:
+  - { id: NA10-THM-01, name: 実対称行列に対する冪乗法の方向収束 }
+  - { id: NA10-PROP-01, name: Rayleigh 商の誤差と固有対残差の評価 }
+  - { id: NA10-THM-02, name: 実対称行列に対するシフト付き逆反復法の方向収束 }
+  - { id: NA10-THM-03, name: Rayleigh 商反復の局所3次収束 }
+  - { id: NA10-PROP-02, name: 固有対残差の対称後方誤差 }
+  - { id: NA10-PROP-03, name: QR 更新の直交相似性 }
+canonical_examples:
+  - 3次対角行列に対する冪乗法と方向誤差の縮小
+  - 同じ行列に対してシフトを変え、逆反復法が異なる固有値を選ぶ例
+  - 2次実対称行列に対する Rayleigh 商反復
+  - 小さい固有対残差から近傍固有値の存在を保証する例
+  - 2次実対称行列の1回の QR 更新
+  - 支配固有値の絶対値が同じため冪乗法の方向が収束しない例
+problem_patterns:
+  - NA10-POWER-ITERATION-1
+  - NA10-RAYLEIGH-RESIDUAL-1
+  - NA10-SHIFT-INVERT-1
+  - NA10-RQI-1
+  - NA10-POWER-CONVERGENCE-1
+  - NA10-BACKWARD-ERROR-1
+  - NA10-QR-STEP-1
+  - NA10-INTEGRATED-EIGEN-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.0, review: 0.5 }

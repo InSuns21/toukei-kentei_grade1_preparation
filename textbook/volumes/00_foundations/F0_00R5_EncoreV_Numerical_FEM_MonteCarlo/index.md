@@ -70,11 +70,11 @@ Monte Carlo 法と準 Monte Carlo 法では、同じ積分問題に対して
 | [NA7](../NA7/index.md) | ODE 数値解法 II：Runge–Kutta・絶対安定性 |
 | [NA8](../NA8/index.md) | 数値線形代数 I：直接法 |
 | [NA9](../NA9/index.md) | 数値線形代数 II：反復法・Krylov 法 |
-| NA10 | 固有値数値計算 |
+| [NA10](../NA10/index.md) | 固有値数値計算 |
 | NA11 | Perron–Frobenius 理論と PageRank |
 | NA12 | 無制約最適化と共役勾配法 |
 
-**実装済み：NA1、NA2、NA3、NA4、NA5、NA6、NA7、NA8、NA9。次の実装対象：NA10。**
+**実装済み：NA1、NA2、NA3、NA4、NA5、NA6、NA7、NA8、NA9、NA10。次の実装対象：NA11。**
 
 数値解析では、単にアルゴリズムを列挙するのではなく、
 

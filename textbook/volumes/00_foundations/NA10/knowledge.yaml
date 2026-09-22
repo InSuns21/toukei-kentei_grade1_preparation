@@ -1,0 +1,150 @@
+chapter: NA10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NA1
+  - NA8
+  - NA9
+  - F0-00E1
+  - F0-00F1
+forward_references: []
+
+concepts:
+  - id: numerical.eigenpair-residual
+    name: 固有対残差
+    kind: definition
+    aliases: [eigenpair residual]
+    introduction: formal
+    introduction_aliases: ["定義（固有対残差）"]
+    requires:
+      - numerical.residual
+      - linear.eigenvalue
+      - linear.eigenvector
+
+  - id: numerical.power-method
+    name: 冪乗法
+    kind: definition
+    aliases: [power method, power iteration]
+    introduction: formal
+    introduction_aliases: ["定義（冪乗法）"]
+    requires:
+      - linear.spectral-theorem
+
+  - id: numerical.power-method-symmetric-convergence
+    name: 実対称行列に対する冪乗法の方向収束
+    kind: theorem
+    aliases: [convergence of the power method for symmetric matrices]
+    introduction: formal
+    introduction_aliases: ["定理（実対称行列に対する冪乗法の方向収束）"]
+    requires:
+      - numerical.power-method
+      - linear.spectral-theorem
+
+  - id: numerical.rayleigh-residual-bound
+    name: Rayleigh 商の誤差と固有対残差の評価
+    kind: proposition
+    aliases: [Rayleigh quotient and eigenpair residual bound]
+    introduction: formal
+    introduction_aliases: ["命題（Rayleigh 商の誤差と固有対残差の評価）"]
+    requires:
+      - linear.rayleigh-quotient
+      - numerical.eigenpair-residual
+      - linear.spectral-theorem
+
+  - id: numerical.inverse-iteration
+    name: 逆反復法
+    kind: definition
+    aliases: [inverse iteration, inverse power method]
+    introduction: formal
+    introduction_aliases: ["定義（逆反復法）"]
+    requires:
+      - numerical.power-method
+      - numerical.triangular-substitution
+
+  - id: numerical.shifted-inverse-iteration
+    name: シフト付き逆反復法
+    kind: definition
+    aliases: [shifted inverse iteration, shift-and-invert iteration]
+    introduction: formal
+    introduction_aliases: ["定義（シフト付き逆反復法）"]
+    requires:
+      - numerical.inverse-iteration
+
+  - id: numerical.shifted-inverse-convergence
+    name: 実対称行列に対するシフト付き逆反復法の方向収束
+    kind: theorem
+    aliases: [convergence of shifted inverse iteration for symmetric matrices]
+    introduction: formal
+    introduction_aliases: ["定理（実対称行列に対するシフト付き逆反復法の方向収束）"]
+    requires:
+      - numerical.shifted-inverse-iteration
+      - linear.spectral-theorem
+
+  - id: numerical.rayleigh-quotient-iteration
+    name: Rayleigh 商反復
+    kind: definition
+    aliases: [Rayleigh quotient iteration, RQI]
+    introduction: formal
+    introduction_aliases: ["定義（Rayleigh 商反復）"]
+    requires:
+      - numerical.shifted-inverse-iteration
+      - linear.rayleigh-quotient
+
+  - id: numerical.rqi-cubic-convergence
+    name: Rayleigh 商反復の局所3次収束
+    kind: theorem
+    aliases: [local cubic convergence of Rayleigh quotient iteration]
+    introduction: formal
+    introduction_aliases: ["定理（Rayleigh 商反復の局所3次収束）"]
+    requires:
+      - numerical.rayleigh-quotient-iteration
+      - numerical.rayleigh-residual-bound
+      - linear.spectral-theorem
+
+  - id: numerical.eigenpair-symmetric-backward-error
+    name: 固有対残差の対称後方誤差
+    kind: proposition
+    aliases: [symmetric backward error of an eigenpair residual]
+    introduction: formal
+    introduction_aliases: ["命題（固有対残差の対称後方誤差）"]
+    requires:
+      - numerical.eigenpair-residual
+      - numerical.forward-backward-error
+
+  - id: numerical.orthogonal-iteration
+    name: 直交反復法
+    kind: definition
+    aliases: [orthogonal iteration, simultaneous iteration]
+    introduction: formal
+    introduction_aliases: ["定義（直交反復法）"]
+    requires:
+      - numerical.power-method
+      - linear.qr-decomposition
+
+  - id: numerical.qr-iteration
+    name: QR 法
+    kind: definition
+    aliases: [QR iteration, QR algorithm]
+    introduction: formal
+    introduction_aliases: ["定義（QR 法）"]
+    requires:
+      - linear.qr-decomposition
+
+  - id: numerical.qr-step-similarity
+    name: QR 更新の直交相似性
+    kind: proposition
+    aliases: [orthogonal similarity of a QR step]
+    introduction: formal
+    introduction_aliases: ["命題（QR 更新の直交相似性）"]
+    requires:
+      - numerical.qr-iteration
+      - linear.orthogonality
+
+  - id: numerical.deflation
+    name: デフレーション
+    kind: definition
+    aliases: [deflation]
+    introduction: formal
+    introduction_aliases: ["定義（デフレーション）"]
+    requires:
+      - numerical.qr-iteration
