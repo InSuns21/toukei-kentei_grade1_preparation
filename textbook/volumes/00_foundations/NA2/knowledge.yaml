@@ -1,0 +1,122 @@
+chapter: NA2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NA1
+  - RA2
+  - RA3
+  - F0-00D
+forward_references: []
+
+concepts:
+  - id: numerical.root
+    name: 零点・根
+    kind: definition
+    aliases: [零点, 根, root, zero]
+    introduction: formal
+    introduction_aliases: ["定義（零点・根）"]
+    requires: []
+
+  - id: numerical.root-bracketing
+    name: 根の区間囲い込み
+    kind: definition
+    aliases: [根の区間囲い込み, bracketing]
+    introduction: formal
+    introduction_aliases: ["定義（根の区間囲い込み）"]
+    requires: [numerical.root, analysis.intermediate-value-theorem]
+
+  - id: numerical.bisection-convergence
+    name: 二分法の収束と誤差上界
+    kind: theorem
+    aliases: [二分法の収束と誤差上界, bisection convergence]
+    introduction: formal
+    introduction_aliases: ["定理（二分法の収束と誤差上界）"]
+    requires: [numerical.root-bracketing, analysis.intermediate-value-theorem, topology.complete-metric-space]
+
+  - id: numerical.fixed-point
+    name: 不動点
+    kind: definition
+    aliases: [不動点, fixed point]
+    introduction: formal
+    introduction_aliases: ["定義（不動点）"]
+    requires: []
+
+  - id: numerical.fixed-point-iteration
+    name: 不動点反復
+    kind: definition
+    aliases: [不動点反復, fixed-point iteration]
+    introduction: formal
+    introduction_aliases: ["定義（不動点反復）"]
+    requires: [numerical.fixed-point]
+
+  - id: numerical.contraction
+    name: 縮小写像
+    kind: definition
+    aliases: [縮小写像, contraction]
+    introduction: formal
+    introduction_aliases: ["定義（縮小写像）"]
+    requires: [analysis.lipschitz-continuity]
+
+  - id: numerical.derivative-contraction-criterion
+    name: 導関数による縮小性判定
+    kind: proposition
+    aliases: [導関数による縮小性判定]
+    introduction: formal
+    introduction_aliases: ["命題（導関数による縮小性判定）"]
+    requires: [numerical.contraction, analysis.mean-value-theorem]
+
+  - id: numerical.contraction-fixed-point-iteration
+    name: 閉区間上の縮小不動点反復
+    kind: theorem
+    aliases: [閉区間上の縮小不動点反復, contraction fixed-point iteration]
+    introduction: formal
+    introduction_aliases: ["定理（閉区間上の縮小不動点反復）"]
+    requires: [numerical.fixed-point-iteration, numerical.contraction, topology.closed-subset-complete]
+
+  - id: numerical.order-of-convergence
+    name: 収束次数
+    kind: definition
+    aliases: [収束次数, order of convergence, 線形収束, 二次収束]
+    introduction: formal
+    introduction_aliases: ["定義（収束次数）"]
+    requires: []
+
+  - id: numerical.newton-method
+    name: Newton 法
+    kind: definition
+    aliases: [Newton 法, Newton method]
+    introduction: formal
+    introduction_aliases: ["定義（Newton 法）"]
+    requires: [analysis.derivative]
+
+  - id: numerical.simple-multiple-root
+    name: 単純根・重根
+    kind: definition
+    aliases: [単純根, 重根, simple root, multiple root]
+    introduction: formal
+    introduction_aliases: ["定義（単純根・重根）"]
+    requires: [numerical.root, analysis.derivative]
+
+  - id: numerical.newton-local-quadratic
+    name: Newton 法の局所二次収束
+    kind: theorem
+    aliases: [Newton 法の局所二次収束, local quadratic convergence of Newton method]
+    introduction: formal
+    introduction_aliases: ["定理（Newton 法の局所二次収束）"]
+    requires: [numerical.newton-method, numerical.simple-multiple-root, numerical.order-of-convergence, analysis.taylor-theorem, analysis.ck-smoothness-class]
+
+  - id: numerical.newton-asymptotic-error-constant
+    name: Newton 法の二次誤差定数
+    kind: corollary
+    aliases: [Newton 法の二次誤差定数]
+    introduction: formal
+    introduction_aliases: ["系（Newton 法の二次誤差定数）"]
+    requires: [numerical.newton-local-quadratic]
+
+  - id: numerical.residual-root-error-bound
+    name: 導関数下界による残差から根誤差への評価
+    kind: proposition
+    aliases: [導関数下界による残差から根誤差への評価, residual root error bound]
+    introduction: formal
+    introduction_aliases: ["命題（導関数下界による残差から根誤差への評価）"]
+    requires: [numerical.root, analysis.mean-value-theorem]
