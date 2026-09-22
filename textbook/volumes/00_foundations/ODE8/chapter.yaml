@@ -14,7 +14,7 @@ learning_objectives:
   - 自律系の流れを定義し一意性から合成則を証明できる
 definitions:
   - { id: ODE8-DEF-01, name: "最大解・最大存在区間" }
-  - { id: ODE8-DEF-02, name: "流れ" }
+  - { id: ODE8-DEF-02, name: "自律系の流れ" }
 theorems:
   - { id: ODE8-THM-01, name: "最大解の延長判定" }
   - { id: ODE8-LEM-01, name: "Grönwall の不等式" }
