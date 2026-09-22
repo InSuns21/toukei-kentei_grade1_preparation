@@ -54,7 +54,7 @@ concepts:
     name: 固有値
     kind: definition
     introduction_aliases: [固有値・固有ベクトル・固有空間]
-    aliases: [固有値, 固有値・固有ベクトル・固有空間]
+    aliases: [固有値]
     requires:
       - linear.linear-map
 
@@ -62,7 +62,7 @@ concepts:
     name: 固有ベクトル
     kind: definition
     introduction_aliases: [固有値・固有ベクトル・固有空間]
-    aliases: [固有ベクトル, 固有値・固有ベクトル・固有空間]
+    aliases: [固有ベクトル]
     requires:
       - linear.eigenvalue
 
@@ -70,7 +70,7 @@ concepts:
     name: 固有空間
     kind: definition
     introduction_aliases: [固有値・固有ベクトル・固有空間]
-    aliases: [固有空間, 固有値・固有ベクトル・固有空間]
+    aliases: [固有空間]
     requires:
       - linear.eigenvalue
       - linear.kernel-image
