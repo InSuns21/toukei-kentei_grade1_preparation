@@ -1116,7 +1116,7 @@ $$
 E''(0)\ge0.
 $$
 
-GEO17 の第二変分公式より
+[エネルギーの第二変分公式](../GEO17/index.md#thm-geo17-second-variation)より
 
 $$
 I(V,V)\ge0
@@ -2135,7 +2135,7 @@ $$
 #### GEO18-B02 Bonnet--Myers を球面で校正する
 - Level: B
 
-半径 $a$ の標準球面 $S^n_a$ について、GEO16 の定曲率公式を用いて次を示せ。
+半径 $a$ の標準球面 $S^n_a$ について、[定断面曲率空間の Ricci 曲率とスカラー曲率](../GEO16/index.md#cor-geo16-constant-curvature-contractions)を用いて次を示せ。
 
 1.
    $$
