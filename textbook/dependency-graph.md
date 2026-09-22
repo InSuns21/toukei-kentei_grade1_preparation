@@ -76,7 +76,7 @@ LA3A 代数的双対 ─┐
 LA3D 抽象行列式 ─┘
 ```
 
-現在実装済みの幾何学主線は GEO1--GEO12 である。
+現在実装済みの幾何学主線は GEO1--GEO13 である。
 
 ```text
 TOP4 Hausdorff・第二可算 ─┐
@@ -113,6 +113,10 @@ GEO7 テンソル場・Lie 微分 ───────────┤
 GEO8 向き・最高次形式の積分 ─────────┼→ GEO12 Riemann 計量・長さ・距離・体積
 LA5 内積・スペクトル ────────────────┤
 VC1 勾配・発散・Laplacian ───────────┘
+
+GEO5 ベクトル場・Lie 括弧 ───────────┐
+GEO12 Riemann 計量 ──────────────────┼→ GEO13 アフィン接続・Levi-Civita 接続・平行移動
+                                     ┘
 ```
 
 GEO2 は接空間・余接空間・写像の微分を canonical に担当する。GEO3 は定数階数定理・はめ込み・沈め込み・正則値・埋め込み部分多様体、GEO4 は局所有限細分・滑らかな局所化関数・1 の分割とコンパクト多様体の有限次元 Euclid 埋め込みを担当する。
@@ -131,7 +135,9 @@ GEO11 は GEO10・GEO6・GEO9 を直接 prerequisite とする。GEO10 の第一
 
 GEO12 は GEO4・GEO7・GEO8・LA5・VC1 を直接 prerequisite とする。GEO4 の 1 の分割で任意の滑らかな多様体上の Riemann 計量の存在を証明し、flat・sharp 同型と Riemannian 勾配、曲線長・曲線エネルギー、Riemann 距離を構成する。局所座標で計量行列を正の上下定数で比較し、Riemann 距離が元の多様体位相を誘導することまで閉じる。GEO8 の向き・最高次形式と GEO7 の Lie 微分を用いて体積形式・Riemannian 発散・Laplace--Beltrami を定義し、VC1 の Euclid 公式を特殊例として回収する。
 
-GEO13 以降は未実装なので reader-facing DAG へ先行登録しない。
+GEO13 は GEO5・GEO12 を直接 prerequisite とする。GEO5 のベクトル場・Lie 括弧と ODE の存在一意性を再利用して、アフィン接続、Christoffel 係数、捩率、曲線に沿う共変微分、平行移動を構成する。GEO12 の Riemann 計量へ計量両立性と捩率0を課し、Koszul の公式を導出して Levi-Civita 接続の存在一意性を核心まで証明する。さらに Levi-Civita 接続の Christoffel 係数公式と一般テンソル場の共変微分まで閉じる。
+
+GEO14 以降は未実装なので reader-facing DAG へ先行登録しない。
 
 ---
 
