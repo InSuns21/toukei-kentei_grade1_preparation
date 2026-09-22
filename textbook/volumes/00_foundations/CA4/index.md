@@ -1265,4 +1265,4 @@ $$
 
 ### 複素解析 II への接続
 
-本章の留数・零点計数は後半系列でも中心的に使う。[CA9 の楕円関数の零点数と極数](../CA9/index.md#thm-ca9-zero-pole-balance)は基本平行四辺形上の偏角原理を使い、[CA10 の余接関数の部分分数展開](../CA10/index.md#thm-ca10-cot-partial-fraction)は留数定理から導く。また [CA7 の Riemann 写像定理](../CA7/index.md#thm-ca7-riemann-mapping)では、単射正則写像の導関数が消えないことを Rouché の定理で確認する。
+本章の留数・零点計数は後半系列でも中心的に使う。[CA9 の楕円関数の零点数と極数](../CA9/index.md#thm-ca9-zero-pole-balance)は基本平行四辺形上の[偏角原理（単純閉曲線版）](#thm-ca4-argument-principle)を使い、[CA10 の余接関数の部分分数展開](../CA10/index.md#thm-ca10-cot-partial-fraction)は[留数定理（単純閉曲線版）](#thm-ca4-residue)から導く。また [CA7 の Riemann 写像定理](../CA7/index.md#thm-ca7-riemann-mapping)では、単射正則写像の導関数が消えないことを [Rouché の定理](#thm-ca4-rouche)で確認する。
