@@ -1,0 +1,48 @@
+id: "NA4"
+title: "数値解析 IV：多項式補間"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RA3
+  - NA1
+official_scope: []
+learning_objectives:
+  - 相異なる n+1 個の節点に対する次数 n 以下の補間多項式の存在一意性を証明できる
+  - Lagrange 基底を構成し、Lagrange 補間公式で具体的な補間多項式を計算できる
+  - 分割差分の再帰公式を導き、Newton 補間公式を節点追加の増分構造として説明できる
+  - Rolle の定理を反復して多項式補間の誤差公式を証明し、滑らかさと節点配置の役割を分離できる
+  - Chebyshev 多項式の最小最大性を証明し、Chebyshev 節点が節点多項式の一様ノルムを最小化することを説明できる
+  - Runge 現象を具体例で確認し、高次数化が必ずしも補間誤差を減らさない理由を説明できる
+  - Lebesgue 定数によるデータ摂動の増幅評価を導き、近似誤差・データ感度・丸め誤差を区別できる
+definitions:
+  - { id: NA4-DEF-01, name: 多項式補間問題 }
+  - { id: NA4-DEF-02, name: Lagrange 基底多項式 }
+  - { id: NA4-DEF-03, name: 分割差分 }
+  - { id: NA4-DEF-04, name: 節点多項式 }
+  - { id: NA4-DEF-05, name: Chebyshev 節点 }
+  - { id: NA4-DEF-06, name: Lebesgue 関数・Lebesgue 定数 }
+theorems:
+  - { id: NA4-THM-01, name: 多項式補間の存在一意性と Lagrange 公式 }
+  - { id: NA4-PROP-01, name: 分割差分の再帰公式 }
+  - { id: NA4-THM-02, name: Newton 補間公式 }
+  - { id: NA4-THM-03, name: 多項式補間の誤差公式 }
+  - { id: NA4-THM-04, name: 最高次係数1の多項式に対する Chebyshev の最小最大性 }
+  - { id: NA4-PROP-02, name: データ摂動の増幅評価 }
+canonical_examples:
+  - 3点データの Lagrange 補間
+  - 分割差分表による Newton 補間
+  - e^x の二次補間誤差評価
+  - Chebyshev 節点による節点多項式の最小最大化
+  - Runge 関数の等間隔補間
+problem_patterns:
+  - NA4-LAGRANGE-CONSTRUCTION-1
+  - NA4-DIVIDED-DIFFERENCE-1
+  - NA4-NEWTON-INCREMENT-1
+  - NA4-INTERPOLATION-ERROR-1
+  - NA4-CHEBYSHEV-NODES-1
+  - NA4-RUNGE-PHENOMENON-1
+  - NA4-DATA-PERTURBATION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 4.5, review: 0.5 }
