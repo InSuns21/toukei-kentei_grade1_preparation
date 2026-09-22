@@ -352,7 +352,39 @@ $$
 -\int_{|x|=r}\partial_n\Phi_n dS=1.
 $$
 
-$n=2$ では PDE6 と同じく $\Phi_2=-(2\pi)^{-1}\log r$ から直接計算できます。
+$n=2$ では
+
+$$
+\Phi_2(r)
+=
+-\frac1{2\pi}\log r,
+\qquad
+\Phi_2'(r)
+=
+-\frac1{2\pi r}.
+$$
+
+放射 Laplacian へ代入すると
+
+$$
+\Phi_2''+\frac1r\Phi_2'
+=
+\frac1{2\pi r^2}
+-
+\frac1{2\pi r^2}
+=
+0.
+$$
+
+また半径 $r$ の円周長は $2\pi r$ なので
+
+$$
+-\int_{|x|=r}\partial_n\Phi_2\,dS
+=
+-\left(-\frac1{2\pi r}\right)2\pi r
+=
+1.
+$$
 <!-- proof-end -->
 
 ## 3. Newton ポテンシャル
@@ -370,6 +402,35 @@ $$
 
 > を Newton ポテンシャルという。
 <!-- formal-statement-end -->
+
+この積分が特異点 $y=x$ のために発散しないことを一般次元で確認します。$z=x-y$ とすると、原点近くで
+
+$$
+|\Phi_n(z)|
+\asymp
+\begin{cases}
+|\log|z||, & n=2,\\
+|z|^{2-n}, & n\ge3.
+\end{cases}
+$$
+
+従って極座標の体積要素 $r^{n-1}dr\,d\omega$ と合わせると、特異点近傍の絶対値積分は
+
+$$
+\int_0^\varepsilon r|\log r|\,dr
+<\infty
+\qquad(n=2),
+$$
+
+$$
+\int_0^\varepsilon r^{2-n}r^{n-1}\,dr
+=
+\int_0^\varepsilon r\,dr
+<\infty
+\qquad(n\ge3).
+$$
+
+したがって $\Phi_n$ は原点近くで局所可積分です。
 
 <!-- definition-example-start: def-pde10-newton-potential -->
 **定義の確認**：$n=3$ とし、
@@ -414,7 +475,7 @@ $$
 
 ### 証明の見取り図
 
-核が非有界になる点 $y=x$ の小球を切り抜いて [Green の第二恒等式](../PDE6/index.md#thm-pde6-green-second)を使います。PDE6 の二次元証明と同じく、基本解の単位流束だけが一点値 $f(x)$ を生みます。
+核が非有界になる点を小球で切り抜き、[本章で証明した $n$ 次元球・穴あき球の発散公式](#lem-pde10-ball-divergence)から得た Green 型恒等式を使います。PDE6 の二次元証明と同じく、基本解の単位流束だけが一点値 $f(x)$ を生みます。
 
 <!-- proof-start -->
 ### 証明
@@ -579,7 +640,7 @@ $$
 
 ### 証明の見取り図
 
-球面上の平均 $m(r)$ を微分し、[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)で $m'(r)$ を球内部の $\Delta u$ の積分へ変えます。
+球面上の平均 $m(r)$ を微分し、[本章で証明した $n$ 次元球の発散公式](#lem-pde10-ball-divergence)で $m'(r)$ を球内部の $\Delta u$ の積分へ変えます。
 
 <!-- proof-start -->
 ### 証明
@@ -616,16 +677,27 @@ $$
 <a id="def-pde10-kelvin"></a>
 <!-- formal-statement-start -->
 > **定義（Kelvin 変換）**  
-> $n\ge3$ とし、原点を含まない領域上の関数 $u$ に対して
-
-$$
-(Ku)(x)
-=
-|x|^{2-n}
-u\left(\frac{x}{|x|^2}\right)
-$$
-
-> を Kelvin 変換という。
+> $n\ge3$ とし、
+>
+> $$
+> I(x)=\frac{x}{|x|^2}
+> $$
+>
+> を球面反転とする。開集合 $U\subset\mathbb R^n\setminus\{0\}$ 上の関数 $u$ に対し、反転領域
+>
+> $$
+> U^*:=I(U)
+> $$
+>
+> 上で
+>
+> $$
+> (Ku)(x)
+> =
+> |x|^{2-n}u(I(x))
+> $$
+>
+> と定める。この $Ku$ を $u$ の Kelvin 変換という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pde10-kelvin -->
@@ -637,16 +709,16 @@ $$
 <a id="prop-pde10-kelvin-harmonic"></a>
 <!-- formal-statement-start -->
 > **命題（Kelvin 変換は調和性を保つ）**  
-> $n\ge3$ で
-
-$$
-\Delta(Ku)(x)
-=
-|x|^{-n-2}
-(\Delta u)\left(\frac{x}{|x|^2}\right).
-$$
-
-> 特に $u$ が調和的なら $Ku$ も調和的である。
+> $n\ge3$、$U\subset\mathbb R^n\setminus\{0\}$ を開集合、$u\in C^2(U)$ とする。このとき $U^*=I(U)$ 上で
+>
+> $$
+> \Delta(Ku)(x)
+> =
+> |x|^{-n-2}
+> (\Delta u)\left(\frac{x}{|x|^2}\right).
+> $$
+>
+> 特に $u$ が $U$ で調和的なら $Ku$ は $U^*$ で調和的である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -819,15 +891,33 @@ $$
 <a id="prop-pde10-halfspace-green"></a>
 <!-- formal-statement-start -->
 > **命題（半空間の Dirichlet Green 関数）**  
-> $x,y\in\mathbb H^n$ に対し
-
-$$
-G(x,y)
-=
-\Phi_n(x-y)-\Phi_n(x-y^*)
-$$
-
-> と置くと、$y$ に関して基本解と同じ特異性を持ち、境界 $y_n=0$ で $G(x,y)=0$ となる。
+> $x\in\mathbb H^n$ を固定し、$y\in\mathbb H^n$、$y^*=(y',-y_n)$ に対し
+>
+> $$
+> G(x,y)
+> =
+> \Phi_n(x-y)-\Phi_n(x-y^*)
+> $$
+>
+> と置く。このとき $y=x$ を除いて
+>
+> $$
+> \Delta_yG(x,y)=0,
+> $$
+>
+> $y=x$ の近くでは
+>
+> $$
+> G(x,y)-\Phi_n(x-y)
+> $$
+>
+> が調和的であり、境界 $y_n=0$ では
+>
+> $$
+> G(x,y)=0.
+> $$
+>
+> 従って $G$ は半空間の Dirichlet Green 関数に必要な古典的性質を満たす。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
