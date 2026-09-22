@@ -6,9 +6,9 @@ terms:
   - term: 球面調和関数
     english: spherical harmonic
     meaning: 球面 Laplacian の固有関数で、固有値は ell(ell+1) の形を持つ。
-  - term: associated Legendre 方程式
+  - term: Legendre の陪微分方程式
     english: associated Legendre equation
     meaning: 球面上で方位角依存 e^(im phi) を分離したとき極角成分が満たす常微分方程式。
-  - term: solid harmonic
+  - term: 立体調和関数
     english: solid harmonic
     meaning: 球面調和関数へ適切な r の冪を掛けて得る三次元調和関数。
