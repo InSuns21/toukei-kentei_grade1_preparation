@@ -417,32 +417,32 @@ $$
 
 まず外積との可換性を示します。$p\in M$ と $v_1,\dots,v_{k+\ell}\in T_pM$ を取ります。[LA3E の外積](../LA3E/index.md#def-la3e-wedge-product)の置換和による定義を使うと、
 
-$
+$$
 \bigl(F^*(\alpha\wedge\beta)\bigr)_p
 (v_1,\dots,v_{k+\ell})
 =
 (\alpha\wedge\beta)_{F(p)}
 (dF_pv_1,\dots,dF_pv_{k+\ell}).
-$
+$$
 
 右辺の外積を展開すると、各項は $\alpha$ に $k$ 本、$\beta$ に $\ell$ 本の $dF_pv_i$ を入れた積です。これは同じ置換ごとに
 
-$
+$$
 (F^*\alpha)_p(v_{\sigma(1)},\dots,v_{\sigma(k)})
 (F^*\beta)_p(v_{\sigma(k+1)},\dots,v_{\sigma(k+\ell)})
-$
+$$
 
 となるので、置換和を戻せば
 
-$
+$$
 F^*(\alpha\wedge\beta)
 =
 F^*\alpha\wedge F^*\beta.
-$
+$$
 
 次に $G:N\to P$ と $\eta\in\Omega^k(P)$ を取ります。$p\in M$ と $v_1,\dots,v_k\in T_pM$ に対して
 
-$
+$$
 \begin{aligned}
 \bigl((G\circ F)^*\eta\bigr)_p(v_1,\dots,v_k)
 &=
@@ -451,19 +451,19 @@ $
 d(G\circ F)_pv_1,\dots,d(G\circ F)_pv_k
 \bigr).
 \end{aligned}
-$
+$$
 
 [GEO2 の多様体上の連鎖律](../GEO2/index.md#thm-geo2-composition-differential)から
 
-$
+$$
 d(G\circ F)_p
 =
 dG_{F(p)}\circ dF_p.
-$
+$$
 
 これを各引数へ代入すると
 
-$
+$$
 \begin{aligned}
 \bigl((G\circ F)^*\eta\bigr)_p(v_1,\dots,v_k)
 &=
@@ -472,13 +472,13 @@ $
 &=
 \bigl(F^*(G^*\eta)\bigr)_p(v_1,\dots,v_k).
 \end{aligned}
-$
+$$
 
 $p$ と $v_i$ は任意なので
 
-$
+$$
 (G\circ F)^*=F^*\circ G^*.
-$
+$$
 
 $\square$
 <!-- proof-end -->
