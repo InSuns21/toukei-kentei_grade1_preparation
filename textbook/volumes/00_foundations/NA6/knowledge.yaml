@@ -1,0 +1,125 @@
+chapter: NA6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ODE1
+  - NA1
+forward_references:
+  - numerical.runge-kutta-method
+  - numerical.absolute-stability
+
+concepts:
+  - id: numerical.time-grid
+    name: 時間格子・刻み幅
+    kind: definition
+    aliases: [time grid, step size]
+    introduction: formal
+    introduction_aliases: ["定義（時間格子・刻み幅）"]
+    requires:
+      - ode.ode1-initial-boundary-value-problem
+
+  - id: numerical.one-step-method
+    name: 一段法・一段関数
+    kind: definition
+    aliases: [one-step method, increment function]
+    introduction: formal
+    introduction_aliases: ["定義（一段法・一段関数）"]
+    requires:
+      - numerical.time-grid
+      - ode.ode1-initial-boundary-value-problem
+
+  - id: numerical.forward-euler-method
+    name: Euler 法
+    kind: method
+    aliases: [forward Euler method]
+    introduction: inline
+    requires:
+      - numerical.one-step-method
+
+  - id: numerical.local-truncation-error
+    name: 局所打切り誤差
+    kind: definition
+    aliases: [local truncation error]
+    introduction: formal
+    introduction_aliases: ["定義（局所打切り誤差）"]
+    requires:
+      - numerical.one-step-method
+
+  - id: numerical.consistency
+    name: 整合性・整合性次数
+    kind: definition
+    aliases: [consistency, order of consistency]
+    introduction: formal
+    introduction_aliases: ["定義（整合性・整合性次数）"]
+    requires:
+      - numerical.local-truncation-error
+
+  - id: numerical.euler-local-truncation
+    name: Euler 法の局所打切り誤差
+    kind: proposition
+    aliases: [Euler local truncation error]
+    introduction: formal
+    introduction_aliases: ["命題（Euler 法の局所打切り誤差）"]
+    requires:
+      - numerical.forward-euler-method
+      - numerical.local-truncation-error
+      - analysis.taylor-theorem
+
+  - id: numerical.global-error-convergence-order
+    name: 大域誤差・収束次数
+    kind: definition
+    aliases: [global error, order of convergence]
+    introduction: formal
+    introduction_aliases: ["定義（大域誤差・収束次数）"]
+    requires:
+      - numerical.time-grid
+      - numerical.one-step-method
+
+  - id: numerical.discrete-gronwall-estimate
+    name: 離散 Grönwall 型評価
+    kind: lemma
+    aliases: [discrete Gronwall estimate]
+    introduction: formal
+    introduction_aliases: ["補題（離散 Grönwall 型評価）"]
+    requires: []
+
+  - id: numerical.finite-time-perturbation-stability
+    name: 一段法の有限時間摂動安定性
+    kind: definition
+    aliases: [finite-time perturbation stability]
+    introduction: formal
+    introduction_aliases: ["定義（一段法の有限時間摂動安定性）"]
+    requires:
+      - numerical.one-step-method
+      - numerical.global-error-convergence-order
+
+  - id: numerical.one-step-perturbation-stability
+    name: 一段法の有限時間摂動安定性定理
+    kind: theorem
+    aliases: [one-step perturbation stability theorem]
+    introduction: formal
+    introduction_aliases: ["定理（一段法の有限時間摂動安定性）"]
+    requires:
+      - numerical.finite-time-perturbation-stability
+      - numerical.discrete-gronwall-estimate
+
+  - id: numerical.one-step-convergence
+    name: 整合性と摂動安定性からの大域収束
+    kind: theorem
+    aliases: [one-step convergence theorem]
+    introduction: formal
+    introduction_aliases: ["定理（整合性と摂動安定性からの大域収束）"]
+    requires:
+      - numerical.consistency
+      - numerical.one-step-perturbation-stability
+
+  - id: numerical.euler-first-order-convergence
+    name: Euler 法の一次収束
+    kind: corollary
+    aliases: [first-order convergence of Euler method]
+    introduction: formal
+    introduction_aliases: ["系（Euler 法の一次収束）"]
+    requires:
+      - numerical.euler-local-truncation
+      - numerical.one-step-convergence
+      - ode.ode1-lipschitz-y
