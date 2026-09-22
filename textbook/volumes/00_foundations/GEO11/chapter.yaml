@@ -1,0 +1,45 @@
+id: "GEO11"
+title: "幾何学 XI：Euclid 空間の超曲面 II：構造方程式・Gauss--Codazzi・基本定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEO10
+  - GEO6
+  - GEO9
+official_scope: []
+learning_objectives:
+  - Euclid 空間内の超曲面で二階微分を接成分と法線成分へ分解し、Gauss 公式を導出できる
+  - 第一基本形式の係数から Christoffel 係数を導出し、接成分が第一基本形式だけで決まることを説明できる
+  - GEO10 の形作用素から Weingarten 公式を座標表示で書ける
+  - 混合偏微分の可換性から Gauss 方程式と Codazzi 方程式を導出できる
+  - Gauss--Weingarten 系を行列値1形式の構造方程式としてまとめ、可積分条件との関係を説明できる
+  - 二次元曲面で Gauss 方程式から K=R_{1212}/det G を導き、Gauss の驚異の定理を証明できる
+  - Gauss--Codazzi 条件を満たす第一・第二基本形式から局所超曲面を再構成し、一意性が剛体運動までであることを証明できる
+  - 全臍的超曲面の剛性を Codazzi 方程式から導き、平面と球面を分類できる
+definitions: []
+theorems:
+  - { id: GEO11-PROP-01, name: Gauss 公式と Christoffel 係数 }
+  - { id: GEO11-PROP-02, name: Weingarten 公式 }
+  - { id: GEO11-THM-01, name: Gauss--Codazzi 方程式 }
+  - { id: GEO11-PROP-03, name: Gauss--Weingarten 構造方程式 }
+  - { id: GEO11-THM-02, name: Gauss の驚異の定理 }
+  - { id: GEO11-THM-03, name: 超曲面の基本定理 }
+  - { id: GEO11-THM-04, name: 全臍的超曲面の剛性 }
+canonical_examples:
+  - 球面での Gauss 公式・Weingarten 公式
+  - 円柱での Gauss 方程式と K=0
+  - 共形計量の Gauss 曲率
+  - 平面と球面の全臍性
+problem_patterns:
+  - GEO11-SPHERE-STRUCTURE-1
+  - GEO11-CYLINDER-GAUSS-1
+  - GEO11-CHRISTOFFEL-METRIC-1
+  - GEO11-PARABOLOID-EGREGIUM-1
+  - GEO11-CONFORMAL-CURVATURE-1
+  - GEO11-UMBILIC-RIGIDITY-1
+  - GEO11-CYLINDER-RECONSTRUCTION-1
+  - GEO11-WARPED-METRIC-CURVATURE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.5, review: 0.5 }
