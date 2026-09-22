@@ -347,6 +347,15 @@ nodes:
     implementation_path: textbook/volumes/00_foundations/GEO7/index.md
     prerequisites: [GEO2, GEO5, LA3E]
 
+  - id: GEO8
+    title: 向き・多様体上の積分・一般 Stokes の定理
+    area: differential-geometry
+    tier: core
+    status: implemented
+    implemented_at: 2026-09-22
+    implementation_path: textbook/volumes/00_foundations/GEO8/index.md
+    prerequisites: [GEO4, GEO7, RA7, VC5]
+
   - id: VC1
     title: ベクトル場と微分演算子
     area: vector-calculus
@@ -714,7 +723,7 @@ implementation_batches:
     nodes: [VC1, VC2, VC3, VC4, VC5, VC6, VC7, VC8, VC9]
   - order: 10
     id: differential-geometry-core
-    nodes: [GEO1, GEO2, GEO3, GEO4, GEO5, GEO6, GEO7]
+    nodes: [GEO1, GEO2, GEO3, GEO4, GEO5, GEO6, GEO7, GEO8]
 
 deferred_integrations:
   - id: dream-theater-facade-entrypoint

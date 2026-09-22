@@ -81,6 +81,10 @@ flowchart TD
   GEO2 --> GEO7["テンソル場・微分形式・外微分<br/>GEO7"]
   GEO5 --> GEO7
   LA3E --> GEO7
+  GEO4 --> GEO8["向き・多様体上の積分・一般 Stokes<br/>GEO8"]
+  GEO7 --> GEO8
+  RA7 --> GEO8
+  VC5 --> GEO8
   TOP5 --> TOP5A["Urysohn・局所コンパクト性・cutoff<br/>TOP5A"]
   TOP5 --> BAIRE["全有界性・Baire・net/filter<br/>TOP6"]
   BAIRE --> UNIFORM["一様構造・一様連続・Cauchy構造<br/>TOP7"]
@@ -687,6 +691,23 @@ direct prerequisite は GEO3 と GEO5 です。GEO3 の部分多様体・正則�
 実装: [GEO7](volumes/00_foundations/GEO7/index.md)
 
 direct prerequisite は GEO2、GEO5、LA3E です。GEO2 の接・余接空間と写像の微分、LA3E のテンソル積・外積代数・内部積を多様体上へ持ち上げます。外微分の座標不変表示には GEO5 の Lie 括弧、Cartan の公式には GEO5 の局所流を実際に使うため、GEO5 も直接依存とします。次の GEO8 では、向き・境界向き・最高次形式の積分を導入して一般 Stokes の定理へ進みます。
+
+## GEO8 向き・多様体上の積分・一般 Stokes の定理 `core`
+
+- ベクトル空間と多様体の向き、向き付けられたアトラス
+- 向き付け可能性と消えない最高次形式の同値
+- 境界付き滑らかな多様体と境界座標の不変性
+- 外向き先頭規約による境界向き
+- コンパクト台を持つ最高次形式の局所積分と座標不変性
+- 1 の分割による大域積分と選択独立性
+- 半空間上の局所 Stokes を一変数微積分学の基本定理から証明
+- 一般 Stokes の定理を 1 の分割で大域化して核心証明
+- 微積分学の基本定理・Green・Kelvin--Stokes・Gauss--Ostrogradsky を特殊例として回収
+- 演習で区間・円板・円環の境界向きと古典積分定理への翻訳を具体計算
+
+実装: [GEO8](volumes/00_foundations/GEO8/index.md)
+
+direct prerequisite は GEO4、GEO7、RA7、VC5 です。GEO7 の微分形式・外微分、RA7 の多変数変数変換、GEO4 の 1 の分割を一般 Stokes の証明へ直接使います。VC5 は古典 Kelvin--Stokes の向き規約との対応を確認する比較基準として再利用します。次の GEO9 では Poincaré の補題と de Rham コホモロジー入門へ進みます。
 
 ---
 

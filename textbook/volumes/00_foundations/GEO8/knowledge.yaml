@@ -1,0 +1,142 @@
+chapter: GEO8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEO4
+  - GEO7
+  - RA7
+  - VC5
+concepts:
+  - id: geometry.vector-space-orientation
+    name: ベクトル空間の向き
+    kind: definition
+    aliases: [ベクトル空間の向き, orientation of a vector space]
+    requires:
+      - linear.matrix-determinant
+
+  - id: geometry.oriented-atlas
+    name: 向き付けられたアトラス
+    kind: definition
+    aliases: [向き付けられたアトラス, oriented atlas]
+    introduction: formal
+    introduction_aliases: ["定義（向き付けられたアトラス・多様体の向き）"]
+    requires:
+      - geometry.smooth-atlas
+      - geometry.differential-coordinate-formula
+      - linear.matrix-determinant
+
+  - id: geometry.manifold-orientation
+    name: 多様体の向き
+    kind: definition
+    aliases: [多様体の向き, orientation of a manifold]
+    introduction: formal
+    introduction_aliases: ["定義（向き付けられたアトラス・多様体の向き）"]
+    requires:
+      - geometry.oriented-atlas
+
+  - id: geometry.orientation-form
+    name: 向き形式
+    kind: definition
+    aliases: [向き形式, orientation form]
+    requires:
+      - geometry.differential-form
+      - linear.top-alternating-form-one-dimensional
+
+  - id: geometry.orientability-orientation-form
+    name: 向き付け可能性と向き形式
+    kind: theorem
+    aliases: [向き付け可能性と向き形式]
+    requires:
+      - geometry.manifold-orientation
+      - geometry.orientation-form
+      - geometry.partition-of-unity-existence
+
+  - id: geometry.manifold-with-boundary
+    name: 境界付き滑らかな多様体
+    kind: definition
+    aliases: [境界付き滑らかな多様体, smooth manifold with boundary]
+    requires:
+      - topology.hausdorff-space
+      - topology.second-countable
+      - geometry.smooth-atlas
+
+  - id: geometry.boundary-chart-invariance
+    name: 境界座標変換は境界を保つ
+    kind: lemma
+    aliases: [境界座標変換は境界を保つ]
+    requires:
+      - geometry.manifold-with-boundary
+      - analysis.inverse-function-theorem
+      - geometry.manifold-chain-rule
+
+  - id: geometry.boundary-submanifold
+    name: 境界は余次元1の滑らかな多様体
+    kind: theorem
+    aliases: [境界は余次元1の滑らかな多様体]
+    requires:
+      - geometry.manifold-with-boundary
+      - geometry.boundary-chart-invariance
+
+  - id: geometry.boundary-orientation
+    name: 境界向き
+    kind: definition
+    aliases: [境界向き, boundary orientation of a manifold]
+    requires:
+      - geometry.manifold-orientation
+      - geometry.boundary-submanifold
+
+  - id: geometry.local-top-form-integral
+    name: 座標近傍内の最高次形式の積分
+    kind: definition
+    aliases: [座標近傍内の最高次形式の積分]
+    requires:
+      - geometry.manifold-orientation
+      - geometry.differential-form
+      - analysis.multiple-riemann-integral
+
+  - id: geometry.local-top-form-integral-invariance
+    name: 最高次形式の局所積分の座標不変性
+    kind: theorem
+    aliases: [最高次形式の局所積分の座標不変性]
+    requires:
+      - geometry.local-top-form-integral
+      - geometry.differential-form-pullback
+      - analysis.multivariable-riemann-change-of-variables
+
+  - id: geometry.global-top-form-integral
+    name: 多様体上の最高次形式の積分
+    kind: definition
+    aliases: [多様体上の最高次形式の積分, integration of top-degree forms]
+    requires:
+      - geometry.local-top-form-integral-invariance
+      - geometry.partition-of-unity-existence
+
+  - id: geometry.global-top-form-integral-well-defined
+    name: 大域積分は 1 の分割に依存しない
+    kind: proposition
+    aliases: [大域積分は 1 の分割に依存しない]
+    requires:
+      - geometry.global-top-form-integral
+      - topology.locally-finite-family
+
+  - id: geometry.local-stokes-halfspace
+    name: 半空間上の局所 Stokes
+    kind: lemma
+    aliases: [半空間上の局所 Stokes]
+    requires:
+      - geometry.boundary-orientation
+      - geometry.exterior-derivative
+      - geometry.global-top-form-integral
+      - analysis.ftc-2
+      - analysis.iterated-riemann-integral-rectangle
+
+  - id: geometry.general-stokes-theorem
+    name: 一般 Stokes の定理
+    kind: theorem
+    aliases: [一般 Stokes の定理, generalized Stokes theorem]
+    requires:
+      - geometry.local-stokes-halfspace
+      - geometry.partition-of-unity-existence
+      - geometry.exterior-derivative-graded-leibniz
+      - geometry.global-top-form-integral-well-defined
+      - geometry.boundary-orientation

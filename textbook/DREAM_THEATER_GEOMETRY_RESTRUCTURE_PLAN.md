@@ -941,10 +941,10 @@ Phase 1 完了。GEO1 → GEO2 → GEO3 → GEO4 完了。
 - GEO5 ベクトル場・流れ・Lie 括弧 ✅ 2026-09-22
 - GEO6 Frobenius ✅ 2026-09-22
 - GEO7 テンソル場・微分形式 ✅ 2026-09-22
-- GEO8 一般 Stokes
+- GEO8 一般 Stokes ✅ 2026-09-22
 - GEO9 de Rham 入門
 
-GEO7 完了。次の実装開始点は **GEO8「向き・多様体上の積分・一般 Stokes の定理」** とする。
+GEO8 完了。次の実装開始点は **GEO9「Poincaré の補題・de Rham コホモロジー入門」** とする。
 
 ### Phase 3：古典曲面論から Riemann 幾何へ
 
