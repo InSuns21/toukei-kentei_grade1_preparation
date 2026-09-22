@@ -176,7 +176,9 @@ $$
 を表しています。
 
 <!-- definition-example-start: def-geo13-affine-connection -->
-**定義の確認：Euclid 空間の標準接続**
+**定義の確認**
+
+Euclid 空間の標準接続
 
 $\mathbb R^n$ の標準座標で
 
@@ -561,7 +563,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo13-torsion -->
-**定義の確認：標準接続の捩率**
+**定義の確認**
+
+標準接続の捩率
 
 $\mathbb R^n$ の標準接続 $D$ では
 
@@ -824,7 +828,9 @@ $$
 右辺は接ベクトルの通常の変換則そのものです。従って $DV/dt$ は座標に依らず定まり、Christoffel 係数の非テンソル的な二階微分項が成分微分の座標依存をちょうど補正しています。
 
 <!-- definition-example-start: def-geo13-curve-covariant-derivative -->
-**定義の確認：Euclid 空間**
+**定義の確認**
+
+Euclid 空間
 
 Cartesian 座標の標準接続では
 
@@ -883,7 +889,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo13-parallel-transport -->
-**定義の確認：Cartesian 座標**
+**定義の確認**
+
+Cartesian 座標
 
 標準 Euclid 接続では平行条件は
 
@@ -1128,7 +1136,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo13-metric-compatibility -->
-**定義の確認：Euclid 計量と標準接続**
+**定義の確認**
+
+Euclid 計量と標準接続
 
 標準 Euclid 計量では
 
@@ -1334,7 +1344,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo13-levi-civita -->
-**定義の確認：Euclid 空間**
+**定義の確認**
+
+Euclid 空間
 
 標準 Euclid 接続 $D$ は、すでに
 
@@ -2140,7 +2152,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo13-tensor-covariant-derivative -->
-**定義の確認：1形式**
+**定義の確認**
+
+1形式
 
 座標1形式
 
@@ -2718,7 +2732,7 @@ $$
 
    方程式へ $e^{\phi(t)}$ を掛けると
 
-   $
+   $$
    e^\phi v'
    +
    \phi'e^\phi v
@@ -2729,15 +2743,15 @@ $$
    \right)
    =
    0.
-   $
+   $$
 
    従って
 
-   $
+   $$
    v(t)
    =
    C e^{-\phi(t)}.
-   $
+   $$
 
    初期条件
 
@@ -3526,19 +3540,19 @@ $$
 
    第二式へ $f$ を掛けると
 
-   $
+   $$
    fB'+f'B
    =
    (fB)'
    =
    0.
-   $
+   $$
 
    従って
 
-   $
+   $$
    f(t)B(t)=\text{定数}.
-   $
+   $$
 
    初期値から
 
