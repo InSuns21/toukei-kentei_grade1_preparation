@@ -15,8 +15,8 @@ learning_objectives:
   - Kelvin 変換を定義し調和性保存の計算を追える
   - 半空間の Dirichlet Green 関数と Poisson kernel を鏡像法から構成できる
 definitions:
-  - { id: PDE10-DEF-01, name: "n 次元負 Laplacian の基本解" }
-  - { id: PDE10-DEF-02, name: "n 次元 Newton ポテンシャル" }
+  - { id: PDE10-DEF-01, name: "多次元負 Laplacian の基本解" }
+  - { id: PDE10-DEF-02, name: "多次元 Newton ポテンシャル" }
   - { id: PDE10-DEF-03, name: "Kelvin 変換" }
 theorems:
   - { id: PDE10-PROP-01, name: "多次元基本解の調和性と単位流束" }
