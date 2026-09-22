@@ -8,9 +8,9 @@ forward_references: []
 concepts:
   - id: pde.pde8-duhamel-principle
     name: Duhamel 原理
-    kind: term
+    kind: definition
     aliases: ["Duhamel 原理"]
-    introduction: inline
+    introduction: formal
   - id: pde.pde8-heat-propagator
     name: 熱核による自由発展
     kind: definition
