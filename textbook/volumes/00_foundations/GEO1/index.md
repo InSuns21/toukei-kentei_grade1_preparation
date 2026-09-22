@@ -1,12 +1,12 @@
-# GEO1 滑らかな多様体・滑らかな写像
+# GEO1 多様体の局所座標・アトラス・滑らかさ
 
-Euclid 空間では、点の近くを一つの座標系で表せます。しかし球面やトーラスのような空間全体を、座標表示を破綻させずに一枚の Euclid 座標で覆うことはできません。
+Euclid 空間では、点の近くを一つの座標系で表せます。しかし球面や円の積のような空間全体を、座標表示を破綻させずに一枚の Euclid 座標で覆うことはできません。
 
 そこで発想を変えます。
 
 > **空間全体を一枚の座標で表すのではなく、各点の近くを Euclid 空間の開集合で表し、座標どうしの重なりで変換が滑らかにつながることを要求する。**
 
-これが滑らかな多様体の基本思想です。
+これが本章で定式化する、多様体上の滑らかさの基本思想です。
 
 本章では
 
@@ -30,7 +30,7 @@ $$
 
 ---
 
-## 1. 位相多様体：各点の近くが Euclid 空間に見える
+## 1. 各点の近くが Euclid 空間に見える位相空間
 
 <a id="def-geo1-topological-manifold"></a>
 <!-- formal-statement-start -->
@@ -45,6 +45,7 @@ $$
 第三条件だけが「局所 Euclid 性」です。Hausdorff 性と第二可算性も定義に入れるのは、後で点の分離・可算な局所化・1 の分割などを一貫して使えるクラスに絞るためです。
 
 <!-- definition-example-start: def-geo1-topological-manifold -->
+**定義の確認**
 ### 例：$\mathbb R^n$ の開集合
 
 $O\subseteq\mathbb R^n$ を開集合とします。
@@ -60,7 +61,7 @@ $O\subseteq\mathbb R^n$ を開集合とします。
 
 ---
 
-## 2. 座標近傍と局所座標
+## 2. 点の近くに座標を入れる
 
 <a id="def-geo1-chart"></a>
 <!-- formal-statement-start -->
@@ -81,6 +82,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo1-chart -->
+**定義の確認**
 ### 例：極座標は局所座標にはなるが、平面全体の一枚座標ではない
 
 $$
@@ -128,6 +130,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo1-atlas -->
+**定義の確認**
 ### 例：円を二枚の座標近傍で覆う
 
 $$
@@ -201,6 +204,7 @@ $$
 です。「一方向が $C^\infty$ なら十分」とは限りません。
 
 <!-- definition-example-start: def-geo1-compatible-charts -->
+**定義の確認**
 ### 例：線形座標変換は両立する
 
 $\mathbb R^n$ 上で
@@ -255,6 +259,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo1-smooth-atlas -->
+**定義の確認**
 ### 例：$\mathbb R^n$ の標準アトラス
 
 一枚だけからなる
@@ -287,6 +292,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo1-compatible-atlases -->
+**定義の確認**
 ### 例：標準座標と可逆アフィン座標
 
 $\mathbb R^n$ の標準一枚アトラス
@@ -400,6 +406,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo1-maximal-smooth-atlas -->
+**定義の確認**
 ### 例：標準一枚アトラスそのものは極大ではない
 
 $\mathbb R^n$ の
@@ -500,6 +507,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo1-smooth-structure -->
+**定義の確認**
 ### 例：Euclid 空間の標準滑らかな構造
 
 $\mathbb R^n$ の標準一枚アトラス
@@ -793,7 +801,7 @@ $U_i$ は $q(\{x\in S^n:x_i\ne0\})$ であり、$q$ が開集合を開集合へ�
 
 ---
 
-## 8. 積多様体とトーラス
+## 8. 積から新しい多様体を作る
 
 <a id="thm-geo1-product-manifold"></a>
 <!-- formal-statement-start -->
@@ -881,6 +889,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo1-torus -->
+**定義の確認**
 ### 例：$T^2$ の積座標
 
 $T^2=S^1\times S^1$ では、各円から北極座標または南極座標を一枚ずつ選ぶことで、最大4枚の積座標
@@ -904,7 +913,7 @@ $$
 
 ---
 
-## 9. 滑らかな写像：座標で見て滑らかならよい
+## 9. 多様体の間の写像を座標で調べる
 
 <a id="def-geo1-smooth-map"></a>
 <!-- formal-statement-start -->
@@ -928,6 +937,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo1-smooth-map -->
+**定義の確認**
 ### 例：球面の高さ関数
 
 $$
@@ -1106,6 +1116,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo1-diffeomorphism -->
+**定義の確認**
 ### 例：可逆アフィン写像
 
 $$
