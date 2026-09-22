@@ -10,7 +10,7 @@ concepts:
   - id: geometry.map-rank
     name: 滑らかな写像の階数
     kind: definition
-    aliases: [階数, 写像の階数, rank of smooth map]
+    aliases: [写像の階数, rank of smooth map]
     introduction_aliases: ["定義（滑らかな写像の階数）"]
     requires: [geometry.differential]
 
@@ -41,7 +41,7 @@ concepts:
   - id: geometry.embedded-submanifold
     name: 埋め込み部分多様体
     kind: definition
-    aliases: [埋め込み部分多様体, 部分多様体, embedded submanifold]
+    aliases: [埋め込み部分多様体, embedded submanifold]
     requires: [geometry.smooth-manifold, geometry.coordinate-chart]
 
   - id: geometry.immersion-local-normal-form
@@ -63,9 +63,9 @@ concepts:
     requires: [geometry.embedded-submanifold, geometry.differential]
 
   - id: geometry.regular-point
-    name: 正則点
+    name: 滑らかな写像の正則点
     kind: definition
-    aliases: [正則点, 滑らかな写像の正則点, regular point]
+    aliases: [写像の正則点, regular point of a smooth map]
     introduction_aliases: ["定義（滑らかな写像の点と値の分類）"]
     requires: [geometry.submersion]
 
@@ -91,9 +91,9 @@ concepts:
     requires: [geometry.critical-point]
 
   - id: geometry.level-set
-    name: レベル集合
+    name: 滑らかな写像のレベル集合
     kind: definition
-    aliases: [レベル集合, 滑らかな写像のレベル集合, level set]
+    aliases: [写像のレベル集合, level set of a smooth map]
     introduction_aliases: ["定義（滑らかな写像のレベル集合）"]
     requires: [geometry.smooth-map]
 
