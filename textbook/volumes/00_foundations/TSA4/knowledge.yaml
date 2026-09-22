@@ -140,7 +140,7 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（偏自己相関関数）"]
     requires:
-      - timeseries.finite-normal-equations
+      - timeseries.finite-prediction-normal-equations
 
   - id: timeseries.acf-pacf-cutoff
     name: MA の自己相関打切りと AR の偏自己相関打切り
