@@ -24,17 +24,17 @@ $$
 <!-- formal-statement-start -->
 > **定義（一般一階非線形 PDE）**  
 > 開集合 $\Omega\subset\mathbb R^n$ と滑らかな
->
-> $$
-> F:\Omega\times\mathbb R\times\mathbb R^n\to\mathbb R
-> $$
->
+
+$$
+F:\Omega\times\mathbb R\times\mathbb R^n\to\mathbb R
+$$
+
 > に対し、$u\in C^1(\Omega)$ が
->
-> $$
-> F(x,u(x),\nabla u(x))=0
-> $$
->
+
+$$
+F(x,u(x),\nabla u(x))=0
+$$
+
 > を満たすとき、$u$ を古典解という。
 <!-- formal-statement-end -->
 
@@ -54,35 +54,35 @@ $$
 <!-- formal-statement-start -->
 > **定理（Charpit の特性系）**  
 > $F\in C^2$ とし、古典解 $u$ の上で
->
-> $$
-> z=u(x),\qquad p=\nabla u(x)
-> $$
->
+
+$$
+z=u(x),\qquad p=\nabla u(x)
+$$
+
 > と置く。特性曲線を
->
-> $$
-> \dot x=F_p(x,z,p)
-> $$
->
+
+$$
+\dot x=F_p(x,z,p)
+$$
+
 > に沿って取ると
->
-> $$
-> \dot z=p\cdot F_p,
-> \qquad
-> \dot p=-F_x-pF_z
-> $$
->
+
+$$
+\dot z=p\cdot F_p,
+\qquad
+\dot p=-F_x-pF_z
+$$
+
 > が成り立つ。従って
->
-> $$
-> \boxed{
-> \dot x=F_p,\qquad
-> \dot z=p\cdot F_p,\qquad
-> \dot p=-F_x-pF_z
-> }
-> $$
->
+
+$$
+\boxed{
+\dot x=F_p,\qquad
+\dot z=p\cdot F_p,\qquad
+\dot p=-F_x-pF_z
+}
+$$
+
 > が特性常微分方程式系である。また、この系に沿って $F$ は一定である。
 <!-- formal-statement-end -->
 
@@ -153,11 +153,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（Hamilton--Jacobi 方程式）**  
 > Hamiltonian $H(x,p)$ に対する
->
-> $$
-> u_t+H(x,\nabla_xu)=0
-> $$
->
+
+$$
+u_t+H(x,\nabla_xu)=0
+$$
+
 > を Hamilton--Jacobi 方程式という。
 <!-- formal-statement-end -->
 
@@ -179,17 +179,17 @@ $$
 <!-- formal-statement-start -->
 > **定理（Hamilton--Jacobi の特性方程式）**  
 > $H\in C^2$ とし、$p=\nabla u$ と置くと、特性は
->
-> $$
-> \dot x=H_p(x,p),
-> \qquad
-> \dot p=-H_x(x,p),
-> $$
->
-> $$
-> \dot z=p\cdot H_p-H
-> $$
->
+
+$$
+\dot x=H_p(x,p),
+\qquad
+\dot p=-H_x(x,p),
+$$
+
+$$
+\dot z=p\cdot H_p-H
+$$
+
 > を満たす。$H$ が時刻に陽に依存しなければ、特性に沿って $H(x(t),p(t))$ は一定である。
 <!-- formal-statement-end -->
 
@@ -236,23 +236,23 @@ $$
 <!-- formal-statement-start -->
 > **定理（Hamilton 特性からの局所古典解の再構成）**  
 > 特性解 $(X(t,a),P(t,a),Z(t,a))$ が存在し、ある点で
->
-> $$
-> \det D_aX(t,a)\ne0
-> $$
->
+
+$$
+\det D_aX(t,a)\ne0
+$$
+
 > とする。[逆関数定理](../RA6A/index.md#thm-ra6a-inverse-function)により近傍で $a=A(t,x)$ と解ける。このとき
->
-> $$
-> u(t,x)=Z(t,A(t,x))
-> $$
->
+
+$$
+u(t,x)=Z(t,A(t,x))
+$$
+
 > は局所古典解で、
->
-> $$
-> \nabla_xu(t,x)=P(t,A(t,x))
-> $$
->
+
+$$
+\nabla_xu(t,x)=P(t,A(t,x))
+$$
+
 > を満たす。
 <!-- formal-statement-end -->
 
@@ -339,11 +339,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（特性 caustic）**  
 > 特性写像 $a\mapsto X(t,a)$ の Jacobian
->
-> $$
-> \det D_aX(t,a)
-> $$
->
+
+$$
+\det D_aX(t,a)
+$$
+
 > が0になる点の像を、本章では特性 caustic と呼ぶ。そこでは初期ラベルから現在位置への局所逆写像が失われ、古典解の再構成が破綻し得る。
 <!-- formal-statement-end -->
 
@@ -365,17 +365,17 @@ $$
 <!-- formal-statement-start -->
 > **命題（Hamilton--Jacobi から Burgers 方程式）**  
 > 一次元で $u\in C^2$ が
->
-> $$
-> u_t+\frac12u_x^2=0
-> $$
->
+
+$$
+u_t+\frac12u_x^2=0
+$$
+
 > を満たすとする。$v=u_x$ と置けば
->
-> $$
-> v_t+vv_x=0
-> $$
->
+
+$$
+v_t+vv_x=0
+$$
+
 > を満たす。
 <!-- formal-statement-end -->
 
@@ -399,11 +399,11 @@ PDE1 で見た Burgers の特性交差と、Hamilton--Jacobi の caustic は同�
 <!-- formal-statement-start -->
 > **定義（eikonal 方程式）**  
 > 正の関数 $c(x)$ に対し
->
-> $$
-> |\nabla u(x)|=c(x)
-> $$
->
+
+$$
+|\nabla u(x)|=c(x)
+$$
+
 > を eikonal 方程式という。
 <!-- formal-statement-end -->
 
