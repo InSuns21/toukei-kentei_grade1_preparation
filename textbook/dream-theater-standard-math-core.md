@@ -105,6 +105,11 @@ flowchart TD
   CA5 --> CA6["Möbius・調和関数・Poisson核<br/>CA6"]
   CA6 --> CA7["正則関数列・正規族・Riemann写像<br/>CA7"]
   TOP5 --> CA7
+  CA7 --> CA8["Riemann面・被覆・多価関数<br/>CA8"]
+  TOP1 --> CA8
+  TOP2 --> CA8
+  TOP4 --> CA8
+  TOP5 --> CA8
 
   MTP --> FA0["関数解析 I<br/>Banach/Hilbert・有界作用素<br/>既存 D1/C1/C3"]
   LA6 --> FA0
@@ -608,9 +613,9 @@ Caratheodory 外測度をスケール依存の幾何量へ拡張し、後続の 
 
 ---
 
-# 7. 複素解析：Cauchy 理論から正規族・Riemann 写像まで
+# 7. 複素解析：Cauchy 理論から Riemann 面まで
 
-複素解析は FA5 の補助定理置き場ではなく、Fourier解析・PDE・スペクトル論へ共通に流れ込む独立した標準系列とする。CA1--CA7 は証明・例・演習まで実装済みで、CA7 から後半の「複素解析 II」へ入り、正則関数族のコンパクト性と Riemann 写像定理を正本化する。
+複素解析は FA5 の補助定理置き場ではなく、Fourier解析・PDE・スペクトル論へ共通に流れ込む独立した標準系列とする。CA1--CA8 は証明・例・演習まで実装済みで、CA7 から後半の「複素解析 II」へ入り、正則関数族のコンパクト性・Riemann 写像定理から Riemann 面・被覆の幾何へ進む。
 
 ## CA1 複素微分・Cauchy–Riemann・初等正則関数 `core`
 複素微分、holomorphic/entire、Cauchy–Riemann、Wirtinger微分、複素指数・三角関数。
@@ -634,6 +639,11 @@ Möbius変換、Schwarz の補題、調和関数、平均値性質、Poisson ker
 局所一様収束、正規収束、局所有界族、Montel の定理、Hurwitz の定理、Riemann 写像定理、Schwarz の鏡像原理。一般 Arzelà--Ascoli を黒箱にせず、Cauchy 評価・有限ネット・対角化で Montel の定理を閉じ、極値法で Riemann 写像定理を証明する。
 
 **証明境界**：Riemann 面・一様化定理・Runge 近似・Picard の定理は CA7 では使わず、後続の複素解析 II または将来拡張へ送る。
+
+## CA8 Riemann 面・被覆・多価関数 `advanced-standard`
+複素座標近傍・正則アトラスから Riemann 面を定義し、正則性と零点・極の位数の座標不変性を証明する。被覆写像の経路持ち上げ・ホモトピー持ち上げを局所逆写像とコンパクト性から閉じ、対数・平方根を被覆上の一価正則関数として構成する。さらに商位相から複素トーラス $\mathbb C/\Lambda$ のアトラス、Hausdorff 性、第二可算性、コンパクト性を証明し、コンパクト Riemann 面上の正則関数の剛性へつなぐ。
+
+**証明境界**：被覆空間の基本群による完全分類、普遍被覆の一般存在定理、被覆変換の体系、分岐被覆の一般論、Riemann--Roch の定理、一様化定理は CA8 では使わず、後続または将来の複素幾何系列へ送る。
 
 ---
 
@@ -717,7 +727,7 @@ Möbius変換、Schwarz の補題、調和関数、平均値性質、Poisson ker
 4. **TOP1–TOP7（TOP5Aを含む）**：位相の生成・initial/final → 同値関係による商・貼り合わせ → 連結 → 可算性/分離 → compact → Urysohn・局所コンパクト性 → Baire/net/filter → 一様構造。
 5. **MT0・MT1–MT5**：Lebesgue正則性 → 収束様式 → signed measure → RN → differentiation/Radon。
 6. **FA1–FA4**：Baire系三大定理 → weak/weak* → Banach–Alaoglu・反射性。
-7. **CA1–CA7**：複素微分 → Cauchy理論 → Liouville → Laurent/留数 → 偏角原理 → Poisson核 → 正規族 → Riemann写像。
+7. **CA1–CA8**：複素微分 → Cauchy理論 → Liouville → Laurent/留数 → 偏角原理 → Poisson核 → 正規族 → Riemann写像 → Riemann面・被覆。
 8. **FA5–FA7**：CA3を受けて spectrum/resolvent → compact operator → compact self-adjoint spectral theorem/Fredholm alternative。
 9. **RA6A–RA8**：RA6は既存F0-02C3再利用で閉じ、逆関数定理・陰関数定理 → 多重積分・変数変換 → Arzela–Ascoli/Stone–Weierstrassを最適化・関数解析へ接続。
 
