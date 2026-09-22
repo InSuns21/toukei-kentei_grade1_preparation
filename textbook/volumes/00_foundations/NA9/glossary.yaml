@@ -3,7 +3,7 @@ terms:
   - term: 定常反復法
     english: stationary iterative method
     meaning: 反復行列 G とベクトル c を固定し、x^{(k+1)}=Gx^{(k)}+c の形で線形方程式を近似的に解く反復法。
-  - term: スペクトル半径
+  - term: 行列に対するスペクトル半径
     english: spectral radius
     meaning: 正方行列の固有値の絶対値の最大値。定常反復法の漸近的な誤差増幅を支配する。
   - term: Jacobi 法
