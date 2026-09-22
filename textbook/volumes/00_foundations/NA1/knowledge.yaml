@@ -1,0 +1,136 @@
+chapter: NA1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RA3
+  - F0-00F2
+forward_references: []
+
+concepts:
+  - id: numerical.absolute-relative-error
+    name: 絶対誤差・相対誤差
+    kind: definition
+    aliases: [絶対誤差, 相対誤差, absolute error, relative error]
+    introduction: formal
+    introduction_aliases: ["定義（絶対誤差・相対誤差）"]
+    requires: []
+
+  - id: numerical.normalized-floating-point
+    name: 正規化浮動小数点数
+    kind: definition
+    aliases: [正規化浮動小数点数, floating-point number]
+    introduction: formal
+    introduction_aliases: ["定義（正規化浮動小数点数）"]
+    requires: []
+
+  - id: numerical.unit-roundoff
+    name: 単位丸め誤差
+    kind: definition
+    aliases: [単位丸め誤差, unit roundoff]
+    introduction: formal
+    introduction_aliases: ["定義（単位丸め誤差）"]
+    requires: [numerical.normalized-floating-point]
+
+  - id: numerical.nearest-rounding-model
+    name: 最近接丸めの相対誤差モデル
+    kind: theorem
+    aliases: [最近接丸めの相対誤差モデル, standard floating-point model]
+    introduction: formal
+    introduction_aliases: ["定理（最近接丸めの相対誤差モデル）"]
+    requires: [numerical.unit-roundoff]
+
+  - id: numerical.gamma-roundoff-product
+    name: 丸め因子の積
+    kind: lemma
+    aliases: [丸め因子の積, gamma_n bound]
+    introduction: formal
+    introduction_aliases: ["補題（丸め因子の積）"]
+    requires: [numerical.unit-roundoff]
+
+  - id: numerical.cancellation
+    name: 桁落ち
+    kind: definition
+    aliases: [桁落ち, cancellation, catastrophic cancellation]
+    introduction: formal
+    introduction_aliases: ["定義（桁落ち）"]
+    requires: [numerical.nearest-rounding-model]
+
+  - id: numerical.relative-condition-number
+    name: 相対条件数
+    kind: definition
+    aliases: [相対条件数, relative condition number]
+    introduction: formal
+    introduction_aliases: ["定義（相対条件数）"]
+    requires: [analysis.derivative]
+
+  - id: numerical.relative-condition-derivation
+    name: 相対条件数の微分による導出
+    kind: theorem
+    aliases: [相対条件数の微分による導出]
+    introduction: formal
+    introduction_aliases: ["定理（相対条件数の微分による導出）"]
+    requires: [numerical.relative-condition-number, analysis.derivative]
+
+  - id: numerical.matrix-condition-number
+    name: 2-ノルム行列条件数
+    kind: definition
+    aliases: [2-ノルム条件数, 2-ノルム行列条件数, matrix 2-norm condition number]
+    introduction: formal
+    introduction_aliases: ["定義（2-ノルム行列条件数）"]
+    requires: [linear.spectral-norm]
+
+  - id: numerical.condition-singular-values
+    name: 2-ノルム条件数と特異値
+    kind: proposition
+    aliases: [2-ノルム条件数と特異値]
+    introduction: formal
+    introduction_aliases: ["命題（2-ノルム条件数と特異値）"]
+    requires: [numerical.matrix-condition-number, linear.operator-norm-largest-singular, linear.singular-value-decomposition]
+
+  - id: numerical.linear-system-rhs-perturbation
+    name: 右辺摂動に対する線形方程式の感度
+    kind: theorem
+    aliases: [右辺摂動に対する線形方程式の感度]
+    introduction: formal
+    introduction_aliases: ["定理（右辺摂動に対する線形方程式の感度）"]
+    requires: [numerical.matrix-condition-number]
+
+  - id: numerical.forward-backward-error
+    name: 前方誤差・後方誤差
+    kind: definition
+    aliases: [前方誤差, 後方誤差, forward error, backward error]
+    introduction: formal
+    introduction_aliases: ["定義（前方誤差・後方誤差）"]
+    requires: []
+
+  - id: numerical.residual
+    name: 残差
+    kind: definition
+    aliases: [残差, residual]
+    introduction: formal
+    introduction_aliases: ["定義（残差）"]
+    requires: []
+
+  - id: numerical.residual-backward-error
+    name: 右辺だけを摂動するときの後方誤差
+    kind: proposition
+    aliases: [右辺後方誤差, residual backward error]
+    introduction: formal
+    introduction_aliases: ["命題（右辺だけを摂動するときの後方誤差）"]
+    requires: [numerical.forward-backward-error, numerical.residual]
+
+  - id: numerical.forward-backward-condition-bound
+    name: 前方誤差＝条件数×後方誤差の上界
+    kind: corollary
+    aliases: [前方誤差と後方誤差の条件数評価]
+    introduction: formal
+    introduction_aliases: ["系（前方誤差＝条件数×後方誤差の上界）"]
+    requires: [numerical.linear-system-rhs-perturbation, numerical.residual-backward-error]
+
+  - id: numerical.backward-stability
+    name: 後方安定性
+    kind: definition
+    aliases: [後方安定性, backward stability]
+    introduction: formal
+    introduction_aliases: ["定義（後方安定性）"]
+    requires: [numerical.forward-backward-error, numerical.unit-roundoff]

@@ -119,7 +119,8 @@ facade は完成済み講座だけをリンクする。未完成章を先行表�
 - [x] `textbook/dream-theater-index.json` から旧講座を除外
 - [x] `textbook/dream-theater.md` の Encore V 目次を facade のみに整理
 - [x] standard math core / knowledge DAG に旧 Encore V の canonical owner が存在しないことを確認
-- 次の実装対象：**NA1「浮動小数点・誤差・条件数・安定性」**
+- [x] NA1「浮動小数点・誤差・条件数・安定性」を新正本として実装
+- 次の実装対象：**NA2「非線形方程式・不動点反復・Newton 法」**
 
 
 ---
@@ -148,6 +149,21 @@ facade は完成済み講座だけをリンクする。未完成章を先行表�
 - NA9 の CG は SPD 線形方程式を解く Krylov 法として扱う。
 - NA12 では同じ CG を二次関数最小化の立場から再解釈し、重複証明を避ける。
 - ODE の存在一意性・線形化などは既存 ODE 系列へ参照し、数値離散化へ集中する。
+
+### 4.2 Phase 1 進捗
+
+- [x] NA1：浮動小数点・誤差・条件数・安定性
+- [ ] NA2：非線形方程式・不動点反復・Newton 法
+- [ ] NA3：非線形連立方程式
+- [ ] NA4：多項式補間
+- [ ] NA5：数値積分・直交多項式・Gauss 型積分
+- [ ] NA6：ODE 数値解法 I
+- [ ] NA7：ODE 数値解法 II
+- [ ] NA8：数値線形代数 I
+- [ ] NA9：数値線形代数 II
+- [ ] NA10：固有値数値計算
+- [ ] NA11：Perron–Frobenius 理論と PageRank
+- [ ] NA12：無制約最適化と共役勾配法
 
 ---
 

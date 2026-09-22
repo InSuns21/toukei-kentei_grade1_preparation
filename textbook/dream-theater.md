@@ -321,3 +321,4 @@ STO 系列ではマルチンゲール・ブラウン運動・二次変分・確�
 ## 6. Encore V：計算数理
 
 1. [Encore V：計算数理](textbook/volumes/00_foundations/F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md)
+2. [NA1 浮動小数点・誤差・条件数・安定性](textbook/volumes/00_foundations/NA1/index.md)

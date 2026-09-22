@@ -1,0 +1,52 @@
+id: "NA1"
+title: "数値解析 I：浮動小数点・誤差・条件数・安定性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RA3
+  - F0-00F2
+official_scope: []
+learning_objectives:
+  - 正規化浮動小数点系の最近接丸めから fl(x)=x(1+delta), |delta|<=u の標準誤差モデルを導ける
+  - 複数回の丸め因子を gamma_n=nu/(1-nu) で評価できる
+  - 桁落ちの発生機構を説明し、数学的に同値な式を数値安定性の観点から比較できる
+  - 微分からスカラー関数の相対条件数を導き、入力摂動の増幅率として解釈できる
+  - 2-ノルム行列条件数を最大・最小特異値の比として計算できる
+  - 線形方程式の右辺摂動に対する感度評価を証明できる
+  - 前方誤差・後方誤差・残差を区別し、条件数と後方誤差から前方誤差を評価できる
+  - 問題の悪条件性とアルゴリズムの後方安定性を区別できる
+definitions:
+  - { id: NA1-DEF-01, name: 絶対誤差・相対誤差 }
+  - { id: NA1-DEF-02, name: 正規化浮動小数点数 }
+  - { id: NA1-DEF-03, name: 単位丸め誤差 }
+  - { id: NA1-DEF-04, name: 桁落ち }
+  - { id: NA1-DEF-05, name: 相対条件数 }
+  - { id: NA1-DEF-06, name: 2-ノルム行列条件数 }
+  - { id: NA1-DEF-07, name: 前方誤差・後方誤差 }
+  - { id: NA1-DEF-08, name: 残差 }
+  - { id: NA1-DEF-09, name: 後方安定性 }
+theorems:
+  - { id: NA1-THM-01, name: 最近接丸めの相対誤差モデル }
+  - { id: NA1-LEM-01, name: 丸め因子の積の gamma_n 評価 }
+  - { id: NA1-THM-02, name: 相対条件数の微分による導出 }
+  - { id: NA1-PROP-01, name: 2-ノルム条件数と特異値 }
+  - { id: NA1-THM-03, name: 右辺摂動に対する線形方程式の感度 }
+  - { id: NA1-PROP-02, name: 残差と右辺後方誤差 }
+  - { id: NA1-COR-01, name: 前方誤差の条件数・後方誤差評価 }
+canonical_examples:
+  - 十進3桁浮動小数点の最近接丸め
+  - sqrt(x+1)-sqrt(x) の桁落ちと有理化
+  - x^m の相対条件数
+  - 対角行列の条件数
+  - 小さい残差と大きい前方誤差
+problem_patterns:
+  - NA1-FLOATING-ROUNDING-1
+  - NA1-CANCELLATION-1
+  - NA1-CONDITION-1
+  - NA1-MATRIX-COND-1
+  - NA1-BACKWARD-ERROR-1
+  - NA1-STABILITY-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 3.5, review: 0.5 }
