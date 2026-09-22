@@ -24,7 +24,7 @@ $$
 
 です。
 
-直接 prerequisite は [GEO2](../GEO2/index.md) と [RA6A](../RA6A/index.md) です。本章の中心となる局所標準形の証明では、Euclid 空間上の [逆関数定理](../RA6A/index.md#thm-ra6a-inverse-function) を canonical result として使います。RA6A の [正則レベル集合の局所グラフ表示](../RA6A/index.md#cor-ra6a-regular-level-set) は本章の Euclid 空間版の前段階です。
+直接の前提は [GEO2](../GEO2/index.md) と [RA6A](../RA6A/index.md) です。本章の中心となる局所標準形の証明では、Euclid 空間上の [逆関数定理](../RA6A/index.md#thm-ra6a-inverse-function) を既出定理として使います。RA6A の [正則レベル集合の局所グラフ表示](../RA6A/index.md#cor-ra6a-regular-level-set) は本章の Euclid 空間版の前段階です。
 
 <!-- definition-example-audit: strict -->
 
@@ -434,7 +434,7 @@ $$
 ははめ込みです。ここで $S^1$ は GEO1 で構成した標準円周を、その通常の部分空間位相と滑らかな構造で見ています。したがって $i:S^1\to i(S^1)$ は集合として恒等写像であり、その逆も連続です。よって $i$ は埋め込みです。
 <!-- definition-example-end -->
 
-### 反例：figure-eight ははめ込みだが埋め込みでない
+### 反例：8の字曲線 ははめ込みだが埋め込みでない
 
 $$
 \gamma:S^1\to\mathbb R^2,
@@ -1367,7 +1367,7 @@ $$
 は連続です。従って $F:\mathbb R^2\to F(\mathbb R^2)$ は同相写像であり、$F$ は埋め込みです。
 <!-- solution-end -->
 
-### GEO3-B02 figure-eight はなぜ埋め込みでないか
+### GEO3-B02 8の字曲線 はなぜ埋め込みでないか
 
 $$
 \gamma:S^1\to\mathbb R^2,
