@@ -326,7 +326,8 @@ nodes:
     status: implemented
     implemented_at: 2026-09-22
     implementation_path: textbook/volumes/00_foundations/GEO5/index.md
-    prerequisites: [GEO2, ODE1, ODE4]
+    prerequisites: [GEO2]
+    reuses: [ODE1, ODE4]
 
   - id: VC1
     title: ベクトル場と微分演算子
