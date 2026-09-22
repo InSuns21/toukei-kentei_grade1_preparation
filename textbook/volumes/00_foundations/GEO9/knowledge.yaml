@@ -1,0 +1,119 @@
+chapter: GEO9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEO7
+  - GEO8
+  - TOP3
+concepts:
+  - id: geometry.closed-differential-form
+    name: 閉形式
+    kind: definition
+    aliases: [閉形式, closed differential form]
+    introduction: formal
+    introduction_aliases: ["定義（閉形式・完全形式）"]
+    requires:
+      - geometry.exterior-derivative
+
+  - id: geometry.exact-differential-form
+    name: 完全形式
+    kind: definition
+    aliases: [完全形式, exact differential form]
+    introduction: formal
+    introduction_aliases: ["定義（閉形式・完全形式）"]
+    requires:
+      - geometry.exterior-derivative
+
+  - id: geometry.exact-implies-closed
+    name: 完全なら閉
+    kind: proposition
+    aliases: [完全なら閉]
+    requires:
+      - geometry.exact-differential-form
+      - geometry.closed-differential-form
+      - geometry.exterior-derivative-square-zero
+
+  - id: geometry.smooth-homotopy
+    name: 滑らかなホモトピー
+    kind: definition
+    aliases: [滑らかなホモトピー, smooth homotopy]
+    requires:
+      - geometry.smooth-map
+      - topology.connectedness
+
+  - id: geometry.homotopy-operator
+    name: ホモトピー作用素
+    kind: definition
+    aliases: [ホモトピー作用素, homotopy operator on differential forms]
+    requires:
+      - geometry.smooth-homotopy
+      - geometry.differential-form-pullback
+      - geometry.form-interior-product
+
+  - id: geometry.homotopy-formula
+    name: ホモトピー公式
+    kind: theorem
+    aliases: [微分形式のホモトピー公式, homotopy formula for differential forms]
+    requires:
+      - geometry.homotopy-operator
+      - geometry.cartan-formula
+      - geometry.pullback-commutes-exterior-derivative
+
+  - id: geometry.poincare-lemma
+    name: Poincaré の補題
+    kind: theorem
+    aliases: [Poincaré の補題, Poincare lemma]
+    requires:
+      - geometry.homotopy-formula
+      - geometry.closed-differential-form
+
+  - id: geometry.de-rham-complex
+    name: de Rham 複体
+    kind: definition
+    aliases: [de Rham 複体, de Rham complex]
+    requires:
+      - geometry.exterior-derivative-square-zero
+
+  - id: geometry.de-rham-cohomology
+    name: de Rham コホモロジー
+    kind: definition
+    aliases: [de Rham コホモロジー, de Rham cohomology]
+    requires:
+      - geometry.de-rham-complex
+      - geometry.closed-differential-form
+      - geometry.exact-differential-form
+      - geometry.exact-implies-closed
+
+  - id: geometry.connected-h0-de-rham
+    name: 連結多様体の0次 de Rham コホモロジー
+    kind: theorem
+    aliases: [連結多様体の0次 de Rham コホモロジー]
+    requires:
+      - geometry.de-rham-cohomology
+      - topology.connectedness
+
+  - id: geometry.de-rham-homotopy-invariance
+    name: de Rham コホモロジーの滑らかなホモトピー不変性
+    kind: theorem
+    aliases: [de Rham コホモロジーの滑らかなホモトピー不変性]
+    requires:
+      - geometry.de-rham-cohomology
+      - geometry.homotopy-formula
+      - geometry.pullback-commutes-exterior-derivative
+
+  - id: geometry.circle-h1-de-rham
+    name: 円周の1次 de Rham コホモロジー
+    kind: theorem
+    aliases: [円周の1次 de Rham コホモロジー]
+    requires:
+      - geometry.de-rham-cohomology
+      - geometry.global-top-form-integral
+
+  - id: geometry.punctured-plane-h1-de-rham
+    name: 穴あき平面の1次 de Rham コホモロジー
+    kind: corollary
+    aliases: [穴あき平面の1次 de Rham コホモロジー]
+    requires:
+      - geometry.circle-h1-de-rham
+      - geometry.de-rham-homotopy-invariance
+      - geometry.smooth-homotopy
