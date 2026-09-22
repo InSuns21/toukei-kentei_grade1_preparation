@@ -1,0 +1,193 @@
+chapter: NA7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NA6
+forward_references: []
+
+concepts:
+  - id: numerical.runge-kutta-method
+    name: Runge–Kutta 法
+    kind: definition
+    aliases: [Runge-Kutta method]
+    introduction: formal
+    introduction_aliases: ["定義（Runge–Kutta 法）"]
+    requires:
+      - numerical.one-step-method
+      - numerical.one-step-increment-function
+
+  - id: numerical.butcher-tableau
+    name: Butcher 表
+    kind: definition
+    aliases: [Butcher tableau]
+    introduction: formal
+    introduction_aliases: ["定義（Butcher 表）"]
+    requires:
+      - numerical.runge-kutta-method
+
+  - id: numerical.explicit-implicit-runge-kutta
+    name: 陽的・陰的 Runge–Kutta 法
+    kind: definition
+    aliases: [explicit and implicit Runge-Kutta methods]
+    introduction: formal
+    introduction_aliases: ["定義（陽的・陰的 Runge–Kutta 法）"]
+    requires:
+      - numerical.runge-kutta-method
+      - numerical.butcher-tableau
+
+  - id: numerical.rk-order-two-conditions
+    name: 二次 Runge–Kutta 法の次数条件
+    kind: theorem
+    aliases: [second-order Runge-Kutta conditions]
+    introduction: formal
+    introduction_aliases: ["定理（二次 Runge–Kutta 法の次数条件）"]
+    requires:
+      - numerical.runge-kutta-method
+      - numerical.local-truncation-error
+      - numerical.convergence-order
+      - analysis.taylor-theorem
+
+  - id: numerical.classical-rk4
+    name: 古典4段4次 Runge–Kutta 法
+    kind: proposition
+    aliases: [classical fourth-order Runge-Kutta method, classical RK4]
+    introduction: formal
+    introduction_aliases: ["命題（古典4段4次 Runge–Kutta 法の自律スカラー4次性）"]
+    requires:
+      - numerical.runge-kutta-method
+      - numerical.rk-order-two-conditions
+      - analysis.taylor-theorem
+
+  - id: numerical.stability-test-equation
+    name: 線形テスト方程式
+    kind: definition
+    aliases: [linear test equation]
+    introduction: formal
+    introduction_aliases: ["定義（線形テスト方程式）"]
+    requires:
+      - numerical.one-step-method
+
+  - id: numerical.stability-function
+    name: 安定関数
+    kind: definition
+    aliases: [stability function]
+    introduction: formal
+    introduction_aliases: ["定義（安定関数）"]
+    requires:
+      - numerical.stability-test-equation
+
+  - id: numerical.rk-stability-function
+    name: Runge–Kutta 法の安定関数
+    kind: proposition
+    aliases: [Runge-Kutta stability function]
+    introduction: formal
+    introduction_aliases: ["命題（Runge–Kutta 法の安定関数）"]
+    requires:
+      - numerical.runge-kutta-method
+      - numerical.stability-function
+
+  - id: numerical.absolute-stability-region
+    name: 絶対安定領域
+    kind: definition
+    aliases: [region of absolute stability, absolute stability region]
+    introduction: formal
+    introduction_aliases: ["定義（絶対安定領域）"]
+    requires:
+      - numerical.stability-function
+
+  - id: numerical.a-stability
+    name: A 安定性
+    kind: definition
+    aliases: [A-stability]
+    introduction: formal
+    introduction_aliases: ["定義（A 安定性）"]
+    requires:
+      - numerical.absolute-stability-region
+
+  - id: numerical.no-explicit-rk-a-stability
+    name: 陽的 Runge–Kutta 法は A 安定にならない
+    kind: theorem
+    aliases: [no explicit Runge-Kutta method is A-stable]
+    introduction: formal
+    introduction_aliases: ["定理（陽的 Runge–Kutta 法は A 安定にならない）"]
+    requires:
+      - numerical.explicit-implicit-runge-kutta
+      - numerical.rk-stability-function
+      - numerical.a-stability
+
+  - id: numerical.l-stability
+    name: L 安定性
+    kind: definition
+    aliases: [L-stability]
+    introduction: formal
+    introduction_aliases: ["定義（L 安定性）"]
+    requires:
+      - numerical.a-stability
+
+  - id: numerical.backward-euler-method
+    name: 後退 Euler 法
+    kind: definition
+    aliases: [backward Euler method, implicit Euler method]
+    introduction: formal
+    introduction_aliases: ["定義（後退 Euler 法）"]
+    requires:
+      - numerical.one-step-method
+
+  - id: numerical.backward-euler-a-l-stability
+    name: 後退 Euler 法の A 安定性・L 安定性
+    kind: proposition
+    aliases: [A-stability and L-stability of backward Euler]
+    introduction: formal
+    introduction_aliases: ["命題（後退 Euler 法の A 安定性・L 安定性）"]
+    requires:
+      - numerical.backward-euler-method
+      - numerical.l-stability
+
+  - id: numerical.trapezoidal-ode-method
+    name: 台形法
+    kind: definition
+    aliases: [trapezoidal method]
+    introduction: formal
+    introduction_aliases: ["定義（台形法）"]
+    requires:
+      - numerical.one-step-method
+
+  - id: numerical.trapezoidal-a-stability
+    name: 台形法の A 安定性と非 L 安定性
+    kind: proposition
+    aliases: [A-stability of the trapezoidal method]
+    introduction: formal
+    introduction_aliases: ["命題（台形法の A 安定性と非 L 安定性）"]
+    requires:
+      - numerical.trapezoidal-ode-method
+      - numerical.l-stability
+
+  - id: numerical.stiff-problem
+    name: 硬い問題
+    kind: definition
+    aliases: [stiff problem, stiff ODE]
+    introduction: formal
+    introduction_aliases: ["定義（硬い問題）"]
+    requires:
+      - numerical.absolute-stability-region
+
+  - id: numerical.theta-method
+    name: theta 法
+    kind: definition
+    aliases: [theta method]
+    introduction: formal
+    introduction_aliases: ["定義（theta 法）"]
+    requires:
+      - numerical.backward-euler-method
+      - numerical.trapezoidal-ode-method
+
+  - id: numerical.theta-a-stability
+    name: theta 法の A 安定性判定
+    kind: theorem
+    aliases: [A-stability criterion for the theta method]
+    introduction: formal
+    introduction_aliases: ["定理（theta 法の A 安定性判定）"]
+    requires:
+      - numerical.theta-method
+      - numerical.a-stability
+      - numerical.l-stability
