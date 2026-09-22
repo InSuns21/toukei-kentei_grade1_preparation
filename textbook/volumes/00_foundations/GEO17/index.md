@@ -34,7 +34,7 @@ $$
 
 という「近くの測地線同士の相対加速度」の式として現れます。
 
-さらに、共役点が指数写像の微分の退化点であること、共役点が区間内部に入ると測地線の局所最短性が壊れることまで証明します。
+さらに、指数写像の微分が退化する点と、測地線の局所最短性が壊れる機構まで証明します。
 
 ---
 
@@ -45,45 +45,45 @@ $$
 > **定義（曲線の変分・変分ベクトル場・固定端点変分）**  
 > Riemann 多様体 $(M,g)$ 上の滑らかな曲線
 >
-> $$
-> \gamma:[a,b]\to M
-> $$
+$$
+\gamma:[a,b]\to M
+$$
 >
 > に対し、ある $\varepsilon>0$ と滑らかな写像
 >
-> $$
-> F:(-\varepsilon,\varepsilon)\times[a,b]\to M
-> $$
+$$
+F:(-\varepsilon,\varepsilon)\times[a,b]\to M
+$$
 >
 > が
 >
-> $$
-> F(0,t)=\gamma(t)
-> $$
+$$
+F(0,t)=\gamma(t)
+$$
 >
 > を満たすとき、$F$ を $\gamma$ の **曲線の変分**という。
 >
-> $$
-> T=\frac{\partial F}{\partial t},
-> \qquad
-> V=\frac{\partial F}{\partial s}
-> $$
+$$
+T=\frac{\partial F}{\partial t},
+\qquad
+V=\frac{\partial F}{\partial s}
+$$
 >
 > と書き、$s=0$ に制限した
 >
-> $$
-> V(t)=\left.\frac{\partial F}{\partial s}\right|_{(0,t)}
-> $$
+$$
+V(t)=\left.\frac{\partial F}{\partial s}\right|_{(0,t)}
+$$
 >
 > を **変分ベクトル場**という。
 >
 > さらに全ての $s$ について
 >
-> $$
-> F(s,a)=\gamma(a),
-> \qquad
-> F(s,b)=\gamma(b)
-> $$
+$$
+F(s,a)=\gamma(a),
+\qquad
+F(s,b)=\gamma(b)
+$$
 >
 > が成り立つとき、$F$ を **固定端点変分**という。
 <!-- formal-statement-end -->
@@ -155,37 +155,37 @@ Levi-Civita 接続の捩率が0であることにより、まず一次の共変�
 > **補題（変分方向と曲線方向の共変微分の交換）**  
 > 曲線の変分 $F(s,t)$ に対し
 >
-> $$
-> T=\frac{\partial F}{\partial t},
-> \qquad
-> V=\frac{\partial F}{\partial s}
-> $$
+$$
+T=\frac{\partial F}{\partial t},
+\qquad
+V=\frac{\partial F}{\partial s}
+$$
 >
 > とする。
 >
 > Levi-Civita 接続について
 >
-> $$
-> \boxed{
-> \frac{D T}{\partial s}
-> =
-> \frac{D V}{\partial t}
-> }
-> $$
+$$
+\boxed{
+\frac{D T}{\partial s}
+=
+\frac{D V}{\partial t}
+}
+$$
 >
 > が成り立つ。
 >
 > また変分面上の任意のベクトル場 $W$ に対して
 >
-> $$
-> \boxed{
-> \frac{D}{\partial s}\frac{D W}{\partial t}
-> -
-> \frac{D}{\partial t}\frac{D W}{\partial s}
-> =
-> R(V,T)W
-> }
-> $$
+$$
+\boxed{
+\frac{D}{\partial s}\frac{D W}{\partial t}
+-
+\frac{D}{\partial t}\frac{D W}{\partial s}
+=
+R(V,T)W
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -254,11 +254,11 @@ $$
 これが第二式です。$\square$
 <!-- proof-end -->
 
-この二式が、第一変分・第二変分・Jacobi 方程式の全てを支えます。
+この二式が、一次・二次の変分公式と測地線変分の線形化を支えます。
 
 ---
 
-## 3. エネルギーの第一変分公式
+## 3. エネルギーを一次まで動かす
 
 曲線 $c:[a,b]\to M$ のエネルギーを
 
@@ -277,50 +277,50 @@ $$
 > **定理（エネルギーの第一変分公式）**  
 > $F(s,t)$ を $\gamma(t)=F(0,t)$ の曲線の変分とし、
 >
-> $$
-> T=\frac{\partial F}{\partial t},
-> \qquad
-> V=\left.\frac{\partial F}{\partial s}\right|_{s=0}
-> $$
+$$
+T=\frac{\partial F}{\partial t},
+\qquad
+V=\left.\frac{\partial F}{\partial s}\right|_{s=0}
+$$
 >
 > とする。
 >
 > $E(s)=E(F(s,\cdot))$ と置くと
 >
-> $$
-> \boxed{
-> E'(0)
-> =
-> \left[
-> g(V,\dot\gamma)
-> \right]_a^b
-> -
-> \int_a^b
-> g\left(
-> V,
-> \frac{D\dot\gamma}{dt}
-> \right)
-> dt
-> }
-> $$
+$$
+\boxed{
+E'(0)
+=
+\left[
+g(V,\dot\gamma)
+\right]_a^b
+-
+\int_a^b
+g\left(
+V,
+\frac{D\dot\gamma}{dt}
+\right)
+dt
+}
+$$
 >
 > が成り立つ。
 >
 > 固定端点変分なら $V(a)=V(b)=0$ なので
 >
-> $$
-> \boxed{
-> E'(0)
-> =
-> -
-> \int_a^b
-> g\left(
-> V,
-> \frac{D\dot\gamma}{dt}
-> \right)
-> dt
-> }.
-> $$
+$$
+\boxed{
+E'(0)
+=
+-
+\int_a^b
+g\left(
+V,
+\frac{D\dot\gamma}{dt}
+\right)
+dt
+}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -414,9 +414,9 @@ $$
 > 1. $\gamma$ は測地線である。
 > 2. 任意の滑らかな固定端点変分に対して
 >
-> $$
-> E'(0)=0
-> $$
+$$
+E'(0)=0
+$$
 >
 > である。
 <!-- formal-statement-end -->
@@ -510,7 +510,7 @@ $$
 
 ---
 
-## 4. 長さの第一変分公式
+## 4. 長さを一次まで動かす
 
 エネルギーはパラメータに依存しますが、長さは曲線の像の幾何に近い量です。
 
@@ -519,35 +519,35 @@ $$
 > **定理（長さの第一変分公式）**  
 > 基準曲線 $\gamma=F(0,\cdot)$ が正則であるとし、
 >
-> $$
-> U
-> =
-> \frac{\dot\gamma}{|\dot\gamma|}
-> $$
+$$
+U
+=
+\frac{\dot\gamma}{|\dot\gamma|}
+$$
 >
 > を単位接ベクトルとする。
 >
 > $L(s)=L(F(s,\cdot))$ と置けば
 >
-> $$
-> \boxed{
-> L'(0)
-> =
-> \left[g(V,U)\right]_a^b
-> -
-> \int_a^b
-> g\left(
-> V,
-> \frac{DU}{dt}
-> \right)dt
-> }.
-> $$
+$$
+\boxed{
+L'(0)
+=
+\left[g(V,U)\right]_a^b
+-
+\int_a^b
+g\left(
+V,
+\frac{DU}{dt}
+\right)dt
+}.
+$$
 >
 > 特に $\gamma$ が単位速測地線で固定端点変分なら
 >
-> $$
-> L'(0)=0.
-> $$
+$$
+L'(0)=0.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -629,24 +629,24 @@ $$
 >
 > このとき
 >
-> $$
-> \boxed{
-> E''(0)
-> =
-> \int_a^b
-> \left\{
-> \left|
-> \frac{DV}{dt}
-> \right|^2
-> -
-> g\left(
-> R(V,\dot\gamma)\dot\gamma,
-> V
-> \right)
-> \right\}
-> dt
-> }.
-> $$
+$$
+\boxed{
+E''(0)
+=
+\int_a^b
+\left\{
+\left|
+\frac{DV}{dt}
+\right|^2
+-
+g\left(
+R(V,\dot\gamma)\dot\gamma,
+V
+\right)
+\right\}
+dt
+}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -810,37 +810,37 @@ $$
 
 ---
 
-## 6. 指数形式
+## 6. 第二変分を双線形化する
 
 <a id="def-geo17-index-form"></a>
 <!-- formal-statement-start -->
 > **定義（指数形式）**  
 > 測地線 $\gamma:[a,b]\to M$ に沿う区分的に滑らかなベクトル場 $V,W$ で
 >
-> $$
-> V(a)=V(b)=W(a)=W(b)=0
-> $$
+$$
+V(a)=V(b)=W(a)=W(b)=0
+$$
 >
 > を満たすものに対し、
 >
-> $$
-> \boxed{
-> I(V,W)
-> =
-> \int_a^b
-> \left\{
-> g\left(
-> \frac{DV}{dt},
-> \frac{DW}{dt}
-> \right)
-> -
-> g\left(
-> R(V,\dot\gamma)\dot\gamma,
-> W
-> \right)
-> \right\}dt
-> }
-> $$
+$$
+\boxed{
+I(V,W)
+=
+\int_a^b
+\left\{
+g\left(
+\frac{DV}{dt},
+\frac{DW}{dt}
+\right)
+-
+g\left(
+R(V,\dot\gamma)\dot\gamma,
+W
+\right)
+\right\}dt
+}
+$$
 >
 > と定め、$I$ を $\gamma$ に沿う **指数形式**という。
 <!-- formal-statement-end -->
@@ -908,22 +908,22 @@ $$
 
 ---
 
-## 7. Jacobi 場：測地線族の一次のずれ
+## 7. 測地線族の一次のずれ
 
 <a id="def-geo17-jacobi"></a>
 <!-- formal-statement-start -->
-> **定義（Jacobi 場）**  
+> **定義（Jacobi 場・Jacobi 方程式）**  
 > 測地線 $\gamma:[a,b]\to M$ に沿う滑らかなベクトル場 $J$ が
 >
-> $$
-> \boxed{
-> \frac{D^2J}{dt^2}
-> +
-> R(J,\dot\gamma)\dot\gamma
-> =
-> 0
-> }
-> $$
+$$
+\boxed{
+\frac{D^2J}{dt^2}
++
+R(J,\dot\gamma)\dot\gamma
+=
+0
+}
+$$
 >
 > を満たすとき、$J$ を $\gamma$ に沿う **Jacobi 場**という。
 >
@@ -961,13 +961,13 @@ Jacobi 場が「測地線族の一次のずれ」を表していることが最�
 >
 > このとき変分ベクトル場
 >
-> $$
-> J(t)
-> =
-> \left.
-> \frac{\partial F}{\partial s}
-> \right|_{s=0}
-> $$
+$$
+J(t)
+=
+\left.
+\frac{\partial F}{\partial s}
+\right|_{s=0}
+$$
 >
 > は Jacobi 場である。
 <!-- formal-statement-end -->
@@ -1164,33 +1164,33 @@ $$
 >
 > すると
 >
-> $$
-> J_w(0)=0,
-> \qquad
-> \frac{DJ_w}{dt}(0)=w
-> $$
+$$
+J_w(0)=0,
+\qquad
+\frac{DJ_w}{dt}(0)=w
+$$
 >
 > であり、任意の $T$ について
 >
-> $$
-> \boxed{
-> J_w(T)
-> =
-> (d\exp_p)_{Tv}(Tw)
-> }
-> $$
+$$
+\boxed{
+J_w(T)
+=
+(d\exp_p)_{Tv}(Tw)
+}
+$$
 >
 > が成り立つ。
 >
 > 特に $T=1$ なら
 >
-> $$
-> \boxed{
-> J_w(1)
-> =
-> (d\exp_p)_v(w)
-> }.
-> $$
+$$
+\boxed{
+J_w(1)
+=
+(d\exp_p)_v(w)
+}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -1252,22 +1252,22 @@ $\square$
 
 ---
 
-## 10. 共役点
+## 10. 測地線が再び一点へ集まるとき
 
 <a id="def-geo17-conjugate"></a>
 <!-- formal-statement-start -->
 > **定義（共役点・共役点の重複度）**  
 > 測地線
 >
-> $$
-> \gamma:[a,b]\to M
-> $$
+$$
+\gamma:[a,b]\to M
+$$
 >
 > に対し、$q=\gamma(b)$ が $p=\gamma(a)$ に **$\gamma$ に沿って共役**であるとは、
 >
-> $$
-> J(a)=J(b)=0
-> $$
+$$
+J(a)=J(b)=0
+$$
 >
 > を満たす非零 Jacobi 場 $J$ が存在することをいう。
 >
@@ -1309,32 +1309,32 @@ $0<t<\pi a$ では $\sin(t/a)>0$ なので $J(t)\ne0$ です。
 > **定理（共役点と指数写像の微分の退化）**  
 > $p\in M$、$v\in T_pM$、$T>0$ とし、
 >
-> $$
-> \gamma(t)=\exp_p(tv),
-> \qquad
-> 0\le t\le T
-> $$
+$$
+\gamma(t)=\exp_p(tv),
+\qquad
+0\le t\le T
+$$
 >
 > とする。
 >
 > $q=\gamma(T)$ が $p$ に $\gamma$ に沿って共役であることと、
 >
-> $$
-> \boxed{
-> (d\exp_p)_{Tv}
-> \text{ が単射でない}
-> }
-> $$
+$$
+\boxed{
+(d\exp_p)_{Tv}
+\text{ が単射でない}
+}
+$$
 >
 > ことは同値である。
 >
 > さらに共役点の重複度は
 >
-> $$
-> \boxed{
-> \dim\ker(d\exp_p)_{Tv}
-> }
-> $$
+$$
+\boxed{
+\dim\ker(d\exp_p)_{Tv}
+}
+$$
 >
 > に等しい。
 <!-- formal-statement-end -->
@@ -1446,29 +1446,29 @@ $$
 >
 > $\dot\gamma$ に直交する平行ベクトル場 $E$ に対し
 >
-> $$
-> \boxed{
-> J(t)
-> =
-> a\sin\frac{t}{a}\,E(t)
-> }
-> $$
+$$
+\boxed{
+J(t)
+=
+a\sin\frac{t}{a}\,E(t)
+}
+$$
 >
 > は
 >
-> $$
-> J(0)=0,
-> \qquad
-> \frac{DJ}{dt}(0)=E(0)
-> $$
+$$
+J(0)=0,
+\qquad
+\frac{DJ}{dt}(0)=E(0)
+$$
 >
 > を満たす Jacobi 場である。
 >
 > 最初の正の零点は
 >
-> $$
-> t=\pi a
-> $$
+$$
+t=\pi a
+$$
 >
 > であり、対蹠点の共役点重複度は $n-1$ である。
 <!-- formal-statement-end -->
@@ -1573,7 +1573,7 @@ $\square$
 
 ---
 
-## 12. Jacobi 場と指数形式の基本恒等式
+## 12. Jacobi 場を指数形式へ代入する
 
 Jacobi 場 $J$ と端点0のベクトル場 $W$ を考えます。
 
@@ -1667,27 +1667,27 @@ $$
 >
 > $\gamma(a)$ に共役な点が
 >
-> $$
-> \gamma(t),
-> \qquad
-> a<t\le b
-> $$
+$$
+\gamma(t),
+\qquad
+a<t\le b
+$$
 >
 > の中に一つもないと仮定する。
 >
 > このとき
 >
-> $$
-> V(a)=V(b)=0
-> $$
+$$
+V(a)=V(b)=0
+$$
 >
 > を満たす任意の非零な区分的に滑らかなベクトル場 $V$ に対し
 >
-> $$
-> \boxed{
-> I(V,V)>0
-> }
-> $$
+$$
+\boxed{
+I(V,V)>0
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -1972,17 +1972,17 @@ $\square$
 >
 > ある
 >
-> $$
-> c\in(a,b)
-> $$
+$$
+c\in(a,b)
+$$
 >
 > について $\gamma(c)$ が $\gamma(a)$ に $\gamma$ に沿って共役であるとする。
 >
 > このとき固定端点を保つ変分で
 >
-> $$
-> E''(0)<0
-> $$
+$$
+E''(0)<0
+$$
 >
 > となるものが存在する。
 >
@@ -2165,9 +2165,9 @@ $$
 > **命題（非正断面曲率では共役点がない）**  
 > $\gamma:[a,b]\to M$ を測地線とし、$\gamma$ に沿う全ての2次元接平面の断面曲率が
 >
-> $$
-> K\le0
-> $$
+$$
+K\le0
+$$
 >
 > であるとする。
 >
