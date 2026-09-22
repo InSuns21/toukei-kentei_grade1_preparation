@@ -319,6 +319,16 @@ nodes:
     implementation_path: textbook/volumes/00_foundations/GEO4/index.md
     prerequisites: [GEO3, TOP5A]
 
+  - id: GEO5
+    title: ベクトル場・積分曲線・局所流・Lie 括弧
+    area: differential-geometry
+    tier: core
+    status: implemented
+    implemented_at: 2026-09-22
+    implementation_path: textbook/volumes/00_foundations/GEO5/index.md
+    prerequisites: [GEO2]
+    reuses: [ODE1, ODE4]
+
   - id: VC1
     title: ベクトル場と微分演算子
     area: vector-calculus
@@ -686,7 +696,7 @@ implementation_batches:
     nodes: [VC1, VC2, VC3, VC4, VC5, VC6, VC7, VC8, VC9]
   - order: 10
     id: differential-geometry-core
-    nodes: [GEO1, GEO2, GEO3, GEO4]
+    nodes: [GEO1, GEO2, GEO3, GEO4, GEO5]
 
 deferred_integrations:
   - id: dream-theater-facade-entrypoint

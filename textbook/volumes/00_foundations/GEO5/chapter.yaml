@@ -1,0 +1,67 @@
+id: "GEO5"
+title: "幾何学 V：ベクトル場・積分曲線・局所流・Lie 括弧"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEO2
+  - ODE1
+  - ODE4
+official_scope: []
+learning_objectives:
+  - 滑らかなベクトル場を接束の滑らかな切断として定義し、局所座標で成分表示できる
+  - ベクトル場が滑らかな関数環上の導分を定めることをLeibniz則から説明できる
+  - 積分曲線を局所座標で自律常微分方程式へ落とし、局所存在・一意性を導ける
+  - 解の初期値への滑らかな依存をPicard反復の縮小評価から追える
+  - 局所解を一意性で貼り合わせ、最大積分曲線と最大流を構成できる
+  - 最大流の局所群則・滑らかさ・局所微分同相性を証明できる
+  - 完備ベクトル場を定義し、コンパクト多様体上の滑らかなベクトル場が完備であることを証明できる
+  - 微分同相写像によるベクトル場の押し出しと流れの共役を計算できる
+  - Lie括弧を導分の可換子として定義し、座標公式・積の法則・Jacobi恒等式を導ける
+  - Lie括弧を流れによるベクトル場の一次変化として解釈し、可換流との関係を説明できる
+  - 非零ベクトル場の直線化定理を局所流と逆関数定理から証明できる
+definitions:
+  - { id: GEO5-DEF-01, name: 滑らかなベクトル場 }
+  - { id: GEO5-DEF-02, name: ベクトル場が定める導分 }
+  - { id: GEO5-DEF-03, name: 積分曲線 }
+  - { id: GEO5-DEF-04, name: 最大積分曲線 }
+  - { id: GEO5-DEF-05, name: 最大流 }
+  - { id: GEO5-DEF-06, name: 局所流 }
+  - { id: GEO5-DEF-07, name: 完備ベクトル場 }
+  - { id: GEO5-DEF-08, name: 微分同相写像によるベクトル場の押し出し }
+  - { id: GEO5-DEF-09, name: F-関連なベクトル場 }
+  - { id: GEO5-DEF-10, name: Lie括弧 }
+theorems:
+  - { id: GEO5-PROP-01, name: 滑らかなベクトル場は滑らかな関数環上の導分を定める }
+  - { id: GEO5-THM-01, name: 積分曲線の局所存在・一意性 }
+  - { id: GEO5-LEM-01, name: 自律系の解の初期値への滑らかな依存 }
+  - { id: GEO5-THM-02, name: 最大積分曲線の存在・一意性 }
+  - { id: GEO5-THM-03, name: 最大流の滑らかさと局所群則 }
+  - { id: GEO5-PROP-02, name: コンパクト多様体上の滑らかなベクトル場は完備 }
+  - { id: GEO5-PROP-03, name: 押し出しと流れの共役 }
+  - { id: GEO5-PROP-04, name: 導分の可換子は再び導分 }
+  - { id: GEO5-THM-04, name: Lie括弧の座標公式 }
+  - { id: GEO5-THM-05, name: Lie括弧の基本恒等式 }
+  - { id: GEO5-THM-06, name: 流れによるLie括弧の解釈 }
+  - { id: GEO5-COR-01, name: Lie括弧が0であることと局所流の可換性 }
+  - { id: GEO5-THM-07, name: ベクトル場の直線化定理 }
+canonical_examples:
+  - 球面上の回転ベクトル場
+  - 実直線上のx∂xと指数流
+  - x²∂xの有限時刻発散と非完備性
+  - 定ベクトル場の平行移動流
+  - 微分同相写像によるベクトル場の押し出し
+  - ∂xとx∂yの非零Lie括弧
+  - ∂x+y∂yの明示的な直線化座標
+  - 原点を除く平面上の回転場と動径場
+problem_patterns:
+  - GEO5-INTEGRAL-CURVE-1
+  - GEO5-MAXIMAL-FLOW-1
+  - GEO5-COMPLETENESS-1
+  - GEO5-PUSHFORWARD-1
+  - GEO5-LIE-BRACKET-1
+  - GEO5-COMMUTING-FLOWS-1
+  - GEO5-FLOW-BOX-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 4.5, review: 0.5 }
