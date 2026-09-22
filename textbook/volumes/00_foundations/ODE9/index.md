@@ -246,7 +246,7 @@ x(t_n)\to y,
 t_n\to\infty
 $$
 
-とします。固定した $s\ge0$ について、[初期値に関する連続依存](../ODE8/index.md#thm-ode8-continuous-dependence) と流れの合成則から
+とします。固定した $s\ge0$ について、[初期値に関する連続依存](../ODE8/index.md#thm-ode8-continuous-dependence) と [流れの合成則](../ODE8/index.md#prop-ode8-flow-law) から
 
 $$
 x(t_n+s)
