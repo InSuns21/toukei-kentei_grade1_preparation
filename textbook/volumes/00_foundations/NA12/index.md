@@ -1047,7 +1047,7 @@ $$
 \|e_k\|_A.
 $$
 
-[二次目的関数差の恒等式](#prop-na12-quadratic-gap)から、厳密直線探索が候補点以上に目的関数を減らすことは
+[実対称正定値二次関数の目的関数差恒等式](#prop-na12-quadratic-gap)から、厳密直線探索が候補点以上に目的関数を減らすことは
 
 $$
 \|e_{k+1}\|_A
@@ -1375,7 +1375,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[二次関数の厳密直線探索公式](#prop-na12-quadratic-line-search)から
+[実対称正定値二次関数の厳密直線探索](#prop-na12-quadratic-line-search)から
 
 $$
 \alpha_*
@@ -1488,7 +1488,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[二次目的関数差の恒等式](#prop-na12-quadratic-gap)から
+[実対称正定値二次関数の目的関数差恒等式](#prop-na12-quadratic-gap)から
 
 $$
 q(x)-q(x_*)
