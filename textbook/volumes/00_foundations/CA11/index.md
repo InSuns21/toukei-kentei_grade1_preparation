@@ -30,7 +30,7 @@ Euler 積分
 倍角恒等式
 ~~~
 
-Bohr--Mollerup の特徴付け、高次の漸近展開、Barnes G 関数、多重 Gamma 関数は本章の停止線より先に置く。
+Bohr--Mollerup の特徴付け、高次の漸近展開、Barnes G 関数やその多重版は本章の停止線より先に置く。
 
 ---
 
