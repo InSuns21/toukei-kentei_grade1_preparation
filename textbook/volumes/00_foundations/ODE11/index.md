@@ -84,13 +84,13 @@ $$
 <!-- formal-statement-start -->
 > **命題（Hopf 正規形の周期軌道）**  
 > $z=re^{i\theta}$ と書くと
->
-> $$
-> r'=\mu r-r^3,
-> \qquad
-> \theta'=\omega.
-> $$
->
+
+$$
+r'=\mu r-r^3,
+\qquad
+\theta'=\omega.
+$$
+
 > $\mu<0$ では原点が漸近安定、$\mu>0$ では原点が不安定となり、半径 $r=\sqrt\mu$ に安定周期軌道が存在する。
 <!-- formal-statement-end -->
 
@@ -148,11 +148,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（周期軌道の乗数）**  
 > Poincaré 写像が微分可能で固定点 $s_*$ を持つとき
->
-> $$
-> \rho=P'(s_*)
-> $$
->
+
+$$
+\rho=P'(s_*)
+$$
+
 > を周期軌道の非自明な乗数という。$|\rho|<1$ なら横断方向に局所漸近安定、$|\rho|>1$ なら不安定である。
 <!-- formal-statement-end -->
 
@@ -166,15 +166,15 @@ $P(s)=s_*/2+s/2$ なら $P(s_*)=s_*$ かつ $P'(s_*)=1/2$ で、帰還ごとに�
 <!-- formal-statement-start -->
 > **定理（平面周期軌道の乗数公式）**  
 > $x'=F(x)$ を $C^1$ 平面系とし、周期 $T$ の周期軌道 $\gamma(t)$ を持つとする。非自明な Poincaré 乗数は
->
-> $$
-> \rho
-> =
-> \exp\left(
-> \int_0^T
-> \operatorname{div}F(\gamma(t))\,dt
-> \right).
-> $$
+
+$$
+\rho
+=
+\exp\left(
+\int_0^T
+\operatorname{div}F(\gamma(t))\,dt
+\right).
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
