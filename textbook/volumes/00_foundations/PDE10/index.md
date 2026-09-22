@@ -304,7 +304,7 @@ $$
 -\int_{|x|=r}\partial_n\Phi_n\,dS=1
 $$
 
-> が成り立つ。後者は原点に単位の source を置いたことに対応する正規化条件である。
+> が成り立つ。後者は原点に単位の点源を置いたことに対応する正規化条件である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pde10-fundamental-solution -->
@@ -929,7 +929,7 @@ $$
 |x-\xi|=|x-\xi^*|.
 $$
 
-従って境界上で二つの基本解は一致して差は0です。また反射側の source 点は下半空間にあるため、補正項は上半空間で調和的です。
+従って境界上で二つの基本解は一致して差は0です。また鏡像点は下半空間にあるため、補正項は上半空間で調和的です。
 <!-- proof-end -->
 
 境界法線微分も実際に計算します。$z\ne0$ では $n=2$ と $n\ge3$ の両方について
@@ -986,7 +986,7 @@ P(x;y')
 \left.\partial_sG(x,(y',s))\right|_{s=0}.
 $$
 
-よって半空間 Poisson kernel は
+よって半空間 Poisson 核 は
 
 $$
 \boxed{
@@ -1100,13 +1100,13 @@ $\partial_r\Phi_n=-\sigma_{n-1}^{-1}r^{1-n}$。球面積 $\sigma_{n-1}r^{n-1}$ �
 
 <!-- solution-start -->
 ##### 詳細解答
-境界面は鏡映の固定集合なので、実 source と鏡像 source から同じ境界点までの距離が等しく、基本解の差が0です。
+境界面は鏡映の固定集合なので、実際の点源と鏡像点源 から同じ境界点までの距離が等しく、基本解の差が0です。
 <!-- solution-end -->
 
-#### PDE10-B03 Poisson kernel の尺度
+#### PDE10-B03 Poisson 核の尺度
 - Level: B
 
-半空間 Poisson kernel の積分が高さ $x_n$ に依存しないことを尺度変換で示せ。
+半空間 Poisson 核 の積分が高さ $x_n$ に依存しないことを尺度変換で示せ。
 
 <!-- solution-start -->
 ##### 詳細解答
