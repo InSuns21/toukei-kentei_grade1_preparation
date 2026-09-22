@@ -38,7 +38,39 @@ $$
 \frac{\Theta''}{\Theta}.
 $$
 
-両辺は別変数だけの関数なので定数です。$2\pi$ 周期性から角方向は $m\in\mathbb Z$ となります。
+左辺は $r$ だけ、右辺は $\theta$ だけの関数です。等式が全ての $(r,\theta)$ で成り立つには、両辺が同じ定数でなければなりません。角方向を
+
+$$
+\Theta''+\mu\Theta=0
+$$
+
+と書きます。
+
+$2\pi$ 周期の非零解が存在する条件を確認すると、$\mu<0$ では指数関数型、$\mu=0$ では一次関数型になり、非定数な周期解を持ちません。$\mu>0$ では
+
+$$
+\Theta(\theta)
+=
+A\cos(\sqrt\mu\,\theta)
++
+B\sin(\sqrt\mu\,\theta)
+$$
+
+であり、$2\pi$ 周期性から
+
+$$
+\sqrt\mu=|m|,
+\qquad
+m\in\mathbb Z
+$$
+
+が必要です。複素表示では
+
+$$
+\Theta(\theta)=e^{im\theta}
+$$
+
+と書けます。従って分離定数は $\mu=m^2$ です。
 
 <a id="prop-pde11-bessel-separation"></a>
 <!-- formal-statement-start -->
@@ -92,7 +124,47 @@ $$
 
 ## 2. 原点の正則性が $J_m$ を選ぶ
 
-ODE6 の Frobenius 解析から、整数次数 $m\ge0$ では原点で有限な解として Bessel 関数 $J_m$ が選ばれます。もう一つの独立解は原点で特異になります。
+半径方程式を $\rho=\sqrt\lambda\,r$ で書けば
+
+$$
+\rho^2R''+\rho R'+(\rho^2-m^2)R=0.
+$$
+
+$\rho=0$ は正則特異点です。[ODE6 の Frobenius 解析](../ODE6/index.md#thm-ode6-frobenius-recurrence)を適用すると、指標方程式は
+
+$$
+s(s-1)+s-m^2
+=
+s^2-m^2
+=
+0
+$$
+
+なので指標根は
+
+$$
+s=\pm |m|.
+$$
+
+原点で有限な枝は $s=|m|$ の方です。標準正規化を施したものを Bessel 関数 $J_{|m|}$ と呼びます。整数 $m\ge0$ なら
+
+$$
+J_m(\rho)
+=
+\sum_{k=0}^{\infty}
+\frac{(-1)^k}{k!(m+k)!}
+\left(\frac{\rho}{2}\right)^{2k+m}.
+$$
+
+実際、$R=\rho^m\sum_{k\ge0}a_k\rho^{2k}$ を代入すると
+
+$$
+a_{k+1}
+=
+-\frac{a_k}{4(k+1)(m+k+1)}
+$$
+
+となり、$a_0=1/(2^m m!)$ から上の級数が得られます。もう一つの独立解は $m>0$ では $\rho^{-m}$ 型、$m=0$ では対数型の特異性を持ち得るため、円板中心まで滑らかに延ばす固有モードには $J_m$ の枝を選びます。
 
 <a id="def-pde11-bessel-mode"></a>
 <!-- formal-statement-start -->
@@ -269,7 +341,13 @@ $$
 
 ## 6. 方位角を入れると associated Legendre 方程式になる
 
-$Y(\theta,\phi)=\Theta(\theta)e^{im\phi}$ と置けば $\partial_{\phi\phi}Y=-m^2Y$ です。$x=\cos\theta$ へ移すと
+$Y(\theta,\phi)=\Theta(\theta)e^{im\phi}$ と置けば
+
+$$
+\partial_{\phi\phi}Y=-m^2Y.
+$$
+
+$x=\cos\theta$ へ移すと
 
 $$
 (1-x^2)\Theta_{xx}
@@ -286,10 +364,22 @@ $$
 
 これは associated Legendre 方程式です。
 
+ここで「正則解を選ぶ」とだけ言って済ませず、Legendre 多項式から実際に作ります。$0\le m\le\ell$ に対して
+
+$$
+P_\ell^m(x)
+:=
+(-1)^m
+(1-x^2)^{m/2}
+\frac{d^m}{dx^m}P_\ell(x)
+$$
+
+と定めます。
+
 <a id="prop-pde11-spherical-eigenmode"></a>
 <!-- formal-statement-start -->
 > **命題（標準球面調和モード）**  
-> $|m|\le\ell$ とする。associated Legendre 関数 $P_\ell^{|m|}$ を用いれば
+> $\ell=0,1,2,\ldots$、$|m|\le\ell$ とする。上の定義で得た associated Legendre 関数を用いれば
 
 $$
 Y_\ell^m(\theta,\phi)
@@ -298,7 +388,7 @@ C_{\ell m}
 P_\ell^{|m|}(\cos\theta)e^{im\phi}
 $$
 
-> は
+> は球面上で滑らかで、
 
 $$
 -\Delta_{S^2}Y_\ell^m
@@ -309,44 +399,154 @@ $$
 > を満たす。定数 $C_{\ell m}$ は規格化により選べる。
 <!-- formal-statement-end -->
 
+### 証明の見取り図
+
+Legendre 方程式を $m$ 回微分すると、$Q=d^mP_\ell/dx^m$ が満たす方程式が得られます。そこへ $(1-x^2)^{m/2}$ を掛けると、極 $x=\pm1$ に見える特異項がちょうど associated Legendre 方程式の $m^2/(1-x^2)$ 項へ組み替わります。
+
 <!-- proof-start -->
 ### 証明
 
-上の変数分離計算で $e^{im\phi}$ を代入すると、角度 $\theta$ の方程式は associated Legendre 方程式そのものです。$P_\ell^{|m|}$ をその正則解として選べば、元の球面 Laplacian 固有値方程式を満たします。定数倍は線形固有値方程式を変えません。
+Legendre 方程式
+
+$$
+(1-x^2)P_\ell''
+-
+2xP_\ell'
++
+\ell(\ell+1)P_\ell
+=
+0
+$$
+
+を $m$ 回微分し、
+
+$$
+Q(x)
+=
+\frac{d^m}{dx^m}P_\ell(x)
+$$
+
+と置きます。Leibniz 則を使うと
+
+$$
+(1-x^2)Q''
+-
+2(m+1)xQ'
++
+\{\ell(\ell+1)-m(m+1)\}Q
+=
+0.
+$$
+
+次に
+
+$$
+A(x)=(1-x^2)^{m/2},
+\qquad
+\Theta(x)=A(x)Q(x)
+$$
+
+と置きます。直接微分すると
+
+$$
+\frac{A'}A
+=
+-\frac{mx}{1-x^2},
+$$
+
+$$
+\frac{A''}A
+=
+-\frac{m}{1-x^2}
++
+\frac{m(m-2)x^2}{(1-x^2)^2}.
+$$
+
+これを
+
+$$
+(1-x^2)\Theta''-2x\Theta'
+$$
+
+へ代入して $Q''$ を上の微分方程式で消去すると、$Q'$ の項は打ち消し合い、
+
+$$
+(1-x^2)\Theta''
+-
+2x\Theta'
++
+\left[
+\ell(\ell+1)
+-
+\frac{m^2}{1-x^2}
+\right]\Theta
+=
+0.
+$$
+
+従って $\Theta=(-1)^mAQ=P_\ell^m$ は associated Legendre 方程式を満たします。
+
+球面上の滑らかさも式から確認できます。$x=\cos\theta$ なら
+
+$$
+(1-x^2)^{m/2}
+=
+\sin^m\theta,
+$$
+
+なので
+
+$$
+P_\ell^m(\cos\theta)e^{im\phi}
+=
+(-1)^m
+\left(\sin\theta\,e^{i\phi}\right)^m
+Q(\cos\theta).
+$$
+
+$\sin\theta\,e^{i\phi}$ は極で0へ消えるため、方位角 $\phi$ が定まらなくなる極でもこの積は滑らかに延びます。$m<0$ の標準モードは複素共役を取ればよいので、$|m|\le\ell$ の全てを得ます。
+
+最後に変数分離式へ戻せば
+
+$$
+-\Delta_{S^2}Y_\ell^m
+=
+\ell(\ell+1)Y_\ell^m.
+$$
+
+定数倍 $C_{\ell m}$ は固有値方程式を変えません。
 <!-- proof-end -->
 
 ## 7. 球内部の調和関数
 
 <a id="prop-pde11-solid-harmonic"></a>
 <!-- formal-statement-start -->
-> **命題（球面調和関数から得る solid harmonic）**  
-> 次数 $\ell$ の球面調和関数 $Y_\ell$ に対し
+> **命題（標準球面調和モードから得る solid harmonic）**  
+> 標準球面調和モード $Y_\ell^m$ に対し
 
 $$
-u(r,\omega)=r^\ell Y_\ell(\omega)
+u_{\ell m}(r,\omega)
+=
+r^\ell Y_\ell^m(\omega)
 $$
 
-> は原点を含む全空間で調和的である。原点外では
+> は原点を含む $\mathbb R^3$ 全体へ滑らかに延び、調和的である。また原点外では
 
 $$
-r^{-\ell-1}Y_\ell(\omega)
+r^{-\ell-1}Y_\ell^m(\omega)
 $$
 
-> も調和的である。
+> も調和的である。従って標準モードの有限線形結合についても同じ結論が成り立つ。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-球座標 Laplacian に $R(r)Y_\ell(\omega)$ を代入すると
-
-$$
-r^2R''+2rR'-\ell(\ell+1)R=0
-$$
-
-という Cauchy--Euler 方程式になります。
+まず球座標 Laplacian から半径指数 $q=\ell,-\ell-1$ を得ます。ただし、それだけでは $r^\ell Y_\ell^m$ が **原点でも**滑らかとは言えません。原点の正則性は、前節で作った $P_\ell^m$ の具体式を使って $r^\ell Y_\ell^m$ が実際には同次多項式になることまで確認します。
 
 <!-- proof-start -->
 ### 証明
+
+原点外では
 
 $$
 \Delta(RY)
@@ -376,7 +576,60 @@ $$
 (q-\ell)(q+\ell+1)=0.
 $$
 
-従って $q=\ell$ または $q=-\ell-1$ です。
+従って $q=\ell$ または $q=-\ell-1$ です。これで二つの枝が $r>0$ で調和的なことは分かりました。
+
+次に正則枝 $r^\ell Y_\ell^m$ の原点を調べます。$m\ge0$ とし、
+
+$$
+Q_{\ell m}(s)
+=
+\frac{d^m}{ds^m}P_\ell(s)
+$$
+
+と置きます。前節の式から、定数倍を除けば
+
+$$
+r^\ell
+P_\ell^m(\cos\theta)e^{im\phi}
+=
+(-1)^m
+(x+iy)^m
+r^{\ell-m}
+Q_{\ell m}\left(\frac zr\right).
+$$
+
+Legendre 多項式 $P_\ell$ は $\ell$ と同じ偶奇性を持つので、$Q_{\ell m}$ の各単項式は
+
+$$
+s^{\ell-m-2j}
+$$
+
+の形です。従って
+
+$$
+r^{\ell-m}
+\left(\frac zr\right)^{\ell-m-2j}
+=
+z^{\ell-m-2j}r^{2j}.
+$$
+
+ここで
+
+$$
+r^2=x^2+y^2+z^2
+$$
+
+だから、右辺は $x,y,z$ の多項式です。したがって
+
+$$
+r^\ell Y_\ell^m
+$$
+
+は次数 $\ell$ の同次多項式として原点まで滑らかに延びます。
+
+この多項式は $r>0$ で既に $\Delta u_{\ell m}=0$ を満たします。$\Delta u_{\ell m}$ 自身も多項式であり、原点外の開集合で0なので恒等的に0です。従って原点でも調和的です。
+
+$m<0$ のモードは $m>0$ の複素共役なので同じ結論です。一方 $r^{-\ell-1}$ の枝は原点で特異ですが、最初の半径方程式の計算により $\mathbb R^3\setminus\{0\}$ では調和的です。
 <!-- proof-end -->
 
 ## 8. 有限モードの球 Dirichlet 問題
