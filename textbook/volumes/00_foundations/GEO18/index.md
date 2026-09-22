@@ -157,7 +157,7 @@ $$
 
 ## 2. 法 Jacobi 場の長さが満たす微分不等式
 
-Rauch の比較定理の核心は、ベクトル値 Jacobi 方程式を長さのスカラー不等式へ落とすことです。
+Jacobi 場比較の核心は、ベクトル値 Jacobi 方程式を長さのスカラー不等式へ落とすことです。
 
 <a id="lem-geo18-jacobi-length"></a>
 <!-- formal-statement-start -->
@@ -360,7 +360,7 @@ $$
 
 ---
 
-## 3. Rauch の比較定理：定曲率模型との比較
+## 3. 定曲率模型との Jacobi 場比較
 
 <a id="thm-geo18-rauch"></a>
 <!-- formal-statement-start -->
@@ -890,7 +890,7 @@ $\square$
 
 Rauch 比較では断面曲率を使いました。
 
-一方、Bonnet--Myers の定理では全ての法方向の曲率を足した
+一方、次の直径評価では全ての法方向の曲率を足した
 
 $$
 \operatorname{Ric}(\dot\gamma,\dot\gamma)
@@ -1447,7 +1447,7 @@ $$
 
 ---
 
-## 10. Cartan--Hadamard の定理
+## 10. 非正曲率から大域微分同相へ
 
 <a id="thm-geo18-cartan-hadamard"></a>
 <!-- formal-statement-start -->
