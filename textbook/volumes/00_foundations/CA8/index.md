@@ -16,7 +16,7 @@ Riemann 面
 Riemann 面間の正則写像・有理型関数
   ↓
 被覆写像
-  ↓ path lifting / homotopy lifting
+  ↓ 経路持ち上げ / ホモトピー持ち上げ
 解析接続を「持ち上げ」として読む
   ↓
 log と sqrt の Riemann 面
@@ -54,9 +54,9 @@ $$
 **定義の確認**。$X=\mathbb C$ なら、任意の開集合 $U$ と恒等写像 $\varphi(z)=z$ が複素座標近傍になる。座標近傍は「空間そのものが平面である」ことを要求せず、各点の近くを平面の開集合で記述できればよい。
 <!-- definition-example-end -->
 
-<a id="def-ca8-holomorphic-atlas"></a>
+<a id="def-ca8-holomorphic-アトラス"></a>
 <!-- formal-statement-start -->
-### 定義（正則 atlas）
+### 定義（正則アトラス）
 
 $X$ を Hausdorff かつ第二可算な位相空間とする。$X$ を覆う複素座標近傍の族
 
@@ -64,7 +64,7 @@ $$
 \mathcal A=\{(U_\alpha,\varphi_\alpha)\}
 $$
 
-が **正則 atlas** であるとは、$U_\alpha\cap U_\beta\ne\varnothing$ のたびに座標遷移
+が **正則アトラス** であるとは、$U_\alpha\cap U_\beta\ne\varnothing$ のたびに座標遷移
 
 $$
 \varphi_\beta\circ\varphi_\alpha^{-1}:
@@ -76,15 +76,15 @@ $$
 が正則であることをいう。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-ca8-holomorphic-atlas -->
-**定義の確認**。$\mathbb C^\times=\mathbb C\setminus\{0\}$ に恒等座標だけを置けば、重なりでの遷移写像も恒等写像なので正則 atlas になる。複数 chart がある場合に本質的なのは、同じ点を二つの座標で記述しても、その変換が正則であることである。
+<!-- definition-example-start: def-ca8-holomorphic-アトラス -->
+**定義の確認**。$\mathbb C^\times=\mathbb C\setminus\{0\}$ に恒等座標だけを置けば、重なりでの遷移写像も恒等写像なので正則アトラス になる。複数 chart がある場合に本質的なのは、同じ点を二つの座標で記述しても、その変換が正則であることである。
 <!-- definition-example-end -->
 
 <a id="def-ca8-riemann-surface"></a>
 <!-- formal-statement-start -->
 ### 定義（Riemann 面）
 
-Hausdorff かつ第二可算で、各点が複素座標近傍を持ち、正則 atlas を備えた位相空間を **Riemann 面**という。
+Hausdorff かつ第二可算で、各点が複素座標近傍を持ち、正則アトラス を備えた位相空間を **Riemann 面**という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ca8-riemann-surface -->
@@ -95,7 +95,7 @@ Hausdorff 性は異なる点を局所的に分離するため、第二可算性�
 
 ---
 
-## 2. Riemann 球面を atlas で見直す
+## 2. Riemann 球面を アトラス で見直す
 
 CA6 では $\widehat{\mathbb C}=\mathbb C\cup\{\infty\}$ を直接扱った。ここではそれを Riemann 面として再構成する。
 
@@ -121,11 +121,11 @@ $$
 
 とする。
 
-<a id="prop-ca8-riemann-sphere-atlas"></a>
+<a id="prop-ca8-riemann-sphere-アトラス"></a>
 <!-- formal-statement-start -->
-### 命題（Riemann 球面の標準 atlas）
+### 命題（Riemann 球面の標準 アトラス）
 
-上の二つの chart は $\widehat{\mathbb C}$ に正則 atlas を与える。従って Riemann 球面は Riemann 面である。
+上の二つの chart は $\widehat{\mathbb C}$ に正則アトラス を与える。従って Riemann 球面は Riemann 面である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -143,7 +143,7 @@ $$
 z=\frac1\zeta.
 $$
 
-どちらも $\mathbb C^\times$ 上正則である。CA6 で用いた球面位相では二つの chart は同相写像である。よって正則 atlas を成す。$\square$
+どちらも $\mathbb C^\times$ 上正則である。CA6 で用いた球面位相では二つの chart は同相写像である。よって正則アトラス を成す。$\square$
 <!-- proof-end -->
 
 「$\infty$ で正則」という表現は、$\zeta=1/z$ を局所座標にして $\zeta=0$ の通常の正則性を調べるという意味になる。
@@ -193,7 +193,7 @@ $$
 (\varphi\circ\widetilde\varphi^{-1}).
 $$
 
-両端の写像は正則 atlas の座標遷移だから正則で、中央も仮定により正則である。正則関数の合成は正則なので、別座標表示も正則である。$\square$
+両端の写像は正則アトラス の座標遷移だから正則で、中央も仮定により正則である。正則関数の合成は正則なので、別座標表示も正則である。$\square$
 <!-- proof-end -->
 
 <a id="def-ca8-biholomorphism"></a>
@@ -420,7 +420,7 @@ $$
 p|_{U_\lambda}:U_\lambda\to V
 $$
 
-が同相写像になることをいう。この $V$ を evenly covered neighborhood と呼ぶ。
+が同相写像になることをいう。この $V$ を 均等被覆近傍 と呼ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ca8-covering-map -->
@@ -437,7 +437,7 @@ $$
 <!-- formal-statement-start -->
 ### 定義（正則被覆）
 
-Riemann 面 $X,Y$ の間の被覆写像 $p:X\to Y$ で、各 evenly covered neighborhood $V$ と各 sheet $U_\lambda$ について
+Riemann 面 $X,Y$ の間の被覆写像 $p:X\to Y$ で、各 均等被覆近傍 $V$ と各 シート $U_\lambda$ について
 
 $$
 p|_{U_\lambda}:U_\lambda\to V
@@ -452,13 +452,13 @@ $$
 
 ---
 
-## 8. path lifting
+## 8. 経路持ち上げ
 
-被覆上の「枝を選んで連続的に追う」操作が path lifting である。
+被覆上の「枝を選んで連続的に追う」操作が 経路持ち上げ である。
 
-<a id="thm-ca8-path-lifting"></a>
+<a id="thm-ca8-path-持ち上げing"></a>
 <!-- formal-statement-start -->
-### 定理（path lifting の存在と一意性）
+### 定理（経路持ち上げ の存在と一意性）
 
 $p:X\to Y$ を被覆写像、$\gamma:[0,1]\to Y$ を連続な経路とする。$x_0\in X$ が
 
@@ -485,12 +485,12 @@ $$
 
 ### 証明の見取り図
 
-区間 $[0,1]$ のコンパクト性で、経路像を覆う evenly covered neighborhood を有限個に減らし、Lebesgue 数に相当する細分を選ぶ。各小区間では一枚の sheet 上の局所逆写像で持ち上げ、端点を次の sheet 選択へ渡す。一意性は「二つの lift が一致する時刻集合が開かつ閉」で示す。
+区間 $[0,1]$ のコンパクト性で、経路像を覆う均等被覆近傍を有限個に減らし、その逆像による開被覆の Lebesgue 数を使って細分を選ぶ。各小区間では一枚の シート 上の局所逆写像で持ち上げ、端点を次の シート 選択へ渡す。一意性は「二つの 持ち上げ が一致する時刻集合が開かつ閉」で示す。
 
 <!-- proof-start -->
 ### 証明
 
-$\gamma([0,1])$ を evenly covered neighborhood の族で覆う。$[0,1]$ はコンパクトなので、有限個 $V_1,\dots,V_N$ の逆像
+$\gamma([0,1])$ を 均等被覆近傍 の族で覆う。$[0,1]$ はコンパクトなので、有限個 $V_1,\dots,V_N$ の逆像
 
 $$
 \gamma^{-1}(V_j)
@@ -504,7 +504,7 @@ $$
 
 を選び、各 $[t_{r-1},t_r]$ の像が一つの $V_{j(r)}$ に入るようにする。
 
-最初の区間で、$x_0$ を含む $p^{-1}(V_{j(1)})$ の sheet を $U_1$ とする。局所逆写像を
+最初の区間で、$x_0$ を含む $p^{-1}(V_{j(1)})$ の シート を $U_1$ とする。局所逆写像を
 
 $$
 s_1=(p|_{U_1})^{-1}:V_{j(1)}\to U_1
@@ -516,17 +516,17 @@ $$
 \widetilde\gamma(t)=s_1(\gamma(t))
 $$
 
-で lift が定まる。
+で 持ち上げ が定まる。
 
-$t_1$ で得た点 $\widetilde\gamma(t_1)$ を含む次の sheet $U_2$ を選び、その局所逆写像で $[t_1,t_2]$ を持ち上げる。この操作を有限回繰り返せば存在が得られる。端点では前区間と次区間が同じ点を通るので貼り合わせは連続である。
+$t_1$ で得た点 $\widetilde\gamma(t_1)$ を含む次の シート $U_2$ を選び、その局所逆写像で $[t_1,t_2]$ を持ち上げる。この操作を有限回繰り返せば存在が得られる。端点では前区間と次区間が同じ点を通るので貼り合わせは連続である。
 
-一意性を示す。二つの lift $\widetilde\gamma_1,\widetilde\gamma_2$ が同じ初期点を持つとする。
+一意性を示す。二つの 持ち上げ $\widetilde\gamma_1,\widetilde\gamma_2$ が同じ初期点を持つとする。
 
 $$
 A=\{t\in[0,1]:\widetilde\gamma_1(t)=\widetilde\gamma_2(t)\}
 $$
 
-と置く。$A$ は連続性と Hausdorff 性から閉である。$t_0\in A$ とし、共通点の像 $\gamma(t_0)$ の evenly covered neighborhood $V$ を取る。連続性により $t_0$ の小近傍では両 lift の像を、共通点を含む同じ sheet $U$ に入れられる。その上では
+と置く。$A$ は連続性と Hausdorff 性から閉である。$t_0\in A$ とし、共通点の像 $\gamma(t_0)$ の 均等被覆近傍 $V$ を取る。連続性により $t_0$ の小近傍では両 持ち上げ の像を、共通点を含む同じ シート $U$ に入れられる。その上では
 
 $$
 \widetilde\gamma_j=(p|_U)^{-1}\circ\gamma
@@ -537,17 +537,17 @@ $$
 $[0,1]$ は連結で $A$ は空でなく開閉だから $A=[0,1]$。一意性が従う。$\square$
 <!-- proof-end -->
 
-被覆性が必要なのは、局所逆写像を「どの sheet 上か」を含めて一意に選ぶためである。
+被覆性が必要なのは、局所逆写像を「どの シート 上か」を含めて一意に選ぶためである。
 
 ---
 
-## 9. homotopy lifting
+## 9. ホモトピー持ち上げ
 
-CA5 の monodromy と接続するには、経路を連続変形したとき lift の終点がどう動くかが必要になる。
+CA5 の monodromy と接続するには、経路を連続変形したとき 持ち上げ の終点がどう動くかが必要になる。
 
-<a id="thm-ca8-homotopy-lifting"></a>
+<a id="thm-ca8-homotopy-持ち上げing"></a>
 <!-- formal-statement-start -->
-### 定理（経路ホモトピーの lifting）
+### 定理（経路ホモトピーの 持ち上げing）
 
 $p:X\to Y$ を被覆写像とし、
 
@@ -555,7 +555,7 @@ $$
 H:[0,1]\times[0,1]\to Y
 $$
 
-を連続写像とする。各 $s$ について $t\mapsto H(s,t)$ を経路と考える。$s=0$ の経路の lift $\widetilde H(0,t)$ が一つ与えられているとする。
+を連続写像とする。各 $s$ について $t\mapsto H(s,t)$ を経路と考える。$s=0$ の経路の 持ち上げ $\widetilde H(0,t)$ が一つ与えられているとする。
 
 このとき、ただ一つの連続写像
 
@@ -569,15 +569,15 @@ $$
 p\circ\widetilde H=H
 $$
 
-かつ $s=0$ 上で与えられた lift と一致する。
+かつ $s=0$ 上で与えられた 持ち上げ と一致する。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
 
-長方形 $K=[0,1]^2$ の像 $H(K)$ を evenly covered neighborhood で覆う。$K$ はコンパクトなので有限部分被覆を取れる。$H$ の一様連続性を使って格子を十分細かく選び、各小長方形の像が一つの evenly covered neighborhood に入るようにする。
+長方形 $K=[0,1]^2$ に対し、均等被覆近傍 $V$ の逆像 $H^{-1}(V)$ を集めると $K$ の開被覆になる。$K$ はコンパクト距離空間なので、この開被覆には Lebesgue 数 $eta>0$ がある。格子幅を $eta/3$ 未満に取れば、各小長方形は直径が $eta$ 未満となり、その全体がある一つの $H^{-1}(V)$ に入る。従って各小長方形の像は一つの均等被覆近傍 $V$ に入る。
 
-左端 $s=0$ 上では lift が既に与えられている。左から右へ格子列ごとに進む。ある小長方形 $R$ の一辺上で lift が定まっているとする。$H(R)$ が入る evenly covered neighborhood を $V$ とし、その既知の一辺の像が入る sheet $U$ を一つ選ぶ。連結な一辺の lift は途中で別 sheet へ飛べないので、同じ $U$ に入る。そこで $R$ 全体を
+左端 $s=0$ 上では 持ち上げ が既に与えられている。左から右へ格子列ごとに進む。ある小長方形 $R$ の一辺上で 持ち上げ が定まっているとする。$H(R)$ が入る 均等被覆近傍 を $V$ とし、その既知の一辺の像が入る シート $U$ を一つ選ぶ。連結な一辺の 持ち上げ は途中で別 シート へ飛べないので、同じ $U$ に入る。そこで $R$ 全体を
 
 $$
 (p|_U)^{-1}\circ H
@@ -585,16 +585,16 @@ $$
 
 で持ち上げる。
 
-隣接する小長方形との共通辺では、どちらも同じ基点写像 $H$ の lift で、共通端点が一致する。[path lifting の一意性](#thm-ca8-path-lifting)から共通辺全体で一致する。従って有限個の小長方形上の lift は貼り合わさり、$K$ 全体の連続 lift を与える。
+隣接する小長方形との共通辺では、どちらも同じ基点写像 $H$ の 持ち上げ で、共通端点が一致する。[経路持ち上げ の一意性](#thm-ca8-path-持ち上げing)から共通辺全体で一致する。従って有限個の小長方形上の 持ち上げ は貼り合わさり、$K$ 全体の連続 持ち上げ を与える。
 
-一意性も同様に、各格子辺上で path lifting の一意性を使い、各小長方形内では同じ sheet 上の局所逆写像であることから従う。$\square$
+一意性も同様に、各格子辺上で 経路持ち上げ の一意性を使い、各小長方形内では同じ シート 上の局所逆写像であることから従う。$\square$
 <!-- proof-end -->
 
-<a id="cor-ca8-lifted-homotopy-endpoint"></a>
+<a id="cor-ca8-持ち上げed-homotopy-endpoint"></a>
 <!-- formal-statement-start -->
-### 系（端点固定ホモトピーと lift の終点）
+### 系（端点固定ホモトピーと 持ち上げ の終点）
 
-$H(s,0)=y_0$、$H(s,1)=y_1$ が $s$ に依存しないとする。同じ $x_0\in p^{-1}(y_0)$ から各経路を持ち上げると、lift の終点 $\widetilde H(s,1)$ は $s$ に依存しない。
+$H(s,0)=y_0$、$H(s,1)=y_1$ が $s$ に依存しないとする。同じ $x_0\in p^{-1}(y_0)$ から各経路を持ち上げると、持ち上げ の終点 $\widetilde H(s,1)$ は $s$ に依存しない。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -672,13 +672,13 @@ $$
 \gamma(t)=e^{2\pi i t}
 $$
 
-を $w_0=0$ から lift すると
+を $w_0=0$ から 持ち上げ すると
 
 $$
 \widetilde\gamma(t)=2\pi i t
 $$
 
-であり、終点は $2\pi i$ になる。閉曲線を一周しても lift は閉じない。この終点差が対数の枝が $2\pi i$ ずれる現象である。
+であり、終点は $2\pi i$ になる。閉曲線を一周しても 持ち上げ は閉じない。この終点差が対数の枝が $2\pi i$ ずれる現象である。
 
 ---
 
@@ -749,13 +749,13 @@ $S(z,w)=w$ は $w$ 座標では恒等関数なので正則で、定義から $S(
 
 ## 12. 被覆と解析接続
 
-正則被覆 $p:X\to Y$ と $X$ 上の正則関数 $F$ を持つと、各 sheet 上の局所逆写像 $s:V\to X$ を通して
+正則被覆 $p:X\to Y$ と $X$ 上の正則関数 $F$ を持つと、各 シート 上の局所逆写像 $s:V\to X$ を通して
 
 $$
 f_V=F\circ s
 $$
 
-という $Y$ 上の局所正則関数が得られる。経路に沿って sheet を追うことが、そのまま局所枝の解析接続になる。
+という $Y$ 上の局所正則関数が得られる。経路に沿って シート を追うことが、そのまま局所枝の解析接続になる。
 
 <a id="thm-ca8-covering-analytic-continuation"></a>
 <!-- formal-statement-start -->
@@ -763,13 +763,13 @@ $$
 
 $p:X\to Y$ を正則被覆、$F:X\to\mathbb C$ を正則関数とする。$y_0\in Y$ と $x_0\in p^{-1}(y_0)$ を固定する。
 
-任意の経路 $\gamma:[0,1]\to Y$ に対し、$x_0$ からの一意な lift $\widetilde\gamma$ を使うと、$F$ は $\gamma$ に沿う局所正則枝の解析接続を一意に定める。さらに端点固定でホモトピックな二経路は同じ終点 sheet に達するので、終点で得られる局所枝も同じである。
+任意の経路 $\gamma:[0,1]\to Y$ に対し、$x_0$ からの一意な 持ち上げ $\widetilde\gamma$ を使うと、$F$ は $\gamma$ に沿う局所正則枝の解析接続を一意に定める。さらに端点固定でホモトピックな二経路は同じ終点 シート に達するので、終点で得られる局所枝も同じである。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
 
-各 $t$ の近くで $\gamma$ の像が evenly covered neighborhood $V$ に入るようにする。lift $\widetilde\gamma$ が通る sheet を $U$ とし、
+各 $t$ の近くで $\gamma$ の像が 均等被覆近傍 $V$ に入るようにする。持ち上げ $\widetilde\gamma$ が通る シート を $U$ とし、
 
 $$
 s=(p|_U)^{-1}:V\to U
@@ -783,9 +783,9 @@ $$
 
 と定める。$p|_U$ と $F$ は正則だから $f$ は正則である。
 
-隣接する時刻区間の重なりでは、二つの局所逆写像は lift が通る同じ点を含む sheet 上で一致する。[path lifting の一意性](#thm-ca8-path-lifting)により sheet の追跡自体が一意だから、局所枝は CA5 の[固定経路に沿う解析接続の一意性](../CA5/index.md#thm-ca5-continuation-uniqueness)と整合して一意に貼られる。
+隣接する時刻区間の重なりでは、二つの局所逆写像は 持ち上げ が通る同じ点を含む シート 上で一致する。[経路持ち上げ の一意性](#thm-ca8-path-持ち上げing)により シート の追跡自体が一意だから、局所枝は CA5 の[固定経路に沿う解析接続の一意性](../CA5/index.md#thm-ca5-continuation-uniqueness)と整合して一意に貼られる。
 
-二経路が端点固定ホモトピーで結ばれていれば、[lift の終点不変性](#cor-ca8-lifted-homotopy-endpoint)により同じ終点 $x_1$ に達する。$x_1$ の近くの sheet で局所逆写像は同じだから、終点で得られる局所枝も一致する。$\square$
+二経路が端点固定ホモトピーで結ばれていれば、[持ち上げ の終点不変性](#cor-ca8-持ち上げed-homotopy-endpoint)により同じ終点 $x_1$ に達する。$x_1$ の近くの シート で局所逆写像は同じだから、終点で得られる局所枝も一致する。$\square$
 <!-- proof-end -->
 
 これは CA5 の monodromy を被覆幾何で読む形である。一般の「解析接続可能な全ての芽から Riemann 面を構成する」理論までは本章で行わない。
@@ -853,7 +853,7 @@ T:\mathbb R^2\to\mathbb C,
 T(x,y)=x\omega_1+y\omega_2
 $$
 
-は実線形同型である。有限次元ノルムの同値性から、ある $c>0$ が存在して
+は実線形同型である。単位円 $S^1\subset\mathbb R^2$ 上で連続関数 $v\mapsto|T(v)|$ は0にならない。$S^1$ はコンパクトだから正の最小値 $c>0$ を持つ。任意の $(x,y)\ne(0,0)$ を $r v$（$r=\sqrt{x^2+y^2}$、$v\in S^1$）と書けば
 
 $$
 |T(x,y)|
@@ -902,7 +902,7 @@ $$
 ### 証明の見取り図
 
 1. 格子の離散性から小円板とその非自明な格子平行移動は交わらない。
-2. その小円板を商写像で送ると一枚の sheet になり、平面座標がそのまま商へ降りる。
+2. その小円板を商写像で送ると一枚の シート になり、平面座標がそのまま商へ降りる。
 3. chart 遷移は格子元による平行移動だから正則。
 4. Hausdorff 性は異なる二つの剰余類の差と格子の正距離で分離する。
 5. 第二可算性は $\mathbb C$ の可算基底の像から得る。
@@ -956,7 +956,7 @@ $$
 u\longmapsto u+\lambda
 $$
 
-という平行移動である。これは正則で、正則 atlas が得られる。
+という平行移動である。これは正則で、正則アトラス が得られる。
 
 次に Hausdorff 性を示す。$q(z)\ne q(w)$ なら $z-w\notin\Lambda$。閉離散集合 $\Lambda$ と点 $z-w$ の距離
 
@@ -1005,7 +1005,7 @@ $$
 
 [コンパクト空間の連続像はコンパクト](../TOP5/index.md)だから $X_\Lambda$ はコンパクトである。
 
-さらに先ほどの局所円板は $q$ の evenly covered neighborhood の sheet を与え、各局所表示は恒等写像の平行移動なので双正則である。従って $q$ は正則被覆である。$\square$
+さらに先ほどの局所円板は $q$ の 均等被覆近傍 の シート を与え、各局所表示は恒等写像の平行移動なので双正則である。従って $q$ は正則被覆である。$\square$
 <!-- proof-end -->
 
 この定理で「商を取れば自動的に良い空間になる」とはしていない。[TOP2 の商空間は Hausdorff とは限らない](../TOP2/index.md)という一般的な危険を、格子の離散性が回避している。
@@ -1040,7 +1040,7 @@ $$
 
 を考える。$g$ は平面領域 $\varphi(U)$ 上正則で、$\varphi(p)$ は $|g|$ の局所最大点である。[最大値原理](../CA3/index.md#thm-ca3-maximum-modulus)から $g$ は $\varphi(U)$ の $p$ を含む連結成分上定数、従って $f$ は $p$ の近傍で定数である。
 
-$f-f(p)$ の零点集合は、局所座標で通常の正則関数の零点集合になる。$f$ が局所的に定数でない点の近くでは零点は孤立する。一方いま零点集合は非空な開集合を含む。Riemann 面の連結性と恒等定理の局所伝播により $f-f(p)$ は $X$ 全体で0、すなわち $f$ は定数である。$\square$
+$f-f(p)$ の零点集合は、局所座標で通常の正則関数の零点集合になる。$f$ が局所的に定数でない点の近くでは零点は孤立する。一方いま零点集合は非空な開集合を含む。Riemann 面の連結性と [恒等定理](../CA3/index.md#thm-ca3-isolated-zeros-identity) の局所伝播により $f-f(p)$ は $X$ 全体で0、すなわち $f$ は定数である。$\square$
 <!-- proof-end -->
 
 <a id="cor-ca8-torus-holomorphic-constant"></a>
@@ -1058,11 +1058,11 @@ CA9 で非定数の二周期関数を得るには、正則関数ではなく **�
 
 ### 例1：対数は被覆上で一価
 
-$\mathbb C^\times$ 上では閉曲線を一周すると対数が $2\pi i$ ずれる。しかし $\mathbb C$ 上の座標 $w$ では関数 $L(w)=w$ に何の多価性もない。多価性は基底空間へ押し下げたときに、異なる sheet が同じ $z=e^w$ に重なるために生じる。
+$\mathbb C^\times$ 上では閉曲線を一周すると対数が $2\pi i$ ずれる。しかし $\mathbb C$ 上の座標 $w$ では関数 $L(w)=w$ に何の多価性もない。多価性は基底空間へ押し下げたときに、異なる シート が同じ $z=e^w$ に重なるために生じる。
 
 ### 例2：平方根は二枚だが0で分岐する
 
-$\mathbb C^\times$ 上の $w\mapsto w^2$ は二枚被覆である。原点を一周する loop を lift すると、$w_0$ から $-w_0$ へ移る。一周で sheet が交換され、二周で戻る。
+$\mathbb C^\times$ 上の $w\mapsto w^2$ は二枚被覆である。原点を一周する loop を 持ち上げ すると、$w_0$ から $-w_0$ へ移る。一周で シート が交換され、二周で戻る。
 
 一方0を入れると局所同相性が失われる。ここで通常の被覆理論の証明機構が壊れる。
 
@@ -1182,7 +1182,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-ca8-a03"></a>
-#### CA8-A03 指数被覆で対数を lift する
+#### CA8-A03 指数被覆で対数を 持ち上げ する
 - Level: A
 
 $$
@@ -1196,12 +1196,12 @@ $$
 \qquad(0\le t\le1)
 $$
 
-を考える。$w_0=\log2$ から始まる lift を求め、その終点を答えよ。
+を考える。$w_0=\log2$ から始まる 持ち上げ を求め、その終点を答えよ。
 
 <!-- solution-start -->
 **解答**：
 
-lift $\widetilde\gamma$ は
+持ち上げ $\widetilde\gamma$ は
 
 $$
 e^{\widetilde\gamma(t)}
@@ -1233,7 +1233,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-ca8-a04"></a>
-#### CA8-A04 平方根の sheet 交換
+#### CA8-A04 平方根の シート 交換
 - Level: A
 
 $p(w)=w^2$ を $\mathbb C^\times\to\mathbb C^\times$ の被覆とみなす。
@@ -1242,7 +1242,7 @@ $$
 \gamma(t)=e^{2\pi i t}
 $$
 
-を $w_0=1$ から lift し、一周後と二周後の lift の終点を求めよ。
+を $w_0=1$ から 持ち上げ し、一周後と二周後の 持ち上げ の終点を求めよ。
 
 <!-- solution-start -->
 **解答**：
@@ -1261,15 +1261,15 @@ $$
 \widetilde\gamma(0)=1.
 $$
 
-[path lifting の一意性](#thm-ca8-path-lifting)からこれが唯一の lift である。終点は
+[経路持ち上げ の一意性](#thm-ca8-path-持ち上げing)からこれが唯一の 持ち上げ である。終点は
 
 $$
 \widetilde\gamma(1)=e^{\pi i}=-1.
 $$
 
-二周する経路 $e^{4\pi i t}$ なら lift は $e^{2\pi i t}$ で、終点は1に戻る。
+二周する経路 $e^{4\pi i t}$ なら 持ち上げ は $e^{2\pi i t}$ で、終点は1に戻る。
 
-従って平方根は原点を一周すると二つの sheet が交換され、二周すると元へ戻る。
+従って平方根は原点を一周すると二つの シート が交換され、二周すると元へ戻る。
 <!-- solution-end -->
 
 ### Level B
@@ -1280,9 +1280,9 @@ $$
 
 $\gamma_n(t)=e^{2\pi i n t}$ とし、$\exp:\mathbb C\to\mathbb C^\times$ を使う。
 
-1. $0$ から始まる lift を求めよ。
+1. $0$ から始まる 持ち上げ を求めよ。
 2. 終点が $2\pi i n$ であることを示せ。
-3. $n\ne m$ なら $\gamma_n,\gamma_m$ は端点固定ホモトピーで結ばれないことを、[lift の終点不変性](#cor-ca8-lifted-homotopy-endpoint)から示せ。
+3. $n\ne m$ なら $\gamma_n,\gamma_m$ は端点固定ホモトピーで結ばれないことを、[持ち上げ の終点不変性](#cor-ca8-持ち上げed-homotopy-endpoint)から示せ。
 
 <!-- solution-start -->
 **解答**：
@@ -1299,14 +1299,14 @@ $\gamma_n(t)=e^{2\pi i n t}$ とし、$\exp:\mathbb C\to\mathbb C^\times$ を使
    \qquad
    \widetilde\gamma_n(0)=0.
    $$
-   よって一意性からこれが lift である。
+   よって一意性からこれが 持ち上げ である。
 
 2. したがって
    $$
    \widetilde\gamma_n(1)=2\pi i n.
    $$
 
-3. もし $\gamma_n$ と $\gamma_m$ が端点固定ホモトピーなら、同じ初期点0からの lift の終点は[端点固定ホモトピーと lift の終点](#cor-ca8-lifted-homotopy-endpoint)により一致しなければならない。従って
+3. もし $\gamma_n$ と $\gamma_m$ が端点固定ホモトピーなら、同じ初期点0からの 持ち上げ の終点は[端点固定ホモトピーと 持ち上げ の終点](#cor-ca8-持ち上げed-homotopy-endpoint)により一致しなければならない。従って
    $$
    2\pi i n=2\pi i m,
    $$
@@ -1414,7 +1414,7 @@ $X_\Lambda=\mathbb C/\Lambda$ を複素トーラスとする。
 
 $p:X\to Y$ を正則被覆、$F:X\to\mathbb C$ を正則関数とする。$y_0\in Y$、$x_0\in p^{-1}(y_0)$ を固定する。
 
-1. 経路 $\gamma$ を $x_0$ から持ち上げ、各 evenly covered neighborhood 上で $F$ から局所正則枝を作れ。
+1. 経路 $\gamma$ を $x_0$ から持ち上げ、各 均等被覆近傍 上で $F$ から局所正則枝を作れ。
 2. 隣接する局所枝が解析接続として整合することを示せ。
 3. 端点固定ホモトピーで結ばれた経路は同じ終点枝を与えることを示せ。
 4. $p=\exp:\mathbb C\to\mathbb C^\times$、$F(w)=w$ に適用し、閉曲線を一周したときだけでは元の枝へ戻らない理由を説明せよ。
@@ -1425,7 +1425,7 @@ $p:X\to Y$ を正則被覆、$F:X\to\mathbb C$ を正則関数とする。$y_0\i
 
 **1. 局所枝の構成。**
 
-[path lifting](#thm-ca8-path-lifting)により、$\gamma$ には唯一の lift
+[経路持ち上げ](#thm-ca8-path-持ち上げing)により、$\gamma$ には唯一の 持ち上げ
 
 $$
 \widetilde\gamma:[0,1]\to X,
@@ -1435,7 +1435,7 @@ $$
 
 がある。
 
-$t_0$ を固定し、$y=\gamma(t_0)$ の evenly covered neighborhood $V$ を取る。$\widetilde\gamma(t_0)$ を含む sheet を $U$ とし、
+$t_0$ を固定し、$y=\gamma(t_0)$ の 均等被覆近傍 $V$ を取る。$\widetilde\gamma(t_0)$ を含む シート を $U$ とし、
 
 $$
 s=(p|_U)^{-1}:V\to U
@@ -1451,9 +1451,9 @@ $$
 
 **2. 重なりでの整合性。**
 
-二つの近傍 $V_1,V_2$ が経路の連続する区間を覆い、それぞれ lift が通る sheet $U_1,U_2$ を選ぶ。重なり区間では両方とも同じ基底経路 $\gamma$ の lift であり、重なりの一時刻で同じ点を通る。
+二つの近傍 $V_1,V_2$ が経路の連続する区間を覆い、それぞれ 持ち上げ が通る シート $U_1,U_2$ を選ぶ。重なり区間では両方とも同じ基底経路 $\gamma$ の 持ち上げ であり、重なりの一時刻で同じ点を通る。
 
-[path lifting の一意性](#thm-ca8-path-lifting)から重なり区間全体で lift は一致する。従って対応する局所逆写像も、その lift が通る連結成分上で一致し、
+[経路持ち上げ の一意性](#thm-ca8-path-持ち上げing)から重なり区間全体で 持ち上げ は一致する。従って対応する局所逆写像も、その 持ち上げ が通る連結成分上で一致し、
 
 $$
 F\circ s_1=F\circ s_2
@@ -1463,15 +1463,15 @@ $$
 
 **3. ホモトピー不変性。**
 
-$\gamma_0,\gamma_1$ が端点固定ホモトピー $H$ で結ばれているとする。[homotopy lifting](#thm-ca8-homotopy-lifting)で $H$ を $x_0$ から持ち上げる。
+$\gamma_0,\gamma_1$ が端点固定ホモトピー $H$ で結ばれているとする。[ホモトピー持ち上げ](#thm-ca8-homotopy-持ち上げing)で $H$ を $x_0$ から持ち上げる。
 
-[端点固定ホモトピーと lift の終点](#cor-ca8-lifted-homotopy-endpoint)から
+[端点固定ホモトピーと 持ち上げ の終点](#cor-ca8-持ち上げed-homotopy-endpoint)から
 
 $$
 \widetilde\gamma_0(1)=\widetilde\gamma_1(1).
 $$
 
-終点の同じ sheet 上で局所枝は $F$ と同じ局所逆写像の合成だから一致する。
+終点の同じ シート 上で局所枝は $F$ と同じ局所逆写像の合成だから一致する。
 
 **4. 対数。**
 
@@ -1481,7 +1481,7 @@ $$
 \gamma(t)=e^{2\pi i t}
 $$
 
-を $x_0=0$ から lift すると
+を $x_0=0$ から 持ち上げ すると
 
 $$
 \widetilde\gamma(t)=2\pi i t.
@@ -1493,13 +1493,13 @@ $$
 \widetilde\gamma(1)=2\pi i\ne0.
 $$
 
-基底では始点と終点が同じ $1$ でも、被覆では異なる sheet の点へ移る。終点近傍の局所対数は初期枝より $2\pi i$ 大きい。したがって一周では元の枝へ戻らない。
+基底では始点と終点が同じ $1$ でも、被覆では異なる シート の点へ移る。終点近傍の局所対数は初期枝より $2\pi i$ 大きい。したがって一周では元の枝へ戻らない。
 
 **5. 単連結の場合。**
 
-$Y$ が単連結なら、同じ始点・終点を持つ二経路は端点固定ホモトピーで結ばれる。3よりその lift の終点は一致し、従って終点枝も一致する。
+$Y$ が単連結なら、同じ始点・終点を持つ二経路は端点固定ホモトピーで結ばれる。3よりその 持ち上げ の終点は一致し、従って終点枝も一致する。
 
-よって解析接続の結果は経路に依存しない。これは CA5 の monodromy theorem を、被覆と lift の言葉で再構成したものになっている。
+よって解析接続の結果は経路に依存しない。これは CA5 の monodromy theorem を、被覆と 持ち上げ の言葉で再構成したものになっている。
 
 この議論で重要なのは、「単連結だから何となく枝が一つになる」のではなく、
 
@@ -1508,7 +1508,7 @@ $$
 \Rightarrow
 \text{端点固定ホモトピー}
 \Rightarrow
-\text{lift 終点一致}
+\text{持ち上げ 終点一致}
 \Rightarrow
 \text{終点枝一致}
 $$
@@ -1525,8 +1525,8 @@ $$
 - 零点・極の位数が局所座標に依存しないことを、双正則遷移写像の一次係数が非零であることから示した。
 - Riemann 球面上の有理型関数が通常の有理関数に一致することを、極の有限性・主部の除去・最大値原理で証明した。
 - 正則微分の座標変換則を導入し、複素トーラス上の $dz$ が大域化する例を置いた。
-- 被覆写像を evenly covered neighborhood から定義し、path lifting の存在と一意性を区間のコンパクト性から証明した。
-- homotopy lifting を有限格子へ局所逆写像を貼ることで証明し、端点固定ホモトピーで lift の終点が不変であることを導いた。
+- 被覆写像を 均等被覆近傍 から定義し、経路持ち上げ の存在と一意性を区間のコンパクト性から証明した。
+- ホモトピー持ち上げ を有限格子へ局所逆写像を貼ることで証明し、端点固定ホモトピーで 持ち上げ の終点が不変であることを導いた。
 - 対数を $\exp:\mathbb C\to\mathbb C^\times$ 上の一価関数として、平方根を $w^2=z$ の二枚被覆上の一価関数として構成した。
 - 平方根では0を入れると被覆性が壊れ、分岐点になることを明示した。
 - $\mathbb C/\Lambda$ では商位相を置くだけで済ませず、格子の離散性、局所 chart、Hausdorff 性、第二可算性、コンパクト性を個別に証明した。
