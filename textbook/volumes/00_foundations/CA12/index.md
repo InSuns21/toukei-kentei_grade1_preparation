@@ -847,7 +847,7 @@ $$
 \zeta(1-s).
 $$
 
-[Legendre の倍角公式](../CA11/index.md#thm-ca11-legendre-duplication)へ
+[Legendre の倍角公式](../CA11/index.md#thm-ca11-duplication)へ
 
 $$
 z=\frac{1-s}{2}
