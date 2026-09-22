@@ -29,7 +29,7 @@ Ax=b
 
 一般の密行列には Gauss 消去法と LU 分解、実対称正定値行列には Cholesky 分解、直交性を生かしたい問題や最小二乗問題には QR 分解という役割分担が現れます。
 
-直接の前提は [NA1](../NA1/index.md)、[F0-00E1 の QR 分解](../F0_00E1_内積_Gram_Schmidt_射影_QR/index.md#def-f0-00e1-thin-qr)、[F0-00F1 の正定値行列](../F0_00F1_固有空間_スペクトル定理_PSD/index.md) です。
+直接の前提は [NA1](../NA1/index.md)、[F0-00D1 のノルム](../F0_00D1_ノルム_Banach_有限次元_無限次元/index.md#def-f0-00d1-01)、[F0-00E1 の QR 分解](../F0_00E1_内積_Gram_Schmidt_射影_QR/index.md#def-f0-00e1-thin-qr)、[F0-00F1 の正定値行列](../F0_00F1_固有空間_スペクトル定理_PSD/index.md)、[LA3B の行列式](../LA3B/index.md#def-la3b-matrix-determinant) です。
 
 ---
 
