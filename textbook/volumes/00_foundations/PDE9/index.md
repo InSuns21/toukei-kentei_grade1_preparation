@@ -45,7 +45,7 @@ $$
 M_rh(x)=a+b\cdot x=h(x).
 $$
 
-調和関数の平均値性質の最小例にもなっています。
+後で現れる平均値性質の最小例にもなっています。
 <!-- definition-example-end -->
 
 ## 2. 球面平均は半径方向の波動方程式を満たす
@@ -64,7 +64,7 @@ $$
 
 ### 証明の見取り図
 
-球面平均を単位球面上へ引き戻し、$r$ 微分を取ります。発散定理で法線微分の球面積分を体積積分へ変え、もう一度微分します。
+球面平均を単位球面上へ引き戻し、$r$ 微分を取ります。[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)で法線微分の球面積分を体積積分へ変え、もう一度微分します。
 
 <!-- proof-start -->
 ### 証明
@@ -95,7 +95,7 @@ $$
 \int_{|y-x|=r}\partial_n h(y)dS_y.
 $$
 
-発散定理より右辺は
+[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)より右辺は
 
 $$
 \int_{|y-x|<r}\Delta h(y)dy.
@@ -379,7 +379,7 @@ $v=rU$ とすると $v_{rr}=2U_r+rU_{rr}=r\Delta U$、$v_{tt}=rU_{tt}$。従っ�
 #### PDE9-B02 有限伝播
 - Level: B
 
-Kirchhoff 公式から、初期データが $B_R(0)$ に台を持つとき $u(t,x)=0$ となる十分条件を求めよ。
+[Kirchhoff 公式](#thm-pde9-kirchhoff)から、初期データが $B_R(0)$ に台を持つとき $u(t,x)=0$ となる十分条件を求めよ。
 
 <!-- solution-start -->
 ##### 詳細解答
