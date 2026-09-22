@@ -13,6 +13,11 @@ concepts:
     kind: proposition
     aliases: ["円板の変数分離と Bessel 方程式"]
     introduction: formal
+  - id: pde.pde11-bessel-zeros
+    name: 整数次数 Bessel 関数の正零点
+    kind: lemma
+    aliases: ["整数次数 Bessel 関数の正零点"]
+    introduction: formal
   - id: pde.pde11-bessel-mode
     name: 円板の Bessel モード
     kind: definition
@@ -34,7 +39,7 @@ concepts:
     aliases: ["標準球面調和モード"]
     introduction: formal
   - id: pde.pde11-solid-harmonic
-    name: 球面調和関数から得る solid harmonic
+    name: 標準球面調和モードから得る立体調和関数
     kind: proposition
-    aliases: ["球面調和関数から得る solid harmonic"]
+    aliases: ["標準球面調和モードから得る立体調和関数", "solid harmonic"]
     introduction: formal
