@@ -151,11 +151,11 @@ concepts:
     requires: [complex-analysis.weierstrass-half-period-critical-points]
 
   - id: complex-analysis.weierstrass-degree-two
-    name: wp は符号を除いて点を分離する
+    name: wp の二対一性
     kind: proposition
-    aliases: [wp は符号を除いて点を分離する, degree two property of Weierstrass wp]
+    aliases: [wp の二対一性, degree two property of Weierstrass wp]
     introduction: formal
-    introduction_aliases: ["命題（wp は符号を除いて点を分離する）"]
+    introduction_aliases: ["命題（wp の二対一性）"]
     requires: [complex-analysis.weierstrass-symmetry-periodicity, complex-analysis.elliptic-zero-pole-balance]
 
   - id: complex-analysis.weierstrass-discriminant
