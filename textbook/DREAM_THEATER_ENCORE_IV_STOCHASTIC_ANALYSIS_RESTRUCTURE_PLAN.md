@@ -142,7 +142,7 @@ F0-00P3C の上向き横断と F0-00P4A の一様可積分性を canonical depen
 - consistency
 - Kolmogorov extension theorem
 - canonical path space
-- mean / 半正定値共分散核からのガウス過程の存在
+- 平均関数 / 半正定値共分散核からのガウス過程の存在
 - modification
 - Kolmogorov--Chentsov continuity theorem
 - moment estimate から Hölder regularity を得る機構
