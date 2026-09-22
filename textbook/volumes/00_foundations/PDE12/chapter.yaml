@@ -26,7 +26,7 @@ theorems:
   - { id: PDE12-THM-03, name: "Hamilton 特性からの局所古典解の再構成" }
   - { id: PDE12-PROP-01, name: "Hamilton--Jacobi から Burgers 方程式" }
 canonical_examples:
-  - "自由粒子 Hamiltonian"
+  - "自由粒子のハミルトニアン"
   - "二次初期値の明示解"
   - "焦散と Burgers の勾配発散"
   - "アイコナール方程式の距離関数"
