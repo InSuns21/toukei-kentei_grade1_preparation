@@ -83,7 +83,7 @@ concepts:
   - id: complex-analysis.completed-zeta
     name: 完成 zeta 因子と Riemann xi 関数
     kind: definition
-    aliases: [completed zeta factor, Riemann xi function]
+    aliases: [completed zeta factor, Riemann xi function, Riemann xi 関数]
     introduction: formal
     introduction_aliases: ["定義（完成 zeta 因子と Riemann xi 関数）"]
     requires: [complex-analysis.zeta-meromorphic-continuation, complex-analysis.gamma-function]
