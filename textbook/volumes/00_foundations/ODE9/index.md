@@ -17,7 +17,7 @@ $$
 <a id="def-ode9-lyapunov"></a>
 <!-- formal-statement-start -->
 > **定義（Lyapunov 関数）**  
-> 自律系 $x'=F(x)$ の平衡点 $x_*$ の近傍で $V\in C^1$ とする。$V(x_*)=0$ かつ $V(x)>0$ $(x\ne x_*)$ なら $V$ を $x_*$ で正定値という。さらに
+> 自律系 $x'=F(x)$ の[平衡点](../ODE4/index.md#def-ode4-nonlinear-autonomous-system) $x_*$ の近傍で $V\in C^1$ とする。$V(x_*)=0$ かつ $V(x)>0$ $(x\ne x_*)$ なら $V$ を $x_*$ で正定値という。さらに
 
 $$
 \dot V(x):=\nabla V(x)\cdot F(x)
