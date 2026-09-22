@@ -20,7 +20,23 @@ $$
 u|_{r=1}=0
 $$
 
-を考えます。極座標では
+を考えます。非零の Dirichlet 固有関数に対しては、[Green の第一恒等式](../PDE6/index.md#thm-pde6-green-first)を $u$ 自身へ適用すると
+
+$
+\lambda\int_D |u|^2\,dx
+=
+\int_D |\nabla u|^2\,dx.
+$
+
+右辺が0なら $u$ は定数で、境界値0から $u\equiv0$ となってしまいます。従って非零固有関数では
+
+$
+\boxed{\lambda>0}.
+$
+
+このため以下で $\sqrt\lambda$ を実数として使えます。複素表示 $e^{im\theta}$ は実際には $\cos m\theta,\sin m\theta$ の二つをまとめた記法です。
+
+極座標では
 
 $$
 \Delta u
@@ -75,7 +91,7 @@ $$
 <a id="prop-pde11-bessel-separation"></a>
 <!-- formal-statement-start -->
 > **命題（円板の変数分離と Bessel 方程式）**  
-> $u=R(r)e^{im\theta}$ $(m\in\mathbb Z)$ を
+> $\lambda>0$ とし、$u=R(r)e^{im\theta}$ $(m\in\mathbb Z)$ を
 
 $$
 -\Delta u=\lambda u
@@ -169,18 +185,18 @@ $$
 <a id="def-pde11-bessel-mode"></a>
 <!-- formal-statement-start -->
 > **定義（円板の Bessel モード）**  
-> $j_{m,k}$ を $J_m$ の第 $k$ 正零点とする。単位円板の Dirichlet 条件に対し
+> $m\in\mathbb Z$ とし、$j_{|m|,k}$ を $J_{|m|}$ の第 $k$ 正零点とする。単位円板の Dirichlet 条件に対し
 
-$$
+$
 u_{m,k}(r,\theta)
 =
-J_m(j_{m,k}r)e^{im\theta}
-$$
+J_{|m|}(j_{|m|,k}r)e^{im\theta}
+$
 
 > を円板の Bessel モードと呼ぶ。対応する固有値は
 
 $$
-\lambda_{m,k}=j_{m,k}^2
+\lambda_{m,k}=j_{|m|,k}^2
 $$
 
 > である。
@@ -198,7 +214,7 @@ $$
 $r=1$ で $J_0(j_{0,k})=0$ なので Dirichlet 条件を直接満たします。
 <!-- definition-example-end -->
 
-円板半径が $a$ なら $j_{m,k}r/a$ へ尺度変換し、固有値は $(j_{m,k}/a)^2$ です。
+円板半径が $a$ なら $j_{|m|,k}r/a$ へ尺度変換し、固有値は $(j_{|m|,k}/a)^2$ です。
 
 ## 3. 円筒・膜・熱方程式へ戻る
 
@@ -211,11 +227,11 @@ $$
 では一つの Bessel モードは
 
 $$
-e^{-\kappa j_{m,k}^2t}
-J_m(j_{m,k}r)e^{im\theta}
+e^{-\kappa j_{|m|,k}^2t}
+J_{|m|}(j_{|m|,k}r)e^{im\theta}
 $$
 
-と指数減衰します。波動方程式では同じ空間モードが角振動数 $cj_{m,k}$ で振動します。PDE7 の「固有値が時間応答を決める」が、長方形の正弦関数から円板の Bessel 関数へ置き換わっただけです。
+と指数減衰します。波動方程式では同じ空間モードが角振動数 $cj_{|m|,k}$ で振動します。PDE7 の「固有値が時間応答を決める」が、長方形の正弦関数から円板の Bessel 関数へ置き換わっただけです。
 
 ## 4. 球座標では角方向が球面上の固有値問題になる
 
@@ -336,7 +352,57 @@ $$
 \right).
 $$
 
-これが $\ell(\ell+1)P$ に等しいので展開して主張の Legendre 方程式を得ます。
+これが $\ell(\ell+1)P$ に等しいので展開して
+
+$
+(1-x^2)P''-2xP'+\ell(\ell+1)P=0
+$
+
+を得ます。
+
+多項式解の存在もここで確認します。
+
+$
+P(x)=\sum_{n=0}^{\infty}a_nx^n
+$
+
+と置いて係数を比較すると
+
+$
+(n+2)(n+1)a_{n+2}
++
+\{\ell(\ell+1)-n(n+1)\}a_n
+=
+0,
+$
+
+従って
+
+$
+\boxed{
+a_{n+2}
+=
+\frac{(n-\ell)(n+\ell+1)}
+{(n+2)(n+1)}
+a_n
+}.
+$
+
+偶数係数と奇数係数は独立に進みます。$\ell$ と同じ偶奇性の列を選ぶと $n=\ell$ で
+
+$
+a_{\ell+2}=0
+$
+
+となり、その後の同じ偶奇性の係数も全て0です。従って次数 $\ell$ の非零多項式解が得られます。有限和なので $x=\pm1$ でも有限です。
+
+最後に
+
+$
+P_\ell(1)=1
+$
+
+となるよう定数倍を選んだものが Legendre 多項式 $P_\ell$ です。この係数漸化式は [ODE6 の Legendre 方程式](../ODE6/index.md) で得たものと一致します。
 <!-- proof-end -->
 
 ## 6. 方位角を入れると associated Legendre 方程式になる
