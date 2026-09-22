@@ -402,7 +402,7 @@ $D_n(t)=\sup_x|u_n-u_{n-1}|$ とする。$D_{n+1}(t)\le L\int_0^tD_n(s)ds$。$D_
 
 ### Level C
 
-#### PDE8-C01 ODE と PDE の定数変化を統合する
+#### PDE8-C01 ODE と PDE の入力応答を統合する
 - Level: C
 
 有限区間の固有関数 $\phi_n$ が $-\phi_n''=\lambda_n\phi_n$ を満たすとする。
