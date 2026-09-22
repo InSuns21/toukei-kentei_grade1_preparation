@@ -17,12 +17,13 @@ learning_objectives:
   - 空間半離散化で得られる ODE 系に前進 Euler 法・後退 Euler 法を適用すると二つの差分スキームが得られることを説明できる
   - FDM2 で扱う安定性と、FDM1 で扱う差分式の導出・可解性を区別して説明できる
 definitions:
-  - { id: FDM1-DEF-01, name: 時空間差分格子・格子関数 }
-  - { id: FDM1-DEF-02, name: 前進時間差分・中心二階空間差分・一次元離散 Laplacian }
-  - { id: FDM1-DEF-03, name: 差分法の陽解法 }
-  - { id: FDM1-DEF-04, name: 差分法の陰解法 }
-  - { id: FDM1-DEF-05, name: 熱方程式の前進時間・中心空間差分法 }
-  - { id: FDM1-DEF-06, name: 後退 Euler 差分法 }
+  - { id: FDM1-DEF-01, name: 時空間差分格子 }
+  - { id: FDM1-DEF-02, name: 格子関数 }
+  - { id: FDM1-DEF-03, name: 前進時間差分・中心二階空間差分・一次元離散 Laplacian }
+  - { id: FDM1-DEF-04, name: 差分法の陽解法 }
+  - { id: FDM1-DEF-05, name: 差分法の陰解法 }
+  - { id: FDM1-DEF-06, name: 熱方程式の前進時間・中心空間差分法 }
+  - { id: FDM1-DEF-07, name: 後退 Euler 差分法 }
 theorems:
   - { id: FDM1-PROP-01, name: 空間半離散系と Euler 法による二つの差分スキームの対応 }
   - { id: FDM1-THM-01, name: 後退 Euler 差分法の各時刻ステップの一意可解性 }
