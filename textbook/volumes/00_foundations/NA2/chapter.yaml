@@ -20,12 +20,13 @@ learning_objectives:
 definitions:
   - { id: NA2-DEF-01, name: 零点・根 }
   - { id: NA2-DEF-02, name: 根の区間囲い込み }
-  - { id: NA2-DEF-03, name: 不動点 }
-  - { id: NA2-DEF-04, name: 不動点反復 }
-  - { id: NA2-DEF-05, name: 縮小写像 }
-  - { id: NA2-DEF-06, name: 収束次数 }
-  - { id: NA2-DEF-07, name: Newton 法 }
-  - { id: NA2-DEF-08, name: 単純根・重根 }
+  - { id: NA2-DEF-03, name: 二分法 }
+  - { id: NA2-DEF-04, name: 不動点 }
+  - { id: NA2-DEF-05, name: 不動点反復 }
+  - { id: NA2-DEF-06, name: 縮小写像 }
+  - { id: NA2-DEF-07, name: 収束次数 }
+  - { id: NA2-DEF-08, name: Newton 法 }
+  - { id: NA2-DEF-09, name: 単純根・重根 }
 theorems:
   - { id: NA2-THM-01, name: 二分法の収束と誤差上界 }
   - { id: NA2-PROP-01, name: 導関数による縮小性判定 }
