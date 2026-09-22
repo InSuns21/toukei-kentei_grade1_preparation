@@ -11,6 +11,7 @@ learning_objectives:
   - 有限次元分布を有限座標集合上の確率測度として定義し、座標射影による整合性を直接確認できる
   - 標準経路空間と座標過程を構成し、cylinder setが有限個の時刻だけを見る事象であることを説明できる
   - Kolmogorov extension theoremの証明を円筒集合代数・前測度・コンパクト近似・Carathéodory 拡張の順で再構成できる
+  - 平均関数と正定値共分散核から整合的な有限次元ガウス分布を作り、Kolmogorov 拡張定理でガウス過程を構成できる
   - extension theoremが過程の存在のみを与え標本路の正則性を保証しないことを説明できる
   - Hölder 連続性を定義し、モーメント評価からKolmogorov--Chentsov continuity theoremの指数beta/alphaを計算できる
   - 二進格子・Markov inequality・union bound・Borel--Cantelli・chainingからcontinuous 修正を構成できる
@@ -20,13 +21,16 @@ definitions:
   - { id: STO3-DEF-01, name: "有限次元分布と整合性" }
   - { id: STO3-DEF-02, name: "標準経路空間とcylinder set" }
   - { id: STO3-DEF-03, name: "Hölder 連続性" }
+  - { id: STO3-DEF-04, name: "ガウス過程" }
 theorems:
   - { id: STO3-LEM-01, name: "有限Borel測度のcompact内部近似" }
   - { id: STO3-THM-01, name: "Kolmogorov extension theorem" }
   - { id: STO3-THM-02, name: "Kolmogorov--Chentsov continuity theorem" }
+  - { id: STO3-THM-03, name: "平均関数と正定値共分散核からのガウス過程構成" }
   - { id: STO3-PROP-01, name: "continuous modifications are indistinguishable" }
 canonical_examples:
   - "consistent Bernoulli 有限次元分布"
+  - "退化ガウス過程 X_t=tZ"
   - "canonical cylinder event"
   - "sqrt(t) as a 1/2-Hölder function"
   - "共分散 kernel min(s,t)"
