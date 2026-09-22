@@ -164,6 +164,9 @@ VC4 までで PDE6 が必要とする法線・流束・発散定理を正本化�
 5. [CA5 winding number・解析接続・monodromy](textbook/volumes/00_foundations/CA5/index.md)
 6. [CA6 Möbius変換・Schwarz補題・調和関数・ポアソン核](textbook/volumes/00_foundations/CA6/index.md)
 7. [CA7 正則関数列・正規族・Riemann 写像定理](textbook/volumes/00_foundations/CA7/index.md)
+8. [CA8 Riemann 面・被覆・多価関数](textbook/volumes/00_foundations/CA8/index.md)
+9. [CA9 楕円関数・Weierstrass wp 関数](textbook/volumes/00_foundations/CA9/index.md)
+10. [CA10 無限積・Weierstrass 因数分解・Mittag--Leffler](textbook/volumes/00_foundations/CA10/index.md)
 
 **院試・編入の計算演習**：[複素解析・院試／編入計算演習（A8・B10・C4、計22題）](textbook/volumes/00_foundations/F0_00CALC_複素解析_院試編入計算演習/index.md)。
 
@@ -329,6 +332,8 @@ Encore III 本線では distributional solution、variational 弱解、energy so
 19. [TSA1 定常過程・Hilbert 予測](textbook/volumes/00_foundations/TSA1/index.md)
 20. [TSA2 Wold 分解](textbook/volumes/00_foundations/TSA2/index.md)
 21. [TSA3 Herglotz の定理・スペクトル表現](textbook/volumes/00_foundations/TSA3/index.md)
+22. [TSA4 線形フィルタ・ARMA / ARIMA・周波数領域](textbook/volumes/00_foundations/TSA4/index.md)
+23. [TSA5 エルゴード性・混合性・従属極限定理](textbook/volumes/00_foundations/TSA5/index.md)
 
 旧 Encore IV の SP / TS 個別章は backup / migration source として残しますが、現行主線からは外しています。新 STO / TSA 章は、本文・証明・直接例・演習・詳細解答・検証まで完成した章だけ順次ここへ追加します。
 
