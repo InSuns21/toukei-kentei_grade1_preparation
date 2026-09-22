@@ -49,13 +49,24 @@ concepts:
 
   - id: numerical.classical-rk4
     name: 古典4段4次 Runge–Kutta 法
-    kind: proposition
+    kind: definition
     aliases: [classical fourth-order Runge-Kutta method, classical RK4]
+    introduction: formal
+    introduction_aliases: ["定義（古典4段4次 Runge–Kutta 法）"]
+    requires:
+      - numerical.runge-kutta-method
+      - numerical.butcher-tableau
+
+  - id: numerical.classical-rk4-order-four
+    name: 古典4段4次 Runge–Kutta 法の自律スカラー4次性
+    kind: proposition
+    aliases: [fourth-order accuracy of classical RK4]
     introduction: formal
     introduction_aliases: ["命題（古典4段4次 Runge–Kutta 法の自律スカラー4次性）"]
     requires:
-      - numerical.runge-kutta-method
-      - numerical.rk-order-two-conditions
+      - numerical.classical-rk4
+      - numerical.local-truncation-error
+      - numerical.one-step-convergence
       - analysis.taylor-theorem
 
   - id: numerical.stability-test-equation
