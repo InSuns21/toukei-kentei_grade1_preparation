@@ -4,30 +4,28 @@ coverage: complete
 prerequisites:
   - GEO3
   - TOP5A
-forward_references:
-  - geometry.riemannian-metric
-  - geometry.manifold-integration
+forward_references: []
 
 concepts:
-  - id: geometry.locally-finite-family
+  - id: topology.locally-finite-family
     name: 局所有限族
     kind: definition
     aliases: [局所有限族, locally finite family]
     requires: []
 
-  - id: geometry.open-cover-refinement
+  - id: topology.open-cover-refinement
     name: 開被覆の細分
     kind: definition
     aliases: [開被覆の細分, refinement of an open cover]
     requires: []
 
-  - id: geometry.paracompact-space
+  - id: topology.paracompact-space
     name: パラコンパクト空間
     kind: definition
     aliases: [パラコンパクト空間, paracompact space]
     requires:
-      - geometry.locally-finite-family
-      - geometry.open-cover-refinement
+      - topology.locally-finite-family
+      - topology.open-cover-refinement
 
   - id: geometry.manifold-locally-compact-hausdorff
     name: 滑らかな多様体は局所コンパクト Hausdorff
@@ -57,7 +55,7 @@ concepts:
     kind: theorem
     aliases: [滑らかな多様体のパラコンパクト性]
     requires:
-      - geometry.paracompact-space
+      - topology.paracompact-space
       - geometry.compact-exhaustion
       - topology.lch-shrinking
 
@@ -89,7 +87,7 @@ concepts:
     kind: definition
     aliases: [1 の分割, partition of unity]
     requires:
-      - geometry.locally-finite-family
+      - topology.locally-finite-family
       - geometry.smooth-map
 
   - id: geometry.subordinate-partition-of-unity
@@ -98,7 +96,7 @@ concepts:
     aliases: [従属する1の分割, subordinate partition of unity]
     requires:
       - geometry.partition-of-unity
-      - geometry.open-cover-refinement
+      - topology.open-cover-refinement
 
   - id: geometry.partition-of-unity-existence
     name: 開被覆に従属する滑らかな 1 の分割の存在
