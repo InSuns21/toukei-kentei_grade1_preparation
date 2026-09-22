@@ -1,0 +1,53 @@
+chapter: PDE10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PDE6
+  - VC4
+  - VC6
+forward_references:
+  - vector-calculus.newton-kernel
+  - vector-calculus.newton-potential
+  - complex-analysis.harmonic-function
+  - complex-analysis.poisson-kernel
+concepts:
+  - id: pde.pde10-fundamental-solution
+    name: 多次元負 Laplacian の基本解
+    kind: definition
+    aliases: ["多次元負 Laplacian の基本解"]
+    introduction: formal
+  - id: pde.pde10-fundamental-flux
+    name: 多次元基本解の調和性と単位流束
+    kind: proposition
+    aliases: ["多次元基本解の調和性と単位流束"]
+    introduction: formal
+  - id: pde.pde10-newton-potential
+    name: 多次元 Newton ポテンシャル
+    kind: definition
+    aliases: ["多次元 Newton ポテンシャル"]
+    introduction: formal
+  - id: pde.pde10-newton-poisson
+    name: Newton ポテンシャルと Poisson 方程式
+    kind: theorem
+    aliases: ["Newton ポテンシャルと Poisson 方程式"]
+    introduction: formal
+  - id: pde.pde10-mean-value
+    name: 多次元調和関数の平均値性質
+    kind: theorem
+    aliases: ["多次元調和関数の平均値性質"]
+    introduction: formal
+  - id: pde.pde10-kelvin
+    name: Kelvin 変換
+    kind: definition
+    aliases: ["Kelvin 変換"]
+    introduction: formal
+  - id: pde.pde10-kelvin-harmonic
+    name: Kelvin 変換は調和性を保つ
+    kind: proposition
+    aliases: ["Kelvin 変換は調和性を保つ"]
+    introduction: formal
+  - id: pde.pde10-halfspace-green
+    name: 半空間の Dirichlet Green 関数
+    kind: proposition
+    aliases: ["半空間の Dirichlet Green 関数"]
+    introduction: formal

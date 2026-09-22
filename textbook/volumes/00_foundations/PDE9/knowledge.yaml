@@ -1,0 +1,33 @@
+chapter: PDE9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PDE8
+  - VC6
+forward_references: []
+concepts:
+  - id: pde.pde9-spherical-mean
+    name: 球面平均
+    kind: definition
+    aliases: ["球面平均"]
+    introduction: formal
+  - id: pde.pde9-epd
+    name: 球面平均の Euler--Poisson--Darboux 関係
+    kind: lemma
+    aliases: ["球面平均の Euler--Poisson--Darboux 関係"]
+    introduction: formal
+  - id: pde.pde9-kirchhoff
+    name: Kirchhoff 公式
+    kind: theorem
+    aliases: ["Kirchhoff 公式"]
+    introduction: formal
+  - id: pde.pde9-huygens
+    name: 三次元 Huygens 原理
+    kind: corollary
+    aliases: ["三次元 Huygens 原理"]
+    introduction: formal
+  - id: pde.pde9-poisson-wave
+    name: 二次元波動方程式の Poisson 公式
+    kind: theorem
+    aliases: ["二次元波動方程式の Poisson 公式"]
+    introduction: formal

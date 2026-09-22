@@ -1,0 +1,14 @@
+chapter: "ODE8"
+terms:
+  - term: 最大解
+    english: maximal solution
+    meaning: 同じ初期値を持つ解として、より大きい時間区間へ延長できない解。
+  - term: 最大存在区間
+    english: maximal interval of existence
+    meaning: 最大解が定義される最大の開時間区間。
+  - term: Grönwall の不等式
+    english: Gronwall inequality
+    meaning: 積分不等式を指数型の上界へ変換し、連続依存や大域評価に使う補題。
+  - term: 流れ
+    english: flow
+    meaning: 自律系の初期値を一定時間だけ進める写像族。

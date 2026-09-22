@@ -104,5 +104,29 @@ forward_references:
   - pde.pde7-continuous-discrete-dictionary
   - pde.pde7-green-spectral-kernel
   - pde.pde7-neumann-zero-mode
+  - vector-calculus.trace-double-contraction
+  - ode.ode8-maximal-solution
+  - ode.ode8-gronwall
+  - ode.ode8-flow
+  - ode.ode9-lyapunov-function
+  - ode.ode9-lasalle
+  - ode.ode10-periodic-orbit
+  - ode.ode10-bendixson-dulac
+  - ode.ode10-poincare-bendixson
+  - ode.ode11-local-bifurcation
+  - ode.ode11-poincare-map
+  - ode.ode11-multiplier
+  - pde.pde8-duhamel-principle
+  - pde.pde8-heat-duhamel
+  - pde.pde8-wave-duhamel
+  - pde.pde9-spherical-mean
+  - pde.pde9-kirchhoff
+  - pde.pde9-huygens
+  - pde.pde10-fundamental-solution
+  - pde.pde10-newton-poisson
+  - pde.pde11-bessel-mode
+  - pde.pde11-spherical-harmonic
+  - pde.pde12-hamilton-jacobi
+  - pde.pde12-charpit
 
 concepts: []

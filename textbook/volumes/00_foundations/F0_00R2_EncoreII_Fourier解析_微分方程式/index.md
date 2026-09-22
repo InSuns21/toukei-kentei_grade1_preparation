@@ -13,11 +13,11 @@
         │
         ├───────────────┐
         ↓               ↓
-   ODE1 → … → ODE7   FOU1 → … → FOU5
+   ODE1 → … → ODE11  FOU1 → … → FOU5
         │               │
         └──────┬────────┘
                ↓
-          PDE1 → … → PDE7
+          PDE1 → … → PDE12
                │
                ↓
  Encore III：distribution / Sobolev / 弱解
@@ -36,8 +36,12 @@ Fourier解析は ODE 全章の修了を前提にしません。PDE 系列で ODE
 5. [ODE5 Laplace変換と初期値問題](../ODE5/index.md)
 6. [ODE6 級数解・正則特異点](../ODE6/index.md)
 7. [ODE7 境界値問題・Sturm--Liouville](../ODE7/index.md)
+8. [ODE8 最大解・Grönwall・連続依存・流れ](../ODE8/index.md)
+9. [ODE9 Lyapunov 関数・不変集合・LaSalle](../ODE9/index.md)
+10. [ODE10 平面力学系・周期軌道・Poincaré--Bendixson](../ODE10/index.md)
+11. [ODE11 局所分岐・Poincaré 写像・周期軌道の安定性](../ODE11/index.md)
 
-ODE は PDE の準備だけではなく、一階解法・存在一意性・高階線形・連立系・非線形系・Laplace変換・級数解・境界値問題までを独立した学部標準コアとして閉じます。
+ODE1--ODE7 が解法・線形系・局所非線形系・特殊関数・Sturm--Liouville を閉じ、ODE8--ODE11 が最大解・流れ・Lyapunov 法・平面力学系・周期軌道・局所分岐までを補います。一般中心多様体定理・一般 Hopf 分岐定理は後続発展へ送ります。
 
 Sturm--Liouville 理論の正本は ODE7 です。PDE 側では重複証明せず、固有関数法の入力として使います。
 
@@ -78,6 +82,11 @@ PDE 系列は次の順で実装します。
 5. [PDE5 Laplace・Poisson方程式と調和関数](../PDE5/index.md)
 6. [PDE6 Greenの恒等式・基本解・Green関数](../PDE6/index.md)
 7. [PDE7 固有関数展開・Green表現・三類型の統合](../PDE7/index.md)
+8. [PDE8 Duhamel 原理・非斉次問題](../PDE8/index.md)
+9. [PDE9 多次元波動方程式・Kirchhoff 公式・Huygens 原理](../PDE9/index.md)
+10. [PDE10 多次元 Laplace・Poisson 方程式とポテンシャル論](../PDE10/index.md)
+11. [PDE11 変数分離・Bessel・Legendre・球面調和関数](../PDE11/index.md)
+12. [PDE12 一般一階 PDE・Hamilton--Jacobi 方程式](../PDE12/index.md)
 
 PDE1 では一次方程式を入口に、[曲線に沿う連鎖律](../PDE1/index.md#prop-pde1-curve-composition)と特性曲線法を順に導入し、定係数・非斉次・変数係数の輸送方程式を解きます。さらに Burgers 方程式で、特性写像の一対一性が失われると空間勾配が発散し、古典解が破綻し得る機構まで確認します。弱解・entropy solution は Encore III 以降へ送り、PDE1 の証明には逆輸入しません。
 
@@ -87,7 +96,7 @@ PDE3 では[一次元熱方程式](../PDE3/index.md#def-pde3-heat-equation)を�
 PDE4 では[一次元波動方程式](../PDE4/index.md#def-pde4-wave-equation)を双曲型の代表として扱い、特性座標から [d'Alembert 公式](../PDE4/index.md#thm-pde4-dalembert)を導いて有限伝播速度を示します。固定端ではエネルギー保存から一意性を証明し、変数分離・Fourier 正弦級数・全空間 Fourier 変換を通じて、進行波・固有モード・周波数ごとの調和振動子が同じ構造を表すことを確認します。
 PDE5 では[Laplace・Poisson 方程式](../PDE5/index.md#def-pde5-laplace-poisson)を楕円型の代表として扱い、[円周平均値性質](../PDE5/index.md#thm-pde5-circle-mean-value)から[強最大原理](../PDE5/index.md#thm-pde5-maximum-principle)と Dirichlet 一意性を導きます。さらに長方形の変数分離と[円板の境界積分核](../PDE5/index.md#def-pde5-poisson-kernel)による Dirichlet 解を構成し、Neumann 問題の定数不定性・整合条件まで古典解の範囲で確認します。
 PDE6 では[VC4 の Green theorem：flux form](../VC4/index.md#cor-vc4-green-flux)を前提に、[Green の第一恒等式](../PDE6/index.md#thm-pde6-green-first)・[第二恒等式](../PDE6/index.md#thm-pde6-green-second)、エネルギーによる Dirichlet 一意性、Neumann 問題の整合条件を一続きの境界積分法として扱います。さらに二次元の対数基本解、Green 表現公式、[Dirichlet Green 関数](../PDE6/index.md#def-pde6-green-function)、PDE5 と一致する Poisson kernel を収録します。弱微分・超関数・Sobolev 空間は Encore III へ送ります。
-PDE7 では、空間固有モードへ分ける見方を出発点に、熱・波動・Poisson の三類型をモードごとの ODE / 代数方程式として統合します。有界区間の離散モードと全空間 Fourier 変換の連続周波数を対応させ、Green 表現を固有関数側から読み直して係数 $1/\lambda_n$ と逆作用の関係を確認します。Neumann の定数モードと整合条件まで照合し、Encore II の古典 PDE コアを閉じます。
+PDE7 では、空間固有モードへ分ける見方を出発点に、熱・波動・Poisson の三類型をモードごとの ODE / 代数方程式として統合します。PDE8--PDE12 では Duhamel による非斉次問題、多次元波動、一般次元ポテンシャル論、Bessel / Legendre / 球面調和関数、一般一階 PDE と Hamilton--Jacobi まで拡張し、学部古典 PDE の発展線を閉じます。
 
 熱・波動・Laplace 方程式を単なる三つの計算例として並べず、parabolic / hyperbolic / elliptic の代表として位置付けます。最大原理・エネルギー法など、一意性を支える論証まで標準コアに含めます。
 
@@ -144,7 +153,7 @@ $$
 
 ## 7. Encore II の停止線
 
-Encore II の標準 PDE コアは古典解までで一度閉じます。
+Encore II の標準 PDE コアは PDE12 の Hamilton--Jacobi 古典特性論までで閉じます。特性交差後の viscosity solution は後続発展へ送り、弱解理論は Encore III の正本を使います。
 
 - Schwartz超関数
 - 弱微分

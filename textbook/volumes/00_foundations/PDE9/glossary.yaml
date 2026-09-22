@@ -1,0 +1,14 @@
+chapter: "PDE9"
+terms:
+  - term: 球面平均
+    english: spherical mean
+    meaning: 中心と半径を固定した球面上で関数値を平均した量。
+  - term: Kirchhoff 公式
+    english: Kirchhoff formula
+    meaning: 三次元波動方程式の解を初期データの球面平均で表す公式。
+  - term: Huygens 原理
+    english: Huygens principle
+    meaning: 三次元波動方程式で一点の値が後方光円錐の境界上のデータだけに依存し内部に尾を残さない性質。
+  - term: descent method
+    english: method of descent
+    meaning: 高次元の明示解を一つの座標に依存しないデータへ制限して低次元公式を導く方法。

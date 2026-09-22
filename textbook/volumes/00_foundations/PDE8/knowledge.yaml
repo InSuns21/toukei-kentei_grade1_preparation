@@ -1,0 +1,33 @@
+chapter: PDE8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PDE7
+  - ODE8
+forward_references: []
+concepts:
+  - id: pde.pde8-duhamel-principle
+    name: Duhamel 原理
+    kind: definition
+    aliases: ["Duhamel 原理"]
+    introduction: formal
+  - id: pde.pde8-heat-propagator
+    name: 熱核による自由発展
+    kind: definition
+    aliases: ["熱核による自由発展"]
+    introduction: formal
+  - id: pde.pde8-heat-duhamel
+    name: 非斉次熱方程式の Duhamel 公式
+    kind: theorem
+    aliases: ["非斉次熱方程式の Duhamel 公式"]
+    introduction: formal
+  - id: pde.pde8-wave-duhamel
+    name: 非斉次一次元波動方程式の Duhamel 公式
+    kind: theorem
+    aliases: ["非斉次一次元波動方程式の Duhamel 公式"]
+    introduction: formal
+  - id: pde.pde8-semilinear-picard
+    name: 半線形熱方程式の Duhamel 反復評価
+    kind: proposition
+    aliases: ["半線形熱方程式の Duhamel 反復評価"]
+    introduction: formal

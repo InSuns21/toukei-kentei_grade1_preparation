@@ -1,0 +1,37 @@
+id: "ODE11"
+title: "標準常微分方程式 XI：局所分岐・Poincaré 写像・周期軌道の安定性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ODE10
+  - RA6A
+official_scope: []
+learning_objectives:
+  - saddle-node・transcritical・pitchfork の正規形を平衡枝と安定性から分類できる
+  - Hopf 正規形を極座標へ変換し周期軌道の生成と安定性を直接証明できる
+  - 一般 Hopf 分岐定理と正規形の直接解析を区別できる
+  - Poincaré 写像と周期軌道の固定点対応を説明できる
+  - 平面周期軌道の非自明乗数を発散の一周積分から導ける
+definitions:
+  - { id: ODE11-DEF-01, name: "局所分岐" }
+  - { id: ODE11-DEF-02, name: "Poincaré 写像" }
+  - { id: ODE11-DEF-03, name: "周期軌道の乗数" }
+theorems:
+  - { id: ODE11-PROP-01, name: "saddle-node 正規形の分岐" }
+  - { id: ODE11-PROP-02, name: "transcritical・pitchfork 正規形" }
+  - { id: ODE11-PROP-03, name: "Hopf 正規形の周期軌道" }
+  - { id: ODE11-THM-01, name: "平面周期軌道の乗数公式" }
+canonical_examples:
+  - "saddle-node"
+  - "transcritical"
+  - "pitchfork"
+  - "Hopf 正規形"
+problem_patterns:
+  - ODE11-BIFURCATION-1
+  - ODE11-HOPF-NORMAL-1
+  - ODE11-POINCARE-1
+  - ODE11-MULTIPLIER-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 4.5, review: 1.0 }

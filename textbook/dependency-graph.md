@@ -129,26 +129,28 @@ P7 正則model・score・Fisher → P7A MLE漸近論
 
 ## Encore II：Fourier Analysis & Differential Equations
 
+現行主線は ODE1--ODE11 / FOU1--FOU5 / PDE1--PDE12 とする。再編前の F0-00H1、F0-00FA1--F0-00FA3、F0-00PDE1--F0-00PDE3 は archive / migration source とし、現行 prerequisite / concept owner / proof dependency にしない。
+
 ```text
-F0-00F1 / F0-00D2 / F0-00E2 / F0-02C1
-  ↓
-F0-00H1 ODE・線形系・行列指数
-  ↓
-F0-00FA1 Fourier級数
-  ↓
-F0-00FA2 Fourier変換・畳み込み・反転
-  ↓
-F0-00FA3 Plancherel・L2 Fourier・特性関数
-  ↓
-F0-00PDE1 熱方程式・Gaussian heat kernel
-  ↓
-F0-00PDE2 波動・Laplace・変数分離
-  ↓
-F0-00PDE3 Sturm--Liouville・スペクトル展開
+ODE1 → ODE2 → ODE3 → ODE4
+                    ↓
+                  ODE8 → ODE9 → ODE10 → ODE11
+ODE2 → ODE6 → ODE7 ───────────────┐
+                                   │
+FOU1 → FOU2 → FOU3 → FOU4 → FOU5 │
+                                   ↓
+PDE1 → PDE2 → PDE3 → PDE4 → PDE5 → PDE6 → PDE7 → PDE8 → PDE9
+  │                                  │              │
+  └──────────────→ PDE12 ← ODE8      └→ PDE10 → PDE11
+                       ↑                  ↑       ↑
+                     RA6A              VC4/VC6  ODE6/VC6
 ```
 
-Fourier級数をHilbert空間の直交展開として導入し、Fourier変換・微分作用素から古典PDEへ進む。読者向け入口は `F0_00R2_EncoreII_Fourier解析_微分方程式/index.md`。
+ODE8 は ODE4 の局所非線形系を最大解・Grönwall・流れへ拡張する。ODE9--ODE11 は Lyapunov 法、平面周期軌道、局所分岐へ進む。Poincaré--Bendixson の平面位相入力と一般 Hopf 定理は停止線を明示する。
 
+PDE8 は PDE7 の古典解主線へ Duhamel 非斉次問題を追加する。PDE9 は多次元波動、PDE10 は PDE6 と VC4/VC6 を使う一般次元ポテンシャル論、PDE11 は ODE6 と VC6 を使う特殊関数・球面調和、PDE12 は PDE1 + ODE8 + RA6A から一般一階 PDE と Hamilton--Jacobi の古典特性論へ進む。
+
+読者向け入口は `F0_00R2_EncoreII_Fourier解析_微分方程式/index.md`。
 ---
 
 ## Encore III：Graduate PDE — Distributions, Sobolev Spaces & Weak Solutions

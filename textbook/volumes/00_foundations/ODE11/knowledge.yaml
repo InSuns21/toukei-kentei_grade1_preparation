@@ -1,0 +1,43 @@
+chapter: ODE11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ODE10
+  - RA6A
+forward_references: []
+concepts:
+  - id: ode.ode11-local-bifurcation
+    name: 局所分岐
+    kind: definition
+    aliases: ["局所分岐"]
+    introduction: formal
+  - id: ode.ode11-saddle-node
+    name: saddle-node 正規形の分岐
+    kind: proposition
+    aliases: ["saddle-node 正規形の分岐"]
+    introduction: formal
+  - id: ode.ode11-exchange-bifurcations
+    name: transcritical・pitchfork 正規形
+    kind: proposition
+    aliases: ["transcritical・pitchfork 正規形"]
+    introduction: formal
+  - id: ode.ode11-hopf-normal-form
+    name: Hopf 正規形の周期軌道
+    kind: proposition
+    aliases: ["Hopf 正規形の周期軌道"]
+    introduction: formal
+  - id: ode.ode11-poincare-map
+    name: Poincaré 写像
+    kind: definition
+    aliases: ["Poincaré 写像"]
+    introduction: formal
+  - id: ode.ode11-multiplier
+    name: 周期軌道の乗数
+    kind: definition
+    aliases: ["周期軌道の乗数"]
+    introduction: formal
+  - id: ode.ode11-planar-multiplier
+    name: 平面周期軌道の乗数公式
+    kind: theorem
+    aliases: ["平面周期軌道の乗数公式"]
+    introduction: formal

@@ -1,0 +1,40 @@
+chapter: PDE11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PDE10
+  - ODE6
+  - VC6
+forward_references:
+  - complex-analysis.harmonic-function
+concepts:
+  - id: pde.pde11-bessel-separation
+    name: 円板の変数分離と Bessel 方程式
+    kind: proposition
+    aliases: ["円板の変数分離と Bessel 方程式"]
+    introduction: formal
+  - id: pde.pde11-bessel-mode
+    name: 円板の Bessel モード
+    kind: definition
+    aliases: ["円板の Bessel モード"]
+    introduction: formal
+  - id: pde.pde11-spherical-harmonic
+    name: 球面調和関数
+    kind: definition
+    aliases: ["球面調和関数"]
+    introduction: formal
+  - id: pde.pde11-legendre
+    name: 球面固有値問題と Legendre 方程式
+    kind: proposition
+    aliases: ["球面固有値問題と Legendre 方程式"]
+    introduction: formal
+  - id: pde.pde11-spherical-eigenmode
+    name: 標準球面調和モード
+    kind: proposition
+    aliases: ["標準球面調和モード"]
+    introduction: formal
+  - id: pde.pde11-solid-harmonic
+    name: 球面調和関数から得る solid harmonic
+    kind: proposition
+    aliases: ["球面調和関数から得る solid harmonic"]
+    introduction: formal

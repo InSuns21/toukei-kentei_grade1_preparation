@@ -1,0 +1,32 @@
+id: "PDE8"
+title: "標準偏微分方程式 VIII：Duhamel 原理・非斉次問題"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PDE7
+  - ODE8
+official_scope: []
+learning_objectives:
+  - 熱核による自由発展を定義し Duhamel 原理の意味を説明できる
+  - 非斉次熱方程式の Duhamel 公式を微分して証明できる
+  - d'Alembert 公式から非斉次一次元波動方程式の Duhamel 公式を導ける
+  - source term の依存領域を波動方程式の有限伝播と結び付けられる
+  - 半線形熱方程式の Duhamel 反復差を評価し Picard 反復の収束機構を説明できる
+definitions:
+  - { id: PDE8-DEF-01, name: "熱核による自由発展" }
+theorems:
+  - { id: PDE8-THM-01, name: "非斉次熱方程式の Duhamel 公式" }
+  - { id: PDE8-THM-02, name: "非斉次一次元波動方程式の Duhamel 公式" }
+  - { id: PDE8-PROP-01, name: "半線形熱方程式の Duhamel 反復評価" }
+canonical_examples:
+  - "定数 source の熱方程式"
+  - "一定外力の波動方程式"
+  - "単一 Fourier mode source"
+problem_patterns:
+  - PDE8-HEAT-DUHAMEL-1
+  - PDE8-WAVE-DUHAMEL-1
+  - PDE8-PICARD-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 4.5, review: 1.0 }

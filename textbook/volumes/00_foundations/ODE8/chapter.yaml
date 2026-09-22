@@ -1,0 +1,37 @@
+id: "ODE8"
+title: "標準常微分方程式 VIII：最大解・Grönwall・連続依存・流れ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ODE4
+  - F0-00C1
+official_scope: []
+learning_objectives:
+  - 最大解と最大存在区間を定義し有限時間 blow-up の意味を説明できる
+  - コンパクト集合から逃げない解を局所存在定理で延長できることを証明できる
+  - Grönwall の不等式を証明し初期値差の指数評価を導ける
+  - 線形成長条件から大域存在を導ける
+  - 自律系の流れを定義し一意性から合成則を証明できる
+definitions:
+  - { id: ODE8-DEF-01, name: "最大解・最大存在区間" }
+  - { id: ODE8-DEF-02, name: "自律系の流れ" }
+theorems:
+  - { id: ODE8-THM-01, name: "最大解の延長判定" }
+  - { id: ODE8-LEM-01, name: "Grönwall の不等式" }
+  - { id: ODE8-THM-02, name: "初期値に関する連続依存" }
+  - { id: ODE8-COR-01, name: "線形成長条件による大域存在" }
+  - { id: ODE8-PROP-01, name: "流れの合成則" }
+canonical_examples:
+  - "x'=x^2 の有限時間 blow-up"
+  - "x'=-x の大域流れ"
+  - "線形成長による大域存在"
+problem_patterns:
+  - ODE8-MAXIMAL-1
+  - ODE8-GRONWALL-1
+  - ODE8-DEPENDENCE-1
+  - ODE8-GLOBAL-1
+  - ODE8-FLOW-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 4.5, review: 1.0 }

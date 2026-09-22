@@ -1,0 +1,50 @@
+chapter: PDE12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PDE1
+  - ODE8
+  - RA6A
+  - VC1
+forward_references: []
+concepts:
+  - id: pde.pde12-first-order
+    name: 一般一階非線形 PDE
+    kind: definition
+    aliases: ["一般一階非線形 PDE"]
+    introduction: formal
+  - id: pde.pde12-charpit
+    name: Charpit の特性系
+    kind: theorem
+    aliases: ["Charpit の特性系"]
+    introduction: formal
+  - id: pde.pde12-hamilton-jacobi
+    name: Hamilton--Jacobi 方程式
+    kind: definition
+    aliases: ["Hamilton--Jacobi 方程式"]
+    introduction: formal
+  - id: pde.pde12-hamilton-characteristics
+    name: Hamilton--Jacobi の特性方程式
+    kind: theorem
+    aliases: ["Hamilton--Jacobi の特性方程式"]
+    introduction: formal
+  - id: pde.pde12-reconstruction
+    name: Hamilton 特性からの局所古典解の再構成
+    kind: theorem
+    aliases: ["Hamilton 特性からの局所古典解の再構成"]
+    introduction: formal
+  - id: pde.pde12-caustic
+    name: 特性 caustic
+    kind: definition
+    aliases: ["特性 caustic"]
+    introduction: formal
+  - id: pde.pde12-burgers
+    name: Hamilton--Jacobi から Burgers 方程式
+    kind: proposition
+    aliases: ["Hamilton--Jacobi から Burgers 方程式"]
+    introduction: formal
+  - id: pde.pde12-eikonal
+    name: eikonal 方程式
+    kind: definition
+    aliases: ["eikonal 方程式"]
+    introduction: formal

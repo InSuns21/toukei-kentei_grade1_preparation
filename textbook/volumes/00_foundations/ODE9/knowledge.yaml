@@ -1,0 +1,32 @@
+chapter: ODE9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ODE8
+forward_references: []
+concepts:
+  - id: ode.ode9-lyapunov-function
+    name: Lyapunov 関数
+    kind: definition
+    aliases: ["Lyapunov 関数"]
+    introduction: formal
+  - id: ode.ode9-direct-method
+    name: Lyapunov の直接法
+    kind: theorem
+    aliases: ["Lyapunov の直接法"]
+    introduction: formal
+  - id: ode.ode9-positive-invariant
+    name: 正方向不変集合
+    kind: definition
+    aliases: ["正方向不変集合"]
+    introduction: formal
+  - id: ode.ode9-omega-limit
+    name: 正の極限集合
+    kind: definition
+    aliases: ["正の極限集合"]
+    introduction: formal
+  - id: ode.ode9-lasalle
+    name: LaSalle の不変性原理
+    kind: theorem
+    aliases: ["LaSalle の不変性原理"]
+    introduction: formal

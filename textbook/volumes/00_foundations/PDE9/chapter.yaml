@@ -1,0 +1,35 @@
+id: "PDE9"
+title: "標準偏微分方程式 IX：多次元波動方程式・Kirchhoff 公式・Huygens 原理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PDE8
+  - VC6
+official_scope: []
+learning_objectives:
+  - 三次元の球面平均を定義し一次関数などで直接計算できる
+  - 球面平均の Euler--Poisson--Darboux 関係を発散定理から導ける
+  - 三次元波動方程式の Kirchhoff 公式を証明し初期条件を検証できる
+  - Kirchhoff 公式から有限伝播速度と三次元 Huygens 原理を説明できる
+  - descent method から二次元波動方程式の Poisson 公式を導ける
+  - 二次元の尾と三次元の鋭い伝播の違いを説明できる
+definitions:
+  - { id: PDE9-DEF-01, name: "球面平均" }
+theorems:
+  - { id: PDE9-LEM-01, name: "球面平均の Euler--Poisson--Darboux 関係" }
+  - { id: PDE9-THM-01, name: "Kirchhoff 公式" }
+  - { id: PDE9-COR-01, name: "三次元 Huygens 原理" }
+  - { id: PDE9-THM-02, name: "二次元波動方程式の Poisson 公式" }
+canonical_examples:
+  - "一次関数の球面平均"
+  - "定数初速度"
+  - "放射対称三次元波"
+problem_patterns:
+  - PDE9-SPHERICAL-MEAN-1
+  - PDE9-KIRCHHOFF-1
+  - PDE9-HUYGENS-1
+  - PDE9-POISSON-WAVE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 5.0, review: 1.0 }

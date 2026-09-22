@@ -1,0 +1,34 @@
+id: "ODE10"
+title: "標準常微分方程式 X：平面力学系・周期軌道・Poincaré--Bendixson"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ODE9
+  - VC4
+official_scope: []
+learning_objectives:
+  - 周期軌道と極限周期軌道を区別できる
+  - trapping region と正の極限集合から周期軌道の存在戦略を説明できる
+  - Bendixson--Dulac の判定を Green の定理から証明できる
+  - Poincaré--Bendixson の定理の仮定・結論・平面特有の機構を説明できる
+  - Lotka--Volterra の保存量を計算し連続族の閉軌道と極限周期軌道を区別できる
+definitions:
+  - { id: ODE10-DEF-01, name: "周期軌道・極限周期軌道" }
+  - { id: ODE10-DEF-02, name: "trapping region" }
+  - { id: ODE10-DEF-03, name: "Dulac 関数" }
+theorems:
+  - { id: ODE10-THM-01, name: "Bendixson--Dulac の判定" }
+  - { id: ODE10-THM-02, name: "Poincaré--Bendixson の定理：標準形" }
+canonical_examples:
+  - "中心の円軌道"
+  - "Lotka--Volterra の保存曲線"
+  - "van der Pol 系"
+problem_patterns:
+  - ODE10-PERIODIC-1
+  - ODE10-DULAC-1
+  - ODE10-PB-1
+  - ODE10-LOTKA-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 4.5, review: 1.0 }
