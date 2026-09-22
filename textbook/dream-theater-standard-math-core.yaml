@@ -301,6 +301,15 @@ nodes:
     implementation_path: textbook/volumes/00_foundations/GEO2/index.md
     prerequisites: [GEO1, LA3A]
 
+  - id: GEO3
+    title: 階数定理・はめ込み・沈め込み・部分多様体
+    area: differential-geometry
+    tier: core
+    status: implemented
+    implemented_at: 2026-09-22
+    implementation_path: textbook/volumes/00_foundations/GEO3/index.md
+    prerequisites: [GEO2, RA6A]
+
   - id: VC1
     title: ベクトル場と微分演算子
     area: vector-calculus
@@ -668,7 +677,7 @@ implementation_batches:
     nodes: [VC1, VC2, VC3, VC4, VC5, VC6, VC7, VC8, VC9]
   - order: 10
     id: differential-geometry-core
-    nodes: [GEO1, GEO2]
+    nodes: [GEO1, GEO2, GEO3]
 
 deferred_integrations:
   - id: dream-theater-facade-entrypoint
