@@ -22,23 +22,23 @@ $$
 <!-- formal-statement-start -->
 > **定義（熱核による自由発展）**  
 > 一次元熱方程式 $u_t=\kappa u_{xx}$, $\kappa>0$ に対し
->
-> $$
-> G_t(x)
-> =
-> \frac1{\sqrt{4\pi\kappa t}}
-> \exp\left(-\frac{x^2}{4\kappa t}\right),
-> \qquad t>0
-> $$
->
+
+$$
+G_t(x)
+=
+\frac1{\sqrt{4\pi\kappa t}}
+\exp\left(-\frac{x^2}{4\kappa t}\right),
+\qquad t>0
+$$
+
 > とし、
->
-> $$
-> (S(t)f)(x)
-> :=
-> \int_{\mathbb R}G_t(x-y)f(y)\,dy
-> $$
->
+
+$$
+(S(t)f)(x)
+:=
+\int_{\mathbb R}G_t(x-y)f(y)\,dy
+$$
+
 > と定める。本章では $S(t)$ を熱核による自由発展と呼ぶ。
 <!-- formal-statement-end -->
 
@@ -68,23 +68,23 @@ $$
 <!-- formal-statement-start -->
 > **定理（非斉次熱方程式の Duhamel 公式）**  
 > $u_0$ と $f(t,x)$ が、以下の微分・積分交換を正当化できる十分滑らかさと減衰を持つとする。
->
-> $$
-> u_t-\kappa u_{xx}=f,
-> \qquad
-> u(0,x)=u_0(x)
-> $$
->
+
+$$
+u_t-\kappa u_{xx}=f,
+\qquad
+u(0,x)=u_0(x)
+$$
+
 > の解は
->
-> $$
-> u(t)
-> =
-> S(t)u_0
-> +
-> \int_0^t S(t-s)f(s)\,ds
-> $$
->
+
+$$
+u(t)
+=
+S(t)u_0
++
+\int_0^t S(t-s)f(s)\,ds
+$$
+
 > で与えられる。
 <!-- formal-statement-end -->
 
@@ -155,24 +155,24 @@ $$
 <!-- formal-statement-start -->
 > **定理（非斉次一次元波動方程式の Duhamel 公式）**  
 > 十分滑らかな $F$ に対し、零初期データ
->
-> $$
-> u_{tt}-c^2u_{xx}=F(t,x),
-> \qquad
-> u(0,x)=u_t(0,x)=0
-> $$
->
+
+$$
+u_{tt}-c^2u_{xx}=F(t,x),
+\qquad
+u(0,x)=u_t(0,x)=0
+$$
+
 > を満たす解は
->
-> $$
-> u(t,x)
-> =
-> \frac1{2c}
-> \int_0^t
-> \int_{x-c(t-s)}^{x+c(t-s)}
-> F(s,y)\,dy\,ds
-> $$
->
+
+$$
+u(t,x)
+=
+\frac1{2c}
+\int_0^t
+\int_{x-c(t-s)}^{x+c(t-s)}
+F(s,y)\,dy\,ds
+$$
+
 > で与えられる。
 <!-- formal-statement-end -->
 
@@ -256,24 +256,24 @@ $$
 <!-- formal-statement-start -->
 > **命題（半線形熱方程式の Duhamel 反復評価）**  
 > $N:\mathbb R\to\mathbb R$ が Lipschitz 定数 $L$ を持つとする。反復列
->
-> $$
-> u_{n+1}(t)
-> =
-> S(t)u_0
-> +
-> \int_0^tS(t-s)N(u_n(s))ds
-> $$
->
+
+$$
+u_{n+1}(t)
+=
+S(t)u_0
++
+\int_0^tS(t-s)N(u_n(s))ds
+$$
+
 > を考える。熱核の全質量が1であることから
->
-> $$
-> \sup_x|u_{n+1}(t,x)-u_n(t,x)|
-> \le
-> L\int_0^t
-> \sup_x|u_n(s,x)-u_{n-1}(s,x)|ds.
-> $$
->
+
+$$
+\sup_x|u_{n+1}(t,x)-u_n(t,x)|
+\le
+L\int_0^t
+\sup_x|u_n(s,x)-u_{n-1}(s,x)|ds.
+$$
+
 > 従って短時間では Picard 反復が一様収束する。
 <!-- formal-statement-end -->
 
