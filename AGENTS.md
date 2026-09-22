@@ -331,6 +331,16 @@ Level C（本番標準）を中心にし、久保川『現代数理統計学の�
 
 通常章の試験時間・本番答案・20点採点基準を機械的に持ち込まない。標準数学コアでは、数学科標準教科書で中核となる定義・代表定理・証明・典型例/反例・演習を体系的に扱う。詳細は `textbook/DREAM_THEATER_AUTHORING_STANDARD.md` に従う。
 
+### 用語・knowledge alias
+
+- 用語の主表記は `references/terminology-guide.md` を正本とする。
+- DREAM THEATER の `knowledge.yaml` では、`aliases` を真の同義語だけに限定する。関連語・検索語・構成要素・複合見出しを alias として登録しない。
+- 複数 concept を同時導入する見出しは `introduction_aliases` で照合し、global alias にしない。
+- 再掲 concept は canonical concept を `requires` で参照し、canonical 名を alias として取り直さない。
+- stable ID / anchor と alias を分けて考える。後方互換性のために誤った alias を残さない。
+- 短い alias の監査 WARN は候補抽出であり、WARN をゼロにするためだけに自然な数学用語を改名しない。真の別称か、関連語の誤登録かを本文と依存関係から判定する。
+- `弱*位相` の `*` のような意味を持つ記号を正規化で落とさない。
+
 ---
 
 # 参照資料の扱い
