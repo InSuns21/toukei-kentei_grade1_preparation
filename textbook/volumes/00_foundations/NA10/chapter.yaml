@@ -19,12 +19,14 @@ learning_objectives:
   - 支配固有値の絶対値の重複、初期ベクトルの直交、シフトの選択、固有値の重複が各反復法へ与える影響を説明できる
   - 冪乗法・シフト付き逆反復法・Rayleigh 商反復・QR 法の役割を、求めたい固有値の位置と1反復コストの観点から使い分けられる
 definitions:
-  - { id: NA10-DEF-01, name: 冪乗法 }
-  - { id: NA10-DEF-02, name: 逆反復法 }
-  - { id: NA10-DEF-03, name: シフト付き逆反復法 }
-  - { id: NA10-DEF-04, name: Rayleigh 商反復 }
-  - { id: NA10-DEF-05, name: 直交反復法 }
-  - { id: NA10-DEF-06, name: QR 法 }
+  - { id: NA10-DEF-01, name: 固有対残差 }
+  - { id: NA10-DEF-02, name: 冪乗法 }
+  - { id: NA10-DEF-03, name: 逆反復法 }
+  - { id: NA10-DEF-04, name: シフト付き逆反復法 }
+  - { id: NA10-DEF-05, name: Rayleigh 商反復 }
+  - { id: NA10-DEF-06, name: 直交反復法 }
+  - { id: NA10-DEF-07, name: QR 法 }
+  - { id: NA10-DEF-08, name: デフレーション }
 theorems:
   - { id: NA10-THM-01, name: 実対称行列に対する冪乗法の方向収束 }
   - { id: NA10-PROP-01, name: Rayleigh 商の誤差と固有対残差の評価 }
