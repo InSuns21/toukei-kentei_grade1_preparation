@@ -6,7 +6,7 @@ terms:
   - term: 極限周期軌道
     english: limit cycle
     meaning: 近傍の他の周期軌道から孤立した周期軌道。
-  - term: trapping region
+  - term: 捕捉領域
     english: trapping region
     meaning: 将来軌道を内部へ閉じ込めるコンパクトな正方向不変領域。
   - term: Dulac 関数
