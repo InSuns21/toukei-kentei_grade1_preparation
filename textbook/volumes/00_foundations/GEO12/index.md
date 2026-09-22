@@ -1014,21 +1014,21 @@ $$
 
 逆に任意の曲線について
 
-$
+$$
 q-p
 =
 \int_a^b\dot\gamma(t)\,dt.
-$
+$$
 
 $q\ne p$ なら
 
-$
+$$
 e:=\frac{q-p}{|q-p|}
-$
+$$
 
 と置きます。すると $|e|=1$ だから
 
-$
+$$
 \begin{aligned}
 |q-p|
 &=
@@ -1042,7 +1042,7 @@ e\cdot(q-p)
 =
 L(\gamma).
 \end{aligned}
-$
+$$
 
 $q=p$ なら同じ不等式は自明です。
 
