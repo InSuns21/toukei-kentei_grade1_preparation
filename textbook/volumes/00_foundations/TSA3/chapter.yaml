@@ -1,0 +1,56 @@
+id: "TSA3"
+title: "Encore IV 時系列解析 III：Herglotz の定理とスペクトル表現"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TSA1
+  - TSA2
+  - FOU2
+  - RA5
+  - F0-00D3A
+  - MT5
+  - F0-00P2
+official_scope: []
+learning_objectives:
+  - 正定値列を定義し、二次定常過程の自己共分散列が正定値になることを複素係数まで含めて確認できる
+  - Herglotz の定理の存在を非負近似測度・可算稠密集合での対角選択・Riesz--Markov 表現から証明できる
+  - Herglotz 表現の一意性を三角多項式の一様稠密性から証明できる
+  - スペクトル測度を自己共分散列の Fourier 表現として定義し、全質量が分散に一致することを説明できる
+  - スペクトル密度を Radon--Nikodym 密度として定義し、自己共分散の絶対可算和可能性から連続な密度を導ける
+  - 弱ホワイトノイズの平坦な絶対連続スペクトルとランダム正弦波の線スペクトルを直接導ける
+  - 三角多項式から L2(F) と過程の閉線形空間の等長対応を構成できる
+  - 直交増分ランダム測度とスペクトル確率積分を構成し、定常過程のスペクトル表現定理を証明できる
+definitions:
+  - { id: TSA3-DEF-01, name: "正定値列" }
+  - { id: TSA3-DEF-02, name: "スペクトル測度" }
+  - { id: TSA3-DEF-03, name: "スペクトル密度" }
+  - { id: TSA3-DEF-04, name: "線スペクトル" }
+  - { id: TSA3-DEF-05, name: "直交増分ランダム測度" }
+  - { id: TSA3-DEF-06, name: "スペクトル確率積分" }
+theorems:
+  - { id: TSA3-LEM-01, name: "正定値列の Hermite 対称性と有界性" }
+  - { id: TSA3-LEM-02, name: "Herglotz 近似密度" }
+  - { id: TSA3-LEM-03, name: "コンパクト区間上の有限測度列の部分列選択" }
+  - { id: TSA3-THM-01, name: "Herglotz の定理" }
+  - { id: TSA3-THM-02, name: "絶対可算和可能な自己共分散のスペクトル密度" }
+  - { id: TSA3-LEM-04, name: "連続関数の二乗平均稠密性" }
+  - { id: TSA3-THM-03, name: "三角多項式の二乗平均稠密性" }
+  - { id: TSA3-THM-04, name: "定常過程のスペクトル表現定理" }
+canonical_examples:
+  - "弱ホワイトノイズの平坦なスペクトル"
+  - "指数型自己共分散のスペクトル密度"
+  - "ランダム正弦波の線スペクトル"
+  - "直交増分ランダム測度による周波数帯の直交分解"
+problem_patterns:
+  - TSA3-POSITIVE-DEFINITE-COVARIANCE-1
+  - TSA3-HERGLOTZ-APPROXIMATION-1
+  - TSA3-WHITE-NOISE-SPECTRUM-1
+  - TSA3-LINE-SPECTRUM-1
+  - TSA3-HERGLOTZ-UNIQUENESS-1
+  - TSA3-EXPONENTIAL-COVARIANCE-DENSITY-1
+  - TSA3-ORTHOGONAL-INCREMENT-MEASURE-1
+  - TSA3-SPECTRAL-REPRESENTATION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 6.0, review: 1.5 }

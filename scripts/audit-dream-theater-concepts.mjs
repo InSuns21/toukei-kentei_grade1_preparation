@@ -148,7 +148,7 @@ for (const page of pages.values()) {
   if (pageChanged || !changedOnly) {
     for (const concept of conceptById.values()) {
       if (concept.pageId === page.id) continue;
-      const firstUse = firstAliasUse(lines, concept.aliases);
+      const firstUse = firstUnshadowedAliasUse(lines, concept.aliases, page.concepts);
       if (firstUse == null) continue;
       if (page.ancestors.has(concept.pageId)) continue;
       if (page.forwardReferences.has(concept.id)) continue;
@@ -324,6 +324,28 @@ function findIntroductionLine(lines, concept) {
 function firstAliasUse(lines, aliases) {
   for (let i = 0; i < lines.length; i += 1) {
     if (aliases.some((alias) => aliasAppears(lines[i], alias))) return i + 1;
+  }
+  return null;
+}
+
+function firstUnshadowedAliasUse(lines, remoteAliases, localConcepts) {
+  for (let i = 0; i < lines.length; i += 1) {
+    const lineNumber = i + 1;
+    const line = lines[i];
+    for (const remoteAlias of remoteAliases) {
+      if (!aliasAppears(line, remoteAlias)) continue;
+      const remoteKey = normalizeAlias(remoteAlias);
+      const shadowed = localConcepts.some((local) => {
+        if (local.declarationLine == null || local.declarationLine > lineNumber) return false;
+        return local.aliases.some((localAlias) => {
+          const localKey = normalizeAlias(localAlias);
+          return localKey.length > remoteKey.length
+            && localKey.includes(remoteKey)
+            && aliasAppears(line, localAlias);
+        });
+      });
+      if (!shadowed) return lineNumber;
+    }
   }
   return null;
 }
