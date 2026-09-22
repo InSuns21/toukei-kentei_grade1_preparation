@@ -76,7 +76,7 @@ concepts:
   - id: analysis.mt4-absolute-continuous-function
     name: 絶対連続関数
     kind: definition
-    aliases: [AC, "### 定義（絶対連続関数）"]
+    aliases: [絶対連続関数, absolutely continuous function, "### 定義（絶対連続関数）"]
     introduction_aliases: ["### 定義（絶対連続関数）"]
     requires: []
 
