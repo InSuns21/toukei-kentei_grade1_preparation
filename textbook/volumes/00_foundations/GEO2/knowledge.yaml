@@ -49,11 +49,17 @@ concepts:
     aliases: [曲線の一次同値, tangent equivalence of curves]
     requires: [geometry.smooth-map, geometry.coordinate-chart]
 
+  - id: geometry.curve-induced-derivation
+    name: 曲線が定める微分作用素
+    kind: definition
+    aliases: [曲線が定める微分作用素, curve-induced derivation]
+    requires: [geometry.smooth-function-germ]
+
   - id: geometry.curve-derivation-tangent-equivalence
     name: 曲線表示と微分作用素表示の同値
     kind: theorem
     aliases: [曲線表示と微分作用素表示の同値, curve derivation equivalence]
-    requires: [geometry.curve-first-order-equivalence, geometry.tangent-coordinate-expression]
+    requires: [geometry.curve-first-order-equivalence, geometry.curve-induced-derivation, geometry.tangent-coordinate-expression]
 
   - id: geometry.differential
     name: 滑らかな写像の微分
@@ -66,6 +72,12 @@ concepts:
     kind: theorem
     aliases: [微分の座標表示, Jacobi行列による微分]
     requires: [geometry.differential, geometry.tangent-coordinate-expression]
+
+  - id: geometry.differential-sends-curve-velocity
+    name: 微分は曲線の速度を送る
+    kind: proposition
+    aliases: [微分は曲線の速度を送る]
+    requires: [geometry.differential, geometry.curve-derivation-tangent-equivalence]
 
   - id: geometry.manifold-chain-rule
     name: 多様体上の連鎖律
