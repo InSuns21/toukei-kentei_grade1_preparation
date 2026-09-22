@@ -815,7 +815,7 @@ $$
 
 <a id="prop-pde11-solid-harmonic"></a>
 <!-- formal-statement-start -->
-> **命題（標準球面調和モードから得る立体調和関数）**  
+> **命題（[標準球面調和モード](#prop-pde11-spherical-eigenmode)から得る立体調和関数）**  
 > [標準球面調和モード](#prop-pde11-spherical-eigenmode) $Y_\ell^m$ に対し
 
 $$
