@@ -69,6 +69,13 @@ flowchart TD
   RA6A --> GEO1
   GEO1 --> GEO2["接空間・余接空間・微分・接束<br/>GEO2"]
   LA3A --> GEO2
+  GEO2 --> GEO3["階数定理・はめ込み・沈め込み・部分多様体<br/>GEO3"]
+  RA6A --> GEO3
+  GEO3 --> GEO4["1 の分割・局所化・埋め込み<br/>GEO4"]
+  TOP5A --> GEO4
+  GEO2 --> GEO5["ベクトル場・積分曲線・局所流・Lie 括弧<br/>GEO5"]
+  ODE1 --> GEO5
+  ODE4 --> GEO5
   TOP5 --> TOP5A["Urysohn・局所コンパクト性・cutoff<br/>TOP5A"]
   TOP5 --> BAIRE["全有界性・Baire・net/filter<br/>TOP6"]
   BAIRE --> UNIFORM["一様構造・一様連続・Cauchy構造<br/>TOP7"]
@@ -624,6 +631,24 @@ TOP6 の filter と全有界性を受け、距離空間で暗黙に使ってき�
 実装: [GEO4](volumes/00_foundations/GEO4/index.md)
 
 直接 prerequisite は GEO3 と TOP5A です。GEO1 の Hausdorff 性・第二可算性がパラコンパクト性にどう効くかを証明の中で回収し、従属する 1 の分割の構成を局所有限細分・滑らかな局所化関数・正規化まで閉じます。GEO8 の多様体上の積分と GEO12 の Riemann 計量の存在で、この大域化装置を再利用します。
+
+## GEO5 ベクトル場・積分曲線・局所流・Lie 括弧 `core`
+
+- ベクトル場を接束の滑らかな切断として定義し、局所座標で成分表示
+- ベクトル場が $C^\infty(M)$ 上の導分を定めることと Leibniz 則
+- 積分曲線を自律 ODE へ落とし、Picard--Lindelöf から局所存在・一意性を導出
+- Picard 反復の縮小評価から初期値への滑らかな依存を構成
+- 最大積分曲線と最大流、最大流の開な定義域・滑らかさ・局所群則
+- 完備ベクトル場と、コンパクト多様体上での完備性
+- 微分同相写像によるベクトル場の押し出しと流れの共役
+- Lie 括弧を導分の可換子として定義し、座標公式・積の法則・Jacobi 恒等式を証明
+- $\frac{d}{dt}(\Phi_{-t})_*Y=(\Phi_{-t})_*[X,Y]$ による流れからの Lie 括弧の解釈
+- $[X,Y]=0$ と局所流の可換性
+- 非零ベクトル場を $\partial/\partial u^1$ へ直すベクトル場の直線化定理
+
+実装: [GEO5](volumes/00_foundations/GEO5/index.md)
+
+直接 prerequisite は GEO2、ODE1、ODE4 です。ODE の存在一意性そのものは再証明せず、局所座標を通して多様体へ移します。一方、初期値への滑らかな依存、最大積分曲線の貼り合わせ、最大流の局所群則、Lie 括弧の座標公式と Jacobi 恒等式、流れによる解釈、直線化定理は本章で核心証明まで閉じます。GEO4 を直接 prerequisite に入れないため、大域導分からベクトル場を復元するための 1 の分割は証明依存に持ち込みません。次の GEO6 では、この局所流と Lie 括弧を Frobenius の定理に使います。
 
 ---
 
