@@ -4,6 +4,8 @@ coverage: complete
 prerequisites:
   - TSA1
   - P3-03
+  - LA3B
+  - F0-00P7
 
 concepts:
   - id: timeseries.linear-gaussian-state-space
