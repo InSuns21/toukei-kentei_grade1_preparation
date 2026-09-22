@@ -72,11 +72,11 @@ concepts:
     requires: [numerical.relative-condition-number, analysis.derivative]
 
   - id: numerical.matrix-condition-number
-    name: 行列の条件数
+    name: 2-ノルム行列条件数
     kind: definition
-    aliases: [行列の条件数, matrix condition number]
+    aliases: [2-ノルム条件数, 2-ノルム行列条件数, matrix 2-norm condition number]
     introduction: formal
-    introduction_aliases: ["定義（行列の条件数）"]
+    introduction_aliases: ["定義（2-ノルム行列条件数）"]
     requires: [linear.spectral-norm]
 
   - id: numerical.condition-singular-values
