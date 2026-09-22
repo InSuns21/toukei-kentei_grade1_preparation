@@ -20,9 +20,10 @@ definitions:
   - { id: NA11-DEF-02, name: 既約非負行列 }
   - { id: NA11-DEF-03, name: 原始行列 }
   - { id: NA11-DEF-04, name: 列確率行列・定常確率ベクトル }
-  - { id: NA11-DEF-05, name: PageRank 行列・PageRank ベクトル }
+  - { id: NA11-DEF-05, name: 出リンクなし頂点 }
+  - { id: NA11-DEF-06, name: PageRank 行列・PageRank ベクトル }
 theorems:
-  - { id: NA11-PROP-01, name: 有限次元でのスペクトル半径公式 }
+  - { id: NA11-PROP-01, name: 有限次元行列の冪の指数成長率公式 }
   - { id: NA11-THM-01, name: 正行列に対する Perron--Frobenius 定理 }
   - { id: NA11-THM-02, name: 既約非負行列に対する Perron--Frobenius 定理 }
   - { id: NA11-PROP-02, name: 原始行列の Perron 固有値のスペクトルギャップ }
