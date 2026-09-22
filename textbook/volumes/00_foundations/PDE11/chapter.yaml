@@ -21,7 +21,7 @@ theorems:
   - { id: PDE11-PROP-01, name: "円板の変数分離と Bessel 方程式" }
   - { id: PDE11-PROP-02, name: "球面固有値問題と Legendre 方程式" }
   - { id: PDE11-PROP-03, name: "標準球面調和モード" }
-  - { id: PDE11-PROP-04, name: "球面調和関数から得る solid harmonic" }
+  - { id: PDE11-PROP-04, name: "標準球面調和モードから得る solid harmonic" }
 canonical_examples:
   - "放射対称 J0 モード"
   - "Legendre P0・P1・P2"
