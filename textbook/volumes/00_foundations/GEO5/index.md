@@ -1,6 +1,34 @@
-# GEO5 滑らかなベクトル場・積分曲線・局所流・Lie 括弧
+# GEO5 接方向の時間発展・局所流・Lie 括弧
 
-[GEO2](../GEO2/index.md) では、各点 $p$ の一次方向を接ベクトル $v\in T_pM$ として定義しました。本章では、その接ベクトルを各点へ**滑らかに割り当てる**ところから始めます。
+<!-- definition-example-audit: strict -->
+
+<a id="def-geo5-vector-field"></a>
+<!-- formal-statement-start -->
+> **定義（滑らかなベクトル場）**  
+> $M$ を滑らかな多様体、$\pi:TM\to M$ を接束の射影とする。滑らかな写像
+>
+> $$
+> X:M\to TM
+> $$
+>
+> が
+>
+> $$
+> \pi\circ X=\operatorname{id}_M
+> $$
+>
+> を満たすとき、$X$ を $M$ 上の **滑らかなベクトル場**という。
+>
+> 各 $p\in M$ に対して
+>
+> $$
+> X_p:=X(p)\in T_pM
+> $$
+>
+> と書く。
+<!-- formal-statement-end -->
+
+[GEO2](../GEO2/index.md) では、各点 $p$ の一次方向を接ベクトル $v\in T_pM$ として定義しました。本章では、その接ベクトルを各点へ滑らかに割り当てるところから始めます。
 
 一つのベクトル場 $X$ は、各点で「今この方向へ進め」という速度を指定します。したがって、曲線 $\gamma(t)$ に
 
@@ -34,37 +62,9 @@ $$
 
 ODE の局所存在・一意性そのものは再証明しません。[ODE1 の Picard--Lindelöf の局所存在・一意性](../ODE1/index.md#thm-ode1-picard-lindelof)と、[ODE4 の自律系](../ODE4/index.md)を使います。一方、多様体上で局所座標を変えても解が同じ幾何学的曲線を表すこと、最大積分曲線が一意に貼り合わさること、最大流の局所群則、Lie 括弧の座標公式と Jacobi 恒等式は本章で閉じます。
 
-<!-- definition-example-audit: strict -->
-
 ---
 
 ## 1. 滑らかなベクトル場は各点にその点の接ベクトルを割り当てる
-
-<a id="def-geo5-vector-field"></a>
-<!-- formal-statement-start -->
-> **定義（滑らかなベクトル場）**  
-> $M$ を滑らかな多様体、$\pi:TM\to M$ を接束の射影とする。滑らかな写像
->
-> $$
-> X:M\to TM
-> $$
->
-> が
->
-> $$
-> \pi\circ X=\operatorname{id}_M
-> $$
->
-> を満たすとき、$X$ を $M$ 上の **滑らかなベクトル場**という。
->
-> 各 $p\in M$ に対して
->
-> $$
-> X_p:=X(p)\in T_pM
-> $$
->
-> と書く。
-<!-- formal-statement-end -->
 
 [GEO2 の接束](../GEO2/index.md#def-geo2-tangent-bundle)では、接束の点は $(p,v)$、$v\in T_pM$ と考えられました。条件 $\pi(X(p))=p$ は、$X$ が「点 $p$ に別の点の接ベクトルを割り当てない」ことを表します。
 
