@@ -469,7 +469,7 @@ $$
 
 です。
 
-<a id="def-la3e-contraction"></a>
+<a id="def-la3e-tensor-pairing"></a>
 <!-- formal-statement-start -->
 > **定義（縮約）**  
 > 評価写像の普遍性から得られる線形写像
@@ -490,7 +490,7 @@ $$
 > を得る。この操作も縮約という。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-la3e-contraction -->
+<!-- definition-example-start: def-la3e-tensor-pairing -->
 ### 例：線形作用素を縮約すると対角成分の和になる
 
 基底 $e_i$ と双対基底 $\varepsilon^i$ を取り、線形作用素 $A:V\to V$ を
