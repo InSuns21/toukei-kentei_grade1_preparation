@@ -20,7 +20,6 @@ theorems:
   - { id: ODE11-PROP-01, name: "saddle-node 正規形の分岐" }
   - { id: ODE11-PROP-02, name: "transcritical・pitchfork 正規形" }
   - { id: ODE11-PROP-03, name: "Hopf 正規形の周期軌道" }
-  - { id: ODE11-LEM-01, name: "流れの初期値微分と変分方程式" }
   - { id: ODE11-THM-01, name: "平面周期軌道の乗数公式" }
 canonical_examples:
   - "saddle-node"
