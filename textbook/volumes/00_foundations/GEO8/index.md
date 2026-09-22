@@ -349,7 +349,7 @@ $$
 D\widetilde F_p\,D\widetilde G_q=I,
 $$
 
-ゆえに $D\widetilde G_q$ は可逆です。[RA6A の逆関数定理](../RA6A/index.md)より、$\widetilde G$ は $q$ の十分小さい Euclid 開近傍を $p$ の Euclid 開近傍へ写します。ところがその近傍を $B$ 内に取れば像は $G(B)\subset\mathbb H_-^n$ に含まれます。境界点 $p$ の Euclid 開近傍が半空間だけに含まれることはないので矛盾です。
+ゆえに $D\widetilde G_q$ は可逆です。[RA6A の逆関数定理](../RA6A/index.md#thm-ra6a-inverse-function)より、$\widetilde G$ は $q$ の十分小さい Euclid 開近傍を $p$ の Euclid 開近傍へ写します。ところがその近傍を $B$ 内に取れば像は $G(B)\subset\mathbb H_-^n$ に含まれます。境界点 $p$ の Euclid 開近傍が半空間だけに含まれることはないので矛盾です。
 
 従って境界点は境界点へ写ります。逆写像にも同じ議論を適用すれば逆向きも従います。$\square$
 <!-- proof-end -->
@@ -947,7 +947,7 @@ $$
 
 すなわち [VC5 の Kelvin--Stokes の定理](../VC5/index.md#thm-vc5-stokes) を回収します。
 
-VC5 では曲面をパラメータ平面へ戻して Green の定理から証明しました。本章では、それが一般 Stokes の一例であることが分かります。
+VC5 では曲面をパラメータ平面へ戻して [Green の定理（循環形）](../VC4/index.md#thm-vc4-green-circulation) から証明しました。本章では、それが一般 Stokes の一例であることが分かります。
 
 ---
 
