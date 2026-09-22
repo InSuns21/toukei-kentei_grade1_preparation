@@ -1,0 +1,197 @@
+chapter: NA11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NA9
+  - NA10
+forward_references: []
+
+concepts:
+  - id: numerical.nonnegative-matrix
+    name: 非負行列
+    kind: definition
+    aliases: [nonnegative matrix]
+    introduction: formal
+    introduction_aliases: ["定義（非負行列・正行列）"]
+    requires: []
+
+  - id: numerical.positive-matrix
+    name: 正行列
+    kind: definition
+    aliases: [positive matrix]
+    introduction: formal
+    introduction_aliases: ["定義（非負行列・正行列）"]
+    requires:
+      - numerical.nonnegative-matrix
+
+  - id: numerical.spectral-radius-power-limit
+    name: 有限次元行列の冪の指数成長率公式
+    kind: proposition
+    aliases: [finite-dimensional matrix power growth formula]
+    introduction: formal
+    introduction_aliases: ["命題（有限次元行列の冪の指数成長率公式）"]
+    requires:
+      - numerical.spectral-radius
+      - linear.jordan-canonical-form
+
+  - id: numerical.perron-frobenius-positive
+    name: 正行列に対する Perron--Frobenius 定理
+    kind: theorem
+    aliases: [Perron--Frobenius theorem for positive matrices]
+    introduction: formal
+    introduction_aliases: ["定理（正行列に対する Perron--Frobenius 定理）"]
+    requires:
+      - numerical.positive-matrix
+      - numerical.spectral-radius-power-limit
+
+  - id: numerical.irreducible-nonnegative-matrix
+    name: 既約非負行列
+    kind: definition
+    aliases: [irreducible nonnegative matrix]
+    introduction: formal
+    introduction_aliases: ["定義（既約非負行列）"]
+    requires:
+      - numerical.nonnegative-matrix
+
+  - id: numerical.perron-frobenius-irreducible
+    name: 既約非負行列に対する Perron--Frobenius 定理
+    kind: theorem
+    aliases: [Perron--Frobenius theorem for irreducible nonnegative matrices]
+    introduction: formal
+    introduction_aliases: ["定理（既約非負行列に対する Perron--Frobenius 定理）"]
+    requires:
+      - numerical.irreducible-nonnegative-matrix
+      - numerical.perron-frobenius-positive
+
+  - id: numerical.primitive-matrix
+    name: 原始行列
+    kind: definition
+    aliases: [primitive matrix]
+    introduction: formal
+    introduction_aliases: ["定義（原始行列）"]
+    requires:
+      - numerical.nonnegative-matrix
+
+  - id: numerical.primitive-spectral-gap
+    name: 原始行列の Perron 固有値のスペクトルギャップ
+    kind: proposition
+    aliases: [Perron spectral gap for primitive matrices]
+    introduction: formal
+    introduction_aliases: ["命題（原始行列の Perron 固有値のスペクトルギャップ）"]
+    requires:
+      - numerical.primitive-matrix
+      - numerical.perron-frobenius-irreducible
+
+  - id: numerical.column-stochastic-matrix
+    name: 列確率行列
+    kind: definition
+    aliases: [column-stochastic matrix]
+    introduction: formal
+    introduction_aliases: ["定義（列確率行列・定常確率ベクトル）"]
+    requires:
+      - numerical.nonnegative-matrix
+
+  - id: numerical.stationary-probability-vector
+    name: 定常確率ベクトル
+    kind: definition
+    aliases: [stationary probability vector]
+    introduction: formal
+    introduction_aliases: ["定義（列確率行列・定常確率ベクトル）"]
+    requires:
+      - numerical.column-stochastic-matrix
+
+  - id: numerical.irreducible-stationary-vector
+    name: 既約列確率行列の定常確率ベクトル
+    kind: proposition
+    aliases: [stationary probability vector of an irreducible column-stochastic matrix]
+    introduction: formal
+    introduction_aliases: ["命題（既約列確率行列の定常確率ベクトル）"]
+    requires:
+      - numerical.perron-frobenius-irreducible
+      - numerical.stationary-probability-vector
+
+  - id: numerical.primitive-stochastic-convergence
+    name: 原始列確率行列の冪収束
+    kind: theorem
+    aliases: [power convergence of primitive column-stochastic matrices]
+    introduction: formal
+    introduction_aliases: ["定理（原始列確率行列の冪収束）"]
+    requires:
+      - numerical.primitive-spectral-gap
+      - numerical.stationary-probability-vector
+      - linear.jordan-canonical-form
+
+  - id: numerical.dangling-node
+    name: 出リンクなし頂点
+    kind: definition
+    aliases: [dangling node, Web グラフの出リンクなし頂点]
+    introduction: formal
+    introduction_aliases: ["定義（出リンクなし頂点）"]
+    requires:
+      - numerical.column-stochastic-matrix
+
+  - id: numerical.pagerank-matrix
+    name: PageRank 行列
+    kind: definition
+    aliases: [PageRank matrix, Google matrix]
+    introduction: formal
+    introduction_aliases: ["定義（PageRank 行列・PageRank ベクトル）"]
+    requires:
+      - numerical.column-stochastic-matrix
+
+  - id: numerical.pagerank-vector
+    name: PageRank ベクトル
+    kind: definition
+    aliases: [PageRank vector]
+    introduction: formal
+    introduction_aliases: ["定義（PageRank 行列・PageRank ベクトル）"]
+    requires:
+      - numerical.pagerank-matrix
+      - numerical.stationary-probability-vector
+
+  - id: numerical.pagerank-wellposedness
+    name: PageRank の存在・一意性
+    kind: theorem
+    aliases: [existence and uniqueness of PageRank]
+    introduction: formal
+    introduction_aliases: ["定理（PageRank の存在・一意性）"]
+    requires:
+      - numerical.pagerank-vector
+      - numerical.perron-frobenius-positive
+
+  - id: numerical.pagerank-l1-contraction
+    name: PageRank 写像の1-ノルム縮小性
+    kind: proposition
+    aliases: [PageRank contraction in the 1-norm]
+    introduction: formal
+    introduction_aliases: ["命題（PageRank 写像の1-ノルム縮小性）"]
+    requires:
+      - numerical.pagerank-wellposedness
+
+  - id: numerical.pagerank-neumann-series
+    name: PageRank の線形方程式表示と Neumann 級数
+    kind: proposition
+    aliases: [Neumann-series representation of PageRank]
+    introduction: formal
+    introduction_aliases: ["命題（PageRank の線形方程式表示と Neumann 級数）"]
+    requires:
+      - numerical.pagerank-vector
+      - numerical.column-stochastic-matrix
+
+  - id: numerical.pagerank-stopping-bound
+    name: PageRank 反復の停止判定
+    kind: proposition
+    aliases: [PageRank iteration stopping bound]
+    introduction: formal
+    introduction_aliases: ["命題（PageRank 反復の停止判定）"]
+    requires:
+      - numerical.pagerank-l1-contraction
+
+  - id: numerical.pagerank-link-perturbation-bound
+    name: PageRank のリンク行列に対する1-ノルム感度評価
+    kind: proposition
+    aliases: [PageRank link-matrix perturbation bound]
+    introduction: formal
+    introduction_aliases: ["命題（PageRank のリンク行列に対する1-ノルム感度評価）"]
+    requires:
+      - numerical.pagerank-l1-contraction
