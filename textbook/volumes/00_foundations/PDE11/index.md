@@ -1,4 +1,4 @@
-# PDE11 変数分離・Bessel 方程式・Legendre 方程式・球面調和関数
+# PDE11 曲線座標での変数分離と特殊関数
 
 <!-- definition-example-audit: strict -->
 
@@ -6,7 +6,7 @@ ODE6 で Bessel 方程式と Legendre 方程式を級数解として学びまし
 
 - 円板・円筒の半径方向 $\longrightarrow$ Bessel 方程式
 - 球の極角方向 $\longrightarrow$ Legendre 方程式
-- 球面上の固有関数 $\longrightarrow$ 球面調和関数
+- 球面上の固有関数 $\longrightarrow$ 角度固有モード
 
 という対応が中心です。座標公式は [VC6 の円柱・球座標](../VC6/index.md#prop-vc6-spherical)を正本として使います。
 
@@ -186,7 +186,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pde11-spherical-harmonic -->
-### 最初の球面調和関数
+### 最初の低次数モード
 
 $\ell=0$ では定数関数。$\ell=1$ では球面上の座標関数
 
