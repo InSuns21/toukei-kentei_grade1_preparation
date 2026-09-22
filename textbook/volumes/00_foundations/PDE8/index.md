@@ -95,7 +95,7 @@ $$
 <a id="thm-pde8-heat-duhamel"></a>
 <!-- formal-statement-start -->
 > **定理（非斉次熱方程式の Duhamel 公式）**  
-> $u_0$ と $f(t,x)$ が、以下の微分・積分交換を正当化できる十分滑らかさと減衰を持つとする。
+> $T>0$ を固定する。$u_0,u_0',u_0''$ は $\mathbb R$ 上で有界連続とし、$f$ と $f_{xx}$ は $[0,T]\times\mathbb R$ 上で有界連続とする。
 
 $$
 u_t-\kappa u_{xx}=f,
@@ -139,43 +139,137 @@ v(t,x)
 \int_0^t(S(t-s)f(s))(x)\,ds
 $$
 
-と置きます。$h>0$ に対して差を二つに分けると
+と置きます。まず $x$ 微分を確認します。$r>0$ に対し変数 $z=x-y$ を使えば
 
 $$
-\frac{v(t+h)-v(t)}{h}
+(S(r)g)(x)
 =
-\frac1h\int_0^t
-\{S(t+h-s)-S(t-s)\}f(s)\,ds
-+
-\frac1h\int_t^{t+h}S(t+h-s)f(s)\,ds.
+\int_{\mathbb R}G_r(z)g(x-z)\,dz.
 $$
 
-十分な滑らかさの仮定の下で $h\downarrow0$ とすると、第一項は被積分関数の $t$ 微分の積分へ、第二項は $S(0)f(t)=f(t)$ へ収束します。したがって
+$g''$ が有界連続なら優収束により
 
 $$
-v_t(t,x)
+\partial_{xx}S(r)g
 =
-f(t,x)
-+
+S(r)g''
+$$
+
+です。従って
+
+$$
+v_{xx}(t,x)
+=
 \int_0^t
-\partial_t(S(t-s)f(s))(x)\,ds.
+(S(t-s)f_{xx}(s))(x)\,ds.
 $$
 
-熱核は自由熱方程式を満たすので
+次に時間微分を正当化します。$g,g''$ が有界連続なら、熱核が熱方程式を満たすことと上の空間微分交換から
 
 $$
-\partial_tS(t-s)f(s)
+\frac d{dr}S(r)g
 =
-\kappa\partial_{xx}S(t-s)f(s).
+\kappa S(r)g'',
+\qquad r>0.
 $$
 
-よって
+さらに熱核の初期値再現性から $S(r)g''\to g''$ $(r\downarrow0)$ なので、この式は右微分の意味で $r=0$ まで連続に延びます。
+
+したがって $h>0$ に対し
 
 $$
-v_t=f+\kappa v_{xx}.
+S(t+h-s)f(s)-S(t-s)f(s)
+=
+\kappa
+\int_{t-s}^{t+h-s}
+S(r)f_{xx}(s)\,dr.
 $$
 
-また積分区間の長さが0になるため $v(0,x)=0$。一方 $S(t)u_0$ は斉次熱方程式を満たし初期値 $u_0$ を持つので、和が主張の初期条件を満たします。
+これを差商へ入れると
+
+$$
+\begin{aligned}
+\frac{v(t+h)-v(t)}h
+&=
+\frac{\kappa}{h}
+\int_0^t
+\int_{t-s}^{t+h-s}
+S(r)f_{xx}(s)\,dr\,ds\\
+&\qquad
++
+\frac1h
+\int_t^{t+h}
+S(t+h-s)f(s)\,ds.
+\end{aligned}
+$$
+
+第一項の integrand は
+
+$$
+\|S(r)f_{xx}(s)\|_\infty
+\le
+\|f_{xx}\|_\infty
+$$
+
+で一様に抑えられます。各固定 $s<t$ では内側の平均が
+
+$$
+S(t-s)f_{xx}(s)
+$$
+
+へ収束するので、優収束により第一項は
+
+$$
+\kappa
+\int_0^t
+S(t-s)f_{xx}(s)\,ds
+=
+\kappa v_{xx}(t)
+$$
+
+へ収束します。
+
+第二項では $s=t+h-r$ と置けば
+
+$$
+\frac1h
+\int_0^h
+S(r)f(t+h-r)\,dr.
+$$
+
+$f$ の連続性と $S(r)g\to g$ $(r\downarrow0)$ から、これは $f(t)$ へ収束します。従って
+
+$$
+v_t
+=
+f+\kappa v_{xx}.
+$$
+
+初期データ項 $S(t)u_0$ についても同じ計算で
+
+$$
+\partial_tS(t)u_0
+=
+\kappa\partial_{xx}S(t)u_0
+$$
+
+が成り立ち、$t\downarrow0$ で $S(t)u_0\to u_0$ です。また $v(0,x)=0$ なので
+
+$$
+u(t)
+=
+S(t)u_0+v(t)
+$$
+
+は
+
+$$
+u_t-\kappa u_{xx}=f,
+\qquad
+u(0)=u_0
+$$
+
+を満たします。
 <!-- proof-end -->
 
 ## 3. 一瞬だけ入る source は熱核そのものを作る
@@ -193,7 +287,7 @@ $$
 <a id="thm-pde8-wave-duhamel"></a>
 <!-- formal-statement-start -->
 > **定理（非斉次一次元波動方程式の Duhamel 公式）**  
-> 十分滑らかな $F$ に対し、零初期データ
+> $T>0$ を固定し、$F$ と $F_x$ が $[0,T]\times\mathbb R$ 上で連続であるとする。零初期データ
 
 $$
 u_{tt}-c^2u_{xx}=F(t,x),
