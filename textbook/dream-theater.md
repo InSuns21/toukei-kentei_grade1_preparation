@@ -317,18 +317,6 @@ STO 系列ではマルチンゲール・ブラウン運動・二次変分・確�
 
 ---
 
-## 6. Encore V：数値解析・FEM・Monte Carlo
+## 6. Encore V：計算数理
 
-1. [Encore V ロードマップ](textbook/volumes/00_foundations/F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md)
-2. [NA1 浮動小数点・誤差・条件数](textbook/volumes/00_foundations/F0_00NA1_浮動小数点_誤差_条件数_安定性/index.md)
-3. [NA2 数値線形代数・CG・前処理](textbook/volumes/00_foundations/F0_00NA2_数値線形代数_疎行列_CG_前処理/index.md)
-4. [NA3 補間・数値微分・数値積分](textbook/volumes/00_foundations/F0_00NA3_補間_数値微分_数値積分/index.md)
-5. [NA4 ODE数値解法・Runge–Kutta](textbook/volumes/00_foundations/F0_00NA4_ODE数値解法_Runge_Kutta_安定性/index.md)
-6. [FEM1 メッシュ・基底・assembly・ポアソン](textbook/volumes/00_foundations/F0_00FEM1_メッシュ_基底_assembly_Poisson/index.md)
-7. [MC1 Monte Carlo積分・LLN・CLT](textbook/volumes/00_foundations/F0_00MC1_Monte_Carlo積分_LLN_CLT_誤差/index.md)
-8. [MC2 分散削減・importance・control variate](textbook/volumes/00_foundations/F0_00MC2_分散削減_importance_control_variate/index.md)
-9. [SDE1 Euler–Maruyama・strong/weak](textbook/volumes/00_foundations/F0_00SDE1_Euler_Maruyama_strong_weak/index.md)
-10. [SDE1A Euler–Maruyama weak order 1 の証明](textbook/volumes/00_foundations/F0_00SDE1A_Euler_Maruyama_weak_order_proof/index.md)
-11. [UQ1 random PDE・Monte Carlo FEM](textbook/volumes/00_foundations/F0_00UQ1_random_PDE_Monte_Carlo_FEM/index.md)
-12. [MLMC Multilevel Monte Carlo](textbook/volumes/00_foundations/F0_00MLMC_Multilevel_Monte_Carlo/index.md)
-
+1. [Encore V：計算数理](textbook/volumes/00_foundations/F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md)
