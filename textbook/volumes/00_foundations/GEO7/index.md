@@ -45,7 +45,7 @@ $$
 
 という Cartan の公式まで進みます。
 
-この章を終えると、次の [GEO8](../GEO8/index.md) で「微分形式を多様体上で積分する」準備が整います。
+この章を終えると、次の GEO8 で「微分形式を多様体上で積分する」準備が整います。
 
 ---
 
@@ -187,7 +187,7 @@ $$
 となり、交代性が直接確認できます。
 <!-- definition-example-end -->
 
-局所座標 $(x^1,\dots,x^n)$ では、[LA3E の外冪の標準基底](../LA3E/index.md#thm-la3e-exterior-basis)から任意の $k$ 形式は一意に
+局所座標 $(x^1,\dots,x^n)$ では、[LA3E の外冪の標準基底](../LA3E/index.md#thm-la3e-exterior-basis-dimension)から任意の $k$ 形式は一意に
 
 $$
 \omega
@@ -211,7 +211,7 @@ $$
 
 ## 3. 微分形式の外積
 
-[LA3E](../LA3E/index.md#def-la3e-wedge) では一つのベクトル空間上で外積を定義しました。多様体上では、それを各点で行います。
+[LA3E](../LA3E/index.md#def-la3e-wedge-product) では一つのベクトル空間上で外積を定義しました。多様体上では、それを各点で行います。
 
 <a id="def-geo7-form-wedge"></a>
 <!-- formal-statement-start -->
@@ -285,7 +285,7 @@ $$
 > $$
 <!-- formal-statement-end -->
 
-これは各点で [LA3E の外積の結合性と次数付き交換則](../LA3E/index.md#thm-la3e-wedge-laws) を適用すれば従います。
+これは各点で [LA3E の外積の結合性と次数付き交換則](../LA3E/index.md#thm-la3e-wedge-algebra-laws) を適用すれば従います。
 
 重要なのは、1形式どうしでは
 
@@ -408,23 +408,80 @@ $$
 > $$
 <!-- formal-statement-end -->
 
-### 証明の核心
+### 証明の見取り図
 
-どちらも各点で線形写像
+各点で、引き戻しは線形写像 $dF_p$ を微分形式の全ての引数へ入れる操作です。外積は引数の置換和で定義されるため、この代入と可換します。合成則は GEO2 の連鎖律を各引数へ適用します。
 
-$$
-dF_p:T_pM\to T_{F(p)}N
-$$
+<!-- proof-start -->
+### 証明
 
-に沿う交代形式の引き戻しです。外積との可換性は [LA3E](../LA3E/index.md#def-la3e-wedge) の交代化が線形写像との合成と可換であることから従い、合成則は GEO2 の連鎖律
+まず外積との可換性を示します。$p\in M$ と $v_1,\dots,v_{k+\ell}\in T_pM$ を取ります。[LA3E の外積](../LA3E/index.md#def-la3e-wedge-product)の置換和による定義を使うと、
 
-$$
+$
+\bigl(F^*(\alpha\wedge\beta)\bigr)_p
+(v_1,\dots,v_{k+\ell})
+=
+(\alpha\wedge\beta)_{F(p)}
+(dF_pv_1,\dots,dF_pv_{k+\ell}).
+$
+
+右辺の外積を展開すると、各項は $\alpha$ に $k$ 本、$\beta$ に $\ell$ 本の $dF_pv_i$ を入れた積です。これは同じ置換ごとに
+
+$
+(F^*\alpha)_p(v_{\sigma(1)},\dots,v_{\sigma(k)})
+(F^*\beta)_p(v_{\sigma(k+1)},\dots,v_{\sigma(k+\ell)})
+$
+
+となるので、置換和を戻せば
+
+$
+F^*(\alpha\wedge\beta)
+=
+F^*\alpha\wedge F^*\beta.
+$
+
+次に $G:N\to P$ と $\eta\in\Omega^k(P)$ を取ります。$p\in M$ と $v_1,\dots,v_k\in T_pM$ に対して
+
+$
+\begin{aligned}
+\bigl((G\circ F)^*\eta\bigr)_p(v_1,\dots,v_k)
+&=
+\eta_{G(F(p))}
+\bigl(
+d(G\circ F)_pv_1,\dots,d(G\circ F)_pv_k
+\bigr).
+\end{aligned}
+$
+
+[GEO2 の多様体上の連鎖律](../GEO2/index.md#thm-geo2-chain-rule)から
+
+$
 d(G\circ F)_p
 =
-dG_{F(p)}\circ dF_p
-$$
+dG_{F(p)}\circ dF_p.
+$
 
-をそのまま代入すれば従います。
+これを各引数へ代入すると
+
+$
+\begin{aligned}
+\bigl((G\circ F)^*\eta\bigr)_p(v_1,\dots,v_k)
+&=
+(G^*\eta)_{F(p)}
+(dF_pv_1,\dots,dF_pv_k)\\
+&=
+\bigl(F^*(G^*\eta)\bigr)_p(v_1,\dots,v_k).
+\end{aligned}
+$
+
+$p$ と $v_i$ は任意なので
+
+$
+(G\circ F)^*=F^*\circ G^*.
+$
+
+$\square$
+<!-- proof-end -->
 
 ---
 
@@ -670,7 +727,7 @@ $$
 
 の項は、第一和で生じた $X_j(f)$ の項と符号込みでちょうど相殺します。残る全ての項には共通因子 $f$ が付きます。
 
-したがって右辺は第一変数について $C^\infty$ 線形です。他の変数についても交代性により同様に従います。よって右辺は $(k+1)$ 形式です。
+したがって右辺は第一変数について $C^\infty$ 線形です。他の変数についても同じ積の法則と Lie 括弧の関数倍公式を使えば、同様に余分な微分項が相殺します。よって右辺は各変数について $C^\infty$ 線形であり、座標ベクトル場上で局所定義と一致するため交代性も従い、$(k+1)$ 形式です。
 
 座標ベクトル場上で局所定義と一致し、両辺とも各変数について $C^\infty$ 線形なので、任意の
 
@@ -1138,13 +1195,13 @@ $$
 > $$
 <!-- formal-statement-end -->
 
-これは各点で [LA3E の内部積の基本恒等式](../LA3E/index.md#thm-la3e-interior-identities) を適用すれば従います。
+これは各点で [LA3E の内部積の基本恒等式](../LA3E/index.md#thm-la3e-interior-product-identities) を適用すれば従います。
 
 ---
 
 ## 10. Lie 微分は流れに沿う変化率
 
-[GEO5 の最大流](../GEO5/index.md#thm-geo5-maximal-flow-smooth) によって、ベクトル場 $X$ は局所流 $\Phi_t$ を持ちます。微分形式を $\Phi_t$ で引き戻せば、流れに沿って形式がどう変化するかを同じ点で比較できます。
+[GEO5 の最大流](../GEO5/index.md#thm-geo5-maximal-flow) によって、ベクトル場 $X$ は局所流 $\Phi_t$ を持ちます。微分形式を $\Phi_t$ で引き戻せば、流れに沿って形式がどう変化するかを同じ点で比較できます。
 
 <a id="def-geo7-lie-derivative"></a>
 <!-- formal-statement-start -->
