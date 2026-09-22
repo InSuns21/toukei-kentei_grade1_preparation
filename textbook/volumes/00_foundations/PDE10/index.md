@@ -36,22 +36,22 @@ $\sigma_{n-1}=|S^{n-1}|$ を単位球面の表面積とします。
 <!-- formal-statement-start -->
 > **定義（多次元負 Laplacian の基本解）**  
 > $n\ge2$ に対し
->
-> $$
-> \Phi_n(x)
-> =
-> \begin{cases}
-> -\dfrac1{2\pi}\log|x|, & n=2,\\[6pt]
-> \dfrac1{(n-2)\sigma_{n-1}}|x|^{2-n}, & n\ge3
-> \end{cases}
-> $$
->
+
+$$
+\Phi_n(x)
+=
+\begin{cases}
+-\dfrac1{2\pi}\log|x|, & n=2,\\[6pt]
+\dfrac1{(n-2)\sigma_{n-1}}|x|^{2-n}, & n\ge3
+\end{cases}
+$$
+
 > と定める。本章では、原点外で調和的であり、任意の $r>0$ について
->
-> $$
-> -\int_{|x|=r}\partial_n\Phi_n\,dS=1
-> $$
->
+
+$$
+-\int_{|x|=r}\partial_n\Phi_n\,dS=1
+$$
+
 > を満たすことを、負 Laplacian の基本解を特徴付ける古典的条件とする。
 <!-- formal-statement-end -->
 
@@ -71,11 +71,11 @@ $$
 <!-- formal-statement-start -->
 > **命題（多次元基本解の調和性と単位流束）**  
 > $\Phi_n$ は $\mathbb R^n\setminus\{0\}$ で調和的であり、
->
-> $$
-> -\int_{|x|=r}\partial_n\Phi_n\,dS=1
-> $$
->
+
+$$
+-\int_{|x|=r}\partial_n\Phi_n\,dS=1
+$$
+
 > を全ての $r>0$ で満たす。
 <!-- formal-statement-end -->
 
@@ -107,13 +107,13 @@ $n=2$ では PDE6 と同じく $\Phi_2=-(2\pi)^{-1}\log r$ から直接計算で
 <!-- formal-statement-start -->
 > **定義（多次元 Newton ポテンシャル）**  
 > コンパクトな台を持つ連続関数 $f$ に対し
->
-> $$
-> (Nf)(x)
-> =
-> \int_{\mathbb R^n}\Phi_n(x-y)f(y)dy
-> $$
->
+
+$$
+(Nf)(x)
+=
+\int_{\mathbb R^n}\Phi_n(x-y)f(y)dy
+$$
+
 > を Newton ポテンシャルという。
 <!-- formal-statement-end -->
 
@@ -121,11 +121,11 @@ $n=2$ では PDE6 と同じく $\Phi_2=-(2\pi)^{-1}\log r$ から直接計算で
 <!-- formal-statement-start -->
 > **定理（Newton ポテンシャルと Poisson 方程式）**  
 > $f\in C_c^2(\mathbb R^n)$ とする。このとき $u=Nf$ は
->
-> $$
-> -\Delta u=f
-> $$
->
+
+$$
+-\Delta u=f
+$$
+
 > を古典的に満たす。
 <!-- formal-statement-end -->
 
@@ -155,15 +155,15 @@ $$
 
 <a id="thm-pde10-mean-value"></a>
 <!-- formal-statement-start -->
-> **定理（多次元調和関数の球面平均値性質）**  
+> **定理（多次元調和関数の平均値性質）**  
 > $u$ が $B_R(x_0)$ の近傍で $C^2$ 級かつ $\Delta u=0$ なら、$0<r<R$ に対し
->
-> $$
-> u(x_0)
-> =
-> \frac1{\sigma_{n-1}r^{n-1}}
-> \int_{|y-x_0|=r}u(y)dS_y.
-> $$
+
+$$
+u(x_0)
+=
+\frac1{\sigma_{n-1}r^{n-1}}
+\int_{|y-x_0|=r}u(y)dS_y.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -204,14 +204,14 @@ $$
 <!-- formal-statement-start -->
 > **定義（Kelvin 変換）**  
 > $n\ge3$ とし、原点を含まない領域上の関数 $u$ に対して
->
-> $$
-> (Ku)(x)
-> =
-> |x|^{2-n}
-> u\left(\frac{x}{|x|^2}\right)
-> $$
->
+
+$$
+(Ku)(x)
+=
+|x|^{2-n}
+u\left(\frac{x}{|x|^2}\right)
+$$
+
 > を Kelvin 変換という。
 <!-- formal-statement-end -->
 
@@ -223,14 +223,14 @@ $$
 <!-- formal-statement-start -->
 > **命題（Kelvin 変換は調和性を保つ）**  
 > $n\ge3$ で
->
-> $$
-> \Delta(Ku)(x)
-> =
-> |x|^{-n-2}
-> (\Delta u)\left(\frac{x}{|x|^2}\right).
-> $$
->
+
+$$
+\Delta(Ku)(x)
+=
+|x|^{-n-2}
+(\Delta u)\left(\frac{x}{|x|^2}\right).
+$$
+
 > 特に $u$ が調和的なら $Ku$ も調和的である。
 <!-- formal-statement-end -->
 
@@ -288,13 +288,13 @@ $$
 <!-- formal-statement-start -->
 > **命題（半空間の Dirichlet Green 関数）**  
 > $x,y\in\mathbb H^n$ に対し
->
-> $$
-> G(x,y)
-> =
-> \Phi_n(x-y)-\Phi_n(x-y^*)
-> $$
->
+
+$$
+G(x,y)
+=
+\Phi_n(x-y)-\Phi_n(x-y^*)
+$$
+
 > と置くと、$y$ に関して基本解と同じ特異性を持ち、境界 $y_n=0$ で $G(x,y)=0$ となる。
 <!-- formal-statement-end -->
 
@@ -307,7 +307,7 @@ $$
 |x-\xi|=|x-\xi^*|.
 $$
 
-従って境界上で二つの基本解は一致して差は0です。また反射した特異点は下半空間にあるため、補正項は上半空間で調和的です。
+従って境界上で二つの基本解は一致して差は0です。また反射側の source 点は下半空間にあるため、補正項は上半空間で調和的です。
 <!-- proof-end -->
 
 境界法線微分から半空間 Poisson kernel
