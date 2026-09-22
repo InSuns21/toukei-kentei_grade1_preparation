@@ -13,7 +13,7 @@ learning_objectives:
   - Newton ポテンシャルが Poisson 方程式を解く機構を小球除外の積分計算から説明できる
   - 多次元調和関数の平均値性質を発散定理から証明できる
   - Kelvin 変換を定義し調和性保存の計算を追える
-  - 半空間の Dirichlet Green 関数と Poisson kernel を鏡像法から構成できる
+  - 半空間の Dirichlet Green 関数と Poisson 核を鏡像法から構成できる
 definitions:
   - { id: PDE10-DEF-01, name: "多次元負 Laplacian の基本解" }
   - { id: PDE10-DEF-02, name: "多次元 Newton ポテンシャル" }
