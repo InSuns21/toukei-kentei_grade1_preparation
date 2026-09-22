@@ -33,7 +33,7 @@ concepts:
   - id: vector-calculus.level-surface
     name: レベル集合・レベル曲面
     kind: definition
-    aliases: [レベル集合, レベル曲面, level set, level surface, 正則点]
+    aliases: [レベル集合, レベル曲面, level set, level surface]
     introduction: formal
     introduction_aliases: ["定義（レベル集合・レベル曲面）"]
     requires:
