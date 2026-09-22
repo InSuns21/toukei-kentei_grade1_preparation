@@ -5,6 +5,7 @@ prerequisites:
   - TSA1
   - TSA4
   - F0-00P3A
+  - F0-00P5
   - F0-00P6A
 
 concepts:
@@ -22,7 +23,7 @@ concepts:
     kind: definition
     aliases: ["invariant sigma-field", "shift-invariant sigma-field"]
     introduction: formal
-    introduction_aliases: ["定義（不変σ-加法族とエルゴード性）"]
+    introduction_aliases: ["定義（不変σ-加法族）"]
     requires:
       - timeseries.measure-preserving-shift
 
@@ -31,7 +32,7 @@ concepts:
     kind: definition
     aliases: ["ergodicity", "ergodic stationary process"]
     introduction: formal
-    introduction_aliases: ["定義（不変σ-加法族とエルゴード性）"]
+    introduction_aliases: ["定義（不変σ-加法族）"]
     requires:
       - timeseries.invariant-sigma-field
 
