@@ -154,7 +154,7 @@ $$
 <a id="def-pde12-hamilton-jacobi"></a>
 <!-- formal-statement-start -->
 > **定義（Hamilton--Jacobi 方程式）**  
-> Hamiltonian $H(x,p)$ に対する
+> ハミルトニアン（Hamiltonian） $H(x,p)$ に対する
 
 $$
 u_t+H(x,\nabla_xu)=0
@@ -690,7 +690,7 @@ $$
 <!-- definition-example-start: def-pde12-caustic -->
 **定義の確認**：以下で定義の条件を直接確認します。
 
-自由 Hamiltonian $H(p)=p^2/2$ の一次元では
+自由ハミルトニアン $H(p)=p^2/2$ の一次元では
 
 $$
 X(t,a)=a+t u_0'(a),
@@ -836,7 +836,7 @@ $$
 $v=u_x$ と置けば $v_t+vv_x=0$ です。
 <!-- solution-end -->
 
-#### PDE12-A04 eikonal
+#### PDE12-A04 アイコナール方程式
 - Level: A
 
 $u(x)=|x|$ が $x\ne0$ で $|\nabla u|=1$ を満たすことを確認せよ。
@@ -895,7 +895,7 @@ $$
 #### PDE12-B02 焦散の時刻
 - Level: B
 
-初期値 $u_0(x)=-x^2/2$ のとき、自由 Hamiltonian の特性写像がいつ退化するか求めよ。
+初期値 $u_0(x)=-x^2/2$ のとき、自由ハミルトニアンの特性写像がいつ退化するか求めよ。
 
 <!-- solution-start -->
 ##### 詳細解答
@@ -909,7 +909,7 @@ $$
 従って $X_a=1-t$ で、$t=1$ に退化します。全特性が $x=0$ へ集まるため古典解再構成が壊れます。
 <!-- solution-end -->
 
-#### PDE12-B03 調和振動子 Hamiltonian
+#### PDE12-B03 調和振動子のハミルトニアン
 - Level: B
 
 $$
