@@ -16,7 +16,7 @@
 
 本計画では **原則として1講座を1回の作業セッションで完成させる**。1セッション内で本文、主要定義・主要定理、必要な核心証明、直接例・反例、演習 A4/B3/C1、全問詳細解答、依存関係、validation / audit、PR / merge まで閉じる。
 
-計算機演習は理論講座へ逐次埋め込まず、理論系列完成後に **NUMLAB** として別枠でまとめて構築する。完成後、理論講座と計算機演習を stable anchor で相互リンクする。
+計算機演習は理論講座へ逐次埋め込まず、理論系列完成後にまず **PYNUM1「Python 数値計算速習」** を1セッションで行い、その後 **NUMLAB** を別枠でまとめて構築する。完成後、理論講座と計算機演習を stable anchor で相互リンクする。
 
 ---
 
@@ -272,14 +272,15 @@ QMC2 は既存 F0-02C7 の RKHS / 再生核を再定義しない。stable anchor
 
 ---
 
-# 9. Phase 6：計算機演習系列 NUMLAB
+# 9. Phase 6：Python 数値計算速習・計算機演習系列 NUMLAB
 
 理論35講が完成した後にまとめて別枠で行う。
 
-理論章へ実行環境を先行導入しない。
+理論章へ実行環境を先行導入しない。計算機演習へ入る前に、**何らかのプログラミング経験がある読者**を対象として、Python と科学技術計算の差分だけを1セッションで速習する。
 
 | ID | 講座 | 内容 |
 |---|---|---|
+| PYNUM1 | Python 数値計算速習 | Python の要点、NumPy 配列、shape / dtype、slicing、broadcasting、vectorization、乱数、Matplotlib、SciPy の必要最小限 |
 | NUMLAB0 | 計算機演習基盤 | ブラウザ上 Python 実行、Worker、依存ライブラリ、採点、保存、timeout、CI |
 | NUMLAB1 | 数値解析演習 | NA1–NA12 対応 |
 | NUMLAB2 | 差分法演習 | FDM1–FDM4 対応 |
@@ -287,7 +288,34 @@ QMC2 は既存 F0-02C7 の RKHS / 再生核を再定義しない。stable anchor
 | NUMLAB4 | Monte Carlo 演習 | MC1–MC4 対応 |
 | NUMLAB5 | 準 Monte Carlo 演習 | QMC1–QMC8 対応 |
 
-## 9.1 基盤方針
+## 9.1 PYNUM1：Python 数値計算速習
+
+一般的なプログラミング入門は行わない。変数・条件分岐・反復・関数・基本的なデータ構造・デバッグという概念自体は既知とする。
+
+1セッションで後続 NUMLAB を読める状態にするため、次へ集中する。
+
+- Python のインデント、反復、内包表記、関数定義、tuple unpacking など他言語との差分
+- mutable / immutable、代入と参照、浅いコピーと view の違い
+- NumPy の ndarray、shape、axis、dtype、slicing / indexing
+- broadcasting と vectorization、および Python loop との役割分担
+- 行列積・内積・ノルムなど、後続講で頻出する NumPy 線形代数記法
+- boolean mask と条件付き配列演算
+- 乱数生成器、seed、再現性
+- Matplotlib による折れ線、散布図、log–log plot の最小操作
+- SciPy の linear algebra / sparse / sparse.linalg / stats を「必要になったら読める」程度に案内する
+- NaN / inf、shape mismatch、dtype 変換、off-by-one など数値計算で頻出する失敗例
+
+対象外とするもの：
+
+- 初学者向けの「プログラミングとは何か」
+- Web アプリ開発、GUI、ネットワーク、データベース
+- Python の高度なオブジェクト指向、metaclass、非同期処理
+- packaging / 配布の一般論
+- pandas を前提にした表計算中心のデータ分析
+
+PYNUM1 は後続 NUMLAB の共通参照章とし、各演習で Python / NumPy の記法説明を繰り返さない。必要箇所から PYNUM1 の stable anchor へ直接リンクする。
+
+## 9.2 基盤方針
 
 第一候補はブラウザ内 Python 実行とする。
 
@@ -308,7 +336,7 @@ QMC2 は既存 F0-02C7 の RKHS / 再生核を再定義しない。stable anchor
 
 実際の技術選定は NUMLAB0 開始時に、当時の GitHub Pages 構成・bundle size・保守性を確認して最終決定する。
 
-## 9.2 理論演習との役割分担
+## 9.3 理論演習との役割分担
 
 NUMLAB は理論章の A4/B3/C1 の代替ではない。
 
@@ -404,6 +432,8 @@ QMC1 → QMC2 → … → QMC8
   ↓
 理論 Encore V 横断監査
   ↓
+PYNUM1
+  ↓
 NUMLAB0
   ↓
 NUMLAB1 → … → NUMLAB5
@@ -438,6 +468,7 @@ NUMLAB1 → … → NUMLAB5
 
 理論完了に加えて、
 
+- PYNUM1 完了
 - NUMLAB0–NUMLAB5 完了
 - 理論講座との相互リンク完了
 - 計算機演習の自動テスト・ブラウザ smoke test が green
@@ -457,7 +488,9 @@ NUMLAB1 → … → NUMLAB5
   - FEM 7
   - MC 4
   - QMC 8
+- Python 数値計算速習：1セッション
 - NUMLAB：6セッション
+- Phase 6 合計：7セッション
 - 横断監査：理論完成後と NUMLAB 完成後に各1回を基本とする
 
 したがって、基本作業単位は **1講座＝1セッション**を維持しながら、理論と計算機実験を混線させず段階的に完成させる。
