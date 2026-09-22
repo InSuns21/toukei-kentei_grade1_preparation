@@ -150,15 +150,15 @@ $B=1$ とすれば通常の Bendixson 判定です。
 > **補題（局所横断線と正の極限集合の交点）**  
 > $C^1$ 平面自律系 $x'=F(x)$ の前向き軌道 $x(t)$ がコンパクト集合に留まり、
 >
-> $$
-> \Omega=\omega(x_0)
-> $$
+$$
+\Omega=\omega(x_0)
+$$
 >
 > とする。$q\in\Omega$ が平衡点でない、すなわち $F(q)\ne0$ とする。このとき $q$ を通る十分短い横断線分 $\Sigma$ を取れば
 >
-> $$
-> \boxed{\Omega\cap\Sigma=\{q\}}.
-> $$
+$$
+\boxed{\Omega\cap\Sigma=\{q\}}.
+$$
 <!-- formal-statement-end -->
 
 ### なぜ横断線上では極限点が一つに絞られるのか
