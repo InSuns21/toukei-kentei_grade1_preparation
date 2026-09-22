@@ -12,9 +12,10 @@ forward_references:
 
 concepts:
   - id: measure.limit-inferior
-    name: liminf
+    name: 可測関数列の下極限
     kind: definition
-    aliases: [liminf, 下極限]
+    aliases: [可測関数列の下極限, 関数列のliminf]
+    introduction_aliases: [liminf, 下極限]
     requires: []
 
   - id: measure.monotone-convergence-theorem
