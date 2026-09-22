@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-[GEO13](../GEO13/index.md) では Levi-Civita 接続を構成し、[GEO14](../GEO14/index.md) ではその接続に関する自己平行曲線として測地線を調べました。[GEO11](../GEO11/index.md) ではさらに早い段階で、Euclid 空間内の超曲面について Christoffel 係数から
+[GEO13](../GEO13/index.md) では Levi-Civita 接続を構成しました。[GEO11](../GEO11/index.md) では Euclid 空間内の超曲面について Christoffel 係数から
 
 $$
 R^\ell{}_{kij}
@@ -436,10 +436,17 @@ GEO11 では Euclid 空間内の超曲面の座標計算から出発しました
 
 ---
 
-## 3. 正規座標では「二階微分だけ」が残る
+## 3. 一点で Christoffel 係数を消して「二階微分だけ」を読む
 
-[GEO14](../GEO14/index.md) の正規座標では、基点 $p$ で
+GEO16 の direct prerequisite は GEO13 と GEO11 です。ここでは指数写像を使わず、Levi-Civita 接続の捩率0だけから「一点で Christoffel 係数を消す座標」を直接作ります。
 
+これは測地線から作る正規座標と同じ一点正規化を満たしますが、本章の証明に後続の測地線論を逆輸入する必要はありません。
+
+<a id="prop-geo16-normal-coordinate-second-derivatives"></a>
+<!-- formal-statement-start -->
+> **命題（一点正規座標と計量の二階微分）**  
+> 任意の $p\in M$ に対し、$p$ の局所座標 $(y^1,\dots,y^n)$ を
+>
 $$
 g_{ij}(p)=\delta_{ij},
 \qquad
@@ -447,17 +454,10 @@ g_{ij}(p)=\delta_{ij},
 \qquad
 \partial_\ell g_{ij}(p)=0
 $$
-
-でした。
-
-しかし曲率は一般に0になりません。
-
-つまり「Christoffel 係数を一点で消せる」ことと「曲率を消せる」ことは別です。
-
-<a id="prop-geo16-normal-coordinate-second-derivatives"></a>
-<!-- formal-statement-start -->
-> **命題（正規座標における曲率と計量の二階微分）**  
-> $p$ を中心とする正規座標を取り、
+>
+> となるように取れる。
+>
+> この座標で
 >
 $$
 R_{\ell kij}
@@ -465,11 +465,11 @@ R_{\ell kij}
 g_{\ell m}R^m{}_{kij}
 $$
 >
-> とする。このとき $p$ で
+> とすると、
 >
 $$
 \boxed{
-R_{\ell kij}
+R_{\ell kij}(p)
 =
 \frac12
 \left(
@@ -480,7 +480,7 @@ R_{\ell kij}
 \partial_j\partial_k g_{i\ell}
 +
 \partial_j\partial_\ell g_{ik}
-\right)
+\right)(p)
 }
 $$
 >
@@ -490,13 +490,92 @@ $$
 <!-- proof-start -->
 ### 証明
 
-正規座標の基点では
+任意の局所座標 $x^1,\dots,x^n$ を $x(p)=0$ となるように取り、最初に線形座標変換を行って
+
+$$
+g_{ij}(p)=\delta_{ij}
+$$
+
+としておきます。
+
+この座標での Christoffel 係数を $\Gamma^k_{ij}(p)$ とします。Levi-Civita 接続は捩率0なので
+
+$$
+\Gamma^k_{ij}(p)=\Gamma^k_{ji}(p).
+$$
+
+そこで逆向きの座標変換を
+
+$$
+x^k
+=
+y^k
+-
+\frac12
+\Gamma^k_{ij}(p)y^iy^j
+$$
+
+と定めます。
+
+$y=0$ で Jacobian は恒等行列なので、逆関数定理により十分小さい近傍では $y$ は局所座標です。
+
+$p$ では
+
+$$
+\frac{\partial x^a}{\partial y^i}
+=
+\delta_i^a,
+\qquad
+\frac{\partial^2x^k}{\partial y^i\partial y^j}
+=
+-\Gamma^k_{ij}(p).
+$$
+
+従って
+
+$$
+\left.
+\nabla_{\partial/\partial y^i}
+\frac{\partial}{\partial y^j}
+\right|_p
+=
+\left(
+\Gamma^k_{ij}(p)
++
+\frac{\partial^2x^k}{\partial y^i\partial y^j}(p)
+\right)
+\left.
+\frac{\partial}{\partial x^k}
+\right|_p
+=
+0.
+$$
+
+よって新しい座標では
 
 $$
 \Gamma^k_{ij}(p)=0.
 $$
 
-従って曲率の座標公式の二次項は消え、
+また計量両立性から座標表示で
+
+$$
+\partial_\ell g_{ij}
+=
+\Gamma^m_{\ell i}g_{mj}
++
+\Gamma^m_{\ell j}g_{im}.
+$$
+
+したがって
+
+$$
+\partial_\ell g_{ij}(p)=0.
+$$
+
+これで必要な一点正規化を GEO13 の範囲だけで構成できました。
+
+次に曲率を計算します。$p$ では Christoffel 係数が0なので、曲率の座標公式の二次項は消え、
 
 $$
 R^\ell{}_{kij}(p)
@@ -529,7 +608,7 @@ $$
 \right).
 $$
 
-基点では $\Gamma=0$ なので、$g_{\ell m}$ を微分したときに掛かる $\Gamma$ の項も0です。従って
+$p$ では $\Gamma=0$ なので、$g_{\ell m}$ を微分したときに掛かる $\Gamma$ の項も0です。従って
 
 $$
 R_{\ell kij}(p)
@@ -569,7 +648,7 @@ $$
 
 この式が曲率の本質をよく表しています。
 
-正規座標では計量の一階微分は消せますが、二階微分までは一般に消せません。Riemann 曲率は、その消せない二階情報を座標不変な形にまとめたものです。
+一点では計量の一階微分を消せますが、二階微分までは一般に消せません。Riemann 曲率は、その消せない二階情報を座標不変な形にまとめたものです。
 
 ---
 
@@ -728,28 +807,66 @@ $$
 Levi-Civita 接続は捩率0なので
 
 $$
-[X,Y]
-=
-\nabla_XY-\nabla_YX
+\nabla_YZ-\nabla_ZY=[Y,Z]
 $$
 
 です。
 
-三つの Lie 括弧へこの式を代入すると、例えば
+二重共変微分を外側の微分ごとにまとめると、巡回和は
 
 $$
--\nabla_{[X,Y]}Z
-=
--\nabla_{\nabla_XY}Z
+\begin{aligned}
+&
+\nabla_X(\nabla_YZ-\nabla_ZY)
 +
-\nabla_{\nabla_YX}Z.
+\nabla_Y(\nabla_ZX-\nabla_XZ)
++
+\nabla_Z(\nabla_XY-\nabla_YX)
+\\
+&\quad
+-
+\nabla_{[X,Y]}Z
+-
+\nabla_{[Y,Z]}X
+-
+\nabla_{[Z,X]}Y
+\\
+={}&
+\nabla_X[Y,Z]
++
+\nabla_Y[Z,X]
++
+\nabla_Z[X,Y]
+\\
+&\quad
+-
+\nabla_{[Y,Z]}X
+-
+\nabla_{[Z,X]}Y
+-
+\nabla_{[X,Y]}Z.
+\end{aligned}
 $$
 
-同様に全て展開します。
+もう一度
 
-一方、接続の第一変数に関する $C^\infty$ 線形性と第二変数の Leibniz 則を用いて項を組み直すと、全ての二重共変微分項と「ベクトル場自身を微分した方向への共変微分」が対になって相殺します。
+$$
+\nabla_AB-\nabla_BA=[A,B]
+$$
 
-従って
+を各組へ使うと、
+
+$$
+[X,[Y,Z]]
++
+[Y,[Z,X]]
++
+[Z,[X,Y]]
+$$
+
+になります。
+
+これは Lie 括弧の Jacobi 恒等式により0です。従って
 
 $$
 R(X,Y)Z+R(Y,Z)X+R(Z,X)Y=0.
@@ -757,7 +874,7 @@ $$
 
 最後に対交換対称性を示します。
 
-これは点ごとのテンソル恒等式なので、任意の点 $p$ で正規座標を取れば十分です。
+これは点ごとのテンソル恒等式なので、任意の点 $p$ で前節に構成した一点正規座標を取れば十分です。
 
 前節の式から
 
@@ -818,7 +935,7 @@ $$
 - 最初の反対称性は曲率作用素の定義だけで出ます。
 - 後ろ二変数の反対称性には計量両立性を使いました。
 - 第一 Bianchi 恒等式には捩率0を使いました。
-- 対交換対称性は Levi-Civita 接続から得た正規座標表示を使いました。
+- 対交換対称性は Levi-Civita 接続だけから構成した一点正規座標表示を使いました。
 
 一般のアフィン接続では、これらを全てそのまま使えるわけではありません。
 
@@ -873,9 +990,9 @@ $$
 
 ### 証明の見取り図
 
-これはテンソル恒等式なので一点で正規座標を使えます。
+これはテンソル恒等式なので、一点で前節の一点正規座標を使えます。
 
-正規座標の基点では $\Gamma=0$ です。そのため曲率の共変微分は通常の偏微分へ落ち、曲率自身も
+その点では $\Gamma=0$ です。そのため曲率の共変微分は通常の偏微分へ落ち、曲率自身も
 
 $$
 \partial\Gamma-\partial\Gamma
@@ -888,7 +1005,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-点 $p$ を固定し、$p$ を中心とする正規座標を取ります。
+点 $p$ を固定し、前節で構成した一点正規座標を取ります。
 
 $p$ では
 
@@ -896,17 +1013,17 @@ $$
 \Gamma^\ell_{ij}=0.
 $$
 
-従って
+従って $p$ では
 
 $$
 R^\ell{}_{kij}
 =
 \partial_i\Gamma^\ell_{jk}
 -
-\partial_j\Gamma^\ell_{ik}
+\partial_j\Gamma^\ell_{ik}.
 $$
 
-です。
+曲率公式の $\Gamma\Gamma$ 項を偏微分した項も、$p$ では各積に少なくとも一つ $\Gamma(p)=0$ が残るため0です。
 
 さらに $p$ では曲率成分の共変微分に現れる Christoffel 係数も0なので、
 
