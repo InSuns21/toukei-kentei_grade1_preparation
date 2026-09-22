@@ -17,7 +17,7 @@ terms:
     meaning: 分割差分を係数とし、節点を追加するたびに一項ずつ拡張できる補間表示。
   - term: 節点多項式
     english: nodal polynomial
-    meaning: 補間節点をすべて零点に持つ monic 多項式 omega_{n+1}(x)=prod_i(x-x_i)。
+    meaning: 補間節点をすべて零点に持つ最高次係数1の多項式 omega_{n+1}(x)=prod_i(x-x_i)。
   - term: Chebyshev 節点
     english: Chebyshev nodes
     meaning: Chebyshev 多項式の零点を補間節点として選んだもの。
