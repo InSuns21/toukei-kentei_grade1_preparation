@@ -1,0 +1,58 @@
+id: "GEO14"
+title: "幾何学 XIV：測地線・指数写像・正規座標"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEO13
+  - ODE4
+official_scope: []
+learning_objectives:
+  - 測地線を速度ベクトルが Levi-Civita 接続に関して平行である曲線として定義し、座標で測地線方程式を導出できる
+  - 測地線方程式を一次の非線形自律系へ変換し、初期位置・初期速度からの局所存在一意性と滑らかな初期値依存を説明できる
+  - 計量両立性から測地線の速さが一定であることを証明できる
+  - 測地線のアフィン再パラメータ化と初期速度のスケーリング則を証明し、非線形再パラメータ化が測地線性を壊す理由を説明できる
+  - 指数写像を定義し、滑らかさと原点での微分が恒等写像になることを証明できる
+  - 指数写像と逆関数定理から正規近傍・正規座標を構成できる
+  - 正規座標の基点で g_ij=delta_ij、Christoffel 係数が0、計量係数の一階微分が0になることを証明できる
+  - Gauss の補題を Levi-Civita 接続の計量両立性と捩率0から核心まで証明できる
+  - Gauss の補題から放射測地線の最短性と測地線の局所最短性を導出できる
+  - 凸正規近傍を定義し、端点指数写像の局所可逆性から局所存在の仕組みを説明できる
+definitions:
+  - { id: GEO14-DEF-01, name: 測地線 }
+  - { id: GEO14-DEF-02, name: 指数写像 }
+  - { id: GEO14-DEF-03, name: 正規近傍・正規球 }
+  - { id: GEO14-DEF-04, name: 放射測地線 }
+  - { id: GEO14-DEF-05, name: 正規座標 }
+  - { id: GEO14-DEF-06, name: 凸正規近傍 }
+theorems:
+  - { id: GEO14-PROP-01, name: 測地線方程式 }
+  - { id: GEO14-THM-01, name: 測地線の局所存在・一意性と初期値への滑らかな依存 }
+  - { id: GEO14-PROP-02, name: 測地線の速さは一定 }
+  - { id: GEO14-PROP-03, name: 測地線のアフィン再パラメータ化 }
+  - { id: GEO14-PROP-04, name: 指数写像の滑らかさと原点での微分 }
+  - { id: GEO14-THM-02, name: 正規座標の基点での基本性質 }
+  - { id: GEO14-THM-03, name: Gauss の補題 }
+  - { id: GEO14-THM-04, name: 正規球内の放射測地線の最短性 }
+  - { id: GEO14-COR-01, name: 測地線の局所最短性 }
+  - { id: GEO14-COR-02, name: 正規球での基点からの距離 }
+  - { id: GEO14-THM-05, name: 凸正規近傍の局所存在 }
+canonical_examples:
+  - Euclid 空間の直線測地線と指数写像
+  - Euclid 平面の極座標測地線
+  - 球面の経線と赤道
+  - 上半平面計量の鉛直測地線
+  - 平坦円柱での指数写像の大域非単射性
+problem_patterns:
+  - GEO14-GEODESIC-EQUATION-1
+  - GEO14-GEODESIC-ODE-1
+  - GEO14-CONSTANT-SPEED-1
+  - GEO14-AFFINE-REPARAMETRIZATION-1
+  - GEO14-EXPONENTIAL-MAP-1
+  - GEO14-NORMAL-COORDINATES-1
+  - GEO14-GAUSS-LEMMA-1
+  - GEO14-LOCAL-MINIMIZING-1
+  - GEO14-CONVEX-NORMAL-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.5, exercises: 6.5, review: 0.5 }
