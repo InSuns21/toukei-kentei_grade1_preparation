@@ -1,5 +1,5 @@
 id: "NA7"
-title: "数値解析 VII：ODE 数値解法 II—Runge–Kutta 法・絶対安定性"
+title: "数値解析 VII：ODE 数値解法 II—高次一段法と減衰安定性"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -25,6 +25,7 @@ definitions:
   - { id: NA7-DEF-08, name: L 安定性 }
   - { id: NA7-DEF-09, name: 硬い問題 }
   - { id: NA7-DEF-10, name: theta 法 }
+  - { id: NA7-DEF-11, name: 古典4段4次 Runge–Kutta 法 }
 theorems:
   - { id: NA7-THM-01, name: 二次 Runge–Kutta 法の次数条件 }
   - { id: NA7-PROP-01, name: 古典4段4次 Runge–Kutta 法の自律スカラー4次性 }
