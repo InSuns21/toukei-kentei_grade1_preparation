@@ -13,7 +13,7 @@ learning_objectives:
   - Charpit の特性系を PDE の微分と連鎖律から導出できる
   - Hamilton--Jacobi 方程式から Hamilton の正準方程式を導ける
   - 特性写像の Jacobian が非零なら逆関数定理から局所古典解を再構成できる
-  - 特性焦散 を Jacobian 消失として説明し古典解破綻と結び付けられる
+  - 特性焦散を Jacobian 消失として説明し古典解破綻と結び付けられる
   - Hamilton--Jacobi の勾配が Burgers 方程式を満たすことを証明できる
 definitions:
   - { id: PDE12-DEF-01, name: "一般一階非線形 PDE" }
