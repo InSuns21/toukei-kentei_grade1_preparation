@@ -23,27 +23,27 @@ concepts:
     requires: [complex-analysis.infinite-product, complex-analysis.holomorphic-locally-uniform-limit]
 
   - id: complex-analysis.weierstrass-elementary-factor
-    name: Weierstrass の elementary factor
+    name: Weierstrass の基本因子
     kind: definition
-    aliases: [Weierstrass の elementary factor, elementary factor]
+    aliases: [Weierstrass の基本因子, elementary factor]
     introduction: formal
-    introduction_aliases: ["定義（Weierstrass の elementary factor）"]
+    introduction_aliases: ["定義（Weierstrass の基本因子）"]
     requires: [complex-analysis.infinite-product]
 
   - id: complex-analysis.weierstrass-elementary-factor-estimate
-    name: elementary factor の誤差評価
+    name: 基本因子の誤差評価
     kind: lemma
-    aliases: [elementary factor の誤差評価, elementary factor estimate]
+    aliases: [基本因子の誤差評価, elementary factor estimate]
     introduction: formal
-    introduction_aliases: ["補題（elementary factor の誤差評価）"]
+    introduction_aliases: ["補題（基本因子の誤差評価）"]
     requires: [complex-analysis.weierstrass-elementary-factor]
 
   - id: complex-analysis.canonical-product
-    name: canonical product
+    name: 標準積
     kind: definition
-    aliases: [canonical product, 正準積]
+    aliases: [標準積, canonical product, 正準積]
     introduction: formal
-    introduction_aliases: ["定義（canonical product）"]
+    introduction_aliases: ["定義（標準積）"]
     requires: [complex-analysis.weierstrass-elementary-factor]
 
   - id: complex-analysis.weierstrass-zero-set-construction
@@ -71,11 +71,11 @@ concepts:
     requires: [complex-analysis.weierstrass-zero-set-construction, complex-analysis.zero-free-entire-exponential]
 
   - id: complex-analysis.principal-part-data
-    name: principal part データ
+    name: 主要部データ
     kind: definition
-    aliases: [principal part データ, principal parts]
+    aliases: [主要部データ, principal part, principal parts]
     introduction: formal
-    introduction_aliases: ["定義（principal part データ）"]
+    introduction_aliases: ["定義（主要部データ）"]
     requires: [complex-analysis.laurent-expansion]
 
   - id: complex-analysis.mittag-leffler-theorem
@@ -92,7 +92,7 @@ concepts:
     aliases: [pi cot(pi z) の部分分数展開, cotangent partial fraction expansion]
     introduction: formal
     introduction_aliases: ["定理（pi cot(pi z) の部分分数展開）"]
-    requires: [complex-analysis.residue-theorem]
+    requires: [complex-analysis.residue-theorem-simple-curve]
 
   - id: complex-analysis.euler-sine-product
     name: sin(pi z) の Euler 積
