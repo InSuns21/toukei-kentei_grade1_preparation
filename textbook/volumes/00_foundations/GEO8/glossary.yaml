@@ -5,22 +5,22 @@ terms:
     meaning: 実ベクトル空間の順序付き基底を、基底変換行列式の符号が正か負かで二つの同値類に分けたもの。
   - term: 向き付け可能
     english: orientable
-    meaning: 座標変換のJacobi行列式を全て正にそろえられる滑らかな多様体の性質。
+    meaning: 座標変換の Jacobi 行列式を全て正にそろえられる滑らかな多様体の性質。
   - term: 向き形式
     english: orientation form
     meaning: どの点でも0にならない最高次微分形式。向き付け可能性と同値な大域データ。
   - term: 境界付き滑らかな多様体
     english: smooth manifold with boundary
-    meaning: 各点がEuclid半空間の相対開集合で局所モデル化される滑らかな多様体。
+    meaning: 各点が Euclid 半空間の相対開集合で局所モデル化される滑らかな多様体。
   - term: 境界向き
     english: boundary orientation
     meaning: 外向きベクトルを先頭に置いたとき内部の正の基底になるように境界へ誘導する向き。
   - term: 最高次形式の積分
     english: integration of top-degree forms
-    meaning: 向き付けられた座標で最高次形式を通常の多重積分へ移し、1の分割で大域化した積分。
-  - term: 半空間上の局所Stokes
+    meaning: 向き付けられた座標で最高次形式を通常の多重積分へ移し、1 の分割で大域化した積分。
+  - term: 半空間上の局所 Stokes
     english: local Stokes theorem on a half-space
     meaning: 半空間にコンパクト台を持つ(n-1)形式について内部の外微分積分が境界積分に一致する局所補題。
-  - term: 一般Stokesの定理
+  - term: 一般 Stokes の定理
     english: generalized Stokes theorem
     meaning: 向き付けられた境界付き多様体で∫_M dω=∫_{∂M}ωを与える積分定理。
