@@ -230,7 +230,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-tsa5-ergodicity -->
-**定義の確認：ランダム定数過程**  
+**定義の確認**  
+ランダム定数過程：  
 非退化な確率変数 $Y$ を一つ取り、
 
 $$
@@ -679,7 +680,8 @@ $X_0\in L^2$ なら [Hilbert 空間の平均エルゴード定理](#thm-tsa5-mea
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-tsa5-mixing -->
-**定義の確認：独立同分布列**  
+**定義の確認**  
+独立同分布列：  
 $(Z_t)$ が独立同分布なら、有限個の過去座標だけに依存する円柱事象 $A$ と、有限個の座標だけに依存する円柱事象 $B$ は、$n$ が十分大きいと $A$ と $T^{-n}B$ が互いに素な座標集合へ依存します。従って
 
 $$
@@ -906,7 +908,8 @@ $n\to\infty$ を送ると第一項は 0 なので上極限は $4\varepsilon$ 以
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-tsa5-m-dependence -->
-**定義の確認：独立雑音から作った MA(q)**  
+**定義の確認**  
+独立雑音から作った MA(q)：  
 $(Z_t)$ を独立同分布列とし、
 
 $$
@@ -1147,7 +1150,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-tsa5-long-run-variance -->
-**定義の確認：AR(1)**  
+**定義の確認**  
+AR(1)：  
 TSA4 の安定 AR(1)
 
 $$
