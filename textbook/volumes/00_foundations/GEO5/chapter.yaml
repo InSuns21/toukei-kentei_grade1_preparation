@@ -31,7 +31,7 @@ definitions:
   - { id: GEO5-DEF-09, name: F-関連なベクトル場 }
   - { id: GEO5-DEF-10, name: Lie括弧 }
 theorems:
-  - { id: GEO5-PROP-01, name: ベクトル場は滑らかな関数環上の導分を定める }
+  - { id: GEO5-PROP-01, name: 滑らかなベクトル場は滑らかな関数環上の導分を定める }
   - { id: GEO5-THM-01, name: 積分曲線の局所存在・一意性 }
   - { id: GEO5-LEM-01, name: 自律系の解の初期値への滑らかな依存 }
   - { id: GEO5-THM-02, name: 最大積分曲線の存在・一意性 }
