@@ -65,10 +65,11 @@ concepts:
     requires: [analysis.riemann-integral-basic-properties, linear.inner-product]
 
   - id: numerical.orthogonal-polynomial
-    name: 直交多項式
+    name: 重み関数に関する直交多項式
     kind: definition
-    aliases: [orthogonal polynomial]
-    introduction: inline
+    aliases: [orthogonal polynomial, weighted orthogonal polynomial]
+    introduction: formal
+    introduction_aliases: ["定義（重み付き多項式内積・直交多項式）"]
     requires: [numerical.weighted-polynomial-inner-product]
 
   - id: numerical.monic-orthogonal-polynomial-existence
