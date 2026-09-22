@@ -56,19 +56,31 @@ $\mu>0$ では正の根で $f'<0$、負の根で $f'>0$ なので、それぞれ
 <!-- proof-start -->
 ### 証明
 
-1. $f=x(\mu-x)$ なので[平衡解](../ODE1/index.md#def-ode1-equilibrium)は $0,\mu$。$f_x=\mu-2x$ より
+1. $f=x(\mu-x)$ なので[平衡解](../ODE1/index.md#def-ode1-equilibrium)は $x=0$ と $x=\mu$ です。$f_x=\mu-2x$ より
    $$
    f_x(0)=\mu,
    \qquad
    f_x(\mu)=-\mu.
    $$
-   従って $\mu=0$ で安定性を交換します。
+   従って $\mu<0$ では $x=0$ が安定・$x=\mu$ が不安定、$\mu>0$ では逆になり、$\mu=0$ で二枝が交差して安定性を交換します。
 
-2. $f=x(\mu-x^2)$。$\mu>0$ では $0,\pm\sqrt\mu$ が[平衡解](../ODE1/index.md#def-ode1-equilibrium)で
+2. $f=x(\mu-x^2)$ とします。$\mu<0$ では $\mu-x^2<0$ が全ての $x$ で成り立つため、平衡解は $x=0$ だけです。また
+   $$
+   f_x(0)=\mu<0
+   $$
+   なので原点は安定です。$\mu>0$ では
+   $$
+   x=0,\qquad x=\pm\sqrt\mu
+   $$
+   が[平衡解](../ODE1/index.md#def-ode1-equilibrium)で、
    $$
    f_x=\mu-3x^2.
    $$
-   原点では $f_x=\mu$、非零枝では $f_x=-2\mu<0$ です。
+   従って原点では $f_x(0)=\mu>0$ で不安定、非零枝では
+   $$
+   f_x(\pm\sqrt\mu)=-2\mu<0
+   $$
+   なので二枝とも安定です。
 <!-- proof-end -->
 
 ## 4. Hopf 正規形を直接解く
