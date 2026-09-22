@@ -9,9 +9,9 @@ prerequisites:
   - RA4
 official_scope: []
 learning_objectives:
-  - 非線形連立方程式 F(x)=0 の根と残差を定式化し、Jacobian行列による一次線形化を説明できる
+  - 非線形連立方程式 F(x)=0 の根と残差を定式化し、Jacobian行列による一次近似を説明できる
   - 多変数 Newton 法を J_F(x_k)s_k=-F(x_k) という線形方程式として導出し、逆行列を明示的に作らない理由を説明できる
-  - Jacobian の Lipschitz 連続性から二次の線形化剰余評価を証明できる
+  - Jacobian の Lipschitz 連続性から一次近似の二次剰余評価を証明できる
   - 可逆行列の摂動補題を Neumann 級数から証明し、根の近くで Jacobian の可逆性が保たれることを示せる
   - 非線形連立方程式に対する Newton 法の局所収束と二次誤差評価を証明できる
   - 逆 Jacobian のノルムを根の局所感度として解釈し、残差から根誤差への局所評価を導ける
@@ -23,7 +23,7 @@ definitions:
   - { id: NA3-DEF-03, name: Jacobian の Lipschitz 連続性 }
   - { id: NA3-DEF-04, name: 根の局所絶対条件数 }
 theorems:
-  - { id: NA3-PROP-01, name: Lipschitz Jacobian による二次線形化誤差 }
+  - { id: NA3-PROP-01, name: Lipschitz Jacobian による二次剰余評価 }
   - { id: NA3-LEM-01, name: 可逆行列の摂動と逆行列ノルム }
   - { id: NA3-THM-01, name: 非線形連立方程式に対する Newton 法の局所収束 }
   - { id: NA3-PROP-02, name: 近傍での残差から根誤差への評価 }
