@@ -296,7 +296,7 @@ $$
 \psi'(0)=0.
 $$
 
-Taylor の定理より、ある $\theta\in(0,1)$ が存在して
+[RA3 の Taylor の定理](../RA3/index.md#thm-ra3-taylor)より、ある $\theta\in(0,1)$ が存在して
 
 $$
 \begin{aligned}
@@ -575,7 +575,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-Cauchy--Schwarz の不等式から
+[Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 g^{\mathsf T}p
@@ -1001,7 +1001,7 @@ $$
 (I-\widehat\alpha A)e_k.
 $$
 
-実対称行列のスペクトル定理により
+[実対称行列のスペクトル定理](../F0_00F1_固有空間_スペクトル定理_PSD/index.md#thm-real-symmetric-spectral)により
 
 $$
 A=Q\Lambda Q^{\mathsf T}
