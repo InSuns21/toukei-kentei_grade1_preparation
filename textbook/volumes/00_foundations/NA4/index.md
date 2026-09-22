@@ -1599,7 +1599,7 @@ $$
 
 典型例として
 
-$
+$$
 \boxed{
 f(x)=\frac1{1+25x^2}
 }
@@ -1848,7 +1848,7 @@ $$
 
 Lagrange 補間表示から
 
-$
+$$
 \widetilde p_n(x)-p_n(x)
 =
 \sum_{i=0}^n\delta_i\ell_i(x).
