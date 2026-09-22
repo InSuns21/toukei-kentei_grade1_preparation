@@ -1049,7 +1049,7 @@ $$
 
 と置きます。
 
-仮定より $\Sigma_I$ は対称な半正定値行列です。[有限次元スペクトル定理](../F0_00F1_固有空間_スペクトル定理_PSD/index.md#thm-spectral-real-symmetric)により、ある直交行列 $Q$ と非負数 $\lambda_1,\ldots,\lambda_n$ が存在して
+仮定より $\Sigma_I$ は対称な半正定値行列です。[有限次元スペクトル定理](../F0_00F1_固有空間_スペクトル定理_PSD/index.md#thm-real-symmetric-spectral)により、ある直交行列 $Q$ と非負数 $\lambda_1,\ldots,\lambda_n$ が存在して
 
 $$
 \Sigma_I
