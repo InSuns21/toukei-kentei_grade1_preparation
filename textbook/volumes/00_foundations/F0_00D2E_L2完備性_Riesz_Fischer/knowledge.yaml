@@ -27,10 +27,10 @@ concepts:
       - topology.cauchy-sequence
 
   - id: functional.banach-space-recap-d2e
-    name: Banach空間の再掲
+    name: L2完備性で使うBanach空間の再掲
     kind: definition
     introduction_aliases: [Banach空間]
-    aliases: [Banach空間の再掲, Banach空間]
+    aliases: [L2完備性で使うBanach空間の再掲]
     requires:
       - functional.banach-space
       - functional.normed-cauchy-sequence

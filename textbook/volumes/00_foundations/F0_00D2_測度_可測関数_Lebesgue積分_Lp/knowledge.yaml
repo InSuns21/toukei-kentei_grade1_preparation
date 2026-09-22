@@ -28,7 +28,7 @@ concepts:
   - id: measure.sigma-algebra
     name: σ代数
     kind: definition
-    aliases: [σ代数, 可測空間, 可測集合, sigma-algebra]
+    aliases: [σ代数, sigma-algebra]
     requires: []
 
   - id: measure.sigma-algebra-basic-closure
@@ -62,7 +62,8 @@ concepts:
   - id: measure.measure-monotonicity
     name: 測度の単調性
     kind: proposition
-    aliases: [命題（単調性）]
+    aliases: [測度の単調性]
+    introduction_aliases: [命題（単調性）]
     requires:
       - measure.measure-space
 

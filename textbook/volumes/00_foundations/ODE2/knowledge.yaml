@@ -14,14 +14,14 @@ concepts:
   - id: ode.ode2-linear-higher-order
     name: n階線形ODE・斉次方程式・非斉次方程式
     kind: definition
-    aliases: [高階線形常微分方程式, n階線形ODE, 常微分方程式, 斉次方程式, 非斉次方程式]
+    aliases: [高階線形常微分方程式, n階線形ODE]
     introduction: formal
     introduction_aliases: [n階線形ODE・斉次方程式・非斉次方程式]
 
   - id: ode.ode2-linear-ivp-wellposedness
     name: 連続係数線形高階初期値問題の存在・一意性
     kind: theorem
-    aliases: [線形高階初期値問題, 高階線形初期値問題の存在・一意性, 初期値問題]
+    aliases: [線形高階初期値問題の存在・一意性, 高階線形初期値問題の存在・一意性]
     introduction: formal
     requires:
       - ode.ode2-linear-higher-order
@@ -65,10 +65,11 @@ concepts:
       - ode.ode1-linear-ivp-solution
 
   - id: ode.ode2-characteristic-polynomial
-    name: 特性多項式
+    name: 定係数線形ODEの特性多項式
     kind: definition
-    aliases: [特性多項式, 特性方程式]
+    aliases: [定係数線形ODEの特性多項式, 定係数ODEの特性方程式]
     introduction: formal
+    introduction_aliases: [特性多項式]
     requires:
       - ode.ode2-linear-higher-order
 
@@ -84,7 +85,7 @@ concepts:
   - id: ode.ode2-nonhomogeneous-affine
     name: 非斉次方程式の一般解
     kind: theorem
-    aliases: [非斉次方程式の一般解, 特殊解]
+    aliases: [非斉次方程式の一般解]
     introduction: formal
     requires:
       - ode.ode2-solution-space
@@ -92,7 +93,7 @@ concepts:
   - id: ode.ode2-undetermined-coefficients
     name: 未定係数法
     kind: method
-    aliases: [未定係数法, 共鳴]
+    aliases: [未定係数法]
     introduction: inline
     introduction_aliases: [未定係数法：試行形が斉次解に入ったら共鳴している]
     requires:

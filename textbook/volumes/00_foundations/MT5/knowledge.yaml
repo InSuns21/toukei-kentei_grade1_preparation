@@ -105,9 +105,9 @@ concepts:
       - measure.riesz-open-content
 
   - id: measure.riesz-outer-measure-theorem
-    name: 構成したmu*はouter measure
+    name: 構成したmu*の外測度性
     kind: theorem
-    aliases: [構成したouter measure, outer measure]
+    aliases: [構成したmu*の外測度性, 構成したouter measure]
     introduction_aliases: [は outer measure]
     requires:
       - measure.riesz-outer-measure-definition

@@ -43,6 +43,8 @@ DREAM THEATER では本番答案・採点基準を欠落扱いしない。本文
 - 未修概念を使う場合は、意味・動機 → 最小の具体例 → 定義・一般式 → 必要な導出・証明、の順に追えるか確認する。
 - 正しいが圧縮されすぎた箇所と、一般論が長すぎて本筋を隠す箇所を区別して指摘する。
 - 共通基礎で説明済みの内容を各章へコピーせず、正本への stable anchor 参照で再利用できているか確認する。
+- DREAM THEATER の `knowledge.yaml` では、`aliases` が本当に同義語だけか確認する。関連語・検索語・複合見出しは `aliases` に置かず、必要なら `introduction_aliases` を使う。
+- 再掲 concept が canonical 名を global alias として取り直していないか、短い alias が無関係な別分野 concept を横取りしていないか確認する。後方互換性は stable ID / anchor で担保し、誤aliasを温存しない。
 - DREAM THEATER では、完全証明を閉じた状態でも「何を言う定理か」「なぜ欲しいか」「最小例」「重要な仮定」「どこで使うか」を追えるか確認する。
 - DREAM THEATER の主役となる定義には、条件を実際に検証する直接例があるか確認する。反例では、どの仮定を失い証明のどの機構が壊れるかまで説明しているか確認する。
 - 定義・定理・証明の列だけになっていないか、learning objective が見出しだけで達成扱いされていないか確認する。
@@ -70,6 +72,7 @@ DREAM THEATER では本番答案・採点基準を欠落扱いしない。本文
 - 未修前提への依存、循環参照、参考資料のコピーがないか確認する。
 - KaTeX strict と `npm run validate` の結果を確認する。
 - DREAM THEATER の変更章では `npm run validate:dream-theater-exercise-counts`、必要に応じて `npm run audit:proof-pedagogy`、`npm run audit:formalism-pedagogy` の結果も確認する。
+- existing `knowledge.yaml` の alias を変更した場合は semantic resolution が未変更ページへ波及しうるため、scope detector が要求する full concept audit の結果も確認する。短alias WARN は件数だけで合否判定せず、意味的な誤登録だけを修正する。
 - CI greenを完成の十分条件にしない。機械監査後に本文を人手で読む。
 
 ## D. 講義粒度・依存関係監査（DREAM THEATER）

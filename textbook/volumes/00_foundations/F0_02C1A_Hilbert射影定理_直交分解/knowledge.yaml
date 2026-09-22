@@ -9,9 +9,12 @@ forward_references:
 
 concepts:
   - id: functional.convex-set-basic-c1a
-    name: 凸集合
+    name: Hilbert射影で使う凸集合の再掲
     kind: definition
-    aliases: [凸集合]
+    aliases: [Hilbert射影で使う凸集合の再掲]
+    introduction_aliases: [凸集合]
+    requires:
+      - convex.convex-set
 
   - id: functional.hilbert-projection-theorem
     name: Hilbert空間の射影定理

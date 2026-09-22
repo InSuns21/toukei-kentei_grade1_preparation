@@ -34,14 +34,16 @@ concepts:
   - id: optimization.primal-problem
     name: 主問題
     kind: definition
-    aliases: [主問題, 主問題・双対問題]
+    aliases: [主問題]
+    introduction_aliases: [主問題・双対問題]
     requires:
       - convex.convex-optimization
 
   - id: optimization.dual-problem
     name: 双対問題
     kind: definition
-    aliases: [双対問題, 主問題・双対問題]
+    aliases: [双対問題]
+    introduction_aliases: [主問題・双対問題]
     requires:
       - optimization.dual-function
       - optimization.primal-problem
@@ -49,7 +51,8 @@ concepts:
   - id: optimization.weak-duality
     name: 弱双対性
     kind: definition
-    aliases: [弱双対性, 弱双対性・強双対性]
+    aliases: [弱双対性]
+    introduction_aliases: [弱双対性・強双対性]
     requires:
       - optimization.primal-problem
       - optimization.dual-problem
@@ -57,7 +60,8 @@ concepts:
   - id: optimization.strong-duality
     name: 強双対性
     kind: definition
-    aliases: [強双対性, 弱双対性・強双対性]
+    aliases: [強双対性]
+    introduction_aliases: [弱双対性・強双対性]
     requires:
       - optimization.weak-duality
 

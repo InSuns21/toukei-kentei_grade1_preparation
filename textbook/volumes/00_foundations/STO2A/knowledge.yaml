@@ -92,9 +92,9 @@ concepts:
   - id: stochastic.markov-reversibility
     name: detailed balance・可逆性
     kind: definition
-    aliases: [detailed balance, 可逆性, reversibility]
+    aliases: [detailed balance, Markov連鎖の可逆性, Markov reversibility]
+    introduction_aliases: ["定義（detailed balance・可逆性）", 可逆性]
     introduction: formal
-    introduction_aliases: ["定義（detailed balance・可逆性）"]
     requires:
       - stochastic.discrete-markov-chain
 

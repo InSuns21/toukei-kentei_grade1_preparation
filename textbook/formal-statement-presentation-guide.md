@@ -79,6 +79,17 @@ formal result を他の場所から使う場合は、章トップや見出し自
 
 これにより、見出し文言や節番号を変更しても参照先を壊さず、読者を実際の定理・定義へ直接送れる。
 
+### 3.1 formal label と `knowledge.yaml` の alias
+
+formal statement の表示名は読者向けラベルであり、その文字列全体が必ず concept の別称になるわけではない。
+
+DREAM THEATER で `knowledge.yaml` を同期するときは次を守る。
+
+- 一つの formal statement が一つの concept を表し、表示名が本当に同義名なら `aliases` に置いてよい。
+- 一つの見出し・formal label が複数 concept を同時に導入する場合、その複合文字列を各 concept の `aliases` へ重複登録しない。導入位置の照合が必要なら `introduction_aliases` を使う。
+- 定理名に含まれる構成要素を、定理そのものの alias にしない。たとえば「定係数斉次方程式の基本解系」の alias として「重根」「複素根」を登録しない。
+- formal label の変更に対する参照互換性は stable anchor で担保する。古い表示名を意味の異なる alias として残すことを互換手段にしない。
+
 ## 4. 証明との境界
 
 完全証明は formal statement panel の外へ置く。証明を後回しにできるよう、完全証明は `proof-start` / `proof-end` で折りたたむ。

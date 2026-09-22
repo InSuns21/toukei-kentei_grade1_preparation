@@ -14,7 +14,7 @@ concepts:
     name: 固有値・固有ベクトル・固有空間の再掲
     kind: definition
     introduction_aliases: [固有値・固有ベクトル・固有空間]
-    aliases: [固有値・固有ベクトル・固有空間の再掲, 固有値・固有ベクトル・固有空間]
+    aliases: [固有値・固有ベクトル・固有空間の再掲]
     requires:
       - linear.eigenvalue
       - linear.eigenvector

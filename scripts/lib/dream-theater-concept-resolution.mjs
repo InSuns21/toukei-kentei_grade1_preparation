@@ -12,7 +12,8 @@ export function normalizeAlias(value) {
   if (cached !== undefined) return cached;
   const normalized = source
     .replace(/\$+/gu, '')
-    .replace(/[`*_>#]/gu, '')
+    .replace(/\*\*/gu, '')
+    .replace(/[`_>#]/gu, '')
     .replace(/\\[,!]/gu, '')
     .replace(/\s+/gu, '')
     .trim()
@@ -109,7 +110,8 @@ export function buildLocalAliasIntroductions(source, knowledgeDoc, pageId = '') 
   const concepts = (knowledgeDoc?.concepts ?? []).map((raw, order) => normalizeConcept(raw, pageId, order));
   for (const concept of concepts) {
     concept.declarationLine = findConceptIntroductionLine(source, concept);
-    for (const alias of concept.aliases) {
+    const localNames = [...new Set([...concept.aliases, ...concept.introductionAliases])];
+    for (const alias of localNames) {
       const key = normalizeAlias(alias);
       if (!key) continue;
       const entries = out.get(key) ?? [];

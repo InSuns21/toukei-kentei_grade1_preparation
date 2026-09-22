@@ -21,7 +21,8 @@ concepts:
   - id: convex.subgradient
     name: 劣勾配
     kind: definition
-    aliases: [劣勾配, 劣勾配・劣微分]
+    aliases: [劣勾配]
+    introduction_aliases: [劣勾配・劣微分]
     requires:
       - convex.convex-function
       - convex.proper-function
@@ -29,7 +30,8 @@ concepts:
   - id: convex.subdifferential
     name: 劣微分
     kind: definition
-    aliases: [劣微分, 劣勾配・劣微分]
+    aliases: [劣微分]
+    introduction_aliases: [劣勾配・劣微分]
     requires:
       - convex.subgradient
 

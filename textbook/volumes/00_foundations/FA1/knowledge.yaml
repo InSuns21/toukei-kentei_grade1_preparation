@@ -49,7 +49,7 @@ concepts:
   - id: functional.pointwise-bounded-operator-family
     name: 点ごとに有界な作用素族
     kind: definition
-    aliases: [点ごとに有界な作用素族, pointwise bounded family, "### 定義（点ごとに有界な作用素族）"]
+    aliases: [点ごとに有界な作用素族, pointwise bounded operator family, "### 定義（点ごとに有界な作用素族）"]
     introduction_aliases: ["### 定義（点ごとに有界な作用素族）"]
     requires:
       - functional.bounded-linear-operator

@@ -27,4 +27,8 @@ formal_kinds:
 
 # 登録概念・formal statement・requires 依存関係に加え、changed-only CI では
 # 高信頼の未定義専門語候補、local concept の first-use、曖昧 alias 使用も blocking する。
+# aliases は同一概念の真の別称だけに使い、関連語・検索語・構成要素を入れない。
+# 複合見出し・formal label は introduction_aliases、再掲は一意な再掲名 + canonical concept への requires で表す。
+# stable ID / anchor は後方互換性を担うが、alias は担わない。意味的に誤った alias を互換目的で残さない。
+# 数学的意味を持つ記号（例: 弱*位相の *）は alias 正規化で失わない。
 # 既存違反は audit/WARN に残し、新しく持ち込む違反だけを merge blocker にする。

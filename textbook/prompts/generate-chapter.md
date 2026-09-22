@@ -34,7 +34,8 @@ DREAM THEATER の本文品質・証明粒度・定義例・演習量・詳細解
 5. 既知の定理を論理依存として使う場合は、名称と適用条件を示す。formal result への参照は可能な限り stable anchor へ直接リンクする。
 6. 分布の台、パラメータ空間、標本仮定、正則性条件など、定理・計算に必要な仮定を省略しない。
 7. PMF・PDF・CDF・PGF・MGFなど非自明な略語を通常本文の主表記にしない。`references/terminology-guide.md` の日本語正式名を使う。
-8. 既存問題や解答を転載・言い換えコピーしない。参考資料は難度・構造・解答粒度の校正に使う。
+8. DREAM THEATER の `knowledge.yaml` では `aliases` を真の同義語だけに限定し、関連語・検索語・複合見出しは入れない。複合見出しは `introduction_aliases`、再掲 concept は canonical concept への `requires` で表す。stable ID / anchor と alias を後方互換目的で混同しない。
+9. 既存問題や解答を転載・言い換えコピーしない。参考資料は難度・構造・解答粒度の校正に使う。
 
 ## 通常の試験向け章だけに適用する制約
 
@@ -65,6 +66,7 @@ DREAM THEATER の本文品質・証明粒度・定義例・演習量・詳細解
 - DREAM THEATER の完全証明は `proof-presentation-guide.md` に従い `proof-start` / `proof-end` で折りたたむ。証明の見取り図・核心・重要な仮定は本文側に残す。
 - formal statement は `formal-statement-presentation-guide.md` に従い、自己完結したステートメント、stable anchor、panel marker を持たせる。
 - `chapter.yaml`、`glossary.yaml`、`review/validation.md` および必要な knowledge/dependency metadata を同期する。
+- knowledge metadata を追加・更新するときは、読者向け主表記を `references/terminology-guide.md` に合わせ、短い alias が別分野の概念名を横取りしないか確認する。WARN を消すためだけに標準用語を不自然に改名しない。
 - 旧 `00_overview.md`〜`09_past_exam_practice.md` 分割形式は新規生成しない。
 
 生成後、数値例は独立計算で検算する。

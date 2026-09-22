@@ -87,13 +87,12 @@ concepts:
       - topology.topological-continuous-map
 
   - id: topology.sequentially-compact-space
-    name: 点列コンパクト性
+    name: 点列コンパクト性の再掲
     kind: definition
-    aliases: [点列コンパクト性, sequentially compact space]
+    aliases: [点列コンパクト性の再掲, sequential compactness recap]
     introduction_aliases: [点列コンパクト性]
     requires:
-      - topology.sequence-convergence
-      - topology.subsequence
+      - topology.sequentially-compact
 
   - id: topology.compact-sequential-equivalence-metric-space
     name: 距離空間ではコンパクト性と点列コンパクト性が同値
