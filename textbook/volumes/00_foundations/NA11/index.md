@@ -901,7 +901,7 @@ $$
 
 ---
 
-## 6. 列確率行列では Perron 固有値が1である
+## 6. 列和1の非負行列では Perron 固有値が1である
 
 <a id="def-na11-column-stochastic-stationary"></a>
 <!-- formal-statement-start -->
