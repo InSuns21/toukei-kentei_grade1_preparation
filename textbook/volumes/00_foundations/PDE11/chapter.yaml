@@ -12,7 +12,7 @@ learning_objectives:
   - Bessel 関数の零点と円板 Dirichlet 固有値を結び付けられる
   - 円板上の熱・波動方程式で Bessel モードの時間発展を説明できる
   - 球面 Laplacian の固有値問題から Legendre 方程式を導ける
-  - associated Legendre 関数から標準球面調和モードを構成できる
+  - Legendre 陪関数から標準球面調和モードを構成できる
   - 球面調和関数から球内部・外部の調和関数を構成できる
 definitions:
   - { id: PDE11-DEF-01, name: "円板の Bessel モード" }
@@ -22,7 +22,7 @@ theorems:
   - { id: PDE11-LEM-01, name: "整数次数 Bessel 関数の正零点" }
   - { id: PDE11-PROP-02, name: "球面固有値問題と Legendre 方程式" }
   - { id: PDE11-PROP-03, name: "標準球面調和モード" }
-  - { id: PDE11-PROP-04, name: "標準球面調和モードから得る solid harmonic" }
+  - { id: PDE11-PROP-04, name: "標準球面調和モードから得る 立体調和関数" }
 canonical_examples:
   - "放射対称 J0 モード"
   - "Legendre P0・P1・P2"
