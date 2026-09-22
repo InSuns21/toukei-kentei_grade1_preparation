@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - NA1
   - NA8
+  - NA4
   - LA4
   - F0-00F1
 official_scope: []
