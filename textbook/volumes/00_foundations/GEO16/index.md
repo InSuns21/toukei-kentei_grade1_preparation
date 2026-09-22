@@ -342,7 +342,7 @@ f\nabla_Y\nabla_XZ,
 \\
 \nabla_{[X,Y]}(fZ)
 &=
-[X,Y](f)Z
+[X,Y]fZ
 +
 f\nabla_{[X,Y]}Z.
 \end{aligned}
@@ -351,7 +351,7 @@ $$
 ここで
 
 $$
-[X,Y](f)
+[X,Y]f
 =
 X(Yf)-Y(Xf)
 $$
