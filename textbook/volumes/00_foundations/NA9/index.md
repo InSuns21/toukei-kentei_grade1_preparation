@@ -293,6 +293,8 @@ $$
 <!-- definition-example-start: def-na9-spectral-radius -->
 ### 例：2次対角行列で収束判定量を計算する
 
+**定義の確認**。
+
 $$
 G=
 \begin{pmatrix}
@@ -544,6 +546,8 @@ $$
 <!-- definition-example-start: def-na9-jacobi -->
 ### 例：2次系で Jacobi 更新を実行する
 
+**定義の確認**。
+
 $$
 A=
 \begin{pmatrix}
@@ -669,6 +673,8 @@ $$
 
 <!-- definition-example-start: def-na9-gauss-seidel -->
 ### 例：新しく得た成分をすぐ使う
+
+**定義の確認**。
 
 先ほどと同じ
 
@@ -947,6 +953,8 @@ $$
 <!-- definition-example-start: def-na9-krylov-subspace -->
 ### 例：2回の行列ベクトル積で平面全体になる
 
+**定義の確認**。
+
 $$
 A=
 \begin{pmatrix}
@@ -1219,6 +1227,8 @@ $$
 <!-- definition-example-start: def-na9-a-inner-product -->
 ### 例：通常は直交しなくても A-共役になり得る
 
+**定義の確認**。
+
 $$
 A=
 \begin{pmatrix}
@@ -1414,6 +1424,8 @@ $$
 
 <!-- definition-example-start: def-na9-cg -->
 ### 例：2次 SPD 系は2反復以内で解ける
+
+**定義の確認**。
 
 $$
 A=
@@ -2691,6 +2703,8 @@ $M$ は、$M^{-1}$ の作用、または $C,C^{\mathsf T}$ による三角連立
 
 <!-- definition-example-start: def-na9-preconditioning -->
 ### 例：対角前処理で条件数を100から4へ下げる
+
+**定義の確認**。
 
 $$
 A=
