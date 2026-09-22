@@ -347,7 +347,7 @@ $$
 <a id="thm-pde9-poisson-wave"></a>
 <!-- formal-statement-start -->
 > **定理（二次元波動方程式の Poisson 公式）**  
-> 二次元波動方程式の初期値 $f,g$ が十分滑らかなら
+> $f\in C^3(\mathbb R^2)$、$g\in C^2(\mathbb R^2)$ とする。二次元波動方程式の初期値を $f,g$ とすると
 
 $$
 u(t,x)
