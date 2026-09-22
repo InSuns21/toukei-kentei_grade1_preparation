@@ -1142,7 +1142,7 @@ Newton 法の二次収束は **単根**の近くでの性質です。重根で�
 
 ---
 
-## 11. Newton 法の局所二次収束
+## 11. 単根近傍で誤差が二乗される仕組み
 
 <a id="thm-na2-newton-quadratic"></a>
 <!-- formal-statement-start -->
