@@ -22,6 +22,13 @@ concepts:
       - geometry.smooth-vector-field
       - geometry.tangent-vector
 
+  - id: geometry.vector-field-derivation-leibniz
+    name: 滑らかなベクトル場は滑らかな関数環上の導分を定める
+    kind: proposition
+    aliases: [ベクトル場のLeibniz則, vector field derivation Leibniz rule]
+    requires:
+      - geometry.vector-field-derivation
+
   - id: geometry.integral-curve
     name: 積分曲線
     kind: definition
