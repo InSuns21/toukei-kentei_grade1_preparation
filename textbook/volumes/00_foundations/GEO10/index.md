@@ -999,7 +999,7 @@ $$
 $$
 II(X_i,X_j)
 =
--S(X_i)\text{ の符号ではなく }S(X_i)\cdot X_j
+S(X_i)\cdot X_j
 =
 -N_i\cdot X_j.
 $$
