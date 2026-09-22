@@ -9,14 +9,16 @@ concepts:
   - id: optimization.active-set-recap-c5a
     name: active setの再掲
     kind: definition
-    aliases: [active set・線形化cone]
+    aliases: [active setの再掲]
+    introduction_aliases: [active set・線形化cone]
     requires:
       - optimization.active-set
 
   - id: optimization.linearized-cone-recap-c5a
     name: 線形化coneの再掲
     kind: definition
-    aliases: [active set・線形化cone]
+    aliases: [線形化coneの再掲]
+    introduction_aliases: [active set・線形化cone]
     requires:
       - optimization.linearized-cone
       - optimization.active-set-recap-c5a
