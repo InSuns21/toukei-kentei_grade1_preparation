@@ -1,0 +1,55 @@
+id: "NA11"
+title: "数値解析 XI：Perron--Frobenius 理論と PageRank"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NA9
+  - NA10
+official_scope: []
+learning_objectives:
+  - 非負行列・正行列・既約性・原始性を定義し、それぞれが Perron 固有値の存在・一意性・スペクトルギャップのどこを担うか説明できる
+  - 正行列および既約非負行列に対する Perron--Frobenius 定理の核心証明を再構成できる
+  - 既約性だけでは冪乗反復の収束に足りないことを2周期反例で示し、原始性の役割を説明できる
+  - 列確率行列のスペクトル半径が1であることを示し、定常確率ベクトルを Perron 固有ベクトルとして導ける
+  - PageRank 行列の teleportation が正値性・存在一意性を保証する仕組みを説明できる
+  - PageRank 反復の1-ノルム縮小性を証明し、反復差から停止誤差を評価できる
+  - PageRank を線形方程式と Neumann 級数で表し、疎行列反復との関係を説明できる
+  - ダンピング係数 alpha が収束速度とリンク行列摂動感度に与えるトレードオフを評価できる
+definitions:
+  - { id: NA11-DEF-01, name: 非負行列・正行列 }
+  - { id: NA11-DEF-02, name: 既約非負行列 }
+  - { id: NA11-DEF-03, name: 原始行列 }
+  - { id: NA11-DEF-04, name: 列確率行列・定常確率ベクトル }
+  - { id: NA11-DEF-05, name: PageRank 行列・PageRank ベクトル }
+theorems:
+  - { id: NA11-PROP-01, name: 有限次元でのスペクトル半径公式 }
+  - { id: NA11-THM-01, name: 正行列に対する Perron--Frobenius 定理 }
+  - { id: NA11-THM-02, name: 既約非負行列に対する Perron--Frobenius 定理 }
+  - { id: NA11-PROP-02, name: 原始行列の Perron 固有値のスペクトルギャップ }
+  - { id: NA11-PROP-03, name: 既約列確率行列の定常確率ベクトル }
+  - { id: NA11-THM-03, name: 原始列確率行列の冪収束 }
+  - { id: NA11-THM-04, name: PageRank の存在・一意性 }
+  - { id: NA11-PROP-04, name: PageRank 写像の1-ノルム縮小性 }
+  - { id: NA11-PROP-05, name: PageRank の線形方程式表示と Neumann 級数 }
+  - { id: NA11-PROP-06, name: PageRank 反復の停止判定 }
+  - { id: NA11-PROP-07, name: PageRank のリンク行列に対する1-ノルム感度評価 }
+canonical_examples:
+  - 正行列と非負だが正でない行列の比較
+  - 既約だが原始でない2周期の列確率行列
+  - 2乗で正行列になる原始行列
+  - 2状態列確率行列の定常確率ベクトル
+  - 3ページの PageRank 方程式
+  - dangling node を含む3ページ PageRank
+problem_patterns:
+  - NA11-IRREDUCIBLE-PRIMITIVE-1
+  - NA11-STATIONARY-VECTOR-1
+  - NA11-PAGERANK-SOLVE-1
+  - NA11-PAGERANK-STOPPING-1
+  - NA11-PERIODIC-COUNTEREXAMPLE-1
+  - NA11-NEUMANN-TRUNCATION-1
+  - NA11-PAGERANK-SENSITIVITY-1
+  - NA11-DANGLING-INTEGRATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.5, exercises: 4.5, review: 0.5 }
