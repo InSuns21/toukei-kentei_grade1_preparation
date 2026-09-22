@@ -942,9 +942,10 @@ Phase 1 完了。GEO1 → GEO2 → GEO3 → GEO4 完了。
 - GEO6 Frobenius ✅ 2026-09-22
 - GEO7 テンソル場・微分形式 ✅ 2026-09-22
 - GEO8 一般 Stokes ✅ 2026-09-22
-- GEO9 de Rham 入門
+- GEO9 de Rham 入門 ✅ 2026-09-22
 
-GEO8 完了。次の実装開始点は **GEO9「Poincaré の補題・de Rham コホモロジー入門」** とする。
+Phase 2 完了。GEO5 → GEO6 → GEO7 → GEO8 → GEO9 完了。
+次の実装開始点は **Phase 3：GEO10「Euclid 空間の曲線・超曲面 I：基本形式と形作用素」** とする。
 
 ### Phase 3：古典曲面論から Riemann 幾何へ
 

@@ -159,6 +159,15 @@
 | 境界向き | boundary orientation | 原則として外向き先頭規約を明示する |
 | 最高次形式の積分 | integration of top-degree forms | 「多様体上の積分」の局所定義では最高次形式であることを明示する |
 | 一般 Stokes の定理 | generalized Stokes theorem | VC5 の Kelvin--Stokes の定理と区別して「一般 Stokes の定理」と書く |
+| 閉形式 | closed differential form | 外微分が 0 の微分形式。本文では「closed form」を主表記にしない |
+| 完全形式 | exact differential form | 1つ低い次数の微分形式の外微分として書ける形式 |
+| 滑らかなホモトピー | smooth homotopy | 本文では日本語主表記。写像間の滑らかな変形 |
+| ホモトピー作用素 | homotopy operator | 記号 $K_H$ は数式中で使用可 |
+| Poincaré の補題 | Poincaré lemma | 人名部分は英字表記を保持 |
+| de Rham 複体 | de Rham complex | 人名部分は `de Rham` を保持 |
+| de Rham コホモロジー | de Rham cohomology | 記号 $H^k_{\mathrm{dR}}(M)$ は保持 |
+| 変形レトラクト | deformation retract | 位相・微分位相の文脈で日本語主表記 |
+| 角度1形式 | angular 1-form | 穴あき平面の $(-y\,dx+x\,dy)/(x^2+y^2)$ を指す場合に使用 |
 | Whitney の埋め込み定理 | Whitney embedding theorem | 人名部分は英字表記を保持 |
 
 ## DREAM THEATER：数値解析の主表記

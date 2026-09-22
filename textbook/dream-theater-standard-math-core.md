@@ -85,6 +85,9 @@ flowchart TD
   GEO7 --> GEO8
   RA7 --> GEO8
   VC5 --> GEO8
+  GEO7 --> GEO9["Poincaré の補題・de Rham コホモロジー<br/>GEO9"]
+  GEO8 --> GEO9
+  TOP3 --> GEO9
   TOP5 --> TOP5A["Urysohn・局所コンパクト性・cutoff<br/>TOP5A"]
   TOP5 --> BAIRE["全有界性・Baire・net/filter<br/>TOP6"]
   BAIRE --> UNIFORM["一様構造・一様連続・Cauchy構造<br/>TOP7"]
@@ -708,6 +711,24 @@ direct prerequisite は GEO2、GEO5、LA3E です。GEO2 の接・余接空間�
 実装: [GEO8](volumes/00_foundations/GEO8/index.md)
 
 direct prerequisite は GEO4、GEO7、RA7、VC5 です。GEO7 の微分形式・外微分、RA7 の多変数変数変換、GEO4 の 1 の分割を一般 Stokes の証明へ直接使います。VC5 は古典 Kelvin--Stokes の向き規約との対応を確認する比較基準として再利用します。次の GEO9 では Poincaré の補題と de Rham コホモロジー入門へ進みます。
+
+
+## GEO9 Poincaré の補題・de Rham コホモロジー入門 \`advanced-standard\`
+
+- 閉形式・完全形式と「完全なら閉」
+- 穴あき平面の角度1形式を用いた「閉だが完全でない」直接例
+- 滑らかなホモトピーとホモトピー作用素
+- Cartan の公式からホモトピー公式を証明
+- 星型開集合上の Poincaré の補題を構成的に証明
+- de Rham 複体と de Rham コホモロジー
+- 連結多様体の $H^0_{\mathrm{dR}}$
+- de Rham コホモロジーの滑らかなホモトピー不変性
+- 周期関数の原始関数を使って $H^1_{\mathrm{dR}}(S^1)\cong\mathbb R$ を直接計算
+- 穴あき平面を $S^1$ へ変形レトラクトし、$H^1_{\mathrm{dR}}(\mathbb R^2\setminus\{0\})\cong\mathbb R$ を計算
+
+実装: [GEO9](volumes/00_foundations/GEO9/index.md)
+
+direct prerequisite は GEO7、GEO8、TOP3 です。GEO7 の外微分・内部積・Cartan の公式をホモトピー公式へ、GEO8 の微分形式の積分を円周のコホモロジー計算へ使います。TOP3 の連結性は $H^0_{\mathrm{dR}}$ の計算に使います。de Rham の定理・特異ホモロジー・Mayer--Vietoris 完全系列はここでは先取りせず、後続の代数的位相幾何系列へ送ります。次の GEO10 では Euclid 空間内の曲線・超曲面、第一・第二基本形式、形作用素へ進みます。
 
 ---
 
