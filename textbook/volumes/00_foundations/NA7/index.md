@@ -1410,21 +1410,21 @@ $$
 
 A 安定な数値法で、さらに左半平面内で
 
-$
+$$
 \boxed{
 |z|\to\infty,
 \qquad
 \operatorname{Re}z\le0
 }
-$
+$$
 
 としたとき
 
-$
+$$
 \boxed{
 R(z)\longrightarrow0
 }
-$
+$$
 
 が成り立つとき、その数値法を **L 安定**という。
 <!-- formal-statement-end -->
@@ -1488,9 +1488,9 @@ $$
 
 さらに左半平面内で $|z|\to\infty$ とすると
 
-$
+$$
 R(z)=\frac1{1-z}\longrightarrow0.
-$
+$$
 
 よって L 安定でもあります。
 <!-- proof-end -->
@@ -1613,12 +1613,12 @@ $$
 
 一方、たとえば負の実軸上で $z=-x$、$x\to+\infty$ とすると
 
-$
+$$
 R(-x)
 =
 \frac{1-x/2}{1+x/2}
 \longrightarrow-1.
-$
+$$
 
 左半平面内のこの経路ですら0へ行かないので、L 安定ではありません。
 <!-- proof-end -->
@@ -2031,12 +2031,12 @@ $$
 
 $\theta\ge1/2$ とします。$R_\theta$ は一次式同士の比なので、左半平面内で $|z|\to\infty$ とすると最高次項の比から
 
-$
+$$
 \lim_{|z|\to\infty\atop \operatorname{Re}z\le0}
 R_\theta(z)
 =
 -\frac{1-\theta}{\theta}.
-$
+$$
 
 これが0になるのは
 
