@@ -1283,7 +1283,7 @@ B(z,w+n)
 \frac{w+k}{z+w+k}
 \right]
 B(z,w).
-\tag{1}
+\qquad (1)
 $$
 
 次に左辺の大きさを直接調べる。$t=u/n$ と置けば
@@ -1295,7 +1295,7 @@ n^z B(z,w+n)
 u^{z-1}
 \left(1-\frac un\right)^{n+w-1}
 \,du.
-\tag{2}
+\qquad (2)
 $$
 
 固定した $u>0$ に対して
@@ -1358,7 +1358,7 @@ $$
 \boxed{
 n^zB(z,w+n)\to\Gamma(z)
 }.
-\tag{3}
+\qquad (3)
 $$
 
 最後に [Euler の極限公式](#thm-ca11-euler-limit)を $w$ と $z+w$ に適用して比を取る。
@@ -1388,7 +1388,7 @@ n^z
 \to
 \frac{\Gamma(z+w)}{\Gamma(w)}
 }.
-\tag{4}
+\qquad (4)
 $$
 
 (1) を $n^z$ 倍し、(3), (4) を使うと
@@ -1930,7 +1930,7 @@ $$
 B(z,w)
 =
 B(z+1,w)+B(z,w+1).
-\tag{1}
+\qquad (1)
 $$
 
 次に
@@ -1947,7 +1947,7 @@ $$
 B(z,w+1)
 =
 \frac wz B(z+1,w).
-\tag{2}
+\qquad (2)
 $$
 
 (1), (2) から
@@ -1976,7 +1976,7 @@ B(z,w+n)
 \frac{w+k}{z+w+k}
 \right]
 B(z,w).
-\tag{3}
+\qquad (3)
 $$
 
 次に $t=u/n$ と置くと
@@ -2015,7 +2015,7 @@ n^zB(z,w+n)
 \int_0^\infty u^{z-1}e^{-u}\,du
 =
 \Gamma(z).
-\tag{4}
+\qquad (4)
 $$
 
 一方、[Euler の極限公式](#thm-ca11-euler-limit)を $w$ と $z+w$ に適用して比を取ると
@@ -2037,7 +2037,7 @@ n^z
 \frac{w+k}{z+w+k}
 \to
 \frac{\Gamma(z+w)}{\Gamma(w)}.
-\tag{5}
+\qquad (5)
 $$
 
 (3) を $n^z$ 倍し、(4), (5) を合わせると
