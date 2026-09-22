@@ -1,0 +1,29 @@
+chapter: "GEO14"
+terms:
+  - term: 測地線
+    english: geodesic
+    meaning: Levi-Civita 接続に関して速度ベクトル自身の共変微分が0となる曲線。
+  - term: 測地線方程式
+    english: geodesic equation
+    meaning: 局所座標で測地線条件を表す二階非線形常微分方程式。
+  - term: 指数写像
+    english: exponential map
+    meaning: 点 p の接ベクトル v を、初期速度 v の測地線上の時刻1の点へ送る写像。
+  - term: 正規近傍
+    english: normal neighborhood
+    meaning: 指数写像が接空間の0近傍から微分同相になる像側の近傍。
+  - term: 正規球
+    english: normal ball
+    meaning: 接空間の Euclid 球を指数写像で微分同相に移した正規近傍。
+  - term: 正規座標
+    english: normal coordinates
+    meaning: 指数写像の逆像を基点の正規直交基底で成分表示して得る局所座標。
+  - term: 放射測地線
+    english: radial geodesic
+    meaning: 基点 p から exp_p(tv) として放射状に出る測地線。
+  - term: Gauss の補題
+    english: Gauss lemma
+    meaning: 指数写像が放射方向とそれに直交する角方向の直交性を保つことを表す補題。
+  - term: 凸正規近傍
+    english: convex normal neighborhood
+    meaning: 任意の二点が近傍内の一意な最短測地線で結ばれる正規近傍。
