@@ -1,0 +1,54 @@
+id: "NA8"
+title: "数値解析 VIII：数値線形代数 I—直接法"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NA1
+  - F0-00D1
+  - F0-00E1
+  - F0-00F1
+  - LA3B
+official_scope: []
+learning_objectives:
+  - 下三角・上三角連立方程式を前進代入・後退代入で一意に解き、計算量が二次であることを説明できる
+  - Gauss 消去法を消去行列の積として読み、非零ピボットの下で単位下三角行列 L と上三角行列 U による LU 分解を導ける
+  - 可逆行列に対して行交換なしの Gauss 消去が非零ピボットで完走できる条件を首座主小行列式で判定し、そのときの LU 分解の一意性を証明できる
+  - 部分ピボット選択付き Gauss 消去法から PA=LU を構成し、消去乗数の絶対値が1以下になる理由を説明できる
+  - 要素成長率を定義し、部分ピボット選択でも大きな要素成長が起こり得ることを具体例で説明できる
+  - 実対称正定値行列に対する Cholesky 分解 A=LL^T の存在一意性を Schur 補行列の正定値性から証明できる
+  - Householder 反射が直交変換であり、ベクトルを座標軸へ写すことを証明して QR 分解の数値構成へ接続できる
+  - LU・Cholesky・QR の使い分けを、行列構造・計算量・条件数・残差と後方誤差の観点から説明できる
+definitions:
+  - { id: NA8-DEF-01, name: LU 分解 }
+  - { id: NA8-DEF-02, name: 部分ピボット選択 }
+  - { id: NA8-DEF-03, name: 要素成長率 }
+  - { id: NA8-DEF-04, name: Cholesky 分解 }
+  - { id: NA8-DEF-05, name: Householder 反射 }
+theorems:
+  - { id: NA8-PROP-01, name: 三角連立方程式の逐次解法 }
+  - { id: NA8-THM-01, name: Gauss 消去法と LU 分解 }
+  - { id: NA8-THM-02, name: 可逆行列に対するピボット選択なし消去の判定と LU 一意性 }
+  - { id: NA8-THM-03, name: 部分ピボット選択付き LU 分解 }
+  - { id: NA8-THM-04, name: Cholesky 分解の存在一意性 }
+  - { id: NA8-PROP-02, name: Householder 反射の直交性と軸への写像 }
+  - { id: NA8-PROP-03, name: 正規方程式は2-ノルム条件数を二乗する }
+canonical_examples:
+  - 3次連立方程式の Gauss 消去と LU 分解
+  - 先頭ピボットが0となる可逆行列に対する行交換
+  - 部分ピボット選択でも要素成長率が4となる3次行列
+  - 2次実対称正定値行列の Cholesky 分解
+  - Householder 反射による2次正方行列の QR 分解
+  - 悪条件対角行列で小さい残差と大きい前方誤差が共存する例
+problem_patterns:
+  - NA8-TRIANGULAR-SOLVE-1
+  - NA8-LU-FACTOR-1
+  - NA8-PIVOTING-1
+  - NA8-CHOLESKY-1
+  - NA8-LU-LEADING-MINOR-1
+  - NA8-HOUSEHOLDER-QR-1
+  - NA8-RESIDUAL-CONDITION-1
+  - NA8-PIVOT-GROWTH-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.5, exercises: 4.5, review: 0.5 }

@@ -1,0 +1,26 @@
+chapter: "NA8"
+terms:
+  - term: LU 分解
+    english: LU factorization
+    meaning: 行列 A を単位下三角行列 L と上三角行列 U の積 A=LU に分解すること。
+  - term: Gauss 消去法
+    english: Gaussian elimination
+    meaning: ピボット行の倍数を下の行から引き、連立方程式を上三角形へ変形する直接法。
+  - term: 部分ピボット選択
+    english: partial pivoting
+    meaning: 各消去段階で現在列の未処理成分のうち絶対値最大のものをピボットに選び、必要なら行交換する方法。
+  - term: 要素成長率
+    english: element growth factor
+    meaning: Gauss 消去の途中に現れる最大要素が元の行列の最大要素から何倍まで成長したかを測る量。
+  - term: Cholesky 分解
+    english: Cholesky factorization
+    meaning: 実対称正定値行列 A を正の対角成分を持つ下三角行列 L により A=LL^T と分解すること。
+  - term: Householder 反射
+    english: Householder reflector
+    meaning: H=I-2vv^T/(v^Tv) で与えられる直交反射。QR 分解では列の下側成分を一度に0へするために用いる。
+  - term: 前進代入
+    english: forward substitution
+    meaning: 下三角連立方程式を第1行から順に未知数を確定して解く方法。
+  - term: 後退代入
+    english: backward substitution
+    meaning: 上三角連立方程式を最終行から逆順に未知数を確定して解く方法。
