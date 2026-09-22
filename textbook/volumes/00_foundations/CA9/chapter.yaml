@@ -1,0 +1,46 @@
+id: "CA9"
+title: "標準複素解析 IX：楕円関数・Weierstrass wp 関数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CA8
+  - CA7
+official_scope: []
+learning_objectives:
+  - 楕円関数を複素トーラス上の有理型関数として解釈し、基本平行四辺形の対辺積分相殺から留数和0と零点数・極数の一致を証明できる
+  - 格子点個数のO(R^2)評価から格子冪和の収束を導き、Weierstrass wp級数の正規収束をコンパクト集合上一様評価で証明できる
+  - wpの偶性・周期性・極構造とLaurent展開を導き、g2・g3を定義できる
+  - Laurent展開と正則楕円関数の剛性からWeierstrassの微分方程式を証明できる
+  - 半周期点とwp'の零点を対応させ、半周期値が三次式の相異なる根となり判別式が非零であることを証明できる
+  - Weierstrassの加法公式を極の比較から証明し、wpとwp'が複素トーラスを非特異三次曲線へ結び付けることを説明できる
+definitions:
+  - { id: CA9-DEF-01, name: 基本平行四辺形 }
+  - { id: CA9-DEF-02, name: 楕円関数 }
+  - { id: CA9-DEF-03, name: Weierstrass wp 関数 }
+  - { id: CA9-DEF-04, name: Eisenstein 級数と Weierstrass 不変量 }
+  - { id: CA9-DEF-05, name: 非零半周期点 }
+  - { id: CA9-DEF-06, name: 半周期値 }
+theorems:
+  - { id: CA9-LEM-01, name: 対辺積分の相殺 }
+  - { id: CA9-THM-01, name: 楕円関数の留数和 }
+  - { id: CA9-THM-02, name: 楕円関数の零点数と極数 }
+  - { id: CA9-COR-01, name: 非定数楕円関数は極を持つ }
+  - { id: CA9-LEM-02, name: 格子点個数の二次評価 }
+  - { id: CA9-COR-02, name: 格子冪和の収束 }
+  - { id: CA9-THM-03, name: wp 級数の正規収束 }
+  - { id: CA9-THM-04, name: wp の偶性と周期性 }
+  - { id: CA9-PROP-01, name: wp の原点での Laurent 展開 }
+  - { id: CA9-THM-05, name: Weierstrass の微分方程式 }
+  - { id: CA9-COR-03, name: wp'' の表示 }
+  - { id: CA9-THM-06, name: wp' の零点と半周期 }
+  - { id: CA9-PROP-02, name: wp は符号を除いて点を分離する }
+  - { id: CA9-THM-07, name: 三次多項式の非退化 }
+  - { id: CA9-PROP-03, name: 格子のスケーリング則 }
+  - { id: CA9-THM-08, name: Weierstrass の加法公式 }
+  - { id: CA9-THM-09, name: 複素トーラスの三次曲線表示の入口 }
+canonical_examples: [正方格子, 正三角形格子, 基本平行四辺形の境界積分相殺, wpの原点Laurent展開, 半周期でのwp'の零点, wpと非特異三次曲線]
+problem_patterns: [CA9-LATTICE-SUM-1, CA9-RESIDUE-BALANCE-1, CA9-WP-CONVERGENCE-1, CA9-HALF-PERIOD-1, CA9-DIFFERENTIAL-EQ-1, CA9-ADDITION-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 15.0, exercises: 9.0, review: 3.0 }
