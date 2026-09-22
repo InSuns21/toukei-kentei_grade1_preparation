@@ -114,30 +114,30 @@ $y\neq0$ では写像の階数2ですが、$y=0$ では写像の階数1です。
 > **定理（定数階数定理）**  
 > $M$ を $m$ 次元、$N$ を $n$ 次元の滑らかな多様体とし、$f:M\to N$ を滑らかな写像とする。$p\in M$ のある開近傍で
 >
-> $$
-> \operatorname{rank}_q f=r
-> $$
+$$
+\operatorname{rank}_q f=r
+$$
 >
 > が一定であるとする。このとき $p$ の局所座標
 >
-> $$
-> \varphi:U\to\mathbb R^m
-> $$
+$$
+\varphi:U\to\mathbb R^m
+$$
 >
 > と $f(p)$ の局所座標
 >
-> $$
-> \psi:V\to\mathbb R^n
-> $$
+$$
+\psi:V\to\mathbb R^n
+$$
 >
 > を、$\varphi(p)=0,\ \psi(f(p))=0$ となるように選べて、十分小さい近傍では
 >
-> $$
-> (\psi\circ f\circ\varphi^{-1})
-> (x^1,\dots,x^m)
-> =
-> (x^1,\dots,x^r,0,\dots,0)
-> $$
+$$
+(\psi\circ f\circ\varphi^{-1})
+(x^1,\dots,x^m)
+=
+(x^1,\dots,x^r,0,\dots,0)
+$$
 >
 > となる。
 <!-- formal-statement-end -->
@@ -378,11 +378,11 @@ $$
 > **系（はめ込みの局所標準形）**  
 > $f:M^m\to N^n$ がはめ込みなら、任意の $p\in M$ の周りで適切な局所座標を選ぶことにより
 >
-> $$
-> f(x^1,\dots,x^m)
-> =
-> (x^1,\dots,x^m,0,\dots,0)
-> $$
+$$
+f(x^1,\dots,x^m)
+=
+(x^1,\dots,x^m,0,\dots,0)
+$$
 >
 > と表せる。特に、各 $p$ の十分小さい近傍への制限は単射である。
 <!-- formal-statement-end -->
@@ -393,11 +393,11 @@ $$
 > **系（沈め込みの局所標準形）**  
 > $f:M^m\to N^n$ が沈め込みなら、任意の $p\in M$ の周りで適切な局所座標を選ぶことにより
 >
-> $$
-> f(x^1,\dots,x^m)
-> =
-> (x^1,\dots,x^n)
-> $$
+$$
+f(x^1,\dots,x^m)
+=
+(x^1,\dots,x^n)
+$$
 >
 > と表せる。
 <!-- formal-statement-end -->
@@ -472,18 +472,18 @@ $$
 > **定義（埋め込み部分多様体）**  
 > $M$ を $m$ 次元滑らかな多様体、$S\subset M$ を部分集合とする。$S$ が $k$ 次元 **埋め込み部分多様体**であるとは、任意の $p\in S$ に対して $M$ の局所座標
 >
-> $$
-> x:U\to x(U)\subset\mathbb R^m
-> $$
+$$
+x:U\to x(U)\subset\mathbb R^m
+$$
 >
 > が存在し、$x(p)=0$ かつ
 >
-> $$
-> x(U\cap S)
-> =
-> x(U)\cap
-> \bigl(\mathbb R^k\times\{0\}^{m-k}\bigr)
-> $$
+$$
+x(U\cap S)
+=
+x(U)\cap
+\bigl(\mathbb R^k\times\{0\}^{m-k}\bigr)
+$$
 >
 > となることをいう。このような座標を $S$ に適合した局所座標という。
 <!-- formal-statement-end -->
@@ -509,28 +509,28 @@ $$
 > **命題（部分多様体の包含写像と接空間）**  
 > $S\subset M$ を $k$ 次元埋め込み部分多様体とし、$i:S\hookrightarrow M$ を包含写像とする。任意の $p\in S$ に対して
 >
-> $$
-> di_p:T_pS\to T_pM
-> $$
+$$
+di_p:T_pS\to T_pM
+$$
 >
 > は単射である。$S$ に適合した座標
 >
-> $$
-> (x^1,\dots,x^k,x^{k+1},\dots,x^m)
-> $$
+$$
+(x^1,\dots,x^k,x^{k+1},\dots,x^m)
+$$
 >
 > では、その像は
 >
-> $$
-> \operatorname{Im}(di_p)
-> =
-> \operatorname{span}
-> \left\{
-> \left.\frac{\partial}{\partial x^1}\right|_p,
-> \dots,
-> \left.\frac{\partial}{\partial x^k}\right|_p
-> \right\}.
-> $$
+$$
+\operatorname{Im}(di_p)
+=
+\operatorname{span}
+\left\{
+\left.\frac{\partial}{\partial x^1}\right|_p,
+\dots,
+\left.\frac{\partial}{\partial x^k}\right|_p
+\right\}.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -641,11 +641,11 @@ $c>0$ は正則値です。また $c<0$ では $f^{-1}(c)=\varnothing$ なので
 > **定義（滑らかな写像のレベル集合）**  
 > 滑らかな写像 $f:M\to N$ と $q\in N$ に対し、
 >
-> $$
-> f^{-1}(q)
-> =
-> \{p\in M:f(p)=q\}
-> $$
+$$
+f^{-1}(q)
+=
+\{p\in M:f(p)=q\}
+$$
 >
 > を $q$ における **写像のレベル集合**という。
 <!-- formal-statement-end -->
@@ -676,9 +676,9 @@ $$
 > **定理（正則値定理）**  
 > $M$ を $m$ 次元、$N$ を $n$ 次元の滑らかな多様体とし、$f:M\to N$ を滑らかな写像とする。$q\in N$ が $f$ の正則値で、$f^{-1}(q)\neq\varnothing$ とする。このとき
 >
-> $$
-> S=f^{-1}(q)
-> $$
+$$
+S=f^{-1}(q)
+$$
 >
 > は $M$ の $m-n$ 次元埋め込み部分多様体である。
 <!-- formal-statement-end -->
@@ -789,17 +789,17 @@ $$
 > **定理（正則レベル集合の接空間）**  
 > $f:M^m\to N^n$ を滑らかな写像、$q\in N$ を正則値とし、
 >
-> $$
-> S=f^{-1}(q)\neq\varnothing
-> $$
+$$
+S=f^{-1}(q)\neq\varnothing
+$$
 >
 > とする。包含写像によって $T_pS$ を $T_pM$ の部分空間と同一視すると、任意の $p\in S$ について
 >
-> $$
-> T_pS
-> =
-> \ker df_p.
-> $$
+$$
+T_pS
+=
+\ker df_p.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -923,15 +923,15 @@ $$
 > 1. $S$ は $p$ の近くで $k$ 次元埋め込み部分多様体である。
 > 2. $p$ の開近傍 $U\subset M$ と滑らかな沈め込み
 >
-> $$
-> F:U\to\mathbb R^{m-k}
-> $$
+$$
+F:U\to\mathbb R^{m-k}
+$$
 >
 > が存在し、
 >
-> $$
-> S\cap U=F^{-1}(0)
-> $$
+$$
+S\cap U=F^{-1}(0)
+$$
 >
 > となる。
 <!-- formal-statement-end -->
