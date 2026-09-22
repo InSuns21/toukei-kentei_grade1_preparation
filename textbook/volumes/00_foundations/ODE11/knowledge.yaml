@@ -36,11 +36,6 @@ concepts:
     kind: definition
     aliases: ["周期軌道の乗数"]
     introduction: formal
-  - id: ode.ode11-flow-variational
-    name: 流れの初期値微分と変分方程式
-    kind: lemma
-    aliases: ["流れの初期値微分と変分方程式"]
-    introduction: formal
   - id: ode.ode11-planar-multiplier
     name: 平面周期軌道の乗数公式
     kind: theorem
