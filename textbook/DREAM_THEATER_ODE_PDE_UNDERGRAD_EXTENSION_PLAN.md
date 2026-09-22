@@ -50,7 +50,7 @@ Fourier 系列は FOU1--FOU5 のままとし、重複章を作らない。
 
 この拡張は **学部古典論** を対象にする。超関数・弱微分・Sobolev 空間・Lax--Milgram・変分弱解・Galerkin 弱解は Encore III の正本を使い、Encore II へ逆輸入しない。
 
-また、一般中心多様体定理、一般 Hopf 分岐定理の完全証明、保存則の entropy solution、Hamilton--Jacobi の 粘性解（viscosity solution）、HJB、Navier--Stokes の弱解は後続発展へ送る。PDE12 は古典 Hamilton--Jacobi を正本化し、粘性解 が必要になる地点で停止する。
+また、一般中心多様体定理、一般 Hopf 分岐定理の完全証明、保存則の entropy solution、Hamilton--Jacobi の粘性解（viscosity solution）、HJB、Navier--Stokes の弱解は後続発展へ送る。PDE12 は古典 Hamilton--Jacobi を正本化し、粘性解が必要になる地点で停止する。
 
 ## 2. ODE 拡張
 
@@ -124,7 +124,7 @@ Poincaré--Bendixson の完全証明で必要な Jordan 曲線定理は平面位
 
 直接前提：PDE6、VC4、VC6。
 
-$n$ 次元 放射対称関数の Laplacian、$n\ge3$ の基本解、Newton ポテンシャル、平均値性質、Kelvin 変換、半空間の鏡像法・Poisson kernel を扱う。VC8 の三次元 Newton ポテンシャルと重複させず一般次元と境界値問題を正本化する。
+$n$ 次元放射対称関数の Laplacian、$n\ge3$ の基本解、Newton ポテンシャル、平均値性質、Kelvin 変換、半空間の鏡像法・Poisson 核 を扱う。VC8 の三次元 Newton ポテンシャルと重複させず一般次元と境界値問題を正本化する。
 
 ### PDE11 特殊関数と球面調和
 
