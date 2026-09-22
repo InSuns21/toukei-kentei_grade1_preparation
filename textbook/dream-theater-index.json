@@ -1,13 +1,6 @@
 {
   "sections": [
     {
-      "name": "入口",
-      "paths": [
-        "textbook/volumes/00_foundations/F0_00_統計検定1級のための数学速習/index.md",
-        "textbook/volumes/00_foundations/F0_00R_基礎論ロードマップ/index.md"
-      ]
-    },
-    {
       "name": "DREAM THEATER 本編",
       "paths": [
         "textbook/volumes/00_foundations/F0_00A_集合_写像_上限下限/index.md",
