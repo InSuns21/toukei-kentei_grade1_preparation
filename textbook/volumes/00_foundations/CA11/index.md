@@ -1217,72 +1217,202 @@ $$
 <!-- proof-start -->
 ### 証明
 
-この補助節では、まず [Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02)を使う。変数変換には [Riemann積分の多変数変数変換定理](../RA7/index.md#thm-ra7-change-of-variables)を使う。CA11 の主線そのものには必要ないので、これらを未修なら本節だけ後回しにしてよい。
+$\alpha=\Re z>0$, $\beta=\Re w>0$ とする。まず Beta 関数の漸化式を作る。
 
-まず
+恒等式
+
 $$
-\left|
-x^{z-1}y^{w-1}e^{-(x+y)}
-\right|
+1=t+(1-t)
+$$
+
+を integrand に掛けると
+
+$$
+B(z,w)
 =
-x^{\Re z-1}y^{\Re w-1}e^{-(x+y)}
+B(z+1,w)+B(z,w+1).
 $$
-であり、その絶対値の二重積分は
-$$
-\Gamma(\Re z)\Gamma(\Re w)<\infty
-$$
-である。従って [Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02)を適用でき、
+
+一方、
 
 $$
-\Gamma(z)\Gamma(w)
+B(z,w+1)
 =
-\int_0^\infty
-\int_0^\infty
-x^{z-1}y^{w-1}e^{-(x+y)}
-\,dx\,dy
+\int_0^1 t^{z-1}(1-t)^w\,dt
 $$
 
-と書ける。
-
-ここで
+で部分積分する。$t^z(1-t)^w$ は両端で0へ行くので、
 
 $$
-r=x+y,
-\qquad
-t=\frac{x}{x+y}
-$$
-
-と置く。$(r,t)$ から $(x,y)$ へ戻す式は
-
-$$
-x=rt,
-\qquad
-y=r(1-t),
-$$
-
-領域は $r>0$, $0<t<1$ であり、Jacobian の絶対値は $r$ である。[Riemann積分の多変数変数変換定理](../RA7/index.md#thm-ra7-change-of-variables)をこの写像に適用すると
-
-$$
-\Gamma(z)\Gamma(w)
+B(z,w+1)
 =
-\int_0^\infty
-r^{z+w-1}e^{-r}\,dr
-\int_0^1
-t^{z-1}(1-t)^{w-1}\,dt.
+\frac wz
+\int_0^1 t^z(1-t)^{w-1}\,dt
+=
+\frac wz B(z+1,w).
+$$
+
+従って
+
+$$
+B(z,w)
+=
+\left(
+1+\frac zw
+\right)
+B(z,w+1),
 $$
 
 すなわち
 
 $$
-\Gamma(z)\Gamma(w)
+\boxed{
+B(z,w+1)
 =
-\Gamma(z+w)B(z,w).
+\frac{w}{z+w}B(z,w)
+}.
 $$
 
-右半平面では Gamma 関数は零点を持たないから $\Gamma(z+w)$ で割ることができ、主張を得る。$\square$
-<!-- proof-end -->
+これを $n$ 回繰り返すと
 
-この節だけは二重積分の順序交換と変数変換を使う。主線の反射公式・Stirling・倍角公式には依存せず、CA12 もこの補助節を prerequisite にしない。
+$$
+B(z,w+n)
+=
+\left[
+\prod_{k=0}^{n-1}
+\frac{w+k}{z+w+k}
+\right]
+B(z,w).
+\tag{1}
+$$
+
+次に左辺の大きさを直接調べる。$t=u/n$ と置けば
+
+$$
+n^z B(z,w+n)
+=
+\int_0^n
+u^{z-1}
+\left(1-\frac un\right)^{n+w-1}
+\,du.
+\tag{2}
+$$
+
+固定した $u>0$ に対して
+
+$$
+\left(1-\frac un\right)^{n+w-1}
+\longrightarrow
+e^{-u}.
+$$
+
+この極限を積分の外へ出す部分を、端点ごとに確認する。$n$ が十分大きければ
+
+$$
+n+\beta-1\ge \frac n2,
+$$
+
+したがって $0<u<n$ で
+
+$$
+\left|
+\left(1-\frac un\right)^{n+w-1}
+\right|
+=
+\left(1-\frac un\right)^{n+\beta-1}
+\le
+e^{-u/2}.
+$$
+
+よって integrand の絶対値は
+
+$$
+u^{\alpha-1}e^{-u/2}
+$$
+
+で抑えられる。任意の $\varepsilon>0$ に対し、まず小さい $\delta>0$ と大きい $A>0$ を選んで
+
+$$
+\int_0^\delta u^{\alpha-1}\,du<\varepsilon,
+\qquad
+\int_A^\infty u^{\alpha-1}e^{-u/2}\,du<\varepsilon
+$$
+
+とする。中間区間 $[\delta,A]$ では
+
+$$
+\left(1-\frac un\right)^{n+w-1}\to e^{-u}
+$$
+
+が一様だから、(2) の積分は
+
+$$
+\int_0^\infty u^{z-1}e^{-u}\,du
+=
+\Gamma(z)
+$$
+
+へ収束する。従って
+
+$$
+\boxed{
+n^zB(z,w+n)\to\Gamma(z)
+}.
+\tag{3}
+$$
+
+最後に [Euler の極限公式](#thm-ca11-euler-limit)を $w$ と $z+w$ に適用して比を取る。
+
+$$
+\frac{\Gamma(z+w)}{\Gamma(w)}
+=
+\lim_{N\to\infty}
+N^z
+\prod_{k=0}^{N}
+\frac{w+k}{z+w+k}.
+$$
+
+$N=n-1$ とし、
+
+$$
+\left(\frac n{n-1}\right)^z\to1
+$$
+
+を掛ければ
+
+$$
+\boxed{
+n^z
+\prod_{k=0}^{n-1}
+\frac{w+k}{z+w+k}
+\to
+\frac{\Gamma(z+w)}{\Gamma(w)}
+}.
+\tag{4}
+$$
+
+(1) を $n^z$ 倍し、(3), (4) を使うと
+
+$$
+\Gamma(z)
+=
+\frac{\Gamma(z+w)}{\Gamma(w)}
+B(z,w).
+$$
+
+[Gamma 関数の零点不存在](#cor-ca11-gamma-zero-free)により $\Gamma(w)$ と $\Gamma(z+w)$ は0でないので、
+
+$$
+B(z,w)
+=
+\frac{\Gamma(z)\Gamma(w)}
+{\Gamma(z+w)}.
+$$
+
+$\square$
+
+
+この証明は二重積分を使わず、Beta 関数の漸化式・1変数の極限評価・本章で証明した Euler の極限公式だけで閉じている。したがって CA11 の直接 prerequisite `CA10, CA7` を増やさない。
 
 **直接例**。$z=w=1/2$ とすると
 
@@ -1420,32 +1550,34 @@ $$
 を用いて $R\equiv1$ を示せ。
 
 <a id="ex-ca11-b3"></a>
-#### CA11-B03 Beta--Gamma 関係式
+#### CA11-B03 Beta--Gamma 関係式を1変数積分から導く
 - Level: B
 
-二重積分で
+$\Re z>0$, $\Re w>0$ とする。
 
-$$
-\Gamma(z)\Gamma(w)
-$$
-
-を表し、
-
-$$
-x=rt,
-\qquad
-y=r(1-t)
-$$
-
-と変数変換して
-
-$$
-B(z,w)
-=
-\frac{\Gamma(z)\Gamma(w)}{\Gamma(z+w)}
-$$
-
-を導け。収束条件も確認せよ。
+1. 部分積分を用いて
+   $$
+   B(z,w+1)=\frac{w}{z+w}B(z,w)
+   $$
+   を示せ。
+2. $t=u/n$ と置き、
+   $$
+   n^zB(z,w+n)\to\Gamma(z)
+   $$
+   を示せ。
+3. [Euler の極限公式](#thm-ca11-euler-limit)から
+   $$
+   n^z
+   \prod_{k=0}^{n-1}
+   \frac{w+k}{z+w+k}
+   \to
+   \frac{\Gamma(z+w)}{\Gamma(w)}
+   $$
+   を導き、
+   $$
+   B(z,w)=\frac{\Gamma(z)\Gamma(w)}{\Gamma(z+w)}
+   $$
+   を結論せよ。
 
 ### Level C
 
@@ -1782,87 +1914,150 @@ $$
 
 ### B3 解答
 
-$\Re z>0$, $\Re w>0$ なら
+まず
 
 $$
-\int_0^\infty x^{\Re z-1}e^{-x}\,dx<\infty,
-\qquad
-\int_0^\infty y^{\Re w-1}e^{-y}\,dy<\infty.
-$$
-
-従って積の二重積分は絶対収束する。
-
-$$
-\Gamma(z)\Gamma(w)
+B(z,w)
 =
-\int_0^\infty\int_0^\infty
-x^{z-1}y^{w-1}e^{-(x+y)}
-\,dx\,dy.
+\int_0^1
+t^{z-1}(1-t)^{w-1}
+\{t+(1-t)\}\,dt
 $$
 
-変数変換
+だから
 
 $$
-x=rt,\qquad y=r(1-t)
-$$
-
-では
-
-$$
-r=x+y>0,\qquad 0<t<1.
-$$
-
-Jacobian は
-
-$$
-\left|
-\det
-\begin{pmatrix}
-t&r\\
-1-t&-r
-\end{pmatrix}
-\right|
+B(z,w)
 =
-r.
+B(z+1,w)+B(z,w+1).
+\tag{1}
+$$
+
+次に
+
+$$
+B(z,w+1)
+=
+\int_0^1 t^{z-1}(1-t)^w\,dt
+$$
+
+で部分積分する。$\Re z,\Re w>0$ なので $t^z(1-t)^w$ は $t=0,1$ の両端で0となる。従って
+
+$$
+B(z,w+1)
+=
+\frac wz B(z+1,w).
+\tag{2}
+$$
+
+(1), (2) から
+
+$$
+B(z,w)
+=
+\left(1+\frac zw\right)B(z,w+1),
 $$
 
 よって
 
 $$
-x^{z-1}y^{w-1}dx\,dy
+B(z,w+1)
 =
-r^{z+w-2}
-t^{z-1}(1-t)^{w-1}
-\cdot r\,dr\,dt.
+\frac{w}{z+w}B(z,w).
+$$
+
+反復すると
+
+$$
+B(z,w+n)
+=
+\left[
+\prod_{k=0}^{n-1}
+\frac{w+k}{z+w+k}
+\right]
+B(z,w).
+\tag{3}
+$$
+
+次に $t=u/n$ と置くと
+
+$$
+n^zB(z,w+n)
+=
+\int_0^n
+u^{z-1}
+\left(1-\frac un\right)^{n+w-1}
+\,du.
+$$
+
+$\alpha=\Re z>0$, $\beta=\Re w>0$ と置く。固定した $u$ では括弧内は $e^{-u}$ へ収束する。また十分大きい $n$ では
+
+$$
+n+\beta-1\ge\frac n2,
 $$
 
 したがって
 
 $$
-\Gamma(z)\Gamma(w)
+\left|
+u^{z-1}
+\left(1-\frac un\right)^{n+w-1}
+\right|
+\le
+u^{\alpha-1}e^{-u/2}.
+$$
+
+$0$ 近傍、中間の有限区間、無限遠の尾部に分ければ、本章の Euler 極限公式と同じ評価で
+
+$$
+n^zB(z,w+n)
+\to
+\int_0^\infty u^{z-1}e^{-u}\,du
 =
-\left(
-\int_0^\infty r^{z+w-1}e^{-r}\,dr
-\right)
-\left(
-\int_0^1 t^{z-1}(1-t)^{w-1}\,dt
-\right).
+\Gamma(z).
+\tag{4}
 $$
 
-第一因子は $\Gamma(z+w)$、第二因子は $B(z,w)$ だから
+一方、[Euler の極限公式](#thm-ca11-euler-limit)を $w$ と $z+w$ に適用して比を取ると
 
 $$
-\Gamma(z)\Gamma(w)
+\frac{\Gamma(z+w)}{\Gamma(w)}
 =
-\Gamma(z+w)B(z,w).
+\lim_{N\to\infty}
+N^z
+\prod_{k=0}^{N}
+\frac{w+k}{z+w+k}.
 $$
 
-Gamma 関数は零点を持たないので
+$N=n-1$ と置き、$n^z/(n-1)^z\to1$ を使えば
 
 $$
+n^z
+\prod_{k=0}^{n-1}
+\frac{w+k}{z+w+k}
+\to
+\frac{\Gamma(z+w)}{\Gamma(w)}.
+\tag{5}
+$$
+
+(3) を $n^z$ 倍し、(4), (5) を合わせると
+
+$$
+\Gamma(z)
+=
+\frac{\Gamma(z+w)}{\Gamma(w)}
+B(z,w).
+$$
+
+[Gamma 関数の零点不存在](#cor-ca11-gamma-zero-free)から分母は0でないので、
+
+$$
+\boxed{
 B(z,w)
 =
-\frac{\Gamma(z)\Gamma(w)}{\Gamma(z+w)}.
+\frac{\Gamma(z)\Gamma(w)}
+{\Gamma(z+w)}
+}.
 $$
 
 ### C1 解答
@@ -2079,6 +2274,6 @@ CA11 を終えた段階で、次を自力で再構成できることを目標と
 5. CA10 の正弦関数の Euler 積と比較して反射公式を証明する。
 6. Wallis 積で Stirling 公式の定数 sqrt(2pi) まで決定する。
 7. Stirling と周期性から Legendre の倍角公式を証明する。
-8. Beta--Gamma 関係式の変数変換を追う。
+8. Beta--Gamma 関係式を漸化式と Euler の極限公式から導く。
 
 次章 CA12 では、Gamma 関数を Mellin 変換側の因子として使い、Riemann zeta 関数の解析接続と関数等式へ進む。
