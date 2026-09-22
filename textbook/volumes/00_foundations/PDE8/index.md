@@ -4,7 +4,7 @@
 
 PDE3 と PDE4 では主に斉次方程式を解きました。しかし現実のモデルでは、内部発熱・外力・電荷・入力のような source term が入ります。
 
-ODE2・ODE3 の定数変化法では
+ODE3 の [非斉次線形系の定数変化公式](../ODE3/index.md#thm-ode3-variation-of-constants)では
 
 $$
 \text{自由発展}
@@ -111,7 +111,7 @@ v(t,x)
 \int_0^t(S(t-s)f(s))(x)\,ds
 $$
 
-と置きます。Leibniz の公式により
+と置きます。積分上端を含む微分公式により
 
 $$
 v_t(t,x)
@@ -147,7 +147,7 @@ $$
 S(t-s_0)g
 $$
 
-です。Duhamel 公式はこの「インパルス応答」を時間方向に重ね合わせています。Dirac delta を厳密な超関数として扱う理論は GPDE1 へ送ります。
+です。Duhamel 公式は、この瞬間入力ごとの寄与を時間方向に重ね合わせています。点へ集中する入力を厳密化する理論は GPDE1 へ送ります。
 
 ## 4. 非斉次一次元波動方程式
 
@@ -307,7 +307,7 @@ $$
 という階乗型評価が得られ、級数 $\sum (LT)^n/n!$ の収束から一様 Cauchy 性が従います。極限が積分方程式を満たすことは一様収束と Lipschitz 連続性から極限を通して確認できます。
 <!-- proof-end -->
 
-ここでは積分方程式の構成までを古典論の bridge とします。一般半群上の mild solution は Encore III 後続 Track A、弱解は GPDE10 の正本を使います。
+ここでは積分方程式の構成までを古典論の bridge とします。一般半群上の積分方程式としての解概念は Encore III 後続 Track A、弱解は GPDE10 の正本を使います。
 
 ## 演習
 
@@ -387,7 +387,7 @@ $u=a(t)\sin x$ と置くと $a'+a=e^{-t}$, $a(0)=0$。積分因子 $e^t$ から 
 
 <!-- solution-start -->
 ##### 詳細解答
-積分は $0\le s\le t$ と $|y-x|\le c(t-s)$ の範囲だけを使います。従って後方光円錐の内部だけが $(t,x)$ に影響します。
+積分は $0\le s\le t$ と $|y-x|\le c(t-s)$ の範囲だけを使います。従って後方特性領域だけが $(t,x)$ に影響します。
 <!-- solution-end -->
 
 #### PDE8-B03 Picard 差評価
@@ -408,10 +408,10 @@ $D_n(t)=\sup_x|u_n-u_{n-1}|$ とする。$D_{n+1}(t)\le L\int_0^tD_n(s)ds$。$D_
 有限区間の固有関数 $\phi_n$ が $-\phi_n''=\lambda_n\phi_n$ を満たすとする。
 $$
 u_t+Au=f,
-qquad
+\qquad
 u(0)=u_0
 $$
-を有限個の固有モードに展開し、各係数の定数変化公式から Duhamel 形を導け。
+を有限個の固有モードに展開し、各係数について [非斉次線形系の定数変化公式](../ODE3/index.md#thm-ode3-variation-of-constants)を使い Duhamel 形を導け。
 
 <!-- solution-start -->
 ##### 詳細解答
@@ -419,7 +419,7 @@ $u=\sum a_n(t)\phi_n$, $f=\sum f_n(t)\phi_n$ と置くと
 $$
 a_n'+\lambda_na_n=f_n.
 $$
-ODE2 の一階線形方程式より
+[非斉次線形系の定数変化公式](../ODE3/index.md#thm-ode3-variation-of-constants)より
 $$
 a_n(t)=e^{-\lambda_nt}a_n(0)+\int_0^te^{-\lambda_n(t-s)}f_n(s)ds.
 $$
