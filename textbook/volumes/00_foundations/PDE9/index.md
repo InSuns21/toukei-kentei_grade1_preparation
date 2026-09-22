@@ -37,6 +37,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pde9-spherical-mean -->
+**定義の確認**：以下で定義の条件を直接確認します。
+
 ### 具体例：一次関数の球面平均
 
 $h(y)=a+b\cdot y$ なら、球面上の $y-x$ の平均が0なので
