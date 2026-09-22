@@ -70,21 +70,13 @@ concepts:
     introduction_aliases: ["定理（Weierstrass 因数分解定理）"]
     requires: [complex-analysis.weierstrass-zero-set-construction, complex-analysis.zero-free-entire-exponential]
 
-  - id: complex-analysis.principal-part-data
-    name: 主要部データ
-    kind: definition
-    aliases: [主要部データ, principal part, principal parts]
-    introduction: formal
-    introduction_aliases: ["定義（主要部データ）"]
-    requires: [complex-analysis.laurent-expansion]
-
   - id: complex-analysis.mittag-leffler-theorem
     name: Mittag--Leffler の定理
     kind: theorem
     aliases: [Mittag--Leffler の定理, Mittag-Leffler theorem]
     introduction: formal
     introduction_aliases: ["定理（Mittag--Leffler の定理）"]
-    requires: [complex-analysis.principal-part-data, complex-analysis.holomorphic-locally-uniform-limit]
+    requires: [complex-analysis.laurent-series, complex-analysis.holomorphic-locally-uniform-limit]
 
   - id: complex-analysis.cotangent-partial-fraction
     name: pi cot(pi z) の部分分数展開
