@@ -203,11 +203,11 @@ $$
 > **補題（整数次数 Bessel 関数の正零点）**  
 > 非負整数 $m$ に対し、$J_m$ は正の実軸上に無限個の零点を持つ。各零点は孤立しているため、
 >
-> $$
-> 0<j_{m,1}<j_{m,2}<\cdots,
-> \qquad
-> j_{m,k}\to\infty
-> $$
+$$
+0<j_{m,1}<j_{m,2}<\cdots,
+\qquad
+j_{m,k}\to\infty
+$$
 >
 > と順に並べられる。
 <!-- formal-statement-end -->
@@ -228,7 +228,7 @@ v''+q(r)v=0,
 q(r)\ge\frac12.
 $$
 
-位相平面 $(v,v')$ の偏角を $\theta$ とすると $\theta'$ が正の定数以上になり、偏角が無限に回転します。$\theta=k\pi$ を通るたびに $v=0$、従って $J_m=0$ です。
+平面ベクトル $(v,v')$ の偏角を $\theta$ とすると $\theta'$ が正の定数以上になり、偏角が無限に回転します。$\theta=k\pi$ を通るたびに $v=0$、従って $J_m=0$ です。
 
 <!-- proof-start -->
 ### 証明
@@ -815,8 +815,8 @@ $$
 
 <a id="prop-pde11-solid-harmonic"></a>
 <!-- formal-statement-start -->
-> **命題（標準球面調和モードから得る 立体調和関数）**  
-> 標準球面調和モード $Y_\ell^m$ に対し
+> **命題（標準球面調和モードから得る立体調和関数）**  
+> [標準球面調和モード](#prop-pde11-spherical-eigenmode) $Y_\ell^m$ に対し
 
 $$
 u_{\ell m}(r,\omega)
