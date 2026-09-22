@@ -25,9 +25,9 @@ concepts:
       - convex.convex-combination
 
   - id: convex.convex-set-recap-f0-02b
-    name: 凸集合の再掲
+    name: 分離定理で使う凸集合の再掲
     kind: definition
-    aliases: [凸集合の再掲]
+    aliases: [分離定理で使う凸集合の再掲]
     introduction_aliases: [凸結合・凸集合・凸包]
     requires:
       - convex.convex-set
