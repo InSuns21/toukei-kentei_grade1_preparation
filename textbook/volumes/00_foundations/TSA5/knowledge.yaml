@@ -32,7 +32,7 @@ concepts:
     kind: definition
     aliases: ["ergodicity", "ergodic stationary process"]
     introduction: formal
-    introduction_aliases: ["定義（不変σ-加法族）"]
+    introduction_aliases: ["定義（エルゴード性）"]
     requires:
       - timeseries.invariant-sigma-field
 
