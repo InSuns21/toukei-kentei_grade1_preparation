@@ -68,13 +68,13 @@ $$
 
 を採用します。
 
-この規約では半径 $a$ の標準球面の断面曲率は
+この規約では半径 $a$ の標準球面で2次元接平面に割り当てる曲率は
 
 $$
 +\frac1{a^2},
 $$
 
-上半平面模型の断面曲率は
+上半平面模型で同じ方法により得る曲率は
 
 $$
 -\frac1{a^2}
@@ -119,7 +119,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo16-curvature -->
-**定義の確認：Euclid 空間**
+**定義の確認**
+
+例：Euclid 空間
 
 $\mathbb R^n$ の Cartesian 座標では標準 Levi-Civita 接続について
 
@@ -650,7 +652,7 @@ $$
 
 ---
 
-## 4. Riemann 曲率テンソルの対称性
+## 4. 曲率テンソルが満たす代数的恒等式
 
 4階テンソルなら何でも曲率になれるわけではありません。Levi-Civita 接続が
 
@@ -939,7 +941,7 @@ $$
 
 ---
 
-## 5. 第二 Bianchi 恒等式
+## 5. 曲率の微分的整合条件
 
 第一 Bianchi 恒等式は一つの点での代数的制約でした。
 
@@ -1133,7 +1135,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo16-sectional-curvature -->
-**定義の確認：Euclid 空間**
+**定義の確認**
+
+例：Euclid 空間
 
 Euclid 空間では $\operatorname{Rm}=0$ です。
 
@@ -1467,11 +1471,9 @@ $x,y,w,z$ は任意だったから $C=0$、従って $A=B$ です。$\square$
 
 ---
 
-## 8. Ricci 曲率とスカラー曲率
+## 8. 曲率を方向ごと・全方向へ平均化する
 
-断面曲率は「2平面ごとの曲がり方」でした。
-
-それをある方向の周囲で足し合わせると Ricci 曲率になり、さらに全方向で足すとスカラー曲率になります。
+ここまでの2次元接平面ごとの曲率情報を、まず一つの方向の周囲で足し合わせ、さらに全方向で足し合わせる量を定義します。
 
 <a id="def-geo16-ricci-scalar"></a>
 <!-- formal-statement-start -->
@@ -1506,7 +1508,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo16-ricci-scalar -->
-**定義の確認：Euclid 空間**
+**定義の確認**
+
+例：Euclid 空間
 
 Euclid 空間では
 
@@ -1630,7 +1634,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo16-constant-sectional-curvature -->
-**定義の確認：Euclid 空間**
+**定義の確認**
+
+例：Euclid 空間
 
 Euclid 空間では全ての断面曲率が0でした。
 
