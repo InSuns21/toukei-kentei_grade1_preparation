@@ -970,9 +970,9 @@ $$
 >
 > 同値に、最大流の定義域が
 >
-> $
+> $$
 > \mathcal D_X=\mathbb R\times M
-> $
+> $$
 >
 > となる。
 <!-- formal-statement-end -->
