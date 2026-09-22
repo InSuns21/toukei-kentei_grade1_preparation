@@ -1,0 +1,29 @@
+chapter: "GEO7"
+terms:
+  - term: テンソル場
+    english: tensor field
+    meaning: 各点pの接空間・余接空間から作るテンソルをpに滑らかに依存するよう割り当てたもの。
+  - term: 微分形式
+    english: differential form
+    meaning: 各点pでΛ^k(T_p^*M)に属する交代的な共変テンソルを滑らかに割り当てたもの。
+  - term: 微分形式の外積
+    english: wedge product of differential forms
+    meaning: 各点で外積代数の外積を取り、k形式とl形式から(k+l)形式を作る演算。
+  - term: 微分形式の引き戻し
+    english: pullback of differential forms
+    meaning: 滑らかな写像Fの微分dFを各引数へ入れることで標的多様体上の形式を始域へ移す操作。
+  - term: 外微分
+    english: exterior derivative
+    meaning: k形式を(k+1)形式へ送り、局所座標では係数関数を微分して座標1形式との外積を取る座標不変な作用素。
+  - term: 次数付きLeibniz則
+    english: graded Leibniz rule
+    meaning: k形式αについてd(α∧β)=dα∧β+(-1)^k α∧dβとなる外微分の積の法則。
+  - term: 内部積
+    english: interior product
+    meaning: ベクトル場Xを微分形式の第一引数へ差し込み、次数を1下げる演算ι_X。
+  - term: Lie微分
+    english: Lie derivative
+    meaning: ベクトル場Xの局所流Φ_tによる引き戻しΦ_t^*のt=0での変化率として定義される微分形式の変化。
+  - term: Cartan の公式
+    english: Cartan formula
+    meaning: 微分形式のLie微分をL_X=dι_X+ι_Xdと表す恒等式。
