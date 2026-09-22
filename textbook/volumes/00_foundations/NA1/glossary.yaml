@@ -1,0 +1,24 @@
+chapter: "NA1"
+terms:
+  - term: 単位丸め誤差
+    english: unit roundoff
+    meaning: 最近接丸めを行う基数 beta・精度 p の正規化浮動小数点系で u=(1/2)beta^(1-p) と定める相対丸め誤差の基本尺度。
+  - term: 桁落ち
+    english: cancellation
+    aliases: [catastrophic cancellation]
+    meaning: 近い二つの近似値の減算により、各入力に含まれていた絶対誤差が差に対して大きな相対誤差となり、有効桁が失われる現象。
+  - term: 条件数
+    english: condition number
+    meaning: 入力の微小な相対摂動が出力の相対変化をどれだけ増幅し得るかを測る問題側の感度。
+  - term: 前方誤差
+    english: forward error
+    meaning: 与えられた入力に対する厳密な出力と、アルゴリズムが返した計算結果との差。
+  - term: 後方誤差
+    english: backward error
+    meaning: 計算結果を厳密解とみなせるようにするため、元の入力へどれだけの摂動が必要かを測る誤差。
+  - term: 後方安定性
+    english: backward stability
+    meaning: 計算結果が、元の入力から丸め誤差程度だけ摂動した問題の厳密解として解釈できるアルゴリズムの性質。
+  - term: 残差
+    english: residual
+    meaning: 線形方程式 Ax=b の近似解 x_tilde に対する r=b-Ax_tilde。A を固定して b だけを摂動する場合、そのノルムは後方誤差を直接与える。
