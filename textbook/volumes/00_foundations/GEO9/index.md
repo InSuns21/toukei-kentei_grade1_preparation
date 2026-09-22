@@ -12,19 +12,19 @@ $$
 \text{完全形式}
 $$
 
-の差として捉え、その差を測る **de Rham コホモロジー**を導入します。
+の差として捉え、その差を商空間として記録する方法を導入します。
 
 主役は次の三段です。
 
-1. ホモトピー作用素から Poincaré の補題を証明する。
-2. de Rham コホモロジーを定義し、滑らかなホモトピーで不変であることを証明する。
+1. パラメータ積分で次数を1下げる作用素を作り、外微分が0の形式から局所ポテンシャルを構成する。
+2. 外微分でつながる列から商空間を定義し、滑らかな変形でその商が不変であることを証明する。
 3. $S^1$ と穴あき平面を直接計算し、「局所的にはポテンシャルがあるが大域的にはない」を数式で確認する。
 
 de Rham の定理、特異ホモロジー、Mayer--Vietoris 完全系列は本章では使いません。したがって本章だけで、微分形式側から見える最初の位相的不変量まで到達できます。
 
 ---
 
-## 1. 閉形式と完全形式
+## 1. 外微分が消える形式とポテンシャルから生じる形式
 
 $M$ を滑らかな多様体とします。
 
@@ -33,17 +33,13 @@ $M$ を滑らかな多様体とします。
 > **定義（閉形式・完全形式）**  
 > $\omega\in\Omega^k(M)$ とする。
 >
-> $$
-> d\omega=0
-> $$
+> $d\omega=0$
 >
 > を満たすとき、$\omega$ を **閉形式**という。
 >
 > ある $\eta\in\Omega^{k-1}(M)$ が存在して
 >
-> $$
-> \omega=d\eta
-> $$
+> $\omega=d\eta$
 >
 > と書けるとき、$\omega$ を **完全形式**という。
 >
@@ -234,7 +230,7 @@ $$
 
 ---
 
-## 3. 滑らかなホモトピーとホモトピー作用素
+## 3. 写像の滑らかな変形と次数を1下げる作用素
 
 二つの滑らかな写像を連続的に変形するとき、引き戻された微分形式の差がどのように見えるかを調べます。
 
@@ -243,23 +239,15 @@ $$
 > **定義（滑らかなホモトピー）**  
 > 滑らかな多様体 $M,N$ と滑らかな写像
 >
-> $$
-> f_0,f_1:M\to N
-> $$
+> $f_0,f_1:M\to N$
 >
 > に対し、滑らかな写像
 >
-> $$
-> H:[0,1]\times M\to N
-> $$
+> $H:[0,1]\times M\to N$
 >
 > が
 >
-> $$
-> H(0,p)=f_0(p),
-> \qquad
-> H(1,p)=f_1(p)
-> $$
+> $H(0,p)=f_0(p), \qquad H(1,p)=f_1(p)$
 >
 > を満たすとき、$H$ を $f_0$ と $f_1$ の **滑らかなホモトピー**という。
 <!-- formal-statement-end -->
@@ -299,22 +287,11 @@ $$
 > **定義（ホモトピー作用素）**  
 > 滑らかなホモトピー
 >
-> $$
-> H:[0,1]\times M\to N
-> $$
+> $H:[0,1]\times M\to N$
 >
 > に対して、$k\ge1$ と $\omega\in\Omega^k(N)$ に
 >
-> $$
-> K_H\omega
-> :=
-> \int_0^1
-> j_t^*
-> \left(
-> \iota_{\partial_t}H^*\omega
-> \right)
-> dt
-> $$
+> $K_H\omega := \int_0^1 j_t^* \left( \iota_{\partial_t}H^*\omega \right) dt$
 >
 > と定める。
 >
@@ -379,26 +356,18 @@ $$
 
 ---
 
-## 4. ホモトピー公式
+## 4. 変形の両端を外微分で比較する
 
 <a id="thm-geo9-homotopy-formula"></a>
 <!-- formal-statement-start -->
 > **定理（ホモトピー公式）**  
 > $H:[0,1]\times M\to N$ を滑らかなホモトピーとし、
 >
-> $$
-> H_t(p):=H(t,p)
-> $$
+> $H_t(p):=H(t,p)$
 >
 > と書く。任意の $\omega\in\Omega^k(N)$ に対して
 >
-> $$
-> \boxed{
-> H_1^*\omega-H_0^*\omega
-> =
-> d(K_H\omega)+K_H(d\omega)
-> }
-> $$
+> $\boxed{ H_1^*\omega-H_0^*\omega = d(K_H\omega)+K_H(d\omega) }$
 >
 > が成り立つ。
 >
@@ -526,7 +495,7 @@ $\square$
 
 ---
 
-## 5. Poincaré の補題
+## 5. 星型開集合では局所障害が消える
 
 Euclid 空間の開集合 $U\subset\mathbb R^n$ が点 $a\in U$ に関して **星型**であるとは、任意の $x\in U$ と $0\le t\le1$ に対して
 
@@ -541,23 +510,15 @@ $$
 > **定理（Poincaré の補題）**  
 > $U\subset\mathbb R^n$ を星型開集合とし、$k\ge1$ とする。
 >
-> $$
-> \omega\in\Omega^k(U),
-> \qquad
-> d\omega=0
-> $$
+> $\omega\in\Omega^k(U), \qquad d\omega=0$
 >
 > ならば、ある
 >
-> $$
-> \eta\in\Omega^{k-1}(U)
-> $$
+> $\eta\in\Omega^{k-1}(U)$
 >
 > が存在して
 >
-> $$
-> \omega=d\eta
-> $$
+> $\omega=d\eta$
 >
 > となる。
 >
@@ -574,7 +535,7 @@ $$
 
 が常に $U$ の中に留まることを保証します。
 
-$H_1=\operatorname{id}_U$、$H_0=c_a$ は点 $a$ への定値写像です。正次数の形式は定値写像で引き戻すと0になるため、ホモトピー公式は
+$H_1=\operatorname{id}_U$、$H_0=c_a$ は点 $a$ への定値写像です。正次数の形式は定値写像で引き戻すと0になるため、[ホモトピー公式](#thm-geo9-homotopy-formula)は
 
 $$
 \omega=d(K_H\omega)
@@ -660,7 +621,7 @@ $$
 
 ここで $t^{k-1}$ は、$v_1,dots,v_{k-1}$ が $dH$ によってそれぞれ $t$ 倍されるために現れます。
 
-Poincaré の補題が言っているのは、
+[Poincaré の補題](#thm-geo9-poincare-lemma)が言っているのは、
 
 > **局所的な障害はない。障害があるなら、それは領域全体の形に由来する。**
 
@@ -668,26 +629,14 @@ Poincaré の補題が言っているのは、
 
 ---
 
-## 6. de Rham 複体
+## 6. 外微分で微分形式をつなぐ
 
 <a id="def-geo9-de-rham-complex"></a>
 <!-- formal-statement-start -->
 > **定義（de Rham 複体）**  
 > 滑らかな $n$ 次元多様体 $M$ に対して
 >
-> $$
-> 0
-> \longrightarrow
-> \Omega^0(M)
-> \xrightarrow{d}
-> \Omega^1(M)
-> \xrightarrow{d}
-> \cdots
-> \xrightarrow{d}
-> \Omega^n(M)
-> \longrightarrow
-> 0
-> $$
+> $0 \longrightarrow \Omega^0(M) \xrightarrow{d} \Omega^1(M) \xrightarrow{d} \cdots \xrightarrow{d} \Omega^n(M) \longrightarrow 0$
 >
 > を **de Rham 複体**という。
 >
@@ -754,32 +703,24 @@ $$
 
 ---
 
-## 7. de Rham コホモロジー
+## 7. 閉じているが完全でない差を商で測る
 
 <a id="def-geo9-de-rham-cohomology"></a>
 <!-- formal-statement-start -->
 > **定義（de Rham コホモロジー）**  
 > 滑らかな多様体 $M$ の $k$ 次 **de Rham コホモロジー**を
 >
-> $$
-> H^k_{\mathrm{dR}}(M)
-> :=
-> \frac{Z^k(M)}{B^k(M)}
-> $$
+> $H^k_{\mathrm{dR}}(M) := \frac{Z^k(M)}{B^k(M)}$
 >
 > と定める。
 >
 > 閉形式 $\omega$ の同値類を
 >
-> $$
-> [\omega]
-> $$
+> $[\omega]$
 >
 > と書く。二つの閉形式 $\omega,\omega'$ が同じ類を表すとは
 >
-> $$
-> \omega-\omega'=d\eta
-> $$
+> $\omega-\omega'=d\eta$
 >
 > となる $(k-1)$ 形式 $\eta$ が存在することをいう。
 <!-- formal-statement-end -->
@@ -822,7 +763,7 @@ H^1_{\mathrm{dR}}(\mathbb R^2\setminus\{0\}).
 $$
 <!-- definition-example-end -->
 
-Poincaré の補題から、星型開集合 $U$ では
+[Poincaré の補題](#thm-geo9-poincare-lemma)から、星型開集合 $U$ では
 
 $$
 H^k_{\mathrm{dR}}(U)=0
@@ -842,11 +783,7 @@ $$
 > **定理（連結多様体の0次 de Rham コホモロジー）**  
 > $M$ が非空の連結滑らかな多様体なら
 >
-> $$
-> H^0_{\mathrm{dR}}(M)
-> \cong
-> \mathbb R.
-> $$
+> $H^0_{\mathrm{dR}}(M) \cong \mathbb R.$
 >
 > 同型は定数関数 $c$ を実数 $c$ に対応させることで与えられる。
 <!-- formal-statement-end -->
@@ -961,26 +898,16 @@ $$
 > **定理（de Rham コホモロジーの滑らかなホモトピー不変性）**  
 > 滑らかな写像
 >
-> $$
-> f_0,f_1:M\to N
-> $$
+> $f_0,f_1:M\to N$
 >
 > が滑らかにホモトープなら、全ての $k\ge0$ について誘導写像は一致する。
 >
-> $$
-> f_0^*
-> =
-> f_1^*
-> :
-> H^k_{\mathrm{dR}}(N)
-> \to
-> H^k_{\mathrm{dR}}(M).
-> $$
+> $f_0^* = f_1^* : H^k_{\mathrm{dR}}(N) \to H^k_{\mathrm{dR}}(M).$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-閉形式 $\omega$ にホモトピー公式を使うと
+閉形式 $\omega$ に[ホモトピー公式](#thm-geo9-homotopy-formula)を使うと
 
 $$
 f_1^*\omega-f_0^*\omega
@@ -1080,35 +1007,19 @@ $$
 > **定理（円周の1次 de Rham コホモロジー）**  
 > 反時計回りに向き付けた円周 $S^1$ について
 >
-> $$
-> \boxed{
-> H^1_{\mathrm{dR}}(S^1)
-> \cong
-> \mathbb R
-> }.
-> $$
+> $\boxed{ H^1_{\mathrm{dR}}(S^1) \cong \mathbb R }.$
 >
 > 具体的には
 >
-> $$
-> [\omega]
-> \longmapsto
-> \int_{S^1}\omega
-> $$
+> $[\omega] \longmapsto \int_{S^1}\omega$
 >
 > が線形同型である。
 >
-> $$
-> \eta
-> :=
-> x\,dy-y\,dx
-> $$
+> $\eta := x\,dy-y\,dx$
 >
 > の $S^1$ への制限は
 >
-> $$
-> \int_{S^1}\eta=2\pi
-> $$
+> $\int_{S^1}\eta=2\pi$
 >
 > を満たし、$H^1_{\mathrm{dR}}(S^1)$ の生成元を与える。
 <!-- formal-statement-end -->
@@ -1364,21 +1275,11 @@ $$
 > **系（穴あき平面の1次 de Rham コホモロジー）**  
 > $X=\mathbb R^2\setminus\{0\}$ とする。このとき
 >
-> $$
-> \boxed{
-> H^1_{\mathrm{dR}}(X)
-> \cong
-> \mathbb R
-> }.
-> $$
+> $\boxed{ H^1_{\mathrm{dR}}(X) \cong \mathbb R }.$
 >
 > 生成元は
 >
-> $$
-> \alpha
-> =
-> \frac{-y\,dx+x\,dy}{x^2+y^2}
-> $$
+> $\alpha = \frac{-y\,dx+x\,dy}{x^2+y^2}$
 >
 > のコホモロジー類 $[\alpha]$ で与えられる。
 <!-- formal-statement-end -->
@@ -1523,7 +1424,7 @@ $$
 
 が分かります。
 
-星型開集合では Poincaré の補題により逆も成り立つので
+星型開集合では [Poincaré の補題](#thm-geo9-poincare-lemma)により逆も成り立つので
 
 $$
 \text{閉}
@@ -1562,7 +1463,7 @@ $$
 
 が記録します。
 
-さらにホモトピー公式により、滑らかな変形でこの商空間は変わりません。
+さらに[ホモトピー公式](#thm-geo9-homotopy-formula)により、滑らかな変形でこの商空間は変わりません。
 
 本章ではここで止めます。de Rham コホモロジーと特異コホモロジーを同一視する de Rham の定理、Mayer--Vietoris 完全系列、特性類は後続の代数的位相幾何系列の担当です。
 
@@ -1848,7 +1749,7 @@ $$
 
 1. $B^k(M)\subset Z^k(M)$ を示せ。
 2. この包含があるために商空間 $Z^k(M)/B^k(M)$ を定義できることを説明せよ。
-3. $M=\mathbb R^n$ のとき $k\ge1$ ではこの商空間が0であることを Poincaré の補題から説明せよ。
+3. $M=\mathbb R^n$ のとき $k\ge1$ ではこの商空間が0であることを [Poincaré の補題](#thm-geo9-poincare-lemma)から説明せよ。
 
 - Level: A
 - 狙い: de Rham コホモロジーの定義が $d^2=0$ に支えられていることを確認する
@@ -1900,7 +1801,7 @@ $$
 
 を定義できます。これが $H^k_{\mathrm{dR}}(M)$ です。
 
-最後に $\mathbb R^n$ は原点について星型です。従って Poincaré の補題から、$k\ge1$ の閉 $k$ 形式は全て完全です。
+最後に $\mathbb R^n$ は原点について星型です。従って [Poincaré の補題](#thm-geo9-poincare-lemma)から、$k\ge1$ の閉 $k$ 形式は全て完全です。
 
 すなわち
 
@@ -1941,7 +1842,7 @@ $$
 3. $d(K_H\omega)=\omega$ を確認せよ。
 
 - Level: A
-- 狙い: Poincaré の補題の証明を抽象記号だけで終わらせず $df=\omega$ を満たす関数の構成として実行する
+- 狙い: [Poincaré の補題](#thm-geo9-poincare-lemma)の証明を抽象記号だけで終わらせず $df=\omega$ を満たす関数の構成として実行する
 
 <!-- solution-start -->
 **詳細解答**
@@ -2050,7 +1951,7 @@ $$
 3. 求めた $\eta$ を直接外微分して $d\eta=\omega$ を確認せよ。
 
 - Level: B
-- 狙い: Poincaré の補題を2形式に対して構成的に使う
+- 狙い: [Poincaré の補題](#thm-geo9-poincare-lemma)を2形式に対して構成的に使う
 
 <!-- solution-start -->
 **詳細解答**
@@ -2238,7 +2139,7 @@ $H:[0,1]\times M\to N$ を $f_0,f_1:M\to N$ の滑らかなホモトピーとす
    を満たすとき、$f^*$ と $g^*$ が互いに逆の同型になることを示せ。
 
 - Level: B
-- 狙い: ホモトピー公式からホモトピー不変性とホモトピー同値不変性を自力で再構成する
+- 狙い: [ホモトピー公式](#thm-geo9-homotopy-formula)からホモトピー不変性とホモトピー同値不変性を自力で再構成する
 
 <!-- solution-start -->
 **詳細解答**
@@ -2249,7 +2150,7 @@ $$
 d\omega=0.
 $$
 
-ホモトピー公式から
+[ホモトピー公式](#thm-geo9-homotopy-formula)から
 
 $$
 f_1^*\omega-f_0^*\omega
@@ -2730,13 +2631,13 @@ $f$ は $df$ だけで決まるので、$X$ が連結であることから加法
 本章を終えた時点で、次を自力で再現できれば十分です。
 
 - 閉形式と完全形式を定義し、完全なら閉を $d^2=0$ から示せる。
-- 星型開集合の動径ホモトピーから Poincaré の補題を証明できる。
+- 星型開集合の動径ホモトピーから [Poincaré の補題](#thm-geo9-poincare-lemma)を証明できる。
 - de Rham 複体と $H^k_{\mathrm{dR}}(M)$ の定義を説明できる。
-- ホモトピー公式
+- [ホモトピー公式](#thm-geo9-homotopy-formula)
   $$
   H_1^*-H_0^*=dK_H+K_Hd
   $$
-  を Cartan の公式から導ける。
+  を [Cartan の公式](../GEO7/index.md#thm-geo7-cartan-formula)から導ける。
 - 滑らかなホモトピーが同じコホモロジー写像を誘導することを示せる。
 - $H^0_{\mathrm{dR}}(M)$ が連結成分と対応することを説明できる。
 - $H^1_{\mathrm{dR}}(S^1)\cong\mathbb R$ を周期積分から直接証明できる。
