@@ -514,7 +514,7 @@ VC4 / VC5 の Green・Gauss--Ostrogradsky・Kelvin--Stokes は特殊例として
 
 **tier: core**
 
-**prerequisites:** GEO4, GEO7, LA5
+**prerequisites:** GEO4, GEO7, GEO8, LA5, VC1
 
 主な内容：
 
@@ -783,8 +783,8 @@ GEO5 ─────────────────────────
                        GEO9
 
 GEO3 + VC3 ─────→ GEO10 → GEO11
-GEO4 + GEO7 ─────→ GEO12
-GEO5 + GEO12 ────→ GEO13
+GEO4 + GEO7 + GEO8 + LA5 + VC1 ─→ GEO12
+GEO5 + GEO12 ─────────────────────→ GEO13
 GEO13 + ODE4 ────→ GEO14 → GEO15
 GEO13 + GEO11 ───→ GEO16
 GEO14 + GEO16 ───→ GEO17
@@ -951,7 +951,7 @@ Phase 3 の GEO11 まで完了。次の実装開始点は **GEO12「Riemann 計�
 
 - GEO10 曲線・超曲面 I ✅ 2026-09-22
 - GEO11 超曲面 II ✅ 2026-09-23
-- GEO12 Riemann 計量
+- GEO12 Riemann 計量 ✅ 2026-09-23
 - GEO13 接続
 - GEO14 測地線・指数写像
 
