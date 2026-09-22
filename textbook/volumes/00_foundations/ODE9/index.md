@@ -1,4 +1,4 @@
-# ODE9 Lyapunov 関数・不変集合・LaSalle の原理
+# ODE9 非線形安定性・不変集合・単調量
 
 <!-- definition-example-audit: strict -->
 
@@ -38,7 +38,7 @@ $$
 線形化は $x'=0$ で判定不能ですが、三次項の符号から $V$ は原点以外で厳密に減ります。
 <!-- definition-example-end -->
 
-## 2. Lyapunov の直接法
+## 2. 単調量から安定性を証明する
 
 <a id="thm-ode9-direct"></a>
 <!-- formal-statement-start -->
@@ -116,7 +116,7 @@ $$
 
 有界軌道なら有限次元のコンパクト性から正の極限集合は空でありません。ODE8 の連続依存を使うと極限集合は流れで不変になります。
 
-## 5. LaSalle の不変性原理
+## 5. 減少が止まる集合から長時間挙動を読む
 
 <a id="thm-ode9-lasalle"></a>
 <!-- formal-statement-start -->
