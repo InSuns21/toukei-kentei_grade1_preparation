@@ -10,9 +10,9 @@ forward_references: []
 
 concepts:
   - id: numerical.root
-    name: 零点・根
+    name: スカラー方程式の零点・根
     kind: definition
-    aliases: [零点, 根, root, zero]
+    aliases: [スカラー方程式の零点, スカラー方程式の根]
     introduction: formal
     introduction_aliases: ["定義（零点・根）"]
     requires: []
@@ -42,9 +42,9 @@ concepts:
     requires: [numerical.bisection-method, analysis.intermediate-value-theorem, topology.complete-metric-space]
 
   - id: numerical.fixed-point
-    name: 不動点
+    name: 数値反復における不動点
     kind: definition
-    aliases: [不動点, fixed point]
+    aliases: [不動点反復の不動点]
     introduction: formal
     introduction_aliases: ["定義（不動点）"]
     requires: []
@@ -58,9 +58,9 @@ concepts:
     requires: [numerical.fixed-point]
 
   - id: numerical.contraction
-    name: 縮小写像
+    name: 不動点反復の縮小写像
     kind: definition
-    aliases: [縮小写像]
+    aliases: [不動点反復の縮小写像]
     introduction: formal
     introduction_aliases: ["定義（縮小写像）"]
     requires: [analysis.lipschitz-continuity]
@@ -98,11 +98,11 @@ concepts:
     requires: [analysis.derivative]
 
   - id: numerical.simple-multiple-root
-    name: 単純根・重根
+    name: Newton 法における単純根・多重根
     kind: definition
-    aliases: [単純根, 重根, simple root, multiple root]
+    aliases: [Newton 法の単純根, Newton 法の多重根]
     introduction: formal
-    introduction_aliases: ["定義（単純根・重根）"]
+    introduction_aliases: ["定義（単純根・多重根）"]
     requires: [numerical.root, analysis.derivative]
 
   - id: numerical.newton-local-quadratic
