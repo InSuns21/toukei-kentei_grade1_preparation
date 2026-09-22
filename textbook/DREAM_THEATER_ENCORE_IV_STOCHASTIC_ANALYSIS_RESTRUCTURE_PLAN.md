@@ -603,8 +603,8 @@ ARMA / ergodicity / Kalman
 - STO1 の direct prerequisite は F0-00P1 と F0-00P3C に限定し、旧 SP1 は参照しない。
 - Phase 1：STO2「離散時間 martingale・不等式・収束」を実装。martingale / submartingale / predictable transform / stopped process / bounded optional sampling / Doob decomposition / maximal inequality / upcrossing inequality / a.s. convergence / UI・L1 convergence を、主要証明・直接例・A4/B3/C1・全問詳細解答まで閉じた。
 - STO2 の direct prerequisite は STO1・F0-00P3C・F0-00P4A とし、旧 SP2 は migration source に留めて prerequisite / proof dependency にしない。
-- Phase 1：STO3「確率過程の構成・Kolmogorov continuity」を実装。finite-dimensional distributions / consistency / canonical path space / Kolmogorov extension theorem / Hölder continuity / Kolmogorov--Chentsov continuity theorem / continuous modifications の一意性を、主要証明・直接例・A4/B3/C1・全問詳細解答まで閉じた。
-- STO3 の direct prerequisite は STO1・F0-00D4・F0-00P4 とし、読順上は STO2 の後に置くが、martingale 理論を不要な direct prerequisite として追加しない。
+- Phase 1：STO3「確率過程の構成・Kolmogorov continuity」を実装。有限次元分布 / 整合性 / 標準経路空間 / Kolmogorov 拡張定理 / 平均関数と半正定値共分散核からのガウス過程構成 / Hölder 連続性 / Kolmogorov--Chentsov 連続定理 / 連続修正の一意性を、主要証明・直接例・A4/B3/C1・全問詳細解答まで閉じた。
+- STO3 の direct prerequisite は STO1・F0-00D4・F0-00F1・F0-00P4 とする。F0-00F1 は半正定値共分散行列から退化を許す有限次元ガウス分布を構成する際のスペクトル定理に使う。読順上は STO2 の後に置くが、martingale 理論を不要な direct prerequisite として追加しない。
 - Kolmogorov extension theorem は cylinder algebra 上の well-definedness・有限加法性だけで済ませず、有限次元 Borel 測度の compact 内部近似、continuity from above、premeasure 性、Carathéodory extension まで本文で核心証明を閉じた。
 - Kolmogorov--Chentsov continuity theorem は dyadic grid・Markov inequality・union bound・Borel--Cantelli・chaining から continuous modification と Hölder exponent を構成するところまで証明した。
 - Phase 1：STO4「Brown 運動・hitting time・strong Markov property」を実装。covariance $\min(s,t)$ の Gaussian finite-dimensional laws から Kolmogorov extension / continuity を用いて Brown 運動を構成し、Markov property / strong Markov property / reflection principle / hitting time distribution / 1 次元 recurrence / time inversion を、主要証明・直接例・A4/B3/C1・全問詳細解答まで閉じた。
