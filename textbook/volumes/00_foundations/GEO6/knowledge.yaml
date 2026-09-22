@@ -41,7 +41,7 @@ concepts:
   - id: geometry.integrable-distribution
     name: 可積分な分布
     kind: definition
-    aliases: [可積分な分布, 可積分性, integrable distribution]
+    aliases: [可積分な分布, integrable distribution]
     introduction_aliases: ["定義（積分多様体・可積分性）"]
     requires:
       - geometry.integral-manifold
