@@ -86,7 +86,7 @@ $$
 \partial_rm
 =
 \frac1{4\pi}
-\int_{S^2}\nabla h(x+r\omega)\cdot\omega,dS_\omega.
+\int_{S^2}\nabla h(x+r\omega)\cdot\omega\,dS_\omega.
 $$
 
 半径 $r$ の球面へ戻すと
@@ -135,7 +135,7 @@ $$
 <a id="thm-pde9-kirchhoff"></a>
 <!-- formal-statement-start -->
 > **定理（Kirchhoff 公式）**  
-> $f\in C^3(\mathbb R^3)$, $g\in C^2(\mathbb R^3)$ が十分な減衰を持つとする。三次元波動方程式
+> $f\in C^3(\mathbb R^3)$, $g\in C^2(\mathbb R^3)$ とする。三次元波動方程式
 
 $$
 u_{tt}-c^2\Delta u=0,
@@ -145,7 +145,7 @@ u(0,x)=f(x),
 u_t(0,x)=g(x)
 $$
 
-> の古典解は
+> に対し、次式は $t\ge0$ の古典解を与える。
 
 $$
 u(t,x)
@@ -153,10 +153,8 @@ u(t,x)
 \frac{\partial}{\partial t}
 \left[tM_{ct}f(x)\right]
 +
-tM_{ct}g(x)
+tM_{ct}g(x).
 $$
-
-> で与えられる。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -166,27 +164,141 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$F(t,x)=tM_{ct}f(x)$ と置きます。$r=ct$ なので補題から
+まず球面平均を
+
+$$
+M_0h(x):=h(x)
+$$
+
+と定めて $r=0$ まで延長します。単位球面表示
+
+$$
+M_rh(x)
+=
+\frac1{4\pi}
+\int_{S^2}h(x+r\omega)\,dS_\omega
+$$
+
+から、$h\in C^1$ なら
+
+$$
+\left.\partial_rM_rh(x)\right|_{r=0}
+=
+\frac1{4\pi}
+\int_{S^2}\nabla h(x)\cdot\omega\,dS_\omega
+=
+0
+$$
+
+です。最後の等号では $\omega$ と $-\omega$ の対称性を使いました。
+
+次に
+
+$$
+F(t,x)=tM_{ct}f(x),
+\qquad
+G(t,x)=tM_{ct}g(x)
+$$
+
+と置きます。$q_f(r,x)=rM_rf(x)$ と書けば、Euler--Poisson--Darboux 関係と $x$ 微分の積分交換から
+
+$$
+\partial_{rr}q_f
+=
+rM_r(\Delta f)
+=
+\Delta_xq_f.
+$$
+
+$F(t,x)=c^{-1}q_f(ct,x)$ なので連鎖律より
 
 $$
 F_{tt}
 =
-c^2tM_{ct}(\Delta f)
-=
 c^2\Delta_xF.
 $$
 
-同様に $G(t,x)=tM_{ct}g(x)$ も $G_{tt}=c^2\Delta G$ を満たします。従って $F_t+G$ も波動方程式を満たします。
+同じ計算で
 
-$t\downarrow0$ で $M_{ct}f(x)\to f(x)$ なので
+$$
+G_{tt}
+=
+c^2\Delta_xG.
+$$
+
+さらに波動作用素
+
+$$
+L:=\partial_{tt}-c^2\Delta_x
+$$
+
+は $t$ 微分と可換なので、$LF=0$ から
+
+$$
+L(F_t)
+=
+\partial_t(LF)
+=
+0.
+$$
+
+従って
+
+$$
+u=F_t+G
+$$
+
+も $Lu=0$ を満たします。
+
+初期条件を一つずつ確認します。積の微分から
+
+$$
+F_t(t,x)
+=
+M_{ct}f(x)
++
+ct\,\partial_rM_rf(x)\big|_{r=ct}.
+$$
+
+したがって $t\downarrow0$ で
 
 $$
 F_t(0,x)=f(x).
 $$
 
-また $G(0,x)=0$。よって $u(0)=f$。
+また $G(0,x)=0$ なので
 
-さらに球面平均は $r$ の偶関数として0近傍へ延長でき、$\partial_rM_rh|_{r=0}=0$ です。従って $F_{tt}(0)=0$、$G_t(0)=g$ なので $u_t(0)=g$ です。
+$$
+u(0,x)=f(x).
+$$
+
+さらに
+
+$$
+F_{tt}(0,x)
+=
+2c\,\partial_rM_rf(x)\big|_{r=0}
+=
+0,
+$$
+
+一方
+
+$$
+G_t(0,x)=g(x).
+$$
+
+従って
+
+$$
+u_t(0,x)
+=
+F_{tt}(0,x)+G_t(0,x)
+=
+g(x).
+$$
+
+これで PDE と二つの初期条件を全て検証しました。
 <!-- proof-end -->
 
 同じ公式を球面積分で書けば
@@ -217,6 +329,8 @@ $$
 
 > 上のデータだけで決まり、球の内部の初期データは直接寄与しない。
 <!-- formal-statement-end -->
+
+ここで第1項には $t$ 微分が付いていますが、微分後に現れるのも半径 $ct$ の球面上の $f$ とその法線方向微分です。球内部の値を積分する項は生じません。したがって「球面だけが効く」という主張は $f$ 項にも $g$ 項にも成り立ちます。
 
 これは一次元の d'Alembert 公式とも二次元公式とも異なる、三次元波動の鋭い伝播です。
 
@@ -298,6 +412,20 @@ $$
 $$
 
 となり、主張の式を得ます。
+
+最後に「三次元公式を変形しただけで、なぜ二次元 PDE の解になっているのか」を確認します。二次元の $f,g$ を $x_3$ に依存しない三次元関数として延長すると、上の球面積分は鉛直方向の平行移動で変わらないため、Kirchhoff 公式で作った三次元解 $U(t,x_1,x_2,x_3)$ も $x_3$ に依存しません。従って
+
+$$
+U_{x_3x_3}=0
+$$
+
+であり、
+
+$$
+U_{tt}-c^2(U_{x_1x_1}+U_{x_2x_2})=0.
+$$
+
+$x_3=0$ に制限した $u(t,x_1,x_2)=U(t,x_1,x_2,0)$ は、同じ初期値 $f,g$ を持つ二次元波動方程式の古典解です。
 <!-- proof-end -->
 
 ## 6. 二次元では波の尾が残る
@@ -385,7 +513,19 @@ $v=rU$ とすると $v_{rr}=2U_r+rU_{rr}=r\Delta U$、$v_{tt}=rU_{tt}$。従っ�
 
 <!-- solution-start -->
 ##### 詳細解答
-球面 $S_{ct}(x)$ が $B_R(0)$ と交わらなければ積分は0です。特に $|x|>R+ct$ なら全ての $y$ with $|y-x|=ct$ について $|y|\ge|x|-ct>R$ なので0です。
+球面 $S_{ct}(x)$ が $B_R(0)$ と交わらなければ積分は0です。特に $|x|>R+ct$ なら、$|y-x|=ct$ を満たす全ての $y$ について
+
+$$
+|y|
+\ge
+|x|-|y-x|
+=
+|x|-ct
+>
+R
+$$
+
+なので、球面上の初期データは0です。従って $u(t,x)=0$ です。
 <!-- solution-end -->
 
 #### PDE9-B03 Huygens と尾
