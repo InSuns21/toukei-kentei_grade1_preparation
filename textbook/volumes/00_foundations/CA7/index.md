@@ -785,7 +785,7 @@ $$
 \frac{h'}h
 $$
 
-は $\Omega$ 上正則である。[単連結領域の Cauchy の定理](../CA2/index.md#thm-ca2-cauchy-simply-connected)により全ての閉曲線積分が0になるので、CA2 の基点積分による原始関数構成から、ある正則関数 $G$ が存在して
+は $\Omega$ 上正則である。[CA2 の単連結領域における閉曲線積分の消滅](../CA2/index.md#thm-ca2-cauchy-simply-connected)により全ての閉曲線積分が0になるので、CA2 の基点積分による原始関数構成から、ある正則関数 $G$ が存在して
 
 $$
 G'=\frac{h'}h
