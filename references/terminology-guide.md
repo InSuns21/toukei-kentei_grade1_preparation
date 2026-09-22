@@ -206,6 +206,16 @@
 | Riemann 体積形式 | Riemannian volume form | 向き付けられた Riemann 多様体上の正の最高次形式 |
 | Riemannian 発散 | Riemannian divergence | 体積形式の Lie 微分から定義 |
 | Laplace--Beltrami 作用素 | Laplace--Beltrami operator | 人名部分は英字表記を保持。$\Delta_g=\operatorname{div}_g\operatorname{grad}_g$ |
+| アフィン接続 | affine connection | ベクトル場を別のベクトル場の方向へ共変微分する規則 |
+| 共変微分 | covariant derivative | 接続を用いたベクトル場・テンソル場の方向微分 |
+| 接続の捩率 | torsion of a connection | Frenet 標構の「捩率」と区別が必要な箇所では「接続の捩率」と書く |
+| 曲線に沿う共変微分 | covariant derivative along a curve | 曲線上のベクトル場を接続で微分する演算 |
+| 平行ベクトル場 | parallel vector field along a curve | 曲線に沿う共変微分が0のベクトル場 |
+| 平行移動 | parallel transport | 初期接ベクトルを平行ベクトル場として曲線に沿って運ぶ線形写像 |
+| 計量両立性 | metric compatibility | 共変微分が Riemann 計量の内積に対して積の微分則を満たす性質 |
+| Levi-Civita 接続 | Levi-Civita connection | 人名部分は英字表記を保持。計量両立かつ捩率0の一意な接続 |
+| Koszul の公式 | Koszul formula | 人名部分は英字表記を保持。計量と Lie 括弧から Levi-Civita 接続を決める公式 |
+| テンソル場の共変微分 | covariant derivative of a tensor field | 接続を余ベクトル場・一般テンソル場へ Leibniz 則と縮約保存で拡張した微分 |
 
 ## DREAM THEATER：数値解析の主表記
 
