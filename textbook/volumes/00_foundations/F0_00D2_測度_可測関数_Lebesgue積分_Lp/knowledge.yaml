@@ -28,7 +28,7 @@ concepts:
   - id: measure.sigma-algebra
     name: σ代数
     kind: definition
-    aliases: [σ代数, 可測空間, 可測集合, sigma-algebra]
+    aliases: [σ代数, sigma-algebra]
     requires: []
 
   - id: measure.sigma-algebra-basic-closure
