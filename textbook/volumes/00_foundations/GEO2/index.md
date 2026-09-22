@@ -1411,7 +1411,36 @@ $$
 
 $F$ は微分同相写像なので $DF_x$ は可逆です。逆行列の各成分は行列式を分母に持つ滑らかな関数として書けるため、この座標変換は滑らかです。
 
-従って接束の場合と同様に滑らかなアトラスが得られ、各ファイバーで線形な局所自明化を持つので各ファイバーが $n$ 次元のベクトル束になります。$\square$
+各座標近傍 $U$ に対し、
+
+$$
+\widetilde x^*:\pi^{-1}(U)\to x(U)\times\mathbb R^n,
+\qquad
+\sum_i a_i\,dx^i|_p
+\longmapsto
+(x(p),a_1,\dots,a_n)
+$$
+
+を取ります。二つの余接束座標の重なりでの変換は上で求めた
+
+$$
+(x,a)
+\longmapsto
+\left(
+F(x),
+(DF_x)^{-\mathsf T}a
+\right)
+$$
+
+であり滑らかです。逆向きは $F^{-1}$ を用いて同じ形に書けるので、これも滑らかです。従ってこれらの座標写像は $T^*M$ に $2n$ 次元の滑らかなアトラスを定めます。
+
+この座標で自然な射影は
+
+$$
+(x,a)\longmapsto x
+$$
+
+となるので滑らかです。また基点 $p$ を固定すると、$\alpha_p=\sum_i a_i dx^i|_p$ を $(a_1,\dots,a_n)$ に送る写像は $T_p^*M$ から $\mathbb R^n$ への線形同型です。従って各局所座標はファイバーごとに線形な局所自明化を与え、$T^*M$ は各ファイバーが $n$ 次元のベクトル束になります。$\square$
 <!-- proof-end -->
 
 接ベクトルの成分が $DF$ で変換されるのに対し、余ベクトルの成分は $(DF)^{-\mathsf T}$ で変換されます。この双対的な変換則が、後のテンソル場と微分形式の基礎になります。
@@ -1498,7 +1527,37 @@ d\pi_N(v)
 \sum_j b^j\frac{\partial}{\partial y^j}.
 $$
 
-従ってこの写像は座標成分を二つに分けるだけであり、明らかに線形同型です。$\square$
+逆に
+
+$$
+u
+=
+\sum_i a^i\frac{\partial}{\partial x^i}\Big|_p,
+\qquad
+w
+=
+\sum_j b^j\frac{\partial}{\partial y^j}\Big|_q
+$$
+
+を与えたとき、
+
+$$
+v
+=
+\sum_i a^i\frac{\partial}{\partial x^i}\Big|_{(p,q)}
++
+\sum_j b^j\frac{\partial}{\partial y^j}\Big|_{(p,q)}
+$$
+
+と置けば
+
+$$
+d\pi_M(v)=u,
+\qquad
+d\pi_N(v)=w.
+$$
+
+従って写像は全射です。また $d\pi_M(v)=0$ かつ $d\pi_N(v)=0$ なら全ての $a^i,b^j$ が0なので $v=0$ です。よって核は $\{0\}$ であり、線形同型です。$\square$
 <!-- proof-end -->
 
 ---
@@ -2060,12 +2119,24 @@ $$
    0.
    $$
 
-   同様に
+   また
 
    $$
-   d\theta(\partial_r)=0,
-   \qquad
-   d\theta(\partial_\theta)=1.
+   d\theta(\partial_r)
+   =
+   -\frac{\sin\theta}{r}\cos\theta
+   +
+   \frac{\cos\theta}{r}\sin\theta
+   =
+   0,
+   $$
+
+   $$
+   d\theta(\partial_\theta)
+   =
+   \sin^2\theta+\cos^2\theta
+   =
+   1.
    $$
 
    従って二組は互いに双対基底です。
