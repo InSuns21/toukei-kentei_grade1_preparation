@@ -1,0 +1,103 @@
+chapter: CA10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CA7
+  - CA4
+
+concepts:
+  - id: complex-analysis.infinite-product
+    name: 関数の無限積
+    kind: definition
+    aliases: [関数の無限積, 無限積, infinite product]
+    introduction: formal
+    introduction_aliases: ["定義（関数の無限積）"]
+    requires: [complex-analysis.locally-uniform-convergence]
+
+  - id: complex-analysis.infinite-product-local-uniform-criterion
+    name: 無限積の局所一様収束判定
+    kind: theorem
+    aliases: [無限積の局所一様収束判定, locally uniform convergence criterion for infinite products]
+    introduction: formal
+    introduction_aliases: ["定理（無限積の局所一様収束判定）"]
+    requires: [complex-analysis.infinite-product, complex-analysis.holomorphic-locally-uniform-limit]
+
+  - id: complex-analysis.weierstrass-elementary-factor
+    name: Weierstrass の elementary factor
+    kind: definition
+    aliases: [Weierstrass の elementary factor, elementary factor]
+    introduction: formal
+    introduction_aliases: ["定義（Weierstrass の elementary factor）"]
+    requires: [complex-analysis.infinite-product]
+
+  - id: complex-analysis.weierstrass-elementary-factor-estimate
+    name: elementary factor の誤差評価
+    kind: lemma
+    aliases: [elementary factor の誤差評価, elementary factor estimate]
+    introduction: formal
+    introduction_aliases: ["補題（elementary factor の誤差評価）"]
+    requires: [complex-analysis.weierstrass-elementary-factor]
+
+  - id: complex-analysis.canonical-product
+    name: canonical product
+    kind: definition
+    aliases: [canonical product, 正準積]
+    introduction: formal
+    introduction_aliases: ["定義（canonical product）"]
+    requires: [complex-analysis.weierstrass-elementary-factor]
+
+  - id: complex-analysis.weierstrass-zero-set-construction
+    name: 離散零点集合を持つ整関数の構成
+    kind: theorem
+    aliases: [離散零点集合を持つ整関数の構成, Weierstrass zero set construction]
+    introduction: formal
+    introduction_aliases: ["定理（離散零点集合を持つ整関数の構成）"]
+    requires: [complex-analysis.canonical-product, complex-analysis.weierstrass-elementary-factor-estimate, complex-analysis.holomorphic-locally-uniform-limit]
+
+  - id: complex-analysis.zero-free-entire-exponential
+    name: 零点を持たない整関数の指数表示
+    kind: theorem
+    aliases: [零点を持たない整関数の指数表示, zero-free entire exponential representation]
+    introduction: formal
+    introduction_aliases: ["定理（零点を持たない整関数の指数表示）"]
+    requires: [complex-analysis.cauchy-simply-connected]
+
+  - id: complex-analysis.weierstrass-factorization
+    name: Weierstrass 因数分解定理
+    kind: theorem
+    aliases: [Weierstrass 因数分解定理, Weierstrass factorization theorem]
+    introduction: formal
+    introduction_aliases: ["定理（Weierstrass 因数分解定理）"]
+    requires: [complex-analysis.weierstrass-zero-set-construction, complex-analysis.zero-free-entire-exponential]
+
+  - id: complex-analysis.principal-part-data
+    name: principal part データ
+    kind: definition
+    aliases: [principal part データ, principal parts]
+    introduction: formal
+    introduction_aliases: ["定義（principal part データ）"]
+    requires: [complex-analysis.laurent-expansion]
+
+  - id: complex-analysis.mittag-leffler-theorem
+    name: Mittag--Leffler の定理
+    kind: theorem
+    aliases: [Mittag--Leffler の定理, Mittag-Leffler theorem]
+    introduction: formal
+    introduction_aliases: ["定理（Mittag--Leffler の定理）"]
+    requires: [complex-analysis.principal-part-data, complex-analysis.holomorphic-locally-uniform-limit]
+
+  - id: complex-analysis.cotangent-partial-fraction
+    name: pi cot(pi z) の部分分数展開
+    kind: theorem
+    aliases: [pi cot(pi z) の部分分数展開, cotangent partial fraction expansion]
+    introduction: formal
+    introduction_aliases: ["定理（pi cot(pi z) の部分分数展開）"]
+    requires: [complex-analysis.residue-theorem]
+
+  - id: complex-analysis.euler-sine-product
+    name: sin(pi z) の Euler 積
+    kind: theorem
+    aliases: [sin(pi z) の Euler 積, Euler sine product]
+    introduction: formal
+    introduction_aliases: ["定理（sin(pi z) の Euler 積）"]
+    requires: [complex-analysis.cotangent-partial-fraction, complex-analysis.infinite-product-local-uniform-criterion]
