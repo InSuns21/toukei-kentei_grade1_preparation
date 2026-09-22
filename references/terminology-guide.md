@@ -195,6 +195,17 @@
 | 超曲面の基本定理 | fundamental theorem of hypersurfaces | Gauss--Codazzi を局所存在・剛性へ反転する定理 |
 | 全臍的超曲面 | totally umbilic hypersurface | 形作用素が各点で恒等写像のスカラー倍となる超曲面 |
 | 剛体運動 | Euclidean rigid motion | 直交変換と平行移動の合成 |
+| Riemann 計量 | Riemannian metric | 人名部分は英字表記を保持。接空間ごとに滑らかに変化する正定値内積 |
+| Riemann 多様体 | Riemannian manifold | Riemann 計量を備えた滑らかな多様体 |
+| flat・sharp 同型 | musical isomorphisms | 数式では $\flat,\sharp$ を使用可。本文では必要に応じて「flat・sharp 同型」と書く |
+| Riemannian 勾配 | Riemannian gradient | Euclid の「勾配」と区別が必要な箇所では Riemannian を付す |
+| Riemann 長 | Riemannian length | 曲線速度の計量ノルムを積分した長さ |
+| 曲線エネルギー | energy of a curve | $E_g(\gamma)=\frac12\int|\dot\gamma|_g^2$ |
+| Riemann 距離 | Riemannian distance | 曲線長の下限で定義する距離 |
+| Riemann 等長写像 | Riemannian isometry | 計量を引き戻しで保つ微分同相写像 |
+| Riemann 体積形式 | Riemannian volume form | 向き付けられた Riemann 多様体上の正の最高次形式 |
+| Riemannian 発散 | Riemannian divergence | 体積形式の Lie 微分から定義 |
+| Laplace--Beltrami 作用素 | Laplace--Beltrami operator | 人名部分は英字表記を保持。$\Delta_g=\operatorname{div}_g\operatorname{grad}_g$ |
 
 ## DREAM THEATER：数値解析の主表記
 

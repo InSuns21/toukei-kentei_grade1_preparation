@@ -1,0 +1,59 @@
+id: "GEO12"
+title: "幾何学 XII：Riemann 計量・長さ・距離・体積"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEO4
+  - GEO7
+  - GEO8
+  - LA5
+  - VC1
+official_scope: []
+learning_objectives:
+  - Riemann 計量を接空間ごとの滑らかな正定値内積として定義し、座標表示と変換則を説明できる
+  - 1 の分割を用いて任意の滑らかな多様体に Riemann 計量が存在することを核心証明できる
+  - Riemann 計量が定める flat・sharp 同型と Riemannian 勾配を構成し、座標公式を導出できる
+  - 曲線の長さとエネルギーを定義し、再パラメータ不変性と長さ・エネルギー不等式を証明できる
+  - 曲線長の下限として Riemann 距離を定義し、距離の公理を証明できる
+  - Riemann 距離が元の多様体位相を誘導することを局所比較評価から証明できる
+  - Riemann 等長写像が曲線長・距離を保存することを示せる
+  - Riemann 体積形式の座標表示を導き、座標変換に対する不変性を証明できる
+  - 体積形式から Riemannian 発散と Laplace--Beltrami 作用素を定義し、座標公式と Euclid の公式を回収できる
+definitions:
+  - { id: GEO12-DEF-01, name: Riemann 計量・Riemann 多様体 }
+  - { id: GEO12-DEF-02, name: flat・sharp 同型 }
+  - { id: GEO12-DEF-03, name: Riemannian 勾配 }
+  - { id: GEO12-DEF-04, name: 曲線の Riemann 長とエネルギー }
+  - { id: GEO12-DEF-05, name: Riemann 距離 }
+  - { id: GEO12-DEF-06, name: Riemann 等長写像 }
+  - { id: GEO12-DEF-07, name: Riemann 体積形式 }
+  - { id: GEO12-DEF-08, name: Riemannian 発散と Laplace--Beltrami 作用素 }
+theorems:
+  - { id: GEO12-THM-01, name: Riemann 計量の存在 }
+  - { id: GEO12-PROP-01, name: Riemannian 勾配の座標表示 }
+  - { id: GEO12-PROP-02, name: 曲線長の再パラメータ不変性 }
+  - { id: GEO12-PROP-03, name: 長さとエネルギーの不等式 }
+  - { id: GEO12-THM-02, name: Riemann 距離は距離である }
+  - { id: GEO12-THM-03, name: Riemann 距離が多様体位相を誘導する }
+  - { id: GEO12-PROP-04, name: Riemann 等長写像は長さと距離を保存する }
+  - { id: GEO12-PROP-05, name: Riemann 体積形式の座標表示 }
+  - { id: GEO12-PROP-06, name: Riemannian 発散と Laplace--Beltrami の座標表示 }
+canonical_examples:
+  - Euclid 空間の標準 Riemann 計量
+  - 極座標での Euclid 計量
+  - 球面の標準 Riemann 計量
+  - 共形計量
+  - warped product 型二次元計量
+problem_patterns:
+  - GEO12-METRIC-COORDINATE-1
+  - GEO12-PARTITION-METRIC-1
+  - GEO12-MUSICAL-GRADIENT-1
+  - GEO12-LENGTH-ENERGY-1
+  - GEO12-DISTANCE-TOPOLOGY-1
+  - GEO12-ISOMETRY-1
+  - GEO12-VOLUME-1
+  - GEO12-LAPLACE-BELTRAMI-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.5, review: 0.5 }

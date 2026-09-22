@@ -1,0 +1,38 @@
+chapter: "GEO12"
+terms:
+  - term: Riemann 計量
+    english: Riemannian metric
+    meaning: 各接空間に滑らかに変化する正定値内積を与えるテンソル場。
+  - term: Riemann 多様体
+    english: Riemannian manifold
+    meaning: Riemann 計量を備えた滑らかな多様体。
+  - term: flat 同型
+    english: flat musical isomorphism
+    meaning: ベクトル v を余ベクトル g(v,・) へ送る計量同型。
+  - term: sharp 同型
+    english: sharp musical isomorphism
+    meaning: flat 同型の逆で、余ベクトルを対応するベクトルへ送る。
+  - term: Riemannian 勾配
+    english: Riemannian gradient
+    meaning: df と計量で双対なベクトル場 grad_g f。
+  - term: Riemann 長
+    english: Riemannian length
+    meaning: 曲線速度の計量ノルムを積分した長さ。
+  - term: エネルギー
+    english: energy of a curve
+    meaning: 曲線速度の計量ノルムの二乗を 1/2 倍して積分した量。
+  - term: Riemann 距離
+    english: Riemannian distance
+    meaning: 二点を結ぶ区分的滑らかな曲線の長さの下限。
+  - term: Riemann 等長写像
+    english: Riemannian isometry
+    meaning: 計量を引き戻しで保つ微分同相写像。
+  - term: Riemann 体積形式
+    english: Riemannian volume form
+    meaning: 向き付けられた Riemann 多様体上で計量から定まる正の最高次形式。
+  - term: Riemannian 発散
+    english: Riemannian divergence
+    meaning: Riemann 体積形式の Lie 微分によって定まるベクトル場の発散。
+  - term: Laplace--Beltrami 作用素
+    english: Laplace--Beltrami operator
+    meaning: Riemannian 発散と Riemannian 勾配の合成 Δ_g f=div_g(grad_g f)。

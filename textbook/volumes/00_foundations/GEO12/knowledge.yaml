@@ -1,0 +1,197 @@
+chapter: GEO12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEO4
+  - GEO7
+  - GEO8
+  - LA5
+  - VC1
+
+concepts:
+  - id: geometry.riemannian-metric
+    name: Riemann 計量
+    kind: definition
+    aliases: [Riemann 計量, Riemannian metric]
+    introduction: formal
+    introduction_aliases: ["定義（Riemann 計量・Riemann 多様体）"]
+    requires:
+      - geometry.smooth-manifold
+      - geometry.tensor-field
+      - linear.inner-product
+
+  - id: geometry.riemannian-manifold
+    name: Riemann 多様体
+    kind: definition
+    aliases: [Riemann 多様体, Riemannian manifold]
+    introduction: formal
+    introduction_aliases: ["定義（Riemann 計量・Riemann 多様体）"]
+    requires:
+      - geometry.riemannian-metric
+
+  - id: geometry.riemannian-metric-existence
+    name: Riemann 計量の存在
+    kind: theorem
+    aliases: [Riemann 計量の存在, existence of Riemannian metrics]
+    requires:
+      - geometry.partition-of-unity-existence
+      - geometry.riemannian-metric
+      - geometry.coordinate-chart
+
+  - id: geometry.musical-isomorphisms
+    name: flat・sharp 同型
+    kind: definition
+    aliases: [flat 同型, sharp 同型, musical isomorphisms]
+    introduction: formal
+    introduction_aliases: ["定義（flat・sharp 同型）"]
+    requires:
+      - geometry.riemannian-metric
+      - geometry.cotangent-space
+
+  - id: geometry.riemannian-gradient
+    name: Riemannian 勾配
+    kind: definition
+    aliases: [Riemannian 勾配, Riemannian gradient]
+    introduction: formal
+    introduction_aliases: ["定義（Riemannian 勾配）"]
+    requires:
+      - geometry.musical-isomorphisms
+      - geometry.function-differential
+
+  - id: geometry.riemannian-gradient-coordinate
+    name: Riemannian 勾配の座標表示
+    kind: proposition
+    aliases: [Riemannian 勾配の座標表示]
+    requires:
+      - geometry.riemannian-gradient
+      - geometry.coordinate-tangent-basis
+
+  - id: geometry.riemannian-curve-length
+    name: 曲線の Riemann 長
+    kind: definition
+    aliases: [Riemann 長, Riemannian length]
+    introduction: formal
+    introduction_aliases: ["定義（曲線の Riemann 長とエネルギー）"]
+    requires:
+      - geometry.riemannian-metric
+      - geometry.tangent-vector
+
+  - id: geometry.riemannian-curve-energy
+    name: 曲線のエネルギー
+    kind: definition
+    aliases: [曲線のエネルギー, energy of a curve]
+    introduction: formal
+    introduction_aliases: ["定義（曲線の Riemann 長とエネルギー）"]
+    requires:
+      - geometry.riemannian-curve-length
+
+  - id: geometry.riemannian-length-reparametrization
+    name: Riemann 長の再パラメータ不変性
+    kind: proposition
+    aliases: [Riemann 長の再パラメータ不変性]
+    introduction_aliases: ["命題（Riemann 長の再パラメータ不変性）"]
+    requires:
+      - geometry.riemannian-curve-length
+      - geometry.manifold-chain-rule
+
+  - id: geometry.length-energy-inequality
+    name: 長さとエネルギーの不等式
+    kind: proposition
+    aliases: [長さとエネルギーの不等式]
+    requires:
+      - geometry.riemannian-curve-energy
+
+  - id: geometry.riemannian-distance
+    name: Riemann 距離
+    kind: definition
+    aliases: [Riemann 距離, Riemannian distance]
+    introduction: formal
+    introduction_aliases: ["定義（Riemann 距離）"]
+    requires:
+      - geometry.riemannian-curve-length
+
+  - id: geometry.riemannian-distance-metric
+    name: Riemann 距離は距離である
+    kind: theorem
+    aliases: [Riemann 距離は距離である]
+    requires:
+      - geometry.riemannian-distance
+      - geometry.coordinate-chart
+
+  - id: geometry.riemannian-distance-topology
+    name: Riemann 距離が多様体位相を誘導する
+    kind: theorem
+    aliases: [Riemann 距離が多様体位相を誘導する]
+    requires:
+      - geometry.riemannian-distance-metric
+      - geometry.coordinate-chart
+
+  - id: geometry.riemannian-isometry
+    name: Riemann 等長写像
+    kind: definition
+    aliases: [Riemann 等長写像, Riemannian isometry]
+    introduction: formal
+    introduction_aliases: ["定義（Riemann 等長写像）"]
+    requires:
+      - geometry.riemannian-metric
+      - geometry.diffeomorphism
+      - geometry.differential-form-pullback
+
+  - id: geometry.riemannian-isometry-preserves-distance
+    name: Riemann 等長写像は長さと距離を保存する
+    kind: proposition
+    aliases: [Riemann 等長写像は長さと距離を保存する]
+    requires:
+      - geometry.riemannian-isometry
+      - geometry.riemannian-distance
+
+  - id: geometry.riemannian-volume-form
+    name: Riemann 体積形式
+    kind: definition
+    aliases: [Riemann 体積形式, Riemannian volume form]
+    introduction: formal
+    introduction_aliases: ["定義（Riemann 体積形式）"]
+    requires:
+      - geometry.riemannian-metric
+      - geometry.manifold-orientation
+      - geometry.orientation-form
+
+  - id: geometry.riemannian-volume-coordinate
+    name: Riemann 体積形式の座標表示
+    kind: proposition
+    aliases: [Riemann 体積形式の座標表示]
+    requires:
+      - geometry.riemannian-volume-form
+      - geometry.differential-form-pullback
+
+  - id: geometry.riemannian-divergence
+    name: Riemannian 発散
+    kind: definition
+    aliases: [Riemannian 発散, Riemannian divergence]
+    introduction: formal
+    introduction_aliases: ["定義（Riemannian 発散と Laplace--Beltrami 作用素）"]
+    requires:
+      - geometry.riemannian-volume-form
+      - geometry.form-lie-derivative
+
+  - id: geometry.laplace-beltrami
+    name: Laplace--Beltrami 作用素
+    kind: definition
+    aliases: [Laplace--Beltrami 作用素, Laplace-Beltrami operator]
+    introduction: formal
+    introduction_aliases: ["定義（Riemannian 発散と Laplace--Beltrami 作用素）"]
+    requires:
+      - geometry.riemannian-divergence
+      - geometry.riemannian-gradient
+
+  - id: geometry.riemannian-divergence-laplacian-coordinate
+    name: Riemannian 発散と Laplace--Beltrami の座標表示
+    kind: proposition
+    aliases: [Riemannian 発散の座標表示, Laplace--Beltrami の座標表示]
+    requires:
+      - geometry.riemannian-divergence
+      - geometry.laplace-beltrami
+      - geometry.riemannian-volume-coordinate
+      - vector-calculus.gradient
+      - vector-calculus.divergence
+      - vector-calculus.scalar-laplacian
