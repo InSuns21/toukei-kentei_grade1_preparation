@@ -9,22 +9,22 @@
 主線は次である。
 
 ~~~text
-複素座標近傍
+局所複素座標
   ↓ 正則な座標遷移
-Riemann 面
+局所座標を正則に貼った空間
   ↓
-Riemann 面間の正則写像・有理型関数
+座標で定義する解析的写像・有理型関数
   ↓
-被覆写像
-  ↓ 経路持ち上げ/ ホモトピー持ち上げ
+局所的に複数シートへほどける写像
+  ↓ 経路・連続変形を上の空間へ持ち上げる
 解析接続を「持ち上げ」として読む
   ↓
-log と sqrt の Riemann 面
+log と sqrt を一価化するシート空間
   ↓
 C / Λ の商位相 + 局所座標
-複素トーラス
+格子による商空間
   ↓ compactness + 最大値原理
-コンパクト Riemann 面上の正則関数の剛性
+コンパクトな場合の正則関数の剛性
 ~~~
 
 前提として使うのは、[CA5 の経路に沿う解析接続](../CA5/index.md#def-ca5-analytic-continuation-along-path)と[固定経路に沿う一意性](../CA5/index.md#thm-ca5-continuation-uniqueness)、[CA6 の Riemann 球面](../CA6/index.md)、[CA7 の Riemann 写像定理](../CA7/index.md#thm-ca7-riemann-mapping)、[TOP1 の商位相](../TOP1/index.md#def-top1-quotient-topology)、[TOP4 の Hausdorff 性](../TOP4/index.md#def-top4-t2)・[第二可算性](../TOP4/index.md#def-top4-second-countable)、[TOP5 のコンパクト性](../TOP5/index.md#def-top5-compact)である。
@@ -242,9 +242,9 @@ $$
 
 ---
 
-## 4. 有理型関数と零点・極の位数
+## 4. 有理型関数の零点と極
 
-局所座標を変えても「何次の零点か」「何次の極か」が変わらないことを確認しておく。これがないと、Riemann 面上の因子 や留数へ進む以前に局所データ自体が不安定になる。
+局所座標を変えても零点や極の重複度が変わらないことを確認しておく。これがないと、Riemann 面上の因子 や留数へ進む以前に局所データ自体が不安定になる。
 
 <a id="def-ca8-meromorphic-function"></a>
 <!-- formal-statement-start -->
@@ -397,7 +397,7 @@ $$
 
 ---
 
-## 6. 正則微分の入口
+## 6. 座標変換する微分の入口
 
 CA9 では複素トーラス上で積分や楕円関数を扱う。その準備として、座標変換で $dz$ がどう変わるかだけを定式化する。
 
@@ -727,7 +727,7 @@ $s\mapsto\widetilde H(s,1)$ は連続で、その値は常に離散集合 $p^{-1
 
 ---
 
-## 10. 対数の Riemann 面
+## 10. 対数を一価化する指数被覆
 
 「$\log z$ は多価関数」と言う代わりに、どの空間上なら一価になるかを作る。
 
@@ -804,7 +804,7 @@ $$
 
 ---
 
-## 11. 平方根の Riemann 面
+## 11. 平方根を一価化する二枚被覆
 
 <a id="prop-ca8-square-root-surface"></a>
 <!-- formal-statement-start -->
