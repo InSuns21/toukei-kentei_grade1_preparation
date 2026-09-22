@@ -116,6 +116,17 @@
 | 余接束 | cotangent bundle | 記号 $T^*M$ は保持 |
 | ベクトル束 | vector bundle | 初出で英語併記可。以後は日本語主表記 |
 | 局所自明化 | local trivialization | ベクトル束の局所直積表示 |
+| 階数 | rank | 微分の像の次元。数式では `\operatorname{rank}` を使用可 |
+| 定数階数定理 | constant rank theorem | 本文では日本語主表記 |
+| はめ込み | immersion | 微分が各点で単射となる滑らかな写像 |
+| 沈め込み | submersion | 微分が各点で全射となる滑らかな写像 |
+| 埋め込み | embedding | はめ込みかつ像への同相写像 |
+| 埋め込み部分多様体 | embedded submanifold | 初出後、文脈が明確なら「部分多様体」と略してよい |
+| 正則点 | regular point | 微分が全射となる点 |
+| 臨界点 | critical point | 微分が全射でない点 |
+| 正則値 | regular value | 逆像の全点が正則点。空の逆像も許す |
+| 臨界値 | critical value | 臨界点の像として現れる値 |
+| レベル集合 | level set | (f^{-1}(q)) 型の逆像 |
 
 ## DREAM THEATER：ODE・PDE の主表記
 
