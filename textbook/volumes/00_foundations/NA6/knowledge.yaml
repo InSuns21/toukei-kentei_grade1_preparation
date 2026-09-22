@@ -132,11 +132,11 @@ concepts:
       - numerical.global-error
 
   - id: numerical.one-step-perturbation-stability
-    name: 一段関数の Lipschitz 条件による有限時間摂動安定性
+    name: 一段関数の Lipschitz 性による有限時間摂動安定性
     kind: theorem
     aliases: [one-step perturbation stability theorem]
     introduction: formal
-    introduction_aliases: ["定理（一段関数の Lipschitz 条件による有限時間摂動安定性）"]
+    introduction_aliases: ["定理（一段関数の Lipschitz 性による有限時間摂動安定性）"]
     requires:
       - numerical.finite-time-perturbation-stability
       - numerical.discrete-gronwall-estimate
