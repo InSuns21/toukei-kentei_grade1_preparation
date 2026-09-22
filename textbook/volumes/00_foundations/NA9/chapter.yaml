@@ -26,7 +26,7 @@ definitions:
   - { id: NA9-DEF-05, name: Krylov 部分空間 }
   - { id: NA9-DEF-06, name: A-内積と A-共役性 }
   - { id: NA9-DEF-07, name: 共役勾配法 }
-  - { id: NA9-DEF-08, name: 前処理 }
+  - { id: NA9-DEF-08, name: 前処理と前処理行列 }
 theorems:
   - { id: NA9-THM-01, name: 定常反復法のスペクトル半径による収束判定 }
   - { id: NA9-PROP-01, name: 狭義行優対角行列に対する Jacobi 法の収束 }
