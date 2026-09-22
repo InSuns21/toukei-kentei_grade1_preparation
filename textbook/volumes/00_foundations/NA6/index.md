@@ -155,16 +155,25 @@ $$
 を **一段関数**という。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-na6-one-step -->
-### 例：Euler 法
+<a id="def-na6-euler-method"></a>
+<!-- formal-statement-start -->
+### 定義（Euler 法）
 
-**定義の確認**。一段関数を
+一階初期値問題
 
 $$
+y'=f(t,y)
+$$
+
+に対する一段法で、一段関数を
+
+$$
+\boxed{
 \Phi(t,y,h)=f(t,y)
+}
 $$
 
-と選ぶと
+と選ぶ方法、すなわち
 
 $$
 \boxed{
@@ -172,11 +181,29 @@ y_{n+1}=y_n+h f(t_n,y_n)
 }
 $$
 
-を得ます。右辺は $t_n$, $y_n$, $h$ だけで決まり、過去の $y_{n-1},y_{n-2},\dots$ を必要としません。したがって一段法です。
+を **Euler 法**という。
+<!-- formal-statement-end -->
 
-これを **Euler 法**といいます。
+<!-- definition-example-start: def-na6-one-step, def-na6-euler-method -->
+### 例：$y'=t-y$ を Euler 法で進める
 
-例えば
+**定義の確認**。Euler 法では
+
+$$
+\Phi(t,y,h)=f(t,y)=t-y
+$$
+
+なので、
+
+$$
+y_{n+1}
+=
+y_n+h(t_n-y_n)
+$$
+
+です。右辺は現在の $t_n$, $y_n$, $h$ だけで決まり、過去の $y_{n-1},y_{n-2},\dots$ を必要としません。したがって一段法であり、かつ一段関数を $f$ 自身に選んでいるので Euler 法です。
+
+初期値問題
 
 $$
 y'=t-y,
@@ -184,7 +211,7 @@ y'=t-y,
 y(0)=1
 $$
 
-に $h=0.1$ で Euler 法を適用すると
+に $h=0.1$ で適用すると
 
 $$
 y_1
