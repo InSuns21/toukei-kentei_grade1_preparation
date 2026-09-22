@@ -165,12 +165,21 @@ concepts:
       - numerical.residual
       - numerical.a-inner-product
 
-  - id: numerical.preconditioner
+  - id: numerical.preconditioning
     name: 前処理
     kind: definition
-    aliases: [preconditioning, preconditioner]
+    aliases: [preconditioning]
     introduction: formal
-    introduction_aliases: ["定義（前処理）"]
+    introduction_aliases: ["定義（前処理と前処理行列）"]
     requires:
       - numerical.matrix-condition-number
       - linear.positive-definite-matrix
+
+  - id: numerical.preconditioner
+    name: 前処理行列
+    kind: definition
+    aliases: [preconditioner, preconditioning matrix]
+    introduction: formal
+    introduction_aliases: ["定義（前処理と前処理行列）"]
+    requires:
+      - numerical.preconditioning
