@@ -127,6 +127,12 @@
 | 正則値 | regular value | 逆像の全点が正則点。空の逆像も許す |
 | 臨界値 | critical value | 臨界点の像として現れる値 |
 | レベル集合 | level set | (f^{-1}(q)) 型の逆像 |
+| 局所有限族 | locally finite family | 各点のある近傍が有限個の集合としか交わらない族 |
+| 細分 | refinement | 開被覆を、各要素が元の被覆要素の一つに含まれる別の開被覆へ細かくすること |
+| パラコンパクト | paracompact | 任意の開被覆が局所有限な開細分を持つ性質 |
+| 隆起関数 | bump function | コンパクト台を持つ滑らかな関数。初出で英語併記可 |
+| 1 の分割 | partition of unity | 非負・局所有限な滑らかな関数族で総和が1。開被覆への従属性も日本語で記述する |
+| Whitney の埋め込み定理 | Whitney embedding theorem | 人名部分は英字表記を保持 |
 
 ## DREAM THEATER：ODE・PDE の主表記
 
