@@ -160,6 +160,8 @@ $$
 <!-- definition-example-start: def-na7-runge-kutta -->
 ### 例：陽的中点法
 
+**定義の確認**。以下では、直前の定義に現れる条件をこの具体例で実際に確かめます。
+
 二つの段階を
 
 $$
@@ -250,6 +252,8 @@ $$
 
 <!-- definition-example-start: def-na7-explicit-implicit-rk -->
 ### 例：なぜ陽的方法は順番に計算できるのか
+
+**定義の確認**。以下では、直前の定義に現れる条件をこの具体例で実際に確かめます。
 
 陽的二段法なら
 
@@ -654,6 +658,8 @@ $$
 <!-- definition-example-start: def-na7-classical-rk4 -->
 ### 例：$y'=y$ に一歩適用する
 
+**定義の確認**。以下では、直前の定義に現れる条件をこの具体例で実際に確かめます。
+
 $y_n=1$ として一歩だけ進めると
 
 $$
@@ -971,6 +977,8 @@ $$
 <!-- definition-example-start: def-na7-test-equation -->
 ### 例：なぜ $\operatorname{Re}\lambda<0$ を見るのか
 
+**定義の確認**。以下では、直前の定義に現れる条件をこの具体例で実際に確かめます。
+
 厳密解は
 
 $$
@@ -1030,6 +1038,8 @@ $$
 
 <!-- definition-example-start: def-na7-stability-function -->
 ### 例：陽的 Euler 法
+
+**定義の確認**。以下では、直前の定義に現れる条件をこの具体例で実際に確かめます。
 
 陽的 Euler 法では
 
@@ -1212,6 +1222,8 @@ $$
 
 <!-- definition-example-start: def-na7-absolute-stability-region -->
 ### 例：陽的 Euler 法の負の実軸上の安定区間
+
+**定義の確認**。以下では、直前の定義に現れる条件をこの具体例で実際に確かめます。
 
 $z=-x$、$x\ge0$ とします。
 
@@ -1717,6 +1729,8 @@ $$
 <!-- definition-example-start: def-na7-stiff-problem -->
 ### 例：二つの減衰時間尺度
 
+**定義の確認**。以下では、直前の定義に現れる条件をこの具体例で実際に確かめます。
+
 連立系
 
 $$
@@ -1880,6 +1894,8 @@ $$
 
 <!-- definition-example-start: def-na7-theta-method -->
 ### 例：安定関数
+
+**定義の確認**。以下では、直前の定義に現れる条件をこの具体例で実際に確かめます。
 
 線形テスト方程式へ適用すると
 
