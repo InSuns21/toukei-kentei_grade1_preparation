@@ -50,11 +50,11 @@ ODE9 の Lyapunov 劣位集合は trapping region を作る代表的な方法で
 <!-- formal-statement-start -->
 > **定義（Dulac 関数）**  
 > 平面系 $x'=P(x,y)$, $y'=Q(x,y)$ の領域 $D$ 上で $C^1$ 関数 $B$ を取り、
->
-> $$
-> \partial_x(BP)+\partial_y(BQ)
-> $$
->
+
+$$
+\partial_x(BP)+\partial_y(BQ)
+$$
+
 > の符号を調べるとき、$B$ を Dulac 関数という。
 <!-- formal-statement-end -->
 
@@ -62,11 +62,11 @@ ODE9 の Lyapunov 劣位集合は trapping region を作る代表的な方法で
 <!-- formal-statement-start -->
 > **定理（Bendixson--Dulac の判定）**  
 > 領域 $D\subset\mathbb R^2$ 上で $P,Q,B\in C^1$ とし、$D$ 内の任意の単純閉曲線が囲む領域も $D$ に含まれるとする。
->
-> $$
-> \partial_x(BP)+\partial_y(BQ)
-> $$
->
+
+$$
+\partial_x(BP)+\partial_y(BQ)
+$$
+
 > が $D$ で一方の符号を持ち、どの開集合上でも恒等的に0でないなら、$D$ 内に周期軌道は存在しない。
 <!-- formal-statement-end -->
 
