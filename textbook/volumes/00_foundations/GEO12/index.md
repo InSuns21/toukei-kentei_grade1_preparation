@@ -13,7 +13,7 @@ $$
 \longrightarrow
 \text{flat・sharp と Riemannian 勾配}
 \longrightarrow
-\text{曲線長・曲線エネルギー}
+\text{Riemann 長・曲線エネルギー}
 \longrightarrow
 \text{Riemann 距離}
 \longrightarrow
@@ -947,7 +947,7 @@ $$
 
 ---
 
-## 6. 曲線長から二点間の距離を作る
+## 6. Riemann 長から二点間の距離を作る
 
 以下では $M$ を連結な Riemann 多様体とします。
 
@@ -1060,7 +1060,7 @@ $$
 
 ### 証明の見取り図
 
-非負性・対称性・三角不等式は曲線長から直接従います。
+非負性・対称性・三角不等式は Riemann 長から直接従います。
 
 本質は
 
