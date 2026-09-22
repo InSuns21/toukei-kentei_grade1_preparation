@@ -42,7 +42,7 @@ theorems:
   - { id: CA8-THM-06, name: 被覆に沿う解析接続の一意性 }
   - { id: CA8-LEM-01, name: 格子の離散性 }
   - { id: CA8-THM-07, name: 複素トーラス }
-  - { id: CA8-THM-08, name: コンパクト Riemann 面上の正則関数の剛性 }
+  - { id: CA8-THM-08, name: コンパクト Riemann 面から複素平面への正則関数は定数 }
   - { id: CA8-COR-02, name: 複素トーラス上の正則関数の剛性 }
 canonical_examples: [Riemann球面の二座標, 指数写像による対数のRiemann面, 二枚被覆による平方根, 正方格子の複素トーラス, コンパクトRiemann面上の最大値原理]
 problem_patterns: [CA8-CHART-1, CA8-COVER-LIFT-1, CA8-LOG-SURFACE-1, CA8-SQRT-SURFACE-1, CA8-TORUS-1, CA8-MONODROMY-1]
