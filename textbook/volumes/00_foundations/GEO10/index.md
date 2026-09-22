@@ -1,6 +1,6 @@
 # GEO10 幾何学 X
 
-[GEO3](../GEO3/index.md) では Euclid 空間内の正則レベル集合を埋め込み部分多様体として扱い、接空間を微分の核として計算できるようにしました。[VC3](../VC3/index.md) ではパラメータ曲面・接平面・法線・曲面積を具体計算しました。[LA5](../LA5/index.md) では内積空間上の自己共役作用素をスペクトル分解する考え方を整えました。
+[GEO3](../GEO3/index.md) では Euclid 空間内の正則レベル集合を埋め込み部分多様体として扱い、接空間を微分の核として計算できるようにしました。[VC2](../VC2/index.md) では正則曲線・弧長・単位接ベクトルを、[VC3](../VC3/index.md) ではパラメータ曲面・接平面・法線・曲面積を具体計算しました。[LA5](../LA5/index.md) では内積空間上の自己共役作用素をスペクトル分解する考え方を整えました。
 
 本章では、この三つを接続します。
 
@@ -34,19 +34,20 @@ $$
 
 を考えます。
 
-<a id="def-geo10-regular-curve"></a>
+[VC2 の正則曲線](../VC2/index.md#def-vc2-regular-curve)と[弧長・単位接ベクトル](../VC2/index.md#def-vc2-arclength)を既知とします。本章では曲率を微分するため、$C^1$ ではなく滑らかな正則曲線を扱います。
+
+<a id="def-geo10-arc-length-parameter"></a>
 <!-- formal-statement-start -->
-> **定義（正則曲線・弧長・単位速曲線）**  
-> 滑らかな曲線 $\gamma:I\to\mathbb R^3$ が
+> **定義（弧長パラメータ・単位速曲線）**  
+> 滑らかな正則曲線
 >
 > $$
+> \gamma:I\to\mathbb R^3,
+> \qquad
 > \gamma'(t)\ne0
-> \qquad(t\in I)
 > $$
 >
-> を満たすとき、$\gamma$ を **正則曲線**という。
->
-> $t_0\in I$ を固定し、
+> と $t_0\in I$ に対して
 >
 > $$
 > s(t)
@@ -54,18 +55,18 @@ $$
 > \int_{t_0}^{t}\|\gamma'(u)\|\,du
 > $$
 >
-> を $t_0$ から測った **弧長関数**という。
+> と置く。
 >
-> パラメータ $s$ に関して
+> 曲線のパラメータ $u$ が
 >
 > $$
-> \left\|\frac{d\gamma}{ds}\right\|=1
+> \left\|\frac{d\gamma}{du}\right\|=1
 > $$
 >
-> が成り立つとき、$s$ を **弧長パラメータ**といい、その曲線を **単位速曲線**という。
+> を満たすとき、$u$ を **弧長パラメータ**といい、その表示を **単位速曲線**という。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-geo10-regular-curve -->
+<!-- definition-example-start: def-geo10-arc-length-parameter -->
 **定義の確認**
 
 半径 $R>0$ の円
