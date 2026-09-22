@@ -1,0 +1,41 @@
+chapter: "GEO2"
+terms:
+  - term: 芽
+    english: germ
+    meaning: 点の十分小さい近傍で一致する滑らかな関数を同一視して得る局所的な同値類。
+  - term: 接ベクトル
+    english: tangent vector
+    meaning: 点で滑らかな関数の芽に作用し、線形性とLeibniz則を満たす微分作用素。曲線の一次速度とも同値に表せる。
+  - term: 接空間
+    english: tangent space
+    meaning: 一点における接ベクトル全体からなる、その多様体と同じ次元の実線形空間。
+  - term: 座標基底
+    english: coordinate basis
+    meaning: 局所座標の各成分方向の偏微分から得られる接空間の基底。
+  - term: 曲線の一次同値
+    english: first-order equivalence of curves
+    meaning: 同じ点を通る二曲線の局所座標での速度が一致すること。座標の選択に依存しない。
+  - term: 写像の微分
+    english: differential
+    meaning: 滑らかな写像が各点の接ベクトルを像の点の接ベクトルへ送る自然な線形写像。
+  - term: 余接空間
+    english: cotangent space
+    meaning: 接空間の代数的双対として定まる線形空間。
+  - term: 余ベクトル
+    english: covector
+    meaning: 接ベクトルを実数へ送る線形形式、すなわち余接空間の元。
+  - term: 引き戻し
+    english: pullback
+    meaning: 写像の微分との合成によって、像側の余ベクトルを定義域側へ移す操作。
+  - term: 接束
+    english: tangent bundle
+    meaning: 多様体の全ての点の接空間を互いに素な和としてまとめ、自然な滑らかな構造を入れたベクトル束。
+  - term: 余接束
+    english: cotangent bundle
+    meaning: 多様体の全ての点の余接空間をまとめた自然なベクトル束。
+  - term: ベクトル束
+    english: vector bundle
+    meaning: 各点の上に同じ次元のベクトル空間があり、局所的には底空間と固定ベクトル空間の直積として滑らかに見える空間。
+  - term: 局所自明化
+    english: local trivialization
+    meaning: ベクトル束を各ファイバー上で線形に、局所的な直積U×R^kへ同一視する微分同相写像。
