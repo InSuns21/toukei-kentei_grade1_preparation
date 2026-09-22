@@ -72,7 +72,7 @@ P7B QMD・LAN
 
 ## この路線から発展層へ送るもの
 
-この路線では、確率過程の構成論そのものは Encore IV を canonical owner とします。
+この路線では、確率過程の構成論そのものは Encore IV の STO3 を正本とします。
 
 - [Kolmogorov 拡張定理の完全証明](../STO3/index.md#thm-sto3-kolmogorov-extension) は STO3 で閉じる。
 - 一般のmartingale convergence theorem（Encore IV）
