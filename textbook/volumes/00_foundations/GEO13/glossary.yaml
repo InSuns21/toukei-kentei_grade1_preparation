@@ -1,0 +1,35 @@
+chapter: "GEO13"
+terms:
+  - term: アフィン接続
+    english: affine connection
+    meaning: ベクトル場を別のベクトル場の方向へ共変微分する規則。
+  - term: 共変微分
+    english: covariant derivative
+    meaning: 接続を用いてベクトル場やテンソル場を方向微分する演算。
+  - term: Christoffel 係数
+    english: Christoffel symbols
+    meaning: 座標基底の共変微分を表す接続の局所係数。
+  - term: 接続の捩率
+    english: torsion of a connection
+    meaning: 共変微分の反対称部分と Lie 括弧との差を測る $(1,2)$ テンソル場。
+  - term: 曲線に沿う共変微分
+    english: covariant derivative along a curve
+    meaning: 曲線上のベクトル場の変化を接続により同じ接空間内のベクトルとして測る演算。
+  - term: 平行ベクトル場
+    english: parallel vector field along a curve
+    meaning: 曲線に沿う共変微分が0である曲線上のベクトル場。
+  - term: 平行移動
+    english: parallel transport
+    meaning: 初期接ベクトルを一意な平行ベクトル場として曲線に沿って運ぶ線形写像。
+  - term: 計量両立性
+    english: metric compatibility
+    meaning: 共変微分が Riemann 計量の内積に対して積の微分則を満たす性質。
+  - term: Levi-Civita 接続
+    english: Levi-Civita connection
+    meaning: Riemann 計量と両立し、捩率が0である一意なアフィン接続。
+  - term: Koszul の公式
+    english: Koszul formula
+    meaning: Riemann 計量と Lie 括弧から Levi-Civita 接続の内積成分を決定する公式。
+  - term: テンソル場の共変微分
+    english: covariant derivative of a tensor field
+    meaning: 接続をベクトル場から余ベクトル場・一般テンソル場へ Leibniz 則と縮約保存で拡張した微分。
