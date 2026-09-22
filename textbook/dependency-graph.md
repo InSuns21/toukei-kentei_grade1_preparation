@@ -254,7 +254,7 @@ TSA4 linear filter・ARMA / ARIMA
   ↓
 TSA5 ergodicity・mixing・dependent limit
 
-TSA1 + P3-03 多変量正規・条件付き分布
+TSA1 + P3-03 + LA3B + F0-00P7
   ↓
 TSA6 状態空間・Kalman フィルタ・イノベーション
 ~~~
