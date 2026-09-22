@@ -268,35 +268,35 @@ $$
 > **補題（流れの初期値微分と変分方程式）**  
 > $F:\mathbb R^d\to\mathbb R^d$ を $C^1$ 級とし、自律系
 >
-> $$
-> x'=F(x)
-> $$
+$$
+x'=F(x)
+$$
 >
 > の流れを $\Phi_t(x_0)$ と書く。ある $T>0$ と初期点 $x_0$ の近傍で $0\le t\le T$ の解が共通に存在するとする。このとき流れ
 >
-> $$
-> (t,x)\longmapsto\Phi_t(x)
-> $$
+$$
+(t,x)\longmapsto\Phi_t(x)
+$$
 >
 > は $(t,x_0)$ の近くで $C^1$ 級である。初期値微分
 >
-> $$
-> X(t):=D_x\Phi_t(x_0)
-> $$
+$$
+X(t):=D_x\Phi_t(x_0)
+$$
 >
 > は
 >
-> $$
-> X'(t)=DF(\Phi_t(x_0))X(t),
-> \qquad
-> X(0)=I
-> $$
+$$
+X'(t)=DF(\Phi_t(x_0))X(t),
+\qquad
+X(0)=I
+$$
 >
 > を満たし、時間微分は
 >
-> $$
-> \partial_t\Phi_t(x)=F(\Phi_t(x))
-> $$
+$$
+\partial_t\Phi_t(x)=F(\Phi_t(x))
+$$
 >
 > である。
 <!-- formal-statement-end -->
