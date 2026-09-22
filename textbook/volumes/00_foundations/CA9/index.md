@@ -6,7 +6,7 @@
 
 ## 0. この章の主線
 
-本章で使う格子 $\Lambda$ と複素トーラスは、[CA8 の複素格子](../CA8/index.md#def-ca8-complex-lattice)と[複素トーラス](../CA8/index.md#thm-ca8-complex-torus)を正本とする。正規収束は [CA7 の定義](../CA7/index.md#def-ca7-normal-convergence)、留数定理は [CA4](../CA4/index.md#thm-ca4-residue-theorem)、偏角原理は [CA5](../CA5/index.md#thm-ca5-argument-principle)を使う。
+本章で使う格子 $\Lambda$ と複素トーラスは、[CA8 の複素格子](../CA8/index.md#def-ca8-lattice)と[複素トーラス](../CA8/index.md#thm-ca8-complex-torus)を正本とする。正規収束は [CA7 の定義](../CA7/index.md#def-ca7-normal-convergence)、留数定理は [CA4](../CA4/index.md#thm-ca4-residue)、偏角原理は [CA5](../CA4/index.md#thm-ca4-argument-principle)を使う。
 
 ~~~text
 格子 Λ と基本平行四辺形
@@ -145,7 +145,7 @@ $f$ を $\Lambda$ に関する楕円関数とし、$\overline{P(a)}$ の境界�
 <!-- proof-start -->
 ### 証明
 
-[留数定理](../CA4/index.md#thm-ca4-residue-theorem)と対辺積分の相殺から
+[留数定理](../CA4/index.md#thm-ca4-residue)と対辺積分の相殺から
 
 $$
 2\pi i
@@ -183,7 +183,7 @@ $$
 \frac{f'(z)}{f(z)}\,dz=0.
 $$
 
-一方、[偏角原理](../CA5/index.md#thm-ca5-argument-principle)により
+一方、[偏角原理](../CA4/index.md#thm-ca4-argument-principle)により
 
 $$
 \frac{1}{2\pi i}
@@ -206,7 +206,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-もし極がなければ $f$ は全平面で正則である。閉基本平行四辺形上で $|f|$ は有界であり、周期性によりその上界が全平面の上界になる。[Liouville の定理](../CA3/index.md#thm-ca3-liouville)から $f$ は定数となり、仮定に反する。$\square$
+ある基本平行四辺形に極がないと仮定する。任意の $z\in\mathbb C$ は格子平行移動によってその基本平行四辺形の点へ移せるので、周期性から全平面に極がない。従って $f$ は全平面で正則である。閉基本平行四辺形上で $|f|$ は有界であり、周期性によりその上界が全平面の上界になる。[Liouville の定理](../CA3/index.md#thm-ca3-liouville)から $f$ は定数となり、仮定に反する。$\square$
 <!-- proof-end -->
 
 ---
@@ -1139,21 +1139,30 @@ $$
 
 [$\wp$ の二対一性](#prop-ca9-degree-two-weierstrass)から、分母 $\wp(z)-\wp(v)$ の零点は商上で $z\equiv\pm v$ に限られる。
 
-$z=v$ では $\wp'(v)\ne0$ なので分子・分母はともに一次で消え、商は正則に延長される。$z=-v$ では $t=z+v$ と置くと
+$z=v$ では $\wp'(v)\ne0$ なので分子・分母はともに一次で消え、商は正則に延長される。$z=-v$ では $t=z+v$ と置き、$B=\wp'(v)$、$C=\wp''(v)$ と書く。$\wp$ の偶性と $\wp'$ の奇性から
 
-$$
-\wp(z)-\wp(v)
+$
+\wp(-v+t)-\wp(v)
 =
--\wp'(v)t+O(t^2),
-$$
+-Bt+\frac{C}{2}t^2+O(t^3),
+$
 
-$$
-\wp'(z)-\wp'(v)
+$
+\wp'(-v+t)-\wp'(v)
 =
--2\wp'(v)+O(t),
-$$
+-2B+Ct+O(t^2).
+$
 
-だから比は $2/t+O(t)$ となり、その二乗の4分の1は
+ここで $B\ne0$ なので、
+
+$
+\frac{\wp'(z)-\wp'(v)}
+{\wp(z)-\wp(v)}
+=
+\frac{2}{t}+O(t).
+$
+
+定数項が消えるのは、分子の一次係数 $C$ と分母の二次係数 $C/2$ がちょうど対応するためである。従って、その二乗の4分の1は
 
 $$
 \frac1{t^2}+O(1).
