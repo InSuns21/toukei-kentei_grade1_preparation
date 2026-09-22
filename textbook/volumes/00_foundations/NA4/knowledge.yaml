@@ -40,11 +40,11 @@ concepts:
     requires: [numerical.lagrange-interpolation]
 
   - id: numerical.divided-difference-recurrence
-    name: 分割差分の再帰公式
+    name: 分割差分の漸化式
     kind: proposition
-    aliases: [分割差分の再帰公式]
+    aliases: [分割差分の漸化式]
     introduction: formal
-    introduction_aliases: ["命題（分割差分の再帰公式）"]
+    introduction_aliases: ["命題（分割差分の漸化式）"]
     requires: [numerical.divided-difference]
 
   - id: numerical.newton-interpolation
