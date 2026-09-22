@@ -9,15 +9,15 @@ prerequisites:
   - VC5
 official_scope: []
 learning_objectives:
-  - ベクトル空間と滑らかな多様体の向きを定義し、座標変換のJacobi行列式の符号で判定できる
-  - 向き付け可能性と消えない最高次微分形式の存在が同値であることを1の分割を使って証明できる
+  - ベクトル空間と滑らかな多様体の向きを定義し、座標変換の Jacobi 行列式の符号で判定できる
+  - 向き付け可能性と消えない最高次微分形式の存在が同値であることを 1 の分割を使って証明できる
   - 境界付き滑らかな多様体を半空間モデルで定義し、境界点が座標に依らないことを説明できる
   - 内部の向きから外向き先頭規約で境界向きを定め、区間・円板・円環で符号を判定できる
   - コンパクト台を持つ最高次形式の局所積分を定義し、多変数変数変換定理から座標不変性を証明できる
-  - 1の分割を用いて多様体上の最高次形式の大域積分を定義し、選択に依らないことを証明できる
-  - 半空間上の局所Stokesを一変数微積分学の基本定理から証明できる
-  - 一般Stokesの定理を1の分割で局所化して証明し、各仮定の役割を説明できる
-  - 微積分学の基本定理・Greenの定理・Kelvin--Stokesの定理・Gauss--Ostrogradskyの発散定理を一般Stokesの特殊例として回収できる
+  - 1 の分割を用いて多様体上の最高次形式の大域積分を定義し、選択に依らないことを証明できる
+  - 半空間上の局所 Stokes を一変数微積分学の基本定理から証明できる
+  - 一般 Stokes の定理を 1 の分割で局所化して証明し、各仮定の役割を説明できる
+  - 微積分学の基本定理・Green の定理・Kelvin--Stokes の定理・Gauss--Ostrogradsky の発散定理を一般 Stokes の特殊例として回収できる
 definitions:
   - { id: GEO8-DEF-01, name: ベクトル空間の向き }
   - { id: GEO8-DEF-02, name: 向き付けられたアトラス・多様体の向き }
@@ -31,9 +31,9 @@ theorems:
   - { id: GEO8-LEM-01, name: 境界座標変換は境界を保つ }
   - { id: GEO8-THM-02, name: 境界は余次元1の滑らかな多様体 }
   - { id: GEO8-THM-03, name: 最高次形式の局所積分の座標不変性 }
-  - { id: GEO8-PROP-01, name: 大域積分は1の分割に依存しない }
-  - { id: GEO8-LEM-02, name: 半空間上の局所Stokes }
-  - { id: GEO8-THM-04, name: 一般Stokesの定理 }
+  - { id: GEO8-PROP-01, name: 大域積分は 1 の分割に依存しない }
+  - { id: GEO8-LEM-02, name: 半空間上の局所 Stokes }
+  - { id: GEO8-THM-04, name: 一般 Stokes の定理 }
 canonical_examples:
   - R2の標準向きと座標交換による向きの反転
   - 正の最高次形式が定める向き
@@ -41,7 +41,7 @@ canonical_examples:
   - 円板の反時計回り境界向き
   - 円環の外側・内側境界の向き
   - R2上のコンパクト台2形式の局所積分
-  - 一般StokesからのGreen・Kelvin--Stokes・Gauss--Ostrogradskyの回収
+  - 一般 Stokes からの Green・Kelvin--Stokes・Gauss--Ostrogradsky の回収
 problem_patterns:
   - GEO8-ORIENTATION-JACOBIAN-1
   - GEO8-INTERVAL-BOUNDARY-1
