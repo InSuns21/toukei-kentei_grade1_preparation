@@ -1,4 +1,4 @@
-# PDE12 一般一階 PDE・Hamilton--Jacobi 方程式
+# PDE12 一般一階 PDE と特性法
 
 <!-- definition-example-audit: strict -->
 
@@ -8,7 +8,7 @@ $$
 F(x,u,\nabla u)=0
 $$
 
-という一般の一階非線形 PDE へ拡張し、Hamilton--Jacobi 方程式
+という一般の一階非線形 PDE へ拡張し、力学から現れる一階方程式
 
 $$
 u_t+H(x,\nabla u)=0
@@ -18,7 +18,7 @@ $$
 
 主役は位置 $x$ だけでなく、関数値 $z=u(x)$ と勾配 $p=\nabla u(x)$ も同時に運ぶ特性常微分方程式です。
 
-## 1. 一般一階非線形 PDE
+## 1. 最も一般的な一階の形
 
 <a id="def-pde12-first-order"></a>
 <!-- formal-statement-start -->
@@ -39,7 +39,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pde12-first-order -->
-### 具体例：eikonal 方程式
+### 具体例：勾配の大きさを固定する
 
 $$
 |\nabla u|=1
@@ -48,7 +48,7 @@ $$
 は $F(x,z,p)=|p|^2-1$ と書けます。$u(x)=|x|$ は $x\ne0$ で $\nabla u=x/|x|$ なので古典解ですが、原点では微分不能です。
 <!-- definition-example-end -->
 
-## 2. Charpit の特性系
+## 2. 位置・関数値・勾配を同時に運ぶ
 
 <a id="thm-pde12-charpit"></a>
 <!-- formal-statement-start -->
@@ -147,7 +147,7 @@ F_p\cdot(-F_x-pF_z)
 $$
 <!-- proof-end -->
 
-## 3. Hamilton--Jacobi 方程式
+## 3. 力学から現れる一階方程式
 
 <a id="def-pde12-hamilton-jacobi"></a>
 <!-- formal-statement-start -->
@@ -333,7 +333,7 @@ $$
 左辺は $\dot Z=P\cdot H_p-H$ なので $u_t=-H$。よって Hamilton--Jacobi 方程式を満たします。
 <!-- proof-end -->
 
-## 5. 特性 caustic
+## 5. 特性写像が退化する場所
 
 <a id="def-pde12-caustic"></a>
 <!-- formal-statement-start -->
