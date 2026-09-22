@@ -5,7 +5,8 @@ prerequisites:
   - PDE10
   - ODE6
   - VC6
-forward_references: []
+forward_references:
+  - complex-analysis.harmonic-function
 concepts:
   - id: pde.pde11-bessel-separation
     name: 円板の変数分離と Bessel 方程式
