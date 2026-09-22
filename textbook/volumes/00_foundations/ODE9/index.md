@@ -27,6 +27,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ode9-lyapunov -->
+**定義の確認**：以下で定義の条件を直接確認します。
+
 ### 具体例：$x'=-x^3$
 
 $V=x^2/2$ なら
@@ -95,6 +97,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ode9-positive-invariant -->
+**定義の確認**：以下で定義の条件を直接確認します。
+
 $\dot V\le0$ なら任意の劣位集合 $\{V\le c\}$ は正方向不変です。軌道上で $V$ が増えないため、境界値 $c$ を上へ越えられません。
 <!-- definition-example-end -->
 
@@ -113,6 +117,16 @@ $$
 
 > を正の極限集合という。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-ode9-omega-limit -->
+**定義の確認**：$x'=-x$, $x(0)=x_0$ とすると $x(t)=x_0e^{-t}$ です。任意の $t_n\to\infty$ について $x(t_n)\to0$ なので
+
+$$
+\omega(x_0)=\{0\}.
+$$
+
+実際、定義に必要な「$t_n\to\infty$ に沿う極限」は0だけで、0は例えば $t_n=n$ で実現します。
+<!-- definition-example-end -->
 
 有界軌道なら有限次元のコンパクト性から正の極限集合は空でありません。ODE8 の連続依存を使うと極限集合は流れで不変になります。
 
