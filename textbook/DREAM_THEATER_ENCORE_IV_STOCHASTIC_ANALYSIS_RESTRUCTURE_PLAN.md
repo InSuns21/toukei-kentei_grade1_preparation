@@ -142,7 +142,7 @@ F0-00P3C の上向き横断と F0-00P4A の一様可積分性を canonical depen
 - consistency
 - Kolmogorov extension theorem
 - canonical path space
-- mean / positive-semidefinite covariance kernel からの Gaussian process existence
+- mean / 半正定値共分散核からのガウス過程の存在
 - modification
 - Kolmogorov--Chentsov continuity theorem
 - moment estimate から Hölder regularity を得る機構
@@ -152,7 +152,7 @@ Brown 運動を「存在すると仮定」せず、次章で構成できる床�
 ### STO4 Brown 運動・hitting time・strong Markov property
 
 - Brownian motion の構成
-- STO3 の Gaussian process existence theorem を covariance $\min(s,t)$ へ適用
+- STO3 のガウス過程存在定理を共分散 $\min(s,t)$ へ適用
 - stationary independent increments
 - scaling
 - time inversion の位置付け
