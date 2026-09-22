@@ -1,0 +1,44 @@
+id: "NA3"
+title: "数値解析 III：非線形連立方程式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NA1
+  - NA2
+  - F0-02C3
+  - RA4
+official_scope: []
+learning_objectives:
+  - 非線形連立方程式 F(x)=0 の根と残差を定式化し、Jacobian行列による一次近似を説明できる
+  - 多変数 Newton 法を J_F(x_k)s_k=-F(x_k) という線形方程式として導出し、逆行列を明示的に作らない理由を説明できる
+  - Jacobian の Lipschitz 連続性から一次近似の二次剰余評価を証明できる
+  - 可逆行列の摂動補題を Neumann 級数から証明し、根の近くで Jacobian の可逆性が保たれることを示せる
+  - 非線形連立方程式に対する Newton 法の局所収束と二次誤差評価を証明できる
+  - 逆 Jacobian のノルムを根の局所感度として解釈し、残差から根誤差への局所評価を導ける
+  - 悪条件な Jacobian では小さい残差が小さい根誤差を保証しない機構を具体例で説明できる
+  - 複数の根・特異 Jacobian・初期値依存によって Newton 法の大域挙動が変わることを解析できる
+definitions:
+  - { id: NA3-DEF-01, name: 非線形連立方程式の根・残差 }
+  - { id: NA3-DEF-02, name: 非線形連立方程式に対する Newton 法 }
+  - { id: NA3-DEF-03, name: Jacobian の Lipschitz 連続性 }
+  - { id: NA3-DEF-04, name: 根の局所絶対条件数 }
+theorems:
+  - { id: NA3-PROP-01, name: Lipschitz Jacobian による二次剰余評価 }
+  - { id: NA3-LEM-01, name: 可逆行列の摂動と逆行列ノルム }
+  - { id: NA3-THM-01, name: 非線形連立方程式に対する Newton 法の局所収束 }
+  - { id: NA3-PROP-02, name: 近傍での残差から根誤差への評価 }
+canonical_examples:
+  - 円と直線の交点に対する二変数 Newton 法
+  - ほぼ従属な二本の方程式による悪条件性
+  - x^2=1 と y^2=1 の直積系における初期値依存
+problem_patterns:
+  - NA3-JACOBIAN-NEWTON-1
+  - NA3-LIPSCHITZ-REMAINDER-1
+  - NA3-MATRIX-PERTURBATION-1
+  - NA3-LOCAL-NEWTON-1
+  - NA3-ROOT-CONDITIONING-1
+  - NA3-INITIAL-VALUE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 4.5, review: 0.5 }

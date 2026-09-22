@@ -1,0 +1,20 @@
+chapter: "NA3"
+terms:
+  - term: 非線形連立方程式
+    english: nonlinear system of equations
+    meaning: ベクトル値写像 F:R^n→R^n に対して F(x)=0 を満たす x を求める問題。
+  - term: Jacobian行列
+    english: Jacobian matrix
+    meaning: ベクトル値写像の Fréchet 微分を標準基底で行列表示したもの。
+  - term: Newton ステップ
+    english: Newton step
+    meaning: 現在点 x_k で J_F(x_k)s_k=-F(x_k) を解いて得る補正ベクトル s_k。
+  - term: Jacobian の Lipschitz 連続性
+    english: Lipschitz continuity of the Jacobian
+    meaning: ある L に対して ||J_F(x)-J_F(y)||≤L||x-y|| が成り立つ性質。
+  - term: 根の局所絶対条件数
+    english: local absolute condition number of a root
+    meaning: 正則な根 alpha における ||J_F(alpha)^{-1}||_2。右辺の小さな加法摂動が根へ与える一次感度を測る。
+  - term: 収束域
+    english: basin of attraction
+    meaning: ある根へ Newton 反復が収束する初期値の集合。
