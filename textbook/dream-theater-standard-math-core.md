@@ -112,6 +112,7 @@ flowchart TD
   TOP2 --> CA8
   TOP4 --> CA8
   TOP5 --> CA8
+  CA8 --> CA9["楕円関数・Weierstrass wp<br/>CA9"]
 
   MTP --> FA0["関数解析 I<br/>Banach/Hilbert・有界作用素<br/>既存 D1/C1/C3"]
   LA6 --> FA0
@@ -629,9 +630,9 @@ Caratheodory 外測度をスケール依存の幾何量へ拡張し、後続の 
 
 ---
 
-# 7. 複素解析：Cauchy 理論から Riemann 面まで
+# 7. 複素解析：Cauchy 理論から Riemann 面・楕円関数まで
 
-複素解析は FA5 の補助定理置き場ではなく、Fourier解析・PDE・スペクトル論へ共通に流れ込む独立した標準系列とする。CA1--CA8 は証明・例・演習まで実装済みで、CA7 から後半の「複素解析 II」へ入り、正則関数族のコンパクト性・Riemann 写像定理から Riemann 面・被覆の幾何へ進む。
+複素解析は FA5 の補助定理置き場ではなく、Fourier解析・PDE・スペクトル論へ共通に流れ込む独立した標準系列とする。CA1--CA9 は証明・例・演習まで実装済みで、CA7 から後半の「複素解析 II」へ入り、正則関数族のコンパクト性・Riemann 写像定理、Riemann 面・被覆を経て、複素トーラス上の楕円関数と Weierstrass wp 関数へ進む。
 
 ## CA1 複素微分・Cauchy–Riemann・初等正則関数 `core`
 複素微分、holomorphic/entire、Cauchy–Riemann、Wirtinger微分、複素指数・三角関数。
@@ -660,6 +661,11 @@ Möbius変換、Schwarz の補題、調和関数、平均値性質、Poisson ker
 複素座標近傍・正則アトラスから Riemann 面を定義し、正則性と零点・極の位数の座標不変性を証明する。被覆写像の経路持ち上げ・ホモトピー持ち上げを局所逆写像とコンパクト性から閉じ、対数・平方根を被覆上の一価正則関数として構成する。さらに商位相から複素トーラス $\mathbb C/\Lambda$ のアトラス、Hausdorff 性、第二可算性、コンパクト性を証明し、コンパクト Riemann 面上の正則関数の剛性へつなぐ。
 
 **証明境界**：被覆空間の基本群による完全分類、普遍被覆の一般存在定理、被覆変換の体系、分岐被覆の一般論、Riemann--Roch の定理、一様化定理は CA8 では使わず、後続または将来の複素幾何系列へ送る。
+
+## CA9 楕円関数・Weierstrass wp 関数 `advanced-standard`
+基本平行四辺形の対辺積分相殺から、楕円関数の留数和0と零点・極の総重複度一致を証明する。格子点個数の二次評価から格子冪和を制御し、補正付き級数による Weierstrass wp 関数の正規収束を閉じる。さらに偶性・周期性・Laurent 展開、Weierstrass 不変量 g2/g3、微分方程式、半周期、判別式非零、加法公式まで証明し、複素トーラスと非特異三次曲線の対応の入口へ接続する。
+
+**証明境界**：Jacobi 楕円関数の体系、モジュラー形式・モジュラー群、複素乗法、楕円曲線算術、Riemann--Roch の一般論は CA9 では扱わない。
 
 ---
 
@@ -743,7 +749,7 @@ Möbius変換、Schwarz の補題、調和関数、平均値性質、Poisson ker
 4. **TOP1–TOP7（TOP5Aを含む）**：位相の生成・initial/final → 同値関係による商・貼り合わせ → 連結 → 可算性/分離 → compact → Urysohn・局所コンパクト性 → Baire/net/filter → 一様構造。
 5. **MT0・MT1–MT5**：Lebesgue正則性 → 収束様式 → signed measure → RN → differentiation/Radon。
 6. **FA1–FA4**：Baire系三大定理 → weak/weak* → Banach–Alaoglu・反射性。
-7. **CA1–CA8**：複素微分 → Cauchy理論 → Liouville → Laurent/留数 → 偏角原理 → Poisson核 → 正規族 → Riemann写像 → Riemann面・被覆。
+7. **CA1–CA9**：複素微分 → Cauchy理論 → Liouville → Laurent/留数 → 偏角原理 → Poisson核 → 正規族 → Riemann写像 → Riemann面・被覆。
 8. **FA5–FA7**：CA3を受けて spectrum/resolvent → compact operator → compact self-adjoint spectral theorem/Fredholm alternative。
 9. **RA6A–RA8**：RA6は既存F0-02C3再利用で閉じ、逆関数定理・陰関数定理 → 多重積分・変数変換 → Arzela–Ascoli/Stone–Weierstrassを最適化・関数解析へ接続。
 
@@ -766,7 +772,7 @@ Möbius変換、Schwarz の補題、調和関数、平均値性質、Poisson ker
 - **線形代数**：実/複素線形空間・商・代数的双対・通常行列式・抽象行列式・最小多項式・Jordan構造・複素スペクトル・二次形式・polar decompositionまで一周。抽象行列式は発展分岐、Jordan標準形は数学科標準コアに含めるが統計検定1級通常ルートの必修前提にはしない。
 - **位相**：位相の生成・initial/final topology、積・商・貼り合わせ、連結・可算性・分離・コンパクト性の一般論まで一周。
 - **測度論**：Lebesgue積分の構成とLebesgue正則性に加え、収束様式・signed measure・Radon–Nikodymまで一周。
-- **複素解析**：複素微分・Cauchy理論・Taylor/Liouville・Laurent/留数・偏角原理・調和関数・Poisson核・正規族・Riemann 写像定理までを証明付きでつなぎ、後半複素解析への入口を正本化。
+- **複素解析**：複素微分・Cauchy理論・Taylor/Liouville・Laurent/留数・偏角原理・調和関数・Poisson核・正規族・Riemann 写像定理・Riemann 面・楕円関数までを証明付きでつなぎ、Weierstrass wp の微分方程式と加法公式まで正本化。
 - **関数解析**：Banach/Hilbertから一様有界性・開写像・閉グラフ・弱位相・スペクトル・compact operatorまで一周。
 
 その上で確率論・統計理論・凸解析・RKHS・PDEへ進み、「知らない定理が地下から突然生えてくる」状態を減らします。
