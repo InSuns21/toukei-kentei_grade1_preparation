@@ -86,9 +86,9 @@ $$
 
 ## 1. 空間と時間を格子へ落とす
 
-<a id="def-fdm1-grid-grid-function"></a>
+<a id="def-fdm1-space-time-grid"></a>
 <!-- formal-statement-start -->
-### 定義（時空間差分格子・格子関数）
+### 定義（時空間差分格子）
 
 正整数 $J,N$ を取り、
 
@@ -123,30 +123,12 @@ $$
 $$
 
 の集合を **時空間差分格子**という。
-
-各格子点へ数値
-
-$$
-U_j^n
-$$
-
-を割り当てるものを **格子関数**という。数値計算では
-
-$$
-\boxed{
-U_j^n\approx u(t_n,x_j)
-}
-$$
-
-と解釈する。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-fdm1-grid-grid-function -->
-### 例：$L=1$ を4分割する
+<!-- definition-example-start: def-fdm1-space-time-grid -->
+### 例：$L=1$ の空間格子を4分割する
 
-**定義の確認**。上の定義に従って格子点と格子関数を具体化します。
-
-$J=4$ とすると
+**定義の確認**。$L=1$, $J=4$ とすると
 
 $$
 h=\frac14
@@ -164,7 +146,44 @@ $$
 
 です。
 
-たとえばある時刻 $t_n$ で
+さらに $T=1$, $N=8$ とすれば
+
+$$
+\tau=\frac18,
+\qquad
+t_n=\frac{n}{8}.
+$$
+
+したがって $(t_n,x_j)$ の有限集合が、この計算で使う時空間差分格子です。
+<!-- definition-example-end -->
+
+<a id="def-fdm1-grid-function"></a>
+<!-- formal-statement-start -->
+### 定義（格子関数）
+
+時空間差分格子の各点 $(t_n,x_j)$ へ数値
+
+$$
+U_j^n
+$$
+
+を割り当てるものを **格子関数**という。
+
+数値計算では
+
+$$
+\boxed{
+U_j^n\approx u(t_n,x_j)
+}
+$$
+
+と解釈する。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-fdm1-grid-function -->
+### 例：1つの時刻で格子関数を与える
+
+**定義の確認**。上の $J=4$ の格子で、ある時刻 $t_n$ に
 
 $$
 (U_0^n,U_1^n,U_2^n,U_3^n,U_4^n)
@@ -174,7 +193,7 @@ $$
 \right)
 $$
 
-なら、この5個の値がその時刻の格子関数です。
+と値を割り当てれば、これはその時刻における格子関数です。
 
 端点 $j=0,J$ は境界条件から与え、内部点 $j=1,\ldots,J-1$ を数値法で更新します。
 <!-- definition-example-end -->
