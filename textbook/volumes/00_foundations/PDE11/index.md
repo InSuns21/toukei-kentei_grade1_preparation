@@ -44,25 +44,25 @@ $$
 <!-- formal-statement-start -->
 > **命題（円板の変数分離と Bessel 方程式）**  
 > $u=R(r)e^{im\theta}$ $(m\in\mathbb Z)$ を
->
-> $$
-> -\Delta u=\lambda u
-> $$
->
+
+$$
+-\Delta u=\lambda u
+$$
+
 > へ代入すると、$R$ は
->
-> $$
-> r^2R''+rR'+(\lambda r^2-m^2)R=0
-> $$
->
+
+$$
+r^2R''+rR'+(\lambda r^2-m^2)R=0
+$$
+
 > を満たす。$\rho=\sqrt\lambda\,r$ と置けば
->
-> $$
-> \rho^2R_{\rho\rho}
-> +\rho R_\rho
-> +(\rho^2-m^2)R=0,
-> $$
->
+
+$$
+\rho^2R_{\rho\rho}
++\rho R_\rho
++(\rho^2-m^2)R=0,
+$$
+
 > すなわち次数 $|m|$ の Bessel 方程式になる。
 <!-- formal-statement-end -->
 
@@ -98,19 +98,19 @@ ODE6 の Frobenius 解析から、整数次数 $m\ge0$ では原点で有限な�
 <!-- formal-statement-start -->
 > **定義（円板の Bessel モード）**  
 > $j_{m,k}$ を $J_m$ の第 $k$ 正零点とする。単位円板の Dirichlet 条件に対し
->
-> $$
-> u_{m,k}(r,\theta)
-> =
-> J_m(j_{m,k}r)e^{im\theta}
-> $$
->
+
+$$
+u_{m,k}(r,\theta)
+=
+J_m(j_{m,k}r)e^{im\theta}
+$$
+
 > を円板の Bessel モードと呼ぶ。対応する固有値は
->
-> $$
-> \lambda_{m,k}=j_{m,k}^2
-> $$
->
+
+$$
+\lambda_{m,k}=j_{m,k}^2
+$$
+
 > である。
 <!-- formal-statement-end -->
 
@@ -173,15 +173,15 @@ $$
 <!-- formal-statement-start -->
 > **定義（球面調和関数）**  
 > 球面 $S^2$ 上の滑らかな関数 $Y$ が
->
-> $$
-> -\Delta_{S^2}Y
-> =
-> \ell(\ell+1)Y,
-> \qquad
-> \ell=0,1,2,\ldots
-> $$
->
+
+$$
+-\Delta_{S^2}Y
+=
+\ell(\ell+1)Y,
+\qquad
+\ell=0,1,2,\ldots
+$$
+
 > を満たすとき、次数 $\ell$ の球面調和関数という。
 <!-- formal-statement-end -->
 
@@ -217,12 +217,12 @@ $x=\cos\theta$ と置きます。
 <!-- formal-statement-start -->
 > **命題（球面固有値問題と Legendre 方程式）**  
 > 軸対称な球面調和関数 $Y(\theta)=P(\cos\theta)$ は
->
-> $$
-> (1-x^2)P''-2xP'
-> +\ell(\ell+1)P=0
-> $$
->
+
+$$
+(1-x^2)P''-2xP'
++\ell(\ell+1)P=0
+$$
+
 > を満たす。両極で有限な多項式解が Legendre 多項式 $P_\ell$ である。
 <!-- formal-statement-end -->
 
@@ -286,22 +286,22 @@ $$
 <!-- formal-statement-start -->
 > **命題（標準球面調和モード）**  
 > $|m|\le\ell$ とする。associated Legendre 関数 $P_\ell^{|m|}$ を用いれば
->
-> $$
-> Y_\ell^m(\theta,\phi)
-> =
-> C_{\ell m}
-> P_\ell^{|m|}(\cos\theta)e^{im\phi}
-> $$
->
+
+$$
+Y_\ell^m(\theta,\phi)
+=
+C_{\ell m}
+P_\ell^{|m|}(\cos\theta)e^{im\phi}
+$$
+
 > は
->
-> $$
-> -\Delta_{S^2}Y_\ell^m
-> =
-> \ell(\ell+1)Y_\ell^m
-> $$
->
+
+$$
+-\Delta_{S^2}Y_\ell^m
+=
+\ell(\ell+1)Y_\ell^m
+$$
+
 > を満たす。定数 $C_{\ell m}$ は規格化により選べる。
 <!-- formal-statement-end -->
 
@@ -317,17 +317,17 @@ $$
 <!-- formal-statement-start -->
 > **命題（球面調和関数から得る solid harmonic）**  
 > 次数 $\ell$ の球面調和関数 $Y_\ell$ に対し
->
-> $$
-> u(r,\omega)=r^\ell Y_\ell(\omega)
-> $$
->
+
+$$
+u(r,\omega)=r^\ell Y_\ell(\omega)
+$$
+
 > は原点を含む全空間で調和的である。原点外では
->
-> $$
-> r^{-\ell-1}Y_\ell(\omega)
-> $$
->
+
+$$
+r^{-\ell-1}Y_\ell(\omega)
+$$
+
 > も調和的である。
 <!-- formal-statement-end -->
 
