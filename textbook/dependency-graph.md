@@ -289,74 +289,22 @@ TSA6 状態空間・Kalman フィルタ・イノベーション
 STO1 の direct prerequisite は F0-00P1 と F0-00P3C、STO2 は STO1・F0-00P3C・F0-00P4A とする。後続章でも証明に実際に必要な直接依存だけを各 chapter.yaml に置く。読者向け入口は `F0_00R4_EncoreIV_Stochastic_Spectral_TimeSeries/index.md`。未完成 STO / TSA 章は reader-facing index に先行登録しない。
 ---
 
-## Encore V：Numerical Analysis, FEM & Monte Carlo
+## Encore V：計算数理
 
-通常教材およびEncore II〜IVの必須前提にはしない。数値計算へ進む任意の発展路線であり、FEM branchとMonte Carlo/SDE branchは途中まで独立に読める。
+通常教材および Encore II〜IV の必須前提にはしない。新系列では未完成章を canonical dependency として先行登録せず、完成した講から順に依存グラフへ加える。
 
-### 共通数値基礎
+### 現在の canonical dependency
 
-```text
-F0-00F2
-  ↓
-F0-00NA1 浮動小数点・誤差・条件数・安定性
-  ↓
-F0-00NA2 数値線形代数・疎行列・CG・前処理
-  ↓
-F0-00NA3 補間・数値微分・数値積分
-  ↓
-F0-00NA4 ODE数値解法・Runge--Kutta・安定性
-```
+~~~text
+RA3 微分法 ───────┐
+                   ├→ NA1 浮動小数点・誤差・条件数・安定性
+F0-00F2 SVD・作用素ノルム ─┘
+~~~
 
-NA1ではconditioningとalgorithmic stabilityを分離し、NA2ではFEMで現れる疎SPD線形系をCG・前処理まで扱う。NA3では補間・差分・quadratureを導入し、Gaussian quadratureをFEM要素積分へ接続する。NA4ではconsistency・stability・convergence、stiffness、method of linesを扱う。
+NA1 では、最近接丸めの標準相対誤差モデル、丸め因子の積の評価、桁落ち、スカラー関数の相対条件数、2-ノルム行列条件数、前方誤差・後方誤差、残差、後方安定性を扱う。
 
-### FEM branch
+後続の NA2–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC8 は DREAM_THEATER_ENCORE_V_REWRITE_PLAN.md の計画対象であり、各講の実装完了時に実際の直接依存だけを追加する。
 
-```text
-Encore III WK3 + NA2 + NA3
-  ↓
-F0-00FEM1 mesh・nodal basis・element matrix・assembly・Poisson FEM
-```
-
-FEM1では弱形式を有限次元化し、局所要素行列からglobal sparse systemを構成する。Ceaの補題から一次要素の典型的 $H^1$ 誤差評価へ進み、solver errorとdiscretization errorを分離する。
-
-### Monte Carlo / SDE branch
-
-```text
-F0-00P5 / P6A
-  ↓
-F0-00MC1 Monte Carlo積分・LLN/CLT・標準誤差
-  ↓
-F0-00MC2 variance reduction・importance sampling・control variate
-
-STO9 + MC1 + NA4
-  ↓
-F0-00SDE1 Euler--Maruyama・strong/weak convergence
-```
-
-MC1ではMonte Carloを標本平均として導き $N^{-1/2}$ 誤差をCLTで評価する。MC2ではcontrol variate、stratification、importance sampling、common random numbersを扱う。SDE1ではBrown増分を離散化し、path誤差のstrong convergenceと期待値誤差のweak convergenceを区別する。
-
-### 合流：UQとMLMC
-
-```text
-F0-00FEM1 + F0-00MC1 + F0-00F
-  ↓
-F0-00UQ1 random field・Karhunen--Loeve・Monte Carlo FEM
-  ↓
-F0-00MLMC Multilevel Monte Carlo
-          ↑
-F0-00SDE1 + F0-00MC2
-```
-
-UQ1ではrandom coefficient PDEをsample-wise FEMで解き、random fieldを共分散作用素のKarhunen--Loeve展開へ接続する。総誤差をmodel/truncation・FEM bias・sampling・solverへ分解する。地下水流のrandom permeabilityを主要例とする。
-
-MLMCでは
-
-$$
-E[Q_L]=E[Q_0]+\sum_{\ell=1}^LE[Q_\ell-Q_{\ell-1}]
-$$
-
-を用い、fine/coarseを同じrandom inputでcoupleする。levelごとのvariance $V_\ell$ とcost $C_\ell$ から $N_\ell\propto\sqrt{V_\ell/C_\ell}$ のsample allocationを導き、FEM mesh hierarchyとSDE time-step hierarchyの両方へ適用する。
-
-読者向け入口は `F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md`。
+読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA1 までで、次の実装対象は NA2「非線形方程式・不動点反復・Newton 法」である。
 
 ---
