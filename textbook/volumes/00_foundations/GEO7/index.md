@@ -56,33 +56,33 @@ $$
 > **定義（テンソル場）**  
 > $M$ を滑らかな多様体とする。非負整数 $r,s$ に対して、各点 $p\in M$ に
 >
-> $$
-> T_p
-> \in
-> (T_pM)^{\otimes r}\otimes(T_p^*M)^{\otimes s}
-> $$
+$$
+T_p
+\in
+(T_pM)^{\otimes r}\otimes(T_p^*M)^{\otimes s}
+$$
 >
 > を対応させる族 $T$ を $(r,s)$ 型テンソル場という。
 >
 > 局所座標 $(x^1,\dots,x^n)$ において
 >
-> $$
-> T
-> =
-> \sum
-> T^{i_1\cdots i_r}_{j_1\cdots j_s}
-> \frac{\partial}{\partial x^{i_1}}
-> \otimes\cdots\otimes
-> \frac{\partial}{\partial x^{i_r}}
-> \otimes
-> dx^{j_1}\otimes\cdots\otimes dx^{j_s}
-> $$
+$$
+T
+=
+\sum
+T^{i_1\cdots i_r}_{j_1\cdots j_s}
+\frac{\partial}{\partial x^{i_1}}
+\otimes\cdots\otimes
+\frac{\partial}{\partial x^{i_r}}
+\otimes
+dx^{j_1}\otimes\cdots\otimes dx^{j_s}
+$$
 >
 > と書いたとき、全ての成分関数
 >
-> $$
-> T^{i_1\cdots i_r}_{j_1\cdots j_s}
-> $$
+$$
+T^{i_1\cdots i_r}_{j_1\cdots j_s}
+$$
 >
 > が滑らかであるなら、$T$ を **滑らかなテンソル場**という。
 <!-- formal-statement-end -->
@@ -134,23 +134,23 @@ $$
 > **定義（微分形式）**  
 > $M$ を滑らかな多様体とする。各点 $p\in M$ に
 >
-> $$
-> \omega_p\in\Lambda^k(T_p^*M)
-> $$
+$$
+\omega_p\in\Lambda^k(T_p^*M)
+$$
 >
 > を滑らかに対応させるものを **$k$ 次微分形式**、または単に **$k$ 形式**という。
 >
 > $M$ 上の滑らかな $k$ 形式全体を
 >
-> $$
-> \Omega^k(M)
-> $$
+$$
+\Omega^k(M)
+$$
 >
 > と書く。特に
 >
-> $$
-> \Omega^0(M)=C^\infty(M)
-> $$
+$$
+\Omega^0(M)=C^\infty(M)
+$$
 >
 > と約束する。
 <!-- formal-statement-end -->
@@ -218,17 +218,17 @@ $$
 > **定義（微分形式の外積）**  
 > $\alpha\in\Omega^k(M)$、$\beta\in\Omega^\ell(M)$ に対して
 >
-> $$
-> (\alpha\wedge\beta)_p
-> :=
-> \alpha_p\wedge\beta_p
-> $$
+$$
+(\alpha\wedge\beta)_p
+:=
+\alpha_p\wedge\beta_p
+$$
 >
 > と定める。このとき
 >
-> $$
-> \alpha\wedge\beta\in\Omega^{k+\ell}(M)
-> $$
+$$
+\alpha\wedge\beta\in\Omega^{k+\ell}(M)
+$$
 >
 > である。
 <!-- formal-statement-end -->
@@ -272,17 +272,17 @@ $$
 > **命題（微分形式の外積の基本則）**  
 > $\alpha\in\Omega^k(M)$、$\beta\in\Omega^\ell(M)$、$\gamma\in\Omega^m(M)$ とする。このとき
 >
-> $$
-> (\alpha\wedge\beta)\wedge\gamma
-> =
-> \alpha\wedge(\beta\wedge\gamma),
-> $$
+$$
+(\alpha\wedge\beta)\wedge\gamma
+=
+\alpha\wedge(\beta\wedge\gamma),
+$$
 >
-> $$
-> \alpha\wedge\beta
-> =
-> (-1)^{k\ell}\beta\wedge\alpha.
-> $$
+$$
+\alpha\wedge\beta
+=
+(-1)^{k\ell}\beta\wedge\alpha.
+$$
 <!-- formal-statement-end -->
 
 これは各点で [LA3E の外積の結合性と次数付き交換則](../LA3E/index.md#thm-la3e-wedge-algebra-laws) を適用すれば従います。
@@ -316,14 +316,14 @@ $$
 >
 > $p\in M$ と $v_1,\dots,v_k\in T_pM$ に対して
 >
-> $$
-> (F^*\omega)_p(v_1,\dots,v_k)
-> :=
-> \omega_{F(p)}
-> \bigl(
-> dF_p(v_1),\dots,dF_p(v_k)
-> \bigr)
-> $$
+$$
+(F^*\omega)_p(v_1,\dots,v_k)
+:=
+\omega_{F(p)}
+\bigl(
+dF_p(v_1),\dots,dF_p(v_k)
+\bigr)
+$$
 >
 > と定める。この $k$ 形式 $F^*\omega\in\Omega^k(M)$ を $\omega$ の **引き戻し**という。
 <!-- formal-statement-end -->
@@ -393,19 +393,19 @@ $$
 > **命題（引き戻しと外積）**  
 > $F:M\to N$ を滑らかな写像とし、$\alpha\in\Omega^k(N)$、$\beta\in\Omega^\ell(N)$ とする。このとき
 >
-> $$
-> F^*(\alpha\wedge\beta)
-> =
-> F^*\alpha\wedge F^*\beta.
-> $$
+$$
+F^*(\alpha\wedge\beta)
+=
+F^*\alpha\wedge F^*\beta.
+$$
 >
 > また $G:N\to P$ が滑らかなら
 >
-> $$
-> (G\circ F)^*
-> =
-> F^*\circ G^*.
-> $$
+$$
+(G\circ F)^*
+=
+F^*\circ G^*.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -510,31 +510,31 @@ $$
 > **定義（外微分）**  
 > $\omega\in\Omega^k(M)$ に対して、局所座標で
 >
-> $$
-> \omega
-> =
-> \sum_I a_I\,dx^I
-> $$
+$$
+\omega
+=
+\sum_I a_I\,dx^I
+$$
 >
 > と書き、
 >
-> $$
-> d\omega
-> :=
-> \sum_I da_I\wedge dx^I
-> =
-> \sum_{I,j}
-> \frac{\partial a_I}{\partial x^j}
-> dx^j\wedge dx^I
-> $$
+$$
+d\omega
+:=
+\sum_I da_I\wedge dx^I
+=
+\sum_{I,j}
+\frac{\partial a_I}{\partial x^j}
+dx^j\wedge dx^I
+$$
 >
 > と定める。
 >
 > 後述の座標不変性により、これは座標近傍ごとに貼り合わさって大域的な作用素
 >
-> $$
-> d:\Omega^k(M)\to\Omega^{k+1}(M)
-> $$
+$$
+d:\Omega^k(M)\to\Omega^{k+1}(M)
+$$
 >
 > を定める。
 <!-- formal-statement-end -->
@@ -592,27 +592,27 @@ $$
 > **定理（外微分の座標に依らない表示）**  
 > $\omega\in\Omega^k(M)$ とし、$X_0,\dots,X_k$ を滑らかなベクトル場とする。このとき
 >
-> $$
-> \begin{aligned}
-> d\omega(X_0,\dots,X_k)
-> &=
-> \sum_{i=0}^k
-> (-1)^i
-> X_i
-> \bigl(
-> \omega(X_0,\dots,\widehat{X_i},\dots,X_k)
-> \bigr)
-> \\
-> &\quad+
-> \sum_{0\le i<j\le k}
-> (-1)^{i+j}
-> \omega
-> \bigl(
-> [X_i,X_j],
-> X_0,\dots,\widehat{X_i},\dots,\widehat{X_j},\dots,X_k
-> \bigr).
-> \end{aligned}
-> $$
+$$
+\begin{aligned}
+d\omega(X_0,\dots,X_k)
+&=
+\sum_{i=0}^k
+(-1)^i
+X_i
+\bigl(
+\omega(X_0,\dots,\widehat{X_i},\dots,X_k)
+\bigr)
+\\
+&\quad+
+\sum_{0\le i<j\le k}
+(-1)^{i+j}
+\omega
+\bigl(
+[X_i,X_j],
+X_0,\dots,\widehat{X_i},\dots,\widehat{X_j},\dots,X_k
+\bigr).
+\end{aligned}
+$$
 >
 > 右辺は座標を用いないので、局所座標で定義した $d\omega$ は座標変換に依存しない。
 <!-- formal-statement-end -->
@@ -751,14 +751,14 @@ $$
 > **定理（外微分の次数付き Leibniz 則）**  
 > $\alpha\in\Omega^k(M)$、$\beta\in\Omega^\ell(M)$ とする。このとき
 >
-> $$
-> d(\alpha\wedge\beta)
-> =
-> d\alpha\wedge\beta
-> +
-> (-1)^k
-> \alpha\wedge d\beta.
-> $$
+$$
+d(\alpha\wedge\beta)
+=
+d\alpha\wedge\beta
++
+(-1)^k
+\alpha\wedge d\beta.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -881,9 +881,9 @@ $$
 > **定理（外微分の二乗は0）**  
 > 任意の $\omega\in\Omega^k(M)$ に対して
 >
-> $$
-> d(d\omega)=0.
-> $$
+$$
+d(d\omega)=0.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -993,11 +993,11 @@ $\square$
 > **定理（外微分の自然性）**  
 > $F:M\to N$ を滑らかな写像、$\omega\in\Omega^k(N)$ とする。このとき
 >
-> $$
-> d(F^*\omega)
-> =
-> F^*(d\omega).
-> $$
+$$
+d(F^*\omega)
+=
+F^*(d\omega).
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1115,11 +1115,11 @@ $\square$
 > **定義（微分形式の内部積）**  
 > $X$ を滑らかなベクトル場、$\omega\in\Omega^k(M)$、$k\ge1$ とする。
 >
-> $$
-> (\iota_X\omega)_p(v_1,\dots,v_{k-1})
-> :=
-> \omega_p(X_p,v_1,\dots,v_{k-1})
-> $$
+$$
+(\iota_X\omega)_p(v_1,\dots,v_{k-1})
+:=
+\omega_p(X_p,v_1,\dots,v_{k-1})
+$$
 >
 > と定める。
 >
@@ -1127,9 +1127,9 @@ $\square$
 >
 > $k=0$ では
 >
-> $$
-> \iota_Xf=0
-> $$
+$$
+\iota_Xf=0
+$$
 >
 > と約束する。
 <!-- formal-statement-end -->
@@ -1185,14 +1185,14 @@ $$
 > **命題（内部積の符号付き積の法則）**  
 > $\alpha\in\Omega^k(M)$、$\beta\in\Omega^\ell(M)$ とする。このとき
 >
-> $$
-> \iota_X(\alpha\wedge\beta)
-> =
-> (\iota_X\alpha)\wedge\beta
-> +
-> (-1)^k
-> \alpha\wedge(\iota_X\beta).
-> $$
+$$
+\iota_X(\alpha\wedge\beta)
+=
+(\iota_X\alpha)\wedge\beta
++
+(-1)^k
+\alpha\wedge(\iota_X\beta).
+$$
 <!-- formal-statement-end -->
 
 これは各点で [LA3E の内部積の基本恒等式](../LA3E/index.md#thm-la3e-interior-product-identities) を適用すれば従います。
@@ -1208,14 +1208,14 @@ $$
 > **定義（微分形式の Lie 微分）**  
 > $X$ を滑らかなベクトル場、$\Phi_t$ をその局所流、$\omega\in\Omega^k(M)$ とする。
 >
-> $$
-> \mathcal L_X\omega
-> :=
-> \left.
-> \frac{d}{dt}
-> \right|_{t=0}
-> \Phi_t^*\omega
-> $$
+$$
+\mathcal L_X\omega
+:=
+\left.
+\frac{d}{dt}
+\right|_{t=0}
+\Phi_t^*\omega
+$$
 >
 > と定める。これを $\omega$ の $X$ による **Lie 微分**という。
 <!-- formal-statement-end -->
@@ -1285,15 +1285,15 @@ $$
 > **定理（Cartan の公式）**  
 > $X$ を滑らかなベクトル場、$\omega\in\Omega^k(M)$ とする。このとき
 >
-> $$
-> \boxed{
-> \mathcal L_X\omega
-> =
-> d(\iota_X\omega)
-> +
-> \iota_X(d\omega)
-> }.
-> $$
+$$
+\boxed{
+\mathcal L_X\omega
+=
+d(\iota_X\omega)
++
+\iota_X(d\omega)
+}.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
