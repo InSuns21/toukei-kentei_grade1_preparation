@@ -13,6 +13,9 @@ forward_references:
   - analysis.ck-uniform-norm
   - complex-analysis.isolated-singularity
   - convex.hyperplane
+  - geometry.constant-rank-theorem
+  - geometry.embedding
+  - geometry.embedded-submanifold
 
 concepts:
   - id: analysis.segment-derivative-integral-formula
