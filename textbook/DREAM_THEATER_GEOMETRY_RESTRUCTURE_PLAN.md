@@ -937,12 +937,12 @@ Phase 1 完了。GEO1 → GEO2 → GEO3 → GEO4 完了。
 ### Phase 2：ベクトル場・分布・微分形式
 
 - GEO5 ベクトル場・流れ・Lie 括弧 ✅ 2026-09-22
-- GEO6 Frobenius
+- GEO6 Frobenius ✅ 2026-09-22
 - GEO7 テンソル場・微分形式
 - GEO8 一般 Stokes
 - GEO9 de Rham 入門
 
-GEO5 完了。次の実装開始点は **GEO6「線形分布・Frobenius の定理」** とする。
+GEO6 完了。次の実装開始点は **GEO7「テンソル場・微分形式・外微分」** とする。
 
 ### Phase 3：古典曲面論から Riemann 幾何へ
 
