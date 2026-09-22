@@ -1,0 +1,38 @@
+id: "CA12"
+title: "標準複素解析 XII：Riemann ζ 関数・theta 変換・解析接続・関数等式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CA11
+  - FOU2
+  - FOU3
+  - F0-00D2C
+official_scope: []
+learning_objectives:
+  - Riemann ζ 関数の Dirichlet 級数が Re s>1 で局所一様絶対収束し正則であることを示せる
+  - 一意分解と絶対収束から Euler 積を導き、Re s>1 で ζ が零点を持たないことを説明できる
+  - Gaussian を周期化して Fourier 係数を計算し、theta 変換 theta(t)=t^(-1/2)theta(1/t) を証明できる
+  - theta 関数の Mellin 表現で和と積分の交換条件を確認し、ζ を全平面へ有理型解析接続できる
+  - 完成 zeta 因子の対称性から Riemann ζ 関数の関数等式を導ける
+  - s=1 の留数、負の偶数の自明零点、ζ(0), ζ(-1), ζ(2) を既存の Gamma 関数・Euler 積と接続して導ける
+definitions:
+  - { id: CA12-DEF-01, name: Riemann ζ 関数 }
+  - { id: CA12-DEF-02, name: Dirichlet eta 関数 }
+  - { id: CA12-DEF-03, name: Jacobi theta 関数 }
+  - { id: CA12-DEF-04, name: 完成 zeta 因子と Riemann xi 関数 }
+theorems:
+  - { id: CA12-THM-01, name: Riemann ζ 関数の右半平面での正則性 }
+  - { id: CA12-THM-02, name: Euler 積と零点不存在 }
+  - { id: CA12-PROP-01, name: Dirichlet eta 関数の右半平面での正則性 }
+  - { id: CA12-THM-03, name: theta 変換 }
+  - { id: CA12-THM-04, name: theta Mellin 表現 }
+  - { id: CA12-THM-05, name: Riemann ζ 関数の有理型解析接続 }
+  - { id: CA12-THM-06, name: Riemann ζ 関数の関数等式 }
+  - { id: CA12-COR-01, name: 自明零点 }
+  - { id: CA12-COR-02, name: 標準特殊値 }
+canonical_examples: [有限 Euler 積による zeta(2) 近似, theta(1) の自己双対性, zeta(0)=-1/2, zeta(-1)=-1/12, zeta(-2)=0, zeta(2)=pi^2/6]
+problem_patterns: [CA12-DIRICHLET-1, CA12-EULER-PRODUCT-1, CA12-THETA-1, CA12-MELLIN-1, CA12-FUNCTIONAL-EQUATION-1, CA12-SPECIAL-VALUE-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 15.0, exercises: 10.0, review: 3.0 }
