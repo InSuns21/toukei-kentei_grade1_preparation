@@ -9,6 +9,6 @@ terms:
   - term: Huygens 原理
     english: Huygens principle
     meaning: 三次元波動方程式で一点の値が後方光円錐の境界上のデータだけに依存し内部に尾を残さない性質。
-  - term: descent method
+  - term: 次元降下法
     english: method of descent
     meaning: 高次元の明示解を一つの座標に依存しないデータへ制限して低次元公式を導く方法。
