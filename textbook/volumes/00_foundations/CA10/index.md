@@ -21,7 +21,7 @@ E_p(w) で低次の発散項を打ち消す
   ↓
 Weierstrass 因数分解
   ↓
-極の principal part から低次 Taylor 多項式を差し引く
+極の 主要部 から低次 Taylor 多項式を差し引く
   ↓
 Mittag--Leffler
   ↓
@@ -185,11 +185,11 @@ $$
 \sum \sup_K|u_n|<\infty
 $$
 
-は便利な十分条件であり、無限積が収束するための必要条件ではない。本章では「任意の零点列を作れる」強さを得るため、十分条件を elementary factor に適用する。
+は便利な十分条件であり、無限積が収束するための必要条件ではない。本章では「任意の零点列を作れる」強さを得るため、十分条件を 基本因子 に適用する。
 
 ---
 
-## 2. Weierstrass の elementary factor
+## 2. Weierstrass の 基本因子
 
 零点を $w=1$ に置くだけなら $1-w$ で足りる。しかし
 
@@ -201,7 +201,7 @@ $$
 
 <a id="def-ca10-elementary-factor"></a>
 <!-- formal-statement-start -->
-### 定義（Weierstrass の elementary factor）
+### 定義（Weierstrass の 基本因子）
 
 整数 $p\ge0$ に対し
 
@@ -244,7 +244,7 @@ $$
 
 <a id="lem-ca10-elementary-factor-estimate"></a>
 <!-- formal-statement-start -->
-### 補題（elementary factor の誤差評価）
+### 補題（基本因子 の誤差評価）
 
 $p\ge0$ とし、$|w|\le1/2$ とする。このとき $E_p(w)\ne0$ で、$w=0$ から連続に選んだ対数について
 
@@ -297,15 +297,17 @@ $$
 ここで $|w|\le1/2$ が最後の評価を与えた。$\square$
 <!-- proof-end -->
 
-elementary factor の役目は零点を変えることではない。指数因子には零点がないので、$E_p$ の零点は常に $w=1$ の単純零点だけである。変わるのは **原点付近でどの次数まで誤差を消すか** である。
+基本因子 の役目は零点を変えることではない。指数因子には零点がないので、$E_p$ の零点は常に $w=1$ の単純零点だけである。変わるのは **原点付近でどの次数まで誤差を消すか** である。
 
 ---
 
-## 3. canonical product で任意の離散零点を作る
+## 3. 標準積 で任意の離散零点を作る
 
 <a id="def-ca10-canonical-product"></a>
 <!-- formal-statement-start -->
-### 定義（canonical product）
+### 定義（標準積）
+
+標準積（canonical product）は、零点列を積として符号化する構成である。
 
 $0$ でない複素数列 $(a_n)$ と非負整数列 $(p_n)$ に対して
 
@@ -314,7 +316,7 @@ $$
 E_{p_n}\left(\frac{z}{a_n}\right)
 $$
 
-を、この零点列に対応する **canonical product** という。零点の重複度を表すときは、同じ $a_n$ を必要な回数だけ列に繰り返してよい。
+を、この零点列に対応する **標準積** という。零点の重複度を表すときは、同じ $a_n$ を必要な回数だけ列に繰り返してよい。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ca10-canonical-product -->
@@ -394,7 +396,7 @@ $$
 \frac12.
 $$
 
-[elementary factor の評価](#lem-ca10-elementary-factor-estimate)から
+[基本因子 の評価](#lem-ca10-elementary-factor-estimate)から
 
 $$
 \left|
@@ -572,7 +574,7 @@ $$
 これが因数分解である。$\square$
 <!-- proof-end -->
 
-Weierstrass 因数分解が言っているのは「零点を知れば関数が一意に決まる」ではない。零点を全部担う canonical product を取り出した後にも、零点を持たない自由度 $e^g$ が残る。例えば $e^z\sin\pi z$ と $\sin\pi z$ は零点集合が同じである。
+Weierstrass 因数分解が言っているのは「零点を知れば関数が一意に決まる」ではない。零点を全部担う 標準積 を取り出した後にも、零点を持たない自由度 $e^g$ が残る。例えば $e^z\sin\pi z$ と $\sin\pi z$ は零点集合が同じである。
 
 ---
 
@@ -582,7 +584,7 @@ Weierstrass 因数分解が言っているのは「零点を知れば関数が�
 
 <a id="def-ca10-principal-part-data"></a>
 <!-- formal-statement-start -->
-### 定義（principal part データ）
+### 定義（主要部 データ）
 
 離散集合 $A=\{a_n\}\subset\mathbb C$ の各点 $a_n$ に対し、
 
@@ -595,7 +597,7 @@ P_n(z)
 c_{n,m_n}\ne0
 $$
 
-という有限和を指定する。この $P_n$ を $a_n$ で指定された **principal part** という。
+という有限和を指定する。この $P_n$ を $a_n$ で指定された **主要部** という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ca10-principal-part-data -->
@@ -607,21 +609,21 @@ a_n=n,
 P_n(z)=\frac1{z-n}.
 $$
 
-単純極なので principal part は $(z-n)^{-1}$ の一項だけであり、その係数1が留数である。
+単純極なので 主要部 は $(z-n)^{-1}$ の一項だけであり、その係数1が留数である。
 <!-- definition-example-end -->
 
-単に $\sum P_n(z)$ と足すと発散することがある。そこで各極が遠くへ行くほど、その principal part の **内側の円板で見える Taylor 多項式**を差し引く。
+単に $\sum P_n(z)$ と足すと発散することがある。そこで各極が遠くへ行くほど、その 主要部 の **内側の円板で見える Taylor 多項式**を差し引く。
 
 <a id="thm-ca10-mittag-leffler"></a>
 <!-- formal-statement-start -->
 ### 定理（Mittag--Leffler の定理）
 
-$A=\{a_n\}\subset\mathbb C$ を有限集または有限集積点を持たない離散集合とし、各 $a_n$ に非零 principal part $P_n$ を指定する。
+$A=\{a_n\}\subset\mathbb C$ を有限集または有限集積点を持たない離散集合とし、各 $a_n$ に非零 主要部 $P_n$ を指定する。
 
 このとき有理型関数 $F$ が存在して、
 
 1. $F$ の極はちょうど $A$ にあり、
-2. 各 $a_n$ における Laurent 展開の principal part は指定された $P_n$
+2. 各 $a_n$ における Laurent 展開の 主要部 は指定された $P_n$
 
 となる。
 <!-- formal-statement-end -->
@@ -637,7 +639,7 @@ $$
 
 で終わる。以下、$A$ が無限とする。
 
-もし $0\in A$ なら、その principal part $P_0$ は最後に有限項として加えることにし、残りを
+もし $0\in A$ なら、その 主要部 $P_0$ は最後に有限項として加えることにし、残りを
 
 $$
 0<|a_1|\le|a_2|\le\cdots,
@@ -709,7 +711,7 @@ P_0(z)
 \right].
 $$
 
-角括弧内は正則であり、$Q_N$ も多項式だから正則である。従って $a_N$ の principal part は正確に $P_N$ である。$P_N\ne0$ なので $a_N$ は実際に極であり、他に極はない。$\square$
+角括弧内は正則であり、$Q_N$ も多項式だから正則である。従って $a_N$ の 主要部 は正確に $P_N$ である。$P_N\ne0$ なので $a_N$ は実際に極であり、他に極はない。$\square$
 <!-- proof-end -->
 
 ### 直接例：正の整数に留数1の単純極を置く
@@ -1056,7 +1058,7 @@ $$
 
 ### 極は和で作る
 
-極 $a_n$ の principal part $P_n$ は加法的なデータである。内側 compact で見える Taylor 多項式 $Q_n$ を差し引き、
+極 $a_n$ の 主要部 $P_n$ は加法的なデータである。内側 compact で見える Taylor 多項式 $Q_n$ を差し引き、
 
 $$
 \sum(P_n-Q_n)
@@ -1066,11 +1068,11 @@ $$
 
 ### 一意性には自由度が残る
 
-同じ零点を持つ整関数同士の比は零点を持たない整関数だから $e^g$ が残る。同じ principal part を持つ有理型関数同士の差は整関数である。したがって
+同じ零点を持つ整関数同士の比は零点を持たない整関数だから $e^g$ が残る。同じ 主要部 を持つ有理型関数同士の差は整関数である。したがって
 
 ~~~text
 零点データ     → 乗法的自由度 e^g
-principal part → 加法的自由度 entire function
+主要部 → 加法的自由度 entire function
 ~~~
 
 という対称性がある。
@@ -1083,7 +1085,7 @@ principal part → 加法的自由度 entire function
 
 有限点に零点が集積すると恒等定理により非零整関数は作れない。Weierstrass 構成の $|a_n|\to\infty$ は単なる並べ方の都合ではない。
 
-### elementary factor の指数補正を落とす
+### 基本因子 の指数補正を落とす
 
 $a_n=n$ に対して単純積
 
@@ -1121,14 +1123,14 @@ $$
 
 - 関数の無限積は有限部分積の局所一様極限として扱う。
 - $\sum\sup_K|u_n|<\infty$ なら $\prod(1+u_n)$ は局所一様収束し、尾部は対数級数の指数として非消滅性まで制御できる。
-- Weierstrass の elementary factor
+- Weierstrass の 基本因子
   $$
   E_p(w)=(1-w)\exp(w+\cdots+w^p/p)
   $$
   は零点を $w=1$ に保ったまま、$\log(1-w)$ の低次項を消す。
-- 離散零点列 $|a_n|\to\infty$ に対して $p_n$ を十分大きく選べば canonical product が整関数を与える。
-- 零点を持たない整関数は $e^g$ と書けるため、任意の非零整関数は「零点を担う canonical product × $e^g$」に因数分解できる。
-- Mittag--Leffler の定理では各 principal part から Taylor 多項式を差し引き、内側 compact 上で尾部を幾何級数的に小さくして有理型関数を構成する。
+- 離散零点列 $|a_n|\to\infty$ に対して $p_n$ を十分大きく選べば 標準積 が整関数を与える。
+- 零点を持たない整関数は $e^g$ と書けるため、任意の非零整関数は「零点を担う 標準積 × $e^g$」に因数分解できる。
+- Mittag--Leffler の定理では各 主要部 から Taylor 多項式を差し引き、内側 compact 上で尾部を幾何級数的に小さくして有理型関数を構成する。
 - 留数定理から
   $$
   \pi\cot\pi z
@@ -1351,7 +1353,7 @@ F(z)
 \right].
 $$
 
-角括弧内は $z=N$ の近くで正則だから、principal part は
+角括弧内は $z=N$ の近くで正則だから、主要部 は
 
 $$
 \frac1{z-N}.
@@ -1363,7 +1365,7 @@ $$
 ### Level B
 
 <a id="ex-ca10-b01"></a>
-#### CA10-B01 正の整数を零点に持つ canonical product
+#### CA10-B01 正の整数を零点に持つ 標準積
 - Level: B
 
 $$
@@ -1580,7 +1582,7 @@ $$
    $$
    が局所一様収束し、指定零点を持つ整関数になることを示す。
 2. 零点を持たない整関数が $e^g$ と書けることを使い、Weierstrass 因数分解を導く。
-3. 離散な極 $a_n$ と principal part $P_n$ に対し、$P_n$ の Taylor 多項式 $Q_n$ を差し引いて
+3. 離散な極 $a_n$ と 主要部 $P_n$ に対し、$P_n$ の Taylor 多項式 $Q_n$ を差し引いて
    $$
    \sum_n(P_n-Q_n)
    $$
@@ -1598,7 +1600,7 @@ $$
 |z/a_n|\le1/2.
 $$
 
-$p_n\ge n$ とすると elementary factor の評価から
+$p_n\ge n$ とすると 基本因子 の評価から
 
 $$
 \left|
@@ -1636,7 +1638,7 @@ $$
 
 が Weierstrass 因数分解である。
 
-**3. principal part から和を作る。**
+**3. 主要部 から和を作る。**
 
 極を $|a_n|\to\infty$ と並べる。$P_n$ は原点中心で半径 $|a_n|$ まで正則だから、Taylor 多項式 $Q_n$ を十分高次まで取って
 
@@ -1654,7 +1656,7 @@ $$
 \sum_n(P_n-Q_n)
 $$
 
-の尾部は $K$ 上 $\sum2^{-n}$ で抑えられる。局所一様極限は極以外で正則であり、$a_N$ 近傍では $P_N-Q_N$ だけが指定 principal part を持つ。これで Mittag--Leffler の定理が得られる。
+の尾部は $K$ 上 $\sum2^{-n}$ で抑えられる。局所一様極限は極以外で正則であり、$a_N$ 近傍では $P_N-Q_N$ だけが指定 主要部 を持つ。これで Mittag--Leffler の定理が得られる。
 
 **4. 整数格子で二つの構成が出会う。**
 
