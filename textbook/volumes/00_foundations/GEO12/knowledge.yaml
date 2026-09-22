@@ -89,6 +89,7 @@ concepts:
     name: Riemann 長の再パラメータ不変性
     kind: proposition
     aliases: [Riemann 長の再パラメータ不変性]
+    introduction_aliases: ["命題（Riemann 長の再パラメータ不変性）"]
     requires:
       - geometry.riemannian-curve-length
       - geometry.manifold-chain-rule
