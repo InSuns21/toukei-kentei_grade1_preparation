@@ -73,6 +73,15 @@ concepts:
       - ode.ode1-ordinary-differential-equation
       - analysis.ftc-1
 
+  - id: ode.ode1-exactness-rectangle-criterion
+    name: 長方形上の完全性判定
+    kind: theorem
+    aliases: [長方形上の完全性判定]
+    introduction: formal
+    requires:
+      - ode.ode1-exact-equation
+      - analysis.ftc-1
+
   - id: ode.ode1-bernoulli-equation
     name: Bernoulli方程式
     kind: definition
