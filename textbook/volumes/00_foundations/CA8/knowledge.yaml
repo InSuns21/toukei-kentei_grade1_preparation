@@ -26,9 +26,9 @@ concepts:
     requires: [complex-analysis.complex-chart, complex-analysis.holomorphic-function]
 
   - id: complex-analysis.riemann-surface
-    name: Riemann 面
+    name: Riemann 面の定義
     kind: definition
-    aliases: [Riemann 面, Riemann surface]
+    aliases: [Riemann surface definition]
     introduction: formal
     introduction_aliases: ["定義（Riemann 面）"]
     requires: [complex-analysis.holomorphic-atlas, topology.t2-space-recap-top4, topology.second-countable]
