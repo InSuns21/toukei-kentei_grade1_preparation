@@ -1,0 +1,35 @@
+chapter: "NA7"
+terms:
+  - term: Runge–Kutta 法
+    english: Runge-Kutta method
+    meaning: 一つの時間ステップ内で複数の段階値を評価し、それらの重み付き和で次の近似値を作る一段法。
+  - term: Butcher 表
+    english: Butcher tableau
+    meaning: Runge–Kutta 法の係数 A, b, c を表形式でまとめたもの。
+  - term: 陽的 Runge–Kutta 法
+    english: explicit Runge-Kutta method
+    meaning: 第 i 段階がそれ以前の段階値だけから順番に計算できる Runge–Kutta 法。
+  - term: 陰的 Runge–Kutta 法
+    english: implicit Runge-Kutta method
+    meaning: 段階値が自身または後続段階にも依存し、各ステップで方程式を解く必要がある Runge–Kutta 法。
+  - term: 線形テスト方程式
+    english: linear test equation
+    meaning: 絶対安定性を調べるために用いる y'=lambda y というスカラー線形方程式。
+  - term: 安定関数
+    english: stability function
+    meaning: 線形テスト方程式に数値法を適用したとき y_{n+1}=R(z)y_n, z=h lambda を与える関数 R。
+  - term: 絶対安定領域
+    english: region of absolute stability
+    meaning: 安定関数が |R(z)|<=1 を満たす複素平面上の点 z の集合。
+  - term: A 安定性
+    english: A-stability
+    meaning: 左半平面 Re z<=0 全体が絶対安定領域に含まれる性質。
+  - term: L 安定性
+    english: L-stability
+    meaning: A 安定であり、強く減衰する負の実軸方向で R(z) が0へ近づく性質。
+  - term: 硬い問題
+    english: stiff problem
+    meaning: 速い減衰モードと遅いモードが共存し、陽的方法では求める精度よりはるかに厳しい安定性由来の刻み幅制約が現れる問題。
+  - term: theta 法
+    english: theta method
+    meaning: y_{n+1}=y_n+h((1-theta)f_n+theta f_{n+1}) で陽的 Euler 法・台形法・後退 Euler 法を補間する一段法。
