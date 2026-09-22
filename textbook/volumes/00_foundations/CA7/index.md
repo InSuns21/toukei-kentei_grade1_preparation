@@ -563,7 +563,7 @@ $\Omega\subset\mathbb C$ を領域とし、$\mathcal F$ を $\Omega$ 上局所�
 
 ### 証明の見取り図
 
-一つのコンパクト集合上では、局所有界性と [Cauchy 評価](../CA3/index.md#thm-ca3-cauchy-estimate)から前二補題により一様収束部分列が取れる。しかし領域には無限個のコンパクト集合がある。そこで
+一つのコンパクト集合上では、[Cauchy 評価による族共通連続性評価](#lem-ca7-cauchy-family-continuity)と [コンパクト集合上の部分列抽出](#lem-ca7-compact-subsequence-extraction)を順に使えば、一様収束部分列が取れる。しかし領域には無限個のコンパクト集合がある。そこで
 
 $$
 K_1\subset K_2\subset\cdots,
@@ -882,7 +882,7 @@ $$
 h(z)=z-\alpha
 $$
 
-は $\Omega$ 上正則で零点を持たない。[正則平方根の補題](#lem-ca7-holomorphic-square-root)から、正則関数 $g$ が存在して
+は $\Omega$ 上正則で零点を持たない。[零点を持たない正則関数の正則平方根](#lem-ca7-holomorphic-square-root)から、正則関数 $g$ が存在して
 
 $$
 g(z)^2=z-\alpha
