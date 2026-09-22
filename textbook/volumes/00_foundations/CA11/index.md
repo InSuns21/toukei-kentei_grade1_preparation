@@ -1217,7 +1217,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-この補助節では、[Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02)と [多重積分の変数変換定理](../RA7/index.md#thm-ra7-change-of-variables)を使う。CA11 の主線そのものには必要ないので、これらを未修なら本節だけ後回しにしてよい。
+この補助節では、まず [Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02)を使う。変数変換には [Riemann積分の多変数変数変換定理](../RA7/index.md#thm-ra7-change-of-variables)を使う。CA11 の主線そのものには必要ないので、これらを未修なら本節だけ後回しにしてよい。
 
 まず
 $$
@@ -1260,7 +1260,7 @@ x=rt,
 y=r(1-t),
 $$
 
-領域は $r>0$, $0<t<1$ であり、Jacobian の絶対値は $r$ である。[多重積分の変数変換定理](../RA7/index.md#thm-ra7-change-of-variables)をこの写像に適用すると
+領域は $r>0$, $0<t<1$ であり、Jacobian の絶対値は $r$ である。[Riemann積分の多変数変数変換定理](../RA7/index.md#thm-ra7-change-of-variables)をこの写像に適用すると
 
 $$
 \Gamma(z)\Gamma(w)
