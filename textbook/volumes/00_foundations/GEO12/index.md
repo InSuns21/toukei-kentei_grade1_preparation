@@ -296,7 +296,7 @@ $$
 
 よって $h_\alpha$ は $U_\alpha$ 上の Riemann 計量です。
 
-[GEO4 の定理](../GEO4/index.md#thm-geo4-partition-of-unity) により、この被覆に従属する滑らかな 1 の分割
+[開被覆に従属する滑らかな 1 の分割の存在](../GEO4/index.md#thm-geo4-partition-of-unity)により、この被覆に従属する滑らかな 1 の分割
 
 $$
 \{\varphi_\alpha\}
@@ -1014,21 +1014,37 @@ $$
 
 逆に任意の曲線について
 
-$$
+$
 q-p
 =
-\int_a^b\dot\gamma(t)\,dt
-$$
+\int_a^b\dot\gamma(t)\,dt.
+$
 
-だから三角不等式より
+$q\ne p$ なら
 
-$$
+$
+e:=\frac{q-p}{|q-p|}
+$
+
+と置きます。すると $|e|=1$ だから
+
+$
+\begin{aligned}
 |q-p|
-\le
+&=
+e\cdot(q-p)
+\\
+&=
+\int_a^b e\cdot\dot\gamma(t)\,dt
+\\
+&\le
 \int_a^b|\dot\gamma(t)|\,dt
 =
 L(\gamma).
-$$
+\end{aligned}
+$
+
+$q=p$ なら同じ不等式は自明です。
 
 全ての曲線について成り立つので
 
