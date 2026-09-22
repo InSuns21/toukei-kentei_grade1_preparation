@@ -360,7 +360,7 @@ e^{t_n}
 \right).
 $$
 
-Taylor の定理から
+[Taylor の定理](../RA3/index.md#thm-ra3-taylor)から
 
 $$
 e^h
@@ -2409,7 +2409,7 @@ $$
 $$
 
 を示せ。
-5. 本章の Euler 法の一次収束定理を使い、
+5. 本章の [Euler 法の一次収束](#cor-na6-euler-convergence)を使い、
 
 $$
 \max_{0\le n\le N}|Y_n-y_n|
