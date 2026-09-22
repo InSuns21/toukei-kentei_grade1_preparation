@@ -26,6 +26,8 @@ definitions:
   - { id: NA7-DEF-09, name: 硬い問題 }
   - { id: NA7-DEF-10, name: theta 法 }
   - { id: NA7-DEF-11, name: 古典4段4次 Runge–Kutta 法 }
+  - { id: NA7-DEF-12, name: 後退 Euler 法 }
+  - { id: NA7-DEF-13, name: 台形法 }
 theorems:
   - { id: NA7-THM-01, name: 二次 Runge–Kutta 法の次数条件 }
   - { id: NA7-PROP-01, name: 古典4段4次 Runge–Kutta 法の自律スカラー4次性 }
