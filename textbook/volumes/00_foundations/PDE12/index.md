@@ -39,6 +39,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pde12-first-order -->
+**定義の確認**：以下で定義の条件を直接確認します。
+
 ### 具体例：勾配の大きさを固定する
 
 $$
@@ -162,6 +164,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pde12-hamilton-jacobi -->
+**定義の確認**：以下で定義の条件を直接確認します。
+
 ### 具体例：自由粒子
 
 $$
@@ -348,6 +352,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pde12-caustic -->
+**定義の確認**：以下で定義の条件を直接確認します。
+
 自由 Hamiltonian $H(p)=p^2/2$ の一次元では
 
 $$
@@ -406,6 +412,18 @@ $$
 
 > を eikonal 方程式という。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-pde12-eikonal -->
+**定義の確認**：$c(x)\equiv1$ とし $u(x)=x_1$ と取ると
+
+$$
+\nabla u=(1,0,\ldots,0),
+\qquad
+|\nabla u|=1=c(x).
+$$
+
+したがって $u(x)=x_1$ は全空間で滑らかな eikonal 方程式の古典解です。
+<!-- definition-example-end -->
 
 幾何光学では $u$ は位相、$\nabla u$ は波面に垂直な方向を表します。$c=1$ なら距離関数 $u(x)=|x|$ が原点外で解ですが、原点では滑らかでありません。
 
