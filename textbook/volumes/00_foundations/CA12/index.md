@@ -897,7 +897,7 @@ $$
 
 ---
 
-## 8. 自明零点と critical strip
+## 8. 負の偶数に現れる零点と critical strip
 
 <a id="cor-ca12-trivial-zeros"></a>
 <!-- formal-statement-start -->
