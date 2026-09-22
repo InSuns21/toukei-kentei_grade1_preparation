@@ -116,7 +116,7 @@ concepts:
   - id: linear.interior-product
     name: 内部積
     kind: definition
-    aliases: [内部積, interior product]
+    aliases: [内部積, 内部, interior product]
     requires:
       - linear.exterior-power
       - linear.wedge-product
