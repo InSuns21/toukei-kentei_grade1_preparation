@@ -327,3 +327,4 @@ STO 系列ではマルチンゲール・ブラウン運動・二次変分・確�
 4. [NA3 非線形連立方程式](textbook/volumes/00_foundations/NA3/index.md)
 5. [NA4 多項式補間](textbook/volumes/00_foundations/NA4/index.md)
 6. [NA5 数値積分・直交多項式・Gauss 型積分](textbook/volumes/00_foundations/NA5/index.md)
+7. [NA6 ODE 数値解法 I：一段法と収束](textbook/volumes/00_foundations/NA6/index.md)
