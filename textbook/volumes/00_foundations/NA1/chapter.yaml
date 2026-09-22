@@ -21,7 +21,7 @@ definitions:
   - { id: NA1-DEF-03, name: 単位丸め誤差 }
   - { id: NA1-DEF-04, name: 桁落ち }
   - { id: NA1-DEF-05, name: 相対条件数 }
-  - { id: NA1-DEF-06, name: 行列の条件数 }
+  - { id: NA1-DEF-06, name: 2-ノルム行列条件数 }
   - { id: NA1-DEF-07, name: 前方誤差・後方誤差 }
   - { id: NA1-DEF-08, name: 残差 }
   - { id: NA1-DEF-09, name: 後方安定性 }
