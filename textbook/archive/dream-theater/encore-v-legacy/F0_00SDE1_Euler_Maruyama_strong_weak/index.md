@@ -17,7 +17,7 @@ $$
 
 まで証明します。weak order 1 は追加の滑らかさを要するため、この章では定義と位置づけまでに留めます。
 
-前提として、[Itô積分の $L^2$ 拡張](../F0_00SP4_Ito積分_Ito公式_SDE/index.md#thm-f0-00sp4-ito-extension)、[Doobの $L^2$ maximal inequality](../F0_00SP4_Ito積分_Ito公式_SDE/index.md#lem-f0-00sp4-doob-l2)、[global Lipschitz SDEの存在一意性](../F0_00SP4_Ito積分_Ito公式_SDE/index.md#thm-f0-00sp4-sde-existence-uniqueness) を使います。
+前提として、[Itô積分の $L^2$ 拡張](../../../../volumes/00_foundations/F0_00SP4_Ito積分_Ito公式_SDE/index.md#thm-f0-00sp4-ito-extension)、[Doobの $L^2$ maximal inequality](../../../../volumes/00_foundations/F0_00SP4_Ito積分_Ito公式_SDE/index.md#lem-f0-00sp4-doob-l2)、[global Lipschitz SDEの存在一意性](../../../../volumes/00_foundations/F0_00SP4_Ito積分_Ito公式_SDE/index.md#thm-f0-00sp4-sde-existence-uniqueness) を使います。
 
 ---
 
@@ -237,7 +237,7 @@ $$
 
 に $(u+v)^2\le2u^2+2v^2$ を使えば十分です。
 
-また [global Lipschitz SDEの存在一意性定理](../F0_00SP4_Ito積分_Ito公式_SDE/index.md#thm-f0-00sp4-sde-existence-uniqueness) により、真の解 $X$ は一意に存在し、有限区間上で必要な二次モーメントを持ちます。
+また [global Lipschitz SDEの存在一意性定理](../../../../volumes/00_foundations/F0_00SP4_Ito積分_Ito公式_SDE/index.md#thm-f0-00sp4-sde-existence-uniqueness) により、真の解 $X$ は一意に存在し、有限区間上で必要な二次モーメントを持ちます。
 
 ---
 
@@ -428,7 +428,7 @@ $$
 \le t\int_0^t|b(X_s)-b(Y_{\eta(s)})|^2ds.
 $$
 
-確率積分項は [Itô積分の連続martingale版](../F0_00SP4_Ito積分_Ito公式_SDE/index.md#thm-f0-00sp4-continuous-ito-process) を取り、[Doobの $L^2$ maximal inequality](../F0_00SP4_Ito積分_Ito公式_SDE/index.md#lem-f0-00sp4-doob-l2) を稠密な有限分割へ適用して極限を取ります。[Itô isometry](../F0_00SP4_Ito積分_Ito公式_SDE/index.md#thm-f0-00sp4-ito-extension) と合わせると
+確率積分項は [Itô積分の連続martingale版](../../../../volumes/00_foundations/F0_00SP4_Ito積分_Ito公式_SDE/index.md#thm-f0-00sp4-continuous-ito-process) を取り、[Doobの $L^2$ maximal inequality](../../../../volumes/00_foundations/F0_00SP4_Ito積分_Ito公式_SDE/index.md#lem-f0-00sp4-doob-l2) を稠密な有限分割へ適用して極限を取ります。[Itô isometry](../../../../volumes/00_foundations/F0_00SP4_Ito積分_Ito公式_SDE/index.md#thm-f0-00sp4-ito-extension) と合わせると
 
 $$
 E\sup_{r\le t}
