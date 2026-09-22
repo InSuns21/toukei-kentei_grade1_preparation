@@ -730,11 +730,11 @@ CA7 → CA10 → CA11 → CA12
 4. stable anchors ✅
 5. validation / pedagogy audit ✅
 6. reader-facing index 反映 ✅
-7. merge
+7. merge ✅
 
 CA7 は CA8--CA12 全体の解析的コンパクト性の床なので、独立した品質ゲートを置く。
 
-**現在地（2026-09-22）**：CA7 は本文・演習・詳細解答・stable anchor・knowledge/glossary・reader-facing index まで実装済み。Riemann 写像定理は Montel の定理、Hurwitz の定理、正則平方根、極値法を用いて核心証明まで閉じた。PR #353 の最終 CI 後に merge し、次は Phase 2 の CA8「Riemann 面・被覆・多価関数」へ進む。
+**現在地（2026-09-22）**：CA7 は本文・演習・詳細解答・stable anchor・knowledge/glossary・reader-facing index まで実装済み。Riemann 写像定理は Montel の定理、Hurwitz の定理、正則平方根、極値法を用いて核心証明まで閉じた。PR #353 は全 CI green を確認して squash merge 済み。次は Phase 2 の CA8「Riemann 面・被覆・多価関数」へ進む。
 
 ### Phase 2：CA8
 
