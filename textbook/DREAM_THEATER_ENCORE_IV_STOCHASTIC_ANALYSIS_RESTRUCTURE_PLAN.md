@@ -365,7 +365,7 @@ Herglotz と spectral representation を旧 TS2 / TS2A の二重正本にはせ�
 - mixing coefficients の入口
 - stationary process の LLN
 - sample autocovariance の consistency
-- dependent CLT は仮定と適用範囲を限定して扱う
+- 従属中心極限定理 は仮定と適用範囲を限定して扱う
 
 一般 ergodic theory 全体へ拡張しないが、「標本平均が母平均へ近づく」ために stationarity だけでは足りないことを明示する。
 
@@ -675,6 +675,6 @@ ARMA / ergodicity / Kalman
 - ARIMA では差分後系列を定常対象として扱うことを明示し、通常差分の 0 周波数零点と季節差分の季節周波数零点を伝達関数から計算した。一般の Kolmogorov--Szegő 型スペクトル因数分解は本章へ逆輸入せず、ARMA の有理スペクトル因子と Wold 表示の対応までを扱った。
 - Phase 5：TSA5「エルゴード性・混合性・従属極限定理」を実装。標準経路空間の測度保存シフト / 不変σ-加法族 / エルゴード性 / Hilbert 空間の平均エルゴード定理 / Birkhoff のエルゴード定理 / 混合性 / α-混合係数 / m 依存 / 定常エルゴード大数則 / 固定ラグ標本自己共分散の一致性 / 長期分散 / 因果線形過程の中心極限定理 / α-混合中心極限定理を、直接例・主要証明・A4/B3/C1 演習・全問詳細解答まで閉じた。
 - TSA5 の direct prerequisite は TSA1・TSA4・F0-00P3A・F0-00P5・F0-00P6A とした。TSA1 の狭義定常性と Hilbert 空間の時間移動、TSA4 の因果線形フィルタと ARMA、P3A の条件付き期待値、P5 の部分和、P6A の独立同分布中心極限定理を canonical dependency として再利用する。TSA4 の ancestor である TSA3 のスペクトル密度を通じて長期分散 $\sigma_{\mathrm{LR}}^2=2\pi f(0)$ も接続する。
-- Hilbert 空間の平均エルゴード定理は $L^2=\operatorname{Fix}(U)\oplus\overline{\operatorname{Ran}(I-U)}$ と望遠鏡和から完全証明した。一般 $L^1$ の Birkhoff 定理と一般 α-混合 CLT は、それぞれ最大エルゴード不等式・blocking argument を要するため技術的入力の境界を明示した一方、絶対可算和可能な因果線形過程の CLT は有限 MA 打切り・独立同分布中心極限定理・一様な $L^2$ 尾部評価から章内で完全証明した。
-- 定常性だけでは大数則が出ないランダム定数過程、弱ホワイトノイズでも通常の単一正規 CLT が壊れる共通ランダム尺度 $X_t=Y\varepsilon_t$ を反例として置いた。因果 ARMA を iid 雑音で駆動した場合は、標本平均の長期分散が $\sigma_Z^2\{\theta(1)/\phi(1)\}^2=2\pi f_X(0)$ と一致するところまで閉じた。
+- Hilbert 空間の平均エルゴード定理は $L^2=\operatorname{Fix}(U)\oplus\overline{\operatorname{Ran}(I-U)}$ と望遠鏡和から完全証明した。一般 $L^1$ の Birkhoff 定理と一般 α-混合中心極限定理 は、それぞれ最大エルゴード不等式・blocking argument を要するため技術的入力の境界を明示した一方、絶対可算和可能な因果線形過程の中心極限定理 は有限 MA 打切り・独立同分布中心極限定理・一様な $L^2$ 尾部評価から章内で完全証明した。
+- 定常性だけでは大数則が出ないランダム定数過程、弱ホワイトノイズでも通常の単一正規中心極限定理 が壊れる共通ランダム尺度 $X_t=Y\varepsilon_t$ を反例として置いた。因果 ARMA を 独立同分布雑音で駆動した場合は、標本平均の長期分散が $\sigma_Z^2\{\theta(1)/\phi(1)\}^2=2\pi f_X(0)$ と一致するところまで閉じた。
 - 現在地：Phase 5 は TSA1 → TSA2 → TSA3 → TSA4 → TSA5 完了。次の実装対象は TSA6「状態空間・Kalman フィルタ・innovations」。
