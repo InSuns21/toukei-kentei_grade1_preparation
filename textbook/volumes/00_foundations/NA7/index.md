@@ -1408,15 +1408,25 @@ $$
 <!-- formal-statement-start -->
 ### 定義（L 安定性）
 
-A 安定な数値法で、さらに負の実軸方向について
+A 安定な数値法で、さらに左半平面内で
 
-$$
+$
 \boxed{
-\lim_{x\to+\infty}R(-x)=0
+|z|\to\infty,
+\qquad
+\operatorname{Re}z\le0
 }
-$$
+$
 
-が成り立つとき、この章ではその数値法を **L 安定**という。
+としたとき
+
+$
+\boxed{
+R(z)\longrightarrow0
+}
+$
+
+が成り立つとき、その数値法を **L 安定**という。
 <!-- formal-statement-end -->
 
 L 安定性は、非常に速く減衰するモードを数値法自身も強く0へ押し込む性質です。
@@ -1476,14 +1486,11 @@ $$
 
 したがって左半平面全体が絶対安定領域に含まれ、A 安定です。
 
-さらに $z=-x$、$x\to+\infty$ とすると
+さらに左半平面内で $|z|\to\infty$ とすると
 
-$$
-R(-x)
-=
-\frac1{1+x}
-\longrightarrow0.
-$$
+$
+R(z)=\frac1{1-z}\longrightarrow0.
+$
 
 よって L 安定でもあります。
 <!-- proof-end -->
@@ -1604,16 +1611,16 @@ $$
 
 よって台形法は A 安定です。
 
-一方、$z=-x$、$x\to+\infty$ では
+一方、たとえば負の実軸上で $z=-x$、$x\to+\infty$ とすると
 
-$$
+$
 R(-x)
 =
 \frac{1-x/2}{1+x/2}
 \longrightarrow-1.
-$$
+$
 
-0へは行かないので L 安定ではありません。
+左半平面内のこの経路ですら0へ行かないので、L 安定ではありません。
 <!-- proof-end -->
 
 A 安定性は「増幅しない」ことを保証しますが、L 安定性はさらに「非常に速い減衰モードを数値的にも速く消す」ことを要求します。
@@ -2022,21 +2029,14 @@ $$
 
 次に L 安定性を調べます。
 
-$\theta\ge1/2$ とし、$x\to+\infty$ で
+$\theta\ge1/2$ とします。$R_\theta$ は一次式同士の比なので、左半平面内で $|z|\to\infty$ とすると最高次項の比から
 
-$$
-R_\theta(-x)
-=
-\frac{1-(1-\theta)x}{1+\theta x}.
-$$
-
-$\theta>0$ なので最高次項を比較して
-
-$$
-\lim_{x\to+\infty}R_\theta(-x)
+$
+\lim_{|z|\to\infty\atop \operatorname{Re}z\le0}
+R_\theta(z)
 =
 -\frac{1-\theta}{\theta}.
-$$
+$
 
 これが0になるのは
 
