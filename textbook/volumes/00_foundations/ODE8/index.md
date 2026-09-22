@@ -79,7 +79,7 @@ $$
 \xi(t)=\xi_0+\int_0^tF(\xi(s))\,ds
 $$
 
-を考えると、$|t|\le h$ で $Mh\le r$ となるように $h>0$ を選べば、Picard 反復は $\overline{B(x_*,2r)}$ から外へ出ません。さらに必要なら $h$ を小さくして $Lh<1$ とすれば、[Picard--Lindelöf の局所存在・一意性](../ODE1/index.md#thm-ode1-picard-lindelof) の縮小写像論法が **全ての** $\xi_0\in B(x_*,r)$ に同じ時間幅 $[-h,h]$ で適用できます。
+を考えると、$|t|\le h$ で $Mh\le r$ となるように $h>0$ を選べば、この積分方程式の逐次近似は $\overline{B(x_*,2r)}$ から外へ出ません。さらに必要なら $h$ を小さくして $Lh<1$ とすれば、[Picard--Lindelöf の局所存在・一意性](../ODE1/index.md#thm-ode1-picard-lindelof) の縮小写像論法が **全ての** $\xi_0\in B(x_*,r)$ に同じ時間幅 $[-h,h]$ で適用できます。
 
 十分大きい $n$ では
 
