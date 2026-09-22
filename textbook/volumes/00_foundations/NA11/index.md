@@ -1121,7 +1121,7 @@ $$
 
 ## 8. 原始列確率行列では冪乗反復が定常確率ベクトルへ収束する
 
-<a id="thm-na11-primitive-stochastic-convergence"></a>
+<a id="thm-na11-stochastic-power-convergence"></a>
 <!-- formal-statement-start -->
 ### 定理（原始列確率行列の冪収束）
 
@@ -1870,7 +1870,7 @@ $$
 
 ### 16.3 原始性を失う
 
-既約でも周期性が残ると、スペクトル円周上に $-1$ などが残り、$P^kx_0$ が振動できます。
+既約でも周期性が残ると、絶対値1の固有値として $-1$ などが残り、$P^kx_0$ が振動できます。
 
 ### 16.4 teleportation を失う
 
