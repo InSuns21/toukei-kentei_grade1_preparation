@@ -585,18 +585,18 @@ $$
 > 1. 任意の $|z|\le1$ に対して $a(z)\neq0$。
 > 2. ある $r>1$ と係数列 $(c_j)_{j\ge0}$ が存在して
 >
->    $$
->    \frac1{a(z)}
->    =
->    \sum_{j=0}^{\infty}c_jz^j
->    \qquad(|z|<r),
->    $$
+$$
+\frac1{a(z)}
+=
+\sum_{j=0}^{\infty}c_jz^j
+\qquad(|z|<r),
+$$
 >
 >    かつ
 >
->    $$
->    \sum_{j=0}^{\infty}|c_j|<\infty
->    $$
+$$
+\sum_{j=0}^{\infty}|c_j|<\infty
+$$
 >
 >    となる。
 <!-- formal-statement-end -->
@@ -1039,25 +1039,25 @@ $$
 > **命題（MA の自己相関打切りと AR の偏自己相関打切り）**  
 > 1. MA$(q)$
 >
->    $$
->    X_t=\sum_{j=0}^{q}\theta_jZ_{t-j},
->    \qquad
->    \theta_0=1
->    $$
+$$
+X_t=\sum_{j=0}^{q}\theta_jZ_{t-j},
+\qquad
+\theta_0=1
+$$
 >
 >    では $\gamma(h)=0$ for $|h|>q$。従って自己相関関数も $q$ より先で 0 です。
 > 2. 因果 AR$(p)$
 >
->    $$
->    X_t=\phi_1X_{t-1}+\cdots+\phi_pX_{t-p}+Z_t
->    $$
+$$
+X_t=\phi_1X_{t-1}+\cdots+\phi_pX_{t-p}+Z_t
+$$
 >
 >    で $Z_t$ が標準イノベーション、有限過去の分散共分散行列が正定値とします。このとき
 >
->    $$
->    \alpha(k)=0
->    \qquad(k>p).
->    $$
+$$
+\alpha(k)=0
+\qquad(k>p).
+$$
 >
 >    さらに $\phi_p\neq0$ なら $\alpha(p)=\phi_p$。
 <!-- formal-statement-end -->
