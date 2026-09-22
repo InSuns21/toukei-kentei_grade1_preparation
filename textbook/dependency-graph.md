@@ -254,9 +254,9 @@ TSA4 linear filter・ARMA / ARIMA
   ↓
 TSA5 ergodicity・mixing・dependent limit
 
-TSA1 + linear Gaussian theory
+TSA1 + P3-03 多変量正規・条件付き分布
   ↓
-TSA6 state-space・Kalman filter
+TSA6 状態空間・Kalman フィルタ・イノベーション
 ~~~
 
 STO1 の direct prerequisite は F0-00P1 と F0-00P3C、STO2 は STO1・F0-00P3C・F0-00P4A とする。後続章でも証明に実際に必要な直接依存だけを各 chapter.yaml に置く。読者向け入口は `F0_00R4_EncoreIV_Stochastic_Spectral_TimeSeries/index.md`。未完成 STO / TSA 章は reader-facing index に先行登録しない。
