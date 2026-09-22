@@ -75,7 +75,7 @@ concepts:
   - id: ode.ode2-constant-coefficient-basis
     name: 定係数斉次方程式の基本解系
     kind: theorem
-    aliases: [定係数斉次方程式, 重根, 複素根]
+    aliases: [定数係数斉次方程式の基本解系]
     introduction: formal
     requires:
       - ode.ode2-characteristic-polynomial

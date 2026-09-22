@@ -323,3 +323,4 @@ STO 系列ではマルチンゲール・ブラウン運動・二次変分・確�
 
 1. [Encore V：計算数理](textbook/volumes/00_foundations/F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md)
 2. [NA1 浮動小数点・誤差・条件数・安定性](textbook/volumes/00_foundations/NA1/index.md)
+3. [NA2 非線形方程式・不動点反復・Newton 法](textbook/volumes/00_foundations/NA2/index.md)

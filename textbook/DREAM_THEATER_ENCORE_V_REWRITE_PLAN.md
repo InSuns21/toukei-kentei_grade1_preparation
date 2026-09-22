@@ -122,7 +122,8 @@ facade は完成済み講座だけをリンクする。未完成章を先行表�
 - [x] `textbook/dream-theater.md` の Encore V 目次を facade のみに整理
 - [x] standard math core / knowledge DAG に旧 Encore V の canonical owner が存在しないことを確認
 - [x] NA1「浮動小数点・誤差・条件数・安定性」を新正本として実装
-- 次の実装対象：**NA2「非線形方程式・不動点反復・Newton 法」**
+- [x] NA2「非線形方程式・不動点反復・Newton 法」を新正本として実装
+- 次の実装対象：**NA3「非線形連立方程式」**
 
 
 ---
@@ -155,7 +156,7 @@ facade は完成済み講座だけをリンクする。未完成章を先行表�
 ### 4.2 Phase 1 進捗
 
 - [x] NA1：浮動小数点・誤差・条件数・安定性
-- [ ] NA2：非線形方程式・不動点反復・Newton 法
+- [x] NA2：非線形方程式・不動点反復・Newton 法
 - [ ] NA3：非線形連立方程式
 - [ ] NA4：多項式補間
 - [ ] NA5：数値積分・直交多項式・Gauss 型積分

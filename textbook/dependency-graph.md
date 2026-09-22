@@ -300,12 +300,19 @@ STO1 の direct prerequisite は F0-00P1 と F0-00P3C、STO2 は STO1・F0-00P3C
 RA3 微分法 ───────┐
                    ├→ NA1 浮動小数点・誤差・条件数・安定性
 F0-00F2 SVD・作用素ノルム ─┘
+
+RA2 中間値定理 ─────────────┐
+F0-00D Cauchy列・完備性 ────┼→ NA2 非線形方程式・不動点反復・Newton 法
+RA3 平均値・Taylor ──────────┤
+NA1 誤差・安定性 ────────────┘
 ~~~
 
 NA1 では、最近接丸めの標準相対誤差モデル、丸め因子の積の評価、桁落ち、スカラー関数の相対条件数、2-ノルム行列条件数、前方誤差・後方誤差、残差、後方安定性を扱う。
 
-後続の NA2–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC8 は DREAM_THEATER_ENCORE_V_REWRITE_PLAN.md の計画対象であり、各講の実装完了時に実際の直接依存だけを追加する。
+NA2 では、中間値定理による根の囲い込み、二分法、縮小不動点反復、収束次数、Newton 法、単純根近傍での局所二次収束、残差から根誤差への評価を扱う。主要な収束証明では RA2 の中間値定理、F0-00D の完備性、RA3 の平均値定理・Taylor の定理を canonical dependency として用いる。
 
-読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA1 までで、次の実装対象は NA2「非線形方程式・不動点反復・Newton 法」である。
+後続の NA3–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC8 は DREAM_THEATER_ENCORE_V_REWRITE_PLAN.md の計画対象であり、各講の実装完了時に実際の直接依存だけを追加する。
+
+読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA2 までで、次の実装対象は NA3「非線形連立方程式」である。
 
 ---

@@ -1,0 +1,26 @@
+chapter: "NA2"
+terms:
+  - term: 二分法
+    english: bisection method
+    meaning: 連続関数の符号変化を保つ半区間を反復的に選び、根を含む区間幅を半分ずつ縮める方法。
+  - term: 不動点
+    english: fixed point
+    meaning: 写像 g に対して g(alpha)=alpha を満たす点 alpha。
+  - term: 不動点反復
+    english: fixed-point iteration
+    meaning: x_{n+1}=g(x_n) により写像の不動点を逐次近似する反復法。
+  - term: 縮小写像
+    english: contraction
+    meaning: ある q<1 に対し |g(x)-g(y)|<=q|x-y| を満たし、点間距離を一様に縮める写像。
+  - term: 収束次数
+    english: order of convergence
+    meaning: 誤差 e_n に対して |e_{n+1}|/|e_n|^p が正の有限値へ収束するときの指数 p。
+  - term: Newton 法
+    english: Newton method
+    meaning: 現在点での接線と x 軸の交点を次の近似値とする x_{n+1}=x_n-f(x_n)/f'(x_n) の反復法。
+  - term: 単根
+    english: simple root
+    meaning: f(alpha)=0 かつ f'(alpha)≠0 を満たす根。Newton 法の局所二次収束の基本条件になる。
+  - term: 重根
+    english: multiple root
+    meaning: f(x)=(x-alpha)^m h(x), m>=2, h(alpha)≠0 と局所的に因数分解できる根。
