@@ -412,7 +412,7 @@ E_{p_n}\left(\frac{z}{a_n}\right)
 2^{-n}.
 $$
 
-よって尾部の対数級数は $K_R$ 上一様絶対収束する。したがって積は $K_R$ 上一様収束する。$R$ は任意なので全平面で局所一様収束し、CA7 の極限定理から $P$ は整関数である。
+よって尾部の対数級数は $K_R$ 上一様絶対収束する。したがって積は $K_R$ 上一様収束する。$R$ は任意なので全平面で局所一様収束し、[正則関数列の局所一様極限](../CA7/index.md#thm-ca7-holomorphic-locally-uniform-limit)から $P$ は整関数である。
 
 各因子 $E_{p_n}(z/a_n)$ は $z=a_n$ に単純零点を持ち、それ以外に零点を持たない。任意の有限点の近くには列 $(a_n)$ の項が有限個しかないため、[無限積の収束判定](#thm-ca10-infinite-product-criterion)の非消滅部分から、尾部が新しい零点を作ることはない。従って零点は重複度込みで指定列と一致する。$\square$
 <!-- proof-end -->
@@ -519,7 +519,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[離散零点集合の構成定理](#thm-ca10-weierstrass-zero-set)により
+[離散零点集合を持つ整関数の構成](#thm-ca10-weierstrass-zero-set)により
 
 $$
 P(z)
@@ -690,7 +690,7 @@ $$
 \le2^{-n}.
 $$
 
-よって級数は $K$ 上一様収束する。各項は $K$ の近傍で正則だから、[CA7 の局所一様極限定理](../CA7/index.md#thm-ca7-holomorphic-locally-uniform-limit)により $F$ は $\mathbb C\setminus A$ 上正則である。
+よって級数は $K$ 上一様収束する。各項は $K$ の近傍で正則だから、[正則関数列の局所一様極限](../CA7/index.md#thm-ca7-holomorphic-locally-uniform-limit)により $F$ は $\mathbb C\setminus A$ 上正則である。
 
 次に一つの極 $a_N$ の近くを見る。$A$ は離散なので、$a_N$ の小円板を他の全ての $a_n$ から離して取れる。その円板では
 
