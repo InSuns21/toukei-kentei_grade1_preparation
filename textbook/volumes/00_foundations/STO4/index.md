@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念への参照**：[停止時刻](../STO1/index.md#def-sto1-stopping-time)、[Kolmogorov 拡張定理](../STO3/index.md#thm-sto3-kolmogorov-extension)、[Kolmogorov--Chentsov 連続定理](../STO3/index.md#thm-sto3-kolmogorov-chentsov) を直接参照します。
+> **既出概念への参照**：[停止時刻](../STO1/index.md#def-sto1-stopping-time)、[ガウス過程](../STO3/index.md#def-sto3-gaussian-process)、[平均関数と正定値共分散核からのガウス過程構成](../STO3/index.md#thm-sto3-gaussian-process-existence)、[Kolmogorov--Chentsov 連続定理](../STO3/index.md#thm-sto3-kolmogorov-chentsov) を直接参照します。
 
 STO3 では、整合的な有限次元分布から確率過程を作り、モーメント評価から連続な修正を得るところまで閉じました。
 
@@ -46,47 +46,21 @@ $$
 
 ---
 
-## 1. 有限個の時刻を同時にガウスとする過程
+## 1. STO3 のガウス過程構成をブラウン運動へ特化する
 
-<a id="def-sto4-gaussian-process"></a>
+ガウス過程そのものの定義と存在原理は STO3 の [ガウス過程](../STO3/index.md#def-sto3-gaussian-process) と [平均関数と正定値共分散核からのガウス過程構成](../STO3/index.md#thm-sto3-gaussian-process-existence) を canonical owner とします。
 
-<!-- formal-statement-start -->
-> **定義（ガウス過程）**  
-> 実数値確率過程 $X=(X_t)_{t\in T}$ が **ガウス過程** であるとは、任意の有限個の時刻
->
-$$
-t_1,\ldots,t_m\in T
-$$
->
-> に対し、確率ベクトル
->
-$$
-(X_{t_1},\ldots,X_{t_m})
-$$
->
-> が多変量ガウス分布を持つことをいう。退化したガウス分布も許す。
-<!-- formal-statement-end -->
-
-ガウス過程では、平均関数
+この章では一般論を繰り返さず、
 
 $$
-m(t)=E[X_t]
+m(t)=0,
+\qquad
+K(s,t)=\min(s,t)
 $$
 
-と共分散 kernel
+というブラウン運動固有のデータが STO3 の定理の仮定を満たすことを確認し、その後に独立増分・連続性・マルコフ性というブラウン運動固有の構造を導きます。
 
-$$
-K(s,t)
-=
-\operatorname{Cov}(X_s,X_t)
-$$
-
-が有限次元分布を決めます。
-
-<!-- definition-example-start: def-sto4-gaussian-process -->
-### 直接例：$X_t=tZ$ はガウスだがブラウン運動ではない
-
-**定義の確認**
+### 例：ガウス過程だけではブラウン運動にならない
 
 $Z\sim N(0,1)$ とし
 
@@ -94,28 +68,15 @@ $$
 X_t=tZ
 $$
 
-と置きます。任意の $t_1,\ldots,t_m$ について
-
-$$
-(X_{t_1},\ldots,X_{t_m})
-=
-Z(t_1,\ldots,t_m)
-$$
-
-は一つのガウス変数の線形像なので、多変量ガウスです。
-
-従って $X$ はガウス過程です。
-
-一方、
+と置くと、STO3 の直接例で見た通り $X$ はガウス過程です。しかし
 
 $$
 X_t-X_s=(t-s)Z
 $$
 
-なので、異なる時間区間の増分は同じ $Z$ を共有しており独立ではありません。
+なので、異なる時間区間の増分は同じ $Z$ を共有し、独立ではありません。
 
-ガウスであることだけではブラウン運動には足りません。
-<!-- definition-example-end -->
+したがって「ガウス過程である」ことと「ブラウン運動である」ことの間には、ブラウン運動固有の共分散構造を使った独立増分の確認が必要です。
 
 <a id="def-sto4-brownian-motion"></a>
 
@@ -229,29 +190,31 @@ $$
 
 は共分散 matrix になれます。
 
-**Step 2：整合的ガウス finite-dimensional laws を作る。**
+**Step 2：STO3 の一般構成定理を適用する。**
 
-各有限集合 $I=\{t_1,\ldots,t_m\}$ に対し、平均 0、共分散 matrix
-
-$$
-\Sigma_I=(\min(t_i,t_j))_{i,j}
-$$
-
-のガウス分布 $\mu_I$ を取ります。
-
-ガウス vector の座標を一部捨てた周辺分布は、対応する平均ベクトルと共分散の部分行列を持つガウス分布です。
-
-従って $I\subset J$ なら
+Step 1 により
 
 $$
-\mu_I
-=
-\mu_J\circ\pi_{J,I}^{-1}.
+K(s,t)=\min(s,t)
 $$
 
-よって finite-dimensional laws は整合的です。
+は対称な正定値共分散核です。そこで STO3 の [平均関数と正定値共分散核からのガウス過程構成](../STO3/index.md#thm-sto3-gaussian-process-existence)を
 
-[Kolmogorov 拡張定理](../STO3/index.md#thm-sto3-kolmogorov-extension)から、これらを持つ centered ガウス過程 $X=(X_t)_{t\ge0}$ が存在します。
+$$
+m(t)=0,
+\qquad
+K(s,t)=\min(s,t)
+$$
+
+に適用します。
+
+これにより、centered ガウス過程 $X=(X_t)_{t\ge0}$ で
+
+$$
+E[X_sX_t]=\min(s,t)
+$$
+
+を満たすものが存在します。有限次元分布の整合性と Kolmogorov 拡張定理の証明責務は STO3 側で閉じているため、ここではブラウン運動固有の性質の導出に集中できます。
 
 **Step 3：増分の分布を計算する。**
 
