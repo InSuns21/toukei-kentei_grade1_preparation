@@ -78,6 +78,9 @@ flowchart TD
   ODE4 -. "reuse" .-> GEO5
   GEO3 --> GEO6["線形分布・積分多様体・Frobenius の定理<br/>GEO6"]
   GEO5 --> GEO6
+  GEO2 --> GEO7["テンソル場・微分形式・外微分<br/>GEO7"]
+  GEO5 --> GEO7
+  LA3E --> GEO7
   TOP5 --> TOP5A["Urysohn・局所コンパクト性・cutoff<br/>TOP5A"]
   TOP5 --> BAIRE["全有界性・Baire・net/filter<br/>TOP6"]
   BAIRE --> UNIFORM["一様構造・一様連続・Cauchy構造<br/>TOP7"]
@@ -666,7 +669,24 @@ TOP6 の filter と全有界性を受け、距離空間で暗黙に使ってき�
 
 実装: [GEO6](volumes/00_foundations/GEO6/index.md)
 
-direct prerequisite は GEO3 と GEO5 です。GEO3 の部分多様体・正則値・沈め込みの局所標準形を使って「積分多様体」と「局所第一積分」を接続し、GEO5 の局所流・Lie 括弧・ベクトル場の直線化定理を Frobenius の核心証明へ使います。特に対合性から流れ不変性を導く線形 ODE と、横断面上の階数 $k-1$ 分布へ落とす帰納構成を省略しません。次の GEO7 ではテンソル場・微分形式・外微分へ進みます。
+direct prerequisite は GEO3 と GEO5 です。GEO3 の部分多様体・正則値・沈め込みの局所標準形を使って「積分多様体」と「局所第一積分」を接続し、GEO5 の局所流・Lie 括弧・ベクトル場の直線化定理を Frobenius の核心証明へ使います。特に対合性から流れ不変性を導く線形 ODE と、横断面上の階数 $k-1$ 分布へ落とす帰納構成を省略しません。
+
+## GEO7 テンソル場・微分形式・外微分 `core`
+
+- $(r,s)$ 型テンソル場を接空間・余接空間のテンソル積として定義し、局所座標成分の滑らかさを確認
+- $k$ 次微分形式を交代的な共変テンソル場として定義し、局所座標基底で表示・評価
+- 微分形式の外積と次数付き交換則
+- 任意の滑らかな写像による微分形式の引き戻しと、外積・写像合成との可換性
+- 外微分を局所座標で構成し、Lie 括弧を使う座標不変表示から well-defined 性を証明
+- 外微分の次数付き Leibniz 則
+- $d^2=0$ を混合偏導関数の対称性と外積の反対称性から核心証明
+- $d(F^*\omega)=F^*(d\omega)$ の自然性
+- 内部積、局所流による Lie 微分、Cartan の公式
+- 演習で wedge・pullback・exterior derivative・Cartan 公式を具体計算
+
+実装: [GEO7](volumes/00_foundations/GEO7/index.md)
+
+direct prerequisite は GEO2、GEO5、LA3E です。GEO2 の接・余接空間と写像の微分、LA3E のテンソル積・外積代数・内部積を多様体上へ持ち上げます。外微分の座標不変表示には GEO5 の Lie 括弧、Cartan の公式には GEO5 の局所流を実際に使うため、GEO5 も直接依存とします。次の GEO8 では、向き・境界向き・最高次形式の積分を導入して一般 Stokes の定理へ進みます。
 
 ---
 
