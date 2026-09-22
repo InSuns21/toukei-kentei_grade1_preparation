@@ -26,11 +26,11 @@ $$
 
 と、周波数ごとに振幅を掛ける操作になります。ここで $H$ はフィルタ係数 $(h_j)$ の Fourier 級数です。
 
-この一本の対応から、ARMA の因果表現・駆動雑音の復元条件、スペクトル密度、ARIMA の差分、季節差分、自己相関関数と偏自己相関関数の切れ方までを一つの言葉で整理します。
+この一本の対応から、ARMA の因果表現・駆動雑音の復元条件、スペクトル密度、ARIMA の差分、季節差分、自己相関関数と有限過去予測係数の切れ方までを一つの言葉で整理します。
 
 ---
 
-## 1. 後退作用素と線形フィルタ
+## 1. 時間をずらす演算と線形フィルタ
 
 <a id="def-tsa4-backshift"></a>
 
@@ -38,9 +38,9 @@ $$
 > **定義（後退作用素）**  
 > 両側時系列 $(X_t)_{t\in\mathbb Z}$ に対して、後退作用素 $B$ を
 >
-> $$
-> BX_t:=X_{t-1}
-> $$
+$$
+BX_t:=X_{t-1}
+$$
 >
 > で定義します。従って $B^jX_t=X_{t-j}$ です。
 <!-- formal-statement-end -->
@@ -88,17 +88,17 @@ $$
 > **定義（絶対可算和可能な線形フィルタ）**  
 > $(X_t)$ を $E|X_t|^2<\infty$ を満たす二次定常過程とし、複素係数列 $(h_j)_{j\in\mathbb Z}$ が
 >
-> $$
-> \sum_{j\in\mathbb Z}|h_j|<\infty
-> $$
+$$
+\sum_{j\in\mathbb Z}|h_j|<\infty
+$$
 >
 > を満たすとします。このとき
 >
-> $$
-> Y_t
-> :=
-> L^2\text{-}\sum_{j\in\mathbb Z}h_jX_{t-j}
-> $$
+$$
+Y_t
+:=
+L^2\text{-}\sum_{j\in\mathbb Z}h_jX_{t-j}
+$$
 >
 > を $(h_j)$ による線形フィルタの出力と呼びます。
 <!-- formal-statement-end -->
@@ -134,23 +134,23 @@ $$
 > **命題（線形フィルタは二次定常性を保つ）**  
 > $(X_t)$ を平均 $\mu$、自己共分散 $\gamma_X$ を持つ二次定常過程とし、$(h_j)$ を絶対可算和可能とします。上の線形フィルタ出力 $(Y_t)$ は二次定常であり、
 >
-> $$
-> E[Y_t]
-> =
-> \mu\sum_jh_j
-> $$
+$$
+E[Y_t]
+=
+\mu\sum_jh_j
+$$
 >
 > および
 >
-> $$
-> \boxed{
-> \gamma_Y(k)
-> =
-> \sum_{j,\ell}
-> h_j\overline{h_\ell}\,
-> \gamma_X(k-j+\ell)
-> }
-> $$
+$$
+\boxed{
+\gamma_Y(k)
+=
+\sum_{j,\ell}
+h_j\overline{h_\ell}\,
+\gamma_X(k-j+\ell)
+}
+$$
 >
 > を満たします。二重級数は絶対収束します。
 <!-- formal-statement-end -->
@@ -217,7 +217,7 @@ $$
 
 ---
 
-## 2. 伝達関数：時間方向の係数合成を周波数の積へ移す
+## 2. 時間方向の係数合成を周波数の積へ移す
 
 <a id="def-tsa4-transfer-function"></a>
 
@@ -225,16 +225,16 @@ $$
 > **定義（伝達関数）**  
 > 絶対可算和可能なフィルタ係数 $(h_j)$ に対して
 >
-> $$
-> \boxed{
-> H(\lambda)
-> :=
-> \sum_{j\in\mathbb Z}
-> h_je^{-ij\lambda},
-> \qquad
-> \lambda\in\mathbb T
-> }
-> $$
+$$
+\boxed{
+H(\lambda)
+:=
+\sum_{j\in\mathbb Z}
+h_je^{-ij\lambda},
+\qquad
+\lambda\in\mathbb T
+}
+$$
 >
 > を伝達関数（transfer function）と呼びます。
 <!-- formal-statement-end -->
@@ -280,39 +280,39 @@ $\lambda=\pi$ では 0 なので、符号が一時点ごとに交互に変わる
 > **定理（線形フィルタによるスペクトル測度の変換）**  
 > 平均0の二次定常過程 $(X_t)$ がスペクトル測度 $F_X$ を持ち、
 >
-> $$
-> Y_t
-> =
-> L^2\text{-}\sum_jh_jX_{t-j},
-> \qquad
-> \sum_j|h_j|<\infty
-> $$
+$$
+Y_t
+=
+L^2\text{-}\sum_jh_jX_{t-j},
+\qquad
+\sum_j|h_j|<\infty
+$$
 >
 > とします。伝達関数を
 >
-> $$
-> H(\lambda)=\sum_jh_je^{-ij\lambda}
-> $$
+$$
+H(\lambda)=\sum_jh_je^{-ij\lambda}
+$$
 >
 > とすると、$(Y_t)$ のスペクトル測度は
 >
-> $$
-> \boxed{
-> F_Y(d\lambda)
-> =
-> |H(\lambda)|^2F_X(d\lambda)
-> }
-> $$
+$$
+\boxed{
+F_Y(d\lambda)
+=
+|H(\lambda)|^2F_X(d\lambda)
+}
+$$
 >
 > です。特に $F_X(d\lambda)=f_X(\lambda)d\lambda$ なら
 >
-> $$
-> \boxed{
-> f_Y(\lambda)
-> =
-> |H(\lambda)|^2f_X(\lambda)
-> }.
-> $$
+$$
+\boxed{
+f_Y(\lambda)
+=
+|H(\lambda)|^2f_X(\lambda)
+}.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -413,16 +413,16 @@ $$
 > **定義（因果線形フィルタ）**  
 > 線形フィルタ
 >
-> $$
-> Y_t=\sum_{j\in\mathbb Z}h_jX_{t-j}
-> $$
+$$
+Y_t=\sum_{j\in\mathbb Z}h_jX_{t-j}
+$$
 >
 > が因果的であるとは
 >
-> $$
-> h_j=0
-> \qquad(j<0)
-> $$
+$$
+h_j=0
+\qquad(j<0)
+$$
 >
 > であることです。従って $Y_t$ は現在と過去の $X_t,X_{t-1},\dots$ だけから作られます。
 <!-- formal-statement-end -->
@@ -444,17 +444,17 @@ $$
 > **定義（絶対可算和可能な逆フィルタ）**  
 > 因果フィルタ
 >
-> $$
-> Y_t=\sum_{j\ge0}h_jX_{t-j}
-> $$
+$$
+Y_t=\sum_{j\ge0}h_jX_{t-j}
+$$
 >
 > に対し、絶対可算和可能な係数 $(g_j)_{j\ge0}$ が存在して
 >
-> $$
-> X_t
-> =
-> \sum_{j\ge0}g_jY_{t-j}
-> $$
+$$
+X_t
+=
+\sum_{j\ge0}g_jY_{t-j}
+$$
 >
 > と復元できるとき、そのフィルタは因果的に可逆であるといいます。
 <!-- formal-statement-end -->
@@ -508,27 +508,27 @@ $$
 > **定義（ARMA 過程）**  
 > $(Z_t)$ を平均0、分散 $\sigma^2>0$ の弱ホワイトノイズとします。
 >
-> $$
-> \phi(z)
-> =
-> 1-\phi_1z-\cdots-\phi_pz^p,
-> $$
+$$
+\phi(z)
+=
+1-\phi_1z-\cdots-\phi_pz^p,
+$$
 >
-> $$
-> \theta(z)
-> =
-> 1+\theta_1z+\cdots+\theta_qz^q
-> $$
+$$
+\theta(z)
+=
+1+\theta_1z+\cdots+\theta_qz^q
+$$
 >
 > と置きます。二次定常過程 $(X_t)$ が
 >
-> $$
-> \boxed{
-> \phi(B)X_t
-> =
-> \theta(B)Z_t
-> }
-> $$
+$$
+\boxed{
+\phi(B)X_t
+=
+\theta(B)Z_t
+}
+$$
 >
 > を満たすとき、$(X_t)$ を ARMA$(p,q)$ 過程と呼びます。
 <!-- formal-statement-end -->
@@ -658,34 +658,34 @@ $$
 > **定理（ARMA の因果性）**  
 > ARMA$(p,q)$ 方程式
 >
-> $$
-> \phi(B)X_t=\theta(B)Z_t
-> $$
+$$
+\phi(B)X_t=\theta(B)Z_t
+$$
 >
 > において
 >
-> $$
-> \phi(z)\neq0
-> \qquad(|z|\le1)
-> $$
+$$
+\phi(z)\neq0
+\qquad(|z|\le1)
+$$
 >
 > とします。このとき
 >
-> $$
-> \frac{\theta(z)}{\phi(z)}
-> =
-> \sum_{j=0}^{\infty}\psi_jz^j
-> $$
+$$
+\frac{\theta(z)}{\phi(z)}
+=
+\sum_{j=0}^{\infty}\psi_jz^j
+$$
 >
 > の係数は絶対可算和可能であり、
 >
-> $$
-> \boxed{
-> X_t
-> =
-> \sum_{j=0}^{\infty}\psi_jZ_{t-j}
-> }
-> $$
+$$
+\boxed{
+X_t
+=
+\sum_{j=0}^{\infty}\psi_jZ_{t-j}
+}
+$$
 >
 > が $L^2$ で成立します。従って解は駆動ホワイトノイズの現在・過去だけから作られる因果解です。
 <!-- formal-statement-end -->
@@ -742,30 +742,30 @@ $$
 > **定理（ARMA の可逆性）**  
 > 因果 ARMA$(p,q)$ 過程が
 >
-> $$
-> \theta(z)\neq0
-> \qquad(|z|\le1)
-> $$
+$$
+\theta(z)\neq0
+\qquad(|z|\le1)
+$$
 >
 > を満たすとします。このとき
 >
-> $$
-> \frac{\phi(z)}{\theta(z)}
-> =
-> \sum_{j=0}^{\infty}\pi_jz^j,
-> \qquad
-> \sum_{j\ge0}|\pi_j|<\infty,
-> $$
+$$
+\frac{\phi(z)}{\theta(z)}
+=
+\sum_{j=0}^{\infty}\pi_jz^j,
+\qquad
+\sum_{j\ge0}|\pi_j|<\infty,
+$$
 >
 > かつ
 >
-> $$
-> \boxed{
-> Z_t
-> =
-> \sum_{j=0}^{\infty}\pi_jX_{t-j}
-> }.
-> $$
+$$
+\boxed{
+Z_t
+=
+\sum_{j=0}^{\infty}\pi_jX_{t-j}
+}.
+$$
 >
 > 従って駆動ホワイトノイズは観測系列の現在・過去から復元できます。
 <!-- formal-statement-end -->
@@ -889,24 +889,24 @@ $$
 > **定理（因果 ARMA のスペクトル密度）**  
 > $(Z_t)$ を分散 $\sigma^2$ の弱ホワイトノイズとし、因果 ARMA$(p,q)$
 >
-> $$
-> \phi(B)X_t=\theta(B)Z_t
-> $$
+$$
+\phi(B)X_t=\theta(B)Z_t
+$$
 >
 > を考えます。$\phi(z)\neq0$ for $|z|\le1$ とすると、$(X_t)$ はスペクトル密度
 >
-> $$
-> \boxed{
-> f_X(\lambda)
-> =
-> \frac{\sigma^2}{2\pi}
-> \frac{
-> |\theta(e^{-i\lambda})|^2
-> }{
-> |\phi(e^{-i\lambda})|^2
-> }
-> }
-> $$
+$$
+\boxed{
+f_X(\lambda)
+=
+\frac{\sigma^2}{2\pi}
+\frac{
+|\theta(e^{-i\lambda})|^2
+}{
+|\phi(e^{-i\lambda})|^2
+}
+}
+$$
 >
 > を持ちます。
 <!-- formal-statement-end -->
@@ -1001,19 +1001,19 @@ $$
 > **定義（偏自己相関関数）**  
 > 平均0の二次定常過程について、各 $k\ge1$ で
 >
-> $$
-> P_{\operatorname{span}\{X_{t-1},\dots,X_{t-k}\}}X_t
-> =
-> \sum_{j=1}^{k}a_{k,j}X_{t-j}
-> $$
+$$
+P_{\operatorname{span}\{X_{t-1},\dots,X_{t-k}\}}X_t
+=
+\sum_{j=1}^{k}a_{k,j}X_{t-j}
+$$
 >
 > とします。対応する分散共分散行列が正定値で係数が一意に定まるとき、
 >
-> $$
-> \boxed{
-> \alpha(k):=a_{k,k}
-> }
-> $$
+$$
+\boxed{
+\alpha(k):=a_{k,k}
+}
+$$
 >
 > をラグ $k$ の偏自己相関と呼びます。
 <!-- formal-statement-end -->
@@ -1140,21 +1140,21 @@ $$
 > **定義（通常差分と季節差分）**  
 > 通常差分作用素と周期 $s\ge2$ の季節差分作用素を
 >
-> $$
-> \Delta:=1-B,
-> \qquad
-> \Delta_s:=1-B^s
-> $$
+$$
+\Delta:=1-B,
+\qquad
+\Delta_s:=1-B^s
+$$
 >
 > と定義します。従って
 >
-> $$
-> \Delta X_t=X_t-X_{t-1},
-> $$
+$$
+\Delta X_t=X_t-X_{t-1},
+$$
 >
-> $$
-> \Delta_sX_t=X_t-X_{t-s}.
-> $$
+$$
+\Delta_sX_t=X_t-X_{t-s}.
+$$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-tsa4-difference -->
@@ -1178,15 +1178,15 @@ $$
 > **定義（ARIMA 過程）**  
 > 整数 $d\ge0$ に対し
 >
-> $$
-> Y_t:=\Delta^dX_t
-> $$
+$$
+Y_t:=\Delta^dX_t
+$$
 >
 > が因果 ARMA$(p,q)$
 >
-> $$
-> \phi(B)Y_t=\theta(B)Z_t
-> $$
+$$
+\phi(B)Y_t=\theta(B)Z_t
+$$
 >
 > となるとき、$(X_t)$ を ARIMA$(p,d,q)$ 過程と呼びます。
 <!-- formal-statement-end -->
@@ -1404,12 +1404,12 @@ $$
 > **定義（スペクトル因子）**  
 > 非負スペクトル密度 $f$ に対し、ある関数 $\Psi$ と定数 $\sigma^2>0$ が
 >
-> $$
-> f(\lambda)
-> =
-> \frac{\sigma^2}{2\pi}
-> |\Psi(e^{-i\lambda})|^2
-> $$
+$$
+f(\lambda)
+=
+\frac{\sigma^2}{2\pi}
+|\Psi(e^{-i\lambda})|^2
+$$
 >
 > を満たすとき、$\Psi$ を $f$ のスペクトル因子と呼びます。
 <!-- formal-statement-end -->
