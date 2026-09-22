@@ -77,43 +77,181 @@ $$
 を満たします。$n=2$ では $U'=C/r$ なので $\log r$、$n\ge3$ では $U'=Cr^{1-n}$ なので $r^{2-n}$ が現れます。
 
 <a id="pde10-nd-divergence"></a>
-### 本章で使う $n$ 次元発散定理の範囲
+### 本章で使う $n$ 次元発散公式を球で直接証明する
 
-[VC4 の Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)は三次元で証明しました。本章では一般次元へ進むため、同じ証明機構の $n$ 次元版を **球・穴あき球に限って**使います。次元が変わったことを暗黙にはしません。
+[VC4 の Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)は三次元で証明しました。本章は一般次元を扱うため、必要な **球・穴あき球の場合だけ**を Fubini の定理と一変数の微積分学の基本定理から直接確認します。
 
-直方体
+<a id="lem-pde10-ball-divergence"></a>
+<!-- formal-statement-start -->
+> **補題（$n$ 次元球・穴あき球の発散公式）**  
+> $X=(X_1,\ldots,X_n)$ を球 $B_R(0)$ の近傍で $C^1$ 級とする。このとき
+>
+> $$
+> \int_{B_R}\operatorname{div}X\,dx
+> =
+> \int_{\partial B_R}X\cdot n\,dS.
+> $$
+>
+> また $0<\varepsilon<R$ で $X$ が穴あき球
+>
+> $$
+> B_R\setminus\overline{B_\varepsilon}
+> $$
+>
+> の近傍で $C^1$ 級なら
+>
+> $$
+> \int_{B_R\setminus\overline{B_\varepsilon}}
+> \operatorname{div}X\,dx
+> =
+> \int_{\partial(B_R\setminus\overline{B_\varepsilon})}
+> X\cdot n\,dS.
+> $$
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+まず球 $B_R$ を考えます。座標 $x_i$ を一つ固定し、残りの $n-1$ 座標を
 
 $$
-R=\prod_{i=1}^n[a_i,b_i]
-$$
-
-では Fubini の定理と一変数の微積分学の基本定理から
-
-$$
-\int_R\partial_{x_i}X_i\,dx
+\widehat x_i
 =
-\int_{x_i=b_i}X_i\,dS
+(x_1,\ldots,x_{i-1},x_{i+1},\ldots,x_n)
+$$
+
+と書きます。
+
+$|\widehat x_i|<R$ に対し
+
+$$
+a(\widehat x_i)
+=
+\sqrt{R^2-|\widehat x_i|^2}
+$$
+
+と置くと、球の $x_i$ 方向切片は
+
+$$
+-a(\widehat x_i)
+<
+x_i
+<
+a(\widehat x_i)
+$$
+
+です。Fubini の定理と一変数の微積分学の基本定理から
+
+$$
+\begin{aligned}
+\int_{B_R}\partial_{x_i}X_i\,dx
+&=
+\int_{|\widehat x_i|<R}
+\left[
+X_i(\widehat x_i,a(\widehat x_i))
 -
-\int_{x_i=a_i}X_i\,dS.
+X_i(\widehat x_i,-a(\widehat x_i))
+\right]
+d\widehat x_i.
+\end{aligned}
 $$
 
-$i$ について和を取れば、各対向面の外向き法線の符号がちょうど対応して
+これが球面上の第 $i$ 成分の流束に一致することを確認します。
+
+上半球を
 
 $$
-\int_R\operatorname{div}X\,dx
+x_i=a(\widehat x_i)
+$$
+
+というグラフで表すと
+
+$$
+\nabla a
 =
-\int_{\partial R}X\cdot n\,dS.
+-\frac{\widehat x_i}{a},
 $$
 
-球面は有限個の座標グラフで覆えます。VC4 でグラフ領域へ拡張したのと同じく各グラフ領域を細分して上の直方体計算を適用すると、内部境界の流束は反対向き法線により相殺します。従って球 $B_r$ と穴あき球 $B_R\setminus\overline{B_\varepsilon}$ について
+したがって面素は
 
 $$
-\int_\Omega\operatorname{div}X\,dx
+dS
 =
-\int_{\partial\Omega}X\cdot n\,dS
+\sqrt{1+|\nabla a|^2}\,d\widehat x_i
+=
+\frac{R}{a}\,d\widehat x_i.
 $$
 
-を得ます。本章で必要なのはこの場合だけです。
+上半球の外向き単位法線の第 $i$ 成分は
+
+$$
+n_i=\frac{a}{R},
+$$
+
+なので
+
+$$
+n_i\,dS=d\widehat x_i.
+$$
+
+下半球では
+
+$$
+n_i=-\frac{a}{R},
+\qquad
+dS=\frac{R}{a}\,d\widehat x_i,
+$$
+
+したがって
+
+$$
+n_i\,dS=-d\widehat x_i.
+$$
+
+よって
+
+$$
+\int_{B_R}\partial_{x_i}X_i\,dx
+=
+\int_{\partial B_R}X_i n_i\,dS.
+$$
+
+$i=1,\ldots,n$ を足し合わせれば
+
+$$
+\int_{B_R}\operatorname{div}X\,dx
+=
+\int_{\partial B_R}X\cdot n\,dS.
+$$
+
+次に穴あき球を考えます。球の公式を半径 $R$ と $\varepsilon$ にそれぞれ適用して差を取ると
+
+$$
+\begin{aligned}
+\int_{B_R\setminus\overline{B_\varepsilon}}
+\operatorname{div}X\,dx
+&=
+\int_{\partial B_R}X\cdot e_r\,dS
+-
+\int_{\partial B_\varepsilon}X\cdot e_r\,dS.
+\end{aligned}
+$$
+
+穴あき球の内側境界では外向き法線が
+
+$$
+n=-e_r
+$$
+
+なので、右辺はちょうど
+
+$$
+\int_{\partial(B_R\setminus\overline{B_\varepsilon})}
+X\cdot n\,dS
+$$
+
+です。
+<!-- proof-end -->
 
 特に $a,b\in C^2$ として
 
@@ -140,7 +278,7 @@ $$
 }
 $$
 
-が成り立ちます。これは [PDE6 の Green の第二恒等式](../PDE6/index.md#thm-pde6-green-second) と同じ計算の $n$ 次元版です。
+が成り立ちます。これは [PDE6 の Green の第二恒等式](../PDE6/index.md#thm-pde6-green-second) と同じ積の微分則を、$n$ 次元球について直接積分したものです。
 
 ## 2. 一般次元の基本解
 
