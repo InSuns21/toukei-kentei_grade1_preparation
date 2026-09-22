@@ -793,7 +793,7 @@ direct prerequisite は GEO10、GEO6、GEO9 です。GEO10 の第一・第二基
 
 direct prerequisite は GEO4、GEO7、GEO8、LA5、VC1 です。GEO4 は局所 Euclid 計量を 1 の分割で貼る存在証明、GEO7 はテンソル場・Lie 微分、GEO8 は向きと最高次形式、LA5 までの内積理論は各接空間の正定値内積、VC1 は Euclid の勾配・発散・Laplacian を Riemannian 公式の特殊例として回収するために直接使います。次の GEO13 では計量と両立し捩率が0の Levi-Civita 接続を構成します。
 
-## GEO13 アフィン接続・Levi-Civita 接続・平行移動 \`core\`
+## GEO13 アフィン接続・Levi-Civita 接続・平行移動 `core`
 
 - アフィン接続と共変微分の公理、Euclid 標準接続
 - Christoffel 係数と共変微分の座標公式
