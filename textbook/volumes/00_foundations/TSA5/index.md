@@ -79,17 +79,17 @@ $$
 > **定義（測度保存シフト）**  
 > 確率空間 $(\Omega,\mathcal F,P)$ 上の可測な可逆写像 $T:\Omega\to\Omega$ が
 >
-> $$
-> P(T^{-1}A)=P(A)
-> \qquad
-> (A\in\mathcal F)
-> $$
+$$
+P(T^{-1}A)=P(A)
+\qquad
+(A\in\mathcal F)
+$$
 >
 > を満たすとき、$T$ は確率測度を保つ写像です。時系列の標準経路空間上で
 >
-> $$
-> (T\omega)_t=\omega_{t+1}
-> $$
+$$
+(T\omega)_t=\omega_{t+1}
+$$
 >
 > と定めたものを測度保存シフトと呼びます。
 <!-- formal-statement-end -->
@@ -119,9 +119,9 @@ $$
 > **命題（狭義定常性と標準経路空間の測度保存シフト）**  
 > 実数値過程 $(X_t)_{t\in\mathbb Z}$ の経路法則を $P_X$ とします。$(X_t)$ が狭義定常であることと、標準経路空間上のシフト $T$ が
 >
-> $$
-> P_X(T^{-1}A)=P_X(A)
-> $$
+$$
+P_X(T^{-1}A)=P_X(A)
+$$
 >
 > を全ての可測集合 $A$ について満たすことは同値です。
 <!-- formal-statement-end -->
@@ -185,14 +185,14 @@ TSA1 では定常性を有限個の時点の同時分布が時間移動で変わ
 > **定義（不変σ-加法族）**  
 > 測度保存シフト $T$ に対し、
 >
-> $$
-> \mathcal I
-> :=
-> \left\{
-> A\in\mathcal F:
-> P(A\triangle T^{-1}A)=0
-> \right\}
-> $$
+$$
+\mathcal I
+:=
+\left\{
+A\in\mathcal F:
+P(A\triangle T^{-1}A)=0
+\right\}
+$$
 >
 > を不変σ-加法族と呼びます。
 <!-- formal-statement-end -->
@@ -220,11 +220,11 @@ $$
 > **定義（エルゴード性）**  
 > 狭義定常過程がエルゴード的であるとは、その不変σ-加法族 $\mathcal I$ の全ての事象が
 >
-> $$
-> A\in\mathcal I
-> \quad\Longrightarrow\quad
-> P(A)\in\{0,1\}
-> $$
+$$
+A\in\mathcal I
+\quad\Longrightarrow\quad
+P(A)\in\{0,1\}
+$$
 >
 > を満たすことです。
 <!-- formal-statement-end -->
@@ -307,54 +307,54 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（von Neumann の平均エルゴード定理）**  
-> $(\Omega,\mathcal F,P)$ 上の可逆な可測写像 $T$ が
+> $(\Omega,\mathcal F,P)$ 上の可逆写像 $T$ を取り、$T$ と $T^{-1}$ が可測で
 >
-> $$
-> P(T^{-1}A)=P(A)
-> \qquad(A\in\mathcal F)
-> $$
+$$
+P(T^{-1}A)=P(A)
+\qquad(A\in\mathcal F)
+$$
 >
 > を満たすとし、
 >
-> $$
-> Uf=f\circ T
-> $$
+$$
+Uf=f\circ T
+$$
 >
 > で定まる $L^2(P)$ 上のユニタリ作用素を考えます。
 >
-> $$
-> \operatorname{Fix}(U)
-> :=
-> \{g\in L^2(P):Ug=g\}
-> $$
+$$
+\operatorname{Fix}(U)
+:=
+\{g\in L^2(P):Ug=g\}
+$$
 >
 > とし、$P_{\operatorname{Fix}(U)}$ をこの閉部分空間への直交射影とします。このとき任意の $f\in L^2(P)$ について
 >
-> $$
-> \boxed{
-> A_nf
-> =
-> \frac1n\sum_{k=0}^{n-1}U^kf
-> \xrightarrow{L^2}
-> P_{\operatorname{Fix}(U)}f
-> }.
-> $$
+$$
+\boxed{
+A_nf
+=
+\frac1n\sum_{k=0}^{n-1}U^kf
+\xrightarrow{L^2}
+P_{\operatorname{Fix}(U)}f
+}.
+$$
 >
 > さらに
 >
-> $$
-> \operatorname{Fix}(U)=L^2(\mathcal I)
-> $$
+$$
+\operatorname{Fix}(U)=L^2(\mathcal I)
+$$
 >
 > なので、
 >
-> $$
-> \boxed{
-> A_nf
-> \xrightarrow{L^2}
-> E[f\mid\mathcal I]
-> }.
-> $$
+$$
+\boxed{
+A_nf
+\xrightarrow{L^2}
+E[f\mid\mathcal I]
+}.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -566,42 +566,42 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Birkhoff のエルゴード定理）**  
-> $(\Omega,\mathcal F,P)$ 上の可測写像 $T$ が
+> $(\Omega,\mathcal F,P)$ 上の写像 $T$ が可測で
 >
-> $$
-> P(T^{-1}A)=P(A)
-> \qquad(A\in\mathcal F)
-> $$
+$$
+P(T^{-1}A)=P(A)
+\qquad(A\in\mathcal F)
+$$
 >
 > を満たすとします。$f\in L^1(P)$ に対し、
 >
-> $$
-> A_nf
-> =
-> \frac1n\sum_{k=0}^{n-1}f\circ T^k
-> $$
+$$
+A_nf
+=
+\frac1n\sum_{k=0}^{n-1}f\circ T^k
+$$
 >
 > は
 >
-> $$
-> \boxed{
-> A_nf
-> \to
-> E[f\mid\mathcal I]
-> \qquad\text{a.s.}
-> }
-> $$
+$$
+\boxed{
+A_nf
+\to
+E[f\mid\mathcal I]
+\qquad\text{a.s.}
+}
+$$
 >
 > を満たします。特に $T$ がエルゴード的なら
 >
-> $$
-> \boxed{
-> A_nf
-> \to
-> E[f]
-> \qquad\text{a.s.}
-> }.
-> $$
+$$
+\boxed{
+A_nf
+\to
+E[f]
+\qquad\text{a.s.}
+}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -627,22 +627,22 @@ $$
 > **系（定常エルゴード過程の大数則）**  
 > $(X_t)_{t\in\mathbb Z}$ を狭義定常かつエルゴード的とし、
 >
-> $$
-> E|X_0|<\infty
-> $$
+$$
+E|X_0|<\infty
+$$
 >
 > とします。このとき
 >
-> $$
-> \boxed{
-> \bar X_n
-> :=
-> \frac1n\sum_{t=1}^nX_t
-> \to
-> E[X_0]
-> \qquad\text{a.s.}
-> }.
-> $$
+$$
+\boxed{
+\bar X_n
+:=
+\frac1n\sum_{t=1}^nX_t
+\to
+E[X_0]
+\qquad\text{a.s.}
+}.
+$$
 >
 > さらに $E[X_0^2]<\infty$ なら、同じ収束は $L^2$ でも成立します。
 <!-- formal-statement-end -->
@@ -682,13 +682,13 @@ $X_0\in L^2$ なら [von Neumann の平均エルゴード定理](#thm-tsa5-mean-
 > **定義（混合性）**  
 > 測度保存シフト $T$ が混合的であるとは、任意の $A,B\in\mathcal F$ に対し
 >
-> $$
-> \boxed{
-> P(A\cap T^{-n}B)
-> \to
-> P(A)P(B)
-> }
-> $$
+$$
+\boxed{
+P(A\cap T^{-n}B)
+\to
+P(A)P(B)
+}
+$$
 >
 > が成立することです。
 <!-- formal-statement-end -->
@@ -782,25 +782,25 @@ $$
 > **定義（α-混合係数）**  
 > 狭義定常過程 $(X_t)$ に対して
 >
-> $$
-> \boxed{
-> \alpha(n)
-> :=
-> \sup_{
-> A\in\mathcal F_{-\infty}^0,\,
-> B\in\mathcal F_n^\infty
-> }
-> \left|
-> P(A\cap B)-P(A)P(B)
-> \right|
-> }
-> $$
+$$
+\boxed{
+\alpha(n)
+:=
+\sup_{
+A\in\mathcal F_{-\infty}^0,\,
+B\in\mathcal F_n^\infty
+}
+\left|
+P(A\cap B)-P(A)P(B)
+\right|
+}
+$$
 >
 > と定義します。
 >
-> $$
-> \alpha(n)\to0
-> $$
+$$
+\alpha(n)\to0
+$$
 >
 > のとき、この過程を α-混合的と呼びます。
 <!-- formal-statement-end -->
@@ -825,9 +825,9 @@ $\alpha(n)$ は $n$ に関して単調非増加です。未来をより遠くへ
 > **命題（α-混合は混合性を含意する）**  
 > 標準経路空間上の狭義定常過程が
 >
-> $$
-> \alpha(n)\to0
-> $$
+$$
+\alpha(n)\to0
+$$
 >
 > を満たすなら、その標準シフトは混合的です。従ってその過程はエルゴード的です。
 <!-- formal-statement-end -->
@@ -908,15 +908,15 @@ $n\to\infty$ を送ると第一項は 0 なので上極限は $4\varepsilon$ 以
 > **定義（m-依存性）**  
 > 整数 $m\ge0$ に対し、過程 $(X_t)$ が m-依存であるとは、任意の整数 $k$ について
 >
-> $$
-> \sigma(X_t:t\le k)
-> $$
+$$
+\sigma(X_t:t\le k)
+$$
 >
 > と
 >
-> $$
-> \sigma(X_t:t\ge k+m+1)
-> $$
+$$
+\sigma(X_t:t\ge k+m+1)
+$$
 >
 > が独立であることです。
 <!-- formal-statement-end -->
@@ -945,12 +945,12 @@ $X_t$ for $t\le k$ は $Z_s$ for $s\le k$ だけで決まり、$X_t$ for $t\ge k
 > **命題（m-依存過程の α-混合）**  
 > 狭義定常な m-依存過程では
 >
-> $$
-> \boxed{
-> \alpha(n)=0
-> \qquad(n\ge m+1)
-> }.
-> $$
+$$
+\boxed{
+\alpha(n)=0
+\qquad(n\ge m+1)
+}.
+$$
 >
 > 従って m-依存過程は α-混合的であり、エルゴード的です。
 <!-- formal-statement-end -->
@@ -1015,20 +1015,20 @@ $$
 > **定理（固定ラグ標本自己共分散の一致性）**  
 > $(X_t)$ を狭義定常かつエルゴード的とし、
 >
-> $$
-> E[X_0^2]<\infty
-> $$
+$$
+E[X_0^2]<\infty
+$$
 >
 > とします。任意の固定された整数 $h\ge0$ に対して
 >
-> $$
-> \boxed{
-> \widehat\gamma_n(h)
-> \to
-> \gamma(h)
-> \qquad\text{a.s.}
-> }
-> $$
+$$
+\boxed{
+\widehat\gamma_n(h)
+\to
+\gamma(h)
+\qquad\text{a.s.}
+}
+$$
 >
 > が成立します。
 <!-- formal-statement-end -->
@@ -1144,21 +1144,21 @@ $$
 > **定義（長期分散）**  
 > 二次定常過程 $(X_t)$ の自己共分散関数を $\gamma$ とし、
 >
-> $$
-> \sum_{h\in\mathbb Z}|\gamma(h)|<\infty
-> $$
+$$
+\sum_{h\in\mathbb Z}|\gamma(h)|<\infty
+$$
 >
 > とします。このとき
 >
-> $$
-> \boxed{
-> \sigma_{\mathrm{LR}}^2
-> :=
-> \sum_{h\in\mathbb Z}\gamma(h)
-> =
-> \gamma(0)+2\sum_{h=1}^{\infty}\gamma(h)
-> }
-> $$
+$$
+\boxed{
+\sigma_{\mathrm{LR}}^2
+:=
+\sum_{h\in\mathbb Z}\gamma(h)
+=
+\gamma(0)+2\sum_{h=1}^{\infty}\gamma(h)
+}
+$$
 >
 > を長期分散と呼びます。
 <!-- formal-statement-end -->
@@ -1212,45 +1212,45 @@ $\phi>0$ なら正の系列相関により長期分散は大きくなり、$\phi
 > **命題（部分和分散と長期分散）**  
 > 平均0の二次定常過程が
 >
-> $$
-> \sum_{h\in\mathbb Z}|\gamma(h)|<\infty
-> $$
+$$
+\sum_{h\in\mathbb Z}|\gamma(h)|<\infty
+$$
 >
 > を満たすとします。部分和
 >
-> $$
-> S_n=\sum_{t=1}^nX_t
-> $$
+$$
+S_n=\sum_{t=1}^nX_t
+$$
 >
 > に対して
 >
-> $$
-> \boxed{
-> \frac1n\operatorname{Var}(S_n)
-> \to
-> \sigma_{\mathrm{LR}}^2
-> }.
-> $$
+$$
+\boxed{
+\frac1n\operatorname{Var}(S_n)
+\to
+\sigma_{\mathrm{LR}}^2
+}.
+$$
 >
 > さらに TSA3 の規約でスペクトル密度 $f$ が
 >
-> $$
-> f(\lambda)
-> =
-> \frac1{2\pi}
-> \sum_{h\in\mathbb Z}
-> \gamma(h)e^{-ih\lambda}
-> $$
+$$
+f(\lambda)
+=
+\frac1{2\pi}
+\sum_{h\in\mathbb Z}
+\gamma(h)e^{-ih\lambda}
+$$
 >
 > と表されるとき、
 >
-> $$
-> \boxed{
-> \sigma_{\mathrm{LR}}^2
-> =
-> 2\pi f(0)
-> }.
-> $$
+$$
+\boxed{
+\sigma_{\mathrm{LR}}^2
+=
+2\pi f(0)
+}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -1370,40 +1370,40 @@ $$
 > **定理（絶対可算和可能な因果線形過程の中心極限定理）**  
 > $(Z_t)_{t\in\mathbb Z}$ を独立同分布で
 >
-> $$
-> E[Z_0]=0,
-> \qquad
-> \operatorname{Var}(Z_0)=\sigma_Z^2<\infty
-> $$
+$$
+E[Z_0]=0,
+\qquad
+\operatorname{Var}(Z_0)=\sigma_Z^2<\infty
+$$
 >
 > とします。
 >
-> $$
-> X_t
-> =
-> \sum_{j=0}^{\infty}\psi_jZ_{t-j},
-> \qquad
-> \sum_{j=0}^{\infty}|\psi_j|<\infty
-> $$
+$$
+X_t
+=
+\sum_{j=0}^{\infty}\psi_jZ_{t-j},
+\qquad
+\sum_{j=0}^{\infty}|\psi_j|<\infty
+$$
 >
 > とし、
 >
-> $$
-> \Psi
-> :=
-> \sum_{j=0}^{\infty}\psi_j
-> $$
+$$
+\Psi
+:=
+\sum_{j=0}^{\infty}\psi_j
+$$
 >
 > と置きます。このとき
 >
-> $$
-> \boxed{
-> \frac1{\sqrt n}
-> \sum_{t=1}^nX_t
-> \Rightarrow
-> N(0,\sigma_Z^2\Psi^2)
-> }.
-> $$
+$$
+\boxed{
+\frac1{\sqrt n}
+\sum_{t=1}^nX_t
+\Rightarrow
+N(0,\sigma_Z^2\Psi^2)
+}.
+$$
 >
 > 右辺の分散が 0 の場合は 0 への退化分布を意味します。
 <!-- formal-statement-end -->
@@ -1725,47 +1725,47 @@ $$
 > 以下は、時系列解析でよく用いられる代表的な十分条件です。  
 > $(X_t)_{t\in\mathbb Z}$ を実数値・狭義定常・平均0の α-混合過程とします。ある $\delta>0$ が存在して
 >
-> $$
-> E|X_0|^{2+\delta}<\infty
-> $$
+$$
+E|X_0|^{2+\delta}<\infty
+$$
 >
 > および
 >
-> $$
-> \boxed{
-> \sum_{n=1}^{\infty}
-> \alpha(n)^{\delta/(2+\delta)}
-> <
-> \infty
-> }
-> $$
+$$
+\boxed{
+\sum_{n=1}^{\infty}
+\alpha(n)^{\delta/(2+\delta)}
+<
+\infty
+}
+$$
 >
 > を満たすとします。このとき自己共分散級数は絶対収束し、
 >
-> $$
-> \sigma_{\mathrm{LR}}^2
-> =
-> \sum_{h\in\mathbb Z}\gamma(h)
-> $$
+$$
+\sigma_{\mathrm{LR}}^2
+=
+\sum_{h\in\mathbb Z}\gamma(h)
+$$
 >
 > が有限に定まります。
 >
 > さらに
 >
-> $$
-> \sigma_{\mathrm{LR}}^2>0
-> $$
+$$
+\sigma_{\mathrm{LR}}^2>0
+$$
 >
 > なら
 >
-> $$
-> \boxed{
-> \frac1{\sqrt n\,\sigma_{\mathrm{LR}}}
-> \sum_{t=1}^nX_t
-> \Rightarrow
-> N(0,1)
-> }.
-> $$
+$$
+\boxed{
+\frac1{\sqrt n\,\sigma_{\mathrm{LR}}}
+\sum_{t=1}^nX_t
+\Rightarrow
+N(0,1)
+}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
