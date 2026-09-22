@@ -20,7 +20,7 @@ $$
 u|_{r=1}=0
 $$
 
-を考えます。非零の Dirichlet 固有関数に対しては、[Green の第一恒等式](../PDE6/index.md#thm-pde6-green-first)を $u$ 自身へ適用すると
+を考えます。まず非零の実 Dirichlet 固有関数に対して、[Green の第一恒等式](../PDE6/index.md#thm-pde6-green-first)を $u$ 自身へ適用すると
 
 $$
 \lambda\int_D |u|^2\,dx
@@ -34,7 +34,7 @@ $$
 \boxed{\lambda>0}.
 $$
 
-このため以下で $\sqrt\lambda$ を実数として使えます。複素表示 $e^{im\theta}$ は実際には $\cos m\theta,\sin m\theta$ の二つをまとめた記法です。
+このため以下で $\sqrt\lambda$ を実数として使えます。複素固有関数を使う場合も実部・虚部へ分ければ同じ結論です。複素表示 $e^{im\theta}$ は実際には $\cos m\theta,\sin m\theta$ の二つをまとめた記法です。
 
 極座標では
 
