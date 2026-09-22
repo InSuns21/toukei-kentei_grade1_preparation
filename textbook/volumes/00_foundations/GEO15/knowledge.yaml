@@ -5,10 +5,6 @@ prerequisites:
   - GEO14
   - TOP5
 
-forward_references:
-  - geometry.jacobi-field
-  - geometry.conjugate-point
-
 concepts:
   - id: geometry.riemannian-metric-completeness
     name: Riemann 多様体の距離完備性
@@ -145,16 +141,16 @@ concepts:
     kind: definition
     aliases: [Riemann 幾何の切断点, Riemannian cut point]
     introduction: formal
-    introduction_aliases: ["定義（切断点・切断跡）"]
+    introduction_aliases: ["定義（切断点・切断点集合）"]
     requires:
       - geometry.cut-time
       - geometry.exponential-map
 
   - id: geometry.cut-locus
-    name: 切断跡
+    name: 切断点集合
     kind: definition
-    aliases: [Riemann 幾何の切断跡, cut locus]
+    aliases: [Riemann 幾何の切断点集合, cut locus]
     introduction: formal
-    introduction_aliases: ["定義（切断点・切断跡）"]
+    introduction_aliases: ["定義（切断点・切断点集合）"]
     requires:
       - geometry.cut-point
