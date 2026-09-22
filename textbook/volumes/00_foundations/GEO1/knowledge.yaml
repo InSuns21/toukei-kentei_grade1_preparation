@@ -4,7 +4,10 @@ coverage: complete
 prerequisites:
   - TOP4
   - RA6A
-forward_references: []
+forward_references:
+  - geometry.tangent-vector
+  - geometry.tangent-space
+  - geometry.differential
 
 concepts:
   - id: geometry.topological-manifold

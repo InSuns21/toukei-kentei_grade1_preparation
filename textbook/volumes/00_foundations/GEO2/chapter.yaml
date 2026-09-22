@@ -1,0 +1,61 @@
+id: "GEO2"
+title: "幾何学 II：接空間・余接空間・微分・接束"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEO1
+  - LA3A
+official_scope: []
+learning_objectives:
+  - 滑らかな関数の芽を使って点における接ベクトルを Leibniz 則を満たす微分作用素として定義できる
+  - 局所一次分解から接ベクトルの座標表示を導き、接空間の次元が多様体の次元に一致することを証明できる
+  - 曲線の一次同値が座標に依存しないことを示し、曲線表示と微分作用素表示の同値性を証明できる
+  - 座標変換に対する接ベクトル成分の変換則を計算できる
+  - 滑らかな写像の微分を座標に依存せず定義し、座標表示と連鎖律を証明できる
+  - 余接空間・実数値関数の微分・余ベクトルの引き戻しを定義し、双対基底で計算できる
+  - 接束と余接束の局所自明化を構成し、自然なベクトル束構造を説明できる
+  - 積多様体の接空間を直和として同定し、球面の接空間を具体計算できる
+definitions:
+  - { id: GEO2-DEF-01, name: 滑らかな関数の芽 }
+  - { id: GEO2-DEF-02, name: 点における接ベクトル・接空間 }
+  - { id: GEO2-DEF-03, name: 座標方向の接ベクトル }
+  - { id: GEO2-DEF-04, name: 曲線の一次同値 }
+  - { id: GEO2-DEF-05, name: 曲線が定める微分作用素 }
+  - { id: GEO2-DEF-06, name: 滑らかな写像の微分 }
+  - { id: GEO2-DEF-07, name: 余接空間 }
+  - { id: GEO2-DEF-08, name: 実数値関数の微分 }
+  - { id: GEO2-DEF-09, name: 余ベクトルの引き戻し }
+  - { id: GEO2-DEF-10, name: 接束 }
+  - { id: GEO2-DEF-11, name: 滑らかな実ベクトル束 }
+  - { id: GEO2-DEF-12, name: 余接束 }
+theorems:
+  - { id: GEO2-LEM-01, name: 局所一次分解 }
+  - { id: GEO2-THM-01, name: 接ベクトルの座標表示 }
+  - { id: GEO2-THM-02, name: 曲線表示と微分作用素表示の同値 }
+  - { id: GEO2-THM-03, name: 微分の座標表示 }
+  - { id: GEO2-PROP-01, name: 微分は曲線の速度を送る }
+  - { id: GEO2-THM-04, name: 多様体上の連鎖律 }
+  - { id: GEO2-PROP-02, name: 余ベクトルの引き戻しの合成則 }
+  - { id: GEO2-THM-05, name: 接束の滑らかな構造 }
+  - { id: GEO2-PROP-03, name: 余接束の局所自明化 }
+  - { id: GEO2-PROP-04, name: 積多様体の接空間 }
+canonical_examples:
+  - Rnの方向微分と接空間
+  - 曲線の一次同値
+  - 極座標での接基底と余接基底
+  - Euclid空間間写像のJacobi行列
+  - 球面への正規化写像
+  - 球面Snの接空間
+  - 積多様体の接空間
+problem_patterns:
+  - GEO2-DERIVATION-1
+  - GEO2-CURVE-TANGENT-1
+  - GEO2-DIFFERENTIAL-1
+  - GEO2-COVECTOR-PULLBACK-1
+  - GEO2-COORDINATE-CHANGE-1
+  - GEO2-PRODUCT-TANGENT-1
+  - GEO2-SPHERE-TANGENT-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 3.5, review: 0.5 }

@@ -1,0 +1,140 @@
+chapter: GEO2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEO1
+  - LA3A
+forward_references: []
+
+concepts:
+  - id: geometry.smooth-function-germ
+    name: 滑らかな関数の芽
+    kind: definition
+    aliases: [滑らかな関数の芽, 関数の芽, smooth function germ]
+    requires: [geometry.smooth-manifold]
+
+  - id: geometry.tangent-vector
+    name: 接ベクトル
+    kind: definition
+    aliases: [接ベクトル, tangent vector]
+    requires: [geometry.smooth-function-germ]
+
+  - id: geometry.tangent-space
+    name: 接空間
+    kind: definition
+    aliases: [接空間, tangent space]
+    requires: [geometry.tangent-vector]
+
+  - id: geometry.coordinate-tangent-basis
+    name: 接空間の座標基底
+    kind: definition
+    aliases: [座標方向の接ベクトル, 座標基底, 接空間の座標基底, coordinate tangent basis]
+    requires: [geometry.tangent-space, geometry.coordinate-chart]
+
+  - id: geometry.local-first-order-decomposition
+    name: 局所一次分解
+    kind: lemma
+    aliases: [局所一次分解, Hadamard lemma]
+    requires: [geometry.coordinate-chart]
+
+  - id: geometry.tangent-coordinate-expression
+    name: 接ベクトルの座標表示
+    kind: theorem
+    aliases: [接ベクトルの座標表示]
+    requires: [geometry.coordinate-tangent-basis, geometry.local-first-order-decomposition]
+
+  - id: geometry.curve-first-order-equivalence
+    name: 曲線の一次同値
+    kind: definition
+    aliases: [曲線の一次同値, tangent equivalence of curves]
+    requires: [geometry.smooth-map, geometry.coordinate-chart]
+
+  - id: geometry.curve-induced-derivation
+    name: 曲線が定める微分作用素
+    kind: definition
+    aliases: [曲線が定める微分作用素, curve-induced derivation]
+    requires: [geometry.smooth-function-germ]
+
+  - id: geometry.curve-derivation-tangent-equivalence
+    name: 曲線表示と微分作用素表示の同値
+    kind: theorem
+    aliases: [曲線表示と微分作用素表示の同値, curve derivation equivalence]
+    requires: [geometry.curve-first-order-equivalence, geometry.curve-induced-derivation, geometry.tangent-coordinate-expression]
+
+  - id: geometry.differential
+    name: 滑らかな写像の微分
+    kind: definition
+    aliases: [滑らかな写像の微分, 写像の微分, differential, tangent map]
+    requires: [geometry.smooth-map, geometry.tangent-space]
+
+  - id: geometry.differential-coordinate-formula
+    name: 微分の座標表示
+    kind: theorem
+    aliases: [微分の座標表示, Jacobi行列による微分]
+    requires: [geometry.differential, geometry.tangent-coordinate-expression]
+
+  - id: geometry.differential-sends-curve-velocity
+    name: 微分は曲線の速度を送る
+    kind: proposition
+    aliases: [微分は曲線の速度を送る]
+    requires: [geometry.differential, geometry.curve-derivation-tangent-equivalence]
+
+  - id: geometry.manifold-chain-rule
+    name: 多様体上の連鎖律
+    kind: theorem
+    aliases: [多様体上の連鎖律, chain rule on manifolds]
+    requires: [geometry.differential]
+
+  - id: geometry.cotangent-space
+    name: 余接空間
+    kind: definition
+    aliases: [余接空間, cotangent space]
+    requires: [geometry.tangent-space, linear.algebraic-dual-space]
+
+  - id: geometry.function-differential
+    name: 実数値関数の微分
+    kind: definition
+    aliases: [実数値関数の微分, differential of a function]
+    requires: [geometry.cotangent-space, geometry.tangent-vector]
+
+  - id: geometry.covector-pullback
+    name: 余ベクトルの引き戻し
+    kind: definition
+    aliases: [余ベクトルの引き戻し, pullback of covectors]
+    requires: [geometry.cotangent-space, geometry.differential]
+
+  - id: geometry.vector-bundle
+    name: 滑らかな実ベクトル束
+    kind: definition
+    aliases: [ベクトル束, 滑らかな実ベクトル束, smooth real vector bundle]
+    requires: [geometry.smooth-manifold]
+
+  - id: geometry.tangent-bundle
+    name: 接束
+    kind: definition
+    aliases: [接束, tangent bundle]
+    requires: [geometry.tangent-space]
+
+  - id: geometry.tangent-bundle-smooth-structure
+    name: 接束の滑らかな構造
+    kind: theorem
+    aliases: [接束の滑らかな構造, tangent bundle smooth structure]
+    requires: [geometry.tangent-bundle, geometry.vector-bundle, geometry.tangent-coordinate-expression]
+
+  - id: geometry.cotangent-bundle
+    name: 余接束
+    kind: definition
+    aliases: [余接束, cotangent bundle]
+    requires: [geometry.cotangent-space]
+
+  - id: geometry.cotangent-bundle-local-trivialization
+    name: 余接束の局所自明化
+    kind: proposition
+    aliases: [余接束の局所自明化]
+    requires: [geometry.cotangent-bundle, geometry.vector-bundle, linear.dual-basis]
+
+  - id: geometry.product-tangent-space
+    name: 積多様体の接空間
+    kind: proposition
+    aliases: [積多様体の接空間]
+    requires: [geometry.product-manifold, geometry.differential]

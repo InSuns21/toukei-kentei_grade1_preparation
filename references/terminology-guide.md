@@ -104,6 +104,18 @@
 | 実射影空間 | real projective space | 記号 $\mathbb{RP}^n$ は保持 |
 | 滑らかな写像 | smooth map | 座標表示が $C^\infty$ 級 |
 | 微分同相写像 | diffeomorphism | 英語を本文主語彙にしない |
+| 芽 | germ | 局所関数の同値類。初出で英語併記可 |
+| 接ベクトル | tangent vector | 曲線速度または点での微分作用素として定義 |
+| 接空間 | tangent space | 記号 $T_pM$ は保持 |
+| 座標基底 | coordinate basis | 接空間では $\partial/\partial x^i|_p$ を使用 |
+| 写像の微分 | differential / tangent map | 本文では「微分」を主表記とし、記号 $df_p$ を使用 |
+| 余接空間 | cotangent space | 記号 $T_p^*M$ は保持 |
+| 余ベクトル | covector | 英語を本文主語彙にしない |
+| 引き戻し | pullback | 点での余ベクトルおよび後続の微分形式で使用 |
+| 接束 | tangent bundle | 記号 $TM$ は保持 |
+| 余接束 | cotangent bundle | 記号 $T^*M$ は保持 |
+| ベクトル束 | vector bundle | 初出で英語併記可。以後は日本語主表記 |
+| 局所自明化 | local trivialization | ベクトル束の局所直積表示 |
 
 ## DREAM THEATER：ODE・PDE の主表記
 
