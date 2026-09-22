@@ -72,9 +72,9 @@ Monte Carlo 法と準 Monte Carlo 法では、同じ積分問題に対して
 | [NA9](../NA9/index.md) | 数値線形代数 II：反復法・Krylov 法 |
 | [NA10](../NA10/index.md) | 固有値数値計算 |
 | [NA11](../NA11/index.md) | Perron–Frobenius 理論と PageRank |
-| NA12 | 無制約最適化と共役勾配法 |
+| [NA12](../NA12/index.md) | 無制約最適化と共役勾配法 |
 
-**実装済み：NA1、NA2、NA3、NA4、NA5、NA6、NA7、NA8、NA9、NA10、NA11。次の実装対象：NA12。**
+**実装済み：NA1、NA2、NA3、NA4、NA5、NA6、NA7、NA8、NA9、NA10、NA11、NA12。次の実装対象：FDM1。**
 
 数値解析では、単にアルゴリズムを列挙するのではなく、
 

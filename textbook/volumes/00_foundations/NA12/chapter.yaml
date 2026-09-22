@@ -1,0 +1,56 @@
+id: "NA12"
+title: "数値解析 XII：無制約最適化と共役勾配法"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - VC1
+  - F0-00G
+  - NA9
+official_scope: []
+learning_objectives:
+  - 無制約最適化問題の局所最小点・大域最小点を定義し、一階必要条件と二階必要条件・正定値 Hessian による十分条件を証明できる
+  - 降下方向と厳密直線探索を定義し、負の勾配が Euclid ノルムに関する最急降下方向であることを示せる
+  - 実対称正定値二次目的関数の一意な最小点を求め、目的関数差が A-ノルム誤差の二乗に一致することを証明できる
+  - 実対称正定値二次関数の厳密直線探索の歩幅を導出できる
+  - 厳密直線探索付き最急降下法の条件数依存収束評価を実対称行列の直交対角化から導ける
+  - 無制約最適化に対する Newton 法を定式化し、実対称正定値二次関数では1回で終了することと、不定値 Hessian では降下が保証されないことを説明できる
+  - Ax=b と実対称正定値二次関数最小化の同値性を、停留条件と目的関数差の両面から説明できる
+  - NA9 の共役勾配法の歩幅を二次目的関数の厳密直線探索として導き、Krylov アフィン空間上の最小化として再解釈できる
+definitions:
+  - { id: NA12-DEF-01, name: 無制約最適化問題・局所最小点・大域最小点 }
+  - { id: NA12-DEF-02, name: 降下方向・厳密直線探索 }
+  - { id: NA12-DEF-03, name: 最急降下法 }
+  - { id: NA12-DEF-04, name: 実対称正定値二次目的関数 }
+  - { id: NA12-DEF-05, name: 無制約最適化に対する Newton 法 }
+theorems:
+  - { id: NA12-PROP-01, name: 無制約最適化の一階必要条件 }
+  - { id: NA12-PROP-02, name: 無制約最適化の二階最小条件 }
+  - { id: NA12-PROP-03, name: 降下方向では十分小さい正の歩幅で関数値が下がる }
+  - { id: NA12-PROP-04, name: 負の勾配は Euclid ノルムに関する最急降下方向 }
+  - { id: NA12-PROP-05, name: 実対称正定値二次関数の一意な最小点と目的関数差 }
+  - { id: NA12-PROP-06, name: 実対称正定値二次関数の厳密直線探索 }
+  - { id: NA12-THM-01, name: 厳密直線探索付き最急降下法の条件数依存収束評価 }
+  - { id: NA12-PROP-07, name: 実対称正定値二次関数に対する Newton 法の1回終了 }
+  - { id: NA12-PROP-08, name: 共役勾配法の歩幅は二次目的関数の厳密直線探索である }
+  - { id: NA12-THM-02, name: 共役勾配法の Krylov アフィン空間上の二次目的関数最小化 }
+canonical_examples:
+  - 一変数二次関数の一意な大域最小点
+  - 2変数二次関数に対する降下方向
+  - 一変数二次関数に対する最急降下法の1回終了
+  - 2変数実対称正定値二次目的関数
+  - 実対称正定値二次関数に対する Newton 法の1回終了
+  - 不定値 Hessian で Newton 法が関数値を増加させる反例
+  - 対角二次関数での最急降下法と共役勾配法の比較
+problem_patterns:
+  - NA12-STATIONARY-MINIMUM-1
+  - NA12-STEEPEST-STEP-1
+  - NA12-NEWTON-QUADRATIC-1
+  - NA12-NEWTON-INDEFINITE-1
+  - NA12-QUADRATIC-GAP-1
+  - NA12-STEEPEST-CONDITION-1
+  - NA12-CG-LINE-SEARCH-1
+  - NA12-SD-CG-COMPARISON-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 4.5, review: 0.5 }
