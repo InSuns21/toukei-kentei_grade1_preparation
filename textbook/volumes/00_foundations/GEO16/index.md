@@ -1414,7 +1414,7 @@ $$
 
 [第一 Bianchi 恒等式](#thm-geo16-curvature-symmetries)から
 
-$
+$$
 C(x,y,w,z)
 +
 C(y,w,x,z)
@@ -2011,7 +2011,7 @@ $$
 
 [Gauss 方程式](../GEO11/index.md#thm-geo11-gauss-codazzi)から
 
-$
+$$
 K(\operatorname{span}\{e_i,e_j\})
 =
 \kappa_i\kappa_j.
@@ -2899,7 +2899,7 @@ $$
 
    [Gauss 方程式](../GEO11/index.md#thm-geo11-gauss-codazzi)から
 
-   $
+   $$
    \begin{aligned}
    K(\operatorname{span}\{e_i,e_j\})
    &=
