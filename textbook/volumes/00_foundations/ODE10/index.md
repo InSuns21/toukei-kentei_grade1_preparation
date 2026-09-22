@@ -5,7 +5,7 @@
 ODE9 までで平衡点へ近づく軌道を扱いました。平面では、軌道が平衡点へ行かずに閉じて回り続ける現象があります。本章では周期軌道の存在と不存在を、
 
 $$
-\text{trapping region}
+\text{閉じ込め領域}
 \longleftrightarrow
 \text{Poincaré--Bendixson}
 \longleftrightarrow
@@ -34,7 +34,7 @@ $$
 では $x^2+y^2$ が保存され、各円が周期軌道です。しかし任意の円の近くに別の円軌道があるため、どの円も孤立していません。
 <!-- definition-example-end -->
 
-## 2. trapping region
+## 2. 軌道を閉じ込める領域
 
 <a id="def-ode10-trapping-region"></a>
 <!-- formal-statement-start -->
@@ -44,7 +44,7 @@ $$
 
 ODE9 の Lyapunov 劣位集合は trapping region を作る代表的な方法です。
 
-## 3. Dulac 関数と面積積分
+## 3. 重み付き発散で閉軌道を排除する
 
 <a id="def-ode10-dulac"></a>
 <!-- formal-statement-start -->
