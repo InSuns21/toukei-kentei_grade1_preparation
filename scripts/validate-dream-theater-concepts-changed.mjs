@@ -54,7 +54,7 @@ for (const line of errors) {
     continue;
   }
 
-  const untouchedLegacy = !changedMarkdown.has(file);
+  const untouchedLegacy = !markdownFileChangedSinceBase(base, file, changedMarkdown);
   const semanticLegacy = conceptWasAlreadyUsedInBase(base, file, conceptId, baseSourceCache);
   if (untouchedLegacy || semanticLegacy) legacy.push(line);
   else blocking.push(line);
@@ -94,6 +94,16 @@ function parseError(line) {
     message,
     conceptId: conceptMatch?.[1] ?? null,
   };
+}
+
+function markdownFileChangedSinceBase(baseSha, file, fallbackSet) {
+  if (!baseSha || /^0+$/.test(baseSha)) return fallbackSet.has(file);
+  const result = spawnSync('git', ['diff', '--quiet', baseSha, 'HEAD', '--', file], {
+    encoding: 'utf8',
+  });
+  if (result.status === 0) return false;
+  if (result.status === 1) return true;
+  return fallbackSet.has(file);
 }
 
 function collectChangedMarkdown(baseSha) {
