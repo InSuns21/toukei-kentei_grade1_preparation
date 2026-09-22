@@ -1896,23 +1896,35 @@ $$
 
    が因果表示です。
 
-3. 同様に
+3. $\theta$ の全零点も単位円外なので、[単位円外の零点と絶対可算和可能な逆べき級数](index.md#thm-tsa4-polynomial-inverse)を $a=\theta$ に適用すると
+
+   $$
+   \frac1{\theta(z)}
+   =
+   \sum_{j\ge0}b_jz^j,
+   \qquad
+   \sum_{j\ge0}|b_j|<\infty.
+   $$
+
+   $\phi$ は有限次数多項式なので、有限個のシフト付き和を取ることで
 
    $$
    \frac{\phi(z)}{\theta(z)}
    =
-   \sum_{j\ge0}\pi_jz^j
+   \sum_{j\ge0}\pi_jz^j,
+   \qquad
+   \sum_{j\ge0}|\pi_j|<\infty.
    $$
 
-   の係数が絶対可算和可能になり、
+   ARMA 方程式の両辺へこの因果逆フィルタを作用させると
 
    $$
    \boxed{
    Z_t=\sum_{j\ge0}\pi_jX_{t-j}
-   }
+   }.
    $$
 
-   です。
+   したがって駆動雑音は観測系列の現在・過去から $L^2$ で復元できます。
 
 4. 共通因子 $c$ があれば
 
