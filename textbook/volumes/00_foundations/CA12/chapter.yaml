@@ -22,7 +22,7 @@ definitions:
   - { id: CA12-DEF-04, name: 完成 zeta 因子と Riemann xi 関数 }
 theorems:
   - { id: CA12-THM-01, name: Riemann ζ 関数の右半平面での正則性 }
-  - { id: CA12-THM-02, name: Euler 積と零点不存在 }
+  - { id: CA12-THM-02, name: Riemann ζ 関数の Euler 積と右半平面での零点不存在 }
   - { id: CA12-PROP-01, name: Dirichlet eta 関数の右半平面での正則性 }
   - { id: CA12-THM-03, name: theta 変換 }
   - { id: CA12-THM-04, name: theta Mellin 表現 }
