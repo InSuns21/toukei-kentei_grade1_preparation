@@ -15,7 +15,7 @@ concepts:
   - id: ode.ode1-ordinary-differential-equation
     name: 常微分方程式・階数
     kind: definition
-    aliases: [常微分方程式, ODE, 階数]
+    aliases: [常微分方程式, ODE]
     introduction: inline
 
   - id: ode.ode1-first-order-linear-autonomous
@@ -35,7 +35,7 @@ concepts:
   - id: ode.ode1-direction-field
     name: 方向場
     kind: definition
-    aliases: [方向場, direction field, 解曲線]
+    aliases: [方向場, direction field]
     introduction: inline
     requires: [ode.ode1-ordinary-differential-equation]
 
@@ -67,7 +67,7 @@ concepts:
   - id: ode.ode1-exact-equation
     name: 完全微分方程式
     kind: definition
-    aliases: [完全微分方程式, 完全性判定]
+    aliases: [完全微分方程式]
     introduction: inline
     requires:
       - ode.ode1-ordinary-differential-equation
@@ -84,7 +84,7 @@ concepts:
   - id: ode.ode1-equilibrium-phase-line
     name: 平衡解・phase line
     kind: definition
-    aliases: [平衡解, 平衡点, phase line]
+    aliases: [平衡解, phase line]
     introduction: inline
     requires: [ode.ode1-first-order-linear-autonomous]
 
@@ -101,7 +101,7 @@ concepts:
   - id: ode.ode1-lipschitz-y
     name: yに関するLipschitz条件
     kind: definition
-    aliases: [Lipschitz条件, Lipschitz 条件, Lipschitz連続, Lipschitz 連続]
+    aliases: [yに関するLipschitz条件, Lipschitz条件, Lipschitz 条件]
     introduction: inline
 
   - id: ode.ode1-picard-iteration
@@ -118,7 +118,7 @@ concepts:
   - id: ode.ode1-picard-lindelof
     name: Picard--Lindelöf の局所存在・一意性
     kind: theorem
-    aliases: [Picard--Lindelöf の局所存在・一意性, Picard–Lindelöf, Picard-Lindelöf, Picard--Lindelöf, 局所存在・一意性]
+    aliases: [Picard--Lindelöf の局所存在・一意性, Picard–Lindelöf, Picard-Lindelöf, Picard--Lindelöf]
     introduction: formal
     requires:
       - ode.ode1-integral-equation-equivalence
