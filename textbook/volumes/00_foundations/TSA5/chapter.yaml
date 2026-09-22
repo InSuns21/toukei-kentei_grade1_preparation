@@ -1,0 +1,58 @@
+id: "TSA5"
+title: "Encore IV 時系列解析 V：エルゴード性・混合性・従属極限定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TSA1
+  - TSA4
+  - F0-00P3A
+  - F0-00P5
+  - F0-00P6A
+official_scope: []
+learning_objectives:
+  - 定常過程を標準経路空間上の測度保存シフトとして表し、エルゴード性を不変事象の自明性として判定できる
+  - von Neumann の平均エルゴード定理を証明し、定常エルゴード過程の標本平均が L2 で母平均へ収束することを導ける
+  - Birkhoff のエルゴード定理の結論と平均エルゴード定理との違いを説明し、定常エルゴード過程の強法則へ適用できる
+  - 混合性と α-混合係数を定義し、m-依存過程が α-混合になること、および混合性がエルゴード性より強いことを説明できる
+  - 固定ラグの標本自己共分散の一致性を Birkhoff の定理から証明できる
+  - 自己共分散の絶対可算和可能性から長期分散を導き、2 pi f(0) との対応を説明できる
+  - 絶対可算和可能な因果線形過程の従属中心極限定理を 独立同分布中心極限定理から証明し、因果 ARMA へ適用できる
+  - α-混合中心極限定理の代表的十分条件を説明し、定常性・エルゴード性だけでは中心極限定理が従わないことを反例で確認できる
+definitions:
+  - { id: TSA5-DEF-01, name: "測度保存シフト" }
+  - { id: TSA5-DEF-02, name: "不変σ-加法族" }
+  - { id: TSA5-DEF-03, name: "エルゴード性" }
+  - { id: TSA5-DEF-04, name: "混合性" }
+  - { id: TSA5-DEF-05, name: "α-混合係数" }
+  - { id: TSA5-DEF-06, name: "m-依存性" }
+  - { id: TSA5-DEF-07, name: "長期分散" }
+theorems:
+  - { id: TSA5-PROP-01, name: "狭義定常性と標準経路空間の測度保存シフト" }
+  - { id: TSA5-THM-01, name: "von Neumann の平均エルゴード定理" }
+  - { id: TSA5-THM-02, name: "Birkhoff のエルゴード定理" }
+  - { id: TSA5-PROP-02, name: "混合性はエルゴード性を含意する" }
+  - { id: TSA5-PROP-03, name: "α-混合は混合性を含意する" }
+  - { id: TSA5-PROP-04, name: "m-依存過程の α-混合" }
+  - { id: TSA5-COR-01, name: "定常エルゴード過程の大数則" }
+  - { id: TSA5-THM-03, name: "固定ラグ標本自己共分散の一致性" }
+  - { id: TSA5-PROP-05, name: "部分和分散と長期分散" }
+  - { id: TSA5-THM-04, name: "絶対可算和可能な因果線形過程の中心極限定理" }
+  - { id: TSA5-THM-05, name: "α-混合過程の中心極限定理" }
+canonical_examples:
+  - "ランダム定数過程：定常だが非エルゴード"
+  - "独立同分布過程と有限移動平均：混合性の直接例"
+  - "ランダム尺度付き正規列：弱ホワイトノイズだが通常の中心極限定理が壊れる例"
+  - "AR(1) の長期分散とゼロ周波数スペクトル"
+problem_patterns:
+  - TSA5-STATIONARY-NONERGODIC-1
+  - TSA5-MEAN-ERGODIC-1
+  - TSA5-M-DEPENDENT-MIXING-1
+  - TSA5-SAMPLE-AUTOCOV-CONSISTENCY-1
+  - TSA5-LONG-RUN-VARIANCE-1
+  - TSA5-FINITE-MA-CLT-1
+  - TSA5-WEAK-WHITE-NOISE-FAILURE-1
+  - TSA5-ARMA-LLN-CLT-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 6.0, review: 1.5 }

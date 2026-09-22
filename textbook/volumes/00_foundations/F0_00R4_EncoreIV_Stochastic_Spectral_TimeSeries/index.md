@@ -98,7 +98,7 @@ manifold-valued SDE / stochastic development
 2. [TSA2：Wold 分解](../TSA2/index.md) — 実装済み
 3. [TSA3：Herglotz の定理・スペクトル表現](../TSA3/index.md) — 実装済み
 4. [TSA4：線形フィルタ・ARMA / ARIMA・周波数領域](../TSA4/index.md) — 実装済み
-5. TSA5：エルゴード性・mixing・従属極限定理 theory
+5. [TSA5：エルゴード性・混合性・従属極限定理](../TSA5/index.md) — 実装済み
 6. TSA6：状態空間・Kalman フィルタ・innovations
 
 統計検定1級本編の AR / MA / ARIMA は試験向け正本として独立に維持し、TSA はその数学的地下構造を扱います。
@@ -188,4 +188,6 @@ STO5 では STO2 の bounded optional sampling を dyadic approximation で連�
 
 [TSA4「線形フィルタ・ARMA / ARIMA・周波数領域」](../TSA4/index.md#thm-tsa4-frequency-transform) も実装済みです。絶対可算和可能な線形フィルタから伝達関数を導入し、TSA3 のスペクトル表現を用いて $F_Y=|H|^2F_X$ を証明しました。ARMA の単位円外根条件から因果性・可逆性を構成し、有理スペクトル密度、MA の ACF 打切り、AR の PACF 打切り、通常差分・季節差分の周波数零点、ARIMA で差分後系列を定常対象とする理由まで閉じています。一般 Kolmogorov--Szegő 因数分解は先取りせず、ARMA の有理スペクトル因子までを本章の射程としました。
 
-現在地は **Phase 5：TSA1 → TSA2 → TSA3 → TSA4 完了。次は TSA5「エルゴード性・mixing・従属極限定理」** です。
+[TSA5「エルゴード性・混合性・従属極限定理」](../TSA5/index.md#thm-tsa5-mean-ergodic) も実装済みです。標準経路空間の測度保存シフトからエルゴード性を定式化し、Hilbert 空間の平均エルゴード定理を固定点空間と差分空間の直交分解から証明しました。Birkhoff の一般 $L^1$ 版と一般 α-混合中心極限定理 は技術的入力の境界を明示しつつ、定常エルゴード大数則、固定ラグ標本自己共分散の一致性、長期分散 $\sigma_{\mathrm{LR}}^2=2\pi f(0)$ を接続しています。さらに因果線形過程の中心極限定理 は有限 MA 打切りと独立同分布中心極限定理 から完全証明し、因果 ARMA では $\sigma_Z^2\{\theta(1)/\phi(1)\}^2$ が標本平均の漸近分散になることまで閉じました。
+
+現在地は **Phase 5：TSA1 → TSA2 → TSA3 → TSA4 → TSA5 完了。次は TSA6「状態空間・Kalman フィルタ・innovations」** です。
