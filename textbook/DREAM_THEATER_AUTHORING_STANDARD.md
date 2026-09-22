@@ -252,6 +252,21 @@ DREAM THEATER では各演習に **詳細解答**を必須とする。
 - formal dependency は canonical stable anchor へリンクする。
 - 既存章を再利用する場合でも、対象章の learning objective に必要な説明・例・仮定確認まで参照先へ丸投げしない。
 
+### 9.1 `knowledge.yaml` の語彙設計
+
+`knowledge.yaml` の `name`、`aliases`、`introduction_aliases` は役割を分ける。
+
+- `name` は concept を識別する読者向けの主名称とする。
+- `aliases` は**同じ概念・定理を指す真の別称**だけに使う。関連語、検索語、構成要素、章内で同時に扱う語、単なる短縮見出しを入れない。
+- 一つの見出し・formal label で複数 concept を同時に導入する場合、その見出し文字列は各 concept の `aliases` に重複登録せず、必要な concept の `introduction_aliases` に置く。
+- 既出 concept を章内で再掲する場合は、canonical concept を `requires` で参照する。再掲側は「○○の再掲」「この章で使う○○の再掲」のように機械的に一意な名称を持たせ、canonical 名を alias として取り直さない。
+- 同じ自然言語が分野ごとに別概念を表す場合、本文の標準語を無理に変えない。global alias は「関数列の下極限」「Markov連鎖の可逆性」「定係数線形ODEの特性多項式」のように必要な文脈を加える。
+- stable ID・stable anchor は後方互換性のために保持するが、誤った alias は互換性層として温存しない。alias は semantic resolver の入力であり、URL互換や参照互換の代用品ではない。
+- 数学的意味を持つ記号を正規化で落とさない。「弱*位相」と「弱位相」のように `*` が概念識別に効く場合は別 alias として保持する。Markdown の `**` 強調記号だけを装飾として除去する。
+- 短い一般語 alias が他分野の concept 名へ広く食い込む場合は、まず「真の別称か」を確認する。真の別称なら WARN を許容できるが、関連語・構成要素なら `introduction_aliases` または本文へ移す。
+
+既存 `knowledge.yaml` の alias を変更すると semantic resolution が未変更ページへ波及しうるため、scope detector が full audit を要求する場合は省略しない。WARN をゼロにすること自体を目的に語彙を不自然に改名せず、意味的な誤登録だけを直す。
+
 ---
 
 ## 10. 執筆・改稿の作業手順
@@ -341,12 +356,16 @@ main への push では全体監査を実行し、リポジトリ全体の drift
 - [ ] 非自明な計算・証明を「同様に」「整理すると」で飛ばしていない。
 - [ ] DREAM THEATER に不要な本番答案・採点基準を新規追加していない。
 
-### 依存関係
+### 依存関係・knowledge metadata
 
 - [ ] prerequisite 外の理論を暗黙使用していない。
 - [ ] 後続章を逆輸入していない。
 - [ ] 既存正本を再利用できるのに重複定理・重複 concept を作っていない。
 - [ ] dependency は数学的に必要なものだけである。
+- [ ] `aliases` に関連語・検索語・複合見出しを入れていない。
+- [ ] 複合見出しは必要に応じて `introduction_aliases` で照合している。
+- [ ] 再掲 concept が canonical 名を global alias として取り直していない。
+- [ ] 短い alias の WARN を機械的に消さず、真の同義語か意味衝突かを確認した。
 
 ---
 
