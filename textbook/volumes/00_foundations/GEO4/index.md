@@ -192,7 +192,7 @@ $$
 Hausdorff 性は [GEO1 の位相多様体の定義](../GEO1/index.md#def-geo1-topological-manifold)に含まれています。従って $M$ は局所コンパクト Hausdorff 空間です。 $\square$
 <!-- proof-end -->
 
-この命題と [TOP5A の縮小定理](../TOP5A/index.md#thm-top5a-lch-shrinking)を組み合わせると、任意の $p\in U$ に対して
+この命題と [局所コンパクト Hausdorff 空間の縮小](../TOP5A/index.md#thm-top5a-lch-shrinking)を組み合わせると、任意の $p\in U$ に対して
 
 $$
 p\in V\subseteq\overline V\subseteq U,
@@ -293,7 +293,7 @@ $$
 
 となるように取れます。
 
-$(B_p)_{p\in M}$ は開被覆です。GEO1 の定義から $M$ は第二可算なので、直前の補題により可算部分被覆
+$(B_p)_{p\in M}$ は開被覆です。[GEO1 の位相多様体の定義](../GEO1/index.md#def-geo1-topological-manifold)から $M$ は第二可算なので、直前の補題により可算部分被覆
 
 $$
 B_1,B_2,\dots
@@ -2005,7 +2005,7 @@ $$
 
 は同相写像です。
 
-2で $F$ ははめ込み、3と4で像への同相写像なので、GEO3 の定義から $F$ は埋め込みです。
+2で $F$ ははめ込み、3と4で像への同相写像なので、[GEO3 の埋め込みの定義](../GEO3/index.md#def-geo3-embedding)から $F$ は埋め込みです。
 <!-- solution-end -->
 
 ---
