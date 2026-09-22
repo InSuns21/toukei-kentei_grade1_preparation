@@ -2066,13 +2066,19 @@ $$
 \widetilde E x=-r.
 $$
 
-したがって誘導ノルムの定義から
+$x$ は単位ベクトルなので
+
+$$
+\|\widetilde Ex\|_2
+\le
+\|\widetilde E\|_2.
+$$
+
+しかも $\widetilde Ex=-r$ だから
 
 $$
 \|\widetilde E\|_2
 \ge
-\|\widetilde Ex\|_2
-=
 \|r\|_2.
 $$
 
@@ -3666,15 +3672,15 @@ $$
 -r.
 $$
 
-誘導2-ノルムの定義から
+$x$ は単位ベクトルなので
 
 $$
-\|\widetilde E\|_2
-\ge
-\frac{\|\widetilde Ex\|_2}{\|x\|_2}.
+\|\widetilde Ex\|_2
+\le
+\|\widetilde E\|_2.
 $$
 
-$\|x\|_2=1$ なので
+さらに $\widetilde Ex=-r$ なので
 
 $$
 \boxed{
@@ -4222,7 +4228,7 @@ $$
 \sigma_k=\rho_A(x_k)
 $$
 
-と更新する Rayleigh 商反復へ切り替えると、[局所3次収束定理](#thm-na10-rqi-cubic)により方向誤差を非常に速く減らせます。
+と更新する Rayleigh 商反復へ切り替えると、[Rayleigh 商反復の局所3次収束](#thm-na10-rqi-cubic)により方向誤差を非常に速く減らせます。
 
 ただし Rayleigh 商反復ではシフトが毎回変わるため、固定シフトの因数分解をそのまま使い回せないという計算コスト上の違いがあります。
 
