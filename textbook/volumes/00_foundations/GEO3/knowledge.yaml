@@ -1,0 +1,116 @@
+chapter: GEO3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEO2
+  - RA6A
+forward_references: []
+
+concepts:
+  - id: geometry.map-rank
+    name: 滑らかな写像の階数
+    kind: definition
+    aliases: [写像の階数, rank of smooth map]
+    introduction_aliases: ["定義（滑らかな写像の階数）"]
+    requires: [geometry.differential]
+
+  - id: geometry.constant-rank-theorem
+    name: 定数階数定理
+    kind: theorem
+    aliases: [定数階数定理, constant rank theorem]
+    requires: [geometry.map-rank, geometry.coordinate-chart, geometry.manifold-chain-rule]
+
+  - id: geometry.immersion
+    name: はめ込み
+    kind: definition
+    aliases: [はめ込み, immersion]
+    requires: [geometry.differential]
+
+  - id: geometry.submersion
+    name: 沈め込み
+    kind: definition
+    aliases: [沈め込み, submersion]
+    requires: [geometry.differential]
+
+  - id: geometry.embedding
+    name: 埋め込み
+    kind: definition
+    aliases: [埋め込み, embedding]
+    requires: [geometry.immersion]
+
+  - id: geometry.embedded-submanifold
+    name: 埋め込み部分多様体
+    kind: definition
+    aliases: [埋め込み部分多様体, embedded submanifold]
+    requires: [geometry.smooth-manifold, geometry.coordinate-chart]
+
+  - id: geometry.immersion-local-normal-form
+    name: はめ込みの局所標準形
+    kind: corollary
+    aliases: [はめ込みの局所標準形]
+    requires: [geometry.constant-rank-theorem, geometry.immersion]
+
+  - id: geometry.submersion-local-normal-form
+    name: 沈め込みの局所標準形
+    kind: corollary
+    aliases: [沈め込みの局所標準形]
+    requires: [geometry.constant-rank-theorem, geometry.submersion]
+
+  - id: geometry.submanifold-inclusion-tangent
+    name: 部分多様体の包含写像と接空間
+    kind: proposition
+    aliases: [部分多様体の包含写像, inclusion differential of submanifold]
+    requires: [geometry.embedded-submanifold, geometry.differential]
+
+  - id: geometry.regular-point
+    name: 滑らかな写像の正則点
+    kind: definition
+    aliases: [写像の正則点, regular point of a smooth map]
+    introduction_aliases: ["定義（滑らかな写像の点と値の分類）"]
+    requires: [geometry.submersion]
+
+  - id: geometry.critical-point
+    name: 臨界点
+    kind: definition
+    aliases: [臨界点, 滑らかな写像の臨界点, critical point]
+    introduction_aliases: ["定義（滑らかな写像の点と値の分類）"]
+    requires: [geometry.regular-point]
+
+  - id: geometry.regular-value
+    name: 正則値
+    kind: definition
+    aliases: [正則値, 滑らかな写像の正則値, regular value]
+    introduction_aliases: ["定義（滑らかな写像の点と値の分類）"]
+    requires: [geometry.regular-point]
+
+  - id: geometry.critical-value
+    name: 臨界値
+    kind: definition
+    aliases: [臨界値, 滑らかな写像の臨界値, critical value]
+    introduction_aliases: ["定義（滑らかな写像の点と値の分類）"]
+    requires: [geometry.critical-point]
+
+  - id: geometry.level-set
+    name: 滑らかな写像のレベル集合
+    kind: definition
+    aliases: [写像のレベル集合, level set of a smooth map]
+    introduction_aliases: ["定義（滑らかな写像のレベル集合）"]
+    requires: [geometry.smooth-map]
+
+  - id: geometry.regular-value-theorem
+    name: 正則値定理
+    kind: theorem
+    aliases: [正則値定理, regular level set theorem, regular value theorem]
+    requires: [geometry.regular-value, geometry.submersion-local-normal-form, geometry.embedded-submanifold]
+
+  - id: geometry.regular-level-tangent-kernel
+    name: 正則レベル集合の接空間
+    kind: theorem
+    aliases: [正則レベル集合の接空間, tangent space of regular level set]
+    requires: [geometry.regular-value-theorem, geometry.submanifold-inclusion-tangent, geometry.manifold-chain-rule]
+
+  - id: geometry.submanifold-local-equations
+    name: 部分多様体の局所方程式表示
+    kind: corollary
+    aliases: [部分多様体の局所方程式表示, local defining equations for submanifold]
+    requires: [geometry.regular-value-theorem, geometry.embedded-submanifold]

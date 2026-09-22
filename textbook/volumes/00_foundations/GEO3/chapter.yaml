@@ -1,0 +1,51 @@
+id: "GEO3"
+title: "幾何学 III：階数定理・はめ込み・沈め込み・部分多様体"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEO2
+  - RA6A
+official_scope: []
+learning_objectives:
+  - 滑らかな写像の点ごとの階数を定義し、座標表示のJacobi行列の階数と一致することを説明できる
+  - 定数階数定理を逆関数定理から証明し、局所標準形を導ける
+  - はめ込み・沈め込み・埋め込みの違いを定義と具体例から判定できる
+  - 埋め込み部分多様体を適合座標で定義し、包含写像の微分と接空間を計算できる
+  - 正則点・臨界点・正則値を判定し、正則値定理を適用できる
+  - 正則レベル集合の次元と接空間を ker df_p から求められる
+  - 局所方程式による部分多様体の特徴付けを説明できる
+  - 行列群 O(n) を正則レベル集合として構成し、その次元と接空間を導ける
+definitions:
+  - { id: GEO3-DEF-01, name: 滑らかな写像の階数 }
+  - { id: GEO3-DEF-02, name: はめ込み・沈め込み }
+  - { id: GEO3-DEF-03, name: 埋め込み }
+  - { id: GEO3-DEF-04, name: 埋め込み部分多様体 }
+  - { id: GEO3-DEF-05, name: 正則点・臨界点・正則値・臨界値 }
+  - { id: GEO3-DEF-06, name: レベル集合 }
+theorems:
+  - { id: GEO3-THM-01, name: 定数階数定理 }
+  - { id: GEO3-COR-01, name: はめ込みの局所標準形 }
+  - { id: GEO3-COR-02, name: 沈め込みの局所標準形 }
+  - { id: GEO3-PROP-01, name: 部分多様体の包含写像と接空間 }
+  - { id: GEO3-THM-02, name: 正則値定理 }
+  - { id: GEO3-THM-03, name: 正則レベル集合の接空間 }
+  - { id: GEO3-COR-03, name: 部分多様体の局所方程式表示 }
+canonical_examples:
+  - 線形射影と定数階数
+  - 階数が変化する写像
+  - 標準包含によるはめ込み
+  - 8の字曲線によるはめ込みだが埋め込みでない例
+  - グラフ部分多様体
+  - 球面の正則レベル集合表示
+  - 直交群O(n)の正則レベル集合表示
+problem_patterns:
+  - GEO3-RANK-1
+  - GEO3-IMMERSION-SUBMERSION-1
+  - GEO3-EMBEDDING-1
+  - GEO3-REGULAR-VALUE-1
+  - GEO3-TANGENT-KERNEL-1
+  - GEO3-ORTHOGONAL-GROUP-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 4.0, review: 0.5 }
