@@ -23,6 +23,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ode10-periodic-orbit -->
+**定義の確認**：以下で定義の条件を直接確認します。
+
 ### 具体例：中心は周期軌道を持つが極限周期軌道ではない
 
 $$
@@ -42,7 +44,23 @@ $$
 > コンパクト集合 $K$ が正方向不変で、その境界から出発する軌道が直後に内部へ入るとき、本章では $K$ を trapping region と呼ぶ。
 <!-- formal-statement-end -->
 
-ODE9 の Lyapunov 劣位集合は trapping region を作る代表的な方法です。
+<!-- definition-example-start: def-ode10-trapping-region -->
+**定義の確認**：$x'=-x$, $y'=-y$ に対し
+
+$$
+K=\{(x,y):x^2+y^2\le1\}
+$$
+
+とします。境界 $x^2+y^2=1$ 上では
+
+$$
+\frac d{dt}(x^2+y^2)=-2(x^2+y^2)=-2<0.
+$$
+
+したがって境界から出た軌道は直後に内部へ入り、$K$ はコンパクトかつ正方向不変なので trapping region です。
+<!-- definition-example-end -->
+
+ODE9 の Lyapunov 劣位集合は trapping region を作る代表的な方法です.
 
 ## 3. 重み付き発散で閉軌道を排除する
 
@@ -57,6 +75,16 @@ $$
 
 > の符号を調べるとき、$B$ を Dulac 関数という。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-ode10-dulac -->
+**定義の確認**：$x'=x$, $y'=y$ に対して $B\equiv1$ とします。すると $B\in C^1$ で
+
+$$
+\partial_x(Bx)+\partial_y(By)=1+1=2>0.
+$$
+
+したがって $B=1$ は、この重み付き発散の符号を調べる Dulac 関数です。
+<!-- definition-example-end -->
 
 <a id="thm-ode10-bendixson-dulac"></a>
 <!-- formal-statement-start -->
@@ -243,7 +271,7 @@ $$
 
 <!-- solution-start -->
 ##### 詳細解答
-Poincaré--Bendixson の定理により正の極限集合は周期軌道です。平面・コンパクト性・[平衡解](../ODE1/index.md#def-ode1-equilibrium)不在が重要な条件です。
+上の標準形の定理により正の極限集合は周期軌道です。平面・コンパクト性・[平衡解](../ODE1/index.md#def-ode1-equilibrium)不在が重要な条件です。
 <!-- solution-end -->
 
 ### Level C
