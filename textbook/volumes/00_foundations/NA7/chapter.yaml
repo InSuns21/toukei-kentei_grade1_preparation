@@ -1,0 +1,54 @@
+id: "NA7"
+title: "数値解析 VII：ODE 数値解法 II—Runge–Kutta 法・絶対安定性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NA6
+official_scope: []
+learning_objectives:
+  - Runge–Kutta 法の段階値と Butcher 表を定義し、陽的方法と陰的方法を区別できる
+  - 二次 Runge–Kutta 法の次数条件を Taylor 展開から導き、中点法と Heun 法で検証できる
+  - 古典4段4次 Runge–Kutta 法が自律スカラー方程式で4次となる核心計算を追える
+  - 線形テスト方程式から安定関数と絶対安定領域を導き、Euler 法・二次 Runge–Kutta 法・RK4 の減衰再現を判定できる
+  - 陽的 Runge–Kutta 法が A 安定になれない理由を安定多項式の成長から証明できる
+  - 後退 Euler 法と台形法の安定関数を導き、A 安定性と L 安定性の違いを説明できる
+  - 速い減衰モードと遅いモードが共存する硬い問題で、陽的方法に精度ではなく安定性由来の刻み幅制約が生じることを説明できる
+  - theta 法が A 安定となる条件 theta >= 1/2 を複素数の絶対値評価から証明し、L 安定となる場合を特定できる
+definitions:
+  - { id: NA7-DEF-01, name: Runge–Kutta 法 }
+  - { id: NA7-DEF-02, name: Butcher 表 }
+  - { id: NA7-DEF-03, name: 陽的・陰的 Runge–Kutta 法 }
+  - { id: NA7-DEF-04, name: 線形テスト方程式 }
+  - { id: NA7-DEF-05, name: 安定関数 }
+  - { id: NA7-DEF-06, name: 絶対安定領域 }
+  - { id: NA7-DEF-07, name: A 安定性 }
+  - { id: NA7-DEF-08, name: L 安定性 }
+  - { id: NA7-DEF-09, name: 硬い問題 }
+  - { id: NA7-DEF-10, name: theta 法 }
+theorems:
+  - { id: NA7-THM-01, name: 二次 Runge–Kutta 法の次数条件 }
+  - { id: NA7-PROP-01, name: 古典4段4次 Runge–Kutta 法の自律スカラー4次性 }
+  - { id: NA7-PROP-02, name: Runge–Kutta 法の安定関数 }
+  - { id: NA7-THM-02, name: 陽的 Runge–Kutta 法は A 安定にならない }
+  - { id: NA7-PROP-03, name: 後退 Euler 法の A 安定性・L 安定性 }
+  - { id: NA7-PROP-04, name: 台形法の A 安定性と非 L 安定性 }
+  - { id: NA7-THM-03, name: theta 法の A 安定性判定 }
+canonical_examples:
+  - 二段二次 Runge–Kutta 法としての陽的中点法と Heun 法
+  - 古典4段4次 Runge–Kutta 法
+  - y'=lambda y に対する Euler 法・RK4・後退 Euler 法・台形法
+  - y_1'=-y_1, y_2'=-1000y_2 による硬さの具体例
+  - theta 法による陽的 Euler・台形法・後退 Euler の統一
+problem_patterns:
+  - NA7-RK-TABLEAU-1
+  - NA7-RK-ORDER2-1
+  - NA7-STABILITY-FUNCTION-1
+  - NA7-NEGATIVE-REAL-STABILITY-1
+  - NA7-A-STABILITY-1
+  - NA7-L-STABILITY-1
+  - NA7-STIFF-SYSTEM-1
+  - NA7-THETA-STABILITY-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.5, exercises: 4.5, review: 0.5 }
