@@ -3,26 +3,19 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - GEO3
+  - VC2
   - VC3
   - LA5
 concepts:
-  - id: geometry.regular-curve
-    name: 正則曲線
-    kind: definition
-    aliases: [正則曲線, regular curve]
-    introduction: formal
-    introduction_aliases: ["定義（正則曲線・弧長・単位速曲線）"]
-    requires:
-      - geometry.smooth-map
-
   - id: geometry.arc-length-parameter
     name: 弧長パラメータ
     kind: definition
     aliases: [弧長パラメータ, arc-length parameter]
     introduction: formal
-    introduction_aliases: ["定義（正則曲線・弧長・単位速曲線）"]
+    introduction_aliases: ["定義（弧長パラメータ・単位速曲線）"]
     requires:
-      - geometry.regular-curve
+      - vector-calculus.regular-curve
+      - vector-calculus.arc-length-unit-tangent
       - linear.inner-product
 
   - id: geometry.arc-length-reparametrization
@@ -37,6 +30,8 @@ concepts:
     name: 曲線の曲率
     kind: definition
     aliases: [曲線の曲率, curvature of a curve]
+    introduction: formal
+    introduction_aliases: ["定義（曲率・Frenet 標構・捩率）"]
     requires:
       - geometry.arc-length-parameter
 
@@ -44,6 +39,8 @@ concepts:
     name: Frenet 標構
     kind: definition
     aliases: [Frenet 標構, Frenet frame]
+    introduction: formal
+    introduction_aliases: ["定義（曲率・Frenet 標構・捩率）"]
     requires:
       - geometry.curve-curvature
       - linear.inner-product
@@ -52,6 +49,8 @@ concepts:
     name: 曲線の捩率
     kind: definition
     aliases: [曲線の捩率, torsion of a curve]
+    introduction: formal
+    introduction_aliases: ["定義（曲率・Frenet 標構・捩率）"]
     requires:
       - geometry.frenet-frame
 
@@ -67,6 +66,8 @@ concepts:
     name: Euclid 空間の超曲面
     kind: definition
     aliases: [Euclid 空間の超曲面, Euclidean hypersurface]
+    introduction: formal
+    introduction_aliases: ["定義（超曲面と単位法線場）"]
     requires:
       - geometry.embedded-submanifold
 
@@ -184,7 +185,7 @@ concepts:
     aliases: [正規曲率, normal curvature]
     requires:
       - geometry.second-fundamental-form
-      - geometry.regular-curve
+      - geometry.arc-length-parameter
 
   - id: geometry.euler-normal-curvature-formula
     name: 正規曲率の Euler 公式
