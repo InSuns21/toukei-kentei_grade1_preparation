@@ -348,7 +348,7 @@ $$
 
 ---
 
-## 5. 桁落ちは「減算そのものが悪い」のではない
+## 5. 近い二数の減算で何が起こるか
 
 <a id="def-na1-cancellation"></a>
 <!-- formal-statement-start -->
@@ -779,7 +779,7 @@ $\square$
 
 ---
 
-## 9. 前方誤差と後方誤差
+## 9. 計算結果を出力側と入力側から評価する
 
 <a id="def-na1-forward-backward-error"></a>
 <!-- formal-statement-start -->
@@ -978,7 +978,7 @@ $\square$
 
 ---
 
-## 11. 後方安定性はアルゴリズムの性質
+## 11. 計算法の安定性を入力摂動で測る
 
 <a id="def-na1-backward-stability"></a>
 <!-- formal-statement-start -->
