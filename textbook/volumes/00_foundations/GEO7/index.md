@@ -2270,7 +2270,7 @@ d(F^*\alpha)=F^*(d\alpha)
 $$
 <!-- solution-end -->
 
-### GEO7-B03 Cartan の公式の具体計算
+### GEO7-B03 [Cartan の公式](#thm-geo7-cartan-formula)の具体計算
 
 $\mathbb R^2$ 上で
 
@@ -2284,7 +2284,7 @@ $$
 
 1. $\iota_X\omega$ を求めよ。
 2. $d\omega$ を求めよ。
-3. Cartan の公式から $\mathcal L_X\omega$ を求めよ。
+3. [Cartan の公式](#thm-geo7-cartan-formula)から $\mathcal L_X\omega$ を求めよ。
 4. $X$ の流れ
    $$
    \Phi_t(x,y)=(e^tx,e^ty)
@@ -2359,7 +2359,7 @@ $$
 \iota_X(d\omega)=2\omega.
 $$
 
-Cartan の公式より
+[Cartan の公式](#thm-geo7-cartan-formula)より
 
 $$
 \mathcal L_X\omega
@@ -2413,10 +2413,10 @@ $$
 2\omega.
 $$
 
-Cartan の公式から得た結果と一致します。
+[Cartan の公式](#thm-geo7-cartan-formula)から得た結果と一致します。
 <!-- solution-end -->
 
-### GEO7-C01 Cartan の公式から可換子恒等式を導く
+### GEO7-C01 [Cartan の公式](#thm-geo7-cartan-formula)から可換子恒等式を導く
 
 $X,Y$ を滑らかなベクトル場とする。任意の微分形式 $\omega$ に対して
 
@@ -2443,7 +2443,7 @@ $$
 必要なら、まず0形式と1形式で確認し、その後外積に対する導分性を使ってよい。
 
 - Level: C
-- 狙い: Cartan の公式・Lie 括弧・内部積が同じ微分形式代数上で整合することを証明する
+- 狙い: [Cartan の公式](#thm-geo7-cartan-formula)・Lie 括弧・内部積が同じ微分形式代数上で整合することを証明する
 
 <!-- solution-start -->
 **詳細解答**
@@ -2478,7 +2478,7 @@ $$
 X(\alpha(Y)).
 $$
 
-一方、Cartan の公式から1形式に対する Lie 微分は
+一方、[Cartan の公式](#thm-geo7-cartan-formula)から1形式に対する Lie 微分は
 
 $$
 \mathcal L_X\alpha
@@ -2500,7 +2500,7 @@ $$
 
 を使う方が直接的です。
 
-Cartan の公式を $Y$ に評価すると
+[Cartan の公式](#thm-geo7-cartan-formula)を $Y$ に評価すると
 
 $$
 (\mathcal L_X\alpha)(Y)
