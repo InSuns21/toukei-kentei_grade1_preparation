@@ -4,8 +4,10 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - NA1
+  - F0-00D1
   - F0-00E1
   - F0-00F1
+  - LA3B
 official_scope: []
 learning_objectives:
   - 下三角・上三角連立方程式を前進代入・後退代入で一意に解き、計算量が二次であることを説明できる
