@@ -107,9 +107,11 @@ concepts:
       - geometry.metric-compatible-connection
 
   - id: geometry.gauss-lemma
-    name: Gauss の補題
+    name: 指数写像に関する Gauss の補題
     kind: theorem
-    aliases: [Gauss の補題, Gauss lemma]
+    aliases: [Riemann 幾何の Gauss の補題, Gauss lemma for the exponential map]
+    introduction: formal
+    introduction_aliases: ["定理（Gauss の補題）"]
     requires:
       - geometry.exponential-map
       - geometry.geodesic-constant-speed
