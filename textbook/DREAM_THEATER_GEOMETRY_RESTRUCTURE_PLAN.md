@@ -368,7 +368,7 @@ Frobenius の核心証明を「標準的」で飛ばさず、局所 flow・strai
 
 **tier: core**
 
-**prerequisites:** GEO2, LA3E
+**prerequisites:** GEO2, GEO5, LA3E
 
 主な内容：
 
@@ -772,10 +772,12 @@ TOP4 + RA6A
       │                       │
       └────────→ GEO5 ─→ GEO6│
                               │
-LA3A + LA3D → LA3E ─→ GEO7 ──┘
-                         │
-                         ▼
-                       GEO8
+LA3A + LA3D → LA3E ───────┐
+GEO2 ──────────────────────────────────┼→ GEO7
+GEO5 ──────────────────────────────────┘
+                                         │
+                                         ▼
+                                       GEO8
                          │
                          ▼
                        GEO9
@@ -938,11 +940,11 @@ Phase 1 完了。GEO1 → GEO2 → GEO3 → GEO4 完了。
 
 - GEO5 ベクトル場・流れ・Lie 括弧 ✅ 2026-09-22
 - GEO6 Frobenius ✅ 2026-09-22
-- GEO7 テンソル場・微分形式
+- GEO7 テンソル場・微分形式 ✅ 2026-09-22
 - GEO8 一般 Stokes
 - GEO9 de Rham 入門
 
-GEO6 完了。次の実装開始点は **GEO7「テンソル場・微分形式・外微分」** とする。
+GEO7 完了。次の実装開始点は **GEO8「向き・多様体上の積分・一般 Stokes の定理」** とする。
 
 ### Phase 3：古典曲面論から Riemann 幾何へ
 
