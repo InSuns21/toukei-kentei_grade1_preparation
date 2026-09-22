@@ -693,6 +693,53 @@ $$
 > これを $M$ の **第一基本形式**という。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-geo10-first-fundamental-form -->
+**定義の確認**
+
+平面
+
+$$
+M=\{(x,y,0):x,y\in\mathbb R\}
+$$
+
+の点 $p$ では
+
+$$
+T_pM
+=
+\operatorname{span}\{e_1,e_2\},
+$$
+
+ただし
+
+$$
+e_1=(1,0,0),
+\qquad
+e_2=(0,1,0)
+$$
+
+です。第一基本形式の定義から
+
+$$
+I_p(e_1,e_1)=1,
+\qquad
+I_p(e_1,e_2)=0,
+\qquad
+I_p(e_2,e_2)=1.
+$$
+
+従って基底 $(e_1,e_2)$ に関する行列は
+
+$$
+\begin{pmatrix}
+1&0\\
+0&1
+\end{pmatrix}.
+$$
+
+周囲の Euclid 内積を接平面へ制限したものになっていることを直接確認できました。
+<!-- definition-example-end -->
+
 周囲の Euclid 内積を接空間へ制限しただけなので、第一基本形式は正定値内積です。
 
 局所パラメータ表示
@@ -1267,6 +1314,50 @@ $$
 > を **平均曲率**という。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-geo10-principal-curvature -->
+**定義の確認**
+
+半径 $R$ の球面で外向き単位法線を取ると、前節で
+
+$$
+S=-\frac1R I
+$$
+
+を得ました。従って任意の非零接ベクトル $v$ に対して
+
+$$
+S(v)
+=
+-\frac1R v,
+$$
+
+なので全ての接方向が固有方向で、二つの主曲率は
+
+$$
+\kappa_1=\kappa_2=-\frac1R.
+$$
+
+したがって定義から
+
+$$
+K
+=
+\kappa_1\kappa_2
+=
+\frac1{R^2},
+$$
+
+$$
+H
+=
+\frac{\kappa_1+\kappa_2}{2}
+=
+-\frac1R.
+$$
+
+主曲率、Gauss 曲率、平均曲率が形作用素の固有値から得られることを直接確認できます。
+<!-- definition-example-end -->
+
 法線を $N$ から $-N$ へ反転すると
 
 $$
@@ -1424,6 +1515,80 @@ $$
 >
 > と定める。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-geo10-normal-curvature -->
+**定義の確認**
+
+半径 $R$ の円柱上で、外向き単位法線
+
+$$
+N(x,y,z)
+=
+\frac1R(x,y,0)
+$$
+
+を取ります。点
+
+$$
+p=(R,0,0)
+$$
+
+を通る周方向の単位速曲線
+
+$$
+c(s)
+=
+\left(
+R\cos\frac{s}{R},
+R\sin\frac{s}{R},
+0
+\right)
+$$
+
+を考えます。
+
+$$
+c'(s)
+=
+\left(
+-\sin\frac{s}{R},
+\cos\frac{s}{R},
+0
+\right)
+$$
+
+なので
+
+$$
+\|c'(s)\|=1.
+$$
+
+また
+
+$$
+c''(0)
+=
+\left(
+-\frac1R,
+0,
+0
+\right),
+\qquad
+N(p)=(1,0,0).
+$$
+
+従って正規曲率の定義から
+
+$$
+\kappa_n(c'(0))
+=
+c''(0)\cdot N(p)
+=
+-\frac1R.
+$$
+
+周方向の曲線について、円柱の外向き法線規約に対応する正規曲率が $-1/R$ になることを直接確認できます。
+<!-- definition-example-end -->
 
 曲線の選び方に依存しそうに見えますが、実際には初速度 $v$ だけで決まります。
 
