@@ -100,6 +100,7 @@
 6. [GEO6 線形分布・積分多様体・Frobenius の定理](textbook/volumes/00_foundations/GEO6/index.md)
 7. [GEO7 テンソル場・微分形式・外微分](textbook/volumes/00_foundations/GEO7/index.md)
 8. [GEO8 向き・多様体上の積分・一般 Stokes の定理](textbook/volumes/00_foundations/GEO8/index.md)
+9. [GEO9 Poincaré の補題・de Rham コホモロジー入門](textbook/volumes/00_foundations/GEO9/index.md)
 
 ### 標準ベクトル解析コア
 
