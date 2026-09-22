@@ -12,6 +12,7 @@ learning_objectives:
   - Grönwall の不等式を証明し初期値差の指数評価を導ける
   - 線形成長条件から大域存在を導ける
   - 自律系の流れを定義し一意性から合成則を証明できる
+  - C1 ベクトル場の流れを初期値で微分し変分方程式を導ける
 definitions:
   - { id: ODE8-DEF-01, name: "最大解・最大存在区間" }
   - { id: ODE8-DEF-02, name: "自律系の流れ" }
@@ -21,6 +22,7 @@ theorems:
   - { id: ODE8-THM-02, name: "初期値に関する連続依存" }
   - { id: ODE8-COR-01, name: "線形成長条件による大域存在" }
   - { id: ODE8-PROP-01, name: "流れの合成則" }
+  - { id: ODE8-LEM-02, name: "流れの初期値微分と変分方程式" }
 canonical_examples:
   - "x'=x^2 の有限時間 blow-up"
   - "x'=-x の大域流れ"
