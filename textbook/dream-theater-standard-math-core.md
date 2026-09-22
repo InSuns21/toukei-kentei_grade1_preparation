@@ -85,6 +85,9 @@ flowchart TD
   GEO7 --> GEO8
   RA7 --> GEO8
   VC5 --> GEO8
+  GEO7 --> GEO9["Poincaré の補題・de Rham コホモロジー<br/>GEO9"]
+  GEO8 --> GEO9
+  TOP3 --> GEO9
   TOP5 --> TOP5A["Urysohn・局所コンパクト性・cutoff<br/>TOP5A"]
   TOP5 --> BAIRE["全有界性・Baire・net/filter<br/>TOP6"]
   BAIRE --> UNIFORM["一様構造・一様連続・Cauchy構造<br/>TOP7"]
