@@ -137,6 +137,31 @@ P7 正則model・score・Fisher → P7A MLE漸近論
 
 ---
 
+## DREAM THEATER：標準複素解析 I--II
+
+複素解析の読順は CA1--CA6 を局所理論・Cauchy 理論・留数・解析接続・円板幾何の主線、CA7--CA12 を大域正則関数論・Riemann 面・関数構成・特殊関数の後半系列とする。局所的な必須前提の正本は各 `chapter.yaml` である。
+
+~~~text
+CA1 → CA2 → CA3 → CA4 → CA5 → CA6
+                              ↓
+TOP5 ───────────────────────→ CA7 正則関数列・正規族・Riemann 写像
+                              ├───────────────┐
+                              ↓               ↓
+TOP1/TOP2/TOP4/TOP5 ───────→ CA8             CA10 ← CA4
+                              ↓               ↓
+                            CA9             CA11
+                                                ↓
+FOU2 ──────────────────────────────────────────┤
+FOU3 ──────────────────────────────────────────┤→ CA12
+F0-00D2C ──────────────────────────────────────┘
+~~~
+
+CA8 は CA7 に加えて商位相・Hausdorff 性・第二可算性・コンパクト性を使い、複素トーラスまで構成する。CA9 は CA8 の複素トーラスを楕円関数の自然な定義域として使う。
+
+別枝では CA10 が CA7 の局所一様収束と CA4 の Laurent 展開・留数を使って Weierstrass 因数分解と Mittag--Leffler の定理を構成し、CA11 の Gamma 関数、CA12 の Riemann ζ 関数へ進む。CA12 のテータ変換は FOU3 の Gauss 関数の Fourier 変換と FOU2 の Fourier 級数収束を直接参照し、Mellin 表現で F0-00D2C の Fubini の定理を使う。
+
+---
+
 ## Encore II：Fourier Analysis & Differential Equations
 
 現行主線は ODE1--ODE11 / FOU1--FOU5 / PDE1--PDE12 とする。再編前の F0-00H1、F0-00FA1--F0-00FA3、F0-00PDE1--F0-00PDE3 は archive / migration source とし、現行 prerequisite / concept owner / proof dependency にしない。
