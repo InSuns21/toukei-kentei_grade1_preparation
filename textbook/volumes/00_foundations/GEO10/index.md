@@ -1313,15 +1313,77 @@ $$
 
 [形作用素の自己共役性](#thm-geo10-shape-self-adjoint)から、第一基本形式を内積とする有限次元実内積空間 $T_pM$ 上で $S_p$ は自己共役です。
 
-実対称作用素のスペクトル定理を適用すると、$T_pM$ には $S_p$ の固有ベクトルからなる正規直交基底が存在します。
+第一基本形式に関する正規直交基底を一つ選び、この基底で $S_p$ を実行列 $A$ で表します。自己共役性から
 
-その固有値を
+$$
+A^{\mathsf T}=A.
+$$
+
+この実行列を複素行列とみなすと
+
+$$
+A^*=A,
+$$
+
+したがって $A$ は Hermitian、特に normal です。[LA5 の複素 normal 作用素のスペクトル定理](../LA5/index.md#thm-la5-normal-spectral)により、$\mathbb C^n$ は $A$ の固有空間の直交直和になります。また Hermitian 作用素の固有値は実数です。
+
+固有値を $\lambda\in\mathbb R$ とします。複素固有ベクトル
+
+$$
+z=x+iy
+\qquad
+(x,y\in\mathbb R^n)
+$$
+
+が
+
+$$
+Az=\lambda z
+$$
+
+を満たすなら、$A$ と $\lambda$ が実なので実部・虚部を比較して
+
+$$
+Ax=\lambda x,
+\qquad
+Ay=\lambda y.
+$$
+
+従って複素固有空間は、対応する実固有空間を複素化したものです。よって各固有値について実固有ベクトルから基底を選べます。
+
+異なる固有値に属する実固有ベクトル $u,v$ については
+
+$$
+\lambda\,u\cdot v
+=
+Au\cdot v
+=
+u\cdot Av
+=
+\mu\,u\cdot v.
+$$
+
+$\lambda\ne\mu$ なら $u\cdot v=0$ です。同じ固有空間の内部では Gram--Schmidt 直交化を行えます。以上から、$T_pM$ 全体に主方向からなる実正規直交基底
+
+$$
+e_1,\dots,e_n
+$$
+
+を取れます。
+
+対応する固有値を
 
 $$
 \kappa_1,\dots,\kappa_n
 $$
 
-と書けばよいことになります。$\square$
+と書けば
+
+$$
+S_pe_i=\kappa_i e_i
+$$
+
+です。$\square$
 <!-- proof-end -->
 
 ---
