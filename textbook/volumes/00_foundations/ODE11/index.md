@@ -2,14 +2,14 @@
 
 <!-- definition-example-audit: strict -->
 
-パラメータを動かすと[平衡点](../ODE4/index.md#def-ode4-nonlinear-autonomous-system)の個数や安定性、周期軌道の有無が変わることがあります。本章では一般中心多様体論へ進む前に、標準正規形を直接解き、周期軌道を局所帰還写像の固定点として調べます。
+パラメータを動かすと[平衡解](../ODE1/index.md#def-ode1-equilibrium)の個数や安定性、周期軌道の有無が変わることがあります。本章では一般中心多様体論へ進む前に、標準正規形を直接解き、周期軌道を局所帰還写像の固定点として調べます。
 
 ## 1. パラメータを動かすと相図が変わる
 
 <a id="def-ode11-bifurcation"></a>
 <!-- formal-statement-start -->
 > **定義（局所分岐）**  
-> パラメータ付き自律系 $x'=F(x,\mu)$ で、ある $\mu=\mu_*$ を通過すると[平衡点](../ODE4/index.md#def-ode4-nonlinear-autonomous-system)・周期軌道の局所的な個数または安定性が質的に変化するとき、$\mu_*$ で局所分岐が起こるという。
+> パラメータ付き自律系 $x'=F(x,\mu)$ で、ある $\mu=\mu_*$ を通過すると[平衡解](../ODE1/index.md#def-ode1-equilibrium)・周期軌道の局所的な個数または安定性が質的に変化するとき、$\mu_*$ で局所分岐が起こるという。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ode11-bifurcation -->
@@ -19,7 +19,7 @@ $$
 x'=\mu-x^2
 $$
 
-では $\mu<0$ に[平衡点](../ODE4/index.md#def-ode4-nonlinear-autonomous-system)がなく、$\mu>0$ では $x=\pm\sqrt\mu$ の二点が現れます。
+では $\mu<0$ に[平衡解](../ODE1/index.md#def-ode1-equilibrium)がなく、$\mu>0$ では $x=\pm\sqrt\mu$ の二点が現れます。
 <!-- definition-example-end -->
 
 ## 2. saddle-node 正規形
@@ -27,13 +27,13 @@ $$
 <a id="prop-ode11-saddle-node"></a>
 <!-- formal-statement-start -->
 > **命題（saddle-node 正規形の分岐）**  
-> $x'=\mu-x^2$ では、$\mu<0$ に[平衡点](../ODE4/index.md#def-ode4-nonlinear-autonomous-system)はなく、$\mu=0$ に半安定[平衡点](../ODE4/index.md#def-ode4-nonlinear-autonomous-system) $x=0$、$\mu>0$ に不安定[平衡点](../ODE4/index.md#def-ode4-nonlinear-autonomous-system) $-\sqrt\mu$ と安定[平衡点](../ODE4/index.md#def-ode4-nonlinear-autonomous-system) $\sqrt\mu$ が存在する。
+> $x'=\mu-x^2$ では、$\mu<0$ に[平衡解](../ODE1/index.md#def-ode1-equilibrium)はなく、$\mu=0$ に半安定[平衡解](../ODE1/index.md#def-ode1-equilibrium) $x=0$、$\mu>0$ に不安定[平衡解](../ODE1/index.md#def-ode1-equilibrium) $-\sqrt\mu$ と安定[平衡解](../ODE1/index.md#def-ode1-equilibrium) $\sqrt\mu$ が存在する。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
 
-[平衡点](../ODE4/index.md#def-ode4-nonlinear-autonomous-system)方程式は $x^2=\mu$ です。$f(x)=\mu-x^2$ とすると
+[平衡解](../ODE1/index.md#def-ode1-equilibrium)方程式は $x^2=\mu$ です。$f(x)=\mu-x^2$ とすると
 
 $$
 f'(x)=-2x.
@@ -54,7 +54,7 @@ $\mu>0$ では正の根で $f'<0$、負の根で $f'>0$ なので、それぞれ
 <!-- proof-start -->
 ### 証明
 
-1. $f=x(\mu-x)$ なので[平衡点](../ODE4/index.md#def-ode4-nonlinear-autonomous-system)は $0,\mu$。$f_x=\mu-2x$ より
+1. $f=x(\mu-x)$ なので[平衡解](../ODE1/index.md#def-ode1-equilibrium)は $0,\mu$。$f_x=\mu-2x$ より
    $$
    f_x(0)=\mu,
    \qquad
@@ -62,7 +62,7 @@ $\mu>0$ では正の根で $f'<0$、負の根で $f'>0$ なので、それぞれ
    $$
    従って $\mu=0$ で安定性を交換します。
 
-2. $f=x(\mu-x^2)$。$\mu>0$ では $0,\pm\sqrt\mu$ が[平衡点](../ODE4/index.md#def-ode4-nonlinear-autonomous-system)で
+2. $f=x(\mu-x^2)$。$\mu>0$ では $0,\pm\sqrt\mu$ が[平衡解](../ODE1/index.md#def-ode1-equilibrium)で
    $$
    f_x=\mu-3x^2.
    $$
@@ -218,11 +218,11 @@ $$
 #### ODE11-A01 saddle-node
 - Level: A
 
-$x'=\mu-x^2$ の[平衡点](../ODE4/index.md#def-ode4-nonlinear-autonomous-system)と安定性を $\mu<0,=0,>0$ で分類せよ。
+$x'=\mu-x^2$ の[平衡解](../ODE1/index.md#def-ode1-equilibrium)と安定性を $\mu<0,=0,>0$ で分類せよ。
 
 <!-- solution-start -->
 ##### 詳細解答
-$\mu<0$ は[平衡点](../ODE4/index.md#def-ode4-nonlinear-autonomous-system)なし。$\mu=0$ は半安定な0。$\mu>0$ は $\pm\sqrt\mu$ で、$f'=-2x$ より正根が安定、負根が不安定です。
+$\mu<0$ は[平衡解](../ODE1/index.md#def-ode1-equilibrium)なし。$\mu=0$ は半安定な0。$\mu>0$ は $\pm\sqrt\mu$ で、$f'=-2x$ より正根が安定、負根が不安定です。
 <!-- solution-end -->
 
 #### ODE11-A02 transcritical
@@ -232,17 +232,17 @@ $x'=\mu x-x^2$ の平衡枝と安定性交換を求めよ。
 
 <!-- solution-start -->
 ##### 詳細解答
-[平衡点](../ODE4/index.md#def-ode4-nonlinear-autonomous-system)は $0,\mu$。$f_x(0)=\mu$, $f_x(\mu)=-\mu$ なので $\mu=0$ で安定性を交換します。
+[平衡解](../ODE1/index.md#def-ode1-equilibrium)は $0,\mu$。$f_x(0)=\mu$, $f_x(\mu)=-\mu$ なので $\mu=0$ で安定性を交換します。
 <!-- solution-end -->
 
 #### ODE11-A03 pitchfork
 - Level: A
 
-$x'=\mu x-x^3$ の[平衡点](../ODE4/index.md#def-ode4-nonlinear-autonomous-system)を分類せよ。
+$x'=\mu x-x^3$ の[平衡解](../ODE1/index.md#def-ode1-equilibrium)を分類せよ。
 
 <!-- solution-start -->
 ##### 詳細解答
-$0$ は常に[平衡点](../ODE4/index.md#def-ode4-nonlinear-autonomous-system)。$\mu>0$ で $\pm\sqrt\mu$ が追加。$f_x=\mu-3x^2$ より $\mu<0$ では原点安定、$\mu>0$ では原点不安定、非零二枝は安定です。
+$0$ は常に[平衡解](../ODE1/index.md#def-ode1-equilibrium)。$\mu>0$ で $\pm\sqrt\mu$ が追加。$f_x=\mu-3x^2$ より $\mu<0$ では原点安定、$\mu>0$ では原点不安定、非零二枝は安定です。
 <!-- solution-end -->
 
 #### ODE11-A04 Hopf 正規形
@@ -292,7 +292,7 @@ $P(s_*)=s_*$, $|P'(s_*)|<1$ のとき固定点が局所吸引的であること�
 #### ODE11-C01 Hopf 正規形を完全分類する
 - Level: C
 
-$z'=(\mu+i)z-|z|^2z$ を極座標に直し、$\mu$ が0を通るときの[平衡点](../ODE4/index.md#def-ode4-nonlinear-autonomous-system)と周期軌道の安定性を説明せよ。
+$z'=(\mu+i)z-|z|^2z$ を極座標に直し、$\mu$ が0を通るときの[平衡解](../ODE1/index.md#def-ode1-equilibrium)と周期軌道の安定性を説明せよ。
 
 <!-- solution-start -->
 ##### 詳細解答
