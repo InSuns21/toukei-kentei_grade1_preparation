@@ -25,11 +25,11 @@ concepts:
       - numerical.nonnegative-matrix
 
   - id: numerical.spectral-radius-power-limit
-    name: 有限次元でのスペクトル半径公式
+    name: 有限次元行列の冪の指数成長率公式
     kind: proposition
-    aliases: [finite-dimensional spectral radius formula]
+    aliases: [finite-dimensional matrix power growth formula]
     introduction: formal
-    introduction_aliases: ["命題（有限次元でのスペクトル半径公式）"]
+    introduction_aliases: ["命題（有限次元行列の冪の指数成長率公式）"]
     requires:
       - numerical.spectral-radius
       - linear.jordan-canonical-form
@@ -120,6 +120,15 @@ concepts:
       - numerical.primitive-spectral-gap
       - numerical.stationary-probability-vector
       - linear.jordan-canonical-form
+
+  - id: numerical.dangling-node
+    name: 出リンクなし頂点
+    kind: definition
+    aliases: [dangling node, Web グラフの出リンクなし頂点]
+    introduction: formal
+    introduction_aliases: ["定義（出リンクなし頂点）"]
+    requires:
+      - numerical.column-stochastic-matrix
 
   - id: numerical.pagerank-matrix
     name: PageRank 行列
