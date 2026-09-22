@@ -118,7 +118,7 @@ $$
 
 ## 2. 穴あき平面では閉形式が完全とは限らない
 
-まず、Poincaré の補題を証明する前に「逆が失敗する」具体例を見ます。
+まず、局所的な完全性を与える定理を証明する前に「逆が失敗する」具体例を見ます。
 
 $$
 X
@@ -507,7 +507,7 @@ $$
 
 <a id="thm-geo9-poincare-lemma"></a>
 <!-- formal-statement-start -->
-> **定理（Poincaré の補題）**  
+> **定理（微分形式の Poincaré の補題）**  
 > $U\subset\mathbb R^n$ を星型開集合とし、$k\ge1$ とする。
 >
 > $\omega\in\Omega^k(U), \qquad d\omega=0$
@@ -621,7 +621,7 @@ $$
 
 ここで $t^{k-1}$ は、$v_1,dots,v_{k-1}$ が $dH$ によってそれぞれ $t$ 倍されるために現れます。
 
-[Poincaré の補題](#thm-geo9-poincare-lemma)が言っているのは、
+[微分形式の Poincaré の補題](#thm-geo9-poincare-lemma)が言っているのは、
 
 > **局所的な障害はない。障害があるなら、それは領域全体の形に由来する。**
 
@@ -763,7 +763,7 @@ H^1_{\mathrm{dR}}(\mathbb R^2\setminus\{0\}).
 $$
 <!-- definition-example-end -->
 
-[Poincaré の補題](#thm-geo9-poincare-lemma)から、星型開集合 $U$ では
+[微分形式の Poincaré の補題](#thm-geo9-poincare-lemma)から、星型開集合 $U$ では
 
 $$
 H^k_{\mathrm{dR}}(U)=0
@@ -1424,7 +1424,7 @@ $$
 
 が分かります。
 
-星型開集合では [Poincaré の補題](#thm-geo9-poincare-lemma)により逆も成り立つので
+星型開集合では [微分形式の Poincaré の補題](#thm-geo9-poincare-lemma)により逆も成り立つので
 
 $$
 \text{閉}
@@ -1749,7 +1749,7 @@ $$
 
 1. $B^k(M)\subset Z^k(M)$ を示せ。
 2. この包含があるために商空間 $Z^k(M)/B^k(M)$ を定義できることを説明せよ。
-3. $M=\mathbb R^n$ のとき $k\ge1$ ではこの商空間が0であることを [Poincaré の補題](#thm-geo9-poincare-lemma)から説明せよ。
+3. $M=\mathbb R^n$ のとき $k\ge1$ ではこの商空間が0であることを [微分形式の Poincaré の補題](#thm-geo9-poincare-lemma)から説明せよ。
 
 - Level: A
 - 狙い: de Rham コホモロジーの定義が $d^2=0$ に支えられていることを確認する
@@ -1801,7 +1801,7 @@ $$
 
 を定義できます。これが $H^k_{\mathrm{dR}}(M)$ です。
 
-最後に $\mathbb R^n$ は原点について星型です。従って [Poincaré の補題](#thm-geo9-poincare-lemma)から、$k\ge1$ の閉 $k$ 形式は全て完全です。
+最後に $\mathbb R^n$ は原点について星型です。従って [微分形式の Poincaré の補題](#thm-geo9-poincare-lemma)から、$k\ge1$ の閉 $k$ 形式は全て完全です。
 
 すなわち
 
@@ -1842,7 +1842,7 @@ $$
 3. $d(K_H\omega)=\omega$ を確認せよ。
 
 - Level: A
-- 狙い: [Poincaré の補題](#thm-geo9-poincare-lemma)の証明を抽象記号だけで終わらせず $df=\omega$ を満たす関数の構成として実行する
+- 狙い: [微分形式の Poincaré の補題](#thm-geo9-poincare-lemma)の証明を抽象記号だけで終わらせず $df=\omega$ を満たす関数の構成として実行する
 
 <!-- solution-start -->
 **詳細解答**
@@ -1951,7 +1951,7 @@ $$
 3. 求めた $\eta$ を直接外微分して $d\eta=\omega$ を確認せよ。
 
 - Level: B
-- 狙い: [Poincaré の補題](#thm-geo9-poincare-lemma)を2形式に対して構成的に使う
+- 狙い: [微分形式の Poincaré の補題](#thm-geo9-poincare-lemma)を2形式に対して構成的に使う
 
 <!-- solution-start -->
 **詳細解答**
@@ -2631,7 +2631,7 @@ $f$ は $df$ だけで決まるので、$X$ が連結であることから加法
 本章を終えた時点で、次を自力で再現できれば十分です。
 
 - 閉形式と完全形式を定義し、完全なら閉を $d^2=0$ から示せる。
-- 星型開集合の動径ホモトピーから [Poincaré の補題](#thm-geo9-poincare-lemma)を証明できる。
+- 星型開集合の動径ホモトピーから [微分形式の Poincaré の補題](#thm-geo9-poincare-lemma)を証明できる。
 - de Rham 複体と $H^k_{\mathrm{dR}}(M)$ の定義を説明できる。
 - [ホモトピー公式](#thm-geo9-homotopy-formula)
   $$
