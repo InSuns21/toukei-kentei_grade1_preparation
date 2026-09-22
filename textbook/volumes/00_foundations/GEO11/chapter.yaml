@@ -16,7 +16,8 @@ learning_objectives:
   - 二次元曲面で Gauss 方程式から K=R_{1212}/det G を導き、Gauss の驚異の定理を証明できる
   - Gauss--Codazzi 条件を満たす第一・第二基本形式から局所超曲面を再構成し、一意性が剛体運動までであることを証明できる
   - 全臍的超曲面の剛性を Codazzi 方程式から導き、平面と球面を分類できる
-definitions: []
+definitions:
+  - { id: GEO11-DEF-01, name: 全臍的超曲面 }
 theorems:
   - { id: GEO11-PROP-01, name: Gauss 公式と Christoffel 係数 }
   - { id: GEO11-PROP-02, name: Weingarten 公式 }
