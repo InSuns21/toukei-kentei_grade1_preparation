@@ -9,7 +9,7 @@ concepts:
   - id: complex-analysis.infinite-product
     name: 関数の無限積
     kind: definition
-    aliases: [関数の無限積, 無限積, infinite product]
+    aliases: [関数の無限積, infinite product]
     introduction: formal
     introduction_aliases: ["定義（関数の無限積）"]
     requires: [complex-analysis.locally-uniform-convergence]
