@@ -1526,3 +1526,7 @@ $$
 - Cauchy平均値公式で三角不等式が等号になる条件を追うと最大値原理が得られ、その境界版を逆数 $1/(f-w)$ へ適用すると、非定数正則関数が開集合を開集合へ写すことが従う。
 
 次章 CA4 では Taylor 級数では表せない環状領域で Laurent 展開を構成し、孤立特異点と留数へ進みます。本章では Laurent 展開、留数、偏角原理、Rouché の定理を一度も使っていません。
+
+### 複素解析 II への接続
+
+Cauchy 評価と局所一様収束は [CA7 の Montel の定理](../CA7/index.md#thm-ca7-montel)へ進む解析的コンパクト性の入口になる。また Liouville の定理は [CA9 の Weierstrass の微分方程式](../CA9/index.md#thm-ca9-weierstrass-differential-equation)で、極が全て消えた楕円関数を定数と判定する際にも再利用される。
