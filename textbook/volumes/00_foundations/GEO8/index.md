@@ -228,7 +228,7 @@ $$
 
 よって向き付けられたアトラスが得られます。
 
-逆に向き付けられたアトラス $\{(U_\alpha,x_\alpha)\}$ があるとします。[GEO4 の定理](../GEO4/index.md#thm-geo4-partition-of-unity)により、この被覆に従属する滑らかな 1 の分割 $(\varphi_j)$ を取ります。各 $j$ に対して $\operatorname{supp}\varphi_j\subset U_{\alpha(j)}$ とし、
+逆に向き付けられたアトラス $\{(U_\alpha,x_\alpha)\}$ があるとします。[開被覆に従属する滑らかな 1 の分割の存在](../GEO4/index.md#thm-geo4-partition-of-unity)により、この被覆に従属する滑らかな 1 の分割 $(\varphi_j)$ を取ります。各 $j$ に対して $\operatorname{supp}\varphi_j\subset U_{\alpha(j)}$ とし、
 
 $$
 \mu_j
