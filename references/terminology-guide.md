@@ -139,6 +139,19 @@
 | パラコンパクト | paracompact | 任意の開被覆が局所有限な開細分を持つ性質 |
 | 隆起関数 | bump function | コンパクト台を持つ滑らかな関数。初出で英語併記可 |
 | 1 の分割 | partition of unity | 非負・局所有限な滑らかな関数族で総和が1。開被覆への従属性も日本語で記述する |
+| ベクトル場 | vector field | 本文では日本語主表記 |
+| 局所流 | local flow | 本文では「局所流」または文脈上明らかな場合「流れ」 |
+| Lie 括弧 | Lie bracket | 人名・固有表記部分を英字で保持し、「Lie bracket」を本文主語彙にしない |
+| 線形分布 | distribution / smooth distribution | 多様体上の一定階数の接方向の族。必要なら「滑らかな線形分布」と明示 |
+| 積分多様体 | integral manifold | 線形分布の接方向を実現するはめ込み多様体 |
+| 対合的な分布 | involutive distribution | Lie 括弧で閉じている線形分布 |
+| 適応座標 | adapted coordinates | 分布が座標方向で張られる局所座標 |
+| Frobenius の定理 | Frobenius theorem | 人名部分は英字表記を保持 |
+| テンソル場 | tensor field | 初出で英語併記可。以後は日本語主表記 |
+| 微分形式 | differential form | 記号 $\Omega^k(M)$ は保持 |
+| 外微分 | exterior derivative | 記号 $d$ は数式中で使用 |
+| Lie 微分 | Lie derivative | 記号 $\mathcal L_X$ は数式中で使用 |
+| Cartan の公式 | Cartan formula | 人名部分は英字表記を保持。$\mathcal L_X=d\iota_X+\iota_Xd$ |
 | Whitney の埋め込み定理 | Whitney embedding theorem | 人名部分は英字表記を保持 |
 
 ## DREAM THEATER：数値解析の主表記
