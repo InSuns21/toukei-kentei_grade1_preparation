@@ -529,7 +529,7 @@ $$
 
 従って [CA10 の基本因子評価](../CA10/index.md#lem-ca10-elementary-factor-estimate)により積は全平面で局所一様収束し、整関数を定める。
 
-右半平面では Euler の極限公式からこの整関数は $1/\Gamma(z)$ に一致する。よって有理型解析接続後も恒等的に逆 Gamma 関数を与える。
+右半平面では [Euler の極限公式](#thm-ca11-euler-limit)からこの整関数は $1/\Gamma(z)$ に一致する。よって有理型解析接続後も恒等的に逆 Gamma 関数を与える。
 
 先頭因子 $z$ が $0$ に単純零点を作り、$k$ 番目の因子 $1+z/k$ が $z=-k$ に単純零点を作る。指数因子は零点を持たず、CA10 の無限積の非消滅性から他の零点は生じない。したがって零点は非正整数だけである。
 
@@ -1045,19 +1045,29 @@ $$
 \pi-\delta
 $$
 
-という負の実軸から離れた閉 sector で
+という負の実軸から離れた閉 sector で、$|z|\to\infty$ のとき
 
 $$
-\log\Gamma(z)
+\Gamma(z)
 =
-\left(z-\frac12\right)\log z
--z
-+\frac12\log(2\pi)
-+
-O_\delta\left(\frac1{|z|}\right)
+\sqrt{2\pi}\,
+z^{z-\frac12}e^{-z}
+\left(
+1+O_\delta\left(\frac1{|z|}\right)
+\right)
 $$
 
-という強化版が成り立つ。ここで $\log z$ はこの sector 上で主値に一致する正則な対数分枝を表す。
+という強化版が成り立つ。ここで
+
+$$
+z^{z-\frac12}
+=
+\exp\left(
+\left(z-\frac12\right)\log z
+\right)
+$$
+
+とし、$\log z$ にはこの sector 上で主値に一致する正則な対数分枝を使う。
 
 本章で核心証明したのは正の実軸上の形である。sector 版の完全証明には Binet 表示または Euler--Maclaurin 展開を追加で準備する必要があるため、適用範囲だけを明示し、高次漸近展開とともに停止線の先へ送る。
 
@@ -1125,7 +1135,7 @@ $$
 
 で完全に相殺する。
 
-正の実数 $x\to+\infty$ では Stirling 公式を三つの Gamma 因子へ適用すると
+正の実数 $x\to+\infty$ では [Stirling 公式](#thm-ca11-stirling)を三つの Gamma 因子へ適用すると
 
 $$
 R(x)\to1.
@@ -1734,7 +1744,7 @@ $$
 R(z+1)=R(z).
 $$
 
-次に $x\to+\infty$ で Stirling 公式を
+次に $x\to+\infty$ で [Stirling 公式](#thm-ca11-stirling)を
 
 $$
 \Gamma(x),\quad
@@ -2064,7 +2074,7 @@ CA11 を終えた段階で、次を自力で再構成できることを目標と
 
 1. Euler 積分の局所一様収束から Gamma 関数の正則性を示す。
 2. 関数等式から有理型解析接続・極・留数を導く。
-3. Euler の極限公式から逆 Gamma 関数の Weierstrass 積を導く。
+3. [Euler の極限公式](#thm-ca11-euler-limit)から逆 Gamma 関数の Weierstrass 積を導く。
 4. Gamma 関数が零点を持たないことを積表示から読む。
 5. CA10 の正弦関数の Euler 積と比較して反射公式を証明する。
 6. Wallis 積で Stirling 公式の定数 sqrt(2pi) まで決定する。
