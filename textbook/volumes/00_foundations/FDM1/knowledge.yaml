@@ -13,7 +13,6 @@ concepts:
     kind: definition
     aliases: [差分格子, space-time finite-difference grid]
     introduction: formal
-    introduction_aliases: ["時空間差分格子・格子関数", "定義（時空間差分格子・格子関数）"]
     requires:
       - pde.pde3-heat-equation
 
@@ -22,7 +21,6 @@ concepts:
     kind: definition
     aliases: [grid function]
     introduction: formal
-    introduction_aliases: ["時空間差分格子・格子関数", "定義（時空間差分格子・格子関数）"]
     requires:
       - numerical.fdm-space-time-grid
 
