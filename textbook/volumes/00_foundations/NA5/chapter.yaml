@@ -1,0 +1,51 @@
+id: "NA5"
+title: "数値解析 V：数値積分・直交多項式・Gauss 型積分"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RA4
+  - NA4
+  - F0-00E1
+official_scope: []
+learning_objectives:
+  - 求積公式と正確次数を定義し、与えられた公式が何次多項式まで厳密か判定できる
+  - Lagrange 補間を積分して補間型求積公式を導き、台形則・Simpson 則を Newton--Cotes 公式として説明できる
+  - 複合台形則と複合 Simpson 則を導き、局所誤差から大域誤差の次数を説明できる
+  - 重み付き多項式内積と直交多項式を定義し、正の重みの下で n 次直交多項式が区間内部に n 個の単純零点を持つことを証明できる
+  - 直交多項式の零点を節点とする n 点 Gauss 求積公式が次数 2n-1 まで厳密であることを証明できる
+  - Gauss 求積公式の重みが正であり、n 点公式として正確次数 2n-1 が最適であることを証明できる
+  - Gauss 求積の誤差公式を Hermite 補間から導き、滑らかさと直交多項式の役割を分離できる
+definitions:
+  - { id: NA5-DEF-01, name: 求積公式 }
+  - { id: NA5-DEF-02, name: 正確次数 }
+  - { id: NA5-DEF-03, name: Newton--Cotes 公式 }
+  - { id: NA5-DEF-04, name: 重み付き多項式内積・直交多項式 }
+  - { id: NA5-DEF-05, name: Gauss 求積公式 }
+theorems:
+  - { id: NA5-THM-01, name: 補間型求積公式 }
+  - { id: NA5-THM-02, name: 複合台形則の誤差評価 }
+  - { id: NA5-THM-03, name: 複合 Simpson 則の誤差評価 }
+  - { id: NA5-PROP-00, name: モニック直交多項式の存在一意性 }
+  - { id: NA5-THM-04, name: 直交多項式の零点定理 }
+  - { id: NA5-THM-05, name: Gauss 求積公式の 2n-1 次正確性 }
+  - { id: NA5-PROP-01, name: Gauss 求積公式の重みの正値性 }
+  - { id: NA5-THM-06, name: n 点求積公式の正確次数の上限 }
+  - { id: NA5-THM-07, name: Gauss 求積の誤差公式 }
+canonical_examples:
+  - 台形則と Simpson 則の補間からの導出
+  - 複合台形則で x^2 を積分したときの誤差
+  - Legendre 多項式の最初の三つ
+  - 2点 Gauss--Legendre 求積
+  - 3点 Gauss--Legendre 求積
+problem_patterns:
+  - NA5-DEGREE-OF-EXACTNESS-1
+  - NA5-INTERPOLATORY-QUADRATURE-1
+  - NA5-COMPOSITE-RULE-1
+  - NA5-ORTHOGONAL-POLYNOMIAL-1
+  - NA5-GAUSS-QUADRATURE-1
+  - NA5-GAUSS-OPTIMALITY-1
+  - NA5-GAUSS-ERROR-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 4.5, review: 0.5 }

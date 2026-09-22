@@ -1,0 +1,35 @@
+chapter: "NA5"
+terms:
+  - term: 求積公式
+    english: quadrature formula
+    meaning: 積分を有限個の関数値の重み付き和で近似する公式。
+  - term: 正確次数
+    english: degree of exactness
+    meaning: その求積公式がすべての次数 m 以下の多項式を厳密に積分できる最大の m。
+  - term: 補間型求積公式
+    english: interpolatory quadrature formula
+    meaning: 節点上の Lagrange 補間多項式を積分して得られる求積公式。
+  - term: Newton--Cotes 公式
+    english: Newton--Cotes formula
+    meaning: 等間隔節点に対する補間型求積公式。
+  - term: 複合台形則
+    english: composite trapezoidal rule
+    meaning: 区間を細分し、各小区間へ台形則を適用して足し合わせる公式。
+  - term: 複合 Simpson 則
+    english: composite Simpson rule
+    meaning: 偶数個の小区間を2個ずつ組にし、各組へ Simpson 則を適用して足し合わせる公式。
+  - term: 重み関数
+    english: weight function
+    meaning: 重み付き積分の内積で用いる正の関数 w(x)。
+  - term: 直交多項式
+    english: orthogonal polynomial
+    meaning: 重み付き内積で、より低次数のすべての多項式に直交する多項式。
+  - term: Gauss 求積公式
+    english: Gaussian quadrature
+    meaning: n 次直交多項式の n 個の零点を節点に選ぶ n 点補間型求積公式。
+  - term: Gauss--Legendre 求積
+    english: Gauss--Legendre quadrature
+    meaning: 区間 [-1,1]、重み w=1 に対応する Gauss 求積公式。
+  - term: Peano 核
+    english: Peano kernel
+    meaning: 多項式を一定次数まで消す線形誤差汎関数を高階導関数の積分として表すときの核。
