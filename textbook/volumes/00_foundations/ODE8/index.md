@@ -27,6 +27,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ode8-maximal-solution -->
+**定義の確認**：以下で定義の条件を直接確認します。
+
 ### 具体例：$x'=x^2$ は有限時間で終わる
 
 $x(0)=1$ なら $x(t)=1/(1-t)$ です。最大存在区間は $(-\infty,1)$ で、右辺は滑らかでも解が有限時間で無限大へ逃げるため延長できません。
@@ -180,6 +182,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ode8-flow -->
+**定義の確認**：以下で定義の条件を直接確認します。
+
 $x'=-x$ では $\Phi_t(x)=e^{-t}x$ です。
 <!-- definition-example-end -->
 
