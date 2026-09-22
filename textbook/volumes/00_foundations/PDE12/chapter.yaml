@@ -6,6 +6,7 @@ prerequisites:
   - PDE1
   - ODE8
   - RA6A
+  - VC1
 official_scope: []
 learning_objectives:
   - 一般一階非線形 PDE を F(x,u,grad u)=0 の形で定義し具体例を分類できる
