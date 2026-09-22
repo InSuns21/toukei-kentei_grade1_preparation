@@ -1,0 +1,112 @@
+chapter: NA4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RA3
+  - NA1
+forward_references: []
+
+concepts:
+  - id: numerical.polynomial-interpolation
+    name: 多項式補間問題
+    kind: definition
+    aliases: [polynomial interpolation]
+    introduction: formal
+    introduction_aliases: ["定義（多項式補間問題）"]
+    requires: []
+
+  - id: numerical.lagrange-basis
+    name: Lagrange 基底多項式
+    kind: definition
+    aliases: [Lagrange 基底]
+    introduction: formal
+    introduction_aliases: ["定義（Lagrange 基底多項式）"]
+    requires: [numerical.polynomial-interpolation]
+
+  - id: numerical.lagrange-interpolation
+    name: 多項式補間の存在一意性と Lagrange 公式
+    kind: theorem
+    aliases: [Lagrange 補間公式]
+    introduction: formal
+    introduction_aliases: ["定理（多項式補間の存在一意性と Lagrange 公式）"]
+    requires: [numerical.lagrange-basis]
+
+  - id: numerical.divided-difference
+    name: 分割差分
+    kind: definition
+    aliases: [divided difference]
+    introduction: formal
+    introduction_aliases: ["定義（分割差分）"]
+    requires: [numerical.lagrange-interpolation]
+
+  - id: numerical.divided-difference-recurrence
+    name: 分割差分の漸化式
+    kind: proposition
+    aliases: [分割差分の漸化式]
+    introduction: formal
+    introduction_aliases: ["命題（分割差分の漸化式）"]
+    requires: [numerical.divided-difference]
+
+  - id: numerical.newton-interpolation
+    name: Newton 補間公式
+    kind: theorem
+    aliases: [Newton 補間]
+    introduction: formal
+    introduction_aliases: ["定理（Newton 補間公式）"]
+    requires: [numerical.divided-difference]
+
+  - id: numerical.node-polynomial
+    name: 節点多項式
+    kind: definition
+    aliases: [nodal polynomial]
+    introduction: formal
+    introduction_aliases: ["定義（節点多項式）"]
+    requires: [numerical.polynomial-interpolation]
+
+  - id: numerical.interpolation-error-formula
+    name: 多項式補間の誤差公式
+    kind: theorem
+    aliases: [補間誤差公式]
+    introduction: formal
+    introduction_aliases: ["定理（多項式補間の誤差公式）"]
+    requires: [numerical.node-polynomial, analysis.rolle-theorem]
+
+  - id: numerical.chebyshev-nodes
+    name: Chebyshev 節点
+    kind: definition
+    aliases: [Chebyshev nodes]
+    introduction: formal
+    introduction_aliases: ["定義（Chebyshev 節点）"]
+    requires: [numerical.node-polynomial]
+
+  - id: numerical.chebyshev-monic-minimax
+    name: 最高次係数1の多項式に対する Chebyshev の最小最大性
+    kind: theorem
+    aliases: [Chebyshev の最小最大性]
+    introduction: formal
+    introduction_aliases: ["定理（最高次係数1の多項式に対する Chebyshev の最小最大性）"]
+    requires: [numerical.chebyshev-nodes, analysis.intermediate-value-theorem]
+
+  - id: numerical.lebesgue-function
+    name: Lebesgue 関数
+    kind: definition
+    aliases: [Lebesgue function]
+    introduction: formal
+    introduction_aliases: ["定義（Lebesgue 関数・Lebesgue 定数）"]
+    requires: [numerical.lagrange-basis]
+
+  - id: numerical.lebesgue-constant
+    name: Lebesgue 定数
+    kind: definition
+    aliases: [Lebesgue constant]
+    introduction: formal
+    introduction_aliases: ["定義（Lebesgue 関数・Lebesgue 定数）"]
+    requires: [numerical.lebesgue-function]
+
+  - id: numerical.interpolation-data-perturbation
+    name: 多項式補間におけるデータ摂動の増幅評価
+    kind: proposition
+    aliases: [多項式補間におけるデータ摂動の増幅評価]
+    introduction: formal
+    introduction_aliases: ["命題（データ摂動の増幅評価）"]
+    requires: [numerical.lebesgue-constant, numerical.absolute-relative-error]

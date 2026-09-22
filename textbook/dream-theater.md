@@ -323,3 +323,4 @@ STO 系列ではマルチンゲール・ブラウン運動・二次変分・確�
 2. [NA1 浮動小数点・誤差・条件数・安定性](textbook/volumes/00_foundations/NA1/index.md)
 3. [NA2 非線形方程式・不動点反復・Newton 法](textbook/volumes/00_foundations/NA2/index.md)
 4. [NA3 非線形連立方程式](textbook/volumes/00_foundations/NA3/index.md)
+5. [NA4 多項式補間](textbook/volumes/00_foundations/NA4/index.md)

@@ -322,6 +322,9 @@ NA1 条件数・残差 ───────────┐
 NA2 Newton 法・収束次数 ─────┼→ NA3 非線形連立方程式
 F0-02C3 Fréchet微分・Jacobian ┤
 RA4 微積分学の基本定理 ──────┘
+
+RA3 Rolle・平均値・Taylor ────┐
+NA1 誤差・条件付け ──────────┴→ NA4 多項式補間
 ~~~
 
 NA1 では、最近接丸めの標準相対誤差モデル、丸め因子の積の評価、桁落ち、スカラー関数の相対条件数、2-ノルム行列条件数、前方誤差・後方誤差、残差、後方安定性を扱う。
@@ -330,8 +333,10 @@ NA2 では、中間値定理による根の囲い込み、二分法、縮小不�
 
 NA3 では、Fréchet 微分の行列表示として Jacobian を使い、多変数 Newton 法を線形連立方程式として導く。Jacobian の Lipschitz 性から二次線形化誤差を導き、可逆行列の摂動評価と組み合わせて局所収束・二次誤差評価を証明する。さらに逆 Jacobian のノルムから根の局所感度と残差評価を導き、悪条件性・特異 Jacobian・初期値依存を扱う。
 
-後続の NA4–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC8 は DREAM_THEATER_ENCORE_V_REWRITE_PLAN.md の計画対象であり、各講の実装完了時に実際の直接依存だけを追加する。
+NA4 では、Lagrange 補間の存在一意性、分割差分と Newton 補間、Rolle の定理による補間誤差公式を閉じる。節点選択では Chebyshev の最小最大性から Chebyshev 節点を導き、Runge 現象と Lebesgue 定数を通じて近似誤差・データ感度・丸め誤差を区別する。
 
-読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA3 までで、次の実装対象は NA4「多項式補間」である。
+後続の NA5–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC8 は DREAM_THEATER_ENCORE_V_REWRITE_PLAN.md の計画対象であり、各講の実装完了時に実際の直接依存だけを追加する。
+
+読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA4 までで、次の実装対象は NA5「数値積分・直交多項式・Gauss 型積分」である。
 
 ---

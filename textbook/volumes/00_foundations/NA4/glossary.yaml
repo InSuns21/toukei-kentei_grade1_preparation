@@ -1,0 +1,32 @@
+chapter: "NA4"
+terms:
+  - term: 多項式補間
+    english: polynomial interpolation
+    meaning: 相異なる節点で与えられたデータ値をすべて再現する低次数多項式を構成すること。
+  - term: 補間節点
+    english: interpolation node
+    meaning: 補間条件を課す点 x_i。
+  - term: Lagrange 基底多項式
+    english: Lagrange basis polynomial
+    meaning: 自分の節点で1、他のすべての節点で0を取る補間基底。
+  - term: 分割差分
+    english: divided difference
+    meaning: 補間多項式の最高次係数を表し、漸化式で計算できる量。
+  - term: Newton 補間
+    english: Newton interpolation
+    meaning: 分割差分を係数とし、節点を追加するたびに一項ずつ拡張できる補間表示。
+  - term: 節点多項式
+    english: nodal polynomial
+    meaning: 補間節点をすべて零点に持つ最高次係数1の多項式 omega_{n+1}(x)=prod_i(x-x_i)。
+  - term: Chebyshev 節点
+    english: Chebyshev nodes
+    meaning: Chebyshev 多項式の零点を補間節点として選んだもの。
+  - term: Runge 現象
+    english: Runge phenomenon
+    meaning: 等間隔節点で高次数補間を行うと端点付近の振動と誤差が増大し得る現象。
+  - term: Lebesgue 定数
+    english: Lebesgue constant
+    meaning: Lagrange 基底の絶対値和の区間最大値で、補間データの摂動増幅を測る量。
+  - term: 重心形式
+    english: barycentric form
+    meaning: Lagrange 補間多項式を重心重みの比として評価する表現。
