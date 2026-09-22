@@ -6,6 +6,11 @@ prerequisites:
   - ODE8
 forward_references: []
 concepts:
+  - id: pde.pde8-duhamel-principle
+    name: Duhamel 原理
+    kind: term
+    aliases: ["Duhamel 原理"]
+    introduction: inline
   - id: pde.pde8-heat-propagator
     name: 熱核による自由発展
     kind: definition
