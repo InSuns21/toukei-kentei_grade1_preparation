@@ -15,19 +15,19 @@
 <a id="def-geo6-distribution"></a>
 <!-- formal-statement-start -->
 > **定義（滑らかな線形分布）**  
-> M を n 次元滑らかな多様体、0 \le k \le n とする。各 p \in M に k 次元線形部分空間
+> $M$ を $n$ 次元滑らかな多様体、$0\le k\le n$ とする。各 $p\in M$ に $k$ 次元線形部分空間
 >
 > $$
 > D_p\subset T_pM
 > $$
 >
-> を対応させる族 D を階数 k の **滑らかな線形分布**という。ただし各 p \in M に対して、p のある近傍 U と U 上の滑らかなベクトル場
+> を対応させる族 $D$ を階数 $k$ の **滑らかな線形分布**という。ただし各 $p\in M$ に対して、$p$ のある近傍 $U$ と $U$ 上の滑らかなベクトル場
 >
 > $$
 > X_1,\dots,X_k
 > $$
 >
-> が存在し、任意の q \in U で
+> が存在し、任意の $q\in U$ で
 >
 > $$
 > D_q
@@ -44,7 +44,7 @@
 <!-- definition-example-start: def-geo6-distribution -->
 **定義の確認**
 
-\mathbb R^3 上で
+$\mathbb R^3$ 上で
 
 $$
 D_{(x,y,z)}
@@ -91,7 +91,7 @@ $$
 <!-- definition-example-start: def-geo6-section -->
 **定義の確認**
 
-上の定分布 D=\operatorname{span}\{\partial_x,\partial_y\} に対して
+上の定分布 $D=\operatorname{span}\{\partial_x,\partial_y\}$ に対して
 
 $$
 X
@@ -101,13 +101,13 @@ X
 e^z\partial_y
 $$
 
-は D の局所切断です。各点で \partial_x,\partial_y の線形結合だからです。一方
+は $D$ の局所切断です。各点で $\partial_x,\partial_y$ の線形結合だからです。一方
 
 $$
 Y=\partial_x+\partial_z
 $$
 
-は \partial_z 成分を持つので D の局所切断ではありません。
+は $\partial_z$ 成分を持つので $D$ の局所切断ではありません。
 <!-- definition-example-end -->
 
 局所枠 X_1,\dots,X_k が与えられると、D の任意の局所切断 X は
@@ -133,7 +133,7 @@ $$
 > i:N\to M
 > $$
 >
-> が、全ての q\in N で
+> が、全ての $q\in N$ で
 >
 > $$
 > di_q(T_qN)=D_{i(q)}
@@ -141,7 +141,7 @@ $$
 >
 > を満たすとき、i(N) を D の **積分多様体**という。
 >
-> また、任意の p\in M に対して p を通る積分多様体が局所的に存在するとき、D は **可積分**であるという。
+> また、任意の $p\in M$ に対して $p$ を通る積分多様体が局所的に存在するとき、$D$ は **可積分**であるという。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo6-integral-manifold -->
@@ -153,7 +153,7 @@ $$
 D=\operatorname{span}\{\partial_x,\partial_y\}
 $$
 
-に対して、各 c\in\mathbb R の平面
+に対して、各 $c\in\mathbb R$ の平面
 
 $$
 S_c=\{(x,y,z):z=c\}
@@ -161,7 +161,7 @@ $$
 
 を考えます。
 
-包含写像 i_c:S_c\hookrightarrow\mathbb R^3 の微分の像は
+包含写像 $i_c:S_c\hookrightarrow\mathbb R^3$ の微分の像は
 
 $$
 di_c(T_{(x,y,c)}S_c)
@@ -308,7 +308,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-p\in M を固定し、X,Y を p の近傍で定義された D の局所切断とします。可積分性から p を通る k 次元積分多様体 S が取れます。
+$p\in M$ を固定し、$X,Y$ を $p$ の近傍で定義された $D$ の局所切断とします。可積分性から $p$ を通る $k$ 次元積分多様体 $S$ が取れます。
 
 はめ込みは各点の近くで埋め込みとして見られるので、p の近くへ縮めて [GEO3 の部分多様体の局所方程式表示](../GEO3/index.md#cor-geo3-submanifold-local-equations)を使います。局所座標
 
@@ -492,15 +492,45 @@ $$
 a_j^\ell(p_t)Z_\ell(t).
 $$
 
-これは T_qM の中の k 本のベクトルに対する線形常微分方程式です。
+これは $T_qM$ の中の $k$ 本のベクトルに対する線形常微分方程式です。ここで「右辺が現在の $Z_\ell(t)$ の線形結合だから $D_q$ に留まる」とだけ済ませず、線形方程式の一意性を使います。
 
-初期値は
+係数行列を
 
 $$
-Z_j(0)=E_j(q)
+A(t)
+=
+\bigl(a_j^\ell(p_t)\bigr)_{\ell j}
 $$
 
-なので、全ての Z_j(t) は
+とし、$k\times k$ 行列 $C(t)$ を
+
+$$
+C'(t)=C(t)A(t),
+\qquad
+C(0)=I_k
+$$
+
+の解とします。$E(q)$ を列ベクトル
+
+$$
+E(q)
+=
+\bigl(E_1(q),\dots,E_k(q)\bigr)
+$$
+
+とみなし、
+
+$$
+W(t)=E(q)C(t)
+$$
+
+と置くと、$W(t)$ は $Z(t)=(Z_1(t),\dots,Z_k(t))$ と同じ線形方程式と同じ初期条件を満たします。線形常微分方程式の一意性から
+
+$$
+Z(t)=W(t)=E(q)C(t).
+$$
+
+従って全ての $Z_j(t)$ は
 
 $$
 D_q=\operatorname{span}\{E_1(q),\dots,E_k(q)\}
@@ -508,7 +538,7 @@ $$
 
 の中に留まります。
 
-さらに線形方程式の基本行列は時刻0で単位行列であり、十分小さい t で可逆です。従って Z_1(t),\dots,Z_k(t) は一次独立のままです。よって
+また $\det C(0)=1$ であり、$\det C(t)$ は連続なので、十分小さい $t$ では $\det C(t)\neq0$ です。従って $C(t)$ は可逆で、$Z_1(t),\dots,Z_k(t)$ は一次独立のままです。よって
 
 $$
 \operatorname{span}\{Z_1(t),\dots,Z_k(t)\}
@@ -569,7 +599,7 @@ $\square$
 <!-- definition-example-start: def-geo6-adapted-coordinates -->
 **定義の確認**
 
-\mathbb R^3 で
+$\mathbb R^3$ で
 
 $$
 D
@@ -647,7 +677,7 @@ $$
 >
 > 1. D は可積分である。
 > 2. D は対合的である。
-> 3. 任意の p\in M の近傍に D に適応した局所座標
+> 3. 任意の $p\in M$ の近傍に $D$ に適応した局所座標
 >
 > $$
 > (u^1,\dots,u^n)
@@ -674,7 +704,7 @@ $$
 核心は 2 \Rightarrow 3 です。階数 k に関する帰納法を使います。
 
 1. D の局所枠から非零な X_1 を一本取る。
-2. GEO5 の直線化定理で X_1=\partial_t とする。
+2. GEO5 の直線化定理で $X_1=\partial_t$ とする。
 3. t=0 の横断面 S を取る。
 4. 前節の流れ保存補題により、D は X_1 の流れで保たれる。
 5. S 上では
@@ -763,7 +793,7 @@ $$
 S=\{t=0\}
 $$
 
-を考えます。各 q\in S で X_1(q)=\partial_t は T_qS に属さないため
+を考えます。各 $q\in S$ で $X_1(q)=\partial_t$ は $T_qS$ に属さないため
 
 $$
 D_q
@@ -843,13 +873,23 @@ $$
 [\widetilde A,\widetilde B]\in\ker dt.
 $$
 
-t=0 に制限すると
+$t=0$ に制限すると
 
 $$
-[A,B]\in D\cap TS=E.
+[\widetilde A,\widetilde B]|_S
+\in
+D\cap TS
+=
+E.
 $$
 
-よって E は S 上で対合的です。
+直線化座標では $\widetilde A,\widetilde B$ は $\partial_t$ 成分を持たないため、$t=0$ 上で計算した ambient な Lie 括弧は、$S$ 上のベクトル場 $A,B$ の Lie 括弧と一致します。したがって
+
+$$
+[A,B]\in E.
+$$
+
+よって $E$ は $S$ 上で対合的です。
 
 E の階数は k-1 なので帰納法の仮定を適用できます。p の S 内の近傍で座標
 
@@ -893,7 +933,7 @@ $$
 X_1=\partial_{u^1}.
 $$
 
-また a=2,\dots,k に対し、\partial_{z^a} を X_1 の流れで押し出したベクトルは
+また $a=2,\dots,k$ に対し、$\partial_{z^a}$ を $X_1$ の流れで押し出したベクトルは
 
 $$
 \partial_{u^a}
@@ -924,7 +964,7 @@ $$
 - **階数が一定**：横断面上の E=D\cap TS の次元を k-1 に保ち、帰納法で滑らかな分布として扱うために必要です。
 - **滑らかさ**：局所枠と局所流を作り、flow-box theorem を適用するために必要です。
 - **対合性**：D が X_1 の流れで保存されることと、横断面上の E が Lie 括弧で閉じることに使います。
-- **X_1 が非零**：flow-box theorem で第一方向を \partial_t に直すために必要です。局所枠の一員なので自動的に非零です。
+- **$X_1$ が非零**：ベクトル場の直線化定理で第一方向を $\partial_t$ に直すために必要です。局所枠の一員なので自動的に非零です。
 
 ---
 
@@ -1015,7 +1055,7 @@ $$
 
 ## 10. 定階数条件を外すと同じ定理ではなくなる
 
-例えば \mathbb R^2 上で
+例えば $\mathbb R^2$ 上で
 
 $$
 D_{(x,y)}
@@ -1045,7 +1085,7 @@ $$
 
 ### GEO6-A01 定分布の積分多様体
 
-\mathbb R^4 上で
+$\mathbb R^4$ 上で
 
 $$
 D
@@ -1067,7 +1107,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-X_1=\partial_{x_1}, X_2=\partial_{x_2} は全空間で滑らかかつ一次独立なので、D は階数2の滑らかな線形分布です。
+$X_1=\partial_{x_1}$、$X_2=\partial_{x_2}$ は全空間で滑らかかつ一次独立なので、$D$ は階数2の滑らかな線形分布です。
 
 座標ベクトル場は可換なので
 
@@ -1275,7 +1315,7 @@ $$
 
 1. [X_1,X_2] を計算せよ。
 2. D が対合的であることを示せ。
-3. D と \operatorname{span}\{\partial_x,\partial_y\} が同じ分布であることを示せ。
+3. $D$ と $\operatorname{span}\{\partial_x,\partial_y\}$ が同じ分布であることを示せ。
 4. 積分多様体を求めよ。
 
 - Level: A
@@ -1335,7 +1375,7 @@ $$
    u=x,\qquad v=y,\qquad w=z-xy
    $$
    が大域座標になることを示せ。
-3. X=\partial_u, Y=\partial_v を示せ。
+3. $X=\partial_u$、$Y=\partial_v$ を示せ。
 4. D の積分多様体を新座標と元の座標の両方で記述せよ。
 
 - Level: B
@@ -1392,7 +1432,7 @@ y-y
 0.
 $$
 
-従って X=\partial_u です。
+従って $X=\partial_u$ です。
 
 同様に
 
@@ -1410,7 +1450,7 @@ x-x
 0,
 $$
 
-なので Y=\partial_v です。
+なので $Y=\partial_v$ です。
 
 従って
 
@@ -1435,7 +1475,7 @@ $$
 
 ### GEO6-B02 kernel 分布はなぜ対合的か
 
-U\subset\mathbb R^n を開集合、F:U\to\mathbb R^{n-k} を滑らかな沈め込みとし、
+$U\subset\mathbb R^n$ を開集合、$F:U\to\mathbb R^{n-k}$ を滑らかな沈め込みとし、
 
 $$
 D=\ker dF
@@ -1457,7 +1497,7 @@ $$
 
 と書きます。
 
-X,Y\in D なので、各 a について
+$X,Y\in D$ なので、各 $a$ について
 
 $$
 dF^a(X)=X(F^a)=0,
@@ -1679,7 +1719,7 @@ $$
 du^{k+1},\dots,du^n
 $$
 
-は一次独立です。また i\le k なら
+は一次独立です。また $i\le k$ なら
 
 $$
 du^a(\partial_{u^i})=0.
@@ -1758,9 +1798,9 @@ $$
 その方向が実際の k 次元部分多様体の接空間になるには、二つの局所切断を Lie 括弧しても外へ出ないこと、
 
 $$
-X,Y\in D
+$X,Y\in D$
 \Longrightarrow
-[X,Y]\in D
+$[X,Y]\in D$
 $$
 
 が必要です。
