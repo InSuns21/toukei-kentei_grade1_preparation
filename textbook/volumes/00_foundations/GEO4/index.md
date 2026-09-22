@@ -841,7 +841,7 @@ $$
 
 ---
 
-## 7. 1 の分割
+## 7. 局所重みを総和 1 に正規化する
 
 <a id="def-geo4-partition-of-unity"></a>
 <!-- formal-statement-start -->
