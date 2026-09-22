@@ -448,9 +448,9 @@ $$
 <!-- proof-start -->
 ### 証明：弱収束部分列の極限を取る
 
-$\gamma(0)=0$ なら[正定値列の基本補題](#lem-tsa3-pd-basic)から $\gamma\equiv0$ なので $F=0$ でよいです。
+$\gamma(0)=0$ なら[正定値列の Hermite 対称性と有界性](#lem-tsa3-pd-basic)から $\gamma\equiv0$ なので $F=0$ でよいです。
 
-$\gamma(0)>0$ とします。$F_n$ は全て質量 $\gamma(0)$ を持ち、Lebesgue 密度を持つので端点に原子を持ちません。従って $[-\pi,\pi]$ 上の測度とみなし、[部分列選択補題](#lem-tsa3-compact-measures)から弱収束部分列
+$\gamma(0)>0$ とします。$F_n$ は全て質量 $\gamma(0)$ を持ち、Lebesgue 密度を持つので端点に原子を持ちません。従って $[-\pi,\pi]$ 上の測度とみなし、[コンパクト区間上の有限測度列の部分列選択](#lem-tsa3-compact-measures)から弱収束部分列
 
 $$
 F_{n_r}\Longrightarrow \widetilde F
