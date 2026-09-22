@@ -9,7 +9,7 @@ concepts:
   - id: geometry.smooth-vector-field
     name: 滑らかなベクトル場
     kind: definition
-    aliases: [滑らかなベクトル場, ベクトル場, smooth vector field]
+    aliases: [滑らかなベクトル場, smooth vector field]
     requires:
       - geometry.tangent-bundle
       - geometry.tangent-bundle-smooth-structure
@@ -140,7 +140,7 @@ concepts:
   - id: geometry.lie-bracket-coordinate-formula
     name: Lie 括弧の座標公式
     kind: theorem
-    aliases: [Lie括弧の座標公式]
+    aliases: [Lie bracket coordinate formula]
     requires:
       - geometry.lie-bracket-derivation
       - geometry.coordinate-tangent-basis
