@@ -107,9 +107,9 @@ $$
 **定義の確認**  
 一階差分は $h_0=1,h_1=-1$、他は 0 の線形フィルタです。係数の絶対和は
 
-$
+$$
 \sum_j|h_j|=2<\infty
-$
+$$
 
 なので、この定義に含まれます。有限フィルタは自動的に絶対可算和可能です。
 <!-- definition-example-end -->
@@ -431,9 +431,9 @@ $$
 **定義の確認**  
 $Y_t=X_t+\frac12X_{t-1}+\frac14X_{t-2}+\cdots$ では $h_j=2^{-j}$ $(j\ge0)$、$h_j=0$ $(j<0)$ です。従って
 
-$
+$$
 \sum_{j\ge0}|h_j|=2
-$
+$$
 
 で、現在と過去だけを使う因果フィルタです。
 <!-- definition-example-end -->
@@ -463,21 +463,21 @@ $
 **定義の確認**  
 $Y_t=X_t+\theta X_{t-1}$、$|\theta|<1$ なら
 
-$
+$$
 X_t
 =
 Y_t-\theta Y_{t-1}+\theta^2Y_{t-2}-\cdots.
-$
+$$
 
 逆フィルタ係数は $g_j=(-\theta)^j$ であり、
 
-$
+$$
 \sum_{j\ge0}|g_j|
 =
 \frac1{1-|\theta|}
 <
 \infty.
-$
+$$
 
 従ってこの有限移動平均フィルタは因果的に可逆です。
 <!-- definition-example-end -->
@@ -541,33 +541,33 @@ $$
 **定義の確認**  
 AR(1)
 
-$
+$$
 X_t=\phi X_{t-1}+Z_t
-$
+$$
 
 は
 
-$
+$$
 (1-\phi B)X_t=Z_t
-$
+$$
 
 です。
 
 $|\phi|<1$ なら
 
-$
+$$
 \frac1{1-\phi z}
 =
 \sum_{j=0}^{\infty}\phi^jz^j
-$
+$$
 
 が $|z|\le1$ で絶対収束し、
 
-$
+$$
 X_t
 =
 \sum_{j=0}^{\infty}\phi^jZ_{t-j}.
-$
+$$
 
 これは TSA2 で確認した Wold 表示と一致します。
 <!-- definition-example-end -->
