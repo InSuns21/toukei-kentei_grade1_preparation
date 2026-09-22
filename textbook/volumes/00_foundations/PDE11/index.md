@@ -115,6 +115,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pde11-bessel-mode -->
+**定義の確認**：以下で定義の条件を直接確認します。
+
 $m=0$ なら角度に依存しない放射対称モードで、
 
 $$
@@ -186,6 +188,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pde11-spherical-harmonic -->
+**定義の確認**：以下で定義の条件を直接確認します。
+
 ### 最初の低次数モード
 
 $\ell=0$ では定数関数。$\ell=1$ では球面上の座標関数
