@@ -10,7 +10,7 @@ concepts:
   - id: numerical.polynomial-interpolation
     name: 多項式補間問題
     kind: definition
-    aliases: [多項式補間, polynomial interpolation]
+    aliases: [polynomial interpolation]
     introduction: formal
     introduction_aliases: ["定義（多項式補間問題）"]
     requires: []
@@ -87,13 +87,21 @@ concepts:
     introduction_aliases: ["定理（最高次係数1の多項式に対する Chebyshev の最小最大性）"]
     requires: [numerical.chebyshev-nodes, analysis.intermediate-value-theorem]
 
-  - id: numerical.lebesgue-constant
-    name: Lebesgue 関数・Lebesgue 定数
+  - id: numerical.lebesgue-function
+    name: Lebesgue 関数
     kind: definition
-    aliases: [Lebesgue 定数]
+    aliases: [Lebesgue function]
     introduction: formal
     introduction_aliases: ["定義（Lebesgue 関数・Lebesgue 定数）"]
     requires: [numerical.lagrange-basis]
+
+  - id: numerical.lebesgue-constant
+    name: Lebesgue 定数
+    kind: definition
+    aliases: [Lebesgue constant]
+    introduction: formal
+    introduction_aliases: ["定義（Lebesgue 関数・Lebesgue 定数）"]
+    requires: [numerical.lebesgue-function]
 
   - id: numerical.interpolation-data-perturbation
     name: 多項式補間におけるデータ摂動の増幅評価
