@@ -10,8 +10,6 @@
 2. [標準数学コア（読む順DAG）](textbook/dream-theater-standard-math-core.md)
 3. [F0-00R 基礎論ロードマップ](textbook/volumes/00_foundations/F0_00R_基礎論ロードマップ/index.md)
 
-旧 F0-01 は過去URL互換のためファイルを残していますが、現行の標準入口は上の **標準数学コア** です。
-
 ---
 
 ## 1. DREAM THEATER 本編
@@ -64,7 +62,7 @@
 
 ### 標準線形代数コア
 
-既存章を基底・線形写像・実内積・実対称スペクトル定理・実SVDの正本として再利用し、LA系列で複素数体・商空間・代数的双対・行列式・作用素構造・複素内積を補います。
+基底・線形写像・実内積・実対称スペクトル定理・実SVDを踏まえ、LA系列で複素数体・商空間・代数的双対・行列式・作用素構造・複素内積へ進みます。
 
 1. [F0-00E ベクトル空間・基底](textbook/volumes/00_foundations/F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md)
 2. [F0-00F 線形写像・固有空間・SVD](textbook/volumes/00_foundations/F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md)
@@ -87,15 +85,15 @@
 
 ### 多様体・微分幾何コア
 
-位相・多変数解析を、一般多様体上の微分幾何へ接続する系列です。未実装章は先行掲載せず、完成した章から標準読順へ追加します。
+位相・多変数解析を、一般多様体上の微分幾何へ接続する系列です。
 
 1. [GEO1 滑らかな多様体・滑らかな写像](textbook/volumes/00_foundations/GEO1/index.md)
 
-GEO1 では、Hausdorff・第二可算・局所 Euclid 性から位相多様体を定義し、座標近傍・滑らかなアトラス・極大滑らかアトラスを経て、球面・トーラス・実射影空間と滑らかな写像までを構成します。次の実装予定は GEO2「接空間・余接空間・微分・接束」です。
+GEO1 では、Hausdorff・第二可算・局所 Euclid 性から位相多様体を定義し、座標近傍・滑らかなアトラス・極大滑らかアトラスを経て、球面・トーラス・実射影空間と滑らかな写像までを構成します。
 
 ### 標準ベクトル解析コア
 
-多変数微分と多重積分を、曲線・曲面・場・積分定理へ接続する独立系列です。PDE の補助計算として局所実装せず、流体・電磁気・連続体力学にも共通する canonical core として扱います。
+多変数微分と多重積分を、曲線・曲面・場・積分定理へ接続する独立系列です。PDE に加えて、流体・電磁気・連続体力学にも共通する基礎を扱います。
 
 1. [VC1 ベクトル場と微分演算子](textbook/volumes/00_foundations/VC1/index.md)
 2. [VC2 曲線・線積分・保存場](textbook/volumes/00_foundations/VC2/index.md)
@@ -107,7 +105,7 @@ GEO1 では、Hausdorff・第二可算・局所 Euclid 性から位相多様体�
 8. [VC8 Newton ポテンシャル・Helmholtz 分解](textbook/volumes/00_foundations/VC8/index.md)
 9. [VC9 保存則・流体・Maxwell 方程式](textbook/volumes/00_foundations/VC9/index.md)
 
-VC4 までで PDE6 が必要とする法線・流束・発散定理を正本化し、VC5--VC6 で Kelvin--Stokes の定理と円柱・球座標まで古典ベクトル解析の標準線を閉じます。VC7 では Einstein の総和規約、Kronecker のデルタ、Levi--Civita 記号、二階デカルトテンソル、応力・慣性テンソル、VC8 では Newton 核から Helmholtz 分解、ゲージ自由度、Biot--Savart 型再構成、VC9 では保存則・物質微分・非圧縮流・運動量収支・Maxwell 方程式までを整備しました。これで標準ベクトル解析 VC1--VC9 の主線は完結しています。
+VC1--VC4 では場の微分・線積分・曲面積分から Green の定理と Gauss--Ostrogradsky の発散定理へ進み、PDE6 で使う法線・流束・発散定理を準備します。VC5--VC6 では Kelvin--Stokes の定理と円柱・球座標、VC7 では Einstein の総和規約、Kronecker のデルタ、Levi--Civita 記号、二階デカルトテンソル、応力・慣性テンソル、VC8 では Newton 核から Helmholtz 分解、ゲージ自由度、Biot--Savart 型再構成、VC9 では保存則・物質微分・非圧縮流・運動量収支・Maxwell 方程式を扱います。
 
 ### ノルム空間・測度・Lebesgue積分
 
@@ -135,7 +133,7 @@ VC4 までで PDE6 が必要とする法線・流束・発散定理を正本化�
 
 ### 関数解析
 
-ここからは、関数空間を「無限次元の線形空間」として扱うための本体です。後ろの凸解析・KKT・RKHSが、ここで準備する完備性・双対・作用素・分離の言葉を使います。多変数微分としてのF0-02C3はRA6正本として標準実解析コア欄に置き、ここではその後続のBanach/Hilbert空間上の理論へ進みます。
+ここからは、関数空間を「無限次元の線形空間」として扱うための本体です。後ろの凸解析・KKT・RKHSが、ここで準備する完備性・双対・作用素・分離の言葉を使います。多変数微分は標準実解析コアの RA6 で扱い、ここではその後続となる Banach/Hilbert 空間上の理論へ進みます。
 
 1. [F0-02C 関数解析・制約想定・RKHS ロードマップ](textbook/volumes/00_foundations/F0_02C_関数解析_制約想定_RKHS/index.md)
 2. [F0-02C1 Banach・Hilbert](textbook/volumes/00_foundations/F0_02C1_ノルム空間_Banach_Hilbert/index.md)
@@ -155,7 +153,7 @@ VC4 までで PDE6 が必要とする法線・流束・発散定理を正本化�
 
 ### 標準複素解析コア
 
-実解析・複素線形代数を受け、Cauchy理論から留数・調和関数・スペクトル論へ進む独立系列です。証明まで完成した章だけをここへ公開します。
+実解析・複素線形代数を受け、Cauchy 理論から留数・調和関数・スペクトル論へ進む独立系列です。
 
 1. [CA1 複素微分・Cauchy–Riemann・初等正則関数](textbook/volumes/00_foundations/CA1/index.md)
 2. [CA2 複素線積分・原始関数・Cauchy–Goursat](textbook/volumes/00_foundations/CA2/index.md)
@@ -227,8 +225,6 @@ VC4 までで PDE6 が必要とする法線・流束・発散定理を正本化�
 
 ## 3. Encore II：ODE・Fourier解析・PDE
 
-旧 `F0_00H1`、`F0_00FA1`～`F0_00FA3`、`F0_00PDE1`～`F0_00PDE3` は再編前教材としてリポジトリ内には保持しますが、**現行の読者向け目次・通常導線には表示しません**。現行正本は ODE / FOU / PDE の新系列です。
-
 1. [Encore II ロードマップ](textbook/volumes/00_foundations/F0_00R2_EncoreII_Fourier解析_微分方程式/index.md)
 2. [ODE1 一階常微分方程式・初期値問題](textbook/volumes/00_foundations/ODE1/index.md)
 3. [ODE2 高階線形微分方程式](textbook/volumes/00_foundations/ODE2/index.md)
@@ -276,35 +272,7 @@ Encore II が **古典 PDE** を閉じた後、Encore III では distribution・
 10. [GPDE9 楕円型正則性](textbook/volumes/00_foundations/GPDE9/index.md)
 11. [GPDE10 Galerkin・時間発展PDEの弱解](textbook/volumes/00_foundations/GPDE10/index.md)
 
-GPDE1--GPDE10 は本文・主要証明・直接例・A4/B3/C1 演習・詳細解答まで正本化済みで、Encore III の Graduate PDE 主線は完結しています。
-
-```text
-GPDE1  テスト関数・distribution
-  ↓
-GPDE2  distribution微分・mollifier・弱微分
-  ↓
-GPDE3  Sobolev空間
-  ↓
-GPDE4  H0^1・Poincare・trace
-  ↓
-GPDE5  Sobolev embedding・compactness
-  ↓
-GPDE6  弱形式・変分形式
-  ↓
-GPDE7  Lax--Milgram
-  ↓
-GPDE8  二階線形楕円型PDE
-  ↓
-GPDE9  楕円型正則性
-  ↓
-GPDE10 Galerkin・時間発展PDEの弱解
-```
-
-各 GPDE 章は本文・主要証明・直接例・A4/B3/C1 演習・詳細解答・依存検証まで完了したものから順にこの目次へ追加します。
-
-再編前の `F0-00DS1`、`F0-00DS2`、`F0-00SOB1`、`F0-00SOB2`、`F0-00WK1`、`F0-00WK2`、`F0-00WK3` は移植元・履歴確認用として保持しますが、**現行の主線・通常導線には表示しません**。新 GPDE 系列から prerequisite / concept owner / proof dependency にもしません。
-
-Encore III 本線では distributional solution、variational 弱解、energy solution を扱い、mild solution は bridge に留めます。entropy / viscosity / renormalized / measure-valued solution、Navier--Stokes の本格弱解理論、geometric analysis は別系列として扱います。
+Encore III では distributional solution、variational 弱解、energy solution を扱い、mild solution は橋渡しに留めます。entropy / viscosity / renormalized / measure-valued solution、Navier--Stokes の本格弱解理論、geometric analysis は別系列として扱います。
 
 ---
 
@@ -336,9 +304,7 @@ Encore III 本線では distributional solution、variational 弱解、energy so
 23. [TSA5 エルゴード性・混合性・従属極限定理](textbook/volumes/00_foundations/TSA5/index.md)
 24. [TSA6 状態空間・Kalman フィルタ・イノベーション](textbook/volumes/00_foundations/TSA6/index.md)
 
-旧 Encore IV の SP / TS 個別章は backup / migration source として残しますが、現行主線からは外しています。新 STO / TSA 章は、本文・証明・直接例・演習・詳細解答・検証まで完成した章だけ順次ここへ追加します。
-
-再編後は、STO 系列でマルチンゲール・ブラウン運動・二次変分・確率積分・SDE・Girsanov・Markov / 生成作用素・マルチンゲール representation・ポアソン / Lévy / 跳躍型確率解析まで、TSA 系列で定常過程・予測・Wold・スペクトル表現・ARMA・エルゴード性・Kalman フィルタまでを扱います。
+STO 系列ではマルチンゲール・ブラウン運動・二次変分・確率積分・SDE・Girsanov・Markov 過程・生成作用素・マルチンゲール表現・ポアソン / Lévy / 跳躍型確率解析まで、TSA 系列では定常過程・予測・Wold 分解・スペクトル表現・ARMA / ARIMA・エルゴード性・Kalman フィルタまでを扱います。
 
 ---
 
@@ -363,5 +329,5 @@ Encore III 本線では distributional solution、variational 弱解、energy so
 
 - 統計検定1級の本線だけなら、まず通常教材を優先してください。
 - DREAM THEATERは「この定理はどこから来たのか」を掘りたいときの補講系列です。
-- 標準数学コアの章は、既存概念を再定義せず、既存章を正本として再利用しながら不足する定理列を補います。
+- 標準数学コアでは、既出概念を必要に応じて参照しながら、その先で必要となる定理や理論を積み上げます。
 - 証明補講は、既存の概念章を肥大化せず **定義 → 例 → 定理 → 証明 → A/B演習** を閉じるために分離しています。
