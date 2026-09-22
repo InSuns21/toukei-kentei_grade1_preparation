@@ -1,0 +1,168 @@
+chapter: GEO13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEO5
+  - GEO12
+
+concepts:
+  - id: geometry.affine-connection
+    name: アフィン接続
+    kind: definition
+    aliases: [アフィン接続, affine connection]
+    introduction: formal
+    requires:
+      - geometry.smooth-vector-field
+
+  - id: geometry.christoffel-coefficients
+    name: Christoffel 係数
+    kind: definition
+    aliases: [Christoffel 係数, Christoffel symbols]
+    introduction: formal
+    requires:
+      - geometry.affine-connection
+      - geometry.coordinate-tangent-basis
+
+  - id: geometry.connection-coordinate-formula
+    name: 共変微分の座標公式
+    kind: proposition
+    aliases: [共変微分の座標公式]
+    requires:
+      - geometry.christoffel-coefficients
+      - geometry.coordinate-tangent-basis
+
+  - id: geometry.connection-difference-tensor
+    name: 二つの接続の差はテンソル場
+    kind: proposition
+    aliases: [二つの接続の差はテンソル場]
+    requires:
+      - geometry.affine-connection
+      - geometry.tensor-field
+
+  - id: geometry.connection-torsion
+    name: 接続の捩率
+    kind: definition
+    aliases: [接続の捩率, torsion of a connection]
+    introduction: formal
+    requires:
+      - geometry.affine-connection
+      - geometry.lie-bracket
+
+  - id: geometry.connection-torsion-tensoriality
+    name: 捩率のテンソル性と座標表示
+    kind: proposition
+    aliases: [捩率のテンソル性, 捩率の座標表示]
+    requires:
+      - geometry.connection-torsion
+      - geometry.lie-bracket-coordinate-formula
+      - geometry.christoffel-coefficients
+
+  - id: geometry.covariant-derivative-along-curve
+    name: 曲線に沿う共変微分
+    kind: definition
+    aliases: [曲線に沿う共変微分, covariant derivative along a curve]
+    introduction: formal
+    requires:
+      - geometry.affine-connection
+      - geometry.curve-derivation-tangent-equivalence
+
+  - id: geometry.parallel-vector-field
+    name: 平行ベクトル場
+    kind: definition
+    aliases: [平行ベクトル場, parallel vector field along a curve]
+    introduction: formal
+    introduction_aliases: ["定義（平行ベクトル場・平行移動）"]
+    requires:
+      - geometry.covariant-derivative-along-curve
+
+  - id: geometry.parallel-transport
+    name: 平行移動
+    kind: definition
+    aliases: [平行移動, parallel transport]
+    introduction: formal
+    introduction_aliases: ["定義（平行ベクトル場・平行移動）"]
+    requires:
+      - geometry.parallel-vector-field
+      - geometry.tangent-space
+
+  - id: geometry.parallel-transport-existence-uniqueness
+    name: 曲線に沿う共変微分と平行移動の存在一意性
+    kind: theorem
+    aliases: [平行移動の存在一意性]
+    requires:
+      - geometry.parallel-transport
+      - geometry.local-integral-curve-existence-uniqueness
+      - ode.ode1-picard-lindelof
+
+  - id: geometry.metric-compatible-connection
+    name: 計量両立接続
+    kind: definition
+    aliases: [計量両立接続, metric-compatible connection]
+    introduction: formal
+    introduction_aliases: ["定義（計量両立性）"]
+    requires:
+      - geometry.affine-connection
+      - geometry.riemannian-metric
+
+  - id: geometry.parallel-transport-isometry
+    name: 計量両立接続の平行移動は内積を保存する
+    kind: proposition
+    aliases: [平行移動による内積保存]
+    requires:
+      - geometry.metric-compatible-connection
+      - geometry.parallel-transport
+
+  - id: geometry.koszul-formula
+    name: Koszul の公式
+    kind: theorem
+    aliases: [Koszul の公式, Koszul formula]
+    requires:
+      - geometry.metric-compatible-connection
+      - geometry.connection-torsion
+      - geometry.lie-bracket
+
+  - id: geometry.levi-civita-connection
+    name: Levi-Civita 接続
+    kind: definition
+    aliases: [Levi-Civita 接続, Levi-Civita connection]
+    introduction: formal
+    requires:
+      - geometry.riemannian-metric
+      - geometry.metric-compatible-connection
+      - geometry.connection-torsion
+
+  - id: geometry.levi-civita-existence-uniqueness
+    name: Levi-Civita 接続の存在一意性
+    kind: theorem
+    aliases: [Levi-Civita 接続の存在一意性, fundamental theorem of Riemannian geometry]
+    requires:
+      - geometry.levi-civita-connection
+      - geometry.koszul-formula
+      - geometry.musical-isomorphisms
+
+  - id: geometry.levi-civita-christoffel-formula
+    name: Levi-Civita 接続の Christoffel 係数公式
+    kind: proposition
+    aliases: [Levi-Civita 接続の Christoffel 係数公式]
+    requires:
+      - geometry.levi-civita-existence-uniqueness
+      - geometry.christoffel-coefficients
+      - geometry.riemannian-metric
+
+  - id: geometry.tensor-covariant-derivative
+    name: テンソル場の共変微分
+    kind: definition
+    aliases: [テンソル場の共変微分, covariant derivative of a tensor field]
+    introduction: formal
+    requires:
+      - geometry.affine-connection
+      - geometry.tensor-field
+      - geometry.cotangent-space
+
+  - id: geometry.tensor-covariant-derivative-coordinate
+    name: テンソル場の共変微分の座標表示
+    kind: proposition
+    aliases: [テンソル場の共変微分の座標表示]
+    requires:
+      - geometry.tensor-covariant-derivative
+      - geometry.christoffel-coefficients

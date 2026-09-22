@@ -1,0 +1,57 @@
+id: "GEO13"
+title: "幾何学 XIII：アフィン接続・Levi-Civita 接続・平行移動"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEO5
+  - GEO12
+official_scope: []
+learning_objectives:
+  - アフィン接続をベクトル場の方向微分を補正する演算として定義し、接続の公理を説明できる
+  - 局所座標で Christoffel 係数を定義し、共変微分の座標公式を導出できる
+  - 二つの接続の差が $(1,2)$ テンソル場になることを証明し、Christoffel 係数自体がテンソル成分ではない理由を説明できる
+  - 接続の捩率を定義し、座標表示とテンソル性を示せる
+  - 曲線に沿う共変微分を構成し、平行ベクトル場と平行移動を線形 ODE として求められる
+  - 計量両立性を定義し、計量と両立する接続の平行移動が内積を保存することを証明できる
+  - Koszul の公式を捩率0と計量両立性から導出できる
+  - Koszul の公式を用いて Levi-Civita 接続の存在一意性を核心まで証明できる
+  - Levi-Civita 接続の Christoffel 係数公式を導出し、極座標・共形計量・warped 型計量で計算できる
+  - 共変微分を余ベクトル場・一般テンソル場へ拡張し、成分公式を使える
+definitions:
+  - { id: GEO13-DEF-01, name: アフィン接続 }
+  - { id: GEO13-DEF-02, name: Christoffel 係数 }
+  - { id: GEO13-DEF-03, name: 接続の捩率 }
+  - { id: GEO13-DEF-04, name: 曲線に沿う共変微分 }
+  - { id: GEO13-DEF-05, name: 平行ベクトル場・平行移動 }
+  - { id: GEO13-DEF-06, name: 計量両立性 }
+  - { id: GEO13-DEF-07, name: Levi-Civita 接続 }
+  - { id: GEO13-DEF-08, name: テンソル場の共変微分 }
+theorems:
+  - { id: GEO13-PROP-01, name: 共変微分の座標公式 }
+  - { id: GEO13-PROP-02, name: 二つの接続の差はテンソル場 }
+  - { id: GEO13-PROP-03, name: 捩率のテンソル性と座標表示 }
+  - { id: GEO13-THM-01, name: 曲線に沿う共変微分と平行移動の存在一意性 }
+  - { id: GEO13-PROP-04, name: 計量両立接続の平行移動は内積を保存する }
+  - { id: GEO13-THM-02, name: Koszul の公式 }
+  - { id: GEO13-THM-03, name: Levi-Civita 接続の存在一意性 }
+  - { id: GEO13-PROP-05, name: Levi-Civita 接続の Christoffel 係数公式 }
+  - { id: GEO13-PROP-06, name: テンソル場の共変微分の座標表示 }
+canonical_examples:
+  - Euclid 空間の標準接続
+  - 極座標での Euclid 計量の Levi-Civita 接続
+  - 一次元共形計量
+  - 二次元共形計量
+  - warped 型計量
+problem_patterns:
+  - GEO13-AFFINE-CONNECTION-1
+  - GEO13-CHRISTOFFEL-1
+  - GEO13-TORSION-1
+  - GEO13-PARALLEL-TRANSPORT-1
+  - GEO13-METRIC-COMPATIBILITY-1
+  - GEO13-KOSZUL-1
+  - GEO13-LEVI-CIVITA-1
+  - GEO13-TENSOR-COVARIANT-DERIVATIVE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.5, exercises: 6.0, review: 0.5 }

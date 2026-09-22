@@ -100,6 +100,8 @@ flowchart TD
   GEO8 --> GEO12
   LA5 --> GEO12
   VC1 --> GEO12
+  GEO5 --> GEO13["アフィン接続・Levi-Civita 接続・平行移動<br/>GEO13"]
+  GEO12 --> GEO13
   TOP5 --> TOP5A["Urysohn・局所コンパクト性・cutoff<br/>TOP5A"]
   TOP5 --> BAIRE["全有界性・Baire・net/filter<br/>TOP6"]
   BAIRE --> UNIFORM["一様構造・一様連続・Cauchy構造<br/>TOP7"]
@@ -789,7 +791,26 @@ direct prerequisite は GEO10、GEO6、GEO9 です。GEO10 の第一・第二基
 
 実装: [GEO12](volumes/00_foundations/GEO12/index.md)
 
-direct prerequisite は GEO4、GEO7、GEO8、LA5、VC1 です。GEO4 は局所 Euclid 計量を 1 の分割で貼る存在証明、GEO7 はテンソル場・Lie 微分、GEO8 は向きと最高次形式、LA5 までの内積理論は各接空間の正定値内積、VC1 は Euclid の勾配・発散・Laplacian を Riemannian 公式の特殊例として回収するために直接使います。次の GEO13 では計量と両立し torsion が0の Levi-Civita 接続を構成します。
+direct prerequisite は GEO4、GEO7、GEO8、LA5、VC1 です。GEO4 は局所 Euclid 計量を 1 の分割で貼る存在証明、GEO7 はテンソル場・Lie 微分、GEO8 は向きと最高次形式、LA5 までの内積理論は各接空間の正定値内積、VC1 は Euclid の勾配・発散・Laplacian を Riemannian 公式の特殊例として回収するために直接使います。次の GEO13 では計量と両立し捩率が0の Levi-Civita 接続を構成します。
+
+## GEO13 アフィン接続・Levi-Civita 接続・平行移動 `core`
+
+- アフィン接続と共変微分の公理、Euclid 標準接続
+- Christoffel 係数と共変微分の座標公式
+- 二つの接続の差が型 $(1,2)$ テンソル場になることを証明
+- 接続の捩率と座標表示、捩率0の条件
+- 曲線に沿う共変微分と平行ベクトル場を構成
+- 線形 ODE による平行移動の存在一意性と線形同型性
+- 計量両立性から平行移動による内積・長さ・角度保存を証明
+- Koszul の公式を捩率0と計量両立性から導出
+- Koszul の公式から Levi-Civita 接続の存在一意性を核心証明
+- Levi-Civita 接続の Christoffel 係数公式を導出
+- 共変微分を余ベクトル場・一般テンソル場へ拡張
+- A4/B3/C1 の演習で極座標、共形計量、warped 型計量、平行移動を具体計算
+
+実装: [GEO13](volumes/00_foundations/GEO13/index.md)
+
+direct prerequisite は GEO5、GEO12 です。GEO5 のベクトル場・Lie 括弧と、そこで再利用した ODE の存在一意性を平行移動の線形 ODE に用います。GEO12 の Riemann 計量と flat・sharp 同型を使い、計量両立性と捩率0から Koszul の公式を経て Levi-Civita 接続を一意に構成します。次の GEO14 ではこの接続から測地線・指数写像・正規座標へ進みます。
 
 ---
 
