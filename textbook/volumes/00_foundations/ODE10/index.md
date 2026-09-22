@@ -271,7 +271,7 @@ $$
 
 <!-- solution-start -->
 ##### 詳細解答
-上の標準形の定理により正の極限集合は周期軌道です。平面・コンパクト性・[平衡解](../ODE1/index.md#def-ode1-equilibrium)不在が重要な条件です。
+上で示した結果により正の極限集合は周期軌道です。平面・コンパクト性・[平衡解](../ODE1/index.md#def-ode1-equilibrium)不在が重要な条件です。
 <!-- solution-end -->
 
 ### Level C
