@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-ODE9 までで平衡点へ近づく軌道を扱いました。平面では、軌道が平衡点へ行かずに閉じて回り続ける現象があります。本章では周期軌道の存在と不存在を、
+ODE9 までで[平衡点](../ODE4/index.md#def-ode4-nonlinear-autonomous-system)へ近づく軌道を扱いました。平面では、軌道が[平衡点](../ODE4/index.md#def-ode4-nonlinear-autonomous-system)へ行かずに閉じて回り続ける現象があります。本章では周期軌道の存在と不存在を、
 
 $$
 \text{閉じ込め領域}
@@ -106,7 +106,7 @@ $B=1$ とすれば通常の Bendixson 判定です。
 <a id="thm-ode10-poincare-bendixson"></a>
 <!-- formal-statement-start -->
 > **定理（Poincaré--Bendixson の定理：標準形）**  
-> $C^1$ 平面自律系の前向き軌道がコンパクト集合に留まるとする。その正の極限集合が平衡点を含まないなら、その正の極限集合は周期軌道である。
+> $C^1$ 平面自律系の前向き軌道がコンパクト集合に留まるとする。その正の極限集合が[平衡点](../ODE4/index.md#def-ode4-nonlinear-autonomous-system)を含まないなら、その正の極限集合は周期軌道である。
 <!-- formal-statement-end -->
 
 ### 何が平面特有なのか
@@ -117,7 +117,7 @@ $B=1$ とすれば通常の Bendixson 判定です。
 
 1. コンパクト性から正の極限集合は空でない。
 2. ODE の一意性により平面軌道は横断的に自己交差できない。
-3. 平衡点がなければ極限集合の点に短い横断線を置ける。
+3. [平衡点](../ODE4/index.md#def-ode4-nonlinear-autonomous-system)がなければ極限集合の点に短い横断線を置ける。
 4. 同じ軌道の繰り返し交差は横断線上で順序を持つ。
 5. Jordan 曲線定理で挟まれた領域を使うと、交点列の極限から閉軌道が得られる。
 
@@ -239,11 +239,11 @@ $$
 #### ODE10-B03 Poincaré--Bendixson
 - Level: B
 
-前向き軌道がコンパクト集合に留まり、その正の極限集合が平衡点を含まないとき何が結論されるか。
+前向き軌道がコンパクト集合に留まり、その正の極限集合が[平衡点](../ODE4/index.md#def-ode4-nonlinear-autonomous-system)を含まないとき何が結論されるか。
 
 <!-- solution-start -->
 ##### 詳細解答
-Poincaré--Bendixson の定理により正の極限集合は周期軌道です。平面・コンパクト性・平衡点不在が重要な条件です。
+Poincaré--Bendixson の定理により正の極限集合は周期軌道です。平面・コンパクト性・[平衡点](../ODE4/index.md#def-ode4-nonlinear-autonomous-system)不在が重要な条件です。
 <!-- solution-end -->
 
 ### Level C
@@ -255,7 +255,7 @@ trapping region、Poincaré--Bendixson、Bendixson--Dulac をどのように使�
 
 <!-- solution-start -->
 ##### 詳細解答
-周期軌道の存在を狙うなら前向き軌道を trapping region に閉じ込め、その正の極限集合から平衡点を排除して Poincaré--Bendixson を使います。不存在を狙うなら発散または Dulac 関数で符号一定性を作り、[Green の定理（循環形）](../VC4/index.md#thm-vc4-green-circulation)から矛盾を出します。前者は存在側、後者は不存在側の道具です。
+周期軌道の存在を狙うなら前向き軌道を trapping region に閉じ込め、その正の極限集合から[平衡点](../ODE4/index.md#def-ode4-nonlinear-autonomous-system)を排除して Poincaré--Bendixson を使います。不存在を狙うなら発散または Dulac 関数で符号一定性を作り、[Green の定理（循環形）](../VC4/index.md#thm-vc4-green-circulation)から矛盾を出します。前者は存在側、後者は不存在側の道具です。
 <!-- solution-end -->
 
 ## 7. 章末チェック
