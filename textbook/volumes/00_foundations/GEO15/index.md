@@ -620,7 +620,7 @@ $$
 
 その最初の点を $y_n$ とします。
 
-正規球では [GEO14 の距離公式](../GEO14/index.md#cor-geo14-normal-distance)により
+[正規球での基点からの距離](../GEO14/index.md#cor-geo14-normal-distance)により
 
 $$
 \{z:d(x,z)=\delta\}
