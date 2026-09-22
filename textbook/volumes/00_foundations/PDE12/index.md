@@ -677,14 +677,14 @@ $$
 
 <a id="def-pde12-caustic"></a>
 <!-- formal-statement-start -->
-> **定義（特性 caustic）**  
+> **定義（特性焦散（caustic））**  
 > 特性写像 $a\mapsto X(t,a)$ の Jacobian
 
 $$
 \det D_aX(t,a)
 $$
 
-> が0になる点の像を、本章では特性 caustic と呼ぶ。そこでは初期ラベルから現在位置への局所逆写像が失われ、古典解の再構成が破綻し得る。
+> が0になる点の像を、本章では特性焦散 と呼ぶ。そこでは初期ラベルから現在位置への局所逆写像が失われ、古典解の再構成が破綻し得る。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pde12-caustic -->
@@ -733,20 +733,20 @@ $$
 $v=u_x$ と置けば主張を得ます。
 <!-- proof-end -->
 
-PDE1 で見た Burgers の特性交差と、Hamilton--Jacobi の caustic は同じ幾何を勾配側とポテンシャル側から見ています。
+PDE1 で見た Burgers の特性交差と、Hamilton--Jacobi の 焦散は同じ幾何を勾配側とポテンシャル側から見ています。
 
 ## 7. 勾配の大きさを指定する方程式
 
 <a id="def-pde12-eikonal"></a>
 <!-- formal-statement-start -->
-> **定義（eikonal 方程式）**  
+> **定義（アイコナール方程式（eikonal equation））**  
 > 正の関数 $c(x)$ に対し
 
 $$
 |\nabla u(x)|=c(x)
 $$
 
-> を eikonal 方程式という。
+> を アイコナール方程式という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pde12-eikonal -->
@@ -758,14 +758,14 @@ $$
 |\nabla u|=1=c(x).
 $$
 
-したがって $u(x)=x_1$ は全空間で滑らかな eikonal 方程式の古典解です。
+したがって $u(x)=x_1$ は全空間で滑らかな アイコナール方程式の古典解です。
 <!-- definition-example-end -->
 
 幾何光学では $u$ は位相、$\nabla u$ は波面に垂直な方向を表します。$c=1$ なら距離関数 $u(x)=|x|$ が原点外で解ですが、原点では滑らかでありません。
 
-## 8. 停止線：viscosity solution
+## 8. 停止線：粘性解（viscosity solution）
 
-特性が交差すると $\nabla u$ が多価になり、古典解は続けられません。Hamilton--Jacobi 方程式では順序比較による一意性を保つ viscosity solution が自然な後続理論です。
+特性が交差すると $\nabla u$ が多価になり、古典解は続けられません。Hamilton--Jacobi 方程式では順序比較による一意性を保つ 粘性解 が自然な後続理論です。
 
 本章では
 
@@ -777,7 +777,7 @@ $$
 
 までを正本化します。
 
-viscosity subsolution / supersolution、順序比較による一意性、Perron 法、HJB は Graduate PDE 後続系列へ送ります。
+粘性劣解 / 粘性優解、順序比較による一意性、Perron 法、HJB は Graduate PDE 後続系列へ送ります。
 
 ## 演習
 
@@ -892,7 +892,7 @@ u(t,x)=\frac{x^2}{2(1+t)}.
 $$
 <!-- solution-end -->
 
-#### PDE12-B02 caustic の時刻
+#### PDE12-B02 焦散の時刻
 - Level: B
 
 初期値 $u_0(x)=-x^2/2$ のとき、自由 Hamiltonian の特性写像がいつ退化するか求めよ。
@@ -931,7 +931,7 @@ $$
 
 ### Level C
 
-#### PDE12-C01 caustic と Burgers の勾配の無限大化
+#### PDE12-C01 焦散と Burgers の勾配の無限大化
 - Level: C
 
 自由 Hamilton--Jacobi 方程式で
@@ -970,7 +970,7 @@ v_x
 {1+t u_0''(a)}.
 $$
 
-従って $X_a\to0$ と同時に $|v_x|$ が無限大へ増大します。caustic と Burgers の古典解破綻は同じ特性交差です。
+従って $X_a\to0$ と同時に $|v_x|$ が無限大へ増大します。焦散と Burgers の古典解破綻は同じ特性交差です。
 <!-- solution-end -->
 
 ## 9. 章末チェック
@@ -978,5 +978,5 @@ $$
 - Charpit 特性系を一般一階 PDE から導ける。
 - Hamilton の正準方程式を Hamilton--Jacobi から導ける。
 - 特性写像の局所逆写像の存在から古典解を再構成できる。
-- caustic と Burgers の特性交差を同じ Jacobian で説明できる。
-- viscosity solution が必要になる境界を説明できる。
+- 焦散と Burgers の特性交差を同じ Jacobian で説明できる。
+- 粘性解 が必要になる境界を説明できる。
