@@ -9,7 +9,7 @@ concepts:
   - id: ode.ode4-nonlinear-autonomous-system
     name: 非線形自律系・平衡点
     kind: definition
-    aliases: [非線形自律系, 自律系, 平衡点, nonlinear autonomous system, equilibrium]
+    aliases: [非線形自律系, 自律系, nonlinear autonomous system, equilibrium]
     introduction: formal
     requires:
       - ode.ode1-picard-lindelof
