@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-TSA1 では、過去から一段先を予測したときに残る直交成分を[イノベーション](../TSA1/index.md#def-tsa1-innovation)として導入しました。TSA2--TSA4 では、その予測構造を Wold 分解・スペクトル表現・ARMA へ展開しました。
+TSA1 では、過去から一段先を予測したときに残る直交成分を[イノベーション](../TSA1/index.md#def-tsa1-innovation)として導入しました。TSA2--TSA4 では、その予測構造を時間領域・周波数領域の別表現へ展開しました。
 
 本章では視点を変えます。観測列そのものを直接再帰させる代わりに、観測の背後に有限次元の「状態」を置き、
 
@@ -44,27 +44,27 @@ $$
 > **定義（線形正規状態空間モデル）**  
 > 状態 $X_t\in\mathbb R^d$、観測 $Y_t\in\mathbb R^m$ に対し
 >
-> $$
-> X_t=F_tX_{t-1}+W_t,
-> $$
+$$
+X_t=F_tX_{t-1}+W_t,
+$$
 >
-> $$
-> Y_t=H_tX_t+V_t
-> $$
+$$
+Y_t=H_tX_t+V_t
+$$
 >
 > とする。ここで
 >
-> $$
-> X_0\sim N_d(a_0,P_0),\qquad
-> W_t\sim N_d(0,Q_t),\qquad
-> V_t\sim N_m(0,R_t)
-> $$
+$$
+X_0\sim N_d(a_0,P_0),\qquad
+W_t\sim N_d(0,Q_t),\qquad
+V_t\sim N_m(0,R_t)
+$$
 >
 > とし、$X_0$、$(W_t)$、$(V_t)$ は相互に独立、異なる時点の雑音も独立とする。$P_0,Q_t,R_t$ は半正定値行列とする。この系を線形正規状態空間モデル（linear Gaussian state-space model）と呼ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-tsa6-linear-gaussian-state-space -->
-**定義の確認：局所レベルモデル**  
+**定義の確認**  
 $d=m=1$ として
 
 $$
@@ -102,29 +102,29 @@ $$
 > **定義（予測分布とフィルタ分布）**  
 > 時点 $t-1$ までの観測に基づく
 >
-> $$
-> \mathcal L(X_t\mid\mathcal Y_{t-1})
-> $$
+$$
+\mathcal L(X_t\mid\mathcal Y_{t-1})
+$$
 >
 > を一段先予測分布、時点 $t$ の観測まで使った
 >
-> $$
-> \mathcal L(X_t\mid\mathcal Y_t)
-> $$
+$$
+\mathcal L(X_t\mid\mathcal Y_t)
+$$
 >
 > をフィルタ分布と呼ぶ。対応する条件付き平均と条件付き誤差共分散を
 >
-> $$
-> a_t=E[X_t\mid\mathcal Y_{t-1}],
-> \qquad
-> P_t=\operatorname{Var}(X_t\mid\mathcal Y_{t-1}),
-> $$
+$$
+a_t=E[X_t\mid\mathcal Y_{t-1}],
+\qquad
+P_t=\operatorname{Var}(X_t\mid\mathcal Y_{t-1}),
+$$
 >
-> $$
-> m_t=E[X_t\mid\mathcal Y_t],
-> \qquad
-> C_t=\operatorname{Var}(X_t\mid\mathcal Y_t)
-> $$
+$$
+m_t=E[X_t\mid\mathcal Y_t],
+\qquad
+C_t=\operatorname{Var}(X_t\mid\mathcal Y_t)
+$$
 >
 > と書く。
 <!-- formal-statement-end -->
@@ -158,32 +158,32 @@ $$
 > **補題（正規ベクトルの条件付け）**  
 > $X\in\mathbb R^d$, $Y\in\mathbb R^m$ が同時に多変量正規で
 >
-> $$
-> E
-> \begin{bmatrix}X\\Y\end{bmatrix}
-> =
-> \begin{bmatrix}\mu_X\\\mu_Y\end{bmatrix},
-> \qquad
-> \operatorname{Var}
-> \begin{bmatrix}X\\Y\end{bmatrix}
-> =
-> \begin{bmatrix}
-> P&C\\
-> C^{\mathsf T}&S
-> \end{bmatrix},
-> $$
+$$
+E
+\begin{bmatrix}X\\Y\end{bmatrix}
+=
+\begin{bmatrix}\mu_X\\\mu_Y\end{bmatrix},
+\qquad
+\operatorname{Var}
+\begin{bmatrix}X\\Y\end{bmatrix}
+=
+\begin{bmatrix}
+P&C\\
+C^{\mathsf T}&S
+\end{bmatrix},
+$$
 >
 > かつ $S$ が正定値であるとする。このとき
 >
-> $$
-> X\mid Y
-> \sim
-> N_d\left(
-> \mu_X+CS^{-1}(Y-\mu_Y),
-> \;
-> P-CS^{-1}C^{\mathsf T}
-> \right).
-> $$
+$$
+X\mid Y
+\sim
+N_d\left(
+\mu_X+CS^{-1}(Y-\mu_Y),
+\;
+P-CS^{-1}C^{\mathsf T}
+\right).
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -214,15 +214,7 @@ C-CS^{-1}S\\
 \end{aligned}
 $$
 
-同時正規ベクトルでは、相互共分散が 0 の二つのブロックは独立です。実際、任意の $u\in\mathbb R^d$, $v\in\mathbb R^m$ に対して $u^{\mathsf T}U+v^{\mathsf T}(Y-\mu_Y)$ は正規で、その分散は交差項が 0 なので
-
-$$
-u^{\mathsf T}\operatorname{Var}(U)u
-+
-v^{\mathsf T}Sv
-$$
-
-です。したがって同時特性関数は $U$ の特性関数と $Y-\mu_Y$ の特性関数の積に分かれ、独立です。
+同時正規ベクトルでは、相互共分散が 0 の二つのブロックは独立です。[多変量正規分布](../../02_distributions/P3_03_多変量分布_条件付き分布/index.md#def-p3-03-multivariate-normal)の基本性質として、分散共分散行列がブロック対角なら同時分布が各ブロックの積へ分解するためです。
 
 次に
 
@@ -310,27 +302,27 @@ $$
 > **定義（観測イノベーション）**  
 > 観測の一段先予測誤差
 >
-> $$
-> e_t
-> :=
-> Y_t-E[Y_t\mid\mathcal Y_{t-1}]
-> $$
+$$
+e_t
+:=
+Y_t-E[Y_t\mid\mathcal Y_{t-1}]
+$$
 >
 > を観測イノベーションと呼ぶ。線形正規状態空間モデルでは
 >
-> $$
-> e_t=Y_t-H_ta_t.
-> $$
+$$
+e_t=Y_t-H_ta_t.
+$$
 >
 > その条件付き共分散を
 >
-> $$
-> S_t
-> :=
-> \operatorname{Var}(e_t\mid\mathcal Y_{t-1})
-> =
-> H_tP_tH_t^{\mathsf T}+R_t
-> $$
+$$
+S_t
+:=
+\operatorname{Var}(e_t\mid\mathcal Y_{t-1})
+=
+H_tP_tH_t^{\mathsf T}+R_t
+$$
 >
 > と書く。
 <!-- formal-statement-end -->
@@ -356,11 +348,11 @@ $$
 > **定義（Kalman gain）**  
 > $S_t$ が正定値のとき
 >
-> $$
-> \boxed{
-> K_t=P_tH_t^{\mathsf T}S_t^{-1}
-> }
-> $$
+$$
+\boxed{
+K_t=P_tH_t^{\mathsf T}S_t^{-1}
+}
+$$
 >
 > を時点 $t$ の Kalman gain と呼ぶ。
 <!-- formal-statement-end -->
@@ -382,71 +374,71 @@ $$
 > **定理（Kalman の予測・更新再帰）**  
 > 線形正規状態空間モデルで $S_t$ が正定値であるとする。時点 $t-1$ のフィルタ分布が
 >
-> $$
-> X_{t-1}\mid\mathcal Y_{t-1}
-> \sim
-> N_d(m_{t-1},C_{t-1})
-> $$
+$$
+X_{t-1}\mid\mathcal Y_{t-1}
+\sim
+N_d(m_{t-1},C_{t-1})
+$$
 >
 > なら、一段先予測分布は
 >
-> $$
-> X_t\mid\mathcal Y_{t-1}
-> \sim
-> N_d(a_t,P_t),
-> $$
+$$
+X_t\mid\mathcal Y_{t-1}
+\sim
+N_d(a_t,P_t),
+$$
 >
-> $$
-> a_t=F_tm_{t-1},
-> \qquad
-> P_t=F_tC_{t-1}F_t^{\mathsf T}+Q_t.
-> $$
+$$
+a_t=F_tm_{t-1},
+\qquad
+P_t=F_tC_{t-1}F_t^{\mathsf T}+Q_t.
+$$
 >
 > さらに
 >
-> $$
-> e_t=Y_t-H_ta_t,
-> \qquad
-> S_t=H_tP_tH_t^{\mathsf T}+R_t,
-> $$
+$$
+e_t=Y_t-H_ta_t,
+\qquad
+S_t=H_tP_tH_t^{\mathsf T}+R_t,
+$$
 >
-> $$
-> K_t=P_tH_t^{\mathsf T}S_t^{-1}
-> $$
+$$
+K_t=P_tH_t^{\mathsf T}S_t^{-1}
+$$
 >
 > と置けば、フィルタ分布は
 >
-> $$
-> \boxed{
-> X_t\mid\mathcal Y_t
-> \sim
-> N_d(m_t,C_t)
-> }
-> $$
+$$
+\boxed{
+X_t\mid\mathcal Y_t
+\sim
+N_d(m_t,C_t)
+}
+$$
 >
 > であり、
 >
-> $$
-> \boxed{
-> m_t=a_t+K_te_t
-> },
-> $$
+$$
+\boxed{
+m_t=a_t+K_te_t
+},
+$$
 >
-> $$
-> \boxed{
-> C_t
-> =
-> P_t-P_tH_t^{\mathsf T}S_t^{-1}H_tP_t
-> =
-> (I-K_tH_t)P_t
-> }.
-> $$
+$$
+\boxed{
+C_t
+=
+P_t-P_tH_t^{\mathsf T}S_t^{-1}H_tP_t
+=
+(I-K_tH_t)P_t
+}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
 
-予測分布については、$X_{t-1}\mid\mathcal Y_{t-1}$ が正規で、独立な正規雑音 $W_t$ を線形に加えるので正規性が保たれます。平均・共分散は直前に計算した通りです。
+予測分布については、$X_{t-1}\mid\mathcal Y_{t-1}$ が正規で、独立な正規雑音 $W_t$ を線形に加えるので正規分布仮定が保たれます。平均・共分散は直前に計算した通りです。
 
 次に $\mathcal Y_{t-1}$ を固定します。観測方程式から
 
@@ -611,30 +603,30 @@ Kalman フィルタでは、観測値 $Y_t$ は平均更新には入りますが
 > **命題（共分散減少と Joseph 形）**  
 > Kalman 更新に対し
 >
-> $$
-> P_t-C_t
-> =
-> P_tH_t^{\mathsf T}S_t^{-1}H_tP_t
-> \succeq0.
-> $$
+$$
+P_t-C_t
+=
+P_tH_t^{\mathsf T}S_t^{-1}H_tP_t
+\succeq0.
+$$
 >
 > 従って
 >
-> $$
-> 0\preceq C_t\preceq P_t.
-> $$
+$$
+0\preceq C_t\preceq P_t.
+$$
 >
 > また
 >
-> $$
-> \boxed{
-> C_t
-> =
-> (I-K_tH_t)P_t(I-K_tH_t)^{\mathsf T}
-> +
-> K_tR_tK_t^{\mathsf T}
-> }
-> $$
+$$
+\boxed{
+C_t
+=
+(I-K_tH_t)P_t(I-K_tH_t)^{\mathsf T}
++
+K_tR_tK_t^{\mathsf T}
+}
+$$
 >
 > が成り立つ。この表示を Joseph 形と呼ぶ。
 <!-- formal-statement-end -->
@@ -700,32 +692,32 @@ $$
 > **定義（Kalman 共分散の Riccati 再帰）**  
 > 時不変モデル
 >
-> $$
-> F_t=F,\quad H_t=H,\quad Q_t=Q,\quad R_t=R
-> $$
+$$
+F_t=F,\quad H_t=H,\quad Q_t=Q,\quad R_t=R
+$$
 >
 > で、予測共分散 $P_t$ から次時点の予測共分散を作る写像
 >
-> $$
-> \boxed{
-> P_{t+1}
-> =
-> F
-> \left(
-> P_t-P_tH^{\mathsf T}
-> (HP_tH^{\mathsf T}+R)^{-1}
-> HP_t
-> \right)
-> F^{\mathsf T}
-> +Q
-> }
-> $$
+$$
+\boxed{
+P_{t+1}
+=
+F
+\left(
+P_t-P_tH^{\mathsf T}
+(HP_tH^{\mathsf T}+R)^{-1}
+HP_t
+\right)
+F^{\mathsf T}
++Q
+}
+$$
 >
 > を Kalman 共分散の Riccati 再帰と呼ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-tsa6-riccati-recursion -->
-**定義の確認：局所レベルモデル**  
+**定義の確認**  
 $F=H=1$、システムノイズ分散 $q>0$、観測ノイズ分散 $r>0$ とします。予測分散を $p_t$ と書けば
 
 $$
@@ -755,35 +747,35 @@ $$
 > **命題（局所レベルモデルの定常予測分散）**  
 > $q>0,r>0$ とし
 >
-> $$
-> p_{t+1}=g(p_t)
-> :=
-> \frac{p_tr}{p_t+r}+q,
-> \qquad
-> p_1\ge0
-> $$
+$$
+p_{t+1}=g(p_t)
+:=
+\frac{p_tr}{p_t+r}+q,
+\qquad
+p_1\ge0
+$$
 >
 > とする。このとき
 >
-> $$
-> p_t\to p_\ast,
-> $$
+$$
+p_t\to p_\ast,
+$$
 >
-> $$
-> \boxed{
-> p_\ast
-> =
-> \frac{q+\sqrt{q^2+4qr}}{2}
-> }.
-> $$
+$$
+\boxed{
+p_\ast
+=
+\frac{q+\sqrt{q^2+4qr}}{2}
+}.
+$$
 >
 > 従って Kalman gain も
 >
-> $$
-> K_t=\frac{p_t}{p_t+r}
-> \to
-> \frac{p_\ast}{p_\ast+r}
-> $$
+$$
+K_t=\frac{p_t}{p_t+r}
+\to
+\frac{p_\ast}{p_\ast+r}
+$$
 >
 > と収束する。
 <!-- formal-statement-end -->
@@ -819,32 +811,31 @@ $$
 
 で、分散として非負なのは正の根 $p_\ast$ です。
 
-次に
+次に任意の $u,v\ge0$ について
 
 $$
-g'(p)
-=
-\frac{r^2}{(p+r)^2}.
+\begin{aligned}
+g(u)-g(v)
+&=
+r\left(
+\frac{u}{u+r}-\frac{v}{v+r}
+\right)\\
+&=
+\frac{r^2(u-v)}{(u+r)(v+r)}.
+\end{aligned}
 $$
 
-一回更新すると $p_2=g(p_1)\ge q$ です。従って $t\ge2$ では
-
-$$
-0<g'(p_t)
-\le
-\frac{r^2}{(q+r)^2}
-=:\rho
-<1.
-$$
-
-平均値の定理を $p_t$ と $p_\ast$ の間で使うと
+一回更新すると $p_2=g(p_1)\ge q$ であり、不動点も $p_\ast>q$ です。従って $t\ge2$ では
 
 $$
 |p_{t+1}-p_\ast|
-=
-|g(p_t)-g(p_\ast)|
 \le
-\rho |p_t-p_\ast|.
+\frac{r^2}{(q+r)^2}
+|p_t-p_\ast|
+=:
+\rho |p_t-p_\ast|,
+\qquad
+0<\rho<1.
 $$
 
 反復して
@@ -865,7 +856,7 @@ $$
 
 ## 5. イノベーションは「新しく増えた情報」である
 
-TSA1 の[最良線形予測](../TSA1/index.md#thm-tsa1-best-linear-prediction)では、射影残差が過去の線形空間と直交しました。状態空間モデルのイノベーションでも同じ幾何が現れます。ただし正規性があるため、直交性を独立性まで強められます。
+TSA1 の[最良線形予測](../TSA1/index.md#thm-tsa1-best-linear-prediction)では、射影残差が過去の線形空間と直交しました。状態空間モデルのイノベーションでも同じ幾何が現れます。ただし正規分布仮定があるため、直交性を独立性まで強められます。
 
 <a id="thm-tsa6-innovation-orthogonality"></a>
 
@@ -873,21 +864,21 @@ TSA1 の[最良線形予測](../TSA1/index.md#thm-tsa1-best-linear-prediction)�
 > **定理（イノベーション列の直交性と正規独立性）**  
 > 線形正規状態空間モデルで $S_t$ が正定値とする。このとき
 >
-> $$
-> E[e_t\mid\mathcal Y_{t-1}]=0.
-> $$
+$$
+E[e_t\mid\mathcal Y_{t-1}]=0.
+$$
 >
 > 任意の $s<t$ に対し
 >
-> $$
-> E[e_te_s^{\mathsf T}]=0.
-> $$
+$$
+E[e_te_s^{\mathsf T}]=0.
+$$
 >
 > さらに $(e_1,\dots,e_n)$ は同時正規なので、$e_1,\dots,e_n$ は互いに独立であり
 >
-> $$
-> e_t\sim N_m(0,S_t).
-> $$
+$$
+e_t\sim N_m(0,S_t).
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -935,13 +926,13 @@ $$
 > **命題（観測列とイノベーション列の情報同値性）**  
 > モデル行列と初期分布が既知なら、各 $t$ について
 >
-> $$
-> \boxed{
-> \sigma(Y_1,\dots,Y_t)
-> =
-> \sigma(e_1,\dots,e_t)
-> }.
-> $$
+$$
+\boxed{
+\sigma(Y_1,\dots,Y_t)
+=
+\sigma(e_1,\dots,e_t)
+}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -1002,23 +993,23 @@ $$
 > **定理（イノベーション尤度）**  
 > 観測次元を $m$ とし、各 $S_t(\vartheta)$ が正定値とする。線形正規状態空間モデルの観測 $y_{1:n}$ の対数尤度は
 >
-> $$
-> \boxed{
-> \ell_n(\vartheta)
-> =
-> -\frac12
-> \sum_{t=1}^n
-> \left[
-> m\log(2\pi)
-> +
-> \log\det S_t(\vartheta)
-> +
-> e_t(\vartheta)^{\mathsf T}
-> S_t(\vartheta)^{-1}
-> e_t(\vartheta)
-> \right]
-> }.
-> $$
+$$
+\boxed{
+\ell_n(\vartheta)
+=
+-\frac12
+\sum_{t=1}^n
+\left[
+m\log(2\pi)
++
+\log\det S_t(\vartheta)
++
+e_t(\vartheta)^{\mathsf T}
+S_t(\vartheta)^{-1}
+e_t(\vartheta)
+\right]
+}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -1076,49 +1067,49 @@ TSA4 の [ARMA 過程](../TSA4/index.md#def-tsa4-arma)は観測自身の差分�
 > **命題（ARMA(1,1) の二次元状態空間表現）**  
 > $Z_t\sim N(0,\sigma^2)$ を独立同分布とし
 >
-> $$
-> X_t=\phi X_{t-1}+Z_t+\theta Z_{t-1}
-> $$
+$$
+X_t=\phi X_{t-1}+Z_t+\theta Z_{t-1}
+$$
 >
 > とする。状態
 >
-> $$
-> \xi_t
-> =
-> \begin{bmatrix}
-> X_t\\
-> Z_t
-> \end{bmatrix}
-> $$
+$$
+\xi_t
+=
+\begin{bmatrix}
+X_t\\
+Z_t
+\end{bmatrix}
+$$
 >
 > を置けば
 >
-> $$
-> \boxed{
-> \xi_t
-> =
-> \begin{bmatrix}
-> \phi&\theta\\
-> 0&0
-> \end{bmatrix}
-> \xi_{t-1}
-> +
-> \begin{bmatrix}
-> 1\\
-> 1
-> \end{bmatrix}
-> Z_t
-> }
-> $$
+$$
+\boxed{
+\xi_t
+=
+\begin{bmatrix}
+\phi&\theta\\
+0&0
+\end{bmatrix}
+\xi_{t-1}
++
+\begin{bmatrix}
+1\\
+1
+\end{bmatrix}
+Z_t
+}
+$$
 >
 > および
 >
-> $$
-> \boxed{
-> X_t=
-> \begin{bmatrix}1&0\end{bmatrix}\xi_t
-> }
-> $$
+$$
+\boxed{
+X_t=
+\begin{bmatrix}1&0\end{bmatrix}\xi_t
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -1169,7 +1160,7 @@ $$
 
 一般の ARMA$(p,q)$ でも、有限個の AR 過去値と MA 雑音過去値を状態へ積めば有限次元表現を作れます。状態表現は一意ではありません。異なる状態ベクトルが同じ観測過程を生成することもあります。
 
-この視点の利点は、欠測・複数観測・時間変化係数などを「状態遷移と観測」という同じ枠で扱えることです。一方、ARMA の因果性・可逆性そのものは TSA4 の正本であり、本章では再証明しません。
+この視点の利点は、欠測・複数観測・時間変化係数などを「状態遷移と観測」という同じ枠で扱えることです。一方、ARMA の根条件と逆変換の理論は TSA4 の正本であり、本章では再証明しません。
 
 ---
 
@@ -1227,7 +1218,7 @@ $$
 
 を組み合わせる分離原理へ進みます。ただし、その証明には可制御性・可観測性、動的計画法、行列 Riccati 方程式の制御側理論が必要です。本章では橋だけを示し、確率制御の正本へ逆輸入しません。
 
-同様に、非線形状態方程式・非正規雑音では条件付き分布が有限個の平均・共分散だけで閉じません。拡張 Kalman フィルタ、unscented Kalman filter、粒子フィルタ、一般非線形フィルタリングは別系列の対象です。
+同様に、非線形状態方程式・非正規雑音では条件付き分布が有限個の平均・共分散だけで閉じません。拡張 Kalman 法、シグマ点法、粒子近似法、一般非線形フィルタリングは別系列の対象です。
 
 ---
 
@@ -1363,7 +1354,7 @@ $$
 1. $Y=3$ のときの $E[X\mid Y=3]$ を求めよ。
 2. $\operatorname{Var}(X\mid Y)$ を求めよ。
 3. 残差 $U=X-1-\frac25(Y-2)$ が $Y$ と無相関であることを確認せよ。
-4. なぜ正規性の下では 3 の無相関性から独立性が従うか説明せよ。
+4. なぜ正規分布仮定の下では 3 の無相関性から独立性が従うか説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1415,7 +1406,7 @@ $$
    \end{aligned}
    $$
 
-4. $(U,Y)$ は $(X,Y)$ の線形変換なので同時正規です。同時正規ベクトルで相互共分散が 0 なら、同時特性関数の指数に交差項がなくなって積へ分解されます。したがって $U$ と $Y$ は独立です。
+4. $(U,Y)$ は $(X,Y)$ の線形変換なので同時正規です。同時正規ベクトルで相互共分散が 0 なら、分散共分散行列がブロック対角になり、同時分布が各ブロックの積へ分解されます。したがって $U$ と $Y$ は独立です。
 <!-- solution-end -->
 
 ## TSA6-A03 イノベーションの直交性
@@ -1433,7 +1424,7 @@ $$
 
 1. $e_s$ が $\mathcal Y_{t-1}$-可測であることを説明せよ。
 2. $E[e_te_s^{\mathsf T}]=0$ を条件付き期待値から示せ。
-3. 正規性を外した場合、2 から独立性まで結論してよいか答えよ。
+3. 正規分布仮定を外した場合、2 から独立性まで結論してよいか答えよ。
 4. TSA1 のイノベーションとの共通点を説明せよ。
 
 <!-- solution-start -->
@@ -1583,7 +1574,7 @@ $$
 
 1. 定常予測分散 $p_\ast$ を求めよ。
 2. 定常 Kalman gain $K_\ast$ を求めよ。
-3. Riccati 写像 $g(p)=2p/(p+2)+1$ の導関数を求め、$p\ge1$ で縮小写像になることを示せ。
+3. $u,v\ge1$ に対して $|g(u)-g(v)|\le(4/9)|u-v|$ を直接示せ。
 4. 初期予測分散 $p_1=0$ でも $p_t\to p_\ast$ となる理由を説明せよ。
 
 <!-- solution-start -->
@@ -1611,21 +1602,20 @@ $$
    \boxed{\frac12}.
    $$
 
-3.
+3. $u,v\ge1$ とすると
 
    $$
-   g'(p)
-   =
-   \frac{4}{(p+2)^2}.
-   $$
-
-   $p\ge1$ なら
-
-   $$
-   0<g'(p)
-   \le
-   \frac4{9}
-   <1.
+   \begin{aligned}
+   |g(u)-g(v)|
+   &=
+   2\left|
+   \frac{u}{u+2}-\frac{v}{v+2}
+   \right|\\
+   &=
+   \frac{4|u-v|}{(u+2)(v+2)}\\
+   &\le
+   \frac49|u-v|.
+   \end{aligned}
    $$
 
    従って区間 $[1,\infty)$ 上では一様な縮小率 $4/9$ を持ちます。
@@ -1636,7 +1626,7 @@ $$
    p_2=g(0)=1.
    $$
 
-   したがって二回目以降は $[1,\infty)$ に入り、3 の縮小性を適用できます。不動点 $p_\ast=2$ との距離は幾何級数的に 0 へ縮みます。
+   したがって二回目以降は $[1,\infty)$ に入り、3 の縮小性を適用できます。不動点 $p_\ast=2$ との距離は反復ごとに高々 $4/9$ 倍となるため 0 へ収束します。
 <!-- solution-end -->
 
 ## TSA6-B02 二時点のイノベーション尤度
@@ -1796,7 +1786,7 @@ $$
 とする。状態 $\xi_t=(X_t,Z_t)^{\mathsf T}$ を使う。
 
 1. 状態遷移行列 $F$ と駆動ベクトル $G$ を求めよ。
-2. システムノイズ共分散 $Q$ を求め、その階数を答えよ。
+2. システムノイズ共分散 $Q$ を求め、半正定値かつ特異であることを示せ。
 3. 観測行列 $H$ を求めよ。
 4. $Q$ が特異でも状態空間表現として問題がない理由を説明せよ。
 
@@ -1852,7 +1842,25 @@ $$
    }.
    $$
 
-   二列は同じ方向なので階数は 1 です。
+   任意の $z=(z_1,z_2)^{\mathsf T}$ に対し
+
+   $$
+   z^{\mathsf T}Qz
+   =
+   \sigma^2(z_1+z_2)^2
+   \ge0
+   $$
+
+   なので $Q$ は半正定値です。また
+
+   $$
+   Q
+   \begin{bmatrix}1\\-1\end{bmatrix}
+   =
+   \begin{bmatrix}0\\0\end{bmatrix}
+   $$
+
+   で非零ベクトルが核に入るため、$Q$ は特異です。
 
 3.
 
@@ -2193,7 +2201,7 @@ e_t
 }
 $$
 
-と分解され、$(e_t)$ は直交し、正規性の下では独立になります。
+と分解され、$(e_t)$ は直交し、正規分布仮定の下では独立になります。
 
 このため
 
@@ -2207,4 +2215,4 @@ $$
 
 という情報の置き換えができ、尤度もイノベーションごとの正規密度の積へ分解できます。
 
-TSA1 の Hilbert 空間における抽象的予測と、TSA4 の ARMA 表現は、TSA6 で「有限次元状態を逐次更新する」という計算可能な形へ合流しました。これで Encore IV の時系列主線は、予測・Wold・スペクトル・ARMA・依存極限定理・状態空間まで一周します。
+TSA1 の Hilbert 空間における抽象的予測と、有限次元状態モデルの逐次更新が TSA6 で同じイノベーション幾何として結び付きました。これで Encore IV の時系列主線は、予測・Wold・スペクトル・ARMA・依存極限定理・状態空間まで一周します。
