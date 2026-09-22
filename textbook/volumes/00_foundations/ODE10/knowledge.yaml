@@ -26,6 +26,11 @@ concepts:
     kind: theorem
     aliases: ["Bendixson--Dulac の判定"]
     introduction: formal
+  - id: ode.ode10-transversal-omega
+    name: 局所横断線と正の極限集合の交点
+    kind: lemma
+    aliases: ["局所横断線と正の極限集合の交点"]
+    introduction: formal
   - id: ode.ode10-poincare-bendixson
     name: Poincaré--Bendixson の定理：標準形
     kind: theorem
