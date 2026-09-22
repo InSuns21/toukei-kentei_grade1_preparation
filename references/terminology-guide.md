@@ -93,6 +93,22 @@
 | 分解可能形式 | decomposable form | 「単純形式」へ機械的に言い換えない |
 | 内部積 | interior product | 記号 `ι_v` は数式中で使用可 |
 
+## DREAM THEATER：ODE・PDE の主表記
+
+| 主表記 | 補助的な英語表記 | 備考 |
+|---|---|---|
+| 捕捉領域 | trapping region | 初出で英語併記可。以後は日本語主表記 |
+| 非斉次項 | source term | 外力・内部発熱など PDE 右辺の入力を指すときの主表記 |
+| 次元降下法 | method of descent | 波動方程式で高次元公式から低次元公式を導く方法。必要なら「変数低減法」を補助併記可 |
+| Legendre の陪微分方程式 | associated Legendre equation | 人名部分は英字表記を保持 |
+| Legendre 陪関数 | associated Legendre function | 人名部分は英字表記を保持 |
+| 立体調和関数 | solid harmonic | $r^\ell Y_\ell^m$ 型の三次元調和関数 |
+| 特性焦散 | characteristic caustic | 初出で「特性焦散（caustic）」と補助併記可 |
+| アイコナール方程式 | eikonal equation | eikonal 方程式を本文の主表記にしない |
+| 粘性解 | viscosity solution | 必要なら初出で英語併記可。subsolution / supersolution は「粘性劣解 / 粘性優解」 |
+| Poisson 核 | Poisson kernel | 人名部分は英字表記を保持し、一般名詞は日本語主表記 |
+| ハミルトニアン | Hamiltonian | 初出で英語併記可。以後は「ハミルトニアン」を主表記 |
+
 ## 公式シラバス用語例
 
 以下は `anki/syllabus/syllabus.yaml` の `items[].terms` を、シラバスの小項目ごとに反映したものです。括弧を含む表記も公式用語例としてそのまま残します。
