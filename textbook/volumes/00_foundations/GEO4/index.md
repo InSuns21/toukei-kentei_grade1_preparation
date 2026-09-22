@@ -1243,7 +1243,7 @@ $$
 
 を取ります。
 
-[TOP5A の縮小定理](../TOP5A/index.md#thm-top5a-lch-shrinking)により、開集合 $V_p$ を
+[局所コンパクト Hausdorff 空間の縮小](../TOP5A/index.md#thm-top5a-lch-shrinking)により、開集合 $V_p$ を
 
 $$
 p\in V_p
