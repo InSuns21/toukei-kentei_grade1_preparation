@@ -34,7 +34,7 @@ $\sigma_{n-1}=|S^{n-1}|$ を単位球面の表面積とします。
 
 <a id="def-pde10-fundamental-solution"></a>
 <!-- formal-statement-start -->
-> **定義（$n$ 次元負 Laplacian の基本解）**  
+> **定義（多次元負 Laplacian の基本解）**  
 > $n\ge2$ に対し
 >
 > $$
@@ -105,7 +105,7 @@ $n=2$ では PDE6 と同じく $\Phi_2=-(2\pi)^{-1}\log r$ から直接計算で
 
 <a id="def-pde10-newton-potential"></a>
 <!-- formal-statement-start -->
-> **定義（$n$ 次元 Newton ポテンシャル）**  
+> **定義（多次元 Newton ポテンシャル）**  
 > コンパクトな台を持つ連続関数 $f$ に対し
 >
 > $$
@@ -131,12 +131,12 @@ $n=2$ では PDE6 と同じく $\Phi_2=-(2\pi)^{-1}\log r$ から直接計算で
 
 ### 証明の見取り図
 
-特異点 $y=x$ の小球を切り抜いて Green の第二恒等式を使います。PDE6 の二次元証明と同じく、基本解の単位流束だけが一点値 $f(x)$ を生みます。
+核が非有界になる点 $y=x$ の小球を切り抜いて [Green の第二恒等式](../PDE6/index.md#thm-pde6-green-second)を使います。PDE6 の二次元証明と同じく、基本解の単位流束だけが一点値 $f(x)$ を生みます。
 
 <!-- proof-start -->
 ### 証明
 
-固定した $x$ に対し $\Phi_n(x-y)$ を $y$ の関数として見ます。大きい球が $f$ の台を含むように取り、小球 $B_\varepsilon(x)$ を除いた領域へ Green の第二恒等式を適用します。原点外では $\Delta_y\Phi_n(x-y)=0$ です。
+固定した $x$ に対し $\Phi_n(x-y)$ を $y$ の関数として見ます。大きい球が $f$ の台を含むように取り、小球 $B_\varepsilon(x)$ を除いた領域へ [Green の第二恒等式](../PDE6/index.md#thm-pde6-green-second)を適用します。原点外では $\Delta_y\Phi_n(x-y)=0$ です。
 
 外側境界では $f$ とその導関数が0です。小球上で $f(y)=f(x)+O(\varepsilon)$。単位流束から
 
@@ -168,7 +168,7 @@ $$
 
 ### 証明の見取り図
 
-球面平均 $m(r)$ を微分し、発散定理で $m'(r)$ を球内部の $\Delta u$ の積分へ変えます。
+球面上の平均 $m(r)$ を微分し、[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)で $m'(r)$ を球内部の $\Delta u$ の積分へ変えます。
 
 <!-- proof-start -->
 ### 証明
@@ -187,7 +187,7 @@ m'(r)
 \int_{|y-x_0|=r}\partial_nu(y)dS_y.
 $$
 
-発散定理から
+[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)から
 
 $$
 \int_{|y-x_0|=r}\partial_nu\,dS
@@ -349,7 +349,7 @@ $r^{2-n}=r^{-2}$ なので定数倍の $1/r^2$ です。正規化定数は $1/(2
 #### PDE10-A03 一次関数の平均
 - Level: A
 
-$u(x)=x_1$ の球面平均が中心値に等しいことを直接示せ。
+$u(x)=x_1$ の球面上の平均が中心値に等しいことを直接示せ。
 
 <!-- solution-start -->
 ##### 詳細解答
