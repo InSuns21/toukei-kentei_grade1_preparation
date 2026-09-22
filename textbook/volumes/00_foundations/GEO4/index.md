@@ -33,9 +33,9 @@ $$
 > **定義（局所有限族）**  
 > 位相空間 $X$ の部分集合族 $(A_j)_{j\in J}$ が **局所有限**であるとは、任意の $p\in X$ に対して開近傍 $N_p$ が存在し、
 >
-> $$
-> \{j\in J:N_p\cap A_j\neq\varnothing\}
-> $$
+$$
+\{j\in J:N_p\cap A_j\neq\varnothing\}
+$$
 >
 > が有限集合となることをいう。
 <!-- formal-statement-end -->
@@ -93,9 +93,9 @@ $$
 > **定義（開被覆の細分）**  
 > 位相空間 $X$ の開被覆 $(U_\alpha)_{\alpha\in A}$ と開被覆 $(V_j)_{j\in J}$ を考える。$(V_j)_{j\in J}$ が $(U_\alpha)_{\alpha\in A}$ の **細分**であるとは、各 $j\in J$ に対して少なくとも一つの $\alpha(j)\in A$ が存在し、
 >
-> $$
-> V_j\subseteq U_{\alpha(j)}
-> $$
+$$
+V_j\subseteq U_{\alpha(j)}
+$$
 >
 > となることをいう。
 <!-- formal-statement-end -->
@@ -153,7 +153,7 @@ $$
 
 ### 証明の見取り図
 
-Hausdorff 性は GEO1 の多様体の定義に入っています。局所コンパクト性は、一枚の座標近傍の中で小さい閉球を取って Heine--Borel の定理を使えば得られます。
+Hausdorff 性は GEO1 の多様体の定義に入っています。局所コンパクト性は、一枚の座標近傍の中で小さい閉球を取って [Heine--Borel の定理](../F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md#thm-f0-00c1-02)を使えば得られます。
 
 <!-- proof-start -->
 ### 証明
@@ -173,7 +173,7 @@ $$
 
 となります。
 
-閉球 $\overline{B(x(p),r)}$ は Heine--Borel の定理によりコンパクトです。$x^{-1}$ は連続なので
+閉球 $\overline{B(x(p),r)}$ は [Heine--Borel の定理](../F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md#thm-f0-00c1-02)によりコンパクトです。$x^{-1}$ は連続なので
 
 $$
 K:=x^{-1}\!\left(\overline{B(x(p),r)}\right)
@@ -204,7 +204,7 @@ $$
 
 ---
 
-## 4. 第二可算性から可算な相対コンパクト被覆へ
+## 4. 第二可算性から閉包がコンパクトな可算開被覆へ
 
 <a id="lem-geo4-second-countable-subcover"></a>
 <!-- formal-statement-start -->
@@ -261,17 +261,17 @@ $$
 > **補題（滑らかな多様体のコンパクト exhaustion）**  
 > 滑らかな多様体 $M$ にはコンパクト集合列
 >
-> $$
-> K_1\subseteq K_2\subseteq\cdots
-> $$
+$$
+K_1\subseteq K_2\subseteq\cdots
+$$
 >
 > が存在し、
 >
-> $$
-> K_r\subseteq\operatorname{Int}K_{r+1},
-> \qquad
-> M=\bigcup_{r=1}^\infty\operatorname{Int}K_r
-> $$
+$$
+K_r\subseteq\operatorname{Int}K_{r+1},
+\qquad
+M=\bigcup_{r=1}^\infty\operatorname{Int}K_r
+$$
 >
 > を満たす。
 <!-- formal-statement-end -->
@@ -374,7 +374,7 @@ $\square$
 
 ### 証明の見取り図
 
-コンパクト exhaustion $(K_r)$ を使って
+[コンパクト exhaustion](#lem-geo4-compact-exhaustion) $(K_r)$ を使って
 
 $$
 A_r=K_r\setminus\operatorname{Int}K_{r-1}
@@ -534,7 +534,7 @@ $$
 
 - **局所 Euclid 性**：多様体を局所コンパクトにする。
 - **Hausdorff 性**：TOP5A の縮小定理を使えるようにする。
-- **第二可算性**：可算な相対コンパクト被覆を取り、コンパクト exhaustion を作る。
+- **第二可算性**：閉包がコンパクトな可算開被覆を取り、コンパクト exhaustion を作る。
 - **コンパクト性**：各殻を有限個の局所片へ減らす。
 
 第二可算性を定義から外してしまうと、この可算 exhaustion の経路はそのままでは使えません。
@@ -606,11 +606,11 @@ $$
 > **補題（Euclid 空間の滑らかな局所化関数）**  
 > $a\in\mathbb R^n$ と $0<r<R$ に対し、滑らかな関数 $\beta:\mathbb R^n\to[0,1]$ で
 >
-> $$
-> \beta=1\text{ on }\overline{B(a,r)},
-> \qquad
-> \operatorname{supp}\beta\subseteq\overline{B(a,R)}
-> $$
+$$
+\beta=1\text{ on }\overline{B(a,r)},
+\qquad
+\operatorname{supp}\beta\subseteq\overline{B(a,R)}
+$$
 >
 > を満たすものが存在する。
 <!-- formal-statement-end -->
@@ -698,15 +698,15 @@ $$
 > **定理（多様体上の滑らかな局所化関数）**  
 > $M$ を滑らかな多様体、$K\subset M$ をコンパクト集合、$U\subset M$ を $K\subset U$ を満たす開集合とする。このとき滑らかな関数
 >
-> $$
-> \beta:M\to[0,1]
-> $$
+$$
+\beta:M\to[0,1]
+$$
 >
 > で、$K$ のある開近傍上で $\beta=1$ となり、かつ
 >
-> $$
-> \operatorname{supp}\beta\subseteq U
-> $$
+$$
+\operatorname{supp}\beta\subseteq U
+$$
 >
 > を満たすものが存在する。
 <!-- formal-statement-end -->
@@ -852,9 +852,9 @@ $$
 > 2. $(\operatorname{supp}\varphi_j)_{j\in J}$ が局所有限である。
 > 3. 任意の $p\in M$ で
 >
-> $$
-> \sum_{j\in J}\varphi_j(p)=1
-> $$
+$$
+\sum_{j\in J}\varphi_j(p)=1
+$$
 >
 > となる。
 >
@@ -866,11 +866,11 @@ $$
 > **定義（開被覆に従属する 1 の分割）**  
 > $(U_\alpha)_{\alpha\in A}$ を $M$ の開被覆とする。1 の分割 $(\varphi_j)_{j\in J}$ がこの開被覆に **従属する**とは、各 $j\in J$ に対して $\alpha(j)\in A$ を選べて
 >
-> $$
-> \operatorname{supp}\varphi_j
-> \subseteq
-> U_{\alpha(j)}
-> $$
+$$
+\operatorname{supp}\varphi_j
+\subseteq
+U_{\alpha(j)}
+$$
 >
 > となることをいう。
 <!-- formal-statement-end -->
@@ -1076,26 +1076,26 @@ $$
 > **命題（1 の分割による局所関数の貼り合わせ）**  
 > $(U_\alpha)_{\alpha\in A}$ を滑らかな多様体 $M$ の開被覆とし、各 $\alpha$ について
 >
-> $$
-> f_\alpha\in C^\infty(U_\alpha)
-> $$
+$$
+f_\alpha\in C^\infty(U_\alpha)
+$$
 >
 > が与えられているとする。$(\varphi_j)_{j\in J}$ をこの被覆に従属する 1 の分割とし、$\operatorname{supp}\varphi_j\subseteq U_{\alpha(j)}$ とする。
 >
 > 各 $j$ について $\varphi_j f_{\alpha(j)}$ を $U_{\alpha(j)}$ の外で $0$ として延長した関数を $\widetilde g_j$ と書く。このとき
 >
-> $$
-> F=\sum_{j\in J}\widetilde g_j
-> $$
+$$
+F=\sum_{j\in J}\widetilde g_j
+$$
 >
 > は $M$ 上の滑らかな関数である。
 >
 > さらに局所関数が重なりで一致し、
 >
-> $$
-> f_\alpha=f_\beta
-> \quad\text{on }U_\alpha\cap U_\beta
-> $$
+$$
+f_\alpha=f_\beta
+\quad\text{on }U_\alpha\cap U_\beta
+$$
 >
 > を満たすなら、$F|_{U_\alpha}=f_\alpha$ が全ての $\alpha$ で成り立つ。
 <!-- formal-statement-end -->
@@ -1197,9 +1197,9 @@ GEO3 では埋め込みを定義しましたが、抽象的に定義した多様
 > **定理（コンパクト滑らかな多様体の Euclid 埋め込み）**  
 > $M$ をコンパクトな $n$ 次元滑らかな多様体とする。このとき、ある有限の $N$ と滑らかな埋め込み
 >
-> $$
-> F:M\hookrightarrow\mathbb R^N
-> $$
+$$
+F:M\hookrightarrow\mathbb R^N
+$$
 >
 > が存在する。
 <!-- formal-statement-end -->
@@ -2045,4 +2045,4 @@ $$
 
 という滑らかな埋め込みを明示的に構成しました。一般の Whitney の埋め込み定理を黒箱として使わず、本章の前提だけで閉じる版を canonical result としています。
 
-次の GEO5 では、各点に接ベクトルを滑らかに割り当てる **ベクトル場**へ進みます。そこで局所 ODE の解を貼り合わせ、積分曲線・局所流・Lie bracket を構成します。
+次の GEO5 では、各点へ接ベクトルを滑らかに割り当てる構造から、積分曲線・局所流・Lie 括弧へ進みます。
