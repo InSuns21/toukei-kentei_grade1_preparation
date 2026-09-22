@@ -862,6 +862,25 @@ direct prerequisite は GEO14、TOP5 です。GEO14 の正規近傍・凸正規�
 
 direct prerequisite は GEO13、GEO11 です。GEO13 の Levi-Civita 接続・テンソル場の共変微分を曲率作用素と第二 Bianchi 恒等式へ使い、GEO11 の Gauss--Codazzi と Gauss の驚異の定理を抽象 Riemann 曲率へ接続します。次の GEO17 では曲率を Jacobi 方程式へ入れ、測地線変分・共役点・最短性の喪失を解析します。
 
+## GEO17 変分公式・Jacobi 場・共役点 `advanced-standard`
+
+- 曲線の変分・変分ベクトル場・固定端点変分を定義
+- Levi-Civita 接続の捩率0と曲率から変分方向・曲線方向の共変微分交換公式を証明
+- エネルギーの第一変分公式を導き、測地線と固定端点エネルギー臨界点の同値を証明
+- 長さの第一変分公式を導出
+- エネルギーの第二変分公式を核心まで導き、指数形式を定義
+- 測地線変分から Jacobi 方程式を導き、任意の Jacobi 場を測地線変分から実現
+- 指数写像の微分を Jacobi 場の終値として表し、共役点と微分の退化の同値を証明
+- 球面の対蹠点を最初の共役点として直接計算し、重複度 n-1 を導出
+- 共役点がない区間で指数形式が正定値になることを Jacobi 基本行列から証明
+- 区間内部の共役点から負の第二変分方向を構成し、局所最短性が壊れることを証明
+- 非正断面曲率では共役点が存在しないことを Jacobi 場の長さ二乗の凸性から証明
+- A4/B3/C1 の演習で Euclid・球面・非正曲率・指数写像退化・第二変分の符号を再構成
+
+実装: [GEO17](volumes/00_foundations/GEO17/index.md)
+
+direct prerequisite は GEO14、GEO16 です。GEO14 の測地線・指数写像を変分対象として使い、GEO16 の Riemann 曲率を第二変分と Jacobi 方程式へ入れます。次の GEO18 では Jacobi 場の定曲率模型との比較から Rauch 比較、Bonnet--Myers、Cartan--Hadamard へ進みます。
+
 ---
 
 # 6. 測度論：標準教科書の第2段階

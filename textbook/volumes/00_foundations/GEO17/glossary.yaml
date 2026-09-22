@@ -1,0 +1,32 @@
+chapter: "GEO17"
+terms:
+  - term: 曲線の変分
+    english: variation of curves
+    meaning: 一つの基準曲線を媒介変数 s で滑らかに動かす二変数写像。
+  - term: 変分ベクトル場
+    english: variation vector field
+    meaning: 曲線の変分を s 方向に微分して基準曲線上に得るベクトル場。
+  - term: 固定端点変分
+    english: fixed-endpoint variation
+    meaning: 変分中の全ての曲線が同じ二つの端点を持つ変分。
+  - term: 第一変分公式
+    english: first variation formula
+    meaning: 長さまたはエネルギーの一次変化を境界項と曲線の共変加速度で表す公式。
+  - term: 第二変分公式
+    english: second variation formula
+    meaning: 測地線におけるエネルギーの二次変化を共変微分項と曲率項で表す公式。
+  - term: 指数形式
+    english: index form
+    meaning: 測地線に沿うベクトル場に対し第二変分を与える対称双線形形式。
+  - term: Jacobi 場
+    english: Jacobi field
+    meaning: 測地線に沿って Jacobi 方程式を満たし、測地線族の一次のずれを表すベクトル場。
+  - term: Jacobi 方程式
+    english: Jacobi equation
+    meaning: D_t^2 J + R(J,dot gamma)dot gamma=0 で表される線形二階常微分方程式。
+  - term: 共役点
+    english: conjugate point
+    meaning: 一本の測地線上で、両端で0になる非零 Jacobi 場が存在する二点の関係。
+  - term: 共役点の重複度
+    english: multiplicity of a conjugate point
+    meaning: 両端で0になる Jacobi 場の空間の次元。

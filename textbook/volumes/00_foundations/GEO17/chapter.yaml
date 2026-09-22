@@ -1,0 +1,57 @@
+id: "GEO17"
+title: "幾何学 XVII：変分公式・Jacobi 場・共役点"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEO14
+  - GEO16
+official_scope: []
+learning_objectives:
+  - 曲線の変分・変分ベクトル場・固定端点変分を定義し、二変数写像上で曲線に沿う共変微分を交換する公式を証明できる
+  - エネルギーの第一変分公式を導き、固定端点変分に対して測地線がエネルギーの臨界点であることとその逆を証明できる
+  - 長さの第一変分公式を導き、単位速測地線に対する境界項と加速度項の役割を説明できる
+  - 固定端点の測地線に沿うエネルギーの第二変分公式を導き、指数形式に曲率項が現れることを説明できる
+  - 測地線変分を微分して Jacobi 方程式を導き、逆に任意の Jacobi 場を測地線変分から実現できる
+  - 指数写像の微分を Jacobi 場の終値として表し、共役点と指数写像の微分の退化が同値であることを証明できる
+  - 半径 a の球面上で Jacobi 方程式を解き、対蹠点が距離 pi a で最初の共役点となり重複度 n-1 を持つことを計算できる
+  - 共役点がない区間で指数形式が正定値になることを Jacobi 基本行列の分解から証明できる
+  - 区間内部に共役点があると負の第二変分方向を構成でき、測地線が局所最短でなくなることを説明できる
+  - 非正断面曲率では共役点が生じないことを Jacobi 場の長さ二乗の凸性から証明できる
+definitions:
+  - { id: GEO17-DEF-01, name: 曲線の変分・変分ベクトル場・固定端点変分 }
+  - { id: GEO17-DEF-02, name: 指数形式 }
+  - { id: GEO17-DEF-03, name: Jacobi 場 }
+  - { id: GEO17-DEF-04, name: 共役点・共役点の重複度 }
+theorems:
+  - { id: GEO17-LEM-01, name: 変分方向と曲線方向の共変微分の交換 }
+  - { id: GEO17-THM-01, name: エネルギーの第一変分公式 }
+  - { id: GEO17-COR-01, name: 測地線とエネルギー臨界点の同値 }
+  - { id: GEO17-THM-02, name: 長さの第一変分公式 }
+  - { id: GEO17-THM-03, name: エネルギーの第二変分公式 }
+  - { id: GEO17-THM-04, name: 測地線変分からの Jacobi 方程式 }
+  - { id: GEO17-THM-05, name: Jacobi 場の測地線変分による実現 }
+  - { id: GEO17-PROP-01, name: 指数写像の微分と Jacobi 場 }
+  - { id: GEO17-THM-06, name: 共役点と指数写像の微分の退化 }
+  - { id: GEO17-PROP-02, name: 球面の対蹠点は共役点 }
+  - { id: GEO17-THM-07, name: 共役点がない区間での指数形式の正定値性 }
+  - { id: GEO17-THM-08, name: 区間内部の共役点は局所最短性を壊す }
+  - { id: GEO17-PROP-03, name: 非正断面曲率では共役点がない }
+canonical_examples:
+  - Euclid 空間の Jacobi 場と共役点の不在
+  - 半径 a の球面の法方向 Jacobi 場と対蹠点
+  - 定断面曲率空間の Jacobi 方程式
+  - 非正断面曲率での共役点の不在
+  - 球面上の指数形式と距離 pi a の閾値
+problem_patterns:
+  - GEO17-FIRST-VARIATION-1
+  - GEO17-SECOND-VARIATION-1
+  - GEO17-JACOBI-EQUATION-1
+  - GEO17-EXPONENTIAL-DIFFERENTIAL-1
+  - GEO17-CONJUGATE-POINT-1
+  - GEO17-INDEX-FORM-1
+  - GEO17-NONPOSITIVE-CURVATURE-1
+  - GEO17-SPHERE-THRESHOLD-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 7.0, review: 0.5 }
