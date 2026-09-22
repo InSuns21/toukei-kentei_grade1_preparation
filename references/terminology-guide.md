@@ -106,6 +106,8 @@
 | 特性焦散 | characteristic caustic | 初出で「特性焦散（caustic）」と補助併記可 |
 | アイコナール方程式 | eikonal equation | eikonal 方程式を本文の主表記にしない |
 | 粘性解 | viscosity solution | 必要なら初出で英語併記可。subsolution / supersolution は「粘性劣解 / 粘性優解」 |
+| Poisson 核 | Poisson kernel | 人名部分は英字表記を保持し、一般名詞は日本語主表記 |
+| ハミルトニアン | Hamiltonian | 初出で英語併記可。以後は「ハミルトニアン」を主表記 |
 
 ## 公式シラバス用語例
 
