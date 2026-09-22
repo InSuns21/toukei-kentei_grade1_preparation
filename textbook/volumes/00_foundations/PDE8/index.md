@@ -76,7 +76,13 @@ $$
 自由発展は「時刻 $t$ の間に熱が拡散した結果」を表します。
 <!-- definition-example-end -->
 
-Gaussian の畳み込みから
+$t=0$ では初期値をそのまま返す作用として
+
+$$
+S(0)f:=f
+$$
+
+と約束します。PDE3 の熱核の初期値再現性により、十分よい $f$ について $S(t)f\to f$ $(t\downarrow0)$ です。また Gaussian の畳み込みから
 
 $$
 S(t)S(s)=S(t+s)
@@ -245,7 +251,28 @@ $$
 u(t,x)=\int_0^t w_s(t-s,x)ds
 $$
 
-と置きます。一回微分すると上端 $w_t(0,x)=0$ なので境界項は消えます。二回微分すると
+と置きます。一回微分すると、Leibniz 則の上端項は
+
+$$
+w_{s=t}(0,x)=0
+$$
+
+なので消え、
+
+$$
+u_t(t,x)
+=
+\int_0^t
+\partial_\tau w_s(t-s,x)\,ds
+$$
+
+となります。もう一度微分すると、今度の上端項は
+
+$$
+\partial_\tau w_{s=t}(0,x)=F(t,x)
+$$
+
+なので
 
 $$
 u_{tt}
@@ -253,7 +280,7 @@ u_{tt}
 F(t,x)
 +
 \int_0^t
-\partial_{\tau\tau}w_s(t-s,x)ds.
+\partial_{\tau\tau}w_s(t-s,x)\,ds.
 $$
 
 各 $w_s$ は斉次波動方程式を満たすため
@@ -288,56 +315,164 @@ $$
 <a id="prop-pde8-semilinear-picard"></a>
 <!-- formal-statement-start -->
 > **命題（半線形熱方程式の Duhamel 反復評価）**  
-> $N:\mathbb R\to\mathbb R$ が Lipschitz 定数 $L$ を持つとする。反復列
+> $u_0:\mathbb R\to\mathbb R$ を有界連続関数、$N:\mathbb R\to\mathbb R$ を大域 Lipschitz 関数とし、その Lipschitz 定数を $L$ とする。任意の $T>0$ を固定し、
 
 $$
-u_{n+1}(t)
+u^{(0)}(t)=S(t)u_0,
+$$
+
+$$
+u^{(n+1)}(t)
 =
 S(t)u_0
 +
-\int_0^tS(t-s)N(u_n(s))ds
+\int_0^tS(t-s)N(u^{(n)}(s))\,ds
+\qquad (n\ge0)
 $$
 
-> を考える。熱核の全質量が1であることから
+> と定める。このとき
 
 $$
-\sup_x|u_{n+1}(t,x)-u_n(t,x)|
+d_n(t)
+:=
+\sup_{0\le r\le t}
+\|u^{(n)}(r)-u^{(n-1)}(r)\|_\infty
+\qquad(n\ge1)
+$$
+
+> は
+
+$$
+d_{n+1}(t)
 \le
-L\int_0^t
-\sup_x|u_n(s,x)-u_{n-1}(s,x)|ds.
+L\int_0^t d_n(s)\,ds
 $$
 
-> 従って短時間ではこの逐次近似が一様収束する。
+> を満たす。特に $C_T:=d_1(T)$ とすれば
+
+$$
+d_n(T)
+\le
+C_T
+\frac{(LT)^{n-1}}{(n-1)!},
+\qquad n\ge1.
+$$
+
+> 従って $(u^{(n)})$ は $[0,T]\times\mathbb R$ 上で一様 Cauchy となり、Duhamel 積分方程式の一意な有界連続解へ一様収束する。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
 
-差を取ると
+まず $G_{t-s}\ge0$ と
 
 $$
-u_{n+1}-u_n
+\int_{\mathbb R}G_{t-s}(y)\,dy=1
+$$
+
+から、任意の有界関数 $h$ に対し
+
+$$
+\|S(t-s)h\|_\infty
+\le
+\|h\|_\infty
+$$
+
+です。
+
+反復式の差を取ると
+
+$$
+u^{(n+1)}(t)-u^{(n)}(t)
 =
 \int_0^t
 S(t-s)
-\{N(u_n)-N(u_{n-1})\}ds.
+\{N(u^{(n)}(s))-N(u^{(n-1)}(s))\}\,ds.
 $$
 
-$G_{t-s}\ge0$ と $\int G_{t-s}=1$ から
+従って Lipschitz 性から
 
 $$
-\|S(t-s)h\|_\infty\le\|h\|_\infty.
+\begin{aligned}
+\|u^{(n+1)}(t)-u^{(n)}(t)\|_\infty
+&\le
+\int_0^t
+\|N(u^{(n)}(s))-N(u^{(n-1)}(s))\|_\infty\,ds\\
+&\le
+L\int_0^t
+\|u^{(n)}(s)-u^{(n-1)}(s)\|_\infty\,ds\\
+&\le
+L\int_0^t d_n(s)\,ds.
+\end{aligned}
 $$
 
-さらに $N$ の 仮定した一様差評価を使えば主張の積分評価を得ます。反復すると
+左辺の $0\le r\le t$ における上限を取れば
 
 $$
-\|u_{n+1}-u_n\|_{[0,T],\infty}
+d_{n+1}(t)
 \le
-\frac{(LT)^n}{n!}C
+L\int_0^t d_n(s)\,ds.
 $$
 
-という階乗型評価が得られ、級数 $\sum (LT)^n/n!$ の収束から一様 Cauchy 性が従います。極限が積分方程式を満たすことは一様収束と 非線形項の連続性から極限を通して確認できます。
+$C_T=d_1(T)$ とします。$d_1(t)\le C_T$ なので、帰納法で
+
+$$
+d_n(t)
+\le
+C_T\frac{L^{n-1}t^{n-1}}{(n-1)!}
+$$
+
+を得ます。実際、これが $n$ で成り立つなら
+
+$$
+d_{n+1}(t)
+\le
+LC_T\int_0^t
+\frac{L^{n-1}s^{n-1}}{(n-1)!}\,ds
+=
+C_T\frac{L^nt^n}{n!}.
+$$
+
+従って
+
+$$
+\sum_{n=1}^{\infty}d_n(T)
+\le
+C_T
+\sum_{m=0}^{\infty}\frac{(LT)^m}{m!}
+=
+C_Te^{LT}
+<\infty.
+$$
+
+よって $(u^{(n)})$ は一様 Cauchy です。その一様極限を $u$ とします。$N$ は Lipschitz なので
+
+$$
+N(u^{(n)})\to N(u)
+$$
+
+も一様であり、時間積分の極限を通して
+
+$$
+u(t)
+=
+S(t)u_0
++
+\int_0^tS(t-s)N(u(s))\,ds
+$$
+
+を得ます。
+
+最後に $u,v$ が同じ初期値を持つ二つの有界連続積分解なら
+
+$$
+\|u(t)-v(t)\|_\infty
+\le
+L\int_0^t
+\|u(s)-v(s)\|_\infty\,ds.
+$$
+
+[Grönwall の不等式](../ODE8/index.md#lem-ode8-gronwall)を $a=0$ で適用すると差は0です。従って積分解は一意です。
 <!-- proof-end -->
 
 ここでは積分方程式の構成までを古典論の bridge とします。一般半群上の積分方程式としての解概念は Encore III 後続 Track A、弱解は GPDE10 の正本を使います。
@@ -426,11 +561,41 @@ $u=a(t)\sin x$ と置くと $a'+a=e^{-t}$, $a(0)=0$。積分因子 $e^t$ から 
 #### PDE8-B03 Picard 差評価
 - Level: B
 
-命題の反復評価を二回繰り返し、$\|u_2-u_1\|$ と $\|u_3-u_2\|$ に現れる $T$ の次数を確認せよ。
+[半線形熱方程式の Duhamel 反復評価](#prop-pde8-semilinear-picard)で $d_1(T)\le C$ とする。$d_2(T)$ と $d_3(T)$ を実際に積分して評価し、階乗が現れる最初の二段を確認せよ。
 
 <!-- solution-start -->
 ##### 詳細解答
-$D_n(t)=\sup_x|u_n-u_{n-1}|$ とする。$D_{n+1}(t)\le L\int_0^tD_n(s)ds$。$D_1\le C$ なら $D_2\le LCt$、さらに $D_3\le L^2Ct^2/2$。積分を繰り返すことで階乗が現れます。
+まず
+
+$$
+d_2(t)
+\le
+L\int_0^td_1(s)\,ds
+\le
+LCt.
+$$
+
+次にこの評価をもう一度使うと
+
+$$
+d_3(t)
+\le
+L\int_0^td_2(s)\,ds
+\le
+L\int_0^tLCs\,ds
+=
+\frac{L^2Ct^2}{2}.
+$$
+
+従って $t=T$ で
+
+$$
+d_2(T)\le LCT,
+\qquad
+d_3(T)\le \frac{L^2CT^2}{2!}.
+$$
+
+積分を一段増やすたびに $t^n/n!$ が現れ、これが反復差の総和を指数級数で抑えられる理由です。
 <!-- solution-end -->
 
 ### Level C
