@@ -428,6 +428,15 @@ nodes:
     implementation_path: textbook/volumes/00_foundations/GEO16/index.md
     prerequisites: [GEO13, GEO11]
 
+  - id: GEO17
+    title: 変分公式・Jacobi 場・共役点
+    area: differential-geometry
+    tier: advanced-standard
+    status: implemented
+    implemented_at: 2026-09-23
+    implementation_path: textbook/volumes/00_foundations/GEO17/index.md
+    prerequisites: [GEO14, GEO16]
+
   - id: VC1
     title: ベクトル場と微分演算子
     area: vector-calculus
