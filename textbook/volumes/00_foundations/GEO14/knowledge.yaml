@@ -120,6 +120,7 @@ concepts:
     name: 放射測地線
     kind: definition
     aliases: [放射測地線, radial geodesic]
+    introduction: formal
     requires:
       - geometry.exponential-map
       - geometry.geodesic-affine-reparametrization
