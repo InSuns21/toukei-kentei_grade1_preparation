@@ -901,7 +901,13 @@ $$
 <a id="thm-geo18-bonnet-myers"></a>
 <!-- formal-statement-start -->
 > **定理（Bonnet--Myers の定理）**  
-> $(M,g)$ を連結な $n$ 次元完備 Riemann 多様体とし、ある定数
+> $(M,g)$ を連結な $n$ 次元完備 Riemann 多様体とし、
+>
+$$
+n\ge2
+$$
+>
+> とする。さらに、ある定数
 >
 $$
 \kappa>0
