@@ -121,7 +121,7 @@ $$
 
 <a id="thm-ca12-euler-product"></a>
 <!-- formal-statement-start -->
-### 定理（Euler 積と零点不存在）
+### 定理（Riemann ζ 関数の Euler 積と右半平面での零点不存在）
 
 $\Re s>1$ で
 
@@ -237,7 +237,7 @@ $$
 1-2^{-s}+3^{-s}-4^{-s}+\cdots
 $$
 
-は通常の交代級数である。しかし複素 $s$ では $n^{-s}$ 自体が位相を持つため、実数版の「単調減少だから収束」をそのまま使わず、部分和評価で確認する。
+は通常の交代級数である。しかし複素 $s$ では $n^{-s}$ 自体が位相を持つため、実数版の「単調減少だから収束」をそのまま使わず、隣り合う2項を組にした差分評価で確認する。
 <!-- definition-example-end -->
 
 <a id="prop-ca12-eta-holomorphic"></a>
@@ -268,45 +268,46 @@ $$
 |s|\le M
 $$
 
-とする。交代符号の部分和
+とする。隣り合う2項を組にして
 
 $$
-A_N=\sum_{n=1}^{N}(-1)^{n-1}
+(2m-1)^{-s}-(2m)^{-s}
 $$
 
-は $|A_N|\le1$ を満たす。
-
-Abel の部分和変換により、$N\le L$ で
+を調べる。実変数 $x$ に対して $x^{-s}=e^{-s\log x}$ だから
 
 $$
-\sum_{n=N}^{L}(-1)^{n-1}n^{-s}
-$$
-
-の絶対値は、端点項と
-
-$$
-\sum_{n=N}^{L-1}
-|A_n|\,
-|n^{-s}-(n+1)^{-s}|
-$$
-
-で抑えられる。実変数 $x$ に対して $x^{-s}=e^{-s\log x}$ だから
-
-$$
-n^{-s}-(n+1)^{-s}
+(2m-1)^{-s}-(2m)^{-s}
 =
-s\int_n^{n+1}x^{-s-1}\,dx.
+s\int_{2m-1}^{2m}x^{-s-1}\,dx.
 $$
 
-従って
+従って $s\in K$ では
 
 $$
-|n^{-s}-(n+1)^{-s}|
+\left|
+(2m-1)^{-s}-(2m)^{-s}
+\right|
 \le
-M\int_n^{n+1}x^{-\delta-1}\,dx.
+M\int_{2m-1}^{2m}x^{-\delta-1}\,dx.
 $$
 
-尾部は $K$ 上一様に $O(N^{-\delta})$ となる。よって eta 級数は $K$ 上一様収束し、各項が整関数なので $\eta$ は $\Re s>0$ で正則である。
+右辺を $m\ge N$ で足すと
+
+$$
+M\int_{2N-1}^{\infty}x^{-\delta-1}\,dx
+=
+\frac{M}{\delta}(2N-1)^{-\delta}
+\longrightarrow0
+$$
+
+であり、偶数個までをまとめた有限和列は $K$ 上一様 Cauchy である。奇数個までの有限和との差は
+
+$$
+(2N+1)^{-s}
+$$
+
+で、その絶対値は $(2N+1)^{-\delta}\to0$ と $K$ 上一様に消える。従って元の eta 級数は $K$ 上一様収束する。各項は整関数なので $\eta$ は $\Re s>0$ で正則である。
 
 $\Re s>1$ では絶対収束するので奇数項と偶数項を分けてよい。
 
@@ -331,7 +332,7 @@ $$
 $\square$
 <!-- proof-end -->
 
-eta 関数は解析接続の「入口」を見せるが、本章の主証明には使わない。$1-2^{1-s}$ 自身が零点を持つため、これだけで全平面への解析接続を一気に作るより、theta 変換を使う方が関数等式まで同時に得られる。
+eta 関数は解析接続の「入口」を見せるが、本章の主証明には使わない。$1-2^{1-s}$ 自身が零点を持つため、これだけで全平面への解析接続を一気に作るより、後で証明する theta の変換公式を使う方が関数等式まで同時に得られる。
 
 ---
 
@@ -373,7 +374,7 @@ $$
 は有限で、後で得る変換公式では $t=1$ が自己双対点になる。
 <!-- definition-example-end -->
 
-theta 変換を一般 Poisson 和公式の一行引用で済ませない。Gaussian に必要な場合だけを、周期化した関数の Fourier 係数から作る。
+この変換公式を一般 Poisson 和公式の一行引用で済ませない。Gaussian に必要な場合だけを、周期化した関数の Fourier 係数から作る。
 
 $t>0$ を固定し、
 
@@ -597,7 +598,7 @@ $$
 \int_0^1+\int_1^\infty
 $$
 
-と分ける。小さい $t$ 側で theta 変換を使う。
+と分ける。小さい $t$ 側で [theta 変換](#thm-ca12-theta-transformation)を使う。
 
 $$
 \theta(t)
@@ -724,7 +725,7 @@ $$
 従って唯一の極は $s=1$ の単純極で、留数は1である。$\square$
 <!-- proof-end -->
 
-解析接続の核心は「小さい $t$ が危険だから捨てる」ことではない。theta 変換によって小さい $t$ の情報を大きい $t$ へ送り返し、発散部分だけを
+解析接続の核心は「小さい $t$ が危険だから捨てる」ことではない。[theta 変換](#thm-ca12-theta-transformation)によって小さい $t$ の情報を大きい $t$ へ送り返し、特異な二項だけを
 
 $$
 \frac1{s-1}-\frac1s
@@ -940,7 +941,7 @@ $$
 \zeta(1+2m)
 $$
 
-は $\Re(1-s)>1$ にあるため Euler 積から有限かつ非零である。従って
+は $\Re(1-s)>1$ にあるため [Riemann ζ 関数の Euler 積](#thm-ca12-euler-product)から有限かつ非零である。従って
 
 $$
 \zeta(-2m)=0.
@@ -1078,8 +1079,8 @@ $\square$
 本章の主要結果は別々の魔法ではない。
 
 - **Euler 積**：正整数の一意分解を、絶対収束が許す無限積へ移した。
-- **theta 変換**：Gaussian を周期化し、Fourier 係数が再び Gaussian になることを使った。
-- **解析接続**：Mellin 積分の $t\to0$ 側を theta 変換で $t\to\infty$ 側へ送り返し、発散する二項だけを明示した。
+- **[theta 変換](#thm-ca12-theta-transformation)**：Gaussian を周期化し、Fourier 係数が再び Gaussian になることを使った。
+- **解析接続**：Mellin 積分の $t\to0$ 側を [theta 変換](#thm-ca12-theta-transformation)で $t\to\infty$ 側へ送り返し、特異な二項だけを明示した。
 - **関数等式**：解析接続に使った同じ式が $s\leftrightarrow1-s$ で不変だった。
 
 つまり
@@ -1129,7 +1130,7 @@ $$
 #### CA12-A03 theta 変換の数値対応
 - Level: A
 
-theta 変換から
+[theta 変換](#thm-ca12-theta-transformation)から
 
 $$
 \theta(4)=\frac12\theta(1/4)
@@ -1157,7 +1158,7 @@ $$
 #### CA12-B01 eta 関数の収束
 - Level: B
 
-$\Re s>0$ のコンパクト集合上で eta 級数が一様収束することを Abel の部分和変換で示し、$\Re s>1$ で
+$\Re s>0$ のコンパクト集合上で eta 級数が一様収束することを、隣り合う2項を組にした差分評価で示し、$\Re s>1$ で
 
 $$
 \eta(s)=(1-2^{1-s})\zeta(s)
@@ -1181,7 +1182,7 @@ $$
 c_k=t^{-1/2}e^{-\pi k^2/t}
 $$
 
-を示せ。そこから $P_t(0)$ を二通りに表して theta 変換を導け。
+を示せ。そこから $P_t(0)$ を二通りに表して [theta 変換](#thm-ca12-theta-transformation)を導け。
 
 <a id="ex-ca12-b3"></a>
 #### CA12-B03 対称形から古典的関数等式へ
@@ -1191,7 +1192,7 @@ $$
 \Lambda(s)=\Lambda(1-s)
 $$
 
-から始め、CA11 の Euler の反射公式と Legendre の倍角公式を用いて
+から始め、CA11 の [Euler の反射公式](../CA11/index.md#thm-ca11-reflection)と [Legendre の倍角公式](../CA11/index.md#thm-ca11-duplication)を用いて
 
 $$
 \zeta(s)
@@ -1217,7 +1218,7 @@ $$
    =
    \frac12\int_0^\infty(\theta(t)-1)t^{s/2-1}\,dt.
    $$
-2. 積分を $t=1$ で分け、theta 変換と $u=1/t$ により
+2. 積分を $t=1$ で分け、[theta 変換](#thm-ca12-theta-transformation)と $u=1/t$ により
    $$
    \Lambda(s)
    =
@@ -1352,31 +1353,33 @@ $$
 
 となる。
 
-$a_n=(-1)^{n-1}$ の部分和 $A_N$ は $|A_N|\le1$。Abel の部分和変換を使うと尾部は、端点項と
+隣り合う2項を組にすると
 
 $$
-\sum_{n=N}^{L-1}
-A_n
-\{n^{-s}-(n+1)^{-s}\}
-$$
-
-の和になる。
-
-$$
-n^{-s}-(n+1)^{-s}
+(2m-1)^{-s}-(2m)^{-s}
 =
-s\int_n^{n+1}x^{-s-1}\,dx
+s\int_{2m-1}^{2m}x^{-s-1}\,dx.
 $$
 
-なので
+従って $s\in K$ で
 
 $$
-|n^{-s}-(n+1)^{-s}|
+\left|(2m-1)^{-s}-(2m)^{-s}\right|
 \le
-M\int_n^{n+1}x^{-\delta-1}\,dx.
+M\int_{2m-1}^{2m}x^{-\delta-1}\,dx.
 $$
 
-従って尾部は $O(N^{-\delta})$ で $K$ 上一様に0へ行く。eta 級数は $K$ 上一様収束する。
+$m\ge N$ について足せば
+
+$$
+\sum_{m=N}^{\infty}
+\left|(2m-1)^{-s}-(2m)^{-s}\right|
+\le
+\frac{M}{\delta}(2N-1)^{-\delta}
+\to0
+$$
+
+と $K$ 上一様に評価できる。偶数個までの有限和列は一様 Cauchy で、奇数個までとの差 $(2N+1)^{-s}$ も一様に0へ行く。よって eta 級数は $K$ 上一様収束する。
 
 $\Re s>1$ では絶対収束するので
 
@@ -1476,7 +1479,7 @@ $$
 \zeta(1-s).
 $$
 
-Legendre の倍角公式で $z=(1-s)/2$ とすると
+[Legendre の倍角公式](../CA11/index.md#thm-ca11-duplication)で $z=(1-s)/2$ とすると
 
 $$
 \Gamma((1-s)/2)\Gamma(1-s/2)
@@ -1484,7 +1487,7 @@ $$
 2^s\sqrt\pi\,\Gamma(1-s).
 $$
 
-Euler の反射公式で $z=s/2$ とすると
+[Euler の反射公式](../CA11/index.md#thm-ca11-reflection)で $z=s/2$ とすると
 
 $$
 \Gamma(s/2)\Gamma(1-s/2)
@@ -1536,7 +1539,7 @@ e^{-\pi n^2t}t^{\sigma/2-1}\,dt
 <\infty.
 $$
 
-従って Fubini により和と積分を交換できる。
+従って [Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02)により和と積分を交換できる。
 
 $$
 \frac12
@@ -1558,7 +1561,7 @@ $$
 \int_0^1(\theta(t)-1)t^{s/2-1}\,dt.
 $$
 
-第二項で $u=1/t$ とする。theta 変換から
+第二項で $u=1/t$ とする。[theta 変換](#thm-ca12-theta-transformation)から
 
 $$
 \theta(1/u)=u^{1/2}\theta(u).
@@ -1684,7 +1687,7 @@ $$
 \zeta(-2m)=0.
 $$
 
-これで Mellin 表現、解析接続、関数等式、自明零点が一つの theta 変換から連続して導かれた。
+これで Mellin 表現、解析接続、関数等式、自明零点が一つの [theta 変換](#thm-ca12-theta-transformation)から連続して導かれた。
 
 ---
 
@@ -1694,12 +1697,12 @@ $$
 
 - $\Re s>1$ で Dirichlet 級数を局所一様絶対収束させ、Riemann ζ 関数を正則関数として構成した。
 - 正整数の一意分解と絶対収束から Euler 積を導き、$\Re s>1$ での零点不存在を示した。
-- Dirichlet eta 関数が $\Re s>0$ で正則になることを Abel の部分和変換で確認した。
-- Gaussian を周期化し、FOU3 の Gaussian Fourier 変換と FOU2 の Fourier 級数収束から theta 変換を証明した。
-- Fubini の適用条件を絶対積分で確認し、theta 関数の Mellin 表現を導いた。
-- $t=1$ で積分を分け、theta 変換で小さい $t$ を大きい $t$ へ送り返すことで ζ を解析接続した。
+- Dirichlet eta 関数が $\Re s>0$ で正則になることを、隣り合う2項を組にした差分評価で確認した。
+- Gaussian を周期化し、FOU3 の Gaussian Fourier 変換と FOU2 の Fourier 級数収束から [theta 変換](#thm-ca12-theta-transformation)を証明した。
+- [Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02)の適用条件を絶対積分で確認し、theta 関数の Mellin 表現を導いた。
+- $t=1$ で積分を分け、[theta 変換](#thm-ca12-theta-transformation)で小さい $t$ を大きい $t$ へ送り返すことで ζ を解析接続した。
 - $s=1$ が留数1の単純極であることを明示した。
 - 完成 zeta 因子の $s\leftrightarrow1-s$ 対称性から関数等式を導いた。
 - 負の偶数の自明零点と $\zeta(0),\zeta(-1),\zeta(2)$ を既存の Gamma 関数・正弦関数の Euler 積へ接続して導いた。
 
-これで CA7--CA12 の「複素解析 II」は、正規族・Riemann 面・楕円関数・無限積・Gamma 関数から Riemann ζ 関数までを、証明付きの一本の系列として閉じる。
+これで CA7--CA12 の「複素解析 II」は、正規族から Riemann 面・関数構成論・Gamma 関数・Riemann ζ 関数へ至る後半系列を、証明付きで閉じる。
