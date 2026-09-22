@@ -182,7 +182,13 @@ $$
 <a id="thm-pde12-hamilton-characteristics"></a>
 <!-- formal-statement-start -->
 > **定理（Hamilton--Jacobi の特性方程式）**  
-> $H\in C^2$ とし、$p=\nabla u$ と置くと、特性は
+> $H\in C^2$ とし、$u\in C^2$ が
+>
+> $
+> u_t+H(x,\nabla_xu)=0
+> $
+>
+> を満たすとする。$p=\nabla_xu$、$z=u$ と置くと、特性は
 
 $$
 \dot x=H_p(x,p),
@@ -379,9 +385,37 @@ $$
 <!-- proof-start -->
 ### 証明
 
+Hamilton 系
+
+$
+\frac d{dt}
+\begin{pmatrix}
+X\\
+P
+\end{pmatrix}
+=
+\begin{pmatrix}
+H_p(X,P)\\
+-H_x(X,P)
+\end{pmatrix}
+$
+
+の右辺は $H\in C^2$ により $C^1$ 級です。従って ODE8 の [流れの初期値微分と変分方程式](../ODE8/index.md#lem-ode8-flow-variational) を $(X,P)$ 系へ適用でき、$X(t,a),P(t,a)$ は初期ラベル $a$ について $C^1$ 級です。さらに
+
+$
+Z(t,a)
+=
+u_0(a)
++
+\int_0^t
+\{P\cdot H_p-H\}(X(s,a),P(s,a))\,ds
+$
+
+なので $Z$ も $a$ について $C^1$ 級です。以下の $a$ 微分はこれで正当化されます。
+
 まず
 
-$$
+$
 W(t,a)
 =
 D_aZ(t,a)
