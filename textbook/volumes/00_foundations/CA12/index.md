@@ -1,12 +1,12 @@
 # CA12 標準複素解析 XII：数論的特殊関数と Fourier 対称性
 
-> **複素解析 II の終章**。正整数上の級数から出発し、素数の積、Gaussian の Fourier 変換、Gamma 関数、解析接続を一本の線で結ぶ。中心は「既知の関数等式を使う」ことではない。Gaussian を周期化して得る変換公式と Mellin 積分から、極・対称性・負の偶数に現れる零点を同じ構成で導く。
+> **複素解析 II の終章**。正整数上の級数から出発し、素数の積、Gauss 関数の Fourier 変換、Gamma 関数、解析接続を一本の線で結ぶ。中心は「既知の関数等式を使う」ことではない。Gauss 関数を周期化して得る変換公式と Mellin 積分から、極・対称性・負の偶数に現れる零点を同じ構成で導く。
 
 <!-- definition-example-audit: strict -->
 
 ## 0. この章の主線
 
-Gamma 関数は [CA11](../CA11/index.md#def-ca11-gamma-function)、無限積の非消滅性は [CA10](../CA10/index.md#thm-ca10-infinite-product-criterion)、Gaussian の Fourier 変換は [FOU3](../FOU3/index.md#lem-fou3-gaussian-transform)、周期関数の Fourier 級数収束は [FOU2](../FOU2/index.md#thm-fou2-dirichlet-convergence)、積分と総和の交換は [Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02)を正本とする。
+Gamma 関数は [CA11](../CA11/index.md#def-ca11-gamma-function)、無限積の非消滅性は [CA10](../CA10/index.md#thm-ca10-infinite-product-criterion)、Gauss 関数の Fourier 変換は [FOU3](../FOU3/index.md#lem-fou3-gaussian-transform)、周期関数の Fourier 級数収束は [FOU2](../FOU2/index.md#thm-fou2-dirichlet-convergence)、積分と総和の交換は [Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02)を正本とする。
 
 ~~~text
 Dirichlet 級数
@@ -17,9 +17,9 @@ Euler 積
   ↓
 素数と複素関数が接続
   ↓
-Gaussian の周期化
+Gauss 関数の周期化
   ↓ Fourier 係数を計算
-Gaussian 周期化の変換公式
+Gauss 関数の周期化の変換公式
   ↓ Mellin 積分
 完成 zeta 因子
   ↓ t=1 で分割
@@ -336,7 +336,7 @@ eta 関数は解析接続の「入口」を見せるが、本章の主証明に�
 
 ---
 
-## 4. Gaussian を周期化する
+## 4. Gauss 関数を周期化する
 
 <a id="def-ca12-jacobi-theta"></a>
 <!-- formal-statement-start -->
@@ -374,7 +374,7 @@ $$
 は有限で、後で得る変換公式では $t=1$ が自己双対点になる。
 <!-- definition-example-end -->
 
-この変換公式を一般 Poisson 和公式の一行引用で済ませない。Gaussian に必要な場合だけを、周期化した関数の Fourier 係数から作る。
+この変換公式を一般 Poisson 和公式の一行引用で済ませない。Gauss 関数に必要な場合だけを、周期化した関数の Fourier 係数から作る。
 
 $t>0$ を固定し、
 
@@ -385,7 +385,7 @@ P_t(x)
 e^{-\pi t(x+n)^2}
 $$
 
-と置く。$x$ を有界区間に制限すると Gaussian tail により級数も微分級数も一様収束するので $P_t$ は $C^1$ 級の1周期関数である。
+と置く。$x$ を有界区間に制限すると Gauss 関数の尾部 により級数も微分級数も一様収束するので $P_t$ は $C^1$ 級の1周期関数である。
 
 <a id="thm-ca12-theta-transformation"></a>
 <!-- formal-statement-start -->
@@ -447,7 +447,7 @@ c_k
 e^{-\pi tu^2}e^{-2\pi iku}\,du.
 $$
 
-[Gaussian の Fourier 変換](../FOU3/index.md#lem-fou3-gaussian-transform)へ $a=\pi t$, $\xi=2\pi k$ を代入すると
+[Gauss 関数の Fourier 変換](../FOU3/index.md#lem-fou3-gaussian-transform)へ $a=\pi t$, $\xi=2\pi k$ を代入すると
 
 $$
 c_k
@@ -483,7 +483,7 @@ $$
 $\square$
 <!-- proof-end -->
 
-この証明で FOU3 は Gaussian が Fourier 変換で Gaussian に戻ることを担当し、FOU2 は周期化した関数がその Fourier 級数へ戻ることを担当している。
+この証明で FOU3 は Gauss 関数が Fourier 変換で再び Gauss 関数になることを担当し、FOU2 は周期化した関数がその Fourier 級数へ戻ることを担当している。
 
 ---
 
@@ -654,23 +654,97 @@ t^{(1-s)/2-1}
 \right)\,dt.
 $$
 
-$t\ge1$ では
+$t\ge1$ では $n^2\ge n$ を使って
 
-$$
+$
+\begin{aligned}
 0<\theta(t)-1
+&=
+2\sum_{n=1}^{\infty}e^{-\pi n^2t}\\
+&\le
+2\sum_{n=1}^{\infty}e^{-\pi nt}
 =
-2\sum_{n=1}^{\infty}e^{-\pi n^2t}
+\frac{2e^{-\pi t}}{1-e^{-\pi t}}
 \le
 C e^{-\pi t}
-$$
+\end{aligned}
+$
 
-と指数減衰する。従って $s$ を任意のコンパクト集合に制限しても integrand は
+と一様に指数減衰する。
 
-$$
-C_K e^{-\pi t}(t^A+t^B)
-$$
+ここで「指数減衰するから $H$ は整関数」とだけ言わず、複素パラメータ $s$ に関する正則性を確認する。任意のコンパクト集合 $K\subset\mathbb C$ を固定し、
 
-型の可積分関数で抑えられる。よって $H(s)$ は全平面で整関数である。
+$
+m\le \Re s\le M
+\qquad(s\in K)
+$
+
+となる実数 $m,M$ を取る。$t\ge1$ では
+
+$
+\left|
+t^{s/2-1}
++
+t^{(1-s)/2-1}
+\right|
+\le
+t^{M/2-1}
++
+t^{(1-m)/2-1},
+$
+
+だから integrand は $K$ 上一様に
+
+$
+C_K e^{-\pi t}
+\left(
+t^{M/2-1}
++
+t^{(1-m)/2-1}
+\right)
+$
+
+で抑えられ、右辺は $[1,\infty)$ 上可積分である。
+
+さらに $s$ で微分すると候補は
+
+$
+\frac14
+(\theta(t)-1)\log t
+\left(
+t^{s/2-1}
+-
+t^{(1-s)/2-1}
+\right)
+$
+
+であり、これも $K$ 上一様に
+
+$
+C_K e^{-\pi t}(1+\log t)
+\left(
+t^{M/2-1}
++
+t^{(1-m)/2-1}
+\right)
+$
+
+という可積分関数で抑えられる。従って優収束により積分下で複素微分でき、
+
+$
+H'(s)
+=
+\frac14
+\int_1^\infty
+(\theta(t)-1)\log t
+\left(
+t^{s/2-1}
+-
+t^{(1-s)/2-1}
+\right)dt.
+$
+
+$K$ は任意だったので $H$ は全平面で整関数である。
 
 <a id="thm-ca12-meromorphic-continuation"></a>
 <!-- formal-statement-start -->
@@ -897,7 +971,7 @@ $$
 
 ---
 
-## 8. 負の偶数に現れる零点と critical strip
+## 8. 負の偶数に現れる零点と 臨界帯（critical strip）
 
 <a id="cor-ca12-trivial-zeros"></a>
 <!-- formal-statement-start -->
@@ -966,7 +1040,7 @@ $$
 0<\Re s<1
 $$
 
-という critical strip に入る。しかし $\Re s=1$ の零点不存在の証明は素数定理へ接続する深い段階なので、本章では黒箱として使わない。
+という 臨界帯（critical strip） に入る。しかし $\Re s=1$ の零点不存在の証明は素数定理へ接続する深い段階なので、本章では黒箱として使わない。
 
 **Riemann 予想**は、全ての非自明零点が
 
@@ -1079,14 +1153,14 @@ $\square$
 本章の主要結果は別々の魔法ではない。
 
 - **Euler 積**：正整数の一意分解を、絶対収束が許す無限積へ移した。
-- **[theta 変換](#thm-ca12-theta-transformation)**：Gaussian を周期化し、Fourier 係数が再び Gaussian になることを使った。
+- **[theta 変換](#thm-ca12-theta-transformation)**：Gauss 関数を周期化し、Fourier 係数が再び Gaussian になることを使った。
 - **解析接続**：Mellin 積分の $t\to0$ 側を [theta 変換](#thm-ca12-theta-transformation)で $t\to\infty$ 側へ送り返し、特異な二項だけを明示した。
 - **関数等式**：解析接続に使った同じ式が $s\leftrightarrow1-s$ で不変だった。
 
 つまり
 
 ~~~text
-Gaussian の自己相似性
+Gauss 関数の自己相似性
   ↓ Fourier
 theta の自己双対性
   ↓ Mellin
@@ -1167,7 +1241,7 @@ $$
 を導け。
 
 <a id="ex-ca12-b2"></a>
-#### CA12-B02 Gaussian 周期化から theta 変換まで
+#### CA12-B02 Gauss 関数の周期化から theta 変換まで
 - Level: B
 
 $$
@@ -1431,7 +1505,7 @@ c_k
 e^{-\pi tu^2}e^{-2\pi iku}\,du.
 $$
 
-FOU3 の Gaussian Fourier 変換で $a=\pi t$, $\xi=2\pi k$ とすれば
+FOU3 の Gauss 関数の Fourier 変換で $a=\pi t$, $\xi=2\pi k$ とすれば
 
 $$
 c_k
@@ -1698,7 +1772,7 @@ $$
 - $\Re s>1$ で Dirichlet 級数を局所一様絶対収束させ、Riemann ζ 関数を正則関数として構成した。
 - 正整数の一意分解と絶対収束から Euler 積を導き、$\Re s>1$ での零点不存在を示した。
 - Dirichlet eta 関数が $\Re s>0$ で正則になることを、隣り合う2項を組にした差分評価で確認した。
-- Gaussian を周期化し、FOU3 の Gaussian Fourier 変換と FOU2 の Fourier 級数収束から [theta 変換](#thm-ca12-theta-transformation)を証明した。
+- Gauss 関数を周期化し、FOU3 の Gauss 関数の Fourier 変換と FOU2 の Fourier 級数収束から [theta 変換](#thm-ca12-theta-transformation)を証明した。
 - [Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02)の適用条件を絶対積分で確認し、theta 関数の Mellin 表現を導いた。
 - $t=1$ で積分を分け、[theta 変換](#thm-ca12-theta-transformation)で小さい $t$ を大きい $t$ へ送り返すことで ζ を解析接続した。
 - $s=1$ が留数1の単純極であることを明示した。
