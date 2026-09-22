@@ -1,0 +1,35 @@
+chapter: "NA6"
+terms:
+  - term: 時間格子
+    english: time grid
+    meaning: 時間区間を離散点 t_n へ分割したもの。
+  - term: 刻み幅
+    english: step size
+    meaning: 隣接する時間格子点の差。等間隔格子では h=t_{n+1}-t_n とする。
+  - term: 一段法
+    english: one-step method
+    meaning: 次の近似値を直前の一つの近似値から計算する時間離散化法。
+  - term: 一段関数
+    english: increment function
+    meaning: 一段法 y_{n+1}=y_n+h Phi(t_n,y_n,h) に現れる増分を決める関数 Phi。
+  - term: Euler 法
+    english: forward Euler method
+    meaning: 一段関数を Phi(t,y,h)=f(t,y) とした陽的一段法。
+  - term: 局所打切り誤差
+    english: local truncation error
+    meaning: exact solution を一段だけ数値法へ代入したときに1単位時間あたりに残る誤差。
+  - term: 整合性
+    english: consistency
+    meaning: 刻み幅を0へ近づけたとき局所打切り誤差が0へ収束する性質。
+  - term: 大域誤差
+    english: global error
+    meaning: 同じ時間格子点での exact solution と数値解の差。
+  - term: 収束次数
+    english: order of convergence
+    meaning: 固定した有限時間区間で大域誤差が刻み幅の何乗で0へ近づくかを表す指数。
+  - term: 摂動安定性
+    english: perturbation stability
+    meaning: 初期値や各ステップに加わる小さな摂動が固定有限時間区間で制御可能な範囲に保たれる性質。
+  - term: 離散 Grönwall 型評価
+    english: discrete Gronwall estimate
+    meaning: 誤差の漸化式から指数型の上界を導く離散的な評価。
