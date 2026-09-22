@@ -95,6 +95,11 @@ flowchart TD
   GEO10 --> GEO11["Euclid 空間の超曲面 II<br/>Gauss--Codazzi・基本定理<br/>GEO11"]
   GEO6 --> GEO11
   GEO9 --> GEO11
+  GEO4 --> GEO12["Riemann 計量・長さ・距離・体積<br/>GEO12"]
+  GEO7 --> GEO12
+  GEO8 --> GEO12
+  LA5 --> GEO12
+  VC1 --> GEO12
   TOP5 --> TOP5A["Urysohn・局所コンパクト性・cutoff<br/>TOP5A"]
   TOP5 --> BAIRE["全有界性・Baire・net/filter<br/>TOP6"]
   BAIRE --> UNIFORM["一様構造・一様連続・Cauchy構造<br/>TOP7"]
@@ -766,6 +771,25 @@ direct prerequisite は GEO3、VC2、VC3、LA5 です。VC2 の正則曲線・�
 実装: [GEO11](volumes/00_foundations/GEO11/index.md)
 
 direct prerequisite は GEO10、GEO6、GEO9 です。GEO10 の第一・第二基本形式と形作用素を出発点にし、GEO6 の Frobenius の定理を標構方程式の局所積分へ、GEO9 の Poincaré の補題を閉じたベクトル値1形式から位置ベクトルを復元する段階へ使います。Gauss--Codazzi を必要条件として導くだけでなく局所存在の十分条件へ反転し、次の GEO12 で抽象 Riemann 計量へ移るための「内在量と外在量」の境界を閉じます。
+
+## GEO12 Riemann 計量・長さ・距離・体積 `core`
+
+- 接空間ごとの滑らかな正定値内積として Riemann 計量を定義
+- GEO4 の 1 の分割で任意の滑らかな多様体上の Riemann 計量の存在を証明
+- flat・sharp 同型と Riemannian 勾配、座標公式
+- 曲線の Riemann 長・曲線エネルギー・再パラメータ不変性
+- Cauchy--Schwarz による長さと曲線エネルギーの不等式
+- 曲線長の下限として Riemann 距離を構成し、距離の公理を証明
+- 計量行列の局所有界比較から Riemann 距離が元の多様体位相を誘導することを証明
+- Riemann 等長写像による長さ・距離保存
+- GEO8 の向き・最高次形式から Riemann 体積形式を構成し、$\sqrt{\det G}$ の座標表示を導出
+- GEO7 の Lie 微分と Cartan の公式から Riemannian 発散を定義
+- Laplace--Beltrami 作用素の座標公式と VC1 の Euclid 勾配・発散・Laplacian の回収
+- A4/B3/C1 の演習で極座標、共形・対角・warped 型計量を具体計算
+
+実装: [GEO12](volumes/00_foundations/GEO12/index.md)
+
+direct prerequisite は GEO4、GEO7、GEO8、LA5、VC1 です。GEO4 は局所 Euclid 計量を 1 の分割で貼る存在証明、GEO7 はテンソル場・Lie 微分、GEO8 は向きと最高次形式、LA5 までの内積理論は各接空間の正定値内積、VC1 は Euclid の勾配・発散・Laplacian を Riemannian 公式の特殊例として回収するために直接使います。次の GEO13 では計量と両立し torsion が0の Levi-Civita 接続を構成します。
 
 ---
 
