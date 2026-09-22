@@ -89,7 +89,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo17-variation -->
-**定義の確認：Euclid 平面**
+**定義の確認**
+
+例：Euclid 平面
 
 $\gamma(t)=(t,0)$、$0\le t\le1$ とし、
 
@@ -870,7 +872,9 @@ $$
 と書けます。
 
 <!-- definition-example-start: def-geo17-index-form -->
-**定義の確認：Euclid 空間**
+**定義の確認**
+
+例：Euclid 空間
 
 Euclid 空間では
 
@@ -931,7 +935,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo17-jacobi -->
-**定義の確認：Euclid 空間**
+**定義の確認**
+
+例：Euclid 空間
 
 Euclid 空間では $R=0$ なので Jacobi 方程式は
 
@@ -1275,7 +1281,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo17-conjugate -->
-**定義の確認：球面の対蹠点**
+**定義の確認**
+
+例：球面の対蹠点
 
 半径 $a$ の球面 $S^n_a$ 上で、北極から出る単位速大円を $\gamma$ とします。
 
