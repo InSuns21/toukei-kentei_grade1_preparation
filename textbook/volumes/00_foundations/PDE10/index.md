@@ -136,7 +136,16 @@ $$
 \frac{1-|y|^2}{|x-y|}\,dy
 $$
 
-は定義どおり三次元 Newton ポテンシャルです。$x=y$ の核の特異性は三次元では局所可積分なので、この積分は有限です。
+は定義どおり三次元 Newton ポテンシャルです。$x=y$ の近くでは体積要素が $r^2dr$、核が $1/r$ の大きさなので、半径 $\varepsilon$ の近傍からの寄与は
+
+$
+\int_0^\varepsilon r\,dr
+=
+\frac{\varepsilon^2}{2}
+<\infty
+$
+
+と抑えられ、この積分は有限です。
 <!-- definition-example-end -->
 
 <a id="thm-pde10-newton-poisson"></a>
