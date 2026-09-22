@@ -144,6 +144,8 @@ $$
 <!-- definition-example-start: def-fdm1-grid-grid-function -->
 ### 例：$L=1$ を4分割する
 
+**定義の確認**。上の定義に従って格子点と格子関数を具体化します。
+
 $J=4$ とすると
 
 $$
@@ -237,7 +239,9 @@ $$
 <!-- definition-example-start: def-fdm1-difference-operators -->
 ### 例：二次関数では中心二階差分が厳密に二階微分になる
 
-$$
+**定義の確認**。中心二階空間差分の定義を二次関数へ直接適用します。
+
+$
 q(x)=x^2
 $$
 
@@ -379,6 +383,8 @@ $$
 <!-- definition-example-start: def-fdm1-explicit-implicit -->
 ### 例：右辺に新時刻があるかを見る
 
+**定義の確認**。新時刻の未知量の現れ方から陽解法と陰解法を判別します。
+
 更新式が
 
 $$
@@ -499,7 +505,9 @@ $$
 <!-- definition-example-start: def-fdm1-ftcs -->
 ### 例：斉次境界条件で1ステップ進める
 
-$$
+**定義の確認**。前進時間・中心空間差分法の定義式へ初期格子値を代入し、1ステップを直接計算します。
+
+$
 L=1,
 \qquad
 \kappa=1,
@@ -740,6 +748,8 @@ $$
 
 <!-- definition-example-start: def-fdm1-backward-euler -->
 ### 例：2内部点なら $2\times2$ 連立方程式になる
+
+**定義の確認**。後退 Euler 差分法で新時刻の未知量が連立することを具体的に確認します。
 
 内部点が2個、すなわち $J=3$ とします。
 
