@@ -131,7 +131,7 @@ concepts:
       - geometry.geodesic-local-existence-uniqueness
 
   - id: geometry.exponential-differential-jacobi
-    name: Jacobi 場による指数写像の線形化
+    name: 指数写像と Jacobi 場の対応
     kind: proposition
     aliases: [指数写像の微分と Jacobi 場]
     requires:
