@@ -27,7 +27,7 @@ theorems:
   - { id: STO4-THM-03, name: "ブラウン運動の強マルコフ性" }
   - { id: STO4-THM-04, name: "反射原理" }
   - { id: STO4-THM-05, name: "ブラウン到達時刻の分布" }
-  - { id: STO4-THM-06, name: "1次元ブラウン運動の基本的再帰性" }
+  - { id: STO4-THM-06, name: "1次元ブラウン運動の全水準到達と0への無限回帰還" }
   - { id: STO4-PROP-02, name: "ブラウン時間反転" }
 canonical_examples:
   - "degenerate ガウス過程 X_t=tZ"
