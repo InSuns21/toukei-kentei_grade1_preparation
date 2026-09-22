@@ -373,16 +373,63 @@ $$
 
 とします。
 
-接続の公理を使って
+接続の公理を使って変換則を導きます。まず
 
 $$
+\frac{\partial}{\partial y^a}
+=
+A^i{}_a\partial_i,
+\qquad
+A^i{}_a
+=
+\frac{\partial x^i}{\partial y^a}.
+$$
+
+従って
+
+$$
+\begin{aligned}
 \nabla_{\partial/\partial y^a}
 \frac{\partial}{\partial y^b}
+&=
+A^i{}_a
+\nabla_{\partial_i}
+\left(
+A^j{}_b\partial_j
+\right)
+\\
+&=
+A^i{}_a
+\left[
+(\partial_iA^k{}_b)\partial_k
++
+A^j{}_b\Gamma^k_{ij}\partial_k
+\right].
+\end{aligned}
 $$
 
-を計算すると、新しい Christoffel 係数は
+ここで
 
 $$
+A^i{}_a\partial_iA^k{}_b
+=
+\frac{\partial^2x^k}
+{\partial y^a\partial y^b},
+$$
+
+かつ
+
+$$
+\partial_k
+=
+\frac{\partial y^c}{\partial x^k}
+\frac{\partial}{\partial y^c}.
+$$
+
+従って新しい Christoffel 係数は
+
+$$
+\boxed{
 \widetilde\Gamma^c_{ab}
 =
 \frac{\partial y^c}{\partial x^k}
@@ -393,7 +440,8 @@ $$
 +
 \frac{\partial^2x^k}
 {\partial y^a\partial y^b}
-\right].
+\right]
+}.
 $$
 
 右辺には二階微分
@@ -720,20 +768,60 @@ $$
 $$
 V^k
 =
-\frac{\partial x^k}{\partial y^b}\widetilde V^b.
+\frac{\partial x^k}{\partial y^b}\widetilde V^b,
+\qquad
+\dot x^i
+=
+\frac{\partial x^i}{\partial y^a}\dot y^a.
 $$
 
-時間微分を取ると、Jacobi 行列の時間変化から二階微分項が現れます。
-
-一方、Christoffel 係数の変換則にも同じ二階微分項が逆向きに現れます。両者を合わせると非斉次項が打ち消し合い、
+時間微分を取ると
 
 $$
-\frac{DV}{dt}
+\frac{dV^k}{dt}
+=
+\frac{\partial x^k}{\partial y^c}
+\frac{d\widetilde V^c}{dt}
++
+\frac{\partial^2x^k}
+{\partial y^a\partial y^b}
+\dot y^a\widetilde V^b.
 $$
 
-は通常の接ベクトルと同じ一次の変換則で変換します。
+一方、先ほど導いた Christoffel 係数の変換則を整理すると
 
-つまり Christoffel 係数は、それ単独ではテンソルでないからこそ、成分微分の座標依存をちょうど補正できます。
+$$
+\Gamma^k_{ij}\dot x^iV^j
+=
+\frac{\partial x^k}{\partial y^c}
+\widetilde\Gamma^c_{ab}
+\dot y^a\widetilde V^b
+-
+\frac{\partial^2x^k}
+{\partial y^a\partial y^b}
+\dot y^a\widetilde V^b.
+$$
+
+二式を足すと二階微分項が打ち消し合い、
+
+$$
+\boxed{
+\frac{dV^k}{dt}
++
+\Gamma^k_{ij}\dot x^iV^j
+=
+\frac{\partial x^k}{\partial y^c}
+\left(
+\frac{d\widetilde V^c}{dt}
++
+\widetilde\Gamma^c_{ab}\dot y^a\widetilde V^b
+\right)
+}
+$$
+
+となります。
+
+右辺は接ベクトルの通常の変換則そのものです。従って $DV/dt$ は座標に依らず定まり、Christoffel 係数の非テンソル的な二階微分項が成分微分の座標依存をちょうど補正しています。
 
 <!-- definition-example-start: def-geo13-curve-covariant-derivative -->
 **定義の確認：Euclid 空間**
@@ -903,41 +991,50 @@ $$
 
 です。
 
-$A(t)$ は連続、実際には滑らかです。従って線形 ODE の局所存在一意性から初期値 $V(a)=v$ に対する一意解が得られます。
-
-有限区間上では $A$ は有界です。ある $C>0$ について
+$A(t)$ は連続、実際には滑らかです。有限区間上では有界なので、ある $C>0$ が存在して
 
 $$
 \|A(t)\|\le C
 $$
 
-とすると、
+となります。
+
+$h>0$ を
+
+$$
+Ch<1
+$$
+
+となるように取ります。長さが $h$ 以下の部分区間 $[t_0,t_1]$ 上で、初期値 $V(t_0)=v_0$ に対する積分方程式
 
 $$
 V(t)
 =
-v-\int_a^tA(s)V(s)\,ds
+v_0-\int_{t_0}^tA(s)V(s)\,ds
 $$
 
-から
+を考えます。
+
+連続関数空間に上限ノルムを入れ、
 
 $$
-|V(t)|
+(\Phi W)(t)
+=
+v_0-\int_{t_0}^tA(s)W(s)\,ds
+$$
+
+と置くと
+
+$$
+\|\Phi W_1-\Phi W_2\|_\infty
 \le
-|v|
-+
-C\int_a^t|V(s)|\,ds.
+Ch\,
+\|W_1-W_2\|_\infty.
 $$
 
-Grönwall 型の標準評価により
+従って $\Phi$ は縮小写像です。[GEO5 の積分曲線の存在証明](../GEO5/index.md#thm-geo5-local-integral-curve)で使った Picard の議論と同様に、この部分区間で一意解が得られます。
 
-$$
-|V(t)|
-\le
-|v|e^{C|t-a|}.
-$$
-
-従って有限時刻で成分が発散して延長不能になることはなく、座標区間の端まで解を延長できます。
+$[a,b]$ を長さ $h$ 以下の有限個の区間へ分け、前の区間の終値を次の初期値として繰り返せば、一つの座標近傍に入る全区間で一意解が得られます。
 
 一般の場合、コンパクト集合 $\gamma([a,b])$ を有限個の座標近傍で覆います。Lebesgue 数を用いるか区間のコンパクト性を使って
 
@@ -2125,21 +2222,34 @@ T^{a_1\cdots a_r}{}_{b_1\cdots c\cdots b_s}.
 $$
 <!-- formal-statement-end -->
 
-### 証明の考え方
+<!-- proof-start -->
+### 証明
 
-テンソル場を
+まず双対基底の共変微分を求めます。
 
 $$
-\text{成分関数}
-\times
-\text{ベクトル基底}
-\times
-\text{余ベクトル基底}
+dx^b(\partial_a)=\delta^b_a
 $$
 
-へ分解し、Leibniz 則を繰り返し使います。
+は定数なので
 
-ベクトル基底には
+$$
+0
+=
+\nabla_i\bigl(dx^b(\partial_a)\bigr).
+$$
+
+1形式の共変微分の定義から
+
+$$
+0
+=
+(\nabla_i dx^b)(\partial_a)
++
+dx^b(\nabla_i\partial_a).
+$$
+
+ここで
 
 $$
 \nabla_i\partial_a
@@ -2147,27 +2257,77 @@ $$
 \Gamma^c_{ia}\partial_c
 $$
 
-が入るので $+\Gamma$ が現れます。
-
-一方、双対基底は
+だから
 
 $$
-dx^b(\partial_a)=\delta^b_a
+(\nabla_i dx^b)(\partial_a)
+=
+-\Gamma^b_{ia}.
 $$
-
-を微分して0になる必要があります。
 
 従って
 
 $$
+\boxed{
 \nabla_i dx^b
 =
 -\Gamma^b_{ic}dx^c
+}.
 $$
 
-となり、下付き添字ごとに $-\Gamma$ が現れます。
+次に $T$ の座標表示へ Leibniz 則を繰り返し適用します。
 
-これで一般式が得られます。
+成分関数を微分する項から
+
+$$
+\partial_iT^{a_1\cdots a_r}{}_{b_1\cdots b_s}
+$$
+
+が出ます。
+
+各ベクトル基底 $\partial_{a_\mu}$ を微分するたびに
+
+$$
+\nabla_i\partial_{a_\mu}
+=
+\Gamma^c_{ia_\mu}\partial_c
+$$
+
+が入るので、上付き添字ごとに $+\Gamma$ の項が一つずつ現れます。
+
+各余ベクトル基底 $dx^{b_\nu}$ を微分するたびに
+
+$$
+\nabla_i dx^{b_\nu}
+=
+-\Gamma^{b_\nu}_{ic}dx^c
+$$
+
+が入るので、下付き添字ごとに $-\Gamma$ の項が一つずつ現れます。
+
+全ての項を同じテンソル基底で読み直すと
+
+$$
+\begin{aligned}
+(\nabla_iT)^{a_1\cdots a_r}{}_{b_1\cdots b_s}
+={}&
+\partial_i
+T^{a_1\cdots a_r}{}_{b_1\cdots b_s}
+\\
+&+
+\sum_{\mu=1}^r
+\Gamma^{a_\mu}_{ic}
+T^{a_1\cdots c\cdots a_r}{}_{b_1\cdots b_s}
+\\
+&-
+\sum_{\nu=1}^s
+\Gamma^c_{ib_\nu}
+T^{a_1\cdots a_r}{}_{b_1\cdots c\cdots b_s}.
+\end{aligned}
+$$
+
+これが主張の公式です。$\square$
+<!-- proof-end -->
 
 ### Levi-Civita 接続では計量そのものが平行
 
@@ -2556,17 +2716,28 @@ $$
 
 3.
 
-   $$
-   \frac{v'}v=-\phi'
-   $$
+   方程式へ $e^{\phi(t)}$ を掛けると
 
-   を積分すると
+   $
+   e^\phi v'
+   +
+   \phi'e^\phi v
+   =
+   \frac{d}{dt}
+   \left(
+   e^\phi v
+   \right)
+   =
+   0.
+   $
 
-   $$
+   従って
+
+   $
    v(t)
    =
    C e^{-\phi(t)}.
-   $$
+   $
 
    初期条件
 
@@ -3353,19 +3524,21 @@ $$
    A(t)=A_0.
    $$
 
-   第二式は
+   第二式へ $f$ を掛けると
 
-   $$
-   \frac{B'}B
+   $
+   fB'+f'B
    =
-   -\frac{f'}f
-   $$
+   (fB)'
+   =
+   0.
+   $
 
-   なので
+   従って
 
-   $$
+   $
    f(t)B(t)=\text{定数}.
-   $$
+   $
 
    初期値から
 
