@@ -351,7 +351,7 @@ T
 dt.
 $$
 
-変分方向と曲線方向の交換公式から
+[変分方向と曲線方向の共変微分の交換](#lem-geo17-variation-commutation)から
 
 $$
 \frac{DT}{\partial s}
@@ -698,7 +698,7 @@ $$
 
 従って第一項は消えます。
 
-曲率による交換公式から
+[変分方向と曲線方向の共変微分の交換](#lem-geo17-variation-commutation)から
 
 $$
 \frac{D}{\partial s}\frac{DT}{\partial t}
@@ -845,7 +845,7 @@ $$
 > と定め、$I$ を $\gamma$ に沿う **指数形式**という。
 <!-- formal-statement-end -->
 
-Riemann 曲率テンソルの対称性から
+[Riemann 曲率テンソルの対称性](../GEO16/index.md#thm-geo16-curvature-symmetries)から
 
 $$
 g(R(V,\dot\gamma)\dot\gamma,W)
@@ -990,7 +990,7 @@ $$
 \frac{DT}{\partial t}.
 $$
 
-曲率による交換公式から
+[変分方向と曲線方向の共変微分の交換](#lem-geo17-variation-commutation)から
 
 $$
 0
@@ -1482,7 +1482,7 @@ $$
 K=\frac1{a^2}.
 $$
 
-定断面曲率の曲率公式から、$E\perp\dot\gamma$、$|\dot\gamma|=1$ なら
+[定断面曲率の曲率テンソル](../GEO16/index.md#prop-geo16-constant-curvature-tensor)から、$E\perp\dot\gamma$、$|\dot\gamma|=1$ なら
 
 $$
 R(E,\dot\gamma)\dot\gamma
@@ -1613,7 +1613,7 @@ W
 \end{aligned}
 $$
 
-Jacobi 方程式から積分項は0です。
+[Jacobi 方程式](#thm-geo17-geodesic-variation-jacobi)から積分項は0です。
 
 従って
 
@@ -1730,7 +1730,7 @@ $$
 
 とします。
 
-Riemann 曲率テンソルの対称性から $Q(t)$ は対称行列です。
+[Riemann 曲率テンソルの対称性](../GEO16/index.md#thm-geo16-curvature-symmetries)から $Q(t)$ は対称行列です。
 
 Jacobi 方程式は成分で
 
@@ -2002,7 +2002,7 @@ $$
 
 $J$ を $[c,b]$ では0として延長し、区分的に滑らかなベクトル場 $V$ を作ります。
 
-Jacobi 場の指数形式恒等式から
+前節の部分積分で得た $I(J,W)$ の境界項表示から
 
 $$
 I(V,V)=0.
@@ -2119,7 +2119,7 @@ $$
 
 とします。
 
-Cauchy--Schwarz の不等式から任意の曲線 $c$ について
+[Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から任意の曲線 $c$ について
 
 $$
 L(c)^2
@@ -2187,7 +2187,7 @@ $$
 
 と置きます。
 
-計量両立性と Jacobi 方程式から
+計量両立性と [Jacobi 方程式](#thm-geo17-geodesic-variation-jacobi)から
 
 $$
 \begin{aligned}
@@ -2866,7 +2866,7 @@ J,\frac{D^2J}{dt^2}
 \right).
 $$
 
-Jacobi 方程式より
+[Jacobi 方程式](#thm-geo17-geodesic-variation-jacobi)より
 
 $$
 \frac{D^2J}{dt^2}
