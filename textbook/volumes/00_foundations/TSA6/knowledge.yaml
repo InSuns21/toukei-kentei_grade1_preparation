@@ -1,0 +1,128 @@
+chapter: TSA6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TSA1
+  - P3-03
+
+concepts:
+  - id: timeseries.linear-gaussian-state-space
+    name: 線形正規状態空間モデル
+    kind: definition
+    aliases: ["linear Gaussian state-space model", "linear Gaussian state space model"]
+    introduction: formal
+    introduction_aliases: ["定義（線形正規状態空間モデル）"]
+    requires: []
+
+  - id: timeseries.state-prediction-filtering
+    name: 予測分布とフィルタ分布
+    kind: definition
+    aliases: ["prediction distribution", "filtering distribution", "state filtering"]
+    introduction: formal
+    introduction_aliases: ["定義（予測分布とフィルタ分布）"]
+    requires:
+      - timeseries.linear-gaussian-state-space
+
+  - id: timeseries.gaussian-conditioning-lemma
+    name: 正規ベクトルの条件付け
+    kind: lemma
+    aliases: ["Gaussian conditioning", "conditional Gaussian formula"]
+    introduction: formal
+    introduction_aliases: ["補題（正規ベクトルの条件付け）"]
+    requires: []
+
+  - id: timeseries.observation-innovation
+    name: 観測イノベーション
+    kind: definition
+    aliases: ["observation innovation", "innovation process", "one-step prediction error"]
+    introduction: formal
+    introduction_aliases: ["定義（観測イノベーション）"]
+    requires:
+      - timeseries.state-prediction-filtering
+      - timeseries.innovation
+
+  - id: timeseries.kalman-gain
+    name: Kalman gain
+    kind: definition
+    aliases: ["Kalman gain"]
+    introduction: formal
+    introduction_aliases: ["定義（Kalman gain）"]
+    requires:
+      - timeseries.observation-innovation
+
+  - id: timeseries.kalman-recursion
+    name: Kalman の予測・更新再帰
+    kind: theorem
+    aliases: ["Kalman recursion", "Kalman filter recursion", "Kalman filtering equations"]
+    introduction: formal
+    introduction_aliases: ["定理（Kalman の予測・更新再帰）"]
+    requires:
+      - timeseries.linear-gaussian-state-space
+      - timeseries.gaussian-conditioning-lemma
+      - timeseries.kalman-gain
+
+  - id: timeseries.kalman-joseph-form
+    name: 共分散減少と Joseph 形
+    kind: proposition
+    aliases: ["Joseph form", "Joseph covariance form", "Kalman covariance decrease"]
+    introduction: formal
+    introduction_aliases: ["命題（共分散減少と Joseph 形）"]
+    requires:
+      - timeseries.kalman-recursion
+
+  - id: timeseries.kalman-riccati-recursion
+    name: Kalman 共分散の Riccati 再帰
+    kind: definition
+    aliases: ["Kalman Riccati recursion", "discrete Riccati covariance recursion"]
+    introduction: formal
+    introduction_aliases: ["定義（Kalman 共分散の Riccati 再帰）"]
+    requires:
+      - timeseries.kalman-recursion
+
+  - id: timeseries.scalar-riccati-limit
+    name: 局所レベルモデルの定常予測分散
+    kind: proposition
+    aliases: ["scalar steady-state Kalman covariance", "local-level Riccati fixed point"]
+    introduction: formal
+    introduction_aliases: ["命題（局所レベルモデルの定常予測分散）"]
+    requires:
+      - timeseries.kalman-riccati-recursion
+
+  - id: timeseries.innovation-gaussian-independence
+    name: イノベーション列の直交性と正規独立性
+    kind: theorem
+    aliases: ["independent Gaussian innovations", "innovation orthogonality"]
+    introduction: formal
+    introduction_aliases: ["定理（イノベーション列の直交性と正規独立性）"]
+    requires:
+      - timeseries.observation-innovation
+      - timeseries.linear-gaussian-state-space
+
+  - id: timeseries.innovation-information-equivalence
+    name: 観測列とイノベーション列の情報同値性
+    kind: proposition
+    aliases: ["innovation information equivalence", "innovations generate observation sigma-field"]
+    introduction: formal
+    introduction_aliases: ["命題（観測列とイノベーション列の情報同値性）"]
+    requires:
+      - timeseries.kalman-recursion
+      - timeseries.observation-innovation
+
+  - id: timeseries.innovation-likelihood
+    name: イノベーション尤度
+    kind: theorem
+    aliases: ["innovation likelihood", "prediction error decomposition likelihood"]
+    introduction: formal
+    introduction_aliases: ["定理（イノベーション尤度）"]
+    requires:
+      - timeseries.kalman-recursion
+      - timeseries.innovation-gaussian-independence
+
+  - id: timeseries.arma11-state-space
+    name: ARMA(1,1) の二次元状態空間表現
+    kind: proposition
+    aliases: ["ARMA state-space representation", "ARMA(1,1) state space realization"]
+    introduction: formal
+    introduction_aliases: ["命題（ARMA(1,1) の二次元状態空間表現）"]
+    requires:
+      - timeseries.linear-gaussian-state-space
