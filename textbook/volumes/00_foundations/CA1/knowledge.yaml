@@ -6,6 +6,9 @@ prerequisites:
   - RA5
   - LA1
   - TOP3
+forward_references:
+  - complex-analysis.path-independence
+  - complex-analysis.euler-sine-product
 
 concepts:
   - id: complex-analysis.complex-differentiable
