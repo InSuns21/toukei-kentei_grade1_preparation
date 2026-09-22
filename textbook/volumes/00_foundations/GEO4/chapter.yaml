@@ -1,0 +1,54 @@
+id: "GEO4"
+title: "幾何学 IV：1 の分割・局所化・埋め込み"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEO3
+  - TOP5A
+official_scope: []
+learning_objectives:
+  - 局所有限族と開被覆の細分を定義し、具体的な集合族について局所有限性を判定できる
+  - 滑らかな多様体が局所コンパクト Hausdorff であることを座標近傍から証明できる
+  - 第二可算性から可算な相対コンパクト被覆とコンパクト exhaustion を構成できる
+  - コンパクト exhaustion を使って任意の開被覆の局所有限な開細分を構成し、多様体のパラコンパクト性を証明できる
+  - Euclid 空間の平坦関数から滑らかな隆起関数を構成し、多様体上のコンパクト集合を開集合内へ滑らかに局所化できる
+  - 任意の開被覆に従属する滑らかな 1 の分割を構成し、局所有限性が滑らかな無限和を正当化する理由を説明できる
+  - 1 の分割を使って局所的な滑らかな関数を大域的な滑らかな関数へ貼り合わせられる
+  - コンパクト滑らかな多様体を有限次元 Euclid 空間へ滑らかに埋め込む写像を構成し、単射性・はめ込み性・位相的埋め込み性を証明できる
+definitions:
+  - { id: GEO4-DEF-01, name: 局所有限族 }
+  - { id: GEO4-DEF-02, name: 開被覆の細分 }
+  - { id: GEO4-DEF-03, name: パラコンパクト空間 }
+  - { id: GEO4-DEF-04, name: 滑らかな隆起関数 }
+  - { id: GEO4-DEF-05, name: 滑らかな1の分割 }
+  - { id: GEO4-DEF-06, name: 開被覆に従属する1の分割 }
+theorems:
+  - { id: GEO4-PROP-01, name: 滑らかな多様体は局所コンパクトHausdorff }
+  - { id: GEO4-LEM-01, name: 第二可算空間の開被覆は可算部分被覆を持つ }
+  - { id: GEO4-LEM-02, name: 滑らかな多様体のコンパクトexhaustion }
+  - { id: GEO4-THM-01, name: 滑らかな多様体はパラコンパクト }
+  - { id: GEO4-LEM-03, name: Euclid空間の滑らかな局所化関数 }
+  - { id: GEO4-THM-02, name: 多様体上の滑らかな局所化関数 }
+  - { id: GEO4-THM-03, name: 開被覆に従属する滑らかな1の分割の存在 }
+  - { id: GEO4-PROP-02, name: 1の分割による局所関数の貼り合わせ }
+  - { id: GEO4-THM-04, name: コンパクト滑らかな多様体のEuclid埋め込み }
+canonical_examples:
+  - 実直線上の局所有限区間族
+  - 局所有限でない増大区間族
+  - 実直線上の開被覆と細分
+  - 平坦関数から作る滑らかな隆起関数
+  - 実直線上の二関数による1の分割
+  - 1の分割による局所関数の貼り合わせ
+  - コンパクト多様体の有限座標埋め込み
+problem_patterns:
+  - GEO4-LOCALLY-FINITE-1
+  - GEO4-REFINEMENT-1
+  - GEO4-BUMP-1
+  - GEO4-PARTITION-NORMALIZE-1
+  - GEO4-COMPACT-EXHAUSTION-1
+  - GEO4-GLUING-1
+  - GEO4-COMPACT-EMBEDDING-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.5, exercises: 4.5, review: 0.5 }
