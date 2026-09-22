@@ -70,7 +70,15 @@ concepts:
     aliases: [orthogonal polynomial]
     introduction: formal
     introduction_aliases: ["定義（重み付き多項式内積・直交多項式）"]
-    requires: [numerical.weighted-polynomial-inner-product, linear.gram-schmidt]
+    requires: [numerical.weighted-polynomial-inner-product]
+
+  - id: numerical.monic-orthogonal-polynomial-existence
+    name: モニック直交多項式の存在一意性
+    kind: proposition
+    aliases: [monic orthogonal polynomial existence and uniqueness]
+    introduction: formal
+    introduction_aliases: ["命題（モニック直交多項式の存在一意性）"]
+    requires: [numerical.orthogonal-polynomial, linear.gram-schmidt]
 
   - id: numerical.orthogonal-polynomial-roots
     name: 直交多項式の零点定理
@@ -78,15 +86,23 @@ concepts:
     aliases: [orthogonal polynomial root theorem]
     introduction: formal
     introduction_aliases: ["定理（直交多項式の零点定理）"]
-    requires: [numerical.orthogonal-polynomial]
+    requires: [numerical.monic-orthogonal-polynomial-existence]
 
   - id: numerical.gauss-quadrature
     name: Gauss 求積公式
-    kind: theorem
+    kind: definition
     aliases: [Gaussian quadrature]
     introduction: formal
-    introduction_aliases: ["定理（Gauss 求積公式の 2n-1 次正確性）"]
+    introduction_aliases: ["定義（Gauss 求積公式）"]
     requires: [numerical.interpolatory-quadrature, numerical.orthogonal-polynomial-roots]
+
+  - id: numerical.gauss-exactness
+    name: Gauss 求積公式の 2n-1 次正確性
+    kind: theorem
+    aliases: [Gaussian quadrature exactness]
+    introduction: formal
+    introduction_aliases: ["定理（Gauss 求積公式の 2n-1 次正確性）"]
+    requires: [numerical.gauss-quadrature]
 
   - id: numerical.gauss-positive-weights
     name: Gauss 求積公式の重みの正値性
@@ -94,7 +110,7 @@ concepts:
     aliases: [positivity of Gaussian quadrature weights]
     introduction: formal
     introduction_aliases: ["命題（Gauss 求積公式の重みの正値性）"]
-    requires: [numerical.gauss-quadrature]
+    requires: [numerical.gauss-exactness]
 
   - id: numerical.quadrature-degree-upper-bound
     name: n 点求積公式の正確次数の上限
@@ -110,4 +126,4 @@ concepts:
     aliases: [Gaussian quadrature error formula]
     introduction: formal
     introduction_aliases: ["定理（Gauss 求積の誤差公式）"]
-    requires: [numerical.gauss-quadrature, analysis.rolle-theorem]
+    requires: [numerical.gauss-exactness, analysis.rolle-theorem]
