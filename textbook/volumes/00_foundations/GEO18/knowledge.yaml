@@ -4,8 +4,7 @@ coverage: complete
 prerequisites:
   - GEO15
   - GEO17
-forward_references:
-  - geometry.gauss-bonnet-theorem
+forward_references: []
 
 concepts:
   - id: geometry.constant-curvature-model-space
@@ -78,14 +77,15 @@ concepts:
     aliases: [単連結, simply connected]
     introduction: formal
     requires:
-      - geometry.smooth-homotopy
+      - topology.path-connected-space
 
   - id: geometry.expanding-local-diffeomorphism-covering
     name: 拡大局所微分同相の被覆補題
     kind: lemma
     aliases: [拡大局所微分同相の被覆補題]
     requires:
-      - geometry.nonpositive-exp-differential-expansion
+      - geometry.riemannian-metric-completeness
+      - geometry.convex-normal-neighborhood
 
   - id: geometry.cartan-hadamard-theorem
     name: Cartan--Hadamard の定理
