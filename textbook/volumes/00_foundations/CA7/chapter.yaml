@@ -1,0 +1,41 @@
+id: "CA7"
+title: "標準複素解析 VII：正則関数列・正規族・Riemann 写像定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CA6
+  - TOP5
+official_scope: []
+learning_objectives:
+  - コンパクト集合上一様収束から正則性と全階導関数の局所一様収束が保存されることをCauchy積分公式から証明できる
+  - 正規収束する正則関数級数を扱い、和の正則性と項別微分を正当化できる
+  - 局所有界な正則関数族からCauchy評価で同程度連続性を導き、有限ネットと対角化からMontel の定理を証明できる
+  - Hurwitz の定理で零点の安定性を示し、単射正則関数列の非定数極限が単射であることを導ける
+  - 単連結真部分領域から単位円板への単射正則写像を構成し、極値問題・Montel の定理・Hurwitz の定理・Schwarz lemmaを用いてRiemann 写像定理を証明できる
+  - 正規化したRiemann写像の一意性とSchwarz の鏡像原理を証明し、具体的な半平面・帯領域の写像へ適用できる
+definitions:
+  - { id: CA7-DEF-01, name: 局所一様収束 }
+  - { id: CA7-DEF-02, name: 正規収束 }
+  - { id: CA7-DEF-03, name: 局所有界な正則関数族 }
+  - { id: CA7-DEF-04, name: 正規族 }
+theorems:
+  - { id: CA7-THM-01, name: 正則関数列の局所一様極限 }
+  - { id: CA7-COR-01, name: 導関数列の局所一様収束 }
+  - { id: CA7-COR-02, name: 正規収束する正則関数級数と微分の交換 }
+  - { id: CA7-LEM-01, name: Cauchy 評価による族共通連続性評価 }
+  - { id: CA7-LEM-02, name: コンパクト集合上の部分列抽出 }
+  - { id: CA7-THM-02, name: Montel の定理 }
+  - { id: CA7-THM-03, name: Hurwitz の定理 }
+  - { id: CA7-COR-03, name: 単射正則関数列の非定数極限 }
+  - { id: CA7-LEM-03, name: 零点を持たない正則関数の正則平方根 }
+  - { id: CA7-LEM-04, name: Riemann写像候補族の非空性 }
+  - { id: CA7-THM-04, name: Riemann 写像定理 }
+  - { id: CA7-COR-04, name: 正規化Riemann写像の一意性 }
+  - { id: CA7-LEM-05, name: Morera の定理 }
+  - { id: CA7-THM-05, name: Schwarz の鏡像原理 }
+canonical_examples: [z^nの局所一様収束, 幾何級数の正規収束, 円板自己同型族の正規性, z+1/nの零点の安定性, 上半平面と帯領域のRiemann写像]
+problem_patterns: [CA7-LOCAL-UNIFORM-1, CA7-CAUCHY-DERIVATIVE-1, CA7-MONTEL-1, CA7-HURWITZ-1, CA7-RIEMANN-MAP-1, CA7-REFLECTION-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 14.0, exercises: 8.0, review: 3.0 }

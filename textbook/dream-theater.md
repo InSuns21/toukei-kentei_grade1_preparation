@@ -154,6 +154,7 @@ VC4 までで PDE6 が必要とする法線・流束・発散定理を正本化�
 4. [CA4 Laurent展開・孤立特異点・留数・偏角原理・Rouché](textbook/volumes/00_foundations/CA4/index.md)
 5. [CA5 winding number・解析接続・monodromy](textbook/volumes/00_foundations/CA5/index.md)
 6. [CA6 Möbius変換・Schwarz補題・調和関数・ポアソン核](textbook/volumes/00_foundations/CA6/index.md)
+7. [CA7 正則関数列・正規族・Riemann 写像定理](textbook/volumes/00_foundations/CA7/index.md)
 
 **院試・編入の計算演習**：[複素解析・院試／編入計算演習（A8・B10・C4、計22題）](textbook/volumes/00_foundations/F0_00CALC_複素解析_院試編入計算演習/index.md)。
 
