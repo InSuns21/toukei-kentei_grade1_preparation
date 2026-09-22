@@ -25,12 +25,12 @@ concepts:
     requires: [complex-analysis.riemann-zeta, complex-analysis.holomorphic-locally-uniform-limit]
 
   - id: complex-analysis.zeta-euler-product
-    name: Euler 積と零点不存在
+    name: Riemann ζ 関数の Euler 積と右半平面での零点不存在
     kind: theorem
-    aliases: [Euler product for zeta, Euler 積]
+    aliases: [Riemann ζ 関数の Euler 積, Euler product for Riemann zeta]
     introduction: formal
-    introduction_aliases: ["定理（Euler 積と零点不存在）"]
-    requires: [complex-analysis.riemann-zeta, complex-analysis.infinite-product-criterion]
+    introduction_aliases: ["定理（Riemann ζ 関数の Euler 積と右半平面での零点不存在）"]
+    requires: [complex-analysis.riemann-zeta, complex-analysis.infinite-product-local-uniform-criterion]
 
   - id: complex-analysis.dirichlet-eta
     name: Dirichlet eta 関数
