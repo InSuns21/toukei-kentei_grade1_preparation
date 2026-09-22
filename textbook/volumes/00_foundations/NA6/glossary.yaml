@@ -17,13 +17,13 @@ terms:
     meaning: 一段関数を Phi(t,y,h)=f(t,y) とした陽的一段法。
   - term: 局所打切り誤差
     english: local truncation error
-    meaning: 厳密解 を一段だけ数値法へ代入したときに1単位時間あたりに残る誤差。
+    meaning: 厳密解を一段だけ数値法へ代入したときに1単位時間あたりに残る誤差。
   - term: 整合性
     english: consistency
     meaning: 刻み幅を0へ近づけたとき局所打切り誤差が0へ収束する性質。
   - term: 大域誤差
     english: global error
-    meaning: 同じ時間格子点での 厳密解 と数値解の差。
+    meaning: 同じ時間格子点での 厳密解と数値解の差。
   - term: 収束次数
     english: order of convergence
     meaning: 固定した有限時間区間で大域誤差が刻み幅の何乗で0へ近づくかを表す指数。
