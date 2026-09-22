@@ -1243,7 +1243,7 @@ $$
 
 を満たします。
 
-[一段法の有限時間摂動安定性定理](#thm-na6-perturbation-stability)を
+[一段関数の Lipschitz 性による有限時間摂動安定性](#thm-na6-perturbation-stability)を
 
 $$
 u_n=Y_n,
@@ -2150,7 +2150,7 @@ $\max_n|u_n-v_n|$ を $\varepsilon$ で評価せよ。
 <!-- solution-start -->
 ### 詳細解答
 
-[一段法の有限時間摂動安定性定理](#thm-na6-perturbation-stability)を使います。
+[一段関数の Lipschitz 性による有限時間摂動安定性](#thm-na6-perturbation-stability)を使います。
 
 ここでは
 
