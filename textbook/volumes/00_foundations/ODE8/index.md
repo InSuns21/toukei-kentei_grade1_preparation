@@ -66,11 +66,11 @@ $$
 <!-- formal-statement-start -->
 > **補題（Grönwall の不等式）**  
 > 連続関数 $u:[0,T]\to[0,\infty)$ が
->
-> $$
-> u(t)\le a+b\int_0^t u(s)\,ds
-> $$
->
+
+$$
+u(t)\le a+b\int_0^t u(s)\,ds
+$$
+
 > を満たし、$a,b\ge0$ とする。このとき $u(t)\le ae^{bt}$ である。
 <!-- formal-statement-end -->
 
@@ -101,12 +101,12 @@ $$
 <!-- formal-statement-start -->
 > **定理（初期値に関する連続依存）**  
 > $F$ がある領域で Lipschitz 定数 $L$ を持ち、二つの解 $x,y$ が時刻 $0$ から $T$ までその領域に留まるとする。このとき
->
-> $$
-> \|x(t)-y(t)\|
-> \le e^{Lt}\|x(0)-y(0)\|,
-> \qquad 0\le t\le T.
-> $$
+
+$$
+\|x(t)-y(t)\|
+\le e^{Lt}\|x(0)-y(0)\|,
+\qquad 0\le t\le T.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -131,11 +131,11 @@ Grönwall の不等式を適用します。
 <!-- formal-statement-start -->
 > **系（線形成長条件による大域存在）**  
 > $F:\mathbb R^d\to\mathbb R^d$ を局所 Lipschitz とし、
->
-> $$
-> \|F(x)\|\le A+B\|x\|
-> $$
->
+
+$$
+\|F(x)\|\le A+B\|x\|
+$$
+
 > を全ての $x$ で満たすとする。このとき任意の初期値から出る最大解は全実数時間で存在する。
 <!-- formal-statement-end -->
 
@@ -171,11 +171,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（流れ）**  
 > 自律系 $x'=F(x)$ の解が時刻 $t$ まで存在するとき
->
-> $$
-> \Phi_t(x_0):=x(t;x_0)
-> $$
->
+
+$$
+\Phi_t(x_0):=x(t;x_0)
+$$
+
 > と書く。全ての $t\in\mathbb R$ と $x_0$ で定義される場合を大域流れという。
 <!-- formal-statement-end -->
 
@@ -187,13 +187,13 @@ $x'=-x$ では $\Phi_t(x)=e^{-t}x$ です。
 <!-- formal-statement-start -->
 > **命題（流れの合成則）**  
 > 一意性が成り立つ自律系では、両辺が定義される限り
->
-> $$
-> \Phi_0=\operatorname{id},
-> \qquad
-> \Phi_{t+s}=\Phi_t\circ\Phi_s
-> $$
->
+
+$$
+\Phi_0=\operatorname{id},
+\qquad
+\Phi_{t+s}=\Phi_t\circ\Phi_s
+$$
+
 > が成り立つ。
 <!-- formal-statement-end -->
 
