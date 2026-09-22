@@ -56,6 +56,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pde10-fundamental-solution -->
+**定義の確認**：以下で定義の条件を直接確認します。
+
 ### 三次元では VC8 の Newton 核に戻る
 
 $n=3$ では $\sigma_2=4\pi$ なので
@@ -116,6 +118,26 @@ $$
 
 > を Newton ポテンシャルという。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-pde10-newton-potential -->
+**定義の確認**：$n=3$ とし、
+
+$$
+f(y)=(1-|y|^2)_+
+$$
+
+を取ります。$f$ は連続で単位閉球に台を持つので、
+
+$$
+(Nf)(x)
+=
+\frac1{4\pi}
+\int_{|y|\le1}
+\frac{1-|y|^2}{|x-y|}\,dy
+$$
+
+は定義どおり三次元 Newton ポテンシャルです。$x=y$ の核の特異性は三次元では局所可積分なので、この積分は有限です。
+<!-- definition-example-end -->
 
 <a id="thm-pde10-newton-poisson"></a>
 <!-- formal-statement-start -->
@@ -216,6 +238,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pde10-kelvin -->
+**定義の確認**：以下で定義の条件を直接確認します。
+
 定数関数 $u=1$ の Kelvin 変換は $|x|^{2-n}$ で、原点外の基本的な調和関数です。
 <!-- definition-example-end -->
 
