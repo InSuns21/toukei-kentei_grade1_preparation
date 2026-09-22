@@ -126,13 +126,19 @@ $$
 を **単位丸め誤差（unit roundoff）** と呼ぶ。
 <!-- formal-statement-end -->
 
-binary64 では
+<!-- definition-example-start: def-na1-unit-roundoff -->
+**定義の確認**。binary64 では $eta=2, p=53$ なので
 
 $$
-u=2^{-53}.
+u
+=
+rac12 2^{1-53}
+=
+2^{-53}.
 $$
 
-しばしば「machine epsilon」という語が使われますが、binary64 で $1$ の次の浮動小数点数との差は $2^{-52}$ です。文献によって machine epsilon が $u$ とこの間隔のどちらを指すか揺れるため、本章では解析に使う量を明確に **単位丸め誤差 $u$** と呼びます。
+一方、binary64 で $1$ の次の浮動小数点数との差は $2^{-52}$ です。文献によって machine epsilon が $u$ とこの間隔のどちらを指すか揺れるため、本章では解析に使う量を明確に **単位丸め誤差 $u$** と呼びます。
+<!-- definition-example-end -->
 
 <a id="thm-na1-rounding-model"></a>
 <!-- formal-statement-start -->
@@ -601,7 +607,7 @@ $$
 <!-- formal-statement-start -->
 ### 定義（行列の条件数）
 
-可逆行列 $A\in\mathbb R^{n\times n}$ に対して
+ベクトルノルムと、それに従属する作用素ノルムを固定する。可逆行列 $A\in\mathbb R^{n\times n}$ に対して
 
 $$
 \boxed{
@@ -611,7 +617,7 @@ $$
 }
 $$
 
-を、そのノルムに関する **条件数** と呼ぶ。
+を、その作用素ノルムに関する **条件数** と呼ぶ。
 
 特に 2-作用素ノルムでは
 
@@ -940,7 +946,7 @@ $\square$
 <!-- formal-statement-start -->
 ### 定義（後方安定性）
 
-問題 $F(d)$ に対するアルゴリズムが返す値 $\widetilde y$ が
+$d\neq0$ とする。問題 $F(d)$ に対するアルゴリズムが返す値 $\widetilde y$ が
 
 $$
 \widetilde y=F(d+\Delta d)
