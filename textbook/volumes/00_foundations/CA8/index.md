@@ -77,7 +77,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ca8-holomorphic-atlas -->
-**定義の確認**。$\mathbb C^\times=\mathbb C\setminus\{0\}$ に恒等座標だけを置けば、重なりでの遷移写像も恒等写像なので正則アトラス になる。複数の座標 がある場合に本質的なのは、同じ点を二つの座標で記述しても、その変換が正則であることである。
+**定義の確認**。$\mathbb C^\times=\mathbb C\setminus\{0\}$ に恒等座標だけを置けば、重なりでの遷移写像も恒等写像なので正則アトラスになる。複数の座標がある場合に本質的なのは、同じ点を二つの座標で記述しても、その変換が正則であることである。
 <!-- definition-example-end -->
 
 <a id="def-ca8-riemann-surface"></a>
@@ -99,7 +99,7 @@ Hausdorff 性は異なる点を局所的に分離するため、第二可算性�
 
 CA6 では $\widehat{\mathbb C}=\mathbb C\cup\{\infty\}$ を直接扱った。ここではそれを Riemann 面として再構成する。
 
-有限点側の 座標 を
+有限点側の座標を
 
 $$
 U_0=\widehat{\mathbb C}\setminus\{\infty\},
@@ -125,7 +125,7 @@ $$
 <!-- formal-statement-start -->
 ### 命題（Riemann 球面の標準アトラス）
 
-上の二つの座標 は $\widehat{\mathbb C}$ に正則アトラスを与える。従って Riemann 球面は Riemann 面である。
+上の二つの座標は $\widehat{\mathbb C}$ に正則アトラスを与える。従って Riemann 球面は Riemann 面である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -185,14 +185,20 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ca8-holomorphic-map -->
-**定義の確認**。$X=Y=\mathbb C$ に恒等座標を入れると、この定義は通常の複素関数の正則性そのものになる。
+**定義の確認**。$X=Y=\mathbb C$ に恒等座標を入れ、
+
+$$
+F(z)=z^2
+$$
+
+とする。$F$ は連続で、座標表示 $\operatorname{id}\circ F\circ\operatorname{id}^{-1}(z)=z^2$ は全平面で正則である。従って $F$ は Riemann 面間の正則写像である。
 <!-- definition-example-end -->
 
 <a id="thm-ca8-holomorphic-coordinate-invariance"></a>
 <!-- formal-statement-start -->
 ### 定理（正則性の座標不変性）
 
-上の定義で、ある一組の 座標 を使って $\psi\circ F\circ\varphi^{-1}$ が正則なら、同じ点を含む任意の別の 座標 を使っても座標表示は正則である。
+上の定義で、ある一組の座標を使って $\psi\circ F\circ\varphi^{-1}$ が正則なら、同じ点を含む任意の別の座標を使っても座標表示は正則である。
 <!-- formal-statement-end -->
 
 証明の核心は、別座標へ移る操作が「正則関数の前後に正則な座標遷移を合成すること」にすぎない点にある。
@@ -200,7 +206,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-別の 座標 $(\widetilde U,\widetilde\varphi)$、$(\widetilde V,\widetilde\psi)$ を取る。共通部分で
+別の座標 $(\widetilde U,\widetilde\varphi)$、$(\widetilde V,\widetilde\psi)$ を取る。共通部分で
 
 $$
 \widetilde\psi\circ F\circ\widetilde\varphi^{-1}
@@ -212,7 +218,7 @@ $$
 (\varphi\circ\widetilde\varphi^{-1}).
 $$
 
-両端の写像は正則アトラス の座標遷移だから正則で、中央も仮定により正則である。正則関数の合成は正則なので、別座標表示も正則である。$\square$
+両端の写像は正則アトラスの座標遷移だから正則で、中央も仮定により正則である。正則関数の合成は正則なので、別座標表示も正則である。$\square$
 <!-- proof-end -->
 
 <a id="def-ca8-biholomorphism"></a>
@@ -470,7 +476,7 @@ $$
 <!-- formal-statement-start -->
 ### 定義（正則被覆）
 
-Riemann 面 $X,Y$ の間の被覆写像 $p:X\to Y$ で、各均等被覆近傍$V$ と各シート$U_\lambda$ について
+Riemann 面 $X,Y$ の間の被覆写像 $p:X\to Y$ で、各均等被覆近傍 $V$ と各シート$U_\lambda$ について
 
 $$
 p|_{U_\lambda}:U_\lambda\to V
@@ -710,7 +716,7 @@ $$
 <!-- formal-statement-start -->
 ### 系（端点固定ホモトピーと持ち上げの終点）
 
-$H(s,0)=y_0$、$H(s,1)=y_1$ が $s$ に依存しないとする。同じ $x_0\in p^{-1}(y_0)$ から各経路を持ち上げると、持ち上げ の終点 $\widetilde H(s,1)$ は $s$ に依存しない。
+$H(s,0)=y_0$、$H(s,1)=y_1$ が $s$ に依存しないとする。同じ $x_0\in p^{-1}(y_0)$ から各経路を持ち上げると、持ち上げの終点 $\widetilde H(s,1)$ は $s$ に依存しない。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -895,7 +901,7 @@ $p:X\to Y$ を正則被覆、$F:X\to\mathbb C$ を正則関数とする。$y_0\i
 <!-- proof-start -->
 ### 証明
 
-各 $t$ の近くで $\gamma$ の像が均等被覆近傍$V$ に入るようにする。持ち上げ $\widetilde\gamma$ が通るシートを $U$ とし、
+各 $t$ の近くで $\gamma$ の像が均等被覆近傍 $V$ に入るようにする。持ち上げ $\widetilde\gamma$ が通るシートを $U$ とし、
 
 $$
 s=(p|_U)^{-1}:V\to U
@@ -911,7 +917,7 @@ $$
 
 隣接する時刻区間の重なりでは、二つの局所逆写像は持ち上げが通る同じ点を含むシート上で一致する。[経路持ち上げの一意性](#thm-ca8-path-lifting)によりシートの追跡自体が一意だから、局所枝は CA5 の[固定経路に沿う解析接続の一意性](../CA5/index.md#thm-ca5-continuation-uniqueness)と整合して一意に貼られる。
 
-二経路が端点固定ホモトピーで結ばれていれば、[持ち上げ の終点不変性](#cor-ca8-lifted-homotopy-endpoint)により同じ終点 $x_1$ に達する。$x_1$ の近くのシートで局所逆写像は同じだから、終点で得られる局所枝も一致する。$\square$
+二経路が端点固定ホモトピーで結ばれていれば、[持ち上げの終点不変性](#cor-ca8-lifted-homotopy-endpoint)により同じ終点 $x_1$ に達する。$x_1$ の近くのシートで局所逆写像は同じだから、終点で得られる局所枝も一致する。$\square$
 <!-- proof-end -->
 
 これは CA5 のモノドロミー を被覆幾何で読む形である。一般の「解析接続可能な全ての芽から Riemann 面を構成する」理論までは本章で行わない。
@@ -1069,7 +1075,7 @@ $$
 
 は同相写像である。
 
-商上の 座標 を
+商上の座標を
 
 $$
 \varphi_z(q(w))=w-z
@@ -1208,7 +1214,7 @@ $\mathbb C^\times$ 上の $w\mapsto w^2$ は二枚被覆である。原点を一
 
 ### 例3：トーラスでは平行移動が座標遷移
 
-$\mathbb C/\Lambda$ の局所 座標 は平面の小円板を格子で同一視して作る。chart の重なりで起きることは
+$\mathbb C/\Lambda$ の局所座標は平面の小円板を格子で同一視して作る。座標の重なりで起きることは
 
 $$
 z\mapsto z+\lambda
@@ -1223,10 +1229,10 @@ $$
 ### Level A
 
 <a id="ex-ca8-a01"></a>
-#### CA8-A01 Riemann 球面の二 座標 を直接確認する
+#### CA8-A01 Riemann 球面の二つの座標を直接確認する
 - Level: A
 
-Riemann 球面の標準 chart
+Riemann 球面の標準座標
 
 $$
 \varphi_0(z)=z,
@@ -1251,7 +1257,7 @@ $$
 z=\frac1\zeta.
 $$
 
-どちらも0を除いた領域で正則だから二 座標 は正則に両立する。
+どちらも0を除いた領域で正則だから二つの座標は正則に両立する。
 
 $f(z)=1/z$ を $\infty$ の座標 $\zeta=1/z$ で書けば
 
@@ -1422,7 +1428,7 @@ $\gamma_n(t)=e^{2\pi i n t}$ とし、$\exp:\mathbb C\to\mathbb C^\times$ を使
 
 1. $0$ から始まる持ち上げを求めよ。
 2. 終点が $2\pi i n$ であることを示せ。
-3. $n\ne m$ なら $\gamma_n,\gamma_m$ は端点固定ホモトピーで結ばれないことを、[持ち上げ の終点不変性](#cor-ca8-lifted-homotopy-endpoint)から示せ。
+3. $n\ne m$ なら $\gamma_n,\gamma_m$ は端点固定ホモトピーで結ばれないことを、[持ち上げの終点不変性](#cor-ca8-lifted-homotopy-endpoint)から示せ。
 
 <!-- solution-start -->
 **解答**：
@@ -1529,7 +1535,7 @@ $X_\Lambda=\mathbb C/\Lambda$ を複素トーラスとする。
    $$
    dw=dz.
    $$
-   従って各座標 で係数1の局所微分 $dz$ を置けば、重なりで一致する。[正則微分の定義](#def-ca8-holomorphic-one-form)を満たす。
+   従って各座標で係数1の局所微分 $dz$ を置けば、重なりで一致する。[正則微分の定義](#def-ca8-holomorphic-one-form)を満たす。
 
 2. 商上の関数へ降りるには
    $$
@@ -1575,7 +1581,7 @@ $$
 
 がある。
 
-$t_0$ を固定し、$y=\gamma(t_0)$ の均等被覆近傍$V$ を取る。$\widetilde\gamma(t_0)$ を含むシートを $U$ とし、
+$t_0$ を固定し、$y=\gamma(t_0)$ の均等被覆近傍 $V$ を取る。$\widetilde\gamma(t_0)$ を含むシートを $U$ とし、
 
 $$
 s=(p|_U)^{-1}:V\to U
@@ -1666,10 +1672,10 @@ $$
 - Riemann 球面上の有理型関数が通常の有理関数に一致することを、極の有限性・主部の除去・最大値原理で証明した。
 - 正則微分の座標変換則を導入し、複素トーラス上の $dz$ が大域化する例を置いた。
 - 被覆写像を均等被覆近傍から定義し、経路持ち上げの存在と一意性を区間のコンパクト性から証明した。
-- ホモトピー持ち上げ を有限格子へ局所逆写像を貼ることで証明し、端点固定ホモトピーで持ち上げの終点が不変であることを導いた。
+- ホモトピー持ち上げを有限格子へ局所逆写像を貼ることで証明し、端点固定ホモトピーで持ち上げの終点が不変であることを導いた。
 - 対数を $\exp:\mathbb C\to\mathbb C^\times$ 上の一価関数として、平方根を $w^2=z$ の二枚被覆上の一価関数として構成した。
 - 平方根では0を入れると被覆性が壊れ、分岐点になることを明示した。
-- $\mathbb C/\Lambda$ では商位相を置くだけで済ませず、格子の離散性、局所 chart、Hausdorff 性、第二可算性、コンパクト性を個別に証明した。
+- $\mathbb C/\Lambda$ では商位相を置くだけで済ませず、格子の離散性、局所座標、Hausdorff 性、第二可算性、コンパクト性を個別に証明した。
 - 連結コンパクト Riemann 面から $\mathbb C$ への正則関数が定数であることを、コンパクト性と局所最大値原理から証明した。
 - 一般被覆分類、普遍被覆の一般存在、被覆変換 の体系、分岐被覆の一般論、因子、Riemann--Roch の定理、一様化定理は使用していない。
 
