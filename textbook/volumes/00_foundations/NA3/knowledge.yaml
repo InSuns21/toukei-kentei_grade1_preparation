@@ -34,11 +34,11 @@ concepts:
     requires: [functional.frechet-derivative, functional.operator-norm]
 
   - id: numerical.jacobian-quadratic-remainder
-    name: Lipschitz Jacobian による二次線形化誤差
+    name: Lipschitz Jacobian による二次剰余評価
     kind: proposition
-    aliases: [Lipschitz Jacobian による二次線形化誤差]
+    aliases: [Lipschitz Jacobian による二次剰余評価]
     introduction: formal
-    introduction_aliases: ["命題（Lipschitz Jacobian による二次線形化誤差）"]
+    introduction_aliases: ["命題（Lipschitz Jacobian による二次剰余評価）"]
     requires: [numerical.jacobian-lipschitz, analysis.ftc-2]
 
   - id: numerical.inverse-matrix-perturbation
