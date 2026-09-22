@@ -188,9 +188,11 @@ concepts:
       - geometry.arc-length-parameter
 
   - id: geometry.euler-normal-curvature-formula
-    name: 正規曲率の Euler 公式
+    name: 正規曲率と Euler の公式
     kind: proposition
     aliases: [正規曲率の Euler 公式, Euler formula for normal curvature]
+    introduction: formal
+    introduction_aliases: ["命題（正規曲率と Euler の公式）"]
     requires:
       - geometry.normal-curvature
       - geometry.orthonormal-principal-directions
