@@ -32,4 +32,4 @@ terms:
     meaning: Riemann 計量と Lie 括弧から Levi-Civita 接続の内積成分を決定する公式。
   - term: テンソル場の共変微分
     english: covariant derivative of a tensor field
-    meaning: 接続をベクトル場から余ベクトル場・一般テンソル場へ Leibniz 則と縮約保存で拡張した微分。
+    meaning: 接続をベクトル場から余ベクトル場・一般テンソル場へ Leibniz 則と自然な評価の保存で拡張した微分。
