@@ -30,7 +30,7 @@ theorems:
 canonical_examples:
   - Euclid空間の定分布
   - 正則レベル集合の接分布
-  - contact型の非可積分分布
+  - 接触型の非可積分分布
   - e^x∂yを含む対合的な非可換局所枠
   - z-xyを第一積分にもつ分布
 problem_patterns:
