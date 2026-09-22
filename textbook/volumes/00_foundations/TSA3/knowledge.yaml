@@ -140,7 +140,7 @@ concepts:
   - id: timeseries.spectral-representation-theorem
     name: 定常過程のスペクトル表現定理
     kind: theorem
-    aliases: ["定常過程のスペクトル表現定理", "spectral representation theorem for stationary processes"]
+    aliases: ["定常過程のスペクトル表現定理", "スペクトル表現", "spectral representation theorem for stationary processes"]
     introduction: formal
     introduction_aliases: ["定理（定常過程のスペクトル表現定理）"]
     requires:
