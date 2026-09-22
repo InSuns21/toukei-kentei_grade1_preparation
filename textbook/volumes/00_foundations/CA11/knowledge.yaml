@@ -1,0 +1,110 @@
+chapter: CA11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CA10
+  - CA7
+
+concepts:
+  - id: complex-analysis.gamma-function
+    name: Gamma 関数
+    kind: definition
+    aliases: [Gamma 関数, Gamma function]
+    introduction: formal
+    introduction_aliases: ["定義（Gamma 関数）"]
+    requires: [complex-analysis.holomorphic-locally-uniform-limit]
+
+  - id: complex-analysis.gamma-holomorphic-right-half-plane
+    name: Gamma 関数の右半平面での正則性
+    kind: theorem
+    aliases: [Gamma 関数の右半平面での正則性, holomorphy of Gamma function]
+    introduction: formal
+    introduction_aliases: ["定理（Gamma 関数の右半平面での正則性）"]
+    requires: [complex-analysis.gamma-function, complex-analysis.holomorphic-locally-uniform-limit]
+
+  - id: complex-analysis.gamma-functional-equation
+    name: Gamma 関数の関数等式
+    kind: theorem
+    aliases: [Gamma 関数の関数等式, Gamma functional equation]
+    introduction: formal
+    introduction_aliases: ["定理（Gamma 関数の関数等式）"]
+    requires: [complex-analysis.gamma-function]
+
+  - id: complex-analysis.gamma-meromorphic-continuation
+    name: Gamma 関数の有理型解析接続と極
+    kind: theorem
+    aliases: [Gamma 関数の有理型解析接続, Gamma meromorphic continuation]
+    introduction: formal
+    introduction_aliases: ["定理（Gamma 関数の有理型解析接続と極）"]
+    requires: [complex-analysis.gamma-functional-equation]
+
+  - id: complex-analysis.euler-mascheroni-constant
+    name: Euler--Mascheroni 定数
+    kind: definition
+    aliases: [Euler--Mascheroni 定数, Euler-Mascheroni constant]
+    introduction: formal
+    introduction_aliases: ["定義（Euler--Mascheroni 定数）"]
+    requires: []
+
+  - id: complex-analysis.gamma-euler-limit
+    name: Euler の極限公式
+    kind: theorem
+    aliases: [Euler の極限公式, Euler limit formula for Gamma]
+    introduction: formal
+    introduction_aliases: ["定理（Euler の極限公式）"]
+    requires: [complex-analysis.gamma-function]
+
+  - id: complex-analysis.reciprocal-gamma-weierstrass-product
+    name: 逆 Gamma 関数の Weierstrass 積
+    kind: theorem
+    aliases: [逆 Gamma 関数の Weierstrass 積, Weierstrass product for reciprocal Gamma]
+    introduction: formal
+    introduction_aliases: ["定理（逆 Gamma 関数の Weierstrass 積）"]
+    requires: [complex-analysis.gamma-euler-limit, complex-analysis.euler-mascheroni-constant, complex-analysis.weierstrass-elementary-factor]
+
+  - id: complex-analysis.gamma-zero-free
+    name: Gamma 関数の零点不存在
+    kind: theorem
+    aliases: [Gamma 関数の零点不存在, Gamma has no zeros]
+    introduction: derived
+    requires: [complex-analysis.reciprocal-gamma-weierstrass-product, complex-analysis.gamma-meromorphic-continuation]
+
+  - id: complex-analysis.gamma-reflection
+    name: Euler の反射公式
+    kind: theorem
+    aliases: [Euler の反射公式, Euler reflection formula]
+    introduction: formal
+    introduction_aliases: ["定理（Euler の反射公式）"]
+    requires: [complex-analysis.reciprocal-gamma-weierstrass-product, complex-analysis.euler-sine-product, complex-analysis.gamma-functional-equation]
+
+  - id: complex-analysis.stirling-formula
+    name: Stirling 公式
+    kind: theorem
+    aliases: [Stirling 公式, Stirling formula]
+    introduction: formal
+    introduction_aliases: ["定理（Stirling 公式）"]
+    requires: [complex-analysis.gamma-euler-limit]
+
+  - id: complex-analysis.legendre-duplication
+    name: Legendre の倍角公式
+    kind: theorem
+    aliases: [Legendre の倍角公式, Legendre duplication formula]
+    introduction: formal
+    introduction_aliases: ["定理（Legendre の倍角公式）"]
+    requires: [complex-analysis.gamma-functional-equation, complex-analysis.stirling-formula]
+
+  - id: complex-analysis.beta-function
+    name: Beta 関数
+    kind: definition
+    aliases: [Beta 関数, Beta function]
+    introduction: formal
+    introduction_aliases: ["定義（Beta 関数）"]
+    requires: []
+
+  - id: complex-analysis.beta-gamma-relation
+    name: Beta--Gamma 関係式
+    kind: theorem
+    aliases: [Beta--Gamma 関係式, beta-gamma relation]
+    introduction: formal
+    introduction_aliases: ["定理（Beta--Gamma 関係式）"]
+    requires: [complex-analysis.beta-function, complex-analysis.gamma-function]
