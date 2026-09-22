@@ -20,7 +20,7 @@
 
 を一つの流れとして整理します。
 
-直接の前提は [RA3 微分法](../RA3/index.md) と [F0-00F2 SVD・作用素ノルム](../F0_00F2_SVD_特異値_作用素ノルム/index.md) です。行列の 2-作用素ノルムと特異値は F0-00F2 を正本とします。
+直接の前提は [RA3 微分法](../RA3/index.md) と [F0-00F2 特異値分解・作用素ノルム](../F0_00F2_SVD_特異値_作用素ノルム/index.md) です。行列の 2-作用素ノルムと特異値は F0-00F2 を正本とします。
 
 <!-- definition-example-audit: strict -->
 
@@ -127,17 +127,17 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-na1-unit-roundoff -->
-**定義の確認**。binary64 では $eta=2, p=53$ なので
+**定義の確認**。binary64 では $\beta=2, p=53$ なので
 
 $$
 u
 =
-rac12 2^{1-53}
+\frac12 2^{1-53}
 =
 2^{-53}.
 $$
 
-一方、binary64 で $1$ の次の浮動小数点数との差は $2^{-52}$ です。文献によって machine epsilon が $u$ とこの間隔のどちらを指すか揺れるため、本章では解析に使う量を明確に **単位丸め誤差 $u$** と呼びます。
+一方、binary64 で $1$ の次の浮動小数点数との差は $2^{-52}$ です。文献によって machine epsilon が $u$ とこの間隔のどちらを指すか揺れるため、以後は解析に使う量を **単位丸め誤差 $u$** と表記します。
 <!-- definition-example-end -->
 
 <a id="thm-na1-rounding-model"></a>
@@ -839,13 +839,59 @@ $$
 
 ## 10. 線形方程式では残差が後方誤差になる
 
-$Ax=b$ に対する近似解を $\widetilde x$ とし、
+<a id="def-na1-residual"></a>
+<!-- formal-statement-start -->
+### 定義（残差）
+
+線形方程式
 
 $$
-r=b-A\widetilde x
+Ax=b
 $$
 
-を残差とします。
+に対する近似解を $\widetilde x$ とする。このとき
+
+$$
+\boxed{
+r:=b-A\widetilde x
+}
+$$
+
+を **残差** と呼ぶ。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-na1-residual -->
+**定義の確認**。$A=I_2$、
+
+$$
+b=
+\begin{pmatrix}
+1\\
+2
+\end{pmatrix},
+\qquad
+\widetilde x=
+\begin{pmatrix}
+1\\
+1.9
+\end{pmatrix}
+$$
+
+なら
+
+$$
+r
+=
+b-A\widetilde x
+=
+\begin{pmatrix}
+0\\
+0.1
+\end{pmatrix}.
+$$
+
+残差は「近似解を方程式へ戻したときに右辺がどれだけ合わないか」を直接測る。
+<!-- definition-example-end -->
 
 <a id="prop-na1-residual-backward-error"></a>
 <!-- formal-statement-start -->
