@@ -67,23 +67,17 @@ $$
 <!-- formal-statement-start -->
 > **定義（テンソル積）**  
 > ベクトル空間 $V,W$ に対し、ベクトル空間 $T$ と二重線形写像
->
-> $$
-> \tau:V\times W\to T
-> $$
->
+$$
+\tau:V\times W\to T
+$$
 > の組が次の普遍性を満たすとする。任意のベクトル空間 $U$ と任意の二重線形写像
->
-> $$
-> b:V\times W\to U
-> $$
->
+$$
+b:V\times W\to U
+$$
 > に対して、一意な線形写像 $\widetilde b:T\to U$ が存在し、
->
-> $$
-> b=\widetilde b\circ\tau
-> $$
->
+$$
+b=\widetilde b\circ\tau
+$$
 > となる。このとき $T$ を $V$ と $W$ の **テンソル積** といい $V\otimes W$ と書く。$\tau(v,w)$ は $v\otimes w$ と書く。
 <!-- formal-statement-end -->
 
@@ -140,23 +134,18 @@ $$
 <!-- formal-statement-start -->
 > **定理（有限次元テンソル積の存在と基底）**  
 > $V,W$ を有限次元ベクトル空間とし、
->
-> $$
-> e_1,\dots,e_m,\qquad
-> f_1,\dots,f_n
-> $$
->
+$$
+e_1,\dots,e_m,\qquad
+f_1,\dots,f_n
+$$
 > をそれぞれの基底とする。このときテンソル積 $V\otimes W$ が存在し、
->
-> $$
-> \{e_i\otimes f_j:1\le i\le m,\ 1\le j\le n\}
-> $$
->
+$$
+\{e_i\otimes f_j:1\le i\le m,\ 1\le j\le n\}
+$$
 > はその基底になる。従って
->
-> $$
-> \dim(V\otimes W)=mn.
-> $$
+$$
+\dim(V\otimes W)=mn.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -262,17 +251,13 @@ $\square$
 <!-- formal-statement-start -->
 > **定理（テンソル積の一意性）**  
 > $(T,\tau)$ と $(T',\tau')$ がともに $V,W$ のテンソル積の普遍性を満たすなら、
->
-> $$
-> \Phi:T\to T'
-> $$
->
+$$
+\Phi:T\to T'
+$$
 > で
->
-> $$
-> \Phi(\tau(v,w))=\tau'(v,w)
-> $$
->
+$$
+\Phi(\tau(v,w))=\tau'(v,w)
+$$
 > を満たす線形同型 $\Phi$ が一意に存在する。
 <!-- formal-statement-end -->
 
@@ -348,11 +333,9 @@ $$
 <!-- formal-statement-start -->
 > **定義（単純テンソル）**  
 > $V\otimes W$ の元のうち、ある $v\in V,w\in W$ を用いて
->
-> $$
-> v\otimes w
-> $$
->
+$$
+v\otimes w
+$$
 > と1項で書けるものを **単純テンソル** という。
 <!-- formal-statement-end -->
 
@@ -402,21 +385,17 @@ LA3A では代数的双対 $V^*$ を導入しました。$V$ と $V^*$ を何個
 <!-- formal-statement-start -->
 > **定義（$(r,s)$ 型テンソル）**  
 > 有限次元ベクトル空間 $V$ に対し
->
-> $$
-> T^r_s(V)
-> =
-> V^{\otimes r}\otimes(V^*)^{\otimes s}
-> $$
->
+$$
+T^r_s(V)
+=
+V^{\otimes r}\otimes(V^*)^{\otimes s}
+$$
 > の元を **$(r,s)$ 型テンソル** という。$r$ を反変次数、$s$ を共変次数という。
 >
 > 自然な同一視により、$(r,s)$ 型テンソルは
->
-> $$
-> (V^*)^r\times V^s\to\mathbb F
-> $$
->
+$$
+(V^*)^r\times V^s\to\mathbb F
+$$
 > という多重線形写像として評価できる。
 <!-- formal-statement-end -->
 
@@ -473,20 +452,16 @@ $$
 <!-- formal-statement-start -->
 > **定義（縮約）**  
 > 評価写像の普遍性から得られる線形写像
->
-> $$
-> C:V^*\otimes V\to\mathbb F,\qquad
-> C(\alpha\otimes v)=\alpha(v)
-> $$
->
+$$
+C:V^*\otimes V\to\mathbb F,\qquad
+C(\alpha\otimes v)=\alpha(v)
+$$
 > を基本の **縮約** という。
 >
 > 一般の $(r,s)$ 型テンソルでは、1個の $V$ 因子と1個の $V^*$ 因子にこの評価を適用し、他の因子を残すことで
->
-> $$
-> T^r_s(V)\to T^{r-1}_{s-1}(V)
-> $$
->
+$$
+T^r_s(V)\to T^{r-1}_{s-1}(V)
+$$
 > を得る。この操作も縮約という。
 <!-- formal-statement-end -->
 
@@ -528,16 +503,14 @@ $$
 <!-- formal-statement-start -->
 > **定義（交代化）**  
 > $A:V^k\to\mathbb F$ を $k$ 重線形形式とする。$A$ の **交代化** を
->
-> $$
-> (\operatorname{Alt}A)(v_1,\dots,v_k)
-> =
-> \frac{1}{k!}
-> \sum_{\sigma\in S_k}
-> \operatorname{sgn}(\sigma)
-> A(v_{\sigma(1)},\dots,v_{\sigma(k)})
-> $$
->
+$$
+(\operatorname{Alt}A)(v_1,\dots,v_k)
+=
+\frac{1}{k!}
+\sum_{\sigma\in S_k}
+\operatorname{sgn}(\sigma)
+A(v_{\sigma(1)},\dots,v_{\sigma(k)})
+$$
 > で定める。
 <!-- formal-statement-end -->
 
@@ -569,11 +542,9 @@ $$
 <!-- formal-statement-start -->
 > **命題（交代化は射影）**  
 > 任意の $k$ 重線形形式 $A$ に対して $\operatorname{Alt}A$ は交代的であり、
->
-> $$
-> \operatorname{Alt}(\operatorname{Alt}A)=\operatorname{Alt}A.
-> $$
->
+$$
+\operatorname{Alt}(\operatorname{Alt}A)=\operatorname{Alt}A.
+$$
 > 特に $A$ が既に交代的なら $\operatorname{Alt}A=A$ である。
 <!-- formal-statement-end -->
 
@@ -650,17 +621,13 @@ $\square$
 <!-- formal-statement-start -->
 > **定義（外冪）**  
 > $V$ 上の交代 $k$ 重線形形式全体を
->
-> $$
-> \Lambda^kV^*
-> $$
->
+$$
+\Lambda^kV^*
+$$
 > と書き、$V^*$ の **第 $k$ 外冪** という。約束として
->
-> $$
-> \Lambda^0V^*=\mathbb F
-> $$
->
+$$
+\Lambda^0V^*=\mathbb F
+$$
 > とする。
 <!-- formal-statement-end -->
 
@@ -734,22 +701,18 @@ $$
 <!-- formal-statement-start -->
 > **定義（外積）**  
 > $\alpha\in\Lambda^pV^*$、$\beta\in\Lambda^qV^*$ に対し、その **外積（ウェッジ積）**
->
-> $$
-> \alpha\wedge\beta\in\Lambda^{p+q}V^*
-> $$
->
+$$
+\alpha\wedge\beta\in\Lambda^{p+q}V^*
+$$
 > を
->
-> $$
-> (\alpha\wedge\beta)(v_1,\dots,v_{p+q})
-> =
-> \sum_{\sigma\in\operatorname{Sh}(p,q)}
-> \operatorname{sgn}(\sigma)
-> \alpha(v_{\sigma(1)},\dots,v_{\sigma(p)})
-> \beta(v_{\sigma(p+1)},\dots,v_{\sigma(p+q)})
-> $$
->
+$$
+(\alpha\wedge\beta)(v_1,\dots,v_{p+q})
+=
+\sum_{\sigma\in\operatorname{Sh}(p,q)}
+\operatorname{sgn}(\sigma)
+\alpha(v_{\sigma(1)},\dots,v_{\sigma(p)})
+\beta(v_{\sigma(p+1)},\dots,v_{\sigma(p+q)})
+$$
 > で定める。
 <!-- formal-statement-end -->
 
@@ -791,21 +754,17 @@ $$
 <!-- formal-statement-start -->
 > **定理（外冪の標準基底と次元）**  
 > $\dim V=n$ とし、$\varepsilon^1,\dots,\varepsilon^n$ を $V^*$ の双対基底とする。$0\le k\le n$ について
->
-> $$
-> \varepsilon^{i_1}\wedge\cdots\wedge\varepsilon^{i_k},
-> \qquad
-> 1\le i_1<\cdots<i_k\le n
-> $$
->
+$$
+\varepsilon^{i_1}\wedge\cdots\wedge\varepsilon^{i_k},
+\qquad
+1\le i_1<\cdots<i_k\le n
+$$
 > は $\Lambda^kV^*$ の基底である。従って
->
-> $$
-> \dim\Lambda^kV^*
-> =
-> \binom nk.
-> $$
->
+$$
+\dim\Lambda^kV^*
+=
+\binom nk.
+$$
 > また $k>n$ なら $\Lambda^kV^*=\{0\}$ である。
 <!-- formal-statement-end -->
 
@@ -903,21 +862,17 @@ $k>n$ では $k$ 個の基底添字を全て異ならせることができませ
 <!-- formal-statement-start -->
 > **定理（外積の結合性と次数付き交換則）**  
 > $\alpha\in\Lambda^pV^*$、$\beta\in\Lambda^qV^*$、$\gamma\in\Lambda^rV^*$ とする。このとき
->
-> $$
-> (\alpha\wedge\beta)\wedge\gamma
-> =
-> \alpha\wedge(\beta\wedge\gamma),
-> $$
->
+$$
+(\alpha\wedge\beta)\wedge\gamma
+=
+\alpha\wedge(\beta\wedge\gamma),
+$$
 > および
->
-> $$
-> \alpha\wedge\beta
-> =
-> (-1)^{pq}\beta\wedge\alpha
-> $$
->
+$$
+\alpha\wedge\beta
+=
+(-1)^{pq}\beta\wedge\alpha
+$$
 > が成り立つ。
 <!-- formal-statement-end -->
 
@@ -1025,11 +980,9 @@ $$
 <!-- formal-statement-start -->
 > **定義（分解可能形式）**  
 > $\omega\in\Lambda^kV^*$ が1次形式 $\alpha_1,\dots,\alpha_k\in V^*$ を用いて
->
-> $$
-> \omega=\alpha_1\wedge\cdots\wedge\alpha_k
-> $$
->
+$$
+\omega=\alpha_1\wedge\cdots\wedge\alpha_k
+$$
 > と書けるとき、$\omega$ を **分解可能な $k$ 次形式** という。
 <!-- formal-statement-end -->
 
@@ -1093,31 +1046,24 @@ LA3D では、最高次交代形式全体が1次元であり、線形写像の�
 <!-- formal-statement-start -->
 > **定理（最高次外積と基底変換）**  
 > $\dim V=n$ とし、基底 $e_1,\dots,e_n$ と双対基底 $\varepsilon^1,\dots,\varepsilon^n$ を取る。
->
-> $$
-> \Omega=\varepsilon^1\wedge\cdots\wedge\varepsilon^n
-> $$
->
+$$
+\Omega=\varepsilon^1\wedge\cdots\wedge\varepsilon^n
+$$
 > とする。別の基底を
->
-> $$
-> e'_j=\sum_{i=1}^n A_{ij}e_i
-> $$
->
+$$
+e'_j=\sum_{i=1}^n A_{ij}e_i
+$$
 > と書くと
->
-> $$
-> \Omega(e'_1,\dots,e'_n)=\det A.
-> $$
->
+$$
+\Omega(e'_1,\dots,e'_n)=\det A.
+$$
 > また $e'_1,\dots,e'_n$ の双対基底を $\varepsilon'^1,\dots,\varepsilon'^n$ とすると
->
-> $$
-> \varepsilon'^1\wedge\cdots\wedge\varepsilon'^n
-> =
-> (\det A)^{-1}
-> \varepsilon^1\wedge\cdots\wedge\varepsilon^n.
-> $$
+$$
+\varepsilon'^1\wedge\cdots\wedge\varepsilon'^n
+=
+(\det A)^{-1}
+\varepsilon^1\wedge\cdots\wedge\varepsilon^n.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -1204,19 +1150,15 @@ $\square$
 <!-- formal-statement-start -->
 > **定義（内部積）**  
 > $v\in V$、$\omega\in\Lambda^kV^*$、$k\ge1$ とする。$v$ による $\omega$ の **内部積** を
->
-> $$
-> \iota_v\omega\in\Lambda^{k-1}V^*
-> $$
->
+$$
+\iota_v\omega\in\Lambda^{k-1}V^*
+$$
 > とし、
->
-> $$
-> (\iota_v\omega)(v_2,\dots,v_k)
-> =
-> \omega(v,v_2,\dots,v_k)
-> $$
->
+$$
+(\iota_v\omega)(v_2,\dots,v_k)
+=
+\omega(v,v_2,\dots,v_k)
+$$
 > で定める。$k=0$ では $\iota_v c=0$ とする。
 <!-- formal-statement-end -->
 
@@ -1259,26 +1201,22 @@ $$
 <!-- formal-statement-start -->
 > **定理（内部積の基本恒等式）**  
 > $v,w\in V$、$\alpha\in\Lambda^pV^*$、$\beta\in\Lambda^qV^*$ とする。このとき
->
-> $$
-> \iota_v(\alpha\wedge\beta)
-> =
-> (\iota_v\alpha)\wedge\beta
-> +
-> (-1)^p
-> \alpha\wedge(\iota_v\beta),
-> $$
->
+$$
+\iota_v(\alpha\wedge\beta)
+=
+(\iota_v\alpha)\wedge\beta
++
+(-1)^p
+\alpha\wedge(\iota_v\beta),
+$$
 > および
->
-> $$
-> \iota_v\iota_w
-> =
-> -\iota_w\iota_v,
-> \qquad
-> \iota_v^2=0
-> $$
->
+$$
+\iota_v\iota_w
+=
+-\iota_w\iota_v,
+\qquad
+\iota_v^2=0
+$$
 > が成り立つ。
 <!-- formal-statement-end -->
 
