@@ -66,6 +66,7 @@ jobs:
       - name: Self-test DREAM THEATER concept audits
         run: |
           npm run test:dream-theater-concept-audits
+          node scripts/audit-dream-theater-concepts.mjs --self-test-alias-matcher
           node scripts/detect-dream-theater-concept-audit-scope.mjs --self-test
 
       - name: Detect full-audit scope
