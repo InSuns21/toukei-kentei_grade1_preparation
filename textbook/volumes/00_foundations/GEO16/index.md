@@ -593,7 +593,7 @@ $$
 g_{\ell m}\Gamma^m_{jk}
 $$
 
-と書くと、Levi-Civita 接続の公式から
+と書くと、[Levi-Civita 接続の Christoffel 係数公式](../GEO13/index.md#prop-geo13-levi-civita-christoffel)から
 
 $$
 \Gamma_{\ell jk}
@@ -1358,11 +1358,23 @@ $$
 
 が全ての $x$ で成り立ちます。
 
-実内積空間上の偏極恒等式から
+対称双線形性を直接使います。任意の $x,z$ に対して
 
-$$
+$
+0
+=
+B_y(x+z,x+z)
+=
+B_y(x,x)+2B_y(x,z)+B_y(z,z)
+=
+2B_y(x,z).
+$
+
+従って
+
+$
 B_y(x,z)=0.
-$$
+$
 
 すなわち
 
@@ -1736,7 +1748,7 @@ $$
 
 実際の $\operatorname{Rm}$ も全ての断面曲率が $c$ です。
 
-[断面曲率による決定定理](#thm-geo16-sectional-determines-riemann)から
+[断面曲率による Riemann 曲率テンソルの決定](#thm-geo16-sectional-determines-riemann)から
 
 $$
 \operatorname{Rm}=A.
@@ -1776,7 +1788,7 @@ $$
 
 正規直交基底 $e_1,\dots,e_n$ を取ります。
 
-曲率テンソルの公式から
+[定断面曲率の曲率テンソル](#prop-geo16-constant-curvature-tensor)から
 
 $$
 \begin{aligned}
@@ -1849,7 +1861,7 @@ $$
 
 を得ました。
 
-本章の座標公式により、左辺はまさに Riemann 曲率テンソルの成分です。
+[曲率作用素のテンソル性と座標表示](#prop-geo16-tensoriality-coordinate)により、左辺はまさに Riemann 曲率テンソルの成分です。
 
 <a id="prop-geo16-gauss-intrinsic"></a>
 <!-- formal-statement-start -->
@@ -1892,7 +1904,7 @@ $$
 
 でした。
 
-本章の曲率座標公式から
+[曲率作用素のテンソル性と座標表示](#prop-geo16-tensoriality-coordinate)から
 
 $$
 R_{\ell kij}
@@ -2280,7 +2292,7 @@ $$
 ### Level A
 
 <a id="ex-geo16-a01"></a>
-#### GEO16-A01 Euclid 空間の曲率を座標公式から確認する
+#### GEO16-A01 Euclid 空間の曲率を座標表示から確認する
 - Level: A
 
 $\mathbb R^n$ の Cartesian 座標で標準計量を考える。
