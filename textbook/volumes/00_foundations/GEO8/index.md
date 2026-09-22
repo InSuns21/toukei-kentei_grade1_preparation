@@ -487,6 +487,44 @@ $$
 > と定める。台が $U$ の中でコンパクトなので、境界のない座標では被積分関数を $x(U)$ の外で0とした通常の多重積分として扱える。境界座標では $x(U)\subset\mathbb H_-^n$ 上で積分し、境界集合 $x^1=0$ は $n$ 次元 Jordan 体積0なので積分値には寄与しない。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-geo8-local-form-integral -->
+**定義の確認**
+
+$M=\mathbb R^2$ に標準向きを入れ、
+
+$$
+h(t)=
+\begin{cases}
+\exp\!\left(-\dfrac{1}{1-t^2}\right),& |t|<1,\\
+0,& |t|\ge1
+\end{cases}
+$$
+
+とします。この $h$ は滑らかで、$[-1,1]$ の外では0です。したがって
+
+$$
+\omega=h(x)h(y)\,dx\wedge dy
+$$
+
+は $\mathbb R^2$ 上の最高次形式であり、
+
+$$
+\operatorname{supp}\omega\subset[-1,1]^2
+$$
+
+なのでコンパクト台を持ちます。標準座標 $(x,y)$ は向きを保つ一つの座標なので、定義をそのまま適用して
+
+$$
+\int_{\mathbb R^2}\omega
+=
+\int_{-1}^{1}\int_{-1}^{1}h(x)h(y)\,dx\,dy
+=
+\left(\int_{-1}^{1}h(t)\,dt\right)^2.
+$$
+
+ここでは「最高次形式」「向きを保つ座標」「コンパクト台」という定義の三つの条件を実際に確認しています。
+<!-- definition-example-end -->
+
 この定義が座標の選び方に依存しないことが最初の核心です。
 
 <a id="thm-geo8-local-integral-invariance"></a>
@@ -575,6 +613,34 @@ $$
 >
 > と定める。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-geo8-global-form-integral -->
+**定義の確認**
+
+$M=\mathbb R$ に標準向きを入れ、前節と同じ滑らかなコンパクト台関数 $h$ を使って
+
+$$
+\omega=h(x)\,dx
+$$
+
+とします。向き付けられた1座標被覆 $U_1=\mathbb R$ を取り、それに従属する 1 の分割を
+
+$$
+\varphi_1\equiv1
+$$
+
+とすれば、$\varphi_1\omega=\omega$ の台は $[-1,1]$ に含まれます。したがって大域積分の定義は有限和一項となり、
+
+$$
+\int_M\omega
+=
+\int_M\varphi_1\omega
+=
+\int_{-1}^{1}h(x)\,dx.
+$$
+
+つまり、一つの向き付けられた座標で全てを覆える場合には、大域積分の定義は前節の局所積分へそのまま戻ります。
+<!-- definition-example-end -->
 
 $\operatorname{supp}\omega$ はコンパクトで、$(\operatorname{supp}\varphi_j)$ は局所有限なので、実際に寄与する $j$ は有限個です。
 
@@ -931,8 +997,7 @@ $$
 を対応させます。直接計算すると
 
 $$
-\begin{aligned}
-d\omega
+\begin{aligned}d\omega
 &=(Q_x-P_y)\,dx\wedge dy\\
 &\quad +(R_y-Q_z)\,dy\wedge dz\\
 &\quad +(P_z-R_x)\,dz\wedge dx.
@@ -997,7 +1062,8 @@ $$
 $$
 \iiint_\Omega\operatorname{div}F\,dV
 =
-\iint_{\partial\Omega}F\cdot n\,dS,$$
+\iint_{\partial\Omega}F\cdot n\,dS,
+$$
 
 すなわち [VC4 の Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence) になります。
 
