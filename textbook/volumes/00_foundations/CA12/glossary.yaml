@@ -1,0 +1,26 @@
+chapter: "CA12"
+terms:
+  - term: Riemann ζ 関数
+    english: Riemann zeta function
+    meaning: Re s>1 で Dirichlet 級数 zeta(s)=sum_{n>=1}n^(-s) により定義され、全平面へ s=1 の単純極だけを持つ有理型関数として解析接続される関数。
+  - term: Euler 積
+    english: Euler product
+    meaning: Re s>1 で zeta(s)=product_p(1-p^(-s))^(-1) と表す積表示。一意分解により正整数の和と素数上の積を結ぶ。
+  - term: Dirichlet eta 関数
+    english: Dirichlet eta function
+    meaning: eta(s)=sum_{n>=1}(-1)^(n-1)n^(-s)。Re s>0 で正則となり、Re s>1 では eta(s)=(1-2^(1-s))zeta(s) を満たす。
+  - term: Jacobi theta 関数
+    english: Jacobi theta function
+    meaning: t>0 に対する theta(t)=sum_{n in Z}exp(-pi n^2 t)。Gaussian の周期化と Fourier 変換から theta(t)=t^(-1/2)theta(1/t) を満たす。
+  - term: Mellin 表現
+    english: Mellin representation
+    meaning: Gamma 積分を用いて Dirichlet 級数を積分へ移す表示。本章では pi^(-s/2)Gamma(s/2)zeta(s) を theta(t)-1 の Mellin 積分として表す。
+  - term: 完成 zeta 因子
+    english: completed zeta factor
+    meaning: Lambda(s)=pi^(-s/2)Gamma(s/2)zeta(s)。s=0,1 に単純極を持ち、Lambda(s)=Lambda(1-s) の対称性を満たす。
+  - term: Riemann xi 関数
+    english: Riemann xi function
+    meaning: xi(s)=s(s-1)Lambda(s)/2。Lambda の s=0,1 の極を打ち消して得られる整関数で、xi(s)=xi(1-s) を満たす。
+  - term: 自明零点
+    english: trivial zeros
+    meaning: Riemann ζ 関数の負の偶数 -2,-4,-6,... にある零点。関数等式の sin(pi s/2) 因子から現れる。
