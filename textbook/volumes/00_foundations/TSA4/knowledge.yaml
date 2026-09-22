@@ -1,0 +1,185 @@
+chapter: TSA4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TSA1
+  - TSA2
+  - TSA3
+
+concepts:
+  - id: timeseries.backshift-operator
+    name: 後退作用素
+    kind: definition
+    aliases: ["backshift operator", "lag operator"]
+    introduction: formal
+    introduction_aliases: ["定義（後退作用素）"]
+    requires: []
+
+  - id: timeseries.linear-filter
+    name: 絶対可算和可能な線形フィルタ
+    kind: definition
+    aliases: ["linear filter", "absolutely summable linear filter"]
+    introduction: formal
+    introduction_aliases: ["定義（絶対可算和可能な線形フィルタ）"]
+    requires:
+      - timeseries.second-order-stationarity
+
+  - id: timeseries.filter-stationarity
+    name: 線形フィルタは二次定常性を保つ
+    kind: proposition
+    aliases: ["stationarity under linear filtering"]
+    introduction: formal
+    introduction_aliases: ["命題（線形フィルタは二次定常性を保つ）"]
+    requires:
+      - timeseries.linear-filter
+      - timeseries.autocovariance-function
+
+  - id: timeseries.transfer-function
+    name: 伝達関数
+    kind: definition
+    aliases: ["transfer function", "frequency response"]
+    introduction: formal
+    introduction_aliases: ["定義（伝達関数）"]
+    requires:
+      - timeseries.linear-filter
+
+  - id: timeseries.filter-spectrum-transform
+    name: 線形フィルタによるスペクトル測度の変換
+    kind: theorem
+    aliases: ["spectrum under linear filtering", "filter spectrum theorem"]
+    introduction: formal
+    introduction_aliases: ["定理（線形フィルタによるスペクトル測度の変換）"]
+    requires:
+      - timeseries.transfer-function
+      - timeseries.spectral-representation-theorem
+      - timeseries.spectral-measure
+
+  - id: timeseries.causal-filter
+    name: 因果線形フィルタ
+    kind: definition
+    aliases: ["causal linear filter", "causal filter"]
+    introduction: formal
+    introduction_aliases: ["定義（因果線形フィルタ）"]
+    requires:
+      - timeseries.linear-filter
+
+  - id: timeseries.filter-inverse
+    name: 絶対可算和可能な逆フィルタ
+    kind: definition
+    aliases: ["invertible filter", "causal inverse filter"]
+    introduction: formal
+    introduction_aliases: ["定義（絶対可算和可能な逆フィルタ）"]
+    requires:
+      - timeseries.causal-filter
+
+  - id: timeseries.arma-process
+    name: ARMA(p,q) 過程
+    kind: definition
+    aliases: ["ARMA process", "ARMA(p,q)"]
+    introduction: formal
+    introduction_aliases: ["定義（ARMA$(p,q)$ 過程）"]
+    requires:
+      - timeseries.backshift-operator
+      - timeseries.white-noise
+
+  - id: timeseries.polynomial-inverse-root-condition
+    name: 単位円外の零点と絶対可算和可能な逆べき級数
+    kind: theorem
+    aliases: ["root condition for absolutely summable inverse power series"]
+    introduction: formal
+    introduction_aliases: ["定理（単位円外の零点と絶対可算和可能な逆べき級数）"]
+    requires:
+      - timeseries.backshift-operator
+
+  - id: timeseries.arma-causality
+    name: ARMA の因果性
+    kind: theorem
+    aliases: ["ARMA causality", "causal ARMA"]
+    introduction: formal
+    introduction_aliases: ["定理（ARMA の因果性）"]
+    requires:
+      - timeseries.arma-process
+      - timeseries.causal-filter
+      - timeseries.polynomial-inverse-root-condition
+
+  - id: timeseries.arma-invertibility
+    name: ARMA の可逆性
+    kind: theorem
+    aliases: ["ARMA invertibility", "invertible ARMA"]
+    introduction: formal
+    introduction_aliases: ["定理（ARMA の可逆性）"]
+    requires:
+      - timeseries.arma-process
+      - timeseries.filter-inverse
+      - timeseries.polynomial-inverse-root-condition
+
+  - id: timeseries.coprime-arma
+    name: 既約 ARMA 表現
+    kind: definition
+    aliases: ["coprime ARMA representation", "minimal ARMA representation"]
+    introduction: formal
+    introduction_aliases: ["定義（既約 ARMA 表現）"]
+    requires:
+      - timeseries.arma-process
+
+  - id: timeseries.arma-spectrum
+    name: 因果 ARMA のスペクトル密度
+    kind: theorem
+    aliases: ["ARMA spectral density", "ARMA spectrum"]
+    introduction: formal
+    introduction_aliases: ["定理（因果 ARMA のスペクトル密度）"]
+    requires:
+      - timeseries.arma-causality
+      - timeseries.filter-spectrum-transform
+      - timeseries.spectral-density
+
+  - id: timeseries.pacf
+    name: 偏自己相関関数
+    kind: definition
+    aliases: ["partial autocorrelation function", "PACF"]
+    introduction: formal
+    introduction_aliases: ["定義（偏自己相関関数）"]
+    requires:
+      - timeseries.finite-normal-equations
+
+  - id: timeseries.acf-pacf-cutoff
+    name: MA の自己相関打切りと AR の偏自己相関打切り
+    kind: proposition
+    aliases: ["ACF and PACF cutoff"]
+    introduction: formal
+    introduction_aliases: ["命題（MA の自己相関打切りと AR の偏自己相関打切り）"]
+    requires:
+      - timeseries.pacf
+      - timeseries.arma-process
+      - timeseries.innovation
+
+  - id: timeseries.difference-operators
+    name: 通常差分と季節差分
+    kind: definition
+    aliases: ["differencing", "seasonal differencing", "difference operator"]
+    introduction: formal
+    introduction_aliases: ["定義（通常差分と季節差分）"]
+    requires:
+      - timeseries.backshift-operator
+      - timeseries.transfer-function
+
+  - id: timeseries.arima-process
+    name: ARIMA(p,d,q) 過程
+    kind: definition
+    aliases: ["ARIMA process", "ARIMA(p,d,q)"]
+    introduction: formal
+    introduction_aliases: ["定義（ARIMA$(p,d,q)$ 過程）"]
+    requires:
+      - timeseries.difference-operators
+      - timeseries.arma-process
+
+  - id: timeseries.spectral-factor
+    name: スペクトル因子
+    kind: definition
+    aliases: ["spectral factor", "spectral factorization"]
+    introduction: formal
+    introduction_aliases: ["定義（スペクトル因子）"]
+    requires:
+      - timeseries.spectral-density
+      - timeseries.transfer-function
+      - timeseries.wold-decomposition
