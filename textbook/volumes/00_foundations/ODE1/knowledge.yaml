@@ -101,13 +101,13 @@ concepts:
   - id: ode.ode1-lipschitz-y
     name: yに関するLipschitz条件
     kind: definition
-    aliases: [yに関する Lipschitz 条件]
+    aliases: [Lipschitz条件, Lipschitz 条件, Lipschitz連続, Lipschitz 連続]
     introduction: inline
 
   - id: ode.ode1-picard-iteration
     name: Picard反復
     kind: method
-    aliases: [Picard 反復]
+    aliases: [Picard反復, Picard 反復]
     introduction: inline
     requires:
       - ode.ode1-integral-equation-equivalence
