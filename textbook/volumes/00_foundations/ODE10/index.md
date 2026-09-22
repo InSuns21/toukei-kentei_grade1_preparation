@@ -619,12 +619,12 @@ $$
 
 <!-- solution-start -->
 ##### 詳細解答
-周期軌道の存在を狙うなら前向き軌道を 捕捉領域 に閉じ込め、その正の極限集合から[平衡解](../ODE1/index.md#def-ode1-equilibrium)を排除して Poincaré--Bendixson を使います。不存在を狙うなら発散または Dulac 関数で符号一定性を作り、[Green の定理（流束形）](../VC4/index.md#cor-vc4-green-flux)から矛盾を出します。前者は存在側、後者は不存在側の道具です。
+周期軌道の存在を狙うなら前向き軌道を捕捉領域に閉じ込め、その正の極限集合から[平衡解](../ODE1/index.md#def-ode1-equilibrium)を排除して Poincaré--Bendixson を使います。不存在を狙うなら発散または Dulac 関数で符号一定性を作り、[Green の定理（流束形）](../VC4/index.md#cor-vc4-green-flux)から矛盾を出します。前者は存在側、後者は不存在側の道具です。
 <!-- solution-end -->
 
 ## 7. 章末チェック
 
 - 周期軌道と極限周期軌道を区別できる。
-- 捕捉領域 の役割を説明できる。
+- 捕捉領域の役割を説明できる。
 - Bendixson--Dulac を [Green の定理（流束形）](../VC4/index.md#cor-vc4-green-flux)から証明できる。
 - Poincaré--Bendixson の仮定と平面特有の機構を説明できる。
