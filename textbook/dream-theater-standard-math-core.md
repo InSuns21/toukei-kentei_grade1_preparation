@@ -88,6 +88,9 @@ flowchart TD
   GEO7 --> GEO9["Poincaré の補題・de Rham コホモロジー<br/>GEO9"]
   GEO8 --> GEO9
   TOP3 --> GEO9
+  GEO3 --> GEO10["Euclid 空間の曲線・超曲面 I<br/>基本形式と形作用素<br/>GEO10"]
+  VC3 --> GEO10
+  LA5 --> GEO10
   TOP5 --> TOP5A["Urysohn・局所コンパクト性・cutoff<br/>TOP5A"]
   TOP5 --> BAIRE["全有界性・Baire・net/filter<br/>TOP6"]
   BAIRE --> UNIFORM["一様構造・一様連続・Cauchy構造<br/>TOP7"]
@@ -728,7 +731,22 @@ direct prerequisite は GEO4、GEO7、RA7、VC5 です。GEO7 の微分形式・
 
 実装: [GEO9](volumes/00_foundations/GEO9/index.md)
 
-direct prerequisite は GEO7、GEO8、TOP3 です。GEO7 の外微分・内部積・Cartan の公式をホモトピー公式へ、GEO8 の微分形式の積分を円周のコホモロジー計算へ使います。TOP3 の連結性は $H^0_{\mathrm{dR}}$ の計算に使います。de Rham の定理・特異ホモロジー・Mayer--Vietoris 完全系列はここでは先取りせず、後続の代数的位相幾何系列へ送ります。次の GEO10 では Euclid 空間内の曲線・超曲面、第一・第二基本形式、形作用素へ進みます。
+direct prerequisite は GEO7、GEO8、TOP3 です。GEO7 の外微分・内部積・Cartan の公式をホモトピー公式へ、GEO8 の微分形式の積分を円周のコホモロジー計算へ使います。TOP3 の連結性は $H^0_{\mathrm{dR}}$ の計算に使います。de Rham の定理・特異ホモロジー・Mayer--Vietoris 完全系列はここでは先取りせず、後続の代数的位相幾何系列へ送ります。
+
+## GEO10 Euclid 空間の曲線・超曲面 I：基本形式と形作用素 `core / advanced-standard`
+
+- 正則曲線・弧長パラメータと弧長による再表示
+- 曲率・Frenet 標構・捩率と Frenet--Serret 公式
+- 超曲面・単位法線場と第一基本形式
+- Gauss 写像、符号規約 $S=-dN$ による形作用素、第二基本形式
+- 形作用素の自己共役性と座標表示 $A=G^{-1}B$
+- 主曲率・主方向・Gauss 曲率・平均曲率
+- 正規曲率と Euler の公式
+- 平面・球面・円柱・グラフ曲面・トーラスの直接計算
+
+実装: [GEO10](volumes/00_foundations/GEO10/index.md)
+
+direct prerequisite は GEO3、VC3、LA5 です。GEO3 の埋め込み部分多様体・正則値定理を超曲面の基礎へ、VC3 の接平面・法線・パラメータ曲面を座標計算へ、LA5 までに整備した有限次元内積・スペクトル理論を形作用素の主方向分解へ使います。法線選択による符号差を明示し、外向き球面では主曲率が $-1/R$ となる $S=-dN$ の規約で統一します。次の GEO11 では Gauss 公式・Weingarten 公式・Gauss--Codazzi 方程式へ進みます。
 
 ---
 
