@@ -89,6 +89,7 @@ flowchart TD
   GEO8 --> GEO9
   TOP3 --> GEO9
   GEO3 --> GEO10["Euclid 空間の曲線・超曲面 I<br/>基本形式と形作用素<br/>GEO10"]
+  VC2 --> GEO10
   VC3 --> GEO10
   LA5 --> GEO10
   TOP5 --> TOP5A["Urysohn・局所コンパクト性・cutoff<br/>TOP5A"]
@@ -746,7 +747,7 @@ direct prerequisite は GEO7、GEO8、TOP3 です。GEO7 の外微分・内部�
 
 実装: [GEO10](volumes/00_foundations/GEO10/index.md)
 
-direct prerequisite は GEO3、VC3、LA5 です。GEO3 の埋め込み部分多様体・正則値定理を超曲面の基礎へ、VC3 の接平面・法線・パラメータ曲面を座標計算へ、LA5 までに整備した有限次元内積・スペクトル理論を形作用素の主方向分解へ使います。法線選択による符号差を明示し、外向き球面では主曲率が $-1/R$ となる $S=-dN$ の規約で統一します。次の GEO11 では Gauss 公式・Weingarten 公式・Gauss--Codazzi 方程式へ進みます。
+direct prerequisite は GEO3、VC2、VC3、LA5 です。VC2 の正則曲線・弧長・単位接ベクトルを曲線論の canonical dependency として再利用し、GEO3 の埋め込み部分多様体・正則値定理を超曲面の基礎へ、VC3 の接平面・法線・パラメータ曲面を座標計算へ、LA5 までに整備した有限次元内積・スペクトル理論を形作用素の主方向分解へ使います。法線選択による符号差を明示し、外向き球面では主曲率が $-1/R$ となる $S=-dN$ の規約で統一します。次の GEO11 では Gauss 公式・Weingarten 公式・Gauss--Codazzi 方程式へ進みます。
 
 ---
 
