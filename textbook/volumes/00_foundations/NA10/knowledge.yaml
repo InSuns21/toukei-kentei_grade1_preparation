@@ -12,9 +12,10 @@ forward_references: []
 concepts:
   - id: numerical.eigenpair-residual
     name: 固有対残差
-    kind: term
+    kind: definition
     aliases: [eigenpair residual]
-    introduction: inline
+    introduction: formal
+    introduction_aliases: ["定義（固有対残差）"]
     requires:
       - numerical.residual
       - linear.eigenvalue
@@ -138,3 +139,12 @@ concepts:
     requires:
       - numerical.qr-iteration
       - linear.orthogonality
+
+  - id: numerical.deflation
+    name: デフレーション
+    kind: definition
+    aliases: [deflation]
+    introduction: formal
+    introduction_aliases: ["定義（デフレーション）"]
+    requires:
+      - numerical.qr-iteration
