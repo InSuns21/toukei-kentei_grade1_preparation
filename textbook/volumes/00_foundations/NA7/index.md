@@ -220,7 +220,32 @@ $$
 と並べた表を **Butcher 表**という。
 <!-- formal-statement-end -->
 
-陽的中点法は
+<!-- definition-example-start: def-na7-butcher-tableau -->
+### 例：陽的中点法の係数を表に戻す
+
+**定義の確認**。陽的中点法では
+
+$$
+A=
+\begin{pmatrix}
+0&0\\
+1/2&0
+\end{pmatrix},
+\qquad
+c=
+\begin{pmatrix}
+0\\
+1/2
+\end{pmatrix},
+\qquad
+b=
+\begin{pmatrix}
+0\\
+1
+\end{pmatrix}.
+$$
+
+したがって定義どおり、$c$ を左列、$A$ を中央、$b^{\mathsf T}$ を最下行へ置けば
 
 $$
 \begin{array}{c|cc}
@@ -231,7 +256,8 @@ $$
 \end{array}
 $$
 
-です。
+となります。これが陽的中点法の Butcher 表です。
+<!-- definition-example-end -->
 
 <a id="def-na7-explicit-implicit-rk"></a>
 <!-- formal-statement-start -->
@@ -1361,6 +1387,28 @@ $$
 を満たすとき、その数値法は **A 安定**であるという。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-na7-a-stability -->
+### 例：$R(z)=1/(1-z)$ は左半平面全体で増幅しない
+
+**定義の確認**。$z=x+iy$、$x\le0$ とすると
+
+$$
+|1-z|^2
+=
+(1-x)^2+y^2
+\ge1.
+$$
+
+したがって
+
+$$
+\left|\frac1{1-z}\right|
+\le1.
+$$
+
+よって安定関数が $R(z)=1/(1-z)$ である数値法は、左半平面全体を絶対安定領域に含み、定義どおり A 安定です。
+<!-- definition-example-end -->
+
 A 安定なら、線形テスト方程式のすべての減衰モードに対して、刻み幅による安定性制約を受けません。
 
 <a id="thm-na7-no-explicit-rk-a-stability"></a>
@@ -1446,23 +1494,26 @@ $$
 と更新する方法を **後退 Euler 法**という。
 <!-- formal-statement-end -->
 
-右辺に未知の $y_{n+1}$ が現れるため陰的方法です。
+<!-- definition-example-start: def-na7-backward-euler -->
+### 例：線形テスト方程式では未知の次時刻値を実際に解く
 
-線形テスト方程式なら
+**定義の確認**。線形テスト方程式 $y'=\lambda y$ では、定義式の右辺に次時刻値を代入して
 
 $$
 y_{n+1}
 =
-y_n+h\lambda y_{n+1}.
+y_n+h\lambda y_{n+1}
+$$
+
+となります。未知の $y_{n+1}$ を左辺へ集めると
+
+$$
+(1-z)y_{n+1}=y_n,
+\qquad
+z=h\lambda,
 $$
 
 したがって
-
-$$
-(1-z)y_{n+1}=y_n
-$$
-
-より
 
 $$
 \boxed{
@@ -1470,7 +1521,8 @@ R(z)=\frac1{1-z}
 }
 $$
 
-です。
+です。右辺に未知の次時刻値が現れ、それを解いて更新するという定義を直接確認できました。
+<!-- definition-example-end -->
 
 <a id="def-na7-l-stability"></a>
 <!-- formal-statement-start -->
@@ -1496,6 +1548,27 @@ $$
 
 が成り立つとき、その数値法を **L 安定**という。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-na7-l-stability -->
+### 例：$R(z)=1/(1-z)$ は強い減衰を0へ送る
+
+**定義の確認**。直前に得た
+
+$$
+R(z)=\frac1{1-z}
+$$
+
+について、左半平面内で $|z|\to\infty$ とすると
+
+$$
+|R(z)|
+=
+\frac1{|1-z|}
+\longrightarrow0.
+$$
+
+さらに上の A 安定性の例で左半平面全体に対して $|R(z)|\le1$ も確認済みです。したがって、この安定関数は L 安定性の二つの条件をともに満たします。
+<!-- definition-example-end -->
 
 L 安定性は、非常に速く減衰するモードを数値法自身も強く0へ押し込む性質です。
 
@@ -1597,7 +1670,18 @@ $$
 と更新する方法を **台形法**という。
 <!-- formal-statement-end -->
 
-線形テスト方程式では
+<!-- definition-example-start: def-na7-trapezoidal-method -->
+### 例：線形テスト方程式で両端の傾きを平均する
+
+**定義の確認**。$y'=\lambda y$ では
+
+$$
+f(t_n,y_n)=\lambda y_n,
+\qquad
+f(t_{n+1},y_{n+1})=\lambda y_{n+1}.
+$$
+
+これを定義式へ代入すると
 
 $$
 y_{n+1}
@@ -1612,10 +1696,10 @@ $$
 $$
 \left(1-\frac z2\right)y_{n+1}
 =
-\left(1+\frac z2\right)y_n
+\left(1+\frac z2\right)y_n,
 $$
 
-であり、
+よって
 
 $$
 \boxed{
@@ -1625,7 +1709,8 @@ R(z)
 }
 $$
 
-です。
+です。現在時刻と次時刻の傾きを等しい重みで平均するという定義が、そのまま更新式に現れています。
+<!-- definition-example-end -->
 
 <a id="prop-na7-trapezoidal-a-not-l"></a>
 <!-- formal-statement-start -->
