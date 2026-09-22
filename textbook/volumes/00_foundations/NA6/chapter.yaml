@@ -1,0 +1,49 @@
+id: "NA6"
+title: "数値解析 VI：ODE 数値解法 I—一段法と収束"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ODE1
+  - NA1
+official_scope: []
+learning_objectives:
+  - 一階初期値問題に対する時間格子と一段法を定義し、Euler 法を一段法として記述できる
+  - exact solution を一段だけ数値法へ代入して局所打切り誤差を定義し、Euler 法でその次数を Taylor の定理から導ける
+  - 整合性と大域収束を区別し、局所打切り誤差と大域誤差の次数が一般に1段ずれる理由を説明できる
+  - 一段関数の y に関する一様 Lipschitz 条件から有限時間区間の摂動安定性を離散 Grönwall 型評価で証明できる
+  - 局所打切り誤差 O(h^p) と一段法の摂動安定性から大域誤差 O(h^p) を導ける
+  - Euler 法の一次収束を初期値問題の Lipschitz 条件と二階微分の有界性から証明できる
+  - 一致性だけでは収束を保証しない理由を、h に依存して摂動を増幅する人工的一段法で説明できる
+  - 固定有限時間での収束と長時間・絶対安定性を区別し、後者を NA7 の課題として切り分けられる
+definitions:
+  - { id: NA6-DEF-01, name: 時間格子・刻み幅 }
+  - { id: NA6-DEF-02, name: 一段法・一段関数 }
+  - { id: NA6-DEF-03, name: 局所打切り誤差 }
+  - { id: NA6-DEF-04, name: 整合性・整合性次数 }
+  - { id: NA6-DEF-05, name: 大域誤差・収束次数 }
+  - { id: NA6-DEF-06, name: 一段法の有限時間摂動安定性 }
+theorems:
+  - { id: NA6-PROP-01, name: Euler 法の局所打切り誤差 }
+  - { id: NA6-LEM-01, name: 離散 Grönwall 型評価 }
+  - { id: NA6-THM-01, name: 一段法の有限時間摂動安定性 }
+  - { id: NA6-THM-02, name: 整合性と摂動安定性からの大域収束 }
+  - { id: NA6-COR-01, name: Euler 法の一次収束 }
+canonical_examples:
+  - y'=y に対する Euler 法 y_n=(1+h)^n
+  - y'=t-y に対する一段更新
+  - exact solution を代入した Euler 法の局所打切り誤差
+  - y'=0 に対する整合的だが不安定な人工的一段法
+  - y'=-2y で固定有限時間収束と長時間挙動を区別する例
+problem_patterns:
+  - NA6-EULER-STEP-1
+  - NA6-LOCAL-TRUNCATION-1
+  - NA6-CONSISTENCY-1
+  - NA6-DISCRETE-GRONWALL-1
+  - NA6-PERTURBATION-STABILITY-1
+  - NA6-GLOBAL-CONVERGENCE-1
+  - NA6-CONSISTENT-BUT-UNSTABLE-1
+  - NA6-LOGISTIC-INTEGRATION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 4.0, review: 0.5 }
