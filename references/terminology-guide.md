@@ -225,6 +225,20 @@
 | 放射測地線 | radial geodesic | 基点から $\exp_p(tv)$ として出る測地線 |
 | Gauss の補題 | Gauss lemma | 人名部分は英字表記を保持。指数写像が放射方向と角方向の直交性を保つことを表す |
 | 凸正規近傍 | convex normal neighborhood | 任意の二点が近傍内の一意な最短測地線で結ばれる近傍 |
+| 距離完備性 | metric completeness | Riemann 距離に関する完備性。測地完備性と区別する |
+| 測地完備性 | geodesic completeness | 全ての最大測地線が全実数へ延長できる性質 |
+| 最短測地線 | minimizing geodesic | 両端点間の Riemann 距離を長さとして実現する測地線 |
+| Hopf--Rinow の定理 | Hopf--Rinow theorem | 人名部分は英字表記を保持。距離完備性・測地完備性等を結ぶ |
+| 切断点 | cut point | 基点からの放射測地線が大域的最短性を失う境界点 |
+| 切断点集合 | cut locus | 基点に対する切断点全体 |
+| Riemann 曲率作用素 | curvature operator | 本系列では $R(X,Y)Z=\nabla_X\nabla_YZ-\nabla_Y\nabla_XZ-\nabla_{[X,Y]}Z$ の符号規約 |
+| Riemann 曲率テンソル | Riemann curvature tensor | $\operatorname{Rm}(X,Y,Z,W)=g(R(X,Y)Z,W)$。本文では「Riemann 曲率テンソル」を主表記 |
+| 第一 Bianchi 恒等式 | first Bianchi identity | 人名部分は英字表記を保持。曲率作用素の巡回和が0となる代数的恒等式 |
+| 第二 Bianchi 恒等式 | second Bianchi identity | 人名部分は英字表記を保持。曲率の共変微分の巡回和が0となる微分的恒等式 |
+| 断面曲率 | sectional curvature | 2次元接平面ごとに定まる曲率。本文では英語を主語彙にしない |
+| Ricci 曲率 | Ricci curvature | 人名部分は英字表記を保持。Riemann 曲率テンソルの縮約 |
+| スカラー曲率 | scalar curvature | Ricci 曲率をさらに計量で縮約したスカラー量 |
+| 定断面曲率 | constant sectional curvature | 全ての点・2次元接平面で断面曲率が同じ定数となる性質 |
 
 ## DREAM THEATER：数値解析の主表記
 
