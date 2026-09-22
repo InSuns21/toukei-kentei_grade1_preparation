@@ -241,7 +241,7 @@ $$
 > \det D_aX(t,a)\ne0
 > $$
 >
-> とする。[逆関数定理](../RA6A/index.md)により近傍で $a=A(t,x)$ と解ける。このとき
+> とする。[逆関数定理](../RA6A/index.md#thm-ra6a-inverse-function)により近傍で $a=A(t,x)$ と解ける。このとき
 >
 > $$
 > u(t,x)=Z(t,A(t,x))
@@ -407,11 +407,11 @@ PDE1 で見た Burgers の特性交差と、Hamilton--Jacobi の caustic は同�
 > を eikonal 方程式という。
 <!-- formal-statement-end -->
 
-幾何光学では $u$ は位相、$\nabla u$ は波面法線を表します。$c=1$ なら距離関数 $u(x)=|x|$ が原点外で解ですが、原点では滑らかでありません。
+幾何光学では $u$ は位相、$\nabla u$ は波面に垂直な方向を表します。$c=1$ なら距離関数 $u(x)=|x|$ が原点外で解ですが、原点では滑らかでありません。
 
 ## 8. 停止線：viscosity solution
 
-特性が交差すると $\nabla u$ が多価になり、古典解は続けられません。Hamilton--Jacobi 方程式では比較原理を保つ viscosity solution が自然な後続理論です。
+特性が交差すると $\nabla u$ が多価になり、古典解は続けられません。Hamilton--Jacobi 方程式では順序比較による一意性を保つ viscosity solution が自然な後続理論です。
 
 本章では
 
@@ -423,7 +423,7 @@ PDE1 で見た Burgers の特性交差と、Hamilton--Jacobi の caustic は同�
 
 までを正本化します。
 
-viscosity subsolution / supersolution、比較原理、Perron 法、HJB は Graduate PDE 後続系列へ送ります。
+viscosity subsolution / supersolution、順序比較による一意性、Perron 法、HJB は Graduate PDE 後続系列へ送ります。
 
 ## 演習
 
@@ -577,7 +577,7 @@ $$
 
 ### Level C
 
-#### PDE12-C01 caustic と Burgers の勾配発散
+#### PDE12-C01 caustic と Burgers の勾配の無限大化
 - Level: C
 
 自由 Hamilton--Jacobi 方程式で
@@ -586,7 +586,7 @@ $$
 X(t,a)=a+t u_0'(a)
 $$
 
-とする。古典解が失われる条件と、$v=u_x$ が満たす Burgers 方程式の勾配発散を同じ式から説明せよ。
+とする。古典解が失われる条件と、$v=u_x$ が満たす Burgers 方程式の勾配が無限大化する機構を同じ式から説明せよ。
 
 <!-- solution-start -->
 ##### 詳細解答
@@ -616,13 +616,13 @@ v_x
 {1+t u_0''(a)}.
 $$
 
-従って $X_a\to0$ と同時に $v_x$ が発散します。caustic と Burgers の古典解破綻は同じ特性交差です。
+従って $X_a\to0$ と同時に $|v_x|$ が無限大へ増大します。caustic と Burgers の古典解破綻は同じ特性交差です。
 <!-- solution-end -->
 
 ## 9. 章末チェック
 
 - Charpit 特性系を一般一階 PDE から導ける。
 - Hamilton の正準方程式を Hamilton--Jacobi から導ける。
-- 特性写像の局所可逆性から古典解を再構成できる。
+- 特性写像の局所逆写像の存在から古典解を再構成できる。
 - caustic と Burgers の特性交差を同じ Jacobian で説明できる。
 - viscosity solution が必要になる境界を説明できる。
