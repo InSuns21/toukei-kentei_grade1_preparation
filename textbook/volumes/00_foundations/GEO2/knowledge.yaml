@@ -8,6 +8,7 @@ forward_references:
   - geometry.map-rank
   - geometry.immersion
   - geometry.submersion
+  - geometry.embedding
   - geometry.embedded-submanifold
   - geometry.regular-value
   - geometry.regular-value-theorem
