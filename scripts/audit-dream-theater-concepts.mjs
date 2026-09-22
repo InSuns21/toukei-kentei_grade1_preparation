@@ -8,6 +8,11 @@ const strict = process.argv.includes('--strict');
 const changedOnly = process.argv.includes('--changed-only');
 const writeReport = process.argv.includes('--write-report');
 
+if (process.argv.includes('--self-test-alias-matcher')) {
+  runAliasMatcherSelfTest();
+  process.exit(0);
+}
+
 const indexPath = path.join(root, 'textbook/dream-theater-index.json');
 const policyPath = path.join(root, 'textbook/dream-theater-knowledge.yaml');
 const reportPath = path.join(root, 'textbook/dream-theater-concept-tree.md');
@@ -70,6 +75,10 @@ for (const page of pages.values()) {
     }
   }
 }
+
+const aliasMatcher = buildAliasMatcher([
+  ...new Set([...conceptById.values()].flatMap((concept) => concept.aliases)),
+]);
 
 for (const [alias, owners] of aliasOwners.entries()) {
   if (owners.length <= 1) continue;
@@ -151,9 +160,10 @@ for (const page of pages.values()) {
       ...[...page.ancestors]
         .flatMap((ancestorId) => pages.get(ancestorId)?.concepts ?? []),
     ];
+    const firstUses = findFirstUnshadowedConceptUses(lines, visibleShadowConcepts, page, aliasMatcher);
     for (const concept of conceptById.values()) {
       if (concept.pageId === page.id) continue;
-      const firstUse = firstUnshadowedAliasUse(lines, concept.aliases, visibleShadowConcepts, page);
+      const firstUse = firstUses.get(concept.id);
       if (firstUse == null) continue;
       if (page.ancestors.has(concept.pageId)) continue;
       if (page.forwardReferences.has(concept.id)) continue;
@@ -333,31 +343,131 @@ function firstAliasUse(lines, aliases) {
   return null;
 }
 
-function firstUnshadowedAliasUse(lines, remoteAliases, visibleConcepts, currentPage) {
+function findFirstUnshadowedConceptUses(lines, visibleConcepts, currentPage, matcher) {
+  const firstUses = new Map();
+  const availableVisibleAliases = new Set();
+  const localAliasesByLine = new Map();
+
+  for (const visible of visibleConcepts) {
+    if (visible.pageId !== currentPage.id && currentPage.ancestors.has(visible.pageId)) {
+      for (const alias of visible.aliases) availableVisibleAliases.add(alias);
+      continue;
+    }
+    if (visible.pageId !== currentPage.id || visible.declarationLine == null) continue;
+    const aliases = localAliasesByLine.get(visible.declarationLine) ?? [];
+    aliases.push(...visible.aliases);
+    localAliasesByLine.set(visible.declarationLine, aliases);
+  }
+
   for (let i = 0; i < lines.length; i += 1) {
     const lineNumber = i + 1;
-    const line = lines[i];
-    for (const remoteAlias of remoteAliases) {
-      if (!aliasAppears(line, remoteAlias)) continue;
-      const remoteKey = normalizeAlias(remoteAlias);
-      const shadowed = visibleConcepts.some((visible) => {
-        const introducedLocally = visible.pageId === currentPage.id
-          && visible.declarationLine != null
-          && visible.declarationLine <= lineNumber;
-        const availableFromPrerequisite = visible.pageId !== currentPage.id
-          && currentPage.ancestors.has(visible.pageId);
-        if (!introducedLocally && !availableFromPrerequisite) return false;
-        return visible.aliases.some((visibleAlias) => {
-          const visibleKey = normalizeAlias(visibleAlias);
-          return visibleKey.length > remoteKey.length
-            && visibleKey.includes(remoteKey)
-            && aliasAppears(line, visibleAlias);
-        });
-      });
-      if (!shadowed) return lineNumber;
+    for (const alias of localAliasesByLine.get(lineNumber) ?? []) availableVisibleAliases.add(alias);
+
+    const rawMatches = matcher.match(lines[i]);
+    if (!rawMatches.size) continue;
+
+    const matchedAliases = new Set();
+    for (const alias of rawMatches) {
+      if (aliasAppears(lines[i], alias)) matchedAliases.add(alias);
+    }
+    if (!matchedAliases.size) continue;
+
+    const visibleAliasKeys = [];
+    for (const alias of matchedAliases) {
+      if (availableVisibleAliases.has(alias)) visibleAliasKeys.push(normalizeAlias(alias));
+    }
+
+    const candidateIds = new Set();
+    for (const alias of matchedAliases) {
+      for (const conceptId of aliasOwners.get(normalizeAlias(alias)) ?? []) candidateIds.add(conceptId);
+    }
+
+    for (const conceptId of candidateIds) {
+      if (firstUses.has(conceptId)) continue;
+      const concept = conceptById.get(conceptId);
+      if (!concept || concept.pageId === currentPage.id) continue;
+
+      for (const remoteAlias of concept.aliases) {
+        if (!matchedAliases.has(remoteAlias)) continue;
+        const remoteKey = normalizeAlias(remoteAlias);
+        const shadowed = visibleAliasKeys.some((visibleKey) =>
+          visibleKey.length > remoteKey.length && visibleKey.includes(remoteKey)
+        );
+        if (shadowed) continue;
+        firstUses.set(conceptId, lineNumber);
+        break;
+      }
     }
   }
-  return null;
+
+  return firstUses;
+}
+
+function buildAliasMatcher(patterns) {
+  const nodes = [{ next: new Map(), fail: 0, outputs: [] }];
+
+  for (const pattern of patterns) {
+    if (!pattern) continue;
+    let state = 0;
+    for (const char of pattern) {
+      let nextState = nodes[state].next.get(char);
+      if (nextState == null) {
+        nextState = nodes.length;
+        nodes[state].next.set(char, nextState);
+        nodes.push({ next: new Map(), fail: 0, outputs: [] });
+      }
+      state = nextState;
+    }
+    nodes[state].outputs.push(pattern);
+  }
+
+  const queue = [];
+  for (const state of nodes[0].next.values()) {
+    nodes[state].fail = 0;
+    queue.push(state);
+  }
+
+  for (let head = 0; head < queue.length; head += 1) {
+    const state = queue[head];
+    for (const [char, nextState] of nodes[state].next.entries()) {
+      queue.push(nextState);
+      let failure = nodes[state].fail;
+      while (failure !== 0 && !nodes[failure].next.has(char)) failure = nodes[failure].fail;
+      const fallback = nodes[failure].next.get(char);
+      nodes[nextState].fail = fallback == null || fallback === nextState ? 0 : fallback;
+      nodes[nextState].outputs.push(...nodes[nodes[nextState].fail].outputs);
+    }
+  }
+
+  return {
+    match(source) {
+      const matches = new Set();
+      let state = 0;
+      for (const char of source) {
+        while (state !== 0 && !nodes[state].next.has(char)) state = nodes[state].fail;
+        state = nodes[state].next.get(char) ?? 0;
+        for (const pattern of nodes[state].outputs) matches.add(pattern);
+      }
+      return matches;
+    },
+  };
+}
+
+function runAliasMatcherSelfTest() {
+  const matcher = buildAliasMatcher(['Banach', 'Banach 空間', '空間', 'SVD', '値']);
+  const matches = matcher.match('Banach 空間とSVDの特異値');
+  for (const expected of ['Banach', 'Banach 空間', '空間', 'SVD', '値']) {
+    if (!matches.has(expected)) throw new Error(`alias matcher が「${expected}」を検出できませんでした。`);
+  }
+  if (matches.has('missing')) throw new Error('alias matcher が存在しない alias を返しました。');
+
+  const overlap = buildAliasMatcher(['a', 'ab', 'bab', 'bc', 'bca', 'c', 'caa']);
+  const overlapMatches = overlap.match('abccab');
+  for (const expected of ['a', 'ab', 'bc', 'c']) {
+    if (!overlapMatches.has(expected)) throw new Error(`overlap self-test failed: ${expected}`);
+  }
+
+  console.log('DREAM THEATER alias matcher self-test: OK');
 }
 
 function aliasAppears(line, alias) {
