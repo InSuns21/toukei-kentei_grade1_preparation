@@ -1,0 +1,106 @@
+chapter: GEO6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEO3
+  - GEO5
+concepts:
+  - id: geometry.smooth-distribution
+    name: 滑らかな線形分布
+    kind: definition
+    aliases: [線形分布, 滑らかな線形分布, smooth distribution]
+    requires:
+      - geometry.tangent-space
+      - geometry.smooth-vector-field
+
+  - id: geometry.distribution-local-section
+    name: 分布の局所切断
+    kind: definition
+    aliases: [分布の局所切断, local section of a distribution]
+    requires:
+      - geometry.smooth-distribution
+      - geometry.smooth-vector-field
+
+  - id: geometry.distribution-local-frame
+    name: 分布の局所枠
+    kind: definition
+    aliases: [分布の局所枠, local frame of a distribution]
+    requires:
+      - geometry.smooth-distribution
+
+  - id: geometry.integral-manifold
+    name: 積分多様体
+    kind: definition
+    aliases: [積分多様体, integral manifold]
+    requires:
+      - geometry.smooth-distribution
+      - geometry.immersion
+      - geometry.submanifold-inclusion-tangent
+
+  - id: geometry.integrable-distribution
+    name: 可積分な分布
+    kind: definition
+    aliases: [可積分な分布, integrable distribution]
+    requires:
+      - geometry.integral-manifold
+
+  - id: geometry.involutive-distribution
+    name: 対合的な分布
+    kind: definition
+    aliases: [対合的な分布, involutive distribution]
+    requires:
+      - geometry.distribution-local-section
+      - geometry.lie-bracket
+
+  - id: geometry.involutive-frame-criterion
+    name: 局所枠での対合性判定
+    kind: proposition
+    aliases: [局所枠での対合性判定, frame criterion for involutivity]
+    requires:
+      - geometry.involutive-distribution
+      - geometry.lie-bracket-identities
+
+  - id: geometry.integrable-implies-involutive
+    name: 可積分なら対合的
+    kind: proposition
+    aliases: [可積分なら対合的, integrable implies involutive]
+    requires:
+      - geometry.integrable-distribution
+      - geometry.involutive-distribution
+      - geometry.submanifold-local-equations
+
+  - id: geometry.involutive-flow-invariance
+    name: 対合的分布は局所流で保存される
+    kind: lemma
+    aliases: [分布の流れ不変性, flow invariance of involutive distribution]
+    requires:
+      - geometry.involutive-frame-criterion
+      - geometry.lie-bracket-flow-interpretation
+      - geometry.maximal-flow-local-group-law
+
+  - id: geometry.adapted-coordinates-distribution
+    name: 分布に適応した局所座標
+    kind: definition
+    aliases: [適応座標, adapted coordinates for a distribution]
+    requires:
+      - geometry.smooth-distribution
+      - geometry.coordinate-tangent-basis
+
+  - id: geometry.frobenius-theorem
+    name: Frobenius の定理
+    kind: theorem
+    aliases: [Frobenius の定理, Frobenius theorem]
+    requires:
+      - geometry.integrable-implies-involutive
+      - geometry.involutive-flow-invariance
+      - geometry.adapted-coordinates-distribution
+      - geometry.flow-box-theorem
+
+  - id: geometry.distribution-first-integrals
+    name: 適応座標と局所第一積分
+    kind: proposition
+    aliases: [局所第一積分, local first integrals]
+    requires:
+      - geometry.frobenius-theorem
+      - geometry.submersion-local-normal-form
+      - geometry.regular-level-tangent-kernel
