@@ -67,6 +67,8 @@ flowchart TD
   TOP4 --> TOP5["コンパクト性の一般論<br/>TOP5"]
   TOP4 --> GEO1["滑らかな多様体・滑らかな写像<br/>GEO1"]
   RA6A --> GEO1
+  GEO1 --> GEO2["接空間・余接空間・微分・接束<br/>GEO2"]
+  LA3A --> GEO2
   TOP5 --> TOP5A["Urysohn・局所コンパクト性・cutoff<br/>TOP5A"]
   TOP5 --> BAIRE["全有界性・Baire・net/filter<br/>TOP6"]
   BAIRE --> UNIFORM["一様構造・一様連続・Cauchy構造<br/>TOP7"]
@@ -575,6 +577,21 @@ TOP6 の filter と全有界性を受け、距離空間で暗黙に使ってき�
 実装: [GEO1](volumes/00_foundations/GEO1/index.md)
 
 直接 prerequisite は TOP4 と RA6A です。接空間・余接空間・写像の微分は GEO2 へ送り、本章では「滑らかさそのものが座標に依存しない」段階までを閉じます。
+
+## GEO2 接空間・余接空間・微分・接束 `core`
+
+- 滑らかな関数の芽と Leibniz 則を満たす点での微分作用素
+- 接ベクトルの座標基底と $\dim T_pM=\dim M$
+- 曲線の一次同値と微分作用素表示の同値
+- 座標変換の Jacobi 行列による接ベクトル成分の変換
+- 滑らかな写像の微分 $df_p$ と多様体上の連鎖律
+- 余接空間、実数値関数の微分、余ベクトルの引き戻し
+- 接束・余接束の局所自明化とベクトル束構造
+- 積多様体の接空間と球面の接方向の具体計算
+
+実装: [GEO2](volumes/00_foundations/GEO2/index.md)
+
+直接 prerequisite は GEO1 と LA3A です。GEO3 の階数定理・正則値・部分多様体で必要になる $df_p$ と $T_pM$ をここで canonical に定義し、1 の分割やベクトル場は先取りしません。
 
 ---
 
