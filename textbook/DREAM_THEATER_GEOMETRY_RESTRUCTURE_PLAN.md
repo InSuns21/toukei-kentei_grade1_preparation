@@ -960,10 +960,10 @@ Phase 3 完了。GEO10 → GEO11 → GEO12 → GEO13 → GEO14 完了。
 - GEO15 Hopf--Rinow ✅ 2026-09-23
 - GEO16 曲率 ✅ 2026-09-23
 - GEO17 Jacobi 場・共役点 ✅ 2026-09-23
-- GEO18 比較幾何
+- GEO18 比較幾何 ✅ 2026-09-23
 - GEO19 Gauss--Bonnet
 
-Phase 4 は GEO15 → GEO16 → GEO17 まで完了。次の実装開始点は **GEO18「比較幾何入門」** とする。
+Phase 4 は GEO15 → GEO16 → GEO17 → GEO18 まで完了。次の実装開始点は **GEO19「Gauss--Bonnet と二次元大域幾何」** とする。
 
 ### Phase 5：独立 Lie 系列
 
