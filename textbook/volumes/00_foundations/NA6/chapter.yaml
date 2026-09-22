@@ -18,10 +18,11 @@ learning_objectives:
 definitions:
   - { id: NA6-DEF-01, name: 時間格子・刻み幅 }
   - { id: NA6-DEF-02, name: 一段法・一段関数 }
-  - { id: NA6-DEF-03, name: 局所打切り誤差 }
-  - { id: NA6-DEF-04, name: 整合性・整合性次数 }
-  - { id: NA6-DEF-05, name: 大域誤差・収束次数 }
-  - { id: NA6-DEF-06, name: 有限時間摂動安定性 }
+  - { id: NA6-DEF-03, name: Euler 法 }
+  - { id: NA6-DEF-04, name: 局所打切り誤差 }
+  - { id: NA6-DEF-05, name: 整合性・整合性次数 }
+  - { id: NA6-DEF-06, name: 大域誤差・収束次数 }
+  - { id: NA6-DEF-07, name: 有限時間摂動安定性 }
 theorems:
   - { id: NA6-PROP-01, name: Euler 法の局所打切り誤差 }
   - { id: NA6-LEM-01, name: 離散 Grönwall 型評価 }
