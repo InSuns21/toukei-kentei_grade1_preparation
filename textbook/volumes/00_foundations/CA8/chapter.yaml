@@ -33,6 +33,7 @@ theorems:
   - { id: CA8-THM-01, name: 正則性の座標不変性 }
   - { id: CA8-THM-02, name: 位数の座標不変性 }
   - { id: CA8-THM-03, name: Riemann 球面上の有理型関数の分類 }
+  - { id: CA8-LEM-00, name: コンパクト距離空間の Lebesgue 数 }
   - { id: CA8-THM-04, name: 経路持ち上げの存在と一意性 }
   - { id: CA8-THM-05, name: 経路ホモトピーの持ち上げ }
   - { id: CA8-COR-01, name: 端点固定ホモトピーと持ち上げの終点 }
