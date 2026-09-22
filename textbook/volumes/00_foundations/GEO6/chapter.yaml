@@ -18,7 +18,7 @@ learning_objectives:
 definitions:
   - { id: GEO6-DEF-01, name: 滑らかな線形分布 }
   - { id: GEO6-DEF-02, name: 分布の局所切断 }
-  - { id: GEO6-DEF-03, name: 積分多様体・局所可積分性 }
+  - { id: GEO6-DEF-03, name: 積分多様体・可積分性 }
   - { id: GEO6-DEF-04, name: 対合的な分布 }
   - { id: GEO6-DEF-05, name: 分布に適応した局所座標 }
 theorems:
