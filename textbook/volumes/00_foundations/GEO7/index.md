@@ -453,7 +453,7 @@ d(G\circ F)_pv_1,\dots,d(G\circ F)_pv_k
 \end{aligned}
 $
 
-[GEO2 の多様体上の連鎖律](../GEO2/index.md#thm-geo2-chain-rule)から
+[GEO2 の多様体上の連鎖律](../GEO2/index.md#thm-geo2-composition-differential)から
 
 $
 d(G\circ F)_p
