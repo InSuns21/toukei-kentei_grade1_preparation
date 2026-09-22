@@ -5,6 +5,7 @@ prerequisites:
   - PDE1
   - ODE8
   - RA6A
+  - VC1
 forward_references: []
 concepts:
   - id: pde.pde12-first-order
