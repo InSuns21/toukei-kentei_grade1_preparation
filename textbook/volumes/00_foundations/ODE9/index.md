@@ -309,7 +309,7 @@ $$
 \operatorname{dist}(x(t_n),M)\ge\varepsilon
 $$
 
-となります。コンパクトな $K$ から部分列を取れば $x(t_{n_k})\to y\in\omega(x_0)\subset M$ です。距離関数の連続性から
+となります。コンパクトな $K$ から部分列を取れば $x(t_{n_k})\to y\in\omega(x_0)\subset M$ です。[距離空間](../F0_00B_距離空間_開集合_閉集合_収束/index.md#def-f0-00b-01)では距離関数は連続なので
 
 $$
 \operatorname{dist}(x(t_{n_k}),M)\to0
