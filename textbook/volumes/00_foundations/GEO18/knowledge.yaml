@@ -1,0 +1,99 @@
+chapter: GEO18
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEO15
+  - GEO17
+forward_references:
+  - geometry.gauss-bonnet-theorem
+
+concepts:
+  - id: geometry.constant-curvature-model-space
+    name: 定曲率模型空間
+    kind: definition
+    aliases: [定曲率模型空間, constant-curvature model space]
+    introduction: formal
+    introduction_aliases: ["定義（定曲率模型空間・比較関数）"]
+    requires:
+      - geometry.constant-sectional-curvature
+      - geometry.geodesic
+
+  - id: geometry.comparison-function
+    name: 比較関数
+    kind: definition
+    aliases: [Riemann 幾何の比較関数]
+    introduction: formal
+    introduction_aliases: ["定義（定曲率模型空間・比較関数）"]
+    requires:
+      - geometry.constant-curvature-model-space
+
+  - id: geometry.jacobi-length-differential-inequality
+    name: 法 Jacobi 場の長さに対する微分不等式
+    kind: lemma
+    aliases: [法 Jacobi 場の長さに対する微分不等式]
+    requires:
+      - geometry.jacobi-equation
+      - geometry.sectional-curvature
+
+  - id: geometry.rauch-comparison-theorem
+    name: Rauch の比較定理
+    kind: theorem
+    aliases: [Rauch の比較定理, Rauch comparison theorem]
+    introduction: formal
+    requires:
+      - geometry.jacobi-length-differential-inequality
+      - geometry.comparison-function
+      - geometry.jacobi-field
+
+  - id: geometry.conjugate-radius-curvature-upper-bound
+    name: 断面曲率上界による共役半径の評価
+    kind: corollary
+    aliases: [断面曲率上界による共役半径の評価]
+    requires:
+      - geometry.rauch-comparison-theorem
+      - geometry.conjugate-point
+
+  - id: geometry.nonpositive-exp-differential-expansion
+    name: 非正曲率での指数写像の微分の拡大性
+    kind: proposition
+    aliases: [非正曲率での指数写像の微分の拡大性]
+    requires:
+      - geometry.rauch-comparison-theorem
+      - geometry.exponential-differential-jacobi
+      - geometry.gauss-lemma
+
+  - id: geometry.bonnet-myers-theorem
+    name: Bonnet--Myers の定理
+    kind: theorem
+    aliases: [Bonnet--Myers の定理, Bonnet--Myers theorem]
+    introduction: formal
+    requires:
+      - geometry.index-form
+      - geometry.ricci-curvature
+      - geometry.hopf-rinow-theorem
+
+  - id: topology.simply-connected
+    name: 単連結
+    kind: definition
+    aliases: [単連結, simply connected]
+    introduction: formal
+    requires:
+      - geometry.smooth-homotopy
+
+  - id: geometry.expanding-local-diffeomorphism-covering
+    name: 拡大局所微分同相の被覆補題
+    kind: lemma
+    aliases: [拡大局所微分同相の被覆補題]
+    requires:
+      - geometry.nonpositive-exp-differential-expansion
+
+  - id: geometry.cartan-hadamard-theorem
+    name: Cartan--Hadamard の定理
+    kind: theorem
+    aliases: [Cartan--Hadamard の定理, Cartan--Hadamard theorem]
+    introduction: formal
+    requires:
+      - geometry.nonpositive-exp-differential-expansion
+      - geometry.expanding-local-diffeomorphism-covering
+      - topology.simply-connected
+      - geometry.hopf-rinow-theorem
