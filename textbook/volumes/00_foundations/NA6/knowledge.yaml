@@ -30,7 +30,7 @@ concepts:
     kind: definition
     aliases: [one-step method]
     introduction: formal
-    introduction_aliases: ["定義（一段法・一段関数）"]
+    introduction_aliases: ["定義（一段法）"]
     requires:
       - numerical.time-grid
       - numerical.step-size
@@ -41,7 +41,7 @@ concepts:
     kind: definition
     aliases: [increment function]
     introduction: formal
-    introduction_aliases: ["定義（一段法・一段関数）"]
+    introduction_aliases: ["定義（一段関数）"]
     requires:
       - numerical.one-step-method
 
