@@ -316,7 +316,7 @@ $s>2$ なので右辺の幾何級数は収束する。有限個の内側格子�
 
 <a id="def-ca9-weierstrass-p"></a>
 <!-- formal-statement-start -->
-### 定義（Weierstrass $\wp$ 関数）
+### 定義（Weierstrass wp 関数）
 
 格子 $\Lambda\subset\mathbb C$ に対し、$z\notin\Lambda$ で
 
@@ -349,12 +349,12 @@ $$
 \right)
 $$
 
-となる。$z=0$ では補正部分が0であり、原点の主要部 $1/z^2$ だけが残る。この「各格子点に二重極を置きつつ、遠方では低次項を消す」構造が定義の核心である。
+となる。$z=0$ では補正項全体が0であり、原点では極の先頭項 $1/z^2$ だけが残る。この「各格子点に二重極を置きつつ、遠方では低次項を消す」構造が定義の核心である。
 <!-- definition-example-end -->
 
 <a id="thm-ca9-weierstrass-normal-convergence"></a>
 <!-- formal-statement-start -->
-### 定理（$\wp$ 級数の正規収束）
+### 定理（wp 級数の正規収束）
 
 上の級数は $\mathbb C\setminus\Lambda$ 上で正規収束する。従って $\wp_\Lambda$ は $\mathbb C\setminus\Lambda$ 上正則であり、各格子点に二重極を持つ有理型関数へ延長される。
 <!-- formal-statement-end -->
@@ -416,7 +416,7 @@ $$
 
 よって [CA7 の正規収束の定義](../CA7/index.md#def-ca7-normal-convergence)に従って尾部は $K$ 上正規収束する。有限個の残りの項は問題ないので全級数が正規収束する。
 
-従って [正規収束する正則関数級数の項別微分](../CA7/index.md#cor-ca7-normal-series-termwise-differentiation)を適用でき、$\mathbb C\setminus\Lambda$ 上正則である。
+従って [正規収束する正則関数級数と微分の交換](../CA7/index.md#cor-ca7-normal-series-termwise-differentiation)を適用でき、$\mathbb C\setminus\Lambda$ 上正則である。
 
 原点近傍では $\omega\ne0$ の各項は正則で、補正級数も局所一様収束するため
 
@@ -427,7 +427,7 @@ $$
 と書ける。ここで $h$ は0近傍で正則なので、0は二重極である。各格子点で二重極になることは §5 の周期性から従う。$\square$
 <!-- proof-end -->
 
-項別微分により
+上の微分交換により
 
 $$
 \wp'(z)
@@ -446,7 +446,7 @@ $$
 
 <a id="thm-ca9-weierstrass-symmetry-periodicity"></a>
 <!-- formal-statement-start -->
-### 定理（$\wp$ の偶性と周期性）
+### 定理（wp の偶性と周期性）
 
 Weierstrass $\wp$ 関数は
 
@@ -570,7 +570,7 @@ $$
 
 <a id="prop-ca9-laurent-expansion"></a>
 <!-- formal-statement-start -->
-### 命題（$\wp$ の原点での Laurent 展開）
+### 命題（wp の原点での Laurent 展開）
 
 原点の十分小さい近傍で
 
@@ -786,7 +786,7 @@ $$
 -16b.
 $$
 
-よって $F(z)=O(z^2)$ で、原点の特異点は可除、しかも $F(0)=0$ と延長できる。
+よって $F(z)=O(z^2)$ で、原点では極が消え、しかも $F(0)=0$ と正則に延長できる。
 
 したがって $F$ は全平面で正則な楕円関数である。[CA8 のコンパクトトーラス上の正則関数の剛性](../CA8/index.md#thm-ca8-compact-holomorphic-constant)または Liouville の定理により $F$ は定数であり、原点での延長値が0なので
 
@@ -799,7 +799,7 @@ $$
 
 <a id="cor-ca9-second-derivative"></a>
 <!-- formal-statement-start -->
-### 系（$\wp''$ の表示）
+### 系（wp'' の表示）
 
 全ての $z\notin\Lambda$ で
 
@@ -874,7 +874,7 @@ $$
 
 <a id="thm-ca9-half-period-critical-points"></a>
 <!-- formal-statement-start -->
-### 定理（$\wp'$ の零点と半周期）
+### 定理（wp' の零点と半周期）
 
 $\wp'$ は複素トーラス $\mathbb C/\Lambda$ 上で重複度込みにちょうど3個の零点を持ち、それらは三つの非零半周期点 $h_1,h_2,h_3$ である。各零点は単純である。
 <!-- formal-statement-end -->
@@ -928,7 +928,7 @@ $$
 
 <a id="prop-ca9-degree-two-weierstrass"></a>
 <!-- formal-statement-start -->
-### 命題（$\wp$ は符号を除いて点を分離する）
+### 命題（wp の二対一性）
 
 $w\notin\Lambda$ を固定する。方程式
 
@@ -1004,12 +1004,12 @@ $$
 
 各 $e_j$ は微分方程式から $4x^3-g_2x-g_3$ の根であり、三次多項式に相異なる三根がそろったので因数分解が従う。
 
-三次式 $4x^3-g_2x-g_3$ が重根を持たないことと $g_2^3-27g_3^2\ne0$ は同値なので $\Delta\ne0$ である。$\square$
+三次式 $4x^3-g_2x-g_3$ とその導関数が共通零点を持たないことと $g_2^3-27g_3^2\ne0$ は同値なので $\Delta\ne0$ である。$\square$
 <!-- proof-end -->
 
 ---
 
-## 9. 格子を拡大・回転すると何が起こるか
+## 9. 格子を拡大・向きを変えると何が起こるか
 
 <a id="prop-ca9-scaling"></a>
 <!-- formal-statement-start -->
@@ -1115,7 +1115,7 @@ $$
 g_2(\Lambda_\triangle)=0.
 $$
 
-格子の回転対称性が三次曲線の係数を実際に消している。
+格子の高い対称性が三次曲線の係数を実際に消している。
 
 ---
 
@@ -1196,7 +1196,7 @@ $$
 \frac1{t^2}+O(1).
 $$
 
-したがって $F_v$ は $z=-v$ に二重極を持ち、単純極項はない。これは $\wp(z+v)=\wp(t)$ の主要部と一致する。
+したがって $F_v$ は $z=-v$ に二重極を持ち、単純極項はない。これは $\wp(z+v)=\wp(t)$ の極部分と一致する。
 
 格子点 $z=0$ 近傍も確認する。$A=\wp(v),B=\wp'(v)$ と書けば
 
@@ -1312,7 +1312,7 @@ $$
 F(x,y)=y^2-4x^3+g_2x+g_3
 $$
 
-と置く。特異点があれば
+と置く。曲線上に滑らかでない点があれば
 
 $$
 F=0,
@@ -1322,7 +1322,7 @@ F=0,
 \frac{\partial F}{\partial x}=-12x^2+g_2=0
 $$
 
-を同時に満たす。従って $y=0$ で、$x$ は多項式 $4x^3-g_2x-g_3$ とその導関数の共通零点、すなわち重根になる。しかし [判別式の非零性](#thm-ca9-discriminant-nonzero)により重根はないので、アフィン部分に特異点はない。
+を同時に満たす。従って $y=0$ で、$x$ は多項式 $4x^3-g_2x-g_3$ とその導関数の共通零点になる。しかし [判別式の非零性](#thm-ca9-discriminant-nonzero)によりそのような共通零点はないので、アフィン部分は滑らかである。
 
 射影閉包を
 
@@ -1610,7 +1610,7 @@ $$
    \boxed{g_2=60G_4=0}.
    $$
 
-回転対称性が高い格子では、対応する Eisenstein 級数が対称性によって強制的に消える。
+対称性が高い格子では、対応する Eisenstein 級数がその対称性によって強制的に消える。
 <!-- solution-end -->
 
 ### Level B
@@ -1709,7 +1709,7 @@ $$
 <!-- solution-start -->
 **解答**：
 
-1. $\wp$ は格子点に二重極を持ち、定数 $\wp(w)$ を引いても主要部は変わらない。基本平行四辺形には格子点の代表が一つなので、極の総重複度は2。
+1. $\wp$ は格子点に二重極を持ち、定数 $\wp(w)$ を引いても極部分は変わらない。基本平行四辺形には格子点の代表が一つなので、極の総重複度は2。
 
 2. 偶性から
    $$
@@ -1988,7 +1988,7 @@ $$
 CA9 では、格子という離散データから正規収束する有理型関数を構成した。次の CA10 ではこの発想を全平面へ広げ、
 
 - 零点集合を指定して整関数を作る Weierstrass 因数分解
-- 極の主要部を指定して有理型関数を作る Mittag--Leffler の定理
+- 極での負冪部分を指定して有理型関数を作る Mittag--Leffler の定理
 
 へ進む。
 
