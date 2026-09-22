@@ -145,7 +145,7 @@ $f$ を $\Lambda$ に関する楕円関数とし、$\overline{P(a)}$ の境界�
 <!-- proof-start -->
 ### 証明
 
-[留数定理](../CA4/index.md#thm-ca4-residue)と対辺積分の相殺から
+[留数定理](../CA4/index.md#thm-ca4-residue)と[対辺積分の相殺](#lem-ca9-opposite-side-cancellation)から
 
 $$
 2\pi i
@@ -408,7 +408,7 @@ $$
 
 となる定数 $C_K$ が取れる。
 
-格子冪和の収束から
+[格子冪和の収束](#cor-ca9-lattice-summability)から
 
 $$
 \sum_{\omega\ne0}|\omega|^{-3}<\infty,
@@ -788,7 +788,7 @@ $$
 
 よって $F(z)=O(z^2)$ で、原点では極が消え、しかも $F(0)=0$ と正則に延長できる。
 
-したがって $F$ は全平面で正則な楕円関数である。[CA8 のコンパクトトーラス上の正則関数の剛性](../CA8/index.md#thm-ca8-compact-holomorphic-constant)または Liouville の定理により $F$ は定数であり、原点での延長値が0なので
+したがって $F$ は全平面で正則な楕円関数である。[CA8 のコンパクトトーラス上の正則関数の剛性](../CA8/index.md#thm-ca8-compact-holomorphic-constant)または [Liouville の定理](../CA3/index.md#thm-ca3-liouville)により $F$ は定数であり、原点での延長値が0なので
 
 $$
 F\equiv0.
@@ -829,7 +829,7 @@ $$
 \wp''=6\wp^2-\frac{g_2}{2}.
 $$
 
-両辺は有理型関数であり、$\wp'\ne0$ の点は開集合を含む。恒等定理により等式は全域へ延長される。$\square$
+両辺は有理型関数であり、$\wp'\ne0$ の点は開集合を含む。[恒等定理](../CA3/index.md#thm-ca3-isolated-zeros-identity)により等式は全域へ延長される。$\square$
 <!-- proof-end -->
 
 この微分方程式は「二周期関数の具体公式」以上の意味を持つ。$x=\wp(z),y=\wp'(z)$ と置けば
@@ -1408,7 +1408,7 @@ $$
 - 二次元格子の点数は半径 $R$ までで $O(R^2)$。従って $\sum|\omega|^{-s}$ は $s>2$ で収束する。
 - $\wp$ は補正項を入れることで尾部を $|\omega|^{-3}$ にし、格子点を除いて正規収束する。
 - $\wp$ は偶な楕円関数で、各格子点に二重極を持つ。$\wp'$ は奇で三重極を持つ。
-- Laurent 展開から $g_2,g_3$ が現れ、
+- [原点での Laurent 展開](#prop-ca9-laurent-expansion)から $g_2,g_3$ が現れ、
   $$
   (\wp')^2=4\wp^3-g_2\wp-g_3
   $$
@@ -1631,7 +1631,7 @@ $$
    C_K|\omega|^{-3}
    $$
    を導け。
-3. 格子冪和の収束から正規収束を結論せよ。
+3. [格子冪和の収束](#cor-ca9-lattice-summability)から正規収束を結論せよ。
 
 <!-- solution-start -->
 **解答**：
@@ -1675,7 +1675,7 @@ $$
    $$
    \sum_{\omega\ne0}|\omega|^{-3}<\infty.
    $$
-   従って Weierstrass の M-test により尾部は $K$ 上一様絶対収束し、
+   従って上の評価と収束級数による比較から、尾部は $K$ 上一様絶対収束し、
    $$
    \sum_{\omega\ne0}
    \sup_{z\in K}
