@@ -1,0 +1,29 @@
+chapter: "GEO16"
+terms:
+  - term: Riemann 曲率
+    english: Riemann curvature
+    meaning: Levi-Civita 接続の共変微分を異なる方向へ行ったときの非可換性を測る内在的な曲率。
+  - term: 曲率作用素
+    english: curvature operator
+    meaning: R(X,Y)Z=∇_X∇_Y Z-∇_Y∇_X Z-∇_[X,Y]Z で定まる接ベクトル値の三重線形テンソル。
+  - term: Riemann 曲率テンソル
+    english: Riemann curvature tensor
+    meaning: 曲率作用素を計量で下げた Rm(X,Y,Z,W)=g(R(X,Y)Z,W) という型 (0,4) のテンソル。
+  - term: 第一 Bianchi 恒等式
+    english: first Bianchi identity
+    meaning: 捩率0の接続について R(X,Y)Z+R(Y,Z)X+R(Z,X)Y=0 と表される代数的恒等式。
+  - term: 第二 Bianchi 恒等式
+    english: second Bianchi identity
+    meaning: 曲率の共変微分の巡回和が0になる微分的恒等式。
+  - term: 断面曲率
+    english: sectional curvature
+    meaning: 各点の2次元接平面に割り当てられる、Riemann 曲率テンソルの規格化された曲率。
+  - term: Ricci 曲率
+    english: Ricci curvature
+    meaning: Riemann 曲率テンソルを一組の添字で縮約して得られる対称2階テンソル。
+  - term: スカラー曲率
+    english: scalar curvature
+    meaning: Ricci 曲率をさらに計量で縮約して得られるスカラー量。
+  - term: 定断面曲率
+    english: constant sectional curvature
+    meaning: 全ての点・全ての2次元接平面で断面曲率が同じ定数になる性質。
