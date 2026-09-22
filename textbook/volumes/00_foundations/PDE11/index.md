@@ -62,7 +62,15 @@ $$
 
 と書きます。
 
-$2\pi$ 周期の非零解が存在する条件を確認すると、$\mu<0$ では指数関数型、$\mu=0$ では一次関数型になり、非定数な周期解を持ちません。$\mu>0$ では
+$2\pi$ 周期の非零解が存在する条件を確認します。$\mu<0$ では指数関数型となり、非零の周期解を持ちません。$\mu=0$ では
+
+$$
+\Theta(\theta)=A+B\theta
+$$
+
+ですが、周期性から $B=0$、従って定数解だけが残ります。これは $m=0$ の角モードです。
+
+$\mu>0$ では
 
 $$
 \Theta(\theta)
@@ -77,16 +85,24 @@ $$
 $$
 \sqrt\mu=|m|,
 \qquad
-m\in\mathbb Z
+m\in\mathbb Z\setminus\{0\}
 $$
 
-が必要です。複素表示では
+が必要です。両場合をまとめると
+
+$$
+\mu=m^2,
+\qquad
+m\in\mathbb Z.
+$$
+
+複素表示では
 
 $$
 \Theta(\theta)=e^{im\theta}
 $$
 
-と書けます。従って分離定数は $\mu=m^2$ です。
+と書けます。
 
 <a id="prop-pde11-bessel-separation"></a>
 <!-- formal-statement-start -->
