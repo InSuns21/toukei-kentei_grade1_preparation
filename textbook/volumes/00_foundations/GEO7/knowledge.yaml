@@ -75,7 +75,7 @@ concepts:
   - id: geometry.exterior-derivative-graded-leibniz
     name: 外微分の次数付き Leibniz 則
     kind: theorem
-    aliases: [外微分の次数付き Leibniz 則, 外微分の次数付きLeibniz則, graded Leibniz rule for exterior derivative]
+    aliases: [外微分の次数付き Leibniz 則, graded Leibniz rule for exterior derivative]
     requires:
       - geometry.exterior-derivative
       - geometry.form-wedge-laws
@@ -116,7 +116,7 @@ concepts:
   - id: geometry.form-lie-derivative
     name: 微分形式の Lie 微分
     kind: definition
-    aliases: [微分形式の Lie 微分, 微分形式のLie微分, Lie derivative of differential forms]
+    aliases: [微分形式の Lie 微分, Lie derivative of differential forms]
     requires:
       - geometry.differential-form-pullback
       - geometry.maximal-flow-local-group-law
