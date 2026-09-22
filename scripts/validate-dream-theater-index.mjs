@@ -7,6 +7,10 @@ const manifestPath = path.join(repoRoot, 'textbook', 'dream-theater-index.json')
 const foundationsDir = path.join(repoRoot, 'textbook', 'volumes', '00_foundations');
 const calculationReaderSupportPrefix = 'F0_00CALC_';
 const calculationReaderSupportMarker = `/00_foundations/${calculationReaderSupportPrefix}`;
+const nonDreamTheaterDirs = new Set([
+  'F0_00_統計検定1級のための数学速習',
+  'F0_00R_基礎論ロードマップ',
+]);
 const deprecatedCompatibilityDirs = new Set([
   'F0_01_統計のための微積分_線形代数_答案記法',
   'F0_00H1_常微分方程式_線形系_行列指数',
@@ -69,12 +73,15 @@ for (const section of manifest.sections) {
 }
 
 // Direct foundation chapters normally belong in the DREAM THEATER facade.
-// F0_00CALC_* is calculation-only reader support. The deprecated F0-01 directory
-// remains on disk only for compatibility with old URLs and is intentionally not
-// part of the current reader-facing manifest.
+// The statistics-exam math crash course and the retired foundations roadmap are
+// normal/supplementary textbook pages rather than current DREAM THEATER entries.
+// F0_00CALC_* is calculation-only reader support. Deprecated compatibility
+// directories remain on disk for old URLs and are intentionally outside the
+// current reader-facing manifest.
 const discovered = fs.readdirSync(foundationsDir, { withFileTypes: true })
   .filter((entry) => entry.isDirectory())
   .filter((entry) => !entry.name.startsWith(calculationReaderSupportPrefix))
+  .filter((entry) => !nonDreamTheaterDirs.has(entry.name))
   .filter((entry) => !deprecatedCompatibilityDirs.has(entry.name))
   .map((entry) => path.join(foundationsDir, entry.name, 'index.md'))
   .filter((p) => fs.existsSync(p))
