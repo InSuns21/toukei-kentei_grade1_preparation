@@ -1,0 +1,26 @@
+chapter: "NA10"
+terms:
+  - term: 冪乗法
+    english: power method
+    meaning: 行列ベクトル積と正規化を反復し、初期ベクトルが成分を持つ固有方向のうち絶対値最大の固有値に対応する方向を抽出する方法。
+  - term: 逆反復法
+    english: inverse iteration
+    meaning: A^{-1} の冪乗法を、毎回 Ay=x を解く形で実行して絶対値最小の固有値に対応する固有方向を求める方法。
+  - term: シフト付き逆反復法
+    english: shifted inverse iteration
+    meaning: (A-sigma I)^{-1} の冪乗法として、シフト sigma に最も近い固有値に対応する固有方向を選択する方法。
+  - term: Rayleigh 商反復
+    english: Rayleigh quotient iteration
+    meaning: 現在の Rayleigh 商を毎回シフトとして更新する逆反復法。実対称行列の単純固有値近傍では局所的に3次収束する。
+  - term: 固有対残差
+    english: eigenpair residual
+    meaning: 近似固有対 (mu,x) に対する r=Ax-mu x。x を単位化して Rayleigh 商を mu とすれば r は x と直交する。
+  - term: 直交反復法
+    english: orthogonal iteration
+    meaning: 複数ベクトルへ同時に行列を作用させ、各段で QR 分解により正規直交化して支配的不変部分空間を追跡する方法。
+  - term: QR 法
+    english: QR iteration
+    meaning: A_k=Q_kR_k と QR 分解し A_{k+1}=R_kQ_k と更新する固有値計算法。各更新は直交相似変換である。
+  - term: デフレーション
+    english: deflation
+    meaning: 収束した固有値・固有方向を後続の固有値計算から切り離し、より小さい固有値問題へ縮約する操作。
