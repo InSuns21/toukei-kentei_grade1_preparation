@@ -3,6 +3,12 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - CA3
+forward_references:
+  - complex-analysis.riemann-mapping-theorem
+  - complex-analysis.fundamental-parallelogram
+  - complex-analysis.elliptic-function
+  - complex-analysis.elliptic-zero-pole-balance
+  - complex-analysis.cotangent-partial-fraction
 
 concepts:
   - id: complex-analysis.multiply-connected-boundary-cancellation

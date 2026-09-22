@@ -4,6 +4,9 @@ coverage: complete
 prerequisites:
   - CA4
   - TOP3
+forward_references:
+  - complex-analysis.path-lifting
+  - complex-analysis.covering-analytic-continuation
 
 concepts:
   - id: complex-analysis.winding-number

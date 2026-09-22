@@ -3,7 +3,9 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - FOU1
-forward_references: []
+forward_references:
+  - fourier.fou3-gaussian-transform
+  - complex-analysis.theta-transformation
 
 # FOU1 の有限次数 Fourier 理論だけを直接前提にし、無限段階で必要な収束条件は FOU2 本文内の式で固定する。
 # 旧 F0-00FA1・RA5・Lebesgue 積分・Hilbert 空間の一般論を concept dependency / proof dependency にしない。

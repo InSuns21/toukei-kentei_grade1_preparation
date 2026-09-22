@@ -1542,3 +1542,8 @@ $$
 - 境界収束では円周上の連続性から一様連続性を得て、近傍誤差と遠方誤差を別々に抑えた。
 - Dirichlet問題の一意性は閉円板のコンパクト性で最大・最小を達成させ、内部最大・最小を調和関数の原理で排除した。
 - Riemann mapping theorem、normal family、Montel theorem、Green/Stokes、一般領域の Dirichlet 問題は使用していない。
+
+
+### 複素解析 II への接続
+
+円板自己同型と Schwarz の補題は [CA7 の Riemann 写像定理](../CA7/index.md#thm-ca7-riemann-mapping)の極値証明で再び主役になる。極値写像が円板を覆わないと仮定したとき、抜けた点を円板自己同型で0へ移し、正則平方根を取って原点での導関数を増大させることで矛盾を作る。

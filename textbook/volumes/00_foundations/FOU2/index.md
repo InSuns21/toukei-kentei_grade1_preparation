@@ -2029,3 +2029,7 @@ $$
 - 係数エネルギー等式を $x$ と矩形波へ適用し、逆二乗和を具体的に計算した。
 
 次の FOU3 では、周期離散周波数から実直線上の連続周波数へ移り、Fourier 変換・関数をずらして積分する合成演算・反転を扱います。
+
+### 複素解析への接続
+
+本章の [Dirichlet の点ごとの極限定理](#thm-fou2-dirichlet-convergence)は、[CA12 のテータ変換](../CA12/index.md#thm-ca12-theta-transformation)で周期化した Gauss 関数を Fourier 級数へ戻す箇所に使う。FOU2 の収束定理が「周期化した関数 = Fourier 級数」を保証し、FOU3 の Gauss 関数の Fourier 変換と合流する。

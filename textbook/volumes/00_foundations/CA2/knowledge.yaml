@@ -6,6 +6,10 @@ prerequisites:
   - RA4
   - TOP3
   - TOP5
+forward_references:
+  - complex-analysis.holomorphic-square-root
+  - complex-analysis.log-riemann-surface
+  - complex-analysis.zero-free-entire-exponential
 
 concepts:
   - id: complex-analysis.piecewise-c1-curve

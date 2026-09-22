@@ -3,6 +3,11 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - CA2
+forward_references:
+  - complex-analysis.locally-uniform-convergence
+  - complex-analysis.montel-theorem
+  - complex-analysis.elliptic-function
+  - complex-analysis.weierstrass-differential-equation
 
 concepts:
   - id: complex-analysis.analytic-function

@@ -1266,3 +1266,7 @@ $$
 - $1/z$ の単位円積分 $2\pi i$ は穿孔平面の穴を検出し、単連結な零点回避領域では逆に正則対数の枝が構成できる。
 
 次章 CA3 では、ここで得た閉曲線積分の消滅を核に Cauchy積分公式を導き、そこから高階微分、Taylor展開、Liouvilleの定理、最大値原理へ進みます。
+
+### 複素解析 II への接続
+
+単連結領域での原始関数・正則対数は後半系列の大域構成を支える。[CA7 の正則平方根](../CA7/index.md#lem-ca7-holomorphic-square-root)と [CA10 の零点を持たない整関数の指数表示](../CA10/index.md#thm-ca10-zero-free-exponential)は $h'/h$ の原始関数を使い、[CA8 の対数の標準 Riemann 面](../CA8/index.md#prop-ca8-log-surface)は本章の局所対数を被覆上で貼り合わせ直す。

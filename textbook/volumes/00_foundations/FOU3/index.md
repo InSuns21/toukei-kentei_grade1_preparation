@@ -1095,3 +1095,7 @@ $$
 - Fourier反転で $f\in L^1$、$\widehat f\in L^1$、連続性をそれぞれどこで使うか説明できるか。
 
 次章 FOU4 では、この $L^1$ 理論を足場に Fourier変換を $L^2$ 全体へ延長し、Plancherel 等式とユニタリ性を扱います。
+
+### 複素解析への接続
+
+本章の [Gauss 関数の Fourier 変換](#lem-fou3-gaussian-transform)は、[CA12 のテータ変換](../CA12/index.md#thm-ca12-theta-transformation)の解析上の入力になる。CA12 では一般の Poisson 和公式を黒箱にせず、Gauss 関数を周期化して Fourier 係数を本章の公式で計算し、FOU2 の収束定理と合わせてテータ変換を導く。
