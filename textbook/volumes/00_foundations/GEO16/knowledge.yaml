@@ -53,12 +53,11 @@ concepts:
       - geometry.metric-compatible-connection
 
   - id: geometry.normal-coordinate-curvature-second-derivatives
-    name: 正規座標における曲率と計量の二階微分
+    name: 一点正規座標と計量の二階微分
     kind: proposition
-    aliases: [正規座標における曲率と計量の二階微分]
+    aliases: [一点正規座標と計量の二階微分]
     requires:
       - geometry.riemann-curvature-tensor
-      - geometry.normal-coordinates
       - geometry.levi-civita-christoffel-formula
 
   - id: geometry.second-bianchi-identity
@@ -68,7 +67,7 @@ concepts:
     requires:
       - geometry.riemann-curvature-operator
       - geometry.tensor-covariant-derivative
-      - geometry.normal-coordinates
+      - geometry.levi-civita-christoffel-formula
 
   - id: geometry.sectional-curvature
     name: 断面曲率
