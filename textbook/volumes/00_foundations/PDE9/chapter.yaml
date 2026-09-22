@@ -11,7 +11,7 @@ learning_objectives:
   - 球面平均の Euler--Poisson--Darboux 関係を発散定理から導ける
   - 三次元波動方程式の Kirchhoff 公式を証明し初期条件を検証できる
   - Kirchhoff 公式から有限伝播速度と三次元 Huygens 原理を説明できる
-  - descent method から二次元波動方程式の Poisson 公式を導ける
+  - 次元降下法 から二次元波動方程式の Poisson 公式を導ける
   - 二次元の尾と三次元の鋭い伝播の違いを説明できる
 definitions:
   - { id: PDE9-DEF-01, name: "球面平均" }
