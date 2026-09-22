@@ -39,7 +39,7 @@ concepts:
     aliases: ["標準球面調和モード"]
     introduction: formal
   - id: pde.pde11-solid-harmonic
-    name: 標準球面調和モードから得る solid harmonic
+    name: 標準球面調和モードから得る立体調和関数
     kind: proposition
-    aliases: ["標準球面調和モードから得る solid harmonic"]
+    aliases: ["標準球面調和モードから得る立体調和関数", "solid harmonic"]
     introduction: formal
