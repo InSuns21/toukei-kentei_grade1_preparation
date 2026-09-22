@@ -464,7 +464,7 @@ VC4 / VC5 の Green・Gauss--Ostrogradsky・Kelvin--Stokes は特殊例として
 
 **tier: core-advanced-standard**
 
-**prerequisites:** GEO3, VC3, LA5
+**prerequisites:** GEO3, VC2, VC3, LA5
 
 主な内容：
 
