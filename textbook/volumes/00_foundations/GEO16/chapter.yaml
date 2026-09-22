@@ -24,7 +24,7 @@ definitions:
 theorems:
   - { id: GEO16-PROP-01, name: 曲率作用素のテンソル性と座標表示 }
   - { id: GEO16-THM-01, name: Riemann 曲率テンソルの対称性と第一 Bianchi 恒等式 }
-  - { id: GEO16-PROP-02, name: 正規座標における曲率と計量の二階微分 }
+  - { id: GEO16-PROP-02, name: 一点正規座標と計量の二階微分 }
   - { id: GEO16-THM-02, name: 第二 Bianchi 恒等式 }
   - { id: GEO16-PROP-03, name: 断面曲率の基底不変性 }
   - { id: GEO16-THM-03, name: 断面曲率による Riemann 曲率テンソルの決定 }
