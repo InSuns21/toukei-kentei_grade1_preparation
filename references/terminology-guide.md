@@ -169,6 +169,22 @@
 | 変形レトラクト | deformation retract | 位相・微分位相の文脈で日本語主表記 |
 | 角度1形式 | angular 1-form | 穴あき平面の $(-y\,dx+x\,dy)/(x^2+y^2)$ を指す場合に使用 |
 | Whitney の埋め込み定理 | Whitney embedding theorem | 人名部分は英字表記を保持 |
+| 正則曲線 | regular curve | 速度ベクトルが消えない滑らかな曲線 |
+| 弧長パラメータ | arc-length parameter | 「arc length parameter」を本文主語彙にしない |
+| 曲率 | curvature | 曲線では単位接ベクトルの弧長変化率。後続の Riemann 曲率とは文脈で区別 |
+| Frenet 標構 | Frenet frame | 人名部分は英字表記を保持 |
+| 捩率 | torsion | 空間曲線の Frenet 標構のねじれを表す量 |
+| 超曲面 | hypersurface | Euclid 空間内では余次元1の埋め込み部分多様体 |
+| 単位法線場 | unit normal field | 本文では日本語主表記 |
+| 第一基本形式 | first fundamental form | 周囲の Euclid 内積を接空間へ制限した内積 |
+| Gauss 写像 | Gauss map | 人名部分は英字表記を保持 |
+| 形作用素 | shape operator / Weingarten map | 本系列では $S=-dN$ の符号規約を使用 |
+| 第二基本形式 | second fundamental form | 本系列では $II(v,w)=\langle Sv,w\rangle$ |
+| 主曲率 | principal curvature | 形作用素の固有値 |
+| 主方向 | principal direction | 形作用素の固有ベクトルが張る方向 |
+| Gauss 曲率 | Gaussian curvature | 二次元曲面では主曲率の積 $K=\det S$ |
+| 平均曲率 | mean curvature | $n$ 次元超曲面では $H=\operatorname{tr}S/n$ |
+| 正規曲率 | normal curvature | 単位接方向 $v$ に対する $II(v,v)$ |
 
 ## DREAM THEATER：数値解析の主表記
 
