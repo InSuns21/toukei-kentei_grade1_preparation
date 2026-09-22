@@ -66,7 +66,7 @@ ODE の局所存在・一意性そのものは再証明しません。[ODE1 の 
 > と書く。
 <!-- formal-statement-end -->
 
-[GEO2 の接束](../GEO2/index.md#def-geo2-tangent-bundle)では、接束の点は $(p,v)$、$v\in T_pM$ と考えられました。切断という条件 $\pi(X(p))=p$ は、$X$ が「点 $p$ に別の点の接ベクトルを割り当てない」ことを表します。
+[GEO2 の接束](../GEO2/index.md#def-geo2-tangent-bundle)では、接束の点は $(p,v)$、$v\in T_pM$ と考えられました。条件 $\pi(X(p))=p$ は、$X$ が「点 $p$ に別の点の接ベクトルを割り当てない」ことを表します。
 
 座標 $x=(x^1,\dots,x^n)$ 上では
 
@@ -1004,7 +1004,7 @@ $$
 \mathbb R\times\mathbb R^n.
 $$
 
-従って $X$ は完備です。対照的に、前節の $x^2\partial_x$ は一部の初期点で有限時刻に発散するため完備ではありません。
+従って $X$ は完備です。対照的に、前節の $x^2\partial_x$ は一部の初期点で有限時刻に解が無界になるため完備ではありません。
 <!-- definition-example-end -->
 
 <a id="prop-geo5-compact-complete"></a>
@@ -2124,7 +2124,7 @@ $$
 4. ベクトル場が $\mathbb R$ 全体で滑らかなことと、完備性が別問題である理由を述べよ。
 
 - Level: A
-- 狙い: 最大積分曲線と完備性を有限時刻発散から区別する
+- 狙い: 最大積分曲線と完備性を有限時刻で解が無界になる現象から区別する
 
 <!-- solution-start -->
 **詳細解答**
@@ -2906,7 +2906,7 @@ x=r\cos\theta,
 y=r\sin\theta.
 $$
 
-回転流 $\Phi_t$ は
+角度移動の流れ $\Phi_t$ は
 
 $$
 (r,\theta)\longmapsto(r,\theta+t)
