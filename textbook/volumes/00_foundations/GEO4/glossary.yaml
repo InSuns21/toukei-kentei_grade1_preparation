@@ -1,0 +1,26 @@
+chapter: "GEO4"
+terms:
+  - term: 局所有限族
+    english: locally finite family
+    meaning: 各点が、その族のうち有限個の集合としか交わらない開近傍を持つ集合族。
+  - term: 細分
+    english: refinement
+    meaning: 元の開被覆の各要素の内部に収まる開集合からなる、より細かい開被覆。
+  - term: パラコンパクト
+    english: paracompact
+    meaning: 任意の開被覆が局所有限な開細分を持つ性質。
+  - term: コンパクト exhaustion
+    english: compact exhaustion
+    meaning: 内部が空間全体を覆い、各項が次の項の内部に入る増大コンパクト集合列。
+  - term: 隆起関数
+    english: bump function
+    meaning: コンパクト台を持つ滑らかな関数。本章では0以上1以下で指定した領域を局所化するものを主に使う。
+  - term: 1 の分割
+    english: partition of unity
+    meaning: 非負・局所有限な滑らかな関数族で、各点における総和が1となるもの。
+  - term: 従属する 1 の分割
+    english: subordinate partition of unity
+    meaning: 各関数の台が指定した開被覆のいずれか一要素に含まれる1の分割。
+  - term: Whitney の埋め込み定理
+    english: Whitney embedding theorem
+    meaning: 滑らかな多様体を有限次元Euclid空間へ埋め込めることを与える一般定理。本章では強い一般形を証明依存にせず、コンパクト多様体の版を完全証明する。

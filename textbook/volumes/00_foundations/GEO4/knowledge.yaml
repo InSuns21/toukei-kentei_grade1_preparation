@@ -1,0 +1,123 @@
+chapter: GEO4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEO3
+  - TOP5A
+forward_references: []
+
+concepts:
+  - id: topology.locally-finite-family
+    name: 局所有限族
+    kind: definition
+    aliases: [局所有限族, locally finite family]
+    requires: []
+
+  - id: topology.open-cover-refinement
+    name: 開被覆の細分
+    kind: definition
+    aliases: [開被覆の細分, refinement of an open cover]
+    requires: []
+
+  - id: topology.paracompact-space
+    name: パラコンパクト空間
+    kind: definition
+    aliases: [パラコンパクト空間, paracompact space]
+    requires:
+      - topology.locally-finite-family
+      - topology.open-cover-refinement
+
+  - id: geometry.manifold-locally-compact-hausdorff
+    name: 滑らかな多様体は局所コンパクト Hausdorff
+    kind: proposition
+    aliases: [滑らかな多様体の局所コンパクト性]
+    requires:
+      - geometry.smooth-manifold
+      - topology.locally-compact-hausdorff-space
+
+  - id: geometry.second-countable-countable-subcover
+    name: 第二可算空間の開被覆は可算部分被覆を持つ
+    kind: lemma
+    aliases: [第二可算空間の可算部分被覆]
+    requires:
+      - topology.second-countable
+
+  - id: geometry.compact-exhaustion
+    name: 滑らかな多様体のコンパクト exhaustion
+    kind: lemma
+    aliases: [コンパクト exhaustion, compact exhaustion]
+    requires:
+      - geometry.manifold-locally-compact-hausdorff
+      - geometry.second-countable-countable-subcover
+
+  - id: geometry.manifold-paracompact
+    name: 滑らかな多様体はパラコンパクト
+    kind: theorem
+    aliases: [滑らかな多様体のパラコンパクト性]
+    requires:
+      - topology.paracompact-space
+      - geometry.compact-exhaustion
+      - topology.lch-shrinking
+
+  - id: geometry.bump-function
+    name: 滑らかな隆起関数
+    kind: definition
+    aliases: [隆起関数, bump function]
+    requires:
+      - topology.function-support
+      - geometry.smooth-map
+
+  - id: geometry.euclidean-smooth-localization
+    name: Euclid 空間の滑らかな局所化関数
+    kind: lemma
+    aliases: [Euclidean smooth bump function]
+    requires:
+      - geometry.bump-function
+
+  - id: geometry.smooth-localization
+    name: 多様体上の滑らかな局所化関数
+    kind: theorem
+    aliases: [smooth localization on manifolds, 多様体上のbump function]
+    requires:
+      - geometry.euclidean-smooth-localization
+      - geometry.coordinate-chart
+
+  - id: geometry.partition-of-unity
+    name: 滑らかな 1 の分割
+    kind: definition
+    aliases: [1 の分割, partition of unity]
+    requires:
+      - topology.locally-finite-family
+      - geometry.smooth-map
+
+  - id: geometry.subordinate-partition-of-unity
+    name: 開被覆に従属する 1 の分割
+    kind: definition
+    aliases: [従属する1の分割, subordinate partition of unity]
+    requires:
+      - geometry.partition-of-unity
+      - topology.open-cover-refinement
+
+  - id: geometry.partition-of-unity-existence
+    name: 開被覆に従属する滑らかな 1 の分割の存在
+    kind: theorem
+    aliases: [滑らかな1の分割の存在]
+    requires:
+      - geometry.manifold-paracompact
+      - geometry.smooth-localization
+      - geometry.subordinate-partition-of-unity
+
+  - id: geometry.partition-gluing
+    name: 1 の分割による局所関数の貼り合わせ
+    kind: proposition
+    aliases: [局所関数の貼り合わせ, partition-of-unity gluing]
+    requires:
+      - geometry.partition-of-unity-existence
+
+  - id: geometry.compact-euclidean-embedding
+    name: コンパクト滑らかな多様体の Euclid 埋め込み
+    kind: theorem
+    aliases: [compact smooth manifold Euclidean embedding]
+    requires:
+      - geometry.embedding
+      - geometry.smooth-localization
