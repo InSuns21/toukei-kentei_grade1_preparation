@@ -1,6 +1,6 @@
-# CA11 標準複素解析 XI：Gamma 関数・反射公式・Stirling 公式
+# CA11 標準複素解析 XI：特殊関数・反射恒等式・階乗の漸近
 
-> **複素解析 II の特殊関数編 I**。CA10 では零点・極のデータから関数を構成した。本章では、その構成論が一つの具体的特殊関数にどう現れるかを見る。Euler 積分から始め、関数等式で有理型解析接続し、逆 Gamma 関数の Weierstrass 積を導く。そこから CA10 の正弦関数の Euler 積と比較して反射公式を証明し、最後に Wallis 積まで戻って Stirling 公式の定数 sqrt(2pi) を決定する。
+> **複素解析 II の特殊関数編 I**。CA10 では零点・極のデータから関数を構成した。本章では、その構成論が一つの古典的特殊関数にどう現れるかを見る。Euler 型積分から始め、関数等式で有理型解析接続し、その逆数の無限積を導く。そこから CA10 の正弦関数の Euler 積と比較して反射恒等式を証明し、最後に Wallis 積まで戻って階乗型の漸近定数 sqrt(2pi) を決定する。
 
 <!-- definition-example-audit: strict -->
 
@@ -13,28 +13,28 @@ Euler 積分
   ↓ 局所一様収束
 右半平面で正則
   ↓ 部分積分
-Gamma(z+1)=z Gamma(z)
+特殊関数の漸化式
   ↓
 全平面への有理型解析接続
   ↓
-Euler の極限公式
+有限積から得る極限表示
   ↓ CA10 の基本因子
-1/Gamma の Weierstrass 積
+逆数の Weierstrass 積
   ↓ CA10 の sin(pi z) の Euler 積
-Euler の反射公式
+反射恒等式
   ↓
 半整数値・特殊値
   ↓ Wallis 積
-Stirling 公式
+階乗型漸近
   ↓
-Legendre の倍角公式
+倍角恒等式
 ~~~
 
 Bohr--Mollerup の特徴付け、高次の漸近展開、Barnes G 関数、多重 Gamma 関数は本章の停止線より先に置く。
 
 ---
 
-## 1. Euler 積分から Gamma 関数を作る
+## 1. Euler 型積分から特殊関数を作る
 
 <a id="def-ca11-gamma-function"></a>
 <!-- formal-statement-start -->
@@ -303,7 +303,7 @@ $$
 
 ---
 
-## 4. Euler の極限公式から積表示を作る
+## 4. 有限積から極限表示と積表示を作る
 
 <a id="def-ca11-euler-mascheroni"></a>
 <!-- formal-statement-start -->
@@ -675,7 +675,7 @@ $$
 
 ---
 
-## 6. Stirling 公式の定数まで決める
+## 6. 階乗漸近の定数まで決める
 
 <a id="thm-ca11-stirling"></a>
 <!-- formal-statement-start -->
@@ -1073,7 +1073,7 @@ $$
 
 ---
 
-## 7. Stirling から Legendre の倍角公式を決める
+## 7. 周期性から倍角恒等式を決める
 
 <a id="thm-ca11-duplication"></a>
 <!-- formal-statement-start -->
@@ -1164,7 +1164,7 @@ $$
 
 ---
 
-## 8. Beta 関数は二つの Gamma を一つへ束ねる
+## 8. 二つの積分を一つへ束ねる補助関数
 
 <a id="def-ca11-beta-function"></a>
 <!-- formal-statement-start -->
