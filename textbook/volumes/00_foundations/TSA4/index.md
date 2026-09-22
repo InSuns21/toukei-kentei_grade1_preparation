@@ -45,6 +45,19 @@ $$
 > で定義します。従って $B^jX_t=X_{t-j}$ です。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-tsa4-backshift -->
+**定義の確認**  
+例えば $B^2X_t=X_{t-2}$ です。また多項式 $a(z)=1-2z+z^2$ に対して
+
+$$
+a(B)X_t
+=
+X_t-2X_{t-1}+X_{t-2}.
+$$
+
+後退作用素の多項式は、時間シフトの有限線形結合そのものです。
+<!-- definition-example-end -->
+
 後退作用素を使うと、有限個の係数 $a_0,\dots,a_m$ による線形結合は
 
 $$
@@ -89,6 +102,17 @@ $$
 >
 > を $(h_j)$ による線形フィルタの出力と呼びます。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-tsa4-linear-filter -->
+**定義の確認**  
+一階差分は $h_0=1,h_1=-1$、他は 0 の線形フィルタです。係数の絶対和は
+
+$$
+sum_j|h_j|=2<infty
+$$
+
+なので、この定義に含まれます。有限フィルタは自動的に絶対可算和可能です。
+<!-- definition-example-end -->
 
 ### 1.2 なぜ $L^2$ 極限が存在するか
 
@@ -403,6 +427,17 @@ $$
 > であることです。従って $Y_t$ は現在と過去の $X_t,X_{t-1},\dots$ だけから作られます。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-tsa4-causal-filter -->
+**定義の確認**  
+$Y_t=X_t+rac12X_{t-1}+rac14X_{t-2}+cdots$ では $h_j=2^{-j}$ $(jge0)$、$h_j=0$ $(j<0)$ です。従って
+
+$$
+sum_{jge0}|h_j|=2
+$$
+
+で、現在と過去だけを使う因果フィルタです。
+<!-- definition-example-end -->
+
 <a id="def-tsa4-filter-inverse"></a>
 
 <!-- formal-statement-start -->
@@ -423,6 +458,29 @@ $$
 >
 > と復元できるとき、そのフィルタは因果的に可逆であるといいます。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-tsa4-filter-inverse -->
+**定義の確認**  
+$Y_t=X_t+	heta X_{t-1}$、$|	heta|<1$ なら
+
+$$
+X_t
+=
+Y_t-	heta Y_{t-1}+	heta^2Y_{t-2}-cdots.
+$$
+
+逆フィルタ係数は $g_j=(-	heta)^j$ であり、
+
+$$
+sum_{jge0}|g_j|
+=
+rac1{1-|	heta|}
+<
+infty.
+$$
+
+従ってこの有限移動平均フィルタは因果的に可逆です。
+<!-- definition-example-end -->
 
 多項式やべき級数では、畳み込みは積になるため
 
@@ -479,6 +537,8 @@ $$
 
 ### 4.1 例：AR(1)
 
+<!-- definition-example-start: def-tsa4-arma -->
+
 $$
 X_t=\phi X_{t-1}+Z_t
 $$
@@ -508,6 +568,7 @@ X_t
 $$
 
 これは TSA2 で確認した Wold 表示と一致します。
+<!-- definition-example-end -->
 
 ---
 
@@ -519,7 +580,7 @@ $$
 > **定理（単位円外の零点と絶対可算和可能な逆べき級数）**  
 > 多項式 $a(z)$ が $a(0)=1$ を満たすとします。次が同値です。
 >
-> 1. $a(z)\neq0$ for all $|z|\le1$。
+> 1. 任意の $|z|\le1$ に対して $a(z)\neq0$。
 > 2. ある $r>1$ と係数列 $(c_j)_{j\ge0}$ が存在して
 >
 >    $$
@@ -603,7 +664,7 @@ $$
 >
 > $$
 > \phi(z)\neq0
-> \qquad(|z|\le1)
+> \qquad\text{for every }|z|\le1
 > $$
 >
 > とします。このとき
@@ -669,6 +730,8 @@ $$
 $$
 
 が成立します。$\square$
+さらに、このクラスで因果解は一意です。実際、二つの因果解の差 $D_t$ は $\phi(B)D_t=0$ を満たします。絶対可算和可能な逆フィルタ $1/\phi(B)$ を作用させると $D_t=0$ です。
+
 <!-- proof-end -->
 
 <a id="thm-tsa4-arma-invertibility"></a>
@@ -705,7 +768,49 @@ $$
 > 従って駆動ホワイトノイズは観測系列の現在・過去から復元できます。
 <!-- formal-statement-end -->
 
-証明は前定理で $\phi$ と $\theta$ の役割を入れ替えれば同じです。
+<!-- proof-start -->
+### 証明
+
+仮定より $\theta(z)$ は閉単位円板上で零点を持ちません。[単位円外の零点と絶対可算和可能な逆べき級数](index.md#thm-tsa4-polynomial-inverse)を $a=\theta$ に適用すると、
+
+$$
+\frac1{\theta(z)}
+=
+\sum_{j=0}^{\infty}b_jz^j,
+\qquad
+\sum_{j\ge0}|b_j|<\infty.
+$$
+
+$\phi$ は有限次数多項式なので
+
+$$
+\frac{\phi(z)}{\theta(z)}
+=
+\phi(z)\sum_{j\ge0}b_jz^j
+=
+\sum_{j=0}^{\infty}\pi_jz^j
+$$
+
+の係数 $(\pi_j)$ も絶対可算和可能です。
+
+ARMA 方程式
+
+$$
+\phi(B)X_t=\theta(B)Z_t
+$$
+
+の両辺へ因果逆フィルタ $1/\theta(B)$ を作用させます。絶対可算和可能な係数列どうしの畳み込みは絶対可算和可能であり、$L^2$ で和の結合を正当化できるので
+
+$$
+Z_t
+=
+\frac{\phi(B)}{\theta(B)}X_t
+=
+\sum_{j=0}^{\infty}\pi_jX_{t-j}.
+$$
+
+これで駆動雑音が観測系列の現在と過去から復元されました。$\square$
+<!-- proof-end -->
 
 ### 5.1 因果性と可逆性は別条件
 
@@ -750,6 +855,25 @@ $$
 > **定義（既約 ARMA 表現）**  
 > ARMA 多項式 $\phi,\theta$ が非定数の共通因子を持たないとき、その ARMA 表現を既約と呼びます。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-tsa4-coprime-arma -->
+**定義の確認**  
+例えば
+
+$$
+\phi(z)=1-0.5z,
+\qquad
+\theta(z)=1+0.3z
+$$
+
+は零点が異なるので共通の非定数因子を持たず、既約です。一方
+
+$$
+\phi(z)=\theta(z)=1-0.5z
+$$
+
+は同じ因子を持ち、比 $\theta/\phi=1$ まで相殺されるので既約ではありません。
+<!-- definition-example-end -->
 
 因果性・可逆性だけでは次数の一意性は保証されません。既約性が「余分な AR と MA を相殺していない」ことを保証します。
 
@@ -891,6 +1015,19 @@ $$
 >
 > をラグ $k$ の偏自己相関と呼びます。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-tsa4-pacf -->
+**定義の確認**  
+AR(1) $X_t=\phi X_{t-1}+Z_t$ で $Z_t$ が標準イノベーションなら、一段の射影は
+
+$$
+P_{\operatorname{span}\{X_{t-1}\}}X_t
+=
+\phi X_{t-1}.
+$$
+
+従って定義から $\alpha(1)=\phi$ です。後で示す命題により $\alpha(k)=0$ $(k\ge2)$ となります。
+<!-- definition-example-end -->
 
 これは TSA1 の [有限過去の正規方程式](../TSA1/index.md#thm-tsa1-finite-normal-equations)の最後の係数です。
 
@@ -1051,6 +1188,23 @@ $$
 >
 > となるとき、$(X_t)$ を ARIMA$(p,d,q)$ 過程と呼びます。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-tsa4-arima -->
+**定義の確認**  
+ランダムウォーク
+
+$$
+X_t=X_{t-1}+Z_t
+$$
+
+では
+
+$$
+\Delta X_t=Z_t.
+$$
+
+差分後は ARMA$(0,0)$、すなわち弱ホワイトノイズなので、$X$ は ARIMA$(0,1,0)$ の基本例です。
+<!-- definition-example-end -->
 
 重要なのは、$d>0$ のとき **$X_t$ 自身が通常の二次定常過程とは限らない**ことです。従って TSA3 の意味でのスペクトル密度を $X$ へそのまま割り当ててはいけません。スペクトル密度を持つのは定常化された
 
@@ -1257,6 +1411,28 @@ $$
 >
 > を満たすとき、$\Psi$ を $f$ のスペクトル因子と呼びます。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-tsa4-spectral-factor -->
+**定義の確認**  
+安定 AR(1) では
+
+$$
+f_X(\lambda)
+=
+\frac{\sigma^2}{2\pi}
+\left|
+\frac1{1-\phi e^{-i\lambda}}
+\right|^2.
+$$
+
+従って
+
+$$
+\Psi(z)=\frac1{1-\phi z}
+$$
+
+はスペクトル因子です。
+<!-- definition-example-end -->
 
 因果かつ可逆な ARMA では
 
