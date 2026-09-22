@@ -265,7 +265,7 @@ $$
 
 ---
 
-## 2. 収束を支配するスペクトル半径
+## 2. 反復行列の固有値が収束を支配する
 
 <a id="def-na9-spectral-radius"></a>
 <!-- formal-statement-start -->
