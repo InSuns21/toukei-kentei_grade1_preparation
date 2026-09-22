@@ -20,10 +20,10 @@ terms:
     meaning: 各点の2次元接平面に割り当てられる、Riemann 曲率テンソルの規格化された曲率。
   - term: Ricci 曲率
     english: Ricci curvature
-    meaning: Riemann 曲率テンソルを一組の添字で縮約して得られる対称2階テンソル。
+    meaning: Riemann 曲率テンソルを正規直交基底に沿って一組の添字について足し合わせて得られる対称2階テンソル。
   - term: スカラー曲率
     english: scalar curvature
-    meaning: Ricci 曲率をさらに計量で縮約して得られるスカラー量。
+    meaning: Ricci 曲率の正規直交基底に関する対角成分を足し合わせて得られるスカラー量。
   - term: 定断面曲率
     english: constant sectional curvature
     meaning: 全ての点・全ての2次元接平面で断面曲率が同じ定数になる性質。
