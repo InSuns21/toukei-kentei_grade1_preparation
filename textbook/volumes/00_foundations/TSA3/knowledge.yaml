@@ -61,7 +61,7 @@ concepts:
   - id: timeseries.spectral-measure
     name: スペクトル測度
     kind: definition
-    aliases: ["spectral measure"]
+    aliases: ["スペクトル測度", "spectral measure"]
     introduction: formal
     introduction_aliases: ["定義（スペクトル測度）"]
     requires:
@@ -71,7 +71,7 @@ concepts:
   - id: timeseries.spectral-density
     name: スペクトル密度
     kind: definition
-    aliases: ["spectral density"]
+    aliases: ["スペクトル密度", "spectral density"]
     introduction: formal
     introduction_aliases: ["定義（スペクトル密度）"]
     requires:
@@ -91,7 +91,7 @@ concepts:
   - id: timeseries.line-spectrum
     name: 線スペクトル
     kind: definition
-    aliases: ["line spectrum", "spectral atom"]
+    aliases: ["線スペクトル", "line spectrum", "spectral atom"]
     introduction: formal
     introduction_aliases: ["定義（線スペクトル）"]
     requires:
@@ -120,7 +120,7 @@ concepts:
   - id: timeseries.orthogonal-increment-random-measure
     name: 直交増分ランダム測度
     kind: definition
-    aliases: ["orthogonal-increment random measure", "orthogonal random measure"]
+    aliases: ["直交増分ランダム測度", "orthogonal-increment random measure", "orthogonal random measure"]
     introduction: formal
     introduction_aliases: ["定義（直交増分ランダム測度）"]
     requires:
@@ -131,7 +131,7 @@ concepts:
   - id: timeseries.spectral-stochastic-integral
     name: スペクトル確率積分
     kind: definition
-    aliases: ["spectral stochastic integral"]
+    aliases: ["スペクトル確率積分", "spectral stochastic integral"]
     introduction: formal
     introduction_aliases: ["定義（スペクトル確率積分）"]
     requires:
@@ -140,7 +140,7 @@ concepts:
   - id: timeseries.spectral-representation-theorem
     name: 定常過程のスペクトル表現定理
     kind: theorem
-    aliases: ["spectral representation theorem for stationary processes"]
+    aliases: ["定常過程のスペクトル表現定理", "spectral representation theorem for stationary processes"]
     introduction: formal
     introduction_aliases: ["定理（定常過程のスペクトル表現定理）"]
     requires:
