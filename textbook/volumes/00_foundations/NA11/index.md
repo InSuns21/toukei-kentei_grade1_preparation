@@ -794,7 +794,7 @@ $$
 となるとき、$A$ を **原始行列**という。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-na11-primitive-matrix -->
+<!-- definition-example-start: def-na11-eventual-positive-matrix -->
 ### 例：2乗すると正行列になる
 
 **定義の確認**。
