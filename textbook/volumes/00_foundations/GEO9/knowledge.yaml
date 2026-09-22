@@ -63,15 +63,15 @@ concepts:
     kind: theorem
     aliases: [微分形式の Poincaré の補題, Poincaré lemma for differential forms]
     introduction: formal
-    introduction_aliases: ["定理（Poincaré の補題）"]
+    introduction_aliases: ["定理（微分形式の Poincaré の補題）"]
     requires:
       - geometry.homotopy-formula
       - geometry.closed-differential-form
 
   - id: geometry.de-rham-complex
-    name: 微分形式の Poincaré の補題
+    name: de Rham 複体
     kind: definition
-    aliases: [微分形式の Poincaré の補題, Poincaré lemma for differential forms]
+    aliases: [de Rham 複体, de Rham complex]
     requires:
       - geometry.exterior-derivative-square-zero
 
