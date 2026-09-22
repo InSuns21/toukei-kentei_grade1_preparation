@@ -1,0 +1,35 @@
+chapter: "GEO3"
+terms:
+  - term: 階数
+    english: rank
+    meaning: 滑らかな写像 f の点 p における微分 df_p の像の次元。
+  - term: 定数階数定理
+    english: constant rank theorem
+    meaning: 微分の階数が近傍で一定なら、適切な局所座標で写像を標準的な射影と包含の合成形へ直せる定理。
+  - term: はめ込み
+    english: immersion
+    meaning: すべての点で微分が単射となる滑らかな写像。
+  - term: 沈め込み
+    english: submersion
+    meaning: すべての点で微分が全射となる滑らかな写像。
+  - term: 埋め込み
+    english: embedding
+    meaning: はめ込みであり、像への写像が部分空間位相に関して同相でもある滑らかな写像。
+  - term: 埋め込み部分多様体
+    english: embedded submanifold
+    meaning: 各点の近くで適切な局所座標を取ると座標平面として表される部分集合。
+  - term: 正則点
+    english: regular point
+    meaning: 滑らかな写像の微分が全射となる点。
+  - term: 臨界点
+    english: critical point
+    meaning: 滑らかな写像の微分が全射でない点。
+  - term: 正則値
+    english: regular value
+    meaning: 逆像に属する全ての点が正則点である値。逆像が空の場合も正則値とする。
+  - term: 臨界値
+    english: critical value
+    meaning: 少なくとも一つの臨界点の像として現れる値。
+  - term: レベル集合
+    english: level set
+    meaning: 写像 f と値 q に対する逆像 f^{-1}(q)。
