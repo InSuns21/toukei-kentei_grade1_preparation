@@ -184,21 +184,21 @@ $$
 > **定理（Hamilton--Jacobi の特性方程式）**  
 > $H\in C^2$ とし、$u\in C^2$ が
 >
-> $$
-> u_t+H(x,\nabla_xu)=0
-> $$
+$$
+u_t+H(x,\nabla_xu)=0
+$$
 >
 > を満たすとする。$p=\nabla_xu$、$z=u$ と置くと、特性は
 >
-> $$
-> \dot x=H_p(x,p),
-> \qquad
-> \dot p=-H_x(x,p),
-> $$
+$$
+\dot x=H_p(x,p),
+\qquad
+\dot p=-H_x(x,p),
+$$
 >
-> $$
-> \dot z=p\cdot H_p-H
-> $$
+$$
+\dot z=p\cdot H_p-H
+$$
 >
 > を満たす。$H$ が時刻に陽に依存しなければ、特性に沿って $H(x(t),p(t))$ は一定である。
 <!-- formal-statement-end -->
