@@ -1,0 +1,29 @@
+chapter: "GEO9"
+terms:
+  - term: 閉形式
+    english: closed differential form
+    meaning: 外微分が0になる微分形式。
+  - term: 完全形式
+    english: exact differential form
+    meaning: 1つ低い次数の微分形式の外微分として書ける微分形式。
+  - term: 滑らかなホモトピー
+    english: smooth homotopy
+    meaning: 二つの滑らかな写像をパラメータt∈[0,1]で滑らかに結ぶ写像。
+  - term: ホモトピー作用素
+    english: homotopy operator
+    meaning: 滑らかなホモトピーHから、微分形式の次数を1下げる作用素K_Hを積分で構成したもの。
+  - term: Poincaré の補題
+    english: Poincare lemma
+    meaning: 星型開集合では正次数の閉形式が全て完全形式になることを述べる補題。
+  - term: de Rham 複体
+    english: de Rham complex
+    meaning: 微分形式空間を外微分dでつないだ複体0→Ω^0→Ω^1→…で、d²=0を満たす。
+  - term: de Rham コホモロジー
+    english: de Rham cohomology
+    meaning: 閉k形式全体を完全k形式全体で割った商空間H^k_dR(M)。
+  - term: 変形レトラクト
+    english: deformation retract
+    meaning: 部分多様体へのレトラクションと恒等写像を、部分多様体を保ったままホモトピーで結ぶ変形。
+  - term: 角度1形式
+    english: angular 1-form
+    meaning: 穴あき平面上の(-y dx+x dy)/(x²+y²)。閉だが完全でなく、1次 de Rham コホモロジーの生成元になる。
