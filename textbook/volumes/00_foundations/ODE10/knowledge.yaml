@@ -12,9 +12,9 @@ concepts:
     aliases: ["周期軌道・極限周期軌道"]
     introduction: formal
   - id: ode.ode10-trapping-region
-    name: trapping region
+    name: 捕捉領域
     kind: definition
-    aliases: ["trapping region"]
+    aliases: ["捕捉領域", "trapping region"]
     introduction: formal
   - id: ode.ode10-dulac-function
     name: Dulac 関数
