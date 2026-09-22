@@ -216,6 +216,15 @@
 | Levi-Civita 接続 | Levi-Civita connection | 人名部分は英字表記を保持。計量両立かつ捩率0の一意な接続 |
 | Koszul の公式 | Koszul formula | 人名部分は英字表記を保持。計量と Lie 括弧から Levi-Civita 接続を決める公式 |
 | テンソル場の共変微分 | covariant derivative of a tensor field | 接続を余ベクトル場・一般テンソル場へ Leibniz 則と縮約保存で拡張した微分 |
+| 測地線 | geodesic | Levi-Civita 接続に関して速度ベクトル自身が平行な曲線 |
+| 測地線方程式 | geodesic equation | 局所座標で測地線条件を表す二階非線形 ODE |
+| 指数写像 | exponential map | 初期速度から出る測地線の時刻1の点へ接ベクトルを送る写像 |
+| 正規近傍 | normal neighborhood | 指数写像が接空間の0近傍から微分同相になる像側の近傍 |
+| 正規球 | normal ball | 接空間の球を指数写像で微分同相に移した正規近傍 |
+| 正規座標 | normal coordinates | 指数写像の逆像を基点の正規直交基底で成分表示して得る座標 |
+| 放射測地線 | radial geodesic | 基点から $\exp_p(tv)$ として出る測地線 |
+| Gauss の補題 | Gauss lemma | 人名部分は英字表記を保持。指数写像が放射方向と角方向の直交性を保つことを表す |
+| 凸正規近傍 | convex normal neighborhood | 任意の二点が近傍内の一意な最短測地線で結ばれる近傍 |
 
 ## DREAM THEATER：数値解析の主表記
 
