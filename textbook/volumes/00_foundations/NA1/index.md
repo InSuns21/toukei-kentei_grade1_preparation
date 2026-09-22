@@ -306,12 +306,36 @@ $$
 \gamma_n.
 $$
 
-下側は Bernoulli の不等式から
+下側はまず
 
 $$
 \prod_{i=1}^n(1+\delta_i)
 \ge
 (1-u)^n
+$$
+
+です。さらに
+
+$$
+(1-u)^n\ge1-nu
+$$
+
+は整数 $n$ について帰納法で示せます。$n=1$ は等号で、$n$ で成り立つとすれば
+
+$$
+(1-u)^{n+1}
+\ge
+(1-nu)(1-u)
+=
+1-(n+1)u+nu^2
+\ge
+1-(n+1)u.
+$$
+
+従って
+
+$$
+\prod_{i=1}^n(1+\delta_i)
 \ge
 1-nu.
 $$
@@ -666,13 +690,27 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[F0-00F2 の定理](../F0_00F2_SVD_特異値_作用素ノルム/index.md#thm-f0-00f2-operator-norm-largest-singular)より
+[2-作用素ノルムと最大特異値](../F0_00F2_SVD_特異値_作用素ノルム/index.md#thm-f0-00f2-operator-norm-largest-singular)より
 
 $$
 \|A\|_2=\sigma_{\max}.
 $$
 
-$A^{-1}$ の特異値は $A$ の特異値の逆数なので
+[特異値分解](../F0_00F2_SVD_特異値_作用素ノルム/index.md)を
+
+$$
+A=U\Sigma V^{\mathsf T}
+$$
+
+と書くと、$A$ は可逆なので全ての特異値が正で、
+
+$$
+A^{-1}
+=
+V\Sigma^{-1}U^{\mathsf T}.
+$$
+
+従って $A^{-1}$ の特異値は $1/\sigma_i$ であり、最大特異値は $1/\sigma_{\min}$ です。再び [2-作用素ノルムと最大特異値](../F0_00F2_SVD_特異値_作用素ノルム/index.md#thm-f0-00f2-operator-norm-largest-singular)を使えば
 
 $$
 \|A^{-1}\|_2
@@ -959,7 +997,7 @@ $$
 \Delta b=-r
 $$
 
-だけ摂動した問題の厳密解です。従って [右辺摂動に対する感度定理](#thm-na1-linear-system-perturbation)を適用して
+だけ摂動した問題の厳密解です。従って [右辺摂動に対する線形方程式の感度](#thm-na1-linear-system-perturbation)を適用して
 
 $$
 \frac{\|\widetilde x-x\|_2}{\|x\|_2}
