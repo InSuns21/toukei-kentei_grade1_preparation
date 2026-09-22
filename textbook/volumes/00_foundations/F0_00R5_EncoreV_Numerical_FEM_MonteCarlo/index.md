@@ -65,7 +65,7 @@ Monte Carlo 法と準 Monte Carlo 法では、同じ積分問題に対して
 | [NA2](../NA2/index.md) | 非線形方程式・不動点反復・Newton 法 |
 | [NA3](../NA3/index.md) | 非線形連立方程式 |
 | [NA4](../NA4/index.md) | 多項式補間 |
-| NA5 | 数値積分・直交多項式・Gauss 型積分 |
+| [NA5](../NA5/index.md) | 数値積分・直交多項式・Gauss 型積分 |
 | NA6 | ODE 数値解法 I：一段法と収束 |
 | NA7 | ODE 数値解法 II：Runge–Kutta・絶対安定性 |
 | NA8 | 数値線形代数 I：直接法 |
@@ -74,7 +74,7 @@ Monte Carlo 法と準 Monte Carlo 法では、同じ積分問題に対して
 | NA11 | Perron–Frobenius 理論と PageRank |
 | NA12 | 無制約最適化と共役勾配法 |
 
-**実装済み：NA1、NA2、NA3、NA4。次の実装対象：NA5。**
+**実装済み：NA1、NA2、NA3、NA4、NA5。次の実装対象：NA6。**
 
 数値解析では、単にアルゴリズムを列挙するのではなく、
 
