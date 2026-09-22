@@ -19,6 +19,7 @@ definitions:
   - { id: PDE10-DEF-02, name: "多次元 Newton ポテンシャル" }
   - { id: PDE10-DEF-03, name: "Kelvin 変換" }
 theorems:
+  - { id: PDE10-LEM-01, name: "n 次元球・穴あき球の発散公式" }
   - { id: PDE10-PROP-01, name: "多次元基本解の調和性と単位流束" }
   - { id: PDE10-THM-01, name: "Newton ポテンシャルと Poisson 方程式" }
   - { id: PDE10-THM-02, name: "多次元調和関数の平均値性質" }
