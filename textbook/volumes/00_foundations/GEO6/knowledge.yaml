@@ -16,7 +16,7 @@ concepts:
   - id: geometry.distribution-local-section
     name: 分布の局所切断
     kind: definition
-    aliases: [分布の局所切断, local section of a distribution]
+    aliases: [分布の局所切断, 局所切断, local section of a distribution]
     requires:
       - geometry.smooth-distribution
       - geometry.smooth-vector-field
@@ -24,7 +24,8 @@ concepts:
   - id: geometry.distribution-local-frame
     name: 分布の局所枠
     kind: definition
-    aliases: [分布の局所枠, local frame of a distribution]
+    aliases: [分布の局所枠, 局所枠, local frame of a distribution]
+    introduction_aliases: ["定義（滑らかな線形分布）"]
     requires:
       - geometry.smooth-distribution
 
@@ -40,7 +41,8 @@ concepts:
   - id: geometry.integrable-distribution
     name: 可積分な分布
     kind: definition
-    aliases: [可積分な分布, integrable distribution]
+    aliases: [可積分な分布, 可積分性, integrable distribution]
+    introduction_aliases: ["定義（積分多様体・可積分性）"]
     requires:
       - geometry.integral-manifold
 
@@ -70,9 +72,9 @@ concepts:
       - geometry.submanifold-local-equations
 
   - id: geometry.involutive-flow-invariance
-    name: 対合的分布は局所流で保存される
+    name: 対合的分布はその局所切断の流れで保存される
     kind: lemma
-    aliases: [分布の流れ不変性, flow invariance of involutive distribution]
+    aliases: [対合的分布は局所流で保存される, 分布の流れ不変性, flow invariance of involutive distribution]
     requires:
       - geometry.involutive-frame-criterion
       - geometry.lie-bracket-flow-interpretation
