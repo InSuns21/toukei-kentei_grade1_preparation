@@ -19,6 +19,7 @@ definitions:
   - { id: PDE11-DEF-02, name: "球面調和関数" }
 theorems:
   - { id: PDE11-PROP-01, name: "円板の変数分離と Bessel 方程式" }
+  - { id: PDE11-LEM-01, name: "整数次数 Bessel 関数の正零点" }
   - { id: PDE11-PROP-02, name: "球面固有値問題と Legendre 方程式" }
   - { id: PDE11-PROP-03, name: "標準球面調和モード" }
   - { id: PDE11-PROP-04, name: "標準球面調和モードから得る solid harmonic" }
