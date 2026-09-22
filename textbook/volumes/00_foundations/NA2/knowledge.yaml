@@ -98,11 +98,11 @@ concepts:
     requires: [analysis.derivative]
 
   - id: numerical.simple-multiple-root
-    name: Newton 法における単純根・多重根
+    name: Newton 法における単純根・重複根
     kind: definition
-    aliases: [Newton 法の単純根, Newton 法の多重根]
+    aliases: [Newton 法の単純根, Newton 法の重複根]
     introduction: formal
-    introduction_aliases: ["定義（単純根・多重根）"]
+    introduction_aliases: ["定義（単純根・重複根）"]
     requires: [numerical.root, analysis.derivative]
 
   - id: numerical.newton-local-quadratic
