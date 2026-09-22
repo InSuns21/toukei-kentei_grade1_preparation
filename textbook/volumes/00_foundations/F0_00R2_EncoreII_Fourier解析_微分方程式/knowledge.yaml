@@ -116,6 +116,7 @@ forward_references:
   - ode.ode11-local-bifurcation
   - ode.ode11-poincare-map
   - ode.ode11-multiplier
+  - pde.pde8-duhamel-principle
   - pde.pde8-heat-duhamel
   - pde.pde8-wave-duhamel
   - pde.pde9-spherical-mean
