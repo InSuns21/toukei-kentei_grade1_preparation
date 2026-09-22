@@ -4,12 +4,6 @@ coverage: complete
 prerequisites:
   - LA3A
   - LA3D
-forward_references:
-  - geometry.tensor-field
-  - geometry.differential-form
-  - geometry.exterior-derivative
-  - geometry.orientation
-  - geometry.integration-of-forms
 
 concepts:
   - id: linear.tensor-product
@@ -18,26 +12,33 @@ concepts:
     aliases: [テンソル積, tensor product]
     requires:
       - linear.linear-map
-      - linear.bilinear-map
-
-  - id: linear.tensor-product-universal-property
-    name: テンソル積の普遍性
-    kind: theorem
-    aliases: [テンソル積の普遍性, universal property of tensor product]
-    requires:
-      - linear.tensor-product
 
   - id: linear.tensor-product-basis
-    name: テンソル積の基底
+    name: 有限次元テンソル積の存在と基底
     kind: theorem
-    aliases: [テンソル積の基底, tensor product basis]
+    aliases: [有限次元テンソル積の存在と基底, tensor product basis]
     requires:
       - linear.tensor-product
       - linear.basis
 
+  - id: linear.tensor-product-uniqueness
+    name: テンソル積の一意性
+    kind: theorem
+    aliases: [テンソル積の一意性, uniqueness of tensor product]
+    requires:
+      - linear.tensor-product
+
+  - id: linear.simple-tensor
+    name: 単純テンソル
+    kind: definition
+    aliases: [単純テンソル, simple tensor]
+    requires:
+      - linear.tensor-product
+
   - id: linear.rs-tensor
     name: (r,s)型テンソル
     kind: definition
+    introduction_aliases: [型テンソル]
     aliases: ["(r,s)型テンソル", mixed tensor]
     requires:
       - linear.tensor-product
@@ -58,6 +59,13 @@ concepts:
     requires:
       - linear.alternating-multilinear-form
 
+  - id: linear.antisymmetrization-projection
+    name: 交代化は射影
+    kind: proposition
+    aliases: [交代化は射影]
+    requires:
+      - linear.antisymmetrization
+
   - id: linear.exterior-power
     name: 外冪
     kind: definition
@@ -74,18 +82,18 @@ concepts:
       - linear.exterior-power
       - linear.antisymmetrization
 
-  - id: linear.exterior-power-dimension
-    name: 外冪の次元公式
+  - id: linear.exterior-power-basis-dimension
+    name: 外冪の標準基底と次元
     kind: theorem
-    aliases: [外冪の次元公式]
+    aliases: [外冪の標準基底と次元, 外冪の次元公式]
     requires:
       - linear.wedge-product
       - linear.dual-basis
 
-  - id: linear.graded-commutativity
-    name: 外積の次数付き交換則
+  - id: linear.wedge-algebra-laws
+    name: 外積の結合性と次数付き交換則
     kind: theorem
-    aliases: [外積の次数付き交換則, graded commutativity]
+    aliases: [外積の結合性と次数付き交換則, 外積の次数付き交換則, graded commutativity]
     requires:
       - linear.wedge-product
 
@@ -111,4 +119,12 @@ concepts:
     aliases: [内部積, interior product]
     requires:
       - linear.exterior-power
+      - linear.wedge-product
+
+  - id: linear.interior-product-identities
+    name: 内部積の基本恒等式
+    kind: theorem
+    aliases: [内部積の基本恒等式]
+    requires:
+      - linear.interior-product
       - linear.wedge-product

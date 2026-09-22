@@ -667,20 +667,51 @@ $\square$
 <!-- definition-example-start: def-la3e-exterior-power -->
 ### 例：$\Lambda^2(\mathbb R^2)^*$
 
-標準双対基底を $\varepsilon^1,\varepsilon^2$ とします。
-
-交代二重線形形式 $\omega$ は $\omega(e_1,e_2)$ の値だけで決まり、
+標準基底を $e_1,e_2$ とします。交代二重線形形式 $\omega$ を1つ取り、
 
 $$
-\omega
-=
-\omega(e_1,e_2)\,
-\varepsilon^1\wedge\varepsilon^2
+c=\omega(e_1,e_2)
 $$
 
-となります。したがって $\Lambda^2(\mathbb R^2)^*$ は1次元です。
+と置きます。
 
-ここで使った $\wedge$ は次節で定義します。
+任意の
+
+$$
+v=v_1e_1+v_2e_2,
+\qquad
+w=w_1e_1+w_2e_2
+$$
+
+に対し、多重線形性と交代性から
+
+$$
+\begin{aligned}
+\omega(v,w)
+&=
+v_1w_2\,\omega(e_1,e_2)
++
+v_2w_1\,\omega(e_2,e_1)\\
+&=
+c(v_1w_2-v_2w_1).
+\end{aligned}
+$$
+
+したがって $\omega$ は1個のスカラー $c$ だけで決まります。逆に任意の $c\in\mathbb F$ に対して
+
+$$
+\omega_c(v,w)=c(v_1w_2-v_2w_1)
+$$
+
+は交代二重線形形式です。
+
+よって
+
+$$
+\dim\Lambda^2(\mathbb R^2)^*=1.
+$$
+
+外積をまだ使わずに、外冪の定義そのものから確認できました。
 <!-- definition-example-end -->
 
 ---
