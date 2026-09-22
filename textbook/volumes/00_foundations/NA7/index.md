@@ -1191,7 +1191,7 @@ $$
 
 ---
 
-## 5. 絶対安定領域
+## 5. 複素平面上で減衰を保つ範囲
 
 <a id="def-na7-absolute-stability-region"></a>
 <!-- formal-statement-start -->
