@@ -2,10 +2,10 @@ chapter: "PDE8"
 terms:
   - term: Duhamel 原理
     english: Duhamel principle
-    meaning: 各時刻に加わる source を、その後の自由発展として時間積分する重ね合わせ原理。
+    meaning: 各時刻に加わる非斉次項を、その後の自由発展として時間積分する重ね合わせ原理。
   - term: 熱核による自由発展
     english: heat propagator
     meaning: 初期温度を熱核との畳み込みで時刻 t まで進める作用。
-  - term: source term
+  - term: 非斉次項
     english: source term
     meaning: PDE の右辺に入り、内部発熱・外力・生成消滅などを表す非斉次項。

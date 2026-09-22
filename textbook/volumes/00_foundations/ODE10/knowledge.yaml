@@ -12,9 +12,9 @@ concepts:
     aliases: ["周期軌道・極限周期軌道"]
     introduction: formal
   - id: ode.ode10-trapping-region
-    name: trapping region
+    name: 捕捉領域
     kind: definition
-    aliases: ["trapping region"]
+    aliases: ["捕捉領域", "trapping region"]
     introduction: formal
   - id: ode.ode10-dulac-function
     name: Dulac 関数
@@ -25,6 +25,11 @@ concepts:
     name: Bendixson--Dulac の判定
     kind: theorem
     aliases: ["Bendixson--Dulac の判定"]
+    introduction: formal
+  - id: ode.ode10-transversal-omega
+    name: 局所横断線と正の極限集合の交点
+    kind: lemma
+    aliases: ["局所横断線と正の極限集合の交点"]
     introduction: formal
   - id: ode.ode10-poincare-bendixson
     name: Poincaré--Bendixson の定理：標準形

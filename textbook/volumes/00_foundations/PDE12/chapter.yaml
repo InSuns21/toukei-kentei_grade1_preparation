@@ -13,23 +13,23 @@ learning_objectives:
   - Charpit の特性系を PDE の微分と連鎖律から導出できる
   - Hamilton--Jacobi 方程式から Hamilton の正準方程式を導ける
   - 特性写像の Jacobian が非零なら逆関数定理から局所古典解を再構成できる
-  - 特性 caustic を Jacobian 消失として説明し古典解破綻と結び付けられる
+  - 特性焦散を Jacobian 消失として説明し古典解破綻と結び付けられる
   - Hamilton--Jacobi の勾配が Burgers 方程式を満たすことを証明できる
 definitions:
   - { id: PDE12-DEF-01, name: "一般一階非線形 PDE" }
   - { id: PDE12-DEF-02, name: "Hamilton--Jacobi 方程式" }
-  - { id: PDE12-DEF-03, name: "特性 caustic" }
-  - { id: PDE12-DEF-04, name: "eikonal 方程式" }
+  - { id: PDE12-DEF-03, name: "特性焦散" }
+  - { id: PDE12-DEF-04, name: "アイコナール方程式" }
 theorems:
   - { id: PDE12-THM-01, name: "Charpit の特性系" }
   - { id: PDE12-THM-02, name: "Hamilton--Jacobi の特性方程式" }
   - { id: PDE12-THM-03, name: "Hamilton 特性からの局所古典解の再構成" }
   - { id: PDE12-PROP-01, name: "Hamilton--Jacobi から Burgers 方程式" }
 canonical_examples:
-  - "自由粒子 Hamiltonian"
+  - "自由粒子のハミルトニアン"
   - "二次初期値の明示解"
-  - "caustic と Burgers の勾配発散"
-  - "eikonal の距離関数"
+  - "焦散と Burgers の勾配発散"
+  - "アイコナール方程式の距離関数"
 problem_patterns:
   - PDE12-CHARPIT-1
   - PDE12-HAMILTON-1

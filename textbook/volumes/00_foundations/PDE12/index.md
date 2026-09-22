@@ -55,7 +55,7 @@ $$
 <a id="thm-pde12-charpit"></a>
 <!-- formal-statement-start -->
 > **定理（Charpit の特性系）**  
-> $F\in C^2$ とし、古典解 $u$ の上で
+> $F\in C^2$ とし、$u\in C^2(\Omega)$ が $F(x,u,\nabla u)=0$ を満たすとする。解のグラフ上で
 
 $$
 z=u(x),\qquad p=\nabla u(x)
@@ -154,7 +154,7 @@ $$
 <a id="def-pde12-hamilton-jacobi"></a>
 <!-- formal-statement-start -->
 > **定義（Hamilton--Jacobi 方程式）**  
-> Hamiltonian $H(x,p)$ に対する
+> ハミルトニアン（Hamiltonian） $H(x,p)$ に対する
 
 $$
 u_t+H(x,\nabla_xu)=0
@@ -182,45 +182,114 @@ $$
 <a id="thm-pde12-hamilton-characteristics"></a>
 <!-- formal-statement-start -->
 > **定理（Hamilton--Jacobi の特性方程式）**  
-> $H\in C^2$ とし、$p=\nabla u$ と置くと、特性は
-
+> $H\in C^2$ とし、$u\in C^2$ が
+>
+$$
+u_t+H(x,\nabla_xu)=0
+$$
+>
+> を満たすとする。$p=\nabla_xu$、$z=u$ と置くと、特性は
+>
 $$
 \dot x=H_p(x,p),
 \qquad
 \dot p=-H_x(x,p),
 $$
-
+>
 $$
 \dot z=p\cdot H_p-H
 $$
-
+>
 > を満たす。$H$ が時刻に陽に依存しなければ、特性に沿って $H(x(t),p(t))$ は一定である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
 
-$F(t,x,z,q,p)=q+H(x,p)$ と置き、$q=u_t$ とします。Charpit 系で $F_q=1$ なので時間そのものを特性パラメータに取れます。
-
-空間成分は
+独立変数を $(t,x)\in\mathbb R^{1+n}$、その勾配を
 
 $$
-\dot x=H_p,\qquad
+(q,p)=(u_t,\nabla_xu)
+$$
+
+とまとめ、
+
+$$
+F(t,x,z,q,p)
+=
+q+H(x,p)
+$$
+
+と置きます。一般 Charpit 系をこの $(1+n)$ 次元の独立変数へ適用します。
+
+まず
+
+$$
+F_q=1,
+\qquad
+F_p=H_p,
+\qquad
+F_z=0,
+\qquad
+F_t=0,
+\qquad
+F_x=H_x.
+$$
+
+従って特性パラメータを $s$ とすると
+
+$$
+\frac{dt}{ds}=F_q=1.
+$$
+
+よって定数をずらせば $s=t$ と取れます。空間勾配成分については
+
+$$
+\dot x=H_p,
+\qquad
 \dot p=-H_x.
 $$
 
-また
+時間方向の勾配 $q$ についても
 
 $$
-\dot z=u_t+\nabla u\cdot\dot x=-H+p\cdot H_p.
-$$
-
-最後に
-
-$$
-\frac d{dt}H
+\dot q
 =
-H_x\cdot H_p+H_p\cdot(-H_x)=0.
+-F_t-qF_z
+=
+0
+$$
+
+です。さらに関数値 $z$ は
+
+$$
+\dot z
+=
+qF_q+p\cdot F_p
+=
+q+p\cdot H_p.
+$$
+
+PDE 自身から $q=-H$ なので
+
+$$
+\dot z
+=
+p\cdot H_p-H.
+$$
+
+最後に $H$ は時刻に陽に依存しないから
+
+$$
+\frac d{dt}H(x(t),p(t))
+=
+H_x\cdot\dot x+H_p\cdot\dot p
+=
+H_x\cdot H_p
++
+H_p\cdot(-H_x)
+=
+0.
 $$
 <!-- proof-end -->
 
@@ -239,48 +308,136 @@ $$
 <a id="thm-pde12-reconstruction"></a>
 <!-- formal-statement-start -->
 > **定理（Hamilton 特性からの局所古典解の再構成）**  
-> 特性解 $(X(t,a),P(t,a),Z(t,a))$ が存在し、ある点で
+> $H\in C^2(\mathbb R^n\times\mathbb R^n)$、$u_0\in C^2(U)$ とする。初期ラベル $a\in U$ に対し
 
 $$
-\det D_aX(t,a)\ne0
+\dot X=H_p(X,P),
+\qquad
+\dot P=-H_x(X,P),
 $$
 
-> とする。[逆関数定理](../RA6A/index.md#thm-ra6a-inverse-function)により近傍で $a=A(t,x)$ と解ける。このとき
-
 $$
-u(t,x)=Z(t,A(t,x))
+\dot Z=P\cdot H_p(X,P)-H(X,P)
 $$
 
-> は局所古典解で、
+> を
 
 $$
-\nabla_xu(t,x)=P(t,A(t,x))
+X(0,a)=a,
+\qquad
+P(0,a)=\nabla u_0(a),
+\qquad
+Z(0,a)=u_0(a)
 $$
 
-> を満たす。
+> から解く。ある $(t_0,a_0)$ の近くでこの特性解が存在し、
+
+$$
+\det D_aX(t_0,a_0)\ne0
+$$
+
+> とする。このとき $(t_0,x_0)$、$x_0=X(t_0,a_0)$ の近くで初期ラベルを
+
+$$
+a=A(t,x)
+$$
+
+> と一意な $C^1$ 級関数として解ける。さらに
+
+$$
+u(t,x)
+=
+Z(t,A(t,x))
+$$
+
+> と定めると
+
+$$
+\nabla_xu(t,x)
+=
+P(t,A(t,x))
+$$
+
+> であり、$u$ は $(t_0,x_0)$ の近くで
+
+$$
+u_t+H(x,\nabla_xu)=0
+$$
+
+> を満たす古典解である。また $t=0$ で同じ再構成を行えば $A(0,x)=x$ なので、構成は初期値 $u(0,x)=u_0(x)$ と一致する。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-核心は
+核心は二つです。
+
+1. 特性に沿って
 
 $$
 D_aZ=P^\top D_aX
 $$
 
-が特性に沿って保存されることです。これにより $P$ が再構成した $u$ の勾配であることが保証されます。
+が保存される。
+2. $\det D_aX\ne0$ なら $(t,a)\mapsto(t,X(t,a))$ が局所可逆なので、特性上の量 $(X,P,Z)$ を $(t,x)$ の関数へ戻せる。
+
+1 により、戻した $Z$ の空間勾配が本当に $P$ になることが保証されます。
 
 <!-- proof-start -->
 ### 証明
 
-$W=D_aZ-P^\top D_aX$ と置きます。初期時刻では
+Hamilton 系
 
 $$
-D_aZ(0,a)=\nabla u_0(a)^\top
-=P(0,a)^\top D_aX(0,a)
+\frac d{dt}
+\begin{pmatrix}
+X\\
+P
+\end{pmatrix}
+=
+\begin{pmatrix}
+H_p(X,P)\\
+-H_x(X,P)
+\end{pmatrix}
 $$
 
-なので $W(0,a)=0$。
+の右辺は $H\in C^2$ により $C^1$ 級です。従って ODE8 の [流れの初期値微分と変分方程式](../ODE8/index.md#lem-ode8-flow-variational) を $(X,P)$ 系へ適用でき、$X(t,a),P(t,a)$ は初期ラベル $a$ について $C^1$ 級です。さらに
+
+$$
+Z(t,a)
+=
+u_0(a)
++
+\int_0^t
+\{P\cdot H_p-H\}(X(s,a),P(s,a))\,ds
+$$
+
+なので $Z$ も $a$ について $C^1$ 級です。以下の $a$ 微分はこれで正当化されます。
+
+まず
+
+$$
+W(t,a)
+=
+D_aZ(t,a)
+-
+P(t,a)^\top D_aX(t,a)
+$$
+
+と置きます。初期時刻では
+
+$$
+D_aZ(0,a)
+=
+\nabla u_0(a)^\top
+=
+P(0,a)^\top D_aX(0,a)
+$$
+
+なので
+
+$$
+W(0,a)=0.
+$$
 
 Hamilton 方程式を $a$ で微分すると
 
@@ -296,7 +453,35 @@ $$
 -H_{xx}D_aX-H_{xp}D_aP.
 $$
 
-また $\dot Z=P\cdot H_p-H$ を $a$ で微分すると
+次に
+
+$$
+\dot Z
+=
+P^\top H_p-H
+$$
+
+を $a$ で微分します。積の微分を省略せず書くと
+
+$$
+\begin{aligned}
+\partial_tD_aZ
+&=
+H_p^\top D_aP
++
+P^\top
+\left(
+H_{px}D_aX+H_{pp}D_aP
+\right)\\
+&\qquad
+-
+H_x^\top D_aX
+-
+H_p^\top D_aP.
+\end{aligned}
+$$
+
+最初と最後の項が打ち消されるので
 
 $$
 \partial_tD_aZ
@@ -308,53 +493,204 @@ P^\top H_{pp}D_aP
 H_x^\top D_aX.
 $$
 
-右辺は $\partial_t(P^\top D_aX)$ と一致するので $\partial_tW=0$。従って
+一方、
 
 $$
-D_aZ=P^\top D_aX.
+\begin{aligned}
+\partial_t(P^\top D_aX)
+&=
+(\partial_tP)^\top D_aX
++
+P^\top\partial_tD_aX\\
+&=
+(-H_x)^\top D_aX
++
+P^\top
+\left(
+H_{px}D_aX+H_{pp}D_aP
+\right),
+\end{aligned}
 $$
 
-$\det D_aX\ne0$ なら局所逆写像 $a=A(t,x)$ が存在し、連鎖律から
+で、これは $\partial_tD_aZ$ と一致します。従って
 
 $$
-\nabla_xu
+\partial_tW=0.
+$$
+
+$W(0,a)=0$ だったので
+
+$$
+\boxed{
+D_aZ=P^\top D_aX
+}.
+$$
+
+次に「固定した $t$ ごとの逆写像」だけでなく、$(t,x)$ に対して初期ラベルが滑らかに決まることを確認します。
+
+$$
+\Psi(t,a)
 =
-D_aZ(D_aX)^{-1}
+(t,X(t,a))
+$$
+
+と置くと、その微分行列はブロック形
+
+$$
+D\Psi
 =
+\begin{pmatrix}
+1&0\\
+\partial_tX&D_aX
+\end{pmatrix}
+$$
+
+なので
+
+$$
+\det D\Psi(t_0,a_0)
+=
+\det D_aX(t_0,a_0)
+\ne0.
+$$
+
+従って [逆関数定理](../RA6A/index.md#thm-ra6a-inverse-function) により、$(t_0,a_0)$ の近くで $\Psi$ は $C^1$ 級の局所逆写像を持ちます。時間成分はそのままなので、この逆写像を
+
+$$
+(t,x)\longmapsto(t,A(t,x))
+$$
+
+と書けます。
+
+そこで
+
+$$
+u(t,x)
+=
+Z(t,A(t,x))
+$$
+
+と定めます。固定した $t$ で
+
+$$
+X(t,A(t,x))=x
+$$
+
+を $x$ 微分すると
+
+$$
+D_aX\,D_xA=I,
+$$
+
+従って
+
+$$
+D_xA=(D_aX)^{-1}.
+$$
+
+よって
+
+$$
+\begin{aligned}
+D_xu
+&=
+D_aZ\,D_xA\\
+&=
+P^\top D_aX(D_aX)^{-1}\\
+&=
 P^\top.
+\end{aligned}
 $$
 
-さらに特性上で
+すなわち
 
 $$
-\frac d{dt}u(t,X(t,a))
+\nabla_xu(t,x)
 =
-u_t+\nabla u\cdot\dot X
-=
-u_t+P\cdot H_p.
+P(t,A(t,x)).
 $$
 
-左辺は $\dot Z=P\cdot H_p-H$ なので $u_t=-H$。よって Hamilton--Jacobi 方程式を満たします。
+最後に、任意の固定ラベル $a$ に沿って
+
+$$
+u(t,X(t,a))
+=
+Z(t,a).
+$$
+
+両辺を $t$ で微分すると
+
+$$
+u_t(t,X)
++
+\nabla_xu(t,X)\cdot\dot X
+=
+\dot Z.
+$$
+
+すでに $\nabla_xu=P$、$\dot X=H_p$、$\dot Z=P\cdot H_p-H$ を示したので
+
+$$
+u_t+P\cdot H_p
+=
+P\cdot H_p-H.
+$$
+
+従って
+
+$$
+u_t
+=
+-H(X,P)
+=
+-H(X,\nabla_xu),
+$$
+
+すなわち
+
+$$
+u_t+H(x,\nabla_xu)=0.
+$$
+
+特に $t=0$ では
+
+$$
+X(0,a)=a
+$$
+
+なので $A(0,x)=x$ です。従って再構成が $t=0$ の近くで行われるとき
+
+$$
+u(0,x)
+=
+Z(0,A(0,x))
+=
+Z(0,x)
+=
+u_0(x),
+$$
+
+となり、与えた初期値と一致します。
 <!-- proof-end -->
 
 ## 5. 特性写像が退化する場所
 
 <a id="def-pde12-caustic"></a>
 <!-- formal-statement-start -->
-> **定義（特性 caustic）**  
+> **定義（特性焦散（caustic））**  
 > 特性写像 $a\mapsto X(t,a)$ の Jacobian
 
 $$
 \det D_aX(t,a)
 $$
 
-> が0になる点の像を、本章では特性 caustic と呼ぶ。そこでは初期ラベルから現在位置への局所逆写像が失われ、古典解の再構成が破綻し得る。
+> が0になる点の像を、本章では特性焦散 と呼ぶ。そこでは初期ラベルから現在位置への局所逆写像が失われ、古典解の再構成が破綻し得る。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pde12-caustic -->
 **定義の確認**：以下で定義の条件を直接確認します。
 
-自由 Hamiltonian $H(p)=p^2/2$ の一次元では
+自由ハミルトニアン $H(p)=p^2/2$ の一次元では
 
 $$
 X(t,a)=a+t u_0'(a),
@@ -397,20 +733,20 @@ $$
 $v=u_x$ と置けば主張を得ます。
 <!-- proof-end -->
 
-PDE1 で見た Burgers の特性交差と、Hamilton--Jacobi の caustic は同じ幾何を勾配側とポテンシャル側から見ています。
+PDE1 で見た Burgers の特性交差と、Hamilton--Jacobi の 焦散は同じ幾何を勾配側とポテンシャル側から見ています。
 
 ## 7. 勾配の大きさを指定する方程式
 
 <a id="def-pde12-eikonal"></a>
 <!-- formal-statement-start -->
-> **定義（eikonal 方程式）**  
+> **定義（アイコナール方程式（eikonal equation））**  
 > 正の関数 $c(x)$ に対し
 
 $$
 |\nabla u(x)|=c(x)
 $$
 
-> を eikonal 方程式という。
+> を アイコナール方程式という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pde12-eikonal -->
@@ -422,14 +758,14 @@ $$
 |\nabla u|=1=c(x).
 $$
 
-したがって $u(x)=x_1$ は全空間で滑らかな eikonal 方程式の古典解です。
+したがって $u(x)=x_1$ は全空間で滑らかな アイコナール方程式の古典解です。
 <!-- definition-example-end -->
 
 幾何光学では $u$ は位相、$\nabla u$ は波面に垂直な方向を表します。$c=1$ なら距離関数 $u(x)=|x|$ が原点外で解ですが、原点では滑らかでありません。
 
-## 8. 停止線：viscosity solution
+## 8. 停止線：粘性解（viscosity solution）
 
-特性が交差すると $\nabla u$ が多価になり、古典解は続けられません。Hamilton--Jacobi 方程式では順序比較による一意性を保つ viscosity solution が自然な後続理論です。
+特性が交差すると $\nabla u$ が多価になり、古典解は続けられません。Hamilton--Jacobi 方程式では順序比較による一意性を保つ粘性解が自然な後続理論です。
 
 本章では
 
@@ -441,7 +777,7 @@ $$
 
 までを正本化します。
 
-viscosity subsolution / supersolution、順序比較による一意性、Perron 法、HJB は Graduate PDE 後続系列へ送ります。
+粘性劣解 / 粘性優解、順序比較による一意性、Perron 法、HJB は Graduate PDE 後続系列へ送ります。
 
 ## 演習
 
@@ -500,7 +836,7 @@ $$
 $v=u_x$ と置けば $v_t+vv_x=0$ です。
 <!-- solution-end -->
 
-#### PDE12-A04 eikonal
+#### PDE12-A04 アイコナール方程式
 - Level: A
 
 $u(x)=|x|$ が $x\ne0$ で $|\nabla u|=1$ を満たすことを確認せよ。
@@ -556,10 +892,10 @@ u(t,x)=\frac{x^2}{2(1+t)}.
 $$
 <!-- solution-end -->
 
-#### PDE12-B02 caustic の時刻
+#### PDE12-B02 焦散の時刻
 - Level: B
 
-初期値 $u_0(x)=-x^2/2$ のとき、自由 Hamiltonian の特性写像がいつ退化するか求めよ。
+初期値 $u_0(x)=-x^2/2$ のとき、自由ハミルトニアンの特性写像がいつ退化するか求めよ。
 
 <!-- solution-start -->
 ##### 詳細解答
@@ -573,7 +909,7 @@ $$
 従って $X_a=1-t$ で、$t=1$ に退化します。全特性が $x=0$ へ集まるため古典解再構成が壊れます。
 <!-- solution-end -->
 
-#### PDE12-B03 調和振動子 Hamiltonian
+#### PDE12-B03 調和振動子のハミルトニアン
 - Level: B
 
 $$
@@ -595,7 +931,7 @@ $$
 
 ### Level C
 
-#### PDE12-C01 caustic と Burgers の勾配の無限大化
+#### PDE12-C01 焦散と Burgers の勾配の無限大化
 - Level: C
 
 自由 Hamilton--Jacobi 方程式で
@@ -634,7 +970,7 @@ v_x
 {1+t u_0''(a)}.
 $$
 
-従って $X_a\to0$ と同時に $|v_x|$ が無限大へ増大します。caustic と Burgers の古典解破綻は同じ特性交差です。
+従って $X_a\to0$ と同時に $|v_x|$ が無限大へ増大します。焦散と Burgers の古典解破綻は同じ特性交差です。
 <!-- solution-end -->
 
 ## 9. 章末チェック
@@ -642,5 +978,5 @@ $$
 - Charpit 特性系を一般一階 PDE から導ける。
 - Hamilton の正準方程式を Hamilton--Jacobi から導ける。
 - 特性写像の局所逆写像の存在から古典解を再構成できる。
-- caustic と Burgers の特性交差を同じ Jacobian で説明できる。
-- viscosity solution が必要になる境界を説明できる。
+- 焦散と Burgers の特性交差を同じ Jacobian で説明できる。
+- 粘性解が必要になる境界を説明できる。

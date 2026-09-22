@@ -45,7 +45,7 @@ $$
 <a id="thm-ode9-direct"></a>
 <!-- formal-statement-start -->
 > **定理（Lyapunov の直接法）**  
-> $x_*=0$ とする。ある近傍で $V\in C^1$ が正定値で $\dot V\le0$ なら原点は Lyapunov 安定である。さらに $\dot V(x)<0$ が全ての $x\ne0$ で成り立つなら原点は局所漸近安定である。
+> $F$ を原点の近傍で局所 Lipschitz とし、$F(0)=0$ とする。ある近傍で $V\in C^1$ が正定値で $\dot V\le0$ なら原点は Lyapunov 安定である。さらに同じ近傍で $\dot V(x)<0$ が全ての $x\ne0$ に対して成り立つなら原点は局所漸近安定である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -55,37 +55,110 @@ $$
 <!-- proof-start -->
 ### 証明
 
-十分小さい $r>0$ を取り、
+$V$ と $\dot V$ が定義される近傍の内部に閉球 $\overline{B_r(0)}$ が入るよう、十分小さい $r>0$ を取ります。正定値性と球面のコンパクト性から
 
 $$
-m_r=\min_{\|x\|=r}V(x)>0
+m_r
+=
+\min_{\|x\|=r}V(x)
+>0.
 $$
 
-とします。$0<c<m_r$ を固定します。原点近くでは連続性から $V(x)<c$ です。
-
-$V(x(0))<c$ なら $\dot V\le0$ より
+$0<c<m_r$ を固定し、
 
 $$
-V(x(t))\le V(x(0))<c.
+K
+=
+\{x\in\overline{B_r(0)}:V(x)\le c\}
 $$
 
-従って軌道は $\|x\|=r$ へ到達できず、Lyapunov 安定です。
-
-次に $\dot V<0$ とします。$K=\{V\le c\}$ を十分小さく取り、$0<\varepsilon<r$ に対して
+と置きます。$V(0)=0$ と連続性から、ある $\delta_0>0$ が存在して
 
 $$
-K_\varepsilon=K\cap\{\|x\|\ge\varepsilon\}
+B_{\delta_0}(0)\subset\{V<c\}\cap B_r(0)
 $$
 
-を考えます。これはコンパクトで、連続関数 $\dot V$ はその上で厳密に負です。従ってある $\eta>0$ があり $\dot V\le-\eta$。
+となります。
 
-軌道が永遠に $K_\varepsilon$ に留まるなら
+$\|x(0)\|<\delta_0$ なら、軌道上で $\dot V\le0$ なので
 
 $$
-V(x(t))\le V(x(0))-\eta t
+V(x(t))
+\le
+V(x(0))
+<c.
 $$
 
-となり、やがて $V<0$ となって正定値性に反します。よって軌道は任意の $\varepsilon$ 球へ入ります。既に示した安定性により、その後も原点近くに留まるので $x(t)\to0$ です。
+もし軌道が初めて球面 $\|x\|=r$ に達する時刻があれば、その点では $V\ge m_r>c$ となって矛盾します。従って軌道は $B_r(0)$ に留まり、任意に小さい $r$ について同じ構成ができるので原点は Lyapunov 安定です。
+
+ここで後半に使う $K$ の不変性も確認しておきます。任意の $x(0)\in K$ について
+
+$$
+V(x(t))\le V(x(0))\le c
+$$
+
+である限り、$V=c$ の外へ出ることはできません。また球面 $\|x\|=r$ では $V\ge m_r>c$ なので、そこへ到達することもできません。従って
+
+$$
+x(0)\in K
+\quad\Longrightarrow\quad
+x(t)\in K
+$$
+
+が解の存在する全ての $t\ge0$ で成り立ち、$K$ は正方向不変です。
+
+さらに $K$ は局所 Lipschitz 領域の内部にあるコンパクト集合なので、もし最大存在時刻が有限なら軌道が $K$ に留まり続けることが [最大解の延長判定](../ODE8/index.md#thm-ode8-continuation) に反します。従って $K$ から出発する解は全ての $t\ge0$ で存在します。
+
+次に $\dot V(x)<0$ $(x\ne0)$ と仮定します。局所吸引性まで示すため、上で固定したコンパクト集合 $K$ 内から出発する軌道を考えます。任意の $0<\varepsilon<r$ を取ります。既に示した Lyapunov 安定性を、目標半径 $\varepsilon$ に対して使うと、ある $0<\delta<\varepsilon$ が存在して
+
+$$
+\|x(t_0)\|<\delta
+\quad\Longrightarrow\quad
+\|x(t)\|<\varepsilon
+\qquad (t\ge t_0)
+$$
+
+となります。自律系なので、安定性は任意の開始時刻 $t_0$ から同じように使えます。
+
+一方、
+
+$$
+K_\delta
+=
+K\cap\{\|x\|\ge\delta\}
+$$
+
+はコンパクトで、$\dot V$ はその上で連続かつ厳密に負です。よってある $\eta>0$ が存在して
+
+$$
+\dot V(x)\le-\eta
+\qquad (x\in K_\delta)
+$$
+
+となります。
+
+軌道が一度も $B_\delta(0)$ に入らないと仮定すると、正方向不変な $K$ の中で常に $K_\delta$ に留まるので
+
+$$
+V(x(t))
+=
+V(x(0))
++
+\int_0^t\dot V(x(s))\,ds
+\le
+V(x(0))-\eta t.
+$$
+
+右辺は十分大きい $t$ で負になりますが、$V\ge0$ に反します。従ってある時刻 $t_0$ で $\|x(t_0)\|<\delta$ となり、その後は安定性により $\|x(t)\|<\varepsilon$ が続きます。
+
+$\varepsilon>0$ は任意なので
+
+$$
+x(t)\to0
+\qquad (t\to\infty).
+$$
+
+以上より、十分原点に近い初期値に対して安定性と吸引性の両方が成り立ち、原点は局所漸近安定です。
 <!-- proof-end -->
 
 ## 3. 劣位集合は不変領域になる
@@ -135,7 +208,7 @@ $$
 <a id="thm-ode9-lasalle"></a>
 <!-- formal-statement-start -->
 > **定理（LaSalle の不変性原理）**  
-> $K$ をコンパクトな正方向不変集合とし、$V\in C^1$ が $K$ 上で $\dot V\le0$ を満たすとする。
+> 開集合 $D\subset\mathbb R^d$ 上で $F:D\to\mathbb R^d$ を局所 Lipschitz とする。$K\subset D$ をコンパクトな正方向不変集合とし、$V$ は $K$ の近傍で $C^1$ 級かつ $K$ 上で $\dot V\le0$ を満たすとする。
 
 $$
 E=\{x\in K:\dot V(x)=0\}
@@ -155,23 +228,98 @@ $V(x(t))$ は単調かつ下に有界なので極限を持ちます。正の極�
 <!-- proof-start -->
 ### 証明
 
+まず $K$ がコンパクトかつ正方向不変なので、$x_0\in K$ から出る解は前向きに $K$ から出ません。もし有限の最大存在時刻を持てば、軌道がコンパクト集合 $K$ に留まり続けることが [ODE8 の最大解の延長判定](../ODE8/index.md#thm-ode8-continuation) に反します。従って解は全ての $t\ge0$ で存在します。
+
 $K$ 上で $V$ は下に有界で、軌道上で非増加なので
 
 $$
 V(x(t))\downarrow\ell
 $$
 
-となる $\ell$ が存在します。
+となる $\ell$ が存在します。また任意の列 $t_n\to\infty$ から、コンパクト性により $x(t_n)$ の収束部分列を取れるので、$\omega(x_0)$ は空でありません。
 
-$y\in\omega(x_0)$ を取り $x(t_n)\to y$ とします。連続性から $V(y)=\ell$。固定した $s\ge0$ について ODE8 の流れの連続性と合成則から
+次に $\omega(x_0)$ の不変性を確認します。$y\in\omega(x_0)$ とし、
 
 $$
-x(t_n+s)=\Phi_s(x(t_n))\to\Phi_s(y).
+x(t_n)\to y,
+\qquad
+t_n\to\infty
 $$
 
-左辺の $V$ 値も $\ell$ へ収束するため $V(\Phi_s(y))=\ell$。従って $s=0$ で微分して $\dot V(y)=0$ です。また $\Phi_s(y)$ も同じ極限集合に属するので、$\omega(x_0)$ は $E$ に含まれる不変集合です。従って $\omega(x_0)\subset M$。
+とします。固定した $s\ge0$ について、[初期値に関する連続依存](../ODE8/index.md#thm-ode8-continuous-dependence) と [流れの合成則](../ODE8/index.md#prop-ode8-flow-law) から
 
-もし $\operatorname{dist}(x(t),M)$ が0へ収束しなければ、ある $\varepsilon>0$ と $t_n\to\infty$ があり距離が $\varepsilon$ 以上です。コンパクトな $K$ から部分列を取ると $x(t_n)\to y\in\omega(x_0)\subset M$ となり矛盾します。
+$$
+x(t_n+s)
+=
+\Phi_s(x(t_n))
+\to
+\Phi_s(y).
+$$
+
+したがって $\Phi_s(y)\in\omega(x_0)$ です。
+
+逆向きについては、固定した $s>0$ に対し十分大きい $n$ で $t_n-s\ge0$ です。列 $x(t_n-s)$ は $K$ にあるので、部分列を取って
+
+$$
+x(t_{n_k}-s)\to z\in\omega(x_0)
+$$
+
+とできます。連続依存性により
+
+$$
+\Phi_s(z)
+=
+\lim_{k\to\infty}
+\Phi_s(x(t_{n_k}-s))
+=
+\lim_{k\to\infty}x(t_{n_k})
+=
+y.
+$$
+
+従って $\omega(x_0)$ 上では任意の前向き時間写像 $\Phi_s$ が全射であり、一意性から単射でもあります。よって各点を過去向きにも $\omega(x_0)$ 内でたどれ、$\omega(x_0)$ は流れに関して不変です。
+
+ここで $y\in\omega(x_0)$ とします。連続性から $V(y)=\ell$ です。さらに任意の $s\ge0$ について $\Phi_s(y)\in\omega(x_0)$ なので
+
+$$
+V(\Phi_s(y))=\ell.
+$$
+
+従って軌道 $s\mapsto\Phi_s(y)$ 上で $V$ は一定であり、$s=0$ で微分して
+
+$$
+\dot V(y)=0.
+$$
+
+ゆえに
+
+$$
+\omega(x_0)\subset E.
+$$
+
+しかも $\omega(x_0)$ 自身が不変集合なので、$E$ に含まれる不変集合を全て含む $M$ の取り方から
+
+$$
+\omega(x_0)\subset M.
+$$
+
+最後に、もし $\operatorname{dist}(x(t),M)$ が0へ収束しなければ、ある $\varepsilon>0$ と $t_n\to\infty$ が存在して
+
+$$
+\operatorname{dist}(x(t_n),M)\ge\varepsilon
+$$
+
+となります。コンパクトな $K$ から部分列を取れば $x(t_{n_k})\to y\in\omega(x_0)\subset M$ です。[距離空間](../F0_00B_距離空間_開集合_閉集合_収束/index.md#def-f0-00b-01)では距離関数は連続なので
+
+$$
+\operatorname{dist}(x(t_{n_k}),M)\to0
+$$
+
+となり矛盾します。従って
+
+$$
+\operatorname{dist}(x(t),M)\to0.
+$$
 <!-- proof-end -->
 
 ## 6. 減衰振動子
@@ -270,7 +418,7 @@ $x'=-x(1-x^2)$ について $|x_0|<1$ の解の挙動を $V=x^2/2$ で調べよ�
 
 <!-- solution-start -->
 ##### 詳細解答
-$\dot V=-x^2(1-x^2)<0$ for $0<|x|<1$。$|x|<1$ の適切な閉劣位集合は正方向不変で、零集合の内部は原点だけなので原点へ収束します。
+$\dot V=-x^2(1-x^2)<0$ は $0<|x|<1$ で成り立ちます。$|x|<1$ の適切な閉劣位集合は正方向不変で、零集合の内部は原点だけなので原点へ収束します。
 <!-- solution-end -->
 
 ### Level C

@@ -41,3 +41,8 @@ concepts:
     kind: proposition
     aliases: ["流れの合成則"]
     introduction: formal
+  - id: ode.ode8-flow-variational
+    name: 流れの初期値微分と変分方程式
+    kind: lemma
+    aliases: ["流れの初期値微分と変分方程式"]
+    introduction: formal
