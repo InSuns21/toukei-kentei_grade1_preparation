@@ -1,4 +1,4 @@
-# LA3E 標準線形代数 III-E：テンソル積・外積代数
+# LA3E 標準線形代数 III-E：多重線形代数の代数的基礎
 
 ベクトルや線形写像だけでは、多様体上で現れる「面積要素」「体積要素」「微分形式」をまだ統一的に書けません。
 
@@ -84,6 +84,7 @@ $$
 <!-- definition-example-start: def-la3e-tensor-product -->
 ### 例：$\mathbb R\otimes\mathbb R$ は $\mathbb R$ でよい
 
+**定義の確認**
 $T=\mathbb R$ とし
 
 $$
@@ -327,7 +328,7 @@ $$
 
 ---
 
-## 3. 単純テンソルと一般のテンソル
+## 3. 1項で書けるテンソルと一般のテンソル
 
 <a id="def-la3e-simple-tensor"></a>
 <!-- formal-statement-start -->
@@ -342,6 +343,7 @@ $$
 <!-- definition-example-start: def-la3e-simple-tensor -->
 ### 例：1項で書けるものと書けないもの
 
+**定義の確認**
 $\mathbb R^2$ の標準基底を $e_1,e_2$ とします。
 
 $$
@@ -402,6 +404,7 @@ $$
 <!-- definition-example-start: def-la3e-rs-tensor -->
 ### 例：$v\otimes\alpha$ は $(1,1)$ 型テンソル
 
+**定義の確認**
 $v\in V,\alpha\in V^*$ とします。
 
 $$
@@ -450,24 +453,27 @@ $$
 
 <a id="def-la3e-tensor-pairing"></a>
 <!-- formal-statement-start -->
-> **定義（縮約）**  
+> **定義（評価写像による因子消去）**  
 > 評価写像の普遍性から得られる線形写像
 $$
 C:V^*\otimes V\to\mathbb F,\qquad
 C(\alpha\otimes v)=\alpha(v)
 $$
-> を基本の **縮約** という。
+> を基本の **因子消去写像** という。
 >
 > 一般の $(r,s)$ 型テンソルでは、1個の $V$ 因子と1個の $V^*$ 因子にこの評価を適用し、他の因子を残すことで
 $$
 T^r_s(V)\to T^{r-1}_{s-1}(V)
 $$
-> を得る。この操作も縮約という。
+> を得る。この操作をここでは **因子消去** と呼ぶ。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-la3e-tensor-pairing -->
-### 例：線形作用素を縮約すると対角成分の和になる
+これは [VC7 で定義した縮約](../VC7/index.md#def-vc7-contraction) を、$V$ と $V^*$ の自然な評価から座標に依存せず説明する仕組みです。ここでは依存を逆転させないため、VC7 の成分表示を証明には使いません。
 
+<!-- definition-example-start: def-la3e-tensor-pairing -->
+### 例：線形作用素の因子を消去すると対角成分の和になる
+
+**定義の確認**
 基底 $e_i$ と双対基底 $\varepsilon^i$ を取り、線形作用素 $A:V\to V$ を
 
 $$
@@ -478,7 +484,7 @@ $$
 
 と表します。
 
-$e_i$ と $\varepsilon^j$ を縮約すると
+$e_i$ と $\varepsilon^j$ を評価して因子を消去すると
 
 $$
 \sum_{i,j}A^i{}_j\,\varepsilon^j(e_i)
@@ -495,7 +501,7 @@ $$
 
 ---
 
-## 6. 交代化と外冪
+## 6. 交代的な多重線形形式を作る
 
 微分形式では、引数を交換したとき符号が反転するテンソルだけを使います。LA3D では最高次数の交代形式を扱いましたが、ここでは任意次数へ広げます。
 
@@ -517,6 +523,7 @@ $$
 <!-- definition-example-start: def-la3e-antisymmetrization -->
 ### 例：二重線形形式の交代化
 
+**定義の確認**
 $k=2$ では
 
 $$
@@ -634,6 +641,7 @@ $$
 <!-- definition-example-start: def-la3e-exterior-power -->
 ### 例：$\Lambda^2(\mathbb R^2)^*$
 
+**定義の確認**
 標準基底を $e_1,e_2$ とします。交代二重線形形式 $\omega$ を1つ取り、
 
 $$
@@ -678,12 +686,12 @@ $$
 \dim\Lambda^2(\mathbb R^2)^*=1.
 $$
 
-外積をまだ使わずに、外冪の定義そのものから確認できました。
+次節で導入する積記号をまだ使わずに、この空間の定義そのものから確認できました。
 <!-- definition-example-end -->
 
 ---
 
-## 7. 外積：交代形式を掛ける
+## 7. 交代形式どうしを掛ける
 
 $p$ 次形式と $q$ 次形式を掛けて $(p+q)$ 次形式を作ります。
 
@@ -719,6 +727,7 @@ $$
 <!-- definition-example-start: def-la3e-wedge-product -->
 ### 例：平面の面積形式
 
+**定義の確認**
 $\alpha=\varepsilon^1,\beta=\varepsilon^2$ とします。$p=q=1$ なのでシャッフルは恒等置換と交換の2個です。
 
 $$
@@ -974,7 +983,7 @@ $$
 
 ---
 
-## 9. 分解可能形式
+## 9. 1項の積で書ける形式
 
 <a id="def-la3e-decomposable-form"></a>
 <!-- formal-statement-start -->
@@ -989,6 +998,7 @@ $$
 <!-- definition-example-start: def-la3e-decomposable-form -->
 ### 例：$\mathbb R^4$ では全ての2次形式が分解可能ではない
 
+**定義の確認**
 $$
 \omega
 =
@@ -1165,6 +1175,7 @@ $$
 <!-- definition-example-start: def-la3e-interior-product -->
 ### 例：面積形式へ $e_1$ を差し込む
 
+**定義の確認**
 $V=\mathbb R^2$、
 
 $$
@@ -1259,7 +1270,7 @@ $$
 u_1=v,\ u_j=v_j\ (j\ge2)
 $$
 
-の行列式です。第1列で Laplace 展開すると、ちょうど上の和になります。
+の行列式です。第1列に沿って余因子で展開すると、ちょうど上の和になります。
 
 一般の交代形式は外積基底の線形結合なので、線形性によりこの公式から一般の場合を示せます。
 
@@ -1424,7 +1435,7 @@ $$
 $$
 <!-- solution-end -->
 
-### LA3E-A02 $(1,1)$ 型テンソルの縮約
+### LA3E-A02 $(1,1)$ 型テンソルの因子消去
 
 $V=\mathbb R^2$、基底を $e_1,e_2$、双対基底を $\varepsilon^1,\varepsilon^2$ とする。
 
@@ -1436,15 +1447,15 @@ T=
 +4e_2\otimes\varepsilon^2
 $$
 
-を縮約せよ。
+の $V$ 因子と $V^*$ 因子を評価して消去せよ。
 
 - Level: A
-- 狙い: 縮約と対角成分和
+- 狙い: 評価写像による因子消去と対角成分和
 
 <!-- solution-start -->
 **詳細解答**
 
-縮約では各項の $e_i$ と $\varepsilon^j$ を評価します。
+各項の $e_i$ と $\varepsilon^j$ を自然な評価で組にして消去します。
 
 $$
 C(e_i\otimes\varepsilon^j)

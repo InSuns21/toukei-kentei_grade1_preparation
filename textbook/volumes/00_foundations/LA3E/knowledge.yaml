@@ -4,6 +4,8 @@ coverage: complete
 prerequisites:
   - LA3A
   - LA3D
+forward_references:
+  - vector-calculus.contraction
 
 concepts:
   - id: linear.tensor-product
@@ -44,10 +46,10 @@ concepts:
       - linear.tensor-product
       - linear.algebraic-dual-space
 
-  - id: linear.contraction
-    name: 縮約
+  - id: linear.evaluation-factor-elimination
+    name: 評価写像による因子消去
     kind: definition
-    aliases: [縮約, contraction]
+    aliases: [評価写像による因子消去, 因子消去写像]
     requires:
       - linear.rs-tensor
       - linear.algebraic-dual-space
@@ -116,7 +118,7 @@ concepts:
   - id: linear.interior-product
     name: 内部積
     kind: definition
-    aliases: [内部積, 内部, interior product]
+    aliases: [内部積, interior product]
     requires:
       - linear.exterior-power
       - linear.wedge-product
