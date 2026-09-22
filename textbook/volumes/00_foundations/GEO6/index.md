@@ -347,7 +347,7 @@ $$
 したがって p で
 
 $$
-[X,Y](y^a)
+\bigl[X,Y\bigr](y^a)
 =
 X(Y(y^a))-Y(X(y^a))
 =
@@ -1511,7 +1511,7 @@ $$
 
 $$
 \begin{aligned}
-[X,Y](F^a)
+\bigl[X,Y\bigr](F^a)
 &=
 X(Y(F^a))-Y(X(F^a))\\
 &=
