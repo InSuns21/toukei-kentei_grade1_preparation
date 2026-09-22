@@ -607,7 +607,7 @@ TOP6 の filter と全有界性を受け、距離空間で暗黙に使ってき�
 
 実装: [GEO3](volumes/00_foundations/GEO3/index.md)
 
-直接 prerequisite は GEO2 と RA6A です。RA6A の逆関数定理を canonical に再利用し、多様体上の定数階数定理を核心証明まで閉じます。GEO4 の 1 の分割、GEO6 の Frobenius、GEO10 以降の曲面・Riemann 幾何で必要になる部分多様体の局所標準形をここで確立します。
+直接 prerequisite は GEO2 と RA6A です。RA6A の逆関数定理を既出定理として再利用し、多様体上の定数階数定理を核心証明まで閉じます。GEO4 の 1 の分割、GEO6 の Frobenius、GEO10 以降の曲面・Riemann 幾何で必要になる部分多様体の局所標準形をここで確立します。
 
 ---
 
