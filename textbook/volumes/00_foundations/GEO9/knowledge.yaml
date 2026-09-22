@@ -39,7 +39,6 @@ concepts:
     aliases: [滑らかなホモトピー, smooth homotopy]
     requires:
       - geometry.smooth-map
-      - topology.connectedness
 
   - id: geometry.homotopy-operator
     name: ホモトピー作用素
@@ -90,7 +89,8 @@ concepts:
     aliases: [連結多様体の0次 de Rham コホモロジー]
     requires:
       - geometry.de-rham-cohomology
-      - topology.connectedness
+      - topology.connected-space
+      - topology.connected-clopen-criterion
 
   - id: geometry.de-rham-homotopy-invariance
     name: de Rham コホモロジーの滑らかなホモトピー不変性
@@ -111,7 +111,7 @@ concepts:
 
   - id: geometry.punctured-plane-h1-de-rham
     name: 穴あき平面の1次 de Rham コホモロジー
-    kind: corollary
+    kind: theorem
     aliases: [穴あき平面の1次 de Rham コホモロジー]
     requires:
       - geometry.circle-h1-de-rham
