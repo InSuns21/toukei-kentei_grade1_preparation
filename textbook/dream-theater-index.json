@@ -239,7 +239,8 @@
     {
       "name": "Encore V",
       "paths": [
-        "textbook/volumes/00_foundations/F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md"
+        "textbook/volumes/00_foundations/F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md",
+        "textbook/volumes/00_foundations/NA1/index.md"
       ]
     }
   ]
