@@ -34,19 +34,19 @@ $$
 > **定義（滑らかな関数の芽）**  
 > $M$ を滑らかな多様体、$p\in M$ とする。$p$ の開近傍 $U,V$ 上の滑らかな関数
 >
-> $$
-> f:U\to\mathbb R,
-> \qquad
-> g:V\to\mathbb R
-> $$
+$$
+f:U\to\mathbb R,
+\qquad
+g:V\to\mathbb R
+$$
 >
 > に対し、ある $p$ の開近傍 $W\subseteq U\cap V$ が存在して
 >
-> $$
-> f|_W=g|_W
-> $$
+$$
+f|_W=g|_W
+$$
 >
-> となるとき、$f$ と $g$ は $p$ で同じ **芽**を定めるという。芽全体を $C_p^\infty(M)$ と書く。
+> となるとき、$f$ と $g$ は $p$ で同じ **滑らかな関数の芽**を定めるという。滑らかな関数の芽全体を $C_p^\infty(M)$ と書く。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo2-smooth-local-function-class -->
@@ -58,12 +58,12 @@ $$
 f(x)=x^2
 $$
 
-とし、別の関数 $g$ を $|x|<1$ では $x^2$、それより外では別の滑らかな式で定めたとします。$f$ と $g$ は大域的には異なっていても、$0$ の十分小さい近傍で一致するので同じ芽を定めます。
+とし、別の関数 $g$ を $|x|<1$ では $x^2$、それより外では別の滑らかな式で定めたとします。$f$ と $g$ は大域的には異なっていても、$0$ の十分小さい近傍で一致するので同じ滑らかな関数の芽を定めます。
 
-逆に $x^2$ と $x^2+x^3$ は任意の $0$ の近傍で異なる点を持つため、同じ芽ではありません。
+逆に $x^2$ と $x^2+x^3$ は任意の $0$ の近傍で異なる点を持つため、同じ滑らかな関数の芽ではありません。
 <!-- definition-example-end -->
 
-芽は代表元を変えても、和・積・実数倍を自然に定義できます。従って $C_p^\infty(M)$ は実代数になります。
+滑らかな関数の芽は代表元を変えても、和・積・実数倍を自然に定義できます。従って $C_p^\infty(M)$ は実代数になります。
 
 ---
 
@@ -74,17 +74,17 @@ $$
 > **定義（点 $p$ における接ベクトル）**  
 > $M$ を滑らかな多様体、$p\in M$ とする。線形写像
 >
-> $$
-> v:C_p^\infty(M)\to\mathbb R
-> $$
+$$
+v:C_p^\infty(M)\to\mathbb R
+$$
 >
 > が任意の $[f],[g]\in C_p^\infty(M)$ に対して
 >
-> $$
-> v([fg])
-> =
-> f(p)v([g])+g(p)v([f])
-> $$
+$$
+v([fg])
+=
+f(p)v([g])+g(p)v([f])
+$$
 >
 > を満たすとき、$v$ を $p$ における **接ベクトル**という。
 >
@@ -145,12 +145,12 @@ $$
 > **定義（座標方向の接ベクトル）**  
 > $i=1,\dots,n$ に対し、
 >
-> $$
-> \left.\frac{\partial}{\partial x^i}\right|_p([f])
-> =
-> \frac{\partial(f\circ\varphi^{-1})}{\partial x^i}
-> \bigl(\varphi(p)\bigr)
-> $$
+$$
+\left.\frac{\partial}{\partial x^i}\right|_p([f])
+=
+\frac{\partial(f\circ\varphi^{-1})}{\partial x^i}
+\bigl(\varphi(p)\bigr)
+$$
 >
 > と定める。
 <!-- formal-statement-end -->
@@ -179,27 +179,27 @@ $$
 通常の偏微分がそのまま座標方向の接ベクトルになっています。
 <!-- definition-example-end -->
 
-接空間の構造を証明するため、Euclid 空間の局所一次分解を使います。
+接空間の構造を証明するため、Euclid 空間の [局所一次分解](#lem-geo2-hadamard-local) を使います。
 
 <a id="lem-geo2-hadamard-local"></a>
 <!-- formal-statement-start -->
 > **補題（局所一次分解）**  
 > $a\in\mathbb R^n$ とし、$F$ を $a$ の近傍で滑らかな実数値関数とする。$a$ の十分小さい凸近傍では、滑らかな関数 $H_1,\dots,H_n$ が存在して
 >
-> $$
-> F(x)-F(a)
-> =
-> \sum_{i=1}^n
-> (x^i-a^i)H_i(x),
-> $$
+$$
+F(x)-F(a)
+=
+\sum_{i=1}^n
+(x^i-a^i)H_i(x),
+$$
 >
 > かつ
 >
-> $$
-> H_i(a)
-> =
-> \frac{\partial F}{\partial x^i}(a)
-> $$
+$$
+H_i(a)
+=
+\frac{\partial F}{\partial x^i}(a)
+$$
 >
 > となる。
 <!-- formal-statement-end -->
@@ -269,43 +269,43 @@ $\square$
 > **定理（接ベクトルの座標表示）**  
 > $M$ を $n$ 次元滑らかな多様体、$p\in M$ とし、$(x^1,\dots,x^n)$ を $p$ の局所座標とする。任意の $v\in T_pM$ は一意に
 >
-> $$
-> v
-> =
-> \sum_{i=1}^n
-> v(x^i)
-> \left.\frac{\partial}{\partial x^i}\right|_p
-> $$
+$$
+v
+=
+\sum_{i=1}^n
+v(x^i)
+\left.\frac{\partial}{\partial x^i}\right|_p
+$$
 >
 > と表される。
 >
 > 従って
 >
-> $$
-> \left\{
-> \left.\frac{\partial}{\partial x^1}\right|_p,
-> \dots,
-> \left.\frac{\partial}{\partial x^n}\right|_p
-> \right\}
-> $$
+$$
+\left\{
+\left.\frac{\partial}{\partial x^1}\right|_p,
+\dots,
+\left.\frac{\partial}{\partial x^n}\right|_p
+\right\}
+$$
 >
 > は $T_pM$ の基底であり、
 >
-> $$
-> \dim T_pM=n.
-> $$
+$$
+\dim T_pM=n.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
 
-$f$ の $p$ における芽を取り、座標表示
+$f$ の $p$ における滑らかな関数の芽を取り、座標表示
 
 $$
 F=f\circ\varphi^{-1}
 $$
 
-を考えます。局所一次分解により、$a=\varphi(p)$ の近くで
+を考えます。[局所一次分解](#lem-geo2-hadamard-local) により、$a=\varphi(p)$ の近くで
 
 $$
 F(x)-F(a)
@@ -389,17 +389,17 @@ $$
 > **定義（点 $p$ を通る曲線の一次同値）**  
 > $\gamma:(-\varepsilon,\varepsilon)\to M$ と $\eta:(-\delta,\delta)\to M$ を滑らかな曲線とし、
 >
-> $$
-> \gamma(0)=\eta(0)=p
-> $$
+$$
+\gamma(0)=\eta(0)=p
+$$
 >
 > とする。$p$ を含む一つの局所座標 $\varphi$ で
 >
-> $$
-> (\varphi\circ\gamma)'(0)
-> =
-> (\varphi\circ\eta)'(0)
-> $$
+$$
+(\varphi\circ\gamma)'(0)
+=
+(\varphi\circ\eta)'(0)
+$$
 >
 > となるとき、$\gamma$ と $\eta$ は $p$ で一次同値であるという。
 <!-- formal-statement-end -->
@@ -445,12 +445,12 @@ $$
 > **定義（曲線が定める微分作用素）**  
 > $p$ を通る滑らかな曲線 $\gamma$ に対し、
 >
-> $$
-> v_\gamma([f])
-> =
-> \left.\frac{d}{dt}\right|_{t=0}
-> f(\gamma(t))
-> $$
+$$
+v_\gamma([f])
+=
+\left.\frac{d}{dt}\right|_{t=0}
+f(\gamma(t))
+$$
 >
 > と定める。
 <!-- formal-statement-end -->
@@ -500,22 +500,22 @@ $$
 > **定理（曲線表示と微分作用素表示の同値）**  
 > $M$ を滑らかな多様体、$p\in M$ とする。$p$ を通る滑らかな曲線の一次同値類を $[\gamma]$ と書くと、
 >
-> $$
-> [\gamma]\longmapsto v_\gamma
-> $$
+$$
+[\gamma]\longmapsto v_\gamma
+$$
 >
 > は曲線の一次同値類全体と $T_pM$ の間の一対一対応を与える。
 >
 > 局所座標 $(x^1,\dots,x^n)$ では
 >
-> $$
-> v_\gamma
-> =
-> \sum_{i=1}^n
-> \left.\frac{d}{dt}\right|_{t=0}
-> x^i(\gamma(t))
-> \left.\frac{\partial}{\partial x^i}\right|_p.
-> $$
+$$
+v_\gamma
+=
+\sum_{i=1}^n
+\left.\frac{d}{dt}\right|_{t=0}
+x^i(\gamma(t))
+\left.\frac{\partial}{\partial x^i}\right|_p.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -631,7 +631,7 @@ $$
 
 と変換します。
 
-実際、任意の芽 $f$ に作用させると、右辺は多変数連鎖律によって左辺と同じ値を与えます。
+実際、任意の滑らかな関数の芽 $[f]$ に作用させると、右辺は多変数連鎖律によって左辺と同じ値を与えます。
 
 従って
 
@@ -695,30 +695,30 @@ $$
 > **定義（滑らかな写像の微分）**  
 > $f:M\to N$ を滑らかな写像、$p\in M$ とする。$v\in T_pM$ に対し、
 >
-> $$
-> df_p(v):C_{f(p)}^\infty(N)\to\mathbb R
-> $$
+$$
+df_p(v):C_{f(p)}^\infty(N)\to\mathbb R
+$$
 >
 > を
 >
-> $$
-> df_p(v)([h])
-> =
-> v([h\circ f])
-> $$
+$$
+df_p(v)([h])
+=
+v([h\circ f])
+$$
 >
 > で定める。
 >
 > この線形写像
 >
-> $$
-> df_p:T_pM\to T_{f(p)}N
-> $$
+$$
+df_p:T_pM\to T_{f(p)}N
+$$
 >
 > を $f$ の $p$ における **微分**という。
 <!-- formal-statement-end -->
 
-$h$ が $f(p)$ の近くで定義されていれば、$f$ の連続性により $h\circ f$ は $p$ の近くで定義されます。また代表元を小さい近傍へ取り直しても芽は変わらないので、この定義は良定義です。
+$h$ が $f(p)$ の近くで定義されていれば、$f$ の連続性により $h\circ f$ は $p$ の近くで定義されます。また代表元を小さい近傍へ取り直しても滑らかな関数の芽は変わらないので、この定義は良定義です。
 
 <!-- definition-example-start: def-geo2-differential -->
 **定義の確認**
@@ -759,32 +759,32 @@ $$
 > **定理（微分の座標表示）**  
 > $f:M^m\to N^n$ を滑らかな写像とする。$p\in M$ の局所座標を $x=(x^1,\dots,x^m)$、$f(p)$ の局所座標を $y=(y^1,\dots,y^n)$ とする。
 >
-> $$
-> v
-> =
-> \sum_{i=1}^m
-> v^i
-> \left.\frac{\partial}{\partial x^i}\right|_p
-> $$
+$$
+v
+=
+\sum_{i=1}^m
+v^i
+\left.\frac{\partial}{\partial x^i}\right|_p
+$$
 >
 > なら
 >
-> $$
-> df_p(v)
-> =
-> \sum_{j=1}^n
-> \left(
-> \sum_{i=1}^m
-> \frac{\partial(y^j\circ f)}{\partial x^i}(p)v^i
-> \right)
-> \left.\frac{\partial}{\partial y^j}\right|_{f(p)}.
-> $$
+$$
+df_p(v)
+=
+\sum_{j=1}^n
+\left(
+\sum_{i=1}^m
+\frac{\partial(y^j\circ f)}{\partial x^i}(p)v^i
+\right)
+\left.\frac{\partial}{\partial y^j}\right|_{f(p)}.
+$$
 >
 > 従って $df_p$ の行列表現は座標表示
 >
-> $$
-> y\circ f\circ x^{-1}
-> $$
+$$
+y\circ f\circ x^{-1}
+$$
 >
 > の Jacobi 行列である。
 <!-- formal-statement-end -->
@@ -792,7 +792,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$df_p(v)$ の $y^j$ 成分は、接ベクトルの座標表示定理により
+$df_p(v)$ の $y^j$ 成分は、[接ベクトルの座標表示](#thm-geo2-coordinate-expression) により
 
 $$
 df_p(v)(y^j)
@@ -826,12 +826,12 @@ $$
 > **命題（微分は曲線の速度を送る）**  
 > $v=[\gamma]\in T_pM$ なら
 >
-> $$
-> df_p(v)
-> =
-> [f\circ\gamma]
-> \in T_{f(p)}N.
-> $$
+$$
+df_p(v)
+=
+[f\circ\gamma]
+\in T_{f(p)}N.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -858,25 +858,25 @@ $$
 > **定理（多様体上の連鎖律）**  
 > 滑らかな写像
 >
-> $$
-> M\xrightarrow{f}N\xrightarrow{g}P
-> $$
+$$
+M\xrightarrow{f}N\xrightarrow{g}P
+$$
 >
 > と $p\in M$ に対して
 >
-> $$
-> d(g\circ f)_p
-> =
-> dg_{f(p)}\circ df_p.
-> $$
+$$
+d(g\circ f)_p
+=
+dg_{f(p)}\circ df_p.
+$$
 >
 > また恒等写像について
 >
-> $$
-> d(\operatorname{id}_M)_p
-> =
-> \operatorname{id}_{T_pM}.
-> $$
+$$
+d(\operatorname{id}_M)_p
+=
+\operatorname{id}_{T_pM}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -942,9 +942,9 @@ $$
 > **定義（余接空間）**  
 > $p\in M$ に対し、
 >
-> $$
-> T_p^*M=(T_pM)^*
-> $$
+$$
+T_p^*M=(T_pM)^*
+$$
 >
 > を $p$ における **余接空間**という。$T_p^*M$ の元を **余ベクトル**という。
 <!-- formal-statement-end -->
@@ -985,15 +985,15 @@ $$
 > **定義（実数値関数の微分）**  
 > 滑らかな関数 $h:M\to\mathbb R$ に対し、
 >
-> $$
-> dh_p\in T_p^*M
-> $$
+$$
+dh_p\in T_p^*M
+$$
 >
 > を
 >
-> $$
-> dh_p(v)=v(h)
-> $$
+$$
+dh_p(v)=v(h)
+$$
 >
 > で定める。
 <!-- formal-statement-end -->
@@ -1033,12 +1033,12 @@ $$
 > **定義（余ベクトルの引き戻し）**  
 > $f:M\to N$ を滑らかな写像、$p\in M$ とする。$\alpha\in T_{f(p)}^*N$ に対して
 >
-> $$
-> f_p^*\alpha
-> =
-> \alpha\circ df_p
-> \in T_p^*M
-> $$
+$$
+f_p^*\alpha
+=
+\alpha\circ df_p
+\in T_p^*M
+$$
 >
 > と定め、これを $\alpha$ の $f$ による $p$ での **引き戻し**という。
 <!-- formal-statement-end -->
@@ -1078,11 +1078,11 @@ $$
 > **命題（余ベクトルの引き戻しの合成則）**  
 > $M\xrightarrow{f}N\xrightarrow{g}P$ に対し、
 >
-> $$
-> (g\circ f)_p^*
-> =
-> f_p^*\circ g_{f(p)}^*.
-> $$
+$$
+(g\circ f)_p^*
+=
+f_p^*\circ g_{f(p)}^*.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -1120,17 +1120,17 @@ $$
 > **定義（接束）**  
 > 滑らかな多様体 $M$ に対し、
 >
-> $$
-> TM
-> =
-> \bigsqcup_{p\in M}T_pM
-> $$
+$$
+TM
+=
+\bigsqcup_{p\in M}T_pM
+$$
 >
 > を **接束**という。$v\in T_pM$ に対して
 >
-> $$
-> \pi(v)=p
-> $$
+$$
+\pi(v)=p
+$$
 >
 > と定めた写像 $\pi:TM\to M$ を自然な射影という。
 <!-- formal-statement-end -->
@@ -1154,15 +1154,15 @@ $$
 > **定義（滑らかな実ベクトル束）**  
 > 滑らかな多様体 $M$ 上の各ファイバーが $k$ 次元である滑らかな実ベクトル束とは、滑らかな多様体 $E$ と滑らかな全射
 >
-> $$
-> \pi:E\to M
-> $$
+$$
+\pi:E\to M
+$$
 >
 > であって、各 $p\in M$ の近くに開集合 $U$ と微分同相写像
 >
-> $$
-> \Phi:\pi^{-1}(U)\to U\times\mathbb R^k
-> $$
+$$
+\Phi:\pi^{-1}(U)\to U\times\mathbb R^k
+$$
 >
 > が存在し、
 >
@@ -1197,33 +1197,33 @@ $$
 > **定理（接束の滑らかな構造）**  
 > $M$ を $n$ 次元滑らかな多様体とする。$TM$ には、各座標近傍
 >
-> $$
-> \varphi:U\to\varphi(U)\subseteq\mathbb R^n
-> $$
+$$
+\varphi:U\to\varphi(U)\subseteq\mathbb R^n
+$$
 >
 > に対して
 >
-> $$
-> \widetilde\varphi:\pi^{-1}(U)\to\varphi(U)\times\mathbb R^n
-> $$
+$$
+\widetilde\varphi:\pi^{-1}(U)\to\varphi(U)\times\mathbb R^n
+$$
 >
-> $$
-> \widetilde\varphi
-> \left(
-> \sum_i v^i
-> \left.\frac{\partial}{\partial x^i}\right|_p
-> \right)
-> =
-> (\varphi(p),v^1,\dots,v^n)
-> $$
+$$
+\widetilde\varphi
+\left(
+\sum_i v^i
+\left.\frac{\partial}{\partial x^i}\right|_p
+\right)
+=
+(\varphi(p),v^1,\dots,v^n)
+$$
 >
 > が座標写像となる一意な自然な滑らかな構造が入る。
 >
 > この構造で $TM$ は $2n$ 次元滑らかな多様体であり、
 >
-> $$
-> \pi:TM\to M
-> $$
+$$
+\pi:TM\to M
+$$
 >
 > は各ファイバーが $n$ 次元の滑らかなベクトル束である。
 <!-- formal-statement-end -->
@@ -1304,11 +1304,11 @@ $$
 > **定義（余接束）**  
 > 滑らかな多様体 $M$ に対し、
 >
-> $$
-> T^*M
-> =
-> \bigsqcup_{p\in M}T_p^*M
-> $$
+$$
+T^*M
+=
+\bigsqcup_{p\in M}T_p^*M
+$$
 >
 > を **余接束**という。
 <!-- formal-statement-end -->
@@ -1345,17 +1345,17 @@ $$
 >
 > 局所座標 $x=(x^1,\dots,x^n)$ では
 >
-> $$
-> \alpha_p
-> =
-> \sum_i a_i\,dx^i|_p
-> $$
+$$
+\alpha_p
+=
+\sum_i a_i\,dx^i|_p
+$$
 >
 > を
 >
-> $$
-> (x(p),a_1,\dots,a_n)
-> $$
+$$
+(x(p),a_1,\dots,a_n)
+$$
 >
 > に送ることで局所自明化される。
 <!-- formal-statement-end -->
@@ -1429,25 +1429,25 @@ GEO1 で作った積多様体に対し、接空間も直和に分解します。
 > **命題（積多様体の接空間）**  
 > $M,N$ を滑らかな多様体とし、$(p,q)\in M\times N$ とする。射影
 >
-> $$
-> \pi_M:M\times N\to M,
-> \qquad
-> \pi_N:M\times N\to N
-> $$
+$$
+\pi_M:M\times N\to M,
+\qquad
+\pi_N:M\times N\to N
+$$
 >
 > により
 >
-> $$
-> T_{(p,q)}(M\times N)
-> \longrightarrow
-> T_pM\oplus T_qN,
-> $$
+$$
+T_{(p,q)}(M\times N)
+\longrightarrow
+T_pM\oplus T_qN,
+$$
 >
-> $$
-> v
-> \longmapsto
-> \bigl(d\pi_M(v),d\pi_N(v)\bigr)
-> $$
+$$
+v
+\longmapsto
+\bigl(d\pi_M(v),d\pi_N(v)\bigr)
+$$
 >
 > は線形同型である。
 <!-- formal-statement-end -->
@@ -2331,7 +2331,7 @@ d(g\circ f)_p
 dg_{f(p)}\circ df_p
 $$
 
-という連鎖律を、芽による定義から直接証明しました。
+という連鎖律を、滑らかな関数の芽による定義から直接証明しました。
 
 双対側では
 
@@ -2347,9 +2347,9 @@ TM=\bigsqcup_pT_pM,
 T^*M=\bigsqcup_pT_p^*M
 $$
 
-が得られ、どちらも自然な各ファイバーが $n$ 次元のベクトル束になります。
+が得られ、どちらも各ファイバーが $n$ 次元の自然なベクトル束になります。
 
-次の GEO3 では、微分 $df_p$ の階数を局所座標で制御する **階数定理**へ進みます。そこから、はめ込み・沈め込み・埋め込み・正則値・部分多様体を構成し、
+次の GEO3 では、微分 $df_p$ の像の次元を局所座標で制御する定理へ進みます。そこから、はめ込み・沈め込み・埋め込み・正則値・部分多様体を構成し、
 
 $$
 T_p(f^{-1}(c))
