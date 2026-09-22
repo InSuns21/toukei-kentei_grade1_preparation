@@ -1,0 +1,210 @@
+chapter: CA8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CA7
+  - TOP1
+  - TOP2
+  - TOP4
+  - TOP5
+
+concepts:
+  - id: complex-analysis.complex-chart
+    name: 複素座標近傍
+    kind: definition
+    aliases: [複素座標近傍, complex chart]
+    introduction: formal
+    introduction_aliases: ["定義（複素座標近傍）"]
+    requires: [topology.homeomorphism]
+
+  - id: complex-analysis.holomorphic-atlas
+    name: 正則アトラス
+    kind: definition
+    aliases: [正則アトラス, holomorphic atlas]
+    introduction: formal
+    introduction_aliases: ["定義（正則アトラス）"]
+    requires: [complex-analysis.complex-chart, complex-analysis.holomorphic-function]
+
+  - id: complex-analysis.riemann-surface
+    name: Riemann 面
+    kind: definition
+    aliases: [Riemann 面, Riemann surface]
+    introduction: formal
+    introduction_aliases: ["定義（Riemann 面）"]
+    requires: [complex-analysis.holomorphic-atlas, topology.t2-space-recap-top4, topology.second-countable]
+
+  - id: complex-analysis.riemann-sphere-atlas
+    name: Riemann 球面の標準アトラス
+    kind: proposition
+    aliases: [Riemann 球面の標準アトラス, standard atlas of the Riemann sphere]
+    introduction: formal
+    introduction_aliases: ["命題（Riemann 球面の標準アトラス）"]
+    requires: [complex-analysis.riemann-surface]
+
+  - id: complex-analysis.riemann-surface-holomorphic-map
+    name: Riemann 面間の正則写像
+    kind: definition
+    aliases: [Riemann 面間の正則写像, holomorphic map of Riemann surfaces]
+    introduction: formal
+    introduction_aliases: ["定義（Riemann 面間の正則写像）"]
+    requires: [complex-analysis.riemann-surface, complex-analysis.holomorphic-function]
+
+  - id: complex-analysis.holomorphic-coordinate-invariance
+    name: 正則性の座標不変性
+    kind: theorem
+    aliases: [正則性の座標不変性, coordinate invariance of holomorphicity]
+    introduction: formal
+    introduction_aliases: ["定理（正則性の座標不変性）"]
+    requires: [complex-analysis.riemann-surface-holomorphic-map, complex-analysis.holomorphic-atlas]
+
+  - id: complex-analysis.biholomorphism
+    name: 双正則写像
+    kind: definition
+    aliases: [双正則写像, biholomorphism]
+    introduction: formal
+    introduction_aliases: ["定義（双正則写像）"]
+    requires: [complex-analysis.riemann-surface-holomorphic-map]
+
+  - id: complex-analysis.riemann-surface-meromorphic-function
+    name: Riemann 面上の有理型関数
+    kind: definition
+    aliases: [Riemann 面上の有理型関数, meromorphic function on a Riemann surface]
+    introduction: formal
+    introduction_aliases: ["定義（Riemann 面上の有理型関数）"]
+    requires: [complex-analysis.riemann-surface, complex-analysis.meromorphic-function]
+
+  - id: complex-analysis.zero-pole-order
+    name: 零点・極の位数
+    kind: definition
+    aliases: [零点・極の位数, zero and pole order]
+    introduction: formal
+    introduction_aliases: ["定義（零点・極の位数）"]
+    requires: [complex-analysis.riemann-surface-meromorphic-function]
+
+  - id: complex-analysis.order-coordinate-invariance
+    name: 位数の座標不変性
+    kind: theorem
+    aliases: [位数の座標不変性, coordinate invariance of order]
+    introduction: formal
+    introduction_aliases: ["定理（位数の座標不変性）"]
+    requires: [complex-analysis.zero-pole-order, complex-analysis.biholomorphism]
+
+  - id: complex-analysis.sphere-meromorphic-rational
+    name: Riemann 球面上の有理型関数の分類
+    kind: theorem
+    aliases: [Riemann 球面上の有理型関数の分類, meromorphic functions on the Riemann sphere are rational]
+    introduction: formal
+    introduction_aliases: ["定理（Riemann 球面上の有理型関数の分類）"]
+    requires: [complex-analysis.riemann-sphere-atlas, complex-analysis.riemann-surface-meromorphic-function, topology.compact-space, complex-analysis.maximum-modulus-principle]
+
+  - id: complex-analysis.holomorphic-one-form
+    name: 正則微分
+    kind: definition
+    aliases: [正則微分, holomorphic differential]
+    introduction: formal
+    introduction_aliases: ["定義（正則微分）"]
+    requires: [complex-analysis.holomorphic-atlas]
+
+  - id: complex-analysis.covering-map
+    name: 被覆写像
+    kind: definition
+    aliases: [被覆写像, covering map]
+    introduction: formal
+    introduction_aliases: ["定義（被覆写像）"]
+    requires: [topology.homeomorphism]
+
+  - id: complex-analysis.holomorphic-covering
+    name: 正則被覆
+    kind: definition
+    aliases: [正則被覆, holomorphic covering]
+    introduction: formal
+    introduction_aliases: ["定義（正則被覆）"]
+    requires: [complex-analysis.covering-map, complex-analysis.biholomorphism]
+
+  - id: complex-analysis.path-lifting
+    name: 経路持ち上げの存在と一意性
+    kind: theorem
+    aliases: [経路持ち上げ, 経路持ち上げの存在と一意性, path lifting]
+    introduction: formal
+    introduction_aliases: ["定理（経路持ち上げの存在と一意性）"]
+    requires: [complex-analysis.covering-map, topology.compact-space]
+
+  - id: complex-analysis.homotopy-lifting
+    name: 経路ホモトピーの持ち上げ
+    kind: theorem
+    aliases: [経路ホモトピーの持ち上げ, ホモトピー持ち上げ, homotopy lifting]
+    introduction: formal
+    introduction_aliases: ["定理（経路ホモトピーの持ち上げ）"]
+    requires: [complex-analysis.path-lifting, topology.compact-space]
+
+  - id: complex-analysis.lifted-homotopy-endpoint
+    name: 端点固定ホモトピーと持ち上げの終点
+    kind: corollary
+    aliases: [端点固定ホモトピーと持ち上げの終点, lifted homotopy endpoint invariance]
+    introduction: formal
+    introduction_aliases: ["系（端点固定ホモトピーと持ち上げの終点）"]
+    requires: [complex-analysis.homotopy-lifting]
+
+  - id: complex-analysis.log-riemann-surface
+    name: 対数の標準 Riemann 面
+    kind: proposition
+    aliases: [対数の標準 Riemann 面, 対数の Riemann 面, logarithm Riemann surface]
+    introduction: formal
+    introduction_aliases: ["命題（対数の標準 Riemann 面）"]
+    requires: [complex-analysis.holomorphic-covering]
+
+  - id: complex-analysis.square-root-riemann-surface
+    name: 平方根の標準 Riemann 面
+    kind: proposition
+    aliases: [平方根の標準 Riemann 面, 平方根の Riemann 面, square-root Riemann surface]
+    introduction: formal
+    introduction_aliases: ["命題（平方根の標準 Riemann 面）"]
+    requires: [complex-analysis.holomorphic-covering]
+
+  - id: complex-analysis.covering-analytic-continuation
+    name: 被覆に沿う解析接続の一意性
+    kind: theorem
+    aliases: [被覆に沿う解析接続の一意性, analytic continuation along a covering]
+    introduction: formal
+    introduction_aliases: ["定理（被覆に沿う解析接続の一意性）"]
+    requires: [complex-analysis.holomorphic-covering, complex-analysis.path-lifting, complex-analysis.lifted-homotopy-endpoint, complex-analysis.analytic-continuation-along-path]
+
+  - id: complex-analysis.complex-lattice
+    name: 複素格子
+    kind: definition
+    aliases: [複素格子, complex lattice]
+    introduction: formal
+    introduction_aliases: ["定義（複素格子）"]
+    requires: []
+
+  - id: complex-analysis.lattice-discreteness
+    name: 格子の離散性
+    kind: lemma
+    aliases: [格子の離散性, lattice discreteness]
+    introduction: formal
+    introduction_aliases: ["補題（格子の離散性）"]
+    requires: [complex-analysis.complex-lattice, topology.compact-space]
+
+  - id: complex-analysis.complex-torus
+    name: 複素トーラス
+    kind: theorem
+    aliases: [複素トーラス, complex torus]
+    introduction: formal
+    introduction_aliases: ["定理（複素トーラス）"]
+    requires: [complex-analysis.complex-lattice, complex-analysis.lattice-discreteness, topology.quotient-topology-map, topology.t2-space-recap-top4, topology.second-countable, topology.continuous-image-compact-space, complex-analysis.holomorphic-covering]
+
+  - id: complex-analysis.compact-riemann-holomorphic-rigidity
+    name: コンパクト Riemann 面上の正則関数の剛性
+    kind: theorem
+    aliases: [コンパクト Riemann 面上の正則関数の剛性, holomorphic rigidity on compact Riemann surfaces]
+    introduction: formal
+    introduction_aliases: ["定理（コンパクト Riemann 面から $\\mathbb C$ への正則関数は定数）"]
+    requires: [complex-analysis.riemann-surface, topology.compact-space, complex-analysis.maximum-modulus-principle, complex-analysis.isolated-zeros-identity-theorem]
+
+  - id: complex-analysis.torus-holomorphic-rigidity
+    name: 複素トーラス上の正則関数の剛性
+    kind: corollary
+    aliases: [複素トーラス上の正則関数の剛性, holomorphic functions on a complex torus are constant]
+    introduction: formal
+    introduction_aliases: ["系（複素トーラス上の正則関数は定数）"]
+    requires: [complex-analysis.complex-torus, complex-analysis.compact-riemann-holomorphic-rigidity]
