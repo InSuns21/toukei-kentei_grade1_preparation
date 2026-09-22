@@ -84,7 +84,7 @@ concepts:
     kind: theorem
     aliases: [Chebyshev の最小最大性]
     introduction: formal
-    introduction_aliases: ["定理（monic 多項式の Chebyshev 最小最大性）"]
+    introduction_aliases: ["定理（最高次係数1の多項式に対する Chebyshev の最小最大性）"]
     requires: [numerical.chebyshev-nodes, analysis.intermediate-value-theorem]
 
   - id: numerical.lebesgue-constant
