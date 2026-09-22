@@ -1,0 +1,113 @@
+chapter: NA5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RA4
+  - NA4
+  - F0-00E1
+forward_references: []
+
+concepts:
+  - id: numerical.quadrature-formula
+    name: 求積公式
+    kind: definition
+    aliases: [quadrature formula]
+    introduction: formal
+    introduction_aliases: ["定義（求積公式）"]
+    requires: [analysis.riemann-integrable]
+
+  - id: numerical.degree-of-exactness
+    name: 正確次数
+    kind: definition
+    aliases: [degree of exactness]
+    introduction: formal
+    introduction_aliases: ["定義（正確次数）"]
+    requires: [numerical.quadrature-formula]
+
+  - id: numerical.interpolatory-quadrature
+    name: 補間型求積公式
+    kind: theorem
+    aliases: [interpolatory quadrature formula]
+    introduction: formal
+    introduction_aliases: ["定理（補間型求積公式）"]
+    requires: [numerical.quadrature-formula, numerical.lagrange-basis, analysis.riemann-integral-basic-properties]
+
+  - id: numerical.newton-cotes
+    name: Newton--Cotes 公式
+    kind: definition
+    aliases: [Newton--Cotes formula]
+    introduction: formal
+    introduction_aliases: ["定義（Newton--Cotes 公式）"]
+    requires: [numerical.interpolatory-quadrature]
+
+  - id: numerical.composite-trapezoidal-error
+    name: 複合台形則の誤差評価
+    kind: theorem
+    aliases: [composite trapezoidal error]
+    introduction: formal
+    introduction_aliases: ["定理（複合台形則の誤差評価）"]
+    requires: [numerical.newton-cotes, analysis.riemann-integral-basic-properties]
+
+  - id: numerical.composite-simpson-error
+    name: 複合 Simpson 則の誤差評価
+    kind: theorem
+    aliases: [composite Simpson error]
+    introduction: formal
+    introduction_aliases: ["定理（複合 Simpson 則の誤差評価）"]
+    requires: [numerical.newton-cotes, analysis.riemann-integral-basic-properties]
+
+  - id: numerical.weighted-polynomial-inner-product
+    name: 重み付き多項式内積
+    kind: definition
+    aliases: [weighted polynomial inner product]
+    introduction: formal
+    introduction_aliases: ["定義（重み付き多項式内積・直交多項式）"]
+    requires: [analysis.riemann-integral-basic-properties, linear.inner-product]
+
+  - id: numerical.orthogonal-polynomial
+    name: 直交多項式
+    kind: definition
+    aliases: [orthogonal polynomial]
+    introduction: formal
+    introduction_aliases: ["定義（重み付き多項式内積・直交多項式）"]
+    requires: [numerical.weighted-polynomial-inner-product, linear.gram-schmidt]
+
+  - id: numerical.orthogonal-polynomial-roots
+    name: 直交多項式の零点定理
+    kind: theorem
+    aliases: [orthogonal polynomial root theorem]
+    introduction: formal
+    introduction_aliases: ["定理（直交多項式の零点定理）"]
+    requires: [numerical.orthogonal-polynomial]
+
+  - id: numerical.gauss-quadrature
+    name: Gauss 求積公式
+    kind: theorem
+    aliases: [Gaussian quadrature]
+    introduction: formal
+    introduction_aliases: ["定理（Gauss 求積公式の 2n-1 次正確性）"]
+    requires: [numerical.interpolatory-quadrature, numerical.orthogonal-polynomial-roots]
+
+  - id: numerical.gauss-positive-weights
+    name: Gauss 求積公式の重みの正値性
+    kind: proposition
+    aliases: [positivity of Gaussian quadrature weights]
+    introduction: formal
+    introduction_aliases: ["命題（Gauss 求積公式の重みの正値性）"]
+    requires: [numerical.gauss-quadrature]
+
+  - id: numerical.quadrature-degree-upper-bound
+    name: n 点求積公式の正確次数の上限
+    kind: theorem
+    aliases: [quadrature degree upper bound]
+    introduction: formal
+    introduction_aliases: ["定理（n 点求積公式の正確次数の上限）"]
+    requires: [numerical.degree-of-exactness]
+
+  - id: numerical.gauss-error-formula
+    name: Gauss 求積の誤差公式
+    kind: theorem
+    aliases: [Gaussian quadrature error formula]
+    introduction: formal
+    introduction_aliases: ["定理（Gauss 求積の誤差公式）"]
+    requires: [numerical.gauss-quadrature, analysis.rolle-theorem]
