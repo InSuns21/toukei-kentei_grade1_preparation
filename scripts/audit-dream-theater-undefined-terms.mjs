@@ -104,6 +104,7 @@ for (const [alias, owners] of aliasOwners.entries()) {
   const capturedNames = conceptList
     .filter((concept) => concept.id !== owner.id)
     .filter((concept) => normalizeAlias(concept.name).includes(alias))
+    .filter((concept) => !conceptDependsOn(concept.id, owner.id))
     .map((concept) => `${concept.name} (${concept.id})`);
 
   if (!capturedNames.length) continue;
@@ -216,6 +217,28 @@ function isPotentiallyBroadShortAlias(alias, owner) {
   const chars = [...alias];
   if (chars.length < 2 || chars.length > 6) return false;
   return /^[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}ー]+$/u.test(alias);
+}
+
+const conceptDependencyMemo = new Map();
+
+function conceptDependsOn(conceptId, targetId, visiting = new Set()) {
+  if (conceptId === targetId) return true;
+  const key = `${conceptId}->${targetId}`;
+  if (conceptDependencyMemo.has(key)) return conceptDependencyMemo.get(key);
+  if (visiting.has(conceptId)) return false;
+
+  const concept = concepts.get(conceptId);
+  if (!concept) {
+    conceptDependencyMemo.set(key, false);
+    return false;
+  }
+
+  const next = new Set(visiting).add(conceptId);
+  const depends = concept.requires.some((requiredId) =>
+    requiredId === targetId || conceptDependsOn(requiredId, targetId, next)
+  );
+  conceptDependencyMemo.set(key, depends);
+  return depends;
 }
 
 function extractTechnicalCandidates(line) {
