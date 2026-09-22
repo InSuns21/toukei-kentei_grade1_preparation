@@ -1,8 +1,8 @@
-# PDE9 多次元波動方程式・Kirchhoff 公式・Huygens 原理
+# PDE9 多次元波動方程式の明示公式と伝播
 
 <!-- definition-example-audit: strict -->
 
-一次元では d'Alembert 公式が波を左右へ運びました。多次元では「左右」の代わりに**球面平均**が主役になります。
+一次元では d'Alembert 公式が波を左右へ運びました。多次元では「左右」の代わりに**球面上での平均**が主役になります。
 
 本章の中心は
 
@@ -19,7 +19,7 @@ $$
 
 球座標の微分公式は [VC6](../VC6/index.md#prop-vc6-spherical) を正本として使います。
 
-## 1. 球面平均
+## 1. 球面上で値を平均する
 
 <a id="def-pde9-spherical-mean"></a>
 <!-- formal-statement-start -->
@@ -128,7 +128,7 @@ rM_r(\Delta h).
 $$
 <!-- proof-end -->
 
-## 3. 三次元 Kirchhoff 公式
+## 3. 三次元の明示解公式
 
 <a id="thm-pde9-kirchhoff"></a>
 <!-- formal-statement-start -->
