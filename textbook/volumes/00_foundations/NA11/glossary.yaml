@@ -1,0 +1,32 @@
+chapter: "NA11"
+terms:
+  - term: 非負行列
+    english: nonnegative matrix
+    meaning: 全成分が0以上の実行列。成分ごとの順序比較を固有値問題へ持ち込める。
+  - term: 正行列
+    english: positive matrix
+    meaning: 全成分が正の実行列。Perron 固有値が正で単純となり、他の固有値より絶対値で厳密に大きくなる。
+  - term: 既約非負行列
+    english: irreducible nonnegative matrix
+    meaning: 正成分を有向辺とみなしたグラフが強連結である非負行列。正の Perron 固有ベクトルを一意にする。
+  - term: 原始行列
+    english: primitive matrix
+    meaning: ある正整数 m で A^m が正行列になる非負行列。周期性を排除し Perron 固有値にスペクトルギャップを与える。
+  - term: 列確率行列
+    english: column-stochastic matrix
+    meaning: 全成分が非負で各列和が1の行列。本章では確率ベクトルを列で持つためこの規約を採用する。
+  - term: 定常確率ベクトル
+    english: stationary probability vector
+    meaning: Pπ=π を満たす成分非負・成分和1の列ベクトル。
+  - term: 出リンクなし頂点
+    english: dangling node
+    meaning: Web グラフで出リンクを一つも持たない頂点。PageRank ではその列を確率ベクトルで置換して確率質量の消失を防ぐ。
+  - term: PageRank 行列
+    english: PageRank matrix
+    meaning: G=αP+(1-α)v1^T で定義される正の列確率行列。
+  - term: PageRank ベクトル
+    english: PageRank vector
+    meaning: Gr=r を満たす確率ベクトル。PageRank 行列の Perron 固有ベクトルを成分和1に正規化したもの。
+  - term: ダンピング係数
+    english: damping factor
+    meaning: PageRank の 0<α<1。リンク遷移を残す比率であり、同時に固定点反復の縮小率を支配する。
