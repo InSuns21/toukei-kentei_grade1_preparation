@@ -6,6 +6,7 @@ prerequisites:
   - TSA1
   - TSA4
   - F0-00P3A
+  - F0-00P5
   - F0-00P6A
 official_scope: []
 learning_objectives:
@@ -19,11 +20,12 @@ learning_objectives:
   - α-混合中心極限定理の代表的十分条件を説明し、定常性・エルゴード性だけでは中心極限定理が従わないことを反例で確認できる
 definitions:
   - { id: TSA5-DEF-01, name: "測度保存シフト" }
-  - { id: TSA5-DEF-02, name: "不変σ-加法族とエルゴード性" }
-  - { id: TSA5-DEF-03, name: "混合性" }
-  - { id: TSA5-DEF-04, name: "α-混合係数" }
-  - { id: TSA5-DEF-05, name: "m-依存性" }
-  - { id: TSA5-DEF-06, name: "長期分散" }
+  - { id: TSA5-DEF-02, name: "不変σ-加法族" }
+  - { id: TSA5-DEF-03, name: "エルゴード性" }
+  - { id: TSA5-DEF-04, name: "混合性" }
+  - { id: TSA5-DEF-05, name: "α-混合係数" }
+  - { id: TSA5-DEF-06, name: "m-依存性" }
+  - { id: TSA5-DEF-07, name: "長期分散" }
 theorems:
   - { id: TSA5-PROP-01, name: "狭義定常性と標準経路空間の測度保存シフト" }
   - { id: TSA5-THM-01, name: "Hilbert 空間の平均エルゴード定理" }
