@@ -54,7 +54,7 @@ concepts:
     requires:
       - geometry.differential-form-pullback
       - geometry.form-wedge-product
-      - geometry.chain-rule-manifold
+      - geometry.manifold-chain-rule
 
   - id: geometry.exterior-derivative
     name: 外微分
