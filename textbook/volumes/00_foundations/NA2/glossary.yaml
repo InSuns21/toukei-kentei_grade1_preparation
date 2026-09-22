@@ -18,9 +18,9 @@ terms:
   - term: Newton 法
     english: Newton method
     meaning: 現在点での接線と x 軸の交点を次の近似値とする x_{n+1}=x_n-f(x_n)/f'(x_n) の反復法。
-  - term: 単純根
+  - term: 単根
     english: simple root
     meaning: f(alpha)=0 かつ f'(alpha)≠0 を満たす根。Newton 法の局所二次収束の基本条件になる。
-  - term: 重複根
+  - term: 重根
     english: multiple root
     meaning: f(x)=(x-alpha)^m h(x), m>=2, h(alpha)≠0 と局所的に因数分解できる根。
