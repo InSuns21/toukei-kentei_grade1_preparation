@@ -1,6 +1,6 @@
 # GEO10 幾何学 X
 
-[GEO3](../GEO3/index.md) では Euclid 空間内の正則レベル集合を埋め込み部分多様体として扱い、接空間を微分の核として計算できるようにしました。[VC2](../VC2/index.md) では正則曲線・弧長・単位接ベクトルを、[VC3](../VC3/index.md) ではパラメータ曲面・接平面・法線・曲面積を具体計算しました。[LA5](../LA5/index.md) では内積空間上の自己共役作用素をスペクトル分解する考え方を整えました。
+[GEO3](../GEO3/index.md) では Euclid 空間内の正則レベル集合を埋め込み部分多様体として扱い、接空間を微分の核として計算できるようにしました。[VC2](../VC2/index.md) では正則曲線・弧長・単位接ベクトルを、[VC3](../VC3/index.md) ではパラメータ曲面・接平面・法線・曲面積を具体計算しました。[LA5](../LA5/index.md) では有限次元内積空間上の作用素を正規直交基底で対角化する考え方を整えました。
 
 本章では、この三つを接続します。
 
@@ -41,27 +41,27 @@ $$
 > **定義（弧長パラメータ・単位速曲線）**  
 > 滑らかな正則曲線
 >
-> $$
-> \gamma:I\to\mathbb R^3,
-> \qquad
-> \gamma'(t)\ne0
-> $$
+$$
+\gamma:I\to\mathbb R^3,
+\qquad
+\gamma'(t)\ne0
+$$
 >
 > と $t_0\in I$ に対して
 >
-> $$
-> s(t)
-> :=
-> \int_{t_0}^{t}\|\gamma'(u)\|\,du
-> $$
+$$
+s(t)
+:=
+\int_{t_0}^{t}\|\gamma'(u)\|\,du
+$$
 >
 > と置く。
 >
 > 曲線のパラメータ $u$ が
 >
-> $$
-> \left\|\frac{d\gamma}{du}\right\|=1
-> $$
+$$
+\left\|\frac{d\gamma}{du}\right\|=1
+$$
 >
 > を満たすとき、$u$ を **弧長パラメータ**といい、その表示を **単位速曲線**という。
 <!-- formal-statement-end -->
@@ -125,21 +125,21 @@ $$
 > **定理（弧長パラメータへの再表示）**  
 > $\gamma:I\to\mathbb R^3$ を正則曲線とし、$t_0\in I$ を固定する。
 >
-> $$
-> s(t)=\int_{t_0}^{t}\|\gamma'(u)\|\,du
-> $$
+$$
+s(t)=\int_{t_0}^{t}\|\gamma'(u)\|\,du
+$$
 >
 > と置くと
 >
-> $$
-> s'(t)=\|\gamma'(t)\|>0.
-> $$
+$$
+s'(t)=\|\gamma'(t)\|>0.
+$$
 >
 > 従って各 $t\in I$ の近傍で $s$ は滑らかな逆関数 $t=t(s)$ を持ち、
 >
-> $$
-> \widetilde\gamma(s):=\gamma(t(s))
-> $$
+$$
+\widetilde\gamma(s):=\gamma(t(s))
+$$
 >
 > は単位速曲線である。
 <!-- formal-statement-end -->
@@ -220,35 +220,35 @@ $$
 > **定義（曲率・Frenet 標構・捩率）**  
 > 単位速曲線 $\gamma$ に対し
 >
-> $$
-> T:=\gamma'
-> $$
+$$
+T:=\gamma'
+$$
 >
 > を単位接ベクトルとする。
 >
 > 曲率を
 >
-> $$
-> \kappa:=\|T'\|
-> $$
+$$
+\kappa:=\|T'\|
+$$
 >
 > と定める。
 >
 > $\kappa>0$ の区間では
 >
-> $$
-> N:=\frac{T'}{\kappa},
-> \qquad
-> B:=T\times N
-> $$
+$$
+N:=\frac{T'}{\kappa},
+\qquad
+B:=T\times N
+$$
 >
 > と置き、$(T,N,B)$ を **Frenet 標構**という。
 >
 > さらに捩率を
 >
-> $$
-> \tau:=-B'\cdot N
-> $$
+$$
+\tau:=-B'\cdot N
+$$
 >
 > と定める。
 <!-- formal-statement-end -->
@@ -352,17 +352,17 @@ $$
 >
 > Frenet 標構 $(T,N,B)$ と捩率 $\tau$ に対して
 >
-> $$
-> T'=\kappa N,
-> $$
+$$
+T'=\kappa N,
+$$
 >
-> $$
-> N'=-\kappa T+\tau B,
-> $$
+$$
+N'=-\kappa T+\tau B,
+$$
 >
-> $$
-> B'=-\tau N
-> $$
+$$
+B'=-\tau N
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -614,15 +614,15 @@ $b=0$ なら円に戻り、捩率も0になります。
 >
 > 開集合 $U\subset M$ 上の滑らかな写像
 >
-> $$
-> N:U\to S^n
-> $$
+$$
+N:U\to S^n
+$$
 >
 > が各 $p\in U$ で
 >
-> $$
-> N(p)\perp T_pM
-> $$
+$$
+N(p)\perp T_pM
+$$
 >
 > を満たすとき、$N$ を $U$ 上の **単位法線場**という。
 <!-- formal-statement-end -->
@@ -684,13 +684,13 @@ $$
 > **定義（第一基本形式）**  
 > 超曲面 $M\subset\mathbb R^{n+1}$ と $p\in M$ に対して、
 >
-> $$
-> I_p(v,w)
-> :=
-> v\cdot w
-> \qquad
-> (v,w\in T_pM)
-> $$
+$$
+I_p(v,w)
+:=
+v\cdot w
+\qquad
+(v,w\in T_pM)
+$$
 >
 > と定める。
 >
@@ -779,9 +779,9 @@ $$
 > **定義（Gauss 写像・形作用素・第二基本形式）**  
 > $U\subset M$ 上に単位法線場
 >
-> $$
-> N:U\to S^n
-> $$
+$$
+N:U\to S^n
+$$
 >
 > を選ぶ。
 >
@@ -789,23 +789,23 @@ $$
 >
 > $p\in U$ で
 >
-> $$
-> S_p:T_pM\to T_pM,
-> \qquad
-> S_p(v):=-dN_p(v)
-> $$
+$$
+S_p:T_pM\to T_pM,
+\qquad
+S_p(v):=-dN_p(v)
+$$
 >
 > と定め、$S_p$ を **形作用素**という。
 >
 > さらに
 >
-> $$
-> II_p(v,w)
-> :=
-> I_p(S_pv,w)
-> =
-> S_pv\cdot w
-> $$
+$$
+II_p(v,w)
+:=
+I_p(S_pv,w)
+=
+S_pv\cdot w
+$$
 >
 > を **第二基本形式**という。
 <!-- formal-statement-end -->
@@ -817,17 +817,17 @@ $$
 > **命題（形作用素は接空間に値を取る）**  
 > 単位法線場 $N$ に対し
 >
-> $$
-> dN_p(v)\in T_pM
-> $$
+$$
+dN_p(v)\in T_pM
+$$
 >
 > が全ての $p\in U$ と $v\in T_pM$ で成り立つ。
 >
 > 従って
 >
-> $$
-> S_p=-dN_p
-> $$
+$$
+S_p=-dN_p
+$$
 >
 > は $T_pM$ 上の線形自己写像として定義される。
 <!-- formal-statement-end -->
@@ -931,19 +931,19 @@ $$
 >
 > 各 $p\in M$ で形作用素
 >
-> $$
-> S_p:T_pM\to T_pM
-> $$
+$$
+S_p:T_pM\to T_pM
+$$
 >
 > は第一基本形式に関して自己共役である。
 >
 > すなわち
 >
-> $$
-> I_p(S_pv,w)
-> =
-> I_p(v,S_pw)
-> $$
+$$
+I_p(S_pv,w)
+=
+I_p(v,S_pw)
+$$
 >
 > が全ての $v,w\in T_pM$ で成り立つ。
 >
@@ -1067,31 +1067,31 @@ $$
 > **命題（基本形式と形作用素の座標表示）**  
 > 局所パラメータ表示 $X(u^1,\dots,u^n)$ に対し
 >
-> $$
-> g_{ij}=X_i\cdot X_j,
-> $$
+$$
+g_{ij}=X_i\cdot X_j,
+$$
 >
-> $$
-> b_{ij}=N\cdot X_{ij}
-> $$
+$$
+b_{ij}=N\cdot X_{ij}
+$$
 >
 > と置き、
 >
-> $$
-> G=(g_{ij}),
-> \qquad
-> B=(b_{ij})
-> $$
+$$
+G=(g_{ij}),
+\qquad
+B=(b_{ij})
+$$
 >
 > とする。
 >
 > 座標基底 $(X_1,\dots,X_n)$ に関する形作用素の行列を $A$ とすると
 >
-> $$
-> \boxed{
-> A=G^{-1}B
-> }
-> $$
+$$
+\boxed{
+A=G^{-1}B
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -1231,15 +1231,15 @@ $$
 > **定義（主曲率・Gauss 曲率・平均曲率）**  
 > 超曲面 $M^n\subset\mathbb R^{n+1}$ の点 $p$ で形作用素
 >
-> $$
-> S_p:T_pM\to T_pM
-> $$
+$$
+S_p:T_pM\to T_pM
+$$
 >
 > の固有値
 >
-> $$
-> \kappa_1,\dots,\kappa_n
-> $$
+$$
+\kappa_1,\dots,\kappa_n
+$$
 >
 > を **主曲率**という。
 >
@@ -1247,22 +1247,22 @@ $$
 >
 > $n=2$ の曲面では
 >
-> $$
-> K:=\kappa_1\kappa_2=\det S_p
-> $$
+$$
+K:=\kappa_1\kappa_2=\det S_p
+$$
 >
 > を **Gauss 曲率**という。
 >
 > 一般の $n$ 次元超曲面で
 >
-> $$
-> H
-> :=
-> \frac1n
-> \sum_{i=1}^n\kappa_i
-> =
-> \frac1n\operatorname{tr}S_p
-> $$
+$$
+H
+:=
+\frac1n
+\sum_{i=1}^n\kappa_i
+=
+\frac1n\operatorname{tr}S_p
+$$
 >
 > を **平均曲率**という。
 <!-- formal-statement-end -->
@@ -1296,15 +1296,15 @@ $$
 >
 > 従って $T_pM$ には、主方向からなる正規直交基底
 >
-> $$
-> e_1,\dots,e_n
-> $$
+$$
+e_1,\dots,e_n
+$$
 >
 > が存在し、
 >
-> $$
-> S_pe_i=\kappa_i e_i
-> $$
+$$
+S_pe_i=\kappa_i e_i
+$$
 >
 > とできる。
 <!-- formal-statement-end -->
@@ -1400,27 +1400,27 @@ $$
 >
 > $p\in M$ を通る単位速曲線
 >
-> $$
-> c:(-\varepsilon,\varepsilon)\to M,
-> \qquad
-> c(0)=p
-> $$
+$$
+c:(-\varepsilon,\varepsilon)\to M,
+\qquad
+c(0)=p
+$$
 >
 > に対して
 >
-> $$
-> v:=c'(0)
-> $$
+$$
+v:=c'(0)
+$$
 >
 > と置く。
 >
 > この曲線の $p$ における **正規曲率**を
 >
-> $$
-> \kappa_n(v)
-> :=
-> c''(0)\cdot N(p)
-> $$
+$$
+\kappa_n(v)
+:=
+c''(0)\cdot N(p)
+$$
 >
 > と定める。
 <!-- formal-statement-end -->
@@ -1432,33 +1432,33 @@ $$
 > **命題（正規曲率と Euler の公式）**  
 > 上の設定で
 >
-> $$
-> \kappa_n(v)
-> =
-> II_p(v,v)
-> $$
+$$
+\kappa_n(v)
+=
+II_p(v,v)
+$$
 >
 > が成り立つ。
 >
 > 特に主方向の正規直交基底 $e_1,e_2$ に対して
 >
-> $$
-> v
-> =
-> \cos\theta\,e_1+\sin\theta\,e_2
-> $$
+$$
+v
+=
+\cos\theta\,e_1+\sin\theta\,e_2
+$$
 >
 > なら
 >
-> $$
-> \boxed{
-> \kappa_n(v)
-> =
-> \kappa_1\cos^2\theta
-> +
-> \kappa_2\sin^2\theta
-> }
-> $$
+$$
+\boxed{
+\kappa_n(v)
+=
+\kappa_1\cos^2\theta
++
+\kappa_2\sin^2\theta
+}
+$$
 >
 > である。
 <!-- formal-statement-end -->
@@ -1951,7 +1951,7 @@ $$
 \|\gamma'\|=5.
 $$
 
-外積は
+ベクトル積は
 
 $$
 \gamma'\times\gamma''
