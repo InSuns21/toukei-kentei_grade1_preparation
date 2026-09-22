@@ -150,7 +150,7 @@ concepts:
     introduction_aliases: ["定義（主曲率・Gauss 曲率・平均曲率）"]
     requires:
       - geometry.shape-operator-self-adjoint
-      - linear.spectral-theorem
+      - linear.eigenvalue
 
   - id: geometry.gauss-curvature
     name: Gauss 曲率
@@ -176,7 +176,7 @@ concepts:
     aliases: [主方向の正規直交基底]
     requires:
       - geometry.shape-operator-self-adjoint
-      - linear.spectral-theorem
+      - linear.complex-normal-spectral-theorem
 
   - id: geometry.normal-curvature
     name: 正規曲率
