@@ -202,11 +202,11 @@ concepts:
     requires: [complex-analysis.complex-lattice, complex-analysis.lattice-discreteness, topology.quotient-topology-map, topology.t2-space-recap-top4, topology.second-countable, topology.continuous-image-compact-space, complex-analysis.holomorphic-covering]
 
   - id: complex-analysis.compact-riemann-holomorphic-rigidity
-    name: コンパクト Riemann 面上の正則関数の剛性
+    name: コンパクト Riemann 面から複素平面への正則関数は定数
     kind: theorem
-    aliases: [コンパクト Riemann 面上の正則関数の剛性, holomorphic rigidity on compact Riemann surfaces]
+    aliases: [コンパクト Riemann 面から複素平面への正則関数は定数, コンパクト Riemann 面上の正則関数の剛性, holomorphic rigidity on compact Riemann surfaces]
     introduction: formal
-    introduction_aliases: ["定理（コンパクト Riemann 面から $\\mathbb C$ への正則関数は定数）"]
+    introduction_aliases: ["定理（コンパクト Riemann 面から複素平面への正則関数は定数）"]
     requires: [complex-analysis.riemann-surface, topology.compact-space, complex-analysis.maximum-modulus-principle, complex-analysis.isolated-zeros-identity-theorem]
 
   - id: complex-analysis.torus-holomorphic-rigidity
