@@ -425,7 +425,7 @@ $$
 
 です。その鍵は、$D$ に沿う滑らかなベクトル場の流れが $D$ 自身を保つことです。
 
-<a id="lem-geo6-flow-preserves-distribution"></a>
+<a id="lem-geo6-flow-invariance"></a>
 <!-- formal-statement-start -->
 > **補題（対合的分布はその局所切断の流れで保存される）**  
 > D を対合的な階数 k の滑らかな線形分布、X を D の局所切断、\Phi_t を X の局所流とする。
@@ -843,7 +843,7 @@ $$
 
 と定めます。
 
-[対合的分布は局所流で保存される補題](#lem-geo6-flow-preserves-distribution)から
+[対合的分布はその局所切断の流れで保存される補題](#lem-geo6-flow-invariance)から
 
 $$
 \widetilde A,\widetilde B\in D.
