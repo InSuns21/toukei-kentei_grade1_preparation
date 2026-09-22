@@ -47,11 +47,11 @@ concepts:
       - timeseries.measure-preserving-shift
 
   - id: timeseries.mean-ergodic-theorem
-    name: Hilbert 空間の平均エルゴード定理
+    name: von Neumann の平均エルゴード定理
     kind: theorem
-    aliases: ["mean ergodic theorem", "Hilbert mean ergodic theorem"]
+    aliases: ["mean ergodic theorem", "von Neumann mean ergodic theorem", "Hilbert mean ergodic theorem"]
     introduction: formal
-    introduction_aliases: ["定理（Hilbert 空間の平均エルゴード定理）"]
+    introduction_aliases: ["定理（von Neumann の平均エルゴード定理）"]
     requires:
       - timeseries.measure-preserving-shift
       - timeseries.invariant-sigma-field
