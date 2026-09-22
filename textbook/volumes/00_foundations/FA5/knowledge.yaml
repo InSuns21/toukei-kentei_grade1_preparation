@@ -85,10 +85,10 @@ concepts:
       - complex-analysis.fundamental-theorem-of-algebra
 
   - id: functional.spectral-radius
-    name: 作用素のスペクトル半径
+    name: spectral radius
     kind: definition
-    aliases: [operator spectral radius, 作用素のスペクトル半径]
-    introduction_aliases: [spectral radius, スペクトル半径, "### 定義（spectral radius）"]
+    aliases: [spectral radius, スペクトル半径, "### 定義（spectral radius）"]
+    introduction_aliases: ["### 定義（spectral radius）"]
     requires:
       - functional.spectrum-nonempty
       - functional.spectrum-compact-norm-bound
