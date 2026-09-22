@@ -96,9 +96,9 @@ $$
 > **定義（向き付けられたアトラス・多様体の向き）**  
 > 滑らかな $n$ 次元多様体 $M$ のアトラス $\{(U_\alpha,x_\alpha)\}$ が、任意の重なり $U_\alpha\cap U_\beta$ 上で
 >
-> $$
-> \det D(x_\beta\circ x_\alpha^{-1})>0
-> $$
+$$
+\det D(x_\beta\circ x_\alpha^{-1})>0
+$$
 >
 > を満たすとき、これを **向き付けられたアトラス**という。
 >
@@ -147,19 +147,19 @@ $n$ 次元多様体では、各点で $\Lambda^n(T_p^*M)$ は1次元です。し
 > **定義（向き形式）**  
 > $M$ を $n$ 次元滑らかな多様体とする。どの点でも消えない滑らかな $n$ 形式
 >
-> $$
-> \mu\in\Omega^n(M),
-> \qquad
-> \mu_p\ne0\quad(p\in M)
-> $$
+$$
+\mu\in\Omega^n(M),
+\qquad
+\mu_p\ne0\quad(p\in M)
+$$
 >
 > を **向き形式**という。
 >
 > 向きが選ばれているとき、任意の正の基底 $(v_1,\dots,v_n)$ に対して
 >
-> $$
-> \mu_p(v_1,\dots,v_n)>0
-> $$
+$$
+\mu_p(v_1,\dots,v_n)>0
+$$
 >
 > なら、$\mu$ はその向きと整合するという。
 <!-- formal-statement-end -->
@@ -321,9 +321,9 @@ $$
 > **補題（境界座標変換は境界を保つ）**  
 > $U,V\subset\mathbb H_-^n$ を相対開集合とし、$F:U\to V$ を上の意味での滑らかな座標変換とする。このとき
 >
-> $$
-> p^1=0\quad\Longleftrightarrow\quad F(p)^1=0.
-> $$
+$$
+p^1=0\quad\Longleftrightarrow\quad F(p)^1=0.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -396,9 +396,9 @@ $$
 >
 > $T_p\partial M$ の基底 $(v_1,\dots,v_{n-1})$ が **正**であるとは、
 >
-> $$
-> (\nu,v_1,\dots,v_{n-1})
-> $$
+$$
+(\nu,v_1,\dots,v_{n-1})
+$$
 >
 > が $T_pM$ の正の基底になることをいう。これを **外向き先頭規約**による境界向きという。
 <!-- formal-statement-end -->
@@ -478,11 +478,11 @@ $$
 > **定義（座標近傍内の最高次形式の積分）**  
 > 上の状況で
 >
-> $$
-> \int_M\omega
-> :=
-> \int_{x(U)} f\circ x^{-1}(u)\,du^1\cdots du^n
-> $$
+$$
+\int_M\omega
+:=
+\int_{x(U)} f\circ x^{-1}(u)\,du^1\cdots du^n
+$$
 >
 > と定める。台が $U$ の中でコンパクトなので、境界のない座標では被積分関数を $x(U)$ の外で0とした通常の多重積分として扱える。境界座標では $x(U)\subset\mathbb H_-^n$ 上で積分し、境界集合 $x^1=0$ は $n$ 次元 Jordan 体積0なので積分値には寄与しない。
 <!-- formal-statement-end -->
@@ -567,11 +567,11 @@ $$
 >
 > 向き付けられた座標近傍による開被覆 $\{U_\alpha\}$ と、それに従属する滑らかな 1 の分割 $(\varphi_j)$ を取り、
 >
-> $$
-> \int_M\omega
-> :=
-> \sum_j\int_M\varphi_j\omega
-> $$
+$$
+\int_M\omega
+:=
+\sum_j\int_M\varphi_j\omega
+$$
 >
 > と定める。
 <!-- formal-statement-end -->
@@ -636,19 +636,19 @@ $$
 > **補題（半空間上の局所 Stokes）**  
 > $\mathbb H_-^n=\{x^1\le0\}$ を標準向き
 >
-> $$
-> dx^1\wedge\cdots\wedge dx^n
-> $$
+$$
+dx^1\wedge\cdots\wedge dx^n
+$$
 >
 > で向き付ける。$\eta$ を $\mathbb H_-^n$ 内にコンパクト台を持つ滑らかな $(n-1)$ 形式とする。
 >
 > 境界 $\{x^1=0\}$ を外向き先頭規約で向き付けると
 >
-> $$
-> \int_{\mathbb H_-^n}d\eta
-> =
-> \int_{\partial\mathbb H_-^n}\eta.
-> $$
+$$
+\int_{\mathbb H_-^n}d\eta
+=
+\int_{\partial\mathbb H_-^n}\eta.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -755,13 +755,13 @@ $$
 >
 > $\omega\in\Omega^{n-1}(M)$ がコンパクト台を持つなら
 >
-> $$
-> \boxed{
-> \int_M d\omega
-> =
-> \int_{\partial M}\omega
-> }.
-> $$
+$$
+\boxed{
+\int_M d\omega
+=
+\int_{\partial M}\omega
+}.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
