@@ -152,6 +152,13 @@
 | 外微分 | exterior derivative | 記号 $d$ は数式中で使用 |
 | Lie 微分 | Lie derivative | 記号 $\mathcal L_X$ は数式中で使用 |
 | Cartan の公式 | Cartan formula | 人名部分は英字表記を保持。$\mathcal L_X=d\iota_X+\iota_Xd$ |
+| 向き | orientation | ベクトル空間・多様体の向き。本文では日本語主表記 |
+| 向き付け可能 | orientable | 多様体の性質として「向き付け可能」を主表記とする |
+| 向き形式 | orientation form | どの点でも消えない最高次微分形式 |
+| 境界付き滑らかな多様体 | smooth manifold with boundary | 本文では日本語主表記 |
+| 境界向き | boundary orientation | 原則として外向き先頭規約を明示する |
+| 最高次形式の積分 | integration of top-degree forms | 「多様体上の積分」の局所定義では最高次形式であることを明示する |
+| 一般 Stokes の定理 | generalized Stokes theorem | VC5 の Kelvin--Stokes の定理と区別して「一般 Stokes の定理」と書く |
 | Whitney の埋め込み定理 | Whitney embedding theorem | 人名部分は英字表記を保持 |
 
 ## DREAM THEATER：数値解析の主表記
