@@ -27,7 +27,7 @@ definitions:
 theorems:
   - { id: NA6-PROP-01, name: Euler 法の局所打切り誤差 }
   - { id: NA6-LEM-01, name: 離散 Grönwall 型評価 }
-  - { id: NA6-THM-01, name: 一段関数の Lipschitz 条件による有限時間摂動安定性 }
+  - { id: NA6-THM-01, name: 一段関数の Lipschitz 性による有限時間摂動安定性 }
   - { id: NA6-THM-02, name: 整合性と摂動安定性からの大域収束 }
   - { id: NA6-COR-01, name: Euler 法の一次収束 }
 canonical_examples:
