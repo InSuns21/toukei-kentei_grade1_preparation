@@ -36,7 +36,7 @@ Newtonステップ
   ↓
 JacobianのLipschitz性
   ↓
-二次線形化誤差
+一次近似の二次剰余
   ↓
 可逆行列の摂動評価
   ↓
@@ -561,7 +561,7 @@ $$
 
 <a id="prop-na3-quadratic-remainder"></a>
 <!-- formal-statement-start -->
-### 命題（Lipschitz Jacobian による二次線形化誤差）
+### 命題（Lipschitz Jacobian による一次近似の二次剰余）
 
 凸集合 $D\subset\mathbb R^n$ 上で $F:D\to\mathbb R^n$ が連続微分可能で、$J_F$ が Lipschitz 定数 $L$ を持つとする。
 
@@ -714,7 +714,7 @@ $$
 I+A^{-1}E
 $$
 
-の逆を Neumann 級数
+の逆を 行列の幾何級数
 
 $$
 I-B+B^2-B^3+\cdots
@@ -1042,7 +1042,7 @@ $$
 
 ここで $F(\alpha)=0$ です。
 
-[二次線形化誤差](#prop-na3-quadratic-remainder) を基点 $x$、増分 $-e=\alpha-x$ に適用すると
+[一次近似の二次剰余](#prop-na3-quadratic-remainder) を基点 $x$、増分 $-e=\alpha-x$ に適用すると
 
 $$
 \|F(\alpha)-F(x)+J_F(x)e\|_2
@@ -1861,7 +1861,7 @@ $$
 ### Level B
 
 <a id="ex-na3-b1"></a>
-#### NA3-B01 二次線形化誤差を積分から導く
+#### NA3-B01 一次近似の二次剰余を積分から導く
 - Level: B
 
 凸集合 $D$ 上で $J_F$ が Lipschitz 定数 $L$ を持つとする。
@@ -2135,7 +2135,16 @@ bp+ar
 \end{pmatrix}.
 $$
 
-従って Cauchy--Schwarz の不等式から
+実際、
+
+$$
+(a^2+b^2)(p^2+r^2)-(bp+ar)^2
+=
+(ap-br)^2
+\ge0
+$$
+
+なので
 
 $$
 (bp+ar)^2
@@ -2269,7 +2278,7 @@ $$
 }.
 $$
 
-$\varepsilon\to0$ ではこの比は無限大へ発散します。
+$\varepsilon\to0$ ではこの比は無限大へ増大します。
 
 つまり $e$ 自体は一定の大きさなのに、残差 $A_\varepsilon e$ は任意に小さくできます。
 
@@ -2352,7 +2361,7 @@ $$
 
 使った性質は順に、
 
-1. 微積分学の基本定理による線分積分表示
+1. 各成分への微積分学の基本定理IIの適用
 2. 積分の三角不等式
 3. 作用素ノルムの評価
 4. Jacobian の Lipschitz 性
@@ -2402,7 +2411,7 @@ J_F(x)^{-1}
 }.
 $$
 
-次に $F(\alpha)=0$ なので、二次線形化誤差を基点 $x$、増分
+次に $F(\alpha)=0$ なので、一次近似の二次剰余を基点 $x$、増分
 
 $$
 \alpha-x=-e
@@ -2925,7 +2934,7 @@ $$
   \frac L2\|h\|_2^2
   $$
   を証明した。
-- Neumann 級数を使って、可逆行列の十分小さい摂動が可逆であり続けることを証明した。
+- 行列の幾何級数を使って、可逆行列の十分小さい摂動が可逆であり続けることを証明した。
 - 根 $\alpha$ で $J_F(\alpha)$ が可逆なら、十分小さい球内で Newton 法が定義され続け、
   $$
   \|e_{k+1}\|_2
