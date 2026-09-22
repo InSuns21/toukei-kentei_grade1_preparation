@@ -1,0 +1,32 @@
+chapter: "GEO5"
+terms:
+  - term: ベクトル場
+    english: vector field
+    meaning: 多様体の各点pに接ベクトルX_pを滑らかに割り当てる接束の滑らかな切断。
+  - term: 積分曲線
+    english: integral curve
+    meaning: 速度が各時刻でベクトル場の値に一致する曲線、すなわちγ'(t)=X_{γ(t)}を満たす曲線。
+  - term: 最大積分曲線
+    english: maximal integral curve
+    meaning: 同じ初期条件を持つ積分曲線の中で、それ以上定義区間を延長できない一意な積分曲線。
+  - term: 局所流
+    english: local flow
+    meaning: ベクトル場の積分曲線を初期点ごとにまとめ、定義可能な範囲でΦ_t∘Φ_s=Φ_{t+s}を満たす滑らかな時間発展。
+  - term: 完備ベクトル場
+    english: complete vector field
+    meaning: 全ての初期点から出る最大積分曲線が全時刻t∈Rで存在するベクトル場。
+  - term: ベクトル場の押し出し
+    english: pushforward of a vector field
+    meaning: 微分同相写像Fの微分dFで接ベクトルを運び、別の多様体上へ移したベクトル場。
+  - term: F-関連なベクトル場
+    english: F-related vector fields
+    meaning: 滑らかな写像FについてdF_p(X_p)=Y_{F(p)}を満たす二つのベクトル場。
+  - term: Lie 括弧
+    english: Lie bracket
+    meaning: 二つのベクトル場を導分として見た可換子[X,Y]f=X(Yf)-Y(Xf)。二方向の非可換性を測る。
+  - term: Jacobi 恒等式
+    english: Jacobi identity
+    meaning: Lie括弧が満たす[X,[Y,Z]]+[Y,[Z,X]]+[Z,[X,Y]]=0という恒等式。
+  - term: ベクトル場の直線化定理
+    english: flow-box theorem
+    meaning: X_p≠0ならpの近傍で座標を選びX=∂/∂u¹とできることを述べる局所標準形。
