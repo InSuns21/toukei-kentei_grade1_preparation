@@ -1,6 +1,6 @@
-# CA12 標準複素解析 XII：Riemann ζ 関数・theta 変換・解析接続・関数等式
+# CA12 標準複素解析 XII：数論的特殊関数と Fourier 対称性
 
-> **複素解析 II の終章**。本章では、正整数上の級数から始まる Riemann ζ 関数が、素数の積、Gaussian の Fourier 変換、Gamma 関数、解析接続を一本の線で結ぶことを見る。中心は「既知の関数等式を使う」ことではない。Gaussian を周期化して theta 変換を作り、その Mellin 積分を $t=1$ で分割することで、解析接続・極・対称性・自明零点を同じ構成から導く。
+> **複素解析 II の終章**。正整数上の級数から出発し、素数の積、Gaussian の Fourier 変換、Gamma 関数、解析接続を一本の線で結ぶ。中心は「既知の関数等式を使う」ことではない。Gaussian を周期化して得る変換公式と Mellin 積分から、極・対称性・負の偶数に現れる零点を同じ構成で導く。
 
 <!-- definition-example-audit: strict -->
 
@@ -19,7 +19,7 @@ Euler 積
   ↓
 Gaussian の周期化
   ↓ Fourier 係数を計算
-theta 変換
+Gaussian 周期化の変換公式
   ↓ Mellin 積分
 完成 zeta 因子
   ↓ t=1 で分割
@@ -27,7 +27,7 @@ theta 変換
   ↓ s ↔ 1-s の対称性
 関数等式
   ↓
-自明零点・特殊値
+負の偶数の零点・特殊値
 ~~~
 
 素数定理、$\Re s=1$ 上の零点不存在、零点密度評価、Riemann--von Mangoldt 公式、L 関数、モジュラー形式、Riemann 予想の証明論は本章の停止線より先に置く。
