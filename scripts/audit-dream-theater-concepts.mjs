@@ -146,9 +146,14 @@ for (const page of pages.values()) {
   validateConceptDependencies(page, knowledgeRel);
 
   if (pageChanged || !changedOnly) {
+    const visibleShadowConcepts = [
+      ...page.concepts,
+      ...[...page.ancestors]
+        .flatMap((ancestorId) => pages.get(ancestorId)?.concepts ?? []),
+    ];
     for (const concept of conceptById.values()) {
       if (concept.pageId === page.id) continue;
-      const firstUse = firstUnshadowedAliasUse(lines, concept.aliases, page.concepts);
+      const firstUse = firstUnshadowedAliasUse(lines, concept.aliases, visibleShadowConcepts, page);
       if (firstUse == null) continue;
       if (page.ancestors.has(concept.pageId)) continue;
       if (page.forwardReferences.has(concept.id)) continue;
@@ -328,20 +333,25 @@ function firstAliasUse(lines, aliases) {
   return null;
 }
 
-function firstUnshadowedAliasUse(lines, remoteAliases, localConcepts) {
+function firstUnshadowedAliasUse(lines, remoteAliases, visibleConcepts, currentPage) {
   for (let i = 0; i < lines.length; i += 1) {
     const lineNumber = i + 1;
     const line = lines[i];
     for (const remoteAlias of remoteAliases) {
       if (!aliasAppears(line, remoteAlias)) continue;
       const remoteKey = normalizeAlias(remoteAlias);
-      const shadowed = localConcepts.some((local) => {
-        if (local.declarationLine == null || local.declarationLine > lineNumber) return false;
-        return local.aliases.some((localAlias) => {
-          const localKey = normalizeAlias(localAlias);
-          return localKey.length > remoteKey.length
-            && localKey.includes(remoteKey)
-            && aliasAppears(line, localAlias);
+      const shadowed = visibleConcepts.some((visible) => {
+        const introducedLocally = visible.pageId === currentPage.id
+          && visible.declarationLine != null
+          && visible.declarationLine <= lineNumber;
+        const availableFromPrerequisite = visible.pageId !== currentPage.id
+          && currentPage.ancestors.has(visible.pageId);
+        if (!introducedLocally && !availableFromPrerequisite) return false;
+        return visible.aliases.some((visibleAlias) => {
+          const visibleKey = normalizeAlias(visibleAlias);
+          return visibleKey.length > remoteKey.length
+            && visibleKey.includes(remoteKey)
+            && aliasAppears(line, visibleAlias);
         });
       });
       if (!shadowed) return lineNumber;

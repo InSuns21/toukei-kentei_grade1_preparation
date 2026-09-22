@@ -9,6 +9,8 @@ prerequisites:
   - F0-00D3A
   - MT5
   - F0-00P2
+forward_references:
+  - timeseries.transfer-function
 
 concepts:
   - id: timeseries.positive-definite-sequence

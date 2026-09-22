@@ -345,12 +345,12 @@ Lévy--Khintchine と Lévy--Itô の一般形は証明量が大きいため、�
 
 Herglotz と spectral representation を旧 TS2 / TS2A の二重正本にはせず、新章側で一貫した proof dependency を作る。
 
-### TSA4 linear filter・ARMA / ARIMA・周波数領域
+### TSA4 線形フィルタ・ARMA / ARIMA・周波数領域
 
-- backshift operator
-- linear filter
-- transfer function
-- causality / invertibility
+- 後退作用素
+- 線形フィルタ
+- 伝達関数
+- 因果性 / 可逆性
 - ARMA spectrum
 - differencing / seasonal differencing
 - time-domain ACF / PACF と frequency-domain の対応
@@ -669,4 +669,8 @@ ARMA / ergodicity / Kalman
 - Phase 5：TSA3「Herglotz の定理・スペクトル表現」を実装。正定値列 / Herglotz の定理 / スペクトル測度 / スペクトル密度 / 線スペクトル / 絶対連続スペクトル / 直交増分ランダム測度 / スペクトル確率積分 / スペクトル表現定理を、主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで閉じた。
 - TSA3 の direct prerequisite は TSA1・TSA2・FOU2・RA5・F0-00D3A・MT5・F0-00P2 とした。TSA2 は系列の読順と Wold 分解との対比のために置くが、Herglotz の存在・一意性やスペクトル表現の証明入力には使わない。TSA1 の自己共分散の正定値性、FOU2 の Fejér 一様近似・三角多項式の一様稠密性、RA5 の一様収束・Weierstrass の M-test、D3A の π–λ 定理、MT5 の Riesz--Markov 正汎関数版、P2 系列の $L^2$ 完備性と Radon--Nikodym 定理を canonical dependency として再利用する。旧 F0-00TS2 / F0-00TS2A は migration source に留め、prerequisite / proof dependency にしない。
 - Herglotz の存在は正定値性から非負な Fejér 型近似測度を作り、$C([-π,π])$ の可算稠密集合で対角部分列を取り、極限の正線形汎関数を MT5 の Riesz--Markov で有限測度へ戻して Fourier 係数を極限へ送る形で閉じた。一意性は FOU2 の三角多項式一様稠密性を使う。スペクトル表現は $L^2(F)$ 上の三角多項式から過程空間への等長写像を完備化し、$Z(A)=U1_A$ によって直交増分ランダム測度を構成した。
-- 現在地：Phase 5 は TSA1 → TSA2 → TSA3 完了。次の実装対象は TSA4「線形フィルタ・ARMA / ARIMA・周波数領域」。
+- Phase 5：TSA4「線形フィルタ・ARMA / ARIMA・周波数領域」を実装。後退作用素 / 絶対可算和可能な線形フィルタ / 伝達関数 / 因果性・可逆性 / ARMA の単位円外根条件 / 有理スペクトル密度 / ACF・PACF の打切り / 通常差分・季節差分 / ARIMA / 有理スペクトル因数分解の入口を、主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで閉じた。
+- TSA4 の direct prerequisite は TSA1・TSA2・TSA3 とした。TSA1 の二次定常性・有限過去予測・イノベーション、TSA2 の Wold 分解、TSA3 のスペクトル測度・スペクトル密度・スペクトル表現を canonical dependency として再利用する。旧 F0-00TS 系列は migration source に留め、prerequisite / proof dependency にしない。
+- 線形フィルタでは絶対可算和可能性から L2 収束と二次定常性保存を証明し、TSA3 のスペクトル確率積分へ有限打切りから極限を送って $F_Y(d\lambda)=|H(\lambda)|^2F_X(d\lambda)$ を導いた。ARMA は多項式の単位円外根条件から逆べき級数の絶対可算和可能性を示し、因果解・逆フィルタ・スペクトル密度まで構成した。
+- ARIMA では差分後系列を定常対象として扱うことを明示し、通常差分の 0 周波数零点と季節差分の季節周波数零点を伝達関数から計算した。一般の Kolmogorov--Szegő 型スペクトル因数分解は本章へ逆輸入せず、ARMA の有理スペクトル因子と Wold 表示の対応までを扱った。
+- 現在地：Phase 5 は TSA1 → TSA2 → TSA3 → TSA4 完了。次の実装対象は TSA5「エルゴード性・mixing・従属極限定理」。
