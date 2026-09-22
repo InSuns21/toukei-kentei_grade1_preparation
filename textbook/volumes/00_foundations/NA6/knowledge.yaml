@@ -47,9 +47,10 @@ concepts:
 
   - id: numerical.forward-euler-method
     name: Euler 法
-    kind: method
+    kind: definition
     aliases: [forward Euler method]
-    introduction: inline
+    introduction: formal
+    introduction_aliases: ["定義（Euler 法）"]
     requires:
       - numerical.one-step-method
       - numerical.one-step-increment-function
