@@ -1,0 +1,29 @@
+chapter: "TSA6"
+terms:
+  - term: 状態空間モデル
+    english: state-space model
+    meaning: 観測の背後に有限次元の状態を置き、状態遷移と観測生成を別々の方程式で記述するモデル。
+  - term: 線形正規状態空間モデル
+    english: linear Gaussian state-space model
+    meaning: 状態方程式と観測方程式が線形で、初期状態と各雑音が正規分布に従う状態空間モデル。
+  - term: 予測分布
+    english: prediction distribution
+    meaning: 現時点の観測を見る前に過去の観測だけから作る状態の条件付き分布。
+  - term: フィルタ分布
+    english: filtering distribution
+    meaning: 現時点までの観測を使って得る現在状態の条件付き分布。
+  - term: 観測イノベーション
+    english: observation innovation
+    meaning: 現在の観測から過去情報による一段先観測予測を引いた、新しく加わった予測誤差。
+  - term: Kalman gain
+    english: Kalman gain
+    meaning: 観測イノベーションを状態平均の更新量へ変換する係数行列。
+  - term: Joseph 形
+    english: Joseph form
+    meaning: Kalman 更新後の共分散を二つの半正定値項の和として表し、共分散の非負性を明示する表示。
+  - term: Riccati 再帰
+    english: Riccati recursion
+    meaning: Kalman フィルタの予測・更新を合成して、誤差共分散だけを次時点へ送る非線形行列再帰。
+  - term: イノベーション尤度
+    english: innovation likelihood
+    meaning: 観測の同時尤度を各時点の一段先予測誤差とその共分散による条件付き正規密度の積へ分解したもの。

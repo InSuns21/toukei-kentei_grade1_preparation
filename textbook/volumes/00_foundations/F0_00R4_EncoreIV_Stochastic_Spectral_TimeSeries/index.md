@@ -99,7 +99,7 @@ manifold-valued SDE / stochastic development
 3. [TSA3：Herglotz の定理・スペクトル表現](../TSA3/index.md) — 実装済み
 4. [TSA4：線形フィルタ・ARMA / ARIMA・周波数領域](../TSA4/index.md) — 実装済み
 5. [TSA5：エルゴード性・混合性・従属極限定理](../TSA5/index.md) — 実装済み
-6. TSA6：状態空間・Kalman フィルタ・innovations
+6. [TSA6：状態空間・Kalman フィルタ・イノベーション](../TSA6/index.md) — 実装済み
 
 統計検定1級本編の AR / MA / ARIMA は試験向け正本として独立に維持し、TSA はその数学的地下構造を扱います。
 
@@ -190,4 +190,6 @@ STO5 では STO2 の bounded optional sampling を dyadic approximation で連�
 
 [TSA5「エルゴード性・混合性・従属極限定理」](../TSA5/index.md#thm-tsa5-mean-ergodic) も実装済みです。標準経路空間の測度保存シフトからエルゴード性を定式化し、Hilbert 空間の平均エルゴード定理を固定点空間と差分空間の直交分解から証明しました。Birkhoff の一般 $L^1$ 版と一般 α-混合中心極限定理 は技術的入力の境界を明示しつつ、定常エルゴード大数則、固定ラグ標本自己共分散の一致性、長期分散 $\sigma_{\mathrm{LR}}^2=2\pi f(0)$ を接続しています。さらに因果線形過程の中心極限定理 は有限 MA 打切りと独立同分布中心極限定理 から完全証明し、因果 ARMA では $\sigma_Z^2\{\theta(1)/\phi(1)\}^2$ が標本平均の漸近分散になることまで閉じました。
 
-現在地は **Phase 5：TSA1 → TSA2 → TSA3 → TSA4 → TSA5 完了。次は TSA6「状態空間・Kalman フィルタ・innovations」** です。
+[TSA6「状態空間・Kalman フィルタ・イノベーション」](../TSA6/index.md#thm-tsa6-kalman-recursion) も実装済みです。線形正規状態空間モデルを P3-03 の多変量正規分布と TSA1 の予測イノベーションへ接続し、正規条件付けから Kalman の予測・更新再帰を導出しました。共分散減少と Joseph 形、Riccati 再帰、イノベーション列の直交性・正規独立性、観測列との情報同値性、イノベーション尤度、ARMA(1,1) の有限次元状態空間表現まで閉じています。定常化は局所レベルモデルの Riccati 不動点と収束を完全証明し、一般行列 Riccati の漸近理論と非線形フィルタリングは後続理論として境界を明示しました。
+
+現在地は **Phase 5：TSA1 → TSA2 → TSA3 → TSA4 → TSA5 → TSA6 完了。Encore IV 再編主線（STO1--STO14 / TSA1--TSA6）は完了** です。
