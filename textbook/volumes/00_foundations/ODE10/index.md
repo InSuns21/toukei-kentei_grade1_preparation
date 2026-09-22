@@ -154,7 +154,7 @@ $$
 \Omega=\omega(x_0)
 $$
 >
-> とする。$q\in\Omega$ が平衡点でない、すなわち $F(q)\ne0$ とする。このとき $q$ を通る十分短い横断線分 $\Sigma$ を取れば
+> とする。$q\in\Omega$ が[平衡解](../ODE1/index.md#def-ode1-equilibrium)でない、すなわち $F(q)\ne0$ とする。このとき $q$ を通る十分短い横断線分 $\Sigma$ を取れば
 >
 $$
 \boxed{\Omega\cap\Sigma=\{q\}}.
