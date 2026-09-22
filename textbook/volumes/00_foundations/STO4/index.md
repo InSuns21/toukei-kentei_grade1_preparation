@@ -14,7 +14,7 @@ $$
 \to
 \text{ガウス有限次元分布}
 \to
-\text{Kolmogorov extension}
+\text{STO3 のガウス過程構成}
 \to
 \text{連続な修正}
 \to
@@ -101,7 +101,7 @@ $$
 > 4. ほとんど全ての $\omega$ について $t\mapsto B_t(\omega)$ は連続である。
 <!-- formal-statement-end -->
 
-2 と 3 はそれぞれ独立増分と stationary ガウス increments を表します。
+2 と 3 はそれぞれ独立増分と定常なガウス増分を表します。
 
 ---
 
@@ -121,21 +121,23 @@ $$
 > **定理（ブラウン運動の構成）**  
 > 連続な 標準ブラウン運動は存在する。
 >
-> より具体的には、centered ガウス過程 $B=(B_t)_{t\ge0}$ で
+> より具体的には、STO3 の [平均関数と半正定値共分散核からのガウス過程構成](../STO3/index.md#thm-sto3-gaussian-process-existence)を
 >
 $$
-E[B_sB_t]=\min(s,t)
+m(t)=0,
+\qquad
+K(s,t)=\min(s,t)
 $$
 >
-> を満たすものを [Kolmogorov 拡張定理](../STO3/index.md#thm-sto3-kolmogorov-extension)で構成し、[Kolmogorov--Chentsov 連続定理](../STO3/index.md#thm-sto3-kolmogorov-chentsov)で連続な修正を取れば、その修正は 標準ブラウン運動である。
+> に適用して平均 0 のガウス過程を構成し、[Kolmogorov--Chentsov 連続定理](../STO3/index.md#thm-sto3-kolmogorov-chentsov)で連続な修正を取れば、その修正は標準ブラウン運動である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
 核心は三点です。
 
-1. $K(s,t)=\min(s,t)$ が本当に共分散 matrix を作れることを確認する。
-2. ガウスでは **無相関な成分が独立**なので、disjoint increments の共分散が 0 なら独立増分が出る。
+1. $K(s,t)=\min(s,t)$ が本当に共分散行列を作れることを確認する。
+2. ガウスでは **無相関な成分が独立**なので、互いに素な時間区間の増分どうしの共分散が 0 なら独立増分が出る。
 3. ガウス増分の第4 モーメント
    $E|B_t-B_s|^4=3|t-s|^2$
    を STO3 の連続定理に入れる。
@@ -143,7 +145,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**Step 1：$K(s,t)=\min(s,t)$ は positive semidefinite。**
+**Step 1：$K(s,t)=\min(s,t)$ は半正定値である。**
 
 $0\le t_1<\cdots<t_m$、$a_1,\ldots,a_m\in\mathbb R$ とし、
 
@@ -188,7 +190,7 @@ $$
 \Sigma_{ij}=\min(t_i,t_j)
 $$
 
-は共分散 matrix になれます。
+は共分散行列になれます。
 
 **Step 2：STO3 の一般構成定理を適用する。**
 
@@ -208,7 +210,7 @@ $$
 
 に適用します。
 
-これにより、centered ガウス過程 $X=(X_t)_{t\ge0}$ で
+これにより、平均 0 のガウス過程 $X=(X_t)_{t\ge0}$ で
 
 $$
 E[X_sX_t]=\min(s,t)
