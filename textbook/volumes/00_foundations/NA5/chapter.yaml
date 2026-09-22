@@ -25,6 +25,7 @@ theorems:
   - { id: NA5-THM-01, name: 補間型求積公式 }
   - { id: NA5-THM-02, name: 複合台形則の誤差評価 }
   - { id: NA5-THM-03, name: 複合 Simpson 則の誤差評価 }
+  - { id: NA5-PROP-00, name: モニック直交多項式の存在一意性 }
   - { id: NA5-THM-04, name: 直交多項式の零点定理 }
   - { id: NA5-THM-05, name: Gauss 求積公式の 2n-1 次正確性 }
   - { id: NA5-PROP-01, name: Gauss 求積公式の重みの正値性 }
