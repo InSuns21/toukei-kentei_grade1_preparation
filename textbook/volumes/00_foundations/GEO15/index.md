@@ -11,7 +11,7 @@ Riemann 多様体には、少なくとも二つの「最後まで行ける」が
 - Riemann 距離について Cauchy 列が極限を持つ。
 - 測地線が有限時間で途切れず、任意の時刻まで延長できる。
 
-一見すると別の条件ですが、Hopf--Rinow の定理は、有限次元 Riemann 幾何ではこれらが同値であることを示します。さらに、同値な完備性が成り立つと、任意の二点を結ぶ最短測地線が存在し、閉有界集合はコンパクトになります。
+一見すると別の条件ですが、本章の主定理は、有限次元 Riemann 幾何ではこれらが同値であることを示します。さらに、同値な完備性が成り立つと、任意の二点を結ぶ距離実現測地線が存在し、閉有界集合はコンパクトになります。
 
 本章では
 
@@ -22,7 +22,7 @@ $$
 \longrightarrow
 \text{指数写像の大域定義}
 \longrightarrow
-\text{最短測地線の存在}
+\text{距離を実現する測地線の存在}
 \longrightarrow
 \text{閉球のコンパクト性}
 $$
@@ -182,41 +182,41 @@ $$
 
 初期条件 $(p,v)$ と任意の $T>0$ を取ります。
 
-$
+$$
 Tv\in T_pM=\mathcal D_p
-$
+$$
 
 なので、初期速度 $Tv$ を持つ測地線
 
-$
+$$
 \eta:[0,1]\to M,
 \qquad
 \eta(0)=p,
 \qquad
 \dot\eta(0)=Tv
-$
+$$
 
 が存在します。
 
 ここで
 
-$
+$$
 \widetilde\gamma(s)
 =
 \eta\left(\frac{s}{T}\right),
 \qquad
 0\le s\le T
-$
+$$
 
 と置きます。
 
 [GEO14 のアフィン再パラメータ化](../GEO14/index.md#prop-geo14-affine-reparam)により $\widetilde\gamma$ は測地線で、
 
-$
+$$
 \widetilde\gamma(0)=p,
 \qquad
 \dot{\widetilde\gamma}(0)=v
-$
+$$
 
 です。
 
@@ -468,21 +468,21 @@ $$
 
 ここで一次の状態変数を
 
-$
+$$
 z(t)=(x(t),\dot x(t))
-$
+$$
 
 と書き、測地線方程式を
 
-$
+$$
 \dot z=F(z)
-$
+$$
 
 とします。$F$ は滑らかです。
 
 $t_1\in[t_0,b)$ を固定すると、
 
-$
+$$
 z(t)
 =
 z(t_1)
@@ -490,31 +490,31 @@ z(t_1)
 \int_{t_1}^{t}F(z(s))\,ds
 \qquad
 (t_1\le t<b)
-$
+$$
 
 です。
 
 $z(t)\to z_b=(x(p),v)$ であり、$F$ は連続なので $F(z(t))\to F(z_b)$ です。したがって $t\uparrow b$ として
 
-$
+$$
 z_b
 =
 z(t_1)
 +
 \int_{t_1}^{b}F(z(s))\,ds.
-$
+$$
 
 ここで
 
-$
+$$
 z(b)=z_b
-$
+$$
 
 と定めると、同じ積分方程式が $t=b$ まで成立します。従って拡張した $z$ は左側からも微分可能で
 
-$
+$$
 \dot z(b)=F(z_b)
-$
+$$
 
 を満たします。
 
@@ -1253,7 +1253,7 @@ $$
 \{v:|v|\le R\}
 $$
 
-は Heine--Borel によりコンパクトです。
+は [Heine--Borel の定理](../F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md#thm-f0-00c1-02)によりコンパクトです。
 
 指数写像は連続なので、その連続像である $\overline B_R(p)$ もコンパクトです。$\square$
 <!-- proof-end -->
@@ -1599,7 +1599,7 @@ $$
 
 ---
 
-## 12. 切断点と切断点集合の入口
+## 12. 最短性が失われる境界
 
 完備なら、任意の初期速度の測地線は永遠に存在します。
 
@@ -1880,7 +1880,7 @@ $c=0$ なら $\gamma$ は定数なので自明です。
 <!-- solution-start -->
 **解答**
 
-$S^n_R$ は $\mathbb R^{n+1}$ の閉有界集合なので Heine--Borel によりコンパクトです。
+$S^n_R$ は $\mathbb R^{n+1}$ の閉有界集合なので [Heine--Borel の定理](../F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md#thm-f0-00c1-02)によりコンパクトです。
 
 GEO12 で示したように Riemann 距離は元の多様体位相を誘導するので、$S^n_R$ は Riemann 距離についてもコンパクト距離空間です。
 
@@ -1888,7 +1888,7 @@ GEO12 で示したように Riemann 距離は元の多様体位相を誘導す�
 
 従って $S^n_R$ は距離完備です。
 
-Hopf--Rinow の定理から距離完備性と測地完備性は同値なので、$S^n_R$ は測地完備でもあります。
+[Hopf--Rinow の定理](#thm-geo15-hopf-rinow)から距離完備性と測地完備性は同値なので、$S^n_R$ は測地完備でもあります。
 <!-- solution-end -->
 
 <a id="ex-geo15-a04"></a>
@@ -2063,7 +2063,7 @@ $$
    \exp_p\{v:|v|\le R\}
    \subset\overline B_R(p).
    $$
-   逆に $q\in\overline B_R(p)$ なら、全域指数写像から最短測地線を得る定理より
+   逆に $q\in\overline B_R(p)$ なら、[全域指数写像から最短測地線を得る定理](#thm-geo15-total-exp-minimizer)より
    $$
    q=\exp_p(v),
    \qquad
