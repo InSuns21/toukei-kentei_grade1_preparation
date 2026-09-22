@@ -736,9 +736,21 @@ CA7 は CA8--CA12 全体の解析的コンパクト性の床なので、独立�
 
 **現在地（2026-09-22）**：CA7 は本文・演習・詳細解答・stable anchor・knowledge/glossary・reader-facing index まで実装済み。Riemann 写像定理は Montel の定理、Hurwitz の定理、正則平方根、極値法を用いて核心証明まで閉じた。PR #353 は全 CI green を確認して squash merge 済み。次は Phase 2 の CA8「Riemann 面・被覆・多価関数」へ進む。
 
-### Phase 2：CA8
+### Phase 2：CA8 ✅
 
-Riemann 面・被覆・複素トーラスを実装し、TOP1/TOP2/TOP4 への theorem-level link を確認する。
+1. chapter.yaml ✅
+2. index.md ✅
+3. A4/B3/C1 + 詳細解答 ✅
+4. stable anchors ✅
+5. knowledge / glossary ✅
+6. reader-facing index / standard math core 反映 ✅
+7. PR #359 ✅
+8. validation / pedagogy audit ✅
+9. merge 準備完了 ✅
+
+Riemann 面・被覆・複素トーラスを実装し、TOP1/TOP2/TOP4/TOP5 への theorem-level link を整備した。対数・平方根の多価性は正則被覆上の一価正則関数として構成し、経路持ち上げ・ホモトピー持ち上げから CA5 のモノドロミーを幾何的に再解釈する。複素トーラスは商位相からアトラス、Hausdorff 性、第二可算性、コンパクト性まで証明する。
+
+**現在地（2026-09-22）**：CA8 の本文・演習・詳細解答・stable anchor・knowledge/glossary・reader-facing index を実装済み。PR #359 で Pages / textbook / terminology / DREAM THEATER concepts / exercises / standard math core の各 workflow が green、proof pedagogy / formalism pedagogy も green。次工程は Phase 3 の CA9「楕円関数・Weierstrass $\wp$ 関数」。
 
 ### Phase 3：CA9
 
