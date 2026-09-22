@@ -33,7 +33,7 @@ theorems:
   - { id: CA9-THM-05, name: Weierstrass の微分方程式 }
   - { id: CA9-COR-03, name: wp'' の表示 }
   - { id: CA9-THM-06, name: wp' の零点と半周期 }
-  - { id: CA9-PROP-02, name: wp は符号を除いて点を分離する }
+  - { id: CA9-PROP-02, name: wp の二対一性 }
   - { id: CA9-THM-07, name: 三次多項式の非退化 }
   - { id: CA9-PROP-03, name: 格子のスケーリング則 }
   - { id: CA9-THM-08, name: Weierstrass の加法公式 }
