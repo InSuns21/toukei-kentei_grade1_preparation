@@ -32,9 +32,9 @@ concepts:
     aliases: ["線形成長条件による大域存在"]
     introduction: formal
   - id: ode.ode8-flow
-    name: 流れ
+    name: 自律系の流れ
     kind: definition
-    aliases: ["流れ"]
+    aliases: ["自律系の流れ"]
     introduction: formal
   - id: ode.ode8-flow-law
     name: 流れの合成則
