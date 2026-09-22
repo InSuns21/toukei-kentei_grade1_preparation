@@ -1,0 +1,198 @@
+chapter: GEO17
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEO14
+  - GEO16
+forward_references:
+  - geometry.hopf-rinow-theorem
+
+concepts:
+  - id: geometry.curve-variation
+    name: 曲線の変分
+    kind: definition
+    aliases: [曲線の変分, variation of curves]
+    introduction: formal
+    introduction_aliases: ["定義（曲線の変分・変分ベクトル場・固定端点変分）"]
+    requires:
+      - geometry.covariant-derivative-along-curve
+
+  - id: geometry.variation-vector-field
+    name: 変分ベクトル場
+    kind: definition
+    aliases: [変分ベクトル場, variation vector field]
+    introduction: formal
+    introduction_aliases: ["定義（曲線の変分・変分ベクトル場・固定端点変分）"]
+    requires:
+      - geometry.curve-variation
+
+  - id: geometry.fixed-endpoint-variation
+    name: 固定端点変分
+    kind: definition
+    aliases: [固定端点変分, fixed-endpoint variation]
+    introduction: formal
+    introduction_aliases: ["定義（曲線の変分・変分ベクトル場・固定端点変分）"]
+    requires:
+      - geometry.curve-variation
+
+  - id: geometry.variation-covariant-derivative-commutation
+    name: 変分方向と曲線方向の共変微分の交換
+    kind: lemma
+    aliases: [変分方向と曲線方向の共変微分の交換]
+    requires:
+      - geometry.curve-variation
+      - geometry.connection-torsion
+      - geometry.levi-civita-connection
+
+  - id: geometry.energy-first-variation
+    name: エネルギーの第一変分公式
+    kind: theorem
+    aliases: [エネルギーの第一変分公式, first variation formula for energy]
+    introduction: formal
+    requires:
+      - geometry.variation-vector-field
+      - geometry.variation-covariant-derivative-commutation
+      - geometry.metric-compatible-connection
+      - geometry.riemannian-curve-energy
+
+  - id: geometry.geodesic-energy-critical
+    name: 測地線とエネルギー臨界点の同値
+    kind: corollary
+    aliases: [測地線とエネルギー臨界点の同値]
+    requires:
+      - geometry.energy-first-variation
+      - geometry.geodesic
+
+  - id: geometry.length-first-variation
+    name: 長さの第一変分公式
+    kind: theorem
+    aliases: [長さの第一変分公式, first variation formula for length]
+    introduction: formal
+    requires:
+      - geometry.variation-vector-field
+      - geometry.variation-covariant-derivative-commutation
+      - geometry.riemannian-curve-length
+
+  - id: geometry.energy-second-variation
+    name: エネルギーの第二変分公式
+    kind: theorem
+    aliases: [エネルギーの第二変分公式, second variation formula for energy]
+    introduction: formal
+    requires:
+      - geometry.energy-first-variation
+      - geometry.riemann-curvature-operator
+      - geometry.geodesic
+
+  - id: geometry.index-form
+    name: 指数形式
+    kind: definition
+    aliases: [指数形式, index form]
+    introduction: formal
+    requires:
+      - geometry.energy-second-variation
+      - geometry.riemann-curvature-tensor
+
+  - id: geometry.jacobi-field
+    name: Jacobi 場
+    kind: definition
+    aliases: [Jacobi 場, Jacobi field]
+    introduction: formal
+    introduction_aliases: ["定義（Jacobi 場）"]
+    requires:
+      - geometry.riemann-curvature-operator
+      - geometry.geodesic
+
+  - id: geometry.jacobi-equation
+    name: Jacobi 方程式
+    kind: theorem
+    aliases: [Jacobi 方程式, Jacobi equation]
+    requires:
+      - geometry.jacobi-field
+      - geometry.variation-covariant-derivative-commutation
+      - geometry.riemann-curvature-operator
+
+  - id: geometry.geodesic-variation-jacobi
+    name: 測地線変分からの Jacobi 方程式
+    kind: theorem
+    aliases: [測地線変分からの Jacobi 方程式]
+    requires:
+      - geometry.jacobi-equation
+      - geometry.geodesic
+
+  - id: geometry.jacobi-geodesic-variation-realization
+    name: Jacobi 場の測地線変分による実現
+    kind: theorem
+    aliases: [Jacobi 場の測地線変分による実現]
+    requires:
+      - geometry.jacobi-field
+      - geometry.exponential-map
+      - geometry.geodesic-local-existence-uniqueness
+
+  - id: geometry.exponential-differential-jacobi
+    name: 指数写像の微分と Jacobi 場
+    kind: proposition
+    aliases: [指数写像の微分と Jacobi 場]
+    requires:
+      - geometry.exponential-map
+      - geometry.geodesic-variation-jacobi
+
+  - id: geometry.conjugate-point
+    name: 共役点
+    kind: definition
+    aliases: [Riemann 幾何の共役点, conjugate point]
+    introduction: formal
+    introduction_aliases: ["定義（共役点・共役点の重複度）"]
+    requires:
+      - geometry.jacobi-field
+
+  - id: geometry.conjugate-point-multiplicity
+    name: 共役点の重複度
+    kind: definition
+    aliases: [共役点の重複度, multiplicity of a conjugate point]
+    introduction: formal
+    introduction_aliases: ["定義（共役点・共役点の重複度）"]
+    requires:
+      - geometry.conjugate-point
+
+  - id: geometry.conjugate-exponential-singularity
+    name: 共役点と指数写像の微分の退化
+    kind: theorem
+    aliases: [共役点と指数写像の微分の退化]
+    requires:
+      - geometry.conjugate-point
+      - geometry.exponential-differential-jacobi
+
+  - id: geometry.sphere-antipodal-conjugate
+    name: 球面の対蹠点は共役点
+    kind: proposition
+    aliases: [球面の対蹠点は共役点]
+    requires:
+      - geometry.jacobi-equation
+      - geometry.constant-sectional-curvature
+
+  - id: geometry.index-form-positive-before-conjugate
+    name: 共役点がない区間での指数形式の正定値性
+    kind: theorem
+    aliases: [共役点がない区間での指数形式の正定値性]
+    requires:
+      - geometry.index-form
+      - geometry.jacobi-field
+      - geometry.conjugate-point
+
+  - id: geometry.interior-conjugate-destroys-local-minimality
+    name: 区間内部の共役点は局所最短性を壊す
+    kind: theorem
+    aliases: [区間内部の共役点は局所最短性を壊す]
+    requires:
+      - geometry.index-form
+      - geometry.conjugate-point
+      - geometry.energy-second-variation
+
+  - id: geometry.nonpositive-curvature-no-conjugate
+    name: 非正断面曲率では共役点がない
+    kind: proposition
+    aliases: [非正断面曲率では共役点がない]
+    requires:
+      - geometry.jacobi-equation
+      - geometry.sectional-curvature
+      - geometry.conjugate-point
