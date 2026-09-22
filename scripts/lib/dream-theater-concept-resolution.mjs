@@ -12,7 +12,8 @@ export function normalizeAlias(value) {
   if (cached !== undefined) return cached;
   const normalized = source
     .replace(/\$+/gu, '')
-    .replace(/[`*_>#]/gu, '')
+    .replace(/\*\*/gu, '')
+    .replace(/[`_>#]/gu, '')
     .replace(/\\[,!]/gu, '')
     .replace(/\s+/gu, '')
     .trim()
