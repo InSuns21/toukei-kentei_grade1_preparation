@@ -2274,6 +2274,6 @@ CA11 を終えた段階で、次を自力で再構成できることを目標と
 5. CA10 の正弦関数の Euler 積と比較して反射公式を証明する。
 6. Wallis 積で Stirling 公式の定数 sqrt(2pi) まで決定する。
 7. Stirling と周期性から Legendre の倍角公式を証明する。
-8. Beta--Gamma 関係式を漸化式と Euler の極限公式から導く。
+8. Beta--Gamma 関係式を漸化式と [Euler の極限公式](#thm-ca11-euler-limit)から導く。
 
 次章 CA12 では、Gamma 関数を Mellin 変換側の因子として使い、Riemann zeta 関数の解析接続と関数等式へ進む。
