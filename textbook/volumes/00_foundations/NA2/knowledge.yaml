@@ -25,13 +25,21 @@ concepts:
     introduction_aliases: ["定義（根の区間囲い込み）"]
     requires: [numerical.root, analysis.intermediate-value-theorem]
 
+  - id: numerical.bisection-method
+    name: 二分法
+    kind: definition
+    aliases: [二分法, bisection method]
+    introduction: formal
+    introduction_aliases: ["定義（二分法）"]
+    requires: [numerical.root-bracketing]
+
   - id: numerical.bisection-convergence
     name: 二分法の収束と誤差上界
     kind: theorem
     aliases: [二分法の収束と誤差上界, bisection convergence]
     introduction: formal
     introduction_aliases: ["定理（二分法の収束と誤差上界）"]
-    requires: [numerical.root-bracketing, analysis.intermediate-value-theorem, topology.complete-metric-space]
+    requires: [numerical.bisection-method, analysis.intermediate-value-theorem, topology.complete-metric-space]
 
   - id: numerical.fixed-point
     name: 不動点
@@ -52,7 +60,7 @@ concepts:
   - id: numerical.contraction
     name: 縮小写像
     kind: definition
-    aliases: [縮小写像, contraction]
+    aliases: [縮小写像]
     introduction: formal
     introduction_aliases: ["定義（縮小写像）"]
     requires: [analysis.lipschitz-continuity]
