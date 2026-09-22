@@ -1,8 +1,5 @@
 chapter: "STO4"
 terms:
-  - term: Gaussian process
-    english: Gaussian process
-    meaning: 任意の有限個の時刻で取り出した確率ベクトルが多変量Gaussian分布を持つ確率過程。
   - term: Brownian motion
     english: Brownian motion
     meaning: 0から出発し、stationary independent Gaussian incrementsとalmost surely continuous pathsを持つ確率過程。
