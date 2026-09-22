@@ -18,6 +18,7 @@ definitions:
   - { id: ODE10-DEF-03, name: "Dulac 関数" }
 theorems:
   - { id: ODE10-THM-01, name: "Bendixson--Dulac の判定" }
+  - { id: ODE10-LEM-01, name: "局所横断線と正の極限集合の交点" }
   - { id: ODE10-THM-02, name: "Poincaré--Bendixson の定理：標準形" }
 canonical_examples:
   - "中心の円軌道"
