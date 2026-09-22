@@ -2,13 +2,18 @@
 
 > 統計検定1級の教材を読んでいたはずが、気づけば測度論・Fourier解析・PDE・Sobolev空間・確率過程・有限要素法・Monte Carloまで来てしまった人のための入口です。
 
-このページは **DREAM THEATER系列のオリエンテーション兼目次** です。章ID順ではなく、前提関係を意識した通読順で並べています。
+このページは **DREAM THEATER 系列のオリエンテーション兼全体目次** です。数学的な依存関係を意識して、標準数学コアから各 Encore へつながる全体像を示します。
+
+## 読み方
+
+- **統計検定1級の合格が目的なら、まず通常教材を優先してください。** DREAM THEATER は、そこで使う数学を出発点に、大学数学・大学院数学の標準的な理論まで体系的に掘り下げる系列です。
+- 通読するときは、まず **標準数学コア（読む順DAG）** を入口にし、各章の前提関係に沿って進んでください。章IDの番号順に読む必要はありません。
+- Encore II 以降は、ODE・Fourier解析・PDE、Graduate PDE、確率解析・時系列、数値解析へ分岐します。必要な標準数学コアを押さえたうえで、目的に合う系列へ進めます。
+- 各章では、定義と直接例、主要定理、証明の見取り図と完全証明、演習と詳細解答を通じて、前提章だけを既知として論証を再構成できることを目標にしています。
 
 ## 0. 入口
 
-1. [F0-00 統計検定1級のための数学速習](textbook/volumes/00_foundations/F0_00_統計検定1級のための数学速習/index.md)
-2. [標準数学コア（読む順DAG）](textbook/dream-theater-standard-math-core.md)
-3. [F0-00R 基礎論ロードマップ](textbook/volumes/00_foundations/F0_00R_基礎論ロードマップ/index.md)
+1. [標準数学コア（読む順DAG）](textbook/dream-theater-standard-math-core.md)
 
 ---
 
@@ -323,11 +328,3 @@ STO 系列ではマルチンゲール・ブラウン運動・二次変分・確�
 11. [UQ1 random PDE・Monte Carlo FEM](textbook/volumes/00_foundations/F0_00UQ1_random_PDE_Monte_Carlo_FEM/index.md)
 12. [MLMC Multilevel Monte Carlo](textbook/volumes/00_foundations/F0_00MLMC_Multilevel_Monte_Carlo/index.md)
 
----
-
-## 読み方
-
-- 統計検定1級の本線だけなら、まず通常教材を優先してください。
-- DREAM THEATERは「この定理はどこから来たのか」を掘りたいときの補講系列です。
-- 標準数学コアでは、既出概念を必要に応じて参照しながら、その先で必要となる定理や理論を積み上げます。
-- 証明補講は、既存の概念章を肥大化せず **定義 → 例 → 定理 → 証明 → A/B演習** を閉じるために分離しています。
