@@ -15,7 +15,10 @@
 - 同義語を無制限に併記せず、この表の「主表記」へ寄せる。
 - `knowledge.yaml` の `aliases` は同じ概念・定理の別称に限る。章内で扱うだけの関連語・検索語（例：基本解系の定理に対する「重根」「複素根」）を alias として登録しない。
 - 一つの見出しで複数概念を導入するとき、その複合見出しは各概念の `aliases` へ重複登録せず、本文導入位置を照合する `introduction_aliases` に置く。
-- 既出概念を再掲するためのローカル concept は、canonical concept 名を alias として取り直さない。「○○の再掲」のような再掲固有名だけを `aliases` に置き、canonical concept を `requires` で参照する。
+- 既出概念を再掲するためのローカル concept は、canonical concept 名を alias として取り直さない。「○○の再掲」だけでも複数章で衝突するなら「L2完備性で使うBanach空間の再掲」のように文脈を付け、canonical concept を `requires` で参照する。
+- stable ID・stable anchor は後方互換性を担うが、alias は同義語解決を担う。意味的に誤った alias を「古い呼び方だから」「検索できた方が便利だから」という理由だけで残さない。
+- 短い標準語が別分野の概念名にも現れる場合、読者向け本文を不自然に改名しない。global alias 側を「関数列の下極限」「Markov連鎖の可逆性」のように必要な文脈で限定する。
+- 短い alias に対する監査 WARN は改善候補であり、ゼロ件化が目的ではない。真の同義語なら保持してよく、関連語・構成要素なら `introduction_aliases` または本文へ移す。
 - `*` を含む数学・関数解析上の名称（例：弱*位相、weak* topology）は、`*` を意味のある文字として保持する。Markdown の `**` 強調記号とは区別する。
 
 ## CIで統一する代表表記
