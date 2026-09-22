@@ -4,6 +4,8 @@ coverage: complete
 prerequisites:
   - GEO13
   - GEO11
+forward_references:
+  - geometry.geodesic
 
 concepts:
   - id: geometry.riemann-curvature-operator
@@ -53,9 +55,9 @@ concepts:
       - geometry.metric-compatible-connection
 
   - id: geometry.normal-coordinate-curvature-second-derivatives
-    name: 一点正規座標と計量の二階微分
+    name: 一点での接続係数消去と計量の二階微分
     kind: proposition
-    aliases: [一点正規座標と計量の二階微分]
+    aliases: [一点での接続係数消去と計量の二階微分]
     requires:
       - geometry.riemann-curvature-tensor
       - geometry.levi-civita-christoffel-formula
