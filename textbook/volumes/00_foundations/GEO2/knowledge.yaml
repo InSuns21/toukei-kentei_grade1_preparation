@@ -4,7 +4,13 @@ coverage: complete
 prerequisites:
   - GEO1
   - LA3A
-forward_references: []
+forward_references:
+  - geometry.map-rank
+  - geometry.immersion
+  - geometry.submersion
+  - geometry.embedded-submanifold
+  - geometry.regular-value
+  - geometry.regular-value-theorem
 
 concepts:
   - id: geometry.smooth-function-germ
