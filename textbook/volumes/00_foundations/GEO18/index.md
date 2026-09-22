@@ -795,29 +795,29 @@ $$
 
 GEO17 の指数写像と Jacobi 場の対応
 
-$
+$$
 J_z(T)
 =
 (d\exp_p)_{Tu}(Tz)
-$
+$$
 
 へ
 
-$
+$$
 T=t,
 \qquad
 z=\frac{w_\perp}{t}
-$
+$$
 
 を代入します。
 
 すると
 
-$
+$$
 J_z(t)
 =
 (d\exp_p)_{tu}(w_\perp)
-$
+$$
 
 であり、その初期条件は
 
@@ -1286,27 +1286,27 @@ $$
 
 例えば格子 $\Lambda\subset\mathbb R^n$ による平坦トーラス
 
-$
+$$
 \mathbb T^n
 =
 \mathbb R^n/\Lambda
-$
+$$
 
 は完備で断面曲率0ですが、単連結ではありません。
 
 原点の像を $p=[0]$ とすると指数写像は
 
-$
+$$
 \exp_p(v)=[v].
-$
+$$
 
 したがって任意の非零 $\lambda\in\Lambda$ に対して
 
-$
+$$
 \exp_p(v+\lambda)
 =
 \exp_p(v)
-$
+$$
 
 となり、指数写像は単射ではありません。
 
