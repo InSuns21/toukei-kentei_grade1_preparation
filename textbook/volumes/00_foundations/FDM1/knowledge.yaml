@@ -58,7 +58,6 @@ concepts:
     kind: definition
     aliases: [explicit finite-difference method]
     introduction: formal
-    introduction_aliases: ["定義（差分法の陽解法）"]
     requires:
       - numerical.grid-function
 
@@ -67,7 +66,6 @@ concepts:
     kind: definition
     aliases: [implicit finite-difference method]
     introduction: formal
-    introduction_aliases: ["定義（差分法の陰解法）"]
     requires:
       - numerical.grid-function
 
@@ -76,7 +74,6 @@ concepts:
     kind: definition
     aliases: [FTCS, forward-time centered-space scheme]
     introduction: formal
-    introduction_aliases: ["定義（熱方程式の前進時間・中心空間差分法）"]
     requires:
       - pde.pde3-heat-equation
       - numerical.forward-time-difference
