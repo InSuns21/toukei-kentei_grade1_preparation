@@ -1,0 +1,32 @@
+chapter: "FDM1"
+terms:
+  - term: 時空間差分格子
+    english: space-time finite-difference grid
+    meaning: 空間区間と時間区間を有限個の格子点へ分割して得る離散点集合。
+  - term: 格子関数
+    english: grid function
+    meaning: 時空間格子の各格子点に値を割り当てる関数。数値解 U_j^n は連続解 u(t_n,x_j) の近似値として扱う。
+  - term: 前進時間差分
+    english: forward time difference
+    meaning: 現在時刻と次時刻の値の差を時間刻みで割り、時間微分を近似する差分商。
+  - term: 中心二階空間差分
+    english: centered second difference
+    meaning: 左右対称な3点の値から二階空間微分を近似する差分商。
+  - term: 一次元離散 Laplacian
+    english: one-dimensional discrete Laplacian
+    meaning: 格子関数に中心二階空間差分を作用させる離散作用素。
+  - term: 陽解法
+    english: explicit finite-difference method
+    meaning: 次時刻の未知量を、現在以前の既知量から直接更新できる差分法。
+  - term: 陰解法
+    english: implicit finite-difference method
+    meaning: 次時刻の未知量どうしが連立して現れ、各時刻ステップで方程式系を解く差分法。
+  - term: 前進時間・中心空間差分法
+    english: forward-time centered-space scheme
+    meaning: 熱方程式の時間微分を前進差分、空間二階微分を中心差分で置き換える陽的差分法。FTCS とも呼ばれる。
+  - term: 後退 Euler 差分法
+    english: backward Euler finite-difference scheme
+    meaning: 熱方程式の時間微分を後退 Euler 型に、空間二階微分を新しい時刻の中心差分に置き換える陰的差分法。
+  - term: 空間半離散化
+    english: spatial semidiscretization
+    meaning: 空間だけを差分化し、時間は連続のまま残して有限次元 ODE 系へ変換する操作。
