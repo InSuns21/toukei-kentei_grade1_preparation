@@ -2,6 +2,7 @@ chapter: NA12
 scope: dream-theater
 coverage: complete
 prerequisites:
+  - VC1
   - F0-00G
   - NA9
 forward_references: []
