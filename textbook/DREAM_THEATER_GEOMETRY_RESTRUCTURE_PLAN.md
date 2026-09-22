@@ -945,7 +945,7 @@ Phase 1 完了。GEO1 → GEO2 → GEO3 → GEO4 完了。
 - GEO9 de Rham 入門 ✅ 2026-09-22
 
 Phase 2 完了。GEO5 → GEO6 → GEO7 → GEO8 → GEO9 完了。
-Phase 3 の GEO11 まで完了。次の実装開始点は **GEO12「Riemann 計量・長さ・距離・体積」** とする。
+Phase 3 の GEO12 まで完了。次の実装開始点は **GEO13「アフィン接続・Levi-Civita 接続・平行移動」** とする。
 
 ### Phase 3：古典曲面論から Riemann 幾何へ
 
