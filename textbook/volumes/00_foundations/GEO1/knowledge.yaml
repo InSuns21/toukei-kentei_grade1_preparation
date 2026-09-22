@@ -10,12 +10,14 @@ concepts:
   - id: geometry.topological-manifold
     name: 位相多様体
     kind: definition
+    introduction: inline
     aliases: [位相多様体, topological manifold]
     requires: [topology.hausdorff-space, topology.second-countable]
 
   - id: geometry.coordinate-chart
     name: 座標近傍・座標写像
     kind: definition
+    introduction: inline
     aliases: [座標近傍, 座標写像, coordinate chart]
     requires: [geometry.topological-manifold, topology.homeomorphism]
 
@@ -70,6 +72,7 @@ concepts:
   - id: geometry.smooth-manifold
     name: 滑らかな多様体
     kind: definition
+    introduction: inline
     aliases: [滑らかな多様体, smooth manifold]
     requires: [geometry.topological-manifold, geometry.smooth-structure]
 
@@ -88,18 +91,21 @@ concepts:
   - id: geometry.product-manifold
     name: 積多様体の滑らかな構造
     kind: theorem
+    introduction: inline
     aliases: [積多様体, 積多様体の滑らかな構造, product manifold]
     requires: [geometry.smooth-manifold, topology.product-topology]
 
   - id: geometry.torus
     name: n次元トーラス
     kind: definition
+    introduction: inline
     aliases: [トーラス, n次元トーラス, torus]
     requires: [geometry.product-manifold, geometry.sphere-smooth-structure]
 
   - id: geometry.smooth-map
     name: 滑らかな写像
     kind: definition
+    introduction: inline
     aliases: [滑らかな写像, smooth map]
     requires: [geometry.smooth-manifold]
 
