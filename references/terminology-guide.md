@@ -185,6 +185,16 @@
 | Gauss 曲率 | Gaussian curvature | 二次元曲面では主曲率の積 $K=\det S$ |
 | 平均曲率 | mean curvature | $n$ 次元超曲面では $H=\operatorname{tr}S/n$ |
 | 正規曲率 | normal curvature | 単位接方向 $v$ に対する $II(v,v)$ |
+| Gauss 公式 | Gauss formula | 人名部分は英字表記を保持。超曲面の二階微分を接成分と法線成分へ分解する公式 |
+| Christoffel 係数 | Christoffel symbols | 人名部分は英字表記を保持。「Christoffel symbols」を本文主語彙にしない |
+| Weingarten 公式 | Weingarten formula | 人名部分は英字表記を保持。本系列では $S=-dN$ の符号規約に合わせる |
+| Gauss 方程式 | Gauss equation | 人名部分は英字表記を保持 |
+| Codazzi 方程式 | Codazzi equation | 人名部分は英字表記を保持 |
+| 構造方程式 | structure equations | Gauss--Weingarten 系を行列値1形式でまとめる文脈で使用 |
+| Gauss の驚異の定理 | Theorema Egregium | 人名部分は英字表記を保持。Gauss 曲率の内在性を表す定理 |
+| 超曲面の基本定理 | fundamental theorem of hypersurfaces | Gauss--Codazzi を局所存在・剛性へ反転する定理 |
+| 全臍的超曲面 | totally umbilic hypersurface | 形作用素が各点で恒等写像のスカラー倍となる超曲面 |
+| 剛体運動 | Euclidean rigid motion | 直交変換と平行移動の合成 |
 
 ## DREAM THEATER：数値解析の主表記
 
