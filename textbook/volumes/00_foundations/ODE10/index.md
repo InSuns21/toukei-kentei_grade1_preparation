@@ -136,7 +136,7 @@ $B=1$ とすれば通常の Bendixson 判定です。
 <a id="thm-ode10-poincare-bendixson"></a>
 <!-- formal-statement-start -->
 > **定理（Poincaré--Bendixson の定理：標準形）**  
-> $C^1$ 平面自律系の前向き軌道がコンパクト集合に留まるとする。その正の極限集合が[平衡解](../ODE1/index.md#def-ode1-equilibrium)を含まないなら、その正の極限集合は周期軌道である。
+> $F:\mathbb R^2\to\mathbb R^2$ を $C^1$ 級とし、解 $x(t)$ が全ての $t\ge0$ で存在して、その像があるコンパクト集合に含まれるとする。その正の極限集合が[平衡解](../ODE1/index.md#def-ode1-equilibrium)を含まないなら、その正の極限集合は一つの周期軌道である。
 <!-- formal-statement-end -->
 
 ### 何が平面特有なのか
