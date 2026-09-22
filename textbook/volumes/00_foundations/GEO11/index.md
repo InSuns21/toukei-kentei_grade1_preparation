@@ -83,42 +83,42 @@ $$
 > **命題（Gauss 公式と Christoffel 係数）**  
 > 超曲面の局所パラメータ表示 $X$ に対して、一意な滑らかな係数
 >
-> $$
-> \Gamma^k_{ij}
-> $$
+$$
+\Gamma^k_{ij}
+$$
 >
 > が存在し、
 >
-> $$
-> \boxed{
-> X_{ij}
-> =
-> \sum_{k=1}^n\Gamma^k_{ij}X_k
-> +
-> b_{ij}N
-> }
-> $$
+$$
+\boxed{
+X_{ij}
+=
+\sum_{k=1}^n\Gamma^k_{ij}X_k
++
+b_{ij}N
+}
+$$
 >
 > と書ける。
 >
 > さらに $G^{-1}=(g^{ij})$ とすると
 >
-> $$
-> \boxed{
-> \Gamma^k_{ij}
-> =
-> \frac12
-> \sum_{\ell=1}^n
-> g^{k\ell}
-> \left(
-> \partial_i g_{j\ell}
-> +
-> \partial_j g_{i\ell}
-> -
-> \partial_\ell g_{ij}
-> \right)
-> }
-> $$
+$$
+\boxed{
+\Gamma^k_{ij}
+=
+\frac12
+\sum_{\ell=1}^n
+g^{k\ell}
+\left(
+\partial_i g_{j\ell}
++
+\partial_j g_{i\ell}
+-
+\partial_\ell g_{ij}
+\right)
+}
+$$
 >
 > である。従って接成分の係数 $\Gamma^k_{ij}$ は第一基本形式だけから決まる。
 <!-- formal-statement-end -->
@@ -427,23 +427,23 @@ $$
 > **命題（Weingarten 公式）**  
 > $G^{-1}=(g^{ij})$ とし、
 >
-> $$
-> h_i{}^k
-> :=
-> \sum_{\ell=1}^n g^{k\ell}b_{i\ell}
-> $$
+$$
+h_i{}^k
+:=
+\sum_{\ell=1}^n g^{k\ell}b_{i\ell}
+$$
 >
 > と置く。このとき
 >
-> $$
-> \boxed{
-> N_i
-> =
-> -
-> \sum_{k=1}^n
-> h_i{}^k X_k
-> }
-> $$
+$$
+\boxed{
+N_i
+=
+-
+\sum_{k=1}^n
+h_i{}^k X_k
+}
+$$
 >
 > が成り立つ。
 >
@@ -586,39 +586,39 @@ $$
 > **定理（Gauss--Codazzi 方程式）**  
 > Euclid 空間内の超曲面では、全ての添字について
 >
-> $$
-> \boxed{
-> R^\ell{}_{kij}
-> =
-> b_{jk}h_i{}^\ell
-> -
-> b_{ik}h_j{}^\ell
-> }
-> $$
+$$
+\boxed{
+R^\ell{}_{kij}
+=
+b_{jk}h_i{}^\ell
+-
+b_{ik}h_j{}^\ell
+}
+$$
 >
 > が成り立つ。添字を下げると
 >
-> $$
-> \boxed{
-> R_{\ell kij}
-> =
-> b_{jk}b_{i\ell}
-> -
-> b_{ik}b_{j\ell}
-> }
-> $$
+$$
+\boxed{
+R_{\ell kij}
+=
+b_{jk}b_{i\ell}
+-
+b_{ik}b_{j\ell}
+}
+$$
 >
 > である。これを **Gauss 方程式**という。
 >
 > また
 >
-> $$
-> \boxed{
-> \nabla_i b_{jk}
-> =
-> \nabla_j b_{ik}
-> }
-> $$
+$$
+\boxed{
+\nabla_i b_{jk}
+=
+\nabla_j b_{ik}
+}
+$$
 >
 > が成り立つ。これを **Codazzi 方程式**という。
 <!-- formal-statement-end -->
@@ -946,29 +946,29 @@ $$
 > **命題（Gauss--Weingarten 構造方程式）**  
 > 上の $F,\Omega$ に対して
 >
-> $$
-> \boxed{
-> dF=F\Omega
-> }
-> $$
+$$
+\boxed{
+dF=F\Omega
+}
+$$
 >
 > であり、その可積分条件は
 >
-> $$
-> \boxed{
-> d\Omega+\Omega\wedge\Omega=0
-> }
-> $$
+$$
+\boxed{
+d\Omega+\Omega\wedge\Omega=0
+}
+$$
 >
 > である。
 >
 > $du^i\wedge du^j$ の係数で書けば
 >
-> $$
-> \boxed{
-> \partial_iA_j-\partial_jA_i+[A_i,A_j]=0
-> }
-> $$
+$$
+\boxed{
+\partial_iA_j-\partial_jA_i+[A_i,A_j]=0
+}
+$$
 >
 > となり、このブロック成分は Gauss 方程式と Codazzi 方程式に一致する。
 <!-- formal-statement-end -->
@@ -1118,29 +1118,29 @@ $$
 >
 > 具体的には
 >
-> $$
-> \boxed{
-> K
-> =
-> \frac{R_{1212}}{\det G}
-> }
-> $$
+$$
+\boxed{
+K
+=
+\frac{R_{1212}}{\det G}
+}
+$$
 >
 > であり、$R_{1212}$ は
 >
-> $$
-> \Gamma^k_{ij}
-> =
-> \frac12
-> g^{k\ell}
-> \left(
-> \partial_i g_{j\ell}
-> +
-> \partial_j g_{i\ell}
-> -
-> \partial_\ell g_{ij}
-> \right)
-> $$
+$$
+\Gamma^k_{ij}
+=
+\frac12
+g^{k\ell}
+\left(
+\partial_i g_{j\ell}
++
+\partial_j g_{i\ell}
+-
+\partial_\ell g_{ij}
+\right)
+$$
 >
 > とその一階微分から計算される。
 >
@@ -1304,47 +1304,47 @@ $$
 >
 > $G$ から
 >
-> $$
-> \Gamma^k_{ij}
-> =
-> \frac12
-> g^{k\ell}
-> \left(
-> \partial_i g_{j\ell}
-> +
-> \partial_j g_{i\ell}
-> -
-> \partial_\ell g_{ij}
-> \right)
-> $$
+$$
+\Gamma^k_{ij}
+=
+\frac12
+g^{k\ell}
+\left(
+\partial_i g_{j\ell}
++
+\partial_j g_{i\ell}
+-
+\partial_\ell g_{ij}
+\right)
+$$
 >
 > を定め、$h_i{}^k=g^{k\ell}b_{i\ell}$ とする。
 >
 > これらが Gauss 方程式
 >
-> $$
-> R^\ell{}_{kij}
-> =
-> b_{jk}h_i{}^\ell
-> -
-> b_{ik}h_j{}^\ell
-> $$
+$$
+R^\ell{}_{kij}
+=
+b_{jk}h_i{}^\ell
+-
+b_{ik}h_j{}^\ell
+$$
 >
 > と Codazzi 方程式
 >
-> $$
-> \nabla_i b_{jk}
-> =
-> \nabla_j b_{ik}
-> $$
+$$
+\nabla_i b_{jk}
+=
+\nabla_j b_{ik}
+$$
 >
 > を満たすとする。
 >
 > このとき $u_0$ のある近傍 $V\subset U$ と滑らかなはめ込み
 >
-> $$
-> X:V\to\mathbb R^{n+1}
-> $$
+$$
+X:V\to\mathbb R^{n+1}
+$$
 >
 > および単位法線場 $N$ が存在し、その第一基本形式と第二基本形式はそれぞれ $G$ と $B$ である。
 >
@@ -1716,17 +1716,17 @@ $$
 > **定義（全臍的超曲面）**  
 > 連結な超曲面 $M^n\subset\mathbb R^{n+1}$ が **全臍的**であるとは、各点 $p\in M$ である実数 $\lambda(p)$ が存在し、
 >
-> $$
-> S_p=\lambda(p)I
-> $$
+$$
+S_p=\lambda(p)I
+$$
 >
 > となることをいう。
 >
 > 同値に、第二基本形式は
 >
-> $$
-> II_p=\lambda(p)I_p
-> $$
+$$
+II_p=\lambda(p)I_p
+$$
 >
 > を満たす。
 <!-- formal-statement-end -->
@@ -1772,9 +1772,9 @@ Codazzi 方程式は、この条件に強い剛性を与えます。
 > **定理（全臍的超曲面の剛性）**  
 > $n\ge2$ とし、連結な超曲面
 >
-> $$
-> M^n\subset\mathbb R^{n+1}
-> $$
+$$
+M^n\subset\mathbb R^{n+1}
+$$
 >
 > が全臍的であるとする。
 >
@@ -1984,7 +1984,7 @@ $$
 
 は法線方向への曲がり、すなわち周囲の Euclid 空間にどう埋め込まれているかを記録します。
 
-しかし Gauss 方程式により、二次元では
+しかし [Gauss 方程式](#thm-geo11-gauss-codazzi)により、二次元では
 
 $$
 \frac{\det B}{\det G}
