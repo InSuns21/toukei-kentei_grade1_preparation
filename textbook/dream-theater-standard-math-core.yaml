@@ -338,6 +338,15 @@ nodes:
     implementation_path: textbook/volumes/00_foundations/GEO6/index.md
     prerequisites: [GEO3, GEO5]
 
+  - id: GEO7
+    title: テンソル場・微分形式・外微分
+    area: differential-geometry
+    tier: core
+    status: implemented
+    implemented_at: 2026-09-22
+    implementation_path: textbook/volumes/00_foundations/GEO7/index.md
+    prerequisites: [GEO2, GEO5, LA3E]
+
   - id: VC1
     title: ベクトル場と微分演算子
     area: vector-calculus
