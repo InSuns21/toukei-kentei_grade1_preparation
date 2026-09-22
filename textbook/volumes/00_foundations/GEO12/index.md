@@ -11,7 +11,7 @@
 $$
 \text{Riemann 計量}
 \longrightarrow
-\text{flat・sharp と Riemannian 勾配}
+\text{flat・sharp と計量による勾配}
 \longrightarrow
 \text{Riemann 長・曲線エネルギー}
 \longrightarrow
@@ -491,7 +491,7 @@ $$
 
 ---
 
-## 4. Riemannian 勾配は「微分をベクトルへ戻したもの」
+## 4. 微分を計量でベクトルへ戻す
 
 実数値滑らかな関数
 
@@ -1819,7 +1819,7 @@ $$
 
 ---
 
-## 10. 発散と Laplace--Beltrami 作用素
+## 10. 発散と計量から作る二階作用素
 
 Euclid 空間では [VC1](../VC1/index.md) で
 
