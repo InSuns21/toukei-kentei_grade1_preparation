@@ -14,7 +14,7 @@ learning_objectives:
   - 閉区間上の縮小写像について不動点の存在・一意性、反復収束、事前・事後誤差評価を証明できる
   - 収束次数を定義し、線形収束と二次収束を区別できる
   - Newton 法を接線から導出し、単純根近傍での局所二次収束を Taylor の定理から証明できる
-  - 重根で Newton 法の二次収束が失われる機構を説明できる
+  - 多重根で Newton 法の二次収束が失われる機構を説明できる
   - 残差から根誤差を評価するために導関数下界が必要であることを示せる
   - 二分法の大域保証と Newton 法の局所速度を使い分けられる
 definitions:
@@ -26,7 +26,7 @@ definitions:
   - { id: NA2-DEF-06, name: 縮小写像 }
   - { id: NA2-DEF-07, name: 収束次数 }
   - { id: NA2-DEF-08, name: Newton 法 }
-  - { id: NA2-DEF-09, name: 単純根・重根 }
+  - { id: NA2-DEF-09, name: 単純根・多重根 }
 theorems:
   - { id: NA2-THM-01, name: 二分法の収束と誤差上界 }
   - { id: NA2-PROP-01, name: 導関数による縮小性判定 }
@@ -38,7 +38,7 @@ canonical_examples:
   - x^3+x-1 の二分法
   - sqrt(2) の縮小不動点反復
   - sqrt(2) の Newton 法
-  - (x-alpha)^m に対する重根での線形収束
+  - (x-alpha)^m に対する多重根での線形収束
   - x^3-2x+2 の Newton 周期2
 problem_patterns:
   - NA2-BISECTION-1
