@@ -25,9 +25,9 @@ $$
 
 $u'(t)=f(t)$, $u(0)=0$ なら自由発展は値をそのまま保つので、Duhamel 原理は
 
-$
+$$
 u(t)=\int_0^t f(s)\,ds
-$
+$$
 
 を与えます。微分すれば $u'=f$、$t=0$ で $u=0$ を直接確認できます。
 <!-- definition-example-end -->
@@ -401,7 +401,7 @@ $u=a(t)\sin x$ と置くと $a'+a=e^{-t}$, $a(0)=0$。積分因子 $e^t$ から 
 #### PDE8-B02 波動の依存領域
 - Level: B
 
-波動 Duhamel 公式から、点 $(t,x)$ の source 依存領域を記述せよ。
+[非斉次一次元波動方程式の Duhamel 公式](#thm-pde8-wave-duhamel)から、点 $(t,x)$ の source 依存領域を記述せよ。
 
 <!-- solution-start -->
 ##### 詳細解答
