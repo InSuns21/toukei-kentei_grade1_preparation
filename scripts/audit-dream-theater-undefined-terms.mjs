@@ -94,6 +94,8 @@ for (const [alias, owners] of aliasOwners.entries()) {
   });
 }
 
+const conceptDependencyMemo = new Map();
+
 const conceptList = [...concepts.values()];
 for (const [alias, owners] of aliasOwners.entries()) {
   const uniqueOwners = [...new Map(owners.map((owner) => [owner.id, owner])).values()];
@@ -218,8 +220,6 @@ function isPotentiallyBroadShortAlias(alias, owner) {
   if (chars.length < 2 || chars.length > 6) return false;
   return /^[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}ー]+$/u.test(alias);
 }
-
-const conceptDependencyMemo = new Map();
 
 function conceptDependsOn(conceptId, targetId, visiting = new Set()) {
   if (conceptId === targetId) return true;
