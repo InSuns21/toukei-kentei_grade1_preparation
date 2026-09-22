@@ -5,11 +5,6 @@ prerequisites:
   - CA10
   - CA7
 
-# Beta--Gamma の補助節でのみ使う。CA11 の主線 prerequisite にはしない。
-forward_references:
-  - measure.fubini-theorem
-  - analysis.multivariable-riemann-change-of-variables
-
 concepts:
   - id: complex-analysis.gamma-function
     name: Gamma 関数
