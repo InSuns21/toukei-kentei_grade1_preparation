@@ -61,7 +61,7 @@ concepts:
   - id: geometry.poincare-lemma
     name: Poincaré の補題
     kind: theorem
-    aliases: [Poincaré の補題, Poincare lemma]
+    aliases: [Poincaré の補題]
     requires:
       - geometry.homotopy-formula
       - geometry.closed-differential-form
