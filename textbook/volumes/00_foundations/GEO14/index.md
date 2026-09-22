@@ -177,7 +177,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-GEO13 の座標公式より
+[共変微分の座標公式](../GEO13/index.md#prop-geo13-coordinate-formula)より
 
 $$
 \frac{D\dot\gamma}{dt}
@@ -2921,7 +2921,7 @@ $$
    -2y^{-3}.
    $$
 
-   Christoffel 公式から
+   [Levi-Civita 接続の Christoffel 係数公式](../GEO13/index.md#prop-geo13-levi-civita-christoffel)から
 
    $$
    \Gamma^x_{xy}
@@ -3111,7 +3111,7 @@ $$
    \right|=1.
    $$
 
-   よって Pythagoras の定理から
+   よって二つの成分の直交性から
 
    $$
    |\dot\alpha|^2
