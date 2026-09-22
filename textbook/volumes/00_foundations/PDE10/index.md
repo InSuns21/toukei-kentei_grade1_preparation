@@ -86,27 +86,27 @@ $$
 > **補題（n 次元球・穴あき球の発散公式）**  
 > $X=(X_1,\ldots,X_n)$ を球 $B_R(0)$ の近傍で $C^1$ 級とする。このとき
 >
-> $$
-> \int_{B_R}\operatorname{div}X\,dx
-> =
-> \int_{\partial B_R}X\cdot n\,dS.
-> $$
+$$
+\int_{B_R}\operatorname{div}X\,dx
+=
+\int_{\partial B_R}X\cdot n\,dS.
+$$
 >
 > また $0<\varepsilon<R$ で $X$ が穴あき球
 >
-> $$
-> B_R\setminus\overline{B_\varepsilon}
-> $$
+$$
+B_R\setminus\overline{B_\varepsilon}
+$$
 >
 > の近傍で $C^1$ 級なら
 >
-> $$
-> \int_{B_R\setminus\overline{B_\varepsilon}}
-> \operatorname{div}X\,dx
-> =
-> \int_{\partial(B_R\setminus\overline{B_\varepsilon})}
-> X\cdot n\,dS.
-> $$
+$$
+\int_{B_R\setminus\overline{B_\varepsilon}}
+\operatorname{div}X\,dx
+=
+\int_{\partial(B_R\setminus\overline{B_\varepsilon})}
+X\cdot n\,dS.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -475,7 +475,7 @@ $$
 
 ### 証明の見取り図
 
-核が非有界になる点を小球で切り抜き、[本章で証明した $n$ 次元球・穴あき球の発散公式](#lem-pde10-ball-divergence)から得た 上で導いた積分恒等式を使います。PDE6 の二次元証明と同じく、基本解の単位流束だけが一点値 $f(x)$ を生みます。
+核が非有界になる点を小球で切り抜き、[本章で証明した $n$ 次元球・穴あき球の発散公式](#lem-pde10-ball-divergence)から導く積分恒等式を使います。PDE6 の二次元証明と同じく、基本解の単位流束だけが一点値 $f(x)$ を生みます。
 
 <!-- proof-start -->
 ### 証明
@@ -494,7 +494,7 @@ u(x)
 \int_{\mathbb R^n}\Phi_n(z)f(x-z)\,dz
 $$
 
-と書きます。$\Phi_n$ は原点近くで局所可積分であり、$f$ はコンパクトな台を持ちます。従って $x$ をコンパクト集合内で動かす限り、$f(x-z)$ とその $x$ 微分は共通のコンパクトな $z$ 領域に台を持ち、優収束で **滑らかな $f$ 側**を微分できます。よって
+と書きます。$\Phi_n$ の特異性は、$n\ge3$ では $O(|z|^{2-n})$、$n=2$ では $O(|\log |z||)$ です。したがって原点近くの絶対値積分は、半径方向ではそれぞれ $\int_0^\delta r\,dr$、$\int_0^\delta r|\log r|\,dr$ に支配され、有限です。さらに $f$ はコンパクトな台を持ちます。従って $x$ をコンパクト集合内で動かす限り、$f(x-z)$ とその $x$ 微分は共通のコンパクトな $z$ 領域に台を持ち、優収束で **滑らかな $f$ 側**を微分できます。よって
 
 $$
 \Delta u(x)
@@ -679,23 +679,23 @@ $$
 > **定義（Kelvin 変換）**  
 > $n\ge3$ とし、
 >
-> $$
-> I(x)=\frac{x}{|x|^2}
-> $$
+$$
+I(x)=\frac{x}{|x|^2}
+$$
 >
 > を球面反転とする。開集合 $U\subset\mathbb R^n\setminus\{0\}$ 上の関数 $u$ に対し、反転領域
 >
-> $$
-> U^*:=I(U)
-> $$
+$$
+U^*:=I(U)
+$$
 >
 > 上で
 >
-> $$
-> (Ku)(x)
-> =
-> |x|^{2-n}u(I(x))
-> $$
+$$
+(Ku)(x)
+=
+|x|^{2-n}u(I(x))
+$$
 >
 > と定める。この $Ku$ を $u$ の Kelvin 変換という。
 <!-- formal-statement-end -->
@@ -711,12 +711,12 @@ $$
 > **命題（Kelvin 変換は調和性を保つ）**  
 > $n\ge3$、$U\subset\mathbb R^n\setminus\{0\}$ を開集合、$u\in C^2(U)$ とする。このとき $U^*=I(U)$ 上で
 >
-> $$
-> \Delta(Ku)(x)
-> =
-> |x|^{-n-2}
-> (\Delta u)\left(\frac{x}{|x|^2}\right).
-> $$
+$$
+\Delta(Ku)(x)
+=
+|x|^{-n-2}
+(\Delta u)\left(\frac{x}{|x|^2}\right).
+$$
 >
 > 特に $u$ が $U$ で調和的なら $Ku$ は $U^*$ で調和的である。
 <!-- formal-statement-end -->
@@ -893,29 +893,29 @@ $$
 > **命題（半空間の Dirichlet Green 関数）**  
 > $x\in\mathbb H^n$ を固定し、$y\in\mathbb H^n$、$y^*=(y',-y_n)$ に対し
 >
-> $$
-> G(x,y)
-> =
-> \Phi_n(x-y)-\Phi_n(x-y^*)
-> $$
+$$
+G(x,y)
+=
+\Phi_n(x-y)-\Phi_n(x-y^*)
+$$
 >
 > と置く。このとき $y=x$ を除いて
 >
-> $$
-> \Delta_yG(x,y)=0,
-> $$
+$$
+\Delta_yG(x,y)=0,
+$$
 >
 > $y=x$ の近くでは
 >
-> $$
-> G(x,y)-\Phi_n(x-y)
-> $$
+$$
+G(x,y)-\Phi_n(x-y)
+$$
 >
 > が調和的であり、境界 $y_n=0$ では
 >
-> $$
-> G(x,y)=0.
-> $$
+$$
+G(x,y)=0.
+$$
 >
 > 従って $G$ は半空間の Dirichlet Green 関数に必要な古典的性質を満たす。
 <!-- formal-statement-end -->
