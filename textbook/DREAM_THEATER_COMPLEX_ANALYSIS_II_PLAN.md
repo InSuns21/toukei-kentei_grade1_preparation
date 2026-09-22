@@ -790,12 +790,12 @@ Riemann 面・被覆・複素トーラスを実装し、TOP1/TOP2/TOP4/TOP5 へ�
 4. stable anchors ✅
 5. knowledge / glossary ✅
 6. reader-facing index / standard math core 反映 ✅
-7. validation / pedagogy audit 🔧
-8. PR 🔧
+7. validation / pedagogy audit ✅
+8. PR #369 ✅
 
-Euler 積分の局所一様収束から右半平面での正則性を示し、関数等式で全平面へ有理型解析接続した。Euler の極限公式から逆 Gamma 関数の Weierstrass 積を導き、CA10 の正弦関数の Euler 積との比較で Euler の反射公式を証明した。Stirling 公式は未定定数で止めず、Wallis 積から sqrt(2pi) を決定し、正の実軸へ拡張した。Legendre の倍角公式と Beta--Gamma 関係式まで実装した。
+Euler 積分の局所一様収束から右半平面での正則性を示し、関数等式で全平面へ有理型解析接続した。Euler の極限公式から逆 Gamma 関数の Weierstrass 積を導き、CA10 の正弦関数の Euler 積との比較で Euler の反射公式を証明した。Stirling 公式は未定定数で止めず、Wallis 積から sqrt(2pi) を決定し、正の実軸へ拡張した。Legendre の倍角公式まで閉じた。Beta--Gamma 関係式は、計画上の直接 prerequisite `CA10, CA7` を増やさないため、Fubini や多重積分の変数変換を逆輸入せず、Beta 関数の漸化式・1変数の極限評価・Euler の極限公式だけで導いた。
 
-**現在地（2026-09-22）**：CA11 の本文・演習 A4/B3/C1・詳細解答・stable anchor・knowledge/glossary・reader-facing index・standard math core を実装済み。規定 validation / pedagogy audit と PR 作成が残っている。これらを通過後、次は Phase 6：CA12「Riemann ζ 関数・theta 変換・関数等式」へ進む。
+**現在地（2026-09-22）**：CA11 の本文・演習 A4/B3/C1・詳細解答・stable anchor・knowledge/glossary・reader-facing index・standard math core の同期まで完了。PR #369 で Pages / textbook / terminology / DREAM THEATER concepts / exercises / standard math core の6 workflow が green、textbook workflow 内の proof pedagogy / formalism pedagogy も通過した。Phase 5 完了。次は Phase 6：CA12「Riemann ζ 関数・theta 変換・関数等式」へ進む。
 
 ### Phase 6：CA12
 
