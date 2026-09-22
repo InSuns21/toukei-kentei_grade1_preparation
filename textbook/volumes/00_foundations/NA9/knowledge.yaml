@@ -20,11 +20,11 @@ concepts:
       - numerical.residual
 
   - id: numerical.spectral-radius
-    name: スペクトル半径
+    name: 行列のスペクトル半径
     kind: definition
-    aliases: [spectral radius]
+    aliases: [matrix spectral radius, 行列のスペクトル半径]
     introduction: formal
-    introduction_aliases: ["定義（スペクトル半径）"]
+    introduction_aliases: [スペクトル半径, "定義（スペクトル半径）"]
     requires:
       - linear.eigenvalue
 
