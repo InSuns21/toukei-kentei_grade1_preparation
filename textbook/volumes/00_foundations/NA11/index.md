@@ -174,9 +174,17 @@ $$
 A^kv=\lambda^kv
 $$
 
-なので、誘導ノルムの定義から
+なので
 
-$$
+$
+\|A^kv\|
+\le
+\|A^k\|\,\|v\|
+$
+
+であり、
+
+$
 \|A^k\|
 \ge
 \frac{\|A^kv\|}{\|v\|}
@@ -291,7 +299,7 @@ $$
 c^k
 $$
 
-なので、[前節の行列冪の指数成長率公式](#prop-na11-spectral-radius-power-limit)から
+なので、[有限次元行列の冪の指数成長率公式](#prop-na11-spectral-radius-power-limit)から
 
 $$
 \boxed{
@@ -1024,7 +1032,7 @@ $P$ を既約な列確率行列とする。
 <!-- proof-start -->
 ### 証明
 
-$\rho(P)=1$ なので、既約版 Perron--Frobenius 定理から、ある $x>0$ が存在して
+$\rho(P)=1$ なので、[既約非負行列に対する前節の結果](#thm-na11-irreducible-perron-frobenius)から、ある $x>0$ が存在して
 
 $$
 Px=x.
