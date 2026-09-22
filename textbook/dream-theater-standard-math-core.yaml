@@ -329,6 +329,15 @@ nodes:
     prerequisites: [GEO2]
     reuses: [ODE1, ODE4]
 
+  - id: GEO6
+    title: 線形分布・積分多様体・Frobenius の定理
+    area: differential-geometry
+    tier: advanced-standard
+    status: implemented
+    implemented_at: 2026-09-22
+    implementation_path: textbook/volumes/00_foundations/GEO6/index.md
+    prerequisites: [GEO3, GEO5]
+
   - id: VC1
     title: ベクトル場と微分演算子
     area: vector-calculus
@@ -696,7 +705,7 @@ implementation_batches:
     nodes: [VC1, VC2, VC3, VC4, VC5, VC6, VC7, VC8, VC9]
   - order: 10
     id: differential-geometry-core
-    nodes: [GEO1, GEO2, GEO3, GEO4, GEO5]
+    nodes: [GEO1, GEO2, GEO3, GEO4, GEO5, GEO6]
 
 deferred_integrations:
   - id: dream-theater-facade-entrypoint

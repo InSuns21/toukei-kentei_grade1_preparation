@@ -76,6 +76,8 @@ flowchart TD
   GEO2 --> GEO5["ベクトル場・積分曲線・局所流・Lie 括弧<br/>GEO5"]
   ODE1 -. "reuse" .-> GEO5
   ODE4 -. "reuse" .-> GEO5
+  GEO3 --> GEO6["線形分布・積分多様体・Frobenius の定理<br/>GEO6"]
+  GEO5 --> GEO6
   TOP5 --> TOP5A["Urysohn・局所コンパクト性・cutoff<br/>TOP5A"]
   TOP5 --> BAIRE["全有界性・Baire・net/filter<br/>TOP6"]
   BAIRE --> UNIFORM["一様構造・一様連続・Cauchy構造<br/>TOP7"]
@@ -649,6 +651,22 @@ TOP6 の filter と全有界性を受け、距離空間で暗黙に使ってき�
 実装: [GEO5](volumes/00_foundations/GEO5/index.md)
 
 章としての direct prerequisite は GEO2、ODE1、ODE4 です。標準数学コアの閉じた DAG では GEO2 を prerequisite とし、既存の ODE1・ODE4 は `reuses` として参照します。ODE の存在一意性そのものは再証明せず、局所座標を通して多様体へ移します。一方、初期値への滑らかな依存、最大積分曲線の貼り合わせ、最大流の局所群則、Lie 括弧の座標公式と Jacobi 恒等式、流れによる解釈、直線化定理は本章で核心証明まで閉じます。GEO4 を直接 prerequisite に入れないため、大域導分からベクトル場を復元するための 1 の分割は証明依存に持ち込みません。次の GEO6 では、この局所流と Lie 括弧を Frobenius の定理に使います。
+
+## GEO6 線形分布・積分多様体・Frobenius の定理 `advanced-standard`
+
+- 階数一定の滑らかな線形分布を局所枠で定義し、分布の局所切断を扱う
+- 積分多様体・可積分性を定義し、正則レベル集合の接分布を基本例として構成
+- 対合性を Lie 括弧による閉性として定義し、局所枠だけで判定できることを証明
+- 可積分なら対合的であることを部分多様体の局所方程式から証明
+- 対合的分布がその局所切断の流れで保存されることを線形 ODE で証明
+- ベクトル場の直線化定理と横断面への帰納法により、対合性から適応座標を構成
+- Frobenius の定理として「可積分・対合的・適応座標」の同値を核心証明まで閉じる
+- 適応座標と局所第一積分 $D=\ker dF$ の同値を沈め込みの局所標準形から導出
+- $\operatorname{span}\{\partial_x,\partial_y+x\partial_z\}$ を、Lie 括弧が外へ出る非可積分例として解析
+
+実装: [GEO6](volumes/00_foundations/GEO6/index.md)
+
+direct prerequisite は GEO3 と GEO5 です。GEO3 の部分多様体・正則値・沈め込みの局所標準形を使って「積分多様体」と「局所第一積分」を接続し、GEO5 の局所流・Lie 括弧・ベクトル場の直線化定理を Frobenius の核心証明へ使います。特に対合性から流れ不変性を導く線形 ODE と、横断面上の階数 $k-1$ 分布へ落とす帰納構成を省略しません。次の GEO7 ではテンソル場・微分形式・外微分へ進みます。
 
 ---
 
