@@ -23,6 +23,7 @@ theorems:
   - { id: CA11-THM-03, name: Gamma 関数の有理型解析接続と極 }
   - { id: CA11-THM-04, name: Euler の極限公式 }
   - { id: CA11-THM-05, name: 逆 Gamma 関数の Weierstrass 積 }
+  - { id: CA11-COR-01, name: Gamma 関数の零点不存在 }
   - { id: CA11-THM-06, name: Euler の反射公式 }
   - { id: CA11-THM-07, name: Stirling 公式 }
   - { id: CA11-THM-08, name: Legendre の倍角公式 }
