@@ -60,7 +60,7 @@ DREAM THEATER は `textbook/` 内の発展数学講座だが、通常の試験�
 5. メイン担当が対象種別の規約に従って本文・演習・解答等の必要成果物を完成させる。通常の試験向け章では問題集・詳細解答・30分ドリルまで、DREAM THEATER では `DREAM_THEATER_AUTHORING_STANDARD.md` の本文・証明・例・演習・詳細解答を完成させる。
 6. 完成稿に対し、独立数理査読と読者粒度・目的適合性査読を行う。
 7. 指摘を修正し、再査読で `fatal: 0 / major: 0 / minor: 0` を確認する。
-8. `npm run validate` を成功させる。DREAM THEATER は専用 validation / audit も実行する。
+8. `npm run validate` を成功させる。DREAM THEATER は専用 validation / audit も実行する。概念依存監査は `DREAM_THEATER_AUTHORING_STANDARD.md` の scope 規則に従い、PR では changed-only を原則とし、全体波及する変更だけ full audit とする。
 9. `npm run progress -- complete <ID>` で完了を記録する。
 10. 対象成果物、査読記録、進捗更新を同じ作業単位でコミットする。
 11. コミット後に `git status --short` と `npm run progress` を確認する。
