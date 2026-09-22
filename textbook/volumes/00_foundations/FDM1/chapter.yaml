@@ -1,0 +1,46 @@
+id: "FDM1"
+title: "差分法 I：熱方程式と差分法の導入"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PDE3
+  - NA7
+  - NA8
+official_scope: []
+learning_objectives:
+  - 一次元熱方程式の初期境界値問題に対して空間格子・時間格子・格子関数を定義し、連続解と数値近似の対応を説明できる
+  - 前進時間差分と中心二階空間差分を滑らかな関数の Taylor 展開から導き、どの微分を置き換えているかを説明できる
+  - 熱方程式から前進時間・中心空間差分法を導出し、初期条件・Dirichlet 境界条件を組み込んで1ステップを計算できる
+  - 差分法における陽解法と陰解法を、新しい時刻の未知量が連立して現れるかどうかで判別できる
+  - 熱方程式から後退 Euler 差分法を導出し、非斉次 Dirichlet 境界値を右辺へ移して三重対角連立方程式を組み立てられる
+  - 後退 Euler 差分法の係数行列が実対称正定値であることを二次形式から証明し、各時刻ステップの一意可解性を示せる
+  - 空間半離散化で得られる ODE 系に前進 Euler 法・後退 Euler 法を適用すると二つの差分スキームが得られることを説明できる
+  - FDM2 で扱う安定性と、FDM1 で扱う差分式の導出・可解性を区別して説明できる
+definitions:
+  - { id: FDM1-DEF-01, name: 時空間差分格子・格子関数 }
+  - { id: FDM1-DEF-02, name: 前進時間差分・中心二階空間差分・一次元離散 Laplacian }
+  - { id: FDM1-DEF-03, name: 差分法の陽解法・陰解法 }
+  - { id: FDM1-DEF-04, name: 前進時間・中心空間差分法 }
+  - { id: FDM1-DEF-05, name: 後退 Euler 差分法 }
+theorems:
+  - { id: FDM1-PROP-01, name: 空間半離散系と Euler 法による二つの差分スキームの対応 }
+  - { id: FDM1-THM-01, name: 後退 Euler 差分法の各時刻ステップの一意可解性 }
+canonical_examples:
+  - 二次関数に対する中心二階差分の直接計算
+  - 斉次 Dirichlet 境界条件での前進時間・中心空間差分法の1ステップ
+  - 非斉次 Dirichlet 境界条件の右辺への組込み
+  - 2内部点での後退 Euler 差分法の連立方程式と1ステップ解
+  - 空間半離散行列から前進 Euler 法・後退 Euler 法を得る対応
+problem_patterns:
+  - FDM1-GRID-DIFFERENCE-1
+  - FDM1-FTCS-STEP-1
+  - FDM1-IMPLICIT-ASSEMBLY-1
+  - FDM1-BACKWARD-EULER-STEP-1
+  - FDM1-DERIVE-BOTH-SCHEMES-1
+  - FDM1-SPD-PROOF-1
+  - FDM1-SEMIDISCRETE-EULER-1
+  - FDM1-FULL-WORKFLOW-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 4.5, review: 0.5 }
