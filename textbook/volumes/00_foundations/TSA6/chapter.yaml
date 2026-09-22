@@ -5,6 +5,8 @@ status: supplementary
 prerequisites:
   - TSA1
   - P3-03
+  - LA3B
+  - F0-00P7
 official_scope: []
 learning_objectives:
   - 線形正規状態空間モデルの状態方程式・観測方程式・雑音仮定を次元とともに定式化できる
