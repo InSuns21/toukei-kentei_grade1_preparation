@@ -59,17 +59,19 @@ concepts:
       - geometry.pullback-commutes-exterior-derivative
 
   - id: geometry.poincare-lemma
-    name: Poincaré の補題
+    name: 微分形式の Poincaré の補題
     kind: theorem
-    aliases: [Poincaré の補題]
+    aliases: [微分形式の Poincaré の補題, Poincaré lemma for differential forms]
+    introduction: formal
+    introduction_aliases: ["定理（Poincaré の補題）"]
     requires:
       - geometry.homotopy-formula
       - geometry.closed-differential-form
 
   - id: geometry.de-rham-complex
-    name: de Rham 複体
+    name: 微分形式の Poincaré の補題
     kind: definition
-    aliases: [de Rham 複体, de Rham complex]
+    aliases: [微分形式の Poincaré の補題, Poincaré lemma for differential forms]
     requires:
       - geometry.exterior-derivative-square-zero
 
