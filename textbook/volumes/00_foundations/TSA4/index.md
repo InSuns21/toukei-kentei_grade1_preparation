@@ -107,9 +107,9 @@ $$
 **定義の確認**  
 一階差分は $h_0=1,h_1=-1$、他は 0 の線形フィルタです。係数の絶対和は
 
-$$
-sum_j|h_j|=2<infty
-$$
+$
+\sum_j|h_j|=2<\infty
+$
 
 なので、この定義に含まれます。有限フィルタは自動的に絶対可算和可能です。
 <!-- definition-example-end -->
@@ -274,7 +274,7 @@ $\lambda=\pi$ では 0 なので、符号が一時点ごとに交互に変わる
 係数は $h_0=h_1=1/2$、他は 0 なので確かに $\sum_j|h_j|=1$ です。定義通り Fourier 級数を作れば上の $H$ になり、時間領域の単純平均が周波数依存の減衰へ変換されます。
 <!-- definition-example-end -->
 
-<a id="thm-tsa4-spectrum-transform"></a>
+<a id="thm-tsa4-frequency-transform"></a>
 
 <!-- formal-statement-start -->
 > **定理（線形フィルタによるスペクトル測度の変換）**  
@@ -429,11 +429,11 @@ $$
 
 <!-- definition-example-start: def-tsa4-causal-linear-operation -->
 **定義の確認**  
-$Y_t=X_t+rac12X_{t-1}+rac14X_{t-2}+cdots$ では $h_j=2^{-j}$ $(jge0)$、$h_j=0$ $(j<0)$ です。従って
+$Y_t=X_t+\frac12X_{t-1}+\frac14X_{t-2}+\cdots$ では $h_j=2^{-j}$ $(j\ge0)$、$h_j=0$ $(j<0)$ です。従って
 
-$$
-sum_{jge0}|h_j|=2
-$$
+$
+\sum_{j\ge0}|h_j|=2
+$
 
 で、現在と過去だけを使う因果フィルタです。
 <!-- definition-example-end -->
@@ -461,23 +461,23 @@ $$
 
 <!-- definition-example-start: def-tsa4-causal-inverse-operation -->
 **定義の確認**  
-$Y_t=X_t+	heta X_{t-1}$、$|	heta|<1$ なら
+$Y_t=X_t+\theta X_{t-1}$、$|\theta|<1$ なら
 
-$$
+$
 X_t
 =
-Y_t-	heta Y_{t-1}+	heta^2Y_{t-2}-cdots.
-$$
+Y_t-\theta Y_{t-1}+\theta^2Y_{t-2}-\cdots.
+$
 
-逆フィルタ係数は $g_j=(-	heta)^j$ であり、
+逆フィルタ係数は $g_j=(-\theta)^j$ であり、
 
-$$
-sum_{jge0}|g_j|
+$
+\sum_{j\ge0}|g_j|
 =
-rac1{1-|	heta|}
+\frac1{1-|\theta|}
 <
-infty.
-$$
+\infty.
+$
 
 従ってこの有限移動平均フィルタは因果的に可逆です。
 <!-- definition-example-end -->
@@ -538,34 +538,36 @@ $$
 ### 4.1 例：AR(1)
 
 <!-- definition-example-start: def-tsa4-arma -->
+**定義の確認**  
+AR(1)
 
-$$
+$
 X_t=\phi X_{t-1}+Z_t
-$$
+$
 
 は
 
-$$
+$
 (1-\phi B)X_t=Z_t
-$$
+$
 
 です。
 
 $|\phi|<1$ なら
 
-$$
+$
 \frac1{1-\phi z}
 =
 \sum_{j=0}^{\infty}\phi^jz^j
-$$
+$
 
 が $|z|\le1$ で絶対収束し、
 
-$$
+$
 X_t
 =
 \sum_{j=0}^{\infty}\phi^jZ_{t-j}.
-$$
+$
 
 これは TSA2 で確認した Wold 表示と一致します。
 <!-- definition-example-end -->
@@ -881,7 +883,7 @@ $$
 
 ## 6. ARMA のスペクトル密度
 
-<a id="thm-tsa4-arma-spectrum"></a>
+<a id="thm-tsa4-arma-frequency-density"></a>
 
 <!-- formal-statement-start -->
 > **定理（因果 ARMA のスペクトル密度）**  
@@ -928,7 +930,7 @@ H(\lambda)
 \frac{\theta(e^{-i\lambda})}{\phi(e^{-i\lambda})}.
 $$
 
-[線形フィルタによるスペクトル測度の変換](index.md#thm-tsa4-spectrum-transform)を適用すると
+[線形フィルタによるスペクトル測度の変換](index.md#thm-tsa4-frequency-transform)を適用すると
 
 $$
 f_X(\lambda)
