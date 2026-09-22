@@ -71,6 +71,7 @@ concepts:
     kind: definition
     aliases: [平行ベクトル場, parallel vector field along a curve]
     introduction: formal
+    introduction_aliases: ["定義（平行ベクトル場・平行移動）"]
     requires:
       - geometry.covariant-derivative-along-curve
 
@@ -79,6 +80,7 @@ concepts:
     kind: definition
     aliases: [平行移動, parallel transport]
     introduction: formal
+    introduction_aliases: ["定義（平行ベクトル場・平行移動）"]
     requires:
       - geometry.parallel-vector-field
       - geometry.tangent-space
@@ -97,6 +99,7 @@ concepts:
     kind: definition
     aliases: [計量両立接続, metric-compatible connection]
     introduction: formal
+    introduction_aliases: ["定義（計量両立性）"]
     requires:
       - geometry.affine-connection
       - geometry.riemannian-metric
