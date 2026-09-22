@@ -901,7 +901,7 @@ $$
 \boxed{
 \eta_b
 =
-\frac{\|r\|}{\|b\|_2}
+\frac{\|r\|_2}{\|b\|_2}
 }
 $$
 
@@ -929,7 +929,7 @@ $$
 \Delta b=-r.
 $$
 
-従って必要な摂動のノルムは $\|r\|$ であり、$b$ に対する相対量は $\|r\|/\|b\|_2$ です。$\square$
+従って必要な摂動の大きさは $\|r\|_2$ であり、$b$ に対する相対量は $\|r\|_2/\|b\|_2$ です。$\square$
 <!-- proof-end -->
 
 <a id="cor-na1-forward-backward-condition"></a>
@@ -940,7 +940,7 @@ $A$ を可逆とし、$x$ を $Ax=b$ の厳密解、$\widetilde x$ を近似解�
 
 $$
 \boxed{
-\frac{\|\widetilde x-x\|}{\|x\|_2}
+\frac{\|\widetilde x-x\|_2}{\|x\|_2}
 \le
 \kappa_2(A)
 \frac{\|b-A\widetilde x\|}{\|b\|_2}
@@ -962,13 +962,13 @@ $$
 だけ摂動した問題の厳密解です。従って [右辺摂動に対する感度定理](#thm-na1-linear-system-perturbation)を適用して
 
 $$
-\frac{\|\widetilde x-x\|}{\|x\|_2}
+\frac{\|\widetilde x-x\|_2}{\|x\|_2}
 \le
 \kappa_2(A)
 \frac{\|\Delta b\|_2}{\|b\|_2}
 =
 \kappa_2(A)
-\frac{\|r\|}{\|b\|_2}.
+\frac{\|r\|_2}{\|b\|_2}.
 $$
 
 $\square$
@@ -1080,14 +1080,14 @@ $$
 したがって
 
 $$
-\frac{\|r\|_2}{\|b\|_2}
+\frac{\|r\|_2_2}{\|b\|_2}
 \approx10^{-8}
 $$
 
 と非常に小さい一方、
 
 $$
-\frac{\|\widetilde x-x\|_2}{\|x\|_2}
+\frac{\|\widetilde x-x\|_2_2}{\|x\|_2}
 =
 \frac1{\sqrt2}
 \approx0.707.
@@ -1102,7 +1102,7 @@ $$
 前節の上界
 
 $$
-\frac{\|\widetilde x-x\|_2}{\|x\|_2}
+\frac{\|\widetilde x-x\|_2_2}{\|x\|_2}
 \le
 10^8\times10^{-8}
 \approx1
@@ -1568,7 +1568,7 @@ $$
    $$
    従って
    $$
-   \frac{\|r\|_2}{\|b\|_2}
+   \frac{\|r\|_2_2}{\|b\|_2}
    =
    \frac{\varepsilon}{\sqrt{1+\varepsilon^2}}
    \approx\varepsilon.
@@ -1585,7 +1585,7 @@ $$
    $$
    なので
    $$
-   \frac{\|\widetilde x-x\|_2}{\|x\|_2}
+   \frac{\|\widetilde x-x\|_2_2}{\|x\|_2}
    =
    \frac1{\sqrt2}.
    $$
@@ -1597,7 +1597,7 @@ $$
    本文の上界右辺は
    $$
    \kappa_2(A)
-   \frac{\|r\|_2}{\|b\|_2}
+   \frac{\|r\|_2_2}{\|b\|_2}
    =
    \frac1{\varepsilon}
    \frac{\varepsilon}{\sqrt{1+\varepsilon^2}}
