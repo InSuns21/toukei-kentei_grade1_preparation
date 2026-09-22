@@ -1,0 +1,29 @@
+chapter: "GEO6"
+terms:
+  - term: 線形分布
+    english: distribution
+    meaning: 多様体の各点pに一定次元の線形部分空間D_p⊂T_pMを滑らかに割り当てたもの。
+  - term: 局所枠
+    english: local frame
+    meaning: ある近傍で分布Dを各点ごとに張る一次独立な滑らかなベクトル場の組。
+  - term: 分布の局所切断
+    english: local section of a distribution
+    meaning: 各点qで値X_qが指定された部分空間D_qに属する滑らかなベクトル場。
+  - term: 積分多様体
+    english: integral manifold
+    meaning: 各点で接空間が分布Dと一致する局所的なはめ込み部分多様体。
+  - term: 可積分な分布
+    english: integrable distribution
+    meaning: 各点を通る積分多様体が局所的に存在する滑らかな線形分布。
+  - term: 対合的な分布
+    english: involutive distribution
+    meaning: Dに沿う任意の局所ベクトル場X,YについてLie括弧[X,Y]もDに沿う分布。
+  - term: 適応座標
+    english: adapted coordinates
+    meaning: 階数k分布Dが最初のk本の座標ベクトル場∂/∂u¹,…,∂/∂uᵏで張られる局所座標。
+  - term: Frobenius の定理
+    english: Frobenius theorem
+    meaning: 定階数の滑らかな線形分布について、可積分性・対合性・適応座標の局所存在が同値であることを述べる定理。
+  - term: 局所第一積分
+    english: local first integral
+    meaning: 分布Dに沿う方向微分が0となる局所関数。独立なn-k個をまとめるとD=ker dFと表せる。
