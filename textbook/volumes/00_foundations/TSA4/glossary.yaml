@@ -1,0 +1,38 @@
+chapter: "TSA4"
+terms:
+  - term: 後退作用素
+    english: backshift operator
+    meaning: 時系列を一時点過去へずらす作用素 B。B X_t = X_{t-1}。
+  - term: 線形フィルタ
+    english: linear filter
+    meaning: 時系列の時間シフトを係数付きで足し合わせて新しい系列を作る線形演算。
+  - term: 伝達関数
+    english: transfer function
+    meaning: フィルタ係数の Fourier 級数で、各周波数成分に掛かる複素倍率を表す。
+  - term: 因果性
+    english: causality
+    meaning: 現在の出力が入力の現在と過去だけで表される性質。
+  - term: 可逆性
+    english: invertibility
+    meaning: 駆動雑音を観測系列の現在と過去から安定な因果フィルタで復元できる性質。
+  - term: ARMA過程
+    english: autoregressive moving-average process
+    meaning: AR多項式とMA多項式により phi(B)X_t = theta(B)Z_t と表される定常時系列モデル。
+  - term: 既約ARMA表現
+    english: coprime ARMA representation
+    meaning: AR多項式とMA多項式が非定数の共通因子を持たないARMA表現。
+  - term: 偏自己相関関数
+    english: partial autocorrelation function
+    meaning: 有限過去による最良線形予測で、中間ラグを調整した後に残る最遠ラグの予測係数。
+  - term: 通常差分
+    english: ordinary differencing
+    meaning: (1-B)X_t = X_t-X_{t-1} により0周波数成分を抑える操作。
+  - term: 季節差分
+    english: seasonal differencing
+    meaning: (1-B^s)X_t = X_t-X_{t-s} により周期sの季節周波数を抑える操作。
+  - term: ARIMA過程
+    english: autoregressive integrated moving-average process
+    meaning: d回差分した系列がARMA過程となる時系列モデル。
+  - term: スペクトル因子
+    english: spectral factor
+    meaning: スペクトル密度を定数倍した絶対値二乗として表す因子。
