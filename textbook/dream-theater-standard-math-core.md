@@ -74,8 +74,8 @@ flowchart TD
   GEO3 --> GEO4["1 の分割・局所化・埋め込み<br/>GEO4"]
   TOP5A --> GEO4
   GEO2 --> GEO5["ベクトル場・積分曲線・局所流・Lie 括弧<br/>GEO5"]
-  ODE1 --> GEO5
-  ODE4 --> GEO5
+  ODE1 -. "reuse" .-> GEO5
+  ODE4 -. "reuse" .-> GEO5
   TOP5 --> TOP5A["Urysohn・局所コンパクト性・cutoff<br/>TOP5A"]
   TOP5 --> BAIRE["全有界性・Baire・net/filter<br/>TOP6"]
   BAIRE --> UNIFORM["一様構造・一様連続・Cauchy構造<br/>TOP7"]
@@ -648,7 +648,7 @@ TOP6 の filter と全有界性を受け、距離空間で暗黙に使ってき�
 
 実装: [GEO5](volumes/00_foundations/GEO5/index.md)
 
-直接 prerequisite は GEO2、ODE1、ODE4 です。ODE の存在一意性そのものは再証明せず、局所座標を通して多様体へ移します。一方、初期値への滑らかな依存、最大積分曲線の貼り合わせ、最大流の局所群則、Lie 括弧の座標公式と Jacobi 恒等式、流れによる解釈、直線化定理は本章で核心証明まで閉じます。GEO4 を直接 prerequisite に入れないため、大域導分からベクトル場を復元するための 1 の分割は証明依存に持ち込みません。次の GEO6 では、この局所流と Lie 括弧を Frobenius の定理に使います。
+章としての direct prerequisite は GEO2、ODE1、ODE4 です。標準数学コアの閉じた DAG では GEO2 を prerequisite とし、既存の ODE1・ODE4 は `reuses` として参照します。ODE の存在一意性そのものは再証明せず、局所座標を通して多様体へ移します。一方、初期値への滑らかな依存、最大積分曲線の貼り合わせ、最大流の局所群則、Lie 括弧の座標公式と Jacobi 恒等式、流れによる解釈、直線化定理は本章で核心証明まで閉じます。GEO4 を直接 prerequisite に入れないため、大域導分からベクトル場を復元するための 1 の分割は証明依存に持ち込みません。次の GEO6 では、この局所流と Lie 括弧を Frobenius の定理に使います。
 
 ---
 
