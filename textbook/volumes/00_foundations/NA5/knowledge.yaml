@@ -68,7 +68,7 @@ concepts:
     name: 直交多項式
     kind: definition
     aliases: [orthogonal polynomial]
-    introduction: formal
+    introduction: inline
     introduction_aliases: ["定義（重み付き多項式内積・直交多項式）"]
     requires: [numerical.weighted-polynomial-inner-product]
 
