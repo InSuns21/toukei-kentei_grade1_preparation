@@ -664,7 +664,7 @@ $$
 >
 > $$
 > \phi(z)\neq0
-> \qquad\text{for every }|z|\le1
+> \qquad(|z|\le1)
 > $$
 >
 > とします。このとき
