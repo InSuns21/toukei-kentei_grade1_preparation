@@ -21,6 +21,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pde8-duhamel-principle -->
+**定義の確認**：以下で定義の条件を直接確認します。
+
 ### 直接例：微分だけの方程式
 
 $u'(t)=f(t)$, $u(0)=0$ なら自由発展は値をそのまま保つので、Duhamel 原理は
@@ -61,6 +63,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pde8-heat-propagator -->
+**定義の確認**：以下で定義の条件を直接確認します。
+
 ### 具体例：定数はそのまま
 
 $\int_{\mathbb R}G_t=1$ なので
@@ -129,7 +133,18 @@ v(t,x)
 \int_0^t(S(t-s)f(s))(x)\,ds
 $$
 
-と置きます。積分上端を含む微分公式により
+と置きます。$h>0$ に対して差を二つに分けると
+
+$$
+\frac{v(t+h)-v(t)}{h}
+=
+\frac1h\int_0^t
+\{S(t+h-s)-S(t-s)\}f(s)\,ds
++
+\frac1h\int_t^{t+h}S(t+h-s)f(s)\,ds.
+$$
+
+十分な滑らかさの仮定の下で $h\downarrow0$ とすると、第一項は被積分関数の $t$ 微分の積分へ、第二項は $S(0)f(t)=f(t)$ へ収束します。したがって
 
 $$
 v_t(t,x)
