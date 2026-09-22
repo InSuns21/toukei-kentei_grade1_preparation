@@ -94,6 +94,35 @@ for (const [alias, owners] of aliasOwners.entries()) {
   });
 }
 
+const conceptList = [...concepts.values()];
+for (const [alias, owners] of aliasOwners.entries()) {
+  const uniqueOwners = [...new Map(owners.map((owner) => [owner.id, owner])).values()];
+  if (uniqueOwners.length !== 1) continue;
+  const owner = uniqueOwners[0];
+  if (!isPotentiallyBroadShortAlias(alias, owner)) continue;
+
+  const capturedNames = conceptList
+    .filter((concept) => concept.id !== owner.id)
+    .filter((concept) => normalizeAlias(concept.name).includes(alias))
+    .map((concept) => `${concept.name} (${concept.id})`);
+
+  if (!capturedNames.length) continue;
+  if (changedOnly) {
+    const touched = changed.files.has(owner.page.knowledgeRel)
+      || conceptList
+        .filter((concept) => concept.id !== owner.id && normalizeAlias(concept.name).includes(alias))
+        .some((concept) => changed.files.has(concept.page.knowledgeRel));
+    if (!touched) continue;
+  }
+
+  findings.push({
+    severity: 'WARN',
+    file: owner.page.knowledgeRel,
+    line: 1,
+    message: `短い alias「${alias}」は「${owner.name}」の別称として登録されていますが、別概念名にも現れます: ${capturedNames.slice(0, 5).join(', ')}。関連語・構成要素なら aliases ではなく introduction_aliases や本文へ移してください。`,
+  });
+}
+
 for (const page of pages.values()) {
   if (!page.source || !fs.existsSync(page.knowledgePath)) continue;
   const pageTouched = !changedOnly || changed.files.has(page.path) || changed.files.has(page.knowledgeRel);
@@ -179,6 +208,14 @@ function firstAliasUse(lines, aliases) {
     if (aliases.some((alias) => aliasAppears(lines[i], alias))) return i + 1;
   }
   return null;
+}
+
+function isPotentiallyBroadShortAlias(alias, owner) {
+  const normalizedName = normalizeAlias(owner?.name ?? '');
+  if (!alias || alias === normalizedName) return false;
+  const chars = [...alias];
+  if (chars.length < 2 || chars.length > 6) return false;
+  return /^[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}ー]+$/u.test(alias);
 }
 
 function extractTechnicalCandidates(line) {
@@ -362,6 +399,11 @@ function runSelfTest() {
   const failures = [];
   const candidates = extractTechnicalCandidates('## bounded Lipschitz関数で分布収束を判定できる');
   if (!candidates.some((value) => normalizeAlias(value) === 'boundedlipschitz関数')) failures.push('undefined technical term extraction');
+
+  if (normalizeAlias('弱*位相') === normalizeAlias('弱位相')) failures.push('semantic star preservation');
+  if (normalizeAlias('**弱*位相**') !== normalizeAlias('弱*位相')) failures.push('markdown emphasis star normalization');
+  if (!isPotentiallyBroadShortAlias('階数', { name: '常微分方程式・階数' })) failures.push('broad short alias detection');
+  if (isPotentiallyBroadShortAlias('常微分方程式・階数', { name: '常微分方程式・階数' })) failures.push('canonical name broad alias false positive');
 
   const source = [
     '# test',
