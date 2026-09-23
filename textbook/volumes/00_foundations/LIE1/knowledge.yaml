@@ -4,10 +4,7 @@ coverage: complete
 prerequisites:
   - GRP2
   - GEO5
-forward_references:
-  - lie.one-parameter-subgroup
-  - lie.exponential-map
-  - lie.adjoint-representation
+forward_references: []
 
 concepts:
   - id: lie.lie-group
@@ -159,7 +156,7 @@ concepts:
       - lie.left-invariant-evaluation-isomorphism
 
   - id: lie.general-linear-group
-    name: 一般線形群 GL(n,R) は Lie 群
+    name: 一般線形群は Lie 群
     kind: proposition
     aliases: [general linear group]
     introduction: formal
@@ -168,7 +165,7 @@ concepts:
       - linear.matrix-determinant
 
   - id: lie.general-linear-lie-algebra
-    name: gl(n,R) の Lie 括弧は行列交換子
+    name: 全行列 Lie 環の Lie 括弧
     kind: theorem
     aliases: [general linear Lie algebra]
     introduction: formal
