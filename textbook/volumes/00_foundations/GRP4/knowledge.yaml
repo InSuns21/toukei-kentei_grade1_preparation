@@ -1,0 +1,130 @@
+chapter: GRP4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GRP3
+forward_references: []
+
+concepts:
+  - id: algebra.cauchy-theorem-finite-groups
+    name: 有限群の Cauchy の定理
+    kind: theorem
+    aliases: [Cauchy theorem for finite groups]
+    introduction: formal
+    introduction_aliases: ["定理（有限群の Cauchy の定理）"]
+    requires:
+      - algebra.group-action
+      - algebra.orbit-stabilizer-theorem
+      - algebra.lagrange-theorem
+
+  - id: algebra.p-subgroup
+    name: p-部分群
+    kind: definition
+    aliases: [p-subgroup]
+    introduction: formal
+    introduction_aliases: ["定義（p-部分群・Sylow p-部分群）"]
+    requires:
+      - algebra.subgroup
+      - algebra.finite-p-group
+
+  - id: algebra.sylow-p-subgroup
+    name: Sylow p-部分群
+    kind: definition
+    aliases: [Sylow p-subgroup]
+    introduction: formal
+    introduction_aliases: ["定義（p-部分群・Sylow p-部分群）"]
+    requires:
+      - algebra.p-subgroup
+      - algebra.lagrange-theorem
+
+  - id: algebra.sylow-first-theorem
+    name: Sylow の第一定理
+    kind: theorem
+    aliases: [Sylow first theorem]
+    introduction: formal
+    introduction_aliases: ["定理（Sylow の第一定理）"]
+    requires:
+      - algebra.cauchy-theorem-finite-groups
+      - algebra.sylow-p-subgroup
+      - algebra.group-class-equation
+      - algebra.group-center
+      - algebra.element-centralizer
+      - algebra.correspondence-theorem-group
+
+  - id: algebra.p-group-fixed-point-counting
+    name: p-群作用の固定点の法 p 数え上げ
+    kind: proposition
+    aliases: [fixed-point counting for p-group actions]
+    introduction: formal
+    introduction_aliases: ["命題（p-群作用の固定点の法 p 数え上げ）"]
+    requires:
+      - algebra.finite-p-group
+      - algebra.group-action
+      - algebra.orbit-stabilizer-theorem
+
+  - id: algebra.sylow-second-theorem
+    name: Sylow の第二定理
+    kind: theorem
+    aliases: [Sylow second theorem]
+    introduction: formal
+    introduction_aliases: ["定理（Sylow の第二定理）"]
+    requires:
+      - algebra.sylow-p-subgroup
+      - algebra.p-group-fixed-point-counting
+      - algebra.left-coset
+      - algebra.group-action
+
+  - id: algebra.subgroup-normalizer
+    name: 部分群の正規化群
+    kind: definition
+    aliases: [normalizer of a subgroup]
+    introduction: formal
+    introduction_aliases: ["定義（部分群の正規化群）"]
+    requires:
+      - algebra.subgroup
+      - algebra.conjugation-action
+
+  - id: algebra.sylow-third-theorem
+    name: Sylow の第三定理
+    kind: theorem
+    aliases: [Sylow third theorem]
+    introduction: formal
+    introduction_aliases: ["定理（Sylow の第三定理）"]
+    requires:
+      - algebra.sylow-second-theorem
+      - algebra.subgroup-normalizer
+      - algebra.p-group-fixed-point-counting
+      - algebra.orbit-stabilizer-theorem
+
+  - id: algebra.unique-sylow-normal
+    name: 一意な Sylow 部分群と正規性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（一意な Sylow 部分群と正規性）"]
+    requires:
+      - algebra.sylow-second-theorem
+      - algebra.sylow-p-subgroup
+      - algebra.normal-subgroup
+
+  - id: algebra.order-pq-cyclic-criterion
+    name: 位数 pq の群が巡回群になる十分条件
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（位数 pq の群が巡回群になる十分条件）"]
+    requires:
+      - algebra.sylow-third-theorem
+      - algebra.unique-sylow-normal
+      - algebra.direct-product-group
+      - algebra.cyclic-group
+
+  - id: algebra.internal-semidirect-product
+    name: 内部半直積
+    kind: definition
+    aliases: [internal semidirect product]
+    introduction: formal
+    introduction_aliases: ["定義（内部半直積）"]
+    requires:
+      - algebra.normal-subgroup
+      - algebra.subgroup

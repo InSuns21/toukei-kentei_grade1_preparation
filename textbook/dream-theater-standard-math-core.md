@@ -968,7 +968,24 @@ direct prerequisite は GRP1 です。GRP2 までで Lie 群系列 LIE1 に必�
 
 実装: [GRP3](volumes/00_foundations/GRP3/index.md)
 
-direct prerequisite は GRP2 です。GRP3 までで LIE2 / LIE4 に必要な代数的群作用・共役の基礎が整います。抽象代数系列そのものは GRP4 の Cauchy・Sylow 理論へ続きます。
+direct prerequisite は GRP2 です。GRP3 までで LIE2 / LIE4 に必要な代数的群作用・共役の基礎が整います。
+
+## GRP4 Cauchy の定理・Sylow の定理・有限群への応用 `core / advanced-standard`
+
+- 巡回群の作用で積が単位元になる $p$-組を数え、有限群の Cauchy の定理を証明
+- $p$-部分群と Sylow $p$-部分群を定義し、最大の $p$-冪位数を群の位数から読み取る
+- 類等式を用いる帰納法で Sylow の第一定理を証明
+- $p$-群作用の固定点の法 $p$ 数え上げ $|X|\equiv|X^P|\pmod p$ を軌道分解から導出
+- 左剰余類集合 $G/P$ への作用から Sylow の第二定理を証明
+- 正規化群と共役作用から Sylow の第三定理 $n_p\mid m$, $n_p\equiv1\pmod p$ を証明
+- 一意な Sylow 部分群と正規性の同値を導き、有限群の構造判定へ接続
+- 位数 $pq$ の群の標準判定、位数15の巡回性、$A_4$ の Sylow 部分群数を具体計算
+- 内部半直積を $S_3=C_3\rtimes C_2$ で導入し、Level C で位数6の群を $C_6$ と $S_3$ に分類
+- A4/B3/C1 の演習で Cauchy・Sylow・正規化群・小位数群分類を再構成
+
+実装: [GRP4](volumes/00_foundations/GRP4/index.md)
+
+direct prerequisite は GRP3 です。GRP3 の群作用・類等式・有限 $p$-群の中心非自明性を再利用し、GRP1--GRP4 の群論主線を Sylow 理論まで閉じます。Lie 群系列は GRP3 までで開始でき、GRP4 は後続の有限群・Galois 理論応用へ再利用されます。
 
 ---
 
