@@ -3302,7 +3302,7 @@ $
 \alpha,\quad\omega\alpha,\quad\omega^2\alpha
 $
 
-への作用を見ると、$r$ は三つを巡回させる 3-cycle で、$s$ は $\alpha$ を固定して残り二根を交換する transposition です。
+への作用を見ると、$r$ は三つを巡回させる 3-巡回置換で、$s$ は $\alpha$ を固定して残り二根を交換する互換です。
 
 この二つの置換は $S_3$ を生成します。
 
