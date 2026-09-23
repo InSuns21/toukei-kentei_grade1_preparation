@@ -360,3 +360,4 @@ STO 系列ではマルチンゲール・ブラウン運動・二次変分・確�
 17. [FDM4 移流拡散と風上化](textbook/volumes/00_foundations/FDM4/index.md)
 18. [FEM1 Poisson 方程式・変分形式・Galerkin 法](textbook/volumes/00_foundations/FEM1/index.md)
 19. [FEM2 三角形分割・局所基底・組立て](textbook/volumes/00_foundations/FEM2/index.md)
+20. [FEM3 有限要素補間とメッシュ](textbook/volumes/00_foundations/FEM3/index.md)
