@@ -148,7 +148,8 @@ facade は完成済み講座だけをリンクする。未完成章を先行表�
 - [x] MC2「乱数生成とサンプリング」を新正本として実装
 - [x] MC3「分散減少法」を新正本として実装
 - [x] MC4「Multilevel Monte Carlo」を新正本として実装
-- 次の実装対象：**QMC1「一様分布・discrepancy・Koksma–Hlawka」**
+- [x] QMC1「一様分布・ディスクレパンシー・Koksma–Hlawka」を新正本として実装
+- 次の実装対象：**QMC2「RKHS・最悪誤差・重み付き空間」**
 
 
 ---
