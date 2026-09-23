@@ -412,9 +412,9 @@ $$
 \alpha_x(X)=(X_M)_x
 $$
 
-を考えます。定義から
+を考えます。[基本ベクトル場](#def-lie4-fundamental-vector-field)と[軌道写像](#def-lie4-orbit-map)の定義を合わせると
 
-$$
+$
 \alpha_x
 =
 d(\Phi_x)_e
@@ -485,7 +485,7 @@ $$
 (X_M)_x=0
 $$
 
-を意味します。定理より $X_M$ の流れは
+を意味します。[基本ベクトル場の流れと括弧](#thm-lie4-fundamental-flow-antihom)より $X_M$ の流れは
 
 $$
 t\mapsto\exp(tX)\cdot p
@@ -1009,7 +1009,7 @@ $$
 
 です。
 
-よって $\overline{\Phi}_x$ は同次元多様体間のはめ込みであり、各点で微分は線形同型です。逆関数定理から局所微分同相です。さらに全単射なので、その逆写像は各局所逆写像を貼り合わせた滑らかな写像です。
+よって $\overline{\Phi}_x$ は同次元多様体間のはめ込みであり、各点で微分は線形同型です。[逆関数定理](../RA6A/index.md#thm-ra6a-inverse-function)から局所微分同相です。さらに全単射なので、その逆写像は各局所逆写像を貼り合わせた滑らかな写像です。
 
 従って $\overline{\Phi}_x$ は微分同相です。
 
@@ -1198,9 +1198,9 @@ $$
 (L_h^*\theta)_g(V)
 =
 \theta_{hg}(dL_h(V)).
-$$
+$
 
-定義から
+[左 Maurer--Cartan 形式](#def-lie4-maurer-cartan-form)の定義から
 
 $$
 \theta_{hg}
@@ -1953,9 +1953,9 @@ $$
 <!-- solution-start -->
 ##### 詳細解答
 
-定義から
+[基本ベクトル場](#def-lie4-fundamental-vector-field)の定義から
 
-$$
+$
 (X_G)_p
 =
 \left.
@@ -2044,9 +2044,9 @@ $$
 
 $$
 d(L_{A^{-1}})_A(V)=A^{-1}V.
-$$
+$
 
-従って定義から
+従って[左 Maurer--Cartan 形式](#def-lie4-maurer-cartan-form)の定義から
 
 $$
 \theta_A(V)=A^{-1}V.
