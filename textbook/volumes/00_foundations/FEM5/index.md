@@ -1857,79 +1857,166 @@ $
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fem5-mixed-fem -->
-### 定義の確認：2自由度の離散鞍点モデル
+### 定義の確認：実際の Stokes 空間の有限次元部分空間
 
-有限次元化後の最小模型として
+$\Omega=(0,1)^2$、$\nu=1$ とします。
+
+まず
 
 $
-V_h=\mathbb R^2,
+\chi(x,y)
+=
+x^2(1-x)^2y^2(1-y)^2
+$
+
+から
+
+$
+\phi_0
+=
+\left(
+\partial_y\chi,
+-\partial_x\chi
+\right)
+$
+
+を作ります。第6節と同じ計算で
+
+$
+\phi_0\in[H_0^1(\Omega)]^2,
 \qquad
-Q_h=\mathbb R,
+\nabla\cdot\phi_0=0.
 $
 
+さらに
+
 $
-a(u,v)=u\cdot v,
+w(x,y)=x(1-x)y(1-y),
 \qquad
-b(v,q)=q(v_1+v_2),
-\qquad
-f(v)=v_1
-$
-
-を考えます。
-
-未知量を
-
-$
-u_h=(u_1,u_2),
-\qquad
-p_h=p
-$
-
-とすると、$v_h=(1,0),(0,1)$ を第一式へ、$q_h=1$ を第二式へ入れて
-
-$
-u_1+p=1,
+\phi_1=(w,0),
 $
 
 $
-u_2+p=0,
+r(x,y)=x-\frac12
 $
 
-$
-u_1+u_2=0
-$
+と置きます。
 
-を得ます。
-
-第三式から $u_2=-u_1$、第二式から $p=u_1$ なので、第一式より
+$w$ は境界で $0$ なので
 
 $
-2u_1=1.
+\phi_1\in[H_0^1(\Omega)]^2.
+$
+
+また
+
+$
+\int_\Omega r\,dx\,dy
+=
+\int_0^1\left(x-\frac12\right)dx
+=
+0
+$
+
+だから
+
+$
+r\in L_0^2(\Omega).
 $
 
 従って
 
 $
-\boxed{
-u_h=\left(\frac12,-\frac12\right),
+V_h=\operatorname{span}\{\phi_0,\phi_1\}
+\subset[H_0^1(\Omega)]^2,
+$
+
+$
+Q_h=\operatorname{span}\{r\}
+\subset L_0^2(\Omega)
+$
+
+は定義で要求した有限次元部分空間です。
+
+ここで
+
+$
+u_h=\phi_0,
 \qquad
-p_h=\frac12
+p_h=r
+$
+
+とし、
+
+$
+f(v_h)
+=
+a(\phi_0,v_h)+b(v_h,r)
+$
+
+で $f$ を $V_h$ 上に定めます。
+
+$\nabla\cdot\phi_0=0$ なので、任意の $q_h=cr\in Q_h$ に対して
+
+$
+b(u_h,q_h)
+=
+-c\int_\Omega r\,\nabla\cdot\phi_0\,dx
+=
+0.
+$
+
+また $f$ の定義から任意の $v_h\in V_h$ について
+
+$
+a(u_h,v_h)+b(v_h,p_h)=f(v_h).
+$
+
+従って $(u_h,p_h)$ は [Stokes 混合有限要素法](#def-fem5-mixed-fem)の二式を実際に満たします。
+
+圧力が速度空間から見えていることも確認できます。
+
+$
+\partial_xw
+=
+(1-2x)y(1-y)
+$
+
+なので
+
+$
+b(\phi_1,r)
+=
+-
+\int_0^1\int_0^1
+\left(x-\frac12\right)(1-2x)y(1-y)
+\,dx\,dy.
+$
+
+ここで
+
+$
+\int_0^1
+\left(x-\frac12\right)(1-2x)\,dx
+=
+-\frac16,
+$
+
+$
+\int_0^1y(1-y)\,dy
+=
+\frac16.
+$
+
+したがって
+
+$
+\boxed{
+b(\phi_1,r)=\frac1{36}\ne0
 }.
 $
 
-実際、
-
-$
-b(u_h,q)
-=
-q\left(\frac12-\frac12\right)
-=
-0
-\qquad
-(\forall q\in Q_h)
-$
-
-であり、離散速度が制約を満たすことを直接確認できます。
+この例では $Q_h$ の唯一の非零方向が $\phi_1$ を通して検出されます。
 <!-- definition-example-end -->
 
 離散制約核 を
