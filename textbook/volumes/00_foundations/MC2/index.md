@@ -647,7 +647,7 @@ $$
 <!-- definition-example-start: def-mc2-generalized-inverse -->
 **定義の確認**
 
-#### 三点離散分布
+ここでは、3つの値だけを取る具体例で定義を確認します。
 
 確率変数 $X$ が
 
