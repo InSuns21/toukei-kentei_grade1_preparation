@@ -49,7 +49,7 @@ concepts:
     kind: definition
     aliases: [determinantal ideal]
     introduction: formal
-    requires: [algebra.ideal, algebra.matrix-equivalence-pid]
+    requires: [algebra.ring-ideal, algebra.matrix-equivalence-pid]
 
   - id: algebra.determinantal-ideal-invariance
     name: 小行列式イデアルの行列同値不変性
