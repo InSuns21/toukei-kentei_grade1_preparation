@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - F0-00P5
+  - F0-00P5A
   - F0-00P6A
 forward_references: []
 
@@ -65,6 +66,7 @@ concepts:
     requires:
       - numerical.monte-carlo-standard-error
       - prob.finite-variance-slln
+      - prob.iid-integrable-slln
 
   - id: numerical.monte-carlo-known-sigma-ci
     name: 既知分散での漸近信頼区間
