@@ -225,7 +225,7 @@ $$
 
 包含写像 $\iota:H\hookrightarrow G$ は Lie 群準同型です。
 
-[LIE2 の Lie 群準同型と指数写像の自然性](../LIE2/index.md#thm-lie2-exponential-naturality)を $\iota$ に適用すると、
+[LIE2 の Lie 群準同型と Lie 群の指数写像の自然性](../LIE2/index.md#thm-lie2-exponential-naturality)を $\iota$ に適用すると、
 
 $$
 \iota(\exp_H X)
