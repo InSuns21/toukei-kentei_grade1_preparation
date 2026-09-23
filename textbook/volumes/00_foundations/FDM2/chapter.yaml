@@ -7,9 +7,9 @@ prerequisites:
   - NA7
 official_scope: []
 learning_objectives:
-  - 差分スキームの有限時間摂動安定性と縮小性を定義し、各時刻ステップの一意可解性とは別概念であることを説明できる
+  - NA6 の有限時間摂動安定性を差分時間発展へ読み替え、縮小性を定義して各時刻ステップの一意可解性とは別概念であることを説明できる
   - Fourier モードと増幅因子を定義し、周期格子の離散 Fourier 分解と Parseval 恒等式から von Neumann 型安定性解析の根拠を証明できる
-  - FTCS の増幅因子を導き、拡散 CFL 条件 r <= 1/2 が必要十分となることを証明できる
+  - FTCS の増幅因子を導き、von Neumann 型解析で拡散 CFL 条件 r <= 1/2 が必要十分となることを証明できる
   - CFL 条件を破ると交互振動モードが増幅し、熱方程式本来の高周波減衰を逆転させることを具体計算で説明できる
   - 後退 Euler 差分法の増幅因子を導き、任意の r >= 0 で無条件 Fourier 安定であることを証明できる
   - 熱方程式の theta 差分法と Crank--Nicolson 差分法を定義し、theta >= 1/2 で無条件安定、theta < 1/2 で条件付き安定となることを証明できる
@@ -17,7 +17,7 @@ learning_objectives:
   - 斉次 Dirichlet 格子の離散正弦モードと固有値を導き、固定格子の安定条件と格子細分化に一様な CFL 条件を区別できる
   - Crank--Nicolson 法と後退 Euler 法を、高周波減衰と A 安定性・L 安定性の違いから比較できる
 definitions:
-  - { id: FDM2-DEF-01, name: 差分スキームの有限時間摂動安定性 }
+  - { id: FDM2-DEF-01, name: 差分時間発展の縮小性 }
   - { id: FDM2-DEF-02, name: 増幅因子と von Neumann 型安定性解析 }
   - { id: FDM2-DEF-03, name: FTCS の拡散 CFL 条件 }
   - { id: FDM2-DEF-04, name: 熱方程式の theta 差分法 }
