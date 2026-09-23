@@ -587,6 +587,8 @@ QMC7 は QMC5、MC1 を直接 prerequisite とする。QMC5 の Walsh 関数・�
 
 QMC8 は QMC5 を直接 prerequisite とする。QMC5 の Walsh 関数・双対ネット・NRT 重み・通常の $t$ 値の双対特徴付けを再利用し、非零桁位置を上から最大 $\alpha$ 個足す Dick の $\alpha$ 重みへ拡張する。生成行列を $n\times m$ へ広げた高精度デジタル点集合について Walsh 関数の離散直交性を再証明し、最小双対 Dick 重み $\rho_\alpha(P)$ と 次数 $\alpha$ デジタルネットを定義する。周波数 $b^n$ が必ず双対へ入ることから $\rho_\alpha(P)\le n+1$ を示し、高次品質には $n\approx\alpha m$ の出力精度が必要であることを閉じる。関数側では高次 Walsh 係数ノルムを導入し、双対誤差公式から $|Q_P(f)-I(f)|\le b^{-\rho_\alpha(P)}|f|_{\mathrm{Wal},\alpha,1}\le b^{t_\alpha-1}N^{-\alpha}|f|_{\mathrm{Wal},\alpha,1}$ を完全証明する。さらに $\alpha s$ 次元の通常デジタルネットの生成行列を行ごとに交互配置して $s$ 次元・$\alpha m$ 桁へ移す構成を導入し、周波数の逆交互配置と NRT 重みの双対特徴付けから 次数 $\alpha$ デジタルネットになることを証明する。QMC7 のランダム化との組合せは位置付けだけ示し、高次 RQMC の最適二乗平均誤差論は本章へ逆輸入しない。
 
-読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA1–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC8 で、理論35講が揃った。理論完成直後の横断監査は方針決定により実施対象外とし、次の実装対象は PYNUM1「Python 数値計算速習」である。
+PYNUM1 は直接 prerequisite を持たない計算機演習共通参照章とする。一般的なプログラミング概念は既知とし、Python 固有の最小構文差分、NumPy 配列の形状・軸・データ型、ビューとコピー、ブロードキャスト、ベクトル化、要素積と行列積、ブールマスク、明示的な NumPy 乱数生成器、Matplotlib の log-log 図、SciPy 各モジュールの入口を扱う。後続 NUMLAB では Python / NumPy の同じ説明を繰り返さず PYNUM1 の stable anchor を参照する。数値実験では shape / dtype / finite の検査、Generator による乱数状態の明示、問題サイズを変える外側反復と配列内部演算の分離、表と log-log 図による収束診断を共通規約とする。
+
+読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA1–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC8、PYNUM1 である。理論完成直後の横断監査は方針決定により実施対象外とし、次の実装対象は NUMLAB0「計算機演習基盤」である。
 
 ---
