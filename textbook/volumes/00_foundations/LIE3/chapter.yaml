@@ -12,7 +12,7 @@ learning_objectives:
   - 閉部分群定理が「閉部分群なら自動的に埋め込み Lie 部分群になる」という剛性を与えることと、本章での使用範囲を説明できる
   - SL(n,R) を det=1 の正則レベル集合として扱い、sl(n,R) がトレース0行列全体であることを直接計算できる
   - O(n) と SO(n) の接 Lie 環が歪対称行列全体であることを A^T A=I の微分から導ける
-  - U(n) と SU(n) を複素行列空間を実多様体とみなして扱い、その接 Lie 環を歪Hermitian条件とトレース条件から導ける
+  - U(n) と SU(n) を複素行列空間を実多様体とみなして扱い、その接 Lie 環を歪 Hermitian条件とトレース条件から導ける
   - GL(n,R), SL(n,R), O(n), SO(n), U(n), SU(n) の実次元を接空間の線形条件から計算できる
   - SO(2) と SU(2) の低次元例で指数写像と Lie 括弧を具体計算できる
 definitions:
@@ -30,7 +30,7 @@ theorems:
 canonical_examples:
   - GL(n,R) の部分群 SL(n,R) とトレース0行列
   - O(n), SO(n) と歪対称行列
-  - U(n), SU(n) と歪Hermitian行列
+  - U(n), SU(n) と歪 Hermitian行列
   - SO(2) の回転行列と1次元 Lie 環
   - SU(2) の3次元 Lie 環と明示基底
 problem_patterns:
