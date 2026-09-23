@@ -1,0 +1,105 @@
+chapter: MC3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MC2
+forward_references: []
+
+concepts:
+  - id: numerical.variance-reduction
+    name: 分散減少法
+    kind: definition
+    aliases: [variance reduction]
+    introduction: formal
+    introduction_aliases: ["定義（分散減少法）"]
+    requires:
+      - numerical.monte-carlo-estimator
+      - numerical.monte-carlo-rmse
+
+  - id: numerical.antithetic-variates
+    name: 対称変量法
+    kind: definition
+    aliases: [antithetic variates, antithetic sampling]
+    introduction: formal
+    introduction_aliases: ["定義（対称変量法）"]
+    requires:
+      - numerical.variance-reduction
+      - numerical.inverse-transform-sampling
+
+  - id: numerical.antithetic-variance
+    name: 対称変量推定量の不偏性と分散
+    kind: proposition
+    aliases: [variance of an antithetic estimator]
+    introduction: formal
+    introduction_aliases: ["命題（対称変量推定量の不偏性と分散）"]
+    requires:
+      - numerical.antithetic-variates
+      - prob.variance
+
+  - id: numerical.antithetic-monotone-covariance
+    name: 単調関数に対する対称変量の負の共分散
+    kind: proposition
+    aliases: [negative covariance for monotone antithetic variates]
+    introduction: formal
+    introduction_aliases: ["命題（単調関数に対する対称変量の負の共分散）"]
+    requires:
+      - numerical.antithetic-variance
+
+  - id: numerical.control-variate
+    name: 対照変量法
+    kind: definition
+    aliases: [control variate, control variates]
+    introduction: formal
+    introduction_aliases: ["定義（対照変量法）"]
+    requires:
+      - numerical.variance-reduction
+
+  - id: numerical.optimal-control-variate
+    name: 最適対照変量係数
+    kind: theorem
+    aliases: [optimal control-variate coefficient]
+    introduction: formal
+    introduction_aliases: ["定理（最適対照変量係数）"]
+    requires:
+      - numerical.control-variate
+      - prob.variance
+
+  - id: numerical.stratified-sampling
+    name: 層化抽出
+    kind: definition
+    aliases: [stratified sampling]
+    introduction: formal
+    introduction_aliases: ["定義（層化抽出推定量）"]
+    requires:
+      - numerical.variance-reduction
+      - prob.independent-random-variables
+
+  - id: numerical.stratified-variance
+    name: 層化抽出推定量の不偏性と分散
+    kind: theorem
+    aliases: [variance of a stratified estimator]
+    introduction: formal
+    introduction_aliases: ["定理（層化抽出推定量の不偏性と分散）"]
+    requires:
+      - numerical.stratified-sampling
+      - prob.variance
+
+  - id: numerical.importance-sampling
+    name: 重点サンプリング
+    kind: definition
+    aliases: [importance sampling]
+    introduction: formal
+    introduction_aliases: ["定義（重点サンプリング）"]
+    requires:
+      - numerical.variance-reduction
+      - numerical.random-number-stream
+
+  - id: numerical.importance-sampling-variance
+    name: 重点サンプリング推定量の不偏性と分散
+    kind: theorem
+    aliases: [unbiasedness and variance of importance sampling]
+    introduction: formal
+    introduction_aliases: ["定理（重点サンプリング推定量の不偏性と分散）"]
+    requires:
+      - numerical.importance-sampling
+      - prob.variance
