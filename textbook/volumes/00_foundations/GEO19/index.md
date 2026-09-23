@@ -1406,3 +1406,729 @@ $$
 
 という定理です。
 
+
+---
+
+## 12. 演習
+
+### Level A
+
+<a id="ex-geo19-a01"></a>
+#### GEO19-A01 Euclid 円板の境界測地曲率
+- Level: A
+
+標準向きの Euclid 平面で半径 $R$ の円板 $D_R$ を考える。境界を誘導向きで進むとき、測地曲率 $k_g$ と
+
+$$
+\int_{\partial D_R}k_g\,ds
+$$
+
+を求め、境界付き Gauss--Bonnet を確認せよ。
+
+<!-- solution-start -->
+**解答**
+
+円板の境界向きは反時計回りです。弧長表示を
+
+$$
+\gamma(s)
+=
+\left(
+R\cos\frac{s}{R},
+R\sin\frac{s}{R}
+\right),
+\qquad
+0\le s\le2\pi R
+$$
+
+とします。
+
+単位接ベクトルは
+
+$$
+T
+=
+\left(
+-\sin\frac{s}{R},
+\cos\frac{s}{R}
+\right),
+$$
+
+正の $90^\circ$ 回転は
+
+$$
+JT
+=
+\left(
+-\cos\frac{s}{R},
+-\sin\frac{s}{R}
+\right).
+$$
+
+Euclid 接続では
+
+$$
+\nabla_TT
+=
+\frac{dT}{ds}
+=
+\frac1RJT.
+$$
+
+従って
+
+$$
+k_g
+=
+g(\nabla_TT,JT)
+=
+\frac1R.
+$$
+
+よって
+
+$$
+\int_{\partial D_R}k_g\,ds
+=
+\int_0^{2\pi R}\frac1R\,ds
+=
+2\pi.
+$$
+
+Euclid 平面では $K=0$、円板では $\chi(D_R)=1$ なので
+
+$$
+\int_{D_R}K\,dA
++
+\int_{\partial D_R}k_g\,ds
+=
+0+2\pi
+=
+2\pi\chi(D_R).
+$$
+
+Gauss--Bonnet が成立します。
+<!-- solution-end -->
+
+<a id="ex-geo19-a02"></a>
+#### GEO19-A02 球面の全 Gauss 曲率
+- Level: A
+
+半径 $a$ の球面 $S_a^2$ について、Gauss 曲率と面積から全 Gauss 曲率を直接計算し、Euler 標数を求めよ。
+
+<!-- solution-start -->
+**解答**
+
+半径 $a$ の球面の Gauss 曲率は
+
+$$
+K=\frac1{a^2},
+$$
+
+面積は
+
+$$
+\operatorname{Area}(S_a^2)=4\pi a^2.
+$$
+
+従って
+
+$$
+\int_{S_a^2}K\,dA
+=
+\frac1{a^2}\,4\pi a^2
+=
+4\pi.
+$$
+
+閉曲面の Gauss--Bonnet より
+
+$$
+4\pi
+=
+2\pi\chi(S_a^2).
+$$
+
+よって
+
+$$
+\boxed{
+\chi(S_a^2)=2
+}.
+$$
+
+半径 $a$ は最終結果から消えます。
+<!-- solution-end -->
+
+<a id="ex-geo19-a03"></a>
+#### GEO19-A03 標準トーラスの全曲率
+- Level: A
+
+$R>r>0$ とし、
+
+$$
+X(u,v)
+=
+\bigl(
+(R+r\cos v)\cos u,
+(R+r\cos v)\sin u,
+r\sin v
+\bigr)
+$$
+
+で標準トーラスを表す。既知の公式
+
+$$
+K
+=
+\frac{\cos v}{r(R+r\cos v)},
+\qquad
+dA
+=
+r(R+r\cos v)\,du\,dv
+$$
+
+を用いて全 Gauss 曲率を求めよ。
+
+<!-- solution-start -->
+**解答**
+
+積を取ると
+
+$$
+K\,dA
+=
+\cos v\,du\,dv.
+$$
+
+従って
+
+$$
+\begin{aligned}
+\int_{T^2}K\,dA
+&=
+\int_0^{2\pi}
+\int_0^{2\pi}
+\cos v\,dv\,du
+\\
+&=
+\int_0^{2\pi}
+[\sin v]_{0}^{2\pi}\,du
+\\
+&=
+0.
+\end{aligned}
+$$
+
+Gauss--Bonnet より
+
+$$
+0
+=
+2\pi\chi(T^2),
+$$
+
+したがって
+
+$$
+\boxed{
+\chi(T^2)=0
+}.
+$$
+
+$K$ は外側で正、内側で負ですが、その寄与が面積重み付きで相殺しています。
+<!-- solution-end -->
+
+<a id="ex-geo19-a04"></a>
+#### GEO19-A04 球面三角形の面積
+- Level: A
+
+半径 $a$ の球面上で、大円弧に囲まれた三角形の内角が
+
+$$
+A=B=C=\frac{2\pi}{3}
+$$
+
+であるとする。三角形の面積を求めよ。
+
+<!-- solution-start -->
+**解答**
+
+球面過剰公式
+
+$$
+\operatorname{Area}
+=
+a^2(A+B+C-\pi)
+$$
+
+を使います。
+
+内角和は
+
+$$
+A+B+C
+=
+3\cdot\frac{2\pi}{3}
+=
+2\pi.
+$$
+
+従って
+
+$$
+\operatorname{Area}
+=
+a^2(2\pi-\pi)
+=
+\boxed{
+\pi a^2
+}.
+$$
+
+球面全体の面積 $4\pi a^2$ の4分の1です。
+<!-- solution-end -->
+
+### Level B
+
+<a id="ex-geo19-b01"></a>
+#### GEO19-B01 回転標構と接続1形式
+- Level: B
+
+Euclid 平面で標準標構 $(e_1,e_2)=(\partial_x,\partial_y)$ を取り、
+
+$$
+\varphi(x,y)=x+y
+$$
+
+として
+
+$$
+\widetilde e_1
+=
+\cos\varphi\,e_1+\sin\varphi\,e_2,
+\qquad
+\widetilde e_2
+=
+-\sin\varphi\,e_1+\cos\varphi\,e_2
+$$
+
+とする。回転後の接続1形式 $\widetilde\omega$ と $d\widetilde\omega$ を求め、曲率0と整合することを確認せよ。
+
+<!-- solution-start -->
+**解答**
+
+標準 Cartesian 標構では $\omega=0$ です。
+
+標構変換則より
+
+$$
+\widetilde\omega
+=
+\omega-d\varphi
+=
+-d(x+y)
+=
+\boxed{
+-dx-dy
+}.
+$$
+
+外微分を取ると
+
+$$
+d\widetilde\omega
+=
+-d(dx)-d(dy)
+=
+0.
+$$
+
+一方、Euclid 平面では $K=0$ なので
+
+$$
+K\,dA=0.
+$$
+
+従って
+
+$$
+d\widetilde\omega
+=
+K\,dA
+=
+0.
+$$
+
+接続1形式自体は回転標構で非零になりましたが、その外微分は変わりません。
+<!-- solution-end -->
+
+<a id="ex-geo19-b02"></a>
+#### GEO19-B02 環状領域と境界向き
+- Level: B
+
+Euclid 平面の環状領域
+
+$$
+A=\{(x,y):r\le\sqrt{x^2+y^2}\le R\},
+\qquad
+0<r<R
+$$
+
+を標準向きで考える。
+
+1. 外側境界と内側境界の誘導向きを答えよ。
+2. 各境界成分の測地曲率積分を求めよ。
+3. Gauss--Bonnet から $\chi(A)$ を求めよ。
+
+<!-- solution-start -->
+**解答**
+
+外側境界では領域からの外向き法線が半径外向きなので、誘導向きは反時計回りです。
+
+内側境界では領域からの外向き法線が穴の中心方向を向くので、誘導向きは時計回りです。
+
+外側円では
+
+$$
+k_g=\frac1R,
+$$
+
+周長は $2\pi R$ だから
+
+$$
+\int_{\text{外側}}k_g\,ds
+=
+2\pi.
+$$
+
+内側円は同じ円を逆向きに進むため
+
+$$
+k_g=-\frac1r.
+$$
+
+周長は $2\pi r$ なので
+
+$$
+\int_{\text{内側}}k_g\,ds
+=
+-2\pi.
+$$
+
+従って
+
+$$
+\int_{\partial A}k_g\,ds
+=
+0.
+$$
+
+また Euclid 平面では $K=0$ です。境界付き Gauss--Bonnet より
+
+$$
+0+0
+=
+2\pi\chi(A).
+$$
+
+従って
+
+$$
+\boxed{
+\chi(A)=0
+}.
+$$
+
+内側境界を反時計回りにしてしまうと測地曲率積分の符号を誤ります。
+<!-- solution-end -->
+
+<a id="ex-geo19-b03"></a>
+#### GEO19-B03 種数と曲率符号
+- Level: B
+
+種数 $g=2$ の閉向き付け可能 Riemann 曲面 $\Sigma_2$ を考える。
+
+1. Euler 標数を求めよ。
+2. 全 Gauss 曲率を求めよ。
+3. $K\ge0$ が全点で成り立つ Riemann 計量を持てるか、Gauss--Bonnet だけから判定せよ。
+
+<!-- solution-start -->
+**解答**
+
+種数 $g$ の標準閉向き付け可能曲面では
+
+$$
+\chi(\Sigma_g)=2-2g.
+$$
+
+従って
+
+$$
+\chi(\Sigma_2)
+=
+2-4
+=
+\boxed{-2}.
+$$
+
+Gauss--Bonnet より
+
+$$
+\int_{\Sigma_2}K\,dA
+=
+2\pi\chi(\Sigma_2)
+=
+\boxed{-4\pi}.
+$$
+
+仮に $K\ge0$ が全点で成り立つなら、面積形式が正なので
+
+$$
+\int_{\Sigma_2}K\,dA\ge0.
+$$
+
+しかし全曲率は $-4\pi<0$ と確定しています。矛盾です。
+
+従って
+
+$$
+\boxed{
+\Sigma_2 \text{ は } K\ge0 \text{ everywhere の計量を持てない}
+}.
+$$
+<!-- solution-end -->
+
+### Level C
+
+<a id="ex-geo19-c01"></a>
+#### GEO19-C01 三角形分割から大域 Gauss--Bonnet を再構成する
+- Level: C
+
+$M$ を閉じた向き付け可能 Riemann 曲面とし、$V,E,F$ を有限三角形分割の頂点数・辺数・面数とする。
+
+各三角形 $\Delta$ について
+
+$$
+\int_\Delta K\,dA
++
+\int_{\partial\Delta}k_g\,ds
++
+\sum_{c\subset\Delta}(\pi-\beta_c)
+=
+2\pi
+$$
+
+が使えるとする。ここで $\beta_c$ は三角形の内角である。
+
+この式を全三角形について足し、
+
+$$
+\int_MK\,dA=2\pi(V-E+F)
+$$
+
+を、内部辺・頂点・辺数の数え上げを省略せず導け。
+
+<!-- solution-start -->
+**解答**
+
+全 $F$ 個の三角形について局所公式を足します。
+
+面積積分は、三角形の内部が互いに素で、重なりは面積0の辺・頂点だけなので
+
+$$
+\sum_\Delta
+\int_\Delta K\,dA
+=
+\int_MK\,dA.
+$$
+
+次に辺の測地曲率を考えます。閉曲面では各辺は二つの三角形に共有されます。共有辺を一方の三角形の境界として進む向きと、もう一方の境界として進む向きは逆です。
+
+$T$ を $-T$ に変えると
+
+$$
+\nabla_{-T}(-T)=\nabla_TT,
+\qquad
+J(-T)=-JT.
+$$
+
+したがって
+
+$$
+g(\nabla_{-T}(-T),J(-T))
+=
+-k_g.
+$$
+
+よって同じ辺の二つの積分は相殺し、
+
+$$
+\sum_\Delta
+\int_{\partial\Delta}k_g\,ds
+=
+0.
+$$
+
+次に角項です。各三角形には3つの角があるので全角数は $3F$ です。
+
+$$
+\sum_c(\pi-\beta_c)
+=
+3\pi F-\sum_c\beta_c.
+$$
+
+一つの頂点の周囲では隣接三角形の内角和が $2\pi$ です。頂点は $V$ 個なので
+
+$$
+\sum_c\beta_c
+=
+2\pi V.
+$$
+
+従って角項全体は
+
+$$
+3\pi F-2\pi V.
+$$
+
+右辺は全体で $2\pi F$ です。従って
+
+$$
+\int_MK\,dA
++
+3\pi F-2\pi V
+=
+2\pi F.
+$$
+
+移項して
+
+$$
+\int_MK\,dA
+=
+2\pi V-\pi F.
+$$
+
+最後に辺を数えます。三角形側から数えると辺の出現回数は $3F$、一方で各辺は二つの三角形に共有されるので
+
+$$
+3F=2E.
+$$
+
+よって
+
+$$
+\begin{aligned}
+2\pi(V-E+F)
+&=
+2\pi V-2\pi E+2\pi F
+\\
+&=
+2\pi V-3\pi F+2\pi F
+\\
+&=
+2\pi V-\pi F.
+\end{aligned}
+$$
+
+先ほどの全曲率と一致するので
+
+$$
+\boxed{
+\int_MK\,dA
+=
+2\pi(V-E+F)
+=
+2\pi\chi(M)
+}.
+$$
+
+大域化の機構は、
+
+1. 内部辺の測地曲率が逆符号で相殺する。
+2. 各頂点の内角和が $2\pi$ になる。
+3. 閉三角形分割で $3F=2E$ となる。
+
+の三つです。
+<!-- solution-end -->
+
+---
+
+## 13. まとめ
+
+局所正規直交標構 $(e_1,e_2)$ に対し
+
+$$
+\nabla e_1=-\omega e_2,
+\qquad
+\nabla e_2=\omega e_1.
+$$
+
+標構を $\varphi$ だけ回すと
+
+$$
+\widetilde\omega=\omega-d\varphi,
+$$
+
+したがって
+
+$$
+d\widetilde\omega=d\omega.
+$$
+
+曲率作用素を計算すると
+
+$$
+d\omega=K\,dA.
+$$
+
+境界接ベクトル
+
+$$
+T=\cos\theta\,e_1+\sin\theta\,e_2
+$$
+
+について
+
+$$
+k_g\,ds=d\theta-\omega.
+$$
+
+Stokes と回転数を合わせると円板型領域で
+
+$$
+\int_DK\,dA
++
+\int_{\partial D}k_g\,ds
++
+\sum\alpha_j
+=
+2\pi.
+$$
+
+三角形分割で局所公式を足し、内部辺を相殺すると
+
+$$
+\boxed{
+\int_MK\,dA
++
+\int_{\partial M}k_g\,ds
++
+\sum\alpha_j
+=
+2\pi\chi(M)
+}.
+$$
+
+閉曲面では
+
+$$
+\boxed{
+\int_MK\,dA
+=
+2\pi\chi(M)
+}.
+$$
+
+これが、GEO1 から積み上げてきた多様体・微分形式・積分・計量・接続・曲率を、二次元の大域位相へ結ぶ Gauss--Bonnet の定理です。
