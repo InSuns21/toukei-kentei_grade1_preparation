@@ -1,0 +1,79 @@
+chapter: FEM7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FEM4
+  - FDM4
+forward_references: []
+
+concepts:
+  - id: numerical.element-peclet-number
+    name: 要素 Péclet 数
+    kind: definition
+    aliases: [element Peclet number]
+    introduction: formal
+    introduction_aliases: ["定義（要素 Péclet 数）"]
+    requires:
+      - numerical.grid-peclet-number
+      - numerical.conforming-p1-space
+
+  - id: numerical.advection-diffusion-standard-galerkin
+    name: 移流拡散問題の標準 Galerkin 有限要素法
+    kind: definition
+    aliases: [standard Galerkin finite element method for advection-diffusion]
+    introduction: formal
+    introduction_aliases: ["定義（移流拡散問題の標準 Galerkin 有限要素法）"]
+    requires:
+      - numerical.conforming-galerkin-discretization
+      - numerical.conforming-p1-space
+      - numerical.steady-advection-diffusion-1d
+
+  - id: numerical.p1-galerkin-centered-advection-diffusion
+    name: 一次元一次有限要素 Galerkin 法と中心差分の対応
+    kind: theorem
+    aliases: [equivalence of linear Galerkin finite elements and centered advection-diffusion difference equations]
+    introduction: formal
+    introduction_aliases: ["定理（一次元一次有限要素 Galerkin 法と中心差分の対応）"]
+    requires:
+      - numerical.advection-diffusion-standard-galerkin
+      - numerical.centered-advection-diffusion-scheme
+
+  - id: numerical.supg
+    name: 流線風上 Petrov--Galerkin 法
+    kind: definition
+    aliases: [SUPG, streamline-upwind Petrov-Galerkin method]
+    introduction: formal
+    introduction_aliases: ["定義（流線風上 Petrov--Galerkin 法）"]
+    requires:
+      - numerical.advection-diffusion-standard-galerkin
+      - numerical.element-peclet-number
+
+  - id: numerical.supg-strong-consistency
+    name: SUPG の強整合性
+    kind: theorem
+    aliases: [strong consistency of SUPG]
+    introduction: formal
+    introduction_aliases: ["定理（SUPG の強整合性）"]
+    requires:
+      - numerical.supg
+
+  - id: numerical.supg-streamline-stability
+    name: 一次要素 SUPG の流線方向安定性
+    kind: theorem
+    aliases: [streamline stability identity for linear SUPG elements]
+    introduction: formal
+    introduction_aliases: ["定理（一次要素 SUPG の流線方向安定性）"]
+    requires:
+      - numerical.supg
+      - numerical.conforming-p1-space
+
+  - id: numerical.supg-upwind-equivalence
+    name: 一次元 SUPG と風上差分の一致
+    kind: theorem
+    aliases: [one-dimensional equivalence of SUPG and upwind differencing]
+    introduction: formal
+    introduction_aliases: ["定理（一次元 SUPG と風上差分の一致）"]
+    requires:
+      - numerical.supg-streamline-stability
+      - numerical.upwind-advection-diffusion-scheme
+      - numerical.p1-galerkin-centered-advection-diffusion
