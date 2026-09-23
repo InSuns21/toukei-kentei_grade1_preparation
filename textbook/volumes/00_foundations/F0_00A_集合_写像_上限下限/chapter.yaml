@@ -28,5 +28,5 @@ canonical_examples: [恒等写像と直積の射影, x平方の区間逆像, 単
 problem_patterns: [SET-NOTATION-1, PREIMAGE-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 1.7, exercises: 0.6, review: 0.25 }
