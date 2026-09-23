@@ -26,7 +26,7 @@ $$
 \longrightarrow
 \text{商環}
 \longrightarrow
-\text{第一同型定理}
+\text{環の第一同型定理}
 $$
 
 です。
@@ -1075,7 +1075,7 @@ $$
 
 ### 証明の見取り図
 
-群の第一同型定理と同じ候補
+[群の第一同型定理](../GRP2/index.md#thm-grp2-first-isomorphism)と同じ候補
 
 $$
 \overline f:R/\ker f\to\operatorname{Im}f,
@@ -1225,7 +1225,7 @@ $$
 \ker\pi_n=n\mathbb Z.
 $$
 
-従って第一同型定理は
+従って [環の第一同型定理](#thm-rng1-first-isomorphism-ring) は
 
 $$
 \boxed{
@@ -1690,7 +1690,7 @@ $$
 1. $\pi_8$ は環準同型である。
 2. $\ker\pi_8=8\mathbb Z$ である。
 3. $\operatorname{Im}\pi_8=\mathbb Z/8\mathbb Z$ である。
-4. 環の[環の第一同型定理](#thm-rng1-first-isomorphism-ring)を適用せよ。
+4. [環の第一同型定理](#thm-rng1-first-isomorphism-ring)を適用せよ。
 
 <!-- solution-start -->
 ##### 詳細解答
@@ -1771,7 +1771,7 @@ $$
 \operatorname{Im}\pi_8.
 $$
 
-核と像を代入すると
+求めた $\ker\pi_8$ と $\operatorname{Im}\pi_8$ を代入すると
 
 $$
 \boxed{
@@ -2145,7 +2145,7 @@ $$
 壊れた仮定は、$H$ が外側の元による乗法を吸収するイデアルではないことです。
 <!-- solution-end -->
 
-#### RNG1-B03 第一同型定理を積環で使う
+#### RNG1-B03 環の第一同型定理を積環で使う
 - Level: B
 
 正整数 $m$ と環準同型
@@ -2474,7 +2474,7 @@ I=m\mathbb Z\times n\mathbb Z
 }.
 $$
 
-#### 4. 商環を第一同型定理で同定する
+#### 4. 商環を環の第一同型定理で同定する
 
 写像
 
@@ -2603,7 +2603,7 @@ $$
 
 を代表元によらず定められるための必要十分条件が、まさに $I$ がイデアルであることでした。
 
-最後に環の第一同型定理
+最後に [環の第一同型定理](#thm-rng1-first-isomorphism-ring)
 
 $$
 \boxed{
