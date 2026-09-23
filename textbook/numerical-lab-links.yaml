@@ -1,0 +1,4 @@
+schema_version: 1
+runtime_chapter: NUMLAB0
+description: "Encore V 理論章と NUMLAB 実験を stable anchor で双方向に接続する台帳。NUMLAB1 以降で links を追加する。"
+links: []
