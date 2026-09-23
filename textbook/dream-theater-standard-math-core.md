@@ -1083,7 +1083,7 @@ direct prerequisite は RNG4 と LA2 です。RNG4 の環・多項式環と LA2 
 - 不変因子表示と素元冪による基本因子表示を中国剰余定理で往復
 - $\mathbb Z$-加群として有限生成 Abel 群の構造定理を導き、整数行列の余核を具体的に分類
 - 有限次元線形自己写像を有限生成ねじれ $F[x]$-加群として扱い、巡回分解から有理標準形と LA4 の Jordan 構造への接続を整理
-- A4/B3/C1 の演習で Smith 簡約、小行列式イデアル、余核、有限 Abel 群、基本因子、$F[x]$-加群を再構成
+- A4/B3/C1 の演習で Smith 簡約、小行列式イデアル、余核、有限可換群、基本因子、$F[x]$-加群を再構成
 
 実装: [MOD2](volumes/00_foundations/MOD2/index.md)
 
@@ -1126,6 +1126,24 @@ direct prerequisite は RNG4 と LA1 です。RNG4 の多項式除法、$F[x]$ �
 実装: [FLD2](volumes/00_foundations/FLD2/index.md)
 
 direct prerequisite は FLD1 です。FLD1 の最小多項式、単純代数拡大、塔の公式、既約多項式から根を作る商環構成を再利用します。自己同型群や固定体はまだ使わず、有限 Galois 理論に必要な「分離性」と「正規性」を独立した条件として先に閉じます。代数閉包の一般存在定理だけは Zorn の補題を要するため意図的黒箱とし、有限個の根の存在は分解体構成で自力証明します。
+
+
+## FLD3 有限体 `core / advanced-standard`
+
+- 標数・素体・有限体を定義し、有限体が素体上の有限次元ベクトル空間になることから位数が必ず $p^n$ となることを証明
+- 標数 $p$ の Frobenius 写像 $x\mapsto x^p$ の加法性・乗法性・単射性を証明し、有限体では自己同型になることを導出
+- 有限可換群の最大位数元に関する補題と多項式の根の個数評価から、有限体の乗法群 $K^\times$ が巡回群であることを証明
+- 代数閉包中の $x^{p^n}-x$ の根全体が四則演算で閉じることを直接示し、部分体を構成
+- $x^{p^n}-x$ の形式微分が $-1$ であることと FLD2 の分解体の存在・一意性を使い、位数 $p^n$ の有限体の存在と同型を除く一意性を証明
+- 塔の公式と Frobenius の反復から $\mathbb F_{p^m}\subset\mathbb F_{p^n}\iff m\mid n$ を証明
+- $\mathbb F_{q^m}/\mathbb F_q$ の相対 Frobenius $x\mapsto x^q$ が位数 $m$ を持ち、固定体が $\mathbb F_q$ であることを根の個数から証明
+- $\mathbb F_{q^m}$ が $x^{q^m}-x$ の分解体であり、この多項式が重根を持たないことから有限体拡大が分離的かつ正規であることを証明
+- $\mathbb F_4$、$\mathbb F_9$、$\mathbb F_{16}$、$\mathbb F_{2^{12}}$ を直接計算し、Frobenius・乗法群・部分体を具体化
+- A4/B3/C1 の演習で標数、Frobenius、巡回乗法群、有限体構成、部分体判定、相対 Frobenius を再構成
+
+実装: [FLD3](volumes/00_foundations/FLD3/index.md)
+
+direct prerequisite は FLD2 と GRP2 です。FLD2 の分解体・形式微分・分離性・正規性を再利用し、GRP2 の Lagrange の定理を有限体の非零元へ適用します。群作用・共役を扱う GRP3 は FLD3 の証明では使わないため直接 prerequisite から外し、有限 Galois 理論の一般対応は FLD4 へ送ります。
 
 ---
 

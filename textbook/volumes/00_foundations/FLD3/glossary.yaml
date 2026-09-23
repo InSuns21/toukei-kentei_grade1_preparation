@@ -1,0 +1,23 @@
+chapter: "FLD3"
+terms:
+  - term: 標数
+    english: characteristic
+    meaning: 体 F で n・1_F=0 となる最小の正整数 n。存在しないときは 0。有限体では必ず素数になる。
+  - term: 素体
+    english: prime field
+    meaning: 体の単位元 1 から生成される最小の部分体。正標数 p では F_p と同型になる。
+  - term: 有限体
+    english: finite field
+    meaning: 元の個数が有限である体。位数は必ず素数冪 p^n である。
+  - term: Frobenius 写像
+    english: Frobenius map
+    meaning: 標数 p の体で x を x^p へ送る体準同型。有限体では全単射なので自己同型になる。
+  - term: Frobenius 自己同型
+    english: Frobenius automorphism
+    meaning: 有限体上での Frobenius 写像。F_(q^m)/F_q では x を x^q へ送る相対 Frobenius を主に使う。
+  - term: 有限体の乗法群
+    english: multiplicative group of a finite field
+    meaning: 有限体 K の 0 でない元全体 K^× が乗法でなす群。必ず巡回群になる。
+  - term: 相対 Frobenius
+    english: relative Frobenius
+    meaning: F_(q^m)/F_q において x を x^q へ送る F_q を固定する自己同型。

@@ -1,0 +1,47 @@
+id: "FLD3"
+title: "抽象代数 XIII：有限体"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLD2
+  - GRP2
+official_scope: []
+learning_objectives:
+  - 体の標数と素体を定義し、有限体の位数が素数冪 p^n になることを証明できる
+  - 標数 p の体上の Frobenius 写像を定義し、有限体では自己同型になることを証明できる
+  - 有限体の乗法群が巡回群であることを、有限可換群の元の位数と多項式の根の個数から証明できる
+  - x^(p^n)-x の根全体が体をなすことを示し、位数 p^n の有限体の存在を分解体から構成できる
+  - 任意の位数 p^n の有限体が x^(p^n)-x の分解体になることを示し、同型を除く一意性を証明できる
+  - F_(p^m) が F_(p^n) の部分体になるための必要十分条件 m|n を塔の公式と Frobenius から証明できる
+  - 有限体拡大 F_(q^m)/F_q の相対 Frobenius 自己同型の位数と固定体を求められる
+  - 有限体拡大が分離的かつ正規であることを FLD2 の分離拡大・正規拡大から証明し、FLD4 の有限 Galois 理論への接続を説明できる
+definitions:
+  - { id: FLD3-DEF-01, name: 標数・素体・有限体 }
+  - { id: FLD3-DEF-02, name: Frobenius 写像 }
+theorems:
+  - { id: FLD3-THM-01, name: 有限体の位数は素数冪 }
+  - { id: FLD3-THM-02, name: 有限体上の Frobenius 写像は自己同型 }
+  - { id: FLD3-LEM-01, name: 有限可換群の最大位数元 }
+  - { id: FLD3-THM-03, name: 有限体の乗法群は巡回群 }
+  - { id: FLD3-LEM-02, name: Frobenius 固定点集合は体 }
+  - { id: FLD3-THM-04, name: 素数冪位数の有限体の存在と一意性 }
+  - { id: FLD3-THM-05, name: 有限体の部分体判定 }
+  - { id: FLD3-THM-06, name: 相対 Frobenius 自己同型 }
+  - { id: FLD3-COR-01, name: 有限体拡大は分離的かつ正規 }
+canonical_examples:
+  - F_4=F_2[u]/(u^2+u+1) で Frobenius が二つの非自明元を交換することを直接計算
+  - F_9=F_3[u]/(u^2+1) で 1+u が乗法群の生成元になることを直接計算
+  - F_16=F_2[u]/(u^4+u+1) を構成し Frobenius 軌道の長さ4を確認
+  - F_(2^12) の部分体が d|12 に対応することを確認
+problem_patterns:
+  - FLD3-CHARACTERISTIC-CARDINALITY-1
+  - FLD3-FROBENIUS-1
+  - FLD3-MULTIPLICATIVE-CYCLIC-1
+  - FLD3-FINITE-FIELD-CONSTRUCTION-1
+  - FLD3-FINITE-FIELD-UNIQUENESS-1
+  - FLD3-SUBFIELD-CRITERION-1
+  - FLD3-RELATIVE-FROBENIUS-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 6.0, review: 0.5 }
