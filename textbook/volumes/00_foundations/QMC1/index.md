@@ -1136,6 +1136,96 @@ $$
 
 「点の偏り」と「関数の微分」がどう一つの式で結び付くかを先に見ます。
 
+### 6.1 一変数で端点から書き戻す
+
+<a id="lem-qmc1-endpoint-representation"></a>
+<!-- formal-statement-start -->
+### 補題（端点表示公式）
+
+$h\in C^1([0,1])$ とする。このとき任意の $x\in[0,1]$ に対して
+
+$$
+\boxed{
+h(x)
+=
+h(1)
+-
+\int_x^1 h'(t)\,dt
+}
+$$
+
+が成り立つ。
+<!-- formal-statement-end -->
+
+この公式を各座標へ順に使うと、多変数関数を「1側の境界値と混合偏導関数の積分」に分解できます。Hlawka--Zaremba 恒等式で必要なのは、その反復だけです。
+
+<!-- proof-start -->
+### 証明
+
+$x=1$ なら両辺とも $h(1)$ なので自明です。$x<1$ とします。
+
+区間 $[x,1]$ の分割
+
+$$
+x=t_0<t_1<\cdots<t_m=1
+$$
+
+を取ります。[平均値定理](../RA3/index.md#thm-ra3-mvt) により、各 $k=1,\ldots,m$ についてある
+
+$$
+\xi_k\in(t_{k-1},t_k)
+$$
+
+が存在して
+
+$$
+h(t_k)-h(t_{k-1})
+=
+h'(\xi_k)(t_k-t_{k-1})
+$$
+
+となります。
+
+これを $k=1,\ldots,m$ について足すと左辺は望遠鏡和になり、
+
+$$
+h(1)-h(x)
+=
+\sum_{k=1}^m
+h'(\xi_k)(t_k-t_{k-1})
+$$
+
+です。
+
+$h'$ は $[x,1]$ 上で連続なので、分割の最大幅を0へ近づければ右辺の Riemann 和は
+
+$$
+\int_x^1h'(t)\,dt
+$$
+
+へ収束します。従って
+
+$$
+h(1)-h(x)
+=
+\int_x^1h'(t)\,dt,
+$$
+
+すなわち
+
+$$
+h(x)
+=
+h(1)
+-
+\int_x^1h'(t)\,dt.
+$$
+
+これで示されました。$\square$
+<!-- proof-end -->
+
+### 6.2 局所的な点数誤差との結合
+
 <a id="thm-qmc1-hlawka-zaremba"></a>
 <!-- formal-statement-start -->
 ### 定理（Hlawka--Zaremba 恒等式）
@@ -1198,7 +1288,7 @@ $$
 
 ### 証明の見取り図
 
-1. 多変数微積分の基本定理を $1$ 側から繰り返し適用して、$f(\boldsymbol x)$ を各混合偏導関数の積分へ展開する。
+1. [端点表示公式](#lem-qmc1-endpoint-representation)を各座標へ繰り返し適用して、$f(\boldsymbol x)$ を各混合偏導関数の積分へ展開する。
 2. その展開を点平均と Lebesgue 積分へそれぞれ代入する。
 3. [Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02)で積分順序を交換すると、「$\boldsymbol x_n$ が $[0,\boldsymbol t)$ に入るか」という指示関数が現れる。
 4. 点平均側と一様体積側の差がちょうど局所ディスクレパンシーになる。
@@ -1206,7 +1296,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず1変数の微積分の基本定理から
+まず [端点表示公式](#lem-qmc1-endpoint-representation) から
 
 $$
 h(x)
@@ -1535,7 +1625,7 @@ $$
 \text{局所ディスクレパンシーと関数変動の積分}
 $$
 
-という機構は、前節で滑らかな場合に微積分の基本定理から直接導出済みです。
+という機構は、前節で滑らかな場合に [端点表示公式](#lem-qmc1-endpoint-representation) から直接導出済みです。
 <!-- proof-end -->
 
 ### どの仮定が何をしているか
@@ -2626,14 +2716,14 @@ f_{xy}(t,u)\,dt\,du
 \end{aligned}
 $$
 
-を、二変数の微積分の基本定理から導け。
+を、[端点表示公式](#lem-qmc1-endpoint-representation)を各座標へ適用して導け。
 
 - Level: B
 
 <!-- solution-start -->
 #### 詳細解答
 
-まず二変数の微積分の基本定理を $1$ 側から使います。
+まず [端点表示公式](#lem-qmc1-endpoint-representation) を $x$ 方向へ使います。
 
 $$
 f(x,y)
@@ -2655,7 +2745,7 @@ f(1,1)
 f_y(1,u)\,du.
 $$
 
-また $f_x(t,y)$ に $y$ 方向の基本定理を使うと
+また $f_x(t,y)$ に $y$ 方向へ同じ [端点表示公式](#lem-qmc1-endpoint-representation) を使うと
 
 $$
 f_x(t,y)
