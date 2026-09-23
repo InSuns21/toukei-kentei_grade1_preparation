@@ -1,0 +1,46 @@
+id: "FEM7"
+title: "移流拡散・安定化有限要素法"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FEM4
+  - FDM4
+official_scope: []
+learning_objectives:
+  - 要素 Péclet 数 Pe_K=|b|h_K/(2*epsilon) を定義し、移流卓越とメッシュ解像度の関係を説明できる
+  - 一次元一様格子の連続一次有限要素 Galerkin 法が中心差分型移流拡散スキームと同じ内部節点方程式を作ることを導出できる
+  - Pe_h>1 で標準 Galerkin の隣接節点係数の符号構造が崩れ、交互振動が生じ得る機構を説明できる
+  - 連続問題の coercivity が epsilon に比例することを確認し、存在一意性と移流卓越時の離散単調性を区別できる
+  - 強形式残差を用いた流線風上 Petrov--Galerkin 法（SUPG）を定式化し、正確解に対する強整合性を証明できる
+  - 連続一次要素では SUPG が流線方向微分を追加制御することをエネルギー恒等式から示せる
+  - 一次元で tau=h/(2b) とした SUPG が一次風上差分と一致することを導出できる
+  - 指数フィッティング条件から tau=h/(2b)*(coth Pe-1/Pe) を導出し、拡散優勢と移流卓越の極限を説明できる
+  - SUPG が等方的人工拡散ではなく流線方向安定化であり、crosswind 層などには別の機構が必要になり得ることを説明できる
+definitions:
+  - { id: FEM7-DEF-01, name: 要素 Péclet 数 }
+  - { id: FEM7-DEF-02, name: 移流拡散問題の標準 Galerkin 有限要素法 }
+  - { id: FEM7-DEF-03, name: 流線風上 Petrov--Galerkin 法 }
+theorems:
+  - { id: FEM7-THM-01, name: 一次元一次有限要素 Galerkin 法と中心差分の対応 }
+  - { id: FEM7-THM-02, name: SUPG の強整合性 }
+  - { id: FEM7-THM-03, name: 一次要素 SUPG の流線方向安定性 }
+  - { id: FEM7-THM-04, name: 一次元 SUPG と風上差分の一致 }
+canonical_examples:
+  - b=1, epsilon=0.01 で h を変えたとき要素 Péclet 数が 5 から 0.5 へ変わる例
+  - 一次元 P1 Galerkin の帽子関数試験から中心差分型節点方程式を直接導く例
+  - 区分一次要素で SUPG 追加項が tau*b^2 の流線方向人工拡散になる例
+  - tau=h/(2b) により SUPG が一次風上差分と厳密に一致する例
+  - Pe_h=2 で標準 Galerkin の特性根 -3 が交互振動を生み、SUPG 後に隣接係数の符号構造が回復する例
+problem_patterns:
+  - FEM7-ELEMENT-PECLET-1
+  - FEM7-GALERKIN-CENTERED-1
+  - FEM7-COEFFICIENT-SIGN-1
+  - FEM7-SUPG-RESIDUAL-CONSISTENCY-1
+  - FEM7-SUPG-STREAMLINE-STABILITY-1
+  - FEM7-SUPG-UPWIND-EQUIVALENCE-1
+  - FEM7-EXPONENTIAL-FITTING-TAU-1
+  - FEM7-OSCILLATION-STABILIZATION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.0, review: 0.75 }
