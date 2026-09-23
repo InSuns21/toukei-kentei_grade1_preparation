@@ -1,0 +1,147 @@
+chapter: QMC2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QMC1
+  - F0-02C7
+forward_references:
+  - numerical.rank-one-lattice-rule
+  - numerical.dual-lattice
+
+concepts:
+  - id: numerical.qmc-integration-functional
+    name: RKHS 上の積分汎関数
+    kind: definition
+    aliases: [integration functional on an RKHS]
+    introduction: formal
+    introduction_aliases: ["定義（RKHS 上の積分汎関数）"]
+    requires:
+      - rkhs.rkhs
+      - rkhs.reproducing-kernel
+
+  - id: numerical.qmc-integration-representer
+    name: 積分汎関数の表現元
+    kind: theorem
+    aliases: [integration representer]
+    introduction: formal
+    introduction_aliases: ["定理（積分汎関数の表現元）"]
+    requires:
+      - numerical.qmc-integration-functional
+      - rkhs.reproducing-property
+      - functional.riesz-representation-theorem
+
+  - id: numerical.qmc-error-representer
+    name: 誤差表現元
+    kind: definition
+    aliases: [error representer]
+    introduction: formal
+    introduction_aliases: ["定義（求積則と誤差表現元）"]
+    requires:
+      - numerical.qmc-rule
+      - numerical.qmc-integration-representer
+      - rkhs.reproducing-kernel
+
+  - id: numerical.qmc-worst-case-error
+    name: 最悪誤差
+    kind: definition
+    aliases: [worst-case error]
+    introduction: formal
+    introduction_aliases: ["定義（最悪誤差）"]
+    requires:
+      - numerical.qmc-error-representer
+
+  - id: numerical.qmc-rkhs-worst-case-error-formula
+    name: RKHS 最悪誤差の表現公式
+    kind: theorem
+    aliases: [RKHS worst-case error formula]
+    introduction: formal
+    introduction_aliases: ["定理（RKHS 最悪誤差の表現公式）"]
+    requires:
+      - numerical.qmc-worst-case-error
+      - numerical.qmc-error-representer
+      - rkhs.reproducing-property
+
+  - id: numerical.weighted-anchored-sobolev-space
+    name: 重み付きアンカー型 Sobolev 空間
+    kind: definition
+    aliases: [weighted anchored Sobolev space]
+    introduction: formal
+    introduction_aliases: ["定義（一次元重み付きアンカー型 Sobolev 空間）"]
+    requires:
+      - functional.l2-space
+      - analysis.absolute-continuity
+
+  - id: numerical.qmc-product-weights
+    name: 積型重み
+    kind: definition
+    aliases: [product weights]
+    introduction: formal
+    introduction_aliases: ["定義（積型重み）"]
+    requires:
+      - numerical.weighted-anchored-sobolev-space
+
+  - id: numerical.qmc-product-weight-wce-formula
+    name: 積型重み Sobolev 核の最悪誤差公式
+    kind: theorem
+    aliases: [product-weight worst-case error formula]
+    introduction: formal
+    introduction_aliases: ["定理（積型重み Sobolev 核の最悪誤差公式）"]
+    requires:
+      - numerical.qmc-product-weights
+      - numerical.qmc-rkhs-worst-case-error-formula
+
+  - id: numerical.qmc-weight-tail-effective-dimension
+    name: 重み尾による実効切断次元
+    kind: definition
+    aliases: [weight-tail effective truncation dimension]
+    introduction: formal
+    introduction_aliases: ["定義（重み尾による実効切断次元）"]
+    requires:
+      - numerical.qmc-product-weights
+
+  - id: numerical.qmc-information-complexity
+    name: 最悪誤差に対する情報複雑度
+    kind: definition
+    aliases: [information complexity for worst-case integration]
+    introduction: formal
+    introduction_aliases: ["定義（最悪誤差に対する情報複雑度）"]
+    requires:
+      - numerical.qmc-worst-case-error
+
+  - id: numerical.qmc-polynomial-tractability
+    name: 多項式 tractability
+    kind: definition
+    aliases: [polynomial tractability]
+    introduction: formal
+    introduction_aliases: ["定義（多項式 tractability）"]
+    requires:
+      - numerical.qmc-information-complexity
+
+  - id: numerical.qmc-strong-polynomial-tractability
+    name: 強多項式 tractability
+    kind: definition
+    aliases: [strong polynomial tractability]
+    introduction: formal
+    introduction_aliases: ["定義（強多項式 tractability）"]
+    requires:
+      - numerical.qmc-information-complexity
+
+  - id: numerical.qmc-random-point-existence-bound
+    name: 乱数点平均から得る最悪誤差の存在上界
+    kind: theorem
+    aliases: [random-point worst-case error existence bound]
+    introduction: formal
+    introduction_aliases: ["定理（乱数点平均から得る最悪誤差の存在上界）"]
+    requires:
+      - numerical.qmc-product-weight-wce-formula
+
+  - id: numerical.qmc-summable-weights-strong-tractability
+    name: 可算和可能な積型重みによる強多項式 tractability
+    kind: theorem
+    aliases: [summable-product-weight strong polynomial tractability]
+    introduction: formal
+    introduction_aliases: ["定理（可算和可能な積型重みによる強多項式 tractability）"]
+    requires:
+      - numerical.qmc-random-point-existence-bound
+      - numerical.qmc-strong-polynomial-tractability
+      - numerical.qmc-product-weights
