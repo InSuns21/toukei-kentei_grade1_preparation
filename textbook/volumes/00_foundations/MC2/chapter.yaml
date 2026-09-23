@@ -23,6 +23,7 @@ definitions:
   - { id: MC2-DEF-04, name: 分布関数の一般化逆関数 }
   - { id: MC2-DEF-05, name: 棄却法 }
   - { id: MC2-DEF-06, name: 乱数ストリーム }
+  - { id: MC2-DEF-07, name: サブストリーム }
 theorems:
   - { id: MC2-PROP-01, name: 有限状態疑似乱数生成器の最終周期性 }
   - { id: MC2-THM-01, name: 逆関数法の正当性 }
