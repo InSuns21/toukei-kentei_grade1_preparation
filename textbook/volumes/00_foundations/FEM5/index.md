@@ -410,7 +410,7 @@ $$
 
 とします。
 
-まず kernel は
+まず制約核は
 
 $$
 b(v,q)=0
@@ -754,7 +754,7 @@ $\beta$ が小さいほど、同じ制約を実現するために大きな速度
 
 ## 5. Babuška--Brezzi 型の存在一意性
 
-次に、制約を満たした後で kernel 上の未知量を決めます。
+次に、制約を満たした後で 制約核上の未知量を決めます。
 
 <a id="thm-fem5-brezzi"></a>
 
@@ -889,7 +889,7 @@ $$
 
 を満たします。
 
-$Z$ は連続線形汎関数族の kernel の共通部分なので閉部分空間です。
+$Z$ は連続線形汎関数族の核の共通部分なので閉部分空間です。
 
 従って $Z$ 自身も Hilbert 空間です。
 
@@ -1803,32 +1803,136 @@ $$
 <!-- formal-statement-start -->
 ### 定義（Stokes 混合有限要素法）
 
-$V_h\subset V$、$Q_h\subset Q$ を有限次元部分空間とする。
+$\Omega\subset\mathbb R^d$ を有界連結 Lipschitz 領域、$\nu>0$ とし、
 
-$(u_h,p_h)\in V_h\times Q_h$ が
+$
+V=[H_0^1(\Omega)]^d,
+\qquad
+Q=L_0^2(\Omega)
+$
 
-$$
+とする。
+
+$
+a(u,v)
+=
+\nu\int_\Omega\nabla u:\nabla v\,dx,
+\qquad
+b(v,q)
+=
+-\int_\Omega q\,\nabla\cdot v\,dx
+$
+
+とし、$f\in V^*$ とする。
+
+有限次元部分空間
+
+$
+V_h\subset V,
+\qquad
+Q_h\subset Q
+$
+
+に対して、$(u_h,p_h)\in V_h\times Q_h$ が
+
+$
 \boxed{
 a(u_h,v_h)+b(v_h,p_h)=f(v_h)
 \qquad
 (\forall v_h\in V_h)
 }
-$$
+$
 
 および
 
-$$
+$
 \boxed{
 b(u_h,q_h)=0
 \qquad
 (\forall q_h\in Q_h)
 }
-$$
+$
 
 を満たすとき、これを Stokes 問題の混合有限要素近似とする。
 <!-- formal-statement-end -->
 
-離散 kernel を
+<!-- definition-example-start: def-fem5-mixed-fem -->
+### 定義の確認：2自由度の離散鞍点モデル
+
+有限次元化後の最小模型として
+
+$
+V_h=\mathbb R^2,
+\qquad
+Q_h=\mathbb R,
+$
+
+$
+a(u,v)=u\cdot v,
+\qquad
+b(v,q)=q(v_1+v_2),
+\qquad
+f(v)=v_1
+$
+
+を考えます。
+
+未知量を
+
+$
+u_h=(u_1,u_2),
+\qquad
+p_h=p
+$
+
+とすると、$v_h=(1,0),(0,1)$ を第一式へ、$q_h=1$ を第二式へ入れて
+
+$
+u_1+p=1,
+$
+
+$
+u_2+p=0,
+$
+
+$
+u_1+u_2=0
+$
+
+を得ます。
+
+第三式から $u_2=-u_1$、第二式から $p=u_1$ なので、第一式より
+
+$
+2u_1=1.
+$
+
+従って
+
+$
+\boxed{
+u_h=\left(\frac12,-\frac12\right),
+\qquad
+p_h=\frac12
+}.
+$
+
+実際、
+
+$
+b(u_h,q)
+=
+q\left(\frac12-\frac12\right)
+=
+0
+\qquad
+(\forall q\in Q_h)
+$
+
+であり、離散速度が制約を満たすことを直接確認できます。
+<!-- definition-example-end -->
+
+離散制約核 を
 
 $$
 Z_h
@@ -1903,31 +2007,77 @@ $$
 <!-- formal-statement-start -->
 ### 定理（離散 inf-sup による混合有限要素法の安定性と準最良近似）
 
-$V_h\subset V$、$Q_h\subset Q$ を有限次元部分空間とする。
+$V,Q$ を実 Hilbert 空間とし、有界双線形形式
 
-$a$ が離散 kernel $Z_h$ 上で、$h$ に依存しない $\alpha_0>0$ により
+$
+a:V\times V\to\mathbb R,
+\qquad
+b:V\times Q\to\mathbb R
+$
 
-$$
+と右辺 $f\in V^*$、$g\in Q^*$ に対する抽象鞍点問題の解を $(u,p)\in V\times Q$ とする。
+
+有限次元部分空間
+
+$
+V_h\subset V,
+\qquad
+Q_h\subset Q
+$
+
+を取り、
+
+$
+Z_h
+=
+\{v_h\in V_h:
+b(v_h,q_h)=0\ \forall q_h\in Q_h\}
+$
+
+とする。
+
+$a$ が $Z_h$ 上で、$h$ に依存しない $\alpha_0>0$ により
+
+$
 a(z_h,z_h)
 \ge
 \alpha_0\|z_h\|_V^2
 \qquad
 (\forall z_h\in Z_h)
-$$
+$
 
 を満たすとする。
 
-また、ある $\beta_0>0$ が存在して全ての対象メッシュで
+さらに離散 inf-sup 定数
 
-$$
+$
+\beta_h
+=
+\inf_{0\ne q_h\in Q_h}
+\sup_{0\ne v_h\in V_h}
+\frac{|b(v_h,q_h)|}
+{\|v_h\|_V\|q_h\|_Q}
+$
+
+について、ある $\beta_0>0$ が存在して全ての対象離散化で
+
+$
 \beta_h\ge\beta_0
-$$
+$
 
 とする。
 
-このとき離散混合問題は一意に解ける。
+このとき
 
-さらに連続解を $(u,p)$、離散解を $(u_h,p_h)$ とすると、$h$ に依存しない定数 $C>0$ が存在して
+$
+a(u_h,v_h)+b(v_h,p_h)=f(v_h),
+\qquad
+b(u_h,q_h)=g(q_h)
+$
+
+を全ての $v_h\in V_h,q_h\in Q_h$ に対して満たす離散解 $(u_h,p_h)$ は一意に存在する。
+
+さらに $h$ に依存しない定数 $C>0$ が存在して
 
 $$
 \boxed{
@@ -2050,9 +2200,21 @@ M_a\|u-w_h\|_V
 M_b\|p-r_h\|_Q.
 $$
 
-同様に制約式の差から
+連続制約式
 
-$$
+$
+b(u,q_h)=g(q_h)
+$
+
+と離散制約式
+
+$
+b(u_h,q_h)=g(q_h)
+$
+
+の差を取ると
+
+$
 b(u_h-u,q_h)=0
 \qquad
 (\forall q_h\in Q_h).
@@ -2206,9 +2368,33 @@ $$
 <!-- formal-statement-start -->
 ### 命題（混合有限要素行列と Schur 補行列）
 
-上の基底表示に対して、離散鞍点問題は
+有限次元空間 $V_h,Q_h$ の基底をそれぞれ
 
-$$
+$
+\{\phi_1,\dots,\phi_n\},
+\qquad
+\{\psi_1,\dots,\psi_m\}
+$
+
+とし、
+
+$
+A_{ij}=a(\phi_j,\phi_i),
+\qquad
+B_{ki}=b(\phi_i,\psi_k),
+$
+
+$
+F_i=f(\phi_i),
+\qquad
+G_k=g(\psi_k)
+$
+
+と定める。
+
+このとき離散鞍点問題は
+
+$
 \boxed{
 \begin{pmatrix}
 A&B^\mathsf T\\
@@ -2222,17 +2408,17 @@ U\\P
 F\\G
 \end{pmatrix}
 }
-$$
+$
 
 と書ける。
 
 さらに $A$ が対称正定値なら、$U$ を消去して得られる圧力 Schur 補行列
 
-$$
+$
 \boxed{
 S=BA^{-1}B^\mathsf T
 }
-$$
+$
 
 は半正定値である。
 
@@ -3558,7 +3744,7 @@ $$
 
 を通して圧力が速度試験空間から見えるかを制御します。
 
-$A$ がどれほど正定値でも、$B^\mathsf T$ に非自明な kernel があれば圧力は一意になりません。
+$A$ がどれほど正定値でも、$B^\mathsf T$ に非自明な核 があれば圧力は一意になりません。
 
 逆に $B$ が圧力をよく検出しても、$A$ が 制約核上で退化すれば制約を満たす速度方向を制御できません。
 
