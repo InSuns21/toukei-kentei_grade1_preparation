@@ -297,7 +297,7 @@ $$
 \sigma:K\to\Omega
 $$
 >
-> が **$F$-埋め込み**であるとは、$\sigma$ が体準同型であり、全ての $a\in F$ に対して
+> が **基礎体 $F$ を固定する体の埋め込み**であるとは、$\sigma$ が体準同型であり、全ての $a\in F$ に対して
 >
 $$
 \sigma(a)=a
@@ -621,9 +621,9 @@ $$
 \sigma:K\to\overline F
 $$
 >
-> を $F$-埋め込みとする。
+> を基礎体 $F$ を固定する体の埋め込みとする。
 >
-> このとき $\sigma$ は $F$-埋め込み
+> このとき $\sigma$ は基礎体 $F$ を固定する体の埋め込み
 >
 $$
 \widetilde\sigma:L\to\overline F
@@ -784,7 +784,7 @@ $$
 K_j=F(\alpha_1,\dots,\alpha_j)
 $$
 
-上の $F$-埋め込み
+上で基礎体 $F$ を固定する体の埋め込み
 
 $$
 \sigma_j:K_j\to M
@@ -836,7 +836,7 @@ $$
 \sigma:L\to M
 $$
 
-という $F$-埋め込みが得られます。
+という基礎体 $F$ を固定する体の埋め込みが得られます。
 
 ここで $L$ では
 
@@ -1201,7 +1201,7 @@ $$
 
 <a id="prop-fld2-irreducible-root-criterion"></a>
 <!-- formal-statement-start -->
-> **命題（既約多項式の体拡大の分離性判定）**
+> **命題（既約多項式の分離性判定）**
 >
 > $F$ を体、$p\in F[x]$ を非定数既約多項式とする。
 >
@@ -1346,7 +1346,7 @@ $$
 p'\ne0.
 $$
 
-[既約多項式の体拡大の分離性判定](#prop-fld2-irreducible-root-criterion)より $p$ は分離的です。
+[既約多項式の分離性判定](#prop-fld2-irreducible-root-criterion)より $p$ は分離的です。
 
 任意の $F$ 上代数的な元 $\alpha$ の代数的元の最小多項式は既約なので分離的です。従って任意の代数拡大 $K/F$ は分離拡大です。
 
@@ -1455,7 +1455,7 @@ $$
 >
 > $L/F$ を $f\in F[x]$ の分解体とし、$\overline F$ を $F$ の代数閉包で $L\subset\overline F$ とする。
 >
-> 任意の $F$-埋め込み
+> 任意の基礎体 $F$ を固定する体の埋め込み
 >
 $$
 \sigma:L\to\overline F
@@ -1648,7 +1648,7 @@ $$
 \tau(\alpha)=\beta
 $$
 
-という $F$-埋め込みが存在します。
+という基礎体 $F$ を固定する体の埋め込みが存在します。
 
 $K/F(\alpha)$ は有限拡大です。[有限代数拡大上への埋め込み延長](#thm-fld2-finite-field-map)により $\tau$ は
 
@@ -1727,7 +1727,7 @@ $$
 q'(x)=px^{p-1}=0
 $$
 
-です。[既約多項式の体拡大の分離性判定](#prop-fld2-irreducible-root-criterion)から $q$ は分離的ではありません。
+です。[既約多項式の分離性判定](#prop-fld2-irreducible-root-criterion)から $q$ は分離的ではありません。
 
 $\alpha$ を
 
@@ -2248,7 +2248,7 @@ $$
 q'(x)=px^{p-1}=0.
 $$
 
-$q$ は既約で $q'=0$ なので [既約多項式の体拡大の分離性判定](#prop-fld2-irreducible-root-criterion)から
+$q$ は既約で $q'=0$ なので [既約多項式の分離性判定](#prop-fld2-irreducible-root-criterion)から
 
 $$
 \boxed{q\text{ は分離的でない}}.
