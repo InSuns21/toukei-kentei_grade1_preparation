@@ -1,0 +1,23 @@
+chapter: "MC1"
+terms:
+  - term: Monte Carlo 法
+    english: Monte Carlo method
+    meaning: 期待値や積分を独立標本の標本平均で近似し、確率論により誤差を評価する数値的方法。
+  - term: Monte Carlo 推定量
+    english: Monte Carlo estimator
+    meaning: 独立同分布標本 Y_1,...,Y_N の標本平均 N^{-1} sum Y_i として期待値を近似する推定量。
+  - term: 標本誤差
+    english: sampling error
+    meaning: 有限個の標本を使うために生じる確率的な誤差。Monte Carlo 推定量では推定量と真の期待値との差を指す。
+  - term: 二乗平均平方根誤差
+    english: root mean square error
+    meaning: 推定誤差の二乗平均の平方根。略号 RMSE は補助的に使用可。
+  - term: Monte Carlo 標準誤差
+    english: Monte Carlo standard error
+    meaning: Monte Carlo 推定量の標準偏差 sigma/sqrt(N) を、通常は標本標準偏差 s_N/sqrt(N) で推定したもの。
+  - term: 近似信頼区間
+    english: approximate confidence interval
+    meaning: 中心極限定理などの漸近近似を用いて構成する区間。有限標本で被覆確率が厳密に所定値となるとは限らない。
+  - term: 離散化バイアス
+    english: discretization bias
+    meaning: 連続対象 Q の代わりに離散近似 Q_h を計算するとき、E[Q_h]-E[Q] として生じる系統誤差。
