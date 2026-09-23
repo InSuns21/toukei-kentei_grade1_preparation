@@ -31,7 +31,7 @@ theorems:
   - { id: FLD2-LEM-02, name: 形式微分の積の微分則 }
   - { id: FLD2-THM-04, name: 重根の形式微分判定 }
   - { id: FLD2-PROP-01, name: 既約多項式の分離性判定 }
-  - { id: FLD2-COR-01, name: 標数0の体上の代数拡大は分離的 }
+  - { id: FLD2-COR-01, name: 標数 $0$ の体上の代数拡大は分離的 }
   - { id: FLD2-PROP-02, name: 分解体は基礎体固定埋め込みで保たれる }
   - { id: FLD2-THM-05, name: 有限正規拡大と分解体 }
 canonical_examples:
