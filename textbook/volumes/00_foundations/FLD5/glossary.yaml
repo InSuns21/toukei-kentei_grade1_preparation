@@ -3,7 +3,7 @@ terms:
   - term: 作図可能数
     english: constructible number
     meaning: 単位長を固定した定規とコンパスの有限回の作図で、実軸上の座標として得られる実数。
-  - term: 二次拡大列
+  - term: 実二次拡大列
     english: tower of quadratic extensions
     meaning: 各段階の拡大次数が2以下である体の塔。実数の作図では実部分体の塔を用いる。
   - term: 交換子
