@@ -156,7 +156,8 @@ facade は完成済み講座だけをリンクする。未完成章を先行表�
 - [x] QMC6「多項式格子（polynomial lattice）」を新正本として実装
 - [x] QMC7「ランダム化準 Monte Carlo 法（randomized QMC）」を新正本として実装
 - [x] QMC8「高次準 Monte Carlo 法（higher-order QMC）」を新正本として実装
-- 次の実装対象：**Encore V 理論35講の横断監査**
+- [x] Encore V 理論35講の横断監査：**方針決定により実施対象外（skip）**
+- 次の実装対象：**PYNUM1「Python 数値計算速習」**
 
 
 ---
@@ -366,7 +367,8 @@ QMC2 は既存 F0-02C7 の RKHS / 再生核を再定義しない。stable anchor
 - [x] QMC6「多項式格子（polynomial lattice）」を新正本として実装
 - [x] QMC7「ランダム化準 Monte Carlo 法（randomized QMC）」を新正本として実装
 - [x] QMC8「高次準 Monte Carlo 法（higher-order QMC）」を新正本として実装
-- 次の実装対象：**Encore V 理論35講の横断監査**
+- [x] Encore V 理論35講の横断監査：**方針決定により実施対象外（skip）**
+- 次の実装対象：**PYNUM1「Python 数値計算速習」**
 
 ---
 
@@ -589,6 +591,6 @@ NUMLAB1 → … → NUMLAB5
 - Python 数値計算速習：1セッション
 - NUMLAB：6セッション
 - Phase 6 合計：7セッション
-- 横断監査：理論完成後と NUMLAB 完成後に各1回を基本とする
+- 横断監査：**理論完成直後の横断監査は実施対象外**。NUMLAB 完成後の最終横断監査のみ計画対象とする
 
 したがって、基本作業単位は **1講座＝1セッション**を維持しながら、理論と計算機実験を混線させず段階的に完成させる。
