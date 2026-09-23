@@ -18,7 +18,7 @@ $$
 
 を与え、Lax--Milgram、Galerkin 直交性、Céa の補題へ一直線につながりました。
 
-しかし非圧縮流では、速度だけを自由に選べません。
+しかしStokes 型の流れでは、速度だけを自由に選べません。
 
 $$
 \nabla\cdot u=0
@@ -846,7 +846,7 @@ $$
 
 1. inf-sup から $b(u_g,q)=g(q)$ を満たす 持ち上げ $u_g$ を作る。
 2. $u=u_g+z$ と置き、$z\in Z$ を 制約核上の Lax--Milgram で決める。
-3. 残差
+3. 差汎関数
    $$
    r(v)=f(v)-a(u,v)
    $$
@@ -951,7 +951,7 @@ $$
 
 従って第二式は満たされます。
 
-次に残差
+次に差汎関数
 
 $$
 r(v)
@@ -1316,8 +1316,9 @@ $$
 a(u,v)
 =
 \nu
+\sum_{i=1}^d\sum_{j=1}^d
 \int_\Omega
-\nabla u:\nabla v\,dx,
+(\partial_j u_i)(\partial_j v_i)\,dx,
 $$
 
 $$
@@ -1376,8 +1377,9 @@ $$
 (-\nu\Delta u)\cdot v\,dx
 =
 \nu
+\sum_{i=1}^d\sum_{j=1}^d
 \int_\Omega
-\nabla u:\nabla v\,dx.
+(\partial_j u_i)(\partial_j v_i)\,dx.
 $$
 
 また
@@ -1393,7 +1395,7 @@ $$
 
 従って第一式が得られます。
 
-非圧縮条件は
+発散零条件は
 
 $$
 \nabla\cdot u=0
@@ -1414,7 +1416,7 @@ $$
 弱形式ではこの二式を Sobolev 空間上の定義として採用します。
 
 <!-- definition-example-start: def-fem5-stokes-weak-form -->
-### 例：stream function から divergence-free 速度を作る
+### 例：スカラー関数から発散が 0 の速度を作る
 
 $\Omega=(0,1)^2$ とし、
 
@@ -2186,7 +2188,7 @@ $$
 
 存在一意性は有限次元空間 $V_h,Q_h$ に [Babuška--Brezzi 型定理](#thm-fem5-brezzi)を適用するだけです。
 
-誤差評価では任意の比較関数
+誤差評価では任意の近似候補
 
 $$
 w_h\in V_h,
@@ -2776,7 +2778,7 @@ u
 \qquad
 p
 =
-\text{非圧縮制約の Lagrange 乗数}
+\text{発散零制約の Lagrange 乗数}
 $$
 
 です。
@@ -3425,7 +3427,7 @@ $$
 
 が一様に成り立つとする。
 
-任意の比較関数
+任意の近似候補
 
 $$
 v_h\in V_h,
