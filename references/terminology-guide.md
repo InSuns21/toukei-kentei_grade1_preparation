@@ -382,6 +382,17 @@
 | 標本誤差 | sampling error | 有限個の標本を使うために生じる確率的誤差 |
 | 離散化バイアス | discretization bias | 連続対象を離散近似へ置き換えたことで期待値に生じる系統的なずれ |
 | 近似信頼区間 | approximate confidence interval | 中心極限定理などの漸近近似で構成する区間。有限標本で厳密な被覆確率を保証する区間とは区別する |
+| 疑似乱数生成器 | pseudorandom number generator | 有限・離散的な内部状態を決定論的に更新し、乱数として利用する列を出力する生成器。略号 PRNG は補助的に使用可 |
+| シード | seed | 疑似乱数生成器の初期状態または初期状態を決める入力。本文では seed を主表記にしない |
+| 乱数ストリーム | random-number stream | 初期状態や分割規則を固定して利用する再現可能な疑似乱数列 |
+| サブストリーム | substream | 長い疑似乱数列を再現可能な規則で分割した部分列。並列 Monte Carlo の割当てに用いる |
+| 線形合同法 | linear congruential generator | $x_{n+1}=(a x_n+c)\bmod m$ で状態を更新する基本的な疑似乱数生成法。略号 LCG は補助的に使用可 |
+| 一般化逆関数 | generalized inverse / quantile function | 分布関数 $F$ に対し $F^{-1}(u)=\inf\{x:F(x)\ge u\}$ で定める。離散分布にも使える |
+| 逆関数法 | inverse transform sampling | 一様乱数を分布関数の一般化逆関数へ通して指定分布の標本を生成する方法 |
+| 棄却法 | rejection sampling / accept-reject method | 提案密度から候補を生成し、目標密度と包絡密度の比に基づいて受理するサンプリング法 |
+| 提案密度 | proposal density | 棄却法で候補点を生成する密度。目標密度が正の領域を覆う必要がある |
+| 包絡定数 | envelope constant | 棄却法で $f(x)\le M g(x)$ を保証する定数 $M$ |
+| 受理率 | acceptance rate | 棄却法で候補が受理される確率。正規化済み密度では理論値 $1/M$ |
 
 ## DREAM THEATER：ODE・PDE の主表記
 

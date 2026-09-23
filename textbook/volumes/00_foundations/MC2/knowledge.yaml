@@ -1,0 +1,116 @@
+chapter: MC2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MC1
+forward_references: []
+
+concepts:
+  - id: numerical.pseudorandom-number-generator
+    name: 疑似乱数生成器
+    kind: definition
+    aliases: [pseudorandom number generator, PRNG]
+    introduction: formal
+    introduction_aliases: ["定義（疑似乱数生成器）"]
+    requires:
+      - numerical.monte-carlo-estimator
+
+  - id: numerical.random-seed
+    name: シード
+    kind: definition
+    aliases: [seed]
+    introduction: formal
+    introduction_aliases: ["定義（シード）"]
+    requires:
+      - numerical.pseudorandom-number-generator
+
+  - id: numerical.prng-eventual-periodicity
+    name: 有限状態疑似乱数生成器の最終周期性
+    kind: proposition
+    aliases: [eventual periodicity of a finite-state pseudorandom generator]
+    introduction: formal
+    introduction_aliases: ["命題（有限状態疑似乱数生成器の最終周期性）"]
+    requires:
+      - numerical.pseudorandom-number-generator
+
+  - id: numerical.linear-congruential-generator
+    name: 線形合同法
+    kind: definition
+    aliases: [linear congruential generator, LCG]
+    introduction: formal
+    introduction_aliases: ["定義（線形合同法）"]
+    requires:
+      - numerical.pseudorandom-number-generator
+      - numerical.random-seed
+
+  - id: numerical.cdf-generalized-inverse
+    name: 分布関数の一般化逆関数
+    kind: definition
+    aliases: [一般化逆関数, generalized inverse of a distribution function, quantile function]
+    introduction: formal
+    introduction_aliases: ["定義（分布関数の一般化逆関数）"]
+    requires: []
+
+  - id: numerical.inverse-transform-sampling
+    name: 逆関数法
+    kind: theorem
+    aliases: [inverse transform sampling, inverse transform method]
+    introduction: formal
+    introduction_aliases: ["定理（逆関数法の正当性）"]
+    requires:
+      - numerical.cdf-generalized-inverse
+
+  - id: numerical.rejection-sampling
+    name: 棄却法
+    kind: definition
+    aliases: [rejection sampling, accept-reject method]
+    introduction: formal
+    introduction_aliases: ["定義（棄却法）"]
+    requires: []
+
+  - id: numerical.rejection-sampling-correctness
+    name: 棄却法の正当性
+    kind: theorem
+    aliases: [correctness of rejection sampling]
+    introduction: formal
+    introduction_aliases: ["定理（棄却法の正当性）"]
+    requires:
+      - numerical.rejection-sampling
+
+  - id: numerical.rejection-sampling-acceptance-rate
+    name: 棄却法の受理率と平均提案回数
+    kind: corollary
+    aliases: [acceptance rate of rejection sampling]
+    introduction: formal
+    introduction_aliases: ["系（棄却法の受理率と平均提案回数）"]
+    requires:
+      - numerical.rejection-sampling-correctness
+
+  - id: numerical.random-number-stream
+    name: 乱数ストリーム
+    kind: definition
+    aliases: [random-number stream, random stream]
+    introduction: formal
+    introduction_aliases: ["定義（乱数ストリーム）"]
+    requires:
+      - numerical.pseudorandom-number-generator
+
+  - id: numerical.random-substream
+    name: サブストリーム
+    kind: definition
+    aliases: [substream]
+    introduction: formal
+    introduction_aliases: ["定義（サブストリーム）"]
+    requires:
+      - numerical.random-number-stream
+
+  - id: numerical.fixed-rng-contract-reproducibility
+    name: 固定された生成契約の再現性
+    kind: proposition
+    aliases: [reproducibility under a fixed random-number-generation contract]
+    introduction: formal
+    introduction_aliases: ["命題（固定された生成契約の再現性）"]
+    requires:
+      - numerical.random-seed
+      - numerical.random-number-stream
+      - numerical.random-substream

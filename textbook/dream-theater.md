@@ -371,3 +371,4 @@ STO 系列ではマルチンゲール・ブラウン運動・二次変分・確�
 23. [FEM6 放物型方程式の有限要素法](textbook/volumes/00_foundations/FEM6/index.md)
 24. [FEM7 移流拡散・安定化有限要素法](textbook/volumes/00_foundations/FEM7/index.md)
 25. [MC1 Monte Carlo 法と統計的誤差](textbook/volumes/00_foundations/MC1/index.md)
+26. [MC2 乱数生成とサンプリング](textbook/volumes/00_foundations/MC2/index.md)
