@@ -76,7 +76,7 @@ $$
 
 従って $\nabla_TT$ は $T$ に直交し、二次元では $JT$ の方向にしか成分を持ちません。
 
-<a id="def-geo19-geodesic-curvature"></a>
+<a id="def-geo19-kg"></a>
 <!-- formal-statement-start -->
 > **定義（測地曲率）**  
 > $(M,g)$ を向き付けられた Riemann 曲面とし、$\gamma(s)$ を単位速曲線とする。単位接ベクトルを $T=\dot\gamma$ とし、向きから定まる正の $90^\circ$ 回転を $J$ とする。
@@ -104,8 +104,10 @@ $$
 > である。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-geo19-geodesic-curvature -->
-**定義の確認：Euclid 円の符号**
+<!-- definition-example-start: def-geo19-kg -->
+**定義の確認**
+
+例：Euclid 円の符号
 
 標準向きの Euclid 平面で半径 $R$ の円を反時計回りに
 
@@ -188,7 +190,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo19-connection-form -->
-**定義の確認：Euclid 平面の標準座標標構**
+**定義の確認**
+
+例：Euclid 平面の標準座標標構
 
 標準 Euclid 平面で
 
@@ -541,7 +545,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo19-exterior-angle -->
-**定義の確認：正方形**
+**定義の確認**
+
+例：正方形
 
 標準向きの平面で正方形の境界を反時計回りに進みます。各内角は $\pi/2$ なので各外角も $\pi/2$ です。従って
 
@@ -736,7 +742,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo19-euler-characteristic -->
-**定義の確認：球面**
+**定義の確認**
+
+例：球面
 
 四面体の境界は球面の三角形分割を与えます。
 
