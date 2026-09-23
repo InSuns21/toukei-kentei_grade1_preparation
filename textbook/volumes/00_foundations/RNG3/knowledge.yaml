@@ -72,7 +72,7 @@ concepts:
   - id: algebra.euclidean-function
     name: 整除論の Euclid 関数
     kind: definition
-    aliases: [Euclidean function]
+    aliases: [Euclidean function, Euclid 関数]
     introduction: formal
     introduction_aliases: ["定義（Euclid 整域）"]
     requires: [algebra.integral-domain]
