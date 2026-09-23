@@ -75,7 +75,7 @@ $$
 QMC5 から次を使います。
 
 - [Walsh 関数](../QMC5/index.md#def-qmc5-walsh-function)
-- [デジタル点集合の双対ネット](../QMC5/index.md#def-qmc5-digital-dual-net)
+- [デジタル点集合の双対ネット](../QMC5/index.md#def-qmc5-dual-net)
 - [デジタルネット上の Walsh 関数の離散直交性](../QMC5/index.md#thm-qmc5-digital-character-property)
 - [絶対収束 Walsh 級数に対する積分誤差公式](../QMC5/index.md#thm-qmc5-absolute-walsh-error)
 - [NRT 重み](../QMC5/index.md#def-qmc5-nrt-weight)
@@ -334,7 +334,7 @@ $$
 $\mathbb F_2$ 上で
 
 $$
-(1+y+y^2)(1+y+y^3+y^4+\cdots)=1
+(1+y+y^2)(1+y+y^3+y^4+y^6+y^7+\cdots)=1
 $$
 
 なので、
@@ -1892,6 +1892,25 @@ $$
 
 で、$\alpha>1$ なら収束します。
 
+従って有限次元 $s$ では
+
+$$
+\sum_{\boldsymbol k\in\mathbb N_0^s}
+r_{\alpha,\boldsymbol\gamma}(\boldsymbol k)
+=
+\prod_{j=1}^s
+\left(
+1+
+\gamma_j
+\sum_{k=1}^{\infty}
+b^{-\alpha\mu_1(k)}
+\right)
+<
+\infty.
+$$
+
+したがって、任意の双対集合上へ和を制限しても評価関数は有限です。
+
 <a id="def-qmc6-walsh-merit"></a>
 <!-- formal-statement-start -->
 ### 定義（NRT 減衰型 Walsh 評価関数）
@@ -2156,7 +2175,7 @@ $$
 
 <a id="prop-qmc6-cbc-step"></a>
 <!-- formal-statement-start -->
-### 命題（各 CBC 段階の最小化は well-defined）
+### 命題（各 CBC 段階で最小化子が存在する）
 
 各 $d$ において、
 
@@ -3168,23 +3187,23 @@ $$
 \mu_1(k_1,k_2)\le2
 $$
 
-となる非零周波数は、各成分の最高位非零桁位置の和が2以下です。
+となる非零周波数をすべて列挙します。
 
-代表的には
+一変数では
 
 $$
-(1,0),
-\quad
-(0,1),
-\quad
-(1,1),
-\quad
-(2,0),
-\quad
-(0,2)
+\mu_1(1)=1,
+\qquad
+\mu_1(2)=\mu_1(3)=2.
 $$
 
-などです。
+従って候補は
+
+$$
+(1,0),\ (2,0),\ (3,0),\ (0,1),\ (0,2),\ (0,3),\ (1,1)
+$$
+
+の7個です。
 
 双対条件は
 
@@ -3195,25 +3214,27 @@ x\operatorname{tr}_2(k_2)
 \equiv0\pmod p.
 $$
 
-左辺の次数は高くても2です。
-
-各候補を調べると、
+各候補の左辺を法
 
 $$
-1,
-\quad
-x,
-\quad
-1+x,
-\quad
-x,
-\quad
-x^2
+p=x^2+x+1
 $$
 
-型の非零剰余が残り、$p$ の倍数にはなりません。
+で還元すると、順に
 
-従って
+$$
+1,\quad
+x,\quad
+1+x,\quad
+x,\quad
+x^2\equiv x+1,\quad
+x(1+x)=x+x^2\equiv1,\quad
+1+x.
+$$
+
+いずれも非零です。
+
+従って NRT 重み2以下の非零双対周波数は存在せず、
 
 $$
 \rho_1\ge3.
