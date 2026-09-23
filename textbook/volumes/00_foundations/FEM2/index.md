@@ -636,7 +636,7 @@ $$
 \widehat\lambda_1(0,1)=0.
 $$
 
-他の二関数も同様に Kronecker のデルタ条件を満たします。
+他の二関数も同様に、対応する頂点で 1、残りの頂点で 0 という節点条件を満たします。
 <!-- definition-example-end -->
 
 さらに
@@ -1385,9 +1385,9 @@ $$
 
 各境界辺上で $v_h$ は一次関数で、その両端値が 0 なので辺全体で 0 です。
 
-従って境界 trace は 0 です。
+従って境界上の値は 0 です。
 
-多角形領域は有界 Lipschitz 領域なので、[GPDE4 の $H_0^1$ と zero trace の同一視](../GPDE4/index.md#thm-gpde4-h01-trace-kernel)を適用でき、
+多角形領域は有界 Lipschitz 領域なので、[GPDE4 の $H_0^1$ と零境界値の同一視](../GPDE4/index.md#thm-gpde4-h01-trace-kernel)を適用でき、
 
 $$
 v_h\in H_0^1(\Omega).
@@ -1802,30 +1802,62 @@ A_{ij}
 \nabla\phi_j\cdot\nabla\phi_i\,dx.
 $$
 
-各要素
+各要素ごとの寄与を、まず正式に定義します。
 
-$$
+<a id="def-fem2-local-stiffness"></a>
+
+<!-- formal-statement-start -->
+### 定義（Poisson の局所剛性行列と局所荷重ベクトル）
+
+要素
+
+$
 K=\operatorname{conv}\{z_{i_1},z_{i_2},z_{i_3}\}
-$$
+$
 
-上の局所基底を
+上の局所節点基底を
 
-$$
+$
 \lambda_1^K,\lambda_2^K,\lambda_3^K
-$$
+$
 
-とし、
+とする。
 
-$$
+Poisson 方程式の双線形形式に対し、
+
+$
+\boxed{
 A^K_{ab}
 =
 \int_K
 \nabla\lambda_b^K\cdot
 \nabla\lambda_a^K
 \,dx
-$$
+}
+\qquad
+(a,b=1,2,3)
+$
 
-を **局所剛性行列**と呼びます。
+で定まる 3 行 3 列行列 $A^K$ を **局所剛性行列**という。
+
+また右辺 $f$ に対して
+
+$
+\boxed{
+b_a^K
+=
+\int_K
+f\lambda_a^K\,dx
+}
+$
+
+で定まるベクトル $b^K$ を **局所荷重ベクトル**という。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-fem2-local-stiffness -->
+**定義の確認**
+
+### 例：基準三角形の局所剛性行列
 
 基準三角形では
 
@@ -1892,7 +1924,7 @@ $$
 
 を使えば
 
-$$
+$
 \boxed{
 A^K_{ab}
 =
@@ -1907,22 +1939,26 @@ B_K^{-\mathsf T}
 \nabla\widehat\lambda_a
 \right)
 }.
-$$
+$
 
-右辺 $f$ に対する局所荷重ベクトルは
+特に $K=\widehat K$ なら $B_K=I$ なので
 
-$$
-b_a^K
+$
+A^{\widehat K}
 =
-\int_K
-f\lambda_a^K\,dx
-$$
+\begin{pmatrix}
+1&-1/2&-1/2\\
+-1/2&1/2&0\\
+-1/2&0&1/2
+\end{pmatrix}.
+$
 
-です。
+これは定義どおり、局所節点基底の勾配同士の内積を要素上で積分した行列です。
+<!-- definition-example-end -->
 
-これも基準要素へ移せば
+局所荷重ベクトルも基準要素へ移せば
 
-$$
+$
 b_a^K
 =
 |\det B_K|
@@ -1930,7 +1966,7 @@ b_a^K
 f(F_K(\widehat x))
 \widehat\lambda_a(\widehat x)
 \,d\widehat x.
-$$
+$
 
 ---
 
