@@ -1,0 +1,32 @@
+chapter: "FLD5"
+terms:
+  - term: 作図可能数
+    english: constructible number
+    meaning: 単位長を固定した定規とコンパスの有限回の作図で、実軸上の座標として得られる実数。
+  - term: 二次拡大列
+    english: tower of quadratic extensions
+    meaning: 各段階の拡大次数が2以下である体の塔。実数の作図では実部分体の塔を用いる。
+  - term: 交換子
+    english: commutator
+    meaning: 群の元 g,h に対する ghg^{-1}h^{-1}。全ての交換子が単位元なら群は可換である。
+  - term: 交換子部分群
+    english: commutator subgroup
+    meaning: 全ての交換子で生成される正規部分群 [G,G]。導来部分群ともいう。
+  - term: 導来列
+    english: derived series
+    meaning: G^(0)=G, G^(i+1)=[G^(i),G^(i)] と反復して得る部分群列。
+  - term: 可解群
+    english: solvable group
+    meaning: 導来列が有限回で自明群に到達する群。
+  - term: 根号拡大
+    english: radical extension
+    meaning: 各段階で alpha^n が直前の体に属する元 alpha を有限回添加して得る体拡大。
+  - term: 根号による可解性
+    english: solvability by radicals
+    meaning: 多項式の全ての根が、基礎体から有限回の根号添加で得られるある体に含まれる性質。
+  - term: Lagrange resolvent
+    english: Lagrange resolvent
+    meaning: 巡回 Galois 拡大で自己同型の固有ベクトルを作る有限 Fourier 型の和。
+  - term: Kummer 表示
+    english: Kummer presentation
+    meaning: 必要な1の根を含む体上の巡回素数次数拡大を K(beta), beta^p in K の形で表すこと。
