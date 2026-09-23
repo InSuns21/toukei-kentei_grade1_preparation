@@ -134,7 +134,7 @@ MC1 では積分を期待値へ移し、標本平均の不偏性、分散、二�
 
 | ID | 講座 |
 |---|---|
-| QMC1 | 一様分布・discrepancy・Koksma–Hlawka |
+| [QMC1](../QMC1/index.md) | 一様分布・ディスクレパンシー・Koksma–Hlawka |
 | QMC2 | RKHS・最悪誤差・重み付き空間 |
 | QMC3 | 格子則 |
 | QMC4 | (t,m,s)-net・(t,s)-sequence |
