@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - MC1
+  - F0-00D2C
 official_scope: []
 learning_objectives:
   - 単位立方体上の決定論的点集合から準 Monte Carlo 求積則を構成し、Monte Carlo 標本平均との違いを説明できる
