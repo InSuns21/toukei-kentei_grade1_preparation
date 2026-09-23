@@ -78,9 +78,9 @@ concepts:
       - geometry.manifold-with-boundary
 
   - id: geometry.gauss-bonnet-theorem
-    name: Gauss--Bonnet の定理
+    name: 閉曲面の Gauss--Bonnet の定理
     kind: theorem
-    aliases: [Gauss--Bonnet の定理, Gauss--Bonnet theorem]
+    aliases: [閉曲面の Gauss--Bonnet の定理, Gauss--Bonnet theorem for closed surfaces]
     introduction: formal
     introduction_aliases: ["定理（Gauss--Bonnet の定理：閉曲面）"]
     requires:
