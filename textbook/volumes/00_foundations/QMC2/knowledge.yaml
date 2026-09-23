@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - QMC1
   - F0-02C7
+  - F0-00D2E
 forward_references:
   - numerical.rank-one-lattice-rule
   - numerical.dual-lattice
@@ -68,8 +69,17 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（一次元重み付きアンカー型 Sobolev 空間）"]
     requires:
-      - functional.l2-space
-      - analysis.absolute-continuity
+      - rkhs.rkhs
+
+  - id: numerical.qmc-weighted-sobolev-kernel
+    name: 一次元重み付きアンカー型 Sobolev 空間の再生核
+    kind: theorem
+    aliases: [weighted anchored Sobolev reproducing kernel]
+    introduction: formal
+    introduction_aliases: ["定理（一次元重み付きアンカー型 Sobolev 空間の再生核）"]
+    requires:
+      - numerical.weighted-anchored-sobolev-space
+      - rkhs.reproducing-property
 
   - id: numerical.qmc-product-weights
     name: 積型重み
@@ -78,7 +88,7 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（積型重み）"]
     requires:
-      - numerical.weighted-anchored-sobolev-space
+      - numerical.qmc-weighted-sobolev-kernel
 
   - id: numerical.qmc-product-weight-wce-formula
     name: 積型重み Sobolev 核の最悪誤差公式
