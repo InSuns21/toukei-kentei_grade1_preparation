@@ -173,7 +173,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mc4-level-coupling -->
-**定義の確認：同じ一様乱数を二つの解像度で量子化する**
+**定義の確認**：同じ一様乱数を二つの解像度で量子化する
 
 $U\sim\operatorname{Unif}(0,1)$ とし、
 
@@ -1080,7 +1080,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mc4-rate-exponents -->
-**定義の確認：量子化例**
+**定義の確認**：量子化例
 
 前の量子化近似では
 
