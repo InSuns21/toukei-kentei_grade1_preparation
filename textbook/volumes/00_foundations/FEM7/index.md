@@ -6,7 +6,7 @@ FDM4 では、一次元の移流拡散問題に対して中心差分が移流卓
 
 有限要素法でも、まったく同じ問題が現れます。
 
-Poisson 方程式では、適合 Galerkin 法は Céa の補題により自然に安定でした。しかし移流拡散方程式
+Poisson 方程式では、適合 Galerkin 法は [Céa の補題](../FEM1/index.md#thm-fem1-cea) により自然に安定でした。しかし移流拡散方程式
 
 $$
 -\varepsilon \Delta u+\boldsymbol b\cdot\nabla u=f
@@ -1931,7 +1931,7 @@ $$
 \nabla\cdot\boldsymbol b=0.
 $$
 
-発散定理から
+[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)から
 
 $$
 \frac12
