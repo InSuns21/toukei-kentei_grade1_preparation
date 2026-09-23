@@ -74,7 +74,7 @@ Monte Carlo 法と準 Monte Carlo 法では、同じ積分問題に対して
 | [NA11](../NA11/index.md) | Perron–Frobenius 理論と PageRank |
 | [NA12](../NA12/index.md) | 無制約最適化と共役勾配法 |
 
-**実装済み：NA1、NA2、NA3、NA4、NA5、NA6、NA7、NA8、NA9、NA10、NA11、NA12、FDM1、FDM2。次の実装対象：FDM3。**
+**実装済み：NA1、NA2、NA3、NA4、NA5、NA6、NA7、NA8、NA9、NA10、NA11、NA12、FDM1、FDM2、FDM3。次の実装対象：FDM4。**
 
 数値解析では、単にアルゴリズムを列挙するのではなく、
 
@@ -94,7 +94,7 @@ Monte Carlo 法と準 Monte Carlo 法では、同じ積分問題に対して
 |---|---|
 | [FDM1](../FDM1/index.md) | 熱方程式と差分法の導入 |
 | [FDM2](../FDM2/index.md) | 差分スキームの安定性 |
-| FDM3 | 整合性・安定性・収束性 |
+| [FDM3](../FDM3/index.md) | 整合性・安定性・収束性 |
 | FDM4 | 移流拡散と風上化 |
 
 中心となる問いは、微分を差分商へ置き換えたとき、その近似が本当に元の PDE の解へ近づくのか、です。
