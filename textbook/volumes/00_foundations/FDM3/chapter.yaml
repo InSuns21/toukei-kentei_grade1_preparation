@@ -17,7 +17,8 @@ learning_objectives:
   - 古典的 Lax--Richtmyer 同値定理と本章の具体的誤差伝播定理の関係を説明できる
 definitions:
   - { id: FDM3-DEF-01, name: 差分スキームの局所残差 }
-  - { id: FDM3-DEF-02, name: 格子大域誤差 }\n  - { id: FDM3-DEF-03, name: 格子収束 }
+  - { id: FDM3-DEF-02, name: 格子大域誤差 }
+  - { id: FDM3-DEF-03, name: 格子収束 }
 theorems:
   - { id: FDM3-PROP-01, name: FTCS の局所残差評価 }
   - { id: FDM3-THM-01, name: FTCS の離散最大値原理 }
