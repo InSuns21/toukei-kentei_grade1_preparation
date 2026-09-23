@@ -337,6 +337,8 @@
 
     var navigationObserver = null;
     var observedSidebar = null;
+    var searchResultsObserver = null;
+    var observedSearchPanel = null;
     var navigationListenersInstalled = false;
     var lastDreamRoute = null;
     var lastDreamNav = null;
@@ -537,11 +539,65 @@
       if (content && typeof content.scrollTop === 'number') content.scrollTop = 0;
     }
 
+    function syncSearchScope(currentRoute) {
+      var search = document.querySelector('.search');
+      if (!search) return;
+
+      var input = search.querySelector('input[type="search"]');
+      var panel = search.querySelector('.results-panel');
+      var dreamOnly = isDreamTheaterRoute(currentRoute);
+      var placeholder = dreamOnly ? 'DREAM THEATERを検索' : '教材を検索';
+
+      if (input) {
+        input.setAttribute('placeholder', placeholder);
+        input.setAttribute('aria-label', placeholder);
+      }
+      if (!panel) return;
+
+      var config = window.DreamTheaterNavigation;
+      var allowedRoutes = new Set(
+        dreamOnly && config && Array.isArray(config.routes) ? config.routes : []
+      );
+      var visibleCount = 0;
+      var posts = panel.querySelectorAll('.matching-post');
+
+      posts.forEach(function (post) {
+        var link = post.querySelector('a[href]');
+        var allowed = !dreamOnly || Boolean(
+          link && allowedRoutes.has(canonicalNavigationRoute(link.getAttribute('href')))
+        );
+        post.hidden = !allowed;
+        if (allowed) visibleCount += 1;
+      });
+
+      var pluginEmpty = panel.querySelector('p.empty:not(.dream-theater-search-empty)');
+      if (pluginEmpty) {
+        var emptyText = dreamOnly
+          ? '該当するDREAM THEATER教材が見つかりません'
+          : '該当する教材が見つかりません';
+        if (pluginEmpty.textContent !== emptyText) pluginEmpty.textContent = emptyText;
+      }
+
+      var scopedEmpty = panel.querySelector('.dream-theater-search-empty');
+      var query = input ? input.value.trim() : '';
+      var needsScopedEmpty = dreamOnly && query && posts.length > 0 && visibleCount === 0;
+
+      if (needsScopedEmpty && !scopedEmpty) {
+        scopedEmpty = document.createElement('p');
+        scopedEmpty.className = 'empty dream-theater-search-empty';
+        scopedEmpty.textContent = '該当するDREAM THEATER教材が見つかりません';
+        panel.appendChild(scopedEmpty);
+      } else if (!needsScopedEmpty && scopedEmpty) {
+        scopedEmpty.remove();
+      }
+    }
+
     function syncNavigationState(routeValue, pending) {
       var currentRoute = canonicalNavigationRoute(routeValue);
       document.body.classList.toggle('navigation-pending', Boolean(pending));
 
       resetContentScrollForRoute(routeValue);
+      syncSearchScope(currentRoute);
       if (syncDreamTheaterSidebar(currentRoute)) return;
       syncStandardSidebar(currentRoute, pending);
     }
@@ -576,6 +632,19 @@
       navigationObserver.observe(sidebar, { childList: true, subtree: true });
     }
 
+    function ensureSearchResultsObserver() {
+      var panel = document.querySelector('.search .results-panel');
+      if (!panel || typeof MutationObserver === 'undefined') return;
+      if (searchResultsObserver && observedSearchPanel === panel) return;
+
+      if (searchResultsObserver) searchResultsObserver.disconnect();
+      observedSearchPanel = panel;
+      searchResultsObserver = new MutationObserver(function () {
+        syncSearchScope(canonicalNavigationRoute(window.location.hash));
+      });
+      searchResultsObserver.observe(panel, { childList: true, subtree: true });
+    }
+
     function installNavigationListeners() {
       if (navigationListenersInstalled) return;
       navigationListenersInstalled = true;
@@ -591,6 +660,14 @@
         );
       });
 
+      document.addEventListener('input', function (event) {
+        if (!event.target.matches || !event.target.matches('.search input[type="search"]')) return;
+        window.requestAnimationFrame(function () {
+          ensureSearchResultsObserver();
+          syncSearchScope(canonicalNavigationRoute(window.location.hash));
+        });
+      });
+
       window.addEventListener('hashchange', function () {
         syncNavigationState(window.location.hash, true);
       });
@@ -600,12 +677,14 @@
       hook.doneEach(function () {
         installNavigationListeners();
         ensureNavigationObserver();
+        ensureSearchResultsObserver();
         syncNavigationState(window.location.hash, false);
       });
 
       hook.ready(function () {
         installNavigationListeners();
         ensureNavigationObserver();
+        ensureSearchResultsObserver();
         syncNavigationState(window.location.hash, false);
       });
     }
