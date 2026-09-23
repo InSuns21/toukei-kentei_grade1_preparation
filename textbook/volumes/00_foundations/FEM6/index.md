@@ -130,7 +130,7 @@ $$
 
 です。
 
-GPDE10 の [時間発展問題の energy weak solution](../GPDE10/index.md#def-gpde10-energy-solution)では
+GPDE10 の [時間発展問題のエネルギー弱解](../GPDE10/index.md#def-gpde10-energy-solution)では
 
 $$
 u\in L^2(0,T;V),
@@ -1775,13 +1775,13 @@ $$
 
 $H$ を実完備内積空間とし、
 
-$
+$$
 w\in H^2(0,T;H)
-$
+$$
 
 とする。すなわち、本補題では $w,w_t,w_{tt}$ が時間について $H$ 値二乗可積分であるという意味でこの記法を用いる。
 
-$
+$$
 \rho^n
 =
 D_\tau w^n-w_t(t_n)
