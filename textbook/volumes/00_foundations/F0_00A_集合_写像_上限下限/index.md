@@ -204,6 +204,84 @@ $$
 
 「同じ $x$ に二つの値を割り当てない」が写像の条件です。異なる $x$ が同じ値へ写ることは許されます。
 
+### 4.2 恒等写像
+
+<a id="def-f0-00a-identity-map"></a>
+
+<!-- formal-statement-start -->
+> **定義（恒等写像）**  
+> 集合 $X$ に対して、各 $x\in X$ をそのまま自分自身へ送る写像
+>
+> $$
+> \operatorname{id}_X:X\to X,
+> \qquad
+> \operatorname{id}_X(x)=x
+> $$
+>
+> を $X$ 上の **恒等写像** という。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00a-identity-map -->
+#### 4.2.1 定義の確認
+
+$X=\{a,b\}$ なら
+
+$$
+\operatorname{id}_X(a)=a,
+\qquad
+\operatorname{id}_X(b)=b.
+$$
+
+恒等写像は「何もしない写像」です。後で合成写像を考えると
+
+$$
+f\circ\operatorname{id}_X=f,
+\qquad
+\operatorname{id}_Y\circ f=f
+$$
+
+となり、写像の合成における単位元の役割を持ちます。
+<!-- definition-example-end -->
+
+### 4.3 直積の射影
+
+<a id="def-f0-00a-product-projection"></a>
+
+<!-- formal-statement-start -->
+> **定義（直積の射影）**  
+> 集合 $X,Y$ に対して
+>
+> $$
+> \pi_X:X\times Y\to X,
+> \qquad
+> \pi_X(x,y)=x,
+> $$
+>
+> $$
+> \pi_Y:X\times Y\to Y,
+> \qquad
+> \pi_Y(x,y)=y
+> $$
+>
+> で定まる写像を、直積から各成分への **射影** または **標準射影** という。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00a-product-projection -->
+#### 4.3.1 定義の確認
+
+$X=\{1,2\}$、$Y=\{a,b\}$ とすると
+
+$$
+\pi_X(2,b)=2,
+\qquad
+\pi_Y(2,b)=b.
+$$
+
+射影は順序対から指定した成分だけを取り出す写像です。後の積位相や積測度でも同じ形の写像が現れます。
+<!-- definition-example-end -->
+
+「自然な射影」という語は商集合 $X/{\sim}$ への標準的な写像にも使われるため、この章では直積については **直積の射影（標準射影）** と呼んで区別します。
+
 ---
 
 ## 5. 像と逆像
