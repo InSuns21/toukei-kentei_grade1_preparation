@@ -2009,7 +2009,7 @@ $$
 
 <a id="def-qmc7-functional-anova"></a>
 <!-- formal-statement-start -->
-### 定義（関数的 分散分析成分）
+### 定義（関数的分散分析成分）
 
 \(f\in L^2([0,1)^s)\) とする。
 
@@ -2046,7 +2046,7 @@ $$
 
 と定める。
 
-この \(f_u\) を \(u\) に対応する **関数的 分散分析成分** と呼ぶ。
+この \(f_u\) を \(u\) に対応する **関数的分散分析成分** と呼ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qmc7-functional-anova -->
