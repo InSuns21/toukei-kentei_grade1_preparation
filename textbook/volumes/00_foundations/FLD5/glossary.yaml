@@ -6,6 +6,9 @@ terms:
   - term: 実二次拡大列
     english: tower of quadratic extensions
     meaning: 各段階の拡大次数が2以下である体の塔。実数の作図では実部分体の塔を用いる。
+  - term: 正規閉包
+    english: normal closure
+    meaning: 有限拡大 E/F を含む有限正規拡大のうち、固定した代数閉包内で包含関係に関して最小のもの。
   - term: 交換子
     english: commutator
     meaning: 群の元 g,h に対する ghg^{-1}h^{-1}。全ての交換子が単位元なら群は可換である。
