@@ -158,6 +158,15 @@
 | 随伴表現 | adjoint representation | $\operatorname{Ad}_g=d(C_g)_e$ により定まる $\operatorname{Ad}:G\to GL(\mathfrak g)$。本文では「Adjoint 表現」を主語彙にしない |
 | 無限小随伴作用 | infinitesimal adjoint action | $\operatorname{ad}=d(\operatorname{Ad})_e$。$\operatorname{ad}_X(Y)=[X,Y]$ |
 | Baker--Campbell--Hausdorff 公式 | Baker--Campbell--Hausdorff formula | 人名部分は英字表記を保持。指数座標で群積を反復 Lie 括弧により記述する公式 |
+| Lie 部分群 | Lie subgroup | Lie 群の部分群で、親 Lie 群の埋め込み部分多様体としての構造を持つもの |
+| 閉部分群定理 | closed subgroup theorem | 有限次元 Lie 群の閉部分群が一意な埋め込み Lie 部分群構造を持つことを述べる定理 |
+| 特殊線形群 | special linear group | 行列式が1の可逆行列全体。実行列では $SL(n,\mathbb R)$ |
+| 直交群 | orthogonal group | $A^\mathsf{T}A=I$ を満たす実行列全体 $O(n)$ |
+| 特殊直交群 | special orthogonal group | $O(n)$ のうち行列式が1の行列全体 $SO(n)$ |
+| ユニタリ群 | unitary group | $A^*A=I$ を満たす複素行列全体 $U(n)$ |
+| 特殊ユニタリ群 | special unitary group | $U(n)$ のうち行列式が1の行列全体 $SU(n)$ |
+| 反対称行列 | skew-symmetric matrix | $X^\mathsf{T}=-X$ を満たす実行列 |
+| 反 Hermitian 行列 | skew-Hermitian matrix | $X^*=-X$ を満たす複素行列。人名由来部分 Hermitian は英字表記を保持 |
 | 線形分布 | distribution / smooth distribution | 多様体上の一定階数の接方向の族。必要なら「滑らかな線形分布」と明示 |
 | 積分多様体 | integral manifold | 線形分布の接方向を実現するはめ込み多様体 |
 | 対合的な分布 | involutive distribution | Lie 括弧で閉じている線形分布 |

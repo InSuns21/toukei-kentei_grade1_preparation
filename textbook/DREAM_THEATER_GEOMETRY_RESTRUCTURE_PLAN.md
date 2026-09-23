@@ -730,7 +730,7 @@ GRP3 の群作用・共役を滑らかな自己同型へ持ち上げ、`Ad` を�
 
 ### LIE3 Lie 部分群・古典群
 
-**prerequisites:** LIE2, LA6
+**prerequisites:** LIE2, LA6, GEO3
 
 - Lie 部分群
 - closed subgroup theorem の位置付け
@@ -992,10 +992,10 @@ Phase 4 完了。GEO15 → GEO16 → GEO17 → GEO18 → GEO19 を完了し、�
 
 - LIE1 Lie 群・Lie 環・不変ベクトル場 ✅ 2026-09-24
 - LIE2 1 パラメータ部分群・指数写像・Adjoint 表現 ✅ 2026-09-24
-- LIE3 Lie 部分群・古典群
+- LIE3 Lie 部分群・古典群 ✅ 2026-09-24
 - LIE4 Lie 群作用・軌道・等質空間・Maurer--Cartan
 
-LIE1 は GRP2 + GEO5 を direct prerequisite として実装済み。LIE2 も LIE1 + GRP3 + ODE4 を direct prerequisite として実装済み。1パラメータ部分群から指数写像を構成し、共役自己同型の微分として随伴表現 $\operatorname{Ad}$、その微分として $\operatorname{ad}_X(Y)=[X,Y]$ まで閉じた。次の実装対象は **LIE3「Lie 部分群・古典群」** とする。reader-facing の標準読順では Riemann 幾何主線を抽象代数・Lie 群なしで完走できる構成を維持する。
+LIE1 は GRP2 + GEO5、LIE2 は LIE1 + GRP3 + ODE4、LIE3 は LIE2 + LA6 + GEO3 を direct prerequisite として実装済み。LIE3 では Lie 部分群と指数写像の整合性を閉じ、閉部分群定理を位置付けた上で $SL(n)$、$O(n)$、$SO(n)$、$U(n)$、$SU(n)$ の接 Lie 環を定義方程式の微分から直接計算した。次の実装対象は **LIE4「Lie 群作用・軌道・等質空間・Maurer--Cartan」** とする。reader-facing の標準読順では Riemann 幾何主線を抽象代数・Lie 群なしで完走できる構成を維持する。
 
 ---
 
@@ -1132,7 +1132,7 @@ LIE1 Lie 群・Lie 環・不変ベクトル場
   ↓
 LIE2 指数写像・Adjoint   ← GRP3 + ODE4
   ↓
-LIE3 Lie 部分群・古典群 ← LA6
+LIE3 Lie 部分群・古典群 ← LA6 + GEO3
   ↓
 LIE4 Lie 群作用・等質空間・Maurer--Cartan ← GRP3 + GEO3
 ```

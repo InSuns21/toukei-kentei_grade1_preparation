@@ -1,0 +1,49 @@
+id: "LIE3"
+title: "Lie 理論 III：Lie 部分群・古典群"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LIE2
+  - LA6
+  - GEO3
+official_scope: []
+learning_objectives:
+  - Lie 部分群を埋め込み部分多様体かつ部分群として定義し、包含写像の微分から接 Lie 環が親 Lie 環の Lie 部分環になることを説明できる
+  - Lie 部分群の指数写像が親 Lie 群の指数写像の制限になることを Lie 群準同型の自然性から証明できる
+  - 閉部分群定理が「閉部分群なら自動的に埋め込み Lie 部分群になる」という剛性を与えることと、本章での使用範囲を説明できる
+  - SL(n,R) を det=1 の正則レベル集合として扱い、sl(n,R) がトレース0行列全体であることを直接計算できる
+  - O(n) と SO(n) の接 Lie 環が反対称行列全体であることを A^T A=I の微分から導ける
+  - U(n) と SU(n) を複素行列空間を実多様体とみなして扱い、その接 Lie 環を反 Hermitian 条件とトレース条件から導ける
+  - GL(n,R), SL(n,R), O(n), SO(n), U(n), SU(n) の実次元を接空間の線形条件から計算できる
+  - SO(2) と SU(2) の低次元例で指数写像と Lie 括弧を具体計算できる
+definitions:
+  - { id: LIE3-DEF-01, name: Lie 部分群 }
+  - { id: LIE3-DEF-02, name: 特殊線形群 }
+  - { id: LIE3-DEF-03, name: 直交群・特殊直交群 }
+  - { id: LIE3-DEF-04, name: ユニタリ群・特殊ユニタリ群 }
+theorems:
+  - { id: LIE3-THM-01, name: Lie 部分群の接空間は Lie 部分環 }
+  - { id: LIE3-THM-02, name: Lie 部分群と指数写像の整合性 }
+  - { id: LIE3-THM-03, name: 閉部分群定理 }
+  - { id: LIE3-THM-04, name: 特殊線形群とその Lie 環 }
+  - { id: LIE3-THM-05, name: 直交群・特殊直交群とその Lie 環 }
+  - { id: LIE3-THM-06, name: ユニタリ群・特殊ユニタリ群とその Lie 環 }
+canonical_examples:
+  - GL(n,R) の部分群 SL(n,R) とトレース0行列
+  - O(n), SO(n) と反対称行列
+  - U(n), SU(n) と反 Hermitian 行列
+  - SO(2) の回転行列と1次元 Lie 環
+  - SU(2) の3次元 Lie 環と明示基底
+problem_patterns:
+  - LIE3-SUBGROUP-TANGENT-1
+  - LIE3-EXP-RESTRICTION-1
+  - LIE3-SL-1
+  - LIE3-ORTHOGONAL-1
+  - LIE3-UNITARY-1
+  - LIE3-DIMENSION-1
+  - LIE3-SO2-1
+  - LIE3-SU2-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.5, exercises: 5.0, review: 0.5 }

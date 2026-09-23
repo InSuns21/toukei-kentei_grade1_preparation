@@ -1,0 +1,29 @@
+chapter: "LIE3"
+terms:
+  - term: Lie 部分群
+    english: Lie subgroup
+    meaning: Lie 群 G の部分群 H で、G の埋め込み部分多様体としての構造を持ち、その多様体構造で Lie 群になるもの。
+  - term: 閉部分群定理
+    english: closed subgroup theorem
+    meaning: 有限次元 Lie 群の閉部分群は一意な埋め込み Lie 部分群構造を持つという定理。
+  - term: 特殊線形群
+    english: special linear group
+    meaning: 行列式が1である可逆実行列全体 SL(n,R)。
+  - term: 直交群
+    english: orthogonal group
+    meaning: A^T A=I を満たす実行列全体 O(n)。
+  - term: 特殊直交群
+    english: special orthogonal group
+    meaning: O(n) のうち det A=1 を満たす行列全体 SO(n)。
+  - term: ユニタリ群
+    english: unitary group
+    meaning: A^*A=I を満たす複素行列全体 U(n)。
+  - term: 特殊ユニタリ群
+    english: special unitary group
+    meaning: U(n) のうち det A=1 を満たす行列全体 SU(n)。
+  - term: 反対称行列
+    english: skew-symmetric matrix
+    meaning: X^T=-X を満たす実正方行列。
+  - term: 反 Hermitian 行列
+    english: skew-Hermitian matrix
+    meaning: X^*=-X を満たす複素正方行列。

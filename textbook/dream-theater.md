@@ -140,8 +140,9 @@ GRP1--GRP4 で群・商構造・群作用・Sylow 理論までの有限群論主
 
 1. [LIE1 Lie 群・Lie 環・不変ベクトル場](textbook/volumes/00_foundations/LIE1/index.md)
 2. [LIE2 1パラメータ部分群・指数写像・随伴表現](textbook/volumes/00_foundations/LIE2/index.md)
+3. [LIE3 Lie 部分群・古典群](textbook/volumes/00_foundations/LIE3/index.md)
 
-LIE1 では左移動・右移動、左不変ベクトル場、単位元接空間の Lie 環、Lie 群準同型の微分、一般線形群の行列交換子までを閉じます。LIE2 では1パラメータ部分群と Lie 群の指数写像を左不変場の流れから構成し、共役自己同型の微分として随伴表現 $\operatorname{Ad}$、さらに $\operatorname{ad}_X(Y)=[X,Y]$ と共役四項積から BCH 理論への入口まで進みます。次は LIE3 で Lie 部分群と古典群を扱います。
+LIE1 では左移動・右移動、左不変ベクトル場、単位元接空間の Lie 環、Lie 群準同型の微分、一般線形群の行列交換子までを閉じます。LIE2 では1パラメータ部分群と Lie 群の指数写像を左不変場の流れから構成し、共役自己同型の微分として随伴表現 $\operatorname{Ad}$、さらに $\operatorname{ad}_X(Y)=[X,Y]$ と共役四項積から BCH 理論への入口まで進みます。LIE3 では Lie 部分群と指数写像の整合性を証明し、$SL(n)$、$O(n)$、$SO(n)$、$U(n)$、$SU(n)$ の定義方程式を微分して接 Lie 環を直接計算します。次は LIE4 で Lie 群作用・等質空間・Maurer--Cartan 形式へ進みます。
 
 ### 標準ベクトル解析コア
 

@@ -1218,6 +1218,23 @@ direct prerequisite は GRP2 と GEO5 です。GRP2 から群・群準同型を�
 
 教材章としての direct prerequisite は LIE1、GRP3、ODE4 です。standard math core の機械可読レジストリでは ODE4 が独立 node ではないため、LIE1・GRP3 を `prerequisites`、ODE4 を `reuses` として記録します。LIE1 の Lie 群・Lie 環・左不変場、GRP3 の共役作用、ODE4 の自律系の見方を接続します。一般表現論を黒箱として導入せず、随伴表現の定義・準同型性・微分を章内で閉じます。Lie 部分群・古典群は LIE3 へ送ります。
 
+
+## LIE3 Lie 部分群・古典群 `core-advanced-standard`
+
+- Lie 部分群を埋め込み部分多様体かつ部分群として定義し、包含写像の微分から接空間が親 Lie 環の Lie 部分環になることを証明
+- LIE2 の指数写像の自然性から、Lie 部分群の指数写像が親 Lie 群の指数写像の制限になることを証明
+- 閉部分群定理を一般の剛性定理として位置付け、古典群の接空間計算自体は正則値定理で直接閉じる
+- $SL(n,\mathbb R)$ を $\det=1$ の正則レベル集合として構成し、$\mathfrak{sl}(n,\mathbb R)=\{X:\operatorname{tr}X=0\}$ を導出
+- $O(n)$ と $SO(n)$ を $A^\mathsf{T}A=I$ から構成し、$\mathfrak{so}(n)=\{X:X^\mathsf{T}+X=0\}$ と次元 $n(n-1)/2$ を導出
+- $U(n)$ と $SU(n)$ を実多様体として扱い、反 Hermitian 条件とトレース条件から $\mathfrak u(n)$、$\mathfrak{su}(n)$ を導出
+- $SO(2)$ の指数写像と $SU(2)$ の3次元 Lie 環を低次元例として直接計算
+- A4/B3/C1 の演習で接空間、行列式微分、直交群・ユニタリ群、$SU(2)$ の括弧を再構成
+
+実装: [LIE3](volumes/00_foundations/LIE3/index.md)
+
+direct prerequisite は LIE2、LA6、GEO3 です。LIE2 の指数写像・自然性と、LA6 までの複素内積・ユニタリ作用素を再利用します。GEO3 の埋め込み部分多様体・正則値定理・正則レベル集合の接空間を直接再利用します。閉部分群定理は本章では意図的黒箱として位置付け、古典群は定義方程式の微分から接 Lie 環を直接計算します。Lie 群作用・等質空間・Maurer--Cartan は LIE4 へ送ります。
+
+
 ---
 
 # 6. 測度論：標準教科書の第2段階
