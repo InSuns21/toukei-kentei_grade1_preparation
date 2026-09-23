@@ -78,6 +78,7 @@ concepts:
       - numerical.qmc-rule
       - numerical.qmc-local-discrepancy
       - numerical.hardy-krause-variation
+      - measure.fubini-theorem
 
   - id: numerical.koksma-hlawka-inequality
     name: Koksma--Hlawka の不等式
