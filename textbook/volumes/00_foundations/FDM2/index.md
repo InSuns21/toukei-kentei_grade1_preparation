@@ -78,15 +78,19 @@ $$
 
 ---
 
-## 1. 差分スキームの摂動安定性
+## 1. NA6 の摂動安定性を差分法へ移す
 
-<a id="def-fdm2-perturbation-stability"></a>
+NA6 では、各ステップに加わる摂動まで含めて[有限時間摂動安定性](../NA6/index.md#def-na6-perturbation-stability)を定義しました。
+
+ここではまず、線形な斉次差分スキームに対して、**初期値の違いがどう伝わるか**だけを切り出します。
+
+<a id="def-fdm2-contractivity"></a>
 <!-- formal-statement-start -->
-### 定義（差分スキームの有限時間摂動安定性）
+### 定義（差分時間発展の縮小性）
 
-刻み幅 $h,\tau$ に依存する線形差分スキームを考える。
+格子ベクトル上のノルム $\|\cdot\|$ を固定する。
 
-二つの数値解の差
+同じ線形斉次差分スキームに従う二つの数値解 $\mathbf U^n,\widetilde{\mathbf U}^n$ の差を
 
 $$
 \mathbf E^n
@@ -94,35 +98,41 @@ $$
 \mathbf U^n-\widetilde{\mathbf U}^n
 $$
 
-が同じ斉次差分方程式に従うとする。
+とする。
 
-任意の固定終端時刻 $T>0$ に対し、$h,\tau$ に依存しない定数 $C_T$ が存在して
+すべての時刻ステップで
 
 $$
 \boxed{
-\|\mathbf E^n\|
-\le
-C_T\|\mathbf E^0\|
-\qquad
-(n\tau\le T)
-}
-$$
-
-が成り立つとき、その差分スキームはそのノルムに関して **有限時間摂動安定**であるという。
-
-特に
-
-$$
 \|\mathbf E^{n+1}\|
 \le
 \|\mathbf E^n\|
+}
 $$
 
-が全時刻で成り立つとき、**縮小的**であるという。
+が成り立つとき、その差分時間発展はそのノルムに関して **縮小的**であるという。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-fdm2-perturbation-stability -->
-### 例：スカラー更新で安定性を直接判定する
+縮小性が成り立てば、反復して
+
+$$
+\|\mathbf E^n\|
+\le
+\|\mathbf E^0\|
+$$
+
+です。
+
+したがって初期値摂動については、NA6 の有限時間摂動安定性に現れる定数を
+
+$$
+C_T=1
+$$
+
+と取れる特に強い場合になっています。
+
+<!-- definition-example-start: def-fdm2-contractivity -->
+### 例：スカラー更新で縮小性を直接判定する
 
 **定義の確認**。摂動が
 
@@ -152,10 +162,14 @@ $$
 |q|\le1
 $$
 
-なら
+なら各ステップで
 
 $$
-|E^n|\le|E^0|
+|E^{n+1}|
+=
+|q|\,|E^n|
+\le
+|E^n|,
 $$
 
 なので縮小的です。
@@ -1411,9 +1425,27 @@ $$
 <!-- formal-statement-start -->
 ### 定理（熱方程式の theta 差分法の安定性条件）
 
-$0\le\theta\le1$、$r\ge0$ とする。
+$0\le\theta\le1$、$r\ge0$ とし、von Neumann 型解析として $\xi\in[-\pi,\pi]$ の Fourier モードを考える。
 
-熱方程式の theta 差分法が全 Fourier モードに対して
+$$
+a(\xi)
+=
+4r\sin^2\frac{\xi}{2},
+$$
+
+$$
+G_\theta(\xi)
+=
+\frac{
+1-(1-\theta)a(\xi)
+}{
+1+\theta a(\xi)
+}
+$$
+
+とする。
+
+全波数で
 
 $$
 |G_\theta(\xi)|\le1
@@ -1734,7 +1766,7 @@ R_\theta(-r\mu)
 }.
 $$
 
-離散 Laplacian の Fourier 固有値
+$-h^2\Delta_h$ の Fourier 固有値
 
 $$
 \mu(\xi)
@@ -1899,7 +1931,22 @@ $$
 <!-- formal-statement-start -->
 ### 命題（斉次 Dirichlet 格子の離散正弦モード）
 
-斉次 Dirichlet 境界条件を持つ一次元離散 Laplacian 行列 $K$ の固有ベクトルは
+整数 $J\ge2$ とし、斉次 Dirichlet 格子の内部点 $j=1,\ldots,J-1$ 上で、$-h^2\Delta_h$ に対応する行列
+
+$$
+K
+=
+\begin{pmatrix}
+2&-1&&0\\
+-1&2&\ddots&\\
+&\ddots&\ddots&-1\\
+0&&-1&2
+\end{pmatrix}
+$$
+
+を考える。
+
+この $K$ の固有ベクトルは
 
 $$
 \phi_j^{(k)}
