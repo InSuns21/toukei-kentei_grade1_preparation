@@ -1,0 +1,41 @@
+chapter: "FEM2"
+terms:
+  - term: 適合三角形分割
+    english: conforming triangulation
+    meaning: 多角形領域を有限個の三角形へ分割し、異なる要素の交わりが空集合・共通頂点・共通辺のいずれかになるようにした分割。
+  - term: メッシュ幅
+    english: mesh size
+    meaning: 各要素の直径 h_K の最大値 h=max_K h_K。後続の補間誤差や収束率で離散化の細かさを測る。
+  - term: 有限要素
+    english: finite element
+    meaning: 要素 K、有限次元局所関数空間 P、その関数を一意に決める自由度集合 N の三つ組。
+  - term: 自由度
+    english: degree of freedom
+    meaning: 局所関数から数値を取り出す線形汎関数。一次三角形要素では三頂点での関数値を用いる。
+  - term: 重心座標
+    english: barycentric coordinates
+    meaning: 三角形の各頂点で1または0を取る一次関数 lambda_i。局所節点基底をなし、和は1になる。
+  - term: 基準三角形
+    english: reference triangle
+    meaning: 一般要素上の計算を共通化するために用いる標準三角形。本章では頂点 (0,0),(1,0),(0,1) を用いる。
+  - term: アフィン要素写像
+    english: affine element map
+    meaning: 基準三角形を一般三角形へ移す F_K(xhat)=B_K xhat+z_1 の形の可逆アフィン写像。
+  - term: 連続一次有限要素空間
+    english: continuous piecewise linear finite element space
+    meaning: 各三角形上で一次多項式であり、要素境界をまたいで連続な関数からなる有限次元空間。
+  - term: 大域節点基底
+    english: global nodal basis
+    meaning: 各大域頂点 z_i に対して phi_i(z_j)=delta_ij を満たす連続区分一次基底。各基底の台は頂点近傍の要素に局在する。
+  - term: 局所剛性行列
+    english: local stiffness matrix
+    meaning: 一要素 K 上で A^K_ab=integral_K grad(lambda_b^K) dot grad(lambda_a^K) dx により定まる Poisson 双線形形式の局所行列。
+  - term: 局所荷重ベクトル
+    english: local load vector
+    meaning: 一要素 K 上で b^K_a=integral_K f lambda_a^K dx により定まる右辺の局所ベクトル。
+  - term: 組立て
+    english: assembly
+    meaning: 各要素の局所行列・局所ベクトルを、局所節点と大域節点の対応に従って大域行列・大域ベクトルへ加算する操作。
+  - term: 疎性
+    english: sparsity
+    meaning: 基底関数の局所台により、同じ要素を共有しない節点同士の剛性行列成分が0となり、大域行列の多くの成分が0になる性質。
