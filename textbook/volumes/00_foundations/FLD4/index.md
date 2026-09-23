@@ -497,45 +497,45 @@ $$
 
 係数へ $\sigma$ を作用させた多項式
 
-$
+$$
 \sigma(m_i)
-$
+$$
 
 は次数 $d_i$ です。
 
 $m_i$ は分離的なので
 
-$
+$$
 \gcd(m_i,m_i')=1.
-$
+$$
 
 従ってある $a,b\in E_{i-1}[x]$ が存在して
 
-$
+$$
 a m_i+b m_i'=1
-$
+$$
 
 と書けます。
 
 係数へ $\sigma$ を作用させると
 
-$
+$$
 \sigma(a)\sigma(m_i)
 +
 \sigma(b)\sigma(m_i')=1.
-$
+$$
 
 係数写像は形式微分と可換するので
 
-$
+$$
 \sigma(m_i')=(\sigma(m_i))'.
-$
+$$
 
 したがって
 
-$
+$$
 \gcd\bigl(\sigma(m_i),(\sigma(m_i))'\bigr)=1.
-$
+$$
 
 FLD2 の重根判定により $\sigma(m_i)$ も重根を持ちません。
 
@@ -919,47 +919,47 @@ $$
 
 $$
 W=\operatorname{span}_L\{v(a):a\in K\}
-$
+$$
 
 と置きます。
 
 もし $W\ne L^n$ なら
 
-$
+$$
 r=\dim_L W<n.
-$
+$$
 
 $W$ の基底を
 
-$
+$$
 w_1,\dots,w_r
-$
+$$
 
 とします。
 
 未知数 $c_1,\dots,c_n$ に関する $r$ 本の斉次一次方程式
 
-$
+$$
 c_1(w_j)_1+\cdots+c_n(w_j)_n=0,
 \qquad
 j=1,\dots,r
-$
+$$
 
 を考えます。
 
 未知数の個数 $n$ が方程式の本数 $r$ より大きいので、非零解
 
-$
+$$
 (c_1,\dots,c_n)\ne(0,\dots,0)
-$
+$$
 
 が存在します。
 
 任意の $a\in K$ について $v(a)\in W$ だから、この非零解は
 
-$
+$$
 c_1\sigma_1(a)+\cdots+c_n\sigma_n(a)=0
-$
+$$
 
 を満たします。
 
@@ -1244,60 +1244,60 @@ $$
 
 先ほどの逆向き不等式と合わせて
 
-$
+$$
 \boxed{[L:K]=n=|H|}.
-$
+$$
 
 次に $L/K$ が分離的かつ正規であることを確認します。
 
 任意の $\alpha\in L$ を取り、その $H$-軌道の相異なる元全体を
 
-$
+$$
 H\alpha
 =
 \{\beta_1,\dots,\beta_r\}
-$
+$$
 
 とします。
 
 軌道多項式
 
-$
+$$
 P_\alpha(x)
 =
 \prod_{j=1}^r(x-\beta_j)
 \in L[x]
-$
+$$
 
 を考えます。
 
 任意の $\tau\in H$ は軌道 $H\alpha$ を置換するので、
 
-$
+$$
 \tau(P_\alpha)=P_\alpha.
-$
+$$
 
 従って $P_\alpha$ の全係数は $H$ の全ての元で固定され、
 
-$
+$$
 P_\alpha\in K[x].
-$
+$$
 
 また $\alpha$ は $P_\alpha$ の根です。
 
 $\alpha$ の $K$ 上の最小多項式を $m_{\alpha,K}$ とすると、最小多項式の整除性から
 
-$
+$$
 m_{\alpha,K}\mid P_\alpha
 \qquad
 \text{in }K[x].
-$
+$$
 
 $P_\alpha$ は相異なる一次因子
 
-$
+$$
 x-\beta_1,\dots,x-\beta_r
-$
+$$
 
 の積なので重根を持たず、しかも全ての根が $L$ にあります。
 
@@ -1311,37 +1311,37 @@ $\alpha\in L$ は任意だったため、$L/K$ は分離的です。
 
 すでに $[L:K]<\infty$ を示したので、
 
-$
+$$
 \boxed{L/K\text{ は有限 Galois 拡大}}
-$
+$$
 
 です。
 
 最後に
 
-$
+$$
 H\subset\operatorname{Aut}_K(L)
 =
 \operatorname{Gal}(L/K)
-$
+$$
 
 です。
 
 一方、$\operatorname{Aut}_K(L)$ の相異なる元も [Artin の独立性](#lem-fld4-artin-independence)により $\operatorname{Hom}_K(L,L)$ の中で $L$ 上一次独立なので、その個数は
 
-$
+$$
 \dim_L\operatorname{Hom}_K(L,L)
 =
 [L:K]
 =
 n
-$
+$$
 
 を超えません。
 
 すでに $H$ が $n$ 個の元を持つので
 
-$
+$$
 \boxed{
 \operatorname{Gal}(L/K)
 =
@@ -1349,7 +1349,7 @@ $
 =
 H
 }.
-$
+$$
 <!-- proof-end -->
 
 この定理は非常に強力です。
@@ -2256,27 +2256,27 @@ $$
 
 生成元への作用から
 
-$
+$$
 r^3=1,
 \qquad
 s^2=1,
 \qquad
 srs=r^{-1}
-$
+$$
 
 を確認できます。
 
 さらに $G=\operatorname{Gal}(L/\mathbb Q)$ は三つの根
 
-$
+$$
 \alpha,\quad \omega\alpha,\quad \omega^2\alpha
-$
+$$
 
 を置換します。
 
 $r$ はこの三根を
 
-$
+$$
 \alpha
 \mapsto
 \omega\alpha
@@ -2284,7 +2284,7 @@ $
 \omega^2\alpha
 \mapsto
 \alpha
-$
+$$
 
 と巡回させ、$s$ は $\alpha$ を固定して $\omega\alpha$ と $\omega^2\alpha$ を交換します。
 
@@ -2292,7 +2292,7 @@ $
 
 一方
 
-$
+$$
 |G|
 =
 [L:\mathbb Q]
@@ -2300,16 +2300,16 @@ $
 6
 =
 |S_3|.
-$
+$$
 
 よって作用は同型を与え、
 
-$
+$$
 \boxed{
 \operatorname{Gal}(L/\mathbb Q)
 \cong S_3
 }.
-$
+$$
 
 部分群
 
@@ -2604,7 +2604,7 @@ $$
 
 [Artin の固定体定理](#thm-fld4-artin-fixed-field)では
 
-$
+$$
 H=\{\sigma_1,\dots,\sigma_n\}
 $$
 
@@ -3324,9 +3324,9 @@ $$
 
 三根
 
-$
+$$
 \alpha,\quad\omega\alpha,\quad\omega^2\alpha
-$
+$$
 
 への作用を見ると、$r$ は三つを巡回させる 3-巡回置換で、$s$ は $\alpha$ を固定して残り二根を交換する互換です。
 
@@ -3334,17 +3334,17 @@ $
 
 一方、すでに $G$ は六元であることを示したので、この三根への作用
 
-$
+$$
 G\to S_3
-$
+$$
 
 は六元群から六元群への全射です。
 
 従って全単射であり、
 
-$
+$$
 \boxed{G\cong S_3}.
-$
+$$
 
 3. $r$ は $\omega$ を固定します。
 
