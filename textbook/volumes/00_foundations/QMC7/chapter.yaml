@@ -1,0 +1,53 @@
+id: "QMC7"
+title: "ランダム化準 Monte Carlo 法"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - QMC5
+  - MC1
+official_scope: []
+learning_objectives:
+  - b 進桁の繰上がりなし加法を定義し、通常の加法との違いを具体例で説明できる
+  - 一様なデジタルシフトを固定点へ作用させると一様分布になることを桁ごとに証明し、デジタルシフト QMC 推定量の不偏性を導ける
+  - デジタルシフトが (t,m,s)-ネット性を保つことを b 進基本区間のラベル置換として証明できる
+  - Walsh 関数に対するデジタルシフトの乗法則を用いて、双対ネットに残る Walsh 係数だけからランダム化誤差とその二乗平均を導ける
+  - 独立な複数回のランダム化を用いた平均・標本分散・標準誤差を計算し、点ごとの独立性ではなく反復間の独立性を使うことを説明できる
+  - 入れ子一様スクランブルを定義し、各点の一様性と (t,m,s)-ネット性の保存を桁木の置換として証明できる
+  - 関数的 ANOVA 分解を座標積分から構成し、直交性と分散分解を証明できる
+  - ANOVA 成分の座標支持と Walsh 周波数の支持を対応させ、デジタルシフト分散を相互作用ごとに読み替えられる
+definitions:
+  - { id: QMC7-DEF-01, name: b 進デジタル加法 }
+  - { id: QMC7-DEF-02, name: デジタルシフト QMC 推定量 }
+  - { id: QMC7-DEF-03, name: 独立ランダム化反復 }
+  - { id: QMC7-DEF-04, name: 入れ子一様スクランブル }
+  - { id: QMC7-DEF-05, name: 関数的 ANOVA 成分 }
+theorems:
+  - { id: QMC7-THM-01, name: 一様デジタルシフトによる各点の一様化と不偏性 }
+  - { id: QMC7-THM-02, name: デジタルシフトによる (t,m,s)-ネット性の保存 }
+  - { id: QMC7-THM-03, name: デジタルシフトの Walsh 乗法則 }
+  - { id: QMC7-THM-04, name: デジタルシフト QMC の厳密分散公式 }
+  - { id: QMC7-PROP-01, name: 独立ランダム化反復の分散と標本分散 }
+  - { id: QMC7-THM-05, name: 入れ子一様スクランブルによる各点の一様化と不偏性 }
+  - { id: QMC7-THM-06, name: 入れ子一様スクランブルによる (t,m,s)-ネット性の保存 }
+  - { id: QMC7-THM-07, name: 関数的 ANOVA 分解の直交性と分散分解 }
+  - { id: QMC7-COR-01, name: デジタルシフト分散の ANOVA 支持分解 }
+canonical_examples:
+  - 底2で 1/4 と 3/4 のデジタル和が 1/2 となり通常の mod 1 加法とは異なる例
+  - 2点デジタルネット P={0,1/2} へ一様デジタルシフトを施し各点が一様分布になる例
+  - f=2+3 wal_1-2 wal_2 と P={0,1/2} で wal_1 が消え wal_2 だけがランダム誤差として残る例
+  - 4個の独立ランダム化反復から標本分散と標準誤差を計算する例
+  - 底2の2点 (0,1)-ネットを入れ子一様スクランブルして第一桁の均衡が保存される例
+  - f(x1,x2)=1+(x1-1/2)+2(x2-1/2)+3(x1-1/2)(x2-1/2) の ANOVA 成分と分散を直接計算する例
+problem_patterns:
+  - QMC7-DIGITAL-ADD-1
+  - QMC7-SHIFT-UNBIASED-1
+  - QMC7-WALSH-VARIANCE-1
+  - QMC7-REPLICATE-SE-1
+  - QMC7-NET-PRESERVATION-1
+  - QMC7-SCRAMBLE-PREFIX-1
+  - QMC7-ANOVA-DECOMPOSITION-1
+  - QMC7-RQMC-INTEGRATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.5, exercises: 5.0, review: 0.75 }
