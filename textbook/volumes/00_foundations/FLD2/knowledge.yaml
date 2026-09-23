@@ -175,7 +175,7 @@ concepts:
       - algebra.irreducible-element
 
   - id: algebra.characteristic-zero-separability
-    name: 標数0の体上の代数拡大は分離的
+    name: 標数 $0$ の体上の代数拡大は分離的
     kind: corollary
     aliases: []
     introduction: formal
