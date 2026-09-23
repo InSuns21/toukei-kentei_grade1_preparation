@@ -92,6 +92,15 @@ concepts:
       - algebra.group
       - set.cartesian-product
 
+  - id: algebra.direct-product-group-structure
+    name: 成分ごとの演算による直積群
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（直積群）"]
+    requires:
+      - algebra.direct-product-group
+
   - id: algebra.symmetric-group
     name: 対称群
     kind: definition
