@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - QMC1
   - F0-02C7
+  - F0-00D2E
 official_scope: []
 learning_objectives:
   - 既存の再生核 Hilbert 空間と再生核を用いて、積分汎関数が連続になる十分条件を確認し、その Riesz 表現元を導ける
@@ -30,6 +31,7 @@ definitions:
 theorems:
   - { id: QMC2-THM-01, name: 積分汎関数の表現元 }
   - { id: QMC2-THM-02, name: RKHS 最悪誤差の表現公式 }
+  - { id: QMC2-THM-02A, name: 一次元重み付きアンカー型 Sobolev 空間の再生核 }
   - { id: QMC2-THM-03, name: 積型重み Sobolev 核の最悪誤差公式 }
   - { id: QMC2-THM-04, name: 乱数点平均から得る最悪誤差の存在上界 }
   - { id: QMC2-THM-05, name: 可算和可能な積型重みによる強多項式 tractability }
