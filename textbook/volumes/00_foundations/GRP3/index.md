@@ -1223,7 +1223,7 @@ $$
 ### 証明の見取り図
 
 [群の類等式](#thm-grp3-class-equation)
-$
+$$
 |G|
 =
 |Z(G)|
@@ -1633,7 +1633,7 @@ G_H
 \{a\in G:aH=H\}.
 $$
 [剰余類の等値条件](../GRP2/index.md#prop-grp2-coset-partition)から
-$
+$$
 aH=H
 \iff
 a\in H.
