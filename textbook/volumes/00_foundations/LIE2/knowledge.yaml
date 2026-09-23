@@ -67,23 +67,14 @@ concepts:
       - lie.exponential-map
       - lie.homomorphism-differential
 
-  - id: lie.matrix-exponential
-    name: 行列指数関数
-    kind: definition
-    aliases: [matrix exponential]
-    introduction: formal
-    introduction_aliases: ["定義（行列指数関数）"]
-    requires:
-      - lie.general-linear-group
-      - lie.general-linear-lie-algebra
-
   - id: lie.general-linear-exponential
     name: 一般線形群の指数写像は行列指数関数
     kind: theorem
     aliases: []
     introduction: formal
     requires:
-      - lie.matrix-exponential
+      - ode.matrix-exponential
+      - ode.matrix-exponential-properties
       - lie.exponential-map
 
   - id: lie.conjugation-automorphism
@@ -155,8 +146,8 @@ concepts:
       - lie.infinitesimal-adjoint-action
       - lie.adjoint-representation
 
-  - id: lie.group-commutator-bracket-second-derivative
-    name: 群交換子の混合二階微分と Lie 括弧
+  - id: lie.conjugation-four-term-bracket-second-derivative
+    name: 共役四項積の混合二階微分と Lie 括弧
     kind: proposition
     aliases: []
     introduction: formal
