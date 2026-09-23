@@ -86,7 +86,7 @@ concepts:
     kind: theorem
     aliases: []
     introduction: formal
-    requires: [algebra.simple-extension, algebra.minimal-polynomial-theorem, algebra.ring-first-isomorphism-theorem]
+    requires: [algebra.simple-extension, algebra.minimal-polynomial-theorem, algebra.first-isomorphism-theorem-ring]
 
   - id: algebra.simple-algebraic-extension-degree
     name: 単純代数拡大の次数公式
