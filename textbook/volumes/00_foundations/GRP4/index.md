@@ -1682,7 +1682,7 @@ $n_2=1$ なら Sylow $2$-部分群は一意なので正規です。
 #### GRP4-A03 位数15の群は巡回群
 - Level: A
 
-$G$ を位数15の群とする。Sylow の三定理を使って
+$G$ を位数15の群とする。[Sylow の第三定理](#thm-grp4-sylow-third)と[一意な Sylow 部分群と正規性](#prop-grp4-unique-sylow-normal)を使って
 
 $$
 G\cong C_{15}
@@ -2430,7 +2430,7 @@ $$
 \varphi(a^i b^j)=r^i s^j
 $$
 
-と定めます。一意表示があるので $\varphi$ は well-defined です。また上の2つの積の公式から
+と定めます。一意表示があるので $\varphi$ は well-defined です。また上で得た2つの積の計算結果から
 
 $$
 \varphi(xy)
