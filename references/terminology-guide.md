@@ -142,6 +142,16 @@
 | ベクトル場 | vector field | 本文では日本語主表記 |
 | 局所流 | local flow | 本文では「局所流」または文脈上明らかな場合「流れ」 |
 | Lie 括弧 | Lie bracket | 人名・固有表記部分を英字で保持し、「Lie bracket」を本文主語彙にしない |
+| Lie 群 | Lie group | 群かつ滑らかな多様体で、乗法と逆元写像が滑らかな対象 |
+| 左移動 | left translation | Lie 群で $L_g(h)=gh$ と定める微分同相写像 |
+| 右移動 | right translation | Lie 群で $R_g(h)=hg$ と定める微分同相写像 |
+| 左不変ベクトル場 | left-invariant vector field | 全ての $g$ について $(L_g)_*X=X$ を満たす滑らかなベクトル場 |
+| 右不変ベクトル場 | right-invariant vector field | 全ての $g$ について $(R_g)_*X=X$ を満たす滑らかなベクトル場 |
+| Lie 環 | Lie algebra | 双線形・反対称で Jacobi 恒等式を満たす括弧を備えた実ベクトル空間。本系列では「Lie 代数」を同義語として扱うが本文主表記は「Lie 環」 |
+| Lie 群準同型 | Lie group homomorphism | 群準同型であり、同時に滑らかな写像である Lie 群間の写像 |
+| Lie 環準同型 | Lie algebra homomorphism | 線形写像で Lie 括弧を保存する写像 |
+| 一般線形群 | general linear group | 可逆な $n$ 次実正方行列全体 $GL(n,\mathbb R)$ |
+| 全行列 Lie 環 | general linear Lie algebra | 全行列空間 $M_n(\mathbb R)$ に $[A,B]=AB-BA$ を入れた Lie 環 $\mathfrak{gl}(n,\mathbb R)$ |
 | 線形分布 | distribution / smooth distribution | 多様体上の一定階数の接方向の族。必要なら「滑らかな線形分布」と明示 |
 | 積分多様体 | integral manifold | 線形分布の接方向を実現するはめ込み多様体 |
 | 対合的な分布 | involutive distribution | Lie 括弧で閉じている線形分布 |

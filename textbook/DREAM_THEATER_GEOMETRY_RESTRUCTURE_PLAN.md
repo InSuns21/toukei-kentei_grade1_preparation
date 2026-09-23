@@ -973,26 +973,29 @@ Phase 3 完了。GEO10 → GEO11 → GEO12 → GEO13 → GEO14 完了。
 - GEO18 比較幾何 ✅ 2026-09-23
 - GEO19 Gauss--Bonnet ✅ 2026-09-23
 
-Phase 4 完了。GEO15 → GEO16 → GEO17 → GEO18 → GEO19 を完了し、多様体・微分幾何主線 GEO1--GEO19 は完走した。Phase 5 の抽象代数系列へ移行し、GRP1--GRP3 まで完了した。現在の次の実装対象は **GRP4「Cauchy の定理・Sylow の定理・有限群への応用」** とする。GRP3 完了により LIE1 に加えて LIE2 / LIE4 の群論側開始条件も満たされた。
+Phase 4 完了。GEO15 → GEO16 → GEO17 → GEO18 → GEO19 を完了し、多様体・微分幾何主線 GEO1--GEO19 は完走した。Phase 5 の抽象代数系列も GRP1--GRP4 → RNG1--RNG4 → MOD1--MOD2 → FLD1--FLD5 まで完走した。群論側・多様体側の開始条件がそろったため、Phase 6 の独立 Lie 系列へ進む。
 
 ### Phase 5：抽象代数系列の開始
 
 - GRP1 群・部分群・巡回群・置換群 ✅ 2026-09-23
 - GRP2 準同型・剰余類・正規部分群・商群 ✅ 2026-09-23
 - GRP3 群作用・軌道・安定化群・共役 ✅ 2026-09-23
-- GRP4 Cauchy の定理・Sylow の定理・有限群への応用
-- 後続：RNG1--RNG4 → MOD1--MOD2 / FLD1--FLD5
+- GRP4 Cauchy の定理・Sylow の定理・有限群への応用 ✅ 2026-09-23
+- RNG1--RNG4 ✅ 2026-09-23
+- MOD1--MOD2 ✅ 2026-09-23
+- FLD1--FLD2 ✅ 2026-09-23
+- FLD3--FLD5 ✅ 2026-09-24
 
 抽象代数系列全体の設計は `DREAM_THEATER_ABSTRACT_ALGEBRA_PLAN.md` を正本とする。全15講を1講1本の主線へ分割する。Lie 系列の開始に必要なのは GRP2 まで、Adjoint 表現・Lie 群作用まで進むために必要なのは GRP3 までであり、GRP4・環論・加群論・体論の完走は要求しない。
 
 ### Phase 6：独立 Lie 系列
 
-- LIE1 Lie 群・Lie 環・不変ベクトル場
+- LIE1 Lie 群・Lie 環・不変ベクトル場 ✅ 2026-09-24
 - LIE2 1 パラメータ部分群・指数写像・Adjoint 表現
 - LIE3 Lie 部分群・古典群
 - LIE4 Lie 群作用・軌道・等質空間・Maurer--Cartan
 
-GEO 系列を全て完了してから抽象代数・Lie 系列へ進む必要はないが、LIE1 の実装開始条件は GRP2 の完了、LIE2 / LIE4 の開始条件は GRP3 の完了とする。GRP4 / RNG / MOD / FLD は Lie 群とは独立に学部標準代数を完結させる。reader-facing の標準読順では Riemann 幾何主線を抽象代数・Lie 群なしで完走できる構成を維持する。
+LIE1 は GRP2 + GEO5 を direct prerequisite として実装済み。次の実装対象は **LIE2「1 パラメータ部分群・指数写像・Adjoint 表現」** とする。LIE2 は計画どおり LIE1 + GRP3 + ODE4 を direct prerequisite とする。reader-facing の標準読順では Riemann 幾何主線を抽象代数・Lie 群なしで完走できる構成を維持する。
 
 ---
 

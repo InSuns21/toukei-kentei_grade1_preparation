@@ -1,0 +1,175 @@
+chapter: LIE1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GRP2
+  - GEO5
+forward_references: []
+
+concepts:
+  - id: lie.lie-group
+    name: Lie 群
+    kind: definition
+    aliases: [Lie group]
+    introduction: formal
+    introduction_aliases: ["定義（Lie 群）"]
+    requires:
+      - algebra.group
+      - geometry.smooth-manifold
+      - geometry.smooth-map
+
+  - id: lie.left-translation
+    name: 左移動
+    kind: definition
+    aliases: [left translation]
+    introduction: formal
+    introduction_aliases: ["定義（左移動・右移動）"]
+    requires:
+      - lie.lie-group
+
+  - id: lie.right-translation
+    name: 右移動
+    kind: definition
+    aliases: [right translation]
+    introduction: formal
+    introduction_aliases: ["定義（左移動・右移動）"]
+    requires:
+      - lie.lie-group
+
+  - id: lie.translations-diffeomorphisms
+    name: 左移動・右移動は微分同相写像
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires:
+      - lie.left-translation
+      - lie.right-translation
+      - geometry.diffeomorphism
+
+  - id: lie.left-invariant-vector-field
+    name: 左不変ベクトル場
+    kind: definition
+    aliases: [left-invariant vector field]
+    introduction: formal
+    introduction_aliases: ["定義（左不変ベクトル場・右不変ベクトル場）"]
+    requires:
+      - lie.left-translation
+      - geometry.vector-field-pushforward
+
+  - id: lie.right-invariant-vector-field
+    name: 右不変ベクトル場
+    kind: definition
+    aliases: [right-invariant vector field]
+    introduction: formal
+    introduction_aliases: ["定義（左不変ベクトル場・右不変ベクトル場）"]
+    requires:
+      - lie.right-translation
+      - geometry.vector-field-pushforward
+
+  - id: lie.left-invariant-evaluation-isomorphism
+    name: 単位元での値による左不変ベクトル場の特徴付け
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - lie.left-invariant-vector-field
+      - geometry.differential
+      - geometry.manifold-chain-rule
+
+  - id: lie.related-bracket-naturality
+    name: F-関連性は Lie 括弧で保たれる
+    kind: lemma
+    aliases: []
+    introduction: formal
+    requires:
+      - geometry.related-vector-fields
+      - geometry.lie-bracket
+
+  - id: lie.left-invariant-bracket-closure
+    name: 左不変ベクトル場は Lie 括弧で閉じる
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires:
+      - lie.left-invariant-vector-field
+      - lie.related-bracket-naturality
+
+  - id: lie.lie-algebra
+    name: 実 Lie 環
+    kind: definition
+    aliases: [Lie algebra, Lie 代数]
+    introduction: formal
+    introduction_aliases: ["定義（実 Lie 環）"]
+    requires:
+      - linear.vector-space
+
+  - id: lie.lie-group-lie-algebra
+    name: Lie 群の Lie 環
+    kind: definition
+    aliases: [Lie algebra of a Lie group]
+    introduction: formal
+    introduction_aliases: ["定義（Lie 群の Lie 環）"]
+    requires:
+      - lie.lie-algebra
+      - lie.left-invariant-evaluation-isomorphism
+      - lie.left-invariant-bracket-closure
+      - geometry.lie-bracket-identities
+
+  - id: lie.tangent-lie-algebra-theorem
+    name: 単位元の接空間の Lie 環構造
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - lie.lie-group-lie-algebra
+      - geometry.lie-bracket-identities
+
+  - id: lie.lie-group-homomorphism
+    name: Lie 群準同型
+    kind: definition
+    aliases: [Lie group homomorphism]
+    introduction: formal
+    introduction_aliases: ["定義（Lie 群準同型・Lie 環準同型）"]
+    requires:
+      - lie.lie-group
+      - algebra.group-homomorphism
+      - geometry.smooth-map
+
+  - id: lie.lie-algebra-homomorphism
+    name: Lie 環準同型
+    kind: definition
+    aliases: [Lie algebra homomorphism, Lie 代数準同型]
+    introduction: formal
+    introduction_aliases: ["定義（Lie 群準同型・Lie 環準同型）"]
+    requires:
+      - lie.lie-algebra
+
+  - id: lie.homomorphism-differential
+    name: Lie 群準同型の微分は Lie 環準同型
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - lie.lie-group-homomorphism
+      - lie.lie-algebra-homomorphism
+      - lie.related-bracket-naturality
+      - lie.left-invariant-evaluation-isomorphism
+
+  - id: lie.general-linear-group
+    name: 一般線形群は Lie 群
+    kind: proposition
+    aliases: [general linear group]
+    introduction: formal
+    requires:
+      - lie.lie-group
+      - linear.matrix-determinant
+
+  - id: lie.general-linear-lie-algebra
+    name: 全行列 Lie 環の Lie 括弧
+    kind: theorem
+    aliases: [general linear Lie algebra]
+    introduction: formal
+    requires:
+      - lie.general-linear-group
+      - lie.lie-group-lie-algebra
+      - geometry.lie-bracket-coordinate-formula
