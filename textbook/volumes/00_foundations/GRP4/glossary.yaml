@@ -1,0 +1,26 @@
+chapter: "GRP4"
+terms:
+  - term: Cauchy の定理
+    english: Cauchy theorem
+    meaning: 有限群 G の位数を素数 p が割るとき、G に位数 p の元が存在することを保証する定理。
+  - term: p-部分群
+    english: p-subgroup
+    meaning: 位数が素数 p の冪である有限部分群。
+  - term: Sylow p-部分群
+    english: Sylow p-subgroup
+    meaning: |G|=p^n m, p∤m のとき、位数 p^n を持つ p-部分群。
+  - term: Sylow の第一定理
+    english: Sylow first theorem
+    meaning: 有限群 G に、|G| に含まれる最大の p 冪と同じ位数を持つ Sylow p-部分群が存在することを述べる。
+  - term: Sylow の第二定理
+    english: Sylow second theorem
+    meaning: 任意の p-部分群がある Sylow p-部分群の共役の中に含まれ、特に Sylow p-部分群同士は共役であることを述べる。
+  - term: 正規化群
+    english: normalizer
+    meaning: 部分群 H を共役で保つ元全体 N_G(H)={g∈G:gHg^{-1}=H}。
+  - term: Sylow の第三定理
+    english: Sylow third theorem
+    meaning: |G|=p^n m, p∤m のとき Sylow p-部分群数 n_p が n_p|m かつ n_p≡1 mod p を満たすことを述べる。
+  - term: 内部半直積
+    english: internal semidirect product
+    meaning: N◁G, H≤G, N∩H={e}, NH=G を満たす部分群 N,H による G の分解。
