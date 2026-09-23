@@ -62,19 +62,28 @@ concepts:
     requires: [algebra.divisibility, algebra.associate-elements]
 
   - id: algebra.bezout-identity
-    name: Bézout 等式
+    name: 整域の Bézout 等式
     kind: definition
     aliases: [Bezout identity, Bézout identity]
     introduction: formal
     introduction_aliases: ["定義（最大公約元・Bézout 等式）"]
     requires: [algebra.greatest-common-divisor-domain]
 
+  - id: algebra.euclidean-function
+    name: 整除論の Euclid 関数
+    kind: definition
+    aliases: [Euclidean function]
+    introduction: formal
+    introduction_aliases: ["定義（Euclid 整域）"]
+    requires: [algebra.integral-domain]
+
   - id: algebra.euclidean-domain
-    name: Euclid 整域
+    name: 整除論の Euclid 整域
     kind: definition
     aliases: [Euclidean domain]
     introduction: formal
-    requires: [algebra.integral-domain]
+    introduction_aliases: ["定義（Euclid 整域）"]
+    requires: [algebra.integral-domain, algebra.euclidean-function]
 
   - id: algebra.euclidean-algorithm-bezout
     name: Euclid の互除法と Bézout 等式
@@ -84,7 +93,7 @@ concepts:
     requires: [algebra.euclidean-domain, algebra.greatest-common-divisor-domain, algebra.bezout-identity]
 
   - id: algebra.principal-ideal-domain
-    name: 単項イデアル整域
+    name: 整除論の単項イデアル整域
     kind: definition
     aliases: [principal ideal domain, PID]
     introduction: formal
@@ -126,14 +135,14 @@ concepts:
     requires: [algebra.principal-ideal-domain]
 
   - id: algebra.unique-factorization-domain
-    name: 一意分解整域
+    name: 整除論の一意分解整域
     kind: definition
     aliases: [unique factorization domain, UFD]
     introduction: formal
     requires: [algebra.irreducible-element, algebra.associate-elements]
 
   - id: algebra.pid-implies-ufd
-    name: 単項イデアル整域は一意分解整域
+    name: PID から一意分解整域への含意
     kind: theorem
     aliases: []
     introduction: formal
