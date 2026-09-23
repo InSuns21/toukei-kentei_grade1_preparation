@@ -46,29 +46,29 @@ $$
 >
 > 群 $G,H$ の間の写像
 >
-> $$
-> f:G\to H
-> $$
+$$
+f:G\to H
+$$
 >
 > が任意の $a,b\in G$ に対して
 >
-> $$
-> f(ab)=f(a)f(b)
-> $$
+$$
+f(ab)=f(a)f(b)
+$$
 >
 > を満たすとき、$f$ を **群準同型**という。
 >
 > 群準同型が全単射であるとき **群同型**という。群同型
 >
-> $$
-> f:G\to H
-> $$
+$$
+f:G\to H
+$$
 >
 > が存在するとき
 >
-> $$
-> G\cong H
-> $$
+$$
+G\cong H
+$$
 >
 > と書く。
 <!-- formal-statement-end -->
@@ -122,9 +122,9 @@ $$
 > 2. $f(a^{-1})=f(a)^{-1}$。
 > 3. 任意の $m\in\mathbb Z$ に対して
 >
-> $$
-> f(a^m)=f(a)^m.
-> $$
+$$
+f(a^m)=f(a)^m.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -207,17 +207,17 @@ $$
 >
 > 群準同型 $f:G\to H$ に対して
 >
-> $$
-> \ker f
-> :=
-> \{g\in G:f(g)=e_H\},
-> $$
+$$
+\ker f
+:=
+\{g\in G:f(g)=e_H\},
+$$
 >
-> $$
-> \operatorname{Im}f
-> :=
-> \{f(g):g\in G\}
-> $$
+$$
+\operatorname{Im}f
+:=
+\{f(g):g\in G\}
+$$
 >
 > をそれぞれ $f$ の **核**、**像**という。
 <!-- formal-statement-end -->
@@ -293,15 +293,15 @@ $H\le G$ とします。$g\in G$ を固定すると、$H$ の各元に左から 
 >
 > 部分群 $H\le G$ と $g\in G$ に対して
 >
-> $$
-> gH:=\{gh:h\in H\}
-> $$
+$$
+gH:=\{gh:h\in H\}
+$$
 >
 > を $g$ による **左剰余類**、
 >
-> $$
-> Hg:=\{hg:h\in H\}
-> $$
+$$
+Hg:=\{hg:h\in H\}
+$$
 >
 > を **右剰余類**という。
 <!-- formal-statement-end -->
@@ -339,11 +339,11 @@ $$
 >
 > $H\le G$、$g,k\in G$ とする。
 >
-> $$
-> gH=kH
-> \iff
-> k^{-1}g\in H.
-> $$
+$$
+gH=kH
+\iff
+k^{-1}g\in H.
+$$
 >
 > 特に任意の二つの左剰余類は、等しいか互いに素である。従って左剰余類全体は $G$ を分割する。
 <!-- formal-statement-end -->
@@ -420,9 +420,9 @@ $$
 >
 > $H\le G$ に対し、$H$ の左剰余類の個数を
 >
-> $$
-> [G:H]
-> $$
+$$
+[G:H]
+$$
 >
 > と書き、$G$ における $H$ の **指数**という。
 <!-- formal-statement-end -->
@@ -453,11 +453,11 @@ $$
 >
 > $G$ を有限群、$H\le G$ とする。このとき
 >
-> $$
-> |G|
-> =
-> [G:H]\,|H|.
-> $$
+$$
+|G|
+=
+[G:H]\,|H|.
+$$
 >
 > 特に $|H|$ は $|G|$ の約数である。
 <!-- formal-statement-end -->
@@ -511,7 +511,7 @@ $$
 =
 \operatorname{ord}(g).
 $$
-[Lagrange の定理](#thm-grp2-lagrange)から
+[群論の Lagrange の定理](#thm-grp2-lagrange)から
 $$
 \operatorname{ord}(g)\mid |G|.
 $$
@@ -566,15 +566,15 @@ $$
 >
 > 部分群 $N\le G$ が任意の $g\in G$ に対して
 >
-> $$
-> gN=Ng
-> $$
+$$
+gN=Ng
+$$
 >
 > を満たすとき、$N$ を $G$ の **正規部分群**といい
 >
-> $$
-> N\trianglelefteq G
-> $$
+$$
+N\trianglelefteq G
+$$
 >
 > と書く。
 <!-- formal-statement-end -->
@@ -609,15 +609,15 @@ $$
 > 1. $N\trianglelefteq G$。
 > 2. 任意の $g\in G$ に対して
 >
-> $$
-> gNg^{-1}=N.
-> $$
+$$
+gNg^{-1}=N.
+$$
 >
 > 3. 任意の $g\in G$、$n\in N$ に対して
 >
-> $$
-> gng^{-1}\in N.
-> $$
+$$
+gng^{-1}\in N.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -665,11 +665,11 @@ $$
 >
 > 群準同型 $f:G\to H$ に対して
 >
-> $$
-> \ker f\trianglelefteq G,
-> \qquad
-> \operatorname{Im}f\le H.
-> $$
+$$
+\ker f\trianglelefteq G,
+\qquad
+\operatorname{Im}f\le H.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -730,19 +730,19 @@ $\square$
 >
 > 正規部分群 $N\trianglelefteq G$ に対し、左剰余類全体
 >
-> $$
-> G/N
-> :=
-> \{gN:g\in G\}
-> $$
+$$
+G/N
+:=
+\{gN:g\in G\}
+$$
 >
 > に
 >
-> $$
-> (gN)(hN)
-> :=
-> ghN
-> $$
+$$
+(gN)(hN)
+:=
+ghN
+$$
 >
 > と積を定めて得られる群を **商群**という。
 <!-- formal-statement-end -->
@@ -757,15 +757,15 @@ $\square$
 >
 > 剰余類全体に
 >
-> $$
-> (gN)(hN)=ghN
-> $$
+$$
+(gN)(hN)=ghN
+$$
 >
 > と積を定める操作が代表元によらず定まるための必要十分条件は
 >
-> $$
-> N\trianglelefteq G
-> $$
+$$
+N\trianglelefteq G
+$$
 >
 > である。
 >
@@ -972,11 +972,11 @@ $$
 >
 > $N\trianglelefteq G$ に対し
 >
-> $$
-> \pi:G\to G/N,
-> \qquad
-> \pi(g)=gN
-> $$
+$$
+\pi:G\to G/N,
+\qquad
+\pi(g)=gN
+$$
 >
 > を **標準射影**という。
 <!-- formal-statement-end -->
@@ -1028,27 +1028,27 @@ $$
 >
 > 群準同型
 >
-> $$
-> f:G\to H
-> $$
+$$
+f:G\to H
+$$
 >
 > に対して
 >
-> $$
-> \overline f:G/\ker f\to\operatorname{Im}f,
-> \qquad
-> \overline f(g\ker f)=f(g)
-> $$
+$$
+\overline f:G/\ker f\to\operatorname{Im}f,
+\qquad
+\overline f(g\ker f)=f(g)
+$$
 >
 > は群同型である。
 >
 > 従って
 >
-> $$
-> G/\ker f
-> \cong
-> \operatorname{Im}f.
-> $$
+$$
+G/\ker f
+\cong
+\operatorname{Im}f.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1222,25 +1222,25 @@ $$
 >
 > $H\le G$、$N\trianglelefteq G$ とする。このとき
 >
-> $$
-> HN:=\{hn:h\in H,\ n\in N\}
-> $$
+$$
+HN:=\{hn:h\in H,\ n\in N\}
+$$
 >
 > は $G$ の部分群で、
 >
-> $$
-> H\cap N\trianglelefteq H,
-> \qquad
-> N\trianglelefteq HN,
-> $$
+$$
+H\cap N\trianglelefteq H,
+\qquad
+N\trianglelefteq HN,
+$$
 >
 > かつ
 >
-> $$
-> H/(H\cap N)
-> \cong
-> HN/N.
-> $$
+$$
+H/(H\cap N)
+\cong
+HN/N.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1349,23 +1349,23 @@ $\square$
 >
 > $N,H\trianglelefteq G$ かつ
 >
-> $$
-> N\subset H
-> $$
+$$
+N\subset H
+$$
 >
 > とする。このとき
 >
-> $$
-> H/N\trianglelefteq G/N
-> $$
+$$
+H/N\trianglelefteq G/N
+$$
 >
 > であり、
 >
-> $$
-> (G/N)/(H/N)
-> \cong
-> G/H.
-> $$
+$$
+(G/N)/(H/N)
+\cong
+G/H.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1454,31 +1454,31 @@ $\square$
 >
 > $N\trianglelefteq G$ とし、標準射影を
 >
-> $$
-> \pi:G\to G/N
-> $$
+$$
+\pi:G\to G/N
+$$
 >
 > とする。
 >
 > $N$ を含む $G$ の部分群 $H$ と、$G/N$ の部分群 $K$ の間には
 >
-> $$
-> H\longmapsto H/N,
-> $$
+$$
+H\longmapsto H/N,
+$$
 >
-> $$
-> K\longmapsto \pi^{-1}(K)
-> $$
+$$
+K\longmapsto \pi^{-1}(K)
+$$
 >
 > による一対一対応がある。
 >
 > この対応は包含関係を保つ。さらに
 >
-> $$
-> H\trianglelefteq G
-> \iff
-> H/N\trianglelefteq G/N.
-> $$
+$$
+H\trianglelefteq G
+\iff
+H/N\trianglelefteq G/N.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1965,7 +1965,7 @@ $$
 $$
 [S_4:A_4]=2.
 $$
-[Lagrange の定理](#thm-grp2-lagrange)からも
+[群論の Lagrange の定理](#thm-grp2-lagrange)からも
 $$
 |A_4|
 =
