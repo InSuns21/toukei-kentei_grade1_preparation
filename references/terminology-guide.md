@@ -322,6 +322,18 @@
 | Sylow の第三定理 | Sylow third theorem | Sylow $p$-部分群数 $n_p$ が $n_p\mid m$ かつ $n_p\equiv1\pmod p$ を満たすことを述べる定理 |
 | 正規化群 | normalizer | $N_G(H)=\{g\in G:gHg^{-1}=H\}$。中心化群と区別する |
 | 内部半直積 | internal semidirect product | $N\trianglelefteq G$, $H\le G$, $N\cap H=\{e\}$, $NH=G$ による分解 |
+| 環 | ring | 本系列では単位元を定義に含めず、必要なとき「単位元を持つ環」と明記する |
+| 可換環 | commutative ring | 乗法が可換な環 |
+| 単位元を持つ環 | unital ring / ring with identity | 乗法単位元 $1_R$ を持つ環 |
+| 部分環 | subring | 親環の演算を制限して環になる部分集合。本系列では親環と同じ単位元を含むことを要求しない |
+| 零因子 | zero divisor | 本系列では可換環の非零元 $a$ で、ある非零元 $b$ に対し $ab=0$ となるもの |
+| 整域 | integral domain | 単位元 $1\ne0$ を持つ可換環で零因子を持たないもの |
+| 体 | field | 単位元 $1\ne0$ を持つ可換環で全ての非零元が乗法逆元を持つもの |
+| 環準同型 | ring homomorphism | 加法と乗法を保つ写像。本系列では単位元保存は定義に含めず、必要時に別仮定とする |
+| イデアル | ideal | 加法部分群で、環の任意の元を左右から掛けても内部に留まる部分集合 |
+| 主イデアル | principal ideal | 単位元を持つ可換環で、一つの元 $a$ の倍数全体 $(a)$ からなるイデアル |
+| 商環 | quotient ring | イデアル $I$ による剰余類 $R/I$ に和と積を入れた環 |
+| 環の第一同型定理 | first isomorphism theorem for rings | 環準同型 $f:R\to S$ に対し $R/\ker f\cong\operatorname{Im}f$ |
 
 ## DREAM THEATER：数値解析の主表記
 

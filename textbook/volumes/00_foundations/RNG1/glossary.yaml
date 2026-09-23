@@ -1,0 +1,41 @@
+chapter: "RNG1"
+terms:
+  - term: 環
+    english: ring
+    meaning: 加法について可換群をなし、結合的な乗法と左右分配法則を持つ代数系。
+  - term: 可換環
+    english: commutative ring
+    meaning: 乗法が可換である環。
+  - term: 単位元を持つ環
+    english: unital ring
+    meaning: 全ての元に対して左右の乗法単位元となる元を持つ環。
+  - term: 部分環
+    english: subring
+    meaning: 親の環から受け継いだ加法と乗法で環になる部分集合。
+  - term: 零因子
+    english: zero divisor
+    meaning: 可換環で、非零元でありながら別の非零元との積が0になる元。
+  - term: 整域
+    english: integral domain
+    meaning: 単位元1≠0を持つ可換環で、零因子を持たないもの。
+  - term: 体
+    english: field
+    meaning: 単位元1≠0を持つ可換環で、全ての非零元が乗法逆元を持つもの。
+  - term: 環準同型
+    english: ring homomorphism
+    meaning: 加法と乗法をともに保つ環の間の写像。本章では単位元保存は別条件とする。
+  - term: イデアル
+    english: ideal
+    meaning: 加法部分群であり、環の任意の元を左右から掛けても内部に留まる部分集合。
+  - term: 主イデアル
+    english: principal ideal
+    meaning: 単位元を持つ可換環で、一つの元 a の倍数全体 (a) からなるイデアル。
+  - term: 商環
+    english: quotient ring
+    meaning: イデアル I による加法剰余類 R/I に、代表元の積から誘導される乗法を入れた環。
+  - term: 商環の標準射影
+    english: canonical projection
+    meaning: R の元 a を剰余類 a+I へ送る環準同型。
+  - term: 環の第一同型定理
+    english: first isomorphism theorem for rings
+    meaning: 環準同型 f に対して R/ker f が Im f と環同型になることを述べる定理。

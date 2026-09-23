@@ -1,0 +1,201 @@
+chapter: RNG1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GRP2
+  - F0-00A1D
+forward_references: []
+
+concepts:
+  - id: algebra.ring
+    name: 代数学の環
+    kind: definition
+    aliases: ["ring (algebra)"]
+    introduction: formal
+    introduction_aliases: ["定義（環・可換環・単位元を持つ環）"]
+    requires:
+      - algebra.abelian-group
+
+  - id: algebra.commutative-ring
+    name: 可換環
+    kind: definition
+    aliases: [commutative ring]
+    introduction: formal
+    introduction_aliases: ["定義（環・可換環・単位元を持つ環）"]
+    requires:
+      - algebra.ring
+
+  - id: algebra.unital-ring
+    name: 単位元を持つ環
+    kind: definition
+    aliases: [unital ring, ring with identity]
+    introduction: formal
+    introduction_aliases: ["定義（環・可換環・単位元を持つ環）"]
+    requires:
+      - algebra.ring
+
+  - id: algebra.subring
+    name: 環論の部分環
+    kind: definition
+    aliases: [subring]
+    introduction: formal
+    introduction_aliases: ["定義（部分環）"]
+    requires:
+      - algebra.ring
+
+  - id: algebra.subring-test
+    name: 部分環判定
+    kind: proposition
+    aliases: [subring test, subring criterion]
+    introduction: formal
+    requires:
+      - algebra.subring
+      - algebra.subgroup-test
+
+  - id: algebra.zero-divisor
+    name: 環論の零因子
+    kind: definition
+    aliases: [zero divisor]
+    introduction: formal
+    introduction_aliases: ["定義（零因子・整域・体）"]
+    requires:
+      - algebra.commutative-ring
+
+  - id: algebra.integral-domain
+    name: 環論の整域
+    kind: definition
+    aliases: [integral domain]
+    introduction: formal
+    introduction_aliases: ["定義（零因子・整域・体）"]
+    requires:
+      - algebra.commutative-ring
+      - algebra.unital-ring
+      - algebra.zero-divisor
+
+  - id: algebra.field
+    name: 代数学の体
+    kind: definition
+    aliases: ["field (algebra)"]
+    introduction: formal
+    introduction_aliases: ["定義（零因子・整域・体）"]
+    requires:
+      - algebra.commutative-ring
+      - algebra.unital-ring
+
+  - id: algebra.field-is-domain
+    name: 体は整域
+    kind: proposition
+    aliases: [every field is an integral domain]
+    introduction: formal
+    requires:
+      - algebra.field
+      - algebra.integral-domain
+
+  - id: algebra.ring-homomorphism
+    name: 環論の準同型
+    kind: definition
+    aliases: [ring homomorphism]
+    introduction: formal
+    introduction_aliases: ["定義（環準同型）"]
+    requires:
+      - algebra.ring
+      - set.function
+
+  - id: algebra.ring-kernel
+    name: 環準同型の核
+    kind: definition
+    aliases: [kernel of a ring homomorphism]
+    introduction: formal
+    introduction_aliases: ["定義（環準同型の核・像）"]
+    requires:
+      - algebra.ring-homomorphism
+
+  - id: algebra.ring-image
+    name: 環準同型の像
+    kind: definition
+    aliases: [image of a ring homomorphism]
+    introduction: formal
+    introduction_aliases: ["定義（環準同型の核・像）"]
+    requires:
+      - algebra.ring-homomorphism
+
+  - id: algebra.ring-ideal
+    name: 環論のイデアル
+    kind: definition
+    aliases: ["ideal of a ring", two-sided ideal]
+    introduction: formal
+    introduction_aliases: ["定義（イデアル）"]
+    requires:
+      - algebra.ring
+      - algebra.subgroup
+
+  - id: algebra.principal-ideal
+    name: 環論の主イデアル
+    kind: definition
+    aliases: [principal ideal]
+    introduction: formal
+    introduction_aliases: ["定義（主イデアル）"]
+    requires:
+      - algebra.ring-ideal
+      - algebra.commutative-ring
+      - algebra.unital-ring
+
+  - id: algebra.kernel-ideal-image-subring
+    name: 環準同型の核はイデアル、像は部分環
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.ring-kernel
+      - algebra.ring-image
+      - algebra.ring-ideal
+      - algebra.subring
+
+  - id: algebra.quotient-ring-well-defined
+    name: 商環の積とイデアル条件
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.ring-ideal
+      - algebra.ring
+
+  - id: algebra.quotient-ring
+    name: 環論の商環
+    kind: definition
+    aliases: [quotient ring, factor ring]
+    introduction: formal
+    introduction_aliases: ["定義（商環）"]
+    requires:
+      - algebra.ring-ideal
+      - algebra.quotient-ring-well-defined
+
+  - id: algebra.quotient-ring-projection
+    name: 商環の標準射影
+    kind: definition
+    aliases: [canonical projection of a quotient ring]
+    introduction: formal
+    requires:
+      - algebra.quotient-ring
+      - algebra.ring-homomorphism
+
+  - id: algebra.first-isomorphism-theorem-ring
+    name: 環論の第一同型定理
+    kind: theorem
+    aliases: [環の第一同型定理, first isomorphism theorem for rings]
+    introduction: formal
+    introduction_aliases: ["定理（環の第一同型定理）"]
+    requires:
+      - algebra.ring-kernel
+      - algebra.ring-image
+      - algebra.quotient-ring
+      - algebra.ring-homomorphism
+
+  - id: algebra.integer-ideals
+    name: 整数環のイデアル
+    kind: proposition
+    aliases: [ideals of the integers]
+    introduction: formal
+    requires:
+      - algebra.ring-ideal
+      - algebra.principal-ideal

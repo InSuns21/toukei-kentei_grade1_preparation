@@ -80,6 +80,7 @@
         "textbook/volumes/00_foundations/GRP2/index.md",
         "textbook/volumes/00_foundations/GRP3/index.md",
         "textbook/volumes/00_foundations/GRP4/index.md",
+        "textbook/volumes/00_foundations/RNG1/index.md",
         "textbook/volumes/00_foundations/VC1/index.md",
         "textbook/volumes/00_foundations/VC2/index.md",
         "textbook/volumes/00_foundations/VC3/index.md",
@@ -279,7 +280,8 @@
         "textbook/volumes/00_foundations/FEM1/index.md",
         "textbook/volumes/00_foundations/FEM2/index.md",
         "textbook/volumes/00_foundations/FEM3/index.md",
-        "textbook/volumes/00_foundations/FEM4/index.md"
+        "textbook/volumes/00_foundations/FEM4/index.md",
+        "textbook/volumes/00_foundations/FEM5/index.md"
       ]
     }
   ]
