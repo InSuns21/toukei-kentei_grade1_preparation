@@ -443,6 +443,15 @@
 | バイアス率 | weak convergence rate | $|E[Q-Q_\ell]|$ の減衰を表す率指数 $\alpha$ |
 | レベル分散減衰率 | level-variance decay rate | $V_\ell$ の減衰を表す率指数 $\beta$ |
 | レベル費用増加率 | level-cost growth rate | $C_\ell$ の増加を表す率指数 $\gamma$ |
+| 準 Monte Carlo 法 | quasi-Monte Carlo method | 単位立方体上の積分を、独立乱数ではなく決定論的に配置した点集合の平均で近似し、点集合の一様性から誤差を評価する数値積分法。略号 QMC は補助的に使用可 |
+| アンカー付き直方体 | anchored box | $\boldsymbol t\in[0,1]^s$ に対する $[0,\boldsymbol t)=\prod_j[0,t_j)$ の形の半開直方体 |
+| 局所ディスクレパンシー | local discrepancy | アンカー付き直方体に入る点の割合と、その直方体の体積との差 |
+| スター・ディスクレパンシー | star discrepancy | すべてのアンカー付き直方体に対する局所ディスクレパンシーの絶対値の上限。記号 $D_N^*$ を用いる |
+| 一様分布する点列 | uniformly distributed sequence | 任意の軸平行半開直方体に入る先頭 $N$ 点の割合が、その直方体の体積へ収束する点列。確率分布としての一様分布とは文脈を区別する |
+| Vitali 変動 | Vitali variation | 軸平行格子分割上の混合差分の絶対値和の上限で定める多次元変動 |
+| Hardy--Krause 変動 | Hardy--Krause variation | 各非空座標部分集合について、残りの座標を1に固定した面上の Vitali 変動を足し合わせた量。本系列では1側にアンカーした規約を用いる |
+| Hlawka--Zaremba 恒等式 | Hlawka--Zaremba identity | 準 Monte Carlo 求積誤差を、各座標面の局所ディスクレパンシーと対応する混合偏導関数の積分の和として表す恒等式 |
+| Koksma--Hlawka の不等式 | Koksma--Hlawka inequality | 準 Monte Carlo 求積誤差をスター・ディスクレパンシーと Hardy--Krause 変動の積で上から評価する基本不等式 |
 
 ## DREAM THEATER：ODE・PDE の主表記
 

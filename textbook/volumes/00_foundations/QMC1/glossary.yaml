@@ -1,0 +1,29 @@
+chapter: "QMC1"
+terms:
+  - term: 準 Monte Carlo 法
+    english: quasi-Monte Carlo method
+    meaning: 単位立方体上の積分を、独立乱数ではなく決定論的に配置した点集合の平均で近似し、点集合の一様性から誤差を評価する数値積分法。略号 QMC は補助的に使用可。
+  - term: アンカー付き直方体
+    english: anchored box
+    meaning: t=(t_1,...,t_s) に対する [0,t)=[0,t_1)x...x[0,t_s) の形の半開直方体。
+  - term: 局所ディスクレパンシー
+    english: local discrepancy
+    meaning: アンカー付き直方体に入る点の割合と、その直方体の体積との差。
+  - term: スター・ディスクレパンシー
+    english: star discrepancy
+    meaning: すべてのアンカー付き直方体に対する局所ディスクレパンシーの絶対値の上限。記号 D_N^* を用いる。
+  - term: 一様分布する点列
+    english: uniformly distributed sequence
+    meaning: 任意の軸平行半開直方体に入る先頭 N 点の割合が、その直方体の体積へ収束する点列。確率分布としての一様分布とは文脈を区別する。
+  - term: Vitali 変動
+    english: Vitali variation
+    meaning: 軸平行格子分割上の混合差分の絶対値和の上限で定める多次元変動。
+  - term: Hardy--Krause 変動
+    english: Hardy--Krause variation
+    meaning: 各非空座標部分集合について、残りの座標を 1 に固定した面上の Vitali 変動を足し合わせた量。本章では 1 側にアンカーした規約を用いる。
+  - term: Hlawka--Zaremba 恒等式
+    english: Hlawka--Zaremba identity
+    meaning: 準 Monte Carlo 求積誤差を、各座標面の局所ディスクレパンシーと対応する混合偏導関数の積分の和として表す恒等式。
+  - term: Koksma--Hlawka の不等式
+    english: Koksma--Hlawka inequality
+    meaning: 準 Monte Carlo 求積誤差をスター・ディスクレパンシーと Hardy--Krause 変動の積で上から評価する基本不等式。

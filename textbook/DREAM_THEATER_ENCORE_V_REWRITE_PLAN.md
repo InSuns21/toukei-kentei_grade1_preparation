@@ -38,7 +38,7 @@
   - https://ci.nii.ac.jp/ncid/BD10332986
   - Monte Carlo / variance reduction / MLMC / QMC の日本語主線として参照する。
 - Josef Dick and Friedrich Pillichshammer, Digital Nets and Sequences: Discrepancy Theory and Quasi–Monte Carlo Integration
-  - discrepancy、digital net、Walsh 解析、双対理論、weighted spaces、randomized QMC、高次 QMC の理論骨格を補強する。
+  - ディスクレパンシー、digital net、Walsh 解析、双対理論、weighted spaces、randomized QMC、高次 QMC の理論骨格を補強する。
 
 既存の DREAM THEATER 正本を優先し、参照資料を理由に prerequisite 外の理論を逆輸入しない。
 
@@ -148,7 +148,8 @@ facade は完成済み講座だけをリンクする。未完成章を先行表�
 - [x] MC2「乱数生成とサンプリング」を新正本として実装
 - [x] MC3「分散減少法」を新正本として実装
 - [x] MC4「Multilevel Monte Carlo」を新正本として実装
-- 次の実装対象：**QMC1「一様分布・discrepancy・Koksma–Hlawka」**
+- [x] QMC1「一様分布・ディスクレパンシー・Koksma–Hlawka」を新正本として実装
+- 次の実装対象：**QMC2「RKHS・最悪誤差・重み付き空間」**
 
 
 ---
@@ -307,7 +308,7 @@ QMC は3講程度に圧縮せず、理論骨格を8講に分割する。
 
 | ID | 講座 | 中心内容 |
 |---|---|---|
-| QMC1 | 一様分布・discrepancy・Koksma–Hlawka | 一様分布、局所 discrepancy、star discrepancy、variation、誤差評価 |
+| QMC1 | 一様分布・ディスクレパンシー・Koksma–Hlawka | 一様分布、局所ディスクレパンシー、スター・ディスクレパンシー、変動、誤差評価 |
 | QMC2 | RKHS・最悪誤差・重み付き空間 | worst-case error、再生核、weighted Sobolev、effective dimension、tractability |
 | QMC3 | 格子則 | rank-1 lattice、双対格子、積分誤差、CBC 構成の思想 |
 | QMC4 | (t,m,s)-net・(t,s)-sequence | elementary interval、t 値、digital construction、Sobol / Faure / Niederreiter |
@@ -330,7 +331,7 @@ QMC2 は既存 F0-02C7 の RKHS / 再生核を再定義しない。stable anchor
 
 本線へ採用：
 
-- geometric discrepancy
+- 幾何学的ディスクレパンシー
 - (t,m,s)-net / (t,s)-sequence
 - digital construction
 - Walsh 解析
@@ -346,7 +347,12 @@ QMC2 は既存 F0-02C7 の RKHS / 再生核を再定義しない。stable anchor
 - propagation rule の網羅
 - cyclic / hyperplane net の特殊理論
 - 代数関数体を使う高度な構成
-- 特殊な最適 L2 discrepancy 構成
+- 特殊な最適 $L^2$ ディスクレパンシー構成
+
+### 8.3 Phase 5 進捗
+
+- [x] QMC1：一様分布・ディスクレパンシー・Koksma--Hlawka
+- 次の実装対象：**QMC2「RKHS・最悪誤差・重み付き空間」**
 
 ---
 

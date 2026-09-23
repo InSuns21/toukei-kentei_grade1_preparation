@@ -74,7 +74,7 @@ Monte Carlo 法と準 Monte Carlo 法では、同じ積分問題に対して
 | [NA11](../NA11/index.md) | Perron–Frobenius 理論と PageRank |
 | [NA12](../NA12/index.md) | 無制約最適化と共役勾配法 |
 
-**実装済み：NA1、NA2、NA3、NA4、NA5、NA6、NA7、NA8、NA9、NA10、NA11、NA12、FDM1、FDM2、FDM3、FDM4、FEM1、FEM2、FEM3、FEM4、FEM5、FEM6、FEM7、MC1、MC2、MC3、MC4。次の実装対象：QMC1。**
+**実装済み：NA1、NA2、NA3、NA4、NA5、NA6、NA7、NA8、NA9、NA10、NA11、NA12、FDM1、FDM2、FDM3、FDM4、FEM1、FEM2、FEM3、FEM4、FEM5、FEM6、FEM7、MC1、MC2、MC3、MC4、QMC1。次の実装対象：QMC2。**
 
 数値解析では、単にアルゴリズムを列挙するのではなく、
 
@@ -134,7 +134,7 @@ MC1 では積分を期待値へ移し、標本平均の不偏性、分散、二�
 
 | ID | 講座 |
 |---|---|
-| QMC1 | 一様分布・discrepancy・Koksma–Hlawka |
+| [QMC1](../QMC1/index.md) | 一様分布・ディスクレパンシー・Koksma–Hlawka |
 | QMC2 | RKHS・最悪誤差・重み付き空間 |
 | QMC3 | 格子則 |
 | QMC4 | (t,m,s)-net・(t,s)-sequence |
@@ -143,7 +143,7 @@ MC1 では積分を期待値へ移し、標本平均の不偏性、分散、二�
 | QMC7 | randomized QMC |
 | QMC8 | 高次 QMC |
 
-準 Monte Carlo 法では、標本平均の確率変動ではなく、点集合がどれだけ一様に空間を埋めるかを誤差評価へ結びつけます。
+準 Monte Carlo 法では、標本平均の確率変動ではなく、点集合がどれだけ一様に空間を埋めるかを誤差評価へ結びつけます。QMC1 では局所ディスクレパンシーとスター・ディスクレパンシー、一様分布との同値性、Vitali 変動・Hardy--Krause 変動、Hlawka--Zaremba 恒等式を経て Koksma--Hlawka の不等式までを閉じます。次は QMC2 で RKHS の最悪誤差表示と重み付き空間へ進みます。
 
 ---
 

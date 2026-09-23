@@ -1,0 +1,116 @@
+chapter: QMC1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MC1
+  - F0-00D2C
+  - RA3
+forward_references:
+  - rkhs.rkhs
+  - rkhs.reproducing-kernel
+
+concepts:
+  - id: numerical.anchored-box
+    name: アンカー付き直方体
+    kind: definition
+    aliases: [anchored box]
+    introduction: formal
+    introduction_aliases: ["定義（アンカー付き直方体と局所ディスクレパンシー）"]
+    requires: []
+
+  - id: numerical.qmc-local-discrepancy
+    name: 局所ディスクレパンシー
+    kind: definition
+    aliases: [local discrepancy]
+    introduction: formal
+    introduction_aliases: ["定義（アンカー付き直方体と局所ディスクレパンシー）"]
+    requires:
+      - numerical.anchored-box
+
+  - id: numerical.star-discrepancy
+    name: スター・ディスクレパンシー
+    kind: definition
+    aliases: [star discrepancy]
+    introduction: formal
+    introduction_aliases: ["定義（スター・ディスクレパンシー）"]
+    requires:
+      - numerical.qmc-local-discrepancy
+
+  - id: numerical.uniformly-distributed-sequence
+    name: 一様分布する点列
+    kind: definition
+    aliases: [uniformly distributed sequence, uniform distribution of a sequence]
+    introduction: formal
+    introduction_aliases: ["定義（一様分布する点列）"]
+    requires: []
+
+  - id: numerical.uniform-distribution-star-discrepancy
+    name: 一様分布とスター・ディスクレパンシーの同値性
+    kind: theorem
+    aliases: [uniform distribution characterized by star discrepancy]
+    introduction: formal
+    introduction_aliases: ["定理（一様分布とスター・ディスクレパンシーの同値性）"]
+    requires:
+      - numerical.uniformly-distributed-sequence
+      - numerical.star-discrepancy
+
+  - id: numerical.qmc-rule
+    name: 準 Monte Carlo 求積則
+    kind: definition
+    aliases: [quasi-Monte Carlo rule, QMC rule]
+    introduction: formal
+    introduction_aliases: ["定義（準 Monte Carlo 求積則）"]
+    requires: []
+
+  - id: numerical.vitali-variation
+    name: Vitali 変動
+    kind: definition
+    aliases: [Vitali variation]
+    introduction: formal
+    introduction_aliases: ["定義（Vitali 変動）"]
+    requires: []
+
+  - id: numerical.hardy-krause-variation
+    name: Hardy--Krause 変動
+    kind: definition
+    aliases: [Hardy--Krause variation, HK variation]
+    introduction: formal
+    introduction_aliases: ["定義（Hardy--Krause 変動）"]
+    requires:
+      - numerical.vitali-variation
+
+  - id: numerical.endpoint-representation-formula
+    name: 端点表示公式
+    kind: lemma
+    aliases: [端点表示公式]
+    introduction: formal
+    introduction_aliases: ["補題（端点表示公式）"]
+    requires:
+      - analysis.mean-value-theorem
+      - analysis.derivative
+
+  - id: numerical.hlawka-zaremba-identity
+    name: Hlawka--Zaremba 恒等式
+    kind: theorem
+    aliases: [Hlawka--Zaremba identity]
+    introduction: formal
+    introduction_aliases: ["定理（Hlawka--Zaremba 恒等式）"]
+    requires:
+      - numerical.qmc-rule
+      - numerical.qmc-local-discrepancy
+      - numerical.hardy-krause-variation
+      - measure.fubini-theorem
+      - numerical.endpoint-representation-formula
+      - analysis.derivative
+      - analysis.ck-smoothness-class
+
+  - id: numerical.koksma-hlawka-inequality
+    name: Koksma--Hlawka の不等式
+    kind: theorem
+    aliases: [Koksma--Hlawka inequality]
+    introduction: formal
+    introduction_aliases: ["定理（Koksma--Hlawka の不等式）"]
+    requires:
+      - numerical.star-discrepancy
+      - numerical.hardy-krause-variation
+      - numerical.hlawka-zaremba-identity

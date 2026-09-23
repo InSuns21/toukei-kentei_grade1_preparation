@@ -1,0 +1,50 @@
+id: "QMC1"
+title: "一様分布・ディスクレパンシー・Koksma--Hlawka"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MC1
+  - F0-00D2C
+  - RA3
+official_scope: []
+learning_objectives:
+  - 単位立方体上の決定論的点集合から準 Monte Carlo 求積則を構成し、Monte Carlo 標本平均との違いを説明できる
+  - アンカー付き直方体に対する局所ディスクレパンシーとスター・ディスクレパンシーを定義し、具体的な点集合で計算できる
+  - 点列の一様分布とスター・ディスクレパンシーが 0 へ収束することの同値性を、有限格子近似と包除原理から証明できる
+  - 一次元の等間隔中点集合についてスター・ディスクレパンシーが 1/(2N) であることを導ける
+  - Vitali 変動と Hardy--Krause 変動を定義し、低次元の具体的な関数で変動を計算できる
+  - 滑らかな関数に対する Hlawka--Zaremba 恒等式を多変数微積分の基本定理と積分順序交換から導ける
+  - Koksma--Hlawka の不等式が「点集合の一様性」と「被積分関数の変動」を分離する誤差評価であることを説明できる
+  - 一般の有界 Hardy--Krause 変動への拡張で必要となる多次元 Stieltjes 積分の役割と、本章で証明する核心部分との境界を説明できる
+  - 仮定した低ディスクレパンシー評価から準 Monte Carlo の決定論的誤差率を導き、Monte Carlo の N^{-1/2} 尺度と性質の違いを比較できる
+definitions:
+  - { id: QMC1-DEF-01, name: アンカー付き直方体と局所ディスクレパンシー }
+  - { id: QMC1-DEF-02, name: スター・ディスクレパンシー }
+  - { id: QMC1-DEF-03, name: 一様分布する点列 }
+  - { id: QMC1-DEF-04, name: 準 Monte Carlo 求積則 }
+  - { id: QMC1-DEF-05, name: Vitali 変動 }
+  - { id: QMC1-DEF-06, name: Hardy--Krause 変動 }
+theorems:
+  - { id: QMC1-THM-01, name: 一様分布とスター・ディスクレパンシーの同値性 }
+  - { id: QMC1-THM-02, name: Hlawka--Zaremba 恒等式 }
+  - { id: QMC1-THM-03, name: Koksma--Hlawka の不等式 }
+canonical_examples:
+  - 細かくなる一次元中点格子を順に連結し、ブロックごとの点数誤差から一様分布を直接検証する例
+  - 一次元の等間隔中点集合でスター・ディスクレパンシーが 1/(2N) になる例
+  - 二次元の 2x2 中点格子で局所ディスクレパンシーを直接数える例
+  - f(x,y)=xy の Hardy--Krause 変動が 3 になる例
+  - 一次元中点則で f(x)=x^2 の実誤差が Koksma--Hlawka 上界より速く減る例
+  - 全点を 1/2 に重ねた点集合でディスクレパンシーと指示関数の積分誤差が 1/2 になる失敗例
+problem_patterns:
+  - QMC1-MIDPOINT-STAR-DISCREPANCY-1
+  - QMC1-LOCAL-DISCREPANCY-2D-1
+  - QMC1-HK-VARIATION-1
+  - QMC1-KOKSMA-HLAWKA-MIDPOINT-1
+  - QMC1-BOX-DISCREPANCY-INCLUSION-EXCLUSION-1
+  - QMC1-UNIFORM-DISTRIBUTION-GRID-1
+  - QMC1-HLAWKA-ZAREMBA-2D-1
+  - QMC1-QMC-VS-MC-RATE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.5, exercises: 5.5, review: 0.75 }
