@@ -318,7 +318,7 @@ $$
 \omega-d\varphi.
 $$
 
-外微分を取ると [GEO7 の $d^2=0$](../GEO7/index.md#thm-geo7-d2-zero) より
+外微分を取ると [GEO7 の $d^2=0$](../GEO7/index.md#thm-geo7-d-square-zero) より
 
 $$
 d\widetilde\omega
