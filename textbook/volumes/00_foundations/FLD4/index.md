@@ -497,11 +497,47 @@ $$
 
 係数へ $\sigma$ を作用させた多項式
 
-$$
+$
 \sigma(m_i)
-$$
+$
 
-は次数 $d_i$ で、$m_i$ と同様に重根を持ちません。
+は次数 $d_i$ です。
+
+$m_i$ は分離的なので
+
+$
+\gcd(m_i,m_i')=1.
+$
+
+従ってある $a,b\in E_{i-1}[x]$ が存在して
+
+$
+a m_i+b m_i'=1
+$
+
+と書けます。
+
+係数へ $\sigma$ を作用させると
+
+$
+\sigma(a)\sigma(m_i)
++
+\sigma(b)\sigma(m_i')=1.
+$
+
+係数写像は形式微分と可換するので
+
+$
+\sigma(m_i')=(\sigma(m_i))'.
+$
+
+したがって
+
+$
+\gcd\bigl(\sigma(m_i),(\sigma(m_i))'\bigr)=1.
+$
+
+FLD2 の重根判定により $\sigma(m_i)$ も重根を持ちません。
 
 $\Omega$ は代数閉体なので、$\sigma(m_i)$ は $\Omega$ 内にちょうど $d_i$ 個の異なる根を持ちます。
 
@@ -2192,38 +2228,62 @@ s:
 \end{cases}
 $$
 
-直接計算すると
+生成元への作用から
 
-$$
+$
 r^3=1,
 \qquad
 s^2=1,
 \qquad
-srs=r^{-1}.
-$$
+srs=r^{-1}
+$
 
-従って $\langle r,s\rangle$ は $S_3$ と同じ表示を持ちます。
+を確認できます。
 
-実際、$1,r,r^2,s,rs,r^2s$ の六つは $\alpha$ と $\omega$ への作用が異なるため相異なります。
+さらに $G=\operatorname{Gal}(L/\mathbb Q)$ は三つの根
+
+$
+\alpha,\quad \omega\alpha,\quad \omega^2\alpha
+$
+
+を置換します。
+
+$r$ はこの三根を
+
+$
+\alpha
+\mapsto
+\omega\alpha
+\mapsto
+\omega^2\alpha
+\mapsto
+\alpha
+$
+
+と巡回させ、$s$ は $\alpha$ を固定して $\omega\alpha$ と $\omega^2\alpha$ を交換します。
+
+従ってこの作用の像は三文字の対称群 $S_3$ 全体を含みます。
 
 一方
 
-$$
-|\operatorname{Gal}(L/\mathbb Q)|
+$
+|G|
 =
 [L:\mathbb Q]
 =
-6.
-$$
+6
+=
+|S_3|.
+$
 
-したがって
+よって作用は同型を与え、
 
-$$
+$
 \boxed{
 \operatorname{Gal}(L/\mathbb Q)
 \cong S_3
 }.
-$$
+$
 
 部分群
 
@@ -3236,19 +3296,29 @@ $$
 G=\langle r,s\rangle.
 $$
 
-関係
+三根
 
-$$
-r^3=s^2=1,
-\qquad
-srs=r^{-1}
-$$
+$
+\alpha,\quad\omega\alpha,\quad\omega^2\alpha
+$
 
-は $S_3$ の標準的な生成関係なので
+への作用を見ると、$r$ は三つを巡回させる 3-cycle で、$s$ は $\alpha$ を固定して残り二根を交換する transposition です。
 
-$$
+この二つの置換は $S_3$ を生成します。
+
+一方、すでに $G$ は六元であることを示したので、この三根への作用
+
+$
+G\to S_3
+$
+
+は六元群から六元群への全射です。
+
+従って全単射であり、
+
+$
 \boxed{G\cong S_3}.
-$$
+$
 
 3. $r$ は $\omega$ を固定します。
 
