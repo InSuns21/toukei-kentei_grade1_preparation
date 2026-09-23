@@ -23,6 +23,11 @@ if (!fs.existsSync(policyPath)) fatal('textbook/dream-theater-knowledge.yaml が
 const index = JSON.parse(fs.readFileSync(indexPath, 'utf8'));
 const policy = YAML.parse(fs.readFileSync(policyPath, 'utf8')) ?? {};
 const metadataFile = policy.metadata_file || 'knowledge.yaml';
+const contextualAliases = new Set(
+  (policy.alias_matching?.contextual_aliases ?? [])
+    .map((value) => normalizeAlias(String(value)))
+    .filter(Boolean),
+);
 const pagePaths = (index.sections ?? []).flatMap((section) => section.paths ?? []);
 const pages = new Map();
 const missingKnowledge = [];
@@ -389,6 +394,7 @@ function findFirstUnshadowedConceptUses(lines, visibleConcepts, currentPage, mat
 
       for (const remoteAlias of concept.aliases) {
         if (!matchedAliases.has(remoteAlias)) continue;
+        if (isContextualAlias(remoteAlias) && !hasHighConfidenceAliasReference(lines[i], remoteAlias)) continue;
         const remoteKey = normalizeAlias(remoteAlias);
         const shadowed = visibleAliasKeys.some((visibleKey) =>
           visibleKey.length > remoteKey.length && visibleKey.includes(remoteKey)
@@ -401,6 +407,35 @@ function findFirstUnshadowedConceptUses(lines, visibleConcepts, currentPage, mat
   }
 
   return firstUses;
+}
+
+function isContextualAlias(alias) {
+  return contextualAliases.has(normalizeAlias(alias));
+}
+
+function hasHighConfidenceAliasReference(line, alias) {
+  const needle = normalizeAlias(alias);
+  if (!needle) return false;
+
+  const exactSpans = [
+    ...[...line.matchAll(/\*\*([^*]{1,160})\*\*/gu)].map((match) => match[1]),
+    ...[...line.matchAll(/\[([^\]\n]{1,160})\]/gu)].map((match) => match[1]),
+    ...[...line.matchAll(/[「『]([^」』\n]{1,160})[」』]/gu)].map((match) => match[1]),
+    ...[...line.matchAll(/(?:公理|定義|定理|補題|命題|系)[（(]([^）)\n]{1,160})[）)]/gu)].map((match) => match[1]),
+  ];
+  if (exactSpans.some((span) => normalizeReferenceSpan(span) === needle)) return true;
+
+  const heading = /^#{1,6}\s+(.+)$/u.exec(line.trim())?.[1] ?? null;
+  if (heading != null && normalizeReferenceSpan(heading) === needle) return true;
+
+  return false;
+}
+
+function normalizeReferenceSpan(value) {
+  return normalizeAlias(String(value ?? '')
+    .replace(/[`*_>#]/gu, '')
+    .replace(/^[「『]|[」』]$/gu, '')
+    .trim());
 }
 
 function buildAliasMatcher(patterns) {
@@ -467,6 +502,37 @@ function runAliasMatcherSelfTest() {
     if (!overlapMatches.has(expected)) throw new Error(`overlap self-test failed: ${expected}`);
   }
 
+  const stripped = stripNonReaderContent('<a id="def-unit-torus"></a>\n本文');
+  if (/unit|torus/u.test(stripped)) {
+    throw new Error('HTML属性が reader source に残っています。');
+  }
+
+  for (const expected of ['net', 'unit', 'torus', 'トーラス']) {
+    if (!isContextualAlias(expected)) throw new Error(`contextual alias policy missing: ${expected}`);
+  }
+
+  const lowConfidenceCases = [
+    ['digital net を使う。', 'net'],
+    ['### 定義（digital net）', 'net'],
+    ['### 定義（単位トーラス上の Fourier 係数）', 'トーラス'],
+  ];
+  for (const [line, alias] of lowConfidenceCases) {
+    if (hasHighConfidenceAliasReference(line, alias)) {
+      throw new Error(`複合専門語の一部を高信頼参照として誤認しました: ${alias}`);
+    }
+  }
+
+  const highConfidenceCases = [
+    ['ここでは **net** を用いる。', 'net'],
+    ['### 定義（net）', 'net'],
+    ['「トーラス」を定義する。', 'トーラス'],
+  ];
+  for (const [line, alias] of highConfidenceCases) {
+    if (!hasHighConfidenceAliasReference(line, alias)) {
+      throw new Error(`明示的 alias 参照を検出できませんでした: ${alias}`);
+    }
+  }
+
   console.log('DREAM THEATER alias matcher self-test: OK');
 }
 
@@ -487,6 +553,7 @@ function stripNonReaderContent(source) {
   value = value.replace(/\$\$[\s\S]*?\$\$/g, preserveLines);
   value = value.replace(/\$(?:\\.|[^$\n])+\$/g, preserveWidth);
   value = value.replace(/\]\([^\n)]*\)/g, (text) => ']'.padEnd(text.length, ' '));
+  value = value.replace(/<[^>]*>/g, preserveLayout);
   value = value.replace(/https?:\/\/\S+/g, preserveWidth);
   return value;
 }
@@ -541,6 +608,7 @@ function normalizeAlias(value) { return String(value).trim().toLocaleLowerCase('
 function compact(value) { return value.replace(/\s+/g, ' ').trim().slice(0, 180); }
 function preserveLines(value) { return '\n'.repeat((value.match(/\n/g) ?? []).length); }
 function preserveWidth(value) { return ' '.repeat(value.length); }
+function preserveLayout(value) { return String(value).replace(/[^\n]/gu, ' '); }
 function relative(file) { return path.relative(root, file).replaceAll('\\', '/'); }
 function escapeRegExp(value) { return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
 function fatal(message) { console.error(message); process.exit(1); }
