@@ -332,11 +332,10 @@
 | 重根 | multiple root / repeated root | 重複度2以上の根。本文の主表記は「重根」とし、「重複根」「多重根」は原則として主表記にしない |
 | 重複度 | multiplicity | $m$ 回重なる根は「$m$ 重根」と書ける |
 | エネルギー誤差 | energy error | 楕円型変分問題のエネルギーノルム、または Poisson 問題の $H_0^1$ 勾配ノルムで測る有限要素誤差 |
-| 双対問題 | dual problem / adjoint problem | 誤差を右辺に置いて弱いノルムの誤差評価へ変換する補助問題。非対称双線形形式では随伴側の問題になる |
+| 楕円型双対問題 | elliptic dual problem / adjoint problem | 誤差を右辺に置いて弱いノルムの誤差評価へ変換する補助問題。非対称双線形形式では随伴側の問題になる |
 | 双対正則性 | dual regularity | 双対問題の解に対する大域 Sobolev 正則性評価。Aubin--Nitsche の双対論法で追加の $h$ を得る仮定 |
 | Aubin--Nitsche の双対論法 | Aubin--Nitsche duality argument | 人名部分は英字表記を保持。Galerkin 直交性と双対問題を用いて $L^2$ 誤差を改善する |
 | 再入角 | reentrant corner | 内角が $\pi$ を超える境界角。楕円型問題では境界正則性低下の典型要因 |
-| 収束次数 | order of convergence | 誤差上界が $Ch^p$ の形で減少するときの指数 $p$ |
 
 ## DREAM THEATER：ODE・PDE の主表記
 
