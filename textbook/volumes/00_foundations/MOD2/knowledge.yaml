@@ -12,7 +12,7 @@ concepts:
     kind: definition
     aliases: [matrix equivalence over a PID]
     introduction: formal
-    requires: [algebra.pid, algebra.free-module]
+    requires: [algebra.principal-ideal-domain, algebra.free-module]
 
   - id: algebra.bezout-two-entry-reduction
     name: Bézout による二成分簡約
@@ -42,7 +42,7 @@ concepts:
     kind: theorem
     aliases: [Smith normal form theorem]
     introduction: formal
-    requires: [algebra.bezout-two-entry-reduction, algebra.pid-acc, algebra.smith-normal-form]
+    requires: [algebra.bezout-two-entry-reduction, algebra.pid-ascending-chain-condition, algebra.smith-normal-form]
 
   - id: algebra.determinantal-ideal
     name: 小行列式イデアル
@@ -65,12 +65,12 @@ concepts:
     introduction: formal
     requires: [algebra.determinantal-ideal-invariance, algebra.invariant-factor]
 
-  - id: algebra.pid-submodule-free
+  - id: algebra.principal-ideal-domain-submodule-free
     name: PID 上自由加群の部分加群は自由
     kind: theorem
     aliases: []
     introduction: formal
-    requires: [algebra.pid, algebra.free-module, algebra.submodule]
+    requires: [algebra.principal-ideal-domain, algebra.free-module, algebra.submodule]
 
   - id: algebra.module-cokernel
     name: 加群準同型の余核
@@ -95,30 +95,30 @@ concepts:
     introduction: formal
     requires: [algebra.matrix-equivalence-pid, algebra.module-cokernel]
 
-  - id: algebra.pid-fg-module-structure
+  - id: algebra.principal-ideal-domain-fg-module-structure
     name: PID 上有限生成加群の構造定理
     kind: theorem
     aliases: [structure theorem for finitely generated modules over a PID]
     introduction: formal
-    requires: [algebra.smith-normal-form-theorem, algebra.pid-submodule-free, algebra.finite-presentation-module]
+    requires: [algebra.smith-normal-form-theorem, algebra.principal-ideal-domain-submodule-free, algebra.finite-presentation-module]
 
   - id: algebra.elementary-divisor
     name: 基本因子
     kind: definition
     aliases: [elementary divisor]
     introduction: formal
-    requires: [algebra.pid-fg-module-structure, algebra.ufd]
+    requires: [algebra.principal-ideal-domain-fg-module-structure, algebra.unique-factorization-domain]
 
   - id: algebra.fg-abelian-group-structure
     name: 有限生成 Abel 群の構造定理
     kind: theorem
     aliases: [fundamental theorem of finitely generated abelian groups]
     introduction: formal
-    requires: [algebra.pid-fg-module-structure, algebra.z-modules-abelian-groups]
+    requires: [algebra.principal-ideal-domain-fg-module-structure, algebra.z-modules-abelian-groups]
 
   - id: algebra.linear-operator-polynomial-module-torsion
     name: 線形自己写像の多項式環加群は有限生成ねじれ加群
     kind: proposition
     aliases: []
     introduction: formal
-    requires: [algebra.operator-polynomial-module, algebra.finitely-generated-module, algebra.torsion-module, algebra.pid-fg-module-structure]
+    requires: [algebra.operator-polynomial-module, algebra.finitely-generated-module, algebra.torsion-module, algebra.principal-ideal-domain-fg-module-structure]
