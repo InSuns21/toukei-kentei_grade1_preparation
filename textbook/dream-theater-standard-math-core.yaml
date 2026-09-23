@@ -611,6 +611,15 @@ nodes:
     prerequisites: [LIE1, GRP3]
     reuses: [ODE4]
 
+  - id: LIE3
+    title: Lie 部分群・古典群
+    area: lie-theory
+    tier: core-advanced-standard
+    status: implemented
+    implemented_at: 2026-09-24
+    implementation_path: textbook/volumes/00_foundations/LIE3/index.md
+    prerequisites: [LIE2, LA6]
+
   - id: VC1
     title: ベクトル場と微分演算子
     area: vector-calculus
@@ -984,7 +993,7 @@ implementation_batches:
     nodes: [GRP1, GRP2, GRP3, GRP4, RNG1, RNG2, RNG3, RNG4, MOD1, MOD2, FLD1, FLD2, FLD3, FLD4, FLD5]
   - order: 12
     id: lie-theory-core
-    nodes: [LIE1, LIE2]
+    nodes: [LIE1, LIE2, LIE3]
 
 deferred_integrations:
   - id: dream-theater-facade-entrypoint
