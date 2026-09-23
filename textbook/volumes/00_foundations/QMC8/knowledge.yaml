@@ -54,11 +54,11 @@ concepts:
       - numerical.high-precision-digital-net
 
   - id: numerical.order-alpha-digital-net
-    name: order α デジタルネット
+    name: 次数 α デジタルネット
     kind: definition
     aliases: [order alpha digital net]
     introduction: formal
-    introduction_aliases: ["定義（order α デジタルネット）"]
+    introduction_aliases: ["定義（次数 α デジタルネット）"]
     requires:
       - numerical.minimum-dual-dick-weight
       - numerical.digital-t-value-duality
@@ -83,11 +83,11 @@ concepts:
       - numerical.dick-alpha-weight
 
   - id: numerical.order-alpha-qmc-error
-    name: order α デジタルネットの高次 Walsh 誤差評価
+    name: 次数 α デジタルネットの高次 Walsh 誤差評価
     kind: theorem
     aliases: []
     introduction: formal
-    introduction_aliases: ["定理（order α デジタルネットの高次 Walsh 誤差評価）"]
+    introduction_aliases: ["定理（次数 α デジタルネットの高次 Walsh 誤差評価）"]
     requires:
       - numerical.high-precision-walsh-character
       - numerical.order-alpha-digital-net
@@ -114,11 +114,11 @@ concepts:
       - numerical.high-precision-digital-net
 
   - id: numerical.interlaced-order-alpha-construction
-    name: 桁交互配置による order α デジタルネット構成
+    name: 桁交互配置による次数 α デジタルネット構成
     kind: theorem
     aliases: []
     introduction: formal
-    introduction_aliases: ["定理（桁交互配置による order α デジタルネット構成）"]
+    introduction_aliases: ["定理（桁交互配置による次数 α デジタルネット構成）"]
     requires:
       - numerical.interlaced-generating-matrix
       - numerical.digital-t-value-duality
