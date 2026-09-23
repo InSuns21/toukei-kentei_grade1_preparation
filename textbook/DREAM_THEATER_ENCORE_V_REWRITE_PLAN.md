@@ -369,7 +369,8 @@ QMC2 は既存 F0-02C7 の RKHS / 再生核を再定義しない。stable anchor
 - [x] QMC7「ランダム化準 Monte Carlo 法（randomized QMC）」を新正本として実装
 - [x] QMC8「高次準 Monte Carlo 法（higher-order QMC）」を新正本として実装
 - [x] Encore V 理論35講の横断監査：**方針決定により実施対象外（skip）**
-- 次の実装対象：**PYNUM1「Python 数値計算速習」**
+- [x] PYNUM1「Python 数値計算速習」を新正本として実装
+- 次の実装対象：**NUMLAB0「計算機演習基盤」**
 
 ---
 
