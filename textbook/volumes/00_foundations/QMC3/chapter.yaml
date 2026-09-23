@@ -19,7 +19,7 @@ learning_objectives:
 definitions:
   - { id: QMC3-DEF-01, name: ランク1格子点集合と生成ベクトル }
   - { id: QMC3-DEF-02, name: 双対格子 }
-  - { id: QMC3-DEF-02A, name: 単位周期立方体上の Fourier 係数 }
+  - { id: QMC3-DEF-02A, name: 単位トーラス上の Fourier 係数 }
   - { id: QMC3-DEF-03, name: 絶対収束 Fourier 級数 }
   - { id: QMC3-DEF-04, name: 重み付き周期 Fourier 空間 }
   - { id: QMC3-DEF-05, name: 成分逐次構成 }
