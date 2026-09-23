@@ -1,0 +1,175 @@
+chapter: GRP3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GRP2
+forward_references: []
+
+concepts:
+  - id: algebra.group-action
+    name: 群作用
+    kind: definition
+    aliases: [group action]
+    introduction: formal
+    introduction_aliases: ["定義（群作用）"]
+    requires:
+      - algebra.group
+      - set.function
+
+  - id: algebra.action-homomorphism
+    name: 群作用に対応する準同型
+    kind: theorem
+    aliases: [action homomorphism]
+    introduction: formal
+    introduction_aliases: ["定理（群作用と対称群への準同型）"]
+    requires:
+      - algebra.group-action
+      - algebra.group-homomorphism
+      - algebra.symmetric-group
+
+  - id: algebra.faithful-group-action
+    name: 忠実な群作用
+    kind: definition
+    aliases: [faithful group action]
+    introduction: formal
+    introduction_aliases: ["定義（忠実な作用・推移的な作用）"]
+    requires:
+      - algebra.group-action
+      - algebra.action-homomorphism
+
+  - id: algebra.transitive-group-action
+    name: 推移的な群作用
+    kind: definition
+    aliases: [transitive group action]
+    introduction: formal
+    introduction_aliases: ["定義（忠実な作用・推移的な作用）"]
+    requires:
+      - algebra.group-action
+
+  - id: algebra.group-action-orbit
+    name: 群作用の軌道
+    kind: definition
+    aliases: [group-action orbit]
+    introduction: formal
+    introduction_aliases: ["定義（軌道・安定化群）"]
+    requires:
+      - algebra.group-action
+
+  - id: algebra.stabilizer-subgroup
+    name: 群作用の安定化群
+    kind: definition
+    aliases: [安定化群, stabilizer subgroup, point stabilizer]
+    introduction: formal
+    introduction_aliases: ["定義（軌道・安定化群）"]
+    requires:
+      - algebra.group-action
+      - algebra.subgroup
+
+  - id: algebra.orbit-partition
+    name: 群作用の軌道による分割
+    kind: proposition
+    aliases: [orbit partition under a group action]
+    introduction: formal
+    introduction_aliases: ["命題（軌道による分割）"]
+    requires:
+      - algebra.group-action-orbit
+
+  - id: algebra.coset-orbit-bijection
+    name: 剰余類と軌道の自然な全単射
+    kind: theorem
+    aliases: [coset-orbit bijection]
+    introduction: formal
+    introduction_aliases: ["定理（剰余類と軌道の自然な全単射）"]
+    requires:
+      - algebra.group-action-orbit
+      - algebra.stabilizer-subgroup
+      - algebra.left-coset
+
+  - id: algebra.orbit-stabilizer-theorem
+    name: 軌道・安定化群公式
+    kind: theorem
+    aliases: [群作用の軌道・安定化群公式, orbit-stabilizer theorem]
+    introduction: formal
+    introduction_aliases: ["定理（軌道・安定化群公式）"]
+    requires:
+      - algebra.coset-orbit-bijection
+      - algebra.lagrange-theorem
+
+  - id: algebra.conjugation-action
+    name: 群の共役作用
+    kind: definition
+    aliases: [conjugation action]
+    introduction: formal
+    introduction_aliases: ["定義（共役作用・共役類）"]
+    requires:
+      - algebra.group-action
+
+  - id: algebra.group-conjugacy-class
+    name: 群の共役類
+    kind: definition
+    aliases: [group conjugacy class, conjugacy class of a group]
+    introduction: formal
+    introduction_aliases: ["定義（共役作用・共役類）"]
+    requires:
+      - algebra.conjugation-action
+      - algebra.group-action-orbit
+
+  - id: algebra.group-center
+    name: 群の中心
+    kind: definition
+    aliases: [center of a group]
+    introduction: formal
+    introduction_aliases: ["定義（群の中心・元の中心化群）"]
+    requires:
+      - algebra.group
+
+  - id: algebra.element-centralizer
+    name: 元の中心化群
+    kind: definition
+    aliases: [centralizer of an element]
+    introduction: formal
+    introduction_aliases: ["定義（群の中心・元の中心化群）"]
+    requires:
+      - algebra.group
+
+  - id: algebra.center-centralizer-subgroups
+    name: 群の中心・元の中心化群は部分群
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.group-center
+      - algebra.element-centralizer
+      - algebra.subgroup-test
+
+  - id: algebra.group-class-equation
+    name: 群の類等式
+    kind: theorem
+    aliases: [群論の類等式, class equation of a group]
+    introduction: formal
+    introduction_aliases: ["定理（類等式）"]
+    requires:
+      - algebra.group-conjugacy-class
+      - algebra.group-center
+      - algebra.element-centralizer
+      - algebra.orbit-stabilizer-theorem
+
+  - id: algebra.finite-p-group
+    name: 有限 p-群
+    kind: definition
+    aliases: [finite p-group]
+    introduction: formal
+    introduction_aliases: ["定義（有限 p-群）"]
+    requires:
+      - algebra.group
+
+  - id: algebra.p-group-center-nontrivial
+    name: 有限 p-群の中心非自明性
+    kind: theorem
+    aliases: [nontrivial center of a finite p-group]
+    introduction: formal
+    introduction_aliases: ["定理（有限 p-群の中心は非自明）"]
+    requires:
+      - algebra.finite-p-group
+      - algebra.group-class-equation
+      - algebra.lagrange-theorem
