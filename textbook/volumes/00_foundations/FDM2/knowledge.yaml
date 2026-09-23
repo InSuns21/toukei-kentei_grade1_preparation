@@ -7,13 +7,14 @@ prerequisites:
 forward_references: []
 
 concepts:
-  - id: numerical.fdm-perturbation-stability
-    name: 差分スキームの有限時間摂動安定性
+  - id: numerical.fdm-contractivity
+    name: 差分時間発展の縮小性
     kind: definition
-    aliases: [finite-time perturbation stability of a finite-difference scheme]
+    aliases: [contractivity of finite-difference evolution]
     introduction: formal
     requires:
       - numerical.grid-function
+      - numerical.finite-time-perturbation-stability
 
   - id: numerical.fdm-amplification-factor
     name: 差分スキームの増幅因子
@@ -22,7 +23,7 @@ concepts:
     introduction: formal
     introduction_aliases: ["増幅因子と von Neumann 型安定性解析", "定義（増幅因子と von Neumann 型安定性解析）"]
     requires:
-      - numerical.fdm-perturbation-stability
+      - numerical.grid-function
 
   - id: numerical.von-neumann-stability-analysis
     name: von Neumann 型安定性解析
@@ -41,6 +42,7 @@ concepts:
     introduction_aliases: ["定理（周期格子における増幅因子と $\\ell^2$ 縮小性）"]
     requires:
       - numerical.von-neumann-stability-analysis
+      - numerical.fdm-contractivity
 
   - id: numerical.ftcs-diffusive-cfl-condition
     name: FTCS の拡散 CFL 条件
