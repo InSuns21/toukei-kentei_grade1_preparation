@@ -185,7 +185,7 @@ $$
 
 ## 2. シードは列を選ぶ
 
-<a id="def-mc2-シード"></a>
+<a id="def-mc2-seed"></a>
 
 <!-- formal-statement-start -->
 ### 定義（シード）
@@ -193,7 +193,7 @@ $$
 疑似乱数生成器の初期状態 $s_0$、または初期状態を一意に決める入力をシードと呼ぶ。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-mc2-シード -->
+<!-- definition-example-start: def-mc2-seed -->
 ### 定義の確認
 
 前節の4状態生成器で、
@@ -1627,7 +1627,7 @@ $$
 によって一つの再現可能な出力列が決まります。これが一つの乱数ストリームです。
 <!-- definition-example-end -->
 
-<a id="def-mc2-サブストリーム"></a>
+<a id="def-mc2-substream"></a>
 
 <!-- formal-statement-start -->
 ### 定義（サブストリーム）
@@ -1635,7 +1635,7 @@ $$
 一つの長い乱数ストリームを、互いに重ならないよう設計された再現可能な区間または部分列へ分割したものをサブストリームと呼ぶ。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-mc2-サブストリーム -->
+<!-- definition-example-start: def-mc2-substream -->
 ### 定義の確認：2ワーカーへ固定割当てする
 
 長い生成列を
