@@ -66,7 +66,9 @@ $$
 > 積を保つ写像の一般論、核・像、剰余類、Lagrange の定理、商構造、同型定理は GRP2 で扱います。本章では左移動が積を保存する単射になるところまでを直接確かめ、一般理論へは進みません。
 
 <!-- definition-example-start: def-grp1-group -->
-### 定義の確認：整数の加法
+**定義の確認**
+
+例：整数の加法
 
 $G=\mathbb Z$ とし、演算を加法とします。この場合は積の記号ではなく $a+b$ と書きます。
 
@@ -316,7 +318,9 @@ $\square$
 <!-- proof-end -->
 
 <!-- definition-example-start: def-grp1-subgroup -->
-### 定義の確認：偶数全体
+**定義の確認**
+
+例：偶数全体
 
 $(\mathbb Z,+)$ の部分集合
 
@@ -377,6 +381,24 @@ $$
 >
 > と書く。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-grp1-generated-subgroup -->
+**定義の確認**
+
+例：$(\mathbb Z,+)$ で $2$ が生成する部分群
+
+加法群では冪の代わりに整数倍を使うので、
+
+$
+\langle2\rangle
+=
+\{2m:m\in\mathbb Z\}
+=
+2\mathbb Z.
+$
+
+実際、$2\mathbb Z$ は $2$ を含む部分群です。また $2$ を含む任意の部分群 $H\le\mathbb Z$ は、加法と逆元について閉じているため $2m$ をすべて含みます。従って $2\mathbb Z$ は $2$ を含む最小の部分群です。
+<!-- definition-example-end -->
 
 この定義で、負の指数は
 
@@ -457,7 +479,9 @@ $\square$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-grp1-element-order -->
-### 定義の確認：$\mathbb Z_8$ の元 $2$
+**定義の確認**
+
+例：$\mathbb Z_8$ の元 $2$
 
 加法群 $\mathbb Z_8$ では、冪の代わりに整数倍を使います。
 
@@ -491,7 +515,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-grp1-cyclic-group -->
-### 定義の確認：$\mathbb Z_{12}$ は巡回群
+**定義の確認**
+
+例：$\mathbb Z_{12}$ は巡回群
 
 加法群 $\mathbb Z_{12}$ で $1$ を繰り返し足すと
 
@@ -709,7 +735,9 @@ $\square$
 <!-- proof-end -->
 
 <!-- definition-example-start: def-grp1-direct-product -->
-### 定義の確認：$\mathbb Z_2\times\mathbb Z_3$
+**定義の確認**
+
+例：$\mathbb Z_2\times\mathbb Z_3$
 
 加法記法で
 
@@ -758,7 +786,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-grp1-symmetric-group -->
-### 定義の確認：$S_3$
+**定義の確認**
+
+例：$S_3$
 
 置換
 
@@ -824,6 +854,23 @@ $$
 >
 > 二つの巡回置換が動かす点の集合を共有しないとき、それらを **互いに素**という。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-grp1-cycle -->
+**定義の確認**
+
+例：$S_5$ の $(1\,4\,3)$ と $(2\,5)$
+
+$
+(1\,4\,3):
+1\mapsto4,\quad
+4\mapsto3,\quad
+3\mapsto1
+$
+
+で、$2,5$ は固定されます。従って $(1\,4\,3)$ は3-巡回置換です。
+
+一方 $(2\,5)$ が動かす点は $\{2,5\}$ で、$(1\,4\,3)$ が動かす $\{1,3,4\}$ と交わりません。よって二つは互いに素です。
+<!-- definition-example-end -->
 
 互いに素な巡回置換は可換です。なぜなら各点について、片方が動かすならもう片方は固定し、両方が固定する点では何も起きないからです。
 
@@ -942,7 +989,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-grp1-transposition -->
-### 定義の確認：$(1\,4)$
+**定義の確認**
+
+例：$(1\,4)$
 
 $S_5$ の置換 $(1\,4)$ は
 
@@ -995,7 +1044,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-grp1-parity -->
-### 定義の確認：$(1\,2\,3)$
+**定義の確認**
+
+例：$(1\,2\,3)$
 
 $\sigma=(1\,2\,3)$ は一列表記では
 
@@ -1131,7 +1182,7 @@ $$
 \operatorname{sgn}(\rho^{-1}).
 $$
 
-$\rho\rho^{-1}=\operatorname{id}$ なので 符号の積公式から
+$\rho\rho^{-1}=\operatorname{id}$ であり、上で示した $\operatorname{sgn}(\alpha\beta)=\operatorname{sgn}(\alpha)\operatorname{sgn}(\beta)$ を使うと
 
 $$
 1
@@ -1192,7 +1243,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-grp1-dihedral -->
-### 定義の確認：$D_4$
+**定義の確認**
+
+例：$D_4$
 
 正方形では
 
