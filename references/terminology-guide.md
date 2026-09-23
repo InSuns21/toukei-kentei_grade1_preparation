@@ -417,6 +417,17 @@
 | Artin の独立性 | Artin independence of characters | 相異なる体準同型が値域の体を係数とする関数として一次独立であること。人名 Artin は英字表記を保持 |
 | 有限 Galois 理論の基本定理 | fundamental theorem of finite Galois theory | 有限 Galois 拡大の中間体と Galois 群の部分群を包含反転で対応させる定理 |
 | 制限準同型 | restriction homomorphism | 上の体の自己同型を中間体へ制限して自己同型群の間を結ぶ群準同型 |
+| 作図可能数 | constructible number | 単位長を固定した定規とコンパスの有限回の作図で実軸上の座標として得られる実数 |
+| 二次拡大列 | tower of quadratic extensions | 各段階の拡大次数が2以下である体の塔。作図可能性では実部分体の塔を用いる |
+| 交換子 | commutator | 群の元 $g,h$ に対する $ghg^{-1}h^{-1}$ |
+| 交換子部分群 | commutator subgroup / derived subgroup | 全ての交換子で生成される正規部分群 $[G,G]$。導来部分群ともいう |
+| 導来列 | derived series | $G^{(0)}=G$, $G^{(i+1)}=[G^{(i)},G^{(i)}]$ と反復する部分群列 |
+| 可解群 | solvable group | 導来列が有限回で自明群へ到達する群 |
+| 単純群 | simple group | 非自明で、非自明な真の正規部分群を持たない群 |
+| 根号拡大 | radical extension | 各段階で $alpha^n$ が直前の体に属する元 $alpha$ を有限回添加して得る体拡大 |
+| 根号による可解性 | solvability by radicals | 多項式の全ての根が基礎体から有限回の根号添加で得られるある体に含まれる性質 |
+| Lagrange の分解式 | Lagrange resolvent | 巡回 Galois 拡大で自己同型の固有ベクトルを作る有限 Fourier 型の和。人名 Lagrange は英字表記を保持 |
+| Kummer 表示 | Kummer presentation | 必要な1の根を含む体上の巡回素数次数拡大を $K(\beta)$, $\beta^p\in K$ の形で表すこと。人名 Kummer は英字表記を保持 |
 
 ## DREAM THEATER：数値解析の主表記
 
