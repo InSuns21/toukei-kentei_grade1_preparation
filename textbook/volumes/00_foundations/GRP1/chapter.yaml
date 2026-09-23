@@ -24,6 +24,7 @@ definitions:
   - { id: GRP1-DEF-06, name: 群の直積 }
   - { id: GRP1-DEF-07, name: 対称群・置換 }
   - { id: GRP1-DEF-08, name: 巡回置換・互いに素な巡回置換 }
+  - { id: GRP1-DEF-11, name: 互換 }
   - { id: GRP1-DEF-09, name: 置換の偶奇・交代群 }
   - { id: GRP1-DEF-10, name: 二面体群 }
 theorems:
