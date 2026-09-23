@@ -264,6 +264,9 @@ DREAM THEATER では各演習に **詳細解答**を必須とする。
 - stable ID・stable anchor は後方互換性のために保持するが、誤った alias は互換性層として温存しない。alias は semantic resolver の入力であり、URL互換や参照互換の代用品ではない。
 - 数学的意味を持つ記号を正規化で落とさない。「弱*位相」と「弱位相」のように `*` が概念識別に効く場合は別 alias として保持する。Markdown の `**` 強調記号だけを装飾として除去する。
 - 短い一般語 alias が他分野の concept 名へ広く食い込む場合は、まず「真の別称か」を確認する。真の別称なら WARN を許容できるが、関連語・構成要素なら `introduction_aliases` または本文へ移す。
+- concept audit は HTML の tag / attribute、コード、数式、URL など読者本文ではない文字列を概念使用として扱わない。stable anchor の断片が別 concept の alias と一致しても dependency を発生させない。
+- 真の別称でも `net`、`unit`、`torus` のように分野横断で多義的な語は `textbook/dream-theater-knowledge.yaml` の contextual alias として扱える。自由文や複合専門語中の部分一致だけでは blocking にせず、formal label、完全一致の強調・リンク文字列・引用など明示的な参照で使用を確定する。
+- 「digital net」「単位トーラス」のような標準的な複合専門語が短い alias を含むだけなら、監査を通すために本文語彙を不自然に改名しない。誤検出なら resolver / policy を修正する。
 
 既存 `knowledge.yaml` の alias を変更すると semantic resolution が未変更ページへ波及しうるため、scope detector が full audit を要求する場合は省略しない。WARN をゼロにすること自体を目的に語彙を不自然に改名せず、意味的な誤登録だけを直す。
 

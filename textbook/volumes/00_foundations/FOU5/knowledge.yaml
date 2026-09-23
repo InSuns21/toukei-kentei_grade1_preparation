@@ -93,9 +93,9 @@ concepts:
     requires: [fourier.fou5-dft, fourier.fou5-circular-convolution]
 
   - id: fourier.fou5-aliasing
-    name: エイリアシング同値関係
+    name: 等間隔標本化におけるエイリアシング同値関係
     kind: definition
-    aliases: [aliasing, エイリアシング]
+    aliases: [uniform-sampling aliasing equivalence]
     introduction: formal
     introduction_aliases: ["定義（等間隔標本化におけるエイリアシング同値）"]
 
