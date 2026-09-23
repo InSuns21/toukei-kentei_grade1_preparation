@@ -16,7 +16,7 @@ learning_objectives:
   - 標本分散から Monte Carlo 標準誤差を推定し、その一致性を説明できる
   - 正規近似に基づく近似信頼区間を構成し、被覆確率が漸近的な主張であることを説明できる
   - 目標半幅から必要標本数が精度の二乗に反比例することを導ける
-  - 標本誤差と離散化バイアスを分離し、二乗平均誤差を bias^2+variance/N に分解できる
+  - 標本誤差と離散化バイアスを分離し、二乗平均誤差をバイアスの二乗と標本分散項に分解できる
 definitions:
   - { id: MC1-DEF-01, name: Monte Carlo 推定量 }
   - { id: MC1-DEF-02, name: Monte Carlo 標準誤差 }
@@ -32,7 +32,7 @@ canonical_examples:
   - Bernoulli 指示関数による円周率推定と分散
   - 誤差半減に標本数4倍が必要となる標本数設計
   - 標本分散から標準誤差を計算する小標本例
-  - 離散近似量 Q_h の期待値を推定するときの bias と sampling error の分解
+  - 離散近似量 Q_h の期待値を推定するときの離散化バイアスと標本誤差の分解
 problem_patterns:
   - MC1-INTEGRAL-AS-EXPECTATION-1
   - MC1-UNBIASED-VARIANCE-RMSE-1
