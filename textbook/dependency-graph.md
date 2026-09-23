@@ -235,7 +235,7 @@ LIE1 は GRP2 と GEO5 を直接 prerequisite とする。群演算が滑らか�
 LIE2 は LIE1、GRP3、ODE4 を直接 prerequisite とする。単位元接ベクトルに対応する左不変ベクトル場が完備であることを群の左移動と積分曲線の一意性から証明し、1パラメータ部分群との一対一対応と Lie 群の指数写像を構成する。$d\exp_0=\operatorname{id}$ と局所微分同相性、Lie 群準同型との自然性、$GL(n,\mathbb R)$ での ODE3 の行列指数との一致を閉じる。GRP3 の共役作用を滑らかな共役自己同型へ持ち上げ、$\operatorname{Ad}_g=d(C_g)_e$ の準同型性を直接確認し、さらに $\operatorname{ad}=d(\operatorname{Ad})_e$ と GEO5 の流れによる Lie 括弧の解釈から $\operatorname{ad}_X(Y)=[X,Y]$、$\operatorname{Ad}_{\exp X}=\exp(\operatorname{ad}_X)$ を証明する。Baker--Campbell--Hausdorff 理論は共役四項積の混合二階微分が $[X,Y]$ になる入口までとし、Lie 部分群・古典群は LIE3 へ送る。
 
 
-LIE3 は LIE2 と LA6 を直接 prerequisite とする。Lie 部分群を埋め込み部分多様体かつ部分群として定義し、包含写像の微分から $T_eH$ が $T_eG$ の Lie 部分環になること、指数写像が $\exp_H=\exp_G|_{\mathfrak h}$ と整合することを証明する。閉部分群定理は一般の剛性定理として位置付ける一方、$SL(n,\mathbb R)$、$O(n)$、$SO(n)$、$U(n)$、$SU(n)$ は正則値定理を使って部分多様体性と接空間を直接計算する。$\det A=1$、$A^\mathsf{T}A=I$、$A^*A=I$ を単位元で微分し、トレース0・歪対称・歪Hermitianという接 Lie 環の線形条件を導く。Lie 群作用・等質空間・Maurer--Cartan 形式は LIE4 へ送る。
+LIE3 は LIE2 と LA6 を直接 prerequisite とする。Lie 部分群を埋め込み部分多様体かつ部分群として定義し、包含写像の微分から $T_eH$ が $T_eG$ の Lie 部分環になること、指数写像が $\exp_H=\exp_G|_{\mathfrak h}$ と整合することを証明する。閉部分群定理は一般の剛性定理として位置付ける一方、$SL(n,\mathbb R)$、$O(n)$、$SO(n)$、$U(n)$、$SU(n)$ は正則値定理を使って部分多様体性と接空間を直接計算する。$\det A=1$、$A^\mathsf{T}A=I$、$A^*A=I$ を単位元で微分し、トレース0・歪対称・歪 Hermitianという接 Lie 環の線形条件を導く。Lie 群作用・等質空間・Maurer--Cartan 形式は LIE4 へ送る。
 
 
 ---
