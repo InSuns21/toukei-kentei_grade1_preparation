@@ -1760,7 +1760,7 @@ b(v,C)
 -C\int_\Omega\nabla\cdot v\,dx.
 $$
 
-零 trace の近似と発散定理から
+零 trace の近似と [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)から
 
 $$
 \int_\Omega\nabla\cdot v\,dx=0.
@@ -3141,7 +3141,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-まず滑らかな零境界関数 $v$ なら発散定理から
+まず滑らかな零境界関数 $v$ なら [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)から
 
 $$
 \int_\Omega\nabla\cdot v\,dx
