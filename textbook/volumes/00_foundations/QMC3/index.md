@@ -470,19 +470,19 @@ FOU1 では $2\pi$ 周期の一次元関数に対して複素指数係数を定�
 
 各座標について1周期で積分可能な関数
 
-$
+$$
 f:[0,1)^s\to\mathbb C
-$
+$$
 
 と整数周波数
 
-$
+$$
 \boldsymbol h\in\mathbb Z^s
-$
+$$
 
 に対して
 
-$
+$$
 \boxed{
 \widehat f(\boldsymbol h)
 =
@@ -491,7 +491,7 @@ f(\boldsymbol x)
 e^{-2\pi i\boldsymbol h\cdot\boldsymbol x}
 \,d\boldsymbol x
 }
-$
+$$
 
 を **単位トーラス上の Fourier 係数** とする。
 <!-- formal-statement-end -->
@@ -499,25 +499,25 @@ $
 <!-- definition-example-start: def-qmc3-unit-torus-fourier-coefficient -->
 **定義の確認**：$s\ge1$ とし、
 
-$
+$$
 f(\boldsymbol x)
 =
 1+2\cos(2\pi x_1)
 =
 1+e^{2\pi ix_1}+e^{-2\pi ix_1}
-$
+$$
 
 とします。
 
 $\boldsymbol e_1=(1,0,\ldots,0)$ と書けば、整数周波数の一周期積分消去から
 
-$
+$$
 \widehat f(\boldsymbol0)=1,
 \qquad
 \widehat f(\boldsymbol e_1)=1,
 \qquad
 \widehat f(-\boldsymbol e_1)=1,
-$
+$$
 
 で、それ以外の Fourier 係数は0です。
 
@@ -837,19 +837,19 @@ $$
 <!-- definition-example-start: def-qmc3-absolute-fourier -->
 **定義の確認**：一次元の無限級数
 
-$
+$$
 f(x)
 =
 1+
 \sum_{m=1}^{\infty}
 2^{-m}\cos(2\pi mx)
-$
+$$
 
 を考えます。
 
 複素指数表示では
 
-$
+$$
 \widehat f(0)=1,
 \qquad
 \widehat f(m)
@@ -858,11 +858,11 @@ $
 =
 2^{-(m+1)}
 \quad(m\ge1).
-$
+$$
 
 したがって
 
-$
+$$
 \begin{aligned}
 \sum_{h\in\mathbb Z}
 |\widehat f(h)|
@@ -879,7 +879,7 @@ $
 <
 \infty.
 \end{aligned}
-$
+$$
 
 よってこの級数は定義を直接満たします。
 <!-- definition-example-end -->
