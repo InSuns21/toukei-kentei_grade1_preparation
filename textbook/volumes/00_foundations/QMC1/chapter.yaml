@@ -29,6 +29,7 @@ theorems:
   - { id: QMC1-THM-02, name: Hlawka--Zaremba 恒等式 }
   - { id: QMC1-THM-03, name: Koksma--Hlawka の不等式 }
 canonical_examples:
+  - 細かくなる一次元中点格子を順に連結し、ブロックごとの点数誤差から一様分布を直接検証する例
   - 一次元の等間隔中点集合でスター・ディスクレパンシーが 1/(2N) になる例
   - 二次元の 2x2 中点格子で局所ディスクレパンシーを直接数える例
   - f(x,y)=xy の Hardy--Krause 変動が 3 になる例
