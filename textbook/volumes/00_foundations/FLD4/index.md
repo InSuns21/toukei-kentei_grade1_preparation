@@ -58,41 +58,41 @@ $L$ の自己同型のうち、$F$ の各元を一つずつ固定するものだ
 >
 > 体拡大 $L/F$ に対し、体同型
 >
-> $$
-> \sigma:L\to L
-> $$
+$$
+\sigma:L\to L
+$$
 >
 > が
 >
-> $$
-> \sigma(a)=a
-> \qquad
-> (\forall a\in F)
-> $$
+$$
+\sigma(a)=a
+\qquad
+(\forall a\in F)
+$$
 >
 > を満たすとき、$\sigma$ を **$F$ を固定する $L$ の自己同型**という。
 >
 > その全体を
 >
-> $$
-> \operatorname{Aut}_F(L)
-> $$
+$$
+\operatorname{Aut}_F(L)
+$$
 >
 > と書く。写像の合成を積とすると $\operatorname{Aut}_F(L)$ は群になる。
 >
 > 部分群
 >
-> $$
-> H\le \operatorname{Aut}_F(L)
-> $$
+$$
+H\le \operatorname{Aut}_F(L)
+$$
 >
 > に対し、
 >
-> $$
-> L^H
-> =
-> \{x\in L:\sigma(x)=x\text{ for every }\sigma\in H\}
-> $$
+$$
+L^H
+=
+\{x\in L:\sigma(x)=x\text{ for every }\sigma\in H\}
+$$
 >
 > を $H$ の **固定体**という。
 <!-- formal-statement-end -->
@@ -272,11 +272,11 @@ FLD2 では、[分離拡大](../FLD2/index.md#def-fld2-distinct-conjugates)と[�
 >
 > このとき
 >
-> $$
-> \operatorname{Gal}(L/F)
-> =
-> \operatorname{Aut}_F(L)
-> $$
+$$
+\operatorname{Gal}(L/F)
+=
+\operatorname{Aut}_F(L)
+$$
 >
 > を $L/F$ の **Galois 群**という。
 <!-- formal-statement-end -->
@@ -371,15 +371,15 @@ $$
 >
 > このとき $F$ を固定する埋め込み
 >
-> $$
-> \sigma:L\to\Omega
-> $$
+$$
+\sigma:L\to\Omega
+$$
 >
 > はちょうど
 >
-> $$
-> [L:F]
-> $$
+$$
+[L:F]
+$$
 >
 > 個存在する。
 <!-- formal-statement-end -->
@@ -590,11 +590,11 @@ $$
 >
 > このとき
 >
-> $$
-> |\operatorname{Gal}(L/F)|
-> =
-> [L:F].
-> $$
+$$
+|\operatorname{Gal}(L/F)|
+=
+[L:F].
+$$
 <!-- formal-statement-end -->
 
 ### なぜ正規性が必要か
@@ -743,9 +743,9 @@ $$
 >
 > $K,L$ を体とし、
 >
-> $$
-> \sigma_1,\dots,\sigma_n:K\to L
-> $$
+$$
+\sigma_1,\dots,\sigma_n:K\to L
+$$
 >
 > を相異なる体準同型とする。
 >
@@ -753,17 +753,17 @@ $$
 >
 > すなわち
 >
-> $$
-> c_1\sigma_1(x)+\cdots+c_n\sigma_n(x)=0
-> \qquad
-> (\forall x\in K)
-> $$
+$$
+c_1\sigma_1(x)+\cdots+c_n\sigma_n(x)=0
+\qquad
+(\forall x\in K)
+$$
 >
 > が成り立つ $c_i\in L$ は
 >
-> $$
-> c_1=\cdots=c_n=0
-> $$
+$$
+c_1=\cdots=c_n=0
+$$
 >
 > に限る。
 <!-- formal-statement-end -->
@@ -875,22 +875,22 @@ $$
 >
 > 相異なる体準同型
 >
-> $$
-> \sigma_1,\dots,\sigma_n:K\to L
-> $$
+$$
+\sigma_1,\dots,\sigma_n:K\to L
+$$
 >
 > に対し、ある
 >
-> $$
-> \alpha_1,\dots,\alpha_n\in K
-> $$
+$$
+\alpha_1,\dots,\alpha_n\in K
+$$
 >
 > が存在して、行列
 >
-> $$
-> A=
-> \bigl(\sigma_i(\alpha_j)\bigr)_{1\le i,j\le n}
-> $$
+$$
+A=
+\bigl(\sigma_i(\alpha_j)\bigr)_{1\le i,j\le n}
+$$
 >
 > は $L$ 上可逆である。
 <!-- formal-statement-end -->
@@ -997,33 +997,33 @@ $$
 >
 > $L$ を体とし、
 >
-> $$
-> H\le\operatorname{Aut}(L)
-> $$
+$$
+H\le\operatorname{Aut}(L)
+$$
 >
 > を有限部分群とする。
 >
 > 固定体を
 >
-> $$
-> K=L^H
-> $$
+$$
+K=L^H
+$$
 >
 > と置く。
 >
 > このとき
 >
-> $$
-> [L:K]=|H|
-> $$
+$$
+[L:K]=|H|
+$$
 >
 > であり、$L/K$ は有限 Galois 拡大である。
 >
 > さらに
 >
-> $$
-> \operatorname{Gal}(L/K)=H.
-> $$
+$$
+\operatorname{Gal}(L/K)=H.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1370,35 +1370,35 @@ $$
 >
 > $L/F$ を有限 Galois 拡大とし、
 >
-> $$
-> G=\operatorname{Gal}(L/F)
-> $$
+$$
+G=\operatorname{Gal}(L/F)
+$$
 >
 > とする。
 >
 > 中間体
 >
-> $$
-> F\subset E\subset L
-> $$
+$$
+F\subset E\subset L
+$$
 >
 > に
 >
-> $$
-> E\longmapsto \operatorname{Gal}(L/E)
-> $$
+$$
+E\longmapsto \operatorname{Gal}(L/E)
+$$
 >
 > を対応させ、部分群
 >
-> $$
-> H\le G
-> $$
+$$
+H\le G
+$$
 >
 > に
 >
-> $$
-> H\longmapsto L^H
-> $$
+$$
+H\longmapsto L^H
+$$
 >
 > を対応させる。
 >
@@ -1406,37 +1406,37 @@ $$
 >
 > すなわち
 >
-> $$
-> L^{\operatorname{Gal}(L/E)}=E
-> $$
+$$
+L^{\operatorname{Gal}(L/E)}=E
+$$
 >
 > および
 >
-> $$
-> \operatorname{Gal}(L/L^H)=H
-> $$
+$$
+\operatorname{Gal}(L/L^H)=H
+$$
 >
 > が成り立つ。
 >
 > また
 >
-> $$
-> E_1\subset E_2
-> \iff
-> \operatorname{Gal}(L/E_2)
-> \subset
-> \operatorname{Gal}(L/E_1)
-> $$
+$$
+E_1\subset E_2
+\iff
+\operatorname{Gal}(L/E_2)
+\subset
+\operatorname{Gal}(L/E_1)
+$$
 >
 > であり、包含は反転する。
 >
 > さらに $H=\operatorname{Gal}(L/E)$ なら
 >
-> $$
-> [L:E]=|H|,
-> \qquad
-> [E:F]=[G:H].
-> $$
+$$
+[L:E]=|H|,
+\qquad
+[E:F]=[G:H].
+$$
 <!-- formal-statement-end -->
 
 ### 何が難しいのか
@@ -1693,17 +1693,17 @@ Galois 対応だけでは、全ての中間体 $E$ に対して $E/F$ が Galois
 >
 > $L/F$ を有限 Galois 拡大とし、
 >
-> $$
-> G=\operatorname{Gal}(L/F).
-> $$
+$$
+G=\operatorname{Gal}(L/F).
+$$
 >
 > $H\le G$ と $\sigma\in G$ に対し、
 >
-> $$
-> \sigma(L^H)
-> =
-> L^{\sigma H\sigma^{-1}}.
-> $$
+$$
+\sigma(L^H)
+=
+L^{\sigma H\sigma^{-1}}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -1779,15 +1779,15 @@ $$
 >
 > $L/F$ を有限 Galois 拡大とし、
 >
-> $$
-> G=\operatorname{Gal}(L/F).
-> $$
+$$
+G=\operatorname{Gal}(L/F).
+$$
 >
 > 中間体 $E$ に対応する部分群を
 >
-> $$
-> H=\operatorname{Gal}(L/E)
-> $$
+$$
+H=\operatorname{Gal}(L/E)
+$$
 >
 > とする。
 >
@@ -1798,25 +1798,25 @@ $$
 >
 > この条件が成り立つとき、制限写像
 >
-> $$
-> \rho:G\to\operatorname{Gal}(E/F),
-> \qquad
-> \rho(\sigma)=\sigma|_E
-> $$
+$$
+\rho:G\to\operatorname{Gal}(E/F),
+\qquad
+\rho(\sigma)=\sigma|_E
+$$
 >
 > は全射群準同型で、
 >
-> $$
-> \ker\rho=H.
-> $$
+$$
+\ker\rho=H.
+$$
 >
 > 従って
 >
-> $$
-> \operatorname{Gal}(E/F)
-> \cong
-> G/H.
-> $$
+$$
+\operatorname{Gal}(E/F)
+\cong
+G/H.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
