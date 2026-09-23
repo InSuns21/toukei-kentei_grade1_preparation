@@ -1,0 +1,76 @@
+chapter: MC4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MC3
+forward_references: []
+
+concepts:
+  - id: numerical.mlmc-level-coupling
+    name: レベル間結合
+    kind: definition
+    aliases: [coupling between levels, multilevel coupling]
+    introduction: formal
+    introduction_aliases: ["定義（レベル間結合）"]
+    requires:
+      - numerical.variance-reduction
+      - numerical.random-number-stream
+
+  - id: numerical.mlmc-estimator
+    name: Multilevel Monte Carlo 推定量
+    kind: definition
+    aliases: [Multilevel Monte Carlo estimator, MLMC estimator, マルチレベル Monte Carlo 推定量]
+    introduction: formal
+    introduction_aliases: ["定義（Multilevel Monte Carlo 推定量）"]
+    requires:
+      - numerical.mlmc-level-coupling
+      - numerical.monte-carlo-estimator
+
+  - id: numerical.mlmc-expectation-variance
+    name: MLMC 推定量の期待値と分散
+    kind: theorem
+    aliases: [expectation and variance of the MLMC estimator]
+    introduction: formal
+    introduction_aliases: ["定理（MLMC 推定量の期待値と分散）"]
+    requires:
+      - numerical.mlmc-estimator
+      - prob.variance
+
+  - id: numerical.mlmc-mse-decomposition
+    name: MLMC の二乗平均誤差分解
+    kind: proposition
+    aliases: [mean-square error decomposition for MLMC]
+    introduction: formal
+    introduction_aliases: ["命題（MLMC の二乗平均誤差分解）"]
+    requires:
+      - numerical.mlmc-expectation-variance
+      - numerical.monte-carlo-bias-variance-decomposition
+
+  - id: numerical.mlmc-optimal-allocation
+    name: 費用最小化のための最適標本配分
+    kind: theorem
+    aliases: [optimal sample allocation for MLMC]
+    introduction: formal
+    introduction_aliases: ["定理（費用最小化のための最適標本配分）"]
+    requires:
+      - numerical.mlmc-mse-decomposition
+      - linear.cauchy-schwarz
+
+  - id: numerical.mlmc-rate-exponents
+    name: MLMC の率指数
+    kind: definition
+    aliases: [MLMC rate exponents]
+    introduction: formal
+    introduction_aliases: ["定義（MLMC の率指数）"]
+    requires:
+      - numerical.mlmc-optimal-allocation
+
+  - id: numerical.mlmc-complexity
+    name: MLMC の計算量評価
+    kind: theorem
+    aliases: [MLMC complexity theorem, complexity of Multilevel Monte Carlo]
+    introduction: formal
+    introduction_aliases: ["定理（MLMC の計算量評価）"]
+    requires:
+      - numerical.mlmc-rate-exponents
+      - numerical.mlmc-optimal-allocation

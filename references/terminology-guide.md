@@ -421,9 +421,19 @@
 | 制御変量 | control variate | 制御変量法で利用する、期待値が既知または高精度に既知の補助確率変数 |
 | 層化抽出 | stratified sampling | 標本空間を層へ分け、各層から標本を取り、層確率で重み付けして全体の期待値を推定する方法 |
 | 比例配分 | proportional allocation | 層確率 $p_k$ に比例して標本数を配る層化抽出の配分法 |
-| 最適配分 | optimal allocation | 標本費用が同じ場合、層化推定量の分散を最小にする $n_kpropto p_ksigma_k$ の配分 |
+| 最適配分 | optimal allocation | 標本費用が同じ場合、層化推定量の分散を最小にする $n_k\propto p_k\sigma_k$ の配分 |
 | 重点サンプリング | importance sampling | 目標分布とは異なる提案分布から標本を生成し、密度比で補正して期待値を保ちながら分散低下を狙う方法 |
 | 重点重み | importance weight | 重点サンプリングで分布変更を補正する密度比 $p(x)/q(x)$。重み付き量の二次モーメントが分散を支配する |
+| Multilevel Monte Carlo 法 | Multilevel Monte Carlo method | 複数の近似レベルを望遠鏡和で結び、粗いレベルには多く、細かいレベルには少ない標本を配って計算費用を抑える Monte Carlo 法。略号 MLMC は補助的に使用可 |
+| 近似階層 | approximation hierarchy | 近似精度と計算費用が段階的に変化する確率変数 $Q_0,Q_1,\ldots,Q_L$ の列 |
+| レベル補正 | level correction | $Y_0=Q_0$、$Y_\ell=Q_\ell-Q_{\ell-1}$ とした各レベルの差 |
+| レベル間結合 | coupling between levels | 隣接レベルの周辺分布を保ちながら同時分布を設計し、差 $Q_\ell-Q_{\ell-1}$ の分散を小さくすること |
+| レベル分散 | level variance | レベル補正 $Y_\ell$ の分散 $V_\ell=\operatorname{Var}(Y_\ell)$ |
+| レベル費用 | level cost | レベル補正 $Y_\ell$ を1標本生成するための期待計算費用 $C_\ell$ |
+| 最適標本配分 | optimal sample allocation | MLMC で分散制約の下に総費用を最小化する配分。連続緩和では $N_\ell\propto\sqrt{V_\ell/C_\ell}$ |
+| バイアス率 | weak convergence rate | $|E[Q-Q_\ell]|$ の減衰を表す率指数 $\alpha$ |
+| レベル分散減衰率 | level-variance decay rate | $V_\ell$ の減衰を表す率指数 $\beta$ |
+| レベル費用増加率 | level-cost growth rate | $C_\ell$ の増加を表す率指数 $\gamma$ |
 
 ## DREAM THEATER：ODE・PDE の主表記
 
