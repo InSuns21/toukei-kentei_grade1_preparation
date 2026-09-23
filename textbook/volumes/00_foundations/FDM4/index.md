@@ -220,7 +220,7 @@ D_{\mathrm{up}}V_j
 - \(a<0\)：情報は右から左へ流れるので右側 \(j+1\) を使う。
 
 <!-- definition-example-start: def-fdm4-first-differences -->
-### 例：\(u(x)=x^2\) で両者を比べる
+**定義の確認**：\(u(x)=x^2\) で両者を比べる
 
 \(a>0\) とします。
 
@@ -350,7 +350,7 @@ Pe_h=1
 でちょうど変わるように上の規約を採用します。
 
 <!-- definition-example-start: def-fdm4-grid-peclet -->
-### 例：格子を半分にすると \(Pe_h\) も半分になる
+**定義の確認**：格子を半分にすると \(Pe_h\) も半分になる
 
 \[
 a=4,
@@ -453,7 +453,7 @@ f_j
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fdm4-centered-scheme -->
-### 定義の確認：一次関数は離散作用素でも厳密
+**定義の確認**：一次関数は離散作用素でも厳密
 
 \[
 u(x)=x
@@ -1173,7 +1173,7 @@ f_j
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fdm4-upwind-scheme -->
-### 定義の確認：風上差分も一次関数を厳密に再現する
+**定義の確認**：風上差分も一次関数を厳密に再現する
 
 \[
 u(x)=x,
@@ -1520,7 +1520,7 @@ U_4=1.
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fdm4-numerical-diffusion -->
-### 例：格子を半分にすると数値拡散も半分になる
+**定義の確認**：格子を半分にすると数値拡散も半分になる
 
 \[
 |a|=4,
