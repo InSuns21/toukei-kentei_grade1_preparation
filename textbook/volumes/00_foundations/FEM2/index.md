@@ -218,7 +218,7 @@ $$
 
 $K\subset\mathbb R^d$ を要素、$P$ を $K$ 上の有限次元関数空間とする。
 
-$P^*$ 上の線形汎関数の集合
+$P$ 上の線形汎関数の集合
 
 $$
 \mathcal N
@@ -636,7 +636,7 @@ $$
 \widehat\lambda_1(0,1)=0.
 $$
 
-他の二関数も同様に Kronecker delta 条件を満たします。
+他の二関数も同様に Kronecker のデルタ条件を満たします。
 <!-- definition-example-end -->
 
 重心座標には二つの基本恒等式があります。
@@ -1357,7 +1357,7 @@ $$
 
 従って境界 trace は 0 です。
 
-多角形領域は bounded Lipschitz domain なので、[GPDE4 の $H_0^1$ と zero trace の同一視](../GPDE4/index.md#thm-gpde4-h01-trace-kernel)を適用でき、
+多角形領域は有界 Lipschitz 領域なので、[GPDE4 の $H_0^1$ と zero trace の同一視](../GPDE4/index.md#thm-gpde4-h01-trace-kernel)を適用でき、
 
 $$
 v_h\in H_0^1(\Omega).
@@ -1854,7 +1854,7 @@ $$
 
 です。
 
-一次要素では integrand が定数なので、
+一次要素では被積分関数が定数なので、
 
 $$
 |\widehat K|=\frac12
@@ -2188,7 +2188,7 @@ $$
 
 各局所行列の情報が、大域頂点番号を介して重ね合わされています。
 
-これが assembly、すなわち **組立て**です。
+これが **組立て**（assembly）です。
 
 ---
 
@@ -2227,7 +2227,7 @@ $$
 
 境界頂点の係数を未知量として持つ必要はありません。
 
-したがって homogeneous Dirichlet 問題では、
+したがって 零 Dirichlet 問題では、
 
 1. 全要素で局所行列を計算する。
 2. 大域頂点番号へ組み立てる。
