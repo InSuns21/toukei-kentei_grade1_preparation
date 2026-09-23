@@ -25,12 +25,12 @@ definitions:
   - { id: LIE2-DEF-05, name: 無限小随伴作用 ad }
 theorems:
   - { id: LIE2-THM-01, name: 1パラメータ部分群と単位元接ベクトルの一対一対応 }
-  - { id: LIE2-THM-02, name: 指数写像の基本性質 }
-  - { id: LIE2-THM-03, name: 指数写像の滑らかさと単位元近傍での局所可逆性 }
-  - { id: LIE2-THM-04, name: Lie 群準同型と指数写像の自然性 }
-  - { id: LIE2-THM-05, name: 一般線形群の指数写像は行列指数 }
+  - { id: LIE2-THM-02, name: Lie 群の指数写像の基本性質 }
+  - { id: LIE2-THM-03, name: Lie 群の指数写像の滑らかさと単位元近傍での局所可逆性 }
+  - { id: LIE2-THM-04, name: Lie 群準同型と Lie 群の指数写像の自然性 }
+  - { id: LIE2-THM-05, name: 一般線形群では Lie 群の指数写像が行列指数に一致する }
   - { id: LIE2-THM-06, name: 随伴表現の準同型性 }
-  - { id: LIE2-THM-07, name: 共役と指数写像の可換性 }
+  - { id: LIE2-THM-07, name: 共役と Lie 群の指数写像の可換性 }
   - { id: LIE2-THM-08, name: 無限小随伴作用は Lie 括弧 }
   - { id: LIE2-COR-01, name: Ad_exp と exp_ad の一致 }
   - { id: LIE2-PROP-01, name: 共役四項積の混合二階微分と Lie 括弧 }
