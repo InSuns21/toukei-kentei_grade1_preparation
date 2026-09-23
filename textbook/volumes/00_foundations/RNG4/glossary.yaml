@@ -1,0 +1,26 @@
+chapter: "RNG4"
+terms:
+  - term: 多項式環
+    english: polynomial ring
+    meaning: 環 R を係数とする一変数多項式全体に通常の加法・乗法を入れた環 R[x]。
+  - term: 次数
+    english: degree
+    meaning: 非零多項式に現れる最高次数の指数。整域上では積に対して加法的。
+  - term: 先頭係数
+    english: leading coefficient
+    meaning: 非零多項式の最高次項の係数。
+  - term: content
+    english: content
+    meaning: UFD 上の非零多項式の全係数の最大公約元。同伴を除いて一意。
+  - term: 原始多項式
+    english: primitive polynomial
+    meaning: content が単元である多項式。
+  - term: Gauss の補題
+    english: Gauss lemma
+    meaning: UFD 上で原始多項式の積が原始となり、原始多項式の既約性を分数体上へ移せることを支える補題。
+  - term: 有理根定理
+    english: rational root theorem
+    meaning: 整数係数多項式の既約分数根 p/q に対し、p が定数項を、q が先頭係数を割るという必要条件。
+  - term: Eisenstein の既約判定
+    english: Eisenstein criterion
+    meaning: 一つの素元による係数の整除条件から多項式の既約性を保証する判定法。
