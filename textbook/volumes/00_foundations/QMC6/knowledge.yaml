@@ -4,10 +4,6 @@ coverage: complete
 prerequisites:
   - QMC5
   - FLD1
-forward_references:
-  - QMC7
-  - QMC8
-
 concepts:
   - id: numerical.digit-polynomial
     name: 桁多項式
@@ -104,7 +100,7 @@ concepts:
     kind: corollary
     aliases: []
     introduction: formal
-    introduction_aliases: ["系（多項式格子の $t$ 値判定）"]
+    introduction_aliases: ["系（多項式格子の t 値判定）"]
     requires:
       - numerical.dual-polynomial-lattice
       - numerical.nrt-weight
