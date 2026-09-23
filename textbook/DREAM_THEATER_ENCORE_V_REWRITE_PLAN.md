@@ -154,7 +154,8 @@ facade は完成済み講座だけをリンクする。未完成章を先行表�
 - [x] QMC4「(t,m,s)-net・(t,s)-sequence」を新正本として実装
 - [x] QMC5「Walsh 解析とデジタルネットの双対理論」を新正本として実装
 - [x] QMC6「多項式格子（polynomial lattice）」を新正本として実装
-- 次の実装対象：**QMC7「randomized QMC」**
+- [x] QMC7「ランダム化準 Monte Carlo 法（randomized QMC）」を新正本として実装
+- 次の実装対象：**QMC8「高次 QMC」**
 
 
 ---
@@ -319,7 +320,7 @@ QMC は3講程度に圧縮せず、理論骨格を8講に分割する。
 | QMC4 | (t,m,s)-net・(t,s)-sequence | elementary interval、t 値、digital construction、Sobol / Faure / Niederreiter |
 | QMC5 | Walsh 解析とデジタルネットの双対理論 | Walsh 関数、双対ネット、周波数消去、NRT 重み |
 | QMC6 | 多項式格子 | 有限体多項式、digital net との関係、CBC、構成法 |
-| QMC7 | randomized QMC | digital shift、scrambling、不偏推定、分散、ANOVA との接続 |
+| QMC7 | ランダム化準 Monte Carlo 法 | digital shift、scrambling、不偏推定、分散、ANOVA との接続 |
 | QMC8 | 高次 QMC | 滑らかさ、Walsh 係数減衰、higher-order digital net、高次収束 |
 
 ### 8.1 既存 RKHS との接続
@@ -362,7 +363,8 @@ QMC2 は既存 F0-02C7 の RKHS / 再生核を再定義しない。stable anchor
 - [x] QMC4：$(t,m,s)$-net・$(t,s)$-sequence
 - [x] QMC5「Walsh 解析とデジタルネットの双対理論」を新正本として実装
 - [x] QMC6「多項式格子（polynomial lattice）」を新正本として実装
-- 次の実装対象：**QMC7「randomized QMC」**
+- [x] QMC7「ランダム化準 Monte Carlo 法（randomized QMC）」を新正本として実装
+- 次の実装対象：**QMC8「高次 QMC」**
 
 ---
 
