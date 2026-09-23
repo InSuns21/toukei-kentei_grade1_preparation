@@ -1,0 +1,209 @@
+chapter: FLD5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLD4
+  - GRP4
+forward_references: []
+
+concepts:
+  - id: algebra.constructible-number
+    name: 作図可能数
+    kind: definition
+    aliases: [constructible number]
+    introduction: formal
+    introduction_aliases: ["定義（作図可能点・作図可能数）"]
+    requires:
+      - algebra.field-extension
+
+  - id: algebra.quadratic-extension-tower
+    name: 二次拡大列
+    kind: definition
+    aliases: [tower of quadratic extensions]
+    introduction: local
+    requires:
+      - algebra.field-extension
+      - algebra.extension-degree
+
+  - id: algebra.constructibility-quadratic-tower
+    name: 作図可能性と実二次拡大列
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.constructible-number
+      - algebra.quadratic-extension-tower
+      - algebra.tower-law
+
+  - id: algebra.constructible-degree-power-of-two
+    name: 作図可能な代数的数の次数は2の冪
+    kind: corollary
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.constructibility-quadratic-tower
+      - algebra.tower-law
+      - algebra.minimal-polynomial
+
+  - id: algebra.group-commutator
+    name: 交換子
+    kind: definition
+    aliases: [group commutator]
+    introduction: formal
+    introduction_aliases: ["定義（交換子・交換子部分群・導来列・可解群）"]
+    requires:
+      - algebra.group
+
+  - id: algebra.commutator-subgroup
+    name: 交換子部分群
+    kind: definition
+    aliases: [commutator subgroup, derived subgroup]
+    introduction: formal
+    introduction_aliases: ["定義（交換子・交換子部分群・導来列・可解群）"]
+    requires:
+      - algebra.group-commutator
+      - algebra.generated-subgroup
+      - algebra.normal-subgroup
+
+  - id: algebra.derived-series
+    name: 導来列
+    kind: definition
+    aliases: [derived series]
+    introduction: formal
+    introduction_aliases: ["定義（交換子・交換子部分群・導来列・可解群）"]
+    requires:
+      - algebra.commutator-subgroup
+
+  - id: algebra.solvable-group
+    name: 可解群
+    kind: definition
+    aliases: [solvable group]
+    introduction: formal
+    introduction_aliases: ["定義（交換子・交換子部分群・導来列・可解群）"]
+    requires:
+      - algebra.derived-series
+
+  - id: algebra.commutator-maximal-abelian-quotient
+    name: 交換子部分群と最大可換商
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.commutator-subgroup
+      - algebra.quotient-group
+      - algebra.abelian-group
+
+  - id: algebra.solvable-series-characterization
+    name: 可解群の可解列による特徴付け
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.solvable-group
+      - algebra.commutator-maximal-abelian-quotient
+      - algebra.normal-subgroup
+
+  - id: algebra.solvable-group-closure-properties
+    name: 可解群の部分群・商群・拡大に対する閉性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.solvable-series-characterization
+      - algebra.first-isomorphism-theorem-group
+
+  - id: algebra.radical-extension
+    name: 根号拡大
+    kind: definition
+    aliases: [radical extension]
+    introduction: formal
+    introduction_aliases: ["定義（根号拡大・根号による可解性）"]
+    requires:
+      - algebra.field-extension
+
+  - id: algebra.solvability-by-radicals
+    name: 根号による可解性
+    kind: definition
+    aliases: [solvability by radicals]
+    introduction: formal
+    introduction_aliases: ["定義（根号拡大・根号による可解性）"]
+    requires:
+      - algebra.radical-extension
+      - algebra.splitting-field
+
+  - id: algebra.one-step-radical-galois-abelian
+    name: 1の根を含む1段根号拡大の Galois 群
+    kind: lemma
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.radical-extension
+      - algebra.galois-group
+      - algebra.splitting-field
+      - algebra.abelian-group
+
+  - id: algebra.abelian-tower-solvable-normal-closure
+    name: 可換 Galois 段階列の正規閉包は可解
+    kind: lemma
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.solvable-group-closure-properties
+      - algebra.galois-normal-subgroup-correspondence
+      - algebra.splitting-field
+
+  - id: algebra.kummer-prime-cyclic-extension
+    name: 素数次数巡回拡大の Kummer 表示
+    kind: lemma
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.cyclic-group
+      - algebra.galois-group
+      - algebra.field-extension
+
+  - id: algebra.radicals-solvable-galois-equivalence
+    name: 根号可解性と Galois 群の可解性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.solvability-by-radicals
+      - algebra.solvable-group
+      - algebra.one-step-radical-galois-abelian
+      - algebra.abelian-tower-solvable-normal-closure
+      - algebra.kummer-prime-cyclic-extension
+      - algebra.fundamental-theorem-finite-galois
+
+  - id: algebra.a5-simple-s5-nonsolvable
+    name: A_5 の単純性と S_5 の非可解性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.alternating-group
+      - algebra.conjugation-action
+      - algebra.lagrange-theorem
+      - algebra.solvable-group-closure-properties
+
+  - id: algebra.quintic-x5-4x-plus2-galois-s5
+    name: x^5-4x+2 の Galois 群は S_5
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.splitting-field
+      - algebra.galois-group
+      - algebra.cauchy-theorem-finite-groups
+      - algebra.transposition
+      - algebra.irreducible-separable-derivative-criterion
+
+  - id: algebra.unsolvable-quintic-existence
+    name: 根号で解けない五次方程式の存在
+    kind: corollary
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.radicals-solvable-galois-equivalence
+      - algebra.a5-simple-s5-nonsolvable
+      - algebra.quintic-x5-4x-plus2-galois-s5
