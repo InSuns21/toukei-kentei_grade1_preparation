@@ -143,6 +143,17 @@ concepts:
       - algebra.splitting-field
       - algebra.abelian-group
 
+  - id: algebra.normal-closure-finite-extension
+    name: 有限拡大の正規閉包
+    kind: definition
+    aliases: [正規閉包, normal closure of a finite extension]
+    introduction: formal
+    introduction_aliases: ["定義（有限拡大の正規閉包）"]
+    requires:
+      - algebra.normal-extension
+      - algebra.splitting-field
+      - algebra.finite-extension-elements-algebraic
+
   - id: algebra.abelian-tower-solvable-normal-closure
     name: 可換 Galois 段階列の正規閉包は可解
     kind: lemma
@@ -151,7 +162,7 @@ concepts:
     requires:
       - algebra.solvable-group-closure-properties
       - algebra.galois-normal-subgroup-correspondence
-      - algebra.splitting-field
+      - algebra.normal-closure-finite-extension
 
   - id: algebra.kummer-prime-cyclic-extension
     name: 素数次数巡回拡大の Kummer 表示
@@ -187,7 +198,7 @@ concepts:
       - algebra.group
 
   - id: algebra.a5-simple-s5-nonsolvable
-    name: A_5 の単純性と S_5 の非可解性
+    name: A5 の単純性と S5 の非可解性
     kind: theorem
     aliases: []
     introduction: formal
@@ -199,7 +210,7 @@ concepts:
       - algebra.solvable-group-closure-properties
 
   - id: algebra.quintic-x5-4x-plus2-galois-s5
-    name: x^5-4x+2 の Galois 群は S_5
+    name: x^5-4x+2 の Galois 群は S5
     kind: theorem
     aliases: []
     introduction: formal
