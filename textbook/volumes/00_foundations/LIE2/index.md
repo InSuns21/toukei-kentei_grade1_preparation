@@ -47,17 +47,21 @@ $$
 > **定義（1パラメータ部分群）**
 >
 > Lie 群 $G$ に対し、滑らかな Lie 群準同型
-> $$
-> \gamma:(\mathbb R,+)\to G
-> $$
+>
+$$
+\gamma:(\mathbb R,+)\to G
+$$
+>
 > を $G$ の **1パラメータ部分群**という。
 >
 > すなわち
-> $$
-> \gamma(0)=e,
-> \qquad
-> \gamma(s+t)=\gamma(s)\gamma(t)
-> $$
+>
+$$
+\gamma(0)=e,
+\qquad
+\gamma(s+t)=\gamma(s)\gamma(t)
+$$
+>
 > が全ての $s,t\in\mathbb R$ で成り立つ。
 <!-- formal-statement-end -->
 
@@ -175,25 +179,31 @@ $$
 > $G$ を Lie 群、$\mathfrak g=T_eG$ とする。
 >
 > 任意の $X\in\mathfrak g$ に対し、
-> $$
-> \gamma_X(0)=e,
-> \qquad
-> \gamma_X'(0)=X
-> $$
+>
+$$
+\gamma_X(0)=e,
+\qquad
+\gamma_X'(0)=X
+$$
+>
 > を満たす1パラメータ部分群
-> $$
-> \gamma_X:\mathbb R\to G
-> $$
+>
+$$
+\gamma_X:\mathbb R\to G
+$$
+>
 > が一意に存在する。
 >
 > したがって
-> $$
-> \{\text{1パラメータ部分群 }\mathbb R\to G\}
-> \longleftrightarrow
-> \mathfrak g,
-> \qquad
-> \gamma\longmapsto\gamma'(0)
-> $$
+>
+$$
+\{\text{1パラメータ部分群 }\mathbb R\to G\}
+\longleftrightarrow
+\mathfrak g,
+\qquad
+\gamma\longmapsto\gamma'(0)
+$$
+>
 > は一対一対応である。
 <!-- formal-statement-end -->
 
@@ -354,11 +364,13 @@ $$
 > $G$ を Lie 群、$\mathfrak g=T_eG$ とする。
 >
 > $X\in\mathfrak g$ に対応する一意な1パラメータ部分群を $\gamma_X$ とするとき、
-> $$
-> \exp_G:\mathfrak g\to G,
-> \qquad
-> \exp_G(X):=\gamma_X(1)
-> $$
+>
+$$
+\exp_G:\mathfrak g\to G,
+\qquad
+\exp_G(X):=\gamma_X(1)
+$$
+>
 > を $G$ の **指数写像**という。
 <!-- formal-statement-end -->
 
@@ -401,22 +413,28 @@ $$
 > **定理（指数写像の基本性質）**
 >
 > 任意の $X\in\mathfrak g$ と $s,t\in\mathbb R$ に対して
-> $$
-> \gamma_X(t)=\exp_G(tX)
-> $$
+>
+$$
+\gamma_X(t)=\exp_G(tX)
+$$
+>
 > であり、
-> $$
-> \exp_G((s+t)X)
-> =
-> \exp_G(sX)\exp_G(tX).
-> $$
+>
+$$
+\exp_G((s+t)X)
+=
+\exp_G(sX)\exp_G(tX).
+$$
+>
 >
 > 特に
-> $$
-> \exp_G(0)=e,
-> \qquad
-> \exp_G(-X)=\exp_G(X)^{-1}.
-> $$
+>
+$$
+\exp_G(0)=e,
+\qquad
+\exp_G(-X)=\exp_G(X)^{-1}.
+$$
+>
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -499,22 +517,28 @@ $$
 > **定理（指数写像の滑らかさと単位元近傍での局所可逆性）**
 >
 > Lie 群 $G$ の指数写像
-> $$
-> \exp_G:\mathfrak g\to G
-> $$
+>
+$$
+\exp_G:\mathfrak g\to G
+$$
+>
 > は滑らかである。
 >
 > また
-> $$
-> d(\exp_G)_0
-> =
-> \operatorname{id}_{\mathfrak g}.
-> $$
+>
+$$
+d(\exp_G)_0
+=
+\operatorname{id}_{\mathfrak g}.
+$$
+>
 >
 > 従って0のある開近傍 $U\subset\mathfrak g$ と $e$ のある開近傍 $V\subset G$ が存在し、
-> $$
-> \exp_G|_U:U\to V
-> $$
+>
+$$
+\exp_G|_U:U\to V
+$$
+>
 > は微分同相写像である。
 <!-- formal-statement-end -->
 
@@ -658,17 +682,21 @@ $$
 > $\Phi:G\to H$ を Lie 群準同型とする。
 >
 > 単位元での微分を
-> $$
-> d\Phi_e:\mathfrak g\to\mathfrak h
-> $$
+>
+$$
+d\Phi_e:\mathfrak g\to\mathfrak h
+$$
+>
 > とすると、全ての $X\in\mathfrak g$ に対して
-> $$
-> \boxed{
-> \Phi(\exp_G X)
-> =
-> \exp_H(d\Phi_eX)
-> }
-> $$
+>
+$$
+\boxed{
+\Phi(\exp_G X)
+=
+\exp_H(d\Phi_eX)
+}
+$$
+>
 > が成り立つ。
 <!-- formal-statement-end -->
 
@@ -735,12 +763,14 @@ $\square$
 > **定義（行列指数関数）**
 >
 > $A\in M_n(\mathbb R)$ に対して
-> $$
-> e^A
-> :=
-> \sum_{k=0}^{\infty}
-> \frac{A^k}{k!}
-> $$
+>
+$$
+e^A
+:=
+\sum_{k=0}^{\infty}
+\frac{A^k}{k!}
+$$
+>
 > と定める。これを $A$ の **行列指数関数**という。
 <!-- formal-statement-end -->
 
@@ -789,21 +819,25 @@ $$
 > **定理（一般線形群の指数写像は行列指数関数）**
 >
 > $G=GL(n,\mathbb R)$ とし、
-> $$
-> \mathfrak g=\mathfrak{gl}(n,\mathbb R)=M_n(\mathbb R)
-> $$
+>
+$$
+\mathfrak g=\mathfrak{gl}(n,\mathbb R)=M_n(\mathbb R)
+$$
+>
 > と同一視する。
 >
 > このとき任意の $A\in M_n(\mathbb R)$ について
-> $$
-> \boxed{
-> \exp_G(A)
-> =
-> e^A
-> =
-> \sum_{k=0}^{\infty}\frac{A^k}{k!}
-> }
-> $$
+>
+$$
+\boxed{
+\exp_G(A)
+=
+e^A
+=
+\sum_{k=0}^{\infty}\frac{A^k}{k!}
+}
+$$
+>
 > である。
 <!-- formal-statement-end -->
 
@@ -952,11 +986,13 @@ Lie 群ではこの写像は滑らかです。
 >
 > $G$ を Lie 群、$g\in G$ とする。
 >
-> $$
-> C_g:G\to G,
-> \qquad
-> C_g(h)=ghg^{-1}
-> $$
+>
+$$
+C_g:G\to G,
+\qquad
+C_g(h)=ghg^{-1}
+$$
+>
 > を $g$ による **共役自己同型**という。
 <!-- formal-statement-end -->
 
@@ -1014,20 +1050,24 @@ $$
 > $G$ を Lie 群、$\mathfrak g=T_eG$ とする。
 >
 > 各 $g\in G$ に対して
-> $$
-> \operatorname{Ad}_g
-> :=
-> d(C_g)_e
-> \in GL(\mathfrak g)
-> $$
+>
+$$
+\operatorname{Ad}_g
+:=
+d(C_g)_e
+\in GL(\mathfrak g)
+$$
+>
 > と定める。
 >
 > 写像
-> $$
-> \operatorname{Ad}:G\to GL(\mathfrak g),
-> \qquad
-> g\mapsto\operatorname{Ad}_g
-> $$
+>
+$$
+\operatorname{Ad}:G\to GL(\mathfrak g),
+\qquad
+g\mapsto\operatorname{Ad}_g
+$$
+>
 > を $G$ の **随伴表現**という。
 <!-- formal-statement-end -->
 
@@ -1078,19 +1118,23 @@ $$
 > $G$ を Lie 群とする。
 >
 > 随伴表現
-> $$
-> \operatorname{Ad}:G\to GL(\mathfrak g)
-> $$
+>
+$$
+\operatorname{Ad}:G\to GL(\mathfrak g)
+$$
+>
 > は滑らかな Lie 群準同型であり、
-> $$
-> \operatorname{Ad}_{gh}
-> =
-> \operatorname{Ad}_g\operatorname{Ad}_h,
-> \qquad
-> \operatorname{Ad}_{g^{-1}}
-> =
-> \operatorname{Ad}_g^{-1}
-> $$
+>
+$$
+\operatorname{Ad}_{gh}
+=
+\operatorname{Ad}_g\operatorname{Ad}_h,
+\qquad
+\operatorname{Ad}_{g^{-1}}
+=
+\operatorname{Ad}_g^{-1}
+$$
+>
 > が成り立つ。
 >
 > さらに各 $\operatorname{Ad}_g$ は Lie 環自己同型である。
@@ -1185,13 +1229,15 @@ $$
 > **定理（共役と指数写像の可換性）**
 >
 > 任意の $g\in G$ と $X\in\mathfrak g$ に対して
-> $$
-> \boxed{
-> g\exp(X)g^{-1}
-> =
-> \exp(\operatorname{Ad}_gX)
-> }
-> $$
+>
+$$
+\boxed{
+g\exp(X)g^{-1}
+=
+\exp(\operatorname{Ad}_gX)
+}
+$$
+>
 > が成り立つ。
 <!-- formal-statement-end -->
 
@@ -1246,27 +1292,33 @@ $$
 > **定義（無限小随伴作用）**
 >
 > 随伴表現
-> $$
-> \operatorname{Ad}:G\to GL(\mathfrak g)
-> $$
+>
+$$
+\operatorname{Ad}:G\to GL(\mathfrak g)
+$$
+>
 > の単位元での微分を
-> $$
-> \operatorname{ad}
-> :=
-> d(\operatorname{Ad})_e:
-> \mathfrak g
-> \to
-> \mathfrak{gl}(\mathfrak g)
-> $$
+>
+$$
+\operatorname{ad}
+:=
+d(\operatorname{Ad})_e:
+\mathfrak g
+\to
+\mathfrak{gl}(\mathfrak g)
+$$
+>
 > と書く。
 >
 > $X\in\mathfrak g$ に対して
-> $$
-> \operatorname{ad}_X
-> :=
-> \operatorname{ad}(X)
-> \in\operatorname{End}(\mathfrak g)
-> $$
+>
+$$
+\operatorname{ad}_X
+:=
+\operatorname{ad}(X)
+\in\operatorname{End}(\mathfrak g)
+$$
+>
 > と書く。
 <!-- formal-statement-end -->
 
@@ -1309,22 +1361,28 @@ LIE1 で得た $\mathfrak{gl}(n,\mathbb R)$ の Lie 括弧と一致していま�
 > **定理（無限小随伴作用は Lie 括弧）**
 >
 > 任意の $X,Y\in\mathfrak g$ に対して
-> $$
-> \boxed{
-> \operatorname{ad}_X(Y)
-> =
-> [X,Y]
-> }.
-> $$
+>
+$$
+\boxed{
+\operatorname{ad}_X(Y)
+=
+[X,Y]
+}.
+$$
+>
 >
 > 従って
-> $$
-> \operatorname{ad}:\mathfrak g\to\mathfrak{gl}(\mathfrak g)
-> $$
+>
+$$
+\operatorname{ad}:\mathfrak g\to\mathfrak{gl}(\mathfrak g)
+$$
+>
 > は
-> $$
-> X\mapsto(Y\mapsto[X,Y])
-> $$
+>
+$$
+X\mapsto(Y\mapsto[X,Y])
+$$
+>
 > という写像そのものである。
 <!-- formal-statement-end -->
 
@@ -1495,14 +1553,16 @@ $$
 > **系（Ad_exp と exp_ad の一致）**
 >
 > 任意の $X\in\mathfrak g$ に対して
-> $$
-> \boxed{
-> \operatorname{Ad}_{\exp X}
-> =
-> \exp_{\!GL(\mathfrak g)}
-> (\operatorname{ad}_X)
-> }
-> $$
+>
+$$
+\boxed{
+\operatorname{Ad}_{\exp X}
+=
+\exp_{\!GL(\mathfrak g)}
+(\operatorname{ad}_X)
+}
+$$
+>
 > が成り立つ。
 >
 > 右辺は線形写像 $\operatorname{ad}_X$ の行列指数関数である。
@@ -1787,29 +1847,37 @@ $$
 > $X,Y\in\mathfrak g$ とする。
 >
 > $s,t$ が0の十分近くにあるとき
-> $$
-> K(s,t)
-> :=
-> \exp(sX)\exp(tY)\exp(-sX)\exp(-tY)
-> $$
+>
+$$
+K(s,t)
+:=
+\exp(sX)\exp(tY)\exp(-sX)\exp(-tY)
+$$
+>
 > と置き、
-> $$
-> \kappa(s,t):=\log K(s,t)
-> $$
+>
+$$
+\kappa(s,t):=\log K(s,t)
+$$
+>
 > とする。
 >
 > このとき
-> $$
-> \kappa(s,0)=\kappa(0,t)=0
-> $$
+>
+$$
+\kappa(s,0)=\kappa(0,t)=0
+$$
+>
 > であり、
-> $$
-> \boxed{
-> \frac{\partial^2\kappa}{\partial s\,\partial t}(0,0)
-> =
-> [X,Y]
-> }.
-> $$
+>
+$$
+\boxed{
+\frac{\partial^2\kappa}{\partial s\,\partial t}(0,0)
+=
+[X,Y]
+}.
+$$
+>
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -2269,11 +2337,11 @@ A.
 $$
 
 実際に積を結合すれば
-$$
+$
 g^{-1}g=I,
 \qquad
-g^{-1}g=I
-$$
+gg^{-1}=I
+$
 が相殺し、
 $$
 \boxed{A}
