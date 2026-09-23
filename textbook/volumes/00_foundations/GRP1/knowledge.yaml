@@ -3,11 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - F0-00A
-forward_references:
-  - algebra.group-homomorphism
-  - algebra.coset
-  - algebra.normal-subgroup
-  - algebra.quotient-group
+forward_references: []
 
 concepts:
   - id: algebra.group
@@ -133,6 +129,15 @@ concepts:
     requires:
       - algebra.cycle-permutation
 
+  - id: algebra.transposition
+    name: 互換
+    kind: definition
+    aliases: [transposition]
+    introduction: formal
+    introduction_aliases: ["定義（互換）"]
+    requires:
+      - algebra.cycle-permutation
+
   - id: algebra.permutation-parity
     name: 置換の偶奇
     kind: definition
@@ -141,6 +146,7 @@ concepts:
     introduction_aliases: ["定義（置換の偶奇・交代群）"]
     requires:
       - algebra.permutation
+      - algebra.transposition
 
   - id: algebra.alternating-group
     name: 交代群
