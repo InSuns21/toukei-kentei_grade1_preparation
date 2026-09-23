@@ -1583,6 +1583,7 @@ $$
 ### Level A
 
 #### RNG4-A01 体係数多項式の商と余り
+- Level: A
 
 $\mathbb Q[x]$ で
 
@@ -1684,6 +1685,7 @@ $$
 <!-- solution-end -->
 
 #### RNG4-A02 content と原始部分
+- Level: A
 
 $\mathbb Z[x]$ の多項式
 
@@ -1734,6 +1736,7 @@ $f_0$ の係数 $2,-3,5,-1$ の最大公約数は $1$ なので、$f_0$ は原�
 <!-- solution-end -->
 
 #### RNG4-A03 有理根定理と三次式
+- Level: A
 
 $$
 f(x)=3x^3-x+1
@@ -1798,6 +1801,7 @@ $\deg f=3$ なので、2次・3次多項式の根判定から $f$ は $\mathbb Q
 <!-- solution-end -->
 
 #### RNG4-A04 Eisenstein 判定
+- Level: A
 
 $$
 f(x)=2x^5+15x^4+30x^2+45
@@ -1864,6 +1868,7 @@ $$
 ### Level B
 
 #### RNG4-B01 $\mathbb Q[x]$ の Euclid の互除法
+- Level: B
 
 $$
 f(x)=x^3-1,
@@ -1944,6 +1949,7 @@ $$
 <!-- solution-end -->
 
 #### RNG4-B02 原始多項式の $K[x]$-同伴は $R[x]$-同伴
+- Level: B
 
 $R$ を UFD、$K$ をその分数体とする。原始多項式 $f,g\in R[x]$ が
 
@@ -2020,6 +2026,7 @@ $$
 <!-- solution-end -->
 
 #### RNG4-B03 Gauss の補題と四次式
+- Level: B
 
 $$
 f(x)=x^4+x+1
@@ -2121,6 +2128,7 @@ $$
 ### Level C
 
 #### RNG4-C01 変数置換と Eisenstein 判定を組み合わせる
+- Level: C
 
 $$
 f(x)=x^4+x^3+x^2+x+1
