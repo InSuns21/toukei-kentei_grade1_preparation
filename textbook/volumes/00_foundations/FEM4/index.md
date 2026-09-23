@@ -14,7 +14,7 @@ $$
 
 という骨格を得ました。
 
-FEM3 では [形状正則メッシュ上の大域一次補間誤差評価](../FEM3/index.md#thm-fem3-global-interpolation-error)によって、滑らかな関数に対して
+FEM3 では [形状正則メッシュ上の大域一次補間誤差評価](../FEM3/index.md#thm-fem3-global-error)によって、滑らかな関数に対して
 
 $$
 |u-I_hu|_{H^1(\Omega)}
@@ -249,7 +249,7 @@ $$
 使うものは二つだけです。
 
 1. [Céa の補題](../FEM1/index.md#thm-fem1-cea)で有限要素解の誤差を任意の \(v_h\in V_h\) との近似誤差へ落とす。
-2. \(v_h=I_hu\) とし、[FEM3 の大域補間誤差評価](../FEM3/index.md#thm-fem3-global-interpolation-error)を使う。
+2. \(v_h=I_hu\) とし、[FEM3 の大域補間誤差評価](../FEM3/index.md#thm-fem3-global-error)を使う。
 
 重要なのは、各仮定の役割が分かれていることです。
 
@@ -294,7 +294,7 @@ $$
 |u-I_hu|_{H^1}.
 $$
 
-[FEM3 の大域一次補間誤差評価](../FEM3/index.md#thm-fem3-global-interpolation-error)から
+[FEM3 の大域一次補間誤差評価](../FEM3/index.md#thm-fem3-global-error)から
 
 $$
 |u-I_hu|_{H^1}
@@ -1150,7 +1150,7 @@ M
 |z-I_hz|_{H^1}.
 $$
 
-[FEM3 の大域一次補間誤差評価](../FEM3/index.md#thm-fem3-global-interpolation-error)を \(z\) に適用して
+[FEM3 の大域一次補間誤差評価](../FEM3/index.md#thm-fem3-global-error)を \(z\) に適用して
 
 $$
 |z-I_hz|_{H^1}
