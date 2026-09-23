@@ -618,7 +618,7 @@ nodes:
     status: implemented
     implemented_at: 2026-09-24
     implementation_path: textbook/volumes/00_foundations/LIE3/index.md
-    prerequisites: [LIE2, LA6]
+    prerequisites: [LIE2, LA6, GEO3]
 
   - id: VC1
     title: ベクトル場と微分演算子
