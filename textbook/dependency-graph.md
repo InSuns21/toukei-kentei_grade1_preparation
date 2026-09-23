@@ -593,6 +593,8 @@ QMC8 は QMC5 を直接 prerequisite とする。QMC5 の Walsh 関数・双対�
 
 PYNUM1 は直接 prerequisite を持たない計算機演習共通参照章とする。一般的なプログラミング概念は既知とし、Python 固有の最小構文差分、NumPy 配列の形状・軸・データ型、ビューとコピー、ブロードキャスト、ベクトル化、要素積と行列積、ブールマスク、明示的な NumPy 乱数生成器、Matplotlib の log-log 図、SciPy 各モジュールの入口を扱う。後続 NUMLAB では Python / NumPy の同じ説明を繰り返さず PYNUM1 の stable anchor を参照する。数値実験では shape / dtype / finite の検査、Generator による乱数状態の明示、問題サイズを変える外側反復と配列内部演算の分離、表と log-log 図による収束診断を共通規約とする。
 
-読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA1–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC8、PYNUM1 である。理論完成直後の横断監査は方針決定により実施対象外とし、次の実装対象は NUMLAB0「計算機演習基盤」である。
+NUMLAB0 は PYNUM1 を直接 prerequisite とする。Pyodide 314.0.7 を module Web Worker から起動し、ユーザーコードと非表示テストを実行ごとの独立 Python 名前空間で評価する。時間超過または手動停止では Worker 自体を破棄し、次回実行時に新しい Worker を生成する。NumPy / SciPy / Matplotlib は import から必要なパッケージを読み込み、固定バージョン資産は Service Worker の永続 Cache Storage へ保存する。編集コードと完了状態は localStorage に保存し、教材初期コードのハッシュが変わった場合は古い保存コードを自動復元しない。数値判定は tolerance を明示し、必要に応じて再現可能な性質ベーステストを非表示テストへ置く。後続 NUMLAB1–NUMLAB5 はこの共通基盤を再利用し、個別の実行系を持たない。
+
+読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA1–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC8、PYNUM1、NUMLAB0 である。理論完成直後の横断監査は方針決定により実施対象外とし、次の実装対象は NUMLAB1「数値解析演習」である。
 
 ---
