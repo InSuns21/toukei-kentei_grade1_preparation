@@ -136,7 +136,7 @@ $$
 
 ---
 
-## 1. Monte Carlo 推定量
+## 1. 標本平均を推定量にする
 
 <a id="def-mc1-monte-carlo-estimator"></a>
 
@@ -952,7 +952,7 @@ $$
 <!-- formal-statement-start -->
 ### 系（既知分散での漸近信頼区間）
 
-Monte Carlo 中心極限定理の仮定の下で、$0<\alpha<1$ とする。
+[Monte Carlo 中心極限定理](#thm-mc1-clt) の仮定の下で、$0<\alpha<1$ とする。
 
 $$
 C_N
@@ -2637,7 +2637,7 @@ $$
 
 $0<\sigma^2<\infty$ で、$Y_i$ は独立同分布です。
 
-従って独立同分布中心極限定理を適用でき、
+従って [独立同分布中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt) を適用でき、
 
 $$
 \boxed{
