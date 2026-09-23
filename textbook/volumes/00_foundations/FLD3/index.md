@@ -1,10 +1,10 @@
-# FLD3 抽象代数 XIII：有限体と Frobenius 写像
+# FLD3 抽象代数 XIII：素数冪位数の体
 
 <!-- definition-example-audit: strict -->
 
-[FLD2](../FLD2/index.md) では、分解体・分離拡大・正規拡大を整えました。本章では正標数側へ進み、**有限個の元しかない体が驚くほど剛直な構造を持つ**ことを調べます。
+[FLD2](../FLD2/index.md) では、分解体・分離拡大・正規拡大を整えました。本章では、ある素数 $p$ に対して $p\cdot1=0$ となる側へ進み、**元が有限個しかない体が驚くほど剛直な構造を持つ**ことを調べます。
 
-有限体では、元の個数は勝手な整数にはなりません。ある素数 $p$ と正整数 $n$ があって
+元が有限個の体では、その個数は勝手な整数にはなりません。ある素数 $p$ と正整数 $n$ があって
 
 $$
 |K|=p^n
@@ -16,7 +16,7 @@ $$
 x\longmapsto x^p
 $$
 
-という Frobenius 写像と、
+という $p$ 乗写像と、
 
 $$
 x^{p^n}-x
@@ -27,28 +27,28 @@ $$
 本章の主線は
 
 $$
-\text{標数}
+p\cdot1=0\text{ の最小の }p
 \longrightarrow
-\text{Frobenius 写像}
+x\mapsto x^p
 \longrightarrow
 K^\times\text{ の巡回性}
 \longrightarrow
 x^{p^n}-x
 \longrightarrow
-\mathbb F_{p^n}\text{ の存在・一意性}
+p^n\text{ 元の体の存在・一意性}
 \longrightarrow
-\text{部分体と相対 Frobenius}
+\text{部分体と }x\mapsto x^q
 $$
 
 です。
 
 > **この章の停止線**
 >
-> 有限体拡大が分離的かつ正規であるところまで示します。自己同型群と中間体を一般の有限拡大について対応させる有限 Galois 理論の基本定理は FLD4 で扱います。
+> 元が有限個の体どうしの拡大が分離的かつ正規であるところまで示します。自己同型群と中間体を一般の有限拡大について対応させる有限 Galois 理論の基本定理は FLD4 で扱います。
 
 ---
 
-## 1. 有限体の大きさはなぜ素数冪なのか
+## 1. 元が有限個の体の大きさはなぜ素数冪なのか
 
 まず、体の加法で $1$ を何回足すと $0$ へ戻るかを測ります。
 
@@ -58,9 +58,9 @@ $$
 >
 > 体 $F$ に対し、正整数 $n$ で
 >
-> $$
-> n\cdot1_F=0
-> $$
+$$
+n\cdot1_F=0
+$$
 >
 > となるものが存在するとき、その最小の正整数を $F$ の **標数**という。存在しないとき標数を $0$ とする。
 >
@@ -107,17 +107,17 @@ $$
 >
 > 有限体 $K$ に対し、ある素数 $p$ と正整数 $n$ が一意に存在して
 >
-> $$
-> |K|=p^n
-> $$
+$$
+|K|=p^n
+$$
 >
 > となる。
 >
 > この $p$ は $K$ の標数であり、$K$ の素体は $\mathbb F_p$ と同型である。また
 >
-> $$
-> n=[K:\mathbb F_p]
-> $$
+$$
+n=[K:\mathbb F_p]
+$$
 >
 > である。
 <!-- formal-statement-end -->
@@ -220,9 +220,9 @@ $$
 
 ---
 
-## 2. 正標数で自然に現れる Frobenius 写像
+## 2. 正の素数 $p$ に対して現れる $p$ 乗写像
 
-標数 $p$ では二項係数
+前節で定義した標数が素数 $p$ であるとき、二項係数
 
 $$
 \binom pk
@@ -236,11 +236,11 @@ $$
 >
 > 標数 $p>0$ の体 $F$ に対し、
 >
-> $$
-> \operatorname{Fr}_p:F\to F,
-> \qquad
-> x\mapsto x^p
-> $$
+$$
+\operatorname{Fr}_p:F\to F,
+\qquad
+x\mapsto x^p
+$$
 >
 > を **Frobenius 写像**という。
 <!-- formal-statement-end -->
@@ -410,17 +410,17 @@ $$
 >
 > 有限可換群 $G$ で、元の位数が最大となる $a\in G$ を取り
 >
-> $$
-> \operatorname{ord}(a)=d
-> $$
+$$
+\operatorname{ord}(a)=d
+$$
 >
 > とする。
 >
 > このとき任意の $b\in G$ について
 >
-> $$
-> \operatorname{ord}(b)\mid d.
-> $$
+$$
+\operatorname{ord}(b)\mid d.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -503,11 +503,11 @@ $$
 >
 > 特に $|K|=q$ なら、ある $g\in K^\times$ が存在して
 >
-> $$
-> K^\times=\langle g\rangle,
-> \qquad
-> \operatorname{ord}(g)=q-1.
-> $$
+$$
+K^\times=\langle g\rangle,
+\qquad
+\operatorname{ord}(g)=q-1.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -625,10 +625,10 @@ $$
 >
 > 素数 $p$ と正整数 $n$ に対し、
 >
-> $$
-> S_n=
-> \{\alpha\in\overline{\mathbb F_p}:\alpha^{p^n}=\alpha\}
-> $$
+$$
+S_n=
+\{\alpha\in\overline{\mathbb F_p}:\alpha^{p^n}=\alpha\}
+$$
 >
 > は $\overline{\mathbb F_p}$ の部分体である。
 <!-- formal-statement-end -->
@@ -717,9 +717,9 @@ $$
 >
 > その同型類を
 >
-> $$
-> \mathbb F_{p^n}
-> $$
+$$
+\mathbb F_{p^n}
+$$
 >
 > と書く。
 <!-- formal-statement-end -->
@@ -740,9 +740,9 @@ $$
 f_n'(x)=-1
 $$
 
-なので重根がありません。分解体の中の根全体は前節の補題により体であり、分解体は根で生成されるので「分解体 = 根全体」です。次数が $p^n$ なので根はちょうど $p^n$ 個あります。
+なので重根がありません。分解体の中の根全体は [Frobenius 固定点集合は体](#lem-fld3-root-set-field) により体であり、分解体は根で生成されるので「分解体 = 根全体」です。次数が $p^n$ なので根はちょうど $p^n$ 個あります。
 
-一意性は逆向きです。位数 $p^n$ の任意の有限体 $K$ では、非零元 $a$ に対し Lagrange の定理から
+一意性は逆向きです。位数 $p^n$ の任意の有限体 $K$ では、非零元 $a$ に対し [有限群の位数公式](../GRP2/index.md#thm-grp2-lagrange) から
 
 $$
 a^{p^n-1}=1.
@@ -807,7 +807,7 @@ $$
 |K^\times|=p^n-1.
 $$
 
-[Lagrange の定理](../GRP2/index.md#thm-grp2-lagrange)から
+[有限群の位数公式](../GRP2/index.md#thm-grp2-lagrange)から
 
 $$
 a^{p^n-1}=1.
@@ -874,15 +874,15 @@ $$
 >
 > 素数 $p$ と正整数 $m,n$ に対し、固定した代数閉包 $\overline{\mathbb F_p}$ の中で
 >
-> $$
-> \mathbb F_{p^m}\subset\mathbb F_{p^n}
-> $$
+$$
+\mathbb F_{p^m}\subset\mathbb F_{p^n}
+$$
 >
 > となるための必要十分条件は
 >
-> $$
-> m\mid n
-> $$
+$$
+m\mid n
+$$
 >
 > である。
 <!-- formal-statement-end -->
@@ -1028,19 +1028,19 @@ $$
 >
 > $q=p^r$ を素数冪、$m\ge1$ とする。
 >
-> $$
-> \Phi_q:\mathbb F_{q^m}\to\mathbb F_{q^m},
-> \qquad
-> x\mapsto x^q
-> $$
+$$
+\Phi_q:\mathbb F_{q^m}\to\mathbb F_{q^m},
+\qquad
+x\mapsto x^q
+$$
 >
 > は $\mathbb F_q$ を各点で固定する自己同型である。
 >
 > さらに $m>1$ なら $\Phi_q$ の位数はちょうど $m$ であり、その固定体は
 >
-> $$
-> \operatorname{Fix}(\Phi_q)=\mathbb F_q
-> $$
+$$
+\operatorname{Fix}(\Phi_q)=\mathbb F_q
+$$
 >
 > である。
 <!-- formal-statement-end -->
@@ -1155,9 +1155,9 @@ $$
 >
 > 任意の素数冪 $q$ と正整数 $m$ に対し、
 >
-> $$
-> \mathbb F_{q^m}/\mathbb F_q
-> $$
+$$
+\mathbb F_{q^m}/\mathbb F_q
+$$
 >
 > は有限分離拡大かつ有限正規拡大である。
 <!-- formal-statement-end -->
@@ -1170,7 +1170,7 @@ $$
 x^{q^m}-x
 $$
 
-の $\mathbb F_q$ 上の分解体です。従って FLD2 の「有限正規拡大と分解体」から正規です。
+の $\mathbb F_q$ 上の分解体です。従って FLD2 の [有限正規拡大と分解体](../FLD2/index.md#thm-fld2-finite-splitting-equivalence) から正規です。
 
 分離的であることは、任意の元 $\alpha$ に対する **代数的元の最小多項式** が $x^{q^m}-x$ を割ることと、その形式微分が $-1$ で重根を持たないことから出ます。
 
