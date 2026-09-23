@@ -430,17 +430,17 @@ $$
 
 標準射影
 
-$
+$$
 \pi_n:\mathbb Z\to\mathbb Z/n\mathbb Z
-$
+$$
 
 では
 
-$
+$$
 \ker\pi_n=n\mathbb Z,
 \qquad
 \operatorname{Im}\pi_n=\mathbb Z/n\mathbb Z.
-$
+$$
 
 例えば $n=6$ なら、$12$ は $\overline{12}=\overline0$ なので核に入り、$5$ は $\overline5\ne\overline0$ なので核に入りません。
 <!-- definition-example-end -->
@@ -1003,19 +1003,19 @@ $$
 
 $R=\mathbb Z$, $I=6\mathbb Z$ なら
 
-$
+$$
 \pi(8)
 =
 8+6\mathbb Z
 =
 2+6\mathbb Z.
-$
+$$
 
 また $\pi(a)=0+6\mathbb Z$ となるのは $6\mid a$ のときに限るので
 
-$
+$$
 \ker\pi=6\mathbb Z.
-$
+$$
 <!-- definition-example-end -->
 
 この写像は
