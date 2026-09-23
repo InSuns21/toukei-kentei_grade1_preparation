@@ -259,6 +259,14 @@
 | 被覆写像 | covering map | 各点の近傍の逆像が、その近傍へ同相に写る互いに素な開集合の和へ分解される写像 |
 | Cartan--Hadamard の定理 | Cartan--Hadamard theorem | 人名部分は英字表記を保持。完備非正曲率では指数写像が被覆となり、単連結なら大域微分同相となる |
 
+| 測地曲率 | geodesic curvature | 向き付けられた Riemann 曲面上で、共変加速度の曲面内法線方向成分として定まる符号付き曲率 |
+| 接続1形式 | connection 1-form | 局所正規直交標構の回転を Levi-Civita 接続で記録する1形式 |
+| 外角 | exterior turning angle | 区分的滑らかな正向き境界の角における接ベクトルの符号付き回転角 |
+| Euler 標数 | Euler characteristic | 有限三角形分割に対する $V-E+F$ で定まる曲面の位相不変量 |
+| Gauss--Bonnet の定理 | Gauss--Bonnet theorem | 人名部分は英字表記を保持。全 Gauss 曲率と Euler 標数を結び、境界付きでは測地曲率・外角項を伴う |
+| 全 Gauss 曲率 | total Gaussian curvature | 曲面上の $\int_M K\,dA$。閉向き付け可能曲面では $2\pi\chi(M)$ に等しい |
+| 球面過剰 | spherical excess | 球面三角形の内角和から $\pi$ を引いた量 |
+
 ## DREAM THEATER：数値解析の主表記
 
 | 主表記 | 補助的な英語表記 | 備考 |
