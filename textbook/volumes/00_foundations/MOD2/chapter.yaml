@@ -1,0 +1,53 @@
+id: "MOD2"
+title: "抽象代数 X：Smith 標準形・PID 上有限生成加群"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MOD1
+  - RNG4
+  - LA3B
+official_scope: []
+learning_objectives:
+  - PID 上の行列に対する行・列基本変形を可逆な基底変換として説明し、行列同値が余核を変えないことを示せる
+  - Smith 標準形を定義し、Bézout 等式と PID のイデアル昇鎖停止を用いて存在を証明できる
+  - 小行列式イデアルを用いて Smith 標準形の不変因子が単元倍を除いて一意であることを証明できる
+  - PID 上の有限階数自由加群の部分加群が自由であることを証明できる
+  - 有限生成加群を自由加群の余核として表示し、Smith 標準形から PID 上有限生成加群の構造定理を導ける
+  - 不変因子表示と素元冪による基本因子表示を相互に読み替えられる
+  - 有限生成 Abel 群の構造定理を Z 上の構造定理として導き、具体的な有限 Abel 群を分類できる
+  - 有限次元線形自己写像を F[x]-加群として扱い、構造定理から巡回分解と LA4 の Jordan 構造への接続を説明できる
+definitions:
+  - { id: MOD2-DEF-01, name: PID 上行列の同値 }
+  - { id: MOD2-DEF-02, name: Smith 標準形・不変因子 }
+  - { id: MOD2-DEF-03, name: 小行列式イデアル }
+  - { id: MOD2-DEF-04, name: 加群の有限表示・余核 }
+  - { id: MOD2-DEF-05, name: 基本因子 }
+theorems:
+  - { id: MOD2-LEM-01, name: Bézout による二成分簡約 }
+  - { id: MOD2-THM-01, name: Smith 標準形定理 }
+  - { id: MOD2-PROP-01, name: 小行列式イデアルの行列同値不変性 }
+  - { id: MOD2-THM-02, name: Smith 不変因子の一意性 }
+  - { id: MOD2-THM-03, name: PID 上自由加群の部分加群は自由 }
+  - { id: MOD2-PROP-02, name: 行列同値は余核を保つ }
+  - { id: MOD2-THM-04, name: PID 上有限生成加群の構造定理 }
+  - { id: MOD2-THM-05, name: 有限生成 Abel 群の構造定理 }
+  - { id: MOD2-PROP-03, name: 線形自己写像の多項式環加群は有限生成ねじれ加群 }
+canonical_examples:
+  - 整数行列 [[2,4],[6,8]] の Smith 標準形 diag(2,4)
+  - Z^2/AZ^2 を Z/2Z と Z/4Z の直和として読む例
+  - Z/12Z と Z/18Z を不変因子表示と基本因子表示で読み替える例
+  - Z^2 の部分加群を階数 2 の自由加群として具体化する例
+  - F[x]/((x-1)^2) を Jordan 型作用素の巡回加群として読む例
+problem_patterns:
+  - MOD2-SMITH-REDUCTION-1
+  - MOD2-DETERMINANTAL-IDEAL-1
+  - MOD2-SUBMODULE-FREE-1
+  - MOD2-COKERNEL-1
+  - MOD2-PID-STRUCTURE-1
+  - MOD2-ABELIAN-GROUP-1
+  - MOD2-ELEMENTARY-DIVISOR-1
+  - MOD2-POLYNOMIAL-MODULE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10.0, exercises: 7.0, review: 1.0 }

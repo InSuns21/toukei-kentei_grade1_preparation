@@ -1,0 +1,29 @@
+chapter: "MOD2"
+terms:
+  - term: 行列同値
+    english: matrix equivalence over a ring
+    meaning: 可逆行列 P,Q を用いて B=PAQ と書ける関係。自由加群の始域・終域の基底変換に対応する。
+  - term: Smith 標準形
+    english: Smith normal form
+    meaning: PID 上の行列を行・列基本変形で対角化し、非零対角成分 d1,...,dr が d1|d2|...|dr を満たす形。
+  - term: 不変因子
+    english: invariant factor
+    meaning: Smith 標準形の非零対角成分。一般の PID では単元倍を除いて定まる。
+  - term: 小行列式イデアル
+    english: determinantal ideal
+    meaning: 行列の k 次小行列式すべてで生成されるイデアル。行列同値で不変であり不変因子の一意性を支える。
+  - term: 有限表示
+    english: finite presentation
+    meaning: 有限階数自由加群間の準同型 R^m→R^n の余核として加群を表すこと。
+  - term: 余核
+    english: cokernel
+    meaning: 準同型 φ:M→N に対する商加群 N/Im φ。
+  - term: 基本因子
+    english: elementary divisor
+    meaning: PID 上有限生成ねじれ加群の巡回直和分解に現れる素元冪。単元倍と順序を除いて定まる。
+  - term: 巡回加群
+    english: cyclic module
+    meaning: 一つの元で生成される加群。PID 上では R/(d) が基本例になる。
+  - term: 有限生成 Abel 群の構造定理
+    english: fundamental theorem of finitely generated abelian groups
+    meaning: 有限生成 Abel 群を Z^r と有限個の巡回群の直和へ分類する定理。
