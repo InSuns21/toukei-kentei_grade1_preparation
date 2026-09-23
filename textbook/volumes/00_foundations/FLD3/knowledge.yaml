@@ -1,0 +1,132 @@
+chapter: FLD3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLD2
+  - GRP2
+forward_references:
+  - FLD4
+
+concepts:
+  - id: algebra.field-characteristic
+    name: 標数
+    kind: definition
+    aliases: [characteristic]
+    introduction: formal
+    introduction_aliases: ["定義（標数・素体・有限体）"]
+    requires:
+      - algebra.field
+
+  - id: algebra.prime-field
+    name: 素体
+    kind: definition
+    aliases: [prime field]
+    introduction: formal
+    introduction_aliases: ["定義（標数・素体・有限体）"]
+    requires:
+      - algebra.field
+      - algebra.field-characteristic
+
+  - id: algebra.finite-field
+    name: 有限体
+    kind: definition
+    aliases: [finite field]
+    introduction: formal
+    introduction_aliases: ["定義（標数・素体・有限体）"]
+    requires:
+      - algebra.field
+
+  - id: algebra.finite-field-prime-power-cardinality
+    name: 有限体の位数は素数冪
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.finite-field
+      - algebra.field-characteristic
+      - algebra.prime-field
+      - algebra.field-extension
+
+  - id: algebra.frobenius-map
+    name: Frobenius 写像
+    kind: definition
+    aliases: [Frobenius map]
+    introduction: formal
+    requires:
+      - algebra.field-characteristic
+
+  - id: algebra.finite-field-frobenius-automorphism
+    name: 有限体上の Frobenius 写像は自己同型
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.frobenius-map
+      - algebra.finite-field
+
+  - id: algebra.finite-abelian-maximal-element-order
+    name: 有限 Abel 群の最大位数元
+    kind: lemma
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.cyclic-group
+      - algebra.lagrange-theorem
+
+  - id: algebra.finite-field-multiplicative-group-cyclic
+    name: 有限体の乗法群は巡回群
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.finite-abelian-maximal-element-order
+      - algebra.finite-field
+
+  - id: algebra.finite-field-root-set
+    name: x^(p^n)-x の根全体は体
+    kind: lemma
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.frobenius-map
+      - algebra.algebraic-closure
+
+  - id: algebra.finite-field-existence-uniqueness
+    name: 位数 p^n の有限体の存在と一意性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.finite-field-root-set
+      - algebra.splitting-field-existence
+      - algebra.splitting-field-uniqueness
+      - algebra.formal-derivative
+
+  - id: algebra.finite-field-subfield-criterion
+    name: 有限体の部分体判定
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.finite-field-existence-uniqueness
+      - algebra.tower-law
+
+  - id: algebra.relative-frobenius-automorphism
+    name: 相対 Frobenius 自己同型
+    kind: theorem
+    aliases: [relative Frobenius]
+    introduction: formal
+    requires:
+      - algebra.finite-field-frobenius-automorphism
+      - algebra.finite-field-subfield-criterion
+
+  - id: algebra.finite-field-extension-separable-normal
+    name: 有限体拡大は分離的かつ正規
+    kind: corollary
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.relative-frobenius-automorphism
+      - algebra.finite-normal-splitting-field-equivalence
+      - algebra.separable-extension
+      - algebra.minimal-polynomial
