@@ -516,6 +516,54 @@ $$
 を $\boldsymbol k$ 番目の **Walsh 係数** と呼ぶ。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-qmc5-walsh-polynomial -->
+**定義の確認**：底2で
+
+$$
+f(x)=2+3\operatorname{wal}_1(x)
+$$
+
+を考えます。これは周波数集合
+
+$$
+K=\{0,1\}
+$$
+
+だけを使う有限和なので Walsh 多項式です。
+
+さらに
+
+$$
+\widehat f_{\mathrm{wal}}(0)
+=
+\int_0^1 f(x)\,dx
+=
+2
+$$
+
+です。ここでは $\operatorname{wal}_1$ の積分が0であることを使いました。
+
+また底2では $\operatorname{wal}_1(x)^2=1$ なので
+
+$$
+\widehat f_{\mathrm{wal}}(1)
+=
+\int_0^1
+f(x)\operatorname{wal}_1(x)\,dx
+$$
+
+$$
+=
+2\int_0^1\operatorname{wal}_1(x)\,dx
++
+3\int_0^1\operatorname{wal}_1(x)^2\,dx
+=
+3.
+$$
+
+したがって、有限和の係数 $2,3$ が Walsh 係数として実際に回収されます。
+<!-- definition-example-end -->
+
 Walsh 多項式では積分直交性から
 
 $$
@@ -1125,6 +1173,40 @@ $$
 を満たすとき、本章では **絶対収束 Walsh 級数を持つ**という。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-qmc5-absolute-walsh-series -->
+**定義の確認**：定数関数 $f(x)=1$
+
+積分直交性から
+
+$$
+\widehat f_{\mathrm{wal}}(0)=1
+$$
+
+であり、$k\ne0$ なら
+
+$$
+\widehat f_{\mathrm{wal}}(k)
+=
+\int_0^1
+\overline{\operatorname{wal}_k(x)}\,dx
+=
+0.
+$$
+
+したがって
+
+$$
+\sum_{k=0}^{\infty}
+|\widehat f_{\mathrm{wal}}(k)|
+=
+1
+<
+\infty.
+$$
+
+よって定数関数は絶対収束 Walsh 級数を持ちます。有限和だけでなく無限級数を許す定義ですが、有限個しか非零係数を持たない関数も当然その中に含まれます。
+<!-- definition-example-end -->
+
 $|\operatorname{wal}_{\boldsymbol k}|=1$ なので、絶対可算和性から級数は一様に Cauchy です。
 
 したがって有限点平均との交換も積分との交換も正当化できます。
@@ -1397,6 +1479,42 @@ $$
 
 を **最小双対 NRT 重み** とする。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-qmc5-minimum-dual-nrt-weight -->
+**定義の確認**：底2、$m=2$、一次元で $C=I_2$
+
+このとき双対条件は
+
+$$
+\nu_2(k)=0
+$$
+
+です。
+
+従って非零双対周波数のうち最小のものは
+
+$$
+k=4=(100)_2
+$$
+
+であり、
+
+$$
+\mu_1(4)=3.
+$$
+
+$k=1,2,3$ は下位2桁のどこかが非零なので双対には入りません。
+
+したがって
+
+$$
+\boxed{
+\rho_1(P)=3
+}
+$$
+
+です。
+<!-- definition-example-end -->
 
 この最小値は必ず有限です。
 
