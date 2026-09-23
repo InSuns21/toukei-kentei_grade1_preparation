@@ -31,7 +31,7 @@
 
 までを、学部標準の一本の主線として整備する。
 
-Lie 群・Lie 環は幾何学本線へ必須 prerequisite としない。Lie 群へ入る前に、純代数として必要な群・準同型・商群・群作用・共役を `GRP1--GRP2` で独立に整備し、その後に `LIE1--LIE4` へ進む。表現論は Lie 群の prerequisite にはせず、さらに後続の独立系列へ送る。
+Lie 群・Lie 環は幾何学本線へ必須 prerequisite としない。Lie 群へ入る前に `DREAM_THEATER_ABSTRACT_ALGEBRA_PLAN.md` の GRP1--GRP2 で群論の基礎を整備し、その後に `LIE1--LIE4` へ進む。抽象代数系列自体は Lie 群の補助に限定せず、RNG1--RNG2--MOD1--GRP3--FLD1--FLD2 まで進めて群・環・体の学部標準コアを閉じる。表現論は Lie 群の prerequisite にはせず、さらに後続の独立系列へ送る。
 
 ---
 
@@ -697,78 +697,11 @@ Hopf--Rinow は本系列の主要定理として核心証明を閉じる。局�
 
 ---
 
-## 7. 群論基礎を Lie 群の前に置く
+## 7. 抽象代数を独立系列として整備する
 
-Lie 群は落合下巻の主要項目だが、Riemann 幾何主線の必須 prerequisite にはしない。一方で、Lie 群の定義・共役・部分群・群作用を導入するたびに群論の基本語彙を場当たり的に補う構成は避ける。
+Lie 群のための群論だけを局所実装せず、群・環・体の学部標準内容を独立した canonical series として整備する。詳細な範囲・証明責務・実装順は **`textbook/DREAM_THEATER_ABSTRACT_ALGEBRA_PLAN.md`** を正本とする。
 
-そこで Lie 系列の前に、純代数の独立系列 **GRP1--GRP2** を置く。GRP1--GRP2 は Lie 群に必要な最小限の群論を canonical に担当し、Sylow 理論や有限生成 Abel 群の構造定理までを prerequisite として要求しない。
-
-また、**表現論は LIE1 の prerequisite にしない**。LIE2 の Adjoint 表現は具体的な群準同型
-`Ad:G\to GL(\mathfrak g)`
-として章内で定義し、その微分 `ad` までを Lie 理論の内部で扱う。本格的な線形表現論、半単純 Lie 環、root system、最高ウェイト理論は LIE1--LIE4 の後続系列へ送る。
-
-### GRP1 群・準同型・商群
-
-**tier: core**
-
-**prerequisites:** なし（集合・写像・同値関係の基本語彙のみ）
-
-主な内容：
-
-- 群・単位元・逆元
-- 部分群と部分群判定
-- 巡回群・置換群・行列群の基本例
-- 群準同型・群同型
-- 核・像
-- 左剰余類・右剰余類
-- 正規部分群
-- 商群
-- 直積
-- 第一同型定理
-
-主要結果：
-
-- 単位元・逆元の一意性
-- 準同型の核が正規部分群になること
-- 商集合 `G/N` に群構造が入るための正規性
-- 第一同型定理 `G/\ker\varphi\cong\operatorname{im}\varphi`
-
-停止線：
-
-- Sylow の定理
-- 有限生成 Abel 群の構造定理
-- 自由群・群表示
-- 群コホモロジー
-
-は Lie 群の prerequisite にしない。
-
-### GRP2 群作用・軌道・共役
-
-**tier: core / bridge**
-
-**prerequisites:** GRP1
-
-主な内容：
-
-- 群作用
-- 作用に対応する準同型 `G\to\operatorname{Sym}(X)`
-- 軌道
-- 安定化群
-- 軌道と剰余類 `G/G_x` の対応
-- 推移的作用
-- 共役作用
-- 共役類
-- 中心・中心化群
-- 等質空間 `G/H` の集合論的入口
-
-主要結果：
-
-- 軌道が集合を分割すること
-- `G/G_x\to Gx` の自然な全単射
-- 有限群に対する軌道・安定化群公式
-- 共役作用の安定化群が中心化群になること
-
-ここでは一般の線形表現論へ進まず、LIE2 の共役・Adjoint 表現と LIE4 の滑らかな群作用に必要な純代数だけを閉じる。
+Lie 系列が直接要求するのはその前半だけである。
 
 ### LIE1 Lie 群・Lie 環・不変ベクトル場
 
@@ -781,7 +714,7 @@ Lie 群は落合下巻の主要項目だが、Riemann 幾何主線の必須 prer
 - Lie 括弧
 - 行列 Lie 群の基本例
 
-GRP1 の群・準同型・部分群を既知とし、GEO5 の滑らかなベクトル場・流れ・Lie 括弧を Lie 群上へ移す。
+GRP1 の群・準同型・商群までを既知とし、GEO5 の滑らかなベクトル場・流れ・Lie 括弧を Lie 群上へ移す。
 
 ### LIE2 1 パラメータ部分群・指数写像・Adjoint 表現
 
@@ -793,7 +726,7 @@ GRP1 の群・準同型・部分群を既知とし、GEO5 の滑らかなベク�
 - Ad / ad
 - 共役
 
-GRP2 の共役作用を滑らかな自己同型へ持ち上げ、`Ad` を一般表現論の黒箱として使わず、その定義と準同型性を直接確認する。
+GRP2 の群作用・共役を滑らかな自己同型へ持ち上げ、`Ad` を一般表現論の黒箱として使わず、その定義と準同型性を直接確認する。
 
 ### LIE3 Lie 部分群・古典群
 
@@ -817,15 +750,7 @@ GRP2 の共役作用を滑らかな自己同型へ持ち上げ、`Ad` を一般�
 
 GRP2 の集合上の群作用・軌道・安定化群を再定義せず、滑らかさと多様体構造を追加して Lie 群作用へ進む。
 
-停止線：
-
-- 一般の有限次元表現論
-- 既約表現・完全可約性
-- 半単純 Lie 環の分類
-- root system・最高ウェイト
-- principal bundle / gauge theory
-
-は独立の後続系列へ送る。
+表現論、半単純 Lie 環、root system、principal bundle / gauge theory は LIE1--LIE4 の停止線の外とする。
 
 ---
 
@@ -865,11 +790,15 @@ GEO14 + GEO16 ───→ GEO17
 GEO15 + GEO17 ───→ GEO18
 GEO8 + GEO11 + GEO16 ─→ GEO19
 
-GRP1 群・準同型・商群 ─→ GRP2 群作用・共役
-GRP1 + GEO5 ───────────→ LIE1
-LIE1 + GRP2 + ODE4 ───→ LIE2
-LIE2 + LA6 ────────────→ LIE3
-LIE3 + GRP2 + GEO3 ───→ LIE4
+GRP1 群・準同型・商群 ─→ GRP2 群作用・共役・Sylow
+GRP1 + GEO5 ───────────────→ LIE1
+LIE1 + GRP2 + ODE4 ───────→ LIE2
+LIE2 + LA6 ────────────────→ LIE3
+LIE3 + GRP2 + GEO3 ───────→ LIE4
+
+GRP2 → RNG1 → RNG2 → MOD1 → GRP3
+                    └──────→ FLD1 → FLD2
+（抽象代数全系列は別計画を正本とする）
 ```
 
 direct prerequisite は実装時に各証明を再確認し、単に「先に読んでいると便利」という理由で増殖させない。
@@ -1043,12 +972,13 @@ Phase 3 完了。GEO10 → GEO11 → GEO12 → GEO13 → GEO14 完了。
 
 Phase 4 完了。GEO15 → GEO16 → GEO17 → GEO18 → GEO19 を完了し、多様体・微分幾何主線 GEO1--GEO19 は完走した。次の独立系列の実装開始点は **Phase 5：GRP1「群・準同型・商群」** とする。
 
-### Phase 5：Lie 群のための群論基礎
+### Phase 5：抽象代数系列の開始
 
-- GRP1 群・準同型・商群
-- GRP2 群作用・軌道・共役
+- GRP1 群・準同型・剰余類・商群
+- GRP2 群作用・共役・Sylow
+- 後続：RNG1 → RNG2 → MOD1 → GRP3 → FLD1 → FLD2
 
-GRP1--GRP2 は LIE1--LIE4 に必要な純代数を先に canonical 化する。表現論はここでは導入しない。
+抽象代数系列全体の設計は `DREAM_THEATER_ABSTRACT_ALGEBRA_PLAN.md` を正本とする。Lie 系列の開始に必要なのは GRP 前半だけであり、環論・体論の完走は要求しない。
 
 ### Phase 6：独立 Lie 系列
 
@@ -1057,7 +987,7 @@ GRP1--GRP2 は LIE1--LIE4 に必要な純代数を先に canonical 化する。�
 - LIE3 Lie 部分群・古典群
 - LIE4 Lie 群作用・軌道・等質空間・Maurer--Cartan
 
-GEO 系列を全て完了してから群論・Lie 系列へ進む必要はないが、LIE1 の実装開始条件は GRP1 の完了、LIE2 の開始条件は GRP2 の完了とする。reader-facing の標準読順では Riemann 幾何主線を群論・Lie 群なしで完走できる構成を維持する。
+GEO 系列を全て完了してから抽象代数・Lie 系列へ進む必要はないが、LIE1 の実装開始条件は GRP1 の完了、LIE2 の開始条件は GRP2 の完了とする。RNG / MOD / GRP3 / FLD は Lie 群とは独立に学部標準代数を完結させる。reader-facing の標準読順では Riemann 幾何主線を抽象代数・Lie 群なしで完走できる構成を維持する。
 
 ---
 
@@ -1071,7 +1001,7 @@ GEO 系列を全て完了してから群論・Lie 系列へ進む必要はない
 - `textbook/knowledge-dag.yaml`
 - `textbook/dependency-graph.md`
 
-へ未実装 GEO / GRP / LIE ノードを先行公開しない。
+へ未実装 GEO / GRP / RNG / MOD / FLD / LIE ノードを先行公開しない。
 
 各章は本文・chapter.yaml・knowledge.yaml・glossary.yaml・演習・詳細解答・検証が完成した時点で登録する。
 
@@ -1126,7 +1056,7 @@ GEO 系列を全て完了してから群論・Lie 系列へ進む必要はない
 
 ## 16. 機械検証
 
-各 GEO / GRP / LIE 実装 PR では、変更内容に応じて少なくとも次を実行する。
+各 GEO / GRP / RNG / MOD / FLD / LIE 実装 PR では、変更内容に応じて少なくとも次を実行する。
 
 - `npm run validate`
 - `npm run validate:pages`
@@ -1136,7 +1066,7 @@ GEO 系列を全て完了してから群論・Lie 系列へ進む必要はない
 
 standard math core / knowledge DAG を変更した場合は対応する strict validation も実行する。
 
-概念依存監査の scope は `DREAM_THEATER_AUTHORING_STANDARD.md` に従う。通常の GEO / GRP / LIE 実装 PR では changed-only strict validation を原則とし、`dream-theater-index.json` への pure-add と新規章の `knowledge.yaml` 追加だけを理由に full audit を要求しない。既存章の `knowledge.yaml`、既存 index path の削除・移動・並べ替え、全体レジストリ・推論規則・監査エンジンを変更した場合は full audit とする。main への push では全体監査を行う。
+概念依存監査の scope は `DREAM_THEATER_AUTHORING_STANDARD.md` に従う。通常の GEO / GRP / RNG / MOD / FLD / LIE 実装 PR では changed-only strict validation を原則とし、`dream-theater-index.json` への pure-add と新規章の `knowledge.yaml` 追加だけを理由に full audit を要求しない。既存章の `knowledge.yaml`、既存 index path の削除・移動・並べ替え、全体レジストリ・推論規則・監査エンジンを変更した場合は full audit とする。main への push では全体監査を行う。
 
 機械検証 green は完成の十分条件にしない。
 
@@ -1176,12 +1106,11 @@ Gauss--Bonnet
 
 という理論の流れを再構成できる状態を完成とする。
 
-群論・Lie 群はこの主線から独立に、
+抽象代数・Lie 群はこの主線から独立に、
 
 ```text
-GRP1 群・準同型・商群
-  ↓
-GRP2 群作用・軌道・共役
+GRP1 → GRP2 → RNG1 → RNG2 → MOD1 → GRP3
+                 └────────────→ FLD1 → FLD2
 
 GRP1 + GEO5
   ↓
@@ -1194,6 +1123,6 @@ LIE3 Lie 部分群・古典群 ← LA6
 LIE4 Lie 群作用・等質空間・Maurer--Cartan ← GRP2 + GEO3
 ```
 
-として伸ばす。群の純代数を GRP1--GRP2 で先に閉じることで、LIE 系列では「群とは何か」を再説明するのではなく、滑らかな構造・微分・Lie 環との対応へ集中する。表現論はこの主線の前提ではなく、LIE1--LIE4 の後続系列とする。
+として伸ばす。抽象代数側では群・環・体の学部標準コアを独立に完結させ、Lie 系列は GRP1--GRP2 だけを直接再利用する。表現論はこの主線の前提ではなく、LIE1--LIE4 の後続系列とする。
 
 この構成により、現在の VC 系列の停止線を自然に引き継ぎつつ、数学科・理論物理系の学部で期待される多様体・微分幾何の主線を、後続の幾何解析・確率解析・数理物理へ接続できる canonical series として整備する。
