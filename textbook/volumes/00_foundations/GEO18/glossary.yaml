@@ -1,0 +1,23 @@
+chapter: "GEO18"
+terms:
+  - term: 定曲率模型空間
+    english: constant-curvature model space
+    meaning: 与えられた定数 kappa を断面曲率に持つ標準的な完備単連結 Riemann 多様体。
+  - term: 比較関数
+    english: comparison function
+    meaning: y''+kappa y=0, y(0)=0, y'(0)=1 を満たし、定曲率模型の法 Jacobi 場の長さを表す関数 s_kappa。
+  - term: Rauch の比較定理
+    english: Rauch comparison theorem
+    meaning: 断面曲率の大小から、同じ初期微分を持つ Jacobi 場の長さの大小を比較する定理。
+  - term: 共役半径
+    english: conjugate radius
+    meaning: 基点から最初の共役点までの距離を測る量。本章では曲率上界からその下限を評価する。
+  - term: Bonnet--Myers の定理
+    english: Bonnet--Myers theorem
+    meaning: 正の Ricci 曲率下界を持つ完備多様体の直径を上から評価し、コンパクト性を導く定理。
+  - term: 単連結
+    english: simply connected
+    meaning: 弧状連結で、任意の閉曲線が定値曲線へ連続的に縮められる位相的性質。
+  - term: Cartan--Hadamard の定理
+    english: Cartan--Hadamard theorem
+    meaning: 完備な非正断面曲率多様体では指数写像が被覆となり、単連結なら接空間から多様体への大域微分同相になる定理。

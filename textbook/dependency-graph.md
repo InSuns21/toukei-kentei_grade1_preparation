@@ -151,7 +151,9 @@ GEO16 は GEO13・GEO11 を直接 prerequisite とする。GEO13 の Levi-Civita
 
 GEO17 は GEO14・GEO16 を直接 prerequisite とする。GEO14 の測地線・指数写像と GEO16 の Riemann 曲率を変分法で接続し、長さ・エネルギーの第一変分、エネルギーの第二変分、指数形式、Jacobi 方程式、共役点を構成する。指数写像の微分を Jacobi 場の終値として表して共役点との同値を証明し、共役点がない区間での指数形式の正定値性と、区間内部の共役点が局所最短性を壊す機構まで閉じる。
 
-GEO18 以降は未実装なので reader-facing DAG へ先行登録しない。
+GEO18 は GEO15・GEO17 を直接 prerequisite とする。GEO17 の Jacobi 場・指数形式を定曲率模型と比較し、断面曲率上界から Rauch の比較定理と共役点時刻の下界を導く。正の Ricci 曲率下界から Bonnet--Myers の直径上界・コンパクト性を証明し、非正断面曲率では指数写像の微分が長さを縮めないことを示す。GEO15 の完備性・Hopf--Rinow と組み合わせ、指数写像が被覆写像になる機構を閉じ、単連結なら Cartan--Hadamard により大域微分同相 $T_pM\cong\mathbb R^n\to M$ を得る。
+
+GEO19 以降は未実装なので reader-facing DAG へ先行登録しない。
 
 ---
 

@@ -881,6 +881,22 @@ direct prerequisite は GEO13、GEO11 です。GEO13 の Levi-Civita 接続・�
 
 direct prerequisite は GEO14、GEO16 です。GEO14 の測地線・指数写像を変分対象として使い、GEO16 の Riemann 曲率を第二変分と Jacobi 方程式へ入れます。次の GEO18 では Jacobi 場の定曲率模型との比較から Rauch 比較、Bonnet--Myers、Cartan--Hadamard へ進みます。
 
+## GEO18 比較幾何入門 `advanced-standard`
+
+- 定断面曲率模型と比較関数 $s_\kappa$ を導入し、Euclid・球面・双曲型の法 Jacobi 場を統一
+- 法 Jacobi 場の長さに対する微分不等式を導き、Rauch の比較定理の定曲率模型・上曲率版を核心まで証明
+- 断面曲率上界から共役点が模型より早く現れないことを導出
+- 非正断面曲率では Rauch 比較と Gauss の補題から指数写像の微分が長さを縮めないことを証明
+- 正の Ricci 曲率下界に平行法標構と指数形式を組み合わせ、Bonnet--Myers の直径上界とコンパクト性を証明
+- 単連結を定義し、拡大局所微分同相の被覆補題を完備性から証明
+- 完備非正曲率で指数写像が被覆写像となり、単連結なら大域微分同相となる Cartan--Hadamard の定理を証明
+- 平坦トーラスで単連結仮定を落としたとき、証明の「被覆が一枚」という段階だけが壊れることを確認
+- A4/B3/C1 の演習で Jacobi 場比較・共役点評価・Bonnet--Myers・Cartan--Hadamard を再構成
+
+実装: [GEO18](volumes/00_foundations/GEO18/index.md)
+
+direct prerequisite は GEO15、GEO17 です。GEO17 の Jacobi 場・指数形式を比較の解析装置として使い、GEO15 の完備性・Hopf--Rinow を直径・被覆の大域化に使います。次の GEO19 では二次元へ戻り、Gauss 曲率の積分と Euler 標数を Gauss--Bonnet の定理で結びます。
+
 ---
 
 # 6. 測度論：標準教科書の第2段階

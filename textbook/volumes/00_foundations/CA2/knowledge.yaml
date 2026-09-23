@@ -93,7 +93,7 @@ concepts:
   - id: complex-analysis.simply-connected-domain
     name: 単連結領域
     kind: definition
-    aliases: [単連結領域, 単連結, simply connected domain, simply connected]
+    aliases: [単連結領域, simply connected domain]
     requires: [complex-analysis.fixed-endpoint-homotopy, topology.path-connected-space]
 
   - id: complex-analysis.polygonal-replacement

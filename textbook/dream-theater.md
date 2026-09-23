@@ -109,6 +109,7 @@
 15. [GEO15 完備性・Hopf--Rinow](textbook/volumes/00_foundations/GEO15/index.md)
 16. [GEO16 Riemann 曲率](textbook/volumes/00_foundations/GEO16/index.md)
 17. [GEO17 変分公式・Jacobi 場・共役点](textbook/volumes/00_foundations/GEO17/index.md)
+18. [GEO18 比較幾何入門](textbook/volumes/00_foundations/GEO18/index.md)
 
 ### 標準ベクトル解析コア
 
