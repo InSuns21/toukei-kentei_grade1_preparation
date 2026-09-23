@@ -1,0 +1,20 @@
+chapter: "QMC3"
+terms:
+  - term: rank-1 格子則
+    english: rank-1 lattice rule
+    meaning: 一つの生成ベクトル z と法 N から点列 {n z / N} を作り、その N 点で等重み求積する準 Monte Carlo 法。
+  - term: 生成ベクトル
+    english: generating vector
+    meaning: rank-1 格子点集合の各座標方向の進み方を指定する整数ベクトル z。
+  - term: 双対格子
+    english: dual lattice
+    meaning: 整数周波数ベクトル h のうち h dot z が N の倍数になるもの全体。格子平均で消えずに残る Fourier モードを表す。
+  - term: 離散直交性
+    english: discrete orthogonality
+    meaning: rank-1 格子上で複素指数モードを平均すると、双対格子上では 1、それ以外では 0 になる性質。
+  - term: 重み付き周期 Fourier 空間
+    english: weighted periodic Fourier space
+    meaning: Fourier 係数を周波数重み r(h) で二乗加重してノルムを定める周期関数空間。本章では双対格子和から最悪誤差を計算する。
+  - term: component-by-component 構成
+    english: component-by-component construction
+    meaning: 生成ベクトルの成分を一つずつ選び、その時点の誤差基準を最小化して高次元の生成ベクトルを構成する方法。
