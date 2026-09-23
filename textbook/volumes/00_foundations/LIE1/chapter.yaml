@@ -1,0 +1,52 @@
+id: "LIE1"
+title: "Lie 理論 I：Lie 群・Lie 環・不変ベクトル場"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GRP2
+  - GEO5
+official_scope: []
+learning_objectives:
+  - Lie 群を滑らかな多様体かつ群として定義し、群演算の滑らかさを具体例で検証できる
+  - 左移動・右移動が微分同相写像であることを証明し、その微分で接ベクトルを群全体へ運べる
+  - 左不変ベクトル場を定義し、単位元での値と左不変ベクトル場が一対一に対応することを証明できる
+  - F-関連なベクトル場の Lie 括弧が再び F-関連になることを証明し、左不変ベクトル場が Lie 括弧で閉じることを導ける
+  - 実 Lie 環を定義し、Lie 群の単位元の接空間に自然な Lie 環構造が入ることを説明できる
+  - 滑らかな群準同型の単位元での微分が Lie 環準同型になることを証明できる
+  - 加法群 R^n、正の実数の乗法群、2次元アフィン群、一般線形群 GL(n,R) の Lie 群構造を直接確認できる
+  - GL(n,R) の Lie 環を全行列空間と同一視し、Lie 括弧が行列交換子 AB-BA になることを導ける
+definitions:
+  - { id: LIE1-DEF-01, name: Lie 群 }
+  - { id: LIE1-DEF-02, name: 左移動・右移動 }
+  - { id: LIE1-DEF-03, name: 左不変ベクトル場・右不変ベクトル場 }
+  - { id: LIE1-DEF-04, name: 実 Lie 環 }
+  - { id: LIE1-DEF-05, name: Lie 群の Lie 環 }
+  - { id: LIE1-DEF-06, name: Lie 群準同型・Lie 環準同型 }
+theorems:
+  - { id: LIE1-PROP-01, name: 左移動・右移動は微分同相写像 }
+  - { id: LIE1-THM-01, name: 単位元での値による左不変ベクトル場の特徴付け }
+  - { id: LIE1-LEM-01, name: F-関連性は Lie 括弧で保たれる }
+  - { id: LIE1-PROP-02, name: 左不変ベクトル場は Lie 括弧で閉じる }
+  - { id: LIE1-THM-02, name: 単位元の接空間の Lie 環構造 }
+  - { id: LIE1-THM-03, name: Lie 群準同型の微分は Lie 環準同型 }
+  - { id: LIE1-PROP-03, name: 一般線形群 GL(n,R) は Lie 群 }
+  - { id: LIE1-THM-04, name: gl(n,R) の Lie 括弧は行列交換子 }
+canonical_examples:
+  - 加法 Lie 群 R^n と零 Lie 括弧
+  - 正の実数の乗法 Lie 群と x∂x 型の左不変ベクトル場
+  - 2次元アフィン Lie 群 (a,b)(c,d)=(ac,b+ad) と非可換 Lie 環
+  - 一般線形群 GL(n,R) と全行列空間 gl(n,R)
+  - 2次元行列単位 E12,E21 の交換子
+problem_patterns:
+  - LIE1-LIE-GROUP-CHECK-1
+  - LIE1-TRANSLATION-INVARIANT-FIELD-1
+  - LIE1-AFFINE-GROUP-BRACKET-1
+  - LIE1-LIE-ALGEBRA-AXIOMS-1
+  - LIE1-HOMOMORPHISM-DIFFERENTIAL-1
+  - LIE1-GLN-COMMUTATOR-1
+  - LIE1-PRODUCT-LIE-GROUP-1
+  - LIE1-COMMUTATOR-TRACELESS-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 5.0, review: 0.5 }
