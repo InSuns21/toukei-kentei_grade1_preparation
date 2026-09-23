@@ -640,7 +640,7 @@ $$
 L_a\circ L_g=L_{ag}.
 $$
 
-[GEO2 の多様体上の連鎖律](../GEO2/index.md#thm-geo2-chain-rule)を使うと
+[GEO2 の多様体上の連鎖律](../GEO2/index.md#thm-geo2-composition-differential)を使うと
 
 $$
 d(L_a)_g\circ d(L_g)_e
@@ -842,7 +842,7 @@ $$
 
 $L_g$ は [左移動・右移動は微分同相写像](#prop-lie1-translations-diffeomorphisms) で示したように微分同相写像です。
 
-前節の補題の微分同相版から
+[F-関連性は Lie 括弧で保たれる](#lem-lie1-related-bracket) を微分同相写像 $L_g$ に適用すると
 
 $$
 (L_g)_*[X,Y]
@@ -1484,7 +1484,7 @@ $$
 L_{\Phi(g)}\circ\Phi.
 $$
 
-$h=e_G$ で微分し、[GEO2 の多様体上の連鎖律](../GEO2/index.md#thm-geo2-chain-rule)を使うと
+$h=e_G$ で微分し、[GEO2 の多様体上の連鎖律](../GEO2/index.md#thm-geo2-composition-differential)を使うと
 
 $$
 d\Phi_g\circ d(L_g)_{e_G}
