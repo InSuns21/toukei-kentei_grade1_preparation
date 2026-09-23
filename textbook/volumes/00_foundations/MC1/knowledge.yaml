@@ -1,0 +1,85 @@
+chapter: MC1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00P5
+  - F0-00P6A
+forward_references: []
+
+concepts:
+  - id: numerical.monte-carlo-estimator
+    name: Monte Carlo 推定量
+    kind: definition
+    aliases: [Monte Carlo estimator, モンテカルロ推定量]
+    introduction: formal
+    introduction_aliases: ["定義（Monte Carlo 推定量）"]
+    requires:
+      - prob.expectation
+      - prob.independent-random-variables
+
+  - id: numerical.monte-carlo-rmse
+    name: Monte Carlo 推定量の不偏性・分散・二乗平均平方根誤差
+    kind: theorem
+    aliases: [unbiasedness variance and RMSE of the Monte Carlo estimator]
+    introduction: formal
+    introduction_aliases: ["命題（Monte Carlo 推定量の不偏性・分散・二乗平均平方根誤差）"]
+    requires:
+      - numerical.monte-carlo-estimator
+      - prob.variance
+
+  - id: numerical.monte-carlo-strong-consistency
+    name: Monte Carlo 推定量の強一致性
+    kind: theorem
+    aliases: [strong consistency of the Monte Carlo estimator]
+    introduction: formal
+    introduction_aliases: ["定理（Monte Carlo 推定量の強一致性）"]
+    requires:
+      - numerical.monte-carlo-estimator
+      - prob.finite-variance-slln
+
+  - id: numerical.monte-carlo-clt
+    name: Monte Carlo 中心極限定理
+    kind: theorem
+    aliases: [Monte Carlo central limit theorem]
+    introduction: formal
+    introduction_aliases: ["定理（Monte Carlo 中心極限定理）"]
+    requires:
+      - numerical.monte-carlo-estimator
+      - prob.iid-clt
+
+  - id: numerical.monte-carlo-standard-error
+    name: Monte Carlo 標準誤差
+    kind: definition
+    aliases: [Monte Carlo standard error]
+    introduction: formal
+    introduction_aliases: ["定義（Monte Carlo 標準誤差）"]
+    requires:
+      - numerical.monte-carlo-rmse
+
+  - id: numerical.monte-carlo-standard-error-consistency
+    name: 標本分散と標準誤差推定の一致性
+    kind: theorem
+    aliases: [consistency of the Monte Carlo standard error estimate]
+    introduction: formal
+    introduction_aliases: ["定理（標本分散と標準誤差推定の一致性）"]
+    requires:
+      - numerical.monte-carlo-standard-error
+      - prob.finite-variance-slln
+
+  - id: numerical.monte-carlo-known-sigma-ci
+    name: 既知分散での漸近信頼区間
+    kind: theorem
+    aliases: [asymptotic confidence interval with known variance]
+    introduction: formal
+    introduction_aliases: ["系（既知分散での漸近信頼区間）"]
+    requires:
+      - numerical.monte-carlo-clt
+
+  - id: numerical.monte-carlo-bias-variance-decomposition
+    name: バイアスと標本誤差の二乗平均誤差分解
+    kind: theorem
+    aliases: [bias and sampling variance decomposition for Monte Carlo]
+    introduction: formal
+    introduction_aliases: ["命題（バイアスと標本誤差の二乗平均誤差分解）"]
+    requires:
+      - numerical.monte-carlo-rmse
