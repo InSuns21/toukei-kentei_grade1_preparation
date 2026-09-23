@@ -172,7 +172,7 @@ d\iota_e([X,Y]_{\mathfrak h})
 [d\iota_eX,d\iota_eY]_{\mathfrak g}.
 $$
 
-一方、[GEO3 の部分多様体の包含写像と接空間](../GEO3/index.md#prop-geo3-inclusion-tangent)より $d\iota_e$ は単射です。その像は $T_eH$ を $T_eG$ の中に見たものです。
+一方、[GEO3 の部分多様体の包含写像と接空間](../GEO3/index.md#prop-geo3-submanifold-inclusion)より $d\iota_e$ は単射です。その像は $T_eH$ を $T_eG$ の中に見たものです。
 
 したがって $X,Y\in T_eH$ なら
 
@@ -464,7 +464,7 @@ $$
 \dim SL(n,\mathbb R)=n^2-1.
 $$
 
-さらに [正則レベル集合の接空間](../GEO3/index.md#thm-geo3-regular-level-tangent)より
+さらに [正則レベル集合の接空間](../GEO3/index.md#thm-geo3-level-tangent-kernel)より
 
 $$
 T_I SL(n,\mathbb R)
@@ -764,11 +764,27 @@ $$
 
 複素行列空間 $M_n(\mathbb C)$ は、ここでは実ベクトル空間
 
-$$
+$
 M_n(\mathbb C)\cong\mathbb R^{2n^2}
-$$
+$
 
 として多様体とみなします。
+
+まず
+
+$
+GL(n,\mathbb C)
+=
+\{A\in M_n(\mathbb C):\det A\ne0\}
+$
+
+を実 Lie 群として確認しておきます。行列式は実部・虚部の座標に関する多項式なので連続であり、$GL(n,\mathbb C)$ は $M_n(\mathbb C)$ の開部分集合です。行列積は成分ごとの多項式、逆元は
+
+$
+A^{-1}=\frac{\operatorname{adj}(A)}{\det A}
+$
+
+で表され、$\det A\ne0$ 上で滑らかです。従って $GL(n,\mathbb C)$ は実次元 $2n^2$ の Lie 群です。
 
 <a id="def-lie3-unitary-groups"></a>
 <!-- formal-statement-start -->
@@ -1042,7 +1058,7 @@ $$
 
 これは §3 の一般定理を具体的な行列恒等式で再確認しています。
 
-### 9.2 歪Hermitian行列の指数はユニタリ行列
+### 9.2 歪 Hermitian行列の指数はユニタリ行列
 
 $X^*=-X$ なら同様に
 
@@ -1050,19 +1066,29 @@ $$
 (e^X)^*e^X=e^{-X}e^X=I.
 $$
 
-さらに $\operatorname{tr}X=0$ なら
+さらに $\operatorname{tr}X=0$ なら、$A(t)=e^{tX}$ に行列式の微分公式を適用して
 
-$$
-\det(e^X)=e^{\operatorname{tr}X}=1.
-$$
+$
+\frac{d}{dt}\det A(t)
+=
+\det A(t)\operatorname{tr}X
+=
+0.
+$
+
+$\det A(0)=1$ なので
+
+$
+\det(e^X)=1.
+$
 
 従って
 
-$$
+$
 X\in\mathfrak{su}(n)
 \Longrightarrow
 e^X\in SU(n).
-$$
+$
 
 ---
 
