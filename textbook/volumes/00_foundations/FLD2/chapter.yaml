@@ -1,0 +1,53 @@
+id: "FLD2"
+title: "抽象代数 XII：分解体・分離性・正規性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLD1
+official_scope: []
+learning_objectives:
+  - 分解体を定義し、二次・三次・四次多項式の全ての根から分解体と拡大次数を具体的に決定できる
+  - FLD1 の既約多項式による単純拡大を反復し、任意の非定数多項式に分解体が存在することを次数帰納法で証明できる
+  - 基礎体を固定する体の埋め込みを定義し、代数的元の像が最小多項式の根によって決まることを証明できる
+  - 一段の埋め込み延長を反復し、有限代数拡大上への埋め込み延長と分解体の同型を除く一意性を証明できる
+  - 形式微分と根の重複度を定義し、重根と gcd(f,f') の関係を証明して分離性を判定できる
+  - 既約多項式 p に対し p が分離的であることと p'≠0 が同値であることを証明し、標数0の場合へ適用できる
+  - 正規拡大を定義し、有限拡大が正規であることと基礎体上の多項式の分解体であることの同値を証明できる
+  - 分離性と正規性を区別し、標数0の非正規例と正標数の非分離正規例で壊れる証明機構を説明できる
+definitions:
+  - { id: FLD2-DEF-01, name: 分解体 }
+  - { id: FLD2-DEF-02, name: 基礎体を固定する体の埋め込み }
+  - { id: FLD2-DEF-03, name: 代数閉体・代数閉包 }
+  - { id: FLD2-DEF-04, name: 形式微分・根の重複度 }
+  - { id: FLD2-DEF-05, name: 分離多項式・分離的な元・分離拡大 }
+  - { id: FLD2-DEF-06, name: 正規拡大 }
+theorems:
+  - { id: FLD2-THM-01, name: 分解体の存在 }
+  - { id: FLD2-LEM-01, name: 一段の埋め込み延長 }
+  - { id: FLD2-THM-02, name: 有限代数拡大上への埋め込み延長 }
+  - { id: FLD2-THM-03, name: 分解体の同型を除く一意性 }
+  - { id: FLD2-LEM-02, name: 形式微分の積の微分則 }
+  - { id: FLD2-THM-04, name: 重根の形式微分判定 }
+  - { id: FLD2-PROP-01, name: 既約多項式の分離性判定 }
+  - { id: FLD2-COR-01, name: 標数0の体上の代数拡大は分離的 }
+  - { id: FLD2-PROP-02, name: 分解体は基礎体固定埋め込みで保たれる }
+  - { id: FLD2-THM-05, name: 有限正規拡大と分解体 }
+canonical_examples:
+  - Q(√2) を x^2-2 の分解体として直接確認
+  - Q(∛2,ω) を x^3-2 の分解体として構成し次数6を計算
+  - Q(∛2)/Q を分離的だが正規でない有限拡大として確認
+  - F_p(t^{1/p})/F_p(t) を正規だが分離的でない有限拡大として確認
+  - Q(√[4]{2},i) を x^4-2 の分解体として構成し次数8を計算
+problem_patterns:
+  - FLD2-SPLITTING-FIELD-1
+  - FLD2-FIELD-EMBEDDING-1
+  - FLD2-REPEATED-ROOT-1
+  - FLD2-SEPARABILITY-1
+  - FLD2-SPLITTING-DEGREE-1
+  - FLD2-INSEPARABLE-POSITIVE-CHARACTERISTIC-1
+  - FLD2-NORMALITY-1
+  - FLD2-INTEGRATED-EMBEDDING-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10.0, exercises: 6.0, review: 0.5 }
