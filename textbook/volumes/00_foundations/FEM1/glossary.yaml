@@ -1,0 +1,29 @@
+chapter: "FEM1"
+terms:
+  - term: Galerkin 法
+    english: Galerkin method
+    meaning: 変分問題を有限次元部分空間へ制限し、未知解と試験関数を同じ有限次元空間から選ぶ近似法。
+  - term: 適合 Galerkin 法
+    english: conforming Galerkin method
+    meaning: 離散空間 V_h が連続問題の解空間 V の部分空間 V_h subset V となる Galerkin 法。
+  - term: 試行空間
+    english: trial space
+    meaning: 近似解を探す有限次元空間。本章の適合 Galerkin 法では V_h を用いる。
+  - term: 試験空間
+    english: test space
+    meaning: 変分方程式を試す関数を選ぶ空間。本章では試行空間と同じ V_h を用いる。
+  - term: 剛性行列
+    english: stiffness matrix
+    meaning: Galerkin 基底 phi_i に対して A_ij=a(phi_j,phi_i) で定まる係数行列。Poisson 問題では勾配の内積から構成される。
+  - term: Galerkin 直交性
+    english: Galerkin orthogonality
+    meaning: 連続解 u と離散解 u_h の誤差が a(u-u_h,v_h)=0 を全ての v_h in V_h について満たす性質。
+  - term: Céa の補題
+    english: Céa's lemma
+    meaning: 有界・強圧的な適合 Galerkin 問題で、離散誤差を離散空間の最良近似誤差の M/alpha 倍で抑える準最良近似定理。
+  - term: 準最良近似性
+    english: quasi-optimality
+    meaning: 数値解の誤差が、選んだ近似空間で達成可能な最良近似誤差と定数倍の範囲で同程度になる性質。
+  - term: エネルギーノルム
+    english: energy norm
+    meaning: 対称正定値な双線形形式 a に対して ||v||_a=sqrt(a(v,v)) で定まるノルム。
