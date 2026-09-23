@@ -533,7 +533,17 @@ $$
 \operatorname{rank}d(\Phi_x)_e.
 $$
 
-従って階数は一定です。階数・退化次数の公式から
+従って階数は一定です。有限次元線形写像について
+
+$$
+\dim\mathfrak g
+=
+\dim\ker d(\Phi_x)_e
++
+\operatorname{rank}d(\Phi_x)_e
+$$
+
+なので
 
 $$
 \operatorname{rank}d(\Phi_x)
@@ -1342,7 +1352,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$X,Y\in\mathfrak g$ を取り、それぞれに対応する左不変ベクトル場を $X^L,Y^L$ とします。Maurer--Cartan 形式の定義から任意の $g\in G$ で
+$X,Y\in\mathfrak g$ を取り、それぞれに対応する左不変ベクトル場を $X^L,Y^L$ とします。[左 Maurer--Cartan 形式](#def-lie4-maurer-cartan-form)から任意の $g\in G$ で
 
 $$
 \theta_g(X^L_g)
@@ -1724,7 +1734,7 @@ $$
 <!-- solution-start -->
 ##### 詳細解答
 
-§4 の定理より $q$ は沈め込みなので
+[閉 Lie 部分群による商多様体](#thm-lie4-quotient-manifold)より $q$ は沈め込みなので
 
 $$
 dq_e:\mathfrak g\to T_{eH}(G/H)
@@ -1892,7 +1902,7 @@ $$
 (SO(3))_{e_3}\cong SO(2).
 $$
 
-$SO(3)$ は任意の単位ベクトルを任意の単位ベクトルへ送る元を持つので、作用は推移的です。§5 の定理から
+$SO(3)$ は任意の単位ベクトルを任意の単位ベクトルへ送る元を持つので、作用は推移的です。[等質空間は安定化群による商](#thm-lie4-homogeneous-quotient)から
 
 $$
 S^2
@@ -1902,7 +1912,7 @@ SO(3)/(SO(3))_{e_3}
 SO(3)/SO(2).
 $$
 
-[LIE3 の次元公式](../LIE3/index.md#thm-lie3-orthogonal)より
+[LIE3 の「直交群・特殊直交群とその Lie 環」](../LIE3/index.md#thm-lie3-orthogonal)より
 
 $$
 \dim SO(3)=\frac{3\cdot2}{2}=3,
@@ -2232,7 +2242,7 @@ $$
 H=G_0=\{(a,0):a>0\}.
 $$
 
-§5 の定理から
+[等質空間は安定化群による商](#thm-lie4-homogeneous-quotient)から
 
 $$
 G/H\cong\mathbb R.
