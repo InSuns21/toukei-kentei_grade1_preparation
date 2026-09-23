@@ -419,6 +419,7 @@
 | 制限準同型 | restriction homomorphism | 上の体の自己同型を中間体へ制限して自己同型群の間を結ぶ群準同型 |
 | 作図可能数 | constructible number | 単位長を固定した定規とコンパスの有限回の作図で実軸上の座標として得られる実数 |
 | 実二次拡大列 | tower of quadratic extensions | 各段階の拡大次数が2以下である体の塔。作図可能性では実部分体の塔を用いる |
+| 正規閉包 | normal closure | 有限拡大 $E/F$ を含む有限正規拡大のうち、固定した代数閉包内で包含関係に関して最小のもの |
 | 交換子 | commutator | 群の元 $g,h$ に対する $ghg^{-1}h^{-1}$ |
 | 交換子部分群 | commutator subgroup / derived subgroup | 全ての交換子で生成される正規部分群 $[G,G]$。導来部分群ともいう |
 | 導来列 | derived series | $G^{(0)}=G$, $G^{(i+1)}=[G^{(i)},G^{(i)}]$ と反復する部分群列 |
