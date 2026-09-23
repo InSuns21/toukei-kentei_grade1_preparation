@@ -1,0 +1,84 @@
+.numerical-lab {
+  margin: 1.1rem 0 1.6rem;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+.numerical-lab-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 0.85rem;
+  background: #f6f8fa;
+  border-bottom: 1px solid #d8dee4;
+}
+.numerical-lab-status {
+  font-size: 0.88rem;
+  color: #57606a;
+}
+.numerical-lab-status[data-kind="success"] { color: #1a7f37; font-weight: 700; }
+.numerical-lab-status[data-kind="error"] { color: #cf222e; font-weight: 700; }
+.numerical-lab-status[data-kind="busy"] { color: #8250df; font-weight: 700; }
+.numerical-lab-editor {
+  display: block;
+  width: 100%;
+  min-height: 12rem;
+  box-sizing: border-box;
+  resize: vertical;
+  border: 0;
+  border-bottom: 1px solid #d8dee4;
+  padding: 0.85rem;
+  background: #0d1117;
+  color: #e6edf3;
+  font: 13px/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  tab-size: 4;
+}
+.numerical-lab-editor:focus { outline: 2px solid var(--theme-color); outline-offset: -2px; }
+.numerical-lab-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.7rem 0.85rem;
+  border-bottom: 1px solid #d8dee4;
+}
+.numerical-lab-controls button {
+  border: 1px solid #afb8c1;
+  border-radius: 6px;
+  padding: 0.4rem 0.75rem;
+  background: #f6f8fa;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.numerical-lab-controls button.numerical-lab-run {
+  border-color: var(--theme-color);
+  background: var(--theme-color);
+  color: #fff;
+  font-weight: 700;
+}
+.numerical-lab-controls button:disabled { opacity: 0.55; cursor: wait; }
+.numerical-lab-timeout { margin-left: auto; font-size: 0.85rem; color: #57606a; }
+.numerical-lab-output {
+  min-height: 2.8rem;
+  max-height: 22rem;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 0.85rem !important;
+  overflow: auto;
+  background: #f6f8fa !important;
+  color: #24292f !important;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.numerical-lab-output.is-error { color: #82071e !important; background: #ffebe9 !important; }
+.numerical-lab-figures { display: grid; gap: 0.8rem; padding: 0 0.85rem 0.85rem; }
+.numerical-lab-figures:empty { display: none; }
+.numerical-lab-figures img { display: block; max-width: 100%; height: auto; margin: 0 auto; }
+@media (max-width: 560px) {
+  .numerical-lab-header { align-items: flex-start; flex-direction: column; gap: 0.25rem; }
+  .numerical-lab-timeout { width: 100%; margin-left: 0; }
+}
