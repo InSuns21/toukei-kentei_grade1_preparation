@@ -951,15 +951,17 @@ $$
 >
 > このとき
 >
-> $$
+> $
 > [L:K]=|H|
-> $$
+> $
 >
-> であり、さらに
+> であり、$L/K$ は有限 Galois 拡大である。
 >
-> $$
+> さらに
+>
+> $
 > \operatorname{Gal}(L/K)=H.
-> $$
+> $
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1180,43 +1182,112 @@ $$
 
 先ほどの逆向き不等式と合わせて
 
-$$
+$
 \boxed{[L:K]=n=|H|}.
-$$
+$
+
+次に $L/K$ が分離的かつ正規であることを確認します。
+
+任意の $\alpha\in L$ を取り、その $H$-軌道の相異なる元全体を
+
+$
+H\alpha
+=
+\{\beta_1,\dots,\beta_r\}
+$
+
+とします。
+
+軌道多項式
+
+$
+P_\alpha(x)
+=
+\prod_{j=1}^r(x-\beta_j)
+\in L[x]
+$
+
+を考えます。
+
+任意の $\tau\in H$ は軌道 $H\alpha$ を置換するので、
+
+$
+\tau(P_\alpha)=P_\alpha.
+$
+
+従って $P_\alpha$ の全係数は $H$ の全ての元で固定され、
+
+$
+P_\alpha\in K[x].
+$
+
+また $\alpha$ は $P_\alpha$ の根です。
+
+$\alpha$ の $K$ 上の最小多項式を $m_{\alpha,K}$ とすると、最小多項式の整除性から
+
+$
+m_{\alpha,K}\mid P_\alpha
+\qquad
+\text{in }K[x].
+$
+
+$P_\alpha$ は相異なる一次因子
+
+$
+x-\beta_1,\dots,x-\beta_r
+$
+
+の積なので重根を持たず、しかも全ての根が $L$ にあります。
+
+従って $m_{\alpha,K}$ も重根を持たず、$L[x]$ で一次式の積に分解します。
+
+$\alpha\in L$ は任意だったため、$L/K$ は分離的です。
+
+さらに $K$ 上既約な多項式が $L$ に一根 $\alpha$ を持てば、それは単元倍を除いて $m_{\alpha,K}$ なので、上の議論から全ての根が $L$ に入ります。
+
+従って $L/K$ は正規です。
+
+すでに $[L:K]<\infty$ を示したので、
+
+$
+\boxed{L/K\text{ は有限 Galois 拡大}}
+$
+
+です。
 
 最後に
 
-$$
+$
 H\subset\operatorname{Aut}_K(L)
-$$
+=
+\operatorname{Gal}(L/K)
+$
 
 です。
 
 一方、$\operatorname{Aut}_K(L)$ の相異なる元も Artin の独立性により $\operatorname{Hom}_K(L,L)$ の中で $L$ 上一次独立なので、その個数は
 
-$$
+$
 \dim_L\operatorname{Hom}_K(L,L)
 =
 [L:K]
 =
 n
-$$
+$
 
 を超えません。
 
 すでに $H$ が $n$ 個の元を持つので
 
-$$
-\boxed{\operatorname{Aut}_K(L)=H}.
-$$
-
-よって
-
-$$
-\operatorname{Gal}(L/K)=H
-$$
-
-です。
+$
+\boxed{
+\operatorname{Gal}(L/K)
+=
+\operatorname{Aut}_K(L)
+=
+H
+}.
+$
 <!-- proof-end -->
 
 この定理は非常に強力です。
