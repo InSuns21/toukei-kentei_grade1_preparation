@@ -1,0 +1,47 @@
+chapter: "GRP2"
+terms:
+  - term: 群準同型
+    english: group homomorphism
+    meaning: 群の積を保つ写像 f:G→H。すなわち f(ab)=f(a)f(b) を満たす。
+  - term: 群同型
+    english: group isomorphism
+    meaning: 全単射な群準同型。二つの群が群構造として同じであることを表す。
+  - term: 核
+    english: kernel
+    meaning: 群準同型 f:G→H に対して H の単位元へ送られる G の元全体 ker f。
+  - term: 像
+    english: image
+    meaning: 群準同型 f:G→H の値として実際に現れる元全体 Im f。
+  - term: 左剰余類
+    english: left coset
+    meaning: 部分群 H≤G と g∈G に対する集合 gH={gh:h∈H}。
+  - term: 右剰余類
+    english: right coset
+    meaning: 部分群 H≤G と g∈G に対する集合 Hg={hg:h∈H}。
+  - term: 指数
+    english: index of a subgroup
+    meaning: H の左剰余類の個数。記号 [G:H] を用いる。
+  - term: 正規部分群
+    english: normal subgroup
+    meaning: 全ての g∈G について gN=Ng、同値に gNg^{-1}=N を満たす部分群 N。
+  - term: 商群
+    english: quotient group
+    meaning: 正規部分群 N◁G の剰余類全体 G/N に (gN)(hN)=ghN を入れて得る群。
+  - term: 標準射影
+    english: canonical projection
+    meaning: 正規部分群 N◁G に対して g を剰余類 gN へ送る全射準同型 π:G→G/N。
+  - term: Lagrange の定理
+    english: Lagrange theorem
+    meaning: 有限群 G の部分群 H に対し |G|=[G:H]|H| が成り立つこと。
+  - term: 第一同型定理
+    english: first isomorphism theorem
+    meaning: 群準同型 f:G→H に対して G/ker f と Im f が自然に同型になること。
+  - term: 第二同型定理
+    english: second isomorphism theorem
+    meaning: H≤G、N◁G に対して H/(H∩N) と HN/N が自然に同型になること。
+  - term: 第三同型定理
+    english: third isomorphism theorem
+    meaning: N◁H◁G に対し H/N◁G/N かつ (G/N)/(H/N)≅G/H となること。
+  - term: 対応定理
+    english: correspondence theorem
+    meaning: N◁G を含む G の部分群と G/N の部分群が標準射影で包含を保って一対一に対応すること。
