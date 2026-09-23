@@ -532,8 +532,6 @@ MC1 → MC2 → MC3 → MC4
   ↓
 QMC1 → QMC2 → … → QMC8
   ↓
-理論 Encore V 横断監査
-  ↓
 PYNUM1
   ↓
 NUMLAB0
