@@ -44,6 +44,15 @@ concepts:
       - algebra.minimal-polynomial-theorem
       - algebra.simple-algebraic-extension-quotient
 
+  - id: algebra.algebraic-extension
+    name: 代数拡大
+    kind: definition
+    aliases: [algebraic extension]
+    introduction: formal
+    requires:
+      - algebra.field-extension
+      - algebra.algebraic-element
+
   - id: algebra.algebraically-closed-field
     name: 代数閉体
     kind: definition
@@ -62,8 +71,7 @@ concepts:
     introduction_aliases: ["定義（代数閉体・代数閉包）"]
     requires:
       - algebra.algebraically-closed-field
-      - algebra.field-extension
-      - algebra.algebraic-element
+      - algebra.algebraic-extension
 
   - id: algebra.finite-field-embedding-extension
     name: 有限代数拡大上への埋め込み延長
@@ -152,7 +160,7 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（分離多項式・分離的な元・分離拡大）"]
     requires:
-      - algebra.field-extension
+      - algebra.algebraic-extension
       - algebra.separable-element
 
   - id: algebra.irreducible-separable-derivative-criterion
@@ -182,7 +190,7 @@ concepts:
     aliases: [normal extension, normal field extension]
     introduction: formal
     requires:
-      - algebra.field-extension
+      - algebra.algebraic-extension
       - algebra.irreducible-element
 
   - id: algebra.splitting-field-embedding-stability
