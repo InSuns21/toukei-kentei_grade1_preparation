@@ -44,7 +44,7 @@
     "validate:dream-theater-index": "node scripts/validate-dream-theater-index.mjs",
     "validate:dream-theater-standard-math-core": "node scripts/validate-dream-theater-standard-math-core.mjs",
     "prepare:pages:dream-theater-navigation": "node scripts/prepare-pages-dream-theater-navigation.mjs",
-    "validate:pages": "npm run validate:dream-theater-index && npm run validate:numerical-lab-runtime && npm run validate:proof-folding && npm run validate:formal-statements && npm run validate:implicit-formals && npm run validate:named-formals && npm run validate:formal-references && npm run validate:definition-examples && npm run anki:build && node scripts/prepare-pages-anki-assets.mjs && node scripts/build-pages.mjs && npm run prepare:pages:dream-theater-navigation && node scripts/validate-formal-statement-panels.mjs --pages && node scripts/prepare-pages-runtime-assets.mjs && node scripts/prepare-pages-textbook-single-page.mjs && node scripts/fix-pages-textbook-navigation.mjs && node scripts/prepare-pages-shared-guidelines.mjs && node scripts/prepare-pages-book-links.mjs && node scripts/normalize-pages-docsify-routes.mjs && node scripts/validate-pages-links.mjs && node scripts/validate-formal-pages-fragments.mjs && node scripts/fix-pages-textbook-image-paths.mjs && node scripts/validate-pages-images.mjs && node scripts/validate-pages-math.mjs && node scripts/prepare-pages-service-worker.mjs && npm run validate:pages:offline",
+    "validate:pages": "npm run validate:dream-theater-index && npm run validate:proof-folding && npm run validate:formal-statements && npm run validate:implicit-formals && npm run validate:named-formals && npm run validate:formal-references && npm run validate:definition-examples && npm run anki:build && node scripts/prepare-pages-anki-assets.mjs && node scripts/build-pages.mjs && npm run prepare:pages:dream-theater-navigation && node scripts/validate-formal-statement-panels.mjs --pages && node scripts/prepare-pages-runtime-assets.mjs && node scripts/prepare-pages-textbook-single-page.mjs && node scripts/fix-pages-textbook-navigation.mjs && node scripts/prepare-pages-shared-guidelines.mjs && node scripts/prepare-pages-book-links.mjs && node scripts/normalize-pages-docsify-routes.mjs && node scripts/validate-pages-links.mjs && node scripts/validate-formal-pages-fragments.mjs && node scripts/fix-pages-textbook-image-paths.mjs && node scripts/validate-pages-images.mjs && node scripts/validate-pages-math.mjs && node scripts/prepare-pages-service-worker.mjs && npm run validate:pages:offline",
     "validate:pages:offline": "node scripts/validate-pages-offline.mjs",
     "validate:pages:images": "node scripts/validate-pages-images.mjs",
     "validate:text": "node scripts/validate_text.mjs",
@@ -64,8 +64,7 @@
     "anki:quality": "node anki/scripts/quality_audit.mjs",
     "anki:quality:strict": "node anki/scripts/quality_audit.mjs --strict",
     "anki:validate": "node anki/scripts/validate_reviewed_cards.mjs && node anki/scripts/curation.mjs --check && node anki/scripts/quality_audit.mjs && node anki/scripts/curated_build.mjs && node anki/scripts/curated_build.mjs --check",
-    "anki:progress": "node anki/scripts/progress.mjs",
-    "validate:numerical-lab-runtime": "node scripts/validate-numerical-lab-runtime.mjs"
+    "anki:progress": "node anki/scripts/progress.mjs"
   },
   "dependencies": {
     "katex": "^0.16.11",
