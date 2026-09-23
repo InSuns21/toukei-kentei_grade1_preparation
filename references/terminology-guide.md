@@ -383,6 +383,15 @@
 | 基本因子 | elementary divisor | PID 上有限生成ねじれ加群の巡回直和分解に現れる素元冪 |
 | 巡回加群 | cyclic module | 一つの元で生成される加群。PID 上では $R/(d)$ が基本例 |
 | 有限生成 Abel 群の構造定理 | fundamental theorem of finitely generated abelian groups | 有限生成 Abel 群を自由部分と有限個の巡回群の直和へ分類する定理 |
+| 体拡大 | field extension | 体 $F$ を部分体として含む体 $K$ を $K/F$ として扱う関係 |
+| 中間体 | intermediate field | 体拡大 $L/F$ に対し $F\subset K\subset L$ を満たす体 $K$ |
+| 拡大次数 | degree of a field extension | 拡大体 $K$ を基礎体 $F$ 上のベクトル空間とみた次元 $[K:F]$ |
+| 塔の公式 | tower law | $F\subset K\subset L$ に対し、有限次数なら $[L:F]=[L:K][K:F]$ とする公式 |
+| 代数的元 | algebraic element | 基礎体 $F$ 係数のある非零多項式の根になる拡大体の元 |
+| 超越的元 | transcendental element | 基礎体 $F$ 係数のどの非零多項式の根にもならない元 |
+| 最小多項式 | minimal polynomial | 代数的元 $\alpha$ を根に持つ $F[x]$ のモニック既約多項式。$\alpha$ を根に持つ任意の多項式を割る |
+| 単純拡大 | simple extension | 一つの元 $\alpha$ を基礎体 $F$ に添加して得られる最小の部分体 $F(\alpha)$ |
+| 単純代数拡大 | simple algebraic extension | $F$ 上代数的な一つの元 $\alpha$ により生成される単純拡大 $F(\alpha)/F$ |
 
 ## DREAM THEATER：数値解析の主表記
 

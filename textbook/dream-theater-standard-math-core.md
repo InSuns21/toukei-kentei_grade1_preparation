@@ -1089,6 +1089,24 @@ direct prerequisite は RNG4 と LA2 です。RNG4 の環・多項式環と LA2 
 
 direct prerequisite は MOD1、RNG4、LA3B です。MOD1 の自由加群・商加群・ねじれ・$F[x]$-加群、RNG3--RNG4 で閉じた PID・UFD・多項式環の理論に加え、Smith 不変因子の一意性で使う LA3B の行列式を再利用します。Jordan 標準形は LA4 に既存の証明があるため重複再証明せず、加群構造論がその分類を統一的に説明するところまでを担当します。
 
+
+## FLD1 体拡大・代数的元・最小多項式 `core`
+
+- 体拡大 $K/F$ を $F$-ベクトル空間として読み、拡大次数 $[K:F]$ を定義
+- 中間体 $F\subset K\subset L$ に対する塔の公式 $[L:F]=[L:K][K:F]$ を、基底の積から証明
+- 有限拡大の元が代数的であることを $1,\alpha,\ldots,\alpha^n$ の一次従属から証明
+- 代数的元・超越的元を区別し、評価準同型の核から最小多項式を構成
+- 最小多項式の存在・一意性・既約性と、$f(\alpha)=0\iff m_\alpha\mid f$ を証明
+- 単純拡大 $F(\alpha)$ と $F[\alpha]$ を比較し、代数的な場合に両者が一致することを証明
+- 環の第一同型定理と Bézout 等式から $F(\alpha)\cong F[x]/(m_\alpha)$ を導出
+- $[F(\alpha):F]=\deg m_\alpha$ を証明し、既約多項式 $p$ から $F[x]/(p)$ に根を構成
+- $\mathbb Q(\sqrt2)$、$\mathbb Q(\sqrt[3]{2})$、$F(t)$、$\mathbb F_3[x]/(x^2+1)$ を直接例として計算
+- A4/B3/C1 の演習で次数、塔の公式、最小多項式、商体、超越元、素数次数拡大の中間体制約を再構成
+
+実装: [FLD1](volumes/00_foundations/FLD1/index.md)
+
+direct prerequisite は RNG4 と LA1 です。RNG4 の多項式除法、$F[x]$ の Euclid 整域性、既約多項式、Eisenstein の既約判定に加え、LA1 のベクトル空間・基底・次元・一次独立を再利用し、体拡大の次数と単純代数拡大を canonical に閉じます。分解体・分離性・正規性は先取りせず FLD2 へ送ります。
+
 ---
 
 # 6. 測度論：標準教科書の第2段階
