@@ -23,7 +23,7 @@ definitions:
   - { id: FEM5-DEF-03, name: Stokes 方程式の速度–圧力弱形式 }
   - { id: FEM5-DEF-04, name: Stokes 混合有限要素法 }
 theorems:
-  - { id: FEM5-LEM-01, name: inf-sup 条件による 有界な持ち上げ }
+  - { id: FEM5-LEM-01, name: inf-sup 条件による有界な持ち上げ }
   - { id: FEM5-THM-01, name: 鞍点問題の Babuška--Brezzi 型存在一意性 }
   - { id: FEM5-THM-02, name: 連続 Stokes inf-sup 条件 }
   - { id: FEM5-THM-03, name: Stokes 速度–圧力弱解の存在一意性 }
