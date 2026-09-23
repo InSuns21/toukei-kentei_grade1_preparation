@@ -188,7 +188,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo19-connection-form -->
-**定義の確認：Euclid 平面の 標準座標標構**
+**定義の確認：Euclid 平面の標準座標標構**
 
 標準 Euclid 平面で
 
@@ -1718,7 +1718,7 @@ $$
 <!-- solution-start -->
 **解答**
 
-標準 標準座標標構では $\omega=0$ です。
+標準座標標構では $\omega=0$ です。
 
 標構変換則より
 
@@ -1894,7 +1894,7 @@ $$
 
 $$
 \boxed{
-\Sigma_2 \text{ は } K\ge0 \text{ everywhere の計量を持てない}
+\Sigma_2 \text{ は全点で } K\ge0 \text{ となる計量を持てない}
 }.
 $$
 <!-- solution-end -->
