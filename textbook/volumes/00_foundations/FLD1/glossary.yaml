@@ -1,0 +1,29 @@
+chapter: "FLD1"
+terms:
+  - term: 体拡大
+    english: field extension
+    meaning: 体 F を部分体として含む体 K を K/F と書いて扱う関係。
+  - term: 中間体
+    english: intermediate field
+    meaning: 体拡大 L/F に対し F⊂K⊂L を満たす体 K。
+  - term: 拡大次数
+    english: degree of a field extension
+    meaning: K を F-ベクトル空間とみた次元 [K:F]。
+  - term: 塔の公式
+    english: tower law
+    meaning: F⊂K⊂L で有限次数なら [L:F]=[L:K][K:F] とする次数の乗法公式。
+  - term: 代数的元
+    english: algebraic element
+    meaning: 係数を基礎体 F に持つ非零多項式の根になる拡大体の元。
+  - term: 超越的元
+    english: transcendental element
+    meaning: F 上のどの非零多項式の根にもならない拡大体の元。
+  - term: 最小多項式
+    english: minimal polynomial
+    meaning: 代数的元 α を根に持つ F[x] のモニック既約多項式。α を根に持つ任意の多項式を割る。
+  - term: 単純拡大
+    english: simple extension
+    meaning: 一つの元 α を基礎体 F に添加して得られる最小の部分体 F(α)。
+  - term: 単純代数拡大
+    english: simple algebraic extension
+    meaning: 代数的元 α によって生成される単純拡大 F(α)/F。
