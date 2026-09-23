@@ -9,33 +9,33 @@ $K\subset\mathbb R^d$ を要素、$P$ を $K$ 上の有限次元関数空間と�
 
 $P$ 上の線形汎関数の集合
 
-$
+$$
 \mathcal N
 =
 \{N_1,\ldots,N_m\}
-$
+$$
 
 が $P^*$ の基底をなし、従って各
 
-$
+$$
 p\in P
-$
+$$
 
 が値
 
-$
+$$
 N_1(p),\ldots,N_m(p)
-$
+$$
 
 によって一意に定まるとする。
 
 このとき三つ組
 
-$
+$$
 \boxed{
 (K,P,\mathcal N)
 }
-$
+$$
 
 を **有限要素**という。
 
@@ -47,51 +47,51 @@ $N_i$ を **自由度**という。
 
 ### 例：区間上の一次要素
 
-$
+$$
 K=[0,1],
 \qquad
 P=\{p(x)=a+bx:a,b\in\mathbb R\}
-$
+$$
 
 とし、
 
-$
+$$
 N_1(p)=p(0),
 \qquad
 N_2(p)=p(1)
-$
+$$
 
 とします。
 
-$
+$$
 N_1(p)=c_1,
 \qquad
 N_2(p)=c_2
-$
+$$
 
 を指定すると
 
-$
+$$
 a=c_1,
 \qquad
 a+b=c_2
-$
+$$
 
 なので
 
-$
+$$
 a=c_1,
 \qquad
 b=c_2-c_1.
-$
+$$
 
 従って
 
-$
+$$
 \boxed{
 p(x)=c_1+(c_2-c_1)x
 }
-$
+$$
 
 と一意に復元できます。
 
@@ -314,19 +314,19 @@ $$
 
 一次三角形要素では、
 
-$
+$$
 K=\operatorname{conv}\{z_1,z_2,z_3\},
-$
+$$
 
-$
+$$
 P=P_1(K),
-$
+$$
 
-$
+$$
 N_i(p)=p(z_i)
 \qquad
 (i=1,2,3)
-$
+$$
 
 と取ります。
 
@@ -1784,21 +1784,21 @@ $$
 
 要素
 
-$
+$$
 K=\operatorname{conv}\{z_{i_1},z_{i_2},z_{i_3}\}
-$
+$$
 
 上の局所節点基底を
 
-$
+$$
 \lambda_1^K,\lambda_2^K,\lambda_3^K
-$
+$$
 
 とする。
 
 Poisson 方程式の双線形形式に対し、
 
-$
+$$
 \boxed{
 A^K_{ab}
 =
@@ -1809,20 +1809,20 @@ A^K_{ab}
 }
 \qquad
 (a,b=1,2,3)
-$
+$$
 
 で定まる 3 行 3 列行列 $A^K$ を **局所剛性行列**という。
 
 また右辺 $f$ に対して
 
-$
+$$
 \boxed{
 b_a^K
 =
 \int_K
 f\lambda_a^K\,dx
 }
-$
+$$
 
 で定まるベクトル $b^K$ を **局所荷重ベクトル**という。
 <!-- formal-statement-end -->
@@ -1897,7 +1897,7 @@ $$
 
 を使えば
 
-$
+$$
 \boxed{
 A^K_{ab}
 =
@@ -1912,11 +1912,11 @@ B_K^{-\mathsf T}
 \nabla\widehat\lambda_a
 \right)
 }.
-$
+$$
 
 特に $K=\widehat K$ なら $B_K=I$ なので
 
-$
+$$
 A^{\widehat K}
 =
 \begin{pmatrix}
@@ -1924,14 +1924,14 @@ A^{\widehat K}
 -1/2&1/2&0\\
 -1/2&0&1/2
 \end{pmatrix}.
-$
+$$
 
 これは定義どおり、局所節点基底の勾配同士の内積を要素上で積分した行列です。
 <!-- definition-example-end -->
 
 局所荷重ベクトルも基準要素へ移せば
 
-$
+$$
 b_a^K
 =
 |\det B_K|
@@ -1939,7 +1939,7 @@ b_a^K
 f(F_K(\widehat x))
 \widehat\lambda_a(\widehat x)
 \,d\widehat x.
-$
+$$
 
 ---
 
