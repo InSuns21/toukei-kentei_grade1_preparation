@@ -20,9 +20,10 @@ learning_objectives:
 definitions:
   - { id: LIE2-DEF-01, name: 1パラメータ部分群 }
   - { id: LIE2-DEF-02, name: Lie 群の指数写像 }
-  - { id: LIE2-DEF-03, name: 共役自己同型 }
-  - { id: LIE2-DEF-04, name: 随伴表現 Ad }
-  - { id: LIE2-DEF-05, name: 無限小随伴作用 ad }
+  - { id: LIE2-DEF-03, name: 行列指数関数 }
+  - { id: LIE2-DEF-04, name: 共役自己同型 }
+  - { id: LIE2-DEF-05, name: 随伴表現 Ad }
+  - { id: LIE2-DEF-06, name: 無限小随伴作用 ad }
 theorems:
   - { id: LIE2-THM-01, name: 1パラメータ部分群と単位元接ベクトルの一対一対応 }
   - { id: LIE2-THM-02, name: 指数写像の基本性質 }
