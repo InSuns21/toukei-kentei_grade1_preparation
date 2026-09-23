@@ -1,0 +1,44 @@
+chapter: "GRP1"
+terms:
+  - term: 群
+    english: group
+    meaning: 結合則を満たす二項演算について、単位元と各元の逆元を持つ集合。
+  - term: 可換群
+    english: abelian group
+    meaning: 任意の二元 a,b について ab=ba が成り立つ群。
+  - term: 部分群
+    english: subgroup
+    meaning: 群 G の部分集合で、G の演算を制限するとそれ自身が群になるもの。
+  - term: 生成部分群
+    english: generated subgroup
+    meaning: 与えた元を含む最小の部分群。有限積と逆元を用いた語として具体化できる。
+  - term: 元の位数
+    english: order of an element
+    meaning: a^m=e となる最小の正整数 m。存在しないときは無限位数という。
+  - term: 巡回群
+    english: cyclic group
+    meaning: ある一元 g の整数冪だけで全要素が得られる群。
+  - term: 直積群
+    english: direct product group
+    meaning: G×H に成分ごとの積 (g,h)(g',h')=(gg',hh') を入れて得る群。
+  - term: 置換
+    english: permutation
+    meaning: 集合 X から X への全単射。合成により群をなす。
+  - term: 対称群
+    english: symmetric group
+    meaning: 集合 X の全置換からなる群 Sym(X)。X={1,...,n} のとき S_n と書く。
+  - term: 巡回置換
+    english: cycle
+    meaning: ある有限個の点を一周させ、それ以外を固定する置換。
+  - term: 置換の偶奇
+    english: parity of a permutation
+    meaning: inversion 数の偶奇、同値に任意の互換分解に現れる互換個数の偶奇。
+  - term: 交代群
+    english: alternating group
+    meaning: S_n の偶置換全体からなる部分群 A_n。
+  - term: 二面体群
+    english: dihedral group
+    meaning: 正 n 角形の回転と反転からなる対称性の群。ここでは位数 2n の D_n とする。
+  - term: Cayley の定理
+    english: Cayley theorem
+    meaning: 任意の群が左移動によってある置換群の部分群として忠実に実現できることをいう。
