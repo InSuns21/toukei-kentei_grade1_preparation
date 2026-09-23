@@ -376,7 +376,7 @@ $$
 
 有限個の点では「完全に一様」は通常不可能です。そこで点数を増やした極限を考えます。
 
-<a id="def-qmc1-uniform-distribution"></a>
+<a id="def-qmc1-uniform-sequence"></a>
 <!-- formal-statement-start -->
 ### 定義（一様分布する点列）
 
@@ -1311,7 +1311,7 @@ g_u(\boldsymbol t_u)
 d\boldsymbol t_u.
 $$
 
-$t_j=x_{n,j}$ となる超平面は Lebesgue 測度0なので、積分値には影響せず、$\le$ を $<$ に置き換えられます。
+$t_j=x_{n,j}$ となる点の集合は Lebesgue 測度0なので、積分値には影響せず、$\le$ を $<$ に置き換えられます。
 
 従って角括弧は、残りの座標を1にしたアンカー付き直方体への点数比
 
