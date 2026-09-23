@@ -509,7 +509,7 @@ FEM1 では、GPDE6 の Poisson 変分形式と双線形形式の有界性・強
 
 FEM2 では FEM1 の有限次元 Galerkin 空間を、適合三角形分割・参照要素・局所基底・大域組立てとして具体化する。FEM3 では節点補間、形状正則性、局所補間誤差と大域化を扱う。FEM4 では Céa の補題と補間誤差を接続して H1 誤差を導き、Aubin--Nitsche 型双対論法で L2 誤差を評価する。
 
-FEM5 では、強圧型一変分方程式から制約付き鞍点問題へ進み、制約核上の強圧性と inf-sup 条件から Babuška--Brezzi 型存在一意性を導く。Stokes 方程式では圧力を非圧縮制約の Lagrange 乗数として定式化し、混合有限要素法、離散 inf-sup、Schur 補行列、偽圧力モード、Taylor--Hood 要素の位置付けまで扱う。
+FEM5 では、強圧型一変分方程式から制約付き鞍点問題へ進み、制約核上の強圧性と inf-sup 条件から Babuška--Brezzi 型存在一意性を導く。Stokes 方程式では圧力を発散零制約の Lagrange 乗数として定式化し、混合有限要素法、離散 inf-sup、Schur 補行列、偽圧力モード、Taylor--Hood 要素の位置付けまで扱う。
 
 後続の FEM6–FEM7、MC1–MC4、QMC1–QMC8 は DREAM_THEATER_ENCORE_V_REWRITE_PLAN.md の計画対象であり、各講の実装完了時に実際の直接依存だけを追加する。
 
