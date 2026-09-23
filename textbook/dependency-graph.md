@@ -232,6 +232,8 @@ FLD5 は FLD4 と GRP4 を直接 prerequisite とする。定規とコンパス�
 
 LIE1 は GRP2 と GEO5 を直接 prerequisite とする。群演算が滑らかな多様体として Lie 群を導入し、左移動・右移動が微分同相であることから単位元接空間の各ベクトルを一意な左不変ベクトル場へ拡張する。$F$-関連性が Lie 括弧で保たれることを証明して左不変場の閉性を導き、$T_eG$ に Lie 環構造を移す。さらに Lie 群準同型の微分が Lie 環準同型になることを示し、$GL(n,\mathbb R)$ では $\mathfrak{gl}(n,\mathbb R)=M_n(\mathbb R)$ と $[A,B]=AB-BA$ を直接計算する。1パラメータ部分群・指数写像・Adjoint 表現は LIE2 へ送る。
 
+LIE2 は LIE1、GRP3、ODE4 を直接 prerequisite とする。単位元接ベクトルに対応する左不変ベクトル場が完備であることを群の左移動と積分曲線の一意性から証明し、1パラメータ部分群との一対一対応と Lie 群の指数写像を構成する。$d\exp_0=\operatorname{id}$ と局所微分同相性、Lie 群準同型との自然性、$GL(n,\mathbb R)$ での行列指数関数との一致を閉じる。GRP3 の共役作用を滑らかな共役自己同型へ持ち上げ、$\operatorname{Ad}_g=d(C_g)_e$ の準同型性を直接確認し、さらに $\operatorname{ad}=d(\operatorname{Ad})_e$ と GEO5 の流れによる Lie 括弧の解釈から $\operatorname{ad}_X(Y)=[X,Y]$、$\operatorname{Ad}_{\exp X}=\exp(\operatorname{ad}_X)$ を証明する。Baker--Campbell--Hausdorff 理論は群交換子の混合二階微分が $[X,Y]$ になる入口までとし、Lie 部分群・古典群は LIE3 へ送る。
+
 ---
 
 ## 完全基礎論（DREAM THEATER）
