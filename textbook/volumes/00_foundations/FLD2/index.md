@@ -422,7 +422,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$K[\alpha]=K(\alpha)$ は [FLD1 の単純代数拡大の商多項式環表示](../FLD1/index.md#thm-fld1-simple-extension-quotient)から成り立ちます。
+$K[\alpha]=K(\alpha)$ は [FLD1 の単純代数拡大の商多項式環表示](../FLD1/index.md#thm-fld1-simple-algebraic-quotient)から成り立ちます。
 
 そこで
 
