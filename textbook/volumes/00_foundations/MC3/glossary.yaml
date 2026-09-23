@@ -1,0 +1,32 @@
+chapter: "MC3"
+terms:
+  - term: 分散減少法
+    english: variance reduction
+    meaning: 推定対象の期待値を保ちながら、相関・補助変数・層・提案分布などを設計して同じ計算予算で推定量の分散を小さくする方法の総称。
+  - term: 対称変量法
+    english: antithetic variates
+    meaning: 同じ周辺分布を持つ負に相関した標本を組にし、その平均で分散を減らす方法。U と 1-U の組が代表例。
+  - term: 対照変量法
+    english: control variates
+    meaning: 期待値が既知で推定対象と相関する補助変数を使い、既知平均からのずれを差し引いて分散を減らす方法。
+  - term: 対照変量
+    english: control variate
+    meaning: 対照変量法で利用する、期待値が既知または高精度に既知で推定対象と相関する補助確率変数。
+  - term: 層化抽出
+    english: stratified sampling
+    meaning: 標本空間を互いに素な層へ分け、各層から標本を取り、層確率で重み付けして全体の期待値を推定する方法。
+  - term: 比例配分
+    english: proportional allocation
+    meaning: 層確率 p_k に比例して n_k=N p_k と標本数を配る層化抽出の配分法。
+  - term: 最適配分
+    english: optimal allocation
+    meaning: 層化推定量の分散を総標本数一定の下で最小化する配分。標本費用が同じなら n_k は p_k sigma_k に比例する。
+  - term: 重点サンプリング
+    english: importance sampling
+    meaning: 目標分布とは異なる提案分布から標本を生成し、密度比 p/q で重み付けして期待値を保ちながら分散低下を狙う方法。
+  - term: 重点重み
+    english: importance weight
+    meaning: 重点サンプリングで分布変更を補正する密度比 p(x)/q(x)。被積分関数を掛けた重み付き量の二次モーメントが分散を決める。
+  - term: 台条件
+    english: support condition
+    meaning: f(x)p(x) が0でない領域を提案密度 q が覆うこと。重点サンプリングの不偏性に必要。
