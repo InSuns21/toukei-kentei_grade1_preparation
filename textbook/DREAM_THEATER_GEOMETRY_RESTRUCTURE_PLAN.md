@@ -739,7 +739,7 @@ GRP3 の群作用・共役を滑らかな自己同型へ持ち上げ、`Ad` を�
 
 ### LIE4 Lie 群作用・軌道・等質空間・Maurer--Cartan
 
-**prerequisites:** LIE3, GRP3, GEO3
+**prerequisites:** LIE3, GRP3, GEO3, GEO7
 
 - 滑らかな群作用
 - 軌道・安定化群
@@ -750,7 +750,7 @@ GRP3 の群作用・共役を滑らかな自己同型へ持ち上げ、`Ad` を�
 
 GRP3 の集合上の群作用・軌道・安定化群を再定義せず、滑らかさと多様体構造を追加して Lie 群作用へ進む。
 
-表現論、半単純 Lie 環、root system、principal bundle / gauge theory は LIE1--LIE4 の停止線の外とする。
+表現論、半単純 Lie 環、ルート系、主束 / ゲージ理論は LIE1--LIE4 の停止線の外とする。
 
 ---
 
@@ -798,7 +798,7 @@ GRP2 準同型・剰余類・正規部分群・商群
   ↓                                      ├→ MOD1 → MOD2
 GRP3 群作用・軌道・共役                  └→ FLD1 → FLD2 → FLD3 → FLD4 → FLD5
   ├──────────────→ LIE2 + LIE1 + ODE4
-  ├──────────────→ LIE4 + LIE3 + GEO3
+  ├──────────────→ LIE4 + LIE3 + GEO3 + GEO7
   ↓
 GRP4 Cauchy・Sylow・有限群
 （抽象代数全系列は別計画を正本とする）
@@ -993,9 +993,9 @@ Phase 4 完了。GEO15 → GEO16 → GEO17 → GEO18 → GEO19 を完了し、�
 - LIE1 Lie 群・Lie 環・不変ベクトル場 ✅ 2026-09-24
 - LIE2 1 パラメータ部分群・指数写像・Adjoint 表現 ✅ 2026-09-24
 - LIE3 Lie 部分群・古典群 ✅ 2026-09-24
-- LIE4 Lie 群作用・軌道・等質空間・Maurer--Cartan
+- LIE4 Lie 群作用・軌道・等質空間・Maurer--Cartan ✅ 2026-09-24
 
-LIE1 は GRP2 + GEO5、LIE2 は LIE1 + GRP3 + ODE4、LIE3 は LIE2 + LA6 + GEO3 を direct prerequisite として実装済み。LIE3 では Lie 部分群と指数写像の整合性を閉じ、閉部分群定理を位置付けた上で $SL(n)$、$O(n)$、$SO(n)$、$U(n)$、$SU(n)$ の接 Lie 環を定義方程式の微分から直接計算した。次の実装対象は **LIE4「Lie 群作用・軌道・等質空間・Maurer--Cartan」** とする。reader-facing の標準読順では Riemann 幾何主線を抽象代数・Lie 群なしで完走できる構成を維持する。
+LIE1 は GRP2 + GEO5、LIE2 は LIE1 + GRP3 + ODE4、LIE3 は LIE2 + LA6 + GEO3、LIE4 は LIE3 + GRP3 + GEO3 + GEO7 を direct prerequisite として実装済み。LIE4 では滑らかな作用から軌道写像・安定化 Lie 環・商多様体・等質空間を構成し、基本ベクトル場の反準同型性と Maurer--Cartan 方程式まで閉じた。Maurer--Cartan 方程式は外微分を本質的に使うため、当初計画へ GEO7 を実証明依存として追加した。LIE1--LIE4 の基本系列は完了とし、reader-facing の標準読順では Riemann 幾何主線を抽象代数・Lie 群なしで完走できる構成を維持する。
 
 ---
 
@@ -1134,7 +1134,7 @@ LIE2 指数写像・Adjoint   ← GRP3 + ODE4
   ↓
 LIE3 Lie 部分群・古典群 ← LA6 + GEO3
   ↓
-LIE4 Lie 群作用・等質空間・Maurer--Cartan ← GRP3 + GEO3
+LIE4 Lie 群作用・等質空間・Maurer--Cartan ← GRP3 + GEO3 + GEO7
 ```
 
 として伸ばす。抽象代数側では群・環・体の学部標準コアを15講で独立に完結させ、Lie 系列は GRP2--GRP3 までを直接再利用する。表現論はこの主線の前提ではなく、LIE1--LIE4 の後続系列とする。
