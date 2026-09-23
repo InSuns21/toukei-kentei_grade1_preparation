@@ -175,12 +175,23 @@ concepts:
       - algebra.kummer-prime-cyclic-extension
       - algebra.fundamental-theorem-finite-galois
 
+  - id: algebra.simple-group
+    name: 単純群
+    kind: definition
+    aliases: [simple group]
+    introduction: formal
+    introduction_aliases: ["定義（単純群）"]
+    requires:
+      - algebra.normal-subgroup
+      - algebra.group
+
   - id: algebra.a5-simple-s5-nonsolvable
     name: A_5 の単純性と S_5 の非可解性
     kind: theorem
     aliases: []
     introduction: formal
     requires:
+      - algebra.simple-group
       - algebra.alternating-group
       - algebra.conjugation-action
       - algebra.lagrange-theorem
