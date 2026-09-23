@@ -152,6 +152,12 @@
 | Lie 環準同型 | Lie algebra homomorphism | 線形写像で Lie 括弧を保存する写像 |
 | 一般線形群 | general linear group | 可逆な $n$ 次実正方行列全体 $GL(n,\mathbb R)$ |
 | 全行列 Lie 環 | general linear Lie algebra | 全行列空間 $M_n(\mathbb R)$ に $[A,B]=AB-BA$ を入れた Lie 環 $\mathfrak{gl}(n,\mathbb R)$ |
+| 1パラメータ部分群 | one-parameter subgroup | 実数加法群 $(\mathbb R,+)$ から Lie 群への滑らかな Lie 群準同型 |
+| Lie 群の指数写像 | exponential map of a Lie group | $X\in T_eG$ を、初速度 $X$ を持つ1パラメータ部分群の時刻1の値へ送る写像。Riemann 幾何の測地線指数写像と文脈で区別する |
+| 共役自己同型 | conjugation automorphism | $C_g(h)=ghg^{-1}$ で定まる Lie 群自己同型 |
+| 随伴表現 | adjoint representation | $\operatorname{Ad}_g=d(C_g)_e$ により定まる $\operatorname{Ad}:G\to GL(\mathfrak g)$。本文では「Adjoint 表現」を主語彙にしない |
+| 無限小随伴作用 | infinitesimal adjoint action | $\operatorname{ad}=d(\operatorname{Ad})_e$。$\operatorname{ad}_X(Y)=[X,Y]$ |
+| Baker--Campbell--Hausdorff 公式 | Baker--Campbell--Hausdorff formula | 人名部分は英字表記を保持。指数座標で群積を反復 Lie 括弧により記述する公式 |
 | 線形分布 | distribution / smooth distribution | 多様体上の一定階数の接方向の族。必要なら「滑らかな線形分布」と明示 |
 | 積分多様体 | integral manifold | 線形分布の接方向を実現するはめ込み多様体 |
 | 対合的な分布 | involutive distribution | Lie 括弧で閉じている線形分布 |
