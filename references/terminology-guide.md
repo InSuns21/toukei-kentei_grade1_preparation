@@ -154,7 +154,6 @@
 | 全行列 Lie 環 | general linear Lie algebra | 全行列空間 $M_n(\mathbb R)$ に $[A,B]=AB-BA$ を入れた Lie 環 $\mathfrak{gl}(n,\mathbb R)$ |
 | 1パラメータ部分群 | one-parameter subgroup | 実数加法群 $(\mathbb R,+)$ から Lie 群への滑らかな Lie 群準同型 |
 | Lie 群の指数写像 | exponential map of a Lie group | $X\in T_eG$ を、初速度 $X$ を持つ1パラメータ部分群の時刻1の値へ送る写像。Riemann 幾何の測地線指数写像と文脈で区別する |
-| 行列指数関数 | matrix exponential | $e^A=\sum_{k=0}^\infty A^k/k!$。一般線形群の Lie 群指数写像と一致する |
 | 共役自己同型 | conjugation automorphism | $C_g(h)=ghg^{-1}$ で定まる Lie 群自己同型 |
 | 随伴表現 | adjoint representation | $\operatorname{Ad}_g=d(C_g)_e$ により定まる $\operatorname{Ad}:G\to GL(\mathfrak g)$。本文では「Adjoint 表現」を主語彙にしない |
 | 無限小随伴作用 | infinitesimal adjoint action | $\operatorname{ad}=d(\operatorname{Ad})_e$。$\operatorname{ad}_X(Y)=[X,Y]$ |
