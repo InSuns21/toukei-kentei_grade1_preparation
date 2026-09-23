@@ -7,13 +7,22 @@ prerequisites:
 forward_references: []
 
 concepts:
+  - id: numerical.anchored-box
+    name: アンカー付き直方体
+    kind: definition
+    aliases: [anchored box]
+    introduction: formal
+    introduction_aliases: ["定義（アンカー付き直方体と局所ディスクレパンシー）"]
+    requires: []
+
   - id: numerical.qmc-local-discrepancy
     name: 局所ディスクレパンシー
     kind: definition
     aliases: [local discrepancy]
     introduction: formal
     introduction_aliases: ["定義（アンカー付き直方体と局所ディスクレパンシー）"]
-    requires: []
+    requires:
+      - numerical.anchored-box
 
   - id: numerical.star-discrepancy
     name: スター・ディスクレパンシー
@@ -48,8 +57,7 @@ concepts:
     aliases: [quasi-Monte Carlo rule, QMC rule]
     introduction: formal
     introduction_aliases: ["定義（準 Monte Carlo 求積則）"]
-    requires:
-      - numerical.monte-carlo-estimator
+    requires: []
 
   - id: numerical.vitali-variation
     name: Vitali 変動
