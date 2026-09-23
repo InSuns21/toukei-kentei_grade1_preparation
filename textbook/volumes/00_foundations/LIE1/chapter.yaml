@@ -14,7 +14,7 @@ learning_objectives:
   - 実 Lie 環を定義し、Lie 群の単位元の接空間に自然な Lie 環構造が入ることを説明できる
   - 滑らかな群準同型の単位元での微分が Lie 環準同型になることを証明できる
   - 加法群 R^n、正の実数の乗法群、2次元アフィン群、一般線形群 GL(n,R) の Lie 群構造を直接確認できる
-  - GL(n,R) の Lie 環を全行列空間と同一視し、Lie 括弧が行列交換子 AB-BA になることを導ける
+  - GL(n,R) の Lie 環を全行列空間と同一視し、Lie 括弧が差 AB-BA になることを導ける
 definitions:
   - { id: LIE1-DEF-01, name: Lie 群 }
   - { id: LIE1-DEF-02, name: 左移動・右移動 }
@@ -29,8 +29,8 @@ theorems:
   - { id: LIE1-PROP-02, name: 左不変ベクトル場は Lie 括弧で閉じる }
   - { id: LIE1-THM-02, name: 単位元の接空間の Lie 環構造 }
   - { id: LIE1-THM-03, name: Lie 群準同型の微分は Lie 環準同型 }
-  - { id: LIE1-PROP-03, name: 一般線形群 GL(n,R) は Lie 群 }
-  - { id: LIE1-THM-04, name: gl(n,R) の Lie 括弧は行列交換子 }
+  - { id: LIE1-PROP-03, name: 一般線形群は Lie 群 }
+  - { id: LIE1-THM-04, name: 全行列 Lie 環の Lie 括弧 }
 canonical_examples:
   - 加法 Lie 群 R^n と零 Lie 括弧
   - 正の実数の乗法 Lie 群と x∂x 型の左不変ベクトル場
