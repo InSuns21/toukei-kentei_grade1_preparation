@@ -71,7 +71,7 @@ concepts:
       - algebra.zero-divisor
 
   - id: algebra.field
-    name: 体
+    name: 代数学の体
     kind: definition
     aliases: [field]
     introduction: formal
