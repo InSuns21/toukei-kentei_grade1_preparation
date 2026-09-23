@@ -980,7 +980,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lie2-adjoint-representation -->
-**定義の確認：一般線形群**
+**定義の確認**
+
+一般線形群の場合を計算します。
 
 $G=GL(n,\mathbb R)$ とします。
 
@@ -1231,7 +1233,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lie2-infinitesimal-adjoint -->
-**定義の確認：一般線形群**
+**定義の確認**
+
+一般線形群の場合を計算します。
 
 $G=GL(n,\mathbb R)$ では
 $$
