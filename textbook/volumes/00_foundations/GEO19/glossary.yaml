@@ -1,0 +1,23 @@
+chapter: "GEO19"
+terms:
+  - term: 測地曲率
+    english: geodesic curvature
+    meaning: 向き付けられた Riemann 曲面上の単位速曲線について、共変加速度の曲面内法線方向成分として定まる符号付き曲率。
+  - term: 接続1形式
+    english: connection 1-form
+    meaning: 局所正規直交標構の回転を Levi-Civita 接続で記録する1形式。本章の符号規約では nabla_X e_1=-omega(X)e_2 とする。
+  - term: 外角
+    english: exterior turning angle
+    meaning: 区分的滑らかな正向き境界の角で、入射接ベクトルから出射接ベクトルへ向きを保って回転する符号付き角。
+  - term: Euler 標数
+    english: Euler characteristic
+    meaning: 曲面の三角形分割に対する V-E+F で定まり、細分に依存しない位相不変量。
+  - term: Gauss--Bonnet の定理
+    english: Gauss--Bonnet theorem
+    meaning: Gauss 曲率の面積積分と境界の測地曲率・外角を Euler 標数へ結ぶ二次元大域幾何の定理。
+  - term: 全 Gauss 曲率
+    english: total Gaussian curvature
+    meaning: 向き付けられた Riemann 曲面上の積分 int_M K dA。閉曲面では 2pi chi(M) に等しい。
+  - term: 球面過剰
+    english: spherical excess
+    meaning: 球面三角形の内角和から pi を引いた量。単位球面ではその三角形の面積に等しい。
