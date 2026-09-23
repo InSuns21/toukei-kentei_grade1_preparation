@@ -173,14 +173,14 @@ $$
 
 ### 証明の見取り図
 
-連続性を確認したので Riesz 表現定理から $h_I$ の存在一意性が得られます。
+連続性を確認したので [Riesz 表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)から $h_I$ の存在一意性が得られます。
 
 残る式は、$h_I$ 自身を点 $\boldsymbol x$ で評価し、再生性を使えば出ます。Hilbert 空間値積分を新たに導入する必要はありません。
 
 <!-- proof-start -->
 ### 証明
 
-積分汎関数 $I$ は連続線形汎関数なので、Riesz 表現定理から一意な $h_I\in\mathcal H$ が存在して
+積分汎関数 $I$ は連続線形汎関数なので、[Riesz 表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)から一意な $h_I\in\mathcal H$ が存在して
 
 $$
 I(f)
@@ -494,7 +494,7 @@ $$
 
 です。
 
-Cauchy--Schwarz の不等式は単位球上での上界を与えます。その上界は $h_{E_N}$ と同方向の関数を選ぶと等号になるため、最悪誤差はちょうど $\|h_{E_N}\|$ です。
+[Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)は単位球上での上界を与えます。その上界は $h_{E_N}$ と同方向の関数を選ぶと等号になるため、最悪誤差はちょうど $\|h_{E_N}\|$ です。
 
 <!-- proof-start -->
 ### 証明
