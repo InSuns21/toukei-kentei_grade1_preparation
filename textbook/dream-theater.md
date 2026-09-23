@@ -141,7 +141,7 @@ GRP1--GRP4 で群・商構造・群作用・Sylow 理論までの有限群論主
 1. [LIE1 Lie 群・Lie 環・不変ベクトル場](textbook/volumes/00_foundations/LIE1/index.md)
 2. [LIE2 1パラメータ部分群・指数写像・随伴表現](textbook/volumes/00_foundations/LIE2/index.md)
 
-LIE1 では左移動・右移動、左不変ベクトル場、単位元接空間の Lie 環、Lie 群準同型の微分、一般線形群の行列交換子までを閉じます。LIE2 では1パラメータ部分群と指数写像を左不変場の流れから構成し、共役自己同型の微分として随伴表現 $\operatorname{Ad}$、さらに $\operatorname{ad}_X(Y)=[X,Y]$ と群交換子から BCH 理論への入口まで進みます。次は LIE3 で Lie 部分群と古典群を扱います。
+LIE1 では左移動・右移動、左不変ベクトル場、単位元接空間の Lie 環、Lie 群準同型の微分、一般線形群の行列交換子までを閉じます。LIE2 では1パラメータ部分群と Lie 群の指数写像を左不変場の流れから構成し、共役自己同型の微分として随伴表現 $\operatorname{Ad}$、さらに $\operatorname{ad}_X(Y)=[X,Y]$ と共役四項積から BCH 理論への入口まで進みます。次は LIE3 で Lie 部分群と古典群を扱います。
 
 ### 標準ベクトル解析コア
 
