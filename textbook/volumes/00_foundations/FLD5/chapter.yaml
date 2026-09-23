@@ -17,6 +17,7 @@ learning_objectives:
 definitions:
   - { id: FLD5-DEF-01, name: 作図可能点・作図可能数 }
   - { id: FLD5-DEF-05, name: 実二次拡大列 }
+  - { id: FLD5-DEF-06, name: 有限拡大の正規閉包 }
   - { id: FLD5-DEF-02, name: 交換子・交換子部分群・導来列・可解群 }
   - { id: FLD5-DEF-03, name: 根号拡大・根号による可解性 }
   - { id: FLD5-DEF-04, name: 単純群 }
@@ -30,8 +31,8 @@ theorems:
   - { id: FLD5-LEM-02, name: 可換 Galois 段階列の正規閉包は可解 }
   - { id: FLD5-LEM-03, name: 素数次数巡回拡大の Kummer 表示 }
   - { id: FLD5-THM-03, name: 根号可解性と Galois 群の可解性 }
-  - { id: FLD5-THM-04, name: A_5 の単純性と S_5 の非可解性 }
-  - { id: FLD5-THM-05, name: x^5-4x+2 の Galois 群は S_5 }
+  - { id: FLD5-THM-04, name: A5 の単純性と S5 の非可解性 }
+  - { id: FLD5-THM-05, name: x^5-4x+2 の Galois 群は S5 }
   - { id: FLD5-COR-02, name: 根号で解けない五次方程式の存在 }
 canonical_examples:
   - 立方体倍積を x^3-2 の次数3から不可能と判定
