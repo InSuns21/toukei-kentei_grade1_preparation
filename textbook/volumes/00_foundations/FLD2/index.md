@@ -426,7 +426,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$K[\alpha]=K(\alpha)$ は [FLD1 の単純代数拡大の商多項式環表示](../FLD1/index.md#thm-fld1-simple-algebraic-quotient)から成り立ちます。
+$K[\alpha]=K(\alpha)$ は [FLD1 の単純拡大の商多項式環表示](../FLD1/index.md#thm-fld1-simple-algebraic-quotient)から成り立ちます。
 
 そこで
 
@@ -559,7 +559,7 @@ $$
 
 
 
-写像を何段も延長するとき、次の根が必ず見つかる十分大きな体が欲しくなります。そのため、まず十分大きな代数閉体を用意します。
+写像を何段も延長するとき、次の根が必ず見つかる十分大きな体が欲しくなります。そこで、必要な非定数多項式の根を常に持つ体と、その最小限の拡大を次に定義します。
 
 <a id="def-fld2-algebraic-closure"></a>
 <!-- formal-statement-start -->
