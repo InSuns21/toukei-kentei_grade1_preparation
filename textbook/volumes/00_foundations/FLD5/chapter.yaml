@@ -1,0 +1,56 @@
+id: "FLD5"
+title: "抽象代数 XV：Galois 理論の応用――作図可能性・根号による可解性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLD4
+  - GRP4
+official_scope: []
+learning_objectives:
+  - 定規とコンパスによる作図可能数を座標体で定式化し、作図可能性と実二次拡大列による包含が同値であることを証明できる
+  - 作図可能な代数的数の Q 上の次数が 2 の冪である必要性を塔の公式から導き、立方体倍積・60度角の三等分・正七角形の不可能性を判定できる
+  - 正多角形の作図を1の根と結び付け、正五角形を二次方程式へ落として実際に作図可能性を確認できる
+  - 交換子部分群・導来列・可解群を定義し、可解群の可解列による特徴付けと部分群・商群に対する閉性を証明できる
+  - 根号拡大と多項式の根号による可解性を定義し、1の根を含む1段根号拡大の Galois 群が可換になる機構を説明できる
+  - 素数次数の巡回 Galois 拡大を Lagrange の分解式 で1段の根号拡大として表し、標数0で根号可解性と Galois 群の可解性が同値であることを証明できる
+  - A_5 の単純性から S_5 が可解でないことを示し、x^5-4x+2 の Galois 群が S_5 であることから根号で解けない五次方程式の存在を証明できる
+definitions:
+  - { id: FLD5-DEF-01, name: 作図可能点・作図可能数 }
+  - { id: FLD5-DEF-05, name: 実二次拡大列 }
+  - { id: FLD5-DEF-06, name: 有限拡大の正規閉包 }
+  - { id: FLD5-DEF-02, name: 交換子・交換子部分群・導来列・可解群 }
+  - { id: FLD5-DEF-03, name: 根号拡大・根号による可解性 }
+  - { id: FLD5-DEF-04, name: 単純群 }
+theorems:
+  - { id: FLD5-THM-01, name: 作図可能性と実二次拡大列 }
+  - { id: FLD5-COR-01, name: 作図可能な代数的数の次数は2の冪 }
+  - { id: FLD5-PROP-01, name: 交換子部分群と最大可換商 }
+  - { id: FLD5-THM-02, name: 可解群の可解列による特徴付け }
+  - { id: FLD5-PROP-02, name: 可解群の部分群・商群・拡大に対する閉性 }
+  - { id: FLD5-LEM-01, name: 1の根を含む1段根号拡大の Galois 群 }
+  - { id: FLD5-LEM-02, name: 可換 Galois 段階列の正規閉包は可解 }
+  - { id: FLD5-LEM-03, name: 素数次数巡回拡大の Kummer 表示 }
+  - { id: FLD5-THM-03, name: 根号可解性と Galois 群の可解性 }
+  - { id: FLD5-THM-04, name: A5 の単純性と S5 の非可解性 }
+  - { id: FLD5-THM-05, name: x^5-4x+2 の Galois 群は S5 }
+  - { id: FLD5-COR-02, name: 根号で解けない五次方程式の存在 }
+canonical_examples:
+  - 立方体倍積を x^3-2 の次数3から不可能と判定
+  - cos20度の最小多項式 y^3-3y-1 を用いて60度角の三等分不可能性を判定
+  - 1の5乗根から t=2cos72度 が t^2+t-1=0 を満たすことを導き正五角形の作図可能性を確認
+  - S_3 と S_4 に可解列を作り、A_5 と S_5 では導来列が止まらない機構を確認
+  - x^3-2 の分解体 Q(cuberoot(2),zeta_3) を根号拡大と可解 Galois 群の両側から読む
+  - x^5-4x+2 を Eisenstein 判定・実根の個数・Cauchy の定理から Galois 群 S_5 と同定
+problem_patterns:
+  - FLD5-CONSTRUCTIBLE-QUADRATIC-TOWER-1
+  - FLD5-CONSTRUCTION-DEGREE-OBSTRUCTION-1
+  - FLD5-REGULAR-POLYGON-1
+  - FLD5-DERIVED-SERIES-SOLVABLE-1
+  - FLD5-RADICAL-EXTENSION-1
+  - FLD5-KUMMER-CYCLIC-1
+  - FLD5-GALOIS-SOLVABLE-RADICALS-1
+  - FLD5-QUINTIC-S5-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 13.0, exercises: 8.0, review: 0.5 }
