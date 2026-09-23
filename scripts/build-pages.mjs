@@ -176,7 +176,14 @@ await rm(outDir, { recursive: true, force: true });
 await mkdir(outDir, { recursive: true });
 
 await cp(path.join(pagesDir, 'index.html'), path.join(outDir, 'index.html'));
-await cp(path.join(pagesDir, 'math-renderer.js'), path.join(outDir, 'math-renderer.js'));
+for (const runtimeFile of [
+  'math-renderer.js',
+  'numerical-lab-runtime.js',
+  'numerical-lab-worker.mjs',
+  'numerical-lab.css',
+]) {
+  await cp(path.join(pagesDir, runtimeFile), path.join(outDir, runtimeFile));
+}
 await cp(path.join(pagesDir, 'home.md'), path.join(outDir, 'home.md'));
 await writeFile(path.join(outDir, '.nojekyll'), '', 'utf8');
 
