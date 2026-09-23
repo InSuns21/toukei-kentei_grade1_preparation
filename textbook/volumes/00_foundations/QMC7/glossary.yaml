@@ -15,9 +15,9 @@ terms:
   - term: 入れ子一様スクランブル
     english: nested uniform scrambling
     meaning: 各座標・各桁・それ以前の桁 prefix ごとに独立な一様ランダム置換を割り当てるスクランブル。各点の一様性とデジタルネットの b 進箱点数構造を同時に保つ。
-  - term: 関数的 ANOVA 分解
+  - term: 関数的分散分析分解
     english: functional ANOVA decomposition
     meaning: 多変数関数を定数成分、一変数主効果、二変数相互作用など座標部分集合ごとの直交成分へ分解する表現。各非定数成分の L2 ノルム平方が分散成分になる。
-  - term: ANOVA 支持
+  - term: 座標支持
     english: ANOVA support
     meaning: 関数成分が実際に依存する座標集合。Walsh 展開では非零周波数を持つ座標集合 supp(k) と対応し、ランダム化 QMC の分散を相互作用別に整理できる。
