@@ -30,9 +30,12 @@ terms:
   - term: 巡回置換
     english: cycle
     meaning: ある有限個の点を一周させ、それ以外を固定する置換。
+  - term: 転倒
+    english: inversion
+    meaning: 置換の一列表記で、位置は i<j なのに値が sigma(i)>sigma(j) となる組 (i,j)。
   - term: 置換の偶奇
     english: parity of a permutation
-    meaning: inversion 数の偶奇、同値に任意の互換分解に現れる互換個数の偶奇。
+    meaning: 転倒数の偶奇、同値に任意の互換分解に現れる互換個数の偶奇。
   - term: 交代群
     english: alternating group
     meaning: S_n の偶置換全体からなる部分群 A_n。
