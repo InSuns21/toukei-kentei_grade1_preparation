@@ -27,9 +27,9 @@ $$
 \longrightarrow
 \text{分解体の一意性}
 \longrightarrow
-\text{分離性}
+\text{体拡大の分離性}
 \longrightarrow
-\text{正規性}
+\text{体拡大の正規性}
 $$
 
 という順に進みます。
@@ -285,7 +285,7 @@ $$
 
 分解体の「同型を除く一意性」を証明するには、根を別の根へ送る写像を制御する必要があります。
 
-<a id="def-fld2-field-embedding"></a>
+<a id="def-fld2-f-map"></a>
 <!-- formal-statement-start -->
 > **定義（基礎体を固定する体の埋め込み）**
 >
@@ -310,7 +310,7 @@ $$
 
 体準同型の核はイデアルです。体のイデアルは $0$ と全体しかなく、$1$ が $0$ へ送られないので核は $0$ です。従って体準同型は自動的に単射であり、「埋め込み」という名前と整合します。
 
-<!-- definition-example-start: def-fld2-field-embedding -->
+<!-- definition-example-start: def-fld2-f-map -->
 **定義の確認**
 
 ### 3.1 定義の確認：$\mathbb Q(\sqrt2)$ から $\mathbb C$ へ
@@ -358,7 +358,7 @@ $$
 は二つの $\mathbb Q$-埋め込みです。
 <!-- definition-example-end -->
 
-### 3.2 係数にも埋め込みを作用させる
+### 3.2 係数にも体の埋め込みを作用させる
 
 $\sigma:K\to\Omega$ が体の埋め込みで、
 
@@ -382,7 +382,7 @@ $$
 
 ## 4. 一つの根を別の根へ送る
 
-<a id="lem-fld2-one-step-embedding-extension"></a>
+<a id="lem-fld2-one-step-field-map"></a>
 <!-- formal-statement-start -->
 > **補題（一段の埋め込み延長）**
 >
@@ -421,7 +421,7 @@ $$
 
 へ送ることです。
 
-問題は $g(\alpha)$ の表し方が複数あっても像が同じになるか、すなわち well-defined 性です。差 $g-h$ が $\alpha$ で $0$ なら最小多項式が $g-h$ を割り、その関係を $\sigma$ で送れば $\beta$ でも $0$ になります。
+問題は $g(\alpha)$ の表し方が複数あっても像が同じになるか、すなわち well-defined 性です。差 $g-h$ が $\alpha$ で $0$ なら代数的元の最小多項式が $g-h$ を割り、その関係を $\sigma$ で送れば $\beta$ でも $0$ になります。
 
 <!-- proof-start -->
 ### 証明
@@ -452,7 +452,7 @@ $$
 (g-h)(\alpha)=0.
 $$
 
-[FLD1 の最小多項式の定理](../FLD1/index.md#thm-fld1-minimal-polynomial)より
+[FLD1 の代数的元の最小多項式の定理](../FLD1/index.md#thm-fld1-minimal-polynomial)より
 
 $$
 m_{\alpha,K}\mid(g-h).
@@ -507,7 +507,7 @@ $$
 $\square$
 <!-- proof-end -->
 
-この補題は「代数的元の像は、その最小多項式の根から自由に選べる。ただし選んだ根で写像全体が決まる」と読めます。
+この補題は「代数的元の像は、その代数的元の最小多項式の根から自由に選べる。ただし選んだ根で写像全体が決まる」と読めます。
 
 ---
 
@@ -609,7 +609,7 @@ $$
 
 以後、必要に応じて一つの代数閉包 $\overline F$ を固定します。
 
-<a id="thm-fld2-finite-embedding-extension"></a>
+<a id="thm-fld2-finite-field-map"></a>
 <!-- formal-statement-start -->
 > **定理（有限代数拡大上への埋め込み延長）**
 >
@@ -642,7 +642,7 @@ $$
 
 で生成できます。
 
-一つずつ $\alpha_j$ を加えます。現在の埋め込みで最小多項式の係数を送ると、代数閉体 $\overline F$ ではその多項式に根があります。そこで [一段の埋め込み延長](#lem-fld2-one-step-embedding-extension) を使います。
+一つずつ $\alpha_j$ を加えます。現在の体の埋め込みで代数的元の最小多項式の係数を送ると、代数閉体 $\overline F$ ではその多項式に根があります。そこで [一段の埋め込み延長](#lem-fld2-one-step-field-map) を使います。
 
 <!-- proof-start -->
 ### 証明
@@ -683,7 +683,7 @@ $$
 
 $\sigma_0=\sigma$ から始めます。
 
-$\sigma_{j-1}:K_{j-1}\to\overline F$ が構成済みとします。$v_j$ は $L/K$ が有限であることから $K_{j-1}$ 上代数的です。その最小多項式を
+$\sigma_{j-1}:K_{j-1}\to\overline F$ が構成済みとします。$v_j$ は $L/K$ が有限であることから $K_{j-1}$ 上代数的です。その代数的元の最小多項式を
 
 $$
 m_j(x)\in K_{j-1}[x]
@@ -699,7 +699,7 @@ $$
 
 はある根 $\beta_j\in\overline F$ を持ちます。
 
-[一段の埋め込み延長](#lem-fld2-one-step-embedding-extension)により $\sigma_{j-1}$ は
+[一段の埋め込み延長](#lem-fld2-one-step-field-map)により $\sigma_{j-1}$ は
 
 $$
 \sigma_j:K_j\to\overline F
@@ -743,13 +743,13 @@ $$
 
 $L$ の根を一つずつ $M$ の対応する根へ送ります。
 
-途中まで作った埋め込み
+途中まで作った体の埋め込み
 
 $$
 \sigma:K\to M
 $$
 
-に対して、次の根 $\alpha$ の $K$ 上の最小多項式は $f$ を割ります。係数を $\sigma$ で送った多項式も $f$ の因子になり、$M$ は $f$ を完全に分解するので、その多項式の根 $\beta$ が $M$ の中にあります。一段の延長補題で $\alpha\mapsto\beta$ とできます。
+に対して、次の根 $\alpha$ の $K$ 上の代数的元の最小多項式は $f$ を割ります。係数を $\sigma$ で送った多項式も $f$ の因子になり、$M$ は $f$ を完全に分解するので、その多項式の根 $\beta$ が $M$ の中にあります。一段の延長補題で $\alpha\mapsto\beta$ とできます。
 
 最後に像の中でも $f$ が完全に分解するため、$M$ の最小性から像は $M$ 全体です。
 
@@ -792,9 +792,9 @@ $$
 
 を作ります。
 
-$\sigma_{j-1}$ が構成済みとします。$\alpha_j$ の $K_{j-1}$ 上の最小多項式を $m_j$ とします。
+$\sigma_{j-1}$ が構成済みとします。$\alpha_j$ の $K_{j-1}$ 上の代数的元の最小多項式を $m_j$ とします。
 
-$f(\alpha_j)=0$ なので、[FLD1 の最小多項式の定理](../FLD1/index.md#thm-fld1-minimal-polynomial)から
+$f(\alpha_j)=0$ なので、[FLD1 の代数的元の最小多項式の定理](../FLD1/index.md#thm-fld1-minimal-polynomial)から
 
 $$
 m_j\mid f
@@ -820,7 +820,7 @@ $$
 
 $M$ では $f$ が一次式の積に分解しているので、その因子 $\sigma_{j-1}(m_j)$ も $M$ に根 $\beta_j$ を持ちます。
 
-従って [一段の埋め込み延長](#lem-fld2-one-step-embedding-extension)により
+従って [一段の埋め込み延長](#lem-fld2-one-step-field-map)により
 
 $$
 \sigma_j:K_j\to M,
@@ -883,7 +883,7 @@ $\square$
 
 根が「全部ある」こととは別に、根が「重なっていない」ことを調べます。
 
-<a id="def-fld2-formal-derivative-multiplicity"></a>
+<a id="def-fld2-formal-diff-multiplicity"></a>
 <!-- formal-statement-start -->
 > **定義（形式微分・根の重複度）**
 >
@@ -914,7 +914,7 @@ $$
 > $m=1$ の根を単根、$m\ge2$ の根を重根という。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-fld2-formal-derivative-multiplicity -->
+<!-- definition-example-start: def-fld2-formal-diff-multiplicity -->
 **定義の確認**
 
 ### 7.1 定義の確認
@@ -944,7 +944,7 @@ $$
 解析学の極限を一切使わず、係数だけから定まっていることに注意してください。
 <!-- definition-example-end -->
 
-<a id="lem-fld2-formal-derivative-product-rule"></a>
+<a id="lem-fld2-formal-diff-product"></a>
 <!-- formal-statement-start -->
 > **補題（形式微分の積の微分則）**
 >
@@ -1066,7 +1066,7 @@ $$
 
 です。$m=1$ なら $f'(\alpha)=g(\alpha)\ne0$、$m\ge2$ なら両項が $\alpha$ で $0$ になります。
 
-最大公約元との同値は、「$f$ と $f'$ が共通根を持つ」ことを最小多項式で $F[x]$ の共通因子へ戻します。
+最大公約元との同値は、「$f$ と $f'$ が共通根を持つ」ことを代数的元の最小多項式で $F[x]$ の共通因子へ戻します。
 
 <!-- proof-start -->
 ### 証明
@@ -1133,7 +1133,7 @@ $$
 f(\alpha)=f'(\alpha)=0.
 $$
 
-$\alpha$ の $F$ 上の最小多項式を $m_\alpha$ とすると、[FLD1 の最小多項式の定理](../FLD1/index.md#thm-fld1-minimal-polynomial)から
+$\alpha$ の $F$ 上の代数的元の最小多項式を $m_\alpha$ とすると、[FLD1 の代数的元の最小多項式の定理](../FLD1/index.md#thm-fld1-minimal-polynomial)から
 
 $$
 m_\alpha\mid f,
@@ -1154,7 +1154,7 @@ $\square$
 
 ## 8. 共役根が重ならない条件
 
-<a id="def-fld2-separability"></a>
+<a id="def-fld2-distinct-conjugates"></a>
 <!-- formal-statement-start -->
 > **定義（分離多項式・分離的な元・分離拡大）**
 >
@@ -1162,14 +1162,14 @@ $\square$
 >
 > $f$ が分解体で重根を持たないとき、$f$ を **分離多項式**という。
 >
-> $F$ 上代数的な元 $\alpha$ の最小多項式 $m_{\alpha,F}$ が分離多項式であるとき、$\alpha$ は $F$ 上 **分離的**であるという。
+> $F$ 上代数的な元 $\alpha$ の代数的元の最小多項式 $m_{\alpha,F}$ が分離多項式であるとき、$\alpha$ は $F$ 上 **分離的**であるという。
 >
 > 代数拡大 $K/F$ の全ての元が $F$ 上分離的であるとき、$K/F$ を **分離拡大**という。
 <!-- formal-statement-end -->
 
 分解体は同型を除いて一意なので、「ある分解体で重根がない」という性質は分解体の選び方に依存しません。
 
-<!-- definition-example-start: def-fld2-separability -->
+<!-- definition-example-start: def-fld2-distinct-conjugates -->
 **定義の確認**
 
 ### 8.1 定義の確認：$x^2-2$
@@ -1190,7 +1190,7 @@ $$
 
 なので重根を持ちません。従って $x^2-2$ は分離多項式です。
 
-$\sqrt2$ の最小多項式も $x^2-2$ なので
+$\sqrt2$ の代数的元の最小多項式も $x^2-2$ なので
 
 $$
 \boxed{\sqrt2\text{ は }\mathbb Q\text{ 上分離的}}
@@ -1199,9 +1199,9 @@ $$
 です。
 <!-- definition-example-end -->
 
-<a id="prop-fld2-irreducible-separable-derivative"></a>
+<a id="prop-fld2-irreducible-root-criterion"></a>
 <!-- formal-statement-start -->
-> **命題（既約多項式の分離性判定）**
+> **命題（既約多項式の体拡大の分離性判定）**
 >
 > $F$ を体、$p\in F[x]$ を非定数既約多項式とする。
 >
@@ -1216,7 +1216,7 @@ $$
 
 ### 証明の見取り図
 
-重根判定から、分離性は
+重根判定から、体拡大の分離性は
 
 $$
 \gcd(p,p')=1
@@ -1274,9 +1274,9 @@ $$
 $\square$
 <!-- proof-end -->
 
-<a id="cor-fld2-characteristic-zero-separable"></a>
+<a id="cor-fld2-char-zero-algebraic"></a>
 <!-- formal-statement-start -->
-> **系（標数 $0$ の体上の代数拡大は分離的）**
+> **系（標数0の体上の代数拡大は分離的）**
 >
 > 体 $F$ が、全ての整数 $n\ge1$ に対して
 >
@@ -1346,9 +1346,9 @@ $$
 p'\ne0.
 $$
 
-[既約多項式の分離性判定](#prop-fld2-irreducible-separable-derivative)より $p$ は分離的です。
+[既約多項式の体拡大の分離性判定](#prop-fld2-irreducible-root-criterion)より $p$ は分離的です。
 
-任意の $F$ 上代数的な元 $\alpha$ の最小多項式は既約なので分離的です。従って任意の代数拡大 $K/F$ は分離拡大です。
+任意の $F$ 上代数的な元 $\alpha$ の代数的元の最小多項式は既約なので分離的です。従って任意の代数拡大 $K/F$ は分離拡大です。
 
 $\square$
 <!-- proof-end -->
@@ -1377,7 +1377,7 @@ $$
 
 前節の条件が「根が重ならない」ことを表すのに対し、ここでは「共役な根を取りこぼさない」条件を定義します。
 
-<a id="def-fld2-normal-extension"></a>
+<a id="def-fld2-conjugate-root-closure"></a>
 <!-- formal-statement-start -->
 > **定義（正規拡大）**
 >
@@ -1390,7 +1390,7 @@ $$
 > について、$p$ が $K$ に一つでも根を持つなら、$p$ が $K[x]$ で一次式の積に分解することをいう。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-fld2-normal-extension -->
+<!-- definition-example-start: def-fld2-conjugate-root-closure -->
 **定義の確認**
 
 ### 9.1 定義の確認：$\mathbb Q(\sqrt2)/\mathbb Q$
@@ -1411,7 +1411,7 @@ $$
 
 と書けます。
 
-$\alpha\in\mathbb Q$ なら、その最小多項式は一次式であり当然 $K$ 上で分解します。
+$\alpha\in\mathbb Q$ なら、その代数的元の最小多項式は一次式であり当然 $K$ 上で分解します。
 
 $\alpha\notin\mathbb Q$ なら $b\ne0$ です。このとき
 
@@ -1430,7 +1430,7 @@ x^2-2ax+(a^2-2b^2)
 \in\mathbb Q[x].
 $$
 
-$\alpha\notin\mathbb Q$ なので最小多項式の次数は $2$ であり、上のモニック二次式が $m_{\alpha,\mathbb Q}$ です。従って最小多項式は
+$\alpha\notin\mathbb Q$ なので代数的元の最小多項式の次数は $2$ であり、上のモニック二次式が $m_{\alpha,\mathbb Q}$ です。従って代数的元の最小多項式は
 
 $$
 (x-\alpha)(x-\alpha^*)
@@ -1438,7 +1438,7 @@ $$
 
 と $K$ 上で完全に分解します。
 
-よって、$\mathbb Q$ 上既約な多項式が $K$ に一根を持てば、その最小多項式の全ての根が $K$ に入ります。従って
+よって、$\mathbb Q$ 上既約な多項式が $K$ に一根を持てば、その代数的元の最小多項式の全ての根が $K$ に入ります。従って
 
 $$
 \boxed{\mathbb Q(\sqrt2)/\mathbb Q\text{ は正規拡大}}
@@ -1447,9 +1447,9 @@ $$
 です。
 <!-- definition-example-end -->
 
-正規性を分解体と結びつける前に、分解体の埋め込みが根の集合を保つことを確認します。
+体拡大の正規性を分解体と結びつける前に、分解体への体の埋め込みが根の集合を保つことを確認します。
 
-<a id="prop-fld2-splitting-field-embedding-stability"></a>
+<a id="prop-fld2-splitting-field-map-stability"></a>
 <!-- formal-statement-start -->
 > **命題（分解体は基礎体固定埋め込みで保たれる）**
 >
@@ -1553,7 +1553,7 @@ $$
 $\square$
 <!-- proof-end -->
 
-<a id="thm-fld2-finite-normal-splitting-field"></a>
+<a id="thm-fld2-finite-splitting-equivalence"></a>
 <!-- formal-statement-start -->
 > **定理（有限正規拡大と分解体）**
 >
@@ -1571,9 +1571,9 @@ $$
 \alpha_1,\dots,\alpha_n
 $$
 
-を取り、それぞれの最小多項式を全部掛けます。正規性により各最小多項式は $K$ で分解し、しかも基底元を全て含むので、その積の分解体は $K$ です。
+を取り、それぞれの代数的元の最小多項式を全部掛けます。体拡大の正規性により各代数的元の最小多項式は $K$ で分解し、しかも基底元を全て含むので、その積の分解体は $K$ です。
 
-分解体 $\Rightarrow$ 正規では、$K$ にある根 $\alpha$ の共役根 $\beta$ を代数閉包で一つ取ります。[一段の埋め込み延長](#lem-fld2-one-step-embedding-extension)で $\alpha\mapsto\beta$ とし、それを $K$ 全体へ延長します。分解体の埋め込み安定性から像は再び $K$ なので $\beta\in K$ です。
+分解体 $\Rightarrow$ 正規では、$K$ にある根 $\alpha$ の共役根 $\beta$ を代数閉包で一つ取ります。[一段の埋め込み延長](#lem-fld2-one-step-field-map)で $\alpha\mapsto\beta$ とし、それを $K$ 全体へ延長します。分解体への体の埋め込みの安定性から像は再び $K$ なので $\beta\in K$ です。
 
 <!-- proof-start -->
 ### 証明
@@ -1588,7 +1588,7 @@ $$
 
 とします。各 $\alpha_i$ は有限拡大の元なので [FLD1](../FLD1/index.md#prop-fld1-finite-extension-algebraic) により $F$ 上代数的です。
 
-その最小多項式を
+その代数的元の最小多項式を
 
 $$
 m_i(x)=m_{\alpha_i,F}(x)
@@ -1602,7 +1602,7 @@ $$
 
 と置きます。
 
-各 $m_i$ は $F[x]$ で既約であり、根 $\alpha_i\in K$ を持ちます。正規性から各 $m_i$ は $K[x]$ で一次式の積に分解します。従って $f$ も $K$ 上で完全に分解します。
+各 $m_i$ は $F[x]$ で既約であり、根 $\alpha_i\in K$ を持ちます。体拡大の正規性から各 $m_i$ は $K[x]$ で一次式の積に分解します。従って $f$ も $K$ 上で完全に分解します。
 
 一方、$f$ の分解体 $L$ を $K$ の中で取ると、各 $\alpha_i$ は $f$ の根なので
 
@@ -1640,7 +1640,7 @@ $$
 \operatorname{id}_F:F\to\overline F
 $$
 
-に対し、$\beta$ は $p$ の根なので [一段の埋め込み延長](#lem-fld2-one-step-embedding-extension)から
+に対し、$\beta$ は $p$ の根なので [一段の埋め込み延長](#lem-fld2-one-step-field-map)から
 
 $$
 \tau:F(\alpha)\to\overline F,
@@ -1650,7 +1650,7 @@ $$
 
 という $F$-埋め込みが存在します。
 
-$K/F(\alpha)$ は有限拡大です。[有限代数拡大上への埋め込み延長](#thm-fld2-finite-embedding-extension)により $\tau$ は
+$K/F(\alpha)$ は有限拡大です。[有限代数拡大上への埋め込み延長](#thm-fld2-finite-field-map)により $\tau$ は
 
 $$
 \sigma:K\to\overline F
@@ -1658,7 +1658,7 @@ $$
 
 へ延長できます。
 
-[分解体は基礎体固定埋め込みで保たれる](#prop-fld2-splitting-field-embedding-stability)ので
+[分解体は基礎体固定埋め込みで保たれる](#prop-fld2-splitting-field-map-stability)ので
 
 $$
 \sigma(K)=K.
@@ -1727,7 +1727,7 @@ $$
 q'(x)=px^{p-1}=0
 $$
 
-です。[既約多項式の分離性判定](#prop-fld2-irreducible-separable-derivative)から $q$ は分離的ではありません。
+です。[既約多項式の体拡大の分離性判定](#prop-fld2-irreducible-root-criterion)から $q$ は分離的ではありません。
 
 $\alpha$ を
 
@@ -1751,7 +1751,7 @@ $$
 
 と $K$ 上で分解します。しかも $K=F(\alpha)$ は根によって生成されるので $K$ は $q$ の分解体です。
 
-[有限正規拡大と分解体](#thm-fld2-finite-normal-splitting-field)から $K/F$ は正規です。一方 $\alpha$ の最小多項式 $q$ は分離的でないので $K/F$ は分離拡大ではありません。
+[有限正規拡大と分解体](#thm-fld2-finite-splitting-equivalence)から $K/F$ は正規です。一方 $\alpha$ の代数的元の最小多項式 $q$ は分離的でないので $K/F$ は分離拡大ではありません。
 
 従って
 
@@ -1763,7 +1763,7 @@ $$
 
 ---
 
-## 10. 正規性と分離性は別の条件
+## 10. 体拡大の正規性と体拡大の分離性は別の条件
 
 ここまでを表にすると次のようになります。
 
@@ -1776,7 +1776,7 @@ $$
 FLD4 では、有限拡大について
 
 $$
-\boxed{\text{正規性}+\text{分離性}}
+\boxed{\text{体拡大の正規性}+\text{体拡大の分離性}}
 $$
 
 が自己同型群と中間体をきれいに対応させる条件になることを学びます。
@@ -1793,7 +1793,7 @@ $$
 
 ### 11.2 埋め込み延長では「代数閉」が次の根を保証する
 
-一段の延長では、係数を送った最小多項式
+一段の延長では、係数を送った代数的元の最小多項式
 
 $$
 \sigma(m_\alpha)
@@ -1801,7 +1801,7 @@ $$
 
 の根が必要です。代数閉包を使う理由は、その根が必ず存在する共通の行き先を用意するためです。
 
-### 11.3 分離性では「形式微分が消えない」ことが重根を排除する
+### 11.3 体拡大の分離性では「形式微分が消えない」ことが重根を排除する
 
 既約多項式 $p$ では
 
@@ -1813,9 +1813,9 @@ $$
 
 標数 $p>0$ では $x^p$ の微分が $0$ になり、この機構が壊れます。
 
-### 11.4 正規性では「共役根を一つ残らず入れる」
+### 11.4 体拡大の正規性では「共役根を一つ残らず入れる」
 
-正規性は重根の有無を要求しません。$x^p-t=(x-\alpha)^p$ のように同じ根が重なっていても、その多項式が拡大体で完全に分解していれば正規性は成立し得ます。
+体拡大の正規性は重根の有無を要求しません。$x^p-t=(x-\alpha)^p$ のように同じ根が重なっていても、その多項式が拡大体で完全に分解していれば体拡大の正規性は成立し得ます。
 
 ---
 
@@ -1912,7 +1912,7 @@ $$
 <!-- solution-start -->
 ##### 詳細解答
 
-$\alpha$ の最小多項式は
+$\alpha$ の代数的元の最小多項式は
 
 $$
 m_{\alpha,\mathbb Q}(x)=x^2-2
@@ -1938,7 +1938,7 @@ $$
 \sigma(\alpha)\in\{\sqrt2,-\sqrt2\}.
 $$
 
-逆に [一段の埋め込み延長](#lem-fld2-one-step-embedding-extension)により、最小多項式の各根を選ぶたびに一意な埋め込みが得られます。
+逆に [一段の埋め込み延長](#lem-fld2-one-step-field-map)により、代数的元の最小多項式の各根を選ぶたびに一意な埋め込みが得られます。
 
 従って二つだけあり、
 
@@ -2170,7 +2170,7 @@ $$
 \boxed8.
 $$
 
-4. $L$ は $x^4-2$ の分解体です。[有限正規拡大と分解体](#thm-fld2-finite-normal-splitting-field)より
+4. $L$ は $x^4-2$ の分解体です。[有限正規拡大と分解体](#thm-fld2-finite-splitting-equivalence)より
 
 $$
 L/\mathbb Q
@@ -2178,7 +2178,7 @@ $$
 
 は正規です。
 
-また $\mathbb Q$ は標数 $0$ なので [標数 $0$ の体上の代数拡大は分離的](#cor-fld2-characteristic-zero-separable)から $L/\mathbb Q$ は分離的です。
+また $\mathbb Q$ は標数 $0$ なので [標数 $0$ の体上の代数拡大は分離的](#cor-fld2-char-zero-algebraic)から $L/\mathbb Q$ は分離的です。
 
 従って
 
@@ -2248,7 +2248,7 @@ $$
 q'(x)=px^{p-1}=0.
 $$
 
-$q$ は既約で $q'=0$ なので [既約多項式の分離性判定](#prop-fld2-irreducible-separable-derivative)から
+$q$ は既約で $q'=0$ なので [既約多項式の体拡大の分離性判定](#prop-fld2-irreducible-root-criterion)から
 
 $$
 \boxed{q\text{ は分離的でない}}.
@@ -2278,7 +2278,7 @@ $$
 
 しかも $K$ は根 $\alpha$ で生成されるので、$K$ は $q$ の分解体です。
 
-[有限正規拡大と分解体](#thm-fld2-finite-normal-splitting-field)から
+[有限正規拡大と分解体](#thm-fld2-finite-splitting-equivalence)から
 
 $$
 \boxed{K/F\text{ は正規}}.
@@ -2292,7 +2292,7 @@ $$
 (x^p)'=0
 $$
 
-となるため、最小多項式の次数が正でも形式微分が完全に消えます。その結果
+となるため、代数的元の最小多項式の次数が正でも形式微分が完全に消えます。その結果
 
 $$
 q=(x-\alpha)^p
@@ -2309,7 +2309,7 @@ $$
 へ進む入口そのものです。
 <!-- solution-end -->
 
-#### FLD2-B03 $\mathbb Q(\sqrt[3]{2})$ の埋め込みと非正規性
+#### FLD2-B03 $\mathbb Q(\sqrt[3]{2})$ の埋め込みと非体拡大の正規性
 - Level: B
 
 $\alpha=\sqrt[3]{2}>0$、$\omega^2+\omega+1=0$、$\omega\ne1$ とする。
@@ -2321,13 +2321,13 @@ $$
 について、
 
 1. $\mathbb Q$-埋め込み $E\to\mathbb C$ を全て求めよ。
-2. それらが三つある理由を [一段の埋め込み延長](#lem-fld2-one-step-embedding-extension) から説明せよ。
+2. それらが三つある理由を [一段の埋め込み延長](#lem-fld2-one-step-field-map) から説明せよ。
 3. $E/\mathbb Q$ が分離的だが正規でないことを示せ。
 
 <!-- solution-start -->
 ##### 詳細解答
 
-1. $\alpha$ の最小多項式は
+1. $\alpha$ の代数的元の最小多項式は
 
 $$
 m_{\alpha,\mathbb Q}(x)=x^3-2.
@@ -2347,7 +2347,7 @@ $$
 k=0,1,2.
 $$
 
-$E=\mathbb Q(\alpha)$ なので、$\alpha$ の像を指定すれば埋め込み全体が一意に決まります。
+$E=\mathbb Q(\alpha)$ なので、$\alpha$ の像を指定すれば体の埋め込み全体が一意に決まります。
 
 従って
 
@@ -2361,7 +2361,7 @@ $$
 
 が全ての $\mathbb Q$-埋め込みです。
 
-2. [一段の埋め込み延長](#lem-fld2-one-step-embedding-extension)において、基礎体の恒等埋め込み
+2. [一段の埋め込み延長](#lem-fld2-one-step-field-map)において、基礎体の恒等埋め込み
 
 $$
 \mathbb Q\to\mathbb C
@@ -2369,7 +2369,7 @@ $$
 
 を考えます。
 
-最小多項式 $x^3-2$ の各根 $\alpha,\omega\alpha,\omega^2\alpha$ を $\alpha$ の像として選ぶたびに、一意な埋め込み
+代数的元の最小多項式 $x^3-2$ の各根 $\alpha,\omega\alpha,\omega^2\alpha$ を $\alpha$ の像として選ぶたびに、一意な埋め込み
 
 $$
 \mathbb Q(\alpha)\to\mathbb C
@@ -2377,9 +2377,9 @@ $$
 
 が得られます。
 
-逆に埋め込みは最小多項式の関係を保つため、$\alpha$ の像はこの三根以外に選べません。
+逆に埋め込みは代数的元の最小多項式の関係を保つため、$\alpha$ の像はこの三根以外に選べません。
 
-従って埋め込みはちょうど三つです。
+従って体の埋め込みはちょうど三つです。
 
 3. $\mathbb Q$ は標数 $0$ なので
 
@@ -2423,7 +2423,7 @@ $$
 2. $L/\mathbb Q$ が分離的かつ正規であることを示せ。
 3. $\mathbb Q$-埋め込み $\sigma:L\to\mathbb C$ について、$\sigma(\alpha)$ と $\sigma(\omega)$ の可能性を全て挙げよ。
 4. 実際に六つの組合せが埋め込みを与えることを説明せよ。
-5. $E=\mathbb Q(\alpha)$ と比較し、「分離性」と「正規性」がそれぞれ何を保証しているか説明せよ。
+5. $E=\mathbb Q(\alpha)$ と比較し、「体拡大の分離性」と「体拡大の正規性」がそれぞれ何を保証しているか説明せよ。
 
 <!-- solution-start -->
 ##### 詳細解答
@@ -2480,7 +2480,7 @@ $$
 \boxed{[L:\mathbb Q]=6}.
 $$
 
-2. $\mathbb Q$ は標数 $0$ なので [標数 $0$ の体上の代数拡大は分離的](#cor-fld2-characteristic-zero-separable)から
+2. $\mathbb Q$ は標数 $0$ なので [標数 $0$ の体上の代数拡大は分離的](#cor-fld2-char-zero-algebraic)から
 
 $$
 L/\mathbb Q
@@ -2488,7 +2488,7 @@ $$
 
 は分離拡大です。
 
-また $L$ は $x^3-2$ の分解体なので [有限正規拡大と分解体](#thm-fld2-finite-normal-splitting-field)から正規です。
+また $L$ は $x^3-2$ の分解体なので [有限正規拡大と分解体](#thm-fld2-finite-splitting-equivalence)から正規です。
 
 従って
 
@@ -2496,7 +2496,7 @@ $$
 \boxed{L/\mathbb Q\text{ は分離的かつ正規}}.
 $$
 
-3. $\alpha$ の最小多項式は $x^3-2$ なので
+3. $\alpha$ の代数的元の最小多項式は $x^3-2$ なので
 
 $$
 \sigma(\alpha)
@@ -2504,7 +2504,7 @@ $$
 \{\alpha,\omega\alpha,\omega^2\alpha\}.
 $$
 
-$\omega$ の最小多項式は $x^2+x+1$ なので
+$\omega$ の代数的元の最小多項式は $x^2+x+1$ なので
 
 $$
 \sigma(\omega)
@@ -2520,15 +2520,15 @@ $$
 
 組です。
 
-4. まず $\alpha$ の像を三根のどれか一つに選びます。[一段の埋め込み延長](#lem-fld2-one-step-embedding-extension)により
+4. まず $\alpha$ の像を三根のどれか一つに選びます。[一段の埋め込み延長](#lem-fld2-one-step-field-map)により
 
 $$
 \mathbb Q(\alpha)\to\mathbb C
 $$
 
-という埋め込みが得られます。
+という体の埋め込みが得られます。
 
-次に $\omega$ の最小多項式は $x^2+x+1$ で、係数は全て $\mathbb Q$ にあるので、どの中間埋め込みの下でも係数は変わりません。その二根 $\omega,\omega^2$ のどちらを選んでも、再び [一段の埋め込み延長](#lem-fld2-one-step-embedding-extension) により
+次に $\omega$ の代数的元の最小多項式は $x^2+x+1$ で、係数は全て $\mathbb Q$ にあるので、どの中間埋め込みの下でも係数は変わりません。その二根 $\omega,\omega^2$ のどちらを選んでも、再び [一段の埋め込み延長](#lem-fld2-one-step-field-map) により
 
 $$
 L=\mathbb Q(\alpha,\omega)\to\mathbb C
@@ -2536,15 +2536,15 @@ $$
 
 へ延長できます。
 
-従って六つの組合せ全てが実際に埋め込みを与えます。
+従って六つの組合せ全てが実際に体の埋め込みを与えます。
 
-また $L$ は分解体なので [分解体は基礎体固定埋め込みで保たれる](#prop-fld2-splitting-field-embedding-stability)から、どの埋め込みについても
+また $L$ は分解体なので [分解体は基礎体固定埋め込みで保たれる](#prop-fld2-splitting-field-map-stability)から、どの埋め込みについても
 
 $$
 \sigma(L)=L.
 $$
 
-5. $E=\mathbb Q(\alpha)$ も標数 $0$ 上なので分離的です。従って最小多項式 $x^3-2$ の三根は互いに異なり、$\alpha$ を送れる三つの埋め込みが存在します。
+5. $E=\mathbb Q(\alpha)$ も標数 $0$ 上なので分離的です。従って代数的元の最小多項式 $x^3-2$ の三根は互いに異なり、$\alpha$ を送れる三つの埋め込みが存在します。
 
 しかし $E$ は非実根を含まないので正規ではありません。実際、二つの埋め込みは $E$ を $E$ 自身の外へ送ります。
 
@@ -2553,9 +2553,9 @@ $$
 従って役割は
 
 $$
-\boxed{\text{分離性：共役根が重ならない}},
+\boxed{\text{体拡大の分離性：共役根が重ならない}},
 \qquad
-\boxed{\text{正規性：共役根を全て拡大体の中に持つ}}.
+\boxed{\text{体拡大の正規性：共役根を全て拡大体の中に持つ}}.
 $$
 
 と整理できます。
@@ -2569,11 +2569,11 @@ $$
 
 1. 一つの多項式の全ての根を最小限に集めた体が分解体である。
 2. 分解体は、既約因子の根を一つずつ商環で添加することで必ず存在する。
-3. 代数的元の像は、その最小多項式の根を選ぶことで一意に延長できる。
+3. 代数的元の像は、その代数的元の最小多項式の根を選ぶことで一意に延長できる。
 4. 有限代数拡大上の埋め込みは代数閉包へ延長でき、これから分解体の同型を除く一意性が従う。
-5. 重根は $f$ と形式微分 $f'$ の共通根として検出でき、$\gcd(f,f')=1$ が分離性の判定になる。
-6. 既約多項式では $p'\ne0$ と分離性が同値で、標数 $0$ 上の代数拡大は全て分離的である。
+5. 重根は $f$ と形式微分 $f'$ の共通根として検出でき、$\gcd(f,f')=1$ が体拡大の分離性の判定になる。
+6. 既約多項式では $p'\ne0$ と体拡大の分離性が同値で、標数 $0$ 上の代数拡大は全て分離的である。
 7. 有限拡大が正規であることは、ある $F$ 係数多項式の分解体であることと同値である。
-8. 分離性と正規性は別条件であり、FLD4 ではこの二つが同時に成り立つ有限拡大を自己同型群から調べる。
+8. 体拡大の分離性と体拡大の正規性は別条件であり、FLD4 ではこの二つが同時に成り立つ有限拡大を自己同型群から調べる。
 
 次の FLD3 では正標数側へ進み、有限体、Frobenius 写像、$x^{p^n}-x$、有限体の存在と一意性を扱います。
