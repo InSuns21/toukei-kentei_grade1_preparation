@@ -168,6 +168,8 @@ $$
 ここで添字 $h$ は後で メッシュ幅を表しますが、本章ではまだメッシュを導入しません。
 
 <!-- definition-example-start: def-fem1-galerkin -->
+**定義の確認**
+
 ### 例：$\mathbb R^2$ で Galerkin 法を直接確認する
 
 $$
@@ -1255,6 +1257,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fem1-energy-norm -->
+**定義の確認**
+
 ### 例：Poisson のエネルギーノルム
 
 $V=H_0^1(\Omega)$、
