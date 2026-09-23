@@ -1,0 +1,124 @@
+chapter: MOD2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MOD1
+  - RNG4
+forward_references: [FLD1]
+
+concepts:
+  - id: algebra.matrix-equivalence-pid
+    name: PID 上行列の同値
+    kind: definition
+    aliases: [matrix equivalence over a PID]
+    introduction: formal
+    requires: [algebra.pid, algebra.free-module]
+
+  - id: algebra.bezout-two-entry-reduction
+    name: Bézout による二成分簡約
+    kind: lemma
+    aliases: []
+    introduction: formal
+    requires: [algebra.bezout-identity, algebra.matrix-equivalence-pid]
+
+  - id: algebra.smith-normal-form
+    name: Smith 標準形
+    kind: definition
+    aliases: [Smith normal form]
+    introduction: formal
+    introduction_aliases: ["定義（Smith 標準形・不変因子）"]
+    requires: [algebra.matrix-equivalence-pid, algebra.divisibility]
+
+  - id: algebra.invariant-factor
+    name: 不変因子
+    kind: definition
+    aliases: [invariant factor]
+    introduction: formal
+    introduction_aliases: ["定義（Smith 標準形・不変因子）"]
+    requires: [algebra.smith-normal-form]
+
+  - id: algebra.smith-normal-form-theorem
+    name: Smith 標準形定理
+    kind: theorem
+    aliases: [Smith normal form theorem]
+    introduction: formal
+    requires: [algebra.bezout-two-entry-reduction, algebra.pid-acc, algebra.smith-normal-form]
+
+  - id: algebra.determinantal-ideal
+    name: 小行列式イデアル
+    kind: definition
+    aliases: [determinantal ideal]
+    introduction: formal
+    requires: [algebra.ideal, algebra.matrix-equivalence-pid]
+
+  - id: algebra.determinantal-ideal-invariance
+    name: 小行列式イデアルの行列同値不変性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires: [algebra.determinantal-ideal, algebra.matrix-equivalence-pid]
+
+  - id: algebra.smith-invariant-factor-uniqueness
+    name: Smith 不変因子の一意性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires: [algebra.determinantal-ideal-invariance, algebra.invariant-factor]
+
+  - id: algebra.pid-submodule-free
+    name: PID 上自由加群の部分加群は自由
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires: [algebra.pid, algebra.free-module, algebra.submodule]
+
+  - id: algebra.module-cokernel
+    name: 加群準同型の余核
+    kind: definition
+    aliases: [cokernel of a module homomorphism]
+    introduction: formal
+    introduction_aliases: ["定義（有限表示・余核）"]
+    requires: [algebra.module-homomorphism, algebra.quotient-module]
+
+  - id: algebra.finite-presentation-module
+    name: 加群の有限表示
+    kind: definition
+    aliases: [finite presentation of a module]
+    introduction: formal
+    introduction_aliases: ["定義（有限表示・余核）"]
+    requires: [algebra.module-cokernel, algebra.free-module, algebra.finitely-generated-module]
+
+  - id: algebra.matrix-equivalence-cokernel
+    name: 行列同値は余核を保つ
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires: [algebra.matrix-equivalence-pid, algebra.module-cokernel]
+
+  - id: algebra.pid-fg-module-structure
+    name: PID 上有限生成加群の構造定理
+    kind: theorem
+    aliases: [structure theorem for finitely generated modules over a PID]
+    introduction: formal
+    requires: [algebra.smith-normal-form-theorem, algebra.pid-submodule-free, algebra.finite-presentation-module]
+
+  - id: algebra.elementary-divisor
+    name: 基本因子
+    kind: definition
+    aliases: [elementary divisor]
+    introduction: formal
+    requires: [algebra.pid-fg-module-structure, algebra.ufd]
+
+  - id: algebra.fg-abelian-group-structure
+    name: 有限生成 Abel 群の構造定理
+    kind: theorem
+    aliases: [fundamental theorem of finitely generated abelian groups]
+    introduction: formal
+    requires: [algebra.pid-fg-module-structure, algebra.z-modules-abelian-groups]
+
+  - id: algebra.linear-operator-polynomial-module-torsion
+    name: 線形自己写像の多項式環加群は有限生成ねじれ加群
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires: [algebra.operator-polynomial-module, algebra.finitely-generated-module, algebra.torsion-module, algebra.pid-fg-module-structure]
