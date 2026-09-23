@@ -1,0 +1,49 @@
+id: "QMC8"
+title: "高次準 Monte Carlo 法"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - QMC5
+official_scope: []
+learning_objectives:
+  - Dick の α 重みを b 進展開の非零桁位置から計算し、α=1 で NRT 重みに戻ることを説明できる
+  - n×m 生成行列から高精度デジタル点集合と双対ネットを構成し、Walsh 関数の離散直交性を証明できる
+  - 最小双対 Dick 重みと order α デジタルネットを定義し、通常の t 値との違いを説明できる
+  - 有限出力精度 n が最小双対 Dick 重みに課す上限を証明し、高次法で n≈αm が必要になる理由を説明できる
+  - 高次 Walsh 係数ノルムが Walsh 係数の減衰をどう符号化するかを説明できる
+  - 最小双対 Dick 重みと高次 Walsh 係数ノルムから N^{-α} 型の決定論的求積誤差評価を導ける
+  - 桁交互配置を点と生成行列の両側で計算し、α 個の低次元座標から1個の高精度座標を作れる
+  - 滑らかさ不足・出力精度不足・大きな t_α が高次収束を妨げる機構を区別できる
+definitions:
+  - { id: QMC8-DEF-01, name: Dick の α 重み }
+  - { id: QMC8-DEF-02, name: 高精度デジタル点集合と双対ネット }
+  - { id: QMC8-DEF-03, name: 最小双対 Dick 重み }
+  - { id: QMC8-DEF-04, name: order α デジタルネット }
+  - { id: QMC8-DEF-05, name: 高次 Walsh 係数ノルム }
+  - { id: QMC8-DEF-06, name: 桁交互配置 }
+theorems:
+  - { id: QMC8-PROP-01, name: Dick の1重みと NRT 重みの一致 }
+  - { id: QMC8-THM-01, name: 高精度デジタル点集合上の Walsh 関数の離散直交性 }
+  - { id: QMC8-PROP-02, name: 有限出力精度による最小双対 Dick 重みの上限 }
+  - { id: QMC8-THM-02, name: order α デジタルネットの高次 Walsh 誤差評価 }
+  - { id: QMC8-PROP-03, name: 生成行列の行交互配置と点の桁交互配置の一致 }
+canonical_examples:
+  - 底2で 13=(1101)_2 の非零桁位置 4,3,1 から μ1=4, μ2=7, μ3=8 を計算する例
+  - b=2,m=1,n=2,C=(1,1)^T から P={0,3/4} と双対条件 κ0+κ1=0 を求める例
+  - 上の2点集合で ρ2=3 を確認し order 2 の (0,1,1)-ネットになる例
+  - n 桁より上だけに非零桁を持つ k=b^n が必ず双対に入ることを確認する例
+  - 有限 Walsh 多項式の高次 Walsh 係数ノルムを直接計算する例
+  - 二つの2進座標の桁を交互に並べて一つの4桁座標を作る例
+problem_patterns:
+  - QMC8-DICK-WEIGHT-1
+  - QMC8-RECTANGULAR-DIGITAL-1
+  - QMC8-PRECISION-BARRIER-1
+  - QMC8-WALSH-NORM-1
+  - QMC8-ORDER-ALPHA-ERROR-1
+  - QMC8-DIGIT-INTERLACING-1
+  - QMC8-HIGHER-ORDER-COMPARISON-1
+  - QMC8-INTEGRATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 5.0, review: 0.75 }
