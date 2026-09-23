@@ -18,7 +18,7 @@ Docsify 教材ページ
     ↓
 numerical-lab-runtime.js
     ↓ postMessage
-module Web Worker
+module 型 Web Worker
     ↓
 Pyodide 314.0.7
     ↓
@@ -56,7 +56,7 @@ Worker は、
 
 Service Worker は、Pyodide の固定バージョン資産を専用 Cache Storage へ保存します。
 
-通常の教材キャッシュはサイト revision ごとに更新されますが、Pyodide は
+通常の教材キャッシュはサイトの revision ごとに更新されますが、Pyodide は
 
 ~~~text
 https://cdn.jsdelivr.net/pyodide/v314.0.7/full/
@@ -97,7 +97,7 @@ toukei-grade1-numerical-runtime-v1
 教材全体の「オフライン保存」と Python ランタイムの保存は役割が異なります。
 
 - 教材 Markdown・画像など：教材のオフライン保存
-- Pyodide・Python パッケージ：ラボ初回実行時の永続 ランタイムキャッシュ
+- Pyodide・Python パッケージ：ラボ初回実行時の永続ランタイムキャッシュ
 
 です。
 
@@ -130,7 +130,7 @@ assert ...
 
 `lab-id` は全ラボで一意にします。進捗保存のキーにも使うため、後から意味なく変更しません。
 
-`timeout-ms` は**ユーザーコード本体の実行上限**です。Pyodide や package の初回読込み時間とは分けて扱います。
+`timeout-ms` は**ユーザーコード本体の実行上限**です。Pyodide やパッケージの初回読込み時間とは分けて扱います。
 
 ---
 
@@ -399,7 +399,7 @@ assert np.all(error > 0.0)
 
 教材側の初期コードが更新されると ハッシュが変わるため、古い保存コードを新しい教材へ無条件に復元しません。
 
-「初期コードへ戻す」は、そのラボの編集コード・完了状態・出力・図を初期化します。Python ランタイム全体や他のラボ進捗、Pyodide package の Cache Storage は消しません。
+「初期コードへ戻す」は、そのラボの編集コード・完了状態・出力・図を初期化します。Python ランタイム全体や他のラボ進捗、Pyodide パッケージ の Cache Storage は消しません。
 
 ---
 
@@ -470,16 +470,16 @@ timeout は停止しない計算から UI を復旧させるための機構で�
 
 ## 17. CI が検査するもの
 
-NUMLAB0 追加に合わせて、Pages validation へ数値ラボ基盤の検査を追加します。
+NUMLAB0 追加に合わせて、Pages 検証 へ数値ラボ基盤の検査を追加します。
 
 CI は少なくとも、
 
-- ランタイム JavaScript の構文
+- ランタイム用 JavaScript の構文
 - module Worker の構文
-- Pyodide version の固定
+- Pyodide バージョン の固定
 - Worker 分離
 - ランタイム資産 が Pages artifact へコピーされること
-- Service Worker の永続 ランタイムキャッシュ 設定
+- Service Worker の永続ランタイムキャッシュ 設定
 - NUMLAB0 の全 `python-lab` に一意な `lab-id` があること
 - 時間制限が許容範囲内であること
 - 各 `python-lab` の直後に `python-test` があること
@@ -507,7 +507,7 @@ CI は少なくとも、
 8. 再現可能な性質ベーステストが書ける。
 9. Matplotlib の図をページへ返せる。
 10. 完了状態と編集コードを保存できる。
-11. 固定 Pyodide ランタイム を永続キャッシュできる。
+11. 固定 Pyodide ランタイムを永続キャッシュできる。
 12. CI が上記の構成を壊す変更を検出できる。
 
 ---
@@ -516,7 +516,7 @@ CI は少なくとも、
 
 NUMLAB1 以降では、原則として次を再設計しません。
 
-- Pyodide version
+- Pyodide バージョン
 - Worker プロトコル
 - 時間制限の基本方式
 - `python-lab` / `python-test` 記法
