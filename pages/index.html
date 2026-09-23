@@ -21,6 +21,22 @@
     .formal-statement > :first-child, .formal-statement > blockquote > :first-child { margin-top: 0; }
     .formal-statement > :last-child, .formal-statement > blockquote > :last-child { margin-bottom: 0; }
     .sidebar-nav li { line-height: 1.45; }
+    .dream-theater-sidebar-nav { display: none; padding: 0 0.9rem 1.5rem; font-size: 14px; }
+    body.dream-theater-route .sidebar-nav { display: none; }
+    body.dream-theater-route .dream-theater-sidebar-nav { display: block; }
+    .dream-theater-sidebar-brand { margin: 0.25rem 0 0.8rem; padding: 0 0.35rem 0.8rem; border-bottom: 1px solid #e5e7eb; }
+    .dream-theater-sidebar-brand strong { display: block; margin: 0.15rem 0 0.55rem; letter-spacing: 0.08em; }
+    .dream-theater-back-home { display: block; margin-bottom: 0.75rem; font-weight: 600; }
+    .dream-theater-sidebar-nav a { color: inherit; text-decoration: none; }
+    .dream-theater-sidebar-nav ul { list-style: none; margin: 0.25rem 0 0.55rem; padding-left: 0.9rem; }
+    .dream-theater-sidebar-nav li { margin: 0.16rem 0; }
+    .dream-theater-sidebar-nav a[data-dream-route] { display: block; padding: 0.13rem 0.35rem; border-left: 2px solid transparent; line-height: 1.42; }
+    .dream-theater-sidebar-nav a[data-dream-route].active { color: var(--theme-color); border-left-color: var(--theme-color); font-weight: 700; }
+    .dream-theater-sidebar-primary { padding-left: 0 !important; }
+    .dream-theater-nav-section, .dream-theater-nav-subsection { margin: 0.35rem 0; }
+    .dream-theater-nav-section > summary, .dream-theater-nav-subsection > summary { cursor: pointer; line-height: 1.45; }
+    .dream-theater-nav-section > summary { font-weight: 700; }
+    .dream-theater-nav-subsection > summary { padding-left: 0.35rem; font-weight: 600; }
     .solution-details { margin: 0.8rem 0 1.4rem; border: 1px solid #d8dee4; border-radius: 6px; padding: 0.15rem 0.8rem 0.7rem; }
     .solution-details summary { cursor: pointer; font-weight: 600; padding: 0.65rem 0; }
     .solution-details .solution-body > :first-child { margin-top: 0.4rem; }
@@ -277,6 +293,7 @@
     });
   </script>
   <script src="math-renderer.js"></script>
+  <script src="dream-theater-navigation.js"></script>
   <script>
     function solutionDetailsPlugin(hook) {
       hook.afterEach(function (html) {
@@ -295,6 +312,68 @@
       });
     }
 
+    function canonicalDreamRoute(value) {
+      var route = String(value || '').replace(/^#\/?/, '').replace(/^\/+/, '');
+      try {
+        route = decodeURIComponent(route);
+      } catch (error) {
+        console.warn('DREAM THEATER route could not be decoded:', error);
+      }
+      return route
+        .replace(/[?#].*$/, '')
+        .replace(/\.md$/i, '')
+        .replace(/\/index$/i, '')
+        .replace(/\/+$/, '');
+    }
+
+    function dreamTheaterNavigationPlugin(hook) {
+      hook.doneEach(function () {
+        var config = window.DreamTheaterNavigation;
+        var currentRoute = canonicalDreamRoute(window.location.hash);
+        var isDreamTheater = Boolean(
+          config &&
+          Array.isArray(config.routes) &&
+          config.routes.indexOf(currentRoute) >= 0
+        );
+
+        document.body.classList.toggle('dream-theater-route', isDreamTheater);
+
+        var existing = document.querySelector('.dream-theater-sidebar-nav');
+        if (!isDreamTheater) {
+          if (existing) existing.remove();
+          return;
+        }
+
+        var sidebar = document.querySelector('.sidebar');
+        var standardNav = sidebar && sidebar.querySelector('.sidebar-nav');
+        if (!sidebar || !standardNav || !config.html) return;
+
+        var nav = existing;
+        if (!nav) {
+          nav = document.createElement('nav');
+          nav.className = 'dream-theater-sidebar-nav';
+          nav.setAttribute('aria-label', 'DREAM THEATER ナビゲーション');
+          nav.innerHTML = config.html;
+          standardNav.insertAdjacentElement('afterend', nav);
+        }
+
+        nav.querySelectorAll('details').forEach(function (details) {
+          details.open = false;
+        });
+        nav.querySelectorAll('a[data-dream-route]').forEach(function (link) {
+          link.classList.toggle(
+            'active',
+            canonicalDreamRoute(link.getAttribute('data-dream-route')) === currentRoute
+          );
+        });
+
+        var active = nav.querySelector('a[data-dream-route].active');
+        for (var node = active && active.parentElement; node && node !== nav; node = node.parentElement) {
+          if (node.tagName === 'DETAILS') node.open = true;
+        }
+      });
+    }
+
     window.$docsify = {
       name: '統計検定1級 対策教材',
       repo: 'InSuns21/toukei-kentei_grade1_preparation',
@@ -308,7 +387,7 @@
         noData: '該当する教材が見つかりません',
         depth: 6
       },
-      plugins: [window.ToukeiMathRenderer.docsifyPlugin, solutionDetailsPlugin, offlineCacheStatusPlugin]
+      plugins: [window.ToukeiMathRenderer.docsifyPlugin, solutionDetailsPlugin, offlineCacheStatusPlugin, dreamTheaterNavigationPlugin]
     };
   </script>
   <!--
