@@ -452,6 +452,52 @@ f_j
 を **中心差分型移流拡散スキーム**という。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-fdm4-centered-scheme -->
+### 定義の確認：一次関数は離散作用素でも厳密
+
+\[
+u(x)=x
+\]
+
+とします。このとき
+
+\[
+u''=0,
+\qquad
+u'=1,
+\]
+
+なので連続作用素は
+
+\[
+-\kappa u''+au'=a.
+\]
+
+格子値 \(U_j=x_j=jh\) に対して
+
+\[
+U_{j+1}-2U_j+U_{j-1}=0
+\]
+
+かつ
+
+\[
+\frac{U_{j+1}-U_{j-1}}{2h}
+=
+\frac{(j+1)h-(j-1)h}{2h}
+=
+1.
+\]
+
+従って中心差分作用素も
+
+\[
+-\kappa\cdot0+a\cdot1=a
+\]
+
+となり、\(f_j=a\) を厳密に再現します。
+<!-- definition-example-end -->
+
 \(Pe_h=ah/(2\kappa)\) と置き、両辺へ \(h^2/\kappa\) を掛けると
 
 \[
@@ -1125,6 +1171,46 @@ f_j
 
 を用いる。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-fdm4-upwind-scheme -->
+### 定義の確認：風上差分も一次関数を厳密に再現する
+
+\[
+u(x)=x,
+\qquad
+a>0
+\]
+
+とします。格子値 \(U_j=jh\) では
+
+\[
+U_{j+1}-2U_j+U_{j-1}=0
+\]
+
+であり、
+
+\[
+\frac{U_j-U_{j-1}}h
+=
+\frac{jh-(j-1)h}{h}
+=
+1.
+\]
+
+したがって
+
+\[
+-\kappa
+\frac{U_{j+1}-2U_j+U_{j-1}}{h^2}
++
+a
+\frac{U_j-U_{j-1}}h
+=
+a.
+\]
+
+よって \(f_j=a\) に対して風上差分型スキームも一次関数を厳密に再現します。片側化による誤差が現れるのは二階微分が非零になるところからです。
+<!-- definition-example-end -->
 
 \(a>0\) で
 
