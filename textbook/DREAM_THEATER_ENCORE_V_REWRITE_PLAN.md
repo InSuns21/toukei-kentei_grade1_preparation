@@ -385,7 +385,7 @@ QMC2 は既存 F0-02C7 の RKHS / 再生核を再定義しない。stable anchor
 | ID | 講座 | 内容 |
 |---|---|---|
 | PYNUM1 | Python 数値計算速習 | Python の要点、NumPy 配列、shape / dtype、slicing、broadcasting、vectorization、乱数、Matplotlib、SciPy の必要最小限 |
-| NUMLAB0 | 計算機演習基盤 | ブラウザ上 Python 実行、Worker、依存ライブラリ、採点、保存、timeout、CI |
+| NUMLAB0 | 計算機演習基盤 | ブラウザ上 Python 実行、Worker、依存ライブラリ、採点、保存、時間制限、CI |
 | NUMLAB1 | 数値解析演習 | NA1–NA12 対応 |
 | NUMLAB2 | 差分法演習 | FDM1–FDM4 対応 |
 | NUMLAB3 | 有限要素法演習 | FEM1–FEM7 対応 |
@@ -424,13 +424,13 @@ PYNUM1 は後続 NUMLAB の共通参照章とし、各演習で Python / NumPy �
 ブラウザ内 Python 実行を採用する。NUMLAB0 実装時点の技術選定は次で固定する。
 
 - Pyodide 314.0.7
-- module Web Worker による Python 実行分離
+- module 型 Web Worker による Python 実行分離
 - ユーザーコード本体の時間制限超過時は Worker を破棄して再生成
 - NumPy / SciPy / Matplotlib は Pyodide の固定版配布から必要時に読込
 - 編集コード・完了状態は localStorage
 - Pyodide 固定版資産は Service Worker の永続 Cache Storage
 - 通常教材のオフライン保存と数値ランタイムのキャッシュを分離
-- `python-lab` + `python-test` fence を共通実行・自動判定契約とする
+- `python-lab` + `python-test` コードフェンス を共通実行・自動判定契約とする
 - 数値判定は tolerance、性質ベーステストは再現可能な固定乱数生成器で行う
 
 基本要件：
@@ -448,7 +448,7 @@ PYNUM1 は後続 NUMLAB の共通参照章とし、各演習で Python / NumPy �
 - offline / GitHub Pages との整合
 - ネットワークアクセスを演習実行の必須条件にしない
 
-技術選定は NUMLAB0 で確定済み。後続 NUMLAB1–NUMLAB5 は実験内容へ集中し、個別に別ランタイムを持ち込まない。基盤変更が必要な場合は NUMLAB0 の共通 runtime / Worker / validation を更新する。
+技術選定は NUMLAB0 で確定済み。後続 NUMLAB1–NUMLAB5 は実験内容へ集中し、個別に別ランタイムを持ち込まない。基盤変更が必要な場合は NUMLAB0 の共通ランタイム / Worker / 検証 を更新する。
 
 ## 9.3 理論演習との役割分担
 
@@ -496,13 +496,7 @@ QMC4 digital net
 NUMLAB5 Sobol点列の低次元投影
 ~~~
 
-対応関係は機械可読な台帳を用意する。
-
-候補：
-
-~~~text
-textbook/numerical-lab-links.yaml
-~~~
+対応関係は機械可読な正本 `textbook/numerical-lab-links.yaml` に置く。NUMLAB0 で schema version 1 の空台帳を作成済みとし、NUMLAB1 以降でレコードを追加する。
 
 各レコードには少なくとも、
 
