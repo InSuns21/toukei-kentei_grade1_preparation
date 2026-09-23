@@ -1,0 +1,29 @@
+chapter: "FEM3"
+terms:
+  - term: 節点補間
+    english: nodal interpolation
+    meaning: 有限要素の節点で元の関数と同じ値を取り、各要素上では指定した局所多項式空間に属する補間関数を作る操作。
+  - term: 局所節点補間作用素
+    english: local nodal interpolation operator
+    meaning: 一つの三角形 K 上で、三頂点の関数値を重心座標の係数として P_1(K) の補間関数を作る作用素 I_K。
+  - term: 内接円半径
+    english: inradius
+    meaning: 三角形 K に内接する円の半径 rho_K。要素がつぶれると rho_K は直径 h_K に比べて小さくなる。
+  - term: 要素形状比
+    english: element shape ratio
+    meaning: h_K/rho_K で測る三角形の形状の悪さ。相似変形では不変で、細長くつぶれると大きくなる。
+  - term: 形状正則性
+    english: shape regularity
+    meaning: メッシュ族の全要素で h_K/rho_K が一つの定数で一様に抑えられる性質。要素サイズの大小ではなく形状の劣化を排除する。
+  - term: 大域節点補間
+    english: global nodal interpolation
+    meaning: 各大域頂点で元の関数値を取り、各要素では局所節点補間と一致する連続区分一次関数 I_hu を作る操作。
+  - term: 局所補間誤差評価
+    english: local interpolation error estimate
+    meaning: 一要素 K 上で u-I_Ku の L2 誤差と H1 半ノルム誤差を h_K、形状比、u の H2 半ノルムで評価する不等式。
+  - term: 大域補間誤差評価
+    english: global interpolation error estimate
+    meaning: 局所誤差を全要素で二乗和し、形状正則なメッシュ上で ||u-I_hu||_L2=O(h^2)、|u-I_hu|_H1=O(h) を得る評価。
+  - term: 準一様性
+    english: quasi-uniformity
+    meaning: 全要素の大きさが大域メッシュ幅 h と同程度であるという形状正則性より強い条件。本章の基本補間誤差評価には不要。
