@@ -1,0 +1,121 @@
+chapter: QMC5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QMC4
+  - FOU1
+
+concepts:
+  - id: numerical.walsh-function
+    name: Walsh 関数
+    kind: definition
+    aliases: [Walsh function]
+    introduction: formal
+    introduction_aliases: ["定義（Walsh 関数）"]
+    requires:
+      - fourier.fou1-complex-exponential-coefficient
+
+  - id: numerical.walsh-integral-orthogonality
+    name: Walsh 関数の積分直交性
+    kind: theorem
+    aliases: [integral orthogonality of Walsh functions]
+    introduction: formal
+    introduction_aliases: ["定理（Walsh 関数の積分直交性）"]
+    requires:
+      - numerical.walsh-function
+
+  - id: numerical.walsh-polynomial
+    name: Walsh 多項式
+    kind: definition
+    aliases: [Walsh polynomial]
+    introduction: formal
+    introduction_aliases: ["定義（Walsh 多項式と Walsh 係数）"]
+    requires:
+      - numerical.walsh-function
+
+  - id: numerical.walsh-coefficient
+    name: Walsh 係数
+    kind: definition
+    aliases: [Walsh coefficient]
+    introduction: formal
+    introduction_aliases: ["定義（Walsh 多項式と Walsh 係数）"]
+    requires:
+      - numerical.walsh-function
+
+  - id: numerical.digital-dual-net
+    name: デジタル点集合の双対ネット
+    kind: definition
+    aliases: [dual net of a digital net]
+    introduction: formal
+    introduction_aliases: ["定義（デジタル点集合の双対ネット）"]
+    requires:
+      - numerical.digital-point-set
+
+  - id: numerical.digital-walsh-character-property
+    name: デジタルネット上の Walsh 関数の離散直交性
+    kind: theorem
+    aliases: [Walsh character property of a digital net]
+    introduction: formal
+    introduction_aliases: ["定理（デジタルネット上の Walsh 関数の離散直交性）"]
+    requires:
+      - numerical.digital-dual-net
+      - numerical.walsh-function
+
+  - id: numerical.digital-walsh-polynomial-error
+    name: Walsh 多項式に対するデジタルネットの積分誤差公式
+    kind: theorem
+    aliases: [digital net integration error formula for Walsh polynomials]
+    introduction: formal
+    introduction_aliases: ["定理（Walsh 多項式に対するデジタルネットの積分誤差公式）"]
+    requires:
+      - numerical.walsh-polynomial
+      - numerical.walsh-integral-orthogonality
+      - numerical.digital-walsh-character-property
+
+  - id: numerical.absolute-walsh-series
+    name: 絶対収束 Walsh 級数
+    kind: definition
+    aliases: [absolutely convergent Walsh series]
+    introduction: formal
+    introduction_aliases: ["定義（絶対収束 Walsh 級数）"]
+    requires:
+      - numerical.walsh-coefficient
+
+  - id: numerical.digital-absolute-walsh-error
+    name: 絶対収束 Walsh 級数に対する積分誤差公式
+    kind: theorem
+    aliases: [digital net integration error formula for absolutely convergent Walsh series]
+    introduction: formal
+    introduction_aliases: ["定理（絶対収束 Walsh 級数に対する積分誤差公式）"]
+    requires:
+      - numerical.absolute-walsh-series
+      - numerical.digital-walsh-character-property
+
+  - id: numerical.nrt-weight
+    name: NRT 重み
+    kind: definition
+    aliases: [Niederreiter--Rosenbloom--Tsfasman weight, NRT weight]
+    introduction: formal
+    introduction_aliases: ["定義（NRT 重み）"]
+    requires: []
+
+  - id: numerical.minimum-dual-nrt-weight
+    name: 最小双対 NRT 重み
+    kind: definition
+    aliases: [minimum dual NRT weight]
+    introduction: formal
+    introduction_aliases: ["定義（最小双対 NRT 重み）"]
+    requires:
+      - numerical.nrt-weight
+      - numerical.digital-dual-net
+
+  - id: numerical.digital-t-value-duality
+    name: t 値と最小双対 NRT 重みの双対関係
+    kind: theorem
+    aliases: [duality between the t-value and minimum dual NRT weight]
+    introduction: formal
+    introduction_aliases: ["定理（t 値と最小双対 NRT 重みの双対関係）"]
+    requires:
+      - numerical.minimum-dual-nrt-weight
+      - numerical.digital-net-rank-criterion
+      - numerical.tms-net
