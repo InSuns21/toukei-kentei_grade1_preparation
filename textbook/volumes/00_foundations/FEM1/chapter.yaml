@@ -1,0 +1,45 @@
+id: "FEM1"
+title: "有限要素法 I：Poisson 方程式・変分形式・Galerkin 法"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GPDE7
+official_scope: []
+learning_objectives:
+  - Poisson 零 Dirichlet 問題を変分形式として確認し、有限次元部分空間へ制限する Galerkin 離散化を定式化できる
+  - 適合性 V_h subset V により連続問題の有界性・強圧性が離散問題へ継承されることを説明し、Lax--Milgram から離散解の存在一意性を導ける
+  - Galerkin 基底から係数行列 A_ij=a(phi_j,phi_i) と右辺 b_i=F(phi_i) を構成し、強圧性から正則性、対称問題では実対称正定値性を証明できる
+  - 連続問題と離散問題の差から Galerkin 直交性を証明できる
+  - 有界性・強圧性・Galerkin 直交性から Céa の補題を証明し、準最良近似性の意味を説明できる
+  - 対称強圧的問題でエネルギーノルムを定義し、Pythagoras 型恒等式から厳密な最良近似性を証明できる
+  - 一次元 Poisson 問題を低次元 Galerkin 空間へ落とし、剛性行列・右辺・係数・近似解を手計算できる
+  - Céa の補題だけでは収束率が閉じず、空間の近似能力を FEM2--FEM4 で評価する必要があることを説明できる
+definitions:
+  - { id: FEM1-DEF-01, name: 適合 Galerkin 離散化 }
+  - { id: FEM1-DEF-02, name: エネルギーノルム }
+theorems:
+  - { id: FEM1-THM-01, name: 適合 Galerkin 問題の存在一意性 }
+  - { id: FEM1-PROP-01, name: Galerkin 方程式の行列表現 }
+  - { id: FEM1-THM-02, name: Galerkin 直交性 }
+  - { id: FEM1-THM-03, name: Céa の補題 }
+  - { id: FEM1-THM-04, name: 対称 Galerkin 法のエネルギーノルム最良近似性 }
+  - { id: FEM1-COR-01, name: Poisson Galerkin 近似の存在一意性と最良近似性 }
+canonical_examples:
+  - R2 の直交射影としての Galerkin 法
+  - 一次元 Poisson 問題を一次元試行空間へ落とす計算
+  - 二つの大域多項式基底による Poisson Galerkin 連立方程式
+  - 固定された貧弱な部分空間では Céa の補題が収束を保証しない例
+  - 強圧性を失うと存在または一意性が壊れる有限次元反例
+problem_patterns:
+  - FEM1-GALERKIN-PROJECTION-1
+  - FEM1-ONE-BASIS-POISSON-1
+  - FEM1-MATRIX-SPD-1
+  - FEM1-CEA-CONSTANT-1
+  - FEM1-CEA-PROOF-1
+  - FEM1-TWO-BASIS-POISSON-1
+  - FEM1-COERCIVITY-FAILURE-1
+  - FEM1-POISSON-GALERKIN-SYNTHESIS-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 4.5, review: 0.5 }
