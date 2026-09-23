@@ -3476,7 +3476,7 @@ $$
 
 が全境界頂点で成り立ちます。
 
-従って [FEM2 の連続一次有限要素空間](../FEM2/index.md#def-fem2-conforming-p1-space)で定めた零 Dirichlet 空間に
+従って、[FEM2 の連続一次有限要素空間](../FEM2/index.md#def-fem2-conforming-p1-space)で定めた零 Dirichlet 空間に属します。すなわち
 
 $$
 \boxed{
