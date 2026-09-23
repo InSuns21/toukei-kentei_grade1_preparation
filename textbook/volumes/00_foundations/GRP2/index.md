@@ -186,9 +186,9 @@ $$
 <!-- proof-end -->
 
 GRP1 で定義した
-$
+$$
 \operatorname{sgn}:S_n\to\{1,-1\}
-$
+$$
 も、[置換の偶奇の一意性](../GRP1/index.md#thm-grp1-parity)で
 $$
 \operatorname{sgn}(\sigma\tau)
