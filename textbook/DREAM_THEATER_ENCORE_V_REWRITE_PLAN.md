@@ -138,7 +138,7 @@ facade は完成済み講座だけをリンクする。未完成章を先行表�
 - [x] FDM3「整合性・安定性・収束性」を新正本として実装
 - [x] FDM4「移流拡散と風上化」を新正本として実装
 - [x] FEM1「Poisson 方程式・変分形式・Galerkin 法」を新正本として実装
-- [x] FEM2「有限要素・三角形分割・基底」を新正本として実装
+- [x] FEM2「三角形分割・局所基底・組立て」を新正本として実装
 - 次の実装対象：**FEM3「有限要素補間とメッシュ」**
 
 
@@ -229,7 +229,7 @@ PDE
 | ID | 講座 | 中心内容 |
 |---|---|---|
 | FEM1 | Poisson 方程式・変分形式・Galerkin 法 | 弱形式、有限次元 Galerkin、最良近似、Céa |
-| FEM2 | 有限要素・三角形分割・基底 | finite element、自由度、reference element、affine map、assembly |
+| FEM2 | 三角形分割・局所基底・組立て | finite element、自由度、reference element、affine map、assembly |
 | FEM3 | 有限要素補間とメッシュ | Lagrange 補間、shape regularity、局所補間誤差、大域化 |
 | FEM4 | 楕円型 FEM の誤差解析 | H1 誤差、Céa、L2 誤差、Aubin–Nitsche 型双対論法 |
 | FEM5 | 鞍点問題・Stokes 方程式 | 一般化 Lax–Milgram、inf-sup、混合 FEM、Taylor–Hood の位置付け |
@@ -261,7 +261,7 @@ PDE
 ### 6.2 Phase 3 進捗
 
 - [x] FEM1：Poisson 方程式・変分形式・Galerkin 法
-- [x] FEM2：有限要素・三角形分割・基底
+- [x] FEM2：三角形分割・局所基底・組立て
 - [ ] FEM3：有限要素補間とメッシュ
 - [ ] FEM4：楕円型 FEM の誤差解析
 - [ ] FEM5：鞍点問題・Stokes 方程式
