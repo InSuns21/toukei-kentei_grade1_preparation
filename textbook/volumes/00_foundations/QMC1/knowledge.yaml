@@ -4,7 +4,10 @@ coverage: complete
 prerequisites:
   - MC1
   - F0-00D2C
-forward_references: []
+  - RA3
+forward_references:
+  - rkhs.rkhs
+  - rkhs.reproducing-kernel
 
 concepts:
   - id: numerical.anchored-box
@@ -87,6 +90,8 @@ concepts:
       - numerical.qmc-local-discrepancy
       - numerical.hardy-krause-variation
       - measure.fubini-theorem
+      - analysis.derivative
+      - analysis.ck-smoothness-class
 
   - id: numerical.koksma-hlawka-inequality
     name: Koksma--Hlawka の不等式
