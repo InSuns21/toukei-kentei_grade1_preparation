@@ -17,10 +17,10 @@ terms:
     meaning: 安定性のために tau と h の比へ追加の上限制約を課す必要がないこと。精度が刻み幅によらないという意味ではない。
   - term: theta 差分法
     english: theta finite-difference scheme
-    meaning: 現在時刻と次時刻の離散 Laplacian を重み 1-theta と theta で組み合わせる熱方程式の時間離散法。
+    meaning: 現在時刻と次時刻の中心二階空間差分を重み 1-theta と theta で組み合わせる熱方程式の時間離散法。
   - term: Crank--Nicolson 差分法
     english: Crank--Nicolson finite-difference scheme
     meaning: theta=1/2 とした熱方程式の theta 差分法。無条件安定だが高周波モードを強く減衰させるとは限らない。
   - term: 離散正弦モード
     english: discrete sine mode
-    meaning: 斉次 Dirichlet 格子で一次元離散 Laplacian を対角化する sin(k*pi*j/J) 型の固有ベクトル。
+    meaning: 斉次 Dirichlet 格子で一次元中心二階差分作用素を対角化する sin(k*pi*j/J) 型の固有ベクトル。
