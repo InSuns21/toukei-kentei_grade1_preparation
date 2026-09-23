@@ -502,6 +502,15 @@ nodes:
     reuses: [F0_00A1D]
     prerequisites: [GRP2]
 
+  - id: RNG2
+    title: 素イデアル・極大イデアル・中国剰余定理
+    area: abstract-algebra
+    tier: core
+    status: implemented
+    implemented_at: 2026-09-23
+    implementation_path: textbook/volumes/00_foundations/RNG2/index.md
+    prerequisites: [RNG1]
+
   - id: VC1
     title: ベクトル場と微分演算子
     area: vector-calculus
@@ -872,7 +881,7 @@ implementation_batches:
     nodes: [GEO1, GEO2, GEO3, GEO4, GEO5, GEO6, GEO7, GEO8, GEO9, GEO10, GEO11, GEO12, GEO13, GEO14, GEO15, GEO16, GEO17, GEO18, GEO19]
   - order: 11
     id: abstract-algebra-core
-    nodes: [GRP1, GRP2, GRP3, GRP4, RNG1]
+    nodes: [GRP1, GRP2, GRP3, GRP4, RNG1, RNG2]
 
 deferred_integrations:
   - id: dream-theater-facade-entrypoint

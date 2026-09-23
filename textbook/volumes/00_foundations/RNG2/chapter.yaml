@@ -1,0 +1,47 @@
+id: "RNG2"
+title: "抽象代数 VI：素イデアル・極大イデアル・中国剰余定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RNG1
+official_scope: []
+learning_objectives:
+  - 真のイデアル・素イデアル・極大イデアルを定義し、具体例で区別できる
+  - 素イデアルで割った商環が整域になることとの同値を証明できる
+  - イデアルの和・積を構成し、互いに素である条件を 1 の表示として使える
+  - 極大イデアルで割った商環が体になることとの同値を証明できる
+  - 極大イデアルが素イデアルであることをイデアルの和から直接証明できる
+  - 互いに素なイデアルについて交わりと積が一致することを証明できる
+  - 二つのイデアルに対する中国剰余定理を核と全射性の構成から証明できる
+  - 有限個の二つずつ互いに素なイデアルへ中国剰余定理を拡張できる
+  - 具体的な整数の同時合同式を中国剰余定理の構成から解ける
+definitions:
+  - { id: RNG2-DEF-01, name: 真のイデアル・素イデアル・極大イデアル }
+  - { id: RNG2-DEF-02, name: イデアルの和・積・互いに素なイデアル }
+theorems:
+  - { id: RNG2-THM-01, name: 素イデアルと商整域 }
+  - { id: RNG2-PROP-01, name: イデアルの和と積はイデアル }
+  - { id: RNG2-THM-02, name: 極大イデアルと商体 }
+  - { id: RNG2-COR-01, name: 極大イデアルは素イデアル }
+  - { id: RNG2-PROP-02, name: 互いに素なイデアルの交わりと積 }
+  - { id: RNG2-THM-03, name: 中国剰余定理（二つのイデアル） }
+  - { id: RNG2-LEM-01, name: 互いに素な条件を積へまとめる補題 }
+  - { id: RNG2-THM-04, name: 中国剰余定理（有限個のイデアル） }
+canonical_examples:
+  - Z の (0), 5Z, 6Z による素・極大イデアルの比較
+  - Z × Z の素だが極大でないイデアル
+  - 3Z と 4Z の互いに素なイデアル
+  - Z/12Z ≅ Z/3Z × Z/4Z
+  - 4Z と 6Z で中国剰余定理の全射性が壊れる反例
+  - 法 3, 5, 7 の有限中国剰余定理
+problem_patterns:
+  - RNG2-PRIME-MAXIMAL-1
+  - RNG2-QUOTIENT-DOMAIN-FIELD-1
+  - RNG2-COMAXIMAL-1
+  - RNG2-CRT-TWO-1
+  - RNG2-CRT-FAILURE-1
+  - RNG2-CRT-FINITE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.5, exercises: 5.0, review: 0.5 }

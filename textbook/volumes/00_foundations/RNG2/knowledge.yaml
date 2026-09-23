@@ -1,0 +1,114 @@
+chapter: RNG2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RNG1
+forward_references: []
+
+concepts:
+  - id: algebra.proper-ideal
+    name: 環論の真のイデアル
+    kind: definition
+    aliases: [proper ideal]
+    introduction: formal
+    introduction_aliases: ["定義（真のイデアル・素イデアル・極大イデアル）"]
+    requires: [algebra.ring-ideal]
+
+  - id: algebra.prime-ideal
+    name: 環論の素イデアル
+    kind: definition
+    aliases: [prime ideal]
+    introduction: formal
+    introduction_aliases: ["定義（真のイデアル・素イデアル・極大イデアル）"]
+    requires: [algebra.proper-ideal, algebra.commutative-ring, algebra.unital-ring]
+
+  - id: algebra.maximal-ideal
+    name: 環論の極大イデアル
+    kind: definition
+    aliases: [maximal ideal]
+    introduction: formal
+    introduction_aliases: ["定義（真のイデアル・素イデアル・極大イデアル）"]
+    requires: [algebra.proper-ideal, algebra.commutative-ring, algebra.unital-ring]
+
+  - id: algebra.prime-ideal-quotient-domain
+    name: 素イデアルと商整域
+    kind: theorem
+    aliases: [prime ideal quotient domain criterion]
+    introduction: formal
+    requires: [algebra.prime-ideal, algebra.quotient-ring, algebra.integral-domain]
+
+  - id: algebra.ideal-sum
+    name: イデアルの和
+    kind: definition
+    aliases: [sum of ideals]
+    introduction: formal
+    introduction_aliases: ["定義（イデアルの和・積・互いに素なイデアル）"]
+    requires: [algebra.ring-ideal]
+
+  - id: algebra.ideal-product
+    name: イデアルの積
+    kind: definition
+    aliases: [product of ideals]
+    introduction: formal
+    introduction_aliases: ["定義（イデアルの和・積・互いに素なイデアル）"]
+    requires: [algebra.ring-ideal]
+
+  - id: algebra.comaximal-ideals
+    name: 互いに素なイデアル
+    kind: definition
+    aliases: [comaximal ideals, comaximal]
+    introduction: formal
+    introduction_aliases: ["定義（イデアルの和・積・互いに素なイデアル）"]
+    requires: [algebra.ideal-sum, algebra.unital-ring]
+
+  - id: algebra.ideal-sum-product-are-ideals
+    name: イデアルの和と積はイデアル
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires: [algebra.ideal-sum, algebra.ideal-product]
+
+  - id: algebra.maximal-ideal-quotient-field
+    name: 極大イデアルと商体
+    kind: theorem
+    aliases: [maximal ideal quotient field criterion]
+    introduction: formal
+    requires: [algebra.maximal-ideal, algebra.quotient-ring, algebra.field, algebra.ideal-sum, algebra.principal-ideal]
+
+  - id: algebra.maximal-ideal-implies-prime
+    name: 極大イデアルは素イデアル
+    kind: corollary
+    aliases: [maximal ideals are prime]
+    introduction: formal
+    requires: [algebra.maximal-ideal, algebra.prime-ideal, algebra.ideal-sum, algebra.principal-ideal]
+
+  - id: algebra.comaximal-intersection-product
+    name: 互いに素なイデアルの交わりと積
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires: [algebra.comaximal-ideals, algebra.ideal-product]
+
+  - id: algebra.chinese-remainder-theorem-two-ideals
+    name: 中国剰余定理（二つのイデアル）
+    kind: theorem
+    aliases: [Chinese remainder theorem for two ideals]
+    introduction: formal
+    introduction_aliases: ["二つのイデアルに対する中国剰余定理", "定理（中国剰余定理：二つのイデアル）"]
+    requires: [algebra.comaximal-ideals, algebra.comaximal-intersection-product, algebra.first-isomorphism-theorem-ring]
+
+  - id: algebra.comaximal-product-lemma
+    name: 互いに素な条件を積へまとめる補題
+    kind: lemma
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["補題（互いに素な条件を積へまとめる）"]
+    requires: [algebra.comaximal-ideals, algebra.ideal-product]
+
+  - id: algebra.chinese-remainder-theorem-finite-ideals
+    name: 中国剰余定理（有限個のイデアル）
+    kind: theorem
+    aliases: [Chinese remainder theorem for finitely many ideals]
+    introduction: formal
+    introduction_aliases: ["有限個のイデアルに対する中国剰余定理", "定理（中国剰余定理：有限個のイデアル）"]
+    requires: [algebra.chinese-remainder-theorem-two-ideals, algebra.comaximal-product-lemma, algebra.first-isomorphism-theorem-ring]
