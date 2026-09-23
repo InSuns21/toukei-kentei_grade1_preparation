@@ -2263,7 +2263,7 @@ $$
 \mu_1(\boldsymbol\ell)
 >
 m-t.
-\tag{1}
+
 $$
 
 次に Dick 重みを比較します。
@@ -2360,7 +2360,7 @@ $$
 \end{aligned}
 $$
 
-式 (1) を代入して
+上で得た $\mu_1(\boldsymbol\ell)>m-t$ を代入して
 
 $$
 \mu_\alpha(\boldsymbol k)
@@ -2382,7 +2382,7 @@ $$
 +
 \frac{s\alpha(\alpha-1)}2
 \right).
-\tag{2}
+
 $$
 
 もし
@@ -2395,7 +2395,7 @@ $$
 \alpha m
 $$
 
-なら、$\tau_\alpha$ は括弧内そのものなので、式 (2) から
+なら、$\tau_\alpha$ は括弧内そのものなので、上の不等式から
 
 $$
 \mu_\alpha(\boldsymbol k)
