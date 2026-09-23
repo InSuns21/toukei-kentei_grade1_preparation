@@ -13,7 +13,7 @@ concepts:
     kind: definition
     aliases: [Lie subgroup]
     introduction: formal
-    introduction_aliases: ["定義（Lie 部分群）"]
+    introduction_aliases: ["LIE3 Lie 部分群・古典群", "定義（Lie 部分群）"]
     requires:
       - lie.lie-group
       - geometry.embedded-submanifold
@@ -43,6 +43,7 @@ concepts:
     kind: theorem
     aliases: [closed subgroup theorem]
     introduction: formal
+    introduction_aliases: ["閉部分群定理", "定理（閉部分群定理）"]
     requires:
       - lie.lie-group
       - lie.lie-subgroup
@@ -52,7 +53,7 @@ concepts:
     kind: definition
     aliases: [special linear group]
     introduction: formal
-    introduction_aliases: ["定義（特殊線形群）"]
+    introduction_aliases: ["特殊線形群：行列式を1に固定する", "定義（特殊線形群）"]
     requires:
       - lie.general-linear-group
       - linear.matrix-determinant
@@ -73,7 +74,7 @@ concepts:
     kind: definition
     aliases: [orthogonal group]
     introduction: formal
-    introduction_aliases: ["定義（直交群・特殊直交群）"]
+    introduction_aliases: ["直交群：内積を保つ条件を微分する", "定義（直交群・特殊直交群）"]
     requires:
       - lie.general-linear-group
 
@@ -103,7 +104,7 @@ concepts:
     kind: definition
     aliases: [unitary group]
     introduction: formal
-    introduction_aliases: ["定義（ユニタリ群・特殊ユニタリ群）"]
+    introduction_aliases: ["ユニタリ群：複素内積を保つ条件を微分する", "定義（ユニタリ群・特殊ユニタリ群）"]
     requires:
       - lie.lie-group
       - linear.unitary-operator
