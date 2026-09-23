@@ -768,13 +768,13 @@ h_I
 }
 $$
 
-とすること、すなわち積分表現元を 核関数 の有限和で近似することだと読めます。
+とすること、すなわち積分表現元を核関数 $K_{\boldsymbol x_n}$ の有限和で近似することだと読めます。
 
 この見方は QMC3 の格子則、QMC4 以降の digital net で「どの点集合が関数空間に合っているか」を考える土台になります。
 
 ---
 
-## 4. 一次元の重み付き アンカー型 Sobolev 空間
+## 4. 一次元の重み付きアンカー型 Sobolev 空間
 
 高次元 QMC で重みが必要になる理由を見るため、まず一次元から始めます。
 
@@ -782,48 +782,188 @@ $\gamma>0$ とします。
 
 <a id="def-qmc2-weighted-anchored-sobolev"></a>
 <!-- formal-statement-start -->
-### 定義（一次元重み付き アンカー型 Sobolev 空間）
+### 定義（一次元重み付きアンカー型 Sobolev 空間）
 
-関数 $f:[0,1]\to\mathbb R$ で、ある $g\in L^2(0,1)$ が存在して
+$\gamma>0$ とする。
+
+関数 $f:[0,1]\to\mathbb R$ で、ある $v\in L^2(0,1)$ が存在して
 
 $$
 f(x)
 =
 f(0)
 +
-\int_0^x g(t)\,dt
+\int_0^x v(t)\,dt
 $$
 
-と書けるもの全体を $\mathcal H_\gamma$ とする。このとき $g$ はほとんど至る所一意に定まり、これを $f'$ と書く。従って本章の $\mathcal H_\gamma$ は、0 をアンカーとする一次元 Sobolev 型関数空間である。
+と書けるもの全体を $\mathcal H_\gamma$ とする。この $v$ を $f'$ と書く。
 
 内積を
 
 $$
 \boxed{
-\langle f,g\rangle_{\mathcal H_\gamma}
+\langle f,h\rangle_{\mathcal H_\gamma}
 =
-f(0)g(0)
+f(0)h(0)
 +
 \frac1\gamma
 \int_0^1
-f'(t)g'(t)\,dt
+f'(t)h'(t)\,dt
 }
 $$
 
 で与える。
 <!-- formal-statement-end -->
 
-この空間で
+ここで $v\in L^2(0,1)$ なら Cauchy--Schwarz の不等式から
 
 $$
+\int_0^1|v(t)|\,dt
+\le
+\|v\|_2
+$$
+
+なので、上の不定積分は各 $x$ で有限です。
+
+また Lebesgue 積分の微積分基本定理により
+
+$$
+x\longmapsto
+\int_0^xv(t)\,dt
+$$
+
+の導関数はほとんど至る所 $v$ です。従って $f'$ は $L^2$ の元として一意です。
+
+<a id="thm-qmc2-weighted-sobolev-kernel"></a>
+<!-- formal-statement-start -->
+### 定理（一次元重み付きアンカー型 Sobolev 空間の再生核）
+
+$\mathcal H_\gamma$ は Hilbert 空間であり、
+
+$$
+\boxed{
 K_\gamma(x,y)
 =
 1+\gamma\min(x,y)
+}
+$$
+
+を再生核とする再生核 Hilbert 空間である。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+まず
+
+$$
+T:
+\mathcal H_\gamma
+\to
+\mathbb R\times L^2(0,1),
+\qquad
+Tf
+=
+\left(
+f(0),
+\frac{f'}{\sqrt\gamma}
+\right)
 $$
 
 を考えます。
 
-固定した $y$ に対して
+この写像は内積を保ち、任意の $(a,w)\in\mathbb R\times L^2$ から
+
+$$
+f(x)
+=
+a+\sqrt\gamma\int_0^xw(t)\,dt
+$$
+
+を作れるので全射です。従って $\mathcal H_\gamma$ は [L^2 の完備性](../F0_00D2E_L2完備性_Riesz_Fischer/index.md#thm-f0-00d2e-01)を引き継ぎます。
+
+その後、$K_{\gamma,y}$ の導関数を直接計算して再生性を確認します。
+
+<!-- proof-start -->
+### 証明
+
+写像
+
+$$
+T:
+\mathcal H_\gamma
+\to
+\mathbb R\times L^2(0,1),
+\qquad
+Tf
+=
+\left(
+f(0),
+\frac{f'}{\sqrt\gamma}
+\right)
+$$
+
+を考えます。
+
+$f,h\in\mathcal H_\gamma$ に対し、
+
+$$
+\begin{aligned}
+\langle Tf,Th\rangle_{\mathbb R\times L^2}
+&=
+f(0)h(0)
++
+\int_0^1
+\frac{f'(t)}{\sqrt\gamma}
+\frac{h'(t)}{\sqrt\gamma}
+\,dt
+\\
+&=
+\langle f,h\rangle_{\mathcal H_\gamma}.
+\end{aligned}
+$$
+
+従って $T$ は等長線形写像です。
+
+次に任意の
+
+$$
+(a,w)
+\in
+\mathbb R\times L^2(0,1)
+$$
+
+を取ります。
+
+$$
+f(x)
+=
+a
++
+\sqrt\gamma
+\int_0^xw(t)\,dt
+$$
+
+と置けば、$f\in\mathcal H_\gamma$ で
+
+$$
+f(0)=a,
+\qquad
+f'=\sqrt\gamma\,w
+$$
+
+がほとんど至る所成り立ちます。
+
+従って
+
+$$
+Tf=(a,w),
+$$
+
+なので $T$ は全射です。
+
+$\mathbb R$ は完備であり、[L^2 の完備性](../F0_00D2E_L2完備性_Riesz_Fischer/index.md#thm-f0-00d2e-01)から $L^2(0,1)$ も完備です。有限直積 $\mathbb R\times L^2(0,1)$ は積内積について Hilbert 空間なので、それと等長同型な $\mathcal H_\gamma$ も Hilbert 空間です。
+
+次に固定した $y\in[0,1]$ に対し
 
 $$
 K_{\gamma,y}(x)
@@ -831,7 +971,7 @@ K_{\gamma,y}(x)
 1+\gamma\min(x,y)
 $$
 
-とおくと
+と置きます。
 
 $$
 K_{\gamma,y}(0)=1
@@ -845,7 +985,15 @@ K_{\gamma,y}'(x)
 \gamma\boldsymbol1_{[0,y)}(x).
 $$
 
-従って
+この導関数は $L^2(0,1)$ に属するので
+
+$$
+K_{\gamma,y}
+\in
+\mathcal H_\gamma.
+$$
+
+任意の $f\in\mathcal H_\gamma$ に対して
 
 $$
 \begin{aligned}
@@ -872,7 +1020,18 @@ f(y).
 \end{aligned}
 $$
 
-よって $K_\gamma$ は $\mathcal H_\gamma$ の再生核です。
+最後の等号は $\mathcal H_\gamma$ の定義そのものから従います。
+
+従って点評価は $K_{\gamma,y}$ との内積で再現されるので、
+
+$$
+K_\gamma(x,y)
+=
+1+\gamma\min(x,y)
+$$
+
+は $\mathcal H_\gamma$ の再生核です。
+<!-- proof-end -->
 
 ここで重み $\gamma$ の意味も見えます。
 
@@ -1987,7 +2146,28 @@ e^{G/2}\varepsilon^{-2}
 \right\rceil.
 $$
 
-右辺は $s$ に依存しないので、強多項式 tractability が得られます。
+さらに $0<\varepsilon<1$ では
+
+$$
+\left\lceil
+e^{G/2}\varepsilon^{-2}
+\right\rceil
+\le
+\left(
+e^{G/2}+1
+\right)
+\varepsilon^{-2}.
+$$
+
+したがって強多項式 tractability の定義で
+
+$$
+C=e^{G/2}+1,
+\qquad
+p=2
+$$
+
+と取れます。
 <!-- proof-end -->
 
 ### 仮定を落とすと何が壊れるか
