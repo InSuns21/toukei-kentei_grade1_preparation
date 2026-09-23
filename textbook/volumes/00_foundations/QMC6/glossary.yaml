@@ -1,0 +1,23 @@
+chapter: "QMC6"
+terms:
+  - term: 桁多項式
+    english: digit polynomial
+    meaning: 整数の下位 m 個の b 進桁を係数として有限体上の次数 m 未満の多項式へ読み替えたもの。多項式格子では点番号 n を n(x) として扱う。
+  - term: 負べき係数からの桁写像
+    english: digit extraction from negative powers
+    meaning: 有理関数の無限遠点まわりの負べき展開から x^{-1} から x^{-m} までの係数を取り出し、b 進小数の先頭 m 桁へ読む写像 v_m。
+  - term: 多項式格子
+    english: polynomial lattice
+    meaning: 有限体上の法多項式 p と生成多項式ベクトル q を用い、n(x)q_j(x)/p(x) の負べき係数から b^m 個の点を作るデジタル点集合の構成法。
+  - term: 周波数の切断多項式
+    english: frequency truncation polynomial
+    meaning: Walsh 周波数 k の下位 m 個の b 進桁を有限体多項式として読んだ tr_m(k)。多項式格子の双対合同式に使う。
+  - term: 双対多項式格子
+    english: dual polynomial lattice
+    meaning: sum_j tr_m(k_j) q_j が法多項式 p で 0 になる Walsh 周波数の集合。QMC5 のデジタル双対ネットと一致する。
+  - term: NRT 減衰型 Walsh 評価関数
+    english: NRT-decay Walsh merit function
+    meaning: 双対多項式格子に残る非零 Walsh 周波数へ NRT 重みに応じた減衰重みを付けて足し合わせた構成評価値。低い NRT 重みの双対周波数を強く罰する。
+  - term: 成分逐次構成
+    english: component-by-component construction
+    meaning: 生成多項式ベクトルの成分を一つずつ追加し、その段階の評価関数を最小にする候補を選ぶ構成法。第一成分は共通単元倍不変性により 1 へ正規化できる。

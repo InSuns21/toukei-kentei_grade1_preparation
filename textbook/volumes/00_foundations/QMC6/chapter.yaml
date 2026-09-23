@@ -1,0 +1,54 @@
+id: "QMC6"
+title: "多項式格子"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - QMC5
+  - FLD1
+official_scope: []
+learning_objectives:
+  - b 進桁を有限体上の桁多項式へ読み替え、整数と周波数の有限桁情報を多項式として計算できる
+  - 法多項式の逆数の負べき展開から先頭 m 個の b 進小数桁を取り出し、多項式格子点を具体的に生成できる
+  - 生成多項式 q_j/p の係数からデジタル生成行列 C_j を構成し、多項式格子がデジタル点集合であることを証明できる
+  - 周波数の切断多項式を用いて双対多項式格子を定義し、具体的な Walsh 周波数の双対所属を多項式合同式で判定できる
+  - 双対多項式格子の合同式と QMC5 の行列型双対ネット条件が同値であることを負べき係数から証明できる
+  - QMC5 の離散直交性と Walsh 積分誤差公式を多項式格子へ移し、t 値を最小双対 NRT 重みから計算できる
+  - 生成多項式ベクトルの共通単元倍が点集合を変えないことを商体の乗法から証明し、第一成分を 1 に正規化できる
+  - NRT 減衰型 Walsh 評価関数を定義し、その誤差上界と成分逐次構成の有限最小化を説明できる
+definitions:
+  - { id: QMC6-DEF-01, name: 桁多項式 }
+  - { id: QMC6-DEF-02, name: 負べき係数からの桁写像 }
+  - { id: QMC6-DEF-03, name: 多項式格子点集合 }
+  - { id: QMC6-DEF-04, name: 周波数の切断多項式 }
+  - { id: QMC6-DEF-05, name: 双対多項式格子 }
+  - { id: QMC6-DEF-06, name: NRT 減衰型 Walsh 評価関数 }
+  - { id: QMC6-DEF-07, name: 多項式格子の成分逐次構成 }
+theorems:
+  - { id: QMC6-THM-01, name: 多項式格子のデジタルネット表示 }
+  - { id: QMC6-THM-02, name: 双対多項式格子とデジタル双対ネットの一致 }
+  - { id: QMC6-COR-01, name: 多項式格子の Walsh 周波数消去則 }
+  - { id: QMC6-COR-02, name: 多項式格子の Walsh 積分誤差公式 }
+  - { id: QMC6-COR-03, name: 多項式格子の t 値判定 }
+  - { id: QMC6-THM-03, name: 生成多項式ベクトルの共通単元倍不変性 }
+  - { id: QMC6-THM-04, name: Walsh 係数の減衰と評価関数による誤差上界 }
+  - { id: QMC6-PROP-01, name: 各 CBC 段階で最小化子が存在する }
+canonical_examples:
+  - 底2・p=x^2+x+1・q=(1,x) から4点の二次元多項式格子を直接生成する例
+  - q_j/p の負べき係数から2個のデジタル生成行列を構成して同じ4点を再現する例
+  - (1,3) は双対合同式を満たすが (1,1) は満たさないことを確認する例
+  - 最小双対 NRT 重み rho_1=3 から (0,2,2)-ネットと判定する例
+  - 共通単元倍で (1,x) と (x,x+1) が同じ点集合を与えることを確認する例
+  - q_2=1,x,x+1 を低周波 Walsh 評価で比較する成分逐次構成の例
+problem_patterns:
+  - QMC6-DIGIT-POLYNOMIAL-1
+  - QMC6-NEGATIVE-POWER-DIGITS-1
+  - QMC6-DUAL-CONGRUENCE-1
+  - QMC6-UNIT-SCALING-1
+  - QMC6-DIGITAL-MATRIX-1
+  - QMC6-DUAL-EQUIVALENCE-1
+  - QMC6-T-VALUE-1
+  - QMC6-CBC-INTEGRATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 5.0, review: 0.75 }

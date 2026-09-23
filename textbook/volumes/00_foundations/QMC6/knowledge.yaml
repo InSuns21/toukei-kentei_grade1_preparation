@@ -1,0 +1,156 @@
+chapter: QMC6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QMC5
+  - FLD1
+concepts:
+  - id: numerical.digit-polynomial
+    name: 桁多項式
+    kind: definition
+    aliases: [digit polynomial]
+    introduction: formal
+    introduction_aliases: ["定義（桁多項式）"]
+    requires:
+      - algebra.polynomial-ring
+
+  - id: numerical.negative-power-digit-map
+    name: 負べき係数からの桁写像
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（負べき係数からの桁写像）"]
+    requires:
+      - numerical.digit-polynomial
+
+  - id: numerical.polynomial-lattice-point-set
+    name: 多項式格子点集合
+    kind: definition
+    aliases: [polynomial lattice point set]
+    introduction: formal
+    introduction_aliases: ["定義（多項式格子点集合）"]
+    requires:
+      - numerical.digit-polynomial
+      - numerical.negative-power-digit-map
+      - algebra.irreducible-polynomial-field-extension-construction
+
+  - id: numerical.polynomial-lattice-digital-representation
+    name: 多項式格子のデジタルネット表示
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（多項式格子のデジタルネット表示）"]
+    requires:
+      - numerical.polynomial-lattice-point-set
+      - numerical.digital-point-set
+
+  - id: numerical.frequency-truncation-polynomial
+    name: 周波数の切断多項式
+    kind: definition
+    aliases: [frequency truncation polynomial]
+    introduction: formal
+    introduction_aliases: ["定義（周波数の切断多項式）"]
+    requires:
+      - numerical.walsh-function
+      - algebra.polynomial-ring
+
+  - id: numerical.dual-polynomial-lattice
+    name: 双対多項式格子
+    kind: definition
+    aliases: [dual polynomial lattice]
+    introduction: formal
+    introduction_aliases: ["定義（双対多項式格子）"]
+    requires:
+      - numerical.polynomial-lattice-point-set
+      - numerical.frequency-truncation-polynomial
+
+  - id: numerical.polynomial-dual-digital-equivalence
+    name: 双対多項式格子とデジタル双対ネットの一致
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（双対多項式格子とデジタル双対ネットの一致）"]
+    requires:
+      - numerical.dual-polynomial-lattice
+      - numerical.polynomial-lattice-digital-representation
+      - numerical.digital-dual-net
+
+  - id: numerical.polynomial-lattice-character-property
+    name: 多項式格子の Walsh 周波数消去則
+    kind: corollary
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["系（多項式格子の Walsh 周波数消去則）"]
+    requires:
+      - numerical.polynomial-dual-digital-equivalence
+      - numerical.digital-walsh-character-property
+
+  - id: numerical.polynomial-lattice-walsh-error
+    name: 多項式格子の Walsh 積分誤差公式
+    kind: corollary
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["系（多項式格子の Walsh 積分誤差公式）"]
+    requires:
+      - numerical.polynomial-dual-digital-equivalence
+      - numerical.digital-absolute-walsh-error
+
+  - id: numerical.polynomial-lattice-t-value
+    name: 多項式格子の t 値判定
+    kind: corollary
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["系（多項式格子の t 値判定）"]
+    requires:
+      - numerical.dual-polynomial-lattice
+      - numerical.nrt-weight
+      - numerical.digital-t-value-duality
+
+  - id: numerical.polynomial-lattice-unit-scaling
+    name: 生成多項式ベクトルの共通単元倍不変性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（生成多項式ベクトルの共通単元倍不変性）"]
+    requires:
+      - numerical.polynomial-lattice-point-set
+      - algebra.irreducible-polynomial-field-extension-construction
+
+  - id: numerical.polynomial-lattice-walsh-merit
+    name: NRT 減衰型 Walsh 評価関数
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（NRT 減衰型 Walsh 評価関数）"]
+    requires:
+      - numerical.dual-polynomial-lattice
+      - numerical.nrt-weight
+
+  - id: numerical.polynomial-lattice-merit-error-bound
+    name: Walsh 係数の減衰と評価関数による誤差上界
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（Walsh 係数の減衰と評価関数による誤差上界）"]
+    requires:
+      - numerical.polynomial-lattice-walsh-merit
+      - numerical.polynomial-lattice-walsh-error
+
+  - id: numerical.polynomial-lattice-cbc
+    name: 多項式格子の成分逐次構成
+    kind: definition
+    aliases: [component-by-component construction for polynomial lattices]
+    introduction: formal
+    introduction_aliases: ["定義（多項式格子の成分逐次構成）"]
+    requires:
+      - numerical.polynomial-lattice-walsh-merit
+      - numerical.polynomial-lattice-unit-scaling
+
+  - id: numerical.polynomial-lattice-cbc-existence
+    name: 各 CBC 段階で最小化子が存在する
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（各 CBC 段階で最小化子が存在する）"]
+    requires:
+      - numerical.polynomial-lattice-cbc
