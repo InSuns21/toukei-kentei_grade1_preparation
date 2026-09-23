@@ -117,28 +117,28 @@ concepts:
       - numerical.tms-net
 
   - id: numerical.functional-anova-component
-    name: 関数的 ANOVA 成分
+    name: 関数的分散分析成分
     kind: definition
     aliases: [functional ANOVA component]
     introduction: formal
-    introduction_aliases: ["定義（関数的 ANOVA 成分）"]
+    introduction_aliases: ["定義（関数的分散分析成分）"]
     requires: []
 
   - id: numerical.functional-anova-orthogonality
-    name: 関数的 ANOVA 分解の直交性と分散分解
+    name: 関数的分散分析分解の直交性と分散分解
     kind: theorem
     aliases: [orthogonality and variance decomposition of functional ANOVA]
     introduction: formal
-    introduction_aliases: ["定理（関数的 ANOVA 分解の直交性と分散分解）"]
+    introduction_aliases: ["定理（関数的分散分析分解の直交性と分散分解）"]
     requires:
       - numerical.functional-anova-component
 
   - id: numerical.digital-shift-anova-variance
-    name: デジタルシフト分散の ANOVA 支持分解
+    name: デジタルシフト分散の座標支持分解
     kind: corollary
     aliases: []
     introduction: formal
-    introduction_aliases: ["系（デジタルシフト分散の ANOVA 支持分解）"]
+    introduction_aliases: ["系（デジタルシフト分散の座標支持分解）"]
     requires:
       - numerical.digital-shift-exact-variance
       - numerical.functional-anova-orthogonality
