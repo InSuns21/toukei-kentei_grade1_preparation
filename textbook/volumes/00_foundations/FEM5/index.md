@@ -55,7 +55,7 @@ $$
 
 $$
 \boxed{
-\text{kernel 上の強圧性}
+\text{制約核上の強圧性}
 +
 \text{inf-sup 条件}
 }
@@ -63,7 +63,7 @@ $$
 
 です。
 
-本章では、まず抽象鞍点問題を有限次元の制約付き最小化から導入し、inf-sup 条件が「圧力が速度側から見える」ことを意味すると確認します。次に Babuška--Brezzi 型の存在一意性を、bounded lifting と kernel 上の Lax--Milgram から証明します。
+本章では、まず抽象鞍点問題を有限次元の制約付き最小化から導入し、inf-sup 条件が「圧力が速度側から見える」ことを意味すると確認します。次に Babuška--Brezzi 型の存在一意性を、有界な持ち上げ と 制約核上の Lax--Milgram から証明します。
 
 その後、
 
@@ -89,7 +89,7 @@ F\\ G
 \end{pmatrix}
 $$
 
-というブロック連立方程式、離散 inf-sup 条件、spurious pressure、Taylor--Hood 要素の位置付けまで進みます。
+というブロック連立方程式、離散 inf-sup 条件、偽圧力モード、Taylor--Hood 要素の位置付けまで進みます。
 
 > **この章の停止線**
 >
@@ -329,12 +329,12 @@ $$
 
 ---
 
-## 3. 制約 kernel と inf-sup 条件
+## 3. 制約核 と inf-sup 条件
 
 <a id="def-fem5-kernel-infsup"></a>
 
 <!-- formal-statement-start -->
-### 定義（制約 kernel と inf-sup 条件）
+### 定義（制約核 と inf-sup 条件）
 
 有界双線形形式
 
@@ -357,7 +357,7 @@ b(v,q)=0
 }
 $$
 
-を制約 kernel とする。
+を制約核 とする。
 
 また、ある定数 $\beta>0$ が存在して
 
@@ -441,7 +441,7 @@ $$
 \sup_{\|v\|_2=1}|v_1+v_2|.
 $$
 
-Cauchy--Schwarz の不等式から
+[Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 |v_1+v_2|
@@ -496,7 +496,7 @@ inf-sup 条件はまさにこのために働きます。
 <a id="lem-fem5-bounded-lifting"></a>
 
 <!-- formal-statement-start -->
-### 補題（inf-sup 条件による bounded lifting）
+### 補題（inf-sup 条件による 有界な持ち上げ）
 
 $V,Q$ を実 Hilbert 空間とし、$b:V\times Q\to\mathbb R$ を有界双線形形式とする。
 
@@ -586,7 +586,7 @@ $$
 
 は $V$ 上の連続線形汎関数です。
 
-Riesz 表現定理により一意な $Tq\in V$ が存在して
+[Riesz 表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)により一意な $Tq\in V$ が存在して
 
 $$
 (Tq,v)_V
@@ -646,7 +646,7 @@ $$
 
 なので強圧的です。
 
-$g\in Q^*$ に Lax--Milgram 定理を適用すると、一意な $p_g\in Q$ が存在して
+$g\in Q^*$ に [Lax--Milgram 定理](../GPDE7/index.md#thm-gpde7-lax-milgram)を適用すると、一意な $p_g\in Q$ が存在して
 
 $$
 c(p_g,q)
@@ -773,7 +773,7 @@ $$
 
 がそれぞれ定数 $M_a,M_b>0$ で有界とする。
 
-制約 kernel
+制約核
 
 $$
 Z
@@ -844,8 +844,8 @@ $$
 
 証明は三段です。
 
-1. inf-sup から $b(u_g,q)=g(q)$ を満たす lift $u_g$ を作る。
-2. $u=u_g+z$ と置き、$z\in Z$ を kernel 上の Lax--Milgram で決める。
+1. inf-sup から $b(u_g,q)=g(q)$ を満たす 持ち上げ $u_g$ を作る。
+2. $u=u_g+z$ と置き、$z\in Z$ を 制約核上の Lax--Milgram で決める。
 3. 残差
    $$
    r(v)=f(v)-a(u,v)
@@ -860,7 +860,7 @@ $$
 \to
 \text{制約を満たす}
 \to
-\text{kernel 上の強圧性}
+\text{制約核上の強圧性}
 \to
 \text{乗数を回収}
 }
@@ -871,7 +871,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず [bounded lifting の補題](#lem-fem5-bounded-lifting)から、ある $u_g\in V$ が存在して
+まず [有界な持ち上げ の補題](#lem-fem5-bounded-lifting)から、ある $u_g\in V$ が存在して
 
 $$
 b(u_g,q)=g(q)
@@ -918,7 +918,7 @@ M_a\|u_g\|_V
 \|w\|_V.
 $$
 
-$a$ は $Z$ 上で強圧的なので、Lax--Milgram 定理から一意な $z\in Z$ が存在します。
+$a$ は $Z$ 上で強圧的なので、[Lax--Milgram 定理](../GPDE7/index.md#thm-gpde7-lax-milgram)から一意な $z\in Z$ が存在します。
 
 しかも
 
@@ -975,7 +975,7 @@ $$
 
 従って $r$ は $Z$ 上で消えます。
 
-Riesz 表現定理により、ある $y\in V$ が存在して
+[Riesz 表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)により、ある $y\in V$ が存在して
 
 $$
 r(v)=(y,v)_V
@@ -1003,7 +1003,7 @@ $$
 
 です。
 
-従って $T$ の range は閉です。
+従って $T$ の値域 は閉です。
 
 また $z\in Z$ なら
 
@@ -1041,7 +1041,7 @@ $$
 
 従って $\operatorname{Ran}T$ は $Z^\perp$ で稠密です。
 
-range は閉でもあるので
+値域は閉でもあるので
 
 $$
 \operatorname{Ran}T=Z^\perp.
@@ -1099,7 +1099,7 @@ $$
 a(u,u)=0.
 $$
 
-kernel 上の強圧性から
+制約核上の強圧性から
 
 $$
 u=0.
@@ -1202,13 +1202,13 @@ $$
 
 $$
 \boxed{
-\text{制約 kernel }Z\text{ 上の強圧性}
+\text{制約核 }Z\text{ 上の強圧性}
 }
 $$
 
 で十分です。
 
-その代わり、kernel の外側を制御し、Lagrange 乗数を一意にするために
+その代わり、制約核の外側を制御し、Lagrange 乗数を一意にするために
 
 $$
 \boxed{
@@ -1464,7 +1464,7 @@ $$
 u\in [H_0^1(\Omega)]^2
 $$
 
-であり、制約 kernel の具体例になっています。
+であり、制約核 の具体例になっています。
 
 さらに
 
@@ -1492,7 +1492,7 @@ f
 -\nu\Delta u+\nabla p
 $$
 
-と定めれば、$(u,p)$ は滑らかな manufactured solution になります。
+と定めれば、$(u,p)$ は滑らかな 製造解 になります。
 <!-- definition-example-end -->
 
 ---
@@ -1511,9 +1511,9 @@ $$
 
 とします。
 
-Poincaré の不等式により、これは $[H_0^1]^d$ 上の標準 $H^1$ ノルムと同値です。
+[Poincaré の不等式](../GPDE4/index.md#thm-gpde4-poincare)により、これは $[H_0^1]^d$ 上の標準 $H^1$ ノルムと同値です。
 
-Cauchy--Schwarz の不等式から
+[Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 |a(u,v)|
@@ -1538,7 +1538,7 @@ a(v,v)
 \|v\|_V^2.
 $$
 
-従って Stokes では $a$ は kernel 上どころか $V$ 全体で強圧的です。
+従って Stokes では $a$ は 制約核上どころか $V$ 全体で強圧的です。
 
 ### 7.2 $b$ の有界性
 
@@ -1628,7 +1628,7 @@ $$
 
 > **意図的黒箱**
 >
-> 一般 Lipschitz 領域上の Bogovskiĭ 作用素の完全構成は、本章の有限要素安定性の射程を大きく超えます。本章では連続 Stokes inf-sup を領域解析の canonical input とし、以後「この定理のどこを使うか」は全て明示します。離散側では連続 inf-sup が自動的には継承されないことが主題です。
+> 一般 Lipschitz 領域上の Bogovskiĭ 作用素の完全構成は、本章の有限要素安定性の射程を大きく超えます。本章では連続 Stokes inf-sup を領域解析の 既知の定理 とし、以後「この定理のどこを使うか」は全て明示します。離散側では連続 inf-sup が自動的には継承されないことが主題です。
 
 ---
 
@@ -1709,7 +1709,7 @@ a(v,v)
 \nu\|v\|_V^2
 $$
 
-なので、特に制約 kernel $Z\subset V$ 上で
+なので、特に制約核 $Z\subset V$ 上で
 
 $$
 a(z,z)
@@ -1717,7 +1717,7 @@ a(z,z)
 \nu\|z\|_V^2.
 $$
 
-従って kernel coercivity 定数として
+従って 制約核上の強圧性 定数として
 
 $$
 \alpha=\nu
@@ -2353,7 +2353,7 @@ $$
 
 ---
 
-## 12. spurious pressure は何が壊れているのか
+## 12. 偽圧力モード は何が壊れているのか
 
 最小の代数例を見ます。
 
@@ -2398,7 +2398,7 @@ $$
 
 ブロック方程式でも、この圧力成分をいくら変えても第一式は変わりません。
 
-これが spurious pressure mode の本質です。
+これが 偽圧力モード の本質です。
 
 有限要素法では、速度空間と圧力空間をそれぞれ「高精度そう」に選ぶだけでは足りません。
 
@@ -2434,7 +2434,7 @@ $$
 
 を使います。
 
-速度を圧力より一段高い次数にすることで、標準的な形状正則メッシュ族の下で一様な離散 inf-sup 条件を満たす代表的な安定 pair になります。
+速度を圧力より一段高い次数にすることで、標準的な形状正則メッシュ族の下で一様な離散 inf-sup 条件を満たす代表的な安定 組 になります。
 
 一方、
 
@@ -2442,7 +2442,7 @@ $$
 P_1/P_1
 $$
 
-の等次数 pair は、安定化なしでは一般に一様 inf-sup 安定ではありません。
+の等次数 組 は、安定化なしでは一般に一様 inf-sup 安定ではありません。
 
 ここで重要なのは
 
@@ -2458,7 +2458,7 @@ Taylor--Hood の離散 inf-sup の完全証明には Fortin 作用素や macroel
 
 > **本章での扱い**
 >
-> Taylor--Hood は安定 pair の canonical example として位置付けます。個々のメッシュ族に対する離散 inf-sup の完全証明は本章の停止線の外です。ここでは、安定 pair を仮定した後の存在一意性・誤差評価・行列構造を完全に追えることを完成条件とします。
+> Taylor--Hood は安定 組 の 代表例 として位置付けます。個々のメッシュ族に対する離散 inf-sup の完全証明は本章の停止線の外です。ここでは、安定 組 を仮定した後の存在一意性・誤差評価・行列構造を完全に追えることを完成条件とします。
 
 ---
 
@@ -2482,7 +2482,7 @@ $$
 
 $$
 \boxed{
-\text{kernel coercivity}
+\text{制約核上の強圧性}
 +
 \text{inf-sup}
 \to
@@ -2527,7 +2527,7 @@ $$
 
 - 圧力の一意性
 - Schur 補行列の正定値性
-- spurious pressure の排除
+- 偽圧力モード の排除
 - 誤差定数の一様性
 
 を同時に支えます。
@@ -2660,7 +2660,7 @@ $u$ は制約直線上で原点に最も近い点になっています。
 <!-- solution-end -->
 
 <a id="ex-fem5-a02"></a>
-### FEM5-A02 kernel coercivity を確認する
+### FEM5-A02 制約核上の強圧性 を確認する
 - Level: A
 
 $$
@@ -2681,7 +2681,7 @@ $$
 
 とする。
 
-1. 制約 kernel $Z$ を求めよ。
+1. 制約核 $Z$ を求めよ。
 2. $a$ が $Z$ 上で強圧的であり、強圧性定数として $\alpha=1$ を取れることを示せ。
 
 <!-- solution-start -->
@@ -2745,7 +2745,7 @@ $$
 
 を取れます。
 
-実際には $a$ は $\mathbb R^2$ 全体で強圧的なので、当然 kernel 上でも強圧的です。
+実際には $a$ は $\mathbb R^2$ 全体で強圧的なので、当然 制約核上でも強圧的です。
 <!-- solution-end -->
 
 <a id="ex-fem5-a03"></a>
@@ -2791,7 +2791,7 @@ $$
 \frac{|v_1+v_2|}{\|v\|_2}.
 $$
 
-Cauchy--Schwarz の不等式から
+[Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 |v_1+v_2|
@@ -2945,7 +2945,7 @@ $$
 
 1. $S$ が対称半正定値であることを示せ。
 2. $B^\mathsf T$ が単射なら $S$ が正定値であることを示せ。
-3. $B^\mathsf TP=0$ を満たす $P\ne0$ が spurious pressure に対応する理由を説明せよ。
+3. $B^\mathsf TP=0$ を満たす $P\ne0$ が 偽圧力モード に対応する理由を説明せよ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -3028,7 +3028,7 @@ $$
 
 したがってその圧力モードを加えても速度方程式は変わらず、圧力を一意に決められません。
 
-これが spurious pressure mode の代数的な形です。
+これが 偽圧力モード の代数的な形です。
 <!-- solution-end -->
 
 <a id="ex-fem5-b02"></a>
@@ -3333,8 +3333,8 @@ $$
 
 を考える。
 
-1. 制約 kernel $\ker B$ を求めよ。
-2. $a(u,u)=u^\mathsf TAu$ が kernel 上で $\alpha=1$ の強圧性を持つことを示せ。
+1. 制約核 $\ker B$ を求めよ。
+2. $a(u,u)=u^\mathsf TAu$ が 制約核上で $\alpha=1$ の強圧性を持つことを示せ。
 3. $b(v,q)=qBv$ の inf-sup 定数 $\beta$ を求めよ。
 4. Schur 補行列 $S=BA^{-1}B^\mathsf T$ を求めよ。
 5. $(U,P)$ を求めよ。
@@ -3387,7 +3387,7 @@ u_1^2+u_2^2
 \|u\|_2^2.
 $$
 
-特に kernel 上でも
+特に 制約核上でも
 
 $$
 a(u,u)\ge\|u\|_2^2.
@@ -3560,13 +3560,13 @@ $$
 
 $A$ がどれほど正定値でも、$B^\mathsf T$ に非自明な kernel があれば圧力は一意になりません。
 
-逆に $B$ が圧力をよく検出しても、$A$ が kernel 上で退化すれば制約を満たす速度方向を制御できません。
+逆に $B$ が圧力をよく検出しても、$A$ が 制約核上で退化すれば制約を満たす速度方向を制御できません。
 
 従って鞍点問題では
 
 $$
 \boxed{
-A\text{ 側の kernel coercivity}
+A\text{ 側の 制約核上の強圧性}
 }
 $$
 
