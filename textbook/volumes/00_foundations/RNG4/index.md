@@ -38,7 +38,7 @@ R[x]\text{ も UFD}
 }
 $$
 
-です。最後に、有理根判定と Eisenstein の既約判定を使って、具体的な多項式の既約性を実際に判定します。
+です。最後に、有理根判定と [Eisenstein の既約判定](#thm-rng4-eisenstein)を使って、具体的な多項式の既約性を実際に判定します。
 
 > **この章の停止線**
 >
@@ -436,7 +436,7 @@ $$
 
 なので $fg\ne0$ です。
 
-前節の除法定理により、任意の $f\in F[x]$ と $0\ne g\in F[x]$ に対して
+[体上の多項式の除法](#thm-rng4-division-algorithm)により、任意の $f\in F[x]$ と $0\ne g\in F[x]$ に対して
 
 $$
 f=qg+r
@@ -501,7 +501,7 @@ $$
 
 と書けます。多項式全体の因数分解を考える前に、まず係数全体に共通する因子を取り出す必要があります。
 
-<a id="def-rng4-content-primitive"></a>
+<a id="def-rng4-content-polynomial"></a>
 <!-- formal-statement-start -->
 > **定義（content・原始多項式）**
 >
@@ -718,7 +718,7 @@ $$
 fg=c(f)c(g)f_0g_0.
 $$
 
-Gauss の補題から $f_0g_0$ は原始多項式です。
+[Gauss の補題](#thm-rng4-gauss-primitive-product)から $f_0g_0$ は原始多項式です。
 
 従って $fg$ の係数に共通する因子は、単元倍を除けばちょうど $c(f)c(g)$ です。
 
@@ -941,7 +941,7 @@ $$
 - $c(f)$ は $R$ の UFD 性で既約分解できる。
 - $f_0$ は分数体 $K$ 上で因数分解する。
 - $K[x]$ は Euclid 整域なので UFD。
-- Gauss の補題により、$K[x]$ の原始既約因子を $R[x]$ の既約因子として戻せる。
+- [Gauss の補題による既約性の移送](#thm-rng4-gauss-irreducibility)により、$K[x]$ の原始既約因子を $R[x]$ の既約因子として戻せる。
 - 一意性は、定数因子を content で、正次数因子を $K[x]$ の一意分解でそれぞれ制御する。
 
 <!-- proof-start -->
@@ -1011,7 +1011,7 @@ $$
 bG=aH.
 $$
 
-content の乗法性から
+[content の乗法性](#prop-rng4-content-multiplicative)から
 
 $$
 b\sim a
@@ -1254,9 +1254,9 @@ $$
 
 従って有理根はありません。
 
-$f$ は三次なので、前節の命題から $\mathbb Q[x]$ で既約です。
+$f$ は三次なので、[2次・3次多項式の既約性](#prop-rng4-degree23-root)から $\mathbb Q[x]$ で既約です。
 
-さらに $f$ は原始多項式なので、Gauss の補題から $\mathbb Z[x]$ でも既約です。
+さらに $f$ は原始多項式なので、[Gauss の補題による既約性の移送](#thm-rng4-gauss-irreducibility)から $\mathbb Z[x]$ でも既約です。
 
 ---
 
@@ -1299,7 +1299,7 @@ $$
 
 ### 証明の見取り図
 
-可約と仮定し、Gauss の補題により
+可約と仮定し、[Gauss の補題による既約性の移送](#thm-rng4-gauss-irreducibility)により
 
 $$
 f=gh
@@ -1445,7 +1445,7 @@ $$
 
 これは仮定に反します。
 
-従って $f$ は $R[x]$ で既約です。Gauss の補題により $K[x]$ でも既約です。$\square$
+従って $f$ は $R[x]$ で既約です。[Gauss の補題による既約性の移送](#thm-rng4-gauss-irreducibility)により $K[x]$ でも既約です。$\square$
 <!-- proof-end -->
 
 ### 11.1 直接例：$x^5+10x+5$
@@ -1474,7 +1474,7 @@ $$
 25\nmid5.
 $$
 
-従って Eisenstein の既約判定から $f$ は $\mathbb Q[x]$ で既約です。
+従って [Eisenstein の既約判定](#thm-rng4-eisenstein)から $f$ は $\mathbb Q[x]$ で既約です。
 
 ### 11.2 変数置換 $x\mapsto x+1$ で Eisenstein を使う
 
@@ -1749,7 +1749,7 @@ $$
 
 三次多項式なので、$\mathbb Q$ に根がないことを示せば既約です。
 
-有理根を既約分数 $p/q$ とすると、有理根定理から
+有理根を既約分数 $p/q$ とすると、[有理根定理](#thm-rng4-rational-root)から
 
 $$
 p\mid1,
@@ -1862,7 +1862,7 @@ $$
 
 従って $p=5$ で Eisenstein の条件を全て満たします。
 
-よって $f$ は $\mathbb Z[x]$ で既約であり、Gauss の補題から $\mathbb Q[x]$ でも既約です。
+よって $f$ は $\mathbb Z[x]$ で既約であり、[Gauss の補題による既約性の移送](#thm-rng4-gauss-irreducibility)から $\mathbb Q[x]$ でも既約です。
 <!-- solution-end -->
 
 ### Level B
@@ -1988,7 +1988,7 @@ c(f)\sim1,
 c(g)\sim1.
 $$
 
-従って content の乗法性から
+従って [content の乗法性](#prop-rng4-content-multiplicative)から
 
 $$
 c(bf)\sim b,
@@ -2039,7 +2039,7 @@ $$
 <!-- solution-start -->
 ##### 詳細解答
 
-$f$ は原始多項式です。従って Gauss の補題により、$\mathbb Q[x]$ での既約性を調べるには $\mathbb Z[x]$ での非自明な因数分解を排除すれば十分です。
+$f$ は原始多項式です。従って [Gauss の補題による既約性の移送](#thm-rng4-gauss-irreducibility)により、$\mathbb Q[x]$ での既約性を調べるには $\mathbb Z[x]$ での非自明な因数分解を排除すれば十分です。
 
 係数を法 $2$ で落とすと
 
@@ -2116,7 +2116,7 @@ $$
 
 従って $f$ は $\mathbb Z[x]$ で既約です。
 
-Gauss の補題から
+[Gauss の補題による既約性の移送](#thm-rng4-gauss-irreducibility)から
 
 $$
 f(x)=x^4+x+1
@@ -2140,7 +2140,7 @@ $$
 
 1. 写像 $T(h)(x)=h(x+1)$ が $\mathbb Q[x]$ の環自己同型であることを示す。
 2. $T(f)$ を計算する。
-3. Eisenstein の既約判定を適用する。
+3. [Eisenstein の既約判定](#thm-rng4-eisenstein)を適用する。
 4. $f$ 自身の既約性へ戻す。
 
 <!-- solution-start -->
