@@ -402,6 +402,13 @@
 | 分離的な元 | separable element | 基礎体上の最小多項式が分離多項式である代数的元 |
 | 分離拡大 | separable extension | 全ての元が基礎体上分離的である代数拡大 |
 | 正規拡大 | normal extension | 基礎体上既約な多項式が拡大体に一根を持てば、その拡大体上で完全に一次式へ分解する代数拡大 |
+| 標数 | characteristic | 体で $n\cdot1=0$ となる最小の正整数 $n$。存在しないときは $0$ |
+| 素体 | prime field | 体の単位元から生成される最小の部分体。標数 $p>0$ では $\mathbb F_p$ と同型 |
+| 有限体 | finite field | 元の個数が有限な体。位数は必ず素数冪 $p^n$ |
+| Frobenius 写像 | Frobenius map | 標数 $p$ の体で $x\mapsto x^p$ とする体準同型。人名部分は英字表記を保持 |
+| Frobenius 自己同型 | Frobenius automorphism | 有限体上で全単射となる Frobenius 写像 |
+| 有限体の乗法群 | multiplicative group of a finite field | 有限体 $K$ の非零元全体 $K^\times$ が乗法でなす巡回群 |
+| 相対 Frobenius | relative Frobenius | $\mathbb F_{q^m}/\mathbb F_q$ で $x\mapsto x^q$ とする $\mathbb F_q$ 固定自己同型 |
 
 ## DREAM THEATER：数値解析の主表記
 
