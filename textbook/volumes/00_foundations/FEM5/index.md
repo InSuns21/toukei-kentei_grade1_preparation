@@ -1818,7 +1818,7 @@ $
 $
 a(u,v)
 =
-\nu\int_\Omega\nabla u:\nabla v\,dx,
+\nu\sum_{i=1}^d\sum_{j=1}^d\int_\Omega(\partial_j u_i)(\partial_j v_i)\,dx,
 \qquad
 b(v,q)
 =
