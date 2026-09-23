@@ -31,7 +31,7 @@ theorems:
   - { id: QMC6-COR-03, name: 多項式格子の t 値判定 }
   - { id: QMC6-THM-03, name: 生成多項式ベクトルの共通単元倍不変性 }
   - { id: QMC6-THM-04, name: Walsh 係数の減衰と評価関数による誤差上界 }
-  - { id: QMC6-PROP-01, name: 各 CBC 段階の最小化は well-defined }
+  - { id: QMC6-PROP-01, name: 各 CBC 段階で最小化子が存在する }
 canonical_examples:
   - 底2・p=x^2+x+1・q=(1,x) から4点の二次元多項式格子を直接生成する例
   - q_j/p の負べき係数から2個のデジタル生成行列を構成して同じ4点を再現する例
