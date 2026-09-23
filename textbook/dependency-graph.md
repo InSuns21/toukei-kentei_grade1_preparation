@@ -547,8 +547,10 @@ MC2 では MC1 が仮定した独立標本の生成側へ進む。疑似乱数�
 
 MC3 は MC2 を直接 prerequisite とし、MC1 の分散公式と MC2 の標本生成を受けて分散減少へ進む。対称変量法では $U$ と $1-U$ の負の共分散、制御変量法では最適係数 $c^*=operatorname{Cov}(Y,X)/operatorname{Var}(X)$ と最小分散、層化抽出では層内分散と $n_kpropto p_ksigma_k$ の最適配分、重点サンプリングでは台条件・不偏性・二次モーメントによる分散公式を核心証明まで閉じる。重点密度の選択を誤ると不偏でも分散が無限大になり得る反例を置き、MC4 の multilevel coupling を「同時分布を設計して差の分散を下げる」発想へ接続する。
 
-後続の MC4、QMC1–QMC8 は DREAM_THEATER_ENCORE_V_REWRITE_PLAN.md の計画対象であり、各講の実装完了時に実際の直接依存だけを追加する。
+MC4 は MC3 を直接 prerequisite とし、MC1 のバイアス・分散分解と MC3 の「同時分布を設計して分散を下げる」視点を受けて Multilevel Monte Carlo へ進む。近似階層の期待値を望遠鏡和へ分解し、隣接レベルを同じ基礎乱数で結合してレベル補正の分散を減衰させる。MLMC 推定量の期待値と分散、真の期待値に対する二乗平均誤差分解を証明し、Cauchy--Schwarz の不等式から $N_\ell\propto\sqrt{V_\ell/C_\ell}$ の費用最小配分を導く。さらにバイアス率 $\alpha$、分散減衰率 $\beta$、費用増加率 $\gamma$ から三つの計算量ケースを導出し、二進量子化の例で結合を外すと $V_\ell$ が減衰せず MLMC の改善が失われることを示す。
 
-読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA1–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC3 で、次の実装対象は MC4「Multilevel Monte Carlo」である。
+後続の QMC1–QMC8 は DREAM_THEATER_ENCORE_V_REWRITE_PLAN.md の計画対象であり、各講の実装完了時に実際の直接依存だけを追加する。
+
+読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA1–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4 で、次の実装対象は QMC1「一様分布・discrepancy・Koksma--Hlawka」である。
 
 ---
