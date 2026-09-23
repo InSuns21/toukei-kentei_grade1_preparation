@@ -1705,9 +1705,9 @@ $$
 
 | 拡大 | 分離的 | 正規 | 理由 |
 |---|---:|---:|---|
-| $\mathbb Q(\sqrt2)/\mathbb Q$ | yes | yes | 標数 $0$、$x^2-2$ の分解体 |
-| $\mathbb Q(\sqrt[3]{2})/\mathbb Q$ | yes | no | 標数 $0$ だが $x^3-2$ の非実根を欠く |
-| $\mathbb F_p(t^{1/p})/\mathbb F_p(t)$ | no | yes | $x^p-t=(x-t^{1/p})^p$ の分解体 |
+| $\mathbb Q(\sqrt2)/\mathbb Q$ | はい | はい | 標数 $0$、$x^2-2$ の分解体 |
+| $\mathbb Q(\sqrt[3]{2})/\mathbb Q$ | はい | いいえ | 標数 $0$ だが $x^3-2$ の非実根を欠く |
+| $\mathbb F_p(t^{1/p})/\mathbb F_p(t)$ | いいえ | はい | $x^p-t=(x-t^{1/p})^p$ の分解体 |
 
 FLD4 では、有限拡大について
 
@@ -2489,11 +2489,9 @@ $$
 従って役割は
 
 $$
-\boxed{
-\begin{aligned}
-\text{分離性}&:\ \text{共役根が重ならない},\\
-\text{正規性}&:\ \text{共役根を全て拡大体の中に持つ}
-\end{aligned}}
+\boxed{\text{分離性：共役根が重ならない}},
+\qquad
+\boxed{\text{正規性：共役根を全て拡大体の中に持つ}}.
 $$
 
 と整理できます。
