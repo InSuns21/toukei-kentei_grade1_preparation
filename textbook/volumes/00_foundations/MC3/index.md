@@ -825,48 +825,48 @@ $$
 
 標本空間を互いに素な層
 
-$
+$$
 A_1,\ldots,A_K
-$
+$$
 
 へ分割し、
 
-$
+$$
 p_k=P(X\in A_k)>0,
 \qquad
 \sum_{k=1}^Kp_k=1
-$
+$$
 
 とする。
 
 層 $k$ の条件付き分布から独立同分布な標本
 
-$
+$$
 Y_{k,1},\ldots,Y_{k,n_k}
-$
+$$
 
 を取り、
 
-$
+$$
 \overline Y_k
 =
 \frac1{n_k}
 \sum_{j=1}^{n_k}Y_{k,j}
-$
+$$
 
 と置く。
 
-$
+$$
 \widehat I^{\mathrm{str}}
 =
 \sum_{k=1}^Kp_k\overline Y_k
-$
+$$
 
 で
 
-$
+$$
 I=E[Y]
-$
+$$
 
 を推定する方法を**層化抽出**という。
 <!-- formal-statement-end -->
@@ -875,7 +875,7 @@ $
 
 以後、
 
-$
+$$
 \mu_k
 =
 E[Y\mid X\in A_k],
@@ -883,7 +883,7 @@ E[Y\mid X\in A_k],
 \sigma_k^2
 =
 \operatorname{Var}(Y\mid X\in A_k)
-$
+$$
 
 と書きます。
 
