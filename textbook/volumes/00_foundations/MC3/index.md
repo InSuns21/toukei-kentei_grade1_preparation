@@ -1085,7 +1085,7 @@ $$
 
 を小さくしたいとします。
 
-正の実数として $n_k$ を扱えば、Cauchy--Schwarz の不等式から
+正の実数として $n_k$ を扱えば、[Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 \left(
@@ -2547,7 +2547,7 @@ $$
 
 であるとする。
 
-1. Cauchy--Schwarz の不等式を用いて
+1. [Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)を用いて
    $$
    V
    \ge
@@ -2579,7 +2579,7 @@ $$
 \sqrt{n_k}.
 $$
 
-Cauchy--Schwarz の不等式より、
+[Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)より、
 
 $$
 \left(
