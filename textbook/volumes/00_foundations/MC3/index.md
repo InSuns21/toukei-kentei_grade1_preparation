@@ -819,33 +819,63 @@ $$
 
 通常 Monte Carlo では、標本が偶然ある領域へ偏ることがあります。
 
-そこで標本空間をいくつかの部分へ分け、各部分から標本を取る設計を考えます。
+<a id="def-mc3-stratified-sampling"></a>
+<!-- formal-statement-start -->
+### 定義（層化抽出推定量）
 
-$\Omega$ を互いに素な層
+標本空間を互いに素な層
 
-$$
+$
 A_1,\ldots,A_K
-$$
+$
 
 へ分割し、
 
-$$
+$
 p_k=P(X\in A_k)>0,
 \qquad
 \sum_{k=1}^Kp_k=1
-$$
+$
 
-とします。
+とする。
 
-層 $k$ の条件付き分布から独立に
+層 $k$ の条件付き分布から独立同分布な標本
 
-$$
+$
 Y_{k,1},\ldots,Y_{k,n_k}
-$$
+$
 
-を生成し、
+を取り、
 
-$$
+$
+\overline Y_k
+=
+\frac1{n_k}
+\sum_{j=1}^{n_k}Y_{k,j}
+$
+
+と置く。
+
+$
+\widehat I^{\mathrm{str}}
+=
+\sum_{k=1}^Kp_k\overline Y_k
+$
+
+で
+
+$
+I=E[Y]
+$
+
+を推定する方法を**層化抽出**という。
+<!-- formal-statement-end -->
+
+つまり、標本空間をいくつかの部分へ分け、各部分から標本を必ず取る設計です。
+
+以後、
+
+$
 \mu_k
 =
 E[Y\mid X\in A_k],
@@ -853,39 +883,9 @@ E[Y\mid X\in A_k],
 \sigma_k^2
 =
 \operatorname{Var}(Y\mid X\in A_k)
-$$
+$
 
-とします。
-
-<a id="def-mc3-stratified-sampling"></a>
-<!-- formal-statement-start -->
-### 定義（層化抽出推定量）
-
-各層の標本平均を
-
-$$
-\overline Y_k
-=
-\frac1{n_k}
-\sum_{j=1}^{n_k}Y_{k,j}
-$$
-
-とし、
-
-$$
-\widehat I^{\mathrm{str}}
-=
-\sum_{k=1}^Kp_k\overline Y_k
-$$
-
-で
-
-$$
-I=E[Y]
-$$
-
-を推定する方法を**層化抽出**という。
-<!-- formal-statement-end -->
+と書きます。
 
 <!-- definition-example-start: def-mc3-stratified-sampling -->
 **定義の確認**
