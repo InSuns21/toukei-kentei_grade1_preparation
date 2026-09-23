@@ -52,11 +52,11 @@ concepts:
       - algebra.correspondence-theorem-group
 
   - id: algebra.p-group-fixed-point-congruence
-    name: p-群作用の固定点合同式
+    name: p-群作用の固定点の法 p 数え上げ
     kind: proposition
     aliases: [fixed-point congruence for p-group actions]
     introduction: formal
-    introduction_aliases: ["命題（p-群作用の固定点合同式）"]
+    introduction_aliases: ["命題（p-群作用の固定点の法 p 数え上げ）"]
     requires:
       - algebra.finite-p-group
       - algebra.group-action
