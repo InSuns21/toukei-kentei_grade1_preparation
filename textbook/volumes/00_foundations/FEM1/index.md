@@ -318,7 +318,7 @@ $V_h$ は有限次元なので完備です。
 
 また $a$ の有界性と強圧性は $V_h$ 上へ制限しても同じ定数 $M,\alpha$ で成立します。
 
-従って GPDE7 の Lax--Milgram 定理を $V_h$ 上でそのまま使えます。
+従って GPDE7 の [Lax--Milgram 定理](../GPDE7/index.md#thm-gpde7-lax-milgram) を $V_h$ 上でそのまま使えます。
 
 <!-- proof-start -->
 ### 証明
@@ -1002,7 +1002,7 @@ $$
 
 ## 6. 離散解は最良近似と同程度によい
 
-Galerkin 直交性だけでは、まだ誤差の大きさは分かりません。
+[Galerkin 直交性](#thm-fem1-galerkin-orthogonality)だけでは、まだ誤差の大きさは分かりません。
 
 ここで有界性と強圧性を組み合わせます。
 
@@ -1092,7 +1092,7 @@ u-v_h
 v_h-u_h.
 $$
 
-Galerkin 直交性により
+[Galerkin 直交性](#thm-fem1-galerkin-orthogonality)により
 
 $$
 a(e,v_h-u_h)=0
@@ -1197,7 +1197,7 @@ $$
 
 ### どの仮定がどこで必要だったか
 
-- **適合性 $V_h\subset V$**：連続方程式を $v_h$ で試験し、Galerkin 直交性を得る。
+- **適合性 $V_h\subset V$**：連続方程式を $v_h$ で試験し、[Galerkin 直交性](#thm-fem1-galerkin-orthogonality)を得る。
 - **強圧性**：誤差ノルムを $a(e,e)$ で下から押さえる。
 - **有界性**：$a(e,u-v_h)$ を二つのノルムの積で上から押さえる。
 - **有限次元性**：離散問題の存在一意性を確保する際に $V_h$ の完備性を自動的に得る。
@@ -1338,7 +1338,7 @@ $$
 
 と分解します。
 
-二つの項の交差項は Galerkin 直交性で 0 になります。
+二つの項の交差項は [Galerkin 直交性](#thm-fem1-galerkin-orthogonality)で 0 になります。
 
 <!-- proof-start -->
 ### 証明
@@ -1373,7 +1373,7 @@ $$
 u_h-v_h\in V_h
 $$
 
-なので Galerkin 直交性から
+なので [Galerkin 直交性](#thm-fem1-galerkin-orthogonality)から
 
 $$
 a(u-u_h,u_h-v_h)=0.
@@ -1579,7 +1579,7 @@ $$
 
 ## 9. Céa の補題は「収束定理」そのものではない
 
-Céa の補題から
+[Céa の補題](#thm-fem1-cea)から
 
 $$
 \|u-u_h\|_V
@@ -1644,7 +1644,7 @@ $$
 1.
 $$
 
-従って Céa の補題は正しく
+従って [Céa の補題](#thm-fem1-cea)は正しく
 
 $$
 \|u-u_h\|_2=1
@@ -1975,7 +1975,7 @@ t\left(\frac52-\frac52\right)
 0.
 $$
 
-従って Galerkin 直交性を直接確認できました。
+従って [Galerkin 直交性](#thm-fem1-galerkin-orthogonality)を直接確認できました。
 <!-- solution-end -->
 
 <a id="ex-fem1-a02"></a>
@@ -2251,7 +2251,7 @@ $$
 
 を満たすとする。
 
-Céa の補題から $\|u-u_h\|_V$ を評価せよ。
+[Céa の補題](#thm-fem1-cea)から $\|u-u_h\|_V$ を評価せよ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -2268,7 +2268,7 @@ $$
 \alpha=2.
 $$
 
-Céa の補題より
+[Céa の補題](#thm-fem1-cea)より
 
 $$
 \|u-u_h\|_V
@@ -2314,7 +2314,7 @@ $$
 
 $V_h\subset V$ とし、$a$ は有界性定数 $M$、強圧性定数 $\alpha$ を持つとする。
 
-次の順で Céa の補題を証明せよ。
+次の順で [Céa の補題](#thm-fem1-cea)を証明せよ。
 
 1. $e=u-u_h$ に対し $a(e,v_h)=0$ を示す。
 2. 任意の $w_h\in V_h$ に対し
@@ -2389,7 +2389,7 @@ a(e,u-w_h)
 a(e,w_h-u_h).
 $$
 
-$w_h-u_h\in V_h$ なので Galerkin 直交性から第二項は 0 です。
+$w_h-u_h\in V_h$ なので [Galerkin 直交性](#thm-fem1-galerkin-orthogonality)から第二項は 0 です。
 
 従って
 
@@ -2875,7 +2875,7 @@ $$
 
 $V=H_0^1(\Omega)$ は Hilbert 空間で、$F\in V^*$ です。
 
-従って Lax--Milgram 定理から一意な $u\in V$ が存在します。
+従って [Lax--Milgram 定理](../GPDE7/index.md#thm-gpde7-lax-milgram)から一意な $u\in V$ が存在します。
 
 一方 $V_h$ は有限次元なので完備であり、$a$ を $V_h\times V_h$ に制限しても同じ評価
 
@@ -2893,7 +2893,7 @@ $$
 
 が成り立ちます。
 
-従って再び Lax--Milgram 定理により一意な $u_h\in V_h$ が存在します。
+従って再び [Lax--Milgram 定理](../GPDE7/index.md#thm-gpde7-lax-milgram)により一意な $u_h\in V_h$ が存在します。
 
 **2. Galerkin 直交性**
 
@@ -2943,7 +2943,7 @@ a(u_h-w_h,u_h-w_h).
 \end{aligned}
 $$
 
-$u_h-w_h\in V_h$ なので Galerkin 直交性から
+$u_h-w_h\in V_h$ なので [Galerkin 直交性](#thm-fem1-galerkin-orthogonality)から
 
 $$
 a(u-u_h,u_h-w_h)=0.
@@ -3082,9 +3082,9 @@ a(u-u_h,v_h)=0
 }
 $$
 
-という Galerkin 直交性が得られます。
+という [Galerkin 直交性](#thm-fem1-galerkin-orthogonality)が得られます。
 
-これを強圧性・有界性と組み合わせると Céa の補題
+これを強圧性・有界性と組み合わせると [Céa の補題](#thm-fem1-cea)
 
 $$
 \boxed{
