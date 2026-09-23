@@ -365,69 +365,154 @@ $$
 
 とします。
 
-Fourier 係数を
+<a id="prop-fdm2-discrete-fourier-parseval"></a>
+<!-- formal-statement-start -->
+### 命題（周期格子の離散 Fourier 直交性と Parseval 恒等式）
 
-$$
-\widehat E_m^n
+周期格子列 $E_0,\ldots,E_{J-1}$ に対し
+
+$
+\xi_m=\frac{2\pi m}{J},
+\qquad
+\widehat E_m
 =
 \frac1J
 \sum_{j=0}^{J-1}
-E_j^n e^{-ij\xi_m}
-$$
+E_j e^{-ij\xi_m}
+$
 
-で定めると、任意の周期格子列は
+とする。
 
-$$
-E_j^n
-=
-\sum_{m=0}^{J-1}
-\widehat E_m^n e^{ij\xi_m}
-$$
+このとき
 
-と離散 Fourier 展開できます。
-
-ここで
-
-$$
+$
 \sum_{j=0}^{J-1}
 e^{ij(\xi_m-\xi_\ell)}
 =
 \begin{cases}
 J,&m=\ell,\\
-0,&m\ne\ell.
+0,&m\ne\ell,
 \end{cases}
-$$
+$
 
-です。
+が成り立ち、
 
-$m\ne\ell$ のときは比が1でない有限等比級数なので
+$
+\boxed{
+E_j
+=
+\sum_{m=0}^{J-1}
+\widehat E_m e^{ij\xi_m}
+}
+$
 
-$$
+および
+
+$
+\boxed{
+\sum_{j=0}^{J-1}|E_j|^2
+=
+J\sum_{m=0}^{J-1}|\widehat E_m|^2
+}
+$
+
+が成り立つ。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+$m=\ell$ なら各項は1なので
+
+$
+\sum_{j=0}^{J-1}
+e^{ij(\xi_m-\xi_m)}
+=
+J.
+$
+
+$m\ne\ell$ では
+
+$
+q=e^{i(\xi_m-\xi_\ell)}
+$
+
+と置くと $q\ne1$ かつ
+
+$
+q^J
+=
+e^{i2\pi(m-\ell)}
+=
+1.
+$
+
+従って有限等比級数の和から
+
+$
+\sum_{j=0}^{J-1}q^j
+=
+\frac{1-q^J}{1-q}
+=
+0.
+$
+
+次に Fourier 係数の定義を用いると
+
+$
+\begin{aligned}
+\sum_{m=0}^{J-1}
+\widehat E_m e^{ij\xi_m}
+&=
+\frac1J
+\sum_{m=0}^{J-1}
+\sum_{\ell=0}^{J-1}
+E_\ell e^{-i\ell\xi_m}e^{ij\xi_m}\\
+&=
+\frac1J
+\sum_{\ell=0}^{J-1}
+E_\ell
+\sum_{m=0}^{J-1}
+e^{i(j-\ell)\xi_m}.
+\end{aligned}
+$
+
+内側の和は $j=\ell$ のとき $J$、それ以外で0なので
+
+$
+E_j
+=
+\sum_{m=0}^{J-1}
+\widehat E_m e^{ij\xi_m}.
+$
+
+最後にこの展開を用いて
+
+$
+\begin{aligned}
+\sum_{j=0}^{J-1}|E_j|^2
+&=
 \sum_{j=0}^{J-1}
 \left(
-e^{i(\xi_m-\xi_\ell)}
-\right)^j
-=
-\frac{
-1-e^{iJ(\xi_m-\xi_\ell)}
-}{
-1-e^{i(\xi_m-\xi_\ell)}
-}
-=0
-$$
-
-となります。
-
-この直交性から
-
-$$
-\sum_{j=0}^{J-1}|E_j^n|^2
-=
+\sum_m \widehat E_m e^{ij\xi_m}
+\right)
+\left(
+\sum_\ell \overline{\widehat E_\ell}e^{-ij\xi_\ell}
+\right)\\
+&=
+\sum_{m,\ell}
+\widehat E_m
+\overline{\widehat E_\ell}
+\sum_{j=0}^{J-1}
+e^{ij(\xi_m-\xi_\ell)}\\
+&=
 J\sum_{m=0}^{J-1}
-|\widehat E_m^n|^2
-$$
+|\widehat E_m|^2.
+\end{aligned}
+$
 
-という離散 Parseval 恒等式が得られます。
+これで二つの式が得られました。
+<!-- proof-end -->
 
 <a id="thm-fdm2-von-neumann-criterion"></a>
 <!-- formal-statement-start -->
@@ -896,7 +981,7 @@ $$
 
 です。
 
-周期格子の Fourier 判定定理から
+上で示した増幅因子による縮小性判定から
 
 $$
 \|\mathbf E^{n+1}\|_2
@@ -1901,7 +1986,19 @@ $$
 \phi_{j+1}^{(k)}.
 $$
 
-三角関数の加法公式から
+ここで
+$
+\alpha=\frac{k\pi j}{J},
+\qquad
+\beta=\frac{k\pi}{J}
+$
+と置くと
+$
+\sin(\alpha-\beta)+\sin(\alpha+\beta)
+=
+2\sin\alpha\cos\beta
+$
+なので
 
 $$
 \phi_{j-1}^{(k)}
@@ -2923,9 +3020,9 @@ $$
 \sin(\alpha+\beta).
 $$
 
-加法公式
+恒等式
 
-$$
+$
 \sin(\alpha-\beta)
 +
 \sin(\alpha+\beta)
