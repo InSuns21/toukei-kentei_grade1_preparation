@@ -1,0 +1,32 @@
+chapter: "MC4"
+terms:
+  - term: Multilevel Monte Carlo 法
+    english: Multilevel Monte Carlo method
+    meaning: 複数の近似レベルの期待値差を望遠鏡和で足し合わせ、粗いレベルに多く、細かいレベルに少ない標本を配って計算費用を抑える Monte Carlo 法。略号 MLMC は補助的に使用可。
+  - term: 近似階層
+    english: approximation hierarchy
+    meaning: 近似精度と計算費用が段階的に変化する確率変数 Q_0,Q_1,...,Q_L の列。
+  - term: レベル補正
+    english: level correction
+    meaning: Y_0=Q_0、Y_l=Q_l-Q_{l-1} とした各レベルの差。MLMC は各 E[Y_l] を別々の標本数で推定する。
+  - term: レベル間結合
+    english: coupling between levels
+    meaning: Q_l と Q_{l-1} の周辺分布を保ったまま同時分布を設計すること。MLMC では差 Q_l-Q_{l-1} の分散を小さくする結合を狙う。
+  - term: レベル分散
+    english: level variance
+    meaning: レベル補正 Y_l の分散 V_l=Var(Y_l)。標本配分と MLMC の計算量を支配する。
+  - term: レベル費用
+    english: level cost
+    meaning: レベル補正 Y_l を1標本生成するための期待計算費用 C_l。
+  - term: 最適標本配分
+    english: optimal sample allocation
+    meaning: 標本分散の上限制約の下で総費用を最小にする配分。連続緩和では N_l は sqrt(V_l/C_l) に比例する。
+  - term: バイアス率
+    english: weak convergence rate
+    meaning: |E[Q-Q_l]| がレベルとともにどの速さで減るかを表す指数 alpha。
+  - term: レベル分散減衰率
+    english: level-variance decay rate
+    meaning: V_l がレベルとともにどの速さで減るかを表す指数 beta。
+  - term: レベル費用増加率
+    english: level-cost growth rate
+    meaning: C_l がレベルとともにどの速さで増えるかを表す指数 gamma。
