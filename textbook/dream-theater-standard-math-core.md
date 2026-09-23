@@ -1018,7 +1018,24 @@ direct prerequisite は GRP3 です。GRP3 の群作用・類等式・有限 $p$
 
 実装: [RNG2](volumes/00_foundations/RNG2/index.md)
 
-章 metadata 上の direct prerequisite は RNG1 です。RNG1 のイデアル・主イデアル・商環・環の第一同型定理をそのまま再利用し、Euclid 整域や一般の Bézout 理論は先取りしません。整数の合同式では必要な $1$ の表示を具体的に与え、一般の整除理論は次の RNG3 へ送ります。
+章 metadata 上の direct prerequisite は RNG1 です。RNG1 のイデアル・主イデアル・商環・環の第一同型定理をそのまま再利用し、Euclid 整域や一般の Bézout 理論は先取りしません。整数の合同式では必要な $1$ の表示を具体的に与えます。
+
+## RNG3 整除・Euclid 整域・PID・UFD `core / advanced-standard`
+
+- 整域上の整除・単元・同伴元を定義し、$a\mid b\iff(b)\subset(a)$ を確認
+- 既約元・素元を区別し、素元なら既約元であることを完全証明
+- 素元と素な主イデアル $(p)$ の同値を RNG2 の素イデアルへ接続
+- 最大公約元を整除関係で定義し、Bézout 恒等式と同伴を除く一意性を整理
+- Euclid 関数の strict decrease から Euclid の互除法の有限停止、最大公約元、Bézout 表示を完全証明
+- 単項イデアル整域を定義し、最小 Euclid 関数値の元から Euclid 整域が PID となることを完全証明
+- PID で $(a)+(b)$ の生成元が最大公約元となること、既約元が素元となることを完全証明
+- PID で有限既約分解が存在することを主イデアルの strictly increasing chain から証明し、素元性を使って PID が UFD となることを完全証明
+- $\mathbb Z[\sqrt{-5}]$ の $2$ を既約だが素でない反例として検証し、PID 仮定が回復する証明機構を説明
+- A4/B3/C1 の演習で整除・互除法・Bézout 表示・主イデアル・既約/素の差・ED→PID→UFD を再構成
+
+実装: [RNG3](volumes/00_foundations/RNG3/index.md)
+
+章 metadata 上の direct prerequisite は RNG2 です。RNG2 の素イデアル、イデアルの和、主イデアルと商環の構図を再利用し、整域の元の整除論へ戻ります。多項式環固有の除法、Gauss の補題、原始多項式、既約判定は次の RNG4 へ送ります。
 
 ---
 
