@@ -1,4 +1,4 @@
-# LIE2 1パラメータ部分群・Lie 群の指数写像・随伴表現
+# LIE2 1パラメータ部分群・exp・随伴表現
 
 <!-- definition-example-audit: strict -->
 
@@ -355,7 +355,7 @@ $$
 
 ---
 
-## 4. Lie 群の指数写像は「速度を時刻1まで流す」写像である
+## 4. 接ベクトルを「時刻1まで流す」
 
 <a id="def-lie2-exponential-map"></a>
 <!-- formal-statement-start -->
@@ -624,8 +624,8 @@ c(t)=tA
 $$
 を取ります。
 
-Lie 群の指数写像の基本性質から
-$$
+[Lie 群の指数写像の基本性質](#thm-lie2-exponential-basic)から
+$
 \exp_G(c(t))
 =
 \exp_G(tA)
