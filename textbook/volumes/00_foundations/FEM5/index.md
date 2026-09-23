@@ -1760,7 +1760,7 @@ b(v,C)
 -C\int_\Omega\nabla\cdot v\,dx.
 $$
 
-零 trace の近似と [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)から
+$H_0^1$ の定義による $C_c^\infty$ 近似と [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)から
 
 $$
 \int_\Omega\nabla\cdot v\,dx=0.
