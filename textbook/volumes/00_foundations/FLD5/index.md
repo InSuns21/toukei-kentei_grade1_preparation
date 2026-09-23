@@ -156,18 +156,18 @@ $$
 >
 > $\mathbb R$ の部分体の有限列
 >
-> $
-> \mathbb Q=K_0
-> \subset K_1
-> \subset\cdots\subset K_r
-> \subset\mathbb R
-> $
+$$
+\mathbb Q=K_0
+\subset K_1
+\subset\cdots\subset K_r
+\subset\mathbb R
+$$
 >
 > が各 $i$ で
 >
-> $
-> [K_i:K_{i-1}]\le2
-> $
+$$
+[K_i:K_{i-1}]\le2
+$$
 >
 > を満たすとき、この列を **実二次拡大列**という。
 <!-- formal-statement-end -->
