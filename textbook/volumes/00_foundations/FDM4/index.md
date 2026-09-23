@@ -204,7 +204,7 @@ D_{\mathrm{up}}V_j
 =
 \begin{cases}
 \dfrac{V_j-V_{j-1}}{h},
-& a>0,\\[1.2ex]
+& a>0,\\
 \dfrac{V_{j+1}-V_j}{h},
 & a<0
 \end{cases}
