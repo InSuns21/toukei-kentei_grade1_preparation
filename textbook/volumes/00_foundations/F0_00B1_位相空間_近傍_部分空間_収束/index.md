@@ -44,17 +44,17 @@ $$
 <!-- formal-statement-start -->
 > **定義（離散位相・密着位相）**  
 > 集合 $X$ に対して
->
-> $$
-> \tau_{\mathrm{disc}}=\mathcal P(X)
-> $$
->
+
+$$
+\tau_{\mathrm{disc}}=\mathcal P(X)
+$$
+
 > を $X$ 上の **離散位相** といい、
->
-> $$
-> \tau_{\mathrm{ind}}=\{\varnothing,X\}
-> $$
->
+
+$$
+\tau_{\mathrm{ind}}=\{\varnothing,X\}
+$$
+
 > を $X$ 上の **密着位相** という。離散位相では $X$ の全ての部分集合が開であり、密着位相では $\varnothing$ と $X$ だけが開である。
 <!-- formal-statement-end -->
 
