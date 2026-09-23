@@ -1,0 +1,88 @@
+chapter: FEM1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GPDE7
+forward_references: []
+
+concepts:
+  - id: numerical.conforming-galerkin-discretization
+    name: 適合 Galerkin 離散化
+    kind: definition
+    aliases: [conforming Galerkin discretization for a coercive variational problem]
+    introduction: formal
+    introduction_aliases: ["定義（適合 Galerkin 離散化）"]
+    requires:
+      - variational.bounded-bilinear-form
+      - variational.coercive-bilinear-form
+
+  - id: numerical.galerkin-discrete-wellposedness
+    name: 適合 Galerkin 問題の存在一意性
+    kind: theorem
+    aliases: [well-posedness of the conforming Galerkin problem]
+    introduction: formal
+    introduction_aliases: ["定理（適合 Galerkin 問題の存在一意性）"]
+    requires:
+      - numerical.conforming-galerkin-discretization
+      - functional-analysis.lax-milgram
+
+  - id: numerical.galerkin-basis-system
+    name: Galerkin 方程式の行列表現
+    kind: proposition
+    aliases: [matrix representation of a conforming Galerkin problem]
+    introduction: formal
+    introduction_aliases: ["命題（Galerkin 方程式の行列表現）"]
+    requires:
+      - numerical.conforming-galerkin-discretization
+      - numerical.galerkin-discrete-wellposedness
+
+  - id: numerical.galerkin-orthogonality
+    name: Galerkin 直交性
+    kind: theorem
+    aliases: [Galerkin orthogonality for a conforming variational discretization]
+    introduction: formal
+    introduction_aliases: ["定理（Galerkin 直交性）"]
+    requires:
+      - numerical.conforming-galerkin-discretization
+
+  - id: numerical.cea-lemma
+    name: Céa の補題
+    kind: theorem
+    aliases: [Céa lemma for conforming Galerkin approximation]
+    introduction: formal
+    introduction_aliases: ["定理（Céa の補題）"]
+    requires:
+      - numerical.galerkin-orthogonality
+      - variational.bounded-bilinear-form
+      - variational.coercive-bilinear-form
+
+  - id: numerical.energy-norm
+    name: エネルギーノルム
+    kind: definition
+    aliases: [energy norm induced by a symmetric positive bilinear form]
+    introduction: formal
+    introduction_aliases: ["定義（エネルギーノルム）"]
+    requires:
+      - variational.coercive-bilinear-form
+
+  - id: numerical.symmetric-galerkin-best-approximation
+    name: 対称 Galerkin 法のエネルギーノルム最良近似性
+    kind: theorem
+    aliases: [energy-norm best approximation of symmetric conforming Galerkin method]
+    introduction: formal
+    introduction_aliases: ["定理（対称 Galerkin 法のエネルギーノルム最良近似性）"]
+    requires:
+      - numerical.energy-norm
+      - numerical.galerkin-orthogonality
+
+  - id: numerical.poisson-galerkin-best-approximation
+    name: Poisson Galerkin 近似の存在一意性と最良近似性
+    kind: corollary
+    aliases: [best approximation for conforming Poisson Galerkin discretization]
+    introduction: formal
+    introduction_aliases: ["系（Poisson Galerkin 近似の存在一意性と最良近似性）"]
+    requires:
+      - pde.poisson-lax-milgram
+      - pde.poisson-form-bounded-coercive
+      - numerical.galerkin-discrete-wellposedness
+      - numerical.symmetric-galerkin-best-approximation
