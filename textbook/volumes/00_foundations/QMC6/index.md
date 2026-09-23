@@ -1471,7 +1471,7 @@ $$
 
 <a id="cor-qmc6-t-value"></a>
 <!-- formal-statement-start -->
-### 系（多項式格子の $t$ 値判定）
+### 系（多項式格子の t 値判定）
 
 多項式格子
 
