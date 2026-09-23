@@ -291,16 +291,23 @@
       runTimer: null,
     };
 
-    try {
-      ensureWorker().postMessage({
-        type: "run",
-        jobId,
-        code,
-        tests,
-      });
-    } catch (error) {
-      finishWithInfrastructureError(error && error.stack ? error.stack : String(error));
-    }
+    const serviceWorkerReady = "serviceWorker" in navigator
+      ? navigator.serviceWorker.ready.catch(() => null)
+      : Promise.resolve(null);
+
+    serviceWorkerReady.then(() => {
+      if (!currentJob || currentJob.jobId !== jobId) return;
+      try {
+        ensureWorker().postMessage({
+          type: "run",
+          jobId,
+          code,
+          tests,
+        });
+      } catch (error) {
+        finishWithInfrastructureError(error && error.stack ? error.stack : String(error));
+      }
+    });
   }
 
   function stopLab(panel) {
