@@ -329,12 +329,12 @@ $$
 
 ---
 
-## 3. 制約核 と inf-sup 条件
+## 3. 制約核と inf-sup 条件
 
 <a id="def-fem5-kernel-infsup"></a>
 
 <!-- formal-statement-start -->
-### 定義（制約核 と inf-sup 条件）
+### 定義（制約核と inf-sup 条件）
 
 有界双線形形式
 
