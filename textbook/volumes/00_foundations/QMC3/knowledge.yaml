@@ -112,10 +112,10 @@ concepts:
     requires:
       - numerical.lattice-fourier-worst-case-error
 
-  - id: numerical.lattice-unit-scaling-invariance
+  - id: numerical.lattice-invertible-scaling-invariance
     name: 生成ベクトルの可逆スカラー倍不変性
     kind: theorem
-    aliases: [unit scaling invariance of lattice generators]
+    aliases: [invertible scaling invariance of lattice generators]
     introduction: formal
     introduction_aliases: ["定理（生成ベクトルの可逆スカラー倍不変性）"]
     requires:
@@ -129,4 +129,4 @@ concepts:
     introduction_aliases: ["定義（成分逐次構成）"]
     requires:
       - numerical.lattice-fourier-worst-case-error
-      - numerical.lattice-unit-scaling-invariance
+      - numerical.lattice-invertible-scaling-invariance
