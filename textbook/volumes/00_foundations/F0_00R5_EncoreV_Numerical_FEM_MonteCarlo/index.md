@@ -106,7 +106,7 @@ Monte Carlo 法と準 Monte Carlo 法では、同じ積分問題に対して
 | ID | 講座 |
 |---|---|
 | [FEM1](../FEM1/index.md) | Poisson 方程式・変分形式・Galerkin 法 |
-| [FEM2](../FEM2/index.md) | 有限要素・三角形分割・基底 |
+| [FEM2](../FEM2/index.md) | 三角形分割・局所基底・組立て |
 | FEM3 | 有限要素補間とメッシュ |
 | FEM4 | 楕円型 FEM の誤差解析 |
 | FEM5 | 鞍点問題・Stokes 方程式 |
