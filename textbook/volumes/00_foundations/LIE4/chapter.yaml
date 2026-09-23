@@ -1,0 +1,56 @@
+id: "LIE4"
+title: "Lie 理論 IV：Lie 群作用・軌道・等質空間・Maurer--Cartan"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LIE3
+  - GRP3
+  - GEO3
+  - GEO7
+official_scope: []
+learning_objectives:
+  - GRP3 の群作用へ滑らかさを追加して Lie 群作用を定義し、各群要素が微分同相写像として作用することを説明できる
+  - 軌道写像の微分を基本ベクトル場として計算し、安定化群が閉 Lie 部分群になることと ker dPhi_x = g_x を証明できる
+  - 基本ベクトル場の流れを exp(tX) の作用として求め、本章の左作用規約では X→X_M が Lie 環反準同型になることを証明できる
+  - 閉 Lie 部分群 H に対する G/H の滑らかな商多様体構造を局所積分解から構成し、dim G/H と T_eH(G/H) を計算できる
+  - 等質空間を推移的 Lie 群作用として定義し、M≅G/G_x を安定化群から構成できる
+  - 一般の軌道は自然にはめ込み多様体になるが埋め込み部分多様体とは限らないことを稠密軌道から説明できる
+  - Lie 環値1形式と左 Maurer--Cartan 形式を定義し、GL(n,R) で theta=A^{-1}dA を計算できる
+  - Maurer--Cartan 形式の左不変性・右移動則を証明し、Maurer--Cartan 方程式を外微分の座標不変表示から導ける
+  - 構造定数から d theta^k = -1/2 sum c_ij^k theta^i wedge theta^j を導き、非可換 Lie 群で具体計算できる
+definitions:
+  - { id: LIE4-DEF-01, name: Lie 群作用 }
+  - { id: LIE4-DEF-02, name: 軌道写像 }
+  - { id: LIE4-DEF-03, name: 基本ベクトル場・無限小作用 }
+  - { id: LIE4-DEF-04, name: 等質空間 }
+  - { id: LIE4-DEF-05, name: Lie 環値1形式 }
+  - { id: LIE4-DEF-06, name: 左 Maurer--Cartan 形式 }
+  - { id: LIE4-DEF-07, name: Lie 環値1形式の括弧付き外積 }
+  - { id: LIE4-DEF-08, name: 構造定数 }
+theorems:
+  - { id: LIE4-PROP-01, name: 安定化群は閉 Lie 部分群 }
+  - { id: LIE4-THM-01, name: 基本ベクトル場の流れと括弧 }
+  - { id: LIE4-THM-02, name: 安定化 Lie 環と軌道方向 }
+  - { id: LIE4-THM-03, name: 閉 Lie 部分群による商多様体 }
+  - { id: LIE4-THM-04, name: 等質空間は安定化群による商 }
+  - { id: LIE4-PROP-02, name: Maurer--Cartan 形式の左不変性と右移動則 }
+  - { id: LIE4-THM-05, name: Maurer--Cartan 方程式 }
+canonical_examples:
+  - SO(2) の R2 への回転作用と円軌道
+  - S^{n-1}≅SO(n)/SO(n-1)
+  - トーラス上の無理数方向の稠密軌道
+  - GL(n,R) の Maurer--Cartan 形式 theta=A^{-1}dA
+  - 2次元アフィン群の構造方程式
+problem_patterns:
+  - LIE4-SMOOTH-ACTION-1
+  - LIE4-ORBIT-STABILIZER-DIFFERENTIAL-1
+  - LIE4-INFINITESIMAL-ACTION-1
+  - LIE4-QUOTIENT-MANIFOLD-1
+  - LIE4-HOMOGENEOUS-SPACE-1
+  - LIE4-MAURER-CARTAN-FORM-1
+  - LIE4-MAURER-CARTAN-EQUATION-1
+  - LIE4-STRUCTURE-CONSTANTS-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10.0, exercises: 6.0, review: 0.5 }
