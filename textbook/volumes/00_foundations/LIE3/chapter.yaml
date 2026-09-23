@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - LIE2
   - LA6
+  - GEO3
 official_scope: []
 learning_objectives:
   - Lie 部分群を埋め込み部分多様体かつ部分群として定義し、包含写像の微分から接 Lie 環が親 Lie 環の Lie 部分環になることを説明できる
