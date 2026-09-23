@@ -565,8 +565,10 @@ QMC2 は QMC1、F0-02C7、F0-00D2E、GPDE3 を直接 prerequisite とする。F0
 
 QMC3 は QMC2 と FOU1 を直接 prerequisite とする。FOU1 の複素指数表示と有限 Fourier 理論を再利用し、生成ベクトルからランク1格子点集合と双対格子を構成する。有限等比級数から複素指数モードの離散直交性を証明し、三角多項式、さらに絶対収束 Fourier 級数に対して、格子則の積分誤差が非零双対周波数上の Fourier 係数だけで与えられることを導く。周期関数側では重み付き周期 Fourier 空間を導入し、Cauchy--Schwarz の不等式から最悪誤差平方を双対格子上の逆重み和として完全導出する。一次元では双対格子が $N\mathbb Z$ となることから $N^{-\alpha}$ の最悪誤差率を得る。生成ベクトルの単元倍不変性を証明して素数 $N$ で第一成分を1に正規化し、成分逐次構成（CBC）を「各座標追加時に双対格子の誤差基準を最小化する」構成法として導入する。
 
-後続の QMC4–QMC8 は DREAM_THEATER_ENCORE_V_REWRITE_PLAN.md の計画対象であり、各講の実装完了時に実際の直接依存だけを追加する。
+QMC4 は QMC1、FLD3、F0-00E を直接 prerequisite とする。QMC1 のスター・ディスクレパンシーと一様分布を $b$ 進基本区間へ接続し、$(t,m,s)$-ネットの局所点数条件から粗いスター・ディスクレパンシー上界を自前で導く。$(t,s)$-点列については整列ブロックを $b$ 進展開で分解して一様分布を証明し、一次元では根基逆関数から van der Corput 点列が $(0,1)$-点列になることを閉じる。さらに FLD3 の素数位数有限体と F0-00E の一次独立を用いて生成行列型デジタル点集合を定義し、有限体上の行基本変形から、所定の先頭行ベクトルの一次独立性と $(t,m,s)$-ネット条件が同値であることを証明する。Sobol・Faure・Niederreiter 点列はこの生成行列型構成の代表として位置付け、Walsh 双対理論は QMC5 へ送る。
 
-読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA1–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC3 で、次の実装対象は QMC4「(t,m,s)-net・(t,s)-sequence」である。
+後続の QMC5–QMC8 は DREAM_THEATER_ENCORE_V_REWRITE_PLAN.md の計画対象であり、各講の実装完了時に実際の直接依存だけを追加する。
+
+読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA1–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC4 で、次の実装対象は QMC5「Walsh 解析と digital net の双対理論」である。
 
 ---

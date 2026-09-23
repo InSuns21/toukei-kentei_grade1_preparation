@@ -1,0 +1,51 @@
+id: "QMC4"
+title: "(t,m,s)-net・(t,s)-sequence"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - QMC1
+  - FLD3
+  - F0-00E
+official_scope: []
+learning_objectives:
+  - b 進基本区間を定義し、指数和から体積と解像度を計算できる
+  - 底 b の (t,m,s)-ネットを定義し、t が小さいほど細かな基本区間まで点数を正確に制御することを説明できる
+  - (t,m,s)-ネットが t' >= t に対して (t',m,s)-ネットでもあることを基本区間の細分から証明できる
+  - (t,m,s)-ネットの粗い b 進箱で点数割合が体積と一致することを証明し、自己完結なスター・ディスクレパンシー上界を導ける
+  - (t,s)-点列を整列ブロック条件として定義し、全ブロック条件が一様分布の証明で必要になる理由を説明できる
+  - 根基逆関数を定義し、van der Corput 点列が (0,1)-点列になることを b 進桁の全パターンから証明できる
+  - 素数底の有限体上で生成行列からデジタル点集合を構成し、具体的な生成行列から点を計算できる
+  - 生成行列の先頭行ベクトルの一次独立性と (t,m,s)-ネット条件が同値であることを連立一次方程式の解数から証明できる
+  - Sobol・Faure・Niederreiter 点列を生成行列型デジタル点列の代表例として位置付け、QMC5 の Walsh 双対理論への接続を説明できる
+definitions:
+  - { id: QMC4-DEF-01, name: b 進基本区間 }
+  - { id: QMC4-DEF-02, name: (t,m,s)-ネット }
+  - { id: QMC4-DEF-03, name: (t,s)-点列 }
+  - { id: QMC4-DEF-04, name: 根基逆関数 }
+  - { id: QMC4-DEF-05, name: 素数底のデジタル点集合 }
+theorems:
+  - { id: QMC4-THM-01, name: t に関する単調性 }
+  - { id: QMC4-LEM-01, name: 粗い b 進箱での点数の正確性 }
+  - { id: QMC4-THM-02, name: (t,m,s)-ネットの粗いスター・ディスクレパンシー上界 }
+  - { id: QMC4-THM-03, name: van der Corput 点列は (0,1)-点列 }
+  - { id: QMC4-THM-04, name: (t,s)-点列の一様分布 }
+  - { id: QMC4-THM-05, name: 生成行列の一次独立性による (t,m,s)-ネット判定 }
+canonical_examples:
+  - 底2の4点集合で (0,2,2)-ネットを基本区間の三種類から直接確認する例
+  - 対角4点集合が各座標では均等でも (0,2,2)-ネットではなく (1,2,2)-ネットになる失敗例
+  - phi_2(6)=3/8 を二進桁反転から計算する例
+  - 反転行列と単位行列から底2の4点デジタルネットを生成する例
+  - 生成行列の先頭行を重複させると t が悪化し、座標間相関として現れる例
+problem_patterns:
+  - QMC4-BADIC-ELEMENTARY-INTERVAL-1
+  - QMC4-TMS-NET-DIRECT-CHECK-1
+  - QMC4-T-VALUE-FAILURE-1
+  - QMC4-RADICAL-INVERSE-1
+  - QMC4-T-MONOTONICITY-1
+  - QMC4-DIGITAL-RANK-CRITERION-1
+  - QMC4-DISCREPANCY-KH-1
+  - QMC4-DIGITAL-T-VALUE-INTEGRATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.5, exercises: 5.0, review: 0.75 }

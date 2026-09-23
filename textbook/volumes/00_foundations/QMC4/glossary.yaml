@@ -1,0 +1,23 @@
+chapter: "QMC4"
+terms:
+  - term: b 進基本区間
+    english: b-adic elementary interval
+    meaning: 各座標の端点を b 進格子にそろえた半開直方体。各座標の分割桁数 d_j に対して体積は b の -(d_1+...+d_s) 乗になる。
+  - term: (t,m,s)-ネット
+    english: (t,m,s)-net
+    meaning: b^m 個の点が、体積 b^(t-m) のすべての b 進基本区間にちょうど b^t 点ずつ入る有限点集合。
+  - term: t 値
+    english: t-value
+    meaning: (t,m,s)-ネットの局所均等性の粗さを表す整数。同じ b,m,s なら小さいほど細かな b 進基本区間まで点数を正確に制御する。
+  - term: (t,s)-点列
+    english: (t,s)-sequence
+    meaning: 任意の十分大きい m と任意の整列した長さ b^m のブロックが (t,m,s)-ネットになる無限点列。
+  - term: 根基逆関数
+    english: radical inverse function
+    meaning: 非負整数の b 進桁を小数点以下へ逆順に並べ、[0,1) の数へ写す関数。
+  - term: van der Corput 点列
+    english: van der Corput sequence
+    meaning: 根基逆関数 x_n=phi_b(n) で得る一次元点列。本章では底 b の (0,1)-点列であることを証明する。
+  - term: 生成行列によるデジタル点集合
+    english: digital point set from generating matrices
+    meaning: 整数 n の b 進桁ベクトルを有限体上の生成行列で変換し、その出力を各座標の b 進小数桁として作る点集合。
