@@ -2475,7 +2475,7 @@ $$
 
 <a id="cor-qmc7-digital-shift-anova-variance"></a>
 <!-- formal-statement-start -->
-### 系（デジタルシフト分散の 座標支持分解）
+### 系（デジタルシフト分散の座標支持分解）
 
 QMC7 の [デジタルシフト QMC の厳密分散公式](#thm-qmc7-shift-exact-variance) の仮定を満たす \(f\) を取り、その 分散分析成分を \(f_u\) とする。
 
