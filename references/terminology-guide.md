@@ -471,6 +471,12 @@
 | 情報複雑度 | information complexity | 指定した最悪誤差精度を達成するために必要な最小の関数評価点数 |
 | 多項式 tractability | polynomial tractability | 必要点数を精度の逆数と次元の多項式で一様に上から抑えられる性質 |
 | 強多項式 tractability | strong polynomial tractability | 必要点数を次元に依存せず精度の逆数の多項式だけで一様に上から抑えられる性質 |
+| ランク1格子則 | rank-1 lattice rule | 生成ベクトルと法 $N$ から $\{n\boldsymbol z/N\}$ を作る格子型の準 Monte Carlo 求積則 |
+| 生成ベクトル | generating vector | ランク1格子点集合の各座標方向の進み方を指定する整数ベクトル |
+| 双対格子 | dual lattice | $\boldsymbol h\cdot\boldsymbol z\equiv0\pmod N$ を満たす整数周波数ベクトル全体。格子平均で消えない Fourier モードを表す |
+| 離散直交性 | discrete orthogonality | 格子点上の複素指数平均が、双対格子上では1、それ以外では0になる性質 |
+| 重み付き周期 Fourier 空間 | weighted periodic Fourier space | Fourier 係数を周波数重みで二乗加重してノルムを定める周期関数空間 |
+| 成分逐次構成 | component-by-component construction | 生成ベクトルの成分を一つずつ選び、その段階の誤差基準を最小化する構成法。初出で CBC を併記してよい |
 
 ## DREAM THEATER：ODE・PDE の主表記
 
