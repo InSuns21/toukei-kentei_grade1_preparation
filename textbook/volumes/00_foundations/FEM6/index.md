@@ -69,7 +69,7 @@ $$
 1. 空間半離散 Galerkin 法を連立 ODE として導く。
 2. 質量行列と剛性行列の役割を確認する。
 3. 離散解自身を試験関数にしてエネルギー評価を導く。
-4. Ritz 射影を使って空間誤差を「純粋な近似誤差」と「離散解の動的誤差」に分ける。
+4. 楕円型エネルギーに関する射影を使って、空間誤差を「純粋な近似誤差」と「離散解の動的誤差」に分ける。
 5. 後退 Euler 法で時間離散し、全離散法の無条件エネルギー安定性を示す。
 6. 最後に空間一次有限要素と後退 Euler 法を組み合わせ、$L^2$ 誤差を空間項と時間項へ分離する。
 
@@ -621,7 +621,7 @@ $$
 
 です。
 
-右辺を双対ノルムと Young の不等式で半分吸収します。
+右辺を双対ノルムと [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)で半分吸収します。
 
 <!-- proof-start -->
 ### 証明
@@ -691,7 +691,7 @@ $$
 \|\nabla u_h\|_2.
 $$
 
-Young の不等式
+[Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)
 
 $$
 ab\le\frac12a^2+\frac12b^2
@@ -1171,7 +1171,7 @@ C_P
 \|\nabla\theta\|_2.
 $$
 
-Young の不等式により
+[Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)により
 
 $$
 |(\eta_t,\theta)|
@@ -1282,7 +1282,7 @@ $$
 
 ---
 
-## 6. 時間も離散化する：後退 Euler 有限要素法
+## 6. 時間も離散化する：後退 Euler 法を組み合わせる
 
 時間刻みを
 
@@ -1544,7 +1544,7 @@ $$
 \|\nabla U_h^n\|_2
 $$
 
-なので Young の不等式から
+なので [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)から
 
 $$
 |\langle f(t_n),U_h^n\rangle|
@@ -2178,7 +2178,7 @@ $$
 \end{aligned}
 $$
 
-Poincaré と Young の不等式から、ある領域依存定数 $C$ に対して
+Poincaré と [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)から、ある領域依存定数 $C$ に対して
 
 $$
 |(D_\tau\eta^n,\theta^n)|
@@ -3006,7 +3006,7 @@ $$
 \|\nabla u_h\|_2.
 $$
 
-Young の不等式で
+[Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)で
 
 $$
 \|f\|_{H^{-1}}
@@ -3179,7 +3179,7 @@ C_P
 \|\nabla\theta\|_2.
 $$
 
-Young の不等式から
+[Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)から
 
 $$
 |(\eta_t,\theta)|
@@ -3580,7 +3580,7 @@ $$
 \end{aligned}
 $$
 
-Poincaré と Young の不等式を二つの右辺項へ使うと
+Poincaré と [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)を二つの右辺項へ使うと
 
 $$
 |(D_\tau\eta^n,\theta^n)|
