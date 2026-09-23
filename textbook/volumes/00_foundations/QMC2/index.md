@@ -36,7 +36,7 @@ $$
 
 と完全に計算できます。
 
-後半では、一次元の anchored Sobolev 空間を多次元へ組み上げ、座標ごとの重要度を表す重みを入れます。重みが十分速く減衰すれば、名目上の次元 $s$ が大きくても高い座標の影響を小さくできることを、核と最悪誤差の式から確認します。
+後半では、一次元の アンカー型 Sobolev 空間を多次元へ組み上げ、座標ごとの重要度を表す重みを入れます。重みが十分速く減衰すれば、名目上の次元 $s$ が大きくても高い座標の影響を小さくできることを、核と最悪誤差の式から確認します。
 
 ---
 
@@ -768,13 +768,13 @@ h_I
 }
 $$
 
-とすること、すなわち積分表現元を kernel section の有限和で近似することだと読めます。
+とすること、すなわち積分表現元を 核関数 の有限和で近似することだと読めます。
 
 この見方は QMC3 の格子則、QMC4 以降の digital net で「どの点集合が関数空間に合っているか」を考える土台になります。
 
 ---
 
-## 4. 一次元の重み付き anchored Sobolev 空間
+## 4. 一次元の重み付き アンカー型 Sobolev 空間
 
 高次元 QMC で重みが必要になる理由を見るため、まず一次元から始めます。
 
@@ -782,9 +782,19 @@ $\gamma>0$ とします。
 
 <a id="def-qmc2-weighted-anchored-sobolev"></a>
 <!-- formal-statement-start -->
-### 定義（一次元重み付き anchored Sobolev 空間）
+### 定義（一次元重み付き アンカー型 Sobolev 空間）
 
-絶対連続関数 $f:[0,1]\to\mathbb R$ で $f'\in L^2(0,1)$ を満たすもの全体を $\mathcal H_\gamma$ とする。
+関数 $f:[0,1]\to\mathbb R$ で、ある $g\in L^2(0,1)$ が存在して
+
+$$
+f(x)
+=
+f(0)
++
+\int_0^x g(t)\,dt
+$$
+
+と書けるもの全体を $\mathcal H_\gamma$ とする。このとき $g$ はほとんど至る所一意に定まり、これを $f'$ と書く。従って本章の $\mathcal H_\gamma$ は、0 をアンカーとする一次元 Sobolev 型関数空間である。
 
 内積を
 
@@ -1485,7 +1495,7 @@ $$
 
 <a id="def-qmc2-information-complexity"></a>
 <!-- formal-statement-start -->
-### 定義（最悪誤差に対する情報複雑度）
+### 定義（最悪誤差に対する情報複雑度：絶対誤差基準）
 
 次元 $s$ の RKHS $\mathcal H_s$ に対し、精度 $\varepsilon>0$ を達成するための等重み求積点数を
 
@@ -1502,8 +1512,10 @@ e(Q_N;\mathcal H_s)\le\varepsilon
 }
 $$
 
-とする。
+とする。ただし条件を満たす有限の $N$ が存在しないときは $n(\varepsilon,s)=\infty$ とする。
 <!-- formal-statement-end -->
+
+本章では以下、すべてこの絶対誤差基準で tractability を論じます。
 
 <a id="def-qmc2-polynomial-tractability"></a>
 <!-- formal-statement-start -->
