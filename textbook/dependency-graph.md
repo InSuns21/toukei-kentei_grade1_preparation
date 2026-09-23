@@ -585,8 +585,8 @@ QMC6 は QMC5、FLD1 を直接 prerequisite とする。QMC5 の Walsh 関数、
 
 QMC7 は QMC5、MC1 を直接 prerequisite とする。QMC5 の Walsh 関数・双対ネット・離散直交性を再利用し、MC1 の不偏推定・標準誤差をランダム化反復値の統計へ接続する。$b$ 進デジタル加法と一様デジタルシフトを定義し、固定点の一様化、不偏性、$(t,m,s)$-ネット性保存、Walsh 乗法則から双対ネット上の Walsh 係数平方和として厳密分散公式を証明する。独立ランダム化反復では点ごとの独立性ではなく反復値 $Z_r$ の独立性を使い、平均の分散 $\tau^2/R$ と反復間標本分散の不偏性を導く。入れ子一様スクランブルでは prefix ごとのランダム置換が有限桁語の全単射を与えることから各点の一様性とネット性保存を証明する。さらに関数的 分散分析分解の直交性・分散分解を閉じ、Walsh 周波数の支持と 座標支持を対応させてランダム化分散を相互作用別に分解する。高次 Walsh 重みと higher-order digital net は QMC8 へ送る。
 
-後続の QMC8 は DREAM_THEATER_ENCORE_V_REWRITE_PLAN.md の計画対象であり、実装完了時に実際の直接依存だけを追加する。
+QMC8 は QMC5 を直接 prerequisite とする。QMC5 の Walsh 関数・双対ネット・NRT 重み・通常の $t$ 値の双対特徴付けを再利用し、非零桁位置を上から最大 $\alpha$ 個足す Dick の $\alpha$ 重みへ拡張する。生成行列を $n\times m$ へ広げた高精度デジタル点集合について Walsh 関数の離散直交性を再証明し、最小双対 Dick 重み $\rho_\alpha(P)$ と order $\alpha$ デジタルネットを定義する。周波数 $b^n$ が必ず双対へ入ることから $\rho_\alpha(P)\le n+1$ を示し、高次品質には $n\approx\alpha m$ の出力精度が必要であることを閉じる。関数側では高次 Walsh 係数ノルムを導入し、双対誤差公式から $|Q_P(f)-I(f)|\le b^{-\rho_\alpha(P)}|f|_{\mathrm{Wal},\alpha,1}\le b^{t_\alpha-1}N^{-\alpha}|f|_{\mathrm{Wal},\alpha,1}$ を完全証明する。さらに $\alpha s$ 次元の通常デジタルネットの生成行列を行ごとに交互配置して $s$ 次元・$\alpha m$ 桁へ移す構成を導入し、周波数の逆交互配置と NRT 重みの双対特徴付けから order $\alpha$ デジタルネットになることを証明する。QMC7 のランダム化との組合せは位置付けだけ示し、高次 RQMC の最適二乗平均誤差論は本章へ逆輸入しない。
 
-読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA1–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC7 で、次の実装対象は QMC8「高次 QMC」である。
+読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA1–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC8 で、理論35講が揃った。次の実装対象は Encore V 理論35講の横断監査である。
 
 ---
