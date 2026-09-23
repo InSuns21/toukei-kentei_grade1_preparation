@@ -28,6 +28,23 @@ concepts:
     requires:
       - topology.topology
 
+  - id: topology.discrete-topology
+    name: 離散位相
+    kind: definition
+    aliases: [離散位相, discrete topology]
+    introduction_aliases: [離散位相・密着位相]
+    requires:
+      - topology.topology
+      - set.power-set
+
+  - id: topology.indiscrete-topology
+    name: 密着位相
+    kind: definition
+    aliases: [密着位相, indiscrete topology]
+    introduction_aliases: [離散位相・密着位相]
+    requires:
+      - topology.topology
+
   - id: topology.topological-closed-set
     name: 位相空間の閉集合
     kind: definition
