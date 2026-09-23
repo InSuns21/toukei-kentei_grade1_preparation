@@ -302,6 +302,18 @@
 | 第二同型定理 | second isomorphism theorem | 群では $H/(H\cap N)\cong HN/N$ |
 | 第三同型定理 | third isomorphism theorem | $N,H\trianglelefteq G$, $N\subset H$ のとき $(G/N)/(H/N)\cong G/H$ |
 | 対応定理 | correspondence theorem | $N$ を含む $G$ の部分群と $G/N$ の部分群の対応。必要なら「群の対応定理」と書く |
+| 群作用 | group action | 本文では日本語主表記。作用は $g\cdot x$ で表す |
+| 忠実な群作用 | faithful group action | 対応する $G\to\operatorname{Sym}(X)$ が単射である作用 |
+| 推移的な群作用 | transitive group action | 任意の2点を群要素で移し合える作用 |
+| 軌道 | orbit | 群作用の文脈では $Gx=\{g\cdot x:g\in G\}$。機械 alias は ODE の軌道と衝突しないよう文脈付きにする |
+| 安定化群 | stabilizer | 点 $x$ を固定する部分群 $G_x$ |
+| 軌道・安定化群公式 | orbit-stabilizer theorem | $|Gx|=[G:G_x]$。有限群では $|G|=|Gx||G_x|$ |
+| 共役作用 | conjugation action | $g\cdot x=gxg^{-1}$ で定める群の自身への作用 |
+| 共役類 | conjugacy class | 共役作用における軌道 |
+| 群の中心 | center of a group | $Z(G)$。全ての群要素と可換する元全体 |
+| 中心化群 | centralizer | $C_G(x)$。指定した元 $x$ と可換する群要素全体 |
+| 類等式 | class equation | 有限群を中心と非中心共役類へ分割する等式。必要なら「群の類等式」と書く |
+| 有限 $p$-群 | finite p-group | 位数が素数 $p$ の冪である有限群。本文では $p$ を数式として保持 |
 
 ## DREAM THEATER：数値解析の主表記
 
