@@ -385,7 +385,7 @@ QMC2 は既存 F0-02C7 の RKHS / 再生核を再定義しない。stable anchor
 | ID | 講座 | 内容 |
 |---|---|---|
 | PYNUM1 | Python 数値計算速習 | Python の要点、NumPy 配列、shape / dtype、slicing、broadcasting、vectorization、乱数、Matplotlib、SciPy の必要最小限 |
-| NUMLAB0 | 計算機演習基盤 | ブラウザ上 Python 実行、Worker、依存ライブラリ、採点、保存、時間制限、CI |
+| NUMLAB0 | 計算機演習基盤 | ブラウザ上 Python 実行、Worker、依存ライブラリ、採点、保存、時間制限、自動検証 |
 | NUMLAB1 | 数値解析演習 | NA1–NA12 対応 |
 | NUMLAB2 | 差分法演習 | FDM1–FDM4 対応 |
 | NUMLAB3 | 有限要素法演習 | FEM1–FEM7 対応 |
