@@ -862,7 +862,7 @@ $$
 
 ---
 
-## 5. Galerkin 直交性
+## 5. 連続式と離散式を引く
 
 連続解 $u$ と離散解 $u_h$ の差を
 
@@ -1000,7 +1000,7 @@ $$
 
 ---
 
-## 6. Céa の補題：離散解は最良近似と同程度によい
+## 6. 離散解は最良近似と同程度によい
 
 Galerkin 直交性だけでは、まだ誤差の大きさは分かりません。
 
@@ -1230,7 +1230,7 @@ $$
 
 ---
 
-## 7. 対称問題ではエネルギーノルムの最良近似になる
+## 7. 対称問題では自然な内積で最良近似になる
 
 Poisson form は対称です。
 
@@ -1809,10 +1809,10 @@ FEM2 でそこへ進みます。
 
 ## 12. 演習
 
-### Level A
+## Level A
 
 <a id="ex-fem1-a01"></a>
-#### FEM1-A01 $\mathbb R^2$ の Galerkin 射影
+### FEM1-A01 $\mathbb R^2$ の Galerkin 射影
 - Level: A
 
 $$
@@ -1979,7 +1979,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-fem1-a02"></a>
-#### FEM1-A02 一次元一基底 Galerkin 計算
+### FEM1-A02 一次元一基底 Galerkin 計算
 - Level: A
 
 $$
@@ -2133,7 +2133,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-fem1-a03"></a>
-#### FEM1-A03 剛性行列が正定値になる理由
+### FEM1-A03 剛性行列が正定値になる理由
 - Level: A
 
 $a$ を対称かつ強圧的な双線形形式とし、
@@ -2224,7 +2224,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-fem1-a04"></a>
-#### FEM1-A04 Céa の定数を読む
+### FEM1-A04 Céa の定数を読む
 - Level: A
 
 ある変分問題で
@@ -2306,10 +2306,10 @@ $$
 $$
 <!-- solution-end -->
 
-### Level B
+## Level B
 
 <a id="ex-fem1-b01"></a>
-#### FEM1-B01 Galerkin 直交性から Céa の補題を再構成する
+### FEM1-B01 Galerkin 直交性から Céa の補題を再構成する
 - Level: B
 
 $V_h\subset V$ とし、$a$ は有界性定数 $M$、強圧性定数 $\alpha$ を持つとする。
@@ -2436,7 +2436,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-fem1-b02"></a>
-#### FEM1-B02 Poisson の二基底 Galerkin 系
+### FEM1-B02 Poisson の二基底 Galerkin 系
 - Level: B
 
 $$
@@ -2654,7 +2654,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-fem1-b03"></a>
-#### FEM1-B03 強圧性を失ったときの二種類の破綻
+### FEM1-B03 強圧性を失ったときの二種類の破綻
 - Level: B
 
 $$
@@ -2770,10 +2770,10 @@ $$
 強圧性がないとこの評価が失われ、$a(e,e)$ から $\|e\|_V$ を制御できません。
 <!-- solution-end -->
 
-### Level C
+## Level C
 
 <a id="ex-fem1-c01"></a>
-#### FEM1-C01 Poisson Galerkin 法の骨格を最初から閉じる
+### FEM1-C01 Poisson Galerkin 法の骨格を最初から閉じる
 - Level: C
 
 $\Omega\subset\mathbb R^d$ を有界開集合とし
@@ -2841,7 +2841,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-### 1. 連続問題と離散問題の一意可解性
+**1. 連続問題と離散問題の一意可解性**
 
 GPDE6 で Poisson form は勾配ノルム
 
@@ -2895,7 +2895,7 @@ $$
 
 従って再び Lax--Milgram 定理により一意な $u_h\in V_h$ が存在します。
 
-### 2. Galerkin 直交性
+**2. Galerkin 直交性**
 
 任意の $v_h\in V_h$ は $V$ の元でもあるので、連続式から
 
@@ -2917,7 +2917,7 @@ a(u-u_h,v_h)=0
 }.
 $$
 
-### 3. Pythagoras 型恒等式
+**3. Pythagoras 型恒等式**
 
 任意の $w_h\in V_h$ を取ります。
 
@@ -2961,7 +2961,7 @@ $$
 }.
 $$
 
-### 4. 最良近似性
+**4. 最良近似性**
 
 右辺第二項は非負なので
 
@@ -3002,7 +3002,7 @@ $$
 }.
 $$
 
-### 5. なぜまだ収束率は出ないか
+**5. なぜまだ収束率は出ないか**
 
 右辺は
 
