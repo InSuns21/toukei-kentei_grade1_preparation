@@ -1,0 +1,103 @@
+chapter: FLD1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RNG4
+forward_references: []
+
+concepts:
+  - id: algebra.field-extension
+    name: 体拡大
+    kind: definition
+    aliases: [field extension]
+    introduction: formal
+    introduction_aliases: ["定義（体拡大・中間体・拡大次数）"]
+    requires: [algebra.field]
+
+  - id: algebra.intermediate-field
+    name: 中間体
+    kind: definition
+    aliases: [intermediate field]
+    introduction: formal
+    introduction_aliases: ["定義（体拡大・中間体・拡大次数）"]
+    requires: [algebra.field-extension]
+
+  - id: algebra.extension-degree
+    name: 拡大次数
+    kind: definition
+    aliases: [degree of a field extension]
+    introduction: formal
+    introduction_aliases: ["定義（体拡大・中間体・拡大次数）"]
+    requires: [algebra.field-extension]
+
+  - id: algebra.tower-law
+    name: 拡大次数の塔の公式
+    kind: theorem
+    aliases: [tower law]
+    introduction: formal
+    requires: [algebra.extension-degree]
+
+  - id: algebra.algebraic-element
+    name: 代数的元
+    kind: definition
+    aliases: [algebraic element]
+    introduction: formal
+    introduction_aliases: ["定義（代数的元・超越的元）"]
+    requires: [algebra.field-extension, algebra.polynomial-ring]
+
+  - id: algebra.transcendental-element
+    name: 超越的元
+    kind: definition
+    aliases: [transcendental element]
+    introduction: formal
+    introduction_aliases: ["定義（代数的元・超越的元）"]
+    requires: [algebra.algebraic-element]
+
+  - id: algebra.finite-extension-elements-algebraic
+    name: 有限拡大の元は代数的
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires: [algebra.extension-degree, algebra.algebraic-element]
+
+  - id: algebra.minimal-polynomial
+    name: 最小多項式
+    kind: definition
+    aliases: [minimal polynomial]
+    introduction: formal
+    requires: [algebra.algebraic-element, algebra.polynomial-ring-over-field-euclidean]
+
+  - id: algebra.minimal-polynomial-theorem
+    name: 最小多項式の存在・一意性と既約性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires: [algebra.minimal-polynomial, algebra.polynomial-division-algorithm, algebra.irreducible-element]
+
+  - id: algebra.simple-extension
+    name: 単純拡大
+    kind: definition
+    aliases: [simple extension]
+    introduction: formal
+    requires: [algebra.field-extension]
+
+  - id: algebra.simple-algebraic-extension-quotient
+    name: 単純代数拡大の商多項式環表示
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires: [algebra.simple-extension, algebra.minimal-polynomial-theorem, algebra.ring-first-isomorphism-theorem]
+
+  - id: algebra.simple-algebraic-extension-degree
+    name: 単純代数拡大の次数公式
+    kind: corollary
+    aliases: []
+    introduction: formal
+    requires: [algebra.simple-algebraic-extension-quotient, algebra.extension-degree]
+
+  - id: algebra.irreducible-polynomial-field-extension-construction
+    name: 既約多項式による単純拡大の構成
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires: [algebra.polynomial-division-algorithm, algebra.bezout-identity, algebra.irreducible-element, algebra.simple-extension]
