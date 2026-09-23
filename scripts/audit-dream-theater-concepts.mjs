@@ -514,6 +514,8 @@ function runAliasMatcherSelfTest() {
   const lowConfidenceCases = [
     ['digital net を使う。', 'net'],
     ['### 定義（digital net）', 'net'],
+    ['unit torus representation', 'unit'],
+    ['unit torus representation', 'torus'],
     ['### 定義（単位トーラス上の Fourier 係数）', 'トーラス'],
   ];
   for (const [line, alias] of lowConfidenceCases) {
@@ -553,7 +555,7 @@ function stripNonReaderContent(source) {
   value = value.replace(/\$\$[\s\S]*?\$\$/g, preserveLines);
   value = value.replace(/\$(?:\\.|[^$\n])+\$/g, preserveWidth);
   value = value.replace(/\]\([^\n)]*\)/g, (text) => ']'.padEnd(text.length, ' '));
-  value = value.replace(/<[^>]*>/g, preserveLayout);
+  value = value.replace(/<\/?[A-Za-z][^>]*>/g, preserveLayout);
   value = value.replace(/https?:\/\/\S+/g, preserveWidth);
   return value;
 }
