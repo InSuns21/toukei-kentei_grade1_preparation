@@ -60,6 +60,7 @@ concepts:
     introduction_aliases: ["定理（三角多項式に対する格子則の積分誤差公式）"]
     requires:
       - numerical.lattice-character-orthogonality
+      - numerical.unit-torus-fourier-coefficient
       - fourier.fou1-trigonometric-polynomial
 
   - id: numerical.absolute-fourier-series
