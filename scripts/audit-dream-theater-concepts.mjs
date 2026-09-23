@@ -8,11 +8,6 @@ const strict = process.argv.includes('--strict');
 const changedOnly = process.argv.includes('--changed-only');
 const writeReport = process.argv.includes('--write-report');
 
-if (process.argv.includes('--self-test-alias-matcher')) {
-  runAliasMatcherSelfTest();
-  process.exit(0);
-}
-
 const indexPath = path.join(root, 'textbook/dream-theater-index.json');
 const policyPath = path.join(root, 'textbook/dream-theater-knowledge.yaml');
 const reportPath = path.join(root, 'textbook/dream-theater-concept-tree.md');
@@ -28,6 +23,12 @@ const contextualAliases = new Set(
     .map((value) => normalizeAlias(String(value)))
     .filter(Boolean),
 );
+
+if (process.argv.includes('--self-test-alias-matcher')) {
+  runAliasMatcherSelfTest();
+  process.exit(0);
+}
+
 const pagePaths = (index.sections ?? []).flatMap((section) => section.paths ?? []);
 const pages = new Map();
 const missingKnowledge = [];
