@@ -65,7 +65,7 @@ concepts:
     introduction: formal
     requires: [algebra.determinantal-ideal-invariance, algebra.invariant-factor]
 
-  - id: algebra.principal-ideal-domain-submodule-free
+  - id: algebra.pid-submodule-free
     name: PID 上自由加群の部分加群は自由
     kind: theorem
     aliases: []
@@ -95,30 +95,30 @@ concepts:
     introduction: formal
     requires: [algebra.matrix-equivalence-pid, algebra.module-cokernel]
 
-  - id: algebra.principal-ideal-domain-fg-module-structure
+  - id: algebra.pid-fg-module-structure
     name: PID 上有限生成加群の構造定理
     kind: theorem
     aliases: [structure theorem for finitely generated modules over a PID]
     introduction: formal
-    requires: [algebra.smith-normal-form-theorem, algebra.principal-ideal-domain-submodule-free, algebra.finite-presentation-module]
+    requires: [algebra.smith-normal-form-theorem, algebra.pid-submodule-free, algebra.finite-presentation-module]
 
   - id: algebra.elementary-divisor
     name: 基本因子
     kind: definition
     aliases: [elementary divisor]
     introduction: formal
-    requires: [algebra.principal-ideal-domain-fg-module-structure, algebra.unique-factorization-domain]
+    requires: [algebra.pid-fg-module-structure, algebra.unique-factorization-domain]
 
   - id: algebra.fg-abelian-group-structure
     name: 有限生成 Abel 群の構造定理
     kind: theorem
     aliases: [fundamental theorem of finitely generated abelian groups]
     introduction: formal
-    requires: [algebra.principal-ideal-domain-fg-module-structure, algebra.z-modules-abelian-groups]
+    requires: [algebra.pid-fg-module-structure, algebra.z-modules-abelian-groups]
 
   - id: algebra.linear-operator-polynomial-module-torsion
     name: 線形自己写像の多項式環加群は有限生成ねじれ加群
     kind: proposition
     aliases: []
     introduction: formal
-    requires: [algebra.operator-polynomial-module, algebra.finitely-generated-module, algebra.torsion-module, algebra.principal-ideal-domain-fg-module-structure]
+    requires: [algebra.operator-polynomial-module, algebra.finitely-generated-module, algebra.torsion-module, algebra.pid-fg-module-structure]
