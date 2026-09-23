@@ -512,7 +512,7 @@ nodes:
     prerequisites: [RNG1]
 
   - id: RNG3
-    title: 整除・Euclid 整域・PID・UFD
+    title: 整除・Euclid 整域・単項イデアル整域・一意分解整域
     area: abstract-algebra
     tier: core-advanced-standard
     status: implemented
