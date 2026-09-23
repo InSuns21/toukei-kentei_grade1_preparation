@@ -1,0 +1,55 @@
+id: "GRP2"
+title: "抽象代数 II：準同型・剰余類・正規部分群・商群"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GRP1
+official_scope: []
+learning_objectives:
+  - 群準同型と群同型を定義し、単位元・逆元・冪が保存されることを群公理から導ける
+  - 準同型の核と像を計算し、核が正規部分群、像が部分群になることを証明できる
+  - 左剰余類・右剰余類と指数を定義し、剰余類が群を分割することを示せる
+  - 有限群に対する Lagrange の定理を証明し、部分群の位数と元の位数へ応用できる
+  - 正規部分群を複数の同値条件で判定し、核が正規部分群になる理由を説明できる
+  - 商群の積が代表元によらず well-defined であることと正規性の関係を証明できる
+  - 第一・第二・第三同型定理と対応定理を自然な写像から構成し、well-defined 性・核・像を追って証明できる
+  - Z/nZ、S_n/A_n、行列式準同型を同じ核・商・像の枠組みで説明できる
+definitions:
+  - { id: GRP2-DEF-01, name: 群準同型・群同型 }
+  - { id: GRP2-DEF-02, name: 核・像 }
+  - { id: GRP2-DEF-03, name: 左剰余類・右剰余類 }
+  - { id: GRP2-DEF-04, name: 部分群の指数 }
+  - { id: GRP2-DEF-05, name: 正規部分群 }
+  - { id: GRP2-DEF-06, name: 商群 }
+  - { id: GRP2-DEF-07, name: 標準射影 }
+theorems:
+  - { id: GRP2-PROP-01, name: 準同型が単位元・逆元・冪を保存すること }
+  - { id: GRP2-PROP-02, name: 核は正規部分群・像は部分群 }
+  - { id: GRP2-PROP-03, name: 剰余類による分割 }
+  - { id: GRP2-THM-01, name: Lagrange の定理 }
+  - { id: GRP2-PROP-04, name: 正規部分群の同値条件 }
+  - { id: GRP2-THM-02, name: 商群構成と正規性 }
+  - { id: GRP2-THM-03, name: 第一同型定理 }
+  - { id: GRP2-THM-04, name: 第二同型定理 }
+  - { id: GRP2-THM-05, name: 第三同型定理 }
+  - { id: GRP2-THM-06, name: 対応定理 }
+canonical_examples:
+  - Z から Z_n への法 n 写像
+  - Z_12 における 4Z_12 の剰余類
+  - S_3 における非正規部分群の左右剰余類
+  - S_n から {1,-1} への置換の符号
+  - GL_n(R) から R^× への行列式
+  - Z_12 / <4> と Z_4 の第一同型定理
+problem_patterns:
+  - GRP2-HOM-KERNEL-IMAGE-1
+  - GRP2-COSET-LAGRANGE-1
+  - GRP2-NORMALITY-1
+  - GRP2-QUOTIENT-WELLDEFINED-1
+  - GRP2-FIRST-ISOMORPHISM-1
+  - GRP2-SECOND-THIRD-ISOMORPHISM-1
+  - GRP2-CORRESPONDENCE-1
+  - GRP2-NONNORMAL-QUOTIENT-FAILURE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 5.5, review: 0.5 }
