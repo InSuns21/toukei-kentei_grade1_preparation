@@ -466,7 +466,7 @@ FOU1 では $2\pi$ 周期の一次元関数に対して複素指数係数を定�
 
 <a id="def-qmc3-unit-torus-fourier-coefficient"></a>
 <!-- formal-statement-start -->
-### 定義（単位トーラス上の Fourier 係数）
+### 定義（単位周期立方体上の Fourier 係数）
 
 各座標について1周期で積分可能な関数
 
@@ -493,7 +493,7 @@ e^{-2\pi i\boldsymbol h\cdot\boldsymbol x}
 }
 $$
 
-を **単位トーラス上の Fourier 係数** とする。
+を **単位周期立方体上の Fourier 係数** とする。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qmc3-unit-torus-fourier-coefficient -->
@@ -1036,7 +1036,7 @@ L^\perp(\boldsymbol z,N)
 $$
 <!-- proof-end -->
 
-この公式は「格子則の積分誤差はエイリアシングされた Fourier 係数の総和」であることを意味します。
+この公式は「格子則の積分誤差は双対格子上へ折り返されて残った Fourier 係数の総和」であることを意味します。
 
 ---
 
@@ -1505,7 +1505,7 @@ $$
 
 <a id="thm-qmc3-one-dimensional-rate"></a>
 <!-- formal-statement-start -->
-### 定理（一次元格子則の $N^{-\alpha}$ 最悪誤差率）
+### 定理（一次元格子則の滑らかさ依存最悪誤差率）
 
 $\alpha>1/2$、$\gamma>0$ とする。
 
@@ -1633,7 +1633,7 @@ $$
 
 <a id="thm-qmc3-unit-scaling"></a>
 <!-- formal-statement-start -->
-### 定理（生成ベクトルの単元倍不変性）
+### 定理（生成ベクトルの可逆スカラー倍不変性）
 
 $$
 \gcd(a,N)=1
@@ -1991,9 +1991,9 @@ $$
 
 良い生成ベクトルでは、双対格子に残る周波数を高周波側へ押しやれます。
 
-この「構成を代数で設計する」考え方は、QMC4 以降の digital net でも別の代数構造として現れます。
+この「構成を代数で設計する」考え方は、QMC4 以降の デジタル点集合 でも別の代数構造として現れます。
 
-ただし digital net では Fourier 指数関数ではなく、二進・有限体構造に適した Walsh 関数が主役になります。
+ただし デジタル点集合 では Fourier 指数関数ではなく、二進・有限体構造に適した Walsh 関数が主役になります。
 
 ---
 
@@ -2855,7 +2855,7 @@ $$
 n\mapsto5n\pmod7
 $$
 
-は $0,\ldots,6$ の置換です。
+は $0,\ldots,6$ を重複なく一度ずつ取る並べ替えです。
 
 したがって
 
@@ -3278,4 +3278,4 @@ $$
 
 ところまで進みました。
 
-次の QMC4 では、格子とは別の代数的構成である $(t,m,s)$-net と $(t,s)$-sequence へ進みます。
+次の QMC4 では、格子とは別の代数的構成である $(t,m,s)$ 型のデジタル点集合と $(t,s)$ 型のデジタル列へ進みます。
