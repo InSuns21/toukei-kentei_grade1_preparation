@@ -1,0 +1,46 @@
+id: "FDM3"
+title: "差分法 III：整合性・安定性・収束性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FDM2
+  - NA6
+official_scope: []
+learning_objectives:
+  - NA6 の局所打切り誤差・整合性・大域誤差を時空間差分格子へ読み替え、差分残差と格子大域誤差を定義できる
+  - FTCS の差分残差を Taylor 展開から評価し、滑らかな熱方程式解に対して O(tau+h^2) の整合性を証明できる
+  - r <= 1/2 の下で FTCS の離散最大値原理と最大ノルム縮小性を証明できる
+  - 線形時間発展の誤差漸化式を反復し、安定性と整合性から大域収束が従う機構を証明できる
+  - FTCS について最大ノルム大域誤差 O(tau+h^2) を導き、拡散 CFL 条件が安定性の仮定としてどこで働くか説明できる
+  - 後退 Euler 差分法の最大ノルム縮小性を離散最大値原理型の議論で証明し、拡散 CFL 条件なしで収束評価を導ける
+  - 整合性だけでは収束を保証できないことを、不安定な高周波モードの増幅機構から説明できる
+  - 古典的 Lax--Richtmyer 同値定理と本章の具体的誤差伝播定理の関係を説明できる
+definitions:
+  - { id: FDM3-DEF-01, name: 差分スキームの局所残差 }
+  - { id: FDM3-DEF-02, name: 格子大域誤差 }
+  - { id: FDM3-DEF-03, name: 格子収束 }
+theorems:
+  - { id: FDM3-PROP-01, name: FTCS の局所残差評価 }
+  - { id: FDM3-THM-01, name: FTCS の離散最大値原理 }
+  - { id: FDM3-THM-02, name: 線形時間発展の安定性と整合性からの収束 }
+  - { id: FDM3-THM-03, name: FTCS の最大ノルム収束 }
+  - { id: FDM3-PROP-02, name: 後退 Euler 差分法の局所残差評価 }
+  - { id: FDM3-THM-04, name: 後退 Euler 差分法の最大ノルム縮小性 }
+  - { id: FDM3-THM-05, name: 後退 Euler 差分法の最大ノルム収束 }
+canonical_examples:
+  - u(t,x)=x^2+2*kappa*t に対する FTCS の局所残差0
+  - r=1/4 の FTCS が隣接値の凸結合になる直接確認
+  - r=0.6 の高周波モードが整合性とは独立に増幅される失敗例
+  - 後退 Euler 差分法の最大成分を用いた縮小性証明
+problem_patterns:
+  - FDM3-FTCS-RESIDUAL-1
+  - FDM3-DISCRETE-MAXIMUM-1
+  - FDM3-STABILITY-CONSISTENCY-1
+  - FDM3-FTCS-CONVERGENCE-1
+  - FDM3-BACKWARD-EULER-CONVERGENCE-1
+  - FDM3-INSTABILITY-COUNTERMECHANISM-1
+  - FDM3-ERROR-COST-COMPARISON-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 4.5, review: 0.5 }

@@ -1,0 +1,17 @@
+chapter: "FDM3"
+terms:
+  - term: 差分スキームの局所残差
+    english: local truncation residual of a finite-difference scheme
+    meaning: 厳密解を格子点へ制限して差分方程式へ代入したときに残る、単位時間あたりの欠陥。
+  - term: 格子大域誤差
+    english: global grid error
+    meaning: 同じ格子点で比較した厳密解の標本値と数値解との差。
+  - term: 格子収束
+    english: grid convergence
+    meaning: 格子幅と時間刻みを0へ近づけたとき、固定有限時間内の格子大域誤差が指定したノルムで0へ収束すること。
+  - term: 離散最大値原理
+    english: discrete maximum principle
+    meaning: 離散時間発展で新しい内部値が既存値の許容範囲を越えず、最大値・最小値が境界や前時刻から制御される性質。
+  - term: Lax--Richtmyer 同値定理
+    english: Lax-Richtmyer equivalence theorem
+    meaning: 適切な線形初期値問題に対する整合的な線形差分近似では、安定性と収束性が同値になるという古典的原理。本章ではそのうち安定性と整合性から収束を導く具体的機構を証明する。
