@@ -6,12 +6,12 @@ terms:
   - term: 対称変量法
     english: antithetic variates
     meaning: 同じ周辺分布を持つ負に相関した標本を組にし、その平均で分散を減らす方法。U と 1-U の組が代表例。
-  - term: 対照変量法
+  - term: 制御変量法
     english: control variates
     meaning: 期待値が既知で推定対象と相関する補助変数を使い、既知平均からのずれを差し引いて分散を減らす方法。
-  - term: 対照変量
+  - term: 制御変量
     english: control variate
-    meaning: 対照変量法で利用する、期待値が既知または高精度に既知で推定対象と相関する補助確率変数。
+    meaning: 制御変量法で利用する、期待値が既知または高精度に既知で推定対象と相関する補助確率変数。
   - term: 層化抽出
     english: stratified sampling
     meaning: 標本空間を互いに素な層へ分け、各層から標本を取り、層確率で重み付けして全体の期待値を推定する方法。
