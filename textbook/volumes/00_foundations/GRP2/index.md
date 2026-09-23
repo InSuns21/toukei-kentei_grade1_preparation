@@ -722,7 +722,7 @@ $\square$
 
 ---
 
-## 6. 商群は「核の方向を一つの元に潰す」
+## 6. 剰余類に群構造を入れる
 
 <a id="def-grp2-quotient-group"></a>
 <!-- formal-statement-start -->
