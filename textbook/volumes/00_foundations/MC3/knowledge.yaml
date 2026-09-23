@@ -46,20 +46,20 @@ concepts:
       - numerical.antithetic-variance
 
   - id: numerical.control-variate
-    name: 対照変量法
+    name: 制御変量法
     kind: definition
-    aliases: [control variate, control variates]
+    aliases: [control variate, control variates, 対照変量法]
     introduction: formal
-    introduction_aliases: ["定義（対照変量法）"]
+    introduction_aliases: ["定義（制御変量法）"]
     requires:
       - numerical.variance-reduction
 
   - id: numerical.optimal-control-variate
-    name: 最適対照変量係数
+    name: 最適制御変量係数
     kind: theorem
     aliases: [optimal control-variate coefficient]
     introduction: formal
-    introduction_aliases: ["定理（最適対照変量係数）"]
+    introduction_aliases: ["定理（最適制御変量係数）"]
     requires:
       - numerical.control-variate
       - prob.variance
