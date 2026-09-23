@@ -1250,7 +1250,7 @@ U_{j+1}
 
 ---
 
-## 7. 風上差分は任意の格子 Péclet 数で非負性保存を保つ
+## 7. 風上差分は任意の格子 Péclet 数で非負性を保つ
 
 <a id="thm-fdm4-upwind-maximum"></a>
 <!-- formal-statement-start -->
