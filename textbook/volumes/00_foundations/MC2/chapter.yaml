@@ -1,0 +1,50 @@
+id: "MC2"
+title: "乱数生成とサンプリング"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MC1
+official_scope: []
+learning_objectives:
+  - Monte Carlo 理論で仮定する独立一様乱数と、計算機上の疑似乱数列を区別して説明できる
+  - 疑似乱数生成器を有限状態の決定論的状態遷移として定式化し、有限状態なら出力列が最終的に周期的になることを証明できる
+  - 線形合同法を具体的に計算し、長い周期だけでは乱数品質を保証しないことを説明できる
+  - 分布関数の一般化逆関数を用いた逆関数法を定式化し、その正当性を証明できる
+  - 離散分布と指数分布に逆関数法を適用して標本生成式を導出できる
+  - 提案密度と包絡定数を用いて棄却法を構成し、受理後の標本が目標密度に従うことを証明できる
+  - 棄却法の受理率 1/M と平均提案回数 M を導き、提案分布の選び方と効率を結びつけられる
+  - シード、乱数ストリーム、サブストリーム、並列割当てを再現性の観点から設計できる
+  - 異なるシードを与えただけではストリーム間独立性が保証されないことを説明できる
+  - Monte Carlo 実験の再現に必要な生成器、シード、ストリーム割当て、変換法、標本数を記録できる
+definitions:
+  - { id: MC2-DEF-01, name: 疑似乱数生成器 }
+  - { id: MC2-DEF-02, name: シード }
+  - { id: MC2-DEF-03, name: 線形合同法 }
+  - { id: MC2-DEF-04, name: 分布関数の一般化逆関数 }
+  - { id: MC2-DEF-05, name: 棄却法 }
+  - { id: MC2-DEF-06, name: 乱数ストリーム }
+theorems:
+  - { id: MC2-PROP-01, name: 有限状態疑似乱数生成器の最終周期性 }
+  - { id: MC2-THM-01, name: 逆関数法の正当性 }
+  - { id: MC2-THM-02, name: 棄却法の正当性 }
+  - { id: MC2-COR-01, name: 棄却法の受理率と平均提案回数 }
+  - { id: MC2-PROP-02, name: 固定された生成契約の再現性 }
+canonical_examples:
+  - 8状態の線形合同法で全周期でも規則性が強く残る例
+  - 三点離散分布を一般化逆関数で生成する例
+  - 指数分布を一様乱数から逆関数法で生成する例
+  - 密度 2x on [0,1] を一様提案から棄却法で生成する例
+  - 並列2ワーカーでサブストリームを固定して再現可能な標本列を作る設計
+problem_patterns:
+  - MC2-PRNG-STATE-PERIOD-1
+  - MC2-LCG-QUALITY-1
+  - MC2-INVERSE-DISCRETE-1
+  - MC2-INVERSE-CONTINUOUS-1
+  - MC2-REJECTION-CORRECTNESS-1
+  - MC2-REJECTION-EFFICIENCY-1
+  - MC2-STREAM-REPRODUCIBILITY-1
+  - MC2-INTEGRATED-SAMPLING-PIPELINE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 4.5, review: 0.75 }
