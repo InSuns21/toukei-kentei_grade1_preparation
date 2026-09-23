@@ -44,11 +44,11 @@ concepts:
       - fourier.fou1-complex-exponential-coefficient
 
   - id: numerical.periodic-cube-fourier-coefficient
-    name: 単位周期立方体上の Fourier 係数
+    name: 単位トーラス上の Fourier 係数
     kind: definition
-    aliases: [Fourier coefficient on the periodic unit cube]
+    aliases: [Fourier coefficient on the unit torus]
     introduction: formal
-    introduction_aliases: ["定義（単位周期立方体上の Fourier 係数）"]
+    introduction_aliases: ["定義（単位トーラス上の Fourier 係数）"]
     requires:
       - fourier.fou1-complex-exponential-coefficient
 
