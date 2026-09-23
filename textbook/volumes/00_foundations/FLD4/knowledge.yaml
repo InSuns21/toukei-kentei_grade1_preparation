@@ -1,0 +1,139 @@
+chapter: FLD4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLD3
+  - GRP3
+forward_references: []
+
+concepts:
+  - id: algebra.field-automorphism-over-base
+    name: 基礎体固定自己同型
+    kind: definition
+    aliases: [automorphism over the base field, F-automorphism]
+    introduction: formal
+    introduction_aliases: ["定義（基礎体固定自己同型・自己同型群・固定体）"]
+    requires:
+      - algebra.field-embedding
+
+  - id: algebra.field-automorphism-group
+    name: 自己同型群
+    kind: definition
+    aliases: [field automorphism group]
+    introduction: formal
+    introduction_aliases: ["定義（基礎体固定自己同型・自己同型群・固定体）"]
+    requires:
+      - algebra.field-automorphism-over-base
+      - algebra.group
+
+  - id: algebra.fixed-field
+    name: 固定体
+    kind: definition
+    aliases: [fixed field]
+    introduction: formal
+    introduction_aliases: ["定義（基礎体固定自己同型・自己同型群・固定体）"]
+    requires:
+      - algebra.field-automorphism-group
+      - algebra.subgroup
+
+  - id: algebra.finite-galois-extension
+    name: 有限 Galois 拡大
+    kind: definition
+    aliases: [finite Galois extension]
+    introduction: formal
+    introduction_aliases: ["定義（有限 Galois 拡大・Galois 群）"]
+    requires:
+      - algebra.separable-extension
+      - algebra.normal-extension
+      - algebra.extension-degree
+
+  - id: algebra.galois-group
+    name: Galois 群
+    kind: definition
+    aliases: [Galois group]
+    introduction: formal
+    introduction_aliases: ["定義（有限 Galois 拡大・Galois 群）"]
+    requires:
+      - algebra.finite-galois-extension
+      - algebra.field-automorphism-group
+
+  - id: algebra.finite-separable-embedding-count
+    name: 有限分離拡大の埋め込み数
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.separable-extension
+      - algebra.one-step-field-embedding-extension
+      - algebra.tower-law
+
+  - id: algebra.finite-galois-group-order-degree
+    name: 有限 Galois 拡大の Galois 群の位数
+    kind: corollary
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.finite-galois-extension
+      - algebra.galois-group
+      - algebra.finite-separable-embedding-count
+      - algebra.splitting-field-embedding-stability
+
+  - id: algebra.artin-independence
+    name: Artin の独立性
+    kind: lemma
+    aliases: [Artin independence of characters]
+    introduction: formal
+    requires:
+      - algebra.field-embedding
+      - linear.linear-independence
+
+  - id: algebra.independent-homomorphism-evaluation-matrix
+    name: 独立な準同型の可逆評価行列
+    kind: lemma
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.artin-independence
+      - linear.basis
+
+  - id: algebra.artin-fixed-field-theorem
+    name: Artin の固定体定理
+    kind: theorem
+    aliases: [Artin fixed field theorem]
+    introduction: formal
+    requires:
+      - algebra.fixed-field
+      - algebra.independent-homomorphism-evaluation-matrix
+      - algebra.artin-independence
+
+  - id: algebra.fundamental-theorem-finite-galois
+    name: 有限 Galois 理論の基本定理
+    kind: theorem
+    aliases: [fundamental theorem of finite Galois theory, Galois correspondence]
+    introduction: formal
+    requires:
+      - algebra.galois-group
+      - algebra.intermediate-field
+      - algebra.artin-fixed-field-theorem
+      - algebra.finite-galois-group-order-degree
+
+  - id: algebra.fixed-field-conjugation-transport
+    name: 固定体の共役移送
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.fixed-field
+      - algebra.conjugation-action
+
+  - id: algebra.galois-normal-subgroup-correspondence
+    name: 正規部分群と正規中間拡大の対応
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.fundamental-theorem-finite-galois
+      - algebra.fixed-field-conjugation-transport
+      - algebra.normal-subgroup
+      - algebra.first-isomorphism-theorem-group
+      - algebra.finite-field-embedding-extension
