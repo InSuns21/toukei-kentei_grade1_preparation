@@ -807,7 +807,7 @@ $$
 |K^\times|=p^n-1.
 $$
 
-[有限群の位数公式](../GRP2/index.md#thm-grp2-lagrange)から
+[群の Lagrange の定理](../GRP2/index.md#thm-grp2-lagrange)から
 
 $$
 a^{p^n-1}=1.
