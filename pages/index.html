@@ -540,7 +540,7 @@
     }
 
     function syncSearchScope(currentRoute) {
-      var search = document.querySelector('.sidebar .search');
+      var search = document.querySelector('.search');
       if (!search) return;
 
       var input = search.querySelector('input[type="search"]');
@@ -633,7 +633,7 @@
     }
 
     function ensureSearchResultsObserver() {
-      var panel = document.querySelector('.sidebar .search .results-panel');
+      var panel = document.querySelector('.search .results-panel');
       if (!panel || typeof MutationObserver === 'undefined') return;
       if (searchResultsObserver && observedSearchPanel === panel) return;
 
@@ -661,7 +661,7 @@
       });
 
       document.addEventListener('input', function (event) {
-        if (!event.target.matches || !event.target.matches('.sidebar .search input[type="search"]')) return;
+        if (!event.target.matches || !event.target.matches('.search input[type="search"]')) return;
         window.requestAnimationFrame(function () {
           ensureSearchResultsObserver();
           syncSearchScope(canonicalNavigationRoute(window.location.hash));
