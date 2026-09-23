@@ -1,0 +1,58 @@
+id: "QMC2"
+title: "RKHS・最悪誤差・重み付き空間"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - QMC1
+  - F0-02C7
+  - F0-00D2E
+  - GPDE3
+official_scope: []
+learning_objectives:
+  - 既存の再生核 Hilbert 空間と再生核を用いて、積分汎関数が連続になる十分条件を確認し、その Riesz 表現元を導ける
+  - 求積誤差を RKHS の誤差表現元との内積として表し、単位球上の最悪誤差がそのノルムに一致することを証明できる
+  - 再生核と求積点・求積重みだけから最悪誤差平方の閉じた公式を導ける
+  - 一次元の重み付きアンカー型 Sobolev 空間で再生核 1+gamma min(x,y) を直接検証し、重みの役割を説明できる
+  - 部分集合重みと積型重みを定義し、積型核の因数分解と半正定値性を説明できる
+  - 積型重み Sobolev 核について等重み求積則の最悪誤差公式を導ける
+  - 重み尾による実効切断次元を用いて、高い座標の影響が小さくなる仕組みを核の切断誤差から説明できる
+  - 最悪誤差に対する情報複雑度、多項式 tractability、強多項式 tractability を定義できる
+  - 独立一様乱数点に対する最悪誤差平方の期待値を計算し、よい決定論的点集合の存在上界を導ける
+  - 可算和可能な積型重みから次元に依らない最悪誤差上界を導き、強多項式 tractability を証明できる
+definitions:
+  - { id: QMC2-DEF-01, name: RKHS 上の積分汎関数 }
+  - { id: QMC2-DEF-02, name: 求積則と誤差表現元 }
+  - { id: QMC2-DEF-03, name: 最悪誤差 }
+  - { id: QMC2-DEF-04, name: 一次元重み付きアンカー型 Sobolev 空間 }
+  - { id: QMC2-DEF-05, name: 積型重み }
+  - { id: QMC2-DEF-06, name: 重み尾による実効切断次元 }
+  - { id: QMC2-DEF-07, name: 最悪誤差に対する情報複雑度 }
+  - { id: QMC2-DEF-08, name: 多項式 tractability }
+  - { id: QMC2-DEF-09, name: 強多項式 tractability }
+theorems:
+  - { id: QMC2-THM-01, name: 積分汎関数の表現元 }
+  - { id: QMC2-THM-02, name: RKHS 最悪誤差の表現公式 }
+  - { id: QMC2-THM-02A, name: 一次元重み付きアンカー型 Sobolev 空間の再生核 }
+  - { id: QMC2-THM-03, name: 積型重み Sobolev 核の最悪誤差公式 }
+  - { id: QMC2-THM-04, name: 乱数点平均から得る最悪誤差の存在上界 }
+  - { id: QMC2-THM-05, name: 可算和可能な積型重みによる強多項式 tractability }
+canonical_examples:
+  - K(x,y)=1+min(x,y) の積分表現元を直接計算する例
+  - 同じ核の一点求積で最悪誤差が 1/sqrt(12) になる例
+  - 線形関数 f(x)=ax+b で重み gamma が導関数方向をどれだけ罰するかを比較する例
+  - 二次元積型重みで部分集合表示と積表示を直接展開する例
+  - gamma_j=2^{-j} で重み尾と実効切断次元を計算する例
+  - gamma_j=gamma>0 では可算和可能性を失い、次元一様な存在上界の証明機構が壊れる例
+problem_patterns:
+  - QMC2-INTEGRATION-REPRESENTER-1
+  - QMC2-WORST-CASE-ERROR-1
+  - QMC2-PRODUCT-WEIGHTS-1
+  - QMC2-KERNEL-MOMENTS-1
+  - QMC2-WCE-REPRESENTER-PROOF-1
+  - QMC2-RANDOM-POINT-EXPECTED-WCE-1
+  - QMC2-WEIGHT-TAIL-EFFECTIVE-DIMENSION-1
+  - QMC2-SUMMABLE-WEIGHTS-TRACTABILITY-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.5, exercises: 5.5, review: 0.75 }

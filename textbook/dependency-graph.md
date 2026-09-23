@@ -553,8 +553,10 @@ MC4 は MC3 を直接 prerequisite とし、MC1 のバイアス・分散分解�
 
 QMC1 は MC1、F0-00D2C、RA3 を直接 prerequisite とする。MC1 の単位立方体上の積分を点平均で近似する入口から、独立乱数ではなく決定論的点集合の一様性へ進み、RA3 の微分法と F0-00D2C の Fubini の定理で Hlawka--Zaremba 恒等式の微分・積分順序交換を正当化する。アンカー付き直方体の局所ディスクレパンシーとスター・ディスクレパンシーを導入し、一様分布する点列と $D_N^*\to0$ の同値性を包除原理と有限格子近似から証明する。関数側では Vitali 変動と1側にアンカーした Hardy--Krause 変動を導入し、滑らかな関数について多変数微積分の基本定理から Hlawka--Zaremba 恒等式を完全導出して Koksma--Hlawka の不等式を得る。一般の有界 Hardy--Krause 変動への拡張では、多次元 Vitali 変動に対する Stieltjes 積分・部分積分の標準理論だけを意図的黒箱として境界明示する。
 
-後続の QMC2–QMC8 は DREAM_THEATER_ENCORE_V_REWRITE_PLAN.md の計画対象であり、各講の実装完了時に実際の直接依存だけを追加する。
+QMC2 は QMC1、F0-02C7、F0-00D2E、GPDE3 を直接 prerequisite とする。F0-02C7 の再生核 Hilbert 空間・再生性・再生核を再定義せず stable anchor から再利用し、積分汎関数を Riesz 表現元へ移す。求積誤差を誤差表現元との内積として表し、単位球上の最悪誤差がそのノルムに一致することと、核だけからなる最悪誤差平方の公式を証明する。重み付きアンカー型 Sobolev 空間では GPDE3 の Sobolev 空間を canonical concept として再利用しつつ、F0-00D2E の $L^2$ 完備性を用いて Hilbert 性を閉じ、$1+\gamma\min(x,y)$ の再生性を直接確認する。多次元では積型重み、重み尾による実効切断次元、情報複雑度、tractability を導入し、独立一様乱数点に対する最悪誤差平方の期待値からよい決定論的点集合の存在上界を導く。さらに $\sum_j\gamma_j<\infty$ なら次元に依らない $N^{-1/2}$ 上界を得て、強多項式 tractability を証明する。
 
-読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA1–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1 で、次の実装対象は QMC2「RKHS・最悪誤差・重み付き空間」である。
+後続の QMC3–QMC8 は DREAM_THEATER_ENCORE_V_REWRITE_PLAN.md の計画対象であり、各講の実装完了時に実際の直接依存だけを追加する。
+
+読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA1–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC2 で、次の実装対象は QMC3「格子則」である。
 
 ---

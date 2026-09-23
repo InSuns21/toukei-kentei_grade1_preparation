@@ -1,0 +1,29 @@
+chapter: "QMC2"
+terms:
+  - term: 積分汎関数
+    english: integration functional
+    meaning: RKHS の関数をその定義域上で積分した値へ写す線形汎関数。本章では再生核の対角成分に対する可積分条件から連続性を保証する。
+  - term: 誤差表現元
+    english: error representer
+    meaning: 求積誤差汎関数を RKHS 内積として表す Riesz 表現元。
+  - term: 最悪誤差
+    english: worst-case error
+    meaning: 指定した RKHS の単位球上で取った求積誤差の絶対値の上限。
+  - term: 重み付きアンカー型 Sobolev 空間
+    english: weighted anchored Sobolev space
+    meaning: アンカーでの関数値と弱い座標方向の変化を重み付き導関数ノルムで測る Sobolev 型 RKHS。本章の一次元モデルではアンカーを 0 とする。
+  - term: 積型重み
+    english: product weights
+    meaning: 座標重み gamma_j から部分集合重み gamma_u を座標重みの積として作る重み系。
+  - term: 重み尾による実効切断次元
+    english: weight-tail effective truncation dimension
+    meaning: 座標重みの尾和が指定した許容量以下になる最小切断次元。本章固有の核側の指標であり、分散分析の分解に基づく実効次元とは区別する。
+  - term: 情報複雑度
+    english: information complexity
+    meaning: 所定の最悪誤差精度を達成するために必要な最小の関数評価点数。
+  - term: 多項式 tractability
+    english: polynomial tractability
+    meaning: 必要点数を精度の逆数と次元の多項式で一様に上から抑えられる性質。
+  - term: 強多項式 tractability
+    english: strong polynomial tractability
+    meaning: 必要点数を次元に依存せず精度の逆数の多項式だけで一様に上から抑えられる性質。

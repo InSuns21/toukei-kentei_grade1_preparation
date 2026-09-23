@@ -378,3 +378,4 @@ STO 系列ではマルチンゲール・ブラウン運動・二次変分・確�
 27. [MC3 分散減少法](textbook/volumes/00_foundations/MC3/index.md)
 28. [MC4 Multilevel Monte Carlo](textbook/volumes/00_foundations/MC4/index.md)
 29. [QMC1 一様分布・ディスクレパンシー・Koksma--Hlawka](textbook/volumes/00_foundations/QMC1/index.md)
+30. [QMC2 RKHS・最悪誤差・重み付き空間](textbook/volumes/00_foundations/QMC2/index.md)

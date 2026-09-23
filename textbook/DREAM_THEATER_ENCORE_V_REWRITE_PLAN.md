@@ -149,7 +149,8 @@ facade は完成済み講座だけをリンクする。未完成章を先行表�
 - [x] MC3「分散減少法」を新正本として実装
 - [x] MC4「Multilevel Monte Carlo」を新正本として実装
 - [x] QMC1「一様分布・ディスクレパンシー・Koksma–Hlawka」を新正本として実装
-- 次の実装対象：**QMC2「RKHS・最悪誤差・重み付き空間」**
+- [x] QMC2「RKHS・最悪誤差・重み付き空間」を新正本として実装
+- 次の実装対象：**QMC3「格子則」**
 
 
 ---
@@ -309,7 +310,7 @@ QMC は3講程度に圧縮せず、理論骨格を8講に分割する。
 | ID | 講座 | 中心内容 |
 |---|---|---|
 | QMC1 | 一様分布・ディスクレパンシー・Koksma–Hlawka | 一様分布、局所ディスクレパンシー、スター・ディスクレパンシー、変動、誤差評価 |
-| QMC2 | RKHS・最悪誤差・重み付き空間 | worst-case error、再生核、weighted Sobolev、effective dimension、tractability |
+| QMC2 | RKHS・最悪誤差・重み付き空間 | 最悪誤差、再生核、重み付き Sobolev 空間、実効次元、tractability |
 | QMC3 | 格子則 | rank-1 lattice、双対格子、積分誤差、CBC 構成の思想 |
 | QMC4 | (t,m,s)-net・(t,s)-sequence | elementary interval、t 値、digital construction、Sobol / Faure / Niederreiter |
 | QMC5 | Walsh 解析と digital net の双対理論 | Walsh 関数、dual net、周波数消去、NRT 型 weight |
@@ -322,8 +323,8 @@ QMC は3講程度に圧縮せず、理論骨格を8講に分割する。
 QMC2 は既存 F0-02C7 の RKHS / 再生核を再定義しない。stable anchor へリンクし、
 
 - 積分汎関数
-- worst-case error
-- weighted function space
+- 最悪誤差
+- 重み付き関数空間
 
 へ応用する。
 
@@ -352,7 +353,8 @@ QMC2 は既存 F0-02C7 の RKHS / 再生核を再定義しない。stable anchor
 ### 8.3 Phase 5 進捗
 
 - [x] QMC1：一様分布・ディスクレパンシー・Koksma--Hlawka
-- 次の実装対象：**QMC2「RKHS・最悪誤差・重み付き空間」**
+- [x] QMC2：RKHS・最悪誤差・重み付き空間
+- 次の実装対象：**QMC3「格子則」**
 
 ---
 
