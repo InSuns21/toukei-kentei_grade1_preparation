@@ -18,6 +18,7 @@ definitions:
   - { id: FLD5-DEF-01, name: 作図可能点・作図可能数 }
   - { id: FLD5-DEF-02, name: 交換子・交換子部分群・導来列・可解群 }
   - { id: FLD5-DEF-03, name: 根号拡大・根号による可解性 }
+  - { id: FLD5-DEF-04, name: 単純群 }
 theorems:
   - { id: FLD5-THM-01, name: 作図可能性と実二次拡大列 }
   - { id: FLD5-COR-01, name: 作図可能な代数的数の次数は2の冪 }
