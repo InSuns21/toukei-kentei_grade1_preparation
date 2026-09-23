@@ -3,11 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - GRP1
-forward_references:
-  - algebra.group-action
-  - algebra.orbit
-  - algebra.stabilizer
-  - algebra.conjugacy-class
+forward_references: []
 
 concepts:
   - id: algebra.group-homomorphism
