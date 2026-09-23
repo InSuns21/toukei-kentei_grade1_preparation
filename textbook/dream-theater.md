@@ -366,3 +366,4 @@ STO 系列ではマルチンゲール・ブラウン運動・二次変分・確�
 20. [FEM3 有限要素補間とメッシュ](textbook/volumes/00_foundations/FEM3/index.md)
 21. [FEM4 楕円型 FEM の誤差解析](textbook/volumes/00_foundations/FEM4/index.md)
 22. [FEM5 鞍点問題・Stokes 方程式](textbook/volumes/00_foundations/FEM5/index.md)
+23. [FEM6 放物型方程式の有限要素法](textbook/volumes/00_foundations/FEM6/index.md)
