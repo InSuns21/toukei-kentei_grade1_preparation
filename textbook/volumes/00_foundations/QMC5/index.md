@@ -4,7 +4,7 @@ QMC4 では、有限体上の生成行列からデジタル点集合を作り、
 
 しかし、QMC4 の見方だけではまだ「どの振動が点平均で消え、どの振動が残るか」が見えていません。
 
-QMC3 の格子則では、複素指数モード
+QMC3 の格子則では、Fourier モード
 
 $$
 e^{2\pi i\boldsymbol h\cdot\boldsymbol x}
@@ -52,13 +52,7 @@ QMC4 から次を使います。
 - [素数底のデジタル点集合](../QMC4/index.md#def-qmc4-digital-net)
 - [生成行列の一次独立性による $(t,m,s)$-ネット判定](../QMC4/index.md#thm-qmc4-digital-net-rank-criterion)
 
-複素指数関数については FOU1 の [複素指数係数](../FOU1/index.md#def-fou1-complex-exponential-coefficient) で使った
-
-$$
-e^{i\theta}
-$$
-
-の記法を使います。
+位相因子 $e^{i\theta}$ の記法については FOU1 の [複素指数係数](../FOU1/index.md#def-fou1-complex-exponential-coefficient) で使った記法を使います。
 
 本章では底 $b$ を **素数**とし、
 
@@ -1438,7 +1432,7 @@ $$
 
 <a id="thm-qmc5-t-value-duality"></a>
 <!-- formal-statement-start -->
-### 定理（$t$ 値と最小双対 NRT 重みの双対関係）
+### 定理（t 値と最小双対 NRT 重みの双対関係）
 
 $P$ を素数底 $b$ の $b^m$ 点デジタル点集合とする。
 
