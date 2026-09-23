@@ -409,6 +409,14 @@
 | Frobenius 自己同型 | Frobenius automorphism | 有限体上で全単射となる Frobenius 写像 |
 | 有限体の乗法群 | multiplicative group of a finite field | 有限体 $K$ の非零元全体 $K^\times$ が乗法でなす巡回群 |
 | 相対 Frobenius | relative Frobenius | $\mathbb F_{q^m}/\mathbb F_q$ で $x\mapsto x^q$ とする $\mathbb F_q$ 固定自己同型 |
+| 基礎体固定自己同型 | automorphism over the base field | 体拡大 $L/F$ で $F$ の各元を固定する $L$ の体自己同型 |
+| 自己同型群 | automorphism group over a field | 基礎体 $F$ を固定する $L$ の自己同型全体 $\operatorname{Aut}_F(L)$ が合成でなす群 |
+| 固定体 | fixed field | 自己同型群の部分群 $H$ の全ての元で固定される元全体 $L^H$ |
+| 有限 Galois 拡大 | finite Galois extension | 有限・分離・正規の三条件を満たす体拡大。人名 Galois は英字表記を保持 |
+| Galois 群 | Galois group | 有限 Galois 拡大 $L/F$ の基礎体固定自己同型群 $\operatorname{Gal}(L/F)$ |
+| Artin の独立性 | Artin independence of characters | 相異なる体準同型が値域の体を係数とする関数として一次独立であること。人名 Artin は英字表記を保持 |
+| 有限 Galois 理論の基本定理 | fundamental theorem of finite Galois theory | 有限 Galois 拡大の中間体と Galois 群の部分群を包含反転で対応させる定理 |
+| 制限準同型 | restriction homomorphism | 上の体の自己同型を中間体へ制限して自己同型群の間を結ぶ群準同型 |
 
 ## DREAM THEATER：数値解析の主表記
 
