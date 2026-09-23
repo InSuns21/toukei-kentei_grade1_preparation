@@ -6,6 +6,9 @@ terms:
   - term: 体の埋め込み
     english: field embedding
     meaning: 体から体への単射な体準同型。本章では基礎体を各点で固定する埋め込みを主に扱う。
+  - term: 代数拡大
+    english: algebraic extension
+    meaning: 拡大体の全ての元が基礎体上代数的である体拡大。
   - term: 代数閉体
     english: algebraically closed field
     meaning: 係数をその体に持つ任意の非定数多項式が、その体の中に根を持つ体。
