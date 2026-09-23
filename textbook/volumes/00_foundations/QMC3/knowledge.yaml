@@ -7,11 +7,11 @@ prerequisites:
 
 concepts:
   - id: numerical.rank1-lattice-rule
-    name: rank-1 格子則
+    name: ランク1格子則
     kind: definition
     aliases: [rank-1 lattice rule]
     introduction: formal
-    introduction_aliases: ["定義（rank-1 格子点集合と生成ベクトル）"]
+    introduction_aliases: ["定義（ランク1格子点集合と生成ベクトル）"]
     requires:
       - numerical.qmc-rule
 
@@ -20,7 +20,7 @@ concepts:
     kind: definition
     aliases: [generating vector]
     introduction: formal
-    introduction_aliases: ["定義（rank-1 格子点集合と生成ベクトル）"]
+    introduction_aliases: ["定義（ランク1格子点集合と生成ベクトル）"]
     requires:
       - numerical.rank1-lattice-rule
 
@@ -34,11 +34,11 @@ concepts:
       - numerical.lattice-generating-vector
 
   - id: numerical.lattice-character-orthogonality
-    name: rank-1 格子上の複素指数モードの離散直交性
+    name: ランク1格子上の複素指数モードの離散直交性
     kind: theorem
     aliases: [character orthogonality on a rank-1 lattice, lattice character property]
     introduction: formal
-    introduction_aliases: ["定理（rank-1 格子上の複素指数モードの離散直交性）"]
+    introduction_aliases: ["定理（ランク1格子上の複素指数モードの離散直交性）"]
     requires:
       - numerical.dual-lattice
       - fourier.fou1-complex-exponential-coefficient
@@ -112,11 +112,11 @@ concepts:
       - numerical.rank1-lattice-rule
 
   - id: numerical.cbc-construction
-    name: component-by-component 構成
+    name: 成分逐次構成
     kind: definition
     aliases: [component-by-component construction, CBC construction]
     introduction: formal
-    introduction_aliases: ["定義（component-by-component 構成）"]
+    introduction_aliases: ["定義（成分逐次構成）"]
     requires:
       - numerical.lattice-fourier-worst-case-error
       - numerical.lattice-unit-scaling-invariance
