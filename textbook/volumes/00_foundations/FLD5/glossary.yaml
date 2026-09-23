@@ -24,8 +24,8 @@ terms:
   - term: 根号による可解性
     english: solvability by radicals
     meaning: 多項式の全ての根が、基礎体から有限回の根号添加で得られるある体に含まれる性質。
-  - term: Lagrange resolvent
-    english: Lagrange resolvent
+  - term: Lagrange の分解式
+    english: Lagrange の分解式
     meaning: 巡回 Galois 拡大で自己同型の固有ベクトルを作る有限 Fourier 型の和。
   - term: Kummer 表示
     english: Kummer presentation
