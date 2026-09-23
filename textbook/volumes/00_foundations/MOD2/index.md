@@ -36,7 +36,7 @@ $$
 
 ## 1. 行列の左右から基底を変える
 
-$R$ を PID とします。[LA3B の行列式](../LA3B/index.md#def-la3b-determinant)を既知とし、自由加群間の準同型
+$R$ を PID とします。[LA3B の行列式](../LA3B/index.md#def-la3b-matrix-determinant)を既知とし、自由加群間の準同型
 
 $$
 \varphi:R^n\to R^m
@@ -496,7 +496,7 @@ $$
 
 存在だけでは、別の基本変形を選んだとき違う対角成分が出ないか心配です。その一意性を小行列式で固定します。
 
-[LA3B の Leibniz 公式による行列式](../LA3B/index.md#def-la3b-determinant)を $R$ 上でも同じ有限和・有限積の式で用います。可換環 $R$ 上の $k\times k$ 行列 $C=(c_{ij})$ に対して
+[LA3B の Leibniz 公式による行列式](../LA3B/index.md#def-la3b-matrix-determinant)を $R$ 上でも同じ有限和・有限積の式で用います。可換環 $R$ 上の $k\times k$ 行列 $C=(c_{ij})$ に対して
 
 $$
 \det C
