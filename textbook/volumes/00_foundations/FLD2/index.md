@@ -507,7 +507,51 @@ $\square$
 
 ---
 
-## 5. 共通の根の世界：代数閉包
+## 5. 代数拡大と共通の根の世界：代数閉包
+
+FLD1 では「一つの元が代数的である」ことを定義しました。ここからは拡大体全体について、その全ての元が代数的かをまとめて扱います。
+
+<a id="def-fld2-algebraic-extension"></a>
+<!-- formal-statement-start -->
+> **定義（代数拡大）**
+>
+> 体拡大 $K/F$ の任意の元 $\alpha\in K$ が $F$ 上代数的であるとき、$K/F$ を **代数拡大**という。
+<!-- formal-statement-end -->
+
+[FLD1 の「有限拡大の元は代数的」](../FLD1/index.md#prop-fld1-finite-extension-algebraic)から、有限拡大は必ず代数拡大です。逆は一般には成り立ちません。
+
+<!-- definition-example-start: def-fld2-algebraic-extension -->
+### 5.1 定義の確認：$\mathbb Q(\sqrt2)/\mathbb Q$
+
+任意の
+
+$$
+\alpha=a+b\sqrt2
+\in\mathbb Q(\sqrt2)
+$$
+
+を取ります。
+
+FLD1 で
+
+$$
+[\mathbb Q(\sqrt2):\mathbb Q]=2
+$$
+
+と確認しました。従ってこの拡大は有限拡大です。
+
+有限拡大の任意の元は基礎体上代数的なので、全ての $\alpha\in\mathbb Q(\sqrt2)$ が $\mathbb Q$ 上代数的です。
+
+よって
+
+$$
+\boxed{\mathbb Q(\sqrt2)/\mathbb Q\text{ は代数拡大}}
+$$
+
+です。
+<!-- definition-example-end -->
+
+
 
 埋め込みを何段も延長するとき、次の根が必ず見つかる十分大きな体が欲しくなります。そのための標準的な入れ物が代数閉包です。
 
@@ -526,7 +570,7 @@ $\square$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fld2-algebraic-closure -->
-### 5.1 定義の確認：代数閉体自身
+### 5.2 定義の確認：代数閉体自身
 
 $\Omega$ が代数閉体だとします。すると自明な拡大
 
