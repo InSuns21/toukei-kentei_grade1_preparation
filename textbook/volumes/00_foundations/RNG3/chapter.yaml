@@ -1,0 +1,57 @@
+id: "RNG3"
+title: "抽象代数 VII：整除・Euclid 整域・PID・UFD"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RNG2
+official_scope: []
+learning_objectives:
+  - 整域における整除・単元・同伴元を定義し、主イデアルの包含との対応を説明できる
+  - 既約元と素元を区別し、素元なら既約元であることを証明できる
+  - 素元と素な主イデアルの同値を証明できる
+  - 最大公約元を整除関係で定義し、Bézout 恒等式から最大公約元性を確認できる
+  - Euclid 整域を定義し、Euclid の互除法が有限停止する理由を説明できる
+  - Euclid の互除法から最大公約元と Bézout 係数を構成できる
+  - Euclid 整域が単項イデアル整域であることを最小 Euclid 関数値の議論から証明できる
+  - PID で (a)+(b) の生成元が最大公約元となることを証明できる
+  - PID で既約元が素元になることをイデアルの和から証明できる
+  - PID で有限既約分解が存在することと因数分解が一意であることを証明できる
+  - Z[sqrt(-5)] で既約元が素元でない反例を説明できる
+definitions:
+  - { id: RNG3-DEF-01, name: 整除・単元・同伴元 }
+  - { id: RNG3-DEF-02, name: 既約元・素元 }
+  - { id: RNG3-DEF-03, name: 最大公約元・Bézout 恒等式 }
+  - { id: RNG3-DEF-04, name: Euclid 整域 }
+  - { id: RNG3-DEF-05, name: 単項イデアル整域 }
+  - { id: RNG3-DEF-06, name: 一意分解整域 }
+theorems:
+  - { id: RNG3-PROP-01, name: 素元は既約元 }
+  - { id: RNG3-PROP-02, name: 素元と素な主イデアル }
+  - { id: RNG3-PROP-03, name: 最大公約元は同伴を除いて一意 }
+  - { id: RNG3-THM-01, name: Euclid の互除法 }
+  - { id: RNG3-THM-02, name: Euclid 整域は PID }
+  - { id: RNG3-THM-03, name: PID における最大公約元と Bézout 恒等式 }
+  - { id: RNG3-THM-04, name: PID では既約元は素元 }
+  - { id: RNG3-LEM-01, name: PID における既約分解の存在 }
+  - { id: RNG3-THM-05, name: PID は UFD }
+canonical_examples:
+  - Z における整除・単元 ±1・同伴元
+  - Z の 5 による既約元・素元の直接確認
+  - Z[sqrt(-5)] の 2 が既約だが素でない反例
+  - 252 と 198 の最大公約元 18 と Bézout 恒等式
+  - Z の Euclid 関数 |n|
+  - 体が PID・UFD であること
+  - Z が Euclid 整域から PID・UFD となること
+problem_patterns:
+  - RNG3-DIVISIBILITY-UNIT-1
+  - RNG3-GCD-BEZOUT-1
+  - RNG3-EUCLIDEAN-ALGORITHM-1
+  - RNG3-PRINCIPAL-IDEAL-GCD-1
+  - RNG3-PRIME-PRINCIPAL-IDEAL-1
+  - RNG3-PID-IRREDUCIBLE-PRIME-1
+  - RNG3-IRREDUCIBLE-NONPRIME-1
+  - RNG3-ED-PID-UFD-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 5.5, review: 0.5 }
