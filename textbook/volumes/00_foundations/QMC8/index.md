@@ -136,7 +136,7 @@ $$
 
 <a id="def-qmc8-dick-alpha-weight"></a>
 <!-- formal-statement-start -->
-### 定義（Dick の $\alpha$ 重み）
+### 定義（Dick の α 重み）
 
 $\alpha\in\mathbb N$ とする。
 
@@ -862,7 +862,7 @@ $$
 
 <a id="def-qmc8-order-alpha-digital-net"></a>
 <!-- formal-statement-start -->
-### 定義（次数 $\alpha$ デジタルネット）
+### 定義（次数 α デジタルネット）
 
 $\alpha,m,s$ を正整数とし、出力精度
 
@@ -1346,7 +1346,7 @@ $$
 \text{高次デジタルネットの双対構造}
 $$
 
-の噛み合わせを、自前で完全証明するための **スペクトル側の強い仮定**です。
+の噛み合わせを、自前で完全証明するための **Walsh 係数側の強い仮定**です。
 
 一方、標準的な高次 QMC 理論では、混合偏導関数を持つ Sobolev 型関数空間などから Walsh 係数の Dick 重みに応じた減衰を導きます。
 
@@ -1379,7 +1379,7 @@ $$
 
 <a id="thm-qmc8-higher-order-error"></a>
 <!-- formal-statement-start -->
-### 定理（次数 $\alpha$ デジタルネットの高次 Walsh 誤差評価）
+### 定理（次数 α デジタルネットの高次 Walsh 誤差評価）
 
 $P$ を底 $b$ の次数 $\alpha$ のデジタル $(t_\alpha,m,s)$-net とし、
 
@@ -2074,7 +2074,7 @@ $$
 
 <a id="thm-qmc8-interlacing-order-alpha"></a>
 <!-- formal-statement-start -->
-### 定理（桁交互配置による次数 $\alpha$ デジタルネット構成）
+### 定理（桁交互配置による次数 α デジタルネット構成）
 
 $P'$ を底 $b$ の デジタル $(t,m,\alpha s)$-ネット とする。
 
@@ -2662,7 +2662,7 @@ $$
 
 から古典的な $C^\alpha$ 級を結論してはいけません。
 
-本章のノルムは **高次誤差機構を閉じるためのスペクトル条件**です。
+本章のノルムは **高次誤差機構を閉じるためのWalsh 係数条件**です。
 
 古典的混合 Sobolev 空間との精密な対応は別の解析問題です。
 
