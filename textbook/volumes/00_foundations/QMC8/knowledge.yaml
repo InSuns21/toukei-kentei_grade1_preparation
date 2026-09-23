@@ -112,3 +112,14 @@ concepts:
     requires:
       - numerical.digit-interlacing
       - numerical.high-precision-digital-net
+
+  - id: numerical.interlaced-order-alpha-construction
+    name: 桁交互配置による order α デジタルネット構成
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（桁交互配置による order α デジタルネット構成）"]
+    requires:
+      - numerical.interlaced-generating-matrix
+      - numerical.digital-t-value-duality
+      - numerical.order-alpha-digital-net
