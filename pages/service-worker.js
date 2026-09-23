@@ -8,6 +8,7 @@ const cachePrefix = config.cachePrefix || 'toukei-grade1-';
 const offlineContentCacheName = config.offlineContentCacheName || 'toukei-grade1-offline-content-v1';
 const offlineMetadataCacheName = config.offlineMetadataCacheName || 'toukei-grade1-offline-metadata-v1';
 const offlineStageCachePrefix = config.offlineStageCachePrefix || 'toukei-grade1-offline-stage-';
+const numericalRuntimeCacheName = config.numericalRuntimeCacheName || 'toukei-grade1-numerical-runtime-v1';
 const offlineManifestStateUrl = new URL(
   './__offline-cache-manifest-v1__.json',
   self.registration.scope,
@@ -202,7 +203,15 @@ async function findCachedResponse(request, cache) {
 function isManagedAuxiliaryCache(name) {
   return name === offlineContentCacheName
     || name === offlineMetadataCacheName
+    || name === numericalRuntimeCacheName
     || name.startsWith(offlineStageCachePrefix);
+}
+
+function isNumericalRuntimeRequest(request) {
+  const prefixes = Array.isArray(config.numericalRuntimeUrlPrefixes)
+    ? config.numericalRuntimeUrlPrefixes
+    : [];
+  return prefixes.some((prefix) => request.url.startsWith(prefix));
 }
 
 async function findLegacyCachedResponse(request) {
@@ -327,7 +336,8 @@ async function staleWhileRevalidate(event, request, cache) {
 }
 
 async function applyStrategy(event, request, kind) {
-  const cache = await caches.open(cacheName);
+  const numericalRuntime = kind === 'externalAsset' && isNumericalRuntimeRequest(request);
+  const cache = await caches.open(numericalRuntime ? numericalRuntimeCacheName : cacheName);
 
   if (self.navigator?.onLine === false) {
     return cachedFallback(request, cache);
@@ -338,7 +348,7 @@ async function applyStrategy(event, request, kind) {
     if (fallback.type !== 'error') return fallback;
   }
 
-  const strategy = strategyFor(kind);
+  const strategy = numericalRuntime ? 'cache-first' : strategyFor(kind);
 
   if (strategy === 'cache-first') {
     return cacheFirst(request, cache);

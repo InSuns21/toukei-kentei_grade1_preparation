@@ -7,6 +7,10 @@ self.TOUKEI_SW_CONFIG = Object.freeze({
   offlineContentCacheName: 'toukei-grade1-offline-content-v1',
   offlineMetadataCacheName: 'toukei-grade1-offline-metadata-v1',
   offlineStageCachePrefix: 'toukei-grade1-offline-stage-',
+  numericalRuntimeCacheName: 'toukei-grade1-numerical-runtime-v1',
+  numericalRuntimeUrlPrefixes: Object.freeze([
+    'https://cdn.jsdelivr.net/pyodide/v314.0.7/full/',
+  ]),
 
   // Online requests should see the latest published content. service-worker.js
   // short-circuits these strategies to Cache Storage when WorkerNavigator says
@@ -35,6 +39,9 @@ self.TOUKEI_SW_CONFIG = Object.freeze({
     './home.md',
     './_sidebar.md',
     './math-renderer.js',
+    './numerical-lab-runtime.js',
+    './numerical-lab-worker.mjs',
+    './numerical-lab.css',
     './site-meta.json',
     './vendor/katex/katex.min.css',
     './vendor/katex/katex.min.js',

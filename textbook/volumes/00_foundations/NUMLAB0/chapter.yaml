@@ -1,0 +1,27 @@
+id: "NUMLAB0"
+title: "計算機演習基盤"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PYNUM1
+official_scope: []
+learning_objectives:
+  - ブラウザ内 Python 実行基盤の構成要素と責務境界を説明できる
+  - Web Worker 分離と Worker 破棄による時間制限の意味を説明できる
+  - NumPy・SciPy・Matplotlib を含む Pyodide 実行環境をブラウザ上で確認できる
+  - 数値許容誤差を用いた自動判定と、性質ベーステストの違いを説明できる
+  - 実行結果・進捗・ランタイム資産がどこへ保存されるか説明できる
+  - オフライン時に利用できる範囲と初回準備の必要性を説明できる
+definitions: []
+theorems: []
+canonical_examples:
+  - Pyodide と NumPy・SciPy・Matplotlib のバージョン確認
+  - np.allclose を使った数値許容誤差テスト
+  - 固定乱数生成器を使った中心化関数の性質ベーステスト
+  - Matplotlib の図を Worker から PNG として返す実行例
+problem_patterns: []
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+dream_theater_exercise_count_exception: "NUMLAB0 は数学演習章ではなく後続 NUMLAB のブラウザ実行基盤を確立するインフラ章である。A/B/C の紙上問題を8題水増しせず、実行可能な smoke lab 4本で Worker・timeout・数値 tolerance・性質ベーステスト・描画・保存を検証する。"
+estimated_hours: { reading: 1.5, exercises: 1.0, review: 0.5 }

@@ -74,7 +74,7 @@ Monte Carlo 法と準 Monte Carlo 法では、同じ積分問題に対して
 | [NA11](../NA11/index.md) | Perron–Frobenius 理論と PageRank |
 | [NA12](../NA12/index.md) | 無制約最適化と共役勾配法 |
 
-**実装済み：NA1、NA2、NA3、NA4、NA5、NA6、NA7、NA8、NA9、NA10、NA11、NA12、FDM1、FDM2、FDM3、FDM4、FEM1、FEM2、FEM3、FEM4、FEM5、FEM6、FEM7、MC1、MC2、MC3、MC4、QMC1、QMC2、QMC3、QMC4、QMC5、QMC6、QMC7、QMC8、PYNUM1。理論35講完成直後の横断監査は方針決定により実施対象外です。次の実装対象は NUMLAB0「計算機演習基盤」です。**
+**実装済み：NA1、NA2、NA3、NA4、NA5、NA6、NA7、NA8、NA9、NA10、NA11、NA12、FDM1、FDM2、FDM3、FDM4、FEM1、FEM2、FEM3、FEM4、FEM5、FEM6、FEM7、MC1、MC2、MC3、MC4、QMC1、QMC2、QMC3、QMC4、QMC5、QMC6、QMC7、QMC8、PYNUM1、NUMLAB0。理論35講完成直後の横断監査は方針決定により実施対象外です。次の実装対象は NUMLAB1「数値解析演習」です。**
 
 数値解析では、単にアルゴリズムを列挙するのではなく、
 
@@ -153,7 +153,7 @@ MC1 では積分を期待値へ移し、標本平均の不偏性、分散、二�
 |---|---|
 | [PYNUM1](../PYNUM1/index.md) | Python 数値計算速習：NumPy 配列、shape / axis / dtype、ビューとコピー、ブロードキャスト、ベクトル化、乱数生成器、Matplotlib、SciPy の入口 |
 
-PYNUM1 は後続 NUMLAB の共通参照章です。一般的なプログラミング入門は繰り返さず、数値計算で必要な Python / NumPy の差分と、誤差実験を安全に書くための共通規約だけを扱います。
+PYNUM1 は後続 NUMLAB の共通参照章です。一般的なプログラミング入門は繰り返さず、数値計算で必要な Python / NumPy の差分と、誤差実験を安全に書くための共通規約だけを扱います。続く [NUMLAB0 計算機演習基盤](../NUMLAB0/index.md) では Pyodide + module Web Worker、時間制限、非表示テスト、進捗保存、Matplotlib 図、永続ランタイムキャッシュを共通化します。
 
 ---
 

@@ -1,0 +1,6 @@
+chapter: NUMLAB0
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PYNUM1
+concepts: []

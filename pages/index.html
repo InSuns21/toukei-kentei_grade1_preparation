@@ -7,6 +7,7 @@
   <title>統計検定1級 対策教材</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/themes/vue.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+  <link rel="stylesheet" href="numerical-lab.css" />
   <style>
     :root { --theme-color: #2f6f9f; --formal-statement-rule: #2f6f9f; }
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif; }
@@ -316,6 +317,7 @@
     });
   </script>
   <script src="math-renderer.js"></script>
+  <script src="numerical-lab-runtime.js"></script>
   <script src="dream-theater-navigation.js"></script>
   <script>
     function solutionDetailsPlugin(hook) {
@@ -702,7 +704,7 @@
         noData: '該当する教材が見つかりません',
         depth: 6
       },
-      plugins: [window.ToukeiMathRenderer.docsifyPlugin, solutionDetailsPlugin, offlineCacheStatusPlugin, navigationStatePlugin]
+      plugins: [window.ToukeiMathRenderer.docsifyPlugin, window.ToukeiNumericalLab.docsifyPlugin, solutionDetailsPlugin, offlineCacheStatusPlugin, navigationStatePlugin]
     };
   </script>
   <!--
