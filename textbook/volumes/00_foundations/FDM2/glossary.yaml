@@ -1,8 +1,8 @@
 chapter: "FDM2"
 terms:
-  - term: 摂動安定性
-    english: perturbation stability
-    meaning: 初期値や丸め誤差などの小さな摂動が、固定有限時間内で刻み幅に依存せず制御される性質。
+  - term: 縮小性
+    english: contractivity
+    meaning: 同じ斉次差分スキームに従う二つの数値解の差が、1ステップ進めても指定したノルムで増えない性質。
   - term: 増幅因子
     english: amplification factor
     meaning: 1つの Fourier モードが差分スキームの1ステップで何倍されるかを表す複素数。
