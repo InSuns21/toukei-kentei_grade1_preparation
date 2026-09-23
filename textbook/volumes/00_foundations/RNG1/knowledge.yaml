@@ -34,10 +34,11 @@ concepts:
       - algebra.ring
 
   - id: algebra.subring
-    name: 部分環
+    name: 環論の部分環
     kind: definition
     aliases: [subring]
     introduction: formal
+    introduction_aliases: ["定義（部分環）"]
     requires:
       - algebra.ring
 
@@ -51,7 +52,7 @@ concepts:
       - algebra.subgroup-test
 
   - id: algebra.zero-divisor
-    name: 零因子
+    name: 環論の零因子
     kind: definition
     aliases: [zero divisor]
     introduction: formal
@@ -60,7 +61,7 @@ concepts:
       - algebra.commutative-ring
 
   - id: algebra.integral-domain
-    name: 整域
+    name: 環論の整域
     kind: definition
     aliases: [integral domain]
     introduction: formal
@@ -90,10 +91,11 @@ concepts:
       - algebra.integral-domain
 
   - id: algebra.ring-homomorphism
-    name: 環準同型
+    name: 環論の準同型
     kind: definition
     aliases: [ring homomorphism]
     introduction: formal
+    introduction_aliases: ["定義（環準同型）"]
     requires:
       - algebra.ring
       - set.function
@@ -117,19 +119,21 @@ concepts:
       - algebra.ring-homomorphism
 
   - id: algebra.ring-ideal
-    name: イデアル
+    name: 環論のイデアル
     kind: definition
     aliases: ["ideal of a ring", two-sided ideal]
     introduction: formal
+    introduction_aliases: ["定義（イデアル）"]
     requires:
       - algebra.ring
       - algebra.subgroup
 
   - id: algebra.principal-ideal
-    name: 主イデアル
+    name: 環論の主イデアル
     kind: definition
     aliases: [principal ideal]
     introduction: formal
+    introduction_aliases: ["定義（主イデアル）"]
     requires:
       - algebra.ring-ideal
       - algebra.commutative-ring
@@ -156,10 +160,11 @@ concepts:
       - algebra.ring
 
   - id: algebra.quotient-ring
-    name: 商環
+    name: 環論の商環
     kind: definition
     aliases: [quotient ring, factor ring]
     introduction: formal
+    introduction_aliases: ["定義（商環）"]
     requires:
       - algebra.ring-ideal
       - algebra.quotient-ring-well-defined
@@ -174,10 +179,11 @@ concepts:
       - algebra.ring-homomorphism
 
   - id: algebra.first-isomorphism-theorem-ring
-    name: 環の第一同型定理
+    name: 環論の第一同型定理
     kind: theorem
     aliases: [first isomorphism theorem for rings]
     introduction: formal
+    introduction_aliases: ["定理（環の第一同型定理）"]
     requires:
       - algebra.ring-kernel
       - algebra.ring-image
