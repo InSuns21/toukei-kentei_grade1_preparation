@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - MOD1
   - RNG4
+  - LA3B
 forward_references: []
 
 concepts:
@@ -49,7 +50,7 @@ concepts:
     kind: definition
     aliases: [determinantal ideal]
     introduction: formal
-    requires: [algebra.ring-ideal, algebra.matrix-equivalence-pid]
+    requires: [algebra.ring-ideal, algebra.matrix-equivalence-pid, linear.matrix-determinant]
 
   - id: algebra.determinantal-ideal-invariance
     name: 小行列式イデアルの行列同値不変性
