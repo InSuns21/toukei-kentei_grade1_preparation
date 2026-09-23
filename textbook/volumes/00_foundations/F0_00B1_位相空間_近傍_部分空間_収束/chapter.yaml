@@ -16,6 +16,7 @@ learning_objectives:
   - Hausdorff性と極限一意性の関係を説明できる
 definitions:
   - { id: F000B1-DEF-01, name: 位相・位相空間 }
+  - { id: F000B1-DEF-09, name: 離散位相・密着位相 }
   - { id: F000B1-DEF-02, name: 位相空間の閉集合 }
   - { id: F000B1-DEF-03, name: 近傍 }
   - { id: F000B1-DEF-04, name: 距離から誘導される位相 }
@@ -23,7 +24,6 @@ definitions:
   - { id: F000B1-DEF-06, name: 位相空間における点列収束 }
   - { id: F000B1-DEF-07, name: 位相空間の連続写像 }
   - { id: F000B1-DEF-08, name: Hausdorff空間 }
-  - { id: F000B1-DEF-09, name: 離散位相・密着位相 }
 theorems:
   - { id: F000B1-PROP-01, name: 距離位相は位相である }
   - { id: F000B1-THM-01, name: 距離収束と位相収束の一致 }
