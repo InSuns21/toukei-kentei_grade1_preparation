@@ -372,7 +372,7 @@ Track E や Track H を本格化すると、PDE 固有の議論だけでは閉�
 - Calderón--Zygmund estimate
 - fractional Sobolev / potential estimate への入口
 
-これは PDE の一章へ詰め込まず、実解析・調和解析側の canonical series として独立させることを原則とする。
+これは PDE の一章へ詰め込まず、実解析・調和解析側の canonical series として独立させることを原則とする。具体的な取捨選択と HA1--HA3 の候補構成は `DREAM_THEATER_REAL_ANALYSIS_STRENGTHENING_PLAN.md` を正本候補とする。
 
 特に Navier--Stokes の圧力表示や渦度表示で Riesz transform を使う場合、名前だけを出して暗黙の $L^p$ boundedness に依存しない。必要な定理を既存正本へリンクするか、前提系列として先に整備する。
 
