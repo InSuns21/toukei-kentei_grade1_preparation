@@ -114,7 +114,7 @@ concepts:
     kind: definition
     aliases: [information complexity for worst-case integration]
     introduction: formal
-    introduction_aliases: ["定義（最悪誤差に対する情報複雑度）"]
+    introduction_aliases: ["定義（最悪誤差に対する情報複雑度：絶対誤差基準）"]
     requires:
       - numerical.qmc-worst-case-error
 
