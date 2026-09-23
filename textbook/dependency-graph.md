@@ -237,6 +237,8 @@ LIE2 は LIE1、GRP3、ODE4 を直接 prerequisite とする。単位元接ベ�
 
 LIE3 は LIE2、LA6、GEO3 を直接 prerequisite とする。Lie 部分群を埋め込み部分多様体かつ部分群として定義し、包含写像の微分から $T_eH$ が $T_eG$ の Lie 部分環になること、指数写像が $\exp_H=\exp_G|_{\mathfrak h}$ と整合することを証明する。閉部分群定理は一般の剛性定理として位置付ける一方、$SL(n,\mathbb R)$、$O(n)$、$SO(n)$、$U(n)$、$SU(n)$ は正則値定理を使って部分多様体性と接空間を直接計算する。$\det A=1$、$A^\mathsf{T}A=I$、$A^*A=I$ を単位元で微分し、トレース0・反対称・反 Hermitianという接 Lie 環の線形条件を導く。Lie 群作用・等質空間・Maurer--Cartan 形式は LIE4 へ送る。
 
+LIE4 は LIE3、GRP3、GEO3、GEO7 を直接 prerequisite とする。GRP3 の軌道・安定化群を滑らかな作用へ持ち上げ、安定化群の閉性と LIE3 の閉部分群定理から安定化 Lie 環を得る。基本ベクトル場の流れと Lie 括弧の反準同型性を LIE2 / GEO5 の既存結果から導き、閉 Lie 部分群 $H$ に対する $G/H$ の商多様体構造を局所積分解で構成する。推移的作用では $M\cong G/G_x$ を証明し、一般軌道がはめ込みだが埋め込みとは限らない境界も示す。GEO7 の微分形式・外微分を直接使って左 Maurer--Cartan 形式と $d\theta+\frac12[\theta\wedge\theta]=0$ を証明するため、GEO7 は実証明上の direct prerequisite とする。
+
 
 ---
 
