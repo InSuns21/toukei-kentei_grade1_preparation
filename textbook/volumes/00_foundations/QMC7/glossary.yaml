@@ -1,0 +1,23 @@
+chapter: "QMC7"
+terms:
+  - term: ランダム化準 Monte Carlo 法
+    english: randomized quasi-Monte Carlo
+    meaning: 構造化された準 Monte Carlo 点集合へ乱数化を施し、各点の周辺分布を一様に保ちながら点間の低ディスクレパンシー構造を残す積分法。独立な乱数化反復により統計的誤差評価も可能にする。
+  - term: b 進デジタル加法
+    english: b-adic digital addition without carry
+    meaning: b 進小数の各桁を有限体 F_b 上で独立に加える演算。通常の実数加法と異なり桁上がりを行わない。
+  - term: デジタルシフト
+    english: digital shift
+    meaning: すべての点へ同じ一様ランダムな b 進桁列をデジタル加法で加えるランダム化。各点は一様分布になるが、点集合の b 進相対構造は保たれる。
+  - term: 独立ランダム化反復
+    english: independent randomized QMC replicates
+    meaning: 同じ決定論的 QMC 点集合へ互いに独立な乱数化を R 回施し、R 個の QMC 推定値を独立同分布標本として平均・分散推定に用いる方法。
+  - term: 入れ子一様スクランブル
+    english: nested uniform scrambling
+    meaning: 各座標・各桁・それ以前の桁 prefix ごとに独立な一様ランダム置換を割り当てるスクランブル。各点の一様性とデジタルネットの b 進箱点数構造を同時に保つ。
+  - term: 関数的 ANOVA 分解
+    english: functional ANOVA decomposition
+    meaning: 多変数関数を定数成分、一変数主効果、二変数相互作用など座標部分集合ごとの直交成分へ分解する表現。各非定数成分の L2 ノルム平方が分散成分になる。
+  - term: ANOVA 支持
+    english: ANOVA support
+    meaning: 関数成分が実際に依存する座標集合。Walsh 展開では非零周波数を持つ座標集合 supp(k) と対応し、ランダム化 QMC の分散を相互作用別に整理できる。
