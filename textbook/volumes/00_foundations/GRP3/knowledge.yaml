@@ -65,6 +65,15 @@ concepts:
       - algebra.group-action
       - algebra.subgroup
 
+  - id: algebra.stabilizer-is-subgroup
+    name: 安定化群は部分群
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（安定化群は部分群）"]
+    requires:
+      - algebra.stabilizer-subgroup
+      - algebra.subgroup-test
   - id: algebra.orbit-partition
     name: 群作用の軌道による分割
     kind: proposition
