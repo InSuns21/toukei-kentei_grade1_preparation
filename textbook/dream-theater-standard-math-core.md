@@ -1232,7 +1232,7 @@ direct prerequisite は GRP2 と GEO5 です。GRP2 から群・群準同型を�
 
 実装: [LIE3](volumes/00_foundations/LIE3/index.md)
 
-direct prerequisite は LIE2 と LA6 です。LIE2 の指数写像・自然性と、LA6 までの複素内積・ユニタリ作用素を再利用します。正則値定理は LIE1 の多様体側 prerequisite から既習です。閉部分群定理は本章では意図的黒箱として位置付け、古典群は定義方程式の微分から接 Lie 環を直接計算します。Lie 群作用・等質空間・Maurer--Cartan は LIE4 へ送ります。
+direct prerequisite は LIE2、LA6、GEO3 です。LIE2 の指数写像・自然性と、LA6 までの複素内積・ユニタリ作用素を再利用します。GEO3 の埋め込み部分多様体・正則値定理・正則レベル集合の接空間を直接再利用します。閉部分群定理は本章では意図的黒箱として位置付け、古典群は定義方程式の微分から接 Lie 環を直接計算します。Lie 群作用・等質空間・Maurer--Cartan は LIE4 へ送ります。
 
 
 ---
