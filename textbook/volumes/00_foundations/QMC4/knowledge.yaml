@@ -18,7 +18,7 @@ concepts:
   - id: numerical.tms-net
     name: (t,m,s)-ネット
     kind: definition
-    aliases: [(t,m,s)-net]
+    aliases: ["(t,m,s)-net"]
     introduction: formal
     introduction_aliases: ["定義（(t,m,s)-ネット）"]
     requires:
@@ -55,7 +55,7 @@ concepts:
   - id: numerical.ts-sequence
     name: (t,s)-点列
     kind: definition
-    aliases: [(t,s)-sequence]
+    aliases: ["(t,s)-sequence"]
     introduction: formal
     introduction_aliases: ["定義（(t,s)-点列）"]
     requires:
