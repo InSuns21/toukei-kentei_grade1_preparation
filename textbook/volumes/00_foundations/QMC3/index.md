@@ -58,7 +58,7 @@ $$
 
 です。
 
-この考え方が、後半の component-by-component 構成へつながります。
+この考え方が、後半の 成分逐次構成（CBC）へつながります。
 
 ---
 
@@ -110,7 +110,7 @@ $$
 
 <a id="def-qmc3-rank1-lattice"></a>
 <!-- formal-statement-start -->
-### 定義（rank-1 格子点集合と生成ベクトル）
+### 定義（ランク1格子点集合と生成ベクトル）
 
 正整数 $N$ と整数ベクトル
 
@@ -143,7 +143,7 @@ n=0,\ldots,N-1
 }
 $$
 
-を **rank-1 格子点集合** とする。
+を **ランク1格子点集合** とする。
 
 $\boldsymbol z$ を **生成ベクトル** と呼び、
 
@@ -161,7 +161,7 @@ f\left(
 }
 $$
 
-を対応する rank-1 格子則とする。
+を対応する ランク1格子則とする。
 <!-- formal-statement-end -->
 
 最大公約数条件は、$N$ 個の添字が同じ点へ潰れないために入っています。
@@ -217,7 +217,7 @@ $$
 
 この規則性は自由度を大きく減らします。
 
-一般の $N$ 点を $s$ 次元で直接選ぶなら $Ns$ 個の実数が必要ですが、rank-1 格子では $s$ 個の整数成分だけを選べばよいからです。
+一般の $N$ 点を $s$ 次元で直接選ぶなら $Ns$ 個の実数が必要ですが、ランク1格子では $s$ 個の整数成分だけを選べばよいからです。
 
 その代わり、生成ベクトルを誤ると規則性がそのまま弱点になります。
 
@@ -236,7 +236,7 @@ $$
 
 を考えます。
 
-rank-1 格子点へ複素指数モードを入れると
+ランク1格子点へ複素指数モードを入れると
 
 $$
 e^{2\pi i\boldsymbol h\cdot\boldsymbol x_n}
@@ -256,7 +256,7 @@ $$
 <!-- formal-statement-start -->
 ### 定義（双対格子）
 
-rank-1 格子 $P_N(\boldsymbol z)$ に対して
+ランク1格子 $P_N(\boldsymbol z)$ に対して
 
 $$
 \boxed{
@@ -316,7 +316,7 @@ $$
 
 <a id="thm-qmc3-character-orthogonality"></a>
 <!-- formal-statement-start -->
-### 定理（rank-1 格子上の複素指数モードの離散直交性）
+### 定理（ランク1格子上の複素指数モードの離散直交性）
 
 任意の $\boldsymbol h\in\mathbb Z^s$ に対して
 
@@ -577,7 +577,7 @@ Q_{N,\boldsymbol z}(T)
 \end{aligned}
 $$
 
-[rank-1 格子上の複素指数モードの離散直交性](#thm-qmc3-character-orthogonality)により
+[ランク1格子上の複素指数モードの離散直交性](#thm-qmc3-character-orthogonality)により
 
 $$
 Q_{N,\boldsymbol z}(T)
@@ -1397,7 +1397,7 @@ $$
 
 $\alpha>1/2$、$\gamma>0$ とする。
 
-一次元の重み付き周期 Fourier 空間で、$\gcd(z,N)=1$ の rank-1 格子則を使うと
+一次元の重み付き周期 Fourier 空間で、$\gcd(z,N)=1$ の ランク1格子則を使うと
 
 $$
 \boxed{
@@ -1642,7 +1642,7 @@ $$
 
 ---
 
-## 10. component-by-component 構成
+## 10. 成分逐次構成（CBC）
 
 高次元で
 
@@ -1690,7 +1690,7 @@ $$
 
 <a id="def-qmc3-cbc"></a>
 <!-- formal-statement-start -->
-### 定義（component-by-component 構成）
+### 定義（成分逐次構成）
 
 $N$ を素数とし、第一成分を
 
@@ -1725,7 +1725,7 @@ R_d(z_1,\ldots,z_{d-1},c)
 }
 $$
 
-を選ぶ手続きを **component-by-component 構成** とする。
+を選ぶ手続きを **成分逐次構成**（component-by-component construction; CBC）とする。
 <!-- formal-statement-end -->
 
 CBC は「最終 $s$ 次元の大域最適解を必ず返す」という定義ではありません。
@@ -1864,7 +1864,7 @@ $$
 
 まで具体化しました。
 
-つまり rank-1 格子の設計は
+つまり ランク1格子の設計は
 
 $$
 \boxed{
@@ -1889,7 +1889,7 @@ $$
 
 ## Level A
 
-### QMC3-A01 rank-1 格子点を全部書く
+### QMC3-A01 ランク1格子点を全部書く
 
 $$
 N=5,
@@ -3126,7 +3126,7 @@ $$
 
 ## 12. まとめ
 
-QMC3 の核心は、rank-1 格子の規則性を弱点ではなく設計変数へ変えることです。
+QMC3 の核心は、ランク1格子の規則性を弱点ではなく設計変数へ変えることです。
 
 1. 生成ベクトル $\boldsymbol z$ から $N$ 点を作る。
 2. 双対格子
