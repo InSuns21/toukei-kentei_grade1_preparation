@@ -1235,6 +1235,24 @@ direct prerequisite は GRP2 と GEO5 です。GRP2 から群・群準同型を�
 direct prerequisite は LIE2、LA6、GEO3 です。LIE2 の指数写像・自然性と、LA6 までの複素内積・ユニタリ作用素を再利用します。GEO3 の埋め込み部分多様体・正則値定理・正則レベル集合の接空間を直接再利用します。閉部分群定理は本章では意図的黒箱として位置付け、古典群は定義方程式の微分から接 Lie 環を直接計算します。Lie 群作用・等質空間・Maurer--Cartan は LIE4 へ送ります。
 
 
+## LIE4 Lie 群作用・軌道・等質空間・Maurer--Cartan `core-advanced-standard`
+
+- GRP3 の集合上の群作用へ滑らかさを追加して Lie 群作用を定義し、各群要素が多様体の微分同相写像として働くことを確認
+- 安定化群が閉部分群になることを示して LIE3 の閉部分群定理を適用し、安定化 Lie 環が軌道写像の単位元微分の核になることを証明
+- $X\in\mathfrak g$ から基本ベクトル場 $X_M$ を構成し、その流れが $\exp(tX)$ の作用であること、本章の左作用規約では $[X_M,Y_M]=-[X,Y]_M$ となることを GEO5 の流れによる Lie 括弧の解釈と LIE2 の随伴表現から証明
+- 閉 Lie 部分群 $H$ に対し、$\mathfrak g=\mathfrak m\oplus\mathfrak h$ と局所積分解 $\exp(X)\exp(Y)$ を用いて $G/H$ の商多様体構造を構成し、商写像が沈め込みであること、$\dim G/H=\dim G-\dim H$、$T_{eH}(G/H)\cong\mathfrak g/\mathfrak h$ を導出
+- 推移的な Lie 群作用を等質空間として定義し、$M\cong G/G_x$ を安定化群から構成
+- 一般の軌道は自然なはめ込み多様体になる一方、トーラス上の無理数方向の稠密軌道により埋め込みとは限らないことを確認
+- Lie 環値1形式を導入し、左 Maurer--Cartan 形式 $\theta_g=d(L_{g^{-1}})_g$ を定義して、左不変性と右移動則 $R_h^*\theta=\operatorname{Ad}_{h^{-1}}\theta$ を証明
+- GEO7 の外微分の座標不変表示を使い、Maurer--Cartan 方程式 $d\theta+\frac12[\theta\wedge\theta]=0$ を核心まで証明
+- 構造定数から $d\theta^k=-\frac12\sum c_{ij}^{\,k}\theta^i\wedge\theta^j$ を導き、2次元アフィン群で非可換性を構造方程式として計算
+- A4/B3/C1 の演習で回転作用、商の接空間、球面 $SO(3)/SO(2)$、無限小作用の符号、$GL(n)$ の Maurer--Cartan 形式、アフィン群の統合計算を再構成
+
+実装: [LIE4](volumes/00_foundations/LIE4/index.md)
+
+direct prerequisite は LIE3、GRP3、GEO3、GEO7 です。LIE3 の閉部分群定理・部分群の指数写像、GRP3 の軌道・安定化群・剰余類と軌道の対応、GEO3 の定数階数・はめ込み・沈め込みを再利用します。さらに Maurer--Cartan 方程式の証明で微分形式と外微分を本質的に用いるため、当初計画の3前提に GEO7 を直接追加します。これは監査回避ではなく本文の実証明依存です。LIE1--LIE4 で Lie 群の基本系列を一区切りとし、一般表現論、半単純 Lie 環、ルート系、主束・接続・ゲージ理論は後続の独立系列へ送ります。
+
+
 ---
 
 # 6. 測度論：標準教科書の第2段階
