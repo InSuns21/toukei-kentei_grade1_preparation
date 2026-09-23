@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - LIE2
   - LA6
+  - GEO3
 forward_references: []
 
 concepts:
@@ -18,7 +19,7 @@ concepts:
       - geometry.embedded-submanifold
 
   - id: lie.subgroup-lie-algebra
-    name: Lie 部分群の接 Lie 環
+    name: Lie 部分群の接空間は Lie 部分環
     kind: theorem
     aliases: []
     introduction: formal
@@ -57,7 +58,7 @@ concepts:
       - linear.matrix-determinant
 
   - id: lie.special-linear-lie-algebra
-    name: 特殊線形群の Lie 環
+    name: 特殊線形群とその Lie 環
     kind: theorem
     aliases: []
     introduction: formal
@@ -87,7 +88,7 @@ concepts:
       - linear.matrix-determinant
 
   - id: lie.orthogonal-lie-algebra
-    name: 直交群の Lie 環
+    name: 直交群・特殊直交群とその Lie 環
     kind: theorem
     aliases: []
     introduction: formal
@@ -118,7 +119,7 @@ concepts:
       - linear.matrix-determinant
 
   - id: lie.unitary-lie-algebra
-    name: ユニタリ群の Lie 環
+    name: ユニタリ群・特殊ユニタリ群とその Lie 環
     kind: theorem
     aliases: []
     introduction: formal
