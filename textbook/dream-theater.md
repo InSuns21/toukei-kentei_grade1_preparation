@@ -346,3 +346,4 @@ STO 系列ではマルチンゲール・ブラウン運動・二次変分・確�
 13. [NA12 無制約最適化と共役勾配法](textbook/volumes/00_foundations/NA12/index.md)
 14. [FDM1 熱方程式と差分法の導入](textbook/volumes/00_foundations/FDM1/index.md)
 15. [FDM2 差分スキームの安定性](textbook/volumes/00_foundations/FDM2/index.md)
+16. [FDM3 整合性・安定性・収束性](textbook/volumes/00_foundations/FDM3/index.md)
