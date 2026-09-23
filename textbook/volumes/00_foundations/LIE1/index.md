@@ -389,7 +389,7 @@ $$
 
 ---
 
-## 3. 群演算と相性のよいベクトル場
+## 3. 群演算と相性のよい接方向の割当
 
 <a id="def-lie1-invariant-vector-fields"></a>
 <!-- formal-statement-start -->
