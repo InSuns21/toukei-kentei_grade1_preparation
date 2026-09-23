@@ -1807,15 +1807,15 @@ $$
 
 $\Omega\subset\mathbb R^d$ を有界連結 Lipschitz 領域、$\nu>0$ とし、
 
-$
+$$
 V=[H_0^1(\Omega)]^d,
 \qquad
 Q=L_0^2(\Omega)
-$
+$$
 
 とする。
 
-$
+$$
 a(u,v)
 =
 \nu\sum_{i=1}^d\sum_{j=1}^d\int_\Omega(\partial_j u_i)(\partial_j v_i)\,dx,
@@ -1823,37 +1823,37 @@ a(u,v)
 b(v,q)
 =
 -\int_\Omega q\,\nabla\cdot v\,dx
-$
+$$
 
 とし、$f\in V^*$ とする。
 
 有限次元部分空間
 
-$
+$$
 V_h\subset V,
 \qquad
 Q_h\subset Q
-$
+$$
 
 に対して、$(u_h,p_h)\in V_h\times Q_h$ が
 
-$
+$$
 \boxed{
 a(u_h,v_h)+b(v_h,p_h)=f(v_h)
 \qquad
 (\forall v_h\in V_h)
 }
-$
+$$
 
 および
 
-$
+$$
 \boxed{
 b(u_h,q_h)=0
 \qquad
 (\forall q_h\in Q_h)
 }
-$
+$$
 
 を満たすとき、これを Stokes 問題の混合有限要素近似とする。
 <!-- formal-statement-end -->
@@ -1865,158 +1865,158 @@ $\Omega=(0,1)^2$、$\nu=1$ とします。
 
 まず
 
-$
+$$
 \chi(x,y)
 =
 x^2(1-x)^2y^2(1-y)^2
-$
+$$
 
 から
 
-$
+$$
 \phi_0
 =
 \left(
 \partial_y\chi,
 -\partial_x\chi
 \right)
-$
+$$
 
 を作ります。第6節と同じ計算で
 
-$
+$$
 \phi_0\in[H_0^1(\Omega)]^2,
 \qquad
 \nabla\cdot\phi_0=0.
-$
+$$
 
 さらに
 
-$
+$$
 w(x,y)=x(1-x)y(1-y),
 \qquad
 \phi_1=(w,0),
-$
+$$
 
-$
+$$
 r(x,y)=x-\frac12
-$
+$$
 
 と置きます。
 
 $w$ は境界で $0$ なので
 
-$
+$$
 \phi_1\in[H_0^1(\Omega)]^2.
-$
+$$
 
 また
 
-$
+$$
 \int_\Omega r\,dx\,dy
 =
 \int_0^1\left(x-\frac12\right)dx
 =
 0
-$
+$$
 
 だから
 
-$
+$$
 r\in L_0^2(\Omega).
-$
+$$
 
 従って
 
-$
+$$
 V_h=\operatorname{span}\{\phi_0,\phi_1\}
 \subset[H_0^1(\Omega)]^2,
-$
+$$
 
-$
+$$
 Q_h=\operatorname{span}\{r\}
 \subset L_0^2(\Omega)
-$
+$$
 
 は定義で要求した有限次元部分空間です。
 
 ここで
 
-$
+$$
 u_h=\phi_0,
 \qquad
 p_h=r
-$
+$$
 
 とし、
 
-$
+$$
 f(v_h)
 =
 a(\phi_0,v_h)+b(v_h,r)
-$
+$$
 
 で $f$ を $V_h$ 上に定めます。
 
 $\nabla\cdot\phi_0=0$ なので、任意の $q_h=cr\in Q_h$ に対して
 
-$
+$$
 b(u_h,q_h)
 =
 -c\int_\Omega r\,\nabla\cdot\phi_0\,dx
 =
 0.
-$
+$$
 
 また $f$ の定義から任意の $v_h\in V_h$ について
 
-$
+$$
 a(u_h,v_h)+b(v_h,p_h)=f(v_h).
-$
+$$
 
 従って $(u_h,p_h)$ は [Stokes 混合有限要素法](#def-fem5-mixed-fem)の二式を実際に満たします。
 
 圧力が速度空間から見えていることも確認できます。
 
-$
+$$
 \partial_xw
 =
 (1-2x)y(1-y)
-$
+$$
 
 なので
 
-$
+$$
 b(\phi_1,r)
 =
 -
 \int_0^1\int_0^1
 \left(x-\frac12\right)(1-2x)y(1-y)
 \,dx\,dy.
-$
+$$
 
 ここで
 
-$
+$$
 \int_0^1
 \left(x-\frac12\right)(1-2x)\,dx
 =
 -\frac16,
-$
+$$
 
-$
+$$
 \int_0^1y(1-y)\,dy
 =
 \frac16.
-$
+$$
 
 したがって
 
-$
+$$
 \boxed{
 b(\phi_1,r)=\frac1{36}\ne0
 }.
-$
+$$
 
 この例では $Q_h$ の唯一の非零方向が $\phi_1$ を通して検出されます。
 <!-- definition-example-end -->
@@ -2098,71 +2098,71 @@ $$
 
 $V,Q$ を実 Hilbert 空間とし、有界双線形形式
 
-$
+$$
 a:V\times V\to\mathbb R,
 \qquad
 b:V\times Q\to\mathbb R
-$
+$$
 
 と右辺 $f\in V^*$、$g\in Q^*$ に対する抽象鞍点問題の解を $(u,p)\in V\times Q$ とする。
 
 有限次元部分空間
 
-$
+$$
 V_h\subset V,
 \qquad
 Q_h\subset Q
-$
+$$
 
 を取り、
 
-$
+$$
 Z_h
 =
 \{v_h\in V_h:
 b(v_h,q_h)=0\ \forall q_h\in Q_h\}
-$
+$$
 
 とする。
 
 $a$ が $Z_h$ 上で、$h$ に依存しない $\alpha_0>0$ により
 
-$
+$$
 a(z_h,z_h)
 \ge
 \alpha_0\|z_h\|_V^2
 \qquad
 (\forall z_h\in Z_h)
-$
+$$
 
 を満たすとする。
 
 さらに離散 inf-sup 定数
 
-$
+$$
 \beta_h
 =
 \inf_{0\ne q_h\in Q_h}
 \sup_{0\ne v_h\in V_h}
 \frac{|b(v_h,q_h)|}
 {\|v_h\|_V\|q_h\|_Q}
-$
+$$
 
 について、ある $\beta_0>0$ が存在して全ての対象離散化で
 
-$
+$$
 \beta_h\ge\beta_0
-$
+$$
 
 とする。
 
 このとき
 
-$
+$$
 a(u_h,v_h)+b(v_h,p_h)=f(v_h),
 \qquad
 b(u_h,q_h)=g(q_h)
-$
+$$
 
 を全ての $v_h\in V_h,q_h\in Q_h$ に対して満たす離散解 $(u_h,p_h)$ は一意に存在する。
 
@@ -2291,23 +2291,23 @@ $$
 
 連続制約式
 
-$
+$$
 b(u,q_h)=g(q_h)
-$
+$$
 
 と離散制約式
 
-$
+$$
 b(u_h,q_h)=g(q_h)
-$
+$$
 
 の差を取ると
 
-$
+$$
 b(u_h-u,q_h)=0
 \qquad
 (\forall q_h\in Q_h).
-$
+$$
 
 従って
 
@@ -2459,31 +2459,31 @@ $$
 
 有限次元空間 $V_h,Q_h$ の基底をそれぞれ
 
-$
+$$
 \{\phi_1,\dots,\phi_n\},
 \qquad
 \{\psi_1,\dots,\psi_m\}
-$
+$$
 
 とし、
 
-$
+$$
 A_{ij}=a(\phi_j,\phi_i),
 \qquad
 B_{ki}=b(\phi_i,\psi_k),
-$
+$$
 
-$
+$$
 F_i=f(\phi_i),
 \qquad
 G_k=g(\psi_k)
-$
+$$
 
 と定める。
 
 このとき離散鞍点問題は
 
-$
+$$
 \boxed{
 \begin{pmatrix}
 A&B^\mathsf T\\
@@ -2497,17 +2497,17 @@ U\\P
 F\\G
 \end{pmatrix}
 }
-$
+$$
 
 と書ける。
 
 さらに $A$ が対称正定値なら、$U$ を消去して得られる圧力 Schur 補行列
 
-$
+$$
 \boxed{
 S=BA^{-1}B^\mathsf T
 }
-$
+$$
 
 は半正定値である。
 
