@@ -74,7 +74,7 @@ Monte Carlo 法と準 Monte Carlo 法では、同じ積分問題に対して
 | [NA11](../NA11/index.md) | Perron–Frobenius 理論と PageRank |
 | [NA12](../NA12/index.md) | 無制約最適化と共役勾配法 |
 
-**実装済み：NA1、NA2、NA3、NA4、NA5、NA6、NA7、NA8、NA9、NA10、NA11、NA12、FDM1、FDM2、FDM3、FDM4、FEM1、FEM2、FEM3、FEM4、FEM5、FEM6、FEM7、MC1。次の実装対象：MC2。**
+**実装済み：NA1、NA2、NA3、NA4、NA5、NA6、NA7、NA8、NA9、NA10、NA11、NA12、FDM1、FDM2、FDM3、FDM4、FEM1、FEM2、FEM3、FEM4、FEM5、FEM6、FEM7、MC1、MC2。次の実装対象：MC3。**
 
 数値解析では、単にアルゴリズムを列挙するのではなく、
 
@@ -122,11 +122,11 @@ Encore III の Sobolev 空間・弱形式・Lax–Milgram・Galerkin 法を cano
 | ID | 講座 |
 |---|---|
 | [MC1](../MC1/index.md) | Monte Carlo 法と統計的誤差 |
-| MC2 | 乱数生成とサンプリング |
+| [MC2](../MC2/index.md) | 乱数生成とサンプリング |
 | MC3 | 分散減少法 |
 | MC4 | Multilevel Monte Carlo |
 
-MC1 では積分を期待値へ移し、標本平均の不偏性、分散、二乗平均平方根誤差、強一致性、中心極限定理、Monte Carlo 標準誤差、近似信頼区間、離散化バイアスとの誤差分解までを閉じます。次は MC2 で、独立標本を実際に作るための疑似乱数・逆関数法・棄却法・再現性へ進みます。
+MC1 では積分を期待値へ移し、標本平均の不偏性、分散、二乗平均平方根誤差、強一致性、中心極限定理、Monte Carlo 標準誤差、近似信頼区間、離散化バイアスとの誤差分解までを閉じます。MC2 では疑似乱数生成器を決定論的状態機械として捉え、有限状態列の最終周期性、線形合同法、逆関数法、棄却法、受理率、シード・乱数ストリーム・サブストリームと再現性までを閉じます。次は MC3 で分散減少法へ進みます。
 
 ---
 
