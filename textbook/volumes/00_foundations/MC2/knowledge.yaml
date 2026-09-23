@@ -95,6 +95,15 @@ concepts:
     requires:
       - numerical.pseudorandom-number-generator
 
+  - id: numerical.random-substream
+    name: サブストリーム
+    kind: definition
+    aliases: [substream]
+    introduction: formal
+    introduction_aliases: ["定義（サブストリーム）"]
+    requires:
+      - numerical.random-number-stream
+
   - id: numerical.fixed-rng-contract-reproducibility
     name: 固定された生成契約の再現性
     kind: proposition
@@ -104,3 +113,4 @@ concepts:
     requires:
       - numerical.random-seed
       - numerical.random-number-stream
+      - numerical.random-substream
