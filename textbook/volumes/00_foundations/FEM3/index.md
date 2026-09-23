@@ -2597,7 +2597,7 @@ $$
 p\in P_1(K).
 $$
 
-一方、局所節点補間の定義から
+一方、[局所節点補間](#def-fem3-local-interpolation)の構成から
 
 $$
 I_Kp\in P_1(K)
@@ -3476,7 +3476,7 @@ $$
 
 が全境界頂点で成り立ちます。
 
-従って FEM2 の零 Dirichlet 有限要素空間の定義から
+従って [FEM2 の連続一次有限要素空間](../FEM2/index.md#def-fem2-conforming-p1-space)で定めた零 Dirichlet 空間に
 
 $$
 \boxed{
