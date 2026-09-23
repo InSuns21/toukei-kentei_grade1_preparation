@@ -457,7 +457,7 @@
 | 最悪誤差 | worst-case error | 指定した関数空間の単位球上で取った求積誤差の絶対値の上限 |
 | 重み付きアンカー型 Sobolev 空間 | weighted anchored Sobolev space | アンカーでの関数値と導関数ノルムを座標重み付きで測る Sobolev 型 RKHS |
 | 積型重み | product weights | 座標重み $\gamma_j$ から部分集合重み $\gamma_u=\prod_{j\in u}\gamma_j$ を作る重み系 |
-| 重み尾による実効切断次元 | weight-tail effective truncation dimension | 座標重みの尾和が指定許容量以下になる最小切断次元。ANOVA 分散に基づく実効次元とは区別する |
+| 重み尾による実効切断次元 | weight-tail effective truncation dimension | 座標重みの尾和が指定許容量以下になる最小切断次元。分散分析の分解に基づく実効次元とは区別する |
 | 情報複雑度 | information complexity | 指定した最悪誤差精度を達成するために必要な最小の関数評価点数 |
 | 多項式 tractability | polynomial tractability | 必要点数を精度の逆数と次元の多項式で一様に上から抑えられる性質 |
 | 強多項式 tractability | strong polynomial tractability | 必要点数を次元に依存せず精度の逆数の多項式だけで一様に上から抑えられる性質 |
