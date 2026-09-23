@@ -228,7 +228,7 @@ $(-1,1/2)$ は $\mathbb R$ で開なので、$[0,1/2)$ は $A$ の部分空間�
 > 位相空間 $X$ の点列 $(x_n)$ と点 $x\in X$ に対して、$x$ の任意の近傍 $N$ について十分大きい $n$ で $x_n\in N$ となるとき、$(x_n)$ は $x$ に **収束する** といい $x_n\to x$ と書く。
 <!-- formal-statement-end -->
 
-[F0-00B0の eventually](../F0_00B0_点列_部分列_十分大きい添字/index.md#def-f0-00b0-eventually)を展開すれば
+[F0-00B0の「十分大きい添字」](../F0_00B0_点列_部分列_十分大きい添字/index.md#def-f0-00b0-eventually)を展開すれば
 
 $$
 \forall N\text{（$x$ の近傍）}\ \exists n_0\ \forall n\ge n_0:\ x_n\in N
