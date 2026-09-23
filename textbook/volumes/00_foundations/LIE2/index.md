@@ -516,7 +516,7 @@ Lie 群の指数写像を後で微分するためには、滑らかさが必要�
 <!-- formal-statement-start -->
 > **定理（Lie 群の指数写像の滑らかさと単位元近傍での局所可逆性）**
 >
-> Lie 群 $G$ の指数写像
+> 前節で定義した写像
 >
 $$
 \exp_G:\mathfrak g\to G
@@ -625,7 +625,7 @@ $$
 を取ります。
 
 [Lie 群の指数写像の基本性質](#thm-lie2-exponential-basic)から
-$
+$$
 \exp_G(c(t))
 =
 \exp_G(tA)
