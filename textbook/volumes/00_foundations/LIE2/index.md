@@ -1790,7 +1790,7 @@ $$
 
 ### 証明の見取り図
 
-まず共役と Lie 群の指数写像の可換性から
+まず[共役と Lie 群の指数写像の可換性](#thm-lie2-conjugation-exponential)から
 $$
 \exp(sX)\exp(tY)\exp(-sX)
 =
@@ -2637,7 +2637,7 @@ $$
 とする。
 
 1. $K(s,0)=K(0,t)=e$ を示せ。
-2. 共役と Lie 群の指数写像の可換性から
+2. [共役と Lie 群の指数写像の可換性](#thm-lie2-conjugation-exponential)から
    $$
    K(s,t)
    =
@@ -2690,7 +2690,7 @@ K(0,t)
 e.
 $$
 
-2. 共役と Lie 群の指数写像の可換性より
+2. [共役と Lie 群の指数写像の可換性](#thm-lie2-conjugation-exponential)より
 $$
 \exp(sX)\exp(tY)\exp(-sX)
 =
