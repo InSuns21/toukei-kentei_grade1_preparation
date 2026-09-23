@@ -287,6 +287,21 @@
 | 交代群 | alternating group | 偶置換全体からなる $A_n$ |
 | 二面体群 | dihedral group | 本系列では正 $n$ 角形の対称性群を $D_n$ とし、その位数は $2n$ |
 | Cayley の定理 | Cayley theorem | 人名部分は英字表記を保持。任意の群を置換群の部分群として実現する定理 |
+| 群準同型 | group homomorphism | 本文では「準同型」または「群準同型」を主表記。記号 $f:G\to H$ は保持 |
+| 群同型 | group isomorphism | 全単射な群準同型。記号 $G\cong H$ は保持 |
+| 核 | kernel | 群準同型の文脈では単位元へ送られる元全体。曖昧な箇所では「準同型の核」と書く |
+| 像 | image | 写像一般の像と同じ語。群準同型では像が部分群になる |
+| 左剰余類 | left coset | $gH$。本文では英語を主語彙にしない |
+| 右剰余類 | right coset | $Hg$。非可換群では左剰余類と異なり得る |
+| 部分群の指数 | index of a subgroup | 記号 $[G:H]$。元の位数との混同を避ける |
+| Lagrange の定理 | Lagrange theorem | 人名部分は英字表記を保持。有限群で $|G|=[G:H]|H|$ |
+| 正規部分群 | normal subgroup | 記号 $N\trianglelefteq G$。左右剰余類の一致・共役不変性と同値 |
+| 商群 | quotient group | 正規部分群 $N$ による $G/N$。本文では factor group を主語彙にしない |
+| 標準射影 | canonical projection | 商群では $\pi:G\to G/N$, $g\mapsto gN$ |
+| 第一同型定理 | first isomorphism theorem | 群では $G/\ker f\cong\operatorname{Im}f$。線形代数版などと文脈を区別 |
+| 第二同型定理 | second isomorphism theorem | 群では $H/(H\cap N)\cong HN/N$ |
+| 第三同型定理 | third isomorphism theorem | $N,H\trianglelefteq G$, $N\subset H$ のとき $(G/N)/(H/N)\cong G/H$ |
+| 対応定理 | correspondence theorem | $N$ を含む $G$ の部分群と $G/N$ の部分群の対応。必要なら「群の対応定理」と書く |
 
 ## DREAM THEATER：数値解析の主表記
 
