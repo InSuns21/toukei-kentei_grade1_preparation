@@ -138,7 +138,7 @@ $$
 
 なので、$I$ は連続線形汎関数です。
 
-従って [Riesz 表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)を使えます。
+従って [Riesz表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)を使えます。
 
 <a id="thm-qmc2-integration-representer"></a>
 <!-- formal-statement-start -->
@@ -173,14 +173,14 @@ $$
 
 ### 証明の見取り図
 
-連続性を確認したので [Riesz 表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)から $h_I$ の存在一意性が得られます。
+連続性を確認したので [Riesz表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)から $h_I$ の存在一意性が得られます。
 
 残る式は、$h_I$ 自身を点 $\boldsymbol x$ で評価し、再生性を使えば出ます。Hilbert 空間値積分を新たに導入する必要はありません。
 
 <!-- proof-start -->
 ### 証明
 
-積分汎関数 $I$ は連続線形汎関数なので、[Riesz 表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)から一意な $h_I\in\mathcal H$ が存在して
+積分汎関数 $I$ は連続線形汎関数なので、[Riesz表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)から一意な $h_I\in\mathcal H$ が存在して
 
 $$
 I(f)
