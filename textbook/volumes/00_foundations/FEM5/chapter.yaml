@@ -8,7 +8,7 @@ prerequisites:
 official_scope: []
 learning_objectives:
   - 制約付き最小化から抽象鞍点問題を導入し、Lagrange 乗数を第二未知量として持つ理由を説明できる
-  - 積空間上の単純な強圧性が圧力方向で失敗することを示し、制約核 と inf-sup 条件の必要性を説明できる
+  - 積空間上の単純な強圧性が圧力方向で失敗することを示し、制約核と inf-sup 条件の必要性を説明できる
   - inf-sup 条件から制約右辺を満たす 有界な持ち上げ を Lax--Milgram を用いて構成し、そのノルム評価を証明できる
   - 制約核上の強圧性 と inf-sup 条件から Babuška--Brezzi 型の存在一意性と安定性評価を証明できる
   - 定常 Stokes 方程式の速度–圧力弱形式を導出し、圧力を L_0^2 に置く理由を定数圧力モードから説明できる
@@ -19,7 +19,7 @@ learning_objectives:
   - Taylor--Hood P2/P1 要素を代表的な inf-sup 安定な組 として位置付け、等次数の組 との違いを説明できる
 definitions:
   - { id: FEM5-DEF-01, name: 抽象鞍点問題 }
-  - { id: FEM5-DEF-02, name: 制約核 と inf-sup 条件 }
+  - { id: FEM5-DEF-02, name: 制約核と inf-sup 条件 }
   - { id: FEM5-DEF-03, name: Stokes 方程式の速度–圧力弱形式 }
   - { id: FEM5-DEF-04, name: Stokes 混合有限要素法 }
 theorems:
@@ -34,7 +34,7 @@ canonical_examples:
   - b(v,q)=q(v1+v2) で制約核 と inf-sup 定数 beta=sqrt(2) を直接計算する例
   - 流れ関数 psi=x^2(1-x)^2 y^2(1-y)^2 から零境界 発散零の 速度を構成する例
   - 定数圧力モードが H_0^1 速度から見えず L2 全体では inf-sup 定数が 0 になる確認
-  - B^T に非自明な kernel を持つ有限次元 組で 偽圧力モード が生じる例
+  - B^T に非自明な核を持つ有限次元の組で偽圧力モードが生じる例
   - Taylor--Hood P2/P1 を代表的な離散 inf-sup 安定な組 として位置付ける例
 problem_patterns:
   - FEM5-SADDLE-KKT-1
