@@ -1,0 +1,23 @@
+chapter: "RNG2"
+terms:
+  - term: 真のイデアル
+    english: proper ideal
+    meaning: 環 R 全体とは異なるイデアル I≠R。
+  - term: 素イデアル
+    english: prime ideal
+    meaning: 真のイデアル P で、ab∈P なら a∈P または b∈P を満たすもの。
+  - term: 極大イデアル
+    english: maximal ideal
+    meaning: 真のイデアル M で、M と R の間に真に中間のイデアルを持たないもの。
+  - term: イデアルの和
+    english: sum of ideals
+    meaning: I+J={i+j:i∈I, j∈J} で定めるイデアル。
+  - term: イデアルの積
+    english: product of ideals
+    meaning: 有限和 Σ i_k j_k で生成されるイデアル IJ。
+  - term: 互いに素なイデアル
+    english: comaximal ideals
+    meaning: I+J=R を満たす二つのイデアル。
+  - term: 中国剰余定理
+    english: Chinese remainder theorem
+    meaning: 互いに素なイデアルによる商を直積へ分解する同型定理。

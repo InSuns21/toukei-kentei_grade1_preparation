@@ -334,6 +334,13 @@
 | 主イデアル | principal ideal | 単位元を持つ可換環で、一つの元 $a$ の倍数全体 $(a)$ からなるイデアル |
 | 商環 | quotient ring | イデアル $I$ による剰余類 $R/I$ に和と積を入れた環 |
 | 環の第一同型定理 | first isomorphism theorem for rings | 環準同型 $f:R\to S$ に対し $R/\ker f\cong\operatorname{Im}f$ |
+| 真のイデアル | proper ideal | 環全体とは異なるイデアル $I\ne R$ |
+| 素イデアル | prime ideal | 真のイデアル $P$ で、$ab\in P$ なら $a\in P$ または $b\in P$ を満たすもの |
+| 極大イデアル | maximal ideal | 真のイデアル $M$ で、$M$ と $R$ の間に真に中間のイデアルを持たないもの |
+| イデアルの和 | sum of ideals | $I+J=\{i+j:i\in I,\ j\in J\}$ |
+| イデアルの積 | product of ideals | 有限和 $\sum i_kj_k$ で生成されるイデアル $IJ$ |
+| 互いに素なイデアル | comaximal ideals | $I+J=R$ を満たす二つのイデアル |
+| 中国剰余定理 | Chinese remainder theorem | 互いに素なイデアルによる商を直積へ分解する同型定理 |
 
 ## DREAM THEATER：数値解析の主表記
 
