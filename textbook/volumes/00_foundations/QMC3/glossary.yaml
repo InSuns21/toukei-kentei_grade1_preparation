@@ -9,7 +9,7 @@ terms:
   - term: 双対格子
     english: dual lattice
     meaning: 整数周波数ベクトル h のうち h dot z が N の倍数になるもの全体。格子平均で消えずに残る Fourier モードを表す。
-  - term: 単位トーラス上の Fourier 係数
+  - term: 単位周期立方体上の Fourier 係数
     english: Fourier coefficient on the unit torus
     meaning: 1周期に規格化した多次元周期関数から、整数周波数の複素指数モードの係数を一周期積分で取り出したもの。
   - term: 離散直交性
