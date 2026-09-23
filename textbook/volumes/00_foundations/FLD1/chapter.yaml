@@ -18,12 +18,12 @@ learning_objectives:
 definitions:
   - { id: FLD1-DEF-01, name: 体拡大・中間体・拡大次数 }
   - { id: FLD1-DEF-02, name: 代数的元・超越的元 }
-  - { id: FLD1-DEF-03, name: 最小多項式 }
+  - { id: FLD1-DEF-03, name: 代数的元の最小多項式 }
   - { id: FLD1-DEF-04, name: 単純拡大 }
 theorems:
   - { id: FLD1-THM-01, name: 拡大次数の塔の公式 }
   - { id: FLD1-PROP-01, name: 有限拡大の元は代数的 }
-  - { id: FLD1-THM-02, name: 最小多項式の存在・一意性と既約性 }
+  - { id: FLD1-THM-02, name: 代数的元の最小多項式の存在・一意性と既約性 }
   - { id: FLD1-THM-03, name: 単純代数拡大の商多項式環表示 }
   - { id: FLD1-COR-01, name: 単純代数拡大の次数公式 }
   - { id: FLD1-PROP-02, name: 既約多項式による単純拡大の構成 }
