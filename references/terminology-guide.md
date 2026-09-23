@@ -314,6 +314,14 @@
 | 中心化群 | centralizer | $C_G(x)$。指定した元 $x$ と可換する群要素全体 |
 | 類等式 | class equation | 有限群を中心と非中心共役類へ分割する等式。必要なら「群の類等式」と書く |
 | 有限 $p$-群 | finite p-group | 位数が素数 $p$ の冪である有限群。本文では $p$ を数式として保持 |
+| Cauchy の定理 | Cauchy theorem | 有限群の位数を素数 $p$ が割るとき、位数 $p$ の元が存在する定理。人名部分は英字表記を保持 |
+| $p$-部分群 | p-subgroup | 位数が $p$ の冪である部分群。$p$ は数式として保持 |
+| Sylow $p$-部分群 | Sylow p-subgroup | $|G|=p^n m$, $p\nmid m$ のとき位数 $p^n$ の部分群 |
+| Sylow の第一定理 | Sylow first theorem | Sylow $p$-部分群の存在を保証する定理 |
+| Sylow の第二定理 | Sylow second theorem | 任意の $p$-部分群の共役包含と Sylow $p$-部分群同士の共役を述べる定理 |
+| Sylow の第三定理 | Sylow third theorem | Sylow $p$-部分群数 $n_p$ が $n_p\mid m$ かつ $n_p\equiv1\pmod p$ を満たすことを述べる定理 |
+| 正規化群 | normalizer | $N_G(H)=\{g\in G:gHg^{-1}=H\}$。中心化群と区別する |
+| 内部半直積 | internal semidirect product | $N\trianglelefteq G$, $H\le G$, $N\cap H=\{e\}$, $NH=G$ による分解 |
 
 ## DREAM THEATER：数値解析の主表記
 
