@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - RNG4
+  - LA1
 forward_references: []
 
 concepts:
@@ -28,14 +29,14 @@ concepts:
     aliases: [degree of a field extension]
     introduction: formal
     introduction_aliases: ["定義（体拡大・中間体・拡大次数）"]
-    requires: [algebra.field-extension]
+    requires: [algebra.field-extension, linear.vector-space, linear.dimension]
 
   - id: algebra.tower-law
     name: 拡大次数の塔の公式
     kind: theorem
     aliases: [tower law]
     introduction: formal
-    requires: [algebra.extension-degree]
+    requires: [algebra.extension-degree, linear.basis, linear.linear-independence]
 
   - id: algebra.algebraic-element
     name: 代数的元
