@@ -1006,7 +1006,7 @@ $$
 
 ---
 
-## 7. 相対 Frobenius は有限体拡大の周期を測る
+## 7. $q$ 乗自己同型は有限体拡大の周期を測る
 
 $q=p^r$ とします。
 
@@ -1014,7 +1014,7 @@ $$
 \mathbb F_q\subset\mathbb F_{q^m}
 $$
 
-では $p$ 乗 Frobenius を $r$ 回反復した
+では前節の $p$ 乗写像を $r$ 回反復した
 
 $$
 x\longmapsto x^q
