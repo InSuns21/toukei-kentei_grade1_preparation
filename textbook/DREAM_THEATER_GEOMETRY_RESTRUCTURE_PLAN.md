@@ -31,7 +31,7 @@
 
 までを、学部標準の一本の主線として整備する。
 
-Lie 群・Lie 環は幾何学本線へ必須 prerequisite としない。Lie 群へ入る前に `DREAM_THEATER_ABSTRACT_ALGEBRA_PLAN.md` の GRP1--GRP2 で群論の基礎を整備し、その後に `LIE1--LIE4` へ進む。抽象代数系列自体は Lie 群の補助に限定せず、RNG1--RNG2--MOD1--GRP3--FLD1--FLD2 まで進めて群・環・体の学部標準コアを閉じる。表現論は Lie 群の prerequisite にはせず、さらに後続の独立系列へ送る。
+Lie 群・Lie 環は幾何学本線へ必須 prerequisite としない。Lie 群へ入る前に `DREAM_THEATER_ABSTRACT_ALGEBRA_PLAN.md` の GRP1--GRP3 で必要な群論を整備し、その後に `LIE1--LIE4` へ進む。抽象代数系列自体は Lie 群の補助に限定せず、GRP1--GRP4・RNG1--RNG4・MOD1--MOD2・FLD1--FLD5 の15講で群・環・体の学部標準コアを閉じる。表現論は Lie 群の prerequisite にはせず、さらに後続の独立系列へ送る。
 
 ---
 
@@ -705,7 +705,7 @@ Lie 系列が直接要求するのはその前半だけである。
 
 ### LIE1 Lie 群・Lie 環・不変ベクトル場
 
-**prerequisites:** GRP1, GEO5
+**prerequisites:** GRP2, GEO5
 
 - Lie 群
 - 左移動・右移動
@@ -714,11 +714,11 @@ Lie 系列が直接要求するのはその前半だけである。
 - Lie 括弧
 - 行列 Lie 群の基本例
 
-GRP1 の群・準同型・商群までを既知とし、GEO5 の滑らかなベクトル場・流れ・Lie 括弧を Lie 群上へ移す。
+GRP2 の群・準同型・商群までを既知とし、GEO5 の滑らかなベクトル場・流れ・Lie 括弧を Lie 群上へ移す。
 
 ### LIE2 1 パラメータ部分群・指数写像・Adjoint 表現
 
-**prerequisites:** LIE1, GRP2, ODE4
+**prerequisites:** LIE1, GRP3, ODE4
 
 - 1 パラメータ部分群
 - 指数写像
@@ -726,7 +726,7 @@ GRP1 の群・準同型・商群までを既知とし、GEO5 の滑らかなベ�
 - Ad / ad
 - 共役
 
-GRP2 の群作用・共役を滑らかな自己同型へ持ち上げ、`Ad` を一般表現論の黒箱として使わず、その定義と準同型性を直接確認する。
+GRP3 の群作用・共役を滑らかな自己同型へ持ち上げ、`Ad` を一般表現論の黒箱として使わず、その定義と準同型性を直接確認する。
 
 ### LIE3 Lie 部分群・古典群
 
@@ -739,7 +739,7 @@ GRP2 の群作用・共役を滑らかな自己同型へ持ち上げ、`Ad` を�
 
 ### LIE4 Lie 群作用・軌道・等質空間・Maurer--Cartan
 
-**prerequisites:** LIE3, GRP2, GEO3
+**prerequisites:** LIE3, GRP3, GEO3
 
 - 滑らかな群作用
 - 軌道・安定化群
@@ -748,7 +748,7 @@ GRP2 の群作用・共役を滑らかな自己同型へ持ち上げ、`Ad` を�
 - Maurer--Cartan 形式
 - Maurer--Cartan 方程式
 
-GRP2 の集合上の群作用・軌道・安定化群を再定義せず、滑らかさと多様体構造を追加して Lie 群作用へ進む。
+GRP3 の集合上の群作用・軌道・安定化群を再定義せず、滑らかさと多様体構造を追加して Lie 群作用へ進む。
 
 表現論、半単純 Lie 環、root system、principal bundle / gauge theory は LIE1--LIE4 の停止線の外とする。
 
@@ -790,14 +790,17 @@ GEO14 + GEO16 ───→ GEO17
 GEO15 + GEO17 ───→ GEO18
 GEO8 + GEO11 + GEO16 ─→ GEO19
 
-GRP1 群・準同型・商群 ─→ GRP2 群作用・共役・Sylow
-GRP1 + GEO5 ───────────────→ LIE1
-LIE1 + GRP2 + ODE4 ───────→ LIE2
-LIE2 + LA6 ────────────────→ LIE3
-LIE3 + GRP2 + GEO3 ───────→ LIE4
-
-GRP2 → RNG1 → RNG2 → MOD1 → GRP3
-                    └──────→ FLD1 → FLD2
+GRP1 群・部分群・巡回群・置換群
+  ↓
+GRP2 準同型・剰余類・正規部分群・商群
+  ├──────────────→ LIE1 + GEO5
+  ├──────────────→ RNG1 → RNG2 → RNG3 → RNG4
+  ↓                                      ├→ MOD1 → MOD2
+GRP3 群作用・軌道・共役                  └→ FLD1 → FLD2 → FLD3 → FLD4 → FLD5
+  ├──────────────→ LIE2 + LIE1 + ODE4
+  ├──────────────→ LIE4 + LIE3 + GEO3
+  ↓
+GRP4 Cauchy・Sylow・有限群
 （抽象代数全系列は別計画を正本とする）
 ```
 
@@ -970,15 +973,17 @@ Phase 3 完了。GEO10 → GEO11 → GEO12 → GEO13 → GEO14 完了。
 - GEO18 比較幾何 ✅ 2026-09-23
 - GEO19 Gauss--Bonnet ✅ 2026-09-23
 
-Phase 4 完了。GEO15 → GEO16 → GEO17 → GEO18 → GEO19 を完了し、多様体・微分幾何主線 GEO1--GEO19 は完走した。次の独立系列の実装開始点は **Phase 5：GRP1「群・準同型・商群」** とする。
+Phase 4 完了。GEO15 → GEO16 → GEO17 → GEO18 → GEO19 を完了し、多様体・微分幾何主線 GEO1--GEO19 は完走した。次の独立系列の実装開始点は **Phase 5：GRP1「群・部分群・巡回群・置換群」** とする。
 
 ### Phase 5：抽象代数系列の開始
 
-- GRP1 群・準同型・剰余類・商群
-- GRP2 群作用・共役・Sylow
-- 後続：RNG1 → RNG2 → MOD1 → GRP3 → FLD1 → FLD2
+- GRP1 群・部分群・巡回群・置換群
+- GRP2 準同型・剰余類・正規部分群・商群
+- GRP3 群作用・軌道・安定化群・共役
+- GRP4 Cauchy の定理・Sylow の定理・有限群への応用
+- 後続：RNG1--RNG4 → MOD1--MOD2 / FLD1--FLD5
 
-抽象代数系列全体の設計は `DREAM_THEATER_ABSTRACT_ALGEBRA_PLAN.md` を正本とする。Lie 系列の開始に必要なのは GRP 前半だけであり、環論・体論の完走は要求しない。
+抽象代数系列全体の設計は `DREAM_THEATER_ABSTRACT_ALGEBRA_PLAN.md` を正本とする。全15講を1講1本の主線へ分割する。Lie 系列の開始に必要なのは GRP2 まで、Adjoint 表現・Lie 群作用まで進むために必要なのは GRP3 までであり、GRP4・環論・加群論・体論の完走は要求しない。
 
 ### Phase 6：独立 Lie 系列
 
@@ -987,7 +992,7 @@ Phase 4 完了。GEO15 → GEO16 → GEO17 → GEO18 → GEO19 を完了し、�
 - LIE3 Lie 部分群・古典群
 - LIE4 Lie 群作用・軌道・等質空間・Maurer--Cartan
 
-GEO 系列を全て完了してから抽象代数・Lie 系列へ進む必要はないが、LIE1 の実装開始条件は GRP1 の完了、LIE2 の開始条件は GRP2 の完了とする。RNG / MOD / GRP3 / FLD は Lie 群とは独立に学部標準代数を完結させる。reader-facing の標準読順では Riemann 幾何主線を抽象代数・Lie 群なしで完走できる構成を維持する。
+GEO 系列を全て完了してから抽象代数・Lie 系列へ進む必要はないが、LIE1 の実装開始条件は GRP2 の完了、LIE2 / LIE4 の開始条件は GRP3 の完了とする。GRP4 / RNG / MOD / FLD は Lie 群とは独立に学部標準代数を完結させる。reader-facing の標準読順では Riemann 幾何主線を抽象代数・Lie 群なしで完走できる構成を維持する。
 
 ---
 
@@ -1109,20 +1114,26 @@ Gauss--Bonnet
 抽象代数・Lie 群はこの主線から独立に、
 
 ```text
-GRP1 → GRP2 → RNG1 → RNG2 → MOD1 → GRP3
-                 └────────────→ FLD1 → FLD2
+GRP1 → GRP2 → GRP3 → GRP4
+          │       │
+          │       ├────────────→ LIE2 / LIE4
+          │       └────────────→ FLD3 / FLD4
+          ├────────────→ LIE1
+          └→ RNG1 → RNG2 → RNG3 → RNG4
+                                  ├→ MOD1 → MOD2
+                                  └→ FLD1 → FLD2 → FLD3 → FLD4 → FLD5
 
-GRP1 + GEO5
+GRP2 + GEO5
   ↓
 LIE1 Lie 群・Lie 環・不変ベクトル場
   ↓
-LIE2 指数写像・Adjoint   ← GRP2 + ODE4
+LIE2 指数写像・Adjoint   ← GRP3 + ODE4
   ↓
 LIE3 Lie 部分群・古典群 ← LA6
   ↓
-LIE4 Lie 群作用・等質空間・Maurer--Cartan ← GRP2 + GEO3
+LIE4 Lie 群作用・等質空間・Maurer--Cartan ← GRP3 + GEO3
 ```
 
-として伸ばす。抽象代数側では群・環・体の学部標準コアを独立に完結させ、Lie 系列は GRP1--GRP2 だけを直接再利用する。表現論はこの主線の前提ではなく、LIE1--LIE4 の後続系列とする。
+として伸ばす。抽象代数側では群・環・体の学部標準コアを15講で独立に完結させ、Lie 系列は GRP2--GRP3 までを直接再利用する。表現論はこの主線の前提ではなく、LIE1--LIE4 の後続系列とする。
 
 この構成により、現在の VC 系列の停止線を自然に引き継ぎつつ、数学科・理論物理系の学部で期待される多様体・微分幾何の主線を、後続の幾何解析・確率解析・数理物理へ接続できる canonical series として整備する。
