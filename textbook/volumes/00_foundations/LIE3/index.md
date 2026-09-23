@@ -1042,13 +1042,30 @@ e^{-X}e^X
 I.
 $$
 
-また
+歪対称行列では対角成分が0なので $\operatorname{tr}X=0$ です。そこで $A(t)=e^{tX}$ と置きます。LIE2 の行列指数の微分公式から
 
-$$
-\det(e^X)=e^{\operatorname{tr}X}=1
-$$
+$
+A'(t)=A(t)X
+$
 
-です。歪対称行列の対角成分は0なので $\operatorname{tr}X=0$ だからです。
+であり、§5 で求めた行列式の微分公式を使うと
+
+$
+\frac{d}{dt}\det A(t)
+=
+\det A(t)\,
+\operatorname{tr}\!\left(A(t)^{-1}A'(t)\right)
+=
+\det A(t)\operatorname{tr}X
+=
+0.
+$
+
+したがって $\det A(t)$ は定数です。$A(0)=I$ なので $\det A(0)=1$ であり、
+
+$
+\det(e^X)=1.
+$
 
 従って
 
