@@ -12,7 +12,7 @@ terms:
   - term: 性質ベーステスト
     english: property-based test
     meaning: 特定の一つの期待値だけでなく、多数の入力に対して満たすべき不変性や関係を検査するテスト。
-  - term: smoke test
+  - term: スモークテスト
     english: smoke test
     meaning: 実行基盤の主要機能が最低限つながっていることを短時間で確認する検査。
   - term: Cache Storage
