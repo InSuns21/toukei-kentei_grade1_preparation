@@ -1,0 +1,47 @@
+id: "GRP4"
+title: "抽象代数 IV：Cauchy の定理・Sylow の定理・有限群への応用"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GRP3
+official_scope: []
+learning_objectives:
+  - Cauchy の定理を群作用による数え上げから証明できる
+  - p-部分群と Sylow p-部分群を区別し、群の位数から Sylow 部分群の位数を決定できる
+  - 類等式と中心・中心化群を用いて Sylow の第一定理を証明できる
+  - p-群作用の固定点合同式を軌道分解から導ける
+  - 左剰余類集合への作用を用いて Sylow の第二定理を証明できる
+  - 正規化群と共役作用を用いて Sylow の第三定理を証明できる
+  - Sylow 部分群数の制約から一意性・正規性を判定できる
+  - 位数 pq などの小さい有限群に Sylow 理論を適用し、内部半直積の形まで構造を読める
+definitions:
+  - { id: GRP4-DEF-01, name: p-部分群・Sylow p-部分群 }
+  - { id: GRP4-DEF-02, name: 部分群の正規化群 }
+  - { id: GRP4-DEF-03, name: 内部半直積 }
+theorems:
+  - { id: GRP4-THM-01, name: 有限群の Cauchy の定理 }
+  - { id: GRP4-THM-02, name: Sylow の第一定理 }
+  - { id: GRP4-PROP-01, name: p-群作用の固定点合同式 }
+  - { id: GRP4-THM-03, name: Sylow の第二定理 }
+  - { id: GRP4-THM-04, name: Sylow の第三定理 }
+  - { id: GRP4-PROP-02, name: 一意な Sylow 部分群と正規性 }
+  - { id: GRP4-THM-05, name: 位数 pq の群が巡回群になる十分条件 }
+canonical_examples:
+  - S_3 の Sylow 2-部分群・Sylow 3-部分群
+  - S_3 の部分群の正規化群
+  - S_3 = C_3 ⋊ C_2 という内部半直積
+  - A_4 の正規 Sylow 2-部分群と4個の Sylow 3-部分群
+  - 位数15の群の巡回性
+  - 位数6の群の C_6 と S_3 への分類
+problem_patterns:
+  - GRP4-CAUCHY-ACTION-1
+  - GRP4-SYLOW-EXISTENCE-1
+  - GRP4-SYLOW-CONJUGACY-1
+  - GRP4-SYLOW-COUNT-1
+  - GRP4-NORMAL-SYLOW-1
+  - GRP4-SMALL-FINITE-GROUP-1
+  - GRP4-SEMIDIRECT-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 6.0, review: 0.5 }
