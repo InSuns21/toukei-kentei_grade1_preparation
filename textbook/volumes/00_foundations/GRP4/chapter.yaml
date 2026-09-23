@@ -9,7 +9,7 @@ learning_objectives:
   - Cauchy の定理を群作用による数え上げから証明できる
   - p-部分群と Sylow p-部分群を区別し、群の位数から Sylow 部分群の位数を決定できる
   - 類等式と中心・中心化群を用いて Sylow の第一定理を証明できる
-  - p-群作用の固定点合同式を軌道分解から導ける
+  - p-群作用の固定点の法 p 数え上げを軌道分解から導ける
   - 左剰余類集合への作用を用いて Sylow の第二定理を証明できる
   - 正規化群と共役作用を用いて Sylow の第三定理を証明できる
   - Sylow 部分群数の制約から一意性・正規性を判定できる
@@ -21,7 +21,7 @@ definitions:
 theorems:
   - { id: GRP4-THM-01, name: 有限群の Cauchy の定理 }
   - { id: GRP4-THM-02, name: Sylow の第一定理 }
-  - { id: GRP4-PROP-01, name: p-群作用の固定点合同式 }
+  - { id: GRP4-PROP-01, name: p-群作用の固定点の法 p 数え上げ }
   - { id: GRP4-THM-03, name: Sylow の第二定理 }
   - { id: GRP4-THM-04, name: Sylow の第三定理 }
   - { id: GRP4-PROP-02, name: 一意な Sylow 部分群と正規性 }
