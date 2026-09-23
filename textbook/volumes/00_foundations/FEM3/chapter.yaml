@@ -1,0 +1,45 @@
+id: "FEM3"
+title: "有限要素補間とメッシュ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FEM2
+official_scope: []
+learning_objectives:
+  - 一次三角形要素の局所節点補間作用素を定義し、重心座標を使って具体的な補間関数を計算できる
+  - 節点補間が一次多項式を完全再現し、基準三角形から一般要素へのアフィン写像と可換することを証明できる
+  - 要素直径 h_K・内接円半径 rho_K・形状比 h_K/rho_K を用いて形状正則なメッシュ族を定義し、メッシュ幅の細かさと要素形状の良さを区別できる
+  - アフィン要素写像の行列 B_K とその逆行列のノルムを h_K・rho_K で評価し、形状正則性が勾配変換を一様に制御する機構を説明できる
+  - 基準三角形上の一次補間誤差評価を、一次多項式再現性と二階微分による制御から証明できる
+  - 基準要素の評価を一般三角形へ移し、L2 誤差が h_K^2、H1 半ノルム誤差が形状正則性の下で h_K に比例することを導ける
+  - 局所評価を全要素で二乗和して、大域節点補間の L2・H1 誤差評価を証明できる
+  - つぶれた三角形の具体例から、h_K だけを小さくしても H1 補間誤差定数は一様にならないことを説明できる
+definitions:
+  - { id: FEM3-DEF-01, name: 一次三角形要素の局所節点補間 }
+  - { id: FEM3-DEF-02, name: 要素形状比と形状正則なメッシュ族 }
+  - { id: FEM3-DEF-03, name: 大域節点補間 }
+theorems:
+  - { id: FEM3-PROP-01, name: 節点補間の一次多項式再現性とアフィン可換性 }
+  - { id: FEM3-LEM-01, name: アフィン要素写像の幾何評価 }
+  - { id: FEM3-THM-01, name: 基準三角形上の一次補間誤差評価 }
+  - { id: FEM3-THM-02, name: 一般三角形上の局所一次補間誤差評価 }
+  - { id: FEM3-THM-03, name: 形状正則メッシュ上の大域一次補間誤差評価 }
+canonical_examples:
+  - 基準三角形上で u(x,y)=x^2+y^2 を頂点補間して I_Ku=x+y を得る計算
+  - 相似な直角三角形族で形状比が h に依存しないことの確認
+  - 頂点 (0,0),(1,0),(1/2,epsilon) を持つつぶれた三角形で u=x^2 の補間勾配が 1/epsilon に増幅される例
+  - 単位正方形の二三角形分割で局所補間が共通辺上で一致し大域連続になる確認
+  - 非一様な形状正則メッシュで局所誤差を二乗和して大域評価へ移す計算
+problem_patterns:
+  - FEM3-LOCAL-INTERPOLANT-1
+  - FEM3-P1-REPRODUCTION-1
+  - FEM3-SHAPE-RATIO-1
+  - FEM3-GLOBAL-CONTINUITY-1
+  - FEM3-SKINNY-TRIANGLE-1
+  - FEM3-AFFINE-SCALING-1
+  - FEM3-LOCAL-TO-GLOBAL-1
+  - FEM3-INTERPOLATION-SYNTHESIS-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.5, exercises: 5.0, review: 0.5 }
