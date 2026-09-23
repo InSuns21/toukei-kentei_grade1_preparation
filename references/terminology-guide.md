@@ -165,8 +165,8 @@
 | 特殊直交群 | special orthogonal group | $O(n)$ のうち行列式が1の行列全体 $SO(n)$ |
 | ユニタリ群 | unitary group | $A^*A=I$ を満たす複素行列全体 $U(n)$ |
 | 特殊ユニタリ群 | special unitary group | $U(n)$ のうち行列式が1の行列全体 $SU(n)$ |
-| 歪対称行列 | skew-symmetric matrix | $X^\mathsf{T}=-X$ を満たす実行列 |
-| 歪 Hermitian 行列 | skew-Hermitian matrix | $X^*=-X$ を満たす複素行列。人名由来部分 Hermitian は英字表記を保持 |
+| 反対称行列 | skew-symmetric matrix | $X^\mathsf{T}=-X$ を満たす実行列 |
+| 反 Hermitian 行列 | skew-Hermitian matrix | $X^*=-X$ を満たす複素行列。人名由来部分 Hermitian は英字表記を保持 |
 | 線形分布 | distribution / smooth distribution | 多様体上の一定階数の接方向の族。必要なら「滑らかな線形分布」と明示 |
 | 積分多様体 | integral manifold | 線形分布の接方向を実現するはめ込み多様体 |
 | 対合的な分布 | involutive distribution | Lie 括弧で閉じている線形分布 |
