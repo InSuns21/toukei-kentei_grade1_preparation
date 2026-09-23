@@ -49,7 +49,7 @@ concepts:
       - algebra.group-class-equation
       - algebra.group-center
       - algebra.element-centralizer
-      - algebra.correspondence-theorem
+      - algebra.correspondence-theorem-group
 
   - id: algebra.p-group-fixed-point-congruence
     name: p-群作用の固定点合同式
@@ -128,4 +128,3 @@ concepts:
     requires:
       - algebra.normal-subgroup
       - algebra.subgroup
-      - algebra.group-product
