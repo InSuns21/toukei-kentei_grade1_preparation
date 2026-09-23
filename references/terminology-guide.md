@@ -267,6 +267,27 @@
 | 全 Gauss 曲率 | total Gaussian curvature | 曲面上の $\int_M K\,dA$。閉向き付け可能曲面では $2\pi\chi(M)$ に等しい |
 | 球面過剰 | spherical excess | 球面三角形の内角和から $\pi$ を引いた量 |
 
+## DREAM THEATER：抽象代数の主表記
+
+| 主表記 | 補助的な英語表記 | 備考 |
+|---|---|---|
+| 群 | group | 本文では日本語主表記 |
+| 可換群 | abelian group | 「Abelian group」を本文主語彙にしない。「Abel 群」は補助的別称に留める |
+| 部分群 | subgroup | 記号 $H\le G$ は使用可 |
+| 生成部分群 | generated subgroup | $\langle S\rangle$、$\langle g\rangle$ は数式中で使用 |
+| 元の位数 | order of an element | 群そのものの元の個数と区別し、必要なら「元の位数」と明記 |
+| 巡回群 | cyclic group | 本文では日本語主表記 |
+| 直積群 | direct product group | 集合の直積と区別が必要な箇所では「直積群」と書く |
+| 置換 | permutation | 有限集合の自己全単射 |
+| 対称群 | symmetric group | $S_n$、$\operatorname{Sym}(X)$ は数式中で使用 |
+| 巡回置換 | cycle / cyclic permutation | 置換の巡回表示を指す。巡回群とは区別する |
+| 転倒 | inversion | 置換の一列表記に対する $i<j$, $\sigma(i)>\sigma(j)$ の組。本文では「inversion」を主表記にしない |
+| 互換 | transposition | 2点だけを交換する置換 |
+| 置換の偶奇 | parity of a permutation | 偶置換・奇置換を区別する |
+| 交代群 | alternating group | 偶置換全体からなる $A_n$ |
+| 二面体群 | dihedral group | 本系列では正 $n$ 角形の対称性群を $D_n$ とし、その位数は $2n$ |
+| Cayley の定理 | Cayley theorem | 人名部分は英字表記を保持。任意の群を置換群の部分群として実現する定理 |
+
 ## DREAM THEATER：数値解析の主表記
 
 | 主表記 | 補助的な英語表記 | 備考 |
