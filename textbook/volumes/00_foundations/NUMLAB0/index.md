@@ -4,10 +4,11 @@ Encore V の理論講座では、数式と証明だけで内容を追えるこ�
 
 ここから始まる NUMLAB 系列では、その理論をブラウザ上の数値実験へ接続します。
 
-NUMLAB0 の目的は、新しい数値解析の理論を増やすことではありません。後続の演習で毎回、Python 実行環境、timeout、判定、進捗保存、オフライン動作を作り直さないため、**共通の実行基盤をここで一度だけ確立する**ことが目的です。
+NUMLAB0 の目的は、新しい数値解析の理論を増やすことではありません。後続の演習で毎回、Python 実行環境、時間制限、判定、進捗保存、オフライン動作を作り直さないため、**共通の実行基盤をここで一度だけ確立する**ことが目的です。
 
 ---
 
+<a id="numlab0-runtime-architecture"></a>
 ## 1. 採用する実行方式
 
 本系列では、ブラウザ内 Python ランタイムとして **Pyodide 314.0.7** を固定して使います。
@@ -41,7 +42,7 @@ Python 実行をページの主スレッドへ直接載せません。長い計�
 Worker は、
 
 - Pyodide の初期化
-- 必要な Python package の読込み
+- 必要な Python パッケージ の読込み
 - ユーザーコードの実行
 - 自動テストの実行
 - 標準出力・標準エラー出力の回収
@@ -84,24 +85,25 @@ toukei-grade1-numerical-runtime-v1
 1. module Worker を読む
 2. Pyodide 本体を読む
 3. コード中の import を調べる
-4. NumPy / SciPy / Matplotlib など必要な package を読む
+4. NumPy / SciPy / Matplotlib など必要な パッケージを読む
 5. 取得した固定バージョン資産を Cache Storage に保存する
 
 という処理が走ります。
 
-一度取得済みなら、その資産がブラウザに残っている限り、同じ package を使う演習はネットワークなしでも実行できます。
+一度取得済みなら、その資産がブラウザに残っている限り、同じパッケージを使う演習はネットワークなしでも実行できます。
 
 > ブラウザがストレージを削除した場合や、サイトデータを手動削除した場合は再取得が必要です。
 
 教材全体の「オフライン保存」と Python ランタイムの保存は役割が異なります。
 
 - 教材 Markdown・画像など：教材のオフライン保存
-- Pyodide・Python package：ラボ初回実行時の永続 runtime cache
+- Pyodide・Python パッケージ：ラボ初回実行時の永続 ランタイムキャッシュ
 
 です。
 
 ---
 
+<a id="numlab0-lab-format"></a>
 ## 4. ラボ記法
 
 後続章では、実行したいコードを通常の `python` fence ではなく、次の専用 fence に置きます。
@@ -124,7 +126,7 @@ assert ...
 ```
 ~~~
 
-を置くと、そのテストは読者画面では隠され、ユーザーコード実行後に同じ Python namespace で評価されます。
+を置くと、そのテストは読者画面では隠され、ユーザーコード実行後に同じ Python 名前空間 で評価されます。
 
 `lab-id` は全ラボで一意にします。進捗保存のキーにも使うため、後から意味なく変更しません。
 
@@ -132,7 +134,8 @@ assert ...
 
 ---
 
-## 5. timeout は Worker ごと破棄する
+<a id="numlab0-timeout"></a>
+## 5. 時間制限では Worker ごと破棄する
 
 Python が
 
@@ -157,26 +160,27 @@ while True:
 
 ---
 
-## 6. 実行ごとに Python namespace を分離する
+## 6. 実行ごとに Python 名前空間 を分離する
 
 Worker 自体は package 読込みを再利用するため共有します。
 
 ただし、前のラボで作った変数を次のラボが偶然利用すると、自動テストの意味が壊れます。
 
-そこで各実行では独立した namespace を作り、
+そこで各実行では独立した名前空間 を作り、
 
 ~~~text
 ユーザーコード
 ↓
-同じ namespace で hidden test
+同じ名前空間 で 非表示テスト
 ~~~
 
 の順に実行します。
 
-別のラボ実行で残った Python 変数は利用しません。
+別のラボ実行で残った Python の変数は利用しません。
 
 ---
 
+<a id="numlab0-tolerance"></a>
 ## 7. 数値判定では完全一致を要求しない
 
 浮動小数点計算では `computed == expected` を常に要求するのは不適切です。
@@ -207,6 +211,7 @@ $$
 
 ---
 
+<a id="numlab0-property-testing"></a>
 ## 8. 性質ベーステスト
 
 特定の一例だけでなく、多数の入力に対する不変性を確認したい場合があります。
@@ -227,15 +232,15 @@ center(x + c) ≈ center(x)
 
 が成り立つはずです。
 
-NUMLAB では、このような**関数が満たすべき性質そのもの**を hidden test に書きます。
+NUMLAB では、このような**関数が満たすべき性質そのもの**を 非表示テスト に書きます。
 
 乱数を使う場合も、テスト用乱数生成器の初期化値を固定し、失敗を再現できるようにします。
 
 ---
 
-## 9. smoke lab 1：ランタイムと科学技術計算 package
+## 9. スモークラボ 1：ランタイムと科学技術計算 package
 
-最初の実行は大きめの package を読むため時間がかかることがあります。
+最初の実行は大きめの パッケージを読むため時間がかかることがあります。
 
 実行後に Pyodide 関連資産が Cache Storage へ残るので、後続実行は軽くなります。
 
@@ -264,11 +269,11 @@ assert x.shape == (3,)
 assert np.isfinite(x).all()
 ```
 
-このラボが通れば、Python 実行、NumPy、SciPy、Matplotlib、hidden test までの基本経路がつながっています。
+このラボが通れば、Python 実行、NumPy、SciPy、Matplotlib、非表示テスト までの基本経路がつながっています。
 
 ---
 
-## 10. smoke lab 2：数値 tolerance
+## 10. スモークラボ 2：数値 tolerance
 
 ```python-lab
 # lab-id: NUMLAB0-TOLERANCE
@@ -299,7 +304,7 @@ assert not close_enough(1.0, 1.01, atol=1e-12, rtol=1e-9)
 
 ---
 
-## 11. smoke lab 3：性質ベーステスト
+## 11. スモークラボ 3：性質ベーステスト
 
 ```python-lab
 # lab-id: NUMLAB0-PROPERTY
@@ -342,7 +347,7 @@ for _ in range(30):
 
 ---
 
-## 12. smoke lab 4：Matplotlib 図の回収
+## 12. スモークラボ 4：Matplotlib 図の回収
 
 Worker は DOM を直接操作できません。
 
@@ -378,28 +383,29 @@ assert np.all(error > 0.0)
 
 ---
 
+<a id="numlab0-progress-storage"></a>
 ## 13. 進捗保存
 
 各ラボについて保存するのは、
 
-- 初期コードの hash
+- 初期コードのハッシュ
 - 最後に編集したコード
-- hidden test を通過したか
+- 非表示テスト を通過したか
 - 完了日時
 
 です。
 
 保存先は `localStorage` です。
 
-教材側の初期コードが更新されると hash が変わるため、古い保存コードを新しい教材へ無条件に復元しません。
+教材側の初期コードが更新されると ハッシュが変わるため、古い保存コードを新しい教材へ無条件に復元しません。
 
-「初期コードへ戻す」は、そのラボの編集コード・完了状態・出力・図を初期化します。Python runtime 全体や他のラボ進捗、Pyodide package の Cache Storage は消しません。
+「初期コードへ戻す」は、そのラボの編集コード・完了状態・出力・図を初期化します。Python ランタイム全体や他のラボ進捗、Pyodide package の Cache Storage は消しません。
 
 ---
 
 ## 14. テストを hidden にする理由
 
-hidden test は「答えを秘密にする」ためではありません。
+非表示テスト は「答えを秘密にする」ためではありません。
 
 主な目的は、教材本文をテスト実装で埋めないことです。
 
@@ -468,16 +474,16 @@ NUMLAB0 追加に合わせて、Pages validation へ数値ラボ基盤の検査�
 
 CI は少なくとも、
 
-- runtime JavaScript の構文
+- ランタイム JavaScript の構文
 - module Worker の構文
 - Pyodide version の固定
 - Worker 分離
-- runtime asset が Pages artifact へコピーされること
-- Service Worker の永続 runtime cache 設定
+- ランタイム資産 が Pages artifact へコピーされること
+- Service Worker の永続 ランタイムキャッシュ 設定
 - NUMLAB0 の全 `python-lab` に一意な `lab-id` があること
-- timeout が許容範囲内であること
+- 時間制限が許容範囲内であること
 - 各 `python-lab` の直後に `python-test` があること
-- hidden test に少なくとも一つ `assert` があること
+- 非表示テスト に少なくとも一つ `assert` があること
 
 を確認します。
 
@@ -495,13 +501,13 @@ CI は少なくとも、
 2. Python は module Worker で動く。
 3. NumPy / SciPy / Matplotlib が読み込める。
 4. 実行中の Worker を停止できる。
-5. timeout で Worker が破棄される。
-6. hidden test が同じ実行 namespace を検査できる。
+5. 時間超過で Worker が破棄される。
+6. 非表示テスト が同じ実行 namespace を検査できる。
 7. tolerance test が書ける。
 8. 再現可能な性質ベーステストが書ける。
 9. Matplotlib の図をページへ返せる。
 10. 完了状態と編集コードを保存できる。
-11. 固定 Pyodide runtime を永続キャッシュできる。
+11. 固定 Pyodide ランタイム を永続キャッシュできる。
 12. CI が上記の構成を壊す変更を検出できる。
 
 ---
@@ -511,12 +517,12 @@ CI は少なくとも、
 NUMLAB1 以降では、原則として次を再設計しません。
 
 - Pyodide version
-- Worker protocol
-- timeout の基本方式
+- Worker プロトコル
+- 時間制限の基本方式
 - `python-lab` / `python-test` 記法
 - localStorage の進捗形式
 - Matplotlib 図の返却経路
-- runtime cache の責務分離
+- ランタイムキャッシュ の責務分離
 
 後続章は**実験内容**へ集中します。
 
