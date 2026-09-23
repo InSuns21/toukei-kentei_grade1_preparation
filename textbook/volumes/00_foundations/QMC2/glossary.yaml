@@ -17,7 +17,7 @@ terms:
     meaning: 座標重み gamma_j から部分集合重み gamma_u を座標重みの積として作る重み系。
   - term: 重み尾による実効切断次元
     english: weight-tail effective truncation dimension
-    meaning: 座標重みの尾和が指定した許容量以下になる最小切断次元。本章固有の核側の指標であり、ANOVA 分散に基づく実効次元とは区別する。
+    meaning: 座標重みの尾和が指定した許容量以下になる最小切断次元。本章固有の核側の指標であり、分散分析の分解に基づく実効次元とは区別する。
   - term: 情報複雑度
     english: information complexity
     meaning: 所定の最悪誤差精度を達成するために必要な最小の関数評価点数。
