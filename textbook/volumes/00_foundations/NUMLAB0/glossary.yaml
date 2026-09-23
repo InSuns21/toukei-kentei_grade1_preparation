@@ -1,0 +1,20 @@
+chapter: "NUMLAB0"
+terms:
+  - term: ブラウザ内 Python 実行
+    english: in-browser Python execution
+    meaning: サーバー側実行環境へコードを送らず、ブラウザ上の WebAssembly Python ランタイムでコードを実行する方式。
+  - term: Web Worker
+    english: Web Worker
+    meaning: ページの主スレッドとは別の実行コンテキストで JavaScript や WebAssembly を動かすブラウザ API。
+  - term: 数値許容誤差
+    english: numerical tolerance
+    meaning: 浮動小数点計算の丸め誤差を考慮し、完全一致ではなく絶対誤差・相対誤差の許容範囲で結果を判定する基準。
+  - term: 性質ベーステスト
+    english: property-based test
+    meaning: 特定の一つの期待値だけでなく、多数の入力に対して満たすべき不変性や関係を検査するテスト。
+  - term: smoke test
+    english: smoke test
+    meaning: 実行基盤の主要機能が最低限つながっていることを短時間で確認する検査。
+  - term: Cache Storage
+    english: Cache Storage
+    meaning: Service Worker などから HTTP 応答を保存・再利用するブラウザの永続キャッシュ API。
