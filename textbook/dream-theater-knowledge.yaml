@@ -30,6 +30,8 @@ alias_matching:
     - minimal polynomial
     - Frobenius の定理
     - Frobenius theorem
+    - 位相
+    - topology
 
 rollout:
   # 既存ページは段階移行する。未移行ページそのものは audit では報告するが、
