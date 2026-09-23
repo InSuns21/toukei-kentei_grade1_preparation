@@ -13,38 +13,38 @@ concepts:
     requires: []
 
   - id: numerical.numpy-view-copy
-    name: view と copy
+    name: NumPy のビューとコピー
     kind: definition
     aliases: [NumPy view and copy]
     introduction: formal
-    introduction_aliases: ["定義（view と copy）"]
+    introduction_aliases: ["定義（NumPy のビューとコピー）"]
     requires:
       - numerical.numpy-array-shape-axis-dtype
 
   - id: numerical.numpy-broadcasting
-    name: broadcasting
+    name: NumPy のブロードキャスト
     kind: definition
     aliases: [NumPy broadcasting]
     introduction: formal
-    introduction_aliases: ["定義（broadcasting）"]
+    introduction_aliases: ["定義（NumPy のブロードキャスト）"]
     requires:
       - numerical.numpy-array-shape-axis-dtype
 
   - id: numerical.numpy-vectorization
-    name: vectorization
+    name: NumPy のベクトル化
     kind: definition
     aliases: [NumPy vectorization]
     introduction: formal
-    introduction_aliases: ["定義（vectorization）"]
+    introduction_aliases: ["定義（NumPy のベクトル化）"]
     requires:
       - numerical.numpy-array-shape-axis-dtype
 
   - id: numerical.numpy-boolean-mask
-    name: boolean mask
+    name: NumPy のブールマスク
     kind: definition
     aliases: [NumPy boolean mask]
     introduction: formal
-    introduction_aliases: ["定義（boolean mask）"]
+    introduction_aliases: ["定義（NumPy のブールマスク）"]
     requires:
       - numerical.numpy-array-shape-axis-dtype
 
