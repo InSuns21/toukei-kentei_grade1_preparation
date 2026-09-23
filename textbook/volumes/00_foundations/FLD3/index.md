@@ -400,15 +400,15 @@ $$
 K^\times=K\setminus\{0\}
 $$
 
-は乗法で有限 Abel 群になります。
+は乗法で有限可換群になります。
 
-ここで一般の有限 Abel 群について一つ準備します。
+ここで一般の有限可換群について一つ準備します。
 
 <a id="lem-fld3-maximal-order-element"></a>
 <!-- formal-statement-start -->
-> **補題（有限 Abel 群の最大位数元）**
+> **補題（有限可換群の最大位数元）**
 >
-> 有限 Abel 群 $G$ で、元の位数が最大となる $a\in G$ を取り
+> 有限可換群 $G$ で、元の位数が最大となる $a\in G$ を取り
 >
 > $$
 > \operatorname{ord}(a)=d
@@ -537,7 +537,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$K^\times$ は有限 Abel 群です。元の位数が最大となる $g\in K^\times$ を取り、
+$K^\times$ は有限可換群です。元の位数が最大となる $g\in K^\times$ を取り、
 
 $$
 d=\operatorname{ord}(g)
@@ -545,7 +545,7 @@ $$
 
 とします。
 
-[有限 Abel 群の最大位数元](#lem-fld3-maximal-order-element)から、任意の $a\in K^\times$ について
+[有限可換群の最大位数元](#lem-fld3-maximal-order-element)から、任意の $a\in K^\times$ について
 
 $$
 \operatorname{ord}(a)\mid d.
