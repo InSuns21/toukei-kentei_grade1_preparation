@@ -20,6 +20,7 @@ definitions:
   - { id: FEM2-DEF-03, name: 重心座標と局所節点基底 }
   - { id: FEM2-DEF-04, name: 基準三角形とアフィン要素写像 }
   - { id: FEM2-DEF-05, name: 連続一次有限要素空間 }
+  - { id: FEM2-DEF-06, name: Poisson の局所剛性行列と局所荷重ベクトル }
 theorems:
   - { id: FEM2-THM-01, name: 一次三角形要素の頂点値自由度の一意可解性 }
   - { id: FEM2-PROP-01, name: アフィン要素写像による勾配と積分の変換 }
