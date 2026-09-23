@@ -43,6 +43,15 @@ concepts:
       - numerical.dual-lattice
       - fourier.fou1-complex-exponential-coefficient
 
+  - id: numerical.unit-torus-fourier-coefficient
+    name: 単位トーラス上の Fourier 係数
+    kind: definition
+    aliases: [Fourier coefficient on the unit torus]
+    introduction: formal
+    introduction_aliases: ["定義（単位トーラス上の Fourier 係数）"]
+    requires:
+      - fourier.fou1-complex-exponential-coefficient
+
   - id: numerical.lattice-trigonometric-error-formula
     name: 三角多項式に対する格子則の積分誤差公式
     kind: theorem
@@ -60,7 +69,7 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（絶対収束 Fourier 級数）"]
     requires:
-      - fourier.fou1-complex-exponential-coefficient
+      - numerical.unit-torus-fourier-coefficient
 
   - id: numerical.lattice-absolute-fourier-error-formula
     name: 絶対収束 Fourier 級数に対する格子則の積分誤差公式
