@@ -21,32 +21,40 @@ $$
 > 集合 $G$ と二項演算 $(a,b)\mapsto ab$ の組を考える。次の三条件を満たすとき、$G$ を **群**という。
 >
 > 1. **結合則**
->    $$
->    (ab)c=a(bc)
->    \qquad
->    (a,b,c\in G).
->    $$
+>
+$$
+(ab)c=a(bc)
+\qquad
+(a,b,c\in G).
+$$
+>
 > 2. **単位元の存在**
 >    ある $e\in G$ が存在して
->    $$
->    ea=ae=a
->    \qquad
->    (a\in G)
->    $$
+>
+$$
+ea=ae=a
+\qquad
+(a\in G)
+$$
+>
 >    を満たす。
 > 3. **逆元の存在**
 >    各 $a\in G$ に対してある $b\in G$ が存在して
->    $$
->    ab=ba=e
->    $$
+>
+$$
+ab=ba=e
+$$
+>
 >    を満たす。
 >
 > さらに
-> $$
-> ab=ba
-> \qquad
-> (a,b\in G)
-> $$
+>
+$$
+ab=ba
+\qquad
+(a,b\in G)
+$$
+>
 > が成り立つとき、$G$ を **可換群**という。
 <!-- formal-statement-end -->
 
@@ -129,9 +137,11 @@ $$
 > 2. 各 $a\in G$ の逆元は一意である。これを $a^{-1}$ と書く。
 > 3. $ab=ac$ なら $b=c$、また $ba=ca$ なら $b=c$ である。
 > 4.
->    $$
->    (ab)^{-1}=b^{-1}a^{-1}.
->    $$
+>
+$$
+(ab)^{-1}=b^{-1}a^{-1}.
+$$
+>
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -260,9 +270,10 @@ $$
 >
 > $G$ を群とする。部分集合 $H\subset G$ が、$G$ の演算を $H$ に制限したとき群になるなら、$H$ を $G$ の **部分群**といい、
 >
-> $$
-> H\le G
-> $$
+$$
+H\le G
+$$
+>
 >
 > と書く。
 <!-- formal-statement-end -->
@@ -277,9 +288,11 @@ $$
 >
 > 1. $H\le G$。
 > 2. 任意の $x,y\in H$ に対して
->    $$
->    xy^{-1}\in H
->    $$
+>
+$$
+xy^{-1}\in H
+$$
+>
 >    が成り立つ。
 <!-- formal-statement-end -->
 
@@ -365,19 +378,21 @@ $$
 >
 > $G$ を群、$S\subset G$ とする。$S$ の元とその逆元を有限個並べて得られる積、および空積 $e$ の全体を
 >
-> $$
-> \langle S\rangle
-> $$
+$$
+\langle S\rangle
+$$
+>
 >
 > と書く。これを $S$ が **生成する部分群**という。
 >
 > $S=\{a\}$ のときは
 >
-> $$
-> \langle a\rangle
-> =
-> \{a^m:m\in\mathbb Z\}
-> $$
+$$
+\langle a\rangle
+=
+\{a^m:m\in\mathbb Z\}
+$$
+>
 >
 > と書く。
 <!-- formal-statement-end -->
@@ -425,9 +440,11 @@ $$
 >
 > 1. $\langle a\rangle$ は $G$ の部分群である。
 > 2. $a$ を含む任意の部分群 $H\le G$ に対して
->    $$
->    \langle a\rangle\subset H
->    $$
+>
+$$
+\langle a\rangle\subset H
+$$
+>
 >    である。
 >
 > 従って $\langle a\rangle$ は $a$ を含む最小の部分群である。
@@ -465,15 +482,17 @@ $\square$
 >
 > $G$ を群、$a\in G$ とする。
 >
-> $$
-> a^m=e
-> $$
+$$
+a^m=e
+$$
+>
 >
 > を満たす正整数 $m$ が存在するとき、その最小のものを $a$ の **位数**といい、
 >
-> $$
-> \operatorname{ord}(a)=m
-> $$
+$$
+\operatorname{ord}(a)=m
+$$
+>
 >
 > と書く。そのような正整数が存在しないとき、$a$ は無限位数を持つという。
 <!-- formal-statement-end -->
@@ -507,9 +526,10 @@ $$
 >
 > 群 $G$ にある元 $g\in G$ が存在して
 >
-> $$
-> G=\langle g\rangle
-> $$
+$$
+G=\langle g\rangle
+$$
+>
 >
 > となるとき、$G$ を **巡回群**といい、$g$ を生成元という。
 <!-- formal-statement-end -->
@@ -550,19 +570,25 @@ $$
 >
 > 1. $H$ も巡回群である。
 > 2. $G$ が無限巡回群なら、各部分群はある $m\ge0$ に対して
->    $$
->    H=\langle g^m\rangle
->    $$
+>
+$$
+H=\langle g^m\rangle
+$$
+>
 >    と一意に書ける。$m=0$ は自明部分群 $\{e\}$ を表す。
 > 3. $G$ が有限で $\operatorname{ord}(g)=n$ なら、$H$ はある約数 $m\mid n$ に対して
->    $$
->    H=\langle g^m\rangle
->    $$
+>
+$$
+H=\langle g^m\rangle
+$$
+>
 >    と書ける。また $\langle g^m\rangle$ の元の個数は $n/m$ である。
 > 4. 従って有限巡回群には、各約数 $d\mid n$ に対して元の個数が $d$ の部分群がちょうど一つあり、それは
->    $$
->    \langle g^{n/d}\rangle
->    $$
+>
+$$
+\langle g^{n/d}\rangle
+$$
+>
 >    である。
 <!-- formal-statement-end -->
 
@@ -666,11 +692,12 @@ $\square$
 >
 > $G,H$ を群とする。直積集合 $G\times H$ に
 >
-> $$
-> (g,h)(g',h')
-> :=
-> (gg',hh')
-> $$
+$$
+(g,h)(g',h')
+:=
+(gg',hh')
+$$
+>
 >
 > と成分ごとの演算を入れる。これを $G$ と $H$ の **直積群**という。
 <!-- formal-statement-end -->
@@ -681,9 +708,10 @@ $\square$
 >
 > $G,H$ が群なら、上の成分ごとの演算により $G\times H$ は群になる。単位元は $(e_G,e_H)$、$(g,h)$ の逆元は
 >
-> $$
-> (g,h)^{-1}=(g^{-1},h^{-1})
-> $$
+$$
+(g,h)^{-1}=(g^{-1},h^{-1})
+$$
+>
 >
 > である。
 <!-- formal-statement-end -->
@@ -770,17 +798,19 @@ $$
 >
 > $X$ の全置換の集合を
 >
-> $$
-> \operatorname{Sym}(X)
-> $$
+$$
+\operatorname{Sym}(X)
+$$
+>
 >
 > と書き、写像の合成を演算として **対称群**と呼ぶ。
 >
 > $X=\{1,\ldots,n\}$ のときは
 >
-> $$
-> S_n:=\operatorname{Sym}(X)
-> $$
+$$
+S_n:=\operatorname{Sym}(X)
+$$
+>
 >
 > と書く。
 <!-- formal-statement-end -->
@@ -837,18 +867,20 @@ $$
 >
 > 相異なる $a_1,\ldots,a_k$ に対し、
 >
-> $$
-> a_1\mapsto a_2,\ 
-> a_2\mapsto a_3,\ \ldots,\
-> a_{k-1}\mapsto a_k,\ 
-> a_k\mapsto a_1
-> $$
+$$
+a_1\mapsto a_2,\ 
+a_2\mapsto a_3,\ \ldots,\
+a_{k-1}\mapsto a_k,\ 
+a_k\mapsto a_1
+$$
+>
 >
 > と動かし、それ以外の点を固定する置換を
 >
-> $$
-> (a_1\,a_2\,\cdots\,a_k)
-> $$
+$$
+(a_1\,a_2\,\cdots\,a_k)
+$$
+>
 >
 > と書き、$k$-巡回置換という。
 >
@@ -981,9 +1013,10 @@ $$
 >
 > $S_n$ の置換のうち、相異なる二点 $i,j$ だけを交換し、それ以外の点を固定する置換
 >
-> $$
-> (i\,j)
-> $$
+$$
+(i\,j)
+$$
+>
 >
 > を **互換**という。
 <!-- formal-statement-end -->
@@ -1021,11 +1054,12 @@ $$
 >
 > $\sigma\in S_n$ に対し
 >
-> $$
-> \operatorname{sgn}(\sigma)
-> :=
-> (-1)^{N(\sigma)}
-> $$
+$$
+\operatorname{sgn}(\sigma)
+:=
+(-1)^{N(\sigma)}
+$$
+>
 >
 > と定める。
 >
@@ -1034,11 +1068,12 @@ $$
 >
 > 偶置換全体を
 >
-> $$
-> A_n
-> :=
-> \{\sigma\in S_n:\operatorname{sgn}(\sigma)=1\}
-> $$
+$$
+A_n
+:=
+\{\sigma\in S_n:\operatorname{sgn}(\sigma)=1\}
+$$
+>
 >
 > と書き、**交代群**という。
 <!-- formal-statement-end -->
@@ -1079,21 +1114,27 @@ $$
 >
 > 1. $\sigma$ は有限個の互換の積として書ける。
 > 2. $\sigma$ を
->    $$
->    \sigma=\tau_1\cdots\tau_k
->    $$
+>
+$$
+\sigma=\tau_1\cdots\tau_k
+$$
+>
 >    と互換の積で表したとき、
->    $$
->    (-1)^k=\operatorname{sgn}(\sigma).
->    $$
+>
+$$
+(-1)^k=\operatorname{sgn}(\sigma).
+$$
+>
 >    従って互換分解に現れる互換の個数の偶奇は分解の仕方によらない。
 > 3. 任意の $\sigma,\rho\in S_n$ に対して
->    $$
->    \operatorname{sgn}(\sigma\rho)
->    =
->    \operatorname{sgn}(\sigma)
->    \operatorname{sgn}(\rho).
->    $$
+>
+$$
+\operatorname{sgn}(\sigma\rho)
+=
+\operatorname{sgn}(\sigma)
+\operatorname{sgn}(\rho).
+$$
+>
 > 4. $A_n\le S_n$。
 <!-- formal-statement-end -->
 
@@ -1235,9 +1276,10 @@ $$
 >
 > 上の置換 $r,s\in S_n$ が生成する部分群
 >
-> $$
-> D_n:=\langle r,s\rangle
-> $$
+$$
+D_n:=\langle r,s\rangle
+$$
+>
 >
 > を正 $n$ 角形の **二面体群**という。
 <!-- formal-statement-end -->
@@ -1296,19 +1338,21 @@ $$
 >
 > $n\ge3$ とし、$D_n=\langle r,s\rangle$ を上で定めた二面体群とする。
 >
-> $$
-> r^n=e,\qquad s^2=e,\qquad srs=r^{-1}
-> $$
+$$
+r^n=e,\qquad s^2=e,\qquad srs=r^{-1}
+$$
+>
 >
 > が成り立ち、$D_n$ の任意の元はちょうど一通り
 >
-> $$
-> r^k
-> \quad\text{または}\quad
-> sr^k
-> \qquad
-> (0\le k<n)
-> $$
+$$
+r^k
+\quad\text{または}\quad
+sr^k
+\qquad
+(0\le k<n)
+$$
+>
 >
 > と書ける。
 >
@@ -1401,31 +1445,35 @@ $$
 >
 > $G$ を任意の群とする。各 $a\in G$ に左移動
 >
-> $$
-> L_a(x)=ax
-> $$
+$$
+L_a(x)=ax
+$$
+>
 >
 > を対応させる写像
 >
-> $$
-> \lambda:G\to\operatorname{Sym}(G),
-> \qquad
-> \lambda(a)=L_a
-> $$
+$$
+\lambda:G\to\operatorname{Sym}(G),
+\qquad
+\lambda(a)=L_a
+$$
+>
 >
 > を考える。このとき
 >
-> $$
-> L_{ab}=L_a\circ L_b
-> $$
+$$
+L_{ab}=L_a\circ L_b
+$$
+>
 >
 > が成り立ち、$\lambda$ は単射である。
 >
 > さらに
 >
-> $$
-> \lambda(G)=\{L_a:a\in G\}
-> $$
+$$
+\lambda(G)=\{L_a:a\in G\}
+$$
+>
 >
 > は $\operatorname{Sym}(G)$ の部分群である。
 >
