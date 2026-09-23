@@ -74,7 +74,7 @@ Monte Carlo 法と準 Monte Carlo 法では、同じ積分問題に対して
 | [NA11](../NA11/index.md) | Perron–Frobenius 理論と PageRank |
 | [NA12](../NA12/index.md) | 無制約最適化と共役勾配法 |
 
-**実装済み：NA1、NA2、NA3、NA4、NA5、NA6、NA7、NA8、NA9、NA10、NA11、NA12、FDM1、FDM2、FDM3、FDM4、FEM1、FEM2、FEM3、FEM4、FEM5、FEM6、FEM7、MC1、MC2、MC3、MC4、QMC1、QMC2、QMC3、QMC4、QMC5、QMC6。次の実装対象：QMC7。**
+**実装済み：NA1、NA2、NA3、NA4、NA5、NA6、NA7、NA8、NA9、NA10、NA11、NA12、FDM1、FDM2、FDM3、FDM4、FEM1、FEM2、FEM3、FEM4、FEM5、FEM6、FEM7、MC1、MC2、MC3、MC4、QMC1、QMC2、QMC3、QMC4、QMC5、QMC6、QMC7。次の実装対象：QMC8。**
 
 数値解析では、単にアルゴリズムを列挙するのではなく、
 
@@ -140,10 +140,10 @@ MC1 では積分を期待値へ移し、標本平均の不偏性、分散、二�
 | [QMC4](../QMC4/index.md) | (t,m,s)-net・(t,s)-sequence |
 | [QMC5](../QMC5/index.md) | Walsh 解析とデジタルネットの双対理論 |
 | [QMC6](../QMC6/index.md) | 多項式格子 |
-| QMC7 | randomized QMC |
+| [QMC7](../QMC7/index.md) | ランダム化準 Monte Carlo 法 |
 | QMC8 | 高次 QMC |
 
-準 Monte Carlo 法では、標本平均の確率変動ではなく、点集合と関数空間の構造を誤差評価へ結びつけます。QMC1 では局所ディスクレパンシーとスター・ディスクレパンシー、一様分布との同値性、Vitali 変動・Hardy--Krause 変動、Hlawka--Zaremba 恒等式を経て Koksma--Hlawka の不等式までを閉じます。QMC2 では既存 RKHS を積分へ応用し、誤差表現元、最悪誤差公式、重み付きアンカー型 Sobolev 空間、積型重み、実効切断次元、tractability を導入し、可算和可能な重みから次元一様な存在上界まで証明します。QMC3 ではランク1格子点集合と双対格子を導入し、複素指数モードの離散直交性、Fourier 係数による積分誤差公式、重み付き周期 Fourier 空間での最悪誤差、一次元の $N^{-\alpha}$ 誤差率、成分逐次構成（CBC）の設計思想まで閉じます。QMC4 では $b$ 進基本区間、$(t,m,s)$-ネット、$(t,s)$-点列、van der Corput 点列、有限体上の生成行列によるデジタル構成を導入し、生成行列の先頭行の一次独立性とネット条件の同値性まで閉じます。QMC5 では Walsh 関数、双対ネット、デジタル点平均の周波数消去則、Walsh 係数による積分誤差公式、NRT 重みと $t$ 値の双対関係まで閉じます。QMC6 では有限体多項式から多項式格子を構成し、デジタルネット表示、双対合同式、Walsh 誤差、共通単元倍不変性、NRT 減衰型評価関数と成分逐次構成まで閉じます。次は QMC7 で randomized QMC へ進みます。
+準 Monte Carlo 法では、標本平均の確率変動ではなく、点集合と関数空間の構造を誤差評価へ結びつけます。QMC1 では局所ディスクレパンシーとスター・ディスクレパンシー、一様分布との同値性、Vitali 変動・Hardy--Krause 変動、Hlawka--Zaremba 恒等式を経て Koksma--Hlawka の不等式までを閉じます。QMC2 では既存 RKHS を積分へ応用し、誤差表現元、最悪誤差公式、重み付きアンカー型 Sobolev 空間、積型重み、実効切断次元、tractability を導入し、可算和可能な重みから次元一様な存在上界まで証明します。QMC3 ではランク1格子点集合と双対格子を導入し、複素指数モードの離散直交性、Fourier 係数による積分誤差公式、重み付き周期 Fourier 空間での最悪誤差、一次元の $N^{-\alpha}$ 誤差率、成分逐次構成（CBC）の設計思想まで閉じます。QMC4 では $b$ 進基本区間、$(t,m,s)$-ネット、$(t,s)$-点列、van der Corput 点列、有限体上の生成行列によるデジタル構成を導入し、生成行列の先頭行の一次独立性とネット条件の同値性まで閉じます。QMC5 では Walsh 関数、双対ネット、デジタル点平均の周波数消去則、Walsh 係数による積分誤差公式、NRT 重みと $t$ 値の双対関係まで閉じます。QMC6 では有限体多項式から多項式格子を構成し、デジタルネット表示、双対合同式、Walsh 誤差、共通単元倍不変性、NRT 減衰型評価関数と成分逐次構成まで閉じます。QMC7 では $b$ 進デジタル加法、デジタルシフト、入れ子一様スクランブル、独立ランダム化反復、関数的 分散分析分解を導入し、不偏性、$(t,m,s)$-ネット性保存、Walsh 双対ネットからの厳密分散公式、反復標準誤差、座標支持別の分散分解まで閉じます。次は QMC8 で高次 QMC へ進みます。
 
 ---
 

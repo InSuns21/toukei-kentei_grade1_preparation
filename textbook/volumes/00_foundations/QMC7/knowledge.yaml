@@ -1,0 +1,144 @@
+chapter: QMC7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QMC5
+  - MC1
+
+concepts:
+  - id: numerical.digital-addition
+    name: b 進デジタル加法
+    kind: definition
+    aliases: [b-adic digital addition without carry]
+    introduction: formal
+    introduction_aliases: ["定義（b 進デジタル加法）"]
+    requires:
+      - numerical.walsh-function
+
+  - id: numerical.digital-shift-rqmc-estimator
+    name: デジタルシフト QMC 推定量
+    kind: definition
+    aliases: [digital shift randomized quasi-Monte Carlo estimator]
+    introduction: formal
+    introduction_aliases: ["定義（デジタルシフト QMC 推定量）"]
+    requires:
+      - numerical.digital-addition
+      - numerical.digital-point-set
+
+  - id: numerical.digital-shift-uniform-unbiased
+    name: 一様デジタルシフトによる各点の一様化と不偏性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（一様デジタルシフトによる各点の一様化と不偏性）"]
+    requires:
+      - numerical.digital-shift-rqmc-estimator
+      - numerical.monte-carlo-estimator
+
+  - id: numerical.digital-shift-tms-preservation
+    name: デジタルシフトによる (t,m,s)-ネット性の保存
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（デジタルシフトによる (t,m,s)-ネット性の保存）"]
+    requires:
+      - numerical.digital-addition
+      - numerical.tms-net
+
+  - id: numerical.digital-shift-walsh-character
+    name: デジタルシフトの Walsh 乗法則
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（デジタルシフトの Walsh 乗法則）"]
+    requires:
+      - numerical.digital-addition
+      - numerical.walsh-function
+
+  - id: numerical.digital-shift-exact-variance
+    name: デジタルシフト QMC の厳密分散公式
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（デジタルシフト QMC の厳密分散公式）"]
+    requires:
+      - numerical.digital-shift-walsh-character
+      - numerical.digital-walsh-character-property
+      - numerical.absolute-walsh-series
+      - numerical.digital-dual-net
+
+  - id: numerical.independent-rqmc-replicates
+    name: 独立ランダム化反復
+    kind: definition
+    aliases: [independent randomized QMC replicates]
+    introduction: formal
+    introduction_aliases: ["定義（独立ランダム化反復）"]
+    requires:
+      - numerical.digital-shift-rqmc-estimator
+      - numerical.monte-carlo-standard-error
+
+  - id: numerical.rqmc-replicate-variance
+    name: 独立ランダム化反復の分散と標本分散
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（独立ランダム化反復の分散と標本分散）"]
+    requires:
+      - numerical.independent-rqmc-replicates
+      - numerical.monte-carlo-rmse
+
+  - id: numerical.nested-uniform-scrambling
+    name: 入れ子一様スクランブル
+    kind: definition
+    aliases: [nested uniform scrambling]
+    introduction: formal
+    introduction_aliases: ["定義（入れ子一様スクランブル）"]
+    requires:
+      - numerical.digital-point-set
+
+  - id: numerical.scramble-uniform-unbiased
+    name: 入れ子一様スクランブルによる各点の一様化と不偏性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（入れ子一様スクランブルによる各点の一様化と不偏性）"]
+    requires:
+      - numerical.nested-uniform-scrambling
+      - numerical.monte-carlo-estimator
+
+  - id: numerical.scramble-tms-preservation
+    name: 入れ子一様スクランブルによる (t,m,s)-ネット性の保存
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（入れ子一様スクランブルによる (t,m,s)-ネット性の保存）"]
+    requires:
+      - numerical.nested-uniform-scrambling
+      - numerical.tms-net
+
+  - id: numerical.functional-anova-component
+    name: 関数的分散分析成分
+    kind: definition
+    aliases: [functional ANOVA component]
+    introduction: formal
+    introduction_aliases: ["定義（関数的分散分析成分）"]
+    requires: []
+
+  - id: numerical.functional-anova-orthogonality
+    name: 関数的分散分析分解の直交性と分散分解
+    kind: theorem
+    aliases: [orthogonality and variance decomposition of functional ANOVA]
+    introduction: formal
+    introduction_aliases: ["定理（関数的分散分析分解の直交性と分散分解）"]
+    requires:
+      - numerical.functional-anova-component
+
+  - id: numerical.digital-shift-anova-variance
+    name: デジタルシフト分散の座標支持分解
+    kind: corollary
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["系（デジタルシフト分散の座標支持分解）"]
+    requires:
+      - numerical.digital-shift-exact-variance
+      - numerical.functional-anova-orthogonality

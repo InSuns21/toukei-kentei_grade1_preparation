@@ -583,8 +583,10 @@ QMC5 は QMC3、QMC4、FOU1 を直接 prerequisite とする。QMC3 の双対格
 
 QMC6 は QMC5、FLD1 を直接 prerequisite とする。QMC5 の Walsh 関数、デジタル双対ネット、積分誤差公式、NRT 重みと $t$ 値の双対関係を canonical dependency として再利用し、FLD1 の既約多項式による商体構成を法多項式の代数へ用いる。整数の $b$ 進桁を桁多項式へ移し、$q_j/p$ の負べき係数から多項式格子点集合と生成行列を構成して、QMC4 型デジタル点集合との一致を証明する。周波数の切断多項式を使って双対多項式格子を定義し、多項式合同式が QMC5 の行列型双対条件と同値であることを完全証明することで、Walsh 周波数消去則・積分誤差公式・最小双対 NRT 重みによる $t$ 値判定を合同式へ移す。さらに剰余体の単元倍による生成ベクトルの不変性、第一成分の正規化、NRT 減衰型 Walsh 評価関数と成分逐次構成を導入する。digital shift・scrambling は QMC7、高次 Walsh 重みは QMC8 へ送る。
 
-後続の QMC7–QMC8 は DREAM_THEATER_ENCORE_V_REWRITE_PLAN.md の計画対象であり、各講の実装完了時に実際の直接依存だけを追加する。
+QMC7 は QMC5、MC1 を直接 prerequisite とする。QMC5 の Walsh 関数・双対ネット・離散直交性を再利用し、MC1 の不偏推定・標準誤差をランダム化反復値の統計へ接続する。$b$ 進デジタル加法と一様デジタルシフトを定義し、固定点の一様化、不偏性、$(t,m,s)$-ネット性保存、Walsh 乗法則から双対ネット上の Walsh 係数平方和として厳密分散公式を証明する。独立ランダム化反復では点ごとの独立性ではなく反復値 $Z_r$ の独立性を使い、平均の分散 $\tau^2/R$ と反復間標本分散の不偏性を導く。入れ子一様スクランブルでは prefix ごとのランダム置換が有限桁語の全単射を与えることから各点の一様性とネット性保存を証明する。さらに関数的 分散分析分解の直交性・分散分解を閉じ、Walsh 周波数の支持と 座標支持を対応させてランダム化分散を相互作用別に分解する。高次 Walsh 重みと higher-order digital net は QMC8 へ送る。
 
-読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA1–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC6 で、次の実装対象は QMC7「randomized QMC」である。
+後続の QMC8 は DREAM_THEATER_ENCORE_V_REWRITE_PLAN.md の計画対象であり、実装完了時に実際の直接依存だけを追加する。
+
+読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA1–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC7 で、次の実装対象は QMC8「高次 QMC」である。
 
 ---
