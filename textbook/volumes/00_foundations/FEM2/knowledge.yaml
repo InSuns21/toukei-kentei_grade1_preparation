@@ -1,0 +1,100 @@
+chapter: FEM2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FEM1
+forward_references: []
+
+concepts:
+  - id: numerical.conforming-triangulation
+    name: 適合三角形分割
+    kind: definition
+    aliases: [conforming triangulation]
+    introduction: formal
+    introduction_aliases: ["定義（適合三角形分割）"]
+
+  - id: numerical.finite-element
+    name: 有限要素
+    kind: definition
+    aliases: [finite element]
+    introduction: formal
+    introduction_aliases: ["定義（有限要素）"]
+    requires:
+      - numerical.conforming-triangulation
+
+  - id: numerical.p1-triangle-unisolvence
+    name: 一次三角形要素の頂点値自由度の一意可解性
+    kind: theorem
+    aliases: [unisolvence of vertex degrees of freedom for the linear triangular element]
+    introduction: formal
+    introduction_aliases: ["定理（一次三角形要素の頂点値自由度の一意可解性）"]
+    requires:
+      - numerical.finite-element
+
+  - id: numerical.barycentric-coordinate-basis
+    name: 重心座標と局所節点基底
+    kind: definition
+    aliases: [barycentric coordinate basis on a triangle]
+    introduction: formal
+    introduction_aliases: ["定義（重心座標と局所節点基底）"]
+    requires:
+      - numerical.p1-triangle-unisolvence
+
+  - id: numerical.reference-triangle-affine-map
+    name: 基準三角形とアフィン要素写像
+    kind: definition
+    aliases: [reference triangle and affine element map]
+    introduction: formal
+    introduction_aliases: ["定義（基準三角形とアフィン要素写像）"]
+    requires:
+      - numerical.barycentric-coordinate-basis
+
+  - id: numerical.affine-element-transform
+    name: アフィン要素写像による勾配と積分の変換
+    kind: proposition
+    aliases: [gradient and integration transform under an affine element map]
+    introduction: formal
+    introduction_aliases: ["命題（アフィン要素写像による勾配と積分の変換）"]
+    requires:
+      - numerical.reference-triangle-affine-map
+
+  - id: numerical.conforming-p1-space
+    name: 連続一次有限要素空間
+    kind: definition
+    aliases: [continuous piecewise linear finite element space]
+    introduction: formal
+    introduction_aliases: ["定義（連続一次有限要素空間）"]
+    requires:
+      - numerical.conforming-triangulation
+      - numerical.finite-element
+
+  - id: numerical.p1-h1-conformity
+    name: 連続区分一次関数の H^1 適合性
+    kind: theorem
+    aliases: [H1 conformity of continuous piecewise linear functions]
+    introduction: formal
+    introduction_aliases: ["定理（連続区分一次関数の H^1 適合性）"]
+    requires:
+      - numerical.conforming-p1-space
+
+  - id: numerical.global-nodal-basis
+    name: 大域節点基底
+    kind: theorem
+    aliases: [global nodal basis for conforming P1 finite elements]
+    introduction: formal
+    introduction_aliases: ["定理（大域節点基底）"]
+    requires:
+      - numerical.barycentric-coordinate-basis
+      - numerical.conforming-p1-space
+      - numerical.p1-h1-conformity
+
+  - id: numerical.poisson-local-assembly-sparsity
+    name: Poisson 剛性行列の局所組立てと疎性
+    kind: proposition
+    aliases: [local assembly and sparsity of the Poisson stiffness matrix]
+    introduction: formal
+    introduction_aliases: ["命題（Poisson 剛性行列の局所組立てと疎性）"]
+    requires:
+      - numerical.galerkin-basis-system
+      - numerical.affine-element-transform
+      - numerical.global-nodal-basis
