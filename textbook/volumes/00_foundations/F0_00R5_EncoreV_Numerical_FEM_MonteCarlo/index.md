@@ -74,7 +74,7 @@ Monte Carlo 法と準 Monte Carlo 法では、同じ積分問題に対して
 | [NA11](../NA11/index.md) | Perron–Frobenius 理論と PageRank |
 | [NA12](../NA12/index.md) | 無制約最適化と共役勾配法 |
 
-**実装済み：NA1、NA2、NA3、NA4、NA5、NA6、NA7、NA8、NA9、NA10、NA11、NA12、FDM1、FDM2、FDM3、FDM4、FEM1。次の実装対象：FEM2。**
+**実装済み：NA1、NA2、NA3、NA4、NA5、NA6、NA7、NA8、NA9、NA10、NA11、NA12、FDM1、FDM2、FDM3、FDM4、FEM1、FEM2。次の実装対象：FEM3。**
 
 数値解析では、単にアルゴリズムを列挙するのではなく、
 
@@ -106,7 +106,7 @@ Monte Carlo 法と準 Monte Carlo 法では、同じ積分問題に対して
 | ID | 講座 |
 |---|---|
 | [FEM1](../FEM1/index.md) | Poisson 方程式・変分形式・Galerkin 法 |
-| FEM2 | 有限要素・三角形分割・基底 |
+| [FEM2](../FEM2/index.md) | 三角形分割・局所基底・組立て |
 | FEM3 | 有限要素補間とメッシュ |
 | FEM4 | 楕円型 FEM の誤差解析 |
 | FEM5 | 鞍点問題・Stokes 方程式 |
