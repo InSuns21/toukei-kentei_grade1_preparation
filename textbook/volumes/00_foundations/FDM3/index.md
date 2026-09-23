@@ -321,7 +321,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-時間方向に Taylor の定理を使います。
+時間方向に [Taylor の定理](../RA3/index.md#thm-ra3-taylor)を使います。
 
 ある
 
