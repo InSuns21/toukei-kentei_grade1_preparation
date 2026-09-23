@@ -100,7 +100,7 @@ concepts:
     kind: corollary
     aliases: []
     introduction: formal
-    introduction_aliases: ["系（多項式格子の t 値判定）"]
+    introduction_aliases: ["系（多項式格子の $t$ 値判定）"]
     requires:
       - numerical.dual-polynomial-lattice
       - numerical.nrt-weight
