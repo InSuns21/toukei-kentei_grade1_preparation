@@ -17,10 +17,11 @@ concepts:
       - algebra.field-extension
 
   - id: algebra.quadratic-extension-tower
-    name: 二次拡大列
+    name: 実二次拡大列
     kind: definition
     aliases: [tower of quadratic extensions]
-    introduction: local
+    introduction: formal
+    introduction_aliases: ["定義（実二次拡大列）"]
     requires:
       - algebra.field-extension
       - algebra.extension-degree
