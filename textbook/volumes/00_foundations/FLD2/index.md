@@ -166,7 +166,7 @@ $$
 [L:\mathbb Q(\alpha)]=2.
 $$
 
-[FLD1 の塔の公式](../FLD1/index.md#thm-fld1-tower-law)より
+[拡大次数の塔の公式](../FLD1/index.md#thm-fld1-tower-law)より
 
 $$
 \boxed{[L:\mathbb Q]=6}.
@@ -452,7 +452,7 @@ $$
 (g-h)(\alpha)=0.
 $$
 
-[FLD1 の代数的元の最小多項式の定理](../FLD1/index.md#thm-fld1-minimal-polynomial)より
+[代数的元の最小多項式の存在・一意性と既約性](../FLD1/index.md#thm-fld1-minimal-polynomial)より
 
 $$
 m_{\alpha,K}\mid(g-h).
@@ -794,7 +794,7 @@ $$
 
 $\sigma_{j-1}$ が構成済みとします。$\alpha_j$ の $K_{j-1}$ 上の代数的元の最小多項式を $m_j$ とします。
 
-$f(\alpha_j)=0$ なので、[FLD1 の代数的元の最小多項式の定理](../FLD1/index.md#thm-fld1-minimal-polynomial)から
+$f(\alpha_j)=0$ なので、[代数的元の最小多項式の存在・一意性と既約性](../FLD1/index.md#thm-fld1-minimal-polynomial)から
 
 $$
 m_j\mid f
@@ -1133,7 +1133,7 @@ $$
 f(\alpha)=f'(\alpha)=0.
 $$
 
-$\alpha$ の $F$ 上の代数的元の最小多項式を $m_\alpha$ とすると、[FLD1 の代数的元の最小多項式の定理](../FLD1/index.md#thm-fld1-minimal-polynomial)から
+$\alpha$ の $F$ 上の代数的元の最小多項式を $m_\alpha$ とすると、[代数的元の最小多項式の存在・一意性と既約性](../FLD1/index.md#thm-fld1-minimal-polynomial)から
 
 $$
 m_\alpha\mid f,
@@ -1875,7 +1875,7 @@ $$
 \boxed{L=\mathbb Q(\sqrt5)}.
 $$
 
-2. $x^2-5$ は $\mathbb Q[x]$ で既約です。従って [FLD1 の次数公式](../FLD1/index.md#cor-fld1-simple-extension-degree)から
+2. $x^2-5$ は $\mathbb Q[x]$ で既約です。従って [単純代数拡大の次数公式](../FLD1/index.md#cor-fld1-simple-extension-degree)から
 
 $$
 \boxed{[L:\mathbb Q]=2}.
