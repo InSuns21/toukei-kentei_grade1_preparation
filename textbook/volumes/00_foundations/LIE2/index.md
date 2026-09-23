@@ -1,4 +1,4 @@
-# LIE2 1パラメータ部分群・exp・随伴表現
+# LIE2 Lie 群の曲線・共役・無限小作用
 
 <!-- definition-example-audit: strict -->
 
@@ -750,7 +750,7 @@ $$
 $\square$
 <!-- proof-end -->
 
-この定理は後で共役自己同型へそのまま適用します。
+この定理は後で $h\mapsto ghg^{-1}$ という写像へそのまま適用します。
 
 ---
 
