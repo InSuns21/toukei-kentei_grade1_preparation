@@ -452,6 +452,15 @@
 | Hardy--Krause 変動 | Hardy--Krause variation | 各非空座標部分集合について、残りの座標を1に固定した面上の Vitali 変動を足し合わせた量。本系列では1側にアンカーした規約を用いる |
 | Hlawka--Zaremba 恒等式 | Hlawka--Zaremba identity | 準 Monte Carlo 求積誤差を、各座標面の局所ディスクレパンシーと対応する混合偏導関数の積分の和として表す恒等式 |
 | Koksma--Hlawka の不等式 | Koksma--Hlawka inequality | 準 Monte Carlo 求積誤差をスター・ディスクレパンシーと Hardy--Krause 変動の積で上から評価する基本不等式 |
+| 積分汎関数 | integration functional | 関数を定義域上で積分した値へ写す線形汎関数。QMC2 では RKHS 上で連続性を確認して Riesz 表現を用いる |
+| 誤差表現元 | error representer | 求積誤差汎関数を RKHS 内積として表す Riesz 表現元 |
+| 最悪誤差 | worst-case error | 指定した関数空間の単位球上で取った求積誤差の絶対値の上限 |
+| 重み付きアンカー型 Sobolev 空間 | weighted anchored Sobolev space | アンカーでの関数値と導関数ノルムを座標重み付きで測る Sobolev 型 RKHS |
+| 積型重み | product weights | 座標重み $\gamma_j$ から部分集合重み $\gamma_u=\prod_{j\in u}\gamma_j$ を作る重み系 |
+| 重み尾による実効切断次元 | weight-tail effective truncation dimension | 座標重みの尾和が指定許容量以下になる最小切断次元。ANOVA 分散に基づく実効次元とは区別する |
+| 情報複雑度 | information complexity | 指定した最悪誤差精度を達成するために必要な最小の関数評価点数 |
+| 多項式 tractability | polynomial tractability | 必要点数を精度の逆数と次元の多項式で一様に上から抑えられる性質 |
+| 強多項式 tractability | strong polynomial tractability | 必要点数を次元に依存せず精度の逆数の多項式だけで一様に上から抑えられる性質 |
 
 ## DREAM THEATER：ODE・PDE の主表記
 
