@@ -1,4 +1,4 @@
-# FLD1 抽象代数 XI：体拡大・代数的元・最小多項式
+# FLD1 抽象代数 XI：体拡大・代数的元・単純代数拡大
 
 <!-- definition-example-audit: strict -->
 
@@ -28,7 +28,7 @@ $$
 
 > **この章の停止線**
 >
-> 本章では一つの代数的元を添加する単純拡大までを閉じます。多項式の全ての根を同時に入れる分解体、分離性、正規性は FLD2 で扱います。
+> 本章では一つの代数的元を添加する単純拡大までを閉じます。多項式の全ての根を同時に入れる分解体、分離拡大、正規拡大は FLD2 で扱います。
 
 ---
 
@@ -958,7 +958,7 @@ $$
 m_\alpha=p.
 $$
 
-最後に単純代数拡大の次数公式から
+最後に [単純代数拡大の次数公式](#cor-fld1-simple-extension-degree) から
 
 $$
 [E:F]
@@ -1156,7 +1156,7 @@ $$
 \boxed{m_{i,\mathbb R}(x)=x^2+1}.
 $$
 
-2. 単純代数拡大の次数公式より
+2. [単純代数拡大の次数公式](#cor-fld1-simple-extension-degree) より
 
 $$
 [\mathbb R(i):\mathbb R]
@@ -1613,7 +1613,7 @@ $$
 
 ### 1. 既約性と体の構成
 
-$p(x)=x^3-2$ に Eisenstein の既約判定を素数 $2$ で適用します。
+$p(x)=x^3-2$ に [Eisenstein の既約判定](../RNG4/index.md#thm-rng4-eisenstein)を素数 $2$ で適用します。
 
 先頭係数 $1$ は $2$ で割れず、他の係数
 
@@ -1625,7 +1625,7 @@ $$
 
 さらに定数項 $-2$ は $4$ では割れません。
 
-従って $p$ は $\mathbb Z[x]$ で原始かつ Eisenstein 条件を満たし、Gauss の補題により
+従って $p$ は $\mathbb Z[x]$ で原始かつ Eisenstein 条件を満たし、[Gauss の補題（既約性の移送）](../RNG4/index.md#thm-rng4-gauss-irreducibility)により
 
 $$
 p(x)=x^3-2
@@ -1633,7 +1633,7 @@ $$
 
 は $\mathbb Q[x]$ で既約です。
 
-本文の「既約多項式による単純拡大の構成」から
+本文の [既約多項式による単純拡大の構成](#prop-fld1-irreducible-quotient-construction) から
 
 $$
 \boxed{K=\mathbb Q[x]/(x^3-2)\text{ は体}}
@@ -1657,7 +1657,7 @@ $$
 \boxed{m_{\alpha,\mathbb Q}(x)=x^3-2}.
 $$
 
-単純代数拡大の次数公式から
+[単純代数拡大の次数公式](#cor-fld1-simple-extension-degree) から
 
 $$
 [K:\mathbb Q]
