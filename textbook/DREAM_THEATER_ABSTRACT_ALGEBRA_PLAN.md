@@ -164,7 +164,7 @@ LIE1 はここまでを群論の direct prerequisite とする。
 
 **tier: core**
 
-**prerequisites:** GRP2
+**prerequisites:** GRP2, F0-00A1D
 
 主な内容：
 
@@ -520,7 +520,7 @@ GRP1 群・部分群・巡回群・置換群
   ↓
 GRP2 準同型・剰余類・正規部分群・商群
   ├──────────────→ LIE1 + GEO5
-  ├──────────────→ RNG1
+  ├──────────────→ RNG1 ← F0-00A1D
   ↓
 GRP3 群作用・軌道・共役
   ├──────────────→ LIE2 + LIE1 + ODE4
