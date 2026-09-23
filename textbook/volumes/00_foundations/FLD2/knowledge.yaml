@@ -27,7 +27,7 @@ concepts:
   - id: algebra.field-embedding
     name: 基礎体を固定する体の埋め込み
     kind: definition
-    aliases: [field embedding]
+    aliases: [field embedding, 体の埋め込み]
     introduction: formal
     introduction_aliases: ["定義（基礎体を固定する体の埋め込み）"]
     requires:
@@ -156,7 +156,7 @@ concepts:
   - id: algebra.separable-extension
     name: 分離拡大
     kind: definition
-    aliases: [separable extension]
+    aliases: [separable extension, 体拡大の分離性]
     introduction: formal
     introduction_aliases: ["定義（分離多項式・分離的な元・分離拡大）"]
     requires:
@@ -179,7 +179,7 @@ concepts:
     kind: corollary
     aliases: []
     introduction: formal
-    introduction_aliases: ["系（標数 $0$ の体上の代数拡大は分離的）"]
+    introduction_aliases: ["系（標数0の体上の代数拡大は分離的）"]
     requires:
       - algebra.irreducible-separable-derivative-criterion
       - algebra.separable-extension
@@ -188,7 +188,7 @@ concepts:
   - id: algebra.normal-extension
     name: 正規拡大
     kind: definition
-    aliases: [normal extension, normal field extension]
+    aliases: [normal extension, normal field extension, 体拡大の正規性]
     introduction: formal
     requires:
       - algebra.algebraic-extension
