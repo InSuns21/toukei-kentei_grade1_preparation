@@ -1198,7 +1198,25 @@ direct prerequisite は FLD4 と GRP4 です。FLD4 の有限 Galois 対応・�
 
 実装: [LIE1](volumes/00_foundations/LIE1/index.md)
 
-direct prerequisite は GRP2 と GEO5 です。GRP2 から群・群準同型を、GEO5 から滑らかなベクトル場・押し出し・$F$-関連性・Lie 括弧を再利用します。群作用・共役を本格的に使う LIE2 / LIE4 までは GRP3 を要求せず、1パラメータ部分群・指数写像・Adjoint 表現は LIE2 へ送ります。
+direct prerequisite は GRP2 と GEO5 です。GRP2 から群・群準同型を、GEO5 から滑らかなベクトル場・押し出し・$F$-関連性・Lie 括弧を再利用します。群作用・共役を本格的に使う LIE2 / LIE4 までは GRP3 を要求せず、1パラメータ部分群・指数写像・随伴表現は LIE2 へ送ります。
+
+## LIE2 1パラメータ部分群・指数写像・随伴表現 `core-advanced-standard`
+
+- 1パラメータ部分群を $(\mathbb R,+)$ から Lie 群への滑らかな準同型として定義し、初速度に対応する左不変ベクトル場の積分曲線であることを導出
+- 左不変性と積分曲線の一意性から左不変ベクトル場の完備性を証明し、$T_eG$ と1パラメータ部分群の一対一対応を構成
+- Lie 群の指数写像 $\exp_G:\mathfrak g\to G$ を定義し、$\exp(tX)$ の群則、滑らかさ、$d\exp_0=\operatorname{id}$、単位元近傍での局所微分同相性を証明
+- Lie 群準同型の自然性 $\Phi(\exp_GX)=\exp_H(d\Phi_eX)$ を1パラメータ部分群の一意性から証明
+- $GL(n,\mathbb R)$ では行列指数級数の収束・微分・群則を確認し、Lie 群の指数写像と行列指数関数が一致することを証明
+- GRP3 の共役作用を滑らかな共役自己同型 $C_g$ へ持ち上げ、$\operatorname{Ad}_g=d(C_g)_e$ を定義して $\operatorname{Ad}_{gh}=\operatorname{Ad}_g\operatorname{Ad}_h$ を直接証明
+- $\operatorname{ad}=d(\operatorname{Ad})_e$ を定義し、GEO5 の流れによる Lie 括弧の解釈から $\operatorname{ad}_X(Y)=[X,Y]$ を証明
+- 指数写像の自然性から $\operatorname{Ad}_{\exp X}=\exp(\operatorname{ad}_X)$ を導出
+- 二次元アフィン群で $\exp$・$\operatorname{Ad}$・$\operatorname{ad}$ を直接計算
+- 群交換子の指数座標における混合二階微分が $[X,Y]$ になることを証明し、Baker--Campbell--Hausdorff 公式への入口を作る
+- A4/B3/C1 の演習で1パラメータ部分群、行列指数、自然性、随伴表現、アフィン群、群交換子を再構成
+
+実装: [LIE2](volumes/00_foundations/LIE2/index.md)
+
+direct prerequisite は LIE1、GRP3、ODE4 です。LIE1 の Lie 群・Lie 環・左不変場、GRP3 の共役作用、ODE4 の自律系の見方を接続します。一般表現論を黒箱として導入せず、随伴表現の定義・準同型性・微分を章内で閉じます。Lie 部分群・古典群は LIE3 へ送ります。
 
 ---
 
