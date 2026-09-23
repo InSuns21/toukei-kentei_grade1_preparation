@@ -54,6 +54,8 @@ $$
 体 $K$ の加法と乗法はそのまま使い、$F$ の元を「スカラー」として $K$ に掛けると、$K$ は $F$-ベクトル空間になります。したがって体拡大には、線形代数の次元が自然に入ります。
 
 <!-- definition-example-start: def-fld1-field-extension -->
+**定義の確認**
+
 ### 1.1 定義の確認：$\mathbb Q(\sqrt2)/\mathbb Q$
 
 集合
@@ -281,6 +283,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fld1-algebraic-element -->
+**定義の確認**
+
 ### 3.1 定義の確認：$\sqrt2$ と形式的不定元 $t$
 
 $\sqrt2$ は
@@ -403,6 +407,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fld1-minimal-polynomial -->
+**定義の確認**
+
 ### 5.1 定義の確認：$m_{\sqrt2,\mathbb Q}$
 
 $\sqrt2$ は $x^2-2$ の根です。
@@ -588,6 +594,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fld1-simple-extension -->
+**定義の確認**
+
 ### 6.1 定義の確認：代数的な場合と超越的な場合
 
 $\alpha=\sqrt2$ では
