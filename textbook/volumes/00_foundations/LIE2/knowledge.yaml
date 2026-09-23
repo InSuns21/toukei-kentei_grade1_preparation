@@ -59,7 +59,7 @@ concepts:
       - geometry.maximal-flow-local-group-law
 
   - id: lie.exponential-naturality
-    name: Lie 群準同型と指数写像の自然性
+    name: Lie 群準同型と Lie 群の指数写像の自然性
     kind: theorem
     aliases: []
     introduction: formal
@@ -68,7 +68,7 @@ concepts:
       - lie.homomorphism-differential
 
   - id: lie.general-linear-exponential
-    name: 一般線形群の指数写像は行列指数関数
+    name: 一般線形群では Lie 群の指数写像が行列指数に一致する
     kind: theorem
     aliases: []
     introduction: formal
@@ -108,7 +108,7 @@ concepts:
       - lie.homomorphism-differential
 
   - id: lie.conjugation-exponential-naturality
-    name: 共役と指数写像の可換性
+    name: 共役と Lie 群の指数写像の可換性
     kind: theorem
     aliases: []
     introduction: formal
