@@ -1051,13 +1051,132 @@ $$
 
 を使います。
 
-前節で
+この置換でも漸近被覆率が変わらないことを、本章で使う形に限って確認しておきます。
 
 $$
-S_N/\sigma\to1
+Z_N
+:=
+\frac{\sqrt N(\widehat I_N-I)}{\sigma},
+\qquad
+R_N
+:=
+\frac{S_N}{\sigma}
 $$
 
-を示したため、有限分散 iid 条件の下では $\sigma$ を $S_N$ に置き換えても同じ漸近正規化が得られます。
+と置きます。前節から
+
+$$
+R_N\to1
+\qquad
+\text{a.s.},
+$$
+
+従って任意の $0<\delta<1$ について
+
+$$
+P(
+1-\delta\le R_N\le1+\delta
+)
+\to1
+$$
+
+です。
+
+$z:=z_{1-\alpha/2}$ とし、
+
+$$
+E_N(\delta)
+=
+\{
+1-\delta\le R_N\le1+\delta
+\}
+$$
+
+と置きます。$E_N(\delta)$ 上では
+
+$$
+z(1-\delta)
+\le
+zR_N
+\le
+z(1+\delta)
+$$
+
+なので
+
+$$
+\{|Z_N|\le z(1-\delta)\}
+\cap E_N(\delta)
+\subset
+\{|Z_N|\le zR_N\}
+\subset
+\{|Z_N|\le z(1+\delta)\}
+\cup E_N(\delta)^c.
+$$
+
+従って
+
+$$
+\begin{aligned}
+P(|Z_N|\le z(1-\delta))
+-
+P(E_N(\delta)^c)
+&\le
+P(|Z_N|\le zR_N)
+\\
+&\le
+P(|Z_N|\le z(1+\delta))
++
+P(E_N(\delta)^c).
+\end{aligned}
+$$
+
+Monte Carlo 中心極限定理から $Z_N\Rightarrow Z\sim N(0,1)$ であり、標準正規分布は連続です。また $P(E_N(\delta)^c)\to0$ です。
+
+まず $N\to\infty$ とし、その後 $\delta\downarrow0$ とすれば
+
+$$
+P(|Z_N|\le zR_N)
+\to
+P(|Z|\le z)
+=
+1-\alpha.
+$$
+
+ところが
+
+$$
+|Z_N|\le zR_N
+$$
+
+は
+
+$$
+\left|
+\widehat I_N-I
+\right|
+\le
+z\frac{S_N}{\sqrt N}
+$$
+
+と同値です。従って
+
+$$
+\boxed{
+P\left(
+I\in
+\left[
+\widehat I_N-z_{1-\alpha/2}\frac{S_N}{\sqrt N},
+\,
+\widehat I_N+z_{1-\alpha/2}\frac{S_N}{\sqrt N}
+\right]
+\right)
+\to
+1-\alpha
+}
+$$
+
+まで確認できました。
 
 ただしここで重要なのは、
 
