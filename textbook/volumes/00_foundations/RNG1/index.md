@@ -1050,7 +1050,7 @@ $$
 
 ---
 
-## 9. 環の第一同型定理
+## 9. 核で割ると像が残る
 
 <a id="thm-rng1-first-isomorphism-ring"></a>
 <!-- formal-statement-start -->
