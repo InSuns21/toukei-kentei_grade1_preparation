@@ -392,6 +392,7 @@
 | 最小多項式 | minimal polynomial | 代数的元 $\alpha$ を根に持つ $F[x]$ のモニック既約多項式。$\alpha$ を根に持つ任意の多項式を割る |
 | 単純拡大 | simple extension | 一つの元 $\alpha$ を基礎体 $F$ に添加して得られる最小の部分体 $F(\alpha)$ |
 | 単純代数拡大 | simple algebraic extension | $F$ 上代数的な一つの元 $\alpha$ により生成される単純拡大 $F(\alpha)/F$ |
+| 代数拡大 | algebraic extension | 拡大体の全ての元が基礎体上代数的である体拡大 |
 | 分解体 | splitting field | 多項式が一次式の積に完全分解し、その全ての根によって基礎体上生成される最小の拡大体 |
 | 体の埋め込み | field embedding | 体から体への単射な体準同型。基礎体を固定する場合は「$F$-埋め込み」と書いてよい |
 | 代数閉体 | algebraically closed field | 係数をその体に持つ任意の非定数多項式が、その体の中に根を持つ体 |
