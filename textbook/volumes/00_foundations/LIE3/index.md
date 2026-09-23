@@ -48,9 +48,9 @@ $$
 >
 > 包含写像を
 >
-> $$
-> \iota:H\hookrightarrow G
-> $$
+$$
+\iota:H\hookrightarrow G
+$$
 >
 > と書く。
 <!-- formal-statement-end -->
@@ -130,23 +130,23 @@ $$
 >
 > 包含写像
 >
-> $$
-> \iota:H\hookrightarrow G
-> $$
+$$
+\iota:H\hookrightarrow G
+$$
 >
 > の微分
 >
-> $$
-> d\iota_e:T_eH\to T_eG
-> $$
+$$
+d\iota_e:T_eH\to T_eG
+$$
 >
 > は単射な Lie 環準同型である。
 >
 > したがって $T_eH$ を $T_eG$ の線形部分空間と同一視すると、
 >
-> $$
-> [T_eH,T_eH]\subset T_eH.
-> $$
+$$
+[T_eH,T_eH]\subset T_eH.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -201,23 +201,23 @@ $$
 >
 > $H$ を Lie 群 $G$ の Lie 部分群とし、
 >
-> $$
-> \mathfrak h=T_eH\subset\mathfrak g=T_eG
-> $$
+$$
+\mathfrak h=T_eH\subset\mathfrak g=T_eG
+$$
 >
 > とする。
 >
 > このとき任意の $X\in\mathfrak h$ について
 >
-> $$
-> \exp_H(X)=\exp_G(X).
-> $$
+$$
+\exp_H(X)=\exp_G(X).
+$$
 >
 > 特に全ての $t\in\mathbb R$ について
 >
-> $$
-> \exp_G(tX)\in H.
-> $$
+$$
+\exp_G(tX)\in H.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -302,11 +302,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（特殊線形群）**
 >
-> $$
-> SL(n,\mathbb R)
-> :=
-> \{A\in GL(n,\mathbb R):\det A=1\}.
-> $$
+$$
+SL(n,\mathbb R)
+:=
+\{A\in GL(n,\mathbb R):\det A=1\}.
+$$
 >
 > これを **特殊線形群**という。
 <!-- formal-statement-end -->
@@ -364,19 +364,19 @@ $$
 >
 > $SL(n,\mathbb R)$ は $GL(n,\mathbb R)$ の埋め込み Lie 部分群で、実次元は
 >
-> $$
-> n^2-1
-> $$
+$$
+n^2-1
+$$
 >
 > である。
 >
 > その Lie 環は
 >
-> $$
-> \mathfrak{sl}(n,\mathbb R)
-> =
-> \{X\in M_n(\mathbb R):\operatorname{tr}X=0\}.
-> $$
+$$
+\mathfrak{sl}(n,\mathbb R)
+=
+\{X\in M_n(\mathbb R):\operatorname{tr}X=0\}.
+$$
 <!-- formal-statement-end -->
 
 ### 行列式の微分を単位元で求める
@@ -511,19 +511,19 @@ $$
 <!-- formal-statement-start -->
 > **定義（直交群・特殊直交群）**
 >
-> $$
-> O(n)
-> :=
-> \{A\in GL(n,\mathbb R):A^\mathsf{T}A=I\}
-> $$
+$$
+O(n)
+:=
+\{A\in GL(n,\mathbb R):A^\mathsf{T}A=I\}
+$$
 >
 > を **直交群**といい、
 >
-> $$
-> SO(n)
-> :=
-> \{A\in O(n):\det A=1\}
-> $$
+$$
+SO(n)
+:=
+\{A\in O(n):\det A=1\}
+$$
 >
 > を **特殊直交群**という。
 <!-- formal-statement-end -->
@@ -587,17 +587,17 @@ $$
 >
 > $O(n)$ と $SO(n)$ は $GL(n,\mathbb R)$ の埋め込み Lie 部分群で、
 >
-> $$
-> \dim O(n)=\dim SO(n)=\frac{n(n-1)}2.
-> $$
+$$
+\dim O(n)=\dim SO(n)=\frac{n(n-1)}2.
+$$
 >
 > 両者の Lie 環は同じで、
 >
-> $$
-> \mathfrak o(n)=\mathfrak{so}(n)
-> =
-> \{X\in M_n(\mathbb R):X^\mathsf{T}+X=0\}.
-> $$
+$$
+\mathfrak o(n)=\mathfrak{so}(n)
+=
+\{X\in M_n(\mathbb R):X^\mathsf{T}+X=0\}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -792,19 +792,19 @@ $$
 >
 > 共役転置を $A^*=\overline A^\mathsf{T}$ とする。
 >
-> $$
-> U(n)
-> :=
-> \{A\in GL(n,\mathbb C):A^*A=I\}
-> $$
+$$
+U(n)
+:=
+\{A\in GL(n,\mathbb C):A^*A=I\}
+$$
 >
 > を **ユニタリ群**といい、
 >
-> $$
-> SU(n)
-> :=
-> \{A\in U(n):\det A=1\}
-> $$
+$$
+SU(n)
+:=
+\{A\in U(n):\det A=1\}
+$$
 >
 > を **特殊ユニタリ群**という。
 <!-- formal-statement-end -->
@@ -841,25 +841,25 @@ $$
 >
 > $U(n)$ と $SU(n)$ は $GL(n,\mathbb C)$ の埋め込み Lie 部分群で、
 >
-> $$
-> \dim_{\mathbb R}U(n)=n^2,
-> \qquad
-> \dim_{\mathbb R}SU(n)=n^2-1.
-> $$
+$$
+\dim_{\mathbb R}U(n)=n^2,
+\qquad
+\dim_{\mathbb R}SU(n)=n^2-1.
+$$
 >
 > その Lie 環は
 >
-> $$
-> \mathfrak u(n)
-> =
-> \{X\in M_n(\mathbb C):X^*+X=0\},
-> $$
+$$
+\mathfrak u(n)
+=
+\{X\in M_n(\mathbb C):X^*+X=0\},
+$$
 >
-> $$
-> \mathfrak{su}(n)
-> =
-> \{X\in M_n(\mathbb C):X^*+X=0,\ \operatorname{tr}X=0\}.
-> $$
+$$
+\mathfrak{su}(n)
+=
+\{X\in M_n(\mathbb C):X^*+X=0,\ \operatorname{tr}X=0\}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
