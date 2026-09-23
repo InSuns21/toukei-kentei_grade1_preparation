@@ -23,7 +23,7 @@ definitions:
   - { id: FDM2-DEF-04, name: 熱方程式の theta 差分法 }
   - { id: FDM2-DEF-05, name: Crank--Nicolson 差分法 }
 theorems:
-  - { id: FDM2-THM-01, name: 周期格子における増幅因子と l2 縮小性 }
+  - { id: FDM2-THM-01, name: 周期格子における増幅因子と縮小性 }
   - { id: FDM2-THM-02, name: FTCS の von Neumann 型安定性 }
   - { id: FDM2-PROP-01, name: 後退 Euler 差分法の無条件 Fourier 安定性 }
   - { id: FDM2-THM-03, name: 熱方程式の theta 差分法の安定性条件 }
