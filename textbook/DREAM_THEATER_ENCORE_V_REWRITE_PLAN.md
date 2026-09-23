@@ -144,7 +144,8 @@ facade は完成済み講座だけをリンクする。未完成章を先行表�
 - [x] FEM5「鞍点問題・Stokes 方程式」を新正本として実装
 - [x] FEM6「放物型方程式の有限要素法」を新正本として実装
 - [x] FEM7「移流拡散・安定化有限要素法」を新正本として実装
-- 次の実装対象：**MC1「Monte Carlo 法と統計的誤差」**
+- [x] MC1「Monte Carlo 法と統計的誤差」を新正本として実装
+- 次の実装対象：**MC2「乱数生成とサンプリング」**
 
 
 ---
@@ -285,6 +286,13 @@ PDE
 | MC4 | Multilevel Monte Carlo | telescoping、coupling、最適標本配分、bias / variance / cost、計算量 |
 
 確率論側では既存の大数則・中心極限定理を canonical dependency として用いる。
+
+### 7.1 Phase 4 進捗
+
+- [x] MC1：Monte Carlo 法と統計的誤差
+- [ ] MC2：乱数生成とサンプリング
+- [ ] MC3：分散減少法
+- [ ] MC4：Multilevel Monte Carlo
 
 現行 SDE1 / SDE1A / UQ1 は新 Encore V 本線には残さない。将来の「確率数値解析」系列の移植元として archive に保持する。
 
