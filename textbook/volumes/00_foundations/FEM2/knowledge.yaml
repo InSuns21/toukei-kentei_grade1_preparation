@@ -88,6 +88,17 @@ concepts:
       - numerical.conforming-p1-space
       - numerical.p1-h1-conformity
 
+  - id: numerical.poisson-local-stiffness
+    name: Poisson の局所剛性行列と局所荷重ベクトル
+    kind: definition
+    aliases: [local stiffness matrix and local load vector for the Poisson problem]
+    introduction: formal
+    introduction_aliases: ["定義（Poisson の局所剛性行列と局所荷重ベクトル）"]
+    requires:
+      - numerical.affine-element-transform
+      - numerical.global-nodal-basis
+      - numerical.poisson-local-stiffness
+
   - id: numerical.poisson-local-assembly-sparsity
     name: Poisson 剛性行列の局所組立てと疎性
     kind: proposition
