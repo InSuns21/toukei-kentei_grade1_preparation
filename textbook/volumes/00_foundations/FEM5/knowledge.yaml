@@ -1,0 +1,116 @@
+chapter: FEM5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FEM4
+  - GPDE7
+forward_references: []
+
+concepts:
+  - id: numerical.saddle-point-variational-problem
+    name: 抽象鞍点問題
+    kind: definition
+    aliases: [abstract saddle-point variational problem]
+    introduction: formal
+    introduction_aliases: ["定義（抽象鞍点問題）"]
+    requires:
+      - variational.bounded-bilinear-form
+
+  - id: numerical.constraint-kernel
+    name: 制約核
+    kind: definition
+    aliases: [constraint kernel of a mixed variational problem]
+    introduction: formal
+    introduction_aliases: ["定義（制約核と inf-sup 条件）"]
+    requires:
+      - numerical.saddle-point-variational-problem
+
+  - id: numerical.inf-sup-condition
+    name: inf-sup 条件
+    kind: definition
+    aliases: [Babuška--Brezzi condition, Ladyzhenskaya--Babuška--Brezzi condition]
+    introduction: formal
+    introduction_aliases: ["定義（制約核と inf-sup 条件）"]
+    requires:
+      - numerical.saddle-point-variational-problem
+
+  - id: numerical.infsup-bounded-lifting
+    name: inf-sup 条件による有界な持ち上げ
+    kind: lemma
+    aliases: [bounded lifting induced by the inf-sup condition]
+    introduction: formal
+    introduction_aliases: ["補題（inf-sup 条件による有界な持ち上げ）"]
+    requires:
+      - numerical.inf-sup-condition
+      - functional-analysis.lax-milgram
+
+  - id: numerical.babuska-brezzi-wellposedness
+    name: 鞍点問題の Babuška--Brezzi 型存在一意性
+    kind: theorem
+    aliases: [Babuška--Brezzi well-posedness theorem for saddle-point problems]
+    introduction: formal
+    introduction_aliases: ["定理（鞍点問題の Babuška--Brezzi 型存在一意性）"]
+    requires:
+      - numerical.constraint-kernel
+      - numerical.inf-sup-condition
+      - numerical.infsup-bounded-lifting
+      - functional-analysis.lax-milgram
+
+  - id: numerical.stokes-velocity-pressure-weak-form
+    name: Stokes 方程式の速度–圧力弱形式
+    kind: definition
+    aliases: [velocity-pressure weak formulation of the Stokes equations]
+    introduction: formal
+    introduction_aliases: ["定義（Stokes 方程式の速度–圧力弱形式）"]
+    requires:
+      - numerical.saddle-point-variational-problem
+
+  - id: numerical.continuous-stokes-infsup
+    name: 連続 Stokes inf-sup 条件
+    kind: theorem
+    aliases: [continuous inf-sup condition for the Stokes equations]
+    introduction: formal
+    introduction_aliases: ["定理（連続 Stokes inf-sup 条件）"]
+    requires:
+      - numerical.inf-sup-condition
+      - numerical.stokes-velocity-pressure-weak-form
+
+  - id: numerical.stokes-weak-wellposedness
+    name: Stokes 速度–圧力弱解の存在一意性
+    kind: theorem
+    aliases: [well-posedness of the velocity-pressure Stokes weak problem]
+    introduction: formal
+    introduction_aliases: ["定理（Stokes 速度–圧力弱解の存在一意性）"]
+    requires:
+      - numerical.babuska-brezzi-wellposedness
+      - numerical.continuous-stokes-infsup
+      - numerical.stokes-velocity-pressure-weak-form
+
+  - id: numerical.stokes-mixed-fem
+    name: Stokes 混合有限要素法
+    kind: definition
+    aliases: [mixed finite element method for the Stokes equations]
+    introduction: formal
+    introduction_aliases: ["定義（Stokes 混合有限要素法）"]
+    requires:
+      - numerical.stokes-velocity-pressure-weak-form
+
+  - id: numerical.discrete-infsup-mixed-quasioptimality
+    name: 離散 inf-sup による混合有限要素法の安定性と準最良近似
+    kind: theorem
+    aliases: [mixed finite element stability and quasi-optimality under a discrete inf-sup condition]
+    introduction: formal
+    introduction_aliases: ["定理（離散 inf-sup による混合有限要素法の安定性と準最良近似）"]
+    requires:
+      - numerical.stokes-mixed-fem
+      - numerical.babuska-brezzi-wellposedness
+
+  - id: numerical.mixed-fem-block-schur
+    name: 混合有限要素行列と Schur 補行列
+    kind: proposition
+    aliases: [block matrix and Schur complement of a mixed finite element discretization]
+    introduction: formal
+    introduction_aliases: ["命題（混合有限要素行列と Schur 補行列）"]
+    requires:
+      - numerical.stokes-mixed-fem
+      - numerical.discrete-infsup-mixed-quasioptimality

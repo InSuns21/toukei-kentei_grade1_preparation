@@ -271,6 +271,8 @@ $$
 > を部分基底として生成される $X$ 上の位相を **initial topology**（始位相）という。
 <!-- formal-statement-end -->
 
+ここで「写像族 $f_i$ が initial topology を**誘導する**」という言い方は、上の定義によって、逆像 $f_i^{-1}(U)$ たちを部分基底として $X$ 上の位相が決まることを意味します。「誘導する」は新しい演算記号ではなく、「与えられたデータからこの規則で構造が定まる」という言い回しです。
+
 <!-- definition-example-start: def-top1-initial-topology -->
 **定義の確認**
 ### 3.1 定義の確認：一つの実数値関数から位相を入れる
@@ -407,15 +409,23 @@ $$
 
 [F0-00B1の部分空間位相](../F0_00B1_位相空間_近傍_部分空間_収束/index.md#def-f0-00b1-subspace)を普遍性から見直します。
 
-$A\subseteq X$ とし、包含写像
+$A\subseteq X$ とします。$A$ の各点をそのまま $X$ の点として送る写像
 
 $$
-\iota:A\hookrightarrow X,
+\iota:A\to X,
 \qquad
 \iota(a)=a
 $$
 
-を考えます。$X$ の開集合 $U$ の逆像は
+を包含写像と呼びます。記号 $\hookrightarrow$ は一般に「この写像は単射である」ことを表します。この場合は包含写像が単射なので、
+
+$$
+\iota:A\hookrightarrow X
+$$
+
+とも書きます。つまりここでは、$A\subseteq X$ という集合の包含を写像として見ていることを強調する記号です。
+
+$X$ の開集合 $U$ の逆像は
 
 $$
 \iota^{-1}(U)=A\cap U.

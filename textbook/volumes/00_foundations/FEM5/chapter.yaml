@@ -1,0 +1,51 @@
+id: "FEM5"
+title: "鞍点問題・Stokes 方程式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FEM4
+  - GPDE7
+official_scope: []
+learning_objectives:
+  - 制約付き最小化から抽象鞍点問題を導入し、Lagrange 乗数を第二未知量として持つ理由を説明できる
+  - 積空間上の単純な強圧性が圧力方向で失敗することを示し、制約核と inf-sup 条件の必要性を説明できる
+  - inf-sup 条件から制約右辺を満たす 有界な持ち上げ を Lax--Milgram を用いて構成し、そのノルム評価を証明できる
+  - 制約核上の強圧性 と inf-sup 条件から Babuška--Brezzi 型の存在一意性と安定性評価を証明できる
+  - 定常 Stokes 方程式の速度–圧力弱形式を導出し、圧力を L_0^2 に置く理由を定数圧力モードから説明できる
+  - 連続 Stokes inf-sup を用いて速度–圧力弱解の存在一意性を導ける
+  - 混合有限要素法を定式化し、離散 inf-sup 条件が連続 inf-sup から自動継承されないことを説明できる
+  - 一様な離散 inf-sup 条件から混合準最良近似評価を導き、速度近似誤差と圧力近似誤差を分離できる
+  - 混合有限要素行列の 2x2 ブロック構造と Schur 補行列を導き、偽圧力モード と B^T の核 の関係を説明できる
+  - Taylor--Hood P2/P1 要素を代表的な inf-sup 安定な組 として位置付け、等次数の組 との違いを説明できる
+definitions:
+  - { id: FEM5-DEF-01, name: 抽象鞍点問題 }
+  - { id: FEM5-DEF-02, name: 制約核と inf-sup 条件 }
+  - { id: FEM5-DEF-03, name: Stokes 方程式の速度–圧力弱形式 }
+  - { id: FEM5-DEF-04, name: Stokes 混合有限要素法 }
+theorems:
+  - { id: FEM5-LEM-01, name: inf-sup 条件による有界な持ち上げ }
+  - { id: FEM5-THM-01, name: 鞍点問題の Babuška--Brezzi 型存在一意性 }
+  - { id: FEM5-THM-02, name: 連続 Stokes inf-sup 条件 }
+  - { id: FEM5-THM-03, name: Stokes 速度–圧力弱解の存在一意性 }
+  - { id: FEM5-THM-04, name: 離散 inf-sup による混合有限要素法の安定性と準最良近似 }
+  - { id: FEM5-PROP-01, name: 混合有限要素行列と Schur 補行列 }
+canonical_examples:
+  - R2 上の最小ノルム問題 u1+u2=1 を Lagrange 乗数付き三元鞍点系として解く例
+  - b(v,q)=q(v1+v2) で制約核 と inf-sup 定数 beta=sqrt(2) を直接計算する例
+  - スカラー関数 psi=x^2(1-x)^2 y^2(1-y)^2 から零境界で発散が 0 の速度を構成する例
+  - 定数圧力モードが H_0^1 速度から見えず L2 全体では inf-sup 定数が 0 になる確認
+  - B^T に非自明な核を持つ有限次元の組で偽圧力モードが生じる例
+  - Taylor--Hood P2/P1 を代表的な離散 inf-sup 安定な組 として位置付ける例
+problem_patterns:
+  - FEM5-SADDLE-KKT-1
+  - FEM5-KERNEL-COERCIVITY-1
+  - FEM5-INF-SUP-COMPUTE-1
+  - FEM5-STOKES-PRESSURE-NORMALIZATION-1
+  - FEM5-SCHUR-COMPLEMENT-1
+  - FEM5-SPURIOUS-PRESSURE-1
+  - FEM5-MIXED-QUASIOPTIMALITY-1
+  - FEM5-SADDLE-SYNTHESIS-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 6.0, review: 1.0 }
