@@ -5,9 +5,7 @@ prerequisites:
   - QMC1
   - F0-02C7
   - F0-00D2E
-forward_references:
-  - numerical.rank-one-lattice-rule
-  - numerical.dual-lattice
+  - GPDE3
 
 concepts:
   - id: numerical.qmc-integration-functional
@@ -69,6 +67,7 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（一次元重み付きアンカー型 Sobolev 空間）"]
     requires:
+      - sobolev.hk
       - rkhs.rkhs
 
   - id: numerical.qmc-weighted-sobolev-kernel
@@ -114,7 +113,7 @@ concepts:
     kind: definition
     aliases: [information complexity for worst-case integration]
     introduction: formal
-    introduction_aliases: ["定義（最悪誤差に対する情報複雑度：絶対誤差基準）"]
+    introduction_aliases: ["定義（最悪誤差そのものを基準とする情報複雑度）"]
     requires:
       - numerical.qmc-worst-case-error
 
