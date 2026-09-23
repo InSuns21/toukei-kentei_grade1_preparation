@@ -204,6 +204,80 @@ $$
 
 「同じ $x$ に二つの値を割り当てない」が写像の条件です。異なる $x$ が同じ値へ写ることは許されます。
 
+### 4.2 各点をそのまま返す写像
+
+<a id="def-f0-00a-identity-map"></a>
+
+<!-- formal-statement-start -->
+> **定義（恒等写像）**  
+> 集合 $X$ に対して、各 $x\in X$ をそのまま自分自身へ送る写像
+
+$$
+\operatorname{id}_X:X\to X,
+\qquad
+\operatorname{id}_X(x)=x
+$$
+
+> を $X$ 上の **恒等写像** という。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00a-identity-map -->
+#### 4.2.1 定義の確認
+
+**定義の確認**
+
+$X=\{a,b\}$ なら
+
+$$
+\operatorname{id}_X(a)=a,
+\qquad
+\operatorname{id}_X(b)=b.
+$$
+
+恒等写像は、各点を一切動かさない「何もしない写像」です。この性質は、後で写像を続けて適用するときに基本になります。
+<!-- definition-example-end -->
+
+### 4.3 直積から成分を取り出す写像
+
+<a id="def-f0-00a-product-projection"></a>
+
+<!-- formal-statement-start -->
+> **定義（直積の射影）**  
+> 集合 $X,Y$ に対して
+
+$$
+\pi_X:X\times Y\to X,
+\qquad
+\pi_X(x,y)=x,
+$$
+
+$$
+\pi_Y:X\times Y\to Y,
+\qquad
+\pi_Y(x,y)=y
+$$
+
+> で定まる写像を、直積から各成分への **射影** または **標準射影** という。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00a-product-projection -->
+#### 4.3.1 定義の確認
+
+**定義の確認**
+
+$X=\{1,2\}$、$Y=\{a,b\}$ とすると
+
+$$
+\pi_X(2,b)=2,
+\qquad
+\pi_Y(2,b)=b.
+$$
+
+射影は順序対から指定した成分だけを取り出す写像です。後続で直積に付随する構造を扱うときにも、同じ形の写像が現れます。
+<!-- definition-example-end -->
+
+「自然な射影」という語は商集合 $X/{\sim}$ への標準的な写像にも使われるため、この章では直積については **直積の射影（標準射影）** と呼んで区別します。
+
 ---
 
 ## 5. 像と逆像
@@ -325,7 +399,7 @@ $$
 
 全単射 $f:X\to Y$ には逆写像 $f^{-1}:Y\to X$ が定まります。一方、前節の集合の逆像 $f^{-1}(B)$ は全単射でなくても使えます。
 
-関数解析では線形作用素 $T:X\to Y$ の全射性が制約想定に関係し、有限次元の「行フルランク」はその具体例です。
+後続では、写像 $T:X\to Y$ の全射性が制約想定に関係する場面を扱います。有限次元の「行フルランク」はその具体例です。
 
 ---
 
@@ -376,6 +450,16 @@ $$
 
 したがって合成では写像を適用する順序が重要です。
 <!-- definition-example-end -->
+
+[恒等写像](#def-f0-00a-identity-map)は合成に対して
+
+$$
+f\circ\operatorname{id}_X=f,
+\qquad
+\operatorname{id}_Y\circ f=f
+$$
+
+を満たします。つまり恒等写像は、写像の合成における「何もしない」単位元です。
 
 逆像には
 
@@ -576,6 +660,64 @@ $$
 
 #### 本番答案
 $f(x_1)=f(x_2)$ なら $2x_1-3=2x_2-3$ より $x_1=x_2$。従って単射。
+<!-- solution-end -->
+
+### F0-00A-A05 恒等写像と直積の射影を使う
+
+- Level: A
+- 目安時間: 8分
+
+$X=\{1,2\}$、$Y=\{a,b\}$ とし、恒等写像 $\operatorname{id}_X:X\to X$ と標準射影
+
+$$
+\pi_X:X\times Y\to X,
+\qquad
+\pi_Y:X\times Y\to Y
+$$
+
+を考える。
+
+1. $\operatorname{id}_X(2)$、$\pi_X(2,b)$、$\pi_Y(2,b)$ を求めよ。
+2. 写像 $f:X\to Y$ を $f(1)=a, f(2)=b$ とするとき、$f\circ\operatorname{id}_X=f$ を各点で確認せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+恒等写像は入力をそのまま返すので
+
+$$
+\operatorname{id}_X(2)=2.
+$$
+
+また、$\pi_X$ は第1成分、$\pi_Y$ は第2成分を取り出すから
+
+$$
+\pi_X(2,b)=2,
+\qquad
+\pi_Y(2,b)=b.
+$$
+
+次に任意の $x\in X$ について
+
+$$
+(f\circ\operatorname{id}_X)(x)
+=
+f(\operatorname{id}_X(x))
+=
+f(x).
+$$
+
+実際に $x=1,2$ を代入すると
+
+$$
+(f\circ\operatorname{id}_X)(1)=f(1)=a,
+$$
+
+$$
+(f\circ\operatorname{id}_X)(2)=f(2)=b.
+$$
+
+従って $f\circ\operatorname{id}_X=f$ である。
 <!-- solution-end -->
 
 ### F0-00A-B03 像は共通部分をどこまで保つか

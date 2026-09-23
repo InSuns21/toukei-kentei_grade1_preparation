@@ -51,6 +51,21 @@ concepts:
     requires:
       - set.set
 
+  - id: set.identity-map
+    name: 恒等写像
+    kind: definition
+    aliases: [恒等写像, identity map]
+    requires:
+      - set.function
+
+  - id: set.product-projection
+    name: 直積の射影
+    kind: definition
+    aliases: [直積の射影, 直積の標準射影, product projection]
+    requires:
+      - set.function
+      - set.cartesian-product
+
   - id: set.image
     name: 像
     kind: definition
