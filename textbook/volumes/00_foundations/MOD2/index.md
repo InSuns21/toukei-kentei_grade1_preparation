@@ -74,6 +74,8 @@ $$
 <!-- definition-example-start: def-mod2-matrix-equivalence -->
 ### 1.1 定義の確認：整数行列の一回の行基本変形
 
+**定義の確認**
+
 $$
 A=
 \begin{pmatrix}
@@ -290,6 +292,8 @@ $$
 
 <!-- definition-example-start: def-mod2-smith-normal-form -->
 ### 3.1 定義の確認：$\operatorname{diag}(2,4)$
+
+**定義の確認**
 
 $\mathbb Z$ 上
 
@@ -533,6 +537,8 @@ $$
 
 <!-- definition-example-start: def-mod2-determinantal-ideal -->
 ### 4.1 定義の確認：2×2 整数行列
+
+**定義の確認**
 
 $$
 A=
@@ -1027,6 +1033,8 @@ $$
 
 <!-- definition-example-start: def-mod2-presentation-cokernel -->
 ### 6.1 定義の確認：$\mathbb Z/6\mathbb Z$
+
+**定義の確認**
 
 写像
 
@@ -1721,6 +1729,8 @@ $$
 
 <!-- definition-example-start: def-mod2-elementary-divisor -->
 ### 8.1 定義の確認：$\mathbb Z/12\mathbb Z\oplus\mathbb Z/18\mathbb Z$
+
+**定義の確認**
 
 この群はそのままでは
 
