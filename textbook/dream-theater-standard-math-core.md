@@ -1087,7 +1087,7 @@ direct prerequisite は RNG4 と LA2 です。RNG4 の環・多項式環と LA2 
 
 実装: [MOD2](volumes/00_foundations/MOD2/index.md)
 
-direct prerequisite は MOD1 と RNG4 です。MOD1 の自由加群・商加群・ねじれ・$F[x]$-加群を直接受け、RNG3--RNG4 で閉じた PID・UFD・多項式環の理論を再利用します。Jordan 標準形は LA4 に既存の証明があるため重複再証明せず、加群構造論がその分類を統一的に説明するところまでを担当します。
+direct prerequisite は MOD1、RNG4、LA3B です。MOD1 の自由加群・商加群・ねじれ・$F[x]$-加群、RNG3--RNG4 で閉じた PID・UFD・多項式環の理論に加え、Smith 不変因子の一意性で使う LA3B の行列式を再利用します。Jordan 標準形は LA4 に既存の証明があるため重複再証明せず、加群構造論がその分類を統一的に説明するところまでを担当します。
 
 ---
 
