@@ -379,6 +379,7 @@ $$
 $$
 <!-- formal-statement-end -->
 
+<a id="ref-lie3-determinant-differential"></a>
 ### 行列式の微分を単位元で求める
 
 $X=(x_{ij})$ とし、
@@ -939,7 +940,7 @@ $$
 \det:U(n)\to U(1)
 $$
 
-を考えます。$X\in\mathfrak u(n)$ に対する単位元での微分は、行列式の微分公式から
+を考えます。$X\in\mathfrak u(n)$ に対する単位元での微分は、[§5 の行列式微分の導出](#ref-lie3-determinant-differential)から
 
 $$
 d(\det)_I(X)=\operatorname{tr}X.
@@ -1048,7 +1049,7 @@ $$
 A'(t)=A(t)X
 $$
 
-であり、§5 で求めた行列式の微分公式を使うと
+であり、[§5 で導いた行列式の微分](#ref-lie3-determinant-differential)を使うと
 
 $$
 \frac{d}{dt}\det A(t)
@@ -1083,7 +1084,7 @@ $$
 (e^X)^*e^X=e^{-X}e^X=I.
 $$
 
-さらに $\operatorname{tr}X=0$ なら、$A(t)=e^{tX}$ に行列式の微分公式を適用して
+さらに $\operatorname{tr}X=0$ なら、$A(t)=e^{tX}$ に [§5 で導いた行列式の微分](#ref-lie3-determinant-differential)を適用して
 
 $$
 \frac{d}{dt}\det A(t)
@@ -1204,7 +1205,7 @@ $$
 
 と書けます。
 
-さらに $\iota$ は Lie 群準同型なので、LIE1 の定理により $d\iota_e$ は Lie 環準同型でもあります。よってこの部分空間は Lie 括弧でも閉じます。
+さらに $\iota$ は Lie 群準同型なので、[LIE1 の「Lie 群準同型の微分は Lie 環準同型」](../LIE1/index.md#thm-lie1-homomorphism-differential)により $d\iota_e$ は Lie 環準同型でもあります。よってこの部分空間は Lie 括弧でも閉じます。
 <!-- solution-end -->
 
 <a id="ex-lie3-a02"></a>
