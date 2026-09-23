@@ -1,0 +1,112 @@
+chapter: FDM1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PDE3
+  - NA7
+  - NA8
+forward_references: []
+
+concepts:
+  - id: numerical.fdm-space-time-grid
+    name: 時空間差分格子
+    kind: definition
+    aliases: [差分格子, space-time finite-difference grid]
+    introduction: formal
+    requires:
+      - pde.pde3-heat-equation
+
+  - id: numerical.grid-function
+    name: 格子関数
+    kind: definition
+    aliases: [grid function]
+    introduction: formal
+    requires:
+      - numerical.fdm-space-time-grid
+
+  - id: numerical.forward-time-difference
+    name: 前進時間差分
+    kind: definition
+    aliases: [forward time difference]
+    introduction: formal
+    introduction_aliases: ["前進時間差分・中心二階空間差分・一次元離散 Laplacian", "定義（前進時間差分・中心二階空間差分・一次元離散 Laplacian）"]
+    requires:
+      - numerical.grid-function
+
+  - id: numerical.centered-second-difference
+    name: 中心二階空間差分
+    kind: definition
+    aliases: [centered second difference]
+    introduction: formal
+    introduction_aliases: ["前進時間差分・中心二階空間差分・一次元離散 Laplacian", "定義（前進時間差分・中心二階空間差分・一次元離散 Laplacian）"]
+    requires:
+      - numerical.grid-function
+
+  - id: numerical.discrete-laplacian-1d
+    name: 一次元離散 Laplacian
+    kind: definition
+    aliases: [one-dimensional discrete Laplacian]
+    introduction: formal
+    introduction_aliases: ["前進時間差分・中心二階空間差分・一次元離散 Laplacian", "定義（前進時間差分・中心二階空間差分・一次元離散 Laplacian）"]
+    requires:
+      - numerical.centered-second-difference
+
+  - id: numerical.explicit-finite-difference-method
+    name: 差分法の陽解法
+    kind: definition
+    aliases: [explicit finite-difference method]
+    introduction: formal
+    requires:
+      - numerical.grid-function
+
+  - id: numerical.implicit-finite-difference-method
+    name: 差分法の陰解法
+    kind: definition
+    aliases: [implicit finite-difference method]
+    introduction: formal
+    requires:
+      - numerical.grid-function
+
+  - id: numerical.ftcs-heat-scheme
+    name: 熱方程式の前進時間・中心空間差分法
+    kind: definition
+    aliases: [FTCS, forward-time centered-space scheme]
+    introduction: formal
+    requires:
+      - pde.pde3-heat-equation
+      - numerical.forward-time-difference
+      - numerical.centered-second-difference
+      - numerical.explicit-finite-difference-method
+
+  - id: numerical.backward-euler-heat-fdm
+    name: 熱方程式の後退 Euler 差分法
+    kind: definition
+    aliases: [backward Euler finite-difference scheme for the heat equation]
+    introduction: formal
+    introduction_aliases: ["定義（後退 Euler 差分法）"]
+    requires:
+      - pde.pde3-heat-equation
+      - numerical.backward-euler-method
+      - numerical.centered-second-difference
+      - numerical.implicit-finite-difference-method
+
+  - id: numerical.heat-semidiscrete-euler-correspondence
+    name: 熱方程式の空間半離散系と Euler 時間離散の対応
+    kind: proposition
+    aliases: [Euler time stepping of the semidiscrete heat equation]
+    introduction: formal
+    introduction_aliases: ["命題（空間半離散系と Euler 法による二つの差分スキームの対応）"]
+    requires:
+      - numerical.ftcs-heat-scheme
+      - numerical.backward-euler-heat-fdm
+      - numerical.backward-euler-method
+
+  - id: numerical.backward-euler-heat-step-solvability
+    name: 後退 Euler 差分法の時刻ステップ一意可解性
+    kind: theorem
+    aliases: [unique solvability of a backward Euler heat step]
+    introduction: formal
+    introduction_aliases: ["定理（後退 Euler 差分法の各時刻ステップの一意可解性）"]
+    requires:
+      - numerical.backward-euler-heat-fdm
+      - numerical.cholesky-existence-uniqueness
