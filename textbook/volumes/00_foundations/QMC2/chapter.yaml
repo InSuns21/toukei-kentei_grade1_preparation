@@ -6,6 +6,7 @@ prerequisites:
   - QMC1
   - F0-02C7
   - F0-00D2E
+  - GPDE3
 official_scope: []
 learning_objectives:
   - 既存の再生核 Hilbert 空間と再生核を用いて、積分汎関数が連続になる十分条件を確認し、その Riesz 表現元を導ける
