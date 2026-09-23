@@ -90,10 +90,11 @@ concepts:
       - algebra.left-coset
 
   - id: algebra.lagrange-theorem
-    name: Lagrange の定理
+    name: 群の Lagrange の定理
     kind: theorem
-    aliases: [Lagrange theorem, Lagrange's theorem]
+    aliases: [Lagrange theorem for groups, Lagrange's theorem for groups]
     introduction: formal
+    introduction_aliases: ["定理（Lagrange の定理）"]
     requires:
       - algebra.coset-partition
       - algebra.subgroup-index
