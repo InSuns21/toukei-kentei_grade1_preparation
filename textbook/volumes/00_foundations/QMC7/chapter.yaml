@@ -20,7 +20,7 @@ definitions:
   - { id: QMC7-DEF-02, name: デジタルシフト QMC 推定量 }
   - { id: QMC7-DEF-03, name: 独立ランダム化反復 }
   - { id: QMC7-DEF-04, name: 入れ子一様スクランブル }
-  - { id: QMC7-DEF-05, name: 関数的 分散分析成分 }
+  - { id: QMC7-DEF-05, name: 関数的分散分析成分 }
 theorems:
   - { id: QMC7-THM-01, name: 一様デジタルシフトによる各点の一様化と不偏性 }
   - { id: QMC7-THM-02, name: デジタルシフトによる (t,m,s)-ネット性の保存 }
