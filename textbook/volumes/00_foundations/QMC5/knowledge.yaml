@@ -2,6 +2,7 @@ chapter: QMC5
 scope: dream-theater
 coverage: complete
 prerequisites:
+  - QMC3
   - QMC4
   - FOU1
 
