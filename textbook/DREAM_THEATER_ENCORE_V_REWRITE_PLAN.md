@@ -158,7 +158,8 @@ facade は完成済み講座だけをリンクする。未完成章を先行表�
 - [x] QMC8「高次準 Monte Carlo 法（higher-order QMC）」を新正本として実装
 - [x] Encore V 理論35講の横断監査：**方針決定により実施対象外（skip）**
 - [x] PYNUM1「Python 数値計算速習」を新正本として実装
-- 次の実装対象：**NUMLAB0「計算機演習基盤」**
+- [x] NUMLAB0「計算機演習基盤」を実装
+- 次の実装対象：**NUMLAB1「数値解析演習」**
 
 
 ---
@@ -370,7 +371,8 @@ QMC2 は既存 F0-02C7 の RKHS / 再生核を再定義しない。stable anchor
 - [x] QMC8「高次準 Monte Carlo 法（higher-order QMC）」を新正本として実装
 - [x] Encore V 理論35講の横断監査：**方針決定により実施対象外（skip）**
 - [x] PYNUM1「Python 数値計算速習」を新正本として実装
-- 次の実装対象：**NUMLAB0「計算機演習基盤」**
+- [x] NUMLAB0「計算機演習基盤」を実装
+- 次の実装対象：**NUMLAB1「数値解析演習」**
 
 ---
 
@@ -419,7 +421,17 @@ PYNUM1 は後続 NUMLAB の共通参照章とし、各演習で Python / NumPy �
 
 ## 9.2 基盤方針
 
-第一候補はブラウザ内 Python 実行とする。
+ブラウザ内 Python 実行を採用する。NUMLAB0 実装時点の技術選定は次で固定する。
+
+- Pyodide 314.0.7
+- module Web Worker による Python 実行分離
+- ユーザーコード本体の時間制限超過時は Worker を破棄して再生成
+- NumPy / SciPy / Matplotlib は Pyodide の固定版配布から必要時に読込
+- 編集コード・完了状態は localStorage
+- Pyodide 固定版資産は Service Worker の永続 Cache Storage
+- 通常教材のオフライン保存と数値ランタイムのキャッシュを分離
+- `python-lab` + `python-test` fence を共通実行・自動判定契約とする
+- 数値判定は tolerance、性質ベーステストは再現可能な固定乱数生成器で行う
 
 基本要件：
 
@@ -436,7 +448,7 @@ PYNUM1 は後続 NUMLAB の共通参照章とし、各演習で Python / NumPy �
 - offline / GitHub Pages との整合
 - ネットワークアクセスを演習実行の必須条件にしない
 
-実際の技術選定は NUMLAB0 開始時に、当時の GitHub Pages 構成・bundle size・保守性を確認して最終決定する。
+技術選定は NUMLAB0 で確定済み。後続 NUMLAB1–NUMLAB5 は実験内容へ集中し、個別に別ランタイムを持ち込まない。基盤変更が必要な場合は NUMLAB0 の共通 runtime / Worker / validation を更新する。
 
 ## 9.3 理論演習との役割分担
 
