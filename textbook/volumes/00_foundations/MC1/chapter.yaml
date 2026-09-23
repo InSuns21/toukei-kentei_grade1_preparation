@@ -1,0 +1,48 @@
+id: "MC1"
+title: "Monte Carlo 法と統計的誤差"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00P5
+  - F0-00P5A
+  - F0-00P6A
+official_scope: []
+learning_objectives:
+  - 単位立方体上の積分を一様分布に関する期待値として書き、Monte Carlo 推定量を構成できる
+  - Monte Carlo 推定量の不偏性と分散 sigma^2/N を独立性から導出できる
+  - 二乗平均平方根誤差が sigma/sqrt(N) であり、誤差半減に標本数4倍が必要なことを説明できる
+  - 有限分散版強大数則を適用して Monte Carlo 推定量の強一致性を示せる
+  - 独立同分布中心極限定理を適用して sqrt(N) 尺度の統計的誤差を導ける
+  - 標本分散から Monte Carlo 標準誤差を推定し、その一致性を説明できる
+  - 正規近似に基づく近似信頼区間を構成し、被覆確率が漸近的な主張であることを説明できる
+  - 目標半幅から必要標本数が精度の二乗に反比例することを導ける
+  - 標本誤差と離散化バイアスを分離し、二乗平均誤差をバイアスの二乗と標本分散項に分解できる
+definitions:
+  - { id: MC1-DEF-01, name: Monte Carlo 推定量 }
+  - { id: MC1-DEF-02, name: Monte Carlo 標準誤差 }
+theorems:
+  - { id: MC1-PROP-01, name: Monte Carlo 推定量の不偏性・分散・二乗平均平方根誤差 }
+  - { id: MC1-THM-01, name: Monte Carlo 推定量の強一致性 }
+  - { id: MC1-THM-02, name: Monte Carlo 中心極限定理 }
+  - { id: MC1-THM-03, name: 標本分散と標準誤差推定の一致性 }
+  - { id: MC1-COR-01, name: 既知分散での漸近信頼区間 }
+  - { id: MC1-PROP-02, name: バイアスと標本誤差の二乗平均誤差分解 }
+canonical_examples:
+  - U~Unif(0,1) に対する積分 int_0^1 x^2 dx の Monte Carlo 推定
+  - Bernoulli 指示関数による円周率推定と分散
+  - 誤差半減に標本数4倍が必要となる標本数設計
+  - 標本分散から標準誤差を計算する小標本例
+  - 離散近似量 Q_h の期待値を推定するときの離散化バイアスと標本誤差の分解
+problem_patterns:
+  - MC1-INTEGRAL-AS-EXPECTATION-1
+  - MC1-UNBIASED-VARIANCE-RMSE-1
+  - MC1-LLN-CONSISTENCY-1
+  - MC1-CLT-ERROR-1
+  - MC1-STANDARD-ERROR-1
+  - MC1-CONFIDENCE-INTERVAL-1
+  - MC1-SAMPLE-SIZE-1
+  - MC1-BIAS-VARIANCE-DECOMPOSITION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.5, exercises: 4.5, review: 0.75 }
