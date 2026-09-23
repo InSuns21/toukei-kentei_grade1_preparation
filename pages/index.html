@@ -342,6 +342,7 @@
     var lastDreamNav = null;
     var lastStandardRoute = null;
     var lastStandardNav = null;
+    var lastContentRoute = null;
 
     function canonicalNavigationRoute(value) {
       var route = String(value || '').replace(/^#\/?/, '').replace(/^\/+/, '');
@@ -515,10 +516,32 @@
       lastStandardNav = nav;
     }
 
+    function resetContentScrollForRoute(routeValue) {
+      var currentRoute = canonicalNavigationRoute(routeValue);
+      if (!currentRoute) {
+        lastContentRoute = currentRoute;
+        return;
+      }
+      if (lastContentRoute === null) {
+        lastContentRoute = currentRoute;
+        return;
+      }
+      if (currentRoute === lastContentRoute) return;
+
+      lastContentRoute = currentRoute;
+      var scrollingElement = document.scrollingElement || document.documentElement || document.body;
+      if (scrollingElement) scrollingElement.scrollTop = 0;
+      window.scrollTo(0, 0);
+
+      var content = document.querySelector('.content');
+      if (content && typeof content.scrollTop === 'number') content.scrollTop = 0;
+    }
+
     function syncNavigationState(routeValue, pending) {
       var currentRoute = canonicalNavigationRoute(routeValue);
       document.body.classList.toggle('navigation-pending', Boolean(pending));
 
+      resetContentScrollForRoute(routeValue);
       if (syncDreamTheaterSidebar(currentRoute)) return;
       syncStandardSidebar(currentRoute, pending);
     }
