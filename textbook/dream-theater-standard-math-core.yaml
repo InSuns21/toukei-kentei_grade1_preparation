@@ -465,6 +465,15 @@ nodes:
     reuses: [F0_00A]
     prerequisites: [BASE]
 
+  - id: GRP2
+    title: 準同型・剰余類・正規部分群・商群
+    area: abstract-algebra
+    tier: core
+    status: implemented
+    implemented_at: 2026-09-23
+    implementation_path: textbook/volumes/00_foundations/GRP2/index.md
+    prerequisites: [GRP1]
+
   - id: VC1
     title: ベクトル場と微分演算子
     area: vector-calculus
