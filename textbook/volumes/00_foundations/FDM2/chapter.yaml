@@ -1,0 +1,49 @@
+id: "FDM2"
+title: "差分法 II：差分スキームの安定性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FDM1
+  - NA7
+official_scope: []
+learning_objectives:
+  - NA6 の有限時間摂動安定性を差分時間発展へ読み替え、縮小性を定義して各時刻ステップの一意可解性とは別概念であることを説明できる
+  - Fourier モードと増幅因子を定義し、周期格子の離散 Fourier 分解と Parseval 恒等式から von Neumann 型安定性解析の根拠を証明できる
+  - FTCS の増幅因子を導き、von Neumann 型解析で拡散 CFL 条件 r <= 1/2 が必要十分となることを証明できる
+  - CFL 条件を破ると交互振動モードが増幅し、熱方程式本来の高周波減衰を逆転させることを具体計算で説明できる
+  - 後退 Euler 差分法の増幅因子を導き、任意の r >= 0 で無条件 Fourier 安定であることを証明できる
+  - 熱方程式の theta 差分法と Crank--Nicolson 差分法を定義し、theta >= 1/2 で無条件安定、theta < 1/2 で条件付き安定となることを証明できる
+  - 空間半離散固有値を NA7 の theta 法の安定関数へ代入すると PDE の増幅因子が得られることを説明できる
+  - 斉次 Dirichlet 格子の離散正弦モードと固有値を導き、固定格子の安定条件と格子細分化に一様な CFL 条件を区別できる
+  - Crank--Nicolson 法と後退 Euler 法を、高周波減衰と A 安定性・L 安定性の違いから比較できる
+definitions:
+  - { id: FDM2-DEF-01, name: 差分時間発展の縮小性 }
+  - { id: FDM2-DEF-02, name: 増幅因子と von Neumann 型安定性解析 }
+  - { id: FDM2-DEF-03, name: FTCS の拡散 CFL 条件 }
+  - { id: FDM2-DEF-04, name: 熱方程式の theta 差分法 }
+  - { id: FDM2-DEF-05, name: Crank--Nicolson 差分法 }
+theorems:
+  - { id: FDM2-THM-01, name: 周期格子における増幅因子と縮小性 }
+  - { id: FDM2-THM-02, name: FTCS の von Neumann 型安定性 }
+  - { id: FDM2-PROP-01, name: 後退 Euler 差分法の無条件 Fourier 安定性 }
+  - { id: FDM2-THM-03, name: 熱方程式の theta 差分法の安定性条件 }
+  - { id: FDM2-PROP-02, name: 斉次 Dirichlet 格子の離散正弦モード }
+canonical_examples:
+  - スカラー摂動更新 E^{n+1}=qE^n による安定性の直接確認
+  - 単純平均スキームの増幅因子 cos(xi)
+  - FTCS の交互振動モード xi=pi と r=0.6 による不安定化
+  - 後退 Euler 差分法と Crank--Nicolson 差分法の高周波減衰比較
+  - Dirichlet 格子の sin(k*pi*j/J) 固有モード
+problem_patterns:
+  - FDM2-FTCS-AMPLIFICATION-1
+  - FDM2-CFL-VIOLATION-1
+  - FDM2-BACKWARD-EULER-STABILITY-1
+  - FDM2-CRANK-NICOLSON-1
+  - FDM2-THETA-STABILITY-1
+  - FDM2-DIRICHLET-SINE-MODE-1
+  - FDM2-ODE-STABILITY-BRIDGE-1
+  - FDM2-HIGH-FREQUENCY-COMPARISON-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 4.5, review: 0.5 }

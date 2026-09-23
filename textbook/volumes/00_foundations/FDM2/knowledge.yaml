@@ -1,0 +1,125 @@
+chapter: FDM2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FDM1
+  - NA7
+forward_references: []
+
+concepts:
+  - id: numerical.fdm-contractivity
+    name: 差分時間発展の縮小性
+    kind: definition
+    aliases: [contractivity of finite-difference evolution]
+    introduction: formal
+    requires:
+      - numerical.grid-function
+      - numerical.finite-time-perturbation-stability
+
+  - id: numerical.fdm-amplification-factor
+    name: 差分スキームの増幅因子
+    kind: definition
+    aliases: [amplification factor of a finite-difference scheme]
+    introduction: formal
+    introduction_aliases: ["増幅因子と von Neumann 型安定性解析", "定義（増幅因子と von Neumann 型安定性解析）"]
+    requires:
+      - numerical.grid-function
+
+  - id: numerical.von-neumann-stability-analysis
+    name: von Neumann 型安定性解析
+    kind: definition
+    aliases: [von Neumann stability analysis, Fourier stability analysis]
+    introduction: formal
+    introduction_aliases: ["増幅因子と von Neumann 型安定性解析", "定義（増幅因子と von Neumann 型安定性解析）"]
+    requires:
+      - numerical.fdm-amplification-factor
+
+  - id: numerical.discrete-fourier-parseval
+    name: 周期格子の離散 Fourier 直交性と Parseval 恒等式
+    kind: proposition
+    aliases: [離散 Parseval 恒等式, discrete Parseval identity on a periodic grid]
+    introduction: formal
+    introduction_aliases: ["命題（周期格子の離散 Fourier 直交性と Parseval 恒等式）"]
+    requires:
+      - numerical.fdm-amplification-factor
+
+  - id: numerical.von-neumann-l2-contraction-criterion
+    name: 周期格子における増幅因子と縮小性
+    kind: theorem
+    aliases: [Fourier amplification criterion for discrete l2 contraction]
+    introduction: formal
+    introduction_aliases: ["定理（周期格子における増幅因子と縮小性）"]
+    requires:
+      - numerical.von-neumann-stability-analysis
+      - numerical.fdm-contractivity
+      - numerical.discrete-fourier-parseval
+
+  - id: numerical.ftcs-diffusive-cfl-condition
+    name: FTCS の拡散 CFL 条件
+    kind: definition
+    aliases: [拡散 CFL 条件, diffusive CFL condition for FTCS, parabolic CFL condition for FTCS]
+    introduction: formal
+    requires:
+      - numerical.ftcs-heat-scheme
+      - numerical.fdm-amplification-factor
+
+  - id: numerical.ftcs-von-neumann-stability
+    name: FTCS の von Neumann 型安定性
+    kind: theorem
+    aliases: [von Neumann stability of FTCS for the heat equation]
+    introduction: formal
+    introduction_aliases: ["定理（FTCS の von Neumann 型安定性）"]
+    requires:
+      - numerical.ftcs-heat-scheme
+      - numerical.ftcs-diffusive-cfl-condition
+      - numerical.von-neumann-l2-contraction-criterion
+
+  - id: numerical.backward-euler-heat-fourier-stability
+    name: 後退 Euler 差分法の無条件 Fourier 安定性
+    kind: proposition
+    aliases: [unconditional Fourier stability of backward Euler for the heat equation]
+    introduction: formal
+    introduction_aliases: ["命題（後退 Euler 差分法の無条件 Fourier 安定性）"]
+    requires:
+      - numerical.backward-euler-heat-fdm
+      - numerical.fdm-amplification-factor
+
+  - id: numerical.theta-heat-fdm
+    name: 熱方程式の theta 差分法
+    kind: definition
+    aliases: [theta finite-difference scheme for the heat equation]
+    introduction: formal
+    requires:
+      - numerical.theta-method
+      - numerical.centered-second-difference
+      - numerical.ftcs-heat-scheme
+      - numerical.backward-euler-heat-fdm
+
+  - id: numerical.crank-nicolson-heat-fdm
+    name: Crank--Nicolson 差分法
+    kind: definition
+    aliases: [Crank-Nicolson finite-difference scheme, Crank--Nicolson method for the heat equation]
+    introduction: formal
+    requires:
+      - numerical.theta-heat-fdm
+
+  - id: numerical.theta-heat-stability
+    name: 熱方程式の theta 差分法の安定性条件
+    kind: theorem
+    aliases: [stability criterion for the theta heat scheme]
+    introduction: formal
+    introduction_aliases: ["定理（熱方程式の theta 差分法の安定性条件）"]
+    requires:
+      - numerical.theta-heat-fdm
+      - numerical.von-neumann-stability-analysis
+      - numerical.theta-a-stability
+
+  - id: numerical.dirichlet-discrete-sine-modes
+    name: 斉次 Dirichlet 格子の離散正弦モード
+    kind: proposition
+    aliases: [discrete sine modes for the Dirichlet Laplacian]
+    introduction: formal
+    introduction_aliases: ["命題（斉次 Dirichlet 格子の離散正弦モード）"]
+    requires:
+      - numerical.discrete-laplacian-1d
+      - numerical.theta-heat-fdm

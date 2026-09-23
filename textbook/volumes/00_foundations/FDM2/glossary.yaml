@@ -1,0 +1,26 @@
+chapter: "FDM2"
+terms:
+  - term: 縮小性
+    english: contractivity
+    meaning: 同じ斉次差分スキームに従う二つの数値解の差が、1ステップ進めても指定したノルムで増えない性質。
+  - term: 増幅因子
+    english: amplification factor
+    meaning: 1つの Fourier モードが差分スキームの1ステップで何倍されるかを表す複素数。
+  - term: von Neumann 型安定性解析
+    english: von Neumann stability analysis
+    meaning: 空間係数一定な線形差分スキームを Fourier モードへ分解し、各モードの増幅因子の絶対値から安定性を判定する方法。
+  - term: 拡散 CFL 条件
+    english: diffusive CFL condition
+    meaning: 熱方程式の FTCS に対する r=kappa*tau/h^2 <= 1/2 という安定性由来の刻み幅条件。
+  - term: 無条件安定
+    english: unconditionally stable
+    meaning: 安定性のために tau と h の比へ追加の上限制約を課す必要がないこと。精度が刻み幅によらないという意味ではない。
+  - term: theta 差分法
+    english: theta finite-difference scheme
+    meaning: 現在時刻と次時刻の中心二階空間差分を重み 1-theta と theta で組み合わせる熱方程式の時間離散法。
+  - term: Crank--Nicolson 差分法
+    english: Crank--Nicolson finite-difference scheme
+    meaning: theta=1/2 とした熱方程式の theta 差分法。無条件安定だが高周波モードを強く減衰させるとは限らない。
+  - term: 離散正弦モード
+    english: discrete sine mode
+    meaning: 斉次 Dirichlet 格子で一次元中心二階差分作用素を対角化する sin(k*pi*j/J) 型の固有ベクトル。
