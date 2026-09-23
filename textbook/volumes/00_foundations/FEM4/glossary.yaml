@@ -1,0 +1,20 @@
+chapter: "FEM4"
+terms:
+  - term: エネルギー誤差
+    english: energy error
+    meaning: 楕円型変分問題で自然なエネルギーノルムまたは H0^1 の勾配ノルムで測った有限要素解の誤差。
+  - term: 楕円型双対問題
+    english: elliptic dual problem / adjoint problem
+    meaning: L2 誤差 e を右辺に持ち、a(v,z)=(e,v)_L2 を全 v に対して満たす z を求める補助変分問題。
+  - term: 双対正則性
+    english: dual regularity
+    meaning: 双対問題の解 z が ||z||_H2 <= C_reg ||e||_L2 のように右辺より二階の Sobolev 正則性を持つという仮定。
+  - term: Aubin--Nitsche の双対論法
+    english: Aubin--Nitsche duality argument
+    meaning: L2 誤差の二乗を双対問題と Galerkin 直交性で a(e,z-I_h z) に変換し、補間誤差の h を追加で得る方法。
+  - term: H1 誤差評価
+    english: H1 error estimate
+    meaning: Céa の補題と有限要素補間評価を組み合わせ、一次有限要素解について |u-u_h|_H1 <= C h |u|_H2 を得る評価。
+  - term: L2 誤差評価
+    english: L2 error estimate
+    meaning: 双対正則性の下で一次有限要素解について ||u-u_h||_L2 <= C h^2 |u|_H2 を得る評価。

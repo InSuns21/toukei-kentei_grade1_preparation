@@ -1,0 +1,61 @@
+chapter: FEM4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FEM3
+  - GPDE9
+forward_references: []
+
+concepts:
+  - id: numerical.p1-fem-h1-error
+    name: 一次有限要素解の H1 誤差評価
+    kind: theorem
+    aliases: [H1 error estimate for conforming linear finite elements]
+    introduction: formal
+    introduction_aliases: ["定理（一次有限要素解の H1 誤差評価）"]
+    requires:
+      - numerical.cea-lemma
+      - numerical.global-p1-interpolation-error
+      - numerical.conforming-p1-space
+      - numerical.shape-regular-triangulation-family
+
+  - id: numerical.elliptic-l2-dual-problem
+    name: L2 誤差に対する楕円型双対問題
+    kind: definition
+    aliases: [elliptic dual problem for the L2 error]
+    introduction: formal
+    introduction_aliases: ["定義（L2 誤差に対する楕円型双対問題）"]
+    requires:
+      - variational.bounded-bilinear-form
+      - variational.coercive-bilinear-form
+
+  - id: numerical.elliptic-dual-wellposedness
+    name: 楕円型双対問題の存在一意性
+    kind: lemma
+    aliases: [well-posedness of the elliptic dual problem]
+    introduction: formal
+    introduction_aliases: ["補題（楕円型双対問題の存在一意性）"]
+    requires:
+      - numerical.elliptic-l2-dual-problem
+      - functional-analysis.lax-milgram
+
+  - id: numerical.aubin-nitsche-l2-error
+    name: Aubin--Nitsche 型 L2 誤差評価
+    kind: theorem
+    aliases: [Aubin--Nitsche duality estimate for conforming finite elements]
+    introduction: formal
+    introduction_aliases: ["定理（Aubin--Nitsche 型 L2 誤差評価）"]
+    requires:
+      - numerical.elliptic-dual-wellposedness
+      - numerical.galerkin-orthogonality
+      - numerical.global-p1-interpolation-error
+
+  - id: numerical.p1-fem-standard-error-rates
+    name: 一次有限要素法の標準 H1・L2 誤差評価
+    kind: corollary
+    aliases: [standard H1 and L2 error estimates for conforming linear finite elements]
+    introduction: formal
+    introduction_aliases: ["系（一次有限要素法の標準 H1・L2 誤差評価）"]
+    requires:
+      - numerical.p1-fem-h1-error
+      - numerical.aubin-nitsche-l2-error
