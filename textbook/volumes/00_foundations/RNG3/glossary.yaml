@@ -1,0 +1,38 @@
+chapter: "RNG3"
+terms:
+  - term: 整除
+    english: divisibility
+    meaning: 整域 R の元 a,b に対し、b=ac となる c∈R が存在するとき a は b を割るという。
+  - term: 単元
+    english: unit
+    meaning: 乗法逆元を持つ環の元。整域では u が単元であることと u|1 は同値。
+  - term: 同伴
+    english: associates
+    meaning: 一方が他方の単元倍である二つの元。a=ub（u は単元）と書ける。
+  - term: 既約元
+    english: irreducible element
+    meaning: 0 でも単元でもない元 p で、p=ab なら a または b が単元となるもの。
+  - term: 素元
+    english: prime element
+    meaning: 0 でも単元でもない元 p で、p|ab なら p|a または p|b を満たすもの。
+  - term: 最大公約元
+    english: greatest common divisor
+    meaning: a,b の公約元 d で、任意の公約元が d を割るもの。同伴を除いて一意。
+  - term: Bézout 等式
+    english: Bézout identity
+    meaning: 最大公約元 d を d=ax+by の形で表す等式。
+  - term: Euclid 整域
+    english: Euclidean domain
+    meaning: 0 でない元に Euclid 関数を持ち、除法 a=bq+r で r=0 または値を減少させられる整域。
+  - term: Euclid 関数
+    english: Euclidean function
+    meaning: 除法の余りが 0 でないとき値が真に減少するように選ばれた R\{0} 上の非負整数値関数。
+  - term: 単項イデアル整域
+    english: principal ideal domain
+    meaning: 全てのイデアルが一つの元で生成される整域。
+  - term: 一意分解整域
+    english: unique factorization domain
+    meaning: 全ての 0 でない非単元が既約元の有限積に分解され、その分解が順序と同伴を除いて一意な整域。
+  - term: イデアルの昇鎖停止
+    english: ascending chain condition on ideals
+    meaning: I_1⊆I_2⊆… というイデアル列が十分先で一定になる性質。
