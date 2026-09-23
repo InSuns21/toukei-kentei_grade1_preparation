@@ -1,0 +1,49 @@
+id: "MC3"
+title: "分散減少法"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MC2
+official_scope: []
+learning_objectives:
+  - 分散減少法を、推定対象の期待値を保ちながら同じ計算予算で推定量の分散を小さくする方法として説明できる
+  - 対称変量推定量の不偏性と分散を共分散項まで含めて導出し、負の共分散が改善条件であることを説明できる
+  - 単調関数に対して U と 1-U の組が非正の共分散を作ることを独立コピーの共分散恒等式から証明できる
+  - 対照変量推定量の分散を二次式として導出し、最適係数と最小分散 Var(Y)(1-rho^2) を証明できる
+  - 層化抽出推定量の不偏性と分散を導き、比例配分が通常 Monte Carlo より分散を大きくしないことを説明できる
+  - Cauchy--Schwarz の不等式から層化抽出の最適配分 n_k proportional to p_k sigma_k を導ける
+  - 重点サンプリングの台条件、不偏性、分散公式を導出し、提案密度の選択と重みの二次モーメントを結びつけられる
+  - 重点サンプリングが分散を大幅に減らす例と、重みの二次モーメントが発散して分散が無限大になる失敗例を説明できる
+  - 分散減少率だけでなく関数評価回数や1複製あたり費用を含め、同じ計算予算で手法を比較できる
+  - MC4 の multilevel coupling を、同時分布を設計して差の分散を小さくするという本章の視点から説明できる
+definitions:
+  - { id: MC3-DEF-01, name: 分散減少法 }
+  - { id: MC3-DEF-02, name: 対称変量法 }
+  - { id: MC3-DEF-03, name: 対照変量法 }
+  - { id: MC3-DEF-04, name: 層化抽出 }
+  - { id: MC3-DEF-05, name: 重点サンプリング }
+theorems:
+  - { id: MC3-PROP-01, name: 対称変量推定量の不偏性と分散 }
+  - { id: MC3-PROP-02, name: 単調関数に対する対称変量の負の共分散 }
+  - { id: MC3-THM-01, name: 最適対照変量係数 }
+  - { id: MC3-THM-02, name: 層化抽出推定量の不偏性と分散 }
+  - { id: MC3-THM-03, name: 重点サンプリング推定量の不偏性と分散 }
+canonical_examples:
+  - U^2 と (1-U)^2 を組にした対称変量法
+  - U^2 の推定に既知平均 E[U]=1/2 を使う対照変量法
+  - 単位区間を二層に分けた一様分布平均の層化抽出
+  - P(U>0.99) を [0.9,1] 上の提案分布で推定する重点サンプリング
+  - q(x)=2x により重みの二次モーメントが発散する重点サンプリングの失敗例
+problem_patterns:
+  - MC3-ANTITHETIC-COVARIANCE-1
+  - MC3-CONTROL-VARIATE-OPTIMAL-1
+  - MC3-STRATIFIED-VARIANCE-1
+  - MC3-STRATIFIED-ALLOCATION-1
+  - MC3-IMPORTANCE-UNBIASED-VARIANCE-1
+  - MC3-IMPORTANCE-RARE-EVENT-1
+  - MC3-IMPORTANCE-INFINITE-VARIANCE-1
+  - MC3-INTEGRATED-VARIANCE-REDUCTION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.5, exercises: 5.0, review: 0.75 }
