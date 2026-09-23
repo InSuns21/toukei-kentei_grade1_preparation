@@ -414,7 +414,7 @@ $$
 
 を考えます。[基本ベクトル場](#def-lie4-fundamental-vector-field)と[軌道写像](#def-lie4-orbit-map)の定義を合わせると
 
-$
+$$
 \alpha_x
 =
 d(\Phi_x)_e
@@ -1198,7 +1198,7 @@ $$
 (L_h^*\theta)_g(V)
 =
 \theta_{hg}(dL_h(V)).
-$
+$$
 
 [左 Maurer--Cartan 形式](#def-lie4-maurer-cartan-form)の定義から
 
@@ -1955,7 +1955,7 @@ $$
 
 [基本ベクトル場](#def-lie4-fundamental-vector-field)の定義から
 
-$
+$$
 (X_G)_p
 =
 \left.
@@ -2044,7 +2044,7 @@ $$
 
 $$
 d(L_{A^{-1}})_A(V)=A^{-1}V.
-$
+$$
 
 従って[左 Maurer--Cartan 形式](#def-lie4-maurer-cartan-form)の定義から
 
@@ -2124,7 +2124,7 @@ $$
 
 $GL(n,\mathbb R)$ の Lie 環では $[A,B]=AB-BA$ なので
 
-$
+$$
 \frac12[\theta\wedge\theta]
 =
 \theta\wedge\theta
