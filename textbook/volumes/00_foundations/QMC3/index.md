@@ -464,7 +464,7 @@ $$
 
 FOU1 では $2\pi$ 周期の一次元関数に対して複素指数係数を定義しました。本章では単位立方体と整合するよう周期を1へ規格化し、多次元へ拡張します。一次元で変数を $\theta=2\pi x$ と置けば、FOU1 の規約と同じ内容です。
 
-<a id="def-qmc3-unit-torus-fourier-coefficient"></a>
+<a id="def-qmc3-periodic-cube-fourier-coefficient"></a>
 <!-- formal-statement-start -->
 ### 定義（単位周期立方体上の Fourier 係数）
 
@@ -496,7 +496,7 @@ $$
 を **単位周期立方体上の Fourier 係数** とする。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-qmc3-unit-torus-fourier-coefficient -->
+<!-- definition-example-start: def-qmc3-periodic-cube-fourier-coefficient -->
 **定義の確認**：$s\ge1$ とし、
 
 $$
