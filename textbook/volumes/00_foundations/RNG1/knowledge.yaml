@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - GRP2
+  - F0-00A1D
 forward_references: []
 
 concepts:
