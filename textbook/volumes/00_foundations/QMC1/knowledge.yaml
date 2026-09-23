@@ -79,6 +79,16 @@ concepts:
     requires:
       - numerical.vitali-variation
 
+  - id: numerical.endpoint-representation-formula
+    name: 端点表示公式
+    kind: lemma
+    aliases: [端点表示公式]
+    introduction: formal
+    introduction_aliases: ["補題（端点表示公式）"]
+    requires:
+      - analysis.mean-value-theorem
+      - analysis.derivative
+
   - id: numerical.hlawka-zaremba-identity
     name: Hlawka--Zaremba 恒等式
     kind: theorem
@@ -90,6 +100,7 @@ concepts:
       - numerical.qmc-local-discrepancy
       - numerical.hardy-krause-variation
       - measure.fubini-theorem
+      - numerical.endpoint-representation-formula
       - analysis.derivative
       - analysis.ck-smoothness-class
 
