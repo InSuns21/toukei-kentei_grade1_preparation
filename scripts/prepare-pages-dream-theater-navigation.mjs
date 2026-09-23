@@ -122,13 +122,14 @@ function escapeHtml(value) {
 
 function renderLink(item, className = '') {
   const classAttr = className ? ` class="${className}"` : '';
-  return `<li><a${classAttr} data-dream-route="${escapeHtml(canonicalRoute(item.target))}" href="${escapeHtml(routeHref(item.target))}">${escapeHtml(item.title)}</a></li>`;
+  const title = escapeHtml(item.title);
+  return `<li><a${classAttr} data-dream-route="${escapeHtml(canonicalRoute(item.target))}" href="${escapeHtml(routeHref(item.target))}" title="${title}">${title}</a></li>`;
 }
 
 function renderSidebar(navSections) {
   const out = [
     '<div class="dream-theater-sidebar-brand">',
-    '<a class="dream-theater-back-home" data-dream-route="" href="#/">← 統計検定1級ホーム</a>',
+    '<a class="dream-theater-back-home" data-dream-route="" href="#/" title="統計検定1級ホーム">← 統計検定1級ホーム</a>',
     '<strong>DREAM THEATER</strong>',
     '<ul class="dream-theater-sidebar-primary">',
     renderLink({ title: '全体目次', target: 'textbook/dream-theater.md' }, 'dream-theater-primary-link'),
@@ -139,7 +140,7 @@ function renderSidebar(navSections) {
 
   for (const section of navSections) {
     out.push('<details class="dream-theater-nav-section">');
-    out.push(`<summary>${escapeHtml(section.title)}</summary>`);
+    out.push(`<summary title="${escapeHtml(section.title)}">${escapeHtml(section.title)}</summary>`);
     if (section.links.length > 0) {
       out.push('<ul>');
       for (const item of section.links) out.push(renderLink(item));
@@ -147,7 +148,7 @@ function renderSidebar(navSections) {
     }
     for (const subsection of section.subsections) {
       out.push('<details class="dream-theater-nav-subsection">');
-      out.push(`<summary>${escapeHtml(subsection.title)}</summary>`);
+      out.push(`<summary title="${escapeHtml(subsection.title)}">${escapeHtml(subsection.title)}</summary>`);
       out.push('<ul>');
       for (const item of subsection.links) out.push(renderLink(item));
       out.push('</ul>');

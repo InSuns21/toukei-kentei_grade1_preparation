@@ -21,6 +21,8 @@
     .formal-statement > :first-child, .formal-statement > blockquote > :first-child { margin-top: 0; }
     .formal-statement > :last-child, .formal-statement > blockquote > :last-child { margin-bottom: 0; }
     .sidebar-nav li { line-height: 1.45; }
+    .sidebar-nav a.route-pending-active { color: var(--theme-color); font-weight: 600; }
+    body.navigation-pending:not(.dream-theater-route) .sidebar-nav a.active:not(.route-pending-active) { color: inherit; font-weight: 400; }
     .sidebar-nav li.sidebar-foldable { position: relative; }
     .sidebar-nav li.sidebar-foldable > ul { display: none; }
     .sidebar-nav li.sidebar-foldable.sidebar-fold-open > ul { display: block; }
@@ -333,12 +335,20 @@
       });
     }
 
-    function canonicalDreamRoute(value) {
+    var navigationObserver = null;
+    var observedSidebar = null;
+    var navigationListenersInstalled = false;
+    var lastDreamRoute = null;
+    var lastDreamNav = null;
+    var lastStandardRoute = null;
+    var lastStandardNav = null;
+
+    function canonicalNavigationRoute(value) {
       var route = String(value || '').replace(/^#\/?/, '').replace(/^\/+/, '');
       try {
         route = decodeURIComponent(route);
       } catch (error) {
-        console.warn('DREAM THEATER route could not be decoded:', error);
+        console.warn('Navigation route could not be decoded:', error);
       }
       return route
         .replace(/[?#].*$/, '')
@@ -347,52 +357,79 @@
         .replace(/\/+$/, '');
     }
 
-    function dreamTheaterNavigationPlugin(hook) {
-      hook.doneEach(function () {
-        var config = window.DreamTheaterNavigation;
-        var currentRoute = canonicalDreamRoute(window.location.hash);
-        var isDreamTheater = Boolean(
-          config &&
-          Array.isArray(config.routes) &&
-          config.routes.indexOf(currentRoute) >= 0
-        );
+    function isDreamTheaterRoute(currentRoute) {
+      var config = window.DreamTheaterNavigation;
+      return Boolean(
+        config &&
+        Array.isArray(config.routes) &&
+        config.routes.indexOf(currentRoute) >= 0
+      );
+    }
 
-        document.body.classList.toggle('dream-theater-route', isDreamTheater);
-
-        var existing = document.querySelector('.dream-theater-sidebar-nav');
-        if (!isDreamTheater) {
-          if (existing) existing.remove();
-          return;
+    function decorateNavigationLabels(root) {
+      if (!root) return;
+      root.querySelectorAll('a, summary, strong').forEach(function (element) {
+        var label = String(element.textContent || '').replace(/\s+/g, ' ').trim();
+        if (!label) return;
+        if (!element.getAttribute('title')) element.setAttribute('title', label);
+        if (
+          (element.tagName === 'A' || element.tagName === 'SUMMARY') &&
+          !element.getAttribute('aria-label')
+        ) {
+          element.setAttribute('aria-label', label);
         }
+      });
+    }
 
-        var sidebar = document.querySelector('.sidebar');
-        var standardNav = sidebar && sidebar.querySelector('.sidebar-nav');
-        if (!sidebar || !standardNav || !config.html) return;
+    function syncDreamTheaterSidebar(currentRoute) {
+      var config = window.DreamTheaterNavigation;
+      var isDreamTheater = isDreamTheaterRoute(currentRoute);
+      document.body.classList.toggle('dream-theater-route', isDreamTheater);
 
-        var nav = existing;
-        if (!nav) {
-          nav = document.createElement('nav');
-          nav.className = 'dream-theater-sidebar-nav';
-          nav.setAttribute('aria-label', 'DREAM THEATER ナビゲーション');
-          nav.innerHTML = config.html;
-          standardNav.insertAdjacentElement('afterend', nav);
-        }
+      var existing = document.querySelector('.dream-theater-sidebar-nav');
+      if (!isDreamTheater) {
+        if (existing) existing.remove();
+        lastDreamRoute = null;
+        lastDreamNav = null;
+        return false;
+      }
 
+      var sidebar = document.querySelector('.sidebar');
+      var standardNav = sidebar && sidebar.querySelector('.sidebar-nav');
+      if (!sidebar || !standardNav || !config || !config.html) return true;
+
+      var nav = existing;
+      if (!nav) {
+        nav = document.createElement('nav');
+        nav.className = 'dream-theater-sidebar-nav';
+        nav.setAttribute('aria-label', 'DREAM THEATER ナビゲーション');
+        nav.innerHTML = config.html;
+        standardNav.insertAdjacentElement('afterend', nav);
+      }
+
+      decorateNavigationLabels(nav);
+      var routeChanged = nav !== lastDreamNav || currentRoute !== lastDreamRoute;
+      if (routeChanged) {
         nav.querySelectorAll('details').forEach(function (details) {
           details.open = false;
         });
-        nav.querySelectorAll('a[data-dream-route]').forEach(function (link) {
-          link.classList.toggle(
-            'active',
-            canonicalDreamRoute(link.getAttribute('data-dream-route')) === currentRoute
-          );
-        });
+      }
 
-        var active = nav.querySelector('a[data-dream-route].active');
-        for (var node = active && active.parentElement; node && node !== nav; node = node.parentElement) {
-          if (node.tagName === 'DETAILS') node.open = true;
-        }
+      nav.querySelectorAll('a[data-dream-route]').forEach(function (link) {
+        link.classList.toggle(
+          'active',
+          canonicalNavigationRoute(link.getAttribute('data-dream-route')) === currentRoute
+        );
       });
+
+      var active = nav.querySelector('a[data-dream-route].active');
+      for (var node = active && active.parentElement; node && node !== nav; node = node.parentElement) {
+        if (node.tagName === 'DETAILS') node.open = true;
+      }
+
+      lastDreamRoute = currentRoute;
+      lastDreamNav = nav;
+      return true;
     }
 
     function directChildByTag(parent, tagName) {
@@ -408,52 +445,145 @@
       if (toggle) toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     }
 
-    function standardSidebarFoldingPlugin(hook) {
-      hook.doneEach(function () {
-        var config = window.DreamTheaterNavigation;
-        var currentRoute = canonicalDreamRoute(window.location.hash);
-        var isDreamTheater = Boolean(
-          config &&
-          Array.isArray(config.routes) &&
-          config.routes.indexOf(currentRoute) >= 0
-        );
-        if (isDreamTheater) return;
+    function prepareStandardSidebar(nav) {
+      decorateNavigationLabels(nav);
+      nav.querySelectorAll('li').forEach(function (item) {
+        var childList = directChildByTag(item, 'UL');
+        if (!childList) return;
 
-        var nav = document.querySelector('.sidebar .sidebar-nav');
-        if (!nav) return;
+        item.classList.add('sidebar-foldable');
+        var toggle = directChildByTag(item, 'BUTTON');
+        if (!toggle || !toggle.classList.contains('sidebar-fold-toggle')) {
+          toggle = document.createElement('button');
+          toggle.type = 'button';
+          toggle.className = 'sidebar-fold-toggle';
+          toggle.setAttribute('aria-label', 'この項目を開閉');
+          toggle.setAttribute('title', 'この項目を開閉');
+          toggle.addEventListener('click', function () {
+            setSidebarFoldOpen(item, !item.classList.contains('sidebar-fold-open'));
+          });
+          item.insertBefore(toggle, item.firstChild);
+          setSidebarFoldOpen(item, false);
+        }
+      });
+    }
 
-        nav.querySelectorAll('li').forEach(function (item) {
-          var childList = directChildByTag(item, 'UL');
-          if (!childList) return;
+    function findStandardRouteLink(nav, currentRoute) {
+      var fallback = null;
+      var direct = null;
 
-          item.classList.add('sidebar-foldable');
-          var toggle = directChildByTag(item, 'BUTTON');
-          if (!toggle || !toggle.classList.contains('sidebar-fold-toggle')) {
-            toggle = document.createElement('button');
-            toggle.type = 'button';
-            toggle.className = 'sidebar-fold-toggle';
-            toggle.setAttribute('aria-label', 'この項目を開閉');
-            toggle.addEventListener('click', function () {
-              setSidebarFoldOpen(item, !item.classList.contains('sidebar-fold-open'));
-            });
-            item.insertBefore(toggle, item.firstChild);
-          }
+      nav.querySelectorAll('a[href]').forEach(function (link) {
+        var href = link.getAttribute('href') || '';
+        if (canonicalNavigationRoute(href) !== currentRoute) return;
+        if (!fallback) fallback = link;
+        if (href.indexOf('?id=') === -1 && href.indexOf('&id=') === -1 && !direct) {
+          direct = link;
+        }
+      });
+
+      return direct || fallback || nav.querySelector('a.active');
+    }
+
+    function syncStandardSidebar(currentRoute, pending) {
+      if (isDreamTheaterRoute(currentRoute)) return;
+
+      var nav = document.querySelector('.sidebar .sidebar-nav');
+      if (!nav) return;
+
+      prepareStandardSidebar(nav);
+      var routeChanged = nav !== lastStandardNav || currentRoute !== lastStandardRoute;
+      if (routeChanged) {
+        nav.querySelectorAll('li.sidebar-foldable').forEach(function (item) {
           setSidebarFoldOpen(item, false);
         });
+      }
 
-        var activeLink = null;
-        nav.querySelectorAll('a[href]').forEach(function (link) {
-          if (!activeLink && canonicalDreamRoute(link.getAttribute('href')) === currentRoute) {
-            activeLink = link;
-          }
-        });
-        if (!activeLink) activeLink = nav.querySelector('a.active');
+      nav.querySelectorAll('a.route-pending-active').forEach(function (link) {
+        link.classList.remove('route-pending-active');
+      });
 
-        for (var node = activeLink && activeLink.parentElement; node && node !== nav; node = node.parentElement) {
-          if (node.tagName === 'LI' && node.classList.contains('sidebar-foldable')) {
-            setSidebarFoldOpen(node, true);
-          }
+      var activeLink = findStandardRouteLink(nav, currentRoute);
+      if (pending && activeLink) activeLink.classList.add('route-pending-active');
+
+      for (var node = activeLink && activeLink.parentElement; node && node !== nav; node = node.parentElement) {
+        if (node.tagName === 'LI' && node.classList.contains('sidebar-foldable')) {
+          setSidebarFoldOpen(node, true);
         }
+      }
+
+      lastStandardRoute = currentRoute;
+      lastStandardNav = nav;
+    }
+
+    function syncNavigationState(routeValue, pending) {
+      var currentRoute = canonicalNavigationRoute(routeValue);
+      document.body.classList.toggle('navigation-pending', Boolean(pending));
+
+      if (syncDreamTheaterSidebar(currentRoute)) return;
+      syncStandardSidebar(currentRoute, pending);
+    }
+
+    function navigationTargetFromLink(link) {
+      if (!link || link.hasAttribute('data-no-router')) return null;
+      var href = link.getAttribute('href') || '';
+      if (!href || /^(?:https?:|mailto:|tel:)/i.test(href) || /^#[^/]/.test(href)) return null;
+      return canonicalNavigationRoute(href);
+    }
+
+    function ensureNavigationObserver() {
+      var sidebar = document.querySelector('.sidebar');
+      if (!sidebar || typeof MutationObserver === 'undefined') return;
+      if (navigationObserver && observedSidebar === sidebar) return;
+
+      if (navigationObserver) navigationObserver.disconnect();
+      observedSidebar = sidebar;
+      navigationObserver = new MutationObserver(function (mutations) {
+        var changed = mutations.some(function (mutation) {
+          return mutation.type === 'childList' && (mutation.addedNodes.length || mutation.removedNodes.length);
+        });
+        if (!changed) return;
+
+        window.requestAnimationFrame(function () {
+          syncNavigationState(
+            window.location.hash,
+            document.body.classList.contains('navigation-pending')
+          );
+        });
+      });
+      navigationObserver.observe(sidebar, { childList: true, subtree: true });
+    }
+
+    function installNavigationListeners() {
+      if (navigationListenersInstalled) return;
+      navigationListenersInstalled = true;
+
+      document.addEventListener('click', function (event) {
+        var link = event.target.closest && event.target.closest('.sidebar a[href]');
+        if (!link) return;
+        var target = navigationTargetFromLink(link);
+        if (target === null) return;
+        syncNavigationState(
+          target,
+          target !== canonicalNavigationRoute(window.location.hash)
+        );
+      });
+
+      window.addEventListener('hashchange', function () {
+        syncNavigationState(window.location.hash, true);
+      });
+    }
+
+    function navigationStatePlugin(hook) {
+      hook.doneEach(function () {
+        installNavigationListeners();
+        ensureNavigationObserver();
+        syncNavigationState(window.location.hash, false);
+      });
+
+      hook.ready(function () {
+        installNavigationListeners();
+        ensureNavigationObserver();
+        syncNavigationState(window.location.hash, false);
       });
     }
 
@@ -470,7 +600,7 @@
         noData: '該当する教材が見つかりません',
         depth: 6
       },
-      plugins: [window.ToukeiMathRenderer.docsifyPlugin, solutionDetailsPlugin, offlineCacheStatusPlugin, dreamTheaterNavigationPlugin, standardSidebarFoldingPlugin]
+      plugins: [window.ToukeiMathRenderer.docsifyPlugin, solutionDetailsPlugin, offlineCacheStatusPlugin, navigationStatePlugin]
     };
   </script>
   <!--
