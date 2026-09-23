@@ -4,7 +4,7 @@ coverage: complete
 prerequisites:
   - MOD1
   - RNG4
-forward_references: [FLD1]
+forward_references: []
 
 concepts:
   - id: algebra.matrix-equivalence-pid
