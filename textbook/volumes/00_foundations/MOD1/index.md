@@ -122,7 +122,9 @@ $$
 と置けば右作用も得られるので、左右を区別せず単に $R$-加群と呼ぶことが多くなります。非可換環では作用する側を変えると結合法則の向きが変わるため、左右を区別します。
 
 <!-- definition-example-start: def-mod1-module -->
-### 1.1 定義の確認：$\mathbb Z/n\mathbb Z$ は $\mathbb Z$-加群
+### 1.1 $\mathbb Z/n\mathbb Z$ は $\mathbb Z$-加群
+
+**定義の確認**
 
 $M=\mathbb Z/n\mathbb Z$ とし、整数 $k$ と剰余類 $[a]$ に対して
 
@@ -267,7 +269,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mod1-homomorphism -->
-### 2.1 定義の確認：剰余類への標準写像
+### 2.1 剰余類への標準写像
+
+**定義の確認**
 
 $$
 \pi:\mathbb Z\to\mathbb Z/6\mathbb Z,
@@ -328,7 +332,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mod1-submodule -->
-### 3.1 定義の確認：$2\mathbb Z\subset\mathbb Z$
+### 3.1 $2\mathbb Z\subset\mathbb Z$
+
+**定義の確認**
 
 $\mathbb Z$ を $\mathbb Z$-加群と見ます。
 
@@ -539,7 +545,9 @@ $$
 この定義で一番重要なのは、代表元を取り替えても答えが変わらないことです。
 
 <!-- definition-example-start: def-mod1-quotient-module -->
-### 4.1 定義の確認：$\mathbb Z/4\mathbb Z$
+### 4.1 $\mathbb Z/4\mathbb Z$
+
+**定義の確認**
 
 $M=\mathbb Z$、$L=4\mathbb Z$ とすると、商加群は
 
@@ -1045,7 +1053,9 @@ $$
 $k=0$ の和は $0$ とします。
 
 <!-- definition-example-start: def-mod1-generating-set -->
-### 6.1 定義の確認：$\mathbb Z^2$ は二つの元で生成される
+### 6.1 $\mathbb Z^2$ は二つの元で生成される
+
+**定義の確認**
 
 $$
 e_1=(1,0),
@@ -1100,7 +1110,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mod1-free-module-basis -->
-### 7.1 定義の確認：$R^2$ の標準基底
+### 7.1 $R^2$ の標準基底
+
+**定義の確認**
 
 左 $R$-加群
 
@@ -1395,7 +1407,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mod1-torsion -->
-### 9.1 定義の確認：$\mathbb Z/6\mathbb Z$ と $\mathbb Z$
+### 9.1 $\mathbb Z/6\mathbb Z$ と $\mathbb Z$
+
+**定義の確認**
 
 $\mathbb Z/6\mathbb Z$ では
 
