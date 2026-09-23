@@ -455,6 +455,16 @@ nodes:
     implementation_path: textbook/volumes/00_foundations/GEO19/index.md
     prerequisites: [GEO8, GEO11, GEO16]
 
+  - id: GRP1
+    title: 群・部分群・巡回群・置換群
+    area: abstract-algebra
+    tier: core
+    status: implemented
+    implemented_at: 2026-09-23
+    implementation_path: textbook/volumes/00_foundations/GRP1/index.md
+    reuses: [F0_00A]
+    prerequisites: [BASE]
+
   - id: VC1
     title: ベクトル場と微分演算子
     area: vector-calculus
