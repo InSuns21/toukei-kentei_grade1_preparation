@@ -79,6 +79,8 @@ $$
 <!-- definition-example-start: def-rng3-divisibility-unit-associate -->
 ### 1.1 定義の確認：整数では符号だけが曖昧になる
 
+**定義の確認**
+
 $\mathbb Z$ の単元は $1$ と $-1$ だけです。実際、整数 $u$ が逆元 $v$ を持てば
 
 $$
@@ -147,6 +149,8 @@ $$
 
 <!-- definition-example-start: def-rng3-irreducible-prime -->
 ### 2.1 定義の確認：$\mathbb Z$ の $2$ と $6$
+
+**定義の確認**
 
 $\mathbb Z$ で $2=ab$ とします。絶対値を取ると
 
@@ -253,6 +257,8 @@ $$
 <!-- definition-example-start: def-rng3-gcd-bezout -->
 ### 3.1 定義の確認：$84$ と $30$
 
+**定義の確認**
+
 整数では
 
 $$
@@ -353,6 +359,8 @@ $$
 
 <!-- definition-example-start: def-rng3-euclidean-domain -->
 ### 4.1 定義の確認：$\mathbb Z$ は Euclid 整域
+
+**定義の確認**
 
 整数 $a$ と $0\ne b$ に対し、整数の除法により
 
@@ -567,6 +575,8 @@ $$
 
 <!-- definition-example-start: def-rng3-pid -->
 ### 6.1 定義の確認：$\mathbb Z$ のイデアル
+
+**定義の確認**
 
 RNG1 で、$\mathbb Z$ の任意のイデアル $I$ は
 
@@ -985,6 +995,8 @@ $$
 
 <!-- definition-example-start: def-rng3-ufd -->
 ### 10.1 定義の確認：体と整数の符号
+
+**定義の確認**
 
 まず任意の体 $F$ は一意分解整域です。実際、$F$ の $0$ でない元は全て単元なので、「$0$ でない非単元」は一つも存在しません。従って定義の分解存在条件と一意性条件は、どちらも反例となる対象を持たず成立します。
 
