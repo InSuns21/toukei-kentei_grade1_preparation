@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
+import YAML from 'yaml';
 
 const root = process.cwd();
 
@@ -17,6 +18,7 @@ const [
   serviceWorker,
   buildPages,
   chapter,
+  linkRegistryText,
 ] = await Promise.all([
   read('pages/numerical-lab-runtime.js'),
   read('pages/numerical-lab-worker.mjs'),
@@ -25,6 +27,7 @@ const [
   read('pages/service-worker.js'),
   read('scripts/build-pages.mjs'),
   read('textbook/volumes/00_foundations/NUMLAB0/index.md'),
+  read('textbook/numerical-lab-links.yaml'),
 ]);
 
 new Function(runtime);
