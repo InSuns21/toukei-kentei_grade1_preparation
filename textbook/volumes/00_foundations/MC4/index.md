@@ -132,7 +132,7 @@ $$
 
 ---
 
-## 2. レベル間結合：周辺分布を保って差を小さくする
+## 2. 隣接レベルを同時に作って差を小さくする
 
 同じ $Q_\ell$ と $Q_{\ell-1}$ でも、別々の乱数で独立に生成するか、同じ基礎乱数から一緒に生成するかで、差の分散は大きく変わります。
 
@@ -858,7 +858,7 @@ $$
 
 ### 証明の見取り図
 
-Cauchy--Schwarz の不等式を、
+[Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)を、
 
 $$
 \sqrt{\frac{V_\ell}{N_\ell}}
@@ -915,7 +915,7 @@ $$
 \frac{S_L^2}{\eta^2}.
 $$
 
-等号が成り立つには、Cauchy--Schwarz の等号条件から、ある定数 $a>0$ が存在して
+等号が成り立つには、上の不等式の等号条件から、ある定数 $a>0$ が存在して
 
 $$
 \sqrt{
@@ -2321,7 +2321,7 @@ $$
 
 $N_\ell$ は正の実数としてよい。
 
-1. Cauchy--Schwarz の不等式から費用の下限を導け。
+1. [Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から費用の下限を導け。
 2. 等号条件から $N_\ell$ の比例関係を求めよ。
 3. 分散制約を等号で満たす定数まで求めよ。
 4. 最小費用を求めよ。
@@ -2357,7 +2357,7 @@ $$
 
 と分けます。
 
-Cauchy--Schwarz の不等式より、
+[Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)より、
 
 $$
 S_L^2
@@ -2390,7 +2390,7 @@ $$
 }.
 $$
 
-2. Cauchy--Schwarz の等号条件より、ある $a>0$ に対して
+2. 上の不等式の等号条件より、ある $a>0$ に対して
 
 $$
 \sqrt{
