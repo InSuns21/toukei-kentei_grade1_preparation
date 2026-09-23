@@ -46,7 +46,7 @@ concepts:
   - id: numerical.cdf-generalized-inverse
     name: 分布関数の一般化逆関数
     kind: definition
-    aliases: [generalized inverse of a distribution function, quantile function]
+    aliases: [一般化逆関数, generalized inverse of a distribution function, quantile function]
     introduction: formal
     introduction_aliases: ["定義（分布関数の一般化逆関数）"]
     requires: []
