@@ -1226,7 +1226,7 @@ direct prerequisite は GRP2 と GEO5 です。GRP2 から群・群準同型を�
 - 閉部分群定理を一般の剛性定理として位置付け、古典群の接空間計算自体は正則値定理で直接閉じる
 - $SL(n,\mathbb R)$ を $\det=1$ の正則レベル集合として構成し、$\mathfrak{sl}(n,\mathbb R)=\{X:\operatorname{tr}X=0\}$ を導出
 - $O(n)$ と $SO(n)$ を $A^\mathsf{T}A=I$ から構成し、$\mathfrak{so}(n)=\{X:X^\mathsf{T}+X=0\}$ と次元 $n(n-1)/2$ を導出
-- $U(n)$ と $SU(n)$ を実多様体として扱い、歪 Hermitian 条件とトレース条件から $\mathfrak u(n)$、$\mathfrak{su}(n)$ を導出
+- $U(n)$ と $SU(n)$ を実多様体として扱い、反 Hermitian 条件とトレース条件から $\mathfrak u(n)$、$\mathfrak{su}(n)$ を導出
 - $SO(2)$ の指数写像と $SU(2)$ の3次元 Lie 環を低次元例として直接計算
 - A4/B3/C1 の演習で接空間、行列式微分、直交群・ユニタリ群、$SU(2)$ の括弧を再構成
 
