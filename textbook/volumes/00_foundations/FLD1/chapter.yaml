@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - RNG4
+  - LA1
 official_scope: []
 learning_objectives:
   - 体拡大 K/F を定義し、K を F-ベクトル空間として見た拡大次数 [K:F] を具体例で計算できる
