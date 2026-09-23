@@ -549,8 +549,10 @@ MC3 は MC2 を直接 prerequisite とし、MC1 の分散公式と MC2 の標本
 
 MC4 は MC3 を直接 prerequisite とし、MC1 のバイアス・分散分解と MC3 の「同時分布を設計して分散を下げる」視点を受けて Multilevel Monte Carlo へ進む。近似階層の期待値を望遠鏡和へ分解し、隣接レベルを同じ基礎乱数で結合してレベル補正の分散を減衰させる。MLMC 推定量の期待値と分散、真の期待値に対する二乗平均誤差分解を証明し、Cauchy--Schwarz の不等式から $N_\ell\propto\sqrt{V_\ell/C_\ell}$ の費用最小配分を導く。さらにバイアス率 $\alpha$、分散減衰率 $\beta$、費用増加率 $\gamma$ から三つの計算量ケースを導出し、二進量子化の例で結合を外すと $V_\ell$ が減衰せず MLMC の改善が失われることを示す。
 
-後続の QMC1–QMC8 は DREAM_THEATER_ENCORE_V_REWRITE_PLAN.md の計画対象であり、各講の実装完了時に実際の直接依存だけを追加する。
+QMC1 は MC1 を直接 prerequisite とし、単位立方体上の積分を点平均で近似する同じ入口から、独立乱数ではなく決定論的点集合の一様性へ進む。アンカー付き直方体の局所ディスクレパンシーとスター・ディスクレパンシーを導入し、一様分布する点列と $D_N^*\to0$ の同値性を包除原理と有限格子近似から証明する。関数側では Vitali 変動と1側にアンカーした Hardy--Krause 変動を導入し、滑らかな関数について多変数微積分の基本定理から Hlawka--Zaremba 恒等式を完全導出して Koksma--Hlawka の不等式を得る。一般の有界 Hardy--Krause 変動への拡張では、多次元 Vitali 変動から有限符号付き Stieltjes 測度を構成する標準理論だけを意図的黒箱として境界明示する。
 
-読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA1–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4 で、次の実装対象は QMC1「一様分布・discrepancy・Koksma--Hlawka」である。
+後続の QMC2–QMC8 は DREAM_THEATER_ENCORE_V_REWRITE_PLAN.md の計画対象であり、各講の実装完了時に実際の直接依存だけを追加する。
+
+読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA1–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1 で、次の実装対象は QMC2「RKHS・最悪誤差・重み付き空間」である。
 
 ---
