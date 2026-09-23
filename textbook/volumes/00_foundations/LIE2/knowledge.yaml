@@ -1,0 +1,166 @@
+chapter: LIE2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LIE1
+  - GRP3
+  - ODE4
+forward_references: []
+
+concepts:
+  - id: lie.one-parameter-subgroup
+    name: 1パラメータ部分群
+    kind: definition
+    aliases: [one-parameter subgroup]
+    introduction: formal
+    introduction_aliases: ["定義（1パラメータ部分群）"]
+    requires:
+      - lie.lie-group
+      - lie.lie-group-homomorphism
+      - ode.ode4-nonlinear-autonomous-system
+
+  - id: lie.one-parameter-subgroup-classification
+    name: 1パラメータ部分群と単位元接ベクトルの一対一対応
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - lie.one-parameter-subgroup
+      - lie.left-invariant-evaluation-isomorphism
+      - geometry.maximal-integral-curve-existence
+      - geometry.local-integral-curve-existence-uniqueness
+
+  - id: lie.exponential-map
+    name: Lie 群の指数写像
+    kind: definition
+    aliases: [exponential map of a Lie group, Lie group exponential map]
+    introduction: formal
+    introduction_aliases: ["定義（Lie 群の指数写像）"]
+    requires:
+      - lie.one-parameter-subgroup-classification
+      - lie.lie-group-lie-algebra
+
+  - id: lie.exponential-basic-properties
+    name: 指数写像の基本性質
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - lie.exponential-map
+      - lie.one-parameter-subgroup-classification
+
+  - id: lie.exponential-local-diffeomorphism
+    name: 指数写像の滑らかさと単位元近傍での局所可逆性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - lie.exponential-map
+      - geometry.maximal-flow-local-group-law
+
+  - id: lie.exponential-naturality
+    name: Lie 群準同型と指数写像の自然性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - lie.exponential-map
+      - lie.homomorphism-differential
+
+  - id: lie.matrix-exponential
+    name: 行列指数関数
+    kind: definition
+    aliases: [matrix exponential]
+    introduction: formal
+    introduction_aliases: ["定義（行列指数関数）"]
+    requires:
+      - lie.general-linear-group
+      - lie.general-linear-lie-algebra
+
+  - id: lie.general-linear-exponential
+    name: 一般線形群の指数写像は行列指数関数
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - lie.matrix-exponential
+      - lie.exponential-map
+
+  - id: lie.conjugation-automorphism
+    name: 共役自己同型
+    kind: definition
+    aliases: [conjugation automorphism]
+    introduction: formal
+    introduction_aliases: ["定義（共役自己同型）"]
+    requires:
+      - algebra.conjugation-action
+      - lie.lie-group
+      - lie.lie-group-homomorphism
+
+  - id: lie.adjoint-representation
+    name: 随伴表現
+    kind: definition
+    aliases: [adjoint representation]
+    introduction: formal
+    introduction_aliases: ["定義（随伴表現）"]
+    requires:
+      - lie.conjugation-automorphism
+      - lie.lie-group-lie-algebra
+
+  - id: lie.adjoint-homomorphism
+    name: 随伴表現の準同型性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - lie.adjoint-representation
+      - lie.homomorphism-differential
+
+  - id: lie.conjugation-exponential-naturality
+    name: 共役と指数写像の可換性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - lie.adjoint-representation
+      - lie.exponential-naturality
+
+  - id: lie.infinitesimal-adjoint-action
+    name: 無限小随伴作用
+    kind: definition
+    aliases: [infinitesimal adjoint action]
+    introduction: formal
+    introduction_aliases: ["定義（無限小随伴作用）"]
+    requires:
+      - lie.adjoint-representation
+      - lie.general-linear-lie-algebra
+
+  - id: lie.infinitesimal-adjoint-bracket
+    name: 無限小随伴作用は Lie 括弧
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - lie.infinitesimal-adjoint-action
+      - geometry.lie-bracket-flow-interpretation
+      - lie.left-invariant-vector-field
+
+  - id: lie.ad-exp-identity
+    name: Ad_exp と exp_ad の一致
+    kind: corollary
+    aliases: []
+    introduction: formal
+    requires:
+      - lie.exponential-naturality
+      - lie.infinitesimal-adjoint-action
+      - lie.adjoint-representation
+
+  - id: lie.group-commutator-bracket-second-derivative
+    name: 群交換子の混合二階微分と Lie 括弧
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires:
+      - lie.exponential-local-diffeomorphism
+      - lie.conjugation-exponential-naturality
+      - lie.infinitesimal-adjoint-bracket
