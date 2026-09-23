@@ -1020,7 +1020,7 @@ direct prerequisite は GRP3 です。GRP3 の群作用・類等式・有限 $p$
 
 章 metadata 上の direct prerequisite は RNG1 です。RNG1 のイデアル・主イデアル・商環・環の第一同型定理をそのまま再利用し、Euclid 整域や一般の Bézout 理論は先取りしません。整数の合同式では必要な $1$ の表示を具体的に与え、一般の整除理論は次の RNG3 へ送ります。
 
-## RNG3 整除・Euclid 整域・PID・UFD `core / advanced-standard`
+## RNG3 整除・Euclid 整域・単項イデアル整域・一意分解整域 `core / advanced-standard`
 
 - 整域上の整除・単元・同伴を定義し、$\mathbb Z$ で単元と同伴を直接判定
 - 既約元と素元を区別し、任意の整域で素元なら既約元であることを消去則から証明
