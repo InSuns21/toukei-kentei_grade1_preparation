@@ -51,10 +51,10 @@ concepts:
       - algebra.element-centralizer
       - algebra.correspondence-theorem-group
 
-  - id: algebra.p-group-fixed-point-congruence
+  - id: algebra.p-group-fixed-point-counting
     name: p-群作用の固定点の法 p 数え上げ
     kind: proposition
-    aliases: [fixed-point congruence for p-group actions]
+    aliases: [fixed-point counting for p-group actions]
     introduction: formal
     introduction_aliases: ["命題（p-群作用の固定点の法 p 数え上げ）"]
     requires:
@@ -70,7 +70,7 @@ concepts:
     introduction_aliases: ["定理（Sylow の第二定理）"]
     requires:
       - algebra.sylow-p-subgroup
-      - algebra.p-group-fixed-point-congruence
+      - algebra.p-group-fixed-point-counting
       - algebra.left-coset
       - algebra.group-action
 
@@ -93,7 +93,7 @@ concepts:
     requires:
       - algebra.sylow-second-theorem
       - algebra.subgroup-normalizer
-      - algebra.p-group-fixed-point-congruence
+      - algebra.p-group-fixed-point-counting
       - algebra.orbit-stabilizer-theorem
 
   - id: algebra.unique-sylow-normal
