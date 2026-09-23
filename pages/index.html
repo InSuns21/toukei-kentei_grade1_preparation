@@ -21,6 +21,27 @@
     .formal-statement > :first-child, .formal-statement > blockquote > :first-child { margin-top: 0; }
     .formal-statement > :last-child, .formal-statement > blockquote > :last-child { margin-bottom: 0; }
     .sidebar-nav li { line-height: 1.45; }
+    .sidebar-nav li.sidebar-foldable { position: relative; }
+    .sidebar-nav li.sidebar-foldable > ul { display: none; }
+    .sidebar-nav li.sidebar-foldable.sidebar-fold-open > ul { display: block; }
+    .sidebar-fold-toggle {
+      position: absolute;
+      top: 0.08rem;
+      left: -1.15rem;
+      width: 1rem;
+      height: 1.45rem;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      line-height: 1.45rem;
+      cursor: pointer;
+      opacity: 0.72;
+    }
+    .sidebar-fold-toggle::before { content: '▸'; display: inline-block; transition: transform 0.12s ease; }
+    .sidebar-foldable.sidebar-fold-open > .sidebar-fold-toggle::before { transform: rotate(90deg); }
+    .sidebar-fold-toggle:hover, .sidebar-fold-toggle:focus-visible { opacity: 1; }
     .dream-theater-sidebar-nav { display: none; padding: 0 0.9rem 1.5rem; font-size: 14px; }
     body.dream-theater-route .sidebar-nav { display: none; }
     body.dream-theater-route .dream-theater-sidebar-nav { display: block; }
@@ -374,6 +395,68 @@
       });
     }
 
+    function directChildByTag(parent, tagName) {
+      for (var i = 0; i < parent.children.length; i += 1) {
+        if (parent.children[i].tagName === tagName) return parent.children[i];
+      }
+      return null;
+    }
+
+    function setSidebarFoldOpen(item, open) {
+      item.classList.toggle('sidebar-fold-open', open);
+      var toggle = directChildByTag(item, 'BUTTON');
+      if (toggle) toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    function standardSidebarFoldingPlugin(hook) {
+      hook.doneEach(function () {
+        var config = window.DreamTheaterNavigation;
+        var currentRoute = canonicalDreamRoute(window.location.hash);
+        var isDreamTheater = Boolean(
+          config &&
+          Array.isArray(config.routes) &&
+          config.routes.indexOf(currentRoute) >= 0
+        );
+        if (isDreamTheater) return;
+
+        var nav = document.querySelector('.sidebar .sidebar-nav');
+        if (!nav) return;
+
+        nav.querySelectorAll('li').forEach(function (item) {
+          var childList = directChildByTag(item, 'UL');
+          if (!childList) return;
+
+          item.classList.add('sidebar-foldable');
+          var toggle = directChildByTag(item, 'BUTTON');
+          if (!toggle || !toggle.classList.contains('sidebar-fold-toggle')) {
+            toggle = document.createElement('button');
+            toggle.type = 'button';
+            toggle.className = 'sidebar-fold-toggle';
+            toggle.setAttribute('aria-label', 'この項目を開閉');
+            toggle.addEventListener('click', function () {
+              setSidebarFoldOpen(item, !item.classList.contains('sidebar-fold-open'));
+            });
+            item.insertBefore(toggle, item.firstChild);
+          }
+          setSidebarFoldOpen(item, false);
+        });
+
+        var activeLink = null;
+        nav.querySelectorAll('a[href]').forEach(function (link) {
+          if (!activeLink && canonicalDreamRoute(link.getAttribute('href')) === currentRoute) {
+            activeLink = link;
+          }
+        });
+        if (!activeLink) activeLink = nav.querySelector('a.active');
+
+        for (var node = activeLink && activeLink.parentElement; node && node !== nav; node = node.parentElement) {
+          if (node.tagName === 'LI' && node.classList.contains('sidebar-foldable')) {
+            setSidebarFoldOpen(node, true);
+          }
+        }
+      });
+    }
+
     window.$docsify = {
       name: '統計検定1級 対策教材',
       repo: 'InSuns21/toukei-kentei_grade1_preparation',
@@ -387,7 +470,7 @@
         noData: '該当する教材が見つかりません',
         depth: 6
       },
-      plugins: [window.ToukeiMathRenderer.docsifyPlugin, solutionDetailsPlugin, offlineCacheStatusPlugin, dreamTheaterNavigationPlugin]
+      plugins: [window.ToukeiMathRenderer.docsifyPlugin, solutionDetailsPlugin, offlineCacheStatusPlugin, dreamTheaterNavigationPlugin, standardSidebarFoldingPlugin]
     };
   </script>
   <!--
