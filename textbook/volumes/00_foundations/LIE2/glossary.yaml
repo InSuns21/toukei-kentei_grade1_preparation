@@ -1,0 +1,23 @@
+chapter: "LIE2"
+terms:
+  - term: 1パラメータ部分群
+    english: one-parameter subgroup
+    meaning: 実数加法群から Lie 群への滑らかな Lie 群準同型 gamma:R→G。
+  - term: Lie 群の指数写像
+    english: exponential map of a Lie group
+    meaning: X∈T_eG を初速度 X を持つ一意な1パラメータ部分群の時刻1の値 exp(X) へ送る滑らかな写像。
+  - term: 行列指数関数
+    english: matrix exponential
+    meaning: 正方行列 A に対して収束級数 exp(A)=sum_{k=0}^\infty A^k/k! で定まる可逆行列。
+  - term: 共役自己同型
+    english: conjugation automorphism
+    meaning: g∈G に対して C_g(h)=ghg^{-1} と定める Lie 群の滑らかな自己同型。
+  - term: 随伴表現
+    english: adjoint representation
+    meaning: 共役自己同型 C_g を単位元で微分して得る線形同型 Ad_g=d(C_g)_e を集めた準同型 Ad:G→GL(g)。
+  - term: 無限小随伴作用
+    english: infinitesimal adjoint action
+    meaning: 随伴表現 Ad を単位元で微分して得る ad:g→gl(g)。各 X,Y に対して ad_X(Y)=[X,Y]。
+  - term: Baker--Campbell--Hausdorff 公式
+    english: Baker--Campbell--Hausdorff formula
+    meaning: 単位元近傍で log(exp X exp Y) を X,Y と反復 Lie 括弧で記述する公式。本章では群交換子の混合二階微分までを入口として扱う。
