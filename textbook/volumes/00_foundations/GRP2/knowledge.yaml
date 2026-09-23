@@ -1,0 +1,196 @@
+chapter: GRP2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GRP1
+forward_references:
+  - algebra.group-action
+  - algebra.orbit
+  - algebra.stabilizer
+  - algebra.conjugacy-class
+
+concepts:
+  - id: algebra.group-homomorphism
+    name: 群準同型
+    kind: definition
+    aliases: [group homomorphism]
+    introduction: formal
+    introduction_aliases: ["定義（群準同型・群同型）"]
+    requires:
+      - algebra.group
+      - set.function
+
+  - id: algebra.group-isomorphism
+    name: 群同型
+    kind: definition
+    aliases: [group isomorphism]
+    introduction: formal
+    introduction_aliases: ["定義（群準同型・群同型）"]
+    requires:
+      - algebra.group-homomorphism
+      - set.bijection
+
+  - id: algebra.homomorphism-basic-properties
+    name: 群準同型の基本性質
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.group-homomorphism
+
+  - id: algebra.group-kernel
+    name: 群準同型の核
+    kind: definition
+    aliases: [kernel of a group homomorphism]
+    introduction: formal
+    introduction_aliases: ["定義（核・像）"]
+    requires:
+      - algebra.group-homomorphism
+
+  - id: algebra.group-image
+    name: 群準同型の像
+    kind: definition
+    aliases: [image of a group homomorphism]
+    introduction: formal
+    introduction_aliases: ["定義（核・像）"]
+    requires:
+      - algebra.group-homomorphism
+
+  - id: algebra.kernel-normal-image-subgroup
+    name: 核は正規部分群・像は部分群
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.group-kernel
+      - algebra.group-image
+      - algebra.normal-subgroup
+      - algebra.subgroup
+
+  - id: algebra.left-coset
+    name: 左剰余類
+    kind: definition
+    aliases: [left coset]
+    introduction: formal
+    introduction_aliases: ["定義（左剰余類・右剰余類）"]
+    requires:
+      - algebra.subgroup
+
+  - id: algebra.right-coset
+    name: 右剰余類
+    kind: definition
+    aliases: [right coset]
+    introduction: formal
+    introduction_aliases: ["定義（左剰余類・右剰余類）"]
+    requires:
+      - algebra.subgroup
+
+  - id: algebra.coset-partition
+    name: 剰余類による分割
+    kind: proposition
+    aliases: [coset partition]
+    introduction: formal
+    requires:
+      - algebra.left-coset
+      - algebra.subgroup
+
+  - id: algebra.subgroup-index
+    name: 部分群の指数
+    kind: definition
+    aliases: [index of a subgroup]
+    introduction: formal
+    requires:
+      - algebra.left-coset
+
+  - id: algebra.lagrange-theorem
+    name: Lagrange の定理
+    kind: theorem
+    aliases: [Lagrange theorem, Lagrange's theorem]
+    introduction: formal
+    requires:
+      - algebra.coset-partition
+      - algebra.subgroup-index
+
+  - id: algebra.normal-subgroup
+    name: 正規部分群
+    kind: definition
+    aliases: [normal subgroup]
+    introduction: formal
+    requires:
+      - algebra.subgroup
+
+  - id: algebra.normal-subgroup-equivalences
+    name: 正規部分群の同値条件
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.normal-subgroup
+      - algebra.left-coset
+      - algebra.right-coset
+
+  - id: algebra.quotient-group
+    name: 商群
+    kind: definition
+    aliases: [quotient group, factor group]
+    introduction: formal
+    requires:
+      - algebra.normal-subgroup
+      - algebra.left-coset
+
+  - id: algebra.quotient-well-defined
+    name: 商群構成と正規性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.quotient-group
+      - algebra.normal-subgroup-equivalences
+
+  - id: algebra.quotient-projection
+    name: 商群の標準射影
+    kind: definition
+    aliases: [canonical projection of a quotient group]
+    introduction: formal
+    introduction_aliases: ["定義（商群の標準射影）"]
+    requires:
+      - algebra.quotient-group
+      - algebra.group-homomorphism
+
+  - id: algebra.first-isomorphism-theorem-group
+    name: 群の第一同型定理
+    kind: theorem
+    aliases: [first isomorphism theorem for groups]
+    introduction: formal
+    requires:
+      - algebra.group-kernel
+      - algebra.group-image
+      - algebra.quotient-group
+      - algebra.group-isomorphism
+
+  - id: algebra.second-isomorphism-theorem-group
+    name: 群の第二同型定理
+    kind: theorem
+    aliases: [second isomorphism theorem for groups]
+    introduction: formal
+    requires:
+      - algebra.first-isomorphism-theorem-group
+      - algebra.normal-subgroup
+
+  - id: algebra.third-isomorphism-theorem-group
+    name: 群の第三同型定理
+    kind: theorem
+    aliases: [third isomorphism theorem for groups]
+    introduction: formal
+    requires:
+      - algebra.quotient-group
+      - algebra.first-isomorphism-theorem-group
+
+  - id: algebra.correspondence-theorem-group
+    name: 群の対応定理
+    kind: theorem
+    aliases: [correspondence theorem for groups, lattice theorem for groups]
+    introduction: formal
+    requires:
+      - algebra.quotient-projection
+      - algebra.normal-subgroup
