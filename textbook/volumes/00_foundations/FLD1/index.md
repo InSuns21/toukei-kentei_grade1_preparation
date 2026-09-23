@@ -448,7 +448,7 @@ $$
 I_\alpha=\ker(\operatorname{ev}_\alpha)
 $$
 
-は $F[x]$ の非零イデアルです。[RNG4](../RNG4/index.md#cor-rng4-polynomial-euclidean) より $F[x]$ は Euclid 整域、従って PID なので
+は $F[x]$ の非零イデアルです。[RNG4](../RNG4/index.md#cor-rng4-fx-euclidean) より $F[x]$ は Euclid 整域、従って PID なので
 
 $$
 I_\alpha=(m)
@@ -479,7 +479,7 @@ $$
 
 $I_\alpha$ は評価準同型の核だからイデアルです。
 
-[RNG4 の体上多項式環の Euclid 整域性](../RNG4/index.md#cor-rng4-polynomial-euclidean)より $F[x]$ は PID なので、ある非零 $m\in F[x]$ が存在して
+[RNG4 の体上多項式環の Euclid 整域性](../RNG4/index.md#cor-rng4-fx-euclidean)より $F[x]$ は PID なので、ある非零 $m\in F[x]$ が存在して
 
 $$
 I_\alpha=(m).
@@ -780,7 +780,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-任意の $f\in F[x]$ に対し、[RNG4 の多項式除法](../RNG4/index.md#thm-rng4-polynomial-division)により
+任意の $f\in F[x]$ に対し、[RNG4 の多項式除法](../RNG4/index.md#thm-rng4-division-algorithm)により
 
 $$
 f=q\,m_\alpha+r,
@@ -989,7 +989,7 @@ p(1)=2,\qquad
 p(2)=2
 $$
 
-なので根を持ちません。2次多項式だから [RNG4 の2次・3次既約判定](../RNG4/index.md#prop-rng4-degree-two-three-root) により既約です。
+なので根を持ちません。2次多項式だから [RNG4 の2次・3次既約判定](../RNG4/index.md#prop-rng4-degree23-root) により既約です。
 
 従って
 
