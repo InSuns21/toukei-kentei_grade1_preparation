@@ -496,7 +496,7 @@ inf-sup 条件はまさにこのために働きます。
 <a id="lem-fem5-bounded-lifting"></a>
 
 <!-- formal-statement-start -->
-### 補題（inf-sup 条件による 有界な持ち上げ）
+### 補題（inf-sup 条件による有界な持ち上げ）
 
 $V,Q$ を実 Hilbert 空間とし、$b:V\times Q\to\mathbb R$ を有界双線形形式とする。
 
@@ -2305,7 +2305,7 @@ $
 b(u_h-u,q_h)=0
 \qquad
 (\forall q_h\in Q_h).
-$$
+$
 
 従って
 
