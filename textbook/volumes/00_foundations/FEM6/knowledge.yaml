@@ -5,7 +5,10 @@ prerequisites:
   - FEM4
   - GPDE10
   - NA7
-forward_references: []
+forward_references:
+  - numerical.cholesky-factorization
+  - numerical.conjugate-gradient-method
+  - numerical.preconditioning
 
 concepts:
   - id: numerical.parabolic-semidiscrete-galerkin
