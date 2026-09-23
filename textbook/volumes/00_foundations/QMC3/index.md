@@ -1146,7 +1146,7 @@ m^{-2\alpha}
 \end{aligned}
 $$
 
-Cauchy--Schwarz の不等式から
+[Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 \begin{aligned}
@@ -1236,7 +1236,7 @@ E_{N,\boldsymbol z}(f)
 \widehat f(\boldsymbol h).
 $$
 
-これに Cauchy--Schwarz の不等式を使うと
+これに [Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)を使うと
 
 $$
 \begin{aligned}
@@ -2670,7 +2670,7 @@ $$
 \frac1{\sqrt{r(\boldsymbol h)}}
 $$
 
-を入れ、Cauchy--Schwarz の不等式を使うと
+を入れ、[Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)を使うと
 
 $$
 \begin{aligned}
