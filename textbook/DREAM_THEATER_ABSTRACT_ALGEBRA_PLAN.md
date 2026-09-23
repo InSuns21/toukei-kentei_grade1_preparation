@@ -361,7 +361,7 @@ Smith 標準形と PID 上構造定理は次講へ送る。
 
 **tier: advanced-standard**
 
-**prerequisites:** MOD1, RNG4
+**prerequisites:** MOD1, RNG4, LA3B
 
 主な内容：
 
