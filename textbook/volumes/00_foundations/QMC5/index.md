@@ -49,7 +49,7 @@ $$
 QMC4 から次を使います。
 
 - [$(t,m,s)$-ネット](../QMC4/index.md#def-qmc4-tms-net)
-- [素数底のデジタル点集合](../QMC4/index.md#def-qmc4-digital-point-set)
+- [素数底のデジタル点集合](../QMC4/index.md#def-qmc4-digital-net)
 - [生成行列の一次独立性による $(t,m,s)$-ネット判定](../QMC4/index.md#thm-qmc4-digital-net-rank-criterion)
 
 複素指数関数については FOU1 の [複素指数係数](../FOU1/index.md#def-fou1-complex-exponential-coefficient) で使った
