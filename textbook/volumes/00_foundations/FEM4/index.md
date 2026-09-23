@@ -98,7 +98,7 @@ $$
 \|\nabla v\|_{L^2(\Omega)}
 $$
 
-をノルムとして使います。零境界条件の下では Poincaré の不等式により、これは通常の $H^1$ ノルムと同値です。
+をノルムとして使います。零境界条件の下では [Poincaré の不等式](../GPDE4/index.md#thm-gpde4-poincare)により、これは通常の $H^1$ ノルムと同値です。
 
 双線形形式
 
@@ -476,7 +476,7 @@ $$
 C|u-u_h|_{H^1}
 $$
 
-と Poincaré の不等式を使うことはできます。
+と [Poincaré の不等式](../GPDE4/index.md#thm-gpde4-poincare)を使うことはできます。
 
 しかしこれでは
 
@@ -755,7 +755,7 @@ $$
 
 なので同じ $\alpha$ を持ちます。
 
-右辺 $v\mapsto(e,v)_{L^2}$ は Poincaré の不等式で $V^*$ の元になります。
+右辺 $v\mapsto(e,v)_{L^2}$ は [Poincaré の不等式](../GPDE4/index.md#thm-gpde4-poincare)で $V^*$ の元になります。
 
 従って [Lax--Milgram 定理](../GPDE7/index.md#thm-gpde7-lax-milgram)を適用できます。
 
@@ -804,7 +804,7 @@ $$
 
 と置きます。
 
-Cauchy--Schwarz と Poincaré の不等式から
+[Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)と [Poincaré の不等式](../GPDE4/index.md#thm-gpde4-poincare)から
 
 $$
 |G(v)|
@@ -1015,7 +1015,7 @@ $$
 
 と分解します。
 
-$I_hz\in V_h$ なので Galerkin 直交性により
+$I_hz\in V_h$ なので [Galerkin 直交性](../FEM1/index.md#thm-fem1-galerkin-orthogonality)により
 
 $$
 a(e,I_hz)=0.
@@ -1217,7 +1217,7 @@ $$
 
 ではまだ $h$ はありません。
 
-Galerkin 直交性により
+[Galerkin 直交性](../FEM1/index.md#thm-fem1-galerkin-orthogonality)により
 
 $$
 a(e,z)
@@ -1829,7 +1829,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-Cauchy--Schwarz の不等式から
+[Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 \left|
@@ -1908,7 +1908,7 @@ $$
 
 と置く。
 
-Poincaré の不等式
+[Poincaré の不等式](../GPDE4/index.md#thm-gpde4-poincare)
 
 $$
 \|v\|_{L^2}
@@ -1935,7 +1935,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-任意の $v\in H_0^1(\Omega)$ に対し、Cauchy--Schwarz の不等式から
+任意の $v\in H_0^1(\Omega)$ に対し、[Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 |G(v)|
@@ -1947,7 +1947,7 @@ $$
 \|e\|_{L^2}\|v\|_{L^2}.
 $$
 
-Poincaré の不等式を使うと
+[Poincaré の不等式](../GPDE4/index.md#thm-gpde4-poincare)を使うと
 
 $$
 \|v\|_{L^2}
@@ -2117,7 +2117,7 @@ $$
    \|e\|_{L^2}^2=a(e,z)
    $$
    を示せ。
-2. Galerkin 直交性から
+2. [Galerkin 直交性](../FEM1/index.md#thm-fem1-galerkin-orthogonality)から
    $$
    a(e,I_hz)=0
    $$
@@ -2812,7 +2812,7 @@ $$
 
 一方 $I_hz\in V_h$ です。
 
-Galerkin 直交性から
+[Galerkin 直交性](../FEM1/index.md#thm-fem1-galerkin-orthogonality)から
 
 $$
 \int_\Omega
@@ -2849,7 +2849,7 @@ $$
 }.
 $$
 
-Cauchy--Schwarz から
+[Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 \|e\|_{L^2}^2
