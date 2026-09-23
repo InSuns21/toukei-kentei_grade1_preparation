@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - GRP2
+  - F0-00A1D
 official_scope: []
 learning_objectives:
   - 環・可換環・単位元を持つ環を区別し、整数環・行列環などで公理を確認できる
