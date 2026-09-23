@@ -152,23 +152,57 @@ $$
 
 ## 2. 作図可能性は実二次拡大列と同じである
 
-$\mathbb R$ の部分体の列
+<a id="def-fld5-quadratic-tower"></a>
+<!-- formal-statement-start -->
+> **定義（実二次拡大列）**
+>
+> $\mathbb R$ の部分体の有限列
+>
+> $
+> \mathbb Q=K_0
+> \subset K_1
+> \subset\cdots\subset K_r
+> \subset\mathbb R
+> $
+>
+> が各 $i$ で
+>
+> $
+> [K_i:K_{i-1}]\le2
+> $
+>
+> を満たすとき、この列を **実二次拡大列**という。
+<!-- formal-statement-end -->
 
-$$
-\mathbb Q=K_0
-\subset K_1
-\subset\cdots\subset K_r
-\subset\mathbb R
-$$
+<!-- definition-example-start: def-fld5-quadratic-tower -->
+**定義の確認**
 
-で、各段階が
+例えば
 
-$$
-[K_i:K_{i-1}]
-\le2
-$$
+$
+\mathbb Q
+\subset
+\mathbb Q(\sqrt2)
+\subset
+\mathbb Q(\sqrt2,\sqrt{1+\sqrt2})
+$
 
-を満たすものを、ここでは **実二次拡大列**と呼びます。次数 $1$ の段階は何も増やしていないので、省けば全て次数 $2$ の列にできます。
+では
+
+$
+[\mathbb Q(\sqrt2):\mathbb Q]=2
+$
+
+であり、さらに $\sqrt{1+\sqrt2}$ は直前の体上で
+
+$
+x^2-(1+\sqrt2)
+$
+
+の根なので二段目の次数は高々2です。従ってこれは実二次拡大列です。
+
+次数 $1$ の段階は何も増やしていないので、省けば全て次数 $2$ の列にできます。
+<!-- definition-example-end -->
 
 <a id="thm-fld5-constructible-quadratic-tower"></a>
 <!-- formal-statement-start -->
