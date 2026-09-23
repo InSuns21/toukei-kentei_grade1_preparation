@@ -1,0 +1,41 @@
+chapter: "MOD1"
+terms:
+  - term: 左加群
+    english: left module
+    meaning: 単位元を持つ環 R が Abel 群 M に左から作用し、分配法則・結合法則・単位元作用を満たす構造。
+  - term: 右加群
+    english: right module
+    meaning: 環の元を M の右側から作用させる加群。非可換環では左加群と区別が必要。
+  - term: 加群準同型
+    english: module homomorphism
+    meaning: 加法と環 R のスカラー作用を保つ写像。
+  - term: 部分加群
+    english: submodule
+    meaning: 加法と R のスカラー作用で閉じ、制限した演算で再び R-加群となる部分集合。
+  - term: 商加群
+    english: quotient module
+    meaning: 部分加群 N による剰余類 M/N に自然な加法と R-作用を入れて得る加群。
+  - term: 生成系
+    english: generating set
+    meaning: 有限個の R-線形結合によって加群全体を生成する部分集合。
+  - term: 有限生成加群
+    english: finitely generated module
+    meaning: 有限個の元から生成される加群。
+  - term: 加群の基底
+    english: basis of a module
+    meaning: 各元を有限個の係数による線形結合として一意に表せる生成系。
+  - term: 自由加群
+    english: free module
+    meaning: 基底を持つ加群。
+  - term: ねじれ元
+    english: torsion element
+    meaning: 整域 R 上の加群で、ある非零 r∈R により rm=0 となる元。
+  - term: ねじれ加群
+    english: torsion module
+    meaning: 全ての元がねじれ元である加群。
+  - term: ねじれなし加群
+    english: torsion-free module
+    meaning: 0 以外にねじれ元を持たない加群。
+  - term: ねじれ部分加群
+    english: torsion submodule
+    meaning: 整域上の加群で、ねじれ元全体が作る部分加群。
