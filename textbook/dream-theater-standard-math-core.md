@@ -1002,7 +1002,7 @@ direct prerequisite は GRP3 です。GRP3 の群作用・類等式・有限 $p$
 
 実装: [RNG1](volumes/00_foundations/RNG1/index.md)
 
-direct prerequisite は GRP2 と F0-00A1D です。GRP2 の加法群・準同型・核・剰余類・第一同型定理の構図を再利用し、F0-00A1D の自然数の整列性を $\mathbb Z$ のイデアル分類で使います。乗法を商へ降ろすための条件をイデアルとして新たに構成し、次の RNG2 はこの商環構造を使って素イデアル・極大イデアルと中国剰余定理へ進みます。
+章 metadata 上の direct prerequisite は GRP2 と F0-00A1D です。標準数学コア台帳では GRP2 を prerequisite edge、F0-00A1D を既存章の reuse として表します。GRP2 の加法群・準同型・核・剰余類・第一同型定理の構図を再利用し、F0-00A1D の自然数の整列性を $\mathbb Z$ のイデアル分類で使います。乗法を商へ降ろすための条件をイデアルとして新たに構成し、次の RNG2 はこの商環構造を使って素イデアル・極大イデアルと中国剰余定理へ進みます。
 
 ---
 
