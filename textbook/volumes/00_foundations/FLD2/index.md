@@ -355,7 +355,7 @@ $$
 \boxed{\sigma_+,\sigma_-:\mathbb Q(\sqrt2)\to\mathbb C}
 $$
 
-は二つの $\mathbb Q$-埋め込みです。
+は二つの $\mathbb Q$ を固定する体の埋め込みです。
 <!-- definition-example-end -->
 
 ### 3.2 係数にも体の埋め込みを作用させる
@@ -1901,7 +1901,7 @@ $$
 K=\mathbb Q(\alpha).
 $$
 
-$\mathbb Q$-埋め込み
+$\mathbb Q$ を固定する体の埋め込み
 
 $$
 \sigma:K\to\mathbb C
@@ -1920,7 +1920,7 @@ $$
 
 です。
 
-$\mathbb Q$-埋め込みは $\mathbb Q$ を固定するので、$\alpha$ の像 $\sigma(\alpha)$ は
+$\mathbb Q$ を固定する体の埋め込みは $\mathbb Q$ を固定するので、$\alpha$ の像 $\sigma(\alpha)$ は
 
 $$
 0
@@ -2320,7 +2320,7 @@ $$
 
 について、
 
-1. $\mathbb Q$-埋め込み $E\to\mathbb C$ を全て求めよ。
+1. $\mathbb Q$ を固定する体の埋め込み $E\to\mathbb C$ を全て求めよ。
 2. それらが三つある理由を [一段の埋め込み延長](#lem-fld2-one-step-field-map) から説明せよ。
 3. $E/\mathbb Q$ が分離的だが正規でないことを示せ。
 
@@ -2359,7 +2359,7 @@ k=0,1,2
 }
 $$
 
-が全ての $\mathbb Q$-埋め込みです。
+が全ての $\mathbb Q$ を固定する体の埋め込みです。
 
 2. [一段の埋め込み延長](#lem-fld2-one-step-field-map)において、基礎体の恒等埋め込み
 
@@ -2421,7 +2421,7 @@ $$
 
 1. $L$ が $x^3-2$ の分解体であることを示し、$[L:\mathbb Q]$ を求めよ。
 2. $L/\mathbb Q$ が分離的かつ正規であることを示せ。
-3. $\mathbb Q$-埋め込み $\sigma:L\to\mathbb C$ について、$\sigma(\alpha)$ と $\sigma(\omega)$ の可能性を全て挙げよ。
+3. $\mathbb Q$ を固定する体の埋め込み $\sigma:L\to\mathbb C$ について、$\sigma(\alpha)$ と $\sigma(\omega)$ の可能性を全て挙げよ。
 4. 実際に六つの組合せが埋め込みを与えることを説明せよ。
 5. $E=\mathbb Q(\alpha)$ と比較し、「体拡大の分離性」と「体拡大の正規性」がそれぞれ何を保証しているか説明せよ。
 
@@ -2548,7 +2548,7 @@ $$
 
 しかし $E$ は非実根を含まないので正規ではありません。実際、二つの埋め込みは $E$ を $E$ 自身の外へ送ります。
 
-一方 $L$ は正規なので、全ての共役根を最初から含み、任意の $\mathbb Q$-埋め込みで $L$ 自身へ戻ります。
+一方 $L$ は正規なので、全ての共役根を最初から含み、任意の $\mathbb Q$ を固定する体の埋め込みで $L$ 自身へ戻ります。
 
 従って役割は
 
