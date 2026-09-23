@@ -390,7 +390,7 @@ LA4 の Jordan 標準形は重複再証明せず、加群構造論が線形作�
 
 **tier: core**
 
-**prerequisites:** RNG4
+**prerequisites:** RNG4, LA1
 
 主な内容：
 
@@ -535,7 +535,9 @@ RNG2 素・極大イデアル・中国剰余定理
 RNG3 ED・PID・UFD
   ↓
 RNG4 多項式環・Gauss の補題・既約性
-  ├──────────────→ FLD1 → FLD2 ─┬→ FLD3
+  ├──────────────→ FLD1 ← LA1
+  │                 ↓
+  │               FLD2 ─┬→ FLD3
   │                              └→ FLD4 → FLD5 ← GRP4
   └──────────────→ MOD1 → MOD2
                          ↑
