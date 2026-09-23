@@ -11,34 +11,33 @@ learning_objectives:
   - 1パラメータ部分群を実数加法群から Lie 群への滑らかな群準同型として定義し、初速度との関係を説明できる
   - 単位元の任意の接ベクトルから左不変ベクトル場の積分曲線を用いて一意な1パラメータ部分群を構成できる
   - Lie 群の指数写像を定義し、exp(tX) の群則、d exp_0=id、局所微分同相性を証明できる
-  - 一般線形群では Lie 群の指数写像が行列指数関数と一致することを級数と ODE から確認できる
+  - 一般線形群では Lie 群の指数写像が行列指数と一致することを級数と ODE から確認できる
   - Lie 群準同型が指数写像と可換することを1パラメータ部分群の一意性から証明できる
   - 共役写像を滑らかな Lie 群自己同型として扱い、その単位元微分から随伴表現 Ad を構成できる
   - Ad を単なる表現論の黒箱として使わず、Ad_{gh}=Ad_g Ad_h と GL(n) での Ad_g X=gXg^{-1} を直接導ける
   - 随伴表現を単位元で微分して ad を定義し、ad_XY=[X,Y] と Ad_{exp X}=exp(ad_X) を証明できる
-  - 群交換子の指数座標における混合二階微分が Lie 括弧になることを示し、Baker--Campbell--Hausdorff 公式への入口を説明できる
+  - 共役四項積の指数座標における混合二階微分が Lie 括弧になることを示し、Baker--Campbell--Hausdorff 公式への入口を説明できる
 definitions:
   - { id: LIE2-DEF-01, name: 1パラメータ部分群 }
   - { id: LIE2-DEF-02, name: Lie 群の指数写像 }
-  - { id: LIE2-DEF-03, name: 行列指数関数 }
-  - { id: LIE2-DEF-04, name: 共役自己同型 }
-  - { id: LIE2-DEF-05, name: 随伴表現 Ad }
-  - { id: LIE2-DEF-06, name: 無限小随伴作用 ad }
+  - { id: LIE2-DEF-03, name: 共役自己同型 }
+  - { id: LIE2-DEF-04, name: 随伴表現 Ad }
+  - { id: LIE2-DEF-05, name: 無限小随伴作用 ad }
 theorems:
   - { id: LIE2-THM-01, name: 1パラメータ部分群と単位元接ベクトルの一対一対応 }
   - { id: LIE2-THM-02, name: 指数写像の基本性質 }
   - { id: LIE2-THM-03, name: 指数写像の滑らかさと単位元近傍での局所可逆性 }
   - { id: LIE2-THM-04, name: Lie 群準同型と指数写像の自然性 }
-  - { id: LIE2-THM-05, name: 一般線形群の指数写像は行列指数関数 }
+  - { id: LIE2-THM-05, name: 一般線形群の指数写像は行列指数 }
   - { id: LIE2-THM-06, name: 随伴表現の準同型性 }
   - { id: LIE2-THM-07, name: 共役と指数写像の可換性 }
   - { id: LIE2-THM-08, name: 無限小随伴作用は Lie 括弧 }
   - { id: LIE2-COR-01, name: Ad_exp と exp_ad の一致 }
-  - { id: LIE2-PROP-01, name: 群交換子の混合二階微分と Lie 括弧 }
+  - { id: LIE2-PROP-01, name: 共役四項積の混合二階微分と Lie 括弧 }
 canonical_examples:
   - 加法 Lie 群 R^n の1パラメータ部分群と恒等的な指数写像
   - 正の実数の乗法群の指数写像 a↦e^a
-  - 一般線形群 GL(n,R) の行列指数関数
+  - 一般線形群 GL(n,R) の行列指数
   - 2次元アフィン群の指数写像と Ad・ad
   - GL(n,R) における Ad_g X=gXg^{-1} と ad_XY=XY-YX
 problem_patterns:
