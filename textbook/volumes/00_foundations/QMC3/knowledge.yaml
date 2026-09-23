@@ -44,11 +44,11 @@ concepts:
       - fourier.fou1-complex-exponential-coefficient
 
   - id: numerical.unit-torus-fourier-coefficient
-    name: 単位トーラス上の Fourier 係数
+    name: 単位周期立方体上の Fourier 係数
     kind: definition
     aliases: [Fourier coefficient on the unit torus]
     introduction: formal
-    introduction_aliases: ["定義（単位トーラス上の Fourier 係数）"]
+    introduction_aliases: ["定義（単位周期立方体上の Fourier 係数）"]
     requires:
       - fourier.fou1-complex-exponential-coefficient
 
@@ -104,20 +104,20 @@ concepts:
       - numerical.qmc-worst-case-error
 
   - id: numerical.one-dimensional-lattice-rate
-    name: 一次元格子則の N^{-alpha} 最悪誤差率
+    name: 一次元格子則の滑らかさ依存最悪誤差率
     kind: theorem
     aliases: [one-dimensional lattice worst-case error rate]
     introduction: formal
-    introduction_aliases: ["定理（一次元格子則の N^{-alpha} 最悪誤差率）"]
+    introduction_aliases: ["定理（一次元格子則の滑らかさ依存最悪誤差率）"]
     requires:
       - numerical.lattice-fourier-worst-case-error
 
   - id: numerical.lattice-unit-scaling-invariance
-    name: 生成ベクトルの単元倍不変性
+    name: 生成ベクトルの可逆スカラー倍不変性
     kind: theorem
     aliases: [unit scaling invariance of lattice generators]
     introduction: formal
-    introduction_aliases: ["定理（生成ベクトルの単元倍不変性）"]
+    introduction_aliases: ["定理（生成ベクトルの可逆スカラー倍不変性）"]
     requires:
       - numerical.rank1-lattice-rule
 
