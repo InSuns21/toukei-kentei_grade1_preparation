@@ -556,6 +556,15 @@ nodes:
     implementation_path: textbook/volumes/00_foundations/FLD1/index.md
     prerequisites: [RNG4, LA1]
 
+  - id: FLD2
+    title: 分解体・分離性・正規性
+    area: abstract-algebra
+    tier: core-advanced-standard
+    status: implemented
+    implemented_at: 2026-09-23
+    implementation_path: textbook/volumes/00_foundations/FLD2/index.md
+    prerequisites: [FLD1]
+
   - id: VC1
     title: ベクトル場と微分演算子
     area: vector-calculus
@@ -926,7 +935,7 @@ implementation_batches:
     nodes: [GEO1, GEO2, GEO3, GEO4, GEO5, GEO6, GEO7, GEO8, GEO9, GEO10, GEO11, GEO12, GEO13, GEO14, GEO15, GEO16, GEO17, GEO18, GEO19]
   - order: 11
     id: abstract-algebra-core
-    nodes: [GRP1, GRP2, GRP3, GRP4, RNG1, RNG2, RNG3, RNG4, MOD1, MOD2, FLD1]
+    nodes: [GRP1, GRP2, GRP3, GRP4, RNG1, RNG2, RNG3, RNG4, MOD1, MOD2, FLD1, FLD2]
 
 deferred_integrations:
   - id: dream-theater-facade-entrypoint

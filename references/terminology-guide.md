@@ -392,6 +392,16 @@
 | 最小多項式 | minimal polynomial | 代数的元 $\alpha$ を根に持つ $F[x]$ のモニック既約多項式。$\alpha$ を根に持つ任意の多項式を割る |
 | 単純拡大 | simple extension | 一つの元 $\alpha$ を基礎体 $F$ に添加して得られる最小の部分体 $F(\alpha)$ |
 | 単純代数拡大 | simple algebraic extension | $F$ 上代数的な一つの元 $\alpha$ により生成される単純拡大 $F(\alpha)/F$ |
+| 代数拡大 | algebraic extension | 拡大体の全ての元が基礎体上代数的である体拡大 |
+| 分解体 | splitting field | 多項式が一次式の積に完全分解し、その全ての根によって基礎体上生成される最小の拡大体 |
+| 体の埋め込み | field embedding | 体から体への単射な体準同型。基礎体を固定する場合は「$F$-埋め込み」と書いてよい |
+| 代数閉体 | algebraically closed field | 係数をその体に持つ任意の非定数多項式が、その体の中に根を持つ体 |
+| 代数閉包 | algebraic closure | 基礎体の代数拡大であり、同時に代数閉体でもある拡大体 |
+| 形式微分 | formal derivative | 多項式の係数へ次数を掛けて指数を1下げる代数的演算。解析学の極限を用いない |
+| 分離多項式 | separable polynomial | 分解体で重根を持たない多項式 |
+| 分離的な元 | separable element | 基礎体上の最小多項式が分離多項式である代数的元 |
+| 分離拡大 | separable extension | 全ての元が基礎体上分離的である代数拡大 |
+| 正規拡大 | normal extension | 基礎体上既約な多項式が拡大体に一根を持てば、その拡大体上で完全に一次式へ分解する代数拡大 |
 
 ## DREAM THEATER：数値解析の主表記
 
