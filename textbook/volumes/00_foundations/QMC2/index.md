@@ -138,7 +138,7 @@ $$
 
 なので、$I$ は連続線形汎関数です。
 
-従って F0-02C2 の Riesz 表現定理を使えます。
+従って [Riesz 表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)を使えます。
 
 <a id="thm-qmc2-integration-representer"></a>
 <!-- formal-statement-start -->
@@ -815,7 +815,7 @@ $$
 で与える。
 <!-- formal-statement-end -->
 
-ここで $v\in L^2(0,1)$ なら Cauchy--Schwarz の不等式から
+ここで $v\in L^2(0,1)$ なら [Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 \int_0^1|v(t)|\,dt
@@ -825,14 +825,16 @@ $$
 
 なので、上の不定積分は各 $x$ で有限です。
 
-また Lebesgue 積分の微積分基本定理により
+ここで一つだけ、本章の射程外の解析結果を意図的に使います。
 
-$$
-x\longmapsto
-\int_0^xv(t)\,dt
-$$
+> **意図的黒箱（Lebesgue 積分の微積分基本定理）**  
+> $v\in L^1(0,1)$ に対して
+> $F(x)=\int_0^xv(t)\,dt$ と置くと、$F$ は絶対連続であり、
+> $F'(x)=v(x)$ がほとんど至る所成り立つ。
+>
+> この結果の証明には Lebesgue 微分定理など、本章の QMC 主線を大きく外れる実解析が必要になるため、ここでは標準結果として使う。本章で必要なのは「不定積分から作った関数の a.e. 導関数を元の $L^2$ 関数として回収できる」という部分だけである。
 
-の導関数はほとんど至る所 $v$ です。従って $f'$ は $L^2$ の元として一意です。
+$L^2(0,1)\subset L^1(0,1)$ なのでこの結果を適用でき、$f'$ は $L^2$ の元として一意です。
 
 <a id="thm-qmc2-weighted-sobolev-kernel"></a>
 <!-- formal-statement-start -->
@@ -1148,7 +1150,7 @@ d\boldsymbol t_u
 \end{aligned}
 $$
 
-従って Moore--Aronszajn の定理から、この核を再生核とする RKHS が存在します。
+従って [Moore--Aronszajn の定理](../F0_02C7_RKHS_再生核_representer_kernel_SVM/index.md#thm-f0-02c7-moore-aronszajn)から、この核を再生核とする RKHS が存在します。
 
 <a id="def-qmc2-product-weights"></a>
 <!-- formal-statement-start -->
