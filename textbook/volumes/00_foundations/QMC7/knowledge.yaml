@@ -79,7 +79,7 @@ concepts:
 
   - id: numerical.rqmc-replicate-variance
     name: 独立ランダム化反復の分散と標本分散
-    kind: theorem
+    kind: proposition
     aliases: []
     introduction: formal
     introduction_aliases: ["命題（独立ランダム化反復の分散と標本分散）"]
@@ -135,7 +135,7 @@ concepts:
 
   - id: numerical.digital-shift-anova-variance
     name: デジタルシフト分散の ANOVA 支持分解
-    kind: theorem
+    kind: corollary
     aliases: []
     introduction: formal
     introduction_aliases: ["系（デジタルシフト分散の ANOVA 支持分解）"]
