@@ -152,7 +152,8 @@ facade は完成済み講座だけをリンクする。未完成章を先行表�
 - [x] QMC2「RKHS・最悪誤差・重み付き空間」を新正本として実装
 - [x] QMC3「格子則」を新正本として実装
 - [x] QMC4「(t,m,s)-net・(t,s)-sequence」を新正本として実装
-- 次の実装対象：**QMC5「Walsh 解析と digital net の双対理論」**
+- [x] QMC5「Walsh 解析とデジタルネットの双対理論」を新正本として実装
+- 次の実装対象：**QMC6「polynomial lattice」**
 
 
 ---
@@ -315,7 +316,7 @@ QMC は3講程度に圧縮せず、理論骨格を8講に分割する。
 | QMC2 | RKHS・最悪誤差・重み付き空間 | 最悪誤差、再生核、重み付き Sobolev 空間、実効次元、tractability |
 | QMC3 | 格子則 | rank-1 lattice、双対格子、積分誤差、CBC 構成の思想 |
 | QMC4 | (t,m,s)-net・(t,s)-sequence | elementary interval、t 値、digital construction、Sobol / Faure / Niederreiter |
-| QMC5 | Walsh 解析と digital net の双対理論 | Walsh 関数、dual net、周波数消去、NRT 型 weight |
+| QMC5 | Walsh 解析とデジタルネットの双対理論 | Walsh 関数、双対ネット、周波数消去、NRT 重み |
 | QMC6 | polynomial lattice | 有限体多項式、digital net との関係、CBC、構成法 |
 | QMC7 | randomized QMC | digital shift、scrambling、不偏推定、分散、ANOVA との接続 |
 | QMC8 | 高次 QMC | 滑らかさ、Walsh 係数減衰、higher-order digital net、高次収束 |
@@ -358,7 +359,8 @@ QMC2 は既存 F0-02C7 の RKHS / 再生核を再定義しない。stable anchor
 - [x] QMC2：RKHS・最悪誤差・重み付き空間
 - [x] QMC3：格子則
 - [x] QMC4：$(t,m,s)$-net・$(t,s)$-sequence
-- 次の実装対象：**QMC5「Walsh 解析と digital net の双対理論」**
+- [x] QMC5「Walsh 解析とデジタルネットの双対理論」を新正本として実装
+- 次の実装対象：**QMC6「polynomial lattice」**
 
 ---
 

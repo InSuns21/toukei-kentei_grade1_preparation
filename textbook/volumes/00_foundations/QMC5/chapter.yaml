@@ -1,0 +1,50 @@
+id: "QMC5"
+title: "Walsh 解析とデジタルネットの双対理論"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - QMC3
+  - QMC4
+  - FOU1
+official_scope: []
+learning_objectives:
+  - b 進桁から Walsh 関数を定義し、低い周波数を具体的な階段関数として計算できる
+  - b 乗根の有限和から非零 Walsh 周波数の積分が 0 になることを証明できる
+  - 生成行列からデジタル点集合の双対ネットを定義し、具体的な周波数が双対に属するか判定できる
+  - デジタルネット上の Walsh 関数の離散直交性を、生成行列と桁ベクトルの有限和から証明できる
+  - Walsh 多項式と絶対収束 Walsh 級数について、双対ネット上の非零係数だけが積分誤差を作ることを導ける
+  - NRT 重みを計算し、Walsh 周波数の b 進解像度との関係を説明できる
+  - 最小双対 NRT 重みと (t,m,s)-ネット条件の同値性を QMC4 の一次独立性判定から証明できる
+  - t 値を低周波 Walsh モードの消去能力として解釈し、QMC3 の Fourier 双対格子との対応と相違を説明できる
+definitions:
+  - { id: QMC5-DEF-01, name: Walsh 関数 }
+  - { id: QMC5-DEF-02, name: Walsh 多項式と Walsh 係数 }
+  - { id: QMC5-DEF-03, name: デジタル点集合の双対ネット }
+  - { id: QMC5-DEF-04, name: 絶対収束 Walsh 級数 }
+  - { id: QMC5-DEF-05, name: NRT 重み }
+  - { id: QMC5-DEF-06, name: 最小双対 NRT 重み }
+theorems:
+  - { id: QMC5-THM-01, name: Walsh 関数の積分直交性 }
+  - { id: QMC5-THM-02, name: デジタルネット上の Walsh 関数の離散直交性 }
+  - { id: QMC5-THM-03, name: Walsh 多項式に対するデジタルネットの積分誤差公式 }
+  - { id: QMC5-THM-04, name: 絶対収束 Walsh 級数に対する積分誤差公式 }
+  - { id: QMC5-THM-05, name: t 値と最小双対 NRT 重みの双対関係 }
+canonical_examples:
+  - 底2で wal_1 と wal_2 を二進小数桁から階段関数として計算する例
+  - QMC4 の反転行列と単位行列から双対条件を成分表示し (1,2) が双対に入ることを確認する例
+  - 非零双対 Walsh モードを被積分関数にすると積分値 0 に対して点平均 1 が残る失敗例
+  - QMC4 の (0,2,2)-ネットを rho_1=3 から t=0 と読み直す例
+  - 生成行列の先頭行を重複させると (1,1) が双対に入り rho_1 が 2 へ低下する例
+problem_patterns:
+  - QMC5-WALSH-BINARY-EVALUATION-1
+  - QMC5-ROOT-OF-UNITY-ORTHOGONALITY-1
+  - QMC5-DUAL-NET-MEMBERSHIP-1
+  - QMC5-NRT-WEIGHT-1
+  - QMC5-DISCRETE-CHARACTER-1
+  - QMC5-WALSH-ERROR-FORMULA-1
+  - QMC5-T-VALUE-DUALITY-1
+  - QMC5-DUALITY-INTEGRATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.0, review: 0.75 }

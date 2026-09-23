@@ -571,8 +571,10 @@ QMC3 は QMC2 と FOU1 を直接 prerequisite とする。FOU1 の複素指数�
 
 QMC4 は QMC1、FLD3、F0-00E を直接 prerequisite とする。QMC1 のスター・ディスクレパンシーと一様分布を $b$ 進基本区間へ接続し、$(t,m,s)$-ネットの局所点数条件から粗いスター・ディスクレパンシー上界を自前で導く。$(t,s)$-点列については整列ブロックを $b$ 進展開で分解して一様分布を証明し、一次元では根基逆関数から van der Corput 点列が $(0,1)$-点列になることを閉じる。さらに FLD3 の素数位数有限体と F0-00E の一次独立を用いて生成行列型デジタル点集合を定義し、有限体上の行基本変形から、所定の先頭行ベクトルの一次独立性と $(t,m,s)$-ネット条件が同値であることを証明する。Sobol・Faure・Niederreiter 点列はこの生成行列型構成の代表として位置付け、Walsh 双対理論は QMC5 へ送る。
 
-後続の QMC5–QMC8 は DREAM_THEATER_ENCORE_V_REWRITE_PLAN.md の計画対象であり、各講の実装完了時に実際の直接依存だけを追加する。
+QMC5 は QMC3、QMC4、FOU1 を直接 prerequisite とする。QMC3 の双対格子・生成ベクトルとの比較を明示的な既知事項として使い、QMC4 の生成行列型デジタル点集合を受けて、$b$ 進桁に適合する Walsh 関数を導入し、$b$ 乗根の有限和から積分直交性を証明する。生成行列の転置で定まる双対ネットを定義し、デジタル点平均における Walsh 関数の離散直交性を桁ベクトル上の有限積として完全導出する。Walsh 多項式と絶対収束 Walsh 級数では、非零双対周波数上の Walsh 係数だけが積分誤差を作ることを示す。さらに NRT 重みと最小双対 NRT 重みを導入し、QMC4 の生成行列一次独立性判定から、$(t,m,s)$-ネット条件と $\rho_1(P)>m-t$ の同値性、最小 $t$ 値の公式 $t_{\min}=m-\rho_1(P)+1$ を証明する。QMC6 の polynomial lattice はこの双対構造を有限体多項式で構成する段階として後続へ送る。
 
-読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA1–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC4 で、次の実装対象は QMC5「Walsh 解析と digital net の双対理論」である。
+後続の QMC6–QMC8 は DREAM_THEATER_ENCORE_V_REWRITE_PLAN.md の計画対象であり、各講の実装完了時に実際の直接依存だけを追加する。
+
+読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA1–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC5 で、次の実装対象は QMC6「polynomial lattice」である。
 
 ---

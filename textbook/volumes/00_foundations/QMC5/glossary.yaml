@@ -1,0 +1,20 @@
+chapter: "QMC5"
+terms:
+  - term: Walsh 関数
+    english: Walsh function
+    meaning: b 進桁どうしの有限体的な積を b 乗根の位相へ写して得る区分一定関数。デジタルネットの桁構造に適合する周波数基底として使う。
+  - term: Walsh 係数
+    english: Walsh coefficient
+    meaning: 関数と Walsh 関数の共役との積分で定まる周波数係数。本章では双対ネット上の非零係数がデジタル求積誤差を作る。
+  - term: 双対ネット
+    english: dual net of a digital net
+    meaning: 生成行列 C_j に対し sum C_j^T nu_m(k_j)=0 を満たす Walsh 周波数の集合。デジタル点平均で消えずに残る周波数を表す。
+  - term: Walsh 周波数消去則
+    english: digital character property
+    meaning: デジタル点集合上の Walsh 関数の平均が、周波数が双対ネットに入るとき 1、入らないとき 0 になる性質。
+  - term: NRT 重み
+    english: Niederreiter--Rosenbloom--Tsfasman weight
+    meaning: 各整数座標の最高位非零 b 進桁位置を足し合わせて Walsh 周波数の b 進解像度を測る重み。
+  - term: 最小双対 NRT 重み
+    english: minimum dual NRT weight
+    meaning: 非零双対周波数の NRT 重みの最小値。m×m 生成行列型デジタルネットでは t 値と rho_1=m-t+1 の関係を持つ。
