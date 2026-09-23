@@ -82,10 +82,10 @@ toukei-grade1-numerical-runtime-v1
 
 初回にラボを実行すると、
 
-1. module Worker を読む
+1. module 型 Web Worker を読む
 2. Pyodide 本体を読む
 3. コード中の import を調べる
-4. NumPy / SciPy / Matplotlib など必要な パッケージを読む
+4. NumPy / SciPy / Matplotlib など必要なパッケージを読む
 5. 取得した固定バージョン資産を Cache Storage に保存する
 
 という処理が走ります。
@@ -96,7 +96,7 @@ toukei-grade1-numerical-runtime-v1
 
 教材全体の「オフライン保存」と Python ランタイムの保存は役割が異なります。
 
-- 教材 Markdown・画像など：教材のオフライン保存
+- 教材 Markdown・図版など：教材のオフライン保存
 - Pyodide・Python パッケージ：ラボ初回実行時の永続ランタイムキャッシュ
 
 です。
@@ -124,11 +124,11 @@ language: python-test
 assert ...
 ~~~
 
-を置くと、そのテストは読者画面では隠され、ユーザーコード実行後に同じ Python 名前空間 で評価されます。
+を置くと、そのテストは読者画面では隠され、ユーザーコード実行後に同じ Python 名前空間で評価されます。
 
 `lab-id` は全ラボで一意にします。進捗保存のキーにも使うため、後から意味なく変更しません。
 
-`timeout-ms` は**ユーザーコード本体の実行上限**です。Pyodide やパッケージの初回読込み時間とは分けて扱います。
+`timeout-ms` は**ユーザーコード本体の実行時間の最大値**です。Pyodide やパッケージの初回読込み時間とは分けて扱います。
 
 ---
 
@@ -230,7 +230,7 @@ center(x + c) ≈ center(x)
 
 が成り立つはずです。
 
-NUMLAB では、このような**関数が満たすべき性質そのもの**を 非表示テスト に書きます。
+NUMLAB では、このような**関数が満たすべき性質そのもの**を 非表示テストに書きます。
 
 乱数を使う場合も、テスト用乱数生成器の初期化値を固定し、失敗を再現できるようにします。
 
@@ -446,7 +446,7 @@ for input_value in reproducible_cases:
 
 ---
 
-## 16. 実行基盤の安全境界
+## 16. 実行基盤の安全上の注意
 
 本基盤は、任意の Python を安全なクラウド sandbox で実行するサービスではありません。
 
@@ -462,26 +462,26 @@ for input_value in reproducible_cases:
 
 という方針にします。
 
-timeout は停止しない計算から UI を復旧させるための機構であり、悪意あるコードに対する完全なセキュリティ境界ではありません。
+時間制限は停止しない計算から UI を復旧させるための機構であり、悪意あるコードに対する完全なセキュリティ境界ではありません。
 
 ---
 
-## 17. CI が検査するもの
+## 17. 自動検証が検査するもの
 
-NUMLAB0 追加に合わせて、Pages 検証 へ数値ラボ基盤の検査を追加します。
+NUMLAB0 追加に合わせて、Pages の自動検証へ数値ラボ基盤の検査を追加します。
 
-CI は少なくとも、
+自動検証は少なくとも、
 
 - ランタイム用 JavaScript の構文
-- module Worker の構文
-- Pyodide バージョン の固定
+- module 型 Web Worker の構文
+- Pyodide バージョンの固定
 - Worker 分離
-- ランタイム資産 が Pages artifact へコピーされること
-- Service Worker の永続ランタイムキャッシュ 設定
+- ランタイム資産が Pages 成果物 へコピーされること
+- Service Worker の永続ランタイムキャッシュ設定
 - NUMLAB0 の全 `python-lab` に一意な `lab-id` があること
 - 時間制限が許容範囲内であること
 - 各 `python-lab` の直後に `python-test` があること
-- 非表示テスト に少なくとも一つ `assert` があること
+- 非表示テストに少なくとも一つ `assert` があること
 
 を確認します。
 
@@ -496,17 +496,17 @@ CI は少なくとも、
 代わりに、この章の完成条件は次です。
 
 1. ラボ UI が Docsify 上で生成される。
-2. Python は module Worker で動く。
+2. Python は module 型 Web Worker で動く。
 3. NumPy / SciPy / Matplotlib が読み込める。
 4. 実行中の Worker を停止できる。
 5. 時間超過で Worker が破棄される。
-6. 非表示テスト が同じ実行 namespace を検査できる。
-7. tolerance test が書ける。
+6. 非表示テスト が同じ実行名前空間 を検査できる。
+7. 数値許容誤差のテスト が書ける。
 8. 再現可能な性質ベーステストが書ける。
 9. Matplotlib の図をページへ返せる。
 10. 完了状態と編集コードを保存できる。
 11. 固定 Pyodide ランタイムを永続キャッシュできる。
-12. CI が上記の構成を壊す変更を検出できる。
+12. 自動検証が上記の構成を壊す変更を検出できる。
 
 ---
 
