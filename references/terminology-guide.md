@@ -374,6 +374,15 @@
 | ねじれ加群 | torsion module | 全ての元がねじれ元である加群 |
 | ねじれなし加群 | torsion-free module | 0 以外にねじれ元を持たない加群 |
 | ねじれ部分加群 | torsion submodule | 整域上の加群のねじれ元全体が作る部分加群 |
+| 行列同値 | matrix equivalence over a ring | 可逆な行列を左右から掛けて移り合う関係。自由加群の始域・終域の基底変換に対応する |
+| Smith 標準形 | Smith normal form | PID 上の行列を対角化し、非零対角成分が整除鎖をなす標準形。人名部分は英字表記を保持 |
+| 不変因子 | invariant factor | Smith 標準形の非零対角成分。一般の PID では単元倍を除いて定まる |
+| 小行列式イデアル | determinantal ideal | 同じ次数の小行列式全体で生成されるイデアル。Smith 不変因子の一意性を支える |
+| 有限表示 | finite presentation | 有限階数自由加群間の準同型の余核として加群を表すこと |
+| 余核 | cokernel | 加群準同型 $\varphi:M\to N$ に対する商加群 $N/\operatorname{Im}\varphi$ |
+| 基本因子 | elementary divisor | PID 上有限生成ねじれ加群の巡回直和分解に現れる素元冪 |
+| 巡回加群 | cyclic module | 一つの元で生成される加群。PID 上では $R/(d)$ が基本例 |
+| 有限生成 Abel 群の構造定理 | fundamental theorem of finitely generated abelian groups | 有限生成 Abel 群を自由部分と有限個の巡回群の直和へ分類する定理 |
 
 ## DREAM THEATER：数値解析の主表記
 
