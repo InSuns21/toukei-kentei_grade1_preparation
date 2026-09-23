@@ -1427,7 +1427,7 @@ $$
 
 ---
 
-## 10. 構造定数で書く
+## 10. Lie 括弧を基底成分で書く
 
 <a id="def-lie4-structure-constants"></a>
 <!-- formal-statement-start -->
