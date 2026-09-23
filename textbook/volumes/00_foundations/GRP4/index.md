@@ -474,7 +474,7 @@ $$
 
 Sylow の第二・第三定理では、$p$-群の作用を繰り返し使います。
 
-<a id="prop-grp4-pgroup-fixed-point-congruence"></a>
+<a id="prop-grp4-pgroup-fixed-point-counting"></a>
 <!-- formal-statement-start -->
 > **命題（p-群作用の固定点の法 p 数え上げ）**
 >
@@ -612,7 +612,7 @@ $$
 
 は $p$ で割れません。
 
-[p-群作用の固定点の法 $p$ 数え上げ](#prop-grp4-pgroup-fixed-point-congruence)から
+[p-群作用の固定点の法 $p$ 数え上げ](#prop-grp4-pgroup-fixed-point-counting)から
 
 $$
 |G/P|
@@ -984,7 +984,7 @@ $$
 
 ただ1つです。
 
-[p-群作用の固定点の法 $p$ 数え上げ](#prop-grp4-pgroup-fixed-point-congruence)から
+[p-群作用の固定点の法 $p$ 数え上げ](#prop-grp4-pgroup-fixed-point-counting)から
 
 $$
 n_p
