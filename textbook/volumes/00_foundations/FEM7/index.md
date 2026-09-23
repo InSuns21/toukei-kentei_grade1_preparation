@@ -41,7 +41,7 @@ $$
 
 > **この章の停止線**
 >
-> 本章は線形定常移流拡散問題と SUPG の基本機構に集中します。非線形移流、Navier--Stokes、DG 法、CIP 法、shock-capturing、crosswind diffusion、層適合メッシュの本格的誤差解析は扱いません。
+> 本章は線形定常移流拡散問題と SUPG の基本機構に集中します。非線形移流、Navier--Stokes、DG 法、CIP 法、衝撃捕獲法（shock-capturing）、流線直交方向拡散（crosswind diffusion）、層適合メッシュの本格的誤差解析は扱いません。
 
 ---
 
@@ -188,7 +188,7 @@ $$
 <!-- definition-example-start: def-fem7-element-peclet -->
 **定義の確認**
 
-### 例：同じ PDE でもメッシュ幅で regime が変わる
+### 例：同じ PDE でもメッシュ幅で支配領域が変わる
 
 一次元で
 
