@@ -62,14 +62,15 @@ concepts:
     requires: [algebra.extension-degree, algebra.algebraic-element]
 
   - id: algebra.minimal-polynomial
-    name: 最小多項式
+    name: 代数的元の最小多項式
     kind: definition
-    aliases: [minimal polynomial]
+    aliases: [minimal polynomial of an algebraic element]
     introduction: formal
+    introduction_aliases: ["定義（代数的元の最小多項式）"]
     requires: [algebra.algebraic-element, algebra.polynomial-ring-over-field-euclidean]
 
   - id: algebra.minimal-polynomial-theorem
-    name: 最小多項式の存在・一意性と既約性
+    name: 代数的元の最小多項式の存在・一意性と既約性
     kind: theorem
     aliases: []
     introduction: formal
