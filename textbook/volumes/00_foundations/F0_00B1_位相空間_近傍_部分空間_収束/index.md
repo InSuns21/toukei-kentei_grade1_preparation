@@ -312,7 +312,7 @@ $$
 
 **定義の確認**
 
-恒等写像 $\operatorname{id}_X:X\to X$ では
+[恒等写像](../F0_00A_集合_写像_上限下限/index.md#def-f0-00a-identity-map) $\operatorname{id}_X:X\to X$ では
 
 $$
 \operatorname{id}_X^{-1}(V)=V
@@ -575,7 +575,7 @@ $$
 - Level: B
 - 目安時間: 12分
 
-同じ集合 $X$ 上の位相 $\tau_1,\tau_2$ を考える。恒等写像
+同じ集合 $X$ 上の位相 $\tau_1,\tau_2$ を考える。[恒等写像](../F0_00A_集合_写像_上限下限/index.md#def-f0-00a-identity-map)
 $$
 \operatorname{id}:(X,\tau_2)\to(X,\tau_1)
 $$
