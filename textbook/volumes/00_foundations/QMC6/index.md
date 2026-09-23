@@ -107,7 +107,7 @@ $$
 
 とします。
 
-従って FLD1 の命題により
+従って FLD1 の [既約多項式による単純拡大の構成](../FLD1/index.md#prop-fld1-irreducible-quotient-construction) により
 
 $$
 \mathbb F_b[x]/(p)
@@ -1497,7 +1497,7 @@ $$
 
 と置く。
 
-このとき QMC5 の双対定理により、
+このとき QMC5 の [t 値と最小双対 NRT 重みの双対関係](../QMC5/index.md#thm-qmc5-t-value-duality) により、
 
 $$
 P(p,\boldsymbol q)
@@ -2009,7 +2009,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-第8節の積分誤差公式から
+[多項式格子の Walsh 積分誤差公式](#cor-qmc6-walsh-error) から
 
 $$
 Q_{p,\boldsymbol q}(f)-I(f)
