@@ -12,19 +12,19 @@ terms:
   - term: データ型
     english: dtype
     meaning: 配列要素の表現形式。整数・浮動小数点数などの種類と精度を決める。
-  - term: view
+  - term: NumPy のビュー
     english: view
     meaning: 元配列と同じデータバッファを共有し、形状や切り出し方だけを変えて参照する配列。
-  - term: copy
+  - term: NumPy のコピー
     english: copy
     meaning: 元配列とは独立なデータバッファを持つ複製。
-  - term: broadcasting
+  - term: NumPy のブロードキャスト
     english: broadcasting
     meaning: 末尾側の軸から、軸長が等しいか一方が1である場合に、明示的な複製なしで形状を合わせて要素演算する規則。
-  - term: vectorization
+  - term: NumPy のベクトル化
     english: vectorization
     meaning: Python の要素ごとの反復を、配列演算や ufunc などのまとまった演算へ置き換える書き方。
-  - term: boolean mask
+  - term: NumPy のブールマスク
     english: boolean mask
     meaning: 真偽値配列で要素を選択・更新する NumPy の添字指定。
   - term: NumPy 乱数生成器
