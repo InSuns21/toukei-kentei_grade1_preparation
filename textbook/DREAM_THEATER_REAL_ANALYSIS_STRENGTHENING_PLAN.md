@@ -248,12 +248,18 @@ RA5 parameter integral の補強
   ↓
 RA7 多変数広義積分の補強
   ↓
+RAX1 実解析・院試／編入 演習
+  ↓
 HA1 高次元 maximal operator
   ↓
 HA2 Riesz potential / HLS
   ↓
 HA3 singular integral / Riesz transform / Calderón--Zygmund
 ~~~
+
+RAX1 は理論章の標準 A4/B3/C1 を増量する代わりではなく、既存の LAX1 / CAX1 と同じく **理論系列とは別の演習専用章**として計画する。詳細は `DREAM_THEATER_EXERCISE_SERIES_STRENGTHENING_PLAN.md` を参照する。
+
+ただし LAX1 / CAX1 の現行 A8/B10/C4 を RAX1 に機械的に適用しない。実解析では epsilon 論法、仮定確認、反例、短い証明の比重を上げ、分野に合う問題構成を採る。
 
 無限積、Riemann--Stieltjes 積分、特殊関数の体系化は、後続章から需要が生じた場合だけ追加する。
 
