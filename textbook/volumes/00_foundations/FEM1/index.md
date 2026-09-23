@@ -1809,10 +1809,10 @@ FEM2 でそこへ進みます。
 
 ## 12. 演習
 
-## Level A
+### Level A
 
 <a id="ex-fem1-a01"></a>
-### FEM1-A01 $\mathbb R^2$ の Galerkin 射影
+#### FEM1-A01 $\mathbb R^2$ の Galerkin 射影
 - Level: A
 
 $$
@@ -1857,7 +1857,7 @@ $$
 を確認せよ。
 
 <!-- solution-start -->
-### 詳細解答
+**詳細解答**
 
 基底を
 
@@ -1979,7 +1979,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-fem1-a02"></a>
-### FEM1-A02 一次元一基底 Galerkin 計算
+#### FEM1-A02 一次元一基底 Galerkin 計算
 - Level: A
 
 $$
@@ -2007,7 +2007,7 @@ $$
 3. 厳密解が $V_h$ に属さないことを確認せよ。
 
 <!-- solution-start -->
-### 詳細解答
+**詳細解答**
 
 変分形式は
 
@@ -2133,7 +2133,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-fem1-a03"></a>
-### FEM1-A03 剛性行列が正定値になる理由
+#### FEM1-A03 剛性行列が正定値になる理由
 - Level: A
 
 $a$ を対称かつ強圧的な双線形形式とし、
@@ -2157,7 +2157,7 @@ $$
 を示せ。
 
 <!-- solution-start -->
-### 詳細解答
+**詳細解答**
 
 係数ベクトル
 
@@ -2224,7 +2224,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-fem1-a04"></a>
-### FEM1-A04 Céa の定数を読む
+#### FEM1-A04 Céa の定数を読む
 - Level: A
 
 ある変分問題で
@@ -2254,7 +2254,7 @@ $$
 Céa の補題から $\|u-u_h\|_V$ を評価せよ。
 
 <!-- solution-start -->
-### 詳細解答
+**詳細解答**
 
 有界性定数は
 
@@ -2306,10 +2306,10 @@ $$
 $$
 <!-- solution-end -->
 
-## Level B
+### Level B
 
 <a id="ex-fem1-b01"></a>
-### FEM1-B01 Galerkin 直交性から Céa の補題を再構成する
+#### FEM1-B01 Galerkin 直交性から Céa の補題を再構成する
 - Level: B
 
 $V_h\subset V$ とし、$a$ は有界性定数 $M$、強圧性定数 $\alpha$ を持つとする。
@@ -2333,7 +2333,7 @@ $V_h\subset V$ とし、$a$ は有界性定数 $M$、強圧性定数 $\alpha$ �
 4. $w_h$ に関する下限を取る。
 
 <!-- solution-start -->
-### 詳細解答
+**詳細解答**
 
 連続問題は
 
@@ -2436,7 +2436,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-fem1-b02"></a>
-### FEM1-B02 Poisson の二基底 Galerkin 系
+#### FEM1-B02 Poisson の二基底 Galerkin 系
 - Level: B
 
 $$
@@ -2466,7 +2466,7 @@ $$
 5. 厳密解 $u=(x-x^4)/12$ と一致しないことを確認せよ。
 
 <!-- solution-start -->
-### 詳細解答
+**詳細解答**
 
 まず
 
@@ -2654,7 +2654,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-fem1-b03"></a>
-### FEM1-B03 強圧性を失ったときの二種類の破綻
+#### FEM1-B03 強圧性を失ったときの二種類の破綻
 - Level: B
 
 $$
@@ -2673,7 +2673,7 @@ $$
 4. Céa の証明のどの一歩が使えなくなるか答えよ。
 
 <!-- solution-start -->
-### 詳細解答
+**詳細解答**
 
 Cauchy--Schwarz より
 
@@ -2770,10 +2770,10 @@ $$
 強圧性がないとこの評価が失われ、$a(e,e)$ から $\|e\|_V$ を制御できません。
 <!-- solution-end -->
 
-## Level C
+### Level C
 
 <a id="ex-fem1-c01"></a>
-### FEM1-C01 Poisson Galerkin 法の骨格を最初から閉じる
+#### FEM1-C01 Poisson Galerkin 法の骨格を最初から閉じる
 - Level: C
 
 $\Omega\subset\mathbb R^d$ を有界開集合とし
@@ -2839,7 +2839,7 @@ $$
 5. この結果だけでは $h\to0$ の収束率がまだ分からない理由を説明せよ。
 
 <!-- solution-start -->
-### 詳細解答
+**詳細解答**
 
 **1. 連続問題と離散問題の一意可解性**
 
