@@ -361,6 +361,19 @@
 | Gauss の補題 | Gauss lemma | 原始多項式の積の原始性と、係数環から分数体への既約性移送を支える結果 |
 | 有理根定理 | rational root theorem | 整数係数多項式の既約分数根 $p/q$ について $p$ が定数項、$q$ が先頭係数を割る必要条件 |
 | Eisenstein の既約判定 | Eisenstein criterion | 一つの素元による係数の整除条件から多項式の既約性を保証する判定法 |
+| 左加群 | left module | 単位元を持つ環が Abel 群へ左から作用する加群 |
+| 右加群 | right module | 単位元を持つ環が Abel 群へ右から作用する加群。非可換環では左加群と区別する |
+| 加群準同型 | module homomorphism | 加法と係数環の作用を保つ写像 |
+| 部分加群 | submodule | 加法と係数環の作用で閉じた加群の部分集合 |
+| 商加群 | quotient module | 部分加群による剰余類に自然な加群構造を入れたもの |
+| 生成系 | generating set | 有限個の係数付き和で加群全体を生成する元の集合 |
+| 有限生成加群 | finitely generated module | 有限個の元から生成される加群 |
+| 加群の基底 | basis of a module | 各元を有限線形結合として一意に表す生成系 |
+| 自由加群 | free module | 基底を持つ加群 |
+| ねじれ元 | torsion element | 整域上の加群で、ある非零スカラーにより 0 に写される元 |
+| ねじれ加群 | torsion module | 全ての元がねじれ元である加群 |
+| ねじれなし加群 | torsion-free module | 0 以外にねじれ元を持たない加群 |
+| ねじれ部分加群 | torsion submodule | 整域上の加群のねじれ元全体が作る部分加群 |
 
 ## DREAM THEATER：数値解析の主表記
 
