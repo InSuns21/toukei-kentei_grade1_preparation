@@ -47,7 +47,7 @@ concepts:
   - id: numerical.ftcs-diffusive-cfl-condition
     name: FTCS の拡散 CFL 条件
     kind: definition
-    aliases: [diffusive CFL condition for FTCS, parabolic CFL condition for FTCS]
+    aliases: [拡散 CFL 条件, diffusive CFL condition for FTCS, parabolic CFL condition for FTCS]
     introduction: formal
     requires:
       - numerical.ftcs-heat-scheme
