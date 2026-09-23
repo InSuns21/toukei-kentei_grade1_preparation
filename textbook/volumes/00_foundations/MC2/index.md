@@ -142,7 +142,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mc2-prng -->
-### 定義の確認：4状態の最小例
+**定義の確認**
+
+#### 4状態の最小例
 
 $$
 S=\{0,1,2,3\},
@@ -194,7 +196,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mc2-seed -->
-### 定義の確認
+**定義の確認**
 
 前節の4状態生成器で、
 
@@ -434,7 +436,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mc2-lcg -->
-### 定義の確認：周期が最大でも「乱雑」とは限らない
+**定義の確認**
+
+#### 周期が最大でも「乱雑」とは限らない
 
 $$
 m=8,
@@ -641,7 +645,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mc2-generalized-inverse -->
-### 定義の確認：三点離散分布
+**定義の確認**
+
+#### 三点離散分布
 
 確率変数 $X$ が
 
@@ -1056,7 +1062,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mc2-rejection-sampling -->
-### 定義の確認：$f(x)=2x$ on $[0,1]$
+**定義の確認**
+
+#### $f(x)=2x$（$[0,1]$）
 
 目標密度を
 
@@ -1608,7 +1616,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mc2-random-stream -->
-### 定義の確認：初期状態を固定した列
+**定義の確認**
+
+#### 初期状態を固定した列
 
 状態遷移 $T$、出力写像 $\phi$、初期状態 $s_0$ を固定すれば、
 
@@ -1636,7 +1646,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mc2-substream -->
-### 定義の確認：2ワーカーへ固定割当てする
+**定義の確認**
+
+#### 2ワーカーへ固定割当てする
 
 長い生成列を
 
