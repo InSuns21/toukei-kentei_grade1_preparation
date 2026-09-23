@@ -151,13 +151,15 @@ $$
 <!-- formal-statement-start -->
 ### 定義（要素 Péclet 数）
 
-要素 $K$ の代表長さを $h_K$ とし、$K$ 上で移流速度の代表値を $|\boldsymbol b|_K$ とする。
+$\varepsilon>0$、$\boldsymbol b\in L^\infty(\Omega)^d$ とする。
+
+要素 $K$ の代表長さを $h_K$ とするとき、
 
 $$
 \boxed{
 Pe_K
 =
-\frac{|\boldsymbol b|_K h_K}{2\varepsilon}
+\frac{\|\boldsymbol b\|_{L^\infty(K)} h_K}{2\varepsilon}
 }
 $$
 
@@ -244,7 +246,17 @@ $\mathcal T_h$ を適合三角形分割、$V_h\subset H_0^1(\Omega)$ を FEM2 �
 <!-- formal-statement-start -->
 ### 定義（移流拡散問題の標準 Galerkin 有限要素法）
 
-$V_h\subset H_0^1(\Omega)$ を有限要素空間とする。
+$\varepsilon>0$、$\boldsymbol b\in L^\infty(\Omega)^d$、$f\in L^2(\Omega)$ とし、$V_h\subset H_0^1(\Omega)$ を有限要素空間とする。
+
+$$
+a(w,v)
+=
+\varepsilon(\nabla w,\nabla v)_{L^2}
++
+(\boldsymbol b\cdot\nabla w,v)_{L^2}
+$$
+
+と置く。
 
 $$
 \boxed{
@@ -623,9 +635,9 @@ $$
 <!-- formal-statement-start -->
 ### 定義（流線風上 Petrov--Galerkin 法）
 
-各要素 $K\in\mathcal T_h$ に安定化係数 $\tau_K\ge0$ を与える。
+$\mathcal T_h$ を $\Omega$ の適合分割、$V_h\subset H_0^1(\Omega)$ を有限要素空間とし、各要素 $K\in\mathcal T_h$ に安定化係数 $\tau_K\ge0$ を与える。
 
-$u_h\in V_h$ が任意の $v_h\in V_h$ に対して
+$\varepsilon>0$、移流場 $\boldsymbol b$、$f\in L^2(\Omega)$ に対して、$u_h\in V_h$ が任意の $v_h\in V_h$ について
 
 $$
 \boxed{
@@ -1158,6 +1170,16 @@ Pe
 $$
 
 と置き、
+
+双曲線余接を
+
+$$
+\coth z
+=
+\frac{\cosh z}{\sinh z}
+$$
+
+と書き、
 
 $$
 \boxed{
