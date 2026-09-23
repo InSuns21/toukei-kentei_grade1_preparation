@@ -19,7 +19,7 @@ learning_objectives:
 definitions:
   - { id: QMC3-DEF-01, name: ランク1格子点集合と生成ベクトル }
   - { id: QMC3-DEF-02, name: 双対格子 }
-  - { id: QMC3-DEF-02A, name: 単位トーラス上の Fourier 係数 }
+  - { id: QMC3-DEF-02A, name: 単位周期立方体上の Fourier 係数 }
   - { id: QMC3-DEF-03, name: 絶対収束 Fourier 級数 }
   - { id: QMC3-DEF-04, name: 重み付き周期 Fourier 空間 }
   - { id: QMC3-DEF-05, name: 成分逐次構成 }
@@ -28,8 +28,8 @@ theorems:
   - { id: QMC3-THM-02, name: 三角多項式に対する格子則の積分誤差公式 }
   - { id: QMC3-THM-03, name: 絶対収束 Fourier 級数に対する格子則の積分誤差公式 }
   - { id: QMC3-THM-04, name: 重み付き周期 Fourier 空間における格子則の最悪誤差公式 }
-  - { id: QMC3-THM-05, name: "一次元格子則の N^{-alpha} 最悪誤差率" }
-  - { id: QMC3-THM-06, name: 生成ベクトルの単元倍不変性 }
+  - { id: QMC3-THM-05, name: "一次元格子則の滑らかさ依存最悪誤差率" }
+  - { id: QMC3-THM-06, name: 生成ベクトルの可逆スカラー倍不変性 }
 canonical_examples:
   - N=5, z=(1,2) のランク1格子点集合を全点書き出す例
   - z=(1,1) では h=(1,-1) が双対格子に入り cos(2pi(x1-x2)) の誤差が 1 になる失敗例
