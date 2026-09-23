@@ -433,7 +433,7 @@ $$
 
 ここで直接、
 
-$
+$$
 \begin{aligned}
 (1-\omega)
 \sum_{n=0}^{N-1}\omega^n
@@ -448,17 +448,17 @@ $
 &=
 0
 \end{aligned}
-$
+$$
 
 です。
 
 $\omega\ne1$ なので
 
-$
+$$
 \sum_{n=0}^{N-1}\omega^n
 =
 0.
-$
+$$
 
 $N$ で割れば平均は0です。
 <!-- proof-end -->
