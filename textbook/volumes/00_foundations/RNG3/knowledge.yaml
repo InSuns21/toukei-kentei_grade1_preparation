@@ -97,6 +97,7 @@ concepts:
     kind: definition
     aliases: [principal ideal domain, PID]
     introduction: formal
+    introduction_aliases: ["定義（単項イデアル整域）"]
     requires: [algebra.integral-domain, algebra.principal-ideal]
 
   - id: algebra.euclidean-domain-implies-pid
@@ -139,6 +140,7 @@ concepts:
     kind: definition
     aliases: [unique factorization domain, UFD]
     introduction: formal
+    introduction_aliases: ["定義（一意分解整域）"]
     requires: [algebra.irreducible-element, algebra.associate-elements]
 
   - id: algebra.pid-implies-ufd
@@ -146,4 +148,5 @@ concepts:
     kind: theorem
     aliases: []
     introduction: formal
+    introduction_aliases: ["定理（単項イデアル整域は一意分解整域）"]
     requires: [algebra.principal-ideal-domain, algebra.pid-ascending-chain-condition, algebra.pid-irreducible-implies-prime, algebra.unique-factorization-domain]
