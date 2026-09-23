@@ -1,0 +1,45 @@
+id: "FLD4"
+title: "抽象代数 XIV：有限 Galois 理論"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLD3
+  - GRP3
+official_scope: []
+learning_objectives:
+  - 基礎体を固定する体の自己同型と固定体を定義し、具体的な拡大で自己同型群と固定体を計算できる
+  - 有限 Galois 拡大を有限・分離・正規という三条件で定義し、Galois 群の位数が拡大次数に等しいことを埋め込みの個数から証明できる
+  - 相異なる体準同型の Artin の独立性を証明し、有限自己同型群 H に対して [L:L^H]=|H| を導ける
+  - 有限 Galois 理論の基本定理を証明し、中間体 E と部分群 Gal(L/E) の包含反転対応を説明できる
+  - 対応する中間体と部分群について [L:E]=|H| および [E:F]=[G:H] を使って次数と指数を往復できる
+  - 正規部分群と基礎体上正規な中間拡大の対応を証明し、制限準同型から Gal(E/F) と G/H の同型を導ける
+  - x^3-2 の分解体、二重二次拡大、有限体拡大で Galois 対応を具体的に計算できる
+definitions:
+  - { id: FLD4-DEF-01, name: 基礎体固定自己同型・自己同型群・固定体 }
+  - { id: FLD4-DEF-02, name: 有限 Galois 拡大・Galois 群 }
+theorems:
+  - { id: FLD4-THM-01, name: 有限分離拡大の埋め込み数 }
+  - { id: FLD4-COR-01, name: 有限 Galois 拡大の Galois 群の位数 }
+  - { id: FLD4-LEM-01, name: Artin の独立性 }
+  - { id: FLD4-LEM-02, name: 独立な準同型の可逆評価行列 }
+  - { id: FLD4-THM-02, name: Artin の固定体定理 }
+  - { id: FLD4-THM-03, name: 有限 Galois 理論の基本定理 }
+  - { id: FLD4-PROP-01, name: 固定体の共役移送 }
+  - { id: FLD4-THM-04, name: 正規部分群と正規中間拡大の対応 }
+canonical_examples:
+  - Q(sqrt(2))/Q で共役自己同型と固定体を直接計算
+  - x^3-2 の分解体 Q(cuberoot(2),omega) で Galois 群 S_3 と中間体を計算
+  - Q(sqrt(2),sqrt(3))/Q で Klein 四元群と三つの二次中間体を対応
+  - F_(q^n)/F_q で相対 Frobenius が Galois 群を生成し約数と中間体が対応することを確認
+problem_patterns:
+  - FLD4-AUTOMORPHISM-FIXED-FIELD-1
+  - FLD4-GALOIS-GROUP-DEGREE-1
+  - FLD4-ARTIN-FIXED-FIELD-1
+  - FLD4-GALOIS-CORRESPONDENCE-1
+  - FLD4-NORMAL-SUBGROUP-1
+  - FLD4-S3-SPLITTING-FIELD-1
+  - FLD4-FINITE-FIELD-CORRESPONDENCE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11.0, exercises: 7.0, review: 0.5 }

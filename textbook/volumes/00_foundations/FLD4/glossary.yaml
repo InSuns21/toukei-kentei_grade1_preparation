@@ -1,0 +1,26 @@
+chapter: "FLD4"
+terms:
+  - term: 基礎体固定自己同型
+    english: automorphism over the base field
+    meaning: 体拡大 L/F において F の各元を固定する L の体自己同型。
+  - term: 自己同型群
+    english: automorphism group over a field
+    meaning: L/F の基礎体 F を固定する L の自己同型全体が合成でなす群 Aut_F(L)。
+  - term: 固定体
+    english: fixed field
+    meaning: 自己同型群の部分群 H に属する全ての自己同型で固定される L の元全体 L^H。
+  - term: 有限 Galois 拡大
+    english: finite Galois extension
+    meaning: 有限拡大 L/F が分離的かつ正規であるときの呼び名。
+  - term: Galois 群
+    english: Galois group
+    meaning: 有限 Galois 拡大 L/F に対する基礎体固定自己同型群 Gal(L/F)=Aut_F(L)。
+  - term: Artin の独立性
+    english: Artin independence of characters
+    meaning: 相異なる体準同型は、値域の体を係数とする関数として一次独立であるという補題。
+  - term: 有限 Galois 理論の基本定理
+    english: fundamental theorem of finite Galois theory
+    meaning: 有限 Galois 拡大 L/F の中間体と Galois 群の部分群が包含反転で一対一対応する定理。
+  - term: 制限準同型
+    english: restriction homomorphism
+    meaning: L の自己同型を中間体 E へ制限して E の自己同型へ送る群準同型。

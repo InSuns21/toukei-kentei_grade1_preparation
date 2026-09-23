@@ -22,6 +22,16 @@ alias_matching:
     - unit
     - torus
     - トーラス
+    - 正規性
+    - normality
+    - 埋め込み
+    - embedding
+    - 最小多項式
+    - minimal polynomial
+    - Frobenius の定理
+    - Frobenius theorem
+    - 位相
+    - topology
 
 rollout:
   # 既存ページは段階移行する。未移行ページそのものは audit では報告するが、

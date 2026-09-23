@@ -114,7 +114,7 @@
 
 ### 標準抽象代数コア
 
-集合・写像の基礎から、群・環・加群・体へ進む学部標準の抽象代数系列です。群論 GRP1--GRP4、環論 RNG1--RNG4、加群論 MOD1--MOD2、体論 FLD1--FLD3 まで実装済みです。
+集合・写像の基礎から、群・環・加群・体へ進む学部標準の抽象代数系列です。群論 GRP1--GRP4、環論 RNG1--RNG4、加群論 MOD1--MOD2、体論・有限 Galois 理論 FLD1--FLD4 まで実装済みです。
 
 1. [GRP1 群・部分群・巡回群・置換群](textbook/volumes/00_foundations/GRP1/index.md)
 2. [GRP2 準同型・剰余類・正規部分群・商群](textbook/volumes/00_foundations/GRP2/index.md)
@@ -129,8 +129,9 @@
 11. [FLD1 体拡大・代数的元・最小多項式](textbook/volumes/00_foundations/FLD1/index.md)
 12. [FLD2 分解体・分離性・正規性](textbook/volumes/00_foundations/FLD2/index.md)
 13. [FLD3 有限体](textbook/volumes/00_foundations/FLD3/index.md)
+14. [FLD4 有限 Galois 理論](textbook/volumes/00_foundations/FLD4/index.md)
 
-GRP1--GRP4 で群・商構造・群作用・Sylow 理論までの有限群論主線を閉じます。RNG1--RNG4 では環・イデアル・中国剰余定理から Euclid 整域・一意分解整域・多項式環・Gauss の補題まで進みます。MOD1 で加群・自由加群・ねじれ・$F[x]$-加群を導入し、MOD2 で Smith 標準形、PID 上有限生成加群の構造定理、有限生成 Abel 群の分類、線形自己写像の巡回分解まで閉じます。FLD1 で体拡大・拡大次数・最小多項式・単純代数拡大を構成し、FLD2 で分解体・埋め込み延長・分離性・正規性を閉じます。FLD3 では標数・Frobenius 写像・有限体の乗法群、$\mathbb F_{p^n}$ の存在と一意性、部分体判定、相対 Frobenius、有限体拡大の分離性・正規性まで進みます。次の代数主線は FLD4 の有限 Galois 理論です。
+GRP1--GRP4 で群・商構造・群作用・Sylow 理論までの有限群論主線を閉じます。RNG1--RNG4 では環・イデアル・中国剰余定理から Euclid 整域・一意分解整域・多項式環・Gauss の補題まで進みます。MOD1 で加群・自由加群・ねじれ・$F[x]$-加群を導入し、MOD2 で Smith 標準形、PID 上有限生成加群の構造定理、有限生成 Abel 群の分類、線形自己写像の巡回分解まで閉じます。FLD1 で体拡大・拡大次数・最小多項式・単純代数拡大を構成し、FLD2 で分解体・埋め込み延長・分離性・正規性を閉じます。FLD3 では標数・Frobenius 写像・有限体の乗法群、$\mathbb F_{p^n}$ の存在と一意性、部分体判定、相対 Frobenius、有限体拡大の分離性・正規性まで進みます。FLD4 では基礎体固定自己同型・固定体・Galois 群を導入し、Artin の固定体定理から有限 Galois 理論の基本定理、正規部分群と正規中間拡大、商群まで閉じます。次の代数主線は FLD5 の作図可能性・根号による可解性です。
 
 ### 標準ベクトル解析コア
 

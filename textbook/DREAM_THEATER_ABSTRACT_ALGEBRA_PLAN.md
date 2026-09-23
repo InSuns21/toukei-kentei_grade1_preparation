@@ -464,7 +464,7 @@ LA4 の Jordan 標準形は重複再証明せず、加群構造論が線形作�
 
 **tier: advanced-standard capstone**
 
-**prerequisites:** FLD2, GRP3
+**prerequisites:** FLD3, GRP3
 
 主な内容：
 
@@ -541,8 +541,7 @@ RNG3 ED・PID・UFD
 RNG4 多項式環・Gauss の補題・既約性
   ├──────────────→ FLD1 ← LA1
   │                 ↓
-  │               FLD2 ───────→ FLD3
-  │                 └─────────→ FLD4 → FLD5 ← GRP4
+  │               FLD2 ───────→ FLD3 → FLD4 → FLD5 ← GRP4
   └──────────────→ MOD1 → MOD2
                          ↑
                         LA2
@@ -675,7 +674,7 @@ GRP2 完了後に LIE1、GRP3 完了後に LIE2 / LIE4 の実装を開始して�
 11. FLD1 体拡大・代数的元・最小多項式 ✅ 2026-09-23
 12. FLD2 分解体・分離性・正規性 ✅ 2026-09-23
 13. FLD3 有限体 ✅ 2026-09-24
-14. FLD4 有限 Galois 理論
+14. FLD4 有限 Galois 理論 ✅ 2026-09-24
 15. FLD5 Galois 理論の応用：作図可能性・根号による可解性
 
 原則として **1講座を1作業セッション**で完成させる。本文・metadata・knowledge・glossary・演習・詳細解答・検証を同じ作業単位で閉じる。
@@ -700,48 +699,36 @@ GRP2 完了後に LIE1、GRP3 完了後に LIE2 / LIE4 の実装を開始して�
 
 # 13. 次の実装開始点
 
-GRP1「群・部分群・巡回群・置換群」から FLD3「有限体」までの 13 講を実装完了した。FLD1--FLD2 は 2026-09-23、FLD3 は 2026-09-24 に完了した。
+GRP1「群・部分群・巡回群・置換群」から FLD4「有限 Galois 理論」までの 14 講を実装完了した。FLD1--FLD2 は 2026-09-23、FLD3--FLD4 は 2026-09-24 に完了した。
 
-FLD3 では、有限体 $K$ の標数が素数 $p$ であり、$K$ が素体 $\mathbb F_p$ 上の有限次元ベクトル空間になることから
-
-$$
-|K|=p^n
-$$
-
-を証明した。標数 $p$ の Frobenius 写像
+FLD4 では、基礎体固定自己同型・自己同型群・固定体・有限 Galois 拡大を定義し、有限分離拡大の埋め込み数が拡大次数に等しいことから
 
 $$
-x\longmapsto x^p
+|\operatorname{Gal}(L/F)|=[L:F]
 $$
 
-が単射な体準同型で、有限体では自己同型になることを示し、有限 Abel 群の最大位数元と多項式の根の個数評価から有限体の乗法群が巡回群であることまで閉じた。
-
-さらに、代数閉包中の
+を導いた。さらに Artin の独立性と固定体定理を核心証明付きで閉じ、有限 Galois 理論の基本定理
 
 $$
-x^{p^n}-x
+E
+\longleftrightarrow
+\operatorname{Gal}(L/E)
 $$
 
-の根全体が体をなすことを直接確認し、FLD2 の分解体の存在・一意性と形式微分を使って $\mathbb F_{p^n}$ の存在と同型を除く一意性を証明した。塔の公式と Frobenius の反復から
+を証明した。正規部分群と正規中間拡大の対応、制限準同型による
 
 $$
-\mathbb F_{p^m}\subset\mathbb F_{p^n}
-\iff
-m\mid n
+\operatorname{Gal}(E/F)
+\cong
+\operatorname{Gal}(L/F)/\operatorname{Gal}(L/E)
 $$
 
-を導き、相対 Frobenius
+まで扱い、$x^3-2$ の分解体、二重二次拡大、有限体で対応を直接計算した。
 
-$$
-x\longmapsto x^q
-$$
-
-の位数と固定体を求め、有限体拡大が分離的かつ正規であることまで確認した。
-
-実際の証明依存を再監査した結果、FLD3 は GRP3 の群作用・共役を使わず、GRP2 の Lagrange の定理までで閉じるため、direct prerequisite を **FLD2 + GRP2** に修正した。
+実装時に実際の証明依存を再監査し、有限体の Galois 群を具体例として本論で使用するため、FLD4 の direct prerequisite は **FLD3 + GRP3** とした。FLD3 が FLD2 を、GRP3 が GRP2 を推移的に含む。
 
 現在の次の実装対象は
 
-**FLD4「有限 Galois 理論」**
+**FLD5「Galois 理論の応用：作図可能性・根号による可解性」**
 
 とする。
