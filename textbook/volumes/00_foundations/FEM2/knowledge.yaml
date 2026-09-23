@@ -19,8 +19,6 @@ concepts:
     aliases: [finite element]
     introduction: formal
     introduction_aliases: ["定義（有限要素）"]
-    requires:
-      - numerical.conforming-triangulation
 
   - id: numerical.p1-triangle-unisolvence
     name: 一次三角形要素の頂点値自由度の一意可解性
