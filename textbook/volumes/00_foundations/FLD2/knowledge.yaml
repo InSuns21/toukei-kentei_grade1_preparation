@@ -1,0 +1,208 @@
+chapter: FLD2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLD1
+forward_references: []
+
+concepts:
+  - id: algebra.splitting-field
+    name: 分解体
+    kind: definition
+    aliases: [splitting field]
+    introduction: formal
+    requires:
+      - algebra.field-extension
+      - algebra.polynomial-ring
+
+  - id: algebra.splitting-field-existence
+    name: 分解体の存在
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.splitting-field
+      - algebra.irreducible-polynomial-field-extension-construction
+
+  - id: algebra.field-embedding
+    name: 基礎体を固定する体の埋め込み
+    kind: definition
+    aliases: [field embedding]
+    introduction: formal
+    introduction_aliases: ["定義（基礎体を固定する体の埋め込み）"]
+    requires:
+      - algebra.field-extension
+      - algebra.ring-homomorphism
+
+  - id: algebra.one-step-field-embedding-extension
+    name: 一段の埋め込み延長
+    kind: lemma
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.field-embedding
+      - algebra.minimal-polynomial-theorem
+      - algebra.simple-algebraic-extension-quotient
+
+  - id: algebra.algebraically-closed-field
+    name: 代数閉体
+    kind: definition
+    aliases: [algebraically closed field]
+    introduction: formal
+    introduction_aliases: ["定義（代数閉体・代数閉包）"]
+    requires:
+      - algebra.field
+      - algebra.polynomial-ring
+
+  - id: algebra.algebraic-closure
+    name: 代数閉包
+    kind: definition
+    aliases: [algebraic closure]
+    introduction: formal
+    introduction_aliases: ["定義（代数閉体・代数閉包）"]
+    requires:
+      - algebra.algebraically-closed-field
+      - algebra.field-extension
+      - algebra.algebraic-element
+
+  - id: algebra.finite-field-embedding-extension
+    name: 有限代数拡大上への埋め込み延長
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.one-step-field-embedding-extension
+      - algebra.algebraic-closure
+      - algebra.finite-extension-elements-algebraic
+
+  - id: algebra.splitting-field-uniqueness
+    name: 分解体の同型を除く一意性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.splitting-field
+      - algebra.one-step-field-embedding-extension
+      - algebra.splitting-field-existence
+
+  - id: algebra.formal-derivative
+    name: 形式微分
+    kind: definition
+    aliases: [formal derivative]
+    introduction: formal
+    introduction_aliases: ["定義（形式微分・根の重複度）"]
+    requires:
+      - algebra.polynomial-ring
+
+  - id: algebra.root-multiplicity
+    name: 根の重複度
+    kind: definition
+    aliases: [multiplicity of a root]
+    introduction: formal
+    introduction_aliases: ["定義（形式微分・根の重複度）"]
+    requires:
+      - algebra.polynomial-ring
+
+  - id: algebra.formal-derivative-product-rule
+    name: 形式微分の積の微分則
+    kind: lemma
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.formal-derivative
+      - algebra.polynomial-ring
+
+  - id: algebra.repeated-root-gcd-criterion
+    name: 重根の形式微分判定
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.formal-derivative
+      - algebra.root-multiplicity
+      - algebra.formal-derivative-product-rule
+      - algebra.minimal-polynomial-theorem
+      - algebra.greatest-common-divisor-domain
+
+  - id: algebra.separable-polynomial
+    name: 分離多項式
+    kind: definition
+    aliases: [separable polynomial]
+    introduction: formal
+    introduction_aliases: ["定義（分離多項式・分離的な元・分離拡大）"]
+    requires:
+      - algebra.splitting-field
+      - algebra.root-multiplicity
+
+  - id: algebra.separable-element
+    name: 分離的な元
+    kind: definition
+    aliases: [separable element]
+    introduction: formal
+    introduction_aliases: ["定義（分離多項式・分離的な元・分離拡大）"]
+    requires:
+      - algebra.algebraic-element
+      - algebra.minimal-polynomial
+      - algebra.separable-polynomial
+
+  - id: algebra.separable-extension
+    name: 分離拡大
+    kind: definition
+    aliases: [separable extension]
+    introduction: formal
+    introduction_aliases: ["定義（分離多項式・分離的な元・分離拡大）"]
+    requires:
+      - algebra.field-extension
+      - algebra.separable-element
+
+  - id: algebra.irreducible-separable-derivative-criterion
+    name: 既約多項式の分離性判定
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.separable-polynomial
+      - algebra.formal-derivative
+      - algebra.repeated-root-gcd-criterion
+      - algebra.irreducible-element
+
+  - id: algebra.characteristic-zero-separability
+    name: 標数0の体上の代数拡大は分離的
+    kind: corollary
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.irreducible-separable-derivative-criterion
+      - algebra.separable-extension
+      - algebra.minimal-polynomial
+
+  - id: algebra.normal-extension
+    name: 正規拡大
+    kind: definition
+    aliases: [normal extension, normal field extension]
+    introduction: formal
+    requires:
+      - algebra.field-extension
+      - algebra.irreducible-element
+
+  - id: algebra.splitting-field-embedding-stability
+    name: 分解体は基礎体固定埋め込みで保たれる
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.splitting-field
+      - algebra.field-embedding
+      - algebra.splitting-field-existence
+
+  - id: algebra.finite-normal-splitting-field-equivalence
+    name: 有限正規拡大と分解体
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.normal-extension
+      - algebra.splitting-field
+      - algebra.finite-field-embedding-extension
+      - algebra.splitting-field-embedding-stability
+      - algebra.minimal-polynomial
