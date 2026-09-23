@@ -949,7 +949,7 @@ $$
 
 ---
 
-## 9. 随伴表現 Ad は共役を単位元で微分したもの
+## 9. 共役自己同型を単位元で微分する
 
 <a id="def-lie2-adjoint-representation"></a>
 <!-- formal-statement-start -->
