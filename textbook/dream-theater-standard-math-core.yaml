@@ -545,7 +545,7 @@ nodes:
     status: implemented
     implemented_at: 2026-09-23
     implementation_path: textbook/volumes/00_foundations/MOD2/index.md
-    prerequisites: [MOD1, RNG4]
+    prerequisites: [MOD1, RNG4, LA3B]
 
   - id: VC1
     title: ベクトル場と微分演算子
