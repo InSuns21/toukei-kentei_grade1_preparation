@@ -35,11 +35,11 @@ concepts:
       - numerical.fdm-amplification-factor
 
   - id: numerical.von-neumann-l2-contraction-criterion
-    name: 周期格子の増幅因子による離散 l2 縮小性判定
+    name: 周期格子における増幅因子と縮小性
     kind: theorem
     aliases: [Fourier amplification criterion for discrete l2 contraction]
     introduction: formal
-    introduction_aliases: ["定理（周期格子における増幅因子と $\\ell^2$ 縮小性）"]
+    introduction_aliases: ["定理（周期格子における増幅因子と縮小性）"]
     requires:
       - numerical.von-neumann-stability-analysis
       - numerical.fdm-contractivity
