@@ -12,7 +12,7 @@ terms:
   - term: 最小双対 Dick 重み
     english: minimum dual Dick weight
     meaning: 双対ネットに属する非零 Walsh 周波数の Dick の α 重みの最小値。高次デジタルネットが低い高次周波数をどこまで排除したかを表す。
-  - term: order α デジタルネット
+  - term: 次数 α デジタルネット
     english: order alpha digital net
     meaning: 最小双対 Dick 重みが αm-t_α を超える高次デジタル点集合。α=1 では通常のデジタル (t,m,s)-ネットの双対条件へ戻る。
   - term: 高次 Walsh 係数ノルム
