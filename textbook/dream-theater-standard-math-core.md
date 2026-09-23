@@ -1145,6 +1145,22 @@ direct prerequisite は FLD1 です。FLD1 の最小多項式、単純代数拡�
 
 direct prerequisite は FLD2 と GRP2 です。FLD2 の分解体・形式微分・分離性・正規性を再利用し、GRP2 の Lagrange の定理を有限体の非零元へ適用します。群作用・共役を扱う GRP3 は FLD3 の証明では使わないため直接 prerequisite から外し、有限 Galois 理論の一般対応は FLD4 へ送ります。
 
+## FLD4 有限 Galois 理論 `advanced-standard`
+
+- 基礎体固定自己同型・自己同型群・固定体を定義し、二次拡大で固定体を直接計算
+- 有限・分離・正規を同時に満たす有限 Galois 拡大を導入し、有限分離拡大の埋め込み数が拡大次数に等しいことを一段の埋め込み延長から証明
+- 正規性により全ての基礎体固定埋め込みが自己同型になることから $|\operatorname{Gal}(L/F)|=[L:F]$ を導出
+- Artin の独立性と可逆評価行列を証明し、有限自己同型群 $H$ に対する $[L:L^H]=|H|$ と $\operatorname{Gal}(L/L^H)=H$ を証明
+- 有限 Galois 理論の基本定理を核心証明付きで閉じ、中間体と部分群の包含反転、$[L:E]=|H|$、$[E:F]=[G:H]$ を導出
+- 固定体の共役移送から、正規部分群と基礎体上 Galois な中間体の対応を証明
+- 制限準同型の核と全射性を確認し、$\operatorname{Gal}(E/F)\cong G/H$ を群の第一同型定理から導出
+- $\mathbb Q(\sqrt2,\sqrt3)$、$x^3-2$ の分解体、$\mathbb F_{q^n}/\mathbb F_q$、$\mathbb Q(i)$ を具体例として計算
+- A4/B3/C1 の演習で自己同型・固定体・Galois 対応・正規部分群・有限体対応を再構成
+
+実装: [FLD4](volumes/00_foundations/FLD4/index.md)
+
+direct prerequisite は FLD3 と GRP3 です。FLD3 から分離性・正規性を備えた有限体拡大と相対 Frobenius を具体例として再利用し、GRP3 から共役作用を固定体の共役移送に使います。FLD3 が FLD2 を、GRP3 が GRP2 を推移的に含むため、FLD2 / GRP2 は direct prerequisite として重複登録しません。作図可能性・可解群・根号による可解性は FLD5 へ送ります。
+
 ---
 
 # 6. 測度論：標準教科書の第2段階
