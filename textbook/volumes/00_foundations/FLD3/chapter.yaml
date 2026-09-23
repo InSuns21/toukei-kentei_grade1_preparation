@@ -14,7 +14,7 @@ learning_objectives:
   - 任意の位数 p^n の有限体が x^(p^n)-x の分解体になることを示し、同型を除く一意性を証明できる
   - F_(p^m) が F_(p^n) の部分体になるための必要十分条件 m|n を塔の公式と Frobenius から証明できる
   - 有限体拡大 F_(q^m)/F_q の相対 Frobenius 自己同型の位数と固定体を求められる
-  - 有限体拡大が分離的かつ正規であることを FLD2 の分離性・正規性から証明し、FLD4 の有限 Galois 理論への接続を説明できる
+  - 有限体拡大が分離的かつ正規であることを FLD2 の分離拡大・正規拡大から証明し、FLD4 の有限 Galois 理論への接続を説明できる
 definitions:
   - { id: FLD3-DEF-01, name: 標数・素体・有限体 }
   - { id: FLD3-DEF-02, name: Frobenius 写像 }
@@ -23,8 +23,8 @@ theorems:
   - { id: FLD3-THM-02, name: 有限体上の Frobenius 写像は自己同型 }
   - { id: FLD3-LEM-01, name: 有限可換群の最大位数元 }
   - { id: FLD3-THM-03, name: 有限体の乗法群は巡回群 }
-  - { id: FLD3-LEM-02, name: x^(p^n)-x の根全体は体 }
-  - { id: FLD3-THM-04, name: 位数 p^n の有限体の存在と一意性 }
+  - { id: FLD3-LEM-02, name: Frobenius 固定点集合は体 }
+  - { id: FLD3-THM-04, name: 素数冪位数の有限体の存在と一意性 }
   - { id: FLD3-THM-05, name: 有限体の部分体判定 }
   - { id: FLD3-THM-06, name: 相対 Frobenius 自己同型 }
   - { id: FLD3-COR-01, name: 有限体拡大は分離的かつ正規 }
