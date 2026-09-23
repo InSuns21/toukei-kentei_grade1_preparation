@@ -47,10 +47,10 @@ QMC3 が Fourier 周波数と双対格子で点集合を設計したのに対し
 QMC1 から次を使います。
 
 - [スター・ディスクレパンシー](../QMC1/index.md#def-qmc1-star-discrepancy)
-- [一様分布する点列](../QMC1/index.md#def-qmc1-uniform-distribution)
+- [一様分布する点列](../QMC1/index.md#def-qmc1-uniform-sequence)
 - [Koksma--Hlawka の不等式](../QMC1/index.md#thm-qmc1-koksma-hlawka)
 
-有限体については FLD3 の [有限体](../FLD3/index.md#def-fld3-characteristic-prime-field-finite-field) を使います。
+有限体については FLD3 の [有限体](../FLD3/index.md#def-fld3-characteristic-prime-field-finite-field) を使います。また、一次独立の意味は [一次独立・一次従属](../F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md#def-f0-00e-linear-independence) と同じですが、本章では係数体を $\mathbb F_b$ に取り替えます。必要な連立一次方程式の解数は、有限体上の行基本変形から本章内で直接確認します。
 
 本章のデジタル構成では、$b$ を素数として
 
@@ -1282,35 +1282,38 @@ $$
 
 先頭から、長さ $b^M$ の整列ブロックを $c_M$ 個、続いて長さ $b^{M-1}$ の整列ブロックを $c_{M-1}$ 個、という形で
 
-$$
+$
 \{0,1,\ldots,N-1\}
-$$
+$
 
 を分割できます。
 
+各段階の開始位置は、それ以前に置いたより大きなブロック長の整数倍の和です。従って長さ $b^r$ の各ブロックは必ず $b^r$ の倍数番目から始まり、$(t,s)$-点列の「整列ブロック」条件を適用できます。
+
 $d+t$ 以上の桁に対応するブロックでは、上で示した通り $J$ 内の点数が体積と厳密に一致します。
 
-誤差が生じ得るのは長さ
+誤差が生じ得るのは $r<d+t$ のブロックだけです。その総長は、各桁で $0\le c_r\le b-1$ だから
 
-$$
-1+b+\cdots+b^{d+t-1}
+$
+\sum_{r=0}^{d+t-1}c_rb^r
+\le
+(b-1)
+\sum_{r=0}^{d+t-1}b^r
 =
-\frac{b^{d+t}-1}{b-1}
-$$
-
-以下の末尾部分だけです。
+b^{d+t}-1.
+$
 
 従って
 
-$$
+$
 \left|
 \#\{0\le n<N:\boldsymbol x_n\in J\}
 -
 N\lambda_s(J)
 \right|
 \le
-\frac{b^{d+t}-1}{b-1}.
-$$
+b^{d+t}-1.
+$
 
 右辺は $N$ に依存しない定数です。
 
@@ -1733,53 +1736,29 @@ $$
 
 $A$ の行は仮定により一次独立で、本数は $m-t$ です。
 
-従って
+$\mathbb F_b$ は体なので、$A$ に通常の行基本変形を施せます。行が一次独立であるため零行は生じず、$m-t$ 個のピボットが得られます。
 
-$$
-\operatorname{rank}A
-=
-m-t.
-$$
+任意の右辺 $\boldsymbol\alpha$ に同じ行基本変形を施した連立方程式を考えます。ピボット変数は $m-t$ 個、自由変数は
 
-線形写像
+$
+m-(m-t)=t
+$
 
-$$
-A:\mathbb F_b^m\to\mathbb F_b^{m-t}
-$$
+個です。
 
-は全射です。
+自由変数には $\mathbb F_b$ の $b$ 個の値を独立に選べます。自由変数を一つ固定するごとに、ピボット変数は後退代入で一意に決まります。
 
-したがって任意の $\boldsymbol\alpha$ に対して解が存在し、一つの特解 $\boldsymbol n_0$ を取れば全解は
+従って解の個数は
 
-$$
-\boldsymbol n_0+\ker A
-$$
+$
+b^t.
+$
 
-です。
+よって
 
-rank-nullity により
-
-$$
-\dim\ker A
-=
-m-(m-t)
-=
-t.
-$$
-
-$t$ 次元の $\mathbb F_b$-ベクトル空間には
-
-$$
-b^t
-$$
-
-個の元があります。
-
-従って
-
-$$
+$
 \#(P\cap J)=b^t.
-$$
+$
 
 任意の体積 $b^{t-m}$ の基本区間で成り立つので、$P$ は $(t,m,s)$-ネットです。
 
@@ -1787,43 +1766,27 @@ $$
 
 ある
 
-$$
+$
 d_1+\cdots+d_s=m-t
-$$
+$
 
 について対応する行ベクトルが一次従属だと仮定します。
 
-その係数行列 $A$ は
+$A$ を行基本変形すると、$m-t$ 本の行のうち少なくとも1本が零行になります。
 
-$$
-\operatorname{rank}A<m-t
-$$
+同じ行基本変形は右辺にも作用します。変形後の零行に対応する右辺成分が $1\in\mathbb F_b$ になるよう、変形後の右辺を選び、それを逆変形して元の右辺 $\boldsymbol\alpha\in\mathbb F_b^{m-t}$ を定めます。
 
-です。
+すると変形後の連立方程式には
 
-従って線形写像
+$
+0=1
+$
 
-$$
-A:\mathbb F_b^m\to\mathbb F_b^{m-t}
-$$
+という行が現れるので、
 
-は全射ではありません。
-
-よって像に属さない右辺
-
-$$
-\boldsymbol\alpha
-\in
-\mathbb F_b^{m-t}
-$$
-
-が存在します。
-
-この $\boldsymbol\alpha$ を各座標の先頭桁として指定した $b$ 進基本区間 $J$ を取れば
-
-$$
+$
 A\boldsymbol n=\boldsymbol\alpha
-$$
+$
 
 は解を持ちません。
 
