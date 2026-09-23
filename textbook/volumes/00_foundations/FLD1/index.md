@@ -660,7 +660,7 @@ $$
 \operatorname{ev}_\alpha:F[x]\to K
 $$
 
-の像は $F[\alpha]$、核は [代数的元の最小多項式の定理](#thm-fld1-minimal-polynomial) から $(m_\alpha)$ です。
+の像は $F[\alpha]$、核は [代数的元の最小多項式の存在・一意性と既約性](#thm-fld1-minimal-polynomial) から $(m_\alpha)$ です。
 
 従って [環の第一同型定理](../RNG1/index.md#thm-rng1-first-isomorphism-ring) により
 
@@ -691,7 +691,7 @@ $$
 \operatorname{Im}(\operatorname{ev}_\alpha)=F[\alpha].
 $$
 
-また [代数的元の最小多項式の定理](#thm-fld1-minimal-polynomial) により
+また [代数的元の最小多項式の存在・一意性と既約性](#thm-fld1-minimal-polynomial) により
 
 $$
 \ker(\operatorname{ev}_\alpha)=(m_\alpha).
@@ -1285,7 +1285,7 @@ $$
 $$
 <!-- solution-end -->
 
-#### FLD1-A04 塔の公式を使う
+#### FLD1-A04 中間体を経由して次数を計算する
 - Level: A
 
 $$
