@@ -1,0 +1,113 @@
+chapter: FDM3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FDM2
+  - NA6
+forward_references: []
+
+concepts:
+  - id: numerical.fdm-local-residual
+    name: 差分スキームの局所残差
+    kind: definition
+    aliases: [local truncation residual of a finite-difference scheme]
+    introduction: formal
+    introduction_aliases: ["定義（差分スキームの局所残差）"]
+    requires:
+      - numerical.local-truncation-error
+      - numerical.grid-function
+
+  - id: numerical.fdm-global-grid-error
+    name: 格子大域誤差
+    kind: definition
+    aliases: [global grid error]
+    introduction: formal
+    introduction_aliases: ["定義（格子大域誤差・格子収束）"]
+    requires:
+      - numerical.global-error
+      - numerical.grid-function
+
+  - id: numerical.fdm-grid-convergence
+    name: 格子収束
+    kind: definition
+    aliases: [grid convergence]
+    introduction: formal
+    introduction_aliases: ["定義（格子大域誤差・格子収束）"]
+    requires:
+      - numerical.fdm-global-grid-error
+      - numerical.consistency
+
+  - id: numerical.ftcs-local-residual-estimate
+    name: FTCS の局所残差評価
+    kind: proposition
+    aliases: [local truncation residual estimate for FTCS]
+    introduction: formal
+    introduction_aliases: ["命題（FTCS の局所残差評価）"]
+    requires:
+      - numerical.ftcs-heat-scheme
+      - numerical.fdm-local-residual
+      - analysis.taylor-theorem
+
+  - id: numerical.ftcs-discrete-maximum-principle
+    name: FTCS の離散最大値原理
+    kind: theorem
+    aliases: [discrete maximum principle for FTCS]
+    introduction: formal
+    introduction_aliases: ["定理（FTCS の離散最大値原理と最大ノルム縮小性）"]
+    requires:
+      - numerical.ftcs-heat-scheme
+      - numerical.ftcs-diffusive-cfl-condition
+
+  - id: numerical.stability-consistency-convergence
+    name: 線形時間発展の安定性と整合性からの収束
+    kind: theorem
+    aliases: [stability plus consistency implies convergence for linear evolution schemes]
+    introduction: formal
+    introduction_aliases: ["定理（線形時間発展の安定性と整合性からの収束）"]
+    requires:
+      - numerical.fdm-local-residual
+      - numerical.fdm-global-grid-error
+      - numerical.finite-time-perturbation-stability
+
+  - id: numerical.ftcs-maxnorm-convergence
+    name: FTCS の最大ノルム収束
+    kind: theorem
+    aliases: [maximum-norm convergence of FTCS]
+    introduction: formal
+    introduction_aliases: ["定理（FTCS の最大ノルム収束）"]
+    requires:
+      - numerical.ftcs-local-residual-estimate
+      - numerical.ftcs-discrete-maximum-principle
+      - numerical.stability-consistency-convergence
+
+  - id: numerical.backward-euler-local-residual-estimate
+    name: 後退 Euler 差分法の局所残差評価
+    kind: proposition
+    aliases: [local truncation residual estimate for backward Euler heat scheme]
+    introduction: formal
+    introduction_aliases: ["命題（後退 Euler 差分法の局所残差評価）"]
+    requires:
+      - numerical.backward-euler-heat-fdm
+      - numerical.fdm-local-residual
+      - analysis.taylor-theorem
+
+  - id: numerical.backward-euler-maxnorm-contraction
+    name: 後退 Euler 差分法の最大ノルム縮小性
+    kind: theorem
+    aliases: [maximum-norm contractivity of backward Euler heat scheme]
+    introduction: formal
+    introduction_aliases: ["定理（後退 Euler 差分法の最大ノルム縮小性）"]
+    requires:
+      - numerical.backward-euler-heat-fdm
+      - numerical.backward-euler-heat-step-solvability
+
+  - id: numerical.backward-euler-maxnorm-convergence
+    name: 後退 Euler 差分法の最大ノルム収束
+    kind: theorem
+    aliases: [maximum-norm convergence of backward Euler heat scheme]
+    introduction: formal
+    introduction_aliases: ["定理（後退 Euler 差分法の最大ノルム収束）"]
+    requires:
+      - numerical.backward-euler-local-residual-estimate
+      - numerical.backward-euler-maxnorm-contraction
+      - numerical.stability-consistency-convergence
