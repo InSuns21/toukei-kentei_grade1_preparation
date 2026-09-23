@@ -1,0 +1,35 @@
+chapter: "PYNUM1"
+terms:
+  - term: NumPy 配列
+    english: NumPy ndarray
+    meaning: NumPy の多次元同種配列。数値計算では shape・axis・dtype とメモリ共有を意識して扱う。
+  - term: 形状
+    english: shape
+    meaning: 各軸の長さを並べた tuple。コード上では ndarray.shape で確認する。
+  - term: 軸
+    english: axis
+    meaning: 多次元配列の方向を識別する番号。集約演算では指定した軸を潰す。
+  - term: データ型
+    english: dtype
+    meaning: 配列要素の表現形式。整数・浮動小数点数などの種類と精度を決める。
+  - term: view
+    english: view
+    meaning: 元配列と同じデータバッファを共有し、形状や切り出し方だけを変えて参照する配列。
+  - term: copy
+    english: copy
+    meaning: 元配列とは独立なデータバッファを持つ複製。
+  - term: broadcasting
+    english: broadcasting
+    meaning: 末尾側の軸から、軸長が等しいか一方が1である場合に、明示的な複製なしで形状を合わせて要素演算する規則。
+  - term: vectorization
+    english: vectorization
+    meaning: Python の要素ごとの反復を、配列演算や ufunc などのまとまった演算へ置き換える書き方。
+  - term: boolean mask
+    english: boolean mask
+    meaning: 真偽値配列で要素を選択・更新する NumPy の添字指定。
+  - term: NumPy 乱数生成器
+    english: NumPy Generator
+    meaning: 独立した乱数状態を保持し、random・normal・integers などの分布生成メソッドを提供するオブジェクト。
+  - term: log-log 図
+    english: log-log plot
+    meaning: 横軸と縦軸の両方を対数目盛にした図。べき乗則の指数を傾きとして読むのに用いる。
