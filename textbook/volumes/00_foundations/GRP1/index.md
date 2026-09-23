@@ -387,7 +387,7 @@ $
 
 を意味し、$a^0=e$ とします。
 
-ここで「部分群」と呼んでよいことも確認しておきます。$\langle S\rangle$ は空積 $e$ を含むので空ではありません。$x,y\in\langle S\rangle$ はともに $S$ の元とその逆元の有限積です。したがって $y^{-1}$ は $y$ の因子を逆順に並べて各因子を逆元へ替えた有限積になり、$xy^{-1}$ も同じ種類の有限積です。部分群判定より
+ここで「部分群」と呼んでよいことも確認しておきます。$\langle S\rangle$ は空積 $e$ を含むので空ではありません。$x,y\in\langle S\rangle$ はともに $S$ の元とその逆元の有限積です。したがって $y^{-1}$ は $y$ の因子を逆順に並べて各因子を逆元へ替えた有限積になり、$xy^{-1}$ も同じ種類の有限積です。[部分群判定](#thm-grp1-subgroup-test)より
 
 $
 \langle S\rangle\le G.
@@ -426,7 +426,7 @@ a^{m-n}
 \langle a\rangle.
 $$
 
-$\langle a\rangle$ は $e=a^0$ を含むので空でありません。部分群判定より $\langle a\rangle\le G$ です。
+$\langle a\rangle$ は $e=a^0$ を含むので空でありません。[部分群判定](#thm-grp1-subgroup-test)より $\langle a\rangle\le G$ です。
 
 次に $H\le G$ が $a$ を含むとします。部分群は積と逆元について閉じているので、$a$ の正の冪、$e$、負の冪をすべて含みます。従って
 
@@ -1122,7 +1122,7 @@ $$
 \operatorname{sgn}(\sigma)\operatorname{sgn}(\rho).
 $$
 
-最後に $A_n$ が部分群であることを部分群判定で示します。$\sigma,\rho\in A_n$ なら
+最後に $A_n$ が部分群であることを[部分群判定](#thm-grp1-subgroup-test)で示します。$\sigma,\rho\in A_n$ なら
 
 $$
 \operatorname{sgn}(\sigma\rho^{-1})
@@ -1145,7 +1145,7 @@ $$
 \operatorname{sgn}(\sigma\rho^{-1})=1,
 $$
 
-つまり $\sigma\rho^{-1}\in A_n$ です。$A_n$ は空でないので部分群判定より
+つまり $\sigma\rho^{-1}\in A_n$ です。$A_n$ は空でないので[部分群判定](#thm-grp1-subgroup-test)より
 
 $$
 A_n\le S_n.
@@ -1433,7 +1433,7 @@ L_{ab^{-1}}
 \in\lambda(G).
 $$
 
-また $L_e\in\lambda(G)$ なので空ではありません。部分群判定より
+また $L_e\in\lambda(G)$ なので空ではありません。[部分群判定](#thm-grp1-subgroup-test)より
 
 $$
 \lambda(G)\le\operatorname{Sym}(G).
@@ -1585,7 +1585,7 @@ H=3\mathbb Z
 \{3k:k\in\mathbb Z\}
 $$
 
-が部分群であることを部分群判定から示せ。
+が部分群であることを[部分群判定](#thm-grp1-subgroup-test)から示せ。
 
 一方、
 
@@ -1875,7 +1875,7 @@ $G=\langle g\rangle$、$\operatorname{ord}(g)=12$ とする。
 <!-- solution-start -->
 ##### 詳細解答
 
-巡回群の部分群構造定理より、部分群は
+[巡回群の部分群構造](#thm-grp1-cyclic-subgroups)より、部分群は
 
 $$
 \langle g^m\rangle
@@ -1958,7 +1958,7 @@ $$
    $$
    H=\{e,r^2,s,sr^2\}
    $$
-   が $D_4$ の部分群であることを部分群判定から示せ。
+   が $D_4$ の部分群であることを[部分群判定](#thm-grp1-subgroup-test)から示せ。
 
 <!-- solution-start -->
 ##### 詳細解答
@@ -2063,7 +2063,7 @@ $$
 xy^{-1}\in H.
 $$
 
-$H$ は空でないので部分群判定より
+$H$ は空でないので[部分群判定](#thm-grp1-subgroup-test)より
 
 $$
 \boxed{
@@ -2280,6 +2280,6 @@ $$
    r^n=e,\quad s^2=e,\quad srs=r^{-1}
    $$
    を満たし、全要素は $r^k$ または $sr^k$ に一意に直せる。
-10. Cayley の定理により、任意の群は左移動を通して置換群の部分群として忠実に実現できる。
+10. [Cayley の定理](#thm-grp1-cayley)により、任意の群は左移動を通して置換群の部分群として忠実に実現できる。
 
 次の GRP2 では、積を保つ写像の一般理論へ進みます。その後、核・像、剰余類、Lagrange の定理、正規部分群、商群、同型定理へ進みます。
