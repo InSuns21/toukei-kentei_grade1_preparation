@@ -718,7 +718,7 @@ $$
 fg=c(f)c(g)f_0g_0.
 $$
 
-[原始多項式の積に関する定理](#thm-rng4-gauss-product)から $f_0g_0$ は原始多項式です。
+[Gauss の補題（原始多項式の積）](#thm-rng4-gauss-product)から $f_0g_0$ は原始多項式です。
 
 従って $fg$ の係数に共通する因子は、単元倍を除けばちょうど $c(f)c(g)$ です。
 
@@ -858,7 +858,7 @@ $$
 c(abf)\sim ab.
 $$
 
-右辺では [原始多項式の積に関する定理](#thm-rng4-gauss-product)により $G_0H_0$ は原始なので
+右辺では [Gauss の補題（原始多項式の積）](#thm-rng4-gauss-product)により $G_0H_0$ は原始なので
 
 $$
 c(c(G)c(H)G_0H_0)
@@ -941,7 +941,7 @@ $$
 - $c(f)$ は $R$ の UFD 性で既約分解できる。
 - $f_0$ は分数体 $K$ 上で因数分解する。
 - $K[x]$ は Euclid 整域なので UFD。
-- [Gauss の補題による既約性の移送](#thm-rng4-gauss-irreducibility)により、$K[x]$ の原始既約因子を $R[x]$ の既約因子として戻せる。
+- [Gauss の補題（既約性の移送）](#thm-rng4-gauss-irreducibility)により、$K[x]$ の原始既約因子を $R[x]$ の既約因子として戻せる。
 - 一意性は、定数因子を content で、正次数因子を $K[x]$ の一意分解でそれぞれ制御する。
 
 <!-- proof-start -->
@@ -983,7 +983,7 @@ $$
 
 を取れます。
 
-Gauss の既約性移送定理から、各 $Q_i$ は $R[x]$ でも既約です。
+[Gauss の補題（既約性の移送）](#thm-rng4-gauss-irreducibility)から、各 $Q_i$ は $R[x]$ でも既約です。
 
 全体の定数倍は $f_0$ が原始であることから $R$ の単元へ吸収できます。従って $f$ は $R[x]$ の既約元の有限積へ分解できます。
 
@@ -1256,7 +1256,7 @@ $$
 
 $f$ は三次なので、[2次・3次多項式の既約性](#prop-rng4-degree23-root)から $\mathbb Q[x]$ で既約です。
 
-さらに $f$ は原始多項式なので、[Gauss の補題による既約性の移送](#thm-rng4-gauss-irreducibility)から $\mathbb Z[x]$ でも既約です。
+さらに $f$ は原始多項式なので、[Gauss の補題（既約性の移送）](#thm-rng4-gauss-irreducibility)から $\mathbb Z[x]$ でも既約です。
 
 ---
 
@@ -1299,7 +1299,7 @@ $$
 
 ### 証明の見取り図
 
-可約と仮定し、[Gauss の補題による既約性の移送](#thm-rng4-gauss-irreducibility)により
+可約と仮定し、[Gauss の補題（既約性の移送）](#thm-rng4-gauss-irreducibility)により
 
 $$
 f=gh
@@ -1324,7 +1324,7 @@ $$
 
 $f$ が可約だと仮定します。
 
-$f$ は原始多項式なので、Gauss の既約性移送定理により、$R[x]$ で
+$f$ は原始多項式なので、[Gauss の補題（既約性の移送）](#thm-rng4-gauss-irreducibility)により、$R[x]$ で
 
 $$
 f=gh
@@ -1445,7 +1445,7 @@ $$
 
 これは仮定に反します。
 
-従って $f$ は $R[x]$ で既約です。[Gauss の補題による既約性の移送](#thm-rng4-gauss-irreducibility)により $K[x]$ でも既約です。$\square$
+従って $f$ は $R[x]$ で既約です。[Gauss の補題（既約性の移送）](#thm-rng4-gauss-irreducibility)により $K[x]$ でも既約です。$\square$
 <!-- proof-end -->
 
 ### 11.1 直接例：$x^5+10x+5$
@@ -1532,7 +1532,7 @@ $$
 
 ### 12.2 一意分解整域であること
 
-[原始多項式の積に関する定理](#thm-rng4-gauss-product)では、係数の共通因子を既約元へ分解し、その既約元を素元として使います。
+[Gauss の補題（原始多項式の積）](#thm-rng4-gauss-product)では、係数の共通因子を既約元へ分解し、その既約元を素元として使います。
 
 一般の整域では既約元が素元とは限らないことを RNG3 で見ました。この機構が失われると、原始多項式の積に関する素因子を一つずつ調べる議論がそのままでは使えません。
 
@@ -1862,7 +1862,7 @@ $$
 
 従って $p=5$ で Eisenstein の条件を全て満たします。
 
-よって $f$ は $\mathbb Z[x]$ で既約であり、[Gauss の補題による既約性の移送](#thm-rng4-gauss-irreducibility)から $\mathbb Q[x]$ でも既約です。
+よって $f$ は $\mathbb Z[x]$ で既約であり、[Gauss の補題（既約性の移送）](#thm-rng4-gauss-irreducibility)から $\mathbb Q[x]$ でも既約です。
 <!-- solution-end -->
 
 ### Level B
@@ -2039,7 +2039,7 @@ $$
 <!-- solution-start -->
 ##### 詳細解答
 
-$f$ は原始多項式です。従って [Gauss の補題による既約性の移送](#thm-rng4-gauss-irreducibility)により、$\mathbb Q[x]$ での既約性を調べるには $\mathbb Z[x]$ での非自明な因数分解を排除すれば十分です。
+$f$ は原始多項式です。従って [Gauss の補題（既約性の移送）](#thm-rng4-gauss-irreducibility)により、$\mathbb Q[x]$ での既約性を調べるには $\mathbb Z[x]$ での非自明な因数分解を排除すれば十分です。
 
 係数を法 $2$ で落とすと
 
@@ -2116,7 +2116,7 @@ $$
 
 従って $f$ は $\mathbb Z[x]$ で既約です。
 
-[Gauss の補題による既約性の移送](#thm-rng4-gauss-irreducibility)から
+[Gauss の補題（既約性の移送）](#thm-rng4-gauss-irreducibility)から
 
 $$
 f(x)=x^4+x+1
@@ -2335,7 +2335,7 @@ $$
   $$
   であり、PID かつ UFD です。
 - UFD $R$ 上では係数の最大公約元を content として分離し、原始多項式を定義しました。
-- [原始多項式の積に関する定理](#thm-rng4-gauss-product)
+- [Gauss の補題（原始多項式の積）](#thm-rng4-gauss-product)
   $$
   \text{原始}\times\text{原始}
   =
