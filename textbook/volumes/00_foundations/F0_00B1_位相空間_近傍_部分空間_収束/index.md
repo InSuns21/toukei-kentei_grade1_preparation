@@ -39,28 +39,59 @@ $$
 
 距離空間では開球から開集合を作りました。位相空間では逆に、開集合族 $\tau$ を最初に指定します。
 
-<!-- definition-example-start: def-f0-00b1-topology -->
-### 1.1 定義の確認：二つの極端な例
+<a id="def-f0-00b1-discrete-indiscrete"></a>
 
-**定義の確認**
-
-任意の集合 $X$ に対して
+<!-- formal-statement-start -->
+> **定義（離散位相・密着位相）**  
+> 集合 $X$ に対して
 
 $$
 \tau_{\mathrm{disc}}=\mathcal P(X)
 $$
 
-は位相です。全ての部分集合を開にするこの例は離散位相と呼ばれます。
-
-また
+> を $X$ 上の **離散位相** といい、
 
 $$
 \tau_{\mathrm{ind}}=\{\varnothing,X\}
 $$
 
-も位相です。開集合を $\varnothing$ と $X$ だけにしたこの例は密着位相と呼ばれます。
+> を $X$ 上の **密着位相** という。離散位相では $X$ の全ての部分集合が開であり、密着位相では $\varnothing$ と $X$ だけが開である。
+<!-- formal-statement-end -->
 
-同じ集合 $X$ でも、位相が違えば開集合・収束・連続性の意味が変わります。
+<!-- definition-example-start: def-f0-00b1-topology -->
+### 1.1 定義の確認：二点集合で位相の三公理を確かめる
+
+**定義の確認**
+
+$X=\{a,b\}$ とします。離散位相は
+
+$$
+\tau_{\mathrm{disc}}
+=
+\{\varnothing,\{a\},\{b\},X\}
+=
+\mathcal P(X)
+$$
+
+です。$\varnothing,X$ を含み、要素の任意和・有限交差を取っても $X$ の部分集合なので再び $\mathcal P(X)$ に属します。したがって位相の三公理を満たします。
+
+一方、密着位相は
+
+$$
+\tau_{\mathrm{ind}}=\{\varnothing,X\}
+$$
+
+です。$\varnothing,X$ を含み、これらの任意和・有限交差は再び $\varnothing$ または $X$ です。したがってこちらも位相です。
+<!-- definition-example-end -->
+
+<!-- definition-example-start: def-f0-00b1-discrete-indiscrete -->
+### 1.2 定義の確認：開集合の違いを見る
+
+**定義の確認**
+
+同じ $X=\{a,b\}$ でも、離散位相では $\{a\}$ と $\{b\}$ も開集合です。密着位相ではこれらは開集合ではなく、開集合は $\varnothing$ と $X$ だけです。
+
+この二つは「開集合をどれだけ多く指定するか」の両極端です。同じ集合 $X$ でも、位相が違えば収束や連続性の意味が変わります。
 <!-- definition-example-end -->
 
 ---
@@ -79,7 +110,7 @@ $$
 
 **定義の確認**
 
-$\tau=\mathcal P(X)$ なら任意の $F\subseteq X$ について $X\setminus F\in\tau$ です。したがって全ての部分集合が閉集合でもあります。
+離散位相 $\tau_{\mathrm{disc}}=\mathcal P(X)$ では、任意の $F\subseteq X$ について $X\setminus F\in\tau_{\mathrm{disc}}$ です。したがって全ての部分集合が閉集合でもあります。
 <!-- definition-example-end -->
 
 ---
@@ -325,7 +356,7 @@ $$
 
 ## 8. Hausdorff性と極限の一意性
 
-一般の位相空間では点列の極限は一意とは限りません。例えば開集合が $\varnothing$ と $X$ だけの位相では、任意の点列が任意の点へ収束します。
+一般の位相空間では点列の極限は一意とは限りません。例えば[密着位相](#def-f0-00b1-discrete-indiscrete)では、任意の点列が任意の点へ収束します。
 
 <a id="def-f0-00b1-hausdorff"></a>
 
@@ -630,6 +661,7 @@ Hausdorff空間では点列の極限は一意だが、この例ではその仮�
 ## 11. 章末チェック
 
 - 位相を部分集合族の三条件で定義できる。
+- 離散位相と密着位相を定義し、位相の三公理を満たすことを確認できる。
 - $\mathcal P(X)$ と添字付き任意和の意味を説明できる。
 - 距離空間が距離位相を通じて位相空間になることを証明できる。
 - 近傍と部分空間位相を定義できる。
