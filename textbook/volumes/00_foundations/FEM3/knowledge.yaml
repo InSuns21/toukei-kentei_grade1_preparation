@@ -1,0 +1,86 @@
+chapter: FEM3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FEM2
+forward_references: []
+
+concepts:
+  - id: numerical.p1-local-nodal-interpolation
+    name: 一次三角形要素の局所節点補間
+    kind: definition
+    aliases: [local nodal interpolation for linear triangular elements]
+    introduction: formal
+    introduction_aliases: ["定義（一次三角形要素の局所節点補間）"]
+    requires:
+      - numerical.barycentric-coordinate-basis
+
+  - id: numerical.p1-interpolation-affine-commutation
+    name: 節点補間の一次多項式再現性とアフィン可換性
+    kind: proposition
+    aliases: [affine commutation and linear polynomial reproduction of nodal interpolation]
+    introduction: formal
+    introduction_aliases: ["命題（節点補間の一次多項式再現性とアフィン可換性）"]
+    requires:
+      - numerical.p1-local-nodal-interpolation
+      - numerical.reference-triangle-affine-map
+
+  - id: numerical.shape-regular-triangulation-family
+    name: 要素形状比と形状正則なメッシュ族
+    kind: definition
+    aliases: [shape-regular triangulation family]
+    introduction: formal
+    introduction_aliases: ["定義（要素形状比と形状正則なメッシュ族）"]
+    requires:
+      - numerical.conforming-triangulation
+
+  - id: numerical.affine-element-geometry-bounds
+    name: アフィン要素写像の幾何評価
+    kind: lemma
+    aliases: [geometric bounds for an affine element map]
+    introduction: formal
+    introduction_aliases: ["補題（アフィン要素写像の幾何評価）"]
+    requires:
+      - numerical.reference-triangle-affine-map
+      - numerical.shape-regular-triangulation-family
+
+  - id: numerical.reference-p1-interpolation-error
+    name: 基準三角形上の一次補間誤差評価
+    kind: theorem
+    aliases: [linear interpolation error estimate on the reference triangle]
+    introduction: formal
+    introduction_aliases: ["定理（基準三角形上の一次補間誤差評価）"]
+    requires:
+      - numerical.p1-interpolation-affine-commutation
+
+  - id: numerical.local-p1-interpolation-error
+    name: 一般三角形上の局所一次補間誤差評価
+    kind: theorem
+    aliases: [local linear finite element interpolation error estimate]
+    introduction: formal
+    introduction_aliases: ["定理（一般三角形上の局所一次補間誤差評価）"]
+    requires:
+      - numerical.affine-element-transform
+      - numerical.affine-element-geometry-bounds
+      - numerical.reference-p1-interpolation-error
+
+  - id: numerical.p1-global-nodal-interpolation
+    name: 大域節点補間
+    kind: definition
+    aliases: [global nodal interpolation for conforming linear finite elements]
+    introduction: formal
+    introduction_aliases: ["定義（大域節点補間）"]
+    requires:
+      - numerical.p1-local-nodal-interpolation
+      - numerical.conforming-p1-space
+
+  - id: numerical.global-p1-interpolation-error
+    name: 形状正則メッシュ上の大域一次補間誤差評価
+    kind: theorem
+    aliases: [global linear finite element interpolation error estimate on shape-regular meshes]
+    introduction: formal
+    introduction_aliases: ["定理（形状正則メッシュ上の大域一次補間誤差評価）"]
+    requires:
+      - numerical.local-p1-interpolation-error
+      - numerical.p1-global-nodal-interpolation
+      - numerical.shape-regular-triangulation-family
