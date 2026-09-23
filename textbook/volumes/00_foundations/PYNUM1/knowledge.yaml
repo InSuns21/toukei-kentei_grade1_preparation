@@ -1,0 +1,65 @@
+chapter: PYNUM1
+scope: dream-theater
+coverage: complete
+prerequisites: []
+
+concepts:
+  - id: numerical.numpy-array-shape-axis-dtype
+    name: NumPy 配列の形状・軸・データ型
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（NumPy 配列の形状・軸・データ型）"]
+    requires: []
+
+  - id: numerical.numpy-view-copy
+    name: NumPy のビューとコピー
+    kind: definition
+    aliases: [NumPy view and copy]
+    introduction: formal
+    introduction_aliases: ["定義（NumPy のビューとコピー）"]
+    requires:
+      - numerical.numpy-array-shape-axis-dtype
+
+  - id: numerical.numpy-broadcasting
+    name: NumPy のブロードキャスト
+    kind: definition
+    aliases: [NumPy broadcasting]
+    introduction: formal
+    introduction_aliases: ["定義（NumPy のブロードキャスト）"]
+    requires:
+      - numerical.numpy-array-shape-axis-dtype
+
+  - id: numerical.numpy-vectorization
+    name: NumPy のベクトル化
+    kind: definition
+    aliases: [NumPy vectorization]
+    introduction: formal
+    introduction_aliases: ["定義（NumPy のベクトル化）"]
+    requires:
+      - numerical.numpy-array-shape-axis-dtype
+
+  - id: numerical.numpy-boolean-mask
+    name: NumPy のブールマスク
+    kind: definition
+    aliases: [NumPy boolean mask]
+    introduction: formal
+    introduction_aliases: ["定義（NumPy のブールマスク）"]
+    requires:
+      - numerical.numpy-array-shape-axis-dtype
+
+  - id: numerical.numpy-random-generator
+    name: NumPy 乱数生成器
+    kind: definition
+    aliases: [NumPy Generator]
+    introduction: formal
+    introduction_aliases: ["定義（NumPy 乱数生成器）"]
+    requires: []
+
+  - id: numerical.loglog-plot
+    name: log-log 図
+    kind: definition
+    aliases: [log-log plot]
+    introduction: formal
+    introduction_aliases: ["定義（log-log 図）"]
+    requires: []

@@ -531,6 +531,17 @@
 | 離散直交性 | discrete orthogonality | 格子点上の複素指数平均が、双対格子上では1、それ以外では0になる性質 |
 | 重み付き周期 Fourier 空間 | weighted periodic Fourier space | Fourier 係数を周波数重みで二乗加重してノルムを定める周期関数空間 |
 | 成分逐次構成 | component-by-component construction | 生成ベクトルの成分を一つずつ選び、その段階の誤差基準を最小化する構成法。初出で CBC を併記してよい |
+| NumPy 配列 | NumPy ndarray | Python 数値計算では配列の値だけでなく形状・軸・データ型を合わせて読む |
+| 形状 | shape | NumPy 配列の各軸の長さを並べた tuple。コード上の属性名 `shape` はそのまま保持する |
+| 軸 | axis | NumPy 配列の方向を表す番号。集約演算では指定した軸を潰すと説明する |
+| データ型 | dtype | NumPy 配列要素の表現形式。コード上の属性名・引数名 `dtype` はそのまま保持する |
+| NumPy のビュー | NumPy view | 元配列と同じデータバッファを共有する配列。本文では初出後「ビュー」と略記可 |
+| NumPy のコピー | NumPy copy | 元配列と独立したデータバッファを持つ複製。コードの `.copy()` はそのまま保持する |
+| NumPy のブロードキャスト | NumPy broadcasting | 末尾側の軸から互換な形状を合わせて要素演算を行う規則。本文では「ブロードキャスト」を主表記にする |
+| NumPy のベクトル化 | NumPy vectorization | Python の要素反復を配列演算・ufunc・集約・行列演算へ移す書き方。本文では「ベクトル化」を主表記にする |
+| NumPy のブールマスク | NumPy boolean mask | 真偽値配列で要素を選択・更新する添字指定。本文では「ブールマスク」を主表記にする |
+| NumPy 乱数生成器 | NumPy Generator | NumPy の独立した乱数状態を保持する Generator オブジェクト。コード名 `Generator`・`default_rng` は保持する |
+| log-log 図 | log-log plot | 横軸・縦軸の両方を対数目盛にした図。べき乗則の指数を傾きとして読む |
 
 ## DREAM THEATER：ODE・PDE の主表記
 
