@@ -71,12 +71,21 @@ concepts:
 
   - id: numerical.van-der-corput-sequence
     name: van der Corput 点列
-    kind: theorem
+    kind: definition
     aliases: [van der Corput sequence]
+    introduction: formal
+    introduction_aliases: ["定義（根基逆関数）"]
+    requires:
+      - numerical.radical-inverse-function
+
+  - id: numerical.van-der-corput-ts-sequence
+    name: van der Corput 点列は (0,1)-点列
+    kind: theorem
+    aliases: []
     introduction: formal
     introduction_aliases: ["定理（van der Corput 点列は (0,1)-点列）"]
     requires:
-      - numerical.radical-inverse-function
+      - numerical.van-der-corput-sequence
       - numerical.ts-sequence
 
   - id: numerical.ts-sequence-uniform-distribution
@@ -109,4 +118,3 @@ concepts:
       - numerical.digital-point-set
       - numerical.tms-net
       - linear.linear-independence
-      - linear.rank-nullity-theorem
