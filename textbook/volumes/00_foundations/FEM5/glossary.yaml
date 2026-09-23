@@ -20,7 +20,7 @@ terms:
     meaning: 粘性流体の線形化された定常モデル -nu Delta u + grad p=f, div u=0。圧力 p は非圧縮制約の Lagrange 乗数として現れる。
   - term: 平均零圧力空間
     english: zero-mean pressure space
-    meaning: L_0^2(Omega)={q in L2: integral q=0}。圧力の定数分の不定性を除くために使う。
+    meaning: "L_0^2(Omega)={q in L2: integral q=0}。圧力の定数分の不定性を除くために使う。"
   - term: 混合有限要素法
     english: mixed finite element method
     meaning: 主未知量と Lagrange 乗数を異なる有限要素空間 V_h, Q_h で同時近似する方法。
