@@ -1771,7 +1771,7 @@ $$
 
 という $F$-埋め込みが存在します。
 
-$E/F(\alpha)$ は有限代数拡大なので、[有限代数拡大上への埋め込み延長](../FLD2/index.md#thm-fld2-finite-field-embedding-extension) によりこれを
+$E/F(\alpha)$ は有限代数拡大なので、[有限代数拡大上への埋め込み延長](../FLD2/index.md#thm-fld2-finite-field-map) によりこれを
 
 $$
 \tau:E\to\overline F
@@ -1916,7 +1916,7 @@ $$
 
 を取ります。
 
-[有限代数拡大上への埋め込み延長](../FLD2/index.md#thm-fld2-finite-field-embedding-extension) により、$\tau$ は
+[有限代数拡大上への埋め込み延長](../FLD2/index.md#thm-fld2-finite-field-map) により、$\tau$ は
 
 $$
 \widetilde\tau:L\to\overline F
