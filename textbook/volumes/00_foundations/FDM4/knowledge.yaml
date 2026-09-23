@@ -1,0 +1,115 @@
+chapter: FDM4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FDM3
+forward_references: []
+
+concepts:
+  - id: numerical.steady-advection-diffusion-1d
+    name: 一次元定常移流拡散問題
+    kind: definition
+    aliases: [one-dimensional steady advection-diffusion problem]
+    introduction: formal
+    introduction_aliases: ["定義（一次元定常移流拡散問題）"]
+    requires:
+      - numerical.grid-function
+
+  - id: numerical.centered-first-difference
+    name: 中心一次差分
+    kind: definition
+    aliases: [centered first difference]
+    introduction: formal
+    introduction_aliases: ["定義（中心一次差分と風上一次差分）"]
+    requires:
+      - numerical.grid-function
+      - analysis.taylor-theorem
+
+  - id: numerical.upwind-first-difference
+    name: 風上一次差分
+    kind: definition
+    aliases: [upwind first difference]
+    introduction: formal
+    introduction_aliases: ["定義（中心一次差分と風上一次差分）"]
+    requires:
+      - numerical.grid-function
+      - analysis.taylor-theorem
+
+  - id: numerical.grid-peclet-number
+    name: 格子 Péclet 数
+    kind: definition
+    aliases: [grid Peclet number]
+    introduction: formal
+    introduction_aliases: ["定義（格子 Péclet 数）"]
+    requires:
+      - numerical.steady-advection-diffusion-1d
+
+  - id: numerical.centered-advection-diffusion-scheme
+    name: 中心差分型移流拡散スキーム
+    kind: definition
+    aliases: [centered finite-difference advection-diffusion scheme]
+    introduction: formal
+    introduction_aliases: ["定義（中心差分型移流拡散スキーム）"]
+    requires:
+      - numerical.centered-first-difference
+      - numerical.centered-second-difference
+      - numerical.grid-peclet-number
+
+  - id: numerical.centered-advection-diffusion-maximum-principle
+    name: 中心差分型移流拡散スキームの離散最大値原理
+    kind: theorem
+    aliases: [discrete maximum principle for the centered advection-diffusion scheme]
+    introduction: formal
+    introduction_aliases: ["定理（中心差分型移流拡散スキームの離散最大値原理）"]
+    requires:
+      - numerical.centered-advection-diffusion-scheme
+
+  - id: numerical.centered-advection-diffusion-oscillation
+    name: 移流卓越時の中心差分解の交互振動
+    kind: proposition
+    aliases: [alternating oscillation of the centered advection-diffusion solution]
+    introduction: formal
+    introduction_aliases: ["命題（移流卓越時の中心差分解の交互振動）"]
+    requires:
+      - numerical.centered-advection-diffusion-scheme
+      - numerical.grid-peclet-number
+
+  - id: numerical.upwind-advection-diffusion-scheme
+    name: 風上差分型移流拡散スキーム
+    kind: definition
+    aliases: [upwind finite-difference advection-diffusion scheme]
+    introduction: formal
+    introduction_aliases: ["定義（風上差分型移流拡散スキーム）"]
+    requires:
+      - numerical.upwind-first-difference
+      - numerical.centered-second-difference
+      - numerical.grid-peclet-number
+
+  - id: numerical.upwind-advection-diffusion-maximum-principle
+    name: 風上差分型移流拡散スキームの離散最大値原理
+    kind: theorem
+    aliases: [discrete maximum principle for the upwind advection-diffusion scheme]
+    introduction: formal
+    introduction_aliases: ["定理（風上差分型移流拡散スキームの離散最大値原理）"]
+    requires:
+      - numerical.upwind-advection-diffusion-scheme
+
+  - id: numerical.numerical-diffusion
+    name: 数値拡散
+    kind: definition
+    aliases: [numerical diffusion]
+    introduction: formal
+    introduction_aliases: ["定義（数値拡散）"]
+    requires:
+      - numerical.upwind-first-difference
+
+  - id: numerical.upwind-modified-equation
+    name: 風上差分の修正方程式と数値拡散
+    kind: proposition
+    aliases: [modified equation of the upwind difference]
+    introduction: formal
+    introduction_aliases: ["命題（風上差分の修正方程式と数値拡散）"]
+    requires:
+      - numerical.upwind-advection-diffusion-scheme
+      - numerical.numerical-diffusion
+      - analysis.taylor-theorem

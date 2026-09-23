@@ -1,0 +1,47 @@
+id: "FDM4"
+title: "差分法 IV：移流拡散と風上化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FDM3
+official_scope: []
+learning_objectives:
+  - 一次元定常移流拡散問題で、移流と拡散が競合するときの解の境界層構造を具体的に計算できる
+  - 中心一次差分と風上一次差分を Taylor 展開から比較し、中心差分が二次精度、風上差分が一次精度であることを説明できる
+  - 格子 Péclet 数 Pe_h=|a|h/(2*kappa) を定義し、中心差分スキームの係数符号が Pe_h=1 を境に変わることを導ける
+  - Pe_h <= 1 の下で中心差分型移流拡散スキームの離散最大値原理と一意性を証明できる
+  - Pe_h > 1 で中心差分の離散解が交互振動する機構を特性根から説明し、非物理振動を具体計算で確認できる
+  - 風上差分型移流拡散スキームが任意の Pe_h で離散最大値原理を保つことを証明できる
+  - 風上差分の修正方程式から |a|h/2 の数値拡散を導き、振動抑制と精度低下のトレードオフを説明できる
+  - FDM の風上化と後続 FEM7 の安定化有限要素法が、移流卓越時の離散安定性を回復するという共通問題に答えることを説明できる
+definitions:
+  - { id: FDM4-DEF-01, name: 一次元定常移流拡散問題 }
+  - { id: FDM4-DEF-02, name: 中心一次差分と風上一次差分 }
+  - { id: FDM4-DEF-03, name: 格子 Péclet 数 }
+  - { id: FDM4-DEF-04, name: 中心差分型移流拡散スキーム }
+  - { id: FDM4-DEF-05, name: 風上差分型移流拡散スキーム }
+  - { id: FDM4-DEF-06, name: 数値拡散 }
+theorems:
+  - { id: FDM4-THM-01, name: 中心差分型移流拡散スキームの離散最大値原理 }
+  - { id: FDM4-PROP-01, name: 移流卓越時の中心差分解の交互振動 }
+  - { id: FDM4-THM-02, name: 風上差分型移流拡散スキームの離散最大値原理 }
+  - { id: FDM4-PROP-02, name: 風上差分の修正方程式と数値拡散 }
+canonical_examples:
+  - 定係数移流拡散方程式の指数型境界層
+  - 二次関数に対する中心一次差分と風上一次差分の直接比較
+  - Pe_h=2, J=4 の中心差分解に現れる交互振動
+  - 同じ Pe_h=2, J=4 に対する風上差分解の単調性
+  - 風上差分が追加する数値拡散 |a|h/2 の直接計算
+problem_patterns:
+  - FDM4-EXACT-BOUNDARY-LAYER-1
+  - FDM4-CENTERED-COEFFICIENTS-1
+  - FDM4-GRID-PECLET-1
+  - FDM4-CENTERED-MAXIMUM-1
+  - FDM4-CENTERED-OSCILLATION-1
+  - FDM4-UPWIND-MAXIMUM-1
+  - FDM4-NUMERICAL-DIFFUSION-1
+  - FDM4-COMPARE-REFINE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 4.5, review: 0.5 }

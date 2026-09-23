@@ -1,0 +1,20 @@
+chapter: "FDM4"
+terms:
+  - term: 移流拡散方程式
+    english: advection-diffusion equation
+    meaning: 移流による方向付き輸送と拡散による平滑化を同時に含む方程式。
+  - term: 風上差分
+    english: upwind difference
+    meaning: 移流速度の符号に応じて、情報が流れ込む側の格子点を使って一次微分を近似する片側差分。
+  - term: 格子 Péclet 数
+    english: grid Peclet number
+    meaning: 一つの格子幅における移流と拡散の相対的な強さを表す無次元量。本章では Pe_h=|a|h/(2*kappa) と定義する。
+  - term: 移流卓越
+    english: advection-dominated regime
+    meaning: 格子スケールで移流の影響が拡散より強く、中心差分の単調性が失われやすい状態。
+  - term: 非物理振動
+    english: spurious oscillation
+    meaning: 連続解には存在しない格子点ごとの符号反転やオーバーシュート・アンダーシュートが離散解に現れる現象。
+  - term: 数値拡散
+    english: numerical diffusion
+    meaning: 離散化によって元の方程式にはない拡散項が実効的に追加され、解が余分に平滑化されること。
