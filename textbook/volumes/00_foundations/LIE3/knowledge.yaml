@@ -1,0 +1,129 @@
+chapter: LIE3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LIE2
+  - LA6
+forward_references: []
+
+concepts:
+  - id: lie.lie-subgroup
+    name: Lie 部分群
+    kind: definition
+    aliases: [Lie subgroup]
+    introduction: formal
+    introduction_aliases: ["定義（Lie 部分群）"]
+    requires:
+      - lie.lie-group
+      - geometry.embedded-submanifold
+
+  - id: lie.subgroup-lie-algebra
+    name: Lie 部分群の接 Lie 環
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - lie.lie-subgroup
+      - lie.homomorphism-differential
+      - geometry.submanifold-inclusion-tangent
+
+  - id: lie.subgroup-exponential-compatibility
+    name: Lie 部分群と指数写像の整合性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - lie.lie-subgroup
+      - lie.exponential-naturality
+      - lie.subgroup-lie-algebra
+
+  - id: lie.closed-subgroup-theorem
+    name: 閉部分群定理
+    kind: theorem
+    aliases: [closed subgroup theorem]
+    introduction: formal
+    requires:
+      - lie.lie-group
+      - lie.lie-subgroup
+
+  - id: lie.special-linear-group
+    name: 特殊線形群
+    kind: definition
+    aliases: [special linear group]
+    introduction: formal
+    introduction_aliases: ["定義（特殊線形群）"]
+    requires:
+      - lie.general-linear-group
+      - linear.matrix-determinant
+
+  - id: lie.special-linear-lie-algebra
+    name: 特殊線形群の Lie 環
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - lie.special-linear-group
+      - geometry.regular-value-theorem
+      - geometry.regular-level-tangent-kernel
+      - lie.general-linear-lie-algebra
+
+  - id: lie.orthogonal-group
+    name: 直交群
+    kind: definition
+    aliases: [orthogonal group]
+    introduction: formal
+    introduction_aliases: ["定義（直交群・特殊直交群）"]
+    requires:
+      - lie.general-linear-group
+
+  - id: lie.special-orthogonal-group
+    name: 特殊直交群
+    kind: definition
+    aliases: [special orthogonal group]
+    introduction: formal
+    introduction_aliases: ["定義（直交群・特殊直交群）"]
+    requires:
+      - lie.orthogonal-group
+      - linear.matrix-determinant
+
+  - id: lie.orthogonal-lie-algebra
+    name: 直交群の Lie 環
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - lie.orthogonal-group
+      - geometry.regular-value-theorem
+      - geometry.regular-level-tangent-kernel
+      - lie.general-linear-lie-algebra
+
+  - id: lie.unitary-group
+    name: ユニタリ群
+    kind: definition
+    aliases: [unitary group]
+    introduction: formal
+    introduction_aliases: ["定義（ユニタリ群・特殊ユニタリ群）"]
+    requires:
+      - lie.lie-group
+      - linear.unitary-operator
+
+  - id: lie.special-unitary-group
+    name: 特殊ユニタリ群
+    kind: definition
+    aliases: [special unitary group]
+    introduction: formal
+    introduction_aliases: ["定義（ユニタリ群・特殊ユニタリ群）"]
+    requires:
+      - lie.unitary-group
+      - linear.matrix-determinant
+
+  - id: lie.unitary-lie-algebra
+    name: ユニタリ群の Lie 環
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - lie.unitary-group
+      - geometry.regular-value-theorem
+      - geometry.regular-level-tangent-kernel
+      - lie.general-linear-lie-algebra
