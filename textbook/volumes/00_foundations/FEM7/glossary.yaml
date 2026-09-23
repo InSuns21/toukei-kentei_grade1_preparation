@@ -1,0 +1,20 @@
+chapter: "FEM7"
+terms:
+  - term: 要素 Péclet 数
+    english: element Peclet number
+    meaning: 要素長 h_K、移流速度の大きさ、拡散係数 epsilon から Pe_K=|b|h_K/(2 epsilon) で定まる無次元量。メッシュ上で移流と拡散のどちらが支配的かを測る。
+  - term: 移流卓越
+    english: advection-dominated regime
+    meaning: 要素 Péclet 数が大きく、拡散より移流の影響が強い離散 regime。標準 Galerkin 法では境界層を解像できず非物理振動が現れ得る。
+  - term: 流線風上 Petrov--Galerkin 法
+    english: streamline-upwind/Petrov-Galerkin method
+    meaning: 強形式残差を流線方向微分 b・grad v_h と組み合わせて弱形式へ追加する安定化有限要素法。通常 SUPG と略す。
+  - term: 強形式残差
+    english: strong residual
+    meaning: 要素内部で R_K(w)=-epsilon Delta w+b・grad w-f と定める元の微分方程式のずれ。正確解では 0 になるため、残差型安定化は整合性を保てる。
+  - term: 流線方向安定化
+    english: streamline stabilization
+    meaning: b・grad v_h を通じ、主として移流ベクトル b の方向の変化を追加制御する安定化。等方的人工拡散とは異なる。
+  - term: 指数フィッティング
+    english: exponential fitting
+    meaning: 一次元移流拡散方程式の指数型厳密解を節点上で再現するよう離散係数を選ぶ考え方。本章では tau=h/(2b)(coth Pe-1/Pe) を導く。
