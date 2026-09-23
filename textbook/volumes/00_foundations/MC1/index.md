@@ -42,7 +42,7 @@ $$
 - 必要な標本数をどう決めるのか。
 - 連続問題を離散化してから Monte Carlo を使う場合、どの誤差が混ざるのか。
 
-本章では、これらを [有限分散版強大数則](../F0_00P5_大数の強法則/index.md#thm-f0-00p5-finite-variance-slln) と [独立同分布中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt) へ直接つなぎます。
+本章では、一致性を [有限分散版強大数則](../F0_00P5_大数の強法則/index.md#thm-f0-00p5-finite-variance-slln) へ、標本分散の一致性を [独立同分布・有限平均版の強大数則](../F0_00P5A_truncation_Kronecker_一般SLLN/index.md#thm-iid-integrable-slln) へ、統計的誤差を [独立同分布中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt) へ直接つなぎます。
 
 $$
 \boxed{
@@ -866,7 +866,7 @@ E[Y_1^2]
 \infty.
 $$
 
-$Y_i^2$ は独立同分布で有限平均を持ちます。一般の独立同分布可積分版強大数則は P5A で与えられているため、
+$Y_i^2$ は独立同分布で有限平均を持ちます。[独立同分布・有限平均版の強大数則](../F0_00P5A_truncation_Kronecker_一般SLLN/index.md#thm-iid-integrable-slln) を適用できるため、
 
 $$
 \frac1N\sum_{i=1}^NY_i^2
@@ -923,15 +923,15 @@ $$
 
 ### prerequisite の補足
 
-上の証明では $Y_i^2$ へ有限平均版強大数則を使いました。
+上の証明では $Y_i^2$ へ有限平均版強大数則を使います。そのため本章は P5A を direct prerequisite に含めています。
 
-本章の chapter prerequisite は P5 と P6A ですが、P5 冒頭から P5A の一般版へ明示的に接続されています。ここでは有限分散
+有限分散
 
 $$
 E[Y_1^2]<\infty
 $$
 
-により $Y_i^2$ が可積分になることを確認したうえで、その canonical result を使っています。
+により $Y_i^2$ が可積分になることを局所的に確認したうえで、P5A の canonical result を適用しています。
 
 ---
 
