@@ -1,0 +1,57 @@
+id: "MOD1"
+title: "抽象代数 IX：加群・部分加群・商加群・自由加群"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RNG4
+  - LA2
+official_scope: []
+learning_objectives:
+  - 左加群・右加群の公理を説明し、ベクトル空間・Abel 群・イデアルを加群の具体例として読み替えられる
+  - 加群準同型、核、像、部分加群を定義し、部分加群判定を使って具体例を検証できる
+  - 商加群の加法とスカラー倍が代表元によらず良定義であることを証明できる
+  - 加群の第一同型定理を構成写像の良定義性・全射性・単射性まで含めて証明できる
+  - 生成系・有限生成加群・基底・自由加群を定義し、環上では有限生成でも基底を持たない加群があることを説明できる
+  - 自由加群の基底上の写像が一意な加群準同型へ延長することを証明し、具体的な準同型を構成できる
+  - 整域上のねじれ元・ねじれ部分加群・ねじれなし加群を定義し、ねじれ部分が部分加群になることを証明できる
+  - Abel 群を Z-加群として読み替え、整数倍と加群構造の対応を説明できる
+  - 線形自己写像 T から F[x]-加群構造 p(x)v=p(T)v を構成し、F[x]-部分加群と T-不変性の対応を確認できる
+definitions:
+  - { id: MOD1-DEF-01, name: 左加群・右加群 }
+  - { id: MOD1-DEF-02, name: 加群準同型・核・像 }
+  - { id: MOD1-DEF-03, name: 部分加群 }
+  - { id: MOD1-DEF-04, name: 商加群 }
+  - { id: MOD1-DEF-05, name: 生成系・有限生成加群 }
+  - { id: MOD1-DEF-06, name: 加群の基底・自由加群 }
+  - { id: MOD1-DEF-07, name: ねじれ元・ねじれ加群・ねじれなし加群 }
+theorems:
+  - { id: MOD1-PROP-01, name: 部分加群判定 }
+  - { id: MOD1-PROP-02, name: 加群準同型の核と像は部分加群 }
+  - { id: MOD1-PROP-03, name: 商加群の演算の良定義性 }
+  - { id: MOD1-THM-01, name: 加群の第一同型定理 }
+  - { id: MOD1-THM-02, name: 自由加群の普遍性 }
+  - { id: MOD1-PROP-04, name: ねじれ元全体は部分加群 }
+  - { id: MOD1-PROP-05, name: 整数環上の加群と Abel 群の対応 }
+  - { id: MOD1-PROP-06, name: "線形自己写像が定める多項式環加群" }
+  - { id: MOD1-PROP-07, name: "多項式環部分加群と T-不変性の対応" }
+canonical_examples:
+  - Z/nZ を Z-加群として見る例
+  - イデアル 2Z を Z の部分加群として見る例
+  - Z/4Z を商加群として構成する例
+  - R^2 の標準基底と自由加群
+  - Z/nZ が Z 上自由加群でない例
+  - Z/12Z と Z の直和におけるねじれ部分
+  - Jordan 型線形自己写像から作る F[x]-加群
+problem_patterns:
+  - MOD1-MODULE-AXIOMS-1
+  - MOD1-SUBMODULE-TEST-1
+  - MOD1-QUOTIENT-MODULE-1
+  - MOD1-FIRST-ISOMORPHISM-1
+  - MOD1-FREE-MODULE-1
+  - MOD1-TORSION-1
+  - MOD1-POLYNOMIAL-ACTION-1
+  - MOD1-PRESENTATION-INTEGRATION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.5, exercises: 5.0, review: 0.5 }

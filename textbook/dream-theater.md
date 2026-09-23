@@ -114,7 +114,7 @@
 
 ### 標準抽象代数コア
 
-集合・写像の基礎から、群・環・加群・体へ進む学部標準の抽象代数系列です。群論の主線 GRP1--GRP4 と、環論の主線 RNG1--RNG4 を実装済みです。
+集合・写像の基礎から、群・環・加群・体へ進む学部標準の抽象代数系列です。群論 GRP1--GRP4、環論 RNG1--RNG4 に加え、加群論の入口 MOD1 まで実装済みです。
 
 1. [GRP1 群・部分群・巡回群・置換群](textbook/volumes/00_foundations/GRP1/index.md)
 2. [GRP2 準同型・剰余類・正規部分群・商群](textbook/volumes/00_foundations/GRP2/index.md)
@@ -124,8 +124,9 @@
 6. [RNG2 素イデアル・極大イデアル・中国剰余定理](textbook/volumes/00_foundations/RNG2/index.md)
 7. [RNG3 整除・Euclid 整域・単項イデアル整域・一意分解整域](textbook/volumes/00_foundations/RNG3/index.md)
 8. [RNG4 多項式環・Gauss の補題・既約多項式](textbook/volumes/00_foundations/RNG4/index.md)
+9. [MOD1 加群・部分加群・商加群・自由加群](textbook/volumes/00_foundations/MOD1/index.md)
 
-GRP1--GRP4 で群・商構造・群作用・Sylow 理論までの有限群論主線を閉じます。RNG1--RNG3 では環・イデアル・中国剰余定理から Euclid 整域・単項イデアル整域・一意分解整域まで進み、RNG4 で体上の多項式除法、Gauss の補題、UFD 上の多項式環、代表的な既約判定まで閉じます。次の実装主線は MOD1 の加群論で、体論側は FLD1 へ分岐できます。
+GRP1--GRP4 で群・商構造・群作用・Sylow 理論までの有限群論主線を閉じます。RNG1--RNG4 では環・イデアル・中国剰余定理から Euclid 整域・一意分解整域・多項式環・Gauss の補題まで進みます。MOD1 では加群、商加群、第一同型定理、自由加群、ねじれを導入し、線形作用素を $F[x]$-加群として読む入口まで構成します。次の主線は MOD2 の Smith 標準形・PID 上有限生成加群で、体論側は FLD1 へ分岐できます。
 
 ### 標準ベクトル解析コア
 

@@ -1,0 +1,181 @@
+chapter: MOD1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RNG4
+  - LA2
+forward_references: []
+
+concepts:
+  - id: algebra.left-module
+    name: 左加群
+    kind: definition
+    aliases: [left module, left R-module]
+    introduction: formal
+    introduction_aliases: ["定義（左加群・右加群）"]
+    requires: [algebra.unital-ring, algebra.abelian-group]
+
+  - id: algebra.right-module
+    name: 右加群
+    kind: definition
+    aliases: [right module, right R-module]
+    introduction: formal
+    introduction_aliases: ["定義（左加群・右加群）"]
+    requires: [algebra.unital-ring, algebra.abelian-group]
+
+  - id: algebra.module-homomorphism
+    name: 加群準同型
+    kind: definition
+    aliases: [module homomorphism, R-linear map]
+    introduction: formal
+    introduction_aliases: ["定義（加群準同型・核・像）"]
+    requires: [algebra.left-module, set.function]
+
+  - id: algebra.module-kernel
+    name: 加群準同型の核
+    kind: definition
+    aliases: [kernel of a module homomorphism]
+    introduction: formal
+    introduction_aliases: ["定義（加群準同型・核・像）"]
+    requires: [algebra.module-homomorphism]
+
+  - id: algebra.module-image
+    name: 加群準同型の像
+    kind: definition
+    aliases: [image of a module homomorphism]
+    introduction: formal
+    introduction_aliases: ["定義（加群準同型・核・像）"]
+    requires: [algebra.module-homomorphism]
+
+  - id: algebra.submodule
+    name: 部分加群
+    kind: definition
+    aliases: [submodule]
+    introduction: formal
+    requires: [algebra.left-module, algebra.subgroup]
+
+  - id: algebra.submodule-test
+    name: 部分加群判定
+    kind: proposition
+    aliases: [submodule criterion, submodule test]
+    introduction: formal
+    requires: [algebra.submodule]
+
+  - id: algebra.module-kernel-image-submodules
+    name: 加群準同型の核と像は部分加群
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires: [algebra.module-kernel, algebra.module-image, algebra.submodule]
+
+  - id: algebra.quotient-module
+    name: 商加群
+    kind: definition
+    aliases: [quotient module, factor module]
+    introduction: formal
+    requires: [algebra.submodule]
+
+  - id: algebra.quotient-module-well-defined
+    name: 商加群の演算の良定義性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires: [algebra.quotient-module, algebra.submodule]
+
+  - id: algebra.first-isomorphism-theorem-module
+    name: 加群の第一同型定理
+    kind: theorem
+    aliases: [first isomorphism theorem for modules]
+    introduction: formal
+    requires: [algebra.module-homomorphism, algebra.module-kernel, algebra.module-image, algebra.quotient-module]
+
+  - id: algebra.module-generating-set
+    name: 加群の生成系
+    kind: definition
+    aliases: [generating set of a module, module generating set]
+    introduction: formal
+    introduction_aliases: ["定義（生成系・有限生成加群）"]
+    requires: [algebra.left-module]
+
+  - id: algebra.finitely-generated-module
+    name: 有限生成加群
+    kind: definition
+    aliases: [finitely generated module]
+    introduction: formal
+    introduction_aliases: ["定義（生成系・有限生成加群）"]
+    requires: [algebra.module-generating-set]
+
+  - id: algebra.module-basis
+    name: 加群の基底
+    kind: definition
+    aliases: [module basis, basis of a module]
+    introduction: formal
+    introduction_aliases: ["定義（加群の基底・自由加群）"]
+    requires: [algebra.left-module]
+
+  - id: algebra.free-module
+    name: 自由加群
+    kind: definition
+    aliases: [free module]
+    introduction: formal
+    introduction_aliases: ["定義（加群の基底・自由加群）"]
+    requires: [algebra.module-basis]
+
+  - id: algebra.free-module-universal-property
+    name: 自由加群の普遍性
+    kind: theorem
+    aliases: [universal property of a free module]
+    introduction: formal
+    requires: [algebra.free-module, algebra.module-homomorphism]
+
+  - id: algebra.torsion-element
+    name: 加群のねじれ元
+    kind: definition
+    aliases: [torsion element]
+    introduction: formal
+    introduction_aliases: ["定義（ねじれ元・ねじれ加群・ねじれなし加群）"]
+    requires: [algebra.left-module, algebra.integral-domain]
+
+  - id: algebra.torsion-module
+    name: ねじれ加群
+    kind: definition
+    aliases: [torsion module]
+    introduction: formal
+    introduction_aliases: ["定義（ねじれ元・ねじれ加群・ねじれなし加群）"]
+    requires: [algebra.torsion-element]
+
+  - id: algebra.torsion-free-module
+    name: ねじれなし加群
+    kind: definition
+    aliases: [torsion-free module]
+    introduction: formal
+    introduction_aliases: ["定義（ねじれ元・ねじれ加群・ねじれなし加群）"]
+    requires: [algebra.torsion-element]
+
+  - id: algebra.torsion-submodule
+    name: ねじれ元全体は部分加群
+    kind: proposition
+    aliases: [torsion submodule]
+    introduction: formal
+    requires: [algebra.torsion-element, algebra.submodule, algebra.integral-domain]
+
+  - id: algebra.z-modules-abelian-groups
+    name: 整数環上の加群と Abel 群の対応
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires: [algebra.left-module, algebra.abelian-group]
+
+  - id: algebra.operator-polynomial-module
+    name: 線形自己写像が定める多項式環加群
+    kind: proposition
+    aliases: [polynomial module of a linear operator]
+    introduction: formal
+    requires: [algebra.polynomial-ring, linear.vector-space, linear.linear-map]
+
+  - id: algebra.invariant-subspace-module-criterion
+    name: 多項式環部分加群と T-不変性の対応
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires: [algebra.operator-polynomial-module, algebra.submodule, linear.linear-subspace]
