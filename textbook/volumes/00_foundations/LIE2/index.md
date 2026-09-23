@@ -1,4 +1,4 @@
-# LIE2 1パラメータ部分群・指数写像・随伴表現
+# LIE2 1パラメータ部分群・Lie 群の指数写像・随伴表現
 
 <!-- definition-example-audit: strict -->
 
@@ -170,7 +170,7 @@ x^2\frac{\partial}{\partial x}
 $$
 は有限時刻で無限遠へ逃げます。
 
-一方、Lie 群上の左不変ベクトル場には群の平行移動があります。この対称性が有限時刻での停止を防ぎます。
+一方、Lie 群上の左不変ベクトル場には群の左移動があります。この対称性が有限時刻での停止を防ぎます。
 
 <a id="thm-lie2-one-parameter-classification"></a>
 <!-- formal-statement-start -->
@@ -351,11 +351,11 @@ $$
 
 この定理から、**Lie 群上の左不変ベクトル場は全て完備**です。
 
-一般のベクトル場との違いは、局所解を左移動してどの点からでも同じ形で再開できることです。
+一般の滑らかなベクトル場との違いは、局所解を左移動してどの点からでも同じ形で再開できることです。
 
 ---
 
-## 4. 指数写像は「速度を時刻1まで流す」写像である
+## 4. Lie 群の指数写像は「速度を時刻1まで流す」写像である
 
 <a id="def-lie2-exponential-map"></a>
 <!-- formal-statement-start -->
@@ -371,7 +371,7 @@ $$
 \exp_G(X):=\gamma_X(1)
 $$
 >
-> を $G$ の **指数写像**という。
+> を $G$ の **Lie 群の指数写像**という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lie2-exponential-map -->
@@ -410,7 +410,7 @@ $$
 
 <a id="thm-lie2-exponential-basic"></a>
 <!-- formal-statement-start -->
-> **定理（指数写像の基本性質）**
+> **定理（Lie 群の指数写像の基本性質）**
 >
 > 任意の $X\in\mathfrak g$ と $s,t\in\mathbb R$ に対して
 >
@@ -506,17 +506,17 @@ $$
 
 ---
 
-## 5. 指数写像は滑らかで、0の近くでは座標になる
+## 5. Lie 群の指数写像は滑らかで、0の近くでは座標になる
 
-指数写像を後で微分するためには、滑らかさが必要です。
+Lie 群の指数写像を後で微分するためには、滑らかさが必要です。
 
-「各 $X$ ごとに積分曲線がある」だけでは、$X$ を変えたとき終点が滑らかに変わることはまだ自動ではありません。そこで全ての $X$ を一つのベクトル場へまとめます。
+「各 $X$ ごとに積分曲線がある」だけでは、$X$ を変えたとき終点が滑らかに変わることはまだ自動ではありません。そこで全ての $X$ を一つの滑らかなベクトル場へまとめます。
 
 <a id="thm-lie2-exponential-local-diffeomorphism"></a>
 <!-- formal-statement-start -->
-> **定理（指数写像の滑らかさと単位元近傍での局所可逆性）**
+> **定理（Lie 群の指数写像の滑らかさと単位元近傍での局所可逆性）**
 >
-> Lie 群 $G$ の指数写像
+> Lie 群 $G$ のLie 群の指数写像
 >
 $$
 \exp_G:\mathfrak g\to G
@@ -550,11 +550,11 @@ $$
 =
 (0,d(L_g)_eA)
 $$
-というベクトル場を置きます。
+という滑らかなベクトル場を置きます。
 
 第一成分 $A$ は流れの間ずっと固定され、第二成分は $A$ に対応する左不変ベクトル場の流れです。
 
-前節で左不変ベクトル場が完備と分かったので、この一つのベクトル場の時刻1の流れから $\exp$ を取り出せます。
+前節で左不変ベクトル場が完備と分かったので、この一つの滑らかなベクトル場の時刻1の流れから $\exp$ を取り出せます。
 
 <!-- proof-start -->
 ### 証明
@@ -624,7 +624,7 @@ c(t)=tA
 $$
 を取ります。
 
-指数写像の基本性質から
+Lie 群の指数写像の基本性質から
 $$
 \exp_G(c(t))
 =
@@ -673,11 +673,11 @@ $$
 
 ---
 
-## 6. Lie 群準同型は指数写像と可換する
+## 6. Lie 群準同型はLie 群の指数写像と可換する
 
 <a id="thm-lie2-exponential-naturality"></a>
 <!-- formal-statement-start -->
-> **定理（Lie 群準同型と指数写像の自然性）**
+> **定理（Lie 群準同型と Lie 群の指数写像の自然性）**
 >
 > $\Phi:G\to H$ を Lie 群準同型とする。
 >
@@ -754,69 +754,25 @@ $\square$
 
 ---
 
-## 7. 一般線形群では指数写像は行列指数関数になる
+## 7. 一般線形群では Lie 群の指数写像は行列指数に一致する
 
-行列群では指数写像を級数で直接計算できます。
-
-<a id="def-lie2-matrix-exponential"></a>
-<!-- formal-statement-start -->
-> **定義（行列指数関数）**
->
-> $A\in M_n(\mathbb R)$ に対して
->
+行列指数そのものは [ODE3](../ODE3/index.md#def-ode3-matrix-exponential) で
 $$
-e^A
-:=
-\sum_{k=0}^{\infty}
-\frac{A^k}{k!}
-$$
->
-> と定める。これを $A$ の **行列指数関数**という。
-<!-- formal-statement-end -->
-
-<!-- definition-example-start: def-lie2-matrix-exponential -->
-**定義の確認**
-
-$$
-N=
-\begin{pmatrix}
-0&1\\
-0&0
-\end{pmatrix}
-$$
-なら
-$$
-N^2=0.
-$$
-
-従って無限級数は二項で止まり、
-$$
-e^{tN}
+e^{tA}
 =
-I+tN
-=
-\begin{pmatrix}
-1&t\\
-0&1
-\end{pmatrix}.
+\sum_{k=0}^{\infty}\frac{t^kA^k}{k!}
 $$
+として構成済みです。また [ODE3 の行列指数の基本性質](../ODE3/index.md#thm-ode3-matrix-exponential-properties)で、級数の収束、項別微分、時間加法則
+$$
+e^{(s+t)A}=e^{sA}e^{tA}
+$$
+まで証明済みです。
 
-直接掛けると
-$$
-e^{sN}e^{tN}
-=
-(I+sN)(I+tN)
-=
-I+(s+t)N
-=
-e^{(s+t)N},
-$$
-ここでは $N^2=0$ が使われています。
-<!-- definition-example-end -->
+ここではそれを再証明せず、「ODE の行列指数」と「Lie 群の指数写像」が同じ対象であることを閉じます。
 
 <a id="thm-lie2-general-linear-exponential"></a>
 <!-- formal-statement-start -->
-> **定理（一般線形群の指数写像は行列指数関数）**
+> **定理（一般線形群では Lie 群の指数写像が行列指数に一致する）**
 >
 > $G=GL(n,\mathbb R)$ とし、
 >
@@ -844,99 +800,51 @@ $$
 <!-- proof-start -->
 ### 証明
 
-有限次元行列空間上の劣乗法的ノルムを一つ取ります。
-
-すると
+[ODE3 の行列指数の基本性質](../ODE3/index.md#thm-ode3-matrix-exponential-properties)から
 $$
-\left\|
-\frac{A^k}{k!}
-\right\|
-\le
-\frac{\|A\|^k}{k!}.
+E_A(t):=e^{tA}
 $$
-
-右辺の総和は実指数級数
+は滑らかで、
 $$
-e^{\|A\|}
+E_A(0)=I,
+\qquad
+E_A(s+t)=E_A(s)E_A(t)
 $$
-なので収束します。従って行列級数は絶対収束します。
-
-同様に、$t$ を有界区間に制限すれば
-$$
-\sum_{k=0}^{\infty}\frac{t^kA^k}{k!}
-$$
-とその項別微分級数は一様に収束するので、
-$$
-E(t):=e^{tA}
-$$
-は微分でき、
-$$
-E'(t)
-=
-\sum_{k=1}^{\infty}
-\frac{k t^{k-1}A^k}{k!}
-=
-A
-\sum_{j=0}^{\infty}
-\frac{t^jA^j}{j!}
-=
-AE(t).
-$$
-
-$A$ は $E(t)$ の各項と可換するため
-$$
-E'(t)=E(t)A
-$$
-でもあります。
-
-また
-$$
-E(0)=I.
-$$
-
-同じ行列 $A$ の冪どうしは可換するので、絶対収束級数の Cauchy 積を用いて
-$$
-\begin{aligned}
-E(s)E(t)
-&=
-\sum_{j,k\ge0}
-\frac{s^jt^kA^{j+k}}{j!k!}\\
-&=
-\sum_{m=0}^{\infty}
-\left(
-\sum_{j=0}^m
-\frac{s^jt^{m-j}}{j!(m-j)!}
-\right)A^m\\
-&=
-\sum_{m=0}^{\infty}
-\frac{(s+t)^mA^m}{m!}\\
-&=
-E(s+t).
-\end{aligned}
-$$
+を満たします。
 
 特に
 $$
-E(t)E(-t)=I
+E_A(t)E_A(-t)=I
 $$
-なので $E(t)\in GL(n,\mathbb R)$ です。
-
-従って
+なので
 $$
-t\longmapsto e^{tA}
+E_A(t)\in GL(n,\mathbb R)
+$$
+です。従って
+$$
+t\longmapsto E_A(t)
 $$
 は $GL(n,\mathbb R)$ の1パラメータ部分群です。
 
-その初速度は
+同じ ODE3 の定理から
 $$
-E'(0)=A.
+\frac d{dt}e^{tA}=Ae^{tA}
+$$
+なので
+$$
+E_A'(0)=A.
 $$
 
-[1パラメータ部分群と単位元接ベクトルの一対一対応](#thm-lie2-one-parameter-classification)から、これは $A$ に対応する唯一の1パラメータ部分群です。
+[1パラメータ部分群と単位元接ベクトルの一対一対応](#thm-lie2-one-parameter-classification)により、初速度 $A$ を持つ1パラメータ部分群は一意です。
 
-よって時刻1で
+従って
 $$
-\exp_G(A)=e^A.
+E_A(t)=\exp_G(tA).
+$$
+
+$t=1$ と置けば
+$$
+\boxed{\exp_G(A)=e^A}.
 $$
 
 $\square$
@@ -1222,11 +1130,11 @@ $$
 
 ---
 
-## 10. 共役と指数写像は可換する
+## 10. 共役と Lie 群の指数写像は可換する
 
 <a id="thm-lie2-conjugation-exponential"></a>
 <!-- formal-statement-start -->
-> **定理（共役と指数写像の可換性）**
+> **定理（共役と Lie 群の指数写像の可換性）**
 >
 > 任意の $g\in G$ と $X\in\mathfrak g$ に対して
 >
@@ -1248,7 +1156,7 @@ $$
 $$
 C_g:G\to G
 $$
-へ [Lie 群準同型と指数写像の自然性](#thm-lie2-exponential-naturality)を適用します。
+へ [Lie 群準同型と Lie 群の指数写像の自然性](#thm-lie2-exponential-naturality)を適用します。
 
 その単位元での微分は定義から
 $$
@@ -1533,7 +1441,7 @@ $\square$
 
 ---
 
-## 12. Ad と ad の指数写像は一致する
+## 12. Ad と ad は指数で対応する
 
 随伴表現
 $$
@@ -1546,7 +1454,7 @@ $$
 d(\operatorname{Ad})_e=\operatorname{ad}.
 $$
 
-従って指数写像の自然性をそのまま使えます。
+従ってLie 群の指数写像の自然性をそのまま使えます。
 
 <a id="cor-lie2-ad-exp"></a>
 <!-- formal-statement-start -->
@@ -1565,13 +1473,13 @@ $$
 >
 > が成り立つ。
 >
-> 右辺は線形写像 $\operatorname{ad}_X$ の行列指数関数である。
+> 右辺は線形写像 $\operatorname{ad}_X$ の行列指数である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
 
-[Lie 群準同型と指数写像の自然性](#thm-lie2-exponential-naturality)を
+[Lie 群準同型と Lie 群の指数写像の自然性](#thm-lie2-exponential-naturality)を
 $$
 \operatorname{Ad}:G\to GL(\mathfrak g)
 $$
@@ -1658,7 +1566,7 @@ $$
 $$
 を得ました。
 
-### 13.1 指数写像
+### 13.1 Lie 群の指数写像
 
 $$
 A=xH+yE
@@ -1832,17 +1740,17 @@ $$
 
 非可換 Lie 群では、この等式のずれを Lie 括弧が測ります。
 
-本章では一般の Baker--Campbell--Hausdorff 公式そのものを黒箱として使わず、まず群交換子
+本章では一般の Baker--Campbell--Hausdorff 公式そのものを黒箱として使わず、まず共役四項積
 $$
 \exp(sX)\exp(tY)\exp(-sX)\exp(-tY)
 $$
 を調べます。
 
-指数写像は0近傍で微分同相なので、$s,t$ が十分小さければ局所逆写像 $\log$ を適用できます。
+Lie 群の指数写像は0近傍で微分同相なので、$s,t$ が十分小さければ局所逆写像 $\log$ を適用できます。
 
 <a id="prop-lie2-commutator-second-derivative"></a>
 <!-- formal-statement-start -->
-> **命題（群交換子の混合二階微分と Lie 括弧）**
+> **命題（共役四項積の混合二階微分と Lie 括弧）**
 >
 > $X,Y\in\mathfrak g$ とする。
 >
@@ -1882,14 +1790,14 @@ $$
 
 ### 証明の見取り図
 
-まず共役と指数写像の可換性から
+まず共役と Lie 群の指数写像の可換性から
 $$
 \exp(sX)\exp(tY)\exp(-sX)
 =
 \exp\left(t\,\operatorname{Ad}_{\exp(sX)}Y\right).
 $$
 
-$t=0$ で微分すると、交換子曲線の速度は
+$t=0$ で微分すると、四項積曲線の速度は
 $$
 \operatorname{Ad}_{\exp(sX)}Y-Y
 $$
@@ -1923,7 +1831,7 @@ $$
 \kappa(s,0)=\kappa(0,t)=0.
 $$
 
-[共役と指数写像の可換性](#thm-lie2-conjugation-exponential)から
+[共役と Lie 群の指数写像の可換性](#thm-lie2-conjugation-exponential)から
 $$
 \exp(sX)\exp(tY)\exp(-sX)
 =
@@ -2092,7 +2000,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-lie2-a02"></a>
-#### LIE2-A02 冪零行列の指数写像
+#### LIE2-A02 冪零行列の行列指数
 - Level: A
 
 $$
@@ -2176,7 +2084,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-lie2-a03"></a>
-#### LIE2-A03 準同型と指数写像
+#### LIE2-A03 準同型と Lie 群の指数写像
 - Level: A
 
 $$
@@ -2188,7 +2096,7 @@ $$
 
 1. $\Phi$ が Lie 群準同型であることを示せ。
 2. $d\Phi_1$ を求めよ。
-3. 指数写像の自然性
+3. Lie 群の指数写像の自然性
    $$
    \Phi(\exp_{\mathbb R_{>0}}a)
    =
@@ -2223,12 +2131,12 @@ d\Phi_1(a)=a
 }.
 $$
 
-3. 乗法群の指数写像は
+3. 乗法群のLie 群の指数写像は
 $$
 \exp_{\mathbb R_{>0}}a=e^a.
 $$
 
-加法群の指数写像は恒等写像なので
+加法群のLie 群の指数写像は恒等写像なので
 $$
 \exp_{\mathbb R}(a)=a.
 $$
@@ -2465,7 +2373,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-lie2-b02"></a>
-#### LIE2-B02 アフィン群の指数写像
+#### LIE2-B02 アフィン群の exp
 - Level: B
 
 二次元アフィン群を
@@ -2711,7 +2619,7 @@ $$
 ### Level C
 
 <a id="ex-lie2-c01"></a>
-#### LIE2-C01 群交換子から Lie 括弧を再構成する
+#### LIE2-C01 共役四項積から Lie 括弧を再構成する
 - Level: C
 
 $G$ を Lie 群、$\mathfrak g=T_eG$ とする。$X,Y\in\mathfrak g$ に対し
@@ -2722,14 +2630,14 @@ K(s,t)
 $$
 と置く。
 
-指数写像が0近傍で微分同相であることを使い、$s,t$ が十分小さい範囲で
+Lie 群の指数写像が0近傍で微分同相であることを使い、$s,t$ が十分小さい範囲で
 $$
 \kappa(s,t)=\log K(s,t)
 $$
 とする。
 
 1. $K(s,0)=K(0,t)=e$ を示せ。
-2. 共役と指数写像の可換性から
+2. 共役と Lie 群の指数写像の可換性から
    $$
    K(s,t)
    =
@@ -2782,7 +2690,7 @@ K(0,t)
 e.
 $$
 
-2. 共役と指数写像の可換性より
+2. 共役と Lie 群の指数写像の可換性より
 $$
 \exp(sX)\exp(tY)\exp(-sX)
 =
@@ -2877,7 +2785,7 @@ $$
 
 5. $[X,Y]=0$ なら上の混合二階微分は0です。
 
-群交換子 $K(s,t)$ は、$X$ 方向へ動き、次に $Y$ 方向へ動き、それぞれ逆向きに戻ったときの「戻り切らなさ」を測ります。
+共役四項積 $K(s,t)$ は、$X$ 方向へ動き、次に $Y$ 方向へ動き、それぞれ逆向きに戻ったときの「戻り切らなさ」を測ります。
 
 一次では各方向の正逆が相殺します。二方向を同時に変化させた最初の交差効果が混合二階微分であり、その値が $[X,Y]$ です。
 
@@ -2915,7 +2823,7 @@ $$
    \exp(tX)
    $$
    が対応する1パラメータ部分群そのものである。
-6. 指数写像は滑らかで
+6. Lie 群の指数写像は滑らかで
    $$
    d\exp_0=\operatorname{id}
    $$
@@ -2925,7 +2833,7 @@ $$
    \Phi(\exp X)=\exp(d\Phi_eX)
    $$
    を満たす。
-8. 一般線形群では Lie 群の指数写像は行列指数関数
+8. 一般線形群では Lie 群の指数写像は行列指数
    $$
    e^A=\sum_{k=0}^{\infty}\frac{A^k}{k!}
    $$
@@ -2940,20 +2848,20 @@ $$
     \operatorname{ad}_X(Y)=[X,Y]
     $$
     となり、Lie 括弧は共役作用の無限小形として再発見される。
-11. 指数写像の自然性から
+11. Lie 群の指数写像の自然性から
     $$
     \operatorname{Ad}_{\exp X}
     =
     \exp(\operatorname{ad}_X)
     $$
     が従う。
-12. 群交換子を指数座標で二方向へ微分すると
+12. 共役四項積を指数座標で二方向へ微分すると
     $$
     [X,Y]
     $$
     が現れ、Baker--Campbell--Hausdorff 理論への入口になる。
 
-次章 LIE3 では、この指数写像と接 Lie 環を使って Lie 部分群を調べます。特に
+次章 LIE3 では、このLie 群の指数写像と接 Lie 環を使って Lie 部分群を調べます。特に
 $$
 SL(n),\ O(n),\ SO(n),\ U(n),\ SU(n)
 $$
