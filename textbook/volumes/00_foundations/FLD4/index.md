@@ -292,7 +292,7 @@ $$
 
 を考えます。
 
-$i$ の[最小多項式](../FLD1/index.md#def-fld1-minimal-polynomial)は
+$i$ の[代数的元の最小多項式](../FLD1/index.md#def-fld1-minimal-polynomial)は
 
 $$
 x^2+1.
@@ -715,7 +715,7 @@ $$
 
 しかありません。
 
-失われた仮定は **正規性** です。
+失われた仮定は **正規拡大であること** です。
 
 ---
 
