@@ -16,6 +16,7 @@ learning_objectives:
   - A_5 の単純性から S_5 が可解でないことを示し、x^5-4x+2 の Galois 群が S_5 であることから根号で解けない五次方程式の存在を証明できる
 definitions:
   - { id: FLD5-DEF-01, name: 作図可能点・作図可能数 }
+  - { id: FLD5-DEF-05, name: 実二次拡大列 }
   - { id: FLD5-DEF-02, name: 交換子・交換子部分群・導来列・可解群 }
   - { id: FLD5-DEF-03, name: 根号拡大・根号による可解性 }
   - { id: FLD5-DEF-04, name: 単純群 }
