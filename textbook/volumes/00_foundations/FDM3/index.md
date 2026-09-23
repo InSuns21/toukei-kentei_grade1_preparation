@@ -690,7 +690,6 @@ $$
 初期時刻から帰納すれば全時刻で非負です。
 <!-- proof-end -->
 
-<!-- definition-example-start: thm-fdm3-discrete-maximum -->
 ### 例：$r=1/4$ では本当に平均になっている
 
 $$
@@ -742,7 +741,7 @@ $$
 から外れていません。
 
 熱方程式らしく、局所的な尖りを平均化する更新になっています。
-<!-- definition-example-end -->
+
 
 ### 拡散 CFL 条件がどこで使われたか
 
