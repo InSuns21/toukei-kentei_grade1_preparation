@@ -349,6 +349,11 @@ QMC2 は既存 F0-02C7 の RKHS / 再生核を再定義しない。stable anchor
 - 代数関数体を使う高度な構成
 - 特殊な最適 L2 discrepancy 構成
 
+### 8.3 Phase 5 進捗
+
+- [x] QMC1：一様分布・ディスクレパンシー・Koksma--Hlawka
+- 次の実装対象：**QMC2「RKHS・最悪誤差・重み付き空間」**
+
 ---
 
 # 9. Phase 6：Python 数値計算速習・計算機演習系列 NUMLAB
