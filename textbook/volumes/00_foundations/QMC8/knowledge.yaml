@@ -1,0 +1,125 @@
+chapter: QMC8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QMC5
+
+concepts:
+  - id: numerical.dick-alpha-weight
+    name: Dick の α 重み
+    kind: definition
+    aliases: [Dick alpha weight]
+    introduction: formal
+    introduction_aliases: ["定義（Dick の α 重み）"]
+    requires:
+      - numerical.nrt-weight
+
+  - id: numerical.dick-alpha-nrt-reduction
+    name: Dick の1重みと NRT 重みの一致
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（Dick の1重みと NRT 重みの一致）"]
+    requires:
+      - numerical.dick-alpha-weight
+      - numerical.nrt-weight
+
+  - id: numerical.high-precision-digital-net
+    name: 高精度デジタル点集合と双対ネット
+    kind: definition
+    aliases: [digital net with rectangular generating matrices]
+    introduction: formal
+    introduction_aliases: ["定義（高精度デジタル点集合と双対ネット）"]
+    requires:
+      - numerical.digital-dual-net
+
+  - id: numerical.high-precision-walsh-character
+    name: 高精度デジタル点集合上の Walsh 関数の離散直交性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（高精度デジタル点集合上の Walsh 関数の離散直交性）"]
+    requires:
+      - numerical.high-precision-digital-net
+      - numerical.walsh-function
+
+  - id: numerical.minimum-dual-dick-weight
+    name: 最小双対 Dick 重み
+    kind: definition
+    aliases: [minimum dual Dick weight]
+    introduction: formal
+    introduction_aliases: ["定義（最小双対 Dick 重み）"]
+    requires:
+      - numerical.dick-alpha-weight
+      - numerical.high-precision-digital-net
+
+  - id: numerical.order-alpha-digital-net
+    name: 次数 α デジタルネット
+    kind: definition
+    aliases: [order alpha digital net]
+    introduction: formal
+    introduction_aliases: ["定義（次数 α デジタルネット）"]
+    requires:
+      - numerical.minimum-dual-dick-weight
+      - numerical.digital-t-value-duality
+
+  - id: numerical.higher-order-precision-barrier
+    name: 有限出力精度による最小双対 Dick 重みの上限
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（有限出力精度による最小双対 Dick 重みの上限）"]
+    requires:
+      - numerical.minimum-dual-dick-weight
+
+  - id: numerical.higher-order-walsh-coefficient-norm
+    name: 高次 Walsh 係数ノルム
+    kind: definition
+    aliases: [higher-order weighted Walsh coefficient norm]
+    introduction: formal
+    introduction_aliases: ["定義（高次 Walsh 係数ノルム）"]
+    requires:
+      - numerical.walsh-coefficient
+      - numerical.dick-alpha-weight
+
+  - id: numerical.order-alpha-qmc-error
+    name: 次数 α デジタルネットの高次 Walsh 誤差評価
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（次数 α デジタルネットの高次 Walsh 誤差評価）"]
+    requires:
+      - numerical.high-precision-walsh-character
+      - numerical.order-alpha-digital-net
+      - numerical.higher-order-walsh-coefficient-norm
+      - numerical.walsh-integral-orthogonality
+
+  - id: numerical.digit-interlacing
+    name: 桁交互配置
+    kind: definition
+    aliases: [digit interlacing]
+    introduction: formal
+    introduction_aliases: ["定義（桁交互配置）"]
+    requires:
+      - numerical.high-precision-digital-net
+
+  - id: numerical.interlaced-generating-matrix
+    name: 生成行列の行交互配置と点の桁交互配置の一致
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（生成行列の行交互配置と点の桁交互配置の一致）"]
+    requires:
+      - numerical.digit-interlacing
+      - numerical.high-precision-digital-net
+
+  - id: numerical.interlaced-order-alpha-construction
+    name: 桁交互配置による次数 α デジタルネット構成
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（桁交互配置による次数 α デジタルネット構成）"]
+    requires:
+      - numerical.interlaced-generating-matrix
+      - numerical.digital-t-value-duality
+      - numerical.order-alpha-digital-net

@@ -397,3 +397,4 @@ STO 系列ではマルチンゲール・ブラウン運動・二次変分・確�
 33. [QMC5 Walsh 解析とデジタルネットの双対理論](textbook/volumes/00_foundations/QMC5/index.md)
 34. [QMC6 多項式格子](textbook/volumes/00_foundations/QMC6/index.md)
 35. [QMC7 ランダム化準 Monte Carlo 法](textbook/volumes/00_foundations/QMC7/index.md)
+36. [QMC8 高次準 Monte Carlo 法](textbook/volumes/00_foundations/QMC8/index.md)
