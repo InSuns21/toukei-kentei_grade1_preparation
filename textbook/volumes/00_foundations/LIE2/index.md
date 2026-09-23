@@ -1111,7 +1111,7 @@ $$
 
 $\mathfrak g$ の基底を一つ選べば $GL(\mathfrak g)$ は $GL(n,\mathbb R)$ と同一視できるため、$\operatorname{Ad}$ は滑らかな Lie 群準同型です。
 
-最後に $C_g:G\to G$ 自身が Lie 群準同型なので、[LIE1 の Lie 群準同型の微分定理](../LIE1/index.md#thm-lie1-homomorphism-differential)から
+最後に $C_g:G\to G$ 自身が Lie 群準同型なので、[Lie 群準同型の微分は Lie 環準同型](../LIE1/index.md#thm-lie1-homomorphism-differential)から
 $$
 d(C_g)_e=\operatorname{Ad}_g
 $$
