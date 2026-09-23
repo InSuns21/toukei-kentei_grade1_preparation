@@ -1631,7 +1631,7 @@ $$
 
 へ一斉に掛けても、点集合は変わりません。
 
-<a id="thm-qmc3-unit-scaling"></a>
+<a id="thm-qmc3-invertible-scaling"></a>
 <!-- formal-statement-start -->
 ### 定理（生成ベクトルの可逆スカラー倍不変性）
 
