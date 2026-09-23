@@ -1,0 +1,38 @@
+chapter: "MC2"
+terms:
+  - term: 疑似乱数生成器
+    english: pseudorandom number generator
+    meaning: 有限個または離散的な内部状態を決定論的に更新し、乱数として利用する数列を出力するアルゴリズム。略号 PRNG は補助的に使用可。
+  - term: シード
+    english: seed
+    meaning: 疑似乱数生成器の初期状態を決める入力。同じ生成器・同じ設定で同じシードを使えば同じ列を再現できる。
+  - term: 乱数ストリーム
+    english: random-number stream
+    meaning: 一つの疑似乱数生成器から、初期状態やサブストリーム指定により区別して利用する出力列。
+  - term: サブストリーム
+    english: substream
+    meaning: 一つの長い疑似乱数列を再現可能な規則で分割して得る部分列。並列計算でワーカーごとの乱数系列を固定するために使う。
+  - term: 線形合同法
+    english: linear congruential generator
+    meaning: x_(n+1)=(a x_n+c) mod m により有限状態を更新する基本的な疑似乱数生成法。
+  - term: 一般化逆関数
+    english: generalized inverse
+    meaning: 分布関数 F に対して F^{-1}(u)=inf{x:F(x)>=u} で定める分位点関数。離散分布にも適用できる。
+  - term: 逆関数法
+    english: inverse transform sampling
+    meaning: 一様乱数 U を分布関数の一般化逆関数へ入力して、指定分布の標本を生成する方法。
+  - term: 棄却法
+    english: rejection sampling
+    meaning: 提案密度 g から候補を生成し、f(x)/(M g(x)) に比例する確率で受理して目標密度 f の標本を得る方法。
+  - term: 提案密度
+    english: proposal density
+    meaning: 棄却法で候補点を生成するために使う密度 g。目標密度 f の台を覆う必要がある。
+  - term: 包絡定数
+    english: envelope constant
+    meaning: f(x)<=M g(x) を全ての x で保証する定数 M。正規化済み密度どうしでは M>=1。
+  - term: 受理率
+    english: acceptance rate
+    meaning: 棄却法で提案が受理される確率。正規化済み目標密度では理論値は 1/M。
+  - term: 再現性
+    english: reproducibility
+    meaning: 生成器の種類・版、シード、ストリーム割当て、変換法、標本数などを固定して同じ乱数列と計算結果を再構成できる性質。
