@@ -22,7 +22,7 @@ concepts:
     kind: definition
     aliases: [global grid error]
     introduction: formal
-    introduction_aliases: ["定義（格子大域誤差・格子収束）"]
+    introduction_aliases: ["定義（格子大域誤差）"]
     requires:
       - numerical.global-error
       - numerical.grid-function
@@ -32,7 +32,7 @@ concepts:
     kind: definition
     aliases: [grid convergence]
     introduction: formal
-    introduction_aliases: ["定義（格子大域誤差・格子収束）"]
+    introduction_aliases: ["定義（格子収束）"]
     requires:
       - numerical.fdm-global-grid-error
       - numerical.consistency
