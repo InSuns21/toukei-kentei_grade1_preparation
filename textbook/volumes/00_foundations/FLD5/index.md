@@ -1905,7 +1905,7 @@ $$
 
 すると各根号添加の段階は [§7 の補題](#lem-fld5-one-step-radical) により可換 Galois 拡大になります。
 
-ただし塔の最上段が最初の体上 Galois とは限らないため、正規閉包を取ります。[§7.1 の補題](#lem-fld5-abelian-tower-normal-closure) により、その Galois 群は可解です。
+ただし塔の最上段が最初の体上 Galois とは限らないため、正規閉包を取ります。[可換 Galois 段階列の正規閉包は可解](#lem-fld5-abelian-tower-normal-closure) により、その Galois 群は可解です。
 
 元の分解体の Galois 群はその商群になるため可解です。
 
@@ -2778,7 +2778,7 @@ $$
 \lim_{x\to\infty}f(x)=\infty.
 $$
 
-従って単調性と中間値の定理から、
+従って多項式の連続性による符号変化と単調性から、
 
 - $(-\infty,-a)$ に1個、
 - $(-a,a)$ に1個、
@@ -3759,7 +3759,7 @@ $$
 5\mid|G|.
 $$
 
-Cauchy の定理から $G$ は位数5の元を持ちます。
+[有限群の Cauchy の定理](../GRP4/index.md#thm-grp4-cauchy)から $G$ は位数5の元を持ちます。
 
 5点の置換で位数5を持つものは 5-巡回置換 なので、
 
