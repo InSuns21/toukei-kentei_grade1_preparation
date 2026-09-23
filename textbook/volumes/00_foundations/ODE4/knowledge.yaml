@@ -17,7 +17,7 @@ concepts:
   - id: ode.ode4-phase-plane-nullcline
     name: 軌道・位相平面・nullcline
     kind: definition
-    aliases: [軌道, 位相平面, phase plane, nullcline, ヌルクライン]
+    aliases: [力学系の軌道, ODE の軌道, 位相平面, phase plane, nullcline, ヌルクライン]
     introduction: formal
     requires:
       - ode.ode4-nonlinear-autonomous-system
