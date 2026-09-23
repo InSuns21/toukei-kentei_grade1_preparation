@@ -371,7 +371,7 @@ $$
 
 周期格子列 $E_0,\ldots,E_{J-1}$ に対し
 
-$
+$$
 \xi_m=\frac{2\pi m}{J},
 \qquad
 \widehat E_m
@@ -379,13 +379,13 @@ $
 \frac1J
 \sum_{j=0}^{J-1}
 E_j e^{-ij\xi_m}
-$
+$$
 
 とする。
 
 このとき
 
-$
+$$
 \sum_{j=0}^{J-1}
 e^{ij(\xi_m-\xi_\ell)}
 =
@@ -393,28 +393,28 @@ e^{ij(\xi_m-\xi_\ell)}
 J,&m=\ell,\\
 0,&m\ne\ell,
 \end{cases}
-$
+$$
 
 が成り立ち、
 
-$
+$$
 \boxed{
 E_j
 =
 \sum_{m=0}^{J-1}
 \widehat E_m e^{ij\xi_m}
 }
-$
+$$
 
 および
 
-$
+$$
 \boxed{
 \sum_{j=0}^{J-1}|E_j|^2
 =
 J\sum_{m=0}^{J-1}|\widehat E_m|^2
 }
-$
+$$
 
 が成り立つ。
 <!-- formal-statement-end -->
@@ -424,42 +424,42 @@ $
 
 $m=\ell$ なら各項は1なので
 
-$
+$$
 \sum_{j=0}^{J-1}
 e^{ij(\xi_m-\xi_m)}
 =
 J.
-$
+$$
 
 $m\ne\ell$ では
 
-$
+$$
 q=e^{i(\xi_m-\xi_\ell)}
-$
+$$
 
 と置くと $q\ne1$ かつ
 
-$
+$$
 q^J
 =
 e^{i2\pi(m-\ell)}
 =
 1.
-$
+$$
 
 従って有限等比級数の和から
 
-$
+$$
 \sum_{j=0}^{J-1}q^j
 =
 \frac{1-q^J}{1-q}
 =
 0.
-$
+$$
 
 次に Fourier 係数の定義を用いると
 
-$
+$$
 \begin{aligned}
 \sum_{m=0}^{J-1}
 \widehat E_m e^{ij\xi_m}
@@ -475,20 +475,20 @@ E_\ell
 \sum_{m=0}^{J-1}
 e^{i(j-\ell)\xi_m}.
 \end{aligned}
-$
+$$
 
 内側の和は $j=\ell$ のとき $J$、それ以外で0なので
 
-$
+$$
 E_j
 =
 \sum_{m=0}^{J-1}
 \widehat E_m e^{ij\xi_m}.
-$
+$$
 
 最後にこの展開を用いて
 
-$
+$$
 \begin{aligned}
 \sum_{j=0}^{J-1}|E_j|^2
 &=
@@ -509,7 +509,7 @@ e^{ij(\xi_m-\xi_\ell)}\\
 J\sum_{m=0}^{J-1}
 |\widehat E_m|^2.
 \end{aligned}
-$
+$$
 
 これで二つの式が得られました。
 <!-- proof-end -->
@@ -1987,17 +1987,21 @@ $$
 $$
 
 ここで
-$
+
+$$
 \alpha=\frac{k\pi j}{J},
 \qquad
 \beta=\frac{k\pi}{J}
-$
+$$
+
 と置くと
-$
+
+$$
 \sin(\alpha-\beta)+\sin(\alpha+\beta)
 =
 2\sin\alpha\cos\beta
-$
+$$
+
 なので
 
 $$
@@ -3022,7 +3026,7 @@ $$
 
 恒等式
 
-$
+$$
 \sin(\alpha-\beta)
 +
 \sin(\alpha+\beta)
