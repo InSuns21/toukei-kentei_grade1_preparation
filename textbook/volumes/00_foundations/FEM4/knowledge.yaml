@@ -50,12 +50,12 @@ concepts:
       - numerical.galerkin-orthogonality
       - numerical.global-p1-interpolation-error
 
-  - id: numerical.p1-fem-standard-convergence-rates
-    name: 一次有限要素法の標準 H1・L2 収束次数
+  - id: numerical.p1-fem-standard-error-rates
+    name: 一次有限要素法の標準 H1・L2 誤差評価
     kind: corollary
-    aliases: [standard H1 and L2 convergence rates for conforming linear finite elements]
+    aliases: [standard H1 and L2 error estimates for conforming linear finite elements]
     introduction: formal
-    introduction_aliases: ["系（一次有限要素法の標準 H1・L2 収束次数）"]
+    introduction_aliases: ["系（一次有限要素法の標準 H1・L2 誤差評価）"]
     requires:
       - numerical.p1-fem-h1-error
       - numerical.aubin-nitsche-l2-error
