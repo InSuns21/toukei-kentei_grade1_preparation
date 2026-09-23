@@ -147,7 +147,8 @@ facade は完成済み講座だけをリンクする。未完成章を先行表�
 - [x] MC1「Monte Carlo 法と統計的誤差」を新正本として実装
 - [x] MC2「乱数生成とサンプリング」を新正本として実装
 - [x] MC3「分散減少法」を新正本として実装
-- 次の実装対象：**MC4「Multilevel Monte Carlo」**
+- [x] MC4「Multilevel Monte Carlo」を新正本として実装
+- 次の実装対象：**QMC1「一様分布・discrepancy・Koksma–Hlawka」**
 
 
 ---
@@ -294,7 +295,7 @@ PDE
 - [x] MC1：Monte Carlo 法と統計的誤差
 - [x] MC2：乱数生成とサンプリング
 - [x] MC3：分散減少法
-- [ ] MC4：Multilevel Monte Carlo
+- [x] MC4：Multilevel Monte Carlo
 
 現行 SDE1 / SDE1A / UQ1 は新 Encore V 本線には残さない。将来の「確率数値解析」系列の移植元として archive に保持する。
 
