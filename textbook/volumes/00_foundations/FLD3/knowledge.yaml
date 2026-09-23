@@ -4,8 +4,7 @@ coverage: complete
 prerequisites:
   - FLD2
   - GRP2
-forward_references:
-  - FLD4
+forward_references: []
 
 concepts:
   - id: algebra.field-characteristic
