@@ -64,7 +64,7 @@ concepts:
       - algebra.finite-field
 
   - id: algebra.finite-abelian-maximal-element-order
-    name: 有限 Abel 群の最大位数元
+    name: 有限可換群の最大位数元
     kind: lemma
     aliases: []
     introduction: formal
