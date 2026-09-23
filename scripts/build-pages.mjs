@@ -1,5 +1,6 @@
 import { access, cp, mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import './validate-numerical-lab-runtime.mjs';
 
 const root = process.cwd();
 const outDir = path.join(root, '_site');
