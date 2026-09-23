@@ -371,7 +371,7 @@ $$
 \exp_G(X):=\gamma_X(1)
 $$
 >
-> を $G$ の **Lie 群の指数写像**という。
+> を **Lie 群の指数写像**といい、$\exp_G$ と書く。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lie2-exponential-map -->
@@ -516,7 +516,7 @@ Lie 群の指数写像を後で微分するためには、滑らかさが必要�
 <!-- formal-statement-start -->
 > **定理（Lie 群の指数写像の滑らかさと単位元近傍での局所可逆性）**
 >
-> Lie 群 $G$ のLie 群の指数写像
+> Lie 群 $G$ の指数写像
 >
 $$
 \exp_G:\mathfrak g\to G
@@ -673,7 +673,7 @@ $$
 
 ---
 
-## 6. Lie 群準同型はLie 群の指数写像と可換する
+## 6. Lie 群準同型は Lie 群の指数写像と可換する
 
 <a id="thm-lie2-exponential-naturality"></a>
 <!-- formal-statement-start -->
@@ -1454,7 +1454,7 @@ $$
 d(\operatorname{Ad})_e=\operatorname{ad}.
 $$
 
-従ってLie 群の指数写像の自然性をそのまま使えます。
+従って Lie 群の指数写像の自然性をそのまま使えます。
 
 <a id="cor-lie2-ad-exp"></a>
 <!-- formal-statement-start -->
@@ -2131,12 +2131,12 @@ d\Phi_1(a)=a
 }.
 $$
 
-3. 乗法群のLie 群の指数写像は
+3. 乗法 Lie 群の指数写像は
 $$
 \exp_{\mathbb R_{>0}}a=e^a.
 $$
 
-加法群のLie 群の指数写像は恒等写像なので
+加法 Lie 群の指数写像は恒等写像なので
 $$
 \exp_{\mathbb R}(a)=a.
 $$
@@ -2861,7 +2861,7 @@ $$
     $$
     が現れ、Baker--Campbell--Hausdorff 理論への入口になる。
 
-次章 LIE3 では、このLie 群の指数写像と接 Lie 環を使って Lie 部分群を調べます。特に
+次章 LIE3 では、この Lie 群の指数写像と接 Lie 環を使って Lie 部分群を調べます。特に
 $$
 SL(n),\ O(n),\ SO(n),\ U(n),\ SU(n)
 $$
