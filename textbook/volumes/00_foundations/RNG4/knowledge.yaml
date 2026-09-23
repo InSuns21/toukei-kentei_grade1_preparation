@@ -114,5 +114,5 @@ concepts:
     kind: theorem
     aliases: [Eisenstein criterion]
     introduction: formal
-    requires: [algebra.gauss-lemma-irreducibility, algebra.prime-element, algebra.prime-quotient-domain]
+    requires: [algebra.gauss-lemma-irreducibility, algebra.prime-element, algebra.prime-ideal-quotient-domain]
 
