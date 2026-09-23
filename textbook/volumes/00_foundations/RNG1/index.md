@@ -425,6 +425,26 @@ $$
 > を **環準同型の像**という。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-rng1-ring-kernel-image -->
+**定義の確認**
+
+標準射影
+
+$
+\pi_n:\mathbb Z\to\mathbb Z/n\mathbb Z
+$
+
+では
+
+$
+\ker\pi_n=n\mathbb Z,
+\qquad
+\operatorname{Im}\pi_n=\mathbb Z/n\mathbb Z.
+$
+
+例えば $n=6$ なら、$12$ は $\overline{12}=\overline0$ なので核に入り、$5$ は $\overline5\ne\overline0$ なので核に入りません。
+<!-- definition-example-end -->
+
 ここで $0_S$ は $S$ の加法単位元です。
 
 ---
@@ -977,6 +997,26 @@ $$
 >
 > を **商環の標準射影**という。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-rng1-quotient-projection -->
+**定義の確認**
+
+$R=\mathbb Z$, $I=6\mathbb Z$ なら
+
+$
+\pi(8)
+=
+8+6\mathbb Z
+=
+2+6\mathbb Z.
+$
+
+また $\pi(a)=0+6\mathbb Z$ となるのは $6\mid a$ のときに限るので
+
+$
+\ker\pi=6\mathbb Z.
+$
+<!-- definition-example-end -->
 
 この写像は
 
