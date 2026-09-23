@@ -1,0 +1,118 @@
+chapter: RNG4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RNG3
+forward_references: []
+
+concepts:
+  - id: algebra.polynomial-ring
+    name: 一変数多項式環
+    kind: definition
+    aliases: [polynomial ring]
+    introduction: formal
+    introduction_aliases: ["定義（多項式環・次数・先頭係数）"]
+    requires: [algebra.integral-domain]
+
+  - id: algebra.polynomial-degree
+    name: 多項式の次数
+    kind: definition
+    aliases: [polynomial degree]
+    introduction: formal
+    introduction_aliases: ["定義（多項式環・次数・先頭係数）"]
+    requires: [algebra.polynomial-ring]
+
+  - id: algebra.polynomial-leading-coefficient
+    name: 多項式の先頭係数
+    kind: definition
+    aliases: [leading coefficient]
+    introduction: formal
+    introduction_aliases: ["定義（多項式環・次数・先頭係数）"]
+    requires: [algebra.polynomial-ring]
+
+  - id: algebra.polynomial-degree-product
+    name: 整域上の多項式の積の次数公式
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires: [algebra.polynomial-degree, algebra.integral-domain]
+
+  - id: algebra.polynomial-division-algorithm
+    name: 体上の多項式の除法
+    kind: theorem
+    aliases: [polynomial division algorithm]
+    introduction: formal
+    requires: [algebra.polynomial-ring, algebra.polynomial-degree, algebra.field]
+
+  - id: algebra.polynomial-ring-over-field-euclidean
+    name: 体上の多項式環の Euclid 整域性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires: [algebra.polynomial-division-algorithm, algebra.euclidean-domain]
+
+  - id: algebra.polynomial-content
+    name: 多項式の content
+    kind: definition
+    aliases: [polynomial content]
+    introduction: formal
+    introduction_aliases: ["定義（content・原始多項式）"]
+    requires: [algebra.unique-factorization-domain, algebra.greatest-common-divisor-domain]
+
+  - id: algebra.primitive-polynomial
+    name: 原始多項式
+    kind: definition
+    aliases: [primitive polynomial]
+    introduction: formal
+    introduction_aliases: ["定義（content・原始多項式）"]
+    requires: [algebra.polynomial-content]
+
+  - id: algebra.gauss-lemma-primitive-product
+    name: Gauss の補題（原始多項式の積）
+    kind: theorem
+    aliases: [Gauss lemma]
+    introduction: formal
+    requires: [algebra.primitive-polynomial, algebra.prime-element, algebra.unique-factorization-domain]
+
+  - id: algebra.polynomial-content-multiplicative
+    name: content の乗法性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires: [algebra.polynomial-content, algebra.gauss-lemma-primitive-product]
+
+  - id: algebra.gauss-lemma-irreducibility
+    name: Gauss の補題（既約性の移送）
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires: [algebra.gauss-lemma-primitive-product, algebra.polynomial-content-multiplicative, algebra.irreducible-element]
+
+  - id: algebra.ufd-polynomial-ring
+    name: UFD 上の多項式環の一意分解性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires: [algebra.unique-factorization-domain, algebra.gauss-lemma-irreducibility, algebra.polynomial-ring-over-field-euclidean]
+
+  - id: algebra.degree-two-three-root-criterion
+    name: 2次・3次多項式の根による既約判定
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires: [algebra.polynomial-division-algorithm, algebra.irreducible-element]
+
+  - id: algebra.rational-root-theorem
+    name: 有理根定理
+    kind: theorem
+    aliases: [rational root theorem]
+    introduction: formal
+    requires: [algebra.divisibility, algebra.polynomial-ring]
+
+  - id: algebra.eisenstein-criterion
+    name: Eisenstein の既約判定
+    kind: theorem
+    aliases: [Eisenstein criterion]
+    introduction: formal
+    requires: [algebra.gauss-lemma-irreducibility, algebra.prime-element, algebra.prime-quotient-domain]
+
