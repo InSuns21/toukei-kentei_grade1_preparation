@@ -205,7 +205,7 @@ $$
 
 <a id="def-grp4-p-subgroup-sylow"></a>
 <!-- formal-statement-start -->
-> **定義（$p$-部分群・Sylow $p$-部分群）**
+> **定義（p-部分群・Sylow p-部分群）**
 >
 > $G$ を有限群、$p$ を素数とする。
 >
@@ -433,7 +433,7 @@ $$
 p\nmid [G:C_G(x_i)].
 $$
 
-Lagrange の定理から
+[群論の Lagrange の定理](../GRP2/index.md#thm-grp2-lagrange)から
 
 $$
 |G|
@@ -476,7 +476,7 @@ Sylow の第二・第三定理では、$p$-群の作用を繰り返し使いま�
 
 <a id="prop-grp4-pgroup-fixed-point-congruence"></a>
 <!-- formal-statement-start -->
-> **命題（$p$-群作用の固定点合同式）**
+> **命題（p-群作用の固定点の法 p 数え上げ）**
 >
 > 有限 $p$-群 $Q$ が有限集合 $X$ に作用しているとする。
 >
@@ -502,7 +502,7 @@ $$
 
 $X$ を $Q$-軌道に分割します。
 
-各 $x\in X$ について、軌道・安定化群公式から
+各 $x\in X$ について、[軌道・安定化群公式](../GRP3/index.md#thm-grp3-orbit-stabilizer)から
 
 $$
 |Qx|
@@ -612,7 +612,7 @@ $$
 
 は $p$ で割れません。
 
-$p$-群作用の固定点合同式から
+[p-群作用の固定点の法 $p$ 数え上げ](#prop-grp4-pgroup-fixed-point-congruence)から
 
 $$
 |G/P|
@@ -814,7 +814,7 @@ $$
 
 Sylow $p$-部分群を1つ固定して $P$ とします。
 
-Sylow の第二定理から、全ての Sylow $p$-部分群は $P$ の共役
+[Sylow の第二定理](#thm-grp4-sylow-second)から、全ての Sylow $p$-部分群は $P$ の共役
 
 $$
 gPg^{-1}
@@ -832,7 +832,7 @@ $$
 N_G(P).
 $$
 
-軌道・安定化群公式から
+[軌道・安定化群公式](../GRP3/index.md#thm-grp3-orbit-stabilizer)から
 
 $$
 n_p
@@ -984,7 +984,7 @@ $$
 
 ただ1つです。
 
-$p$-群作用の固定点合同式から
+[p-群作用の固定点の法 $p$ 数え上げ](#prop-grp4-pgroup-fixed-point-congruence)から
 
 $$
 n_p
@@ -1039,7 +1039,7 @@ $$
 
 が全ての $g$ で成り立ちます。
 
-Sylow の第二定理により他の Sylow $p$-部分群は全て $P$ の共役なので、全て $P$ 自身に等しくなります。従って $P$ は唯一です。$\square$
+[Sylow の第二定理](#thm-grp4-sylow-second)により他の Sylow $p$-部分群は全て $P$ の共役なので、全て $P$ 自身に等しくなります。従って $P$ は唯一です。$\square$
 <!-- proof-end -->
 
 したがって
@@ -1108,7 +1108,7 @@ $$
 
 <a id="thm-grp4-order-pq-cyclic"></a>
 <!-- formal-statement-start -->
-> **定理（位数 $pq$ の群が巡回群になる十分条件）**
+> **定理（位数 pq の群が巡回群になる十分条件）**
 >
 > $p<q$ を素数とし
 >
@@ -1602,7 +1602,7 @@ $$
 
 なので位数5の元も存在します。
 
-Sylow $5$-部分群の個数を $n_5$ とすると、Sylow の第三定理から
+Sylow $5$-部分群の個数を $n_5$ とすると、[Sylow の第三定理](#thm-grp4-sylow-third)から
 
 $$
 n_5\mid2
@@ -1646,7 +1646,7 @@ $$
 12=2^2\cdot3.
 $$
 
-Sylow の第三定理から
+[Sylow の第三定理](#thm-grp4-sylow-third)から
 
 $$
 n_2\mid3,
