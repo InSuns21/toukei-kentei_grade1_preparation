@@ -1,0 +1,38 @@
+chapter: "GRP3"
+terms:
+  - term: 群作用
+    english: group action
+    meaning: 群 G の各元を集合 X の自己全単射として整合的に作用させる構造。
+  - term: 忠実な群作用
+    english: faithful group action
+    meaning: 異なる群要素が異なる変換を与える群作用。対応する G→Sym(X) が単射である。
+  - term: 推移的な群作用
+    english: transitive group action
+    meaning: 任意の x,y∈X に対してある g∈G が存在し g·x=y となる群作用。
+  - term: 軌道
+    english: orbit
+    meaning: 一点 x を群の全要素で動かして得られる集合 Gx={g·x:g∈G}。
+  - term: 安定化群
+    english: stabilizer
+    meaning: 点 x を固定する群要素全体 G_x={g∈G:g·x=x}。
+  - term: 軌道・安定化群公式
+    english: orbit-stabilizer theorem
+    meaning: G/G_x と Gx の自然な全単射から、有限群では |G|=|Gx||G_x| を得る定理。
+  - term: 共役作用
+    english: conjugation action
+    meaning: G が自身に g·x=gxg^{-1} で作用する群作用。
+  - term: 共役類
+    english: conjugacy class
+    meaning: 共役作用における x の軌道 {gxg^{-1}:g∈G}。
+  - term: 群の中心
+    english: center of a group
+    meaning: 全ての群要素と可換する元全体 Z(G)。
+  - term: 元の中心化群
+    english: centralizer of an element
+    meaning: x と可換する群要素全体 C_G(x)。
+  - term: 類等式
+    english: class equation
+    meaning: 有限群を中心と非中心共役類へ分割し |G|=|Z(G)|+Σ[G:C_G(x_i)] と数える等式。
+  - term: 有限 p-群
+    english: finite p-group
+    meaning: ある素数 p と整数 n≥1 に対して位数が p^n である有限群。
