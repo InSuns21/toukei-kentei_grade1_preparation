@@ -1,0 +1,48 @@
+id: "FEM2"
+title: "有限要素法 II：有限要素・三角形分割・基底"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FEM1
+official_scope: []
+learning_objectives:
+  - 多角形領域の適合三角形分割を定義し、隣接要素が頂点または辺を共有するという適合性を具体例で判定できる
+  - 有限要素を要素 K・有限次元関数空間 P・自由度集合 N の組として定義し、一次三角形要素で頂点値自由度の一意可解性を証明できる
+  - 三角形の重心座標を構成し、一次三角形要素の局所節点基底として使える
+  - 基準三角形から一般三角形へのアフィン写像を構成し、関数・勾配・積分の変換公式を導ける
+  - 連続区分一次関数空間 S_h が H^1 に含まれることを辺上の相殺から証明し、境界節点を 0 にすることで H_0^1 の適合有限要素空間を構成できる
+  - 大域節点基底を局所重心座標から貼り合わせ、その局所台と一次独立性・生成性を説明できる
+  - Poisson 問題の局所剛性行列と局所荷重ベクトルを基準要素上の量から計算できる
+  - 局所行列を大域行列へ組み立て、基底の局所台から剛性行列の疎性を説明できる
+definitions:
+  - { id: FEM2-DEF-01, name: 適合三角形分割 }
+  - { id: FEM2-DEF-02, name: 有限要素 }
+  - { id: FEM2-DEF-03, name: 重心座標と局所節点基底 }
+  - { id: FEM2-DEF-04, name: 基準三角形とアフィン要素写像 }
+  - { id: FEM2-DEF-05, name: 連続一次有限要素空間 }
+theorems:
+  - { id: FEM2-THM-01, name: 一次三角形要素の頂点値自由度の一意可解性 }
+  - { id: FEM2-PROP-01, name: アフィン要素写像による勾配と積分の変換 }
+  - { id: FEM2-THM-02, name: 連続区分一次関数の H^1 適合性 }
+  - { id: FEM2-THM-03, name: 大域節点基底 }
+  - { id: FEM2-PROP-02, name: Poisson 剛性行列の局所組立てと疎性 }
+canonical_examples:
+  - 単位正方形を対角線で二つの三角形へ分ける適合三角形分割
+  - 基準三角形上の重心座標 1-xi-eta, xi, eta
+  - 一般三角形へのアフィン写像と勾配変換
+  - 正方形二三角形メッシュの大域帽子関数
+  - 二三角形メッシュの局所剛性行列から大域剛性行列への組立て
+  - 中心一点を持つ四三角形メッシュでの零 Dirichlet Poisson 離散化
+problem_patterns:
+  - FEM2-BARYCENTRIC-1
+  - FEM2-AFFINE-MAP-1
+  - FEM2-LOCAL-STIFFNESS-1
+  - FEM2-GLOBAL-HAT-1
+  - FEM2-H1-CONFORMITY-1
+  - FEM2-ASSEMBLY-1
+  - FEM2-SCALING-1
+  - FEM2-POISSON-SYNTHESIS-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 0.5 }
