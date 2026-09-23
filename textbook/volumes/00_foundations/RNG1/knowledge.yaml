@@ -7,9 +7,9 @@ forward_references: []
 
 concepts:
   - id: algebra.ring
-    name: 環
+    name: 代数学の環
     kind: definition
-    aliases: [ring]
+    aliases: ["ring (algebra)"]
     introduction: formal
     introduction_aliases: ["定義（環・可換環・単位元を持つ環）"]
     requires:
@@ -73,7 +73,7 @@ concepts:
   - id: algebra.field
     name: 代数学の体
     kind: definition
-    aliases: [field]
+    aliases: ["field (algebra)"]
     introduction: formal
     introduction_aliases: ["定義（零因子・整域・体）"]
     requires:
@@ -119,7 +119,7 @@ concepts:
   - id: algebra.ring-ideal
     name: イデアル
     kind: definition
-    aliases: [ideal, two-sided ideal]
+    aliases: ["ideal of a ring", two-sided ideal]
     introduction: formal
     requires:
       - algebra.ring
