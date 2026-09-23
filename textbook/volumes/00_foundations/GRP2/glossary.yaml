@@ -41,7 +41,7 @@ terms:
     meaning: H≤G、N◁G に対して H/(H∩N) と HN/N が自然に同型になること。
   - term: 第三同型定理
     english: third isomorphism theorem
-    meaning: N◁H◁G に対し H/N◁G/N かつ (G/N)/(H/N)≅G/H となること。
+    meaning: N,H◁G かつ N⊂H のとき H/N◁G/N かつ (G/N)/(H/N)≅G/H となること。
   - term: 対応定理
     english: correspondence theorem
     meaning: N◁G を含む G の部分群と G/N の部分群が標準射影で包含を保って一対一に対応すること。
