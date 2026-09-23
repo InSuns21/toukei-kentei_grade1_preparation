@@ -1,0 +1,60 @@
+id: "GRP1"
+title: "抽象代数 I：群・部分群・巡回群・置換群"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00A
+official_scope: []
+learning_objectives:
+  - 群・可換群を定義し、単位元・逆元の一意性、消去法則、積の逆元公式を群公理だけから証明できる
+  - 部分群を定義し、空でない部分集合に対する部分群判定を使って具体例を判定できる
+  - 生成部分群と元の位数を定義し、巡回群を具体的な冪または整数倍として計算できる
+  - 巡回群の任意の部分群が巡回群であることを証明し、有限巡回群の部分群を約数で分類できる
+  - 群の直積を定義し、成分ごとの演算が群公理を満たすことを確認できる
+  - 対称群を全単射の合成として扱い、有限置換を互いに素な巡回置換へ分解できる
+  - inversion によって置換の偶奇を定義し、交代群が対称群の部分群であることを証明できる
+  - 正多角形の回転・反転から二面体群を構成し、r^n=e, s^2=e, srs=r^{-1} から全要素を標準形へ直せる
+  - 左移動によって任意の群を置換群の部分群として忠実に実現する Cayley の定理を証明できる
+definitions:
+  - { id: GRP1-DEF-01, name: 群・可換群 }
+  - { id: GRP1-DEF-02, name: 部分群 }
+  - { id: GRP1-DEF-03, name: 生成部分群 }
+  - { id: GRP1-DEF-04, name: 元の位数 }
+  - { id: GRP1-DEF-05, name: 巡回群 }
+  - { id: GRP1-DEF-06, name: 群の直積 }
+  - { id: GRP1-DEF-07, name: 対称群・置換 }
+  - { id: GRP1-DEF-08, name: 巡回置換・互いに素な巡回置換 }
+  - { id: GRP1-DEF-09, name: 置換の偶奇・交代群 }
+  - { id: GRP1-DEF-10, name: 二面体群 }
+theorems:
+  - { id: GRP1-PROP-01, name: 単位元・逆元の一意性と消去法則 }
+  - { id: GRP1-THM-01, name: 部分群判定 }
+  - { id: GRP1-PROP-02, name: 巡回部分群の基本性質 }
+  - { id: GRP1-THM-02, name: 巡回群の部分群構造 }
+  - { id: GRP1-PROP-03, name: 直積群 }
+  - { id: GRP1-THM-03, name: 有限置換の互いに素な巡回置換への分解 }
+  - { id: GRP1-THM-04, name: 置換の偶奇の一意性 }
+  - { id: GRP1-PROP-04, name: 二面体群の標準形 }
+  - { id: GRP1-THM-05, name: Cayley の定理 }
+canonical_examples:
+  - 整数の加法群
+  - 法 n の整数の加法群
+  - 偶数全体 2Z の部分群
+  - 12元巡回群の部分群
+  - S3 の巡回置換と互いに素な巡回置換
+  - A3 と S3 の偶奇
+  - 正方形の対称性 D4
+  - 左正則置換による C3 と D3 の実現
+problem_patterns:
+  - GRP1-GROUP-AXIOMS-1
+  - GRP1-SUBGROUP-TEST-1
+  - GRP1-CYCLIC-ORDER-1
+  - GRP1-PERMUTATION-PARITY-1
+  - GRP1-GENERATED-SUBGROUP-1
+  - GRP1-CYCLIC-SUBGROUP-CLASSIFICATION-1
+  - GRP1-DIHEDRAL-NORMAL-FORM-1
+  - GRP1-CAYLEY-REGULAR-ACTION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.0, review: 0.5 }
