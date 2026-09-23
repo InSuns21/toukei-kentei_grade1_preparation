@@ -1586,7 +1586,7 @@ $$
 
 ### 証明の見取り図
 
-QMC4 の判定定理では、すべての
+QMC4 の [生成行列の一次独立性による $(t,m,s)$-ネット判定](../QMC4/index.md#thm-qmc4-digital-net-rank-criterion)では、すべての
 
 $$
 d_1+\cdots+d_s=m-t
@@ -1723,7 +1723,7 @@ $$
 
 を仮定します。
 
-もし $P$ が $(t,m,s)$-ネットでなければ、QMC4 の判定定理より、ある非負整数
+もし $P$ が $(t,m,s)$-ネットでなければ、QMC4 の [生成行列の一次独立性による $(t,m,s)$-ネット判定](../QMC4/index.md#thm-qmc4-digital-net-rank-criterion)より、ある非負整数
 
 $$
 d_1,\ldots,d_s,
