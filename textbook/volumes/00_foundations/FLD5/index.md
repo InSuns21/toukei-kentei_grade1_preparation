@@ -69,9 +69,9 @@ $$
 >
 > 実数 $\alpha$ について、点
 >
-> $$
-> (\alpha,0)
-> $$
+$$
+(\alpha,0)
+$$
 >
 > が作図可能であるとき、$\alpha$ を **作図可能数**という。
 <!-- formal-statement-end -->
@@ -211,18 +211,18 @@ $$
 > 1. $\alpha$ は作図可能数である。
 > 2. ある実二次拡大列
 >
-> $$
-> \mathbb Q=K_0
-> \subset K_1
-> \subset\cdots\subset K_r
-> \subset\mathbb R
-> $$
+$$
+\mathbb Q=K_0
+\subset K_1
+\subset\cdots\subset K_r
+\subset\mathbb R
+$$
 >
 > が存在して
 >
-> $$
-> \alpha\in K_r
-> $$
+$$
+\alpha\in K_r
+$$
 >
 > となる。
 <!-- formal-statement-end -->
@@ -423,9 +423,9 @@ $$
 >
 > このとき
 >
-> $$
-> [\mathbb Q(\alpha):\mathbb Q]
-> $$
+$$
+[\mathbb Q(\alpha):\mathbb Q]
+$$
 >
 > は $2$ の冪である。
 <!-- formal-statement-end -->
@@ -791,46 +791,46 @@ $$
 >
 > 群 $G$ の元 $g,h\in G$ に対し
 >
-> $$
-> [g,h]
-> =
-> ghg^{-1}h^{-1}
-> $$
+$$
+[g,h]
+=
+ghg^{-1}h^{-1}
+$$
 >
 > を **交換子**という。
 >
 > 全ての交換子で生成される部分群を
 >
-> $$
-> [G,G]
-> $$
+$$
+[G,G]
+$$
 >
 > と書き、**交換子部分群**という。
 >
 > $G^{(0)}=G$ とし、
 >
-> $$
-> G^{(i+1)}
-> =
-> [G^{(i)},G^{(i)}]
-> $$
+$$
+G^{(i+1)}
+=
+[G^{(i)},G^{(i)}]
+$$
 >
 > と再帰的に定めた列
 >
-> $$
-> G=G^{(0)}
-> \supset G^{(1)}
-> \supset G^{(2)}
-> \supset\cdots
-> $$
+$$
+G=G^{(0)}
+\supset G^{(1)}
+\supset G^{(2)}
+\supset\cdots
+$$
 >
 > を **導来列**という。
 >
 > ある $r$ で
 >
-> $$
-> G^{(r)}=\{e\}
-> $$
+$$
+G^{(r)}=\{e\}
+$$
 >
 > となるとき、$G$ を **可解群**という。
 <!-- formal-statement-end -->
@@ -908,9 +908,9 @@ $$
 > 2. 商群 $G/[G,G]$ は可換群である。
 > 3. $N\trianglelefteq G$ に対して $G/N$ が可換なら
 >
-> $$
-> [G,G]\subset N
-> $$
+$$
+[G,G]\subset N
+$$
 >
 > である。
 <!-- formal-statement-end -->
@@ -994,23 +994,23 @@ $$
 >
 > 群 $G$ が可解であるための必要十分条件は、ある有限列
 >
-> $$
-> G=G_0
-> \trianglerighteq
-> G_1
-> \trianglerighteq
-> \cdots
-> \trianglerighteq
-> G_r=\{e\}
-> $$
+$$
+G=G_0
+\trianglerighteq
+G_1
+\trianglerighteq
+\cdots
+\trianglerighteq
+G_r=\{e\}
+$$
 >
 > が存在し、各 $i$ で
 >
-> $$
-> G_{i+1}\trianglelefteq G_i,
-> \qquad
-> G_i/G_{i+1}\text{ が可換}
-> $$
+$$
+G_{i+1}\trianglelefteq G_i,
+\qquad
+G_i/G_{i+1}\text{ が可換}
+$$
 >
 > となることである。
 <!-- formal-statement-end -->
@@ -1223,27 +1223,27 @@ $$
 >
 > 体 $F$ の有限拡大 $R/F$ が、体の塔
 >
-> $$
-> F=K_0
-> \subset K_1
-> \subset\cdots\subset K_r=R
-> $$
+$$
+F=K_0
+\subset K_1
+\subset\cdots\subset K_r=R
+$$
 >
 > を持ち、各 $i$ についてある
 >
-> $$
-> \alpha_i\in K_i,
-> \qquad
-> n_i\ge2
-> $$
+$$
+\alpha_i\in K_i,
+\qquad
+n_i\ge2
+$$
 >
 > が存在して
 >
-> $$
-> K_i=K_{i-1}(\alpha_i),
-> \qquad
-> \alpha_i^{n_i}\in K_{i-1}
-> $$
+$$
+K_i=K_{i-1}(\alpha_i),
+\qquad
+\alpha_i^{n_i}\in K_{i-1}
+$$
 >
 > となるとき、$R/F$ を **根号拡大**という。
 >
@@ -1344,23 +1344,23 @@ $$
 >
 > $\alpha$ が
 >
-> $$
-> \alpha^n=a\in K
-> $$
+$$
+\alpha^n=a\in K
+$$
 >
 > を満たし、
 >
-> $$
-> E=K(\alpha)
-> $$
+$$
+E=K(\alpha)
+$$
 >
 > とする。
 >
 > このとき $E/K$ は有限 Galois 拡大であり、
 >
-> $$
-> \operatorname{Gal}(E/K)
-> $$
+$$
+\operatorname{Gal}(E/K)
+$$
 >
 > は可換群である。
 <!-- formal-statement-end -->
@@ -1535,11 +1535,11 @@ $$
 >
 > 標数 $0$ の体 $F$ 上に有限塔
 >
-> $$
-> F=E_0
-> \subset E_1
-> \subset\cdots\subset E_r
-> $$
+$$
+F=E_0
+\subset E_1
+\subset\cdots\subset E_r
+$$
 >
 > があり、各 $E_i/E_{i-1}$ が有限 Galois 拡大で、その Galois 群が可換だとする。
 >
@@ -1547,9 +1547,9 @@ $$
 >
 > このとき
 >
-> $$
-> \operatorname{Gal}(N/F)
-> $$
+$$
+\operatorname{Gal}(N/F)
+$$
 >
 > は可解群である。
 <!-- formal-statement-end -->
@@ -1662,19 +1662,19 @@ $$
 >
 > $K$ が $1$ の原始 $p$ 乗根 $\zeta_p$ を含み、
 >
-> $$
-> E/K
-> $$
+$$
+E/K
+$$
 >
 > が次数 $p$ の巡回 Galois 拡大だとする。
 >
 > このとき、ある $\beta\in E$ が存在して
 >
-> $$
-> E=K(\beta),
-> \qquad
-> \beta^p\in K.
-> $$
+$$
+E=K(\beta),
+\qquad
+\beta^p\in K.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1877,17 +1877,17 @@ $$
 >
 > $F$ を標数 $0$ の体とし、
 >
-> $$
-> f\in F[x]
-> $$
+$$
+f\in F[x]
+$$
 >
 > を非定数多項式とする。
 >
 > $L/F$ を $f$ の分解体とし、
 >
-> $$
-> G=\operatorname{Gal}(L/F)
-> $$
+$$
+G=\operatorname{Gal}(L/F)
+$$
 >
 > とする。
 >
@@ -2308,11 +2308,11 @@ $$
 >
 > 非自明な群 $G$ が
 >
-> $$
-> \{e\},
-> \qquad
-> G
-> $$
+$$
+\{e\},
+\qquad
+G
+$$
 >
 > 以外の正規部分群を持たないとき、$G$ を **単純群**という。
 <!-- formal-statement-end -->
@@ -2579,19 +2579,19 @@ $$
 <!-- formal-statement-start -->
 > **定理（x^5-4x+2 の Galois 群は S5）**
 >
-> $$
-> f(x)=x^5-4x+2\in\mathbb Q[x]
-> $$
+$$
+f(x)=x^5-4x+2\in\mathbb Q[x]
+$$
 >
 > とし、$L/\mathbb Q$ を $f$ の分解体とする。
 >
 > このとき
 >
-> $$
-> \operatorname{Gal}(L/\mathbb Q)
-> \cong
-> S_5.
-> $$
+$$
+\operatorname{Gal}(L/\mathbb Q)
+\cong
+S_5.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -2881,9 +2881,9 @@ $\square$
 >
 > 多項式
 >
-> $$
-> x^5-4x+2
-> $$
+$$
+x^5-4x+2
+$$
 >
 > は $\mathbb Q$ 上根号によって可解ではない。
 >
