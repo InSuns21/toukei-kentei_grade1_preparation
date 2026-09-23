@@ -71,7 +71,7 @@ $$
 
 > **この章の停止線**
 >
-> 積を保つ写像の一般論、核・像、剰余類、[Lagrange の定理](../GRP2/index.md#thm-grp2-lagrange)、商構造、同型定理は GRP2 で扱います。本章では左移動が積を保存する単射になるところまでを直接確かめ、一般理論へは進みません。
+> 積を保つ写像の一般論、核・像、剰余類、[群論の Lagrange の定理](../GRP2/index.md#thm-grp2-lagrange)、商構造、同型定理は GRP2 で扱います。本章では左移動が積を保存する単射になるところまでを直接確かめ、一般理論へは進みません。
 
 <!-- definition-example-start: def-grp1-group -->
 **定義の確認**
@@ -680,7 +680,7 @@ $$
 $\square$
 <!-- proof-end -->
 
-この定理は [Lagrange の定理](../GRP2/index.md#thm-grp2-lagrange)を使っていません。GRP2 で [Lagrange の定理](../GRP2/index.md#thm-grp2-lagrange)を証明すると、「有限群の部分群の大きさは群の大きさを割る」という一般原理へ拡張されます。
+この定理は [群論の Lagrange の定理](../GRP2/index.md#thm-grp2-lagrange)を使っていません。GRP2 で [群論の Lagrange の定理](../GRP2/index.md#thm-grp2-lagrange)を証明すると、「有限群の部分群の大きさは群の大きさを割る」という一般原理へ拡張されます。
 
 ---
 
@@ -2383,4 +2383,4 @@ $$
    を満たし、全要素は $r^k$ または $sr^k$ に一意に直せる。
 10. [Cayley の定理](#thm-grp1-cayley)により、任意の群は左移動を通して置換群の部分群として忠実に実現できる。
 
-次の GRP2 では、積を保つ写像の一般理論へ進みます。その後、核・像、左右剰余類、[Lagrange の定理](../GRP2/index.md#thm-grp2-lagrange)、共役で保たれる部分群、剰余類に演算を入れる商構造、同型定理へ進みます。
+次の GRP2 では、積を保つ写像の一般理論へ進みます。その後、核・像、剰余類による群の分割、[群論の Lagrange の定理](../GRP2/index.md#thm-grp2-lagrange)、共役で保たれる部分群、剰余類に演算を入れる商構造、同型定理へ進みます。
