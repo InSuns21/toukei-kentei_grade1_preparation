@@ -897,6 +897,24 @@ direct prerequisite は GEO14、GEO16 です。GEO14 の測地線・指数写像
 
 direct prerequisite は GEO15、GEO17 です。GEO17 の Jacobi 場・指数形式を比較の解析装置として使い、GEO15 の完備性・Hopf--Rinow を直径・被覆の大域化に使います。次の GEO19 では二次元へ戻り、Gauss 曲率の積分と Euler 標数を Gauss--Bonnet の定理で結びます。
 
+
+## GEO19 Gauss--Bonnet と二次元大域幾何 \`advanced-standard\`
+
+- 向き付けられた Riemann 曲面上で測地曲率を Levi-Civita 接続から定義し、境界向きとの符号を固定
+- 局所正規直交標構の接続1形式を導入し、標構回転で $\widetilde\omega=\omega-d\varphi$ と変換することを証明
+- GEO16 の曲率符号規約から二次元の構造方程式 $d\omega=K\,dA$ を直接導出
+- 境界接ベクトルの角度表示から $k_g\,ds=d\theta-\omega$ を証明
+- 一般 Stokes と回転数を組み合わせ、外角項を含む局所 Gauss--Bonnet を証明
+- Euler 標数 $\chi=V-E+F$ を導入し、細分不変性を確認
+- 三角形分割で内部辺の測地曲率を相殺し、閉曲面の $\int_M K\,dA=2\pi\chi(M)$ を核心まで証明
+- 境界頂点・境界辺を数え分け、測地曲率と外角を含む境界付き Gauss--Bonnet を証明
+- 球面過剰、球面の全曲率 $4\pi$、標準トーラスの全曲率0、種数 $g$ の全曲率 $4\pi(1-g)$ を計算
+- A4/B3/C1 の演習で境界向き・標構変換・球面三角形・トーラス・大域相殺を再構成
+
+実装: [GEO19](volumes/00_foundations/GEO19/index.md)
+
+direct prerequisite は GEO8、GEO11、GEO16 です。GEO8 の向き・境界向き・一般 Stokes、GEO11 で確認した Gauss 曲率の内在性、GEO16 の Levi-Civita 曲率・二次元断面曲率を統合します。GEO19 をもって GEO1--GEO19 の多様体・微分幾何主線は完結し、独立な後続系列として LIE1--LIE4 へ分岐します。
+
 ---
 
 # 6. 測度論：標準教科書の第2段階
