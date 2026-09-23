@@ -74,7 +74,7 @@ Monte Carlo 法と準 Monte Carlo 法では、同じ積分問題に対して
 | [NA11](../NA11/index.md) | Perron–Frobenius 理論と PageRank |
 | [NA12](../NA12/index.md) | 無制約最適化と共役勾配法 |
 
-**実装済み：NA1、NA2、NA3、NA4、NA5、NA6、NA7、NA8、NA9、NA10、NA11、NA12、FDM1、FDM2、FDM3、FDM4、FEM1、FEM2、FEM3、FEM4、FEM5、FEM6、FEM7、MC1、MC2、MC3、MC4。次の実装対象：QMC1。**
+**実装済み：NA1、NA2、NA3、NA4、NA5、NA6、NA7、NA8、NA9、NA10、NA11、NA12、FDM1、FDM2、FDM3、FDM4、FEM1、FEM2、FEM3、FEM4、FEM5、FEM6、FEM7、MC1、MC2、MC3、MC4、QMC1。次の実装対象：QMC2。**
 
 数値解析では、単にアルゴリズムを列挙するのではなく、
 
