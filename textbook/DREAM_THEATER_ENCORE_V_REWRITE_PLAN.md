@@ -150,7 +150,8 @@ facade は完成済み講座だけをリンクする。未完成章を先行表�
 - [x] MC4「Multilevel Monte Carlo」を新正本として実装
 - [x] QMC1「一様分布・ディスクレパンシー・Koksma–Hlawka」を新正本として実装
 - [x] QMC2「RKHS・最悪誤差・重み付き空間」を新正本として実装
-- 次の実装対象：**QMC3「格子則」**
+- [x] QMC3「格子則」を新正本として実装
+- 次の実装対象：**QMC4「(t,m,s)-net・(t,s)-sequence」**
 
 
 ---
@@ -354,7 +355,8 @@ QMC2 は既存 F0-02C7 の RKHS / 再生核を再定義しない。stable anchor
 
 - [x] QMC1：一様分布・ディスクレパンシー・Koksma--Hlawka
 - [x] QMC2：RKHS・最悪誤差・重み付き空間
-- 次の実装対象：**QMC3「格子則」**
+- [x] QMC3：格子則
+- 次の実装対象：**QMC4「(t,m,s)-net・(t,s)-sequence」**
 
 ---
 
