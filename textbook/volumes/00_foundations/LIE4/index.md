@@ -179,7 +179,7 @@ $$
 
 ---
 
-## 3. 群の接ベクトルは多様体上のベクトル場になる
+## 3. 群の接ベクトルを多様体上の滑らかな運動方向へ移す
 
 $X\in\mathfrak g=T_eG$ を取ります。[LIE2 の Lie 群の指数写像](../LIE2/index.md#def-lie2-exponential-map)により
 
@@ -222,7 +222,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lie4-fundamental-vector-field -->
-**定義の確認：平面回転の基本ベクトル場**
+**定義の確認：$SO(2)$ の基本ベクトル場**
 
 §1 の $SO(2)$ 作用を考えます。[LIE3 の $\mathfrak{so}(2)$](../LIE3/index.md#thm-lie3-orthogonal)の生成元
 
@@ -599,7 +599,7 @@ $$
 \mathfrak g=\mathfrak m\oplus\mathfrak h
 $$
 
-とします。指数写像を使って
+とします。Lie 群の指数写像を使って
 
 $$
 F(X,Y)=\exp(X)\exp(Y)
@@ -636,7 +636,7 @@ $$
 
 を考えます。
 
-[LIE2 の指数写像の微分](../LIE2/index.md#thm-lie2-exponential-basic)から $d\exp_0=\operatorname{id}_{\mathfrak g}$ です。積写像の単位元での微分は和なので
+[LIE2 の Lie 群の指数写像の微分](../LIE2/index.md#thm-lie2-exponential-basic)から $d\exp_0=\operatorname{id}_{\mathfrak g}$ です。積写像の単位元での微分は和なので
 
 $$
 dF_{(0,0)}(X,Y)=X+Y.
@@ -653,7 +653,7 @@ $$
 
 は $e$ のある開近傍 $W\subset G$ への微分同相写像になります。
 
-[LIE3 の部分群と指数写像の整合性](../LIE3/index.md#thm-lie3-subgroup-exponential)により
+[LIE3 の部分群における Lie 群の指数写像の制限則](../LIE3/index.md#thm-lie3-subgroup-exponential)により
 
 $$
 \exp(U_{\mathfrak h})\subset H.
@@ -665,7 +665,7 @@ $$
 h=\exp(X)\exp(Y)
 $$
 
-と一意に書くと、$\exp(Y)\in H$ なので $\exp(X)\in H$ です。指数写像は0の近くで局所微分同相であり、$H$ 上の指数写像はその制限なので、十分小さい範囲では $\exp(X)\in H$ なら $X\in\mathfrak h$ です。一方 $X\in\mathfrak m$ なので
+と一意に書くと、$\exp(Y)\in H$ なので $\exp(X)\in H$ です。Lie 群の指数写像は0の近くで局所微分同相であり、$H$ 上の Lie 群の指数写像はその制限なので、十分小さい範囲では $\exp(X)\in H$ なら $X\in\mathfrak h$ です。一方 $X\in\mathfrak m$ なので
 
 $$
 X\in\mathfrak m\cap\mathfrak h=\{0\}.
@@ -681,7 +681,7 @@ $$
 
 と置きます。必要ならさらに $U_{\mathfrak m}$ を縮めて $S^{-1}S\subset W$ とします。
 
-商写像 $q:G\to G/H$ は開写像です。実際、$O\subset G$ が開なら
+商写像 $q:G\to G/H$ は開集合を開集合へ送ります。実際、$O\subset G$ が開なら
 
 $$
 q^{-1}(q(O))
@@ -921,7 +921,7 @@ $$
 
 とします。はめ込みなので $r\le m$ です。
 
-$r<m$ と仮定して矛盾を導きます。[GEO3 のはめ込みの局所標準形](../GEO3/index.md#cor-geo3-immersion-normal-form)により、$G/G_x$ の各点 $z$ には相対コンパクトな座標近傍 $U_z$ を十分小さく取れて、$\overline{U_z}$ の像全体がある $M$ の座標近傍に入り、その座標では
+$r<m$ と仮定して矛盾を導きます。[GEO3 のはめ込みの局所標準形](../GEO3/index.md#cor-geo3-immersion-normal-form)により、$G/G_x$ の各点 $z$ には閉包がコンパクトになる座標近傍 $U_z$ を十分小さく取れて、$\overline{U_z}$ の像全体がある $M$ の座標近傍に入り、その座標では
 
 $$
 \overline{\Phi}_x(\overline{U_z})
@@ -2112,9 +2112,9 @@ $$
 d\theta+\theta\wedge\theta=0.
 $$
 
-行列交換子 Lie 環では
+$GL(n,\mathbb R)$ の Lie 環では $[A,B]=AB-BA$ なので
 
-$$
+$
 \frac12[\theta\wedge\theta]
 =
 \theta\wedge\theta
