@@ -109,21 +109,19 @@ toukei-grade1-numerical-runtime-v1
 後続章では、実行したいコードを通常の `python` fence ではなく、次の専用 fence に置きます。
 
 ~~~text
-```python-lab
+language: python-lab
 # lab-id: NUMLAB1-EXAMPLE
 # lab-title: 表示名
 # timeout-ms: 5000
 
 ...
-```
 ~~~
 
 その直後に、
 
 ~~~text
-```python-test
+language: python-test
 assert ...
-```
 ~~~
 
 を置くと、そのテストは読者画面では隠され、ユーザーコード実行後に同じ Python 名前空間 で評価されます。
