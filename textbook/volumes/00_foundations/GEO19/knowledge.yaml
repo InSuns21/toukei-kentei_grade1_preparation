@@ -82,6 +82,7 @@ concepts:
     kind: theorem
     aliases: [Gauss--Bonnet の定理, Gauss--Bonnet theorem]
     introduction: formal
+    introduction_aliases: ["定理（Gauss--Bonnet の定理：閉曲面）"]
     requires:
       - geometry.local-gauss-bonnet-theorem
       - topology.euler-characteristic
