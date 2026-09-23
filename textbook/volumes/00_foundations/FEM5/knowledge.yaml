@@ -17,11 +17,11 @@ concepts:
       - variational.bounded-bilinear-form
 
   - id: numerical.constraint-kernel
-    name: 制約 kernel
+    name: 制約核
     kind: definition
     aliases: [constraint kernel of a mixed variational problem]
     introduction: formal
-    introduction_aliases: ["定義（制約 kernel と inf-sup 条件）"]
+    introduction_aliases: ["定義（制約核と inf-sup 条件）"]
     requires:
       - numerical.saddle-point-variational-problem
 
@@ -30,16 +30,16 @@ concepts:
     kind: definition
     aliases: [Babuška--Brezzi condition, Ladyzhenskaya--Babuška--Brezzi condition]
     introduction: formal
-    introduction_aliases: ["定義（制約 kernel と inf-sup 条件）"]
+    introduction_aliases: ["定義（制約核と inf-sup 条件）"]
     requires:
       - numerical.saddle-point-variational-problem
 
   - id: numerical.infsup-bounded-lifting
-    name: inf-sup 条件による bounded lifting
+    name: inf-sup 条件による有界な持ち上げ
     kind: lemma
     aliases: [bounded lifting induced by the inf-sup condition]
     introduction: formal
-    introduction_aliases: ["補題（inf-sup 条件による bounded lifting）"]
+    introduction_aliases: ["補題（inf-sup 条件による有界な持ち上げ）"]
     requires:
       - numerical.inf-sup-condition
       - functional-analysis.lax-milgram
