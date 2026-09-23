@@ -76,7 +76,7 @@ LA3A 代数的双対 ─┐
 LA3D 抽象行列式 ─┘
 ```
 
-現在実装済みの幾何学主線は GEO1--GEO17 である。
+現在実装済みの幾何学主線は GEO1--GEO19 であり、この系列は完結している。
 
 ```text
 TOP4 Hausdorff・第二可算 ─┐
@@ -123,6 +123,14 @@ GEO13 Levi-Civita 接続 ───────┐
                               ├→ GEO16 Riemann 曲率 ───────────┐
 GEO11 Gauss--Codazzi ─────────┘                              ├→ GEO17 変分公式・Jacobi 場・共役点
 GEO14 測地線・指数写像・正規座標 ─────────────────────────────┘
+
+GEO15 完備性・Hopf--Rinow ───────────┐
+                                     ├→ GEO18 比較幾何入門
+GEO17 変分公式・Jacobi 場・共役点 ───┘
+
+GEO8 向き・積分・一般 Stokes ────────┐
+GEO11 Gauss--Codazzi・曲率内在性 ────┼→ GEO19 Gauss--Bonnet と二次元大域幾何
+GEO16 Riemann 曲率・二次元断面曲率 ──┘
 ```
 
 GEO2 は接空間・余接空間・写像の微分を canonical に担当する。GEO3 は定数階数定理・はめ込み・沈め込み・正則値・埋め込み部分多様体、GEO4 は局所有限細分・滑らかな局所化関数・1 の分割とコンパクト多様体の有限次元 Euclid 埋め込みを担当する。
@@ -153,7 +161,7 @@ GEO17 は GEO14・GEO16 を直接 prerequisite とする。GEO14 の測地線・
 
 GEO18 は GEO15・GEO17 を直接 prerequisite とする。GEO17 の Jacobi 場・指数形式を定曲率模型と比較し、断面曲率上界から Rauch の比較定理と共役点時刻の下界を導く。正の Ricci 曲率下界から Bonnet--Myers の直径上界・コンパクト性を証明し、非正断面曲率では指数写像の微分が長さを縮めないことを示す。GEO15 の完備性・Hopf--Rinow と組み合わせ、指数写像が被覆写像になる機構を閉じ、単連結なら Cartan--Hadamard により大域微分同相 $T_pM\cong\mathbb R^n\to M$ を得る。
 
-GEO19 以降は未実装なので reader-facing DAG へ先行登録しない。
+GEO19 は GEO8・GEO11・GEO16 を直接 prerequisite とする。GEO8 の向き・境界向き・一般 Stokes、GEO11 で得た Gauss 曲率の内在性、GEO16 の Riemann 曲率と二次元断面曲率を統合し、局所正規直交標構の接続1形式から $d\omega=K\,dA$ を導く。境界接ベクトルの回転と Stokes から局所 Gauss--Bonnet を証明し、有限三角形分割で内部辺を相殺して閉曲面および境界付き曲面の Gauss--Bonnet を閉じる。Euler 標数、球面過剰、球面・トーラス・高種数曲面の全 Gauss 曲率と曲率符号による位相制約までを扱う。GEO1--GEO19 の多様体・微分幾何主線はここで完結する。
 
 ---
 

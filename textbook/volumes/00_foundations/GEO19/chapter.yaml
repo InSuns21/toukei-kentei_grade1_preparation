@@ -1,0 +1,53 @@
+id: "GEO19"
+title: "幾何学 XIX：Gauss--Bonnet と二次元大域幾何"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEO8
+  - GEO11
+  - GEO16
+official_scope: []
+learning_objectives:
+  - 向き付けられた Riemann 曲面上の測地曲率を Levi-Civita 接続から定義し、境界向きとの符号を具体例で判定できる
+  - 局所正規直交標構に対する接続1形式を定義し、標構回転による変換則 omega_tilde=omega-dphi を導ける
+  - 曲率の構造方程式 d omega=K dA を GEO16 の曲率符号規約から導き、局所標構に依存しないことを説明できる
+  - 境界接ベクトルの角度表示から k_g ds=dtheta-omega を導き、角を持つ円板領域の局所 Gauss--Bonnet 公式を証明できる
+  - 三角形分割に局所 Gauss--Bonnet を適用し、内部辺・内部頂点の寄与を相殺して大域 Gauss--Bonnet の定理を証明できる
+  - Euler 標数 chi=V-E+F を定義し、細分で不変であることと曲面位相を測る役割を説明できる
+  - 境界付き曲面に対する測地曲率項と角項を含む Gauss--Bonnet 公式を導ける
+  - 球面・標準トーラス・高種数曲面で全 Gauss 曲率を計算し、曲率符号が位相に課す制約を判定できる
+definitions:
+  - { id: GEO19-DEF-01, name: 測地曲率 }
+  - { id: GEO19-DEF-02, name: 接続1形式 }
+  - { id: GEO19-DEF-03, name: 外角 }
+  - { id: GEO19-DEF-04, name: Euler 標数 }
+theorems:
+  - { id: GEO19-PROP-01, name: 接続1形式の標構変換則 }
+  - { id: GEO19-THM-01, name: 二次元の曲率構造方程式 }
+  - { id: GEO19-PROP-02, name: 測地曲率と接ベクトル角の関係 }
+  - { id: GEO19-THM-02, name: 局所 Gauss--Bonnet の定理 }
+  - { id: GEO19-THM-03, name: 閉曲面の Gauss--Bonnet の定理 }
+  - { id: GEO19-THM-04, name: 境界付き曲面の Gauss--Bonnet の定理 }
+  - { id: GEO19-COR-01, name: 球面三角形の球面過剰公式 }
+  - { id: GEO19-COR-02, name: 種数と全 Gauss 曲率 }
+  - { id: GEO19-COR-03, name: 曲率符号による位相制約 }
+canonical_examples:
+  - Euclid 円板で境界の測地曲率積分が 2pi となる例
+  - 半径 a の球面で全 Gauss 曲率が 4pi となる例
+  - 大円弧で囲まれた球面三角形の面積と内角和
+  - 標準トーラスで正負の Gauss 曲率が相殺して全曲率0となる例
+  - Euclid 平面の環状領域で二つの境界成分の測地曲率が相殺する例
+  - 種数 g の閉向き付け可能曲面で全曲率が 4pi(1-g) となる例
+problem_patterns:
+  - GEO19-GEODESIC-CURVATURE-DISK-1
+  - GEO19-CONNECTION-FRAME-ROTATION-1
+  - GEO19-SPHERICAL-EXCESS-1
+  - GEO19-TORUS-TOTAL-CURVATURE-1
+  - GEO19-ANNULUS-BOUNDARY-1
+  - GEO19-EULER-TRIANGULATION-1
+  - GEO19-GENUS-TOTAL-CURVATURE-1
+  - GEO19-GLOBAL-GB-RECONSTRUCTION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 7.0, review: 0.5 }

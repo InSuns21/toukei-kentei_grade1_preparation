@@ -961,9 +961,9 @@ Phase 3 完了。GEO10 → GEO11 → GEO12 → GEO13 → GEO14 完了。
 - GEO16 曲率 ✅ 2026-09-23
 - GEO17 Jacobi 場・共役点 ✅ 2026-09-23
 - GEO18 比較幾何 ✅ 2026-09-23
-- GEO19 Gauss--Bonnet
+- GEO19 Gauss--Bonnet ✅ 2026-09-23
 
-Phase 4 は GEO15 → GEO16 → GEO17 → GEO18 まで完了。次の実装開始点は **GEO19「Gauss--Bonnet と二次元大域幾何」** とする。
+Phase 4 完了。GEO15 → GEO16 → GEO17 → GEO18 → GEO19 を完了し、多様体・微分幾何主線 GEO1--GEO19 は完走した。次の独立系列の実装開始点は **Phase 5：LIE1「Lie 群・Lie 環・不変ベクトル場」** とする。
 
 ### Phase 5：独立 Lie 系列
 

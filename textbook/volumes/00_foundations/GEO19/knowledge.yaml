@@ -1,0 +1,120 @@
+chapter: GEO19
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEO8
+  - GEO11
+  - GEO16
+forward_references: []
+
+concepts:
+  - id: geometry.geodesic-curvature
+    name: 測地曲率
+    kind: definition
+    aliases: [測地曲率, geodesic curvature]
+    introduction: formal
+    requires:
+      - geometry.levi-civita-connection
+      - geometry.manifold-orientation
+
+  - id: geometry.surface-connection-one-form
+    name: 接続1形式
+    kind: definition
+    aliases: [Riemann 曲面の接続1形式, connection 1-form on an oriented surface]
+    introduction: formal
+    requires:
+      - geometry.levi-civita-connection
+      - geometry.manifold-orientation
+
+  - id: geometry.connection-one-form-frame-change
+    name: 接続1形式の標構変換則
+    kind: proposition
+    aliases: [接続1形式の標構変換則]
+    requires:
+      - geometry.surface-connection-one-form
+
+  - id: geometry.surface-curvature-structure-equation
+    name: 二次元の曲率構造方程式
+    kind: theorem
+    aliases: [二次元の曲率構造方程式]
+    requires:
+      - geometry.surface-connection-one-form
+      - geometry.riemann-curvature-operator
+      - geometry.surface-gauss-sectional-curvature
+
+  - id: geometry.exterior-turning-angle
+    name: 外角
+    kind: definition
+    aliases: [曲面境界の外角, exterior turning angle]
+    introduction: formal
+    requires:
+      - geometry.manifold-orientation
+
+  - id: geometry.geodesic-curvature-angle-formula
+    name: 測地曲率と接ベクトル角の関係
+    kind: proposition
+    aliases: [測地曲率と接ベクトル角の関係]
+    requires:
+      - geometry.geodesic-curvature
+      - geometry.surface-connection-one-form
+
+  - id: geometry.local-gauss-bonnet-theorem
+    name: 局所 Gauss--Bonnet の定理
+    kind: theorem
+    aliases: [局所 Gauss--Bonnet の定理, local Gauss--Bonnet theorem]
+    introduction: formal
+    requires:
+      - geometry.surface-curvature-structure-equation
+      - geometry.geodesic-curvature-angle-formula
+      - geometry.general-stokes-theorem
+      - geometry.exterior-turning-angle
+
+  - id: topology.euler-characteristic
+    name: Euler 標数
+    kind: definition
+    aliases: [Euler 標数, Euler characteristic]
+    introduction: formal
+    requires:
+      - geometry.manifold-with-boundary
+
+  - id: geometry.gauss-bonnet-theorem
+    name: 閉曲面の Gauss--Bonnet の定理
+    kind: theorem
+    aliases: [閉曲面の Gauss--Bonnet の定理, Gauss--Bonnet theorem for closed surfaces]
+    introduction: formal
+    introduction_aliases: ["定理（Gauss--Bonnet の定理：閉曲面）"]
+    requires:
+      - geometry.local-gauss-bonnet-theorem
+      - topology.euler-characteristic
+
+  - id: geometry.gauss-bonnet-boundary-theorem
+    name: 境界付き Gauss--Bonnet の定理
+    kind: theorem
+    aliases: [境界付き Gauss--Bonnet の定理]
+    introduction_aliases: ["定理（Gauss--Bonnet の定理：境界付き曲面）"]
+    requires:
+      - geometry.local-gauss-bonnet-theorem
+      - topology.euler-characteristic
+      - geometry.boundary-orientation
+
+  - id: geometry.spherical-excess-formula
+    name: 球面過剰公式
+    kind: corollary
+    aliases: [球面過剰公式, spherical excess formula]
+    requires:
+      - geometry.local-gauss-bonnet-theorem
+      - geometry.sphere-positive-constant-curvature
+
+  - id: geometry.total-gauss-curvature-genus
+    name: 種数と全 Gauss 曲率
+    kind: corollary
+    aliases: [種数と全 Gauss 曲率]
+    requires:
+      - geometry.gauss-bonnet-theorem
+
+  - id: geometry.curvature-sign-topology-obstruction
+    name: 曲率符号による位相制約
+    kind: corollary
+    aliases: [曲率符号による位相制約]
+    requires:
+      - geometry.total-gauss-curvature-genus
