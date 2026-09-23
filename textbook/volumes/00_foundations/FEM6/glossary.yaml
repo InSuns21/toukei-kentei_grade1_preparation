@@ -1,0 +1,29 @@
+chapter: "FEM6"
+terms:
+  - term: 空間半離散化
+    english: spatial semidiscretization
+    meaning: 空間変数だけを有限要素空間で離散化し、時間変数は連続のまま残す離散化。本章では熱方程式を M U'(t)+K U(t)=F(t) という連立 ODE へ変換する。
+  - term: 質量行列
+    english: mass matrix
+    meaning: 有限要素基底 phi_i に対して M_ij=(phi_j,phi_i)_L2 で定まる行列。時間微分項の L2 内積を係数空間へ移したもの。
+  - term: 剛性行列
+    english: stiffness matrix
+    meaning: K_ij=a(phi_j,phi_i) で定まる行列。本章の熱方程式では勾配内積を表し、零 Dirichlet 条件の下で実対称正定値になる。
+  - term: Ritz 射影
+    english: Ritz projection
+    meaning: a(R_h w,v_h)=a(w,v_h) を全ての有限要素試験関数 v_h に対して満たすエネルギー直交射影。時間依存誤差を空間近似誤差と動的誤差へ分けるために用いる。
+  - term: 後退 Euler 有限要素法
+    english: backward Euler finite element method
+    meaning: 空間有限要素離散と後退 Euler 時間差分を組み合わせた全離散法。各時刻で (M+tau K)U^n=M U^(n-1)+tau F^n を解く。
+  - term: 全離散化
+    english: full discretization
+    meaning: 空間だけでなく時間も離散化して有限個の未知量だけで計算可能にすること。本章では一次有限要素と後退 Euler 法を組み合わせる。
+  - term: 離散エネルギー評価
+    english: discrete energy estimate
+    meaning: 連続時間の energy identity に対応し、時間差分の望遠鏡和を使って離散解のノルムと散逸項を時間刻みに依存せず制御する評価。
+  - term: 時間残差
+    english: temporal residual
+    meaning: D_tau u^n-u_t(t_n) のように時間差分と正確な時間微分の差として現れる整合性誤差。本章では u_tt の L2 ノルムにより一次の tau で評価する。
+  - term: CFL 型制約
+    english: CFL-type restriction
+    meaning: 陽的時間離散で安定性のために時間刻みと空間メッシュ幅を結び付ける制約。本章の前進 Euler 比較では準一様一次有限要素で典型的に tau が h^2 程度以下となる。

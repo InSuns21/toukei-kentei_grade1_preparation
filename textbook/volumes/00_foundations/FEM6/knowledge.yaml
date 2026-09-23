@@ -1,0 +1,108 @@
+chapter: FEM6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FEM4
+  - GPDE10
+  - NA7
+forward_references:
+  - numerical.cholesky-factorization
+  - numerical.conjugate-gradient-method
+  - numerical.preconditioning
+
+concepts:
+  - id: numerical.parabolic-semidiscrete-galerkin
+    name: 熱方程式の空間半離散 Galerkin 法
+    kind: definition
+    aliases: [semidiscrete Galerkin method for the heat equation]
+    introduction: formal
+    introduction_aliases: ["定義（熱方程式の空間半離散 Galerkin 法）"]
+    requires:
+      - evolution.energy-weak-solution
+      - evolution.galerkin-approximation
+
+  - id: numerical.fem-mass-stiffness-matrices
+    name: 有限要素の質量行列と剛性行列
+    kind: proposition
+    aliases: [mass and stiffness matrices for finite elements]
+    introduction: formal
+    introduction_aliases: ["命題（有限要素の質量行列と剛性行列）"]
+    requires:
+      - numerical.parabolic-semidiscrete-galerkin
+
+  - id: numerical.semidiscrete-parabolic-energy
+    name: 半離散 Galerkin 解の存在一意性とエネルギー評価
+    kind: theorem
+    aliases: [energy estimate for the semidiscrete heat equation]
+    introduction: formal
+    introduction_aliases: ["定理（半離散 Galerkin 解の存在一意性とエネルギー評価）"]
+    requires:
+      - numerical.parabolic-semidiscrete-galerkin
+      - numerical.fem-mass-stiffness-matrices
+
+  - id: numerical.ritz-projection
+    name: Ritz 射影
+    kind: definition
+    aliases: [Ritz projection]
+    introduction: formal
+    introduction_aliases: ["定義（Ritz 射影）"]
+    requires:
+      - numerical.galerkin-orthogonality
+
+  - id: numerical.p1-ritz-projection-error
+    name: 一次有限要素 Ritz 射影の近似評価
+    kind: proposition
+    aliases: [approximation estimate for the linear finite element Ritz projection]
+    introduction: formal
+    introduction_aliases: ["命題（一次有限要素 Ritz 射影の近似評価）"]
+    requires:
+      - numerical.ritz-projection
+      - numerical.p1-fem-standard-error-rates
+
+  - id: numerical.semidiscrete-parabolic-l2-error
+    name: 半離散 Galerkin 法の L2 誤差評価
+    kind: theorem
+    aliases: [L2 error estimate for the semidiscrete Galerkin heat equation]
+    introduction: formal
+    introduction_aliases: ["定理（半離散 Galerkin 法の L2 誤差評価）"]
+    requires:
+      - numerical.semidiscrete-parabolic-energy
+      - numerical.p1-ritz-projection-error
+
+  - id: numerical.backward-euler-fem
+    name: 後退 Euler 有限要素法
+    kind: definition
+    aliases: [backward Euler finite element method, fully discrete backward Euler Galerkin method]
+    introduction: formal
+    introduction_aliases: ["定義（後退 Euler 有限要素法）"]
+    requires:
+      - numerical.parabolic-semidiscrete-galerkin
+
+  - id: numerical.backward-euler-fem-energy
+    name: 後退 Euler 有限要素法の離散エネルギー評価
+    kind: theorem
+    aliases: [discrete energy estimate for the backward Euler finite element method]
+    introduction: formal
+    introduction_aliases: ["定理（後退 Euler 有限要素法の離散エネルギー評価）"]
+    requires:
+      - numerical.backward-euler-fem
+
+  - id: numerical.backward-difference-time-residual
+    name: 後退差分の時間残差評価
+    kind: lemma
+    aliases: [time residual estimate for the backward difference]
+    introduction: formal
+    introduction_aliases: ["補題（後退差分の時間残差評価）"]
+    requires:
+      - numerical.backward-euler-fem
+
+  - id: numerical.fully-discrete-parabolic-l2-error
+    name: 後退 Euler 有限要素法の L2 全離散誤差評価
+    kind: theorem
+    aliases: [fully discrete L2 error estimate for backward Euler finite elements]
+    introduction: formal
+    introduction_aliases: ["定理（後退 Euler 有限要素法の L2 全離散誤差評価）"]
+    requires:
+      - numerical.p1-ritz-projection-error
+      - numerical.backward-euler-fem-energy
+      - numerical.backward-difference-time-residual

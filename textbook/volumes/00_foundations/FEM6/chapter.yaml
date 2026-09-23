@@ -1,0 +1,51 @@
+id: "FEM6"
+title: "放物型方程式の有限要素法"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FEM4
+  - GPDE10
+  - NA7
+official_scope: []
+learning_objectives:
+  - 熱方程式の空間半離散 Galerkin 法を定式化し、有限要素空間を固定すると時間についての連立 ODE が得られることを説明できる
+  - 有限要素基底から質量行列と剛性行列を導出し、零 Dirichlet 条件の下で両者が実対称正定値になることを証明できる
+  - 半離散 Galerkin 方程式で解自身を試験関数に選び、メッシュ幅に依存しないエネルギー評価を導出できる
+  - Ritz 射影を定義し、FEM4 の楕円型誤差解析を用いて一次有限要素の H1・L2 近似評価を説明できる
+  - 誤差を Ritz 射影誤差と動的誤差に分解し、半離散 Galerkin 法の L2 誤差評価を証明できる
+  - 後退 Euler 有限要素法を定式化し、各時間ステップが M+tau K を係数行列とする連立一次方程式になることを説明できる
+  - 離散 energy 恒等式から後退 Euler 有限要素法の無条件エネルギー安定性を証明できる
+  - 前進 Euler 法の一般化固有モード解析から CFL 型制約が生じる機構を説明し、後退 Euler 法との違いを区別できる
+  - 後退差分の時間残差を積分表示し、L2 時間ノルムで一次の残差評価を導出できる
+  - 空間誤差と時間誤差を分離し、十分滑らかな解に対する L2 全離散誤差 O(h^2+tau) を証明できる
+definitions:
+  - { id: FEM6-DEF-01, name: 熱方程式の空間半離散 Galerkin 法 }
+  - { id: FEM6-DEF-02, name: Ritz 射影 }
+  - { id: FEM6-DEF-03, name: 後退 Euler 有限要素法 }
+theorems:
+  - { id: FEM6-PROP-01, name: 有限要素の質量行列と剛性行列 }
+  - { id: FEM6-THM-01, name: 半離散 Galerkin 解の存在一意性とエネルギー評価 }
+  - { id: FEM6-PROP-02, name: 一次有限要素 Ritz 射影の近似評価 }
+  - { id: FEM6-THM-02, name: 半離散 Galerkin 法の L2 誤差評価 }
+  - { id: FEM6-THM-03, name: 後退 Euler 有限要素法の離散エネルギー評価 }
+  - { id: FEM6-LEM-01, name: 後退差分の時間残差評価 }
+  - { id: FEM6-THM-04, name: 後退 Euler 有限要素法の L2 全離散誤差評価 }
+canonical_examples:
+  - 一つの正弦モードを空間半離散化して c'(t)+c(t)=0 を直接得る例
+  - 質量行列と剛性行列の二次形式を L2 ノルムと H1 半ノルムとして直接確認する例
+  - sin x と sin 2x の和を一モード空間へ Ritz 射影する例
+  - 一つの熱モードを後退 Euler 法で進め、増幅係数 1/(1+tau) を得る例
+  - 一般化固有モードから前進 Euler の CFL 型制約と後退 Euler の無条件安定性を比較する例
+problem_patterns:
+  - FEM6-SEMIDISCRETE-MODE-1
+  - FEM6-MASS-STIFFNESS-SPD-1
+  - FEM6-RITZ-PROJECTION-1
+  - FEM6-SEMIDISCRETE-ENERGY-1
+  - FEM6-SEMIDISCRETE-ERROR-1
+  - FEM6-BACKWARD-EULER-ENERGY-1
+  - FEM6-TIME-RESIDUAL-1
+  - FEM6-FULLY-DISCRETE-ERROR-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.5, exercises: 6.0, review: 1.0 }

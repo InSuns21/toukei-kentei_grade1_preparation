@@ -74,7 +74,7 @@ Monte Carlo 法と準 Monte Carlo 法では、同じ積分問題に対して
 | [NA11](../NA11/index.md) | Perron–Frobenius 理論と PageRank |
 | [NA12](../NA12/index.md) | 無制約最適化と共役勾配法 |
 
-**実装済み：NA1、NA2、NA3、NA4、NA5、NA6、NA7、NA8、NA9、NA10、NA11、NA12、FDM1、FDM2、FDM3、FDM4、FEM1、FEM2、FEM3、FEM4、FEM5。次の実装対象：FEM6。**
+**実装済み：NA1、NA2、NA3、NA4、NA5、NA6、NA7、NA8、NA9、NA10、NA11、NA12、FDM1、FDM2、FDM3、FDM4、FEM1、FEM2、FEM3、FEM4、FEM5、FEM6。次の実装対象：FEM7。**
 
 数値解析では、単にアルゴリズムを列挙するのではなく、
 
@@ -110,7 +110,7 @@ Monte Carlo 法と準 Monte Carlo 法では、同じ積分問題に対して
 | [FEM3](../FEM3/index.md) | 有限要素補間とメッシュ |
 | [FEM4](../FEM4/index.md) | 楕円型 FEM の誤差解析 |
 | [FEM5](../FEM5/index.md) | 鞍点問題・Stokes 方程式 |
-| FEM6 | 放物型方程式の有限要素法 |
+| [FEM6](../FEM6/index.md) | 放物型方程式の有限要素法 |
 | FEM7 | 移流拡散・安定化有限要素法 |
 
 Encore III の Sobolev 空間・弱形式・Lax–Milgram・Galerkin 法を canonical dependency とし、Encore V では有限次元空間、メッシュ、補間、組立て（assembly）、離散誤差へ重心を移します。
