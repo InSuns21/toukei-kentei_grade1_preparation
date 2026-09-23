@@ -153,28 +153,28 @@ concepts:
     requires: [algebra.torsion-element]
 
   - id: algebra.torsion-submodule
-    name: ねじれ部分加群
+    name: ねじれ元全体は部分加群
     kind: proposition
     aliases: [torsion submodule]
     introduction: formal
     requires: [algebra.torsion-element, algebra.submodule, algebra.integral-domain]
 
   - id: algebra.z-modules-abelian-groups
-    name: Z-加群と Abel 群の対応
+    name: 整数環上の加群と Abel 群の対応
     kind: proposition
     aliases: []
     introduction: formal
     requires: [algebra.left-module, algebra.abelian-group]
 
   - id: algebra.operator-polynomial-module
-    name: 線形作用素が定める F[x]-加群
+    name: 線形自己写像が定める多項式環加群
     kind: proposition
     aliases: [polynomial module of a linear operator]
     introduction: formal
     requires: [algebra.polynomial-ring, linear.vector-space, linear.linear-map]
 
   - id: algebra.invariant-subspace-module-criterion
-    name: F[x]-部分加群と不変部分空間の対応
+    name: 多項式環部分加群と T-不変性の対応
     kind: proposition
     aliases: []
     introduction: formal
