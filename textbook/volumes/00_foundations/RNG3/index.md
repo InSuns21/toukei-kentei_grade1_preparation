@@ -860,7 +860,7 @@ $$
 
 逆に $(p)$ が素イデアルとします。
 
-$p\mid ab$ なら $ab\in(p)$ です。素イデアルの定義から
+$p\mid ab$ なら $ab\in(p)$ です。[RNG2 で定義した素イデアルの条件](../RNG2/index.md#def-rng2-prime-maximal)から
 
 $$
 a\in(p)
