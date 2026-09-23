@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-[GRP1](../GRP1/index.md) では、群・部分群・巡回群・置換群を構成しました。本章では「二つの群の間で演算を保つ写像」を導入し、その写像が区別できない部分を核として潰すことで、商群と同型定理へ進みます。
+[GRP1](../GRP1/index.md) では、群・部分群・巡回群・置換群を構成しました。本章では「二つの群の間で演算を保つ写像」を導入し、その写像が区別できない部分を核として潰すことで、商構造と同型定理へ進みます。
 
 主線は
 
@@ -13,9 +13,9 @@ $$
 \longrightarrow
 \text{剰余類}
 \longrightarrow
-\text{正規部分群}
+\text{商を作れる部分群}
 \longrightarrow
-\text{商群}
+\text{商構造}
 \longrightarrow
 \text{同型定理}
 $$
@@ -30,7 +30,7 @@ $$
 $$
 L_aL_b=L_{ab}
 $$
-を満たしました。これは本章でいう群準同型の具体例です。
+を満たしました。これは本章で一般化する「積を保つ写像」の具体例です。
 
 > **この章の停止線**
 >
@@ -279,7 +279,7 @@ $$
 ab^{-1}\in\ker f.
 $$
 
-核にはさらに、後で商群を作れるだけの強い性質があります。それが正規部分群条件です。
+核にはさらに、後で商構造を作るために必要な強い性質があります。その条件は第5節で定義します。
 
 ---
 
@@ -445,7 +445,7 @@ $$
 
 ---
 
-## 4. Lagrange の定理は「同じ大きさの剰余類を数える」
+## 4. 有限群の位数を剰余類で数える
 
 <a id="thm-grp2-lagrange"></a>
 <!-- formal-statement-start -->
@@ -511,7 +511,7 @@ $$
 =
 \operatorname{ord}(g).
 $$
-Lagrange の定理から
+[Lagrange の定理](#thm-grp2-lagrange)から
 $$
 \operatorname{ord}(g)\mid |G|.
 $$
@@ -690,7 +690,7 @@ xy^{-1}
 f(ab^{-1})
 \in\operatorname{Im}f
 $$
-なので部分群判定により
+なので[部分群判定](../GRP1/index.md#thm-grp1-subgroup-test)により
 $$
 \operatorname{Im}f\le H.
 $$
@@ -1143,7 +1143,7 @@ $q_n:\mathbb Z\to\mathbb Z_n$ は全射で
 $$
 \ker q_n=n\mathbb Z.
 $$
-群の第一同型定理から
+[群の第一同型定理](#thm-grp2-first-isomorphism)から
 $$
 \mathbb Z/n\mathbb Z
 \cong
@@ -1251,7 +1251,7 @@ $$
 \qquad
 \varphi(h)=hN
 $$
-を作り、群の第一同型定理を使います。核が $H\cap N$、像が $HN/N$ になります。その前に $HN$ が本当に部分群であることを確認します。
+を作り、[群の第一同型定理](#thm-grp2-first-isomorphism)を使います。核が $H\cap N$、像が $HN/N$ になります。その前に $HN$ が本当に部分群であることを確認します。
 
 <!-- proof-start -->
 ### 証明
@@ -1284,7 +1284,7 @@ $$
 =
 h_1h_2^{-1}n_3\in HN.
 $$
-部分群判定から
+[部分群判定](../GRP1/index.md#thm-grp1-subgroup-test)から
 $$
 HN\le G.
 $$
@@ -1330,7 +1330,7 @@ $$
 \operatorname{Im}\varphi=HN/N.
 $$
 
-群の第一同型定理から
+[群の第一同型定理](#thm-grp2-first-isomorphism)から
 $$
 H/(H\cap N)
 \cong
@@ -1435,7 +1435,7 @@ $$
 H/N\trianglelefteq G/N.
 $$
 
-群の第一同型定理から
+[群の第一同型定理](#thm-grp2-first-isomorphism)から
 $$
 (G/N)/(H/N)
 \cong
@@ -1521,7 +1521,7 @@ $$
 $$
 ab^{-1}\in\pi^{-1}(K).
 $$
-部分群判定から
+[部分群判定](../GRP1/index.md#thm-grp1-subgroup-test)から
 $$
 \pi^{-1}(K)\le G.
 $$
@@ -1584,7 +1584,7 @@ $$
 $$
 ghg^{-1}\in H.
 $$
-正規部分群の同値条件から
+[正規部分群の同値条件](#prop-grp2-normal-equivalences)から
 $$
 H\trianglelefteq G.
 $$
@@ -1631,7 +1631,7 @@ $$
 
 1. $\ker q_6$。
 2. $\operatorname{Im}q_6$。
-3. 群の第一同型定理から得られる同型。
+3. [群の第一同型定理](#thm-grp2-first-isomorphism)から得られる同型。
 
 <!-- solution-start -->
 ##### 詳細解答
@@ -1646,7 +1646,7 @@ $$
 \operatorname{Im}q_6=\mathbb Z_6.
 $$
 
-群の第一同型定理から
+[群の第一同型定理](#thm-grp2-first-isomorphism)から
 $$
 \mathbb Z/\ker q_6
 \cong
@@ -1948,7 +1948,7 @@ $$
 $$
 よって全射です。
 
-群の第一同型定理から
+[群の第一同型定理](#thm-grp2-first-isomorphism)から
 $$
 S_4/\ker(\operatorname{sgn})
 \cong
@@ -1965,7 +1965,7 @@ $$
 $$
 [S_4:A_4]=2.
 $$
-Lagrange の定理からも
+[Lagrange の定理](#thm-grp2-lagrange)からも
 $$
 |A_4|
 =
