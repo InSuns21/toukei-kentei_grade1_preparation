@@ -1029,7 +1029,7 @@ $$
 
 と交換できます。
 
-第4節の定理より
+[デジタルシフトの Walsh 乗法則](#thm-qmc7-shift-walsh-character) より
 
 $$
 =
@@ -3149,7 +3149,7 @@ $$
 
 という4個の **反復値**です。
 
-よって MC1 の標本平均公式を適用する標本数は $R=4$ です。
+よって MC1 の [Monte Carlo 推定量の不偏性・分散・二乗平均平方根誤差](../MC1/index.md#prop-mc1-unbiased-variance-rmse) で使う標本数に対応するのは $R=4$ です。
 <!-- solution-end -->
 
 ### 演習 QMC7-B1
