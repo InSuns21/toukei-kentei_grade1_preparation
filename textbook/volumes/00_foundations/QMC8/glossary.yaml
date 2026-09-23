@@ -1,0 +1,23 @@
+chapter: "QMC8"
+terms:
+  - term: 高次準 Monte Carlo 法
+    english: higher-order quasi-Monte Carlo
+    meaning: 被積分関数の高い滑らかさを Walsh 係数の高次減衰へ結び付け、複数の非零桁位置を測る高次重みと高次デジタルネットによって一次を超える収束次数を狙う準 Monte Carlo 法。
+  - term: Dick の α 重み
+    english: Dick alpha weight
+    meaning: b 進整数の非零桁位置を高い方から最大 α 個取り、その位置番号を加えた重み。α=1 では NRT 重みに一致する。
+  - term: 高精度デジタル点集合
+    english: digital net with n-digit output precision
+    meaning: b^m 個の入力番号桁に対し n×m 生成行列を作用させ、各座標を n 桁まで生成するデジタル点集合。高次法では n を m より大きく取る。
+  - term: 最小双対 Dick 重み
+    english: minimum dual Dick weight
+    meaning: 双対ネットに属する非零 Walsh 周波数の Dick の α 重みの最小値。高次デジタルネットが低い高次周波数をどこまで排除したかを表す。
+  - term: order α デジタルネット
+    english: order alpha digital net
+    meaning: 最小双対 Dick 重みが αm-t_α を超える高次デジタル点集合。α=1 では通常のデジタル (t,m,s)-ネットの双対条件へ戻る。
+  - term: 高次 Walsh 係数ノルム
+    english: higher-order weighted Walsh coefficient norm
+    meaning: Walsh 係数に b^{μ_α(k)} を掛けた絶対値を総和する係数ノルム。本章では高次減衰を自己完結に扱うための強いスペクトル仮定として用いる。
+  - term: 桁交互配置
+    english: digit interlacing
+    meaning: α 個の座標の b 進桁を第1桁ずつ、第2桁ずつという順に交互配置し、一つの高精度座標へまとめる構成。高次デジタルネットの代表的な構成法。
