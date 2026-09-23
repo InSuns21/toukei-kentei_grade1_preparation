@@ -500,7 +500,7 @@ $$
 
 がどれくらいの大きさかは分かりません。
 
-そこで中心極限定理を使います。
+そこで [独立同分布中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt) を使います。
 
 <a id="thm-mc1-clt"></a>
 
@@ -1011,7 +1011,7 @@ $$
 
 と同値です。
 
-Monte Carlo 中心極限定理から
+[Monte Carlo 中心極限定理](#thm-mc1-clt) から
 
 $$
 \frac{\sqrt N(\widehat I_N-I)}{\sigma}
@@ -1131,7 +1131,7 @@ P(E_N(\delta)^c).
 \end{aligned}
 $$
 
-Monte Carlo 中心極限定理から $Z_N\Rightarrow Z\sim N(0,1)$ であり、標準正規分布は連続です。また $P(E_N(\delta)^c)\to0$ です。
+[Monte Carlo 中心極限定理](#thm-mc1-clt) から $Z_N\Rightarrow Z\sim N(0,1)$ であり、標準正規分布は連続です。また $P(E_N(\delta)^c)\to0$ です。
 
 まず $N\to\infty$ とし、その後 $\delta\downarrow0$ とすれば
 
@@ -1702,7 +1702,7 @@ $$
 \text{a.s.}
 $$
 
-であり、中心極限定理から
+であり、[独立同分布中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt) から
 
 $$
 \frac{\sqrt N(\widehat I_N-I)}{\sigma}
@@ -2489,7 +2489,7 @@ $$
 
 について、不偏性と分散を求めよ。
 
-(4) 中心極限定理から
+(4) [独立同分布中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt) から
 
 $$
 \frac{\sqrt N(\widehat I_N-I)}{\sigma}
