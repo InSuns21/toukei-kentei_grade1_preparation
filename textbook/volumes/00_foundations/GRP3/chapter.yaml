@@ -13,7 +13,7 @@ learning_objectives:
   - 推移的作用・忠実な作用を判定し、作用準同型の核との関係を説明できる
   - 共役作用から共役類・群の中心・元の中心化群を構成できる
   - 類等式を軌道分解と軌道・安定化群公式から導ける
-  - 類等式を使って有限 p-群の中心が非自明であることを証明できる
+  - 類等式を使って非自明な有限 p-群の中心が非自明であることを証明できる
 definitions:
   - { id: GRP3-DEF-01, name: 群作用 }
   - { id: GRP3-DEF-02, name: 忠実な群作用・推移的な群作用 }
@@ -23,10 +23,11 @@ definitions:
   - { id: GRP3-DEF-06, name: 有限 p-群 }
 theorems:
   - { id: GRP3-THM-01, name: 群作用と対称群への準同型の対応 }
-  - { id: GRP3-PROP-01, name: 軌道による分割 }
+  - { id: GRP3-PROP-01, name: 安定化群は部分群 }
+  - { id: GRP3-PROP-02, name: 軌道による分割 }
   - { id: GRP3-THM-02, name: 剰余類と軌道の自然な全単射 }
   - { id: GRP3-THM-03, name: 軌道・安定化群公式 }
-  - { id: GRP3-PROP-02, name: 群の中心・元の中心化群は部分群 }
+  - { id: GRP3-PROP-03, name: 群の中心・元の中心化群は部分群 }
   - { id: GRP3-THM-04, name: 類等式 }
   - { id: GRP3-THM-05, name: 有限 p-群の中心非自明性 }
 canonical_examples:
