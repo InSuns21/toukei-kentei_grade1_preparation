@@ -954,7 +954,7 @@ B_K^{-\mathsf T}
 \nabla_{\widehat x}\widehat v.
 $$
 
-次に変数変換公式を使います。
+次に変数変換を行います。
 
 $F_K$ の Jacobian 行列は各点で
 
@@ -1857,7 +1857,7 @@ $$
 \end{pmatrix}.
 $$
 
-[アフィン変換公式](#prop-fem2-affine-transform)から
+[アフィン要素写像による勾配と積分の変換](#prop-fem2-affine-transform)から
 
 $$
 \nabla\lambda_a^K
