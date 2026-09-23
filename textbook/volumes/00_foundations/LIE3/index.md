@@ -764,25 +764,25 @@ $$
 
 複素行列空間 $M_n(\mathbb C)$ は、ここでは実ベクトル空間
 
-$
+$$
 M_n(\mathbb C)\cong\mathbb R^{2n^2}
-$
+$$
 
 として多様体とみなします。
 
 まず
 
-$
+$$
 GL(n,\mathbb C)
 =
 \{A\in M_n(\mathbb C):\det A\ne0\}
-$
+$$
 
 を実 Lie 群として確認しておきます。行列式は実部・虚部の座標に関する多項式なので連続であり、$GL(n,\mathbb C)$ は $M_n(\mathbb C)$ の開部分集合です。行列積は成分ごとの多項式、逆元は
 
-$
+$$
 A^{-1}=\frac{\operatorname{adj}(A)}{\det A}
-$
+$$
 
 で表され、$\det A\ne0$ 上で滑らかです。従って $GL(n,\mathbb C)$ は実次元 $2n^2$ の Lie 群です。
 
@@ -1044,13 +1044,13 @@ $$
 
 歪対称行列では対角成分が0なので $\operatorname{tr}X=0$ です。そこで $A(t)=e^{tX}$ と置きます。LIE2 の行列指数の微分公式から
 
-$
+$$
 A'(t)=A(t)X
-$
+$$
 
 であり、§5 で求めた行列式の微分公式を使うと
 
-$
+$$
 \frac{d}{dt}\det A(t)
 =
 \det A(t)\,
@@ -1059,13 +1059,13 @@ $
 \det A(t)\operatorname{tr}X
 =
 0.
-$
+$$
 
 したがって $\det A(t)$ は定数です。$A(0)=I$ なので $\det A(0)=1$ であり、
 
-$
+$$
 \det(e^X)=1.
-$
+$$
 
 従って
 
@@ -1075,7 +1075,7 @@ $$
 
 これは §3 の一般定理を具体的な行列恒等式で再確認しています。
 
-### 9.2 歪 Hermitian行列の指数はユニタリ行列
+### 9.2 歪 Hermitian 行列の指数はユニタリ行列
 
 $X^*=-X$ なら同様に
 
@@ -1085,27 +1085,27 @@ $$
 
 さらに $\operatorname{tr}X=0$ なら、$A(t)=e^{tX}$ に行列式の微分公式を適用して
 
-$
+$$
 \frac{d}{dt}\det A(t)
 =
 \det A(t)\operatorname{tr}X
 =
 0.
-$
+$$
 
 $\det A(0)=1$ なので
 
-$
+$$
 \det(e^X)=1.
-$
+$$
 
 従って
 
-$
+$$
 X\in\mathfrak{su}(n)
 \Longrightarrow
 e^X\in SU(n).
-$
+$$
 
 ---
 
