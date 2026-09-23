@@ -1,0 +1,35 @@
+chapter: "LIE1"
+terms:
+  - term: Lie 群
+    english: Lie group
+    meaning: 群であると同時に滑らかな多様体であり、乗法と逆元写像が滑らかな対象。
+  - term: 左移動
+    english: left translation
+    meaning: g を固定して L_g(h)=gh と定める Lie 群上の微分同相写像。
+  - term: 右移動
+    english: right translation
+    meaning: g を固定して R_g(h)=hg と定める Lie 群上の微分同相写像。
+  - term: 左不変ベクトル場
+    english: left-invariant vector field
+    meaning: 全ての g について (L_g)_*X=X を満たす滑らかなベクトル場。
+  - term: 右不変ベクトル場
+    english: right-invariant vector field
+    meaning: 全ての g について (R_g)_*X=X を満たす滑らかなベクトル場。
+  - term: Lie 環
+    english: Lie algebra
+    meaning: 双線形・反対称で Jacobi 恒等式を満たす括弧を備えた実ベクトル空間。本系列では「Lie 代数」を同義語として扱う。
+  - term: Lie 群の Lie 環
+    english: Lie algebra of a Lie group
+    meaning: 単位元 e の接空間 T_eG に左不変ベクトル場の Lie 括弧を移して得る Lie 環。
+  - term: Lie 群準同型
+    english: Lie group homomorphism
+    meaning: 群準同型であり、同時に滑らかな写像である Lie 群間の写像。
+  - term: Lie 環準同型
+    english: Lie algebra homomorphism
+    meaning: 線形写像で Lie 括弧を保存する写像。
+  - term: 一般線形群
+    english: general linear group
+    meaning: 可逆な n 次実正方行列全体 GL(n,R) が行列積でなす Lie 群。
+  - term: 全行列 Lie 環
+    english: general linear Lie algebra
+    meaning: 全 n 次実正方行列空間に [A,B]=AB-BA を入れた Lie 環 gl(n,R)。
