@@ -560,7 +560,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-離散 Parseval 恒等式から
+[周期格子の離散 Fourier 直交性と Parseval 恒等式](#prop-fdm2-discrete-fourier-parseval)から
 
 $$
 \|\mathbf E^{n+1}\|_2^2
