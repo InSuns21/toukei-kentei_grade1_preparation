@@ -90,6 +90,7 @@ concepts:
     name: 境界付き Gauss--Bonnet の定理
     kind: theorem
     aliases: [境界付き Gauss--Bonnet の定理]
+    introduction_aliases: ["定理（Gauss--Bonnet の定理：境界付き曲面）"]
     requires:
       - geometry.local-gauss-bonnet-theorem
       - topology.euler-characteristic
