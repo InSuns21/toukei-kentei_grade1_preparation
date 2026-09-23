@@ -74,7 +74,7 @@ Monte Carlo 法と準 Monte Carlo 法では、同じ積分問題に対して
 | [NA11](../NA11/index.md) | Perron–Frobenius 理論と PageRank |
 | [NA12](../NA12/index.md) | 無制約最適化と共役勾配法 |
 
-**実装済み：NA1、NA2、NA3、NA4、NA5、NA6、NA7、NA8、NA9、NA10、NA11、NA12、FDM1、FDM2、FDM3、FDM4、FEM1、FEM2、FEM3、FEM4、FEM5、FEM6、FEM7、MC1、MC2、MC3、MC4、QMC1、QMC2。次の実装対象：QMC3。**
+**実装済み：NA1、NA2、NA3、NA4、NA5、NA6、NA7、NA8、NA9、NA10、NA11、NA12、FDM1、FDM2、FDM3、FDM4、FEM1、FEM2、FEM3、FEM4、FEM5、FEM6、FEM7、MC1、MC2、MC3、MC4、QMC1、QMC2、QMC3。次の実装対象：QMC4。**
 
 数値解析では、単にアルゴリズムを列挙するのではなく、
 
@@ -136,14 +136,14 @@ MC1 では積分を期待値へ移し、標本平均の不偏性、分散、二�
 |---|---|
 | [QMC1](../QMC1/index.md) | 一様分布・ディスクレパンシー・Koksma–Hlawka |
 | [QMC2](../QMC2/index.md) | RKHS・最悪誤差・重み付き空間 |
-| QMC3 | 格子則 |
+| [QMC3](../QMC3/index.md) | 格子則 |
 | QMC4 | (t,m,s)-net・(t,s)-sequence |
 | QMC5 | Walsh 解析と digital net の双対理論 |
 | QMC6 | polynomial lattice |
 | QMC7 | randomized QMC |
 | QMC8 | 高次 QMC |
 
-準 Monte Carlo 法では、標本平均の確率変動ではなく、点集合と関数空間の構造を誤差評価へ結びつけます。QMC1 では局所ディスクレパンシーとスター・ディスクレパンシー、一様分布との同値性、Vitali 変動・Hardy--Krause 変動、Hlawka--Zaremba 恒等式を経て Koksma--Hlawka の不等式までを閉じます。QMC2 では既存 RKHS を積分へ応用し、誤差表現元、最悪誤差公式、重み付きアンカー型 Sobolev 空間、積型重み、実効切断次元、tractability を導入し、可算和可能な重みから次元一様な存在上界まで証明します。次は QMC3 で格子則へ進みます。
+準 Monte Carlo 法では、標本平均の確率変動ではなく、点集合と関数空間の構造を誤差評価へ結びつけます。QMC1 では局所ディスクレパンシーとスター・ディスクレパンシー、一様分布との同値性、Vitali 変動・Hardy--Krause 変動、Hlawka--Zaremba 恒等式を経て Koksma--Hlawka の不等式までを閉じます。QMC2 では既存 RKHS を積分へ応用し、誤差表現元、最悪誤差公式、重み付きアンカー型 Sobolev 空間、積型重み、実効切断次元、tractability を導入し、可算和可能な重みから次元一様な存在上界まで証明します。QMC3 ではランク1格子点集合と双対格子を導入し、複素指数モードの離散直交性、Fourier 係数による積分誤差公式、重み付き周期 Fourier 空間での最悪誤差、一次元の $N^{-\alpha}$ 誤差率、成分逐次構成（CBC）の設計思想まで閉じます。次は QMC4 で $(t,m,s)$-net・$(t,s)$-sequence へ進みます。
 
 ---
 

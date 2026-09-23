@@ -1,0 +1,132 @@
+chapter: QMC3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QMC2
+  - FOU1
+
+concepts:
+  - id: numerical.rank1-lattice-rule
+    name: ランク1格子則
+    kind: definition
+    aliases: [rank-1 lattice rule]
+    introduction: formal
+    introduction_aliases: ["定義（ランク1格子点集合と生成ベクトル）"]
+    requires:
+      - numerical.qmc-rule
+
+  - id: numerical.lattice-generating-vector
+    name: 生成ベクトル
+    kind: definition
+    aliases: [generating vector]
+    introduction: formal
+    introduction_aliases: ["定義（ランク1格子点集合と生成ベクトル）"]
+    requires:
+      - numerical.rank1-lattice-rule
+
+  - id: numerical.dual-lattice
+    name: 双対格子
+    kind: definition
+    aliases: [dual lattice]
+    introduction: formal
+    introduction_aliases: ["定義（双対格子）"]
+    requires:
+      - numerical.lattice-generating-vector
+
+  - id: numerical.lattice-character-orthogonality
+    name: ランク1格子上の複素指数モードの離散直交性
+    kind: theorem
+    aliases: [character orthogonality on a rank-1 lattice, lattice character property]
+    introduction: formal
+    introduction_aliases: ["定理（ランク1格子上の複素指数モードの離散直交性）"]
+    requires:
+      - numerical.dual-lattice
+      - fourier.fou1-complex-exponential-coefficient
+
+  - id: numerical.periodic-cube-fourier-coefficient
+    name: 単位周期立方体上の Fourier 係数
+    kind: definition
+    aliases: [Fourier coefficient on the periodic unit cube]
+    introduction: formal
+    introduction_aliases: ["定義（単位周期立方体上の Fourier 係数）"]
+    requires:
+      - fourier.fou1-complex-exponential-coefficient
+
+  - id: numerical.lattice-trigonometric-error-formula
+    name: 三角多項式に対する格子則の積分誤差公式
+    kind: theorem
+    aliases: [lattice integration error formula for trigonometric polynomials]
+    introduction: formal
+    introduction_aliases: ["定理（三角多項式に対する格子則の積分誤差公式）"]
+    requires:
+      - numerical.lattice-character-orthogonality
+      - numerical.periodic-cube-fourier-coefficient
+      - fourier.fou1-trigonometric-polynomial
+
+  - id: numerical.absolute-fourier-series
+    name: 絶対収束 Fourier 級数
+    kind: definition
+    aliases: [absolutely convergent Fourier series]
+    introduction: formal
+    introduction_aliases: ["定義（絶対収束 Fourier 級数）"]
+    requires:
+      - numerical.periodic-cube-fourier-coefficient
+
+  - id: numerical.lattice-absolute-fourier-error-formula
+    name: 絶対収束 Fourier 級数に対する格子則の積分誤差公式
+    kind: theorem
+    aliases: [lattice integration error formula for absolutely convergent Fourier series]
+    introduction: formal
+    introduction_aliases: ["定理（絶対収束 Fourier 級数に対する格子則の積分誤差公式）"]
+    requires:
+      - numerical.absolute-fourier-series
+      - numerical.lattice-character-orthogonality
+
+  - id: numerical.weighted-periodic-fourier-space
+    name: 重み付き周期 Fourier 空間
+    kind: definition
+    aliases: [weighted periodic Fourier space]
+    introduction: formal
+    introduction_aliases: ["定義（重み付き周期 Fourier 空間）"]
+    requires:
+      - numerical.absolute-fourier-series
+      - numerical.qmc-worst-case-error
+
+  - id: numerical.lattice-fourier-worst-case-error
+    name: 重み付き周期 Fourier 空間における格子則の最悪誤差公式
+    kind: theorem
+    aliases: [lattice worst-case error formula in weighted Fourier space]
+    introduction: formal
+    introduction_aliases: ["定理（重み付き周期 Fourier 空間における格子則の最悪誤差公式）"]
+    requires:
+      - numerical.weighted-periodic-fourier-space
+      - numerical.dual-lattice
+      - numerical.qmc-worst-case-error
+
+  - id: numerical.one-dimensional-lattice-rate
+    name: 一次元格子則の滑らかさ依存最悪誤差率
+    kind: theorem
+    aliases: [one-dimensional lattice worst-case error rate]
+    introduction: formal
+    introduction_aliases: ["定理（一次元格子則の滑らかさ依存最悪誤差率）"]
+    requires:
+      - numerical.lattice-fourier-worst-case-error
+
+  - id: numerical.lattice-invertible-scaling-invariance
+    name: 生成ベクトルの可逆スカラー倍不変性
+    kind: theorem
+    aliases: [invertible scaling invariance of lattice generators]
+    introduction: formal
+    introduction_aliases: ["定理（生成ベクトルの可逆スカラー倍不変性）"]
+    requires:
+      - numerical.rank1-lattice-rule
+
+  - id: numerical.cbc-construction
+    name: 成分逐次構成
+    kind: definition
+    aliases: [component-by-component construction, CBC construction]
+    introduction: formal
+    introduction_aliases: ["定義（成分逐次構成）"]
+    requires:
+      - numerical.lattice-fourier-worst-case-error
+      - numerical.lattice-invertible-scaling-invariance

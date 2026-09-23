@@ -563,8 +563,10 @@ QMC1 は MC1、F0-00D2C、RA3 を直接 prerequisite とする。MC1 の単位�
 
 QMC2 は QMC1、F0-02C7、F0-00D2E、GPDE3 を直接 prerequisite とする。F0-02C7 の再生核 Hilbert 空間・再生性・再生核を再定義せず stable anchor から再利用し、積分汎関数を Riesz 表現元へ移す。求積誤差を誤差表現元との内積として表し、単位球上の最悪誤差がそのノルムに一致することと、核だけからなる最悪誤差平方の公式を証明する。重み付きアンカー型 Sobolev 空間では GPDE3 の Sobolev 空間を canonical concept として再利用しつつ、F0-00D2E の $L^2$ 完備性を用いて Hilbert 性を閉じ、$1+\gamma\min(x,y)$ の再生性を直接確認する。多次元では積型重み、重み尾による実効切断次元、情報複雑度、tractability を導入し、独立一様乱数点に対する最悪誤差平方の期待値からよい決定論的点集合の存在上界を導く。さらに $\sum_j\gamma_j<\infty$ なら次元に依らない $N^{-1/2}$ 上界を得て、強多項式 tractability を証明する。
 
-後続の QMC3–QMC8 は DREAM_THEATER_ENCORE_V_REWRITE_PLAN.md の計画対象であり、各講の実装完了時に実際の直接依存だけを追加する。
+QMC3 は QMC2 と FOU1 を直接 prerequisite とする。FOU1 の複素指数表示と有限 Fourier 理論を再利用し、生成ベクトルからランク1格子点集合と双対格子を構成する。有限等比級数から複素指数モードの離散直交性を証明し、三角多項式、さらに絶対収束 Fourier 級数に対して、格子則の積分誤差が非零双対周波数上の Fourier 係数だけで与えられることを導く。周期関数側では重み付き周期 Fourier 空間を導入し、Cauchy--Schwarz の不等式から最悪誤差平方を双対格子上の逆重み和として完全導出する。一次元では双対格子が $N\mathbb Z$ となることから $N^{-\alpha}$ の最悪誤差率を得る。生成ベクトルの単元倍不変性を証明して素数 $N$ で第一成分を1に正規化し、成分逐次構成（CBC）を「各座標追加時に双対格子の誤差基準を最小化する」構成法として導入する。
 
-読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA1–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC2 で、次の実装対象は QMC3「格子則」である。
+後続の QMC4–QMC8 は DREAM_THEATER_ENCORE_V_REWRITE_PLAN.md の計画対象であり、各講の実装完了時に実際の直接依存だけを追加する。
+
+読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA1–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC3 で、次の実装対象は QMC4「(t,m,s)-net・(t,s)-sequence」である。
 
 ---

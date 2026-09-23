@@ -1,0 +1,51 @@
+id: "QMC3"
+title: "格子則"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - QMC2
+  - FOU1
+official_scope: []
+learning_objectives:
+  - ランク1格子点集合と生成ベクトルを定義し、点が重複しないための最大公約数条件を説明できる
+  - 双対格子を定義し、複素指数モードの格子平均が双対格子上でのみ残る離散直交性を証明できる
+  - FOU1 の複素指数係数を単位トーラス上の多次元 Fourier 係数へ規格化し、三角多項式および絶対収束 Fourier 級数に対する格子則の積分誤差公式を導ける
+  - 生成ベクトルが低周波の双対ベクトルを持つと大きな積分誤差が生じることを具体例で説明できる
+  - 重み付き周期 Fourier 空間を定義し、Cauchy--Schwarz の不等式から双対格子和による最悪誤差公式を導ける
+  - 一次元格子則では双対格子が N Z となり、滑らかさ alpha に応じて最悪誤差が N^{-alpha} で減衰することを証明できる
+  - N と互いに素なスカラー倍が同じランク1格子点集合を与えることを証明し、素数 N で第一成分を 1 に正規化できる理由を説明できる
+  - 成分逐次構成（CBC）を定義し、全生成ベクトル探索ではなく座標を一つずつ追加する設計思想を説明できる
+  - 有限周波数切断した双対格子基準を手計算し、CBC の一段を実行できる
+definitions:
+  - { id: QMC3-DEF-01, name: ランク1格子点集合と生成ベクトル }
+  - { id: QMC3-DEF-02, name: 双対格子 }
+  - { id: QMC3-DEF-02A, name: 単位周期立方体上の Fourier 係数 }
+  - { id: QMC3-DEF-03, name: 絶対収束 Fourier 級数 }
+  - { id: QMC3-DEF-04, name: 重み付き周期 Fourier 空間 }
+  - { id: QMC3-DEF-05, name: 成分逐次構成 }
+theorems:
+  - { id: QMC3-THM-01, name: ランク1格子上の複素指数モードの離散直交性 }
+  - { id: QMC3-THM-02, name: 三角多項式に対する格子則の積分誤差公式 }
+  - { id: QMC3-THM-03, name: 絶対収束 Fourier 級数に対する格子則の積分誤差公式 }
+  - { id: QMC3-THM-04, name: 重み付き周期 Fourier 空間における格子則の最悪誤差公式 }
+  - { id: QMC3-THM-05, name: "一次元格子則の滑らかさ依存最悪誤差率" }
+  - { id: QMC3-THM-06, name: 生成ベクトルの可逆スカラー倍不変性 }
+canonical_examples:
+  - N=5, z=(1,2) のランク1格子点集合を全点書き出す例
+  - z=(1,1) では h=(1,-1) が双対格子に入り cos(2pi(x1-x2)) の誤差が 1 になる失敗例
+  - z=(1,2), N=5 では同じ低周波モードが消える例
+  - 一次元で双対格子が N Z となり滑らかな周期関数の高周波だけが誤差に残る例
+  - N=5 の有限周波数切断基準で z2=1,2,3,4 を比較し CBC の一段を実行する例
+problem_patterns:
+  - QMC3-RANK1-LATTICE-POINTS-1
+  - QMC3-DUAL-LATTICE-CHARACTER-1
+  - QMC3-BAD-GENERATOR-1
+  - QMC3-ONE-DIMENSIONAL-RATE-1
+  - QMC3-FOURIER-ERROR-FORMULA-1
+  - QMC3-WORST-CASE-ERROR-1
+  - QMC3-GENERATOR-NORMALIZATION-1
+  - QMC3-CBC-TRUNCATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.0, review: 0.75 }
