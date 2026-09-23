@@ -1,0 +1,155 @@
+chapter: RNG3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RNG2
+forward_references: []
+
+concepts:
+  - id: algebra.divisibility
+    name: 整域における整除
+    kind: definition
+    aliases: [divisibility]
+    introduction: formal
+    introduction_aliases: ["定義（整除・単元・同伴元）"]
+    requires: [algebra.integral-domain]
+
+  - id: algebra.unit
+    name: 環の単元
+    kind: definition
+    aliases: [unit]
+    introduction: formal
+    introduction_aliases: ["定義（整除・単元・同伴元）"]
+    requires: [algebra.unital-ring]
+
+  - id: algebra.associate-elements
+    name: 同伴元
+    kind: definition
+    aliases: [associate elements, associates]
+    introduction: formal
+    introduction_aliases: ["定義（整除・単元・同伴元）"]
+    requires: [algebra.unit]
+
+  - id: algebra.irreducible-element
+    name: 既約元
+    kind: definition
+    aliases: [irreducible element]
+    introduction: formal
+    introduction_aliases: ["定義（既約元・素元）"]
+    requires: [algebra.integral-domain, algebra.unit]
+
+  - id: algebra.prime-element
+    name: 素元
+    kind: definition
+    aliases: [prime element]
+    introduction: formal
+    introduction_aliases: ["定義（既約元・素元）"]
+    requires: [algebra.integral-domain, algebra.divisibility, algebra.unit]
+
+  - id: algebra.prime-element-implies-irreducible
+    name: 素元は既約元
+    kind: proposition
+    aliases: [prime elements are irreducible]
+    introduction: formal
+    requires: [algebra.prime-element, algebra.irreducible-element]
+
+  - id: algebra.prime-element-principal-ideal
+    name: 素元と素な主イデアル
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires: [algebra.prime-element, algebra.prime-ideal, algebra.principal-ideal]
+
+  - id: algebra.greatest-common-divisor
+    name: 最大公約元
+    kind: definition
+    aliases: [greatest common divisor, gcd]
+    introduction: formal
+    introduction_aliases: ["定義（最大公約元・Bézout 恒等式）"]
+    requires: [algebra.divisibility]
+
+  - id: algebra.bezout-identity
+    name: Bézout 恒等式
+    kind: definition
+    aliases: [Bézout identity, Bezout identity]
+    introduction: formal
+    introduction_aliases: ["定義（最大公約元・Bézout 恒等式）"]
+    requires: [algebra.greatest-common-divisor]
+
+  - id: algebra.gcd-unique-up-to-associate
+    name: 最大公約元は同伴を除いて一意
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires: [algebra.greatest-common-divisor, algebra.associate-elements]
+
+  - id: algebra.euclidean-domain
+    name: Euclid 整域
+    kind: definition
+    aliases: [Euclidean domain]
+    introduction: formal
+    requires: [algebra.integral-domain]
+
+  - id: algebra.euclidean-function
+    name: Euclid 関数
+    kind: definition
+    aliases: [Euclidean function]
+    introduction: formal
+    introduction_aliases: ["定義（Euclid 整域）"]
+    requires: [algebra.euclidean-domain]
+
+  - id: algebra.euclidean-algorithm
+    name: Euclid の互除法
+    kind: theorem
+    aliases: [Euclidean algorithm]
+    introduction: formal
+    requires: [algebra.euclidean-domain, algebra.greatest-common-divisor, algebra.bezout-identity, algebra.ideal-sum, algebra.principal-ideal]
+
+  - id: algebra.principal-ideal-domain
+    name: 単項イデアル整域
+    kind: definition
+    aliases: [principal ideal domain, PID]
+    introduction: formal
+    requires: [algebra.integral-domain, algebra.principal-ideal]
+
+  - id: algebra.euclidean-domain-implies-pid
+    name: Euclid 整域は PID
+    kind: theorem
+    aliases: [Euclidean domains are principal ideal domains]
+    introduction: formal
+    requires: [algebra.euclidean-domain, algebra.principal-ideal-domain]
+
+  - id: algebra.pid-gcd-bezout
+    name: PID における最大公約元と Bézout 恒等式
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires: [algebra.principal-ideal-domain, algebra.greatest-common-divisor, algebra.bezout-identity, algebra.ideal-sum]
+
+  - id: algebra.pid-irreducible-implies-prime
+    name: PID では既約元は素元
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires: [algebra.principal-ideal-domain, algebra.irreducible-element, algebra.prime-element, algebra.ideal-sum]
+
+  - id: algebra.unique-factorization-domain
+    name: 一意分解整域
+    kind: definition
+    aliases: [unique factorization domain, UFD]
+    introduction: formal
+    requires: [algebra.integral-domain, algebra.irreducible-element, algebra.associate-elements]
+
+  - id: algebra.pid-factorization-existence
+    name: PID における既約分解の存在
+    kind: lemma
+    aliases: []
+    introduction: formal
+    requires: [algebra.principal-ideal-domain, algebra.irreducible-element]
+
+  - id: algebra.pid-implies-ufd
+    name: PID は UFD
+    kind: theorem
+    aliases: [principal ideal domains are unique factorization domains]
+    introduction: formal
+    requires: [algebra.pid-factorization-existence, algebra.pid-irreducible-implies-prime, algebra.unique-factorization-domain]
