@@ -182,7 +182,7 @@ concepts:
   - id: algebra.first-isomorphism-theorem-ring
     name: 環論の第一同型定理
     kind: theorem
-    aliases: [first isomorphism theorem for rings]
+    aliases: [環の第一同型定理, first isomorphism theorem for rings]
     introduction: formal
     introduction_aliases: ["定理（環の第一同型定理）"]
     requires:
