@@ -377,7 +377,7 @@ assert np.allclose(ratio, 4.0)
 assert np.all(error > 0.0)
 ```
 
-表示される図は iframe や外部画像 URL ではありません。Worker 内で作った PNG をページへ返しています。
+表示される図は iframe や外部の図版 URL ではありません。Worker 内で作った PNG をページへ返しています。
 
 ---
 
