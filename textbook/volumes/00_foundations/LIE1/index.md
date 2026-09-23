@@ -761,7 +761,7 @@ $$
 
 $$
 \begin{aligned}
-\bigl[X_1,X_2\bigr](f\circ F)
+\bigl[X_1,X_2\bigr]\,(f\circ F)
 &=
 X_1(X_2(f\circ F))
 -
