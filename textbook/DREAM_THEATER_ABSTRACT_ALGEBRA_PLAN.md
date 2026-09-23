@@ -164,7 +164,7 @@ LIE1 はここまでを群論の direct prerequisite とする。
 
 **tier: core**
 
-**prerequisites:** GRP2, F0-00A1D
+**prerequisites:** GRP2
 
 主な内容：
 
@@ -224,7 +224,7 @@ LIE2 の共役・Adjoint 表現と LIE4 の滑らかな群作用は、ここで�
 
 **tier: core**
 
-**prerequisites:** GRP2
+**prerequisites:** GRP2, F0-00A1D
 
 主な内容：
 
