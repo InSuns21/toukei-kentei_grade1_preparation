@@ -1,0 +1,189 @@
+chapter: GRP1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00A
+forward_references:
+  - algebra.group-homomorphism
+  - algebra.coset
+  - algebra.normal-subgroup
+  - algebra.quotient-group
+
+concepts:
+  - id: algebra.group
+    name: 群
+    kind: definition
+    aliases: [group]
+    introduction: formal
+    introduction_aliases: ["定義（群・可換群）"]
+    requires:
+      - set.cartesian-product
+      - set.function
+
+  - id: algebra.abelian-group
+    name: 可換群
+    kind: definition
+    aliases: [Abel 群, Abelian group, abelian group]
+    introduction: formal
+    introduction_aliases: ["定義（群・可換群）"]
+    requires:
+      - algebra.group
+
+  - id: algebra.group-basic-identities
+    name: 単位元・逆元の一意性と消去法則
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires:
+      - algebra.group
+
+  - id: algebra.subgroup
+    name: 部分群
+    kind: definition
+    aliases: [subgroup]
+    introduction: formal
+    requires:
+      - algebra.group
+      - set.subset
+
+  - id: algebra.subgroup-test
+    name: 部分群判定
+    kind: theorem
+    aliases: [subgroup criterion, subgroup test]
+    introduction: formal
+    requires:
+      - algebra.subgroup
+
+  - id: algebra.generated-subgroup
+    name: 生成部分群
+    kind: definition
+    aliases: [generated subgroup]
+    introduction: formal
+    requires:
+      - algebra.subgroup
+
+  - id: algebra.element-order
+    name: 元の位数
+    kind: definition
+    aliases: [order of an element]
+    introduction: formal
+    requires:
+      - algebra.group
+
+  - id: algebra.cyclic-group
+    name: 巡回群
+    kind: definition
+    aliases: [cyclic group]
+    introduction: formal
+    requires:
+      - algebra.generated-subgroup
+
+  - id: algebra.cyclic-subgroup-structure
+    name: 巡回群の部分群構造
+    kind: theorem
+    aliases: [subgroups of a cyclic group]
+    introduction: formal
+    requires:
+      - algebra.cyclic-group
+      - algebra.subgroup
+
+  - id: algebra.direct-product-group
+    name: 群の直積
+    kind: definition
+    aliases: [direct product of groups, direct product group]
+    introduction: formal
+    requires:
+      - algebra.group
+      - set.cartesian-product
+
+  - id: algebra.symmetric-group
+    name: 対称群
+    kind: definition
+    aliases: [symmetric group]
+    introduction: formal
+    introduction_aliases: ["定義（置換と対称群）"]
+    requires:
+      - set.bijection
+      - set.composition
+      - algebra.group
+
+  - id: algebra.permutation
+    name: 置換
+    kind: definition
+    aliases: [permutation]
+    introduction: formal
+    introduction_aliases: ["定義（置換と対称群）"]
+    requires:
+      - set.bijection
+
+  - id: algebra.cycle-permutation
+    name: 巡回置換
+    kind: definition
+    aliases: [cycle, cyclic permutation]
+    introduction: formal
+    introduction_aliases: ["定義（巡回置換と互いに素な巡回置換）"]
+    requires:
+      - algebra.permutation
+
+  - id: algebra.disjoint-cycle-decomposition
+    name: 互いに素な巡回置換への分解
+    kind: theorem
+    aliases: [disjoint cycle decomposition]
+    introduction: formal
+    requires:
+      - algebra.cycle-permutation
+
+  - id: algebra.permutation-parity
+    name: 置換の偶奇
+    kind: definition
+    aliases: [parity of a permutation, permutation parity]
+    introduction: formal
+    introduction_aliases: ["定義（置換の偶奇・交代群）"]
+    requires:
+      - algebra.permutation
+
+  - id: algebra.alternating-group
+    name: 交代群
+    kind: definition
+    aliases: [alternating group]
+    introduction: formal
+    introduction_aliases: ["定義（置換の偶奇・交代群）"]
+    requires:
+      - algebra.permutation-parity
+      - algebra.subgroup
+
+  - id: algebra.permutation-parity-uniqueness
+    name: 置換の偶奇の一意性
+    kind: theorem
+    aliases: [well-defined parity of permutations]
+    introduction: formal
+    requires:
+      - algebra.permutation-parity
+
+  - id: algebra.dihedral-group
+    name: 二面体群
+    kind: definition
+    aliases: [dihedral group]
+    introduction: formal
+    requires:
+      - algebra.symmetric-group
+      - algebra.generated-subgroup
+
+  - id: algebra.dihedral-normal-form
+    name: 二面体群の標準形
+    kind: proposition
+    aliases: [normal form in a dihedral group]
+    introduction: formal
+    requires:
+      - algebra.dihedral-group
+
+  - id: algebra.cayley-theorem
+    name: Cayley の定理
+    kind: theorem
+    aliases: [Cayley theorem, Cayley's theorem]
+    introduction: formal
+    requires:
+      - algebra.symmetric-group
+      - algebra.subgroup
+      - set.injection
+      - set.composition
