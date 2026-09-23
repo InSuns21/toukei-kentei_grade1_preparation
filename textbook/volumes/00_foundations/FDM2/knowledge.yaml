@@ -34,6 +34,15 @@ concepts:
     requires:
       - numerical.fdm-amplification-factor
 
+  - id: numerical.discrete-fourier-parseval
+    name: 周期格子の離散 Fourier 直交性と Parseval 恒等式
+    kind: proposition
+    aliases: [離散 Parseval 恒等式, discrete Parseval identity on a periodic grid]
+    introduction: formal
+    introduction_aliases: ["命題（周期格子の離散 Fourier 直交性と Parseval 恒等式）"]
+    requires:
+      - numerical.fdm-amplification-factor
+
   - id: numerical.von-neumann-l2-contraction-criterion
     name: 周期格子における増幅因子と縮小性
     kind: theorem
@@ -43,6 +52,7 @@ concepts:
     requires:
       - numerical.von-neumann-stability-analysis
       - numerical.fdm-contractivity
+      - numerical.discrete-fourier-parseval
 
   - id: numerical.ftcs-diffusive-cfl-condition
     name: FTCS の拡散 CFL 条件
