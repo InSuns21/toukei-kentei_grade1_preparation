@@ -60,7 +60,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-grp3-group-action -->
-**定義の確認：正方形の頂点を送る作用**
+**定義の確認**
+
+例：正方形の頂点を送る作用
 
 巡回群
 $$
@@ -261,7 +263,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-grp3-faithful-transitive -->
-**定義の確認：左移動**
+**定義の確認**
+
+例：左移動
 
 任意の群 $G$ が自分自身に
 $$
@@ -334,7 +338,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-grp3-orbit-stabilizer -->
-**定義の確認：$S_3$ が3点を置換する**
+**定義の確認**
+
+例：$S_3$ が3点を置換する
 
 $S_3$ を
 $$
@@ -813,7 +819,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-grp3-conjugation -->
-**定義の確認：作用公理**
+**定義の確認**
+
+例：共役作用の2公理
 
 単位元について
 $$
@@ -879,7 +887,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-grp3-center-centralizer -->
-**定義の確認：$S_3$**
+**定義の確認**
+
+例：$S_3$
 
 $S_3$ で $x=(1\,2)$ とします。
 
