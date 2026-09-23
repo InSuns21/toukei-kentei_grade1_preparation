@@ -104,7 +104,7 @@ concepts:
     kind: corollary
     aliases: []
     introduction: formal
-    introduction_aliases: ["系（多項式格子の t 値判定）"]
+    introduction_aliases: ["系（多項式格子の $t$ 値判定）"]
     requires:
       - numerical.dual-polynomial-lattice
       - numerical.nrt-weight
@@ -151,10 +151,10 @@ concepts:
       - numerical.polynomial-lattice-unit-scaling
 
   - id: numerical.polynomial-lattice-cbc-existence
-    name: 各 CBC 段階の最小化は well-defined
+    name: 各 CBC 段階で最小化子が存在する
     kind: proposition
     aliases: []
     introduction: formal
-    introduction_aliases: ["命題（各 CBC 段階の最小化は well-defined）"]
+    introduction_aliases: ["命題（各 CBC 段階で最小化子が存在する）"]
     requires:
       - numerical.polynomial-lattice-cbc
