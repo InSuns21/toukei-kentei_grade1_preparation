@@ -13,6 +13,16 @@ strict:
   reject_unreachable_registered_concept: true
   reject_unresolved_concept_dependency: true
 
+alias_matching:
+  # 真の別称ではあるが、分野横断では多義的で自由文の部分一致だけでは意味を確定できない語。
+  # formal label、完全一致の強調・リンク文字列・引用など、明示的な概念参照だけを高信頼使用とする。
+  contextual_aliases:
+    - net
+    - ネット
+    - unit
+    - torus
+    - トーラス
+
 rollout:
   # 既存ページは段階移行する。未移行ページそのものは audit では報告するが、
   # changed-only CI では変更ページだけを strict にする。
@@ -26,7 +36,9 @@ formal_kinds:
   - corollary
 
 # 登録概念・formal statement・requires 依存関係に加え、changed-only CI では
-# 高信頼の未定義専門語候補、local concept の first-use、曖昧 alias 使用も blocking する。
+# 高信頼の未定義専門語候補、local concept の first-use、曖昧 alias 使用も検査する。
+# HTMLタグ・属性、コード、数式、URLなど読者本文ではない文字列は概念使用として扱わない。
+# contextual_aliases は自由文の部分一致だけでは blocking にせず、明示的な高信頼参照だけを使用判定する。
 # aliases は同一概念の真の別称だけに使い、関連語・検索語・構成要素を入れない。
 # 複合見出し・formal label は introduction_aliases、再掲は一意な再掲名 + canonical concept への requires で表す。
 # stable ID / anchor は後方互換性を担うが、alias は担わない。意味的に誤った alias を互換目的で残さない。
