@@ -203,7 +203,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qmc1-local-discrepancy -->
-**定義の確認：$2\times2$ の中点格子**
+**定義の確認**：$2\times2$ の中点格子
 
 $$
 P_4
@@ -303,7 +303,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qmc1-star-discrepancy -->
-**定義の確認：一次元中点集合**
+**定義の確認**：一次元中点集合
 
 $$
 x_n
@@ -777,7 +777,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qmc1-qmc-rule -->
-**定義の確認：一次元中点集合で $f(x)=x$**
+**定義の確認**：一次元中点集合で $f(x)=x$
 
 $$
 x_n
@@ -935,7 +935,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qmc1-vitali-variation -->
-**定義の確認：$g(x,y)=xy$**
+**定義の確認**：$g(x,y)=xy$
 
 長方形
 
@@ -1033,7 +1033,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qmc1-hk-variation -->
-**定義の確認：$f(x,y)=xy$**
+**定義の確認**：$f(x,y)=xy$
 
 $s=2$ では非空部分集合は
 
