@@ -1,0 +1,38 @@
+chapter: "FEM5"
+terms:
+  - term: 鞍点問題
+    english: saddle-point problem
+    meaning: 速度などの主未知量と制約を課す Lagrange 乗数を同時に求める混合変分問題。本章では a(u,v)+b(v,p)=f(v), b(u,q)=g(q) の形を扱う。
+  - term: 制約 kernel
+    english: constraint kernel
+    meaning: b(v,q)=0 が全ての q に対して成り立つ v の集合。Babuška--Brezzi 理論では、この空間上で a の強圧性を要求する。
+  - term: inf-sup 条件
+    english: inf-sup condition
+    meaning: 全ての非零 q が速度試験関数 v を通して一様な定数 beta で検出されることを保証する条件。LBB 条件とも呼ばれる。
+  - term: bounded lifting
+    english: bounded lifting
+    meaning: 制約右辺 g に対して b(u_g,q)=g(q) を満たし、||u_g|| が ||g||/beta で制御される持ち上げ。
+  - term: Babuška--Brezzi 理論
+    english: Babuška--Brezzi theory
+    meaning: kernel coercivity と inf-sup 条件から鞍点問題の存在一意性と安定性を導く理論。
+  - term: Stokes 方程式
+    english: Stokes equations
+    meaning: 粘性流体の線形化された定常モデル -nu Delta u + grad p=f, div u=0。圧力 p は非圧縮制約の Lagrange 乗数として現れる。
+  - term: 平均零圧力空間
+    english: zero-mean pressure space
+    meaning: L_0^2(Omega)={q in L2: integral q=0}。圧力の定数分の不定性を除くために使う。
+  - term: 混合有限要素法
+    english: mixed finite element method
+    meaning: 主未知量と Lagrange 乗数を異なる有限要素空間 V_h, Q_h で同時近似する方法。
+  - term: 離散 inf-sup 条件
+    english: discrete inf-sup condition
+    meaning: 離散速度・圧力空間の組に対する inf-sup 条件。定数 beta_h が h に依存せず正に保たれることが一様安定性に必要。
+  - term: spurious pressure
+    english: spurious pressure mode
+    meaning: B^T P=0 を満たして速度方程式から見えない非零離散圧力モード。離散 inf-sup 失敗の典型的な現れ。
+  - term: Schur 補行列
+    english: Schur complement
+    meaning: 速度未知量を消去した圧力方程式に現れる S=BA^{-1}B^T。離散 inf-sup が圧力方向の正定値性と結び付く。
+  - term: Taylor--Hood 要素
+    english: Taylor--Hood element
+    meaning: 代表的な Stokes 安定 pair。典型的には連続 P2 速度と連続 P1 圧力を組み合わせる。
