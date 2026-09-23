@@ -81,6 +81,8 @@ $$
 二つ目の条件が「余分な元を入れない」という最小性です。単に $f$ が分解する大きな体なら、分解体とは限りません。
 
 <!-- definition-example-start: def-fld2-splitting-field -->
+**定義の確認**
+
 ### 1.1 定義の確認：$x^2-2$
 
 $\mathbb Q$ 上で
@@ -309,6 +311,8 @@ $$
 体準同型の核はイデアルです。体のイデアルは $0$ と全体しかなく、$1$ が $0$ へ送られないので核は $0$ です。従って体準同型は自動的に単射であり、「埋め込み」という名前と整合します。
 
 <!-- definition-example-start: def-fld2-field-embedding -->
+**定義の確認**
+
 ### 3.1 定義の確認：$\mathbb Q(\sqrt2)$ から $\mathbb C$ へ
 
 写像
@@ -521,6 +525,8 @@ FLD1 では「一つの元が代数的である」ことを定義しました。
 [FLD1 の「有限拡大の元は代数的」](../FLD1/index.md#prop-fld1-finite-extension-algebraic)から、有限拡大は必ず代数拡大です。逆は一般には成り立ちません。
 
 <!-- definition-example-start: def-fld2-algebraic-extension -->
+**定義の確認**
+
 ### 5.1 定義の確認：$\mathbb Q(\sqrt2)/\mathbb Q$
 
 任意の
@@ -570,6 +576,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fld2-algebraic-closure -->
+**定義の確認**
+
 ### 5.2 定義の確認：代数閉体自身
 
 $\Omega$ が代数閉体だとします。すると自明な拡大
@@ -907,6 +915,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fld2-formal-derivative-multiplicity -->
+**定義の確認**
+
 ### 7.1 定義の確認
 
 $$
@@ -1160,6 +1170,8 @@ $\square$
 分解体は同型を除いて一意なので、「ある分解体で重根がない」という性質は分解体の選び方に依存しません。
 
 <!-- definition-example-start: def-fld2-separability -->
+**定義の確認**
+
 ### 8.1 定義の確認：$x^2-2$
 
 $\mathbb Q$ 上で
@@ -1379,6 +1391,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fld2-normal-extension -->
+**定義の確認**
+
 ### 9.1 定義の確認：$\mathbb Q(\sqrt2)/\mathbb Q$
 
 $$
