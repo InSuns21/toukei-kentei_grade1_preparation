@@ -35,6 +35,7 @@ concepts:
     kind: proposition
     aliases: []
     introduction: formal
+    introduction_aliases: ["命題（整域上の次数と単元）"]
     requires: [algebra.polynomial-degree, algebra.integral-domain]
 
   - id: algebra.polynomial-division-algorithm
@@ -49,6 +50,7 @@ concepts:
     kind: theorem
     aliases: []
     introduction: formal
+    introduction_aliases: ["系（体上の多項式環は Euclid 整域）"]
     requires: [algebra.polynomial-division-algorithm, algebra.euclidean-domain]
 
   - id: algebra.polynomial-content
@@ -72,6 +74,7 @@ concepts:
     kind: theorem
     aliases: [Gauss lemma]
     introduction: formal
+    introduction_aliases: ["定理（Gauss の補題：原始多項式の積）"]
     requires: [algebra.primitive-polynomial, algebra.prime-element, algebra.unique-factorization-domain]
 
   - id: algebra.polynomial-content-multiplicative
@@ -86,6 +89,7 @@ concepts:
     kind: theorem
     aliases: []
     introduction: formal
+    introduction_aliases: ["定理（Gauss の補題：既約性の移送）"]
     requires: [algebra.gauss-lemma-primitive-product, algebra.polynomial-content-multiplicative, algebra.irreducible-element]
 
   - id: algebra.ufd-polynomial-ring
@@ -93,6 +97,7 @@ concepts:
     kind: theorem
     aliases: []
     introduction: formal
+    introduction_aliases: ["定理（一意分解整域上の多項式環）"]
     requires: [algebra.unique-factorization-domain, algebra.gauss-lemma-irreducibility, algebra.polynomial-ring-over-field-euclidean]
 
   - id: algebra.degree-two-three-root-criterion
@@ -100,6 +105,7 @@ concepts:
     kind: proposition
     aliases: []
     introduction: formal
+    introduction_aliases: ["命題（2次・3次多項式の既約性）"]
     requires: [algebra.polynomial-division-algorithm, algebra.irreducible-element]
 
   - id: algebra.rational-root-theorem
