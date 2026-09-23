@@ -1105,7 +1105,7 @@ direct prerequisite は MOD1、RNG4、LA3B です。MOD1 の自由加群・商�
 
 実装: [FLD1](volumes/00_foundations/FLD1/index.md)
 
-direct prerequisite は RNG4 です。RNG4 の多項式除法、$F[x]$ の Euclid 整域性、既約多項式、Eisenstein の既約判定を再利用し、体拡大の次数と単純代数拡大を canonical に閉じます。分解体・分離性・正規性は先取りせず FLD2 へ送ります。
+direct prerequisite は RNG4 と LA1 です。RNG4 の多項式除法、$F[x]$ の Euclid 整域性、既約多項式、Eisenstein の既約判定に加え、LA1 のベクトル空間・基底・次元・一次独立を再利用し、体拡大の次数と単純代数拡大を canonical に閉じます。分解体・分離性・正規性は先取りせず FLD2 へ送ります。
 
 ---
 
