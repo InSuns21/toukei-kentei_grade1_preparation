@@ -1,0 +1,35 @@
+chapter: "LIE4"
+terms:
+  - term: Lie 群作用
+    english: smooth Lie group action
+    meaning: Lie 群の集合上の群作用で、作用写像 G×M→M が滑らかなもの。
+  - term: 基本ベクトル場
+    english: fundamental vector field
+    meaning: X∈g に対し、p で d/dt|0 exp(tX)·p として得られるベクトル場。
+  - term: 無限小作用
+    english: infinitesimal action
+    meaning: Lie 環の元 X を対応する基本ベクトル場 X_M へ送る線形写像。本章の左作用規約では Lie 環反準同型。
+  - term: 等質空間
+    english: homogeneous space
+    meaning: Lie 群が推移的かつ滑らかに作用する多様体。
+  - term: 商多様体
+    english: quotient manifold
+    meaning: 閉 Lie 部分群 H に対する剰余類集合 G/H に、商写像 G→G/H が沈め込みとなるよう入れた滑らかな多様体構造。
+  - term: Lie 環値1形式
+    english: Lie algebra-valued one-form
+    meaning: 各接空間から有限次元 Lie 環への線形写像を滑らかに並べた1形式。
+  - term: 左 Maurer--Cartan 形式
+    english: left Maurer--Cartan form
+    meaning: theta_g=d(L_{g^{-1}})_g により、G の各接ベクトルを単位元接空間 g へ戻す g 値1形式。
+  - term: Maurer--Cartan 方程式
+    english: Maurer--Cartan equation
+    meaning: 左 Maurer--Cartan 形式が満たす d theta + (1/2)[theta wedge theta]=0。
+  - term: 軌道写像
+    english: orbit map
+    meaning: 基点 x を固定して g を g·x へ送る滑らかな写像 Phi_x:G→M。
+  - term: Lie 環値1形式の括弧付き外積
+    english: bracket wedge of Lie algebra-valued one-forms
+    meaning: g 値1形式 omega に対し [omega wedge omega](U,V)=[omega(U),omega(V)]-[omega(V),omega(U)] で定める g 値2形式。
+  - term: 構造定数
+    english: structure constants
+    meaning: Lie 環の基底 E_i に対し [E_i,E_j]=sum_k c_ij^k E_k と展開した係数。
