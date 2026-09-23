@@ -12,7 +12,7 @@ $$
 
 この評価は「関数側の複雑さ」と「点集合側の偏り」を分離する強力な道具です。一方で、ある関数クラス全体に対して点集合を設計したいときには、別の見方も便利です。
 
-本章では、既存の [再生核 Hilbert 空間](../F0_02C7_RKHS_再生核_representer_kernel_SVM/index.md#def-f0-02c7-rkhs) と [再生核](../F0_02C7_RKHS_再生核_representer_kernel_SVM/index.md#def-f0-02c7-reproducing-kernel) を正本として使い、
+本章では、既存の [Sobolev 空間](../GPDE3/index.md#def-gpde3-sobolev-space) と [再生核 Hilbert 空間](../F0_02C7_RKHS_再生核_representer_kernel_SVM/index.md#def-f0-02c7-rkhs) と [再生核](../F0_02C7_RKHS_再生核_representer_kernel_SVM/index.md#def-f0-02c7-reproducing-kernel) を正本として使い、
 
 $$
 \boxed{
@@ -770,11 +770,13 @@ $$
 
 とすること、すなわち積分表現元を核関数 $K_{\boldsymbol x_n}$ の有限和で近似することだと読めます。
 
-この見方は QMC3 の格子則、QMC4 以降の digital net で「どの点集合が関数空間に合っているか」を考える土台になります。
+この見方は QMC3 の格子則や、その後のデジタル構成で「どの点集合が関数空間に合っているか」を考える土台になります。
 
 ---
 
 ## 4. 一次元の重み付きアンカー型 Sobolev 空間
+
+GPDE3 で [Sobolev 空間 $W^{k,p}$](../GPDE3/index.md#def-gpde3-sobolev-space) を導入しました。ここではその一次元・一階・$p=2$ の考え方を QMC 向けに変形し、0 での関数値と導関数に座標重みを入れた空間を作ります。
 
 高次元 QMC で重みが必要になる理由を見るため、まず一次元から始めます。
 
@@ -1656,7 +1658,7 @@ $$
 
 <a id="def-qmc2-information-complexity"></a>
 <!-- formal-statement-start -->
-### 定義（最悪誤差に対する情報複雑度：絶対誤差基準）
+### 定義（最悪誤差そのものを基準とする情報複雑度）
 
 次元 $s$ の RKHS $\mathcal H_s$ に対し、精度 $\varepsilon>0$ を達成するための等重み求積点数を
 
@@ -1676,7 +1678,7 @@ $$
 とする。ただし条件を満たす有限の $N$ が存在しないときは $n(\varepsilon,s)=\infty$ とする。
 <!-- formal-statement-end -->
 
-本章では以下、すべてこの絶対誤差基準で tractability を論じます。
+本章では以下、初期誤差などで規格化せず、この最悪誤差そのものを基準として tractability を論じます。
 
 <a id="def-qmc2-polynomial-tractability"></a>
 <!-- formal-statement-start -->
