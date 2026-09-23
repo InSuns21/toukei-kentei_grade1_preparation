@@ -562,7 +562,10 @@
         if (!link) return;
         var target = navigationTargetFromLink(link);
         if (target === null) return;
-        syncNavigationState(target, true);
+        syncNavigationState(
+          target,
+          target !== canonicalNavigationRoute(window.location.hash)
+        );
       });
 
       window.addEventListener('hashchange', function () {
