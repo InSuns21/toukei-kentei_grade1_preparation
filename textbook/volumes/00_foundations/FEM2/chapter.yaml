@@ -1,5 +1,5 @@
 id: "FEM2"
-title: "有限要素法 II：有限要素・三角形分割・基底"
+title: "三角形分割・局所基底・組立て"
 volume: "foundations"
 status: supplementary
 prerequisites:
