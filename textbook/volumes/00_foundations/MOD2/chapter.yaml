@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - MOD1
   - RNG4
+  - LA3B
 official_scope: []
 learning_objectives:
   - PID 上の行列に対する行・列基本変形を可逆な基底変換として説明し、行列同値が余核を変えないことを示せる
