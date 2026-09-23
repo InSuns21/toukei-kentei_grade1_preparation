@@ -520,6 +520,15 @@ nodes:
     implementation_path: textbook/volumes/00_foundations/RNG3/index.md
     prerequisites: [RNG2]
 
+  - id: RNG4
+    title: 多項式環・Gauss の補題・既約多項式
+    area: abstract-algebra
+    tier: core-advanced-standard
+    status: implemented
+    implemented_at: 2026-09-23
+    implementation_path: textbook/volumes/00_foundations/RNG4/index.md
+    prerequisites: [RNG3]
+
   - id: VC1
     title: ベクトル場と微分演算子
     area: vector-calculus
@@ -890,7 +899,7 @@ implementation_batches:
     nodes: [GEO1, GEO2, GEO3, GEO4, GEO5, GEO6, GEO7, GEO8, GEO9, GEO10, GEO11, GEO12, GEO13, GEO14, GEO15, GEO16, GEO17, GEO18, GEO19]
   - order: 11
     id: abstract-algebra-core
-    nodes: [GRP1, GRP2, GRP3, GRP4, RNG1, RNG2, RNG3]
+    nodes: [GRP1, GRP2, GRP3, GRP4, RNG1, RNG2, RNG3, RNG4]
 
 deferred_integrations:
   - id: dream-theater-facade-entrypoint

@@ -114,7 +114,7 @@
 
 ### 標準抽象代数コア
 
-集合・写像の基礎から、群・環・加群・体へ進む学部標準の抽象代数系列です。群論の主線 GRP1--GRP4 を閉じ、環論は RNG3 の一意分解まで実装済みです。
+集合・写像の基礎から、群・環・加群・体へ進む学部標準の抽象代数系列です。群論の主線 GRP1--GRP4 と、環論の主線 RNG1--RNG4 を実装済みです。
 
 1. [GRP1 群・部分群・巡回群・置換群](textbook/volumes/00_foundations/GRP1/index.md)
 2. [GRP2 準同型・剰余類・正規部分群・商群](textbook/volumes/00_foundations/GRP2/index.md)
@@ -123,8 +123,9 @@
 5. [RNG1 環・環準同型・イデアル・商環](textbook/volumes/00_foundations/RNG1/index.md)
 6. [RNG2 素イデアル・極大イデアル・中国剰余定理](textbook/volumes/00_foundations/RNG2/index.md)
 7. [RNG3 整除・Euclid 整域・単項イデアル整域・一意分解整域](textbook/volumes/00_foundations/RNG3/index.md)
+8. [RNG4 多項式環・Gauss の補題・既約多項式](textbook/volumes/00_foundations/RNG4/index.md)
 
-GRP1--GRP4 で群・商構造・群作用・Sylow 理論までの有限群論主線を閉じます。RNG1 では環・イデアル・商環・環の第一同型定理を構成し、RNG2 では素イデアルと整域、極大イデアルと体の対応から中国剰余定理まで進みます。RNG3 では整除・最大公約元・Bézout 等式を Euclid の互除法へ接続し、Euclid 整域 ⇒ 単項イデアル整域 ⇒ 一意分解整域を証明します。次の抽象代数主線は RNG4 の多項式環・Gauss の補題・既約多項式です。
+GRP1--GRP4 で群・商構造・群作用・Sylow 理論までの有限群論主線を閉じます。RNG1--RNG3 では環・イデアル・中国剰余定理から Euclid 整域・単項イデアル整域・一意分解整域まで進み、RNG4 で体上の多項式除法、Gauss の補題、UFD 上の多項式環、代表的な既約判定まで閉じます。次の実装主線は MOD1 の加群論で、体論側は FLD1 へ分岐できます。
 
 ### 標準ベクトル解析コア
 

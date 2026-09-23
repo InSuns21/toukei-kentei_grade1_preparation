@@ -353,6 +353,14 @@
 | 単項イデアル整域 | principal ideal domain | 全てのイデアルが一つの元で生成される整域。略号 PID は補助的に使用可 |
 | 一意分解整域 | unique factorization domain | 非零非単元が既約元の有限積へ分解され、順序と同伴を除いて一意となる整域。略号 UFD は補助的に使用可 |
 | イデアルの昇鎖停止 | ascending chain condition on ideals | $I_1\subset I_2\subset\cdots$ が十分先で一定になる性質 |
+| 多項式環 | polynomial ring | 環 $R$ を係数とする一変数多項式全体の環 $R[x]$ |
+| 多項式の次数 | degree of a polynomial | 非零多項式に現れる最高次数。本文では必要に応じて単に「次数」と書く |
+| 先頭係数 | leading coefficient | 非零多項式の最高次項の係数 |
+| content | content | UFD 上の多項式の全係数の最大公約元。原始部分を切り出すために使う |
+| 原始多項式 | primitive polynomial | content が単元である多項式 |
+| Gauss の補題 | Gauss lemma | 原始多項式の積の原始性と、係数環から分数体への既約性移送を支える結果 |
+| 有理根定理 | rational root theorem | 整数係数多項式の既約分数根 $p/q$ について $p$ が定数項、$q$ が先頭係数を割る必要条件 |
+| Eisenstein の既約判定 | Eisenstein criterion | 一つの素元による係数の整除条件から多項式の既約性を保証する判定法 |
 
 ## DREAM THEATER：数値解析の主表記
 

@@ -1038,6 +1038,23 @@ direct prerequisite は GRP3 です。GRP3 の群作用・類等式・有限 $p$
 
 direct prerequisite は RNG2 です。RNG1 の整域・主イデアルを基礎に、RNG2 の極大イデアル⇒素イデアルを PID の既約元⇒素元の橋として再利用します。多項式環固有の Gauss の補題・原始多項式・既約判定は先取りせず RNG4 へ送ります。
 
+## RNG4 多項式環・Gauss の補題・既約多項式 \`core / advanced-standard\`
+
+- 整域上の一変数多項式環を導入し、積の次数公式と多項式環の単元を証明
+- 体上の多項式除法を最高次項の消去から構成し、商・余りの一意性まで証明
+- 次数を Euclid 関数として $F[x]$ が Euclid 整域であることを示し、RNG3 の ED⇒PID⇒UFD を再利用
+- UFD 上で content と原始多項式を導入し、係数の最大公約元を実際に取り出す
+- Gauss の補題「原始多項式の積は原始」を、素元と係数の最小添字を用いて証明
+- content の乗法性を導き、原始多項式の $R[x]$ と分数体 $K[x]$ における既約性が一致することを分母払いから証明
+- $R$ が UFD なら $R[x]$ も UFD となることを、content と $K[x]$ の一意分解へ分けて証明
+- 2次・3次の根による既約判定、有理根定理、Eisenstein の既約判定を証明
+- 変数平行移動により $x^4+x^3+x^2+x+1$ へ Eisenstein 判定を適用する例を構成
+- A4/B3/C1 の演習で多項式除法、content、Euclid の互除法、Gauss の補題、法 $2$、Eisenstein 判定を再構成
+
+実装: [RNG4](volumes/00_foundations/RNG4/index.md)
+
+direct prerequisite は RNG3 です。RNG3 の Euclid 整域・単項イデアル整域・一意分解整域と、既約元・素元・最大公約元を再利用します。RNG4 で多項式環の一意分解と既約判定を閉じることで、FLD1 の最小多項式・単純拡大と MOD2 の $F[x]$-加群への入口が整います。
+
 ---
 
 # 6. 測度論：標準教科書の第2段階
