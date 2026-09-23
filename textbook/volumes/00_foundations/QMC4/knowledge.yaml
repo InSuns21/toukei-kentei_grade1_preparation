@@ -1,0 +1,112 @@
+chapter: QMC4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QMC1
+  - FLD3
+  - F0-00E
+
+concepts:
+  - id: numerical.b-adic-elementary-interval
+    name: b 進基本区間
+    kind: definition
+    aliases: [b-adic elementary interval]
+    introduction: formal
+    introduction_aliases: ["定義（b 進基本区間）"]
+    requires: []
+
+  - id: numerical.tms-net
+    name: (t,m,s)-ネット
+    kind: definition
+    aliases: [(t,m,s)-net]
+    introduction: formal
+    introduction_aliases: ["定義（(t,m,s)-ネット）"]
+    requires:
+      - numerical.b-adic-elementary-interval
+
+  - id: numerical.tms-net-t-monotonicity
+    name: t に関する単調性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（t に関する単調性）"]
+    requires:
+      - numerical.tms-net
+
+  - id: numerical.tms-net-coarse-exactness
+    name: 粗い b 進箱での点数の正確性
+    kind: lemma
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["補題（粗い b 進箱での点数の正確性）"]
+    requires:
+      - numerical.tms-net
+
+  - id: numerical.tms-net-star-discrepancy-bound
+    name: (t,m,s)-ネットの粗いスター・ディスクレパンシー上界
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（(t,m,s)-ネットの自己完結な粗いスター・ディスクレパンシー上界）"]
+    requires:
+      - numerical.tms-net-coarse-exactness
+      - numerical.star-discrepancy
+
+  - id: numerical.ts-sequence
+    name: (t,s)-点列
+    kind: definition
+    aliases: [(t,s)-sequence]
+    introduction: formal
+    introduction_aliases: ["定義（(t,s)-点列）"]
+    requires:
+      - numerical.tms-net
+
+  - id: numerical.radical-inverse-function
+    name: 根基逆関数
+    kind: definition
+    aliases: [radical inverse function]
+    introduction: formal
+    introduction_aliases: ["定義（根基逆関数）"]
+    requires: []
+
+  - id: numerical.van-der-corput-sequence
+    name: van der Corput 点列
+    kind: theorem
+    aliases: [van der Corput sequence]
+    introduction: formal
+    introduction_aliases: ["定理（van der Corput 点列は (0,1)-点列）"]
+    requires:
+      - numerical.radical-inverse-function
+      - numerical.ts-sequence
+
+  - id: numerical.ts-sequence-uniform-distribution
+    name: (t,s)-点列の一様分布
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（(t,s)-点列の一様分布）"]
+    requires:
+      - numerical.ts-sequence
+      - numerical.uniformly-distributed-sequence
+
+  - id: numerical.digital-point-set
+    name: 素数底のデジタル点集合
+    kind: definition
+    aliases: [digital point set over a prime base]
+    introduction: formal
+    introduction_aliases: ["定義（素数底のデジタル点集合）"]
+    requires:
+      - algebra.finite-field
+      - linear.linear-independence
+
+  - id: numerical.digital-net-rank-criterion
+    name: 生成行列の一次独立性による (t,m,s)-ネット判定
+    kind: theorem
+    aliases: [digital net linear independence criterion]
+    introduction: formal
+    introduction_aliases: ["定理（生成行列の一次独立性による (t,m,s)-ネット判定）"]
+    requires:
+      - numerical.digital-point-set
+      - numerical.tms-net
+      - linear.linear-independence
+      - linear.rank-nullity-theorem
