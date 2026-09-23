@@ -3,6 +3,7 @@ title: "Walsh 解析とデジタルネットの双対理論"
 volume: "foundations"
 status: supplementary
 prerequisites:
+  - QMC3
   - QMC4
   - FOU1
 official_scope: []
