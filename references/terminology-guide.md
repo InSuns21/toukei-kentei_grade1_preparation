@@ -367,6 +367,13 @@
 | 双対正則性 | dual regularity | 双対問題の解に対する大域 Sobolev 正則性評価。Aubin--Nitsche の双対論法で追加の $h$ を得る仮定 |
 | Aubin--Nitsche の双対論法 | Aubin--Nitsche duality argument | 人名部分は英字表記を保持。Galerkin 直交性と双対問題を用いて $L^2$ 誤差を改善する |
 | 再入角 | reentrant corner | 内角が $\pi$ を超える境界角。楕円型問題では境界正則性低下の典型要因 |
+| Monte Carlo 法 | Monte Carlo method | 期待値・積分を独立標本の標本平均で近似する確率的数値計算法。人名由来の Monte Carlo は英字表記を保持 |
+| Monte Carlo 推定量 | Monte Carlo estimator | 独立同分布標本の標本平均で期待値を近似する推定量 |
+| 二乗平均平方根誤差 | root mean square error | 推定誤差の二乗平均の平方根。略号 RMSE は補助的に使用可 |
+| Monte Carlo 標準誤差 | Monte Carlo standard error | Monte Carlo 推定量の標準偏差を標本分散から推定した量。略号 SE だけを主表記にしない |
+| 標本誤差 | sampling error | 有限個の標本を使うために生じる確率的誤差 |
+| 離散化バイアス | discretization bias | 連続対象を離散近似へ置き換えたことで期待値に生じる系統的なずれ |
+| 近似信頼区間 | approximate confidence interval | 中心極限定理などの漸近近似で構成する区間。有限標本で厳密な被覆確率を保証する区間とは区別する |
 
 ## DREAM THEATER：ODE・PDE の主表記
 
