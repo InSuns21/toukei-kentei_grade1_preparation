@@ -62,6 +62,38 @@ $$
 または同じ計算予算で得られる推定量の分散を小さくする方法を、**分散減少法**と呼ぶ。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-mc3-variance-reduction -->
+**定義の確認**
+
+$U\sim\operatorname{Unif}(0,1)$ とし、$Y=U$ とします。すると
+
+$$
+E[Y]=\frac12,
+\qquad
+\operatorname{Var}(Y)=\frac1{12}.
+$$
+
+一方、
+
+$$
+Z
+=
+\frac{U+(1-U)}2
+=
+\frac12
+$$
+
+とすれば
+
+$$
+E[Z]=\frac12=E[Y],
+\qquad
+\operatorname{Var}(Z)=0<\operatorname{Var}(Y).
+$$
+
+したがって $Z$ は、期待値を保ったまま分散を小さくした最小の分散減少例です。
+<!-- definition-example-end -->
+
 この定義で重要なのは、推定対象 $I$ を勝手に変えないことです。
 
 たとえば $Y$ を単純に $Y/10$ にすれば分散は $1/100$ になりますが、期待値まで $I/10$ に変わるので分散減少法ではありません。
@@ -125,6 +157,30 @@ $$
 
 で $I=E[h(U)]$ を推定する方法を**対称変量法**という。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-mc3-antithetic-variates -->
+**定義の確認**
+
+$h(u)=u$ とすると、
+
+$$
+A_i
+=
+\frac{U_i+(1-U_i)}2
+=
+\frac12.
+$$
+
+$U_i$ と $1-U_i$ はどちらも一様分布に従いますが、同じ $U_i$ から作るため独立ではありません。この組では二つの変動が完全に打ち消され、
+
+$$
+E[A_i]=\frac12,
+\qquad
+\operatorname{Var}(A_i)=0
+$$
+
+となります。
+<!-- definition-example-end -->
 
 一つの組は関数評価を2回使います。したがって比較相手は、同じ $2N$ 回の関数評価を使う通常 Monte Carlo
 
@@ -479,6 +535,42 @@ $$
 $X$ を**制御変量**という。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-mc3-control-variate -->
+**定義の確認**
+
+$U\sim\operatorname{Unif}(0,1)$ に対し
+
+$$
+Y=U^2,
+\qquad
+X=U,
+\qquad
+\mu_X=\frac12
+$$
+
+とします。たとえば $c=1$ を選べば
+
+$$
+Z_1
+=
+U^2-U+\frac12.
+$$
+
+このとき
+
+$$
+E[Z_1]
+=
+\frac13-\frac12+\frac12
+=
+\frac13
+=
+E[Y].
+$$
+
+既知の平均 $E[X]=1/2$ からのずれ $X-1/2$ を差し引いても、推定対象の期待値は変わりません。
+<!-- definition-example-end -->
+
 まず期待値を確認します。
 
 $$
@@ -794,6 +886,36 @@ $$
 
 を推定する方法を**層化抽出**という。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-mc3-stratified-sampling -->
+**定義の確認**
+
+$U\sim\operatorname{Unif}(0,1)$ を
+
+$$
+A_1=[0,1/2],
+\qquad
+A_2=(1/2,1]
+$$
+
+の二層へ分けます。各層の確率は
+
+$$
+p_1=p_2=\frac12.
+$$
+
+各層から1標本ずつ $Y_{1,1},Y_{2,1}$ を取るなら、層化推定量は
+
+$$
+\widehat I^{\mathrm{str}}
+=
+\frac12Y_{1,1}
++
+\frac12Y_{2,1}.
+$$
+
+つまり各層を必ず観測し、その層が母集団で占める確率で重み付けする、という定義をそのまま実行しています。
+<!-- definition-example-end -->
 
 <a id="thm-mc3-stratified-variance"></a>
 <!-- formal-statement-start -->
@@ -1139,6 +1261,51 @@ $$
 
 で $I$ を推定する方法を**重点サンプリング**という。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-mc3-importance-sampling -->
+**定義の確認**
+
+$$
+I
+=
+\int_0^1x^2\,dx
+$$
+
+を考え、目標密度を $p(x)=1$、提案密度を
+
+$$
+q(x)=2x,
+\qquad
+0<x<1
+$$
+
+とします。
+
+$X\sim q$ なら重み付き一標本は
+
+$$
+W
+=
+X^2\frac{p(X)}{q(X)}
+=
+\frac X2.
+$$
+
+さらに
+
+$$
+E_q[W]
+=
+\int_0^1
+\frac{x}{2}(2x)\,dx
+=
+\int_0^1x^2\,dx
+=
+I.
+$$
+
+提案分布を変えても、密度比 $p/q$ が期待値を元へ戻していることを直接確認できます。
+<!-- definition-example-end -->
 
 <a id="thm-mc3-importance-sampling"></a>
 <!-- formal-statement-start -->
