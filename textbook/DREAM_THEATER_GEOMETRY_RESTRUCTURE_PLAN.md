@@ -991,11 +991,11 @@ Phase 4 完了。GEO15 → GEO16 → GEO17 → GEO18 → GEO19 を完了し、�
 ### Phase 6：独立 Lie 系列
 
 - LIE1 Lie 群・Lie 環・不変ベクトル場 ✅ 2026-09-24
-- LIE2 1 パラメータ部分群・指数写像・Adjoint 表現
+- LIE2 1 パラメータ部分群・指数写像・Adjoint 表現 ✅ 2026-09-24
 - LIE3 Lie 部分群・古典群
 - LIE4 Lie 群作用・軌道・等質空間・Maurer--Cartan
 
-LIE1 は GRP2 + GEO5 を direct prerequisite として実装済み。次の実装対象は **LIE2「1 パラメータ部分群・指数写像・Adjoint 表現」** とする。LIE2 は計画どおり LIE1 + GRP3 + ODE4 を direct prerequisite とする。reader-facing の標準読順では Riemann 幾何主線を抽象代数・Lie 群なしで完走できる構成を維持する。
+LIE1 は GRP2 + GEO5 を direct prerequisite として実装済み。LIE2 も LIE1 + GRP3 + ODE4 を direct prerequisite として実装済み。1パラメータ部分群から指数写像を構成し、共役自己同型の微分として随伴表現 $\operatorname{Ad}$、その微分として $\operatorname{ad}_X(Y)=[X,Y]$ まで閉じた。次の実装対象は **LIE3「Lie 部分群・古典群」** とする。reader-facing の標準読順では Riemann 幾何主線を抽象代数・Lie 群なしで完走できる構成を維持する。
 
 ---
 
