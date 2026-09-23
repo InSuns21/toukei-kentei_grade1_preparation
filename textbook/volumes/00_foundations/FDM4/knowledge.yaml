@@ -63,7 +63,6 @@ concepts:
     introduction_aliases: ["定理（中心差分型移流拡散スキームの離散最大値原理）"]
     requires:
       - numerical.centered-advection-diffusion-scheme
-      - numerical.ftcs-discrete-maximum-principle
 
   - id: numerical.centered-advection-diffusion-oscillation
     name: 移流卓越時の中心差分解の交互振動
@@ -94,7 +93,6 @@ concepts:
     introduction_aliases: ["定理（風上差分型移流拡散スキームの離散最大値原理）"]
     requires:
       - numerical.upwind-advection-diffusion-scheme
-      - numerical.ftcs-discrete-maximum-principle
 
   - id: numerical.numerical-diffusion
     name: 数値拡散
