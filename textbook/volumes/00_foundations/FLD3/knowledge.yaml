@@ -82,7 +82,7 @@ concepts:
       - algebra.finite-field
 
   - id: algebra.finite-field-root-set
-    name: x^(p^n)-x の根全体は体
+    name: Frobenius 固定点集合は体
     kind: lemma
     aliases: []
     introduction: formal
@@ -91,7 +91,7 @@ concepts:
       - algebra.algebraic-closure
 
   - id: algebra.finite-field-existence-uniqueness
-    name: 位数 p^n の有限体の存在と一意性
+    name: 素数冪位数の有限体の存在と一意性
     kind: theorem
     aliases: []
     introduction: formal
