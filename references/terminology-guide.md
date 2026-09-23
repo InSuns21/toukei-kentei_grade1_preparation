@@ -341,6 +341,18 @@
 | イデアルの積 | product of ideals | 有限和 $\sum i_kj_k$ で生成されるイデアル $IJ$ |
 | 互いに素なイデアル | comaximal ideals | $I+J=R$ を満たす二つのイデアル |
 | 中国剰余定理 | Chinese remainder theorem | 互いに素なイデアルによる商を直積へ分解する同型定理 |
+| 整除 | divisibility | $b=ac$ と書けるとき $a\mid b$。大小関係ではなく乗法による関係 |
+| 単元 | unit | 乗法逆元を持つ元。本文では「unit」を主語彙にしない |
+| 同伴 | associates | 一方が他方の単元倍である二つの元 |
+| 既約元 | irreducible element | 0でも単元でもなく、積に分解すると少なくとも一方の因子が単元になる元 |
+| 素元 | prime element | 0でも単元でもなく、$p\mid ab$ なら $p\mid a$ または $p\mid b$ を満たす元 |
+| 最大公約元 | greatest common divisor | 普通の大小ではなく整除関係で最大性を定義し、一般には同伴を除いて一意 |
+| Bézout 等式 | Bézout identity | 最大公約元を $d=ax+by$ の形で表す等式。人名部分は英字表記を保持 |
+| Euclid 関数 | Euclidean function | 除法の非零余りで値が真に減少する非負整数値関数 |
+| Euclid 整域 | Euclidean domain | Euclid 関数に関する除法 $a=bq+r$ を持つ整域。人名部分は英字表記を保持 |
+| 単項イデアル整域 | principal ideal domain | 全てのイデアルが一つの元で生成される整域。略号 PID は補助的に使用可 |
+| 一意分解整域 | unique factorization domain | 非零非単元が既約元の有限積へ分解され、順序と同伴を除いて一意となる整域。略号 UFD は補助的に使用可 |
+| イデアルの昇鎖停止 | ascending chain condition on ideals | $I_1\subset I_2\subset\cdots$ が十分先で一定になる性質 |
 
 ## DREAM THEATER：数値解析の主表記
 
