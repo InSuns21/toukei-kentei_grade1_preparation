@@ -60,6 +60,12 @@ assert.match(swConfig, /https:\/\/cdn\.jsdelivr\.net\/pyodide\/v314\.0\.7\/full\
 assert.match(serviceWorker, /isNumericalRuntimeRequest/);
 assert.match(serviceWorker, /numericalRuntimeCacheName/);
 assert.match(serviceWorker, /numericalRuntime \? 'cache-first'/);
+assert.match(runtime, /navigator\.serviceWorker\.ready/);
+
+const linkRegistry = YAML.parse(linkRegistryText);
+assert.equal(linkRegistry.schema_version, 1);
+assert.equal(linkRegistry.runtime_chapter, 'NUMLAB0');
+assert.ok(Array.isArray(linkRegistry.links));
 
 const labCount = (chapter.match(/```python-lab/g) || []).length;
 const paired = [...chapter.matchAll(
