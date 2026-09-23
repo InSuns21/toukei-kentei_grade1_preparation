@@ -54,7 +54,7 @@ $$
 f(x)=a\prod_{j=1}^n(x-\alpha_j)
 $$
 
-と一次式の積に分解できるとき、「$f$ は $L$ 上で分解する」といいます。
+と一次式の積に分解できる状況を考えます。
 
 <a id="def-fld2-splitting-field"></a>
 <!-- formal-statement-start -->
@@ -1570,7 +1570,13 @@ $$
 
 $p\in F[x]$ を既約多項式とし、$\alpha\in K$ が $p$ の根であるとします。$\overline F$ を $F$ の代数閉包で $K\subset\overline F$ とし、$\beta\in\overline F$ を $p$ の任意の根とします。
 
-$p$ は $\alpha$ の $F$ 上の最小多項式です。恒等埋め込み
+$p$ は既約で $p(\alpha)=0$ です。$p$ の先頭係数で割ってモニックに正規化した多項式が $m_{\alpha,F}$ です。単元倍は根を変えないので、以下では $p$ をモニックに取り直して
+
+$
+p=m_{\alpha,F}
+$
+
+としてよいです。恒等埋め込み
 
 $$
 \operatorname{id}_F:F\to\overline F
