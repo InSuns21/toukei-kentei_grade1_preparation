@@ -1,4 +1,4 @@
-# GRP3 抽象代数 III：群作用・軌道・安定化群・共役
+# GRP3 抽象代数 III：群作用・安定化群・共役
 
 <!-- definition-example-audit: strict -->
 
@@ -60,7 +60,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-grp3-group-action -->
-**定義の確認：正方形の回転**
+**定義の確認：正方形の頂点を送る作用**
 
 巡回群
 $$
@@ -440,86 +440,95 @@ $\square$
 >
 > 群 $G$ が集合 $X$ に作用しているとする。
 >
-> 関係
+> 任意の $x,y\in X$ に対して、二つの軌道 $Gx,Gy$ は
 >
 $$
-x\sim y
-\iff
-\text{ある }g\in G\text{ が存在して }y=g\cdot x
+Gx=Gy
 $$
 >
-> は $X$ 上の同値関係である。
+> であるか、または
 >
-> その同値類は各点の軌道である。従って軌道全体は $X$ を分割する。
+$$
+Gx\cap Gy=\varnothing
+$$
+>
+> である。
+>
+> さらに
+>
+$$
+X=\bigcup_{x\in X}Gx.
+$$
+>
+> 従って軌道全体は $X$ を重なりなく分割する。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-反射律には単位元、対称律には逆元、推移律には積を使います。群公理の3つの構造が、そのまま同値関係の3条件に対応します。
+二つの軌道に共通点 $z$ があるとします。
+$$
+z=g\cdot x=h\cdot y
+$$
+と書けば、逆元を作用させて $x$ と $y$ を互いに移せます。すると一方の軌道の任意の点を他方の軌道へ書き直せます。
 
 <!-- proof-start -->
 ### 証明
 
-反射律は
+まず任意の $x\in X$ について
 $$
-x=e\cdot x
+x=e\cdot x\in Gx.
 $$
-から
+従って全ての点は少なくとも一つの軌道に属し、
 $$
-x\sim x.
+X=\bigcup_{x\in X}Gx.
 $$
 
-$x\sim y$ とします。ある $g\in G$ が存在して
+次に
 $$
-y=g\cdot x.
+Gx\cap Gy\ne\varnothing
 $$
-すると
+とします。共通点 $z$ を一つ取り、
 $$
-g^{-1}\cdot y
+z=g\cdot x=h\cdot y
+$$
+と書きます。
+
+両辺に $h^{-1}$ を作用させると
+$$
+y
 =
-g^{-1}\cdot(g\cdot x)
+h^{-1}\cdot z
 =
-x
+(h^{-1}g)\cdot x.
+$$
+従って $Gy\subset Gx$ を示せます。実際、$w\in Gy$ なら、ある $k\in G$ が存在して
+$$
+w=k\cdot y.
+$$
+上の表示を代入すると
+$$
+w
+=
+k\cdot((h^{-1}g)\cdot x)
+=
+(kh^{-1}g)\cdot x
+\in Gx.
+$$
+
+同様に
+$$
+x=(g^{-1}h)\cdot y
 $$
 なので
 $$
-y\sim x.
-$$
-
-最後に
-$$
-x\sim y,
-\qquad
-y\sim z
-$$
-とします。ある $g,h\in G$ が存在して
-$$
-y=g\cdot x,
-\qquad
-z=h\cdot y.
+Gx\subset Gy.
 $$
 従って
 $$
-z
-=
-h\cdot(g\cdot x)
-=
-(hg)\cdot x.
-$$
-よって
-$$
-x\sim z.
+Gx=Gy.
 $$
 
-以上から $\sim$ は同値関係です。
-
-$x$ の同値類は
-$$
-\{y\in X:y=g\cdot x\text{ となる }g\in G\text{ がある}\}
-=
-Gx
-$$
-なので軌道そのものです。同値類は集合を分割するため、軌道も $X$ を分割します。$\square$
+よって任意の二つの軌道は、交わるなら一致し、一致しないなら互いに素です。したがって軌道全体は $X$ を重なりなく分割します。$\square$
 <!-- proof-end -->
 
 推移的な作用とは、この分割が1個の軌道だけからなる場合です。
@@ -1407,7 +1416,7 @@ $$
 
 ### Level A
 
-#### GRP3-A01 正方形への回転作用
+#### GRP3-A01 正方形の頂点への作用
 - Level: A
 
 $$
