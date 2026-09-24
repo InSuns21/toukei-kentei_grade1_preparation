@@ -106,6 +106,11 @@ toukei-grade1-numerical-runtime-v1
 <a id="numlab0-lab-format"></a>
 ## 4. ラボ記法
 
+執筆規約の正本は [NUMERICAL LAB AUTHORING STANDARD](../../../NUMERICAL_LAB_AUTHORING_STANDARD.md) です。この節は読者向けに同じ契約を説明します。
+
+**NUMLAB1–NUMLAB5 の理論対応ラボはすべて穴埋め演習形式を必須**とします。自由実験形式は PYNUM1 のクイックスタートと NUMLAB0 の smoke test に限って許します。
+
+
 後続章では、実行したいコードを通常の `python` コードフェンスではなく、専用コードフェンスへ置きます。
 
 ### 4.1 自由実験ラボ
