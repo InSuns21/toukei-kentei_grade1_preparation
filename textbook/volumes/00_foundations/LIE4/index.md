@@ -615,7 +615,7 @@ $$
 F(X,Y)=\exp(X)\exp(Y)
 $$
 
-を考えると、$(0,0)$ での微分は $(X,Y)\mapsto X+Y$ です。これは線形同型なので逆関数定理により、単位元近くの $G$ は
+を考えると、$(0,0)$ での微分は $(X,Y)\mapsto X+Y$ です。これは線形同型なので[逆関数定理](../RA6A/index.md#thm-ra6a-inverse-function)により、単位元近くの $G$ は
 
 $$
 \text{横方向 }\exp(\mathfrak m)
@@ -757,7 +757,7 @@ $$
 \ker dq_e=\mathfrak h,
 $$
 
-従って第一同型定理により
+従って[線形写像の第一同型定理](../LA2/index.md#thm-la2-first-isomorphism)により
 
 $$
 T_{eH}(G/H)
@@ -1748,7 +1748,7 @@ $$
 \ker dq_e=\mathfrak h.
 $$
 
-従って線形写像の第一同型定理により
+従って[線形写像の第一同型定理](../LA2/index.md#thm-la2-first-isomorphism)により
 
 $$
 \mathfrak g/\ker dq_e
@@ -2294,7 +2294,7 @@ $$
 \frac{d}{dx}.
 $$
 
-ベクトル場の Lie 括弧を関数へ作用させて計算すると
+上で求めた二つの基本ベクトル場の Lie 括弧を関数へ作用させて計算すると
 
 $$
 \begin{aligned}
