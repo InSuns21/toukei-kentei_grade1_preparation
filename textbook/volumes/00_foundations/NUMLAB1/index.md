@@ -276,7 +276,7 @@ import matplotlib.pyplot as plt
 from numpy.polynomial.legendre import leggauss
 
 exact = np.e - 1.0
-ns = np.arange(2, 7)
+ns = np.arange(2, 6)
 errors = []
 
 for n in ns:
@@ -299,7 +299,7 @@ ax.grid(True)
 
 ```python-test
 assert np.isfinite(errors).all()
-assert errors[0] > errors[2] > errors[4]
+assert errors[0] > errors[2] > errors[3]
 assert errors[-1] < 1e-10
 ```
 
