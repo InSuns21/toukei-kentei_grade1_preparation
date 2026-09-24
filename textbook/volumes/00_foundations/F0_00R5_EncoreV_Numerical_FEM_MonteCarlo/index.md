@@ -166,8 +166,9 @@ PYNUM1 は後続 NUMLAB の共通参照章であると同時に、ブラウザ�
 | [NUMLAB2](../NUMLAB2/index.md) | FDM1–FDM4：FTCS / 後退 Euler、拡散 CFL、格子収束、中心差分と風上化 |
 | [NUMLAB3](../NUMLAB3/index.md) | FEM1–FEM7：Galerkin、三角形組立て、補間、誤差次数、鞍点系、放物型問題、SUPG |
 | [NUMLAB4](../NUMLAB4/index.md) | MC1–MC4：標準誤差、逆関数法・棄却法、分散減少、Multilevel Monte Carlo のレベル間結合 |
+| [NUMLAB5](../NUMLAB5/index.md) | QMC1–QMC8：ディスクレパンシー、RKHS 最悪誤差、格子則、デジタルネット、Walsh 双対、多項式格子、ランダム化、高次 QMC |
 
-NUMLAB1–NUMLAB4 の各実験は理論章の stable anchor と機械可読台帳で対応付けています。
+NUMLAB1–NUMLAB5 の全理論対応実験は穴埋め・模範解答・hidden test を持ち、理論章の stable anchor と機械可読台帳で対応付けています。
 
 ---
 
