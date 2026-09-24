@@ -148,6 +148,7 @@ language: python-lab
 # lab-mode: exercise
 # timeout-ms: 5000
 
+# ヒント: 後続の平均を計算できる NumPy 配列を作る。
 x = ___
 answer = np.mean(x)
 ~~~
@@ -198,6 +199,8 @@ assert np.isclose(answer, 2.0)
 
 穴埋めには `___` を使います。`lab-mode: exercise` では最低1つの `___` を必須とします。
 
+さらに、**各 `___` の直前行に `# ヒント:` コメントを置きます**。章の冒頭でまとめて説明するだけでなく、実際に空欄へ到達した場所で「この値の役割」「使う理論」「何を比較するか」を読めるようにします。完成式そのものをヒントへ書いてはいけません。
+
 `___` が残ったまま「実行」を押した場合、Python へ送らず
 
 ~~~text
@@ -245,6 +248,7 @@ Pages 検証では、
 - `python-lab` → 任意の `python-solution` → `python-test` の並び
 - `lab-mode` の値
 - 演習モードでの `___` と模範解答の存在
+- 各 `___` の直前に `# ヒント:` があること
 - starter / solution / test の Python 構文
 - `lab-id` の全ページ一意性
 - theory anchor / lab anchor / experiment ID の台帳整合

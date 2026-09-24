@@ -93,13 +93,17 @@ def star_discrepancy_1d(points):
     points = np.sort(np.asarray(points, dtype=float))
     N = len(points)
     i = np.arange(1, N + 1, dtype=float)
+    # ヒント: 右連続側の点数割合 i/N と節点位置との差を計算する。
     upper = ___
+    # ヒント: 左側の節点位置と (i-1)/N の差を計算する。
     lower = ___
     return max(np.max(upper), np.max(lower))
 
 for N in Ns:
+    # ヒント: 各小区間の中央へ1点ずつ置く一次元中点集合を作る。
     points = ___
     discrepancy = star_discrepancy_1d(points)
+    # ヒント: 準 Monte Carlo 求積なので、点集合上の等重み平均を取る。
     estimate = ___
     error = abs(estimate - 1.0 / 3.0)
 
@@ -250,8 +254,11 @@ kernel_double_integral = 4.0 / 3.0
 
 for N in Ns:
     points = (np.arange(N) + 0.5) / N
+    # ヒント: 全点対 (x_i,x_j) に再生核を評価して Gram 行列を作る。
     K = ___
+    # ヒント: 各求積点で積分汎関数の表現元を評価する。
     representer_values = ___
+    # ヒント: 核の二重積分・表現元平均・Gram 行列平均を最悪誤差平方の公式どおり組み合わせる。
     error_squared = ___
     worst_case_errors.append(np.sqrt(max(error_squared, 0.0)))
 
@@ -402,10 +409,12 @@ h = np.array([1, -1], dtype=int)
 def lattice_points(z):
     n = np.arange(N, dtype=int)[:, None]
     z = np.asarray(z, dtype=int)
+    # ヒント: 整数 n と生成ベクトル z を法 N で回し、単位正方形内の格子点へ正規化する。
     return ___
 
 def character_mean(points, frequency):
     phase = points @ np.asarray(frequency, dtype=float)
+    # ヒント: 周波数との内積を位相にして複素指数文字を評価する。
     values = ___
     return values.mean()
 
@@ -415,7 +424,9 @@ z_good = np.array([1, 2], dtype=int)
 bad_points = lattice_points(z_bad)
 good_points = lattice_points(z_good)
 
+# ヒント: bad generator が双対条件 h·z ≡ 0 (mod N) を満たすか判定する。
 bad_dual = ___
+# ヒント: good generator について同じ双対条件を判定する。
 good_dual = ___
 
 bad_mean = character_mean(bad_points, h)
@@ -564,11 +575,15 @@ C2 = np.array([
 ], dtype=int)
 
 n = np.arange(N, dtype=int)
+# ヒント: 整数 n の下位 m 桁を有限体上の入力桁ベクトルとして取り出す。
 digit_vectors = ___
+# ヒント: 出力桁を2進小数へ戻すための 2^{-1},...,2^{-m} の重みを作る。
 weights = ___
 
 def digital_coordinate(C):
+    # ヒント: 生成行列を桁ベクトルへ作用させ、各成分を mod 2 で還元する。
     output_digits = ___
+    # ヒント: 出力桁と2進小数重みの内積から実数座標へ戻す。
     return ___
 
 points = np.column_stack([
@@ -746,8 +761,11 @@ points = np.array([
 
 def walsh_base2(k, x, m=2):
     powers = 2.0 ** np.arange(1, m + 1)
+    # ヒント: x の先頭 m 個の2進小数桁を取り出す。
     x_digits = ___
+    # ヒント: 周波数 k の下位 m 個の2進桁を取り出す。
     k_digits = ___
+    # ヒント: x と k の桁内積を mod 2 で取り、Walsh 文字の符号を決める。
     parity = ___
     return 1 - 2 * parity
 
@@ -761,6 +779,7 @@ frequencies = np.array([
 character_means = []
 
 for k1, k2 in frequencies:
+    # ヒント: 二次元 Walsh 文字は各座標の Walsh 値を掛け合わせる。
     values = ___
     character_means.append(values.mean())
 
@@ -898,17 +917,21 @@ t_q1 = np.array([0, 1, 1], dtype=int)
 t_q2 = np.array([1, 1, 0], dtype=int)
 
 def generating_matrix(coefficients):
+    # ヒント: Laurent 係数 t_{a+r} を並べ、定理どおり生成行列を組み立てる。
     return ___
 
 C1 = generating_matrix(t_q1)
 C2 = generating_matrix(t_q2)
 
 n = np.arange(N, dtype=int)
+# ヒント: 整数 n を底2の桁多項式に対応する係数ベクトルへ直す。
 digit_vectors = ___
 weights = 2.0 ** (-np.arange(1, m + 1))
 
 def coordinate(C):
+    # ヒント: 桁ベクトルへ生成行列を作用させ、有限体 F2 で還元する。
     output_digits = ___
+    # ヒント: 生成された出力桁を2進小数として実数座標へ戻す。
     return ___
 
 points = np.column_stack([
@@ -1074,12 +1097,14 @@ first_digit_balanced = np.empty(replications, dtype=bool)
 
 for r in range(replications):
     shift = np.uint16(rng.integers(0, scale))
+    # ヒント: 全点へ同じシフトを作用させる。底2の繰上がりなし加法は XOR で実装できる。
     shifted = ___
 
     w1 = walsh_from_integer(1, shifted)
     w2 = walsh_from_integer(2, shifted)
 
     values = 2.0 + 3.0 * w1 - 2.0 * w2
+    # ヒント: ランダム化後の2点で関数値を等重み平均し、1回の推定値を作る。
     estimates[r] = ___
 
     first_digits = (shifted >> (bits - 1)) & 1
@@ -1089,7 +1114,9 @@ for r in range(replications):
     )
 
 mean_estimate = estimates.mean()
+# ヒント: 独立ランダム化反復どうしの推定値から不偏分散を計算する。
 sample_variance = ___
+# ヒント: 反復平均の標準誤差なので、推定値分散を反復数で割って平方根を取る。
 standard_error = ___
 
 print("replicate mean:", mean_estimate)
@@ -1247,9 +1274,12 @@ def interlace_two_coordinates(points, m):
     out = np.zeros(len(points), dtype=np.uint64)
 
     for r in range(m):
+        # ヒント: 第1座標の r 番目の2進桁を取り出す。
         bit1 = ___
+        # ヒント: 第2座標の同じ位置の2進桁を取り出す。
         bit2 = ___
 
+        # ヒント: 2つの桁を出力の奇数・偶数位置へ交互に配置する。
         out |= ___
 
     return out.astype(float) / (2.0 ** (2 * m))
@@ -1287,7 +1317,9 @@ for m in ms:
 standard_errors = np.array(standard_errors)
 interlaced_errors = np.array(interlaced_errors)
 
+# ヒント: 通常 Sobol 誤差の log2-log2 直線の傾きから減衰指数を読む。
 standard_rate = ___
+# ヒント: 桁交互配置後の誤差について同じ log2-log2 傾きを求める。
 interlaced_rate = ___
 
 print("N:", Ns)

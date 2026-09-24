@@ -108,6 +108,7 @@ u0 = np.sin(np.pi * x)
 u_ftcs = u0.copy()
 for _ in range(steps):
     old = u_ftcs.copy()
+    # ヒント: 中心二階差分を使い、陽的 FTCS の内部格子点を一段進める。
     u_ftcs[1:-1] = ___
     u_ftcs[0] = 0.0
     u_ftcs[-1] = 0.0
@@ -120,6 +121,7 @@ A += -r * np.eye(n, k=-1)
 
 u_be = u0.copy()
 for _ in range(steps):
+    # ヒント: 陰的後退 Euler の一段では、内部格子点について線形方程式を解く。
     u_be[1:-1] = ___
     u_be[0] = 0.0
     u_be[-1] = 0.0
@@ -266,13 +268,16 @@ def evolve_ftcs(u0, r, steps):
     norms = [np.max(np.abs(u))]
 
     for _ in range(steps):
+        # ヒント: 周期境界なので左右隣接点を roll で取り、FTCS 更新を一段進める。
         u = ___
         norms.append(np.max(np.abs(u)))
 
     return u, np.array(norms)
 
 steps = 12
+# ヒント: 拡散 FTCS の安定条件を満たす側の r を選ぶ。
 stable_r = ___
+# ヒント: 安定条件を破る側の r を選び、交互振動モードの増幅を観察する。
 unstable_r = ___
 
 u_stable, stable_norms = evolve_ftcs(mode, stable_r, steps)
@@ -404,6 +409,7 @@ target_r = 0.4
 def ftcs_error(J):
     h = 1.0 / J
 
+    # ヒント: 固定した r を保つよう、空間刻み h から許される時間刻みを決める。
     max_tau = ___
     steps = math.ceil(T / max_tau)
     tau = T / steps
@@ -414,6 +420,7 @@ def ftcs_error(J):
 
     for _ in range(steps):
         old = u.copy()
+        # ヒント: 中心二階差分による FTCS 更新を内部格子点へ適用する。
         u[1:-1] = ___
         u[0] = 0.0
         u[-1] = 0.0
@@ -594,12 +601,16 @@ def solve_scheme(kind):
     b = np.zeros(n)
 
     if kind == "centered":
+        # ヒント: 中心差分の移流項を入れたときの左隣接点係数を組み立てる。
         left = ___
         diag = 2.0 * kappa / h**2
+        # ヒント: 中心差分の移流項を入れたときの右隣接点係数を組み立てる。
         right = ___
     elif kind == "upwind":
+        # ヒント: 正の移流速度に対する風上差分を使い、左側係数へ移流を寄せる。
         left = ___
         diag = 2.0 * kappa / h**2 + a / h
+        # ヒント: 風上化後の右側係数には拡散項だけが残ることを確認する。
         right = ___
     else:
         raise ValueError("unknown scheme")
