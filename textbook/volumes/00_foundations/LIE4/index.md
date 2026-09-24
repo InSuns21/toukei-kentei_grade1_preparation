@@ -248,7 +248,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lie4-fundamental-vector-field -->
-**定義の確認：$SO(2)$ の基本ベクトル場**
+**定義の確認**：$SO(2)$ の基本ベクトル場
 
 §1 の $SO(2)$ 作用を考えます。[LIE3 の $\mathfrak{so}(2)$](../LIE3/index.md#thm-lie3-orthogonal)の生成元
 
