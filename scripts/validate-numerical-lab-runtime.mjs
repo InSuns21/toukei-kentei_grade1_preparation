@@ -34,6 +34,28 @@ execFileSync(process.execPath, ['--check', path.join(root, 'pages', 'numerical-l
   stdio: 'pipe',
 });
 
+const pythonRunnerMatch = worker.match(
+  /const PYTHON_RUNNER = String\.raw`([\s\S]*?)`;/,
+);
+assert.ok(pythonRunnerMatch, 'numerical lab worker must define PYTHON_RUNNER as String.raw');
+const pythonRunner = pythonRunnerMatch[1];
+
+execFileSync(
+  'python3',
+  [
+    '-c',
+    'import sys; compile(sys.argv[1], "<numerical-lab-runner>", "exec")',
+    pythonRunner,
+  ],
+  { stdio: 'pipe' },
+);
+
+assert.match(
+  pythonRunner,
+  /_toukei_stderr\.write\("\\n\[figure capture failed\]\\n"\)/,
+  'Python runner must preserve escaped newlines inside the figure-capture diagnostic',
+);
+
 assert.match(worker, /pyodide\/v314\.0\.7\/full\/pyodide\.mjs/);
 assert.match(worker, /loadPackagesFromImports/);
 assert.match(runtime, /new Worker\(workerUrl\.href, \{ type: "module" \}\)/);
