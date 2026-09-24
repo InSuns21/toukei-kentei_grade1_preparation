@@ -159,6 +159,18 @@ function parseLabs(chapter, markdown) {
     if (mode === 'exercise') {
       assert.ok(solution, `${id}: lab-mode exercise requires an immediate python-solution block`);
       assert.match(source, /___/, `${id}: exercise starter must contain at least one ___ placeholder`);
+
+      const sourceLines = source.split('\n');
+      for (const [lineIndex, line] of sourceLines.entries()) {
+        if (!line.includes('___')) continue;
+        const previousLine = sourceLines[lineIndex - 1]?.trim() || '';
+        assert.match(
+          previousLine,
+          /^#\s*ヒント:\s*\S+/,
+          `${id}: every ___ placeholder must have an immediately preceding # ヒント: comment (source line ${lineIndex + 1})`,
+        );
+      }
+
       assert.doesNotMatch(solution, /___/, `${id}: python-solution must not contain ___ placeholders`);
     } else {
       assert.ok(!solution, `${id}: python-solution requires # lab-mode: exercise`);
