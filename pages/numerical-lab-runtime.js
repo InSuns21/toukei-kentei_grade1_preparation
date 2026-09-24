@@ -25,6 +25,169 @@
     return match ? match.slice(5).toLowerCase() : "";
   }
 
+
+  const PYTHON_KEYWORDS = new Set(
+    "False None True and as assert async await break class continue def del elif else except finally for from global if import in is lambda nonlocal not or pass raise return try while with yield".split(" ")
+  );
+  const PYTHON_BUILTINS = new Set(
+    "abs all any bool dict enumerate filter float int len list map max min next object open print range reversed round set sorted str sum super tuple type zip".split(" ")
+  );
+
+  function escapeHtml(text) {
+    return String(text)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  }
+
+  function highlightedSpan(kind, text) {
+    return '<span class="python-token python-token-' + kind + '">' +
+      escapeHtml(text) +
+      "</span>";
+  }
+
+  function highlightPython(source) {
+    const text = String(source || "");
+    let html = "";
+    let index = 0;
+
+    while (index < text.length) {
+      const char = text[index];
+
+      if (char === "#") {
+        let end = text.indexOf("\n", index);
+        if (end < 0) end = text.length;
+        html += highlightedSpan("comment", text.slice(index, end));
+        index = end;
+        continue;
+      }
+
+      if (char === "'" || char === '"') {
+        const quote = char;
+        const triple = text.slice(index, index + 3) === quote.repeat(3);
+        const delimiter = triple ? quote.repeat(3) : quote;
+        let end = index + delimiter.length;
+        let escaped = false;
+
+        while (end < text.length) {
+          if (!triple && !escaped && text[end] === quote) {
+            end += 1;
+            break;
+          }
+          if (triple && text.slice(end, end + 3) === delimiter) {
+            end += 3;
+            break;
+          }
+
+          if (!triple && text[end] === "\\" && !escaped) {
+            escaped = true;
+          } else {
+            escaped = false;
+          }
+          end += 1;
+        }
+
+        html += highlightedSpan("string", text.slice(index, end));
+        index = end;
+        continue;
+      }
+
+      const numberMatch = text.slice(index).match(
+        /^(?:0[xX][0-9a-fA-F]+|0[bB][01]+|0[oO][0-7]+|(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?j?)/
+      );
+      if (numberMatch) {
+        html += highlightedSpan("number", numberMatch[0]);
+        index += numberMatch[0].length;
+        continue;
+      }
+
+      const identifierMatch = text.slice(index).match(/^[A-Za-z_][A-Za-z0-9_]*/);
+      if (identifierMatch) {
+        const identifier = identifierMatch[0];
+        const after = text.slice(index + identifier.length);
+        let kind = "";
+
+        if (identifier === "___") {
+          kind = "placeholder";
+        } else if (PYTHON_KEYWORDS.has(identifier)) {
+          kind = "keyword";
+        } else if (PYTHON_BUILTINS.has(identifier)) {
+          kind = "builtin";
+        } else if (/^\s*\(/.test(after)) {
+          kind = "function";
+        }
+
+        html += kind ? highlightedSpan(kind, identifier) : escapeHtml(identifier);
+        index += identifier.length;
+        continue;
+      }
+
+      html += escapeHtml(char);
+      index += 1;
+    }
+
+    return html;
+  }
+
+  function createHighlightedEditor(initialCode, label) {
+    const wrapper = document.createElement("div");
+    wrapper.className = "numerical-lab-code-editor";
+
+    const highlight = document.createElement("pre");
+    highlight.className = "numerical-lab-code-highlight";
+    highlight.setAttribute("aria-hidden", "true");
+
+    const highlightCode = document.createElement("code");
+    highlight.appendChild(highlightCode);
+
+    const editor = document.createElement("textarea");
+    editor.className = "numerical-lab-editor";
+    editor.value = initialCode;
+    editor.spellcheck = false;
+    editor.wrap = "off";
+    editor.setAttribute("aria-label", label);
+
+    function refresh() {
+      highlightCode.innerHTML = highlightPython(editor.value) + "\n";
+    }
+
+    editor.addEventListener("input", refresh);
+    editor.addEventListener("keydown", function (event) {
+      if (event.key !== "Tab" || event.altKey || event.ctrlKey || event.metaKey) return;
+      event.preventDefault();
+
+      const start = editor.selectionStart;
+      const end = editor.selectionEnd;
+      editor.setRangeText("    ", start, end, "end");
+      refresh();
+    });
+    editor.addEventListener("scroll", function () {
+      highlight.scrollTop = editor.scrollTop;
+      highlight.scrollLeft = editor.scrollLeft;
+    });
+
+    refresh();
+    wrapper.append(highlight, editor);
+
+    return { wrapper, editor, refresh };
+  }
+
+  function activateLabTab(panel, name) {
+    const buttons = panel.querySelectorAll(".numerical-lab-tab");
+    const panes = panel.querySelectorAll(".numerical-lab-tab-panel");
+    if (!buttons.length || !panes.length) return;
+
+    buttons.forEach((button) => {
+      const active = button.dataset.tab === name;
+      button.setAttribute("aria-selected", active ? "true" : "false");
+      button.tabIndex = active ? 0 : -1;
+    });
+
+    panes.forEach((pane) => {
+      pane.hidden = pane.dataset.tabPanel !== name;
+    });
+  }
+
   function fnv1a(text) {
     let hash = 0x811c9dc5;
     for (let i = 0; i < text.length; i += 1) {
@@ -55,6 +218,11 @@
         metadata.title = match[1].trim();
         continue;
       }
+      match = line.match(/^\s*#\s*lab-mode:\s*(.+?)\s*$/i);
+      if (match) {
+        metadata.mode = match[1].trim().toLowerCase();
+        continue;
+      }
       body.push(line);
     }
 
@@ -67,6 +235,7 @@
       id,
       title: metadata.title || id,
       timeoutMs,
+      mode: metadata.mode || "free",
       code,
       sourceHash: fnv1a(code),
     };
@@ -183,6 +352,7 @@
     const job = currentJob;
     if (!job) return;
     setStatus(job.panel, "実行環境エラー", "error");
+    activateLabTab(job.panel, "result");
     setOutput(job.panel, message, true);
     setFigures(job.panel, []);
     terminateWorker();
@@ -204,6 +374,7 @@
       job.bootTimer = null;
       job.runTimer = setTimeout(() => {
         setStatus(job.panel, "時間制限で停止", "error");
+        activateLabTab(job.panel, "result");
         setOutput(
           job.panel,
           "実行時間が " + job.lab.timeoutMs + " ms を超えたため Worker を破棄しました。",
@@ -236,6 +407,7 @@
     if (userError) {
       outputParts.push(userError.replace(/\s+$/, ""));
       setStatus(job.panel, "実行エラー", "error");
+      activateLabTab(job.panel, "result");
       setOutput(job.panel, outputParts.filter(Boolean).join("\n"), true);
       setFigures(job.panel, []);
       saveProgress(job.lab, job.code, false);
@@ -246,6 +418,7 @@
     if (result.testPassed === false) {
       outputParts.push(testError.replace(/\s+$/, ""));
       setStatus(job.panel, "テスト不合格", "error");
+      activateLabTab(job.panel, "result");
       setOutput(job.panel, outputParts.filter(Boolean).join("\n"), true);
       setFigures(job.panel, result.figures || []);
       saveProgress(job.lab, job.code, false);
@@ -255,6 +428,7 @@
 
     const completed = result.testPassed === true || !job.tests.trim();
     setStatus(job.panel, completed ? "完了" : "実行完了", "success");
+    activateLabTab(job.panel, "result");
     setOutput(job.panel, outputParts.filter(Boolean).join("\n") || "（標準出力なし）", false);
     setFigures(job.panel, result.figures || []);
     saveProgress(job.lab, job.code, completed);
@@ -269,6 +443,16 @@
 
     const textarea = panel.querySelector(".numerical-lab-editor");
     const code = textarea ? textarea.value : lab.code;
+
+    if (lab.mode === "exercise" && /___/.test(code)) {
+      saveProgress(lab, code, false);
+      setStatus(panel, "穴埋め未完了", "error");
+      setOutput(panel, "穴埋め記号 ___ が残っています。すべて埋めてから実行してください。", true);
+      setFigures(panel, []);
+      activateLabTab(panel, "result");
+      return;
+    }
+
     saveProgress(lab, code, false);
     setOutput(panel, "", false);
     setFigures(panel, []);
@@ -323,10 +507,13 @@
     resetCurrentJob();
   }
 
-  function buildPanel(pre, lab, tests) {
+  function buildPanel(pre, lab, tests, solution) {
     const panel = document.createElement("section");
     panel.className = "numerical-lab";
     panel.dataset.labId = lab.id;
+
+    const hasSolution = Boolean(solution && solution.trim());
+    if (hasSolution) panel.classList.add("is-exercise");
 
     const saved = loadProgress(lab);
     const initialCode = saved && typeof saved.code === "string" ? saved.code : lab.code;
@@ -348,11 +535,11 @@
 
     header.append(title, status);
 
-    const editor = document.createElement("textarea");
-    editor.className = "numerical-lab-editor";
-    editor.value = initialCode;
-    editor.spellcheck = false;
-    editor.setAttribute("aria-label", lab.title + " の Python コード");
+    const editorParts = createHighlightedEditor(
+      initialCode,
+      lab.title + " の Python コード"
+    );
+    const editor = editorParts.editor;
 
     const controls = document.createElement("div");
     controls.className = "numerical-lab-controls";
@@ -376,10 +563,12 @@
     resetButton.addEventListener("click", () => {
       if (currentJob && currentJob.panel === panel) stopLab(panel);
       editor.value = lab.code;
+      editorParts.refresh();
       clearProgress(lab);
       setStatus(panel, "未実行", "");
       setOutput(panel, "", false);
       setFigures(panel, []);
+      if (hasSolution) activateLabTab(panel, "editor");
     });
 
     const timeout = document.createElement("span");
@@ -395,8 +584,80 @@
     const figures = document.createElement("div");
     figures.className = "numerical-lab-figures";
 
-    panel.append(header, editor, controls, output, figures);
+    panel.appendChild(header);
+
+    if (!hasSolution) {
+      panel.append(editorParts.wrapper, controls, output, figures);
+      pre.replaceWith(panel);
+      return;
+    }
+
+    const tabs = document.createElement("div");
+    tabs.className = "numerical-lab-tabs";
+    tabs.setAttribute("role", "tablist");
+    tabs.setAttribute("aria-label", lab.title + " の演習タブ");
+
+    const tabSpecs = [
+      ["editor", "穴埋め"],
+      ["solution", "模範解答"],
+      ["result", "実行結果"],
+    ];
+
+    for (const [name, label] of tabSpecs) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "numerical-lab-tab";
+      button.dataset.tab = name;
+      button.setAttribute("role", "tab");
+      button.textContent = label;
+      button.addEventListener("click", () => activateLabTab(panel, name));
+      tabs.appendChild(button);
+    }
+
+    const editorPane = document.createElement("div");
+    editorPane.className = "numerical-lab-tab-panel";
+    editorPane.dataset.tabPanel = "editor";
+    editorPane.setAttribute("role", "tabpanel");
+    editorPane.append(editorParts.wrapper, controls);
+
+    const solutionPane = document.createElement("div");
+    solutionPane.className = "numerical-lab-tab-panel numerical-lab-solution";
+    solutionPane.dataset.tabPanel = "solution";
+    solutionPane.setAttribute("role", "tabpanel");
+
+    const solutionCode = document.createElement("pre");
+    solutionCode.className = "numerical-lab-solution-code";
+    const solutionCodeInner = document.createElement("code");
+    solutionCodeInner.innerHTML = highlightPython(solution.trim()) + "\n";
+    solutionCode.appendChild(solutionCodeInner);
+
+    const solutionControls = document.createElement("div");
+    solutionControls.className = "numerical-lab-solution-controls";
+
+    const applySolutionButton = document.createElement("button");
+    applySolutionButton.type = "button";
+    applySolutionButton.textContent = "模範解答を穴埋め欄へ反映";
+    applySolutionButton.addEventListener("click", () => {
+      editor.value = solution.trim();
+      editorParts.refresh();
+      saveProgress(lab, editor.value, false);
+      setStatus(panel, "模範解答を反映", "");
+      activateLabTab(panel, "editor");
+      editor.focus();
+    });
+
+    solutionControls.appendChild(applySolutionButton);
+    solutionPane.append(solutionCode, solutionControls);
+
+    const resultPane = document.createElement("div");
+    resultPane.className = "numerical-lab-tab-panel";
+    resultPane.dataset.tabPanel = "result";
+    resultPane.setAttribute("role", "tabpanel");
+    resultPane.append(output, figures);
+
+    panel.append(tabs, editorPane, solutionPane, resultPane);
     pre.replaceWith(panel);
+    activateLabTab(panel, "editor");
   }
 
   function mountLabs(container) {
@@ -405,15 +666,24 @@
     let labIndex = 0;
 
     for (const pre of blocks) {
-      if (languageOfPre(pre) !== "python-lab") continue;
+      if (!pre.isConnected || languageOfPre(pre) !== "python-lab") continue;
 
       const codeNode = pre.querySelector("code");
       if (!codeNode) continue;
 
       labIndex += 1;
       const lab = parseSource(codeNode.textContent, labIndex);
+      let solution = "";
       let tests = "";
-      const next = pre.nextElementSibling;
+      let next = pre.nextElementSibling;
+
+      if (next && next.tagName === "PRE" && languageOfPre(next) === "python-solution") {
+        const solutionCode = next.querySelector("code");
+        solution = solutionCode ? solutionCode.textContent : "";
+        const solutionBlock = next;
+        next = next.nextElementSibling;
+        solutionBlock.remove();
+      }
 
       if (next && next.tagName === "PRE" && languageOfPre(next) === "python-test") {
         const testCode = next.querySelector("code");
@@ -421,7 +691,7 @@
         next.remove();
       }
 
-      buildPanel(pre, lab, tests);
+      buildPanel(pre, lab, tests, solution);
     }
   }
 

@@ -203,11 +203,57 @@ $$
 
 を20次多項式で補間し、等間隔節点と Chebyshev 節点を比べます。
 
+この実験は、完成コードを読むだけでなく、**節点の作り方と誤差評価を自分で埋める演習**として実行します。
+
+- 等間隔節点を $[-1,1]$ に作る。
+- Chebyshev 節点の公式を NumPy で書く。
+- 二つの補間の最大誤差を同じ評価格子上で計算する。
+
+「穴埋め」タブの `___` をすべて置き換えてから実行してください。必要なら「模範解答」タブで完成コードを確認できます。
+
 ```python-lab
 # lab-id: NUMLAB1-NA4-RUNGE
 # lab-title: 等間隔節点と Chebyshev 節点を比較
+# lab-mode: exercise
 # timeout-ms: 10000
 
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.interpolate import BarycentricInterpolator
+
+def runge(x):
+    return 1.0 / (1.0 + 25.0 * x * x)
+
+degree = 20
+k = np.arange(degree + 1)
+
+equi_nodes = ___
+cheb_nodes = ___
+
+equi_interp = BarycentricInterpolator(equi_nodes, runge(equi_nodes))
+cheb_interp = BarycentricInterpolator(cheb_nodes, runge(cheb_nodes))
+
+grid = np.linspace(-1.0, 1.0, 2001)
+truth = runge(grid)
+equi_values = equi_interp(grid)
+cheb_values = cheb_interp(grid)
+
+equi_error = ___
+cheb_error = ___
+
+print("max error, equidistant:", equi_error)
+print("max error, Chebyshev:", cheb_error)
+
+fig, ax = plt.subplots()
+ax.plot(grid, truth, label="Runge")
+ax.plot(grid, equi_values, label="equidistant")
+ax.plot(grid, cheb_values, label="Chebyshev")
+ax.set_ylim(-1.0, 2.0)
+ax.legend()
+ax.grid(True)
+```
+
+```python-solution
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.interpolate import BarycentricInterpolator
@@ -247,6 +293,22 @@ ax.grid(True)
 ```python-test
 assert np.isfinite(equi_error)
 assert np.isfinite(cheb_error)
+assert np.allclose(
+    equi_nodes,
+    np.linspace(-1.0, 1.0, degree + 1),
+)
+assert np.allclose(
+    np.sort(cheb_nodes),
+    np.sort(np.cos((2 * k + 1) * np.pi / (2 * (degree + 1)))),
+)
+assert np.isclose(
+    equi_error,
+    np.max(np.abs(equi_values - truth)),
+)
+assert np.isclose(
+    cheb_error,
+    np.max(np.abs(cheb_values - truth)),
+)
 assert cheb_error < equi_error
 assert cheb_error < 0.1
 ```
