@@ -2,7 +2,7 @@
 
 Encore V の理論35講では、式を紙上で追えることを優先し、Python 実行環境を前提にしませんでした。
 
-ここからの NUMLAB 系列では、その理論を実際に計算機上で確かめます。
+ここからの NUMLAB 系列では、その理論を実際に計算機上で確かめます。**PYNUM1 自身も数値ラボ実行ページとして扱い、このページ内の実験コードはブラウザ内 Python でそのまま編集・実行できます。**
 
 ただし本章は一般的な Python 入門ではありません。変数、条件分岐、反復、関数、基本的なデータ構造、デバッグという考え方自体は既知とします。
 
@@ -951,7 +951,148 @@ assert np.all(np.isfinite(errors))
 
 ---
 
-## 14. 演習
+<a id="pynum1-browser-labs"></a>
+## 14. ブラウザ実験：ここで NumPy を実際に動かす
+
+ここまでのコード例を読むだけでなく、後続 NUMLAB と同じ実行欄で手を動かします。
+
+各実験の「実行」を押すとブラウザ内 Python が起動し、編集したコードをその場で実行します。合格条件は画面には常時表示せず、実行後に自動判定します。編集内容と完了状態はブラウザへ保存されます。
+
+### 14.1 形状・軸・データ型
+
+```python-lab
+# lab-id: PYNUM1-SHAPE-AXIS-DTYPE
+# lab-title: shape・axis・dtype を実行確認
+# timeout-ms: 5000
+
+import numpy as np
+
+A = np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+], dtype=float)
+
+col_sum = A.sum(axis=0)
+row_sum = A.sum(axis=1)
+
+print("shape:", A.shape)
+print("dtype:", A.dtype)
+print("axis=0:", col_sum, col_sum.shape)
+print("axis=1:", row_sum, row_sum.shape)
+```
+
+```python-test
+assert A.shape == (2, 3)
+assert np.issubdtype(A.dtype, np.floating)
+assert np.array_equal(col_sum, np.array([5.0, 7.0, 9.0]))
+assert np.array_equal(row_sum, np.array([6.0, 15.0]))
+```
+
+`axis=0` と `axis=1` を入れ替え、どの形が残るかも確認してください。
+
+### 14.2 ビュー・コピー・ブロードキャスト
+
+```python-lab
+# lab-id: PYNUM1-VIEW-BROADCAST
+# lab-title: ビュー共有とブロードキャストを確認
+# timeout-ms: 5000
+
+import numpy as np
+
+base = np.array([10.0, 20.0, 30.0, 40.0])
+view = base[1:3]
+copied = base[1:3].copy()
+
+view[0] = -1.0
+copied[1] = 999.0
+
+row = np.array([1.0, 2.0, 3.0])[:, None]
+col = np.array([10.0, 20.0, 30.0, 40.0])
+grid = row + col
+
+print("base:", base)
+print("copied:", copied)
+print("grid shape:", grid.shape)
+print(grid)
+```
+
+```python-test
+assert np.shares_memory(base, view)
+assert not np.shares_memory(base, copied)
+assert base[1] == -1.0
+assert base[2] == 30.0
+assert grid.shape == (3, 4)
+assert np.array_equal(grid[2], np.array([13.0, 23.0, 33.0, 43.0]))
+```
+
+### 14.3 乱数生成器の再現性
+
+```python-lab
+# lab-id: PYNUM1-RNG
+# lab-title: Generator の再現性を確認
+# timeout-ms: 5000
+
+import numpy as np
+
+rng1 = np.random.default_rng(2026)
+rng2 = np.random.default_rng(2026)
+
+x1 = rng1.normal(size=6)
+x2 = rng2.normal(size=6)
+x1_next = rng1.normal(size=6)
+
+print("same first draw:", np.array_equal(x1, x2))
+print("same second draw:", np.array_equal(x1, x1_next))
+print("x1:", x1)
+```
+
+```python-test
+assert np.array_equal(x1, x2)
+assert not np.array_equal(x1, x1_next)
+assert np.isfinite(x1).all()
+assert x1.shape == (6,)
+```
+
+初期化値を変えたとき、どこまで再現性が変わるかも試してください。
+
+### 14.4 log-log 図と誤差の減衰指数
+
+```python-lab
+# lab-id: PYNUM1-LOGLOG
+# lab-title: log-log 図で N^{-2} を確認
+# timeout-ms: 8000
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+N = np.array([16, 32, 64, 128, 256], dtype=float)
+error = N ** (-2)
+
+orders = (
+    np.log(error[:-1] / error[1:])
+    / np.log(N[1:] / N[:-1])
+)
+
+fig, ax = plt.subplots()
+ax.loglog(N, error, marker="o")
+ax.set_xlabel("N")
+ax.set_ylabel("error")
+ax.grid(True)
+
+print("orders:", orders)
+```
+
+```python-test
+assert np.isfinite(error).all()
+assert np.all(error > 0.0)
+assert np.allclose(orders, 2.0)
+```
+
+図の傾きが約 $-2$、隣接点から計算した指数が $2$ になることを、同じデータから同時に確認できます。
+
+---
+
+## 15. 演習
 
 ### 演習 PYNUM1-A1
 
@@ -1630,7 +1771,7 @@ errors = np.empty(Ns.shape, dtype=float)
 
 ---
 
-## 15. 後続 NUMLAB での共通規約
+## 16. 後続 NUMLAB での共通規約
 
 本章以後、数値実験コードでは原則として次を守ります。
 
@@ -1647,7 +1788,7 @@ errors = np.empty(Ns.shape, dtype=float)
 
 ---
 
-## 16. まとめ
+## 17. まとめ
 
 本章の主役は Python 文法ではなく、
 

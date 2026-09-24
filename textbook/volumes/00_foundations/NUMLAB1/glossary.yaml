@@ -1,0 +1,11 @@
+chapter: "NUMLAB1"
+terms:
+  - term: 実測収束次数
+    english: observed order of convergence
+    meaning: 複数の刻み幅や問題サイズで得た誤差比から数値的に推定した収束次数。
+  - term: 残差履歴
+    english: residual history
+    meaning: 反復法の各反復で計算した残差ノルムを順に記録した列。
+  - term: 再構成誤差
+    english: reconstruction error
+    meaning: 数値分解で得た因子から元の行列を組み直したときの差の大きさ。
