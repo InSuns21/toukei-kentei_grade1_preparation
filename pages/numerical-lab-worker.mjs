@@ -5,33 +5,7 @@ const PYODIDE_BASE_URL = `https://cdn.jsdelivr.net/pyodide/v${PYODIDE_VERSION}/f
 
 let pyodidePromise = null;
 
-function ensurePyodide() {
-  if (!pyodidePromise) {
-    pyodidePromise = loadPyodide({ indexURL: PYODIDE_BASE_URL });
-  }
-  return pyodidePromise;
-}
-
-function post(type, payload = {}) {
-  self.postMessage({ type, ...payload });
-}
-
-async function runJob(message) {
-  const jobId = String(message.jobId || "");
-  const code = String(message.code || "");
-  const tests = String(message.tests || "");
-
-  post("runtime-loading", { jobId, version: PYODIDE_VERSION });
-
-  const pyodide = await ensurePyodide();
-  await pyodide.loadPackagesFromImports(`${code}\n${tests}`);
-
-  post("run-started", { jobId, version: PYODIDE_VERSION });
-
-  pyodide.globals.set("__toukei_user_code", code);
-  pyodide.globals.set("__toukei_test_code", tests);
-
-  const resultJson = await pyodide.runPythonAsync(`
+const PYTHON_RUNNER = String.raw\`
 import base64
 import contextlib
 import io
@@ -75,7 +49,7 @@ if not _toukei_user_error and "matplotlib.pyplot" in sys.modules:
             )
         _toukei_plt.close("all")
     except BaseException:
-        _toukei_stderr.write("\n[figure capture failed]\n")
+        _toukei_stderr.write("\\n[figure capture failed]\\n")
         _toukei_stderr.write(traceback.format_exc())
 
 json.dumps({
@@ -86,7 +60,36 @@ json.dumps({
     "testError": _toukei_test_error,
     "figures": _toukei_figures,
 })
-`);
+\`;
+
+
+function ensurePyodide() {
+  if (!pyodidePromise) {
+    pyodidePromise = loadPyodide({ indexURL: PYODIDE_BASE_URL });
+  }
+  return pyodidePromise;
+}
+
+function post(type, payload = {}) {
+  self.postMessage({ type, ...payload });
+}
+
+async function runJob(message) {
+  const jobId = String(message.jobId || "");
+  const code = String(message.code || "");
+  const tests = String(message.tests || "");
+
+  post("runtime-loading", { jobId, version: PYODIDE_VERSION });
+
+  const pyodide = await ensurePyodide();
+  await pyodide.loadPackagesFromImports(`${code}\n${tests}`);
+
+  post("run-started", { jobId, version: PYODIDE_VERSION });
+
+  pyodide.globals.set("__toukei_user_code", code);
+  pyodide.globals.set("__toukei_test_code", tests);
+
+  const resultJson = await pyodide.runPythonAsync(PYTHON_RUNNER);
 
   post("run-result", {
     jobId,
