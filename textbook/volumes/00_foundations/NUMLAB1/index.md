@@ -64,7 +64,9 @@ import matplotlib.pyplot as plt
 x = np.array([1e4, 1e8, 1e12, 1e16], dtype=float)
 
 unstable = np.sqrt(x + 1.0) - np.sqrt(x)
+# ヒント: 桁落ちを避けるため、差を直接引かない代数的に同値な式へ直す。
 stable = ___
+# ヒント: 不安定な計算結果が安定な基準値からどれだけずれたかを相対量で測る。
 relative_gap = ___
 
 for xi, u, s, g in zip(x, unstable, stable, relative_gap):
@@ -136,11 +138,13 @@ x = 1.0
 xs = [x]
 
 for _ in range(4):
+    # ヒント: Newton 法の一段更新。現在の近似値から次の近似値を作る。
     x = ___
     xs.append(x)
 
 xs = np.array(xs)
 errors = np.abs(xs - root)
+# ヒント: 二次収束ならほぼ一定になる誤差比を、連続する誤差列から作る。
 quadratic_ratio = ___
 
 print("iterates:", xs)
@@ -222,7 +226,9 @@ z = np.array([0.8, 0.6], dtype=float)
 history = [np.linalg.norm(F(z))]
 
 for _ in range(5):
+    # ヒント: Jacobian を係数行列とする Newton 方程式を解き、修正量を求める。
     step = ___
+    # ヒント: 求めた修正量を現在のベクトルへ加えて次の反復点に進む。
     z = ___
     history.append(np.linalg.norm(F(z)))
 
@@ -309,7 +315,9 @@ def runge(x):
 degree = 20
 k = np.arange(degree + 1)
 
+# ヒント: 区間 [-1,1] を degree+1 個に等分して補間節点を作る。
 equi_nodes = ___
+# ヒント: 端点付近へ密になる Chebyshev 節点を、余弦で生成する。
 cheb_nodes = ___
 
 equi_interp = BarycentricInterpolator(equi_nodes, runge(equi_nodes))
@@ -320,7 +328,9 @@ truth = runge(grid)
 equi_values = equi_interp(grid)
 cheb_values = cheb_interp(grid)
 
+# ヒント: 等間隔節点補間の最大絶対誤差を格子上で測る。
 equi_error = ___
+# ヒント: Chebyshev 節点補間の最大絶対誤差を同じ格子上で測る。
 cheb_error = ___
 
 print("max error, equidistant:", equi_error)
@@ -428,7 +438,9 @@ errors = []
 
 for n in ns:
     t, w = leggauss(int(n))
+    # ヒント: Gauss--Legendre の標準区間 [-1,1] の節点を積分区間 [0,1] へ写す。
     x = ___
+    # ヒント: 変数変換の係数を含めて、重み付き関数値和を作る。
     approx = ___
     errors.append(abs(approx - exact))
 
@@ -509,6 +521,7 @@ def euler_exp(N):
     h = 1.0 / N
     y = 1.0
     for _ in range(N):
+        # ヒント: 陽的 Euler 法の一段更新。現在値と右辺から次の値を作る。
         y = ___
     return y
 
@@ -516,6 +529,7 @@ Ns = np.array([10, 20, 40, 80, 160, 320], dtype=int)
 exact = np.e
 errors = np.array([abs(euler_exp(int(N)) - exact) for N in Ns], dtype=float)
 
+# ヒント: 格子幅を半分にしたときの誤差比から、実測の log-log 傾きを求める。
 orders = ___
 
 print("errors:", errors)
@@ -610,7 +624,9 @@ explicit[0] = 1.0
 backward[0] = 1.0
 
 for k in range(steps):
+    # ヒント: 陽的 Euler 法の増幅因子を使って次時刻の値を更新する。
     explicit[k + 1] = ___
+    # ヒント: 後退 Euler 法の陰的更新を、この線形問題では閉じた形で書ける。
     backward[k + 1] = ___
 
 t = h * np.arange(steps + 1)
@@ -698,11 +714,14 @@ A = 2.0 * np.eye(n)
 A += -1.0 * np.eye(n, k=1)
 A += -1.0 * np.eye(n, k=-1)
 
+# ヒント: 対称正定値行列を下三角因子へ分解する。
 L = ___
 reconstruction_error = np.linalg.norm(A - L @ L.T, ord=np.inf)
 
 b = np.ones(n)
+# ヒント: まず下三角系を解いて中間変数を求める。
 y = ___
+# ヒント: 続いて転置下三角系を解き、元の連立方程式の解を得る。
 x = ___
 residual = np.linalg.norm(b - A @ x)
 
@@ -775,14 +794,19 @@ residuals = [np.sqrt(rr)]
 
 for _ in range(n):
     Ap = A @ p
+    # ヒント: 現在の探索方向上で残差を最も減らす step length を作る。
     alpha = ___
+    # ヒント: step length だけ探索方向へ進んで近似解を更新する。
     x = ___
+    # ヒント: 行列ベクトル積を再利用し、更新後の残差を作る。
     r = ___
     rr_new = r @ r
     residuals.append(np.sqrt(rr_new))
     if np.sqrt(rr_new) < 1e-10:
         break
+    # ヒント: 新旧残差ノルムから探索方向の混合係数を作る。
     beta = ___
+    # ヒント: 新しい残差と前の探索方向を組み合わせ、A-共役な次方向を作る。
     p = ___
     rr = rr_new
 
@@ -882,8 +906,11 @@ x = x / np.linalg.norm(x)
 residuals = []
 
 for _ in range(60):
+    # ヒント: 現在ベクトルへ行列を作用させ、支配固有方向を強調する。
     x = ___
+    # ヒント: 方向だけを残すため、各反復でベクトルを正規化する。
     x = ___
+    # ヒント: 現在ベクトルに対する Rayleigh 商から固有値近似を作る。
     rayleigh = ___
     residuals.append(np.linalg.norm(A @ x - rayleigh * x))
 
@@ -978,12 +1005,14 @@ x_stop = None
 bound = None
 
 for _ in range(1000):
+    # ヒント: 遷移作用と teleportation を合わせた PageRank の固定点反復を書く。
     x_next = ___
     d = np.linalg.norm(x_next - x, ord=1)
     differences.append(d)
 
     if d <= (1.0 - alpha) * target_error:
         x_stop = x.copy()
+        # ヒント: 停止時の差分から、固定点までの誤差上界を評価する。
         bound = ___
         break
 
@@ -1102,6 +1131,7 @@ sd_errors = [np.linalg.norm(x_sd - solution)]
 
 for _ in range(40):
     r = b - A @ x_sd
+    # ヒント: 最急降下法の探索方向上で二次関数を最小にする厳密 step length を作る。
     step = ___
     x_sd = x_sd + step * r
     sd_errors.append(np.linalg.norm(x_sd - solution))
@@ -1114,6 +1144,7 @@ cg_errors = [np.linalg.norm(x_cg - solution)]
 
 for _ in range(2):
     Ap = A @ p
+    # ヒント: CG 法で現在の探索方向に沿って進む step length を作る。
     alpha = ___
     x_cg = x_cg + alpha * p
     r = r - alpha * Ap
@@ -1121,7 +1152,9 @@ for _ in range(2):
     rr_new = r @ r
     if np.sqrt(rr_new) < 1e-14:
         break
+    # ヒント: 新旧残差から次の探索方向を作る混合係数を計算する。
     beta = ___
+    # ヒント: 新しい残差へ前の探索方向成分を加え、次の共役方向を作る。
     p = ___
     rr = rr_new
 
