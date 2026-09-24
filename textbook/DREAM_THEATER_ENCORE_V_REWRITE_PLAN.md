@@ -438,7 +438,9 @@ PYNUM1 は後続 NUMLAB の共通参照章とし、各演習で Python / NumPy �
 - 編集コード・完了状態は localStorage
 - Pyodide 固定版資産は Service Worker の永続 Cache Storage
 - 通常教材のオフライン保存と数値ランタイムのキャッシュを分離
-- `python-lab` + `python-test` コードフェンス を共通実行・自動判定契約とする
+- `textbook/NUMERICAL_LAB_AUTHORING_STANDARD.md` を計算機演習の執筆正本とする
+- NUMLAB1–NUMLAB5 の理論対応ラボは `python-lab`（`lab-mode: exercise`）→ `python-solution` → `python-test` の穴埋め演習を必須とする
+- PYNUM1 のクイックスタートと NUMLAB0 の smoke test は自由編集ラボを許す
 - 数値判定は tolerance、性質ベーステストは再現可能な固定乱数生成器で行う
 
 基本要件：
@@ -473,6 +475,8 @@ NUMLAB は、
 - 理論で予測した誤差率の確認
 
 を担う。
+
+NUMLAB1–NUMLAB5 は完成コードを読むだけのデモ章にしない。各理論対応ラボで、learning objective の核心となる式・更新・離散化・推定量を 1–5 箇所程度の穴埋めとして学習者自身にコードへ翻訳させ、模範解答と hidden test で閉じる。
 
 ---
 
@@ -585,6 +589,7 @@ NUMLAB1 → … → NUMLAB5
 - PYNUM1 完了
 - NUMLAB0–NUMLAB5 完了
 - 理論講座との相互リンク完了
+- NUMLAB1–NUMLAB5 の全理論対応ラボが exercise mode + 模範解答 + hidden test を持つ
 - 計算機演習の自動テスト・ブラウザ smoke test が green
 - 主要数値実験が理論上の予測と整合
 - Pages 上で offline / runtime / link が機能

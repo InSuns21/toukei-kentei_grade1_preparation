@@ -31,6 +31,8 @@ Python / NumPy の共通記法は PYNUM1、ブラウザ実行基盤は NUMLAB0 �
 
 ## 0. 実験の共通規約
 
+各理論対応ラボは、原則として **穴埋め → 模範解答 → 自動判定** の演習形式で実行します。完成コードを読むだけでなく、理論上の核心式を自分でコードへ翻訳してください。
+
 1. 乱数生成器は `np.random.default_rng(seed)` から明示的に作る。
 2. 比較実験では、標本数だけでなく関数評価回数も合わせる。
 3. 単一の乱数実現値だけで結論せず、独立反復から標準誤差や推定量分散を測る。
@@ -89,11 +91,60 @@ $$
 
 独立反復を多数回行い、その推定値の標準偏差を実測標準誤差として比較します。
 
+**穴埋め課題：** 理論標準誤差、反復からの実測標準誤差、$N^{1/2}$ スケーリングを埋めてください。
+
 ```python-lab
 # lab-id: NUMLAB4-MC1-STANDARD-ERROR
 # lab-title: Monte Carlo 標準誤差の N^{-1/2} 則
+# lab-mode: exercise
 # timeout-ms: 10000
 
+import numpy as np
+import matplotlib.pyplot as plt
+
+rng = np.random.default_rng(20260924)
+
+Ns = np.array([64, 256, 1024, 4096], dtype=int)
+replications = 300
+
+true_value = 1.0 / 3.0
+sigma = np.sqrt(4.0 / 45.0)
+
+empirical_se = np.empty(len(Ns))
+theoretical_se = ___
+mean_estimates = np.empty(len(Ns))
+
+for k, N in enumerate(Ns):
+    samples = rng.random((replications, int(N))) ** 2
+    estimates = samples.mean(axis=1)
+
+    empirical_se[k] = ___
+    mean_estimates[k] = estimates.mean()
+
+observed_exponents = (
+    np.log(empirical_se[:-1] / empirical_se[1:])
+    / np.log(Ns[1:] / Ns[:-1])
+)
+
+scaled_se = ___
+
+print("N:", Ns)
+print("empirical SE:", empirical_se)
+print("theoretical SE:", theoretical_se)
+print("SE * sqrt(N):", scaled_se)
+print("observed exponents:", observed_exponents)
+print("mean estimates:", mean_estimates)
+
+fig, ax = plt.subplots()
+ax.loglog(Ns, empirical_se, marker="o", label="empirical SE")
+ax.loglog(Ns, theoretical_se, linestyle="--", label="sigma / sqrt(N)")
+ax.set_xlabel("N")
+ax.set_ylabel("standard error")
+ax.legend()
+ax.grid(True)
+```
+
+```python-solution
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -190,11 +241,74 @@ $$
 \frac1M=\frac12.
 $$
 
+**穴埋め課題：** 逆関数法、棄却条件、受理率の計算を埋めてください。
+
 ```python-lab
 # lab-id: NUMLAB4-MC2-SAMPLING
 # lab-title: 逆関数法・棄却法・固定シード
+# lab-mode: exercise
 # timeout-ms: 8000
 
+import numpy as np
+import matplotlib.pyplot as plt
+
+rng_a = np.random.default_rng(2026)
+rng_b = np.random.default_rng(2026)
+
+probe_a = rng_a.random(8)
+probe_b = rng_b.random(8)
+reproducible = np.array_equal(probe_a, probe_b)
+
+rng_inverse = np.random.default_rng(2026)
+sample_size = 12000
+
+u = rng_inverse.random(sample_size)
+exponential_sample = ___
+
+rng_rejection = np.random.default_rng(2026)
+
+accepted_chunks = []
+accepted_count = 0
+proposal_count = 0
+batch_size = 6000
+
+while accepted_count < sample_size:
+    x = rng_rejection.random(batch_size)
+    v = rng_rejection.random(batch_size)
+
+    accepted = ___
+    accepted_chunks.append(accepted)
+
+    accepted_count += accepted.size
+    proposal_count += batch_size
+
+rejection_sample = np.concatenate(accepted_chunks)[:sample_size]
+acceptance_rate = ___
+
+print("fixed-seed reproducible:", reproducible)
+print("exponential sample mean:", exponential_sample.mean())
+print("theoretical exponential mean:", 0.5)
+print("rejection sample mean:", rejection_sample.mean())
+print("theoretical target mean:", 2.0 / 3.0)
+print("acceptance rate:", acceptance_rate)
+
+fig, ax = plt.subplots()
+ax.hist(
+    rejection_sample,
+    bins=30,
+    density=True,
+    alpha=0.6,
+    label="rejection sample",
+)
+
+grid = np.linspace(0.0, 1.0, 200)
+ax.plot(grid, 2.0 * grid, label="target density 2x")
+ax.set_xlabel("x")
+ax.set_ylabel("density")
+ax.legend()
+```
+
+```python-solution
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -311,11 +425,60 @@ $$
 
 を平均します。
 
+**穴埋め課題：** 対称変量推定量と制御変量推定量を式から実装してください。
+
 ```python-lab
 # lab-id: NUMLAB4-MC3-VARIANCE-REDUCTION
 # lab-title: 通常法・対称変量・制御変量の分散比較
+# lab-mode: exercise
 # timeout-ms: 8000
 
+import numpy as np
+import matplotlib.pyplot as plt
+
+rng = np.random.default_rng(2026)
+
+replications = 1000
+pair_count = 128
+function_evaluations = 2 * pair_count
+
+u_plain = rng.random((replications, function_evaluations))
+plain_estimates = (u_plain ** 2).mean(axis=1)
+
+u_antithetic = rng.random((replications, pair_count))
+antithetic_estimates = ___
+
+u_control = rng.random((replications, function_evaluations))
+control_estimates = ___
+
+variances = np.array([
+    plain_estimates.var(ddof=1),
+    antithetic_estimates.var(ddof=1),
+    control_estimates.var(ddof=1),
+])
+
+means = np.array([
+    plain_estimates.mean(),
+    antithetic_estimates.mean(),
+    control_estimates.mean(),
+])
+
+variance_reduction_factors = variances[0] / variances
+
+print("function evaluations per replication:", function_evaluations)
+print("means:", means)
+print("variances:", variances)
+print("variance reduction factors:", variance_reduction_factors)
+
+fig, ax = plt.subplots()
+ax.bar(
+    ["plain", "antithetic", "control"],
+    variances,
+)
+ax.set_ylabel("empirical estimator variance")
+```
+
+```python-solution
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -451,11 +614,90 @@ $$
 
 も測ります。
 
+**穴埋め課題：** 同一乱数を使う粗いレベルと、レベル差・その分散の式を埋めてください。
+
 ```python-lab
 # lab-id: NUMLAB4-MC4-LEVEL-COUPLING
 # lab-title: MLMC のレベル間結合と差分散
+# lab-mode: exercise
 # timeout-ms: 10000
 
+import numpy as np
+import matplotlib.pyplot as plt
+
+rng = np.random.default_rng(2026)
+
+sample_size = 60000
+levels = np.arange(2, 9, dtype=int)
+
+coupled_variances = np.empty(len(levels))
+independent_variances = np.empty(len(levels))
+
+for k, level in enumerate(levels):
+    fine_scale = 2 ** int(level)
+    coarse_scale = 2 ** int(level - 1)
+
+    u = rng.random(sample_size)
+
+    fine = np.floor(fine_scale * u) / fine_scale
+    coarse_coupled = ___
+
+    coupled_difference = ___
+    coupled_variances[k] = ___
+
+    v = rng.random(sample_size)
+    coarse_independent = np.floor(coarse_scale * v) / coarse_scale
+
+    independent_difference = fine - coarse_independent
+    independent_variances[k] = independent_difference.var(ddof=1)
+
+theoretical_coupled = 2.0 ** (-2.0 * levels - 2.0)
+
+coupled_beta = -np.polyfit(
+    levels,
+    np.log2(coupled_variances),
+    1,
+)[0]
+
+independent_beta = -np.polyfit(
+    levels,
+    np.log2(independent_variances),
+    1,
+)[0]
+
+print("levels:", levels)
+print("coupled variances:", coupled_variances)
+print("theoretical coupled variances:", theoretical_coupled)
+print("independent variances:", independent_variances)
+print("coupled beta:", coupled_beta)
+print("independent beta:", independent_beta)
+
+fig, ax = plt.subplots()
+ax.semilogy(
+    levels,
+    coupled_variances,
+    marker="o",
+    label="same U",
+)
+ax.semilogy(
+    levels,
+    independent_variances,
+    marker="s",
+    label="independent U, V",
+)
+ax.semilogy(
+    levels,
+    theoretical_coupled,
+    linestyle="--",
+    label="2^(-2l-2)",
+)
+ax.set_xlabel("level")
+ax.set_ylabel("variance of level difference")
+ax.legend()
+ax.grid(True)
+```
+
+```python-solution
 import numpy as np
 import matplotlib.pyplot as plt
 

@@ -33,6 +33,8 @@ Python / NumPy の共通記法は PYNUM1、ブラウザ実行基盤は NUMLAB0 �
 
 ## 0. 実験の共通規約
 
+各理論対応ラボは、原則として **穴埋め → 模範解答 → 自動判定** の演習形式で実行します。完成コードを読むだけでなく、理論上の核心式を自分でコードへ翻訳してください。
+
 1. 行列は「作れた」だけで終わらず、対称性・正定値性・残差など理論に対応する量を検査する。
 2. 局所要素計算と大域組立てを分ける。
 3. メッシュ幅を変える実験では、何を固定し何を細分化したかを明記する。
@@ -81,11 +83,75 @@ $$
 
 を使います。
 
+**穴埋め課題：** 基底勾配から剛性行列を、基底値から荷重ベクトルを組み立てる式を埋めてください。
+
 ```python-lab
 # lab-id: NUMLAB3-FEM1-GALERKIN
 # lab-title: Galerkin 行列と残差直交性
+# lab-mode: exercise
 # timeout-ms: 5000
 
+import numpy as np
+import matplotlib.pyplot as plt
+
+q, w = np.polynomial.legendre.leggauss(12)
+xq = 0.5 * (q + 1.0)
+wq = 0.5 * w
+
+def phi1(x):
+    return x * (1.0 - x)
+
+def dphi1(x):
+    return 1.0 - 2.0 * x
+
+def phi2(x):
+    return x * (1.0 - x) * (2.0 * x - 1.0)
+
+def dphi2(x):
+    return -6.0 * x * x + 6.0 * x - 1.0
+
+phi = [phi1, phi2]
+dphi = [dphi1, dphi2]
+
+phi_values = np.vstack([
+    function(xq)
+    for function in phi
+])
+dphi_values = np.vstack([
+    function(xq)
+    for function in dphi
+])
+
+K = ___
+
+f = np.pi**2 * np.sin(np.pi * xq)
+F = ___
+
+coef = np.linalg.solve(K, F)
+residual = K @ coef - F
+eigenvalues = np.linalg.eigvalsh(K)
+
+grid = np.linspace(0.0, 1.0, 401)
+uh = coef[0] * phi1(grid) + coef[1] * phi2(grid)
+exact = np.sin(np.pi * grid)
+
+print("K =")
+print(K)
+print("coefficients:", coef)
+print("eigenvalues:", eigenvalues)
+print("Galerkin residual:", residual)
+print("max nodal-curve error:", np.max(np.abs(uh - exact)))
+
+fig, ax = plt.subplots()
+ax.plot(grid, exact, label="exact")
+ax.plot(grid, uh, label="Galerkin")
+ax.set_xlabel("x")
+ax.set_ylabel("u")
+ax.legend()
+ax.grid(True)
+```
+
+```python-solution
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -184,11 +250,85 @@ $$
 
 を組み立てます。
 
+**穴埋め課題：** 三角形面積、局所剛性行列、大域剛性行列への加算を埋めてください。
+
 ```python-lab
 # lab-id: NUMLAB3-FEM2-ASSEMBLY
 # lab-title: 三角形 P1 要素の局所・大域組立て
+# lab-mode: exercise
 # timeout-ms: 5000
 
+import numpy as np
+
+nodes = np.array([
+    [0.0, 0.0],
+    [1.0, 0.0],
+    [1.0, 1.0],
+    [0.0, 1.0],
+    [0.5, 0.5],
+])
+
+triangles = np.array([
+    [0, 1, 4],
+    [1, 2, 4],
+    [2, 3, 4],
+    [3, 0, 4],
+], dtype=int)
+
+def local_stiffness(coords):
+    x = coords[:, 0]
+    y = coords[:, 1]
+
+    interpolation_matrix = np.array([
+        [1.0, x[0], y[0]],
+        [1.0, x[1], y[1]],
+        [1.0, x[2], y[2]],
+    ])
+
+    coefficients = np.linalg.inv(interpolation_matrix)
+    gradients = coefficients[1:, :].T
+
+    edge_matrix = np.array([
+        [x[1] - x[0], y[1] - y[0]],
+        [x[2] - x[0], y[2] - y[0]],
+    ])
+    area = ___
+
+    Ke = ___
+    Fe = np.full(3, area / 3.0)
+
+    return Ke, Fe, area
+
+K = np.zeros((len(nodes), len(nodes)))
+F = np.zeros(len(nodes))
+
+local_matrices = []
+
+for tri in triangles:
+    Ke, Fe, area = local_stiffness(nodes[tri])
+    local_matrices.append(Ke)
+
+    for a, i in enumerate(tri):
+        F[i] += Fe[a]
+        for b, j in enumerate(tri):
+            K[i, j] += ___
+
+boundary = np.array([0, 1, 2, 3])
+interior = np.array([4])
+
+Kii = K[np.ix_(interior, interior)]
+Fi = F[interior]
+u_center = np.linalg.solve(Kii, Fi)
+
+print("first local stiffness =")
+print(local_matrices[0])
+print("global stiffness =")
+print(K)
+print("global load =", F)
+print("center value =", u_center[0])
+```
+
+```python-solution
 import numpy as np
 
 nodes = np.array([
@@ -322,11 +462,66 @@ $$
 
 つまり $\varepsilon\to0$ で、元の関数には存在しない大きな $y$ 方向勾配が補間関数に生じます。
 
+**穴埋め課題：** 内接円半径、形状比、補間で生じる横方向勾配の記録を埋めてください。
+
 ```python-lab
 # lab-id: NUMLAB3-FEM3-SHAPE
 # lab-title: つぶれた三角形の補間勾配増幅
+# lab-mode: exercise
 # timeout-ms: 5000
 
+import numpy as np
+import matplotlib.pyplot as plt
+
+epsilons = np.array([0.5, 0.25, 0.125, 0.0625, 0.03125])
+shape_ratios = []
+spurious_gradients = []
+
+for eps in epsilons:
+    vertices = np.array([
+        [0.0, 0.0],
+        [1.0, 0.0],
+        [0.5, eps],
+    ])
+
+    values = vertices[:, 0] ** 2
+
+    interpolation_matrix = np.column_stack([
+        np.ones(3),
+        vertices[:, 0],
+        vertices[:, 1],
+    ])
+
+    c, a, b = np.linalg.solve(interpolation_matrix, values)
+
+    edge_lengths = np.array([
+        np.linalg.norm(vertices[1] - vertices[0]),
+        np.linalg.norm(vertices[2] - vertices[1]),
+        np.linalg.norm(vertices[0] - vertices[2]),
+    ])
+
+    area = 0.5 * eps
+    inradius = ___
+    diameter = np.max(edge_lengths)
+
+    shape_ratios.append(___)
+    spurious_gradients.append(___)
+
+shape_ratios = np.array(shape_ratios)
+spurious_gradients = np.array(spurious_gradients)
+
+print("epsilon:", epsilons)
+print("shape ratio h/rho:", shape_ratios)
+print("|d(Iu)/dy|:", spurious_gradients)
+
+fig, ax = plt.subplots()
+ax.loglog(shape_ratios, spurious_gradients, marker="o")
+ax.set_xlabel("shape ratio h_K / rho_K")
+ax.set_ylabel("spurious y-gradient")
+ax.grid(True)
+```
+
+```python-solution
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -422,11 +617,97 @@ $$
 
 です。
 
+**穴埋め課題：** P1 基底関数、要素内勾配、有限要素近似値の式を埋めてください。
+
 ```python-lab
 # lab-id: NUMLAB3-FEM4-RATES
 # lab-title: P1 Poisson 解の H1・L2 収束次数
+# lab-mode: exercise
 # timeout-ms: 12000
 
+import numpy as np
+import matplotlib.pyplot as plt
+
+q, w = np.polynomial.legendre.leggauss(4)
+
+def solve_and_measure(N):
+    h = 1.0 / N
+    n = N - 1
+
+    K = (2.0 / h) * np.eye(n)
+    K += (-1.0 / h) * np.eye(n, k=1)
+    K += (-1.0 / h) * np.eye(n, k=-1)
+
+    F = np.zeros(n)
+
+    for e in range(N):
+        x_left = e * h
+        x_right = (e + 1) * h
+
+        for qk, wk in zip(q, w):
+            x = 0.5 * (x_left + x_right) + 0.5 * h * qk
+            f = np.pi**2 * np.sin(np.pi * x)
+
+            phi_left = ___
+            phi_right = ___
+            weight = 0.5 * h * wk
+
+            if e > 0:
+                F[e - 1] += weight * f * phi_left
+            if e + 1 < N:
+                F[e] += weight * f * phi_right
+
+    interior = np.linalg.solve(K, F)
+    U = np.concatenate(([0.0], interior, [0.0]))
+
+    l2_sq = 0.0
+    h1_sq = 0.0
+
+    for e in range(N):
+        x_left = e * h
+        x_right = (e + 1) * h
+        uh_prime = ___
+
+        for qk, wk in zip(q, w):
+            x = 0.5 * (x_left + x_right) + 0.5 * h * qk
+            weight = 0.5 * h * wk
+
+            phi_left = (x_right - x) / h
+            phi_right = (x - x_left) / h
+            uh = ___
+
+            exact = np.sin(np.pi * x)
+            exact_prime = np.pi * np.cos(np.pi * x)
+
+            l2_sq += weight * (uh - exact) ** 2
+            h1_sq += weight * (uh_prime - exact_prime) ** 2
+
+    return np.sqrt(l2_sq), np.sqrt(h1_sq)
+
+Ns = np.array([8, 16, 32, 64], dtype=int)
+l2_errors = np.empty(len(Ns))
+h1_errors = np.empty(len(Ns))
+
+for i, N in enumerate(Ns):
+    l2_errors[i], h1_errors[i] = solve_and_measure(int(N))
+
+l2_orders = np.log(l2_errors[:-1] / l2_errors[1:]) / np.log(2.0)
+h1_orders = np.log(h1_errors[:-1] / h1_errors[1:]) / np.log(2.0)
+
+print("N:", Ns)
+print("L2 errors:", l2_errors)
+print("H1 seminorm errors:", h1_errors)
+print("L2 observed orders:", l2_orders)
+print("H1 observed orders:", h1_orders)
+
+fig, ax = plt.subplots()
+ax.loglog(Ns, l2_errors, marker="o", label="L2")
+ax.loglog(Ns, h1_errors, marker="s", label="H1 seminorm")
+ax.legend()
+ax.grid(True)
+```
+
+```python-solution
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -553,11 +834,59 @@ $$
 
 の退化と密接に結び付きます。
 
+**穴埋め課題：** Schur 補行列と制約残差を埋め、安定系と退化系を比較してください。
+
 ```python-lab
 # lab-id: NUMLAB3-FEM5-SADDLE
 # lab-title: Schur 補行列と偽圧力モード
+# lab-mode: exercise
 # timeout-ms: 5000
 
+import numpy as np
+
+A = np.diag([2.0, 3.0, 4.0])
+
+B_good = np.array([
+    [1.0, 0.0, 1.0],
+    [0.0, 1.0, 1.0],
+])
+
+B_bad = np.array([
+    [1.0, 0.0, 1.0],
+    [2.0, 0.0, 2.0],
+])
+
+def schur(B):
+    return ___
+
+S_good = schur(B_good)
+S_bad = schur(B_bad)
+
+good_eigenvalues = np.linalg.eigvalsh(S_good)
+bad_eigenvalues = np.linalg.eigvalsh(S_bad)
+
+f = np.array([1.0, 2.0, 0.5])
+g = np.array([0.2, -0.1])
+
+KKT = np.block([
+    [A, B_good.T],
+    [B_good, np.zeros((2, 2))],
+])
+
+solution = np.linalg.solve(KKT, np.concatenate([f, g]))
+u = solution[:3]
+p = solution[3:]
+
+constraint_residual = ___
+
+print("good Schur eigenvalues:", good_eigenvalues)
+print("bad Schur eigenvalues:", bad_eigenvalues)
+print("velocity-like variable:", u)
+print("pressure-like variable:", p)
+print("constraint residual:", constraint_residual)
+```
+
+```python-solution
 import numpy as np
 
 A = np.diag([2.0, 3.0, 4.0])
@@ -641,11 +970,67 @@ $$
 
 を満たします。
 
+**穴埋め課題：** 後退 Euler FEM のステップ行列、時間更新、離散エネルギーを埋めてください。
+
 ```python-lab
 # lab-id: NUMLAB3-FEM6-PARABOLIC
 # lab-title: 後退 Euler FEM の離散エネルギー減衰
+# lab-mode: exercise
 # timeout-ms: 12000
 
+import numpy as np
+import matplotlib.pyplot as plt
+
+N = 40
+h = 1.0 / N
+n = N - 1
+
+M = (2.0 * h / 3.0) * np.eye(n)
+M += (h / 6.0) * np.eye(n, k=1)
+M += (h / 6.0) * np.eye(n, k=-1)
+
+K = (2.0 / h) * np.eye(n)
+K += (-1.0 / h) * np.eye(n, k=1)
+K += (-1.0 / h) * np.eye(n, k=-1)
+
+nodes = np.linspace(0.0, 1.0, N + 1)
+c = np.sin(np.pi * nodes[1:-1])
+
+tau = 0.001
+steps = 50
+T = tau * steps
+
+A = ___
+
+energies = [___]
+
+for _ in range(steps):
+    c = ___
+    energies.append(___)
+
+energies = np.array(energies)
+
+exact = (
+    np.exp(-np.pi**2 * T)
+    * np.sin(np.pi * nodes[1:-1])
+)
+max_error = np.max(np.abs(c - exact))
+
+print("initial discrete energy:", energies[0])
+print("final discrete energy:", energies[-1])
+print("max nodal error:", max_error)
+
+fig, ax = plt.subplots()
+ax.semilogy(
+    np.arange(steps + 1) * tau,
+    energies,
+)
+ax.set_xlabel("time")
+ax.set_ylabel("c^T M c")
+ax.grid(True)
+```
+
+```python-solution
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -769,11 +1154,71 @@ $$
 
 の流線方向拡散を加え、一次風上差分と一致します。
 
+**穴埋め課題：** SUPG パラメータと、それが加える有効拡散係数を埋めてください。
+
 ```python-lab
 # lab-id: NUMLAB3-FEM7-SUPG
 # lab-title: 標準 Galerkin と SUPG を比較
+# lab-mode: exercise
 # timeout-ms: 8000
 
+import numpy as np
+import matplotlib.pyplot as plt
+
+epsilon = 0.025
+b = 1.0
+J = 10
+h = 1.0 / J
+n = J - 1
+
+x = np.linspace(0.0, 1.0, J + 1)
+Pe_h = abs(b) * h / (2.0 * epsilon)
+
+def solve_centered_with_diffusion(diffusion):
+    left = -diffusion / h**2 - b / (2.0 * h)
+    diag = 2.0 * diffusion / h**2
+    right = -diffusion / h**2 + b / (2.0 * h)
+
+    A = diag * np.eye(n)
+    A += left * np.eye(n, k=-1)
+    A += right * np.eye(n, k=1)
+
+    rhs = np.zeros(n)
+    rhs[-1] -= right * 1.0
+
+    interior = np.linalg.solve(A, rhs)
+    return np.concatenate(([0.0], interior, [1.0])), A
+
+standard, A_standard = solve_centered_with_diffusion(epsilon)
+
+tau_supg = ___
+effective_diffusion = ___
+supg, A_supg = solve_centered_with_diffusion(effective_diffusion)
+
+physical_peclet = b / epsilon
+exact = (
+    np.exp(physical_peclet * x) - 1.0
+) / (
+    np.exp(physical_peclet) - 1.0
+)
+
+print("element Peclet number:", Pe_h)
+print("SUPG tau:", tau_supg)
+print("effective diffusion:", effective_diffusion)
+print("standard Galerkin:", standard)
+print("SUPG:", supg)
+
+fig, ax = plt.subplots()
+ax.plot(x, exact, label="exact")
+ax.plot(x, standard, marker="o", label="standard Galerkin")
+ax.plot(x, supg, marker="s", label="SUPG")
+ax.set_xlabel("x")
+ax.set_ylabel("u")
+ax.legend()
+ax.grid(True)
+```
+
+```python-solution
 import numpy as np
 import matplotlib.pyplot as plt
 
