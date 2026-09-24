@@ -224,14 +224,20 @@ LIE1 では左移動・右移動、左不変ベクトル場、単位元接空間
 
 ### 凸解析・凸最適化
 
-有限次元の凸性の基礎から入り、epigraph と支持超平面、劣微分、錐、Fenchel 共役・双対までを一つの系列として読みます。F0-00G 自体は早い段階でも読めますが、標準通読では関数解析・分離定理のあとにまとめます。
+有限次元の凸性から最適化・線形計画・二次計画へ進む canonical 系列を OPT として再構成しています。既存 F0 系は migration source として残し、証明済みの結果は stable anchor で再利用します。現在は OPT1 まで実装済みです。
+
+**再構成系列**
+
+1. [OPT1 凸集合・凸関数・凸最適化](textbook/volumes/00_foundations/OPT1/index.md)
+
+**既存 migration source**
 
 1. [F0-00G 凸集合・凸関数・凸最適化](textbook/volumes/00_foundations/F0_00G_凸集合_凸関数_凸最適化/index.md)
 2. [F0-00G1 epigraph・閉凸関数・支持超平面](textbook/volumes/00_foundations/F0_00G1_epigraph_閉凸関数_支持超平面/index.md)
-3. [F0-02C4 劣勾配・劣微分・normal cone](textbook/volumes/00_foundations/F0_02C4_凸解析_劣勾配_normal_cone_双対錐/index.md)
-4. [F0-02C4A tangent・polar・dual cone](textbook/volumes/00_foundations/F0_02C4A_tangent_polar_dual_cone/index.md)
-5. [F0-02C4B tangent-normal polar identity の証明](textbook/volumes/00_foundations/F0_02C4B_tangent_normal_polar_proof/index.md)
-6. [F0-00G2 Fenchel共役・Fenchel–Young・双対](textbook/volumes/00_foundations/F0_00G2_Fenchel共役_Fenchel_Young_双対/index.md)
+3. [F0-02C4 劣勾配・劣微分・法錐](textbook/volumes/00_foundations/F0_02C4_凸解析_劣勾配_normal_cone_双対錐/index.md)
+4. [F0-02C4A 接錐・極錐・双対錐](textbook/volumes/00_foundations/F0_02C4A_tangent_polar_dual_cone/index.md)
+5. [F0-02C4B 接錐と法錐の極性関係の証明](textbook/volumes/00_foundations/F0_02C4B_tangent_normal_polar_proof/index.md)
+6. [F0-00G2 Fenchel 共役・Fenchel--Young・双対](textbook/volumes/00_foundations/F0_00G2_Fenchel共役_Fenchel_Young_双対/index.md)
 
 ### 制約付き最適化・KKT
 
