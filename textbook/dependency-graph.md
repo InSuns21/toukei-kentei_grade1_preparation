@@ -591,10 +591,12 @@ QMC7 は QMC5、MC1 を直接 prerequisite とする。QMC5 の Walsh 関数・�
 
 QMC8 は QMC5 を直接 prerequisite とする。QMC5 の Walsh 関数・双対ネット・NRT 重み・通常の $t$ 値の双対特徴付けを再利用し、非零桁位置を上から最大 $\alpha$ 個足す Dick の $\alpha$ 重みへ拡張する。生成行列を $n\times m$ へ広げた高精度デジタル点集合について Walsh 関数の離散直交性を再証明し、最小双対 Dick 重み $\rho_\alpha(P)$ と 次数 $\alpha$ デジタルネットを定義する。周波数 $b^n$ が必ず双対へ入ることから $\rho_\alpha(P)\le n+1$ を示し、高次品質には $n\approx\alpha m$ の出力精度が必要であることを閉じる。関数側では高次 Walsh 係数ノルムを導入し、双対誤差公式から $|Q_P(f)-I(f)|\le b^{-\rho_\alpha(P)}|f|_{\mathrm{Wal},\alpha,1}\le b^{t_\alpha-1}N^{-\alpha}|f|_{\mathrm{Wal},\alpha,1}$ を完全証明する。さらに $\alpha s$ 次元の通常デジタルネットの生成行列を行ごとに交互配置して $s$ 次元・$\alpha m$ 桁へ移す構成を導入し、周波数の逆交互配置と NRT 重みの双対特徴付けから 次数 $\alpha$ デジタルネットになることを証明する。QMC7 のランダム化との組合せは位置付けだけ示し、高次 RQMC の最適二乗平均誤差論は本章へ逆輸入しない。
 
-PYNUM1 は直接 prerequisite を持たない計算機演習共通参照章とする。一般的なプログラミング概念は既知とし、Python 固有の最小構文差分、NumPy 配列の形状・軸・データ型、ビューとコピー、ブロードキャスト、ベクトル化、要素積と行列積、ブールマスク、明示的な NumPy 乱数生成器、Matplotlib の log-log 図、SciPy 各モジュールの入口を扱う。後続 NUMLAB では Python / NumPy の同じ説明を繰り返さず PYNUM1 の stable anchor を参照する。数値実験では shape / dtype / finite の検査、Generator による乱数状態の明示、問題サイズを変える外側反復と配列内部演算の分離、表と log-log 図による収束診断を共通規約とする。
+PYNUM1 は直接 prerequisite を持たない計算機演習共通参照章とする。一般的なプログラミング概念は既知とし、Python 固有の最小構文差分、NumPy 配列の形状・軸・データ型、ビューとコピー、ブロードキャスト、ベクトル化、要素積と行列積、ブールマスク、明示的な NumPy 乱数生成器、Matplotlib の log-log 図、SciPy 各モジュールの入口を扱う。さらに PYNUM1 自身をブラウザ実行可能な数値ラボページとし、shape・ビュー／ブロードキャスト・乱数生成器・log-log 図の4実験を NUMLAB0 と同じ実行基盤で動かす。後続 NUMLAB では Python / NumPy の同じ説明を繰り返さず PYNUM1 の stable anchor を参照する。数値実験では shape / dtype / finite の検査、Generator による乱数状態の明示、問題サイズを変える外側反復と配列内部演算の分離、表と log-log 図による収束診断を共通規約とする。
 
 NUMLAB0 は PYNUM1 を直接 prerequisite とする。Pyodide 314.0.7 を module Web Worker から起動し、ユーザーコードと非表示テストを実行ごとの独立 Python 名前空間で評価する。時間超過または手動停止では Worker 自体を破棄し、次回実行時に新しい Worker を生成する。NumPy / SciPy / Matplotlib は import から必要なパッケージを読み込み、固定バージョン資産は Service Worker の永続 Cache Storage へ保存する。編集コードと完了状態は localStorage に保存し、教材初期コードのハッシュが変わった場合は古い保存コードを自動復元しない。数値判定は tolerance を明示し、必要に応じて再現可能な性質ベーステストを非表示テストへ置く。後続 NUMLAB1–NUMLAB5 はこの共通基盤を再利用し、個別の実行系を持たない。
 
-読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA1–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC8、PYNUM1、NUMLAB0 である。理論完成直後の横断監査は方針決定により実施対象外とし、次の実装対象は NUMLAB1「数値解析演習」である。
+NUMLAB1 は PYNUM1、NUMLAB0、NA1–NA12 を直接 prerequisite とし、数値解析12講を各1本のブラウザ実験へ対応させる。NA1 は桁落ち、NA2 は Newton 法の二次収束、NA3 は非線形連立 Newton 法、NA4 は Runge 関数と Chebyshev 節点、NA5 は Gauss--Legendre 求積、NA6 は Euler 法の一次収束、NA7 は硬い減衰問題の絶対安定性、NA8 は Cholesky 分解、NA9 は共役勾配法、NA10 は冪乗法、NA11 は PageRank 停止判定、NA12 は最急降下法と共役勾配法を扱う。各実験は `textbook/numerical-lab-links.yaml` で理論 stable anchor と実験 stable anchor を1対1に記録し、Pages 検証で双方の存在と experiment ID の一致を確認する。
+
+読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA1–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC8、PYNUM1、NUMLAB0、NUMLAB1 である。理論完成直後の横断監査は方針決定により実施対象外とし、次の実装対象は NUMLAB2「差分法演習」である。
 
 ---
