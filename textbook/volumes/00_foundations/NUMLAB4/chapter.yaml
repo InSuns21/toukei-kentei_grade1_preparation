@@ -1,0 +1,32 @@
+id: "NUMLAB4"
+title: "Monte Carlo 演習"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PYNUM1
+  - NUMLAB0
+  - MC1
+  - MC2
+  - MC3
+  - MC4
+official_scope: []
+learning_objectives:
+  - MC1–MC4 の主要理論をブラウザ内 Python の再現可能な数値実験として再現できる
+  - Monte Carlo 標準誤差が標本数の平方根に反比例することを独立反復から実測できる
+  - 固定シードの乱数生成器、逆関数法、棄却法を実装し、生成分布と受理率を理論値と比較できる
+  - 同一関数評価予算で通常 Monte Carlo・対称変量法・制御変量法の推定量分散を比較できる
+  - Multilevel Monte Carlo のレベル間結合がレベル差分散を減衰させる機構を、独立結合との比較から確認できる
+  - 理論 stable anchor と実験 stable anchor の対応を機械可読台帳から追跡できる
+definitions: []
+theorems: []
+canonical_examples:
+  - MC1 U^2 積分推定の実測標準誤差と N^{-1/2} 則
+  - MC2 指数分布の逆関数法と密度 2x の棄却法
+  - MC3 U^2 積分に対する通常 Monte Carlo・対称変量・制御変量の分散比較
+  - MC4 二進量子化近似を同じ一様乱数で結合したレベル差分散の減衰
+problem_patterns: []
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+dream_theater_exercise_count_exception: "NUMLAB4 は MC1–MC4 の A4/B3/C1 理論演習を置き換える章ではなく、既に各理論章で閉じた Monte Carlo 法の主題を4本のブラウザ実験で再現する実験章である。紙上問題を重複させず、各 MC 章につき1本の実行可能ラボと自動テストを置く。"
+estimated_hours: { reading: 1.5, exercises: 3.5, review: 0.5 }
