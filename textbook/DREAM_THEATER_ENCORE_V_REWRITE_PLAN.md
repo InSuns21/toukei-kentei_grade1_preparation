@@ -505,9 +505,9 @@ MC3 control variate
   ⇅
 NUMLAB4 分散削減率の比較
 
-QMC4 digital net
+QMC8 桁交互配置・高次 QMC
   ⇅
-NUMLAB5 Sobol点列の低次元投影
+NUMLAB5 桁交互配置による高次収束
 ~~~
 
 対応関係は機械可読な正本 `textbook/numerical-lab-links.yaml` に置く。NUMLAB0 で schema version 1 の空台帳を作成済みとし、NUMLAB1 以降でレコードを追加する。
