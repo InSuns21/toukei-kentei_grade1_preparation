@@ -63,6 +63,9 @@ assert.match(runtime, /localStorage/);
 assert.match(runtime, /terminateWorker/);
 assert.match(runtime, /testPassed/);
 assert.match(runtime, /navigator\.serviceWorker\.ready/);
+assert.match(runtime, /highlightPython/);
+assert.match(runtime, /python-solution/);
+assert.match(runtime, /numerical-lab-tab/);
 
 assert.match(indexHtml, /numerical-lab\.css/);
 assert.match(indexHtml, /numerical-lab-runtime\.js/);
@@ -96,24 +99,44 @@ const pageText = new Map();
 const pageLabs = new Map();
 const globalLabIds = new Map();
 
+function compilePython(source, label) {
+  execFileSync(
+    'python3',
+    [
+      '-c',
+      'import sys; compile(sys.stdin.read(), sys.argv[1], "exec")',
+      `<${label}>`,
+    ],
+    {
+      input: source,
+      stdio: ['pipe', 'pipe', 'pipe'],
+    },
+  );
+}
+
 function parseLabs(chapter, markdown) {
   const labCount = (markdown.match(/```python-lab/g) || []).length;
+  const solutionCount = (markdown.match(/```python-solution/g) || []).length;
   const paired = [...markdown.matchAll(
-    /```python-lab\s*\n([\s\S]*?)\n```\s*\n\s*```python-test\s*\n([\s\S]*?)\n```/g,
+    /```python-lab\s*\n([\s\S]*?)\n```\s*\n(?:\s*```python-solution\s*\n([\s\S]*?)\n```\s*\n)?\s*```python-test\s*\n([\s\S]*?)\n```/g,
   )];
 
   assert.equal(
     paired.length,
     labCount,
-    `${chapter}: every python-lab block must be followed immediately by a python-test block`,
+    `${chapter}: every python-lab must be followed by optional python-solution and then python-test`,
   );
 
   const labs = [];
+  let pairedSolutionCount = 0;
+
   for (const match of paired) {
     const source = match[1];
-    const tests = match[2];
+    const solution = match[2] || '';
+    const tests = match[3];
     const id = source.match(/^\s*#\s*lab-id:\s*([^\n]+)$/m)?.[1]?.trim();
     const timeoutText = source.match(/^\s*#\s*timeout-ms:\s*(\d+)$/m)?.[1];
+    const mode = source.match(/^\s*#\s*lab-mode:\s*([^\n]+)$/m)?.[1]?.trim().toLowerCase() || 'free';
 
     assert.ok(id, `${chapter}: every python-lab block must declare # lab-id:`);
     assert.ok(!globalLabIds.has(id), `duplicate lab-id: ${id} in ${chapter} and ${globalLabIds.get(id)}`);
@@ -124,8 +147,31 @@ function parseLabs(chapter, markdown) {
     assert.ok(timeoutMs >= 250 && timeoutMs <= 60000, `${id}: timeout outside supported range`);
     assert.match(tests, /assert\s+/, `${id}: python-test must contain at least one assert`);
 
-    labs.push({ id, timeoutMs });
+    compilePython(source, `${id}:python-lab`);
+    compilePython(tests, `${id}:python-test`);
+
+    if (solution) {
+      pairedSolutionCount += 1;
+      compilePython(solution, `${id}:python-solution`);
+    }
+
+    if (mode === 'exercise') {
+      assert.ok(solution, `${id}: lab-mode exercise requires an immediate python-solution block`);
+      assert.match(source, /___/, `${id}: exercise starter must contain at least one ___ placeholder`);
+      assert.doesNotMatch(solution, /___/, `${id}: python-solution must not contain ___ placeholders`);
+    } else {
+      assert.ok(!solution, `${id}: python-solution requires # lab-mode: exercise`);
+    }
+
+    labs.push({ id, timeoutMs, mode, hasSolution: Boolean(solution) });
   }
+
+  assert.equal(
+    pairedSolutionCount,
+    solutionCount,
+    `${chapter}: every python-solution must belong to an exercise lab`,
+  );
+
   return labs;
 }
 
