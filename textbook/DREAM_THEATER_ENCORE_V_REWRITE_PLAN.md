@@ -159,7 +159,8 @@ facade は完成済み講座だけをリンクする。未完成章を先行表�
 - [x] Encore V 理論35講の横断監査：**方針決定により実施対象外（skip）**
 - [x] PYNUM1「Python 数値計算速習」を新正本として実装
 - [x] NUMLAB0「計算機演習基盤」を実装
-- 次の実装対象：**NUMLAB1「数値解析演習」**
+- [x] NUMLAB1「数値解析演習」を実装
+- 次の実装対象：**NUMLAB2「差分法演習」**
 
 
 ---
@@ -372,7 +373,8 @@ QMC2 は既存 F0-02C7 の RKHS / 再生核を再定義しない。stable anchor
 - [x] Encore V 理論35講の横断監査：**方針決定により実施対象外（skip）**
 - [x] PYNUM1「Python 数値計算速習」を新正本として実装
 - [x] NUMLAB0「計算機演習基盤」を実装
-- 次の実装対象：**NUMLAB1「数値解析演習」**
+- [x] NUMLAB1「数値解析演習」を実装
+- 次の実装対象：**NUMLAB2「差分法演習」**
 
 ---
 
@@ -384,9 +386,9 @@ QMC2 は既存 F0-02C7 の RKHS / 再生核を再定義しない。stable anchor
 
 | ID | 講座 | 内容 |
 |---|---|---|
-| PYNUM1 | Python 数値計算速習 | Python の要点、NumPy 配列、shape / dtype、slicing、broadcasting、vectorization、乱数、Matplotlib、SciPy の必要最小限 |
+| PYNUM1 | Python 数値計算速習 | Python の要点、NumPy 配列、shape / dtype、slicing、broadcasting、vectorization、乱数、Matplotlib、SciPy の必要最小限。ブラウザ実験4本を同じ NUMLAB 実行基盤で実行可能 |
 | NUMLAB0 | 計算機演習基盤 | ブラウザ上 Python 実行、Worker、依存ライブラリ、採点、保存、時間制限、自動検証 |
-| NUMLAB1 | 数値解析演習 | NA1–NA12 対応 |
+| NUMLAB1 | 数値解析演習 | NA1–NA12 を各1本のブラウザ実験で対応。桁落ち、Newton、補間、Gauss 求積、ODE、Cholesky、CG、固有値、PageRank、最適化まで |
 | NUMLAB2 | 差分法演習 | FDM1–FDM4 対応 |
 | NUMLAB3 | 有限要素法演習 | FEM1–FEM7 対応 |
 | NUMLAB4 | Monte Carlo 演習 | MC1–MC4 対応 |
@@ -417,7 +419,7 @@ QMC2 は既存 F0-02C7 の RKHS / 再生核を再定義しない。stable anchor
 - packaging / 配布の一般論
 - pandas を前提にした表計算中心のデータ分析
 
-PYNUM1 は後続 NUMLAB の共通参照章とし、各演習で Python / NumPy の記法説明を繰り返さない。必要箇所から PYNUM1 の stable anchor へ直接リンクする。
+PYNUM1 は後続 NUMLAB の共通参照章とし、各演習で Python / NumPy の記法説明を繰り返さない。必要箇所から PYNUM1 の stable anchor へ直接リンクする。また PYNUM1 自身も NUMLAB0 と同じブラウザ実行基盤を使う数値ラボページとし、shape・ビュー／ブロードキャスト・乱数生成器・log-log 図の4実験をその場で実行できるようにする。
 
 ## 9.2 基盤方針
 
