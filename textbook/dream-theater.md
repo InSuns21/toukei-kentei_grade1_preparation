@@ -401,3 +401,4 @@ STO 系列ではマルチンゲール・ブラウン運動・二次変分・確�
 36. [QMC8 高次準 Monte Carlo 法](textbook/volumes/00_foundations/QMC8/index.md)
 37. [PYNUM1 Python 数値計算速習](textbook/volumes/00_foundations/PYNUM1/index.md)
 38. [NUMLAB0 計算機演習基盤](textbook/volumes/00_foundations/NUMLAB0/index.md)
+39. [NUMLAB1 数値解析演習](textbook/volumes/00_foundations/NUMLAB1/index.md)
