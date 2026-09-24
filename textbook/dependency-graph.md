@@ -599,6 +599,8 @@ NUMLAB0 は PYNUM1 を直接 prerequisite とする。Pyodide 314.0.7 を module
 
 NUMLAB1 は PYNUM1、NUMLAB0、NA1–NA12 を直接 prerequisite とし、数値解析12講を各1本のブラウザ実験へ対応させる。NA1 は桁落ち、NA2 は Newton 法の二次収束、NA3 は非線形連立 Newton 法、NA4 は Runge 関数と Chebyshev 節点、NA5 は Gauss--Legendre 求積、NA6 は Euler 法の一次収束、NA7 は硬い減衰問題の絶対安定性、NA8 は Cholesky 分解、NA9 は共役勾配法、NA10 は冪乗法、NA11 は PageRank 停止判定、NA12 は最急降下法と共役勾配法を扱う。各実験は `textbook/numerical-lab-links.yaml` で理論 stable anchor と実験 stable anchor を1対1に記録し、Pages 検証で双方の存在と experiment ID の一致を確認する。
 
-読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA1–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC8、PYNUM1、NUMLAB0、NUMLAB1 である。理論完成直後の横断監査は方針決定により実施対象外とし、次の実装対象は NUMLAB2「差分法演習」である。
+NUMLAB2 は PYNUM1、NUMLAB0、FDM1–FDM4 を直接 prerequisite とし、差分法4講を各1本のブラウザ実験へ対応させる。FDM1 は同じ離散 Laplacian に対する FTCS と後退 Euler 差分法、FDM2 は交互振動 Fourier モードによる拡散 CFL 条件の成立・破綻、FDM3 は \(\tau\propto h^2\) の下での FTCS 格子収束、FDM4 は \(Pe_h>1\) における中心差分の交互振動と風上差分の単調性回復を扱う。各実験は `textbook/numerical-lab-links.yaml` で理論 stable anchor と実験 stable anchor を対応付け、Pages 検証で双方の存在・experiment ID・全実験の台帳登録を確認する。
+
+読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA1–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC8、PYNUM1、NUMLAB0、NUMLAB1、NUMLAB2 である。理論完成直後の横断監査は方針決定により実施対象外とし、次の実装対象は NUMLAB3「有限要素法演習」である。
 
 ---
