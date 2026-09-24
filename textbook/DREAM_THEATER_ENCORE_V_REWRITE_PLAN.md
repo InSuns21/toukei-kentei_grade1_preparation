@@ -161,7 +161,8 @@ facade は完成済み講座だけをリンクする。未完成章を先行表�
 - [x] NUMLAB0「計算機演習基盤」を実装
 - [x] NUMLAB1「数値解析演習」を実装
 - [x] NUMLAB2「差分法演習」を実装
-- 次の実装対象：**NUMLAB3「有限要素法演習」**
+- [x] NUMLAB3「有限要素法演習」を実装
+- 次の実装対象：**NUMLAB4「Monte Carlo 演習」**
 
 
 ---
@@ -376,7 +377,8 @@ QMC2 は既存 F0-02C7 の RKHS / 再生核を再定義しない。stable anchor
 - [x] NUMLAB0「計算機演習基盤」を実装
 - [x] NUMLAB1「数値解析演習」を実装
 - [x] NUMLAB2「差分法演習」を実装
-- 次の実装対象：**NUMLAB3「有限要素法演習」**
+- [x] NUMLAB3「有限要素法演習」を実装
+- 次の実装対象：**NUMLAB4「Monte Carlo 演習」**
 
 ---
 
@@ -392,7 +394,7 @@ QMC2 は既存 F0-02C7 の RKHS / 再生核を再定義しない。stable anchor
 | NUMLAB0 | 計算機演習基盤 | ブラウザ上 Python 実行、Worker、依存ライブラリ、採点、保存、時間制限、自動検証 |
 | NUMLAB1 | 数値解析演習 | NA1–NA12 を各1本のブラウザ実験で対応。桁落ち、Newton、補間、Gauss 求積、ODE、Cholesky、CG、固有値、PageRank、最適化まで |
 | NUMLAB2 | 差分法演習 | FDM1–FDM4 を各1本のブラウザ実験で対応。陽・陰熱方程式、CFL 条件、格子収束、中心差分と風上化 |
-| NUMLAB3 | 有限要素法演習 | FEM1–FEM7 対応 |
+| NUMLAB3 | 有限要素法演習 | FEM1–FEM7 を各1本のブラウザ実験で対応。Galerkin 行列、三角形組立て、形状正則性、誤差次数、鞍点系、放物型時間発展、SUPG |
 | NUMLAB4 | Monte Carlo 演習 | MC1–MC4 対応 |
 | NUMLAB5 | 準 Monte Carlo 演習 | QMC1–QMC8 対応 |
 

@@ -1,0 +1,8 @@
+chapter: "NUMLAB3"
+terms:
+  - term: 実測有限要素収束次数
+    english: observed finite element convergence order
+    meaning: メッシュ幅を段階的に細かくしたときの有限要素誤差比から数値的に推定する収束次数。
+  - term: 離散エネルギー履歴
+    english: discrete energy history
+    meaning: 時間発展型有限要素法で、各時間ステップの質量行列や剛性行列から計算した離散エネルギーを順に記録した列。

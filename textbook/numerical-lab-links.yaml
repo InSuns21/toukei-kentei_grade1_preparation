@@ -83,3 +83,39 @@ links:
     lab_chapter: NUMLAB2
     lab_anchor: lab-numlab2-fdm4-upwind
     experiment_id: NUMLAB2-FDM4-UPWIND
+
+  - theory_chapter: FEM1
+    theory_anchor: thm-fem1-galerkin-orthogonality
+    lab_chapter: NUMLAB3
+    lab_anchor: lab-numlab3-fem1-galerkin
+    experiment_id: NUMLAB3-FEM1-GALERKIN
+  - theory_chapter: FEM2
+    theory_anchor: prop-fem2-assembly-sparsity
+    lab_chapter: NUMLAB3
+    lab_anchor: lab-numlab3-fem2-assembly
+    experiment_id: NUMLAB3-FEM2-ASSEMBLY
+  - theory_chapter: FEM3
+    theory_anchor: def-fem3-shape-regularity
+    lab_chapter: NUMLAB3
+    lab_anchor: lab-numlab3-fem3-shape-regularity
+    experiment_id: NUMLAB3-FEM3-SHAPE
+  - theory_chapter: FEM4
+    theory_anchor: cor-fem4-standard-rates
+    lab_chapter: NUMLAB3
+    lab_anchor: lab-numlab3-fem4-rates
+    experiment_id: NUMLAB3-FEM4-RATES
+  - theory_chapter: FEM5
+    theory_anchor: prop-fem5-block-schur
+    lab_chapter: NUMLAB3
+    lab_anchor: lab-numlab3-fem5-saddle
+    experiment_id: NUMLAB3-FEM5-SADDLE
+  - theory_chapter: FEM6
+    theory_anchor: thm-fem6-backward-euler-energy
+    lab_chapter: NUMLAB3
+    lab_anchor: lab-numlab3-fem6-parabolic
+    experiment_id: NUMLAB3-FEM6-PARABOLIC
+  - theory_chapter: FEM7
+    theory_anchor: thm-fem7-supg-upwind
+    lab_chapter: NUMLAB3
+    lab_anchor: lab-numlab3-fem7-supg
+    experiment_id: NUMLAB3-FEM7-SUPG
