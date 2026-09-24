@@ -167,6 +167,14 @@
 | 特殊ユニタリ群 | special unitary group | $U(n)$ のうち行列式が1の行列全体 $SU(n)$ |
 | 反対称行列 | skew-symmetric matrix | $X^\mathsf{T}=-X$ を満たす実行列 |
 | 反 Hermitian 行列 | skew-Hermitian matrix | $X^*=-X$ を満たす複素行列。人名由来部分 Hermitian は英字表記を保持 |
+| Lie 群作用 | smooth Lie group action | Lie 群の群作用で作用写像 $G\times M\to M$ が滑らかなもの。本文主表記は「Lie 群作用」 |
+| 基本ベクトル場 | fundamental vector field | $X\in\mathfrak g$ に対し $p\mapsto \left.\frac{d}{dt}\right|_0\exp(tX)\cdot p$ で得るベクトル場 |
+| 無限小作用 | infinitesimal action | $X\mapsto X_M$。左作用に $\exp(tX)$ を使う本系列の規約では $[X_M,Y_M]=-[X,Y]_M$ |
+| 等質空間 | homogeneous space | Lie 群が推移的かつ滑らかに作用する多様体 |
+| 商多様体 | quotient manifold | 本系列の Lie 群文脈では閉 Lie 部分群 $H$ に対する $G/H$ の滑らかな多様体構造 |
+| Lie 環値1形式 | Lie algebra-valued one-form | 各接空間から有限次元 Lie 環への線形写像を滑らかに並べた1形式 |
+| 左 Maurer--Cartan 形式 | left Maurer--Cartan form | $\theta_g=d(L_{g^{-1}})_g$ で定まる $\mathfrak g$ 値1形式。人名部分は英字表記を保持 |
+| Maurer--Cartan 方程式 | Maurer--Cartan equation | 左 Maurer--Cartan 形式の構造方程式 $d\theta+\frac12[\theta\wedge\theta]=0$。人名部分は英字表記を保持 |
 | 線形分布 | distribution / smooth distribution | 多様体上の一定階数の接方向の族。必要なら「滑らかな線形分布」と明示 |
 | 積分多様体 | integral manifold | 線形分布の接方向を実現するはめ込み多様体 |
 | 対合的な分布 | involutive distribution | Lie 括弧で閉じている線形分布 |

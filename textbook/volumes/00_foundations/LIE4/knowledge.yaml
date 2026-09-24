@@ -1,0 +1,183 @@
+chapter: LIE4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LIE3
+  - GRP3
+  - GEO3
+  - GEO7
+forward_references: []
+
+concepts:
+  - id: lie.smooth-action
+    name: Lie 群作用
+    kind: definition
+    aliases: [smooth Lie group action]
+    introduction: formal
+    introduction_aliases: ["定義（Lie 群作用）"]
+    requires:
+      - lie.lie-group
+      - algebra.group-action
+      - geometry.smooth-map
+
+  - id: lie.orbit-map
+    name: 軌道写像
+    kind: definition
+    aliases: [orbit map]
+    introduction: formal
+    introduction_aliases: ["定義（軌道写像）"]
+    requires:
+      - lie.smooth-action
+      - algebra.group-action-orbit
+
+  - id: lie.stabilizer-lie-subgroup
+    name: 安定化群は閉 Lie 部分群
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires:
+      - lie.smooth-action
+      - lie.orbit-map
+      - algebra.stabilizer-subgroup
+      - lie.closed-subgroup-theorem
+
+  - id: lie.fundamental-vector-field
+    name: 基本ベクトル場
+    kind: definition
+    aliases: [fundamental vector field]
+    introduction: formal
+    introduction_aliases: ["定義（基本ベクトル場・無限小作用）"]
+    requires:
+      - lie.smooth-action
+      - lie.exponential-map
+      - geometry.smooth-vector-field
+
+  - id: lie.infinitesimal-action
+    name: 無限小作用
+    kind: definition
+    aliases: [infinitesimal action]
+    introduction: formal
+    introduction_aliases: ["定義（基本ベクトル場・無限小作用）"]
+    requires:
+      - lie.fundamental-vector-field
+      - lie.lie-algebra
+
+  - id: lie.fundamental-flow-antihomomorphism
+    name: 基本ベクトル場の流れと括弧
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - lie.fundamental-vector-field
+      - lie.infinitesimal-adjoint-bracket
+      - geometry.lie-bracket-flow-interpretation
+
+  - id: lie.stabilizer-kernel-orbit-rank
+    name: 安定化 Lie 環と軌道方向
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - lie.stabilizer-lie-subgroup
+      - lie.fundamental-vector-field
+      - geometry.local-integral-curve-existence-uniqueness
+      - geometry.map-rank
+
+  - id: lie.closed-subgroup-quotient-manifold
+    name: 閉 Lie 部分群による商多様体
+    kind: theorem
+    aliases: [quotient manifold by a closed Lie subgroup]
+    introduction: formal
+    requires:
+      - lie.lie-subgroup
+      - lie.subgroup-exponential-compatibility
+      - lie.exponential-local-diffeomorphism
+      - analysis.inverse-function-theorem
+      - geometry.submersion
+      - topology.quotient-topology-map
+
+  - id: lie.homogeneous-space
+    name: 等質空間
+    kind: definition
+    aliases: [homogeneous space]
+    introduction: formal
+    introduction_aliases: ["定義（等質空間）"]
+    requires:
+      - lie.smooth-action
+      - algebra.transitive-group-action
+
+  - id: lie.homogeneous-space-quotient
+    name: 等質空間は安定化群による商
+    kind: theorem
+    aliases: []
+    introduction: formal
+    requires:
+      - lie.homogeneous-space
+      - lie.closed-subgroup-quotient-manifold
+      - lie.stabilizer-kernel-orbit-rank
+      - algebra.coset-orbit-bijection
+      - geometry.immersion-local-normal-form
+
+  - id: lie.lie-algebra-valued-one-form
+    name: Lie 環値1形式
+    kind: definition
+    aliases: [Lie algebra-valued one-form]
+    introduction: formal
+    introduction_aliases: ["定義（Lie 環値1形式）"]
+    requires:
+      - lie.lie-algebra
+      - geometry.differential-form
+      - geometry.exterior-derivative
+
+  - id: lie.left-maurer-cartan-form
+    name: 左 Maurer--Cartan 形式
+    kind: definition
+    aliases: [left Maurer--Cartan form]
+    introduction: formal
+    introduction_aliases: ["定義（左 Maurer--Cartan 形式）"]
+    requires:
+      - lie.lie-group-lie-algebra
+      - lie.left-translation
+      - lie.lie-algebra-valued-one-form
+
+  - id: lie.maurer-cartan-equivariance
+    name: Maurer--Cartan 形式の左不変性と右移動則
+    kind: proposition
+    aliases: []
+    introduction: formal
+    requires:
+      - lie.left-maurer-cartan-form
+      - lie.adjoint-representation
+      - geometry.differential-form-pullback
+
+  - id: lie.lie-algebra-valued-bracket-wedge
+    name: Lie 環値1形式の括弧付き外積
+    kind: definition
+    aliases: [bracket wedge of Lie algebra-valued one-forms]
+    introduction: formal
+    introduction_aliases: ["定義（Lie 環値1形式の括弧付き外積）"]
+    requires:
+      - lie.lie-algebra-valued-one-form
+      - lie.lie-algebra
+      - geometry.form-wedge-product
+
+  - id: lie.structure-constants
+    name: 構造定数
+    kind: definition
+    aliases: [structure constants]
+    introduction: formal
+    introduction_aliases: ["定義（構造定数）"]
+    requires:
+      - lie.lie-algebra
+
+  - id: lie.maurer-cartan-equation
+    name: Maurer--Cartan 方程式
+    kind: theorem
+    aliases: [Maurer--Cartan equation]
+    introduction: formal
+    introduction_aliases: ["定理（Maurer--Cartan 方程式）"]
+    requires:
+      - lie.left-maurer-cartan-form
+      - lie.lie-algebra-valued-bracket-wedge
+      - geometry.exterior-derivative-invariant-formula
+      - lie.left-invariant-bracket-closure
