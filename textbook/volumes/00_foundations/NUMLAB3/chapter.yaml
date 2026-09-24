@@ -1,0 +1,41 @@
+id: "NUMLAB3"
+title: "有限要素法演習"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PYNUM1
+  - NUMLAB0
+  - FEM1
+  - FEM2
+  - FEM3
+  - FEM4
+  - FEM5
+  - FEM6
+  - FEM7
+official_scope: []
+learning_objectives:
+  - FEM1–FEM7 の主要理論をブラウザ内 Python の数値実験として再現できる
+  - Galerkin 行列の正定値性と残差直交性を有限次元計算から確認できる
+  - 一次三角形要素の局所剛性行列を組み立て、大域行列の疎な結合構造を確認できる
+  - 形状正則性を失う三角形で補間勾配が増幅することを数値的に確認できる
+  - 一次有限要素 Poisson 解の H1 一次・L2 二次収束を格子細分化から確認できる
+  - 鞍点行列の Schur 補行列と離散 inf-sup の退化を有限次元例で診断できる
+  - 後退 Euler 有限要素法の質量行列・剛性行列・離散エネルギー減衰を確認できる
+  - 移流卓越時の標準 Galerkin 振動と SUPG による風上化を比較できる
+  - 理論 stable anchor と実験 stable anchor の対応を機械可読台帳から追跡できる
+definitions: []
+theorems: []
+canonical_examples:
+  - FEM1 低次元 Poisson Galerkin 法の係数行列・残差直交性
+  - FEM2 一次三角形要素の局所剛性行列と四三角形メッシュの大域組立て
+  - FEM3 つぶれた三角形における一次補間勾配の増幅
+  - FEM4 一次元 P1 Poisson 問題の H1 一次・L2 二次収束
+  - FEM5 安定な鞍点系と rank-deficient 制約行列の Schur 補行列比較
+  - FEM6 一次元熱方程式に対する後退 Euler 有限要素法の離散エネルギー減衰
+  - FEM7 一次元移流拡散における標準 Galerkin と SUPG の比較
+problem_patterns: []
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+dream_theater_exercise_count_exception: "NUMLAB3 は FEM1–FEM7 の A4/B3/C1 理論演習を置き換える章ではなく、既に各理論章で閉じた有限要素法の主題を7本のブラウザ実験で再現する実験章である。紙上問題を重複させず、各 FEM 章につき1本の実行可能ラボと自動テストを置く。"
+estimated_hours: { reading: 2.0, exercises: 5.0, review: 0.75 }
