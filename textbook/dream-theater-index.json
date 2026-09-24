@@ -153,6 +153,7 @@
         "textbook/volumes/00_foundations/CA11/index.md",
         "textbook/volumes/00_foundations/CA12/index.md",
         "textbook/volumes/00_foundations/F0_00G_凸集合_凸関数_凸最適化/index.md",
+        "textbook/volumes/00_foundations/OPT1/index.md",
         "textbook/volumes/00_foundations/F0_00G1_epigraph_閉凸関数_支持超平面/index.md",
         "textbook/volumes/00_foundations/F0_02C4_凸解析_劣勾配_normal_cone_双対錐/index.md",
         "textbook/volumes/00_foundations/F0_02C4A_tangent_polar_dual_cone/index.md",
@@ -165,8 +166,7 @@
         "textbook/volumes/00_foundations/F0_02C5A_制約想定_LICQ_MFCQ_Robinson/index.md",
         "textbook/volumes/00_foundations/F0_02C7_RKHS_再生核_representer_kernel_SVM/index.md",
         "textbook/volumes/00_foundations/F0_02B1_SVM_凸包_最大マージン/index.md",
-        "textbook/volumes/00_foundations/F0_02C7A_representer_kernel_SVM/index.md",
-        "textbook/volumes/00_foundations/OPT1/index.md"
+        "textbook/volumes/00_foundations/F0_02C7A_representer_kernel_SVM/index.md"
       ]
     },
     {
