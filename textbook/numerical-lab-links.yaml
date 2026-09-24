@@ -1,4 +1,64 @@
 schema_version: 1
 runtime_chapter: NUMLAB0
-description: "Encore V 理論章と NUMLAB 実験を stable anchor で双方向に接続する台帳。NUMLAB1 以降で links を追加する。"
-links: []
+description: "Encore V 理論章と NUMLAB 実験を stable anchor で双方向に接続する台帳。PYNUM1 も同じブラウザ実行基盤を使うが、理論章との対応レコードは NUMLAB1–NUMLAB5 に置く。"
+links:
+  - theory_chapter: NA1
+    theory_anchor: def-na1-cancellation
+    lab_chapter: NUMLAB1
+    lab_anchor: lab-numlab1-na1-cancellation
+    experiment_id: NUMLAB1-NA1-CANCELLATION
+  - theory_chapter: NA2
+    theory_anchor: thm-na2-newton-quadratic
+    lab_chapter: NUMLAB1
+    lab_anchor: lab-numlab1-na2-newton
+    experiment_id: NUMLAB1-NA2-NEWTON
+  - theory_chapter: NA3
+    theory_anchor: def-na3-system-newton
+    lab_chapter: NUMLAB1
+    lab_anchor: lab-numlab1-na3-system-newton
+    experiment_id: NUMLAB1-NA3-SYSTEM-NEWTON
+  - theory_chapter: NA4
+    theory_anchor: def-na4-chebyshev-nodes
+    lab_chapter: NUMLAB1
+    lab_anchor: lab-numlab1-na4-runge
+    experiment_id: NUMLAB1-NA4-RUNGE
+  - theory_chapter: NA5
+    theory_anchor: def-na5-gauss-quadrature
+    lab_chapter: NUMLAB1
+    lab_anchor: lab-numlab1-na5-gauss
+    experiment_id: NUMLAB1-NA5-GAUSS
+  - theory_chapter: NA6
+    theory_anchor: cor-na6-euler-convergence
+    lab_chapter: NUMLAB1
+    lab_anchor: lab-numlab1-na6-euler
+    experiment_id: NUMLAB1-NA6-EULER
+  - theory_chapter: NA7
+    theory_anchor: def-na7-absolute-stability-region
+    lab_chapter: NUMLAB1
+    lab_anchor: lab-numlab1-na7-stiff
+    experiment_id: NUMLAB1-NA7-STIFF
+  - theory_chapter: NA8
+    theory_anchor: def-na8-cholesky-factorization
+    lab_chapter: NUMLAB1
+    lab_anchor: lab-numlab1-na8-cholesky
+    experiment_id: NUMLAB1-NA8-CHOLESKY
+  - theory_chapter: NA9
+    theory_anchor: def-na9-cg
+    lab_chapter: NUMLAB1
+    lab_anchor: lab-numlab1-na9-cg
+    experiment_id: NUMLAB1-NA9-CG
+  - theory_chapter: NA10
+    theory_anchor: def-na10-power-method
+    lab_chapter: NUMLAB1
+    lab_anchor: lab-numlab1-na10-power
+    experiment_id: NUMLAB1-NA10-POWER
+  - theory_chapter: NA11
+    theory_anchor: prop-na11-pagerank-stopping
+    lab_chapter: NUMLAB1
+    lab_anchor: lab-numlab1-na11-pagerank
+    experiment_id: NUMLAB1-NA11-PAGERANK
+  - theory_chapter: NA12
+    theory_anchor: thm-na12-cg-quadratic-minimization
+    lab_chapter: NUMLAB1
+    lab_anchor: lab-numlab1-na12-optimization
+    experiment_id: NUMLAB1-NA12-OPTIMIZATION
