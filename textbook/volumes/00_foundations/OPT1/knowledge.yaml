@@ -1,0 +1,80 @@
+chapter: OPT1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00G
+  - VC1
+
+forward_references:
+  - convex.subdifferential
+  - convex.fenchel-duality
+  - convex.hyperplane
+
+concepts:
+  - id: convex.cone
+    name: 錐
+    kind: definition
+    aliases: [錐]
+    introduction: formal
+    introduction_aliases: ["定義（錐・凸錐）"]
+    requires:
+      - linear.vector-space
+
+  - id: convex.convex-cone
+    name: 凸錐
+    kind: definition
+    aliases: [凸錐]
+    introduction: formal
+    introduction_aliases: ["定義（錐・凸錐）"]
+    requires:
+      - convex.cone
+      - convex.convex-set
+
+  - id: convex.quasiconvex-function
+    name: 準凸関数
+    kind: definition
+    aliases: [quasiconvex function]
+    introduction: formal
+    introduction_aliases: ["定義（準凸関数・準凹関数）"]
+    requires:
+      - convex.convex-set
+
+  - id: convex.quasiconcave-function
+    name: 準凹関数
+    kind: definition
+    aliases: [quasiconcave function]
+    introduction: formal
+    introduction_aliases: ["定義（準凸関数・準凹関数）"]
+    requires:
+      - convex.convex-set
+
+  - id: convex.quasiconvex-level-characterization
+    name: 準凸性の下位集合による特徴付け
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（準凸性の下位集合による特徴付け）"]
+    requires:
+      - convex.quasiconvex-function
+      - convex.convex-set
+
+  - id: convex.strict-convex-unique-minimizer
+    name: 狭義凸関数の最小点の一意性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（狭義凸関数の最小点の一意性）"]
+    requires:
+      - convex.strictly-convex-function
+      - convex.convex-set
+
+  - id: optimization.convex-feasible-set
+    name: 凸最適化問題の実行可能集合は凸
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（凸最適化問題の実行可能集合は凸）"]
+    requires:
+      - convex.convex-function
+      - convex.convex-set
+      - convex.convex-optimization

@@ -3,7 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - F0-00A1
-  - F0-00G
+  - OPT1
   - F0-00E
   - F0-00C
   - F0-00D1
@@ -42,22 +42,22 @@ concepts:
       - convex.convex-hull
       - convex.convex-set-recap-f0-02b
 
-  - id: convex.cone
-    name: 錐
+  - id: convex.cone-recap-f0-02b
+    name: 分離定理で使う錐の再掲
     kind: definition
-    aliases: [錐]
-    introduction_aliases: [錐・凸錐・有限生成凸錐]
-    requires:
-      - linear.vector-space
-
-  - id: convex.convex-cone
-    name: 凸錐
-    kind: definition
-    aliases: [凸錐]
+    aliases: [分離定理で使う錐の再掲]
     introduction_aliases: [錐・凸錐・有限生成凸錐]
     requires:
       - convex.cone
-      - convex.convex-set
+
+  - id: convex.convex-cone-recap-f0-02b
+    name: 分離定理で使う凸錐の再掲
+    kind: definition
+    aliases: [分離定理で使う凸錐の再掲]
+    introduction_aliases: [錐・凸錐・有限生成凸錐]
+    requires:
+      - convex.convex-cone
+      - convex.cone-recap-f0-02b
 
   - id: convex.finitely-generated-cone
     name: 有限生成凸錐

@@ -1,0 +1,17 @@
+chapter: "OPT1"
+terms:
+  - term: 錐
+    english: cone
+    meaning: 集合内の点を任意の非負スカラー倍しても集合内に残る集合。凸性は別条件であり、両方を満たすと凸錐になる。
+  - term: 凸錐
+    english: convex cone
+    meaning: 任意の二点に任意の非負係数を掛けた線形結合を再び含む集合。凸結合の係数和1という条件を外し、非負スカラー倍でも閉じた凸集合として扱う。
+  - term: 準凸関数
+    english: quasiconvex function
+    meaning: 線分上の関数値が両端の大きい方を超えない関数。すべての下位集合が凸であることと同値で、凸関数より弱い概念。
+  - term: 準凹関数
+    english: quasiconcave function
+    meaning: 線分上の関数値が両端の小さい方を下回らない関数。負号を付けると準凸になる。凸選好を効用関数で表すときに自然に現れる。
+  - term: 凸最適化問題
+    english: convex optimization problem
+    meaning: 凸な目的関数と凸な不等式制約、アフィンな等式制約からなる最適化問題。実行可能集合が凸になり、局所的な最適性情報を大域的な結論へつなげやすい。
