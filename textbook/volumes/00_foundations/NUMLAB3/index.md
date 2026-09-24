@@ -108,19 +108,19 @@ def dphi2(x):
 phi = [phi1, phi2]
 dphi = [dphi1, dphi2]
 
-K = np.array([
-    [
-        np.sum(wq * dphi[i](xq) * dphi[j](xq))
-        for j in range(2)
-    ]
-    for i in range(2)
+phi_values = np.vstack([
+    function(xq)
+    for function in phi
+])
+dphi_values = np.vstack([
+    function(xq)
+    for function in dphi
 ])
 
+K = (dphi_values * wq) @ dphi_values.T
+
 f = np.pi**2 * np.sin(np.pi * xq)
-F = np.array([
-    np.sum(wq * f * phi[i](xq))
-    for i in range(2)
-])
+F = phi_values @ (wq * f)
 
 coef = np.linalg.solve(K, F)
 residual = K @ coef - F
