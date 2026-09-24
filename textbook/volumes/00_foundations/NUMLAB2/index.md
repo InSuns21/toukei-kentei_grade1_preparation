@@ -30,6 +30,8 @@ Python / NumPy の共通記法は PYNUM1、実行基盤は NUMLAB0 を使いま�
 
 ## 0. 実験の共通規約
 
+各理論対応ラボは、原則として **穴埋め → 模範解答 → 自動判定** の演習形式で実行します。完成コードを読むだけでなく、理論上の核心式を自分でコードへ翻訳してください。
+
 1. 空間格子幅を $h$、時間刻みを $\tau$ と書く。
 2. 熱方程式では
    $$
@@ -80,11 +82,70 @@ $$
 
 FTCS は空間半離散系へ前進 Euler 法を、後退 Euler 差分法は後退 Euler 法を適用したものとして比較できます。
 
+**穴埋め課題：** FTCS の内部節点更新と後退 Euler の一段 solve を埋めてください。
+
 ```python-lab
 # lab-id: NUMLAB2-FDM1-HEAT-SCHEMES
 # lab-title: FTCS と後退 Euler 差分法を同じ格子で比較
+# lab-mode: exercise
 # timeout-ms: 12000
 
+import numpy as np
+import matplotlib.pyplot as plt
+
+kappa = 1.0
+J = 30
+h = 1.0 / J
+r = 0.4
+tau = r * h * h / kappa
+steps = 45
+T = steps * tau
+
+x = np.linspace(0.0, 1.0, J + 1)
+u0 = np.sin(np.pi * x)
+
+# FTCS
+u_ftcs = u0.copy()
+for _ in range(steps):
+    old = u_ftcs.copy()
+    u_ftcs[1:-1] = ___
+    u_ftcs[0] = 0.0
+    u_ftcs[-1] = 0.0
+
+# 後退 Euler 差分法
+n = J - 1
+A = (1.0 + 2.0 * r) * np.eye(n)
+A += -r * np.eye(n, k=1)
+A += -r * np.eye(n, k=-1)
+
+u_be = u0.copy()
+for _ in range(steps):
+    u_be[1:-1] = ___
+    u_be[0] = 0.0
+    u_be[-1] = 0.0
+
+exact = np.exp(-np.pi**2 * T) * np.sin(np.pi * x)
+ftcs_error = np.max(np.abs(u_ftcs - exact))
+be_error = np.max(np.abs(u_be - exact))
+
+print("h:", h)
+print("tau:", tau)
+print("r:", r)
+print("T:", T)
+print("FTCS max error:", ftcs_error)
+print("backward Euler max error:", be_error)
+
+fig, ax = plt.subplots()
+ax.plot(x, exact, label="exact")
+ax.plot(x, u_ftcs, marker="o", markevery=3, label="FTCS")
+ax.plot(x, u_be, marker="s", markevery=3, label="backward Euler")
+ax.set_xlabel("x")
+ax.set_ylabel("u(T, x)")
+ax.legend()
+ax.grid(True)
+```
+
+```python-solution
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -185,11 +246,56 @@ $$
 
 $r=0.4$ なら $|G|=0.6<1$、$r=0.6$ なら $|G|=1.4>1$ です。
 
+**穴埋め課題：** FTCS の周期格子更新と、安定側・不安定側の $r$ を埋めてください。
+
 ```python-lab
 # lab-id: NUMLAB2-FDM2-CFL
 # lab-title: CFL 条件の成立・破綻を交互振動モードで比較
+# lab-mode: exercise
 # timeout-ms: 5000
 
+import numpy as np
+import matplotlib.pyplot as plt
+
+J = 64
+j = np.arange(J)
+mode = (-1.0) ** j
+
+def evolve_ftcs(u0, r, steps):
+    u = u0.copy()
+    norms = [np.max(np.abs(u))]
+
+    for _ in range(steps):
+        u = ___
+        norms.append(np.max(np.abs(u)))
+
+    return u, np.array(norms)
+
+steps = 12
+stable_r = ___
+unstable_r = ___
+
+u_stable, stable_norms = evolve_ftcs(mode, stable_r, steps)
+u_unstable, unstable_norms = evolve_ftcs(mode, unstable_r, steps)
+
+stable_factor = 1.0 - 4.0 * stable_r
+unstable_factor = 1.0 - 4.0 * unstable_r
+
+print("stable amplification factor:", stable_factor)
+print("unstable amplification factor:", unstable_factor)
+print("stable final max norm:", stable_norms[-1])
+print("unstable final max norm:", unstable_norms[-1])
+
+fig, ax = plt.subplots()
+ax.semilogy(np.arange(steps + 1), stable_norms, marker="o", label="r=0.4")
+ax.semilogy(np.arange(steps + 1), unstable_norms, marker="s", label="r=0.6")
+ax.set_xlabel("time step")
+ax.set_ylabel("max norm")
+ax.legend()
+ax.grid(True)
+```
+
+```python-solution
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -279,11 +385,73 @@ $$
 
 なので、格子幅 $h$ を半分にしたとき誤差はおよそ $1/4$ になるはずです。
 
+**穴埋め課題：** 安定性を満たす時間刻み制約と FTCS 更新式を埋めてください。
+
 ```python-lab
 # lab-id: NUMLAB2-FDM3-CONVERGENCE
 # lab-title: FTCS の二次格子収束を実測
+# lab-mode: exercise
 # timeout-ms: 12000
 
+import math
+import numpy as np
+import matplotlib.pyplot as plt
+
+kappa = 1.0
+T = 0.02
+target_r = 0.4
+
+def ftcs_error(J):
+    h = 1.0 / J
+
+    max_tau = ___
+    steps = math.ceil(T / max_tau)
+    tau = T / steps
+    r = kappa * tau / (h * h)
+
+    x = np.linspace(0.0, 1.0, J + 1)
+    u = np.sin(np.pi * x)
+
+    for _ in range(steps):
+        old = u.copy()
+        u[1:-1] = ___
+        u[0] = 0.0
+        u[-1] = 0.0
+
+    exact = np.exp(-np.pi**2 * T) * np.sin(np.pi * x)
+    error = np.max(np.abs(u - exact))
+
+    return error, r, steps
+
+Js = np.array([20, 40, 80, 160], dtype=int)
+errors = np.empty(Js.shape, dtype=float)
+rs = np.empty(Js.shape, dtype=float)
+steps_used = np.empty(Js.shape, dtype=int)
+
+for i, J in enumerate(Js):
+    errors[i], rs[i], steps_used[i] = ftcs_error(int(J))
+
+orders = (
+    np.log(errors[:-1] / errors[1:])
+    / np.log(Js[1:] / Js[:-1])
+)
+
+print("J:", Js)
+print("r:", rs)
+print("steps:", steps_used)
+print("errors:", errors)
+print("observed orders:", orders)
+
+fig, ax = plt.subplots()
+ax.loglog(Js, errors, marker="o", label="FTCS error")
+ax.loglog(Js, errors[0] * (Js[0] / Js) ** 2, linestyle="--", label="J^-2 reference")
+ax.set_xlabel("J")
+ax.set_ylabel("max error")
+ax.legend()
+ax.grid(True)
+```
+
+```python-solution
 import math
 import numpy as np
 import matplotlib.pyplot as plt
@@ -401,11 +569,85 @@ $$
 
 中心差分では係数の符号構造が崩れ、交互振動が現れます。
 
+**穴埋め課題：** 中心差分と風上差分で変わる左右係数を埋め、振動の違いを確認してください。
+
 ```python-lab
 # lab-id: NUMLAB2-FDM4-UPWIND
 # lab-title: 中心差分の振動と風上差分の単調性
+# lab-mode: exercise
 # timeout-ms: 8000
 
+import numpy as np
+import matplotlib.pyplot as plt
+
+kappa = 0.025
+a = 1.0
+J = 10
+h = 1.0 / J
+Pe_h = abs(a) * h / (2.0 * kappa)
+
+x = np.linspace(0.0, 1.0, J + 1)
+
+def solve_scheme(kind):
+    n = J - 1
+    A = np.zeros((n, n))
+    b = np.zeros(n)
+
+    if kind == "centered":
+        left = ___
+        diag = 2.0 * kappa / h**2
+        right = ___
+    elif kind == "upwind":
+        left = ___
+        diag = 2.0 * kappa / h**2 + a / h
+        right = ___
+    else:
+        raise ValueError("unknown scheme")
+
+    for row in range(n):
+        A[row, row] = diag
+
+        if row > 0:
+            A[row, row - 1] = left
+
+        if row < n - 1:
+            A[row, row + 1] = right
+        else:
+            b[row] -= right * 1.0
+
+    interior = np.linalg.solve(A, b)
+    return np.concatenate(([0.0], interior, [1.0]))
+
+centered = solve_scheme("centered")
+upwind = solve_scheme("upwind")
+
+physical_peclet = a / kappa
+exact = (
+    np.exp(physical_peclet * x) - 1.0
+) / (
+    np.exp(physical_peclet) - 1.0
+)
+
+centered_error = np.max(np.abs(centered - exact))
+upwind_error = np.max(np.abs(upwind - exact))
+
+print("grid Peclet number:", Pe_h)
+print("centered:", centered)
+print("upwind:", upwind)
+print("centered max error:", centered_error)
+print("upwind max error:", upwind_error)
+
+fig, ax = plt.subplots()
+ax.plot(x, exact, label="exact")
+ax.plot(x, centered, marker="o", label="centered")
+ax.plot(x, upwind, marker="s", label="upwind")
+ax.set_xlabel("x")
+ax.set_ylabel("u")
+ax.legend()
+ax.grid(True)
+```
+
+```python-solution
 import numpy as np
 import matplotlib.pyplot as plt
 
