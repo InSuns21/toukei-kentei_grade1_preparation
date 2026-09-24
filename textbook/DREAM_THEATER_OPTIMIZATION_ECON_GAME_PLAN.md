@@ -199,9 +199,9 @@ OPT・FIX を数学側の canonical owner とし、MICRO / GAME では数学定�
 
 中心式：
 
-[
-0in partial f(x^*)+N_C(x^*).
-]
+$$
+0\in \partial f(x^*)+N_C(x^*).
+$$
 
 主要 migration source：
 
@@ -238,13 +238,9 @@ OPT・FIX を数学側の canonical owner とし、MICRO / GAME では数学定�
 
 対象：
 
-[
-min_x f(x)
-quad
-	ext{subject to }
-g_i(x)le 0,qquad
-Ax=b.
-]
+$$
+\min_x f(x)\quad \text{subject to } g_i(x)\le 0,\qquad Ax=b.
+$$
 
 主題：
 
@@ -316,7 +312,7 @@ Ax=b.
 - 最急降下法
 - 固定歩幅
 - 直線探索
-- 凸問題での (O(1/k)) 収束
+- 凸問題での $O(1/k)$ 収束
 - 強凸問題での線形収束
 - Newton 法
 - 条件数と収束速度
@@ -342,13 +338,9 @@ Ax=b.
 
 中心反復：
 
-[
-x^{k+1}
-=
-operatorname{prox}_{alpha g}
-igl(x^k-alpha
-abla f(x^k)igr).
-]
+$$
+x^{k+1}=\operatorname{prox}_{\alpha g}\bigl(x^k-\alpha\nabla f(x^k)\bigr).
+$$
 
 ---
 
@@ -413,17 +405,17 @@ abla f(x^k)igr).
 
 主題：
 
-[
-min_x rac12x^{mathsf T}Qx+c^{mathsf T}x.
-]
+$$
+\min_x \frac12 x^{\mathsf T}Qx+c^{\mathsf T}x.
+$$
 
 - convex QP
 - equality constrained QP
 - inequality constrained QP
 - KKT linear system
 - active-set viewpoint
-- (Qsucceq0) と凸性
-- (Qsucc0) と一意性
+- $Q\succeq0$ と凸性
+- $Q\succ0$ と一意性
 - second-order cone programming の入口
 
 RKHS4 の hard-margin SVM の直接 prerequisite とする。
@@ -505,18 +497,17 @@ GAME-D では DOPT 側の整数性証明・アルゴリズムを再構築せず 
 
 正則化問題
 
-[
-min_{finmathcal H}
-Ligl(f(x_1),dots,f(x_n)igr)
-+
-lambdalVert fVert_{mathcal H}^2
-]
+$$
+\min_{f\in\mathcal H}
+L\bigl(f(x_1),\dots,f(x_n)\bigr)
++\lambda\lVert f\rVert_{\mathcal H}^2
+$$
 
 の解を有限和
 
-[
-f=sum_ialpha_iK(x_i,cdot)
-]
+$$
+f=\sum_i\alpha_iK(x_i,\cdot)
+$$
 
 へ落とす。
 
@@ -566,7 +557,7 @@ representer theorem を SVM より先に使用し、kernel 法が SVM 固有の�
 
 - slack variable
 - hinge loss
-- (C) の意味
+- $C$ の意味
 - soft-margin dual
 - KKT による点の分類
 - kernel trick
@@ -653,12 +644,9 @@ GAME-A3 と MICRO7 の共通 existence engine とする。
 
 対象：
 
-[
-max_x u(x)
-quad
-	ext{subject to }
-pcdot xle m.
-]
+$$
+\max_x u(x)\quad \text{subject to } p\cdot x\le m.
+$$
 
 主題：
 
@@ -711,9 +699,9 @@ OPT2 / OPT5 を直接利用する。
 
 代表問題：
 
-[
-max sum_ilambda_i u_i(x_i).
-]
+$$
+\max \sum_i\lambda_i u_i(x_i).
+$$
 
 主題：
 
@@ -815,11 +803,9 @@ FIX2 / FIX3 を参照し、
 
 有限ゼロ和ゲームを線形計画へ変換し、線形計画双対から
 
-[
-max_pmin_q p^{mathsf T}Aq
-=
-min_qmax_p p^{mathsf T}Aq
-]
+$$
+\max_p\min_q p^{\mathsf T}Aq=\min_q\max_p p^{\mathsf T}Aq.
+$$
 
 を導く。
 
@@ -846,12 +832,11 @@ OPT10 の代表的応用とする。
 
 連続戦略ゲーム
 
-[
+$$
 x_i^*
-in
-operatorname*{arg,max}_{x_iin X_i}
+\in \operatorname*{arg\,max}_{x_i\in X_i}
 u_i(x_i,x_{-i}^*)
-]
+$$
 
 を扱う。
 
@@ -885,9 +870,9 @@ Bayesian game、repeated game、stochastic game は今回の A 系列完成条�
 
 特性関数
 
-[
-v:2^N	omathbb R
-]
+$$
+v:2^N\to\mathbb R
+$$
 
 から始める。
 
@@ -908,12 +893,11 @@ core を線形不等式で定義される多面体として読む。
 
 中心定理：
 
-[
-operatorname{Core}(v)
-earnothing
-iff
-v	ext{ is balanced}.
-]
+$$
+\operatorname{Core}(v)\ne\varnothing
+\iff
+v\text{ is balanced}.
+$$
 
 OPT10 の線形計画双対または Farkas の補題との対応を核心まで証明する。
 
@@ -935,13 +919,9 @@ OPT10 の線形計画双対または Farkas の補題との対応を核心まで
 
 さらに
 
-[
-phi_i(v)
-=
-mathbb E[
-	ext{random arrival order における }i	ext{ の限界貢献}
-]
-]
+$$
+\phi_i(v)=\mathbb E\!\left[\text{random arrival order における }i\text{ の限界貢献}\right]
+$$
 
 という確率的表示を示す。
 
@@ -951,11 +931,9 @@ mathbb E[
 
 ゲーム理論の convex game を
 
-[
-v(Scup T)+v(Scap T)
-ge
-v(S)+v(T)
-]
+$$
+v(S\cup T)+v(S\cap T)\ge v(S)+v(T)
+$$
 
 で導入する。
 
@@ -963,11 +941,9 @@ v(S)+v(T)
 
 主要結果：
 
-[
-v	ext{ が convex game}
-Longrightarrow
-phi(v)inoperatorname{Core}(v).
-]
+$$
+v\text{ が convex game}\Longrightarrow \phi(v)\in\operatorname{Core}(v).
+$$
 
 ---
 
@@ -975,9 +951,9 @@ phi(v)inoperatorname{Core}(v).
 
 coalition の excess
 
-[
+$$
 e(S,x)=v(S)-x(S)
-]
+$$
 
 を使う。
 
@@ -997,21 +973,19 @@ Shapley 値とは異なる公平性・安定性の考え方として比較する
 
 ## GAME-C1 Nash bargaining problem
 
-実行可能集合 (F) と disagreement point (d) を用いる。
+実行可能集合 $F$ と disagreement point $d$ を用いる。
 
 代表問題：
 
-[
-max_{xin F}
-prod_i(x_i-d_i).
-]
+$$
+\max_{x\in F}\prod_i(x_i-d_i).
+$$
 
 対数変換により
 
-[
-max_{xin F}
-sum_ilog(x_i-d_i)
-]
+$$
+\max_{x\in F}\sum_i\log(x_i-d_i)
+$$
 
 という凹最適化へ移し、OPT5 の KKT で解く。
 
