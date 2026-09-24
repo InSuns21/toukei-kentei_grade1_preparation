@@ -188,6 +188,10 @@ for (const chapter of chapterDirs) {
     assert.ok(labs.length >= 4, 'NUMLAB0 must provide at least four executable runtime smoke labs');
   } else {
     assert.ok(labs.length >= 1, `${chapter} must provide at least one executable numerical experiment`);
+    assert.ok(
+      labs.every((lab) => lab.mode === 'exercise' && lab.hasSolution),
+      `${chapter}: every theory-linked NUMLAB1–NUMLAB5 experiment must use exercise mode with python-solution`,
+    );
   }
 }
 
@@ -255,6 +259,7 @@ for (const [chapter, labs] of pageLabs) {
 }
 
 const totalLabs = [...pageLabs.values()].reduce((sum, labs) => sum + labs.length, 0);
+const exerciseLabs = [...pageLabs.entries()].filter(([chapter]) => /^NUMLAB[1-5]$/.test(chapter)).flatMap(([, labs]) => labs).filter((lab) => lab.mode === 'exercise').length;
 console.log(
-  `Numerical lab runtime validated: Pyodide 314.0.7, ${chapterDirs.length} executable page(s), ${totalLabs} lab(s), ${linkRegistry.links.length} theory/lab link(s).`,
+  `Numerical lab runtime validated: Pyodide 314.0.7, ${chapterDirs.length} executable page(s), ${totalLabs} lab(s), ${exerciseLabs} exercise lab(s), ${linkRegistry.links.length} theory/lab link(s).`,
 );
