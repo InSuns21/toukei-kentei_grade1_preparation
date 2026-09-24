@@ -1,0 +1,14 @@
+chapter: NUMLAB3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PYNUM1
+  - NUMLAB0
+  - FEM1
+  - FEM2
+  - FEM3
+  - FEM4
+  - FEM5
+  - FEM6
+  - FEM7
+concepts: []
