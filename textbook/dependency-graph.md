@@ -601,6 +601,8 @@ NUMLAB1 は PYNUM1、NUMLAB0、NA1–NA12 を直接 prerequisite とし、数値
 
 NUMLAB2 は PYNUM1、NUMLAB0、FDM1–FDM4 を直接 prerequisite とし、差分法4講を各1本のブラウザ実験へ対応させる。FDM1 は同じ中心二階空間差分作用素に対する FTCS と後退 Euler 差分法、FDM2 は交互振動 Fourier モードによる拡散 CFL 条件の成立・破綻、FDM3 は $\tau\propto h^2$ の下での FTCS 格子収束、FDM4 は $Pe_h>1$ における中心差分の交互振動と風上差分の単調性回復を扱う。各実験は `textbook/numerical-lab-links.yaml` で理論 stable anchor と実験 stable anchor を対応付け、Pages 検証で双方の存在・experiment ID・全実験の台帳登録を確認する。
 
-読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA1–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC8、PYNUM1、NUMLAB0、NUMLAB1、NUMLAB2 である。理論完成直後の横断監査は方針決定により実施対象外とし、次の実装対象は NUMLAB3「有限要素法演習」である。
+NUMLAB3 は PYNUM1、NUMLAB0、FEM1–FEM7 を直接 prerequisite とし、有限要素法7講を各1本のブラウザ実験へ対応させる。FEM1 は Galerkin 行列と残差直交性、FEM2 は一次三角形要素の局所剛性行列と大域組立て、FEM3 は形状正則性を失う三角形での補間勾配増幅、FEM4 は一次有限要素解の $H^1$ 一次・$L^2$ 二次収束、FEM5 は Schur 補行列と制約行列の階数、FEM6 は後退 Euler 有限要素法の離散エネルギー、FEM7 は標準 Galerkin 振動と SUPG による風上化を扱う。各実験は `textbook/numerical-lab-links.yaml` で理論 stable anchor と実験 stable anchor を対応付け、Pages 検証で双方の存在・experiment ID・全実験の台帳登録を確認する。
+
+読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA1–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC8、PYNUM1、NUMLAB0、NUMLAB1、NUMLAB2、NUMLAB3 である。理論完成直後の横断監査は方針決定により実施対象外とし、次の実装対象は NUMLAB4「Monte Carlo 演習」である。
 
 ---
