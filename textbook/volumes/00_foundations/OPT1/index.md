@@ -116,7 +116,7 @@ $$
 これは「凸集合」であることと「非負スカラー倍で閉じていること」を一つの式にまとめた条件です。
 
 <!-- definition-example-start: def-opt1-convex-cone -->
-### 定義の確認：非負直交象限
+**定義の確認**：非負直交象限
 
 $$
 K=\mathbb R_+^2
@@ -264,7 +264,7 @@ $$
 なので準凸です。しかし逆は成り立ちません。
 
 <!-- definition-example-start: def-opt1-quasiconvex -->
-### 定義の確認：$f(x)=x^3$
+**定義の確認**：$f(x)=x^3$
 
 $f(x)=x^3$ は $\mathbb R$ 上で単調増加です。
 
