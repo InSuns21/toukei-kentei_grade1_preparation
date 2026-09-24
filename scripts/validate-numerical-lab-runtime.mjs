@@ -138,6 +138,7 @@ function parseLabs(chapter, markdown) {
     const timeoutText = source.match(/^\s*#\s*timeout-ms:\s*(\d+)$/m)?.[1];
     const mode = source.match(/^\s*#\s*lab-mode:\s*([^\n]+)$/m)?.[1]?.trim().toLowerCase() || 'free';
 
+    assert.ok(['free', 'exercise'].includes(mode), `${id || chapter}: unsupported # lab-mode: ${mode}`);
     assert.ok(id, `${chapter}: every python-lab block must declare # lab-id:`);
     assert.ok(!globalLabIds.has(id), `duplicate lab-id: ${id} in ${chapter} and ${globalLabIds.get(id)}`);
     globalLabIds.set(id, chapter);
