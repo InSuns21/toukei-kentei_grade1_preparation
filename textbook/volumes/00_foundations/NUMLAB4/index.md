@@ -174,7 +174,7 @@ X
 -\frac1\lambda\log(1-U)
 $$
 
-とすれば、逆関数法により指数分布標本が得られます。
+とすれば、[逆関数法](../MC2/index.md#thm-mc2-inverse-transform)により指数分布標本が得られます。
 
 次に、$0\le x\le1$ 上の密度
 
