@@ -3,15 +3,31 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - F0-00G
+  - VC1
+
+forward_references:
+  - convex.subdifferential
+  - convex.fenchel-duality
+  - convex.hyperplane
 
 concepts:
+  - id: convex.cone
+    name: 錐
+    kind: definition
+    aliases: [錐]
+    introduction: formal
+    introduction_aliases: ["定義（錐・凸錐）"]
+    requires:
+      - linear.vector-space
+
   - id: convex.convex-cone
     name: 凸錐
     kind: definition
-    aliases: [convex cone]
+    aliases: [凸錐]
     introduction: formal
-    introduction_aliases: ["定義（凸錐）"]
+    introduction_aliases: ["定義（錐・凸錐）"]
     requires:
+      - convex.cone
       - convex.convex-set
 
   - id: convex.quasiconvex-function
