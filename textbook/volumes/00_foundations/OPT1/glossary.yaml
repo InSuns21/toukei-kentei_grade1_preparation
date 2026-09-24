@@ -1,5 +1,8 @@
 chapter: "OPT1"
 terms:
+  - term: 錐
+    english: cone
+    meaning: 集合内の点を任意の非負スカラー倍しても集合内に残る集合。凸性は別条件であり、両方を満たすと凸錐になる。
   - term: 凸錐
     english: convex cone
     meaning: 任意の二点に任意の非負係数を掛けた線形結合を再び含む集合。凸結合の係数和1という条件を外し、非負スカラー倍でも閉じた凸集合として扱う。
