@@ -1,0 +1,44 @@
+id: "NUMLAB5"
+title: "準 Monte Carlo 演習"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PYNUM1
+  - NUMLAB0
+  - QMC1
+  - QMC2
+  - QMC3
+  - QMC4
+  - QMC5
+  - QMC6
+  - QMC7
+  - QMC8
+official_scope: []
+learning_objectives:
+  - QMC1–QMC8 の主要理論をブラウザ内 Python の穴埋め演習として再現できる
+  - 一次元中点集合のスター・ディスクレパンシーと Koksma--Hlawka 型上界を実測できる
+  - 再生核 K(x,y)=1+min(x,y) に対する等重み求積の最悪誤差を核公式から計算できる
+  - ランク1格子上の複素指数モードの離散直交性を双対格子条件と照合できる
+  - 底2のデジタルネットを生成行列から構成し、b 進基本区間の点数条件を検査できる
+  - Walsh 周波数が双対ネットへ属する場合だけデジタルネット平均に残ることを確認できる
+  - 多項式格子の Laurent 展開係数から生成行列を作り、canonical 4点例を再現できる
+  - 一様デジタルシフトの独立反復から不偏性・分散・標準誤差を推定できる
+  - 桁交互配置により一次のデジタル点列から高次準 Monte Carlo 点列を作り、滑らかな関数で誤差の log-log 傾きが約 -2 になることを観察できる
+  - 理論 stable anchor と実験 stable anchor の対応を機械可読台帳から追跡できる
+definitions: []
+theorems: []
+canonical_examples:
+  - QMC1 一次元中点集合のスター・ディスクレパンシーと x^2 の求積誤差
+  - QMC2 K(x,y)=1+min(x,y) の midpoint rule 最悪誤差
+  - QMC3 N=5 の生成ベクトル (1,1) と (1,2) に対する Fourier モード消去
+  - QMC4 底2の4点デジタル (0,2,2)-ネット
+  - QMC5 canonical 4点デジタルネット上の Walsh 双対周波数
+  - QMC6 p=x^2+x+1, q=(1,x) の4点多項式格子
+  - QMC7 P={0,1/2} の一様デジタルシフトと Walsh 係数に対応する厳密分散
+  - QMC8 Sobol 2座標の桁交互配置による滑らかな一次元積分の高次収束
+problem_patterns: []
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+dream_theater_exercise_count_exception: "NUMLAB5 は QMC1–QMC8 の A4/B3/C1 理論演習を置き換える章ではなく、既に各理論章で閉じた準 Monte Carlo 法の主題を8本のブラウザ穴埋め演習で再現する実験章である。紙上問題を重複させず、各 QMC 章につき1本の lab-mode: exercise、python-solution、python-test を置く。"
+estimated_hours: { reading: 2.0, exercises: 5.5, review: 0.75 }

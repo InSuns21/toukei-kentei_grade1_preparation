@@ -1,0 +1,14 @@
+chapter: "NUMLAB5"
+terms:
+  - term: 実測ディスクレパンシー
+    english: empirical discrepancy
+    meaning: 有限点集合についてアンカー付き区間・直方体の点数割合と体積との差を実際に計算して得るディスクレパンシー。
+  - term: 実測最悪誤差
+    english: computed worst-case error
+    meaning: 再生核の閉じた公式から点集合に対する最悪誤差を数値的に評価した値。
+  - term: ランダム化反復標準誤差
+    english: randomized replicate standard error
+    meaning: 独立なランダム化準 Monte Carlo 反復から得た推定値の標本標準偏差を反復数の平方根で割った標準誤差。
+  - term: 高次 QMC の実測誤差傾き
+    english: observed higher-order QMC error slope
+    meaning: 桁交互配置後の準 Monte Carlo 誤差を点数ごとに比較し、log-log 図から推定する誤差の傾き。

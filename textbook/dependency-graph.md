@@ -605,6 +605,8 @@ NUMLAB3 は PYNUM1、NUMLAB0、FEM1–FEM7 を直接 prerequisite とし、有�
 
 NUMLAB4 は PYNUM1、NUMLAB0、MC1–MC4 を直接 prerequisite とし、Monte Carlo 4講を各1本のブラウザ実験へ対応させる。MC1 は標準誤差の $N^{-1/2}$ 則、MC2 は固定シード・逆関数法・棄却法、MC3 は同一関数評価予算での通常法・対称変量法・制御変量法の推定量分散比較、MC4 は二進量子化近似の同一乱数結合と独立結合によるレベル差分散の比較を扱う。各実験は `textbook/numerical-lab-links.yaml` で理論 stable anchor と実験 stable anchor を対応付け、Pages 検証で双方の存在・experiment ID・全実験の台帳登録を確認する。
 
-読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA1–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC8、PYNUM1、NUMLAB0、NUMLAB1、NUMLAB2、NUMLAB3、NUMLAB4 である。理論完成直後の横断監査は方針決定により実施対象外とし、次の実装対象は NUMLAB5「準 Monte Carlo 演習」である。
+NUMLAB5 は PYNUM1、NUMLAB0、QMC1–QMC8 を直接 prerequisite とし、準 Monte Carlo 8講を各1本のブラウザ穴埋め演習へ対応させる。QMC1 は一次元中点集合のスター・ディスクレパンシーと求積誤差、QMC2 は再生核から計算する最悪誤差、QMC3 はランク1格子の Fourier モード消去、QMC4 は底2の4点デジタルネット、QMC5 は Walsh 双対周波数の離散直交性、QMC6 は Laurent 展開係数から作る多項式格子、QMC7 は一様デジタルシフトの不偏性・分散・反復標準誤差、QMC8 は桁交互配置による高次収束を扱う。各実験は `textbook/numerical-lab-links.yaml` で理論 stable anchor と実験 stable anchor を対応付け、Pages 検証で exercise mode・模範解答・hidden test・experiment ID・anchor の整合を確認する。
+
+読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。実装済み本編は NA1–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC8、PYNUM1、NUMLAB0–NUMLAB5 である。理論完成直後の横断監査は方針決定により実施対象外とし、Encore V の計算機演習系列は NUMLAB5 まで完了している。
 
 ---

@@ -140,3 +140,44 @@ links:
     lab_chapter: NUMLAB4
     lab_anchor: lab-numlab4-mc4-level-coupling
     experiment_id: NUMLAB4-MC4-LEVEL-COUPLING
+
+  - theory_chapter: QMC1
+    theory_anchor: def-qmc1-star-discrepancy
+    lab_chapter: NUMLAB5
+    lab_anchor: lab-numlab5-qmc1-discrepancy
+    experiment_id: NUMLAB5-QMC1-DISCREPANCY
+  - theory_chapter: QMC2
+    theory_anchor: thm-qmc2-worst-case-error
+    lab_chapter: NUMLAB5
+    lab_anchor: lab-numlab5-qmc2-worst-case-error
+    experiment_id: NUMLAB5-QMC2-WORST-CASE-ERROR
+  - theory_chapter: QMC3
+    theory_anchor: thm-qmc3-character-orthogonality
+    lab_chapter: NUMLAB5
+    lab_anchor: lab-numlab5-qmc3-lattice-character
+    experiment_id: NUMLAB5-QMC3-LATTICE-CHARACTER
+  - theory_chapter: QMC4
+    theory_anchor: def-qmc4-digital-net
+    lab_chapter: NUMLAB5
+    lab_anchor: lab-numlab5-qmc4-digital-net
+    experiment_id: NUMLAB5-QMC4-DIGITAL-NET
+  - theory_chapter: QMC5
+    theory_anchor: thm-qmc5-digital-character-property
+    lab_chapter: NUMLAB5
+    lab_anchor: lab-numlab5-qmc5-walsh-dual
+    experiment_id: NUMLAB5-QMC5-WALSH-DUAL
+  - theory_chapter: QMC6
+    theory_anchor: thm-qmc6-digital-representation
+    lab_chapter: NUMLAB5
+    lab_anchor: lab-numlab5-qmc6-polynomial-lattice
+    experiment_id: NUMLAB5-QMC6-POLYNOMIAL-LATTICE
+  - theory_chapter: QMC7
+    theory_anchor: thm-qmc7-shift-exact-variance
+    lab_chapter: NUMLAB5
+    lab_anchor: lab-numlab5-qmc7-digital-shift
+    experiment_id: NUMLAB5-QMC7-DIGITAL-SHIFT
+  - theory_chapter: QMC8
+    theory_anchor: thm-qmc8-interlacing-order-alpha
+    lab_chapter: NUMLAB5
+    lab_anchor: lab-numlab5-qmc8-interlacing
+    experiment_id: NUMLAB5-QMC8-INTERLACING
