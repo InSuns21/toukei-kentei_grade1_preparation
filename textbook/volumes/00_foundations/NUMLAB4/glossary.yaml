@@ -1,0 +1,11 @@
+chapter: "NUMLAB4"
+terms:
+  - term: 実測標準誤差
+    english: empirical standard error
+    meaning: 同じ推定手順を独立に多数回繰り返した推定値の標準偏差として測る標準誤差。
+  - term: 分散減少率
+    english: variance reduction factor
+    meaning: 基準推定量の分散を改良推定量の分散で割った比。1より大きいほど同じ計算予算で分散が減っている。
+  - term: レベル差分散
+    english: level-difference variance
+    meaning: Multilevel Monte Carlo で隣接する近似レベルの差に対して測る分散。良いレベル間結合ではレベルとともに減衰する。
