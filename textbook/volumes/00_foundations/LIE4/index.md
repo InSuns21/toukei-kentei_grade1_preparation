@@ -48,7 +48,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lie4-smooth-action -->
-**定義の確認：$SO(2)$ が平面を回す作用**
+**定義の確認**：$SO(2)$ が平面を回す作用
 
 [LIE3 の特殊直交群](../LIE3/index.md#def-lie3-orthogonal-groups)の元を
 
@@ -139,6 +139,32 @@ $$
 >
 > と定める。この滑らかな写像を $x$ における **軌道写像**という。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-lie4-orbit-map -->
+### 例：$SO(2)$ 作用の軌道写像
+
+**定義の確認**
+
+§1 の $SO(2)$ 作用で $x=(r,0)$、$r>0$ を固定すると、
+
+$$
+\Phi_x(R_\theta)
+=
+R_\theta x
+=
+(r\cos\theta,r\sin\theta).
+$$
+
+従って $\Phi_x$ は群の元 $R_\theta$ を、固定した点 $x$ を実際に動かして得られる点へ送っています。各成分は $\theta$ の滑らかな関数なので、これは定義どおり滑らかな軌道写像です。その像は
+
+$$
+\operatorname{im}\Phi_x
+=
+\{(u,v):u^2+v^2=r^2\}
+$$
+
+で、集合としての軌道 $SO(2)\cdot x$ と一致します。
+<!-- definition-example-end -->
 
 <a id="prop-lie4-stabilizer-lie-subgroup"></a>
 <!-- formal-statement-start -->
@@ -804,7 +830,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lie4-homogeneous-space -->
-**定義の確認：球面は $SO(n)$ の等質空間**
+**定義の確認**：球面は $SO(n)$ の等質空間
 
 $n\ge2$ とし、$SO(n)$ を単位球面
 
@@ -1103,6 +1129,40 @@ $$
 > 外微分 $d\omega$ は各成分へ [GEO7 の外微分](../GEO7/index.md#def-geo7-exterior-derivative)を施して定める。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-lie4-lie-algebra-valued-one-form -->
+### 例：$\mathbb R^2$ 上の $\mathbb R^2$ 値1形式
+
+**定義の確認**
+
+可換 Lie 環 $\mathfrak g=\mathbb R e_1\oplus\mathbb R e_2$ を取り、
+
+$$
+\omega
+=
+dx\,e_1+dy\,e_2
+$$
+
+と置きます。点 $(x,y)$ で
+
+$$
+V
+=
+a\frac{\partial}{\partial x}
++
+b\frac{\partial}{\partial y}
+$$
+
+なら
+
+$$
+\omega_{(x,y)}(V)
+=
+a e_1+b e_2.
+$$
+
+各点で $V\mapsto\omega_{(x,y)}(V)$ は線形であり、基底 $e_1,e_2$ に関する成分は通常の滑らかな1形式 $dx,dy$ です。従って $\omega$ は定義どおり $\mathfrak g$ 値1形式です。
+<!-- definition-example-end -->
+
 基底を変えると係数は定数行列で線形変換されるので、成分ごとに外微分する定義は基底に依存しません。
 
 <a id="def-lie4-maurer-cartan-form"></a>
@@ -1123,7 +1183,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-lie4-maurer-cartan-form -->
-**定義の確認：一般線形群**
+**定義の確認**：一般線形群
 
 $G=GL(n,\mathbb R)$ では
 
@@ -1294,6 +1354,54 @@ $$
 > で定める。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-lie4-bracket-wedge -->
+### 例：2次元アフィン Lie 環での括弧付き外積
+
+**定義の確認**
+
+基底 $H,E$ が
+
+$$
+[H,E]=E
+$$
+
+を満たす2次元アフィン Lie 環を取り、$\mathbb R^2$ 上で
+
+$$
+\omega
+=
+dx\,H+dy\,E
+$$
+
+とします。すると
+
+$$
+\omega\!\left(\frac{\partial}{\partial x}\right)=H,
+\qquad
+\omega\!\left(\frac{\partial}{\partial y}\right)=E.
+$$
+
+従って定義をそのまま代入すると
+
+$$
+\begin{aligned}
+[\omega\wedge\omega]
+\left(
+\frac{\partial}{\partial x},
+\frac{\partial}{\partial y}
+\right)
+&=
+[H,E]-[E,H]\\
+&=
+E-(-E)\\
+&=
+2E.
+\end{aligned}
+$$
+
+この計算で、括弧の反対称化により係数2が生じることも直接確認できます。
+<!-- definition-example-end -->
+
 Lie 括弧の反対称性から
 
 $$
@@ -1453,6 +1561,48 @@ $$
 >
 > と一意に書いたときの係数 $c_{ij}^{\,k}$ を、この基底に関する **構造定数**という。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-lie4-structure-constants -->
+### 例：2次元アフィン Lie 環の構造定数
+
+**定義の確認**
+
+基底を $E_1=H$, $E_2=E$ とし、
+
+$$
+[H,E]=E
+$$
+
+とします。反対称性から
+
+$$
+[E,H]=-E,
+\qquad
+[H,H]=[E,E]=0.
+$$
+
+従って
+
+$$
+c_{12}^{\,2}=1,
+\qquad
+c_{21}^{\,2}=-1
+$$
+
+で、それ以外の $c_{ij}^{\,k}$ は0です。実際、
+
+$$
+[E_1,E_2]
+=
+1\cdot E_2,
+\qquad
+[E_2,E_1]
+=
+-1\cdot E_2
+$$
+
+となり、定義の係数をそのまま読み取れます。
+<!-- definition-example-end -->
 
 Maurer--Cartan 形式を
 
