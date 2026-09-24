@@ -163,7 +163,8 @@ facade は完成済み講座だけをリンクする。未完成章を先行表�
 - [x] NUMLAB2「差分法演習」を実装
 - [x] NUMLAB3「有限要素法演習」を実装
 - [x] NUMLAB4「Monte Carlo 演習」を実装
-- 次の実装対象：**NUMLAB5「準 Monte Carlo 演習」**
+- [x] NUMLAB5「準 Monte Carlo 演習」を実装
+- **Encore V Phase 6 計算機演習系列 完了**
 
 
 ---
@@ -380,7 +381,8 @@ QMC2 は既存 F0-02C7 の RKHS / 再生核を再定義しない。stable anchor
 - [x] NUMLAB2「差分法演習」を実装
 - [x] NUMLAB3「有限要素法演習」を実装
 - [x] NUMLAB4「Monte Carlo 演習」を実装
-- 次の実装対象：**NUMLAB5「準 Monte Carlo 演習」**
+- [x] NUMLAB5「準 Monte Carlo 演習」を実装
+- **Encore V Phase 6 計算機演習系列 完了**
 
 ---
 
@@ -398,7 +400,7 @@ QMC2 は既存 F0-02C7 の RKHS / 再生核を再定義しない。stable anchor
 | NUMLAB2 | 差分法演習 | FDM1–FDM4 を各1本のブラウザ実験で対応。陽・陰熱方程式、CFL 条件、格子収束、中心差分と風上化 |
 | NUMLAB3 | 有限要素法演習 | FEM1–FEM7 を各1本のブラウザ実験で対応。Galerkin 行列、三角形組立て、形状正則性、誤差次数、鞍点系、放物型時間発展、SUPG |
 | NUMLAB4 | Monte Carlo 演習 | MC1–MC4 を各1本のブラウザ実験で対応。標準誤差、逆関数法・棄却法、分散減少、レベル間結合 |
-| NUMLAB5 | 準 Monte Carlo 演習 | QMC1–QMC8 対応 |
+| NUMLAB5 | 準 Monte Carlo 演習 | QMC1–QMC8 を各1本のブラウザ穴埋め演習で対応。ディスクレパンシー、RKHS 最悪誤差、格子則、デジタルネット、Walsh 双対、多項式格子、ランダム化 QMC、高次 QMC |
 
 ## 9.1 PYNUM1：Python 数値計算速習
 
@@ -556,7 +558,7 @@ NUMLAB0
   ↓
 NUMLAB1 → … → NUMLAB5
   ↓
-相互リンク・最終横断監査
+theory/lab stable anchor 台帳・Pages validation
 ~~~
 
 1セッションで複数講を半端に開始しない。
