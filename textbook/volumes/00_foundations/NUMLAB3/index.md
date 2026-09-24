@@ -37,7 +37,7 @@ Python / NumPy の共通記法は PYNUM1、ブラウザ実行基盤は NUMLAB0 �
 2. 局所要素計算と大域組立てを分ける。
 3. メッシュ幅を変える実験では、何を固定し何を細分化したかを明記する。
 4. 誤差次数を読むときは、$L^2$ 誤差と $H^1$ 半ノルム誤差を区別する。
-5. 混合問題では、連立方程式が解けたことだけでなく Schur 補行列や制約行列の rank も確認する。
+5. 混合問題では、連立方程式が解けたことだけでなく Schur 補行列や制約行列の 階数 も確認する。
 6. 時間発展では、解の値だけでなく離散エネルギー履歴も記録する。
 7. 安定化では「振動が消えた」ことと「精度が上がった」ことを混同しない。
 
@@ -261,9 +261,9 @@ print("center value =", u_center[0])
 
 ```python-test
 reference_local = np.array([
-    [1.0, -0.5, -0.5],
-    [-0.5, 0.5, 0.0],
-    [-0.5, 0.0, 0.5],
+    [0.5, 0.0, -0.5],
+    [0.0, 0.5, -0.5],
+    [-0.5, -0.5, 1.0],
 ])
 
 assert np.allclose(local_matrices[0], reference_local)
@@ -604,9 +604,9 @@ print("constraint residual:", constraint_residual)
 
 ```python-test
 assert np.all(good_eigenvalues > 0.0)
-assert bad_eigenvalues[0] < 1e-12
-assert np.linalg.matrix_rank(B_good) == 2
-assert np.linalg.matrix_rank(B_bad) == 1
+assert abs(bad_eigenvalues[0]) < 1e-12
+assert np.linalg.matrix_階数(B_good) == 2
+assert np.linalg.matrix_階数(B_bad) == 1
 assert np.linalg.norm(constraint_residual) < 1e-12
 ```
 
@@ -864,7 +864,7 @@ SUPG は流線方向に追加制御を入れて、この一次元設定では風
 | FEM2 | 局所要素から大域系を組み立てる | 局所剛性行列・大域行列・中心節点解 |
 | FEM3 | 形状正則性が補間定数を制御する | 形状比と偽の横方向補間勾配 |
 | FEM4 | P1 法は $H^1$ 一次・$L^2$ 二次 | 実測有限要素収束次数 |
-| FEM5 | 離散 inf-sup が混合安定性を支える | Schur 補行列の最小固有値・rank |
+| FEM5 | 離散 inf-sup が混合安定性を支える | Schur 補行列の最小固有値・階数 |
 | FEM6 | 後退 Euler FEM は無条件エネルギー安定 | $c^{\mathsf T}Mc$ の時間履歴 |
 | FEM7 | SUPG は流線方向安定化を与える | 標準 Galerkin 振動・SUPG 単調性・風上行列との一致 |
 
