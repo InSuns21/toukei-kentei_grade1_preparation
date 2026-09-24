@@ -122,9 +122,11 @@ dphi_values = np.vstack([
     for function in dphi
 ])
 
+# ヒント: 基底関数の勾配どうしの積を求積し、Galerkin の剛性行列を作る。
 K = ___
 
 f = np.pi**2 * np.sin(np.pi * xq)
+# ヒント: 基底関数と右辺の積を求積し、荷重ベクトルを作る。
 F = ___
 
 coef = np.linalg.solve(K, F)
@@ -292,8 +294,10 @@ def local_stiffness(coords):
         [x[1] - x[0], y[1] - y[0]],
         [x[2] - x[0], y[2] - y[0]],
     ])
+    # ヒント: 2本の辺ベクトルの行列式から三角形面積を求める。
     area = ___
 
+    # ヒント: 要素内で一定な基底勾配の内積から局所剛性行列を作る。
     Ke = ___
     Fe = np.full(3, area / 3.0)
 
@@ -311,6 +315,7 @@ for tri in triangles:
     for a, i in enumerate(tri):
         F[i] += Fe[a]
         for b, j in enumerate(tri):
+            # ヒント: 局所自由度 a,b の成分を、対応する大域行列位置へ加算する。
             K[i, j] += ___
 
 boundary = np.array([0, 1, 2, 3])
@@ -501,10 +506,13 @@ for eps in epsilons:
     ])
 
     area = 0.5 * eps
+    # ヒント: 三角形の面積と周長から内接円半径を求める。
     inradius = ___
     diameter = np.max(edge_lengths)
 
+    # ヒント: 直径と内接円半径の比を形状正則性の指標として記録する。
     shape_ratios.append(___)
+    # ヒント: 細長さで増幅される横方向の補間勾配成分を記録する。
     spurious_gradients.append(___)
 
 shape_ratios = np.array(shape_ratios)
@@ -648,7 +656,9 @@ def solve_and_measure(N):
             x = 0.5 * (x_left + x_right) + 0.5 * h * qk
             f = np.pi**2 * np.sin(np.pi * x)
 
+            # ヒント: 要素左端で1、右端で0になる一次基底関数を作る。
             phi_left = ___
+            # ヒント: 要素左端で0、右端で1になる一次基底関数を作る。
             phi_right = ___
             weight = 0.5 * h * wk
 
@@ -666,6 +676,7 @@ def solve_and_measure(N):
     for e in range(N):
         x_left = e * h
         x_right = (e + 1) * h
+        # ヒント: 一次要素なので、要素内勾配は両端節点値の差を h で割って作る。
         uh_prime = ___
 
         for qk, wk in zip(q, w):
@@ -674,6 +685,7 @@ def solve_and_measure(N):
 
             phi_left = (x_right - x) / h
             phi_right = (x - x_left) / h
+            # ヒント: 2つの局所基底関数で節点値を線形補間する。
             uh = ___
 
             exact = np.sin(np.pi * x)
@@ -857,6 +869,7 @@ B_bad = np.array([
 ])
 
 def schur(B):
+    # ヒント: 速度変数を消去して得られる Schur 補行列を組み立てる。
     return ___
 
 S_good = schur(B_good)
@@ -877,6 +890,7 @@ solution = np.linalg.solve(KKT, np.concatenate([f, g]))
 u = solution[:3]
 p = solution[3:]
 
+# ヒント: 求めた速度が制約式をどれだけ満たすか残差で確認する。
 constraint_residual = ___
 
 print("good Schur eigenvalues:", good_eigenvalues)
@@ -1000,12 +1014,16 @@ tau = 0.001
 steps = 50
 T = tau * steps
 
+# ヒント: 後退 Euler では質量行列と時間刻み付き剛性行列を足して一段行列を作る。
 A = ___
 
+# ヒント: 初期係数ベクトルの離散 L2 エネルギーを質量行列で測る。
 energies = [___]
 
 for _ in range(steps):
+    # ヒント: 前時刻の質量項を右辺にして、一段先の係数ベクトルを解く。
     c = ___
+    # ヒント: 各時刻の離散エネルギーを同じ質量行列で記録する。
     energies.append(___)
 
 energies = np.array(energies)
@@ -1191,7 +1209,9 @@ def solve_centered_with_diffusion(diffusion):
 
 standard, A_standard = solve_centered_with_diffusion(epsilon)
 
+# ヒント: 1次元・一定移流速度の標準的な SUPG パラメータを h と b から作る。
 tau_supg = ___
+# ヒント: SUPG 項が加える人工拡散を元の拡散係数へ足し合わせる。
 effective_diffusion = ___
 supg, A_supg = solve_centered_with_diffusion(effective_diffusion)
 
