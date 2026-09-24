@@ -107,7 +107,9 @@
         const after = text.slice(index + identifier.length);
         let kind = "";
 
-        if (PYTHON_KEYWORDS.has(identifier)) {
+        if (identifier === "___") {
+          kind = "placeholder";
+        } else if (PYTHON_KEYWORDS.has(identifier)) {
           kind = "keyword";
         } else if (PYTHON_BUILTINS.has(identifier)) {
           kind = "builtin";
@@ -150,6 +152,15 @@
     }
 
     editor.addEventListener("input", refresh);
+    editor.addEventListener("keydown", function (event) {
+      if (event.key !== "Tab" || event.altKey || event.ctrlKey || event.metaKey) return;
+      event.preventDefault();
+
+      const start = editor.selectionStart;
+      const end = editor.selectionEnd;
+      editor.setRangeText("    ", start, end, "end");
+      refresh();
+    });
     editor.addEventListener("scroll", function () {
       highlight.scrollTop = editor.scrollTop;
       highlight.scrollLeft = editor.scrollLeft;
@@ -341,6 +352,7 @@
     const job = currentJob;
     if (!job) return;
     setStatus(job.panel, "実行環境エラー", "error");
+    activateLabTab(job.panel, "result");
     setOutput(job.panel, message, true);
     setFigures(job.panel, []);
     terminateWorker();
@@ -362,6 +374,7 @@
       job.bootTimer = null;
       job.runTimer = setTimeout(() => {
         setStatus(job.panel, "時間制限で停止", "error");
+        activateLabTab(job.panel, "result");
         setOutput(
           job.panel,
           "実行時間が " + job.lab.timeoutMs + " ms を超えたため Worker を破棄しました。",
@@ -394,6 +407,7 @@
     if (userError) {
       outputParts.push(userError.replace(/\s+$/, ""));
       setStatus(job.panel, "実行エラー", "error");
+      activateLabTab(job.panel, "result");
       setOutput(job.panel, outputParts.filter(Boolean).join("\n"), true);
       setFigures(job.panel, []);
       saveProgress(job.lab, job.code, false);
@@ -404,6 +418,7 @@
     if (result.testPassed === false) {
       outputParts.push(testError.replace(/\s+$/, ""));
       setStatus(job.panel, "テスト不合格", "error");
+      activateLabTab(job.panel, "result");
       setOutput(job.panel, outputParts.filter(Boolean).join("\n"), true);
       setFigures(job.panel, result.figures || []);
       saveProgress(job.lab, job.code, false);
@@ -413,6 +428,7 @@
 
     const completed = result.testPassed === true || !job.tests.trim();
     setStatus(job.panel, completed ? "完了" : "実行完了", "success");
+    activateLabTab(job.panel, "result");
     setOutput(job.panel, outputParts.filter(Boolean).join("\n") || "（標準出力なし）", false);
     setFigures(job.panel, result.figures || []);
     saveProgress(job.lab, job.code, completed);
