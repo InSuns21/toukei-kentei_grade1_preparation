@@ -9,6 +9,6 @@ terms:
   - term: ランダム化反復標準誤差
     english: randomized replicate standard error
     meaning: 独立なランダム化準 Monte Carlo 反復から得た推定値の標本標準偏差を反復数の平方根で割った標準誤差。
-  - term: 実測高次収束次数
-    english: observed higher-order convergence rate
-    meaning: 桁交互配置後の準 Monte Carlo 誤差を点数ごとに比較し、log-log 傾きから推定する収束次数。
+  - term: 高次 QMC の実測誤差傾き
+    english: observed higher-order QMC error slope
+    meaning: 桁交互配置後の準 Monte Carlo 誤差を点数ごとに比較し、log-log 図から推定する誤差の傾き。
