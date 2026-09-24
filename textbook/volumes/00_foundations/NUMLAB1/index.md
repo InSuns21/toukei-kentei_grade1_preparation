@@ -22,6 +22,8 @@ Python / NumPy の読み方は PYNUM1、ブラウザ実行・時間制限・自�
 
 ## 0. 実験の共通規約
 
+各理論対応ラボは、原則として **穴埋め → 模範解答 → 自動判定** の演習形式で実行します。完成コードを読むだけでなく、理論上の核心式を自分でコードへ翻訳してください。
+
 各ラボでは次を守ります。
 
 1. 理論章の stable anchor を先に示す。
@@ -48,11 +50,34 @@ $$
 
 ですが、大きな $x$ では左辺が「近い数どうしの差」になります。
 
+**穴埋め課題：** 安定な有理化式と相対差の定義をコードへ落としてください。
+
 ```python-lab
 # lab-id: NUMLAB1-NA1-CANCELLATION
 # lab-title: 桁落ちを安定な同値式と比較
+# lab-mode: exercise
 # timeout-ms: 5000
 
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.array([1e4, 1e8, 1e12, 1e16], dtype=float)
+
+unstable = np.sqrt(x + 1.0) - np.sqrt(x)
+stable = ___
+relative_gap = ___
+
+for xi, u, s, g in zip(x, unstable, stable, relative_gap):
+    print(f"x={xi:.0e}  direct={u:.17e}  stable={s:.17e}  relative gap={g:.3e}")
+
+fig, ax = plt.subplots()
+ax.loglog(x, relative_gap, marker="o")
+ax.set_xlabel("x")
+ax.set_ylabel("relative discrepancy")
+ax.grid(True)
+```
+
+```python-solution
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -96,11 +121,34 @@ $$
 
 の零点として求めます。
 
+**穴埋め課題：** Newton 更新式と二次収束を測る誤差比を埋めてください。
+
 ```python-lab
 # lab-id: NUMLAB1-NA2-NEWTON
 # lab-title: Newton 法の二次収束を実測
+# lab-mode: exercise
 # timeout-ms: 5000
 
+import numpy as np
+
+root = np.sqrt(2.0)
+x = 1.0
+xs = [x]
+
+for _ in range(4):
+    x = ___
+    xs.append(x)
+
+xs = np.array(xs)
+errors = np.abs(xs - root)
+quadratic_ratio = ___
+
+print("iterates:", xs)
+print("errors:", errors)
+print("e_(k+1) / e_k^2:", quadratic_ratio)
+```
+
+```python-solution
 import numpy as np
 
 root = np.sqrt(2.0)
@@ -146,11 +194,45 @@ $$
 
 の第1象限の交点を求めます。
 
+**穴埋め課題：** Jacobian を使った Newton step と反復更新を埋めてください。
+
 ```python-lab
 # lab-id: NUMLAB1-NA3-SYSTEM-NEWTON
 # lab-title: 2変数 Newton 法
+# lab-mode: exercise
 # timeout-ms: 5000
 
+import numpy as np
+
+def F(z):
+    x, y = z
+    return np.array([
+        x * x + y * y - 1.0,
+        x - y,
+    ])
+
+def J(z):
+    x, y = z
+    return np.array([
+        [2.0 * x, 2.0 * y],
+        [1.0, -1.0],
+    ])
+
+z = np.array([0.8, 0.6], dtype=float)
+history = [np.linalg.norm(F(z))]
+
+for _ in range(5):
+    step = ___
+    z = ___
+    history.append(np.linalg.norm(F(z)))
+
+history = np.array(history)
+
+print("root:", z)
+print("residual history:", history)
+```
+
+```python-solution
 import numpy as np
 
 def F(z):
@@ -328,11 +410,41 @@ $$
 
 を $n$ 点 Gauss--Legendre 求積で近似します。
 
+**穴埋め課題：** Gauss--Legendre 節点の区間変換と重み付き求積式を埋めてください。
+
 ```python-lab
 # lab-id: NUMLAB1-NA5-GAUSS
 # lab-title: Gauss--Legendre 求積の誤差
+# lab-mode: exercise
 # timeout-ms: 5000
 
+import numpy as np
+import matplotlib.pyplot as plt
+from numpy.polynomial.legendre import leggauss
+
+exact = np.e - 1.0
+ns = np.arange(2, 6)
+errors = []
+
+for n in ns:
+    t, w = leggauss(int(n))
+    x = ___
+    approx = ___
+    errors.append(abs(approx - exact))
+
+errors = np.array(errors)
+
+print("n:", ns)
+print("errors:", errors)
+
+fig, ax = plt.subplots()
+ax.semilogy(ns, errors, marker="o")
+ax.set_xlabel("number of points")
+ax.set_ylabel("absolute error")
+ax.grid(True)
+```
+
+```python-solution
 import numpy as np
 import matplotlib.pyplot as plt
 from numpy.polynomial.legendre import leggauss
@@ -382,11 +494,41 @@ $$
 
 を $t=1$ まで解きます。
 
+**穴埋め課題：** Euler 法の一段更新と実測収束次数の式を埋めてください。
+
 ```python-lab
 # lab-id: NUMLAB1-NA6-EULER
 # lab-title: Euler 法の一次収束を実測
+# lab-mode: exercise
 # timeout-ms: 5000
 
+import numpy as np
+import matplotlib.pyplot as plt
+
+def euler_exp(N):
+    h = 1.0 / N
+    y = 1.0
+    for _ in range(N):
+        y = ___
+    return y
+
+Ns = np.array([10, 20, 40, 80, 160, 320], dtype=int)
+exact = np.e
+errors = np.array([abs(euler_exp(int(N)) - exact) for N in Ns], dtype=float)
+
+orders = ___
+
+print("errors:", errors)
+print("observed orders:", orders)
+
+fig, ax = plt.subplots()
+ax.loglog(Ns, errors, marker="o")
+ax.set_xlabel("N")
+ax.set_ylabel("absolute error")
+ax.grid(True)
+```
+
+```python-solution
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -447,11 +589,46 @@ $$
 
 となり、減衰問題なのに数値解が増幅します。
 
+**穴埋め課題：** 陽的 Euler 法と後退 Euler 法の増幅式をそれぞれ埋めてください。
+
 ```python-lab
 # lab-id: NUMLAB1-NA7-STIFF
 # lab-title: 陽的 Euler 法と後退 Euler 法の安定性
+# lab-mode: exercise
 # timeout-ms: 5000
 
+import numpy as np
+import matplotlib.pyplot as plt
+
+lam = -50.0
+h = 0.05
+steps = 20
+
+explicit = np.empty(steps + 1)
+backward = np.empty(steps + 1)
+explicit[0] = 1.0
+backward[0] = 1.0
+
+for k in range(steps):
+    explicit[k + 1] = ___
+    backward[k + 1] = ___
+
+t = h * np.arange(steps + 1)
+exact = np.exp(lam * t)
+
+print("explicit final:", explicit[-1])
+print("backward final:", backward[-1])
+print("exact final:", exact[-1])
+
+fig, ax = plt.subplots()
+ax.semilogy(t, np.abs(explicit), label="explicit Euler")
+ax.semilogy(t, np.abs(backward), label="backward Euler")
+ax.semilogy(t, exact, label="exact")
+ax.legend()
+ax.grid(True)
+```
+
+```python-solution
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -506,11 +683,35 @@ $$
 
 を直接検査します。
 
+**穴埋め課題：** Cholesky 分解と前進・後退代入に対応する線形方程式を埋めてください。
+
 ```python-lab
 # lab-id: NUMLAB1-NA8-CHOLESKY
 # lab-title: Cholesky 分解の再構成誤差
+# lab-mode: exercise
 # timeout-ms: 5000
 
+import numpy as np
+
+n = 12
+A = 2.0 * np.eye(n)
+A += -1.0 * np.eye(n, k=1)
+A += -1.0 * np.eye(n, k=-1)
+
+L = ___
+reconstruction_error = np.linalg.norm(A - L @ L.T, ord=np.inf)
+
+b = np.ones(n)
+y = ___
+x = ___
+residual = np.linalg.norm(b - A @ x)
+
+print("reconstruction error:", reconstruction_error)
+print("linear-system residual:", residual)
+print("min diagonal of L:", np.min(np.diag(L)))
+```
+
+```python-solution
 import numpy as np
 
 n = 12
@@ -549,11 +750,57 @@ assert residual < 1e-11
 
 一次元 Poisson 型の実対称正定値行列に共役勾配法を適用します。
 
+**穴埋め課題：** CG 法の step length、残差更新、探索方向更新を埋めてください。
+
 ```python-lab
 # lab-id: NUMLAB1-NA9-CG
 # lab-title: 共役勾配法の残差履歴
+# lab-mode: exercise
 # timeout-ms: 8000
 
+import numpy as np
+import matplotlib.pyplot as plt
+
+n = 40
+A = 2.0 * np.eye(n)
+A += -1.0 * np.eye(n, k=1)
+A += -1.0 * np.eye(n, k=-1)
+b = np.ones(n)
+
+x = np.zeros(n)
+r = b - A @ x
+p = r.copy()
+rr = r @ r
+residuals = [np.sqrt(rr)]
+
+for _ in range(n):
+    Ap = A @ p
+    alpha = ___
+    x = ___
+    r = ___
+    rr_new = r @ r
+    residuals.append(np.sqrt(rr_new))
+    if np.sqrt(rr_new) < 1e-10:
+        break
+    beta = ___
+    p = ___
+    rr = rr_new
+
+residuals = np.array(residuals)
+reference = np.linalg.solve(A, b)
+
+print("iterations:", len(residuals) - 1)
+print("final residual:", residuals[-1])
+print("solution error:", np.linalg.norm(x - reference))
+
+fig, ax = plt.subplots()
+ax.semilogy(np.arange(len(residuals)), residuals, marker="o")
+ax.set_xlabel("iteration")
+ax.set_ylabel("residual norm")
+ax.grid(True)
+```
+
+```python-solution
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -613,11 +860,48 @@ assert np.allclose(x, reference, atol=1e-8, rtol=1e-8)
 
 実対称行列の最大固有値へ向かう反復を、Rayleigh 商と固有対残差で診断します。
 
+**穴埋め課題：** べき乗法の反復、正規化、Rayleigh 商を埋めてください。
+
 ```python-lab
 # lab-id: NUMLAB1-NA10-POWER
 # lab-title: 冪乗法の固有対残差
+# lab-mode: exercise
 # timeout-ms: 5000
 
+import numpy as np
+import matplotlib.pyplot as plt
+
+A = np.array([
+    [4.0, 1.0, 0.0],
+    [1.0, 3.0, 0.0],
+    [0.0, 0.0, 1.0],
+])
+
+x = np.array([1.0, 1.0, 1.0])
+x = x / np.linalg.norm(x)
+residuals = []
+
+for _ in range(60):
+    x = ___
+    x = ___
+    rayleigh = ___
+    residuals.append(np.linalg.norm(A @ x - rayleigh * x))
+
+residuals = np.array(residuals)
+lambda_max = np.linalg.eigvalsh(A)[-1]
+
+print("Rayleigh quotient:", rayleigh)
+print("largest eigenvalue:", lambda_max)
+print("eigenpair residual:", residuals[-1])
+
+fig, ax = plt.subplots()
+ax.semilogy(np.arange(1, len(residuals) + 1), residuals)
+ax.set_xlabel("iteration")
+ax.set_ylabel("eigenpair residual")
+ax.grid(True)
+```
+
+```python-solution
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -668,11 +952,62 @@ assert residuals[-1] < residuals[0]
 
 反復差だけから、未知の PageRank ベクトルまでの誤差を保証します。
 
+**穴埋め課題：** PageRank の固定点反復と停止誤差上界を埋めてください。
+
 ```python-lab
 # lab-id: NUMLAB1-NA11-PAGERANK
 # lab-title: PageRank の停止判定を実測
+# lab-mode: exercise
 # timeout-ms: 5000
 
+import numpy as np
+import matplotlib.pyplot as plt
+
+P = np.array([
+    [0.0, 0.0, 1.0],
+    [0.5, 0.0, 0.0],
+    [0.5, 1.0, 0.0],
+])
+alpha = 0.85
+v = np.ones(3) / 3.0
+target_error = 1e-10
+
+x = np.ones(3) / 3.0
+differences = []
+x_stop = None
+bound = None
+
+for _ in range(1000):
+    x_next = ___
+    d = np.linalg.norm(x_next - x, ord=1)
+    differences.append(d)
+
+    if d <= (1.0 - alpha) * target_error:
+        x_stop = x.copy()
+        bound = ___
+        break
+
+    x = x_next
+
+exact = np.linalg.solve(
+    np.eye(3) - alpha * P,
+    (1.0 - alpha) * v,
+)
+actual_error = np.linalg.norm(x_stop - exact, ord=1)
+
+print("iterations:", len(differences))
+print("guaranteed bound:", bound)
+print("actual error:", actual_error)
+print("PageRank:", x_stop)
+
+fig, ax = plt.subplots()
+ax.semilogy(np.arange(1, len(differences) + 1), differences)
+ax.set_xlabel("iteration")
+ax.set_ylabel("successive difference")
+ax.grid(True)
+```
+
+```python-solution
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -747,11 +1082,66 @@ $$
 
 で、最急降下法の条件数依存と共役勾配法の有限次元構造を並べて見ます。
 
+**穴埋め課題：** 最急降下法の厳密直線探索と CG の更新係数を埋めてください。
+
 ```python-lab
 # lab-id: NUMLAB1-NA12-OPTIMIZATION
 # lab-title: 最急降下法と共役勾配法を比較
+# lab-mode: exercise
 # timeout-ms: 5000
 
+import numpy as np
+import matplotlib.pyplot as plt
+
+A = np.diag([1.0, 100.0])
+b = np.array([1.0, 1.0])
+solution = np.linalg.solve(A, b)
+
+x_sd = np.zeros(2)
+sd_errors = [np.linalg.norm(x_sd - solution)]
+
+for _ in range(40):
+    r = b - A @ x_sd
+    step = ___
+    x_sd = x_sd + step * r
+    sd_errors.append(np.linalg.norm(x_sd - solution))
+
+x_cg = np.zeros(2)
+r = b - A @ x_cg
+p = r.copy()
+rr = r @ r
+cg_errors = [np.linalg.norm(x_cg - solution)]
+
+for _ in range(2):
+    Ap = A @ p
+    alpha = ___
+    x_cg = x_cg + alpha * p
+    r = r - alpha * Ap
+    cg_errors.append(np.linalg.norm(x_cg - solution))
+    rr_new = r @ r
+    if np.sqrt(rr_new) < 1e-14:
+        break
+    beta = ___
+    p = ___
+    rr = rr_new
+
+sd_errors = np.array(sd_errors)
+cg_errors = np.array(cg_errors)
+
+print("steepest descent final error:", sd_errors[-1])
+print("CG final error:", cg_errors[-1])
+print("CG iterations:", len(cg_errors) - 1)
+
+fig, ax = plt.subplots()
+ax.semilogy(np.arange(len(sd_errors)), sd_errors, label="steepest descent")
+ax.semilogy(np.arange(len(cg_errors)), cg_errors, marker="o", label="CG")
+ax.set_xlabel("iteration")
+ax.set_ylabel("solution error")
+ax.legend()
+ax.grid(True)
+```
+
+```python-solution
 import numpy as np
 import matplotlib.pyplot as plt
 
