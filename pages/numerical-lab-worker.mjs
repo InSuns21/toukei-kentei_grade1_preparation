@@ -5,7 +5,7 @@ const PYODIDE_BASE_URL = `https://cdn.jsdelivr.net/pyodide/v${PYODIDE_VERSION}/f
 
 let pyodidePromise = null;
 
-const PYTHON_RUNNER = String.raw\`
+const PYTHON_RUNNER = String.raw`
 import base64
 import contextlib
 import io
@@ -49,7 +49,7 @@ if not _toukei_user_error and "matplotlib.pyplot" in sys.modules:
             )
         _toukei_plt.close("all")
     except BaseException:
-        _toukei_stderr.write("\\n[figure capture failed]\\n")
+        _toukei_stderr.write("\n[figure capture failed]\n")
         _toukei_stderr.write(traceback.format_exc())
 
 json.dumps({
@@ -60,7 +60,7 @@ json.dumps({
     "testError": _toukei_test_error,
     "figures": _toukei_figures,
 })
-\`;
+`;
 
 
 function ensurePyodide() {
