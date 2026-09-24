@@ -37,7 +37,7 @@ Python / NumPy の共通記法は PYNUM1、ブラウザ実行基盤は NUMLAB0 �
 2. 局所要素計算と大域組立てを分ける。
 3. メッシュ幅を変える実験では、何を固定し何を細分化したかを明記する。
 4. 誤差次数を読むときは、$L^2$ 誤差と $H^1$ 半ノルム誤差を区別する。
-5. 混合問題では、連立方程式が解けたことだけでなく Schur 補行列や制約行列の 階数 も確認する。
+5. 混合問題では、連立方程式が解けたことだけでなく Schur 補行列や制約行列の階数も確認する。
 6. 時間発展では、解の値だけでなく離散エネルギー履歴も記録する。
 7. 安定化では「振動が消えた」ことと「精度が上がった」ことを混同しない。
 
@@ -605,8 +605,8 @@ print("constraint residual:", constraint_residual)
 ```python-test
 assert np.all(good_eigenvalues > 0.0)
 assert abs(bad_eigenvalues[0]) < 1e-12
-assert np.linalg.matrix_階数(B_good) == 2
-assert np.linalg.matrix_階数(B_bad) == 1
+assert np.linalg.matrix_rank(B_good) == 2
+assert np.linalg.matrix_rank(B_bad) == 1
 assert np.linalg.norm(constraint_residual) < 1e-12
 ```
 
