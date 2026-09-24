@@ -15,6 +15,7 @@ learning_objectives:
   - Matplotlib で折れ線・散布図・log-log 図を作り、誤差対計算量の傾きを読める
   - NaN・inf・shape mismatch・dtype 切り捨て・off-by-one を診断し、数値計算コードの基本的な防御策を実装できる
   - SciPy の linalg・sparse・sparse.linalg・stats の役割を識別し、後続 NUMLAB で必要な API を探せる
+  - PYNUM1 自身のブラウザ実験欄で NumPy・乱数生成器・Matplotlib を編集・実行し、自動判定まで確認できる
 definitions:
   - { id: PYNUM1-DEF-01, name: NumPy 配列の形状・軸・データ型 }
   - { id: PYNUM1-DEF-02, name: NumPy のビューとコピー }
@@ -32,6 +33,7 @@ canonical_examples:
   - ブールマスク で有限値だけを抽出する例
   - np.random.default_rng(seed) で同一 seed から同一列を再現する例
   - log-log 図上で誤差 E_N≈CN^{-p} の傾きが -p になることを確認する例
+  - ブラウザ内 Python で shape・ビュー・乱数・log-log 図を実行する4本の数値ラボ
 problem_patterns:
   - PYNUM1-SHAPE-AXIS-DTYPE-1
   - PYNUM1-MATMUL-REDUCTION-1
