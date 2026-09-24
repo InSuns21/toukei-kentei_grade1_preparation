@@ -1251,7 +1251,6 @@ def interlace_two_coordinates(points, m):
         bit2 = ___
 
         out |= ___
-        out |= ___
 
     return out.astype(float) / (2.0 ** (2 * m))
 
