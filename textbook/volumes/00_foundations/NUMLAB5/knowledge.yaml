@@ -1,0 +1,15 @@
+chapter: NUMLAB5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PYNUM1
+  - NUMLAB0
+  - QMC1
+  - QMC2
+  - QMC3
+  - QMC4
+  - QMC5
+  - QMC6
+  - QMC7
+  - QMC8
+concepts: []
