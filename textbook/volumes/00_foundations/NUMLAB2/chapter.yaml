@@ -1,0 +1,32 @@
+id: "NUMLAB2"
+title: "差分法演習"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PYNUM1
+  - NUMLAB0
+  - FDM1
+  - FDM2
+  - FDM3
+  - FDM4
+official_scope: []
+learning_objectives:
+  - FDM1–FDM4 の主要理論をブラウザ内 Python の数値実験として再現できる
+  - 熱方程式の陽解法・陰解法を実装し、同じ空間離散化から異なる時間積分法が得られることを確認できる
+  - FTCS の拡散 CFL 条件を満たす場合と破る場合の増幅を高周波モードで比較できる
+  - 安定性条件の下で FTCS の大域誤差が O(tau+h^2) となることを格子細分化実験から確認できる
+  - 移流卓越時に中心差分が交互振動し、風上差分が単調性を回復することを格子 Péclet 数と結び付けて説明できる
+  - 理論 stable anchor と実験 stable anchor の対応を機械可読台帳から追跡できる
+definitions: []
+theorems: []
+canonical_examples:
+  - FDM1 熱方程式に対する FTCS と後退 Euler 差分法の同一格子比較
+  - FDM2 交互振動 Fourier モードでの拡散 CFL 条件の成立・破綻
+  - FDM3 tau proportional to h^2 の下での FTCS 二次格子収束
+  - FDM4 Pe_h>1 における中心差分の振動と風上差分の単調性
+problem_patterns: []
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+dream_theater_exercise_count_exception: "NUMLAB2 は FDM1–FDM4 の A4/B3/C1 理論演習を置き換える章ではなく、既に各理論章で閉じた差分法の主題を4本のブラウザ実験で再現する実験章である。紙上問題を重複させず、各 FDM 章につき1本の実行可能ラボと自動テストを置く。"
+estimated_hours: { reading: 1.5, exercises: 3.0, review: 0.5 }

@@ -62,3 +62,24 @@ links:
     lab_chapter: NUMLAB1
     lab_anchor: lab-numlab1-na12-optimization
     experiment_id: NUMLAB1-NA12-OPTIMIZATION
+
+  - theory_chapter: FDM1
+    theory_anchor: prop-fdm1-semidiscrete-euler
+    lab_chapter: NUMLAB2
+    lab_anchor: lab-numlab2-fdm1-heat-schemes
+    experiment_id: NUMLAB2-FDM1-HEAT-SCHEMES
+  - theory_chapter: FDM2
+    theory_anchor: thm-fdm2-ftcs-stability
+    lab_chapter: NUMLAB2
+    lab_anchor: lab-numlab2-fdm2-cfl
+    experiment_id: NUMLAB2-FDM2-CFL
+  - theory_chapter: FDM3
+    theory_anchor: thm-fdm3-ftcs-convergence
+    lab_chapter: NUMLAB2
+    lab_anchor: lab-numlab2-fdm3-convergence
+    experiment_id: NUMLAB2-FDM3-CONVERGENCE
+  - theory_chapter: FDM4
+    theory_anchor: prop-fdm4-centered-oscillation
+    lab_chapter: NUMLAB2
+    lab_anchor: lab-numlab2-fdm4-upwind
+    experiment_id: NUMLAB2-FDM4-UPWIND

@@ -1,0 +1,11 @@
+chapter: NUMLAB2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PYNUM1
+  - NUMLAB0
+  - FDM1
+  - FDM2
+  - FDM3
+  - FDM4
+concepts: []

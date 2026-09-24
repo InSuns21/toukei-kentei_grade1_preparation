@@ -1,0 +1,8 @@
+chapter: "NUMLAB2"
+terms:
+  - term: 実測格子収束次数
+    english: observed grid convergence order
+    meaning: 格子幅を段階的に細かくしたときの誤差比から数値的に推定する収束次数。
+  - term: 高周波格子モード
+    english: high-frequency grid mode
+    meaning: 格子点ごとに符号が大きく変わる差分格子上の振動モード。FTCS の拡散 CFL 条件破綻を観察する代表例として用いる。
