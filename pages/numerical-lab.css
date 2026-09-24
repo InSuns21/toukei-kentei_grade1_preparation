@@ -142,6 +142,13 @@
 .python-token-number { color: #79c0ff; }
 .python-token-function { color: #d2a8ff; }
 .python-token-builtin { color: #ffa657; }
+.python-token-placeholder {
+  color: #0d1117;
+  background: #f2cc60;
+  border-radius: 3px;
+  padding: 0 0.08em;
+  font-weight: 800;
+}
 
 .numerical-lab-tabs {
   display: flex;
