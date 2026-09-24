@@ -111,6 +111,7 @@ true_value = 1.0 / 3.0
 sigma = np.sqrt(4.0 / 45.0)
 
 empirical_se = np.empty(len(Ns))
+# ヒント: 母標準偏差と標本数 N から理論標準誤差を作る。
 theoretical_se = ___
 mean_estimates = np.empty(len(Ns))
 
@@ -118,6 +119,7 @@ for k, N in enumerate(Ns):
     samples = rng.random((replications, int(N))) ** 2
     estimates = samples.mean(axis=1)
 
+    # ヒント: 独立反復で得た推定値の標準偏差を、実測標準誤差として求める。
     empirical_se[k] = ___
     mean_estimates[k] = estimates.mean()
 
@@ -126,6 +128,7 @@ observed_exponents = (
     / np.log(Ns[1:] / Ns[:-1])
 )
 
+# ヒント: N^{-1/2} 則を確認するため、標準誤差へ sqrt(N) を掛ける。
 scaled_se = ___
 
 print("N:", Ns)
@@ -263,6 +266,7 @@ rng_inverse = np.random.default_rng(2026)
 sample_size = 12000
 
 u = rng_inverse.random(sample_size)
+# ヒント: 一様乱数へ指数分布の逆累積分布関数を作用させる。
 exponential_sample = ___
 
 rng_rejection = np.random.default_rng(2026)
@@ -276,6 +280,7 @@ while accepted_count < sample_size:
     x = rng_rejection.random(batch_size)
     v = rng_rejection.random(batch_size)
 
+    # ヒント: 提案点のうち、目標密度に対応する受理条件を満たす点だけ残す。
     accepted = ___
     accepted_chunks.append(accepted)
 
@@ -283,6 +288,7 @@ while accepted_count < sample_size:
     proposal_count += batch_size
 
 rejection_sample = np.concatenate(accepted_chunks)[:sample_size]
+# ヒント: 受理した総数を提案総数で割り、棄却法の受理率を求める。
 acceptance_rate = ___
 
 print("fixed-seed reproducible:", reproducible)
@@ -446,9 +452,11 @@ u_plain = rng.random((replications, function_evaluations))
 plain_estimates = (u_plain ** 2).mean(axis=1)
 
 u_antithetic = rng.random((replications, pair_count))
+# ヒント: 同じ一様乱数 u と 1-u を対にして平均し、対称変量推定量を作る。
 antithetic_estimates = ___
 
 u_control = rng.random((replications, function_evaluations))
+# ヒント: 期待値が既知の制御変量を引き、平均を変えずに分散を減らす推定量を作る。
 control_estimates = ___
 
 variances = np.array([
@@ -640,9 +648,12 @@ for k, level in enumerate(levels):
     u = rng.random(sample_size)
 
     fine = np.floor(fine_scale * u) / fine_scale
+    # ヒント: 細かいレベルと同じ乱数 u を量子化し、粗いレベルを強く結合して作る。
     coarse_coupled = ___
 
+    # ヒント: 同一乱数で作った細かい近似と粗い近似の差を取る。
     coupled_difference = ___
+    # ヒント: レベル差の標本分散を測り、結合で小さくなることを確認する。
     coupled_variances[k] = ___
 
     v = rng.random(sample_size)
