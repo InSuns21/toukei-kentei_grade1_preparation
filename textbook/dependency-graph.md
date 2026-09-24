@@ -603,6 +603,8 @@ NUMLAB2 は PYNUM1、NUMLAB0、FDM1–FDM4 を直接 prerequisite とし、差�
 
 NUMLAB3 は PYNUM1、NUMLAB0、FEM1–FEM7 を直接 prerequisite とし、有限要素法7講を各1本のブラウザ実験へ対応させる。FEM1 は Galerkin 行列と残差直交性、FEM2 は一次三角形要素の局所剛性行列と大域組立て、FEM3 は形状正則性を失う三角形での補間勾配増幅、FEM4 は一次有限要素解の $H^1$ 一次・$L^2$ 二次収束、FEM5 は Schur 補行列と制約行列の階数、FEM6 は後退 Euler 有限要素法の離散エネルギー、FEM7 は標準 Galerkin 振動と SUPG による風上化を扱う。各実験は `textbook/numerical-lab-links.yaml` で理論 stable anchor と実験 stable anchor を対応付け、Pages 検証で双方の存在・experiment ID・全実験の台帳登録を確認する。
 
-読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA1–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC8、PYNUM1、NUMLAB0、NUMLAB1、NUMLAB2、NUMLAB3 である。理論完成直後の横断監査は方針決定により実施対象外とし、次の実装対象は NUMLAB4「Monte Carlo 演習」である。
+NUMLAB4 は PYNUM1、NUMLAB0、MC1–MC4 を直接 prerequisite とし、Monte Carlo 4講を各1本のブラウザ実験へ対応させる。MC1 は標準誤差の $N^{-1/2}$ 則、MC2 は固定シード・逆関数法・棄却法、MC3 は同一関数評価予算での通常法・対称変量法・制御変量法の推定量分散比較、MC4 は二進量子化近似の同一乱数結合と独立結合によるレベル差分散の比較を扱う。各実験は `textbook/numerical-lab-links.yaml` で理論 stable anchor と実験 stable anchor を対応付け、Pages 検証で双方の存在・experiment ID・全実験の台帳登録を確認する。
+
+読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。現在の実装済み本編は NA1–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC8、PYNUM1、NUMLAB0、NUMLAB1、NUMLAB2、NUMLAB3、NUMLAB4 である。理論完成直後の横断監査は方針決定により実施対象外とし、次の実装対象は NUMLAB5「準 Monte Carlo 演習」である。
 
 ---

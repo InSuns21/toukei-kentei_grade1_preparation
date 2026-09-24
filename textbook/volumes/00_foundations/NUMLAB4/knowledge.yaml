@@ -1,0 +1,11 @@
+chapter: NUMLAB4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PYNUM1
+  - NUMLAB0
+  - MC1
+  - MC2
+  - MC3
+  - MC4
+concepts: []

@@ -405,3 +405,4 @@ STO 系列ではマルチンゲール・ブラウン運動・二次変分・確�
 39. [NUMLAB1 数値解析演習](textbook/volumes/00_foundations/NUMLAB1/index.md)
 40. [NUMLAB2 差分法演習](textbook/volumes/00_foundations/NUMLAB2/index.md)
 41. [NUMLAB3 有限要素法演習](textbook/volumes/00_foundations/NUMLAB3/index.md)
+42. [NUMLAB4 Monte Carlo 演習](textbook/volumes/00_foundations/NUMLAB4/index.md)

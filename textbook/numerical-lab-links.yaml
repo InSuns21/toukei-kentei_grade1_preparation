@@ -119,3 +119,24 @@ links:
     lab_chapter: NUMLAB3
     lab_anchor: lab-numlab3-fem7-supg
     experiment_id: NUMLAB3-FEM7-SUPG
+
+  - theory_chapter: MC1
+    theory_anchor: prop-mc1-unbiased-variance-rmse
+    lab_chapter: NUMLAB4
+    lab_anchor: lab-numlab4-mc1-standard-error
+    experiment_id: NUMLAB4-MC1-STANDARD-ERROR
+  - theory_chapter: MC2
+    theory_anchor: thm-mc2-inverse-transform
+    lab_chapter: NUMLAB4
+    lab_anchor: lab-numlab4-mc2-sampling
+    experiment_id: NUMLAB4-MC2-SAMPLING
+  - theory_chapter: MC3
+    theory_anchor: def-mc3-variance-reduction
+    lab_chapter: NUMLAB4
+    lab_anchor: lab-numlab4-mc3-variance-reduction
+    experiment_id: NUMLAB4-MC3-VARIANCE-REDUCTION
+  - theory_chapter: MC4
+    theory_anchor: def-mc4-level-coupling
+    lab_chapter: NUMLAB4
+    lab_anchor: lab-numlab4-mc4-level-coupling
+    experiment_id: NUMLAB4-MC4-LEVEL-COUPLING
