@@ -62,7 +62,7 @@ $$
 f(x)=x^2
 $$
 
-の変動は1なので、Koksma--Hlawka の不等式から
+の変動は1なので、[Koksma--Hlawka の不等式](../QMC1/index.md#thm-qmc1-koksma-hlawka)から
 
 $$
 |Q_N(f)-I(f)|
