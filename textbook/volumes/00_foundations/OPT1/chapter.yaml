@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00G
+  - VC1
 official_scope: []
 learning_objectives:
   - 凸集合・凸包・凸関数の既存定義を使い、低次元の集合と関数の凸性を定義から判定できる
@@ -15,8 +16,9 @@ learning_objectives:
   - 凸選好に対応する関数側の性質が凸性ではなく準凹性であることを区別できる
   - 非凸な実行可能集合では局所最小から大域最小への議論が壊れる機構を説明できる
 definitions:
-  - { id: OPT1-DEF-01, name: 凸錐 }
-  - { id: OPT1-DEF-02, name: 準凸関数・準凹関数 }
+  - { id: OPT1-DEF-01, name: 錐 }
+  - { id: OPT1-DEF-02, name: 凸錐 }
+  - { id: OPT1-DEF-03, name: 準凸関数・準凹関数 }
 theorems:
   - { id: OPT1-THM-01, name: 準凸性の下位集合による特徴付け }
   - { id: OPT1-THM-02, name: 狭義凸関数の最小点の一意性 }
