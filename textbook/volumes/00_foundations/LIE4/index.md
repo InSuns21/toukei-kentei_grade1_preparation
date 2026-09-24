@@ -1344,7 +1344,7 @@ $\square$
 > $\mathfrak g$ 値1形式 $\omega$ に対し、$\mathfrak g$ 値2形式 $[\omega\wedge\omega]$ を
 >
 $$
-[\omega\wedge\omega](U,V)
+[\omega\wedge\omega]\!(U,V)
 :=
 [\omega(U),\omega(V)]
 -
@@ -1405,7 +1405,7 @@ $$
 Lie 括弧の反対称性から
 
 $$
-[\omega\wedge\omega](U,V)
+[\omega\wedge\omega]\!(U,V)
 =
 2[\omega(U),\omega(V)].
 $$
@@ -1413,7 +1413,7 @@ $$
 従って
 
 $$
-\frac12[\omega\wedge\omega](U,V)
+\frac12[\omega\wedge\omega]\!(U,V)
 =
 [\omega(U),\omega(V)].
 $$
@@ -1509,7 +1509,7 @@ $$
 一方、
 
 $$
-\frac12[\theta\wedge\theta](X^L,Y^L)
+\frac12[\theta\wedge\theta]\!(X^L,Y^L)
 =
 [\theta(X^L),\theta(Y^L)]
 =
