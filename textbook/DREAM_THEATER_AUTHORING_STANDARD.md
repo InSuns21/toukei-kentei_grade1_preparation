@@ -28,6 +28,8 @@
 
 用語・一般記号・分布記法・KaTeX・formal statement・proof marker など、より専門の正本がある事項はその専門正本に従う。
 
+PYNUM1 または NUMLAB0–NUMLAB5 を編集する場合は、上記に加えて **`textbook/NUMERICAL_LAB_AUTHORING_STANDARD.md`** を必ず読む。数値ラボの穴埋め演習形式、模範解答、自動判定、theory/lab 台帳、free mode の例外範囲は同ファイルを専門正本とする。
+
 ### 1.1 旧監査Markdownを規約として使わない
 
 過去の `f0-dream-theater-*-audit.md` は、特定時点の状態・残件・一時的判定を記録した監査台帳だった。そこに含まれていた再利用価値のある原則は本ファイルへ統合し、旧監査Markdown自体は削除する。
