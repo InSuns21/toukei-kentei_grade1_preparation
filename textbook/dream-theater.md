@@ -256,6 +256,12 @@ OPT9 では、射影勾配写像を制約付き一次最適性残差として読
 
 1. [OPT9 制約付き数値最適化](textbook/volumes/00_foundations/OPT9/index.md)
 
+### 線形計画：多面体・極点・双対
+
+OPT10 では、標準形線形計画の実行可能集合を多面体として捉え、極点と基本実行可能解の同値性、線形計画の基本定理、弱双対・強双対、相補性を一つの流れで扱います。強双対は OPT2 の Farkas の補題から直接証明し、OPT11 の単体法・内点法へつなぎます。
+
+1. [OPT10 線形計画 I：多面体・極点・双対](textbook/volumes/00_foundations/OPT10/index.md)
+
 ### RKHS・SVM
 
 最後に、Hilbert空間・Riesz・凸最適化・SVMが合流します。
