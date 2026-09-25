@@ -299,7 +299,7 @@ $$
 $G(x)=x$, $K=\mathbb R_+$, $x^*=0$。等式制約はありません。
 
 $$
-DG(0)d=d,qquad
+DG(0)d=d,\qquad
 T_{-K}(0)=\mathbb R_-.
 $$
 
@@ -500,7 +500,7 @@ $$
 制約 $G(x)\preceq0$ は
 
 $$
-x-1\le0,qquad -x\le0,
+x-1\le0,\qquad -x\le0,
 $$
 
 すなわち $0\le x\le1$ と同値です。
@@ -706,8 +706,8 @@ $$
 通常制約
 
 $$
-g_1(x)=x_1\le0,qquad
-g_2(x)=2x_1\le0,qquad
+g_1(x)=x_1\le0,\qquad
+g_2(x)=2x_1\le0,\qquad
 h(x)=x_2=0
 $$
 
@@ -729,8 +729,8 @@ $\nabla g_1$ と $\nabla g_2$ が一次従属なので LICQ は失敗します�
 一方 $v=(-1,0)$ とすれば
 
 $$
-\nabla h^{\mathsf T}v=0,qquad
-\nabla g_1^{\mathsf T}v=-1<0,qquad
+\nabla h^{\mathsf T}v=0,\qquad
+\nabla g_1^{\mathsf T}v=-1<0,\qquad
 \nabla g_2^{\mathsf T}v=-2<0.
 $$
 
@@ -774,7 +774,7 @@ $$
 行列不等式は対角成分から
 
 $$
-x-1\le0,qquad -x\le0,
+x-1\le0,\qquad -x\le0,
 $$
 
 従って実行可能集合は $[0,1]$。$f(x)=-x$ なので
