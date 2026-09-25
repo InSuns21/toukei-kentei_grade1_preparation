@@ -57,21 +57,21 @@ concepts:
       - optimization.matching
 
   - id: optimization.matching-augmenting-path
-    name: 増加路
+    name: マッチングの増加路
     kind: definition
     aliases:
       - augmenting path for a matching
     introduction: formal
-    introduction_aliases: ["定義（交互路・増加路）"]
+    introduction_aliases: ["定義（交互路・マッチングの増加路）"]
     requires:
       - optimization.alternating-path
 
   - id: optimization.augmenting-path-matching-update
-    name: 増加路によるマッチング更新
+    name: マッチングの増加路によるマッチング更新
     kind: proposition
     aliases: []
     introduction: formal
-    introduction_aliases: ["命題（増加路によるマッチング更新）"]
+    introduction_aliases: ["命題（マッチングの増加路によるマッチング更新）"]
     requires:
       - optimization.matching-augmenting-path
 
