@@ -1,0 +1,65 @@
+chapter: OPT5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OPT4
+
+forward_references:
+  - optimization.tangent-cone
+  - optimization.linearization-cone
+  - optimization.licq
+  - optimization.mfcq
+
+concepts:
+  - id: optimization.lagrangian
+    name: Lagrangian
+    kind: definition
+    aliases: [Lagrangian]
+    requires: [convex.convex-optimization]
+  - id: optimization.dual-function
+    name: 双対関数
+    kind: definition
+    aliases: [双対関数]
+    requires: [optimization.lagrangian]
+  - id: optimization.primal-problem
+    name: 主問題
+    kind: definition
+    aliases: [主問題]
+    introduction_aliases: [主問題・Lagrange 双対問題]
+    requires: [convex.convex-optimization]
+  - id: optimization.dual-problem
+    name: Lagrange双対問題
+    kind: definition
+    aliases: [Lagrange双対問題, Lagrange 双対問題]
+    introduction_aliases: [主問題・Lagrange 双対問題]
+    requires: [optimization.dual-function, optimization.primal-problem]
+  - id: optimization.weak-duality
+    name: Lagrange双対の弱双対性
+    kind: theorem
+    aliases: [Lagrange双対の弱双対性]
+    requires: [optimization.dual-problem]
+  - id: optimization.slater-condition
+    name: Slater条件
+    kind: definition
+    aliases: [Slater条件]
+    requires: [convex.convex-optimization]
+  - id: optimization.strong-duality
+    name: 強双対性
+    kind: definition
+    aliases: [強双対性]
+    requires: [optimization.weak-duality]
+  - id: optimization.strong-duality-slater
+    name: Slater条件下の強双対性
+    kind: theorem
+    aliases: [Slater条件下の強双対性]
+    requires: [optimization.strong-duality, optimization.slater-condition, convex.separating-hyperplane]
+  - id: optimization.kkt-conditions
+    name: KKT条件
+    kind: theorem
+    aliases: [KKT条件, Karush--Kuhn--Tucker条件]
+    requires: [optimization.strong-duality-slater, optimization.lagrangian]
+  - id: optimization.active-constraint
+    name: 活性制約
+    kind: definition
+    aliases: [活性制約, active制約]
+    requires: [optimization.kkt-conditions]
