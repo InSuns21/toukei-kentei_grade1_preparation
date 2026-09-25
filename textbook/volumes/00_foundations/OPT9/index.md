@@ -579,7 +579,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-opt9-central-path -->
-先ほどの一変数問題では
+**定義の確認**：先ほどの一変数問題では
 
 $$
 x_\mu=1+\mu
@@ -659,12 +659,12 @@ $$
 > $f,g_1,\ldots,g_m:\mathbb R^n\to\mathbb R$ を微分可能な凸関数とし、厳密可行点が存在するとする。$\mu>0$ に対する対数障壁問題が最小点 $x_\mu$ を持つとする。
 >
 > 
-> $$
-> \lambda_i(\mu)
-> =
-> \frac{\mu}{-g_i(x_\mu)}
-> \qquad(i=1,\ldots,m)
-> $$
+$$
+\lambda_i(\mu)
+=
+\frac{\mu}{-g_i(x_\mu)}
+\qquad(i=1,\ldots,m)
+$$
 >
 > と置くと、
 >
@@ -889,13 +889,13 @@ $$
 > $f:\mathbb R^n\to\mathbb R$ と $h:\mathbb R^n\to\mathbb R^p$ を2回連続微分可能とする。
 >
 > 
-> $$
-> r_d(x,\nu)
-> =
-> \nabla f(x)+Dh(x)^{\mathsf T}\nu,
-> \qquad
-> r_p(x)=h(x)
-> $$
+$$
+r_d(x,\nu)
+=
+\nabla f(x)+Dh(x)^{\mathsf T}\nu,
+\qquad
+r_p(x)=h(x)
+$$
 >
 > と置く。KKT 方程式
 >
@@ -1088,11 +1088,11 @@ $$
 > に対し、$s\in\mathbb R^m_{++}$、$\lambda\in\mathbb R^m_{++}$、$\nu\in\mathbb R^p$、$\mu>0$ を用いる。
 >
 > 
-> $$
-> L(x,\lambda,\nu)
-> =
-> f(x)+\lambda^{\mathsf T}g(x)+\nu^{\mathsf T}h(x)
-> $$
+$$
+L(x,\lambda,\nu)
+=
+f(x)+\lambda^{\mathsf T}g(x)+\nu^{\mathsf T}h(x)
+$$
 >
 > とし、
 >
