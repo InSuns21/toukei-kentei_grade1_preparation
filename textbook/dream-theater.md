@@ -244,6 +244,12 @@ OPT7 では OPT1 の凸性と NA12 の数値最適化を接続し、Lipschitz �
 
 1. [OPT7 滑らかな凸最適化](textbook/volumes/00_foundations/OPT7/index.md)
 
+### 非滑らか・近接最適化
+
+OPT8 では OPT3 の劣微分と OPT7 の滑らかな凸最適化を接続し、劣勾配法、射影勾配法、近接作用素、Moreau 包絡、堅非拡大性、ソフト閾値処理、近接勾配法、ISTA を扱います。一般の劣勾配法の $O(1/\sqrt{k})$ と、合成構造を使う近接勾配法の $O(1/k)$ を同じ距離評価の流れで比較します。
+
+1. [OPT8 非滑らか・近接最適化](textbook/volumes/00_foundations/OPT8/index.md)
+
 ### RKHS・SVM
 
 最後に、Hilbert空間・Riesz・凸最適化・SVMが合流します。
