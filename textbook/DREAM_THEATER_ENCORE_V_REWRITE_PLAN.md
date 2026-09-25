@@ -396,7 +396,7 @@ QMC2 は既存 F0-02C7 の RKHS / 再生核を再定義しない。stable anchor
 |---|---|---|
 | PYNUM1 | Python 数値計算速習 | Python の要点、NumPy 配列、shape / dtype、slicing、broadcasting、vectorization、乱数、Matplotlib、SciPy の必要最小限。ブラウザ実験4本を同じ NUMLAB 実行基盤で実行可能 |
 | NUMLAB0 | 計算機演習基盤 | ブラウザ上 Python 実行、Worker、依存ライブラリ、採点、保存、時間制限、自動検証 |
-| NUMLAB1 | 数値解析演習 | NA1–NA12 を各1本のブラウザ実験で対応。桁落ち、Newton、補間、Gauss 求積、ODE、Cholesky、CG、固有値、PageRank、最適化まで |
+| NUMLAB1 | 数値解析演習 | NA1–NA12 をブラウザ実験で対応。NA4・NA5・NA8 は学習対象を高水準 API が代行するため、手動構築 → 実務編の2段構成。計15ラボ |
 | NUMLAB2 | 差分法演習 | FDM1–FDM4 を各1本のブラウザ実験で対応。陽・陰熱方程式、CFL 条件、格子収束、中心差分と風上化 |
 | NUMLAB3 | 有限要素法演習 | FEM1–FEM7 を各1本のブラウザ実験で対応。Galerkin 行列、三角形組立て、形状正則性、誤差次数、鞍点系、放物型時間発展、SUPG |
 | NUMLAB4 | Monte Carlo 演習 | MC1–MC4 を各1本のブラウザ実験で対応。標準誤差、逆関数法・棄却法、分散減少、レベル間結合 |
