@@ -488,11 +488,22 @@ f(x)
 -\frac\beta\mu.
 $$
 
-右辺を $\ell(x)=\langle y,x\rangle+c$ と書けば $\ell\le f$ で、上で得た右側の不等式から
+右辺を $\ell(x)=\langle y,x\rangle+c$ と書けば $\ell\le f$ です。さらに
 
-$$
-\ell(x_0)>r.
-$$
+$
+\beta<a^{\mathsf T}x_0-\mu r
+$
+
+なので
+
+$
+\ell(x_0)
+=
+\left\langle\frac a\mu,x_0\right\rangle
+-\frac\beta\mu
+>
+r.
+$
 
 **場合2：$b=0$。** このとき
 
