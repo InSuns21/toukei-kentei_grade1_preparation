@@ -32,11 +32,11 @@ concepts:
       - convex.dual-cone
 
   - id: optimization.cone-normal-formula
-    name: 閉凸錐のnormal cone
+    name: 閉凸錐の法錐
     kind: theorem
     aliases: []
     introduction: formal
-    introduction_aliases: ["定理（閉凸錐の normal cone）"]
+    introduction_aliases: ["定理（閉凸錐の法錐）"]
     requires:
       - convex.normal-cone
       - convex.dual-cone
@@ -65,6 +65,17 @@ concepts:
       - optimization.constraint-qualification
       - optimization.cone-linearized-cone
 
+  - id: optimization.robinson-error-bound
+    name: 有限次元 Robinson 誤差境界
+    kind: theorem
+    aliases:
+      - Robinson 誤差境界
+    introduction: formal
+    introduction_aliases: ["定理（有限次元 Robinson 誤差境界）"]
+    requires:
+      - optimization.robinson-cq
+      - convex.bouligand-tangent-cone
+
   - id: optimization.robinson-tangent-formula
     name: Robinson制約想定下の接錐公式
     kind: theorem
@@ -74,8 +85,24 @@ concepts:
     introduction_aliases: ["定理（Robinson 制約想定下の接錐公式）"]
     requires:
       - optimization.robinson-cq
+      - optimization.robinson-error-bound
       - optimization.cone-linearized-cone
       - convex.bouligand-tangent-cone
+
+  - id: optimization.cone-linearized-polar
+    name: Robinson制約想定下の線形化錐の極錐表示
+    kind: theorem
+    aliases:
+      - Robinson制約想定下の線形化錐の極錐表示
+    introduction: formal
+    introduction_aliases: ["定理（Robinson 制約想定下の線形化錐の極錐表示）"]
+    requires:
+      - optimization.robinson-cq
+      - optimization.cone-linearized-cone
+      - convex.polar-cone
+      - convex.closed-cone-separation
+      - convex.polar-bipolar-closed-cone
+      - convex.normal-tangent-polar-identity
 
   - id: optimization.generalized-kkt
     name: 一般化KKT
@@ -86,6 +113,7 @@ concepts:
     introduction_aliases: ["定理（Robinson 制約想定下の一般化 KKT）"]
     requires:
       - optimization.robinson-tangent-formula
+      - optimization.cone-linearized-polar
       - optimization.cone-normal-formula
       - optimization.generalized-lagrangian
       - optimization.local-minimum-tangent-condition
@@ -101,3 +129,13 @@ concepts:
     requires:
       - optimization.robinson-cq
       - optimization.mfcq
+
+  - id: optimization.psd2-cone-self-dual
+    name: 2×2半正定値錐の自己双対性
+    kind: theorem
+    aliases:
+      - 2×2 半正定値錐の自己双対性
+    introduction: formal
+    introduction_aliases: ["定理（$2\\times2$ 半正定値錐の自己双対性）"]
+    requires:
+      - convex.dual-cone
