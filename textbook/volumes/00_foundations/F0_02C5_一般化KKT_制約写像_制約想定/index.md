@@ -2,6 +2,8 @@
 
 > **アーカイブ**：この内容の canonical owner は [OPT6A 錐制約・一般化 KKT](../OPT6A/index.md) です。本ページは過去URLと stable anchor の後方互換性のため保持しています。
 
+<!-- definition-example-audit: loose -->
+
 通常の
 
 $$
