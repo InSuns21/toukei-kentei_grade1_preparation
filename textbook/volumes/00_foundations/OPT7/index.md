@@ -28,7 +28,7 @@ O(1/k)
 }
 $$
 
-です。最後に、[NA12 の Newton 法](../NA12/index.md#def-na12-newton-optimization)を一般の非線形目的関数へ戻し、Hessian の Lipschitz 連続性から局所二次収束を導きます。
+です。最後に、[NA12 の Newton 法](../NA12/index.md#def-na12-newton-optimization)を一般の非線形目的関数へ戻し、Hessian の Lipschitz 連続性から誤差が局所的に二乗で縮む仕組みを導きます。
 
 > **NA12 との役割分担**  
 > NA12 が担当するのは、降下方向・厳密直線探索・Newton 法の定義、正定値二次目的関数、条件数依存の最急降下法、共役勾配法です。本章ではそれらを再証明せず、一般の滑らかな凸関数に対する収束理論を担当します。
@@ -39,7 +39,7 @@ $$
 
 <a id="def-opt7-lipschitz-gradient"></a>
 <!-- formal-statement-start -->
-> **定義（Lipschitz 連続勾配・$L$-滑らかさ）**  
+> **定義（Lipschitz 連続勾配）**  
 > 微分可能な関数 $f:\mathbb R^n\to\mathbb R$ と定数 $L>0$ を考える。任意の $x,y\in\mathbb R^n$ に対して
 >
 $$
@@ -117,7 +117,7 @@ $$
 
 ### 証明の見取り図
 
-線分 $x+t(y-x)$ 上だけを見れば、多変数関数を一変数関数へ落とせます。そこに[微積分学の基本定理](../RA4/index.md)を使い、勾配差を Lipschitz 条件で抑えます。
+線分 $x+t(y-x)$ 上だけを見れば、多変数関数を一変数関数へ落とせます。そこに[微積分学の基本定理](../RA4/index.md)を使い、勾配差を本章で定義した $L$-Lipschitz 連続性で抑えます。
 
 <!-- proof-start -->
 ### 証明
@@ -352,7 +352,7 @@ $$
 
 <a id="thm-opt7-gradient-convex-rate"></a>
 <!-- formal-statement-start -->
-> **定理（滑らかな凸関数に対する $O(1/k)$ 収束）**  
+> **定理（滑らかな凸関数に対する最急降下法の劣線形収束）**  
 > $f:\mathbb R^n\to\mathbb R$ を凸かつ $L$-滑らかとし、最小点 $x^*$ が存在するとする。固定歩幅
 >
 $$
@@ -894,7 +894,7 @@ $$
 
 <a id="thm-opt7-armijo-finite"></a>
 <!-- formal-statement-start -->
-> **定理（$L$-滑らかさによる後退直線探索の有限停止）**  
+> **定理（滑らかさによる後退直線探索の有限停止）**  
 > $f$ が $L$-滑らかで、点 $x$ で $g=\nabla f(x)\ne0$ とする。Armijo 条件付き後退直線探索は有限回で停止する。さらに受理歩幅 $\alpha$ は
 >
 $$
@@ -985,7 +985,7 @@ $$
 
 <a id="thm-opt7-newton-local-quadratic"></a>
 <!-- formal-statement-start -->
-> **定理（Newton 法の局所二次収束）**  
+> **定理（最適化 Newton 法の局所二次収束）**  
 > $f:\mathbb R^n\to\mathbb R$ を $C^2$ 級とし、$\nabla f(x^*)=0$ とする。ある $r>0$, $m>0$, $M>0$ が存在し、閉球
 >
 $$
@@ -1181,7 +1181,7 @@ $$
 
 ### 10.3 Newton 法は曲率行列を反転するだけでは大域法にならない
 
-Hessian が特異なら Newton step 自体が定義できず、不定値なら降下方向とは限りません。OPT7 の局所二次収束は、正定値性と Hessian の Lipschitz 連続性が保証される近傍へ入ってからの定理です。
+Hessian が特異なら Newton step 自体が定義できず、不定値なら降下方向とは限りません。OPT7 の最適化 Newton 法の局所二次収束は、正定値性と Hessian の Lipschitz 連続性が保証される近傍へ入ってからの定理です。
 
 ---
 
@@ -2145,7 +2145,7 @@ $$
   と線形収束する。
 - 条件数 $\kappa_f=L/\mu$ は、正定値二次関数では行列条件数と一致する。
 - $L$ が未知でも Armijo 条件付き後退直線探索は、$L$-滑らかさのもとで有限回で安全な歩幅へ入る。
-- Newton 法の局所二次収束は「Hessian が一様に可逆」かつ「Hessian が Lipschitz 連続」という二つの仮定から出る。
+- 最適化 Newton 法の局所二次収束は「Hessian が一様に可逆」かつ「Hessian が Lipschitz 連続」という二つの仮定から出る。
 - NA12 の二次関数・厳密直線探索・共役勾配法を再講義せず、その一般凸最適化側の意味を接続した。
 
-次の OPT8 では滑らかさを失った目的関数へ進み、劣勾配法・近接写像・近接勾配法を扱います。
+次の OPT8 では、滑らかさを失った目的関数の最適化へ進みます。
