@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - DOPT3
+  - LA3C
 
 forward_references: []
 
@@ -16,7 +17,7 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（全単模行列）"]
     requires:
-      - linear.determinant
+      - linear.matrix-determinant
 
   - id: optimization.tu-basic-closures
     name: 全単模性の基本的な閉包性
@@ -26,6 +27,7 @@ concepts:
     introduction_aliases: ["命題（全単模性の基本的な閉包性）"]
     requires:
       - optimization.totally-unimodular-matrix
+      - linear.laplace-expansion
 
   - id: optimization.integral-polyhedron
     name: 整数多面体
@@ -78,6 +80,8 @@ concepts:
     requires:
       - optimization.totally-unimodular-matrix
       - optimization.extreme-point
+      - linear.adjugate
+      - linear.determinant-invertibility-criterion
 
   - id: optimization.tu-equality-box-integrality
     name: 等式制約と整数上下限を持つ全単模系の整数性
