@@ -143,6 +143,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-dopt1-lp-relaxation -->
+**定義の確認**：整数条件だけを外した連続問題
+
 先ほどの 0--1 問題では、$x_i\in\{0,1\}$ を
 
 $$
@@ -322,6 +324,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-dopt1-integer-hull -->
+**定義の確認**：整数実行可能点の凸包
+
 先ほどの 0--1 問題では整数実行可能点が $(1,1)$ だけなので、
 
 $$
@@ -509,6 +513,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-dopt1-integrality-gap -->
+**定義の確認**：加法差と比率を計算する
+
 最初の 0--1 問題では
 
 $$
@@ -707,6 +713,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-dopt1-branching-disjunction -->
+**定義の確認**：分数値 $1/2$ で二分枝する
+
 LP 解で
 
 $$
@@ -819,6 +827,9 @@ $$
 という挟み撃ちを作ります。
 
 ### 7.1 具体例：二変数 0--1 問題を最後まで枝分かれする
+
+<!-- definition-example-start: def-dopt1-branch-and-bound -->
+**定義の確認**：LP 下界・分枝・終端を一つの探索木で確認する
 
 再び
 
@@ -942,6 +953,7 @@ $$
 です。
 
 単に全列挙したのではなく、各節点の LP が「この先にもっと良い整数解がある可能性」を数値で判定しています。
+<!-- definition-example-end -->
 
 <a id="thm-dopt1-branch-and-bound-correctness"></a>
 <!-- formal-statement-start -->
@@ -1041,6 +1053,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-dopt1-valid-inequality -->
+**定義の確認**：整数点を残して分数点を切る
+
 最初の 0--1 問題では、整数実行可能点は $(1,1)$ だけです。
 
 したがって
