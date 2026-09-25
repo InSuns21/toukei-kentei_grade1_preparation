@@ -1,0 +1,29 @@
+chapter: "OPT10"
+terms:
+  - term: 標準形
+    english: standard form
+    meaning: 等式制約と非負変数だけで表した線形計画の基準形。本章では最小化問題 min c^T x subject to Ax=b, x>=0 を用いる。
+  - term: 多面体
+    english: polyhedron
+    meaning: 有限個の線形等式・線形不等式の共通解集合として表される集合。
+  - term: 有界多面体
+    english: polytope
+    meaning: 有界な多面体。有限次元では有限個の頂点の凸包としても特徴付けられる。
+  - term: 実行可能方向
+    english: feasible direction
+    meaning: 実行可能点から十分小さな正の歩幅だけ進んでも実行可能集合内に残る方向。
+  - term: 極点
+    english: extreme point
+    meaning: 異なる二つの実行可能点の非自明な凸結合として表せない点。
+  - term: 基底解
+    english: basic solution
+    meaning: 行フルランクの標準形でm本の一次独立な列を基底として選び、非基底変数を0にしてAx=bを解いた解。
+  - term: 基本実行可能解
+    english: basic feasible solution
+    meaning: 非負性も満たす基底解。略号BFS。
+  - term: 線形計画双対
+    english: linear programming dual
+    meaning: 主問題の各実行可能解に対する目的値下界を最大化する線形計画問題。
+  - term: 相補性
+    english: complementary slackness
+    meaning: 主変数x_jと対応する双対余裕c_j-a_j^T yの積が各成分で0になる最適性条件。
