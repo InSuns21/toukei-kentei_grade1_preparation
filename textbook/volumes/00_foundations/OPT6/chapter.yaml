@@ -8,17 +8,16 @@ prerequisites:
   - RA6A
 official_scope: []
 learning_objectives:
-  - 活性集合・Bouligand接錐・線形化錐を定義し具体例で計算できる
-  - 局所最適性から接錐のpolar条件を導ける
+  - 活性集合・線形化錐を定義し、OPT3 の Bouligand 接錐を一般の実行可能集合で計算できる
+  - 局所最適性から接錐の極錐条件を導ける
   - 接錐が線形化錐に含まれることを証明し逆包含が壊れる反例を説明できる
   - LICQとMFCQを定義から判定しLICQからMFCQを導ける
   - MFCQ下で接錐と線形化錐が一致する核心証明を追える
-  - 線形化錐のpolar表示からKKT乗数の存在を導ける
+  - 線形化錐の極錐表示から KKT 乗数の存在を導ける
   - LICQ下のKKT乗数一意性を証明できる
-  - 二階必要条件がLagrangianのHessianに現れる理由を説明できる
+  - 正則な等式制約で二階必要条件が Lagrangian の Hessian に現れる理由を証明できる
 definitions:
   - { id: OPT6-DEF-01, name: 活性集合 }
-  - { id: OPT6-DEF-02, name: Bouligand接錐 }
   - { id: OPT6-DEF-03, name: 線形化錐 }
   - { id: OPT6-DEF-04, name: LICQ }
   - { id: OPT6-DEF-05, name: MFCQ }
@@ -27,9 +26,10 @@ theorems:
   - { id: OPT6-THM-02, name: 接錐と線形化錐の基本包含 }
   - { id: OPT6-THM-03, name: LICQならMFCQ }
   - { id: OPT6-THM-04, name: MFCQ下の接錐一致 }
-  - { id: OPT6-THM-05, name: 線形化錐のpolar表示 }
+  - { id: OPT6-THM-05, name: 線形化錐の極錐表示 }
   - { id: OPT6-THM-06, name: MFCQ下のKKT乗数存在 }
   - { id: OPT6-THM-07, name: LICQ下のKKT乗数の一意性 }
+  - { id: OPT6-THM-08, name: 正則な等式制約に対する二階必要条件 }
 canonical_examples: [上半平面の接錐, 放物線制約の線形化錐, x二乗制約の退化例, MFCQとLICQの比較]
 problem_patterns: [KKT-GEOMETRY-1, CQ-LICQ-MFCQ-1, TANGENT-LINEARIZATION-1, KKT-MULTIPLIER-1]
 past_exam_alignment: []
