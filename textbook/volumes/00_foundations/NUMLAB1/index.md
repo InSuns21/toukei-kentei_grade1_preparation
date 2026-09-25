@@ -280,28 +280,209 @@ assert history[-1] < history[0]
 
 ---
 
-<a id="lab-numlab1-na4-runge"></a>
-## 4. NA4：Runge 関数と Chebyshev 節点
+## 4. NA4：多項式補間と Chebyshev 節点
 
-理論： [Chebyshev 節点](../NA4/index.md#def-na4-chebyshev-nodes)
+理論： [Lagrange 補間公式](../NA4/index.md#thm-na4-lagrange-interpolation) / [Chebyshev 節点](../NA4/index.md#def-na4-chebyshev-nodes)
+
+補間公式そのものと実務 API の利用を分けます。
+
+1. **手動構築**：Lagrange 基底を定義どおり積み上げて補間多項式を評価する。
+2. **実務編**：SciPy の `BarycentricInterpolator` で高次数補間を行い、等間隔節点と Chebyshev 節点の差を観察する。
+
+<a id="lab-numlab1-na4-lagrange-manual"></a>
+### 4A. 手動構築：Lagrange 基底から補間多項式を作る
+
+節点 $x_0,\ldots,x_n$ に対し、
+
+$$
+\ell_j(x)
+=
+\prod_{k\ne j}
+\frac{x-x_k}{x_j-x_k},
+\qquad
+p_n(x)
+=
+\sum_{j=0}^{n}
+f(x_j)\ell_j(x)
+$$
+
+をコードへそのまま写します。
+
+Runge 関数を低めの次数で補間し、まず「節点値を正確に再現する」という補間の基本性質を確認します。
+
+**穴埋め課題：** Lagrange 基底の積と、各基底を関数値で重み付けして足す部分を実装してください。
+
+```python-lab
+# lab-id: NUMLAB1-NA4-LAGRANGE-MANUAL
+# lab-title: 手動構築：Lagrange 補間
+# lab-mode: exercise
+# timeout-ms: 8000
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+def runge(x):
+    return 1.0 / (1.0 + 25.0 * x * x)
+
+def lagrange_interpolate(nodes, values, x_eval):
+    nodes = np.asarray(nodes, dtype=float)
+    values = np.asarray(values, dtype=float)
+    x_eval = np.asarray(x_eval, dtype=float)
+
+    result = np.zeros_like(x_eval)
+
+    for j in range(len(nodes)):
+        basis = np.ones_like(x_eval)
+
+        for k in range(len(nodes)):
+            if k == j:
+                continue
+
+            # ヒント: Lagrange 基底の第j項へ、k番目節点に対応する一次因子を掛ける。
+            basis *= ___
+
+        # ヒント: 第j基底を節点値 f(x_j) で重み付けして補間多項式へ足す。
+        result += ___
+
+    return result
+
+degree = 8
+nodes = np.linspace(-1.0, 1.0, degree + 1)
+values = runge(nodes)
+
+grid = np.linspace(-1.0, 1.0, 801)
+
+# ヒント: 自作した補間関数へ節点・節点値・評価格子を渡す。
+manual_values = ___
+node_reconstruction = lagrange_interpolate(
+    nodes,
+    values,
+    nodes,
+)
+manual_error = np.max(
+    np.abs(manual_values - runge(grid))
+)
+
+print("node reconstruction error:",
+      np.max(np.abs(node_reconstruction - values)))
+print("max error on grid:", manual_error)
+
+fig, ax = plt.subplots()
+ax.plot(grid, runge(grid), label="Runge")
+ax.plot(grid, manual_values, label="manual Lagrange")
+ax.scatter(nodes, values, s=24, label="nodes")
+ax.legend()
+ax.grid(True)
+```
+
+```python-solution
+import numpy as np
+import matplotlib.pyplot as plt
+
+def runge(x):
+    return 1.0 / (1.0 + 25.0 * x * x)
+
+def lagrange_interpolate(nodes, values, x_eval):
+    nodes = np.asarray(nodes, dtype=float)
+    values = np.asarray(values, dtype=float)
+    x_eval = np.asarray(x_eval, dtype=float)
+
+    result = np.zeros_like(x_eval)
+
+    for j in range(len(nodes)):
+        basis = np.ones_like(x_eval)
+
+        for k in range(len(nodes)):
+            if k == j:
+                continue
+
+            basis *= (
+                (x_eval - nodes[k])
+                / (nodes[j] - nodes[k])
+            )
+
+        result += values[j] * basis
+
+    return result
+
+degree = 8
+nodes = np.linspace(-1.0, 1.0, degree + 1)
+values = runge(nodes)
+
+grid = np.linspace(-1.0, 1.0, 801)
+
+manual_values = lagrange_interpolate(
+    nodes,
+    values,
+    grid,
+)
+node_reconstruction = lagrange_interpolate(
+    nodes,
+    values,
+    nodes,
+)
+manual_error = np.max(
+    np.abs(manual_values - runge(grid))
+)
+
+print("node reconstruction error:",
+      np.max(np.abs(node_reconstruction - values)))
+print("max error on grid:", manual_error)
+
+fig, ax = plt.subplots()
+ax.plot(grid, runge(grid), label="Runge")
+ax.plot(grid, manual_values, label="manual Lagrange")
+ax.scatter(nodes, values, s=24, label="nodes")
+ax.legend()
+ax.grid(True)
+```
+
+```python-test
+assert np.allclose(
+    node_reconstruction,
+    values,
+    atol=1e-12,
+    rtol=1e-12,
+)
+
+probe_nodes = np.linspace(-1.0, 1.0, 6)
+probe_values = probe_nodes**4 - 2.0 * probe_nodes + 1.0
+probe_grid = np.linspace(-0.9, 0.9, 41)
+
+probe_interp = lagrange_interpolate(
+    probe_nodes,
+    probe_values,
+    probe_grid,
+)
+probe_exact = probe_grid**4 - 2.0 * probe_grid + 1.0
+
+assert np.allclose(
+    probe_interp,
+    probe_exact,
+    atol=1e-11,
+    rtol=1e-11,
+)
+assert np.isfinite(manual_error)
+```
+
+ここでは補間公式の全構成を自分で行っています。高次数・多数評価点ではこの素朴実装をそのまま実務利用せず、次の安定なライブラリ実装へ進みます。
+
+<a id="lab-numlab1-na4-runge"></a>
+### 4B. 実務編：SciPy の重心補間で Runge 現象を比較する
 
 $$
 f(x)=\frac{1}{1+25x^2}
 $$
 
-を20次多項式で補間し、等間隔節点と Chebyshev 節点を比べます。
+を20次多項式で補間し、等間隔節点と Chebyshev 節点を比較します。
 
-この実験は、完成コードを読むだけでなく、**節点の作り方と誤差評価を自分で埋める演習**として実行します。
+実務編では補間評価そのものは SciPy の `BarycentricInterpolator` に任せ、**節点設計と誤差診断**へ集中します。
 
-- 等間隔節点を $[-1,1]$ に作る。
-- Chebyshev 節点の公式を NumPy で書く。
-- 二つの補間の最大誤差を同じ評価格子上で計算する。
-
-「穴埋め」タブの `___` をすべて置き換えてから実行してください。必要なら「模範解答」タブで完成コードを確認できます。
+**穴埋め課題：** 等間隔節点・Chebyshev 節点と、二つの補間の最大誤差を埋めてください。
 
 ```python-lab
 # lab-id: NUMLAB1-NA4-RUNGE
-# lab-title: 等間隔節点と Chebyshev 節点を比較
+# lab-title: 実務編：SciPy で Runge 現象を比較
 # lab-mode: exercise
 # timeout-ms: 10000
 
@@ -405,7 +586,7 @@ assert cheb_error < equi_error
 assert cheb_error < 0.1
 ```
 
-高次数化だけでは十分でなく、節点配置が誤差増幅へ直接効くことを図と最大誤差の両方で確認します。
+手動構築と違い、ここでは補間評価の実装細部を SciPy に任せています。その分、節点配置が誤差へ与える影響を高次数で安定に観察できます。
 
 ---
 
