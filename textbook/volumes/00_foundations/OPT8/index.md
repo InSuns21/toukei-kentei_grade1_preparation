@@ -253,7 +253,7 @@ $$
 > \|x_0-x^*\|\le R
 > $$
 >
-> が成り立つとする。一定歩幅
+> がある定数 $G>0$, $R>0$ について成り立つとする。一定歩幅
 >
 > $$
 > \alpha=\frac{R}{G\sqrt K}
@@ -367,7 +367,7 @@ $$
 x_k-\alpha\nabla f(x_k)
 $$
 
-は $C$ の外へ出るかもしれません。そこで [OPT2 の最近点射影](../OPT2/index.md#def-opt2-projection)で可行領域へ戻します。
+は $C$ の外へ出るかもしれません。そこで [OPT2 の最近点射影](../OPT2/index.md#def-opt2-nearest-point-projection)で可行領域へ戻します。
 
 <a id="def-opt8-projected-gradient"></a>
 <!-- formal-statement-start -->
@@ -414,6 +414,32 @@ $$
 
 射影が制約付き最小点へ戻しています。
 <!-- definition-example-end -->
+
+さらに、$f$ が凸で微分可能なら、制約付き最小点 $x^*\in C$ は任意の $\alpha>0$ に対して
+
+$$
+\boxed{
+x^*
+=
+P_C\bigl(x^*-\alpha\nabla f(x^*)\bigr)
+}
+$$
+
+を満たします。実際、[OPT2 の射影の変分不等式](../OPT2/index.md#thm-opt2-projection-vi)より右辺は
+
+$$
+\langle -\alpha\nabla f(x^*),y-x^*\rangle\le0
+\qquad(y\in C)
+$$
+
+と同値です。$\alpha>0$ で割れば
+
+$$
+\langle \nabla f(x^*),y-x^*\rangle\ge0
+\qquad(y\in C),
+$$
+
+すなわち [OPT3 の凸制約付き Fermat 条件](../OPT3/index.md#thm-opt3-constrained-fermat)です。したがって射影勾配法の不動点条件は、静的な最適性条件をそのまま反復式へ書き直したものです。
 
 射影勾配法は、後で
 
@@ -545,13 +571,19 @@ $$
 
 は $1/\lambda$-強凸です。$g$ は凸なので、和 $\Phi_v$ も $1/\lambda$-強凸です。従って最小点が存在すれば一意です。
 
-また $g$ は真関数なので、ある $x_0$ で $g(x_0)<+\infty$ です。閉凸関数は有限次元でアフィン関数による下からの支持を持つため、ある $a\in\mathbb R^n$, $b\in\mathbb R$ が存在して
+また $g$ は真関数なので $\operatorname{dom}g$ は空でない凸集合です。有限次元ではその相対内部から一点 $y\in\operatorname{ri}(\operatorname{dom}g)$ を取れます。[OPT3 の相対内部における劣勾配の存在](../OPT3/index.md#thm-opt3-subgradient-existence-ri)より、ある $a\in\partial g(y)$ が存在します。劣勾配不等式から
 
 $$
-g(x)\ge \langle a,x\rangle+b
+g(x)
+\ge
+g(y)+\langle a,x-y\rangle
+=
+\langle a,x\rangle+b,
+\qquad
+b=g(y)-\langle a,y\rangle.
 $$
 
-と書けます。従って
+従って
 
 $$
 \Phi_v(x)
@@ -561,27 +593,98 @@ $$
 \frac{1}{2\lambda}\|x-v\|^2.
 $$
 
-右辺は $\|x\|\to\infty$ で $+\infty$ へ発散するので $\Phi_v$ は強圧的です。さらに $g$ が閉凸だから $\Phi_v$ は下半連続です。[OPT3 の有限次元直接法](../OPT3/index.md#thm-opt3-finite-dimensional-direct-method)より最小点 $p$ が存在します。
+右辺は $\|x\|\to\infty$ で $+\infty$ へ発散するので $\Phi_v$ は強圧的です。さらに $g$ が閉凸だから $\Phi_v$ は下半連続です。[OPT3 の有限次元直接法](../OPT3/index.md#thm-opt3-direct-method)より最小点 $p$ が存在します。
 
-最小点 $p$ に [OPT3 の凸関数の Fermat 条件](../OPT3/index.md#thm-opt3-fermat-subgradient)を使うと
+次に最適性条件を直接示します。$p$ が $\Phi_v$ の最小点なら、任意の $x\in\operatorname{dom}g$ と $0<t\le1$ に対して
+
+$$
+p_t=p+t(x-p)
+$$
+
+と置けます。$g$ の凸性から
+
+$$
+g(p_t)\le(1-t)g(p)+tg(x)
+$$
+
+です。一方、$\Phi_v(p)\le\Phi_v(p_t)$ なので
 
 $$
 0
-\in
-\partial g(p)
+\le
+g(p_t)-g(p)
 +
-\frac1\lambda(p-v).
+\frac{1}{2\lambda}
+\left(
+\|p_t-v\|^2-\|p-v\|^2
+\right).
 $$
 
-これは
+上の凸性評価を代入し、$p_t-p=t(x-p)$ を展開すると
 
 $$
-\frac{v-p}{\lambda}
-\in
-\partial g(p)
+0
+\le
+t\bigl(g(x)-g(p)\bigr)
++
+\frac{t}{\lambda}\langle p-v,x-p\rangle
++
+\frac{t^2}{2\lambda}\|x-p\|^2.
 $$
 
-と同値です。逆にこの包含が成り立てば $0\in\partial\Phi_v(p)$ なので $p$ は $\Phi_v$ の最小点です。
+$t>0$ で割って $t\downarrow0$ とすれば
+
+$$
+g(x)
+\ge
+g(p)
++
+\left\langle
+\frac{v-p}{\lambda},
+x-p
+\right\rangle.
+$$
+
+従って
+
+$$
+\frac{v-p}{\lambda}\in\partial g(p).
+$$
+
+逆にこの包含が成り立つなら、任意の $x$ に対して
+
+$$
+g(x)-g(p)
+\ge
+\left\langle
+\frac{v-p}{\lambda},
+x-p
+\right\rangle.
+$$
+
+二次項の差
+
+$$
+\frac{1}{2\lambda}
+\left(
+\|x-v\|^2-\|p-v\|^2
+\right)
+=
+\frac1\lambda\langle p-v,x-p\rangle
++
+\frac{1}{2\lambda}\|x-p\|^2
+$$
+
+を足すと一次項が相殺され、
+
+$$
+\Phi_v(x)-\Phi_v(p)
+\ge
+\frac{1}{2\lambda}\|x-p\|^2
+\ge0.
+$$
+
+よって $p$ は $\Phi_v$ の最小点です。これは [OPT3 の Fermat 条件](../OPT3/index.md#thm-opt3-fermat)を、この「閉真凸関数 + 滑らかな二次項」の場合に和則をブラックボックス化せず直接確認したものです。
 
 $\square$
 <!-- proof-end -->
@@ -622,7 +725,7 @@ $$
 
 ---
 
-## 5. 近接作用素は暴れない：firm nonexpansiveness
+## 5. 近接作用素は暴れない：堅非拡大性
 
 近接作用素を反復法に使うには、入力の摂動を増幅しすぎないことが重要です。その核心は劣微分の単調性です。
 
@@ -648,7 +751,7 @@ $$
 
 <a id="thm-opt8-proximal-firm"></a>
 <!-- formal-statement-start -->
-> **定理（近接作用素の firm nonexpansiveness）**  
+> **定理（近接作用素の 堅非拡大性）**  
 > $g$ を閉真凸関数、$\lambda>0$ とする。任意の $u,v\in\mathbb R^n$ に対し
 >
 > $$
@@ -903,7 +1006,7 @@ e_\lambda g(v+h)-e_\lambda g(v)
 \frac1{2\lambda}\|h\|^2.
 $$
 
-$p(v)=p$ と書き直し、期待する一次項との差を見ます。firm nonexpansiveness から近接作用素は 1-Lipschitz なので
+$p(v)=p$ と書き直し、期待する一次項との差を見ます。堅非拡大性 から近接作用素は 1-Lipschitz なので
 
 $$
 \|q-p\|\le\|h\|.
@@ -950,7 +1053,7 @@ $$
 \frac1\lambda(v-p).
 $$
 
-最後に $p=\operatorname{prox}_{\lambda g}(u)$、$q=\operatorname{prox}_{\lambda g}(v)$ とすると、firm nonexpansiveness を
+最後に $p=\operatorname{prox}_{\lambda g}(u)$、$q=\operatorname{prox}_{\lambda g}(v)$ とすると、堅非拡大性 を
 
 $$
 \|p-q\|^2
@@ -1008,7 +1111,7 @@ $\square$
 > }
 > $$
 >
-> を **ソフト閾値処理（soft thresholding）**という。ベクトルに対しては各成分へ独立に適用する。
+> を **ソフト閾値処理（ソフト閾値処理）**という。ベクトルに対しては各成分へ独立に適用する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-opt8-soft-threshold -->
@@ -1992,7 +2095,7 @@ $$
 ## 15. 演習 Level B
 
 <a id="ex-opt8-b01"></a>
-### OPT8-B01 firm nonexpansiveness を再構成する
+### OPT8-B01 堅非拡大性 を再構成する
 
 - Level: B
 - 目安時間: 20分
@@ -2673,7 +2776,7 @@ $$
   $$
   が基本最適性条件である。
 - 標示関数の近接作用素は最近点射影である。
-- 近接作用素は firm nonexpansive であり、特に 1-Lipschitz 連続である。
+- 近接作用素は 堅非拡大 であり、特に 1-Lipschitz 連続である。
 - Moreau 包絡は非滑らかな閉真凸関数を滑らかにし、
   $$
   \nabla e_\lambda g(v)
