@@ -1,0 +1,50 @@
+id: "OPT11"
+title: "線形計画 II：単体法・内点法・感度解析"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OPT9
+  - OPT10
+official_scope: []
+learning_objectives:
+  - 実行可能基底から基底双対解と被約費用を計算し、被約費用による最適性判定を証明・適用できる
+  - 負の被約費用から進入変数を選び、比率検定で離脱変数を決め、単体法の一回のピボットを幾何と線形代数の両方から説明できる
+  - 比率検定から非有界性を判定し、退化ピボットが歩幅0で基底だけを変えることを具体例で説明できる
+  - Phase I補助問題を構成し、最適値0と元問題の実行可能性が同値であることを証明できる
+  - 双対単体法が双対実行可能性を保って主実行可能性を回復する方法であることを、通常の単体法との対比で説明できる
+  - LPの対数障壁から中心路方程式を導き、主双対ギャップがnμであることを証明できる
+  - LPの摂動KKT系にNewton法を適用し、主双対Newton線形系を導出できる
+  - 固定最適基底のもとで右辺感度と影の価格を導き、基底が保たれる範囲を計算できる
+  - 費用係数の摂動に対して被約費用を更新し、同じ基底が最適であり続ける範囲を計算できる
+definitions:
+  - { id: OPT11-DEF-01, name: 被約費用 }
+  - { id: OPT11-DEF-02, name: Phase I 補助問題 }
+theorems:
+  - { id: OPT11-THM-01, name: 被約費用による目的関数分解と最適性判定 }
+  - { id: OPT11-THM-02, name: 単体法の一回のピボットと非有界判定 }
+  - { id: OPT11-THM-03, name: Phase I 最適値による実行可能性判定 }
+  - { id: OPT11-THM-04, name: LP 中心路方程式と双対ギャップ }
+  - { id: OPT11-THM-05, name: LP の主双対 Newton 方程式 }
+  - { id: OPT11-THM-06, name: 固定最適基底の右辺感度と影の価格 }
+  - { id: OPT11-THM-07, name: 固定基底の費用係数感度 }
+canonical_examples:
+  - 二制約四変数LPの被約費用と単体法ピボット
+  - 退化した基本実行可能解で歩幅0となるピボット
+  - 矛盾する線形等式に対するPhase IとFarkas証明書
+  - 二変数LPの中心路と双対ギャップ
+  - 固定最適基底における右辺感度と影の価格
+  - 目的係数摂動に対する被約費用の符号条件
+problem_patterns:
+  - OPT11-REDUCED-COST-1
+  - OPT11-SIMPLEX-PIVOT-1
+  - OPT11-UNBOUNDED-1
+  - OPT11-DEGENERACY-1
+  - OPT11-PHASE-I-1
+  - OPT11-CENTRAL-PATH-1
+  - OPT11-PRIMAL-DUAL-NEWTON-1
+  - OPT11-RHS-SENSITIVITY-1
+  - OPT11-COST-SENSITIVITY-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.0, review: 0.75 }
