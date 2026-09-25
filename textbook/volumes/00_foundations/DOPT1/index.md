@@ -653,7 +653,7 @@ $$
 S\subset P_1
 $$
 
-なので、LP 緩和の下界定理から
+なので、[LP 緩和が与える下界](#thm-dopt1-relaxation-bound)から
 
 $$
 z_1\le z_{\mathrm{IP}}.
@@ -985,7 +985,7 @@ $$
 L\ge U
 $$
 
-なら、その節点内の任意の整数実行可能解 $x$ について、LP 緩和の下界定理から
+なら、その節点内の任意の整数実行可能解 $x$ について、[LP 緩和が与える下界](#thm-dopt1-relaxation-bound)から
 
 $$
 c^{\mathsf T}x\ge L\ge U.
@@ -1143,7 +1143,7 @@ z_{\mathrm{LP}}
 z'_{\mathrm{LP}}.
 $$
 
-一方 $S\subset P'$ なので、LP 緩和の下界定理から
+一方 $S\subset P'$ なので、[LP 緩和が与える下界](#thm-dopt1-relaxation-bound)から
 
 $$
 z'_{\mathrm{LP}}
