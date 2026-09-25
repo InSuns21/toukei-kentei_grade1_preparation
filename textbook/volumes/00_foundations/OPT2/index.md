@@ -220,7 +220,7 @@ $$
 C\cap\overline B(z,\delta+1)
 $$
 
-という閉有界集合に含まれます。有限次元の Heine--Borel 定理により、この集合はコンパクトです。よって部分列 $x_{k_j}$ と点 $p$ が存在して
+という閉有界集合に含まれます。[Heine--Borel 定理](../F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md#thm-f0-00c1-02)により、この集合はコンパクトです。よって部分列 $x_{k_j}$ と点 $p$ が存在して
 
 $$
 x_{k_j}\to p.
@@ -465,7 +465,7 @@ $$
 
 と置きます。
 
-$z\notin C$ なので $a\ne0$ です。射影の変分不等式より
+$z\notin C$ なので $a\ne0$ です。[射影の変分不等式](#thm-opt2-projection-variational-inequality)より
 
 $$
 a^{\mathsf T}(x-p)\le0
@@ -646,7 +646,7 @@ $$
 
 とします。$z_k\notin C$ なので分母は正です。
 
-射影の変分不等式から
+[射影の変分不等式](#thm-opt2-projection-variational-inequality)から
 
 $$
 a_k^{\mathsf T}(x-p_k)\le0
@@ -804,7 +804,7 @@ $$
 
 と置きます。
 
-射影の変分不等式から
+[射影の変分不等式](#thm-opt2-projection-variational-inequality)から
 
 $$
 d^{\mathsf T}(k-p)\le0
@@ -1130,7 +1130,7 @@ $$
 K=\{Ax:x\ge0\}
 $$
 
-を考えます。$b\in K$ なら 1 です。$b\notin K$ なら、有限生成凸錐の閉性と閉凸錐の分離から証明書 $y$ が得られます。
+を考えます。$b\in K$ なら 1 です。$b\notin K$ なら、[有限生成凸錐の閉性](#thm-opt2-finitely-generated-cone-closed)と[閉凸錐の分離](#thm-opt2-cone-separation)から証明書 $y$ が得られます。
 
 <!-- proof-start -->
 ### 証明：完全性
@@ -1139,7 +1139,7 @@ $$
 K=\{Ax:x\ge0\}
 $$
 
-と置きます。これは $A$ の列ベクトルが生成する有限生成凸錐なので、前節の定理により閉凸錐です。
+と置きます。これは $A$ の列ベクトルが生成する有限生成凸錐なので、[有限生成凸錐の閉性](#thm-opt2-finitely-generated-cone-closed)により閉凸錐です。
 
 $b\in K$ なら、定義からある $x\ge0$ が存在して
 
@@ -1149,7 +1149,7 @@ $$
 
 となり、1 が成立します。
 
-$b\notin K$ とします。閉凸錐の分離定理により、ある $y$ が存在して
+$b\notin K$ とします。[閉凸錐の分離](#thm-opt2-cone-separation)により、ある $y$ が存在して
 
 $$
 y^{\mathsf T}k\le0
@@ -1581,7 +1581,7 @@ $$
 ## 14. 演習 Level B
 
 <a id="ex-opt2-b01"></a>
-### OPT2-B01 射影の変分不等式から分離を再構成する
+### OPT2-B01 [射影の変分不等式](#thm-opt2-projection-variational-inequality)から分離を再構成する
 
 - Level: B
 
@@ -1609,7 +1609,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-射影の変分不等式から、任意の $x\in C$ に対し
+[射影の変分不等式](#thm-opt2-projection-variational-inequality)から、任意の $x\in C$ に対し
 
 $$
 (z-p)^{\mathsf T}(x-p)\le0.
