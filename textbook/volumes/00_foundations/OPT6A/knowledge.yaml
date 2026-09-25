@@ -35,7 +35,6 @@ concepts:
     name: 閉凸錐のnormal cone
     kind: theorem
     aliases:
-      - 閉凸錐のnormal cone
       - 閉凸錐の normal cone
     introduction: formal
     introduction_aliases: ["定理（閉凸錐の normal cone）"]
