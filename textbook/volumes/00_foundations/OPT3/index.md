@@ -51,23 +51,23 @@ $$
 > **定義（実効定義域・真関数）**  
 > 拡張実数値関数
 >
-> $$
-> f:\mathbb R^n\to(-\infty,+\infty]
-> $$
+$$
+f:\mathbb R^n\to(-\infty,+\infty]
+$$
 >
 > に対し、
 >
-> $$
-> \operatorname{dom}f
-> :=
-> \{x\in\mathbb R^n:f(x)<+\infty\}
-> $$
+$$
+\operatorname{dom}f
+:=
+\{x\in\mathbb R^n:f(x)<+\infty\}
+$$
 >
 > を $f$ の **実効定義域（effective domain）** という。さらに
 >
-> $$
-> \operatorname{dom}f\ne\varnothing
-> $$
+$$
+\operatorname{dom}f\ne\varnothing
+$$
 >
 > のとき、本章では $f$ を **真関数（proper function）** という。
 <!-- formal-statement-end -->
@@ -79,14 +79,14 @@ $$
 > **定義（標示関数）**  
 > 集合 $C\subset\mathbb R^n$ に対し
 >
-> $$
-> \delta_C(x)
-> :=
-> \begin{cases}
-> 0,&x\in C,\\
-> +\infty,&x\notin C
-> \end{cases}
-> $$
+$$
+\delta_C(x)
+:=
+\begin{cases}
+0,&x\in C,\\
++\infty,&x\notin C
+\end{cases}
+$$
 >
 > と定める。この拡張実数値関数を $C$ の **標示関数（indicator function）** という。
 <!-- formal-statement-end -->
@@ -147,11 +147,11 @@ $$
 > **定義（拡張実数値凸関数）**  
 > 真関数 $f:\mathbb R^n\to(-\infty,+\infty]$ が **凸** であるとは、任意の $x,y\in\mathbb R^n$ と $0<t<1$ に対して
 >
-> $$
-> f((1-t)x+ty)
-> \le
-> (1-t)f(x)+tf(y)
-> $$
+$$
+f((1-t)x+ty)
+\le
+(1-t)f(x)+tf(y)
+$$
 >
 > が成り立つことをいう。右辺のどちらかが $+\infty$ なら不等式は自動的に成り立つ。
 <!-- formal-statement-end -->
@@ -161,11 +161,11 @@ $$
 > **定義（エピグラフ）**  
 > 拡張実数値関数 $f$ に対し
 >
-> $$
-> \operatorname{epi}f
-> :=
-> \{(x,r)\in\mathbb R^n\times\mathbb R:f(x)\le r\}
-> $$
+$$
+\operatorname{epi}f
+:=
+\{(x,r)\in\mathbb R^n\times\mathbb R:f(x)\le r\}
+$$
 >
 > を $f$ の **エピグラフ（epigraph）** という。
 <!-- formal-statement-end -->
@@ -177,11 +177,11 @@ $$
 > **定理（エピグラフによる凸性判定）**  
 > 真関数 $f:\mathbb R^n\to(-\infty,+\infty]$ について、
 >
-> $$
-> f\text{ が凸}
-> \iff
-> \operatorname{epi}f\text{ が凸集合}
-> $$
+$$
+f\text{ が凸}
+\iff
+\operatorname{epi}f\text{ が凸集合}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -279,11 +279,11 @@ $$
 > **定義（下半連続）**  
 > 拡張実数値関数 $f$ が点 $x$ で **下半連続** であるとは、任意の点列 $x_k\to x$ に対して
 >
-> $$
-> f(x)
-> \le
-> \liminf_{k\to\infty}f(x_k)
-> $$
+$$
+f(x)
+\le
+\liminf_{k\to\infty}f(x_k)
+$$
 >
 > が成り立つことをいう。すべての $x$ で下半連続なとき、単に $f$ は下半連続であるという。
 <!-- formal-statement-end -->
@@ -293,11 +293,11 @@ $$
 > **定理（下半連続性と閉エピグラフ）**  
 > $f:\mathbb R^n\to(-\infty,+\infty]$ について、
 >
-> $$
-> f\text{ が下半連続}
-> \iff
-> \operatorname{epi}f\text{ が閉集合}
-> $$
+$$
+f\text{ が下半連続}
+\iff
+\operatorname{epi}f\text{ が閉集合}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -385,11 +385,11 @@ $$
 > **定義（劣位集合）**  
 > $\alpha\in\mathbb R$ に対し
 >
-> $$
-> L_\alpha(f)
-> :=
-> \{x\in\mathbb R^n:f(x)\le\alpha\}
-> $$
+$$
+L_\alpha(f)
+:=
+\{x\in\mathbb R^n:f(x)\le\alpha\}
+$$
 >
 > を $f$ の $\alpha$-**劣位集合（sublevel set）** という。
 <!-- formal-statement-end -->
@@ -409,11 +409,11 @@ $$
 > **定理（有限次元の直接法）**  
 > 真な下半連続関数 $f:\mathbb R^n\to(-\infty,+\infty]$ が
 >
-> $$
-> \|x\|\to\infty
-> \quad\Longrightarrow\quad
-> f(x)\to+\infty
-> $$
+$$
+\|x\|\to\infty
+\quad\Longrightarrow\quad
+f(x)\to+\infty
+$$
 >
 > を満たすとする。このとき $f$ は $\mathbb R^n$ 上で最小値を達成する。
 <!-- formal-statement-end -->
@@ -507,9 +507,9 @@ $$
 > **定義（アフィン包・相対内部）**  
 > 集合 $C\subset\mathbb R^n$ を含む最小のアフィン集合を **アフィン包** といい $\operatorname{aff}C$ と書く。$\operatorname{aff}C$ の相対位相で見た $C$ の内部を **相対内部** といい
 >
-> $$
-> \operatorname{ri}C
-> $$
+$$
+\operatorname{ri}C
+$$
 >
 > と書く。
 <!-- formal-statement-end -->
@@ -545,18 +545,18 @@ $$
 > **定義（劣勾配・劣微分）**  
 > 真な拡張実数値凸関数 $f$ と $x\in\operatorname{dom}f$ を考える。ベクトル $p\in\mathbb R^n$ が
 >
-> $$
-> f(y)
-> \ge
-> f(x)+p^{\mathsf T}(y-x)
-> \qquad(\forall y\in\mathbb R^n)
-> $$
+$$
+f(y)
+\ge
+f(x)+p^{\mathsf T}(y-x)
+\qquad(\forall y\in\mathbb R^n)
+$$
 >
 > を満たすとき、$p$ を $x$ における **劣勾配** という。劣勾配全体を
 >
-> $$
-> \partial f(x)
-> $$
+$$
+\partial f(x)
+$$
 >
 > と書き、$x$ における **劣微分** という。$x\notin\operatorname{dom}f$ では $\partial f(x)=\varnothing$ とする。
 <!-- formal-statement-end -->
@@ -589,11 +589,11 @@ $$
 > **定理（相対内部における劣勾配の存在）**  
 > $f:\mathbb R^n\to(-\infty,+\infty]$ を閉真凸関数とする。すると
 >
-> $$
-> x\in\operatorname{ri}(\operatorname{dom}f)
-> \quad\Longrightarrow\quad
-> \partial f(x)\ne\varnothing.
-> $$
+$$
+x\in\operatorname{ri}(\operatorname{dom}f)
+\quad\Longrightarrow\quad
+\partial f(x)\ne\varnothing.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -671,11 +671,11 @@ $$
 > **定理（凸関数の Fermat 条件）**  
 > 真な凸関数 $f$ と $x^\ast\in\operatorname{dom}f$ に対して
 >
-> $$
-> x^\ast\text{ が }f\text{ の大域最小点}
-> \iff
-> 0\in\partial f(x^\ast)
-> $$
+$$
+x^\ast\text{ が }f\text{ の大域最小点}
+\iff
+0\in\partial f(x^\ast)
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -814,12 +814,12 @@ $$
 > **定義（凸関数の方向微分）**  
 > 有限値凸関数 $f:\mathbb R^n\to\mathbb R$、点 $x$、方向 $d$ に対し
 >
-> $$
-> f'(x;d)
-> :=
-> \lim_{t\downarrow0}
-> \frac{f(x+td)-f(x)}{t}
-> $$
+$$
+f'(x;d)
+:=
+\lim_{t\downarrow0}
+\frac{f(x+td)-f(x)}{t}
+$$
 >
 > を $x$ における $d$ 方向の **方向微分** という。
 <!-- formal-statement-end -->
@@ -872,13 +872,13 @@ $$
 > **定理（方向微分の支持関数表示）**  
 > 有限値凸関数 $f:\mathbb R^n\to\mathbb R$ に対し、任意の $x,d$ で
 >
-> $$
-> \boxed{
-> f'(x;d)
-> =
-> \max_{p\in\partial f(x)}p^{\mathsf T}d
-> }
-> $$
+$$
+\boxed{
+f'(x;d)
+=
+\max_{p\in\partial f(x)}p^{\mathsf T}d
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -1025,13 +1025,13 @@ $$
 > **定理（有限値凸関数の劣微分和則）**  
 > 有限値凸関数 $f,g:\mathbb R^n\to\mathbb R$ に対し、任意の $x$ で
 >
-> $$
-> \boxed{
-> \partial(f+g)(x)
-> =
-> \partial f(x)+\partial g(x)
-> }
-> $$
+$$
+\boxed{
+\partial(f+g)(x)
+=
+\partial f(x)+\partial g(x)
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -1129,22 +1129,22 @@ $$
 > **定理（max 関数の劣微分公式）**  
 > 有限個の有限値凸関数 $f_1,\dots,f_m$ に対し
 >
-> $$
-> h(x)=\max_{1\le i\le m}f_i(x),
-> \qquad
-> I(x)=\{i:f_i(x)=h(x)\}
-> $$
+$$
+h(x)=\max_{1\le i\le m}f_i(x),
+\qquad
+I(x)=\{i:f_i(x)=h(x)\}
+$$
 >
 > と置く。このとき
 >
-> $$
-> \boxed{
-> \partial h(x)
-> =
-> \operatorname{conv}
-> \bigcup_{i\in I(x)}\partial f_i(x)
-> }
-> $$
+$$
+\boxed{
+\partial h(x)
+=
+\operatorname{conv}
+\bigcup_{i\in I(x)}\partial f_i(x)
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -1265,13 +1265,13 @@ $$
 > **定義（法錐）**  
 > 凸集合 $C\subset\mathbb R^n$ と $x\in C$ に対し
 >
-> $$
-> N_C(x)
-> :=
-> \{v\in\mathbb R^n:
-> v^{\mathsf T}(y-x)\le0
-> \ \forall y\in C\}
-> $$
+$$
+N_C(x)
+:=
+\{v\in\mathbb R^n:
+v^{\mathsf T}(y-x)\le0
+\ \forall y\in C\}
+$$
 >
 > を $C$ の $x$ における **法錐（normal cone）** という。$x\notin C$ では $N_C(x)=\varnothing$ とする。
 <!-- formal-statement-end -->
@@ -1281,11 +1281,11 @@ $$
 > **定理（標示関数の劣微分は法錐）**  
 > 凸集合 $C$ と $x\in C$ に対して
 >
-> $$
-> \boxed{
-> \partial\delta_C(x)=N_C(x)
-> }
-> $$
+$$
+\boxed{
+\partial\delta_C(x)=N_C(x)
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -1352,16 +1352,16 @@ $$
 > **定義（Bouligand 接錐）**  
 > 集合 $C\subset\mathbb R^n$ と $x\in C$ に対し
 >
-> $$
-> T_C(x)
-> :=
-> \left\{
-> d:
-> \exists\,t_k\downarrow0,\ 
-> \exists\,x_k\in C,\ 
-> \frac{x_k-x}{t_k}\to d
-> \right\}
-> $$
+$$
+T_C(x)
+:=
+\left\{
+d:
+\exists\,t_k\downarrow0,\ 
+\exists\,x_k\in C,\ 
+\frac{x_k-x}{t_k}\to d
+\right\}
+$$
 >
 > を $C$ の $x$ における **Bouligand 接錐（Bouligand tangent cone）** という。
 <!-- formal-statement-end -->
@@ -1371,25 +1371,25 @@ $$
 > **定義（極錐・双対錐）**  
 > 錐 $K\subset\mathbb R^n$ に対し
 >
-> $$
-> K^\circ
-> :=
-> \{v:v^{\mathsf T}k\le0\ \forall k\in K\}
-> $$
+$$
+K^\circ
+:=
+\{v:v^{\mathsf T}k\le0\ \forall k\in K\}
+$$
 >
 > を **極錐（polar cone）**、
 >
-> $$
-> K^\ast
-> :=
-> \{v:v^{\mathsf T}k\ge0\ \forall k\in K\}
-> $$
+$$
+K^\ast
+:=
+\{v:v^{\mathsf T}k\ge0\ \forall k\in K\}
+$$
 >
 > を **双対錐（dual cone）** という。本章の符号規約では
 >
-> $$
-> K^\circ=-K^\ast.
-> $$
+$$
+K^\circ=-K^\ast.
+$$
 <!-- formal-statement-end -->
 
 文献によって極錐の符号規約は異なります。「polar」という名前だけで判断せず、不等号が $\le0$ か $\ge0$ かを確認してください。
@@ -1456,21 +1456,21 @@ $$
 > **定理（凸集合の接錐表示）**  
 > $C\subset\mathbb R^n$ を凸集合、$x\in C$ とする。このとき
 >
-> $$
-> \boxed{
-> T_C(x)
-> =
-> \overline{\operatorname{cone}(C-x)}
-> }
-> $$
+$$
+\boxed{
+T_C(x)
+=
+\overline{\operatorname{cone}(C-x)}
+}
+$$
 >
 > が成り立つ。ただし
 >
-> $$
-> \operatorname{cone}(C-x)
-> =
-> \{\alpha(y-x):\alpha\ge0,\ y\in C\}.
-> $$
+$$
+\operatorname{cone}(C-x)
+=
+\{\alpha(y-x):\alpha\ge0,\ y\in C\}.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1576,11 +1576,11 @@ $$
 > **定理（閉凸錐の極双極定理）**  
 > 閉凸錐 $K\subset\mathbb R^n$ に対して
 >
-> $$
-> \boxed{
-> K^{\circ\circ}=K
-> }
-> $$
+$$
+\boxed{
+K^{\circ\circ}=K
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -1629,11 +1629,11 @@ $$
 > **定理（法錐と接錐の極双対）**  
 > 凸集合 $C\subset\mathbb R^n$ と $x\in C$ に対して
 >
-> $$
-> \boxed{
-> N_C(x)=T_C(x)^\circ
-> }
-> $$
+$$
+\boxed{
+N_C(x)=T_C(x)^\circ
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -1719,13 +1719,13 @@ $$
 > **定理（凸制約付き Fermat 条件）**  
 > $f:\mathbb R^n\to\mathbb R$ を有限値凸関数、$C\subset\mathbb R^n$ を非空凸集合、$x^\ast\in C$ とする。このとき
 >
-> $$
-> x^\ast\in\operatorname*{arg\,min}_{x\in C}f(x)
-> \iff
-> \boxed{
-> 0\in\partial f(x^\ast)+N_C(x^\ast)
-> }.
-> $$
+$$
+x^\ast\in\operatorname*{arg\,min}_{x\in C}f(x)
+\iff
+\boxed{
+0\in\partial f(x^\ast)+N_C(x^\ast)
+}.
+$$
 <!-- formal-statement-end -->
 
 閉性を仮定していない点にも注意してください。接錐表示に使うのは $\overline{\operatorname{cone}(C-x^\ast)}$ であり、有限値凸関数の連続性が極限を制御します。
@@ -1939,17 +1939,17 @@ $\square$
 > **系（微分可能な場合の制約付き最適性条件）**  
 > 上の定理で $f$ が $x^\ast$ で微分可能なら
 >
-> $$
-> \partial f(x^\ast)=\{\nabla f(x^\ast)\}
-> $$
+$$
+\partial f(x^\ast)=\{\nabla f(x^\ast)\}
+$$
 >
 > なので
 >
-> $$
-> x^\ast\in\operatorname*{arg\,min}_{x\in C}f(x)
-> \iff
-> -\nabla f(x^\ast)\in N_C(x^\ast).
-> $$
+$$
+x^\ast\in\operatorname*{arg\,min}_{x\in C}f(x)
+\iff
+-\nabla f(x^\ast)\in N_C(x^\ast).
+$$
 <!-- formal-statement-end -->
 
 ### 11.1 例：区間端点で一次条件を検算する
