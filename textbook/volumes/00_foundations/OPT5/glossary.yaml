@@ -14,10 +14,13 @@ terms:
     meaning: 任意の双対実行可能解が主問題の最適値を越えないという関係。
   - term: Slater 条件
     english: Slater condition
-    meaning: 凸不等式制約を厳密に満たし affine 等式制約も満たす点の存在を要求する制約想定。
+    meaning: 凸不等式制約を厳密に満たし、アフィン等式制約も満たす点の存在を要求する内部点条件。
+  - term: 双対ギャップ
+    english: duality gap
+    meaning: 主最適値と双対最適値の差 p*-d*。弱双対性により非負で、0なら強双対性が成立する。
   - term: 強双対性
     english: strong duality
-    meaning: 主問題と双対問題の最適値が一致する性質。本章では Slater 条件のもとで導く。
+    meaning: 主問題と双対問題の最適値が一致する性質。Slater 条件は有限値凸問題でこれと双対最適解の存在を保証する代表的な十分条件。
   - term: KKT 条件
     english: Karush--Kuhn--Tucker conditions
     meaning: 主実行可能性・双対実行可能性・停留条件・相補性を組み合わせた最適性条件。

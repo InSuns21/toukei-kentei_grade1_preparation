@@ -19,7 +19,7 @@ concepts:
     aliases: [Lagrangian]
     introduction: formal
     introduction_aliases: ["定義（Lagrangian）"]
-    requires: [convex.convex-optimization]
+    requires: []
   - id: optimization.dual-function
     name: 双対関数
     kind: definition
@@ -27,17 +27,25 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（双対関数）"]
     requires: [optimization.lagrangian]
+  - id: optimization.dual-function-concavity
+    name: 双対関数の凹性
+    kind: theorem
+    aliases: [双対関数の凹性]
+    introduction: formal
+    introduction_aliases: ["定理（双対関数の凹性）"]
+    requires: [optimization.dual-function]
+
   - id: optimization.primal-problem
     name: 主問題
     kind: definition
     aliases: [主問題]
     introduction: formal
     introduction_aliases: [主問題・Lagrange 双対問題]
-    requires: [convex.convex-optimization]
+    requires: []
   - id: optimization.dual-problem
     name: Lagrange双対問題
     kind: definition
-    aliases: [Lagrange双対問題, Lagrange 双対問題]
+    aliases: []
     introduction: formal
     introduction_aliases: [主問題・Lagrange 双対問題]
     requires: [optimization.dual-function, optimization.primal-problem]
@@ -55,29 +63,45 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（Slater 条件）"]
     requires: [convex.convex-optimization]
+  - id: optimization.duality-gap
+    name: 双対ギャップ
+    kind: definition
+    aliases: [双対ギャップ]
+    introduction: formal
+    introduction_aliases: ["定義（双対ギャップ・強双対性）"]
+    requires: [optimization.weak-duality]
   - id: optimization.strong-duality
     name: 強双対性
     kind: definition
     aliases: [強双対性]
-    requires: [optimization.weak-duality]
+    introduction: formal
+    introduction_aliases: ["定義（双対ギャップ・強双対性）"]
+    requires: [optimization.weak-duality, optimization.duality-gap]
   - id: optimization.strong-duality-slater
     name: Slater条件下の強双対性
     kind: theorem
     aliases: [Slater条件下の強双対性]
     introduction: formal
     introduction_aliases: ["定理（Slater 条件下の強双対性）"]
-    requires: [optimization.strong-duality, optimization.slater-condition, convex.separating-hyperplane]
+    requires:
+      - optimization.strong-duality
+      - optimization.slater-condition
+      - optimization.weak-duality
+      - convex.relative-interior
+      - convex.finite-convex-local-lipschitz
+      - convex.closed-cone-separation
+      - convex.subgradient
   - id: optimization.kkt-conditions
     name: KKT条件
     kind: theorem
     aliases: [KKT条件, Karush--Kuhn--Tucker条件]
     introduction: formal
     introduction_aliases: ["定理（凸問題の KKT 条件）"]
-    requires: [optimization.strong-duality-slater, optimization.lagrangian]
+    requires: [optimization.strong-duality-slater, optimization.lagrangian, optimization.weak-duality]
   - id: optimization.active-constraint
     name: 活性制約
     kind: definition
-    aliases: [活性制約, active制約]
+    aliases: [活性制約]
     introduction: formal
     introduction_aliases: ["定義（活性制約）"]
-    requires: [optimization.kkt-conditions]
+    requires: []
