@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - DOPT3
+  - LA3C
 official_scope: []
 learning_objectives:
   - 全単模行列を小行列式で定義し、1次小行列から成分が0,±1に限られることを説明できる
