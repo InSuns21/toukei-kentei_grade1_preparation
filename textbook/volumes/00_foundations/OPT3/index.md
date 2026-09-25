@@ -353,7 +353,7 @@ $$
 (x,\alpha).
 $$
 
-各点はエピグラフに属し、エピグラフは閉なので $(x,\alpha)\in\operatorname{epi}f$。したがって
+各点はエピグラフに属し、[閉集合の点列特徴付け](../F0_00B_距離空間_開集合_閉集合_収束/index.md#thm-f0-00b-01)より、エピグラフは閉なので $(x,\alpha)\in\operatorname{epi}f$。したがって
 
 $$
 f(x)\le\alpha.
