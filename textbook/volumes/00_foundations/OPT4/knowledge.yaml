@@ -4,6 +4,12 @@ coverage: complete
 prerequisites:
   - OPT3
 
+forward_references:
+  - optimization.lagrangian
+  - optimization.primal-problem
+  - optimization.strong-duality
+  - optimization.cone-constraint
+
 concepts:
   - id: convex.fenchel-conjugate
     name: Fenchel共役
