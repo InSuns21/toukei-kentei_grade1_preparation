@@ -34,8 +34,7 @@ concepts:
   - id: optimization.cone-normal-formula
     name: 閉凸錐のnormal cone
     kind: theorem
-    aliases:
-      - 閉凸錐の normal cone
+    aliases: []
     introduction: formal
     introduction_aliases: ["定理（閉凸錐の normal cone）"]
     requires:
