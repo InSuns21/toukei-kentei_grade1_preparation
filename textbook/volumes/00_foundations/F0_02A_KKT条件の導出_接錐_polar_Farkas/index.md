@@ -2,6 +2,8 @@
 
 > **アーカイブ**：この内容の canonical owner は [canonical 章 OPT6](../OPT6/index.md) です。本ページは過去URLと stable anchor の後方互換性のため保持しています。
 
+<!-- definition-example-audit: loose -->
+
 この補講では、KKT条件を「4条件を覚える」形ではなく、**局所最適解では実行可能な一次方向へ目的関数を下げられない**という事実から導きます。
 
 [F0-02 制約付き最適化・双対問題・KKT条件](../F0_02_制約付き最適化_双対_KKT/index.md) では、Lagrangian・双対問題・KKT条件の意味とSVMへの適用を扱いました。このページでは、その一段奥にある
