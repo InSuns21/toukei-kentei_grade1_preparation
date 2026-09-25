@@ -1119,28 +1119,36 @@ OPT、DOPT、MICRO、GAME-B、GAME-D が合流する総合章とする。
 
 ---
 
-# 14. 既存ページの migration 方針
+# 14. 既存ページの migration / archive 方針
 
-| 現行資産 | 新 canonical owner 候補 |
-|---|---|
-| `F0-00G` | OPT1 |
-| `F0-00G1` | OPT2 / OPT3 |
-| `F0-02B` | OPT2 |
-| `F0-02C4*` | OPT3 |
-| `F0-00G2` | OPT4 |
-| `F0-02` | OPT5 |
-| `F0-02A` | OPT6 |
-| `F0-02C5A` | OPT6 |
-| `F0-02C5` | OPT6A |
-| `F0-02C7` | RKHS1 |
-| `F0-02C7A` | RKHS2 / RKHS4 / RKHS5 |
-| `F0-02B1` | RKHS4 |
-| `NA12` | 保持し、OPT7 の数値解析側 dependency とする |
-| `E1-04` / `E1-04A` | 保持し、統計検定向け短縮版とする |
+| 現行資産 | 新 canonical owner 候補 | archive の時点 |
+|---|---|---|
+| F0-00G | OPT1 | OPT1 への移管完了時 |
+| F0-00G1 | OPT2 / OPT3 | OPT3 までの移管完了時 |
+| F0-02B | OPT2 | OPT2 への移管完了時 |
+| F0-02C4* | OPT3 | OPT3 への移管完了時 |
+| F0-00G2 | OPT4 | OPT4 への移管完了時 |
+| F0-02 | OPT5 | OPT5 への移管完了時 |
+| F0-02A | OPT6 | OPT6 への移管完了時 |
+| F0-02C5A | OPT6 | OPT6 への移管完了時 |
+| F0-02C5 | OPT6A | OPT6A への移管完了時 |
+| F0-02C7 | RKHS1 | RKHS1 への移管完了時 |
+| F0-02C7A | RKHS2 / RKHS4 / RKHS5 | RKHS5 までの移管完了時 |
+| F0-02B1 | RKHS4 | RKHS4 への移管完了時 |
+| NA12 | 保持し、OPT7 の数値解析側 dependency とする | archive しない |
+| E1-04 / E1-04A | 保持し、統計検定向け短縮版とする | archive しない |
 
-新系列が完成する前に旧 F0 ページを削除しない。
+移管済みの旧 F0 ページは **in-place archive** とする。すなわち、stable anchor と過去リンクの後方互換性のため実ファイルは残すが、次を徹底する。
 
-移管時には、次を確認してから旧ページを archive / migration source に切り替える。
+1. dream-theater-index.json から外し、読者向けサイドバー・標準通読・ロードマップへ掲載しない。
+2. canonical concept / theorem owner を新系列へ移し、archive ページを新規章の prerequisite にしない。
+3. archive ページ冒頭に canonical owner への案内を置く。
+4. 既存 incoming link は可能な範囲で新しい stable anchor へ張り替える。ただし過去URL自体は壊さない。
+5. archive ページの knowledge.yaml は semantic owner として扱わず、現行 DREAM THEATER index の監査対象から外す。
+
+一つの旧ページが複数の新章へまたがる場合は、**最後の担当章まで内容を移管してから archive** する。たとえば F0-00G1 は支持超平面部分を OPT2 へ移しただけでは全体 archive にせず、epigraph・閉凸関数・劣勾配側を OPT3 へ移してから一覧から外す。
+
+移管時には、次を確認してから archive へ切り替える。
 
 1. concept owner
 2. theorem / formal statement owner
@@ -1170,8 +1178,9 @@ alias は真の同義語だけを移し、関連語を後方互換性の名目�
 OPT1 → OPT2 → OPT3 → OPT4 → OPT5 → OPT6
 ```
 
-- [x] OPT1「凸集合・凸関数・凸最適化」を実装。F0-00G を migration source として再利用し、凸錐・準凸/準凹・非凸失敗例・A4/B3/C1 演習を補完した。
-- 次の実装対象：**OPT2「射影・支持超平面・分離・Farkas」**
+- [x] OPT1「凸集合・凸関数・凸最適化」を実装。旧 F0-00G の基礎定義・主要定理を OPT1 へ統合して自立化し、F0-00G は in-place archive として読者向け一覧から除外した。
+- [x] OPT2「射影・支持超平面・分離・Farkas」を実装。射影定理・変分不等式・支持/分離・有限生成凸錐の閉性・Farkas を一つの流れで閉じ、旧 F0-02B は in-place archive として読者向け一覧から除外した。
+- 次の実装対象：**OPT3「閉凸関数・劣勾配・法錐」**
 
 既存資産の再編を中心とし、不足している証明・具体例・反例・演習を補う。
 
