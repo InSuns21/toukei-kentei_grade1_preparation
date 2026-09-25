@@ -6,7 +6,10 @@ prerequisites:
   - OPT6A
   - OPT11
 
-forward_references: []
+forward_references:
+  - svm.maximum-margin-convex-hull
+  - svm.support-vector
+  - rkhs.rkhs
 
 concepts:
   - id: optimization.quadratic-program
