@@ -140,9 +140,18 @@ concepts:
       - optimization.assignment-lp-relaxation
       - optimization.tu-equality-box-integrality
 
+  - id: optimization.permutation-matrix
+    name: 置換行列
+    kind: definition
+    aliases:
+      - permutation matrix
+    introduction: formal
+    introduction_aliases: ["定義（置換行列）"]
+    requires: []
+
   - id: optimization.birkhoff-von-neumann-theorem
     name: Birkhoff--von Neumann の定理
-    kind: theorem
+    kind: corollary
     aliases:
       - Birkhoff-von Neumann theorem
     introduction: formal
@@ -150,7 +159,18 @@ concepts:
     requires:
       - optimization.assignment-lp-integrality
       - optimization.doubly-stochastic-matrix
+      - optimization.permutation-matrix
       - optimization.polytope-integrality-vertex-equivalence
+
+  - id: optimization.reduced-node-arc-incidence-matrix
+    name: 縮約点弧接続行列
+    kind: definition
+    aliases:
+      - reduced node-arc incidence matrix
+    introduction: formal
+    introduction_aliases: ["定義（ネットワーク行列）"]
+    requires:
+      - optimization.reduced-node-arc-incidence-matrix
 
   - id: optimization.network-matrix
     name: ネットワーク行列
