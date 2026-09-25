@@ -39,16 +39,16 @@ $$
 
 <a id="def-opt7-lipschitz-gradient"></a>
 <!-- formal-statement-start -->
-### 定義（Lipschitz 連続勾配）
-微分可能な関数 $f:\mathbb R^n\to\mathbb R$ と定数 $L>0$ を考える。任意の $x,y\in\mathbb R^n$ に対して
-
+> **定義（Lipschitz 連続勾配）**  
+> 微分可能な関数 $f:\mathbb R^n\to\mathbb R$ と定数 $L>0$ を考える。任意の $x,y\in\mathbb R^n$ に対して
+>
 $$
 \|\nabla f(x)-\nabla f(y)\|
 \le
 L\|x-y\|
 $$
-
-が成り立つとき、$\nabla f$ は **$L$-Lipschitz 連続**である、または $f$ は **$L$-滑らか**であるという。
+>
+> が成り立つとき、$\nabla f$ は **$L$-Lipschitz 連続**である、または $f$ は **$L$-滑らか**であるという。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-opt7-lipschitz-gradient -->
@@ -97,9 +97,9 @@ $L$ は「勾配がどれだけ急に変わり得るか」を表します。凸�
 
 <a id="thm-opt7-descent-lemma"></a>
 <!-- formal-statement-start -->
-### 定理（降下補題）
-$f:\mathbb R^n\to\mathbb R$ が微分可能で、$\nabla f$ が $L$-Lipschitz 連続であるとする。このとき任意の $x,y\in\mathbb R^n$ に対して
-
+> **定理（降下補題）**  
+> $f:\mathbb R^n\to\mathbb R$ が微分可能で、$\nabla f$ が $L$-Lipschitz 連続であるとする。このとき任意の $x,y\in\mathbb R^n$ に対して
+>
 $$
 \boxed{
 f(y)
@@ -111,8 +111,8 @@ f(x)
 \frac L2\|y-x\|^2
 }
 $$
-
-が成り立つ。
+>
+> が成り立つ。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -201,9 +201,9 @@ $\square$
 
 <a id="def-opt7-fixed-step-gradient"></a>
 <!-- formal-statement-start -->
-### 定義（固定歩幅最急降下法）
-微分可能な $f:\mathbb R^n\to\mathbb R$、初期点 $x_0\in\mathbb R^n$、歩幅 $\alpha>0$ に対し
-
+> **定義（固定歩幅最急降下法）**  
+> 微分可能な $f:\mathbb R^n\to\mathbb R$、初期点 $x_0\in\mathbb R^n$、歩幅 $\alpha>0$ に対し
+>
 $$
 \boxed{
 x_{k+1}
@@ -212,8 +212,8 @@ x_k-\alpha\nabla f(x_k)
 }
 \qquad(k=0,1,2,\ldots)
 $$
-
-と定める反復を **固定歩幅最急降下法**という。
+>
+> と定める反復を **固定歩幅最急降下法**という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-opt7-fixed-step-gradient -->
@@ -241,9 +241,9 @@ $$
 
 <a id="thm-opt7-fixed-step-decrease"></a>
 <!-- formal-statement-start -->
-### 定理（固定歩幅の降下評価）
-$f$ が $L$-滑らかで、固定歩幅最急降下法を用いるとする。$0<\alpha<2/L$ なら
-
+> **定理（固定歩幅の降下評価）**  
+> $f$ が $L$-滑らかで、固定歩幅最急降下法を用いるとする。$0<\alpha<2/L$ なら
+>
 $$
 \boxed{
 f(x_{k+1})
@@ -257,9 +257,9 @@ f(x_k)
 \|\nabla f(x_k)\|^2
 }
 $$
-
-が成り立つ。特に $\alpha=1/L$ なら
-
+>
+> が成り立つ。特に $\alpha=1/L$ なら
+>
 $$
 \boxed{
 f(x_{k+1})
@@ -352,17 +352,17 @@ $$
 
 <a id="thm-opt7-gradient-convex-rate"></a>
 <!-- formal-statement-start -->
-### 定理（滑らかな凸関数に対する最急降下法の劣線形収束）
-$f:\mathbb R^n\to\mathbb R$ を凸かつ $L$-滑らかとし、最小点 $x^*$ が存在するとする。固定歩幅
-
+> **定理（滑らかな凸関数に対する最急降下法の劣線形収束）**  
+> $f:\mathbb R^n\to\mathbb R$ を凸かつ $L$-滑らかとし、最小点 $x^*$ が存在するとする。固定歩幅
+>
 $$
 x_{k+1}
 =
 x_k-\frac1L\nabla f(x_k)
 $$
-
-を用いると、任意の $k\ge1$ に対して
-
+>
+> を用いると、任意の $k\ge1$ に対して
+>
 $$
 \boxed{
 f(x_k)-f(x^*)
@@ -485,9 +485,9 @@ $\square$
 
 <a id="def-opt7-strong-convexity"></a>
 <!-- formal-statement-start -->
-### 定義（強凸性）
-微分可能な関数 $f:\mathbb R^n\to\mathbb R$ と定数 $\mu>0$ を考える。任意の $x,y\in\mathbb R^n$ に対して
-
+> **定義（強凸性）**  
+> 微分可能な関数 $f:\mathbb R^n\to\mathbb R$ と定数 $\mu>0$ を考える。任意の $x,y\in\mathbb R^n$ に対して
+>
 $$
 \boxed{
 f(y)
@@ -499,8 +499,8 @@ f(x)
 \frac{\mu}{2}\|y-x\|^2
 }
 $$
-
-が成り立つとき、$f$ は **$\mu$-強凸**であるという。
+>
+> が成り立つとき、$f$ は **$\mu$-強凸**であるという。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-opt7-strong-convexity -->
@@ -537,8 +537,8 @@ $$
 
 <a id="thm-opt7-strong-convex-unique"></a>
 <!-- formal-statement-start -->
-### 定理（強凸関数の最小点の一意性）
-$f:\mathbb R^n\to\mathbb R$ が微分可能かつ $\mu$-強凸で、最小点が存在するとする。この最小点は一意である。
+> **定理（強凸関数の最小点の一意性）**  
+> $f:\mathbb R^n\to\mathbb R$ が微分可能かつ $\mu$-強凸で、最小点が存在するとする。この最小点は一意である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -597,9 +597,9 @@ $$
 
 <a id="thm-opt7-strong-convex-gradient-bound"></a>
 <!-- formal-statement-start -->
-### 定理（強凸性による勾配下界）
-$f:\mathbb R^n\to\mathbb R$ が微分可能かつ $\mu$-強凸で、最小点 $x^*$ が存在するとする。このとき任意の $x$ に対して
-
+> **定理（強凸性による勾配下界）**  
+> $f:\mathbb R^n\to\mathbb R$ が微分可能かつ $\mu$-強凸で、最小点 $x^*$ が存在するとする。このとき任意の $x$ に対して
+>
 $$
 \boxed{
 \|\nabla f(x)\|^2
@@ -671,17 +671,17 @@ $\square$
 
 <a id="thm-opt7-gradient-linear-rate"></a>
 <!-- formal-statement-start -->
-### 定理（滑らかな強凸関数に対する線形収束）
-$f:\mathbb R^n\to\mathbb R$ が $L$-滑らかかつ $\mu$-強凸で、最小点 $x^*$ が存在するとする。固定歩幅
-
+> **定理（滑らかな強凸関数に対する線形収束）**  
+> $f:\mathbb R^n\to\mathbb R$ が $L$-滑らかかつ $\mu$-強凸で、最小点 $x^*$ が存在するとする。固定歩幅
+>
 $$
 x_{k+1}
 =
 x_k-\frac1L\nabla f(x_k)
 $$
-
-を用いると
-
+>
+> を用いると
+>
 $$
 \boxed{
 f(x_k)-f(x^*)
@@ -753,16 +753,16 @@ $\square$
 
 <a id="def-opt7-smooth-strong-condition-number"></a>
 <!-- formal-statement-start -->
-### 定義（滑らかな強凸最適化の条件数）
-$f$ が $L$-滑らかかつ $\mu$-強凸であるとき
-
+> **定義（滑らかな強凸最適化の条件数）**  
+> $f$ が $L$-滑らかかつ $\mu$-強凸であるとき
+>
 $$
 \boxed{
 \kappa_f=\frac{L}{\mu}
 }
 $$
-
-を、この滑らかな強凸最適化問題の **条件数**という。
+>
+> を、この滑らかな強凸最適化問題の **条件数**という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-opt7-smooth-strong-condition-number -->
@@ -841,9 +841,9 @@ $$
 
 <a id="def-opt7-armijo-backtracking"></a>
 <!-- formal-statement-start -->
-### 定義（Armijo 条件と後退直線探索）
-点 $x$ で $g=\nabla f(x)\ne0$ とする。定数
-
+> **定義（Armijo 条件と後退直線探索）**  
+> 点 $x$ で $g=\nabla f(x)\ne0$ とする。定数
+>
 $$
 0<c<1,
 \qquad
@@ -851,9 +851,9 @@ $$
 \qquad
 \bar\alpha>0
 $$
-
-を固定する。$\alpha=\bar\alpha,\bar\alpha\beta,\bar\alpha\beta^2,\ldots$ の順に試し、
-
+>
+> を固定する。$\alpha=\bar\alpha,\bar\alpha\beta,\bar\alpha\beta^2,\ldots$ の順に試し、
+>
 $$
 \boxed{
 f(x-\alpha g)
@@ -861,8 +861,8 @@ f(x-\alpha g)
 f(x)-c\alpha\|g\|^2
 }
 $$
-
-を初めて満たした $\alpha$ を採用する。この条件を **Armijo 条件**、この手順を **後退直線探索**という。
+>
+> を初めて満たした $\alpha$ を採用する。この条件を **Armijo 条件**、この手順を **後退直線探索**という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-opt7-armijo-backtracking -->
@@ -894,9 +894,9 @@ $$
 
 <a id="thm-opt7-armijo-finite"></a>
 <!-- formal-statement-start -->
-### 定理（滑らかさによる後退直線探索の有限停止）
-$f$ が $L$-滑らかで、点 $x$ で $g=\nabla f(x)\ne0$ とする。Armijo 条件付き後退直線探索は有限回で停止する。さらに受理歩幅 $\alpha$ は
-
+> **定理（滑らかさによる後退直線探索の有限停止）**  
+> $f$ が $L$-滑らかで、点 $x$ で $g=\nabla f(x)\ne0$ とする。Armijo 条件付き後退直線探索は有限回で停止する。さらに受理歩幅 $\alpha$ は
+>
 $$
 \boxed{
 \alpha
@@ -907,8 +907,8 @@ $$
 \right\}
 }
 $$
-
-を満たす。
+>
+> を満たす。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -985,36 +985,36 @@ $$
 
 <a id="thm-opt7-newton-local-quadratic"></a>
 <!-- formal-statement-start -->
-### 定理（最適化 Newton 法の局所二次収束）
-$f:\mathbb R^n\to\mathbb R$ を $C^2$ 級とし、$\nabla f(x^*)=0$ とする。ある $r>0$, $m>0$, $M>0$ が存在し、閉球
-
+> **定理（最適化 Newton 反復の局所二次収束）**  
+> $f:\mathbb R^n\to\mathbb R$ を $C^2$ 級とし、$\nabla f(x^*)=0$ とする。ある $r>0$, $m>0$, $M>0$ が存在し、閉球
+>
 $$
 B=\{x:\|x-x^*\|\le r\}
 $$
-
-上で
-
+>
+> 上で
+>
 $$
 \nabla^2 f(x)\succeq mI
 $$
-
-および
-
+>
+> および
+>
 $$
 \|\nabla^2 f(x)-\nabla^2 f(y)\|
 \le
 M\|x-y\|
 \qquad(x,y\in B)
 $$
-
-が成り立つとする。さらに
-
+>
+> が成り立つとする。さらに
+>
 $$
 \frac{Mr}{2m}\le1
 $$
-
-と仮定する。このとき $x_0\in B$ から始めた Newton 法は球 $B$ 内で定義され続け、
-
+>
+> と仮定する。このとき $x_0\in B$ から始めた Newton 法は球 $B$ 内で定義され続け、
+>
 $$
 \boxed{
 \|x_{k+1}-x^*\|
@@ -1023,8 +1023,8 @@ $$
 \|x_k-x^*\|^2
 }
 $$
-
-を満たす。
+>
+> を満たす。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1181,7 +1181,7 @@ $$
 
 ### 10.3 Newton 法は曲率行列を反転するだけでは大域法にならない
 
-Hessian が特異なら Newton step 自体が定義できず、不定値なら降下方向とは限りません。OPT7 の最適化 Newton 法の局所二次収束は、正定値性と Hessian の Lipschitz 連続性が保証される近傍へ入ってからの定理です。
+Hessian が特異なら Newton step 自体が定義できず、不定値なら降下方向とは限りません。OPT7 の最適化 Newton 反復の局所二次収束は、正定値性と Hessian の Lipschitz 連続性が保証される近傍へ入ってからの定理です。
 
 ---
 
@@ -2145,7 +2145,7 @@ $$
   と線形収束する。
 - 条件数 $\kappa_f=L/\mu$ は、正定値二次関数では行列条件数と一致する。
 - $L$ が未知でも Armijo 条件付き後退直線探索は、$L$-滑らかさのもとで有限回で安全な歩幅へ入る。
-- 最適化 Newton 法の局所二次収束は「Hessian が一様に可逆」かつ「Hessian が Lipschitz 連続」という二つの仮定から出る。
+- 最適化 Newton 反復の局所二次収束は「Hessian が一様に可逆」かつ「Hessian が Lipschitz 連続」という二つの仮定から出る。
 - NA12 の二次関数・厳密直線探索・共役勾配法を再講義せず、その一般凸最適化側の意味を接続した。
 
 次の OPT8 では、滑らかさを失った目的関数の最適化へ進みます。
