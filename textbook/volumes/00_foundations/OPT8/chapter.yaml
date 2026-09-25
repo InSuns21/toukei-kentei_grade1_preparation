@@ -1,0 +1,55 @@
+id: "OPT8"
+title: "非滑らか・近接最適化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OPT2
+  - OPT3
+  - OPT7
+official_scope: []
+learning_objectives:
+  - 劣勾配法の距離評価を導き、有界劣勾配のもとで最良反復値のO(1/sqrt(k))評価を再構成できる
+  - 射影勾配法を閉凸集合への射影と制約付きFermat条件の両方から説明できる
+  - 閉真凸関数の近接作用素を定義し、存在一意性と劣微分による最適性条件を示せる
+  - 標示関数の近接作用素が最近点射影になることを導ける
+  - 近接作用素の堅非拡大性を劣微分の単調性から証明できる
+  - Moreau包絡の勾配公式を導き、絶対値関数でHuber型平滑化を計算できる
+  - ℓ¹ノルムの近接作用素がソフト閾値処理になることを座標ごとに導ける
+  - 合成目的関数f+gに対する近接勾配法の一段評価とO(1/k)収束を証明できる
+  - 正則化付き最小二乗にISTAを適用し、Lipschitz定数と閾値を具体的に計算できる
+definitions:
+  - { id: OPT8-DEF-01, name: 劣勾配法 }
+  - { id: OPT8-DEF-02, name: 射影勾配法 }
+  - { id: OPT8-DEF-03, name: 近接作用素 }
+  - { id: OPT8-DEF-04, name: Moreau 包絡 }
+  - { id: OPT8-DEF-05, name: ソフト閾値処理 }
+  - { id: OPT8-DEF-06, name: 近接勾配法 }
+  - { id: OPT8-DEF-07, name: ISTA }
+theorems:
+  - { id: OPT8-THM-01, name: 劣勾配法の基本距離評価 }
+  - { id: OPT8-THM-02, name: 劣勾配法の最良反復値評価 }
+  - { id: OPT8-THM-03, name: 近接作用素の存在一意性と最適性条件 }
+  - { id: OPT8-THM-04, name: 近接作用素の堅非拡大性 }
+  - { id: OPT8-THM-05, name: Moreau包絡の勾配公式 }
+  - { id: OPT8-THM-06, name: ℓ¹ノルムの近接作用素とソフト閾値処理 }
+  - { id: OPT8-THM-07, name: 近接勾配法の一段評価 }
+  - { id: OPT8-THM-08, name: 近接勾配法の劣線形収束 }
+canonical_examples:
+  - 絶対値関数に対する劣勾配法
+  - 半直線への射影勾配法
+  - 二次関数の近接作用素
+  - 絶対値関数のMoreau包絡
+  - ℓ¹ノルムのソフト閾値処理
+  - l1正則化付き最小二乗に対するISTA
+problem_patterns:
+  - OPT8-SUBGRADIENT-RATE-1
+  - OPT8-PROJECTION-1
+  - OPT8-PROXIMAL-OPTIMALITY-1
+  - OPT8-MOREAU-1
+  - OPT8-SOFT-THRESHOLD-1
+  - OPT8-PROX-GRADIENT-RATE-1
+  - OPT8-ISTA-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 4.0, review: 0.75 }
