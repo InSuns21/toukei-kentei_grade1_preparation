@@ -1,0 +1,219 @@
+chapter: DOPT2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - DOPT1
+
+forward_references: []
+
+concepts:
+  - id: optimization.capacity-directed-network
+    name: 容量付き有向ネットワーク
+    kind: definition
+    aliases:
+      - capacitated directed network
+      - capacitated network
+    introduction: formal
+    introduction_aliases: ["定義（容量付き有向ネットワーク）"]
+    requires: []
+
+  - id: optimization.st-flow
+    name: s--t フロー
+    kind: definition
+    aliases:
+      - s-t flow
+    introduction: formal
+    introduction_aliases: ["定義（s--t フローとフロー値）"]
+    requires:
+      - optimization.capacity-directed-network
+
+  - id: optimization.flow-value
+    name: フロー値
+    kind: definition
+    aliases:
+      - value of a flow
+      - flow value
+    introduction: formal
+    introduction_aliases: ["定義（s--t フローとフロー値）"]
+    requires:
+      - optimization.st-flow
+
+  - id: optimization.maximum-flow-problem
+    name: 最大フロー問題
+    kind: definition
+    aliases:
+      - maximum flow problem
+    introduction: formal
+    introduction_aliases: ["定義（s--t フローとフロー値）"]
+    requires:
+      - optimization.flow-value
+
+  - id: optimization.maximum-flow
+    name: 最大フロー
+    kind: definition
+    aliases:
+      - maximum flow
+    introduction: formal
+    introduction_aliases: ["定義（s--t フローとフロー値）"]
+    requires:
+      - optimization.maximum-flow-problem
+
+  - id: optimization.st-cut
+    name: s--t カット
+    kind: definition
+    aliases:
+      - s-t cut
+    introduction: formal
+    introduction_aliases: ["定義（s--t カットとカット容量）"]
+    requires:
+      - optimization.capacity-directed-network
+
+  - id: optimization.cut-capacity
+    name: カット容量
+    kind: definition
+    aliases:
+      - cut capacity
+      - capacity of a cut
+    introduction: formal
+    introduction_aliases: ["定義（s--t カットとカット容量）"]
+    requires:
+      - optimization.st-cut
+
+  - id: optimization.cut-flow-balance-identity
+    name: カット境界上のフロー恒等式
+    kind: proposition
+    aliases:
+      - cut flow identity
+    introduction: formal
+    introduction_aliases: ["命題（カット境界上のフロー恒等式）"]
+    requires:
+      - optimization.flow-value
+      - optimization.st-cut
+
+  - id: optimization.flow-cut-inequality
+    name: フロー・カット不等式
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（フロー・カット不等式）"]
+    requires:
+      - optimization.cut-flow-balance-identity
+      - optimization.cut-capacity
+
+  - id: optimization.residual-network
+    name: 残余ネットワーク
+    kind: definition
+    aliases:
+      - residual network
+      - residual graph
+    introduction: formal
+    introduction_aliases: ["定義（残余ネットワーク）"]
+    requires:
+      - optimization.st-flow
+
+  - id: optimization.augmenting-path
+    name: 増加路
+    kind: definition
+    aliases:
+      - augmenting path
+    introduction: formal
+    introduction_aliases: ["定義（増加路）"]
+    requires:
+      - optimization.residual-network
+
+  - id: optimization.augmenting-path-update-feasibility
+    name: 増加路に沿う更新の実行可能性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（増加路に沿う更新は実行可能性を保つ）"]
+    requires:
+      - optimization.augmenting-path
+
+  - id: optimization.max-flow-min-cut-theorem
+    name: 最大流最小カット定理
+    kind: theorem
+    aliases:
+      - max-flow min-cut theorem
+      - max flow min cut theorem
+    introduction: formal
+    introduction_aliases: ["定理（最大流最小カット定理）"]
+    requires:
+      - optimization.flow-cut-inequality
+      - optimization.augmenting-path-update-feasibility
+
+  - id: optimization.integral-max-flow-theorem
+    name: 整数容量に対する整数最大フロー
+    kind: theorem
+    aliases:
+      - integral max-flow theorem
+      - integrality theorem for maximum flow
+    introduction: formal
+    introduction_aliases: ["定理（整数容量なら整数最大フローを選べる）"]
+    requires:
+      - optimization.max-flow-min-cut-theorem
+
+  - id: optimization.minimum-cost-flow
+    name: 最小費用流
+    kind: definition
+    aliases:
+      - minimum-cost flow
+      - minimum cost flow
+      - min-cost flow
+    introduction: formal
+    introduction_aliases: ["定義（最小費用流）"]
+    requires:
+      - optimization.capacity-directed-network
+
+  - id: optimization.residual-cost
+    name: 残余費用
+    kind: definition
+    aliases:
+      - residual cost
+      - residual arc cost
+    introduction: formal
+    introduction_aliases: ["定義（最小費用流の残余費用）"]
+    requires:
+      - optimization.minimum-cost-flow
+      - optimization.residual-network
+
+  - id: optimization.nonnegative-circulation
+    name: 非負循環
+    kind: definition
+    aliases:
+      - nonnegative circulation
+    introduction: formal
+    introduction_aliases: ["定義（非負循環）"]
+    requires:
+      - optimization.capacity-directed-network
+
+  - id: optimization.nonnegative-circulation-cycle-decomposition
+    name: 非負循環の閉路分解
+    kind: lemma
+    aliases:
+      - cycle decomposition of a circulation
+      - circulation decomposition
+    introduction: formal
+    introduction_aliases: ["補題（非負循環は有向閉路へ分解できる）"]
+    requires:
+      - optimization.nonnegative-circulation
+
+  - id: optimization.negative-residual-cycle-improvement
+    name: 負費用残余閉路による改善
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（負費用残余閉路は費用を改善する）"]
+    requires:
+      - optimization.residual-cost
+
+  - id: optimization.min-cost-flow-negative-cycle-optimality
+    name: 最小費用流の負閉路最適性条件
+    kind: theorem
+    aliases:
+      - negative-cycle optimality condition for minimum-cost flow
+    introduction: formal
+    introduction_aliases: ["定理（最小費用流の負閉路最適性条件）"]
+    requires:
+      - optimization.nonnegative-circulation-cycle-decomposition
+      - optimization.negative-residual-cycle-improvement
