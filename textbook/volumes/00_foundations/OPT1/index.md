@@ -1,4 +1,4 @@
-# OPT1 凸最適化の基礎
+# OPT1 凸集合・凸関数・凸最適化
 
 <!-- definition-example-audit: strict -->
 
@@ -99,20 +99,92 @@ $$
 <a id="def-opt1-convex-hull"></a>
 <!-- formal-statement-start -->
 > **定義（凸包）**  
-> 集合 $S$ を含む凸集合のうち包含関係で最小のものを $S$ の **凸包** といい、$\operatorname{conv}(S)$ と書く。
+> 集合 $S\subset\mathbb R^n$ を含む凸集合のうち包含関係で最小のものを $S$ の **凸包** といい、$\operatorname{conv}(S)$ と書く。
 <!-- formal-statement-end -->
 
-有限集合 $S=\{x_1,\dots,x_m\}$ では
+<a id="prop-opt1-finite-convex-hull"></a>
+<!-- formal-statement-start -->
+> **命題（有限集合の凸包）**  
+> $S=\{x_1,\dots,x_m\}\subset\mathbb R^n$ とする。このとき
+>
+> $$
+> \operatorname{conv}(S)
+> =
+> \left\{
+> \sum_{i=1}^m\theta_i x_i:
+> \theta_i\ge0,\quad
+> \sum_{i=1}^m\theta_i=1
+> \right\}.
+> $$
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+右辺を $D$ と置きます。$D$ 自身が凸で $S$ を含むことを示せば、凸包の最小性から $\operatorname{conv}(S)\subseteq D$。逆向きは、$S$ を含む任意の凸集合が有限凸結合をすべて含むことから従います。
+
+<!-- proof-start -->
+### 証明
+
+右辺の集合を $D$ とします。まず $x_j$ は係数 $\theta_j=1$、他を0とすれば $D$ に入るので
 
 $$
-\operatorname{conv}(S)
-=
-\left\{
-\sum_{i=1}^m\theta_i x_i:
-\theta_i\ge0,\quad
-\sum_{i=1}^m\theta_i=1
-\right\}.
+S\subseteq D.
 $$
+
+次に
+
+$$
+u=\sum_i\alpha_i x_i,\qquad
+v=\sum_i\beta_i x_i
+$$
+
+を $D$ の二点、$0\le t\le1$ とします。このとき
+
+$$
+(1-t)u+tv
+=
+\sum_i\bigl((1-t)\alpha_i+t\beta_i\bigr)x_i.
+$$
+
+各係数は非負で、その総和は
+
+$$
+(1-t)\sum_i\alpha_i+t\sum_i\beta_i
+=
+1.
+$$
+
+従って $(1-t)u+tv\in D$ であり、$D$ は凸です。よって $S$ を含む最小の凸集合である $\operatorname{conv}(S)$ について
+
+$$
+\operatorname{conv}(S)\subseteq D.
+$$
+
+逆に、$C$ を $S$ を含む任意の凸集合とします。$C$ が有限凸結合に閉じていることを、項数について帰納法で確認します。1項ならその点は $C$ に属します。$m$ 項の場合、$\theta_m=1$ なら凸結合は $x_m\in C$ です。$\theta_m<1$ なら
+
+$$
+y=
+\sum_{i=1}^{m-1}
+\frac{\theta_i}{1-\theta_m}x_i
+$$
+
+と置きます。係数は非負で総和1なので、帰納法の仮定から $y\in C$ です。従って
+
+$$
+\sum_{i=1}^m\theta_i x_i
+=
+(1-\theta_m)y+\theta_m x_m
+\in C.
+$$
+
+よって $D\subseteq C$。これは $S$ を含むすべての凸集合で成り立つため
+
+$$
+D\subseteq\operatorname{conv}(S).
+$$
+
+以上から $D=\operatorname{conv}(S)$ です。$\square$
+<!-- proof-end -->
 
 <!-- definition-example-start: def-opt1-convex-hull -->
 **定義の確認**：二点の凸包
@@ -167,6 +239,22 @@ $$
 
 > が成り立つことと同値である。
 <!-- formal-statement-end -->
+
+この同値性も確認しておきます。$K$ が錐かつ凸なら、$\alpha+\beta>0$ のとき
+
+$$
+\alpha x+\beta y
+=
+(\alpha+\beta)
+\left(
+\frac{\alpha}{\alpha+\beta}x
++
+\frac{\beta}{\alpha+\beta}y
+\right)
+\in K.
+$$
+
+$\alpha=\beta=0$ のときは、錐の定義で $0\in K$ なので同じ結論です。逆に、すべての $\alpha,\beta\ge0$ について $\alpha x+\beta y\in K$ なら、$\beta=0$ として非負倍への閉性が得られ、$\alpha=1-t$, $\beta=t$ として凸性が得られます。
 
 凸集合では係数の総和を1に固定しますが、凸錐では非負係数の大きさに制限がありません。
 
@@ -291,13 +379,25 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $f$ が凸であるとします。$x\in U$、$v\in\mathbb R^d$ を固定し、$x+tv\in U$ となる区間で
+まず $f$ が凸であるとします。$x\in U$、$v\in\mathbb R^d$ を固定し、$x+tv\in U$ となる開区間で
 
 $$
 \phi(t)=f(x+tv)
 $$
 
-と置きます。$f$ の凸性から $\phi$ は1変数の凸関数です。したがって
+と置きます。$f$ の凸性から $\phi$ は1変数の凸関数です。十分小さい $h>0$ に対して凸性を中点 $0=(h+(-h))/2$ へ適用すると
+
+$$
+2\phi(0)\le\phi(h)+\phi(-h).
+$$
+
+従って
+
+$$
+\frac{\phi(h)-2\phi(0)+\phi(-h)}{h^2}\ge0.
+$$
+
+$h\downarrow0$ とすると $\phi\in C^2$ より左辺は $\phi''(0)$ へ収束するため
 
 $$
 \phi''(0)\ge0.
@@ -331,12 +431,22 @@ $$
 \ge0.
 $$
 
-よって $\psi$ は1変数の凸関数です。したがって
+従って $\psi'$ は単調非減少です。$0<t<1$ に対し平均値の定理を区間 $[0,t]$ と $[t,1]$ へ適用すると、ある $\xi\in(0,t)$、$\eta\in(t,1)$ が存在して
+
+$$
+\frac{\psi(t)-\psi(0)}{t}=\psi'(\xi)
+\le
+\psi'(\eta)
+=
+\frac{\psi(1)-\psi(t)}{1-t}.
+$$
+
+これを整理すると
 
 $$
 \psi(t)
 \le
-(1-t)\psi(0)+t\psi(1),
+(1-t)\psi(0)+t\psi(1).
 $$
 
 すなわち
@@ -364,7 +474,33 @@ $$
 f(x)=x^4
 $$
 
-は狭義凸ですが
+を考えます。導関数
+
+$$
+f'(x)=4x^3
+$$
+
+は $\mathbb R$ 上で狭義単調増加です。$x<z<y$ とし、平均値の定理を $[x,z]$ と $[z,y]$ に適用すると、ある $\xi\in(x,z)$、$\eta\in(z,y)$ が存在して
+
+$$
+\frac{f(z)-f(x)}{z-x}
+=
+f'(\xi)
+<
+f'(\eta)
+=
+\frac{f(y)-f(z)}{y-z}.
+$$
+
+ここで $z=(1-t)x+ty$ と置いて整理すると
+
+$$
+f((1-t)x+ty)
+<
+(1-t)f(x)+tf(y)
+$$
+
+となるので、$f$ は狭義凸です。一方で
 
 $$
 f''(0)=0.
@@ -837,23 +973,23 @@ $$
 <a id="def-opt1-convex-optimization"></a>
 <!-- formal-statement-start -->
 > **定義（凸最適化問題）**  
-> 目的関数 $f$ と不等式制約関数 $g_1,\dots,g_m$ が凸、等式制約が affine である問題
+> $f,g_1,\dots,g_m:\mathbb R^n\to\mathbb R$ を凸関数、$A\in\mathbb R^{p\times n}$、$b\in\mathbb R^p$ とする。このとき
 >
-$$
-\min_x f(x)
-$$
+> $$
+> \min_{x\in\mathbb R^n} f(x)
+> $$
 >
 > subject to
 >
-$$
-g_i(x)\le0,\qquad i=1,\dots,m,
-$$
+> $$
+> g_i(x)\le0,\qquad i=1,\dots,m,
+> $$
 >
-$$
-Ax=b
-$$
+> $$
+> Ax=b
+> $$
 >
-> を **凸最適化問題** という。
+> の形の問題を **凸最適化問題** という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-opt1-convex-optimization -->
@@ -886,7 +1022,7 @@ $$
 <a id="prop-opt1-convex-feasible"></a>
 <!-- formal-statement-start -->
 > **命題（凸最適化問題の実行可能集合は凸）**  
-> 凸関数 $g_1,\dots,g_m:\mathbb R^n\to\mathbb R$、行列 $A$、ベクトル $b$ に対し
+> 凸関数 $g_1,\dots,g_m:\mathbb R^n\to\mathbb R$、$A\in\mathbb R^{p\times n}$、$b\in\mathbb R^p$ に対し
 >
 $$
 C=
@@ -929,7 +1065,7 @@ $$
 したがって $z\in C$ です。よって $C$ は凸です。$\square$
 <!-- proof-end -->
 
-先ほどの具体例では実行可能集合は閉線分です。目的関数は狭義凸なので、最小点が存在すれば一意です。さらに閉線分はコンパクトで目的関数は連続なので、最小点は実際に存在します。
+先ほどの具体例では実行可能集合は閉線分です。目的関数は狭義凸なので、最小点が存在すれば一意です。具体的な最小点の存在と値は演習 OPT1-C01 で制約を代入して直接確認します。
 
 ---
 
@@ -1069,22 +1205,20 @@ $$
 
 なので $C_1$ は凸です。
 
-$C_2$ は単位円板です。関数
+$C_2$ は単位円板です。$p,q\in C_2$ とすると $\|p\|^2\le1$、$\|q\|^2\le1$ です。内積を展開すると
 
 $$
-h(x,y)=x^2+y^2
+\begin{aligned}
+\|(1-t)p+tq\|^2
+&=(1-t)\|p\|^2+t\|q\|^2
+-t(1-t)\|p-q\|^2\\
+&\le
+(1-t)\|p\|^2+t\|q\|^2\\
+&\le1.
+\end{aligned}
 $$
 
-の Hessian は $2I\succeq0$ なので $h$ は凸です。したがって $p,q\in C_2$ なら
-
-$$
-h((1-t)p+tq)
-\le
-(1-t)h(p)+th(q)
-\le1.
-$$
-
-よって $(1-t)p+tq\in C_2$ であり、$C_2$ は凸です。
+従って $(1-t)p+tq\in C_2$ であり、定義から $C_2$ は凸です。
 
 $C_3$ は円周です。
 
@@ -1276,17 +1410,24 @@ $$
 ## 13. 演習 Level B
 
 <a id="ex-opt1-b01"></a>
-### OPT1-B01 凸集合族の共通部分
+### OPT1-B01 凸集合族の共通部分と三角形の凸包
 
 - Level: B
 
-任意個の凸集合族 $\{C_\lambda\}_{\lambda\in\Lambda}$ に対し
+次の二問に答えよ。
 
-$$
-C=\bigcap_{\lambda\in\Lambda}C_\lambda
-$$
-
-が凸集合であることを証明せよ。
+1. 任意個の凸集合族 $\{C_\lambda\}_{\lambda\in\Lambda}$ に対し
+   $$
+   C=\bigcap_{\lambda\in\Lambda}C_\lambda
+   $$
+   が凸集合であることを証明せよ。
+2. $S=\{(0,0),(1,0),(0,1)\}$ とする。有限集合の凸包の命題を用いて
+   $$
+   \operatorname{conv}(S)
+   =
+   \{(u,v):u\ge0,\ v\ge0,\ u+v\le1\}
+   $$
+   を示せ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -1317,7 +1458,57 @@ $$
 
 よって $C$ は凸です。
 
-この結果により、多数の凸不等式制約を同時に課しても実行可能集合の凸性が保たれることが分かります。
+次に $S=\{(0,0),(1,0),(0,1)\}$ を考えます。有限集合の凸包の命題から、$(u,v)\in\operatorname{conv}(S)$ であることは、ある $\theta_0,\theta_1,\theta_2\ge0$ が存在して
+
+$$
+\theta_0+\theta_1+\theta_2=1,
+$$
+
+$$
+(u,v)
+=
+\theta_0(0,0)+\theta_1(1,0)+\theta_2(0,1)
+=
+(\theta_1,\theta_2)
+$$
+
+と書けることと同値です。従って
+
+$$
+u=\theta_1\ge0,\qquad
+v=\theta_2\ge0,
+$$
+
+かつ
+
+$$
+u+v
+=
+\theta_1+\theta_2
+=
+1-\theta_0
+\le1.
+$$
+
+逆に $u\ge0$, $v\ge0$, $u+v\le1$ なら
+
+$$
+\theta_1=u,\qquad
+\theta_2=v,\qquad
+\theta_0=1-u-v
+$$
+
+と置けば三係数は非負で総和1です。従って $(u,v)$ は $S$ の凸結合です。以上から
+
+$$
+\boxed{
+\operatorname{conv}(S)
+=
+\{(u,v):u\ge0,\ v\ge0,\ u+v\le1\}.
+}
+$$
+
+この結果により、凸集合族の共通部分と有限凸結合による凸包表示の両方を具体的に使えました。
 <!-- solution-end -->
 
 <a id="ex-opt1-b02"></a>
@@ -1496,11 +1687,9 @@ $$
 C=\{(x_1,x_2):x_1+x_2=2,\ x_1,x_2\ge0\}
 $$
 
-で、端点 $(0,2)$、$(2,0)$ を結ぶ閉線分です。したがってコンパクトです。$f$ は連続なので最小点は存在します。
+で、端点 $(0,2)$、$(2,0)$ を結ぶ凸集合です。$f$ は狭義凸なので、**最小点が存在すれば一意**です。
 
-さらに $f$ は狭義凸、$C$ は凸なので、最小点は一意です。
-
-次に等式制約から
+ここでは存在を別定理へ預けず、次の一変数化で実際に最小点を構成します。等式制約から
 
 $$
 x_2=2-x_1

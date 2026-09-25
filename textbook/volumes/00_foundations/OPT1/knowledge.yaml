@@ -41,6 +41,16 @@ concepts:
     requires:
       - convex.convex-set
 
+  - id: convex.finite-convex-hull-representation
+    name: 有限集合の凸包
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（有限集合の凸包）"]
+    requires:
+      - convex.convex-hull
+      - convex.convex-combination
+
   - id: convex.convex-function
     name: 凸関数
     kind: definition
