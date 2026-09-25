@@ -6,7 +6,7 @@ OPT4 では共役関数を使って双対問題を作りました。本章では
 
 $$
 \min_{x\in\mathbb R^n} f(x)
-\quad\text{subject to}\quad
+\quad\text{制約}\quad
 g_i(x)\le0\ (i=1,\dots,m),\qquad Ax=b
 $$
 
@@ -37,7 +37,7 @@ $$
 <a id="def-opt5-lagrangian"></a>
 <!-- formal-statement-start -->
 > **定義（Lagrangian）**  
-> 関数 $f,g_1,dots,g_m:\mathbb R^n\to\mathbb R$、行列 $A\in\mathbb R^{r\times n}$、$b\in\mathbb R^r$ に対する制約付き最小化問題
+> 関数 $f,g_1,\dots,g_m:\mathbb R^n\to\mathbb R$、行列 $A\in\mathbb R^{r\times n}$、$b\in\mathbb R^r$ に対する制約付き最小化問題
 >
 $$
 \min_x f(x)
@@ -134,7 +134,13 @@ $$
 <a id="thm-opt5-dual-function-concavity"></a>
 <!-- formal-statement-start -->
 > **定理（双対関数の凹性）**  
-> 上の形の制約付き問題について、双対関数 $q(\lambda,\nu)$ は $\lambda\ge0$、$\nu\in\mathbb R^r$ の凸な領域上で凹関数である。この結論には $f,g_i$ の凸性を仮定しない。
+> 関数 $f,g_1,\dots,g_m:\mathbb R^n\to\mathbb R$ と行列 $A\in\mathbb R^{r\times n}$、$b\in\mathbb R^r$ から作る Lagrangian の双対関数
+>
+$$
+q(\lambda,\nu)=\inf_x L(x,\lambda,\nu)
+$$
+>
+> は $\lambda\ge0$、$\nu\in\mathbb R^r$ の凸な領域上で凹関数である。この結論には $f,g_i$ の凸性を仮定しない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -421,7 +427,13 @@ $$
 A(\bar x+Rv)-b=v.
 $$
 
-従って $(0,0)$ の $\mathbb R^m\times W$ におけるある近傍が $\operatorname{dom}\varphi$ に含まれます。つまり
+従って $(0,0)$ の $\mathbb R^m\times W$ におけるある近傍が $\operatorname{dom}\varphi$ に含まれます。また定義から $\operatorname{dom}\varphi\subset\mathbb R^m\times W$ なので
+
+$$
+\operatorname{aff}(\operatorname{dom}\varphi)=\mathbb R^m\times W.
+$$
+
+従って
 
 $$
 (0,0)
@@ -445,7 +457,7 @@ $$
 
 #### 3. 原点で有限の支持傾きを作る
 
-ここでは OPT3 の劣勾配存在証明と同じ局所機構を、$\varphi$ に対して使います。$E=\operatorname{aff}(\operatorname{dom}\varphi)$ とします。原点は相対内部なので、$E$ の原点周りの小さい立方体 $Q$ を
+ここでは OPT3 の劣勾配存在証明と同じ局所機構を、$\varphi$ に対して使います。$E=\operatorname{aff}(\operatorname{dom}\varphi)=\mathbb R^m\times W$ とし、$E$ を有限次元 Euclid 空間と同一視します。原点は相対内部なので、$E$ の原点周りの小さい立方体 $Q$ を
 
 $$
 Q\subset\operatorname{dom}\varphi
@@ -657,7 +669,7 @@ $$
 \nabla_xL(x^*,\lambda^*,\nu^*)=0.
 $$
 
-微分可能凸関数の一次最適性条件より、$x^*$ は $L(\cdot,\lambda^*,\nu^*)$ の大域最小点です。従って
+[微分可能凸関数の一次最適性条件](../OPT1/index.md#thm-opt1-first-order-convexity)より、$x^*$ は $L(\cdot,\lambda^*,\nu^*)$ の大域最小点です。従って
 
 $$
 q(\lambda^*,\nu^*)
@@ -810,7 +822,7 @@ $$
 
 $$
 \min_x (x-2)^2
-\quad\text{subject to}\quad x\le1
+\quad\text{制約}\quad x\le1
 $$
 
 を再び考えます。Lagrangian は
@@ -953,7 +965,7 @@ $$
 \min_{x,y} x^2+y^2
 $$
 
-subject to
+制約
 
 $$
 x+y\ge1,\qquad x-y=0
@@ -990,7 +1002,7 @@ $\lambda$ にだけ符号制約があり、$\nu$ は自由である点が重要�
 
 $$
 \min_x \frac12x^2
-\quad\text{subject to}\quad x\ge1
+\quad\text{制約}\quad x\ge1
 $$
 
 の双対関数と双対問題を求めよ。
@@ -1029,7 +1041,7 @@ $$
 
 $$
 \min_x (x+1)^2
-\quad\text{subject to}\quad x\ge0
+\quad\text{制約}\quad x\ge0
 $$
 
 を [KKT 条件](#thm-opt5-kkt)から解け。
@@ -1131,7 +1143,7 @@ $$
 
 $$
 \min_{x,y}\frac12(x^2+y^2)
-\quad\text{subject to}\quad x+y\ge2
+\quad\text{制約}\quad x+y\ge2
 $$
 
 を [KKT 条件](#thm-opt5-kkt)から解き、乗数も求めよ。
@@ -1262,7 +1274,7 @@ $$
 \min_{x,y}\frac12(x^2+y^2)
 $$
 
-subject to
+制約
 
 $$
 x\ge0,\qquad y\ge0,\qquad x+y=1
@@ -1333,7 +1345,7 @@ $$
 -x=-\frac12<0,\qquad -y=-\frac12<0
 $$
 
-を満たすので Slater 条件が成立します。目的関数と不等式制約は凸、等式制約は アフィン です。従って本章の KKT 定理の十分性により、この KKT 点は大域最適解です。さらに目的関数は狭義凸で実行可能集合は凸なので、最適解は一意です。
+を満たすので Slater 条件が成立します。目的関数と不等式制約は凸、等式制約はアフィンです。従って本章の KKT 定理の十分性により、この KKT 点は大域最適解です。さらに目的関数は狭義凸で実行可能集合は凸なので、最適解は一意です。
 
 なお二つの不等式は最適点で非活性なので、乗数が0になることも相補性と一致します。
 <!-- solution-end -->
