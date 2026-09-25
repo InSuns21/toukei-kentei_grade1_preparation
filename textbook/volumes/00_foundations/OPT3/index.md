@@ -453,7 +453,7 @@ $$
 
 下半連続性から $L$ は閉です。したがって [Heine--Borel 定理](../F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md#thm-f0-00c1-02) により $L$ はコンパクトです。
 
-$$m=\inf_x f(x)$ と置きます。まず $m> -\infty$ を確認します。真性から $f(x_0)<+\infty$ なので $m<+\infty$ です。もし $m=-\infty$ なら、各 $k$ について
+$m=\inf_x f(x)$ と置きます。まず $m> -\infty$ を確認します。真性から $f(x_0)<+\infty$ なので $m<+\infty$ です。もし $m=-\infty$ なら、各 $k$ について
 
 $$
 f(x_k)\le \min\{f(x_0),-k\}
