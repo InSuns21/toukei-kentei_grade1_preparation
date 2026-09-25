@@ -250,6 +250,12 @@ OPT8 では OPT3 の劣微分と OPT7 の滑らかな凸最適化を接続し、
 
 1. [OPT8 非滑らか・近接最適化](textbook/volumes/00_foundations/OPT8/index.md)
 
+### 制約付き数値最適化
+
+OPT9 では、射影勾配写像を制約付き一次最適性残差として読み直した上で、二次ペナルティ法、対数障壁法と中心路、KKT 系への Newton 法、主双対 Newton 方程式、逐次二次計画法（SQP）を一つの流れで扱います。ペナルティ法の可行性と条件付けのトレードオフ、障壁点の摂動 KKT と双対ギャップ、SQP と KKT-Newton の一致までを閉じます。
+
+1. [OPT9 制約付き数値最適化](textbook/volumes/00_foundations/OPT9/index.md)
+
 ### RKHS・SVM
 
 最後に、Hilbert空間・Riesz・凸最適化・SVMが合流します。
