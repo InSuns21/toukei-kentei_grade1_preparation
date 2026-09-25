@@ -80,7 +80,12 @@ concepts:
     aliases: [線形化錐の polar 表示]
     introduction: formal
     introduction_aliases: ["定理（線形化錐の極錐表示）"]
-    requires: [optimization.linearized-cone, convex.polar-cone, optimization.nearest-point-projection]
+    requires:
+      - optimization.linearized-cone
+      - convex.polar-cone
+      - convex.finitely-generated-cone-closed
+      - optimization.nearest-point-projection
+      - optimization.projection-variational-inequality
   - id: optimization.mfcq-kkt-existence
     name: MFCQ下のKKT乗数存在
     kind: theorem
