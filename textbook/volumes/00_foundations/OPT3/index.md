@@ -455,35 +455,35 @@ $$
 
 $$m=\inf_x f(x)$ と置きます。まず $m> -\infty$ を確認します。真性から $f(x_0)<+\infty$ なので $m<+\infty$ です。もし $m=-\infty$ なら、各 $k$ について
 
-$
+$$
 f(x_k)\le \min\{f(x_0),-k\}
-$
+$$
 
 となる $x_k$ を選べます。この点列は $L$ に入り、$L$ のコンパクト性から部分列 $x_{k_j}\to x^\ast\in L$ を持ちます。ところが下半連続性により
 
-$
+$$
 f(x^\ast)
 \le
 \liminf_{j\to\infty}f(x_{k_j})
 =
 -\infty,
-$
+$$
 
 となり、$f$ の値域が $(-\infty,+\infty]$ で $-\infty$ を取らないことに矛盾します。したがって
 
-$
+$$
 m\in\mathbb R.
-$
+$$
 
 そこで $f(x_k)\to m$ となる最小化列を取ります。十分大きい $k$ では $f(x_k)\le f(x_0)$ なので $x_k\in L$ です。コンパクト性から部分列 $x_{k_j}\to x^\ast\in L$ が存在します。下半連続性より
 
-$
+$$
 f(x^\ast)
 \le
 \liminf_{j\to\infty}f(x_{k_j})
 =
 m.
-$
+$$
 
 一方 $m$ は下限なので $m\le f(x^\ast)$。よって $f(x^\ast)=m$ です。$\square$
 <!-- proof-end -->
@@ -1623,9 +1623,9 @@ $$
 
 さらに $C$ が凸なので $\operatorname{cone}(C-x)$ は凸錐です。したがって上の表示から
 
-$
+$$
 T_C(x)=\overline{\operatorname{cone}(C-x)}
-$
+$$
 
 は **閉凸錐** です。後で $T_C(x)$ に極双極定理を適用するとき、必要な「閉・凸・錐」という三条件はここで確保されています。
 
@@ -1935,19 +1935,19 @@ $$
 
 [法錐と接錐の極双対](#thm-opt3-normal-tangent-polar)から
 
-$
+$$
 N_C(x^\ast)=T_C(x^\ast)^\circ.
-$
+$$
 
 また[凸集合の接錐表示](#thm-opt3-tangent-conic-hull)で確認したとおり $T_C(x^\ast)$ は閉凸錐です。したがって[閉凸錐の極双極定理](#thm-opt3-polar-bipolar)を **この接錐に適用でき**、
 
-$
+$$
 N_C(x^\ast)^\circ
 =
 T_C(x^\ast)^{\circ\circ}
 =
 T_C(x^\ast).
-$
+$$
 
 よって
 
@@ -2023,60 +2023,60 @@ $$
 
 まず [OPT1 の微分可能な凸関数の一次支持不等式](../OPT1/index.md#thm-opt1-first-order-convexity)から
 
-$
+$$
 f(y)
 \ge
 f(x^\ast)
 +
 \nabla f(x^\ast)^{\mathsf T}(y-x^\ast)
-$
+$$
 
 なので
 
-$
+$$
 \nabla f(x^\ast)\in\partial f(x^\ast).
-$
+$$
 
 逆に $p\in\partial f(x^\ast)$ とします。任意の方向 $d$ と $t>0$ に対し、$y=x^\ast+td$ を劣勾配不等式へ入れると
 
-$
+$$
 \frac{f(x^\ast+td)-f(x^\ast)}{t}
 \ge
 p^{\mathsf T}d.
-$
+$$
 
 $t\downarrow0$ とすると微分可能性から
 
-$
+$$
 \nabla f(x^\ast)^{\mathsf T}d
 \ge
 p^{\mathsf T}d.
-$
+$$
 
 同じ議論を $-d$ に適用すると逆向きの不等式も得られるため
 
-$
+$$
 p^{\mathsf T}d
 =
 \nabla f(x^\ast)^{\mathsf T}d
 \qquad(\forall d).
-$
+$$
 
 従って $p=\nabla f(x^\ast)$ であり、
 
-$
+$$
 \partial f(x^\ast)
 =
 \{\nabla f(x^\ast)\}.
-$
+$$
 
 これを[凸制約付き Fermat 条件](#thm-opt3-constrained-fermat)へ代入すれば
 
-$
+$$
 0\in \nabla f(x^\ast)+N_C(x^\ast)
 \iff
 -\nabla f(x^\ast)\in N_C(x^\ast)
-$
+$$
 
 を得ます。$\square$
 <!-- proof-end -->
@@ -2154,9 +2154,9 @@ $$
 - Level: A
 - 目安時間: 15分
 
-$
+$$
 f(x)=x^2+\delta_{[0,\infty)}(x)
-$
+$$
 
 について、$\operatorname{dom}f$、$\operatorname{epi}f$、$L_\alpha(f)$ を求めよ。さらに $f$ が閉真凸関数かつ強圧的であることを確認し、[有限次元の直接法](#thm-opt3-direct-method)から最小値の達成を説明したうえで最小点を求めよ。
 
@@ -2214,9 +2214,9 @@ $$
 
 が全て成立するので、$f$ は最小値を達成します。実際、実効定義域 $[0,\infty)$ 上では $f(x)=x^2$ ですから
 
-$
+$$
 \boxed{\operatorname*{arg\,min} f=\{0\},\qquad \min f=0}.
-$
+$$
 <!-- solution-end -->
 
 ### OPT3-A02 絶対値の劣微分と Fermat 条件
