@@ -113,7 +113,7 @@ $$
 > であり、$d^*$ を双対最適値という。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-opt5-dual-function, def-opt5-primal-dual -->
+<!-- definition-example-start: def-opt5-dual-function, def-opt5-primal-dual, def-opt5-strong-duality -->
 **定義の確認**：同じ1変数問題で双対まで計算する
 
 上の例では
@@ -128,7 +128,13 @@ $$
 q(\lambda)=\lambda-\frac{\lambda^2}{4},\qquad\lambda\ge0.
 $$
 
-双対問題はこの凹二次関数の最大化で、$\lambda^*=2$、$d^*=1$。主問題も $x^*=1$、$p^*=1$ なので、この例では双対ギャップが0です。
+双対問題はこの凹二次関数の最大化で、$\lambda^*=2$、$d^*=1$。主問題も $x^*=1$、$p^*=1$ なので
+
+$$
+p^*-d^*=0
+$$
+
+です。従って、この例では強双対性を定義どおり直接確認できます。
 <!-- definition-example-end -->
 
 <a id="thm-opt5-dual-function-concavity"></a>
@@ -851,7 +857,7 @@ $$
 \boxed{x^*=1,\qquad\lambda^*=2}.
 $$
 
-この例では Slater 点 $x=0$ があり、凸問題なので KKT を満たす点が大域最適解であることまで保証されます。
+この例では凸性と KKT 4条件だけで $x^*=1$ の大域最適性が保証されます。さらに Slater 点 $x=0$ があるので、逆向きに「主最適解なら KKT 乗数を持つ」という必要性も保証されます。
 
 ---
 
@@ -932,13 +938,85 @@ OPT6 では、この現象を接錐と制約の一次近似が作る錐のずれ
 
 ## 9. OPT4 の Fenchel 双対との接続
 
-制約 $g_i(x)\le0$ をベクトル
+制約 $g_i(x)\le0$ を
 
 $$
 G(x)=(g_1(x),\dots,g_m(x))
 $$
 
-としてまとめ、非正直交象限への標示関数を使えば、制約付き問題は拡張実数値関数を含む無制約問題として書けます。OPT4 の「標示関数の共役が支持関数」という関係から、非負乗数 $\lambda\ge0$ が自然に現れます。
+とまとめ、非正直交象限
+
+$$
+C=\mathbb R_-^m
+$$
+
+への標示関数 $\delta_C$ を使うと、不等式制約は
+
+$$
+\delta_C(G(x))
+$$
+
+へ吸収できます。
+
+OPT4 の[標示関数と支持関数の関係](../OPT4/index.md#def-opt4-support-function)から
+
+$$
+\delta_C^*=\sigma_C.
+$$
+
+$C=\mathbb R_-^m$ では
+
+$$
+\sigma_C(\lambda)
+=
+\begin{cases}
+0,&\lambda\ge0,\\
++\infty,&\text{それ以外},
+\end{cases}
+$$
+
+です。実際、$\lambda\ge0$ なら $\lambda^{\mathsf T}z\le0$ $(z\le0)$ で上限は0、負の成分を持つ $\lambda$ なら対応する $z_i\to-\infty$ によって上限は $+\infty$ になります。
+
+$\delta_C$ は閉真凸関数なので [Fenchel–Moreau の定理](../OPT4/index.md#thm-opt4-fenchel-moreau)から
+
+$$
+\delta_C(z)
+=
+\sup_{\lambda\ge0}
+\lambda^{\mathsf T}z.
+$$
+
+従って
+
+$$
+f(x)+\delta_C(G(x))
+=
+\sup_{\lambda\ge0}
+\left\{
+f(x)+\lambda^{\mathsf T}G(x)
+\right\}.
+$$
+
+等式制約も同様に
+
+$$
+\delta_{\{b\}}(Ax)
+=
+\sup_{\nu\in\mathbb R^r}
+\nu^{\mathsf T}(Ax-b)
+$$
+
+と書けます。二つを合わせると
+
+$$
+L(x,\lambda,\nu)
+=
+f(x)
++\lambda^{\mathsf T}G(x)
++\nu^{\mathsf T}(Ax-b)
+$$
+
+が現れます。
 
 したがって Fenchel 双対と Lagrange 双対は別々の暗記項目ではなく、
 
@@ -946,7 +1024,7 @@ $$
 \boxed{
 \text{制約を標示関数で表す}
 \Longrightarrow
-\text{共役側に Lagrange 乗数が現れる}
+\text{共役表示から Lagrange 乗数が現れる}
 }
 $$
 
@@ -1175,7 +1253,7 @@ $$
 \boxed{x^*=y^*=1,\qquad\lambda^*=1}.
 $$
 
-目的関数と制約関数は凸で、例えば $(2,2)$ は厳密実行可能なので Slater 条件も成立します。よって KKT 条件は大域最適性を保証します。
+目的関数と制約関数は凸なので、この KKT 点は大域最適です。さらに例えば $(2,2)$ は厳密実行可能なので Slater 条件も成立し、主最適解から KKT 乗数を取り出せる必要性の側も満たされています。
 <!-- solution-end -->
 
 ### OPT5-B03 Slater が失敗する例を診断する
