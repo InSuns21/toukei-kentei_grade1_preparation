@@ -275,21 +275,21 @@ $$
 > が Slater 条件を満たすとする。このとき $x^*$ が主最適解であることと、ある $\lambda^*\ge0$、$\nu^*\in\mathbb R^r$ が存在して次の4条件を満たすことは同値である。
 >
 > 1. **主実行可能性**
->    $$
->    g_i(x^*)\le0,\qquad Ax^*=b.
->    $$
+$$
+   g_i(x^*)\le0,\qquad Ax^*=b.
+$$
 > 2. **双対実行可能性**
->    $$
->    \lambda_i^*\ge0.
->    $$
+$$
+   \lambda_i^*\ge0.
+$$
 > 3. **停留条件**
->    $$
->    \nabla f(x^*)+\sum_i\lambda_i^*\nabla g_i(x^*)+A^{\mathsf T}\nu^*=0.
->    $$
+$$
+   \nabla f(x^*)+\sum_i\lambda_i^*\nabla g_i(x^*)+A^{\mathsf T}\nu^*=0.
+$$
 > 4. **相補性**
->    $$
->    \lambda_i^*g_i(x^*)=0\qquad(i=1,\dots,m).
->    $$
+$$
+   \lambda_i^*g_i(x^*)=0\qquad(i=1,\dots,m).
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
