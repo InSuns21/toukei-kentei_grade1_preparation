@@ -23,7 +23,7 @@ concepts:
   - id: vector-calculus.surface-tangent-normal
     name: 接平面・法線
     kind: definition
-    aliases: [接平面, tangent plane, 法線, normal vector]
+    aliases: [曲面の接平面と法線, surface tangent plane and normal]
     introduction: formal
     introduction_aliases: ["定義（接平面・法線）"]
     requires:
