@@ -1,0 +1,23 @@
+chapter: "OPT6"
+terms:
+  - term: 活性集合
+    english: active set
+    meaning: 候補点で等号となる不等式制約の添字集合。局所幾何を一次近似するときに用いる。
+  - term: Bouligand 接錐
+    english: Bouligand tangent cone
+    meaning: 実行可能集合内の点列から極限的に到達できる一次方向を集めた錐。
+  - term: 線形化錐
+    english: linearized cone
+    meaning: 活性制約の勾配と等式制約の勾配から作る一次近似上の実行可能方向の錐。
+  - term: 制約想定
+    english: constraint qualification
+    meaning: 真の局所幾何と制約関数の一次近似を結び、KKT 乗数の存在などを保証する正則条件の総称。
+  - term: LICQ
+    english: linear independence constraint qualification
+    meaning: 活性不等式制約と等式制約の勾配が一次独立であることを要求する制約想定。
+  - term: MFCQ
+    english: Mangasarian--Fromovitz constraint qualification
+    meaning: 等式制約勾配の独立性と、全活性不等式を厳密に減少させる一次方向の存在を要求する制約想定。
+  - term: KKT 乗数
+    english: KKT multiplier
+    meaning: 制約勾配の線形結合で目的関数勾配を打ち消す双対変数。MFCQ のもとで局所最適点に存在する。

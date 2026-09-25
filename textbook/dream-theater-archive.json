@@ -30,6 +30,31 @@
       "path": "textbook/volumes/00_foundations/F0_02C4B_tangent_normal_polar_proof/index.md",
       "canonical_path": "textbook/volumes/00_foundations/OPT3/index.md",
       "reason": "OPT3 へ接錐表示と法錐・接錐の極双対証明を移管済み。stable anchor と過去URLのためファイルを保持。"
+    },
+    {
+      "path": "textbook/volumes/00_foundations/F0_00G2_Fenchel共役_Fenchel_Young_双対/index.md",
+      "canonical_path": "textbook/volumes/00_foundations/OPT4/index.md",
+      "reason": "OPT4 へ Fenchel 共役・Fenchel--Young・凸双対の canonical 内容を移管済み。stable anchor と過去URLのためファイルを保持。"
+    },
+    {
+      "path": "textbook/volumes/00_foundations/F0_02_制約付き最適化_双対_KKT/index.md",
+      "canonical_path": "textbook/volumes/00_foundations/OPT5/index.md",
+      "reason": "OPT5 へ Lagrange 双対・Slater 条件・KKT の canonical 内容を移管済み。stable anchor と過去URLのためファイルを保持。"
+    },
+    {
+      "path": "textbook/volumes/00_foundations/F0_02A_KKT条件の導出_接錐_polar_Farkas/index.md",
+      "canonical_path": "textbook/volumes/00_foundations/OPT6/index.md",
+      "reason": "OPT6 へ KKT の幾何学的導出・接錐・制約想定の canonical 内容を移管済み。stable anchor と過去URLのためファイルを保持。"
+    },
+    {
+      "path": "textbook/volumes/00_foundations/F0_02C5A_制約想定_LICQ_MFCQ_Robinson/index.md",
+      "canonical_path": "textbook/volumes/00_foundations/OPT6/index.md",
+      "reason": "OPT6 へ LICQ・MFCQ・接錐一致・KKT乗数存在の canonical 内容を移管済み。stable anchor と過去URLのためファイルを保持。"
+    },
+    {
+      "path": "textbook/volumes/00_foundations/F0_02C5_一般化KKT_制約写像_制約想定/index.md",
+      "canonical_path": "textbook/volumes/00_foundations/OPT6A/index.md",
+      "reason": "OPT6A へ錐制約・Robinson 制約想定・一般化 KKT の canonical 内容を移管済み。stable anchor と過去URLのためファイルを保持。"
     }
   ]
 }

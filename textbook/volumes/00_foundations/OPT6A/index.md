@@ -43,9 +43,9 @@ $X=\mathbb R^n$, $Y=\mathbb R^m$ とし、$K\subset Y$ を閉凸錐とします�
 > **定義（錐制約）**  
 > 写像 $G:X\to Y$ に対する
 >
-> $$
-> G(x)\in-K
-> $$
+$$
+G(x)\in-K
+$$
 >
 > という制約を **錐制約**という。等式制約は別に $H(x)=0$ と書く。
 <!-- formal-statement-end -->
@@ -81,30 +81,24 @@ $$
 ## 2. 双対錐
 
 <a id="def-opt6a-dual-cone"></a>
-<!-- formal-statement-start -->
-> **定義（双対錐）**  
-> 錐 $K\subset Y$ に対して
->
-> $$
-> K^*
-> =
-> \{\lambda\in Y:
-> \langle\lambda,k\rangle\ge0\quad(\forall k\in K)\}
-> $$
->
-> を **双対錐**という。
-<!-- formal-statement-end -->
+[OPT3 で定義した双対錐](../OPT3/index.md#def-opt3-polar-dual)を錐制約へ使います。すなわち、錐 $K\subset Y$ に対して
 
-<!-- definition-example-start: def-opt6a-dual-cone -->
-**定義の確認**：非負直交錐は自己双対
+$$
+K^*
+=
+\{\lambda\in Y:
+\langle\lambda,k\rangle\ge0\quad(\forall k\in K)\}
+$$
+
+です。ここでは新しい概念を再定義するのではなく、OPT3 の canonical な双対錐を再掲しています。
+
+**確認例**：非負直交錐は自己双対
 
 $K=\mathbb R_+^m$ とします。$\lambda\in K^*$ なら標準基底 $e_i\in K$ との内積から $\lambda_i\ge0$。逆に $\lambda_i\ge0$ なら任意の $k_i\ge0$ に対して $\lambda^{\mathsf T}k\ge0$。従って
 
 $$
 \boxed{(\mathbb R_+^m)^*=\mathbb R_+^m}.
 $$
-<!-- definition-example-end -->
-
 この自己双対性が通常の KKT の $\lambda_i\ge0$ を復元します。
 
 ---
@@ -116,20 +110,20 @@ $$
 > **定義（一般化 Lagrangian）**  
 > 問題
 >
-> $$
-> \min f(x)
-> \quad\text{subject to}\quad
-> G(x)\in-K,\ H(x)=0
-> $$
+$$
+\min f(x)
+\quad\text{subject to}\quad
+G(x)\in-K,\ H(x)=0
+$$
 >
 > に対し
 >
-> $$
-> L(x,\lambda,\nu)
-> =
-> f(x)+\langle\lambda,G(x)\rangle
-> +\langle\nu,H(x)\rangle,
-> $$
+$$
+L(x,\lambda,\nu)
+=
+f(x)+\langle\lambda,G(x)\rangle
++\langle\nu,H(x)\rangle,
+$$
 >
 > $\lambda\in K^*$ と定める。
 <!-- formal-statement-end -->
@@ -167,14 +161,14 @@ $$
 > **定理（閉凸錐の normal cone）**  
 > $K$ を閉凸錐、$y\in-K$ とする。このとき
 >
-> $$
-> \boxed{
-> N_{-K}(y)
-> =
-> \{\lambda\in K^*:
-> \langle\lambda,y\rangle=0\}.
-> }
-> $$
+$$
+\boxed{
+N_{-K}(y)
+=
+\{\lambda\in K^*:
+\langle\lambda,y\rangle=0\}.
+}
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -220,7 +214,7 @@ $$
 
 ---
 
-## 5. 線形化された錐制約
+## 5. 錐制約を一次近似する
 
 実行可能集合を
 
@@ -235,12 +229,12 @@ $$
 > **定義（錐制約の線形化錐）**  
 > $G,H$ が $x^*$ で微分可能なとき
 >
-> $$
-> L_C(x^*)
-> =
-> \{d:
-> DG(x^*)d\in T_{-K}(y^*),> DH(x^*)d=0\}
-> $$
+$$
+L_C(x^*)
+=
+\{d:
+DG(x^*)d\in T_{-K}(y^*),> DH(x^*)d=0\}
+$$
 >
 > と定める。
 <!-- formal-statement-end -->
@@ -260,7 +254,7 @@ $$
 L_C(0)=\{d:d\le0\},
 $$
 
-通常の線形化条件と一致します。
+通常の一次近似条件と一致します。
 <!-- definition-example-end -->
 
 微分可能性から OPT6 と同様に
@@ -278,20 +272,20 @@ $$
 <a id="def-opt6a-robinson-cq"></a>
 <!-- formal-statement-start -->
 > **定義（Robinson 制約想定）**  
-> $x^*$ が実行可能点とする。線形化写像の像
+> $x^*$ が実行可能点とする。一次近似写像の像
 >
-> $$
-> \mathcal R=
-> \left\{
-> \bigl(DH(x^*)d,\ DG(x^*)d-s\bigr):
-> d\in\mathbb R^n,> s\in T_{-K}(G(x^*))
-> \right\}
-> $$
+$$
+\mathcal R=
+\left\{
+\bigl(DH(x^*)d,\ DG(x^*)d-s\bigr):
+d\in\mathbb R^n,> s\in T_{-K}(G(x^*))
+\right\}
+$$
 >
 > が $\mathbb R^r\times Y$ 全体に等しいとき、$x^*$ で **Robinson 制約想定**が成立するという。
 <!-- formal-statement-end -->
 
-有限次元ではこれは「線形化された制約写像が全方向の摂動を吸収できる」という正則性です。
+有限次元ではこれは「一次近似された制約写像が全方向の摂動を吸収できる」という正則性です。
 
 <!-- definition-example-start: def-opt6a-robinson-cq -->
 **定義の確認**：$x\le0$
@@ -299,7 +293,7 @@ $$
 $G(x)=x$, $K=\mathbb R_+$, $x^*=0$。等式制約はありません。
 
 $$
-DG(0)d=d,qquad
+DG(0)d=d,\qquad
 T_{-K}(0)=\mathbb R_-.
 $$
 
@@ -329,14 +323,14 @@ $$
 > **定理（Robinson 制約想定下の接錐公式）**  
 > $G,H$ が $C^1$ 級、$K$ が閉凸錐で、$x^*$ において Robinson 制約想定が成立するとする。このとき
 >
-> $$
-> \boxed{
-> T_C(x^*)
-> =
-> \{d:
-> DG(x^*)d\in T_{-K}(G(x^*)),> DH(x^*)d=0\}.
-> }
-> $$
+$$
+\boxed{
+T_C(x^*)
+=
+\{d:
+DG(x^*)d\in T_{-K}(G(x^*)),> DH(x^*)d=0\}.
+}
+$$
 <!-- formal-statement-end -->
 
 ### 証明の核心
@@ -363,31 +357,31 @@ $$
 > **定理（Robinson 制約想定下の一般化 KKT）**  
 > $x^*$ が
 >
-> $$
-> \min f(x)
-> \quad\text{subject to}\quad
-> G(x)\in-K,\ H(x)=0
-> $$
+$$
+\min f(x)
+\quad\text{subject to}\quad
+G(x)\in-K,\ H(x)=0
+$$
 >
 > の局所最小点とする。$f,G,H$ は $C^1$ 級、$K$ は閉凸錐で、$x^*$ で Robinson 制約想定が成立するとする。このとき、ある
 >
-> $$
-> \lambda\in K^*,\qquad \nu\in\mathbb R^r
-> $$
+$$
+\lambda\in K^*,\qquad \nu\in\mathbb R^r
+$$
 >
 > が存在して
 >
-> $$
-> \boxed{
-> \nabla f(x^*)+DG(x^*)^*\lambda+DH(x^*)^*\nu=0,
-> }
-> $$
+$$
+\boxed{
+\nabla f(x^*)+DG(x^*)^*\lambda+DH(x^*)^*\nu=0,
+}
+$$
 >
-> $$
-> \boxed{
-> \langle\lambda,G(x^*)\rangle=0
-> }
-> $$
+$$
+\boxed{
+\langle\lambda,G(x^*)\rangle=0
+}
+$$
 >
 > を満たす。
 <!-- formal-statement-end -->
@@ -395,7 +389,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-OPT6 の局所最適点の接方向条件から
+[OPT6 の局所最適点の接方向条件](../OPT6/index.md#thm-opt6-local-tangent)から
 
 $$
 -\nabla f(x^*)\in T_C(x^*)^\circ.
@@ -419,7 +413,7 @@ $$
 DG(x^*)^*\lambda+DH(x^*)^*\nu.
 $$
 
-これが停留条件です。さらに閉凸錐の normal cone 定理から
+これが停留条件です。さらに[閉凸錐の normal cone 定理](#thm-opt6a-cone-normal)から
 
 $$
 \lambda\in K^*,\qquad
@@ -500,7 +494,7 @@ $$
 制約 $G(x)\preceq0$ は
 
 $$
-x-1\le0,qquad -x\le0,
+x-1\le0,\qquad -x\le0,
 $$
 
 すなわち $0\le x\le1$ と同値です。
@@ -562,7 +556,7 @@ $K=\mathbb R_+^2$, $y=(-1,0)$ とする。$N_{-K}(y)$ を求めよ。
 <!-- solution-start -->
 #### 詳細解答
 
-閉凸錐の normal cone 公式から $\lambda\ge0$ かつ
+[閉凸錐の normal cone 公式](#thm-opt6a-cone-normal)から $\lambda\ge0$ かつ
 
 $$
 \lambda^{\mathsf T}y=-\lambda_1=0.
@@ -638,7 +632,7 @@ $$
 - Level: B
 - 目安時間: 15分
 
-$K=\mathbb R_+^m$ として、一般化 KKT から $\lambda_i\ge0$ と $\lambda_i g_i(x^*)=0$ を導け。
+$K=\mathbb R_+^m$ として、[一般化 KKT](#thm-opt6a-generalized-kkt)から $\lambda_i\ge0$ と $\lambda_i g_i(x^*)=0$ を導け。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -706,8 +700,8 @@ $$
 通常制約
 
 $$
-g_1(x)=x_1\le0,qquad
-g_2(x)=2x_1\le0,qquad
+g_1(x)=x_1\le0,\qquad
+g_2(x)=2x_1\le0,\qquad
 h(x)=x_2=0
 $$
 
@@ -729,8 +723,8 @@ $\nabla g_1$ と $\nabla g_2$ が一次従属なので LICQ は失敗します�
 一方 $v=(-1,0)$ とすれば
 
 $$
-\nabla h^{\mathsf T}v=0,qquad
-\nabla g_1^{\mathsf T}v=-1<0,qquad
+\nabla h^{\mathsf T}v=0,\qquad
+\nabla g_1^{\mathsf T}v=-1<0,\qquad
 \nabla g_2^{\mathsf T}v=-2<0.
 $$
 
@@ -774,7 +768,7 @@ $$
 行列不等式は対角成分から
 
 $$
-x-1\le0,qquad -x\le0,
+x-1\le0,\qquad -x\le0,
 $$
 
 従って実行可能集合は $[0,1]$。$f(x)=-x$ なので

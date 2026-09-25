@@ -1,0 +1,20 @@
+chapter: "OPT6A"
+terms:
+  - term: 錐制約
+    english: cone constraint
+    meaning: 写像の値が指定した閉凸錐の負側に属する形でまとめた制約。
+  - term: 双対錐
+    english: dual cone
+    meaning: 元の錐の全要素と非負の双対積を持つ双対ベクトル全体。本章では錐制約の双対実行可能性を表す。
+  - term: 一般化 Lagrangian
+    english: generalized Lagrangian
+    meaning: 錐制約を双対空間の乗数と双対積で組み込んだ Lagrangian。
+  - term: Robinson 制約想定
+    english: Robinson constraint qualification
+    meaning: 錐制約の一次近似が退化しないことを要求し、接錐公式と一般化 KKT 乗数の存在へつなぐ正則条件。
+  - term: 一般化 KKT
+    english: generalized KKT conditions
+    meaning: 錐制約の双対実行可能性・相補性・停留条件を双対錐と随伴作用素で記述した KKT 条件。
+  - term: 半正定値錐
+    english: positive semidefinite cone
+    meaning: 対称半正定値行列全体からなる閉凸錐。錐計画で代表的に現れる。

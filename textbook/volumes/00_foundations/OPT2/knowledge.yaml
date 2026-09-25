@@ -16,7 +16,7 @@ forward_references:
   - convex.normal-cone
   - convex.polar-cone
   - convex.fenchel-duality
-  - optimization.kkt-multiplier-existence
+  - optimization.mfcq-kkt-existence
 
 concepts:
   - id: convex.hyperplane

@@ -43,9 +43,9 @@ $$
 > **定義（活性集合）**  
 > 実行可能点 $x^*\in C$ に対して
 >
-> $$
-> I(x^*)=\{i:g_i(x^*)=0\}
-> $$
+$$
+I(x^*)=\{i:g_i(x^*)=0\}
+$$
 >
 > を $x^*$ における **活性集合**という。
 <!-- formal-statement-end -->
@@ -57,12 +57,12 @@ OPT5 の「活性制約」を添字集合としてまとめたものです。$g_
 > **定義（Bouligand 接錐）**  
 > $x^*\in C$ に対して
 >
-> $$
-> T_C(x^*)=
-> \left\{
-> d:\exists x_k\in C,\ t_k\downarrow0,> \frac{x_k-x^*}{t_k}\to d
-> \right\}
-> $$
+$$
+T_C(x^*)=
+\left\{
+d:\exists x_k\in C,\ t_k\downarrow0,> \frac{x_k-x^*}{t_k}\to d
+\right\}
+$$
 >
 > を $C$ の $x^*$ における **接錐**という。
 <!-- formal-statement-end -->
@@ -90,22 +90,22 @@ $$
 > **定理（局所最適点の接方向条件）**  
 > $f$ が $x^*$ で微分可能で、$x^*$ が $C$ 上の局所最小点なら
 >
-> $$
-> \nabla f(x^*)^{\mathsf T}d\ge0
-> \qquad(\forall d\in T_C(x^*)).
-> $$
+$$
+\nabla f(x^*)^{\mathsf T}d\ge0
+\qquad(\forall d\in T_C(x^*)).
+$$
 >
 > 従って polar cone
 >
-> $$
-> K^\circ=\{v:v^{\mathsf T}d\le0\ (\forall d\in K)\}
-> $$
+$$
+K^\circ=\{v:v^{\mathsf T}d\le0\ (\forall d\in K)\}
+$$
 >
 > を用いれば
 >
-> $$
-> \boxed{-\nabla f(x^*)\in T_C(x^*)^\circ}.
-> $$
+$$
+\boxed{-\nabla f(x^*)\in T_C(x^*)^\circ}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -134,20 +134,20 @@ $t_k>0$ で割って極限を取れば $\nabla f(x^*)^{\mathsf T}d\ge0$。これ
 
 ---
 
-## 3. 線形化錐
+## 3. 制約の一次近似を錐として表す
 
 <a id="def-opt6-linearization-cone"></a>
 <!-- formal-statement-start -->
 > **定義（線形化錐）**  
 > $g_i,h_j$ が $x^*$ で微分可能とする。
 >
-> $$
-> L_C(x^*)=
-> \left\{
-> d:
-> \nabla g_i(x^*)^{\mathsf T}d\le0\ (i\in I(x^*)),> \nabla h_j(x^*)^{\mathsf T}d=0\ (j=1,\ldots,r)
-> \right\}
-> $$
+$$
+L_C(x^*)=
+\left\{
+d:
+\nabla g_i(x^*)^{\mathsf T}d\le0\ (i\in I(x^*)),> \nabla h_j(x^*)^{\mathsf T}d=0\ (j=1,\ldots,r)
+\right\}
+$$
 >
 > を $x^*$ における **線形化錐**という。
 <!-- formal-statement-end -->
@@ -179,9 +179,9 @@ $$
 > **定理（接錐と線形化錐の基本包含）**  
 > $g_i,h_j$ が $x^*$ で微分可能なら
 >
-> $$
-> \boxed{T_C(x^*)\subseteq L_C(x^*)}.
-> $$
+$$
+\boxed{T_C(x^*)\subseteq L_C(x^*)}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -224,7 +224,7 @@ $$
 T_C(0)=\{0\}.
 $$
 
-ところが $g'(0)=0$ なので線形化条件は $0\cdot d\le0$、従って
+ところが $g'(0)=0$ なので一次近似条件は $0\cdot d\le0$、従って
 
 $$
 L_C(0)=\mathbb R.
@@ -253,11 +253,11 @@ $$
 > **定義（LICQ）**  
 > $x^*$ において
 >
-> $$
-> \{\nabla g_i(x^*):i\in I(x^*)\}
-> \cup
-> \{\nabla h_j(x^*):j=1,\ldots,r\}
-> $$
+$$
+\{\nabla g_i(x^*):i\in I(x^*)\}
+\cup
+\{\nabla h_j(x^*):j=1,\ldots,r\}
+$$
 >
 > が一次独立であるとき、**LICQ** が成立するという。
 <!-- formal-statement-end -->
@@ -273,13 +273,13 @@ $g_1(x)=x_1\le0$, $g_2(x)=x_2\le0$ を原点で考えると、活性勾配は $(
 > **定義（MFCQ）**  
 > $x^*$ で等式制約の勾配 $\nabla h_j(x^*)$ が一次独立であり、さらにある $v$ が存在して
 >
-> $$
-> \nabla h_j(x^*)^{\mathsf T}v=0\quad(\forall j),
-> $$
+$$
+\nabla h_j(x^*)^{\mathsf T}v=0\quad(\forall j),
+$$
 >
-> $$
-> \nabla g_i(x^*)^{\mathsf T}v<0\quad(\forall i\in I(x^*))
-> $$
+$$
+\nabla g_i(x^*)^{\mathsf T}v<0\quad(\forall i\in I(x^*))
+$$
 >
 > を満たすとき、**MFCQ** が成立するという。
 <!-- formal-statement-end -->
@@ -288,13 +288,13 @@ $g_1(x)=x_1\le0$, $g_2(x)=x_2\le0$ を原点で考えると、活性勾配は $(
 **定義の確認**：MFCQ は成立するが LICQ は失敗
 
 $$
-g_1(x)=x\le0,qquad g_2(x)=2x\le0
+g_1(x)=x\le0,\qquad g_2(x)=2x\le0
 $$
 
 を $x^*=0$ で考えます。勾配 $1,2$ は一次従属なので LICQ は失敗します。一方 $v=-1$ とすれば
 
 $$
-g_1'(0)v=-1<0,qquad g_2'(0)v=-2<0,
+g_1'(0)v=-1<0,\qquad g_2'(0)v=-2<0,
 $$
 
 よって MFCQ は成立します。
@@ -329,9 +329,9 @@ $$
 > **定理（MFCQ 下の接錐一致）**  
 > $g_i,h_j$ が $C^1$ 級で、$x^*$ で MFCQ が成立するとする。このとき
 >
-> $$
-> \boxed{T_C(x^*)=L_C(x^*)}.
-> $$
+$$
+\boxed{T_C(x^*)=L_C(x^*)}.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -355,7 +355,7 @@ $$
 \nabla g_i(x^*)^{\mathsf T}d_\varepsilon<0.
 $$
 
-MFCQ により $Dh(x^*)$ は行フルランクです。座標を $(u,z)$ に並べ替え、正則な部分行列 $D_zh(x^*)$ を選びます。RA6A の陰関数定理により、等式集合は局所的に $z=\varphi(u)$ と書けます。
+MFCQ により $Dh(x^*)$ は行フルランクです。座標を $(u,z)$ に並べ替え、正則な部分行列 $D_zh(x^*)$ を選びます。[RA6A の陰関数定理](../RA6A/index.md#thm-ra6a-implicit-function)により、等式集合は局所的に $z=\varphi(u)$ と書けます。
 
 $d_\varepsilon=(d_u,d_z)$ と分けると $Dh(x^*)d_\varepsilon=0$ から
 
@@ -407,14 +407,14 @@ $$
 > **定理（線形化錐の polar 表示）**  
 > 上の $A,B$ に対して
 >
-> $$
-> \boxed{
-> L_C(x^*)^\circ
-> =
-> \{A^{\mathsf T}\lambda+B^{\mathsf T}\nu:
-> \lambda\ge0,\ \nu\in\mathbb R^r\}.
-> }
-> $$
+$$
+\boxed{
+L_C(x^*)^\circ
+=
+\{A^{\mathsf T}\lambda+B^{\mathsf T}\nu:
+\lambda\ge0,\ \nu\in\mathbb R^r\}.
+}
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -452,15 +452,15 @@ $A$ の各行ベクトルは $M$ に入り、$B$ の各行ベクトルは正負�
 > **定理（MFCQ 下の KKT 乗数存在）**  
 > $x^*$ が $C$ 上の局所最小点、$f,g_i,h_j$ が $C^1$ 級で、$x^*$ で MFCQ が成立するとする。このとき、ある $\lambda_i\ge0$ と $\nu_j\in\mathbb R$ が存在して
 >
-> $$
-> \nabla f(x^*)
-> +\sum_i\lambda_i\nabla g_i(x^*)
-> +\sum_j\nu_j\nabla h_j(x^*)=0,
-> $$
+$$
+\nabla f(x^*)
++\sum_i\lambda_i\nabla g_i(x^*)
++\sum_j\nu_j\nabla h_j(x^*)=0,
+$$
 >
-> $$
-> \lambda_i g_i(x^*)=0
-> $$
+$$
+\lambda_i g_i(x^*)=0
+$$
 >
 > を満たす。
 <!-- formal-statement-end -->
@@ -593,7 +593,7 @@ $$
 \nabla g(0,0)=(0,-1)^{\mathsf T}.
 $$
 
-従って線形化条件は
+従って一次近似から得る条件は
 
 $$
 (0,-1)d=-d_2\le0,
@@ -621,7 +621,7 @@ $g_1(x)=x\le0$, $g_2(x)=2x\le0$ を $x^*=0$ で考え、LICQ と MFCQ を判定�
 一方 $v=-1$ とすると
 
 $$
-g_1'(0)v=-1<0,qquad g_2'(0)v=-2<0.
+g_1'(0)v=-1<0,\qquad g_2'(0)v=-2<0.
 $$
 
 等式制約はないので MFCQ の等式側条件は空条件です。従って
@@ -647,7 +647,7 @@ $$
 T_C(0)=\{0\}.
 $$
 
-一方 $g'(0)=0$ だから線形化条件は全ての $d$ を許し、
+一方 $g'(0)=0$ だから一次近似から得る条件は全ての $d$ を許し、
 
 $$
 L_C(0)=\mathbb R.
@@ -810,7 +810,7 @@ $$
 subject to
 
 $$
-g(x,y)=x^2-y\le0,qquad h(x,y)=y-1=0
+g(x,y)=x^2-y\le0,\qquad h(x,y)=y-1=0
 $$
 
 を考える。
@@ -839,7 +839,7 @@ $$
 勾配は
 
 $$
-\nabla g(x^*)=(-2,-1)^{\mathsf T},qquad
+\nabla g(x^*)=(-2,-1)^{\mathsf T},\qquad
 \nabla h(x^*)=(0,1)^{\mathsf T}.
 $$
 
@@ -848,7 +848,7 @@ $$
 線形化錐は
 
 $$
--2d_x-d_y\le0,qquad d_y=0,
+-2d_x-d_y\le0,\qquad d_y=0,
 $$
 
 したがって
@@ -868,13 +868,13 @@ $$
 とすると停留条件は
 
 $$
-1+2\lambda x=0,qquad -\lambda+\nu=0.
+1+2\lambda x=0,\qquad -\lambda+\nu=0.
 $$
 
 $x=-1$ を代入して
 
 $$
-\lambda^*=\frac12,qquad \nu^*=\frac12.
+\lambda^*=\frac12,\qquad \nu^*=\frac12.
 $$
 
 $\lambda^*\ge0$、制約は活性なので相補性も成立します。

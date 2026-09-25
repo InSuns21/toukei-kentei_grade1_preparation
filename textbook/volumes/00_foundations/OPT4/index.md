@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-この章は DREAM THEATER の凸解析・最適化系列で **Fenchel 共役から双対問題を組み立てる canonical owner** です。旧 F0-00G2 の資産を移行し、OPT3 で整えた閉真凸関数・劣微分・法錐を、共役・Fenchel--Young の等号条件・二重共役・Fenchel 双対へ接続します。旧ページは stable anchor と過去 URL のため残しますが、読者向け一覧からは外します。
+この章は DREAM THEATER の凸解析・最適化系列で、**線形関数との差の上限を使って凸関数を双対側から読む構成**を扱う canonical owner です。旧 F0-00G2 の資産を移行し、OPT3 で整えた閉真凸関数・劣微分・法錐を、双対側の関数、等号条件、二重化、双対問題へ順に接続します。旧ページは stable anchor と過去 URL のため残しますが、読者向け一覧からは外します。
 
 > **この章の停止線**
 >
@@ -798,12 +798,12 @@ $$
 - Level: B
 - 目安時間: 15分
 
-$C=\{x:\|x\|_p\le1\}$、$1/p+1/q=1$ とする。Hölder の不等式を用いて $\sigma_C(y)=\|y\|_q$ を示せ。
+$C=\{x:\|x\|_p\le1\}$、$1/p+1/q=1$ とする。[Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)を用いて $\sigma_C(y)=\|y\|_q$ を示せ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-Hölder の不等式より
+[Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)より
 
 $$
 y^{\mathsf T}x\le |y^{\mathsf T}x|\le\|y\|_q\|x\|_p\le\|y\|_q,
@@ -823,7 +823,7 @@ $$
 - Level: B
 - 目安時間: 18分
 
-閉真凸関数 $f$ について、Fenchel--Young の等号条件を使い
+閉真凸関数 $f$ について、[Fenchel--Young の等号条件](#thm-opt4-fenchel-equality-subgradient)を使い
 
 $$
 y\in\partial f(x)\iff x\in\partial f^*(y)
@@ -834,7 +834,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-Fenchel--Young の等号条件から
+[Fenchel--Young の等号条件](#thm-opt4-fenchel-equality-subgradient)から
 
 $$
 y\in\partial f(x)\iff f(x)+f^*(y)=x^{\mathsf T}y.
@@ -846,7 +846,7 @@ $$
 f^*(y)+f^{**}(x)=y^{\mathsf T}x
 $$
 
-と書ける。今度は関数 $f^*$ に Fenchel--Young の等号条件を適用すると、これは $x\in\partial f^*(y)$ と同値である。よって主張を得る。
+と書ける。今度は関数 $f^*$ に [Fenchel--Young の等号条件](#thm-opt4-fenchel-equality-subgradient)を適用すると、これは $x\in\partial f^*(y)$ と同値である。よって主張を得る。
 <!-- solution-end -->
 
 ### OPT4-B03 Fenchel 双対の弱双対性
@@ -952,7 +952,7 @@ $$
 }.
 $$
 
-ここで制約は「共役を計算した結果」として現れており、$\ell_1$ 正則化と $\ell_\infty$ 制約の双対関係が見える。さらに $g$ は全空間で有限かつ連続なので、標準的な Fenchel--Rockafellar の正則性条件は満たされる。本章の relative interior 条件の見方では $A(\operatorname{dom}f)$ と $\operatorname{dom}g=\mathbb R^m$ の相対内部が交わるため、適切な有限最適値のもとで強双対性へ進める。
+ここで制約は「共役を計算した結果」として現れており、$\ell_1$ 正則化と $\ell_\infty$ 制約の双対関係が見える。さらに $g$ は全空間で有限かつ連続なので、標準的な Fenchel--Rockafellar の適用条件は満たされる。本章の relative interior 条件の見方では $A(\operatorname{dom}f)$ と $\operatorname{dom}g=\mathbb R^m$ の相対内部が交わるため、適切な有限最適値のもとで強双対性へ進める。
 <!-- solution-end -->
 
 ## 17. 次に進む

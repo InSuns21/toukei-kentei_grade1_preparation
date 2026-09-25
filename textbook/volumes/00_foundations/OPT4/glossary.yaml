@@ -1,0 +1,20 @@
+chapter: "OPT4"
+terms:
+  - term: Fenchel 共役
+    english: Fenchel conjugate
+    meaning: 関数 f に対して f*(y)=sup_x {<x,y>-f(x)} で定まる共役関数。凸双対の基本構成。
+  - term: 支持関数
+    english: support function
+    meaning: 集合 C に対して sigma_C(y)=sup_{x in C}<x,y> で定まる関数。標示関数の Fenchel 共役として現れる。
+  - term: Fenchel--Young の不等式
+    english: Fenchel--Young inequality
+    meaning: 任意の x,y に対して f(x)+f*(y)>=<x,y> とする基本不等式。等号は劣勾配条件と対応する。
+  - term: 二重共役
+    english: biconjugate
+    meaning: Fenchel 共役を二度取った f**。閉真凸関数では有限次元 Fenchel--Moreau の定理により元の関数へ戻る。
+  - term: Fenchel--Moreau の定理
+    english: Fenchel--Moreau theorem
+    meaning: 有限次元で閉真凸関数がその二重共役に一致することを述べる定理。
+  - term: Fenchel 双対
+    english: Fenchel duality
+    meaning: 共役関数を用いて主問題から双対問題を構成し、下界や最適性条件を調べる枠組み。

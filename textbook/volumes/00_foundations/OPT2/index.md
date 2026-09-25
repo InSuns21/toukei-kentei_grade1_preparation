@@ -368,9 +368,9 @@ $$
 > 1. $p=P_C(z)$。
 > 2. 任意の $x\in C$ に対して
 >
-> $$
-> (z-p)^{\mathsf T}(x-p)\le0.
-> $$
+$$
+(z-p)^{\mathsf T}(x-p)\le0.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図

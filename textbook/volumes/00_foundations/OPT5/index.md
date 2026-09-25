@@ -14,7 +14,7 @@ $$
 
 > **この章の停止線**
 >
-> 接錐・線形化錐から KKT 乗数の存在を導く幾何学的議論、LICQ・MFCQ は OPT6 の担当です。本章では凸問題に対する Slater 条件を使い、KKT を必要十分条件として使えるところまで進みます。
+> 接錐と制約の一次近似から KKT 乗数の存在を導く幾何学的議論、LICQ・MFCQ は OPT6 の担当です。本章では凸問題に対する Slater 条件を使い、KKT を必要十分条件として使えるところまで進みます。
 
 ---
 
@@ -39,19 +39,19 @@ $$
 > **定義（Lagrangian）**  
 > $f,g_1,\dots,g_m:\mathbb R^n\to\mathbb R$、$A\in\mathbb R^{r\times n}$、$b\in\mathbb R^r$ に対する制約付き最小化問題
 >
-> $$
-> \min_x f(x)
-> \quad\text{subject to}\quad
-> g_i(x)\le0\ (i=1,\dots,m),\qquad Ax=b
-> $$
+$$
+\min_x f(x)
+\quad\text{subject to}\quad
+g_i(x)\le0\ (i=1,\dots,m),\qquad Ax=b
+$$
 >
 > を考える。$\lambda\in\mathbb R_+^m$、$\nu\in\mathbb R^r$ に対して
 >
-> $$
-> L(x,\lambda,\nu)
-> =
-> f(x)+\sum_{i=1}^m\lambda_i g_i(x)+\nu^{\mathsf T}(Ax-b)
-> $$
+$$
+L(x,\lambda,\nu)
+=
+f(x)+\sum_{i=1}^m\lambda_i g_i(x)+\nu^{\mathsf T}(Ax-b)
+$$
 >
 > をこの問題の **Lagrangian** という。
 <!-- formal-statement-end -->
@@ -78,9 +78,9 @@ $$
 > **定義（双対関数）**  
 > 上の Lagrangian に対し
 >
-> $$
-> q(\lambda,\nu)=\inf_{x\in\mathbb R^n}L(x,\lambda,\nu)
-> $$
+$$
+q(\lambda,\nu)=\inf_{x\in\mathbb R^n}L(x,\lambda,\nu)
+$$
 >
 > を **双対関数** という。
 <!-- formal-statement-end -->
@@ -90,9 +90,9 @@ $$
 > **定義（主問題・Lagrange 双対問題）**  
 > 元の制約付き最小化問題を **主問題** といい、その最適値を $p^*$ とする。双対関数を用いた
 >
-> $$
-> \sup_{\lambda\ge0,\,\nu\in\mathbb R^r}q(\lambda,\nu)
-> $$
+$$
+\sup_{\lambda\ge0,\,\nu\in\mathbb R^r}q(\lambda,\nu)
+$$
 >
 > を **Lagrange 双対問題** といい、その最適値を $d^*$ とする。
 <!-- formal-statement-end -->
@@ -124,15 +124,15 @@ $$
 > **定理（Lagrange 双対の弱双対性）**  
 > 上の主問題について、$x$ が主実行可能、$(\lambda,\nu)$ が $\lambda\ge0$ を満たすなら
 >
-> $$
-> q(\lambda,\nu)\le f(x).
-> $$
+$$
+q(\lambda,\nu)\le f(x).
+$$
 >
 > 従って常に
 >
-> $$
-> \boxed{d^*\le p^*}
-> $$
+$$
+\boxed{d^*\le p^*}
+$$
 >
 > が成り立つ。この結論には $f,g_i$ の凸性を仮定しない。
 <!-- formal-statement-end -->
@@ -169,16 +169,16 @@ $$
 
 ## 4. Slater 条件：強双対性を支える内部点
 
-凸問題でも、強双対性を無条件に期待してはいけません。制約集合が退化していると、支持超平面を「有限の乗数」として取り出す議論が壊れることがあります。代表的な正則性条件が Slater 条件です。
+凸問題でも、強双対性を無条件に期待してはいけません。制約集合が退化していると、支持超平面を「有限の乗数」として取り出す議論が壊れることがあります。その代表が Slater 条件です。
 
 <a id="def-opt5-slater"></a>
 <!-- formal-statement-start -->
 > **定義（Slater 条件）**  
 > $f,g_1,\dots,g_m$ を凸関数、等式制約を $Ax=b$ とする凸最適化問題を考える。ある $\bar x\in\operatorname{ri}(\operatorname{dom}f\cap\bigcap_i\operatorname{dom}g_i)$ が存在して
 >
-> $$
-> g_i(\bar x)<0\qquad(i=1,\dots,m),\qquad A\bar x=b
-> $$
+$$
+g_i(\bar x)<0\qquad(i=1,\dots,m),\qquad A\bar x=b
+$$
 >
 > を満たすとき、この問題は **Slater 条件**を満たすという。
 <!-- formal-statement-end -->
@@ -205,9 +205,9 @@ $$
 > **定理（Slater 条件下の強双対性）**  
 > $f,g_1,\dots,g_m:\mathbb R^n\to(-\infty,+\infty]$ を閉真凸関数とし、等式制約を $Ax=b$ とする。主問題の最適値が有限で、Slater 条件を満たすなら、Lagrange 双対問題は最適解を持ち、
 >
-> $$
-> \boxed{d^*=p^*}
-> $$
+$$
+\boxed{d^*=p^*}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -266,30 +266,30 @@ $$
 > **定理（凸問題の KKT 条件）**  
 > $f,g_1,\dots,g_m:\mathbb R^n\to\mathbb R$ を微分可能な凸関数とし、$A\in\mathbb R^{r\times n}$、$b\in\mathbb R^r$ とする。問題
 >
-> $$
-> \min_x f(x)
-> \quad\text{subject to}\quad
-> g_i(x)\le0,qquad Ax=b
-> $$
+$$
+\min_x f(x)
+\quad\text{subject to}\quad
+g_i(x)\le0,\qquad Ax=b
+$$
 >
 > が Slater 条件を満たすとする。このとき $x^*$ が主最適解であることと、ある $\lambda^*\ge0$、$\nu^*\in\mathbb R^r$ が存在して次の4条件を満たすことは同値である。
 >
 > 1. **主実行可能性**
->    $$
->    g_i(x^*)\le0,qquad Ax^*=b.
->    $$
+$$
+   g_i(x^*)\le0,\qquad Ax^*=b.
+$$
 > 2. **双対実行可能性**
->    $$
->    \lambda_i^*\ge0.
->    $$
+$$
+   \lambda_i^*\ge0.
+$$
 > 3. **停留条件**
->    $$
->    \nabla f(x^*)+\sum_i\lambda_i^*\nabla g_i(x^*)+A^{\mathsf T}\nu^*=0.
->    $$
+$$
+   \nabla f(x^*)+\sum_i\lambda_i^*\nabla g_i(x^*)+A^{\mathsf T}\nu^*=0.
+$$
 > 4. **相補性**
->    $$
->    \lambda_i^*g_i(x^*)=0\qquad(i=1,\dots,m).
->    $$
+$$
+   \lambda_i^*g_i(x^*)=0\qquad(i=1,\dots,m).
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -301,7 +301,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $x^*$ が主最適解とします。Slater 条件下の強双対性により双対最適解 $(\lambda^*,\nu^*)$ が存在し、
+まず $x^*$ が主最適解とします。[Slater 条件下の強双対性](#thm-opt5-slater-strong-duality)により双対最適解 $(\lambda^*,\nu^*)$ が存在し、
 
 $$
 p^*=d^*=q(\lambda^*,\nu^*)
@@ -381,9 +381,9 @@ $$
 > **定義（活性制約）**  
 > 不等式制約 $g_i(x)\le0$ が実行可能点 $x$ で
 >
-> $$
-> g_i(x)=0
-> $$
+$$
+g_i(x)=0
+$$
 >
 > を満たすとき、その制約を $x$ における **活性制約**という。$g_i(x)<0$ のときは非活性という。
 <!-- formal-statement-end -->
@@ -423,7 +423,7 @@ $$
 L(x,\lambda)=(x-2)^2+\lambda(x-1).
 $$
 
-KKT 条件は
+[KKT 条件](#thm-opt5-kkt)は
 
 $$
 x-1\le0,\qquad \lambda\ge0,
@@ -464,7 +464,7 @@ $$
 
 を要求するので、どんな $\lambda\ge0$ でも満たせません。
 
-ここで壊れたのは「最適解が存在すること」ではありません。**最適解を有限の Lagrange 乗数で表現できること**です。OPT6 では、この現象を接錐と線形化錐のずれとして詳しく見ます。
+ここで壊れたのは「最適解が存在すること」ではありません。**最適解を有限の Lagrange 乗数で表現できること**です。OPT6 では、この現象を接錐と制約の一次近似が作る錐のずれとして詳しく見ます。
 
 ---
 
@@ -582,7 +582,7 @@ $$
 \quad\text{subject to}\quad x\ge0
 $$
 
-を KKT 条件から解け。
+を [KKT 条件](#thm-opt5-kkt)から解け。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -684,7 +684,7 @@ $$
 \quad\text{subject to}\quad x+y\ge2
 $$
 
-を KKT 条件から解き、乗数も求めよ。
+を [KKT 条件](#thm-opt5-kkt)から解き、乗数も求めよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -749,7 +749,7 @@ $$
 
 $x^*=0$ を代入すると $1=0$ となり、どの有限な $\lambda\ge0$ でも成立しません。
 
-したがって壊れたのは最適解の存在ではなく、最適性を有限の Lagrange 乗数で表す KKT 必要条件です。制約勾配 $g'(0)=0$ が一次近似で実行可能集合の狭さを捉えられないことが背景にあり、OPT6 の接錐・線形化錐へつながります。
+したがって壊れたのは最適解の存在ではなく、最適性を有限の Lagrange 乗数で表す KKT 必要条件です。制約勾配 $g'(0)=0$ が一次近似で実行可能集合の狭さを捉えられないことが背景にあり、OPT6 の接錐と制約の一次近似の議論へつながります。
 <!-- solution-end -->
 
 ---
@@ -768,7 +768,7 @@ $$
 subject to
 
 $$
-x\ge0,qquad y\ge0,qquad x+y=1
+x\ge0,\qquad y\ge0,\qquad x+y=1
 $$
 
 について、Lagrangian と KKT 条件を構成し、主最適解と一組の最適乗数を求めよ。さらに Slater 条件を確認し、KKT が必要十分条件として使える理由を説明せよ。
@@ -845,4 +845,4 @@ $$
 
 ## 13. 次に進む
 
-次は **OPT6「KKT の幾何学的導出・制約想定」** です。本章で Slater 条件を使って得た乗数が、一般の滑らかな制約付き最適化でいつ存在するのかを、活性集合・接錐・線形化錐・LICQ・MFCQ から組み立て直します。
+次は **OPT6「KKT の幾何学的導出・制約想定」** です。本章で Slater 条件を使って得た乗数が、一般の滑らかな制約付き最適化でいつ存在するのかを、活性集合・接錐・制約の一次近似・LICQ・MFCQ から組み立て直します。

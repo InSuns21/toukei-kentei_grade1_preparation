@@ -9,7 +9,7 @@ forward_references:
   - convex.fenchel-conjugate
   - convex.fenchel-young
   - convex.fenchel-duality
-  - optimization.kkt-multiplier-existence
+  - optimization.mfcq-kkt-existence
   - optimization.constraint-qualification
   - optimization.dual-problem
   - optimization.cone-constraint
