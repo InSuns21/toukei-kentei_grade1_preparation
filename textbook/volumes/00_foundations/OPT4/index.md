@@ -805,7 +805,7 @@ $C=\{x:\|x\|_p\le1\}$、$1/p+1/q=1$ とする。[Hölder の不等式](../F0_00D
 
 [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)より
 
-$
+$$
 y^{\mathsf T}x\le |y^{\mathsf T}x|\le\|y\|_q\|x\|_p\le\|y\|_q,
 $$
 
@@ -836,7 +836,7 @@ $$
 
 [Fenchel--Young の等号条件](#thm-opt4-fenchel-equality-subgradient)から
 
-$
+$$
 y\in\partial f(x)\iff f(x)+f^*(y)=x^{\mathsf T}y.
 $$
 
@@ -952,7 +952,7 @@ $$
 }.
 $$
 
-ここで制約は「共役を計算した結果」として現れており、$\ell_1$ 正則化と $\ell_\infty$ 制約の双対関係が見える。さらに $g$ は全空間で有限かつ連続なので、標準的な Fenchel--Rockafellar の正則性条件は満たされる。本章の relative interior 条件の見方では $A(\operatorname{dom}f)$ と $\operatorname{dom}g=\mathbb R^m$ の相対内部が交わるため、適切な有限最適値のもとで強双対性へ進める。
+ここで制約は「共役を計算した結果」として現れており、$\ell_1$ 正則化と $\ell_\infty$ 制約の双対関係が見える。さらに $g$ は全空間で有限かつ連続なので、標準的な Fenchel--Rockafellar の適用条件は満たされる。本章の relative interior 条件の見方では $A(\operatorname{dom}f)$ と $\operatorname{dom}g=\mathbb R^m$ の相対内部が交わるため、適切な有限最適値のもとで強双対性へ進める。
 <!-- solution-end -->
 
 ## 17. 次に進む
