@@ -1,0 +1,180 @@
+chapter: DOPT3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - DOPT2
+
+forward_references: []
+
+concepts:
+  - id: optimization.bipartite-graph
+    name: 二部グラフ
+    kind: definition
+    aliases:
+      - bipartite graph
+    introduction: formal
+    introduction_aliases: ["定義（二部グラフ）"]
+    requires: []
+
+  - id: optimization.matching
+    name: マッチング
+    kind: definition
+    aliases:
+      - matching
+    introduction: formal
+    introduction_aliases: ["定義（マッチング）"]
+    requires:
+      - optimization.bipartite-graph
+
+  - id: optimization.maximum-matching
+    name: 最大マッチング
+    kind: definition
+    aliases:
+      - maximum matching
+    introduction: formal
+    introduction_aliases: ["定義（マッチング）"]
+    requires:
+      - optimization.matching
+
+  - id: optimization.alternating-path
+    name: 交互路
+    kind: definition
+    aliases:
+      - alternating path
+    introduction: formal
+    introduction_aliases: ["定義（交互路・増加路）"]
+    requires:
+      - optimization.matching
+
+  - id: optimization.matching-augmenting-path
+    name: 増加路
+    kind: definition
+    aliases:
+      - augmenting path for a matching
+    introduction: formal
+    introduction_aliases: ["定義（交互路・増加路）"]
+    requires:
+      - optimization.alternating-path
+
+  - id: optimization.augmenting-path-matching-update
+    name: 増加路によるマッチング更新
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（増加路によるマッチング更新）"]
+    requires:
+      - optimization.matching-augmenting-path
+
+  - id: optimization.berge-lemma
+    name: Berge の補題
+    kind: theorem
+    aliases:
+      - Berge lemma
+    introduction: formal
+    introduction_aliases: ["定理（Berge の補題）"]
+    requires:
+      - optimization.augmenting-path-matching-update
+
+  - id: optimization.bipartite-matching-flow-correspondence
+    name: 二部マッチングと整数フローの対応
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（二部マッチングと整数フローの対応）"]
+    requires:
+      - optimization.matching
+      - optimization.integral-max-flow-theorem
+
+  - id: optimization.bipartite-neighborhood
+    name: 二部グラフにおける近傍
+    kind: definition
+    aliases:
+      - bipartite neighborhood
+    introduction: formal
+    introduction_aliases: ["定義（二部グラフにおける近傍）"]
+    requires:
+      - optimization.bipartite-graph
+
+  - id: optimization.hall-theorem
+    name: Hall の定理
+    kind: theorem
+    aliases:
+      - Hall theorem
+      - Hall marriage theorem
+    introduction: formal
+    introduction_aliases: ["定理（Hall の定理）"]
+    requires:
+      - optimization.bipartite-neighborhood
+      - optimization.bipartite-matching-flow-correspondence
+      - optimization.max-flow-min-cut-theorem
+
+  - id: optimization.assignment-problem
+    name: 割当問題
+    kind: definition
+    aliases:
+      - assignment problem
+    introduction: formal
+    introduction_aliases: ["定義（割当問題）"]
+    requires:
+      - optimization.matching
+
+  - id: optimization.assignment-binary-formulation
+    name: 割当問題の0--1線形計画表示
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（割当問題の 0--1 線形計画表示）"]
+    requires:
+      - optimization.assignment-problem
+      - optimization.integer-linear-program
+
+  - id: optimization.assignment-lp-relaxation
+    name: 割当 LP 緩和
+    kind: definition
+    aliases:
+      - assignment LP relaxation
+    introduction: formal
+    introduction_aliases: ["定義（割当 LP 緩和・二重確率行列）"]
+    requires:
+      - optimization.assignment-binary-formulation
+      - optimization.lp-relaxation
+
+  - id: optimization.doubly-stochastic-matrix
+    name: 二重確率行列
+    kind: definition
+    aliases:
+      - doubly stochastic matrix
+    introduction: formal
+    introduction_aliases: ["定義（割当 LP 緩和・二重確率行列）"]
+    requires:
+      - optimization.assignment-lp-relaxation
+
+  - id: optimization.matching-polytope
+    name: マッチング多面体
+    kind: definition
+    aliases:
+      - matching polytope
+    introduction: formal
+    introduction_aliases: ["定義（マッチング多面体）"]
+    requires:
+      - optimization.matching
+      - optimization.integer-hull
+
+  - id: optimization.matching-degree-relaxation-inclusion
+    name: マッチング多面体の次数制約緩和への包含
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（マッチング多面体は次数制約緩和に含まれる）"]
+    requires:
+      - optimization.matching-polytope
+
+  - id: optimization.assignment-lp-dual
+    name: 割当 LP の双対
+    kind: proposition
+    aliases:
+      - assignment LP dual
+    introduction: formal
+    introduction_aliases: ["命題（割当 LP の双対）"]
+    requires:
+      - optimization.assignment-lp-relaxation
