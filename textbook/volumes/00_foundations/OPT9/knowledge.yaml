@@ -1,0 +1,132 @@
+chapter: OPT9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OPT5
+  - OPT6
+  - OPT7
+  - OPT8
+
+forward_references: []
+
+concepts:
+  - id: optimization.projected-gradient-mapping
+    name: 射影勾配写像
+    kind: definition
+    aliases:
+      - projected gradient mapping
+    introduction: formal
+    introduction_aliases: ["定義（射影勾配写像）"]
+    requires:
+      - optimization.projected-gradient-method
+
+  - id: optimization.projected-gradient-stationarity
+    name: 射影勾配写像と凸制約付き最適性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（射影勾配写像と凸制約付き最適性）"]
+    requires:
+      - optimization.projected-gradient-mapping
+      - convex.smooth-constrained-optimality
+
+  - id: optimization.quadratic-penalty-method
+    name: 二次ペナルティ法
+    kind: definition
+    aliases:
+      - quadratic penalty method
+    introduction: formal
+    introduction_aliases: ["定義（二次ペナルティ法）"]
+    requires: []
+
+  - id: optimization.penalty-feasibility-bound
+    name: 二次ペナルティ最小点の可行性評価
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（二次ペナルティ最小点の可行性評価）"]
+    requires:
+      - optimization.quadratic-penalty-method
+
+  - id: optimization.logarithmic-barrier
+    name: 対数障壁問題
+    kind: definition
+    aliases:
+      - logarithmic barrier
+      - logarithmic barrier problem
+    introduction: formal
+    introduction_aliases: ["定義（対数障壁問題）"]
+    requires: []
+
+  - id: optimization.central-path
+    name: 中心路
+    kind: definition
+    aliases:
+      - central path
+    introduction: formal
+    introduction_aliases: ["定義（中心路）"]
+    requires:
+      - optimization.logarithmic-barrier
+
+  - id: optimization.barrier-perturbed-kkt-gap
+    name: 凸対数障壁点の摂動 KKT と双対ギャップ
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（凸対数障壁点の摂動 KKT と双対ギャップ）"]
+    requires:
+      - optimization.logarithmic-barrier
+      - optimization.lagrangian
+      - optimization.weak-duality
+
+  - id: optimization.equality-kkt-newton-step
+    name: 等式制約 KKT 系の Newton ステップ
+    kind: theorem
+    aliases:
+      - KKT Newton step
+    introduction: formal
+    introduction_aliases: ["定理（等式制約 KKT 系の Newton ステップ）"]
+    requires:
+      - optimization.kkt-conditions
+      - optimization.newton-unconstrained
+
+  - id: optimization.perturbed-kkt-system
+    name: 摂動 KKT 系
+    kind: definition
+    aliases:
+      - perturbed KKT system
+    introduction: formal
+    introduction_aliases: ["定義（摂動 KKT 系）"]
+    requires:
+      - optimization.kkt-conditions
+
+  - id: optimization.primal-dual-newton-system
+    name: 摂動 KKT 系の主双対 Newton 方程式
+    kind: theorem
+    aliases:
+      - primal-dual Newton system
+    introduction: formal
+    introduction_aliases: ["定理（摂動 KKT 系の主双対 Newton 方程式）"]
+    requires:
+      - optimization.perturbed-kkt-system
+      - optimization.newton-unconstrained
+
+  - id: optimization.sequential-quadratic-programming
+    name: 逐次二次計画法
+    kind: definition
+    aliases:
+      - sequential quadratic programming
+      - SQP
+    introduction: formal
+    introduction_aliases: ["定義（逐次二次計画法）"]
+    requires: []
+
+  - id: optimization.sqp-newton-equivalence
+    name: 等式制約 SQP と KKT-Newton ステップの一致
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（等式制約 SQP と KKT-Newton ステップの一致）"]
+    requires:
+      - optimization.sequential-quadratic-programming
+      - optimization.equality-kkt-newton-step
