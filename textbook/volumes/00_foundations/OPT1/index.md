@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-この章は DREAM THEATER の凸解析・最適化系列の入口です。旧 F0-00G にあった有限次元の凸性の基礎を本章へ統合し、ここを canonical owner とします。旧ページは stable anchor と過去URLを維持するためリポジトリ内に残しますが、読者向け一覧には掲載しません。
+この章は DREAM THEATER の凸解析・最適化系列の入口です。有限次元の凸性を出発点に、凸集合・凸関数・凸最適化の基本構造を一つの流れで組み立てます。
 
 本章では
 
