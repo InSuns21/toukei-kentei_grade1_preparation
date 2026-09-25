@@ -53,7 +53,7 @@ concepts:
     kind: theorem
     aliases: []
     introduction: formal
-    introduction_aliases: ["命題（標準形多面体の実行可能方向判定）"]
+    introduction_aliases: ["定理（標準形多面体の実行可能方向判定）"]
     requires:
       - optimization.polyhedral-feasible-direction
 
