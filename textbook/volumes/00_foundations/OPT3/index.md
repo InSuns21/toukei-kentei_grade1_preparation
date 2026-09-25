@@ -1249,7 +1249,7 @@ p^{\mathsf T}d
 h'(x;d)
 $$
 
-となります。しかし劣勾配の定義から $p^{\mathsf T}d\le h'(x;d)$ なので矛盾です。よって $p\in A$ です。$\square$
+となります。しかし [劣勾配](#def-opt3-subgradient) の定義式から $p^{\mathsf T}d\le h'(x;d)$ なので矛盾です。よって $p\in A$ です。$\square$
 <!-- proof-end -->
 
 ### 7.1 例：$h(x)=\max\{x,-x\}=|x|$
@@ -1773,7 +1773,7 @@ $$
 p+n=0.
 $$
 
-任意の $y\in C$ に対し法錐の定義から
+任意の $y\in C$ に対し [法錐](#def-opt3-normal-cone) の定義式から
 
 $$
 n^{\mathsf T}(y-x^\ast)\le0,
