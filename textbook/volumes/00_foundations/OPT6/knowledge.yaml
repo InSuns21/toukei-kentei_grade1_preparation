@@ -10,7 +10,6 @@ forward_references:
   - optimization.robinson-cq
   - optimization.generalized-kkt
   - optimization.cone-constraint
-  - optimization.dual-cone
 
 concepts:
   - id: optimization.active-set
