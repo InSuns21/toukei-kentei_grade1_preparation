@@ -489,27 +489,27 @@ $$
 
 $Q$ の有限個の頂点で $\varphi$ は有限です。凸性により $Q$ 上である定数 $M$ を使って
 
-$
+$$
 \varphi(y)\le M
 \qquad(y\in Q)
-$
+$$
 
 と上から抑えられます。さらに $0$ を中心とする半分の大きさの立方体 $Q'$ を取れば、$y\in Q'$ に対して $-y\in Q$ です。凸性から
 
-$
+$$
 \varphi(0)
 \le
 \frac12\varphi(y)+\frac12\varphi(-y)
 \le
 \frac12\varphi(y)+\frac12 M,
-$
+$$
 
 従って
 
-$
+$$
 \varphi(y)\ge 2\varphi(0)-M
 \qquad(y\in Q').
-$
+$$
 
 よって $\varphi$ は原点の相対近傍で上下に有界です。[有限値凸関数の局所 Lipschitz 連続性](../OPT3/index.md#lem-opt3-finite-convex-lipschitz) の証明と同じ局所計算により、$\varphi$ はさらに小さい相対近傍で Lipschitz 連続です。
 
