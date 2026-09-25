@@ -239,7 +239,7 @@ $$
 > が最小点を持つなら、その最小点は一意である。
 <!-- formal-statement-end -->
 
-これは前定理と [OPT1 の狭義凸関数の最小点の一意性](../OPT1/index.md#thm-opt1-strict-convex-unique-minimizer)の直接の帰結です。
+これは前定理と [OPT1 の狭義凸関数の最小点の一意性](../OPT1/index.md#thm-opt1-strict-unique)の直接の帰結です。
 
 ただし、$Q\succ0$ は **十分条件であって、制約付き問題における一意性の必要条件ではありません**。後で見るように、$Q$ がある方向に平らでも、その方向を等式制約が禁止すれば最小点は一意になり得ます。
 
@@ -1319,7 +1319,7 @@ $$
 $\square$
 <!-- proof-end -->
 
-この定理は [OPT6A の錐制約](../OPT6A/index.md)を、具体的で計算可能な錐へ落としたものです。
+この定理は [OPT6A の錐制約](../OPT6A/index.md#def-opt6a-cone-constraint)を、具体的で計算可能な錐へ落としたものです。
 
 ---
 
