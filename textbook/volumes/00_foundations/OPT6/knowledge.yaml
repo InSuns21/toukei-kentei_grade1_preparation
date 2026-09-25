@@ -9,70 +9,97 @@ prerequisites:
 forward_references:
   - optimization.robinson-cq
   - optimization.generalized-kkt
+  - optimization.cone-constraint
+  - optimization.dual-cone
 
 concepts:
   - id: optimization.active-set
     name: 活性集合
     kind: definition
     aliases: [活性集合]
+    introduction: formal
+    introduction_aliases: ["定義（活性集合）"]
     requires: [optimization.active-constraint]
   - id: optimization.tangent-cone
     name: Bouligand接錐
     kind: definition
     aliases: [Bouligand接錐]
+    introduction: formal
+    introduction_aliases: ["定義（Bouligand 接錐）"]
     requires: [convex.polar-cone]
   - id: optimization.local-minimum-tangent-condition
     name: 局所最適点の接方向条件
     kind: theorem
     aliases: [局所最適点の接方向条件]
+    introduction: formal
+    introduction_aliases: ["定理（局所最適点の接方向条件）"]
     requires: [optimization.tangent-cone]
   - id: optimization.linearized-cone
     name: 線形化錐
     kind: definition
     aliases: [線形化錐]
+    introduction: formal
+    introduction_aliases: ["定義（線形化錐）"]
     requires: [optimization.active-set]
   - id: optimization.tangent-subset-linearized
     name: 接錐と線形化錐の基本包含
     kind: theorem
     aliases: [接錐と線形化錐の基本包含]
+    introduction: formal
+    introduction_aliases: ["定理（接錐と線形化錐の基本包含）"]
     requires: [optimization.tangent-cone, optimization.linearized-cone]
   - id: optimization.constraint-qualification
     name: 制約想定
-    kind: definition
+    kind: term
     aliases: [制約想定, constraint qualification]
+    introduction: inline
     requires: [optimization.linearized-cone]
   - id: optimization.licq
     name: LICQ
     kind: definition
     aliases: [LICQ]
+    introduction: formal
+    introduction_aliases: ["定義（LICQ）"]
     requires: [optimization.constraint-qualification, optimization.active-set]
   - id: optimization.mfcq
     name: MFCQ
     kind: definition
     aliases: [MFCQ]
+    introduction: formal
+    introduction_aliases: ["定義（MFCQ）"]
     requires: [optimization.constraint-qualification, optimization.active-set]
   - id: optimization.licq-implies-mfcq
     name: LICQならMFCQ
     kind: theorem
     aliases: [LICQならMFCQ]
+    introduction: formal
+    introduction_aliases: ["定理（LICQ なら MFCQ）"]
     requires: [optimization.licq, optimization.mfcq]
   - id: optimization.mfcq-tangent-equality
     name: MFCQ下の接錐一致
     kind: theorem
     aliases: [MFCQ下の接錐一致]
+    introduction: formal
+    introduction_aliases: ["定理（MFCQ 下の接錐一致）"]
     requires: [optimization.mfcq, optimization.tangent-subset-linearized, analysis.implicit-function-theorem]
   - id: optimization.linearized-cone-polar
     name: 線形化錐のpolar表示
     kind: theorem
     aliases: [線形化錐のpolar表示]
+    introduction: formal
+    introduction_aliases: ["定理（線形化錐の polar 表示）"]
     requires: [optimization.linearized-cone, convex.polar-cone, optimization.nearest-point-projection]
   - id: optimization.mfcq-kkt-existence
     name: MFCQ下のKKT乗数存在
     kind: theorem
     aliases: [MFCQ下のKKT乗数存在]
+    introduction: formal
+    introduction_aliases: ["定理（MFCQ 下の KKT 乗数存在）"]
     requires: [optimization.local-minimum-tangent-condition, optimization.mfcq-tangent-equality, optimization.linearized-cone-polar, optimization.kkt-conditions]
   - id: optimization.licq-unique-multiplier
     name: LICQ下のKKT乗数の一意性
     kind: theorem
     aliases: [LICQ下のKKT乗数の一意性]
+    introduction: formal
+    introduction_aliases: ["定理（LICQ 下の KKT 乗数の一意性）"]
     requires: [optimization.licq, optimization.kkt-conditions]
