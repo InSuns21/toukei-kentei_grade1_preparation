@@ -4,44 +4,102 @@ coverage: complete
 prerequisites:
   - OPT6
   - OPT3
+
+forward_references:
+  - optimization.steepest-descent
+
 concepts:
   - id: optimization.cone-constraint
     name: 錐制約
     kind: definition
     aliases:
       - 錐制約
+    introduction: formal
+    introduction_aliases: ["定義（錐制約）"]
     requires:
       - convex.convex-cone
-  - id: optimization.dual-cone
-    name: 双対錐
-    kind: definition
-    aliases:
-      - 双対錐
-    requires:
-      - convex.polar-cone
+
   - id: optimization.generalized-lagrangian
     name: 一般化Lagrangian
     kind: definition
     aliases:
       - 一般化Lagrangian
+    introduction: formal
+    introduction_aliases: ["定義（一般化 Lagrangian）"]
     requires:
       - optimization.lagrangian
       - optimization.cone-constraint
-      - optimization.dual-cone
+      - convex.dual-cone
+
+  - id: optimization.cone-normal-formula
+    name: 閉凸錐のnormal cone
+    kind: theorem
+    aliases:
+      - 閉凸錐のnormal cone
+      - 閉凸錐の normal cone
+    introduction: formal
+    introduction_aliases: ["定理（閉凸錐の normal cone）"]
+    requires:
+      - convex.normal-cone
+      - convex.dual-cone
+
+  - id: optimization.cone-linearized-cone
+    name: 錐制約の線形化錐
+    kind: definition
+    aliases:
+      - 錐制約の線形化錐
+    introduction: formal
+    introduction_aliases: ["定義（錐制約の線形化錐）"]
+    requires:
+      - optimization.cone-constraint
+      - convex.bouligand-tangent-cone
+      - functional.frechet-derivative
+
   - id: optimization.robinson-cq
     name: Robinson制約想定
     kind: definition
     aliases:
       - Robinson制約想定
       - Robinson CQ
+    introduction: formal
+    introduction_aliases: ["定義（Robinson 制約想定）"]
     requires:
       - optimization.constraint-qualification
-      - optimization.cone-constraint
+      - optimization.cone-linearized-cone
+
+  - id: optimization.robinson-tangent-formula
+    name: Robinson制約想定下の接錐公式
+    kind: theorem
+    aliases:
+      - Robinson制約想定下の接錐公式
+    introduction: formal
+    introduction_aliases: ["定理（Robinson 制約想定下の接錐公式）"]
+    requires:
+      - optimization.robinson-cq
+      - optimization.cone-linearized-cone
+      - convex.bouligand-tangent-cone
+
   - id: optimization.generalized-kkt
     name: 一般化KKT
     kind: theorem
     aliases:
       - 一般化KKT
+    introduction: formal
+    introduction_aliases: ["定理（Robinson 制約想定下の一般化 KKT）"]
+    requires:
+      - optimization.robinson-tangent-formula
+      - optimization.cone-normal-formula
+      - optimization.generalized-lagrangian
+      - optimization.local-minimum-tangent-condition
+      - convex.dual-cone
+
+  - id: optimization.robinson-mfcq-equivalence
+    name: 通常制約でのRobinson制約想定とMFCQの同値
+    kind: theorem
+    aliases:
+      - 通常制約でのRobinson制約想定とMFCQの同値
+    introduction: formal
+    introduction_aliases: ["定理（通常制約では Robinson 制約想定と MFCQ が同値）"]
     requires:
       - optimization.robinson-cq
-      - optimization.kkt-conditions
+      - optimization.mfcq
