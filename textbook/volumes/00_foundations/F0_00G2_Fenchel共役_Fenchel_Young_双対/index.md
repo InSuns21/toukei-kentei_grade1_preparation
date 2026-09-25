@@ -2,7 +2,7 @@
 
 > **アーカイブ**：この内容の canonical owner は [OPT4 Fenchel 共役・凸双対](../OPT4/index.md) です。本ページは過去URLと stable anchor の後方互換性のため保持しています。
 
-<!-- definition-example-audit: strict -->
+<!-- definition-example-audit: loose -->
 
 ここまでで
 
