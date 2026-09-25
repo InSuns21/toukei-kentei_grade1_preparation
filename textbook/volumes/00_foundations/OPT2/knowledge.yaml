@@ -8,12 +8,13 @@ prerequisites:
 
 forward_references:
   - convex.epigraph
+  - convex.lower-semicontinuous
   - convex.subgradient
   - convex.subdifferential
   - convex.normal-cone
   - convex.polar-cone
+  - convex.fenchel-duality
   - optimization.kkt-multiplier-existence
-  - optimization.linear-programming-duality
 
 concepts:
   - id: convex.hyperplane
@@ -144,11 +145,3 @@ concepts:
     requires:
       - convex.closed-cone-separation
       - convex.finitely-generated-cone-closed
-
-  - id: convex.theorem-of-alternatives-farkas
-    name: Farkas 型二者択一
-    kind: theorem
-    aliases: [Farkas 型二者択一]
-    introduction: inline
-    requires:
-      - convex.farkas-lemma
