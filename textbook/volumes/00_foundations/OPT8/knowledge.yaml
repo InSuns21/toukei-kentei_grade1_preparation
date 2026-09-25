@@ -118,7 +118,7 @@ concepts:
     kind: theorem
     aliases: []
     introduction: formal
-    introduction_aliases: ["定理（ℓ¹ ノルムの近接作用素）"]
+    introduction_aliases: ["定理（l1 ノルムの近接作用素）", "定理（ℓ¹ ノルムの近接作用素）"]
     requires:
       - optimization.soft-thresholding
       - optimization.proximal-optimality
