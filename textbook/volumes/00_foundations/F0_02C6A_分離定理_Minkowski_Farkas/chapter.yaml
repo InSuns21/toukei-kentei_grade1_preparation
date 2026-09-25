@@ -4,6 +4,8 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-02C6
+  - OPT1
+  - OPT2
 learning_objectives:
   - 超平面を連続線形汎関数で定義できる
   - 点と閉凸集合の強分離定理を説明できる
