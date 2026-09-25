@@ -238,6 +238,12 @@ LIE1 では左移動・右移動、左不変ベクトル場、単位元接空間
 2. [OPT6 KKT の幾何学的導出・制約想定](textbook/volumes/00_foundations/OPT6/index.md)
 3. [OPT6A 錐制約・一般化 KKT](textbook/volumes/00_foundations/OPT6A/index.md)
 
+### 滑らかな凸最適化
+
+OPT7 では OPT1 の凸性と NA12 の数値最適化を接続し、Lipschitz 連続勾配、降下補題、固定歩幅最急降下法、強凸性、条件数、後退直線探索、Newton 法の局所二次収束を扱います。NA12 が canonical owner である正定値二次関数・厳密直線探索・共役勾配法は再講義せず、一般の滑らかな凸関数に対する収束理論を担当します。
+
+1. [OPT7 滑らかな凸最適化](textbook/volumes/00_foundations/OPT7/index.md)
+
 ### RKHS・SVM
 
 最後に、Hilbert空間・Riesz・凸最適化・SVMが合流します。
