@@ -25,7 +25,7 @@ concepts:
   - id: ode.ode4-linearization
     name: 線形化・線形化行列
     kind: definition
-    aliases: [線形化, 線形化行列, Jacobianによる線形化, linearization]
+    aliases: [ODE の線形化, 線形化行列, Jacobianによる線形化, linearization]
     introduction: formal
     requires:
       - ode.ode4-nonlinear-autonomous-system
