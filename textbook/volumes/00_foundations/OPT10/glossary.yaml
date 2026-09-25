@@ -21,6 +21,10 @@ terms:
   - term: 基本実行可能解
     english: basic feasible solution
     meaning: 非負性も満たす基底解。略号BFS。
+  - term: 退化した基本実行可能解
+    english: degenerate basic feasible solution
+    meaning: 基底変数の少なくとも一つが0である基本実行可能解。同じ極点を複数の基底が表すことがある。
+
   - term: 線形計画双対
     english: linear programming dual
     meaning: 主問題の各実行可能解に対する目的値下界を最大化する線形計画問題。
