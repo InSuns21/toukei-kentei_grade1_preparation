@@ -5,11 +5,7 @@ prerequisites:
   - OPT10
   - OPT11
 
-forward_references:
-  - optimization.maximum-flow
-  - optimization.matching
-  - optimization.integral-polyhedron
-  - optimization.totally-unimodular-matrix
+forward_references: []
 
 concepts:
   - id: optimization.integer-linear-program
