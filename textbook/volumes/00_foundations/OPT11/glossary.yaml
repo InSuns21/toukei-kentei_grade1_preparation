@@ -1,0 +1,32 @@
+chapter: "OPT11"
+terms:
+  - term: 被約費用
+    english: reduced cost
+    meaning: 現在の基底から非基底変数を増やしたときの目的関数の一次的な変化率。標準形の最小化問題では、実行可能基底に対して全被約費用が非負ならその基底は最適である。
+  - term: 単体法
+    english: simplex method
+    meaning: 基本実行可能解から隣接する基本実行可能解へ基底交換を繰り返し、線形計画問題の最適解を求める方法。
+  - term: 進入変数
+    english: entering variable
+    meaning: 単体法の基底交換で、非基底から新たに基底へ入る変数。
+  - term: 離脱変数
+    english: leaving variable
+    meaning: 単体法の比率検定によって0に到達し、現在の基底から外れる変数。
+  - term: 比率検定
+    english: ratio test
+    meaning: 進入変数を増やすときに基底変数の非負性を保てる最大歩幅を決め、離脱変数を選ぶ判定。
+  - term: 退化ピボット
+    english: degenerate pivot
+    meaning: 比率検定の歩幅が0となり、基底は変わるが基本実行可能解の点自体は動かない基底交換。
+  - term: Phase I 補助問題
+    english: Phase I auxiliary problem
+    meaning: 人工変数の総和を最小化し、元の標準形線形計画に実行可能解が存在するかを判定するとともに初期実行可能基底を得るための補助線形計画。
+  - term: 主双対内点法
+    english: primal-dual interior-point method
+    meaning: 主変数・双対変数・双対余裕を正の内部に保ちながら、主可行性・双対可行性・摂動相補性をNewton法で同時に改善する方法。
+  - term: 影の価格
+    english: shadow price
+    meaning: 同じ最適基底が保たれる範囲で、制約右辺の微小な変化に対する最適値の変化率として解釈される最適双対変数。
+  - term: 感度解析
+    english: sensitivity analysis
+    meaning: 右辺や目的係数を変えたときに、現在の最適基底が保たれる範囲と最適値・最適解の変化を調べる解析。
