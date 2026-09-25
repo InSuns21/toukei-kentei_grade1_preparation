@@ -488,7 +488,7 @@ f(x)
 -\frac\beta\mu.
 $$
 
-右辺を $\ell(x)=\langle y,x\rangle+c$ と書けば $\ell\le f$ で、分離の厳密不等式から
+右辺を $\ell(x)=\langle y,x\rangle+c$ と書けば $\ell\le f$ で、上で得た右側の不等式から
 
 $$
 \ell(x_0)>r.
