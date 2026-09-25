@@ -1,0 +1,100 @@
+chapter: OPT11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OPT9
+  - OPT10
+
+forward_references: []
+
+concepts:
+  - id: optimization.reduced-cost
+    name: 被約費用
+    kind: definition
+    aliases:
+      - reduced cost
+    introduction: formal
+    introduction_aliases: ["定義（被約費用）"]
+    requires:
+      - optimization.basic-feasible-solution
+      - optimization.linear-program-dual
+
+  - id: optimization.reduced-cost-optimality
+    name: 被約費用による目的関数分解と最適性判定
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（被約費用による目的関数分解と最適性判定）"]
+    requires:
+      - optimization.reduced-cost
+      - optimization.linear-program-weak-duality
+
+  - id: optimization.simplex-pivot
+    name: 単体法の一回のピボットと非有界判定
+    kind: theorem
+    aliases:
+      - simplex pivot
+    introduction: formal
+    introduction_aliases: ["定理（単体法の一回のピボットと非有界判定）"]
+    requires:
+      - optimization.reduced-cost-optimality
+
+  - id: optimization.phase-one-auxiliary-lp
+    name: Phase I 補助問題
+    kind: definition
+    aliases:
+      - Phase I auxiliary problem
+    introduction: formal
+    introduction_aliases: ["定義（Phase I 補助問題）"]
+    requires:
+      - optimization.linear-program-standard-form
+
+  - id: optimization.phase-one-feasibility-criterion
+    name: Phase I 最適値による実行可能性判定
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（Phase I 最適値による実行可能性判定）"]
+    requires:
+      - optimization.phase-one-auxiliary-lp
+
+  - id: optimization.lp-central-path-equations
+    name: LP 中心路方程式と双対ギャップ
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（LP 中心路方程式と双対ギャップ）"]
+    requires:
+      - optimization.central-path
+      - optimization.linear-program-dual
+
+  - id: optimization.lp-primal-dual-newton-system
+    name: LP の主双対 Newton 方程式
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（LP の主双対 Newton 方程式）"]
+    requires:
+      - optimization.lp-central-path-equations
+      - optimization.primal-dual-newton-system
+
+  - id: optimization.lp-rhs-sensitivity
+    name: 固定最適基底の右辺感度と影の価格
+    kind: theorem
+    aliases:
+      - LP right-hand-side sensitivity
+      - shadow-price sensitivity
+    introduction: formal
+    introduction_aliases: ["定理（固定最適基底の右辺感度と影の価格）"]
+    requires:
+      - optimization.reduced-cost-optimality
+
+  - id: optimization.lp-cost-sensitivity
+    name: 固定基底の費用係数感度
+    kind: theorem
+    aliases:
+      - LP cost sensitivity
+    introduction: formal
+    introduction_aliases: ["定理（固定基底の費用係数感度）"]
+    requires:
+      - optimization.reduced-cost-optimality
