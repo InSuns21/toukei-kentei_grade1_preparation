@@ -28,6 +28,8 @@ definitions:
   - { id: OPT1-DEF-07, name: 凸錐 }
   - { id: OPT1-DEF-08, name: 準凸関数・準凹関数 }
   - { id: OPT1-DEF-09, name: 凸最適化問題 }
+  - { id: OPT1-DEF-10, name: 局所最小点 }
+  - { id: OPT1-DEF-11, name: 大域最小点 }
 theorems:
   - { id: OPT1-THM-01, name: C2 関数の Hessian による凸性判定 }
   - { id: OPT1-THM-02, name: 準凸性の下位集合による特徴付け }
