@@ -597,7 +597,7 @@ assert cheb_error < 0.1
 ここでも、節点・重みの**構成そのもの**と、実務での `leggauss` 利用を分けます。
 
 <a id="lab-numlab1-na5-gauss-manual"></a>
-### 5A. 手動構築：3点 Gauss--Legendre 求積をモーメントから作る
+### 5A. 手動構築：3点 Gauss--Legendre 求積を多項式の積分条件から作る
 
 対称な3点公式
 
@@ -607,7 +607,7 @@ $$
 
 を考えます。
 
-5次まで正確にするには、偶数次数のモーメント
+5次まで正確にするには、偶数次数多項式の積分値
 
 $$
 \int_{-1}^{1}1\,dx=2,\qquad
@@ -619,7 +619,7 @@ $$
 
 そこから $a^2$、外側重み $w$、中央重み $w_0$ を順に構成します。
 
-**穴埋め課題：** モーメント条件だけから節点距離と重みを求め、0次から5次までの多項式で正確性を検査してください。
+**穴埋め課題：** 積分条件だけから節点距離と重みを求め、0次から5次までの多項式で正確性を検査してください。
 
 ```python-lab
 # lab-id: NUMLAB1-NA5-GAUSS-MANUAL
@@ -633,14 +633,14 @@ moment0 = 2.0
 moment2 = 2.0 / 3.0
 moment4 = 2.0 / 5.0
 
-# ヒント: x^4 と x^2 のモーメント条件の比から、対称節点の a^2 を求める。
+# ヒント: x^4 と x^2 の積分条件の比から、対称節点の a^2 を求める。
 a_squared = ___
 a = np.sqrt(a_squared)
 
-# ヒント: x^2 のモーメント条件 2*w*a^2 = 2/3 から外側重みを求める。
+# ヒント: x^2 の積分条件 2*w*a^2 = 2/3 から外側重みを求める。
 outer_weight = ___
 
-# ヒント: 定数関数のモーメント条件 2*w + w0 = 2 から中央重みを求める。
+# ヒント: 定数関数の積分条件 2*w + w0 = 2 から中央重みを求める。
 center_weight = ___
 
 nodes = np.array([-a, 0.0, a])
@@ -662,8 +662,8 @@ exact_moments = np.array([
 
 print("nodes:", nodes)
 print("weights:", weights)
-print("computed moments:", computed_moments)
-print("exact moments:", exact_moments)
+print("computed polynomial integrals:", computed_moments)
+print("exact polynomial integrals:", exact_moments)
 ```
 
 ```python-solution
@@ -698,8 +698,8 @@ exact_moments = np.array([
 
 print("nodes:", nodes)
 print("weights:", weights)
-print("computed moments:", computed_moments)
-print("exact moments:", exact_moments)
+print("computed polynomial integrals:", computed_moments)
+print("exact polynomial integrals:", exact_moments)
 ```
 
 ```python-test
