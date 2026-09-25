@@ -459,7 +459,7 @@ $$
 
 まず $\operatorname{aff}(\operatorname{dom}f)$ を座標空間とみなしてよいので、$x$ が $\operatorname{dom}f$ の通常の内部点である場合へ還元します。
 
-$(x,f(x))$ は凸集合 $\operatorname{epi}f$ の境界点です。[支持超平面定理](#thm-f0-00g1-supporting-hyperplane)により、ある $(p,\beta)\neq0$ が存在して
+$(x,f(x))$ は凸集合 $\operatorname{epi}f$ の境界点です。[支持超平面定理](../OPT2/index.md#thm-opt2-supporting-hyperplane)により、ある $(p,\beta)\neq0$ が存在して
 
 $$
 p^{\mathsf T}y+\beta t
