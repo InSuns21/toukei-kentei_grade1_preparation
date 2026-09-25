@@ -27,6 +27,9 @@ terms:
   - term: Birkhoff--von Neumann の定理
     english: Birkhoff-von Neumann theorem
     meaning: 二重確率行列全体が置換行列の凸包に一致するという定理。
+  - term: 置換行列
+    english: permutation matrix
+    meaning: 成分が0または1で、各行・各列に1がちょうど一つずつ現れる正方行列。
   - term: 縮約点弧接続行列
     english: reduced node-arc incidence matrix
     meaning: 連結有向グラフの点弧接続行列から任意の一行を削除した行列。
