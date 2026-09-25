@@ -288,13 +288,13 @@ $g_1(x)=x_1\le0$, $g_2(x)=x_2\le0$ を原点で考えると、活性勾配は $(
 **定義の確認**：MFCQ は成立するが LICQ は失敗
 
 $$
-g_1(x)=x\le0,qquad g_2(x)=2x\le0
+g_1(x)=x\le0,\qquad g_2(x)=2x\le0
 $$
 
 を $x^*=0$ で考えます。勾配 $1,2$ は一次従属なので LICQ は失敗します。一方 $v=-1$ とすれば
 
 $$
-g_1'(0)v=-1<0,qquad g_2'(0)v=-2<0,
+g_1'(0)v=-1<0,\qquad g_2'(0)v=-2<0,
 $$
 
 よって MFCQ は成立します。
@@ -621,7 +621,7 @@ $g_1(x)=x\le0$, $g_2(x)=2x\le0$ を $x^*=0$ で考え、LICQ と MFCQ を判定�
 一方 $v=-1$ とすると
 
 $$
-g_1'(0)v=-1<0,qquad g_2'(0)v=-2<0.
+g_1'(0)v=-1<0,\qquad g_2'(0)v=-2<0.
 $$
 
 等式制約はないので MFCQ の等式側条件は空条件です。従って
@@ -810,7 +810,7 @@ $$
 subject to
 
 $$
-g(x,y)=x^2-y\le0,qquad h(x,y)=y-1=0
+g(x,y)=x^2-y\le0,\qquad h(x,y)=y-1=0
 $$
 
 を考える。
@@ -839,7 +839,7 @@ $$
 勾配は
 
 $$
-\nabla g(x^*)=(-2,-1)^{\mathsf T},qquad
+\nabla g(x^*)=(-2,-1)^{\mathsf T},\qquad
 \nabla h(x^*)=(0,1)^{\mathsf T}.
 $$
 
@@ -848,7 +848,7 @@ $$
 線形化錐は
 
 $$
--2d_x-d_y\le0,qquad d_y=0,
+-2d_x-d_y\le0,\qquad d_y=0,
 $$
 
 したがって
@@ -868,13 +868,13 @@ $$
 とすると停留条件は
 
 $$
-1+2\lambda x=0,qquad -\lambda+\nu=0.
+1+2\lambda x=0,\qquad -\lambda+\nu=0.
 $$
 
 $x=-1$ を代入して
 
 $$
-\lambda^*=\frac12,qquad \nu^*=\frac12.
+\lambda^*=\frac12,\qquad \nu^*=\frac12.
 $$
 
 $\lambda^*\ge0$、制約は活性なので相補性も成立します。
