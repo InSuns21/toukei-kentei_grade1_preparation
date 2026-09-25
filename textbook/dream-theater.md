@@ -224,11 +224,11 @@ LIE1 では左移動・右移動、左不変ベクトル場、単位元接空間
 
 ### 凸解析・凸最適化
 
-有限次元の凸性から最適化・線形計画・二次計画へ進む canonical 系列を OPT として再構成しています。OPT1 は既存 F0-00G を前提に不足部分を補い、錐・凸錐の canonical owner を引き受けます。後続の旧 F0 系は、対応する OPT 章が完成するまで移行元として残します。
+有限次元の凸性から最適化・線形計画・二次計画へ進む canonical 系列を OPT として再構成しています。対応する OPT 章への移管が完了した旧 F0 ページはアーカイブ扱いとし、stable anchor の後方互換性のためファイルのみ保持して読者向け一覧には掲載しません。
 
-1. [F0-00G 凸集合・凸関数・凸最適化（OPT1 の移行元）](textbook/volumes/00_foundations/F0_00G_凸集合_凸関数_凸最適化/index.md)
-2. [OPT1 凸集合・凸関数・凸最適化](textbook/volumes/00_foundations/OPT1/index.md)
-3. [F0-00G1 epigraph・閉凸関数・支持超平面](textbook/volumes/00_foundations/F0_00G1_epigraph_閉凸関数_支持超平面/index.md)
+1. [OPT1 凸集合・凸関数・凸最適化](textbook/volumes/00_foundations/OPT1/index.md)
+2. [OPT2 射影・支持超平面・分離・Farkas](textbook/volumes/00_foundations/OPT2/index.md)
+3. [F0-00G1 epigraph・閉凸関数・支持超平面（OPT3 への移行元）](textbook/volumes/00_foundations/F0_00G1_epigraph_閉凸関数_支持超平面/index.md)
 4. [F0-02C4 劣勾配・劣微分・法錐](textbook/volumes/00_foundations/F0_02C4_凸解析_劣勾配_normal_cone_双対錐/index.md)
 5. [F0-02C4A 接錐・極錐・双対錐](textbook/volumes/00_foundations/F0_02C4A_tangent_polar_dual_cone/index.md)
 6. [F0-02C4B 接錐と法錐の極性関係の証明](textbook/volumes/00_foundations/F0_02C4B_tangent_normal_polar_proof/index.md)
@@ -236,13 +236,12 @@ LIE1 では左移動・右移動、左不変ベクトル場、単位元接空間
 
 ### 制約付き最適化・KKT
 
-ここで有限次元の制約付き最適化へ戻ります。凸解析で準備した双対・normal cone・dual cone を、Farkas と Lagrangian を通して KKT 条件へ落とし込み、その後に一般化KKTへ進みます。
+有限次元の制約付き最適化へ進みます。分離と Farkas は OPT2 を canonical owner とし、旧 F0-02B はアーカイブ済みです。現時点では未移管の KKT 関連 F0 ページを移行元として残します。
 
 1. [F0-02 制約付き最適化・双対・KKT](textbook/volumes/00_foundations/F0_02_制約付き最適化_双対_KKT/index.md)
-2. [F0-02B 分離超平面・Farkas](textbook/volumes/00_foundations/F0_02B_分離超平面定理_Farkas_SVM/index.md)
-3. [F0-02A KKT導出・接錐・polar・Farkas](textbook/volumes/00_foundations/F0_02A_KKT条件の導出_接錐_polar_Farkas/index.md)
-4. [F0-02C5 一般化KKT・制約写像](textbook/volumes/00_foundations/F0_02C5_一般化KKT_制約写像_制約想定/index.md)
-5. [F0-02C5A LICQ・MFCQ・Robinson CQ](textbook/volumes/00_foundations/F0_02C5A_制約想定_LICQ_MFCQ_Robinson/index.md)
+2. [F0-02A KKT導出・接錐・極錐・Farkas](textbook/volumes/00_foundations/F0_02A_KKT条件の導出_接錐_polar_Farkas/index.md)
+3. [F0-02C5 一般化KKT・制約写像](textbook/volumes/00_foundations/F0_02C5_一般化KKT_制約写像_制約想定/index.md)
+4. [F0-02C5A LICQ・MFCQ・Robinson CQ](textbook/volumes/00_foundations/F0_02C5A_制約想定_LICQ_MFCQ_Robinson/index.md)
 
 ### RKHS・SVM
 
