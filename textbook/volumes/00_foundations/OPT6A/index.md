@@ -451,8 +451,8 @@ $$
 
 を得ます。これが上の誤差境界です。
 
-> **技術的な境界**  
-> 最後の反復を一般の閉凸集合 $D$ に対して完全な集合値写像の形で展開するのが、有限次元の Robinson–Lyusternik–Graves 型正則性定理です。本章では、後続の接錐公式で実際に使う「有界な一次補正 → $C^1$ 剰余を反復吸収 → 距離評価」という核心機構までを示します。通常制約では後の MFCQ 同値定理により、この機構は OPT6 の陰関数定理による構成へ戻ります。
+> **意図的黒箱：Robinson 誤差境界の完全証明**  
+> 上の誤差境界そのものは、本章では定理として使用します。完全証明には集合値写像の開写像性・metric regularity を体系的に構成する必要があり、本章の射程を超えます。ここでは証明で実際に使う「線形化の全射性から有界な一次補正を得る → $C^1$ 剰余を反復吸収する → 距離評価を得る」という核心機構まで示しました。通常制約 $K=\mathbb R_+^m$ では、後の Robinson 制約想定と MFCQ の同値により OPT6 の陰関数定理を用いた完全証明へ戻ります。
 
 <a id="thm-opt6a-robinson-tangent"></a>
 <!-- formal-statement-start -->
@@ -879,15 +879,25 @@ $$
 <a id="thm-opt6a-generalized-kkt"></a>
 <!-- formal-statement-start -->
 > **定理（Robinson 制約想定下の一般化 KKT）**  
-> $x^*$ が
+> 有限次元 Euclid 空間 $X=\mathbb R^n$、$Y$、閉凸錐 $K\subset Y$ と $C^1$ 級写像
 >
 $$
-\min f(x)
+f:X\to\mathbb R,
+\qquad
+G:X\to Y,
+\qquad
+H:X\to\mathbb R^r
+$$
+>
+> を考える。$x^*$ が
+>
+$$
+\min_x f(x)
 \quad\text{制約}\quad
-G(x)\in-K,\ H(x)=0
+G(x)\in-K,\qquad H(x)=0
 $$
 >
-> の局所最小点とする。$f,G,H$ は $C^1$ 級、$K$ は閉凸錐で、$x^*$ で Robinson 制約想定が成立するとする。このとき、ある
+> の局所最小点で、$x^*$ で Robinson 制約想定が成立するとする。このとき、ある
 >
 $$
 \lambda\in K^*,\qquad \nu\in\mathbb R^r
@@ -919,10 +929,28 @@ $$
 -\nabla f(x^*)\in T_C(x^*)^\circ.
 $$
 
-Robinson 制約想定による接錐公式と有限次元の polar calculus から
+[Robinson 制約想定下の接錐公式](#thm-opt6a-robinson-tangent)により
+
+$$
+T_C(x^*)=L_C(x^*).
+$$
+
+さらに [Robinson 制約想定下の線形化錐の極錐表示](#thm-opt6a-linearized-polar)を
+
+$$
+A=DG(x^*),
+\qquad
+B=DH(x^*),
+\qquad
+T=T_{-K}(G(x^*))
+$$
+
+へ適用すると
 
 $$
 T_C(x^*)^\circ
+=
+L_C(x^*)^\circ
 =
 DG(x^*)^*N_{-K}(G(x^*))
 +
@@ -937,7 +965,7 @@ $$
 DG(x^*)^*\lambda+DH(x^*)^*\nu.
 $$
 
-これが停留条件です。さらに[閉凸錐の 法錐定理](#thm-opt6a-cone-normal)から
+これが停留条件です。さらに[閉凸錐の法錐](#thm-opt6a-cone-normal)から
 
 $$
 \lambda\in K^*,\qquad
@@ -1002,9 +1030,117 @@ $$
 <!-- proof-start -->
 ### 証明
 
-MFCQ を仮定する。$DH(x^*)$ は全射で、$DHv=0$ かつ活性成分で $DGv<0$ となる $v$ がある。任意の小さな右辺 $(a,b)$ に対し、まず全射性で $DHd_0=a$ を解く。次に $d=d_0+tv$ とし $t$ を調整すれば、活性成分で $DGd-b$ を接錐 $T_{-K}(G(x^*))$ の内部へ押し込める。非活性成分には制限がない。従って Robinson 条件が成立する。
+活性集合を
 
-逆に Robinson 条件を仮定する。等式成分への射影から $DH(x^*)$ は全射、すなわち等式勾配は一次独立です。また右辺 $(0,-\mathbf1_I)$ を活性成分に指定すると、ある $v$ が $DHv=0$ かつ活性成分で $DGv<0$ を満たすように取れます。これは MFCQ です。$\square$
+$$
+I=\{i:g_i(x^*)=0\}
+$$
+
+と置きます。$K=\mathbb R_+^m$ なので $-K=\mathbb R_-^m$ です。各成分について
+
+$$
+T_{\mathbb R_-}(g_i(x^*))
+=
+\begin{cases}
+\mathbb R_-,& i\in I,\\
+\mathbb R,& i\notin I
+\end{cases}
+$$
+
+だから
+
+$$
+T_{-K}(G(x^*))
+=
+\{s\in\mathbb R^m:s_i\le0\ (i\in I)\},
+$$
+
+非活性成分には制限がありません。
+
+まず MFCQ を仮定します。等式勾配の一次独立性から
+
+$$
+B:=DH(x^*):\mathbb R^n\to\mathbb R^r
+$$
+
+は全射です。またある $v$ が存在して
+
+$$
+Bv=0,
+\qquad
+\nabla g_i(x^*)^{\mathsf T}v<0
+\quad(i\in I).
+$$
+
+Robinson 条件を示すため、任意の
+
+$$
+(a,b)\in\mathbb R^r\times\mathbb R^m
+$$
+
+を取ります。$B$ は全射なので $Bd_0=a$ を満たす $d_0$ が存在します。
+
+$$
+d=d_0+tv
+$$
+
+と置けば $Bd=a$ のままです。活性添字は有限個で、各 $i\in I$ について $\nabla g_i(x^*)^{\mathsf T}v<0$ なので、十分大きな $t>0$ を一つ選べば同時に
+
+$$
+\nabla g_i(x^*)^{\mathsf T}d-b_i\le0
+\qquad(i\in I)
+$$
+
+となります。そこで
+
+$$
+s=DG(x^*)d-b
+$$
+
+と置けば $s_i\le0$ $(i\in I)$、非活性成分には条件がないので
+
+$$
+s\in T_{-K}(G(x^*)).
+$$
+
+従って
+
+$$
+\bigl(Bd,DG(x^*)d-s\bigr)=(a,b).
+$$
+
+$(a,b)$ は任意だったから Robinson 制約想定が成立します。
+
+逆に Robinson 制約想定を仮定します。任意の $a\in\mathbb R^r$ に対して右辺 $(a,0)$ を実現できるので、ある $d$ が $DH(x^*)d=a$ を満たします。従って $DH(x^*)$ は全射で、等式勾配は一次独立です。
+
+次に $b\in\mathbb R^m$ を
+
+$$
+b_i=
+\begin{cases}
+-1,&i\in I,\\
+0,&i\notin I
+\end{cases}
+$$
+
+と置き、右辺 $(0,b)$ を Robinson 条件で実現します。するとある $v$ と $s\in T_{-K}(G(x^*))$ が存在して
+
+$$
+DH(x^*)v=0,
+\qquad
+DG(x^*)v-s=b.
+$$
+
+活性 $i\in I$ では $s_i\le0$ なので
+
+$$
+\nabla g_i(x^*)^{\mathsf T}v
+=
+b_i+s_i
+\le-1<0.
+$$
+
+従って $v$ は MFCQ 方向であり、MFCQ が成立します。$\square$
 <!-- proof-end -->
 
 したがって OPT6A は OPT6 の局所理論を一般錐へ拡張したものであり、通常制約へ戻れば新しい条件を勝手に追加しているわけではありません。
