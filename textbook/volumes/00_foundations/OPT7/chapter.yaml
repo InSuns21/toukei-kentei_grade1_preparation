@@ -22,7 +22,8 @@ definitions:
   - { id: OPT7-DEF-02, name: 固定歩幅最急降下法 }
   - { id: OPT7-DEF-03, name: 強凸性 }
   - { id: OPT7-DEF-04, name: 滑らかな強凸最適化の条件数 }
-  - { id: OPT7-DEF-05, name: Armijo条件付き後退直線探索 }
+  - { id: OPT7-DEF-05, name: Armijo 条件 }
+  - { id: OPT7-DEF-06, name: 後退直線探索 }
 theorems:
   - { id: OPT7-THM-01, name: 降下補題 }
   - { id: OPT7-THM-02, name: 固定歩幅の降下評価 }
