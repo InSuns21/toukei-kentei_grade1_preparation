@@ -8,7 +8,7 @@ terms:
     meaning: 有限個の線形等式・線形不等式の共通解集合として表される集合。
   - term: 有界多面体
     english: polytope
-    meaning: 有界な多面体。有限次元では有限個の頂点の凸包としても特徴付けられる。
+    meaning: 有界な多面体。本章では polytope の日本語主表記として用いる。
   - term: 実行可能方向
     english: feasible direction
     meaning: 実行可能点から十分小さな正の歩幅だけ進んでも実行可能集合内に残る方向。
