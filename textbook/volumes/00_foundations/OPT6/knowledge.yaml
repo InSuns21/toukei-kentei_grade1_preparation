@@ -19,20 +19,13 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（活性集合）"]
     requires: [optimization.active-constraint]
-  - id: optimization.tangent-cone
-    name: Bouligand接錐
-    kind: definition
-    aliases: [Bouligand接錐]
-    introduction: formal
-    introduction_aliases: ["定義（Bouligand 接錐）"]
-    requires: [convex.polar-cone]
   - id: optimization.local-minimum-tangent-condition
     name: 局所最適点の接方向条件
     kind: theorem
     aliases: [局所最適点の接方向条件]
     introduction: formal
     introduction_aliases: ["定理（局所最適点の接方向条件）"]
-    requires: [optimization.tangent-cone]
+    requires: [convex.bouligand-tangent-cone, convex.polar-cone]
   - id: optimization.linearized-cone
     name: 線形化錐
     kind: definition
@@ -46,7 +39,7 @@ concepts:
     aliases: [接錐と線形化錐の基本包含]
     introduction: formal
     introduction_aliases: ["定理（接錐と線形化錐の基本包含）"]
-    requires: [optimization.tangent-cone, optimization.linearized-cone]
+    requires: [convex.bouligand-tangent-cone, optimization.linearized-cone]
   - id: optimization.constraint-qualification
     name: 制約想定
     kind: term
@@ -82,11 +75,11 @@ concepts:
     introduction_aliases: ["定理（MFCQ 下の接錐一致）"]
     requires: [optimization.mfcq, optimization.tangent-subset-linearized, analysis.implicit-function-theorem]
   - id: optimization.linearized-cone-polar
-    name: 線形化錐のpolar表示
+    name: 線形化錐の極錐表示
     kind: theorem
-    aliases: [線形化錐のpolar表示]
+    aliases: [線形化錐の polar 表示]
     introduction: formal
-    introduction_aliases: ["定理（線形化錐の polar 表示）"]
+    introduction_aliases: ["定理（線形化錐の極錐表示）"]
     requires: [optimization.linearized-cone, convex.polar-cone, optimization.nearest-point-projection]
   - id: optimization.mfcq-kkt-existence
     name: MFCQ下のKKT乗数存在
@@ -102,3 +95,13 @@ concepts:
     introduction: formal
     introduction_aliases: ["定理（LICQ 下の KKT 乗数の一意性）"]
     requires: [optimization.licq, optimization.kkt-conditions]
+
+  - id: optimization.second-order-necessary-equality
+    name: 正則な等式制約に対する二階必要条件
+    kind: theorem
+    aliases: [正則な等式制約に対する二階必要条件]
+    introduction: formal
+    introduction_aliases: ["定理（正則な等式制約に対する二階必要条件）"]
+    requires:
+      - optimization.mfcq-kkt-existence
+      - analysis.implicit-function-theorem
