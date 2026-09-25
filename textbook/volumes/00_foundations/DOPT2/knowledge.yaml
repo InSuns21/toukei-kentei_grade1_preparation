@@ -4,9 +4,7 @@ coverage: complete
 prerequisites:
   - DOPT1
 
-forward_references:
-  - DOPT3
-  - DOPT4
+forward_references: []
 
 concepts:
   - id: optimization.capacity-directed-network
