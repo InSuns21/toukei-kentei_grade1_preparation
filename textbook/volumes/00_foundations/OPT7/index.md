@@ -139,7 +139,7 @@ $$
 
 [微積分学の基本定理II](../RA4/index.md#thm-ra4-ftc2)より
 
-$
+$$
 \begin{aligned}
 f(y)-f(x)
 &=
@@ -1044,7 +1044,7 @@ $$
 
 と書きます。線分 $x^*+te$ は球 $B$ に含まれます。[微積分学の基本定理II](../RA4/index.md#thm-ra4-ftc2)から
 
-$
+$$
 \nabla f(x)-\nabla f(x^*)
 =
 \int_0^1
