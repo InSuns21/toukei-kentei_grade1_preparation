@@ -1149,7 +1149,138 @@ $$
 
 ## 10. 半正定値錐の例
 
-$X=\mathbb R$、$K=\mathbb S_+^2$ とし
+対称 $2\times2$ 行列全体の空間を $\mathbb S^2$ とし、Frobenius 内積
+
+$
+\langle A,B\rangle
+=
+\operatorname{tr}(AB)
+$
+
+を入れます。半正定値錐を
+
+$
+\mathbb S_+^2
+=
+\{S\in\mathbb S^2:v^{\mathsf T}Sv\ge0\ (\forall v\in\mathbb R^2)\}
+$
+
+とします。
+
+<a id="thm-opt6a-psd-self-dual"></a>
+<!-- formal-statement-start -->
+> **定理（$2\times2$ 半正定値錐の自己双対性）**  
+> Frobenius 内積に関して
+>
+$
+\boxed{
+(\mathbb S_+^2)^*
+=
+\mathbb S_+^2
+}.
+$
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+双対錐側から半正定値性を出すには、半正定値な rank-one 行列 $vv^{\mathsf T}$ を試します。逆向きでは任意の $2\times2$ 半正定値行列を rank-one 半正定値行列の和に分解し、各項との内積が非負であることを確認します。
+
+<!-- proof-start -->
+### 証明
+
+まず $\Lambda\in(\mathbb S_+^2)^*$ とします。任意の $v\in\mathbb R^2$ に対して $vv^{\mathsf T}\succeq0$ なので
+
+$
+0
+\le
+\langle\Lambda,vv^{\mathsf T}\rangle
+=
+\operatorname{tr}(\Lambda vv^{\mathsf T})
+=
+v^{\mathsf T}\Lambda v.
+$
+
+従って $\Lambda\succeq0$ です。よって
+
+$
+(\mathbb S_+^2)^*
+\subseteq
+\mathbb S_+^2.
+$
+
+逆に $\Lambda\succeq0$ とし、任意の
+
+$
+S=
+\begin{pmatrix}
+p&q\\
+q&r
+\end{pmatrix}
+\succeq0
+$
+
+を取ります。$p>0$ のとき
+
+$
+u=
+\begin{pmatrix}
+\sqrt p\\
+q/\sqrt p
+\end{pmatrix},
+\qquad
+w=
+\begin{pmatrix}
+0\\
+\sqrt{r-q^2/p}
+\end{pmatrix}
+$
+
+と置けます。$S\succeq0$ から $pr-q^2\ge0$ なので平方根は実数であり、直接計算すると
+
+$
+S=uu^{\mathsf T}+ww^{\mathsf T}.
+$
+
+$p=0$ の場合、$S\succeq0$ なら $q=0$ であり、
+
+$
+S=
+\begin{pmatrix}
+0\\
+\sqrt r
+\end{pmatrix}
+\begin{pmatrix}
+0&\sqrt r
+\end{pmatrix}
+$
+
+と rank-one に書けます。
+
+したがっていずれの場合も
+
+$
+S=\sum_{j=1}^N v_jv_j^{\mathsf T}
+$
+
+と表せます。ゆえに
+
+$
+\begin{aligned}
+\langle\Lambda,S\rangle
+&=
+\sum_j
+\operatorname{tr}(\Lambda v_jv_j^{\mathsf T})\\
+&=
+\sum_j
+v_j^{\mathsf T}\Lambda v_j
+\ge0.
+\end{aligned}
+$
+
+従って $\Lambda\in(\mathbb S_+^2)^*$ です。逆包含も示され、自己双対性を得ます。$\square$
+<!-- proof-end -->
+
+この自己双対錐を制約に使います。$X=\mathbb R$、$K=\mathbb S_+^2$ とし
 
 $$
 G(x)=
@@ -1167,13 +1298,7 @@ $$
 
 すなわち $0\le x\le1$ と同値です。
 
-$\mathbb S_+^2$ は Frobenius 内積
-
-$$
-\langle A,B\rangle=\operatorname{tr}(AB)
-$$
-
-に関して自己双対です。従って乗数 $\Lambda$ は
+上の自己双対性から、双対乗数 $\Lambda$ は
 
 $$
 \Lambda\succeq0
@@ -1224,7 +1349,7 @@ $K=\mathbb R_+^2$, $y=(-1,0)$ とする。$N_{-K}(y)$ を求めよ。
 <!-- solution-start -->
 #### 詳細解答
 
-[閉凸錐の 法錐公式](#thm-opt6a-cone-normal)から $\lambda\ge0$ かつ
+[閉凸錐の法錐](#thm-opt6a-cone-normal)から $\lambda\ge0$ かつ
 
 $$
 \lambda^{\mathsf T}y=-\lambda_1=0.
@@ -1333,29 +1458,69 @@ Y=
 \in-K.
 $$
 
-対角行列 $\Lambda=\operatorname{diag}(a,b)$ が $N_{-K}(Y)$ に入るための条件を求めよ。
+一般の対称行列
+
+$$
+\Lambda=
+\begin{pmatrix}
+a&c\\
+c&b
+\end{pmatrix}
+$$
+
+が $N_{-K}(Y)$ に入るための条件を求めよ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-$\mathbb S_+^2$ は自己双対なので $\Lambda\succeq0$、対角の場合は $a,b\ge0$。さらに相補性は
+[$2\times2$ 半正定値錐の自己双対性](#thm-opt6a-psd-self-dual)から、まず
+
+$$
+\Lambda\succeq0.
+$$
+
+さらに[閉凸錐の法錐](#thm-opt6a-cone-normal)による相補性は
 
 $$
 \langle\Lambda,Y\rangle
 =
 \operatorname{tr}(\Lambda Y)
-=-a=0.
+=
+-a
+=
+0,
 $$
 
-従って $a=0$, $b\ge0$。よって
+なので $a=0$ です。
+
+半正定値性から任意の $t\in\mathbb R$ に対して
+
+$$
+\begin{pmatrix}
+1&t
+\end{pmatrix}
+\Lambda
+\begin{pmatrix}
+1\\t
+\end{pmatrix}
+=
+2ct+bt^2
+\ge0.
+$$
+
+もし $c\ne0$ なら、$t$ を0に十分近く、$c$ と逆符号に取ると $2ct+bt^2<0$ となるため矛盾します。従って $c=0$。残る条件は $b\ge0$ です。よって
 
 $$
 \boxed{
-\Lambda=
+N_{-K}(Y)
+=
+\left\{
 \begin{pmatrix}
-0&0\\0&b
-\end{pmatrix},
-\qquad b\ge0.
+0&0\\
+0&b
+\end{pmatrix}
+:b\ge0
+\right\}.
 }
 $$
 <!-- solution-end -->
@@ -1412,7 +1577,7 @@ $$
 \min_{x\in\mathbb R} f(x)=-x
 $$
 
-subject to
+制約
 
 $$
 G(x)=
@@ -1427,7 +1592,16 @@ $$
 
 1. 実行可能集合と最適解を求めよ。
 2. $K=\mathbb S_+^2$ として一般化 Lagrangian を書け。
-3. 対角乗数 $\Lambda=\operatorname{diag}(a,b)\succeq0$ に対する停留条件と相補性を解け。
+3. 一般の対称乗数
+   $$
+   \Lambda=
+   \begin{pmatrix}
+   a&c\\
+   c&b
+   \end{pmatrix}
+   \succeq0
+   $$
+   に対する停留条件と相補性を解け。
 4. 通常の二本の不等式として書いた KKT と対応させよ。
 
 <!-- solution-start -->
@@ -1453,13 +1627,31 @@ L(x,\Lambda)
 -x+\langle\Lambda,G(x)\rangle.
 $$
 
-$\Lambda=\operatorname{diag}(a,b)$ なら
+一般の対称乗数
 
 $$
-L=-x+a(x-1)-bx.
+\Lambda=
+\begin{pmatrix}
+a&c\\
+c&b
+\end{pmatrix}
 $$
 
-従って停留条件は
+に対して、$G(x)$ は対角行列なので
+
+$$
+\langle\Lambda,G(x)\rangle
+=
+a(x-1)-bx.
+$$
+
+従って
+
+$$
+L=-x+a(x-1)-bx
+$$
+
+で、停留条件は
 
 $$
 -1+a-b=0.
@@ -1477,19 +1669,27 @@ $$
 相補性は
 
 $$
-\langle\Lambda,G(1)\rangle=-b=0,
+\langle\Lambda,G(1)\rangle
+=
+-b
+=
+0,
 $$
 
-従って $b=0$。停留条件から $a=1$。よって
+従って $b=0$ です。さらに $\Lambda\succeq0$ かつ $b=0$ なら、B02 と同じ二次形式の議論から $c=0$ です。停留条件から $a=1$。よって一般の対称乗数から出発しても
 
 $$
 \boxed{
-\Lambda^*=
+\Lambda^*
+=
 \begin{pmatrix}
-1&0\\0&0
-\end{pmatrix}.
+1&0\\
+0&0
+\end{pmatrix}
 }
 $$
+
+だけが残ります。
 
 通常制約では $g_1=x-1\le0$, $g_2=-x\le0$。$x^*=1$ では第1制約が活性、第2制約は非活性なので $\lambda_2=0$、停留条件 $-1+\lambda_1-\lambda_2=0$ から $\lambda_1=1$。これは $(a,b)=(1,0)$ と完全に一致します。
 <!-- solution-end -->
