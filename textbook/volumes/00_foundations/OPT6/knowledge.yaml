@@ -52,7 +52,7 @@ concepts:
     kind: term
     aliases: [制約想定, constraint qualification]
     introduction: inline
-    requires: [optimization.linearized-cone]
+    requires: []
   - id: optimization.licq
     name: LICQ
     kind: definition
