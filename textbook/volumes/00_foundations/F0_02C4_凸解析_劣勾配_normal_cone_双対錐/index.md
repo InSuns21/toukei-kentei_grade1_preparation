@@ -1,5 +1,8 @@
 # F0-02C4 凸解析：劣勾配・劣微分・normal cone
 
+> **Archive notice**  
+> このページは archive です。劣勾配・劣微分・法錐・制約付き Fermat 条件の canonical owner は [OPT3](../OPT3/index.md) へ移管しました。stable anchor と過去URLの後方互換性のため本文を保持しています。
+
 <!-- definition-example-audit: strict -->
 
 [F0-00G](../F0_00G_凸集合_凸関数_凸最適化/index.md) で凸集合・凸関数・微分可能な凸関数の一次支持不等式を、[F0-00G1](../F0_00G1_epigraph_閉凸関数_支持超平面/index.md) で epigraph と支持超平面を準備しました。
