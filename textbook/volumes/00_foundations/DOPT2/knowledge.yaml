@@ -146,6 +146,16 @@ concepts:
       - optimization.minimum-cost-flow
       - optimization.residual-network
 
+  - id: optimization.nonnegative-circulation
+    name: 非負循環
+    kind: definition
+    aliases:
+      - nonnegative circulation
+    introduction: formal
+    introduction_aliases: ["定義（非負循環）"]
+    requires:
+      - optimization.capacity-directed-network
+
   - id: optimization.nonnegative-circulation-cycle-decomposition
     name: 非負循環の閉路分解
     kind: lemma
@@ -155,7 +165,7 @@ concepts:
     introduction: formal
     introduction_aliases: ["補題（非負循環は有向閉路へ分解できる）"]
     requires:
-      - optimization.capacity-directed-network
+      - optimization.nonnegative-circulation
 
   - id: optimization.negative-residual-cycle-improvement
     name: 負費用残余閉路による改善
