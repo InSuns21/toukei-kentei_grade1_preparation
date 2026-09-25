@@ -425,7 +425,7 @@ P_C\bigl(x^*-\alpha\nabla f(x^*)\bigr)
 }
 $$
 
-を満たします。実際、[OPT2 の射影の変分不等式](../OPT2/index.md#thm-opt2-projection-vi)より右辺は
+を満たします。実際、[OPT2 の射影の変分不等式](../OPT2/index.md#thm-opt2-projection-variational-inequality)より右辺は
 
 $$
 \langle -\alpha\nabla f(x^*),y-x^*\rangle\le0
@@ -751,7 +751,7 @@ $$
 
 <a id="thm-opt8-proximal-firm"></a>
 <!-- formal-statement-start -->
-> **定理（近接作用素の 堅非拡大性）**  
+> **定理（近接作用素の堅非拡大性）**  
 > $g$ を閉真凸関数、$\lambda>0$ とする。任意の $u,v\in\mathbb R^n$ に対し
 >
 > $$
@@ -1006,7 +1006,7 @@ e_\lambda g(v+h)-e_\lambda g(v)
 \frac1{2\lambda}\|h\|^2.
 $$
 
-$p(v)=p$ と書き直し、期待する一次項との差を見ます。堅非拡大性 から近接作用素は 1-Lipschitz なので
+$p(v)=p$ と書き直し、期待する一次項との差を見ます。堅非拡大性から近接作用素は 1-Lipschitz なので
 
 $$
 \|q-p\|\le\|h\|.
@@ -1053,7 +1053,7 @@ $$
 \frac1\lambda(v-p).
 $$
 
-最後に $p=\operatorname{prox}_{\lambda g}(u)$、$q=\operatorname{prox}_{\lambda g}(v)$ とすると、堅非拡大性 を
+最後に $p=\operatorname{prox}_{\lambda g}(u)$、$q=\operatorname{prox}_{\lambda g}(v)$ とすると、堅非拡大性を
 
 $$
 \|p-q\|^2
@@ -1111,7 +1111,7 @@ $\square$
 > }
 > $$
 >
-> を **ソフト閾値処理（ソフト閾値処理）**という。ベクトルに対しては各成分へ独立に適用する。
+> を **ソフト閾値処理（soft thresholding）**という。ベクトルに対しては各成分へ独立に適用する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-opt8-soft-threshold -->
@@ -2095,7 +2095,7 @@ $$
 ## 15. 演習 Level B
 
 <a id="ex-opt8-b01"></a>
-### OPT8-B01 堅非拡大性 を再構成する
+### OPT8-B01 堅非拡大性を再構成する
 
 - Level: B
 - 目安時間: 20分
@@ -2776,7 +2776,7 @@ $$
   $$
   が基本最適性条件である。
 - 標示関数の近接作用素は最近点射影である。
-- 近接作用素は 堅非拡大 であり、特に 1-Lipschitz 連続である。
+- 近接作用素は堅非拡大であり、特に 1-Lipschitz 連続である。
 - Moreau 包絡は非滑らかな閉真凸関数を滑らかにし、
   $$
   \nabla e_\lambda g(v)
