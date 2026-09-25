@@ -52,7 +52,7 @@ concepts:
     aliases:
       - alternating path
     introduction: formal
-    introduction_aliases: ["定義（交互路・増加路）"]
+    introduction_aliases: ["定義（交互路・マッチングの増加路）"]
     requires:
       - optimization.matching
 
