@@ -257,7 +257,7 @@ $$
 L_C(0)=\{d:d\le0\},
 $$
 
-通常の線形化条件と一致します。
+通常の一次近似条件と一致します。
 <!-- definition-example-end -->
 
 微分可能性から OPT6 と同様に
@@ -416,7 +416,7 @@ $$
 DG(x^*)^*\lambda+DH(x^*)^*\nu.
 $$
 
-これが停留条件です。さらに閉凸錐の normal cone 定理から
+これが停留条件です。さらに[閉凸錐の normal cone 定理](#thm-opt6a-cone-normal)から
 
 $$
 \lambda\in K^*,\qquad
@@ -559,7 +559,7 @@ $K=\mathbb R_+^2$, $y=(-1,0)$ とする。$N_{-K}(y)$ を求めよ。
 <!-- solution-start -->
 #### 詳細解答
 
-閉凸錐の normal cone 公式から $\lambda\ge0$ かつ
+[閉凸錐の normal cone 公式](#thm-opt6a-cone-normal)から $\lambda\ge0$ かつ
 
 $$
 \lambda^{\mathsf T}y=-\lambda_1=0.
