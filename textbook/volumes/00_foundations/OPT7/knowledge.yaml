@@ -1,0 +1,140 @@
+chapter: OPT7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OPT1
+  - NA12
+  - RA4
+
+forward_references: []
+
+concepts:
+  - id: optimization.lipschitz-gradient
+    name: Lipschitz連続勾配
+    kind: definition
+    aliases:
+      - Lipschitz gradient
+      - L-滑らかな関数
+    introduction: formal
+    introduction_aliases: ["定義（Lipschitz 連続勾配・L-滑らかさ）"]
+    requires:
+      - optimization.unconstrained-minimization
+
+  - id: optimization.descent-lemma
+    name: 降下補題
+    kind: theorem
+    aliases:
+      - descent lemma
+    introduction: formal
+    introduction_aliases: ["定理（降下補題）"]
+    requires:
+      - optimization.lipschitz-gradient
+
+  - id: optimization.fixed-step-gradient-method
+    name: 固定歩幅最急降下法
+    kind: definition
+    aliases:
+      - fixed-step gradient descent
+    introduction: formal
+    introduction_aliases: ["定義（固定歩幅最急降下法）"]
+    requires:
+      - optimization.steepest-descent
+
+  - id: optimization.fixed-step-gradient-decrease
+    name: 固定歩幅の降下評価
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（固定歩幅の降下評価）"]
+    requires:
+      - optimization.descent-lemma
+      - optimization.fixed-step-gradient-method
+
+  - id: optimization.gradient-convex-sublinear-rate
+    name: 滑らかな凸関数に対する最急降下法のO(1/k)収束
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（滑らかな凸関数に対する O(1/k) 収束）"]
+    requires:
+      - optimization.fixed-step-gradient-decrease
+      - convex.first-order-characterization
+
+  - id: optimization.strong-convexity
+    name: 強凸性
+    kind: definition
+    aliases:
+      - strong convexity
+    introduction: formal
+    introduction_aliases: ["定義（強凸性）"]
+    requires:
+      - convex.convex-function
+
+  - id: optimization.strong-convex-unique-minimizer
+    name: 強凸関数の最小点の一意性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（強凸関数の最小点の一意性）"]
+    requires:
+      - optimization.strong-convexity
+      - optimization.first-order-necessary-condition
+
+  - id: optimization.strong-convex-gradient-bound
+    name: 強凸性による勾配下界
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（強凸性による勾配下界）"]
+    requires:
+      - optimization.strong-convexity
+
+  - id: optimization.gradient-strong-convex-linear-rate
+    name: 滑らかな強凸関数に対する最急降下法の線形収束
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（滑らかな強凸関数に対する線形収束）"]
+    requires:
+      - optimization.fixed-step-gradient-decrease
+      - optimization.strong-convex-gradient-bound
+
+  - id: optimization.smooth-strong-condition-number
+    name: 滑らかな強凸最適化の条件数
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（滑らかな強凸最適化の条件数）"]
+    requires:
+      - optimization.lipschitz-gradient
+      - optimization.strong-convexity
+
+  - id: optimization.armijo-backtracking
+    name: Armijo条件付き後退直線探索
+    kind: definition
+    aliases:
+      - Armijo backtracking line search
+    introduction: formal
+    introduction_aliases: ["定義（Armijo 条件付き後退直線探索）"]
+    requires:
+      - optimization.descent-direction
+
+  - id: optimization.armijo-finite-acceptance
+    name: L-滑らかさによる後退直線探索の有限停止
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（L-滑らかさによる後退直線探索の有限停止）"]
+    requires:
+      - optimization.armijo-backtracking
+      - optimization.descent-lemma
+
+  - id: optimization.newton-local-quadratic-convergence
+    name: Newton法の局所二次収束
+    kind: theorem
+    aliases:
+      - local quadratic convergence of Newton method
+    introduction: formal
+    introduction_aliases: ["定理（Newton 法の局所二次収束）"]
+    requires:
+      - optimization.newton-unconstrained
