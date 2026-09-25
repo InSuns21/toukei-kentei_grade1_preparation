@@ -11,11 +11,11 @@ learning_objectives:
   - 活性集合・線形化錐を定義し、OPT3 の Bouligand 接錐を一般の実行可能集合で計算できる
   - 局所最適性から接錐の極錐条件を導ける
   - 接錐が線形化錐に含まれることを証明し逆包含が壊れる反例を説明できる
-  - LICQとMFCQを定義から判定しLICQからMFCQを導ける
-  - MFCQ下で接錐と線形化錐が一致する核心証明を追える
+  - LICQ と MFCQ を定義から判定し、LICQ から MFCQ を導ける
+  - MFCQ 下で接錐と線形化錐が一致する核心証明を追える
   - 線形化錐の極錐表示から KKT 乗数の存在を導ける
-  - LICQ下のKKT乗数一意性を証明できる
-  - 正則な等式制約で二階必要条件が Lagrangian の Hessian に現れる理由を証明できる
+  - LICQ 下の KKT 乗数一意性を証明できる
+  - 正則な等式制約で二階必要条件が Lagrangian の Hessian に現れる機構を説明できる
 definitions:
   - { id: OPT6-DEF-01, name: 活性集合 }
   - { id: OPT6-DEF-03, name: 線形化錐 }
