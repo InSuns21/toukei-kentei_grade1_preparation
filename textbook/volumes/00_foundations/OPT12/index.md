@@ -875,7 +875,7 @@ $$
 
 はアフィンなので凸であり、等式制約もアフィンです。仮定した $\bar x$ は Slater 点です。
 
-従って [OPT5 の KKT 定理](../OPT5/index.md#thm-opt5-kkt)から、任意の最適解に対して必要な乗数が存在します。
+従って [OPT5 の KKT 条件](../OPT5/index.md#thm-opt5-kkt)から、任意の最適解に対して必要な乗数が存在します。
 
 $\square$
 <!-- proof-end -->
@@ -1164,7 +1164,7 @@ $$
 
 ### 証明の見取り図
 
-凸性はノルムの三角不等式から出ます。自己双対性の一方向は Cauchy--Schwarz の不等式で内積を下から評価します。逆方向では、錐の外の点に対して、その点との内積が負になる境界ベクトルを一つ具体的に作ります。
+凸性は[内積ノルムの三角不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-triangle-inequality)から出ます。自己双対性の一方向は [Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)で内積を下から評価します。逆方向では、錐の外の点に対して、その点との内積が負になる境界ベクトルを一つ具体的に作ります。
 
 <!-- proof-start -->
 ### 証明
@@ -1590,7 +1590,7 @@ $$
 Q\succ0.
 $$
 
-本文の二次目的関数の凸性定理から $f$ は狭義凸です。
+本文の[二次目的関数の凸性と狭義凸性](#thm-opt12-quadratic-convexity)から $f$ は狭義凸です。
 
 無制約最小点では
 
