@@ -3,7 +3,8 @@ title: "SVM・凸包・最大マージン"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - F0-02B
+  - OPT2
+  - F0-02
 learning_objectives:
   - 線形分離可能性と正負クラスの凸包非交差を結び付けられる
   - 最大マージンを二つの凸包の最近点距離として説明できる
