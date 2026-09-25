@@ -110,6 +110,8 @@ $$
 <!-- definition-example-start: def-opt3-effective-domain-proper, def-opt3-indicator -->
 ### 1.1 定義の確認：半直線制約
 
+**定義の確認**
+
 $C=[0,\infty)$ とします。標示関数は
 
 $$
@@ -246,6 +248,8 @@ $x$ または $y$ が実効定義域の外なら右辺は $+\infty$ なので不
 
 <!-- definition-example-start: def-opt3-extended-convex, def-opt3-epigraph -->
 ### 2.1 定義の確認：$x^2$ のエピグラフ
+
+**定義の確認**
 
 $f(x)=x^2$ なら
 
@@ -459,6 +463,8 @@ $$
 <!-- definition-example-start: def-opt3-lsc, def-opt3-closed-convex, def-opt3-sublevel -->
 ### 3.1 定義の確認：$x^2$ と閉真凸性
 
+**定義の確認**
+
 $f(x)=x^2$ は連続なので下半連続です。また真かつ凸ですから閉真凸関数です。
 
 $\alpha\ge0$ なら
@@ -517,6 +523,8 @@ $$
 <!-- definition-example-start: def-opt3-affine-ri -->
 ### 4.1 定義の確認：平面内の線分
 
+**定義の確認**
+
 $$
 C=\{(t,0):0\le t\le1\}\subset\mathbb R^2
 $$
@@ -565,6 +573,8 @@ $$
 
 <!-- definition-example-start: def-opt3-subgradient -->
 ### 4.2 定義の確認：$f(x)=|x|$ の原点
+
+**定義の確認**
 
 $p\in\partial f(0)$ である条件は
 
@@ -850,6 +860,8 @@ $$
 
 <!-- definition-example-start: def-opt3-directional-derivative -->
 ### 6.1 定義の確認：絶対値の方向微分
+
+**定義の確認**
 
 $f(x)=|x|$、$x=0$ なら
 
@@ -1319,6 +1331,8 @@ $$
 <!-- definition-example-start: def-opt3-normal-cone -->
 ### 8.1 定義の確認：半直線の法錐
 
+**定義の確認**
+
 $C=[0,\infty)$ とします。境界点 $x=0$ では
 
 $$
@@ -1396,6 +1410,8 @@ $$
 
 <!-- definition-example-start: def-opt3-tangent-cone, def-opt3-polar-dual -->
 ### 9.1 定義の確認：半直線
+
+**定義の確認**
 
 $C=[0,\infty)$、$x=0$ とします。$d\ge0$ なら $x_k=t_kd\in C$ と取れるので $d\in T_C(0)$。逆に $x_k/t_k\to d$ で $x_k,t_k\ge0$ なら $d\ge0$ です。したがって
 
