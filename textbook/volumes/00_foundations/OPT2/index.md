@@ -294,7 +294,7 @@ $$
 <!-- definition-example-start: def-opt2-nearest-point-projection -->
 **定義の確認**：半空間への射影
 
-$
+$$
 C=\{(x_1,x_2):x_1\le0\},
 \qquad
 z=(2,3)
