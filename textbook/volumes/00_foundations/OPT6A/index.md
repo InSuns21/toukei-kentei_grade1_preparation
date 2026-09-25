@@ -349,6 +349,111 @@ $$
 
 ## 7. Robinson 制約想定が接錐を回収する
 
+一般錐では、OPT6 のように各不等式へ個別に陰関数定理を当てることはできません。代わりに、Robinson 制約想定から得られる **局所誤差境界** が「一次近似でほぼ実行可能」な点を「真に実行可能」な点へ $o(t)$ だけ補正します。
+
+写像と制約集合を
+
+$$
+F(x)
+=
+\bigl(H(x),G(x)\bigr),
+\qquad
+D
+=
+\{0\}\times(-K)
+$$
+
+とまとめれば、実行可能集合は
+
+$$
+C=F^{-1}(D)
+$$
+
+です。
+
+<a id="thm-opt6a-robinson-error-bound"></a>
+<!-- formal-statement-start -->
+> **定理（有限次元 Robinson 誤差境界）**  
+> 有限次元 Euclid 空間 $X$ と $Z$、閉凸集合 $D\subset Z$、$C^1$ 級写像 $F:X\to Z$ を考え、$F(x^*)\in D$ とする。線形化条件
+>
+$$
+DF(x^*)X-T_D(F(x^*))=Z
+$$
+>
+> が成立するとする。このとき、ある $\kappa>0$ と $x^*$ の近傍 $U$ が存在して
+>
+$$
+\boxed{
+\operatorname{dist}\bigl(x,F^{-1}(D)\bigr)
+\le
+\kappa\,
+\operatorname{dist}\bigl(F(x),D\bigr)
+}
+\qquad(x\in U)
+$$
+>
+> が成り立つ。
+<!-- formal-statement-end -->
+
+この定理は Robinson 制約想定の **定量版** です。本章で必要なのは、右辺が $o(t)$ なら実行可能集合までの距離も $o(t)$ になる、という一点です。
+
+### 誤差境界の核心
+
+線形化写像
+
+$$
+Q(d,s)=DF(x^*)d-s,
+\qquad
+s\in T_D(F(x^*))
+$$
+
+を考えます。仮定は $Q$ の像が $Z$ 全体であることです。各 $z\in Z$ に対して
+
+$$
+p(z)
+=
+\inf
+\left\{
+\|(d,s)\|:
+Q(d,s)=z,\ 
+s\in T_D(F(x^*))
+\right\}
+$$
+
+と置くと、接錐が凸錐であるため $p$ は正斉次かつ劣加法的です。しかも仮定により全ての $z$ で有限です。有限次元で有限値の劣線形関数は原点近傍で有界、従ってある $M>0$ が存在して
+
+$$
+p(z)\le M\|z\|
+$$
+
+となります。つまり、**任意の一次残差を、その大きさと同程度の補正で消せる**ことが Robinson 条件の定量的な中身です。
+
+$F$ は $C^1$ 級なので、$x^*$ の十分小さい近傍では
+
+$$
+F(x+h)
+=
+F(x)+DF(x^*)h+r(x,h),
+\qquad
+\|r(x,h)\|
+\le
+\varepsilon\|h\|
+$$
+
+と一様に評価できます。$\varepsilon M<1$ となるよう近傍を小さく取り、上の有界な一次補正を反復すると、残差は幾何級数的に減少し、補正量の総和は初期残差の定数倍で抑えられます。補正列の極限を $\widehat x$ とすれば閉性から $F(\widehat x)\in D$ であり、
+
+$$
+\|x-\widehat x\|
+\le
+\kappa\,
+\operatorname{dist}(F(x),D)
+$$
+
+を得ます。これが上の誤差境界です。
+
+> **技術的な境界**  
+> 最後の反復を一般の閉凸集合 $D$ に対して完全な集合値写像の形で展開するのが、有限次元の Robinson–Lyusternik–Graves 型正則性定理です。本章では、後続の接錐公式で実際に使う「有界な一次補正 → $C^1$ 剰余を反復吸収 → 距離評価」という核心機構までを示します。通常制約では後の MFCQ 同値定理により、この機構は OPT6 の陰関数定理による構成へ戻ります。
+
 <a id="thm-opt6a-robinson-tangent"></a>
 <!-- formal-statement-start -->
 > **定理（Robinson 制約想定下の接錐公式）**  
@@ -375,20 +480,397 @@ DH(x^*)d=0
 $$
 <!-- formal-statement-end -->
 
-### 証明の核心
+### 証明の見取り図
 
-包含 $T_C\subseteq L_C$ は一次展開から従います。逆向きでは $d\in L_C$ を取り、Robinson 制約想定が与える**誤差修正方向**を使って
+包含 $T_C(x^*)\subseteq L_C(x^*)$ は、実行可能列へ $G,H$ の一次展開を適用すれば得られます。逆包含では $d\in L_C(x^*)$ に対して $z_t=x^*+td$ を作ると、制約違反は $o(t)$ まで小さくなります。Robinson 誤差境界で $z_t$ を $o(t)$ だけ動かして真の実行可能点へ戻します。
+
+<!-- proof-start -->
+### 証明
+
+まず $d\in T_C(x^*)$ とします。[Bouligand 接錐](../OPT3/index.md#def-opt3-tangent-cone)の定義から、$x_k\in C$ と $t_k\downarrow0$ が存在して
 
 $$
-x(t)=x^*+td+o(t)
+\frac{x_k-x^*}{t_k}\to d.
 $$
 
-を真の実行可能点へ補正します。有限次元ではこの主張は Lyusternik--Graves 型の正則性定理（metric regularity）から従います。
+$H(x_k)=H(x^*)=0$ と微分可能性から
 
-ここで一般錐に対する誤差修正定理を一から証明すると集合値解析そのものが新しい主題になります。本章では、Robinson 制約想定の役割をこの接錐公式として明示し、通常制約 $K=\mathbb R_+^m$ については後節で OPT6 の MFCQ 証明へ還元して核心機構を閉じます。
+$$
+0
+=
+\frac{H(x_k)-H(x^*)}{t_k}
+\to
+DH(x^*)d,
+$$
 
-> **仮定が使われる場所**  
-> Robinson 制約想定は KKT の代数操作に必要なのではありません。線形化錐を真の接錐へ戻すこの一箇所に必要です。
+従って $DH(x^*)d=0$ です。また $G(x_k)\in-K$ であり、
+
+$$
+\frac{G(x_k)-G(x^*)}{t_k}
+\to
+DG(x^*)d.
+$$
+
+接錐の定義から
+
+$$
+DG(x^*)d
+\in
+T_{-K}(G(x^*)).
+$$
+
+よって $T_C(x^*)\subseteq L_C(x^*)$ です。
+
+逆に $d\in L_C(x^*)$ とします。記号を
+
+$$
+A=DG(x^*),
+\qquad
+B=DH(x^*),
+\qquad
+y^*=G(x^*)
+$$
+
+と置きます。$Ad\in T_{-K}(y^*)$ なので、接錐の定義から $t_k\downarrow0$ と $y_k\in-K$ を
+
+$$
+\frac{y_k-y^*}{t_k}
+\to
+Ad
+$$
+
+となるように取れます。$z_k=x^*+t_kd$ と置くと、$Bd=0$ と $C^1$ 性から
+
+$$
+H(z_k)=o(t_k),
+$$
+
+また
+
+$$
+G(z_k)
+=
+y^*+t_kAd+o(t_k).
+$$
+
+一方
+
+$$
+y_k
+=
+y^*+t_kAd+o(t_k),
+$$
+
+なので
+
+$$
+\operatorname{dist}\bigl(G(z_k),-K\bigr)
+\le
+\|G(z_k)-y_k\|
+=
+o(t_k).
+$$
+
+従って $F=(H,G)$、$D=\{0\}\times(-K)$ に対して
+
+$$
+\operatorname{dist}(F(z_k),D)=o(t_k).
+$$
+
+Robinson 制約想定は
+
+$$
+DF(x^*)X-T_D(F(x^*))=\mathbb R^r\times Y
+$$
+
+そのものなので、[有限次元 Robinson 誤差境界](#thm-opt6a-robinson-error-bound)を適用できます。よって
+
+$$
+\operatorname{dist}(z_k,C)=o(t_k).
+$$
+
+$C$ は $G,H$ の連続性と $-K,\{0\}$ の閉性から閉集合です。したがって $x_k\in C$ を
+
+$$
+\|x_k-z_k\|
+=
+o(t_k)
+$$
+
+となるように取れます。すると
+
+$$
+\frac{x_k-x^*}{t_k}
+=
+d+
+\frac{x_k-z_k}{t_k}
+\to d.
+$$
+
+よって $d\in T_C(x^*)$ であり、逆包含も示されました。$\square$
+<!-- proof-end -->
+
+> **Robinson 制約想定が働いた場所**  
+> KKT の代数操作ではなく、上の誤差境界を通じて
+>
+$$
+L_C(x^*)\subseteq T_C(x^*)
+$$
+>
+> を回収する一箇所です。
+
+### 7.1 線形化錐の極錐を乗数表示へ変える
+
+接錐を線形化錐へ置き換えただけでは、まだ KKT 乗数は出てきません。次に
+
+$$
+L_C(x^*)^\circ
+$$
+
+を制約写像の随伴で表示します。この段階でも Robinson 制約想定は、乗数表示の右辺を **閉じた錐** にするために働きます。
+
+<a id="thm-opt6a-linearized-polar"></a>
+<!-- formal-statement-start -->
+> **定理（Robinson 制約想定下の線形化錐の極錐表示）**  
+> 有限次元 Euclid 空間 $X,Y$、閉凸錐 $T\subset Y$、線形写像
+>
+$$
+A:X\to Y,
+\qquad
+B:X\to\mathbb R^r
+$$
+>
+> を考える。
+>
+$$
+L
+=
+\{d\in X:Ad\in T,\ Bd=0\}
+$$
+>
+> と置き、
+>
+$$
+\left\{
+(Bd,Ad-s):
+d\in X,\ s\in T
+\right\}
+=
+\mathbb R^r\times Y
+$$
+>
+> を仮定する。このとき
+>
+$$
+\boxed{
+L^\circ
+=
+A^*T^\circ
++
+\operatorname{range}B^*
+}.
+$$
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+右辺から左辺は内積を取れば直ちに分かります。逆向きの核心は、Robinson 条件が「ゼロでない異常乗数」を排除し、その結果
+
+$$
+A^*T^\circ+\operatorname{range}B^*
+$$
+
+が閉凸錐になることです。閉性が得られれば、OPT2 の閉凸錐分離と OPT3 の極双極定理で逆包含を示せます。
+
+<!-- proof-start -->
+### 証明
+
+まず
+
+$$
+M
+=
+A^*T^\circ
++
+\operatorname{range}B^*
+$$
+
+と置きます。$\mu\in T^\circ$、$\nu\in\mathbb R^r$、$d\in L$ なら
+
+$$
+\begin{aligned}
+\langle A^*\mu+B^*\nu,d\rangle
+&=
+\langle\mu,Ad\rangle
++
+\langle\nu,Bd\rangle\\
+&=
+\langle\mu,Ad\rangle
+\le0,
+\end{aligned}
+$$
+
+なので $M\subseteq L^\circ$ です。
+
+次に Robinson 条件から異常乗数が存在しないことを示します。
+
+$$
+\mu\in T^\circ,
+\qquad
+A^*\mu+B^*\nu=0
+$$
+
+とします。任意の $(a,b)\in\mathbb R^r\times Y$ に対し、仮定から $d\in X$、$s\in T$ を
+
+$$
+Bd=a,
+\qquad
+Ad-s=b
+$$
+
+となるように取れます。このとき
+
+$$
+\begin{aligned}
+\langle\nu,a\rangle+\langle\mu,b\rangle
+&=
+\langle\nu,Bd\rangle
++
+\langle\mu,Ad-s\rangle\\
+&=
+\langle A^*\mu+B^*\nu,d\rangle
+-
+\langle\mu,s\rangle\\
+&=
+-\langle\mu,s\rangle
+\ge0.
+\end{aligned}
+$$
+
+同じ議論を $(-a,-b)$ に適用すると逆向きの不等式も得られるので
+
+$$
+\langle\nu,a\rangle+\langle\mu,b\rangle=0
+\qquad
+(\forall(a,b)).
+$$
+
+従って $\mu=0$、$\nu=0$ です。
+
+ここで
+
+$$
+S
+=
+\left\{
+(\mu,\nu):
+\mu\in T^\circ,\ 
+\|\mu\|^2+\|\nu\|^2=1
+\right\}
+$$
+
+を考えます。$T^\circ$ は閉錐なので $S$ はコンパクトです。今示した異常乗数排除により
+
+$$
+A^*\mu+B^*\nu\ne0
+\qquad((\mu,\nu)\in S).
+$$
+
+連続性とコンパクト性から、ある $c>0$ が存在して
+
+$$
+\|A^*\mu+B^*\nu\|
+\ge
+c
+\sqrt{\|\mu\|^2+\|\nu\|^2}
+$$
+
+が全ての $\mu\in T^\circ$、$\nu\in\mathbb R^r$ で成り立ちます。
+
+したがって $m_k\in M$、$m_k\to m$ とし
+
+$$
+m_k=A^*\mu_k+B^*\nu_k,
+\qquad
+\mu_k\in T^\circ
+$$
+
+と表せば、$(\mu_k,\nu_k)$ は有界です。部分列を取って
+
+$$
+\mu_k\to\mu\in T^\circ,
+\qquad
+\nu_k\to\nu
+$$
+
+とでき、
+
+$$
+m=A^*\mu+B^*\nu\in M.
+$$
+
+よって $M$ は閉凸錐です。
+
+最後に $v\in L^\circ$ だが $v\notin M$ と仮定します。[閉凸錐の分離](../OPT2/index.md#thm-opt2-cone-separation)により、ある $d\in X$ が存在して
+
+$$
+\langle m,d\rangle\le0
+\qquad(\forall m\in M),
+$$
+
+かつ
+
+$$
+\langle v,d\rangle>0
+$$
+
+となります。$\operatorname{range}B^*$ は正負の両方を含む線形部分空間なので、最初の不等式から $Bd=0$ です。また
+
+$$
+\langle\mu,Ad\rangle\le0
+\qquad(\forall\mu\in T^\circ),
+$$
+
+なので
+
+$$
+Ad\in T^{\circ\circ}.
+$$
+
+$T$ は閉凸錐だから[閉凸錐の極双極定理](../OPT3/index.md#thm-opt3-polar-bipolar)により $T^{\circ\circ}=T$。従って $d\in L$ です。しかし $v\in L^\circ$ なら $\langle v,d\rangle\le0$ でなければならず矛盾します。
+
+よって $L^\circ\subseteq M$ であり、両包含から主張を得ます。$\square$
+<!-- proof-end -->
+
+錐制約へ戻し、
+
+$$
+A=DG(x^*),
+\qquad
+B=DH(x^*),
+\qquad
+T=T_{-K}(G(x^*))
+$$
+
+とします。$-K$ は閉凸集合なので、[法錐と接錐の極双対](../OPT3/index.md#thm-opt3-normal-tangent-polar)から
+
+$$
+T^\circ
+=
+N_{-K}(G(x^*)).
+$$
+
+従って Robinson 制約想定下では
+
+$$
+\boxed{
+L_C(x^*)^\circ
+=
+DG(x^*)^*N_{-K}(G(x^*))
++
+\operatorname{range}DH(x^*)^*
+}.
+$$
 
 ---
 
