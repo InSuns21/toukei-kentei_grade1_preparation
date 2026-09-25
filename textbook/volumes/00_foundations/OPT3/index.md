@@ -413,11 +413,11 @@ $$
 > **定義（強圧性）**  
 > 関数 $f:\mathbb R^n\to(-\infty,+\infty]$ が
 >
-$
+$$
 \|x\|\to\infty
 \quad\Longrightarrow\quad
 f(x)\to+\infty
-$
+$$
 >
 > を満たすとき、$f$ は **強圧的** である、または **強圧性** を持つという。
 <!-- formal-statement-end -->
@@ -1036,7 +1036,7 @@ $$
 
 ## 7. 劣微分の計算法
 
-方向微分の支持関数表示があると、劣微分の集合を「全方向で同じ支持値を持つ凸集合」として比較できます。
+[方向微分の支持関数表示](#thm-opt3-directional-support)があると、劣微分の集合を「全方向で同じ支持値を持つ凸集合」として比較できます。
 
 <a id="thm-opt3-sum-rule"></a>
 <!-- formal-statement-start -->
@@ -1087,7 +1087,7 @@ $$
 \partial(f+g)(x).
 $$
 
-逆向きを示します。方向微分の支持関数表示により $\partial f(x)$ と $\partial g(x)$ は非空です。また劣勾配の定義から閉凸集合であり、局所 Lipschitz 連続性を使うと有界です。実際 $x$ の小球上で $|f(y)-f(x)|\le L\|y-x\|$ なら、$p\in\partial f(x)$ と単位ベクトル $u$ に対し $y=x+\varepsilon u$ を代入して
+逆向きを示します。[方向微分の支持関数表示](#thm-opt3-directional-support)により $\partial f(x)$ と $\partial g(x)$ は非空です。また劣勾配の定義から閉凸集合であり、局所 Lipschitz 連続性を使うと有界です。実際 $x$ の小球上で $|f(y)-f(x)|\le L\|y-x\|$ なら、$p\in\partial f(x)$ と単位ベクトル $u$ に対し $y=x+\varepsilon u$ を代入して
 
 $$
 \varepsilon p^{\mathsf T}u
@@ -1224,7 +1224,7 @@ A=
 \bigcup_{i\in I(x)}\partial f_i(x)
 $$
 
-と置きます。各劣微分は非空コンパクトなので $A$ も非空コンパクト凸です。方向微分の支持関数表示から
+と置きます。各劣微分は非空コンパクトなので $A$ も非空コンパクト凸です。[方向微分の支持関数表示](#thm-opt3-directional-support)から
 
 $$
 \begin{aligned}
@@ -1251,9 +1251,9 @@ $$
 
 となります。一方 $p\in\partial h(x)$ なら、$t>0$ に対して
 
-$
+$$
 h(x+td)-h(x)\ge t\,p^{\mathsf T}d
-$
+$$
 
 なので、$t\downarrow0$ とすれば $p^{\mathsf T}d\le h'(x;d)$ です。これは上の厳密不等式に矛盾します。よって $p\in A$ です。$\square$
 <!-- proof-end -->
@@ -1903,7 +1903,7 @@ $$
 q\in B^\circ=(-N_C(x^\ast))^\circ.
 $$
 
-法錐と接錐の極双対、および閉凸錐の極双極定理から
+[法錐と接錐の極双対](#thm-opt3-normal-tangent-polar)、および[閉凸錐の極双極定理](#thm-opt3-polar-bipolar)から
 
 $$
 N_C(x^\ast)=T_C(x^\ast)^\circ,
@@ -1936,7 +1936,7 @@ p^{\mathsf T}d<0
 \qquad(\forall p\in A).
 $$
 
-従って方向微分の支持関数表示から
+従って[方向微分の支持関数表示](#thm-opt3-directional-support)から
 
 $$
 f'(x^\ast;d)
@@ -2135,7 +2135,7 @@ $$
 0\in\partial f(0).
 $$
 
-凸関数の Fermat 条件から $0$ は $f$ の大域最小点です。
+[凸関数の Fermat 条件](#thm-opt3-fermat)から $0$ は $f$ の大域最小点です。
 <!-- solution-end -->
 
 ### OPT3-A03 区間の法錐
@@ -2238,7 +2238,7 @@ $$
 f(x_1,x_2)=\max\{x_1,x_2\}
 $$
 
-について、原点での方向微分 $f'(0;d)$ を求め、max 関数の劣微分公式を使って $\partial f(0)$ を求めよ。最後に
+について、原点での方向微分 $f'(0;d)$ を求め、[max 関数の劣微分公式](#thm-opt3-max-rule)を使って $\partial f(0)$ を求めよ。最後に
 
 $$
 f'(0;d)
@@ -2271,7 +2271,7 @@ $$
 \partial f_2(0)=\{e_2\}.
 $$
 
-max 関数の劣微分公式より
+[max 関数の劣微分公式](#thm-opt3-max-rule)より
 
 $$
 \partial f(0)
