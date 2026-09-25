@@ -798,14 +798,14 @@ $$
 - Level: B
 - 目安時間: 15分
 
-$C=\{x:\|x\|_p\le1\}$、$1/p+1/q=1$ とする。Hölder の不等式を用いて $\sigma_C(y)=\|y\|_q$ を示せ。
+$C=\{x:\|x\|_p\le1\}$、$1/p+1/q=1$ とする。[Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)を用いて $\sigma_C(y)=\|y\|_q$ を示せ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-Hölder の不等式より
+[Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)より
 
-$$
+$
 y^{\mathsf T}x\le |y^{\mathsf T}x|\le\|y\|_q\|x\|_p\le\|y\|_q,
 $$
 
@@ -823,7 +823,7 @@ $$
 - Level: B
 - 目安時間: 18分
 
-閉真凸関数 $f$ について、Fenchel--Young の等号条件を使い
+閉真凸関数 $f$ について、[Fenchel--Young の等号条件](#thm-opt4-fenchel-equality-subgradient)を使い
 
 $$
 y\in\partial f(x)\iff x\in\partial f^*(y)
@@ -834,9 +834,9 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-Fenchel--Young の等号条件から
+[Fenchel--Young の等号条件](#thm-opt4-fenchel-equality-subgradient)から
 
-$$
+$
 y\in\partial f(x)\iff f(x)+f^*(y)=x^{\mathsf T}y.
 $$
 
@@ -846,7 +846,7 @@ $$
 f^*(y)+f^{**}(x)=y^{\mathsf T}x
 $$
 
-と書ける。今度は関数 $f^*$ に Fenchel--Young の等号条件を適用すると、これは $x\in\partial f^*(y)$ と同値である。よって主張を得る。
+と書ける。今度は関数 $f^*$ に [Fenchel--Young の等号条件](#thm-opt4-fenchel-equality-subgradient)を適用すると、これは $x\in\partial f^*(y)$ と同値である。よって主張を得る。
 <!-- solution-end -->
 
 ### OPT4-B03 Fenchel 双対の弱双対性
