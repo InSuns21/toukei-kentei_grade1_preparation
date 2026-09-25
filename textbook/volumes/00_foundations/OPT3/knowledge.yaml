@@ -264,8 +264,7 @@ concepts:
     aliases: [Bouligand 接錐, Bouligand tangent cone]
     introduction: formal
     introduction_aliases: ["定義（Bouligand 接錐）"]
-    requires:
-      - convex.convex-set
+    requires: []
 
   - id: convex.polar-cone
     name: 極錐

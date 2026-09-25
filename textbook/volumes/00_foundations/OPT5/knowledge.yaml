@@ -5,7 +5,7 @@ prerequisites:
   - OPT4
 
 forward_references:
-  - optimization.tangent-cone
+  - convex.bouligand-tangent-cone
   - optimization.linearized-cone
   - optimization.licq
   - optimization.mfcq
