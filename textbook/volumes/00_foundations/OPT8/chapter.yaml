@@ -33,7 +33,7 @@ theorems:
   - { id: OPT8-THM-05, name: Moreau包絡の勾配公式 }
   - { id: OPT8-THM-06, name: ℓ¹ノルムの近接作用素とソフト閾値処理 }
   - { id: OPT8-THM-07, name: 近接勾配法の一段評価 }
-  - { id: OPT8-THM-08, name: 近接勾配法のO(1/k)収束 }
+  - { id: OPT8-THM-08, name: 近接勾配法の劣線形収束 }
 canonical_examples:
   - 絶対値関数に対する劣勾配法
   - 半直線への射影勾配法
