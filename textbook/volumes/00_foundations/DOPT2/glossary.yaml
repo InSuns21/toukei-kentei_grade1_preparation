@@ -6,7 +6,7 @@ terms:
   - term: s--t カット
     english: s-t cut
     meaning: 頂点集合を s を含む側 S と t を含む側 T に分ける分割。S から T へ向かう辺の容量和をカット容量という。
-  - term: 最大流
+  - term: 最大フロー
     english: maximum flow
     meaning: 容量制約と流量保存則を満たす s--t フローのうち、フロー値が最大のもの。
   - term: 最小カット
