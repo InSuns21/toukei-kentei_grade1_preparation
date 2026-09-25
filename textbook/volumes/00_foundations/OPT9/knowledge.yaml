@@ -37,8 +37,7 @@ concepts:
       - quadratic penalty method
     introduction: formal
     introduction_aliases: ["定義（二次ペナルティ法）"]
-    requires:
-      - optimization.kkt-conditions
+    requires: []
 
   - id: optimization.penalty-feasibility-bound
     name: 二次ペナルティ最小点の可行性評価
@@ -57,8 +56,7 @@ concepts:
       - logarithmic barrier problem
     introduction: formal
     introduction_aliases: ["定義（対数障壁問題）"]
-    requires:
-      - optimization.kkt-conditions
+    requires: []
 
   - id: optimization.central-path
     name: 中心路
@@ -111,7 +109,7 @@ concepts:
     introduction_aliases: ["定理（摂動 KKT 系の主双対 Newton 方程式）"]
     requires:
       - optimization.perturbed-kkt-system
-      - optimization.equality-kkt-newton-step
+      - optimization.newton-unconstrained
 
   - id: optimization.sequential-quadratic-programming
     name: 逐次二次計画法
@@ -121,8 +119,7 @@ concepts:
       - SQP
     introduction: formal
     introduction_aliases: ["定義（逐次二次計画法）"]
-    requires:
-      - optimization.kkt-conditions
+    requires: []
 
   - id: optimization.sqp-newton-equivalence
     name: 等式制約 SQP と KKT-Newton ステップの一致
