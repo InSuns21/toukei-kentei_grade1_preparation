@@ -15,6 +15,9 @@ terms:
   - term: 一般化 KKT
     english: generalized KKT conditions
     meaning: 錐制約の双対実行可能性・相補性・停留条件を双対錐と随伴作用素で記述した KKT 条件。
+  - term: Robinson 誤差境界
+    english: Robinson error bound
+    meaning: Robinson 制約想定のもとで、制約写像の違反量が実行可能集合までの距離を局所的に支配する評価。
   - term: 半正定値錐
     english: positive semidefinite cone
-    meaning: 対称半正定値行列全体からなる閉凸錐。錐計画で代表的に現れる。
+    meaning: 対称半正定値行列全体からなる閉凸錐。2×2 の場合は本章で Frobenius 内積に関する自己双対性を直接証明する。
