@@ -4,7 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - VC1
-  - F0-00G
+  - OPT1
   - NA9
 official_scope: []
 learning_objectives:
@@ -17,7 +17,7 @@ learning_objectives:
   - Ax=b と実対称正定値二次関数最小化の同値性を、停留条件と目的関数差の両面から説明できる
   - NA9 の共役勾配法の歩幅を二次目的関数の厳密直線探索として導き、Krylov アフィン空間上の最小化として再解釈できる
 definitions:
-  - { id: NA12-DEF-01, name: 無制約最適化問題・局所最小点・大域最小点 }
+  - { id: NA12-DEF-01, name: 無制約最適化問題・局所最小点・大域最小点の再掲 }
   - { id: NA12-DEF-02, name: 降下方向・厳密直線探索 }
   - { id: NA12-DEF-03, name: 最急降下法 }
   - { id: NA12-DEF-04, name: 実対称正定値二次目的関数 }
