@@ -5,6 +5,7 @@ prerequisites:
   - F0-02C1
 
 forward_references:
+  - convex.convex-set
   - functional.riesz-representation-theorem
   - functional.linear-functional
   - functional.dual-space
