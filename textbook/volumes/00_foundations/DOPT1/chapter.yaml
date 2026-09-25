@@ -1,0 +1,53 @@
+id: "DOPT1"
+title: "整数計画・LP 緩和"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OPT10
+  - OPT11
+official_scope: []
+learning_objectives:
+  - 整数線形計画とLP緩和を定義し、整数条件を外すことで実行可能集合がどのように広がるか説明できる
+  - 最小化型整数線形計画でLP緩和が整数最適値の下界を与え、LP最適解が整数なら元問題でも最適であることを証明できる
+  - 整数包を定義し、線形目的関数が整数実行可能集合とその凸包上で同じ最適値を持つことを証明できる
+  - 加法的・比率型整数性ギャップを計算し、弱いLP緩和ではgapが大きくなり得ることを具体例で説明できる
+  - 同じ整数実行可能集合を持つ二つの定式化について、包含関係からLP緩和の強弱を比較できる
+  - 分数整数変数に対する標準的な二分枝が整数実行可能解を保存することを証明できる
+  - 分枝限定法でLP下界・暫定最良値・実行不能性を使って節点を安全に刈り、有限整数領域での正当性を説明できる
+  - 妥当不等式と切除平面を定義し、整数解を保存しながらLP下界を改善する理由を証明できる
+  - 整数係数線形式の丸めから簡単な切除平面を導き、分枝と切除の役割を比較できる
+definitions:
+  - { id: DOPT1-DEF-01, name: 整数線形計画 }
+  - { id: DOPT1-DEF-02, name: LP 緩和 }
+  - { id: DOPT1-DEF-03, name: 整数包 }
+  - { id: DOPT1-DEF-04, name: 整数性ギャップ }
+  - { id: DOPT1-DEF-05, name: 整数変数に対する分枝 }
+  - { id: DOPT1-DEF-06, name: 分枝限定法 }
+  - { id: DOPT1-DEF-07, name: 妥当不等式・切除平面 }
+theorems:
+  - { id: DOPT1-THM-01, name: LP 緩和が与える下界 }
+  - { id: DOPT1-THM-02, name: 線形目的関数と整数包の最適値同値性 }
+  - { id: DOPT1-PROP-01, name: 強い緩和ほど最小化下界は高い }
+  - { id: DOPT1-LEM-01, name: 分枝による整数実行可能解の保存 }
+  - { id: DOPT1-THM-03, name: 有限整数領域に対する分枝限定法の正当性 }
+  - { id: DOPT1-PROP-02, name: 妥当不等式追加による整数解保存と下界改善 }
+  - { id: DOPT1-PROP-03, name: 整数丸め不等式 }
+canonical_examples:
+  - 二変数0--1設備選択問題における整数最適値2とLP緩和値3/2
+  - 単一点整数集合の整数包と分数LP点の比較
+  - Mx>=1で比率型整数性ギャップがMまで拡大する例
+  - 分数解x2=1/2から二分枝して0--1最適解を確定する例
+  - x1+x2>=3/2を整数性からx1+x2>=2へ丸める切除
+problem_patterns:
+  - DOPT1-ILP-LP-RELAXATION-1
+  - DOPT1-INTEGER-HULL-1
+  - DOPT1-INTEGRALITY-GAP-1
+  - DOPT1-RELAXATION-STRENGTH-1
+  - DOPT1-BRANCHING-1
+  - DOPT1-BRANCH-AND-BOUND-1
+  - DOPT1-VALID-INEQUALITY-1
+  - DOPT1-INTEGER-ROUNDING-CUT-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.0, review: 0.75 }
