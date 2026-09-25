@@ -15,8 +15,8 @@ terms:
   - term: 交互路
     english: alternating path
     meaning: 現在のマッチングに属さない辺と属する辺が交互に現れる路。
-  - term: 増加路
-    english: augmenting path
+  - term: マッチングの増加路
+    english: augmenting path for a matching
     meaning: 両端が現在のマッチングで飽和されておらず、非選択辺から始まり非選択辺で終わる交互路。辺の選択を反転するとマッチング辺数を1増やせる。
   - term: 近傍
     english: neighborhood
