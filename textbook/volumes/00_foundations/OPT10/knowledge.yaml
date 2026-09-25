@@ -5,7 +5,8 @@ prerequisites:
   - OPT2
   - OPT5
 
-forward_references: []
+forward_references:
+  - optimization.central-path
 
 concepts:
   - id: optimization.linear-program-standard-form
