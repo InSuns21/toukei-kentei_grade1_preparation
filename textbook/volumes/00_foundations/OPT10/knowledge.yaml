@@ -100,6 +100,16 @@ concepts:
     requires:
       - optimization.basic-solution
 
+  - id: optimization.degenerate-basic-feasible-solution
+    name: 退化した基本実行可能解
+    kind: definition
+    aliases:
+      - degenerate basic feasible solution
+    introduction: formal
+    introduction_aliases: ["定義（退化した基本実行可能解）"]
+    requires:
+      - optimization.basic-feasible-solution
+
   - id: optimization.extreme-point-bfs-equivalence
     name: 極点と基本実行可能解の同値性
     kind: theorem
