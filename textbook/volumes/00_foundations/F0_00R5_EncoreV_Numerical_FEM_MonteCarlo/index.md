@@ -74,7 +74,7 @@ Monte Carlo 法と準 Monte Carlo 法では、同じ積分問題に対して
 | [NA11](../NA11/index.md) | Perron–Frobenius 理論と PageRank |
 | [NA12](../NA12/index.md) | 無制約最適化と共役勾配法 |
 
-**実装済み：NA1、NA2、NA3、NA4、NA5、NA6、NA7、NA8、NA9、NA10、NA11、NA12、FDM1、FDM2、FDM3、FDM4、FEM1、FEM2、FEM3、FEM4、FEM5、FEM6、FEM7、MC1、MC2、MC3、MC4、QMC1、QMC2、QMC3、QMC4、QMC5、QMC6、QMC7、QMC8、PYNUM1、NUMLAB0、NUMLAB1。理論35講完成直後の横断監査は方針決定により実施対象外です。次の実装対象は NUMLAB2「差分法演習」です。**
+**実装済み：NA1–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC8、PYNUM1、NUMLAB0–NUMLAB5。理論35講完成直後の横断監査は方針決定により実施対象外です。Encore V の計算機演習系列も NUMLAB5 まで完了しています。**
 
 数値解析では、単にアルゴリズムを列挙するのではなく、
 
@@ -153,7 +153,7 @@ MC1 では積分を期待値へ移し、標本平均の不偏性、分散、二�
 |---|---|
 | [PYNUM1](../PYNUM1/index.md) | Python 数値計算速習：NumPy 配列、shape / axis / dtype、ビューとコピー、ブロードキャスト、ベクトル化、乱数生成器、Matplotlib、SciPy の入口 |
 
-PYNUM1 は後続 NUMLAB の共通参照章であると同時に、ブラウザ内 Python をその場で動かす数値ラボページです。shape・ビュー／ブロードキャスト・乱数生成器・log-log 図の4実験を実行できます。[NUMLAB0 計算機演習基盤](../NUMLAB0/index.md) では Pyodide + module Web Worker、時間制限、非表示テスト、進捗保存、Matplotlib 図、永続ランタイムキャッシュを共通化し、[NUMLAB1 数値解析演習](../NUMLAB1/index.md) では NA1–NA12 を12本の実験で一周します。
+PYNUM1 は後続 NUMLAB の共通参照章であると同時に、ブラウザ内 Python をその場で動かす数値ラボページです。shape・ビュー／ブロードキャスト・乱数生成器・log-log 図の4実験を実行できます。[NUMLAB0 計算機演習基盤](../NUMLAB0/index.md) では Pyodide + module Web Worker、時間制限、非表示テスト、進捗保存、Matplotlib 図、永続ランタイムキャッシュを共通化し、[NUMLAB1 数値解析演習](../NUMLAB1/index.md) では NA1–NA12 を15本の実験で一周します。NA4・NA5・NA8 は、手動構築で理論をコードへ落としてから SciPy / NumPy を使う実務編へ進みます。
 
 ---
 
@@ -162,7 +162,7 @@ PYNUM1 は後続 NUMLAB の共通参照章であると同時に、ブラウザ�
 | 講座 | 主題 |
 |---|---|
 | [NUMLAB0](../NUMLAB0/index.md) | Pyodide・Web Worker・時間制限・自動判定・保存・オフラインランタイム |
-| [NUMLAB1](../NUMLAB1/index.md) | NA1–NA12：桁落ち、Newton、補間、Gauss 求積、ODE、直接法・反復法、固有値、PageRank、最適化 |
+| [NUMLAB1](../NUMLAB1/index.md) | NA1–NA12：15ラボ。補間・Gauss 求積・Cholesky は手動構築 → 実務 API の2段構成 |
 | [NUMLAB2](../NUMLAB2/index.md) | FDM1–FDM4：FTCS / 後退 Euler、拡散 CFL、格子収束、中心差分と風上化 |
 | [NUMLAB3](../NUMLAB3/index.md) | FEM1–FEM7：Galerkin、三角形組立て、補間、誤差次数、鞍点系、放物型問題、SUPG |
 | [NUMLAB4](../NUMLAB4/index.md) | MC1–MC4：標準誤差、逆関数法・棄却法、分散減少、Multilevel Monte Carlo のレベル間結合 |
