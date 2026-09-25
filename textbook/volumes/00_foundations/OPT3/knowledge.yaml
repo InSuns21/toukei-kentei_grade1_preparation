@@ -65,8 +65,7 @@ concepts:
     aliases: [下半連続, lower semicontinuous]
     introduction: formal
     introduction_aliases: ["定義（下半連続）"]
-    requires:
-      - analysis.liminf
+    requires: []
 
   - id: convex.lsc-closed-epigraph
     name: 下半連続性と閉エピグラフ
@@ -117,7 +116,7 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（アフィン包・相対内部）"]
     requires:
-      - linear.affine-combination
+      - linear.vector-space
 
   - id: convex.relative-interior
     name: 相対内部
@@ -264,7 +263,7 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（極錐・双対錐）"]
     requires:
-      - convex.convex-cone
+      - convex.cone
 
   - id: convex.dual-cone
     name: 双対錐
@@ -273,7 +272,7 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（極錐・双対錐）"]
     requires:
-      - convex.convex-cone
+      - convex.cone
 
   - id: convex.tangent-cone-conic-hull
     name: 凸集合の接錐表示
