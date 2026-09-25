@@ -594,7 +594,7 @@ $$
 -\nabla f(x^*)\in N_C(x^*).
 $$
 
-逆にこの normal cone 条件を仮定します。[F0-00G の一次支持不等式](../F0_00G_凸集合_凸関数_凸最適化/index.md#thm-f0-00g-first-order-convexity)から
+逆にこの normal cone 条件を仮定します。[OPT1 の一次支持不等式](../OPT1/index.md#thm-opt1-first-order-convexity)から
 
 $$
 f(y)
