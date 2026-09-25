@@ -103,7 +103,7 @@ concepts:
   - id: convex.coercivity
     name: 強圧性
     kind: definition
-    aliases: [強圧性, coercivity]
+    aliases: [強圧性]
     introduction: formal
     introduction_aliases: ["定義（強圧性）"]
     requires: []
@@ -329,9 +329,9 @@ concepts:
       - convex.point-closed-convex-strict-separation
 
   - id: convex.smooth-constrained-optimality
-    name: 凸集合上の微分可能凸最適化
+    name: 微分可能な場合の制約付き最適性条件
     kind: corollary
-    aliases: [凸集合上の微分可能凸最適化]
+    aliases: [微分可能な場合の制約付き最適性条件, 凸集合上の微分可能凸最適化]
     introduction: formal
     introduction_aliases: ["系（微分可能な場合の制約付き最適性条件）"]
     requires:
