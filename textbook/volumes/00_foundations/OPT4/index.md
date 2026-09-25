@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-この章は DREAM THEATER の凸解析・最適化系列で **Fenchel 共役から双対問題を組み立てる canonical owner** です。旧 F0-00G2 の資産を移行し、OPT3 で整えた閉真凸関数・劣微分・法錐を、共役・Fenchel--Young の等号条件・二重共役・Fenchel 双対へ接続します。旧ページは stable anchor と過去 URL のため残しますが、読者向け一覧からは外します。
+この章は DREAM THEATER の凸解析・最適化系列で、**線形関数との差の上限を使って凸関数を双対側から読む構成**を扱う canonical owner です。旧 F0-00G2 の資産を移行し、OPT3 で整えた閉真凸関数・劣微分・法錐を、双対側の関数、等号条件、二重化、双対問題へ順に接続します。旧ページは stable anchor と過去 URL のため残しますが、読者向け一覧からは外します。
 
 > **この章の停止線**
 >
