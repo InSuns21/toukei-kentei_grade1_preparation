@@ -21,3 +21,6 @@ terms:
   - term: KKT 乗数
     english: KKT multiplier
     meaning: 制約勾配の線形結合で目的関数勾配を打ち消す双対変数。MFCQ のもとで局所最適点に存在する。
+  - term: 二階必要条件
+    english: second-order necessary condition
+    meaning: 一次変化が消える実行可能方向で Lagrangian の二次形式が非負になる必要条件。本章では正則な等式制約の場合を証明する。
