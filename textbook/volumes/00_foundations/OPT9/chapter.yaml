@@ -1,0 +1,53 @@
+id: "OPT9"
+title: "制約付き数値最適化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OPT5
+  - OPT6
+  - OPT7
+  - OPT8
+official_scope: []
+learning_objectives:
+  - 射影勾配写像を定義し、閉凸制約でその零点と制約付き最小点が一致することを証明できる
+  - 二次ペナルティ法を定義し、ペナルティ最小点の制約違反評価と乗数近似を導ける
+  - ペナルティ係数の増大が可行性を改善する一方で条件付けを悪化させ得る機構を説明できる
+  - 対数障壁問題と中心路を定義し、障壁点から摂動KKT条件を導ける
+  - 凸対数障壁点の双対ギャップがmμ以下になることを弱双対性から証明できる
+  - 等式制約KKT系を非線形方程式として線形化し、NewtonステップのKKT行列を導ける
+  - スラック変数を含む摂動KKT系を線形化し、主双対Newton方程式を組み立てられる
+  - 逐次二次計画法の部分問題を定義し、正確なLagrangian Hessianを使う等式制約SQPとKKT-Newtonの一致を証明できる
+definitions:
+  - { id: OPT9-DEF-01, name: 射影勾配写像 }
+  - { id: OPT9-DEF-02, name: 二次ペナルティ法 }
+  - { id: OPT9-DEF-03, name: 対数障壁問題 }
+  - { id: OPT9-DEF-04, name: 中心路 }
+  - { id: OPT9-DEF-05, name: 摂動 KKT 系 }
+  - { id: OPT9-DEF-06, name: 逐次二次計画法 }
+theorems:
+  - { id: OPT9-THM-01, name: 射影勾配写像と凸制約付き最適性 }
+  - { id: OPT9-THM-02, name: 二次ペナルティ最小点の可行性評価 }
+  - { id: OPT9-THM-03, name: 凸対数障壁点の摂動 KKT と双対ギャップ }
+  - { id: OPT9-THM-04, name: 等式制約 KKT 系の Newton ステップ }
+  - { id: OPT9-THM-05, name: 摂動 KKT 系の主双対 Newton 方程式 }
+  - { id: OPT9-THM-06, name: 等式制約 SQP と KKT-Newton ステップの一致 }
+canonical_examples:
+  - 半直線制約に対する射影勾配写像
+  - 一変数等式制約に対する二次ペナルティと乗数近似
+  - 一変数不等式制約に対する対数障壁と中心路
+  - 線形等式制約付き二次最適化のKKT-Newtonステップ
+  - 一変数問題での摂動KKT系
+  - 二次目的関数と線形等式制約に対するSQP
+problem_patterns:
+  - OPT9-PROJECTED-GRADIENT-MAPPING-1
+  - OPT9-QUADRATIC-PENALTY-1
+  - OPT9-LOG-BARRIER-1
+  - OPT9-KKT-NEWTON-1
+  - OPT9-PENALTY-FEASIBILITY-1
+  - OPT9-BARRIER-GAP-1
+  - OPT9-PRIMAL-DUAL-NEWTON-1
+  - OPT9-INTEGRATED-CONSTRAINED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.0, review: 0.75 }
