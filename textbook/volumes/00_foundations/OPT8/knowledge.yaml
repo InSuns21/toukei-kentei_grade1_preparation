@@ -72,12 +72,12 @@ concepts:
       - convex.fermat-subgradient-condition
 
   - id: optimization.proximal-firm-nonexpansiveness
-    name: 近接作用素のfirm nonexpansiveness
+    name: 近接作用素の堅非拡大性
     kind: theorem
     aliases:
       - firmly nonexpansive proximal mapping
     introduction: formal
-    introduction_aliases: ["定理（近接作用素の firm nonexpansiveness）"]
+    introduction_aliases: ["定理（近接作用素の堅非拡大性）"]
     requires:
       - optimization.proximal-optimality
       - convex.subgradient
@@ -103,22 +103,22 @@ concepts:
       - optimization.proximal-firm-nonexpansiveness
 
   - id: optimization.soft-thresholding
-    name: soft thresholding
+    name: ソフト閾値処理
     kind: definition
     aliases:
       - ソフト閾値処理
       - soft-thresholding
     introduction: formal
-    introduction_aliases: ["定義（soft thresholding）"]
+    introduction_aliases: ["定義（ソフト閾値処理）"]
     requires:
       - optimization.proximal-mapping
 
   - id: optimization.l1-proximal-soft-threshold
-    name: l1ノルムの近接作用素とsoft thresholding
+    name: ℓ¹ノルムの近接作用素とソフト閾値処理
     kind: theorem
     aliases: []
     introduction: formal
-    introduction_aliases: ["定理（l1 ノルムの近接作用素）"]
+    introduction_aliases: ["定理（ℓ¹ ノルムの近接作用素）"]
     requires:
       - optimization.soft-thresholding
       - optimization.proximal-optimality
