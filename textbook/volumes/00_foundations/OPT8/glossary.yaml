@@ -1,0 +1,26 @@
+chapter: "OPT8"
+terms:
+  - term: 劣勾配法
+    english: subgradient method
+    meaning: 微分不能な凸関数に対し、勾配の代わりに劣勾配を選んで反復する一次法。
+  - term: 射影勾配法
+    english: projected gradient method
+    meaning: 勾配ステップの後に閉凸制約集合へ最近点射影し、反復点を可行領域へ戻す方法。
+  - term: 近接作用素
+    english: proximal mapping
+    meaning: 閉真凸関数に二次距離項を加えた強凸最小化問題の一意な解を返す写像。
+  - term: firm nonexpansiveness
+    english: firm nonexpansiveness
+    meaning: 近接作用素が満たす、通常の非拡大性より強い内積型の縮小性。
+  - term: Moreau 包絡
+    english: Moreau envelope
+    meaning: 閉真凸関数と二次距離項のinfimal convolutionで得られる滑らかな近似。
+  - term: soft thresholding
+    english: soft thresholding
+    meaning: 絶対値またはl1ノルムの近接作用素として現れ、各成分を閾値だけ0へ縮める写像。
+  - term: 近接勾配法
+    english: proximal gradient method
+    meaning: 滑らかな凸項に勾配ステップ、非滑らかな閉真凸項に近接作用素を使う合成最適化法。
+  - term: ISTA
+    english: iterative shrinkage-thresholding algorithm
+    meaning: l1正則化付き最小二乗へ近接勾配法を適用した反復法。
