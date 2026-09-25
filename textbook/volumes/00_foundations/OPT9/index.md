@@ -1506,7 +1506,7 @@ Dh(x)^{\mathsf T}\Delta\nu
 \right].
 $$
 
-一方、線形化制約は
+一方、一次近似制約は
 
 $$
 Dh(x)p=-h(x).
@@ -1546,7 +1546,7 @@ $$
 \boxed{
 \text{KKT 方程式へ Newton 法}
 \quad\Longleftrightarrow\quad
-\text{局所二次モデル + 線形化制約}
+\text{局所二次モデル + 一次近似制約}
 }
 $$
 
@@ -2065,7 +2065,7 @@ $$
 \Delta x_2+\Delta\nu=0.
 $$
 
-制約の線形化から
+制約の一次近似から
 
 $$
 \Delta x_1+\Delta x_2=0.
