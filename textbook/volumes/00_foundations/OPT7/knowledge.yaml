@@ -10,7 +10,7 @@ forward_references: []
 
 concepts:
   - id: optimization.lipschitz-gradient
-    name: Lipschitz連続勾配
+    name: Lipschitz 連続勾配
     kind: definition
     aliases:
       - Lipschitz gradient
@@ -58,7 +58,7 @@ concepts:
     introduction_aliases: ["定理（滑らかな凸関数に対する O(1/k) 収束）"]
     requires:
       - optimization.fixed-step-gradient-decrease
-      - convex.first-order-characterization
+      - convex.first-order-support-inequality
 
   - id: optimization.strong-convexity
     name: 強凸性
@@ -110,7 +110,7 @@ concepts:
       - optimization.strong-convexity
 
   - id: optimization.armijo-backtracking
-    name: Armijo条件付き後退直線探索
+    name: Armijo 条件付き後退直線探索
     kind: definition
     aliases:
       - Armijo backtracking line search
@@ -130,7 +130,7 @@ concepts:
       - optimization.descent-lemma
 
   - id: optimization.newton-local-quadratic-convergence
-    name: Newton法の局所二次収束
+    name: Newton 法の局所二次収束
     kind: theorem
     aliases:
       - local quadratic convergence of Newton method
