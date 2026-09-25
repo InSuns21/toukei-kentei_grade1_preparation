@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-OPT4 では共役関数を使って双対問題を作りました。本章では、有限個の凸不等式制約と affine 等式制約を
+OPT4 では共役関数を使って双対問題を作りました。本章では、有限個の凸不等式制約とアフィン等式制約を
 
 $$
 \min_{x\in\mathbb R^n} f(x)
@@ -37,11 +37,11 @@ $$
 <a id="def-opt5-lagrangian"></a>
 <!-- formal-statement-start -->
 > **定義（Lagrangian）**  
-> $f,g_1,\dots,g_m:\mathbb R^n\to\mathbb R$、$A\in\mathbb R^{r\times n}$、$b\in\mathbb R^r$ に対する制約付き最小化問題
+> 関数 $f,g_1,dots,g_m:\mathbb R^n\to\mathbb R$、行列 $A\in\mathbb R^{r\times n}$、$b\in\mathbb R^r$ に対する制約付き最小化問題
 >
 $$
 \min_x f(x)
-\quad\text{subject to}\quad
+\quad\text{制約}\quad
 g_i(x)\le0\ (i=1,\dots,m),\qquad Ax=b
 $$
 >
@@ -61,7 +61,7 @@ $$
 
 $$
 \min_x (x-2)^2
-\quad\text{subject to}\quad x\le1
+\quad\text{制約}\quad x\le1
 $$
 
 では $g(x)=x-1$ と置くので
@@ -76,25 +76,41 @@ $$
 <a id="def-opt5-dual-function"></a>
 <!-- formal-statement-start -->
 > **定義（双対関数）**  
-> 上の Lagrangian に対し
+> 上の形の制約付き問題に対し、$\lambda\ge0$、$\nu\in\mathbb R^r$ について
 >
 $$
-q(\lambda,\nu)=\inf_{x\in\mathbb R^n}L(x,\lambda,\nu)
+q(\lambda,\nu)
+=
+\inf_{x\in\mathbb R^n}
+\left[
+f(x)+\sum_{i=1}^m\lambda_i g_i(x)+\nu^{\mathsf T}(Ax-b)
+\right]
 $$
 >
-> を **双対関数** という。
+> を **双対関数**という。下限が無限遠へ下がる場合は $q(\lambda,\nu)=-\infty$ とする。
 <!-- formal-statement-end -->
 
 <a id="def-opt5-primal-dual"></a>
 <!-- formal-statement-start -->
 > **定義（主問題・Lagrange 双対問題）**  
-> 元の制約付き最小化問題を **主問題** といい、その最適値を $p^*$ とする。双対関数を用いた
+> 主問題の最適値を
 >
 $$
-\sup_{\lambda\ge0,\,\nu\in\mathbb R^r}q(\lambda,\nu)
+p^*
+=
+\inf\{f(x):g_i(x)\le0\ (i=1,\dots,m),\ Ax=b\}
 $$
 >
-> を **Lagrange 双対問題** といい、その最適値を $d^*$ とする。
+> とする。対応する Lagrange 双対問題は
+>
+$$
+d^*
+=
+\sup_{\lambda\ge0,\,\nu\in\mathbb R^r}
+q(\lambda,\nu)
+$$
+>
+> であり、$d^*$ を双対最適値という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-opt5-dual-function, def-opt5-primal-dual -->
@@ -106,7 +122,7 @@ $$
 \frac{\partial L}{\partial x}=2(x-2)+\lambda=0
 $$
 
-より $x=2-\lambda/2$ で infimum を達成します。代入すると
+より $x=2-\lambda/2$ で下限を達成します。代入すると
 
 $$
 q(\lambda)=\lambda-\frac{\lambda^2}{4},\qquad\lambda\ge0.
@@ -115,6 +131,49 @@ $$
 双対問題はこの凹二次関数の最大化で、$\lambda^*=2$、$d^*=1$。主問題も $x^*=1$、$p^*=1$ なので、この例では双対ギャップが0です。
 <!-- definition-example-end -->
 
+<a id="thm-opt5-dual-function-concavity"></a>
+<!-- formal-statement-start -->
+> **定理（双対関数の凹性）**  
+> 上の形の制約付き問題について、双対関数 $q(\lambda,\nu)$ は $\lambda\ge0$、$\nu\in\mathbb R^r$ の凸な領域上で凹関数である。この結論には $f,g_i$ の凸性を仮定しない。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+$x$ を固定すると $L(x,\lambda,\nu)$ は $(\lambda,\nu)$ のアフィン関数です。双対関数は、それらアフィン関数の点ごとの下限です。
+
+<!-- proof-start -->
+### 証明
+
+$z_j=(\lambda^{(j)},\nu^{(j)})$ $(j=1,2)$ を双対実行可能とし、$0\le\theta\le1$ とします。$L$ は乗数についてアフィンなので
+
+$$
+L(x,\theta z_1+(1-\theta)z_2)
+=
+\theta L(x,z_1)+(1-\theta)L(x,z_2).
+$$
+
+従って
+
+$$
+\begin{aligned}
+q(\theta z_1+(1-\theta)z_2)
+&=
+\inf_x\{
+\theta L(x,z_1)+(1-\theta)L(x,z_2)
+\}\\
+&\ge
+\theta\inf_x L(x,z_1)
++(1-\theta)\inf_x L(x,z_2)\\
+&=
+\theta q(z_1)+(1-\theta)q(z_2).
+\end{aligned}
+$$
+
+よって $q$ は凹です。$\square$
+<!-- proof-end -->
+
+ここでの凹性は主問題の凸性とは別物です。**双対問題が最大化問題として自然に整うのは、Lagrangian が乗数に関してアフィンだから**です。
+
 ---
 
 ## 3. 弱双対性は凸性を必要としない
@@ -122,13 +181,19 @@ $$
 <a id="thm-opt5-weak-duality"></a>
 <!-- formal-statement-start -->
 > **定理（Lagrange 双対の弱双対性）**  
-> 上の主問題について、$x$ が主実行可能、$(\lambda,\nu)$ が $\lambda\ge0$ を満たすなら
+> 関数 $f,g_1,\dots,g_m:\mathbb R^n\to\mathbb R$ とアフィン等式制約 $Ax=b$ を持つ最小化問題を考える。$x$ が
+>
+$$
+g_i(x)\le0\quad(i=1,\dots,m),\qquad Ax=b
+$$
+>
+> を満たし、$(\lambda,\nu)$ が $\lambda\ge0$ を満たすなら
 >
 $$
 q(\lambda,\nu)\le f(x).
 $$
 >
-> 従って常に
+> 従って主最適値 $p^*$ と双対最適値 $d^*$ の間に
 >
 $$
 \boxed{d^*\le p^*}
@@ -165,16 +230,30 @@ $$
 よって $q(\lambda,\nu)\le f(x)$。任意の主実行可能 $x$ と双対実行可能 $(\lambda,\nu)$ について成立するので、左辺の上限と右辺の下限を取れば $d^*\le p^*$ です。$\square$
 <!-- proof-end -->
 
+<a id="def-opt5-strong-duality"></a>
+<!-- formal-statement-start -->
+> **定義（双対ギャップ・強双対性）**  
+> $p^*,d^*\in\mathbb R$ のとき、非負量
+>
+$$
+p^*-d^*
+$$
+>
+> を **双対ギャップ**という。$p^*=d^*$、すなわち双対ギャップが0であることを **強双対性**という。
+<!-- formal-statement-end -->
+
+弱双対性は常に下界を与えますが、強双対性や双対最適解の存在は自動ではありません。そのための代表的な内部点条件が Slater 条件です。
+
 ---
 
 ## 4. Slater 条件：強双対性を支える内部点
 
-凸問題でも、強双対性を無条件に期待してはいけません。制約集合が退化していると、支持超平面を「有限の乗数」として取り出す議論が壊れることがあります。その代表が Slater 条件です。
+凸問題でも、強双対性を無条件に期待してはいけません。制約集合が退化していると、摂動した問題を原点で有限の傾きによって支えられず、双対乗数を取り出せないことがあります。
 
 <a id="def-opt5-slater"></a>
 <!-- formal-statement-start -->
 > **定義（Slater 条件）**  
-> $f,g_1,\dots,g_m$ を凸関数、等式制約を $Ax=b$ とする凸最適化問題を考える。ある $\bar x\in\operatorname{ri}(\operatorname{dom}f\cap\bigcap_i\operatorname{dom}g_i)$ が存在して
+> $f,g_1,\dots,g_m:\mathbb R^n\to\mathbb R$ を凸関数、等式制約を $Ax=b$ とする凸最適化問題を考える。ある $\bar x\in\mathbb R^n$ が存在して
 >
 $$
 g_i(\bar x)<0\qquad(i=1,\dots,m),\qquad A\bar x=b
@@ -188,7 +267,7 @@ $$
 
 $$
 \min_x x^2
-\quad\text{subject to}\quad x-1\le0
+\quad\text{制約}\quad x-1\le0
 $$
 
 では $\bar x=0$ と取ると
@@ -200,10 +279,18 @@ $$
 従って Slater 条件を満たします。境界点 $x=1$ が存在するだけではなく、制約を厳密に満たす点があることを確認しています。
 <!-- definition-example-end -->
 
+OPT4 のように拡張実数値関数で共通の実効定義域を明示する場合は、Slater 点をその共通実効定義域の相対内部に取る相対内部版を使います。本章の中核定理は、Lagrangian の積 $\lambda_i g_i(x)$ を曖昧にしないため、まず有限値凸関数で証明します。
+
 <a id="thm-opt5-slater-strong-duality"></a>
 <!-- formal-statement-start -->
 > **定理（Slater 条件下の強双対性）**  
-> $f,g_1,\dots,g_m:\mathbb R^n\to(-\infty,+\infty]$ を閉真凸関数とし、等式制約を $Ax=b$ とする。主問題の最適値が有限で、Slater 条件を満たすなら、Lagrange 双対問題は最適解を持ち、
+> $f,g_1,\dots,g_m:\mathbb R^n\to\mathbb R$ を凸関数、$A\in\mathbb R^{r\times n}$、$b\in\mathbb R^r$ とする。主最適値 $p^*$ が有限で、Slater 条件を満たすなら、ある $\lambda^*\ge0$、$\nu^*\in\mathbb R^r$ が存在して
+>
+$$
+q(\lambda^*,\nu^*)=p^*.
+$$
+>
+> 従って双対最適解が存在し、
 >
 $$
 \boxed{d^*=p^*}
@@ -214,152 +301,455 @@ $$
 
 ### 証明の見取り図
 
-OPT2 の分離定理を使います。目的値と制約違反を同時に記録する凸集合を作り、最適値より真に低い点から分離します。Slater 条件は、分離超平面の「目的値方向の係数」が0になる退化を排除します。正規化すると残りの係数が Lagrange 乗数になります。
+制約の右辺を少し動かした **摂動値関数**を作ります。Slater 点があると、摂動量 $(u,v)=(0,0)$ はその実効定義域の相対内部に入ります。そこで凸関数を支える劣勾配を取り、その符号を読み替えると $\lambda\ge0$ と自由な等式乗数 $\nu$ が得られます。
+
+今回重要なのは
+
+$$
+\boxed{
+\text{Slater}
+\Longrightarrow
+0\in\operatorname{ri}(\operatorname{dom}\varphi)
+\Longrightarrow
+\text{有限の支持傾き}
+\Longrightarrow
+\text{双対最適乗数}
+}
+$$
+
+という機構です。
 
 <!-- proof-start -->
 ### 証明
 
-主問題の最適値を $p^*$ とし、
+#### 1. 摂動値関数を作る
+
+$W=\operatorname{range}A\subset\mathbb R^r$ とし、$(u,v)\in\mathbb R^m\times W$ に対して
 
 $$
-\mathcal C=
-\left\{
-(u,v,t):
-\begin{array}{l}
-\exists x\in\operatorname{dom}f\text{ such that}\\
-g_i(x)\le u_i\ (i=1,\dots,m),\\
-Ax-b=v,\quad f(x)\le t
-\end{array}
+\varphi(u,v)
+=
+\inf\left\{
+f(x):
+g_i(x)\le u_i\ (i=1,\dots,m),\ 
+Ax-b=v
 \right\}
 $$
 
-を考えます。凸性から $\mathcal C$ は凸です。任意の $\varepsilon>0$ に対して $(0,0,p^*-\varepsilon)\notin\mathcal C$ なので、分離定理により非零の $(\lambda,\nu,\mu)$ が存在し、$\mathcal C$ とこの点を分離できます。
-
-$u$ は各成分を上へ自由に増やせるため、分離係数は $\lambda\ge0$。$t$ も上へ自由に増やせるため $\mu\ge0$ です。Slater 点 $\bar x$ ではすべての不等式に厳密な余裕があります。この余裕を分離不等式へ入れると、$\mu=0$ なら $\lambda=0$ が強制され、さらに等式方向を動かす分離関係から $\nu=0$ となり、分離ベクトルが非零であることに反します。従って $\mu>0$ です。
-
-$\mu=1$ となるよう正規化すると、分離不等式から任意の $x$ に対して
+と定めます。特に
 
 $$
-f(x)+\sum_i\lambda_i g_i(x)+\nu^{\mathsf T}(Ax-b)\ge p^*.
+\varphi(0,0)=p^*\in\mathbb R.
+$$
+
+$\varphi$ は凸です。実際、$(u^{(j)},v^{(j)})$ $(j=1,2)$ で $\varphi$ が有限の場合、任意の $\varepsilon>0$ に対して実行可能な $x_j$ を
+
+$$
+f(x_j)
+\le
+\varphi(u^{(j)},v^{(j)})+\varepsilon
+$$
+
+となるように選べます。$0\le\theta\le1$ とし $x_\theta=\theta x_1+(1-\theta)x_2$ と置くと、各 $g_i$ と $f$ の凸性および $A$ の線形性から
+
+$$
+g_i(x_\theta)
+\le
+\theta u_i^{(1)}+(1-\theta)u_i^{(2)},
+$$
+
+$$
+Ax_\theta-b
+=
+\theta v^{(1)}+(1-\theta)v^{(2)},
+$$
+
+$$
+f(x_\theta)
+\le
+\theta\varphi(u^{(1)},v^{(1)})
++(1-\theta)\varphi(u^{(2)},v^{(2)})
++\varepsilon.
+$$
+
+$\varepsilon\downarrow0$ とすれば凸性が従います。片方の値が $-\infty$ の場合も、任意に小さい近似値を選ぶ同じ議論で扱えます。
+
+#### 2. Slater 条件が原点を相対内部へ入れる
+
+Slater 点を $\bar x$ とします。不等式が一つ以上ある場合
+
+$$
+\eta
+=
+\min_{1\le i\le m}\{-g_i(\bar x)\}
+>0
+$$
+
+と置きます。
+
+有限値凸関数は有限次元で局所連続です。これは [有限値凸関数の局所 Lipschitz 連続性](../OPT3/index.md#lem-opt3-finite-convex-lipschitz) の内容です。従って $\bar x$ の十分小さい近傍では
+
+$$
+g_i(x)<-\frac{\eta}{2}
+\qquad(i=1,\dots,m)
+$$
+
+が同時に成り立ちます。
+
+有限次元線形写像 $A:\mathbb R^n\to W$ には、$W$ 上の線形な右逆写像 $R:W\to\mathbb R^n$ を一つ取れます。すなわち
+
+$$
+ARv=v
+\qquad(v\in W).
+$$
+
+$v$ が十分小さければ $\bar x+Rv$ は上の近傍に入ります。さらに $\|u\|_\infty<\eta/4$ なら
+
+$$
+g_i(\bar x+Rv)
+<
+-\frac\eta2
+<
+-\frac\eta4
+<
+u_i
+$$
+
+です。また $A\bar x=b$ なので
+
+$$
+A(\bar x+Rv)-b=v.
+$$
+
+従って $(0,0)$ の $\mathbb R^m\times W$ におけるある近傍が $\operatorname{dom}\varphi$ に含まれます。つまり
+
+$$
+(0,0)
+\in
+\operatorname{ri}(\operatorname{dom}\varphi).
+$$
+
+不等式制約がない場合は $u$ 座標を省けば同じ議論です。
+
+さらに $\varphi(0,0)=p^*$ は有限です。もしある $z\in\operatorname{dom}\varphi$ で $\varphi(z)=-\infty$ なら、原点が相対内部なので十分小さい $\alpha>0$ について $-\alpha z\in\operatorname{dom}\varphi$ です。そして
+
+$$
+0
+=
+\frac{\alpha}{1+\alpha}z
++
+\frac{1}{1+\alpha}(-\alpha z)
+$$
+
+に凸性を使うと $\varphi(0,0)=-\infty$ となり矛盾します。従って $\varphi$ は真凸関数です。
+
+#### 3. 原点で有限の支持傾きを作る
+
+ここでは OPT3 の劣勾配存在証明と同じ局所機構を、$\varphi$ に対して使います。$E=\operatorname{aff}(\operatorname{dom}\varphi)$ とします。原点は相対内部なので、$E$ の原点周りの小さい立方体 $Q$ を
+
+$$
+Q\subset\operatorname{dom}\varphi
+$$
+
+となるように取れます。
+
+$Q$ の有限個の頂点で $\varphi$ は有限です。凸性により $Q$ 上で上から有界になり、さらに原点の反対側の点との中点不等式を使えば、より小さい立方体上で下からも有界になります。[有限値凸関数の局所 Lipschitz 連続性](../OPT3/index.md#lem-opt3-finite-convex-lipschitz) の証明と同じ局所計算により、$\varphi$ は原点の相対近傍で Lipschitz 連続です。
+
+従って $d\in E$ に対する方向微分
+
+$$
+\psi(d)
+=
+\varphi'(0;d)
+=
+\lim_{t\downarrow0}
+\frac{\varphi(td)-\varphi(0)}{t}
+$$
+
+は有限値です。凸性から、OPT3 の[方向微分の支持関数表示](../OPT3/index.md#thm-opt3-directional-support)の証明と同じ計算で、$\psi$ は連続な劣線形関数になります。
+
+そこで閉凸錐
+
+$$
+K=\operatorname{epi}\psi
+=
+\{(d,s)\in E\times\mathbb R:s\ge\psi(d)\}
+$$
+
+を考えます。$(0,-1)\notin K$ なので、[閉凸錐の分離](../OPT2/index.md#thm-opt2-cone-separation)から、ある $(a,\beta)\ne0$ が存在して
+
+$$
+a^{\mathsf T}d+\beta s\le0
+\qquad((d,s)\in K),
+$$
+
+かつ
+
+$$
+-\beta>0
+$$
+
+となります。従って $\beta<0$ で、$-\beta$ で割れば $\beta=-1$ とできます。$s=\psi(d)$ を代入すると
+
+$$
+a^{\mathsf T}d
+\le
+\psi(d).
+$$
+
+一方、凸関数の右方向微分は割線の傾き以下なので、任意の $z\in\operatorname{dom}\varphi$ に対して
+
+$$
+\psi(z)
+\le
+\varphi(z)-\varphi(0).
+$$
+
+したがって
+
+$$
+\varphi(z)
+\ge
+p^*+a^{\mathsf T}z.
+$$
+
+つまり $a$ は $\varphi$ の原点における劣勾配です。
+
+#### 4. 支持傾きを Lagrange 乗数へ読む
+
+$a=(\alpha,\gamma)\in\mathbb R^m\times W$ と分けます。元の制約を緩めて $u_i$ を正方向へ増やすと実行可能集合は広がるので
+
+$$
+\varphi(te_i,0)
+\le
+\varphi(0,0)=p^*
+\qquad(t>0).
+$$
+
+一方、劣勾配不等式から
+
+$$
+\varphi(te_i,0)
+\ge
+p^*+t\alpha_i.
+$$
+
+従って $\alpha_i\le0$ です。そこで
+
+$$
+\lambda^*=-\alpha\ge0,
+\qquad
+\nu^*=-\gamma
+$$
+
+と置きます。$\gamma\in W\subset\mathbb R^r$ と見れば $\nu^*$ は通常の等式乗数です。
+
+任意の $x\in\mathbb R^n$ に対し、$x$ 自身は摂動量
+
+$$
+u=g(x),
+\qquad
+v=Ax-b
+$$
+
+に対して実行可能なので
+
+$$
+\varphi(g(x),Ax-b)
+\le
+f(x).
+$$
+
+劣勾配不等式と合わせると
+
+$$
+\begin{aligned}
+f(x)
+&\ge
+\varphi(g(x),Ax-b)\\
+&\ge
+p^*
++\alpha^{\mathsf T}g(x)
++\gamma^{\mathsf T}(Ax-b).
+\end{aligned}
 $$
 
 従って
 
 $$
-q(\lambda,\nu)\ge p^*.
+f(x)
++
+(\lambda^*)^{\mathsf T}g(x)
++
+(\nu^*)^{\mathsf T}(Ax-b)
+\ge
+p^*
+\qquad(\forall x).
 $$
 
-弱双対性から常に $q(\lambda,\nu)\le p^*$ なので等号が成立し、この $(\lambda,\nu)$ は双対最適解です。よって $d^*=p^*$。$\square$
+左辺の $x$ に関する下限を取れば
+
+$$
+q(\lambda^*,\nu^*)\ge p^*.
+$$
+
+しかし[弱双対性](#thm-opt5-weak-duality)から常に
+
+$$
+q(\lambda^*,\nu^*)\le p^*.
+$$
+
+よって
+
+$$
+q(\lambda^*,\nu^*)=p^*=d^*.
+$$
+
+$(\lambda^*,\nu^*)$ は双対最適解です。$\square$
 <!-- proof-end -->
 
 > **仮定が働いた場所**  
-> 凸性は $\mathcal C$ を凸にして分離定理を使えるようにし、Slater の厳密不等式は $\mu=0$ という退化した分離を排除しました。ここが「内部点があるとなぜ強双対になるのか」の核心です。
+> 凸性は摂動値関数 $\varphi$ を凸にしました。Slater の厳密不等式は $(0,0)$ を $\operatorname{dom}\varphi$ の相対内部へ押し込み、そこで有限の支持傾きを取れるようにしました。その不等式座標の傾きが非正であるため、符号を反転したものが $\lambda\ge0$ になります。
 
 ---
 
 ## 5. KKT 条件
 
-以下では $f,g_i$ が微分可能な場合をまず扱います。非滑らかな場合は勾配を OPT3 の劣微分に置き換えます。
+以下では $f,g_i$ が微分可能な有限値凸関数の場合をまず扱います。非滑らかな場合は、後で勾配を OPT3 の劣微分に置き換えます。
 
 <a id="thm-opt5-kkt"></a>
 <!-- formal-statement-start -->
 > **定理（凸問題の KKT 条件）**  
-> $f,g_1,\dots,g_m:\mathbb R^n\to\mathbb R$ を微分可能な凸関数とし、$A\in\mathbb R^{r\times n}$、$b\in\mathbb R^r$ とする。問題
->
-$$
-\min_x f(x)
-\quad\text{subject to}\quad
-g_i(x)\le0,\qquad Ax=b
-$$
->
-> が Slater 条件を満たすとする。このとき $x^*$ が主最適解であることと、ある $\lambda^*\ge0$、$\nu^*\in\mathbb R^r$ が存在して次の4条件を満たすことは同値である。
+> $f,g_1,\dots,g_m:\mathbb R^n\to\mathbb R$ を微分可能な凸関数、$A\in\mathbb R^{r\times n}$、$b\in\mathbb R^r$ とする。実行可能点 $x^*$ と乗数 $\lambda^*\in\mathbb R_+^m$、$\nu^*\in\mathbb R^r$ が
 >
 > 1. **主実行可能性**
 $$
-   g_i(x^*)\le0,\qquad Ax^*=b.
+   g_i(x^*)\le0,\qquad Ax^*=b,
 $$
 > 2. **双対実行可能性**
 $$
-   \lambda_i^*\ge0.
+   \lambda_i^*\ge0,
 $$
 > 3. **停留条件**
 $$
-   \nabla f(x^*)+\sum_i\lambda_i^*\nabla g_i(x^*)+A^{\mathsf T}\nu^*=0.
+   \nabla f(x^*)+\sum_i\lambda_i^*\nabla g_i(x^*)+A^{\mathsf T}\nu^*=0,
 $$
 > 4. **相補性**
 $$
-   \lambda_i^*g_i(x^*)=0\qquad(i=1,\dots,m).
+   \lambda_i^*g_i(x^*)=0\qquad(i=1,\dots,m)
 $$
+>
+> を満たすなら、$x^*$ は主問題の大域最適解である。逆に、問題が Slater 条件を満たすなら、任意の主最適解 $x^*$ に対してこの4条件を満たす $\lambda^*,\nu^*$ が存在する。従って Slater 条件のもとでは、主最適性と KKT 条件は同値である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-必要性は Slater による強双対性から得ます。主・双対最適値が一致すると、実行可能点で常に非正だった $\sum_i\lambda_i g_i(x)$ の総和が0になり、各項が非正なので一つずつ0、すなわち相補性が出ます。また $x^*$ は $L(\cdot,\lambda^*,\nu^*)$ を最小化するため停留条件が出ます。
+**十分性には Slater 条件は要りません。** 停留条件と凸性から $x^*$ は Lagrangian の大域最小点になり、相補性によってその最小値が $f(x^*)$ と一致します。これが弱双対性の下界に一致するため、$x^*$ は主最適です。
 
-十分性では逆に、KKT の4条件から $x^*$ が Lagrangian を大域的に最小化することを凸性で示し、弱双対性の下界と主目的値が一致することを確認します。
+Slater 条件が必要なのは逆向きです。主最適解から有限の双対最適乗数を取り出すために、前節の強双対性を使います。
 
 <!-- proof-start -->
 ### 証明
 
-まず $x^*$ が主最適解とします。[Slater 条件下の強双対性](#thm-opt5-slater-strong-duality)により双対最適解 $(\lambda^*,\nu^*)$ が存在し、
+まず4条件を満たす $(x^*,\lambda^*,\nu^*)$ があるとします。$L(\cdot,\lambda^*,\nu^*)$ は凸で、停留条件から
 
 $$
-p^*=d^*=q(\lambda^*,\nu^*)
+\nabla_xL(x^*,\lambda^*,\nu^*)=0.
 $$
 
-です。一方、主実行可能性から
+微分可能凸関数の一次最適性条件より、$x^*$ は $L(\cdot,\lambda^*,\nu^*)$ の大域最小点です。従って
 
 $$
-L(x^*,\lambda^*,\nu^*)
+q(\lambda^*,\nu^*)
 =
-f(x^*)+\sum_i\lambda_i^*g_i(x^*)
-\le f(x^*)=p^*.
-$$
-
-また $q$ は $L$ の下限なので
-
-$$
-q(\lambda^*,\nu^*)\le L(x^*,\lambda^*,\nu^*).
-$$
-
-両端がともに $p^*$ だからすべて等号です。従って
-
-$$
-\sum_i\lambda_i^*g_i(x^*)=0.
-$$
-
-各項は $\lambda_i^*\ge0$、$g_i(x^*)\le0$ により非正なので、各 $i$ で $\lambda_i^*g_i(x^*)=0$。また $x^*$ は $L(\cdot,\lambda^*,\nu^*)$ の最小点です。$L$ は微分可能な凸関数なので
-
-$$
-\nabla_xL(x^*,\lambda^*,\nu^*)=0,
-$$
-
-すなわち停留条件が得られます。
-
-逆に4条件を満たす $(x^*,\lambda^*,\nu^*)$ があるとします。$L(\cdot,\lambda^*,\nu^*)$ は凸で、停留条件から $x^*$ はその大域最小点です。従って
-
-$$
-q(\lambda^*,\nu^*)=L(x^*,\lambda^*,\nu^*).
+L(x^*,\lambda^*,\nu^*).
 $$
 
 主実行可能性と相補性から
 
 $$
-L(x^*,\lambda^*,\nu^*)=f(x^*).
+L(x^*,\lambda^*,\nu^*)
+=
+f(x^*).
 $$
 
-よって $q(\lambda^*,\nu^*)=f(x^*)$。弱双対性では任意の主実行可能 $x$ に対して
+よって
+
+$$
+q(\lambda^*,\nu^*)=f(x^*).
+$$
+
+[弱双対性](#thm-opt5-weak-duality)により、任意の主実行可能点 $x$ について
 
 $$
 q(\lambda^*,\nu^*)\le f(x)
 $$
 
-なので $f(x^*)\le f(x)$。従って $x^*$ は主最適解です。$\square$
+なので $f(x^*)\le f(x)$。従って $x^*$ は主最適解です。この向きでは Slater 条件を使っていません。
+
+逆に問題が Slater 条件を満たし、$x^*$ が主最適解だとします。[Slater 条件下の強双対性](#thm-opt5-slater-strong-duality)により双対最適解 $(\lambda^*,\nu^*)$ が存在し、
+
+$$
+p^*
+=
+q(\lambda^*,\nu^*)
+=
+f(x^*)
+$$
+
+です。主実行可能性から
+
+$$
+L(x^*,\lambda^*,\nu^*)
+=
+f(x^*)+\sum_i\lambda_i^*g_i(x^*)
+\le
+f(x^*)=p^*.
+$$
+
+一方 $q$ は $L$ の下限なので
+
+$$
+p^*
+=
+q(\lambda^*,\nu^*)
+\le
+L(x^*,\lambda^*,\nu^*).
+$$
+
+従って全て等号で、
+
+$$
+\sum_i\lambda_i^*g_i(x^*)=0.
+$$
+
+各項は $\lambda_i^*\ge0$、$g_i(x^*)\le0$ により非正なので
+
+$$
+\lambda_i^*g_i(x^*)=0
+\qquad(i=1,\dots,m).
+$$
+
+また
+
+$$
+q(\lambda^*,\nu^*)
+=
+L(x^*,\lambda^*,\nu^*)
+$$
+
+なので $x^*$ は $L(\cdot,\lambda^*,\nu^*)$ の下限を達成しています。$L$ は微分可能な凸関数だから
+
+$$
+\nabla_xL(x^*,\lambda^*,\nu^*)=0,
+$$
+
+すなわち停留条件が得られます。主実行可能性は $x^*$ の仮定から、双対実行可能性は $\lambda^*\ge0$ から成立します。$\square$
 <!-- proof-end -->
 
 ### 5.1 非滑らかな凸問題
 
-$f,g_i$ が凸だが微分可能とは限らない場合、停留条件は
+$f,g_i$ が有限値凸関数だが微分可能とは限らない場合、OPT3 の[有限値凸関数の劣微分和則](../OPT3/index.md#thm-opt3-sum-rule)を使えるので、停留条件は
 
 $$
 0\in
@@ -370,7 +760,13 @@ $$
 A^{\mathsf T}\nu^*
 $$
 
-と書きます。ここで集合の和は Minkowski 和です。OPT3 の劣微分和則を使うための条件を確認した上で適用します。
+と書けます。これは「適当な $p_0\in\partial f(x^*)$ と $p_i\in\partial g_i(x^*)$ を選んで
+
+$$
+p_0+\sum_i\lambda_i^*p_i+A^{\mathsf T}\nu^*=0
+$$
+
+とできる」という意味です。拡張実数値関数まで一般化すると、劣微分和則そのものに相対内部型の制約想定が必要になります。
 
 ---
 
@@ -451,10 +847,16 @@ $$
 
 $$
 \min_x x
-\quad\text{subject to}\quad x^2\le0
+\quad\text{制約}\quad x^2\le0
 $$
 
-を考えます。実行可能点は $x^*=0$ だけなので、これは最適解です。しかし $g(x)=x^2$ に対して $g(x)<0$ となる点は存在せず、Slater 条件は失敗します。
+を考えます。実行可能点は $x^*=0$ だけなので、これは最適解で
+
+$$
+p^*=0
+$$
+
+です。しかし $g(x)=x^2$ に対して $g(x)<0$ となる点は存在せず、Slater 条件は失敗します。
 
 KKT の停留条件は
 
@@ -462,9 +864,57 @@ $$
 1+\lambda\,2x^*=1=0
 $$
 
-を要求するので、どんな $\lambda\ge0$ でも満たせません。
+を要求するので、どんな有限の $\lambda\ge0$ でも満たせません。
 
-ここで壊れたのは「最適解が存在すること」ではありません。**最適解を有限の Lagrange 乗数で表現できること**です。OPT6 では、この現象を接錐と制約の一次近似が作る錐のずれとして詳しく見ます。
+この例では、さらに双対問題を直接見ると何が失われたかがはっきりします。Lagrangian は
+
+$$
+L(x,\lambda)=x+\lambda x^2.
+$$
+
+$\lambda=0$ なら $q(0)=\inf_x x=-\infty$。$\lambda>0$ なら平方完成して
+
+$$
+x+\lambda x^2
+=
+\lambda\left(x+\frac{1}{2\lambda}\right)^2
+-
+\frac{1}{4\lambda},
+$$
+
+従って
+
+$$
+q(\lambda)=-\frac{1}{4\lambda}.
+$$
+
+したがって
+
+$$
+d^*
+=
+\sup_{\lambda\ge0}q(\lambda)
+=
+0
+=
+p^*,
+$$
+
+ですが、有限の $\lambda$ では $q(\lambda)<0$ なので双対最適値は達成されません。
+
+つまりこの例は
+
+$$
+\boxed{
+\text{Slater 失敗}
+\quad\text{でも}\quad
+p^*=d^*
+}
+$$
+
+であり、Slater 条件が強双対性の**必要条件ではない**ことも示します。一方で失われたのは **有限の双対最適乗数の存在**であり、そのため KKT 必要条件も成立しません。
+
+OPT6 では、この現象を接錐と制約の一次近似が作る錐のずれとして詳しく見ます。
 
 ---
 
@@ -476,13 +926,13 @@ $$
 G(x)=(g_1(x),\dots,g_m(x))
 $$
 
-としてまとめ、非正直交象限への indicator 関数を使えば、制約付き問題は拡張実数値関数を含む無制約問題として書けます。OPT4 の「indicator の共役が support function」という関係から、非負乗数 $\lambda\ge0$ が自然に現れます。
+としてまとめ、非正直交象限への標示関数を使えば、制約付き問題は拡張実数値関数を含む無制約問題として書けます。OPT4 の「標示関数の共役が支持関数」という関係から、非負乗数 $\lambda\ge0$ が自然に現れます。
 
 したがって Fenchel 双対と Lagrange 双対は別々の暗記項目ではなく、
 
 $$
 \boxed{
-\text{制約を indicator 関数で表す}
+\text{制約を標示関数で表す}
 \Longrightarrow
 \text{共役側に Lagrange 乗数が現れる}
 }
@@ -569,7 +1019,7 @@ $$
 }.
 $$
 
-最大化点は $\lambda^*=1$、双対最適値は $1/2$ です。
+最大化点は $\lambda^*=1$、双対最適値は $1/2$ です。また $q''(\lambda)=-1<0$ なので、この具体例でも双対関数の凹性を確認できます。
 <!-- solution-end -->
 
 ### OPT5-A03 KKT で境界解を求める
@@ -719,21 +1169,29 @@ $$
 ### OPT5-B03 Slater が失敗する例を診断する
 
 - Level: B
-- 目安時間: 20分
+- 目安時間: 25分
 
 $$
 \min_x x
-\quad\text{subject to}\quad x^2\le0
+\quad\text{制約}\quad x^2\le0
 $$
 
-について、(i) 最適解、(ii) Slater 条件、(iii) KKT 乗数の存在を順に調べ、どの機構が壊れたか説明せよ。
+について、(i) 最適解、(ii) Slater 条件、(iii) KKT 乗数の存在、(iv) 双対関数・双対最適値・双対最適解の存在を順に調べ、Slater を失ったとき何が壊れたか説明せよ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-$x^2\le0$ は $x=0$ と同値なので、実行可能集合は $\{0\}$。従って唯一の最適解は $x^*=0$ です。
+$x^2\le0$ は $x=0$ と同値なので、実行可能集合は $\{0\}$。従って唯一の最適解は
 
-Slater 条件には $\bar x$ で $\bar x^2<0$ が必要ですが、そのような実数は存在しません。従って Slater 条件は失敗します。
+$$
+x^*=0,
+\qquad
+p^*=0
+$$
+
+です。
+
+Slater 条件には $\bar x^2<0$ が必要ですが、そのような実数は存在しません。従って Slater 条件は失敗します。
 
 Lagrangian は
 
@@ -747,9 +1205,48 @@ $$
 1+2\lambda x^*=0.
 $$
 
-$x^*=0$ を代入すると $1=0$ となり、どの有限な $\lambda\ge0$ でも成立しません。
+$x^*=0$ を代入すると $1=0$ となり、どの有限な $\lambda\ge0$ でも KKT 条件を満たせません。
 
-したがって壊れたのは最適解の存在ではなく、最適性を有限の Lagrange 乗数で表す KKT 必要条件です。制約勾配 $g'(0)=0$ が一次近似で実行可能集合の狭さを捉えられないことが背景にあり、OPT6 の接錐と制約の一次近似の議論へつながります。
+次に双対関数を計算します。$\lambda=0$ なら
+
+$$
+q(0)=\inf_x x=-\infty.
+$$
+
+$\lambda>0$ なら
+
+$$
+x+\lambda x^2
+=
+\lambda\left(x+\frac{1}{2\lambda}\right)^2
+-
+\frac{1}{4\lambda},
+$$
+
+なので
+
+$$
+q(\lambda)
+=
+-\frac{1}{4\lambda}.
+$$
+
+従って
+
+$$
+d^*
+=
+\sup_{\lambda>0}
+\left(-\frac{1}{4\lambda}\right)
+=
+0
+=
+p^*.
+$$
+
+双対ギャップは0ですが、任意の有限な $\lambda>0$ で $q(\lambda)<0$ なので双対最適解は存在しません。
+
+したがってこの例で壊れたのは「値としての強双対性」ではなく、**有限の双対最適乗数を取り出す機構**です。そのため KKT 必要条件も失敗します。制約勾配 $g'(0)=0$ が一次近似で実行可能集合の狭さを捉えられないことが背景にあり、OPT6 の接錐と制約の一次近似の議論へつながります。
 <!-- solution-end -->
 
 ---
@@ -836,7 +1333,7 @@ $$
 -x=-\frac12<0,\qquad -y=-\frac12<0
 $$
 
-を満たすので Slater 条件が成立します。目的関数と不等式制約は凸、等式制約は affine です。従って本章の KKT 定理により、この KKT 点は大域最適解です。
+を満たすので Slater 条件が成立します。目的関数と不等式制約は凸、等式制約は アフィン です。従って本章の KKT 定理の十分性により、この KKT 点は大域最適解です。さらに目的関数は狭義凸で実行可能集合は凸なので、最適解は一意です。
 
 なお二つの不等式は最適点で非活性なので、乗数が0になることも相補性と一致します。
 <!-- solution-end -->
