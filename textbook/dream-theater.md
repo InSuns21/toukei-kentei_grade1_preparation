@@ -224,7 +224,7 @@ LIE1 では左移動・右移動、左不変ベクトル場、単位元接空間
 
 ### 凸解析・凸最適化
 
-有限次元の凸集合・凸関数から、分離、凸双対、KKT 条件、数値最適化、LP/QP、整数計画へ進みます。前半で凸性の幾何と双対性を整え、中盤で制約付き最適化の最適性条件を理解し、後半で連続最適化から線形・二次・離散最適化へ接続します。
+有限次元の凸集合・凸関数から、分離、凸双対、KKT 条件、数値最適化、LP/QP、整数計画、ネットワーク最適化へ進みます。前半で凸性の幾何と双対性を整え、中盤で制約付き最適化の最適性条件を理解し、後半で連続最適化から線形・二次・離散最適化へ接続します。
 
 1. [OPT1 凸集合・凸関数・凸最適化](textbook/volumes/00_foundations/OPT1/index.md)
 2. [OPT2 射影・支持超平面・分離・Farkas](textbook/volumes/00_foundations/OPT2/index.md)
@@ -240,6 +240,7 @@ LIE1 では左移動・右移動、左不変ベクトル場、単位元接空間
 12. [OPT11 線形計画 II：単体法・内点法・感度解析](textbook/volumes/00_foundations/OPT11/index.md)
 13. [OPT12 二次計画・錐計画入門](textbook/volumes/00_foundations/OPT12/index.md)
 14. [DOPT1 整数計画・LP 緩和](textbook/volumes/00_foundations/DOPT1/index.md)
+15. [DOPT2 ネットワーク最適化](textbook/volumes/00_foundations/DOPT2/index.md)
 
 ### RKHS・SVM
 
