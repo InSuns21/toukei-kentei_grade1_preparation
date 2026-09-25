@@ -23,6 +23,7 @@ definitions:
   - { id: DOPT2-DEF-05, name: 増加路 }
   - { id: DOPT2-DEF-06, name: 最小費用流 }
   - { id: DOPT2-DEF-07, name: 残余費用 }
+  - { id: DOPT2-DEF-08, name: 非負循環 }
 theorems:
   - { id: DOPT2-THM-01, name: フロー・カット不等式 }
   - { id: DOPT2-PROP-01, name: 増加路に沿う更新の実行可能性 }
