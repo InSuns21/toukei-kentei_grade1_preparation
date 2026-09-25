@@ -1,0 +1,26 @@
+chapter: "OPT9"
+terms:
+  - term: 射影勾配写像
+    english: projected gradient mapping
+    meaning: 射影勾配法の一回の変位を歩幅で割った写像。閉凸制約では零点が一次最適性を表す。
+  - term: 二次ペナルティ法
+    english: quadratic penalty method
+    meaning: 制約違反の二乗を目的関数へ加え、ペナルティ係数を増やしながら可行性へ近づける方法。
+  - term: 対数障壁法
+    english: logarithmic barrier method
+    meaning: 不等式制約の厳密可行領域内で対数障壁を加え、内部から境界上の最適解へ近づく方法。
+  - term: 中心路
+    english: central path
+    meaning: 障壁パラメータごとの障壁問題の最小点が描く経路。
+  - term: KKT 行列
+    english: KKT matrix
+    meaning: KKT残差のNewton線形化で現れる、Hessianと制約Jacobianからなるブロック行列。
+  - term: 摂動 KKT 系
+    english: perturbed KKT system
+    meaning: 相補性をSλ=μ1へ摂動し、主変数・スラック・双対変数を厳密内部で扱うKKT方程式系。
+  - term: 主双対 Newton 法
+    english: primal-dual Newton method
+    meaning: 主可行性・stationarity・摂動相補性を同時に線形化し、主変数と双対変数を一括更新するNewton型手法。
+  - term: 逐次二次計画法
+    english: sequential quadratic programming
+    meaning: 目的関数を二次近似し制約を一次近似した二次計画部分問題を反復して解くNewton型制約付き最適化法。
