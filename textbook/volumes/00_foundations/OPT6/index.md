@@ -1236,7 +1236,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-Cauchy--Schwarz の不等式から、単位円板上では
+[Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から、単位円板上では
 
 $$
 x+y
