@@ -1,6 +1,6 @@
 # F0-02A KKT条件の導出：接錐・polar cone・Farkasの補題
 
-> **アーカイブ**：この内容の canonical owner は [OPT6 KKT の幾何学的導出・制約想定](../OPT6/index.md) です。本ページは過去URLと stable anchor の後方互換性のため保持しています。
+> **アーカイブ**：この内容の canonical owner は [canonical 章 OPT6](../OPT6/index.md) です。本ページは過去URLと stable anchor の後方互換性のため保持しています。
 
 この補講では、KKT条件を「4条件を覚える」形ではなく、**局所最適解では実行可能な一次方向へ目的関数を下げられない**という事実から導きます。
 
