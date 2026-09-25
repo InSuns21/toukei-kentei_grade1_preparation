@@ -1,0 +1,38 @@
+chapter: "DOPT4"
+terms:
+  - term: 全単模行列
+    english: totally unimodular matrix
+    meaning: 任意の正方部分行列の行列式が0,1,-1のいずれかになる行列。
+  - term: 小行列式
+    english: minor
+    meaning: 行列から同数の行と列を選んで得られる正方部分行列の行列式。
+  - term: 整数多面体
+    english: integral polyhedron
+    meaning: 自身の整数点の凸包と一致する多面体。有界多面体では全ての極点が整数ベクトルであることと同値。
+  - term: 頂点整数性
+    english: vertex integrality
+    meaning: 多面体の全ての極点が整数ベクトルになる性質。
+  - term: 点弧接続行列
+    english: node-arc incidence matrix
+    meaning: 有向グラフの頂点を行、弧を列に取り、弧の始点に-1、終点に1を置く行列。
+  - term: 頂点辺接続行列
+    english: vertex-edge incidence matrix
+    meaning: 無向グラフの頂点を行、辺を列に取り、頂点が辺の端点なら1を置く0--1行列。
+  - term: 二部マッチング多面体
+    english: bipartite matching polytope
+    meaning: 二部グラフのマッチング接続ベクトルの凸包であり、非負制約と各頂点の次数上限制約だけで記述できる。
+  - term: 割当 LP の整数性
+    english: integrality of the assignment LP
+    meaning: 割当 LP の極点を0--1の完全マッチングとして選べる性質。
+  - term: Birkhoff--von Neumann の定理
+    english: Birkhoff-von Neumann theorem
+    meaning: 二重確率行列全体が置換行列の凸包に一致するという定理。
+  - term: 縮約点弧接続行列
+    english: reduced node-arc incidence matrix
+    meaning: 連結有向グラフの点弧接続行列から任意の一行を削除した行列。
+  - term: ネットワーク行列
+    english: network matrix
+    meaning: 縮約点弧接続行列を全域木列 B と残りの列 N に分けたときの B^{-1}N。
+  - term: フロー多面体
+    english: flow polyhedron
+    meaning: 点弧接続行列による流量保存等式と各弧の上下限制約で定まる多面体。
