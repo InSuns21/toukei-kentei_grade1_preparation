@@ -3,33 +3,49 @@ title: "凸集合・凸関数・凸最適化"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - F0-00G
+  - F0-00F1
   - VC1
 official_scope: []
 learning_objectives:
-  - 凸集合・凸包・凸関数の既存定義を使い、低次元の集合と関数の凸性を定義から判定できる
+  - 凸結合・凸集合・凸包を定義し、低次元の集合の凸性を定義から判定できる
+  - 凸関数・狭義凸関数を定義し、C2 関数の凸性と Hessian 半正定値性の同値を証明できる
   - 凸錐を定義し、凸集合との違いを非負係数の条件から説明できる
   - 準凸関数・準凹関数を定義し、凸性・凹性より弱い概念であることを具体例で示せる
   - 準凸性と全ての下位集合の凸性が同値であることを証明できる
+  - 微分可能凸関数の一次支持不等式を証明し、停留点が大域最小になる理由を説明できる
+  - 凸関数の局所最小が大域最小になることを証明できる
   - 狭義凸関数の最小点が存在すれば一意であることを証明できる
   - 凸不等式制約と affine 等式制約から作る実行可能集合が凸になることを証明できる
   - 凸選好に対応する関数側の性質が凸性ではなく準凹性であることを区別できる
   - 非凸な実行可能集合では局所最小から大域最小への議論が壊れる機構を説明できる
 definitions:
-  - { id: OPT1-DEF-01, name: 錐 }
-  - { id: OPT1-DEF-02, name: 凸錐 }
-  - { id: OPT1-DEF-03, name: 準凸関数・準凹関数 }
+  - { id: OPT1-DEF-01, name: 凸結合 }
+  - { id: OPT1-DEF-02, name: 凸集合 }
+  - { id: OPT1-DEF-03, name: 凸包 }
+  - { id: OPT1-DEF-04, name: 凸関数 }
+  - { id: OPT1-DEF-05, name: 狭義凸関数 }
+  - { id: OPT1-DEF-06, name: 錐 }
+  - { id: OPT1-DEF-07, name: 凸錐 }
+  - { id: OPT1-DEF-08, name: 準凸関数・準凹関数 }
+  - { id: OPT1-DEF-09, name: 凸最適化問題 }
 theorems:
-  - { id: OPT1-THM-01, name: 準凸性の下位集合による特徴付け }
-  - { id: OPT1-THM-02, name: 狭義凸関数の最小点の一意性 }
+  - { id: OPT1-THM-01, name: C2 関数の Hessian による凸性判定 }
+  - { id: OPT1-THM-02, name: 準凸性の下位集合による特徴付け }
+  - { id: OPT1-THM-03, name: 微分可能な凸関数の一次支持不等式 }
+  - { id: OPT1-THM-04, name: 凸関数の局所最小は大域最小 }
+  - { id: OPT1-THM-05, name: 狭義凸関数の最小点の一意性 }
   - { id: OPT1-PROP-01, name: 凸最適化問題の実行可能集合は凸 }
 canonical_examples:
+  - 半空間と円周を凸集合の定義から比較する例
+  - 二次関数で凸性・狭義凸性を直接検算する例
   - 非負直交象限を凸錐として定義から検算する例
   - x^3 が準凸かつ準凹だが凸でも凹でもない例
   - 非凸実行可能集合で局所最小が大域最小にならない例
   - 正定値二次目的と単体型制約からなる凸最適化問題
 problem_patterns:
   - OPT1-CONVEX-SET-1
+  - OPT1-CONVEX-FUNCTION-1
+  - OPT1-HESSIAN-1
   - OPT1-CONVEX-CONE-1
   - OPT1-QUASICONVEX-1
   - OPT1-CONVEX-PROBLEM-1
@@ -38,4 +54,4 @@ problem_patterns:
 past_exam_alignment: []
 integrated_exam_problems: []
 exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
-estimated_hours: { reading: 4.0, exercises: 2.75, review: 0.5 }
+estimated_hours: { reading: 5.0, exercises: 2.75, review: 0.5 }
