@@ -1,0 +1,167 @@
+chapter: OPT8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OPT2
+  - OPT3
+  - OPT7
+
+forward_references: []
+
+concepts:
+  - id: optimization.subgradient-method
+    name: 劣勾配法
+    kind: definition
+    aliases:
+      - subgradient method
+    introduction: formal
+    introduction_aliases: ["定義（劣勾配法）"]
+    requires:
+      - convex.subgradient
+      - convex.fermat-subgradient-condition
+
+  - id: optimization.subgradient-distance-recursion
+    name: 劣勾配法の基本距離評価
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（劣勾配法の基本距離評価）"]
+    requires:
+      - optimization.subgradient-method
+      - convex.subgradient
+
+  - id: optimization.subgradient-best-iterate-rate
+    name: 劣勾配法の最良反復値評価
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（劣勾配法の最良反復値評価）"]
+    requires:
+      - optimization.subgradient-distance-recursion
+
+  - id: optimization.projected-gradient-method
+    name: 射影勾配法
+    kind: definition
+    aliases:
+      - projected gradient method
+    introduction: formal
+    introduction_aliases: ["定義（射影勾配法）"]
+    requires:
+      - optimization.nearest-point-projection
+      - optimization.fixed-step-gradient-method
+
+  - id: optimization.proximal-mapping
+    name: 近接作用素
+    kind: definition
+    aliases:
+      - proximal mapping
+      - proximal operator
+    introduction: formal
+    introduction_aliases: ["定義（近接作用素）"]
+    requires:
+      - convex.closed-convex-function
+
+  - id: optimization.proximal-optimality
+    name: 近接作用素の存在一意性と最適性条件
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（近接作用素の存在一意性と最適性条件）"]
+    requires:
+      - optimization.proximal-mapping
+      - convex.fermat-subgradient-condition
+
+  - id: optimization.proximal-firm-nonexpansiveness
+    name: 近接作用素のfirm nonexpansiveness
+    kind: theorem
+    aliases:
+      - firmly nonexpansive proximal mapping
+    introduction: formal
+    introduction_aliases: ["定理（近接作用素の firm nonexpansiveness）"]
+    requires:
+      - optimization.proximal-optimality
+      - convex.subgradient
+
+  - id: optimization.moreau-envelope
+    name: Moreau 包絡
+    kind: definition
+    aliases:
+      - Moreau envelope
+    introduction: formal
+    introduction_aliases: ["定義（Moreau 包絡）"]
+    requires:
+      - optimization.proximal-mapping
+
+  - id: optimization.moreau-gradient
+    name: Moreau包絡の勾配公式
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（Moreau 包絡の勾配公式）"]
+    requires:
+      - optimization.moreau-envelope
+      - optimization.proximal-firm-nonexpansiveness
+
+  - id: optimization.soft-thresholding
+    name: soft thresholding
+    kind: definition
+    aliases:
+      - ソフト閾値処理
+      - soft-thresholding
+    introduction: formal
+    introduction_aliases: ["定義（soft thresholding）"]
+    requires:
+      - optimization.proximal-mapping
+
+  - id: optimization.l1-proximal-soft-threshold
+    name: l1ノルムの近接作用素とsoft thresholding
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（l1 ノルムの近接作用素）"]
+    requires:
+      - optimization.soft-thresholding
+      - optimization.proximal-optimality
+
+  - id: optimization.proximal-gradient-method
+    name: 近接勾配法
+    kind: definition
+    aliases:
+      - proximal gradient method
+      - forward-backward splitting
+    introduction: formal
+    introduction_aliases: ["定義（近接勾配法）"]
+    requires:
+      - optimization.proximal-mapping
+      - optimization.lipschitz-gradient
+
+  - id: optimization.proximal-gradient-one-step
+    name: 近接勾配法の一段評価
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（近接勾配法の一段評価）"]
+    requires:
+      - optimization.proximal-gradient-method
+      - optimization.descent-lemma
+      - optimization.proximal-optimality
+
+  - id: optimization.proximal-gradient-sublinear-rate
+    name: 近接勾配法のO(1/k)収束
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（近接勾配法の劣線形収束）"]
+    requires:
+      - optimization.proximal-gradient-one-step
+
+  - id: optimization.ista
+    name: ISTA
+    kind: definition
+    aliases:
+      - iterative shrinkage-thresholding algorithm
+    introduction: formal
+    introduction_aliases: ["定義（ISTA）"]
+    requires:
+      - optimization.proximal-gradient-method
+      - optimization.l1-proximal-soft-threshold
