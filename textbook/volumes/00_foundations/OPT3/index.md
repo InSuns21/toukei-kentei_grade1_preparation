@@ -408,21 +408,27 @@ $$
 
 と見ても分かります。
 
-<a id="thm-opt3-direct-method"></a>
+<a id="def-opt3-coercivity"></a>
 <!-- formal-statement-start -->
-> **定理（有限次元の直接法）**  
-> 真な下半連続関数 $f:\mathbb R^n\to(-\infty,+\infty]$ が
+> **定義（強圧性）**  
+> 関数 $f:\mathbb R^n\to(-\infty,+\infty]$ が
 >
-$$
+$
 \|x\|\to\infty
 \quad\Longrightarrow\quad
 f(x)\to+\infty
-$$
+$
 >
-> を満たすとする。このとき $f$ は $\mathbb R^n$ 上で最小値を達成する。
+> を満たすとき、$f$ は **強圧的** である、または **強圧性（coercivity）** を持つという。
 <!-- formal-statement-end -->
 
-この「無限遠で値が上がる」条件を **強圧性（coercivity）** と呼びます。凸性はこの存在定理には不要です。
+<a id="thm-opt3-direct-method"></a>
+<!-- formal-statement-start -->
+> **定理（有限次元の直接法）**  
+> 真な下半連続関数 $f:\mathbb R^n\to(-\infty,+\infty]$ が強圧的であるとする。このとき $f$ は $\mathbb R^n$ 上で最小値を達成する。
+<!-- formal-statement-end -->
+
+凸性はこの存在定理には不要です。下半連続性が極限で値を失わないことを、強圧性が最小化列の無限遠への逃走を防ぐことを担当します。
 
 ### 証明の見取り図
 
@@ -460,12 +466,12 @@ $$
 一方 $m$ は下限なので $m\le f(x^\ast)$。よって $f(x^\ast)=m$ です。$\square$
 <!-- proof-end -->
 
-<!-- definition-example-start: def-opt3-lsc, def-opt3-closed-convex, def-opt3-sublevel -->
+<!-- definition-example-start: def-opt3-lsc, def-opt3-closed-convex, def-opt3-sublevel, def-opt3-coercivity -->
 ### 3.1 定義の確認：$x^2$ と閉真凸性
 
 **定義の確認**
 
-$f(x)=x^2$ は連続なので下半連続です。また真かつ凸ですから閉真凸関数です。
+$f(x)=x^2$ は連続なので下半連続です。また真かつ凸ですから閉真凸関数です。さらに $|x|\to\infty$ なら $x^2\to+\infty$ なので強圧的です。
 
 $\alpha\ge0$ なら
 
