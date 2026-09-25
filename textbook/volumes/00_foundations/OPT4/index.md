@@ -40,9 +40,9 @@ Fenchel--Young
   ↓ 等号条件
 劣勾配
   ↓
-Fenchel双対
+Fenchel 双対
   ↓
-Lagrange双対・KKT
+Lagrange 双対・KKT
 ```
 
 ---
@@ -165,7 +165,7 @@ $$
 
 ---
 
-## 3. 例：絶対値と区間 indicator
+## 3. 例：絶対値と区間の標示関数
 
 $f(x)=|x|$ とします。
 
@@ -228,7 +228,7 @@ $$
 
 です。集合の幾何を表す関数が、共役を通すと自然に現れます。
 
-### 4.1 例：Euclid 単位球
+### 4.1 例：2-ノルムの単位球
 
 $$
 C=\{x:\|x\|_2\le1\}
@@ -599,7 +599,17 @@ y\in\partial f(x)
 f(x)+f^*(y)=\langle x,y\rangle.
 $$
 
-[Fenchel–Moreau](#thm-opt4-fenchel-moreau)により $f^{**}=f$ なので、同じ等式を $f^*$ に対する Fenchel–Young の等号条件として読めば
+[Fenchel–Moreau](#thm-opt4-fenchel-moreau)により $f^{**}=f$ です。また前節の証明では $f$ の大域的アフィン下界 $\ell_0(x)=\langle y_0,x\rangle+c_0$ を構成したので $f^*(y_0)\le-c_0<+\infty$。一方、真性から $x_0\in\operatorname{dom}f$ を一つ取れば任意の $y$ に対して
+
+$
+f^*(y)
+\ge
+\langle y,x_0\rangle-f(x_0)
+>
+-\infty.
+$
+
+従って $f^*$ は真関数であり、[共役関数の凸性・下半連続性](#thm-opt4-conjugate-closed-convex)と合わせて真凸関数です。よって同じ等式を $f^*$ に対する Fenchel–Young の等号条件として読めば
 
 $$
 f^*(y)+f^{**}(x)
@@ -1008,7 +1018,7 @@ $$
 - Level: A
 - 目安時間: 12分
 
-$f(x)=x^2/2$ について Fenchel--Young の不等式の gap を計算し、等号条件を $y\in\partial f(x)$ と照合せよ。
+$f(x)=x^2/2$ について Fenchel--Young の不等式のギャップを計算し、等号条件を $y\in\partial f(x)$ と照合せよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -1093,7 +1103,7 @@ $$
 - Level: B
 - 目安時間: 20分
 
-主問題
+$f:\mathbb R^n\to(-\infty,+\infty]$、$g:\mathbb R^m\to(-\infty,+\infty]$ を真関数、$A\in\mathbb R^{m\times n}$ とする。主問題
 
 $$
 \inf_x\{f(x)+g(Ax)\}
