@@ -420,7 +420,7 @@ s\in T_D(F(x^*))
 \right\}
 $$
 
-と置くと、接錐が凸錐であるため $p$ は正斉次かつ劣加法的です。しかも仮定により全ての $z$ で有限です。有限次元で有限値の劣線形関数は原点近傍で有界、従ってある $M>0$ が存在して
+と置くと、接錐が凸錐であるため $p$ は正斉次かつ劣加法的です。しかも仮定により全ての $z$ で有限です。[有限値凸関数の局所 Lipschitz 連続性](../OPT3/index.md#lem-opt3-finite-convex-lipschitz)をこの有限値劣線形関数 $p$ に適用すると、$p$ は原点近傍で有界です。正斉次性と合わせて、ある $M>0$ が存在して
 
 $$
 p(z)\le M\|z\|
@@ -757,7 +757,7 @@ $$
 
 従って $\mu=0$、$\nu=0$ です。
 
-ここで
+もし $T^\circ=\{0\}$ かつ $r=0$ なら $M=\{0\}$ で閉性は自明です。以下ではそれ以外の場合を考えます。
 
 $$
 S
@@ -769,7 +769,7 @@ S
 \right\}
 $$
 
-を考えます。$T^\circ$ は閉錐なので $S$ はコンパクトです。今示した異常乗数排除により
+と置くと $S$ は空でないコンパクト集合です。今示した異常乗数排除により
 
 $$
 A^*\mu+B^*\nu\ne0
@@ -852,7 +852,7 @@ B=DH(x^*),
 T=T_{-K}(G(x^*))
 $$
 
-とします。$-K$ は閉凸集合なので、[法錐と接錐の極双対](../OPT3/index.md#thm-opt3-normal-tangent-polar)から
+とします。$-K$ は閉凸集合なので、[凸集合の接錐表示](../OPT3/index.md#thm-opt3-tangent-conic-hull)から $T$ は閉凸錐です。従って上の極錐表示定理を適用できます。また[法錐と接錐の極双対](../OPT3/index.md#thm-opt3-normal-tangent-polar)から
 
 $$
 T^\circ
@@ -1151,19 +1151,19 @@ $$
 
 対称 $2\times2$ 行列全体の空間を $\mathbb S^2$ とし、Frobenius 内積
 
-$
+$$
 \langle A,B\rangle
 =
 \operatorname{tr}(AB)
-$
+$$
 
 を入れます。半正定値錐を
 
-$
+$$
 \mathbb S_+^2
 =
 \{S\in\mathbb S^2:v^{\mathsf T}Sv\ge0\ (\forall v\in\mathbb R^2)\}
-$
+$$
 
 とします。
 
@@ -1172,13 +1172,13 @@ $
 > **定理（$2\times2$ 半正定値錐の自己双対性）**  
 > Frobenius 内積に関して
 >
-$
+$$
 \boxed{
 (\mathbb S_+^2)^*
 =
 \mathbb S_+^2
 }.
-$
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1190,7 +1190,7 @@ $
 
 まず $\Lambda\in(\mathbb S_+^2)^*$ とします。任意の $v\in\mathbb R^2$ に対して $vv^{\mathsf T}\succeq0$ なので
 
-$
+$$
 0
 \le
 \langle\Lambda,vv^{\mathsf T}\rangle
@@ -1198,30 +1198,30 @@ $
 \operatorname{tr}(\Lambda vv^{\mathsf T})
 =
 v^{\mathsf T}\Lambda v.
-$
+$$
 
 従って $\Lambda\succeq0$ です。よって
 
-$
+$$
 (\mathbb S_+^2)^*
 \subseteq
 \mathbb S_+^2.
-$
+$$
 
 逆に $\Lambda\succeq0$ とし、任意の
 
-$
+$$
 S=
 \begin{pmatrix}
 p&q\\
 q&r
 \end{pmatrix}
 \succeq0
-$
+$$
 
 を取ります。$p>0$ のとき
 
-$
+$$
 u=
 \begin{pmatrix}
 \sqrt p\\
@@ -1233,17 +1233,52 @@ w=
 0\\
 \sqrt{r-q^2/p}
 \end{pmatrix}
-$
+$$
 
-と置けます。$S\succeq0$ から $pr-q^2\ge0$ なので平方根は実数であり、直接計算すると
+と置きます。$S\succeq0$ なので $p=e_1^{\mathsf T}Se_1\ge0$、$r=e_2^{\mathsf T}Se_2\ge0$ です。さらに $p>0$ の場合、ベクトル
 
-$
+$$
+z=
+\begin{pmatrix}
+-q/p\\
+1
+\end{pmatrix}
+$$
+
+を代入すると
+
+$$
+0
+\le
+z^{\mathsf T}Sz
+=
+r-\frac{q^2}{p}.
+$$
+
+従って $r-q^2/p\ge0$ で平方根は実数です。直接計算すると
+
+$$
 S=uu^{\mathsf T}+ww^{\mathsf T}.
-$
+$$
 
-$p=0$ の場合、$S\succeq0$ なら $q=0$ であり、
+$p=0$ の場合、任意の $t\in\mathbb R$ に対して
 
-$
+$$
+\begin{pmatrix}
+1&t
+\end{pmatrix}
+S
+\begin{pmatrix}
+1\\t
+\end{pmatrix}
+=
+2qt+rt^2
+\ge0.
+$$
+
+$q\ne0$ なら $t$ を0に十分近く $q$ と逆符号に取ると左辺が負になるため、$q=0$ です。従って
+
+$$
 S=
 \begin{pmatrix}
 0\\
@@ -1252,19 +1287,19 @@ S=
 \begin{pmatrix}
 0&\sqrt r
 \end{pmatrix}
-$
+$$
 
 と rank-one に書けます。
 
 したがっていずれの場合も
 
-$
+$$
 S=\sum_{j=1}^N v_jv_j^{\mathsf T}
-$
+$$
 
 と表せます。ゆえに
 
-$
+$$
 \begin{aligned}
 \langle\Lambda,S\rangle
 &=
@@ -1275,7 +1310,7 @@ $
 v_j^{\mathsf T}\Lambda v_j
 \ge0.
 \end{aligned}
-$
+$$
 
 従って $\Lambda\in(\mathbb S_+^2)^*$ です。逆包含も示され、自己双対性を得ます。$\square$
 <!-- proof-end -->
