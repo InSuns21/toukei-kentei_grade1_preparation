@@ -29,6 +29,7 @@ concepts:
     introduction_aliases: ["定理（降下補題）"]
     requires:
       - optimization.lipschitz-gradient
+      - analysis.ftc-2
 
   - id: optimization.fixed-step-gradient-method
     name: 固定歩幅最急降下法
@@ -149,3 +150,4 @@ concepts:
     introduction_aliases: ["定理（最適化 Newton 法の局所二次収束）"]
     requires:
       - optimization.newton-unconstrained
+      - analysis.ftc-2
