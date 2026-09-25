@@ -1,0 +1,54 @@
+id: "OPT2"
+title: "射影・支持超平面・分離・Farkas"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OPT1
+  - F0-00C1
+  - F0-00E1
+official_scope: []
+learning_objectives:
+  - 閉凸集合への最近点射影の存在と一意性を、それぞれ閉性・有限次元コンパクト性・凸性の役割を明示して証明できる
+  - 射影の変分不等式を距離平方の片側微分から導出できる
+  - 点と閉凸集合の厳密分離を射影から構成できる
+  - 支持超平面を定義し、境界外からの射影列を使って有限次元の支持超平面定理を証明できる
+  - 有限次元の極錐を定義し、非負直交錐などの例で計算できる
+  - 閉凸錐の分離で錐のスカラー倍閉性が果たす役割を説明できる
+  - 有限生成凸錐が閉であることを、線形独立な生成元への縮約から証明できる
+  - Farkas の補題を有限生成凸錐の分離から導き、実行不能性証明書として解釈できる
+  - 閉性を失うと厳密分離の証明機構が壊れる例を説明できる
+definitions:
+  - { id: OPT2-DEF-01, name: 超平面 }
+  - { id: OPT2-DEF-02, name: 点と集合を厳密に分離する超平面 }
+  - { id: OPT2-DEF-03, name: 最近点射影 }
+  - { id: OPT2-DEF-04, name: 支持超平面 }
+  - { id: OPT2-DEF-05, name: 有限次元の極錐 }
+  - { id: OPT2-DEF-06, name: 有限生成凸錐 }
+theorems:
+  - { id: OPT2-THM-01, name: 有限次元の閉凸集合への射影定理 }
+  - { id: OPT2-THM-02, name: 射影の変分不等式 }
+  - { id: OPT2-THM-03, name: 点と閉凸集合の厳密分離 }
+  - { id: OPT2-THM-04, name: 有限次元の支持超平面定理 }
+  - { id: OPT2-THM-05, name: 閉凸錐の分離 }
+  - { id: OPT2-THM-06, name: 有限生成凸錐の閉性 }
+  - { id: OPT2-THM-07, name: Farkas の補題 }
+canonical_examples:
+  - 単位円板と外点から射影法線を作る例
+  - 半空間への最近点射影を直接計算する例
+  - 単位円板の境界で支持超平面を検算する例
+  - 非負直交錐の極錐を計算する例
+  - 有限生成凸錐として非負直交錐を作る例
+  - Farkas の実行不能性証明書を数値で確認する例
+  - 開半空間で厳密分離の正の余裕が失われる反例
+problem_patterns:
+  - OPT2-PROJECTION-1
+  - OPT2-SEPARATION-1
+  - OPT2-SUPPORT-1
+  - OPT2-POLAR-CONE-1
+  - OPT2-FINITELY-GENERATED-CONE-1
+  - OPT2-FARKAS-1
+  - OPT2-INTEGRATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 3.0, review: 0.75 }
