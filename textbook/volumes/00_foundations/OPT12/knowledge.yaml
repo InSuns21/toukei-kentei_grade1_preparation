@@ -21,8 +21,7 @@ concepts:
       - QP
     introduction: formal
     introduction_aliases: ["定義（二次計画問題・凸二次計画問題）"]
-    requires:
-      - linear.positive-semidefinite-matrix
+    requires: []
 
   - id: optimization.convex-quadratic-program
     name: 凸二次計画問題
@@ -51,7 +50,7 @@ concepts:
 
   - id: optimization.pd-quadratic-unique-minimizer
     name: 正定値二次目的関数の最小点の一意性
-    kind: corollary
+    kind: theorem
     aliases: []
     introduction: formal
     introduction_aliases: ["系（正定値二次目的関数の最小点の一意性）"]
