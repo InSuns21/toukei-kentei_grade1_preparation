@@ -88,19 +88,19 @@ $$
 > **定義（劣勾配法）**  
 > 凸関数 $F:\mathbb R^n\to\mathbb R$、初期点 $x_0$、正の歩幅列 $(\alpha_k)$ を考える。各 $k$ で
 >
-> $$
-> s_k\in\partial F(x_k)
-> $$
+$$
+s_k\in\partial F(x_k)
+$$
 >
 > を一つ選び、
 >
-> $$
-> \boxed{
-> x_{k+1}
-> =
-> x_k-\alpha_k s_k
-> }
-> $$
+$$
+\boxed{
+x_{k+1}
+=
+x_k-\alpha_k s_k
+}
+$$
 >
 > と更新する方法を **劣勾配法**という。
 <!-- formal-statement-end -->
@@ -141,23 +141,23 @@ $$
 > **定理（劣勾配法の基本距離評価）**  
 > $F:\mathbb R^n\to\mathbb R$ を凸関数とし、最小点 $x^*$ が存在するとする。劣勾配法
 >
-> $$
-> x_{k+1}=x_k-\alpha_k s_k,
-> \qquad
-> s_k\in\partial F(x_k),
-> $$
+$$
+x_{k+1}=x_k-\alpha_k s_k,
+\qquad
+s_k\in\partial F(x_k),
+$$
 >
 > に対して
 >
-> $$
-> \boxed{
-> \|x_{k+1}-x^*\|^2
-> \le
-> \|x_k-x^*\|^2
-> -2\alpha_k\bigl(F(x_k)-F(x^*)\bigr)
-> +\alpha_k^2\|s_k\|^2
-> }
-> $$
+$$
+\boxed{
+\|x_{k+1}-x^*\|^2
+\le
+\|x_k-x^*\|^2
+-2\alpha_k\bigl(F(x_k)-F(x^*)\bigr)
++\alpha_k^2\|s_k\|^2
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -247,28 +247,28 @@ $$
 > **定理（劣勾配法の最良反復値評価）**  
 > $F$ を凸関数、$x^*$ を最小点とする。$k=0,\ldots,K-1$ で
 >
-> $$
-> \|s_k\|\le G,
-> \qquad
-> \|x_0-x^*\|\le R
-> $$
+$$
+\|s_k\|\le G,
+\qquad
+\|x_0-x^*\|\le R
+$$
 >
 > がある定数 $G>0$, $R>0$ について成り立つとする。一定歩幅
 >
-> $$
-> \alpha=\frac{R}{G\sqrt K}
-> $$
+$$
+\alpha=\frac{R}{G\sqrt K}
+$$
 >
 > を $K$ 回用いると
 >
-> $$
-> \boxed{
-> \min_{0\le k<K}
-> \bigl(F(x_k)-F(x^*)\bigr)
-> \le
-> \frac{RG}{\sqrt K}.
-> }
-> $$
+$$
+\boxed{
+\min_{0\le k<K}
+\bigl(F(x_k)-F(x^*)\bigr)
+\le
+\frac{RG}{\sqrt K}.
+}
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -374,13 +374,13 @@ $$
 > **定義（射影勾配法）**  
 > 非空閉凸集合 $C\subset\mathbb R^n$、微分可能な関数 $f$、歩幅 $\alpha>0$ に対し
 >
-> $$
-> \boxed{
-> x_{k+1}
-> =
-> P_C\bigl(x_k-\alpha\nabla f(x_k)\bigr)
-> }
-> $$
+$$
+\boxed{
+x_{k+1}
+=
+P_C\bigl(x_k-\alpha\nabla f(x_k)\bigr)
+}
+$$
 >
 > と更新する方法を **射影勾配法**という。
 <!-- formal-statement-end -->
@@ -468,18 +468,18 @@ $$
 > **定義（近接作用素）**  
 > $g:\mathbb R^n\to(-\infty,+\infty]$ を閉真凸関数、$\lambda>0$ とする。各 $v\in\mathbb R^n$ に対して
 >
-> $$
-> \boxed{
-> \operatorname{prox}_{\lambda g}(v)
-> =
-> \operatorname*{arg\,min}_{x\in\mathbb R^n}
-> \left\{
-> g(x)
-> +
-> \frac{1}{2\lambda}\|x-v\|^2
-> \right\}
-> }
-> $$
+$$
+\boxed{
+\operatorname{prox}_{\lambda g}(v)
+=
+\operatorname*{arg\,min}_{x\in\mathbb R^n}
+\left\{
+g(x)
++
+\frac{1}{2\lambda}\|x-v\|^2
+\right\}
+}
+$$
 >
 > を $g$ の **近接作用素**という。
 <!-- formal-statement-end -->
@@ -525,21 +525,21 @@ $$
 > **定理（近接作用素の存在一意性と最適性条件）**  
 > $g:\mathbb R^n\to(-\infty,+\infty]$ を閉真凸関数、$\lambda>0$、$v\in\mathbb R^n$ とする。このとき
 >
-> $$
-> \operatorname{prox}_{\lambda g}(v)
-> $$
+$$
+\operatorname{prox}_{\lambda g}(v)
+$$
 >
 > はただ一つ存在する。さらに $p\in\mathbb R^n$ について
 >
-> $$
-> \boxed{
-> p=\operatorname{prox}_{\lambda g}(v)
-> \iff
-> \frac{v-p}{\lambda}
-> \in
-> \partial g(p)
-> }
-> $$
+$$
+\boxed{
+p=\operatorname{prox}_{\lambda g}(v)
+\iff
+\frac{v-p}{\lambda}
+\in
+\partial g(p)
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -754,29 +754,29 @@ $$
 > **定理（近接作用素の堅非拡大性）**  
 > $g$ を閉真凸関数、$\lambda>0$ とする。任意の $u,v\in\mathbb R^n$ に対し
 >
-> $$
-> p=\operatorname{prox}_{\lambda g}(u),
-> \qquad
-> q=\operatorname{prox}_{\lambda g}(v)
-> $$
+$$
+p=\operatorname{prox}_{\lambda g}(u),
+\qquad
+q=\operatorname{prox}_{\lambda g}(v)
+$$
 >
 > と置くと
 >
-> $$
-> \boxed{
-> \|p-q\|^2
-> \le
-> \langle p-q,u-v\rangle
-> }
-> $$
+$$
+\boxed{
+\|p-q\|^2
+\le
+\langle p-q,u-v\rangle
+}
+$$
 >
 > が成り立つ。従って特に
 >
-> $$
-> \|p-q\|
-> \le
-> \|u-v\|
-> $$
+$$
+\|p-q\|
+\le
+\|u-v\|
+$$
 >
 > であり、近接作用素は 1-Lipschitz 連続である。
 <!-- formal-statement-end -->
@@ -867,18 +867,18 @@ $\square$
 > **定義（Moreau 包絡）**  
 > $g:\mathbb R^n\to(-\infty,+\infty]$ を閉真凸関数、$\lambda>0$ とする。
 >
-> $$
-> \boxed{
-> e_\lambda g(v)
-> =
-> \min_x
-> \left\{
-> g(x)
-> +
-> \frac{1}{2\lambda}\|x-v\|^2
-> \right\}
-> }
-> $$
+$$
+\boxed{
+e_\lambda g(v)
+=
+\min_x
+\left\{
+g(x)
++
+\frac{1}{2\lambda}\|x-v\|^2
+\right\}
+}
+$$
 >
 > を $g$ の **Moreau 包絡**という。
 <!-- formal-statement-end -->
@@ -923,16 +923,16 @@ $$
 > **定理（Moreau 包絡の勾配公式）**  
 > $g$ を閉真凸関数、$\lambda>0$ とする。このとき $e_\lambda g$ は全空間で微分可能で、
 >
-> $$
-> \boxed{
-> \nabla e_\lambda g(v)
-> =
-> \frac1\lambda
-> \left(
-> v-\operatorname{prox}_{\lambda g}(v)
-> \right).
-> }
-> $$
+$$
+\boxed{
+\nabla e_\lambda g(v)
+=
+\frac1\lambda
+\left(
+v-\operatorname{prox}_{\lambda g}(v)
+\right).
+}
+$$
 >
 > さらにこの勾配は $1/\lambda$-Lipschitz 連続である。
 <!-- formal-statement-end -->
@@ -1095,9 +1095,9 @@ $\square$
 
 > **何が滑らかになったか**  
 > 元の $g$ は微分不能でも、Moreau 包絡は微分可能です。ただし $g$ 自体を別の問題へ置き換えたわけではありません。近接点
-> $$
-> \operatorname{prox}_{\lambda g}(v)
-> $$
+$$
+\operatorname{prox}_{\lambda g}(v)
+$$
 > が、平滑化された関数の勾配を完全に決めています。
 
 ---
@@ -1109,13 +1109,13 @@ $\square$
 > **定義（ソフト閾値処理）**  
 > $\tau\ge0$ に対して、スカラー写像
 >
-> $$
-> \boxed{
-> S_\tau(t)
-> =
-> \operatorname{sign}(t)\max\{|t|-\tau,0\}
-> }
-> $$
+$$
+\boxed{
+S_\tau(t)
+=
+\operatorname{sign}(t)\max\{|t|-\tau,0\}
+}
+$$
 >
 > を **ソフト閾値処理（soft thresholding）**という。ベクトルに対しては各成分へ独立に適用する。
 <!-- formal-statement-end -->
@@ -1141,13 +1141,13 @@ $$
 > **定理（ℓ¹ノルムの近接作用素とソフト閾値処理）**  
 > $g(x)=\tau\|x\|_1$、$\tau\ge0$ とする。このとき任意の $\lambda>0$ に対し
 >
-> $$
-> \boxed{
-> \operatorname{prox}_{\lambda g}(v)
-> =
-> S_{\lambda\tau}(v)
-> }
-> $$
+$$
+\boxed{
+\operatorname{prox}_{\lambda g}(v)
+=
+S_{\lambda\tau}(v)
+}
+$$
 >
 > が成り立つ。右辺は成分ごとのソフト閾値処理である。
 <!-- formal-statement-end -->
@@ -1276,16 +1276,16 @@ $f$ は滑らかなので OPT7 の勾配ステップが使えます。$g$ は非
 > **定義（近接勾配法）**  
 > $f:\mathbb R^n\to\mathbb R$ を凸で微分可能、$g:\mathbb R^n\to(-\infty,+\infty]$ を閉真凸、$\alpha>0$ とする。
 >
-> $$
-> \boxed{
-> x_{k+1}
-> =
-> \operatorname{prox}_{\alpha g}
-> \left(
-> x_k-\alpha\nabla f(x_k)
-> \right)
-> }
-> $$
+$$
+\boxed{
+x_{k+1}
+=
+\operatorname{prox}_{\alpha g}
+\left(
+x_k-\alpha\nabla f(x_k)
+\right)
+}
+$$
 >
 > と更新する方法を **近接勾配法**という。
 <!-- formal-statement-end -->
@@ -1363,33 +1363,33 @@ $$
 > **定理（近接勾配法の一段評価）**  
 > $f$ を凸かつ $L$-滑らか、$g$ を閉真凸とし
 >
-> $$
-> F=f+g
-> $$
+$$
+F=f+g
+$$
 >
 > とする。任意の $x$ に対し
 >
-> $$
-> x^+
-> =
-> \operatorname{prox}_{g/L}
-> \left(
-> x-\frac1L\nabla f(x)
-> \right)
-> $$
+$$
+x^+
+=
+\operatorname{prox}_{g/L}
+\left(
+x-\frac1L\nabla f(x)
+\right)
+$$
 >
 > と置く。このとき任意の $z\in\operatorname{dom}g$ に対して
 >
-> $$
-> \boxed{
-> F(x^+)-F(z)
-> \le
-> \frac L2
-> \left(
-> \|x-z\|^2-\|x^+-z\|^2
-> \right)
-> }
-> $$
+$$
+\boxed{
+F(x^+)-F(z)
+\le
+\frac L2
+\left(
+\|x-z\|^2-\|x^+-z\|^2
+\right)
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -1540,24 +1540,24 @@ $$
 > **定理（近接勾配法の劣線形収束）**  
 > $f$ を凸かつ $L$-滑らか、$g$ を閉真凸とし、$F=f+g$ が最小点 $x^*$ を持つとする。反復
 >
-> $$
-> x_{k+1}
-> =
-> \operatorname{prox}_{g/L}
-> \left(
-> x_k-\frac1L\nabla f(x_k)
-> \right)
-> $$
+$$
+x_{k+1}
+=
+\operatorname{prox}_{g/L}
+\left(
+x_k-\frac1L\nabla f(x_k)
+\right)
+$$
 >
 > に対し、任意の $k\ge1$ で
 >
-> $$
-> \boxed{
-> F(x_k)-F(x^*)
-> \le
-> \frac{L\|x_0-x^*\|^2}{2k}.
-> }
-> $$
+$$
+\boxed{
+F(x_k)-F(x^*)
+\le
+\frac{L\|x_0-x^*\|^2}{2k}.
+}
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1676,24 +1676,24 @@ $$
 > **定義（ISTA）**  
 > 正則化付き最小二乗
 >
-> $$
-> F(x)
-> =
-> \frac12\|Ax-b\|^2+\tau\|x\|_1
-> $$
+$$
+F(x)
+=
+\frac12\|Ax-b\|^2+\tau\|x\|_1
+$$
 >
 > に対し、$0<\alpha\le1/\|A\|_2^2$ を取り
 >
-> $$
-> \boxed{
-> x_{k+1}
-> =
-> S_{\alpha\tau}
-> \left(
-> x_k-\alpha A^{\mathsf T}(Ax_k-b)
-> \right)
-> }
-> $$
+$$
+\boxed{
+x_{k+1}
+=
+S_{\alpha\tau}
+\left(
+x_k-\alpha A^{\mathsf T}(Ax_k-b)
+\right)
+}
+$$
 >
 > と更新する方法を **ISTA（iterative shrinkage-thresholding algorithm）**という。
 <!-- formal-statement-end -->
