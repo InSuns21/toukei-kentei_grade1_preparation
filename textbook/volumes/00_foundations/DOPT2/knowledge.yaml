@@ -38,6 +38,26 @@ concepts:
     requires:
       - optimization.st-flow
 
+  - id: optimization.maximum-flow-problem
+    name: 最大フロー問題
+    kind: definition
+    aliases:
+      - maximum flow problem
+    introduction: formal
+    introduction_aliases: ["定義（s--t フローとフロー値）"]
+    requires:
+      - optimization.flow-value
+
+  - id: optimization.maximum-flow
+    name: 最大フロー
+    kind: definition
+    aliases:
+      - maximum flow
+    introduction: formal
+    introduction_aliases: ["定義（s--t フローとフロー値）"]
+    requires:
+      - optimization.maximum-flow-problem
+
   - id: optimization.st-cut
     name: s--t カット
     kind: definition
@@ -112,13 +132,13 @@ concepts:
       - optimization.augmenting-path-update-feasibility
 
   - id: optimization.integral-max-flow-theorem
-    name: 整数容量に対する整数最大流
+    name: 整数容量に対する整数最大フロー
     kind: theorem
     aliases:
       - integral max-flow theorem
       - integrality theorem for maximum flow
     introduction: formal
-    introduction_aliases: ["定理（整数容量なら整数最大流を選べる）"]
+    introduction_aliases: ["定理（整数容量なら整数最大フローを選べる）"]
     requires:
       - optimization.max-flow-min-cut-theorem
 
