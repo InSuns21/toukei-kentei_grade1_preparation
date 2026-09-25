@@ -90,6 +90,7 @@ concepts:
       - convex.relative-interior
       - convex.finite-convex-local-lipschitz
       - convex.closed-cone-separation
+      - convex.subgradient
   - id: optimization.kkt-conditions
     name: KKT条件
     kind: theorem
