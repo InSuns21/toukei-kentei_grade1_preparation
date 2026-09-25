@@ -36,6 +36,16 @@ concepts:
     requires:
       - optimization.matching
 
+  - id: optimization.perfect-matching
+    name: 完全マッチング
+    kind: definition
+    aliases:
+      - perfect matching
+    introduction: formal
+    introduction_aliases: ["定義（完全マッチング）"]
+    requires:
+      - optimization.matching
+
   - id: optimization.alternating-path
     name: 交互路
     kind: definition
