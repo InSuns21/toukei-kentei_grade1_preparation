@@ -1,0 +1,26 @@
+chapter: "DOPT1"
+terms:
+  - term: 整数線形計画
+    english: integer linear programming
+    meaning: 線形目的関数と線形制約に加え、一部または全部の変数へ整数条件を課す最適化問題。0--1変数だけを使う問題もその特別な場合である。
+  - term: LP緩和
+    english: LP relaxation
+    meaning: 整数線形計画から整数条件だけを外して得る線形計画。最小化問題では整数最適値の下界を与える。
+  - term: 整数包
+    english: integer hull
+    meaning: 整数実行可能点全体の凸包。線形目的関数については整数実行可能集合と同じ最適値を持つため、理想的な連続緩和を表す。
+  - term: 整数性ギャップ
+    english: integrality gap
+    meaning: 整数最適値とLP緩和最適値の隔たり。加法差や、正の最小化問題では比率で測る。
+  - term: 分枝
+    english: branching
+    meaning: 分数値を取る整数変数x_jについて、x_j<=floor(alpha)とx_j>=ceil(alpha)の子問題へ分け、整数実行可能解を失わず探索領域を分割する操作。
+  - term: 分枝限定法
+    english: branch-and-bound
+    meaning: 各節点のLP緩和値を下界として使い、実行不能または暫定最良解を改善できない節点を刈りながら整数最適解を探索する方法。
+  - term: 妥当不等式
+    english: valid inequality
+    meaning: すべての整数実行可能解が満たす線形不等式。LP緩和へ追加しても整数実行可能解を失わない。
+  - term: 切除平面
+    english: cutting plane
+    meaning: 整数実行可能集合には妥当だが現在のLP分数解には違反される不等式。分数解を除き、LP緩和を強くする。
