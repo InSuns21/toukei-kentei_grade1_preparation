@@ -16,7 +16,7 @@ concepts:
       - Lipschitz gradient
       - L-滑らかな関数
     introduction: formal
-    introduction_aliases: ["定義（Lipschitz 連続勾配・L-滑らかさ）"]
+    introduction_aliases: ["定義（Lipschitz 連続勾配）"]
     requires:
       - optimization.unconstrained-minimization
 
@@ -51,11 +51,11 @@ concepts:
       - optimization.fixed-step-gradient-method
 
   - id: optimization.gradient-convex-sublinear-rate
-    name: 滑らかな凸関数に対する最急降下法のO(1/k)収束
+    name: 滑らかな凸関数に対する最急降下法の劣線形収束
     kind: theorem
     aliases: []
     introduction: formal
-    introduction_aliases: ["定理（滑らかな凸関数に対する O(1/k) 収束）"]
+    introduction_aliases: ["定理（滑らかな凸関数に対する最急降下法の劣線形収束）"]
     requires:
       - optimization.fixed-step-gradient-decrease
       - convex.first-order-support-inequality
@@ -120,21 +120,21 @@ concepts:
       - optimization.descent-direction
 
   - id: optimization.armijo-finite-acceptance
-    name: L-滑らかさによる後退直線探索の有限停止
+    name: 滑らかさによる後退直線探索の有限停止
     kind: theorem
     aliases: []
     introduction: formal
-    introduction_aliases: ["定理（L-滑らかさによる後退直線探索の有限停止）"]
+    introduction_aliases: ["定理（滑らかさによる後退直線探索の有限停止）"]
     requires:
       - optimization.armijo-backtracking
       - optimization.descent-lemma
 
   - id: optimization.newton-local-quadratic-convergence
-    name: Newton 法の局所二次収束
+    name: 最適化 Newton 法の局所二次収束
     kind: theorem
     aliases:
-      - local quadratic convergence of Newton method
+      - local quadratic convergence of Newton optimization
     introduction: formal
-    introduction_aliases: ["定理（Newton 法の局所二次収束）"]
+    introduction_aliases: ["定理（最適化 Newton 法の局所二次収束）"]
     requires:
       - optimization.newton-unconstrained
