@@ -99,7 +99,7 @@ $$
 <a id="def-opt1-convex-hull"></a>
 <!-- formal-statement-start -->
 > **定義（凸包）**  
-> 集合 $S$ を含む凸集合のうち包含関係で最小のものを $S$ の **凸包** といい、$\operatorname{conv}(S)$ と書く。
+> 集合 $S\subset\mathbb R^n$ を含む凸集合のうち包含関係で最小のものを $S$ の **凸包** といい、$\operatorname{conv}(S)$ と書く。
 <!-- formal-statement-end -->
 
 <a id="prop-opt1-finite-convex-hull"></a>
@@ -160,7 +160,24 @@ $$
 \operatorname{conv}(S)\subseteq D.
 $$
 
-逆に、$C$ を $S$ を含む任意の凸集合とします。凸集合は二点の凸結合に閉じているので、帰納法により有限個の点の凸結合にも閉じています。従って $D\subseteq C$。これは $S$ を含むすべての凸集合で成り立つため
+逆に、$C$ を $S$ を含む任意の凸集合とします。$C$ が有限凸結合に閉じていることを、項数について帰納法で確認します。1項ならその点は $C$ に属します。$m$ 項の場合、$\theta_m=1$ なら凸結合は $x_m\in C$ です。$\theta_m<1$ なら
+
+$$
+y=
+\sum_{i=1}^{m-1}
+\frac{\theta_i}{1-\theta_m}x_i
+$$
+
+と置きます。係数は非負で総和1なので、帰納法の仮定から $y\in C$ です。従って
+
+$$
+\sum_{i=1}^m\theta_i x_i
+=
+(1-\theta_m)y+\theta_m x_m
+\in C.
+$$
+
+よって $D\subseteq C$。これは $S$ を含むすべての凸集合で成り立つため
 
 $$
 D\subseteq\operatorname{conv}(S).
@@ -463,7 +480,27 @@ $$
 f'(x)=4x^3
 $$
 
-は $\mathbb R$ 上で狭義単調増加です。従って任意の $x<y$ で割線の傾きが右へ行くほど厳密に増え、$f$ は狭義凸です。一方で
+は $\mathbb R$ 上で狭義単調増加です。$x<z<y$ とし、平均値の定理を $[x,z]$ と $[z,y]$ に適用すると、ある $\xi\in(x,z)$、$\eta\in(z,y)$ が存在して
+
+$$
+\frac{f(z)-f(x)}{z-x}
+=
+f'(\xi)
+<
+f'(\eta)
+=
+\frac{f(y)-f(z)}{y-z}.
+$$
+
+ここで $z=(1-t)x+ty$ と置いて整理すると
+
+$$
+f((1-t)x+ty)
+<
+(1-t)f(x)+tf(y)
+$$
+
+となるので、$f$ は狭義凸です。一方で
 
 $$
 f''(0)=0.
@@ -1168,22 +1205,20 @@ $$
 
 なので $C_1$ は凸です。
 
-$C_2$ は単位円板です。関数
+$C_2$ は単位円板です。$p,q\in C_2$ とすると $\|p\|^2\le1$、$\|q\|^2\le1$ です。内積を展開すると
 
 $$
-h(x,y)=x^2+y^2
+\begin{aligned}
+\|(1-t)p+tq\|^2
+&=(1-t)\|p\|^2+t\|q\|^2
+-t(1-t)\|p-q\|^2\\
+&\le
+(1-t)\|p\|^2+t\|q\|^2\\
+&\le1.
+\end{aligned}
 $$
 
-の Hessian は $2I\succeq0$ なので $h$ は凸です。したがって $p,q\in C_2$ なら
-
-$$
-h((1-t)p+tq)
-\le
-(1-t)h(p)+th(q)
-\le1.
-$$
-
-よって $(1-t)p+tq\in C_2$ であり、$C_2$ は凸です。
+従って $(1-t)p+tq\in C_2$ であり、定義から $C_2$ は凸です。
 
 $C_3$ は円周です。
 
@@ -1375,17 +1410,24 @@ $$
 ## 13. 演習 Level B
 
 <a id="ex-opt1-b01"></a>
-### OPT1-B01 凸集合族の共通部分
+### OPT1-B01 凸集合族の共通部分と三角形の凸包
 
 - Level: B
 
-任意個の凸集合族 $\{C_\lambda\}_{\lambda\in\Lambda}$ に対し
+次の二問に答えよ。
 
-$$
-C=\bigcap_{\lambda\in\Lambda}C_\lambda
-$$
-
-が凸集合であることを証明せよ。
+1. 任意個の凸集合族 $\{C_\lambda\}_{\lambda\in\Lambda}$ に対し
+   $$
+   C=\bigcap_{\lambda\in\Lambda}C_\lambda
+   $$
+   が凸集合であることを証明せよ。
+2. $S=\{(0,0),(1,0),(0,1)\}$ とする。有限集合の凸包の命題を用いて
+   $$
+   \operatorname{conv}(S)
+   =
+   \{(u,v):u\ge0,\ v\ge0,\ u+v\le1\}
+   $$
+   を示せ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -1416,7 +1458,57 @@ $$
 
 よって $C$ は凸です。
 
-この結果により、多数の凸不等式制約を同時に課しても実行可能集合の凸性が保たれることが分かります。
+次に $S=\{(0,0),(1,0),(0,1)\}$ を考えます。有限集合の凸包の命題から、$(u,v)\in\operatorname{conv}(S)$ であることは、ある $\theta_0,\theta_1,\theta_2\ge0$ が存在して
+
+$$
+\theta_0+\theta_1+\theta_2=1,
+$$
+
+$$
+(u,v)
+=
+\theta_0(0,0)+\theta_1(1,0)+\theta_2(0,1)
+=
+(\theta_1,\theta_2)
+$$
+
+と書けることと同値です。従って
+
+$$
+u=\theta_1\ge0,\qquad
+v=\theta_2\ge0,
+$$
+
+かつ
+
+$$
+u+v
+=
+\theta_1+\theta_2
+=
+1-\theta_0
+\le1.
+$$
+
+逆に $u\ge0$, $v\ge0$, $u+v\le1$ なら
+
+$$
+\theta_1=u,\qquad
+\theta_2=v,\qquad
+\theta_0=1-u-v
+$$
+
+と置けば三係数は非負で総和1です。従って $(u,v)$ は $S$ の凸結合です。以上から
+
+$$
+\boxed{
+\operatorname{conv}(S)
+=
+\{(u,v):u\ge0,\ v\ge0,\ u+v\le1\}.
+}
+$$
+
+この結果により、凸集合族の共通部分と有限凸結合による凸包表示の両方を具体的に使えました。
 <!-- solution-end -->
 
 <a id="ex-opt1-b02"></a>
