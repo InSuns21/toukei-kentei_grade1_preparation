@@ -1,0 +1,329 @@
+chapter: OPT3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OPT2
+  - F0-00A1
+
+forward_references:
+  - convex.fenchel-conjugate
+  - convex.fenchel-young
+  - convex.fenchel-duality
+  - optimization.kkt-multiplier-existence
+  - optimization.constraint-qualification
+
+concepts:
+  - id: convex.effective-domain
+    name: 実効定義域
+    kind: definition
+    aliases: [実効定義域, effective domain]
+    introduction: formal
+    introduction_aliases: ["定義（実効定義域・真関数）"]
+    requires: []
+
+  - id: convex.proper-function
+    name: 真関数
+    kind: definition
+    aliases: [真関数, proper function]
+    introduction: formal
+    introduction_aliases: ["定義（実効定義域・真関数）"]
+    requires:
+      - convex.effective-domain
+
+  - id: convex.extended-real-convex-function
+    name: 拡張実数値凸関数
+    kind: definition
+    aliases: [拡張実数値凸関数]
+    introduction: formal
+    introduction_aliases: ["定義（拡張実数値凸関数）"]
+    requires:
+      - convex.proper-function
+      - convex.convex-function
+
+  - id: convex.epigraph
+    name: エピグラフ
+    kind: definition
+    aliases: [エピグラフ, epigraph]
+    introduction: formal
+    introduction_aliases: ["定義（エピグラフ）"]
+    requires:
+      - convex.effective-domain
+
+  - id: convex.epigraph-convexity
+    name: エピグラフによる凸性判定
+    kind: theorem
+    aliases: [エピグラフによる凸性判定]
+    introduction: formal
+    introduction_aliases: ["定理（エピグラフによる凸性判定）"]
+    requires:
+      - convex.epigraph
+      - convex.extended-real-convex-function
+
+  - id: convex.lower-semicontinuous
+    name: 下半連続
+    kind: definition
+    aliases: [下半連続, lower semicontinuous]
+    introduction: formal
+    introduction_aliases: ["定義（下半連続）"]
+    requires:
+      - analysis.liminf
+
+  - id: convex.lsc-closed-epigraph
+    name: 下半連続性と閉エピグラフ
+    kind: theorem
+    aliases: [下半連続性と閉エピグラフ]
+    introduction: formal
+    introduction_aliases: ["定理（下半連続性と閉エピグラフ）"]
+    requires:
+      - convex.lower-semicontinuous
+      - convex.epigraph
+      - topology.closed-set
+
+  - id: convex.closed-convex-function
+    name: 閉真凸関数
+    kind: definition
+    aliases: [閉真凸関数, closed proper convex function]
+    introduction: formal
+    introduction_aliases: ["定義（閉真凸関数）"]
+    requires:
+      - convex.proper-function
+      - convex.extended-real-convex-function
+      - convex.lower-semicontinuous
+
+  - id: convex.sublevel-set
+    name: 劣位集合
+    kind: definition
+    aliases: [劣位集合, sublevel set]
+    introduction: formal
+    introduction_aliases: ["定義（劣位集合）"]
+    requires:
+      - convex.effective-domain
+
+  - id: convex.finite-dimensional-direct-method
+    name: 有限次元の直接法
+    kind: theorem
+    aliases: [有限次元の直接法]
+    introduction: formal
+    introduction_aliases: ["定理（有限次元の直接法）"]
+    requires:
+      - convex.lower-semicontinuous
+      - convex.sublevel-set
+      - topology.heine-borel
+
+  - id: convex.affine-hull
+    name: アフィン包
+    kind: definition
+    aliases: [アフィン包, affine hull]
+    introduction: formal
+    introduction_aliases: ["定義（アフィン包・相対内部）"]
+    requires:
+      - linear.affine-combination
+
+  - id: convex.relative-interior
+    name: 相対内部
+    kind: definition
+    aliases: [相対内部, relative interior]
+    introduction: formal
+    introduction_aliases: ["定義（アフィン包・相対内部）"]
+    requires:
+      - convex.affine-hull
+
+  - id: convex.subgradient
+    name: 劣勾配
+    kind: definition
+    aliases: [劣勾配, subgradient]
+    introduction: formal
+    introduction_aliases: ["定義（劣勾配・劣微分）"]
+    requires:
+      - convex.extended-real-convex-function
+
+  - id: convex.subdifferential
+    name: 劣微分
+    kind: definition
+    aliases: [劣微分, subdifferential]
+    introduction: formal
+    introduction_aliases: ["定義（劣勾配・劣微分）"]
+    requires:
+      - convex.subgradient
+
+  - id: convex.subgradient-existence-relative-interior
+    name: 相対内部における劣勾配の存在
+    kind: theorem
+    aliases: [相対内部における劣勾配の存在]
+    introduction: formal
+    introduction_aliases: ["定理（相対内部における劣勾配の存在）"]
+    requires:
+      - convex.closed-convex-function
+      - convex.relative-interior
+      - convex.supporting-hyperplane-theorem
+      - convex.subgradient
+
+  - id: convex.fermat-subgradient-condition
+    name: 凸関数の Fermat 条件
+    kind: theorem
+    aliases: [凸関数の Fermat 条件]
+    introduction: formal
+    introduction_aliases: ["定理（凸関数の Fermat 条件）"]
+    requires:
+      - convex.subdifferential
+      - optimization.global-minimizer
+
+  - id: convex.finite-convex-local-lipschitz
+    name: 有限値凸関数の局所 Lipschitz 連続性
+    kind: theorem
+    aliases: [有限値凸関数の局所 Lipschitz 連続性]
+    introduction: formal
+    introduction_aliases: ["補題（有限値凸関数の局所 Lipschitz 連続性）"]
+    requires:
+      - convex.convex-function
+
+  - id: convex.directional-derivative
+    name: 凸関数の方向微分
+    kind: definition
+    aliases: [凸関数の方向微分]
+    introduction: formal
+    introduction_aliases: ["定義（凸関数の方向微分）"]
+    requires:
+      - convex.convex-function
+
+  - id: convex.directional-derivative-support
+    name: 方向微分の支持関数表示
+    kind: theorem
+    aliases: [方向微分の支持関数表示]
+    introduction: formal
+    introduction_aliases: ["定理（方向微分の支持関数表示）"]
+    requires:
+      - convex.directional-derivative
+      - convex.subdifferential
+      - convex.supporting-hyperplane-theorem
+      - convex.finite-convex-local-lipschitz
+
+  - id: convex.subdifferential-sum-rule
+    name: 有限値凸関数の劣微分和則
+    kind: theorem
+    aliases: [有限値凸関数の劣微分和則]
+    introduction: formal
+    introduction_aliases: ["定理（有限値凸関数の劣微分和則）"]
+    requires:
+      - convex.directional-derivative-support
+      - convex.point-closed-convex-strict-separation
+
+  - id: convex.max-subdifferential
+    name: max 関数の劣微分公式
+    kind: theorem
+    aliases: [max 関数の劣微分公式]
+    introduction: formal
+    introduction_aliases: ["定理（max 関数の劣微分公式）"]
+    requires:
+      - convex.directional-derivative-support
+      - convex.convex-hull
+      - convex.point-closed-convex-strict-separation
+
+  - id: convex.indicator-function
+    name: 標示関数
+    kind: definition
+    aliases: [標示関数, indicator function]
+    introduction: formal
+    introduction_aliases: ["定義（標示関数）"]
+    requires: []
+
+  - id: convex.normal-cone
+    name: 法錐
+    kind: definition
+    aliases: [法錐, normal cone]
+    introduction: formal
+    introduction_aliases: ["定義（法錐）"]
+    requires:
+      - convex.convex-set
+      - linear.inner-product
+
+  - id: convex.indicator-normal-cone
+    name: 標示関数の劣微分は法錐
+    kind: theorem
+    aliases: [標示関数の劣微分は法錐]
+    introduction: formal
+    introduction_aliases: ["定理（標示関数の劣微分は法錐）"]
+    requires:
+      - convex.indicator-function
+      - convex.subdifferential
+      - convex.normal-cone
+
+  - id: convex.bouligand-tangent-cone
+    name: Bouligand 接錐
+    kind: definition
+    aliases: [Bouligand 接錐, Bouligand tangent cone]
+    introduction: formal
+    introduction_aliases: ["定義（Bouligand 接錐）"]
+    requires:
+      - convex.convex-set
+
+  - id: convex.polar-cone
+    name: 極錐
+    kind: definition
+    aliases: [極錐, polar cone]
+    introduction: formal
+    introduction_aliases: ["定義（極錐・双対錐）"]
+    requires:
+      - convex.convex-cone
+
+  - id: convex.dual-cone
+    name: 双対錐
+    kind: definition
+    aliases: [双対錐, dual cone]
+    introduction: formal
+    introduction_aliases: ["定義（極錐・双対錐）"]
+    requires:
+      - convex.convex-cone
+
+  - id: convex.tangent-cone-conic-hull
+    name: 凸集合の接錐表示
+    kind: theorem
+    aliases: [凸集合の接錐表示]
+    introduction: formal
+    introduction_aliases: ["定理（凸集合の接錐表示）"]
+    requires:
+      - convex.bouligand-tangent-cone
+      - convex.convex-set
+
+  - id: convex.polar-bipolar-closed-cone
+    name: 閉凸錐の極双極定理
+    kind: theorem
+    aliases: [閉凸錐の極双極定理]
+    introduction: formal
+    introduction_aliases: ["定理（閉凸錐の極双極定理）"]
+    requires:
+      - convex.polar-cone
+      - convex.closed-cone-separation
+
+  - id: convex.normal-tangent-polar-identity
+    name: 法錐と接錐の極双対
+    kind: theorem
+    aliases: [法錐と接錐の極双対]
+    introduction: formal
+    introduction_aliases: ["定理（法錐と接錐の極双対）"]
+    requires:
+      - convex.tangent-cone-conic-hull
+      - convex.normal-cone
+      - convex.polar-cone
+
+  - id: convex.constrained-fermat-condition
+    name: 凸制約付き Fermat 条件
+    kind: theorem
+    aliases: [凸制約付き Fermat 条件]
+    introduction: formal
+    introduction_aliases: ["定理（凸制約付き Fermat 条件）"]
+    requires:
+      - convex.directional-derivative-support
+      - convex.normal-tangent-polar-identity
+      - convex.polar-bipolar-closed-cone
+      - convex.point-closed-convex-strict-separation
+
+  - id: convex.smooth-constrained-optimality
+    name: 凸集合上の微分可能凸最適化
+    kind: corollary
+    aliases: [凸集合上の微分可能凸最適化]
+    introduction: formal
+    introduction_aliases: ["系（微分可能な場合の制約付き最適性条件）"]
+    requires:
+      - convex.constrained-fermat-condition
+      - convex.first-order-support-inequality
