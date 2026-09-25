@@ -1,6 +1,6 @@
 # F0-02C5A 関数解析V-A：制約想定・LICQ・MFCQ・Robinson CQ
 
-> **アーカイブ**：この内容の canonical owner は [OPT6 KKT の幾何学的導出・制約想定](../OPT6/index.md) です。本ページは過去URLと stable anchor の後方互換性のため保持しています。
+> **アーカイブ**：この内容の canonical owner は [canonical 章 OPT6](../OPT6/index.md) です。本ページは過去URLと stable anchor の後方互換性のため保持しています。
 
 KKT は「局所最適なら自動的に成立する公式」ではありません。制約の一次近似が退化すると、真の実行可能集合と線形化された集合が食い違い、乗数が存在しないことがあります。
 
