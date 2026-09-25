@@ -1,0 +1,51 @@
+id: "OPT12"
+title: "二次計画・錐計画入門"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OPT5
+  - OPT6A
+  - OPT11
+official_scope: []
+learning_objectives:
+  - 二次目的関数の凸性がQの半正定値性と同値であり、狭義凸性が正定値性と同値であることを証明できる
+  - 正定値性が凸実行可能集合上の最小点の一意性を与える一方、制約付き問題では必要条件ではないことを説明できる
+  - 等式制約付き凸二次計画のKKT条件をブロック線形系として導出し、具体的に解ける
+  - Qがker A上で正定値ならKKT行列が正則になることを証明し、制約が零曲率方向を除く機構を説明できる
+  - 不等式制約付き凸二次計画でKKT条件を適用し、Slater条件の役割と相補性を説明できる
+  - 活性集合を固定したKKT線形系から候補解を作り、乗数の符号と残りの制約を検査できる
+  - 二次錐を定義し、閉凸性と自己双対性をCauchy--Schwarzの不等式から証明できる
+  - ノルム制約を二次錐制約へ変換し、二次錐計画として定式化できる
+  - hard-margin SVMが半正定値な凸二次計画になる理由を説明し、小規模例をKKT条件で解ける
+definitions:
+  - { id: OPT12-DEF-01, name: 二次計画問題・凸二次計画問題 }
+  - { id: OPT12-DEF-02, name: 二次錐 }
+  - { id: OPT12-DEF-03, name: 二次錐計画 }
+theorems:
+  - { id: OPT12-THM-01, name: 二次目的関数の凸性と狭義凸性 }
+  - { id: OPT12-COR-01, name: 正定値二次目的関数の最小点の一意性 }
+  - { id: OPT12-THM-02, name: 等式制約付き凸二次計画のKKT線形系 }
+  - { id: OPT12-THM-03, name: 零空間上の正定値性とKKT行列の正則性 }
+  - { id: OPT12-THM-04, name: 凸二次計画のKKT条件 }
+  - { id: OPT12-THM-05, name: 二次錐の閉凸性と自己双対性 }
+canonical_examples:
+  - 正定値二次目的関数を半空間で制約する二変数凸二次計画
+  - x1+x2=1の等式制約付き最小ノルム問題
+  - x1+x2>=2に対する一活性制約のKKT計算
+  - 特異なQでもker A上の正定値性により一意解を持つ例
+  - 3-4-5ベクトルによる二次錐境界点の検算
+  - 点から直線までの距離を二次錐計画へ直す例
+  - 二点のhard-margin SVMを半正定値QPとして解く例
+problem_patterns:
+  - OPT12-QUADRATIC-CONVEXITY-1
+  - OPT12-EQUALITY-KKT-1
+  - OPT12-NULLSPACE-PD-1
+  - OPT12-INEQUALITY-KKT-1
+  - OPT12-ACTIVE-SET-1
+  - OPT12-SOC-1
+  - OPT12-SOCP-FORMULATION-1
+  - OPT12-SVM-QP-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.0, review: 0.75 }

@@ -1,0 +1,23 @@
+chapter: "OPT12"
+terms:
+  - term: 二次計画
+    english: quadratic programming
+    meaning: 二次目的関数と線形等式・不等式制約からなる最適化問題。本章では対称行列Qを用いて目的関数を1/2 x^T Qx+c^T xと書く。
+  - term: 凸二次計画
+    english: convex quadratic programming
+    meaning: 二次項の行列Qが半正定値で、目的関数が凸になる二次計画。線形制約との組合せではKKT条件が大域最適性の証明書になる。
+  - term: KKT線形系
+    english: KKT linear system
+    meaning: 等式制約付き二次計画の停留条件と実行可能性を一つのブロック線形方程式にまとめた系。
+  - term: 零空間上の正定値性
+    english: null-space positive definiteness
+    meaning: 等式制約Ad=0が許す非零方向dに限ってd^TQd>0が成り立つ性質。Qが全空間で正定値でなくてもKKT行列の正則性を与えられる。
+  - term: 活性集合
+    english: active set
+    meaning: 候補点で等号となる不等式制約の集合。二次計画では活性集合を固定すると等式制約付きKKT線形系として候補を計算できる。
+  - term: 二次錐
+    english: second-order cone
+    meaning: (t,u)が||u||_2<=tを満たす点全体からなる閉凸錐。Lorentz coneとも呼ばれ、Euclid内積に関して自己双対である。
+  - term: 二次錐計画
+    english: second-order cone programming
+    meaning: ||A_i x+b_i||_2<=d_i^T x+e_iの形の二次錐制約と線形目的関数・線形等式制約からなる凸最適化問題。
