@@ -551,6 +551,25 @@
 | NumPy 乱数生成器 | NumPy Generator | NumPy の独立した乱数状態を保持する Generator オブジェクト。コード名 `Generator`・`default_rng` は保持する |
 | log-log 図 | log-log plot | 横軸・縦軸の両方を対数目盛にした図。べき乗則の指数を傾きとして読む |
 
+## DREAM THEATER：凸解析・最適化の主表記
+
+| 主表記 | 補助的な英語表記 | 備考 |
+|---|---|---|
+| 実効定義域 | effective domain | 拡張実数値関数で有限値を取る点全体。本文では effective domain を主表記にしない |
+| 真関数 | proper function | 値域を $(-\infty,+\infty]$ とする本系列では、実効定義域が空でない関数 |
+| エピグラフ | epigraph | $\operatorname{epi}f=\{(x,r):f(x)\le r\}$。英語だけを主表記にしない |
+| 下半連続 | lower semicontinuous | 略号 lsc は補助的に使用可 |
+| 閉真凸関数 | closed proper convex function | 真・凸・下半連続を同時に満たす拡張実数値関数 |
+| 劣位集合 | sublevel set | $\{x:f(x)\le\alpha\}$。本文では sublevel set を主表記にしない |
+| 標示関数 | indicator function | 凸解析で $C$ 上0、$C$ 外 $+\infty$ を取る関数。確率・集合論の0/1指示関数と文脈を区別する |
+| 劣勾配 | subgradient | 凸関数を一点で下から支えるアフィン関数の傾き |
+| 劣微分 | subdifferential | 一点における劣勾配全体の集合 |
+| 法錐 | normal cone | 凸集合の外向き一次方向を表す錐。本系列では「normal cone」を主表記にしない |
+| Bouligand 接錐 | Bouligand tangent cone | 点列による接方向の定義。人名部分は英字表記を保持 |
+| 極錐 | polar cone | 本系列では $K^\circ=\{v:v^{\mathsf T}k\le0\}$ の符号規約を使う |
+| 双対錐 | dual cone | 本系列では $K^*=\{v:v^{\mathsf T}k\ge0\}$ とし、極錐と符号を区別する |
+| 強圧性 | coercivity | $\|x\|\to\infty$ で関数値が $+\infty$ へ向かう最小化向けの条件 |
+
 ## DREAM THEATER：ODE・PDE の主表記
 
 | 主表記 | 補助的な英語表記 | 備考 |
