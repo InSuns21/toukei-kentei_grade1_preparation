@@ -1421,7 +1421,7 @@ $$
    C=\bigcap_{\lambda\in\Lambda}C_\lambda
    $$
    が凸集合であることを証明せよ。
-2. $S=\{(0,0),(1,0),(0,1)\}$ とする。有限集合の凸包の命題を用いて
+2. $S=\{(0,0),(1,0),(0,1)\}$ とする。[有限集合の凸包](#prop-opt1-finite-convex-hull)の命題を用いて
    $$
    \operatorname{conv}(S)
    =
@@ -1458,7 +1458,7 @@ $$
 
 よって $C$ は凸です。
 
-次に $S=\{(0,0),(1,0),(0,1)\}$ を考えます。有限集合の凸包の命題から、$(u,v)\in\operatorname{conv}(S)$ であることは、ある $\theta_0,\theta_1,\theta_2\ge0$ が存在して
+次に $S=\{(0,0),(1,0),(0,1)\}$ を考えます。[有限集合の凸包](#prop-opt1-finite-convex-hull)の命題から、$(u,v)\in\operatorname{conv}(S)$ であることは、ある $\theta_0,\theta_1,\theta_2\ge0$ が存在して
 
 $$
 \theta_0+\theta_1+\theta_2=1,
