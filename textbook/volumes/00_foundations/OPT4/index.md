@@ -713,15 +713,15 @@ $f(x)=\frac a2x^2$（$a>0$）の共役 $f^*$ を定義から求めよ。
 
 定義から
 
-$
+$$
 f^*(y)=\sup_{x\in\mathbb R}\left(yx-\frac a2x^2\right).
-$
+$$
 
 括弧内は $x$ の狭義凹二次関数で、微分すると $y-ax=0$。したがって唯一の最大化点は $x=y/a$ である。代入して
 
-$
+$$
 f^*(y)=\frac{y^2}{a}-\frac a2\frac{y^2}{a^2}=\boxed{\frac{y^2}{2a}}.
-$
+$$
 <!-- solution-end -->
 
 ### OPT4-A02 絶対値の共役
@@ -738,15 +738,15 @@ $|y|\le1$ なら $yx\le |y||x|\le|x|$ なので $yx-|x|\le0$。$x=0$ で0を達�
 
 $|y|>1$ なら $x=t\operatorname{sgn}(y)$（$t>0$）と置くと
 
-$
+$$
 yx-|x|=t(|y|-1)\to\infty.
-$
+$$
 
 したがって
 
-$
+$$
 \boxed{f^*(y)=\delta_{[-1,1]}(y)}.
-$
+$$
 <!-- solution-end -->
 
 ### OPT4-A03 indicator 関数と support function
@@ -761,15 +761,15 @@ $
 
 定義をそのまま展開すると
 
-$
+$$
 \delta_C^*(y)=\sup_{x\in\mathbb R^n}\{y^{\mathsf T}x-\delta_C(x)\}.
-$
+$$
 
 $x\notin C$ では $\delta_C(x)=+\infty$ なので値は $-\infty$ となり、上限には寄与しない。よって
 
-$
+$$
 \delta_C^*(y)=\sup_{x\in C}y^{\mathsf T}x=\boxed{\sigma_C(y)}.
-$
+$$
 <!-- solution-end -->
 
 ### OPT4-A04 Fenchel--Young の等号条件
@@ -784,9 +784,9 @@ $f(x)=x^2/2$ について Fenchel--Young の不等式の gap を計算し、等�
 
 $f^*(y)=y^2/2$ なので
 
-$
+$$
 f(x)+f^*(y)-xy=\frac12(x-y)^2\ge0.
-$
+$$
 
 等号は $x=y$ のときに限る。一方 $f$ は微分可能で $\partial f(x)=\{f'(x)\}=\{x\}$ だから、$x=y$ はちょうど $y\in\partial f(x)$ と同値である。
 <!-- solution-end -->
@@ -805,15 +805,15 @@ $C=\{x:\|x\|_p\le1\}$、$1/p+1/q=1$ とする。Hölder の不等式を用いて
 
 Hölder の不等式より
 
-$
+$$
 y^{\mathsf T}x\le |y^{\mathsf T}x|\le\|y\|_q\|x\|_p\le\|y\|_q,
-$
+$$
 
 したがって $\sigma_C(y)\le\|y\|_q$。$1<p<\infty$ では $y\ne0$ に対して
 
-$
+$$
 x_i=\frac{\operatorname{sgn}(y_i)|y_i|^{q-1}}{\|y\|_q^{q-1}}
-$
+$$
 
 と置けば $\|x\|_p=1$ かつ $y^{\mathsf T}x=\|y\|_q$。$y=0$ は自明であり、$p=1,\infty$ もそれぞれ最大絶対値成分を選ぶベクトル、符号ベクトルで上界を達成する。よって $\boxed{\sigma_C(y)=\|y\|_q}$。
 <!-- solution-end -->
@@ -825,9 +825,9 @@ $
 
 閉真凸関数 $f$ について、Fenchel--Young の等号条件を使い
 
-$
+$$
 y\in\partial f(x)\iff x\in\partial f^*(y)
-$
+$$
 
 を導け。
 
@@ -836,15 +836,15 @@ $
 
 Fenchel--Young の等号条件から
 
-$
+$$
 y\in\partial f(x)\iff f(x)+f^*(y)=x^{\mathsf T}y.
-$
+$$
 
 閉真凸性より Fenchel--Moreau の定理が使え、$f^{**}=f$。したがって右辺は
 
-$
+$$
 f^*(y)+f^{**}(x)=y^{\mathsf T}x
-$
+$$
 
 と書ける。今度は関数 $f^*$ に Fenchel--Young の等号条件を適用すると、これは $x\in\partial f^*(y)$ と同値である。よって主張を得る。
 <!-- solution-end -->
@@ -856,15 +856,15 @@ $
 
 主問題
 
-$
+$$
 \inf_x\{f(x)+g(Ax)\}
-$
+$$
 
 と双対問題
 
-$
+$$
 \sup_y\{-f^*(-A^{\mathsf T}y)-g^*(y)\}
-$
+$$
 
 について、任意の $x,y$ に対して双対目的値が主目的値以下であることを示せ。
 
@@ -873,25 +873,25 @@ $
 
 Fenchel--Young の不等式を $f$ に対して $(x,-A^{\mathsf T}y)$、$g$ に対して $(Ax,y)$ へ適用する。
 
-$
+$$
 f(x)+f^*(-A^{\mathsf T}y)\ge -y^{\mathsf T}Ax,
-$
+$$
 
-$
+$$
 g(Ax)+g^*(y)\ge y^{\mathsf T}Ax.
-$
+$$
 
 加えると内積項が消え、
 
-$
+$$
 f(x)+g(Ax)\ge -f^*(-A^{\mathsf T}y)-g^*(y).
-$
+$$
 
 左辺について $x$ の下限、右辺について $y$ の上限を取れば
 
-$
+$$
 \sup_y\{-f^*(-A^{\mathsf T}y)-g^*(y)\}\le\inf_x\{f(x)+g(Ax)\}.
-$
+$$
 
 これが弱双対性である。
 <!-- solution-end -->
@@ -905,9 +905,9 @@ $
 
 $A\in\mathbb R^{m\times n}$、$b\in\mathbb R^m$、$\lambda>0$ とし
 
-$
+$$
 \inf_x\left\{\frac12\|Ax-b\|_2^2+\lambda\|x\|_1\right\}
-$
+$$
 
 を考える。$z=Ax$ と分離して Fenchel 双対を導き、双対実行可能条件を明示せよ。
 
@@ -916,41 +916,41 @@ $
 
 $f(x)=\lambda\|x\|_1$、$g(z)=\frac12\|z-b\|_2^2$ と置く。まず
 
-$
+$$
 f^*(u)=\delta_{\{u:\|u\|_\infty\le\lambda\}}(u)
-$
+$$
 
 である。次に $w=z-b$ と置けば
 
-$
+$$
 \begin{aligned}
 g^*(y)
 &=\sup_z\left\{y^{\mathsf T}z-\frac12\|z-b\|_2^2\right\}\\
 &=b^{\mathsf T}y+\sup_w\left\{y^{\mathsf T}w-\frac12\|w\|_2^2\right\}\\
 &=b^{\mathsf T}y+\frac12\|y\|_2^2.
 \end{aligned}
-$
+$$
 
 Fenchel 双対は
 
-$
+$$
 \sup_y\{-f^*(-A^{\mathsf T}y)-g^*(y)\}.
-$
+$$
 
 $f^*(-A^{\mathsf T}y)$ が有限である条件は
 
-$
+$$
 \|A^{\mathsf T}y\|_\infty\le\lambda.
-$
+$$
 
 したがって双対問題は
 
-$
+$$
 \boxed{
 \sup_{\|A^{\mathsf T}y\|_\infty\le\lambda}
 \left(-b^{\mathsf T}y-\frac12\|y\|_2^2\right)
 }.
-$
+$$
 
 ここで制約は「共役を計算した結果」として現れており、$\ell_1$ 正則化と $\ell_\infty$ 制約の双対関係が見える。さらに $g$ は全空間で有限かつ連続なので、標準的な Fenchel--Rockafellar の正則性条件は満たされる。本章の relative interior 条件の見方では $A(\operatorname{dom}f)$ と $\operatorname{dom}g=\mathbb R^m$ の相対内部が交わるため、適切な有限最適値のもとで強双対性へ進める。
 <!-- solution-end -->
