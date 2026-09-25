@@ -1115,16 +1115,39 @@ f(x)+\lambda^{\mathsf T}G(x)
 \right\}.
 $$
 
-等式制約も同様に
+等式制約については
+
+$$
+\sup_{\nu\in\mathbb R^r}
+\nu^{\mathsf T}(Ax-b)
+$$
+
+を直接調べます。$Ax=b$ なら全ての $\nu$ で値は0です。一方 $Ax\ne b$ なら
+
+$$
+\nu=t(Ax-b)
+\qquad(t>0)
+$$
+
+と取ることで
+
+$$
+\nu^{\mathsf T}(Ax-b)
+=
+t\|Ax-b\|_2^2
+\to+\infty.
+$$
+
+従って
 
 $$
 \delta_{\{b\}}(Ax)
 =
 \sup_{\nu\in\mathbb R^r}
-\nu^{\mathsf T}(Ax-b)
+\nu^{\mathsf T}(Ax-b).
 $$
 
-と書けます。二つを合わせると
+二つを合わせると
 
 $$
 L(x,\lambda,\nu)
