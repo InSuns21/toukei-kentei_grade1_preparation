@@ -13,7 +13,7 @@
 
 ここまでで
 
-- 凸関数を epigraph という凸集合として見る
+- 凸関数を エピグラフ という凸集合として見る
 - 支持超平面の傾きを劣勾配として読む
 - 法錐・極錐・双対錐で制約の幾何を読む
 
@@ -85,9 +85,9 @@ $$
 ### 証明の見取り図
 
 $x$ を固定すると
-$
+$$
 y\mapsto \langle y,x\rangle-f(x)
-$
+$$
 は $y$ のアフィン連続関数です。$f^*$ はそれらを全て重ねた上限なので、凸性と下半連続性が保存されます。
 
 <!-- proof-start -->
@@ -95,7 +95,7 @@ $
 
 任意の $y_1,y_2\in\mathbb R^n$ と $0\le\theta\le1$ に対し、
 
-$
+$$
 \begin{aligned}
 f^*(\theta y_1+(1-\theta)y_2)
 &=
@@ -110,20 +110,20 @@ f^*(\theta y_1+(1-\theta)y_2)
 &=
 \theta f^*(y_1)+(1-\theta)f^*(y_2).
 \end{aligned}
-$
+$$
 
 従って $f^*$ は凸です。
 
 また任意の $\alpha\in\mathbb R$ について
 
-$
+$$
 \begin{aligned}
 \{y:f^*(y)\le\alpha\}
 &=
 \bigcap_{x\in\operatorname{dom}f}
 \{y:\langle y,x\rangle-f(x)\le\alpha\}.
 \end{aligned}
-$
+$$
 
 右辺は閉半空間の共通部分なので閉です。従って $f^*$ は下半連続です。$\square$
 <!-- proof-end -->
@@ -211,7 +211,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（支持関数）**  
-> 集合 $C\subset\mathbb R^n$ に対して、方向 $y$ に沿う線形汎関数の上限を $C$ の **支持関数（支持関数）** といいます。
+> 集合 $C\subset\mathbb R^n$ に対して、方向 $y$ に沿う線形汎関数の上限を $C$ の **支持関数（support function）** といいます。
 
 $$
 \sigma_C(y)
@@ -359,7 +359,7 @@ $$
 すなわち $y\in\partial f(x)$ です。$\square$
 <!-- proof-end -->
 
-**劣勾配であること**と、**Fenchel–Young gap が0になること**は同じです。
+**劣勾配であること**と、**Fenchel–Young ギャップ が0になること**は同じです。
 
 ---
 
@@ -414,16 +414,16 @@ $$
 
 すでに
 
-$
+$$
 f^{**}(x)\le f(x)
 \qquad(\forall x)
-$
+$$
 
 は示しました。逆向きを示します。
 
 まず、後で使う **大域的アフィン下界が一つ存在する**ことを確認します。真性から $\bar x\in\operatorname{dom}f$ を取り、$\bar r<f(\bar x)$ とします。点 $(\bar x,\bar r)$ は非空閉凸集合 $\operatorname{epi}f$ の外にあるので、[点と閉凸集合の厳密分離](../OPT2/index.md#thm-opt2-point-separation)より、$(a,b)\ne0$ と $\beta$ が存在して
 
-$
+$$
 a^{\mathsf T}x+bt
 \le
 \beta
@@ -431,43 +431,43 @@ a^{\mathsf T}x+bt
 a^{\mathsf T}\bar x+b\bar r
 \qquad
 ((x,t)\in\operatorname{epi}f)
-$
+$$
 
 となります。エピグラフは $t$ を上へいくらでも増やせるので $b\le0$ です。さらに $b=0$ なら $(\bar x,f(\bar x))\in\operatorname{epi}f$ を代入して
 
-$
+$$
 a^{\mathsf T}\bar x
 \le
 \beta
 <
 a^{\mathsf T}\bar x
-$
+$$
 
 となり矛盾します。従って $b<0$ です。
 
 $\mu=-b>0$ と置き、$t=f(x)$ を代入すると
 
-$
+$$
 f(x)
 \ge
 \left\langle \frac a\mu,x\right\rangle
 -\frac\beta\mu
 \qquad
 (x\in\operatorname{dom}f).
-$
+$$
 
 従って $f$ は少なくとも一つ
 
-$
+$$
 \ell_0(x)=\langle y_0,x\rangle+c_0
 \le f(x)
-$
+$$
 
 という大域的アフィン下界を持ちます。
 
 次に任意の $x_0\in\mathbb R^n$ と実数 $r<f(x_0)$ を取ります。$f(x_0)=+\infty$ の場合も、有限な $r$ は任意に取れます。再び $(x_0,r)$ と $\operatorname{epi}f$ を厳密分離し、
 
-$
+$$
 a^{\mathsf T}x+bt
 \le
 \beta
@@ -475,77 +475,77 @@ a^{\mathsf T}x+bt
 a^{\mathsf T}x_0+br
 \qquad
 ((x,t)\in\operatorname{epi}f)
-$
+$$
 
 を得ます。やはり $b\le0$ です。
 
 **場合1：$b<0$。** $\mu=-b>0$ と置くと
 
-$
+$$
 f(x)
 \ge
 \left\langle \frac a\mu,x\right\rangle
 -\frac\beta\mu.
-$
+$$
 
 右辺を $\ell(x)=\langle y,x\rangle+c$ と書けば $\ell\le f$ で、分離の厳密不等式から
 
-$
+$$
 \ell(x_0)>r.
-$
+$$
 
 **場合2：$b=0$。** このとき
 
-$
+$$
 a^{\mathsf T}x\le\beta<a^{\mathsf T}x_0
 \qquad
 (x\in\operatorname{dom}f).
-$
+$$
 
 従って
 
-$
+$$
 h(x)=a^{\mathsf T}x-\beta
-$
+$$
 
 は $\operatorname{dom}f$ 上で $h(x)\le0$、一方 $h(x_0)>0$ です。先ほど作ったアフィン下界 $\ell_0$ に対し
 
-$
+$$
 \ell_t(x)=\ell_0(x)+t h(x)
 \qquad(t\ge0)
-$
+$$
 
 と置けば、$x\in\operatorname{dom}f$ では $\ell_t(x)\le\ell_0(x)\le f(x)$ です。一方 $h(x_0)>0$ なので、十分大きい $t$ を取れば
 
-$
+$$
 \ell_t(x_0)>r.
-$
+$$
 
 従ってどちらの場合も、あるアフィン関数
 
-$
+$$
 \ell(x)=\langle y,x\rangle+c
 \le f(x)
-$
+$$
 
 で $\ell(x_0)>r$ となるものが存在します。
 
 $\ell\le f$ なら
 
-$
+$$
 \langle y,x\rangle-f(x)\le-c
 \qquad(\forall x),
-$
+$$
 
 したがって
 
-$
+$$
 f^*(y)\le-c.
-$
+$$
 
 よって
 
-$
+$$
 f^{**}(x_0)
 \ge
 \langle x_0,y\rangle-f^*(y)
@@ -554,20 +554,20 @@ f^{**}(x_0)
 =
 \ell(x_0)
 >r.
-$
+$$
 
 これは任意の実数 $r<f(x_0)$ について成り立ちます。$f(x_0)<+\infty$ なら $r\uparrow f(x_0)$ として $f^{**}(x_0)\ge f(x_0)$。$f(x_0)=+\infty$ なら任意の実数 $r$ に対して $f^{**}(x_0)>r$ なので $f^{**}(x_0)=+\infty$ です。
 
 従って全ての $x_0\in\mathbb R^n$ で
 
-$
+$$
 f^{**}(x_0)=f(x_0).
-$
+$$
 
 $\square$
 <!-- proof-end -->
 
-つまり proper closed convex function は、**自分を下から支える affine 関数を全部集めれば完全に復元できる**ということです。
+つまり閉真凸関数は、**自分を下から支えるアフィン関数を全部集めれば完全に復元できる**ということです。
 
 ---
 
@@ -628,38 +628,38 @@ $$
 
 ここからは
 
-$
+$$
 f:\mathbb R^n\to(-\infty,+\infty],
 \qquad
 g:\mathbb R^m\to(-\infty,+\infty]
-$
+$$
 
 を閉真凸関数、$A:\mathbb R^n\to\mathbb R^m$ を線形写像とし、
 
-$
+$$
 \operatorname{dom}f
 \cap
 A^{-1}(\operatorname{dom}g)
 \ne\varnothing
-$
+$$
 
 を仮定します。最後の条件は、主問題に少なくとも一つ有限値の実行可能点があることを意味します。
 
 主問題
 
-$
+$$
 \boxed{
 \inf_x\{f(x)+g(Ax)\}
 }
-$
+$$
 
 を考えます。$g$ は閉真凸関数なので [Fenchel–Moreau の定理](#thm-opt4-fenchel-moreau)から $g=g^{**}$ です。従って
 
-$
+$$
 g(Ax)
 =
 \sup_y\{\langle y,Ax\rangle-g^*(y)\},
-$
+$$
 
 したがって主問題は
 
@@ -682,7 +682,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（Fenchel 双対問題）**  
-> 閉真凸関数 $f:\mathbb R^n\to(-\infty,+\infty]$、$g:\mathbb R^m\to(-\infty,+\infty]$ と線形写像 $A:\mathbb R^n\to\mathbb R^m$ に対する主問題 $\inf_x\{f(x)+g(Ax)\}$ に対して、次の最大化問題を対応する **Fenchel 双対問題** と呼びます。
+> 閉真凸関数 $f:\mathbb R^n\to(-\infty,+\infty]$、$g:\mathbb R^m\to(-\infty,+\infty]$ と行列 $A\in\mathbb R^{m\times n}$ を取り、$\operatorname{dom}f\cap A^{-1}(\operatorname{dom}g)\ne\varnothing$ とする。主問題 $\inf_x\{f(x)+g(Ax)\}$ に対して、次の最大化問題を対応する **Fenchel 双対問題** と呼びます。
 
 $$
 \boxed{
@@ -700,7 +700,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Fenchel 双対の弱双対性）**  
-> 閉真凸関数 $f:\mathbb R^n\to(-\infty,+\infty]$、$g:\mathbb R^m\to(-\infty,+\infty]$ と線形写像 $A$ を考える。任意の主変数 $x\in\mathbb R^n$ と双対変数 $y\in\mathbb R^m$ に対して、主問題の目的値は双対問題の目的値以上です。
+> 閉真凸関数 $f:\mathbb R^n\to(-\infty,+\infty]$、$g:\mathbb R^m\to(-\infty,+\infty]$ と行列 $A\in\mathbb R^{m\times n}$ を考える。任意の主変数 $x\in\mathbb R^n$ と双対変数 $y\in\mathbb R^m$ に対して、主問題の目的値は双対問題の目的値以上です。
 
 $$
 f(x)+g(Ax)
@@ -749,36 +749,39 @@ $\inf\sup$ と $\sup\inf$ は一般には等しくありません。弱双対性
 
 有限次元で使う代表的な相対内部条件は
 
-$
+$$
 \exists x_0\in\operatorname{ri}(\operatorname{dom}f)
 \quad\text{s.t.}\quad
 Ax_0\in\operatorname{ri}(\operatorname{dom}g)
-$
+$$
 
-です。これは単に「実行可能点がある」より強く、主問題を少し摂動しても実効定義域の端にすぐぶつからないことを表します。
+です。これは単に有限値の実行可能点があるだけでなく、その点が両方の実効定義域の「相対的な端」に張り付いていないことを要求しています。
 
-この条件の役割を見るため、摂動値関数
+なぜ内部点が双対性に効くのでしょうか。主問題を
 
-$
+$$
 h(u)
 =
 \inf_x\{f(x)+g(Ax-u)\}
-$
+$$
 
-を考えます。$h(0)$ が元の主問題の最適値です。相対内部条件は、有限次元の相対内部の線形像・和の性質を通じて、$u=0$ を $\operatorname{dom}h$ の相対内部に置くために使われます。すると OPT3 の「相対内部では劣勾配が存在する」という機構が働き、$h$ を $0$ で支える線形関数が双対変数を生みます。
+と摂動してみます。$h(0)$ が元の主問題の最適値です。標準的な有限次元の強双対性の証明では、相対内部条件を使って **$u=0$ の近くでこの摂動問題が退化しないこと**を示し、$h$ のエピグラフを $0$ の位置で支持する超平面を作ります。その超平面の傾きが双対変数になります。
 
-つまり相対内部条件の仕事は、
+OPT3 の「相対内部では鉛直だけを向く支持超平面を排除できる」という劣勾配存在証明と、ここで働く幾何は同じです。違いは、ここでは $h$ 自体の閉性・支持可能性まで保証する必要があり、その部分が強双対性の本体になることです。
 
-$
+したがって本章で押さえる役割は
+
+$$
 \boxed{
-\text{摂動値関数を }0\text{ で支持できる}
+\text{相対内部条件}
 \Longrightarrow
-\text{双対変数を取り出せる}
+\text{摂動問題の退化を防ぐ}
+\Longrightarrow
+\text{支持超平面の傾きを双対変数として取り出せる}
 }
-$
+$$
 
-という橋を作ることです。本章ではこの機構の入口までを扱い、次章 OPT5 では有限個の凸不等式制約に対する Slater 条件として具体化します。
-
+という流れです。次章 OPT5 では、有限個の凸不等式制約に対してこの役割を Slater 条件として具体化します。
 ---
 
 ## 12. KKT との接続
@@ -859,7 +862,7 @@ $$
 <!-- definition-example-end -->
 
 <!-- definition-example-start: def-opt4-support-function -->
-### 13.2 区間の 支持関数
+### 13.2 区間の支持関数
 
 **定義の確認**
 
@@ -926,7 +929,7 @@ $$
 - Level: A
 - 目安時間: 10分
 
-$f(x)=\frac a2x^2$（$a>0$）の共役 $f^*$ を定義から求めよ。
+$f(x)=\frac a2x^2$（$a>0$）の共役 $f^*$ を定義から求めよ。さらに、得られた $f^*$ が凸かつ下半連続であることを式から確認せよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -942,6 +945,14 @@ $$
 $$
 f^*(y)=\frac{y^2}{a}-\frac a2\frac{y^2}{a^2}=\boxed{\frac{y^2}{2a}}.
 $$
+
+$a>0$ なので
+
+$$
+\frac{d^2}{dy^2}f^*(y)=\frac1a>0,
+$$
+
+従って $f^*$ は凸です。また $f^*$ は二次関数として連続なので下半連続です。これは[共役関数の凸性・下半連続性](#thm-opt4-conjugate-closed-convex)の具体例になっています。
 <!-- solution-end -->
 
 ### OPT4-A02 絶対値の共役
@@ -969,12 +980,12 @@ $$
 $$
 <!-- solution-end -->
 
-### OPT4-A03 標示関数と 支持関数
+### OPT4-A03 標示関数と支持関数
 
 - Level: A
 - 目安時間: 10分
 
-空でない集合 $C\subset\mathbb R^n$ の 標示関数 $\delta_C$ について、$\delta_C^*=\sigma_C$ を示せ。
+空でない集合 $C\subset\mathbb R^n$ の標示関数 $\delta_C$ について、$\delta_C^*=\sigma_C$ を示せ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -1013,7 +1024,7 @@ $$
 
 ## 15. 演習 Level B
 
-### OPT4-B01 双対ノルムを 支持関数 として求める
+### OPT4-B01 双対ノルムを支持関数として求める
 
 - Level: B
 - 目安時間: 15分
@@ -1039,9 +1050,9 @@ $$
 
 - $p=1$, $q=\infty$ のとき、$|y_j|=\|y\|_\infty$ を満たす添字 $j$ を取り、$x=\operatorname{sgn}(y_j)e_j$ とすれば $\|x\|_1=1$ かつ $y^{\mathsf T}x=\|y\|_\infty$。
 - $p=\infty$, $q=1$ のとき、$x_i=\operatorname{sgn}(y_i)$（$y_i=0$ では $x_i=0$ としてよい）とすれば $\|x\|_\infty\le1$ かつ
-  $
+$$
   y^{\mathsf T}x=\sum_i|y_i|=\|y\|_1.
-  $
+$$
 
 従って全ての $1\le p\le\infty$ について $\boxed{\sigma_C(y)=\|y\|_q}$ です。
 <!-- solution-end -->
@@ -1146,7 +1157,7 @@ $f(x)=\lambda\|x\|_1$、$g(z)=\frac12\|z-b\|_2^2$ と置きます。
 
 まず $f^*$ を定義から計算します。
 
-$
+$$
 \begin{aligned}
 f^*(u)
 &=
@@ -1156,36 +1167,36 @@ f^*(u)
 \sum_{i=1}^n
 \{u_i x_i-\lambda|x_i|\}.
 \end{aligned}
-$
+$$
 
 $\|u\|_\infty\le\lambda$ なら各 $i$ について
 
-$
+$$
 u_i x_i-\lambda|x_i|
 \le
 (|u_i|-\lambda)|x_i|
 \le0,
-$
+$$
 
 かつ $x=0$ で0を達成するので $f^*(u)=0$ です。
 
 一方 $\|u\|_\infty>\lambda$ なら、ある $j$ で $|u_j|>\lambda$ です。$x=t\operatorname{sgn}(u_j)e_j$ と置くと
 
-$
+$$
 u^{\mathsf T}x-\lambda\|x\|_1
 =
 t(|u_j|-\lambda)
 \to+\infty
 \qquad(t\to\infty).
-$
+$$
 
 従って
 
-$
+$$
 f^*(u)
 =
 \delta_{\{u:\|u\|_\infty\le\lambda\}}(u).
-$
+$$
 
 次に $w=z-b$ と置けば
 
