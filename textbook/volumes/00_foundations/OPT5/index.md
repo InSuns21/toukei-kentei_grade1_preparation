@@ -76,15 +76,20 @@ $$
 <a id="def-opt5-dual-function"></a>
 <!-- formal-statement-start -->
 > **定義（双対関数）**  
-> 上の形の制約付き問題に対し、$\lambda\ge0$、$\nu\in\mathbb R^r$ について
+> 関数 $f,g_1,\dots,g_m:\mathbb R^n\to\mathbb R$、$A\in\mathbb R^{r\times n}$、$b\in\mathbb R^r$ に対し
+>
+$$
+L(x,\lambda,\nu)
+=
+f(x)+\sum_{i=1}^m\lambda_i g_i(x)+\nu^{\mathsf T}(Ax-b)
+$$
+>
+> と置く。$\lambda\in\mathbb R_+^m$、$\nu\in\mathbb R^r$ に対して
 >
 $$
 q(\lambda,\nu)
 =
-\inf_{x\in\mathbb R^n}
-\left[
-f(x)+\sum_{i=1}^m\lambda_i g_i(x)+\nu^{\mathsf T}(Ax-b)
-\right]
+\inf_{x\in\mathbb R^n}L(x,\lambda,\nu)
 $$
 >
 > を **双対関数**という。下限が無限遠へ下がる場合は $q(\lambda,\nu)=-\infty$ とする。
@@ -93,7 +98,15 @@ $$
 <a id="def-opt5-primal-dual"></a>
 <!-- formal-statement-start -->
 > **定義（主問題・Lagrange 双対問題）**  
-> 主問題の最適値を
+> 関数 $f,g_1,\dots,g_m:\mathbb R^n\to\mathbb R$、$A\in\mathbb R^{r\times n}$、$b\in\mathbb R^r$ を取り、
+>
+$$
+\min_x f(x)
+\quad\text{制約}\quad
+g_i(x)\le0\ (i=1,\dots,m),\qquad Ax=b
+$$
+>
+> を **主問題**という。その最適値を
 >
 $$
 p^*
@@ -101,7 +114,18 @@ p^*
 \inf\{f(x):g_i(x)\le0\ (i=1,\dots,m),\ Ax=b\}
 $$
 >
-> とする。対応する Lagrange 双対問題は
+> とする。双対関数
+>
+$$
+q(\lambda,\nu)
+=
+\inf_x
+\left[
+f(x)+\sum_i\lambda_i g_i(x)+\nu^{\mathsf T}(Ax-b)
+\right]
+$$
+>
+> を用いて
 >
 $$
 d^*
@@ -110,7 +134,7 @@ d^*
 q(\lambda,\nu)
 $$
 >
-> であり、$d^*$ を双対最適値という。
+> と定める最大化問題を **Lagrange 双対問題**といい、$d^*$ を双対最適値という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-opt5-dual-function, def-opt5-primal-dual, def-opt5-strong-duality -->
@@ -195,19 +219,38 @@ $$
 <a id="thm-opt5-weak-duality"></a>
 <!-- formal-statement-start -->
 > **定理（Lagrange 双対の弱双対性）**  
-> 関数 $f,g_1,\dots,g_m:\mathbb R^n\to\mathbb R$ とアフィン等式制約 $Ax=b$ を持つ最小化問題を考える。$x$ が
+> 関数 $f,g_1,\dots,g_m:\mathbb R^n\to\mathbb R$、$A\in\mathbb R^{r\times n}$、$b\in\mathbb R^r$ に対する主問題
 >
 $$
-g_i(x)\le0\quad(i=1,\dots,m),\qquad Ax=b
+\min_x f(x)
+\quad\text{制約}\quad
+g_i(x)\le0\ (i=1,\dots,m),\qquad Ax=b
 $$
 >
-> を満たし、$(\lambda,\nu)$ が $\lambda\ge0$ を満たすなら
+> と、その双対関数
+>
+$$
+q(\lambda,\nu)
+=
+\inf_z
+\left[
+f(z)+\sum_i\lambda_i g_i(z)+\nu^{\mathsf T}(Az-b)
+\right]
+$$
+>
+> を考える。$x$ が主実行可能で、$\lambda\ge0$ なら
 >
 $$
 q(\lambda,\nu)\le f(x).
 $$
 >
-> 従って主最適値 $p^*$ と双対最適値 $d^*$ の間に
+> 従って主最適値 $p^*$ と双対最適値
+>
+$$
+d^*=\sup_{\lambda\ge0,\,\nu\in\mathbb R^r}q(\lambda,\nu)
+$$
+>
+> の間に
 >
 $$
 \boxed{d^*\le p^*}
@@ -267,7 +310,15 @@ $$
 <a id="def-opt5-slater"></a>
 <!-- formal-statement-start -->
 > **定義（Slater 条件）**  
-> $f,g_1,\dots,g_m:\mathbb R^n\to\mathbb R$ を凸関数、等式制約を $Ax=b$ とする凸最適化問題を考える。ある $\bar x\in\mathbb R^n$ が存在して
+> 凸関数 $f,g_1,\dots,g_m:\mathbb R^n\to\mathbb R$、$A\in\mathbb R^{r\times n}$、$b\in\mathbb R^r$ に対する凸最適化問題
+>
+$$
+\min_x f(x)
+\quad\text{制約}\quad
+g_i(x)\le0\ (i=1,\dots,m),\qquad Ax=b
+$$
+>
+> を考える。ある $\bar x\in\mathbb R^n$ が存在して
 >
 $$
 g_i(\bar x)<0\qquad(i=1,\dots,m),\qquad A\bar x=b
@@ -298,13 +349,32 @@ OPT4 のように拡張実数値関数で共通の実効定義域を明示する
 <a id="thm-opt5-slater-strong-duality"></a>
 <!-- formal-statement-start -->
 > **定理（Slater 条件下の強双対性）**  
-> $f,g_1,\dots,g_m:\mathbb R^n\to\mathbb R$ を凸関数、$A\in\mathbb R^{r\times n}$、$b\in\mathbb R^r$ とする。主最適値 $p^*$ が有限で、Slater 条件を満たすなら、ある $\lambda^*\ge0$、$\nu^*\in\mathbb R^r$ が存在して
+> 凸関数 $f,g_1,\dots,g_m:\mathbb R^n\to\mathbb R$、$A\in\mathbb R^{r\times n}$、$b\in\mathbb R^r$ に対する問題
+>
+$$
+\min_x f(x)
+\quad\text{制約}\quad
+g_i(x)\le0\ (i=1,\dots,m),\qquad Ax=b
+$$
+>
+> を考える。主最適値 $p^*$ が有限で、Slater 条件を満たすなら、双対関数
+>
+$$
+q(\lambda,\nu)
+=
+\inf_x
+\left[
+f(x)+\sum_i\lambda_i g_i(x)+\nu^{\mathsf T}(Ax-b)
+\right]
+$$
+>
+> に対して、ある $\lambda^*\ge0$、$\nu^*\in\mathbb R^r$ が存在し
 >
 $$
 q(\lambda^*,\nu^*)=p^*.
 $$
 >
-> 従って双対最適解が存在し、
+> 従って Lagrange 双対問題は最適解を持ち、
 >
 $$
 \boxed{d^*=p^*}
@@ -678,7 +748,15 @@ $(\lambda^*,\nu^*)$ は双対最適解です。$\square$
 <a id="thm-opt5-kkt"></a>
 <!-- formal-statement-start -->
 > **定理（凸問題の KKT 条件）**  
-> $f,g_1,\dots,g_m:\mathbb R^n\to\mathbb R$ を微分可能な凸関数、$A\in\mathbb R^{r\times n}$、$b\in\mathbb R^r$ とする。実行可能点 $x^*$ と乗数 $\lambda^*\in\mathbb R_+^m$、$\nu^*\in\mathbb R^r$ が
+> 微分可能な凸関数 $f,g_1,\dots,g_m:\mathbb R^n\to\mathbb R$、$A\in\mathbb R^{r\times n}$、$b\in\mathbb R^r$ に対する問題
+>
+$$
+\min_x f(x)
+\quad\text{制約}\quad
+g_i(x)\le0\ (i=1,\dots,m),\qquad Ax=b
+$$
+>
+> を考える。実行可能点 $x^*$ と乗数 $\lambda^*\in\mathbb R_+^m$、$\nu^*\in\mathbb R^r$ が
 >
 > 1. **主実行可能性**
 $$
