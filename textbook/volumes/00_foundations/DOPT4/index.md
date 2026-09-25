@@ -562,7 +562,7 @@ $$
 1. 極点では活性制約の法線が $\mathbb R^n$ を張る。
 2. そこから独立な $n$ 本を選び、正則な $n\times n$ 部分行列 $B$ を作る。
 3. 全単模性と $\det B\ne0$ から $\det B=\pm1$。
-4. $B$ は可逆であり、[余因子行列](../LA3C/index.md#def-la3c-adjugate)を用いる逆行列公式から $B^{-1}$ は整数行列です。
+4. $\det B\ne0$ なので、[行列式による可逆性判定](../LA3C/index.md#thm-la3c-det-invertible)の証明で得た $B^{-1}=\operatorname{adj}(B)/\det B$ を使える。$\det B=\pm1$ なので $B^{-1}$ は整数行列である。
 5. $x^*=B^{-1}b_I$ は整数ベクトル。
 
 <!-- proof-start -->
@@ -660,7 +660,7 @@ $$
 
 全単模行列の成分は整数なので、$B$ は整数行列です。
 
-[余因子行列](../LA3C/index.md#def-la3c-adjugate)を使うと
+[行列式による可逆性判定](../LA3C/index.md#thm-la3c-det-invertible)の証明で得た関係を使うと
 
 $$
 B^{-1}
@@ -1549,7 +1549,7 @@ $$
 
 $W$ の任意の $k\times k$ 小行列式を取ります。
 
-その行に対応する $B$ の $k$ 本の基底列を、対応する $N$ の $k$ 本の列で置き換えた正方行列 $B'$ を作ると、一般化された Cramer の公式から
+その行に対応する $B$ の $k$ 本の基底列を、対応する $N$ の $k$ 本の列で置き換えた正方行列 $B'$ を作る。[行列式の乗法性](../LA3C/index.md#thm-la3c-det-multiplicative)を使うと
 
 $$
 |\det W_{I,J}|
