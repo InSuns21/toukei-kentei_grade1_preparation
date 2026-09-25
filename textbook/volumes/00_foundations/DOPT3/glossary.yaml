@@ -9,6 +9,9 @@ terms:
   - term: 最大マッチング
     english: maximum matching
     meaning: 辺数が最大のマッチング。
+  - term: 完全マッチング
+    english: perfect matching
+    meaning: 左右の頂点数が等しい二部グラフで、すべての頂点を飽和するマッチング。
   - term: 交互路
     english: alternating path
     meaning: 現在のマッチングに属さない辺と属する辺が交互に現れる路。
