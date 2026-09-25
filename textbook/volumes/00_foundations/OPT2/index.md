@@ -22,7 +22,7 @@ $$
 
 です。
 
-旧 F0-02B の内容は本章へ統合しました。旧ページは stable anchor の後方互換性のためリポジトリ内に残しますが、読者向け一覧には掲載しません。
+旧 F0-02B の内容は本章へ統合しました。旧ページは stable anchor と過去URLを維持するためリポジトリ内に残しますが、読者向け一覧には掲載しません。
 
 > **この章の停止線**
 >
@@ -58,7 +58,7 @@ $$
 a=z-p=(1,0)
 $$
 
-は円板の外向き法線になり、任意の $x=(x_1,x_2)\in C$ に対して
+は円板の外向き分離ベクトルになり、任意の $x=(x_1,x_2)\in C$ に対して
 
 $$
 a^{\mathsf T}x=x_1\le1
@@ -89,9 +89,9 @@ $$
 > **定義（超平面）**  
 > $a\in\mathbb R^n\setminus\{0\}$ と $\beta\in\mathbb R$ に対し
 >
-> $$
-> H=\{x\in\mathbb R^n:a^{\mathsf T}x=\beta\}
-> $$
+$$
+H=\{x\in\mathbb R^n:a^{\mathsf T}x=\beta\}
+$$
 >
 > と表される集合を **超平面** という。
 <!-- formal-statement-end -->
@@ -101,10 +101,10 @@ $$
 > **定義（点と集合を厳密に分離する超平面）**  
 > 集合 $C\subset\mathbb R^n$ と点 $z\notin C$ に対し、$a\ne0$ と $\beta\in\mathbb R$ が
 >
-> $$
-> a^{\mathsf T}x\le\beta<a^{\mathsf T}z
-> \qquad(\forall x\in C)
-> $$
+$$
+a^{\mathsf T}x\le\beta<a^{\mathsf T}z
+\qquad(\forall x\in C)
+$$
 >
 > を満たすとき、$\{x:a^{\mathsf T}x=\beta\}$ は $C$ と $z$ を **厳密に分離する超平面** であるという。
 <!-- formal-statement-end -->
@@ -145,7 +145,7 @@ $$
 は定義どおり $C$ と $z$ を厳密に分離します。
 <!-- definition-example-end -->
 
-分離を「超平面がある」とだけ覚えると、なぜその法線が存在するのかが見えません。次節から、法線そのものを最近点射影から構成します。
+分離を「超平面がある」とだけ覚えると、なぜその分離ベクトルが存在するのかが見えません。次節から、分離ベクトルそのものを最近点射影から構成します。
 
 ---
 
@@ -156,17 +156,17 @@ $$
 > **定義（最近点射影）**  
 > 空でない集合 $C\subset\mathbb R^n$ と $z\in\mathbb R^n$ に対し、点 $p\in C$ が
 >
-> $$
-> \|z-p\|
-> =
-> \inf_{x\in C}\|z-x\|
-> $$
+$$
+\|z-p\|
+=
+\inf_{x\in C}\|z-x\|
+$$
 >
 > を満たすとき、$p$ を $z$ の $C$ への最近点という。最近点が一意であるとき、その点を
 >
-> $$
-> P_C(z)
-> $$
+$$
+P_C(z)
+$$
 >
 > と書く。
 <!-- formal-statement-end -->
@@ -325,16 +325,16 @@ $$
 
 ## 4. 射影の変分不等式
 
-最近点 $p=P_C(z)$ では、$p$ から集合内へ少し動いても距離が減ってはいけません。その一次条件が分離法線を作ります。
+最近点 $p=P_C(z)$ では、$p$ から集合内へ少し動いても距離が減ってはいけません。その一次条件が分離分離ベクトルを作ります。
 
 <a id="thm-opt2-projection-variational-inequality"></a>
 <!-- formal-statement-start -->
 > **定理（射影の変分不等式）**  
 > $C\subset\mathbb R^n$ を空でない閉凸集合、$z\in\mathbb R^n$、$p=P_C(z)$ とする。このとき任意の $x\in C$ に対して
 >
-> $$
-> (z-p)^{\mathsf T}(x-p)\le0
-> $$
+$$
+(z-p)^{\mathsf T}(x-p)\le0
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -413,7 +413,7 @@ $$
 z-p
 $$
 
-が $p$ における「外向き法線」として働くことを意味します。
+が $p$ における「外向き分離ベクトル」として働くことを意味します。
 
 ---
 
@@ -424,10 +424,10 @@ $$
 > **定理（点と閉凸集合の厳密分離）**  
 > $C\subset\mathbb R^n$ を空でない閉凸集合、$z\notin C$ とする。このとき、ある $a\ne0$ と $\beta\in\mathbb R$ が存在して
 >
-> $$
-> a^{\mathsf T}x\le\beta<a^{\mathsf T}z
-> \qquad(\forall x\in C)
-> $$
+$$
+a^{\mathsf T}x\le\beta<a^{\mathsf T}z
+\qquad(\forall x\in C)
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -561,14 +561,14 @@ $$
 > **定義（支持超平面）**  
 > 凸集合 $C\subset\mathbb R^n$ と境界点 $x_0\in\partial C$ に対し、$a\ne0$ と $\beta\in\mathbb R$ が
 >
-> $$
-> a^{\mathsf T}x\le\beta
-> \qquad(\forall x\in C),
-> $$
+$$
+a^{\mathsf T}x\le\beta
+\qquad(\forall x\in C),
+$$
 >
-> $$
-> a^{\mathsf T}x_0=\beta
-> $$
+$$
+a^{\mathsf T}x_0=\beta
+$$
 >
 > を満たすとき、$\{x:a^{\mathsf T}x=\beta\}$ を $C$ の $x_0$ における **支持超平面** という。
 <!-- formal-statement-end -->
@@ -617,7 +617,7 @@ $$
 
 ### 証明の見取り図
 
-境界の外側から $x_0$ へ近づく点列 $z_k$ を取り、それぞれを $C$ へ射影します。各外向き法線を単位化し、単位球面のコンパクト性で収束部分列を取ると、極限法線が $x_0$ で集合全体を支えます。
+境界の外側から $x_0$ へ近づく点列 $z_k$ を取り、それぞれを $C$ へ射影します。各外向き分離ベクトルを単位化し、単位球面のコンパクト性で収束部分列を取ると、極限法線が $x_0$ で集合全体を支えます。
 
 <!-- proof-start -->
 ### 証明
@@ -719,11 +719,11 @@ OPT1 で導入した凸錐は、Farkas の補題で「非負係数による表�
 > **定義（有限次元の極錐）**  
 > 錐 $K\subset\mathbb R^n$ に対し
 >
-> $$
-> K^\circ
-> =
-> \{y\in\mathbb R^n:y^{\mathsf T}k\le0\ \forall k\in K\}
-> $$
+$$
+K^\circ
+=
+\{y\in\mathbb R^n:y^{\mathsf T}k\le0\ \forall k\in K\}
+$$
 >
 > を $K$ の **極錐（polar cone）** という。
 <!-- formal-statement-end -->
@@ -771,14 +771,14 @@ $$
 > **定理（閉凸錐の分離）**  
 > $K\subset\mathbb R^n$ を閉凸錐、$v\notin K$ とする。このとき、ある $d\in\mathbb R^n$ が存在して
 >
-> $$
-> d^{\mathsf T}k\le0
-> \qquad(\forall k\in K),
-> $$
+$$
+d^{\mathsf T}k\le0
+\qquad(\forall k\in K),
+$$
 >
-> $$
-> d^{\mathsf T}v>0
-> $$
+$$
+d^{\mathsf T}v>0
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -897,14 +897,14 @@ $$
 > **定義（有限生成凸錐）**  
 > 有限個のベクトル $a_1,\dots,a_m\in\mathbb R^n$ に対し
 >
-> $$
-> \operatorname{cone}(a_1,\dots,a_m)
-> =
-> \left\{
-> \sum_{j=1}^m\lambda_j a_j:
-> \lambda_j\ge0
-> \right\}
-> $$
+$$
+\operatorname{cone}(a_1,\dots,a_m)
+=
+\left\{
+\sum_{j=1}^m\lambda_j a_j:
+\lambda_j\ge0
+\right\}
+$$
 >
 > と表される集合を **有限生成凸錐** という。
 <!-- formal-statement-end -->
@@ -934,13 +934,13 @@ $$
 > **定理（有限生成凸錐の閉性）**  
 > 有限個のベクトル $a_1,\dots,a_m\in\mathbb R^n$ が生成する凸錐
 >
-> $$
-> K=
-> \left\{
-> \sum_{j=1}^m\lambda_j a_j:
-> \lambda_j\ge0
-> \right\}
-> $$
+$$
+K=
+\left\{
+\sum_{j=1}^m\lambda_j a_j:
+\lambda_j\ge0
+\right\}
+$$
 >
 > は閉集合である。
 <!-- formal-statement-end -->
@@ -952,7 +952,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず、任意の $k\in K$ は線形独立な生成ベクトルだけを使って表せることを示します。
+まず、任意の $k\in K$ は線形独立な生成元だけを使って表せることを示します。
 
 $$
 k=\sum_{j\in J}\lambda_j a_j,
@@ -1077,17 +1077,17 @@ $$
 >
 > 1. ある $x\in\mathbb R^m$ が存在して
 >
-> $$
-> Ax=b,\qquad x\ge0.
-> $$
+$$
+Ax=b,\qquad x\ge0.
+$$
 >
 > 2. ある $y\in\mathbb R^n$ が存在して
 >
-> $$
-> A^{\mathsf T}y\le0,
-> \qquad
-> b^{\mathsf T}y>0.
-> $$
+$$
+A^{\mathsf T}y\le0,
+\qquad
+b^{\mathsf T}y>0.
+$$
 <!-- formal-statement-end -->
 
 ### 10.1 両方同時には成立しない
@@ -1307,7 +1307,7 @@ $$
 \begin{array}{c}
 \text{射影の変分不等式}\\
 \Downarrow\\
-\text{外向き法線}\\
+\text{外向き分離ベクトル}\\
 \Downarrow\\
 \text{点と閉凸集合の厳密分離}
 \end{array}
@@ -2034,13 +2034,13 @@ $$
 
 という一本の流れになっています。
 
-つまり、Farkas の乗数ベクトルは突然現れた代数技巧ではなく、**表現不能な点を有限生成凸錐から分離する法線ベクトル**そのものです。
+つまり、Farkas の乗数ベクトルは突然現れた代数技巧ではなく、**表現不能な点を有限生成凸錐から分離する分離ベクトル**そのものです。
 <!-- solution-end -->
 
 ---
 
 ## 16. 次に進む
 
-本章で、凸集合の外側から法線を作り、その法線を線形不等式の実行不能性証明書へ変換しました。
+本章で、凸集合の外側から分離ベクトルを作り、その法線を線形不等式の実行不能性証明書へ変換しました。
 
 次の OPT3 では、関数を拡張実数値関数として扱い、epigraph・下半連続性・劣勾配・劣微分・法錐へ進みます。そこで本章の支持超平面が、関数の一次下界と最適性条件へ読み替えられます。
