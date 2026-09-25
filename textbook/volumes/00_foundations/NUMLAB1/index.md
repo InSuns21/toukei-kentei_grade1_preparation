@@ -590,10 +590,144 @@ assert cheb_error < 0.1
 
 ---
 
-<a id="lab-numlab1-na5-gauss"></a>
-## 5. NA5：Gauss--Legendre 求積の誤差減衰
+## 5. NA5：Gauss--Legendre 求積
 
-理論： [Gauss 求積公式](../NA5/index.md#def-na5-gauss-quadrature)
+理論： [Gauss 求積公式](../NA5/index.md#def-na5-gauss-quadrature) / [Gauss 求積公式の正確性](../NA5/index.md#thm-na5-gauss-exactness)
+
+ここでも、節点・重みの**構成そのもの**と、実務での `leggauss` 利用を分けます。
+
+<a id="lab-numlab1-na5-gauss-manual"></a>
+### 5A. 手動構築：3点 Gauss--Legendre 求積をモーメントから作る
+
+対称な3点公式
+
+$$
+w\,f(-a)+w_0 f(0)+w\,f(a)
+$$
+
+を考えます。
+
+5次まで正確にするには、偶数次数のモーメント
+
+$$
+\int_{-1}^{1}1\,dx=2,\qquad
+\int_{-1}^{1}x^2\,dx=\frac23,\qquad
+\int_{-1}^{1}x^4\,dx=\frac25
+$$
+
+を一致させれば十分です。
+
+そこから $a^2$、外側重み $w$、中央重み $w_0$ を順に構成します。
+
+**穴埋め課題：** モーメント条件だけから節点距離と重みを求め、0次から5次までの多項式で正確性を検査してください。
+
+```python-lab
+# lab-id: NUMLAB1-NA5-GAUSS-MANUAL
+# lab-title: 手動構築：3点 Gauss--Legendre 求積
+# lab-mode: exercise
+# timeout-ms: 5000
+
+import numpy as np
+
+moment0 = 2.0
+moment2 = 2.0 / 3.0
+moment4 = 2.0 / 5.0
+
+# ヒント: x^4 と x^2 のモーメント条件の比から、対称節点の a^2 を求める。
+a_squared = ___
+a = np.sqrt(a_squared)
+
+# ヒント: x^2 のモーメント条件 2*w*a^2 = 2/3 から外側重みを求める。
+outer_weight = ___
+
+# ヒント: 定数関数のモーメント条件 2*w + w0 = 2 から中央重みを求める。
+center_weight = ___
+
+nodes = np.array([-a, 0.0, a])
+weights = np.array([
+    outer_weight,
+    center_weight,
+    outer_weight,
+])
+
+degrees = np.arange(6, dtype=int)
+computed_moments = np.array([
+    np.sum(weights * nodes**k)
+    for k in degrees
+])
+exact_moments = np.array([
+    0.0 if k % 2 else 2.0 / (k + 1)
+    for k in degrees
+])
+
+print("nodes:", nodes)
+print("weights:", weights)
+print("computed moments:", computed_moments)
+print("exact moments:", exact_moments)
+```
+
+```python-solution
+import numpy as np
+
+moment0 = 2.0
+moment2 = 2.0 / 3.0
+moment4 = 2.0 / 5.0
+
+a_squared = moment4 / moment2
+a = np.sqrt(a_squared)
+
+outer_weight = moment2 / (2.0 * a_squared)
+center_weight = moment0 - 2.0 * outer_weight
+
+nodes = np.array([-a, 0.0, a])
+weights = np.array([
+    outer_weight,
+    center_weight,
+    outer_weight,
+])
+
+degrees = np.arange(6, dtype=int)
+computed_moments = np.array([
+    np.sum(weights * nodes**k)
+    for k in degrees
+])
+exact_moments = np.array([
+    0.0 if k % 2 else 2.0 / (k + 1)
+    for k in degrees
+])
+
+print("nodes:", nodes)
+print("weights:", weights)
+print("computed moments:", computed_moments)
+print("exact moments:", exact_moments)
+```
+
+```python-test
+assert np.allclose(
+    nodes,
+    np.array([
+        -np.sqrt(3.0 / 5.0),
+        0.0,
+        np.sqrt(3.0 / 5.0),
+    ]),
+)
+assert np.allclose(
+    weights,
+    np.array([5.0 / 9.0, 8.0 / 9.0, 5.0 / 9.0]),
+)
+assert np.all(weights > 0.0)
+assert np.allclose(
+    computed_moments,
+    exact_moments,
+    atol=1e-13,
+    rtol=1e-13,
+)
+```
+
+ここでは `leggauss` を使わず、Gauss 求積の正確性条件から節点と重みを再構成しています。
+
+<a id="lab-numlab1-na5-gauss"></a>
+### 5B. 実務編：`leggauss` で点数を増やして誤差を見る
 
 $$
 \int_0^1 e^x\,dx=e-1
@@ -601,11 +735,13 @@ $$
 
 を $n$ 点 Gauss--Legendre 求積で近似します。
 
+実務では NumPy が提供する節点・重みを使い、区間変換と誤差診断へ集中します。
+
 **穴埋め課題：** Gauss--Legendre 節点の区間変換と重み付き求積式を埋めてください。
 
 ```python-lab
 # lab-id: NUMLAB1-NA5-GAUSS
-# lab-title: Gauss--Legendre 求積の誤差
+# lab-title: 実務編：leggauss で Gauss--Legendre 求積
 # lab-mode: exercise
 # timeout-ms: 5000
 
@@ -670,7 +806,7 @@ assert errors[0] > errors[2] > errors[3]
 assert errors[-1] < 1e-10
 ```
 
-滑らかな関数では、点数を少し増やすだけで誤差が急速に小さくなる様子が見えます。
+手動構築で3点公式の由来を確認した後なので、実務編では点数を変えながら高精度化の様子を観察できます。
 
 ---
 
