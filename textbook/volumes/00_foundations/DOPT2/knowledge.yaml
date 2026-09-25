@@ -79,6 +79,17 @@ concepts:
     requires:
       - optimization.st-cut
 
+  - id: optimization.cut-flow-balance-identity
+    name: カット境界上のフロー恒等式
+    kind: proposition
+    aliases:
+      - cut flow identity
+    introduction: formal
+    introduction_aliases: ["命題（カット境界上のフロー恒等式）"]
+    requires:
+      - optimization.flow-value
+      - optimization.st-cut
+
   - id: optimization.flow-cut-inequality
     name: フロー・カット不等式
     kind: theorem
@@ -86,7 +97,7 @@ concepts:
     introduction: formal
     introduction_aliases: ["定理（フロー・カット不等式）"]
     requires:
-      - optimization.flow-value
+      - optimization.cut-flow-balance-identity
       - optimization.cut-capacity
 
   - id: optimization.residual-network
