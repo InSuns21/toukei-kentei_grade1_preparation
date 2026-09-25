@@ -464,7 +464,7 @@ $\square$
 
 ---
 
-## 4. integrality gap は緩和の弱さを数値化する
+## 4. 整数性ギャップは緩和の弱さを数値化する
 
 <a id="def-dopt1-integrality-gap"></a>
 <!-- formal-statement-start -->
