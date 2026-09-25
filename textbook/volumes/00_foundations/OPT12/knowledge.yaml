@@ -1,0 +1,137 @@
+chapter: OPT12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OPT5
+  - OPT6A
+  - OPT11
+
+forward_references: []
+
+concepts:
+  - id: optimization.quadratic-program
+    name: 二次計画問題
+    kind: definition
+    aliases:
+      - quadratic program
+      - quadratic programming
+      - QP
+    introduction: formal
+    introduction_aliases: ["定義（二次計画問題・凸二次計画問題）"]
+    requires:
+      - linear.positive-semidefinite-matrix
+
+  - id: optimization.convex-quadratic-program
+    name: 凸二次計画問題
+    kind: definition
+    aliases:
+      - convex quadratic program
+      - convex QP
+    introduction: formal
+    introduction_aliases: ["定義（二次計画問題・凸二次計画問題）"]
+    requires:
+      - optimization.quadratic-program
+      - linear.positive-semidefinite-matrix
+      - convex.convex-optimization
+
+  - id: optimization.quadratic-objective-convexity
+    name: 二次目的関数の凸性と狭義凸性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（二次目的関数の凸性と狭義凸性）"]
+    requires:
+      - linear.positive-semidefinite-matrix
+      - linear.positive-definite-matrix
+      - convex.convex-function
+      - convex.strictly-convex-function
+
+  - id: optimization.pd-quadratic-unique-minimizer
+    name: 正定値二次目的関数の最小点の一意性
+    kind: corollary
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["系（正定値二次目的関数の最小点の一意性）"]
+    requires:
+      - optimization.quadratic-objective-convexity
+      - convex.strict-convex-unique-minimizer
+
+  - id: optimization.equality-qp-kkt-system
+    name: 等式制約付き凸二次計画のKKT線形系
+    kind: theorem
+    aliases:
+      - equality-constrained QP KKT system
+    introduction: formal
+    introduction_aliases: ["定理（等式制約付き凸二次計画の KKT 線形系）"]
+    requires:
+      - optimization.convex-quadratic-program
+      - optimization.kkt-conditions
+
+  - id: optimization.nullspace-positive-definite-kkt
+    name: 零空間上の正定値性とKKT行列の正則性
+    kind: theorem
+    aliases:
+      - null-space positive definiteness
+    introduction: formal
+    introduction_aliases: ["定理（零空間上の正定値性と KKT 行列の正則性）"]
+    requires:
+      - optimization.equality-qp-kkt-system
+      - linear.positive-definite-matrix
+
+  - id: optimization.convex-qp-kkt
+    name: 凸二次計画のKKT条件
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（凸二次計画の KKT 条件）"]
+    requires:
+      - optimization.convex-quadratic-program
+      - optimization.kkt-conditions
+      - optimization.slater-condition
+
+  - id: optimization.qp-active-set-kkt
+    name: 固定活性集合からのKKT候補判定
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（固定活性集合からの KKT 候補判定）"]
+    requires:
+      - optimization.convex-qp-kkt
+      - optimization.active-constraint
+
+  - id: optimization.second-order-cone
+    name: 二次錐
+    kind: definition
+    aliases:
+      - second-order cone
+      - Lorentz cone
+    introduction: formal
+    introduction_aliases: ["定義（二次錐）"]
+    requires:
+      - convex.convex-cone
+      - linear.inner-product-induced-norm
+
+  - id: optimization.second-order-cone-self-dual
+    name: 二次錐の閉凸性と自己双対性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（二次錐の閉凸性と自己双対性）"]
+    requires:
+      - optimization.second-order-cone
+      - convex.dual-cone
+      - linear.cauchy-schwarz
+      - linear.triangle-inequality-inner-product
+
+  - id: optimization.second-order-cone-program
+    name: 二次錐計画
+    kind: definition
+    aliases:
+      - second-order cone program
+      - second-order cone programming
+      - SOCP
+    introduction: formal
+    introduction_aliases: ["定義（二次錐計画）"]
+    requires:
+      - optimization.second-order-cone
+      - optimization.cone-constraint
