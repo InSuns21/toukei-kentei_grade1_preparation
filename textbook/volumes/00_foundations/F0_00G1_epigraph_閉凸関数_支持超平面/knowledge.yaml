@@ -2,7 +2,8 @@ chapter: F0-00G1
 scope: dream-theater
 coverage: complete
 prerequisites:
-  - F0-00G
+  - OPT1
+  - OPT2
   - F0-00A1
   - F0-02C1A
 
@@ -73,20 +74,21 @@ concepts:
     requires:
       - convex.lower-semicontinuous
 
-  - id: convex.supporting-hyperplane
-    name: 支持超平面
+  - id: convex.supporting-hyperplane-recap-f0-00g1
+    name: epigraph で使う支持超平面の再掲
     kind: definition
-    aliases: [支持超平面]
-    requires:
-      - convex.convex-set
-
-  - id: convex.supporting-hyperplane-theorem
-    name: 有限次元の支持超平面定理
-    kind: theorem
-    aliases: [有限次元の支持超平面定理, 支持超平面定理]
+    aliases: [epigraph で使う支持超平面の再掲]
+    introduction_aliases: [支持超平面]
     requires:
       - convex.supporting-hyperplane
-      - functional.hilbert-projection-theorem
+
+  - id: convex.supporting-hyperplane-theorem-recap-f0-00g1
+    name: epigraph で使う支持超平面定理の再掲
+    kind: theorem
+    aliases: [epigraph で使う支持超平面定理の再掲]
+    introduction_aliases: [有限次元の支持超平面定理]
+    requires:
+      - convex.supporting-hyperplane-theorem
 
   - id: convex.subgradient-existence-relative-interior
     name: relative interiorでの劣勾配の存在
