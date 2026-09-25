@@ -1,0 +1,153 @@
+chapter: OPT10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OPT2
+  - OPT5
+
+forward_references:
+  - optimization.simplex-method
+  - optimization.linear-program-interior-point
+  - optimization.linear-program-sensitivity
+
+concepts:
+  - id: optimization.linear-program-standard-form
+    name: 線形計画問題の標準形
+    kind: definition
+    aliases:
+      - linear programming standard form
+      - LP standard form
+    introduction: formal
+    introduction_aliases: ["定義（線形計画問題の標準形）"]
+    requires: []
+
+  - id: optimization.polyhedron
+    name: 多面体
+    kind: definition
+    aliases:
+      - polyhedron
+    introduction: formal
+    introduction_aliases: ["定義（多面体・有界多面体）"]
+    requires:
+      - convex.convex-set
+
+  - id: optimization.polytope
+    name: 有界多面体
+    kind: definition
+    aliases:
+      - polytope
+    introduction: formal
+    introduction_aliases: ["定義（多面体・有界多面体）"]
+    requires:
+      - optimization.polyhedron
+
+  - id: optimization.polyhedral-feasible-direction
+    name: 多面体の実行可能方向
+    kind: definition
+    aliases:
+      - feasible direction of a polyhedron
+    introduction: formal
+    introduction_aliases: ["定義（実行可能方向）"]
+    requires:
+      - optimization.polyhedron
+
+  - id: optimization.standard-form-feasible-direction-test
+    name: 標準形多面体の実行可能方向判定
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（標準形多面体の実行可能方向判定）"]
+    requires:
+      - optimization.polyhedral-feasible-direction
+
+  - id: optimization.extreme-point
+    name: 極点
+    kind: definition
+    aliases:
+      - extreme point
+    introduction: formal
+    introduction_aliases: ["定義（極点）"]
+    requires:
+      - convex.convex-set
+
+  - id: optimization.standard-form-extreme-point-test
+    name: 標準形多面体の極点判定
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（標準形多面体の極点判定）"]
+    requires:
+      - optimization.extreme-point
+      - linear.linear-independence
+
+  - id: optimization.basic-feasible-solution
+    name: 基本実行可能解
+    kind: definition
+    aliases:
+      - basic feasible solution
+      - BFS
+    introduction: formal
+    introduction_aliases: ["定義（基底解・基本実行可能解）"]
+    requires:
+      - linear.linear-independence
+      - optimization.linear-program-standard-form
+
+  - id: optimization.extreme-point-bfs-equivalence
+    name: 極点と基本実行可能解の同値性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（極点と基本実行可能解の同値性）"]
+    requires:
+      - optimization.standard-form-extreme-point-test
+      - optimization.basic-feasible-solution
+
+  - id: optimization.linear-program-fundamental-theorem
+    name: 線形計画の基本定理
+    kind: theorem
+    aliases:
+      - fundamental theorem of linear programming
+    introduction: formal
+    introduction_aliases: ["定理（線形計画の基本定理）"]
+    requires:
+      - optimization.extreme-point-bfs-equivalence
+
+  - id: optimization.linear-program-dual
+    name: 線形計画双対
+    kind: definition
+    aliases:
+      - linear programming dual
+      - LP dual
+    introduction: formal
+    introduction_aliases: ["定義（線形計画双対）"]
+    requires:
+      - optimization.linear-program-standard-form
+
+  - id: optimization.linear-program-weak-duality
+    name: 線形計画の弱双対性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（線形計画の弱双対性）"]
+    requires:
+      - optimization.linear-program-dual
+
+  - id: optimization.linear-program-strong-duality
+    name: 線形計画の強双対性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（線形計画の強双対性）"]
+    requires:
+      - optimization.linear-program-weak-duality
+      - convex.farkas-lemma
+
+  - id: optimization.linear-program-complementary-slackness
+    name: 線形計画の相補性
+    kind: theorem
+    aliases:
+      - complementary slackness
+    introduction: formal
+    introduction_aliases: ["定理（相補性と最適性）"]
+    requires:
+      - optimization.linear-program-strong-duality
