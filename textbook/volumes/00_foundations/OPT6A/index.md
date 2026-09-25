@@ -90,7 +90,7 @@ K^*
 \langle\lambda,k\rangle\ge0\quad(\forall k\in K)\}
 $$
 
-です。ここでは新しい概念を再定義するのではなく、OPT3 の canonical な双対錐を再掲しています。
+です。ここでは OPT3 で導入した双対錐をそのまま用います。
 
 **確認例**：非負直交錐は自己双対
 
