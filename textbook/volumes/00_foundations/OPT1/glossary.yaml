@@ -1,17 +1,38 @@
 chapter: "OPT1"
 terms:
+  - term: 凸結合
+    english: convex combination
+    meaning: 非負係数の総和を1にした線形結合。二点の場合はその線分上の点を表す。
+  - term: 凸集合
+    english: convex set
+    meaning: 集合内の任意の二点を結ぶ線分をすべて含む集合。
+  - term: 凸包
+    english: convex hull
+    meaning: 与えられた集合を含む最小の凸集合。有限集合では全ての有限凸結合の集合になる。
+  - term: 凸関数
+    english: convex function
+    meaning: 入力の凸結合での関数値が、両端の関数値の凸結合以下になる関数。
+  - term: 狭義凸関数
+    english: strictly convex function
+    meaning: 異なる二点の内部凸結合で凸不等式が厳密になる関数。最小点が存在すれば一意になる。
+  - term: Hessian による凸性判定
+    english: Hessian criterion for convexity
+    meaning: 開凸集合上の C2 関数では、凸性と Hessian の全点半正定値性が同値になる判定法。
   - term: 錐
     english: cone
     meaning: 集合内の点を任意の非負スカラー倍しても集合内に残る集合。凸性は別条件であり、両方を満たすと凸錐になる。
   - term: 凸錐
     english: convex cone
-    meaning: 任意の二点に任意の非負係数を掛けた線形結合を再び含む集合。凸結合の係数和1という条件を外し、非負スカラー倍でも閉じた凸集合として扱う。
+    meaning: 任意の二点に任意の非負係数を掛けた線形結合を再び含む集合。凸結合の係数和1という条件を外した構造。
   - term: 準凸関数
     english: quasiconvex function
     meaning: 線分上の関数値が両端の大きい方を超えない関数。すべての下位集合が凸であることと同値で、凸関数より弱い概念。
   - term: 準凹関数
     english: quasiconcave function
     meaning: 線分上の関数値が両端の小さい方を下回らない関数。負号を付けると準凸になる。凸選好を効用関数で表すときに自然に現れる。
+  - term: 一次支持不等式
+    english: first-order convexity inequality
+    meaning: 微分可能凸関数で f(y)>=f(x)+grad f(x)^T(y-x) が成り立つこと。接平面が関数を大域的に下から支える。
   - term: 凸最適化問題
     english: convex optimization problem
-    meaning: 凸な目的関数と凸な不等式制約、アフィンな等式制約からなる最適化問題。実行可能集合が凸になり、局所的な最適性情報を大域的な結論へつなげやすい。
+    meaning: 凸な目的関数と凸な不等式制約、affine な等式制約からなる最適化問題。実行可能集合が凸になり、局所最小が大域最小になる。
