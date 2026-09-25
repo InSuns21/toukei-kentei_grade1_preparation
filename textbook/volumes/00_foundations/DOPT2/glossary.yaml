@@ -27,3 +27,7 @@ terms:
   - term: 負費用閉路
     english: negative-cost cycle
     meaning: 残余費用の総和が負である有向閉路。これに沿って正の量だけ流量を修正できれば、供給需要を保ったまま総費用を減らせる。
+
+  - term: 非負循環
+    english: nonnegative circulation
+    meaning: 各辺に非負量を割り当て、すべての頂点で流出量と流入量が一致する流れ。供給・需要を変えない流量差を閉路へ分解するときの基本対象となる。
