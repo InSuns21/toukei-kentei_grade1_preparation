@@ -2,6 +2,8 @@
 
 > **アーカイブ**：この内容の canonical owner は [canonical 章 OPT6](../OPT6/index.md) です。本ページは過去URLと stable anchor の後方互換性のため保持しています。
 
+<!-- definition-example-audit: loose -->
+
 KKT は「局所最適なら自動的に成立する公式」ではありません。制約の一次近似が退化すると、真の実行可能集合と線形化された集合が食い違い、乗数が存在しないことがあります。
 
 この講義では有限次元の滑らかな制約
