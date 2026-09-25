@@ -269,14 +269,14 @@ $$
 > $$
 > \min_x f(x)
 > \quad\text{subject to}\quad
-> g_i(x)\le0,qquad Ax=b
+> g_i(x)\le0,\qquad Ax=b
 > $$
 >
 > が Slater 条件を満たすとする。このとき $x^*$ が主最適解であることと、ある $\lambda^*\ge0$、$\nu^*\in\mathbb R^r$ が存在して次の4条件を満たすことは同値である。
 >
 > 1. **主実行可能性**
 >    $$
->    g_i(x^*)\le0,qquad Ax^*=b.
+>    g_i(x^*)\le0,\qquad Ax^*=b.
 >    $$
 > 2. **双対実行可能性**
 >    $$
@@ -768,7 +768,7 @@ $$
 subject to
 
 $$
-x\ge0,qquad y\ge0,qquad x+y=1
+x\ge0,\qquad y\ge0,\qquad x+y=1
 $$
 
 について、Lagrangian と KKT 条件を構成し、主最適解と一組の最適乗数を求めよ。さらに Slater 条件を確認し、KKT が必要十分条件として使える理由を説明せよ。
