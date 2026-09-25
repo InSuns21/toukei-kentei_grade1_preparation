@@ -22,7 +22,8 @@ definitions:
   - { id: OPT10-DEF-03, name: 実行可能方向 }
   - { id: OPT10-DEF-04, name: 極点 }
   - { id: OPT10-DEF-05, name: 基底解・基本実行可能解 }
-  - { id: OPT10-DEF-06, name: 線形計画双対 }
+  - { id: OPT10-DEF-06, name: 退化した基本実行可能解 }
+  - { id: OPT10-DEF-07, name: 線形計画双対 }
 theorems:
   - { id: OPT10-THM-01, name: 標準形多面体の実行可能方向判定 }
   - { id: OPT10-THM-02, name: 標準形多面体の極点判定 }
