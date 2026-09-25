@@ -26,6 +26,7 @@ definitions:
   - { id: DOPT2-DEF-08, name: 非負循環 }
   - { id: DOPT2-DEF-09, name: 最大フロー }
 theorems:
+  - { id: DOPT2-PROP-00, name: カット境界上のフロー恒等式 }
   - { id: DOPT2-THM-01, name: フロー・カット不等式 }
   - { id: DOPT2-PROP-01, name: 増加路に沿う更新の実行可能性 }
   - { id: DOPT2-THM-02, name: 最大流最小カット定理 }
