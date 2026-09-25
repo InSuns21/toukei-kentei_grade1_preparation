@@ -249,6 +249,9 @@ function conceptDependsOn(conceptId, targetId, visiting = new Set()) {
 function extractTechnicalCandidates(line) {
   const text = String(line ?? '');
   const highConfidence = [];
+  // H1 はページタイトルであり、本文中で概念を既知として使用する位置ではない。
+  // 新章タイトルに含まれる主役概念を未定義語候補として誤検出しない。
+  if (/^#(?!#)\s+/u.test(text.trim())) return [];
   const isHeading = /^#{1,6}\s+/u.test(text.trim());
   const isFormalTitle = /(?:定義|定理|補題|命題|系)[（(]/u.test(text);
   const isExerciseHeading = /^#{1,6}\s+(?:[A-Z][A-Z0-9]*\d*-[ABC]\d{2}\b|[A-Z][A-Z0-9]*-\d+\b)/u.test(text.trim());
@@ -427,6 +430,7 @@ function runSelfTest() {
   const failures = [];
   const candidates = extractTechnicalCandidates('## bounded Lipschitz関数で分布収束を判定できる');
   if (!candidates.some((value) => normalizeAlias(value) === 'boundedlipschitz関数')) failures.push('undefined technical term extraction');
+  if (extractTechnicalCandidates('# NEW1 新しい凸関数').length !== 0) failures.push('H1 title must not become undefined technical term');
 
   if (normalizeAlias('弱*位相') === normalizeAlias('弱位相')) failures.push('semantic star preservation');
   if (normalizeAlias('**弱*位相**') !== normalizeAlias('弱*位相')) failures.push('markdown emphasis star normalization');
