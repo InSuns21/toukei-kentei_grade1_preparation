@@ -395,7 +395,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-OPT6 の局所最適点の接方向条件から
+[OPT6 の局所最適点の接方向条件](../OPT6/index.md#thm-opt6-local-tangent)から
 
 $$
 -\nabla f(x^*)\in T_C(x^*)^\circ.
@@ -638,7 +638,7 @@ $$
 - Level: B
 - 目安時間: 15分
 
-$K=\mathbb R_+^m$ として、一般化 KKT から $\lambda_i\ge0$ と $\lambda_i g_i(x^*)=0$ を導け。
+$K=\mathbb R_+^m$ として、[一般化 KKT](#thm-opt6a-generalized-kkt)から $\lambda_i\ge0$ と $\lambda_i g_i(x^*)=0$ を導け。
 
 <!-- solution-start -->
 #### 詳細解答
