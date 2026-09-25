@@ -1310,6 +1310,39 @@ $$
 
 これは前章で定義した二重確率行列です。
 
+<a id="def-dopt4-permutation-matrix"></a>
+<!-- formal-statement-start -->
+> **定義（置換行列）**  
+> $n\times n$ 行列 $P$ が **置換行列**であるとは、各成分が0または1で、各行・各列に1がちょうど一つずつ現れることをいう。
+>
+> 同値に、
+>
+> $$
+> P\mathbf1=\mathbf1,
+> \qquad
+> P^{\mathsf T}\mathbf1=\mathbf1
+> $$
+>
+> を満たす0--1行列である。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-dopt4-permutation-matrix -->
+**定義の確認**：
+
+$$
+P=
+\begin{pmatrix}
+0&1&0\\
+0&0&1\\
+1&0&0
+\end{pmatrix}
+$$
+
+では、各成分は0または1で、各行にも各列にも1がちょうど一つあります。
+
+従って $P$ は置換行列です。
+<!-- definition-example-end -->
+
 <a id="cor-dopt4-birkhoff-von-neumann"></a>
 <!-- formal-statement-start -->
 > **系（Birkhoff--von Neumann の定理）**  
