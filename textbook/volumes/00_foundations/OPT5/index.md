@@ -140,13 +140,15 @@ $$
 <a id="thm-opt5-dual-function-concavity"></a>
 <!-- formal-statement-start -->
 > **定理（双対関数の凹性）**  
-> 関数 $f,g_1,\dots,g_m:\mathbb R^n\to\mathbb R$ と行列 $A\in\mathbb R^{r\times n}$、$b\in\mathbb R^r$ から作る Lagrangian の双対関数
+> 関数 $f,g_1,\dots,g_m:\mathbb R^n\to\mathbb R$ と行列 $A\in\mathbb R^{r\times n}$、$b\in\mathbb R^r$ に対し
 >
 $$
+L(x,\lambda,\nu)=f(x)+\sum_i\lambda_i g_i(x)+\nu^{\mathsf T}(Ax-b),
+\qquad
 q(\lambda,\nu)=\inf_x L(x,\lambda,\nu)
 $$
 >
-> は $\lambda\ge0$、$\nu\in\mathbb R^r$ の凸な領域上で凹関数である。この結論には $f,g_i$ の凸性を仮定しない。
+> と置く。このとき $q$ は $\lambda\ge0$、$\nu\in\mathbb R^r$ の凸な領域上で凹関数である。この結論には $f,g_i$ の凸性を仮定しない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -245,7 +247,7 @@ $$
 <a id="def-opt5-strong-duality"></a>
 <!-- formal-statement-start -->
 > **定義（双対ギャップ・強双対性）**  
-> $p^*,d^*\in\mathbb R$ のとき、非負量
+> 主問題の最適値を $p^*$、Lagrange 双対問題の最適値を $d^*$ とし、$p^*,d^*\in\mathbb R$ とする。弱双対性により非負となる量
 >
 $$
 p^*-d^*
@@ -313,7 +315,7 @@ $$
 
 ### 証明の見取り図
 
-制約の右辺を少し動かした **摂動値関数**を作ります。Slater 点があると、摂動量 $(u,v)=(0,0)$ はその実効定義域の相対内部に入ります。そこで凸関数を支える劣勾配を取り、その符号を読み替えると $\lambda\ge0$ と自由な等式乗数 $\nu$ が得られます。
+制約の右辺を少し動かした **制約右辺を摂動した最適値を表す関数**を作ります。Slater 点があると、摂動量 $(u,v)=(0,0)$ はその実効定義域の相対内部に入ります。そこで凸関数を支える劣勾配を取り、その符号を読み替えると $\lambda\ge0$ と自由な等式乗数 $\nu$ が得られます。
 
 今回重要なのは
 
@@ -334,7 +336,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-#### 1. 摂動値関数を作る
+#### 1. 制約右辺を摂動した最適値を作る
 
 $W=\operatorname{range}A\subset\mathbb R^r$ とし、$(u,v)\in\mathbb R^m\times W$ に対して
 
@@ -408,12 +410,26 @@ $$
 
 が同時に成り立ちます。
 
-有限次元線形写像 $A:\mathbb R^n\to W$ には、$W$ 上の線形な右逆写像 $R:W\to\mathbb R^n$ を一つ取れます。すなわち
+有限次元線形写像 $A:\mathbb R^n\to W$ の核の直交補空間を
+
+$$
+V=(\ker A)^\perp
+$$
+
+とします。制限写像 $A|_V:V\to W$ は単射で、$W=\operatorname{range}A$ の定義から全射でもあるので線形同型です。そこでその逆写像を $W$ から $\mathbb R^n$ への写像とみなし
+
+$$
+R=(A|_V)^{-1}:W\to V\subset\mathbb R^n
+$$
+
+と置けば
 
 $$
 ARv=v
-\qquad(v\in W).
+\qquad(v\in W)
 $$
+
+です。
 
 $v$ が十分小さければ $\bar x+Rv$ は上の近傍に入ります。さらに $\|u\|_\infty<\eta/4$ なら
 
@@ -531,7 +547,7 @@ $$
 p^*+a^{\mathsf T}z.
 $$
 
-つまり $a$ は $\varphi$ の原点における劣勾配です。
+つまり $a$ は $\varphi$ の原点における[劣勾配](../OPT3/index.md#def-opt3-subgradient)です。
 
 #### 4. 支持傾きを Lagrange 乗数へ読む
 
@@ -627,7 +643,7 @@ $(\lambda^*,\nu^*)$ は双対最適解です。$\square$
 <!-- proof-end -->
 
 > **仮定が働いた場所**  
-> 凸性は摂動値関数 $\varphi$ を凸にしました。Slater の厳密不等式は $(0,0)$ を $\operatorname{dom}\varphi$ の相対内部へ押し込み、そこで有限の支持傾きを取れるようにしました。その不等式座標の傾きが非正であるため、符号を反転したものが $\lambda\ge0$ になります。
+> 凸性は摂動後の最適値 $\varphi$ を凸にしました。Slater の厳密不等式は $(0,0)$ を $\operatorname{dom}\varphi$ の相対内部へ押し込み、そこで有限の支持傾きを取れるようにしました。その不等式座標の傾きが非正であるため、符号を反転したものが $\lambda\ge0$ になります。
 
 ---
 
