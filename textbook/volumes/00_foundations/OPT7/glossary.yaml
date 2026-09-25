@@ -24,6 +24,6 @@ terms:
   - term: 後退直線探索
     english: backtracking line search
     meaning: 初期歩幅から一定比率で歩幅を縮め、Armijo条件などを初めて満たす歩幅を採用する直線探索。
-  - term: Newton 法の局所二次収束
-    english: local quadratic convergence of Newton method
+  - term: 最適化 Newton 法の局所二次収束
+    english: local quadratic convergence of Newton optimization
     meaning: 最小点近傍でHessianが一様正定値かつLipschitz連続なら、次の誤差が現在誤差の二乗で抑えられる性質。
