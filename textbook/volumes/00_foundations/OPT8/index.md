@@ -447,7 +447,7 @@ $$
 g=\delta_C
 $$
 
-と置けば近接勾配法の特殊例としてそのまま回収できます。ここで $\delta_C$ は OPT3 の標示関数です。
+と置けば、後で導入する「滑らかな項の勾配ステップと非滑らかな項の近接計算を組み合わせる反復」の特殊例としてそのまま回収できます。ここで $\delta_C$ は OPT3 の標示関数です。
 
 ---
 
@@ -856,11 +856,11 @@ $$
 $\square$
 <!-- proof-end -->
 
-「firm」は単なる非拡大性より強く、後で Moreau 包絡の勾配の Lipschitz 性を導くときに働きます。
+堅非拡大性は単なる非拡大性より強く、次節で導入する平滑化の勾配の Lipschitz 性を導くときに働きます。
 
 ---
 
-## 6. Moreau 包絡：非滑らかな関数を滑らかに見る
+## 6. 非滑らかな関数を滑らかに見る
 
 <a id="def-opt8-moreau-envelope"></a>
 <!-- formal-statement-start -->
@@ -886,10 +886,16 @@ $\square$
 <!-- definition-example-start: def-opt8-moreau-envelope -->
 **定義の確認**：$g(x)=|x|$
 
-後で示すソフト閾値処理から
+まず
 
 $$
-\operatorname{prox}_{\lambda|\cdot|}(v)
+|x|+\frac{1}{2\lambda}(x-v)^2
+$$
+
+を直接最小化します。$x>0$ では微分条件から $x=v-\lambda$、$x<0$ では $x=v+\lambda$ です。$x=0$ が最小点になるのは $|v|\le\lambda$ のときなので、最小点は
+
+$$
+p(v)
 =
 \begin{cases}
 v-\lambda,&v>\lambda,\\
@@ -1096,7 +1102,7 @@ $\square$
 
 ---
 
-## 7. $\ell^1$ 正則化の心臓部：ソフト閾値処理
+## 7. $\ell^1$ 正則化で成分を 0 にする
 
 <a id="def-opt8-soft-threshold"></a>
 <!-- formal-statement-start -->
@@ -1253,7 +1259,7 @@ $\square$
 
 ---
 
-## 8. 合成最適化：近接勾配法
+## 8. 合成最適化：滑らかな項と非滑らかな項を分担する
 
 ここで本章の中心問題
 
