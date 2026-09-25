@@ -335,9 +335,9 @@ $$
 
 標準形では実行可能方向を完全に成分条件へ落とせます。
 
-<a id="prop-opt10-feasible-direction-test"></a>
+<a id="thm-opt10-feasible-direction-test"></a>
 <!-- formal-statement-start -->
-> **命題（標準形多面体の実行可能方向判定）**  
+> **定理（標準形多面体の実行可能方向判定）**  
 > $P=\{x\in\mathbb R^n:Ax=b,\ x\ge0\}$、$x\in P$ とする。
 >
 > $$
@@ -2629,7 +2629,7 @@ $$
 I_0(x)=\{3\}.
 $$
 
-[標準形多面体の実行可能方向判定](#prop-opt10-feasible-direction-test)より、必要十分条件は
+[標準形多面体の実行可能方向判定](#thm-opt10-feasible-direction-test)より、必要十分条件は
 
 $$
 d_1+d_2+d_3=0,
