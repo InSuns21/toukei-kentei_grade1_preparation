@@ -134,7 +134,7 @@ $t_k>0$ で割って極限を取れば $\nabla f(x^*)^{\mathsf T}d\ge0$。これ
 
 ---
 
-## 3. 線形化錐
+## 3. 制約の一次近似を錐として表す
 
 <a id="def-opt6-linearization-cone"></a>
 <!-- formal-statement-start -->
