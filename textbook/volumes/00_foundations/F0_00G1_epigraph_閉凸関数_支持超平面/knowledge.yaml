@@ -8,6 +8,7 @@ prerequisites:
   - F0-02C1A
 
 forward_references:
+  - variational.coercive-bilinear-form
   - convex.subgradient
   - convex.indicator-function
   - convex.normal-cone
