@@ -6,14 +6,14 @@
 
 > **この章の停止線**
 >
-> Lagrangian、Slater 条件、KKT の体系的導出は次章 OPT5 の担当です。本章では Fenchel 双対の構成と弱双対性、強双対性へ進むための 相対内部 条件の意味までを扱います。
+> Lagrangian、Slater 条件、KKT の体系的導出は次章 OPT5 の担当です。本章では Fenchel 双対の構成と弱双対性、強双対性へ進むための相対内部条件の意味までを扱います。
 
 
 <!-- definition-example-audit: strict -->
 
 ここまでで
 
-- 凸関数を エピグラフ という凸集合として見る
+- 凸関数をエピグラフという凸集合として見る
 - 支持超平面の傾きを劣勾配として読む
 - 法錐・極錐・双対錐で制約の幾何を読む
 
@@ -601,13 +601,13 @@ $$
 
 [Fenchel–Moreau](#thm-opt4-fenchel-moreau)により $f^{**}=f$ です。また前節の証明では $f$ の大域的アフィン下界 $\ell_0(x)=\langle y_0,x\rangle+c_0$ を構成したので $f^*(y_0)\le-c_0<+\infty$。一方、真性から $x_0\in\operatorname{dom}f$ を一つ取れば任意の $y$ に対して
 
-$
+$$
 f^*(y)
 \ge
 \langle y,x_0\rangle-f(x_0)
 >
 -\infty.
-$
+$$
 
 従って $f^*$ は真関数であり、[共役関数の凸性・下半連続性](#thm-opt4-conjugate-closed-convex)と合わせて真凸関数です。よって同じ等式を $f^*$ に対する Fenchel–Young の等号条件として読めば
 
@@ -1089,13 +1089,13 @@ $$
 y\in\partial f(x)\iff f(x)+f^*(y)=x^{\mathsf T}y.
 $$
 
-閉真凸性より [Fenchel–Moreau の定理](#thm-opt4-fenchel-moreau)が使え、$f^{**}=f$。したがって右辺は
+閉真凸性より [Fenchel–Moreau の定理](#thm-opt4-fenchel-moreau)が使え、$f^{**}=f$ です。さらに本文で確認したように、閉真凸関数の共役 $f^*$ は真凸関数です。したがって右辺は
 
 $$
 f^*(y)+f^{**}(x)=y^{\mathsf T}x
 $$
 
-と書ける。今度は関数 $f^*$ に [Fenchel--Young の等号条件](#thm-opt4-fenchel-equality-subgradient)を適用すると、これは $x\in\partial f^*(y)$ と同値である。よって主張を得る。
+と書けます。今度は関数 $f^*$ に [Fenchel--Young の等号条件](#thm-opt4-fenchel-equality-subgradient)を適用すると、これは $x\in\partial f^*(y)$ と同値です。よって主張を得ます。
 <!-- solution-end -->
 
 ### OPT4-B03 Fenchel 双対の弱双対性
@@ -1103,7 +1103,7 @@ $$
 - Level: B
 - 目安時間: 20分
 
-$f:\mathbb R^n\to(-\infty,+\infty]$、$g:\mathbb R^m\to(-\infty,+\infty]$ を真関数、$A\in\mathbb R^{m\times n}$ とする。主問題
+$f:\mathbb R^n\to(-\infty,+\infty]$、$g:\mathbb R^m\to(-\infty,+\infty]$ を閉真凸関数、$A\in\mathbb R^{m\times n}$ とする。主問題
 
 $$
 \inf_x\{f(x)+g(Ax)\}
