@@ -11,6 +11,8 @@ forward_references:
   - convex.fenchel-duality
   - optimization.kkt-multiplier-existence
   - optimization.constraint-qualification
+  - optimization.dual-problem
+  - optimization.cone-constraint
 
 concepts:
   - id: convex.effective-domain
@@ -98,6 +100,14 @@ concepts:
     requires:
       - convex.effective-domain
 
+  - id: convex.coercivity
+    name: 強圧性
+    kind: definition
+    aliases: [強圧性, coercivity]
+    introduction: formal
+    introduction_aliases: ["定義（強圧性）"]
+    requires: []
+
   - id: convex.finite-dimensional-direct-method
     name: 有限次元の直接法
     kind: theorem
@@ -107,6 +117,7 @@ concepts:
     requires:
       - convex.lower-semicontinuous
       - convex.sublevel-set
+      - convex.coercivity
       - topology.heine-borel
 
   - id: convex.affine-hull
