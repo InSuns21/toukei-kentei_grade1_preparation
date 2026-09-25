@@ -1,0 +1,54 @@
+id: "OPT10"
+title: "線形計画 I：多面体・極点・双対"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OPT2
+  - OPT5
+official_scope: []
+learning_objectives:
+  - 線形計画問題を標準形へ変換し、スラック変数・余剰変数・自由変数分解の役割を説明できる
+  - 多面体・有界多面体・実行可能方向・極点を定義し、低次元例で直接判定できる
+  - 標準形実行可能集合で、極点と正成分に対応する列の一次独立性が同値であることを証明できる
+  - 基本実行可能解を定義し、行フルランクの標準形で極点と基本実行可能解が一致することを証明できる
+  - 実行可能で目的関数が下に有界な標準形LPが基本実行可能最適解を持つことを証明できる
+  - 標準形LPの双対問題を導入し、双対可行解が主問題の下界証明書になることを弱双対性から説明できる
+  - Farkasの補題を用いてLP強双対を証明し、退化や狭義可行点の不存在に依存しない理由を説明できる
+  - 主・双対可行解について相補性と最適性が同値であることを双対ギャップの分解から示せる
+  - 二変数LPを極点・基本実行可能解・双対価格・相補性の4視点で一貫して解ける
+definitions:
+  - { id: OPT10-DEF-01, name: 線形計画問題の標準形 }
+  - { id: OPT10-DEF-02, name: 多面体・有界多面体 }
+  - { id: OPT10-DEF-03, name: 実行可能方向 }
+  - { id: OPT10-DEF-04, name: 極点 }
+  - { id: OPT10-DEF-05, name: 基底解・基本実行可能解 }
+  - { id: OPT10-DEF-06, name: 退化した基本実行可能解 }
+  - { id: OPT10-DEF-07, name: 線形計画双対 }
+theorems:
+  - { id: OPT10-THM-01, name: 標準形多面体の実行可能方向判定 }
+  - { id: OPT10-THM-02, name: 標準形多面体の極点判定 }
+  - { id: OPT10-THM-03, name: 極点と基本実行可能解の同値性 }
+  - { id: OPT10-THM-04, name: 線形計画の基本定理 }
+  - { id: OPT10-THM-05, name: 線形計画の弱双対性 }
+  - { id: OPT10-THM-06, name: 線形計画の強双対性 }
+  - { id: OPT10-THM-07, name: 相補性と最適性 }
+canonical_examples:
+  - 不等式制約を余剰変数で標準形へ直す二変数線形計画
+  - 単体x1+x2+x3=1の極点と基本実行可能解
+  - 正成分の列依存から極点でないことを示す例
+  - 二変数線形計画の主問題と双対問題
+  - 双対可行解による目的値下界の証明書
+  - 相補性から主・双対最適解を復元する例
+problem_patterns:
+  - OPT10-STANDARD-FORM-1
+  - OPT10-FEASIBLE-DIRECTION-1
+  - OPT10-EXTREME-POINT-1
+  - OPT10-BFS-1
+  - OPT10-FUNDAMENTAL-THEOREM-1
+  - OPT10-WEAK-DUALITY-1
+  - OPT10-STRONG-DUALITY-1
+  - OPT10-COMPLEMENTARY-SLACKNESS-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 4.0, review: 0.75 }

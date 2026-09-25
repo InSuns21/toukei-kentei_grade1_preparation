@@ -236,6 +236,7 @@ LIE1 では左移動・右移動、左不変ベクトル場、単位元接空間
 8. [OPT7 滑らかな凸最適化](textbook/volumes/00_foundations/OPT7/index.md)
 9. [OPT8 非滑らか・近接最適化](textbook/volumes/00_foundations/OPT8/index.md)
 10. [OPT9 制約付き数値最適化](textbook/volumes/00_foundations/OPT9/index.md)
+11. [OPT10 線形計画 I：多面体・極点・双対](textbook/volumes/00_foundations/OPT10/index.md)
 
 ### RKHS・SVM
 
