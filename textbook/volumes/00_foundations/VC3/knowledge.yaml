@@ -9,6 +9,9 @@ prerequisites:
 forward_references:
   - vector-calculus.green-circulation
   - vector-calculus.gauss-divergence
+  - linear.wedge-product
+  - geometry.boundary-orientation
+  - geometry.unit-normal-field
 
 concepts:
   - id: vector-calculus.regular-parametrized-surface
@@ -23,7 +26,7 @@ concepts:
   - id: vector-calculus.surface-tangent-normal
     name: 接平面・法線
     kind: definition
-    aliases: [接平面, tangent plane, 法線, normal vector]
+    aliases: [曲面の接平面, surface tangent plane, 曲面の法線, surface normal vector]
     introduction: formal
     introduction_aliases: ["定義（接平面・法線）"]
     requires:
