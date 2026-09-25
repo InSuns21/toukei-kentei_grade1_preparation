@@ -1140,6 +1140,8 @@ OPT、DOPT、MICRO、GAME-B、GAME-D が合流する総合章とする。
 
 移管済みの旧 F0 ページは **in-place archive** とする。すなわち、stable anchor と過去リンクの後方互換性のため実ファイルは残すが、次を徹底する。
 
+archive 対象の機械可読な正本は `textbook/dream-theater-archive.json` とし、reader-facing index の検証もこのレジストリを参照する。
+
 1. dream-theater-index.json から外し、読者向けサイドバー・標準通読・ロードマップへ掲載しない。
 2. canonical concept / theorem owner を新系列へ移し、archive ページを新規章の prerequisite にしない。
 3. archive ページ冒頭に canonical owner への案内を置く。
