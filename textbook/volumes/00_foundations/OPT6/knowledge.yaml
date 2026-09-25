@@ -9,7 +9,6 @@ prerequisites:
 forward_references:
   - optimization.robinson-cq
   - optimization.generalized-kkt
-  - optimization.critical-cone
 
 concepts:
   - id: optimization.active-set
