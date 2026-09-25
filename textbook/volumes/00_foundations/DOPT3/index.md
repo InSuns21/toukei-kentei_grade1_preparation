@@ -1274,7 +1274,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-dopt3-matching-polytope -->
-**定義の確認**：4-cycle の二つの完全マッチングを平均する
+**定義の確認**：4頂点の閉路にある二つの完全マッチングを平均する
 
 二部グラフ
 
