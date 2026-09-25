@@ -83,12 +83,12 @@ $$
 <a id="def-opt6a-dual-cone"></a>
 [OPT3 で定義した双対錐](../OPT3/index.md#def-opt3-polar-dual)を錐制約へ使います。すなわち、錐 $K\subset Y$ に対して
 
-$
+$$
 K^*
 =
 \{\lambda\in Y:
 \langle\lambda,k\rangle\ge0\quad(\forall k\in K)\}
-$
+$$
 
 です。ここでは新しい概念を再定義するのではなく、OPT3 の canonical な双対錐を再掲しています。
 
