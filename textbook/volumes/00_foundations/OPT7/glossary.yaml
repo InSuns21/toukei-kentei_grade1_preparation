@@ -1,0 +1,29 @@
+chapter: "OPT7"
+terms:
+  - term: Lipschitz 連続勾配
+    english: Lipschitz continuous gradient
+    meaning: 勾配差が点の距離の定数倍で抑えられる性質。本章では定数Lを用いて滑らかさを定量化する。
+  - term: L-滑らか
+    english: L-smooth
+    meaning: 勾配がL-Lipschitz連続である微分可能関数を表す本章の標準的な呼び方。
+  - term: 降下補題
+    english: descent lemma
+    meaning: L-滑らかさから関数値を一次近似とL/2倍の二次項で上から抑える定理。
+  - term: 固定歩幅最急降下法
+    english: fixed-step gradient descent
+    meaning: 負の勾配方向へ毎回同じ正の歩幅で進む最急降下法。
+  - term: 強凸性
+    english: strong convexity
+    meaning: 一次支持平面からの上昇量をmu/2倍の距離二乗で下から抑える凸性の定量的強化。
+  - term: 滑らかな強凸最適化の条件数
+    english: condition number for smooth strongly convex optimization
+    meaning: 滑らかさ定数Lと強凸定数muの比L/mu。固定歩幅最急降下法の収束速度を支配する。
+  - term: Armijo 条件
+    english: Armijo condition
+    meaning: 負の勾配方向への試行歩幅が勾配ノルム二乗に比例する十分な関数値減少を実現したか判定する条件。
+  - term: 後退直線探索
+    english: backtracking line search
+    meaning: 初期歩幅から一定比率で歩幅を縮め、Armijo条件などを初めて満たす歩幅を採用する直線探索。
+  - term: 最適化 Newton 反復の局所二次収束
+    english: local quadratic convergence of Newton optimization iteration
+    meaning: 最小点近傍でHessianが一様正定値かつLipschitz連続なら、次の誤差が現在誤差の二乗で抑えられる性質。

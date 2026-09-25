@@ -1,0 +1,53 @@
+id: "OPT7"
+title: "滑らかな凸最適化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OPT1
+  - NA12
+  - RA4
+official_scope: []
+learning_objectives:
+  - Lipschitz連続勾配とL-滑らかさを定義し、二次関数で定数を直接評価できる
+  - 降下補題を微積分学の基本定理とLipschitz連続性から証明できる
+  - 固定歩幅最急降下法の一段減少評価と安全な歩幅範囲を導ける
+  - 凸性と降下補題を組み合わせてO(1/k)収束を望遠鏡和から証明できる
+  - 強凸性を定義し、最小点の一意性と勾配下界を導ける
+  - L-滑らかな強凸関数で固定歩幅最急降下法の線形収束を証明できる
+  - 条件数L/muが収束速度へ現れる機構を正定値二次関数と対応付けられる
+  - Armijo条件付き後退直線探索が有限停止する理由を説明できる
+  - Newton法の局所二次収束をHessianの正定値性とLipschitz連続性から導ける
+definitions:
+  - { id: OPT7-DEF-01, name: Lipschitz 連続勾配 }
+  - { id: OPT7-DEF-02, name: 固定歩幅最急降下法 }
+  - { id: OPT7-DEF-03, name: 強凸性 }
+  - { id: OPT7-DEF-04, name: 滑らかな強凸最適化の条件数 }
+  - { id: OPT7-DEF-05, name: Armijo 条件 }
+  - { id: OPT7-DEF-06, name: 後退直線探索 }
+theorems:
+  - { id: OPT7-THM-01, name: 降下補題 }
+  - { id: OPT7-THM-02, name: 固定歩幅の降下評価 }
+  - { id: OPT7-THM-03, name: 滑らかな凸関数に対する最急降下法の劣線形収束 }
+  - { id: OPT7-THM-04, name: 強凸関数の最小点の一意性 }
+  - { id: OPT7-THM-05, name: 強凸性による勾配下界 }
+  - { id: OPT7-THM-06, name: 滑らかな強凸関数に対する線形収束 }
+  - { id: OPT7-THM-07, name: 滑らかさによる後退直線探索の有限停止 }
+  - { id: OPT7-THM-08, name: 最適化 Newton 反復の局所二次収束 }
+canonical_examples:
+  - 異方的二次関数のLipschitz連続勾配
+  - 二次関数の滑らかさ定数と強凸定数
+  - 条件数の大きい対角二次関数
+  - Armijo条件付き後退直線探索
+  - 非線形強凸関数に対するNewton法
+problem_patterns:
+  - OPT7-SMOOTHNESS-1
+  - OPT7-DESCENT-LEMMA-1
+  - OPT7-GRADIENT-RATE-1
+  - OPT7-STRONG-CONVEX-1
+  - OPT7-CONDITION-NUMBER-1
+  - OPT7-ARMIJO-1
+  - OPT7-NEWTON-LOCAL-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 3.5, review: 0.75 }
