@@ -32,7 +32,7 @@ theorems:
   - { id: OPT7-THM-05, name: 強凸性による勾配下界 }
   - { id: OPT7-THM-06, name: 滑らかな強凸関数に対する線形収束 }
   - { id: OPT7-THM-07, name: 滑らかさによる後退直線探索の有限停止 }
-  - { id: OPT7-THM-08, name: 最適化 Newton 法の局所二次収束 }
+  - { id: OPT7-THM-08, name: 最適化 Newton 反復の局所二次収束 }
 canonical_examples:
   - 異方的二次関数のLipschitz連続勾配
   - 二次関数の滑らかさ定数と強凸定数
