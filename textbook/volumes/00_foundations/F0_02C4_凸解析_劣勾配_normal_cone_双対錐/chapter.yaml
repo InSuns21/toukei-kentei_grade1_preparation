@@ -30,4 +30,5 @@ theorems:
 canonical_examples: [絶対値の劣微分, 区間のnormal cone, max関数のactive勾配]
 problem_patterns: [FA-SUBGRADIENT-1, FA-NORMAL-CONE-1, FA-SUBGRADIENT-SUM-1, FA-MAX-SUBGRADIENT-1]
 exercise_counts: { level_a: 3, level_b: 3, level_c: 0, level_d: 0 }
+dream_theater_exercise_count_exception: "本PRでは一次支持不等式の参照先を OPT1 の canonical stable anchor へ張り替える移行保守のみを行う。劣勾配・劣微分・法錐は計画上 OPT3 へ統合するため、旧移行元へ演習を水増しせず、OPT3 で A4/B3/C1 を満たす。"
 estimated_hours: { reading: 3.5, exercises: 1.5, review: 0.75 }
