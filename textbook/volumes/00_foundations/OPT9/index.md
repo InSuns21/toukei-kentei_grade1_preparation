@@ -1580,7 +1580,7 @@ $$
 
 ## 10. Newton / SQP は局所法：大域化が必要
 
-[OPT7 の Newton 法](../OPT7/index.md#thm-opt7-newton-local-quadratic-convergence)と同様、KKT-Newton や SQP の高速収束は局所的です。初期点が遠いと
+[OPT7 の Newton 法](../OPT7/index.md#thm-opt7-newton-local-quadratic)と同様、KKT-Newton や SQP の高速収束は局所的です。初期点が遠いと
 
 - 目的関数が増える
 - 制約違反が増える
