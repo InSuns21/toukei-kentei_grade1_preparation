@@ -142,12 +142,12 @@ concepts:
       - optimization.descent-lemma
 
   - id: optimization.newton-local-quadratic-convergence
-    name: 最適化 Newton 法の局所二次収束
+    name: 最適化 Newton 反復の局所二次収束
     kind: theorem
     aliases:
-      - local quadratic convergence of Newton optimization
+      - local quadratic convergence of Newton optimization iteration
     introduction: formal
-    introduction_aliases: ["定理（最適化 Newton 法の局所二次収束）"]
+    introduction_aliases: ["定理（最適化 Newton 反復の局所二次収束）"]
     requires:
       - optimization.newton-unconstrained
       - analysis.ftc-2
