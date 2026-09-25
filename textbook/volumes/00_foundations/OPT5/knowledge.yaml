@@ -6,7 +6,7 @@ prerequisites:
 
 forward_references:
   - optimization.tangent-cone
-  - optimization.linearization-cone
+  - optimization.linearized-cone
   - optimization.licq
   - optimization.mfcq
 
