@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-この章は DREAM THEATER の凸解析・最適化系列の入口です。旧 F0-00G に分散していた有限次元の凸性の基礎を本章へ統合し、ここを canonical owner とします。旧ページは stable anchor の後方互換性のためリポジトリ内に残しますが、読者向け一覧には掲載しません。
+この章は DREAM THEATER の凸解析・最適化系列の入口です。旧 F0-00G にあった有限次元の凸性の基礎を本章へ統合し、ここを canonical owner とします。旧ページは stable anchor と過去URLを維持するためリポジトリ内に残しますが、読者向け一覧には掲載しません。
 
 本章では
 
@@ -35,15 +35,15 @@ $$
 > **定義（凸結合）**  
 > 点 $x_1,\dots,x_k\in\mathbb R^n$ と係数 $\theta_1,\dots,\theta_k$ が
 >
-> $$
-> \theta_i\ge0,\qquad \sum_{i=1}^k\theta_i=1
-> $$
+$$
+\theta_i\ge0,\qquad \sum_{i=1}^k\theta_i=1
+$$
 >
 > を満たすとき、
 >
-> $$
-> \sum_{i=1}^k\theta_i x_i
-> $$
+$$
+\sum_{i=1}^k\theta_i x_i
+$$
 >
 > を $x_1,\dots,x_k$ の **凸結合** という。
 <!-- formal-statement-end -->
@@ -61,9 +61,9 @@ $$
 > **定義（凸集合）**  
 > 集合 $C\subset\mathbb R^n$ が凸であるとは、任意の $x,y\in C$ と $0\le t\le1$ に対して
 >
-> $$
-> (1-t)x+ty\in C
-> $$
+$$
+(1-t)x+ty\in C
+$$
 >
 > が成り立つことをいう。
 <!-- formal-statement-end -->
@@ -230,11 +230,11 @@ $$
 > **定義（凸関数）**  
 > 凸集合 $C$ 上の関数 $f:C\to\mathbb R$ が凸であるとは、任意の $x,y\in C$ と $0\le t\le1$ に対して
 >
-> $$
-> f((1-t)x+ty)
-> \le
-> (1-t)f(x)+tf(y)
-> $$
+$$
+f((1-t)x+ty)
+\le
+(1-t)f(x)+tf(y)
+$$
 >
 > が成り立つことをいう。
 <!-- formal-statement-end -->
@@ -244,11 +244,11 @@ $$
 > **定義（狭義凸関数）**  
 > 凸集合 $C$ 上の関数 $f:C\to\mathbb R$ が狭義凸であるとは、任意の異なる $x,y\in C$ と $0<t<1$ に対して
 >
-> $$
-> f((1-t)x+ty)
-> <
-> (1-t)f(x)+tf(y)
-> $$
+$$
+f((1-t)x+ty)
+<
+(1-t)f(x)+tf(y)
+$$
 >
 > が成り立つことをいう。
 <!-- formal-statement-end -->
@@ -267,15 +267,15 @@ $$
 
 <a id="thm-opt1-hessian-convexity"></a>
 <!-- formal-statement-start -->
-> **定理（$C^2$ 関数の Hessian による凸性判定）**  
+> **定理（Hessian による凸性判定）**  
 > $U\subset\mathbb R^d$ を開凸集合、$f\in C^2(U)$ とする。このとき
 >
-> $$
-> f\text{ が凸}
-> \iff
-> \nabla^2f(x)\succeq0
-> \qquad(\forall x\in U).
-> $$
+$$
+f\text{ が凸}
+\iff
+\nabla^2f(x)\succeq0
+\qquad(\forall x\in U).
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -576,20 +576,30 @@ $$
 
 ---
 
+<a id="def-opt1-local-global-minimizer"></a>
+<!-- formal-statement-start -->
+> **定義（局所最小点・大域最小点）**  
+> 集合 $C\subset\mathbb R^n$ 上の関数 $f:C\to\mathbb R$ と点 $x^\ast\in C$ を考える。ある $r>0$ が存在し、$\|x-x^\ast\|<r$ を満たすすべての $x\in C$ に対して $f(x^\ast)\le f(x)$ となるとき $x^\ast$ を **局所最小点** という。すべての $x\in C$ に対して $f(x^\ast)\le f(x)$ となるとき $x^\ast$ を **大域最小点** という。
+<!-- formal-statement-end -->
+
+この二つは一般には別物です。凸性が入ると、後で証明するように局所最小点が大域最小点へ昇格します。
+
+---
+
 ## 6. 微分可能な凸関数では勾配が大域情報を持つ
 
-一般の微分可能関数では、勾配は局所情報です。凸関数では接平面が全領域で関数を下から支えるため、勾配が大域情報へ変わります。
+一般の微分可能関数では、勾配は局所情報です。凸関数では一次近似で得られる affine 関数が全領域で関数を下から支えるため、勾配が大域情報へ変わります。
 
 <a id="thm-opt1-first-order-convexity"></a>
 <!-- formal-statement-start -->
 > **定理（微分可能な凸関数の一次支持不等式）**  
 > $C\subset\mathbb R^d$ を開凸集合、$f:C\to\mathbb R$ を微分可能な凸関数とする。このとき任意の $x,y\in C$ に対して
 >
-> $$
-> f(y)
-> \ge
-> f(x)+\nabla f(x)^{\mathsf T}(y-x)
-> $$
+$$
+f(y)
+\ge
+f(x)+\nabla f(x)^{\mathsf T}(y-x)
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -805,19 +815,19 @@ $$
 > **定義（凸最適化問題）**  
 > 目的関数 $f$ と不等式制約関数 $g_1,\dots,g_m$ が凸、等式制約が affine である問題
 >
-> $$
-> \min_x f(x)
-> $$
+$$
+\min_x f(x)
+$$
 >
 > subject to
 >
-> $$
-> g_i(x)\le0,\qquad i=1,\dots,m,
-> $$
+$$
+g_i(x)\le0,\qquad i=1,\dots,m,
+$$
 >
-> $$
-> Ax=b
-> $$
+$$
+Ax=b
+$$
 >
 > を **凸最適化問題** という。
 <!-- formal-statement-end -->
@@ -854,10 +864,10 @@ $$
 > **命題（凸最適化問題の実行可能集合は凸）**  
 > 凸関数 $g_1,\dots,g_m:\mathbb R^n\to\mathbb R$、行列 $A$、ベクトル $b$ に対し
 >
-> $$
-> C=
-> \{x:g_i(x)\le0\ (i=1,\dots,m),\ Ax=b\}
-> $$
+$$
+C=
+\{x:g_i(x)\le0\ (i=1,\dots,m),\ Ax=b\}
+$$
 >
 > と置く。このとき $C$ は凸集合である。
 <!-- formal-statement-end -->
