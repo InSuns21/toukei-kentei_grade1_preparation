@@ -41,7 +41,15 @@ $$
 <a id="def-opt6-active-set"></a>
 <!-- formal-statement-start -->
 > **定義（活性集合）**  
-> 不等式制約 $g_i(x)\le0$ $(i=1,\dots,m)$ と任意の等式制約からなる実行可能集合を $C$ とし、$x^*\in C$ とする。このとき
+> 不等式制約 $g_i(x)\le0$ $(i=1,\dots,m)$ と等式制約 $h_j(x)=0$ $(j=1,\dots,r)$ による実行可能集合
+>
+$$
+C
+=
+\{x:g_i(x)\le0\ (i=1,\dots,m),\ h_j(x)=0\ (j=1,\dots,r)\}
+$$
+>
+> と実行可能点 $x^*\in C$ を考える。このとき
 >
 $$
 I(x^*)
@@ -742,7 +750,16 @@ OPT5 では凸性と Slater 条件から KKT を得ました。本章では局�
 <a id="thm-opt6-licq-unique-multiplier"></a>
 <!-- formal-statement-start -->
 > **定理（LICQ 下の KKT 乗数の一意性）**  
-> 微分可能な制約 $g_i(x)\le0$、$h_j(x)=0$ を持つ問題の実行可能点 $x^*$ を考える。$x^*$ で KKT 条件を満たす乗数 $(\lambda,\nu)$ が存在し、LICQ が成立するなら、その KKT 乗数は一意である。
+> 微分可能な関数 $f,g_i,h_j$ に対する問題
+>
+$$
+\min_x f(x)
+\quad\text{制約}\quad
+g_i(x)\le0\ (i=1,\dots,m),\qquad
+h_j(x)=0\ (j=1,\dots,r)
+$$
+>
+> と実行可能点 $x^*$ を考える。$x^*$ で KKT 条件を満たす乗数 $(\lambda,\nu)$ が存在し、LICQ が成立するなら、その KKT 乗数は一意である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -814,13 +831,13 @@ $$
 L(x,\nu)=f(x)+\nu^{\mathsf T}h(x)
 $$
 >
-> に対して、任意の
+> に対し、任意の
 >
 $$
 d\in\ker Dh(x^*)
 $$
 >
-> に対して
+> について
 >
 $$
 \boxed{
