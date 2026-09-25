@@ -10,6 +10,26 @@
       "path": "textbook/volumes/00_foundations/F0_02B_分離超平面定理_Farkas_SVM/index.md",
       "canonical_path": "textbook/volumes/00_foundations/OPT2/index.md",
       "reason": "OPT2 へ canonical 内容を移管済み。stable anchor と過去URLのためファイルを保持。"
+    },
+    {
+      "path": "textbook/volumes/00_foundations/F0_00G1_epigraph_閉凸関数_支持超平面/index.md",
+      "canonical_path": "textbook/volumes/00_foundations/OPT3/index.md",
+      "reason": "F0-00G1 の残る凸解析内容を OPT3 へ移管済み。支持超平面は OPT2、その他は OPT3 を canonical owner とし、stable anchor と過去URLのためファイルを保持。"
+    },
+    {
+      "path": "textbook/volumes/00_foundations/F0_02C4_凸解析_劣勾配_normal_cone_双対錐/index.md",
+      "canonical_path": "textbook/volumes/00_foundations/OPT3/index.md",
+      "reason": "OPT3 へ劣勾配・劣微分・法錐・制約付き一次条件を移管済み。stable anchor と過去URLのためファイルを保持。"
+    },
+    {
+      "path": "textbook/volumes/00_foundations/F0_02C4A_tangent_polar_dual_cone/index.md",
+      "canonical_path": "textbook/volumes/00_foundations/OPT3/index.md",
+      "reason": "OPT3 へ接錐・極錐・双対錐を移管済み。stable anchor と過去URLのためファイルを保持。"
+    },
+    {
+      "path": "textbook/volumes/00_foundations/F0_02C4B_tangent_normal_polar_proof/index.md",
+      "canonical_path": "textbook/volumes/00_foundations/OPT3/index.md",
+      "reason": "OPT3 へ接錐表示と法錐・接錐の極双対証明を移管済み。stable anchor と過去URLのためファイルを保持。"
     }
   ]
 }
