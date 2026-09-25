@@ -136,6 +136,6 @@ concepts:
     aliases:
       - 2×2 半正定値錐の自己双対性
     introduction: formal
-    introduction_aliases: ["定理（$2\\times2$ 半正定値錐の自己双対性）"]
+    introduction_aliases: ["定理（2×2 半正定値錐の自己双対性）"]
     requires:
       - convex.dual-cone
