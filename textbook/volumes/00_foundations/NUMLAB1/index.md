@@ -1124,7 +1124,7 @@ assert reconstruction_error < 1e-12
 assert np.allclose(L, np.linalg.cholesky(A), atol=1e-12, rtol=1e-12)
 ```
 
-ここでは `np.linalg.cholesky` は hidden test の**検算**にしか使っていません。学習者コードの因子 $L$ は成分公式から構築しています。
+ここでは `np.linalg.cholesky` は hidden test の**検算**にしか使っていません。学習者コードでは下三角因子 $L$ を既に求めた成分から順番に構築しています。
 
 <a id="lab-numlab1-na8-cholesky"></a>
 ### 8B. 実務編：NumPy で分解・連立方程式を解く
