@@ -4,7 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-02C1
-  - F0-00G
+  - OPT1
 learning_objectives:
   - 前章の平行四辺形恒等式・ノルム写像の連続性を射影定理の証明に適用できる
   - Hilbert空間の閉凸集合への射影定理を説明できる
