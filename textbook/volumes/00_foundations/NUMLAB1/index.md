@@ -686,24 +686,155 @@ assert abs(backward[-1] - exact[-1]) < abs(explicit[-1] - exact[-1])
 
 ---
 
+## 8. NA8：Cholesky 分解
+
+理論： [Cholesky 分解](../NA8/index.md#def-na8-cholesky-factorization) / [Cholesky 分解の存在一意性](../NA8/index.md#thm-na8-cholesky)
+
+この主題では `np.linalg.cholesky` を呼ぶだけでは分解アルゴリズムそのものを追えません。
+
+そこで、
+
+1. **手動構築**：成分ごとの漸化式から下三角因子を自前で作る。
+2. **実務編**：NumPy の `np.linalg.cholesky` と `np.linalg.solve` を使い、再構成誤差・残差を検査する。
+
+の順に分けます。
+
+<a id="lab-numlab1-na8-cholesky-manual"></a>
+### 8A. 手動構築：成分公式から Cholesky 因子を作る
+
+実対称正定値行列
+
+$$
+A=LL^{\mathsf T}
+$$
+
+について、$i\ge j$ の成分を上から順に決めます。
+
+対角成分では既知部分の二乗和を引いて平方根を取り、非対角成分では既知部分の内積を引いて既に求めた対角成分で割ります。
+
+**穴埋め課題：** 既知部分の補正項、対角成分、非対角成分の3箇所を埋めてください。
+
+```python-lab
+# lab-id: NUMLAB1-NA8-CHOLESKY-MANUAL
+# lab-title: 手動構築：Cholesky 因子を成分公式から作る
+# lab-mode: exercise
+# timeout-ms: 5000
+
+import numpy as np
+
+def cholesky_manual(A):
+    A = np.asarray(A, dtype=float)
+    n = A.shape[0]
+    L = np.zeros_like(A)
+
+    for i in range(n):
+        for j in range(i + 1):
+            # ヒント: すでに求めた第0列から第j-1列までの積の和を補正項にする。
+            correction = ___
+
+            if i == j:
+                pivot = A[i, i] - correction
+                if pivot <= 0.0:
+                    raise ValueError("matrix is not positive definite")
+                # ヒント: 対角成分は残った正の pivot の平方根で決まる。
+                L[i, j] = ___
+            else:
+                # ヒント: 非対角成分は残差を、対応する既知の対角成分で割る。
+                L[i, j] = ___
+
+    return L
+
+n = 8
+A = 2.0 * np.eye(n)
+A += -1.0 * np.eye(n, k=1)
+A += -1.0 * np.eye(n, k=-1)
+
+L = cholesky_manual(A)
+reconstruction_error = np.linalg.norm(
+    A - L @ L.T,
+    ord=np.inf,
+)
+
+print("manual L =")
+print(L)
+print("reconstruction error:", reconstruction_error)
+```
+
+```python-solution
+import numpy as np
+
+def cholesky_manual(A):
+    A = np.asarray(A, dtype=float)
+    n = A.shape[0]
+    L = np.zeros_like(A)
+
+    for i in range(n):
+        for j in range(i + 1):
+            correction = L[i, :j] @ L[j, :j]
+
+            if i == j:
+                pivot = A[i, i] - correction
+                if pivot <= 0.0:
+                    raise ValueError("matrix is not positive definite")
+                L[i, j] = np.sqrt(pivot)
+            else:
+                L[i, j] = (
+                    A[i, j] - correction
+                ) / L[j, j]
+
+    return L
+
+n = 8
+A = 2.0 * np.eye(n)
+A += -1.0 * np.eye(n, k=1)
+A += -1.0 * np.eye(n, k=-1)
+
+L = cholesky_manual(A)
+reconstruction_error = np.linalg.norm(
+    A - L @ L.T,
+    ord=np.inf,
+)
+
+print("manual L =")
+print(L)
+print("reconstruction error:", reconstruction_error)
+```
+
+```python-test
+assert np.allclose(L, np.tril(L))
+assert np.all(np.diag(L) > 0.0)
+assert reconstruction_error < 1e-12
+assert np.allclose(L, np.linalg.cholesky(A), atol=1e-12, rtol=1e-12)
+```
+
+ここでは `np.linalg.cholesky` は hidden test の**検算**にしか使っていません。学習者コードの因子 $L$ は成分公式から構築しています。
+
 <a id="lab-numlab1-na8-cholesky"></a>
-## 8. NA8：Cholesky 分解を再構成して検査する
+### 8B. 実務編：NumPy で分解・連立方程式を解く
 
-理論： [Cholesky 分解](../NA8/index.md#def-na8-cholesky-factorization)
+実務では、十分に検証された LAPACK 系実装を NumPy 経由で使うのが基本です。
 
-実対称正定値三重対角行列を分解し、
+ここでは
 
 $$
 A\approx LL^{\mathsf T}
 $$
 
-を直接検査します。
+の再構成誤差に加え、
 
-**穴埋め課題：** Cholesky 分解と前進・後退代入に対応する線形方程式を埋めてください。
+$$
+Ly=b,
+\qquad
+L^{\mathsf T}x=y
+$$
+
+を解いて元の連立方程式の残差も確認します。
+
+**穴埋め課題：** NumPy の Cholesky 分解と前進・後退代入に対応する線形 solve を埋めてください。
 
 ```python-lab
 # lab-id: NUMLAB1-NA8-CHOLESKY
-# lab-title: Cholesky 分解の再構成誤差
+# lab-title: 実務編：NumPy Cholesky と線形 solve
 # lab-mode: exercise
 # timeout-ms: 5000
 
@@ -714,14 +845,14 @@ A = 2.0 * np.eye(n)
 A += -1.0 * np.eye(n, k=1)
 A += -1.0 * np.eye(n, k=-1)
 
-# ヒント: 対称正定値行列を下三角因子へ分解する。
+# ヒント: 実務 API で対称正定値行列の下三角 Cholesky 因子を得る。
 L = ___
 reconstruction_error = np.linalg.norm(A - L @ L.T, ord=np.inf)
 
 b = np.ones(n)
-# ヒント: まず下三角系を解いて中間変数を求める。
+# ヒント: まず下三角系を solve して中間変数を求める。
 y = ___
-# ヒント: 続いて転置下三角系を解き、元の連立方程式の解を得る。
+# ヒント: 続いて転置下三角系を solve し、元の連立方程式の解を得る。
 x = ___
 residual = np.linalg.norm(b - A @ x)
 
@@ -758,7 +889,7 @@ assert reconstruction_error < 1e-12
 assert residual < 1e-11
 ```
 
-因子が得られたことだけでなく、元の行列をどれだけ正確に再構成できるかまで確認します。
+手動構築でアルゴリズムを確認した後なので、ここでは `np.linalg.cholesky` が何を返し、どう線形 solve へつなぐかに集中できます。
 
 ---
 
