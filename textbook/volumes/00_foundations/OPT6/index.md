@@ -43,9 +43,9 @@ $$
 > **定義（活性集合）**  
 > 実行可能点 $x^*\in C$ に対して
 >
-> $$
-> I(x^*)=\{i:g_i(x^*)=0\}
-> $$
+$$
+I(x^*)=\{i:g_i(x^*)=0\}
+$$
 >
 > を $x^*$ における **活性集合**という。
 <!-- formal-statement-end -->
@@ -57,12 +57,12 @@ OPT5 の「活性制約」を添字集合としてまとめたものです。$g_
 > **定義（Bouligand 接錐）**  
 > $x^*\in C$ に対して
 >
-> $$
-> T_C(x^*)=
-> \left\{
-> d:\exists x_k\in C,\ t_k\downarrow0,> \frac{x_k-x^*}{t_k}\to d
-> \right\}
-> $$
+$$
+T_C(x^*)=
+\left\{
+d:\exists x_k\in C,\ t_k\downarrow0,> \frac{x_k-x^*}{t_k}\to d
+\right\}
+$$
 >
 > を $C$ の $x^*$ における **接錐**という。
 <!-- formal-statement-end -->
@@ -90,22 +90,22 @@ $$
 > **定理（局所最適点の接方向条件）**  
 > $f$ が $x^*$ で微分可能で、$x^*$ が $C$ 上の局所最小点なら
 >
-> $$
-> \nabla f(x^*)^{\mathsf T}d\ge0
-> \qquad(\forall d\in T_C(x^*)).
-> $$
+$$
+\nabla f(x^*)^{\mathsf T}d\ge0
+\qquad(\forall d\in T_C(x^*)).
+$$
 >
 > 従って polar cone
 >
-> $$
-> K^\circ=\{v:v^{\mathsf T}d\le0\ (\forall d\in K)\}
-> $$
+$$
+K^\circ=\{v:v^{\mathsf T}d\le0\ (\forall d\in K)\}
+$$
 >
 > を用いれば
 >
-> $$
-> \boxed{-\nabla f(x^*)\in T_C(x^*)^\circ}.
-> $$
+$$
+\boxed{-\nabla f(x^*)\in T_C(x^*)^\circ}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -141,13 +141,13 @@ $t_k>0$ で割って極限を取れば $\nabla f(x^*)^{\mathsf T}d\ge0$。これ
 > **定義（線形化錐）**  
 > $g_i,h_j$ が $x^*$ で微分可能とする。
 >
-> $$
-> L_C(x^*)=
-> \left\{
-> d:
-> \nabla g_i(x^*)^{\mathsf T}d\le0\ (i\in I(x^*)),> \nabla h_j(x^*)^{\mathsf T}d=0\ (j=1,\ldots,r)
-> \right\}
-> $$
+$$
+L_C(x^*)=
+\left\{
+d:
+\nabla g_i(x^*)^{\mathsf T}d\le0\ (i\in I(x^*)),> \nabla h_j(x^*)^{\mathsf T}d=0\ (j=1,\ldots,r)
+\right\}
+$$
 >
 > を $x^*$ における **線形化錐**という。
 <!-- formal-statement-end -->
@@ -179,9 +179,9 @@ $$
 > **定理（接錐と線形化錐の基本包含）**  
 > $g_i,h_j$ が $x^*$ で微分可能なら
 >
-> $$
-> \boxed{T_C(x^*)\subseteq L_C(x^*)}.
-> $$
+$$
+\boxed{T_C(x^*)\subseteq L_C(x^*)}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -253,11 +253,11 @@ $$
 > **定義（LICQ）**  
 > $x^*$ において
 >
-> $$
-> \{\nabla g_i(x^*):i\in I(x^*)\}
-> \cup
-> \{\nabla h_j(x^*):j=1,\ldots,r\}
-> $$
+$$
+\{\nabla g_i(x^*):i\in I(x^*)\}
+\cup
+\{\nabla h_j(x^*):j=1,\ldots,r\}
+$$
 >
 > が一次独立であるとき、**LICQ** が成立するという。
 <!-- formal-statement-end -->
@@ -273,13 +273,13 @@ $g_1(x)=x_1\le0$, $g_2(x)=x_2\le0$ を原点で考えると、活性勾配は $(
 > **定義（MFCQ）**  
 > $x^*$ で等式制約の勾配 $\nabla h_j(x^*)$ が一次独立であり、さらにある $v$ が存在して
 >
-> $$
-> \nabla h_j(x^*)^{\mathsf T}v=0\quad(\forall j),
-> $$
+$$
+\nabla h_j(x^*)^{\mathsf T}v=0\quad(\forall j),
+$$
 >
-> $$
-> \nabla g_i(x^*)^{\mathsf T}v<0\quad(\forall i\in I(x^*))
-> $$
+$$
+\nabla g_i(x^*)^{\mathsf T}v<0\quad(\forall i\in I(x^*))
+$$
 >
 > を満たすとき、**MFCQ** が成立するという。
 <!-- formal-statement-end -->
@@ -329,9 +329,9 @@ $$
 > **定理（MFCQ 下の接錐一致）**  
 > $g_i,h_j$ が $C^1$ 級で、$x^*$ で MFCQ が成立するとする。このとき
 >
-> $$
-> \boxed{T_C(x^*)=L_C(x^*)}.
-> $$
+$$
+\boxed{T_C(x^*)=L_C(x^*)}.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -407,14 +407,14 @@ $$
 > **定理（線形化錐の polar 表示）**  
 > 上の $A,B$ に対して
 >
-> $$
-> \boxed{
-> L_C(x^*)^\circ
-> =
-> \{A^{\mathsf T}\lambda+B^{\mathsf T}\nu:
-> \lambda\ge0,\ \nu\in\mathbb R^r\}.
-> }
-> $$
+$$
+\boxed{
+L_C(x^*)^\circ
+=
+\{A^{\mathsf T}\lambda+B^{\mathsf T}\nu:
+\lambda\ge0,\ \nu\in\mathbb R^r\}.
+}
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -452,15 +452,15 @@ $A$ の各行ベクトルは $M$ に入り、$B$ の各行ベクトルは正負�
 > **定理（MFCQ 下の KKT 乗数存在）**  
 > $x^*$ が $C$ 上の局所最小点、$f,g_i,h_j$ が $C^1$ 級で、$x^*$ で MFCQ が成立するとする。このとき、ある $\lambda_i\ge0$ と $\nu_j\in\mathbb R$ が存在して
 >
-> $$
-> \nabla f(x^*)
-> +\sum_i\lambda_i\nabla g_i(x^*)
-> +\sum_j\nu_j\nabla h_j(x^*)=0,
-> $$
+$$
+\nabla f(x^*)
++\sum_i\lambda_i\nabla g_i(x^*)
++\sum_j\nu_j\nabla h_j(x^*)=0,
+$$
 >
-> $$
-> \lambda_i g_i(x^*)=0
-> $$
+$$
+\lambda_i g_i(x^*)=0
+$$
 >
 > を満たす。
 <!-- formal-statement-end -->
