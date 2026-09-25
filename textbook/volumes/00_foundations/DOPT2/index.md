@@ -1672,17 +1672,63 @@ $\square$
 
 ## 12. 非負循環は有向閉路の和に分解できる
 
-有向グラフ上の非負量 $z_a\ge0$ が、すべての頂点で
+<a id="def-dopt2-nonnegative-circulation"></a>
+<!-- formal-statement-start -->
+> **定義（非負循環）**  
+> 有限有向グラフ上の各辺 $a$ に非負量
+>
+> $
+> z_a\ge0
+> $
+>
+> を割り当てる。
+>
+> すべての頂点 $v$ で
+>
+> $
+> \boxed{
+> \sum_{(v,w)}z_{vw}
+> -
+> \sum_{(w,v)}z_{wv}
+> =
+> 0
+> }
+> $
+>
+> が成り立つとき、$z$ を **非負循環**という。
+<!-- formal-statement-end -->
 
-$$
+<!-- definition-example-start: def-dopt2-nonnegative-circulation -->
+**定義の確認**：三角形を同じ量だけ回る
+
+有向閉路
+
+$
+v_1\to v_2\to v_3\to v_1
+$
+
+の3辺すべてに
+
+$
+z_a=2
+$
+
+を割り当てます。
+
+各頂点では2単位が入り、2単位が出るので、
+
+$
 \sum_{\text{流出}}z
 -
 \sum_{\text{流入}}z
 =
-0
-$$
+2-2
+=
+0.
+$
 
-を満たすとき、$z$ を **循環**と呼びます。
+従ってこの割当ては非負循環です。
+<!-- definition-example-end -->
 
 <a id="lem-dopt2-cycle-decomposition"></a>
 <!-- formal-statement-start -->
