@@ -92,16 +92,13 @@ $
 
 です。ここでは新しい概念を再定義するのではなく、OPT3 の canonical な双対錐を再掲しています。
 
-<!-- definition-example-start: def-opt6a-dual-cone -->
-**定義の確認**：非負直交錐は自己双対
+**確認例**：非負直交錐は自己双対
 
 $K=\mathbb R_+^m$ とします。$\lambda\in K^*$ なら標準基底 $e_i\in K$ との内積から $\lambda_i\ge0$。逆に $\lambda_i\ge0$ なら任意の $k_i\ge0$ に対して $\lambda^{\mathsf T}k\ge0$。従って
 
 $$
 \boxed{(\mathbb R_+^m)^*=\mathbb R_+^m}.
 $$
-<!-- definition-example-end -->
-
 この自己双対性が通常の KKT の $\lambda_i\ge0$ を復元します。
 
 ---
@@ -275,7 +272,7 @@ $$
 <a id="def-opt6a-robinson-cq"></a>
 <!-- formal-statement-start -->
 > **定義（Robinson 制約想定）**  
-> $x^*$ が実行可能点とする。線形化写像の像
+> $x^*$ が実行可能点とする。一次近似写像の像
 >
 > $$
 > \mathcal R=
