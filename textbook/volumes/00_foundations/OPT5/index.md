@@ -301,7 +301,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $x^*$ が主最適解とします。Slater 条件下の強双対性により双対最適解 $(\lambda^*,\nu^*)$ が存在し、
+まず $x^*$ が主最適解とします。[Slater 条件下の強双対性](#thm-opt5-slater-strong-duality)により双対最適解 $(\lambda^*,\nu^*)$ が存在し、
 
 $$
 p^*=d^*=q(\lambda^*,\nu^*)
@@ -423,9 +423,9 @@ $$
 L(x,\lambda)=(x-2)^2+\lambda(x-1).
 $$
 
-KKT 条件は
+[KKT 条件](#thm-opt5-kkt)は
 
-$$
+$
 x-1\le0,\qquad \lambda\ge0,
 $$
 
@@ -582,7 +582,7 @@ $$
 \quad\text{subject to}\quad x\ge0
 $$
 
-を KKT 条件から解け。
+を [KKT 条件](#thm-opt5-kkt)から解け。
 
 <!-- solution-start -->
 #### 詳細解答
