@@ -33,9 +33,9 @@ $$
 > **定義（全単模行列）**  
 > 実行列 $A$ が **全単模**であるとは、$A$ から同数の行と列を選んで得られる任意の正方部分行列 $B$ について
 >
-> $$
-> \det B\in\{-1,0,1\}
-> $$
+$$
+\det B\in\{-1,0,1\}
+$$
 >
 > が成り立つことをいう。
 <!-- formal-statement-end -->
@@ -227,15 +227,15 @@ $$
 >
 > 弧 $e=(u,w)$ に対して
 >
-> $$
-> D_{v,e}
-> =
-> \begin{cases}
-> -1,&v=u,\\
-> 1,&v=w,\\
-> 0,&\text{それ以外}
-> \end{cases}
-> $$
+$$
+D_{v,e}
+=
+\begin{cases}
+-1,&v=u,\\
+1,&v=w,\\
+0,&\text{それ以外}
+\end{cases}
+$$
 >
 > と定める。この $D$ を **点弧接続行列**という。
 <!-- formal-statement-end -->
@@ -373,12 +373,12 @@ $\square$
 > **定義（整数多面体）**  
 > 多面体 $P\subset\mathbb R^n$ が **整数多面体**であるとは、
 >
-> $$
-> \boxed{
-> P=
-> \operatorname{conv}\bigl(P\cap\mathbb Z^n\bigr)
-> }
-> $$
+$$
+\boxed{
+P=
+\operatorname{conv}\bigl(P\cap\mathbb Z^n\bigr)
+}
+$$
 >
 > が成り立つことをいう。
 <!-- formal-statement-end -->
@@ -533,10 +533,10 @@ $\square$
 >
 > 多面体
 >
-> $$
-> P=
-> \{x\in\mathbb R^n:Ax\le b\}
-> $$
+$$
+P=
+\{x\in\mathbb R^n:Ax\le b\}
+$$
 >
 > の任意の極点 $x^*$ は整数ベクトルである。
 <!-- formal-statement-end -->
@@ -562,7 +562,7 @@ $$
 1. 極点では活性制約の法線が $\mathbb R^n$ を張る。
 2. そこから独立な $n$ 本を選び、正則な $n\times n$ 部分行列 $B$ を作る。
 3. 全単模性と $\det B\ne0$ から $\det B=\pm1$。
-4. [余因子行列の恒等式](../LA3C/index.md#thm-la3c-adjugate-identity)により $B^{-1}$ は整数行列。
+4. $B$ は可逆であり、[余因子行列](../LA3C/index.md#def-la3c-adjugate)を用いる逆行列公式から $B^{-1}$ は整数行列です。
 5. $x^*=B^{-1}b_I$ は整数ベクトル。
 
 <!-- proof-start -->
@@ -715,20 +715,20 @@ $$
 > **系（等式制約と整数上下限を持つ全単模系）**  
 > $A$ を全単模行列とし、
 >
-> $$
-> b\in\mathbb Z^m,
-> \qquad
-> \ell,u\in\mathbb Z^n
-> $$
+$$
+b\in\mathbb Z^m,
+\qquad
+\ell,u\in\mathbb Z^n
+$$
 >
 > とする。
 >
 > 有界多面体
 >
-> $$
-> P=
-> \{x\in\mathbb R^n:Ax=b,\ \ell\le x\le u\}
-> $$
+$$
+P=
+\{x\in\mathbb R^n:Ax=b,\ \ell\le x\le u\}
+$$
 >
 > が空でなければ、$P$ は整数多面体である。
 <!-- formal-statement-end -->
@@ -941,20 +941,20 @@ $$
 > **定義（二部グラフの頂点辺接続行列）**  
 > 二部グラフ
 >
-> $$
-> G=(L\sqcup R,E)
-> $$
+$$
+G=(L\sqcup R,E)
+$$
 >
 > に対し、行を頂点 $v\in L\sqcup R$、列を辺 $e\in E$ で添字付け、
 >
-> $$
-> B_{v,e}
-> =
-> \begin{cases}
-> 1,&v\text{ が }e\text{ の端点},\\
-> 0,&\text{それ以外}
-> \end{cases}
-> $$
+$$
+B_{v,e}
+=
+\begin{cases}
+1,&v\text{ が }e\text{ の端点},\\
+0,&\text{それ以外}
+\end{cases}
+$$
 >
 > と定める。この $B$ を頂点辺接続行列という。
 <!-- formal-statement-end -->
@@ -1086,13 +1086,13 @@ $$
 >
 > このとき
 >
-> $$
-> \boxed{
-> P_{\mathrm{match}}(G)
-> =
-> \{x\in\mathbb R^E:x\ge0,\ Bx\le\mathbf1\}
-> }
-> $$
+$$
+\boxed{
+P_{\mathrm{match}}(G)
+=
+\{x\in\mathbb R^E:x\ge0,\ Bx\le\mathbf1\}
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -1223,11 +1223,11 @@ $$
 >
 > 割当多面体
 >
-> $$
-> P_{\mathrm{assign}}
-> =
-> \{x\in\mathbb R^E:Bx=\mathbf1,\ x\ge0\}
-> $$
+$$
+P_{\mathrm{assign}}
+=
+\{x\in\mathbb R^E:Bx=\mathbf1,\ x\ge0\}
+$$
 >
 > が空でなければ、その全ての極点は完全マッチングの接続ベクトルである。
 >
@@ -1317,11 +1317,11 @@ $$
 >
 > 同値に、
 >
-> $$
-> P\mathbf1=\mathbf1,
-> \qquad
-> P^{\mathsf T}\mathbf1=\mathbf1
-> $$
+$$
+P\mathbf1=\mathbf1,
+\qquad
+P^{\mathsf T}\mathbf1=\mathbf1
+$$
 >
 > を満たす0--1行列である。
 <!-- formal-statement-end -->
@@ -1350,14 +1350,14 @@ $$
 >
 > このとき
 >
-> $$
-> \boxed{
-> \mathcal B_n
-> =
-> \operatorname{conv}
-> \{P:P\text{ は }n\times n\text{ 置換行列}\}
-> }
-> $$
+$$
+\boxed{
+\mathcal B_n
+=
+\operatorname{conv}
+\{P:P\text{ は }n\times n\text{ 置換行列}\}
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -1434,22 +1434,22 @@ $$
 >
 > 全域木 $T$ に対応する列を集めた正方行列を $B$、残りの列を集めた行列を $N$ として
 >
-> $$
-> \widetilde D=
-> \begin{pmatrix}
-> B&N
-> \end{pmatrix}
-> $$
+$$
+\widetilde D=
+\begin{pmatrix}
+B&N
+\end{pmatrix}
+$$
 >
 > と分割する。
 >
 > このとき
 >
-> $$
-> \boxed{
-> W=B^{-1}N
-> }
-> $$
+$$
+\boxed{
+W=B^{-1}N
+}
+$$
 >
 > を、この木基底に対応する **ネットワーク行列**という。
 <!-- formal-statement-end -->
@@ -1538,9 +1538,9 @@ $$
 > **定理（ネットワーク行列は全単模である）**  
 > 任意のネットワーク行列
 >
-> $$
-> W=B^{-1}N
-> $$
+$$
+W=B^{-1}N
+$$
 >
 > は全単模である。
 <!-- formal-statement-end -->
@@ -1654,29 +1654,29 @@ $$
 > **系（整数データを持つフロー多面体は整数極点を持つ）**  
 > 有向グラフの点弧接続行列を $D$ とする。
 >
-> $$
-> b\in\mathbb Z^{V},
-> \qquad
-> \ell,u\in\mathbb Z^{E}
-> $$
+$$
+b\in\mathbb Z^{V},
+\qquad
+\ell,u\in\mathbb Z^{E}
+$$
 >
 > とし、$\ell\le u$ とする。
 >
 > 有界フロー多面体
 >
-> $$
-> P_{\mathrm{flow}}
-> =
-> \{x\in\mathbb R^E:Dx=b,\ \ell\le x\le u\}
-> $$
+$$
+P_{\mathrm{flow}}
+=
+\{x\in\mathbb R^E:Dx=b,\ \ell\le x\le u\}
+$$
 >
 > が空でなければ整数多面体である。
 >
 > 特に、線形費用
 >
-> $$
-> c^{\mathsf T}x
-> $$
+$$
+c^{\mathsf T}x
+$$
 >
 > を最小化する最小費用流問題では、最適解が存在すれば整数最適解を選べる。
 <!-- formal-statement-end -->
@@ -2799,7 +2799,7 @@ $$
 
 は整数です。
 
-従って全単模性による頂点整数性から、(A) の実行可能多面体の極点は整数です。
+従って [全単模性と整数右辺は頂点を整数にする](#thm-dopt4-tu-vertex-integrality) ことから、(A) の実行可能多面体の極点は整数です。
 
 また
 
