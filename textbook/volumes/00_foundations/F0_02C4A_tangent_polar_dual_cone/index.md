@@ -1,5 +1,8 @@
 # F0-02C4A 凸解析：tangent cone・polar cone・dual cone
 
+> **Archive notice**  
+> このページは archive です。接錐・極錐・双対錐の canonical owner は [OPT3](../OPT3/index.md) へ移管しました。stable anchor と過去URLの後方互換性のため本文を保持しています。
+
 <!-- definition-example-audit: strict -->
 
 実行可能な一次方向と、それを支える双対側の法線・錐を整理します。C4 の normal cone を、接方向と双対錐の言葉で読み直す章です。

@@ -1,0 +1,44 @@
+chapter: "OPT3"
+terms:
+  - term: 実効定義域
+    english: effective domain
+    meaning: 拡張実数値関数が有限値を取る点全体。dom f で表す。
+  - term: 真関数
+    english: proper function
+    meaning: 本章の値域規約では実効定義域が空でない拡張実数値関数。
+  - term: エピグラフ
+    english: epigraph
+    meaning: 関数グラフの上側にある点 (x,r) で f(x)<=r を満たすもの全体。凸性と閉性を集合の幾何へ移す。
+  - term: 下半連続
+    english: lower semicontinuous
+    meaning: x_k→x に対して f(x)<=liminf f(x_k) を満たす性質。エピグラフの閉性と同値。
+  - term: 閉真凸関数
+    english: closed proper convex function
+    meaning: 真・凸・下半連続を同時に満たす拡張実数値関数。
+  - term: 劣位集合
+    english: sublevel set
+    meaning: 指定した高さ alpha 以下の関数値を持つ点の集合 {x:f(x)<=alpha}。
+  - term: 強圧性
+    english: coercivity
+    meaning: ||x||→∞ のとき f(x)→+∞ となる性質。有限次元の直接法で最小化列が無限遠へ逃げるのを防ぐ。
+  - term: 劣勾配
+    english: subgradient
+    meaning: 凸関数を一点で大域的に下から支えるアフィン関数の傾き。
+  - term: 劣微分
+    english: subdifferential
+    meaning: 指定点における劣勾配全体の集合。
+  - term: 標示関数
+    english: indicator function
+    meaning: 集合内で0、集合外で+∞を取る凸解析の拡張実数値関数。制約を目的関数へ埋め込む。
+  - term: 法錐
+    english: normal cone
+    meaning: 凸集合の指定点から見て集合の全実行可能方向へ非正の内積を持つ外向きベクトル全体。
+  - term: Bouligand 接錐
+    english: Bouligand tangent cone
+    meaning: 集合内の点列を指定点へ近づけたときに得られる一次方向全体。
+  - term: 極錐
+    english: polar cone
+    meaning: 本章では錐 K の全ての元に非正の内積を持つベクトル全体 K^circ。
+  - term: 双対錐
+    english: dual cone
+    meaning: 錐 K の全ての元に非負の内積を持つベクトル全体 K^*。本章の符号規約では K^circ=-K^*。

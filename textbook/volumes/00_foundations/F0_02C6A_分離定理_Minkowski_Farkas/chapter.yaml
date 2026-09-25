@@ -4,6 +4,8 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-02C6
+  - OPT1
+  - OPT2
 learning_objectives:
   - 超平面を連続線形汎関数で定義できる
   - 点と閉凸集合の強分離定理を説明できる
@@ -18,4 +20,5 @@ theorems:
 canonical_examples: [Hilbert空間の射影によるseparator, Farkas certificate]
 problem_patterns: [FA-SEPARATION-1]
 exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
+dream_theater_exercise_count_exception: "本PRでは凸集合・分離超平面の canonical owner 移管に伴う prerequisite 張り替えのみを行う保守対象。本文・演習内容は変更しないため、このPRで旧補講へ A4/B3/C1 を水増ししない。"
 estimated_hours: { reading: 2, exercises: 0.75, review: 0.5 }

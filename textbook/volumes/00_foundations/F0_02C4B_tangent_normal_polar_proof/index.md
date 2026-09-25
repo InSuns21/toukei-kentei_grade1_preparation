@@ -1,5 +1,8 @@
 # F0-02C4B：tangent cone と normal cone の polar 双対
 
+> **Archive notice**  
+> このページは archive です。凸集合の接錐表示と法錐・接錐の極双対の canonical owner は [OPT3](../OPT3/index.md) へ移管しました。stable anchor と過去URLの後方互換性のため本文を保持しています。
+
 C4Aでは
 
 $$
