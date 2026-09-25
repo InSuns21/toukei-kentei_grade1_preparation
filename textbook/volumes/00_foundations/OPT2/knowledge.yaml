@@ -4,9 +4,11 @@ coverage: complete
 prerequisites:
   - OPT1
   - F0-00C1
+  - F0-00D1
   - F0-00E1
 
 forward_references:
+  - functional.dual-space
   - convex.epigraph
   - convex.lower-semicontinuous
   - convex.subgradient
