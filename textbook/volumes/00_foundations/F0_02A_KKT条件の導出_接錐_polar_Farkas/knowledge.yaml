@@ -3,8 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - F0-02
-  - F0-02B
-  - F0-02C4A
+  - OPT3
 
 forward_references:
   - optimization.constraint-qualification
