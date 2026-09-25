@@ -17,7 +17,7 @@ $$
 \to T_C(x^*)^\circ
 \to T_C(x^*)=L_C(x^*)
 \to L_C(x^*)^\circ
-\to \text{KKT乗数}
+\to \text{KKT 乗数}
 }
 $$
 
@@ -53,33 +53,41 @@ $$
 OPT5 の「活性制約」を添字集合としてまとめたものです。$g_i(x^*)<0$ の制約は連続性により $x^*$ の十分近くでも余裕があるため、一次の局所幾何を直接は制限しません。
 
 <a id="def-opt6-tangent-cone"></a>
-<!-- formal-statement-start -->
-> **定義（Bouligand 接錐）**  
-> $x^*\in C$ に対して
->
-$$
-T_C(x^*)=
-\left\{
-d:\exists x_k\in C,\ t_k\downarrow0,> \frac{x_k-x^*}{t_k}\to d
-\right\}
-$$
->
-> を $C$ の $x^*$ における **接錐**という。
-<!-- formal-statement-end -->
+### OPT3 の接錐を再利用する
 
-<!-- definition-example-start: def-opt6-active-set, def-opt6-tangent-cone -->
-**定義の確認**：上半平面
+本章では、OPT3 で一般の集合に対して定義した [Bouligand 接錐](../OPT3/index.md#def-opt3-tangent-cone) をそのまま使います。すなわち $x^*\in C$ に対して
+
+$$
+T_C(x^*)
+=
+\left\{
+d:
+\exists\,x_k\in C,\ 
+\exists\,t_k\downarrow0,\ 
+\frac{x_k-x^*}{t_k}\to d
+\right\}.
+$$
+
+これは凸集合に限らない定義です。OPT6 では制約関数が非凸でもよいので、この一般性が必要になります。
+
+**再確認**：上半平面
 
 $$
 C=\{(x_1,x_2):x_2\ge0\},\qquad x^*=(0,0)
 $$
 
-では境界制約が活性です。$d_2\ge0$ なら $x_k=t_kd$ と置いて実行可能列を作れます。$d_2<0$ なら十分小さい正の $t$ でも下半平面へ出るので不可能です。従って
+では、$d_2\ge0$ なら $x_k=t_kd$ と置いて実行可能列を作れます。逆に $d\in T_C(0)$ なら $x_{k2}\ge0$ と $t_k>0$ から
+
+$$
+\frac{x_{k2}}{t_k}\ge0
+$$
+
+であり、極限を取って $d_2\ge0$ です。従って
 
 $$
 \boxed{T_C(0)=\{d:d_2\ge0\}}.
 $$
-<!-- definition-example-end -->
+
 
 ---
 
@@ -88,17 +96,19 @@ $$
 <a id="thm-opt6-local-tangent"></a>
 <!-- formal-statement-start -->
 > **定理（局所最適点の接方向条件）**  
-> $f$ が $x^*$ で微分可能で、$x^*$ が $C$ 上の局所最小点なら
+> 集合 $C\subset\mathbb R^n$、点 $x^*\in C$、$x^*$ の近傍で定義された関数 $f$ を考える。$f$ が $x^*$ で微分可能で、$x^*$ が $C$ 上の局所最小点なら
 >
 $$
 \nabla f(x^*)^{\mathsf T}d\ge0
 \qquad(\forall d\in T_C(x^*)).
 $$
 >
-> 従って polar cone
+> 極錐
 >
 $$
-K^\circ=\{v:v^{\mathsf T}d\le0\ (\forall d\in K)\}
+K^\circ
+=
+\{v:v^{\mathsf T}d\le0\ (\forall d\in K)\}
 $$
 >
 > を用いれば
@@ -139,13 +149,31 @@ $t_k>0$ で割って極限を取れば $\nabla f(x^*)^{\mathsf T}d\ge0$。これ
 <a id="def-opt6-linearization-cone"></a>
 <!-- formal-statement-start -->
 > **定義（線形化錐）**  
-> $g_i,h_j$ が $x^*$ で微分可能とする。
+> 微分可能な関数 $g_i,h_j$ によって
 >
 $$
-L_C(x^*)=
+C
+=
+\{x:g_i(x)\le0\ (i=1,\dots,m),\ h_j(x)=0\ (j=1,\dots,r)\}
+$$
+>
+> とし、$x^*\in C$ とする。活性集合
+>
+$$
+I(x^*)=\{i:g_i(x^*)=0\}
+$$
+>
+> に対して
+>
+$$
+L_C(x^*)
+=
 \left\{
 d:
-\nabla g_i(x^*)^{\mathsf T}d\le0\ (i\in I(x^*)),> \nabla h_j(x^*)^{\mathsf T}d=0\ (j=1,\ldots,r)
+\begin{array}{ll}
+\nabla g_i(x^*)^{\mathsf T}d\le0,&i\in I(x^*),\\
+\nabla h_j(x^*)^{\mathsf T}d=0,&j=1,\dots,r
+\end{array}
 \right\}
 $$
 >
@@ -177,7 +205,15 @@ $$
 <a id="thm-opt6-tangent-subset"></a>
 <!-- formal-statement-start -->
 > **定理（接錐と線形化錐の基本包含）**  
-> $g_i,h_j$ が $x^*$ で微分可能なら
+> 微分可能な $g_i,h_j$ による実行可能集合
+>
+$$
+C
+=
+\{x:g_i(x)\le0\ (i=1,\dots,m),\ h_j(x)=0\ (j=1,\dots,r)\}
+$$
+>
+> と実行可能点 $x^*\in C$ に対して
 >
 $$
 \boxed{T_C(x^*)\subseteq L_C(x^*)}.
@@ -251,12 +287,20 @@ $$
 <a id="def-opt6-licq"></a>
 <!-- formal-statement-start -->
 > **定義（LICQ）**  
-> $x^*$ において
+> 微分可能な制約
+>
+$$
+g_i(x)\le0\ (i=1,\dots,m),
+\qquad
+h_j(x)=0\ (j=1,\dots,r)
+$$
+>
+> と実行可能点 $x^*$ を考え、$I(x^*)=\{i:g_i(x^*)=0\}$ とする。ベクトル族
 >
 $$
 \{\nabla g_i(x^*):i\in I(x^*)\}
 \cup
-\{\nabla h_j(x^*):j=1,\ldots,r\}
+\{\nabla h_j(x^*):j=1,\dots,r\}
 $$
 >
 > が一次独立であるとき、**LICQ** が成立するという。
@@ -271,14 +315,30 @@ $g_1(x)=x_1\le0$, $g_2(x)=x_2\le0$ を原点で考えると、活性勾配は $(
 <a id="def-opt6-mfcq"></a>
 <!-- formal-statement-start -->
 > **定義（MFCQ）**  
-> $x^*$ で等式制約の勾配 $\nabla h_j(x^*)$ が一次独立であり、さらにある $v$ が存在して
+> 微分可能な制約
 >
 $$
-\nabla h_j(x^*)^{\mathsf T}v=0\quad(\forall j),
+g_i(x)\le0\ (i=1,\dots,m),
+\qquad
+h_j(x)=0\ (j=1,\dots,r)
+$$
+>
+> と実行可能点 $x^*$ を考え、$I(x^*)=\{i:g_i(x^*)=0\}$ とする。等式制約の勾配
+>
+$$
+\nabla h_1(x^*),\dots,\nabla h_r(x^*)
+$$
+>
+> が一次独立であり、さらにある $v\in\mathbb R^n$ が存在して
+>
+$$
+\nabla h_j(x^*)^{\mathsf T}v=0
+\qquad(j=1,\dots,r),
 $$
 >
 $$
-\nabla g_i(x^*)^{\mathsf T}v<0\quad(\forall i\in I(x^*))
+\nabla g_i(x^*)^{\mathsf T}v<0
+\qquad(i\in I(x^*))
 $$
 >
 > を満たすとき、**MFCQ** が成立するという。
@@ -303,7 +363,7 @@ $$
 <a id="thm-opt6-licq-mfcq"></a>
 <!-- formal-statement-start -->
 > **定理（LICQ なら MFCQ）**  
-> 有限次元の滑らかな制約で LICQ が成立すれば MFCQ が成立する。
+> 有限次元の微分可能な不等式・等式制約を考える。実行可能点 $x^*$ で LICQ が成立すれば、同じ点で MFCQ が成立する。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -327,7 +387,15 @@ $$
 <a id="thm-opt6-mfcq-tangent-equality"></a>
 <!-- formal-statement-start -->
 > **定理（MFCQ 下の接錐一致）**  
-> $g_i,h_j$ が $C^1$ 級で、$x^*$ で MFCQ が成立するとする。このとき
+> $C^1$ 級関数 $g_i,h_j$ による実行可能集合
+>
+$$
+C
+=
+\{x:g_i(x)\le0\ (i=1,\dots,m),\ h_j(x)=0\ (j=1,\dots,r)\}
+$$
+>
+> と実行可能点 $x^*\in C$ を考える。$x^*$ で MFCQ が成立するとき
 >
 $$
 \boxed{T_C(x^*)=L_C(x^*)}.
@@ -381,12 +449,37 @@ $$
 $$
 g_i(x_\varepsilon(t))
 =
-t\nabla g_i(x^*)^{\mathsf T}d_\varepsilon+o(t)<0
+t\nabla g_i(x^*)^{\mathsf T}d_\varepsilon+o(t)
 $$
 
-となり、非活性制約も連続性により負のままです。従って十分小さい $t>0$ で $x_\varepsilon(t)\in C$、よって $d_\varepsilon\in T_C(x^*)$。
+です。各活性 $i$ で一次係数が厳密に負で、活性制約は有限個なので、十分小さい一つの $t>0$ を取れば全て同時に
 
-最後に $\varepsilon\downarrow0$ とします。Bouligand 接錐は閉です。各 $d_\varepsilon$ の定義列から対角列を選べば $d_\varepsilon\to d$ の極限も接方向として実現できるため、$d\in T_C(x^*)$。従って $L_C(x^*)\subseteq T_C(x^*)$ です。$\square$
+$$
+g_i(x_\varepsilon(t))<0
+\qquad(i\in I(x^*))
+$$
+
+となります。非活性制約は $g_i(x^*)<0$ と連続性から十分近くで負のままです。従って $x_\varepsilon(t)\in C$ であり、$d_\varepsilon\in T_C(x^*)$ です。
+
+最後に $\varepsilon\downarrow0$ とします。ここで Bouligand 接錐が任意の集合に対して閉であることを定義から確認します。$d_\ell\in T_C(x^*)$、$d_\ell\to d$ とします。各 $\ell$ について接錐の定義から、ある $t_\ell\in(0,1/\ell)$ と $x_\ell\in C$ を
+
+$$
+\left\|
+\frac{x_\ell-x^*}{t_\ell}
+-d_\ell
+\right\|
+<
+\frac1\ell
+$$
+
+となるように選べます。すると $t_\ell\downarrow0$ となる部分列を必要なら取り直せ、三角不等式から
+
+$$
+\frac{x_\ell-x^*}{t_\ell}
+\to d.
+$$
+
+よって $d\in T_C(x^*)$ です。これを $d_\varepsilon\to d$ に適用して $d\in T_C(x^*)$。従って $L_C(x^*)\subseteq T_C(x^*)$ です。$\square$
 <!-- proof-end -->
 
 > **MFCQ が働いた場所**  
@@ -394,7 +487,7 @@ $$
 
 ---
 
-## 7. 線形化錐の polar
+## 7. 線形化錐の極錐
 
 活性不等式勾配を行に並べた行列を $A$、等式勾配を行に並べた行列を $B$ とすると
 
@@ -404,23 +497,44 @@ $$
 
 <a id="thm-opt6-linearized-polar"></a>
 <!-- formal-statement-start -->
-> **定理（線形化錐の polar 表示）**  
-> 上の $A,B$ に対して
+> **定理（線形化錐の極錐表示）**  
+> $A\in\mathbb R^{p\times n}$、$B\in\mathbb R^{r\times n}$ とし
+>
+$$
+K
+=
+\{d\in\mathbb R^n:Ad\le0,\ Bd=0\}
+$$
+>
+> と置く。このとき
 >
 $$
 \boxed{
-L_C(x^*)^\circ
+K^\circ
 =
 \{A^{\mathsf T}\lambda+B^{\mathsf T}\nu:
-\lambda\ge0,\ \nu\in\mathbb R^r\}.
+\lambda\in\mathbb R_+^p,\ \nu\in\mathbb R^r\}.
 }
 $$
+>
+> 特に $A$ を活性不等式勾配、$B$ を等式制約勾配から作れば $K=L_C(x^*)$ である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
 
-右辺を $M$ とする。$y=A^{\mathsf T}\lambda+B^{\mathsf T}\nu\in M$ と $d\in L_C$ に対して
+右辺を $M$ とします。$A$ の行ベクトルを $a_1,\dots,a_p$、$B$ の行ベクトルを $b_1,\dots,b_r$ とすれば
+
+$$
+M
+=
+\operatorname{cone}
+\{a_1,\dots,a_p,b_1,-b_1,\dots,b_r,-b_r\}.
+$$
+
+従って $M$ は [有限生成凸錐の閉性](../OPT2/index.md#thm-opt2-finitely-generated-cone-closed)により閉凸錐です。
+
+$y=A^{\mathsf T}\lambda+B^{\mathsf T}\nu\in M$ と $d\in K$ に対して
 
 $$
 y^{\mathsf T}d
@@ -428,9 +542,9 @@ y^{\mathsf T}d
 \lambda^{\mathsf T}Ad+\nu^{\mathsf T}Bd\le0,
 $$
 
-よって $M\subseteq L_C^\circ$。
+よって $M\subseteq K^\circ$。
 
-逆に $y\in L_C^\circ$ だが $y\notin M$ と仮定する。$M$ は有限生成凸錐なので閉凸です。OPT2 の最近点射影を $p=P_M(y)$ とし $d=y-p$ と置く。射影の特徴付けと $M$ が錐であることから
+逆に $y\in K^\circ$ だが $y\notin M$ と仮定します。[有限次元閉凸集合への射影](../OPT2/index.md#thm-opt2-convex-projection)により $p=P_M(y)$ が存在し、$d=y-p$ と置きます。射影の特徴付けと $M$ が錐であることから
 
 $$
 d^{\mathsf T}z\le0\quad(\forall z\in M),
@@ -438,7 +552,7 @@ d^{\mathsf T}z\le0\quad(\forall z\in M),
 d^{\mathsf T}y=\|y-p\|^2>0.
 $$
 
-$A$ の各行ベクトルは $M$ に入り、$B$ の各行ベクトルは正負とも $M$ に入るので $Ad\le0$, $Bd=0$。従って $d\in L_C$。しかし $y\in L_C^\circ$ なら $y^{\mathsf T}d\le0$ でなければならず矛盾。よって $y\in M$。$\square$
+$A$ の各行ベクトルは $M$ に入り、$B$ の各行ベクトルは正負とも $M$ に入るので $Ad\le0$, $Bd=0$。従って $d\in K$ です。しかし $y\in K^\circ$ なら $y^{\mathsf T}d\le0$ でなければならず、$d^{\mathsf T}y>0$ に矛盾します。よって $y\in M$。$\square$
 <!-- proof-end -->
 
 この定理は OPT2 の Farkas の補題と同じ alternative の幾何です。ここでは既に canonical な分離・射影理論を再証明せず利用しています。
@@ -450,16 +564,34 @@ $A$ の各行ベクトルは $M$ に入り、$B$ の各行ベクトルは正負�
 <a id="thm-opt6-mfcq-kkt"></a>
 <!-- formal-statement-start -->
 > **定理（MFCQ 下の KKT 乗数存在）**  
-> $x^*$ が $C$ 上の局所最小点、$f,g_i,h_j$ が $C^1$ 級で、$x^*$ で MFCQ が成立するとする。このとき、ある $\lambda_i\ge0$ と $\nu_j\in\mathbb R$ が存在して
+> $C^1$ 級関数 $f,g_i,h_j$ に対する問題
+>
+$$
+\min_x f(x)
+\quad\text{制約}\quad
+g_i(x)\le0\ (i=1,\dots,m),\qquad
+h_j(x)=0\ (j=1,\dots,r)
+$$
+>
+> を考える。$x^*$ が局所最小点で、$x^*$ で MFCQ が成立するなら、ある
+>
+$$
+\lambda\in\mathbb R_+^m,
+\qquad
+\nu\in\mathbb R^r
+$$
+>
+> が存在して
 >
 $$
 \nabla f(x^*)
-+\sum_i\lambda_i\nabla g_i(x^*)
-+\sum_j\nu_j\nabla h_j(x^*)=0,
++\sum_{i=1}^m\lambda_i\nabla g_i(x^*)
++\sum_{j=1}^r\nu_j\nabla h_j(x^*)=0,
 $$
 >
 $$
 \lambda_i g_i(x^*)=0
+\qquad(i=1,\dots,m)
 $$
 >
 > を満たす。
@@ -480,7 +612,7 @@ $$
 -\nabla f(x^*)\in L_C(x^*)^\circ.
 $$
 
-前節の polar 表示から、活性制約について
+前節の 極錐表示から、活性制約について
 
 $$
 -\nabla f(x^*)
@@ -503,7 +635,7 @@ OPT5 では凸性と Slater 条件から KKT を得ました。本章では局�
 <a id="thm-opt6-licq-unique-multiplier"></a>
 <!-- formal-statement-start -->
 > **定理（LICQ 下の KKT 乗数の一意性）**  
-> $x^*$ で KKT 条件を満たす乗数が存在し、LICQ が成立するとする。このとき KKT 乗数 $(\lambda,\nu)$ は一意である。
+> 微分可能な制約 $g_i(x)\le0$、$h_j(x)=0$ を持つ問題の実行可能点 $x^*$ を考える。$x^*$ で KKT 条件を満たす乗数 $(\lambda,\nu)$ が存在し、LICQ が成立するなら、その KKT 乗数は一意である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -526,33 +658,195 @@ MFCQ だけでは重複制約が許されるため乗数は一意とは限りま
 
 ## 10. 二階条件への入口
 
-KKT は一次情報です。停留条件で一次変化が消える方向では、次に二次変化を見る必要があります。
+KKT は一次情報です。停留条件によって一次変化が消える実行可能方向では、次に二次変化を調べる必要があります。ただし、**単に $Dh(x^*)d=0$ と書くだけでは、その $d$ が本当に実行可能曲線の速度になるとは限りません**。ここでも正則性が要ります。
 
-等式制約だけの問題
-
+<a id="thm-opt6-second-order-equality"></a>
+<!-- formal-statement-start -->
+> **定理（正則な等式制約に対する二階必要条件）**  
+> $f:\mathbb R^n\to\mathbb R$ と $h=(h_1,\dots,h_r):\mathbb R^n\to\mathbb R^r$ を $C^2$ 級とする。問題
+>
 $$
-\min f(x)\quad\text{subject to}\quad h(x)=0
+\min_x f(x)
+\quad\text{制約}\quad
+h(x)=0
 $$
-
-で KKT 点 $(x^*,\nu^*)$ を考え、
-
+>
+> の局所最小点を $x^*$ とし、$Dh(x^*)$ が行フルランクであるとする。KKT 乗数 $\nu^*\in\mathbb R^r$ を
+>
+$$
+\nabla f(x^*)+Dh(x^*)^{\mathsf T}\nu^*=0
+$$
+>
+> で定め、Lagrangian
+>
 $$
 L(x,\nu)=f(x)+\nu^{\mathsf T}h(x)
 $$
+>
+> を考える。このとき任意の
+>
+$$
+d\in\ker Dh(x^*)
+$$
+>
+> に対して
+>
+$$
+\boxed{
+d^{\mathsf T}
+\nabla_{xx}^2L(x^*,\nu^*)
+d
+\ge0
+}
+$$
+>
+> が成り立つ。
+<!-- formal-statement-end -->
 
-とします。接方向 $d$ が
+### 証明の見取り図
+
+行フルランク性と[陰関数定理](../RA6A/index.md#thm-ra6a-implicit-function)により、$Dh(x^*)d=0$ を満たす任意の $d$ を速度に持つ実行可能曲線 $x(t)$ を作れます。$f(x(t))$ は $t=0$ で局所最小なので二階微分が非負です。制約 $h(x(t))=0$ を二回微分すると、曲線の加速度項が KKT 停留条件によって消え、Lagrangian の Hessian だけが残ります。
+
+<!-- proof-start -->
+### 証明
+
+$d\in\ker Dh(x^*)$ を取ります。$Dh(x^*)$ は行フルランクなので、MFCQ 下の接錐一致で使ったのと同じ陰関数定理の議論により、ある $C^2$ 級曲線 $x(t)$ を
 
 $$
-Dh(x^*)d=0
+x(0)=x^*,
+\qquad
+x'(0)=d,
+\qquad
+h(x(t))=0
 $$
 
-を満たすとき、二階必要条件の基本形は
+となるように取れます。
+
+一変数関数
 
 $$
-d^{\mathsf T}\nabla_{xx}^2L(x^*,\nu^*)d\ge0.
+\phi(t)=f(x(t))
 $$
 
-厳密に正なら局所最小性の十分条件へつながります。不等式制約では「どの活性制約が一次に効くか」を反映した**臨界錐**上で調べる必要があります。本章ではここを停止線とし、後続で数値最適化と結び直します。
+は $t=0$ で局所最小なので
+
+$$
+\phi''(0)\ge0.
+$$
+
+連鎖律より
+
+$$
+\phi''(0)
+=
+d^{\mathsf T}\nabla^2 f(x^*)d
++
+\nabla f(x^*)^{\mathsf T}x''(0).
+$$
+
+一方、各 $j$ について $h_j(x(t))=0$ を二回微分すると
+
+$$
+d^{\mathsf T}\nabla^2 h_j(x^*)d
++
+\nabla h_j(x^*)^{\mathsf T}x''(0)
+=
+0.
+$$
+
+KKT 停留条件
+
+$$
+\nabla f(x^*)
+=
+-
+\sum_{j=1}^r
+\nu_j^*\nabla h_j(x^*)
+$$
+
+を使えば
+
+$$
+\begin{aligned}
+\nabla f(x^*)^{\mathsf T}x''(0)
+&=
+-
+\sum_j\nu_j^*
+\nabla h_j(x^*)^{\mathsf T}x''(0)\\
+&=
+\sum_j\nu_j^*
+d^{\mathsf T}\nabla^2 h_j(x^*)d.
+\end{aligned}
+$$
+
+したがって
+
+$$
+\begin{aligned}
+\phi''(0)
+&=
+d^{\mathsf T}
+\left(
+\nabla^2 f(x^*)
++
+\sum_j\nu_j^*\nabla^2 h_j(x^*)
+\right)d\\
+&=
+d^{\mathsf T}
+\nabla_{xx}^2L(x^*,\nu^*)
+d
+\ge0.
+\end{aligned}
+$$
+
+これが主張です。$\square$
+<!-- proof-end -->
+
+> **行フルランク性を落とすと何が壊れるか**  
+> $h(x)=x^2=0$ では実行可能集合は $\{0\}$ なので、$f(x)=-x^2$ に対して $x^*=0$ は局所最小点です。しかし $Dh(0)=0$ なので全ての $d$ が形式上 $Dh(0)d=0$ を満たします。$\nu^*=0$ は停留条件を満たしますが
+>
+$$
+d^2\,\nabla_{xx}^2L(0,0)
+=
+-2d^2<0
+\qquad(d\ne0).
+$$
+>
+> つまり壊れたのは、**一次方程式 $Dh(x^*)d=0$ から実際の実行可能曲線を復元する機構**です。
+
+**直接例**：単位円上の線形目的関数
+
+$$
+\min_{x_1,x_2} x_1
+\quad\text{制約}\quad
+h(x)=x_1^2+x_2^2-1=0
+$$
+
+では $x^*=(-1,0)$、$Dh(x^*)=(-2,0)$ は行フルランクです。停留条件
+
+$$
+(1,0)+\nu^*(-2,0)=0
+$$
+
+から $\nu^*=1/2$。接方向は $d=(0,d_2)$ であり、
+
+$$
+\nabla_{xx}^2L(x^*,\nu^*)
+=
+2\nu^*I
+=
+I.
+$$
+
+従って
+
+$$
+d^{\mathsf T}\nabla_{xx}^2L(x^*,\nu^*)d
+=
+d_2^2\ge0.
+$$
+
+不等式制約まで含めると、全ての線形化方向ではなく、一次変化が実際に消える方向だけを集めた **臨界錐** 上で二階条件を調べます。本章ではここを停止線とし、後続の数値最適化で扱います。
 
 ---
 
@@ -666,7 +960,7 @@ $$
 
 ## 12. 演習 Level B
 
-### OPT6-B01 局所最適性から polar 条件を導く
+### OPT6-B01 局所最適性から 極錐条件を導く
 
 - Level: B
 - 目安時間: 15分
@@ -759,11 +1053,25 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-線形関数 $x+y$ は単位円板で $(-1,-1)$ 方向に最小となるので
+Cauchy--Schwarz の不等式から、単位円板上では
 
 $$
-x^*=y^*=-\frac1{\sqrt2}.
+x+y
+=
+(1,1)^{\mathsf T}(x,y)
+\ge
+-\sqrt2\sqrt{x^2+y^2}
+\ge
+-\sqrt2.
 $$
+
+等号は $(x,y)$ が $(-1,-1)$ と同方向で境界上にあるとき、すなわち
+
+$$
+x^*=y^*=-\frac1{\sqrt2}
+$$
+
+で成立します。従ってこれが最適点です。
 
 制約を $g=x^2+y^2-1\le0$ とすると活性で、
 
@@ -885,7 +1193,7 @@ $$
 T_C(x^*)=L_C(x^*)
 $$
 
-を保証し、その polar 表示から非負乗数 $\lambda^*$ と自由乗数 $\nu^*$ が現れます。ここが制約想定の役割です。
+を保証し、その 極錐表示から非負乗数 $\lambda^*$ と自由乗数 $\nu^*$ が現れます。ここが制約想定の役割です。
 <!-- solution-end -->
 
 ---
