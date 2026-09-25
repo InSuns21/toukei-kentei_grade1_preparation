@@ -184,7 +184,7 @@ $$
 \qquad(y\in C).
 $$
 
-これは [OPT3 の微分可能な凸関数に対する制約付き Fermat 条件](../OPT3/index.md#thm-opt3-constrained-fermat-differentiable)です。従って $x^*$ が $C$ 上の大域最小点であることと同値です。
+これは [OPT3 の微分可能な凸関数に対する制約付き Fermat 条件](../OPT3/index.md#cor-opt3-smooth-constrained)です。従って $x^*$ が $C$ 上の大域最小点であることと同値です。
 
 $\square$
 <!-- proof-end -->
@@ -1591,10 +1591,10 @@ $$
 
 代表的な大域化は
 
-- merit function を使う直線探索
-- trust region
-- filter method
-- 主双対法での fraction-to-boundary
+- メリット関数（merit function）を使う直線探索
+- 信頼領域法（trust-region method）
+- フィルタ法（filter method）
+- 主双対法での境界までの割合（fraction-to-boundary）
 
 です。
 
@@ -2898,6 +2898,6 @@ $$
   が基本 KKT 行列になる。
 - 主双対法は $x,s,\lambda,\nu$ を同時更新し、stationarity・主可行性・相補性を同じ Newton 系で減らす。
 - 逐次二次計画法は、目的関数を二次近似し制約を一次近似する。等式制約で Lagrangian の正確な Hessian を使うと、SQP ステップは KKT-Newton ステップと一致する。
-- Newton / SQP の高速収束は局所的であり、直線探索・trust region・filter・fraction-to-boundary などの大域化が別途必要になる。
+- Newton / SQP の高速収束は局所的であり、直線探索・信頼領域法・フィルタ法・境界までの割合などの大域化が別途必要になる。
 
 次の OPT10 では線形計画へ進み、多面体・極点・基本実行可能解・LP 双対・相補性を、Farkas の補題と接続して閉じます。
