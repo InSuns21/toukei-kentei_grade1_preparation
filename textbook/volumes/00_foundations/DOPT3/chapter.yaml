@@ -1,0 +1,56 @@
+id: "DOPT3"
+title: "マッチング・割当問題"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - DOPT2
+official_scope: []
+learning_objectives:
+  - 二部グラフ、マッチング、最大マッチング、飽和を定義し、小規模グラフでマッチング条件を直接検算できる
+  - 交互路と増加路を定義し、増加路に沿う対称差がマッチングを保ちながら辺数を1増やすことを証明できる
+  - Berge の補題を対称差の連結成分分解から証明し、最大性を増加路の非存在として判定できる
+  - 二部マッチングを単位容量最大フローへ変換し、整数最大フローとの対応から最大マッチングを構成できる
+  - 二部グラフの近傍を定義し、Hall の条件の必要性と十分性を最大流最小カット定理から証明できる
+  - 費用付き割当問題を置換問題と0--1線形計画の両方で表し、両者の同値性を証明できる
+  - 割当 LP 緩和と二重確率行列を定義し、整数モデルと連続緩和の違いを具体例で説明できる
+  - マッチング多面体と次数制約による LP 緩和を区別し、二部性を失うと次数制約だけでは不足する反例を示せる
+  - 割当 LP の双対を導出し、双対実行解を費用下界として用いて小規模割当ての最適性を証明できる
+definitions:
+  - { id: DOPT3-DEF-01, name: 二部グラフ }
+  - { id: DOPT3-DEF-02, name: マッチング }
+  - { id: DOPT3-DEF-03, name: 交互路・増加路 }
+  - { id: DOPT3-DEF-04, name: 二部グラフにおける近傍 }
+  - { id: DOPT3-DEF-05, name: 割当問題 }
+  - { id: DOPT3-DEF-06, name: 割当 LP 緩和・二重確率行列 }
+  - { id: DOPT3-DEF-07, name: マッチング多面体 }
+theorems:
+  - { id: DOPT3-PROP-01, name: 増加路によるマッチング更新 }
+  - { id: DOPT3-THM-01, name: Berge の補題 }
+  - { id: DOPT3-THM-02, name: 二部マッチングと整数フローの対応 }
+  - { id: DOPT3-THM-03, name: Hall の定理 }
+  - { id: DOPT3-PROP-02, name: 割当問題の0--1線形計画表示 }
+  - { id: DOPT3-PROP-03, name: マッチング多面体の次数制約緩和への包含 }
+  - { id: DOPT3-PROP-04, name: 割当 LP の双対 }
+canonical_examples:
+  - 三人三仕事の二部グラフで候補辺と完全マッチングを区別する例
+  - 2-a-1-b 型の増加路に沿って選択辺と非選択辺を反転し辺数を1増やす例
+  - 単位容量ネットワークへ変換して最大マッチング辺数と最大フロー値を一致させる例
+  - Hall 条件が不足集合 S={1,2} で破れ対応する容量不足カットが現れる例
+  - 三人三仕事の費用行列を置換と0--1線形計画の両方で記述する例
+  - 2x2 の全成分1/2の二重確率行列で LP 緩和の分数点を確認する例
+  - 4-cycle の二つの完全マッチングの平均がマッチング多面体の分数点になる例
+  - 三角形の各辺1/2が次数制約を満たしてもマッチング多面体に入らない例
+  - 2x2 割当問題で主実行解と双対実行解の目的値3を一致させる最適性証明
+problem_patterns:
+  - DOPT3-MATCHING-FEASIBILITY-1
+  - DOPT3-AUGMENTING-PATH-1
+  - DOPT3-BERGE-LEMMA-1
+  - DOPT3-MATCHING-FLOW-1
+  - DOPT3-HALL-CONDITION-1
+  - DOPT3-ASSIGNMENT-IP-1
+  - DOPT3-MATCHING-POLYTOPE-1
+  - DOPT3-ASSIGNMENT-DUAL-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.5, exercises: 4.5, review: 0.75 }
