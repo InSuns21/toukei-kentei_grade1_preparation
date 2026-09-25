@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - F0-02C1
+  - OPT1
 
 forward_references:
   - functional.riesz-representation-theorem
