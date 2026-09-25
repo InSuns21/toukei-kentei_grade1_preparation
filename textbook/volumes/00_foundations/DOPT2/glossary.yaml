@@ -1,0 +1,29 @@
+chapter: "DOPT2"
+terms:
+  - term: s--t フロー
+    english: s-t flow
+    meaning: 始点 s と終点 t を除く各頂点で流入量と流出量を一致させ、各有向辺の流量を容量以下に保つ流れ。s から正味に送り出す量をフロー値という。
+  - term: s--t カット
+    english: s-t cut
+    meaning: 頂点集合を s を含む側 S と t を含む側 T に分ける分割。S から T へ向かう辺の容量和をカット容量という。
+  - term: 最大流
+    english: maximum flow
+    meaning: 容量制約と流量保存則を満たす s--t フローのうち、フロー値が最大のもの。
+  - term: 最小カット
+    english: minimum cut
+    meaning: s--t カットのうち、S から T へ出る辺の容量和が最小のもの。
+  - term: 残余ネットワーク
+    english: residual network
+    meaning: 現在のフローから、さらに増やせる量を表す順向き残余辺と、既存流量を取り消せる量を表す逆向き残余辺を持つネットワーク。
+  - term: 増加路
+    english: augmenting path
+    meaning: 残余ネットワーク内で s から t へ到達する有向路。路上の最小残余容量だけフロー値を増やせる。
+  - term: 最小費用流
+    english: minimum-cost flow
+    meaning: 各頂点の供給・需要と各辺の容量を満たす実行可能流の中で、単位費用と流量の積の総和を最小化する問題。
+  - term: 残余費用
+    english: residual cost
+    meaning: 最小費用流の残余ネットワークで、順向き残余辺には元の単位費用、逆向き残余辺にはその符号を反転した費用を割り当てたもの。
+  - term: 負費用閉路
+    english: negative-cost cycle
+    meaning: 残余費用の総和が負である有向閉路。これに沿って正の量だけ流量を修正できれば、供給需要を保ったまま総費用を減らせる。
