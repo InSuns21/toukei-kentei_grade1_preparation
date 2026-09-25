@@ -1627,7 +1627,7 @@ $$
 T_C(x)=\overline{\operatorname{cone}(C-x)}
 $$
 
-は **閉凸錐** です。後で $T_C(x)$ に極双極定理を適用するとき、必要な「閉・凸・錐」という三条件はここで確保されています。
+は **閉凸錐** です。後で二重極から $T_C(x)$ へ戻すとき、必要な「閉・凸・錐」という三条件はここで確保されています。
 
 <a id="thm-opt3-polar-bipolar"></a>
 <!-- formal-statement-start -->
