@@ -81,19 +81,16 @@ $$
 ## 2. 双対錐
 
 <a id="def-opt6a-dual-cone"></a>
-<!-- formal-statement-start -->
-> **定義（双対錐）**  
-> 錐 $K\subset Y$ に対して
->
-> $$
-> K^*
-> =
-> \{\lambda\in Y:
-> \langle\lambda,k\rangle\ge0\quad(\forall k\in K)\}
-> $$
->
-> を **双対錐**という。
-<!-- formal-statement-end -->
+[OPT3 で定義した双対錐](../OPT3/index.md#def-opt3-polar-dual)を錐制約へ使います。すなわち、錐 $K\subset Y$ に対して
+
+$
+K^*
+=
+\{\lambda\in Y:
+\langle\lambda,k\rangle\ge0\quad(\forall k\in K)\}
+$
+
+です。ここでは新しい概念を再定義するのではなく、OPT3 の canonical な双対錐を再掲しています。
 
 <!-- definition-example-start: def-opt6a-dual-cone -->
 **定義の確認**：非負直交錐は自己双対
