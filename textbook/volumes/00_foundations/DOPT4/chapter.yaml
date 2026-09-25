@@ -24,6 +24,8 @@ definitions:
   - { id: DOPT4-DEF-03, name: 有向グラフの点弧接続行列 }
   - { id: DOPT4-DEF-04, name: 二部グラフの頂点辺接続行列 }
   - { id: DOPT4-DEF-05, name: ネットワーク行列 }
+  - { id: DOPT4-DEF-06, name: 置換行列 }
+  - { id: DOPT4-DEF-07, name: 縮約点弧接続行列 }
 theorems:
   - { id: DOPT4-PROP-01, name: 全単模性の基本的な閉包性 }
   - { id: DOPT4-THM-01, name: 有向グラフの点弧接続行列の全単模性 }
