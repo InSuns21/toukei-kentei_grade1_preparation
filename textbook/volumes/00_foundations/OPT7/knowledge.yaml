@@ -109,15 +109,25 @@ concepts:
       - optimization.lipschitz-gradient
       - optimization.strong-convexity
 
-  - id: optimization.armijo-backtracking
-    name: Armijo 条件付き後退直線探索
+  - id: optimization.armijo-condition
+    name: Armijo 条件
     kind: definition
     aliases:
-      - Armijo backtracking line search
+      - Armijo condition
     introduction: formal
-    introduction_aliases: ["定義（Armijo 条件付き後退直線探索）"]
+    introduction_aliases: ["定義（Armijo 条件と後退直線探索）"]
     requires:
       - optimization.descent-direction
+
+  - id: optimization.backtracking-line-search
+    name: 後退直線探索
+    kind: definition
+    aliases:
+      - backtracking line search
+    introduction: formal
+    introduction_aliases: ["定義（Armijo 条件と後退直線探索）"]
+    requires:
+      - optimization.armijo-condition
 
   - id: optimization.armijo-finite-acceptance
     name: 滑らかさによる後退直線探索の有限停止
@@ -126,7 +136,8 @@ concepts:
     introduction: formal
     introduction_aliases: ["定理（滑らかさによる後退直線探索の有限停止）"]
     requires:
-      - optimization.armijo-backtracking
+      - optimization.armijo-condition
+      - optimization.backtracking-line-search
       - optimization.descent-lemma
 
   - id: optimization.newton-local-quadratic-convergence
