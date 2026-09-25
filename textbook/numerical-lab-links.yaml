@@ -18,10 +18,20 @@ links:
     lab_anchor: lab-numlab1-na3-system-newton
     experiment_id: NUMLAB1-NA3-SYSTEM-NEWTON
   - theory_chapter: NA4
+    theory_anchor: thm-na4-lagrange-interpolation
+    lab_chapter: NUMLAB1
+    lab_anchor: lab-numlab1-na4-lagrange-manual
+    experiment_id: NUMLAB1-NA4-LAGRANGE-MANUAL
+  - theory_chapter: NA4
     theory_anchor: def-na4-chebyshev-nodes
     lab_chapter: NUMLAB1
     lab_anchor: lab-numlab1-na4-runge
     experiment_id: NUMLAB1-NA4-RUNGE
+  - theory_chapter: NA5
+    theory_anchor: thm-na5-gauss-exactness
+    lab_chapter: NUMLAB1
+    lab_anchor: lab-numlab1-na5-gauss-manual
+    experiment_id: NUMLAB1-NA5-GAUSS-MANUAL
   - theory_chapter: NA5
     theory_anchor: def-na5-gauss-quadrature
     lab_chapter: NUMLAB1
@@ -37,6 +47,11 @@ links:
     lab_chapter: NUMLAB1
     lab_anchor: lab-numlab1-na7-stiff
     experiment_id: NUMLAB1-NA7-STIFF
+  - theory_chapter: NA8
+    theory_anchor: thm-na8-cholesky
+    lab_chapter: NUMLAB1
+    lab_anchor: lab-numlab1-na8-cholesky-manual
+    experiment_id: NUMLAB1-NA8-CHOLESKY-MANUAL
   - theory_chapter: NA8
     theory_anchor: def-na8-cholesky-factorization
     lab_chapter: NUMLAB1
