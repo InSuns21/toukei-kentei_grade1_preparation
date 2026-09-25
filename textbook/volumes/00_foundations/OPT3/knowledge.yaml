@@ -169,7 +169,7 @@ concepts:
 
   - id: convex.finite-convex-local-lipschitz
     name: 有限値凸関数の局所 Lipschitz 連続性
-    kind: theorem
+    kind: lemma
     aliases: [有限値凸関数の局所 Lipschitz 連続性]
     introduction: formal
     introduction_aliases: ["補題（有限値凸関数の局所 Lipschitz 連続性）"]
