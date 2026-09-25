@@ -58,11 +58,11 @@ concepts:
       - convex.convex-function
 
   - id: convex.hessian-convexity
-    name: C2 関数の Hessian による凸性判定
+    name: Hessian による凸性判定
     kind: theorem
     aliases: ["C2 関数の Hessian による凸性判定", "C^2 関数の Hessian による凸性判定", "Hessian による凸性判定"]
     introduction: formal
-    introduction_aliases: ["定理（$C^2$ 関数の Hessian による凸性判定）"]
+    introduction_aliases: ["定理（Hessian による凸性判定）"]
     requires:
       - convex.convex-function
 
@@ -113,6 +113,22 @@ concepts:
       - convex.quasiconvex-function
       - convex.convex-set
 
+  - id: optimization.local-minimizer
+    name: 局所最小点
+    kind: definition
+    aliases: [局所最小点, local minimizer]
+    introduction: formal
+    introduction_aliases: ["定義（局所最小点・大域最小点）"]
+    requires: []
+
+  - id: optimization.global-minimizer
+    name: 大域最小点
+    kind: definition
+    aliases: [大域最小点, global minimizer]
+    introduction: formal
+    introduction_aliases: ["定義（局所最小点・大域最小点）"]
+    requires: []
+
   - id: convex.first-order-support-inequality
     name: 微分可能な凸関数の一次支持不等式
     kind: theorem
@@ -131,6 +147,8 @@ concepts:
     requires:
       - convex.convex-function
       - convex.convex-set
+      - optimization.local-minimizer
+      - optimization.global-minimizer
 
   - id: convex.strict-convex-unique-minimizer
     name: 狭義凸関数の最小点の一意性
