@@ -1,0 +1,154 @@
+chapter: OPT2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OPT1
+  - F0-00C1
+  - F0-00E1
+
+forward_references:
+  - convex.epigraph
+  - convex.subgradient
+  - convex.subdifferential
+  - convex.normal-cone
+  - convex.polar-cone
+  - optimization.kkt-multiplier-existence
+  - optimization.linear-programming-duality
+
+concepts:
+  - id: convex.hyperplane
+    name: 超平面
+    kind: definition
+    aliases: [超平面]
+    introduction: formal
+    introduction_aliases: ["定義（超平面）"]
+    requires:
+      - linear.inner-product-space
+
+  - id: convex.separating-hyperplane
+    name: 分離超平面
+    kind: definition
+    aliases: [分離超平面]
+    introduction: formal
+    introduction_aliases: ["定義（点と集合を厳密に分離する超平面）"]
+    requires:
+      - convex.hyperplane
+      - convex.convex-set
+
+  - id: optimization.nearest-point-projection
+    name: 最近点射影
+    kind: definition
+    aliases: [最近点射影]
+    introduction: formal
+    introduction_aliases: ["定義（最近点射影）"]
+    requires:
+      - convex.convex-set
+      - linear.inner-product-space
+
+  - id: optimization.finite-dimensional-convex-projection
+    name: 有限次元の閉凸集合への射影定理
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（有限次元の閉凸集合への射影定理）"]
+    requires:
+      - optimization.nearest-point-projection
+      - topology.heine-borel
+      - convex.convex-set
+
+  - id: optimization.projection-variational-inequality
+    name: 射影の変分不等式
+    kind: theorem
+    aliases: [射影の変分不等式]
+    introduction: formal
+    introduction_aliases: ["定理（射影の変分不等式）"]
+    requires:
+      - optimization.finite-dimensional-convex-projection
+      - convex.convex-set
+
+  - id: convex.point-closed-convex-strict-separation
+    name: 点と閉凸集合の厳密分離
+    kind: theorem
+    aliases: [点と閉凸集合の厳密分離]
+    introduction: formal
+    introduction_aliases: ["定理（点と閉凸集合の厳密分離）"]
+    requires:
+      - convex.separating-hyperplane
+      - optimization.projection-variational-inequality
+
+  - id: convex.supporting-hyperplane
+    name: 支持超平面
+    kind: definition
+    aliases: [支持超平面]
+    introduction: formal
+    introduction_aliases: ["定義（支持超平面）"]
+    requires:
+      - convex.hyperplane
+      - convex.convex-set
+
+  - id: convex.supporting-hyperplane-theorem
+    name: 有限次元の支持超平面定理
+    kind: theorem
+    aliases: [有限次元の支持超平面定理, 支持超平面定理]
+    introduction: formal
+    introduction_aliases: ["定理（有限次元の支持超平面定理）"]
+    requires:
+      - convex.supporting-hyperplane
+      - optimization.projection-variational-inequality
+      - topology.heine-borel
+
+  - id: convex.finite-dimensional-polar-cone
+    name: 有限次元の極錐
+    kind: definition
+    aliases: [有限次元の極錐]
+    introduction: formal
+    introduction_aliases: ["定義（有限次元の極錐）"]
+    requires:
+      - convex.convex-cone
+
+  - id: convex.closed-cone-separation
+    name: 閉凸錐の分離
+    kind: theorem
+    aliases: [閉凸錐の分離]
+    introduction: formal
+    introduction_aliases: ["定理（閉凸錐の分離）"]
+    requires:
+      - convex.convex-cone
+      - optimization.projection-variational-inequality
+
+  - id: convex.finitely-generated-cone
+    name: 有限生成凸錐
+    kind: definition
+    aliases: [有限生成凸錐]
+    introduction: formal
+    introduction_aliases: ["定義（有限生成凸錐）"]
+    requires:
+      - convex.convex-cone
+
+  - id: convex.finitely-generated-cone-closed
+    name: 有限生成凸錐の閉性
+    kind: theorem
+    aliases: [有限生成凸錐の閉性]
+    introduction: formal
+    introduction_aliases: ["定理（有限生成凸錐の閉性）"]
+    requires:
+      - convex.finitely-generated-cone
+      - linear.linear-independence
+
+  - id: convex.farkas-lemma
+    name: Farkas の補題
+    kind: lemma
+    aliases: [Farkasの補題, Farkas の補題]
+    introduction: formal
+    introduction_aliases: ["補題（Farkas の補題）"]
+    requires:
+      - convex.closed-cone-separation
+      - convex.finitely-generated-cone-closed
+
+  - id: convex.theorem-of-alternatives-farkas
+    name: Farkas 型二者択一
+    kind: theorem
+    aliases: [Farkas 型二者択一]
+    introduction: inline
+    requires:
+      - convex.farkas-lemma
