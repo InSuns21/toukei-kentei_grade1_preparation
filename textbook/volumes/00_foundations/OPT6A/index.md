@@ -285,7 +285,7 @@ $$
 > が $\mathbb R^r\times Y$ 全体に等しいとき、$x^*$ で **Robinson 制約想定**が成立するという。
 <!-- formal-statement-end -->
 
-有限次元ではこれは「線形化された制約写像が全方向の摂動を吸収できる」という正則性です。
+有限次元ではこれは「一次近似された制約写像が全方向の摂動を吸収できる」という正則性です。
 
 <!-- definition-example-start: def-opt6a-robinson-cq -->
 **定義の確認**：$x\le0$
