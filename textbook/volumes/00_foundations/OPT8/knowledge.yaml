@@ -147,11 +147,11 @@ concepts:
       - optimization.proximal-optimality
 
   - id: optimization.proximal-gradient-sublinear-rate
-    name: 近接勾配法のO(1/k)収束
+    name: 近接勾配法の劣線形収束
     kind: theorem
     aliases: []
     introduction: formal
-    introduction_aliases: ["定理（近接勾配法の劣線形収束）"]
+    aliases:\n      - 近接勾配法の O(1/k) 収束\n    introduction: formal\n    introduction_aliases: ["定理（近接勾配法の劣線形収束）"]
     requires:
       - optimization.proximal-gradient-one-step
 
