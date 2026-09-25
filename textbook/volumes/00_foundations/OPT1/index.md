@@ -107,15 +107,15 @@ $$
 > **命題（有限集合の凸包）**  
 > $S=\{x_1,\dots,x_m\}\subset\mathbb R^n$ とする。このとき
 >
-> $$
-> \operatorname{conv}(S)
-> =
-> \left\{
-> \sum_{i=1}^m\theta_i x_i:
-> \theta_i\ge0,\quad
-> \sum_{i=1}^m\theta_i=1
-> \right\}.
-> $$
+$$
+\operatorname{conv}(S)
+=
+\left\{
+\sum_{i=1}^m\theta_i x_i:
+\theta_i\ge0,\quad
+\sum_{i=1}^m\theta_i=1
+\right\}.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -975,19 +975,19 @@ $$
 > **定義（凸最適化問題）**  
 > $f,g_1,\dots,g_m:\mathbb R^n\to\mathbb R$ を凸関数、$A\in\mathbb R^{p\times n}$、$b\in\mathbb R^p$ とする。このとき
 >
-> $$
-> \min_{x\in\mathbb R^n} f(x)
-> $$
+$$
+\min_{x\in\mathbb R^n} f(x)
+$$
 >
 > subject to
 >
-> $$
-> g_i(x)\le0,\qquad i=1,\dots,m,
-> $$
+$$
+g_i(x)\le0,\qquad i=1,\dots,m,
+$$
 >
-> $$
-> Ax=b
-> $$
+$$
+Ax=b
+$$
 >
 > の形の問題を **凸最適化問題** という。
 <!-- formal-statement-end -->
