@@ -6,24 +6,25 @@ prerequisites:
   - OPT3
 official_scope: []
 learning_objectives:
-  - Fenchel共役を定義し基本例を計算できる
-  - indicator関数の共役がsupport functionになることを説明できる
+  - Fenchel 共役を定義し基本例を計算でき、共役関数が凸かつ下半連続になる理由を説明できる
+  - 標示関数の共役が支持関数になることを説明できる
   - Fenchel--Youngの不等式と劣微分による等号条件を証明できる
   - 閉真凸関数に対するFenchel--Moreauの定理の幾何を説明できる
   - 劣微分の逆関係を共役関数から導ける
   - Fenchel双対を導出し弱双対性を示せる
-  - relative interior条件が強双対性で果たす役割を説明できる
+  - 相対内部条件が強双対性で果たす役割を説明できる
 definitions:
   - { id: OPT4-DEF-01, name: Fenchel--Legendre 共役 }
-  - { id: OPT4-DEF-02, name: support function }
+  - { id: OPT4-DEF-02, name: 支持関数 }
   - { id: OPT4-DEF-03, name: 二重共役 }
 theorems:
+  - { id: OPT4-THM-06, name: 共役関数の凸性・下半連続性 }
   - { id: OPT4-THM-01, name: Fenchel--Young の不等式 }
   - { id: OPT4-THM-02, name: Fenchel--Young の等号条件と劣勾配 }
   - { id: OPT4-THM-03, name: Fenchel--Moreau の定理 }
   - { id: OPT4-THM-04, name: 劣微分の逆関係 }
   - { id: OPT4-THM-05, name: Fenchel 双対の弱双対性 }
-canonical_examples: [二次関数の共役, 絶対値と区間indicator, support functionと双対ノルム, Fenchel--Youngの等号条件, l1正則化のFenchel双対]
+canonical_examples: [二次関数の共役, 絶対値と区間標示関数, 支持関数と双対ノルム, Fenchel--Youngの等号条件, l1正則化のFenchel双対]
 problem_patterns: [CVX-CONJ-1, CVX-FY-1, CVX-BICONJ-1, CVX-DUAL-1]
 past_exam_alignment: []
 integrated_exam_problems: []
