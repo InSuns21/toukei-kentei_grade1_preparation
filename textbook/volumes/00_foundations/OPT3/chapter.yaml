@@ -49,6 +49,7 @@ theorems:
   - { id: OPT3-THM-12, name: 閉凸錐の極双極定理 }
   - { id: OPT3-THM-13, name: 法錐と接錐の極双対 }
   - { id: OPT3-THM-14, name: 凸制約付き Fermat 条件 }
+  - { id: OPT3-THM-15, name: 微分可能な場合の制約付き最適性条件 }
 canonical_examples:
   - x^2 の実効定義域・エピグラフ・下半連続性
   - 境界で値が跳ぶ凸関数による閉エピグラフ失敗例
