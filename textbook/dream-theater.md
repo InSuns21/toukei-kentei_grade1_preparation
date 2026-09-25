@@ -114,7 +114,7 @@
 
 ### 標準抽象代数コア
 
-集合・写像の基礎から、群・環・加群・体へ進み、有限 Galois 理論と古典的応用まで閉じる学部標準の抽象代数系列です。群論 GRP1--GRP4、環論 RNG1--RNG4、加群論 MOD1--MOD2、体論・Galois 理論 FLD1--FLD5 まで実装済みです。
+集合・写像の基礎から、群・環・加群・体へ進み、有限 Galois 理論と古典的応用まで閉じる学部標準の抽象代数系列です。群論 GRP1--GRP4、環論 RNG1--RNG4、加群論 MOD1--MOD2、体論・Galois 理論 FLD1--FLD5 を順に扱います。
 
 1. [GRP1 群・部分群・巡回群・置換群](textbook/volumes/00_foundations/GRP1/index.md)
 2. [GRP2 準同型・剰余類・正規部分群・商群](textbook/volumes/00_foundations/GRP2/index.md)
@@ -224,43 +224,19 @@ LIE1 では左移動・右移動、左不変ベクトル場、単位元接空間
 
 ### 凸解析・凸最適化
 
-有限次元の凸性から最適化・線形計画・二次計画へ進む canonical 系列を OPT として再構成しています。対応する OPT 章への移管が完了した旧 F0 ページはアーカイブ扱いとし、stable anchor の後方互換性のためファイルのみ保持して読者向け一覧には掲載しません。
+有限次元の凸集合・凸関数から、分離、凸双対、KKT 条件、そして数値最適化へ進みます。前半で凸性の幾何と双対性を整え、中盤で制約付き最適化の最適性条件を理解し、後半で滑らか・非滑らか・制約付きの数値手法へ接続します。
 
 1. [OPT1 凸集合・凸関数・凸最適化](textbook/volumes/00_foundations/OPT1/index.md)
 2. [OPT2 射影・支持超平面・分離・Farkas](textbook/volumes/00_foundations/OPT2/index.md)
 3. [OPT3 閉真凸関数・劣微分・法錐](textbook/volumes/00_foundations/OPT3/index.md)
 4. [OPT4 Fenchel 共役・凸双対](textbook/volumes/00_foundations/OPT4/index.md)
-### 制約付き最適化・KKT
-
-有限次元の制約付き最適化から一般錐制約へ進みます。OPT5 が Lagrange 双対・Slater 条件・KKT、OPT6 が KKT の局所幾何と制約想定、OPT6A が錐制約・Robinson 制約想定・一般化 KKT の canonical owner です。旧 F0-02 / F0-02A / F0-02C5 / F0-02C5A はアーカイブ扱いです。
-
-1. [OPT5 Lagrange 双対・Slater 条件・KKT](textbook/volumes/00_foundations/OPT5/index.md)
-2. [OPT6 KKT の幾何学的導出・制約想定](textbook/volumes/00_foundations/OPT6/index.md)
-3. [OPT6A 錐制約・一般化 KKT](textbook/volumes/00_foundations/OPT6A/index.md)
-
-### 滑らかな凸最適化
-
-OPT7 では OPT1 の凸性と NA12 の数値最適化を接続し、Lipschitz 連続勾配、降下補題、固定歩幅最急降下法、強凸性、条件数、後退直線探索、Newton 法の局所二次収束を扱います。NA12 が canonical owner である正定値二次関数・厳密直線探索・共役勾配法は再講義せず、一般の滑らかな凸関数に対する収束理論を担当します。
-
-1. [OPT7 滑らかな凸最適化](textbook/volumes/00_foundations/OPT7/index.md)
-
-### 非滑らか・近接最適化
-
-OPT8 では OPT3 の劣微分と OPT7 の滑らかな凸最適化を接続し、劣勾配法、射影勾配法、近接作用素、Moreau 包絡、堅非拡大性、ソフト閾値処理、近接勾配法、ISTA を扱います。一般の劣勾配法の $O(1/\sqrt{k})$ と、合成構造を使う近接勾配法の $O(1/k)$ を同じ距離評価の流れで比較します。
-
-1. [OPT8 非滑らか・近接最適化](textbook/volumes/00_foundations/OPT8/index.md)
-
-### 制約付き数値最適化
-
-OPT9 では、射影勾配写像を制約付き一次最適性残差として読み直した上で、二次ペナルティ法、対数障壁法と中心路、KKT 系への Newton 法、主双対 Newton 方程式、逐次二次計画法（SQP）を一つの流れで扱います。ペナルティ法の可行性と条件付けのトレードオフ、障壁点の摂動 KKT と双対ギャップ、SQP と KKT-Newton の一致までを閉じます。
-
-1. [OPT9 制約付き数値最適化](textbook/volumes/00_foundations/OPT9/index.md)
-
-### 線形計画：多面体・極点・双対
-
-OPT10 では、標準形線形計画の実行可能集合を多面体として捉え、極点と基本実行可能解の同値性、線形計画の基本定理、弱双対・強双対、相補性を一つの流れで扱います。強双対は OPT2 の Farkas の補題から直接証明し、OPT11 の単体法・内点法へつなぎます。
-
-1. [OPT10 線形計画 I：多面体・極点・双対](textbook/volumes/00_foundations/OPT10/index.md)
+5. [OPT5 Lagrange 双対・Slater 条件・KKT](textbook/volumes/00_foundations/OPT5/index.md)
+6. [OPT6 KKT の幾何学的導出・制約想定](textbook/volumes/00_foundations/OPT6/index.md)
+7. [OPT6A 錐制約・一般化 KKT](textbook/volumes/00_foundations/OPT6A/index.md)
+8. [OPT7 滑らかな凸最適化](textbook/volumes/00_foundations/OPT7/index.md)
+9. [OPT8 非滑らか・近接最適化](textbook/volumes/00_foundations/OPT8/index.md)
+10. [OPT9 制約付き数値最適化](textbook/volumes/00_foundations/OPT9/index.md)
+11. [OPT10 線形計画 I：多面体・極点・双対](textbook/volumes/00_foundations/OPT10/index.md)
 
 ### RKHS・SVM
 
