@@ -1,4 +1,4 @@
-# OPT1 凸最適化の基礎
+# OPT1 凸集合・凸関数・凸最適化
 
 <!-- definition-example-audit: strict -->
 
@@ -102,17 +102,72 @@ $$
 > 集合 $S$ を含む凸集合のうち包含関係で最小のものを $S$ の **凸包** といい、$\operatorname{conv}(S)$ と書く。
 <!-- formal-statement-end -->
 
-有限集合 $S=\{x_1,\dots,x_m\}$ では
+<a id="prop-opt1-finite-convex-hull"></a>
+<!-- formal-statement-start -->
+> **命題（有限集合の凸包）**  
+> $S=\{x_1,\dots,x_m\}\subset\mathbb R^n$ とする。このとき
+>
+> $$
+> \operatorname{conv}(S)
+> =
+> \left\{
+> \sum_{i=1}^m\theta_i x_i:
+> \theta_i\ge0,\quad
+> \sum_{i=1}^m\theta_i=1
+> \right\}.
+> $$
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+右辺を $D$ と置きます。$D$ 自身が凸で $S$ を含むことを示せば、凸包の最小性から $\operatorname{conv}(S)\subseteq D$。逆向きは、$S$ を含む任意の凸集合が有限凸結合をすべて含むことから従います。
+
+<!-- proof-start -->
+### 証明
+
+右辺の集合を $D$ とします。まず $x_j$ は係数 $\theta_j=1$、他を0とすれば $D$ に入るので
 
 $$
-\operatorname{conv}(S)
-=
-\left\{
-\sum_{i=1}^m\theta_i x_i:
-\theta_i\ge0,\quad
-\sum_{i=1}^m\theta_i=1
-\right\}.
+S\subseteq D.
 $$
+
+次に
+
+$$
+u=\sum_i\alpha_i x_i,\qquad
+v=\sum_i\beta_i x_i
+$$
+
+を $D$ の二点、$0\le t\le1$ とします。このとき
+
+$$
+(1-t)u+tv
+=
+\sum_i\bigl((1-t)\alpha_i+t\beta_i\bigr)x_i.
+$$
+
+各係数は非負で、その総和は
+
+$$
+(1-t)\sum_i\alpha_i+t\sum_i\beta_i
+=
+1.
+$$
+
+従って $(1-t)u+tv\in D$ であり、$D$ は凸です。よって $S$ を含む最小の凸集合である $\operatorname{conv}(S)$ について
+
+$$
+\operatorname{conv}(S)\subseteq D.
+$$
+
+逆に、$C$ を $S$ を含む任意の凸集合とします。凸集合は二点の凸結合に閉じているので、帰納法により有限個の点の凸結合にも閉じています。従って $D\subseteq C$。これは $S$ を含むすべての凸集合で成り立つため
+
+$$
+D\subseteq\operatorname{conv}(S).
+$$
+
+以上から $D=\operatorname{conv}(S)$ です。$\square$
+<!-- proof-end -->
 
 <!-- definition-example-start: def-opt1-convex-hull -->
 **定義の確認**：二点の凸包
@@ -167,6 +222,22 @@ $$
 
 > が成り立つことと同値である。
 <!-- formal-statement-end -->
+
+この同値性も確認しておきます。$K$ が錐かつ凸なら、$\alpha+\beta>0$ のとき
+
+$$
+\alpha x+\beta y
+=
+(\alpha+\beta)
+\left(
+\frac{\alpha}{\alpha+\beta}x
++
+\frac{\beta}{\alpha+\beta}y
+\right)
+\in K.
+$$
+
+$\alpha=\beta=0$ のときは、錐の定義で $0\in K$ なので同じ結論です。逆に、すべての $\alpha,\beta\ge0$ について $\alpha x+\beta y\in K$ なら、$\beta=0$ として非負倍への閉性が得られ、$\alpha=1-t$, $\beta=t$ として凸性が得られます。
 
 凸集合では係数の総和を1に固定しますが、凸錐では非負係数の大きさに制限がありません。
 
@@ -291,13 +362,25 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $f$ が凸であるとします。$x\in U$、$v\in\mathbb R^d$ を固定し、$x+tv\in U$ となる区間で
+まず $f$ が凸であるとします。$x\in U$、$v\in\mathbb R^d$ を固定し、$x+tv\in U$ となる開区間で
 
 $$
 \phi(t)=f(x+tv)
 $$
 
-と置きます。$f$ の凸性から $\phi$ は1変数の凸関数です。したがって
+と置きます。$f$ の凸性から $\phi$ は1変数の凸関数です。十分小さい $h>0$ に対して凸性を中点 $0=(h+(-h))/2$ へ適用すると
+
+$$
+2\phi(0)\le\phi(h)+\phi(-h).
+$$
+
+従って
+
+$$
+\frac{\phi(h)-2\phi(0)+\phi(-h)}{h^2}\ge0.
+$$
+
+$h\downarrow0$ とすると $\phi\in C^2$ より左辺は $\phi''(0)$ へ収束するため
 
 $$
 \phi''(0)\ge0.
@@ -331,12 +414,22 @@ $$
 \ge0.
 $$
 
-よって $\psi$ は1変数の凸関数です。したがって
+従って $\psi'$ は単調非減少です。$0<t<1$ に対し平均値の定理を区間 $[0,t]$ と $[t,1]$ へ適用すると、ある $\xi\in(0,t)$、$\eta\in(t,1)$ が存在して
+
+$$
+\frac{\psi(t)-\psi(0)}{t}=\psi'(\xi)
+\le
+\psi'(\eta)
+=
+\frac{\psi(1)-\psi(t)}{1-t}.
+$$
+
+これを整理すると
 
 $$
 \psi(t)
 \le
-(1-t)\psi(0)+t\psi(1),
+(1-t)\psi(0)+t\psi(1).
 $$
 
 すなわち
@@ -364,7 +457,13 @@ $$
 f(x)=x^4
 $$
 
-は狭義凸ですが
+を考えます。導関数
+
+$$
+f'(x)=4x^3
+$$
+
+は $\mathbb R$ 上で狭義単調増加です。従って任意の $x<y$ で割線の傾きが右へ行くほど厳密に増え、$f$ は狭義凸です。一方で
 
 $$
 f''(0)=0.
@@ -837,23 +936,23 @@ $$
 <a id="def-opt1-convex-optimization"></a>
 <!-- formal-statement-start -->
 > **定義（凸最適化問題）**  
-> 目的関数 $f$ と不等式制約関数 $g_1,\dots,g_m$ が凸、等式制約が affine である問題
+> $f,g_1,\dots,g_m:\mathbb R^n\to\mathbb R$ を凸関数、$A\in\mathbb R^{p\times n}$、$b\in\mathbb R^p$ とする。このとき
 >
-$$
-\min_x f(x)
-$$
+> $$
+> \min_{x\in\mathbb R^n} f(x)
+> $$
 >
 > subject to
 >
-$$
-g_i(x)\le0,\qquad i=1,\dots,m,
-$$
+> $$
+> g_i(x)\le0,\qquad i=1,\dots,m,
+> $$
 >
-$$
-Ax=b
-$$
+> $$
+> Ax=b
+> $$
 >
-> を **凸最適化問題** という。
+> の形の問題を **凸最適化問題** という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-opt1-convex-optimization -->
@@ -886,7 +985,7 @@ $$
 <a id="prop-opt1-convex-feasible"></a>
 <!-- formal-statement-start -->
 > **命題（凸最適化問題の実行可能集合は凸）**  
-> 凸関数 $g_1,\dots,g_m:\mathbb R^n\to\mathbb R$、行列 $A$、ベクトル $b$ に対し
+> 凸関数 $g_1,\dots,g_m:\mathbb R^n\to\mathbb R$、$A\in\mathbb R^{p\times n}$、$b\in\mathbb R^p$ に対し
 >
 $$
 C=
@@ -929,7 +1028,7 @@ $$
 したがって $z\in C$ です。よって $C$ は凸です。$\square$
 <!-- proof-end -->
 
-先ほどの具体例では実行可能集合は閉線分です。目的関数は狭義凸なので、最小点が存在すれば一意です。さらに閉線分はコンパクトで目的関数は連続なので、最小点は実際に存在します。
+先ほどの具体例では実行可能集合は閉線分です。目的関数は狭義凸なので、最小点が存在すれば一意です。具体的な最小点の存在と値は演習 OPT1-C01 で制約を代入して直接確認します。
 
 ---
 
@@ -1496,11 +1595,9 @@ $$
 C=\{(x_1,x_2):x_1+x_2=2,\ x_1,x_2\ge0\}
 $$
 
-で、端点 $(0,2)$、$(2,0)$ を結ぶ閉線分です。したがってコンパクトです。$f$ は連続なので最小点は存在します。
+で、端点 $(0,2)$、$(2,0)$ を結ぶ凸集合です。$f$ は狭義凸なので、**最小点が存在すれば一意**です。
 
-さらに $f$ は狭義凸、$C$ は凸なので、最小点は一意です。
-
-次に等式制約から
+ここでは存在を別定理へ預けず、次の一変数化で実際に最小点を構成します。等式制約から
 
 $$
 x_2=2-x_1
