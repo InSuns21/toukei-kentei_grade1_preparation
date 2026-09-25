@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-OPT3 で整えた閉真凸関数・劣微分・法錐を出発点に、**線形関数との差の上限を使って凸関数を双対側から読む構成**へ進みます。共役関数、Fenchel--Young の等号条件、二重共役、Fenchel 双対を順に結び、次章の Lagrange 双対へつなげます。
+OPT3 で整えた一次情報と制約の幾何を出発点に、**線形関数との差の上限を使って凸関数を双対側から読む構成**へ進みます。ここでは双対側の見方を順に組み立て、次章の Lagrange 双対へつなげます。
 
 <!-- definition-example-audit: strict -->
 
