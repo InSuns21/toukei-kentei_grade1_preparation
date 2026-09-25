@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - F0-00
   - F0-02
+  - OPT3
 official_scope: []
 learning_objectives:
   - 局所最適性から -grad f が接錐のpolar coneに属することを示せる
