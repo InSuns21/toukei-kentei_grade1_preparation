@@ -1,0 +1,47 @@
+chapter: OPT6A
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OPT6
+  - OPT3
+concepts:
+  - id: optimization.cone-constraint
+    name: 錐制約
+    kind: definition
+    aliases:
+      - 錐制約
+    requires:
+      - convex.convex-cone
+  - id: optimization.dual-cone
+    name: 双対錐
+    kind: definition
+    aliases:
+      - 双対錐
+    requires:
+      - convex.polar-cone
+  - id: optimization.generalized-lagrangian
+    name: 一般化Lagrangian
+    kind: definition
+    aliases:
+      - 一般化Lagrangian
+    requires:
+      - optimization.lagrangian
+      - optimization.cone-constraint
+      - optimization.dual-cone
+  - id: optimization.robinson-cq
+    name: Robinson制約想定
+    kind: definition
+    aliases:
+      - Robinson制約想定
+      - Robinson CQ
+    requires:
+      - optimization.constraint-qualification
+      - optimization.cone-constraint
+  - id: optimization.generalized-kkt
+    name: 一般化KKT
+    kind: theorem
+    aliases:
+      - 一般化KKT
+    requires:
+      - optimization.robinson-cq
+      - optimization.kkt-conditions

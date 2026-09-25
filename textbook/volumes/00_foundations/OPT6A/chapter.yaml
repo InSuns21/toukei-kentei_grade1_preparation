@@ -1,0 +1,34 @@
+id: "OPT6A"
+title: "錐制約・一般化 KKT"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OPT6
+  - OPT3
+official_scope: []
+learning_objectives:
+  - 通常の不等式を錐制約として表現できる
+  - 双対錐を定義し非負直交錐の自己双対性を確認できる
+  - 一般化Lagrangianと随伴作用素による停留条件を書ける
+  - 閉凸錐のnormal coneから双対実行可能性と相補性を導ける
+  - 錐制約の線形化錐とRobinson制約想定を定義できる
+  - Robinson制約想定が接錐公式を保証する役割を説明できる
+  - 一般化KKTから通常の有限次元KKTを復元できる
+  - 半正定値錐の行列相補性を具体例で計算できる
+definitions:
+  - { id: OPT6A-DEF-01, name: 錐制約 }
+  - { id: OPT6A-DEF-02, name: 双対錐 }
+  - { id: OPT6A-DEF-03, name: 一般化Lagrangian }
+  - { id: OPT6A-DEF-04, name: 錐制約の線形化錐 }
+  - { id: OPT6A-DEF-05, name: Robinson制約想定 }
+theorems:
+  - { id: OPT6A-THM-01, name: 閉凸錐のnormal cone }
+  - { id: OPT6A-THM-02, name: Robinson制約想定下の接錐公式 }
+  - { id: OPT6A-THM-03, name: Robinson制約想定下の一般化KKT }
+  - { id: OPT6A-THM-04, name: 通常制約でのRobinson制約想定とMFCQの同値 }
+canonical_examples: [非負直交錐, 退化した二乗制約, 半正定値錐]
+problem_patterns: [CONIC-KKT-1, DUAL-CONE-1, ROBINSON-CQ-1, SDP-KKT-ENTRY-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 2.5, review: 0.75 }
