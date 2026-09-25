@@ -3,8 +3,7 @@ title: "関数解析V：一般化KKT・錐制約・双対乗数"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - F0-02C4
-  - F0-02C4A
+  - OPT3
   - F0-02A
 learning_objectives:
   - 通常の不等式制約を錐制約G(x)∈-Kへまとめ、定義を具体例で確認できる
