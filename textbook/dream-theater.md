@@ -237,9 +237,8 @@ LIE1 では左移動・右移動、左不変ベクトル場、単位元接空間
 有限次元の制約付き最適化へ進みます。Lagrange 双対・Slater 条件・KKT は OPT5 を canonical owner とし、旧 F0-02 はアーカイブ扱いです。現時点では未移管の KKT 幾何・一般錐制約ページを移行元として残します。
 
 1. [OPT5 Lagrange 双対・Slater 条件・KKT](textbook/volumes/00_foundations/OPT5/index.md)
-2. [F0-02A KKT導出・接錐・極錐・Farkas](textbook/volumes/00_foundations/F0_02A_KKT条件の導出_接錐_polar_Farkas/index.md)
+2. [OPT6 KKT の幾何学的導出・制約想定](textbook/volumes/00_foundations/OPT6/index.md)
 3. [F0-02C5 一般化KKT・制約写像](textbook/volumes/00_foundations/F0_02C5_一般化KKT_制約写像_制約想定/index.md)
-4. [F0-02C5A LICQ・MFCQ・Robinson CQ](textbook/volumes/00_foundations/F0_02C5A_制約想定_LICQ_MFCQ_Robinson/index.md)
 
 ### RKHS・SVM
 
