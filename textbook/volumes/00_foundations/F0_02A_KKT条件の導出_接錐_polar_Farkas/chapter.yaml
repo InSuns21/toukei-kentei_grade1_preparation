@@ -31,4 +31,5 @@ problem_patterns: [KKT-TANGENT-1, KKT-POLAR-1, KKT-FARKAS-1]
 past_exam_alignment: []
 integrated_exam_problems: []
 exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
+dream_theater_exercise_count_exception: "本PRでは接錐・極錐の canonical owner を OPT3 へ張り替える移行保守対象。KKT 導出は計画上 OPT6 へ再編するため、旧移行元へ A4/B3/C1 を水増しせず、OPT6 で規定数を満たす。"
 estimated_hours: { reading: 2, exercises: 0.75, review: 1 }
