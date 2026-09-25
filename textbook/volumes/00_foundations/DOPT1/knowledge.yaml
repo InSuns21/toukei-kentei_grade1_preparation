@@ -1,0 +1,169 @@
+chapter: DOPT1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OPT10
+  - OPT11
+
+forward_references:
+  - optimization.maximum-flow
+  - optimization.matching
+  - optimization.integral-polyhedron
+  - optimization.totally-unimodular-matrix
+
+concepts:
+  - id: optimization.integer-linear-program
+    name: 整数線形計画
+    kind: definition
+    aliases:
+      - integer linear program
+      - integer linear programming
+      - ILP
+    introduction: formal
+    introduction_aliases: ["定義（整数線形計画）"]
+    requires:
+      - optimization.linear-program-standard-form
+
+  - id: optimization.lp-relaxation
+    name: LP 緩和
+    kind: definition
+    aliases:
+      - LP relaxation
+      - linear programming relaxation
+    introduction: formal
+    introduction_aliases: ["定義（LP 緩和）"]
+    requires:
+      - optimization.integer-linear-program
+      - optimization.polyhedron
+
+  - id: optimization.lp-relaxation-bound
+    name: LP 緩和が与える下界
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（LP 緩和が与える下界）"]
+    requires:
+      - optimization.lp-relaxation
+
+  - id: optimization.integer-hull
+    name: 整数包
+    kind: definition
+    aliases:
+      - integer hull
+    introduction: formal
+    introduction_aliases: ["定義（整数包）"]
+    requires:
+      - optimization.integer-linear-program
+      - convex.convex-hull
+
+  - id: optimization.integer-hull-linear-objective-equivalence
+    name: 線形目的関数と整数包の最適値同値性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（線形目的関数は整数包上で同じ最適値を持つ）"]
+    requires:
+      - optimization.integer-hull
+      - convex.convex-combination
+
+  - id: optimization.integrality-gap
+    name: 整数性ギャップ
+    kind: definition
+    aliases:
+      - integrality gap
+    introduction: formal
+    introduction_aliases: ["定義（整数性ギャップ）"]
+    requires:
+      - optimization.lp-relaxation-bound
+
+  - id: optimization.relaxation-dominance
+    name: LP 緩和の強弱
+    kind: proposition
+    aliases:
+      - relaxation dominance
+    introduction: formal
+    introduction_aliases: ["命題（強い緩和ほど最小化下界は高い）"]
+    requires:
+      - optimization.lp-relaxation-bound
+
+  - id: optimization.branching-disjunction
+    name: 整数変数に対する分枝
+    kind: definition
+    aliases:
+      - branching disjunction
+    introduction: formal
+    introduction_aliases: ["定義（整数変数に対する分枝）"]
+    requires:
+      - optimization.lp-relaxation
+
+  - id: optimization.branching-preserves-integer-feasibility
+    name: 分枝による整数実行可能解の保存
+    kind: lemma
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["補題（分枝は整数実行可能解を保存する）"]
+    requires:
+      - optimization.branching-disjunction
+
+  - id: optimization.branch-and-bound
+    name: 分枝限定法
+    kind: definition
+    aliases:
+      - branch-and-bound
+      - branch and bound
+    introduction: formal
+    introduction_aliases: ["定義（分枝限定法）"]
+    requires:
+      - optimization.lp-relaxation-bound
+      - optimization.branching-preserves-integer-feasibility
+
+  - id: optimization.branch-and-bound-correctness
+    name: 有限整数領域に対する分枝限定法の正当性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（有限整数領域に対する分枝限定法の正当性）"]
+    requires:
+      - optimization.branch-and-bound
+
+  - id: optimization.valid-inequality
+    name: 妥当不等式
+    kind: definition
+    aliases:
+      - valid inequality
+    introduction: formal
+    introduction_aliases: ["定義（妥当不等式・切除平面）"]
+    requires:
+      - optimization.integer-linear-program
+
+  - id: optimization.cutting-plane
+    name: 切除平面
+    kind: definition
+    aliases:
+      - cutting plane
+      - cut
+    introduction: formal
+    introduction_aliases: ["定義（妥当不等式・切除平面）"]
+    requires:
+      - optimization.valid-inequality
+      - optimization.lp-relaxation
+
+  - id: optimization.valid-cut-bound-improvement
+    name: 妥当不等式追加による整数解保存と下界改善
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（妥当不等式の追加は整数解を変えず下界を弱めない）"]
+    requires:
+      - optimization.valid-inequality
+      - optimization.lp-relaxation-bound
+
+  - id: optimization.integer-rounding-cut
+    name: 整数丸め不等式
+    kind: proposition
+    aliases:
+      - integer rounding cut
+    introduction: formal
+    introduction_aliases: ["命題（整数丸め不等式）"]
+    requires:
+      - optimization.valid-inequality
