@@ -421,7 +421,7 @@ f(x_k)-f(x^*)
 \langle g_k,x_k-x^*\rangle.
 $$
 
-また固定歩幅の降下評価から
+また[固定歩幅の降下評価](#thm-opt7-fixed-step-decrease)から
 
 $$
 f(x_{k+1})
@@ -699,7 +699,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-固定歩幅の降下評価から
+[固定歩幅の降下評価](#thm-opt7-fixed-step-decrease)から
 
 $$
 f(x_{k+1})
@@ -1327,7 +1327,7 @@ $$
 x^+=x-\frac{1}{2L}\nabla f(x)
 $$
 
-に対して、関数値がどれだけ減るかを降下補題から評価せよ。
+に対して、関数値がどれだけ減るかを[降下補題](#thm-opt7-descent-lemma)から評価せよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -1630,7 +1630,7 @@ $$
 \frac1{2L}\|g_k\|^2.
 $$
 
-凸性の一次支持不等式から
+[微分可能な凸関数の一次支持不等式](../OPT1/index.md#thm-opt1-first-order-convexity)から
 
 $$
 f(x_k)-f(x^*)
@@ -1638,7 +1638,7 @@ f(x_k)-f(x^*)
 \langle g_k,x_k-x^*\rangle.
 $$
 
-また降下補題から
+また[降下補題](#thm-opt7-descent-lemma)から
 
 $$
 f(x_{k+1})
@@ -1760,7 +1760,7 @@ $$
 }
 $$
 
-次に固定歩幅 $1/L$ の降下評価から
+次に[固定歩幅の降下評価](#thm-opt7-fixed-step-decrease)を歩幅 $1/L$ に適用すると
 
 $$
 f(x_{k+1})
