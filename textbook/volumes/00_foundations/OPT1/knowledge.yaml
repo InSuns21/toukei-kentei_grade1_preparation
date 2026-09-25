@@ -6,8 +6,10 @@ prerequisites:
   - VC1
 
 forward_references:
+  - convex.hyperplane
   - convex.supporting-hyperplane
   - convex.separating-hyperplane
+  - convex.farkas-lemma
   - convex.subdifferential
   - convex.fenchel-duality
 
