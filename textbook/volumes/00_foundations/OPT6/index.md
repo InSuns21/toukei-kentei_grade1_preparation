@@ -355,7 +355,7 @@ $$
 \nabla g_i(x^*)^{\mathsf T}d_\varepsilon<0.
 $$
 
-MFCQ により $Dh(x^*)$ は行フルランクです。座標を $(u,z)$ に並べ替え、正則な部分行列 $D_zh(x^*)$ を選びます。RA6A の陰関数定理により、等式集合は局所的に $z=\varphi(u)$ と書けます。
+MFCQ により $Dh(x^*)$ は行フルランクです。座標を $(u,z)$ に並べ替え、正則な部分行列 $D_zh(x^*)$ を選びます。[RA6A の陰関数定理](../RA6A/index.md#thm-ra6a-implicit-function)により、等式集合は局所的に $z=\varphi(u)$ と書けます。
 
 $d_\varepsilon=(d_u,d_z)$ と分けると $Dh(x^*)d_\varepsilon=0$ から
 
