@@ -466,7 +466,7 @@ $$
 
 であることを確認します。
 
-もし $x\in P$ なのに $x\notin\operatorname{conv}(V)$ なら、閉凸集合 $\operatorname{conv}(V)$ と点 $x$ を分離する線形汎関数 $c$ が取れ、
+もし $x\in P$ なのに $x\notin\operatorname{conv}(V)$ なら、[点と閉凸集合の厳密分離](../OPT2/index.md#thm-opt2-point-separation)を $\operatorname{conv}(V)$ と点 $x$ に適用して、分離する線形汎関数 $c$ が取れ、
 
 $$
 c^{\mathsf T}x
