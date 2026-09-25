@@ -292,7 +292,9 @@ $$
 ### 3.3 直接例：半空間への射影
 
 <!-- definition-example-start: def-opt2-nearest-point-projection -->
-$$
+**定義の確認**：半空間への射影
+
+$
 C=\{(x_1,x_2):x_1\le0\},
 \qquad
 z=(2,3)
@@ -325,7 +327,7 @@ $$
 
 ## 4. 射影の変分不等式
 
-最近点 $p=P_C(z)$ では、$p$ から集合内へ少し動いても距離が減ってはいけません。その一次条件が分離分離ベクトルを作ります。
+最近点 $p=P_C(z)$ では、$p$ から集合内へ少し動いても距離が減ってはいけません。その一次条件が分離ベクトルを作ります。
 
 <a id="thm-opt2-projection-variational-inequality"></a>
 <!-- formal-statement-start -->
