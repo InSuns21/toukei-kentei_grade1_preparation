@@ -137,7 +137,6 @@ concepts:
     kind: definition
     aliases:
       - cutting plane
-      - cut
     introduction: formal
     introduction_aliases: ["定義（妥当不等式・切除平面）"]
     requires:
