@@ -444,6 +444,7 @@ PYNUM1 は後続 NUMLAB の共通参照章とし、各演習で Python / NumPy �
 - NUMLAB1–NUMLAB5 の理論対応ラボは `python-lab`（`lab-mode: exercise`）→ `python-solution` → `python-test` の穴埋め演習を必須とする
 - PYNUM1 のクイックスタートと NUMLAB0 の smoke test は自由編集ラボを許す
 - 数値判定は tolerance、性質ベーステストは再現可能な固定乱数生成器で行う
+- 学習対象そのものを高水準 API が代行する場合は、**手動構築 → 実務編**の2段構成にする。下位処理・検算としてのライブラリ利用は許す
 
 基本要件：
 
@@ -478,7 +479,7 @@ NUMLAB は、
 
 を担う。
 
-NUMLAB1–NUMLAB5 は完成コードを読むだけのデモ章にしない。各理論対応ラボで、learning objective の核心となる式・更新・離散化・推定量を 1–5 箇所程度の穴埋めとして学習者自身にコードへ翻訳させ、模範解答と hidden test で閉じる。
+NUMLAB1–NUMLAB5 は完成コードを読むだけのデモ章にしない。各理論対応ラボで、learning objective の核心となる式・更新・離散化・推定量を 1–5 箇所程度の穴埋めとして学習者自身にコードへ翻訳させ、模範解答と hidden test で閉じる。さらに、学習対象そのものを NumPy / SciPy の高水準 API が丸ごと代行する箇所は、手動構築ラボを先に置き、その後に実務 API を使うラボを置く。
 
 ---
 
