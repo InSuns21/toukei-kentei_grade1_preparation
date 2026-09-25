@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-[OPT7](../OPT7/index.md) では、勾配が Lipschitz 連続な凸関数に対して、降下補題から最急降下法の収束速度を導きました。しかし実務で頻出する正則化項
+[OPT7](../OPT7/index.md) では、勾配が Lipschitz 連続な凸関数に対して、[降下補題](../OPT7/index.md#thm-opt7-descent-lemma)から最急降下法の収束速度を導きました。しかし実務で頻出する正則化項
 
 $$
 \|x\|_1=\sum_{i=1}^n |x_i|
@@ -57,7 +57,7 @@ $$
 です。
 
 > **OPT3 / OPT7 との役割分担**  
-> OPT3 は劣微分・標示関数・法錐・Fermat 条件という静的な最適性条件を担当します。OPT7 は滑らかな項 $f$ の降下補題を担当します。本章はこの二つを合流させ、反復法と収束率まで閉じます。
+> OPT3 は劣微分・標示関数・法錐・Fermat 条件という静的な最適性条件を担当します。OPT7 は滑らかな項 $f$ の[降下補題](../OPT7/index.md#thm-opt7-descent-lemma)を担当します。本章はこの二つを合流させ、反復法と収束率まで閉じます。
 
 ---
 
@@ -837,7 +837,7 @@ $$
 \langle p-q,u-v\rangle.
 $$
 
-さらに Cauchy--Schwarz の不等式より
+さらに [Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)より
 
 $$
 \|p-q\|^2
@@ -1340,7 +1340,7 @@ $$
 
 と同じです。
 
-OPT7 の降下補題は
+OPT7 の[降下補題](../OPT7/index.md#thm-opt7-descent-lemma)は
 
 $$
 f(z)
@@ -1398,7 +1398,7 @@ $$
 
 三つだけ使います。
 
-1. $f$ の降下補題。
+1. $f$ の[降下補題](../OPT7/index.md#thm-opt7-descent-lemma)。
 2. $f$ の凸性による一次支持不等式。
 3. 近接最適性条件から得る $g$ の劣勾配。
 
@@ -1452,7 +1452,7 @@ x^+-z
 \right\rangle.
 $$
 
-一方、降下補題より
+一方、[降下補題](../OPT7/index.md#thm-opt7-descent-lemma)より
 
 $$
 f(x^+)
@@ -1776,7 +1776,7 @@ f(x)
 \frac L2\|x^+-x\|^2
 $$
 
-という降下補題を使いました。したがって滑らかさを失うと、同じ二次上界を使った $O(1/k)$ 証明はそのままでは成立しません。
+という[降下補題](../OPT7/index.md#thm-opt7-descent-lemma)を使いました。したがって滑らかさを失うと、同じ二次上界を使った $O(1/k)$ 証明はそのままでは成立しません。
 
 ### 12.3 劣勾配法の $O(1/\sqrt{k})$ には劣勾配の有界性が必要
 
@@ -2177,7 +2177,7 @@ $$
 }
 $$
 
-Cauchy--Schwarz の不等式より
+[Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)より
 
 $$
 \|p-q\|^2
@@ -2335,7 +2335,7 @@ $$
    \partial g(x_{k+1})
    $$
    を得る。
-2. 降下補題と凸性を組み合わせて
+2. [降下補題](../OPT7/index.md#thm-opt7-descent-lemma)と凸性を組み合わせて
    $$
    F(x_{k+1})-F(x^*)
    \le
@@ -2390,7 +2390,7 @@ g(x_{k+1})-g(x^*)
 \langle w_{k+1},x_{k+1}-x^*\rangle.
 $$
 
-一方、降下補題と $f$ の凸性から
+一方、[降下補題](../OPT7/index.md#thm-opt7-descent-lemma)と $f$ の凸性から
 
 $$
 f(x_{k+1})-f(x^*)
