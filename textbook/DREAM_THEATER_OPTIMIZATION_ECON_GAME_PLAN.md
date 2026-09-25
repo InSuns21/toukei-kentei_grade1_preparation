@@ -1177,13 +1177,16 @@ alias は真の同義語だけを移し、関連語を後方互換性の名目�
 ## Phase 1：凸解析の幹
 
 ```text
-OPT1 → OPT2 → OPT3 → OPT4 → OPT5 → OPT6
+OPT1 → OPT2 → OPT3 → OPT4 → OPT5 → OPT6 → OPT6A
 ```
 
 - [x] OPT1「凸集合・凸関数・凸最適化」を実装。旧 F0-00G の基礎定義・主要定理を OPT1 へ統合して自立化し、F0-00G は in-place archive として読者向け一覧から除外した。
 - [x] OPT2「射影・支持超平面・分離・Farkas」を実装。射影定理・変分不等式・支持/分離・有限生成凸錐の閉性・Farkas を一つの流れで閉じ、旧 F0-02B は in-place archive として読者向け一覧から除外した。
 - [x] OPT3「閉真凸関数・劣微分・法錐」を実装。F0-00G1 / F0-02C4 / F0-02C4A / F0-02C4B の canonical 内容を統合し、拡張実数値関数から制約付き Fermat 条件までを一講義で閉じた。旧4ページは in-place archive として読者向け一覧から除外した。
-- 次の実装対象：**OPT4「Fenchel 共役・Fenchel--Young・双対」**
+- [x] OPT4「Fenchel 共役・凸双対」を実装し、Fenchel--Young、二重共役、Fenchel 双対までを canonical 化した。旧 F0-00G2 は移管後の archive とした。
+- [x] OPT5「Lagrange 双対・Slater 条件・KKT」を実装し、凸制約問題の弱双対・強双対・KKT 必要十分条件を canonical 化した。旧 F0-02 は archive とした。
+- [x] OPT6「KKT の幾何学的導出・制約想定」を実装し、接錐・線形化錐・LICQ/MFCQ・二階条件を閉じた。旧 F0-02A / F0-02C5A は archive とした。
+- [x] OPT6A「錐制約・一般化 KKT」を実装し、Robinson 制約想定・一般化 KKT・半正定値錐への入口までを閉じた。旧 F0-02C5 は archive とした。
 
 既存資産の再編を中心とし、不足している証明・具体例・反例・演習を補う。
 
@@ -1194,6 +1197,9 @@ OPT1 → OPT2 → OPT3 → OPT4 → OPT5 → OPT6
 ```text
 OPT7 → OPT8 → OPT9
 ```
+
+- [x] OPT7「滑らかな凸最適化」を実装。NA12 の正定値二次関数・厳密直線探索・共役勾配法を再利用し、一般の $L$-滑らかな凸関数の降下補題、$O(1/k)$ 収束、強凸性による線形収束、Armijo 条件付き後退直線探索、Newton 法の局所二次収束を canonical 化した。
+- 次の実装対象：**OPT8「非滑らか・近接最適化」**
 
 ```text
 OPT10 → OPT11 → OPT12
