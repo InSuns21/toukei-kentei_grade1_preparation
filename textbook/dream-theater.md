@@ -238,6 +238,7 @@ LIE1 では左移動・右移動、左不変ベクトル場、単位元接空間
 10. [OPT9 制約付き数値最適化](textbook/volumes/00_foundations/OPT9/index.md)
 11. [OPT10 線形計画 I：多面体・極点・双対](textbook/volumes/00_foundations/OPT10/index.md)
 12. [OPT11 線形計画 II：単体法・内点法・感度解析](textbook/volumes/00_foundations/OPT11/index.md)
+13. [OPT12 二次計画・錐計画入門](textbook/volumes/00_foundations/OPT12/index.md)
 
 ### RKHS・SVM
 
