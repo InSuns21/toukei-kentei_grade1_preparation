@@ -5,6 +5,12 @@ prerequisites:
   - OPT2
   - F0-02
 
+forward_references:
+  - functional.hilbert-space
+  - functional.analysis-roadmap
+  - rkhs.rkhs
+  - svm.kernel-svm
+
 concepts:
   - id: svm.linear-separability-convex-hull
     name: 線形分離可能性と凸包非交差の同値性
