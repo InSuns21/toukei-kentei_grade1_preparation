@@ -141,7 +141,7 @@ concepts:
   - id: convex.farkas-lemma
     name: Farkas の補題
     kind: lemma
-    aliases: [Farkasの補題, Farkas の補題]
+    aliases: []
     introduction: formal
     introduction_aliases: ["補題（Farkas の補題）"]
     requires:
