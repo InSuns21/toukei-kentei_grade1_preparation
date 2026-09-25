@@ -41,10 +41,12 @@ $$
 <a id="def-opt6-active-set"></a>
 <!-- formal-statement-start -->
 > **定義（活性集合）**  
-> 実行可能点 $x^*\in C$ に対して
+> 不等式制約 $g_i(x)\le0$ $(i=1,\dots,m)$ と任意の等式制約からなる実行可能集合を $C$ とし、$x^*\in C$ とする。このとき
 >
 $$
-I(x^*)=\{i:g_i(x^*)=0\}
+I(x^*)
+=
+\{i\in\{1,\dots,m\}:g_i(x^*)=0\}
 $$
 >
 > を $x^*$ における **活性集合**という。
@@ -428,7 +430,15 @@ $$
 <a id="thm-opt6-licq-mfcq"></a>
 <!-- formal-statement-start -->
 > **定理（LICQ なら MFCQ）**  
-> 有限次元の微分可能な不等式・等式制約を考える。実行可能点 $x^*$ で LICQ が成立すれば、同じ点で MFCQ が成立する。
+> 微分可能な制約
+>
+$$
+g_i(x)\le0\ (i=1,\dots,m),
+\qquad
+h_j(x)=0\ (j=1,\dots,r)
+$$
+>
+> と実行可能点 $x^*$ を考える。$x^*$ で LICQ が成立すれば、同じ点で MFCQ が成立する。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -621,33 +631,33 @@ $$
 
 逆に $y\in K^\circ$ だが $y\notin M$ と仮定します。[有限次元閉凸集合への射影](../OPT2/index.md#thm-opt2-projection)により $p=P_M(y)$ が存在し、$d=y-p$ と置きます。[射影の変分不等式](../OPT2/index.md#thm-opt2-projection-variational-inequality)から
 
-$
+$$
 d^{\mathsf T}(z-p)\le0
 \qquad(\forall z\in M).
-$
+$$
 
 $M$ は錐なので $0,2p\in M$ です。$z=0$ と $z=2p$ を順に代入すると
 
-$
+$$
 d^{\mathsf T}p=0.
-$
+$$
 
 従って任意の $z\in M$ について
 
-$
+$$
 d^{\mathsf T}z\le0.
-$
+$$
 
 また
 
-$
+$$
 d^{\mathsf T}y
 =
 d^{\mathsf T}(y-p)+d^{\mathsf T}p
 =
 \|y-p\|^2
 >0.
-$
+$$
 
 $A$ の各行ベクトルは $M$ に入り、$B$ の各行ベクトルは正負とも $M$ に入るので $Ad\le0$, $Bd=0$。従って $d\in K$ です。しかし $y\in K^\circ$ なら $y^{\mathsf T}d\le0$ でなければならず、$d^{\mathsf T}y>0$ に矛盾します。よって $y\in M$。$\square$
 <!-- proof-end -->
@@ -794,15 +804,15 @@ $$
 >
 > の局所最小点を $x^*$ とし、$Dh(x^*)$ が行フルランクであるとする。このとき、ある $\nu^*\in\mathbb R^r$ が存在して
 >
-$
+$$
 \nabla f(x^*)+Dh(x^*)^{\mathsf T}\nu^*=0
-$
+$$
 >
 > を満たす。Lagrangian
 >
-$
+$$
 L(x,\nu)=f(x)+\nu^{\mathsf T}h(x)
-$
+$$
 >
 > に対して、任意の
 >
@@ -833,17 +843,50 @@ $$
 
 等式制約だけの場合、$Dh(x^*)$ の行フルランク性は MFCQ の等式側条件そのものです。従って[MFCQ 下の KKT 乗数存在](#thm-opt6-mfcq-kkt)から、停留条件を満たす $\nu^*$ が存在します。
 
-$d\in\ker Dh(x^*)$ を取ります。さらに、MFCQ 下の接錐一致で使ったのと同じ陰関数定理の議論により、ある $C^2$ 級曲線 $x(t)$ を
+$d\in\ker Dh(x^*)$ を取ります。$Dh(x^*)$ は行フルランクなので、座標を $x=(u,z)$ と並べ替えて $D_zh(x^*)$ を正則にできます。[陰関数定理](../RA6A/index.md#thm-ra6a-implicit-function)により、$x^*=(u^*,z^*)$ の近くで等式集合は
+
+$$
+z=\varphi(u)
+$$
+
+と表せます。
+
+$d=(d_u,d_z)$ と分けると $Dh(x^*)d=0$ だから
+
+$$
+D\varphi(u^*)d_u=d_z.
+$$
+
+そこで
+
+$$
+x(t)
+=
+\bigl(
+u^*+td_u,
+\varphi(u^*+td_u)
+\bigr)
+$$
+
+と置きます。$\varphi$ は $C^2$ 級で
 
 $$
 x(0)=x^*,
 \qquad
-x'(0)=d,
-\qquad
-h(x(t))=0
+h(x(t))=0,
 $$
 
-となるように取れます。
+さらに
+
+$$
+x'(0)
+=
+\bigl(d_u,D\varphi(u^*)d_u\bigr)
+=
+(d_u,d_z)
+=
+d.
+$$
 
 一変数関数
 
@@ -928,12 +971,12 @@ $$
 > **行フルランク性を落とすと何が壊れるか**  
 > $h(x)=x^2=0$ では実行可能集合は $\{0\}$ なので、$f(x)=-x^2$ に対して $x^*=0$ は局所最小点です。しかし $Dh(0)=0$ なので全ての $d$ が形式上 $Dh(0)d=0$ を満たします。$\nu^*=0$ は停留条件を満たしますが
 >
-$
+$$
 d^{\mathsf T}\nabla_{xx}^2L(0,0)d
 =
 -2d^2<0
 \qquad(d\ne0).
-$
+$$
 >
 > つまり壊れたのは、**一次方程式 $Dh(x^*)d=0$ から実際の実行可能曲線を復元する機構**です。
 
@@ -1165,7 +1208,7 @@ $$
 \min_{x,y} f(x,y)=x+y
 $$
 
-subject to
+制約
 
 $$
 x^2+y^2\le1
@@ -1238,7 +1281,7 @@ $$
 \min_{x,y} f(x,y)=x
 $$
 
-subject to
+制約
 
 $$
 g(x,y)=x^2-y\le0,\qquad h(x,y)=y-1=0
