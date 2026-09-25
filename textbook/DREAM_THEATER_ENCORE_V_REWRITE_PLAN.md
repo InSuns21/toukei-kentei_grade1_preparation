@@ -396,7 +396,7 @@ QMC2 は既存 F0-02C7 の RKHS / 再生核を再定義しない。stable anchor
 |---|---|---|
 | PYNUM1 | Python 数値計算速習 | Python の要点、NumPy 配列、shape / dtype、slicing、broadcasting、vectorization、乱数、Matplotlib、SciPy の必要最小限。ブラウザ実験4本を同じ NUMLAB 実行基盤で実行可能 |
 | NUMLAB0 | 計算機演習基盤 | ブラウザ上 Python 実行、Worker、依存ライブラリ、採点、保存、時間制限、自動検証 |
-| NUMLAB1 | 数値解析演習 | NA1–NA12 を各1本のブラウザ実験で対応。桁落ち、Newton、補間、Gauss 求積、ODE、Cholesky、CG、固有値、PageRank、最適化まで |
+| NUMLAB1 | 数値解析演習 | NA1–NA12 をブラウザ実験で対応。NA4・NA5・NA8 は学習対象を高水準 API が代行するため、手動構築 → 実務編の2段構成。計15ラボ |
 | NUMLAB2 | 差分法演習 | FDM1–FDM4 を各1本のブラウザ実験で対応。陽・陰熱方程式、CFL 条件、格子収束、中心差分と風上化 |
 | NUMLAB3 | 有限要素法演習 | FEM1–FEM7 を各1本のブラウザ実験で対応。Galerkin 行列、三角形組立て、形状正則性、誤差次数、鞍点系、放物型時間発展、SUPG |
 | NUMLAB4 | Monte Carlo 演習 | MC1–MC4 を各1本のブラウザ実験で対応。標準誤差、逆関数法・棄却法、分散減少、レベル間結合 |
@@ -444,6 +444,7 @@ PYNUM1 は後続 NUMLAB の共通参照章とし、各演習で Python / NumPy �
 - NUMLAB1–NUMLAB5 の理論対応ラボは `python-lab`（`lab-mode: exercise`）→ `python-solution` → `python-test` の穴埋め演習を必須とする
 - PYNUM1 のクイックスタートと NUMLAB0 の smoke test は自由編集ラボを許す
 - 数値判定は tolerance、性質ベーステストは再現可能な固定乱数生成器で行う
+- 学習対象そのものを高水準 API が代行する場合は、**手動構築 → 実務編**の2段構成にする。下位処理・検算としてのライブラリ利用は許す
 
 基本要件：
 
@@ -478,7 +479,7 @@ NUMLAB は、
 
 を担う。
 
-NUMLAB1–NUMLAB5 は完成コードを読むだけのデモ章にしない。各理論対応ラボで、learning objective の核心となる式・更新・離散化・推定量を 1–5 箇所程度の穴埋めとして学習者自身にコードへ翻訳させ、模範解答と hidden test で閉じる。
+NUMLAB1–NUMLAB5 は完成コードを読むだけのデモ章にしない。各理論対応ラボで、learning objective の核心となる式・更新・離散化・推定量を 1–5 箇所程度の穴埋めとして学習者自身にコードへ翻訳させ、模範解答と hidden test で閉じる。さらに、学習対象そのものを NumPy / SciPy の高水準 API が丸ごと代行する箇所は、手動構築ラボを先に置き、その後に実務 API を使うラボを置く。
 
 ---
 

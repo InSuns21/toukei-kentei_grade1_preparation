@@ -280,28 +280,209 @@ assert history[-1] < history[0]
 
 ---
 
-<a id="lab-numlab1-na4-runge"></a>
-## 4. NA4：Runge 関数と Chebyshev 節点
+## 4. NA4：多項式補間と Chebyshev 節点
 
-理論： [Chebyshev 節点](../NA4/index.md#def-na4-chebyshev-nodes)
+理論： [Lagrange 補間公式](../NA4/index.md#thm-na4-lagrange-interpolation) / [Chebyshev 節点](../NA4/index.md#def-na4-chebyshev-nodes)
+
+補間公式そのものと実務 API の利用を分けます。
+
+1. **手動構築**：Lagrange 基底を定義どおり積み上げて補間多項式を評価する。
+2. **実務編**：SciPy の `BarycentricInterpolator` で高次数補間を行い、等間隔節点と Chebyshev 節点の差を観察する。
+
+<a id="lab-numlab1-na4-lagrange-manual"></a>
+### 4A. 手動構築：Lagrange 基底から補間多項式を作る
+
+節点 $x_0,\ldots,x_n$ に対し、
+
+$$
+\ell_j(x)
+=
+\prod_{k\ne j}
+\frac{x-x_k}{x_j-x_k},
+\qquad
+p_n(x)
+=
+\sum_{j=0}^{n}
+f(x_j)\ell_j(x)
+$$
+
+をコードへそのまま写します。
+
+Runge 関数を低めの次数で補間し、まず「節点値を正確に再現する」という補間の基本性質を確認します。
+
+**穴埋め課題：** Lagrange 基底の積と、各基底を関数値で重み付けして足す部分を実装してください。
+
+```python-lab
+# lab-id: NUMLAB1-NA4-LAGRANGE-MANUAL
+# lab-title: 手動構築：Lagrange 補間
+# lab-mode: exercise
+# timeout-ms: 8000
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+def runge(x):
+    return 1.0 / (1.0 + 25.0 * x * x)
+
+def lagrange_interpolate(nodes, values, x_eval):
+    nodes = np.asarray(nodes, dtype=float)
+    values = np.asarray(values, dtype=float)
+    x_eval = np.asarray(x_eval, dtype=float)
+
+    result = np.zeros_like(x_eval)
+
+    for j in range(len(nodes)):
+        basis = np.ones_like(x_eval)
+
+        for k in range(len(nodes)):
+            if k == j:
+                continue
+
+            # ヒント: Lagrange 基底の第j項へ、k番目節点に対応する一次因子を掛ける。
+            basis *= ___
+
+        # ヒント: 第j基底を節点値 f(x_j) で重み付けして補間多項式へ足す。
+        result += ___
+
+    return result
+
+degree = 8
+nodes = np.linspace(-1.0, 1.0, degree + 1)
+values = runge(nodes)
+
+grid = np.linspace(-1.0, 1.0, 801)
+
+# ヒント: 自作した補間関数へ節点・節点値・評価格子を渡す。
+manual_values = ___
+node_reconstruction = lagrange_interpolate(
+    nodes,
+    values,
+    nodes,
+)
+manual_error = np.max(
+    np.abs(manual_values - runge(grid))
+)
+
+print("node reconstruction error:",
+      np.max(np.abs(node_reconstruction - values)))
+print("max error on grid:", manual_error)
+
+fig, ax = plt.subplots()
+ax.plot(grid, runge(grid), label="Runge")
+ax.plot(grid, manual_values, label="manual Lagrange")
+ax.scatter(nodes, values, s=24, label="nodes")
+ax.legend()
+ax.grid(True)
+```
+
+```python-solution
+import numpy as np
+import matplotlib.pyplot as plt
+
+def runge(x):
+    return 1.0 / (1.0 + 25.0 * x * x)
+
+def lagrange_interpolate(nodes, values, x_eval):
+    nodes = np.asarray(nodes, dtype=float)
+    values = np.asarray(values, dtype=float)
+    x_eval = np.asarray(x_eval, dtype=float)
+
+    result = np.zeros_like(x_eval)
+
+    for j in range(len(nodes)):
+        basis = np.ones_like(x_eval)
+
+        for k in range(len(nodes)):
+            if k == j:
+                continue
+
+            basis *= (
+                (x_eval - nodes[k])
+                / (nodes[j] - nodes[k])
+            )
+
+        result += values[j] * basis
+
+    return result
+
+degree = 8
+nodes = np.linspace(-1.0, 1.0, degree + 1)
+values = runge(nodes)
+
+grid = np.linspace(-1.0, 1.0, 801)
+
+manual_values = lagrange_interpolate(
+    nodes,
+    values,
+    grid,
+)
+node_reconstruction = lagrange_interpolate(
+    nodes,
+    values,
+    nodes,
+)
+manual_error = np.max(
+    np.abs(manual_values - runge(grid))
+)
+
+print("node reconstruction error:",
+      np.max(np.abs(node_reconstruction - values)))
+print("max error on grid:", manual_error)
+
+fig, ax = plt.subplots()
+ax.plot(grid, runge(grid), label="Runge")
+ax.plot(grid, manual_values, label="manual Lagrange")
+ax.scatter(nodes, values, s=24, label="nodes")
+ax.legend()
+ax.grid(True)
+```
+
+```python-test
+assert np.allclose(
+    node_reconstruction,
+    values,
+    atol=1e-12,
+    rtol=1e-12,
+)
+
+probe_nodes = np.linspace(-1.0, 1.0, 6)
+probe_values = probe_nodes**4 - 2.0 * probe_nodes + 1.0
+probe_grid = np.linspace(-0.9, 0.9, 41)
+
+probe_interp = lagrange_interpolate(
+    probe_nodes,
+    probe_values,
+    probe_grid,
+)
+probe_exact = probe_grid**4 - 2.0 * probe_grid + 1.0
+
+assert np.allclose(
+    probe_interp,
+    probe_exact,
+    atol=1e-11,
+    rtol=1e-11,
+)
+assert np.isfinite(manual_error)
+```
+
+ここでは補間公式の全構成を自分で行っています。高次数・多数評価点ではこの素朴実装をそのまま実務利用せず、次の安定なライブラリ実装へ進みます。
+
+<a id="lab-numlab1-na4-runge"></a>
+### 4B. 実務編：SciPy の重心補間で Runge 現象を比較する
 
 $$
 f(x)=\frac{1}{1+25x^2}
 $$
 
-を20次多項式で補間し、等間隔節点と Chebyshev 節点を比べます。
+を20次多項式で補間し、等間隔節点と Chebyshev 節点を比較します。
 
-この実験は、完成コードを読むだけでなく、**節点の作り方と誤差評価を自分で埋める演習**として実行します。
+実務編では補間評価そのものは SciPy の `BarycentricInterpolator` に任せ、**節点設計と誤差診断**へ集中します。
 
-- 等間隔節点を $[-1,1]$ に作る。
-- Chebyshev 節点の公式を NumPy で書く。
-- 二つの補間の最大誤差を同じ評価格子上で計算する。
-
-「穴埋め」タブの `___` をすべて置き換えてから実行してください。必要なら「模範解答」タブで完成コードを確認できます。
+**穴埋め課題：** 等間隔節点・Chebyshev 節点と、二つの補間の最大誤差を埋めてください。
 
 ```python-lab
 # lab-id: NUMLAB1-NA4-RUNGE
-# lab-title: 等間隔節点と Chebyshev 節点を比較
+# lab-title: 実務編：SciPy で Runge 現象を比較
 # lab-mode: exercise
 # timeout-ms: 10000
 
@@ -405,14 +586,148 @@ assert cheb_error < equi_error
 assert cheb_error < 0.1
 ```
 
-高次数化だけでは十分でなく、節点配置が誤差増幅へ直接効くことを図と最大誤差の両方で確認します。
+手動構築と違い、ここでは補間評価の実装細部を SciPy に任せています。その分、節点配置が誤差へ与える影響を高次数で安定に観察できます。
 
 ---
 
-<a id="lab-numlab1-na5-gauss"></a>
-## 5. NA5：Gauss--Legendre 求積の誤差減衰
+## 5. NA5：Gauss--Legendre 求積
 
-理論： [Gauss 求積公式](../NA5/index.md#def-na5-gauss-quadrature)
+理論： [Gauss 求積公式](../NA5/index.md#def-na5-gauss-quadrature) / [Gauss 求積公式の正確性](../NA5/index.md#thm-na5-gauss-exactness)
+
+ここでも、節点・重みの**構成そのもの**と、実務での `leggauss` 利用を分けます。
+
+<a id="lab-numlab1-na5-gauss-manual"></a>
+### 5A. 手動構築：3点 Gauss--Legendre 求積を多項式の積分条件から作る
+
+対称な3点公式
+
+$$
+w\,f(-a)+w_0 f(0)+w\,f(a)
+$$
+
+を考えます。
+
+5次まで正確にするには、偶数次数多項式の積分値
+
+$$
+\int_{-1}^{1}1\,dx=2,\qquad
+\int_{-1}^{1}x^2\,dx=\frac23,\qquad
+\int_{-1}^{1}x^4\,dx=\frac25
+$$
+
+を一致させれば十分です。
+
+そこから $a^2$、外側重み $w$、中央重み $w_0$ を順に構成します。
+
+**穴埋め課題：** 積分条件だけから節点距離と重みを求め、0次から5次までの多項式で正確性を検査してください。
+
+```python-lab
+# lab-id: NUMLAB1-NA5-GAUSS-MANUAL
+# lab-title: 手動構築：3点 Gauss--Legendre 求積
+# lab-mode: exercise
+# timeout-ms: 5000
+
+import numpy as np
+
+moment0 = 2.0
+moment2 = 2.0 / 3.0
+moment4 = 2.0 / 5.0
+
+# ヒント: x^4 と x^2 の積分条件の比から、対称節点の a^2 を求める。
+a_squared = ___
+a = np.sqrt(a_squared)
+
+# ヒント: x^2 の積分条件 2*w*a^2 = 2/3 から外側重みを求める。
+outer_weight = ___
+
+# ヒント: 定数関数の積分条件 2*w + w0 = 2 から中央重みを求める。
+center_weight = ___
+
+nodes = np.array([-a, 0.0, a])
+weights = np.array([
+    outer_weight,
+    center_weight,
+    outer_weight,
+])
+
+degrees = np.arange(6, dtype=int)
+computed_moments = np.array([
+    np.sum(weights * nodes**k)
+    for k in degrees
+])
+exact_moments = np.array([
+    0.0 if k % 2 else 2.0 / (k + 1)
+    for k in degrees
+])
+
+print("nodes:", nodes)
+print("weights:", weights)
+print("computed polynomial integrals:", computed_moments)
+print("exact polynomial integrals:", exact_moments)
+```
+
+```python-solution
+import numpy as np
+
+moment0 = 2.0
+moment2 = 2.0 / 3.0
+moment4 = 2.0 / 5.0
+
+a_squared = moment4 / moment2
+a = np.sqrt(a_squared)
+
+outer_weight = moment2 / (2.0 * a_squared)
+center_weight = moment0 - 2.0 * outer_weight
+
+nodes = np.array([-a, 0.0, a])
+weights = np.array([
+    outer_weight,
+    center_weight,
+    outer_weight,
+])
+
+degrees = np.arange(6, dtype=int)
+computed_moments = np.array([
+    np.sum(weights * nodes**k)
+    for k in degrees
+])
+exact_moments = np.array([
+    0.0 if k % 2 else 2.0 / (k + 1)
+    for k in degrees
+])
+
+print("nodes:", nodes)
+print("weights:", weights)
+print("computed polynomial integrals:", computed_moments)
+print("exact polynomial integrals:", exact_moments)
+```
+
+```python-test
+assert np.allclose(
+    nodes,
+    np.array([
+        -np.sqrt(3.0 / 5.0),
+        0.0,
+        np.sqrt(3.0 / 5.0),
+    ]),
+)
+assert np.allclose(
+    weights,
+    np.array([5.0 / 9.0, 8.0 / 9.0, 5.0 / 9.0]),
+)
+assert np.all(weights > 0.0)
+assert np.allclose(
+    computed_moments,
+    exact_moments,
+    atol=1e-13,
+    rtol=1e-13,
+)
+```
+
+ここでは `leggauss` を使わず、Gauss 求積の正確性条件から節点と重みを再構成しています。
+
+<a id="lab-numlab1-na5-gauss"></a>
+### 5B. 実務編：`leggauss` で点数を増やして誤差を見る
 
 $$
 \int_0^1 e^x\,dx=e-1
@@ -420,11 +735,13 @@ $$
 
 を $n$ 点 Gauss--Legendre 求積で近似します。
 
+実務では NumPy が提供する節点・重みを使い、区間変換と誤差診断へ集中します。
+
 **穴埋め課題：** Gauss--Legendre 節点の区間変換と重み付き求積式を埋めてください。
 
 ```python-lab
 # lab-id: NUMLAB1-NA5-GAUSS
-# lab-title: Gauss--Legendre 求積の誤差
+# lab-title: 実務編：leggauss で Gauss--Legendre 求積
 # lab-mode: exercise
 # timeout-ms: 5000
 
@@ -489,7 +806,7 @@ assert errors[0] > errors[2] > errors[3]
 assert errors[-1] < 1e-10
 ```
 
-滑らかな関数では、点数を少し増やすだけで誤差が急速に小さくなる様子が見えます。
+手動構築で3点公式の由来を確認した後なので、実務編では点数を変えながら高精度化の様子を観察できます。
 
 ---
 
@@ -686,24 +1003,155 @@ assert abs(backward[-1] - exact[-1]) < abs(explicit[-1] - exact[-1])
 
 ---
 
+## 8. NA8：Cholesky 分解
+
+理論： [Cholesky 分解](../NA8/index.md#def-na8-cholesky-factorization) / [Cholesky 分解の存在一意性](../NA8/index.md#thm-na8-cholesky)
+
+この主題では `np.linalg.cholesky` を呼ぶだけでは分解アルゴリズムそのものを追えません。
+
+そこで、
+
+1. **手動構築**：成分ごとの漸化式から下三角因子を自前で作る。
+2. **実務編**：NumPy の `np.linalg.cholesky` と `np.linalg.solve` を使い、再構成誤差・残差を検査する。
+
+の順に分けます。
+
+<a id="lab-numlab1-na8-cholesky-manual"></a>
+### 8A. 手動構築：成分公式から Cholesky 因子を作る
+
+実対称正定値行列
+
+$$
+A=LL^{\mathsf T}
+$$
+
+について、$i\ge j$ の成分を上から順に決めます。
+
+対角成分では既知部分の二乗和を引いて平方根を取り、非対角成分では既知部分の内積を引いて既に求めた対角成分で割ります。
+
+**穴埋め課題：** 既知部分の補正項、対角成分、非対角成分の3箇所を埋めてください。
+
+```python-lab
+# lab-id: NUMLAB1-NA8-CHOLESKY-MANUAL
+# lab-title: 手動構築：Cholesky 因子を成分公式から作る
+# lab-mode: exercise
+# timeout-ms: 5000
+
+import numpy as np
+
+def cholesky_manual(A):
+    A = np.asarray(A, dtype=float)
+    n = A.shape[0]
+    L = np.zeros_like(A)
+
+    for i in range(n):
+        for j in range(i + 1):
+            # ヒント: すでに求めた第0列から第j-1列までの積の和を補正項にする。
+            correction = ___
+
+            if i == j:
+                pivot = A[i, i] - correction
+                if pivot <= 0.0:
+                    raise ValueError("matrix is not positive definite")
+                # ヒント: 対角成分は残った正の pivot の平方根で決まる。
+                L[i, j] = ___
+            else:
+                # ヒント: 非対角成分は残差を、対応する既知の対角成分で割る。
+                L[i, j] = ___
+
+    return L
+
+n = 8
+A = 2.0 * np.eye(n)
+A += -1.0 * np.eye(n, k=1)
+A += -1.0 * np.eye(n, k=-1)
+
+L = cholesky_manual(A)
+reconstruction_error = np.linalg.norm(
+    A - L @ L.T,
+    ord=np.inf,
+)
+
+print("manual L =")
+print(L)
+print("reconstruction error:", reconstruction_error)
+```
+
+```python-solution
+import numpy as np
+
+def cholesky_manual(A):
+    A = np.asarray(A, dtype=float)
+    n = A.shape[0]
+    L = np.zeros_like(A)
+
+    for i in range(n):
+        for j in range(i + 1):
+            correction = L[i, :j] @ L[j, :j]
+
+            if i == j:
+                pivot = A[i, i] - correction
+                if pivot <= 0.0:
+                    raise ValueError("matrix is not positive definite")
+                L[i, j] = np.sqrt(pivot)
+            else:
+                L[i, j] = (
+                    A[i, j] - correction
+                ) / L[j, j]
+
+    return L
+
+n = 8
+A = 2.0 * np.eye(n)
+A += -1.0 * np.eye(n, k=1)
+A += -1.0 * np.eye(n, k=-1)
+
+L = cholesky_manual(A)
+reconstruction_error = np.linalg.norm(
+    A - L @ L.T,
+    ord=np.inf,
+)
+
+print("manual L =")
+print(L)
+print("reconstruction error:", reconstruction_error)
+```
+
+```python-test
+assert np.allclose(L, np.tril(L))
+assert np.all(np.diag(L) > 0.0)
+assert reconstruction_error < 1e-12
+assert np.allclose(L, np.linalg.cholesky(A), atol=1e-12, rtol=1e-12)
+```
+
+ここでは `np.linalg.cholesky` は hidden test の**検算**にしか使っていません。学習者コードでは下三角因子 $L$ を既に求めた成分から順番に構築しています。
+
 <a id="lab-numlab1-na8-cholesky"></a>
-## 8. NA8：Cholesky 分解を再構成して検査する
+### 8B. 実務編：NumPy で分解・連立方程式を解く
 
-理論： [Cholesky 分解](../NA8/index.md#def-na8-cholesky-factorization)
+実務では、十分に検証された LAPACK 系実装を NumPy 経由で使うのが基本です。
 
-実対称正定値三重対角行列を分解し、
+ここでは
 
 $$
 A\approx LL^{\mathsf T}
 $$
 
-を直接検査します。
+の再構成誤差に加え、
 
-**穴埋め課題：** Cholesky 分解と前進・後退代入に対応する線形方程式を埋めてください。
+$$
+Ly=b,
+\qquad
+L^{\mathsf T}x=y
+$$
+
+を解いて元の連立方程式の残差も確認します。
+
+**穴埋め課題：** NumPy の Cholesky 分解と前進・後退代入に対応する線形 solve を埋めてください。
 
 ```python-lab
 # lab-id: NUMLAB1-NA8-CHOLESKY
-# lab-title: Cholesky 分解の再構成誤差
+# lab-title: 実務編：NumPy Cholesky と線形 solve
 # lab-mode: exercise
 # timeout-ms: 5000
 
@@ -714,14 +1162,14 @@ A = 2.0 * np.eye(n)
 A += -1.0 * np.eye(n, k=1)
 A += -1.0 * np.eye(n, k=-1)
 
-# ヒント: 対称正定値行列を下三角因子へ分解する。
+# ヒント: 実務 API で対称正定値行列の下三角 Cholesky 因子を得る。
 L = ___
 reconstruction_error = np.linalg.norm(A - L @ L.T, ord=np.inf)
 
 b = np.ones(n)
-# ヒント: まず下三角系を解いて中間変数を求める。
+# ヒント: まず下三角系を solve して中間変数を求める。
 y = ___
-# ヒント: 続いて転置下三角系を解き、元の連立方程式の解を得る。
+# ヒント: 続いて転置下三角系を solve し、元の連立方程式の解を得る。
 x = ___
 residual = np.linalg.norm(b - A @ x)
 
@@ -758,7 +1206,7 @@ assert reconstruction_error < 1e-12
 assert residual < 1e-11
 ```
 
-因子が得られたことだけでなく、元の行列をどれだけ正確に再構成できるかまで確認します。
+手動構築でアルゴリズムを確認した後なので、ここでは `np.linalg.cholesky` が何を返し、どう線形 solve へつなぐかに集中できます。
 
 ---
 

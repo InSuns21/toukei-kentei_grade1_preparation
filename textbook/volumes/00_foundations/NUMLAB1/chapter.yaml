@@ -24,17 +24,18 @@ learning_objectives:
   - 誤差・残差・反復回数・安定性を数値表または図で診断できる
   - 各実験で shape・有限性・数値許容誤差・再現性を自動テストできる
   - 理論章の stable anchor と実験の stable anchor を相互対応表から追跡できる
+  - 学習対象そのものを高水準 API が代行する補間・Gauss 求積・Cholesky 分解では、手動構築と実務 API 利用を分離して比較できる
 definitions: []
 theorems: []
 canonical_examples:
   - NA1 桁落ちと安定な同値式
   - NA2 Newton 法の二次収束
   - NA3 非線形連立方程式の Newton 法
-  - NA4 Runge 関数の等間隔節点と Chebyshev 節点
-  - NA5 Gauss--Legendre 求積の誤差減衰
+  - NA4 Lagrange 補間の手動構築と SciPy による Runge 関数・Chebyshev 節点比較
+  - NA5 3点 Gauss--Legendre 求積の手動構築と leggauss による誤差減衰
   - NA6 Euler 法の一次収束
   - NA7 硬い減衰問題での陽的 Euler 法と後退 Euler 法
-  - NA8 Cholesky 分解の再構成誤差
+  - NA8 Cholesky 分解の手動構築と NumPy 実務 API による再構成・線形 solve
   - NA9 共役勾配法の残差履歴
   - NA10 冪乗法の固有対残差
   - NA11 PageRank の停止誤差評価
@@ -43,5 +44,5 @@ problem_patterns: []
 past_exam_alignment: []
 integrated_exam_problems: []
 exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
-dream_theater_exercise_count_exception: "NUMLAB1 は NA1–NA12 の理論演習を置き換える章ではなく、既に各理論章で A4/B3/C1 を完了した内容を12本のブラウザ実験で再現する実験章である。紙上問題を重複させず、各 NA 章につき1本の実行可能ラボと自動テストを置く。"
-estimated_hours: { reading: 2.0, exercises: 4.5, review: 0.5 }
+dream_theater_exercise_count_exception: "NUMLAB1 は NA1–NA12 の理論演習を置き換える章ではなく、既に各理論章で A4/B3/C1 を完了した内容をブラウザ実験で再現する実験章である。基本は各 NA 章1本だが、NA4・NA5・NA8 は学習対象そのものを高水準 API が代行するため、手動構築と実務編を分けて計15本の実行可能ラボと自動テストを置く。"
+estimated_hours: { reading: 2.25, exercises: 5.5, review: 0.5 }
