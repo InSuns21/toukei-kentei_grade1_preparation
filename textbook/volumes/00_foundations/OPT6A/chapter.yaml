@@ -8,7 +8,7 @@ prerequisites:
 official_scope: []
 learning_objectives:
   - 通常の不等式を錐制約として表現できる
-  - 双対錐を定義し非負直交錐の自己双対性を確認できる
+  - OPT3 で定義した双対錐を用い、非負直交錐の自己双対性を確認できる
   - 一般化Lagrangianと随伴作用素による停留条件を書ける
   - 閉凸錐のnormal coneから双対実行可能性と相補性を導ける
   - 錐制約の線形化錐とRobinson制約想定を定義できる
@@ -17,7 +17,6 @@ learning_objectives:
   - 半正定値錐の行列相補性を具体例で計算できる
 definitions:
   - { id: OPT6A-DEF-01, name: 錐制約 }
-  - { id: OPT6A-DEF-02, name: 双対錐 }
   - { id: OPT6A-DEF-03, name: 一般化Lagrangian }
   - { id: OPT6A-DEF-04, name: 錐制約の線形化錐 }
   - { id: OPT6A-DEF-05, name: Robinson制約想定 }
