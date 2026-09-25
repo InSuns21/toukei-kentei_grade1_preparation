@@ -1,0 +1,26 @@
+chapter: "OPT5"
+terms:
+  - term: Lagrangian
+    english: Lagrangian
+    meaning: 目的関数と制約関数を双対変数で結合した関数。制約付き最適化を無制約な下限問題へ移す。
+  - term: 双対関数
+    english: dual function
+    meaning: Lagrangian を主変数について下限化して得る関数。主問題の最適値に対する下界を与える。
+  - term: Lagrange 双対問題
+    english: Lagrange dual problem
+    meaning: 双対関数を双対実行可能な乗数上で最大化する問題。
+  - term: 弱双対性
+    english: weak duality
+    meaning: 任意の双対実行可能解が主問題の最適値を越えないという関係。
+  - term: Slater 条件
+    english: Slater condition
+    meaning: 凸不等式制約を厳密に満たし affine 等式制約も満たす点の存在を要求する制約想定。
+  - term: 強双対性
+    english: strong duality
+    meaning: 主問題と双対問題の最適値が一致する性質。本章では Slater 条件のもとで導く。
+  - term: KKT 条件
+    english: Karush--Kuhn--Tucker conditions
+    meaning: 主実行可能性・双対実行可能性・停留条件・相補性を組み合わせた最適性条件。
+  - term: 活性制約
+    english: active constraint
+    meaning: 候補点で等号として成立している不等式制約。相補性により非活性制約の乗数は 0 になる。
