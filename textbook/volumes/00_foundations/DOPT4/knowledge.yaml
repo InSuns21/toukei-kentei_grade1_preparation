@@ -170,7 +170,7 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（ネットワーク行列）"]
     requires:
-      - optimization.reduced-node-arc-incidence-matrix
+      - optimization.node-arc-incidence-matrix
 
   - id: optimization.network-matrix
     name: ネットワーク行列
@@ -180,7 +180,7 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（ネットワーク行列）"]
     requires:
-      - optimization.node-arc-incidence-matrix
+      - optimization.reduced-node-arc-incidence-matrix
 
   - id: optimization.network-matrix-tu
     name: ネットワーク行列の全単模性
