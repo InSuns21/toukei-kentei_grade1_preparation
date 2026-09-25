@@ -32,6 +32,7 @@ definitions:
   - { id: OPT3-DEF-10, name: 法錐 }
   - { id: OPT3-DEF-11, name: Bouligand 接錐 }
   - { id: OPT3-DEF-12, name: 極錐・双対錐 }
+  - { id: OPT3-DEF-13, name: 凸関数の方向微分 }
 theorems:
   - { id: OPT3-THM-01, name: エピグラフによる凸性判定 }
   - { id: OPT3-THM-02, name: 下半連続性と閉エピグラフ }
