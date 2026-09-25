@@ -7,6 +7,7 @@ prerequisites:
   - F0-02A
 
 forward_references:
+  - optimization.robinson-mfcq-equivalence
   - optimization.licq
   - optimization.mfcq
   - optimization.robinson-cq
@@ -37,9 +38,11 @@ concepts:
       - optimization.lagrangian
 
   - id: optimization.closed-cone-normal
-    name: 閉凸錐のnormal cone
+    name: 閉凸錐の normal cone
     kind: theorem
-    aliases: [閉凸錐, 閉凸錐のnormal cone, 錐normal cone定理]
+    aliases: [閉凸錐の normal cone, 錐 normal cone 定理]
+    introduction: formal
+    introduction_aliases: ["定理（閉凸錐の normal cone）"]
     requires:
       - optimization.cone-constraint
       - convex.normal-cone

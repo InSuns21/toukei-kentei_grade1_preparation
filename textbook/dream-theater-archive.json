@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "path": "textbook/volumes/00_foundations/F0_00G_凸集合_凸関数_凸最適化/index.md",
+      "canonical_path": "textbook/volumes/00_foundations/OPT1/index.md",
+      "reason": "OPT1 へ canonical 内容を移管済み。stable anchor と過去URLのためファイルを保持。"
+    },
+    {
+      "path": "textbook/volumes/00_foundations/F0_02B_分離超平面定理_Farkas_SVM/index.md",
+      "canonical_path": "textbook/volumes/00_foundations/OPT2/index.md",
+      "reason": "OPT2 へ canonical 内容を移管済み。stable anchor と過去URLのためファイルを保持。"
+    }
+  ]
+}

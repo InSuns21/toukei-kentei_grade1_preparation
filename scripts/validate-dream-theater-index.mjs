@@ -4,6 +4,7 @@ import path from 'node:path';
 const repoRoot = process.cwd();
 const facadePath = path.join(repoRoot, 'textbook', 'dream-theater.md');
 const manifestPath = path.join(repoRoot, 'textbook', 'dream-theater-index.json');
+const archivePath = path.join(repoRoot, 'textbook', 'dream-theater-archive.json');
 const foundationsDir = path.join(repoRoot, 'textbook', 'volumes', '00_foundations');
 const calculationReaderSupportPrefix = 'F0_00CALC_';
 const calculationReaderSupportMarker = `/00_foundations/${calculationReaderSupportPrefix}`;
@@ -45,12 +46,25 @@ const fail = (messages) => {
   process.exit(1);
 };
 
-for (const required of [facadePath, manifestPath, foundationsDir]) {
+for (const required of [facadePath, manifestPath, archivePath, foundationsDir]) {
   if (!fs.existsSync(required)) fail([`required path does not exist: ${toPosix(path.relative(repoRoot, required))}`]);
 }
 
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 if (!Array.isArray(manifest.sections)) fail(['manifest.sections must be an array']);
+
+const archive = JSON.parse(fs.readFileSync(archivePath, 'utf8'));
+if (!Array.isArray(archive.entries)) fail(['archive.entries must be an array']);
+const archivedPaths = new Set();
+for (const entry of archive.entries) {
+  if (!entry || typeof entry.path !== 'string' || typeof entry.canonical_path !== 'string') {
+    fail(['each archive entry must have string path and canonical_path']);
+  }
+  if (archivedPaths.has(entry.path)) fail([`duplicate archive entry: ${entry.path}`]);
+  archivedPaths.add(entry.path);
+  if (!fs.existsSync(path.join(repoRoot, entry.path))) fail([`archive source does not exist: ${entry.path}`]);
+  if (!fs.existsSync(path.join(repoRoot, entry.canonical_path))) fail([`archive canonical target does not exist: ${entry.canonical_path}`]);
+}
 
 const expected = [];
 const seenManifest = new Set();
@@ -86,6 +100,7 @@ const discovered = fs.readdirSync(foundationsDir, { withFileTypes: true })
   .map((entry) => path.join(foundationsDir, entry.name, 'index.md'))
   .filter((p) => fs.existsSync(p))
   .map((p) => toPosix(path.relative(repoRoot, p)))
+  .filter((p) => !archivedPaths.has(p))
   .sort();
 
 const expectedSet = new Set(expected);
@@ -93,6 +108,7 @@ const discoveredSet = new Set(discovered);
 
 for (const p of expected) {
   if (!fs.existsSync(path.join(repoRoot, p))) errors.push(`manifest target does not exist: ${p}`);
+  if (archivedPaths.has(p)) errors.push(`archived page must not appear in manifest: ${p}`);
 }
 for (const p of discovered) {
   if (!expectedSet.has(p)) errors.push(`foundation chapter missing from manifest/facade scope: ${p}`);
@@ -115,7 +131,8 @@ for (const p of expected) {
   if (count > 1) errors.push(`facade contains duplicate chapter link (${count}x): ${p}`);
 }
 for (const p of actual) {
-  if (!expectedSet.has(p)) errors.push(`facade contains extra foundation chapter link: ${p}`);
+  if (archivedPaths.has(p)) errors.push(`facade contains archived foundation chapter link: ${p}`);
+  else if (!expectedSet.has(p)) errors.push(`facade contains extra foundation chapter link: ${p}`);
 }
 
 if (actual.length === expected.length) {
@@ -131,4 +148,4 @@ if (actual.length === expected.length) {
 
 if (errors.length) fail(errors);
 
-console.log(`DREAM THEATER index OK: ${expected.length} chapters/roadmaps, no omissions, extras, duplicates, broken targets, or order drift.`);
+console.log(`DREAM THEATER index OK: ${expected.length} chapters/roadmaps, ${archivedPaths.size} archived compatibility pages excluded, no omissions, extras, duplicates, broken targets, or order drift.`);

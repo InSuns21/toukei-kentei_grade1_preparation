@@ -176,7 +176,7 @@ $$
 <a id="thm-f0-02c5-cone-normal"></a>
 
 <!-- formal-statement-start -->
-> **定理（閉凸錐 $-K$ のnormal cone）**  
+> **定理（閉凸錐の normal cone）**  
 > $K\subset\mathbb R^m$ を閉凸錐、$y\in-K$ とすると
 
 $$

@@ -5,7 +5,10 @@ prerequisites:
   - F0-02C1
 
 forward_references:
+  - convex.convex-set
   - functional.riesz-representation-theorem
+  - functional.linear-functional
+  - functional.dual-space
 
 concepts:
   - id: functional.convex-set-basic-c1a
@@ -14,7 +17,7 @@ concepts:
     aliases: [Hilbert射影で使う凸集合の再掲]
     introduction_aliases: [凸集合]
     requires:
-      - convex.convex-set
+      - functional.hilbert-space
 
   - id: functional.hilbert-projection-theorem
     name: Hilbert空間の射影定理

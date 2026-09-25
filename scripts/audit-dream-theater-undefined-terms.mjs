@@ -208,6 +208,11 @@ function resolveAliasOwners(page, alias, owners, lineNumber) {
 
 function firstAliasUse(lines, aliases) {
   for (let i = 0; i < lines.length; i += 1) {
+    const text = String(lines[i] ?? '').trim();
+    // 章・節タイトルは、直後に導入する概念を読者へ予告するナビゲーションであり、
+    // 本文で概念を既知として使った first-use とは数えない。
+    // ただし heading 自体が formal declaration なら導入候補なので除外しない。
+    if (/^#{1,6}\s+/u.test(text) && !/(?:定義|定理|補題|命題|系)[（(]/u.test(text)) continue;
     if (aliases.some((alias) => aliasAppears(lines[i], alias))) return i + 1;
   }
   return null;
@@ -439,6 +444,18 @@ function runSelfTest() {
   const intro = findConceptIntroductionLine(source, concept);
   const use = firstAliasUse(stripNonReaderContent(source).split(/\r?\n/u), concept.aliases);
   if (!(use === 2 && intro === 4 && use < intro)) failures.push('first-use chronology');
+
+  const headingPreviewUse = firstAliasUse(
+    ['# Lipschitz連続', '導入前の一般説明。'],
+    concept.aliases
+  );
+  if (headingPreviewUse != null) failures.push('heading preview must not count as first-use');
+
+  const headingThenProseUse = firstAliasUse(
+    ['## Lipschitz連続', 'Lipschitz連続を本文で使う。'],
+    concept.aliases
+  );
+  if (headingThenProseUse !== 2) failures.push('prose after heading preview must still count as first-use');
 
   const doc = { concepts: [{ id: 'local', name: 'Lipschitz連続', kind: 'definition', aliases: ['Lipschitz連続'] }] };
   const local = buildLocalAliasIntroductions(source, doc, 'P');

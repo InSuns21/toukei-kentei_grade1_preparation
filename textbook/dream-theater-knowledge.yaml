@@ -32,6 +32,14 @@ alias_matching:
     - Frobenius theorem
     - 位相
     - topology
+    - support
+    - 残差
+    - residual
+    - 平行移動
+    - 接平面
+    - tangent plane
+    - 法線
+    - normal vector
 
 rollout:
   # 既存ページは段階移行する。未移行ページそのものは audit では報告するが、

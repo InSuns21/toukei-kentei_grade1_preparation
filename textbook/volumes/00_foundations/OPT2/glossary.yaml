@@ -1,0 +1,26 @@
+chapter: "OPT2"
+terms:
+  - term: 超平面
+    english: hyperplane
+    meaning: 非零ベクトル a と実数 beta により a^T x = beta と表される余次元1の affine 集合。
+  - term: 分離超平面
+    english: separating hyperplane
+    meaning: 集合と点、あるいは二つの集合を線形汎関数の異なる側へ置く超平面。本章では点と閉凸集合の厳密分離を扱う。
+  - term: 最近点射影
+    english: metric projection
+    meaning: 点 z から集合 C までの距離を最小にする点。有限次元の空でない閉凸集合では一意に存在する。
+  - term: 射影の変分不等式
+    english: projection variational inequality
+    meaning: p=P_C(z) に対し (z-p)^T(x-p)<=0 が全ての x in C で成り立つこと。分離法線を構成する核心。
+  - term: 支持超平面
+    english: supporting hyperplane
+    meaning: 凸集合を一方の閉半空間に含め、指定した境界点で集合に接する超平面。
+  - term: 極錐
+    english: polar cone
+    meaning: 錐 K の全ての方向に非正の内積を持つベクトルの集合。本章では有限次元版を用いる。
+  - term: 有限生成凸錐
+    english: finitely generated convex cone
+    meaning: 有限個の生成ベクトルの非負線形結合全体。有限次元では閉であり、Farkas の補題の幾何学的舞台になる。
+  - term: Farkas の補題
+    english: Farkas lemma
+    meaning: Ax=b, x>=0 の可解性と、それが不可能であることを証明する線形不等式 certificate の存在を二者択一として結ぶ定理。

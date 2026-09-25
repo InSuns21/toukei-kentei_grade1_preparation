@@ -3,7 +3,8 @@ title: "epigraph・閉凸関数・支持超平面"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - F0-00G
+  - OPT1
+  - OPT2
   - F0-02C6A
 official_scope: []
 learning_objectives:
@@ -33,4 +34,5 @@ problem_patterns: [CVX-EPI-1, CVX-LSC-1, CVX-SUPPORT-1, CVX-EXIST-1]
 past_exam_alignment: []
 integrated_exam_problems: []
 exercise_counts: { level_a: 2, level_b: 2, level_c: 0, level_d: 0 }
+dream_theater_exercise_count_exception: "本PRでは支持超平面の canonical owner を OPT2 へ移すための prerequisite・参照・knowledge 整合のみを行う移行保守対象。epigraph・閉凸関数・劣勾配側は計画上 OPT3 へ統合するため、旧移行元へ A4/B3/C1 を水増しせず、OPT3 で規定数を満たす。"
 estimated_hours: { reading: 3.5, exercises: 1.25, review: 0.5 }

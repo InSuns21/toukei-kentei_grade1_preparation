@@ -3,7 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - VC1
-  - F0-00G
+  - OPT1
   - NA9
 forward_references: []
 
@@ -16,22 +16,24 @@ concepts:
     introduction_aliases: ["定義（無制約最適化問題・局所最小点・大域最小点）"]
     requires: []
 
-  - id: optimization.local-minimizer
-    name: 局所最小点
+  - id: optimization.local-minimizer-recap-na12
+    name: 無制約最適化で使う局所最小点の再掲
     kind: definition
-    aliases: [local minimizer]
+    aliases: [無制約最適化で使う局所最小点の再掲]
     introduction: formal
     introduction_aliases: ["定義（無制約最適化問題・局所最小点・大域最小点）"]
     requires:
+      - optimization.local-minimizer
       - optimization.unconstrained-minimization
 
-  - id: optimization.global-minimizer
-    name: 大域最小点
+  - id: optimization.global-minimizer-recap-na12
+    name: 無制約最適化で使う大域最小点の再掲
     kind: definition
-    aliases: [global minimizer]
+    aliases: [無制約最適化で使う大域最小点の再掲]
     introduction: formal
     introduction_aliases: ["定義（無制約最適化問題・局所最小点・大域最小点）"]
     requires:
+      - optimization.global-minimizer
       - optimization.unconstrained-minimization
 
   - id: optimization.first-order-necessary-condition
