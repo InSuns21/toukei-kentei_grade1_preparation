@@ -352,31 +352,53 @@ $$
 
 まず、任意のカットに対してフロー値を「境界を横切る正味流量」として書き直します。
 
-$s\in S$、$t\notin S$ とします。$S$ 内の全頂点について
+<a id="prop-dopt2-cut-flow-identity"></a>
+<!-- formal-statement-start -->
+> **命題（カット境界上のフロー恒等式）**  
+> 実行可能 s--t フロー $f$ と s--t カット $(S,T)$ に対して
+>
+> $
+> \boxed{
+> |f|
+> =
+> \sum_{e\in\delta^+(S)}f_e
+> -
+> \sum_{e\in\delta^-(S)}f_e
+> }
+> $
+>
+> が成り立つ。
+<!-- formal-statement-end -->
 
-$$
+<!-- proof-start -->
+### 証明
+
+$s\in S$、$t\notin S$ です。$S$ 内の全頂点について
+
+$
 \sum_{\text{流出}}f
 -
 \sum_{\text{流入}}f
-$$
+$
 
 を足します。
 
 $S$ 内部だけを結ぶ辺は、一方の頂点で流出、もう一方で流入として現れるので相殺します。
 
-また $S$ 内で保存条件が破れる可能性があるのは $s$ だけです。従って
+残るのは $S$ から外へ出る辺と、外から $S$ へ入る辺だけです。また $S$ 内で流量保存条件の右辺が0でない頂点は $s$ だけなので、左辺全体は $|f|$ に等しくなります。
 
-$$
-\boxed{
+従って
+
+$
 |f|
 =
 \sum_{e\in\delta^+(S)}f_e
 -
-\sum_{e\in\delta^-(S)}f_e
-}
-$$
+\sum_{e\in\delta^-(S)}f_e.
+$
 
-です。
+$\square$
+<!-- proof-end -->
 
 <a id="thm-dopt2-flow-cut-bound"></a>
 <!-- formal-statement-start -->
@@ -399,7 +421,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-先ほどのカット境界上の恒等式より
+カット境界上のフロー恒等式より
 
 $$
 |f|
