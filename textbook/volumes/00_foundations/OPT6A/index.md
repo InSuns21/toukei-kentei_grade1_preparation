@@ -8,7 +8,7 @@ $$
 G(x)\in-K
 $$
 
-という一つの**錐制約**へまとめます。すると「乗数は非負」「相補性」「停留条件」は
+という一つの形へまとめます。すると「乗数は非負」「相補性」「停留条件」は
 
 $$
 \lambda\in K^*,\qquad
@@ -41,13 +41,13 @@ $X=\mathbb R^n$, $Y=\mathbb R^m$ とし、$K\subset Y$ を閉凸錐とします�
 <a id="def-opt6a-cone-constraint"></a>
 <!-- formal-statement-start -->
 > **定義（錐制約）**  
-> 写像 $G:X\to Y$ に対する
+> 有限次元 Euclid 空間 $X=\mathbb R^n$、$Y=\mathbb R^m$ と、閉凸錐 $K\subset Y$ を考える。写像 $G:X\to Y$ に対する
 >
 $$
 G(x)\in-K
 $$
 >
-> という制約を **錐制約**という。等式制約は別に $H(x)=0$ と書く。
+> という制約を **錐制約**という。等式制約を併用するときは、写像 $H:X\to\mathbb R^r$ を用いて $H(x)=0$ と書く。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-opt6a-cone-constraint -->
@@ -108,24 +108,34 @@ $$
 <a id="def-opt6a-generalized-lagrangian"></a>
 <!-- formal-statement-start -->
 > **定義（一般化 Lagrangian）**  
-> 問題
+> 有限次元 Euclid 空間 $X=\mathbb R^n$、$Y=\mathbb R^m$、閉凸錐 $K\subset Y$ と写像
 >
 $$
-\min f(x)
-\quad\text{subject to}\quad
-G(x)\in-K,\ H(x)=0
+f:X\to\mathbb R,
+\qquad
+G:X\to Y,
+\qquad
+H:X\to\mathbb R^r
 $$
 >
-> に対し
+> に対する問題
+>
+$$
+\min_x f(x)
+\quad\text{制約}\quad
+G(x)\in-K,\qquad H(x)=0
+$$
+>
+> を考える。$\lambda\in K^*$、$\nu\in\mathbb R^r$ に対して
 >
 $$
 L(x,\lambda,\nu)
 =
 f(x)+\langle\lambda,G(x)\rangle
-+\langle\nu,H(x)\rangle,
++\langle\nu,H(x)\rangle
 $$
 >
-> $\lambda\in K^*$ と定める。
+> を **一般化 Lagrangian** という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-opt6a-generalized-lagrangian -->
@@ -154,12 +164,12 @@ $$
 
 ---
 
-## 4. 相補性は normal cone の式である
+## 4. 相補性は法錐の式である
 
 <a id="thm-opt6a-cone-normal"></a>
 <!-- formal-statement-start -->
-> **定理（閉凸錐の normal cone）**  
-> $K$ を閉凸錐、$y\in-K$ とする。このとき
+> **定理（閉凸錐の法錐）**  
+> 有限次元 Euclid 空間 $Y$ の閉凸錐 $K\subset Y$ と $y\in-K$ を考える。このとき
 >
 $$
 \boxed{
@@ -174,7 +184,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\lambda\in N_{-K}(y)$ とする。normal cone の定義から
+$\lambda\in N_{-K}(y)$ とする。法錐の定義から
 
 $$
 \langle\lambda,z-y\rangle\le0
@@ -227,16 +237,27 @@ $$
 <a id="def-opt6a-linearization-cone"></a>
 <!-- formal-statement-start -->
 > **定義（錐制約の線形化錐）**  
-> $G,H$ が $x^*$ で微分可能なとき
+> 閉凸錐 $K\subset Y$、微分可能な写像 $G:X\to Y$、$H:X\to\mathbb R^r$ に対し
+>
+$$
+C
+=
+\{x:G(x)\in-K,\ H(x)=0\}
+$$
+>
+> と置く。実行可能点 $x^*\in C$ と $y^*=G(x^*)$ に対して
 >
 $$
 L_C(x^*)
 =
-\{d:
-DG(x^*)d\in T_{-K}(y^*),> DH(x^*)d=0\}
+\left\{
+d\in X:
+DG(x^*)d\in T_{-K}(y^*),\ 
+DH(x^*)d=0
+\right\}
 $$
 >
-> と定める。
+> を $x^*$ における **錐制約の線形化錐**という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-opt6a-linearization-cone -->
@@ -272,13 +293,23 @@ $$
 <a id="def-opt6a-robinson-cq"></a>
 <!-- formal-statement-start -->
 > **定義（Robinson 制約想定）**  
-> $x^*$ が実行可能点とする。一次近似写像の像
+> 閉凸錐 $K\subset Y$ と $C^1$ 級写像 $G:X\to Y$、$H:X\to\mathbb R^r$ に対し
 >
 $$
-\mathcal R=
+C
+=
+\{x:G(x)\in-K,\ H(x)=0\}
+$$
+>
+> と置き、$x^*\in C$ とする。集合
+>
+$$
+\mathcal R
+=
 \left\{
 \bigl(DH(x^*)d,\ DG(x^*)d-s\bigr):
-d\in\mathbb R^n,> s\in T_{-K}(G(x^*))
+d\in X,\ 
+s\in T_{-K}(G(x^*))
 \right\}
 $$
 >
@@ -318,35 +349,528 @@ $$
 
 ## 7. Robinson 制約想定が接錐を回収する
 
+一般錐では、OPT6 のように各不等式へ個別に陰関数定理を当てることはできません。代わりに、Robinson 制約想定から得られる **局所誤差境界** が「一次近似でほぼ実行可能」な点を「真に実行可能」な点へ $o(t)$ だけ補正します。
+
+写像と制約集合を
+
+$$
+F(x)
+=
+\bigl(H(x),G(x)\bigr),
+\qquad
+D
+=
+\{0\}\times(-K)
+$$
+
+とまとめれば、実行可能集合は
+
+$$
+C=F^{-1}(D)
+$$
+
+です。
+
+<a id="thm-opt6a-robinson-error-bound"></a>
+<!-- formal-statement-start -->
+> **定理（有限次元 Robinson 誤差境界）**  
+> 有限次元 Euclid 空間 $X$ と $Z$、閉凸集合 $D\subset Z$、$C^1$ 級写像 $F:X\to Z$ を考え、$F(x^*)\in D$ とする。一次近似条件
+>
+$$
+DF(x^*)X-T_D(F(x^*))=Z
+$$
+>
+> が成立するとする。このとき、ある $\kappa>0$ と $x^*$ の近傍 $U$ が存在して
+>
+$$
+\boxed{
+\operatorname{dist}\bigl(x,F^{-1}(D)\bigr)
+\le
+\kappa\,
+\operatorname{dist}\bigl(F(x),D\bigr)
+}
+\qquad(x\in U)
+$$
+>
+> が成り立つ。
+<!-- formal-statement-end -->
+
+この定理は Robinson 制約想定の **定量版** です。本章で必要なのは、右辺が $o(t)$ なら実行可能集合までの距離も $o(t)$ になる、という一点です。
+
+### 誤差境界の核心
+
+一次近似作用素
+
+$$
+Q(d,s)=DF(x^*)d-s,
+\qquad
+s\in T_D(F(x^*))
+$$
+
+を考えます。仮定は $Q$ の像が $Z$ 全体であることです。各 $z\in Z$ に対して
+
+$$
+p(z)
+=
+\inf
+\left\{
+\|(d,s)\|:
+Q(d,s)=z,\ 
+s\in T_D(F(x^*))
+\right\}
+$$
+
+と置くと、接錐が凸錐であるため $p$ は正斉次かつ劣加法的です。しかも仮定により全ての $z$ で有限です。[有限値凸関数の局所 Lipschitz 連続性](../OPT3/index.md#lem-opt3-finite-convex-lipschitz)をこの有限値劣線形関数 $p$ に適用すると、$p$ は原点近傍で有界です。正斉次性と合わせて、ある $M>0$ が存在して
+
+$$
+p(z)\le M\|z\|
+$$
+
+となります。つまり、**任意の一次残差を、その大きさと同程度の補正で消せる**ことが Robinson 条件の定量的な中身です。
+
+$F$ は $C^1$ 級なので、$x^*$ の十分小さい近傍では
+
+$$
+F(x+h)
+=
+F(x)+DF(x^*)h+r(x,h),
+\qquad
+\|r(x,h)\|
+\le
+\varepsilon\|h\|
+$$
+
+と一様に評価できます。$\varepsilon M<1$ となるよう近傍を小さく取り、上の有界な一次補正を反復すると、残差は幾何級数的に減少し、補正量の総和は初期残差の定数倍で抑えられます。補正列の極限を $\widehat x$ とすれば閉性から $F(\widehat x)\in D$ であり、
+
+$$
+\|x-\widehat x\|
+\le
+\kappa\,
+\operatorname{dist}(F(x),D)
+$$
+
+を得ます。これが上の誤差境界です。
+
+> **意図的黒箱：Robinson 誤差境界の完全証明**  
+> 上の誤差境界そのものは、本章では定理として使用します。完全証明には集合値写像の局所的な全射安定性と計量正則性（metric regularity）を体系的に構成する必要があり、本章の射程を超えます。ここでは証明で実際に使う「線形化の全射性から有界な一次補正を得る → $C^1$ 剰余を反復吸収する → 距離評価を得る」という核心機構まで示しました。通常制約 $K=\mathbb R_+^m$ では、後の Robinson 制約想定と MFCQ の同値により OPT6 で使った [陰関数定理](../RA6A/index.md#thm-ra6a-implicit-function)による完全証明へ戻ります。
+
 <a id="thm-opt6a-robinson-tangent"></a>
 <!-- formal-statement-start -->
 > **定理（Robinson 制約想定下の接錐公式）**  
-> $G,H$ が $C^1$ 級、$K$ が閉凸錐で、$x^*$ において Robinson 制約想定が成立するとする。このとき
+> 閉凸錐 $K\subset Y$ と $C^1$ 級写像 $G:X\to Y$、$H:X\to\mathbb R^r$ に対し
+>
+$$
+C
+=
+\{x:G(x)\in-K,\ H(x)=0\}
+$$
+>
+> と置く。実行可能点 $x^*\in C$ で Robinson 制約想定が成立するとき
 >
 $$
 \boxed{
 T_C(x^*)
 =
-\{d:
-DG(x^*)d\in T_{-K}(G(x^*)),> DH(x^*)d=0\}.
+\left\{
+d\in X:
+DG(x^*)d\in T_{-K}(G(x^*)),\ 
+DH(x^*)d=0
+\right\}.
 }
 $$
 <!-- formal-statement-end -->
 
-### 証明の核心
+### 証明の見取り図
 
-包含 $T_C\subseteq L_C$ は一次展開から従います。逆向きでは $d\in L_C$ を取り、Robinson 制約想定が与える**誤差修正方向**を使って
+包含 $T_C(x^*)\subseteq L_C(x^*)$ は、実行可能列へ $G,H$ の一次展開を適用すれば得られます。逆包含では $d\in L_C(x^*)$ に対して $z_t=x^*+td$ を作ると、制約違反は $o(t)$ まで小さくなります。Robinson 誤差境界で $z_t$ を $o(t)$ だけ動かして真の実行可能点へ戻します。
+
+<!-- proof-start -->
+### 証明
+
+まず $d\in T_C(x^*)$ とします。[Bouligand 接錐](../OPT3/index.md#def-opt3-tangent-cone)の定義から、$x_k\in C$ と $t_k\downarrow0$ が存在して
 
 $$
-x(t)=x^*+td+o(t)
+\frac{x_k-x^*}{t_k}\to d.
 $$
 
-を真の実行可能点へ補正します。有限次元ではこの主張は Lyusternik--Graves 型の正則性定理（metric regularity）から従います。
+$H(x_k)=H(x^*)=0$ と微分可能性から
 
-ここで一般錐に対する誤差修正定理を一から証明すると集合値解析そのものが新しい主題になります。本章では、Robinson 制約想定の役割をこの接錐公式として明示し、通常制約 $K=\mathbb R_+^m$ については後節で OPT6 の MFCQ 証明へ還元して核心機構を閉じます。
+$$
+0
+=
+\frac{H(x_k)-H(x^*)}{t_k}
+\to
+DH(x^*)d,
+$$
 
-> **仮定が使われる場所**  
-> Robinson 制約想定は KKT の代数操作に必要なのではありません。線形化錐を真の接錐へ戻すこの一箇所に必要です。
+従って $DH(x^*)d=0$ です。また $G(x_k)\in-K$ であり、
+
+$$
+\frac{G(x_k)-G(x^*)}{t_k}
+\to
+DG(x^*)d.
+$$
+
+接錐の定義から
+
+$$
+DG(x^*)d
+\in
+T_{-K}(G(x^*)).
+$$
+
+よって $T_C(x^*)\subseteq L_C(x^*)$ です。
+
+逆に $d\in L_C(x^*)$ とします。記号を
+
+$$
+A=DG(x^*),
+\qquad
+B=DH(x^*),
+\qquad
+y^*=G(x^*)
+$$
+
+と置きます。$Ad\in T_{-K}(y^*)$ なので、接錐の定義から $t_k\downarrow0$ と $y_k\in-K$ を
+
+$$
+\frac{y_k-y^*}{t_k}
+\to
+Ad
+$$
+
+となるように取れます。$z_k=x^*+t_kd$ と置くと、$Bd=0$ と $C^1$ 性から
+
+$$
+H(z_k)=o(t_k),
+$$
+
+また
+
+$$
+G(z_k)
+=
+y^*+t_kAd+o(t_k).
+$$
+
+一方
+
+$$
+y_k
+=
+y^*+t_kAd+o(t_k),
+$$
+
+なので
+
+$$
+\operatorname{dist}\bigl(G(z_k),-K\bigr)
+\le
+\|G(z_k)-y_k\|
+=
+o(t_k).
+$$
+
+従って $F=(H,G)$、$D=\{0\}\times(-K)$ に対して
+
+$$
+\operatorname{dist}(F(z_k),D)=o(t_k).
+$$
+
+Robinson 制約想定は
+
+$$
+DF(x^*)X-T_D(F(x^*))=\mathbb R^r\times Y
+$$
+
+そのものなので、[有限次元 Robinson 誤差境界](#thm-opt6a-robinson-error-bound)を適用できます。よって
+
+$$
+\operatorname{dist}(z_k,C)=o(t_k).
+$$
+
+$C$ は $G,H$ の連続性と $-K,\{0\}$ の閉性から閉集合です。したがって $x_k\in C$ を
+
+$$
+\|x_k-z_k\|
+=
+o(t_k)
+$$
+
+となるように取れます。すると
+
+$$
+\frac{x_k-x^*}{t_k}
+=
+d+
+\frac{x_k-z_k}{t_k}
+\to d.
+$$
+
+よって $d\in T_C(x^*)$ であり、逆包含も示されました。$\square$
+<!-- proof-end -->
+
+> **Robinson 制約想定が働いた場所**  
+> KKT の代数操作ではなく、上の誤差境界を通じて
+>
+$$
+L_C(x^*)\subseteq T_C(x^*)
+$$
+>
+> を回収する一箇所です。
+
+### 7.1 線形化錐の極錐を乗数表示へ変える
+
+接錐を線形化錐へ置き換えただけでは、まだ KKT 乗数は出てきません。次に
+
+$$
+L_C(x^*)^\circ
+$$
+
+を制約写像の随伴で表示します。この段階でも Robinson 制約想定は、乗数表示の右辺を **閉じた錐** にするために働きます。
+
+<a id="thm-opt6a-linearized-polar"></a>
+<!-- formal-statement-start -->
+> **定理（Robinson 制約想定下の線形化錐の極錐表示）**  
+> 有限次元 Euclid 空間 $X,Y$、閉凸錐 $T\subset Y$、線形写像
+>
+$$
+A:X\to Y,
+\qquad
+B:X\to\mathbb R^r
+$$
+>
+> を考える。
+>
+$$
+L
+=
+\{d\in X:Ad\in T,\ Bd=0\}
+$$
+>
+> と置き、
+>
+$$
+\left\{
+(Bd,Ad-s):
+d\in X,\ s\in T
+\right\}
+=
+\mathbb R^r\times Y
+$$
+>
+> を仮定する。このとき
+>
+$$
+\boxed{
+L^\circ
+=
+A^*T^\circ
++
+\operatorname{range}B^*
+}.
+$$
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+右辺から左辺は内積を取れば直ちに分かります。逆向きの核心は、Robinson 条件が「ゼロでない異常乗数」を排除し、その結果
+
+$$
+A^*T^\circ+\operatorname{range}B^*
+$$
+
+が閉凸錐になることです。閉性が得られれば、OPT2 の閉凸錐分離と OPT3 の極双極定理で逆包含を示せます。
+
+<!-- proof-start -->
+### 証明
+
+まず
+
+$$
+M
+=
+A^*T^\circ
++
+\operatorname{range}B^*
+$$
+
+と置きます。$\mu\in T^\circ$、$\nu\in\mathbb R^r$、$d\in L$ なら
+
+$$
+\begin{aligned}
+\langle A^*\mu+B^*\nu,d\rangle
+&=
+\langle\mu,Ad\rangle
++
+\langle\nu,Bd\rangle\\
+&=
+\langle\mu,Ad\rangle
+\le0,
+\end{aligned}
+$$
+
+なので $M\subseteq L^\circ$ です。
+
+次に Robinson 条件から異常乗数が存在しないことを示します。
+
+$$
+\mu\in T^\circ,
+\qquad
+A^*\mu+B^*\nu=0
+$$
+
+とします。任意の $(a,b)\in\mathbb R^r\times Y$ に対し、仮定から $d\in X$、$s\in T$ を
+
+$$
+Bd=a,
+\qquad
+Ad-s=b
+$$
+
+となるように取れます。このとき
+
+$$
+\begin{aligned}
+\langle\nu,a\rangle+\langle\mu,b\rangle
+&=
+\langle\nu,Bd\rangle
++
+\langle\mu,Ad-s\rangle\\
+&=
+\langle A^*\mu+B^*\nu,d\rangle
+-
+\langle\mu,s\rangle\\
+&=
+-\langle\mu,s\rangle
+\ge0.
+\end{aligned}
+$$
+
+同じ議論を $(-a,-b)$ に適用すると逆向きの不等式も得られるので
+
+$$
+\langle\nu,a\rangle+\langle\mu,b\rangle=0
+\qquad
+(\forall(a,b)).
+$$
+
+従って $\mu=0$、$\nu=0$ です。
+
+もし $T^\circ=\{0\}$ かつ $r=0$ なら $M=\{0\}$ で閉性は自明です。以下ではそれ以外の場合を考えます。
+
+$$
+S
+=
+\left\{
+(\mu,\nu):
+\mu\in T^\circ,\ 
+\|\mu\|^2+\|\nu\|^2=1
+\right\}
+$$
+
+と置くと $S$ は空でないコンパクト集合です。今示した異常乗数排除により
+
+$$
+A^*\mu+B^*\nu\ne0
+\qquad((\mu,\nu)\in S).
+$$
+
+連続性とコンパクト性から、ある $c>0$ が存在して
+
+$$
+\|A^*\mu+B^*\nu\|
+\ge
+c
+\sqrt{\|\mu\|^2+\|\nu\|^2}
+$$
+
+が全ての $\mu\in T^\circ$、$\nu\in\mathbb R^r$ で成り立ちます。
+
+したがって $m_k\in M$、$m_k\to m$ とし
+
+$$
+m_k=A^*\mu_k+B^*\nu_k,
+\qquad
+\mu_k\in T^\circ
+$$
+
+と表せば、$(\mu_k,\nu_k)$ は有界です。部分列を取って
+
+$$
+\mu_k\to\mu\in T^\circ,
+\qquad
+\nu_k\to\nu
+$$
+
+とでき、
+
+$$
+m=A^*\mu+B^*\nu\in M.
+$$
+
+よって $M$ は閉凸錐です。
+
+最後に $v\in L^\circ$ だが $v\notin M$ と仮定します。[閉凸錐の分離](../OPT2/index.md#thm-opt2-cone-separation)により、ある $d\in X$ が存在して
+
+$$
+\langle m,d\rangle\le0
+\qquad(\forall m\in M),
+$$
+
+かつ
+
+$$
+\langle v,d\rangle>0
+$$
+
+となります。$\operatorname{range}B^*$ は正負の両方を含む線形部分空間なので、最初の不等式から $Bd=0$ です。また
+
+$$
+\langle\mu,Ad\rangle\le0
+\qquad(\forall\mu\in T^\circ),
+$$
+
+なので
+
+$$
+Ad\in T^{\circ\circ}.
+$$
+
+$T$ は閉凸錐だから[閉凸錐の極双極定理](../OPT3/index.md#thm-opt3-polar-bipolar)により $T^{\circ\circ}=T$。従って $d\in L$ です。しかし $v\in L^\circ$ なら $\langle v,d\rangle\le0$ でなければならず矛盾します。
+
+よって $L^\circ\subseteq M$ であり、両包含から主張を得ます。$\square$
+<!-- proof-end -->
+
+錐制約へ戻し、
+
+$$
+A=DG(x^*),
+\qquad
+B=DH(x^*),
+\qquad
+T=T_{-K}(G(x^*))
+$$
+
+とします。$-K$ は閉凸集合なので、[凸集合の接錐表示](../OPT3/index.md#thm-opt3-tangent-conic-hull)から $T$ は閉凸錐です。従って上の極錐表示定理を適用できます。また[法錐と接錐の極双対](../OPT3/index.md#thm-opt3-normal-tangent-polar)から
+
+$$
+T^\circ
+=
+N_{-K}(G(x^*)).
+$$
+
+従って Robinson 制約想定下では
+
+$$
+\boxed{
+L_C(x^*)^\circ
+=
+DG(x^*)^*N_{-K}(G(x^*))
++
+\operatorname{range}DH(x^*)^*
+}.
+$$
 
 ---
 
@@ -355,15 +879,25 @@ $$
 <a id="thm-opt6a-generalized-kkt"></a>
 <!-- formal-statement-start -->
 > **定理（Robinson 制約想定下の一般化 KKT）**  
-> $x^*$ が
+> 有限次元 Euclid 空間 $X=\mathbb R^n$、$Y$、閉凸錐 $K\subset Y$ と $C^1$ 級写像
 >
 $$
-\min f(x)
-\quad\text{subject to}\quad
-G(x)\in-K,\ H(x)=0
+f:X\to\mathbb R,
+\qquad
+G:X\to Y,
+\qquad
+H:X\to\mathbb R^r
 $$
 >
-> の局所最小点とする。$f,G,H$ は $C^1$ 級、$K$ は閉凸錐で、$x^*$ で Robinson 制約想定が成立するとする。このとき、ある
+> を考える。$x^*$ が
+>
+$$
+\min_x f(x)
+\quad\text{制約}\quad
+G(x)\in-K,\qquad H(x)=0
+$$
+>
+> の局所最小点で、$x^*$ で Robinson 制約想定が成立するとする。このとき、ある
 >
 $$
 \lambda\in K^*,\qquad \nu\in\mathbb R^r
@@ -395,10 +929,28 @@ $$
 -\nabla f(x^*)\in T_C(x^*)^\circ.
 $$
 
-Robinson 制約想定による接錐公式と有限次元の polar calculus から
+[Robinson 制約想定下の接錐公式](#thm-opt6a-robinson-tangent)により
+
+$$
+T_C(x^*)=L_C(x^*).
+$$
+
+さらに [Robinson 制約想定下の線形化錐の極錐表示](#thm-opt6a-linearized-polar)を
+
+$$
+A=DG(x^*),
+\qquad
+B=DH(x^*),
+\qquad
+T=T_{-K}(G(x^*))
+$$
+
+へ適用すると
 
 $$
 T_C(x^*)^\circ
+=
+L_C(x^*)^\circ
 =
 DG(x^*)^*N_{-K}(G(x^*))
 +
@@ -413,7 +965,7 @@ $$
 DG(x^*)^*\lambda+DH(x^*)^*\nu.
 $$
 
-これが停留条件です。さらに[閉凸錐の normal cone 定理](#thm-opt6a-cone-normal)から
+これが停留条件です。さらに[閉凸錐の法錐](#thm-opt6a-cone-normal)から
 
 $$
 \lambda\in K^*,\qquad
@@ -460,7 +1012,15 @@ $$
 <a id="thm-opt6a-robinson-mfcq"></a>
 <!-- formal-statement-start -->
 > **定理（通常制約では Robinson 制約想定と MFCQ が同値）**  
-> $K=\mathbb R_+^m$ とし、$G=(g_1,\ldots,g_m)$ とする。このとき上の Robinson 制約想定は OPT6 の MFCQ と同値である。
+> $C^1$ 級関数 $g_1,\dots,g_m$ と $H=(h_1,\dots,h_r)$ による通常制約
+>
+$$
+g_i(x)\le0\quad(i=1,\dots,m),
+\qquad
+H(x)=0
+$$
+>
+> を、$K=\mathbb R_+^m$、$G=(g_1,\dots,g_m)$ として錐制約 $G(x)\in-K$ に書き直す。実行可能点 $x^*$ において、Robinson 制約想定が成立することと OPT6 の MFCQ が成立することは同値である。
 <!-- formal-statement-end -->
 
 ### 証明の要点
@@ -470,9 +1030,117 @@ $$
 <!-- proof-start -->
 ### 証明
 
-MFCQ を仮定する。$DH(x^*)$ は全射で、$DHv=0$ かつ活性成分で $DGv<0$ となる $v$ がある。任意の小さな右辺 $(a,b)$ に対し、まず全射性で $DHd_0=a$ を解く。次に $d=d_0+tv$ とし $t$ を調整すれば、活性成分で $DGd-b$ を接錐 $T_{-K}(G(x^*))$ の内部へ押し込める。非活性成分には制限がない。従って Robinson 条件が成立する。
+活性集合を
 
-逆に Robinson 条件を仮定する。等式成分への射影から $DH(x^*)$ は全射、すなわち等式勾配は一次独立です。また右辺 $(0,-\mathbf1_I)$ を活性成分に指定すると、ある $v$ が $DHv=0$ かつ活性成分で $DGv<0$ を満たすように取れます。これは MFCQ です。$\square$
+$$
+I=\{i:g_i(x^*)=0\}
+$$
+
+と置きます。$K=\mathbb R_+^m$ なので $-K=\mathbb R_-^m$ です。各成分について
+
+$$
+T_{\mathbb R_-}(g_i(x^*))
+=
+\begin{cases}
+\mathbb R_-,& i\in I,\\
+\mathbb R,& i\notin I
+\end{cases}
+$$
+
+だから
+
+$$
+T_{-K}(G(x^*))
+=
+\{s\in\mathbb R^m:s_i\le0\ (i\in I)\},
+$$
+
+非活性成分には制限がありません。
+
+まず MFCQ を仮定します。等式勾配の一次独立性から
+
+$$
+B:=DH(x^*):\mathbb R^n\to\mathbb R^r
+$$
+
+は全射です。またある $v$ が存在して
+
+$$
+Bv=0,
+\qquad
+\nabla g_i(x^*)^{\mathsf T}v<0
+\quad(i\in I).
+$$
+
+Robinson 条件を示すため、任意の
+
+$$
+(a,b)\in\mathbb R^r\times\mathbb R^m
+$$
+
+を取ります。$B$ は全射なので $Bd_0=a$ を満たす $d_0$ が存在します。
+
+$$
+d=d_0+tv
+$$
+
+と置けば $Bd=a$ のままです。活性添字は有限個で、各 $i\in I$ について $\nabla g_i(x^*)^{\mathsf T}v<0$ なので、十分大きな $t>0$ を一つ選べば同時に
+
+$$
+\nabla g_i(x^*)^{\mathsf T}d-b_i\le0
+\qquad(i\in I)
+$$
+
+となります。そこで
+
+$$
+s=DG(x^*)d-b
+$$
+
+と置けば $s_i\le0$ $(i\in I)$、非活性成分には条件がないので
+
+$$
+s\in T_{-K}(G(x^*)).
+$$
+
+従って
+
+$$
+\bigl(Bd,DG(x^*)d-s\bigr)=(a,b).
+$$
+
+$(a,b)$ は任意だったから Robinson 制約想定が成立します。
+
+逆に Robinson 制約想定を仮定します。任意の $a\in\mathbb R^r$ に対して右辺 $(a,0)$ を実現できるので、ある $d$ が $DH(x^*)d=a$ を満たします。従って $DH(x^*)$ は全射で、等式勾配は一次独立です。
+
+次に $b\in\mathbb R^m$ を
+
+$$
+b_i=
+\begin{cases}
+-1,&i\in I,\\
+0,&i\notin I
+\end{cases}
+$$
+
+と置き、右辺 $(0,b)$ を Robinson 条件で実現します。するとある $v$ と $s\in T_{-K}(G(x^*))$ が存在して
+
+$$
+DH(x^*)v=0,
+\qquad
+DG(x^*)v-s=b.
+$$
+
+活性 $i\in I$ では $s_i\le0$ なので
+
+$$
+\nabla g_i(x^*)^{\mathsf T}v
+=
+b_i+s_i
+\le-1<0.
+$$
+
+従って $v$ は MFCQ 方向であり、MFCQ が成立します。$\square$
 <!-- proof-end -->
 
 したがって OPT6A は OPT6 の局所理論を一般錐へ拡張したものであり、通常制約へ戻れば新しい条件を勝手に追加しているわけではありません。
@@ -481,7 +1149,173 @@ MFCQ を仮定する。$DH(x^*)$ は全射で、$DHv=0$ かつ活性成分で $D
 
 ## 10. 半正定値錐の例
 
-$X=\mathbb R$、$K=\mathbb S_+^2$ とし
+対称 $2\times2$ 行列全体の空間を $\mathbb S^2$ とし、Frobenius 内積
+
+$$
+\langle A,B\rangle
+=
+\operatorname{tr}(AB)
+$$
+
+を入れます。半正定値錐を
+
+$$
+\mathbb S_+^2
+=
+\{S\in\mathbb S^2:v^{\mathsf T}Sv\ge0\ (\forall v\in\mathbb R^2)\}
+$$
+
+とします。
+
+<a id="thm-opt6a-psd-self-dual"></a>
+<!-- formal-statement-start -->
+> **定理（2×2 半正定値錐の自己双対性）**  
+> Frobenius 内積に関して
+>
+$$
+\boxed{
+(\mathbb S_+^2)^*
+=
+\mathbb S_+^2
+}.
+$$
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+双対錐側から半正定値性を出すには、半正定値な rank-one 行列 $vv^{\mathsf T}$ を試します。逆向きでは任意の $2\times2$ 半正定値行列を rank-one 半正定値行列の和に分解し、各項との内積が非負であることを確認します。
+
+<!-- proof-start -->
+### 証明
+
+まず $\Lambda\in(\mathbb S_+^2)^*$ とします。任意の $v\in\mathbb R^2$ に対して $vv^{\mathsf T}\succeq0$ なので
+
+$$
+0
+\le
+\langle\Lambda,vv^{\mathsf T}\rangle
+=
+\operatorname{tr}(\Lambda vv^{\mathsf T})
+=
+v^{\mathsf T}\Lambda v.
+$$
+
+従って $\Lambda\succeq0$ です。よって
+
+$$
+(\mathbb S_+^2)^*
+\subseteq
+\mathbb S_+^2.
+$$
+
+逆に $\Lambda\succeq0$ とし、任意の
+
+$$
+S=
+\begin{pmatrix}
+p&q\\
+q&r
+\end{pmatrix}
+\succeq0
+$$
+
+を取ります。$p>0$ のとき
+
+$$
+u=
+\begin{pmatrix}
+\sqrt p\\
+q/\sqrt p
+\end{pmatrix},
+\qquad
+w=
+\begin{pmatrix}
+0\\
+\sqrt{r-q^2/p}
+\end{pmatrix}
+$$
+
+と置きます。$S\succeq0$ なので $p=e_1^{\mathsf T}Se_1\ge0$、$r=e_2^{\mathsf T}Se_2\ge0$ です。さらに $p>0$ の場合、ベクトル
+
+$$
+z=
+\begin{pmatrix}
+-q/p\\
+1
+\end{pmatrix}
+$$
+
+を代入すると
+
+$$
+0
+\le
+z^{\mathsf T}Sz
+=
+r-\frac{q^2}{p}.
+$$
+
+従って $r-q^2/p\ge0$ で平方根は実数です。直接計算すると
+
+$$
+S=uu^{\mathsf T}+ww^{\mathsf T}.
+$$
+
+$p=0$ の場合、任意の $t\in\mathbb R$ に対して
+
+$$
+\begin{pmatrix}
+1&t
+\end{pmatrix}
+S
+\begin{pmatrix}
+1\\t
+\end{pmatrix}
+=
+2qt+rt^2
+\ge0.
+$$
+
+$q\ne0$ なら $t$ を0に十分近く $q$ と逆符号に取ると左辺が負になるため、$q=0$ です。従って
+
+$$
+S=
+\begin{pmatrix}
+0\\
+\sqrt r
+\end{pmatrix}
+\begin{pmatrix}
+0&\sqrt r
+\end{pmatrix}
+$$
+
+と rank-one に書けます。
+
+したがっていずれの場合も
+
+$$
+S=\sum_{j=1}^N v_jv_j^{\mathsf T}
+$$
+
+と表せます。ゆえに
+
+$$
+\begin{aligned}
+\langle\Lambda,S\rangle
+&=
+\sum_j
+\operatorname{tr}(\Lambda v_jv_j^{\mathsf T})\\
+&=
+\sum_j
+v_j^{\mathsf T}\Lambda v_j
+\ge0.
+\end{aligned}
+$$
+
+従って $\Lambda\in(\mathbb S_+^2)^*$ です。逆包含も示され、自己双対性を得ます。$\square$
+<!-- proof-end -->
+
+この自己双対錐を制約に使います。$X=\mathbb R$、$K=\mathbb S_+^2$ とし
 
 $$
 G(x)=
@@ -499,13 +1333,7 @@ $$
 
 すなわち $0\le x\le1$ と同値です。
 
-$\mathbb S_+^2$ は Frobenius 内積
-
-$$
-\langle A,B\rangle=\operatorname{tr}(AB)
-$$
-
-に関して自己双対です。従って乗数 $\Lambda$ は
+上の自己双対性から、双対乗数 $\Lambda$ は
 
 $$
 \Lambda\succeq0
@@ -546,7 +1374,7 @@ $$
 $$
 <!-- solution-end -->
 
-### OPT6A-A02 normal cone から相補性を読む
+### OPT6A-A02 法錐から相補性を読む
 
 - Level: A
 - 目安時間: 10分
@@ -556,7 +1384,7 @@ $K=\mathbb R_+^2$, $y=(-1,0)$ とする。$N_{-K}(y)$ を求めよ。
 <!-- solution-start -->
 #### 詳細解答
 
-[閉凸錐の normal cone 公式](#thm-opt6a-cone-normal)から $\lambda\ge0$ かつ
+[閉凸錐の法錐](#thm-opt6a-cone-normal)から $\lambda\ge0$ かつ
 
 $$
 \lambda^{\mathsf T}y=-\lambda_1=0.
@@ -665,29 +1493,69 @@ Y=
 \in-K.
 $$
 
-対角行列 $\Lambda=\operatorname{diag}(a,b)$ が $N_{-K}(Y)$ に入るための条件を求めよ。
+一般の対称行列
+
+$$
+\Lambda=
+\begin{pmatrix}
+a&c\\
+c&b
+\end{pmatrix}
+$$
+
+が $N_{-K}(Y)$ に入るための条件を求めよ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-$\mathbb S_+^2$ は自己双対なので $\Lambda\succeq0$、対角の場合は $a,b\ge0$。さらに相補性は
+[$2\times2$ 半正定値錐の自己双対性](#thm-opt6a-psd-self-dual)から、まず
+
+$$
+\Lambda\succeq0.
+$$
+
+さらに[閉凸錐の法錐](#thm-opt6a-cone-normal)による相補性は
 
 $$
 \langle\Lambda,Y\rangle
 =
 \operatorname{tr}(\Lambda Y)
-=-a=0.
+=
+-a
+=
+0,
 $$
 
-従って $a=0$, $b\ge0$。よって
+なので $a=0$ です。
+
+半正定値性から任意の $t\in\mathbb R$ に対して
+
+$$
+\begin{pmatrix}
+1&t
+\end{pmatrix}
+\Lambda
+\begin{pmatrix}
+1\\t
+\end{pmatrix}
+=
+2ct+bt^2
+\ge0.
+$$
+
+もし $c\ne0$ なら、$t$ を0に十分近く、$c$ と逆符号に取ると $2ct+bt^2<0$ となるため矛盾します。従って $c=0$。残る条件は $b\ge0$ です。よって
 
 $$
 \boxed{
-\Lambda=
+N_{-K}(Y)
+=
+\left\{
 \begin{pmatrix}
-0&0\\0&b
-\end{pmatrix},
-\qquad b\ge0.
+0&0\\
+0&b
+\end{pmatrix}
+:b\ge0
+\right\}.
 }
 $$
 <!-- solution-end -->
@@ -744,7 +1612,7 @@ $$
 \min_{x\in\mathbb R} f(x)=-x
 $$
 
-subject to
+制約
 
 $$
 G(x)=
@@ -759,7 +1627,16 @@ $$
 
 1. 実行可能集合と最適解を求めよ。
 2. $K=\mathbb S_+^2$ として一般化 Lagrangian を書け。
-3. 対角乗数 $\Lambda=\operatorname{diag}(a,b)\succeq0$ に対する停留条件と相補性を解け。
+3. 一般の対称乗数
+   $$
+   \Lambda=
+   \begin{pmatrix}
+   a&c\\
+   c&b
+   \end{pmatrix}
+   \succeq0
+   $$
+   に対する停留条件と相補性を解け。
 4. 通常の二本の不等式として書いた KKT と対応させよ。
 
 <!-- solution-start -->
@@ -785,13 +1662,31 @@ L(x,\Lambda)
 -x+\langle\Lambda,G(x)\rangle.
 $$
 
-$\Lambda=\operatorname{diag}(a,b)$ なら
+一般の対称乗数
 
 $$
-L=-x+a(x-1)-bx.
+\Lambda=
+\begin{pmatrix}
+a&c\\
+c&b
+\end{pmatrix}
 $$
 
-従って停留条件は
+に対して、$G(x)$ は対角行列なので
+
+$$
+\langle\Lambda,G(x)\rangle
+=
+a(x-1)-bx.
+$$
+
+従って
+
+$$
+L=-x+a(x-1)-bx
+$$
+
+で、停留条件は
 
 $$
 -1+a-b=0.
@@ -809,19 +1704,27 @@ $$
 相補性は
 
 $$
-\langle\Lambda,G(1)\rangle=-b=0,
+\langle\Lambda,G(1)\rangle
+=
+-b
+=
+0,
 $$
 
-従って $b=0$。停留条件から $a=1$。よって
+従って $b=0$ です。さらに $\Lambda\succeq0$ かつ $b=0$ なら、B02 と同じ二次形式の議論から $c=0$ です。停留条件から $a=1$。よって一般の対称乗数から出発しても
 
 $$
 \boxed{
-\Lambda^*=
+\Lambda^*
+=
 \begin{pmatrix}
-1&0\\0&0
-\end{pmatrix}.
+1&0\\
+0&0
+\end{pmatrix}
 }
 $$
+
+だけが残ります。
 
 通常制約では $g_1=x-1\le0$, $g_2=-x\le0$。$x^*=1$ では第1制約が活性、第2制約は非活性なので $\lambda_2=0$、停留条件 $-1+\lambda_1-\lambda_2=0$ から $\lambda_1=1$。これは $(a,b)=(1,0)$ と完全に一致します。
 <!-- solution-end -->
