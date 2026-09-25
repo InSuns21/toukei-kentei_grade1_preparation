@@ -3,9 +3,7 @@ title: "Fenchel共役・Fenchel–Young・双対"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - F0-00G1
-  - F0-02C4
-  - F0-02C4A
+  - OPT3
 official_scope: []
 learning_objectives:
   - Fenchel共役を定義し基本例を計算できる
