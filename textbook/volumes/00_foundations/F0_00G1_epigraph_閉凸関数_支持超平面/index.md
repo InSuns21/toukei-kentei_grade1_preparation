@@ -1,5 +1,8 @@
 # F0-00G1 epigraph・閉凸関数・支持超平面
 
+> **Archive notice**  
+> このページは archive です。支持超平面の canonical owner は [OPT2](../OPT2/index.md)、エピグラフ・閉真凸関数・劣微分側の canonical owner は [OPT3](../OPT3/index.md) へ移管しました。stable anchor と過去URLの後方互換性のため本文を保持しています。
+
 <!-- definition-example-audit: strict -->
 
 F0-00G では凸集合・凸関数を「線分を保つ」という定義から学びました。この講義では一段抽象化して、**関数をその上側の集合 epigraph として見る**ことで、位相・分離定理・劣勾配が一本につながることを確認します。
