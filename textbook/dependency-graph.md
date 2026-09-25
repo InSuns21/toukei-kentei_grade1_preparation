@@ -509,6 +509,7 @@ F0-00A1 上限・下限 ─────────────────→ O
 OPT3 閉真凸関数・劣微分・法錐 ─────────→ OPT4 Fenchel 共役・凸双対
 OPT4 Fenchel 共役・凸双対 ─────────────→ OPT5 Lagrange 双対・Slater 条件・KKT
 OPT5 Lagrange 双対・Slater 条件・KKT ───→ OPT6 KKT の幾何学的導出・制約想定
+OPT6 KKT の幾何学的導出・制約想定 ─────→ OPT6A 錐制約・一般化 KKT
 
 PDE3 熱方程式 ──────────────────────────┐
 NA7 前進・後退 Euler 法 ────────────────┤
