@@ -41,13 +41,13 @@ $X=\mathbb R^n$, $Y=\mathbb R^m$ とし、$K\subset Y$ を閉凸錐とします�
 <a id="def-opt6a-cone-constraint"></a>
 <!-- formal-statement-start -->
 > **定義（錐制約）**  
-> 写像 $G:X\to Y$ に対する
+> 有限次元 Euclid 空間 $X=\mathbb R^n$、$Y=\mathbb R^m$ と、閉凸錐 $K\subset Y$ を考える。写像 $G:X\to Y$ に対する
 >
 $$
 G(x)\in-K
 $$
 >
-> という制約を **錐制約**という。等式制約は別に $H(x)=0$ と書く。
+> という制約を **錐制約**という。等式制約を併用するときは、写像 $H:X\to\mathbb R^r$ を用いて $H(x)=0$ と書く。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-opt6a-cone-constraint -->
@@ -108,24 +108,34 @@ $$
 <a id="def-opt6a-generalized-lagrangian"></a>
 <!-- formal-statement-start -->
 > **定義（一般化 Lagrangian）**  
-> 問題
+> 有限次元 Euclid 空間 $X=\mathbb R^n$、$Y=\mathbb R^m$、閉凸錐 $K\subset Y$ と写像
 >
 $$
-\min f(x)
-\quad\text{subject to}\quad
-G(x)\in-K,\ H(x)=0
+f:X\to\mathbb R,
+\qquad
+G:X\to Y,
+\qquad
+H:X\to\mathbb R^r
 $$
 >
-> に対し
+> に対する問題
+>
+$$
+\min_x f(x)
+\quad\text{制約}\quad
+G(x)\in-K,\qquad H(x)=0
+$$
+>
+> を考える。$\lambda\in K^*$、$\nu\in\mathbb R^r$ に対して
 >
 $$
 L(x,\lambda,\nu)
 =
 f(x)+\langle\lambda,G(x)\rangle
-+\langle\nu,H(x)\rangle,
++\langle\nu,H(x)\rangle
 $$
 >
-> $\lambda\in K^*$ と定める。
+> を **一般化 Lagrangian** という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-opt6a-generalized-lagrangian -->
@@ -154,12 +164,12 @@ $$
 
 ---
 
-## 4. 相補性は normal cone の式である
+## 4. 相補性は法錐の式である
 
 <a id="thm-opt6a-cone-normal"></a>
 <!-- formal-statement-start -->
-> **定理（閉凸錐の normal cone）**  
-> $K$ を閉凸錐、$y\in-K$ とする。このとき
+> **定理（閉凸錐の法錐）**  
+> 有限次元 Euclid 空間 $Y$ の閉凸錐 $K\subset Y$ と $y\in-K$ を考える。このとき
 >
 $$
 \boxed{
@@ -174,7 +184,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\lambda\in N_{-K}(y)$ とする。normal cone の定義から
+$\lambda\in N_{-K}(y)$ とする。法錐の定義から
 
 $$
 \langle\lambda,z-y\rangle\le0
@@ -227,16 +237,27 @@ $$
 <a id="def-opt6a-linearization-cone"></a>
 <!-- formal-statement-start -->
 > **定義（錐制約の線形化錐）**  
-> $G,H$ が $x^*$ で微分可能なとき
+> 閉凸錐 $K\subset Y$、微分可能な写像 $G:X\to Y$、$H:X\to\mathbb R^r$ に対し
+>
+$$
+C
+=
+\{x:G(x)\in-K,\ H(x)=0\}
+$$
+>
+> と置く。実行可能点 $x^*\in C$ と $y^*=G(x^*)$ に対して
 >
 $$
 L_C(x^*)
 =
-\{d:
-DG(x^*)d\in T_{-K}(y^*),> DH(x^*)d=0\}
+\left\{
+d\in X:
+DG(x^*)d\in T_{-K}(y^*),\ 
+DH(x^*)d=0
+\right\}
 $$
 >
-> と定める。
+> を $x^*$ における **錐制約の線形化錐**という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-opt6a-linearization-cone -->
@@ -272,13 +293,23 @@ $$
 <a id="def-opt6a-robinson-cq"></a>
 <!-- formal-statement-start -->
 > **定義（Robinson 制約想定）**  
-> $x^*$ が実行可能点とする。一次近似写像の像
+> 閉凸錐 $K\subset Y$ と $C^1$ 級写像 $G:X\to Y$、$H:X\to\mathbb R^r$ に対し
 >
 $$
-\mathcal R=
+C
+=
+\{x:G(x)\in-K,\ H(x)=0\}
+$$
+>
+> と置き、$x^*\in C$ とする。集合
+>
+$$
+\mathcal R
+=
 \left\{
 \bigl(DH(x^*)d,\ DG(x^*)d-s\bigr):
-d\in\mathbb R^n,> s\in T_{-K}(G(x^*))
+d\in X,\ 
+s\in T_{-K}(G(x^*))
 \right\}
 $$
 >
@@ -321,14 +352,25 @@ $$
 <a id="thm-opt6a-robinson-tangent"></a>
 <!-- formal-statement-start -->
 > **定理（Robinson 制約想定下の接錐公式）**  
-> $G,H$ が $C^1$ 級、$K$ が閉凸錐で、$x^*$ において Robinson 制約想定が成立するとする。このとき
+> 閉凸錐 $K\subset Y$ と $C^1$ 級写像 $G:X\to Y$、$H:X\to\mathbb R^r$ に対し
+>
+$$
+C
+=
+\{x:G(x)\in-K,\ H(x)=0\}
+$$
+>
+> と置く。実行可能点 $x^*\in C$ で Robinson 制約想定が成立するとき
 >
 $$
 \boxed{
 T_C(x^*)
 =
-\{d:
-DG(x^*)d\in T_{-K}(G(x^*)),> DH(x^*)d=0\}.
+\left\{
+d\in X:
+DG(x^*)d\in T_{-K}(G(x^*)),\ 
+DH(x^*)d=0
+\right\}.
 }
 $$
 <!-- formal-statement-end -->
@@ -359,7 +401,7 @@ $$
 >
 $$
 \min f(x)
-\quad\text{subject to}\quad
+\quad\text{制約}\quad
 G(x)\in-K,\ H(x)=0
 $$
 >
@@ -413,7 +455,7 @@ $$
 DG(x^*)^*\lambda+DH(x^*)^*\nu.
 $$
 
-これが停留条件です。さらに[閉凸錐の normal cone 定理](#thm-opt6a-cone-normal)から
+これが停留条件です。さらに[閉凸錐の 法錐定理](#thm-opt6a-cone-normal)から
 
 $$
 \lambda\in K^*,\qquad
@@ -460,7 +502,15 @@ $$
 <a id="thm-opt6a-robinson-mfcq"></a>
 <!-- formal-statement-start -->
 > **定理（通常制約では Robinson 制約想定と MFCQ が同値）**  
-> $K=\mathbb R_+^m$ とし、$G=(g_1,\ldots,g_m)$ とする。このとき上の Robinson 制約想定は OPT6 の MFCQ と同値である。
+> $C^1$ 級関数 $g_1,\dots,g_m$ と $H=(h_1,\dots,h_r)$ による通常制約
+>
+$$
+g_i(x)\le0\quad(i=1,\dots,m),
+\qquad
+H(x)=0
+$$
+>
+> を、$K=\mathbb R_+^m$、$G=(g_1,\dots,g_m)$ として錐制約 $G(x)\in-K$ に書き直す。実行可能点 $x^*$ において、Robinson 制約想定が成立することと OPT6 の MFCQ が成立することは同値である。
 <!-- formal-statement-end -->
 
 ### 証明の要点
@@ -546,7 +596,7 @@ $$
 $$
 <!-- solution-end -->
 
-### OPT6A-A02 normal cone から相補性を読む
+### OPT6A-A02 法錐から相補性を読む
 
 - Level: A
 - 目安時間: 10分
@@ -556,7 +606,7 @@ $K=\mathbb R_+^2$, $y=(-1,0)$ とする。$N_{-K}(y)$ を求めよ。
 <!-- solution-start -->
 #### 詳細解答
 
-[閉凸錐の normal cone 公式](#thm-opt6a-cone-normal)から $\lambda\ge0$ かつ
+[閉凸錐の 法錐公式](#thm-opt6a-cone-normal)から $\lambda\ge0$ かつ
 
 $$
 \lambda^{\mathsf T}y=-\lambda_1=0.
