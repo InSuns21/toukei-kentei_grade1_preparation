@@ -2,13 +2,13 @@
 
 <!-- definition-example-audit: strict -->
 
-この章は、DREAM THEATER の凸解析・最適化系列の入口です。既存の [F0-00G 凸集合・凸関数・凸最適化の基礎](../F0_00G_凸集合_凸関数_凸最適化/index.md) を migration source として再利用し、そこですでに証明済みの定義・基本定理は stable anchor へ直接つなぎます。
+この章は DREAM THEATER の凸解析・最適化系列の入口です。旧 F0-00G に分散していた有限次元の凸性の基礎を本章へ統合し、ここを canonical owner とします。旧ページは stable anchor の後方互換性のためリポジトリ内に残しますが、読者向け一覧には掲載しません。
 
-したがって本章では、既知の結果を機械的に再証明するのではなく、
+本章では
 
 $$
 \boxed{
-\text{凸集合}
+\text{凸結合・凸集合}
 \longrightarrow
 \text{凸関数}
 \longrightarrow
@@ -18,27 +18,58 @@ $$
 }
 $$
 
-という一本の流れを組み直し、その上に後続で必要になる **非負結合の幾何**、**準凸性・準凹性**、**経済学で現れる凸選好との違い**を追加します。
+を自立した一講義として閉じ、その上に後続で必要になる **凸錐**、**準凸性・準凹性**、**経済学で現れる凸選好との違い**まで準備します。
 
 > **この章の停止線**
 >
-> 射影・分離・Farkas の補題、劣微分、Fenchel 双対、KKT はまだ使いません。これらは OPT2 以降で扱います。
+> 射影・支持超平面・分離・Farkas の補題、劣微分、Fenchel 双対、KKT はまだ使いません。これらは OPT2 以降で扱います。
 
 ---
 
-## 1. まず「線分が残る」という幾何を固定する
+## 1. 凸結合・凸集合・凸包
 
-[F0-00G の凸結合](../F0_00G_凸集合_凸関数_凸最適化/index.md#def-f0-00g-convex-combination)では、
+凸性の出発点は、「二点を混ぜた点が集合の中に残る」という幾何です。
+
+<a id="def-opt1-convex-combination"></a>
+<!-- formal-statement-start -->
+> **定義（凸結合）**  
+> 点 $x_1,\dots,x_k\in\mathbb R^n$ と係数 $\theta_1,\dots,\theta_k$ が
+>
+> $$
+> \theta_i\ge0,\qquad \sum_{i=1}^k\theta_i=1
+> $$
+>
+> を満たすとき、
+>
+> $$
+> \sum_{i=1}^k\theta_i x_i
+> $$
+>
+> を $x_1,\dots,x_k$ の **凸結合** という。
+<!-- formal-statement-end -->
+
+2点の場合は
 
 $$
 (1-t)x+ty,\qquad 0\le t\le1
 $$
 
-を2点の間を動く点として捉えました。
+で、$x$ と $y$ を結ぶ線分上の点です。
 
-[F0-00G の凸集合](../F0_00G_凸集合_凸関数_凸最適化/index.md#def-f0-00g-convex-set)で重要なのは、集合内の任意の2点を結ぶ線分が集合の外へ出ないことです。
+<a id="def-opt1-convex-set"></a>
+<!-- formal-statement-start -->
+> **定義（凸集合）**  
+> 集合 $C\subset\mathbb R^n$ が凸であるとは、任意の $x,y\in C$ と $0\le t\le1$ に対して
+>
+> $$
+> (1-t)x+ty\in C
+> $$
+>
+> が成り立つことをいう。
+<!-- formal-statement-end -->
 
-### 1.1 三つの典型例
+<!-- definition-example-start: def-opt1-convex-combination, def-opt1-convex-set -->
+**定義の確認**：半空間と円周
 
 半空間
 
@@ -46,7 +77,7 @@ $$
 H=\{x\in\mathbb R^n:a^{\mathsf T}x\le b\}
 $$
 
-では、$x,y\in H$ なら
+を考えます。$x,y\in H$ なら
 
 $$
 a^{\mathsf T}\bigl((1-t)x+ty\bigr)
@@ -54,22 +85,7 @@ a^{\mathsf T}\bigl((1-t)x+ty\bigr)
 \le b
 $$
 
-なので線分が残ります。
-
-アフィン集合
-
-$$
-A=\{x\in\mathbb R^n:Bx=c\}
-$$
-
-でも
-
-$$
-B\bigl((1-t)x+ty\bigr)
-=(1-t)c+tc=c
-$$
-
-となり、やはり線分が残ります。
+なので、任意の凸結合が $H$ に残ります。したがって $H$ は凸です。
 
 一方、円周
 
@@ -77,11 +93,14 @@ $$
 S^1=\{x\in\mathbb R^2:\|x\|=1\}
 $$
 
-では $(1,0),(-1,0)\in S^1$ ですが中点 $(0,0)\notin S^1$ です。ここでは「境界だけ取る」ことが凸性を壊しています。
+では $(1,0),(-1,0)\in S^1$ ですが中点 $(0,0)\notin S^1$ です。よって円周は凸ではありません。
+<!-- definition-example-end -->
 
-### 1.2 凸包は「必要な線分を全部足したもの」
-
-[F0-00G の凸包](../F0_00G_凸集合_凸関数_凸最適化/index.md#def-f0-00g-convex-hull)は、与えられた点を含む最小の凸集合です。
+<a id="def-opt1-convex-hull"></a>
+<!-- formal-statement-start -->
+> **定義（凸包）**  
+> 集合 $S$ を含む凸集合のうち包含関係で最小のものを $S$ の **凸包** といい、$\operatorname{conv}(S)$ と書く。
+<!-- formal-statement-end -->
 
 有限集合 $S=\{x_1,\dots,x_m\}$ では
 
@@ -95,7 +114,35 @@ $$
 \right\}.
 $$
 
-この「非負係数・総和1」という条件は、後の線形計画、混合戦略、確率単体で何度も現れます。
+<!-- definition-example-start: def-opt1-convex-hull -->
+**定義の確認**：二点の凸包
+
+$S=\{0,2\}\subset\mathbb R$ なら、凸結合は
+
+$$
+(1-t)0+t2=2t,\qquad0\le t\le1
+$$
+
+なので
+
+$$
+\operatorname{conv}\{0,2\}=[0,2].
+$$
+
+つまり凸包は、元の集合を凸にするために必要な線分をすべて補ったものです。
+<!-- definition-example-end -->
+
+### 1.1 凸集合の共通部分
+
+凸集合族 $\{C_\lambda\}_{\lambda\in\Lambda}$ に対し
+
+$$
+\bigcap_{\lambda\in\Lambda}C_\lambda
+$$
+
+も凸です。実際、$x,y$ が共通部分に属すれば、各 $\lambda$ について $x,y\in C_\lambda$ です。各 $C_\lambda$ の凸性により $(1-t)x+ty\in C_\lambda$ がすべての $\lambda$ で成り立つので、凸結合は共通部分にも属します。
+
+この単純な事実が、複数の凸制約を同時に課しても実行可能集合が凸に保たれる理由になります。
 
 ---
 
@@ -174,63 +221,156 @@ $$
 
 ---
 
-## 3. 凸関数は「弦より下」にある
+## 3. 凸関数・狭義凸関数・Hessian 判定
 
-[F0-00G の凸関数](../F0_00G_凸集合_凸関数_凸最適化/index.md#def-f0-00g-convex-function)では
+集合の凸性が「線分が集合から出ない」ことなら、関数の凸性は「グラフが弦より上へ飛び出さない」ことです。
+
+<a id="def-opt1-convex-function"></a>
+<!-- formal-statement-start -->
+> **定義（凸関数）**  
+> 凸集合 $C$ 上の関数 $f:C\to\mathbb R$ が凸であるとは、任意の $x,y\in C$ と $0\le t\le1$ に対して
+>
+> $$
+> f((1-t)x+ty)
+> \le
+> (1-t)f(x)+tf(y)
+> $$
+>
+> が成り立つことをいう。
+<!-- formal-statement-end -->
+
+<a id="def-opt1-strictly-convex"></a>
+<!-- formal-statement-start -->
+> **定義（狭義凸関数）**  
+> 凸集合 $C$ 上の関数 $f:C\to\mathbb R$ が狭義凸であるとは、任意の異なる $x,y\in C$ と $0<t<1$ に対して
+>
+> $$
+> f((1-t)x+ty)
+> <
+> (1-t)f(x)+tf(y)
+> $$
+>
+> が成り立つことをいう。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-opt1-convex-function, def-opt1-strictly-convex -->
+**定義の確認**：$f(x)=x^2$
 
 $$
-f((1-t)x+ty)
-\le
-(1-t)f(x)+tf(y)
+(1-t)x^2+ty^2-\bigl((1-t)x+ty\bigr)^2
+=
+t(1-t)(x-y)^2.
 $$
 
-を要求しました。
+右辺は常に非負なので $x^2$ は凸です。さらに $x\ne y$、$0<t<1$ なら右辺は正なので、$x^2$ は狭義凸です。
+<!-- definition-example-end -->
 
-左辺は「先に入力を混ぜてから関数を評価」、右辺は「先に関数値を出してから混ぜる」です。
+<a id="thm-opt1-hessian-convexity"></a>
+<!-- formal-statement-start -->
+> **定理（$C^2$ 関数の Hessian による凸性判定）**  
+> $U\subset\mathbb R^d$ を開凸集合、$f\in C^2(U)$ とする。このとき
+>
+> $$
+> f\text{ が凸}
+> \iff
+> \nabla^2f(x)\succeq0
+> \qquad(\forall x\in U).
+> $$
+<!-- formal-statement-end -->
 
-この不等式があるため、凸関数では局所情報が大域情報へ変わります。
+### 証明の見取り図
 
-### 3.1 Hessian が見ているもの
-
-$C^2$ 級関数については [Hessian による凸性判定](../F0_00G_凸集合_凸関数_凸最適化/index.md#thm-f0-00g-hessian-convexity)が使えます。
+多変数関数を任意の直線へ制限し、1変数の二階微分判定へ落とします。Hessian の二次形式
 
 $$
-\nabla^2f(x)\succeq0
-\quad(\forall x)
+v^{\mathsf T}\nabla^2f(x)v
 $$
 
-なら、任意の方向 $v$ への制限
+が、方向 $v$ に沿った二階微分そのものです。
+
+<!-- proof-start -->
+### 証明
+
+まず $f$ が凸であるとします。$x\in U$、$v\in\mathbb R^d$ を固定し、$x+tv\in U$ となる区間で
 
 $$
 \phi(t)=f(x+tv)
 $$
 
-で
+と置きます。$f$ の凸性から $\phi$ は1変数の凸関数です。したがって
 
 $$
-\phi''(t)
+\phi''(0)\ge0.
+$$
+
+連鎖律により
+
+$$
+\phi''(0)
 =
-v^{\mathsf T}\nabla^2f(x+tv)v
+v^{\mathsf T}\nabla^2f(x)v.
+$$
+
+任意の $v$ で非負なので $\nabla^2f(x)\succeq0$ です。
+
+逆に、すべての $x\in U$ で $\nabla^2f(x)\succeq0$ とします。任意の $x,y\in U$ に対し
+
+$$
+\psi(t)=f((1-t)x+ty),
+\qquad0\le t\le1
+$$
+
+と置きます。$U$ は凸なので線分全体が $U$ に入り、
+
+$$
+\psi''(t)
+=
+(y-x)^{\mathsf T}
+\nabla^2f((1-t)x+ty)
+(y-x)
 \ge0.
 $$
 
-つまり多変数の凸性を、全ての直線上の1変数凸性へ落としています。
+よって $\psi$ は1変数の凸関数です。したがって
 
-ただし
+$$
+\psi(t)
+\le
+(1-t)\psi(0)+t\psi(1),
+$$
+
+すなわち
+
+$$
+f((1-t)x+ty)
+\le
+(1-t)f(x)+tf(y).
+$$
+
+したがって $f$ は凸です。$\square$
+<!-- proof-end -->
+
+### 3.1 狭義凸と Hessian 正定値は同値ではない
 
 $$
 \nabla^2f(x)\succ0\quad(\forall x)
 $$
 
-は狭義凸性の十分条件であって必要条件ではありません。
+なら狭義凸ですが、逆は一般には成り立ちません。
 
-[F0-00G の例](../F0_00G_凸集合_凸関数_凸最適化/index.md#def-f0-00g-strictly-convex)にある $f(x)=x^4$ は狭義凸ですが
+例えば
 
 $$
-f''(0)=0
+f(x)=x^4
 $$
 
-です。
+は狭義凸ですが
+
+$$
+f''(0)=0.
+$$
+
+この例は、「狭義凸だから Hessian が全点で正定値」と短絡してはいけないことを示します。
 
 ---
 
@@ -438,7 +578,62 @@ $$
 
 ## 6. 微分可能な凸関数では勾配が大域情報を持つ
 
-[F0-00G の一次支持不等式](../F0_00G_凸集合_凸関数_凸最適化/index.md#thm-f0-00g-first-order-convexity)は
+一般の微分可能関数では、勾配は局所情報です。凸関数では接平面が全領域で関数を下から支えるため、勾配が大域情報へ変わります。
+
+<a id="thm-opt1-first-order-convexity"></a>
+<!-- formal-statement-start -->
+> **定理（微分可能な凸関数の一次支持不等式）**  
+> $C\subset\mathbb R^d$ を開凸集合、$f:C\to\mathbb R$ を微分可能な凸関数とする。このとき任意の $x,y\in C$ に対して
+>
+> $$
+> f(y)
+> \ge
+> f(x)+\nabla f(x)^{\mathsf T}(y-x)
+> $$
+>
+> が成り立つ。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+$x$ から $y$ へ向かう線分に制限し、
+
+$$
+g(t)=f(x+t(y-x))
+$$
+
+という1変数凸関数を考えます。凸性から割線の傾きが右微分以上になることを使います。
+
+<!-- proof-start -->
+### 証明
+
+$0<t\le1$ に対し、凸性から
+
+$$
+g(t)
+\le
+(1-t)g(0)+tg(1).
+$$
+
+したがって
+
+$$
+\frac{g(t)-g(0)}{t}
+\le
+g(1)-g(0).
+$$
+
+$t\downarrow0$ とすると、微分可能性により
+
+$$
+g'(0)
+=
+\nabla f(x)^{\mathsf T}(y-x)
+\le
+f(y)-f(x).
+$$
+
+整理して
 
 $$
 f(y)
@@ -446,52 +641,62 @@ f(y)
 f(x)+\nabla f(x)^{\mathsf T}(y-x)
 $$
 
-でした。
+を得ます。$\square$
+<!-- proof-end -->
 
-右辺は点 $x$ での一次近似を表すアフィン関数です。
-
-一般の微分可能関数では一次近似は局所情報にすぎません。凸関数ではこのアフィン関数が **全領域で下から支える** ため、
-
-$$
-\nabla f(x^\ast)=0
-$$
-
-なら直ちに
+特に $\nabla f(x^\ast)=0$ なら、任意の $y\in C$ に対して
 
 $$
 f(y)\ge f(x^\ast)
-\qquad(\forall y)
 $$
 
-が従います。
-
-この「局所一次情報が大域結論へ変わる」という性質が、後続の最適化理論を支えます。
+なので $x^\ast$ は大域最小点です。
 
 ---
 
 ## 7. 局所最小が大域最小になる仕組み
 
-[F0-00G の局所最小＝大域最小定理](../F0_00G_凸集合_凸関数_凸最適化/index.md#thm-f0-00g-local-global)の核心は、より良い点 $y$ が一つでもあれば
+<a id="thm-opt1-local-global"></a>
+<!-- formal-statement-start -->
+> **定理（凸関数の局所最小は大域最小）**  
+> 凸集合 $C$ 上の凸関数 $f:C\to\mathbb R$ では、任意の局所最小点は大域最小点である。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+より良い点 $y$ が一つでもあれば、$x^\ast$ と $y$ を結ぶ線分上に $x^\ast$ へ任意に近い改善点ができます。実行可能集合の凸性が「改善点までの線分が残る」ことを、関数の凸性が「線分上で値が改善する」ことを担当します。
+
+<!-- proof-start -->
+### 証明
+
+$x^\ast$ が局所最小だが大域最小でないと仮定します。するとある $y\in C$ が存在して
+
+$$
+f(y)<f(x^\ast).
+$$
+
+$0<t<1$ に対し
 
 $$
 z_t=(1-t)x^\ast+ty
 $$
 
-という改善方向が $x^\ast$ のすぐ近くまで入り込むことです。
-
-凸性から
+と置きます。$C$ は凸なので $z_t\in C$ です。また関数の凸性から
 
 $$
+\begin{aligned}
 f(z_t)
-\le
-(1-t)f(x^\ast)+tf(y)
-<
+&\le
+(1-t)f(x^\ast)+tf(y)\\
+&<
+(1-t)f(x^\ast)+tf(x^\ast)\\
+&=
 f(x^\ast).
+\end{aligned}
 $$
 
-したがって $x^\ast$ は局所最小ではいられません。
-
-重要なのは **目的関数だけでなく、線分 $z_t$ が実行可能集合の中に残ること**です。
+一方 $t\downarrow0$ なら $z_t\to x^\ast$ です。したがって $x^\ast$ の任意に小さい近傍に、より小さい値を持つ実行可能点が存在します。これは局所最小性に矛盾します。よって $x^\ast$ は大域最小です。$\square$
+<!-- proof-end -->
 
 ### 7.1 失敗例：実行可能集合が非凸だと何が壊れるか
 
@@ -501,11 +706,9 @@ C=[0,1]\cup[2,3],
 f(x)=x
 $$
 
-を考えます。
+を考えます。$f$ は affine なので凸ですが、$C$ は凸ではありません。
 
-$f$ 自体は affine なので凸です。しかし $C$ は凸ではありません。
-
-点 $x=2$ は $C$ に相対的な小さい近傍では右側成分 $[2,3]$ の最小点なので局所最小です。一方、
+$x=2$ は $C$ に相対的な近傍では局所最小ですが、
 
 $$
 f(0)=0<2=f(2)
@@ -513,13 +716,13 @@ $$
 
 なので大域最小ではありません。
 
-元の証明で壊れたのは、
+元の証明で壊れたのは
 
 $$
-(1-t)2+t0
+(1-t)2+t0\in C
 $$
 
-が小さい $t>0$ で $C$ に残る、という部分です。実際この線分は $(1,2)$ の穴へ入ります。
+という部分です。実際、線分は $(1,2)$ の穴へ入ります。
 
 ---
 
@@ -597,83 +800,30 @@ $$
 
 ## 9. 凸最適化問題では実行可能集合も凸になる
 
-[F0-00G の凸最適化問題](../F0_00G_凸集合_凸関数_凸最適化/index.md#def-f0-00g-convex-optimization)の典型形は
-
-$$
-\min_x f(x)
-$$
-
-subject to
-
-$$
-g_i(x)\le0,\qquad i=1,\dots,m,
-$$
-
-$$
-Ax=b,
-$$
-
-です。
-
-ここで $f,g_i$ は凸関数、等式制約は affine とします。
-
-<a id="prop-opt1-convex-feasible"></a>
+<a id="def-opt1-convex-optimization"></a>
 <!-- formal-statement-start -->
-> **命題（凸最適化問題の実行可能集合は凸）**  
-> 凸関数 $g_1,\dots,g_m:\mathbb R^n\to\mathbb R$、行列 $A$、ベクトル $b$ に対し
-$$
-C=
-\{x:g_i(x)\le0\ (i=1,\dots,m),\ Ax=b\}
-$$
-> と置く。このとき $C$ は凸集合である。
+> **定義（凸最適化問題）**  
+> 目的関数 $f$ と不等式制約関数 $g_1,\dots,g_m$ が凸、等式制約が affine である問題
+>
+> $$
+> \min_x f(x)
+> $$
+>
+> subject to
+>
+> $$
+> g_i(x)\le0,\qquad i=1,\dots,m,
+> $$
+>
+> $$
+> Ax=b
+> $$
+>
+> を **凸最適化問題** という。
 <!-- formal-statement-end -->
 
-### 証明の見取り図
-
-実行可能な二点 $x,y$ を取り、その凸結合を作ります。
-
-不等式制約は各 $g_i$ の凸性で保存され、等式制約は $A$ の線形性で保存されます。
-
-<!-- proof-start -->
-### 証明
-
-$x,y\in C$、$0\le t\le1$ とし
-
-$$
-z=(1-t)x+ty
-$$
-
-と置きます。
-
-各 $i$ について $g_i$ は凸なので
-
-$$
-\begin{aligned}
-g_i(z)
-&\le
-(1-t)g_i(x)+tg_i(y)\\
-&\le
-(1-t)0+t0\\
-&=0.
-\end{aligned}
-$$
-
-また
-
-$$
-Az
-=
-(1-t)Ax+tAy
-=
-(1-t)b+tb
-=
-b.
-$$
-
-したがって $z\in C$ です。ゆえに $C$ は凸集合です。 $\square$
-<!-- proof-end -->
-
-### 9.1 最小例
+<!-- definition-example-start: def-opt1-convex-optimization -->
+**定義の確認**：
 
 $$
 \min_{x_1,x_2}
@@ -684,38 +834,68 @@ $$
 subject to
 
 $$
-x_1+x_2=1,
-\qquad
-x_1\ge0,
-\qquad
-x_2\ge0
+x_1+x_2=1,\qquad x_1\ge0,\qquad x_2\ge0
 $$
 
-を考えます。
-
-目的関数の Hessian は
+を考えます。目的関数の Hessian は
 
 $$
 \begin{pmatrix}
 2&0\\
 0&4
-\end{pmatrix}
-\succ0
+\end{pmatrix}\succ0
 $$
 
-なので狭義凸です。
+なので凸です。不等式は $-x_1\le0$、$-x_2\le0$ と書け、どちらも affine、等式制約も affine です。したがって定義どおり凸最適化問題です。
+<!-- definition-example-end -->
 
-制約は affine 等式と affine 不等式なので、実行可能集合は線分
+<a id="prop-opt1-convex-feasible"></a>
+<!-- formal-statement-start -->
+> **命題（凸最適化問題の実行可能集合は凸）**  
+> 凸関数 $g_1,\dots,g_m:\mathbb R^n\to\mathbb R$、行列 $A$、ベクトル $b$ に対し
+>
+> $$
+> C=
+> \{x:g_i(x)\le0\ (i=1,\dots,m),\ Ax=b\}
+> $$
+>
+> と置く。このとき $C$ は凸集合である。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+実行可能な二点の凸結合を作ります。不等式制約は各 $g_i$ の凸性で保存され、等式制約は線形性で保存されます。
+
+<!-- proof-start -->
+### 証明
+
+$x,y\in C$、$0\le t\le1$ とし
 
 $$
-\{(x_1,x_2):x_1+x_2=1,\ x_1,x_2\ge0\}
+z=(1-t)x+ty
 $$
 
-です。
+と置きます。各 $i$ について
 
-したがって最小点が存在すれば一意です。実際にはコンパクトな線分上の連続関数なので最小点は存在します。
+$$
+\begin{aligned}
+g_i(z)
+&\le
+(1-t)g_i(x)+tg_i(y)\\
+&\le0.
+\end{aligned}
+$$
 
-この章ではまだ KKT を使う必要はありません。二変数なら代入で直接解けます。
+また
+
+$$
+Az=(1-t)Ax+tAy=b.
+$$
+
+したがって $z\in C$ です。よって $C$ は凸です。$\square$
+<!-- proof-end -->
+
+先ほどの具体例では実行可能集合は閉線分です。目的関数は狭義凸なので、最小点が存在すれば一意です。さらに閉線分はコンパクトで目的関数は連続なので、最小点は実際に存在します。
 
 ---
 
