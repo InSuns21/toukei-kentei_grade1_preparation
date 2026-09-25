@@ -45,7 +45,7 @@ concepts:
   - id: optimization.dual-problem
     name: Lagrange双対問題
     kind: definition
-    aliases: [Lagrange双対問題, Lagrange 双対問題]
+    aliases: []
     introduction: formal
     introduction_aliases: [主問題・Lagrange 双対問題]
     requires: [optimization.dual-function, optimization.primal-problem]
