@@ -3,7 +3,8 @@ title: "epigraph・閉凸関数・支持超平面"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - F0-00G
+  - OPT1
+  - OPT2
   - F0-02C6A
 official_scope: []
 learning_objectives:
