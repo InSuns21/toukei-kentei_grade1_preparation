@@ -309,7 +309,7 @@ L(x,\lambda)
 \frac12(x-2)^2+\lambda x
 $$
 
-とすれば、$x^*=0$ の KKT 条件から $\lambda^*=2$ です。つまりペナルティ法の量 $\rho h(x_\rho)$ は、制約違反を縮めながら KKT 乗数へ近づいています。
+とすれば、$x^*=0$ の [KKT 条件](../OPT5/index.md#thm-opt5-kkt)から $\lambda^*=2$ です。つまりペナルティ法の量 $\rho h(x_\rho)$ は、制約違反を縮めながら KKT 乗数へ近づいています。
 <!-- definition-example-end -->
 
 <a id="thm-opt9-penalty-feasibility-bound"></a>
@@ -798,7 +798,7 @@ f(x_\mu)-m\mu.
 \end{aligned}
 $$
 
-弱双対性から
+[OPT5 の弱双対性](../OPT5/index.md#thm-opt5-weak-duality)から
 
 $$
 q(\lambda(\mu))\le p^*.
@@ -873,7 +873,7 @@ $$
 L(x,\nu)=f(x)+\nu^{\mathsf T}h(x)
 $$
 
-です。KKT 条件は
+です。[KKT 条件](../OPT5/index.md#thm-opt5-kkt)は
 
 $$
 \nabla_xL(x,\nu)=0,
@@ -1550,7 +1550,7 @@ $$
 }
 $$
 
-不等式制約がある場合は、局所 QP の活性制約が「どの KKT 条件が効くか」を同時に選びます。
+不等式制約がある場合は、局所 QP の活性制約が「どの [KKT 条件](../OPT5/index.md#thm-opt5-kkt)が効くか」を同時に選びます。
 
 ---
 
@@ -2235,7 +2235,7 @@ $$
 1. $\lambda_i>0$ と $\lambda_i g_i(x_\mu)=-\mu$ を示せ。
 2. 障壁問題の一階条件から $\nabla_xL(x_\mu,\lambda)=0$ を示せ。
 3. 凸性から $q(\lambda)=L(x_\mu,\lambda)$ を示せ。
-4. 弱双対性を使って
+4. [OPT5 の弱双対性](../OPT5/index.md#thm-opt5-weak-duality)を使って
    $$
    0\le f(x_\mu)-p^*\le m\mu
    $$
@@ -2340,7 +2340,7 @@ f(x_\mu)-m\mu.
 \end{aligned}
 $$
 
-弱双対性より
+[OPT5 の弱双対性](../OPT5/index.md#thm-opt5-weak-duality)より
 
 $$
 q(\lambda)\le p^*.
@@ -2888,7 +2888,7 @@ $$
   0\le f(x_\mu)-p^*\le m\mu
   $$
   が得られる。
-- KKT 条件は非線形連立方程式として Newton 法で解ける。等式制約では
+- [KKT 条件](../OPT5/index.md#thm-opt5-kkt)は非線形連立方程式として Newton 法で解ける。等式制約では
   $$
   \begin{pmatrix}
   \nabla^2_{xx}L&Dh^{\mathsf T}\\
