@@ -18,12 +18,23 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（Fenchel–Legendre 共役）"]
     requires: [convex.convex-function, linear.inner-product]
+  - id: convex.conjugate-closed-convex
+    name: 共役関数の凸性・下半連続性
+    kind: theorem
+    aliases: [共役関数の凸性・下半連続性]
+    introduction: formal
+    introduction_aliases: ["定理（共役関数の凸性・下半連続性）"]
+    requires:
+      - convex.fenchel-conjugate
+      - convex.convex-function
+      - convex.lower-semicontinuous
+
   - id: convex.support-function
-    name: support function
+    name: 支持関数
     kind: definition
     aliases: [support function]
     introduction: formal
-    introduction_aliases: ["定義（support function）"]
+    introduction_aliases: ["定義（支持関数）"]
     requires: [convex.convex-set, linear.inner-product]
   - id: convex.fenchel-young
     name: Fenchel--Young の不等式
@@ -52,7 +63,7 @@ concepts:
     aliases: [Fenchel--Moreau の定理, Fenchel–Moreau の定理]
     introduction: formal
     introduction_aliases: ["定理（有限次元 Fenchel–Moreau）"]
-    requires: [convex.biconjugate, convex.closed-convex-function, convex.supporting-hyperplane-theorem]
+    requires: [convex.biconjugate, convex.closed-convex-function, convex.point-closed-convex-strict-separation]
   - id: convex.subgradient-inverse-relation
     name: 劣微分の逆関係
     kind: theorem
