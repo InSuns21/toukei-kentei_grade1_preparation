@@ -1,0 +1,38 @@
+chapter: "DOPT3"
+terms:
+  - term: 二部グラフ
+    english: bipartite graph
+    meaning: 頂点集合を互いに素な二群 L と R に分け、すべての辺が L と R の間だけを結ぶグラフ。
+  - term: マッチング
+    english: matching
+    meaning: 互いに端点を共有しない辺の集合。ある頂点が選択辺の端点になっているとき、その頂点はマッチングで飽和されるという。
+  - term: 最大マッチング
+    english: maximum matching
+    meaning: 辺数が最大のマッチング。
+  - term: 完全マッチング
+    english: perfect matching
+    meaning: 左右の頂点数が等しい二部グラフで、すべての頂点を飽和するマッチング。
+  - term: 交互路
+    english: alternating path
+    meaning: 現在のマッチングに属さない辺と属する辺が交互に現れる路。
+  - term: マッチングの増加路
+    english: augmenting path for a matching
+    meaning: 両端が現在のマッチングで飽和されておらず、非選択辺から始まり非選択辺で終わる交互路。辺の選択を反転するとマッチング辺数を1増やせる。
+  - term: 近傍
+    english: neighborhood
+    meaning: 二部グラフで左頂点集合 S に隣接する右頂点全体 N(S)。
+  - term: Hall の条件
+    english: Hall condition
+    meaning: すべての左頂点部分集合 S に対して |N(S)|>=|S| が成り立つこと。左側全体を飽和するマッチングの存在条件になる。
+  - term: 割当問題
+    english: assignment problem
+    meaning: 同数の左対象と右対象を一対一に対応させ、選んだ組の総費用を最小化する問題。
+  - term: 二重確率行列
+    english: doubly stochastic matrix
+    meaning: 成分が非負で、各行和と各列和がすべて1である正方行列。
+  - term: マッチング多面体
+    english: matching polytope
+    meaning: グラフのすべてのマッチング接続ベクトルの凸包。
+  - term: 割当 LP の双対ポテンシャル
+    english: assignment dual potentials
+    meaning: 行側変数 alpha_i と列側変数 beta_j で alpha_i+beta_j<=c_ij を満たし、その総和が割当費用の下界を与える双対変数。
