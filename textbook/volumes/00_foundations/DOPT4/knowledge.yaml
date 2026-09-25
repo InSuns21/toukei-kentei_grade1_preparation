@@ -49,6 +49,8 @@ concepts:
     requires:
       - optimization.integral-polyhedron
       - optimization.extreme-point
+      - convex.point-closed-convex-strict-separation
+      - optimization.linear-program-fundamental-theorem
 
   - id: optimization.node-arc-incidence-matrix
     name: 有向グラフの点弧接続行列
