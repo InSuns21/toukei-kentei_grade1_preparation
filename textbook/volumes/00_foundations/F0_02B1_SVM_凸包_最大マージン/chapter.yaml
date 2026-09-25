@@ -17,4 +17,5 @@ theorems:
 canonical_examples: [1次元hard-margin, 正負クラスの凸包, SVM双対変数]
 problem_patterns: [SVM-CONVEX-HULL-1]
 exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
+dream_theater_exercise_count_exception: "本PRでは archived F0-02B から OPT2 への prerequisite 張り替えと用語整合のみを行う移行保守対象。SVM 本体は計画上 RKHS4 へ再編予定であり、旧補講へ A4/B3/C1 を水増しせず、新 canonical 章で規定数を満たす。"
 estimated_hours: { reading: 2, exercises: 0.75, review: 0.5 }
