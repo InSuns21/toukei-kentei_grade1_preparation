@@ -43,9 +43,9 @@ $X=\mathbb R^n$, $Y=\mathbb R^m$ とし、$K\subset Y$ を閉凸錐とします�
 > **定義（錐制約）**  
 > 写像 $G:X\to Y$ に対する
 >
-> $$
-> G(x)\in-K
-> $$
+$$
+G(x)\in-K
+$$
 >
 > という制約を **錐制約**という。等式制約は別に $H(x)=0$ と書く。
 <!-- formal-statement-end -->
@@ -110,20 +110,20 @@ $$
 > **定義（一般化 Lagrangian）**  
 > 問題
 >
-> $$
-> \min f(x)
-> \quad\text{subject to}\quad
-> G(x)\in-K,\ H(x)=0
-> $$
+$$
+\min f(x)
+\quad\text{subject to}\quad
+G(x)\in-K,\ H(x)=0
+$$
 >
 > に対し
 >
-> $$
-> L(x,\lambda,\nu)
-> =
-> f(x)+\langle\lambda,G(x)\rangle
-> +\langle\nu,H(x)\rangle,
-> $$
+$$
+L(x,\lambda,\nu)
+=
+f(x)+\langle\lambda,G(x)\rangle
++\langle\nu,H(x)\rangle,
+$$
 >
 > $\lambda\in K^*$ と定める。
 <!-- formal-statement-end -->
@@ -161,14 +161,14 @@ $$
 > **定理（閉凸錐の normal cone）**  
 > $K$ を閉凸錐、$y\in-K$ とする。このとき
 >
-> $$
-> \boxed{
-> N_{-K}(y)
-> =
-> \{\lambda\in K^*:
-> \langle\lambda,y\rangle=0\}.
-> }
-> $$
+$$
+\boxed{
+N_{-K}(y)
+=
+\{\lambda\in K^*:
+\langle\lambda,y\rangle=0\}.
+}
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -229,12 +229,12 @@ $$
 > **定義（錐制約の線形化錐）**  
 > $G,H$ が $x^*$ で微分可能なとき
 >
-> $$
-> L_C(x^*)
-> =
-> \{d:
-> DG(x^*)d\in T_{-K}(y^*),> DH(x^*)d=0\}
-> $$
+$$
+L_C(x^*)
+=
+\{d:
+DG(x^*)d\in T_{-K}(y^*),> DH(x^*)d=0\}
+$$
 >
 > と定める。
 <!-- formal-statement-end -->
@@ -274,13 +274,13 @@ $$
 > **定義（Robinson 制約想定）**  
 > $x^*$ が実行可能点とする。一次近似写像の像
 >
-> $$
-> \mathcal R=
-> \left\{
-> \bigl(DH(x^*)d,\ DG(x^*)d-s\bigr):
-> d\in\mathbb R^n,> s\in T_{-K}(G(x^*))
-> \right\}
-> $$
+$$
+\mathcal R=
+\left\{
+\bigl(DH(x^*)d,\ DG(x^*)d-s\bigr):
+d\in\mathbb R^n,> s\in T_{-K}(G(x^*))
+\right\}
+$$
 >
 > が $\mathbb R^r\times Y$ 全体に等しいとき、$x^*$ で **Robinson 制約想定**が成立するという。
 <!-- formal-statement-end -->
@@ -323,14 +323,14 @@ $$
 > **定理（Robinson 制約想定下の接錐公式）**  
 > $G,H$ が $C^1$ 級、$K$ が閉凸錐で、$x^*$ において Robinson 制約想定が成立するとする。このとき
 >
-> $$
-> \boxed{
-> T_C(x^*)
-> =
-> \{d:
-> DG(x^*)d\in T_{-K}(G(x^*)),> DH(x^*)d=0\}.
-> }
-> $$
+$$
+\boxed{
+T_C(x^*)
+=
+\{d:
+DG(x^*)d\in T_{-K}(G(x^*)),> DH(x^*)d=0\}.
+}
+$$
 <!-- formal-statement-end -->
 
 ### 証明の核心
@@ -357,31 +357,31 @@ $$
 > **定理（Robinson 制約想定下の一般化 KKT）**  
 > $x^*$ が
 >
-> $$
-> \min f(x)
-> \quad\text{subject to}\quad
-> G(x)\in-K,\ H(x)=0
-> $$
+$$
+\min f(x)
+\quad\text{subject to}\quad
+G(x)\in-K,\ H(x)=0
+$$
 >
 > の局所最小点とする。$f,G,H$ は $C^1$ 級、$K$ は閉凸錐で、$x^*$ で Robinson 制約想定が成立するとする。このとき、ある
 >
-> $$
-> \lambda\in K^*,\qquad \nu\in\mathbb R^r
-> $$
+$$
+\lambda\in K^*,\qquad \nu\in\mathbb R^r
+$$
 >
 > が存在して
 >
-> $$
-> \boxed{
-> \nabla f(x^*)+DG(x^*)^*\lambda+DH(x^*)^*\nu=0,
-> }
-> $$
+$$
+\boxed{
+\nabla f(x^*)+DG(x^*)^*\lambda+DH(x^*)^*\nu=0,
+}
+$$
 >
-> $$
-> \boxed{
-> \langle\lambda,G(x^*)\rangle=0
-> }
-> $$
+$$
+\boxed{
+\langle\lambda,G(x^*)\rangle=0
+}
+$$
 >
 > を満たす。
 <!-- formal-statement-end -->
