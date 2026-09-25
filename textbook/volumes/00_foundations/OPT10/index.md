@@ -74,13 +74,13 @@ $$
 > **定義（線形計画問題の標準形）**  
 > $A\in\mathbb R^{m\times n}$、$b\in\mathbb R^m$、$c\in\mathbb R^n$ とする。
 >
-> $$
-> \boxed{
-> \min c^{\mathsf T}x
-> \quad\text{subject to}\quad
-> Ax=b,\qquad x\ge0
-> }
-> $$
+$$
+\boxed{
+\min c^{\mathsf T}x
+\quad\text{subject to}\quad
+Ax=b,\qquad x\ge0
+}
+$$
 >
 > の形の線形計画問題を、本章では **標準形**という。$Ax=b,\ x\ge0$ を満たす $x$ を **実行可能解**といい、その集合を実行可能集合と呼ぶ。
 <!-- formal-statement-end -->
@@ -215,15 +215,15 @@ $$
 > **定義（多面体・有界多面体）**  
 > 有限個の線形不等式
 >
-> $$
-> Gx\le h
-> $$
+$$
+Gx\le h
+$$
 >
 > と線形等式
 >
-> $$
-> Ex=f
-> $$
+$$
+Ex=f
+$$
 >
 > の共通解集合として表される集合を **多面体**（polyhedron）という。
 >
@@ -275,11 +275,11 @@ $$
 > **定義（実行可能方向）**  
 > $P\subset\mathbb R^n$、$x\in P$ とする。ベクトル $d\in\mathbb R^n$ が $x$ における **実行可能方向**であるとは、ある $\varepsilon>0$ が存在して
 >
-> $$
-> x+td\in P
-> \qquad
-> (0\le t\le\varepsilon)
-> $$
+$$
+x+td\in P
+\qquad
+(0\le t\le\varepsilon)
+$$
 >
 > が成り立つことをいう。
 <!-- formal-statement-end -->
@@ -340,19 +340,19 @@ $$
 > **定理（標準形多面体の実行可能方向判定）**  
 > $P=\{x\in\mathbb R^n:Ax=b,\ x\ge0\}$、$x\in P$ とする。
 >
-> $$
-> I_0(x)=\{j:x_j=0\}
-> $$
+$$
+I_0(x)=\{j:x_j=0\}
+$$
 >
 > と置く。このとき $d\in\mathbb R^n$ が $x$ における実行可能方向であることと
 >
-> $$
-> \boxed{
-> Ad=0,
-> \qquad
-> d_j\ge0\quad(j\in I_0(x))
-> }
-> $$
+$$
+\boxed{
+Ad=0,
+\qquad
+d_j\ge0\quad(j\in I_0(x))
+}
+$$
 >
 > は同値である。
 <!-- formal-statement-end -->
@@ -459,13 +459,13 @@ $$
 > **定義（極点）**  
 > 凸集合 $C\subset\mathbb R^n$ と $x\in C$ を取る。
 >
-> $$
-> x=\theta u+(1-\theta)v,
-> \qquad
-> u,v\in C,
-> \qquad
-> 0<\theta<1
-> $$
+$$
+x=\theta u+(1-\theta)v,
+\qquad
+u,v\in C,
+\qquad
+0<\theta<1
+$$
 >
 > なら必ず $u=v=x$ となるとき、$x$ を $C$ の **極点**という。
 <!-- formal-statement-end -->
@@ -528,15 +528,15 @@ $$
 > **定理（標準形多面体の極点判定）**  
 > $A=(a_1\ \cdots\ a_n)\in\mathbb R^{m\times n}$ とし、
 >
-> $$
-> P=\{x\in\mathbb R^n:Ax=b,\ x\ge0\}.
-> $$
+$$
+P=\{x\in\mathbb R^n:Ax=b,\ x\ge0\}.
+$$
 >
 > $x\in P$ に対し
 >
-> $$
-> I_+(x)=\{j:x_j>0\}
-> $$
+$$
+I_+(x)=\{j:x_j>0\}
+$$
 >
 > と置く。このとき次は同値である。
 >
@@ -663,21 +663,21 @@ $$
 >
 > 添字集合
 >
-> $$
-> B\subset\{1,\ldots,n\},
-> \qquad
-> |B|=m
-> $$
+$$
+B\subset\{1,\ldots,n\},
+\qquad
+|B|=m
+$$
 >
 > を選び、$A$ の $B$ に対応する列からなる正方行列 $A_B$ が可逆であるとする。
 >
 > $N=\{1,\ldots,n\}\setminus B$ とし、
 >
-> $$
-> x_N=0,
-> \qquad
-> x_B=A_B^{-1}b
-> $$
+$$
+x_N=0,
+\qquad
+x_B=A_B^{-1}b
+$$
 >
 > と定めた $x$ を **基底解**という。
 >
@@ -730,19 +730,19 @@ $$
 > **定理（極点と基本実行可能解の同値性）**  
 > $A\in\mathbb R^{m\times n}$、$\operatorname{rank}A=m$ とし、
 >
-> $$
-> P=\{x\in\mathbb R^n:Ax=b,\ x\ge0\}.
-> $$
+$$
+P=\{x\in\mathbb R^n:Ax=b,\ x\ge0\}.
+$$
 >
 > このとき $x\in P$ について
 >
-> $$
-> \boxed{
-> x\text{ は }P\text{ の極点}
-> \iff
-> x\text{ は基本実行可能解}
-> }
-> $$
+$$
+\boxed{
+x\text{ は }P\text{ の極点}
+\iff
+x\text{ は基本実行可能解}
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -818,16 +818,18 @@ $$
 >
 > 基底変数の少なくとも一つが 0、すなわち
 >
-> $$
-> x_j=0
-> \qquad
-> (\exists j\in B)
-> $$
+$$
+x_j=0
+\qquad
+(\exists j\in B)
+$$
 >
 > となるとき、$x$ を **退化した基本実行可能解**という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-opt10-degenerate-bfs -->
+**定義の確認**：基底変数が 0 になる例
+
 例えば
 
 $$
@@ -894,17 +896,17 @@ $$
 > **定理（線形計画の基本定理）**  
 > $A\in\mathbb R^{m\times n}$、$\operatorname{rank}A=m$ とし、
 >
-> $$
-> P=\{x\in\mathbb R^n:Ax=b,\ x\ge0\}
-> $$
+$$
+P=\{x\in\mathbb R^n:Ax=b,\ x\ge0\}
+$$
 >
 > が非空であるとする。
 >
 > 線形目的関数 $c^{\mathsf T}x$ が $P$ 上で下に有界なら、標準形線形計画
 >
-> $$
-> \min_{x\in P}c^{\mathsf T}x
-> $$
+$$
+\min_{x\in P}c^{\mathsf T}x
+$$
 >
 > は最適解を持ち、しかも最適解の一つを基本実行可能解、従って極点として取れる。
 <!-- formal-statement-end -->
@@ -1100,25 +1102,25 @@ $$
 > **定義（線形計画双対）**  
 > 標準形主問題
 >
-> $$
-> \text{(P)}
-> \qquad
-> \min c^{\mathsf T}x
-> \quad\text{subject to}\quad
-> Ax=b,\qquad x\ge0
-> $$
+$$
+\text{(P)}
+\qquad
+\min c^{\mathsf T}x
+\quad\text{subject to}\quad
+Ax=b,\qquad x\ge0
+$$
 >
 > に対し、
 >
-> $$
-> \boxed{
-> \text{(D)}
-> \qquad
-> \max b^{\mathsf T}y
-> \quad\text{subject to}\quad
-> A^{\mathsf T}y\le c
-> }
-> $$
+$$
+\boxed{
+\text{(D)}
+\qquad
+\max b^{\mathsf T}y
+\quad\text{subject to}\quad
+A^{\mathsf T}y\le c
+}
+$$
 >
 > を **双対問題**という。$y\in\mathbb R^m$ 自体には符号制約を課さない。
 <!-- formal-statement-end -->
@@ -1188,13 +1190,13 @@ $$
 > **定理（線形計画の弱双対性）**  
 > 主問題 (P) の実行可能解 $x$ と双対問題 (D) の実行可能解 $y$ に対して
 >
-> $$
-> \boxed{
-> b^{\mathsf T}y
-> \le
-> c^{\mathsf T}x
-> }
-> $$
+$$
+\boxed{
+b^{\mathsf T}y
+\le
+c^{\mathsf T}x
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -1391,35 +1393,35 @@ $$
 > **定理（線形計画の強双対性）**  
 > $A\in\mathbb R^{m\times n}$、$\operatorname{rank}A=m$ とする。標準形主問題
 >
-> $$
-> \text{(P)}
-> \qquad
-> \min c^{\mathsf T}x
-> \quad\text{subject to}\quad
-> Ax=b,\qquad x\ge0
-> $$
+$$
+\text{(P)}
+\qquad
+\min c^{\mathsf T}x
+\quad\text{subject to}\quad
+Ax=b,\qquad x\ge0
+$$
 >
 > の実行可能集合が非空で、$c^{\mathsf T}x$ が実行可能集合上で下に有界であるとする。
 >
 > このとき主問題は最適解 $x^*$ を持ち、双対問題
 >
-> $$
-> \text{(D)}
-> \qquad
-> \max b^{\mathsf T}y
-> \quad\text{subject to}\quad
-> A^{\mathsf T}y\le c
-> $$
+$$
+\text{(D)}
+\qquad
+\max b^{\mathsf T}y
+\quad\text{subject to}\quad
+A^{\mathsf T}y\le c
+$$
 >
 > も最適解 $y^*$ を持つ。さらに
 >
-> $$
-> \boxed{
-> c^{\mathsf T}x^*
-> =
-> b^{\mathsf T}y^*
-> }
-> $$
+$$
+\boxed{
+c^{\mathsf T}x^*
+=
+b^{\mathsf T}y^*
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -1797,21 +1799,21 @@ $x_j,s_j\ge0$ なので、総和が 0 になるためには各項が 0 でなけ
 > **定理（相補性と最適性）**  
 > 標準形主問題 (P) とその双対 (D) を考える。$x$ を主実行可能解、$y$ を双対実行可能解とし、
 >
-> $$
-> s=c-A^{\mathsf T}y\ge0
-> $$
+$$
+s=c-A^{\mathsf T}y\ge0
+$$
 >
 > と置く。
 >
 > このとき、$x$ と $y$ がそれぞれ主問題・双対問題の最適解であることと
 >
-> $$
-> \boxed{
-> x_js_j=0
-> \qquad
-> (j=1,\ldots,n)
-> }
-> $$
+$$
+\boxed{
+x_js_j=0
+\qquad
+(j=1,\ldots,n)
+}
+$$
 >
 > は同値である。
 <!-- formal-statement-end -->
