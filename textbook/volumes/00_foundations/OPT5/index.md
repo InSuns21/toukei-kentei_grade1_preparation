@@ -39,19 +39,19 @@ $$
 > **定義（Lagrangian）**  
 > $f,g_1,\dots,g_m:\mathbb R^n\to\mathbb R$、$A\in\mathbb R^{r\times n}$、$b\in\mathbb R^r$ に対する制約付き最小化問題
 >
-> $$
-> \min_x f(x)
-> \quad\text{subject to}\quad
-> g_i(x)\le0\ (i=1,\dots,m),\qquad Ax=b
-> $$
+$$
+\min_x f(x)
+\quad\text{subject to}\quad
+g_i(x)\le0\ (i=1,\dots,m),\qquad Ax=b
+$$
 >
 > を考える。$\lambda\in\mathbb R_+^m$、$\nu\in\mathbb R^r$ に対して
 >
-> $$
-> L(x,\lambda,\nu)
-> =
-> f(x)+\sum_{i=1}^m\lambda_i g_i(x)+\nu^{\mathsf T}(Ax-b)
-> $$
+$$
+L(x,\lambda,\nu)
+=
+f(x)+\sum_{i=1}^m\lambda_i g_i(x)+\nu^{\mathsf T}(Ax-b)
+$$
 >
 > をこの問題の **Lagrangian** という。
 <!-- formal-statement-end -->
@@ -78,9 +78,9 @@ $$
 > **定義（双対関数）**  
 > 上の Lagrangian に対し
 >
-> $$
-> q(\lambda,\nu)=\inf_{x\in\mathbb R^n}L(x,\lambda,\nu)
-> $$
+$$
+q(\lambda,\nu)=\inf_{x\in\mathbb R^n}L(x,\lambda,\nu)
+$$
 >
 > を **双対関数** という。
 <!-- formal-statement-end -->
@@ -90,9 +90,9 @@ $$
 > **定義（主問題・Lagrange 双対問題）**  
 > 元の制約付き最小化問題を **主問題** といい、その最適値を $p^*$ とする。双対関数を用いた
 >
-> $$
-> \sup_{\lambda\ge0,\,\nu\in\mathbb R^r}q(\lambda,\nu)
-> $$
+$$
+\sup_{\lambda\ge0,\,\nu\in\mathbb R^r}q(\lambda,\nu)
+$$
 >
 > を **Lagrange 双対問題** といい、その最適値を $d^*$ とする。
 <!-- formal-statement-end -->
@@ -124,15 +124,15 @@ $$
 > **定理（Lagrange 双対の弱双対性）**  
 > 上の主問題について、$x$ が主実行可能、$(\lambda,\nu)$ が $\lambda\ge0$ を満たすなら
 >
-> $$
-> q(\lambda,\nu)\le f(x).
-> $$
+$$
+q(\lambda,\nu)\le f(x).
+$$
 >
 > 従って常に
 >
-> $$
-> \boxed{d^*\le p^*}
-> $$
+$$
+\boxed{d^*\le p^*}
+$$
 >
 > が成り立つ。この結論には $f,g_i$ の凸性を仮定しない。
 <!-- formal-statement-end -->
@@ -176,9 +176,9 @@ $$
 > **定義（Slater 条件）**  
 > $f,g_1,\dots,g_m$ を凸関数、等式制約を $Ax=b$ とする凸最適化問題を考える。ある $\bar x\in\operatorname{ri}(\operatorname{dom}f\cap\bigcap_i\operatorname{dom}g_i)$ が存在して
 >
-> $$
-> g_i(\bar x)<0\qquad(i=1,\dots,m),\qquad A\bar x=b
-> $$
+$$
+g_i(\bar x)<0\qquad(i=1,\dots,m),\qquad A\bar x=b
+$$
 >
 > を満たすとき、この問題は **Slater 条件**を満たすという。
 <!-- formal-statement-end -->
@@ -205,9 +205,9 @@ $$
 > **定理（Slater 条件下の強双対性）**  
 > $f,g_1,\dots,g_m:\mathbb R^n\to(-\infty,+\infty]$ を閉真凸関数とし、等式制約を $Ax=b$ とする。主問題の最適値が有限で、Slater 条件を満たすなら、Lagrange 双対問題は最適解を持ち、
 >
-> $$
-> \boxed{d^*=p^*}
-> $$
+$$
+\boxed{d^*=p^*}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -266,11 +266,11 @@ $$
 > **定理（凸問題の KKT 条件）**  
 > $f,g_1,\dots,g_m:\mathbb R^n\to\mathbb R$ を微分可能な凸関数とし、$A\in\mathbb R^{r\times n}$、$b\in\mathbb R^r$ とする。問題
 >
-> $$
-> \min_x f(x)
-> \quad\text{subject to}\quad
-> g_i(x)\le0,\qquad Ax=b
-> $$
+$$
+\min_x f(x)
+\quad\text{subject to}\quad
+g_i(x)\le0,\qquad Ax=b
+$$
 >
 > が Slater 条件を満たすとする。このとき $x^*$ が主最適解であることと、ある $\lambda^*\ge0$、$\nu^*\in\mathbb R^r$ が存在して次の4条件を満たすことは同値である。
 >
@@ -381,9 +381,9 @@ $$
 > **定義（活性制約）**  
 > 不等式制約 $g_i(x)\le0$ が実行可能点 $x$ で
 >
-> $$
-> g_i(x)=0
-> $$
+$$
+g_i(x)=0
+$$
 >
 > を満たすとき、その制約を $x$ における **活性制約**という。$g_i(x)<0$ のときは非活性という。
 <!-- formal-statement-end -->
