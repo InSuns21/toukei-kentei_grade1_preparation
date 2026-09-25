@@ -1249,7 +1249,13 @@ p^{\mathsf T}d
 h'(x;d)
 $$
 
-となります。しかし [劣勾配](#def-opt3-subgradient) の定義式から $p^{\mathsf T}d\le h'(x;d)$ なので矛盾です。よって $p\in A$ です。$\square$
+となります。一方 $p\in\partial h(x)$ なら、$t>0$ に対して
+
+$
+h(x+td)-h(x)\ge t\,p^{\mathsf T}d
+$
+
+なので、$t\downarrow0$ とすれば $p^{\mathsf T}d\le h'(x;d)$ です。これは上の厳密不等式に矛盾します。よって $p\in A$ です。$\square$
 <!-- proof-end -->
 
 ### 7.1 例：$h(x)=\max\{x,-x\}=|x|$
@@ -1773,7 +1779,7 @@ $$
 p+n=0.
 $$
 
-任意の $y\in C$ に対し [法錐](#def-opt3-normal-cone) の定義式から
+$n\in N_C(x^\ast)$ なので、任意の $y\in C$ に対して
 
 $$
 n^{\mathsf T}(y-x^\ast)\le0,
