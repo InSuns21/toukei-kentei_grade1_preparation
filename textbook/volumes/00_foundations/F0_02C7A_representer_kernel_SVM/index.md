@@ -1,5 +1,9 @@
 # F0-02C7A 関数解析VII-A：representer theorem・kernel SVM
 
+> **アーカイブ**
+>
+> このページの内容は [RKHS2「正則化問題の表現定理」](../RKHS2/index.md)、[RKHS4「最大マージンとハードマージン SVM」](../RKHS4/index.md)、[RKHS5「ソフトマージン・ヒンジ損失・カーネル SVM」](../RKHS5/index.md) へ整理して引き継いでいます。現在の通読では RKHS 系列を参照してください。過去リンクのため、このページ自体は残しています。
+
 無限次元RKHSの最適化解が、なぜ有限標本が張る部分空間へ落ちるのかをrepresenter theoremとSVM stationarityの両方から見ます。
 
 ## 1. representer theoremが必要になる理由
