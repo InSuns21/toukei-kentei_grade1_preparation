@@ -33,6 +33,8 @@ alias_matching:
     - 位相
     - topology
     - support
+    - 単体
+    - simplex
     - 残差
     - residual
     - 平行移動
