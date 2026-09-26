@@ -10,17 +10,17 @@ MICRO1--MICRO4 では、消費者や企業を一人ずつ取り出し、価格�
 
 本章の中心は、次の二方向です。
 
-$
+$$
 \boxed{
 \text{価格のもとで各人が自分で最適化}
 \Longrightarrow
 \text{これ以上一方的に改善できない}
 }
-$
+$$
 
 と
 
-$
+$$
 \boxed{
 \text{効率的な境界点}
 \Longrightarrow
@@ -28,7 +28,7 @@ $
 \Longrightarrow
 \text{共通の価格}
 }
-$
+$$
 
 です。
 
