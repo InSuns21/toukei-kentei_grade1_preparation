@@ -4,7 +4,7 @@
 
 関数を Hilbert 空間の元として扱うだけなら、点での値を取り出せるとは限りません。たとえば $L^2([0,1])$ では、1点だけ値を変えた二つの関数は同じ元を表すため、点評価 $f\mapsto f(x)$ は元から一意に定まりません。
 
-再生核 Hilbert 空間では、この点評価を連続線形汎関数として扱えることを要求します。すると Riesz 表現定理により、点 $x$ での評価があるベクトル $K_x$ との内積として表されます。この $K_x$ を点ごとに並べたものが再生核です。
+再生核 Hilbert 空間では、この点評価を連続線形汎関数として扱えることを要求します。すると [Riesz 表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)により、点 $x$ での評価があるベクトル $K_x$ との内積として表されます。この $K_x$ を点ごとに並べたものが再生核です。
 
 本章の中心は
 
@@ -67,11 +67,11 @@ RKHS は
 > **定義（再生核 Hilbert 空間）**  
 > 集合 $\mathcal X$ 上の実数値関数からなる Hilbert 空間 $\mathcal H$ が **再生核 Hilbert 空間**であるとは、任意の $x\in\mathcal X$ に対して評価汎関数
 >
-> $$
-> \delta_x:\mathcal H\to\mathbb R,
-> \qquad
-> \delta_x(f)=f(x)
-> $$
+$$
+\delta_x:\mathcal H\to\mathbb R,
+\qquad
+\delta_x(f)=f(x)
+$$
 >
 > が連続であることをいう。再生核 Hilbert 空間を RKHS と略記する。
 <!-- formal-statement-end -->
@@ -108,7 +108,7 @@ $$
 
 を入れます。$\mathbb R^p$ と等長同型なので $\mathcal H$ は Hilbert 空間です。
 
-固定した $x\in\mathbb R^p$ に対して Cauchy--Schwarz の不等式から
+固定した $x\in\mathbb R^p$ に対して [[Cauchy--Schwarz](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz) の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 |f_w(x)|
@@ -136,12 +136,12 @@ RKHS $\mathcal H$ を固定します。定義により $\delta_x$ は連続線�
 > **命題（点評価の Riesz 表現）**  
 > $\mathcal H$ を $\mathcal X$ 上の実 RKHS とする。各 $x\in\mathcal X$ に対して一意な $K_x\in\mathcal H$ が存在し、
 >
-> $$
-> f(x)
-> =
-> \langle f,K_x\rangle_{\mathcal H}
-> \qquad(\forall f\in\mathcal H)
-> $$
+$$
+f(x)
+=
+\langle f,K_x\rangle_{\mathcal H}
+\qquad(\forall f\in\mathcal H)
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -155,7 +155,7 @@ $$
 \delta_x(f)=f(x)
 $$
 
-は連続線形汎関数です。従って Riesz 表現定理により、一意な $K_x\in\mathcal H$ が存在して
+は連続線形汎関数です。従って [Riesz 表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)により、一意な $K_x\in\mathcal H$ が存在して
 
 $$
 \delta_x(f)
@@ -185,10 +185,10 @@ $\square$
 > **定義（再生性）**  
 > 関数からなる Hilbert 空間 $\mathcal H$ と各 $x\in\mathcal X$ に対応する $K_x\in\mathcal H$ が
 >
-> $$
-> f(x)=\langle f,K_x\rangle_{\mathcal H}
-> \qquad(\forall f\in\mathcal H)
-> $$
+$$
+f(x)=\langle f,K_x\rangle_{\mathcal H}
+\qquad(\forall f\in\mathcal H)
+$$
 >
 > を満たすとき、この等式が表す性質を **再生性**という。
 <!-- formal-statement-end -->
@@ -202,11 +202,11 @@ $\square$
 > **定義（再生核）**  
 > RKHS $\mathcal H$ に対して、点評価の Riesz 表現元 $K_x$ を用い
 >
-> $$
-> K(x,z)
-> =
-> K_z(x)
-> $$
+$$
+K(x,z)
+=
+K_z(x)
+$$
 >
 > と定める二変数関数 $K:\mathcal X\times\mathcal X\to\mathbb R$ を $\mathcal H$ の **再生核**という。
 <!-- formal-statement-end -->
@@ -228,17 +228,17 @@ $$
 > **命題（再生核の基本公式）**  
 > RKHS $\mathcal H$ の再生核 $K$ について、任意の $x,z\in\mathcal X$ と $f\in\mathcal H$ に対し
 >
-> $$
-> f(x)=\langle f,K_x\rangle_{\mathcal H},
-> $$
+$$
+f(x)=\langle f,K_x\rangle_{\mathcal H},
+$$
 >
-> $$
-> K(x,z)=\langle K_z,K_x\rangle_{\mathcal H},
-> $$
+$$
+K(x,z)=\langle K_z,K_x\rangle_{\mathcal H},
+$$
 >
-> $$
-> \|K_x\|_{\mathcal H}^2=K(x,x)
-> $$
+$$
+\|K_x\|_{\mathcal H}^2=K(x,x)
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -274,19 +274,19 @@ $$
 > **系（点評価の基本評価）**  
 > RKHS $\mathcal H$ の再生核を $K$ とすると
 >
-> $$
-> |f(x)|
-> \le
-> \|f\|_{\mathcal H}\sqrt{K(x,x)}
-> $$
+$$
+|f(x)|
+\le
+\|f\|_{\mathcal H}\sqrt{K(x,x)}
+$$
 >
 > がすべての $f\in\mathcal H$ と $x\in\mathcal X$ について成り立ち、
 >
-> $$
-> \|\delta_x\|_{\mathcal H^*}
-> =
-> \sqrt{K(x,x)}
-> $$
+$$
+\|\delta_x\|_{\mathcal H^*}
+=
+\sqrt{K(x,x)}
+$$
 >
 > である。
 <!-- formal-statement-end -->
@@ -304,15 +304,15 @@ $$
 > **定義（正半定値核）**  
 > 集合 $\mathcal X$ 上の対称関数
 >
-> $$
-> K:\mathcal X\times\mathcal X\to\mathbb R
-> $$
+$$
+K:\mathcal X\times\mathcal X\to\mathbb R
+$$
 >
 > が **正半定値核**であるとは、任意の $n\ge1$、任意の点 $x_1,\ldots,x_n\in\mathcal X$、任意の係数 $c_1,\ldots,c_n\in\mathbb R$ に対して
 >
-> $$
-> \sum_{i,j=1}^n c_i c_j K(x_i,x_j)\ge0
-> $$
+$$
+\sum_{i,j=1}^n c_i c_j K(x_i,x_j)\ge0
+$$
 >
 > が成り立つことをいう。
 <!-- formal-statement-end -->
@@ -335,7 +335,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-再生核の基本公式より
+[再生核の基本公式](#prop-rkhs1-reproducing-properties)より
 
 $$
 K(x_i,x_j)
@@ -389,16 +389,16 @@ $\square$
 > **定義（標準特徴写像）**  
 > RKHS $\mathcal H$ とその再生核 $K$ に対して
 >
-> $$
-> \Phi:\mathcal X\to\mathcal H,
-> \qquad
-> \Phi(x)=K_x
-> $$
+$$
+\Phi:\mathcal X\to\mathcal H,
+\qquad
+\Phi(x)=K_x
+$$
 >
 > と定める写像を **標準特徴写像**という。
 <!-- formal-statement-end -->
 
-再生核の基本公式から
+[再生核の基本公式](#prop-rkhs1-reproducing-properties)から
 
 $$
 \boxed{
@@ -425,11 +425,11 @@ $$
 > **命題（特徴写像から作った核は正半定値）**  
 > $\mathcal F$ を実 Hilbert 空間、$\Phi:\mathcal X\to\mathcal F$ を任意の写像とする。このとき
 >
-> $$
-> K(x,z)
-> =
-> \langle\Phi(x),\Phi(z)\rangle_{\mathcal F}
-> $$
+$$
+K(x,z)
+=
+\langle\Phi(x),\Phi(z)\rangle_{\mathcal F}
+$$
 >
 > は正半定値核である。
 <!-- formal-statement-end -->
@@ -608,9 +608,9 @@ $$
 > **定理（Moore--Aronszajn の定理）**  
 > 集合 $\mathcal X$ 上の正半定値核
 >
-> $$
-> K:\mathcal X\times\mathcal X\to\mathbb R
-> $$
+$$
+K:\mathcal X\times\mathcal X\to\mathbb R
+$$
 >
 > を与える。このとき $K$ を再生核とする実 RKHS $\mathcal H_K$ が存在する。さらに、$K$ を再生核とする RKHS は、関数値を保つ等長同型を除いて一意である。
 <!-- formal-statement-end -->
@@ -654,17 +654,17 @@ $$
 > **定義（核切片の有限線形包）**  
 > 正半定値核 $K$ に対して
 >
-> $$
-> \mathcal H_0
-> =
-> \operatorname{span}\{K_x:x\in\mathcal X\}
-> $$
+$$
+\mathcal H_0
+=
+\operatorname{span}\{K_x:x\in\mathcal X\}
+$$
 >
 > と定める。すなわち $\mathcal H_0$ は
 >
-> $$
-> f=\sum_{i=1}^n a_iK_{x_i}
-> $$
+$$
+f=\sum_{i=1}^n a_iK_{x_i}
+$$
 >
 > と有限和で表される関数全体である。
 <!-- formal-statement-end -->
@@ -703,14 +703,14 @@ $$
 > **補題（核切片上の内積は表示によらない）**  
 > $\mathcal H_0$ 上の式
 >
-> $$
-> \left\langle
-> \sum_i a_iK_{x_i},
-> \sum_j b_jK_{z_j}
-> \right\rangle_0
-> =
-> \sum_{i,j}a_ib_jK(x_i,z_j)
-> $$
+$$
+\left\langle
+\sum_i a_iK_{x_i},
+\sum_j b_jK_{z_j}
+\right\rangle_0
+=
+\sum_{i,j}a_ib_jK(x_i,z_j)
+$$
 >
 > は有限和表示の選び方によらず、$\mathcal H_0$ 上の内積を定める。
 <!-- formal-statement-end -->
@@ -775,7 +775,7 @@ $$
 
 は正半定値性から従います。
 
-さらに $\langle f,f\rangle_0=0$ とします。正半定値双線形形式に対する Cauchy--Schwarz の不等式から、任意の $x\in\mathcal X$ について
+さらに $\langle f,f\rangle_0=0$ とします。上の非負性から得られる [[Cauchy--Schwarz](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz) の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から、任意の $x\in\mathcal X$ について
 
 $$
 |\langle f,K_x\rangle_0|^2
@@ -805,7 +805,7 @@ $$
 $\square$
 <!-- proof-end -->
 
-ここでの Cauchy--Schwarz は、$\langle u+tv,u+tv\rangle_0\ge0$ を $t$ の二次式として判別式を調べれば得られます。従って Hilbert 空間の完備性はまだ使っていません。
+ここでの [Cauchy--Schwarz](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz) は、$\langle u+tv,u+tv\rangle_0\ge0$ を $t$ の二次式として判別式を調べれば得られます。従って Hilbert 空間の完備性はまだ使っていません。
 
 ---
 
@@ -827,7 +827,7 @@ $$
 
 従って $\mathcal H_0$ 上ですでに再生性があります。
 
-さらに Cauchy--Schwarz より
+さらに [Cauchy--Schwarz](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz) より
 
 $$
 |f(x)|
@@ -894,10 +894,10 @@ $$
 > **補題（完備化後の関数表示は単射）**  
 > $f\in\mathcal H_K$ が
 >
-> $$
-> f(x)=0
-> \qquad(\forall x\in\mathcal X)
-> $$
+$$
+f(x)=0
+\qquad(\forall x\in\mathcal X)
+$$
 >
 > を満たすなら $f=0$ である。従って $\mathcal H_K$ の元は $\mathcal X$ 上の関数として一意に識別できる。
 <!-- formal-statement-end -->
@@ -986,9 +986,9 @@ $K$ を再生核とする別の RKHS $\mathcal G$ があるとします。
 > **補題（核切片の線形包は稠密）**  
 > RKHS $\mathcal G$ の再生核を $K$ とする。このとき
 >
-> $$
-> \operatorname{span}\{K_x:x\in\mathcal X\}
-> $$
+$$
+\operatorname{span}\{K_x:x\in\mathcal X\}
+$$
 >
 > は $\mathcal G$ で稠密である。
 <!-- formal-statement-end -->
@@ -1082,11 +1082,11 @@ $$
 > **命題（有限集合上の RKHS の行列表現）**  
 > $G$ が正定値なら、$\mathbb R^m$ 上の内積
 >
-> $$
-> \langle f,g\rangle_{\mathcal H_K}
-> =
-> \boldsymbol f^{\mathsf T}G^{-1}\boldsymbol g
-> $$
+$$
+\langle f,g\rangle_{\mathcal H_K}
+=
+\boldsymbol f^{\mathsf T}G^{-1}\boldsymbol g
+$$
 >
 > により $\mathcal X$ 上の全関数からなる RKHS が得られ、その再生核は $K$ である。
 <!-- formal-statement-end -->
@@ -1163,7 +1163,7 @@ $$
 
 Moore--Aronszajn の定理は、任意の集合 $\mathcal X$ 上の正半定値核から RKHS を構成し、その一意性まで与えます。ここでは入力集合に追加の構造を仮定していません。
 
-一方、Mercer の定理は、入力集合・核・測度により強い条件を置いたうえで、核を級数として表現する定理です。
+一方、Mercer の定理は、入力集合・核・測度により強い条件を置いたうえで、核により具体的な表現を与える定理です。
 
 したがって
 
@@ -1235,7 +1235,7 @@ $$
 
 固定した $x\in\mathbb R^p$ を取ります。
 
-1. Cauchy--Schwarz の不等式より
+1. [[Cauchy--Schwarz](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz) の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)より
 
 $$
 |\delta_x(f_w)|
@@ -1311,7 +1311,7 @@ f(x)
 \langle f,K_x\rangle_{\mathcal H}.
 $$
 
-Riesz 表現定理では、連続線形汎関数の双対ノルムは表現ベクトルのノルムに等しいので
+[Riesz 表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)では、連続線形汎関数の双対ノルムは表現ベクトルのノルムに等しいので
 
 $$
 \|\delta_x\|_{\mathcal H^*}
@@ -1319,7 +1319,7 @@ $$
 \|K_x\|_{\mathcal H}.
 $$
 
-さらに再生核の基本公式から
+さらに[再生核の基本公式](#prop-rkhs1-reproducing-properties)から
 
 $$
 \|K_x\|_{\mathcal H}^2
@@ -1802,7 +1802,7 @@ $$
 \langle f,f\rangle_0\ge0.
 $$
 
-さらに $\langle f,f\rangle_0=0$ なら、正半定値双線形形式の Cauchy--Schwarz により
+さらに $\langle f,f\rangle_0=0$ なら、上の非負性から得られる [Cauchy--Schwarz](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz) により
 
 $$
 |\langle f,K_x\rangle_0|^2
@@ -1833,7 +1833,7 @@ f(x).
 \end{aligned}
 $$
 
-従って Cauchy--Schwarz より
+従って [Cauchy--Schwarz](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz) より
 
 $$
 |f(x)|
@@ -1949,7 +1949,7 @@ $$
 ## 章末チェック
 
 - RKHS を「関数からなる Hilbert 空間」だけでなく、全ての点評価が連続である空間として定義できる。
-- Riesz 表現定理から点評価の表現元 $K_x$ を得て、再生性を導ける。
+- [Riesz 表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)から点評価の表現元 $K_x$ を得て、再生性を導ける。
 - 再生核が対称かつ正半定値になることをノルム二乗へ変形して証明できる。
 - 正半定値核と特徴写像の内積表示の関係を説明できる。
 - Moore--Aronszajn の構成で、内積が表示によらず定まること、点評価の有界性、完備化後の関数同定、一意性を順に説明できる。
