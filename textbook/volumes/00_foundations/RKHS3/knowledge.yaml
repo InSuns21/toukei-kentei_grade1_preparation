@@ -6,7 +6,7 @@ prerequisites:
   - F0-00F1
 
 forward_references:
-  - svm.hard-margin
+  - svm.maximum-margin-convex-hull
   - svm.kernel-trick
   - svm.kernel-svm
 
@@ -24,11 +24,11 @@ concepts:
       - rkhs.gram-finite-dimensional-reduction
 
   - id: rkhs.kernel-ridge-closed-form
-    name: カーネルリッジ回帰の閉形式解
+    name: カーネルリッジ回帰の解公式
     kind: theorem
     aliases: []
     introduction: formal
-    introduction_aliases: ["定理（カーネルリッジ回帰の閉形式解）"]
+    introduction_aliases: ["定理（カーネルリッジ回帰の解公式）"]
     requires:
       - rkhs.kernel-ridge-regression
       - linear.positive-semidefinite-matrix
