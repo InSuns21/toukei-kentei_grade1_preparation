@@ -10,6 +10,26 @@ prerequisites:
 forward_references:
   - functional.banach-space
   - functional.hilbert-space
+  - functional.hilbert-projection-theorem
+  - functional.frechet-derivative
+  - vector-calculus.gradient
+  - convex.convex-function
+  - convex.cone
+  - convex.hyperplane
+  - convex.supporting-hyperplane
+  - convex.epigraph
+  - convex.subgradient
+  - convex.subdifferential
+  - convex.polar-cone
+  - convex.dual-cone
+  - convex.fenchel-conjugate
+  - convex.fenchel-duality
+  - optimization.duality-gap
+  - optimization.constraint-qualification
+  - optimization.generalized-kkt
+  - rkhs.rkhs
+  - rkhs.reproducing-kernel
+  - svm.kernel-svm
 
 concepts:
   - id: functional.analysis-roadmap
