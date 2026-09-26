@@ -1,0 +1,143 @@
+chapter: RKHS5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RKHS2
+  - RKHS4
+  - OPT5
+
+forward_references: []
+
+concepts:
+  - id: svm.slack-variable
+    name: スラック変数
+    kind: definition
+    aliases:
+      - slack variable
+    introduction: formal
+    introduction_aliases: ["定義（スラック変数）"]
+    requires:
+      - svm.hard-margin-primal
+
+  - id: svm.soft-margin-primal
+    name: ソフトマージン SVM
+    kind: definition
+    aliases:
+      - soft-margin SVM
+      - soft-margin support vector machine
+    introduction: formal
+    introduction_aliases: ["定義（ソフトマージン SVM）"]
+    requires:
+      - svm.slack-variable
+      - svm.hard-margin-primal
+
+  - id: svm.hinge-loss
+    name: ヒンジ損失
+    kind: definition
+    aliases:
+      - hinge loss
+    introduction: formal
+    introduction_aliases: ["定義（ヒンジ損失）"]
+    requires: []
+
+  - id: svm.slack-hinge-equivalence
+    name: スラック形式とヒンジ損失形式の同値性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（スラック形式とヒンジ損失形式の同値性）"]
+    requires:
+      - svm.soft-margin-primal
+      - svm.hinge-loss
+
+  - id: svm.soft-margin-dual
+    name: ソフトマージン SVM の Lagrange 双対
+    kind: theorem
+    aliases:
+      - soft-margin SVM dual
+    introduction: formal
+    introduction_aliases: ["定理（ソフトマージン SVM の Lagrange 双対）"]
+    requires:
+      - svm.soft-margin-primal
+      - optimization.dual-problem
+      - optimization.slater-condition
+
+  - id: svm.soft-margin-kkt
+    name: ソフトマージン SVM の KKT 条件
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（ソフトマージン SVM の KKT 条件）"]
+    requires:
+      - svm.soft-margin-dual
+      - optimization.kkt-conditions
+
+  - id: svm.free-support-vector
+    name: 自由サポートベクトル
+    kind: definition
+    aliases:
+      - free support vector
+    introduction: formal
+    introduction_aliases: ["定義（自由サポートベクトルと上限制約サポートベクトル）"]
+    requires:
+      - svm.soft-margin-kkt
+      - svm.support-vector
+
+  - id: svm.upper-bound-support-vector
+    name: 上限制約サポートベクトル
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（自由サポートベクトルと上限制約サポートベクトル）"]
+    requires:
+      - svm.soft-margin-kkt
+      - svm.support-vector
+
+  - id: svm.soft-margin-kkt-point-classification
+    name: 双対変数とマージン位置の対応
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（双対変数とマージン位置の対応）"]
+    requires:
+      - svm.soft-margin-kkt
+      - svm.free-support-vector
+      - svm.upper-bound-support-vector
+
+  - id: svm.kernel-trick
+    name: カーネルトリック
+    kind: definition
+    aliases:
+      - kernel trick
+    introduction: formal
+    introduction_aliases: ["定義（カーネルトリック）"]
+    requires:
+      - rkhs.reproducing-kernel
+      - rkhs.psd-kernel
+      - rkhs.canonical-feature-map
+      - rkhs.moore-aronszajn-theorem
+
+  - id: svm.kernel-svm
+    name: カーネル SVM
+    kind: definition
+    aliases:
+      - kernel SVM
+    introduction: formal
+    introduction_aliases: ["定義（カーネル SVM）"]
+    requires:
+      - svm.soft-margin-primal
+      - svm.kernel-trick
+      - rkhs.representer-theorem
+      - rkhs.reproducing-kernel
+
+  - id: svm.kernel-svm-dual
+    name: カーネル SVM の双対と判別関数
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（カーネル SVM の双対と判別関数）"]
+    requires:
+      - svm.kernel-svm
+      - svm.soft-margin-dual
+      - rkhs.canonical-feature-map
+      - linear.positive-semidefinite-matrix
