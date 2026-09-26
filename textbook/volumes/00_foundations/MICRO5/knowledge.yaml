@@ -28,6 +28,17 @@ concepts:
     requires:
       - micro.allocation
 
+  - id: micro.pareto-improvement
+    name: Pareto 改善
+    kind: definition
+    aliases:
+      - Pareto improvement
+    introduction: formal
+    introduction_aliases: ["定義（Pareto 改善・Pareto 効率）"]
+    requires:
+      - micro.feasible-allocation
+      - micro.preference-relation
+
   - id: micro.pareto-efficiency
     name: Pareto 効率
     kind: definition
@@ -37,8 +48,7 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（Pareto 改善・Pareto 効率）"]
     requires:
-      - micro.feasible-allocation
-      - micro.preference-relation
+      - micro.pareto-improvement
 
   - id: micro.local-nonsatiation
     name: 局所非飽和性
@@ -90,7 +100,6 @@ concepts:
     introduction_aliases: ["定理（凹効用のもとでの効用可能集合の凸性）"]
     requires:
       - micro.utility-possibility-set
-      - convex.concave-function
       - convex.convex-set
 
   - id: micro.supporting-welfare-weight
@@ -147,4 +156,3 @@ concepts:
       - micro.supporting-welfare-weight
       - micro.planner-common-resource-price
       - micro.price-supported-decentralized-allocation
-      - convex.concave-function
