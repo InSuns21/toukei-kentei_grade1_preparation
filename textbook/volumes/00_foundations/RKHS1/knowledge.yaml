@@ -1,0 +1,179 @@
+chapter: RKHS1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-02C2
+
+forward_references: []
+
+concepts:
+  - id: rkhs.rkhs
+    name: 再生核 Hilbert 空間
+    kind: definition
+    aliases:
+      - reproducing kernel Hilbert space
+      - RKHS
+    introduction: formal
+    introduction_aliases: ["定義（再生核 Hilbert 空間）"]
+    requires:
+      - functional.hilbert-space
+      - functional.evaluation-functional
+      - functional.continuous-linear-functional
+
+  - id: rkhs.evaluation-representer
+    name: 点評価の Riesz 表現
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（点評価の Riesz 表現）"]
+    requires:
+      - rkhs.rkhs
+      - functional.riesz-representation-theorem
+
+  - id: rkhs.reproducing-property
+    name: 再生性
+    kind: definition
+    aliases:
+      - reproducing property
+    introduction: inline
+    introduction_aliases: ["再生性"]
+    requires:
+      - rkhs.evaluation-representer
+
+  - id: rkhs.reproducing-kernel
+    name: 再生核
+    kind: definition
+    aliases:
+      - reproducing kernel
+    introduction: formal
+    introduction_aliases: ["定義（再生核）"]
+    requires:
+      - rkhs.reproducing-property
+      - rkhs.rkhs
+
+  - id: rkhs.reproducing-kernel-basic-formulas
+    name: 再生核の基本公式
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（再生核の基本公式）"]
+    requires:
+      - rkhs.reproducing-kernel
+      - rkhs.reproducing-property
+
+  - id: rkhs.evaluation-bound
+    name: 点評価の基本評価
+    kind: corollary
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["系（点評価の基本評価）"]
+    requires:
+      - rkhs.reproducing-kernel-basic-formulas
+      - linear.cauchy-schwarz
+      - functional.dual-norm
+
+  - id: rkhs.psd-kernel
+    name: 正半定値核
+    kind: definition
+    aliases:
+      - positive semidefinite kernel
+      - PSD kernel
+    introduction: formal
+    introduction_aliases: ["定義（正半定値核）"]
+    requires:
+      - linear.positive-semidefinite-matrix
+
+  - id: rkhs.reproducing-kernel-psd
+    name: RKHS の再生核の正半定値性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（RKHS の再生核は正半定値）"]
+    requires:
+      - rkhs.reproducing-kernel-basic-formulas
+      - rkhs.psd-kernel
+
+  - id: rkhs.canonical-feature-map
+    name: 標準特徴写像
+    kind: definition
+    aliases:
+      - canonical feature map
+    introduction: formal
+    introduction_aliases: ["定義（標準特徴写像）"]
+    requires:
+      - rkhs.reproducing-kernel
+
+  - id: rkhs.feature-map-kernel-psd
+    name: 特徴写像から作った核の正半定値性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（特徴写像から作った核は正半定値）"]
+    requires:
+      - rkhs.psd-kernel
+      - linear.cauchy-schwarz
+
+  - id: rkhs.kernel-section-span
+    name: 核切片の有限線形包
+    kind: definition
+    aliases:
+      - kernel section span
+    introduction: formal
+    introduction_aliases: ["定義（核切片の有限線形包）"]
+    requires:
+      - rkhs.psd-kernel
+
+  - id: rkhs.kernel-inner-product-well-defined
+    name: 核切片上の内積の表示独立性
+    kind: lemma
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["補題（核切片上の内積は表示によらない）"]
+    requires:
+      - rkhs.kernel-section-span
+      - rkhs.psd-kernel
+      - linear.cauchy-schwarz
+
+  - id: rkhs.completion-function-injectivity
+    name: 完備化後の関数表示の単射性
+    kind: lemma
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["補題（完備化後の関数表示は単射）"]
+    requires:
+      - rkhs.kernel-inner-product-well-defined
+      - functional.normed-cauchy-sequence
+
+  - id: rkhs.kernel-sections-dense
+    name: 核切片の線形包の稠密性
+    kind: lemma
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["補題（核切片の線形包は稠密）"]
+    requires:
+      - rkhs.reproducing-property
+      - functional.hilbert-space
+
+  - id: rkhs.moore-aronszajn-theorem
+    name: Moore--Aronszajn の定理
+    kind: theorem
+    aliases:
+      - Moore-Aronszajn theorem
+      - Moore--Aronszajn theorem
+    introduction: formal
+    introduction_aliases: ["定理（Moore--Aronszajn の定理）"]
+    requires:
+      - rkhs.psd-kernel
+      - rkhs.kernel-inner-product-well-defined
+      - rkhs.completion-function-injectivity
+      - rkhs.kernel-sections-dense
+
+  - id: rkhs.finite-set-matrix-representation
+    name: 有限集合上の RKHS の行列表現
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（有限集合上の RKHS の行列表現）"]
+    requires:
+      - rkhs.moore-aronszajn-theorem
+      - linear.positive-definite-matrix
