@@ -79,11 +79,11 @@ concepts:
       - micro.profit-function-properties
 
   - id: micro.producer-kkt
-    name: 凹生産関数の利潤最大化と KKT 条件
+    name: 凹生産関数の利潤最大化条件
     kind: theorem
     aliases: []
     introduction: formal
-    introduction_aliases: ["定理（凹生産関数の利潤最大化と KKT 条件）"]
+    introduction_aliases: ["定理（凹生産関数の利潤最大化条件）"]
     requires:
       - optimization.kkt-conditions
 
