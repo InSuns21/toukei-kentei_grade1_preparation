@@ -1,0 +1,153 @@
+chapter: FIX2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00C1
+  - FIX1
+
+forward_references: []
+
+concepts:
+  - id: fixedpoint.correspondence
+    name: 対応
+    kind: definition
+    aliases:
+      - set-valued map
+      - set-valued mapping
+      - correspondence
+    introduction: formal
+    introduction_aliases: ["定義（対応とグラフ）"]
+    requires:
+      - set.function
+
+  - id: fixedpoint.correspondence-graph
+    name: 対応のグラフ
+    kind: definition
+    aliases:
+      - graph of a correspondence
+      - graph of a set-valued map
+    introduction: formal
+    introduction_aliases: ["定義（対応とグラフ）"]
+    requires:
+      - fixedpoint.correspondence
+
+  - id: fixedpoint.closed-valued-correspondence
+    name: 閉値対応
+    kind: definition
+    aliases:
+      - closed-valued correspondence
+    introduction: formal
+    introduction_aliases: ["定義（閉値・コンパクト値・凸値）"]
+    requires:
+      - fixedpoint.correspondence
+      - topology.closed-set
+
+  - id: fixedpoint.compact-valued-correspondence
+    name: コンパクト値対応
+    kind: definition
+    aliases:
+      - compact-valued correspondence
+    introduction: formal
+    introduction_aliases: ["定義（閉値・コンパクト値・凸値）"]
+    requires:
+      - fixedpoint.correspondence
+      - topology.compact-set
+
+  - id: fixedpoint.convex-valued-correspondence
+    name: 凸値対応
+    kind: definition
+    aliases:
+      - convex-valued correspondence
+    introduction: formal
+    introduction_aliases: ["定義（閉値・コンパクト値・凸値）"]
+    requires:
+      - fixedpoint.correspondence
+      - convex.convex-set
+
+  - id: fixedpoint.upper-hemicontinuity
+    name: 対応の上半連続性
+    kind: definition
+    aliases:
+      - upper hemicontinuity of a correspondence
+      - upper hemicontinuity of a set-valued map
+    introduction: formal
+    introduction_aliases: ["定義（対応の上半連続性）"]
+    requires:
+      - fixedpoint.correspondence
+      - topology.open-set
+
+  - id: fixedpoint.lower-hemicontinuity
+    name: 対応の下半連続性
+    kind: definition
+    aliases:
+      - lower hemicontinuity of a correspondence
+      - lower hemicontinuity of a set-valued map
+    introduction: formal
+    introduction_aliases: ["定義（対応の下半連続性）"]
+    requires:
+      - fixedpoint.correspondence
+      - topology.open-set
+
+  - id: fixedpoint.correspondence-fixed-point
+    name: 対応の不動点
+    kind: definition
+    aliases:
+      - fixed point of a correspondence
+      - fixed point of a set-valued map
+    introduction: formal
+    introduction_aliases: ["定義（対応の不動点）"]
+    requires:
+      - fixedpoint.correspondence
+      - fixedpoint.fixed-point
+
+  - id: fixedpoint.singleton-correspondence-continuity
+    name: 1点値対応と通常の連続性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（1点値対応と通常の連続性）"]
+    requires:
+      - fixedpoint.upper-hemicontinuity
+      - fixedpoint.lower-hemicontinuity
+      - topology.continuous-map
+
+  - id: fixedpoint.uhc-compact-values-closed-graph
+    name: コンパクト値な上半連続対応の閉グラフ性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（コンパクト値な上半連続対応は閉グラフを持つ）"]
+    requires:
+      - fixedpoint.upper-hemicontinuity
+      - fixedpoint.compact-valued-correspondence
+      - fixedpoint.correspondence-graph
+
+  - id: fixedpoint.closed-graph-uhc-compact-codomain
+    name: コンパクト終域での閉グラフから上半連続性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（コンパクト終域で閉グラフなら上半連続）"]
+    requires:
+      - fixedpoint.correspondence-graph
+      - fixedpoint.upper-hemicontinuity
+      - topology.compact-set
+
+  - id: fixedpoint.uhc-closed-graph-equivalence
+    name: コンパクト終域での上半連続性と閉グラフの同値
+    kind: corollary
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["系（コンパクト終域における上半連続性と閉グラフ）"]
+    requires:
+      - fixedpoint.uhc-compact-values-closed-graph
+      - fixedpoint.closed-graph-uhc-compact-codomain
+
+  - id: fixedpoint.lhc-sequential-criterion
+    name: 対応の下半連続性の点列判定
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（下半連続性の点列判定）"]
+    requires:
+      - fixedpoint.lower-hemicontinuity
