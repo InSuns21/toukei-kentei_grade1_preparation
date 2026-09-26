@@ -1,0 +1,43 @@
+id: "RKHS3"
+title: "カーネルリッジ回帰"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RKHS2
+  - F0-00F1
+official_scope: []
+learning_objectives:
+  - カーネルリッジ回帰を平均二乗誤差と RKHS ノルム正則化の和として定式化できる
+  - 表現定理から無限次元問題を Gram 行列上の有限次元二次最適化へ落とせる
+  - 正則化係数の規約を追跡し、閉形式解が (G+nλI)^{-1}y になる理由を導出できる
+  - Gram 行列が特異でも関数としての最小解が一意である一方、係数表示は非一意になり得ることを説明できる
+  - 新しい入力 x に対する予測を核ベクトルと係数ベクトルの内積で表せる
+  - 訓練点での予測を平滑化行列で表し、固有値方向ごとの縮小率を計算できる
+  - λ を大きくしたときと 0 に近づけたときの極限を固有分解から説明できる
+  - 線形核の場合にカーネルリッジ回帰と通常のリッジ回帰が一致することを主形式・双対形式の両方から示せる
+  - 特異 Gram 行列で係数が発散しても表す関数や訓練予測が発散しない場合を区別できる
+definitions:
+  - { id: RKHS3-DEF-01, name: カーネルリッジ回帰 }
+  - { id: RKHS3-DEF-02, name: 核ベクトル }
+  - { id: RKHS3-DEF-03, name: 平滑化行列 }
+theorems:
+  - { id: RKHS3-THM-01, name: カーネルリッジ回帰の閉形式解 }
+  - { id: RKHS3-PROP-01, name: 平滑化行列のスペクトル表示 }
+  - { id: RKHS3-PROP-02, name: 正則化係数の極限 }
+  - { id: RKHS3-PROP-03, name: 線形核と通常のリッジ回帰の一致 }
+canonical_examples:
+  - Gram 行列が単位行列のとき全ての訓練方向が同じ率で縮小する例
+  - 定数核で Gram 行列が階数1となり係数表示が非一意になる例
+  - 固有値の大きい方向ほど弱く縮小される二次元例
+  - 線形核で主形式と双対形式が同じ予測を与える例
+  - y が Gram 行列の像に入らないとき係数だけが発散し得る例
+problem_patterns:
+  - RKHS3-CLOSED-FORM-1
+  - RKHS3-SINGULAR-GRAM-1
+  - RKHS3-SPECTRAL-SHRINKAGE-1
+  - RKHS3-LINEAR-PRIMAL-DUAL-1
+  - RKHS3-LAMBDA-LIMIT-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 3.5, review: 0.75 }
