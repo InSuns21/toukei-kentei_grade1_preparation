@@ -65,14 +65,14 @@ concepts:
       - fixedpoint.upper-hemicontinuity
 
   - id: optimization.unique-optimizer-continuity
-    name: 厳密凹性のもとでの一意最適解の連続性
+    name: 負の目的関数の狭義凸性のもとでの一意最適解の連続性
     kind: corollary
     aliases: []
     introduction: formal
-    introduction_aliases: ["系（厳密凹性のもとでの一意最適解の連続性）"]
+    introduction_aliases: ["系（負の目的関数の狭義凸性のもとでの一意最適解の連続性）"]
     requires:
       - optimization.berge-maximum-theorem
-      - convex.strictly-concave-function
+      - convex.strictly-convex-function
       - fixedpoint.singleton-correspondence-continuity
 
   - id: fixedpoint.local-strict-separation-no-fixed-point
@@ -107,5 +107,5 @@ concepts:
     requires:
       - fixedpoint.local-strict-separation-no-fixed-point
       - topology.finite-open-cover-continuous-weights
-      - fixedpoint.brouwer-convex
+      - fixedpoint.brouwer-compact-convex
       - optimization.projection-variational-inequality
