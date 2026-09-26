@@ -575,7 +575,7 @@ $$
 
 Lagrange 双対と KKT 条件を必要十分条件として使うには、強双対を正当化する必要があります。
 
-本章では [OPT5 の Slater 条件](../OPT5/index.md#thm-opt5-slater)を使います。
+本章では [OPT5 の Slater 条件](../OPT5/index.md#thm-opt5-slater-strong-duality)を使います。
 
 ハードマージンの不等式を
 
@@ -894,7 +894,7 @@ $$
 
 従って双対問題は定理に示した形になります。
 
-また線形分離可能性から前節で Slater 条件を確認したので、[OPT5 の強双対](../OPT5/index.md#thm-opt5-slater)により主問題と双対問題の最適値は一致します。
+また線形分離可能性から前節で Slater 条件を確認したので、[OPT5 の強双対](../OPT5/index.md#thm-opt5-slater-strong-duality)により主問題と双対問題の最適値は一致します。
 
 $w$ に関する最小化の一意な条件が
 
@@ -1380,7 +1380,7 @@ $$
 
 と置きます。
 
-$p^*$ は $C_+$ の中で $q^*$ に最も近い点です。[OPT2 の射影の変分不等式](../OPT2/index.md#thm-opt2-projection-vi)を $q^*$ から $C_+$ への射影へ適用すると、任意の $p\in C_+$ に対して
+$p^*$ は $C_+$ の中で $q^*$ に最も近い点です。[OPT2 の射影の変分不等式](../OPT2/index.md#thm-opt2-projection-variational-inequality)を $q^*$ から $C_+$ への射影へ適用すると、任意の $p\in C_+$ に対して
 
 $$
 (q^*-p^*)^{\mathsf T}(p-p^*)\le0.
