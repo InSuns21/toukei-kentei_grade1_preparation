@@ -1,0 +1,32 @@
+chapter: "MICRO4"
+terms:
+  - term: 生産集合
+    english: production set
+    meaning: 企業が技術的に実行可能な純産出ベクトル全体の集合 Y。正の成分を純産出、負の成分を純投入として読む。
+  - term: 純産出ベクトル
+    english: net output vector
+    meaning: 各財について企業が市場へ出す量を正、市場から受け取る量を負としてまとめたベクトル。
+  - term: 自由処分性
+    english: free disposal
+    meaning: 実行可能な生産計画から財をさらに捨てる、または余分に投入する方向へ動いても実行可能性が保たれる性質 Y-R_+^L subset Y。
+  - term: 利潤関数
+    english: profit function
+    meaning: 価格 p のもとで生産集合 Y 上の利潤 p·y の上限を返す関数 pi(p)。価格について1次同次かつ凸。
+  - term: 利潤最大化供給集合
+    english: profit-maximizing supply set
+    meaning: 価格 p のもとで p·y を最大にする純産出ベクトル全体の集合。
+  - term: Hotelling 型関係
+    english: Hotelling's lemma
+    meaning: 利潤関数が価格について微分可能なとき、その勾配が利潤最大化純産出ベクトルに等しくなる関係。
+  - term: 費用関数
+    english: cost function
+    meaning: 投入価格 w のもとで目標産出量 q を達成するために必要な最小投入費用 c(w,q)。
+  - term: 条件付き要素需要
+    english: conditional factor demand
+    meaning: 目標産出量を所与として、その産出量を最小費用で達成する投入ベクトル。
+  - term: 支持価格
+    english: supporting price
+    meaning: 生産集合 Y の点 y* について p·y <= p·y* を全ての y in Y に対して満たす非零の非負価格ベクトル。y* を利潤最大化点として支える。
+  - term: 生産フロンティア
+    english: production frontier
+    meaning: 技術的に達成可能な生産集合の境界のうち、産出を増やすには何らかの投入増加や別の産出減少が必要になる部分。

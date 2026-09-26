@@ -1,0 +1,158 @@
+chapter: MICRO4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MICRO3
+  - OPT2
+  - OPT5
+
+forward_references: []
+
+concepts:
+  - id: micro.production-set
+    name: 生産集合
+    kind: definition
+    aliases:
+      - production set
+    introduction: formal
+    introduction_aliases: ["定義（生産集合）"]
+    requires: []
+
+  - id: micro.free-disposal
+    name: 自由処分性
+    kind: definition
+    aliases:
+      - free disposal
+    introduction: formal
+    introduction_aliases: ["定義（自由処分性）"]
+    requires:
+      - micro.production-set
+
+  - id: micro.profit-function
+    name: 利潤関数
+    kind: definition
+    aliases:
+      - profit function
+    introduction: formal
+    introduction_aliases: ["定義（利潤関数・供給集合）"]
+    requires:
+      - micro.production-set
+
+  - id: micro.profit-supply-set
+    name: 利潤最大化供給集合
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（利潤関数・供給集合）"]
+    requires:
+      - micro.profit-function
+
+  - id: micro.profit-maximizer-existence
+    name: コンパクトな生産集合での利潤最大化点の存在
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（コンパクトな生産集合での利潤最大化点の存在）"]
+    requires:
+      - micro.profit-supply-set
+      - topology.extreme-value-theorem
+
+  - id: micro.profit-function-properties
+    name: 利潤関数の価格に関する性質
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（利潤関数の価格に関する性質）"]
+    requires:
+      - micro.profit-function
+
+  - id: micro.hotelling-relation
+    name: Hotelling 型関係
+    kind: theorem
+    aliases:
+      - Hotelling's lemma
+      - Hotelling lemma
+    introduction: formal
+    introduction_aliases: ["定理（Hotelling 型関係）"]
+    requires:
+      - micro.profit-function
+      - micro.profit-supply-set
+      - micro.profit-function-properties
+
+  - id: micro.producer-kkt
+    name: 凹生産関数の利潤最大化条件
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（凹生産関数の利潤最大化条件）"]
+    requires:
+      - optimization.kkt-conditions
+
+  - id: micro.cost-function
+    name: 費用関数
+    kind: definition
+    aliases:
+      - cost function
+    introduction: formal
+    introduction_aliases: ["定義（費用関数）"]
+    requires: []
+
+  - id: micro.conditional-factor-demand
+    name: 条件付き要素需要
+    kind: definition
+    aliases:
+      - conditional factor demand
+    introduction: formal
+    introduction_aliases: ["定義（条件付き要素需要）"]
+    requires:
+      - micro.cost-function
+
+  - id: micro.cost-minimizer-existence
+    name: 費用最小化点の存在
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（費用最小化点の存在）"]
+    requires:
+      - micro.conditional-factor-demand
+
+  - id: micro.cost-function-properties
+    name: 費用関数の投入価格に関する性質
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（費用関数の投入価格に関する性質）"]
+    requires:
+      - micro.cost-function
+
+  - id: micro.profit-cost-link
+    name: 利潤最大化と費用最小化の接続
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（利潤最大化と費用最小化の接続）"]
+    requires:
+      - micro.cost-function
+      - micro.profit-function
+
+  - id: micro.supporting-price
+    name: 支持価格
+    kind: definition
+    aliases:
+      - supporting price
+    introduction: formal
+    introduction_aliases: ["定義（支持価格）"]
+    requires:
+      - micro.production-set
+      - convex.supporting-hyperplane
+
+  - id: micro.production-supporting-price-theorem
+    name: 閉凸かつ自由処分可能な生産集合の支持価格
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（閉凸かつ自由処分可能な生産集合の支持価格）"]
+    requires:
+      - micro.supporting-price
+      - micro.free-disposal
+      - convex.supporting-hyperplane-theorem
