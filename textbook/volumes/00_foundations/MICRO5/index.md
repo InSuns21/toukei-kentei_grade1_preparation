@@ -70,17 +70,17 @@ $$
 > **定義（配分・実行可能配分）**  
 > 消費者 $i=1,\dots,I$ への消費ベクトルの組
 >
-> $$
-> x=(x_1,\dots,x_I)
-> $$
+$$
+x=(x_1,\dots,x_I)
+$$
 >
 > を **配分（allocation）**という。
 >
 > 総資源 $\Omega\in\mathbb R_+^L$ に対して
 >
-> $$
-> \sum_{i=1}^I x_i\le\Omega
-> $$
+$$
+\sum_{i=1}^I x_i\le\Omega
+$$
 >
 > を成分ごとに満たす配分を **実行可能配分（feasible allocation）**という。
 <!-- formal-statement-end -->
@@ -145,17 +145,17 @@ $$
 > **定義（パレート改善・パレート効率）**  
 > 実行可能配分 $x=(x_i)_{i=1}^I$ に対し、別の実行可能配分 $y=(y_i)_{i=1}^I$ が
 >
-> $$
-> y_i\succeq_i x_i
-> \qquad
-> (i=1,\dots,I)
-> $$
+$$
+y_i\succeq_i x_i
+\qquad
+(i=1,\dots,I)
+$$
 >
 > を満たし、少なくとも一人 $j$ について
 >
-> $$
-> y_j\succ_j x_j
-> $$
+$$
+y_j\succ_j x_j
+$$
 >
 > なら、$y$ は $x$ の **パレート改善（Pareto improvement）**である。
 >
@@ -206,15 +206,15 @@ $$
 > **定義（局所非飽和性）**  
 > 消費集合 $X_i\subset\mathbb R^L$ 上の選好が **局所非飽和（locally nonsatiated）**であるとは、任意の $x_i\in X_i$ と任意の近傍 $N$ に対して、
 >
-> $$
-> y_i\in N\cap X_i
-> $$
+$$
+y_i\in N\cap X_i
+$$
 >
 > で
 >
-> $$
-> y_i\succ_i x_i
-> $$
+$$
+y_i\succ_i x_i
+$$
 >
 > を満たす点が存在することをいう。
 <!-- formal-statement-end -->
@@ -269,22 +269,22 @@ $$
 > **定義（加重社会計画問題）**  
 > 厚生重み
 >
-> $$
-> \lambda=(\lambda_1,\dots,\lambda_I)\in\mathbb R_+^I\setminus\{0\}
-> $$
+$$
+\lambda=(\lambda_1,\dots,\lambda_I)\in\mathbb R_+^I\setminus\{0\}
+$$
 >
 > に対し、
 >
-> $$
-> \max_{x_1,\dots,x_I\ge0}
-> \sum_{i=1}^I\lambda_i u_i(x_i)
-> $$
+$$
+\max_{x_1,\dots,x_I\ge0}
+\sum_{i=1}^I\lambda_i u_i(x_i)
+$$
 >
 > subject to
 >
-> $$
-> \sum_{i=1}^I x_i\le\Omega
-> $$
+$$
+\sum_{i=1}^I x_i\le\Omega
+$$
 >
 > を **加重社会計画問題（weighted social planner problem）**という。
 <!-- formal-statement-end -->
@@ -344,9 +344,9 @@ $$
 > **定理（正の厚生重みを持つ社会計画解の パレート効率性）**  
 > 全ての厚生重みが
 >
-> $$
-> \lambda_i>0
-> $$
+$$
+\lambda_i>0
+$$
 >
 > であるとする。
 >
@@ -417,15 +417,15 @@ $$
 > **定義（効用可能集合）**  
 > 実行可能配分全体を $F$ とする。
 >
-> $$
-> \mathcal U
-> =
-> \left\{
-> v\in\mathbb R^I:
-> \text{ある }x\in F\text{ が存在し、 }
-> v_i\le u_i(x_i)\ (\forall i)
-> \right\}
-> $$
+$$
+\mathcal U
+=
+\left\{
+v\in\mathbb R^I:
+\text{ある }x\in F\text{ が存在し、 }
+v_i\le u_i(x_i)\ (\forall i)
+\right\}
+$$
 >
 > を **効用可能集合（utility possibility set）**という。
 <!-- formal-statement-end -->
@@ -458,14 +458,14 @@ $$
 >
 > 実行可能集合
 >
-> $$
-> F=
-> \left\{
-> (x_1,\dots,x_I):
-> x_i\ge0,\ 
-> \sum_i x_i\le\Omega
-> \right\}
-> $$
+$$
+F=
+\left\{
+(x_1,\dots,x_I):
+x_i\ge0,\ 
+\sum_i x_i\le\Omega
+\right\}
+$$
 >
 > から得られる効用可能集合 $\mathcal U$ は凸集合である。
 <!-- formal-statement-end -->
@@ -522,27 +522,27 @@ $$
 >
 > $x^*$ が パレート効率な実行可能配分で、
 >
-> $$
-> u^*
-> =
-> (u_1(x_1^*),\dots,u_I(x_I^*))
-> $$
+$$
+u^*
+=
+(u_1(x_1^*),\dots,u_I(x_I^*))
+$$
 >
 > と置く。
 >
 > このとき、ある
 >
-> $$
-> \lambda\in\mathbb R_+^I\setminus\{0\}
-> $$
+$$
+\lambda\in\mathbb R_+^I\setminus\{0\}
+$$
 >
 > が存在して、全ての実行可能配分 $x$ に対し
 >
-> $$
-> \sum_i\lambda_i u_i(x_i)
-> \le
-> \sum_i\lambda_i u_i(x_i^*)
-> $$
+$$
+\sum_i\lambda_i u_i(x_i)
+\le
+\sum_i\lambda_i u_i(x_i^*)
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -646,9 +646,9 @@ $$
 > **定理（社会計画問題の共通資源価格条件）**  
 > 各 $u_i$ は凹で微分可能とする。厚生重みは $\lambda_i>0$ とし、社会計画問題の解 $x^*$ が
 >
-> $$
-> x_i^*\in\mathbb R_{++}^L
-> $$
+$$
+x_i^*\in\mathbb R_{++}^L
+$$
 >
 > を満たすとする。
 >
@@ -656,17 +656,17 @@ $$
 >
 > このとき、ある
 >
-> $$
-> p\in\mathbb R_{++}^L
-> $$
+$$
+p\in\mathbb R_{++}^L
+$$
 >
 > が存在して
 >
-> $$
-> \lambda_i\nabla u_i(x_i^*)=p
-> \qquad
-> (i=1,\dots,I)
-> $$
+$$
+\lambda_i\nabla u_i(x_i^*)=p
+\qquad
+(i=1,\dots,I)
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -864,26 +864,26 @@ $$
 > **定義（価格支持された分権的配分）**  
 > 価格
 >
-> $$
-> p\in\mathbb R_{++}^L
-> $$
+$$
+p\in\mathbb R_{++}^L
+$$
 >
 > と所得 $m_i>0$ が与えられているとする。
 >
 > 実行可能配分 $x^*$ が **価格支持された分権的配分**であるとは、各消費者 $i$ について
 >
-> $$
-> x_i^*
-> \in
-> \operatorname*{arg\,max}_{x_i\ge0}
-> \{u_i(x_i):p\cdot x_i\le m_i\}
-> $$
+$$
+x_i^*
+\in
+\operatorname*{arg\,max}_{x_i\ge0}
+\{u_i(x_i):p\cdot x_i\le m_i\}
+$$
 >
 > が成り立ち、さらに
 >
-> $$
-> \sum_i m_i=p\cdot\Omega
-> $$
+$$
+\sum_i m_i=p\cdot\Omega
+$$
 >
 > が成り立つことをいう。
 <!-- formal-statement-end -->
@@ -1079,48 +1079,48 @@ $$
 > **定理（第二厚生定理の移転付き滑らかな凹効用版）**  
 > 総資源が
 >
-> $$
-> \Omega\in\mathbb R_{++}^L
-> $$
+$$
+\Omega\in\mathbb R_{++}^L
+$$
 >
 > であり、各効用関数
 >
-> $$
-> u_i:\mathbb R_+^L\to\mathbb R
-> $$
+$$
+u_i:\mathbb R_+^L\to\mathbb R
+$$
 >
 > は連続かつ凹で、$\mathbb R_{++}^L$ 上で微分可能、かつ各限界効用が正であるとする。
 >
 > $x^*$ を
 >
-> $$
-> x_i^*\in\mathbb R_{++}^L,
-> \qquad
-> \sum_i x_i^*=\Omega
-> $$
+$$
+x_i^*\in\mathbb R_{++}^L,
+\qquad
+\sum_i x_i^*=\Omega
+$$
 >
 > を満たす パレート効率配分とする。
 >
 > このとき、ある価格
 >
-> $$
-> p\in\mathbb R_{++}^L
-> $$
+$$
+p\in\mathbb R_{++}^L
+$$
 >
 > が存在する。
 >
 > 各消費者の所得を
 >
-> $$
-> m_i=p\cdot x_i^*
-> $$
+$$
+m_i=p\cdot x_i^*
+$$
 >
 > と定めれば、各 $x_i^*$ は
 >
-> $$
-> \max_{x_i\ge0}
-> \{u_i(x_i):p\cdot x_i\le m_i\}
-> $$
+$$
+\max_{x_i\ge0}
+\{u_i(x_i):p\cdot x_i\le m_i\}
+$$
 >
 > の解である。
 >
