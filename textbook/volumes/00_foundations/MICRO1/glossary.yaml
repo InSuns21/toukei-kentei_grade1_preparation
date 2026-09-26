@@ -1,0 +1,38 @@
+chapter: "MICRO1"
+terms:
+  - term: 選好関係
+    english: preference relation
+    meaning: 二つの選択肢 x,y について、x を y 以上に望むかを表す比較規則。
+  - term: 狭義選好
+    english: strict preference
+    meaning: x を y 以上に望む一方で y を x 以上には望まないときの関係。
+  - term: 無差別
+    english: indifference
+    meaning: x を y 以上に望み、同時に y も x 以上に望むときの関係。
+  - term: 完備性
+    english: completeness
+    meaning: 任意の二つの選択肢を少なくとも一方向には比較できるという選好の性質。
+  - term: 推移性
+    english: transitivity
+    meaning: x を y 以上に、y を z 以上に望むなら x を z 以上に望むという選好の一貫性。
+  - term: 単調な選好
+    english: monotone preference
+    meaning: すべての財が減らずに増えた選択肢を、元の選択肢以上に望む選好。
+  - term: 上位集合
+    english: upper contour set
+    meaning: 基準点 y 以上に望まれる選択肢全体 U(y)={x:x≽y}。
+  - term: 下位集合
+    english: lower contour set
+    meaning: 基準点 y がそれ以上に望まれる選択肢全体 L(y)={x:y≽x}。
+  - term: 凸選好
+    english: convex preference
+    meaning: 任意の基準点に対する上位集合が凸集合になる選好。二つの十分に良い選択肢を混ぜても基準点より悪くならない。
+  - term: 効用表現
+    english: utility representation
+    meaning: x≽y と u(x)≥u(y) が同値になる実数値関数 u による選好順序の表現。
+  - term: 辞書式選好
+    english: lexicographic preference
+    meaning: 第一座標を優先して比較し、第一座標が等しい場合だけ第二座標を比較する選好。
+  - term: 準凹関数
+    english: quasiconcave function
+    meaning: 線分上の値が両端の小さい方を下回らない関数。効用表現がある場合、凸選好と同値な関数側の性質。
