@@ -780,7 +780,7 @@ $$
 
 と仮定します。
 
-支出最小化点の存在定理より、ある
+[支出最小化点の存在](#thm-micro3-expenditure-existence)より、ある
 
 $$
 h^*\in H(p,\bar u_0)
@@ -926,9 +926,9 @@ $$
 
 を取ります。
 
-前節の命題より
+[支出最小化では目標効用が等号になる命題](#prop-micro3-target-binding)より
 
-$$
+$
 u(h^*)=\bar u.
 $$
 
@@ -1368,57 +1368,57 @@ $$
 
 ここで任意の方向 $d\in\mathbb R^L$ を取ります。$p\in\mathbb R_{++}^L$ なので、$|t|$ を十分小さくすれば
 
-$
+$$
 p+td\in\mathbb R_{++}^L
-$
+$$
 
 です。
 
 $q=p+td$ と置くと
 
-$
+$$
 e(p+td,\bar u)-e(p,\bar u)
 \le
 t\,d\cdot h.
-$
+$$
 
 まず $t>0$ で割って $t\downarrow0$ とすると、微分可能性から
 
-$
+$$
 \nabla_p e(p,\bar u)\cdot d
 \le
 h\cdot d.
-$
+$$
 
 次に $t<0$ で割ると不等号が反転するので、$t\uparrow0$ として
 
-$
+$$
 \nabla_p e(p,\bar u)\cdot d
 \ge
 h\cdot d.
-$
+$$
 
 従って任意の方向 $d$ について
 
-$
+$$
 \nabla_p e(p,\bar u)\cdot d
 =
 h\cdot d.
-$
+$$
 
 よって
 
-$
+$$
 h=\nabla_p e(p,\bar u).
-$
+$$
 
 これは任意の $h\in H(p,\bar u)$ について成り立つため Hicks 需要は一意で、成分ごとに
 
-$
+$$
 h_i(p,\bar u)
 =
 \frac{\partial e}{\partial p_i}(p,\bar u)
-$
+$$
 
 が成り立ちます。
 <!-- proof-end -->
@@ -1539,7 +1539,7 @@ $$
 p\cdot x(p,m)=m.
 $$
 
-また KKT 条件より、ある $\lambda>0$ が存在して
+また [KKT 条件](../OPT5/index.md#thm-opt5-kkt)より、ある $\lambda>0$ が存在して
 
 $$
 \nabla u(x(p,m))
@@ -1797,7 +1797,7 @@ $$
 \frac{\partial e}{\partial p_j}.
 $$
 
-Shephard 型関係から
+[Shephard 型関係](#thm-micro3-shephard)から
 
 $$
 \frac{\partial e}{\partial p_j}
@@ -1915,7 +1915,7 @@ $$
 \frac12.
 $$
 
-Slutsky 分解より
+[Slutsky 分解](#thm-micro3-slutsky)より
 
 $$
 \frac{\partial h_1}{\partial p_1}
@@ -1998,7 +1998,7 @@ $$
 
 ## 14. Slutsky 行列は支出関数の曲率を見ている
 
-Shephard 型関係から
+[Shephard 型関係](#thm-micro3-shephard)から
 
 $$
 h_i(p,\bar u)
@@ -2979,14 +2979,14 @@ $$
    $$
    を示せ。
 2. 任意の方向 $d\in\mathbb R^L$ と十分小さい $t>0$、$t<0$ に対して $q=p+td$ を代入し、差商の上下から
-   $
+$$
    \nabla_p e(p,\bar u)\cdot d=h\cdot d
-   $
+$$
    を導け。
 3. $e$ が $p$ で微分可能なら
-   $
+$$
    h=\nabla_p e(p,\bar u)
-   $
+$$
    を結論せよ。
 
 <!-- solution-start -->
@@ -3048,83 +3048,83 @@ $$
 
 $p$ の全成分は正なので、$|t|$ を十分小さくすれば
 
-$
+$$
 p+td\in\mathbb R_{++}^L
-$
+$$
 
 です。
 
 1の不等式へ $q=p+td$ を代入すると
 
-$
+$$
 e(p+td,\bar u)-e(p,\bar u)
 \le
 t\,d\cdot h.
-$
+$$
 
 $t>0$ で割れば
 
-$
+$$
 \frac{
 e(p+td,\bar u)-e(p,\bar u)
 }{t}
 \le
 d\cdot h.
-$
+$$
 
 $t\downarrow0$ とし、$e$ の微分可能性を使うと
 
-$
+$$
 \nabla_p e(p,\bar u)\cdot d
 \le
 d\cdot h.
-$
+$$
 
 一方 $t<0$ で割ると不等号が反転して
 
-$
+$$
 \frac{
 e(p+td,\bar u)-e(p,\bar u)
 }{t}
 \ge
 d\cdot h.
-$
+$$
 
 $t\uparrow0$ とすると
 
-$
+$$
 \nabla_p e(p,\bar u)\cdot d
 \ge
 d\cdot h.
-$
+$$
 
 従って
 
-$
+$$
 \boxed{
 \nabla_p e(p,\bar u)\cdot d
 =
 h\cdot d
 }
-$
+$$
 
 が任意の $d$ で成り立ちます。
 
 3. 任意の方向との内積が等しいので
 
-$
+$$
 h=\nabla_p e(p,\bar u).
-$
+$$
 
 従って成分ごとに
 
-$
+$$
 \boxed{
 h_i(p,\bar u)
 =
 \frac{\partial e}{\partial p_i}(p,\bar u).
 }
-$
+$$
 
 これが Shephard 型関係です。
 <!-- solution-end -->
@@ -3162,7 +3162,7 @@ $$
    \frac{\partial v}{\partial p_2}
    $$
    を求めよ。
-2. Roy 型関係から $x_1,x_2$ を復元せよ。
+2. [Roy 型関係](#thm-micro3-roy)から $x_1,x_2$ を復元せよ。
 3. MICRO2 の Marshall 需要と一致することを確認せよ。
 
 <!-- solution-start -->
@@ -3214,7 +3214,7 @@ p_1^{-\alpha}
 p_2^{-(2-\alpha)}.
 $$
 
-2. Roy 型関係より
+2. [Roy 型関係](#thm-micro3-roy)より
 
 $$
 x_1
