@@ -3,7 +3,7 @@ title: "最大マージンとハードマージン SVM"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - RKHS3
+  - OPT2
   - OPT12
 official_scope: []
 learning_objectives:
