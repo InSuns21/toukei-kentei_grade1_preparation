@@ -7,6 +7,9 @@ prerequisites:
   - F0-00D2E
   - GPDE3
 
+forward_references:
+  - numerical.dual-lattice
+
 concepts:
   - id: numerical.qmc-integration-functional
     name: RKHS 上の積分汎関数
