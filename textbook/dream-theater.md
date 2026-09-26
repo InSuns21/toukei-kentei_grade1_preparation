@@ -254,6 +254,12 @@ Hilbert 空間と Riesz 表現から再生核を構成し、有限標本上の�
 4. [RKHS4 最大マージンとハードマージン SVM](textbook/volumes/00_foundations/RKHS4/index.md)
 5. [RKHS5 ソフトマージン・ヒンジ損失・カーネル SVM](textbook/volumes/00_foundations/RKHS5/index.md)
 
+### 不動点・対応
+
+有限次元の単体と凸集合から不動点の存在を導き、後続の集合値写像・Kakutani 不動点定理へ進む共通基盤です。
+
+1. [FIX1 Sperner の補題・Brouwer 不動点定理](textbook/volumes/00_foundations/FIX1/index.md)
+
 ---
 
 ## 2. 確率論
