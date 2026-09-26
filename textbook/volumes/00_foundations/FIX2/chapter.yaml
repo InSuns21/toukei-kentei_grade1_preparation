@@ -1,0 +1,50 @@
+id: "FIX2"
+title: "集合値写像・対応"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00C1
+  - FIX1
+official_scope: []
+learning_objectives:
+  - 対応（集合値写像）とそのグラフを定義し、通常の写像との違いを具体例で説明できる
+  - 閉値・コンパクト値・凸値を各値集合ごとの性質として判定し、グラフ全体の性質と区別できる
+  - 対応の上半連続性を「値集合が外へ突然広がらない」という開集合条件から判定できる
+  - 対応の下半連続性を「既存の値が突然消えない」という開集合条件から判定できる
+  - 1点値対応では上半連続性・下半連続性が通常の連続性へ戻ることを証明できる
+  - コンパクト値な上半連続対応が閉グラフを持つことを証明できる
+  - 終域がコンパクトな距離空間なら閉グラフから上半連続性を導けることを証明し、コンパクト性を外した反例を説明できる
+  - 下半連続性の点列判定を証明し、値を追跡する点列を構成できる
+  - 最適反応対応と需要対応の具体例で、非空・コンパクト値・凸値・上半連続性・下半連続性を実際に検算できる
+  - 対応の不動点 x in Gamma(x) を通常の不動点の拡張として理解し、Kakutani 型定理で必要になる条件を整理できる
+definitions:
+  - { id: FIX2-DEF-01, name: 対応・グラフ }
+  - { id: FIX2-DEF-02, name: 閉値・コンパクト値・凸値 }
+  - { id: FIX2-DEF-03, name: 対応の上半連続性 }
+  - { id: FIX2-DEF-04, name: 対応の下半連続性 }
+  - { id: FIX2-DEF-05, name: 対応の不動点 }
+theorems:
+  - { id: FIX2-PROP-01, name: 1点値対応と通常の連続性 }
+  - { id: FIX2-PROP-02, name: コンパクト値な上半連続対応は閉グラフを持つ }
+  - { id: FIX2-PROP-03, name: コンパクト終域で閉グラフなら上半連続 }
+  - { id: FIX2-COR-01, name: コンパクト終域での上半連続性と閉グラフの同値 }
+  - { id: FIX2-PROP-04, name: 下半連続性の点列判定 }
+canonical_examples:
+  - 区間対応 Gamma(x)=[0,x] の閉値・コンパクト値・凸値と両半連続性
+  - tie で値集合が広がる二択最適反応対応
+  - 線形効用の二財需要対応で起こる tie と需要集合の拡大
+  - 非コンパクト終域で閉グラフだが上半連続でない対応
+  - 上半連続だが下半連続でない対応と、下半連続だが上半連続でない対応
+problem_patterns:
+  - FIX2-GRAPH-VALUES-1
+  - FIX2-UHC-LHC-CLASSIFY-1
+  - FIX2-CLOSED-GRAPH-1
+  - FIX2-FIXED-POINT-1
+  - FIX2-SINGLETON-CONTINUITY-1
+  - FIX2-NONCOMPACT-COUNTEREXAMPLE-1
+  - FIX2-BEST-RESPONSE-1
+  - FIX2-INTERVAL-CORRESPONDENCE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 4.0, review: 0.75 }
