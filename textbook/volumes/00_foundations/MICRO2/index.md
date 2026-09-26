@@ -20,13 +20,13 @@ $$
 
 $$
 \boxed{
-\text{予算集合}
+\text{買える集合}
 \longrightarrow
 \text{最適消費}
 \longrightarrow
 \text{KKT 条件}
 \longrightarrow
-\text{限界代替率と価格比}
+\text{限界的な交換比と価格比}
 }
 $$
 
@@ -218,7 +218,7 @@ $$
 
 ---
 
-## 3. 最適消費を Marshall 需要としてまとめる
+## 3. 最適消費を一つまたは複数の点としてまとめる
 
 <a id="def-micro2-marshall-demand"></a>
 
@@ -559,7 +559,7 @@ $$
 
 ---
 
-## 7. 内点解と端点解を区別する
+## 7. 全財を正に買う場合と買わない財を含む場合を区別する
 
 <a id="def-micro2-interior-corner"></a>
 
@@ -882,7 +882,7 @@ $$
 
 ---
 
-## 10. 限界代替率は無差別曲線の傾きを表す
+## 10. 無差別曲線の傾きを表す比を定義する
 
 <a id="def-micro2-mrs"></a>
 
