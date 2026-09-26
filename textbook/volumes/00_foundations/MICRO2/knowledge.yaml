@@ -1,0 +1,124 @@
+chapter: MICRO2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MICRO1
+  - OPT5
+  - F0-00C2
+
+forward_references: []
+
+concepts:
+  - id: micro.budget-set
+    name: 予算集合
+    kind: definition
+    aliases:
+      - budget set
+    introduction: formal
+    introduction_aliases: ["定義（予算集合）"]
+    requires:
+      - convex.convex-set
+
+  - id: micro.budget-set-compactness
+    name: 予算集合の非空性・凸性・コンパクト性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（予算集合の非空性・凸性・コンパクト性）"]
+    requires:
+      - micro.budget-set
+      - convex.convex-set
+
+  - id: micro.marshall-demand
+    name: Marshall 需要
+    kind: definition
+    aliases:
+      - Marshallian demand
+    introduction: formal
+    introduction_aliases: ["定義（Marshall 需要）"]
+    requires:
+      - micro.budget-set
+      - micro.utility-representation
+
+  - id: micro.marshall-demand-existence
+    name: Marshall 需要の存在
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（Marshall 需要の存在）"]
+    requires:
+      - micro.marshall-demand
+      - micro.budget-set-compactness
+
+  - id: micro.budget-exhaustion
+    name: 狭義単調な選好での予算使い切り
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（狭義単調な選好では予算制約が等号になる）"]
+    requires:
+      - micro.marshall-demand
+      - micro.strictly-monotone-preference
+
+  - id: micro.marshall-demand-homogeneity
+    name: Marshall 需要の0次同次性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（Marshall 需要の0次同次性）"]
+    requires:
+      - micro.marshall-demand
+      - micro.budget-set
+
+  - id: micro.interior-solution
+    name: 内点解
+    kind: definition
+    aliases:
+      - interior solution
+    introduction: formal
+    introduction_aliases: ["定義（内点解・端点解）"]
+    requires:
+      - micro.marshall-demand
+
+  - id: micro.corner-solution
+    name: 端点解
+    kind: definition
+    aliases:
+      - corner solution
+    introduction: formal
+    introduction_aliases: ["定義（内点解・端点解）"]
+    requires:
+      - micro.marshall-demand
+
+  - id: micro.consumer-kkt
+    name: 消費者問題の KKT 条件
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（消費者問題の KKT 条件）"]
+    requires:
+      - micro.budget-set
+      - optimization.kkt-conditions
+      - optimization.slater-condition
+
+  - id: micro.marginal-rate-substitution
+    name: 限界代替率
+    kind: definition
+    aliases:
+      - marginal rate of substitution
+      - MRS
+    introduction: formal
+    introduction_aliases: ["定義（限界代替率）"]
+    requires:
+      - micro.utility-representation
+
+  - id: micro.mrs-price-ratio
+    name: 内点解における限界代替率と価格比
+    kind: corollary
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["系（内点解における限界代替率と価格比）"]
+    requires:
+      - micro.consumer-kkt
+      - micro.interior-solution
+      - micro.marginal-rate-substitution
