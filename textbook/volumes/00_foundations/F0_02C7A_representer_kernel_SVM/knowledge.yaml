@@ -2,11 +2,16 @@ chapter: F0-02C7A
 scope: dream-theater
 coverage: complete
 prerequisites:
-  - F0-02C7
+  - RKHS1
+  - OPT6A
   - F0-02C3
   - F0-02B1
   - F0-02C5A
   - F0-02C6A
+
+forward_references:
+  - ode.ode7-eigenpair
+  - ode.ode7-eigenfunction-expansion
 
 concepts:
   - id: rkhs.representer-theorem

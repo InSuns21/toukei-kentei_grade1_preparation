@@ -1218,7 +1218,8 @@ DOPT1 → DOPT2 → DOPT3 → DOPT4
 - [x] DOPT2「ネットワーク最適化」を実装。容量付き有向ネットワーク、s--t フロー、カット、残余ネットワーク、増加路、最大流最小カット定理、整数容量での整数最大流、最小費用流、負費用残余閉路による最適性条件を canonical 化した。
 - [x] DOPT3「マッチング・割当問題」を実装。二部グラフ、増加路と Berge の補題、最大フローとの対応、Hall の定理、割当問題の 0--1 線形計画表示、LP 緩和、マッチング多面体、割当 LP の双対を canonical 化した。
 - [x] DOPT4「全単模性・整数多面体」を実装。全単模行列、点弧接続行列・二部頂点辺接続行列・ネットワーク行列の全単模性、全単模性と整数右辺による頂点整数性、二部マッチング多面体・割当 LP・Birkhoff--von Neumann・フロー多面体の整数性を canonical 化した。
-- 次の実装対象：**RKHS1「再生核 Hilbert 空間・Moore--Aronszajn」**
+- [x] RKHS1「再生核 Hilbert 空間・Moore--Aronszajn」を実装。評価汎関数の連続性から再生核を導き、正半定値核から核切片の内積空間を構成し、完備化後の関数同定と核切片の稠密性まで含めて Moore--Aronszajn の存在・一意性を canonical 化した。
+- 次の実装対象：**RKHS2「representer theorem」**
 
 ```text
 RKHS1 → RKHS2 → RKHS3 → RKHS4 → RKHS5

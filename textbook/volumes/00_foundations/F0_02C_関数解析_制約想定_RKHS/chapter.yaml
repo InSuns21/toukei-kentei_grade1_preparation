@@ -18,5 +18,6 @@ canonical_examples: [F0-00からRKHSまでの完全通読ルート]
 problem_patterns: []
 past_exam_alignment: []
 integrated_exam_problems: []
+dream_theater_exercise_count_exception: "学習順と依存関係を案内するロードマップであり、演習問題を置く教材章ではないため。"
 exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
 estimated_hours: { reading: 0.75, exercises: 0, review: 0 }
