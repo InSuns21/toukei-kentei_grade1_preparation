@@ -330,22 +330,22 @@ $$
 
 [RKHS2 の表現定理の射影論証](../RKHS2/index.md#thm-rkhs2-representer)により、任意の $f\in\mathcal H$ を標本部分空間へ直交射影しても訓練点での値は変わらず、$\lambda>0$ の二乗ノルム正則化は増えません。従って
 
-$
+$$
 \inf_{f\in\mathcal H}J_\lambda(f)
 =
 \inf_{f\in S}J_\lambda(f),
 \qquad
 S=\operatorname{span}\{K_{x_1},\dots,K_{x_n}\}.
-$
+$$
 
 よってまず
 
-$
+$$
 f(\cdot)
 =
 \sum_{i=1}^n
 \alpha_iK(x_i,\cdot)
-$
+$$
 
 と置いた有限次元問題を解けば十分です。このとき
 
