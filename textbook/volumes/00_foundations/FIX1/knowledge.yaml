@@ -8,15 +8,26 @@ prerequisites:
 forward_references: []
 
 concepts:
+  - id: fixedpoint.simplex
+    name: 単体
+    kind: definition
+    aliases:
+      - simplex
+    introduction: formal
+    introduction_aliases: ["定義（単体・標準単体）"]
+    requires:
+      - convex.convex-hull
+      - linear.linear-independence
+
   - id: fixedpoint.standard-simplex
     name: 標準単体
     kind: definition
     aliases:
       - standard simplex
     introduction: formal
-    introduction_aliases: ["定義（標準単体）"]
+    introduction_aliases: ["定義（単体・標準単体）"]
     requires:
-      - convex.convex-hull
+      - fixedpoint.simplex
 
   - id: fixedpoint.triangulation
     name: 三角形分割
@@ -27,6 +38,7 @@ concepts:
     introduction_aliases: ["定義（三角形分割とメッシュ）"]
     requires:
       - fixedpoint.standard-simplex
+      - fixedpoint.simplex
 
   - id: fixedpoint.mesh
     name: 三角形分割のメッシュ
