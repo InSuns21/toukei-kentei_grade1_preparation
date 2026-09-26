@@ -1,0 +1,23 @@
+chapter: "MICRO7"
+terms:
+  - term: 規格化価格単体
+    english: normalized price simplex
+    meaning: 非負価格ベクトルの成分和を1に固定した集合。価格尺度の自由度を除き、コンパクトな価格領域を得る。
+  - term: 切断消費集合
+    english: truncated consumption set
+    meaning: 存在証明のため、各財の消費量に十分大きな共通上限を置いて作るコンパクトな箱型集合。
+  - term: 切断予算対応
+    english: truncated budget correspondence
+    meaning: 規格化価格ごとに、切断消費集合の中で初期保有価値以下の支出で購入できる束を返す対応。
+  - term: 切断需要対応
+    english: truncated demand correspondence
+    meaning: 切断予算集合上で効用を最大化する消費束の集合を価格ごとに返す対応。
+  - term: 競売人価格対応
+    english: auctioneer price correspondence
+    meaning: 与えられた超過需要を価格で評価した値を最大にする規格化価格の集合を返す対応。
+  - term: 一般均衡の存在
+    english: existence of general equilibrium
+    meaning: 各消費者の最適化と全市場の清算を同時に満たす価格と配分が、一定の十分条件のもとで存在すること。
+  - term: 境界価格
+    english: boundary price
+    meaning: 規格化価格単体の境界にある、少なくとも一つの財の価格が0である価格ベクトル。
