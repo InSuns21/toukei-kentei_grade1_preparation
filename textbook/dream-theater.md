@@ -262,6 +262,7 @@ Hilbert 空間と Riesz 表現から再生核を構成し、有限標本上の�
 2. [FIX2 集合値写像・対応](textbook/volumes/00_foundations/FIX2/index.md)
 3. [FIX3 Berge 最大値定理・Kakutani 不動点定理](textbook/volumes/00_foundations/FIX3/index.md)
 4. [MICRO1 選好・効用・凸性](textbook/volumes/00_foundations/MICRO1/index.md)
+5. [MICRO2 消費者最適化・需要](textbook/volumes/00_foundations/MICRO2/index.md)
 
 ---
 
