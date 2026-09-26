@@ -1,0 +1,45 @@
+id: "FIX3"
+title: "Berge 最大値定理・Kakutani 不動点定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FIX2
+official_scope: []
+learning_objectives:
+  - パラメータ付き最大化問題から価値関数と最大化点対応を定義し、具体例で両者を計算できる
+  - 対応の上半連続性とコンパクト値性から、近傍の選択列に収束部分列を取り出せる理由を証明できる
+  - Berge 最大値定理の仮定を一つずつ確認し、価値関数の連続性と最大化点対応の非空・コンパクト値・上半連続性を証明できる
+  - 対応の下半連続性が価値関数の下側連続性を、上半連続性が上側連続性を支えることを反例とともに説明できる
+  - 厳密凹性により最大化点が一意になるとき、最適解写像が連続になることを導ける
+  - Kakutani 不動点定理の非空・コンパクト・凸値・上半連続・領域の非空コンパクト凸性を局所的に検査できる
+  - 不動点がないと仮定したとき、最近点射影から局所的な厳密分離方向を構成できる
+  - 有限開被覆から連続な重みを明示構成し、局所分離方向を連続ベクトル場へ貼り合わせられる
+  - Brouwer 不動点定理と射影の変分不等式を使って Kakutani 不動点定理の核心証明を閉じられる
+  - Kakutani の各仮定を外した反例で、証明のどの機構が壊れるか説明できる
+definitions:
+  - { id: FIX3-DEF-01, name: パラメータ付き最大化・価値関数・最大化点対応 }
+theorems:
+  - { id: FIX3-LEM-01, name: 上半連続コンパクト値対応の選択列コンパクト性 }
+  - { id: FIX3-THM-01, name: Berge 最大値定理 }
+  - { id: FIX3-COR-01, name: 厳密凹性のもとでの一意最適解の連続性 }
+  - { id: FIX3-LEM-02, name: 不動点不存在時の局所厳密分離 }
+  - { id: FIX3-LEM-03, name: 有限開被覆に従属する連続重み }
+  - { id: FIX3-THM-02, name: Kakutani 不動点定理 }
+canonical_examples:
+  - 可行集合 F(x)=[0,1+x] と目的関数 u(x,y)=y の価値関数・最大化点対応
+  - 線形目的関数の係数が符号反転する点で最大化点集合が広がり、最大化点対応が下半連続でなくなる例
+  - 可行対応の上半連続性または下半連続性を失うと価値関数の片側連続性が壊れる例
+  - 区間自己対応 Gamma(x)=[(1-x)/2,1/2] の Kakutani 条件と不動点集合
+  - 非凸値・上半連続性欠如・領域の非コンパクト性・非凸性を外した不動点不存在例
+problem_patterns:
+  - FIX3-VALUE-ARGMAX-1
+  - FIX3-BERGE-ASSUMPTIONS-1
+  - FIX3-BERGE-TIE-1
+  - FIX3-KAKUTANI-CHECK-1
+  - FIX3-KAKUTANI-COUNTEREXAMPLE-1
+  - FIX3-COVER-WEIGHTS-1
+  - FIX3-BEST-RESPONSE-BRIDGE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.5, review: 0.75 }
