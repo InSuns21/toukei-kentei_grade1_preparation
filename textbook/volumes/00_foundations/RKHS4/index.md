@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-[OPT12](../OPT12/index.md#def-opt12-quadratic-program) では、ハードマージン SVM の主問題が凸二次計画になるところまで見ました。ここでは、その式を「機械学習の例」として眺めるだけで終わらせず、
+[OPT12](../OPT12/index.md#def-opt12-quadratic-program) では、2クラス最大マージン分類に現れる主問題が凸二次計画になるところまで見ました。ここでは、その式を「機械学習の例」として眺めるだけで終わらせず、
 
 $$
 \boxed{
@@ -315,6 +315,27 @@ $$
 
 したがってマージン最大化は $\|w\|_2$ 最小化へ変わります。
 
+<a id="def-rkhs4-hard-margin-svm"></a>
+<!-- formal-statement-start -->
+> **定義（ハードマージン SVM）**  
+> 線形分離可能な訓練データ $(x_i,y_i)_{i=1}^n$ に対し
+>
+$
+\min_{w\in\mathbb R^p,\ b\in\mathbb R}
+\frac12\|w\|_2^2
+$
+>
+> subject to
+>
+$
+y_i(w^{\mathsf T}x_i+b)\ge1
+\qquad
+(i=1,\dots,n)
+$
+>
+> を **ハードマージン SVM** の主問題という。
+<!-- formal-statement-end -->
+
 <a id="thm-rkhs4-primal-max-margin"></a>
 <!-- formal-statement-start -->
 > **定理（最大マージン問題とハードマージン SVM の同値性）**  
@@ -459,28 +480,7 @@ $$
 
 ---
 
-## 4. ハードマージン SVM は凸二次計画である
-
-<a id="def-rkhs4-hard-margin-svm"></a>
-<!-- formal-statement-start -->
-> **定義（ハードマージン SVM）**  
-> 線形分離可能な訓練データ $(x_i,y_i)_{i=1}^n$ に対し
->
-$$
-\min_{w\in\mathbb R^p,\ b\in\mathbb R}
-\frac12\|w\|_2^2
-$$
->
-> subject to
->
-$$
-y_i(w^{\mathsf T}x_i+b)\ge1
-\qquad
-(i=1,\dots,n)
-$$
->
-> を **ハードマージン SVM** の主問題という。
-<!-- formal-statement-end -->
+## 4. 主問題を凸二次計画として読む
 
 <!-- definition-example-start: def-rkhs4-hard-margin-svm -->
 **定義の確認**：1次元の主問題を直接解く
@@ -993,7 +993,7 @@ $$
 \sum_i\alpha_i^* y_i=0.
 $$
 >
-> **停留条件**
+> **$w,b$ に関する条件**
 >
 $$
 w^*
@@ -1114,7 +1114,7 @@ $$
 
 ### 7.2 分類器は全点ではなく一部の点に支えられる
 
-停留条件は
+KKT の $w,b$ に関する式は
 
 $$
 w^*
@@ -1697,7 +1697,7 @@ $$
 
 と置きます。
 
-最適解では $w^*\ne0$ なので、停留条件
+最適解では $w^*\ne0$ なので、KKT の $w$ に関する式
 
 $$
 w^*
@@ -2326,7 +2326,7 @@ $$
 
 残りの点では $\alpha_i=0$ です。
 
-従って主実行可能性・双対実行可能性・停留条件・相補性がすべて確認できます。
+従って主実行可能性・双対実行可能性・$w,b$ に関する式・相補性がすべて確認できます。
 
 一つの小さな例で
 
@@ -2677,7 +2677,7 @@ $$
 これは凸包間距離 $\delta=2$ と一致します。
 <!-- solution-end -->
 
-### RKHS4-A03 Lagrangian の停留条件
+### RKHS4-A03 Lagrangian を $w,b$ について最小化する
 
 - Level: A
 - 目安時間: 12分
@@ -2698,8 +2698,8 @@ $$
 
 を考える。
 
-1. $w$ に関する停留条件を導け。
-2. $b$ に関する停留条件を導け。
+1. Lagrangian を $w$ について最小化する条件を導け。
+2. 双対関数が $b$ について有限となる条件を導け。
 3. これらが双対問題でどのような役割を持つか説明せよ。
 
 <!-- solution-start -->
@@ -2723,7 +2723,7 @@ w
 \sum_i\alpha_i y_i x_i.
 $$
 
-従って停留条件
+従って $\nabla_wL=0$ から
 
 $$
 \nabla_wL=0
@@ -2754,7 +2754,7 @@ $$
 -\sum_i\alpha_i y_i.
 $$
 
-停留条件から
+$b$ に関する条件から
 
 $$
 \boxed{
@@ -3551,7 +3551,7 @@ $$
 0.
 $$
 
-停留条件では
+$w$ に関する KKT の式では
 
 $$
 \begin{aligned}
@@ -3649,7 +3649,7 @@ $$
 0.
 $$
 
-停留条件は
+KKT の $w,b$ に関する式は
 
 $$
 \begin{aligned}
