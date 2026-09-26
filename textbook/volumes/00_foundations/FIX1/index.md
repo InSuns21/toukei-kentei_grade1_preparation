@@ -53,8 +53,34 @@ $$
 <a id="def-fix1-standard-simplex"></a>
 
 <!-- formal-statement-start -->
-> **定義（標準単体）**  
-> $n$ 次元標準単体を
+> **定義（単体・標準単体）**  
+> 点
+>
+$$
+a_0,\dots,a_n\in\mathbb R^d
+$$
+>
+> が
+>
+$$
+a_1-a_0,\dots,a_n-a_0
+$$
+>
+> の線形独立性を満たすとき、
+>
+$$
+\operatorname{conv}\{a_0,\dots,a_n\}
+$$
+>
+> を $n$ 次元 **単体**という。
+>
+> 特に標準基底
+>
+$$
+e_0,\dots,e_n\in\mathbb R^{n+1}
+$$
+>
+> の凸包である $n$ 次元 **標準単体**を
 >
 $$
 \Delta^n
@@ -65,17 +91,11 @@ x=(x_0,\dots,x_n)\in\mathbb R^{n+1}
 x_i\ge0,\ 
 \sum_{i=0}^n x_i=1
 \right\}
-$$
->
-> と定める。これは
->
-$$
-\Delta^n
 =
 \operatorname{conv}\{e_0,\dots,e_n\}
 $$
 >
-> と同じ集合である。
+> と定める。
 >
 > 非空集合
 >
