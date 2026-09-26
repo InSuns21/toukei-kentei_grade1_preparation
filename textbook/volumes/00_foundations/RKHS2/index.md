@@ -586,12 +586,14 @@ K(x_i,x_j)\\
 $$
 
 表現定理により最小値を求めるには $S$ 上だけ調べればよく、$S$ の任意の元は $f_\alpha$ と書けます。従って有限次元問題
-$
+$$
 \inf_{\alpha\in\mathbb R^n}
+\left\{
 L(G\alpha)
 +
 \lambda\alpha^{\mathsf T}G\alpha
-$
+\right\}
+$$
 と同じ下限値を持ちます。最小解が存在する場合は、その有限和表示が有限次元側の最小解を与えます。
 <!-- proof-end -->
 
