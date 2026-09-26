@@ -60,23 +60,23 @@ $$
 >
 > 選好関係から
 >
-> $$
-> x\succ y
-> \iff
-> x\succeq y
-> \text{ かつ }
-> y\not\succeq x
-> $$
+$$
+x\succ y
+\iff
+x\succeq y
+\text{ かつ }
+y\not\succeq x
+$$
 >
 > により **狭義選好** $\succ$ を、
 >
-> $$
-> x\sim y
-> \iff
-> x\succeq y
-> \text{ かつ }
-> y\succeq x
-> $$
+$$
+x\sim y
+\iff
+x\succeq y
+\text{ かつ }
+y\succeq x
+$$
 >
 > により **無差別** $\sim$ を定める。
 <!-- formal-statement-end -->
@@ -125,28 +125,68 @@ $$
 > **定義（完備性・推移性）**  
 > 選好関係 $\succeq$ が **完備** であるとは、任意の $x,y\in X$ に対し
 >
-> $$
-> x\succeq y
-> \quad\text{または}\quad
-> y\succeq x
-> $$
+$$
+x\succeq y
+\quad\text{または}\quad
+y\succeq x
+$$
 >
 > が成り立つことをいう。
 >
 > $\succeq$ が **推移的** であるとは、任意の $x,y,z\in X$ に対し
 >
-> $$
-> x\succeq y,\qquad y\succeq z
-> $$
+$$
+x\succeq y,\qquad y\succeq z
+$$
 >
 > ならば
 >
-> $$
-> x\succeq z
-> $$
+$$
+x\succeq z
+$$
 >
 > が成り立つことをいう。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-micro1-complete-transitive -->
+**定義の確認**：合計量で比較する選好
+
+$$
+x\succeq y
+\iff
+x_1+x_2\ge y_1+y_2
+$$
+
+とします。
+
+任意の $x,y$ について二つの実数 $x_1+x_2$ と $y_1+y_2$ は必ず大小比較できるので、この選好は完備です。
+
+また
+
+$$
+x\succeq y,
+\qquad
+y\succeq z
+$$
+
+なら
+
+$$
+x_1+x_2
+\ge
+y_1+y_2
+\ge
+z_1+z_2,
+$$
+
+したがって
+
+$$
+x\succeq z.
+$$
+
+よって推移性も定義どおり確認できます。
+<!-- definition-example-end -->
 
 完備性は「どちらとも比較できない」を排除します。
 
@@ -189,24 +229,72 @@ $$
 > **定義（単調な選好・狭義単調な選好）**  
 > $X\subset\mathbb R_+^L$ 上の選好 $\succeq$ が **単調** であるとは、
 >
-> $$
-> x\ge y
-> \Longrightarrow
-> x\succeq y
-> $$
+$$
+x\ge y
+\Longrightarrow
+x\succeq y
+$$
 >
 > が成り立つことをいう。
 >
 > さらに
 >
-> $$
-> x\ge y,\qquad x\ne y
-> \Longrightarrow
-> x\succ y
-> $$
+$$
+x\ge y,\qquad x\ne y
+\Longrightarrow
+x\succ y
+$$
 >
 > が成り立つとき、**狭義単調** であるという。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-micro1-monotonicity -->
+**定義の確認**：完全補完は単調だが狭義単調ではない
+
+$$
+x\succeq y
+\iff
+\min\{x_1,x_2\}\ge\min\{y_1,y_2\}
+$$
+
+とします。
+
+$x\ge y$ なら各成分について $x_i\ge y_i$ なので
+
+$$
+\min\{x_1,x_2\}
+\ge
+\min\{y_1,y_2\}.
+$$
+
+従ってこの選好は単調です。
+
+一方、
+
+$$
+(2,1)\ge(1,1),
+\qquad
+(2,1)\ne(1,1)
+$$
+
+ですが、
+
+$$
+\min\{2,1\}
+=
+\min\{1,1\}
+=
+1.
+$$
+
+したがって
+
+$$
+(2,1)\sim(1,1),
+$$
+
+なので狭義単調ではありません。
+<!-- definition-example-end -->
 
 例えば
 
@@ -258,25 +346,25 @@ $$
 > **定義（上位集合・下位集合）**  
 > $y\in X$ に対し
 >
-> $$
-> U(y)
-> =
-> \{x\in X:x\succeq y\}
-> $$
+$$
+U(y)
+=
+\{x\in X:x\succeq y\}
+$$
 >
 > を $y$ の **上位集合** といい、
 >
-> $$
-> L(y)
-> =
-> \{x\in X:y\succeq x\}
-> $$
+$$
+L(y)
+=
+\{x\in X:y\succeq x\}
+$$
 >
 > を $y$ の **下位集合** という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-micro1-upper-contour -->
-**直接例**：完全補完
+**定義の確認**：完全補完
 
 $$
 u(x)=\min\{x_1,x_2\}
@@ -335,12 +423,44 @@ $$
 >
 > 選好関係 $\succeq$ が **凸選好** であるとは、任意の $y\in X$ に対して上位集合
 >
-> $$
-> U(y)=\{x\in X:x\succeq y\}
-> $$
+$$
+U(y)=\{x\in X:x\succeq y\}
+$$
 >
 > が凸集合であることをいう。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-micro1-convex-preference -->
+**定義の確認**：完全補完の上位集合
+
+$$
+x\succeq y
+\iff
+\min\{x_1,x_2\}\ge\min\{y_1,y_2\}
+$$
+
+とします。
+
+固定した $y$ に対し
+
+$$
+c=\min\{y_1,y_2\}
+$$
+
+と置くと、
+
+$$
+U(y)
+=
+\{x:x_1\ge c,\ x_2\ge c\}
+=
+[c,\infty)\times[c,\infty).
+$$
+
+この集合の二点を凸結合しても各成分は $c$ 以上のままなので、$U(y)$ は凸集合です。
+
+任意の $y$ で同じ議論が成り立つため、この選好は凸選好です。
+<!-- definition-example-end -->
 
 この定義を点の比較へ書き直すと、
 
@@ -372,11 +492,11 @@ $$
 > 1. $\succeq$ は凸選好である。
 > 2. 任意の $x,z,y\in X$ と $\lambda\in[0,1]$ に対し
 >
-> $$
-> x\succeq y,\quad z\succeq y
-> \Longrightarrow
-> \lambda x+(1-\lambda)z\succeq y.
-> $$
+$$
+x\succeq y,\quad z\succeq y
+\Longrightarrow
+\lambda x+(1-\lambda)z\succeq y.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -443,20 +563,50 @@ $$
 > **定義（効用表現）**  
 > 選好関係 $\succeq$ に対し、関数
 >
-> $$
-> u:X\to\mathbb R
-> $$
+$$
+u:X\to\mathbb R
+$$
 >
 > が
 >
-> $$
-> x\succeq y
-> \iff
-> u(x)\ge u(y)
-> $$
+$$
+x\succeq y
+\iff
+u(x)\ge u(y)
+$$
 >
 > を満たすとき、$u$ は $\succeq$ の **効用表現** であるという。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-micro1-utility-representation -->
+**定義の確認**：線形評価による効用表現
+
+$$
+x\succeq y
+\iff
+2x_1+x_2\ge2y_1+y_2
+$$
+
+と定め、
+
+$$
+u(x)=2x_1+x_2
+$$
+
+と置きます。
+
+すると定義からそのまま
+
+$$
+x\succeq y
+\iff
+u(x)\ge u(y)
+$$
+
+が成り立ちます。
+
+従って $u$ はこの選好を表す効用関数です。
+<!-- definition-example-end -->
 
 効用表現があれば、
 
@@ -482,15 +632,15 @@ $$
 > **命題（狭義単調変換は同じ選好を表す）**  
 > $u:X\to\mathbb R$ が選好 $\succeq$ を表し、
 >
-> $$
-> \phi:u(X)\to\mathbb R
-> $$
+$$
+\phi:u(X)\to\mathbb R
+$$
 >
 > が狭義単調増加なら、
 >
-> $$
-> v=\phi\circ u
-> $$
+$$
+v=\phi\circ u
+$$
 >
 > も同じ選好 $\succeq$ を表す。
 <!-- formal-statement-end -->
