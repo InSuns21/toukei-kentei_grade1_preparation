@@ -1,0 +1,23 @@
+chapter: "RKHS5"
+terms:
+  - term: スラック変数
+    english: slack variable
+    meaning: マージン制約の違反量を非負の連続量として表す補助変数。最適値では max{0,1-y_i g(x_i)} に一致する。
+  - term: ヒンジ損失
+    english: hinge loss
+    meaning: margin value t に対する max{0,1-t}。誤分類だけでなく、正分類でもマージン内部に入った点を罰する凸損失。
+  - term: ソフトマージン SVM
+    english: soft-margin support vector machine
+    meaning: RKHS または有限次元特徴空間で、法線のノルムとマージン違反の総量を同時に最小化する SVM。
+  - term: 自由サポートベクトル
+    english: free support vector
+    meaning: 最適双対変数が 0<alpha_i<C を満たす訓練点。KKT 条件によりスラック0かつマージン境界上にある。
+  - term: 上限制約サポートベクトル
+    english: upper-bound support vector
+    meaning: 最適双対変数が alpha_i=C を満たす訓練点。マージン境界上の場合も、マージン内部や誤分類側にある場合もある。
+  - term: カーネルトリック
+    english: kernel trick
+    meaning: 特徴空間の座標を明示せず、特徴空間内積を核 K(x,z) の評価で置き換える計算原理。
+  - term: カーネル SVM
+    english: kernel support vector machine
+    meaning: RKHS 上でソフトマージン SVM を解き、双対問題と予測式を有限個の核評価だけで表す分類法。
