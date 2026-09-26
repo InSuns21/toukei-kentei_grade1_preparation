@@ -115,7 +115,7 @@ concepts:
 
   - id: fixedpoint.brouwer-compact-convex
     name: 非空コンパクト凸集合上の Brouwer 不動点定理
-    kind: theorem
+    kind: corollary
     aliases:
       - Brouwer fixed point theorem
     introduction: formal
