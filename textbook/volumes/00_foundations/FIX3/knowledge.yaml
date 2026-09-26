@@ -19,7 +19,7 @@ concepts:
       - set.function
 
   - id: optimization.parameterized-value-function
-    name: パラメータ付き最大化問題の価値関数
+    name: 価値関数
     kind: definition
     aliases:
       - value function of a parameterized maximization problem
