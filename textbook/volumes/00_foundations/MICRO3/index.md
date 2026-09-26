@@ -748,7 +748,7 @@ $$
 
 と置きます。
 
-MICRO2 の [予算使い切り命題](../MICRO2/index.md#prop-micro2-budget-exhaustion)より、任意の
+MICRO2 で示した [狭義単調な選好での予算使い切り](../MICRO2/index.md#prop-micro2-budget-exhaustion)より、任意の
 
 $$
 x^*\in D(p,m)
@@ -2963,7 +2963,7 @@ $$
 
 <a id="ex-micro3-b02"></a>
 
-### MICRO3-B02 Shephard 型関係を最適値不等式から導く
+### MICRO3-B02 支出関数の価格微分から需要量を復元する
 
 - Level: B
 - 目安時間: 25分
