@@ -12,7 +12,7 @@ $$
 
 この評価は「関数側の複雑さ」と「点集合側の偏り」を分離する強力な道具です。一方で、ある関数クラス全体に対して点集合を設計したいときには、別の見方も便利です。
 
-本章では、既存の [Sobolev 空間](../GPDE3/index.md#def-gpde3-sobolev-space) と [再生核 Hilbert 空間](../F0_02C7_RKHS_再生核_representer_kernel_SVM/index.md#def-f0-02c7-rkhs) と [再生核](../F0_02C7_RKHS_再生核_representer_kernel_SVM/index.md#def-f0-02c7-reproducing-kernel) を正本として使い、
+本章では、既存の [Sobolev 空間](../GPDE3/index.md#def-gpde3-sobolev-space) と [再生核 Hilbert 空間](../RKHS1/index.md#def-rkhs1-rkhs) と [再生核](../RKHS1/index.md#def-rkhs1-reproducing-kernel) を正本として使い、
 
 $$
 \boxed{
@@ -42,14 +42,14 @@ $$
 
 ## 0. 本章で再定義しないもの
 
-RKHS の一般論は F0-02C7 が canonical dependency です。
+RKHS の一般論は RKHS1 が canonical dependency です。
 
 特に本章では、次を既知として使います。
 
-- [再生核 Hilbert 空間](../F0_02C7_RKHS_再生核_representer_kernel_SVM/index.md#def-f0-02c7-rkhs)
-- [再生性](../F0_02C7_RKHS_再生核_representer_kernel_SVM/index.md#def-f0-02c7-reproducing-property)
-- [再生核](../F0_02C7_RKHS_再生核_representer_kernel_SVM/index.md#def-f0-02c7-reproducing-kernel)
-- [Moore--Aronszajn の定理](../F0_02C7_RKHS_再生核_representer_kernel_SVM/index.md#thm-f0-02c7-moore-aronszajn)
+- [再生核 Hilbert 空間](../RKHS1/index.md#def-rkhs1-rkhs)
+- [再生性](../RKHS1/index.md#thm-rkhs1-evaluation-representer)
+- [再生核](../RKHS1/index.md#def-rkhs1-reproducing-kernel)
+- [Moore--Aronszajn の定理](../RKHS1/index.md#thm-rkhs1-moore-aronszajn)
 
 ここでは一般論を重複再証明せず、積分汎関数と準 Monte Carlo 求積へ適用します。
 
@@ -73,7 +73,7 @@ $$
 
 です。
 
-また F0-02C7 で示した
+また RKHS1 で示した
 
 $$
 \|K_{\boldsymbol x}\|_{\mathcal H}^2
@@ -1152,7 +1152,7 @@ d\boldsymbol t_u
 \end{aligned}
 $$
 
-従って [Moore--Aronszajn の定理](../F0_02C7_RKHS_再生核_representer_kernel_SVM/index.md#thm-f0-02c7-moore-aronszajn)から、この核を再生核とする RKHS が存在します。
+従って [Moore--Aronszajn の定理](../RKHS1/index.md#thm-rkhs1-moore-aronszajn)から、この核を再生核とする RKHS が存在します。
 
 <a id="def-qmc2-product-weights"></a>
 <!-- formal-statement-start -->
