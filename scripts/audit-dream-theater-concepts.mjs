@@ -508,7 +508,7 @@ function runAliasMatcherSelfTest() {
     throw new Error('HTML属性が reader source に残っています。');
   }
 
-  for (const expected of ['net', 'unit', 'torus', 'トーラス']) {
+  for (const expected of ['net', 'unit', 'torus', 'トーラス', '単体', 'simplex']) {
     if (!isContextualAlias(expected)) throw new Error(`contextual alias policy missing: ${expected}`);
   }
 
@@ -518,6 +518,9 @@ function runAliasMatcherSelfTest() {
     ['unit torus representation', 'unit'],
     ['unit torus representation', 'torus'],
     ['### 定義（単位トーラス上の Fourier 係数）', 'トーラス'],
+    ['単体法を使う。', '単体'],
+    ['simplex method を使う。', 'simplex'],
+    ['### 定義（標準単体）', '単体'],
   ];
   for (const [line, alias] of lowConfidenceCases) {
     if (hasHighConfidenceAliasReference(line, alias)) {
@@ -529,6 +532,9 @@ function runAliasMatcherSelfTest() {
     ['ここでは **net** を用いる。', 'net'],
     ['### 定義（net）', 'net'],
     ['「トーラス」を定義する。', 'トーラス'],
+    ['ここでは **単体** を扱う。', '単体'],
+    ['### 定義（単体）', '単体'],
+    ['ここでは **simplex** を扱う。', 'simplex'],
   ];
   for (const [line, alias] of highConfidenceCases) {
     if (!hasHighConfidenceAliasReference(line, alias)) {
