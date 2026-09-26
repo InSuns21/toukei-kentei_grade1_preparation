@@ -31,6 +31,17 @@ concepts:
       - rkhs.rkhs
       - functional.riesz-representation-theorem
 
+  - id: rkhs.reproducing-kernel
+    name: 再生核
+    kind: definition
+    aliases:
+      - reproducing kernel
+    introduction: formal
+    introduction_aliases: ["定義（再生核）"]
+    requires:
+      - functional.hilbert-space
+      - functional.evaluation-functional
+
   - id: rkhs.reproducing-property
     name: 再生性
     kind: definition
@@ -40,17 +51,7 @@ concepts:
     introduction_aliases: ["定義（再生性）"]
     requires:
       - rkhs.evaluation-representer
-
-  - id: rkhs.reproducing-kernel
-    name: 再生核
-    kind: definition
-    aliases:
-      - reproducing kernel
-    introduction: formal
-    introduction_aliases: ["定義（再生核）"]
-    requires:
-      - rkhs.reproducing-property
-      - rkhs.rkhs
+      - rkhs.reproducing-kernel
 
   - id: rkhs.reproducing-kernel-basic-formulas
     name: 再生核の基本公式
