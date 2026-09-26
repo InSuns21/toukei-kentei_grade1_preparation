@@ -17,7 +17,7 @@ learning_objectives:
   - コンパクト性・凸性・連続性を外した反例と、証明のどの機構が壊れるかを説明できる
   - 細分のメッシュと連続性から近似的不動点の誤差評価を導ける
 definitions:
-  - { id: FIX1-DEF-01, name: 標準単体 }
+  - { id: FIX1-DEF-01, name: 単体・標準単体 }
   - { id: FIX1-DEF-02, name: 三角形分割・メッシュ }
   - { id: FIX1-DEF-03, name: 重心細分 }
   - { id: FIX1-DEF-04, name: Sperner ラベル付け }
