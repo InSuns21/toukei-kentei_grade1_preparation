@@ -4,7 +4,7 @@
 
 関数を Hilbert 空間の元として扱うだけなら、点での値を取り出せるとは限りません。たとえば $L^2([0,1])$ では、1点だけ値を変えた二つの関数は同じ元を表すため、点評価 $f\mapsto f(x)$ は元から一意に定まりません。
 
-再生核 Hilbert 空間では、この点評価を連続線形汎関数として扱えることを要求します。すると [Riesz 表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)により、点 $x$ での評価があるベクトル $K_x$ との内積として表されます。この $K_x$ を点ごとに並べたものが再生核です。
+本章では、各点での評価を連続線形汎関数として扱える関数空間を考えます。すると [Riesz 表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)により、点 $x$ での評価があるベクトル $K_x$ との内積として表されます。さらに $K_x$ を点ごとに並べると、二変数関数 $K(x,z)$ が現れます。
 
 本章の中心は
 
@@ -28,7 +28,7 @@ $$
 }
 $$
 
-です。逆向きを与えるのが Moore--Aronszajn の定理です。
+です。この逆向きを保証する構成定理が本章の中心です。
 
 ---
 
@@ -193,6 +193,28 @@ $$
 > を満たすとき、この等式が表す性質を **再生性**という。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-rkhs1-reproducing-property -->
+**定義の確認**：線形関数空間で再生性を直接確かめる
+
+2節の空間
+$$
+\mathcal H=\{f_w:f_w(z)=w^{\mathsf T}z\}
+$$
+を使います。固定した $x$ に対して
+$$
+K_x(z)=x^{\mathsf T}z
+$$
+と置くと $K_x=f_x\in\mathcal H$ であり、
+$$
+\langle f_w,K_x\rangle_{\mathcal H}
+=
+w^{\mathsf T}x
+=
+f_w(x).
+$$
+従って、すべての $f_w\in\mathcal H$ について定義の等式が実際に成り立ちます。
+<!-- definition-example-end -->
+
 ---
 
 ## 4. 再生核
@@ -210,6 +232,16 @@ $$
 >
 > と定める二変数関数 $K:\mathcal X\times\mathcal X\to\mathbb R$ を $\mathcal H$ の **再生核**という。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-rkhs1-reproducing-kernel -->
+**定義の確認**：線形関数空間の二変数関数
+
+直前の例では $K_z(x)=z^{\mathsf T}x$ です。従って定義どおり
+$$
+K(x,z)=K_z(x)=x^{\mathsf T}z.
+$$
+この二変数関数は各 $z$ に対して核切片 $K_z(\cdot)$ を返し、直前に確認した再生性と整合します。
+<!-- definition-example-end -->
 
 再生性を $f=K_z$ に適用すると
 
@@ -317,6 +349,29 @@ $$
 > が成り立つことをいう。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-rkhs1-psd-kernel -->
+**定義の確認**：線形核は正半定値である
+
+$\mathcal X=\mathbb R^p$ 上で
+$$
+K(x,z)=x^{\mathsf T}z
+$$
+とします。任意の $x_1,\ldots,x_n$ と $c_1,\ldots,c_n$ に対して
+$$
+\begin{aligned}
+\sum_{i,j=1}^n c_ic_jK(x_i,x_j)
+&=
+\sum_{i,j=1}^n c_ic_jx_i^{\mathsf T}x_j\\
+&=
+\left\|
+\sum_{i=1}^n c_ix_i
+\right\|_2^2\\
+&\ge0.
+\end{aligned}
+$$
+また $K(x,z)=K(z,x)$ なので、定義の対称性と非負条件をともに満たします。
+<!-- definition-example-end -->
+
 有限個の点を選んだときの行列
 
 $$
@@ -397,6 +452,24 @@ $$
 >
 > と定める写像を **標準特徴写像**という。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-rkhs1-canonical-feature-map -->
+**定義の確認**：線形核の標準特徴写像
+
+線形関数 RKHS では
+$$
+\Phi(x)=K_x=f_x
+$$
+です。$f_x$ の係数ベクトルは $x$ 自身なので、
+$$
+\langle\Phi(x),\Phi(z)\rangle_{\mathcal H}
+=
+x^{\mathsf T}z
+=
+K(x,z).
+$$
+従って、点 $x$ を核切片 $K_x$ へ送るという定義が、線形核では通常のベクトル $x$ を特徴として使うことに対応します。
+<!-- definition-example-end -->
 
 [再生核の基本公式](#prop-rkhs1-reproducing-properties)から
 
@@ -668,6 +741,30 @@ $$
 >
 > と有限和で表される関数全体である。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-rkhs1-prehilbert-space -->
+**定義の確認**：2点上の核切片を実際に張る
+
+$\mathcal X=\{1,2\}$ とし、
+$$
+K(i,j)=
+\begin{cases}
+1,& i=j,\\
+0,& i\ne j
+\end{cases}
+$$
+とします。このとき
+$$
+K_1=(1,0),
+\qquad
+K_2=(0,1)
+$$
+と値ベクトルで表せます。従って
+$$
+aK_1+bK_2=(a,b)
+$$
+であり、$\mathcal H_0=\operatorname{span}\{K_1,K_2\}$ はこの2点上のすべての実数値関数からなります。定義がいう「核切片の有限線形結合」を直接確認できました。
+<!-- definition-example-end -->
 
 ここでは $K_x$ は形式記号ではなく、実際の関数 $z\mapsto K(z,x)$ として扱っています。
 
