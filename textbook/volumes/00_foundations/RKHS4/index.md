@@ -320,18 +320,18 @@ $$
 > **定義（ハードマージン SVM）**  
 > 線形分離可能な訓練データ $(x_i,y_i)_{i=1}^n$ に対し
 >
-$
+$$
 \min_{w\in\mathbb R^p,\ b\in\mathbb R}
 \frac12\|w\|_2^2
-$
+$$
 >
 > subject to
 >
-$
+$$
 y_i(w^{\mathsf T}x_i+b)\ge1
 \qquad
 (i=1,\dots,n)
-$
+$$
 >
 > を **ハードマージン SVM** の主問題という。
 <!-- formal-statement-end -->
