@@ -65,6 +65,11 @@
       "path": "textbook/volumes/00_foundations/F0_02B1_SVM_凸包_最大マージン/index.md",
       "canonical_path": "textbook/volumes/00_foundations/RKHS4/index.md",
       "reason": "RKHS4 へ線形分離・最大マージン・ハードマージン SVM・凸包幾何・双対変数解釈の canonical 内容を移管済み。stable anchor と過去URLのためファイルを保持。"
+    },
+    {
+      "path": "textbook/volumes/00_foundations/F0_02C7A_representer_kernel_SVM/index.md",
+      "canonical_path": "textbook/volumes/00_foundations/RKHS5/index.md",
+      "reason": "RKHS2・RKHS4・RKHS5 へ表現定理・最大マージン・ソフトマージン・カーネル SVM の canonical 内容を移管済み。stable anchor と過去URLのためファイルを保持。"
     }
   ]
 }
