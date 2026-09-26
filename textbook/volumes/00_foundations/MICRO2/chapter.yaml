@@ -36,7 +36,7 @@ canonical_examples:
   - 線形効用で価格当たり限界効用により端点需要が切り替わる例
   - Cobb--Douglas 型効用の一定支出比率需要
   - CES 型効用の価格比と消費比
-  - log(1+x1)+log(1+x2) で所得により端点解から内点解へ移る例
+  - -exp(-x1)-exp(-x2) で所得により端点解から内点解へ移る例
   - 無料財により予算集合が非有界となり需要が存在しない例
 problem_patterns:
   - MICRO2-BUDGET-SET-1
