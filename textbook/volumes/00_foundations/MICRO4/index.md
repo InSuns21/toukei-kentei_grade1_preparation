@@ -1159,9 +1159,15 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（利潤最大化と費用最小化の接続）**  
-> $f:\mathbb R_+^n\to\mathbb R_+$ とし、達成可能な各産出量 $q$ について費用最小化点が存在するとする。
+> $f:\mathbb R_+^n\to\mathbb R_+$ とし、達成可能な産出量全体を
 >
-> このとき
+$$
+Q
+=
+\{q\ge0:\exists z\in\mathbb R_+^n,\ f(z)\ge q\}
+$$
+>
+> とする。各 $q\in Q$ について費用最小化点が存在すると仮定する。このとき
 >
 $$
 \sup_{z\ge0}
