@@ -9,6 +9,10 @@ prerequisites:
   - F0-02C5A
   - F0-02C6A
 
+forward_references:
+  - ode.ode7-eigenpair
+  - ode.ode7-eigenfunction-expansion
+
 concepts:
   - id: rkhs.representer-theorem
     name: representer theorem
