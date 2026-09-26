@@ -6,12 +6,12 @@ terms:
   - term: 実行可能配分
     english: feasible allocation
     meaning: 全消費者への配分の合計が利用可能な総資源を超えない配分。
-  - term: Pareto 改善
+  - term: パレート改善
     english: Pareto improvement
     meaning: 誰の厚生も下げず、少なくとも一人の厚生を厳密に上げる実行可能な配分変更。
-  - term: Pareto 効率
+  - term: パレート効率
     english: Pareto efficiency
-    meaning: そこから Pareto 改善できる別の実行可能配分が存在しないこと。公平性や分配の望ましさそのものを意味しない。
+    meaning: そこから パレート改善できる別の実行可能配分が存在しないこと。公平性や分配の望ましさそのものを意味しない。
   - term: 局所非飽和性
     english: local nonsatiation
     meaning: 任意の消費点のどれだけ近くにも、その点より狭義に好まれる消費点が存在する性質。
@@ -29,7 +29,7 @@ terms:
     meaning: 共通価格と各主体の所得のもとで各主体が自分の予算集合上の最適消費を選び、その配分が社会全体で実行可能となっている状態。
   - term: 第一厚生定理
     english: first welfare theorem
-    meaning: 局所非飽和性のもとで、価格支持された分権的配分が Pareto 効率になることを述べる定理。
+    meaning: 局所非飽和性のもとで、価格支持された分権的配分が パレート効率になることを述べる定理。
   - term: 第二厚生定理
     english: second welfare theorem
-    meaning: 凸性などの条件のもとで、Pareto 効率配分を適切な価格と一括的な所得移転によって分権化できることを述べる定理。
+    meaning: 凸性などの条件のもとで、パレート効率配分を適切な価格と一括的な所得移転によって分権化できることを述べる定理。
