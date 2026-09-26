@@ -804,7 +804,7 @@ $$
 
 ## 8. 固有値方向ごとに縮小率を見る
 
-Gram 行列は実対称正半定値なので、[実対称行列のスペクトル定理](../F0_00F1_固有空間_スペクトル定理_PSD/index.md#thm-f000f1-spectral-theorem)により
+Gram 行列は実対称正半定値なので、[実対称行列のスペクトル定理](../F0_00F1_固有空間_スペクトル定理_PSD/index.md#thm-real-symmetric-spectral)により
 
 $$
 G
