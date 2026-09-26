@@ -1,0 +1,141 @@
+chapter: MICRO6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MICRO2
+  - MICRO5
+
+forward_references: []
+
+concepts:
+  - id: micro.pure-exchange-economy
+    name: 純粋交換経済
+    kind: definition
+    aliases:
+      - pure exchange economy
+    introduction: formal
+    introduction_aliases: ["定義（純粋交換経済・初期保有）"]
+    requires:
+      - micro.feasible-allocation
+      - micro.preference-relation
+
+  - id: micro.endowment
+    name: 初期保有
+    kind: definition
+    aliases:
+      - endowment
+    introduction: formal
+    introduction_aliases: ["定義（純粋交換経済・初期保有）"]
+    requires:
+      - micro.pure-exchange-economy
+
+  - id: micro.endowment-demand
+    name: 初期保有需要
+    kind: definition
+    aliases:
+      - endowment demand
+    introduction: formal
+    introduction_aliases: ["定義（初期保有に基づく個別需要）"]
+    requires:
+      - micro.endowment
+      - micro.marshall-demand
+      - micro.budget-set
+
+  - id: micro.aggregate-demand
+    name: 集計需要
+    kind: definition
+    aliases:
+      - aggregate demand
+    introduction: formal
+    introduction_aliases: ["定義（集計需要・超過需要）"]
+    requires:
+      - micro.endowment-demand
+
+  - id: micro.excess-demand
+    name: 超過需要
+    kind: definition
+    aliases:
+      - excess demand
+    introduction: formal
+    introduction_aliases: ["定義（集計需要・超過需要）"]
+    requires:
+      - micro.aggregate-demand
+      - micro.endowment
+
+  - id: micro.endowment-demand-price-homogeneity
+    name: 初期保有需要と超過需要の価格に関する0次同次性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（初期保有需要と超過需要の価格に関する0次同次性）"]
+    requires:
+      - micro.endowment-demand
+      - micro.excess-demand
+      - micro.marshall-demand-homogeneity
+
+  - id: micro.walras-law
+    name: Walras の法則
+    kind: theorem
+    aliases:
+      - Walras' law
+      - Walras law
+    introduction: formal
+    introduction_aliases: ["定理（Walras の法則）"]
+    requires:
+      - micro.excess-demand
+      - micro.local-nonsatiation
+      - micro.budget-set
+
+  - id: micro.market-redundancy
+    name: 正価格市場における一市場の冗長性
+    kind: corollary
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["系（正価格市場における一市場の冗長性）"]
+    requires:
+      - micro.walras-law
+
+  - id: micro.walras-equilibrium
+    name: Walras 均衡
+    kind: definition
+    aliases:
+      - Walras equilibrium
+      - Walrasian equilibrium
+      - competitive equilibrium
+      - 競争均衡
+    introduction: formal
+    introduction_aliases: ["定義（Walras 均衡）"]
+    requires:
+      - micro.endowment-demand
+      - micro.feasible-allocation
+
+  - id: micro.walras-equilibrium-price-scale
+    name: Walras 均衡の価格尺度不変性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（Walras 均衡の価格尺度不変性）"]
+    requires:
+      - micro.walras-equilibrium
+      - micro.endowment-demand-price-homogeneity
+
+  - id: micro.walras-equilibrium-pareto
+    name: Walras 均衡のパレート効率性
+    kind: corollary
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["系（Walras 均衡のパレート効率性）"]
+    requires:
+      - micro.walras-equilibrium
+      - micro.first-welfare-theorem
+
+  - id: micro.edgeworth-box
+    name: Edgeworth ボックス
+    kind: definition
+    aliases:
+      - Edgeworth box
+    introduction: formal
+    introduction_aliases: ["定義（Edgeworth ボックス）"]
+    requires:
+      - micro.pure-exchange-economy
+      - micro.feasible-allocation

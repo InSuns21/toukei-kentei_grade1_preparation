@@ -1,0 +1,52 @@
+id: "MICRO6"
+title: "純粋交換経済・Walras 均衡"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MICRO2
+  - MICRO5
+official_scope: []
+learning_objectives:
+  - 純粋交換経済で各消費者の初期保有と社会全体の総資源を、具体的な財の量として説明できる
+  - 価格ベクトルの各成分を単位価格として読み、初期保有の市場価値から各消費者の所得と予算集合を構成できる
+  - 初期保有から生じる個別需要を Marshall 需要と結び付け、集計需要と超過需要を定義できる
+  - 価格を正の定数倍しても実質的な予算集合・需要・超過需要が変わらないことを証明できる
+  - 局所非飽和性から各消費者の予算使い切りを導き、Walras の法則を証明できる
+  - Walras の法則から、正価格の市場では他の市場が清算すれば最後の一市場も清算することを導ける
+  - Walras 均衡を個別最適化と市場清算の同時成立として定義し、価格が相対価格としてのみ決まる理由を説明できる
+  - Walras 均衡が MICRO5 の価格支持された分権的配分に当たり、第一厚生定理から パレート効率になることを説明できる
+  - 二財二消費者の Edgeworth ボックスで初期保有点・予算線・取引後配分・市場清算を幾何的に読める
+  - 二財二消費者の Cobb--Douglas 型純粋交換経済で均衡相対価格と均衡配分を手計算できる
+  - 局所非飽和性を失うと Walras の法則の等号が壊れ得ることを具体例で説明できる
+definitions:
+  - { id: MICRO6-DEF-01, name: 純粋交換経済・初期保有 }
+  - { id: MICRO6-DEF-02, name: 初期保有に基づく個別需要 }
+  - { id: MICRO6-DEF-03, name: 集計需要・超過需要 }
+  - { id: MICRO6-DEF-04, name: Walras 均衡 }
+  - { id: MICRO6-DEF-05, name: Edgeworth ボックス }
+theorems:
+  - { id: MICRO6-PROP-01, name: 初期保有需要と超過需要の価格に関する0次同次性 }
+  - { id: MICRO6-THM-01, name: Walras の法則 }
+  - { id: MICRO6-COR-01, name: 正価格市場における一市場の冗長性 }
+  - { id: MICRO6-PROP-02, name: Walras 均衡の価格尺度不変性 }
+  - { id: MICRO6-COR-02, name: Walras 均衡のパレート効率性 }
+canonical_examples:
+  - 二財二消費者で初期保有の市場価値から所得と予算線を作る例
+  - 価格を同率に拡大しても初期保有予算集合が変わらないことを直接確認する例
+  - Cobb--Douglas 型需要を集計して Walras の法則を式で検算する例
+  - Edgeworth ボックスで初期保有点と共通予算線を描き、取引方向を読む例
+  - 非対称な二財二消費者 Cobb--Douglas 型経済で均衡相対価格と配分を求める例
+  - 飽和点を持つ選好で予算を使い切らず Walras の法則の等号が壊れる例
+problem_patterns:
+  - MICRO6-ENDOWMENT-BUDGET-1
+  - MICRO6-PRICE-HOMOGENEITY-1
+  - MICRO6-AGGREGATE-EXCESS-1
+  - MICRO6-WALRAS-LAW-1
+  - MICRO6-MARKET-REDUNDANCY-1
+  - MICRO6-EQUILIBRIUM-1
+  - MICRO6-EDGEWORTH-1
+  - MICRO6-COBB-DOUGLAS-EQUILIBRIUM-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 1.0 }
