@@ -2,7 +2,7 @@ chapter: F0-02C7A
 scope: dream-theater
 coverage: complete
 prerequisites:
-  - RKHS1
+  - RKHS2
   - OPT6A
   - F0-02C3
   - F0-02B1
@@ -14,16 +14,6 @@ forward_references:
   - ode.ode7-eigenfunction-expansion
 
 concepts:
-  - id: rkhs.representer-theorem
-    name: representer theorem
-    kind: theorem
-    introduction: inline
-    aliases: [representer theorem]
-    requires:
-      - rkhs.rkhs
-      - rkhs.reproducing-property
-      - functional.orthogonal-decomposition
-
   - id: svm.kernel-trick
     name: kernel trick
     kind: term
