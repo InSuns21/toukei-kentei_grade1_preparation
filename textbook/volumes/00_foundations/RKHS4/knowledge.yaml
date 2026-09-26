@@ -6,6 +6,7 @@ prerequisites:
   - OPT12
 
 forward_references:
+  - rkhs.rkhs
   - svm.kernel-trick
   - svm.kernel-svm
 
