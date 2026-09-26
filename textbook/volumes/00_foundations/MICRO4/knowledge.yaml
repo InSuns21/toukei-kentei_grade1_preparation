@@ -55,6 +55,7 @@ concepts:
     introduction_aliases: ["定理（コンパクトな生産集合での利潤最大化点の存在）"]
     requires:
       - micro.profit-supply-set
+      - topology.extreme-value-theorem
 
   - id: micro.profit-function-properties
     name: 利潤関数の価格に関する性質
