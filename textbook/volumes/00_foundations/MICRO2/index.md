@@ -643,7 +643,7 @@ $$
 
 - $p\in\mathbb R_{++}^L$
 - $m>0$
-- $u:mathbb R^L	omathbb R$ は微分可能
+- $u:\mathbb R^L\to\mathbb R$ は微分可能
 - $u$ は凹関数
 
 とします。
