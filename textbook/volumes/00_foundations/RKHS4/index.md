@@ -61,19 +61,19 @@ $$
 > **定義（線形分離可能性）**  
 > 正例と負例をともに含む有限標本 $(x_i,y_i)_{i=1}^n$ が **線形分離可能**であるとは、ある
 >
-> $$
-> w\in\mathbb R^p\setminus\{0\},
-> \qquad
-> b\in\mathbb R
-> $$
+$$
+w\in\mathbb R^p\setminus\{0\},
+\qquad
+b\in\mathbb R
+$$
 >
 > が存在して
 >
-> $$
-> y_i(w^{\mathsf T}x_i+b)>0
-> \qquad
-> (i=1,\dots,n)
-> $$
+$$
+y_i(w^{\mathsf T}x_i+b)>0
+\qquad
+(i=1,\dots,n)
+$$
 >
 > が成り立つことをいう。
 <!-- formal-statement-end -->
@@ -170,28 +170,28 @@ $$
 > **定義（関数マージン・幾何マージン）**  
 > $w\ne0$ とする。訓練点 $(x_i,y_i)$ に対し
 >
-> $$
-> \widehat\gamma_i
-> =
-> y_i(w^{\mathsf T}x_i+b)
-> $$
+$$
+\widehat\gamma_i
+=
+y_i(w^{\mathsf T}x_i+b)
+$$
 >
 > を **関数マージン**、
 >
-> $$
-> \gamma_i
-> =
-> \frac{y_i(w^{\mathsf T}x_i+b)}{\|w\|_2}
-> $$
+$$
+\gamma_i
+=
+\frac{y_i(w^{\mathsf T}x_i+b)}{\|w\|_2}
+$$
 >
 > を **幾何マージン**という。標本全体の幾何マージンを
 >
-> $$
-> \gamma(w,b)
-> =
-> \min_{1\le i\le n}
-> \gamma_i
-> $$
+$$
+\gamma(w,b)
+=
+\min_{1\le i\le n}
+\gamma_i
+$$
 >
 > と定める。
 <!-- formal-statement-end -->
@@ -320,45 +320,45 @@ $$
 > **定理（最大マージン問題とハードマージン SVM の同値性）**  
 > 正例・負例をともに含む有限標本 $(x_i,y_i)_{i=1}^n$ が線形分離可能であるとする。このとき
 >
-> $$
-> \max_{w\ne0,\ b}
-> \min_i
-> \frac{y_i(w^{\mathsf T}x_i+b)}{\|w\|_2}
-> $$
+$$
+\max_{w\ne0,\ b}
+\min_i
+\frac{y_i(w^{\mathsf T}x_i+b)}{\|w\|_2}
+$$
 >
 > と
 >
-> $$
-> \boxed{
-> \min_{w,b}
-> \frac12\|w\|_2^2
-> \quad
-> \text{subject to}
-> \quad
-> y_i(w^{\mathsf T}x_i+b)\ge1
-> \quad(i=1,\dots,n)
-> }
-> $$
+$$
+\boxed{
+\min_{w,b}
+\frac12\|w\|_2^2
+\quad
+\text{subject to}
+\quad
+y_i(w^{\mathsf T}x_i+b)\ge1
+\quad(i=1,\dots,n)
+}
+$$
 >
 > は同じ分類超平面を与える。後者の最適解 $(w^*,b^*)$ に対する最大幾何マージンは
 >
-> $$
-> \gamma^*=\frac1{\|w^*\|_2}.
-> $$
+$$
+\gamma^*=\frac1{\|w^*\|_2}.
+$$
 >
 > また2本の支持超平面
 >
-> $$
-> w^{*\mathsf T}x+b^*=1,
-> \qquad
-> w^{*\mathsf T}x+b^*=-1
-> $$
+$$
+w^{*\mathsf T}x+b^*=1,
+\qquad
+w^{*\mathsf T}x+b^*=-1
+$$
 >
 > の間の距離は
 >
-> $$
-> \frac{2}{\|w^*\|_2}
-> $$
+$$
+\frac{2}{\|w^*\|_2}
+$$
 >
 > である。
 <!-- formal-statement-end -->
@@ -466,18 +466,18 @@ $$
 > **定義（ハードマージン SVM）**  
 > 線形分離可能な訓練データ $(x_i,y_i)_{i=1}^n$ に対し
 >
-> $$
-> \min_{w\in\mathbb R^p,\ b\in\mathbb R}
-> \frac12\|w\|_2^2
-> $$
+$$
+\min_{w\in\mathbb R^p,\ b\in\mathbb R}
+\frac12\|w\|_2^2
+$$
 >
 > subject to
 >
-> $$
-> y_i(w^{\mathsf T}x_i+b)\ge1
-> \qquad
-> (i=1,\dots,n)
-> $$
+$$
+y_i(w^{\mathsf T}x_i+b)\ge1
+\qquad
+(i=1,\dots,n)
+$$
 >
 > を **ハードマージン SVM** の主問題という。
 <!-- formal-statement-end -->
@@ -535,7 +535,7 @@ $$
 \frac12w^2=\frac12.
 $$
 
-この後、双対問題と KKT 条件から、この候補が大域最適であることを代数的にも確認します。
+この後、双対問題と [OPT5 の KKT 条件](../OPT5/index.md#thm-opt5-kkt)から、この候補が大域最適であることを代数的にも確認します。
 <!-- definition-example-end -->
 
 [OPT12 の凸二次計画](../OPT12/index.md#def-opt12-quadratic-program)として見ると、
@@ -795,45 +795,45 @@ $$
 > **定理（ハードマージン SVM の Lagrange 双対）**  
 > 正例・負例をともに含む線形分離可能な有限標本 $(x_i,y_i)_{i=1}^n$ を考える。ハードマージン SVM
 >
-> $$
-> \min_{w,b}
-> \frac12\|w\|_2^2
-> \quad
-> \text{subject to}
-> \quad
-> y_i(w^{\mathsf T}x_i+b)\ge1
-> $$
+$$
+\min_{w,b}
+\frac12\|w\|_2^2
+\quad
+\text{subject to}
+\quad
+y_i(w^{\mathsf T}x_i+b)\ge1
+$$
 >
 > の Lagrange 双対問題は
 >
-> $$
-> \boxed{
-> \max_{\alpha\in\mathbb R^n}
-> \left[
-> \sum_{i=1}^n\alpha_i
-> -
-> \frac12
-> \sum_{i,j=1}^n
-> \alpha_i\alpha_j y_i y_j x_i^{\mathsf T}x_j
-> \right]
-> }
-> $$
+$$
+\boxed{
+\max_{\alpha\in\mathbb R^n}
+\left[
+\sum_{i=1}^n\alpha_i
+-
+\frac12
+\sum_{i,j=1}^n
+\alpha_i\alpha_j y_i y_j x_i^{\mathsf T}x_j
+\right]
+}
+$$
 >
 > subject to
 >
-> $$
-> \alpha_i\ge0,
-> \qquad
-> \sum_{i=1}^n\alpha_i y_i=0.
-> $$
+$$
+\alpha_i\ge0,
+\qquad
+\sum_{i=1}^n\alpha_i y_i=0.
+$$
 >
 > 線形分離可能性から Slater 条件が成り立つため、主問題と双対問題の最適値は一致し、最適解では
 >
-> $$
-> w^*
-> =
-> \sum_i\alpha_i^* y_i x_i
-> $$
+$$
+w^*
+=
+\sum_i\alpha_i^* y_i x_i
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -973,45 +973,45 @@ Slater 条件が成り立つ凸問題なので、KKT 条件は最適性の必要
 > **定理（ハードマージン SVM の KKT 条件）**  
 > 正例・負例をともに含む線形分離可能な有限標本を考える。組
 >
-> $$
-> (w^*,b^*,\alpha^*)
-> $$
+$$
+(w^*,b^*,\alpha^*)
+$$
 >
 > がハードマージン SVM の主双対最適解であることと、次をすべて満たすことは同値である。
 >
 > **主実行可能性**
 >
-> $$
-> y_i(w^{*\mathsf T}x_i+b^*)\ge1.
-> $$
+$$
+y_i(w^{*\mathsf T}x_i+b^*)\ge1.
+$$
 >
 > **双対実行可能性**
 >
-> $$
-> \alpha_i^*\ge0,
-> \qquad
-> \sum_i\alpha_i^* y_i=0.
-> $$
+$$
+\alpha_i^*\ge0,
+\qquad
+\sum_i\alpha_i^* y_i=0.
+$$
 >
 > **停留条件**
 >
-> $$
-> w^*
-> =
-> \sum_i\alpha_i^* y_i x_i.
-> $$
+$$
+w^*
+=
+\sum_i\alpha_i^* y_i x_i.
+$$
 >
 > **相補性**
 >
-> $$
-> \alpha_i^*
-> \left[
-> y_i(w^{*\mathsf T}x_i+b^*)-1
-> \right]
-> =
-> 0
-> \qquad(i=1,\dots,n).
-> $$
+$$
+\alpha_i^*
+\left[
+y_i(w^{*\mathsf T}x_i+b^*)-1
+\right]
+=
+0
+\qquad(i=1,\dots,n).
+$$
 <!-- formal-statement-end -->
 
 この定理は [OPT5 の KKT 条件](../OPT5/index.md#thm-opt5-kkt)を、SVM の具体式へ代入したものです。適用条件は「凸問題で Slater 条件が成り立つこと」であり、それは第4節と第5節で確認済みです。
@@ -1037,17 +1037,17 @@ $$
 > **定義（双対サポートベクトル）**  
 > 最適な KKT 組 $(w^*,b^*,\alpha^*)$ に対し
 >
-> $$
-> \alpha_i^*>0
-> $$
+$$
+\alpha_i^*>0
+$$
 >
 > を満たす訓練点 $x_i$ を、この最適双対解に関する **双対サポートベクトル**と呼ぶ。
 >
 > また
 >
-> $$
-> y_i(w^{*\mathsf T}x_i+b^*)=1
-> $$
+$$
+y_i(w^{*\mathsf T}x_i+b^*)=1
+$$
 >
 > を満たす訓練点を **マージン点**と呼ぶ。
 <!-- formal-statement-end -->
@@ -1281,9 +1281,9 @@ $$
 > 1. 標本は線形分離可能である。
 > 2. 正例凸包と負例凸包が交わらない：
 >
-> $$
-> C_+\cap C_-=\varnothing.
-> $$
+$$
+C_+\cap C_-=\varnothing.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1471,40 +1471,40 @@ $$
 > **定理（最大マージンと凸包間最短距離の対応）**  
 > 正例・負例をともに含む線形分離可能な有限標本を考え、
 >
-> $$
-> \delta
-> =
-> \min_{p\in C_+,\ q\in C_-}
-> \|p-q\|_2
-> $$
+$$
+\delta
+=
+\min_{p\in C_+,\ q\in C_-}
+\|p-q\|_2
+$$
 >
 > とする。このときハードマージン SVM の最適解 $(w^*,b^*)$ は
 >
-> $$
-> \boxed{
-> \frac{2}{\|w^*\|_2}
-> =
-> \delta
-> }
-> $$
+$$
+\boxed{
+\frac{2}{\|w^*\|_2}
+=
+\delta
+}
+$$
 >
 > を満たす。従って分類境界から最近の訓練点までの最大幾何マージンは
 >
-> $$
-> \boxed{
-> \gamma^*
-> =
-> \frac{\delta}{2}
-> }.
-> $$
+$$
+\boxed{
+\gamma^*
+=
+\frac{\delta}{2}
+}.
+$$
 >
 > さらに最近点対 $(p^*,q^*)$ を一つ取れば、
 >
-> $$
-> w^*
-> =
-> \frac{2(p^*-q^*)}{\|p^*-q^*\|_2^2}
-> $$
+$$
+w^*
+=
+\frac{2(p^*-q^*)}{\|p^*-q^*\|_2^2}
+$$
 >
 > と表せる。
 <!-- formal-statement-end -->
@@ -1520,7 +1520,7 @@ r=p^*-q^*,
 \delta=\|r\|_2.
 $$
 
-前節の射影不等式より
+[OPT2 の射影の変分不等式](../OPT2/index.md#thm-opt2-projection-variational-inequality)より
 
 $$
 r^{\mathsf T}p
@@ -1622,7 +1622,7 @@ $$
 w^{\mathsf T}(p-q)\ge2.
 $$
 
-Cauchy--Schwarz の不等式より
+[Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)より
 
 $$
 2
@@ -1856,11 +1856,11 @@ $$
 > **命題（最適分類器の一意性）**  
 > 正例・負例をともに含む線形分離可能な有限標本に対し、ハードマージン SVM の最適な
 >
-> $$
-> w^*
-> \quad\text{と}\quad
-> b^*
-> $$
+$$
+w^*
+\quad\text{と}\quad
+b^*
+$$
 >
 > はともに一意である。
 <!-- formal-statement-end -->
@@ -2988,7 +2988,7 @@ $$
 
 と置きます。
 
-$p^*$ は $q^*$ から $C_+$ への射影なので、射影の変分不等式より
+$p^*$ は $q^*$ から $C_+$ への射影なので、[OPT2 の射影の変分不等式](../OPT2/index.md#thm-opt2-projection-variational-inequality)より
 
 $$
 (q^*-p^*)^{\mathsf T}(p-p^*)\le0
