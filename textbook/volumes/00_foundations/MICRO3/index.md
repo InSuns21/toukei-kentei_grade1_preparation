@@ -928,7 +928,7 @@ $$
 
 [支出最小化では目標効用が等号になる命題](#prop-micro3-target-binding)より
 
-$
+$$
 u(h^*)=\bar u.
 $$
 
