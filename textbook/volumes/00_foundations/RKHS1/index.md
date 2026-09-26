@@ -108,7 +108,7 @@ $$
 
 を入れます。$\mathbb R^p$ と等長同型なので $\mathcal H$ は Hilbert 空間です。
 
-固定した $x\in\mathbb R^p$ に対して [[Cauchy--Schwarz](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz) の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
+固定した $x\in\mathbb R^p$ に対して [Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 |f_w(x)|
@@ -775,7 +775,7 @@ $$
 
 は正半定値性から従います。
 
-さらに $\langle f,f\rangle_0=0$ とします。上の非負性から得られる [[Cauchy--Schwarz](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz) の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から、任意の $x\in\mathcal X$ について
+さらに $\langle f,f\rangle_0=0$ とします。上の非負性から得られる [Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から、任意の $x\in\mathcal X$ について
 
 $$
 |\langle f,K_x\rangle_0|^2
@@ -1235,7 +1235,7 @@ $$
 
 固定した $x\in\mathbb R^p$ を取ります。
 
-1. [[Cauchy--Schwarz](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz) の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)より
+1. [Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)より
 
 $$
 |\delta_x(f_w)|
