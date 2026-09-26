@@ -1,0 +1,111 @@
+chapter: MICRO7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MICRO6
+  - FIX2
+  - FIX3
+
+forward_references: []
+
+concepts:
+  - id: micro.normalized-price-simplex
+    name: 規格化価格単体
+    kind: definition
+    aliases:
+      - normalized price simplex
+    introduction: formal
+    introduction_aliases: ["定義（規格化価格単体）"]
+    requires:
+      - micro.walras-equilibrium-price-scale
+      - convex.convex-set
+      - topology.compact-set
+
+  - id: micro.truncated-budget-correspondence
+    name: 切断予算対応
+    kind: definition
+    aliases:
+      - truncated budget correspondence
+    introduction: formal
+    introduction_aliases: ["定義（切断予算対応・切断需要対応）"]
+    requires:
+      - micro.budget-set
+      - micro.endowment
+      - fixedpoint.correspondence
+
+  - id: micro.truncated-demand-correspondence
+    name: 切断需要対応
+    kind: definition
+    aliases:
+      - truncated demand correspondence
+    introduction: formal
+    introduction_aliases: ["定義（切断予算対応・切断需要対応）"]
+    requires:
+      - micro.truncated-budget-correspondence
+      - micro.utility-representation
+      - optimization.argmax-correspondence
+
+  - id: micro.truncated-budget-continuity
+    name: 切断予算対応の連続性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（切断予算対応は非空コンパクト凸値で両半連続）"]
+    requires:
+      - micro.truncated-budget-correspondence
+      - fixedpoint.upper-hemicontinuity
+      - fixedpoint.lower-hemicontinuity
+      - fixedpoint.uhc-closed-graph-equivalence
+      - fixedpoint.lhc-sequential-criterion
+
+  - id: micro.truncated-demand-regularity
+    name: 切断需要対応の正則性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（Berge 最大値定理から得る切断需要対応の正則性）"]
+    requires:
+      - micro.truncated-budget-continuity
+      - optimization.berge-maximum-theorem
+      - micro.convex-preference-quasiconcavity
+      - fixedpoint.upper-hemicontinuity
+      - fixedpoint.convex-valued-correspondence
+
+  - id: micro.auctioneer-price-correspondence
+    name: 競売人価格対応
+    kind: definition
+    aliases:
+      - auctioneer price correspondence
+    introduction: formal
+    introduction_aliases: ["定義（競売人価格対応）"]
+    requires:
+      - micro.normalized-price-simplex
+      - micro.excess-demand
+      - optimization.argmax-correspondence
+
+  - id: micro.auctioneer-correspondence-regularity
+    name: 競売人価格対応の正則性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（競売人価格対応は非空コンパクト凸値で上半連続）"]
+    requires:
+      - micro.auctioneer-price-correspondence
+      - optimization.berge-maximum-theorem
+      - fixedpoint.upper-hemicontinuity
+
+  - id: micro.pure-exchange-equilibrium-existence
+    name: 純粋交換経済における Walras 均衡の存在
+    kind: theorem
+    aliases:
+      - existence of Walras equilibrium in a pure exchange economy
+    introduction: formal
+    introduction_aliases: ["定理（純粋交換経済における Walras 均衡の存在）"]
+    requires:
+      - micro.truncated-demand-regularity
+      - micro.auctioneer-correspondence-regularity
+      - fixedpoint.kakutani-fixed-point-theorem
+      - micro.walras-law
+      - micro.strictly-monotone-preference
+      - micro.convex-preference
+      - micro.walras-equilibrium
