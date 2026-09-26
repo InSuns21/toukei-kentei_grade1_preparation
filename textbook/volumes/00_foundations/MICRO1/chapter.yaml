@@ -1,0 +1,51 @@
+id: "MICRO1"
+title: "選好・効用・凸性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OPT1
+official_scope: []
+learning_objectives:
+  - 選好関係・狭義選好・無差別を定義し、具体的な比較規則から三者を判定できる
+  - 完備性と推移性を定義し、数値評価から誘導された選好が両性質を持つことを証明できる
+  - 単調性と狭義単調性を区別し、完全補完型の例で差を説明できる
+  - 上位集合・下位集合を具体的に計算し、選好を集合の幾何として読み直せる
+  - 凸選好を上位集合の凸性として定義し、混合条件との同値性を証明できる
+  - 効用表現が選好の順序だけを表し、狭義単調増加変換で保存されることを証明できる
+  - 有限選択集合では完備かつ推移的な選好が効用表現を持つことを構成的に証明できる
+  - 辞書式選好を使い、完備性・推移性だけでは無限集合上の実数値効用表現が保証されないことを証明できる
+  - 凸選好と準凹な効用表現の同値性を証明できる
+  - 凸選好と凸関数を混同せず、効用の曲率が狭義単調変換で変わりうることを具体例で説明できる
+definitions:
+  - { id: MICRO1-DEF-01, name: 選好関係・狭義選好・無差別 }
+  - { id: MICRO1-DEF-02, name: 完備性・推移性 }
+  - { id: MICRO1-DEF-03, name: 単調な選好・狭義単調な選好 }
+  - { id: MICRO1-DEF-04, name: 上位集合・下位集合 }
+  - { id: MICRO1-DEF-05, name: 凸選好 }
+  - { id: MICRO1-DEF-06, name: 効用表現 }
+theorems:
+  - { id: MICRO1-PROP-01, name: 凸選好と上位集合 }
+  - { id: MICRO1-PROP-02, name: 狭義単調変換は同じ選好を表す }
+  - { id: MICRO1-PROP-03, name: 有限集合上の効用表現 }
+  - { id: MICRO1-PROP-04, name: 辞書式選好は実数値効用表現を持たない }
+  - { id: MICRO1-THM-01, name: 凸選好と準凹な効用表現 }
+canonical_examples:
+  - 線形評価 2x1+x2 による完備・推移的・狭義単調な選好
+  - 完全補完 u(x)=min{x1,x2} の上位集合と単調性
+  - 辞書式選好が完備・推移的でも実数値効用表現を持たない例
+  - u(x)=x1^2+x2^2 が凸関数でも凸選好を表さない例
+  - exp(x1+x2) が凸関数でありながら線形効用と同じ凸選好を表す例
+  - Cobb--Douglas 型 u(x)=x1x2 の上位集合・準凹性・狭義単調変換
+problem_patterns:
+  - MICRO1-PREFERENCE-AXIOMS-1
+  - MICRO1-MONOTONICITY-1
+  - MICRO1-UPPER-CONTOUR-1
+  - MICRO1-CONVEX-PREFERENCE-1
+  - MICRO1-UTILITY-TRANSFORM-1
+  - MICRO1-LEXICOGRAPHIC-1
+  - MICRO1-QUASICONCAVITY-1
+  - MICRO1-INTEGRATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 3.5, review: 0.75 }
