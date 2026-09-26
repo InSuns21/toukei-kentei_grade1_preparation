@@ -1583,49 +1583,49 @@ $C$ はコンパクトなので閉であり、凸でもあります。
 
 さらに $a,b\in\mathbb R^m$ に対し
 
-$
+$$
 p=P_C(a),
 \qquad
 q=P_C(b)
-$
+$$
 
 と置きます。
 
 [射影の変分不等式](../OPT2/index.md#thm-opt2-projection-variational-inequality)を $p,q$ に適用すると
 
-$
+$$
 (a-p)^{\mathsf T}(q-p)\le0,
-$
+$$
 
-$
+$$
 (b-q)^{\mathsf T}(p-q)\le0.
-$
+$$
 
 二式を足して整理すると
 
-$
+$$
 \|p-q\|^2
 \le
 (a-b)^{\mathsf T}(p-q)
 \le
 \|a-b\|\,\|p-q\|.
-$
+$$
 
 従って
 
-$
+$$
 \|P_C(a)-P_C(b)\|
 \le
 \|a-b\|.
-$
+$$
 
 よって $P_C$ は連続です。
 
 $c$ も連続なので
 
-$
+$$
 T:C\to C
-$
+$$
 
 は連続写像です。
 
