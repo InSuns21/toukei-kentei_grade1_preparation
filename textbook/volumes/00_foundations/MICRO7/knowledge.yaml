@@ -63,7 +63,7 @@ concepts:
     kind: proposition
     aliases: []
     introduction: formal
-    introduction_aliases: ["命題（Berge 最大値定理から得る切断需要対応の正則性）"]
+    introduction_aliases: ["命題（切断需要対応の正則性）"]
     requires:
       - micro.truncated-budget-continuity
       - optimization.berge-maximum-theorem
