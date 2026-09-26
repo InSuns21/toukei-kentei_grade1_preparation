@@ -151,7 +151,7 @@ representer theorem / kernel SVM
 - **Fenchel共役・双対まで含む凸解析**：F0-00G2まで。
 - **有限次元KKTの導出**：F0-02Aまで。
 - **一般化KKTと制約想定**：F0-02C5Aまで。
-- **RKHSそのもの**：F0-02C7まで。
+- **RKHSそのもの**：[RKHS1 再生核 Hilbert 空間・Moore--Aronszajn](../RKHS1/index.md)まで。
 - **kernel SVMまで**：F0-02C7Aまで。
 
 ## 短絡できる箇所
@@ -160,8 +160,8 @@ representer theorem / kernel SVM
 
 - `F0-00G` は `F0-00F1` のあとから読める。
 - Hahn--Banach本体は `F0-00A3 + F0-02C2` から読める。
-- RKHS本体は `F0-02C2` から読める。
+- RKHS1 は `F0-02C2` から読める。
 - 有限次元KKTの概要 `F0-02` は `F0-00G` のあとに先取りできる。
-- kernel SVMは `F0-02C7 + F0-02C3 + F0-02B1` がそろえば読める。
+- kernel SVM は `RKHS1 + F0-02C3 + F0-02B1` がそろえば読める。
 
 「前のページだから」という理由だけで `chapter.yaml` の prerequisite を追加しません。標準通読順と数学的な最小前提は区別します。
