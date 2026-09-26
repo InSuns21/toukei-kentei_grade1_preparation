@@ -4,7 +4,8 @@ coverage: complete
 prerequisites:
   - F0-02C2
 
-forward_references: []
+forward_references:
+  - rkhs.representer-theorem
 
 concepts:
   - id: rkhs.rkhs
