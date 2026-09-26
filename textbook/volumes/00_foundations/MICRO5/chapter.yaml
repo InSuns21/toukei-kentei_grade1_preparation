@@ -1,0 +1,52 @@
+id: "MICRO5"
+title: "Pareto 効率・社会計画問題・厚生定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MICRO4
+  - OPT2
+  - OPT5
+official_scope: []
+learning_objectives:
+  - 消費ベクトル・配分・総資源を具体的な財の量として読み、実行可能性を資源制約で判定できる
+  - Pareto 改善と Pareto 効率を定義し、効率性が公平性とは別概念であることを説明できる
+  - 正の厚生重みを持つ社会計画問題の解が Pareto 効率であることを証明できる
+  - 凹効用のもとで効用可能集合が凸になることを証明し、Pareto 効率点を支持する厚生重みを構成できる
+  - 社会計画問題の KKT 条件から共通の資源乗数を取り出し、限界代替率と価格比を結び付けられる
+  - 局所非飽和性の意味を説明し、価格支持された分権的配分が Pareto 効率になる第一厚生定理を証明できる
+  - 第二厚生定理の移転付き滑らかな凹効用版を、支持重み・KKT・凹性不等式を用いて証明できる
+  - 第二厚生定理で凸性が支持超平面の存在を担うことを説明できる
+  - 非凸な効用可能集合では Pareto 効率点が正の線形厚生重みで支持されないことがあると具体例で確認できる
+definitions:
+  - { id: MICRO5-DEF-01, name: 配分・実行可能配分 }
+  - { id: MICRO5-DEF-02, name: Pareto 改善・Pareto 効率 }
+  - { id: MICRO5-DEF-03, name: 局所非飽和性 }
+  - { id: MICRO5-DEF-04, name: 加重社会計画問題 }
+  - { id: MICRO5-DEF-05, name: 効用可能集合 }
+  - { id: MICRO5-DEF-06, name: 価格支持された分権的配分 }
+theorems:
+  - { id: MICRO5-THM-01, name: 正の厚生重みを持つ社会計画解の Pareto 効率性 }
+  - { id: MICRO5-THM-02, name: 凹効用のもとでの効用可能集合の凸性 }
+  - { id: MICRO5-THM-03, name: Pareto 効率点を支持する厚生重み }
+  - { id: MICRO5-THM-04, name: 社会計画問題の共通資源価格条件 }
+  - { id: MICRO5-THM-05, name: 第一厚生定理 }
+  - { id: MICRO5-THM-06, name: 第二厚生定理の移転付き滑らかな凹効用版 }
+canonical_examples:
+  - 二財二主体で総資源を配り切る配分と実行不可能な配分を判定する例
+  - 二財二主体の対数効用で加重社会計画問題を解き Pareto 効率曲線と共通価格を得る例
+  - 価格と所得のもとで各主体が最適化した配分から第一厚生定理の予算総和矛盾を確認する例
+  - Pareto 効率配分を共通価格と一括移転で分権化する例
+  - 非凸な効用可能集合で効率点が線形厚生重みによって支持されない例
+problem_patterns:
+  - MICRO5-FEASIBILITY-1
+  - MICRO5-PARETO-1
+  - MICRO5-PLANNER-1
+  - MICRO5-UTILITY-SET-1
+  - MICRO5-COMMON-PRICE-1
+  - MICRO5-FIRST-WELFARE-1
+  - MICRO5-SECOND-WELFARE-1
+  - MICRO5-NONCONVEX-FAILURE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 1.0 }
