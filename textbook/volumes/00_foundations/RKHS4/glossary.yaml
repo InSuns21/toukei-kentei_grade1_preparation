@@ -1,0 +1,23 @@
+chapter: "RKHS4"
+terms:
+  - term: 線形分離可能
+    english: linearly separable
+    meaning: あるアフィン超平面により正例と負例を厳密に異なる側へ分けられること。
+  - term: 関数マージン
+    english: functional margin
+    meaning: 訓練点 i に対する y_i(w^T x_i+b)。w,b の正の同時スケーリングで値が変わる。
+  - term: 幾何マージン
+    english: geometric margin
+    meaning: 関数マージンを ||w||_2 で割った量。分類超平面から訓練点までの符号付き距離に対応し、正の同時スケーリングで不変。
+  - term: ハードマージン SVM
+    english: hard-margin support vector machine
+    meaning: 線形分離可能な訓練データに対し、y_i(w^T x_i+b)>=1 を満たしながら ||w||_2 を最小化する最大マージン分類器。
+  - term: サポートベクトル
+    english: support vector
+    meaning: 本章では最適な双対変数 alpha_i が正である訓練点を双対サポートベクトルと呼ぶ。KKT の相補性により必ずマージン上にある。
+  - term: マージン点
+    english: margin point
+    meaning: 最適解で y_i(w^T x_i+b)=1 を満たす訓練点。退化時には双対変数が0のマージン点もあり得る。
+  - term: 最大マージン
+    english: maximum margin
+    meaning: 正負クラスを分離する超平面のうち、最近の訓練点までの幾何マージンを最大にすること。
