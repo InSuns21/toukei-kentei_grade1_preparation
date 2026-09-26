@@ -1222,7 +1222,7 @@ DOPT1 → DOPT2 → DOPT3 → DOPT4
 - [x] RKHS2「正則化問題の表現定理」を実装。標本部分空間への直交射影が訓練値を保ちながら RKHS ノルムを減らすことから表現定理を証明し、Gram 行列による有限次元化、特異 Gram 行列での係数非一意性、連続で下に有界な損失に対する最小解の存在、連続線形観測への一般化まで canonical 化した。
 - [x] RKHS3「カーネルリッジ回帰」を実装。平均二乗誤差と Tikhonov 正則化から閉形式解を導き、特異 Gram 行列での係数非一意性、平滑化行列と固有方向ごとの縮小、正則化係数の極限、線形核における通常のリッジ回帰との主形式・双対形式の一致まで canonical 化した。
 - [x] RKHS4「最大マージンとハードマージン SVM」を実装。線形分離可能性、関数マージン・幾何マージン、最大マージンの凸 QP 定式化、Slater 条件、Lagrange 双対、KKT、サポートベクトル、正負クラスの凸包非交差と最近点距離、双対変数の凸結合解釈、分類器と双対係数の一意性の違いまで canonical 化した。旧 F0-02B1 は in-place archive とした。
-- 次の実装対象：**RKHS5「soft-margin・hinge loss・kernel SVM」**
+- [x] RKHS5「ソフトマージン・ヒンジ損失・カーネル SVM」を実装。スラック変数とヒンジ損失の同値性、正則化係数 $C$ の役割、箱型制約付き双対、Slater 条件と KKT による訓練点分類、自由サポートベクトルによる切片回収、カーネルトリック、カーネル SVM の双対と有限和判別関数、XOR の多項式核分離まで canonical 化した。旧 F0-02C7A は in-place archive とした。
 
 ```text
 RKHS1 → RKHS2 → RKHS3 → RKHS4 → RKHS5
@@ -1233,6 +1233,8 @@ RKHS1 → RKHS2 → RKHS3 → RKHS4 → RKHS5
 ```text
 FIX1 → FIX2 → FIX3
 ```
+
+- 次の実装対象：**FIX1「Sperner の補題・Brouwer 不動点定理」**
 
 一般均衡と Nash existence の前に完成させる。
 
