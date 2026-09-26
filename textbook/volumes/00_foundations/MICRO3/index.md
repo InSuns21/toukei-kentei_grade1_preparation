@@ -1159,23 +1159,23 @@ $$
 > 支出関数 $e(p,\bar u)$ は $p\in\mathbb R_{++}^L$ について次を満たす。
 >
 > 1. **1次同次性**
-> $$
-> e(tp,\bar u)=t\,e(p,\bar u)
-> \qquad(t>0).
-> $$
+$$
+e(tp,\bar u)=t\,e(p,\bar u)
+\qquad(t>0).
+$$
 > 2. **単調性**  
 > $q\ge p$ なら
-> $$
-> e(q,\bar u)\ge e(p,\bar u).
-> $$
+$$
+e(q,\bar u)\ge e(p,\bar u).
+$$
 > 3. **凹性**  
 > $0\le\theta\le1$ に対して
-> $$
-> e(\theta p+(1-\theta)q,\bar u)
-> \ge
-> \theta e(p,\bar u)
-> +(1-\theta)e(q,\bar u).
-> $$
+$$
+e(\theta p+(1-\theta)q,\bar u)
+\ge
+\theta e(p,\bar u)
++(1-\theta)e(q,\bar u).
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
