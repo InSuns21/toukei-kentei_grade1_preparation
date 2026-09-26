@@ -1289,7 +1289,100 @@ $$
 
 この関数は正の領域で狭義凹です。
 
-内点の一階条件は
+さらに最適解は内点です。
+
+実際、仮に最適点で
+
+$$
+x_1=0
+$$
+
+とします。
+
+効用は各財について狭義単調なので予算を使い切り、
+
+$$
+x_2=\frac{m}{p_2}>0
+$$
+
+です。
+
+小さい $\varepsilon>0$ に対して
+
+$$
+y_1=\varepsilon,
+\qquad
+y_2=x_2-\frac{p_1}{p_2}\varepsilon
+$$
+
+と置けば、十分小さい $\varepsilon$ では $y_2>0$ であり、支出は同じです。
+
+外側の狭義単調変換を外した目的関数を
+
+$$
+F(x)
+=
+\alpha x_1^\rho+(1-\alpha)x_2^\rho
+$$
+
+とすると、
+
+$$
+\frac{
+F(y)-F(x)
+}{
+\varepsilon
+}
+=
+\alpha\varepsilon^{\rho-1}
++
+(1-\alpha)
+\frac{
+\left(x_2-\frac{p_1}{p_2}\varepsilon\right)^\rho-x_2^\rho
+}{
+\varepsilon
+}.
+$$
+
+第2項は $\varepsilon\downarrow0$ で有限値
+
+$$
+-(1-\alpha)\rho x_2^{\rho-1}\frac{p_1}{p_2}
+$$
+
+へ収束します。
+
+一方
+
+$$
+0<\rho<1
+$$
+
+なので
+
+$$
+\varepsilon^{\rho-1}\to+\infty.
+$$
+
+従って十分小さい $\varepsilon$ では
+
+$$
+F(y)>F(x),
+$$
+
+となり最適性に反します。
+
+同様に $x_2=0$ も排除されるので、最適解は
+
+$$
+x_1>0,
+\qquad
+x_2>0
+$$
+
+です。
+
+したがって非負制約の乗数は0になり、内点の一階条件は
 
 $$
 \alpha\rho x_1^{\rho-1}
