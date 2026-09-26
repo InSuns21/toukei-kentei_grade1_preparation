@@ -1,0 +1,205 @@
+chapter: DOPT4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - DOPT3
+  - LA3C
+
+forward_references: []
+
+concepts:
+  - id: optimization.totally-unimodular-matrix
+    name: 全単模行列
+    kind: definition
+    aliases:
+      - totally unimodular matrix
+      - TU matrix
+    introduction: formal
+    introduction_aliases: ["定義（全単模行列）"]
+    requires:
+      - linear.matrix-determinant
+
+  - id: optimization.tu-basic-closures
+    name: 全単模性の基本的な閉包性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（全単模性の基本的な閉包性）"]
+    requires:
+      - optimization.totally-unimodular-matrix
+      - linear.laplace-expansion
+
+  - id: optimization.integral-polyhedron
+    name: 整数多面体
+    kind: definition
+    aliases:
+      - integral polyhedron
+    introduction: formal
+    introduction_aliases: ["定義（整数多面体）"]
+    requires:
+      - optimization.polyhedron
+      - optimization.integer-hull
+
+  - id: optimization.polytope-integrality-vertex-equivalence
+    name: 有界多面体における整数性と頂点整数性の同値性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（有界多面体では整数性と頂点整数性が同値）"]
+    requires:
+      - optimization.integral-polyhedron
+      - optimization.extreme-point
+      - convex.point-closed-convex-strict-separation
+      - optimization.linear-program-fundamental-theorem
+
+  - id: optimization.node-arc-incidence-matrix
+    name: 有向グラフの点弧接続行列
+    kind: definition
+    aliases:
+      - node-arc incidence matrix
+      - directed incidence matrix
+    introduction: formal
+    introduction_aliases: ["定義（有向グラフの点弧接続行列）"]
+    requires: []
+
+  - id: optimization.node-arc-incidence-tu
+    name: 有向グラフの点弧接続行列の全単模性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（有向グラフの点弧接続行列は全単模である）"]
+    requires:
+      - optimization.node-arc-incidence-matrix
+      - optimization.totally-unimodular-matrix
+
+  - id: optimization.tu-vertex-integrality
+    name: 全単模性による頂点整数性
+    kind: theorem
+    aliases:
+      - TU integrality theorem
+    introduction: formal
+    introduction_aliases: ["定理（全単模性と整数右辺は頂点を整数にする）"]
+    requires:
+      - optimization.totally-unimodular-matrix
+      - optimization.extreme-point
+      - linear.adjugate
+      - linear.determinant-invertibility-criterion
+
+  - id: optimization.tu-equality-box-integrality
+    name: 等式制約と整数上下限を持つ全単模系の整数性
+    kind: corollary
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["系（等式制約と整数上下限を持つ全単模系）"]
+    requires:
+      - optimization.tu-basic-closures
+      - optimization.tu-vertex-integrality
+
+  - id: optimization.vertex-edge-incidence-matrix
+    name: 二部グラフの頂点辺接続行列
+    kind: definition
+    aliases:
+      - vertex-edge incidence matrix
+    introduction: formal
+    introduction_aliases: ["定義（二部グラフの頂点辺接続行列）"]
+    requires:
+      - optimization.bipartite-graph
+
+  - id: optimization.bipartite-incidence-tu
+    name: 二部グラフの頂点辺接続行列の全単模性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（二部グラフの頂点辺接続行列は全単模である）"]
+    requires:
+      - optimization.vertex-edge-incidence-matrix
+      - optimization.node-arc-incidence-tu
+      - optimization.tu-basic-closures
+
+  - id: optimization.bipartite-matching-polytope-description
+    name: 二部マッチング多面体の次数制約記述
+    kind: theorem
+    aliases:
+      - bipartite matching polytope theorem
+    introduction: formal
+    introduction_aliases: ["定理（二部マッチング多面体は次数制約で記述できる）"]
+    requires:
+      - optimization.bipartite-incidence-tu
+      - optimization.matching-polytope
+      - optimization.tu-vertex-integrality
+
+  - id: optimization.assignment-lp-integrality
+    name: 割当 LP の整数性
+    kind: corollary
+    aliases:
+      - assignment LP integrality
+    introduction: formal
+    introduction_aliases: ["系（割当 LP は整数極点を持つ）"]
+    requires:
+      - optimization.bipartite-incidence-tu
+      - optimization.assignment-lp-relaxation
+      - optimization.tu-equality-box-integrality
+
+  - id: optimization.permutation-matrix
+    name: 置換行列
+    kind: definition
+    aliases:
+      - permutation matrix
+    introduction: formal
+    introduction_aliases: ["定義（置換行列）"]
+    requires: []
+
+  - id: optimization.birkhoff-von-neumann-theorem
+    name: Birkhoff--von Neumann の定理
+    kind: corollary
+    aliases:
+      - Birkhoff-von Neumann theorem
+    introduction: formal
+    introduction_aliases: ["系（Birkhoff--von Neumann の定理）"]
+    requires:
+      - optimization.assignment-lp-integrality
+      - optimization.doubly-stochastic-matrix
+      - optimization.permutation-matrix
+      - optimization.polytope-integrality-vertex-equivalence
+
+  - id: optimization.reduced-node-arc-incidence-matrix
+    name: 縮約点弧接続行列
+    kind: definition
+    aliases:
+      - reduced node-arc incidence matrix
+    introduction: formal
+    introduction_aliases: ["定義（ネットワーク行列）"]
+    requires:
+      - optimization.node-arc-incidence-matrix
+
+  - id: optimization.network-matrix
+    name: ネットワーク行列
+    kind: definition
+    aliases:
+      - network matrix
+    introduction: formal
+    introduction_aliases: ["定義（ネットワーク行列）"]
+    requires:
+      - optimization.reduced-node-arc-incidence-matrix
+
+  - id: optimization.network-matrix-tu
+    name: ネットワーク行列の全単模性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（ネットワーク行列は全単模である）"]
+    requires:
+      - optimization.network-matrix
+      - optimization.node-arc-incidence-tu
+
+  - id: optimization.integral-flow-polyhedron
+    name: 整数データを持つフロー多面体の整数性
+    kind: corollary
+    aliases:
+      - integrality of flow polyhedra
+    introduction: formal
+    introduction_aliases: ["系（整数データを持つフロー多面体は整数極点を持つ）"]
+    requires:
+      - optimization.node-arc-incidence-tu
+      - optimization.tu-equality-box-integrality
+      - optimization.minimum-cost-flow

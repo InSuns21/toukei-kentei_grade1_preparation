@@ -1,0 +1,63 @@
+id: "DOPT4"
+title: "全単模性・整数多面体"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - DOPT3
+  - LA3C
+official_scope: []
+learning_objectives:
+  - 全単模行列を小行列式で定義し、1次小行列から成分が0,±1に限られることを説明できる
+  - 行列の部分行列・転置・行列の行や列の符号反転・単位行列の追加が全単模性を保つことを証明できる
+  - 有向グラフの点弧接続行列が全単模であることを小行列式の帰納法から証明できる
+  - 整数多面体と頂点整数性を区別し、有界多面体では両者が同値になることを説明できる
+  - 全単模な制約行列と整数右辺から多面体の頂点が整数になることを Cramer 型の議論で証明できる
+  - 右辺の整数性を失うと全単模性だけでは整数頂点を保証できない反例を示せる
+  - 二部グラフの0--1頂点辺接続行列を有向点弧接続行列へ変換し、その全単模性を証明できる
+  - 二部マッチング多面体が次数制約だけで完全に記述されることを全単模性から導ける
+  - 割当 LP の極点が完全マッチングになり、完全二部グラフでは二重確率行列が置換行列の凸結合になることを説明できる
+  - 全単模な点弧接続行列からネットワーク行列を構成し、ネットワーク行列の全単模性を証明できる
+  - 整数需給・整数上下限制約を持つフロー多面体の頂点整数性を導き、最小費用流に整数最適解を選べる理由を説明できる
+definitions:
+  - { id: DOPT4-DEF-01, name: 全単模行列 }
+  - { id: DOPT4-DEF-02, name: 整数多面体 }
+  - { id: DOPT4-DEF-03, name: 有向グラフの点弧接続行列 }
+  - { id: DOPT4-DEF-04, name: 二部グラフの頂点辺接続行列 }
+  - { id: DOPT4-DEF-05, name: ネットワーク行列 }
+  - { id: DOPT4-DEF-06, name: 置換行列 }
+  - { id: DOPT4-DEF-07, name: 縮約点弧接続行列 }
+theorems:
+  - { id: DOPT4-PROP-01, name: 全単模性の基本的な閉包性 }
+  - { id: DOPT4-THM-01, name: 有向グラフの点弧接続行列の全単模性 }
+  - { id: DOPT4-PROP-02, name: 有界多面体における整数性と頂点整数性の同値性 }
+  - { id: DOPT4-THM-02, name: 全単模性による頂点整数性 }
+  - { id: DOPT4-COR-01, name: 等式制約と整数上下限を持つ全単模系の整数性 }
+  - { id: DOPT4-THM-03, name: 二部グラフの頂点辺接続行列の全単模性 }
+  - { id: DOPT4-THM-04, name: 二部マッチング多面体の次数制約記述 }
+  - { id: DOPT4-COR-02, name: 割当 LP の整数性 }
+  - { id: DOPT4-COR-03, name: Birkhoff--von Neumann の定理 }
+  - { id: DOPT4-THM-05, name: ネットワーク行列の全単模性 }
+  - { id: DOPT4-COR-04, name: 整数データを持つフロー多面体の整数性 }
+canonical_examples:
+  - 2x3 の0--1行列について全ての1次・2次小行列式を確認する全単模性の直接例
+  - 単一変数区間 0<=x<=1/2 で右辺非整数のため分数頂点が残る反例
+  - 三角形の頂点辺接続行列の行列式が-2となり、各辺1/2が分数頂点になる例
+  - 三頂点有向グラフの点弧接続行列を作り、各列に-1と1が一つずつ現れることを確認する例
+  - 二部グラフの0--1頂点辺接続行列で片側の行を符号反転し点弧接続行列へ変換する例
+  - 二部グラフの次数制約 LP の整数点がちょうどマッチング接続ベクトルになる例
+  - 3x3 二重確率行列を置換行列の凸結合として表す例
+  - 三頂点ネットワークで木基底からネットワーク行列 B^{-1}N を計算する例
+  - 整数需給と整数容量を持つ最小費用流で LP 最適極点を整数に選べる例
+problem_patterns:
+  - DOPT4-TU-MINORS-1
+  - DOPT4-TU-CLOSURE-1
+  - DOPT4-INCIDENCE-TU-1
+  - DOPT4-TU-INTEGRALITY-1
+  - DOPT4-BIPARTITE-MATCHING-POLYTOPE-1
+  - DOPT4-ASSIGNMENT-INTEGRALITY-1
+  - DOPT4-NETWORK-MATRIX-1
+  - DOPT4-FLOW-INTEGRALITY-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.5, exercises: 4.5, review: 0.75 }
