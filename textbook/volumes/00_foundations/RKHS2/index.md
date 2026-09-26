@@ -291,7 +291,7 @@ f_\perp\in S^\perp
 $$
 と直交分解します。
 
-前節の補題より、すべての $i$ で
+[直交成分は標本点で消える補題](#lem-rkhs2-invisible-component)より、すべての $i$ で
 $$
 f(x_i)=f_S(x_i).
 $$
