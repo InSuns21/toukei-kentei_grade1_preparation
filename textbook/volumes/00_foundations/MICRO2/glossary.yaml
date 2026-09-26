@@ -1,0 +1,26 @@
+chapter: "MICRO2"
+terms:
+  - term: 予算集合
+    english: budget set
+    meaning: 価格 p と所得 m のもとで、非負消費ベクトルのうち支出 p・x が m 以下となるもの全体。
+  - term: Marshall 需要
+    english: Marshallian demand
+    meaning: 与えられた価格と所得の予算集合上で効用を最大化する消費束全体。最適点が一意なら通常の需要関数として扱える。
+  - term: 内点解
+    english: interior solution
+    meaning: すべての財の消費量が正である消費者問題の最適解。
+  - term: 端点解
+    english: corner solution
+    meaning: 少なくとも一つの財の消費量が0となる消費者問題の最適解。
+  - term: 限界代替率
+    english: marginal rate of substitution
+    meaning: 二財の微分可能効用で、第一財の限界効用を第二財の限界効用で割った比。無差別曲線の傾きの絶対値に対応する。
+  - term: 価格当たり限界効用
+    english: marginal utility per unit of expenditure
+    meaning: 財 i の限界効用を価格 p_i で割った量。KKT 条件では正に消費する財の間で共通値になる。
+  - term: Cobb--Douglas 型効用
+    english: Cobb-Douglas utility
+    meaning: 二財では x1^alpha x2^(1-alpha) の形を持つ効用。正の価格と所得のもとで各財への支出比率が指数に一致する。
+  - term: CES 型効用
+    english: constant elasticity of substitution utility
+    meaning: 本章では [alpha x1^rho +(1-alpha)x2^rho]^(1/rho) の形で扱う効用。価格比の変化が消費比へ滑らかに反映される。
