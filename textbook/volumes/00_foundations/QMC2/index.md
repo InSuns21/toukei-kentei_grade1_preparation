@@ -47,7 +47,7 @@ RKHS の一般論は RKHS1 が canonical dependency です。
 特に本章では、次を既知として使います。
 
 - [再生核 Hilbert 空間](../RKHS1/index.md#def-rkhs1-rkhs)
-- [再生性](../RKHS1/index.md#thm-rkhs1-evaluation-representer)
+- [再生性](../RKHS1/index.md#def-rkhs1-reproducing-property)
 - [再生核](../RKHS1/index.md#def-rkhs1-reproducing-kernel)
 - [Moore--Aronszajn の定理](../RKHS1/index.md#thm-rkhs1-moore-aronszajn)
 
