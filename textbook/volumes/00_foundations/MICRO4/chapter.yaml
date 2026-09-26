@@ -1,0 +1,57 @@
+id: "MICRO4"
+title: "生産者理論"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MICRO3
+  - OPT2
+  - OPT5
+official_scope: []
+learning_objectives:
+  - 純産出ベクトルの正負を産出・投入として読み、生産集合の意味を具体例から説明できる
+  - 自由処分性を集合包含で定義し、その経済的意味と技術的意味を区別できる
+  - 価格ベクトルと純産出の内積を利潤として解釈し、利潤関数と利潤最大化供給集合を定義できる
+  - コンパクトな生産集合で利潤最大化点が存在することを連続関数の最大値定理から証明できる
+  - 利潤関数の価格に関する1次同次性と凸性を証明できる
+  - Hotelling 型関係を最適値不等式から導出し、価格微分を純産出量として解釈できる
+  - 凹生産関数の利潤最大化を凸最小化へ直し、KKT 条件から限界生産物価値と投入価格の条件を導ける
+  - 費用関数と条件付き要素需要を目標産出量を固定した費用最小化から定義できる
+  - 正の投入価格と生産関数の連続性から費用最小化点の存在を証明できる
+  - 費用関数の投入価格に関する1次同次性・凹性・単調性を証明できる
+  - 利潤最大化を産出量選択と費用最小化へ分解し両者の最適解の関係を証明できる
+  - 閉凸性と自由処分性から境界点を支える非負の支持価格を構成できる
+  - 非凸生産技術では境界点が線形価格で支持されないことがあると説明できる
+definitions:
+  - { id: MICRO4-DEF-01, name: 生産集合 }
+  - { id: MICRO4-DEF-02, name: 自由処分性 }
+  - { id: MICRO4-DEF-03, name: 利潤関数・利潤最大化供給集合 }
+  - { id: MICRO4-DEF-04, name: 費用関数 }
+  - { id: MICRO4-DEF-05, name: 条件付き要素需要 }
+  - { id: MICRO4-DEF-06, name: 支持価格 }
+theorems:
+  - { id: MICRO4-THM-01, name: コンパクトな生産集合での利潤最大化点の存在 }
+  - { id: MICRO4-PROP-01, name: 利潤関数の価格に関する性質 }
+  - { id: MICRO4-THM-02, name: Hotelling 型関係 }
+  - { id: MICRO4-THM-03, name: 凹生産関数の利潤最大化と KKT 条件 }
+  - { id: MICRO4-THM-04, name: 費用最小化点の存在 }
+  - { id: MICRO4-PROP-02, name: 費用関数の投入価格に関する性質 }
+  - { id: MICRO4-THM-05, name: 利潤最大化と費用最小化の接続 }
+  - { id: MICRO4-THM-06, name: 閉凸かつ自由処分可能な生産集合の支持価格 }
+canonical_examples:
+  - 工房の原材料投入と製品産出を純産出ベクトルで表し価格内積を利潤として計算する例
+  - 有限個の生産計画から利潤最大化供給を選ぶ例
+  - 平方根型生産関数で利潤最大化・費用関数・Hotelling 型関係を一周する例
+  - 線形技術の境界点を非負価格で支持する例
+  - 非凸な二次生産技術で内部の生産フロンティア点が正価格で支持されない例
+problem_patterns:
+  - MICRO4-NET-OUTPUT-1
+  - MICRO4-PROFIT-MAX-1
+  - MICRO4-HOTELLING-1
+  - MICRO4-PRODUCER-KKT-1
+  - MICRO4-COST-MIN-1
+  - MICRO4-PROFIT-COST-1
+  - MICRO4-SUPPORTING-PRICE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 4.5, review: 0.75 }
