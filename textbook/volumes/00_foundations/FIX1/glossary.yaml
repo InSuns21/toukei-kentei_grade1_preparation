@@ -1,0 +1,26 @@
+chapter: "FIX1"
+terms:
+  - term: 標準単体
+    english: standard simplex
+    meaning: 非負座標の和が1となる点全体。有限個の標準基底ベクトルの凸包としても表せる。
+  - term: 三角形分割
+    english: triangulation
+    meaning: 単体を有限個の小単体で覆い、任意の二つの小単体の共通部分が空集合または双方の共通の面になるように分割したもの。
+  - term: メッシュ
+    english: mesh
+    meaning: 三角形分割に含まれる小単体の直径の最大値。細分の細かさを測る。
+  - term: 重心細分
+    english: barycentric subdivision
+    meaning: 各面の重心を頂点とし、面の包含鎖から新しい小単体を作る標準的な細分。
+  - term: Sperner ラベル付け
+    english: Sperner labeling
+    meaning: 各分割頂点に、その頂点が属する元の最小の面の頂点番号から一つを選んで付けるラベル付け。
+  - term: 完全ラベル単体
+    english: fully labeled simplex
+    meaning: n次元では0からnまでの全ラベルを一度ずつ含む小単体。
+  - term: 不動点
+    english: fixed point
+    meaning: 写像 f に対して f(x)=x を満たす点。
+  - term: Brouwer 不動点定理
+    english: Brouwer fixed point theorem
+    meaning: 有限次元 Euclid 空間の非空コンパクト凸集合から自身への連続写像は不動点を持つという定理。
