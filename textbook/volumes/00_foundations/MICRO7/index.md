@@ -50,14 +50,14 @@ $$
 > **定義（規格化価格単体）**  
 > 財が $L$ 種類あるとき、
 >
-> $$
-> \Delta
-> =
-> \left\{
-> p\in\mathbb R_+^L:
-> \sum_{\ell=1}^L p_\ell=1
-> \right\}
-> $$
+$$
+\Delta
+=
+\left\{
+p\in\mathbb R_+^L:
+\sum_{\ell=1}^L p_\ell=1
+\right\}
+$$
 >
 > を **規格化価格単体**という。
 <!-- formal-statement-end -->
@@ -187,25 +187,25 @@ $$
 > **定義（切断予算対応・切断需要対応）**  
 > 規格化価格 $p\in\Delta$ に対し、消費者 $i$ の **切断予算対応**を
 >
-> $$
-> B_i^K(p)
-> =
-> \left\{
-> x\in K:
-> p\cdot x\le p\cdot\omega_i
-> \right\}
-> $$
+$$
+B_i^K(p)
+=
+\left\{
+x\in K:
+p\cdot x\le p\cdot\omega_i
+\right\}
+$$
 >
 > とする。
 >
 > 効用関数 $u_i$ が与えられているとき、**切断需要対応**を
 >
-> $$
-> D_i^K(p)
-> =
-> \operatorname*{arg\,max}_{x\in B_i^K(p)}
-> u_i(x)
-> $$
+$$
+D_i^K(p)
+=
+\operatorname*{arg\,max}_{x\in B_i^K(p)}
+u_i(x)
+$$
 >
 > とする。
 <!-- formal-statement-end -->
@@ -278,7 +278,7 @@ $$
 
 ## 3. 切断予算対応は価格が動いても突然壊れない
 
-Berge 最大値定理を使うには、可行集合 $B_i^K(p)$ が価格 $p$ に対して上半連続かつ下半連続であることを確認する必要があります。
+Berge 最大値定理を使うには、可行集合 $B_i^K(p)$ が価格 $p$ に対して対応の上半連続性と対応の下半連続性を満たすことを確認する必要があります。
 
 <a id="prop-micro7-budget-continuity"></a>
 
@@ -288,9 +288,9 @@ Berge 最大値定理を使うには、可行集合 $B_i^K(p)$ が価格 $p$ に
 >
 > このとき
 >
-> $$
-> B_i^K:\Delta\rightrightarrows K
-> $$
+$$
+B_i^K:\Delta\rightrightarrows K
+$$
 >
 > は各 $p\in\Delta$ で非空コンパクト凸値を持ち、対応の上半連続性と対応の下半連続性を満たす。
 <!-- formal-statement-end -->
@@ -358,7 +358,7 @@ $$
 
 $K$ は箱型集合なので凸です。予算不等式で定まる半空間も凸です。したがってその共通部分 $B_i^K(p)$ は凸です。
 
-### 上半連続性
+### 対応の上半連続性
 
 FIX2 の [コンパクト終域における上半連続性と閉グラフ](../FIX2/index.md#cor-fix2-uhc-closed-graph)を使います。
 
@@ -396,7 +396,7 @@ $$
 
 したがってグラフは閉です。終域 $K$ はコンパクトなので、FIX2 の結果から $B_i^K$ は上半連続です。
 
-### 下半連続性
+### 対応の下半連続性
 
 FIX2 の [対応の下半連続性の点列判定](../FIX2/index.md#prop-fix2-lhc-sequential)を使います。
 
@@ -556,16 +556,16 @@ $$
 <a id="prop-micro7-demand-regularity"></a>
 
 <!-- formal-statement-start -->
-> **命題（Berge 最大値定理から得る切断需要対応の正則性）**  
+> **命題（切断需要対応の正則性）**  
 > 切断予算対応 $B_i^K$ が前命題の条件を満たし、$u_i$ が連続かつ準凹であるとする。
 >
 > このとき
 >
-> $$
-> D_i^K(p)
-> =
-> \operatorname*{arg\,max}_{x\in B_i^K(p)}u_i(x)
-> $$
+$$
+D_i^K(p)
+=
+\operatorname*{arg\,max}_{x\in B_i^K(p)}u_i(x)
+$$
 >
 > は非空コンパクト凸値で、対応の上半連続性を満たす。
 >
@@ -694,15 +694,15 @@ $$
 > **定義（競売人価格対応）**  
 > 配分候補 $x=(x_1,\dots,x_I)\in K^I$ に対し、
 >
-> $$
-> A(x)
-> =
-> \operatorname*{arg\,max}_{q\in\Delta}
-> q\cdot
-> \left(
-> \sum_{i=1}^I x_i-\Omega
-> \right)
-> $$
+$$
+A(x)
+=
+\operatorname*{arg\,max}_{q\in\Delta}
+q\cdot
+\left(
+\sum_{i=1}^I x_i-\Omega
+\right)
+$$
 >
 > を **競売人価格対応**という。
 <!-- formal-statement-end -->
@@ -1345,14 +1345,14 @@ $$
 > 各消費者 $i$ について、
 >
 > 1. 初期保有が
->    $$
->    \omega_i\in\mathbb R_{++}^L
->    $$
+$$
+   \omega_i\in\mathbb R_{++}^L
+$$
 >    である。
 > 2. 選好は連続効用関数
->    $$
->    u_i:\mathbb R_+^L\to\mathbb R
->    $$
+$$
+   u_i:\mathbb R_+^L\to\mathbb R
+$$
 >    で表現される。
 > 3. $u_i$ は狭義単調である。
 > 4. $u_i$ は狭義準凹である。
@@ -1361,38 +1361,38 @@ $$
 >
 > このとき、ある正の規格化価格
 >
-> $$
-> p^*\in\mathbb R_{++}^L,
-> \qquad
-> \sum_{\ell=1}^L p_\ell^*=1
-> $$
+$$
+p^*\in\mathbb R_{++}^L,
+\qquad
+\sum_{\ell=1}^L p_\ell^*=1
+$$
 >
 > と配分
 >
-> $$
-> x_i^*\in\mathbb R_+^L
-> $$
+$$
+x_i^*\in\mathbb R_+^L
+$$
 >
 > が存在して、
 >
-> $$
-> x_i^*
-> \in
-> \operatorname*{arg\,max}
-> _{
-> x\in\mathbb R_+^L,\;
-> p^*\cdot x\le p^*\cdot\omega_i
-> }
-> u_i(x)
-> $$
+$$
+x_i^*
+\in
+\operatorname*{arg\,max}
+_{
+x\in\mathbb R_+^L,\;
+p^*\cdot x\le p^*\cdot\omega_i
+}
+u_i(x)
+$$
 >
 > が全ての $i$ で成立し、かつ
 >
-> $$
-> \sum_{i=1}^I x_i^*
-> =
-> \sum_{i=1}^I\omega_i
-> $$
+$$
+\sum_{i=1}^I x_i^*
+=
+\sum_{i=1}^I\omega_i
+$$
 >
 > が成立する。
 >
