@@ -2,7 +2,7 @@ chapter: RKHS4
 scope: dream-theater
 coverage: complete
 prerequisites:
-  - RKHS3
+  - OPT2
   - OPT12
 
 forward_references:
