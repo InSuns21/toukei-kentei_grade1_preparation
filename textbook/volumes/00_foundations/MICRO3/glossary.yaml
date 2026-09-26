@@ -1,0 +1,35 @@
+chapter: "MICRO3"
+terms:
+  - term: 間接効用関数
+    english: indirect utility function
+    meaning: 価格 p と所得 m のもとで予算集合上の効用最大値を返す関数 v(p,m)。消費束を直接入力する効用関数と区別する。
+  - term: 支出関数
+    english: expenditure function
+    meaning: 価格 p のもとで目標効用を達成するために必要な最小支出 e(p,u)。価格について1次同次・単調・凹という性質を持つ。
+  - term: Hicks 需要
+    english: Hicksian demand
+    meaning: 目標効用を達成する消費束のうち支出を最小にするもの。補償需要とも呼ばれ、効用を固定した価格効果を表す。
+  - term: 補償需要
+    english: compensated demand
+    meaning: Hicks 需要の別名。価格変化に対して所得を調整し、同じ効用水準を維持した需要を考える。
+  - term: Shephard 型関係
+    english: Shephard's lemma
+    meaning: 支出関数が価格について微分可能なとき、その価格偏微分が対応する Hicks 需要量に等しくなる関係。
+  - term: Roy 型関係
+    english: Roy's identity
+    meaning: 滑らかな内点解のもとで、間接効用の価格偏微分と所得偏微分の比から Marshall 需要を復元する関係。
+  - term: Slutsky 分解
+    english: Slutsky decomposition
+    meaning: Marshall 需要の価格効果を、効用を固定した補償価格効果と、購買力変化を表す所得効果へ分ける恒等式。
+  - term: 代替効果
+    english: substitution effect
+    meaning: 効用水準を固定したまま相対価格だけが変わることで生じる需要変化。Hicks 需要の価格変化で測る。
+  - term: 所得効果
+    english: income effect
+    meaning: 価格変化が実質的な購買力を変えることによって生じる需要変化。
+  - term: 補償価格効果
+    english: compensated price effect
+    meaning: 目標効用を固定した Hicks 需要の価格微分で表される価格効果。
+  - term: Slutsky 行列
+    english: Slutsky matrix
+    meaning: 補償価格効果を並べた行列。滑らかな場合には支出関数の価格 Hessian と一致し、対称かつ半負定値となる。
