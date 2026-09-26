@@ -1,172 +1,29 @@
 # F0-02C7A 関数解析VII-A：representer theorem・kernel SVM
 
-無限次元RKHSの最適化解が、なぜ有限標本が張る部分空間へ落ちるのかをrepresenter theoremとSVM stationarityの両方から見ます。
+[RKHS2 の表現定理](../RKHS2/index.md#thm-rkhs2-representer)で、訓練点での値と RKHS ノルムだけに依存する正則化問題の最小解が、核切片の有限線形結合へ落ちることを証明しました。
 
-## 1. representer theoremが必要になる理由
+ここではその結果を使い、soft-margin SVM の停留条件から得られる有限和表示と、核値だけで書ける双対問題・判別関数を確認します。表現定理そのものの証明は RKHS2 を参照し、本ページでは SVM 側の計算へ集中します。
 
-RKHSが無限次元でも、学習データは有限個
+## 1. 表現定理から持ち込む有限和表示
 
+訓練点 \(x_1,\dots,x_n\) に対して
 $$
-(x_1,y_1),\dots,(x_n,y_n)
+S=\operatorname{span}\{K_{x_1},\dots,K_{x_n}\}
 $$
-
-です。
-
-多くの学習問題では目的関数が
-
-1. 訓練点での値 $f(x_i)$
-2. 関数の複雑さ $\|f\|_{\mathcal H}$
-
-だけに依存します。
-
-すると最適解は、無限次元空間全体を探さなくても
-
+と置くと、RKHS2 の表現定理により、二乗 RKHS ノルム正則化を持つ問題の最小解は
 $$
-\operatorname{span}
-\{K_{x_1},\dots,K_{x_n}\}
-$$
-
-の中に取れます。
-
-これがrepresenter theoremです。
-
----
-
-## 2. representer theoremの標準形
-
-例えば
-
-$$
-\min_{f\in\mathcal H}
-L(f(x_1),\dots,f(x_n))
-+\Omega(\|f\|_{\mathcal H})
-$$
-
-を考えます。
-
-$\Omega$ が単調増加で、最小解が存在するとします。
-
-このとき少なくとも一つの最小解を
-
-$$
-\boxed{
 f^*(\cdot)
-=\sum_{i=1}^n\alpha_iK(\cdot,x_i)
-}
+=
+\sum_{i=1}^n\alpha_iK(\cdot,x_i)
 $$
+の形に取れます。
 
-という有限和の形に取れます。
+この章では、SVM の Lagrange 停留条件から同じ有限標本構造がどのように現れるかを追います。
 
-$\Omega$ が厳密単調増加なら、最小解の不要な直交成分は必ず0になります。
 
 ---
 
-<!-- round3-hidden-proof-fixed -->
-## 3. 証明の見取り図：訓練点から見えない成分を捨てる
-
-representer theoremの証明は次の一行を展開したものです。
-
-```text
-f = f_parallel + f_perp
-      ↓
-訓練点では f_perp(x_i)=0
-      ↓
-損失は変わらない
-      ↓
-ノルムは f_perp を捨てた方が小さい
-      ↓
-最適解は span{K_xi} に取れる
-```
-
-このあとに続くkernel SVMのstationarityは、同じ「有限標本が張る部分空間へ解が落ちる」現象を最適化側から計算する応用なので、通常本文に残します。
-
-<!-- proof-start -->
-## 3. 証明：標本点が張る部分空間へ直交分解する
-
-$$
-S
-=\operatorname{span}
-\{K_{x_1},\dots,K_{x_n}\}
-$$
-
-とします。
-
-Hilbert空間なので任意の $f\in\mathcal H$ を
-
-$$
-\boxed{
-f=f_{\parallel}+f_{\perp}}
-$$
-
-と直交分解でき、
-
-$$
-f_{\parallel}\in S,
-\qquad
-f_{\perp}\in S^\perp.
-$$
-
----
-
-## 4. 直交成分は訓練点で見えない
-
-再生性より
-
-$$
-f_{\perp}(x_i)
-=\langle f_{\perp},K_{x_i}\rangle.
-$$
-
-しかし $K_{x_i}\in S$、$f_{\perp}\in S^\perp$ なので
-
-$$
-\boxed{f_{\perp}(x_i)=0}.
-$$
-
-したがって
-
-$$
-f(x_i)=f_{\parallel}(x_i)
-$$
-
-です。
-
-つまり損失 $L$ から見ると $f_{\perp}$ は完全に不可視です。
-
----
-
-## 5. しかし直交成分はノルムだけ増やす
-
-$f_{\parallel}\perp f_{\perp}$ なので、内積を展開すると
-
-$$
-\begin{aligned}
-\|f\|^2
-&=\langle f_{\parallel}+f_{\perp},f_{\parallel}+f_{\perp}\rangle\\
-&=\|f_{\parallel}\|^2+\|f_{\perp}\|^2\\
-&\ge\|f_{\parallel}\|^2.
-\end{aligned}
-$$
-
-したがって $f_{\perp}$ を捨てても訓練点での予測値は変わらず、正則化項は悪化しません。
-
-よって最適解は $S$ の中に取れます。
-
-$$
-\boxed{
-\text{有限標本しか見ない損失}
-+\text{Hilbertノルム正則化}
-\Longrightarrow
-\text{有限次元解}
-}
-$$
-
-です。
-<!-- proof-end -->
-
----
-
-## 6. kernel SVMの主問題
+## 2. kernel SVMの主問題
 
 特徴写像
 
@@ -198,7 +55,7 @@ $$
 
 ---
 
-## 7. Lagrangian
+## 3. Lagrangian
 
 マージン制約に $\alpha_i\ge0$、$\xi_i\ge0$ に $\mu_i\ge0$ を入れると
 
@@ -221,7 +78,7 @@ $w$ に関するFréchet微分を取ります。
 
 ---
 
-## 8. stationarityから有限和が出る
+## 4. stationarityから有限和が出る
 
 F0-02C3で見たように
 
@@ -262,7 +119,7 @@ $$
 
 ---
 
-## 9. $b$ と $\xi$ のstationarity
+## 5. $b$ と $\xi$ のstationarity
 
 $b$ について
 
@@ -288,7 +145,7 @@ $$
 
 ---
 
-## 10. 双対目的関数
+## 6. 双対目的関数
 
 $w$ の有限和表示をLagrangianへ戻すと
 
@@ -338,7 +195,7 @@ $$
 
 ---
 
-## 11. 判別関数
+## 7. 判別関数
 
 新しい入力 $x$ に対して
 
@@ -360,7 +217,7 @@ $$
 
 ---
 
-## 12. サポートベクトル
+## 8. サポートベクトル
 
 $\alpha_i=0$ の訓練点は
 
@@ -385,7 +242,7 @@ $$
 
 ---
 
-## 13. representer theoremとSVM stationarityは同じ現象を見る
+## 9. representer theoremとSVM stationarityは同じ現象を見る
 
 representer theoremは
 
@@ -425,7 +282,7 @@ $$
 
 ---
 
-## 14. 「kernel trick」の正体
+## 10. 「kernel trick」の正体
 
 よくある説明は
 
@@ -457,7 +314,7 @@ $$
 
 ---
 
-## 15. Mercerの定理とは区別する
+## 11. Mercerの定理とは区別する
 
 kernelの説明で「Mercerの定理」が同義語のように使われることがありますが、区別した方が安全です。
 
@@ -478,7 +335,7 @@ $$
 
 ---
 
-## 16. 02C系列の全体回収
+## 12. 02C系列の全体回収
 
 ここまでの7講を一本にすると
 
