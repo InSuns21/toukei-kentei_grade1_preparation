@@ -17,8 +17,8 @@ learning_objectives:
   - 核切片の稠密性から Moore--Aronszajn の一意性を証明できる
   - 有限集合上の RKHS を Gram 行列とその逆行列から具体的に構成できる
 definitions:
-  - { id: RKHS1-DEF-01, name: 再生核 Hilbert 空間 }
-  - { id: RKHS1-DEF-02, name: 再生核 }
+  - { id: RKHS1-DEF-01, name: 再生核 }
+  - { id: RKHS1-DEF-02, name: 再生核 Hilbert 空間 }
   - { id: RKHS1-DEF-03, name: 正半定値核 }
   - { id: RKHS1-DEF-04, name: 標準特徴写像 }
   - { id: RKHS1-DEF-05, name: 核切片の有限線形包 }
