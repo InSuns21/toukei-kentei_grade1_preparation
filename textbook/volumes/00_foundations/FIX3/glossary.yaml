@@ -1,0 +1,20 @@
+chapter: "FIX3"
+terms:
+  - term: パラメータ付き最大化問題
+    english: parameterized maximization problem
+    meaning: パラメータ x ごとに可行集合 F(x) と目的関数 u(x,・) が変わる最大化問題。
+  - term: 価値関数
+    english: value function
+    meaning: 各パラメータ x に対し最大値 v(x)=max_{y∈F(x)}u(x,y) を返す関数。
+  - term: 最大化点対応
+    english: argmax correspondence
+    meaning: 各 x に対し最大値を達成する可行点全体 M(x)=argmax_{y∈F(x)}u(x,y) を返す対応。
+  - term: Berge 最大値定理
+    english: Berge maximum theorem
+    meaning: 連続な目的関数と、非空コンパクト値で上半連続かつ下半連続な可行対応のもとで、価値関数の連続性と最大化点対応の非空コンパクト値・上半連続性を保証する定理。
+  - term: Kakutani 不動点定理
+    english: Kakutani fixed point theorem
+    meaning: 有限次元の非空コンパクト凸集合上の、非空コンパクト凸値で上半連続な自己対応に不動点が存在することを保証する定理。
+  - term: 局所厳密分離方向
+    english: local strict separating direction
+    meaning: 不動点が存在しないと仮定したとき、ある点の近傍で z とすべての y∈Γ(z) を同じ向きに厳密分離するベクトル。
