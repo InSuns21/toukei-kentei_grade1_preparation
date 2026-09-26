@@ -328,16 +328,26 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[RKHS2 の表現定理](../RKHS2/index.md#thm-rkhs2-representer)により、最小解は標本部分空間内にあり、
+[RKHS2 の表現定理の射影論証](../RKHS2/index.md#thm-rkhs2-representer)により、任意の $f\in\mathcal H$ を標本部分空間へ直交射影しても訓練点での値は変わらず、$\lambda>0$ の二乗ノルム正則化は増えません。従って
 
-$$
+$
+\inf_{f\in\mathcal H}J_\lambda(f)
+=
+\inf_{f\in S}J_\lambda(f),
+\qquad
+S=\operatorname{span}\{K_{x_1},\dots,K_{x_n}\}.
+$
+
+よってまず
+
+$
 f(\cdot)
 =
 \sum_{i=1}^n
 \alpha_iK(x_i,\cdot)
-$$
+$
 
-と表せます。このとき
+と置いた有限次元問題を解けば十分です。このとき
 
 $$
 \Phi_\lambda(\alpha)
@@ -388,7 +398,7 @@ $$
 \nabla\Phi_\lambda(\alpha_\lambda)=0.
 $$
 
-$\Phi_\lambda$ は凸二次関数なので、$\alpha_\lambda$ は最小係数です。
+$\Phi_\lambda$ は凸二次関数なので、$\alpha_\lambda$ は標本部分空間上の最小係数です。上の射影不等式から、この係数が表す関数は $\mathcal H$ 全体でも最小解です。従って最小解の存在もここで同時に得られます。
 
 次に任意の最小係数 $\alpha$ を取ります。凸微分可能関数の最小点では勾配が 0 なので
 
