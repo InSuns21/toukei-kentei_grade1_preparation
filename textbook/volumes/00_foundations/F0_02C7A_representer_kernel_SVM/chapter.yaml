@@ -3,7 +3,7 @@ title: "関数解析VII-A：representer theorem・kernel SVM"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - F0-02C7
+  - RKHS1
   - F0-02C3
   - F0-02B1
 learning_objectives:
