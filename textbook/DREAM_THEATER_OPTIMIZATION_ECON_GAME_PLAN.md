@@ -1234,7 +1234,8 @@ RKHS1 → RKHS2 → RKHS3 → RKHS4 → RKHS5
 FIX1 → FIX2 → FIX3
 ```
 
-- 次の実装対象：**FIX1「Sperner の補題・Brouwer 不動点定理」**
+- [x] FIX1「Sperner の補題・Brouwer 不動点定理」を実装。標準単体・三角形分割・重心細分を導入し、重心細分のメッシュ縮小、Sperner の補題の奇数性を帰納法と有限グラフの次数の偶奇から証明した。座標差による Sperner ラベルから標準単体上の Brouwer 不動点定理を閉じ、最近点射影を用いて非空コンパクト凸集合版へ拡張した。コンパクト性・凸性・連続性を外した反例と、Lipschitz 写像に対する近似不動点誤差評価まで canonical 化した。
+- 次の実装対象：**FIX2「集合値写像・対応」**
 
 一般均衡と Nash existence の前に完成させる。
 
