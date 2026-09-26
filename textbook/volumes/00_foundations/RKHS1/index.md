@@ -52,11 +52,61 @@ $$
 
 一方、連続関数空間のように各元が実際の関数であっても、選んだノルムに対して点評価が連続とは限りません。
 
-RKHS は
+そこで必要になるのは、
 
 > 関数空間であることに加えて、各点での値を Hilbert 空間の位相と整合的に読み出せる
 
-という構造を持つ空間です。
+という構造です。
+
+### 再生核を先に定義する
+
+<a id="def-rkhs1-reproducing-kernel"></a>
+<!-- formal-statement-start -->
+> **定義（再生核）**  
+> 集合 $\mathcal X$ 上の実数値関数からなる Hilbert 空間 $\mathcal H$ に対し、二変数関数
+>
+$$
+K:\mathcal X\times\mathcal X\to\mathbb R
+$$
+>
+> が $\mathcal H$ の **再生核**であるとは、各 $x\in\mathcal X$ に対して
+>
+$$
+K_x(\cdot):=K(\cdot,x)\in\mathcal H
+$$
+>
+> であり、さらに任意の $f\in\mathcal H$ について
+>
+$$
+f(x)=\langle f,K_x\rangle_{\mathcal H}
+$$
+>
+> が成り立つことをいう。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-rkhs1-reproducing-kernel -->
+**定義の確認**：線形関数空間
+
+$\mathcal X=\mathbb R^p$ とし、
+$$
+\mathcal H=\{f_w:f_w(z)=w^{\mathsf T}z,\ w\in\mathbb R^p\},
+\qquad
+\langle f_w,f_v\rangle_{\mathcal H}=w^{\mathsf T}v
+$$
+とします。
+$$
+K(x,z)=x^{\mathsf T}z
+$$
+と置けば、固定した $x$ に対して $K_x=f_x\in\mathcal H$ です。さらに
+$$
+\langle f_w,K_x\rangle_{\mathcal H}
+=
+w^{\mathsf T}x
+=
+f_w(x).
+$$
+従って $K$ は定義の二条件をともに満たします。
+<!-- definition-example-end -->
 
 ---
 
@@ -217,31 +267,17 @@ $$
 
 ---
 
-## 4. 再生核
+## 4. Riesz 表現から再生核を得る
 
-<a id="def-rkhs1-reproducing-kernel"></a>
-<!-- formal-statement-start -->
-> **定義（再生核）**  
-> RKHS $\mathcal H$ に対して、点評価の Riesz 表現元 $K_x$ を用い
->
+3節で得た $K_x$ を用いて
 $$
-K(x,z)
-=
-K_z(x)
+K(x,z)=K_z(x)
 $$
->
-> と定める二変数関数 $K:\mathcal X\times\mathcal X\to\mathbb R$ を $\mathcal H$ の **再生核**という。
-<!-- formal-statement-end -->
-
-<!-- definition-example-start: def-rkhs1-reproducing-kernel -->
-**定義の確認**：線形関数空間の二変数関数
-
-直前の例では $K_z(x)=z^{\mathsf T}x$ です。従って定義どおり
+と置きます。各 $K_x$ は $\mathcal H$ に属し、3節の等式から
 $$
-K(x,z)=K_z(x)=x^{\mathsf T}z.
+f(x)=\langle f,K_x\rangle_{\mathcal H}
 $$
-この二変数関数は各 $z$ に対して核切片 $K_z(\cdot)$ を返し、直前に確認した再生性と整合します。
-<!-- definition-example-end -->
+が成り立つため、1節末で定義した再生核の二条件を満たします。
 
 再生性を $f=K_z$ に適用すると
 
