@@ -166,9 +166,9 @@ concepts:
     introduction_aliases: ["定理（Moore--Aronszajn の定理）"]
     requires:
       - rkhs.psd-kernel
-      - rkhs.kernel-inner-product-well-defined
-      - rkhs.completion-function-injectivity
-      - rkhs.kernel-sections-dense
+      - rkhs.reproducing-kernel
+      - functional.hilbert-space
+      - functional.normed-cauchy-sequence
 
   - id: rkhs.finite-set-matrix-representation
     name: 有限集合上の RKHS の行列表現
