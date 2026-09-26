@@ -1,0 +1,20 @@
+chapter: "RKHS2"
+terms:
+  - term: 標本部分空間
+    english: sample subspace
+    meaning: 訓練点 x_1,...,x_n に対応する核切片 K_{x_i} の有限線形包。
+  - term: 表現定理
+    english: representer theorem
+    meaning: 訓練点での有限個の関数値と RKHS ノルムだけに依存する正則化問題の最小解を、核切片の有限線形結合として選べることを述べる定理。本章では Riesz 表現定理と区別して「RKHS の表現定理」とも呼ぶ。
+  - term: 標本評価写像
+    english: sampling operator
+    meaning: 関数 f を訓練点での値のベクトル (f(x_1),...,f(x_n)) に送る線形写像。
+  - term: Gram 行列
+    english: Gram matrix
+    meaning: 訓練点 x_1,...,x_n に対して G_ij=K(x_i,x_j) と置いた正半定値行列。
+  - term: 正則化
+    english: regularization
+    meaning: データ適合項に関数の大きさや複雑さを罰する項を加え、解の選択や安定化を行うこと。
+  - term: 不可視な直交成分
+    english: invisible orthogonal component
+    meaning: 標本部分空間の直交補空間に属し、すべての訓練点で値が 0 になる成分。
