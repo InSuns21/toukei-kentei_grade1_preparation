@@ -4,10 +4,7 @@ coverage: complete
 prerequisites:
   - OPT1
 
-forward_references:
-  - micro.budget-set
-  - micro.marshallian-demand
-  - micro.consumer-optimization
+forward_references: []
 
 concepts:
   - id: micro.preference-relation
