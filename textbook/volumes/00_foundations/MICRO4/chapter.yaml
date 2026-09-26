@@ -32,7 +32,7 @@ theorems:
   - { id: MICRO4-THM-01, name: コンパクトな生産集合での利潤最大化点の存在 }
   - { id: MICRO4-PROP-01, name: 利潤関数の価格に関する性質 }
   - { id: MICRO4-THM-02, name: Hotelling 型関係 }
-  - { id: MICRO4-THM-03, name: 凹生産関数の利潤最大化と KKT 条件 }
+  - { id: MICRO4-THM-03, name: 凹生産関数の利潤最大化条件 }
   - { id: MICRO4-THM-04, name: 費用最小化点の存在 }
   - { id: MICRO4-PROP-02, name: 費用関数の投入価格に関する性質 }
   - { id: MICRO4-THM-05, name: 利潤最大化と費用最小化の接続 }
