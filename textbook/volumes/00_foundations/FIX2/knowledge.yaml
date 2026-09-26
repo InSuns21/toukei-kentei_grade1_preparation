@@ -173,7 +173,7 @@ concepts:
     kind: proposition
     aliases: []
     introduction: formal
-    introduction_aliases: ["命題（下半連続性の点列判定）"]
+    introduction_aliases: ["命題（対応の下半連続性の点列判定）"]
     requires:
       - fixedpoint.lower-hemicontinuity
       - fixedpoint.nonempty-valued-correspondence
