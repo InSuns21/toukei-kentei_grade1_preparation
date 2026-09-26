@@ -1,0 +1,35 @@
+chapter: "MICRO6"
+terms:
+  - term: 純粋交換経済
+    english: pure exchange economy
+    meaning: 生産を置かず、各消費者が最初に持つ財を価格のもとで交換する経済。
+  - term: 初期保有
+    english: endowment
+    meaning: 交換が始まる前に消費者が保有している各財の量を並べたベクトル。
+  - term: 総資源
+    english: aggregate endowment
+    meaning: 全消費者の初期保有を財ごとに合計した、経済全体で利用できる財の量。
+  - term: 初期保有所得
+    english: endowment income
+    meaning: 価格ベクトル p のもとで初期保有 omega_i を売却したと考えたときの市場価値 p dot omega_i。
+  - term: 初期保有需要
+    english: endowment demand
+    meaning: 初期保有所得 p dot omega_i を所得として消費者 i が選ぶ最適消費の集合。
+  - term: 集計需要
+    english: aggregate demand
+    meaning: 各消費者の個別需要を財ごとに合計した経済全体の需要。
+  - term: 超過需要
+    english: excess demand
+    meaning: 集計需要から総資源を差し引いた量。正なら需要超過、負なら供給超過を表す。
+  - term: Walras の法則
+    english: Walras' law
+    meaning: 局所非飽和な消費者が予算を使い切るとき、価格で評価した超過需要の総額が常に0になるという恒等式。
+  - term: Walras 均衡
+    english: Walras equilibrium
+    meaning: 各消費者が自分の初期保有価値を所得として最適化し、その需要の合計が総資源に一致する価格と配分。
+  - term: 相対価格
+    english: relative price
+    meaning: 価格ベクトルの絶対的な尺度ではなく財どうしの価格比。純粋交換経済の実質的な選択を決める。
+  - term: Edgeworth ボックス
+    english: Edgeworth box
+    meaning: 二財二消費者の実行可能配分を、総資源を辺長とする長方形の一点として表す図。
