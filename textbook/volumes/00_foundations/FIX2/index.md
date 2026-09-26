@@ -36,13 +36,13 @@ $$
 }
 $$
 
-$
+$$
 \boxed{
 \text{連続性}
 \quad\longrightarrow\quad
 \text{集合値版の二方向の連続性}
 }
-$
+$$
 
 です。
 
