@@ -1,0 +1,85 @@
+chapter: RKHS3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RKHS2
+  - F0-00F1
+
+forward_references:
+  - svm.hard-margin
+  - svm.kernel-trick
+  - svm.kernel-svm
+
+concepts:
+  - id: rkhs.kernel-ridge-regression
+    name: カーネルリッジ回帰
+    kind: definition
+    aliases:
+      - kernel ridge regression
+      - KRR
+    introduction: formal
+    introduction_aliases: ["定義（カーネルリッジ回帰）"]
+    requires:
+      - rkhs.representer-theorem
+      - rkhs.gram-finite-dimensional-reduction
+
+  - id: rkhs.kernel-ridge-closed-form
+    name: カーネルリッジ回帰の閉形式解
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（カーネルリッジ回帰の閉形式解）"]
+    requires:
+      - rkhs.kernel-ridge-regression
+      - linear.positive-semidefinite-matrix
+
+  - id: rkhs.kernel-vector
+    name: 核ベクトル
+    kind: definition
+    aliases:
+      - kernel vector
+    introduction: formal
+    introduction_aliases: ["定義（核ベクトル）"]
+    requires:
+      - rkhs.reproducing-kernel
+
+  - id: rkhs.kernel-ridge-smoother-matrix
+    name: カーネルリッジ回帰の平滑化行列
+    kind: definition
+    aliases:
+      - smoother matrix
+    introduction: formal
+    introduction_aliases: ["定義（平滑化行列）"]
+    requires:
+      - rkhs.kernel-ridge-closed-form
+
+  - id: rkhs.kernel-ridge-spectral-shrinkage
+    name: 平滑化行列のスペクトル表示
+    kind: proposition
+    aliases:
+      - スペクトル縮小
+      - spectral shrinkage
+    introduction: formal
+    introduction_aliases: ["命題（平滑化行列のスペクトル表示）"]
+    requires:
+      - rkhs.kernel-ridge-smoother-matrix
+      - linear.spectral-theorem
+
+  - id: rkhs.kernel-ridge-lambda-limit
+    name: 正則化係数の極限
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（正則化係数の極限）"]
+    requires:
+      - rkhs.kernel-ridge-spectral-shrinkage
+
+  - id: rkhs.kernel-ridge-linear-primal-dual
+    name: 線形核と通常のリッジ回帰の一致
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（線形核と通常のリッジ回帰の一致）"]
+    requires:
+      - rkhs.kernel-ridge-closed-form
+      - linear.positive-definite-matrix
