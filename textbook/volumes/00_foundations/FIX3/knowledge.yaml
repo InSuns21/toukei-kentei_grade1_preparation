@@ -1,0 +1,111 @@
+chapter: FIX3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FIX2
+
+forward_references: []
+
+concepts:
+  - id: optimization.parameterized-maximization
+    name: パラメータ付き最大化問題
+    kind: definition
+    aliases:
+      - parameterized maximization problem
+    introduction: formal
+    introduction_aliases: ["定義（パラメータ付き最大化・価値関数・最大化点対応）"]
+    requires:
+      - fixedpoint.correspondence
+      - set.function
+
+  - id: optimization.parameterized-value-function
+    name: パラメータ付き最大化問題の価値関数
+    kind: definition
+    aliases:
+      - value function of a parameterized maximization problem
+    introduction: formal
+    introduction_aliases: ["定義（パラメータ付き最大化・価値関数・最大化点対応）"]
+    requires:
+      - optimization.parameterized-maximization
+
+  - id: optimization.argmax-correspondence
+    name: 最大化点対応
+    kind: definition
+    aliases:
+      - argmax correspondence
+    introduction: formal
+    introduction_aliases: ["定義（パラメータ付き最大化・価値関数・最大化点対応）"]
+    requires:
+      - optimization.parameterized-maximization
+      - fixedpoint.correspondence
+
+  - id: fixedpoint.uhc-compact-selection-subsequence
+    name: 上半連続コンパクト値対応の選択列コンパクト性
+    kind: lemma
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["補題（上半連続コンパクト値対応の選択列コンパクト性）"]
+    requires:
+      - fixedpoint.upper-hemicontinuity
+      - fixedpoint.compact-valued-correspondence
+      - topology.sequentially-compact
+
+  - id: optimization.berge-maximum-theorem
+    name: Berge 最大値定理
+    kind: theorem
+    aliases:
+      - Berge maximum theorem
+    introduction: formal
+    introduction_aliases: ["定理（Berge 最大値定理）"]
+    requires:
+      - optimization.parameterized-value-function
+      - optimization.argmax-correspondence
+      - fixedpoint.uhc-compact-selection-subsequence
+      - fixedpoint.lower-hemicontinuity
+      - fixedpoint.upper-hemicontinuity
+
+  - id: optimization.unique-optimizer-continuity
+    name: 厳密凹性のもとでの一意最適解の連続性
+    kind: corollary
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["系（厳密凹性のもとでの一意最適解の連続性）"]
+    requires:
+      - optimization.berge-maximum-theorem
+      - convex.strictly-concave-function
+      - fixedpoint.singleton-correspondence-continuity
+
+  - id: fixedpoint.local-strict-separation-no-fixed-point
+    name: 不動点不存在時の局所厳密分離
+    kind: lemma
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["補題（不動点不存在時の局所厳密分離）"]
+    requires:
+      - fixedpoint.upper-hemicontinuity
+      - fixedpoint.compact-valued-correspondence
+      - fixedpoint.convex-valued-correspondence
+      - optimization.projection-variational-inequality
+
+  - id: topology.finite-open-cover-continuous-weights
+    name: 有限開被覆に従属する連続重み
+    kind: lemma
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["補題（有限開被覆に従属する連続重み）"]
+    requires:
+      - topology.metric-space
+      - topology.open-set
+
+  - id: fixedpoint.kakutani-fixed-point-theorem
+    name: Kakutani 不動点定理
+    kind: theorem
+    aliases:
+      - Kakutani fixed point theorem
+    introduction: formal
+    introduction_aliases: ["定理（Kakutani 不動点定理）"]
+    requires:
+      - fixedpoint.local-strict-separation-no-fixed-point
+      - topology.finite-open-cover-continuous-weights
+      - fixedpoint.brouwer-convex
+      - optimization.projection-variational-inequality
