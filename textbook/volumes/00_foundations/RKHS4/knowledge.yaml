@@ -17,8 +17,7 @@ concepts:
       - linearly separable
     introduction: formal
     introduction_aliases: ["定義（線形分離可能性）"]
-    requires:
-      - convex.affine-hyperplane
+    requires: []
 
   - id: svm.geometric-margin
     name: 幾何マージン
@@ -61,7 +60,7 @@ concepts:
     introduction_aliases: ["定理（ハードマージン SVM の Lagrange 双対）"]
     requires:
       - svm.hard-margin-primal
-      - optimization.lagrange-dual
+      - optimization.dual-problem
       - optimization.slater-condition
 
   - id: svm.hard-margin-kkt
