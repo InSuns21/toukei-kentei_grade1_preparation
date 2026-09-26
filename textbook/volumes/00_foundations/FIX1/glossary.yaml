@@ -1,5 +1,8 @@
 chapter: "FIX1"
 terms:
+  - term: 単体
+    english: simplex
+    meaning: アフィン独立な有限個の点の凸包。n次元単体はn+1個のアフィン独立な頂点からなる。
   - term: 標準単体
     english: standard simplex
     meaning: 非負座標の和が1となる点全体。有限個の標準基底ベクトルの凸包としても表せる。
