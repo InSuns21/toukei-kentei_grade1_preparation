@@ -768,7 +768,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（ソフトマージン SVM の Lagrange 双対）**  
-> 二値訓練データが正例・負例を少なくとも1点ずつ含み、$C>0$ とする。線形ソフトマージン SVM の双対問題は
+> $x_i\in\mathbb R^p$、$y_i\in\{-1,+1\}$ からなる二値訓練データ $(x_i,y_i)_{i=1}^n$ が正例・負例を少なくとも1点ずつ含み、$C>0$ とする。[線形ソフトマージン SVM](#def-rkhs5-soft-margin-primal) の双対問題は
 >
 $$
 \boxed{
@@ -952,7 +952,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（ソフトマージン SVM の KKT 条件）**  
-> 主変数 $(w,b,\xi)$ と双対変数 $(\alpha,\beta)$ が最適であるための必要十分条件は次である。
+> $x_i\in\mathbb R^p$、$y_i\in\{-1,+1\}$ からなる二値訓練データ $(x_i,y_i)_{i=1}^n$ と $C>0$ に対する[線形ソフトマージン SVM](#def-rkhs5-soft-margin-primal)を考える。主変数 $(w,b,\xi)$ と、マージン制約・非負スラック制約に対応する双対変数 $(\alpha,\beta)$ が最適であるための必要十分条件は次である。
 >
 > **主実行可能性**
 >
@@ -1017,7 +1017,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（自由サポートベクトルと上限制約サポートベクトル）**  
-> 最適双対変数 $\alpha_i^*$ に対し、
+> $C>0$ に対するソフトマージン SVM の最適双対変数 $\alpha_i^*$ を考える。
 >
 $$
 0<\alpha_i^*<C
@@ -1086,7 +1086,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（双対変数とマージン位置の対応）**  
-> 最適 KKT 組について、次が成り立つ。
+> $C>0$ に対する線形ソフトマージン SVM の最適 KKT 組 $(w,b,\xi,\alpha,\beta)$ を取り、$g(x)=w^{\mathsf T}x+b$ とする。このとき各訓練点について次が成り立つ。
 >
 > 1. $\alpha_i=0$ なら
 >
@@ -1582,7 +1582,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（カーネル SVM の双対と判別関数）**  
-> 正半定値核 $K$ と $C>0$ に対するカーネル SVM の双対問題は
+> 集合 $\mathcal X$ 上の正半定値核 $K$ とそれに対応する RKHS $\mathcal H$、二値訓練データ $(x_i,y_i)_{i=1}^n\in\mathcal X\times\{-1,+1\}$、$C>0$ を取る。[カーネル SVM](#def-rkhs5-kernel-svm) の双対問題は
 >
 $$
 \boxed{
