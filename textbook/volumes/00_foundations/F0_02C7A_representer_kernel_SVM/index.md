@@ -6,7 +6,7 @@
 
 ## 1. 表現定理から持ち込む有限和表示
 
-訓練点 \(x_1,\dots,x_n\) に対して
+訓練点 $x_1,\dots,x_n$ に対して
 $$
 S=\operatorname{span}\{K_{x_1},\dots,K_{x_n}\}
 $$
