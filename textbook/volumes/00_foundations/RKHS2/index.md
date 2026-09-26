@@ -511,22 +511,26 @@ $$
 > 従って
 >
 $$
-\min_{f\in\mathcal H}
+\inf_{f\in\mathcal H}
+\left\{
 L\bigl(f(x_1),\dots,f(x_n)\bigr)
 +
 \lambda\|f\|_{\mathcal H}^2
+\right\}
 $$
 >
-> は
+> と
 >
 $$
-\min_{\alpha\in\mathbb R^n}
+\inf_{\alpha\in\mathbb R^n}
+\left\{
 L(G\alpha)
 +
 \lambda\alpha^{\mathsf T}G\alpha
+\right\}
 $$
 >
-> と同じ最小値を持つ。
+> は等しい。いずれかが最小値を達成する場合、対応する有限和表示を通して他方も同じ値を達成する。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -582,13 +586,13 @@ K(x_i,x_j)\\
 $$
 
 表現定理により最小値を求めるには $S$ 上だけ調べればよく、$S$ の任意の元は $f_\alpha$ と書けます。従って有限次元問題
-$$
-\min_{\alpha\in\mathbb R^n}
+$
+\inf_{\alpha\in\mathbb R^n}
 L(G\alpha)
 +
 \lambda\alpha^{\mathsf T}G\alpha
-$$
-と同じ最小値を持ちます。
+$
+と同じ下限値を持ちます。最小解が存在する場合は、その有限和表示が有限次元側の最小解を与えます。
 <!-- proof-end -->
 
 これで「無限次元から有限次元へ落ちる」という言葉が、実際の行列問題になりました。
