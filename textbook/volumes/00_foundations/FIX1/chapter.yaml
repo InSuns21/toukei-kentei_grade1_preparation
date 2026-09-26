@@ -1,0 +1,46 @@
+id: "FIX1"
+title: "Sperner の補題・Brouwer 不動点定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00C1
+  - OPT2
+official_scope: []
+learning_objectives:
+  - 標準単体を座標表示と凸包表示の両方で書き、面と支持集合を判定できる
+  - 三角形分割・メッシュ・重心細分を定義し、反復細分でメッシュが 0 へ収束する理由を説明できる
+  - Sperner ラベル条件を単体の面の支持集合から判定できる
+  - Sperner の補題を境界上の帰納法と有限グラフの次数の偶奇から証明できる
+  - 連続自己写像から座標差に基づく Sperner ラベルを構成できる
+  - 完全ラベル単体とコンパクト性から標準単体上の Brouwer 不動点定理を証明できる
+  - 最近点射影を使って Brouwer 不動点定理を非空コンパクト凸集合へ拡張できる
+  - コンパクト性・凸性・連続性を外した反例と、証明のどの機構が壊れるかを説明できる
+  - 細分のメッシュと連続性から近似的不動点の誤差評価を導ける
+definitions:
+  - { id: FIX1-DEF-01, name: 単体・標準単体 }
+  - { id: FIX1-DEF-02, name: 三角形分割・メッシュ }
+  - { id: FIX1-DEF-03, name: 重心細分 }
+  - { id: FIX1-DEF-04, name: Sperner ラベル付け }
+  - { id: FIX1-DEF-05, name: 不動点 }
+theorems:
+  - { id: FIX1-PROP-01, name: 重心細分によるメッシュ縮小 }
+  - { id: FIX1-LEM-01, name: Sperner の補題 }
+  - { id: FIX1-THM-01, name: Brouwer 不動点定理（標準単体） }
+  - { id: FIX1-COR-01, name: Brouwer 不動点定理（非空コンパクト凸集合） }
+canonical_examples:
+  - 2次元標準単体の辺と内部点の支持集合
+  - 三角形の重心と3本の辺を結ぶ最小の三角形分割
+  - 重心に0を付けた三角形の Sperner ラベル付け
+  - 区間上の座標交換写像の不動点
+  - コンパクト性・凸性・連続性をそれぞれ失った不動点不存在例
+problem_patterns:
+  - FIX1-SIMPLEX-FACE-1
+  - FIX1-SPERNER-LABELING-1
+  - FIX1-SPERNER-PARITY-1
+  - FIX1-BROUWER-LABEL-1
+  - FIX1-CONVEX-PROJECTION-1
+  - FIX1-APPROX-FIXED-POINT-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.0, review: 0.75 }

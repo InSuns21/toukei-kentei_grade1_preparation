@@ -1,0 +1,127 @@
+chapter: FIX1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00C1
+  - OPT2
+
+forward_references: []
+
+concepts:
+  - id: fixedpoint.simplex
+    name: 単体
+    kind: definition
+    aliases:
+      - simplex
+    introduction: formal
+    introduction_aliases: ["定義（単体・標準単体）"]
+    requires:
+      - convex.convex-hull
+      - linear.linear-independence
+
+  - id: fixedpoint.standard-simplex
+    name: 標準単体
+    kind: definition
+    aliases:
+      - standard simplex
+    introduction: formal
+    introduction_aliases: ["定義（単体・標準単体）"]
+    requires:
+      - fixedpoint.simplex
+
+  - id: fixedpoint.triangulation
+    name: 三角形分割
+    kind: definition
+    aliases:
+      - triangulation
+    introduction: formal
+    introduction_aliases: ["定義（三角形分割とメッシュ）"]
+    requires:
+      - fixedpoint.standard-simplex
+      - fixedpoint.simplex
+
+  - id: fixedpoint.mesh
+    name: 三角形分割のメッシュ
+    kind: definition
+    aliases:
+      - mesh of a triangulation
+    introduction: formal
+    introduction_aliases: ["定義（三角形分割とメッシュ）"]
+    requires:
+      - fixedpoint.triangulation
+
+  - id: fixedpoint.barycentric-subdivision
+    name: 重心細分
+    kind: definition
+    aliases:
+      - barycentric subdivision
+    introduction: formal
+    introduction_aliases: ["定義（重心細分）"]
+    requires:
+      - fixedpoint.triangulation
+
+  - id: fixedpoint.barycentric-mesh-contraction
+    name: 重心細分によるメッシュ縮小
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（重心細分によるメッシュ縮小）"]
+    requires:
+      - fixedpoint.barycentric-subdivision
+      - fixedpoint.mesh
+
+  - id: fixedpoint.sperner-labeling
+    name: Sperner ラベル付け
+    kind: definition
+    aliases:
+      - Sperner labeling
+    introduction: formal
+    introduction_aliases: ["定義（Sperner ラベル付け）"]
+    requires:
+      - fixedpoint.triangulation
+
+  - id: fixedpoint.sperner-lemma
+    name: Sperner の補題
+    kind: lemma
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["補題（Sperner の補題）"]
+    requires:
+      - fixedpoint.sperner-labeling
+
+  - id: fixedpoint.fixed-point
+    name: 不動点
+    kind: definition
+    aliases:
+      - fixed point
+    introduction: formal
+    introduction_aliases: ["定義（不動点）"]
+    requires:
+      - set.function
+
+  - id: fixedpoint.brouwer-simplex
+    name: 標準単体上の Brouwer 不動点定理
+    kind: theorem
+    aliases:
+      - Brouwer fixed point theorem on a simplex
+    introduction: formal
+    introduction_aliases: ["定理（Brouwer 不動点定理：標準単体）"]
+    requires:
+      - fixedpoint.sperner-lemma
+      - fixedpoint.fixed-point
+      - fixedpoint.barycentric-mesh-contraction
+      - topology.continuous-map
+      - topology.heine-borel
+
+  - id: fixedpoint.brouwer-compact-convex
+    name: 非空コンパクト凸集合上の Brouwer 不動点定理
+    kind: corollary
+    aliases:
+      - Brouwer fixed point theorem
+    introduction: formal
+    introduction_aliases: ["系（Brouwer 不動点定理：非空コンパクト凸集合）"]
+    requires:
+      - fixedpoint.brouwer-simplex
+      - optimization.finite-dimensional-convex-projection
+      - convex.convex-set
+      - topology.compact-set
