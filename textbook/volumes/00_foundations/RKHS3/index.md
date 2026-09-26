@@ -12,7 +12,7 @@ $$
 \Longrightarrow
 \text{Gram 行列上の二次最適化}
 \Longrightarrow
-\text{閉形式解}
+\text{解公式}
 \Longrightarrow
 \text{固有方向ごとの縮小}
 }
@@ -50,14 +50,14 @@ $$
 
 です。
 
-この規約では閉形式に $n\lambda$ が現れます。もし損失を
+この規約では解公式に $G+n\lambda I$ が現れます。もし損失を
 
 $$
 \sum_{i=1}^n
 \bigl(f(x_i)-y_i\bigr)^2
 $$
 
-と書く教科書なら、対応する閉形式は $G+\lambda I$ です。違いは理論ではなく $\lambda$ の尺度です。
+と書く教科書なら、解公式は $\alpha=(G+\lambda I)^{-1}y$ になります。違いは理論ではなく $\lambda$ の尺度です。
 
 <a id="def-rkhs3-kernel-ridge-regression"></a>
 
@@ -207,7 +207,7 @@ $$
 
 ---
 
-## 3. 閉形式解はなぜ G+nλI になるのか
+## 3. 解公式はなぜ G+nλI になるのか
 
 まず、正半定値行列 $G$ に $\lambda>0$ を加えると何が起きるか確認します。
 
@@ -239,7 +239,7 @@ $$
 <a id="thm-rkhs3-closed-form"></a>
 
 <!-- formal-statement-start -->
-> **定理（カーネルリッジ回帰の閉形式解）**  
+> **定理（カーネルリッジ回帰の解公式）**  
 > 訓練データ $(x_i,y_i)_{i=1}^n$ と、再生核 $K$ を持つ RKHS $\mathcal H$ を考える。Gram 行列を
 >
 $$
@@ -323,7 +323,7 @@ $$
 \alpha_\lambda=(G+n\lambda I)^{-1}y
 $$
 
-を一つの停留点として作り、その後、他の停留点との差が $\ker G$ に入ることをスペクトル分解で示します。最後に $\lambda\|f\|_{\mathcal H}^2$ の狭義凸性から、関数としての最小解が一意であることを確認します。
+を標準代表として作り、任意の係数との差を $d$ と置いて目的値の差を直接展開します。差が非負になり、0 になるのがちょうど $d\in\ker G$ のときだと示せば、最小係数全体と関数としての一意性が同時に分かります。
 
 <!-- proof-start -->
 ### 証明
@@ -358,95 +358,95 @@ $$
 \lambda\alpha^{\mathsf T}G\alpha.
 $$
 
-$G$ は対称なので、$\alpha$ に関する勾配は
+$c=n\lambda$ と置き、
 
 $$
-\nabla\Phi_\lambda(\alpha)
-=
-\frac2n
-G(G\alpha-y)
+\alpha_\lambda=(G+cI)^{-1}y
+$$
+
+とします。$G+cI$ は正定値なので、このベクトルは一意に定まります。
+
+任意の $\alpha$ に対して
+
+$$
+d=\alpha-\alpha_\lambda
+$$
+
+と置きます。定義から
+
+$$
+(G+cI)\alpha_\lambda=y
+$$
+
+なので
+
+$$
+G\alpha_\lambda-y=-c\alpha_\lambda.
+$$
+
+目的値の差を展開すると
+
+$$
+\begin{aligned}
+\Phi_\lambda(\alpha_\lambda+d)-\Phi_\lambda(\alpha_\lambda)
+&=
+\frac1n
+\left(
+2d^{\mathsf T}G(G\alpha_\lambda-y)
 +
-2\lambda G\alpha.
+d^{\mathsf T}G^2d
+\right)\\
+&\quad+
+\lambda
+\left(
+2d^{\mathsf T}G\alpha_\lambda
++
+d^{\mathsf T}Gd
+\right).
+\end{aligned}
 $$
 
-したがって
+ここで $c=n\lambda$ と
+$G\alpha_\lambda-y=-c\alpha_\lambda$ を使うと交差項は
 
 $$
-\nabla\Phi_\lambda(\alpha)
+-\frac{2c}{n}d^{\mathsf T}G\alpha_\lambda
++
+2\lambda d^{\mathsf T}G\alpha_\lambda
 =
-\frac2n
-G\bigl((G+n\lambda I)\alpha-y\bigr).
+0
 $$
 
-ここで
+と打ち消し合います。従って
 
 $$
-\alpha_\lambda
+\boxed{
+\Phi_\lambda(\alpha_\lambda+d)-\Phi_\lambda(\alpha_\lambda)
 =
-(G+n\lambda I)^{-1}y
+\frac1n\|Gd\|_2^2
++
+\lambda d^{\mathsf T}Gd
+\ge0
+}
 $$
 
-と置けば
+です。ここで $G$ の正半定値性を使いました。よって $\alpha_\lambda$ は標本部分空間上の最小係数です。冒頭の射影不等式から、この係数が表す関数は $\mathcal H$ 全体でも最小解であり、存在も同時に確認できました。
+
+さらに $G$ は実対称正半定値なので、固有値分解から
 
 $$
-(G+n\lambda I)\alpha_\lambda-y=0,
+d^{\mathsf T}Gd=0
+\quad\Longleftrightarrow\quad
+Gd=0
 $$
 
-よって
+です。したがって上の差が 0 となるのはちょうど
 
 $$
-\nabla\Phi_\lambda(\alpha_\lambda)=0.
+d\in\ker G
 $$
 
-$\Phi_\lambda$ は凸二次関数なので、$\alpha_\lambda$ は標本部分空間上の最小係数です。上の射影不等式から、この係数が表す関数は $\mathcal H$ 全体でも最小解です。従って最小解の存在もここで同時に得られます。
-
-次に任意の最小係数 $\alpha$ を取ります。凸微分可能関数の最小点では勾配が 0 なので
-
-$$
-G(G+n\lambda I)(\alpha-\alpha_\lambda)=0.
-$$
-
-実対称行列のスペクトル定理により
-
-$$
-G
-=
-Q
-\operatorname{diag}(\mu_1,\dots,\mu_n)
-Q^{\mathsf T},
-\qquad
-\mu_j\ge0
-$$
-
-と直交対角化できます。$d=\alpha-\alpha_\lambda$、$z=Q^{\mathsf T}d$ と置くと
-
-$$
-\mu_j(\mu_j+n\lambda)z_j=0
-$$
-
-が全ての $j$ で成り立ちます。
-
-$\mu_j+n\lambda>0$ なので、$\mu_j>0$ なら $z_j=0$ です。一方 $\mu_j=0$ の方向には制約がありません。従って
-
-$$
-d\in\ker G.
-$$
-
-逆に $v\in\ker G$ なら
-
-$$
-G(\alpha_\lambda+v)=G\alpha_\lambda,
-$$
-
-かつ
-
-$$
-(\alpha_\lambda+v)^{\mathsf T}G(\alpha_\lambda+v)
-=
-\alpha_\lambda^{\mathsf T}G\alpha_\lambda
-$$
-
-なので目的値は同じです。従って全最小係数は
+のときです。従って全ての最小係数は
 
 $$
 \alpha_\lambda+\ker G
@@ -454,15 +454,23 @@ $$
 
 です。
 
-最後に関数としての一意性を示します。$f\mapsto n^{-1}\sum_i(f(x_i)-y_i)^2$ は凸であり、
+最後に $v\in\ker G$ に対応する核展開
 
 $$
-f\mapsto\lambda\|f\|_{\mathcal H}^2
+h_v=\sum_{i=1}^n v_iK(x_i,\cdot)
 $$
 
-は $\lambda>0$ のため狭義凸です。従って両者の和 $J_\lambda$ は狭義凸で、最小解は高々一つです。
+は
 
-存在は上で構成した $\alpha_\lambda$ が与える関数により確認できます。従って $\widehat f_\lambda$ は関数として一意です。
+$$
+\|h_v\|_{\mathcal H}^2
+=
+v^{\mathsf T}Gv
+=
+0
+$$
+
+を満たすため、RKHS の零元です。従って最小係数が複数あっても、全て同じ RKHS 関数を表します。よって $\widehat f_\lambda$ は関数として一意です。
 <!-- proof-end -->
 
 ---
@@ -711,7 +719,7 @@ $$
 特徴写像の座標を明示しなくても、訓練点との核値を2個計算すれば予測できます。
 <!-- definition-example-end -->
 
-閉形式解から
+解公式から
 
 $$
 \widehat f_\lambda(x)
@@ -1161,7 +1169,7 @@ $$
 \right\}.
 $$
 
-勾配を 0 と置くと
+各成分で微分して一階条件をまとめると
 
 $$
 \frac2nX^{\mathsf T}(Xw-y)+2\lambda w=0,
@@ -1348,9 +1356,9 @@ $$
 \lambda\downarrow0
 $$
 
-で発散します。
+で絶対値が無限大へ向かいます。
 
-しかし $q_j\in\ker G$ です。対応する核切片の線形結合は RKHS の零元なので、その発散成分は関数に寄与しません。
+しかし $q_j\in\ker G$ です。対応する核切片の線形結合は RKHS の零元なので、その無限大へ向かう係数成分は関数に寄与しません。
 
 訓練予測では
 
@@ -1441,7 +1449,7 @@ $$
 4. Gram 行列だけで学習する。
 5. 新しい点では訓練点との核値だけで予測する。
 
-つまり kernel は、単なる「内積の置換」ではなく
+つまり kernel は、単なる「内積値の計算を核値へ切り替える技巧」ではなく
 
 $$
 \boxed{
@@ -1461,7 +1469,7 @@ $$
 
 ## Level A
 
-### RKHS3-A01 単位 Gram 行列の閉形式
+### RKHS3-A01 単位 Gram 行列の解公式
 
 - Level: A
 - 目安時間: 8分
@@ -1896,94 +1904,64 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-まず勾配を計算します。$G$ は対称なので
+$c=n\lambda$、$d=\alpha-\alpha_\lambda$ と置きます。
 
 $$
-\nabla_\alpha
-\frac1n\|G\alpha-y\|^2
+(G+cI)\alpha_\lambda=y
+$$
+
+なので
+
+$$
+G\alpha_\lambda-y=-c\alpha_\lambda.
+$$
+
+目的値の差を直接展開すると
+
+$$
+\begin{aligned}
+\Phi_\lambda(\alpha_\lambda+d)-\Phi_\lambda(\alpha_\lambda)
+&=
+\frac1n
+\left(
+2d^{\mathsf T}G(G\alpha_\lambda-y)
++
+d^{\mathsf T}G^2d
+\right)\\
+&\quad+
+\lambda
+\left(
+2d^{\mathsf T}G\alpha_\lambda
++
+d^{\mathsf T}Gd
+\right).
+\end{aligned}
+$$
+
+$c=n\lambda$ を使うと交差項が打ち消し合い、
+
+$$
+\Phi_\lambda(\alpha_\lambda+d)-\Phi_\lambda(\alpha_\lambda)
 =
-\frac2nG(G\alpha-y).
+\frac1n\|Gd\|_2^2
++
+\lambda d^{\mathsf T}Gd
+\ge0.
 $$
 
-また
+従って $\alpha_\lambda$ は最小係数です。
+
+また $G$ は正半定値なので
 
 $$
-\nabla_\alpha
-\lambda\alpha^{\mathsf T}G\alpha
-=
-2\lambda G\alpha.
-$$
-
-従って
-
-$$
-\nabla\Phi_\lambda(\alpha)
-=
-\frac2n
-G\bigl((G+n\lambda I)\alpha-y\bigr).
-$$
-
-$\alpha_\lambda$ は
-
-$$
-(G+n\lambda I)\alpha_\lambda-y=0
-$$
-
-を満たすので停留点であり、$\Phi_\lambda$ は凸二次関数だから最小点です。
-
-任意の最小点 $\alpha$ についても勾配は 0 なので
-
-$$
-G(G+n\lambda I)(\alpha-\alpha_\lambda)=0.
-$$
-
-$G=Q\operatorname{diag}(\mu_j)Q^{\mathsf T}$ と直交対角化し、
-
-$$
-d=\alpha-\alpha_\lambda,
-\qquad
-z=Q^{\mathsf T}d
-$$
-
-と置きます。
-
-すると各成分について
-
-$$
-\mu_j(\mu_j+n\lambda)z_j=0.
-$$
-
-$\mu_j+n\lambda>0$ なので、$\mu_j>0$ なら $z_j=0$ です。自由に残るのは $\mu_j=0$ の固有空間だけなので
-
-$$
+d^{\mathsf T}Gd=0
+\quad\Longleftrightarrow\quad
 d\in\ker G.
 $$
 
-従って任意の最小点は
+したがって目的値の差が 0 になるのはちょうど $d\in\ker G$ の場合です。
 
-$$
-\alpha_\lambda+v,
-\qquad
-v\in\ker G
-$$
-
-です。
-
-逆に $v\in\ker G$ なら
-
-$$
-G(\alpha_\lambda+v)=G\alpha_\lambda
-$$
-
-かつ
-
-$$
-(\alpha_\lambda+v)^{\mathsf T}G(\alpha_\lambda+v)
-=
-\alpha_\lambda^{\mathsf T}G\alpha_\lambda.
-$$
-
-従って目的値は変わりません。よって最小係数全体は確かに
+よって最小係数全体は確かに
 
 $$
 \alpha_\lambda+\ker G
@@ -2153,7 +2131,7 @@ $$
 
 ## Level C
 
-### RKHS3-C01 係数は発散しても関数は発散しない
+### RKHS3-C01 係数ノルムが無限大へ向かっても関数は有限
 
 - Level: C
 - 目安時間: 25分
@@ -2184,8 +2162,8 @@ $$
 $$
 \frac1{n\lambda}y_N
 $$
-であり、$\lambda\downarrow0$ で発散することを示せ。
-2. その発散成分が表す RKHS の関数は零元であることを示せ。
+であり、$\lambda\downarrow0$ でノルムが無限大へ向かうことを示せ。
+2. その無限大へ向かう係数成分が表す RKHS の関数は零元であることを示せ。
 3. 訓練予測 $G\alpha_\lambda$ は有限な極限 $y_R$ を持つことを示せ。
 4. 「係数ノルムが大きい」ことから「学習された RKHS 関数が大きい」と結論してはいけない理由を説明せよ。
 
@@ -2239,7 +2217,7 @@ $$
 \to\infty.
 $$
 
-これで係数ベクトルが発散することが分かります。
+これで係数ベクトルのノルムが無限大へ向かうことが分かります。
 
 次に $y_N=(v_1,\dots,v_n)^{\mathsf T}$ とし、対応する核展開
 
@@ -2321,7 +2299,7 @@ $$
 G\alpha_\lambda\to y_R.
 $$
 
-したがって発散しているのは、Gram 行列の零空間に沿った冗長な係数表示だけです。
+したがって無限大へ向かっているのは、Gram 行列の零空間に沿った冗長な係数表示だけです。
 
 kernel 展開では
 
@@ -2351,5 +2329,5 @@ $$
 - RKHS ノルム
 - 訓練予測
 
-が発散するとは限りません。係数空間の冗長性と関数空間の大きさを区別する必要があります。
+が無限大へ向かうとは限りません。係数空間の冗長性と関数空間の大きさを区別する必要があります。
 <!-- solution-end -->
