@@ -53,12 +53,12 @@ concepts:
       - rkhs.reproducing-kernel-basic-formulas
       - linear.positive-semidefinite-matrix
 
-  - id: rkhs.regularized-existence-uniqueness
-    name: 連続損失での存在と凸損失での一意性
+  - id: rkhs.regularized-existence
+    name: 連続で下に有界な損失に対する最小解の存在
     kind: corollary
     aliases: []
     introduction: formal
-    introduction_aliases: ["系（連続損失での存在と凸損失での一意性）"]
+    introduction_aliases: ["系（連続で下に有界な損失に対する最小解の存在）"]
     requires:
       - rkhs.representer-theorem
       - rkhs.sample-subspace
