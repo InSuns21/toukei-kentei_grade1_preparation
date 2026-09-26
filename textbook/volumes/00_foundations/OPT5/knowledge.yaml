@@ -91,23 +91,13 @@ concepts:
       - convex.finite-convex-local-lipschitz
       - convex.closed-cone-separation
       - convex.subgradient
-  - id: optimization.kkt-stationarity-condition
-    name: 停留条件
-    kind: term
-    aliases:
-      - stationarity condition
-    introduction: inline
-    introduction_aliases: ["停留条件"]
-    requires:
-      - optimization.lagrangian
-
   - id: optimization.kkt-conditions
     name: KKT条件
     kind: theorem
     aliases: [KKT条件, Karush--Kuhn--Tucker条件]
     introduction: formal
     introduction_aliases: ["定理（凸問題の KKT 条件）"]
-    requires: [optimization.strong-duality-slater, optimization.lagrangian, optimization.weak-duality, optimization.kkt-stationarity-condition]
+    requires: [optimization.strong-duality-slater, optimization.lagrangian, optimization.weak-duality]
   - id: optimization.active-constraint
     name: 活性制約
     kind: definition
