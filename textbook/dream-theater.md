@@ -267,6 +267,7 @@ Hilbert 空間と Riesz 表現から再生核を構成し、有限標本上の�
 7. [MICRO4 生産者理論](textbook/volumes/00_foundations/MICRO4/index.md)
 8. [MICRO5 Pareto 効率・社会計画問題・厚生定理](textbook/volumes/00_foundations/MICRO5/index.md)
 9. [MICRO6 純粋交換経済・Walras 均衡](textbook/volumes/00_foundations/MICRO6/index.md)
+10. [MICRO7 一般均衡の存在](textbook/volumes/00_foundations/MICRO7/index.md)
 
 ---
 

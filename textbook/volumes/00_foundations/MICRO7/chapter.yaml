@@ -1,0 +1,49 @@
+id: "MICRO7"
+title: "一般均衡の存在"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MICRO6
+  - FIX2
+  - FIX3
+official_scope: []
+learning_objectives:
+  - 価格の尺度不変性を使って価格ベクトルを単体へ規格化し、境界を含める理由をコンパクト性と結び付けて説明できる
+  - 正の初期保有のもとで、切断した予算対応が非空コンパクト凸値で両半連続になることを証明できる
+  - Berge 最大値定理を用いて切断需要対応の非空性・コンパクト値性・凸値性・上半連続性を確認できる
+  - 超過需要に最も大きな重みを置く競売人価格対応を構成し、その値集合と上半連続性を確認できる
+  - 消費者需要と競売人価格を一つの自己対応へまとめ、Kakutani 不動点定理の各仮定を局所的に検証できる
+  - 固定点で予算使い切りと競売人最適化を組み合わせ、全財の超過需要が非正になることを導ける
+  - ゼロ価格財があると狭義単調性によりその財への需要が切断上限まで増えることを使い、均衡価格が正になることを証明できる
+  - 正価格と Walras の法則から全市場清算を導き、固定点を Walras 均衡へ変換できる
+  - 切断問題の最適解が元の非有界消費集合でも最適であることを、狭義凸選好と市場清算から証明できる
+  - 正の初期保有、凸性、連続性を外したとき、存在証明のどの機構が壊れるかを具体例で説明できる
+definitions:
+  - { id: MICRO7-DEF-01, name: 規格化価格単体 }
+  - { id: MICRO7-DEF-02, name: 切断予算対応・切断需要対応 }
+  - { id: MICRO7-DEF-03, name: 競売人価格対応 }
+theorems:
+  - { id: MICRO7-PROP-01, name: 切断予算対応の連続性 }
+  - { id: MICRO7-PROP-02, name: 切断需要対応の正則性 }
+  - { id: MICRO7-PROP-03, name: 競売人価格対応の正則性 }
+  - { id: MICRO7-THM-01, name: 純粋交換経済における Walras 均衡の存在 }
+canonical_examples:
+  - 二財で価格単体を線分として読み、端点がゼロ価格を表すことを確認する例
+  - 正の初期保有を使って予算対応の下半連続性を点列で確認する例
+  - 超過需要ベクトルから競売人価格対応を具体的に求める例
+  - 二財二消費者の平方根効用で存在定理の仮定と均衡を直接確認する例
+  - 初期保有にゼロ成分があると境界価格で予算対応の下半連続性が壊れる例
+  - 非準凹効用では需要集合の凸値性が壊れる例
+problem_patterns:
+  - MICRO7-PRICE-SIMPLEX-1
+  - MICRO7-BUDGET-CORRESPONDENCE-1
+  - MICRO7-AUCTIONEER-1
+  - MICRO7-FIXED-POINT-CLEARING-1
+  - MICRO7-BERGE-DEMAND-1
+  - MICRO7-ASSUMPTION-FAILURE-1
+  - MICRO7-EXPLICIT-EQUILIBRIUM-1
+  - MICRO7-EXISTENCE-PROOF-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 6.0, review: 1.0 }
