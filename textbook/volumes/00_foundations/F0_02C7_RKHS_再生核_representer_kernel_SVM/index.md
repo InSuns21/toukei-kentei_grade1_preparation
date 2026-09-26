@@ -1,5 +1,7 @@
 # F0-02C7 関数解析VII：RKHS・再生核・Moore--Aronszajn
 
+> **アーカイブ**：この内容の canonical owner は [RKHS1 再生核 Hilbert 空間・Moore--Aronszajn](../RKHS1/index.md) です。本ページは過去URLと stable anchor の後方互換性のため保持しています。
+
 評価汎関数の連続性からRiesz表現を通じて再生核を得て、逆にPSD kernelからRKHSを構成するところまでを閉じます。学習アルゴリズムは次講C7Aです。
 
 ## 1. なぜ一般のHilbert関数空間では足りないのか
