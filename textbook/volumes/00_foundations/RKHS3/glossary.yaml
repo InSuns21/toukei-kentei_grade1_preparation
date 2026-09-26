@@ -1,0 +1,23 @@
+chapter: "RKHS3"
+terms:
+  - term: カーネルリッジ回帰
+    english: kernel ridge regression
+    meaning: 平均二乗誤差に RKHS ノルムの二乗を加えた正則化回帰。表現定理により有限個の核切片の線形結合へ落ちる。
+  - term: Tikhonov 正則化
+    english: Tikhonov regularization
+    meaning: 解の大きさを罰する二乗ノルム項を目的関数へ加える正則化。本章では λ||f||_H^2 を用いる。
+  - term: 核ベクトル
+    english: kernel vector
+    meaning: 新しい入力 x と訓練点 x_i の核値 K(x_i,x) を並べたベクトル。
+  - term: 平滑化行列
+    english: smoother matrix
+    meaning: 応答ベクトル y を訓練点上の予測値へ写す行列 G(G+nλI)^{-1}。
+  - term: スペクトル縮小
+    english: spectral shrinkage
+    meaning: Gram 行列の固有方向ごとに μ/(μ+nλ) の倍率で応答成分を縮小する見方。
+  - term: 主形式
+    english: primal form
+    meaning: 線形核の場合にパラメータ w を直接最適化する通常のリッジ回帰表示。
+  - term: 双対形式
+    english: dual form
+    meaning: 訓練点に付く係数 α と Gram 行列を用いて解を表す表示。
