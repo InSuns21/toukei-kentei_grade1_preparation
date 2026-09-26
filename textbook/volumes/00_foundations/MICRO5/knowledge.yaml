@@ -29,24 +29,24 @@ concepts:
       - micro.allocation
 
   - id: micro.pareto-improvement
-    name: Pareto 改善
+    name: パレート改善
     kind: definition
     aliases:
       - Pareto improvement
     introduction: formal
-    introduction_aliases: ["定義（Pareto 改善・Pareto 効率）"]
+    introduction_aliases: ["定義（パレート改善・パレート効率）"]
     requires:
       - micro.feasible-allocation
       - micro.preference-relation
 
   - id: micro.pareto-efficiency
-    name: Pareto 効率
+    name: パレート効率
     kind: definition
     aliases:
       - Pareto efficiency
       - Pareto optimality
     introduction: formal
-    introduction_aliases: ["定義（Pareto 改善・Pareto 効率）"]
+    introduction_aliases: ["定義（パレート改善・パレート効率）"]
     requires:
       - micro.pareto-improvement
 
@@ -72,11 +72,11 @@ concepts:
       - micro.utility-representation
 
   - id: micro.positive-planner-pareto
-    name: 正の厚生重みを持つ社会計画解の Pareto 効率性
+    name: 正の厚生重みを持つ社会計画解の パレート効率性
     kind: theorem
     aliases: []
     introduction: formal
-    introduction_aliases: ["定理（正の厚生重みを持つ社会計画解の Pareto 効率性）"]
+    introduction_aliases: ["定理（正の厚生重みを持つ社会計画解の パレート効率性）"]
     requires:
       - micro.weighted-social-planner
       - micro.pareto-efficiency
@@ -103,11 +103,11 @@ concepts:
       - convex.convex-set
 
   - id: micro.supporting-welfare-weight
-    name: Pareto 効率点を支持する厚生重み
+    name: パレート効率点を支持する厚生重み
     kind: theorem
     aliases: []
     introduction: formal
-    introduction_aliases: ["定理（Pareto 効率点を支持する厚生重み）"]
+    introduction_aliases: ["定理（パレート効率点を支持する厚生重み）"]
     requires:
       - micro.utility-possibility-convexity
       - convex.supporting-hyperplane-theorem
