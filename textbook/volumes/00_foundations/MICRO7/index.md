@@ -298,7 +298,7 @@ Berge 最大値定理を使うには、可行集合 $B_i^K(p)$ が価格 $p$ に
 <a id="proof-micro7-budget-continuity"></a>
 
 <!-- proof-start -->
-**証明。**
+### 証明
 
 ### 非空性
 
@@ -575,7 +575,7 @@ $$
 <a id="proof-micro7-demand-regularity"></a>
 
 <!-- proof-start -->
-**証明。**
+### 証明
 
 前命題より $B_i^K$ は非空コンパクト値で、対応の上半連続性と下半連続性を満たします。
 
@@ -779,7 +779,7 @@ $$
 <a id="proof-micro7-auctioneer-regularity"></a>
 
 <!-- proof-start -->
-**証明。**
+### 証明
 
 可行集合 $\Delta$ は $x$ に依存しない非空コンパクト集合です。
 
@@ -1332,7 +1332,7 @@ $$
 
 ---
 
-## 12. 一般均衡の存在定理
+## 12. 固定点から Walras 均衡へ
 
 ここまでの部品をまとめます。
 
@@ -1402,7 +1402,9 @@ $$
 <a id="proof-micro7-equilibrium-existence"></a>
 
 <!-- proof-start -->
-**証明の流れ。**
+### 証明
+
+証明の流れは次の通りです。
 
 1. 価格を $\Delta$ へ規格化してコンパクト化する。
 2. $K=[0,2\Omega]$ を置き、切断予算対応 $B_i^K$ を作る。
