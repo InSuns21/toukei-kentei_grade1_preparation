@@ -250,8 +250,9 @@ Hilbert 空間と Riesz 表現から再生核を構成し、有限標本上の�
 
 1. [RKHS1 再生核 Hilbert 空間・Moore--Aronszajn](textbook/volumes/00_foundations/RKHS1/index.md)
 2. [RKHS2 正則化問題の表現定理](textbook/volumes/00_foundations/RKHS2/index.md)
-3. [F0-02B1 SVM・凸包・最大マージン](textbook/volumes/00_foundations/F0_02B1_SVM_凸包_最大マージン/index.md)
-4. [F0-02C7A representer theorem・kernel SVM](textbook/volumes/00_foundations/F0_02C7A_representer_kernel_SVM/index.md)
+3. [RKHS3 カーネルリッジ回帰](textbook/volumes/00_foundations/RKHS3/index.md)
+4. [F0-02B1 SVM・凸包・最大マージン](textbook/volumes/00_foundations/F0_02B1_SVM_凸包_最大マージン/index.md)
+5. [F0-02C7A representer theorem・kernel SVM](textbook/volumes/00_foundations/F0_02C7A_representer_kernel_SVM/index.md)
 
 ---
 
