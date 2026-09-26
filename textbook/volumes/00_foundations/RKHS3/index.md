@@ -291,33 +291,19 @@ $$
 
 ### 証明の見取り図
 
-表現定理で $\alpha$ の問題へ落とし、
+表現定理の射影論証で $\alpha$ の有限次元問題へ落とし、
 
 $$
 \Phi_\lambda(\alpha)
 =
-\frac1n\|G\alpha-y\|^2
+\frac1n\|G\alpha-y\|_2^2
 +
 \lambda\alpha^{\mathsf T}G\alpha
 $$
 
-を微分します。
+を直接比較します。
 
-ただし $G$ が特異なら、停留条件から直ちに
-
-$$
-(G+n\lambda I)\alpha=y
-$$
-
-とは言えません。実際に得られるのは
-
-$$
-G\bigl((G+n\lambda I)\alpha-y\bigr)=0
-$$
-
-です。
-
-そこでまず
+$G$ が特異な場合、係数表示そのものには零空間方向の冗長性があります。そこでまず
 
 $$
 \alpha_\lambda=(G+n\lambda I)^{-1}y
