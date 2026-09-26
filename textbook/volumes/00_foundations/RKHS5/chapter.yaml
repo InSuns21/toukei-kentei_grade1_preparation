@@ -1,0 +1,50 @@
+id: "RKHS5"
+title: "ソフトマージン・ヒンジ損失・カーネル SVM"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RKHS2
+  - RKHS4
+  - OPT5
+official_scope: []
+learning_objectives:
+  - スラック変数をマージン制約の違反量として解釈し、点の位置との対応を説明できる
+  - スラック形式をヒンジ損失による正則化付き経験損失へ変換できる
+  - 正則化係数 C がマージン幅と訓練時の制約違反の相対的な重みを調整することを説明できる
+  - ソフトマージン SVM の Lagrangian から双対問題を導出し、0<=alpha_i<=C の由来を説明できる
+  - Slater 条件を具体的に確認して強双対性と KKT 条件の適用を正当化できる
+  - KKT 条件から alpha_i=0、0<alpha_i<C、alpha_i=C の各場合と訓練点の位置を分類できる
+  - 自由サポートベクトルから切片 b を回収し、自由サポートベクトルが存在しない退化例を区別できる
+  - カーネルトリックを特徴空間内積と正半定値核の関係から説明できる
+  - カーネル SVM の双対問題と判別関数を核評価だけで表せる
+  - 多項式核で XOR が特徴空間では線形分離可能になることを直接確認できる
+  - C とカーネル固有のパラメータが異なる役割を持つことを説明できる
+definitions:
+  - { id: RKHS5-DEF-01, name: スラック変数 }
+  - { id: RKHS5-DEF-02, name: ソフトマージン SVM }
+  - { id: RKHS5-DEF-03, name: ヒンジ損失 }
+  - { id: RKHS5-DEF-04, name: 自由サポートベクトル・上限制約サポートベクトル }
+  - { id: RKHS5-DEF-05, name: カーネルトリック }
+  - { id: RKHS5-DEF-06, name: カーネル SVM }
+theorems:
+  - { id: RKHS5-THM-01, name: スラック形式とヒンジ損失形式の同値性 }
+  - { id: RKHS5-THM-02, name: ソフトマージン SVM の Lagrange 双対 }
+  - { id: RKHS5-THM-03, name: ソフトマージン SVM の KKT 条件 }
+  - { id: RKHS5-PROP-01, name: 双対変数とマージン位置の対応 }
+  - { id: RKHS5-THM-04, name: カーネル SVM の双対と判別関数 }
+canonical_examples:
+  - 同じ入力に相反するラベルが付くためハードマージンが実行不可能になる例
+  - マージン値から最小スラックとヒンジ損失を直接計算する例
+  - 2次多項式核の特徴写像で核内積を検算する例
+  - XOR を2次多項式核の特徴空間で線形分離する例
+  - 相反する2点で最適切片が非一意になる退化例
+problem_patterns:
+  - RKHS5-SLACK-HINGE-1
+  - RKHS5-DUAL-BOX-CONSTRAINT-1
+  - RKHS5-KKT-POINT-CLASSIFICATION-1
+  - RKHS5-KERNEL-DUAL-1
+  - RKHS5-DEGENERATE-INTERCEPT-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.0, review: 0.75 }
