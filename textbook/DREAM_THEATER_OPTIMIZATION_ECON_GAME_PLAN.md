@@ -1221,7 +1221,8 @@ DOPT1 → DOPT2 → DOPT3 → DOPT4
 - [x] RKHS1「再生核 Hilbert 空間・Moore--Aronszajn」を実装。評価汎関数の連続性から再生核を導き、正半定値核から核切片の内積空間を構成し、完備化後の関数同定と核切片の稠密性まで含めて Moore--Aronszajn の存在・一意性を canonical 化した。
 - [x] RKHS2「正則化問題の表現定理」を実装。標本部分空間への直交射影が訓練値を保ちながら RKHS ノルムを減らすことから表現定理を証明し、Gram 行列による有限次元化、特異 Gram 行列での係数非一意性、連続で下に有界な損失に対する最小解の存在、連続線形観測への一般化まで canonical 化した。
 - [x] RKHS3「カーネルリッジ回帰」を実装。平均二乗誤差と Tikhonov 正則化から閉形式解を導き、特異 Gram 行列での係数非一意性、平滑化行列と固有方向ごとの縮小、正則化係数の極限、線形核における通常のリッジ回帰との主形式・双対形式の一致まで canonical 化した。
-- 次の実装対象：**RKHS4「最大マージン・hard-margin SVM」**
+- [x] RKHS4「最大マージンとハードマージン SVM」を実装。線形分離可能性、関数マージン・幾何マージン、最大マージンの凸 QP 定式化、Slater 条件、Lagrange 双対、KKT、サポートベクトル、正負クラスの凸包非交差と最近点距離、双対変数の凸結合解釈、分類器と双対係数の一意性の違いまで canonical 化した。旧 F0-02B1 は in-place archive とした。
+- 次の実装対象：**RKHS5「soft-margin・hinge loss・kernel SVM」**
 
 ```text
 RKHS1 → RKHS2 → RKHS3 → RKHS4 → RKHS5

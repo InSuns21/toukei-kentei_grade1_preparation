@@ -60,6 +60,11 @@
       "path": "textbook/volumes/00_foundations/F0_02C7_RKHS_再生核_representer_kernel_SVM/index.md",
       "canonical_path": "textbook/volumes/00_foundations/RKHS1/index.md",
       "reason": "RKHS1 へ再生核 Hilbert 空間・再生核・正半定値核・標準特徴写像・Moore--Aronszajn の canonical 内容を移管済み。stable anchor と過去URLのためファイルを保持。"
+    },
+    {
+      "path": "textbook/volumes/00_foundations/F0_02B1_SVM_凸包_最大マージン/index.md",
+      "canonical_path": "textbook/volumes/00_foundations/RKHS4/index.md",
+      "reason": "RKHS4 へ線形分離・最大マージン・ハードマージン SVM・凸包幾何・双対変数解釈の canonical 内容を移管済み。stable anchor と過去URLのためファイルを保持。"
     }
   ]
 }

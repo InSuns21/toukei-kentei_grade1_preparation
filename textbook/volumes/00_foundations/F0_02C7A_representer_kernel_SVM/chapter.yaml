@@ -6,7 +6,7 @@ prerequisites:
   - RKHS2
   - OPT6A
   - F0-02C3
-  - F0-02B1
+  - RKHS4
 learning_objectives:
   - representer theoremを直交分解から証明できる
   - kernel SVMの最適解が有限個の特徴の線形結合になる理由を説明できる

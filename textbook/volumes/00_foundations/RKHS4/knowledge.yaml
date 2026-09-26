@@ -1,0 +1,117 @@
+chapter: RKHS4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OPT2
+  - OPT12
+
+forward_references:
+  - rkhs.rkhs
+  - svm.kernel-trick
+  - svm.kernel-svm
+
+concepts:
+  - id: svm.linear-separability
+    name: 線形分離可能性
+    kind: definition
+    aliases:
+      - linearly separable
+    introduction: formal
+    introduction_aliases: ["定義（線形分離可能性）"]
+    requires: []
+
+  - id: svm.geometric-margin
+    name: 幾何マージン
+    kind: definition
+    aliases:
+      - geometric margin
+    introduction: formal
+    introduction_aliases: ["定義（関数マージン・幾何マージン）"]
+    requires:
+      - linear.inner-product-induced-norm
+      - svm.linear-separability
+
+  - id: svm.hard-margin-primal
+    name: ハードマージン SVM
+    kind: definition
+    aliases:
+      - hard-margin SVM
+      - hard-margin support vector machine
+    introduction: formal
+    introduction_aliases: ["定義（ハードマージン SVM）"]
+    requires:
+      - svm.geometric-margin
+      - optimization.convex-quadratic-program
+
+  - id: svm.maximum-margin-primal-equivalence
+    name: 最大マージン問題とハードマージン SVM の同値性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（最大マージン問題とハードマージン SVM の同値性）"]
+    requires:
+      - svm.hard-margin-primal
+
+  - id: svm.hard-margin-dual
+    name: ハードマージン SVM の Lagrange 双対
+    kind: theorem
+    aliases:
+      - hard-margin SVM dual
+    introduction: formal
+    introduction_aliases: ["定理（ハードマージン SVM の Lagrange 双対）"]
+    requires:
+      - svm.hard-margin-primal
+      - optimization.dual-problem
+      - optimization.slater-condition
+
+  - id: svm.hard-margin-kkt
+    name: ハードマージン SVM の KKT 条件
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（ハードマージン SVM の KKT 条件）"]
+    requires:
+      - svm.hard-margin-dual
+      - optimization.kkt-conditions
+
+  - id: svm.support-vector
+    name: サポートベクトル
+    kind: definition
+    aliases:
+      - support vector
+    introduction: formal
+    introduction_aliases: ["定義（双対サポートベクトル）"]
+    requires:
+      - svm.hard-margin-kkt
+
+  - id: svm.linear-separability-convex-hull
+    name: 線形分離可能性と凸包非交差の同値性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（線形分離可能性と凸包非交差の同値性）"]
+    requires:
+      - svm.linear-separability
+      - convex.convex-hull
+      - convex.separating-hyperplane
+
+  - id: svm.maximum-margin-convex-hull
+    name: 最大マージンと凸包間最短距離の対応
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（最大マージンと凸包間最短距離の対応）"]
+    requires:
+      - svm.linear-separability-convex-hull
+      - optimization.nearest-point-projection
+      - svm.hard-margin-dual
+
+  - id: svm.maximum-margin-unique-classifier
+    name: 最適分類器の一意性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（最適分類器の一意性）"]
+    requires:
+      - svm.hard-margin-kkt
+      - convex.strictly-convex-function
