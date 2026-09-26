@@ -1,0 +1,181 @@
+chapter: MICRO1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OPT1
+
+forward_references:
+  - micro.budget-set
+  - micro.marshallian-demand
+  - micro.consumer-optimization
+
+concepts:
+  - id: micro.preference-relation
+    name: 選好関係
+    kind: definition
+    aliases:
+      - preference relation
+    introduction: formal
+    introduction_aliases: ["定義（選好関係・狭義選好・無差別）"]
+    requires: []
+
+  - id: micro.strict-preference
+    name: 狭義選好
+    kind: definition
+    aliases:
+      - strict preference
+    introduction: formal
+    introduction_aliases: ["定義（選好関係・狭義選好・無差別）"]
+    requires:
+      - micro.preference-relation
+
+  - id: micro.indifference
+    name: 無差別
+    kind: definition
+    aliases:
+      - indifference relation
+    introduction: formal
+    introduction_aliases: ["定義（選好関係・狭義選好・無差別）"]
+    requires:
+      - micro.preference-relation
+
+  - id: micro.preference-completeness
+    name: 選好の完備性
+    kind: definition
+    aliases:
+      - completeness of preferences
+    introduction: formal
+    introduction_aliases: ["定義（完備性・推移性）"]
+    requires:
+      - micro.preference-relation
+
+  - id: micro.preference-transitivity
+    name: 選好の推移性
+    kind: definition
+    aliases:
+      - transitivity of preferences
+    introduction: formal
+    introduction_aliases: ["定義（完備性・推移性）"]
+    requires:
+      - micro.preference-relation
+
+  - id: micro.monotone-preference
+    name: 単調な選好
+    kind: definition
+    aliases:
+      - monotone preference
+    introduction: formal
+    introduction_aliases: ["定義（単調な選好・狭義単調な選好）"]
+    requires:
+      - micro.preference-relation
+
+  - id: micro.strictly-monotone-preference
+    name: 狭義単調な選好
+    kind: definition
+    aliases:
+      - strictly monotone preference
+    introduction: formal
+    introduction_aliases: ["定義（単調な選好・狭義単調な選好）"]
+    requires:
+      - micro.monotone-preference
+
+  - id: micro.upper-contour-set
+    name: 上位集合
+    kind: definition
+    aliases:
+      - upper contour set
+    introduction: formal
+    introduction_aliases: ["定義（上位集合・下位集合）"]
+    requires:
+      - micro.preference-relation
+
+  - id: micro.lower-contour-set
+    name: 下位集合
+    kind: definition
+    aliases:
+      - lower contour set
+    introduction: formal
+    introduction_aliases: ["定義（上位集合・下位集合）"]
+    requires:
+      - micro.preference-relation
+
+  - id: micro.convex-preference
+    name: 凸選好
+    kind: definition
+    aliases:
+      - convex preference
+    introduction: formal
+    introduction_aliases: ["定義（凸選好）"]
+    requires:
+      - micro.upper-contour-set
+      - convex.convex-set
+
+  - id: micro.convex-preference-upper-contour
+    name: 凸選好と上位集合
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（凸選好と上位集合）"]
+    requires:
+      - micro.convex-preference
+      - convex.convex-set
+
+  - id: micro.utility-representation
+    name: 効用表現
+    kind: definition
+    aliases:
+      - utility representation
+    introduction: formal
+    introduction_aliases: ["定義（効用表現）"]
+    requires:
+      - micro.preference-relation
+
+  - id: micro.utility-monotone-transformation
+    name: 効用表現の狭義単調変換不変性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（狭義単調変換は同じ選好を表す）"]
+    requires:
+      - micro.utility-representation
+
+  - id: micro.finite-utility-representation
+    name: 有限集合上の効用表現
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（有限集合上の効用表現）"]
+    requires:
+      - micro.preference-completeness
+      - micro.preference-transitivity
+      - micro.utility-representation
+
+  - id: micro.lexicographic-preference
+    name: 辞書式選好
+    kind: example
+    aliases:
+      - lexicographic preference
+    introduction: prose
+    requires:
+      - micro.preference-relation
+
+  - id: micro.lexicographic-no-real-utility
+    name: 辞書式選好の実数値効用表現不存在
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（辞書式選好は実数値効用表現を持たない）"]
+    requires:
+      - micro.lexicographic-preference
+      - micro.utility-representation
+
+  - id: micro.convex-preference-quasiconcavity
+    name: 凸選好と準凹な効用表現
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（凸選好と準凹な効用表現）"]
+    requires:
+      - micro.convex-preference
+      - micro.utility-representation
+      - convex.quasiconcave-function
