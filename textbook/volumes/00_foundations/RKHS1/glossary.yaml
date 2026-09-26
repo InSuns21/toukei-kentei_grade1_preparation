@@ -1,0 +1,32 @@
+chapter: "RKHS1"
+terms:
+  - term: 再生核 Hilbert 空間
+    english: reproducing kernel Hilbert space
+    meaning: 各点での評価汎関数が連続である、関数からなる Hilbert 空間。RKHS と略記する。
+  - term: 評価汎関数
+    english: evaluation functional
+    meaning: 関数 f に固定点 x での値 f(x) を対応させる線形汎関数。
+  - term: 核切片
+    english: kernel section
+    meaning: 固定した x に対して K_x(・)=K(・,x) と置いた一変数関数。
+  - term: 再生核
+    english: reproducing kernel
+    meaning: RKHS で点評価を内積 f(x)=<f,K_x> として再現する二変数関数 K。
+  - term: 再生性
+    english: reproducing property
+    meaning: 点評価が f(x)=<f,K_x> という Hilbert 空間内積で表される性質。
+  - term: 正半定値核
+    english: positive semidefinite kernel
+    meaning: 任意の有限点列と実係数に対して sum_i,j c_i c_j K(x_i,x_j)>=0 を満たす対称核。
+  - term: Gram 行列
+    english: Gram matrix
+    meaning: 有限点 x_1,...,x_n に対する成分 K(x_i,x_j) の行列。
+  - term: 標準特徴写像
+    english: canonical feature map
+    meaning: 点 x を RKHS の核切片 K_x に送る写像。内積が K(x,z) を再現する。
+  - term: Moore--Aronszajn の定理
+    english: Moore-Aronszajn theorem
+    meaning: 任意の正半定値核に対して、それを再生核とする RKHS が存在し、関数値を保つ等長同型を除いて一意であるという定理。
+  - term: 完備化
+    english: completion
+    meaning: 内積空間を稠密部分空間として含む完備な内積空間へ拡張する操作。
