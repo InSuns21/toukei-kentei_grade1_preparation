@@ -1,0 +1,54 @@
+id: "MICRO2"
+title: "消費者最適化・需要"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MICRO1
+  - OPT5
+  - F0-00C2
+official_scope: []
+learning_objectives:
+  - 正の価格と所得から予算集合を定義し、非空性・凸性・コンパクト性を証明できる
+  - Marshall 需要を最大化点集合として定義し、連続効用のもとで存在とコンパクト性を証明できる
+  - 狭義単調な選好のもとで予算制約が等号になることを証明できる
+  - 価格と所得の同率拡大に対する需要の0次同次性を証明できる
+  - 内点解と端点解を区別し、内点条件だけを機械的に使わない理由を説明できる
+  - 消費者問題を凸最適化へ翻訳し、Slater 条件を局所確認して OPT5 の KKT 条件を適用できる
+  - KKT 条件から正に消費する財と消費しない財の価格当たり限界効用条件を導ける
+  - 限界代替率を定義し、内点最適解で限界代替率と価格比が一致することを KKT から導ける
+  - Cobb--Douglas 型効用の Marshall 需要を導出できる
+  - CES 型効用の消費比と Marshall 需要を導出できる
+  - 凹性や価格正値性を失ったときに、KKT 十分性や需要存在のどの機構が壊れるか説明できる
+definitions:
+  - { id: MICRO2-DEF-01, name: 予算集合 }
+  - { id: MICRO2-DEF-02, name: Marshall 需要 }
+  - { id: MICRO2-DEF-03, name: 内点解・端点解 }
+  - { id: MICRO2-DEF-04, name: 限界代替率 }
+theorems:
+  - { id: MICRO2-PROP-01, name: 予算集合の非空性・凸性・コンパクト性 }
+  - { id: MICRO2-THM-01, name: Marshall 需要の存在 }
+  - { id: MICRO2-PROP-02, name: 狭義単調な選好での予算使い切り }
+  - { id: MICRO2-PROP-03, name: Marshall 需要の0次同次性 }
+  - { id: MICRO2-THM-02, name: 消費者問題の KKT 条件 }
+  - { id: MICRO2-COR-01, name: 内点解における限界代替率と価格比 }
+canonical_examples:
+  - 二財予算集合 2x1+x2<=6
+  - 線形効用で価格当たり限界効用により端点需要が切り替わる例
+  - Cobb--Douglas 型効用の一定支出比率需要
+  - CES 型効用の価格比と消費比
+  - log(1+x1)+log(1+x2) で所得により端点解から内点解へ移る例
+  - 無料財により予算集合が非有界となり需要が存在しない例
+problem_patterns:
+  - MICRO2-BUDGET-SET-1
+  - MICRO2-DEMAND-EXISTENCE-1
+  - MICRO2-BUDGET-EXHAUSTION-1
+  - MICRO2-HOMOGENEITY-1
+  - MICRO2-KKT-1
+  - MICRO2-MRS-1
+  - MICRO2-COBB-DOUGLAS-1
+  - MICRO2-CES-1
+  - MICRO2-CORNER-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.0, review: 0.75 }
