@@ -1367,29 +1367,59 @@ e(p,\bar u)
 (q-p)\cdot h.
 $$
 
-これは $h$ が、凹関数 $e(\,\cdot\,,\bar u)$ の $p$ における上勾配であることを意味します。
+ここで任意の方向 $d\in\mathbb R^L$ を取ります。$p\in\mathbb R_{++}^L$ なので、$|t|$ を十分小さくすれば
 
-いま $e(\,\cdot\,,\bar u)$ は $p$ で微分可能なので、上勾配は
+$
+p+td\in\mathbb R_{++}^L
+$
 
-$$
-\nabla_p e(p,\bar u)
-$$
+です。
 
-ただ一つです。
+$q=p+td$ と置くと
 
-従って任意の $h\in H(p,\bar u)$ について
+$
+e(p+td,\bar u)-e(p,\bar u)
+\le
+t\,d\cdot h.
+$
 
-$$
+まず $t>0$ で割って $t\downarrow0$ とすると、微分可能性から
+
+$
+\nabla_p e(p,\bar u)\cdot d
+\le
+h\cdot d.
+$
+
+次に $t<0$ で割ると不等号が反転するので、$t\uparrow0$ として
+
+$
+\nabla_p e(p,\bar u)\cdot d
+\ge
+h\cdot d.
+$
+
+従って任意の方向 $d$ について
+
+$
+\nabla_p e(p,\bar u)\cdot d
+=
+h\cdot d.
+$
+
+よって
+
+$
 h=\nabla_p e(p,\bar u).
-$$
+$
 
-よって Hicks 需要は一意で、
+これは任意の $h\in H(p,\bar u)$ について成り立つため Hicks 需要は一意で、成分ごとに
 
-$$
+$
 h_i(p,\bar u)
 =
 \frac{\partial e}{\partial p_i}(p,\bar u)
-$$
+$
 
 が成り立ちます。
 <!-- proof-end -->
@@ -1435,7 +1465,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Roy 型関係）**  
-> $u$ が微分可能・凹・狭義単調であるとする。
+> 効用関数 $u:\mathbb R_+^L\to\mathbb R$ が凹かつ狭義単調で、$\mathbb R_{++}^L$ の近傍で連続微分可能であるとする。
 >
 > 点 $(p,m)\in\mathbb R_{++}^L\times(0,\infty)$ の近傍で Marshall 需要 $x(p,m)$ が一意な内点解として微分可能に選べ、間接効用 $v$ も微分可能であるとする。
 >
@@ -1694,9 +1724,11 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Slutsky 分解）**  
-> Marshall 需要 $x(p,m)$、Hicks 需要 $h(p,\bar u)$、支出関数 $e(p,\bar u)$ が考えている点の近傍で一意かつ微分可能で、Shephard 型関係が成り立つとする。
+> 効用関数 $u:\mathbb R_+^L\to\mathbb R$ が連続かつ狭義単調、$p\in\mathbb R_{++}^L$、$m>0$ とする。
 >
-> $\bar u=v(p,m)$ と置くと、任意の財 $i,j$ について
+> $\bar u=v(p,m)$ と置き、$(p,m)$ と $(p,\bar u)$ の近傍で Marshall 需要 $x$、Hicks 需要 $h$、支出関数 $e$ が一意かつ微分可能で、[Shephard 型関係](#thm-micro3-shephard)が成り立つとする。
+>
+> このとき任意の財 $i,j$ について
 >
 $$
 \boxed{
@@ -2932,7 +2964,7 @@ $$
 
 <a id="ex-micro3-b02"></a>
 
-### MICRO3-B02 Shephard 型関係を上勾配から導く
+### MICRO3-B02 Shephard 型関係を最適値不等式から導く
 
 - Level: B
 - 目安時間: 25分
@@ -2947,12 +2979,16 @@ $$
    +(q-p)\cdot h
    $$
    を示せ。
-2. この不等式が、$h$ が凹関数 $e(\,\cdot\,,\bar u)$ の上勾配であることを意味する理由を説明せよ。
+2. 任意の方向 $d\in\mathbb R^L$ と十分小さい $t>0$、$t<0$ に対して $q=p+td$ を代入し、差商の上下から
+   $
+   \nabla_p e(p,\bar u)\cdot d=h\cdot d
+   $
+   を導け。
 3. $e$ が $p$ で微分可能なら
-   $$
+   $
    h=\nabla_p e(p,\bar u)
-   $$
-   を示せ。
+   $
+   を結論せよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -3009,53 +3045,87 @@ e(p,\bar u)
 }
 $$
 
-2. 凹関数 $f$ の点 $p$ における上勾配 $g$ は
+2. 任意の方向 $d\in\mathbb R^L$ を取ります。
 
-$$
-f(q)
+$p$ の全成分は正なので、$|t|$ を十分小さくすれば
+
+$
+p+td\in\mathbb R_{++}^L
+$
+
+です。
+
+1の不等式へ $q=p+td$ を代入すると
+
+$
+e(p+td,\bar u)-e(p,\bar u)
 \le
-f(p)+g\cdot(q-p)
-$$
+t\,d\cdot h.
+$
 
-をすべての $q$ について満たすベクトルです。
+$t>0$ で割れば
 
-1で得た式は、まさに
+$
+\frac{
+e(p+td,\bar u)-e(p,\bar u)
+}{t}
+\le
+d\cdot h.
+$
 
-$$
-f=e(\,\cdot\,,\bar u),
-\qquad
-g=h
-$$
+$t\downarrow0$ とし、$e$ の微分可能性を使うと
 
-としたこの形です。
+$
+\nabla_p e(p,\bar u)\cdot d
+\le
+d\cdot h.
+$
 
-したがって $h$ は支出関数の上勾配です。
+一方 $t<0$ で割ると不等号が反転して
 
-3. 凹関数が点 $p$ で微分可能なら、その点の上勾配は勾配
+$
+\frac{
+e(p+td,\bar u)-e(p,\bar u)
+}{t}
+\ge
+d\cdot h.
+$
 
-$$
-\nabla_p e(p,\bar u)
-$$
+$t\uparrow0$ とすると
 
-ただ一つです。
+$
+\nabla_p e(p,\bar u)\cdot d
+\ge
+d\cdot h.
+$
 
-従って任意の Hicks 最適点 $h$ は
+従って
 
-$$
-h=\nabla_p e(p,\bar u)
-$$
+$
+\boxed{
+\nabla_p e(p,\bar u)\cdot d
+=
+h\cdot d
+}
+$
 
-に一致します。
+が任意の $d$ で成り立ちます。
 
-成分ごとに書けば
+3. 任意の方向との内積が等しいので
 
-$$
+$
+h=\nabla_p e(p,\bar u).
+$
+
+従って成分ごとに
+
+$
 \boxed{
 h_i(p,\bar u)
 =
 \frac{\partial e}{\partial p_i}(p,\bar u).
 }
-$$
+$
 
 これが Shephard 型関係です。
 <!-- solution-end -->
