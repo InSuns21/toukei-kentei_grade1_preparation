@@ -8,12 +8,13 @@ prerequisites:
   - F0-02C3
   - F0-02B1
 learning_objectives:
-  - RKHS2 の表現定理を kernel SVM の有限和表示へ接続できる
+  - representer theoremを直交分解から証明できる
   - kernel SVMの最適解が有限個の特徴の線形結合になる理由を説明できる
   - SVM双対と判別関数をkernel値だけで書ける
   - kernel trickをRKHSと有限和解の両方から説明できる
 definitions: []
-theorems: []
+theorems:
+  - { id: F002C7A-THM-01, name: representer theorem }
 canonical_examples: [kernel ridge型最適化, kernel SVM]
 problem_patterns: [RKHS-REPRESENTER-1, RKHS-SVM-1]
 exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
