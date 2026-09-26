@@ -36,8 +36,8 @@ concepts:
     kind: definition
     aliases:
       - reproducing property
-    introduction: inline
-    introduction_aliases: ["再生性"]
+    introduction: formal
+    introduction_aliases: ["定義（再生性）"]
     requires:
       - rkhs.evaluation-representer
 
