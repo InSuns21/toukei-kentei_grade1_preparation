@@ -1,0 +1,26 @@
+chapter: "FIX2"
+terms:
+  - term: 対応
+    english: correspondence / set-valued map
+    meaning: 各 x に Y の点を一つではなく部分集合 Gamma(x) を対応させる規則。空集合を値として許す一般形もあるが、本章の主要結果では必要に応じて非空値を仮定する。
+  - term: 対応のグラフ
+    english: graph of a correspondence
+    meaning: y in Gamma(x) を満たす組 (x,y) 全体からなる X times Y の部分集合。
+  - term: 閉値対応
+    english: closed-valued correspondence
+    meaning: 各 x について値集合 Gamma(x) が終域の閉集合になる対応。
+  - term: コンパクト値対応
+    english: compact-valued correspondence
+    meaning: 各 x について値集合 Gamma(x) がコンパクトになる対応。
+  - term: 凸値対応
+    english: convex-valued correspondence
+    meaning: 終域がベクトル空間の部分集合であるとき、各 x について値集合 Gamma(x) が凸集合になる対応。
+  - term: 対応の上半連続性
+    english: upper hemicontinuity of a correspondence
+    meaning: Gamma(x) 全体を含む任意の開集合 V に対し、x に十分近い x' の値 Gamma(x') も V の中へ収まる性質。
+  - term: 対応の下半連続性
+    english: lower hemicontinuity of a correspondence
+    meaning: Gamma(x) と交わる任意の開集合 V に対し、x に十分近い x' の値 Gamma(x') も V と交わる性質。
+  - term: 対応の不動点
+    english: fixed point of a correspondence
+    meaning: 自己対応 Gamma:C rightrightarrows C に対し x in Gamma(x) を満たす点。1点値対応では通常の不動点 f(x)=x に一致する。
