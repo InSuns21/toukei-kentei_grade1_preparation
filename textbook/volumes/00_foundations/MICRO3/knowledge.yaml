@@ -1,0 +1,132 @@
+chapter: MICRO3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MICRO2
+  - OPT5
+
+forward_references: []
+
+concepts:
+  - id: micro.indirect-utility-function
+    name: 間接効用関数
+    kind: definition
+    aliases:
+      - indirect utility function
+    introduction: formal
+    introduction_aliases: ["定義（間接効用関数）"]
+    requires:
+      - micro.marshall-demand
+
+  - id: micro.expenditure-function
+    name: 支出関数
+    kind: definition
+    aliases:
+      - expenditure function
+    introduction: formal
+    introduction_aliases: ["定義（支出関数）"]
+    requires:
+      - micro.utility-representation
+
+  - id: micro.hicks-demand
+    name: Hicks 需要
+    kind: definition
+    aliases:
+      - Hicksian demand
+      - 補償需要
+      - compensated demand
+    introduction: formal
+    introduction_aliases: ["定義（Hicks 需要）"]
+    requires:
+      - micro.expenditure-function
+
+  - id: micro.expenditure-minimizer-existence
+    name: 支出最小化点の存在
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（支出最小化点の存在）"]
+    requires:
+      - micro.hicks-demand
+
+  - id: micro.expenditure-target-binding
+    name: 支出最小化での目標効用の等号成立
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（支出最小化では目標効用が等号になる）"]
+    requires:
+      - micro.hicks-demand
+      - micro.strictly-monotone-preference
+
+  - id: micro.consumer-duality
+    name: 消費者問題の双対性
+    kind: theorem
+    aliases:
+      - consumer duality
+    introduction: formal
+    introduction_aliases: ["定理（消費者問題の双対性）"]
+    requires:
+      - micro.indirect-utility-function
+      - micro.expenditure-function
+      - micro.hicks-demand
+      - micro.expenditure-minimizer-existence
+      - micro.expenditure-target-binding
+      - micro.budget-exhaustion
+
+  - id: micro.expenditure-function-properties
+    name: 支出関数の価格に関する性質
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（支出関数の価格に関する性質）"]
+    requires:
+      - micro.expenditure-function
+
+  - id: micro.shephard-relation
+    name: Shephard 型関係
+    kind: theorem
+    aliases:
+      - Shephard's lemma
+      - Shephard lemma
+    introduction: formal
+    introduction_aliases: ["定理（Shephard 型関係）"]
+    requires:
+      - micro.hicks-demand
+      - micro.expenditure-function-properties
+
+  - id: micro.roy-relation
+    name: Roy 型関係
+    kind: theorem
+    aliases:
+      - Roy's identity
+      - Roy identity
+    introduction: formal
+    introduction_aliases: ["定理（Roy 型関係）"]
+    requires:
+      - micro.indirect-utility-function
+      - micro.consumer-kkt
+
+  - id: micro.slutsky-decomposition
+    name: Slutsky 分解
+    kind: theorem
+    aliases:
+      - Slutsky decomposition
+      - Slutsky equation
+    introduction: formal
+    introduction_aliases: ["定理（Slutsky 分解）"]
+    requires:
+      - micro.consumer-duality
+      - micro.shephard-relation
+      - micro.marshall-demand
+      - micro.hicks-demand
+
+  - id: micro.compensated-price-effect-matrix
+    name: 補償価格効果行列の対称性・半負定値性
+    kind: corollary
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["系（補償価格効果行列の対称性・半負定値性）"]
+    requires:
+      - micro.shephard-relation
+      - micro.expenditure-function-properties
