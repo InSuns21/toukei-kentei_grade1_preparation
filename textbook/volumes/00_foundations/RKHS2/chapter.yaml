@@ -1,0 +1,40 @@
+id: "RKHS2"
+title: "正則化問題の表現定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RKHS1
+official_scope: []
+learning_objectives:
+  - 標本部分空間を核切片の線形包として定め、訓練点から見えない直交成分を特定できる
+  - 再生性と直交分解を使い、標本部分空間への射影が全訓練点で関数値を保つことを証明できる
+  - 二乗 RKHS ノルム正則化を持つ問題について表現定理を証明し、無限次元最適化が有限次元へ落ちる理由を説明できる
+  - 一般の非減少ノルム正則化では標本部分空間内の最小解を選べ、狭義増加なら全最小解がそこに入ることを説明できる
+  - Gram 行列を用いて訓練点での値と RKHS ノルムを係数ベクトルで表せる
+  - Gram 行列が特異な場合に係数が非一意でも表す関数は同じになり得ることを説明できる
+  - 連続かつ下に有界な損失で最小解の存在を有限次元化とコンパクト性から示せる
+  - 点評価を一般の連続線形観測へ置き換えた表現定理を Riesz 表現から導ける
+  - 正則化の単調性を失うと有限次元化の機構が壊れることを反例で説明できる
+definitions:
+  - { id: RKHS2-DEF-01, name: 標本部分空間 }
+theorems:
+  - { id: RKHS2-LEM-01, name: 直交成分は標本点で消える }
+  - { id: RKHS2-THM-01, name: RKHS 正則化問題の表現定理 }
+  - { id: RKHS2-PROP-01, name: Gram 行列による有限次元表示 }
+  - { id: RKHS2-COR-01, name: 連続で下に有界な損失に対する最小解の存在 }
+  - { id: RKHS2-THM-02, name: 連続線形観測に対する表現定理 }
+canonical_examples:
+  - 線形核で標本が張らない方向を捨てても訓練値が変わらない例
+  - 定数核で Gram 行列が特異になり係数表示が非一意になる例
+  - 正則化を外すと標本部分空間外にも最小解が現れる反例
+  - 正則化項が減少すると不可視な直交方向が有利になり最小化が壊れる反例
+problem_patterns:
+  - RKHS2-INVISIBLE-COMPONENT-1
+  - RKHS2-REPRESENTER-1
+  - RKHS2-GRAM-REDUCTION-1
+  - RKHS2-SINGULAR-GRAM-1
+  - RKHS2-GENERALIZED-OBSERVATION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 3.0, review: 0.75 }

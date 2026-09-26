@@ -34,9 +34,10 @@ A → A1 → A2 → A3 → B
 → C5    一般化KKT / 錐制約
 → C5A   LICQ / MFCQ / Robinson CQ
 
-→ C7    RKHS / 再生核 / Moore--Aronszajn
+→ RKHS1 再生核 Hilbert 空間 / Moore--Aronszajn
+→ RKHS2 正則化問題の表現定理
 → 02B1  SVM / 凸包 / 最大マージン
-→ C7A   representer theorem / kernel SVM
+→ C7A   kernel SVM
 ```
 
 ※ 上段の `C1/C2` は F0-00C1/C2、下段は F0-02C1/C2 です。本文ではフルIDを確認してください。
@@ -152,6 +153,7 @@ representer theorem / kernel SVM
 - **有限次元KKTの導出**：F0-02Aまで。
 - **一般化KKTと制約想定**：F0-02C5Aまで。
 - **RKHSそのもの**：[RKHS1](../RKHS1/index.md)まで。
+- **表現定理による有限次元化**：[RKHS2](../RKHS2/index.md)まで。
 - **kernel SVMまで**：F0-02C7Aまで。
 
 ## 短絡できる箇所
@@ -161,6 +163,7 @@ representer theorem / kernel SVM
 - `F0-00G` は `F0-00F1` のあとから読める。
 - Hahn--Banach本体は `F0-00A3 + F0-02C2` から読める。
 - RKHS1 は `F0-02C2` から読める。
+- RKHS2 は RKHS1 から読める。
 - 有限次元KKTの概要 `F0-02` は `F0-00G` のあとに先取りできる。
 - kernel SVMは `F0-02C7 + F0-02C3 + F0-02B1` がそろえば読める。
 

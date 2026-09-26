@@ -1,0 +1,75 @@
+chapter: RKHS2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RKHS1
+
+forward_references:
+  - svm.kernel-trick
+  - svm.kernel-svm
+
+concepts:
+  - id: rkhs.sample-subspace
+    name: 標本部分空間
+    kind: definition
+    aliases:
+      - sample subspace
+    introduction: formal
+    introduction_aliases: ["定義（標本部分空間）"]
+    requires:
+      - rkhs.reproducing-kernel
+
+  - id: rkhs.invisible-orthogonal-component
+    name: 直交成分は標本点で消える
+    kind: lemma
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["補題（直交成分は標本点で消える）"]
+    requires:
+      - rkhs.sample-subspace
+      - rkhs.reproducing-property
+      - functional.orthogonal-decomposition
+
+  - id: rkhs.representer-theorem
+    name: RKHS の表現定理
+    kind: theorem
+    aliases:
+      - representer theorem
+      - RKHS representer theorem
+    introduction: formal
+    introduction_aliases: ["定理（RKHS 正則化問題の表現定理）"]
+    requires:
+      - rkhs.invisible-orthogonal-component
+      - rkhs.reproducing-kernel-basic-formulas
+
+  - id: rkhs.gram-finite-dimensional-reduction
+    name: Gram 行列による有限次元表示
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（Gram 行列による有限次元表示）"]
+    requires:
+      - rkhs.representer-theorem
+      - rkhs.reproducing-kernel-basic-formulas
+      - linear.positive-semidefinite-matrix
+
+  - id: rkhs.regularized-existence
+    name: 連続で下に有界な損失に対する最小解の存在
+    kind: corollary
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["系（連続で下に有界な損失に対する最小解の存在）"]
+    requires:
+      - rkhs.representer-theorem
+      - rkhs.sample-subspace
+      - functional.hilbert-space
+
+  - id: rkhs.linear-observation-representer-theorem
+    name: 連続線形観測に対する表現定理
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（連続線形観測に対する表現定理）"]
+    requires:
+      - functional.riesz-representation-theorem
+      - functional.orthogonal-decomposition
