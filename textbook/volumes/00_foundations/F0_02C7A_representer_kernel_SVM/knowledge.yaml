@@ -2,7 +2,7 @@ chapter: F0-02C7A
 scope: dream-theater
 coverage: complete
 prerequisites:
-  - F0-02C7
+  - RKHS1
   - F0-02C3
   - F0-02B1
   - F0-02C5A
