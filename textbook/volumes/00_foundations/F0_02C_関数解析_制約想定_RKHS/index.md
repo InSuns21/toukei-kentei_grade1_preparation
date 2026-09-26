@@ -36,6 +36,7 @@ A → A1 → A2 → A3 → B
 
 → RKHS1 再生核 Hilbert 空間 / Moore--Aronszajn
 → RKHS2 正則化問題の表現定理
+→ RKHS3 カーネルリッジ回帰
 → 02B1  SVM / 凸包 / 最大マージン
 → C7A   kernel SVM
 ```
@@ -154,6 +155,7 @@ representer theorem / kernel SVM
 - **一般化KKTと制約想定**：F0-02C5Aまで。
 - **RKHSそのもの**：[RKHS1](../RKHS1/index.md)まで。
 - **表現定理による有限次元化**：[RKHS2](../RKHS2/index.md)まで。
+- **カーネルリッジ回帰**：[RKHS3](../RKHS3/index.md)まで。
 - **kernel SVMまで**：F0-02C7Aまで。
 
 ## 短絡できる箇所
@@ -164,6 +166,7 @@ representer theorem / kernel SVM
 - Hahn--Banach本体は `F0-00A3 + F0-02C2` から読める。
 - RKHS1 は `F0-02C2` から読める。
 - RKHS2 は RKHS1 から読める。
+- RKHS3 は RKHS2 と F0-00F1 から読める。
 - 有限次元KKTの概要 `F0-02` は `F0-00G` のあとに先取りできる。
 - kernel SVMは `F0-02C7 + F0-02C3 + F0-02B1` がそろえば読める。
 
