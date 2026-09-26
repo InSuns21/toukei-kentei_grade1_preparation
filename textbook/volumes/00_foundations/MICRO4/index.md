@@ -932,6 +932,8 @@ $$
 <!-- definition-example-end -->
 
 <!-- definition-example-start: def-micro4-conditional-factor-demand -->
+**定義の確認**：一投入では、目標産出量から必要な投入量を直接読める
+
 同じ例では
 
 $$
