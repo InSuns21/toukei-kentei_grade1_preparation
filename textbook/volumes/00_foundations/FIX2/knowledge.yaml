@@ -31,13 +31,34 @@ concepts:
     requires:
       - fixedpoint.correspondence
 
+  - id: fixedpoint.closed-graph-correspondence
+    name: 閉グラフを持つ対応
+    kind: definition
+    aliases:
+      - closed-graph correspondence
+    introduction: formal
+    introduction_aliases: ["定義（対応とグラフ）"]
+    requires:
+      - fixedpoint.correspondence-graph
+      - topology.closed-set
+
+  - id: fixedpoint.nonempty-valued-correspondence
+    name: 非空値対応
+    kind: definition
+    aliases:
+      - nonempty-valued correspondence
+    introduction: formal
+    introduction_aliases: ["定義（対応の値集合の性質）"]
+    requires:
+      - fixedpoint.correspondence
+
   - id: fixedpoint.closed-valued-correspondence
     name: 閉値対応
     kind: definition
     aliases:
       - closed-valued correspondence
     introduction: formal
-    introduction_aliases: ["定義（閉値・コンパクト値・凸値）"]
+    introduction_aliases: ["定義（対応の値集合の性質）"]
     requires:
       - fixedpoint.correspondence
       - topology.closed-set
@@ -48,7 +69,7 @@ concepts:
     aliases:
       - compact-valued correspondence
     introduction: formal
-    introduction_aliases: ["定義（閉値・コンパクト値・凸値）"]
+    introduction_aliases: ["定義（対応の値集合の性質）"]
     requires:
       - fixedpoint.correspondence
       - topology.compact-set
@@ -59,7 +80,7 @@ concepts:
     aliases:
       - convex-valued correspondence
     introduction: formal
-    introduction_aliases: ["定義（閉値・コンパクト値・凸値）"]
+    introduction_aliases: ["定義（対応の値集合の性質）"]
     requires:
       - fixedpoint.correspondence
       - convex.convex-set
@@ -74,6 +95,7 @@ concepts:
     introduction_aliases: ["定義（対応の上半連続性）"]
     requires:
       - fixedpoint.correspondence
+      - topology.metric-space
       - topology.open-set
 
   - id: fixedpoint.lower-hemicontinuity
@@ -86,6 +108,7 @@ concepts:
     introduction_aliases: ["定義（対応の下半連続性）"]
     requires:
       - fixedpoint.correspondence
+      - topology.metric-space
       - topology.open-set
 
   - id: fixedpoint.correspondence-fixed-point
@@ -119,8 +142,9 @@ concepts:
     introduction_aliases: ["命題（コンパクト値な上半連続対応は閉グラフを持つ）"]
     requires:
       - fixedpoint.upper-hemicontinuity
+      - fixedpoint.nonempty-valued-correspondence
       - fixedpoint.compact-valued-correspondence
-      - fixedpoint.correspondence-graph
+      - fixedpoint.closed-graph-correspondence
 
   - id: fixedpoint.closed-graph-uhc-compact-codomain
     name: コンパクト終域での閉グラフから上半連続性
@@ -129,9 +153,10 @@ concepts:
     introduction: formal
     introduction_aliases: ["命題（コンパクト終域で閉グラフなら上半連続）"]
     requires:
-      - fixedpoint.correspondence-graph
+      - fixedpoint.closed-graph-correspondence
       - fixedpoint.upper-hemicontinuity
       - topology.compact-set
+      - topology.sequentially-compact
 
   - id: fixedpoint.uhc-closed-graph-equivalence
     name: コンパクト終域での上半連続性と閉グラフの同値
@@ -151,3 +176,5 @@ concepts:
     introduction_aliases: ["命題（下半連続性の点列判定）"]
     requires:
       - fixedpoint.lower-hemicontinuity
+      - fixedpoint.nonempty-valued-correspondence
+      - topology.sequence-convergence
