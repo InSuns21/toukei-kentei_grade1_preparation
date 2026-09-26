@@ -3,7 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - QMC1
-  - F0-02C7
+  - RKHS1
   - F0-00D2E
   - GPDE3
 
