@@ -120,11 +120,11 @@ concepts:
       - micro.endowment-demand-price-homogeneity
 
   - id: micro.walras-equilibrium-pareto
-    name: Walras 均衡の Pareto 効率性
+    name: Walras 均衡の パレート効率性
     kind: corollary
     aliases: []
     introduction: formal
-    introduction_aliases: ["系（Walras 均衡の Pareto 効率性）"]
+    introduction_aliases: ["系（Walras 均衡の パレート効率性）"]
     requires:
       - micro.walras-equilibrium
       - micro.first-welfare-theorem
