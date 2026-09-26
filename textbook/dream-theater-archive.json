@@ -55,6 +55,11 @@
       "path": "textbook/volumes/00_foundations/F0_02C5_一般化KKT_制約写像_制約想定/index.md",
       "canonical_path": "textbook/volumes/00_foundations/OPT6A/index.md",
       "reason": "OPT6A へ錐制約・Robinson 制約想定・一般化 KKT の canonical 内容を移管済み。stable anchor と過去URLのためファイルを保持。"
+    },
+    {
+      "path": "textbook/volumes/00_foundations/F0_02C7_RKHS_再生核_representer_kernel_SVM/index.md",
+      "canonical_path": "textbook/volumes/00_foundations/RKHS1/index.md",
+      "reason": "RKHS1 へ再生核 Hilbert 空間・再生核・正半定値核・標準特徴写像・Moore--Aronszajn の canonical 内容を移管済み。stable anchor と過去URLのためファイルを保持。"
     }
   ]
 }
