@@ -1,0 +1,53 @@
+id: "MICRO3"
+title: "消費者双対性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MICRO2
+  - OPT5
+official_scope: []
+learning_objectives:
+  - 間接効用関数を価格と所得のもとでの最大効用として定義し、具体例で計算できる
+  - 支出関数と Hicks 需要を目標効用を固定した支出最小化問題から定義できる
+  - 正の価格と効用の連続性から支出最小化点の存在を証明できる
+  - 狭義単調性のもとで効用最大化と支出最小化が互いを復元する双対関係を証明できる
+  - Cobb--Douglas 型効用について間接効用・支出関数・Hicks 需要を導出し双対性を検算できる
+  - 支出関数の価格に関する1次同次性・単調性・凹性を証明できる
+  - Shephard 型関係を支出関数の上勾配から導出し、価格感度と Hicks 需要の関係を説明できる
+  - Roy 型関係を KKT 条件・予算等式・連鎖律から導出できる
+  - Slutsky 分解を双対恒等式と Shephard 型関係から導出し、代替効果と所得効果を区別できる
+  - 補償価格効果行列の対称性・半負定値性を支出関数の曲率から説明できる
+  - 消費者双対性と Fenchel 双対の共通構造と相違点を説明できる
+  - 単調性・一意性・微分可能性を失ったときに古典的な双対表示のどの機構が壊れるか説明できる
+definitions:
+  - { id: MICRO3-DEF-01, name: 間接効用関数 }
+  - { id: MICRO3-DEF-02, name: 支出関数 }
+  - { id: MICRO3-DEF-03, name: Hicks 需要 }
+theorems:
+  - { id: MICRO3-THM-01, name: 支出最小化点の存在 }
+  - { id: MICRO3-PROP-01, name: 支出最小化での目標効用の等号成立 }
+  - { id: MICRO3-THM-02, name: 消費者問題の双対性 }
+  - { id: MICRO3-PROP-02, name: 支出関数の価格に関する性質 }
+  - { id: MICRO3-THM-03, name: Shephard 型関係 }
+  - { id: MICRO3-THM-04, name: Roy 型関係 }
+  - { id: MICRO3-THM-05, name: Slutsky 分解 }
+  - { id: MICRO3-COR-01, name: 補償価格効果行列の対称性・半負定値性 }
+canonical_examples:
+  - 一財の平方根効用で間接効用と支出関数を相互に復元する例
+  - Cobb--Douglas 型効用で間接効用・支出関数・Hicks 需要を完全に計算する例
+  - 二財 Cobb--Douglas 型で価格上昇後の所得補償を計算する例
+  - Cobb--Douglas 型で Slutsky 分解を数値と一般式の両方から確認する例
+  - 飽和点を持つ非単調効用で e(p,v(p,m))=m が破れる例
+  - 完全代替効用で Hicks 需要の複数性と支出関数の微分不可能性が同時に現れる例
+problem_patterns:
+  - MICRO3-INDIRECT-UTILITY-1
+  - MICRO3-EXPENDITURE-1
+  - MICRO3-HICKS-DEMAND-1
+  - MICRO3-CONSUMER-DUALITY-1
+  - MICRO3-SHEPHARD-1
+  - MICRO3-ROY-1
+  - MICRO3-SLUTSKY-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 4.5, review: 0.75 }
