@@ -29,7 +29,7 @@ theorems:
   - { id: MICRO6-THM-01, name: Walras の法則 }
   - { id: MICRO6-COR-01, name: 正価格市場における一市場の冗長性 }
   - { id: MICRO6-PROP-02, name: Walras 均衡の価格尺度不変性 }
-  - { id: MICRO6-COR-02, name: Walras 均衡の パレート効率性 }
+  - { id: MICRO6-COR-02, name: Walras 均衡のパレート効率性 }
 canonical_examples:
   - 二財二消費者で初期保有の市場価値から所得と予算線を作る例
   - 価格を同率に拡大しても初期保有予算集合が変わらないことを直接確認する例
