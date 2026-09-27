@@ -1,0 +1,126 @@
+chapter: GAME-A10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GAME-A5
+  - GAME-A8
+
+forward_references: []
+
+concepts:
+  - id: game.information-set
+    name: 情報集合
+    kind: definition
+    aliases:
+      - information set
+    introduction: formal
+    introduction_aliases: ["定義（情報集合）"]
+    requires:
+      - game.finite-perfect-information-extensive-form
+      - game.bayesian-game
+
+  - id: game.behavioral-strategy
+    name: 行動戦略
+    kind: definition
+    aliases:
+      - behavioral strategy
+      - behaviour strategy
+    introduction: formal
+    introduction_aliases: ["定義（行動戦略）"]
+    requires:
+      - game.information-set
+      - game.extensive-form-pure-strategy
+
+  - id: game.belief-system
+    name: 信念体系
+    kind: definition
+    aliases:
+      - belief system
+    introduction: formal
+    introduction_aliases: ["定義（信念体系・評価組）"]
+    requires:
+      - game.information-set
+      - game.interim-belief
+
+  - id: game.assessment
+    name: 評価組
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（信念体系・評価組）"]
+    requires:
+      - game.behavioral-strategy
+      - game.belief-system
+
+  - id: game.sequential-rationality
+    name: 逐次合理性
+    kind: definition
+    aliases:
+      - sequential rationality
+    introduction: formal
+    introduction_aliases: ["定義（逐次合理性）"]
+    requires:
+      - game.assessment
+      - game.best-response
+
+  - id: game.bayesian-consistency
+    name: Bayes 整合性
+    kind: definition
+    aliases:
+      - Bayesian consistency
+      - Bayes consistency
+    introduction: formal
+    introduction_aliases: ["定義（Bayes 整合性）"]
+    requires:
+      - game.assessment
+      - game.common-prior
+
+  - id: game.perfect-bayesian-equilibrium
+    name: Perfect Bayesian Equilibrium
+    kind: definition
+    aliases:
+      - PBE
+    introduction: formal
+    introduction_aliases: ["定義（Perfect Bayesian Equilibrium）"]
+    requires:
+      - game.sequential-rationality
+      - game.bayesian-consistency
+
+  - id: game.separating-strategy
+    name: 分離型戦略
+    kind: definition
+    aliases:
+      - separating strategy
+    introduction: formal
+    introduction_aliases: ["定義（分離型・プーリング型）"]
+    requires:
+      - game.perfect-bayesian-equilibrium
+
+  - id: game.pooling-strategy
+    name: プーリング型戦略
+    kind: definition
+    aliases:
+      - pooling strategy
+    introduction: formal
+    introduction_aliases: ["定義（分離型・プーリング型）"]
+    requires:
+      - game.perfect-bayesian-equilibrium
+
+  - id: game.on-path-bayes-uniqueness
+    name: 到達情報集合における Bayes 信念の一意性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（到達情報集合における Bayes 信念の一意性）"]
+    requires:
+      - game.bayesian-consistency
+
+  - id: game.pbe-spe-specialization
+    name: 完全情報特殊化における PBE と部分ゲーム完全均衡の一致
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（完全情報特殊化における PBE と部分ゲーム完全均衡の一致）"]
+    requires:
+      - game.perfect-bayesian-equilibrium
+      - game.subgame-perfect-equilibrium

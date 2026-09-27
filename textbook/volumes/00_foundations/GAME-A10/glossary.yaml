@@ -1,0 +1,35 @@
+chapter: "GAME-A10"
+terms:
+  - term: 情報集合
+    english: information set
+    meaning: 手番プレイヤーが現在どの意思決定節点にいるかを区別できないとき、それらの節点をまとめた集合。同じ情報集合では利用可能な行動集合を共通にする。
+  - term: 行動戦略
+    english: behavioral strategy
+    meaning: 各情報集合で、利用可能な行動上の確率分布を指定する戦略。
+  - term: 信念体系
+    english: belief system
+    meaning: 各情報集合で、その集合に含まれる各節点に現在いる条件付き確率を割り当てたもの。
+  - term: 評価組
+    english: assessment
+    meaning: 行動戦略プロファイルと信念体系を一つに組み合わせた組。
+  - term: 逐次合理性
+    english: sequential rationality
+    meaning: 実際に到達するかどうかにかかわらず、各情報集合で、その時点の信念と相手の継続戦略を前提に最適な行動を選んでいること。
+  - term: Bayes 整合性
+    english: Bayesian consistency
+    meaning: 正の確率で到達する情報集合の信念が、事前確率・自然の確率・戦略から Bayes の公式で得られる条件付き確率と一致すること。
+  - term: Perfect Bayesian Equilibrium
+    english: Perfect Bayesian Equilibrium
+    meaning: 本章では、全情報集合での逐次合理性と、正の確率で到達する情報集合での Bayes 整合性を同時に満たす評価組をいう。略称 PBE。
+  - term: 経路上
+    english: on path
+    meaning: 候補戦略と自然の確率のもとで正の確率で到達する履歴・情報集合。
+  - term: 経路外
+    english: off path
+    meaning: 候補戦略のもとでは到達確率が0になる履歴・情報集合。弱い PBE では Bayes の公式だけでは信念を一意に決められない。
+  - term: プーリング
+    english: pooling
+    meaning: 異なる私的タイプが同じ観察可能行動を選び、観察者が行動だけからタイプを完全には識別できない状態。
+  - term: 分離
+    english: separating
+    meaning: 異なる私的タイプが異なる観察可能行動を選び、観察された行動からタイプを識別できる状態。

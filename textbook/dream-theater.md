@@ -272,7 +272,7 @@ Hilbert 空間と Riesz 表現から再生核を構成し、有限標本上の�
 
 ### ゲーム理論外伝 A
 
-戦略形ゲームの読み方から始め、相互最適反応としての Nash 均衡、混合戦略、minimax、均衡存在、連続ゲーム、展開形ゲーム、繰り返し相互作用・履歴依存戦略・フォーク定理を経て、私的タイプを持つベイジアンゲームと Bayesian Nash 均衡、さらにその代表応用であるオークション理論へ進みます。
+戦略形ゲームの読み方から始め、相互最適反応としての Nash 均衡、混合戦略、minimax、均衡存在、連続ゲーム、展開形ゲーム、繰り返し相互作用・履歴依存戦略・フォーク定理を経て、私的タイプを持つベイジアンゲームと Bayesian Nash 均衡、オークション理論へ進みます。さらに動学的不完備情報で、情報集合・信念・逐次合理性を Perfect Bayesian Equilibrium として統合します。
 
 1. [GAME-A1 戦略形ゲーム・最適反応・Nash 均衡](textbook/volumes/00_foundations/GAME-A1/index.md)
 2. [GAME-A2 混合戦略・ゼロ和ゲーム・ミニマックス](textbook/volumes/00_foundations/GAME-A2/index.md)
@@ -283,6 +283,7 @@ Hilbert 空間と Riesz 表現から再生核を構成し、有限標本上の�
 7. [GAME-A7 フォーク定理入門](textbook/volumes/00_foundations/GAME-A7/index.md)
 8. [GAME-A8 ベイジアンゲーム・Bayesian Nash 均衡](textbook/volumes/00_foundations/GAME-A8/index.md)
 9. [GAME-A9 オークション理論入門](textbook/volumes/00_foundations/GAME-A9/index.md)
+10. [GAME-A10 動学的不完備情報・信念・Perfect Bayesian Equilibrium](textbook/volumes/00_foundations/GAME-A10/index.md)
 
 ---
 
