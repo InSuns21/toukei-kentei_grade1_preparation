@@ -1011,12 +1011,12 @@ GAME-A3 の有限ゲーム Nash 均衡存在定理により、変換後ゲーム
 
 タイプ $t_i$ が実現したとき、$\lambda_i$ は行動 $a_i\in A_i$ の確率
 
-$
+$$
 \sigma_i(a_i\mid t_i)
 =
 \sum_{\substack{s_i\in S_i\\s_i(t_i)=a_i}}
 \lambda_i(s_i)
-$
+$$
 
 を誘導します。
 
@@ -1030,14 +1030,14 @@ $\lambda_i$ から純粋計画 $s_i$ を一つ抽選した後、その計画の 
 
 したがって変換後ゲームの事前期待利得の増加量は
 
-$
+$$
 \pi_i(t_i)
 \left[
 V_i(a_i;\sigma_{-i}\mid t_i)
 -
 V_i(\sigma_i(\cdot\mid t_i);\sigma_{-i}\mid t_i)
 \right].
-$
+$$
 
 $t_i$ は正確率で、角括弧は仮定により正なので、この差は正です。
 
