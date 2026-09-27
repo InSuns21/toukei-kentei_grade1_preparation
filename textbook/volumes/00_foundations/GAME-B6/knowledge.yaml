@@ -1,0 +1,147 @@
+chapter: GAME-B6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GAME-B1
+  - GAME-B3
+
+forward_references: []
+
+concepts:
+  - id: game.simple-voting-game
+    name: 単純投票ゲーム
+    kind: definition
+    aliases:
+      - simple voting game
+      - simple game
+    introduction: formal
+    introduction_aliases: ["定義（単純投票ゲーム・勝利提携）"]
+    requires:
+      - game.tu-characteristic-function-game
+
+  - id: game.winning-coalition
+    name: 勝利提携
+    kind: definition
+    aliases:
+      - winning coalition
+    introduction: formal
+    introduction_aliases: ["定義（単純投票ゲーム・勝利提携）"]
+    requires:
+      - game.simple-voting-game
+
+  - id: game.weighted-voting-game
+    name: 重み付き投票ゲーム
+    kind: definition
+    aliases:
+      - weighted voting game
+      - weighted majority game
+    introduction: formal
+    introduction_aliases: ["定義（重み付き投票ゲーム）"]
+    requires:
+      - game.simple-voting-game
+
+  - id: game.veto-player
+    name: 拒否権プレイヤー
+    kind: definition
+    aliases:
+      - veto player
+    introduction: formal
+    introduction_aliases: ["定義（拒否権プレイヤー）"]
+    requires:
+      - game.winning-coalition
+
+  - id: game.shapley-shubik-power-index
+    name: Shapley--Shubik 投票力指数
+    kind: definition
+    aliases:
+      - Shapley--Shubik power index
+      - Shapley-Shubik power index
+    introduction: formal
+    introduction_aliases: ["定義（Shapley--Shubik 投票力指数）"]
+    requires:
+      - game.simple-voting-game
+      - game.shapley-value
+
+  - id: game.pivotal-player
+    name: pivot プレイヤー
+    kind: concept
+    aliases:
+      - pivotal player
+      - pivot
+    introduction: prose
+    requires:
+      - game.winning-coalition
+      - game.shapley-shubik-power-index
+
+  - id: game.shapley-shubik-pivot-probability
+    name: Shapley--Shubik 指数の pivot 確率表示
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（Shapley--Shubik 指数は pivot になる確率である）"]
+    requires:
+      - game.shapley-shubik-power-index
+      - game.shapley-random-order-representation
+
+  - id: game.banzhaf-swing
+    name: Banzhaf swing
+    kind: definition
+    aliases:
+      - swing
+      - critical coalition for a player
+    introduction: formal
+    introduction_aliases: ["定義（swing と Banzhaf swing 数）"]
+    requires:
+      - game.simple-voting-game
+
+  - id: game.banzhaf-swing-count
+    name: Banzhaf swing 数
+    kind: definition
+    aliases:
+      - Banzhaf swing count
+      - raw Banzhaf count
+    introduction: formal
+    introduction_aliases: ["定義（swing と Banzhaf swing 数）"]
+    requires:
+      - game.banzhaf-swing
+
+  - id: game.banzhaf-power-index
+    name: Banzhaf 投票力指数
+    kind: definition
+    aliases:
+      - Banzhaf power index
+      - normalized Banzhaf index
+    introduction: formal
+    introduction_aliases: ["定義（確率化・正規化 Banzhaf 指数）"]
+    requires:
+      - game.banzhaf-swing-count
+
+  - id: game.banzhaf-subset-probability
+    name: Banzhaf swing 数の一様部分集合確率表示
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（確率化 Banzhaf 指数は一様部分集合で swing になる確率である）"]
+    requires:
+      - game.banzhaf-swing-count
+
+  - id: game.power-index-winning-structure-invariance
+    name: 勝利提携構造による投票力指数の不変性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（同じ勝利提携族は同じ投票力指数を与える）"]
+    requires:
+      - game.shapley-shubik-power-index
+      - game.banzhaf-power-index
+
+  - id: game.voting-power-special-players
+    name: 零プレイヤー・対称プレイヤー・独裁者の投票力
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（零プレイヤー・対称プレイヤー・独裁者）"]
+    requires:
+      - game.shapley-shubik-power-index
+      - game.banzhaf-power-index
+      - game.null-player
