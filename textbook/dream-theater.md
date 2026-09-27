@@ -288,13 +288,14 @@ Hilbert 空間と Riesz 表現から再生核を構成し、有限標本上の�
 
 ### ゲーム理論外伝 B
 
-提携ごとに作れる価値を特性関数で表し、その価値をどう配るかを調べる協力ゲーム系列です。有限の譲渡可能効用ゲームから始め、安定配分の集合であるコア、その非空性を特徴付ける平衡性、限界貢献を一つの配分へまとめる Shapley 値へ進みます。さらに提携が大きいほど限界貢献が増える凸ゲームを学び、Shapley 値がコアの安定性条件を満たす理由を調べます。コアが空の場合も含めて提携の不満を超過要求で測り、最大超過要求を抑える最小コアと、それを辞書式に一意化する仁へ進みます。
+提携ごとに作れる価値を特性関数で表し、その価値をどう配るかを調べる協力ゲーム系列です。有限の譲渡可能効用ゲームから始め、安定配分の集合であるコア、その非空性を特徴付ける平衡性、限界貢献を一つの配分へまとめる Shapley 値へ進みます。さらに提携が大きいほど限界貢献が増える凸ゲームを学び、Shapley 値がコアの安定性条件を満たす理由を調べます。コアが空の場合も含めて提携の不満を超過要求で測り、最大超過要求を抑える最小コアと、それを辞書式に一意化する仁へ進みます。 最後に、可否を0/1で表す投票ゲームへ Shapley 値を移し、Shapley--Shubik 指数と Banzhaf 指数を通して、議席比率・票の重みと実際の投票力が一致しない仕組みを調べます。
 
 1. [GAME-B1 特性関数形ゲーム・コア](textbook/volumes/00_foundations/GAME-B1/index.md)
 2. [GAME-B2 平衡ゲーム・Bondareva--Shapley の定理](textbook/volumes/00_foundations/GAME-B2/index.md)
 3. [GAME-B3 Shapley 値・限界貢献・公理化](textbook/volumes/00_foundations/GAME-B3/index.md)
 4. [GAME-B4 凸ゲーム・優モジュラ性](textbook/volumes/00_foundations/GAME-B4/index.md)
 5. [GAME-B5 最小コア・仁](textbook/volumes/00_foundations/GAME-B5/index.md)
+6. [GAME-B6 投票ゲーム・投票力指数](textbook/volumes/00_foundations/GAME-B6/index.md)
 
 ---
 
