@@ -276,6 +276,7 @@ Hilbert 空間と Riesz 表現から再生核を構成し、有限標本上の�
 
 1. [GAME-A1 戦略形ゲーム・最適反応・Nash 均衡](textbook/volumes/00_foundations/GAME-A1/index.md)
 2. [GAME-A2 混合戦略・ゼロ和ゲーム・ミニマックス](textbook/volumes/00_foundations/GAME-A2/index.md)
+3. [GAME-A3 Nash 均衡の存在](textbook/volumes/00_foundations/GAME-A3/index.md)
 
 ---
 
