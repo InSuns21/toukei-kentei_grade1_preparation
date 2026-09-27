@@ -1309,7 +1309,7 @@ $$
 <a id="prop-game-a11-babbling-pbe"></a>
 
 <!-- formal-statement-start -->
-> **命題（cheap-talk game における babbling PBE の存在）**  
+> **命題（チープトークゲームにおける babbling PBE の存在）**  
 > 有限状態集合 $Theta$、有限メッセージ集合 $M$、有限受け手行動集合 $A$ を持つチープトークゲームを考え、共通事前分布を $pinDelta(Theta)$ とする。
 >
 > 受け手の事前期待利得
