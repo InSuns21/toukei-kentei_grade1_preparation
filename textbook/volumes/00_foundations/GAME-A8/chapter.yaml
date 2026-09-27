@@ -1,0 +1,42 @@
+id: "GAME-A8"
+title: "ベイジアンゲーム・Bayesian Nash 均衡"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GAME-A3
+official_scope: []
+learning_objectives:
+  - 有限ベイジアンゲームをプレイヤー・行動集合・タイプ集合・共通事前分布・タイプ依存利得から定義し、誰が何を観察するかを説明できる
+  - 共通事前分布から自分のタイプを条件とした相手タイプの事後分布を計算し、共通事前分布とタイプ独立性を区別できる
+  - 純粋ベイジアン戦略をタイプごとの行動を指定する写像として表し、有限タイプで戦略数を数えられる
+  - 中間期待利得を条件付き分布から計算し、事前期待利得との違いを説明できる
+  - Bayesian Nash 均衡を各正確率タイプの条件付き最適反応として判定できる
+  - Harsanyi 変換により有限不完備情報ゲームをタイプ条件付き行動計画を戦略とする戦略形ゲームへ変換できる
+  - 正確率タイプのもとで Bayesian Nash 均衡と Harsanyi 変換後ゲームの Nash 均衡が同値であることを証明できる
+  - GAME-A3 の有限ゲーム Nash 均衡存在定理を用いて有限ベイジアンゲームの混合 Bayesian Nash 均衡存在を導ける
+definitions:
+  - { id: GAME-A8-DEF-01, name: 有限ベイジアンゲーム・共通事前分布 }
+  - { id: GAME-A8-DEF-02, name: 中間信念 }
+  - { id: GAME-A8-DEF-03, name: ベイジアン戦略 }
+  - { id: GAME-A8-DEF-04, name: 中間期待利得・Bayesian Nash 均衡 }
+  - { id: GAME-A8-DEF-05, name: Harsanyi 変換 }
+theorems:
+  - { id: GAME-A8-THM-01, name: Harsanyi 変換と純粋 Bayesian Nash 均衡の同値 }
+  - { id: GAME-A8-THM-02, name: 有限ベイジアンゲームの混合 Bayesian Nash 均衡存在 }
+canonical_examples:
+  - 一方のプレイヤーだけが高タイプ・低タイプを私的に知る2人ゲームでタイプ条件付き行動計画を求める例
+  - 相関した2人のタイプ分布から自分のタイプを条件とした相手タイプの確率を3/4と1/4に更新する例
+  - 一方的私的情報ゲームを4×2の Harsanyi 変換後戦略形ゲームへ書き換え、同じ均衡を確認する例
+problem_patterns:
+  - GAME-A8-TYPE-STRATEGY-1
+  - GAME-A8-POSTERIOR-1
+  - GAME-A8-BNE-CHECK-1
+  - GAME-A8-INTERIM-EXANTE-1
+  - GAME-A8-HARSANYI-1
+  - GAME-A8-PRIOR-THRESHOLD-1
+  - GAME-A8-EQUIVALENCE-1
+  - GAME-A8-MIXED-BNE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 4.0, review: 0.75 }
