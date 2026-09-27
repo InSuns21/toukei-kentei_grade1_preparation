@@ -574,65 +574,17 @@ $$
 
 よって
 
-<a id="prop-game-a8-running-bne"></a>
-<!-- formal-statement-start -->
-> **命題（通し例の純粋 Bayesian Nash 均衡）**  
-> 通し例で
->
-> $$
-> P(H)=P(L)=\frac12
-> $$
->
-> なら
->
-> $$
-> \boxed{
-> s_1(H)=U,\qquad
-> s_1(L)=D,\qquad
-> s_2=L
-> }
-> $$
->
-> は純粋 Bayesian Nash 均衡である。
-<!-- formal-statement-end -->
-
-<!-- proof-start -->
-### 証明
-
-上で計算した通り、$s_2=L$ に対して
+したがって
 
 $$
-u_1(U,L,H)=2>0=u_1(D,L,H),
+\boxed{
+s_1(H)=U,\qquad
+s_1(L)=D,\qquad
+s_2=L
+}
 $$
 
-$$
-u_1(D,L,L)=1>0=u_1(U,L,L)
-$$
-
-なので、プレイヤー1の両タイプは指定行動から逸脱しません。
-
-一方、プレイヤー1がタイプ $H$ で $U$、タイプ $L$ で $D$ を選ぶとき、プレイヤー2の期待利得は
-
-$$
-E[u_2\mid L]
-=
-\frac12\cdot2+\frac12\cdot0
-=
-1,
-$$
-
-$$
-E[u_2\mid R]
-=
-\frac12\cdot0+\frac12\cdot1
-=
-\frac12.
-$$
-
-したがってプレイヤー2も $L$ から逸脱しません。
-
-ゆえに全プレイヤーの全正確率タイプで最適反応条件が成立し、これは Bayesian Nash 均衡です。$\square$
-<!-- proof-end -->
+は純粋 Bayesian Nash 均衡です。
 
 ---
 
