@@ -1758,7 +1758,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-1. 共通割引因子 $3/4$ なので、GAME-C4 の公式から応答者取り分は、
+1. 共通割引因子 $3/4$ なので、[GAME-C4 の Rubinstein 交渉定理](../GAME-C4/index.md#thm-game-c4-rubinstein)から応答者取り分は、
 
 $$
 r_2^0
