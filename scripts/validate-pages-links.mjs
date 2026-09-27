@@ -192,14 +192,22 @@ for (const target of duplicateTargets) {
   errors.push(`duplicate sidebar target: ${target}`);
 }
 
+// Only exercises deliberately listed in each reader-facing catalog belong in
+// the sidebar. README, audit, policy and supplementary implementation files
+// may live beside exercises without becoming public navigation entries.
 const expectedExerciseTargets = new Set();
 for (const book of books) {
-  for (const section of sections) {
-    const sectionDir = path.join(siteDir, book, section);
-    const entries = await readdir(sectionDir, { withFileTypes: true });
-    for (const entry of entries) {
-      if (!entry.isFile() || !entry.name.endsWith('.md')) continue;
-      expectedExerciseTargets.add(`${book}/${section}/${entry.name}`);
+  const catalog = await readFile(path.join(siteDir, book, 'exercise-index.md'), 'utf8');
+  for (const href of extractLinks(catalog)) {
+    let normalized;
+    try {
+      normalized = normalizeInternalHref(href);
+    } catch (error) {
+      errors.push(`${book}/exercise-index.md: ${error.message}`);
+      continue;
+    }
+    if (normalized && isTieredExerciseTarget(normalized)) {
+      expectedExerciseTargets.add(normalized);
     }
   }
 }
@@ -224,21 +232,27 @@ if (sidebarExerciseTargets.length !== expectedExerciseTargets.size) {
 // source Markdown, so the two use cases can coexist safely.
 let indexLinkCount = 0;
 for (const book of books) {
-  const generatedIndexPath = path.join(siteDir, book, 'index.md');
-  const generatedIndex = await readFile(generatedIndexPath, 'utf8');
-  const hrefs = extractLinks(generatedIndex);
-  indexLinkCount += hrefs.length;
+  for (const readerPage of ['index.md', 'exercise-index.md']) {
+    const generatedPath = path.join(siteDir, book, readerPage);
+    const generatedMarkdown = await readFile(generatedPath, 'utf8');
+    const hrefs = extractLinks(generatedMarkdown);
+    indexLinkCount += hrefs.length;
 
-  for (const href of hrefs) {
-    const pathOnly = href.split('#', 1)[0].split('?', 1)[0];
-    if (sections.some((section) => pathOnly.startsWith(`${section}/`))) {
-      errors.push(
-        `${book}/index.md: tier link is still directory-relative under Docsify relativePath:false: ${href}`,
-      );
+    for (const href of hrefs) {
+      const pathOnly = href.split('#', 1)[0].split('?', 1)[0];
+      if (sections.some((section) => pathOnly.startsWith(`${section}/`))) {
+        errors.push(
+          `${book}/${readerPage}: tier link is still directory-relative under Docsify relativePath:false: ${href}`,
+        );
+      }
     }
-  }
 
-  await validateRootOrientedLinks(generatedIndex, `${book}/index.md`, errors);
+    await validateRootOrientedLinks(
+      generatedMarkdown,
+      `${book}/${readerPage}`,
+      errors,
+    );
+  }
 }
 
 // Home page must expose the new textbook entry point, while Anki uses a raw
@@ -266,6 +280,7 @@ const textbookVolumeFiles = await recursiveFiles(
   (name) => name.endsWith('.md'),
 );
 const textbookNavigationTargets = new Set();
+const textbookRootTargets = new Set();
 let textbookLinkCount = 0;
 
 const textbookIndex = await readFile(path.join(textbookDir, 'index.md'), 'utf8');
@@ -273,8 +288,9 @@ textbookLinkCount += await validateRootOrientedLinks(
   textbookIndex,
   'textbook/index.md',
   errors,
-  textbookNavigationTargets,
+  textbookRootTargets,
 );
+for (const target of textbookRootTargets) textbookNavigationTargets.add(target);
 
 for (const relative of textbookVolumeFiles) {
   const filePath = path.join(textbookDir, 'volumes', ...relative.split('/'));
@@ -296,10 +312,12 @@ for (const expected of expectedTextbookPages) {
   }
 }
 
+// Editing guides and repository-maintenance documents are intentionally not
+// reader navigation. Catch regressions that re-expose them on the textbook root.
 for (const supportPage of ['README.md', 'notation.md', 'dependency-graph.md', 'style-guide.md']) {
   const target = `textbook/${supportPage}`;
-  if (!textbookNavigationTargets.has(target)) {
-    errors.push(`textbook root index is missing support page: ${target}`);
+  if (textbookRootTargets.has(target)) {
+    errors.push(`textbook root index exposes internal support page: ${target}`);
   }
 }
 
@@ -338,7 +356,7 @@ if (errors.length > 0) {
 }
 
 console.log(
-  `GitHub Pages link validation passed: ${sidebarHrefs.length} sidebar links, ${indexLinkCount} exercise-index links, ${expectedExerciseTargets.size} tiered exercises.`,
+  `GitHub Pages link validation passed: ${sidebarHrefs.length} sidebar links, ${indexLinkCount} reader-page links, ${expectedExerciseTargets.size} cataloged exercises.`,
 );
 console.log(
   `Textbook validation passed: ${expectedTextbookPages.length} chapter pages, ${textbookLinkCount} checked Markdown links.`,
