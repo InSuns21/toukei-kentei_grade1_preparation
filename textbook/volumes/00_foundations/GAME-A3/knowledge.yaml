@@ -1,0 +1,65 @@
+chapter: GAME-A3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GAME-A2
+  - FIX1
+  - FIX3
+
+forward_references: []
+
+concepts:
+  - id: game.mixed-best-response-correspondence
+    name: 混合戦略の最適反応対応
+    kind: definition
+    aliases:
+      - mixed-strategy best-response correspondence
+    introduction: formal
+    introduction_aliases: ["定義（混合戦略の最適反応対応）"]
+    requires:
+      - game.mixed-strategy
+      - game.mixed-extension
+      - game.best-response
+
+  - id: game.mixed-best-response-regularity
+    name: 有限ゲームの混合最適反応対応の正則性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（有限ゲームの混合最適反応対応の正則性）"]
+    requires:
+      - game.mixed-best-response-correspondence
+      - optimization.berge-maximum-theorem
+      - fixedpoint.convex-valued-correspondence
+
+  - id: game.finite-nash-existence
+    name: 有限ゲームの Nash 均衡存在定理
+    kind: theorem
+    aliases:
+      - Nash existence theorem for finite games
+    introduction: formal
+    introduction_aliases: ["定理（Nash の存在定理：有限ゲーム）"]
+    requires:
+      - game.mixed-best-response-regularity
+      - fixedpoint.kakutani-fixed-point-theorem
+      - fixedpoint.brouwer-compact-convex
+
+  - id: game.nash-brouwer-map
+    name: Nash--Brouwer 写像
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（逸脱利得と Nash--Brouwer 写像）"]
+    requires:
+      - game.mixed-extension
+      - fixedpoint.fixed-point
+
+  - id: game.nash-brouwer-fixed-point-characterization
+    name: Nash--Brouwer 写像の固定点と Nash 均衡
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（Nash--Brouwer 写像の固定点と Nash 均衡）"]
+    requires:
+      - game.nash-brouwer-map
+      - game.mixed-strategy-nash-equilibrium
