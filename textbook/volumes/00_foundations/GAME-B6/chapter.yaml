@@ -1,0 +1,47 @@
+id: "GAME-B6"
+title: "投票ゲーム・投票力指数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GAME-B1
+  - GAME-B3
+official_scope: []
+learning_objectives:
+  - 有限単純投票ゲームを単調な 0-1 値特性関数として定義し、勝利提携・敗北提携を具体的な投票規則から列挙できる
+  - 重み付き投票ゲーム [q;w_1,...,w_n] を定義し、重みや議席比率そのものと投票力を区別できる
+  - 拒否権プレイヤーを「すべての勝利提携に含まれるプレイヤー」として判定し、拒否権と独裁者を混同しない
+  - Shapley--Shubik 投票力指数を単純投票ゲームの Shapley 値として定義し、ランダム順列で初めて敗北から勝利へ変える pivot の確率として導出できる
+  - Banzhaf の swing 数、確率化 Banzhaf 指数、正規化 Banzhaf 指数を区別し、部分集合を一様に選ぶモデルから確率表示を導出できる
+  - "[3;2,1,1] で Shapley--Shubik 指数 (2/3,1/6,1/6) と正規化 Banzhaf 指数 (3/5,1/5,1/5) を直接計算できる"
+  - "[51;49,49,2] では重み比 49:49:2 に対して三者の投票力が等しくなることを勝利提携構造から説明できる"
+  - 正の定数倍など異なる重み表示でも勝利提携族が同じなら投票力指数が不変であり、投票力は表示された重みではなく勝敗構造に依存することを説明できる
+  - 零プレイヤー・対称プレイヤー・独裁者に対する両指数の値を証明できる
+definitions:
+  - { id: GAME-B6-DEF-01, name: 単純投票ゲーム・勝利提携 }
+  - { id: GAME-B6-DEF-02, name: 重み付き投票ゲーム }
+  - { id: GAME-B6-DEF-03, name: 拒否権プレイヤー }
+  - { id: GAME-B6-DEF-04, name: Shapley--Shubik 投票力指数 }
+  - { id: GAME-B6-DEF-05, name: swing と Banzhaf swing 数 }
+  - { id: GAME-B6-DEF-06, name: 確率化・正規化 Banzhaf 指数 }
+theorems:
+  - { id: GAME-B6-PROP-01, name: Shapley--Shubik 指数の pivot 確率表示 }
+  - { id: GAME-B6-PROP-02, name: Banzhaf swing 数の一様部分集合確率表示 }
+  - { id: GAME-B6-PROP-03, name: 勝利提携構造による投票力指数の不変性 }
+  - { id: GAME-B6-PROP-04, name: 零プレイヤー・対称プレイヤー・独裁者の投票力 }
+canonical_examples:
+  - "[3;2,1,1] でプレイヤー1が拒否権を持つが独裁者ではなく、Shapley--Shubik 指数は (2/3,1/6,1/6)、正規化 Banzhaf 指数は (3/5,1/5,1/5) となる例"
+  - "[51;49,49,2] で任意の二人提携が勝利し任意の一人提携が敗北するため、49,49,2 という重み差にもかかわらず両指数が (1/3,1/3,1/3) となる例"
+  - "[4;4,1,1] でプレイヤー1が独裁者となり両指数が (1,0,0) となる例"
+problem_patterns:
+  - GAME-B6-SIMPLE-GAME-1
+  - GAME-B6-WEIGHTED-COALITIONS-1
+  - GAME-B6-SHAPLEY-SHUBIK-1
+  - GAME-B6-BANZHAF-1
+  - GAME-B6-VETO-DICTATOR-1
+  - GAME-B6-REPRESENTATION-INVARIANCE-1
+  - GAME-B6-NONLINEAR-SEAT-POWER-1
+  - GAME-B6-INTEGRATED-POWER-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 4.5, review: 0.75 }

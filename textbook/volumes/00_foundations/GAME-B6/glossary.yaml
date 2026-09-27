@@ -1,0 +1,23 @@
+chapter: "GAME-B6"
+terms:
+  - term: 単純投票ゲーム
+    english: simple voting game
+    meaning: 提携が議案を可決できるかを 0 または 1 で表す単調な特性関数形ゲーム。
+  - term: 勝利提携
+    english: winning coalition
+    meaning: 単純投票ゲームで値 1 を持ち、単独で議案を可決できる提携。
+  - term: 重み付き投票ゲーム
+    english: weighted voting game
+    meaning: 各プレイヤーの重みの合計が quota 以上なら勝利とする単純投票ゲーム。
+  - term: 拒否権プレイヤー
+    english: veto player
+    meaning: すべての勝利提携に必ず含まれるプレイヤー。拒否権を持っていても単独では勝てない場合がある。
+  - term: Shapley--Shubik 投票力指数
+    english: Shapley--Shubik power index
+    meaning: 単純投票ゲームの Shapley 値。ランダム到着順でそのプレイヤーが初めて敗北提携を勝利提携へ変える確率に等しい。
+  - term: swing
+    english: swing
+    meaning: プレイヤー i を含まない敗北提携 S が、i の加入によって勝利提携へ変わる状況。
+  - term: Banzhaf 指数
+    english: Banzhaf power index
+    meaning: swing 数を基礎にする投票力指標。確率化版と、プレイヤー間で総和を1に正規化した版を区別する。
