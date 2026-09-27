@@ -1,0 +1,44 @@
+id: "GAME-B2"
+title: "平衡ゲーム・Bondareva--Shapley の定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GAME-B1
+  - OPT10
+  - OPT2
+official_scope: []
+learning_objectives:
+  - 有限 TU ゲームで、各プレイヤーを重み付きでちょうど1回ずつ覆う平衡重みを定義し、具体的な提携族が平衡かを検査できる
+  - 平衡ゲームを、すべての平衡重みに対する重み付き提携価値の総和が大提携価値を超えないゲームとして説明できる
+  - GAME-B1 の3人多数決型ゲームで、三つの二人提携に重み1/2を置くと各プレイヤーを1回ずつ覆い、要求総額3/2が大提携価値1を超えることを計算できる
+  - コア配分が存在すれば任意の平衡重みに対して平衡不等式が成り立つことを、コア制約の重み付き和から証明できる
+  - コア制約を最小総配分量を求める線形計画として書き、その双対の実行可能解が平衡重みそのものであることを導出できる
+  - OPT10 の線形計画の強双対性を適用するための主問題の実行可能性・下方有界性を局所的に確認できる
+  - Bondareva--Shapley の定理を、コア非空性と平衡性の必要十分条件として LP 双対から核心まで証明できる
+  - コアが空なら、平衡重みが大提携価値を超える双対証明書を与えることを Farkas 型の実行不能証明として説明できる
+definitions:
+  - { id: GAME-B2-DEF-01, name: 平衡重み }
+  - { id: GAME-B2-DEF-02, name: 平衡集合族 }
+  - { id: GAME-B2-DEF-03, name: 平衡ゲーム }
+theorems:
+  - { id: GAME-B2-PROP-01, name: コア非空性から平衡性への必要条件 }
+  - { id: GAME-B2-PROP-02, name: コア被覆線形計画と平衡重み双対 }
+  - { id: GAME-B2-THM-01, name: Bondareva--Shapley の定理 }
+  - { id: GAME-B2-COR-01, name: 空コアの平衡証明書 }
+canonical_examples:
+  - 3人多数決型ゲームで三つの二人提携へ各1/2の重みを置き、重み付き要求3/2が大提携価値1を超える平衡証明書
+  - 単独価値0・二人提携価値1・大提携価値2の3人ゲームで同じ平衡重みを使い、要求3/2が大提携価値2の範囲内に収まる例
+  - 4人サイクル上の四つの二人提携を用い、平衡重みと大提携価値の閾値を計算する例
+problem_patterns:
+  - GAME-B2-CHECK-BALANCED-WEIGHTS-1
+  - GAME-B2-MAJORITY-CERTIFICATE-1
+  - GAME-B2-WEIGHTED-CORE-INEQUALITY-1
+  - GAME-B2-WRITE-DUAL-1
+  - GAME-B2-NECESSITY-PROOF-1
+  - GAME-B2-SUFFICIENCY-LP-1
+  - GAME-B2-SYMMETRIC-THREE-PLAYER-1
+  - GAME-B2-CYCLE-FOUR-PLAYER-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.5, review: 0.75 }

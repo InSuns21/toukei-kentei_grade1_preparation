@@ -1,0 +1,86 @@
+chapter: GAME-B2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GAME-B1
+  - OPT10
+  - OPT2
+
+forward_references: []
+
+concepts:
+  - id: game.balanced-weights
+    name: 平衡重み
+    kind: definition
+    aliases:
+      - balanced weights
+      - balanced weight system
+    introduction: formal
+    introduction_aliases: ["定義（平衡重み・平衡集合族）"]
+    requires:
+      - game.coalition
+
+  - id: game.balanced-collection
+    name: 平衡集合族
+    kind: definition
+    aliases:
+      - balanced collection
+      - balanced family
+    introduction: formal
+    introduction_aliases: ["定義（平衡重み・平衡集合族）"]
+    requires:
+      - game.balanced-weights
+
+  - id: game.balanced-game
+    name: 平衡ゲーム
+    kind: definition
+    aliases:
+      - balanced game
+    introduction: formal
+    introduction_aliases: ["定義（平衡ゲーム）"]
+    requires:
+      - game.tu-characteristic-function-game
+      - game.balanced-weights
+
+  - id: game.core-implies-balanced
+    name: コア非空性から平衡性への必要条件
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（コアが非空ならゲームは平衡である）"]
+    requires:
+      - game.core
+      - game.balanced-game
+
+  - id: game.core-covering-lp-duality
+    name: コア被覆線形計画と平衡重み双対
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（コア被覆線形計画の双対は平衡重み問題である）"]
+    requires:
+      - game.core
+      - game.balanced-weights
+      - optimization.linear-program-dual
+
+  - id: game.bondareva-shapley-theorem
+    name: Bondareva--Shapley の定理
+    kind: theorem
+    aliases:
+      - Bondareva-Shapley theorem
+    introduction: formal
+    introduction_aliases: ["定理（Bondareva--Shapley）"]
+    requires:
+      - game.balanced-game
+      - game.core-covering-lp-duality
+      - optimization.linear-program-strong-duality
+
+  - id: game.empty-core-balanced-certificate
+    name: 空コアの平衡証明書
+    kind: corollary
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["系（空コアには平衡重みによる証明書がある）"]
+    requires:
+      - game.bondareva-shapley-theorem
+      - convex.farkas-lemma
