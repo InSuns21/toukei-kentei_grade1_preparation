@@ -1,0 +1,83 @@
+chapter: GAME-C6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GAME-C2
+  - GAME-C5
+
+forward_references:
+  - GAME-C7
+
+concepts:
+  - id: game.bargaining-noncooperative-foundation
+    name: 交渉解の非協力的基礎
+    kind: definition
+    aliases:
+      - noncooperative foundation of a bargaining solution
+    introduction: formal
+    introduction_aliases: ["定義（交渉解の非協力的基礎）"]
+    requires:
+      - game.bargaining-solution-rule
+      - game.subgame-perfect-equilibrium
+
+  - id: game.vanishing-delay-bargaining-family
+    name: 遅延が消える交互提案ゲーム族
+    kind: definition
+    aliases:
+      - vanishing-delay bargaining
+    introduction: formal
+    introduction_aliases: ["定義（遅延が消える交互提案ゲーム族）"]
+    requires:
+      - game.heterogeneous-discount-bargaining
+      - game.bargaining-noncooperative-foundation
+
+  - id: game.weighted-nash-bargaining-solution
+    name: 重み付き Nash 交渉解
+    kind: definition
+    aliases:
+      - weighted Nash bargaining solution
+    introduction: formal
+    introduction_aliases: ["定義（重み付き Nash 交渉解）"]
+    requires:
+      - game.nash-bargaining-solution
+      - game.nash-product
+
+  - id: game.unit-pie-vanishing-delay-limit
+    name: 単位パイにおける遅延消失極限
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（単位パイにおける遅延消失極限）"]
+    requires:
+      - game.heterogeneous-rubinstein-stationary-spe
+      - game.vanishing-delay-bargaining-family
+
+  - id: game.weighted-nash-bargaining-limit
+    name: 滑らかなフロンティアにおける重み付き Nash 極限
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（滑らかなフロンティアにおける重み付き Nash 極限）"]
+    requires:
+      - game.vanishing-delay-bargaining-family
+      - game.weighted-nash-bargaining-solution
+
+  - id: game.symmetric-nash-bargaining-limit
+    name: 対称な時間費用と Nash 交渉解
+    kind: corollary
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["系（対称な時間費用と Nash 交渉解）"]
+    requires:
+      - game.weighted-nash-bargaining-limit
+      - game.nash-bargaining-solution
+
+  - id: game.vanishing-delay-protocol-dependence
+    name: 遅延消失極限のプロトコル依存性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（遅延消失極限のプロトコル依存性）"]
+    requires:
+      - game.unit-pie-vanishing-delay-limit
+      - game.weighted-nash-bargaining-solution
