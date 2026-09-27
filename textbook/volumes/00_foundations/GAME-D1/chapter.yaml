@@ -22,7 +22,7 @@ definitions:
   - { id: GAME-D1-DEF-04, name: 受入保留アルゴリズム }
 theorems:
   - { id: GAME-D1-PROP-01, name: 受入保留アルゴリズムの有限停止 }
-  - { id: GAME-D1-PROP-02, name: 同数・完全選好の下での完全マッチング }
+  - { id: GAME-D1-PROP-02, name: 同数・完全選好の下では全員が組になる }
   - { id: GAME-D1-THM-01, name: Gale--Shapley の安定マッチング存在定理 }
 canonical_examples:
   - "3対3の選好表で、a と b が同じ受け手 x に提案し、x が b を保留して a を拒否した後に再提案が連鎖する例"
