@@ -1,7 +1,8 @@
 chapter: GAME-D1
 scope: dream-theater
 coverage: complete
-prerequisites: []
+prerequisites:
+  - F0-00A
 
 forward_references: []
 
