@@ -1,0 +1,11 @@
+chapter: "GAME-B4"
+terms:
+  - term: 優モジュラ性
+    english: supermodularity
+    meaning: 任意の提携 S,T に対して v(S∪T)+v(S∩T)≥v(S)+v(T) を満たす集合関数の性質。
+  - term: 凸ゲーム
+    english: convex game
+    meaning: 特性関数が優モジュラであり、同じプレイヤーの限界貢献が背景提携の拡大とともに減少しない有限 TU ゲーム。
+  - term: 限界ベクトル
+    english: marginal vector
+    meaning: 一つの到着順を固定し、各プレイヤーが到着した時点での限界貢献をそのプレイヤーへ割り当てた配分ベクトル。
