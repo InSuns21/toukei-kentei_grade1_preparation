@@ -537,7 +537,7 @@ $$
 
 したがって、$n!$ 個の順列について限界貢献を平均し、同じ前任者集合 $S$ を持つ順列をまとめると、
 
-$
+$$
 \begin{aligned}
 &\frac1{n!}
 \sum_{\pi:\,N\text{ の順列}}
@@ -557,7 +557,7 @@ v(S\cup\{i\})-v(S)
 &=
 \phi_i(v).
 \end{aligned}
-$
+$$
 
 最後の等号は Shapley 値の定義です。
 
@@ -2043,7 +2043,7 @@ $$
 
 プレイヤー1について、
 
-$
+$$
 \begin{aligned}
 \phi_1(v)
 &=
@@ -2074,11 +2074,11 @@ $
 &=
 \frac43.
 \end{aligned}
-$
+$$
 
 プレイヤー2について、
 
-$
+$$
 \begin{aligned}
 \phi_2(v)
 &=
@@ -2107,11 +2107,11 @@ $
 &=
 \frac{11}{6}.
 \end{aligned}
-$
+$$
 
 プレイヤー3について、
 
-$
+$$
 \begin{aligned}
 \phi_3(v)
 &=
@@ -2140,7 +2140,7 @@ $
 &=
 \frac56.
 \end{aligned}
-$
+$$
 
 したがって、
 
@@ -2612,35 +2612,35 @@ $$
 
 この等式を $n!$ 個の順列すべてについて足し、$n!$ で割ります。
 
-$
+$$
 \frac1{n!}
 \sum_{\pi:\,N\text{ の順列}}
 \sum_{i\in N}
 \Delta_i v(P_i^\pi)
 =
 v(N).
-$
+$$
 
 有限和なので二つの和の順序を入れ替えると、
 
-$
+$$
 \sum_{i\in N}
 \frac1{n!}
 \sum_{\pi:\,N\text{ の順列}}
 \Delta_i v(P_i^\pi)
 =
 v(N).
-$
+$$
 
 ランダム到着順の平均表示より、
 
-$
+$$
 \frac1{n!}
 \sum_{\pi:\,N\text{ の順列}}
 \Delta_i v(P_i^\pi)
 =
 \phi_i(v).
-$
+$$
 
 したがって、
 
