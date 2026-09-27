@@ -84,25 +84,26 @@ concepts:
       - game.kalai-smorodinsky-solution
       - game.bargaining-positive-affine-invariance
 
-  - id: game.bargaining-fixed-ideal-restricted-monotonicity
-    name: 理想点固定の制限単調性
+  - id: game.bargaining-individual-monotonicity
+    name: 個人単調性
     kind: definition
-    aliases: []
+    aliases:
+      - individual monotonicity
     introduction: formal
-    introduction_aliases: ["定義（理想点固定の制限単調性）"]
+    introduction_aliases: ["定義（個人単調性）"]
     requires:
       - game.bargaining-ideal-point
       - game.bargaining-solution-rule
 
-  - id: game.kalai-smorodinsky-restricted-monotonicity
-    name: Kalai--Smorodinsky 解の理想点固定制限単調性
+  - id: game.kalai-smorodinsky-individual-monotonicity
+    name: Kalai--Smorodinsky 解の個人単調性
     kind: proposition
     aliases: []
     introduction: formal
-    introduction_aliases: ["命題（Kalai--Smorodinsky 解の理想点固定制限単調性）"]
+    introduction_aliases: ["命題（Kalai--Smorodinsky 解は個人単調性を満たす）"]
     requires:
       - game.kalai-smorodinsky-solution
-      - game.bargaining-fixed-ideal-restricted-monotonicity
+      - game.bargaining-individual-monotonicity
 
   - id: game.equal-gain-bargaining-benchmark
     name: 等利得増分ベンチマーク
