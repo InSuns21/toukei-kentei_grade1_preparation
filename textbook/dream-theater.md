@@ -437,3 +437,4 @@
 17. [GAME-B6 投票ゲーム・投票力指数](textbook/volumes/00_foundations/GAME-B6/index.md)
 18. [GAME-C1 Nash 交渉問題](textbook/volumes/00_foundations/GAME-C1/index.md)
 19. [GAME-C2 Nash 交渉解の公理化](textbook/volumes/00_foundations/GAME-C2/index.md)
+20. [GAME-C3 代替的交渉解](textbook/volumes/00_foundations/GAME-C3/index.md)
