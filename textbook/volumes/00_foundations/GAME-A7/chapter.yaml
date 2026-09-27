@@ -1,0 +1,42 @@
+id: "GAME-A7"
+title: "フォーク定理入門"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GAME-A6
+  - GAME-A2
+official_scope: []
+learning_objectives:
+  - 有限段階ゲームの実現可能利得集合を純粋行動利得の凸結合として定義し、有限周期による時間配分との関係を説明できる
+  - ミニマックス値を他プレイヤーの罰と自分の最適反応の順序を保って定義し、2×2ゲームで混合戦略を含めて計算できる
+  - 個人合理的利得と厳密に個人合理的な利得をミニマックス値から判定できる
+  - 無限回繰り返しゲームの Nash 均衡利得が実現可能かつ個人合理的でなければならないことを証明できる
+  - ミニマックス罰が罰する側にとって信頼可能とは限らないことを反例から説明できる
+  - 各プレイヤーをミニマックス値まで落とす段階 Nash 均衡がある場合に、有限周期と履歴依存罰からフォーク定理型の部分ゲーム完全均衡を構成し証明できる
+  - 割引因子が1へ近づくと有限周期の正規化割引利得が周期平均へ収束し、一期間の逸脱利得の重みが小さくなることを式で説明できる
+  - 一般のフォーク定理で、実現可能性・厳密な個人合理性に加えて罰する側の逐次合理性を設計する必要がある理由を説明できる
+definitions:
+  - { id: GAME-A7-DEF-01, name: 実現可能利得集合 }
+  - { id: GAME-A7-DEF-02, name: ミニマックス値 }
+  - { id: GAME-A7-DEF-03, name: 個人合理的利得・厳密に個人合理的な利得 }
+theorems:
+  - { id: GAME-A7-PROP-01, name: 均衡利得の必要領域 }
+  - { id: GAME-A7-THM-01, name: 信頼可能なミニマックス罰を持つ有限ゲームのフォーク定理型構成 }
+canonical_examples:
+  - 囚人のジレンマで実現可能利得集合とミニマックス値1を計算し、個人合理性を判定する例
+  - ミニマックス罰を実現する行動プロファイルが段階 Nash 均衡でなく、罰する側が逸脱する例
+  - 囚人のジレンマで (D,C) と (C,D) を交互にプレイし、割引因子1/4以上で周期を支える例
+  - 三期周期 (C,C),(D,C),(C,D) の各位相で一回逸脱条件を比較する総合例
+problem_patterns:
+  - GAME-A7-FEASIBLE-PAYOFF-1
+  - GAME-A7-MINMAX-1
+  - GAME-A7-INDIVIDUAL-RATIONALITY-1
+  - GAME-A7-NECESSARY-REGION-1
+  - GAME-A7-PERIODIC-PAYOFF-1
+  - GAME-A7-CREDIBLE-PUNISHMENT-1
+  - GAME-A7-FOLK-CONSTRUCTION-1
+  - GAME-A7-INTEGRATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.5, review: 0.75 }
