@@ -569,10 +569,9 @@ $$
 
 を考えます。
 
-次の線形計画を置きます。
+次の線形計画を主問題 (P) と呼びます。
 
 $$
-\tag{P}
 \begin{aligned}
 \text{minimize}\quad
 &
@@ -760,10 +759,9 @@ $$
 \sum_S\lambda_Sv(S).
 $$
 
-よって双対問題は、
+よって双対問題 (D) は、
 
 $$
-\tag{D}
 \begin{aligned}
 \text{maximize}\quad
 &
@@ -3251,4 +3249,4 @@ $$
 
 を満たす平衡重みが存在し、それが [Farkas の補題](../OPT2/index.md#thm-opt2-farkas)と同じ意味での実行不能証明書になります。
 
-次の GAME-B3 では、安定配分の集合が存在するかという問いから離れ、効率性・対称性・null player・加法性という公理から一つの配分を選ぶ Shapley 値へ進みます。
+次の GAME-B3 では、安定配分の集合が存在するかという問いから離れ、効率性・対称性・零プレイヤー（null player）・加法性という公理から一つの配分を選ぶ Shapley 値へ進みます。
