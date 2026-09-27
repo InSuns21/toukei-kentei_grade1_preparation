@@ -1,0 +1,50 @@
+id: "GAME-C3"
+title: "代替的交渉解"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GAME-C2
+official_scope: []
+learning_objectives:
+  - 二人 Nash 交渉問題で個別合理的集合の下方包括性と理想点を定義し、理想点が一般には同時達成可能な配分ではないことを具体例で説明できる
+  - 各プレイヤーの決裂点からの改善を最大改善幅で規格化した理想点への相対到達率を計算できる
+  - Kalai--Smorodinsky 交渉解を決裂点と理想点を結ぶ線上の最大実行可能点として定義し、コンパクト性・本質性・下方包括性が存在証明のどこで働くか説明できる
+  - 二人問題で凸性と下方包括性を使い、Kalai--Smorodinsky 交渉解のパレート効率性を核心論証まで証明できる
+  - 正のアフィン変換で理想点と解が同じ変換を受け、相対到達率が保存されることを証明できる
+  - 曲線フロンティアの具体例で Nash 交渉解と Kalai--Smorodinsky 交渉解を双方計算し、両者が一般には一致しないことを説明できる
+  - 実行可能集合の縮小で旧解が残っていても理想点が変われば Kalai--Smorodinsky 解が動く例を計算し、IIA を満たさない理由を説明できる
+  - 個人単調性を定式化し、相手の理想値を変えずに自分の機会集合が拡大したとき Kalai--Smorodinsky 解で自分の効用が悪化しないことを証明できる
+  - 絶対的な等利得増分と理想点への相対到達率を区別し、前者が効用尺度の変更に依存することを具体計算で示せる
+  - 微分可能な効率的境界について Nash 解と Kalai--Smorodinsky 解が一致する接線条件を導出できる
+definitions:
+  - { id: GAME-C3-DEF-01, name: 決裂点に対する下方包括性 }
+  - { id: GAME-C3-DEF-02, name: 理想点 }
+  - { id: GAME-C3-DEF-03, name: 理想点への相対到達率 }
+  - { id: GAME-C3-DEF-04, name: Kalai--Smorodinsky 交渉解 }
+  - { id: GAME-C3-DEF-05, name: 個人単調性 }
+  - { id: GAME-C3-DEF-06, name: 等利得増分ベンチマーク }
+theorems:
+  - { id: GAME-C3-PROP-01, name: Kalai--Smorodinsky 解の存在と一意性 }
+  - { id: GAME-C3-THM-01, name: Kalai--Smorodinsky 解のパレート効率性 }
+  - { id: GAME-C3-PROP-02, name: Kalai--Smorodinsky 解の正のアフィン不変性 }
+  - { id: GAME-C3-PROP-03, name: Kalai--Smorodinsky 解は個人単調性を満たす }
+canonical_examples:
+  - "F={x>=0:x1+x2<=10}, d=(2,1) で理想点 (9,8) への相対到達率をそろえると KS 解 (11/2,9/2) が Nash 解と一致する線形資源例"
+  - "F={x>=0:x2<=1-x1^2}, d=0 で KS 解 ((sqrt(5)-1)/2,(sqrt(5)-1)/2) と Nash 解 (1/sqrt(3),2/3) が異なる曲線フロンティア例"
+  - "H={x>=0:x1+x2<=2} から G=conv{(0,0),(2,0),(1,1),(0,3/2)} へ縮小すると旧 KS 解 (1,1) を残したまま理想点が変わり、KS 解が (8/7,6/7) へ動いて IIA が破れる例"
+  - "等利得増分ベンチマークはプレイヤー1の効用を100倍すると元の物理的配分を保存せず、正のアフィン不変性を欠くことを示す例"
+problem_patterns:
+  - GAME-C3-IDEAL-POINT-1
+  - GAME-C3-KS-RAY-1
+  - GAME-C3-KS-EXISTENCE-1
+  - GAME-C3-KS-PARETO-1
+  - GAME-C3-AFFINE-INVARIANCE-1
+  - GAME-C3-NASH-COMPARISON-1
+  - GAME-C3-IIA-FAILURE-1
+  - GAME-C3-INDIVIDUAL-MONOTONICITY-1
+  - GAME-C3-EGALITARIAN-SCALE-1
+  - GAME-C3-TANGENCY-COMPARISON-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.0, review: 0.75 }
