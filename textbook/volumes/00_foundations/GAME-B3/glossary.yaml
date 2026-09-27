@@ -1,0 +1,14 @@
+chapter: "GAME-B3"
+terms:
+  - term: 限界貢献
+    english: marginal contribution
+    meaning: 提携 S にプレイヤー i が加わることで増える価値 v(S∪{i})-v(S)。
+  - term: Shapley 値
+    english: Shapley value
+    meaning: 各プレイヤーの限界貢献をすべての到着順について平均して得られる有限 TU ゲームの配分。
+  - term: 零プレイヤー
+    english: null player
+    meaning: どの提携へ加わっても価値を増やさないプレイヤー。
+  - term: 全会一致ゲーム
+    english: unanimity game
+    meaning: 指定された非空集合 T の全員を含む提携だけが価値1を持つ基底ゲーム。
