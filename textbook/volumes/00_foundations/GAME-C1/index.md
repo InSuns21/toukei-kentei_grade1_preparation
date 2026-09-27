@@ -709,7 +709,7 @@ $$
 
 は連続です。したがってコンパクト集合 $F_d$ 上で最大値を取ります。よって最適解は少なくとも一つ存在します。
 
-本質性と[前節の命題](#prop-game-c1-log-equivalence)から、任意の最適解は、
+本質性と[Nash 積最大化と対数和最大化の同値性](#prop-game-c1-log-equivalence)から、任意の最適解は、
 
 $$
 x_i^*>d_i
@@ -923,7 +923,7 @@ $$
 
 と置きます。
 
-[前節の存在・一意性定理](#thm-game-c1-existence-uniqueness)により Nash 交渉解は存在し、本質性からその利得増分は全て正です。したがって、
+[Nash 交渉解の存在と一意性](#thm-game-c1-existence-uniqueness)により Nash 交渉解は存在し、本質性からその利得増分は全て正です。したがって、
 
 $$
 y_i=\log(x_i-d_i)
@@ -1069,7 +1069,7 @@ n a_i
 }.
 $$
 
-[OPT5 の KKT 条件](../OPT5/index.md#thm-opt5-kkt)は Slater 条件のもとで最適性の必要十分条件なので、この点が最適解です。一意性は[前節の定理](#thm-game-c1-existence-uniqueness)から従います。
+[OPT5 の KKT 条件](../OPT5/index.md#thm-opt5-kkt)は Slater 条件のもとで最適性の必要十分条件なので、この点が最適解です。一意性は[Nash 交渉解の存在と一意性](#thm-game-c1-existence-uniqueness)から従います。
 
 $\square$
 <!-- proof-end -->
@@ -2432,9 +2432,9 @@ $$
 
 三人とも追加資源を $10/3$ ずつ使います。
 
-5. 実行可能集合は線形不等式で定まるコンパクト凸集合で、問題は本質的です。したがって本文の存在・一意性定理から Nash 交渉解は一意です。
+5. 実行可能集合は線形不等式で定まるコンパクト凸集合で、問題は本質的です。したがって[Nash 交渉解の存在と一意性](#thm-game-c1-existence-uniqueness)から Nash 交渉解は一意です。
 
-また Nash 積最大化解なので、本文のパレート効率性定理からパレート効率的です。
+また Nash 積最大化解なので、[Nash 交渉解のパレート効率性](#thm-game-c1-pareto-efficiency)からパレート効率的です。
 
 6. 利得増分を単純に等しく、
 
