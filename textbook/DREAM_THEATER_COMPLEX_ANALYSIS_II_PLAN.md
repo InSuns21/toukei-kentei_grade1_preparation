@@ -840,7 +840,7 @@ npm run audit:formalism-pedagogy
 
 を通す。
 
-knowledge / standard math core / dependency を変更した場合は対応する strict validation も実行する。
+`knowledge.yaml` / dependency を変更した場合は対応する strict validation を実行する。読む順ガイドだけの変更には専用の重複DAG検証を設けない。
 
 CI green は必要条件であり、完成の十分条件ではない。特に CA7 の Riemann 写像定理、CA9 の $\wp$ の収束と微分方程式、CA10 の二大存在定理、CA12 の解析接続と関数等式は、本文を人手で追って核心証明が閉じているかを確認する。
 
