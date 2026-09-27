@@ -1,0 +1,126 @@
+chapter: GAME-A1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00A
+
+forward_references: []
+
+concepts:
+  - id: game.strategic-form-game
+    name: 戦略形ゲーム
+    kind: definition
+    aliases:
+      - strategic-form game
+      - normal-form game
+      - 標準形ゲーム
+    introduction: formal
+    introduction_aliases: ["定義（有限戦略形ゲーム・戦略プロファイル）"]
+    requires:
+      - set.set
+      - set.cartesian-product
+      - set.function
+
+  - id: game.strategy-profile
+    name: 戦略プロファイル
+    kind: definition
+    aliases:
+      - strategy profile
+    introduction: formal
+    introduction_aliases: ["定義（有限戦略形ゲーム・戦略プロファイル）"]
+    requires:
+      - game.strategic-form-game
+
+  - id: game.strict-dominance
+    name: 厳密支配
+    kind: definition
+    aliases:
+      - strict dominance
+    introduction: formal
+    introduction_aliases: ["定義（厳密支配・弱支配・厳密な支配戦略）"]
+    requires:
+      - game.strategic-form-game
+
+  - id: game.weak-dominance
+    name: 弱支配
+    kind: definition
+    aliases:
+      - weak dominance
+    introduction: formal
+    introduction_aliases: ["定義（厳密支配・弱支配・厳密な支配戦略）"]
+    requires:
+      - game.strategic-form-game
+
+  - id: game.strictly-dominated-strategy
+    name: 厳密に支配される戦略
+    kind: definition
+    aliases:
+      - strictly dominated strategy
+    introduction: formal
+    introduction_aliases: ["定義（厳密支配・弱支配・厳密な支配戦略）"]
+    requires:
+      - game.strict-dominance
+
+  - id: game.strictly-dominant-strategy
+    name: 厳密な支配戦略
+    kind: definition
+    aliases:
+      - strictly dominant strategy
+    introduction: formal
+    introduction_aliases: ["定義（厳密支配・弱支配・厳密な支配戦略）"]
+    requires:
+      - game.strict-dominance
+
+  - id: game.best-response
+    name: 最適反応
+    kind: definition
+    aliases:
+      - best response
+    introduction: formal
+    introduction_aliases: ["定義（最適反応）"]
+    requires:
+      - game.strategic-form-game
+      - game.strategy-profile
+
+  - id: game.pure-strategy-nash-equilibrium
+    name: 純粋戦略 Nash 均衡
+    kind: definition
+    aliases:
+      - pure-strategy Nash equilibrium
+      - pure Nash equilibrium
+    introduction: formal
+    introduction_aliases: ["定義（純粋戦略 Nash 均衡）"]
+    requires:
+      - game.strategic-form-game
+      - game.strategy-profile
+
+  - id: game.nash-best-response-characterization
+    name: Nash 均衡の最適反応による特徴付け
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（Nash 均衡の最適反応による特徴付け）"]
+    requires:
+      - game.best-response
+      - game.pure-strategy-nash-equilibrium
+
+  - id: game.strict-dominance-excludes-pure-nash
+    name: 厳密に支配される戦略は純粋戦略 Nash 均衡で選ばれない
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（厳密に支配される戦略は純粋戦略 Nash 均衡で選ばれない）"]
+    requires:
+      - game.strictly-dominated-strategy
+      - game.pure-strategy-nash-equilibrium
+
+  - id: game.strict-dominant-profile-unique-nash
+    name: 厳密な支配戦略の組は一意な純粋戦略 Nash 均衡
+    kind: corollary
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["系（厳密な支配戦略の組は一意な純粋戦略 Nash 均衡）"]
+    requires:
+      - game.strictly-dominant-strategy
+      - game.strict-dominance-excludes-pure-nash
+      - game.nash-best-response-characterization

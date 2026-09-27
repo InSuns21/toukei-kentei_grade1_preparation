@@ -1,0 +1,45 @@
+id: "GAME-A1"
+title: "戦略形ゲーム・最適反応・Nash 均衡"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00A
+official_scope: []
+learning_objectives:
+  - 有限戦略形ゲームをプレイヤー集合・戦略集合・利得関数の組として定義し、戦略プロファイルと一方的変更の記法を具体例で読める
+  - 二人ゲームの利得表から各プレイヤーの利得と一方的逸脱による利得変化を正しく計算できる
+  - 厳密支配・弱支配・厳密な支配戦略を区別し、利得表から支配関係を判定できる
+  - 相手側戦略を固定した最大化問題として最適反応集合を定義し、同点を含めて全ての最適反応を求められる
+  - 純粋戦略 Nash 均衡を一方的な利得改善が存在しない状態として定義できる
+  - Nash 均衡と全プレイヤーの相互最適反応が同値であることを証明し、利得表の最適反応マーキングから均衡を列挙できる
+  - 厳密に支配される戦略が純粋 Nash 均衡で選ばれないことと、全員に厳密な支配戦略がある場合の一意性を証明できる
+  - 弱く支配される戦略が Nash 均衡で使われ得る例を通じて、厳密支配と弱支配の消去上の違いを説明できる
+  - 囚人のジレンマで Nash 均衡と共同で高い利得を得る状態が一致しないことを説明できる
+  - 表裏合わせゲーム の全セルまたは最適反応から、有限ゲームでも純粋戦略 Nash 均衡が存在しないことを示せる
+definitions:
+  - { id: GAME-A1-DEF-01, name: 有限戦略形ゲーム・戦略プロファイル }
+  - { id: GAME-A1-DEF-02, name: 厳密支配・弱支配・厳密な支配戦略 }
+  - { id: GAME-A1-DEF-03, name: 最適反応 }
+  - { id: GAME-A1-DEF-04, name: 純粋戦略 Nash 均衡 }
+theorems:
+  - { id: GAME-A1-THM-01, name: Nash 均衡の最適反応による特徴付け }
+  - { id: GAME-A1-PROP-01, name: 厳密に支配される戦略は純粋戦略 Nash 均衡で選ばれない }
+  - { id: GAME-A1-COR-01, name: 厳密な支配戦略の組は一意な純粋戦略 Nash 均衡 }
+canonical_examples:
+  - 囚人のジレンマで両プレイヤーの厳密な支配戦略と一意な純粋戦略 Nash 均衡を求める例
+  - 二つの協調均衡を持つ2×2ゲームで最適反応集合と複数 Nash 均衡を求める例
+  - 弱く支配される戦略が純粋戦略 Nash 均衡で使われる例
+  - 表裏合わせゲーム に純粋戦略 Nash 均衡が存在しないことを全セルと最適反応の両方から確認する例
+  - パラメータが厳密支配・弱支配・複数均衡の境界を変える2×2ゲーム
+problem_patterns:
+  - GAME-A1-PROFILE-DEVIATION-1
+  - GAME-A1-DOMINANCE-1
+  - GAME-A1-BEST-RESPONSE-1
+  - GAME-A1-PURE-NASH-1
+  - GAME-A1-WEAK-DOMINANCE-1
+  - GAME-A1-NO-PURE-NASH-1
+  - GAME-A1-PARAMETER-CLASSIFICATION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.5, review: 0.75 }

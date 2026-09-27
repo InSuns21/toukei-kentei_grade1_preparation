@@ -270,6 +270,12 @@ Hilbert 空間と Riesz 表現から再生核を構成し、有限標本上の�
 10. [MICRO7 一般均衡の存在](textbook/volumes/00_foundations/MICRO7/index.md)
 11. [MICRO8 Arrow--Debreu 経済](textbook/volumes/00_foundations/MICRO8/index.md)
 
+### ゲーム理論外伝 A
+
+戦略形ゲームの読み方から始め、相互最適反応としての Nash 均衡、混合戦略、minimax、均衡存在、連続ゲームへ進みます。
+
+1. [GAME-A1 戦略形ゲーム・最適反応・Nash 均衡](textbook/volumes/00_foundations/GAME-A1/index.md)
+
 ---
 
 ## 2. 確率論

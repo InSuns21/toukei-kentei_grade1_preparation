@@ -1,0 +1,20 @@
+chapter: "GAME-A1"
+terms:
+  - term: 戦略形ゲーム
+    english: strategic-form game / normal-form game
+    meaning: 各プレイヤーの戦略集合と、全員の戦略プロファイルから各プレイヤーの利得を与える利得関数で記述するゲーム。
+  - term: 戦略プロファイル
+    english: strategy profile
+    meaning: 全プレイヤーが選んだ戦略を一つの組としてまとめたもの。
+  - term: 厳密支配
+    english: strict dominance
+    meaning: 相手側のどの戦略に対しても、ある戦略が別の戦略より厳密に高い利得を与える関係。
+  - term: 弱支配
+    english: weak dominance
+    meaning: 相手側の全戦略に対して利得が少なくとも同じで、少なくとも一つでは厳密に高い支配関係。
+  - term: 最適反応
+    english: best response
+    meaning: 相手側の戦略を固定したとき、自分の利得を最大にする戦略。
+  - term: 純粋戦略 Nash 均衡
+    english: pure-strategy Nash equilibrium
+    meaning: 他のプレイヤーの戦略を固定したままでは、誰も一方的変更によって自分の利得を増やせない戦略プロファイル。
