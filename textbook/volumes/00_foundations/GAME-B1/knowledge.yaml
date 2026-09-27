@@ -5,8 +5,7 @@ prerequisites:
   - GAME-A1
   - OPT10
 
-forward_references:
-  - GAME-B2
+forward_references: []
 
 concepts:
   - id: game.tu-characteristic-function-game
@@ -18,7 +17,8 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（譲渡可能効用の特性関数形ゲーム）"]
     requires:
-      - game.finite-strategic-form-game
+      - set.set
+      - set.function
 
   - id: game.coalition
     name: 提携
@@ -45,7 +45,6 @@ concepts:
     kind: definition
     aliases:
       - blocking coalition
-      - coalition blocking
     introduction: formal
     introduction_aliases: ["定義（提携によるブロック）"]
     requires:
@@ -61,7 +60,7 @@ concepts:
     requires:
       - game.imputation
       - game.blocking-coalition
-      - opt.polyhedron
+      - optimization.polyhedron
 
   - id: game.core-polytope
     name: 有限 TU ゲームのコアの多面体性と有界性
@@ -71,7 +70,7 @@ concepts:
     introduction_aliases: ["命題（有限 TU ゲームのコアは多面体であり、非空なら有界である）"]
     requires:
       - game.core
-      - opt.polyhedron
+      - optimization.polyhedron
 
   - id: game.core-no-block-equivalence
     name: コアとブロック不在の同値
