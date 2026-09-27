@@ -1764,4 +1764,4 @@ $$
 - 有限 TU ゲームのコアは線形等式・不等式で記述される多面体であり、非空なら有界である。
 - コアは空になり得る。空でないためには、各提携の要求が大提携の総価値と両立しなければならない。
 
-次章 [GAME-B2](../GAME-B2/index.md) では、この両立可能性を balancedness として定式化し、Bondareva--Shapley の定理を [OPT10](../OPT10/index.md) の線形計画双対・[OPT2](../OPT2/index.md) の Farkas 型構造へ接続します。
+次章 GAME-B2 では、この両立可能性を balancedness として定式化し、Bondareva--Shapley の定理を [OPT10](../OPT10/index.md) の線形計画双対・[OPT2](../OPT2/index.md) の Farkas 型構造へ接続します。
