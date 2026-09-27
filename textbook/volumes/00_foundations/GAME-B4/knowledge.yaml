@@ -1,0 +1,83 @@
+chapter: GAME-B4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GAME-B1
+  - GAME-B3
+
+forward_references: []
+
+concepts:
+  - id: game.supermodular-characteristic-function
+    name: 優モジュラな特性関数
+    kind: definition
+    aliases:
+      - supermodular characteristic function
+    introduction: formal
+    introduction_aliases: ["定義（優モジュラな特性関数・凸ゲーム）"]
+    requires:
+      - game.cooperative-characteristic-function
+
+  - id: game.convex-game
+    name: 凸ゲーム
+    kind: definition
+    aliases:
+      - convex game
+      - convex cooperative game
+    introduction: formal
+    introduction_aliases: ["定義（優モジュラな特性関数・凸ゲーム）"]
+    requires:
+      - game.tu-characteristic-function-game
+      - game.supermodular-characteristic-function
+
+  - id: game.supermodularity-increasing-marginals-equivalence
+    name: 優モジュラ性と増大型限界貢献の同値
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（優モジュラ性と増大型限界貢献の同値）"]
+    requires:
+      - game.supermodular-characteristic-function
+      - game.marginal-contribution
+
+  - id: game.convex-game-superadditivity
+    name: 凸ゲームの優加法性
+    kind: corollary
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["系（凸ゲームは互いに素な提携に対して優加法的である）"]
+    requires:
+      - game.convex-game
+
+  - id: game.marginal-vector
+    name: 限界ベクトル
+    kind: definition
+    aliases:
+      - marginal vector
+    introduction: formal
+    introduction_aliases: ["定義（限界ベクトル）"]
+    requires:
+      - game.marginal-contribution
+
+  - id: game.convex-game-marginal-core-characterization
+    name: 凸性と限界ベクトルのコア所属の特徴付け
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（凸性と限界ベクトルのコア所属の特徴付け）"]
+    requires:
+      - game.convex-game
+      - game.supermodularity-increasing-marginals-equivalence
+      - game.marginal-vector
+      - game.core
+
+  - id: game.convex-game-shapley-core
+    name: 凸ゲームの Shapley 値のコア所属
+    kind: corollary
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["系（凸ゲームの Shapley 値はコアに属する）"]
+    requires:
+      - game.convex-game-marginal-core-characterization
+      - game.shapley-random-order-representation
+      - game.core-polytope
