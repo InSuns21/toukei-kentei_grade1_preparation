@@ -12,9 +12,9 @@ terms:
   - term: Kalai--Smorodinsky 交渉解
     english: Kalai--Smorodinsky bargaining solution
     meaning: 決裂点から理想点へ向かう線上で、二人の相対到達率を等しく保ったまま実行可能な限り理想点側へ進んだ交渉解。
-  - term: 理想点固定の制限単調性
-    english: restricted monotonicity with a fixed ideal point
-    meaning: 理想点を変えずに実行可能集合が拡大したとき、各プレイヤーの解効用が下がらないという本章の制限的な単調性。
+  - term: 個人単調性
+    english: individual monotonicity
+    meaning: 相手の理想値を変えずに自分の交渉機会が拡大したとき、自分の解効用が下がらないことを要求する単調性。
   - term: 等利得増分ベンチマーク
     english: equal-gain benchmark
     meaning: 決裂点からの絶対的な利得増分を二人で等しくする比較用の基準。個別の効用尺度変更には不変でない。
