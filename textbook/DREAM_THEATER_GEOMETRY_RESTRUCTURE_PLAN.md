@@ -1004,7 +1004,6 @@ LIE1 は GRP2 + GEO5、LIE2 は LIE1 + GRP3 + ODE4、LIE3 は LIE2 + LA6 + GEO3�
 計画ファイルを追加しただけの段階では、
 
 - `textbook/dream-theater-index.json`
-- `textbook/dream-theater-standard-math-core.yaml`
 - `textbook/dream-theater-standard-math-core.md`
 - `textbook/knowledge-dag.yaml`
 - `textbook/dependency-graph.md`
@@ -1013,7 +1012,7 @@ LIE1 は GRP2 + GEO5、LIE2 は LIE1 + GRP3 + ODE4、LIE3 は LIE2 + LA6 + GEO3�
 
 各章は本文・chapter.yaml・knowledge.yaml・glossary.yaml・演習・詳細解答・検証が完成した時点で登録する。
 
-ただし計画を機械可読な implementation batch として管理する必要が生じた場合は、既存 standard math core の status 規約に従って `planned` 登録を別 PR で行う。
+実装予定は本計画と各章の依存 metadata で管理し、中央の implementation batch / status 台帳を別途作らない。
 
 ---
 
@@ -1072,7 +1071,7 @@ LIE1 は GRP2 + GEO5、LIE2 は LIE1 + GRP3 + ODE4、LIE3 は LIE2 + LA6 + GEO3�
 - `npm run audit:proof-pedagogy`
 - `npm run audit:formalism-pedagogy`
 
-standard math core / knowledge DAG を変更した場合は対応する strict validation も実行する。
+`knowledge.yaml` や概念依存を変更した場合は対応する strict validation を実行する。読む順ガイドだけを変更した場合は Pages / リンク検証と prerequisite の人手照合を行う。
 
 概念依存監査の scope は `DREAM_THEATER_AUTHORING_STANDARD.md` に従う。通常の GEO / GRP / RNG / MOD / FLD / LIE 実装 PR では changed-only strict validation を原則とし、`dream-theater-index.json` への pure-add と新規章の `knowledge.yaml` 追加だけを理由に full audit を要求しない。既存章の `knowledge.yaml`、既存 index path の削除・移動・並べ替え、全体レジストリ・推論規則・監査エンジンを変更した場合は full audit とする。main への push では全体監査を行う。
 
