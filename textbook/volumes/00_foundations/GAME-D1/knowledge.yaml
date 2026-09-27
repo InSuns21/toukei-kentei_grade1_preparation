@@ -1,0 +1,91 @@
+chapter: GAME-D1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00A
+
+forward_references: []
+
+concepts:
+  - id: game.strict-preference-list
+    name: 厳密選好リスト
+    kind: definition
+    aliases:
+      - strict preference list
+    introduction: formal
+    introduction_aliases: ["定義（厳密選好リスト）"]
+    requires: []
+
+  - id: game.one-to-one-matching
+    name: 一対一マッチング
+    kind: definition
+    aliases:
+      - one-to-one matching
+    introduction: formal
+    introduction_aliases: ["定義（一対一マッチング）"]
+    requires:
+      - game.strict-preference-list
+
+  - id: game.blocking-pair
+    name: ブロッキングペア
+    kind: definition
+    aliases:
+      - blocking pair
+    introduction: formal
+    introduction_aliases: ["定義（ブロッキングペア・安定マッチング）"]
+    requires:
+      - game.one-to-one-matching
+      - game.strict-preference-list
+
+  - id: game.stable-matching
+    name: 安定マッチング
+    kind: definition
+    aliases:
+      - stable matching
+    introduction: formal
+    introduction_aliases: ["定義（ブロッキングペア・安定マッチング）"]
+    requires:
+      - game.blocking-pair
+
+  - id: game.deferred-acceptance-algorithm
+    name: 受入保留アルゴリズム
+    kind: definition
+    aliases:
+      - deferred acceptance algorithm
+      - Gale--Shapley algorithm
+    introduction: formal
+    introduction_aliases: ["定義（提案側受入保留アルゴリズム）"]
+    requires:
+      - game.one-to-one-matching
+      - game.strict-preference-list
+
+  - id: game.deferred-acceptance-termination
+    name: 受入保留アルゴリズムの有限停止
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（受入保留アルゴリズムの有限停止）"]
+    requires:
+      - game.deferred-acceptance-algorithm
+
+  - id: game.deferred-acceptance-perfect-matching
+    name: 同数・完全選好の下では全員が組になる
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（同数・完全選好の下では全員が組になる）"]
+    requires:
+      - game.deferred-acceptance-termination
+
+  - id: game.gale-shapley-stable-matching-existence
+    name: Gale--Shapley の安定マッチング存在定理
+    kind: theorem
+    aliases:
+      - Gale--Shapley theorem
+      - Gale--Shapley の定理
+    introduction: formal
+    introduction_aliases: ["定理（Gale--Shapley の安定マッチング存在定理）"]
+    requires:
+      - game.stable-matching
+      - game.deferred-acceptance-perfect-matching
+      - game.deferred-acceptance-algorithm
