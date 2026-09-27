@@ -6,12 +6,12 @@ terms:
   - term: 一対一マッチング
     english: one-to-one matching
     meaning: 二つの主体集合の各要素を、相手側の高々一人と相互に整合するよう対応させる割当て。
-  - term: blocking pair
+  - term: ブロッキングペア
     english: blocking pair
     meaning: 現在は組になっていない二人が、双方とも現在の相手より互いを厳密に好む組。
   - term: 安定マッチング
     english: stable matching
-    meaning: blocking pair を一つも持たない一対一マッチング。
+    meaning: ブロッキングペアを一つも持たない一対一マッチング。
   - term: 受入保留アルゴリズム
     english: deferred acceptance algorithm
     meaning: 提案者が希望順位の高い順に提案し、受け手がその時点で最も好む提案だけを暫定保留して他を拒否する反復手続き。
