@@ -62,9 +62,11 @@ $$
 \boxed{
 \phi_i(v)
 =
-\mathbb E[
-\text{到着順における }i\text{ の限界貢献}
-]
+\frac{1}{n!}
+\sum_{\pi:\,N\text{ の順列}}
+\bigl[
+\text{順列 }\pi\text{ における }i\text{ の限界貢献}
+\bigr]
 }
 $$
 
@@ -485,18 +487,19 @@ Shapley 公式の係数がそのまま現れました。
 
 ---
 
-## 4. Shapley 値はランダムな到着順での限界貢献の期待値である
+## 4. Shapley 値はランダムな到着順での限界貢献の平均である
 
 <a id="prop-game-b3-random-order"></a>
 
 <!-- formal-statement-start -->
-> **命題（Shapley 値はランダム到着順の期待限界貢献である）**  
-> 有限 TU ゲーム $(N,v)$ で $v(\varnothing)=0$ とする。$N$ の $n!$ 個の順列から一つを一様ランダムに選び、その順列を $\pi$ とする。プレイヤー $i$ より前に現れる集合を $P_i^\pi$ とすると、
+> **命題（Shapley 値はランダム到着順の平均限界貢献である）**  
+> 有限 TU ゲーム $(N,v)$ で $v(\varnothing)=0$、$n=|N|$ とする。$N$ の各順列 $\pi$ について、プレイヤー $i$ より前に現れる集合を $P_i^\pi$ とすると、
 >
 $$
 \phi_i(v)
 =
-\mathbb E_\pi
+\frac1{n!}
+\sum_{\pi:\,N\text{ の順列}}
 \left[
 v(P_i^\pi\cup\{i\})
 -
@@ -509,7 +512,7 @@ $$
 
 固定した前任者集合 $S$ が現れる確率を数えます。
 
-その確率が Shapley 公式の係数と一致するので、期待値を $S$ ごとに分ければ定義式がそのまま出ます。
+その順列数を全順列数 $n!$ で割ると Shapley 公式の係数と一致するので、有限平均を前任者集合 $S$ ごとにまとめれば定義式がそのまま出ます。
 
 <!-- proof-start -->
 ### 証明
@@ -530,23 +533,17 @@ P(P_i^\pi=S)
 \frac{|S|!(n-|S|-1)!}{n!}.
 $$
 
-したがって、有限個の可能性に対する期待値の定義から、
+したがって、$n!$ 個の順列について限界貢献を平均し、同じ前任者集合 $S$ を持つ順列をまとめると、
 
-$$
+$
 \begin{aligned}
-&\mathbb E_\pi
+&\frac1{n!}
+\sum_{\pi:\,N\text{ の順列}}
 \left[
 v(P_i^\pi\cup\{i\})
 -
 v(P_i^\pi)
 \right]
-\\
-&=
-\sum_{S\subseteq N\setminus\{i\}}
-P(P_i^\pi=S)
-\bigl(
-v(S\cup\{i\})-v(S)
-\bigr)
 \\
 &=
 \sum_{S\subseteq N\setminus\{i\}}
@@ -558,7 +555,7 @@ v(S\cup\{i\})-v(S)
 &=
 \phi_i(v).
 \end{aligned}
-$$
+$
 
 最後の等号は Shapley 値の定義です。
 
@@ -636,7 +633,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（効率性・対称性・零プレイヤー性・加法性）**  
-> 固定した有限プレイヤー集合 $N$ 上の TU ゲームへ配分ベクトル $\Psi(v)$ を対応させる規則を考える。
+> 固定した有限プレイヤー集合 $N$ 上の TU ゲームへ配分ベクトル $\Psi(v)$ を割り当てる規則を考える。
 >
 > **効率性**：すべてのゲーム $v$ について
 >
@@ -1143,7 +1140,7 @@ $\square$
 
 <!-- formal-statement-start -->
 > **定理（Shapley 値の公理的特徴付け）**  
-> 固定した有限プレイヤー集合 $N$ 上で、$v(\varnothing)=0$ を満たすすべての TU ゲーム $v$ に配分ベクトル $\Psi(v)$ を対応させる規則を考える。
+> 固定した有限プレイヤー集合 $N$ 上で、$v(\varnothing)=0$ を満たすすべての TU ゲーム $v$ に配分ベクトル $\Psi(v)$ を割り当てる規則を考える。
 >
 > この規則が
 >
@@ -1799,9 +1796,9 @@ $$
 \boxed{
 \phi_i(v)
 =
-\mathbb E_\pi[
+\frac1{n!}
+\sum_{\pi:\,N\text{ の順列}}
 \Delta_i v(P_i^\pi)
-]
 }
 $$
 
@@ -2609,40 +2606,37 @@ $$
 
 つまり、どの順列 $\pi$ を選んでも、その順番における全プレイヤーの限界貢献総和は $v(N)$ です。
 
-順列について期待値を取ると、
+この等式を $n!$ 個の順列すべてについて足し、$n!$ で割ります。
 
-$$
-\mathbb E_\pi
-\left[
+$
+\frac1{n!}
+\sum_{\pi:\,N\text{ の順列}}
 \sum_{i\in N}
 \Delta_i v(P_i^\pi)
-\right]
 =
 v(N).
-$$
+$
 
-有限和なので期待値の線形性から、
+有限和なので二つの和の順序を入れ替えると、
 
-$$
+$
 \sum_{i\in N}
-\mathbb E_\pi
-\left[
+\frac1{n!}
+\sum_{\pi:\,N\text{ の順列}}
 \Delta_i v(P_i^\pi)
-\right]
 =
 v(N).
-$$
+$
 
-ランダム到着順表示より、
+ランダム到着順の平均表示より、
 
-$$
-\mathbb E_\pi
-[
+$
+\frac1{n!}
+\sum_{\pi:\,N\text{ の順列}}
 \Delta_i v(P_i^\pi)
-]
 =
 \phi_i(v).
-$$
+$
 
 したがって、
 
