@@ -1,5 +1,6 @@
 import { access, cp, mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import YAML from 'yaml';
 import './validate-numerical-lab-runtime.mjs';
 
 const root = process.cwd();
@@ -10,10 +11,12 @@ const books = [
   {
     dir: 'statistical-mathematics',
     label: '統計数理 100大問',
+    catalog: 'exercise-index.md',
   },
   {
     dir: 'applied-rikou-80',
     label: '統計応用（理工学）80大問',
+    catalog: 'exercise-index.md',
   },
 ];
 
@@ -198,16 +201,20 @@ for (const book of books) {
   await cp(sourceDir, targetDir, { recursive: true });
 
   const indexText = await readFile(path.join(sourceDir, 'index.md'), 'utf8');
-  const indexLinks = linksFromIndex(indexText);
-  const fileLinks = await linksFromFiles(sourceDir);
-  const links = mergeOrderedLinks(indexLinks, fileLinks);
+  const catalogText = await readFile(path.join(sourceDir, book.catalog), 'utf8');
+  const links = linksFromIndex(catalogText);
 
   // Docsify is configured with relativePath: false so navigation links are
   // resolved from the Pages site root. Keep repository Markdown unchanged,
-  // but make every local link in the generated index site-root oriented.
+  // but make local links in generated reader-facing pages site-root oriented.
   await writeFile(
     path.join(targetDir, 'index.md'),
     indexForPages(indexText, book.dir),
+    'utf8',
+  );
+  await writeFile(
+    path.join(targetDir, book.catalog),
+    indexForPages(catalogText, book.dir),
     'utf8',
   );
 
@@ -218,15 +225,16 @@ for (const book of books) {
     const items = links.filter((item) => item.section === section);
     if (items.length === 0) continue;
 
+    // Core / Standard / Advanced are visual headings, not another navigation depth.
     sidebar += `  - **${sectionLabels[section]}**\n`;
     for (const item of items) {
-      sidebar += `    - [${item.title}](${book.dir}/${item.href})\n`;
+      sidebar += `  - [${item.title}](${book.dir}/${item.href})\n`;
     }
   }
 
   sidebar += '\n';
 
-  console.log(`${book.dir}: ${fileLinks.length} tiered Markdown files published`);
+  console.log(`${book.dir}: ${links.length} exercise links published`);
 }
 
 // Publish the normal textbook as Docsify-readable Markdown. The source tree is
@@ -243,64 +251,103 @@ await cp(textbookSourceDir, textbookTargetDir, {
 });
 await orientPublishedMarkdownTree(textbookTargetDir, 'textbook');
 
-const volumeEntries = (await readdir(path.join(textbookSourceDir, 'volumes'), { withFileTypes: true }))
-  .filter((entry) => entry.isDirectory())
-  .map((entry) => entry.name)
-  .sort((a, b) => a.localeCompare(b, 'en', { numeric: true }));
+const curriculum = YAML.parse(await readFile(path.join(textbookSourceDir, 'curriculum.yaml'), 'utf8'));
+const volumeEntries = curriculum.volumes ?? [];
+const curriculumChapters = curriculum.chapters ?? [];
 
 let textbookIndex = '# 通常教材\n\n';
-textbookIndex += '統計検定1級の通常章教材です。章ごとの目次から、導入・定義・定理・例題・演習・詳細解答・本番ドリルへ移動できます。\n\n';
-textbookIndex += '- [教材の説明](textbook/README.md)\n';
-textbookIndex += '- [記法規約](textbook/notation.md)\n';
-textbookIndex += '- [章間依存](textbook/dependency-graph.md)\n';
-textbookIndex += '- [執筆規約](textbook/style-guide.md)\n\n';
+textbookIndex += '統計検定1級の通常章教材です。確率・分布・推測・線形モデル・理工学の各章を、導入から例題・演習・詳細解答まで順に学べます。\n\n';
+textbookIndex += '基礎計算を反復したい場合は、通常章とは別の [計算基礎体力 — 統計検定1級のための微積・線形代数](textbook/volumes/00_foundations/F0_00CALC_計算基礎体力/index.md) も利用できます。\n\n';
 
 sidebar += '- [通常教材](textbook/index.md)\n';
 let textbookMarkdownCount = 0;
 let textbookChapterCount = 0;
 
 for (const volume of volumeEntries) {
-  const volumeSourceDir = path.join(textbookSourceDir, 'volumes', volume);
-  const volumeTargetDir = path.join(textbookTargetDir, 'volumes', volume);
-  const volumeLabel = textbookVolumeLabels[volume] || humanizePathName(volume);
-  const chapterEntries = (await readdir(volumeSourceDir, { withFileTypes: true }))
-    .filter((entry) => entry.isDirectory())
-    .map((entry) => entry.name)
-    .sort((a, b) => a.localeCompare(b, 'ja', { numeric: true }));
+  const volumeRelative = String(volume.directory || '').replace(/^volumes[\\/]/, '');
+  if (!volumeRelative) throw new Error(`curriculum volume ${volume.id} has no directory`);
+
+  const volumeSourceDir = path.join(textbookSourceDir, 'volumes', volumeRelative);
+  const volumeTargetDir = path.join(textbookTargetDir, 'volumes', volumeRelative);
+  const volumeLabel = volume.title || humanizePathName(volumeRelative);
+  const chapterSpecs = curriculumChapters.filter((chapter) => chapter.volume === volume.id);
+  const directoryEntries = (await readdir(volumeSourceDir, { withFileTypes: true }))
+    .filter((entry) => entry.isDirectory());
+
+  const chapterById = new Map();
+  for (const entry of directoryEntries) {
+    const metadataPath = path.join(volumeSourceDir, entry.name, 'chapter.yaml');
+    try {
+      const metadata = YAML.parse(await readFile(metadataPath, 'utf8'));
+      if (metadata?.id) chapterById.set(String(metadata.id), entry.name);
+    } catch (error) {
+      if (error?.code !== 'ENOENT') throw error;
+    }
+  }
 
   textbookIndex += `## ${volumeLabel}\n\n`;
   sidebar += `  - **${volumeLabel}**\n`;
 
-  for (const chapter of chapterEntries) {
+  for (const chapterSpec of chapterSpecs) {
+    const chapter = chapterById.get(String(chapterSpec.id));
+    if (!chapter) {
+      throw new Error(`Normal textbook chapter ${chapterSpec.id} is listed in curriculum.yaml but has no matching chapter.yaml`);
+    }
+
     const chapterSourceDir = path.join(volumeSourceDir, chapter);
     const chapterTargetDir = path.join(volumeTargetDir, chapter);
+    const canonicalPath = path.join(chapterSourceDir, 'index.md');
     const chapterFiles = await recursiveFiles(
       chapterSourceDir,
       (name) => name.endsWith('.md') && name !== 'index.md',
     );
-    if (chapterFiles.length === 0) continue;
 
-    const overviewRelative = chapterFiles.includes('00_overview.md') ? '00_overview.md' : chapterFiles[0];
-    const overviewText = await readFile(path.join(chapterSourceDir, ...overviewRelative.split('/')), 'utf8');
-    const chapterTitle = markdownHeading(overviewText, humanizePathName(chapter));
-    const chapterSiteDir = path.posix.join('textbook', 'volumes', volume, chapter);
-    const chapterIndexHref = path.posix.join(chapterSiteDir, 'index.md');
-
-    let chapterIndex = `# ${chapterTitle}\n\n`;
-    chapterIndex += '[通常教材の目次へ戻る](textbook/index.md)\n\n';
-    chapterIndex += '## この章の教材\n\n';
-
-    for (const relative of chapterFiles) {
-      const text = await readFile(path.join(chapterSourceDir, ...relative.split('/')), 'utf8');
-      const title = markdownHeading(text, humanizePathName(relative));
-      const href = path.posix.join(chapterSiteDir, relative);
-      chapterIndex += `- [${title}](${href})\n`;
+    let chapterTitle = String(chapterSpec.title || chapterSpec.id);
+    let hasCanonical = false;
+    try {
+      await access(canonicalPath);
+      hasCanonical = true;
+      chapterTitle = markdownHeading(
+        await readFile(canonicalPath, 'utf8'),
+        chapterTitle,
+      );
+    } catch (error) {
+      if (error?.code !== 'ENOENT') throw error;
     }
 
-    await writeFile(path.join(chapterTargetDir, 'index.md'), chapterIndex, 'utf8');
+    const chapterSiteDir = path.posix.join('textbook', 'volumes', volumeRelative, chapter);
+    const chapterIndexHref = path.posix.join(chapterSiteDir, 'index.md');
+
+    // Legacy multi-file chapters still need a temporary index before the
+    // single-page preparation pass composes their canonical public page.
+    if (!hasCanonical) {
+      if (chapterFiles.length === 0) {
+        throw new Error(`Normal textbook chapter ${chapterSpec.id} has no Markdown content`);
+      }
+
+      const overviewRelative = chapterFiles.includes('00_overview.md') ? '00_overview.md' : chapterFiles[0];
+      const overviewText = await readFile(path.join(chapterSourceDir, ...overviewRelative.split('/')), 'utf8');
+      chapterTitle = markdownHeading(overviewText, chapterTitle);
+
+      let chapterIndex = `# ${chapterTitle}\n\n`;
+      chapterIndex += '[通常教材の目次へ戻る](textbook/index.md)\n\n';
+      chapterIndex += '## この章の教材\n\n';
+
+      for (const relative of chapterFiles) {
+        const text = await readFile(path.join(chapterSourceDir, ...relative.split('/')), 'utf8');
+        const title = markdownHeading(text, humanizePathName(relative));
+        const href = path.posix.join(chapterSiteDir, relative);
+        chapterIndex += `- [${title}](${href})\n`;
+      }
+
+      await writeFile(path.join(chapterTargetDir, 'index.md'), chapterIndex, 'utf8');
+    }
+
     textbookIndex += `- [${chapterTitle}](${chapterIndexHref})\n`;
-    sidebar += `    - [${chapterTitle}](${chapterIndexHref})\n`;
-    textbookMarkdownCount += chapterFiles.length;
+    // Volume names remain headings; chapters are sibling links, avoiding a
+    // needless extra sidebar depth.
+    sidebar += `  - [${chapterTitle}](${chapterIndexHref})\n`;
+    textbookMarkdownCount += chapterFiles.length + (hasCanonical ? 1 : 0);
     textbookChapterCount += 1;
   }
 
