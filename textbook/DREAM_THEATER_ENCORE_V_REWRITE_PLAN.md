@@ -71,7 +71,7 @@ npm run audit:proof-pedagogy
 npm run audit:formalism-pedagogy
 ~~~
 
-knowledge / standard math core / concept dependency を変更した場合は対応する strict validation も実行する。
+`knowledge.yaml` / concept dependency を変更した場合は対応する strict validation を実行する。読む順ガイドだけの変更は Pages / リンク検証と prerequisite の人手照合で確認する。
 
 概念依存監査の scope は `DREAM_THEATER_AUTHORING_STANDARD.md` に従う。通常の各講実装 PR では changed-only strict validation を原則とし、`dream-theater-index.json` への pure-add と新規章の `knowledge.yaml` 追加だけを理由に full audit を要求しない。既存章の `knowledge.yaml`、既存 index path の削除・移動・並べ替え、全体レジストリ・推論規則・監査エンジンを変更した場合は full audit とする。main への push では全体監査を行う。
 
