@@ -1,0 +1,43 @@
+id: "GAME-A11"
+title: "signaling・screening・cheap talk 入門"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GAME-A10
+official_scope: []
+learning_objectives:
+  - シグナリングゲームを、私的タイプを知る送り手・観察可能なシグナル・シグナルを見て応答する受け手からなる動学的不完備情報ゲームとして記述できる
+  - GAME-A10 の PBE を使い、シグナルから事後信念を更新し、受け手の最適応答と送り手のタイプ別誘因条件を順に検査できる
+  - 分離型・プーリング型・半分離型の違いを、各タイプのシグナル確率と事後信念の形から説明できる
+  - 教育シグナリング型の二タイプモデルで、タイプごとのシグナル費用差が分離を支える条件を導出できる
+  - 同じモデルでプーリング候補を検査し、経路外信念が支えられる候補と、送り手の逸脱により支えられない候補を区別できる
+  - screening を、情報を持たない側が選択肢のメニューを先に提示してタイプの自己選択を誘う仕組みとして説明し、signaling との手番差を区別できる
+  - cheap talk を、メッセージ自体に直接費用も拘束力もない情報伝達として定義し、選好の不一致が情報伝達を壊し得ることを説明できる
+  - cheap-talk game で babbling equilibrium を構成し、選好が十分整合する場合には費用のないメッセージでも情報伝達が可能であることを具体例で確認できる
+definitions:
+  - { id: GAME-A11-DEF-01, name: シグナリングゲーム }
+  - { id: GAME-A11-DEF-02, name: 半分離型戦略 }
+  - { id: GAME-A11-DEF-03, name: スクリーニング }
+  - { id: GAME-A11-DEF-04, name: cheap talk }
+theorems:
+  - { id: GAME-A11-PROP-01, name: 二タイプ教育シグナリングモデルの分離条件 }
+  - { id: GAME-A11-PROP-02, name: cheap-talk game における babbling PBE の存在 }
+canonical_examples:
+  - 高能力・低能力の労働者が費用の異なる教育シグナルを選び、企業が観察後に高職位へ配置するかを決める二タイプ signaling game
+  - 高能力だけが教育を選ぶ分離型 PBE と、両タイプが無教育を選ぶプーリング PBE を同じ数値モデルで比較する例
+  - 低能力タイプがちょうど無差別になる境界費用で、低能力のみが混合する半分離型の事後信念を計算する例
+  - 情報を持たない企業が二つの契約を先に提示し、高能力・低能力が異なる契約を自己選択する screening menu
+  - 送り手と受け手の利害がずれる cheap-talk game でメッセージが無視される babbling PBE と、利害が一致する場合の truthful communication
+problem_patterns:
+  - GAME-A11-CLASSIFY-INFORMATION-DESIGN-1
+  - GAME-A11-SIGNAL-POSTERIOR-1
+  - GAME-A11-SEPARATING-PBE-1
+  - GAME-A11-SCREENING-MENU-1
+  - GAME-A11-POOLING-OFFPATH-1
+  - GAME-A11-POOLING-FAILURE-1
+  - GAME-A11-CHEAP-TALK-BABBLING-1
+  - GAME-A11-PARAMETRIC-SIGNALING-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.5, review: 0.75 }
