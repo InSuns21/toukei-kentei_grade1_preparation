@@ -41,25 +41,15 @@ concepts:
     requires:
       - game.tu-characteristic-function-game
 
-  - id: game.payoff-allocation
-    name: 協力ゲームの配分
-    kind: definition
-    aliases:
-      - payoff allocation in a cooperative game
-    introduction: formal
-    introduction_aliases: ["定義（協力ゲームの配分・インピュテーション）"]
-    requires:
-      - game.tu-characteristic-function-game
-
   - id: game.imputation
     name: インピュテーション
     kind: definition
     aliases:
       - imputation
     introduction: formal
-    introduction_aliases: ["定義（協力ゲームの配分・インピュテーション）"]
+    introduction_aliases: ["定義（インピュテーション）"]
     requires:
-      - game.payoff-allocation
+      - game.tu-characteristic-function-game
 
   - id: game.blocking-coalition
     name: 提携によるブロック
