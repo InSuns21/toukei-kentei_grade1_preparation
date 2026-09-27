@@ -1,0 +1,44 @@
+id: "GAME-C4"
+title: "Rubinstein 交渉"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GAME-C3
+  - GAME-A5
+official_scope: []
+learning_objectives:
+  - 共通割引因子を持つ二人の無限期交互提案交渉ゲームを、提案者・応答者・受諾・拒否・提案者交代・割引利得から定義できる
+  - 応答者が現在提案と拒否後の継続価値を比較して受諾境界を決めることを具体的な数値例で説明できる
+  - 定常戦略を定義し、二つの継続局面から定常方程式を立てて提案者取り分 1/(1+delta) と応答者取り分 delta/(1+delta) を導出できる
+  - 得られた定常戦略が全ての部分ゲームで最適反応を満たすことを確認し、部分ゲーム完全均衡であることを証明できる
+  - 定常性を仮定せず、提案者の SPE 利得の下限 m と上限 M に対する二本の不等式から Rubinstein 交渉定理を証明できる
+  - 全ての部分ゲーム完全均衡で直ちに合意し、提案者と応答者の均衡取り分が一意に決まる理由を説明できる
+  - 有限期限版を GAME-A5 の後ろ向き帰納法で解き、p_n=(1-(-delta)^n)/(1+delta) と無限期の定常値への収束を導出できる
+  - 共通割引因子の変化が初回提案者優位へ与える影響を計算し、delta が1へ近づくと半々の配分へ収束することを説明できる
+  - 対称な単位パイで Nash 交渉解と Rubinstein 交渉解を比較し、公理的交渉と戦略的交渉が異なる問いであることを説明できる
+definitions:
+  - { id: GAME-C4-DEF-01, name: Rubinstein の交互提案交渉ゲーム }
+  - { id: GAME-C4-DEF-02, name: 定常戦略 }
+  - { id: GAME-C4-DEF-03, name: Rubinstein 交渉解 }
+theorems:
+  - { id: GAME-C4-PROP-01, name: 定常戦略による部分ゲーム完全均衡 }
+  - { id: GAME-C4-THM-01, name: "Rubinstein 交渉定理：共通割引因子" }
+  - { id: GAME-C4-PROP-02, name: 有限期限交互提案ゲームの後ろ向き帰納法 }
+canonical_examples:
+  - "delta=1/2 で提案者 2/3・応答者 1/3 となり、応答者の拒否後価値 delta*(2/3)=1/3 が受諾境界と一致する例"
+  - "delta=3/4 で Rubinstein 交渉解が (4/7,3/7) となる例"
+  - "有限期限版の p_n=1-delta p_{n-1} を後ろ向き帰納法で解き、p_n=(1-(-delta)^n)/(1+delta) が無限期の 1/(1+delta) へ収束する例"
+  - "単位パイ d=0 で Nash 交渉解 (1/2,1/2) と Rubinstein 交渉解を比較し、初回提案者の上乗せが (1-delta)/(2(1+delta)) となる例"
+problem_patterns:
+  - GAME-C4-CONTINUATION-VALUE-1
+  - GAME-C4-STATIONARY-EQUATIONS-1
+  - GAME-C4-STATIONARY-SPE-1
+  - GAME-C4-DISCOUNT-COMPARATIVE-1
+  - GAME-C4-FINITE-HORIZON-1
+  - GAME-C4-SPE-BOUNDS-1
+  - GAME-C4-NASH-COMPARISON-1
+  - GAME-C4-INTEGRATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.0, review: 0.75 }
