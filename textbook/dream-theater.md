@@ -1,25 +1,6 @@
-# DREAM THEATER 数学講座
+# DREAM THEATER 本編
 
-> 統計検定1級の教材を読んでいたはずが、気づけば測度論・Fourier解析・PDE・Sobolev空間・確率過程・有限要素法・Monte Carloまで来てしまった人のための入口です。
-
-このページは **DREAM THEATER 系列のオリエンテーション兼全体目次** です。数学的な依存関係を意識して、標準数学コアから各 Encore へつながる全体像を示します。
-
-## 読み方
-
-- **統計検定1級の合格が目的なら、まず通常教材を優先してください。** DREAM THEATER は、そこで使う数学を出発点に、大学数学・大学院数学の標準的な理論まで体系的に掘り下げる系列です。
-- 通読するときは、まず **標準数学コア（読む順DAG）** を入口にし、各章の前提関係に沿って進んでください。章IDの番号順に読む必要はありません。
-- Encore II 以降は、ODE・Fourier解析・PDE、Graduate PDE、確率解析・時系列、数値解析へ分岐します。必要な標準数学コアを押さえたうえで、目的に合う系列へ進めます。
-- 各章では、定義と直接例、主要定理、証明の見取り図と完全証明、演習と詳細解答を通じて、前提章だけを既知として論証を再構成できることを目標にしています。
-
-## 0. 入口
-
-1. [標準数学コア（読む順DAG）](textbook/dream-theater-standard-math-core.md)
-
----
-
-## 1. DREAM THEATER 本編
-
-### 集合・位相・完備性
+## 集合論・位相空間論
 
 1. [F0-00A 集合・写像・上限下限](textbook/volumes/00_foundations/F0_00A_集合_写像_上限下限/index.md)
 2. [F0-00A1 supremum・infimum](textbook/volumes/00_foundations/F0_00A1_上界_下界_supremum_infimum/index.md)
@@ -49,9 +30,7 @@
 26. [TOP6 全有界性・Baire・net/フィルタ](textbook/volumes/00_foundations/TOP6/index.md)
 27. [TOP7 一様構造・一様連続・Cauchy構造](textbook/volumes/00_foundations/TOP7/index.md)
 
-### 標準実解析コア
-
-既存の実数・点列・コンパクト性を「定義の床」として再利用し、ここから数学科標準の実解析を積み上げます。
+## 実解析
 
 1. [RA1 数列・級数](textbook/volumes/00_foundations/RA1/index.md)
 2. [RA1A 数値級数の収束論](textbook/volumes/00_foundations/RA1A/index.md)
@@ -65,9 +44,7 @@
 10. [RA7 多重Riemann積分・変数変換](textbook/volumes/00_foundations/RA7/index.md)
 11. [RA8 関数族のコンパクト性・近似](textbook/volumes/00_foundations/RA8/index.md)
 
-### 標準線形代数コア
-
-基底・線形写像・実内積・実対称スペクトル定理・実SVDを踏まえ、LA系列で複素数体・商空間・代数的双対・行列式・作用素構造・複素内積へ進みます。
+## 線形代数
 
 1. [F0-00E ベクトル空間・基底](textbook/volumes/00_foundations/F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md)
 2. [F0-00F 線形写像・固有空間・SVD](textbook/volumes/00_foundations/F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md)
@@ -85,12 +62,9 @@
 14. [LA6 スペクトル・二次形式・polar decomposition・複素SVD](textbook/volumes/00_foundations/LA6/index.md)
 15. [LA3D 交代多重線形形式・抽象行列式（発展分岐）](textbook/volumes/00_foundations/LA3D/index.md)
 16. [LA3E テンソル積・外積代数（幾何学への発展分岐）](textbook/volumes/00_foundations/LA3E/index.md)
+17. [線形代数・院試／編入計算演習（A8・B10・C4、計22題）](textbook/volumes/00_foundations/F0_00CALC_線形代数_院試編入計算演習/index.md)
 
-**院試・編入の計算演習**：[線形代数・院試／編入計算演習（A8・B10・C4、計22題）](textbook/volumes/00_foundations/F0_00CALC_線形代数_院試編入計算演習/index.md)。
-
-### 多様体・微分幾何コア
-
-位相・多変数解析を、一般多様体上の微分幾何へ接続する系列です。
+## 微分幾何
 
 1. [GEO1 滑らかな多様体・滑らかな写像](textbook/volumes/00_foundations/GEO1/index.md)
 2. [GEO2 接空間・余接空間・微分・接束](textbook/volumes/00_foundations/GEO2/index.md)
@@ -112,9 +86,7 @@
 18. [GEO18 比較幾何入門](textbook/volumes/00_foundations/GEO18/index.md)
 19. [GEO19 Gauss--Bonnet と二次元大域幾何](textbook/volumes/00_foundations/GEO19/index.md)
 
-### 標準抽象代数コア
-
-集合・写像の基礎から、群・環・加群・体へ進み、有限 Galois 理論と古典的応用まで閉じる学部標準の抽象代数系列です。群論 GRP1--GRP4、環論 RNG1--RNG4、加群論 MOD1--MOD2、体論・Galois 理論 FLD1--FLD5 を順に扱います。
+## 抽象代数
 
 1. [GRP1 群・部分群・巡回群・置換群](textbook/volumes/00_foundations/GRP1/index.md)
 2. [GRP2 準同型・剰余類・正規部分群・商群](textbook/volumes/00_foundations/GRP2/index.md)
@@ -132,22 +104,14 @@
 14. [FLD4 有限 Galois 理論](textbook/volumes/00_foundations/FLD4/index.md)
 15. [FLD5 Galois 理論の応用：作図可能性・根号による可解性](textbook/volumes/00_foundations/FLD5/index.md)
 
-GRP1--GRP4 で群・商構造・群作用・Sylow 理論までの有限群論主線を閉じます。RNG1--RNG4 では環・イデアル・中国剰余定理から Euclid 整域・一意分解整域・多項式環・Gauss の補題まで進みます。MOD1 で加群・自由加群・ねじれ・$F[x]$-加群を導入し、MOD2 で Smith 標準形、PID 上有限生成加群の構造定理、有限生成 Abel 群の分類、線形自己写像の巡回分解まで閉じます。FLD1 で体拡大・拡大次数・最小多項式・単純代数拡大を構成し、FLD2 で分解体・埋め込み延長・分離性・正規性を閉じます。FLD3 では標数・Frobenius 写像・有限体の乗法群、$\mathbb F_{p^n}$ の存在と一意性、部分体判定、相対 Frobenius、有限体拡大の分離性・正規性まで進みます。FLD4 では基礎体固定自己同型・固定体・Galois 群を導入し、Artin の固定体定理から有限 Galois 理論の基本定理、正規部分群と正規中間拡大、商群まで閉じます。FLD5 では作図可能性を二次拡大列へ翻訳し、可解群と根号拡大を結んで根号可解性の Galois 群判定を証明します。さらに $A_5$ の単純性と具体的な $S_5$ 五次方程式から、一般五次の根号公式が存在しない理由まで閉じます。
-
-### Lie 理論コア
-
-群論と多様体論を接続し、群構造を微分して有限次元の無限小構造へ落とす系列です。
+## Lie 理論
 
 1. [LIE1 Lie 群・Lie 環・不変ベクトル場](textbook/volumes/00_foundations/LIE1/index.md)
 2. [LIE2 1パラメータ部分群・指数写像・随伴表現](textbook/volumes/00_foundations/LIE2/index.md)
 3. [LIE3 Lie 部分群・古典群](textbook/volumes/00_foundations/LIE3/index.md)
 4. [LIE4 Lie 群作用・軌道・等質空間・Maurer--Cartan](textbook/volumes/00_foundations/LIE4/index.md)
 
-LIE1 では左移動・右移動、左不変ベクトル場、単位元接空間の Lie 環、Lie 群準同型の微分、一般線形群の行列交換子までを閉じます。LIE2 では1パラメータ部分群と Lie 群の指数写像を左不変場の流れから構成し、共役自己同型の微分として随伴表現 $\operatorname{Ad}$、さらに $\operatorname{ad}_X(Y)=[X,Y]$ と共役四項積から BCH 理論への入口まで進みます。LIE3 では Lie 部分群と指数写像の整合性を証明し、$SL(n)$、$O(n)$、$SO(n)$、$U(n)$、$SU(n)$ の定義方程式を微分して接 Lie 環を直接計算します。LIE4 では滑らかな作用、軌道と安定化群の微分、閉部分群による商多様体、等質空間、無限小作用を構成し、GEO7 の外微分を使って Maurer--Cartan 方程式まで閉じます。
-
-### 標準ベクトル解析コア
-
-多変数微分と多重積分を、曲線・曲面・場・積分定理へ接続する独立系列です。PDE に加えて、流体・電磁気・連続体力学にも共通する基礎を扱います。
+## ベクトル解析
 
 1. [VC1 ベクトル場と微分演算子](textbook/volumes/00_foundations/VC1/index.md)
 2. [VC2 曲線・線積分・保存場](textbook/volumes/00_foundations/VC2/index.md)
@@ -159,35 +123,32 @@ LIE1 では左移動・右移動、左不変ベクトル場、単位元接空間
 8. [VC8 Newton ポテンシャル・Helmholtz 分解](textbook/volumes/00_foundations/VC8/index.md)
 9. [VC9 保存則・流体・Maxwell 方程式](textbook/volumes/00_foundations/VC9/index.md)
 
-### ノルム空間・測度・Lebesgue積分
+## 測度論
+
+1. [F0-00D2 測度・可測関数・Lebesgue積分](textbook/volumes/00_foundations/F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md)
+2. [F0-00D3 外測度・Carathéodory](textbook/volumes/00_foundations/F0_00D3_外測度_Caratheodory可測性/index.md)
+3. [F0-00D3A π–λ定理・Dynkin族](textbook/volumes/00_foundations/F0_00D3A_pi_lambda_Dynkin/index.md)
+4. [F0-00D4 Lebesgue測度・Borel・拡張定理](textbook/volumes/00_foundations/F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md)
+5. [F0-00D5 Vitali集合・非可測集合](textbook/volumes/00_foundations/F0_00D5_Vitali集合_非可測集合_選択公理/index.md)
+6. [MT0 Lebesgue測度の正則性・有限単関数近似](textbook/volumes/00_foundations/MT0/index.md)
+7. [F0-00D2A 単関数からLebesgue積分](textbook/volumes/00_foundations/F0_00D2A_単関数_Lebesgue積分_構成/index.md)
+8. [F0-00D2B MCT・Fatou・DCT](textbook/volumes/00_foundations/F0_00D2B_単調収束_Fatou_優収束/index.md)
+9. [MT1 収束様式・Egorov・Lusin](textbook/volumes/00_foundations/MT1/index.md)
+10. [MT2 符号付き測度・Hahn–Jordan分解・全変動](textbook/volumes/00_foundations/MT2/index.md)
+11. [MT3 Radon–Nikodym定理・Lebesgue分解](textbook/volumes/00_foundations/MT3/index.md)
+12. [MT4 Lebesgue微分定理・絶対連続関数](textbook/volumes/00_foundations/MT4/index.md)
+13. [MT5 Radon測度・Riesz–Markov](textbook/volumes/00_foundations/MT5/index.md)
+14. [MT6 C0版Riesz–Markov・有限符号付きRadon測度](textbook/volumes/00_foundations/MT6/index.md)
+15. [MT-RL Riemann積分とLebesgue積分の橋](textbook/volumes/00_foundations/MT-RL/index.md)
+16. [F0-00D2C 積測度・Tonelli・Fubini](textbook/volumes/00_foundations/F0_00D2C_積測度_Tonelli_Fubini/index.md)
+17. [F0-00D2D Lp・Hölder・Minkowski](textbook/volumes/00_foundations/F0_00D2D_Lp_Holder_Minkowski/index.md)
+18. [F0-00D2E L2完備性・Riesz–Fischer](textbook/volumes/00_foundations/F0_00D2E_L2完備性_Riesz_Fischer/index.md)
+19. [MT7 Lp完備性・稠密性・双対](textbook/volumes/00_foundations/MT7/index.md)
+20. [MT8 Hausdorff測度・Hausdorff次元](textbook/volumes/00_foundations/MT8/index.md)
+
+## 関数解析
 
 1. [F0-00D1 ノルム・Banach](textbook/volumes/00_foundations/F0_00D1_ノルム_Banach_有限次元_無限次元/index.md)
-2. [F0-00D2 測度・可測関数・Lebesgue積分](textbook/volumes/00_foundations/F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md)
-3. [F0-00D3 外測度・Carathéodory](textbook/volumes/00_foundations/F0_00D3_外測度_Caratheodory可測性/index.md)
-4. [F0-00D3A π–λ定理・Dynkin族](textbook/volumes/00_foundations/F0_00D3A_pi_lambda_Dynkin/index.md)
-5. [F0-00D4 Lebesgue測度・Borel・拡張定理](textbook/volumes/00_foundations/F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md)
-6. [F0-00D5 Vitali集合・非可測集合](textbook/volumes/00_foundations/F0_00D5_Vitali集合_非可測集合_選択公理/index.md)
-7. [MT0 Lebesgue測度の正則性・有限単関数近似](textbook/volumes/00_foundations/MT0/index.md)
-8. [F0-00D2A 単関数からLebesgue積分](textbook/volumes/00_foundations/F0_00D2A_単関数_Lebesgue積分_構成/index.md)
-9. [F0-00D2B MCT・Fatou・DCT](textbook/volumes/00_foundations/F0_00D2B_単調収束_Fatou_優収束/index.md)
-10. [MT1 収束様式・Egorov・Lusin](textbook/volumes/00_foundations/MT1/index.md)
-11. [MT2 符号付き測度・Hahn–Jordan分解・全変動](textbook/volumes/00_foundations/MT2/index.md)
-12. [MT3 Radon–Nikodym定理・Lebesgue分解](textbook/volumes/00_foundations/MT3/index.md)
-13. [MT4 Lebesgue微分定理・絶対連続関数](textbook/volumes/00_foundations/MT4/index.md)
-14. [MT5 Radon測度・Riesz–Markov](textbook/volumes/00_foundations/MT5/index.md)
-15. [MT6 C0版Riesz–Markov・有限符号付きRadon測度](textbook/volumes/00_foundations/MT6/index.md)
-16. [MT-RL Riemann積分とLebesgue積分の橋](textbook/volumes/00_foundations/MT-RL/index.md)
-17. [F0-00D2C 積測度・Tonelli・Fubini](textbook/volumes/00_foundations/F0_00D2C_積測度_Tonelli_Fubini/index.md)
-18. [F0-00D2D Lp・Hölder・Minkowski](textbook/volumes/00_foundations/F0_00D2D_Lp_Holder_Minkowski/index.md)
-19. [F0-00D2E L2完備性・Riesz–Fischer](textbook/volumes/00_foundations/F0_00D2E_L2完備性_Riesz_Fischer/index.md)
-20. [MT7 Lp完備性・稠密性・双対](textbook/volumes/00_foundations/MT7/index.md)
-21. [MT8 Hausdorff測度・Hausdorff次元](textbook/volumes/00_foundations/MT8/index.md)
-
-### 関数解析
-
-ここからは、関数空間を「無限次元の線形空間」として扱うための本体です。後ろの凸解析・KKT・RKHSが、ここで準備する完備性・双対・作用素・分離の言葉を使います。多変数微分は標準実解析コアの RA6 で扱い、ここではその後続となる Banach/Hilbert 空間上の理論へ進みます。
-
-1. [F0-02C 関数解析・制約想定・RKHS ロードマップ](textbook/volumes/00_foundations/F0_02C_関数解析_制約想定_RKHS/index.md)
 2. [F0-02C1 Banach・Hilbert](textbook/volumes/00_foundations/F0_02C1_ノルム空間_Banach_Hilbert/index.md)
 3. [F0-02C1A Hilbert射影定理](textbook/volumes/00_foundations/F0_02C1A_Hilbert射影定理_直交分解/index.md)
 4. [F0-02C2 双対空間・Riesz](textbook/volumes/00_foundations/F0_02C2_線形汎関数_双対空間_Riesz/index.md)
@@ -203,9 +164,7 @@ LIE1 では左移動・右移動、左不変ベクトル場、単位元接空間
 14. [FA7 コンパクト自己共役作用素・Fredholm alternative](textbook/volumes/00_foundations/FA7/index.md)
 15. [F0-02C6A 分離定理・Minkowski・Farkas](textbook/volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md)
 
-### 標準複素解析コア
-
-実解析・複素線形代数を受け、Cauchy 理論から留数・調和関数・スペクトル論へ進む独立系列です。
+## 複素解析
 
 1. [CA1 複素微分・Cauchy–Riemann・初等正則関数](textbook/volumes/00_foundations/CA1/index.md)
 2. [CA2 複素線積分・原始関数・Cauchy–Goursat](textbook/volumes/00_foundations/CA2/index.md)
@@ -219,12 +178,9 @@ LIE1 では左移動・右移動、左不変ベクトル場、単位元接空間
 10. [CA10 無限積・Weierstrass 因数分解・Mittag--Leffler](textbook/volumes/00_foundations/CA10/index.md)
 11. [CA11 Gamma 関数・反射公式・Stirling 公式](textbook/volumes/00_foundations/CA11/index.md)
 12. [CA12 Riemann ζ 関数・theta 変換・解析接続・関数等式](textbook/volumes/00_foundations/CA12/index.md)
+13. [複素解析・院試／編入計算演習（A8・B10・C4、計22題）](textbook/volumes/00_foundations/F0_00CALC_複素解析_院試編入計算演習/index.md)
 
-**院試・編入の計算演習**：[複素解析・院試／編入計算演習（A8・B10・C4、計22題）](textbook/volumes/00_foundations/F0_00CALC_複素解析_院試編入計算演習/index.md)。
-
-### 凸解析・凸最適化
-
-有限次元の凸集合・凸関数から、分離、凸双対、KKT 条件、数値最適化、LP/QP、整数計画、ネットワーク最適化、マッチング・割当問題、全単模性・整数多面体へ進みます。前半で凸性の幾何と双対性を整え、中盤で制約付き最適化の最適性条件を理解し、後半で連続最適化から線形・二次・離散最適化へ接続します。
+## 凸解析・最適化
 
 1. [OPT1 凸集合・凸関数・凸最適化](textbook/volumes/00_foundations/OPT1/index.md)
 2. [OPT2 射影・支持超平面・分離・Farkas](textbook/volumes/00_foundations/OPT2/index.md)
@@ -239,14 +195,15 @@ LIE1 では左移動・右移動、左不変ベクトル場、単位元接空間
 11. [OPT10 線形計画 I：多面体・極点・双対](textbook/volumes/00_foundations/OPT10/index.md)
 12. [OPT11 線形計画 II：単体法・内点法・感度解析](textbook/volumes/00_foundations/OPT11/index.md)
 13. [OPT12 二次計画・錐計画入門](textbook/volumes/00_foundations/OPT12/index.md)
-14. [DOPT1 整数計画・LP 緩和](textbook/volumes/00_foundations/DOPT1/index.md)
-15. [DOPT2 ネットワーク最適化](textbook/volumes/00_foundations/DOPT2/index.md)
-16. [DOPT3 マッチング・割当問題](textbook/volumes/00_foundations/DOPT3/index.md)
-17. [DOPT4 全単模性・整数多面体](textbook/volumes/00_foundations/DOPT4/index.md)
 
-### RKHS・SVM
+## 離散最適化
 
-Hilbert 空間と Riesz 表現から再生核を構成し、有限標本上の表現定理と SVM へ進みます。
+1. [DOPT1 整数計画・LP 緩和](textbook/volumes/00_foundations/DOPT1/index.md)
+2. [DOPT2 ネットワーク最適化](textbook/volumes/00_foundations/DOPT2/index.md)
+3. [DOPT3 マッチング・割当問題](textbook/volumes/00_foundations/DOPT3/index.md)
+4. [DOPT4 全単模性・整数多面体](textbook/volumes/00_foundations/DOPT4/index.md)
+
+## RKHS・カーネル法
 
 1. [RKHS1 再生核 Hilbert 空間・Moore--Aronszajn](textbook/volumes/00_foundations/RKHS1/index.md)
 2. [RKHS2 正則化問題の表現定理](textbook/volumes/00_foundations/RKHS2/index.md)
@@ -254,25 +211,24 @@ Hilbert 空間と Riesz 表現から再生核を構成し、有限標本上の�
 4. [RKHS4 最大マージンとハードマージン SVM](textbook/volumes/00_foundations/RKHS4/index.md)
 5. [RKHS5 ソフトマージン・ヒンジ損失・カーネル SVM](textbook/volumes/00_foundations/RKHS5/index.md)
 
-### 不動点と数理経済への接続
-
-有限次元の不動点・集合値写像の基盤を整えた後、凸解析を選好理論へ接続します。
+## 不動点理論
 
 1. [FIX1 Sperner の補題・Brouwer 不動点定理](textbook/volumes/00_foundations/FIX1/index.md)
 2. [FIX2 集合値写像・対応](textbook/volumes/00_foundations/FIX2/index.md)
 3. [FIX3 Berge 最大値定理・Kakutani 不動点定理](textbook/volumes/00_foundations/FIX3/index.md)
-4. [MICRO1 選好・効用・凸性](textbook/volumes/00_foundations/MICRO1/index.md)
-5. [MICRO2 消費者最適化・需要](textbook/volumes/00_foundations/MICRO2/index.md)
-6. [MICRO3 消費者双対性](textbook/volumes/00_foundations/MICRO3/index.md)
-7. [MICRO4 生産者理論](textbook/volumes/00_foundations/MICRO4/index.md)
-8. [MICRO5 Pareto 効率・社会計画問題・厚生定理](textbook/volumes/00_foundations/MICRO5/index.md)
-9. [MICRO6 純粋交換経済・Walras 均衡](textbook/volumes/00_foundations/MICRO6/index.md)
-10. [MICRO7 一般均衡の存在](textbook/volumes/00_foundations/MICRO7/index.md)
-11. [MICRO8 Arrow--Debreu 経済](textbook/volumes/00_foundations/MICRO8/index.md)
 
-### ゲーム理論外伝 A
+## ミクロ経済学
 
-戦略形ゲームの読み方から始め、相互最適反応としての Nash 均衡、混合戦略、minimax、均衡存在、連続ゲーム、展開形ゲーム、繰り返し相互作用・履歴依存戦略・フォーク定理を経て、私的タイプを持つベイジアンゲームと Bayesian Nash 均衡、オークション理論へ進みます。さらに動学的不完備情報で、情報集合・信念・逐次合理性を Perfect Bayesian Equilibrium として統合し、シグナリング・スクリーニング・チープトークへ進んで、私的情報が行動や発言を通じて伝わる条件を調べます。
+1. [MICRO1 選好・効用・凸性](textbook/volumes/00_foundations/MICRO1/index.md)
+2. [MICRO2 消費者最適化・需要](textbook/volumes/00_foundations/MICRO2/index.md)
+3. [MICRO3 消費者双対性](textbook/volumes/00_foundations/MICRO3/index.md)
+4. [MICRO4 生産者理論](textbook/volumes/00_foundations/MICRO4/index.md)
+5. [MICRO5 Pareto 効率・社会計画問題・厚生定理](textbook/volumes/00_foundations/MICRO5/index.md)
+6. [MICRO6 純粋交換経済・Walras 均衡](textbook/volumes/00_foundations/MICRO6/index.md)
+7. [MICRO7 一般均衡の存在](textbook/volumes/00_foundations/MICRO7/index.md)
+8. [MICRO8 Arrow--Debreu 経済](textbook/volumes/00_foundations/MICRO8/index.md)
+
+## ゲーム理論
 
 1. [GAME-A1 戦略形ゲーム・最適反応・Nash 均衡](textbook/volumes/00_foundations/GAME-A1/index.md)
 2. [GAME-A2 混合戦略・ゼロ和ゲーム・ミニマックス](textbook/volumes/00_foundations/GAME-A2/index.md)
@@ -285,176 +241,165 @@ Hilbert 空間と Riesz 表現から再生核を構成し、有限標本上の�
 9. [GAME-A9 オークション理論入門](textbook/volumes/00_foundations/GAME-A9/index.md)
 10. [GAME-A10 動学的不完備情報・信念・Perfect Bayesian Equilibrium](textbook/volumes/00_foundations/GAME-A10/index.md)
 11. [GAME-A11 シグナリング・スクリーニング・チープトーク入門](textbook/volumes/00_foundations/GAME-A11/index.md)
+12. [GAME-B1 特性関数形ゲーム・コア](textbook/volumes/00_foundations/GAME-B1/index.md)
+13. [GAME-B2 平衡ゲーム・Bondareva--Shapley の定理](textbook/volumes/00_foundations/GAME-B2/index.md)
+14. [GAME-B3 Shapley 値・限界貢献・公理化](textbook/volumes/00_foundations/GAME-B3/index.md)
+15. [GAME-B4 凸ゲーム・優モジュラ性](textbook/volumes/00_foundations/GAME-B4/index.md)
+16. [GAME-B5 最小コア・仁](textbook/volumes/00_foundations/GAME-B5/index.md)
+17. [GAME-B6 投票ゲーム・投票力指数](textbook/volumes/00_foundations/GAME-B6/index.md)
+18. [GAME-C1 Nash 交渉問題](textbook/volumes/00_foundations/GAME-C1/index.md)
+19. [GAME-C2 Nash 交渉解の公理化](textbook/volumes/00_foundations/GAME-C2/index.md)
 
-### ゲーム理論外伝 B
+## 確率論
 
-提携ごとに作れる価値を特性関数で表し、その価値をどう配るかを調べる協力ゲーム系列です。有限の譲渡可能効用ゲームから始め、安定配分の集合であるコア、その非空性を特徴付ける平衡性、限界貢献を一つの配分へまとめる Shapley 値へ進みます。さらに提携が大きいほど限界貢献が増える凸ゲームを学び、Shapley 値がコアの安定性条件を満たす理由を調べます。コアが空の場合も含めて提携の不満を超過要求で測り、最大超過要求を抑える最小コアと、それを辞書式に一意化する仁へ進みます。 最後に、可否を0/1で表す投票ゲームへ Shapley 値を移し、Shapley--Shubik 指数と Banzhaf 指数を通して、議席比率・票の重みと実際の投票力が一致しない仕組みを調べます。
+1. [P1 確率空間・確率変数・分布](textbook/volumes/00_foundations/F0_00P1_確率空間_確率変数_分布/index.md)
+2. [P2 密度・期待値・Radon–Nikodym](textbook/volumes/00_foundations/F0_00P2_密度_期待値_Radon_Nikodym/index.md)
+3. [P2A 期待値・LOTUS](textbook/volumes/00_foundations/F0_00P2A_期待値_LOTUS/index.md)
+4. [P3 独立・積測度・条件付き期待値](textbook/volumes/00_foundations/F0_00P3_独立_積測度_条件付き期待値/index.md)
+5. [P3A 条件付き期待値・Radon–Nikodym](textbook/volumes/00_foundations/F0_00P3A_条件付き期待値_Radon_Nikodym/index.md)
+6. [P3B L2射影・最良予測](textbook/volumes/00_foundations/F0_00P3B_L2射影_最良予測/index.md)
+7. [P3C Lévy上昇定理](textbook/volumes/00_foundations/F0_00P3C_Levy上昇定理_情報の増加/index.md)
+8. [P3D pushforward・LOTUS・Doob–Dynkinの証明](textbook/volumes/00_foundations/F0_00P3D_pushforward_LOTUS_Doob_Dynkin/index.md)
+9. [P4 収束・Borel–Cantelli・UI](textbook/volumes/00_foundations/F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md)
+10. [P4A 一様可積分性・Vitali](textbook/volumes/00_foundations/F0_00P4A_一様可積分性_Vitali/index.md)
+11. [P5 大数の強法則](textbook/volumes/00_foundations/F0_00P5_大数の強法則/index.md)
+12. [P5A truncation・Kronecker・一般SLLN](textbook/volumes/00_foundations/F0_00P5A_truncation_Kronecker_一般SLLN/index.md)
+13. [P6 特性関数・Lévy連続性定理](textbook/volumes/00_foundations/F0_00P6_特性関数_中心極限定理/index.md)
+14. [P6A iid中心極限定理](textbook/volumes/00_foundations/F0_00P6A_iid_中心極限定理/index.md)
+15. [P6B Poisson少数法則・希少事象三角配列](textbook/volumes/00_foundations/F0_00P6B_Poisson少数法則_希少事象列/index.md)
+16. [P7 統計モデル・尤度・正則性](textbook/volumes/00_foundations/F0_00P7_統計モデル_尤度_正則性/index.md)
+17. [P7A MLE一致性・漸近正規性](textbook/volumes/00_foundations/F0_00P7A_MLE_一致性_漸近正規性/index.md)
+18. [P7B QMD・LAN](textbook/volumes/00_foundations/F0_00P7B_QMD_LAN/index.md)
 
-1. [GAME-B1 特性関数形ゲーム・コア](textbook/volumes/00_foundations/GAME-B1/index.md)
-2. [GAME-B2 平衡ゲーム・Bondareva--Shapley の定理](textbook/volumes/00_foundations/GAME-B2/index.md)
-3. [GAME-B3 Shapley 値・限界貢献・公理化](textbook/volumes/00_foundations/GAME-B3/index.md)
-4. [GAME-B4 凸ゲーム・優モジュラ性](textbook/volumes/00_foundations/GAME-B4/index.md)
-5. [GAME-B5 最小コア・仁](textbook/volumes/00_foundations/GAME-B5/index.md)
-6. [GAME-B6 投票ゲーム・投票力指数](textbook/volumes/00_foundations/GAME-B6/index.md)
+## 常微分方程式
 
-**ゲーム理論外伝 C：交渉ゲーム**では、合意可能な効用配分と決裂時の効用から交渉を記述します。まず Nash 積最大化を凸最適化として解き、以後は公理化、代替的交渉解、戦略的交渉へ進みます。
+1. [ODE1 一階常微分方程式・初期値問題](textbook/volumes/00_foundations/ODE1/index.md)
+2. [ODE2 高階線形微分方程式](textbook/volumes/00_foundations/ODE2/index.md)
+3. [ODE3 線形連立系・行列指数・安定性](textbook/volumes/00_foundations/ODE3/index.md)
+4. [ODE4 非線形系・位相平面・線形化](textbook/volumes/00_foundations/ODE4/index.md)
+5. [ODE5 Laplace変換と初期値問題](textbook/volumes/00_foundations/ODE5/index.md)
+6. [ODE6 級数解・正則特異点](textbook/volumes/00_foundations/ODE6/index.md)
+7. [ODE7 境界値問題・Sturm--Liouville](textbook/volumes/00_foundations/ODE7/index.md)
+8. [ODE8 最大解・Grönwall・連続依存・流れ](textbook/volumes/00_foundations/ODE8/index.md)
+9. [ODE9 Lyapunov 関数・不変集合・LaSalle](textbook/volumes/00_foundations/ODE9/index.md)
+10. [ODE10 平面力学系・周期軌道・Poincaré--Bendixson](textbook/volumes/00_foundations/ODE10/index.md)
+11. [ODE11 局所分岐・Poincaré 写像・周期軌道の安定性](textbook/volumes/00_foundations/ODE11/index.md)
 
-- [GAME-C1 Nash 交渉問題](textbook/volumes/00_foundations/GAME-C1/index.md)
-- [GAME-C2 Nash 交渉解の公理化](textbook/volumes/00_foundations/GAME-C2/index.md)
+## Fourier 解析
 
----
+1. [FOU1 Fourier級数・直交性・係数計算](textbook/volumes/00_foundations/FOU1/index.md)
+2. [FOU2 Fourier級数の収束・Fejér・Parseval](textbook/volumes/00_foundations/FOU2/index.md)
+3. [FOU3 Fourier変換・畳み込み・反転](textbook/volumes/00_foundations/FOU3/index.md)
+4. [FOU4 Plancherel・L2 Fourier解析](textbook/volumes/00_foundations/FOU4/index.md)
+5. [FOU5 確率・離散Fourier変換・サンプリング](textbook/volumes/00_foundations/FOU5/index.md)
 
-## 2. 確率論
+## 偏微分方程式
 
-1. [確率論ロードマップ](textbook/volumes/00_foundations/F0_00P_確率論_測度論から統計理論へ/index.md)
-2. [P1 確率空間・確率変数・分布](textbook/volumes/00_foundations/F0_00P1_確率空間_確率変数_分布/index.md)
-3. [P2 密度・期待値・Radon–Nikodym](textbook/volumes/00_foundations/F0_00P2_密度_期待値_Radon_Nikodym/index.md)
-4. [P2A 期待値・LOTUS](textbook/volumes/00_foundations/F0_00P2A_期待値_LOTUS/index.md)
-5. [P3 独立・積測度・条件付き期待値](textbook/volumes/00_foundations/F0_00P3_独立_積測度_条件付き期待値/index.md)
-6. [P3A 条件付き期待値・Radon–Nikodym](textbook/volumes/00_foundations/F0_00P3A_条件付き期待値_Radon_Nikodym/index.md)
-7. [P3B L2射影・最良予測](textbook/volumes/00_foundations/F0_00P3B_L2射影_最良予測/index.md)
-8. [P3C Lévy上昇定理](textbook/volumes/00_foundations/F0_00P3C_Levy上昇定理_情報の増加/index.md)
-9. [P3D pushforward・LOTUS・Doob–Dynkinの証明](textbook/volumes/00_foundations/F0_00P3D_pushforward_LOTUS_Doob_Dynkin/index.md)
-10. [P4 収束・Borel–Cantelli・UI](textbook/volumes/00_foundations/F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md)
-11. [P4A 一様可積分性・Vitali](textbook/volumes/00_foundations/F0_00P4A_一様可積分性_Vitali/index.md)
-12. [P5 大数の強法則](textbook/volumes/00_foundations/F0_00P5_大数の強法則/index.md)
-13. [P5A truncation・Kronecker・一般SLLN](textbook/volumes/00_foundations/F0_00P5A_truncation_Kronecker_一般SLLN/index.md)
-14. [P6 特性関数・Lévy連続性定理](textbook/volumes/00_foundations/F0_00P6_特性関数_中心極限定理/index.md)
-15. [P6A iid中心極限定理](textbook/volumes/00_foundations/F0_00P6A_iid_中心極限定理/index.md)
-16. [P6B Poisson少数法則・希少事象三角配列](textbook/volumes/00_foundations/F0_00P6B_Poisson少数法則_希少事象列/index.md)
-17. [P7 統計モデル・尤度・正則性](textbook/volumes/00_foundations/F0_00P7_統計モデル_尤度_正則性/index.md)
-18. [P7A MLE一致性・漸近正規性](textbook/volumes/00_foundations/F0_00P7A_MLE_一致性_漸近正規性/index.md)
-19. [P7B QMD・LAN](textbook/volumes/00_foundations/F0_00P7B_QMD_LAN/index.md)
+1. [PDE1 PDEの基本・一次方程式・特性曲線](textbook/volumes/00_foundations/PDE1/index.md)
+2. [PDE2 二階線形PDEの分類](textbook/volumes/00_foundations/PDE2/index.md)
+3. [PDE3 熱方程式](textbook/volumes/00_foundations/PDE3/index.md)
+4. [PDE4 波動方程式](textbook/volumes/00_foundations/PDE4/index.md)
+5. [PDE5 Laplace・Poisson方程式と調和関数](textbook/volumes/00_foundations/PDE5/index.md)
+6. [PDE6 Greenの恒等式・基本解・Green関数](textbook/volumes/00_foundations/PDE6/index.md)
+7. [PDE7 固有関数展開・Green表現・三類型の統合](textbook/volumes/00_foundations/PDE7/index.md)
+8. [PDE8 Duhamel 原理・非斉次問題](textbook/volumes/00_foundations/PDE8/index.md)
+9. [PDE9 多次元波動方程式・Kirchhoff 公式・Huygens 原理](textbook/volumes/00_foundations/PDE9/index.md)
+10. [PDE10 多次元 Laplace・Poisson 方程式とポテンシャル論](textbook/volumes/00_foundations/PDE10/index.md)
+11. [PDE11 変数分離・Bessel・Legendre・球面調和関数](textbook/volumes/00_foundations/PDE11/index.md)
+12. [PDE12 一般一階 PDE・Hamilton--Jacobi 方程式](textbook/volumes/00_foundations/PDE12/index.md)
+13. [GPDE1 テスト関数・distribution](textbook/volumes/00_foundations/GPDE1/index.md)
+14. [GPDE2 distribution 微分・mollifier・弱微分](textbook/volumes/00_foundations/GPDE2/index.md)
+15. [GPDE3 Sobolev空間](textbook/volumes/00_foundations/GPDE3/index.md)
+16. [GPDE4 H0^1・Poincare・trace](textbook/volumes/00_foundations/GPDE4/index.md)
+17. [GPDE5 Sobolev embedding・compactness](textbook/volumes/00_foundations/GPDE5/index.md)
+18. [GPDE6 弱形式・変分形式](textbook/volumes/00_foundations/GPDE6/index.md)
+19. [GPDE7 Lax--Milgram](textbook/volumes/00_foundations/GPDE7/index.md)
+20. [GPDE8 二階線形楕円型PDE](textbook/volumes/00_foundations/GPDE8/index.md)
+21. [GPDE9 楕円型正則性](textbook/volumes/00_foundations/GPDE9/index.md)
+22. [GPDE10 Galerkin・時間発展PDEの弱解](textbook/volumes/00_foundations/GPDE10/index.md)
 
----
+## 確率解析
 
-## 3. Encore II：ODE・Fourier解析・PDE
+1. [STO1 確率過程・フィルトレーション・停止時刻](textbook/volumes/00_foundations/STO1/index.md)
+2. [STO2 離散時間マルチンゲール・不等式・収束](textbook/volumes/00_foundations/STO2/index.md)
+3. [STO2A 離散時間Markov連鎖・再帰・Green核・不変測度](textbook/volumes/00_foundations/STO2A/index.md)
+4. [STO3 確率過程の構成・Kolmogorov continuity](textbook/volumes/00_foundations/STO3/index.md)
+5. [STO4 ブラウン運動・到達時刻・強マルコフ性](textbook/volumes/00_foundations/STO4/index.md)
+6. [STO3A 経路空間の弱収束・tightness・Donsker](textbook/volumes/00_foundations/STO3A/index.md)
+7. [STO5 連続局所マルチンゲール・二次変分・セミマルチンゲール](textbook/volumes/00_foundations/STO5/index.md)
+8. [STO6 確率積分](textbook/volumes/00_foundations/STO6/index.md)
+9. [STO7 多次元 Itô 解析・Stratonovich](textbook/volumes/00_foundations/STO7/index.md)
+10. [STO8 局所時間・Tanaka 公式](textbook/volumes/00_foundations/STO8/index.md)
+11. [STO4A Brown運動の標本路幾何](textbook/volumes/00_foundations/STO4A/index.md)
+12. [STO9 SDE・強解・存在一意性・局所化](textbook/volumes/00_foundations/STO9/index.md)
+13. [STO10 弱解・Girsanov](textbook/volumes/00_foundations/STO10/index.md)
+14. [STO11 マルコフ過程・半群・生成作用素・マルチンゲール問題](textbook/volumes/00_foundations/STO11/index.md)
+15. [STO12 ブラウン運動のマルチンゲール表現](textbook/volumes/00_foundations/STO12/index.md)
+16. [STO13 ポアソン過程・連続時間マルコフ連鎖・ランダム測度](textbook/volumes/00_foundations/STO13/index.md)
+17. [STO14 Lévy 過程・跳躍型確率解析](textbook/volumes/00_foundations/STO14/index.md)
 
-1. [Encore II ロードマップ](textbook/volumes/00_foundations/F0_00R2_EncoreII_Fourier解析_微分方程式/index.md)
-2. [ODE1 一階常微分方程式・初期値問題](textbook/volumes/00_foundations/ODE1/index.md)
-3. [ODE2 高階線形微分方程式](textbook/volumes/00_foundations/ODE2/index.md)
-4. [ODE3 線形連立系・行列指数・安定性](textbook/volumes/00_foundations/ODE3/index.md)
-5. [ODE4 非線形系・位相平面・線形化](textbook/volumes/00_foundations/ODE4/index.md)
-6. [ODE5 Laplace変換と初期値問題](textbook/volumes/00_foundations/ODE5/index.md)
-7. [ODE6 級数解・正則特異点](textbook/volumes/00_foundations/ODE6/index.md)
-8. [ODE7 境界値問題・Sturm--Liouville](textbook/volumes/00_foundations/ODE7/index.md)
-9. [ODE8 最大解・Grönwall・連続依存・流れ](textbook/volumes/00_foundations/ODE8/index.md)
-10. [ODE9 Lyapunov 関数・不変集合・LaSalle](textbook/volumes/00_foundations/ODE9/index.md)
-11. [ODE10 平面力学系・周期軌道・Poincaré--Bendixson](textbook/volumes/00_foundations/ODE10/index.md)
-12. [ODE11 局所分岐・Poincaré 写像・周期軌道の安定性](textbook/volumes/00_foundations/ODE11/index.md)
-13. [FOU1 Fourier級数・直交性・係数計算](textbook/volumes/00_foundations/FOU1/index.md)
-14. [FOU2 Fourier級数の収束・Fejér・Parseval](textbook/volumes/00_foundations/FOU2/index.md)
-15. [FOU3 Fourier変換・畳み込み・反転](textbook/volumes/00_foundations/FOU3/index.md)
-16. [FOU4 Plancherel・L2 Fourier解析](textbook/volumes/00_foundations/FOU4/index.md)
-17. [FOU5 確率・離散Fourier変換・サンプリング](textbook/volumes/00_foundations/FOU5/index.md)
-18. [PDE1 PDEの基本・一次方程式・特性曲線](textbook/volumes/00_foundations/PDE1/index.md)
-19. [PDE2 二階線形PDEの分類](textbook/volumes/00_foundations/PDE2/index.md)
-20. [PDE3 熱方程式](textbook/volumes/00_foundations/PDE3/index.md)
-21. [PDE4 波動方程式](textbook/volumes/00_foundations/PDE4/index.md)
-22. [PDE5 Laplace・Poisson方程式と調和関数](textbook/volumes/00_foundations/PDE5/index.md)
-23. [PDE6 Greenの恒等式・基本解・Green関数](textbook/volumes/00_foundations/PDE6/index.md)
-24. [PDE7 固有関数展開・Green表現・三類型の統合](textbook/volumes/00_foundations/PDE7/index.md)
-25. [PDE8 Duhamel 原理・非斉次問題](textbook/volumes/00_foundations/PDE8/index.md)
-26. [PDE9 多次元波動方程式・Kirchhoff 公式・Huygens 原理](textbook/volumes/00_foundations/PDE9/index.md)
-27. [PDE10 多次元 Laplace・Poisson 方程式とポテンシャル論](textbook/volumes/00_foundations/PDE10/index.md)
-28. [PDE11 変数分離・Bessel・Legendre・球面調和関数](textbook/volumes/00_foundations/PDE11/index.md)
-29. [PDE12 一般一階 PDE・Hamilton--Jacobi 方程式](textbook/volumes/00_foundations/PDE12/index.md)
----
+## 時系列解析
 
-## 4. Encore III：Graduate PDE
+1. [TSA1 定常過程・Hilbert 予測](textbook/volumes/00_foundations/TSA1/index.md)
+2. [TSA2 Wold 分解](textbook/volumes/00_foundations/TSA2/index.md)
+3. [TSA3 Herglotz の定理・スペクトル表現](textbook/volumes/00_foundations/TSA3/index.md)
+4. [TSA4 線形フィルタ・ARMA / ARIMA・周波数領域](textbook/volumes/00_foundations/TSA4/index.md)
+5. [TSA5 エルゴード性・混合性・従属極限定理](textbook/volumes/00_foundations/TSA5/index.md)
+6. [TSA6 状態空間・Kalman フィルタ・イノベーション](textbook/volumes/00_foundations/TSA6/index.md)
 
-Encore II が **古典 PDE** を閉じた後、Encore III では distribution・Sobolev 空間・compactness・変分法を使う **大学院 PDE の基礎理論**へ進みます。
+## 数値解析
 
-1. [Encore III Graduate PDE ロードマップ](textbook/volumes/00_foundations/F0_00R3_EncoreIII_Distributions_Sobolev_Weak/index.md)
-2. [GPDE1 テスト関数・distribution](textbook/volumes/00_foundations/GPDE1/index.md)
-3. [GPDE2 distribution 微分・mollifier・弱微分](textbook/volumes/00_foundations/GPDE2/index.md)
-4. [GPDE3 Sobolev空間](textbook/volumes/00_foundations/GPDE3/index.md)
-5. [GPDE4 H0^1・Poincare・trace](textbook/volumes/00_foundations/GPDE4/index.md)
-6. [GPDE5 Sobolev embedding・compactness](textbook/volumes/00_foundations/GPDE5/index.md)
-7. [GPDE6 弱形式・変分形式](textbook/volumes/00_foundations/GPDE6/index.md)
-8. [GPDE7 Lax--Milgram](textbook/volumes/00_foundations/GPDE7/index.md)
-9. [GPDE8 二階線形楕円型PDE](textbook/volumes/00_foundations/GPDE8/index.md)
-10. [GPDE9 楕円型正則性](textbook/volumes/00_foundations/GPDE9/index.md)
-11. [GPDE10 Galerkin・時間発展PDEの弱解](textbook/volumes/00_foundations/GPDE10/index.md)
+1. [NA1 浮動小数点・誤差・条件数・安定性](textbook/volumes/00_foundations/NA1/index.md)
+2. [NA2 非線形方程式・不動点反復・Newton 法](textbook/volumes/00_foundations/NA2/index.md)
+3. [NA3 非線形連立方程式](textbook/volumes/00_foundations/NA3/index.md)
+4. [NA4 多項式補間](textbook/volumes/00_foundations/NA4/index.md)
+5. [NA5 数値積分・直交多項式・Gauss 型積分](textbook/volumes/00_foundations/NA5/index.md)
+6. [NA6 ODE 数値解法 I：一段法と収束](textbook/volumes/00_foundations/NA6/index.md)
+7. [NA7 ODE 数値解法 II：Runge–Kutta・絶対安定性](textbook/volumes/00_foundations/NA7/index.md)
+8. [NA8 数値線形代数 I：直接法](textbook/volumes/00_foundations/NA8/index.md)
+9. [NA9 数値線形代数 II：反復法・Krylov 法](textbook/volumes/00_foundations/NA9/index.md)
+10. [NA10 固有値数値計算](textbook/volumes/00_foundations/NA10/index.md)
+11. [NA11 Perron–Frobenius 理論と PageRank](textbook/volumes/00_foundations/NA11/index.md)
+12. [NA12 無制約最適化と共役勾配法](textbook/volumes/00_foundations/NA12/index.md)
+13. [PYNUM1 Python 数値計算速習](textbook/volumes/00_foundations/PYNUM1/index.md)
+14. [NUMLAB0 計算機演習基盤](textbook/volumes/00_foundations/NUMLAB0/index.md)
+15. [NUMLAB1 数値解析演習](textbook/volumes/00_foundations/NUMLAB1/index.md)
 
-Encore III では distributional solution、variational 弱解、energy solution を扱い、mild solution は橋渡しに留めます。entropy / viscosity / renormalized / measure-valued solution、Navier--Stokes の本格弱解理論、geometric analysis は別系列として扱います。
+## 差分法
 
----
+1. [FDM1 熱方程式と差分法の導入](textbook/volumes/00_foundations/FDM1/index.md)
+2. [FDM2 差分スキームの安定性](textbook/volumes/00_foundations/FDM2/index.md)
+3. [FDM3 整合性・安定性・収束性](textbook/volumes/00_foundations/FDM3/index.md)
+4. [FDM4 移流拡散と風上化](textbook/volumes/00_foundations/FDM4/index.md)
+5. [NUMLAB2 差分法演習](textbook/volumes/00_foundations/NUMLAB2/index.md)
 
-## 5. Encore IV：確率解析・時系列
+## 有限要素法
 
-1. [Encore IV ロードマップ](textbook/volumes/00_foundations/F0_00R4_EncoreIV_Stochastic_Spectral_TimeSeries/index.md)
+1. [FEM1 Poisson 方程式・変分形式・Galerkin 法](textbook/volumes/00_foundations/FEM1/index.md)
+2. [FEM2 三角形分割・局所基底・組立て](textbook/volumes/00_foundations/FEM2/index.md)
+3. [FEM3 有限要素補間とメッシュ](textbook/volumes/00_foundations/FEM3/index.md)
+4. [FEM4 楕円型 FEM の誤差解析](textbook/volumes/00_foundations/FEM4/index.md)
+5. [FEM5 鞍点問題・Stokes 方程式](textbook/volumes/00_foundations/FEM5/index.md)
+6. [FEM6 放物型方程式の有限要素法](textbook/volumes/00_foundations/FEM6/index.md)
+7. [FEM7 移流拡散・安定化有限要素法](textbook/volumes/00_foundations/FEM7/index.md)
+8. [NUMLAB3 有限要素法演習](textbook/volumes/00_foundations/NUMLAB3/index.md)
 
-2. [STO1 確率過程・フィルトレーション・停止時刻](textbook/volumes/00_foundations/STO1/index.md)
-3. [STO2 離散時間マルチンゲール・不等式・収束](textbook/volumes/00_foundations/STO2/index.md)
-4. [STO2A 離散時間Markov連鎖・再帰・Green核・不変測度](textbook/volumes/00_foundations/STO2A/index.md)
-5. [STO3 確率過程の構成・Kolmogorov continuity](textbook/volumes/00_foundations/STO3/index.md)
-6. [STO4 ブラウン運動・到達時刻・強マルコフ性](textbook/volumes/00_foundations/STO4/index.md)
-7. [STO3A 経路空間の弱収束・tightness・Donsker](textbook/volumes/00_foundations/STO3A/index.md)
-8. [STO5 連続局所マルチンゲール・二次変分・セミマルチンゲール](textbook/volumes/00_foundations/STO5/index.md)
-9. [STO6 確率積分](textbook/volumes/00_foundations/STO6/index.md)
-10. [STO7 多次元 Itô 解析・Stratonovich](textbook/volumes/00_foundations/STO7/index.md)
-11. [STO8 局所時間・Tanaka 公式](textbook/volumes/00_foundations/STO8/index.md)
-12. [STO4A Brown運動の標本路幾何](textbook/volumes/00_foundations/STO4A/index.md)
-13. [STO9 SDE・強解・存在一意性・局所化](textbook/volumes/00_foundations/STO9/index.md)
-14. [STO10 弱解・Girsanov](textbook/volumes/00_foundations/STO10/index.md)
-15. [STO11 マルコフ過程・半群・生成作用素・マルチンゲール問題](textbook/volumes/00_foundations/STO11/index.md)
-16. [STO12 ブラウン運動のマルチンゲール表現](textbook/volumes/00_foundations/STO12/index.md)
-17. [STO13 ポアソン過程・連続時間マルコフ連鎖・ランダム測度](textbook/volumes/00_foundations/STO13/index.md)
-18. [STO14 Lévy 過程・跳躍型確率解析](textbook/volumes/00_foundations/STO14/index.md)
-19. [TSA1 定常過程・Hilbert 予測](textbook/volumes/00_foundations/TSA1/index.md)
-20. [TSA2 Wold 分解](textbook/volumes/00_foundations/TSA2/index.md)
-21. [TSA3 Herglotz の定理・スペクトル表現](textbook/volumes/00_foundations/TSA3/index.md)
-22. [TSA4 線形フィルタ・ARMA / ARIMA・周波数領域](textbook/volumes/00_foundations/TSA4/index.md)
-23. [TSA5 エルゴード性・混合性・従属極限定理](textbook/volumes/00_foundations/TSA5/index.md)
-24. [TSA6 状態空間・Kalman フィルタ・イノベーション](textbook/volumes/00_foundations/TSA6/index.md)
+## Monte Carlo 法
 
-STO 系列ではマルチンゲール・ブラウン運動・二次変分・確率積分・SDE・Girsanov・Markov 過程・生成作用素・マルチンゲール表現・ポアソン / Lévy / 跳躍型確率解析まで、TSA 系列では定常過程・予測・Wold 分解・スペクトル表現・ARMA / ARIMA・エルゴード性・Kalman フィルタまでを扱います。
+1. [MC1 Monte Carlo 法と統計的誤差](textbook/volumes/00_foundations/MC1/index.md)
+2. [MC2 乱数生成とサンプリング](textbook/volumes/00_foundations/MC2/index.md)
+3. [MC3 分散減少法](textbook/volumes/00_foundations/MC3/index.md)
+4. [MC4 Multilevel Monte Carlo](textbook/volumes/00_foundations/MC4/index.md)
+5. [NUMLAB4 Monte Carlo 演習](textbook/volumes/00_foundations/NUMLAB4/index.md)
 
----
+## 準 Monte Carlo 法
 
-## 6. Encore V：計算数理
-
-1. [Encore V：計算数理](textbook/volumes/00_foundations/F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md)
-2. [NA1 浮動小数点・誤差・条件数・安定性](textbook/volumes/00_foundations/NA1/index.md)
-3. [NA2 非線形方程式・不動点反復・Newton 法](textbook/volumes/00_foundations/NA2/index.md)
-4. [NA3 非線形連立方程式](textbook/volumes/00_foundations/NA3/index.md)
-5. [NA4 多項式補間](textbook/volumes/00_foundations/NA4/index.md)
-6. [NA5 数値積分・直交多項式・Gauss 型積分](textbook/volumes/00_foundations/NA5/index.md)
-7. [NA6 ODE 数値解法 I：一段法と収束](textbook/volumes/00_foundations/NA6/index.md)
-8. [NA7 ODE 数値解法 II：Runge–Kutta・絶対安定性](textbook/volumes/00_foundations/NA7/index.md)
-9. [NA8 数値線形代数 I：直接法](textbook/volumes/00_foundations/NA8/index.md)
-10. [NA9 数値線形代数 II：反復法・Krylov 法](textbook/volumes/00_foundations/NA9/index.md)
-11. [NA10 固有値数値計算](textbook/volumes/00_foundations/NA10/index.md)
-12. [NA11 Perron–Frobenius 理論と PageRank](textbook/volumes/00_foundations/NA11/index.md)
-13. [NA12 無制約最適化と共役勾配法](textbook/volumes/00_foundations/NA12/index.md)
-14. [FDM1 熱方程式と差分法の導入](textbook/volumes/00_foundations/FDM1/index.md)
-15. [FDM2 差分スキームの安定性](textbook/volumes/00_foundations/FDM2/index.md)
-16. [FDM3 整合性・安定性・収束性](textbook/volumes/00_foundations/FDM3/index.md)
-17. [FDM4 移流拡散と風上化](textbook/volumes/00_foundations/FDM4/index.md)
-18. [FEM1 Poisson 方程式・変分形式・Galerkin 法](textbook/volumes/00_foundations/FEM1/index.md)
-19. [FEM2 三角形分割・局所基底・組立て](textbook/volumes/00_foundations/FEM2/index.md)
-20. [FEM3 有限要素補間とメッシュ](textbook/volumes/00_foundations/FEM3/index.md)
-21. [FEM4 楕円型 FEM の誤差解析](textbook/volumes/00_foundations/FEM4/index.md)
-22. [FEM5 鞍点問題・Stokes 方程式](textbook/volumes/00_foundations/FEM5/index.md)
-23. [FEM6 放物型方程式の有限要素法](textbook/volumes/00_foundations/FEM6/index.md)
-24. [FEM7 移流拡散・安定化有限要素法](textbook/volumes/00_foundations/FEM7/index.md)
-25. [MC1 Monte Carlo 法と統計的誤差](textbook/volumes/00_foundations/MC1/index.md)
-26. [MC2 乱数生成とサンプリング](textbook/volumes/00_foundations/MC2/index.md)
-27. [MC3 分散減少法](textbook/volumes/00_foundations/MC3/index.md)
-28. [MC4 Multilevel Monte Carlo](textbook/volumes/00_foundations/MC4/index.md)
-29. [QMC1 一様分布・ディスクレパンシー・Koksma--Hlawka](textbook/volumes/00_foundations/QMC1/index.md)
-30. [QMC2 RKHS・最悪誤差・重み付き空間](textbook/volumes/00_foundations/QMC2/index.md)
-31. [QMC3 格子則](textbook/volumes/00_foundations/QMC3/index.md)
-32. [QMC4 $(t,m,s)$-net・$(t,s)$-sequence](textbook/volumes/00_foundations/QMC4/index.md)
-33. [QMC5 Walsh 解析とデジタルネットの双対理論](textbook/volumes/00_foundations/QMC5/index.md)
-34. [QMC6 多項式格子](textbook/volumes/00_foundations/QMC6/index.md)
-35. [QMC7 ランダム化準 Monte Carlo 法](textbook/volumes/00_foundations/QMC7/index.md)
-36. [QMC8 高次準 Monte Carlo 法](textbook/volumes/00_foundations/QMC8/index.md)
-37. [PYNUM1 Python 数値計算速習](textbook/volumes/00_foundations/PYNUM1/index.md)
-38. [NUMLAB0 計算機演習基盤](textbook/volumes/00_foundations/NUMLAB0/index.md)
-39. [NUMLAB1 数値解析演習](textbook/volumes/00_foundations/NUMLAB1/index.md)
-40. [NUMLAB2 差分法演習](textbook/volumes/00_foundations/NUMLAB2/index.md)
-41. [NUMLAB3 有限要素法演習](textbook/volumes/00_foundations/NUMLAB3/index.md)
-42. [NUMLAB4 Monte Carlo 演習](textbook/volumes/00_foundations/NUMLAB4/index.md)
-43. [NUMLAB5 準 Monte Carlo 演習](textbook/volumes/00_foundations/NUMLAB5/index.md)
+1. [QMC1 一様分布・ディスクレパンシー・Koksma--Hlawka](textbook/volumes/00_foundations/QMC1/index.md)
+2. [QMC2 RKHS・最悪誤差・重み付き空間](textbook/volumes/00_foundations/QMC2/index.md)
+3. [QMC3 格子則](textbook/volumes/00_foundations/QMC3/index.md)
+4. [QMC4 $(t,m,s)$-net・$(t,s)$-sequence](textbook/volumes/00_foundations/QMC4/index.md)
+5. [QMC5 Walsh 解析とデジタルネットの双対理論](textbook/volumes/00_foundations/QMC5/index.md)
+6. [QMC6 多項式格子](textbook/volumes/00_foundations/QMC6/index.md)
+7. [QMC7 ランダム化準 Monte Carlo 法](textbook/volumes/00_foundations/QMC7/index.md)
+8. [QMC8 高次準 Monte Carlo 法](textbook/volumes/00_foundations/QMC8/index.md)
+9. [NUMLAB5 準 Monte Carlo 演習](textbook/volumes/00_foundations/NUMLAB5/index.md)
