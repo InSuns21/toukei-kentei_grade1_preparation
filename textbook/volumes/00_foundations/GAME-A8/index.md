@@ -33,7 +33,7 @@ $$
 3. 戦略を私的な状態ごとの行動計画として定義する。
 4. 自分の状態を固定した条件付き期待利得から均衡条件を定める。
 5. 状態別の行動計画を一つの通常の戦略として読み替える。
-6. GAME-A3 の有限ゲーム Nash 均衡存在定理を、この読み替えた有限ゲームへ適用する。
+6. [有限ゲームの Nash 均衡存在定理](../GAME-A3/index.md#thm-game-a3-nash-existence)を、この読み替えた有限ゲームへ適用する。
 
 という順に進みます。
 
@@ -924,7 +924,7 @@ $$
 
 したがって Harsanyi 変換後ゲームは有限戦略形ゲームです。
 
-[GAME-A3 の有限ゲーム Nash 均衡存在定理](../GAME-A3/index.md#thm-game-a3-nash-existence)をそのまま適用できます。
+[[有限ゲームの Nash 均衡存在定理](../GAME-A3/index.md#thm-game-a3-nash-existence)](../GAME-A3/index.md#thm-game-a3-nash-existence)をそのまま適用できます。
 
 <a id="thm-game-a8-existence"></a>
 <!-- formal-statement-start -->
@@ -955,7 +955,7 @@ $$
 
 したがって Harsanyi 変換後ゲームは有限戦略形ゲームです。
 
-GAME-A3 の有限ゲーム Nash 均衡存在定理により、変換後ゲームには混合戦略 Nash 均衡が存在します。
+[有限ゲームの Nash 均衡存在定理](../GAME-A3/index.md#thm-game-a3-nash-existence)により、変換後ゲームには混合戦略 Nash 均衡が存在します。
 
 プレイヤー $i$ のその混合戦略を $\lambda_i\in\Delta(S_i)$ とします。これは、タイプ条件付き純粋計画 $s_i\in S_i$ に確率を割り当てるものです。
 
@@ -2277,6 +2277,6 @@ $$
 
 です。
 
-さらに有限タイプ・有限行動なら変換後ゲームも有限なので、GAME-A3 の Nash 均衡存在定理から混合 Bayesian Nash 均衡の存在が従います。
+さらに有限タイプ・有限行動なら変換後ゲームも有限なので、[有限ゲームの Nash 均衡存在定理](../GAME-A3/index.md#thm-game-a3-nash-existence)から混合 Bayesian Nash 均衡の存在が従います。
 
 次章では、この枠組みを最も代表的に使う **オークション理論**へ進みます。入札者の私的評価額をタイプとして、第一価格オークションと第二価格オークションを解きます。
