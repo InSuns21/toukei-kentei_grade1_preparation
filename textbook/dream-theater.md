@@ -54,28 +54,6 @@
 16. [LA3E テンソル積・外積代数（幾何学への発展分岐）](textbook/volumes/00_foundations/LA3E/index.md)
 17. [線形代数・院試／編入計算演習（A8・B10・C4、計22題）](textbook/volumes/00_foundations/F0_00CALC_線形代数_院試編入計算演習/index.md)
 
-### 確率論
-
-1. [確率論ロードマップ](textbook/volumes/00_foundations/F0_00P_確率論_測度論から統計理論へ/index.md)
-2. [P1 確率空間・確率変数・分布](textbook/volumes/00_foundations/F0_00P1_確率空間_確率変数_分布/index.md)
-3. [P2 密度・期待値・Radon–Nikodym](textbook/volumes/00_foundations/F0_00P2_密度_期待値_Radon_Nikodym/index.md)
-4. [P2A 期待値・LOTUS](textbook/volumes/00_foundations/F0_00P2A_期待値_LOTUS/index.md)
-5. [P3 独立・積測度・条件付き期待値](textbook/volumes/00_foundations/F0_00P3_独立_積測度_条件付き期待値/index.md)
-6. [P3A 条件付き期待値・Radon–Nikodym](textbook/volumes/00_foundations/F0_00P3A_条件付き期待値_Radon_Nikodym/index.md)
-7. [P3B L2射影・最良予測](textbook/volumes/00_foundations/F0_00P3B_L2射影_最良予測/index.md)
-8. [P3C Lévy上昇定理](textbook/volumes/00_foundations/F0_00P3C_Levy上昇定理_情報の増加/index.md)
-9. [P3D pushforward・LOTUS・Doob–Dynkinの証明](textbook/volumes/00_foundations/F0_00P3D_pushforward_LOTUS_Doob_Dynkin/index.md)
-10. [P4 収束・Borel–Cantelli・UI](textbook/volumes/00_foundations/F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md)
-11. [P4A 一様可積分性・Vitali](textbook/volumes/00_foundations/F0_00P4A_一様可積分性_Vitali/index.md)
-12. [P5 大数の強法則](textbook/volumes/00_foundations/F0_00P5_大数の強法則/index.md)
-13. [P5A truncation・Kronecker・一般SLLN](textbook/volumes/00_foundations/F0_00P5A_truncation_Kronecker_一般SLLN/index.md)
-14. [P6 特性関数・Lévy連続性定理](textbook/volumes/00_foundations/F0_00P6_特性関数_中心極限定理/index.md)
-15. [P6A iid中心極限定理](textbook/volumes/00_foundations/F0_00P6A_iid_中心極限定理/index.md)
-16. [P6B Poisson少数法則・希少事象三角配列](textbook/volumes/00_foundations/F0_00P6B_Poisson少数法則_希少事象列/index.md)
-17. [P7 統計モデル・尤度・正則性](textbook/volumes/00_foundations/F0_00P7_統計モデル_尤度_正則性/index.md)
-18. [P7A MLE一致性・漸近正規性](textbook/volumes/00_foundations/F0_00P7A_MLE_一致性_漸近正規性/index.md)
-19. [P7B QMD・LAN](textbook/volumes/00_foundations/F0_00P7B_QMD_LAN/index.md)
-
 ## 解析系
 
 ### 実解析
@@ -114,6 +92,28 @@
 18. [F0-00D2E L2完備性・Riesz–Fischer](textbook/volumes/00_foundations/F0_00D2E_L2完備性_Riesz_Fischer/index.md)
 19. [MT7 Lp完備性・稠密性・双対](textbook/volumes/00_foundations/MT7/index.md)
 20. [MT8 Hausdorff測度・Hausdorff次元](textbook/volumes/00_foundations/MT8/index.md)
+
+### 確率論
+
+1. [確率論ロードマップ](textbook/volumes/00_foundations/F0_00P_確率論_測度論から統計理論へ/index.md)
+2. [P1 確率空間・確率変数・分布](textbook/volumes/00_foundations/F0_00P1_確率空間_確率変数_分布/index.md)
+3. [P2 密度・期待値・Radon–Nikodym](textbook/volumes/00_foundations/F0_00P2_密度_期待値_Radon_Nikodym/index.md)
+4. [P2A 期待値・LOTUS](textbook/volumes/00_foundations/F0_00P2A_期待値_LOTUS/index.md)
+5. [P3 独立・積測度・条件付き期待値](textbook/volumes/00_foundations/F0_00P3_独立_積測度_条件付き期待値/index.md)
+6. [P3A 条件付き期待値・Radon–Nikodym](textbook/volumes/00_foundations/F0_00P3A_条件付き期待値_Radon_Nikodym/index.md)
+7. [P3B L2射影・最良予測](textbook/volumes/00_foundations/F0_00P3B_L2射影_最良予測/index.md)
+8. [P3C Lévy上昇定理](textbook/volumes/00_foundations/F0_00P3C_Levy上昇定理_情報の増加/index.md)
+9. [P3D pushforward・LOTUS・Doob–Dynkinの証明](textbook/volumes/00_foundations/F0_00P3D_pushforward_LOTUS_Doob_Dynkin/index.md)
+10. [P4 収束・Borel–Cantelli・UI](textbook/volumes/00_foundations/F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md)
+11. [P4A 一様可積分性・Vitali](textbook/volumes/00_foundations/F0_00P4A_一様可積分性_Vitali/index.md)
+12. [P5 大数の強法則](textbook/volumes/00_foundations/F0_00P5_大数の強法則/index.md)
+13. [P5A truncation・Kronecker・一般SLLN](textbook/volumes/00_foundations/F0_00P5A_truncation_Kronecker_一般SLLN/index.md)
+14. [P6 特性関数・Lévy連続性定理](textbook/volumes/00_foundations/F0_00P6_特性関数_中心極限定理/index.md)
+15. [P6A iid中心極限定理](textbook/volumes/00_foundations/F0_00P6A_iid_中心極限定理/index.md)
+16. [P6B Poisson少数法則・希少事象三角配列](textbook/volumes/00_foundations/F0_00P6B_Poisson少数法則_希少事象列/index.md)
+17. [P7 統計モデル・尤度・正則性](textbook/volumes/00_foundations/F0_00P7_統計モデル_尤度_正則性/index.md)
+18. [P7A MLE一致性・漸近正規性](textbook/volumes/00_foundations/F0_00P7A_MLE_一致性_漸近正規性/index.md)
+19. [P7B QMD・LAN](textbook/volumes/00_foundations/F0_00P7B_QMD_LAN/index.md)
 
 ### 関数解析
 
