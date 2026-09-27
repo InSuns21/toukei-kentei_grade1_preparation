@@ -898,40 +898,74 @@ $$
 
 変分不等式の形にまとめると、ゲームの相互作用を擬勾配 $F$ の性質として調べられます。
 
-写像 $F:X\to\mathbb R^d$ が **単調**であるとは、
+<a id="def-game-a4-monotonicity"></a>
+<!-- formal-statement-start -->
+> **定義（単調写像・強単調写像）**  
+> 集合 $X\subset\mathbb R^d$ 上の写像 $F:X\to\mathbb R^d$ が **単調**であるとは、
+>
+> $
+> (F(x)-F(y))^{\mathsf T}(x-y)
+> \ge0
+> \qquad
+> (\forall x,y\in X)
+> $
+>
+> を満たすことをいう。
+>
+> さらに、ある $\mu>0$ が存在して
+>
+> $
+> (F(x)-F(y))^{\mathsf T}(x-y)
+> \ge
+> \mu\|x-y\|^2
+> \qquad
+> (\forall x,y\in X)
+> $
+>
+> を満たすとき、$F$ を **強単調**という。
+<!-- formal-statement-end -->
 
-$$
-(F(x)-F(y))^{\mathsf T}(x-y)
-\ge0
-\qquad
-(\forall x,y\in X)
-$$
+<!-- definition-example-start: def-game-a4-monotonicity -->
+### 10.1 定義の確認：線形写像では対称部分を見る
 
-となることです。
+アフィン写像
 
-さらに、ある $\mu>0$ が存在して
-
-$$
-(F(x)-F(y))^{\mathsf T}(x-y)
-\ge
-\mu\|x-y\|^2
-$$
-
-となるとき **強単調**といいます。
-
-滑らかなアフィン写像
-
-$$
+$
 F(x)=Mx+q
-$$
+$
 
-では、対称部分
+では
 
-$$
-\frac{M+M^{\mathsf T}}{2}
-$$
+$
+F(x)-F(y)=M(x-y).
+$
 
-が正半定値なら単調、正定値なら強単調です。
+従って $z=x-y$ と置けば
+
+$
+(F(x)-F(y))^{\mathsf T}(x-y)
+=
+z^{\mathsf T}Mz.
+$
+
+反対称部分は二次形式に寄与しないので
+
+$
+z^{\mathsf T}Mz
+=
+z^{\mathsf T}
+\frac{M+M^{\mathsf T}}2
+z.
+$
+
+したがって、対称部分が正半定値なら $F$ は単調、最小固有値が $\mu>0$ なら
+
+$
+z^{\mathsf T}Mz\ge\mu\|z\|^2
+$
+
+となり $F$ は強単調です。
+<!-- definition-example-end -->
 
 <a id="prop-game-a4-strong-monotone-unique"></a>
 <!-- formal-statement-start -->
@@ -1012,7 +1046,14 @@ $$
 
 $$
 P(Q)=a-bQ
-\qquad(a>bQ)
+$
+
+とし、考える戦略範囲では価格が非負になるとします。単位費用を $c$ とすると企業 $i$ の利潤は
+
+$
+\pi_i(q_i,q_j)
+=
+q_i(a-b(q_i+q_j))-cq_i
 $$
 
 とします。単位費用を $c$ とすると企業 $i$ の利潤は
