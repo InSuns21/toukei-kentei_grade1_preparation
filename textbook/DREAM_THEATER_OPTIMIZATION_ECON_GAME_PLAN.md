@@ -811,7 +811,7 @@ FIX2 / FIX3 を参照し、
 ## MICRO10 Afriat の定理
 
 有限個の価格・需要観測
-((p^t,x^t)) を対象に、GARP と局所非飽和・単調・凹効用による合理化の同値を扱う。
+$(p^t,x^t)$ を対象に、GARP と局所非飽和・単調・凹効用による合理化の同値を扱う。
 
 主題：
 
@@ -1619,8 +1619,8 @@ GAME-B1 → GAME-B2 → GAME-B3 → GAME-B4 → GAME-B5 → GAME-B6
 ## Phase 8：ゲーム理論外伝 C
 
 ```text
-GAME-C1 → GAME-C2 → GAME-C3 → GAME-C4 → GAME-C5 → GAME-C6
-GAME-A10 ───────────────────────────────────────────→ GAME-C7
+GAME-C1 → GAME-C2 → GAME-C3 → GAME-C4 → GAME-C5 → GAME-C6 ──┐
+GAME-A10 ───────────────────────────────────────────────────────┴→ GAME-C7
 ```
 
 - C1 は OPT5 を使う。
