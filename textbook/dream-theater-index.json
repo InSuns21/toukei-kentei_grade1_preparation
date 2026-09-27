@@ -186,7 +186,13 @@
         "textbook/volumes/00_foundations/STO11/index.md",
         "textbook/volumes/00_foundations/STO12/index.md",
         "textbook/volumes/00_foundations/STO13/index.md",
-        "textbook/volumes/00_foundations/STO14/index.md"
+        "textbook/volumes/00_foundations/STO14/index.md",
+        "textbook/volumes/00_foundations/TSA1/index.md",
+        "textbook/volumes/00_foundations/TSA2/index.md",
+        "textbook/volumes/00_foundations/TSA3/index.md",
+        "textbook/volumes/00_foundations/TSA4/index.md",
+        "textbook/volumes/00_foundations/TSA5/index.md",
+        "textbook/volumes/00_foundations/TSA6/index.md"
       ]
     },
     {
@@ -322,12 +328,6 @@
         "textbook/volumes/00_foundations/RKHS3/index.md",
         "textbook/volumes/00_foundations/RKHS4/index.md",
         "textbook/volumes/00_foundations/RKHS5/index.md",
-        "textbook/volumes/00_foundations/TSA1/index.md",
-        "textbook/volumes/00_foundations/TSA2/index.md",
-        "textbook/volumes/00_foundations/TSA3/index.md",
-        "textbook/volumes/00_foundations/TSA4/index.md",
-        "textbook/volumes/00_foundations/TSA5/index.md",
-        "textbook/volumes/00_foundations/TSA6/index.md",
         "textbook/volumes/00_foundations/MICRO1/index.md",
         "textbook/volumes/00_foundations/MICRO2/index.md",
         "textbook/volumes/00_foundations/MICRO3/index.md",
