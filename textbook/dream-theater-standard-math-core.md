@@ -23,11 +23,11 @@
 10. **常微分方程式 II（ODE8--ODE11）**：最大解、連続依存、Lyapunov 理論、平面力学系、周期軌道、分岐までを扱う。
 11. **Fourier 解析**：Fourier 級数・Fourier 変換、Plancherel 理論、確率分布との接続、離散 Fourier 変換、サンプリングまでを一続きで扱う。
 12. **複素解析 II（CA8--CA12）**：Riemann 面、楕円関数、無限積、Gamma 関数、Riemann ζ 関数と theta 変換までを扱う。
-18. **偏微分方程式（学部レベル）**：特性曲線、熱・波動・Laplace / Poisson 方程式、Green 関数、固有関数展開、Hamilton--Jacobi 方程式までを扱う。
-18. **ベクトル解析 II（VC8--VC9）**：Newton ポテンシャル、Helmholtz 分解、流体、Maxwell 方程式までを扱う。
-18. **微分幾何 I（GEO1--GEO9）**：滑らかな多様体、接空間、部分多様体、ベクトル場、微分形式、一般 Stokes の定理、de Rham コホモロジー入門までを扱う。
-18. **微分幾何 II（GEO10--GEO19）**：曲線・超曲面、Riemann 計量、接続、測地線、曲率、比較幾何、Gauss--Bonnet の定理までを扱う。
-18. **偏微分方程式（大学院レベル）**：超関数、Sobolev 空間、弱解、変分法、楕円型正則性、Galerkin 法までを扱う。
+13. **偏微分方程式（学部レベル）**：特性曲線、熱・波動・Laplace / Poisson 方程式、Green 関数、固有関数展開、Hamilton--Jacobi 方程式までを扱う。
+14. **ベクトル解析 II（VC8--VC9）**：Newton ポテンシャル、Helmholtz 分解、流体、Maxwell 方程式までを扱う。
+15. **微分幾何 I（GEO1--GEO9）**：滑らかな多様体、接空間、部分多様体、ベクトル場、微分形式、一般 Stokes の定理、de Rham コホモロジー入門までを扱う。
+16. **微分幾何 II（GEO10--GEO19）**：曲線・超曲面、Riemann 計量、接続、測地線、曲率、比較幾何、Gauss--Bonnet の定理までを扱う。
+17. **偏微分方程式（大学院レベル）**：超関数、Sobolev 空間、弱解、変分法、楕円型正則性、Galerkin 法までを扱う。
 18. **確率解析**：マルチンゲール、Brown 運動、Itô 積分、SDE、生成作用素、Lévy 過程までを扱う。
 
 ## 代数系
