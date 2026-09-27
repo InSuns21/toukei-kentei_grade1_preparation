@@ -121,7 +121,7 @@ CI green は必要条件であって十分条件ではない。
 - 学習者向け本文・章頭・目次には、`CONTENT_GUIDELINES.md` 5.1 に定める編集履歴・管理語彙を置かない。「この章の停止線」のような編集ラベルも使わず、必要な範囲説明は通常の学習案内として書く。
 - 公開導入ページ `textbook/dream-theater.md` は、DREAM THEATER 全体の短い序文・読み方と科目索引から構成する。索引部分は `DREAM THEATER 本編` の下を **基礎科目 → 解析系 → 計算系 → 幾何系 → 代数系 → 応用系** の大分類で並べ、その下に実解析・線形代数・確率論などの科目見出しを置く。Encore・外伝・関連科目・計算数理など制作経緯由来の系列名で章立てしない。
 - `textbook/dream-theater.md` の冒頭には、DREAM THEATER 全体の目的・読み方を伝える短い序文・オリエンテーションを置いてよい。一方、各科目見出しの直下には紹介文・前置き文を置かず、科目見出しから章リンクへ直接つなぐ。ODE・Fourier解析・PDE、確率解析・時系列、数値解析・差分法・有限要素法・Monte Carlo・準 Monte Carlo のように複数科目を束ねた系列は、公開索引では科目ごとに分ける。
-- `textbook/dream-theater-standard-math-core.md` は学習者向けの短い読む順ガイドとし、現在の公開科目分類と各科目の到達範囲を1行程度で示す。章別の設計メモ、実装順、`core / bridge / advanced-standard` の区分、予定名前空間、旧章との役割分担などの詳細な設計台帳は公開ページへ載せず、必要な機械情報は `textbook/dream-theater-standard-math-core.yaml` 等の管理側正本へ置く。
+- `textbook/dream-theater-standard-math-core.md` は学習者向けの読む順ガイドとする。数学的な依存関係の正本をこのページ自身や別の中央カリキュラム YAML に重複保持せず、各章の `chapter.yaml` / `knowledge.yaml` の prerequisite と、各 `knowledge.yaml` の概念 `requires` を基に読む順を決める。原則として科目を章単位に細切れにせず、長大系列または科目間依存のため必要な場合だけ、内容上自然な一学期相当の境界で I / II に分ける。章別の実装状況・実装順・`core / bridge / advanced-standard` の区分・旧章との役割分担などは公開ページへ載せない。
 
 ---
 
@@ -252,7 +252,7 @@ DREAM THEATER では各演習に **詳細解答**を必須とする。
 
 ## 9. 依存関係と重複回避
 
-編集前に対象章の `prerequisites`、knowledge DAG、standard math core の読順を確認する。
+編集前に対象章の `chapter.yaml` / `knowledge.yaml` の `prerequisites`、概念依存、`dream-theater-standard-math-core.md` の通読順を確認する。通読順は依存関係から導く案内であり、独立した依存DAGの正本として扱わない。
 
 - 未習概念を暗黙に使わない。
 - 必要な理論が既存章にある場合、新しい重複 concept・重複定理・重複章を作る前に正本を再利用できないか確認する。
@@ -302,7 +302,7 @@ npm run audit:proof-pedagogy
 npm run audit:formalism-pedagogy
 ```
 
-knowledge / standard math core を変更した場合は、対応する strict validation も実行する。
+`knowledge.yaml`、全体概念レジストリ、依存監査ロジックを変更した場合は対応する strict validation を実行する。`dream-theater-standard-math-core.md` だけを変更した場合は、公開リンク・Pages 構築を検証し、実際の prerequisite と順序が矛盾しないことを人手で確認する。
 
 ### 10.1 概念依存監査の範囲
 

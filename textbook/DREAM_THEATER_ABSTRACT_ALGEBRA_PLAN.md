@@ -686,7 +686,6 @@ GRP2 完了後に LIE1、GRP3 完了後に LIE2 / LIE4 の実装を開始して�
 計画ファイルだけを変更した段階では、未実装 GRP / RNG / MOD / FLD ノードを
 
 - `textbook/dream-theater-index.json`
-- `textbook/dream-theater-standard-math-core.yaml`
 - `textbook/dream-theater-standard-math-core.md`
 - `textbook/knowledge-dag.yaml`
 - `textbook/dependency-graph.md`

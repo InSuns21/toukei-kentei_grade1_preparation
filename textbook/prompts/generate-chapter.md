@@ -81,4 +81,4 @@ npm run audit:proof-pedagogy
 npm run audit:formalism-pedagogy
 ```
 
-knowledge / standard math core を変更した場合は対応する strict validation も実行すること。
+`knowledge.yaml` や概念依存を変更した場合は対応する strict validation を実行すること。読む順ガイドだけを変更した場合は Pages / リンク検証と prerequisite の人手照合を行うこと。
