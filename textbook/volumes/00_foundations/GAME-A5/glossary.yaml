@@ -1,0 +1,20 @@
+chapter: "GAME-A5"
+terms:
+  - term: 完全情報の有限展開形ゲーム
+    english: finite extensive-form game with perfect information
+    meaning: 有限回で終了し、各手番のプレイヤーがそれまでの履歴を知ったうえで行動する展開形ゲーム。
+  - term: ゲーム木
+    english: game tree
+    meaning: 履歴を節点、行動を辺として意思決定の順序と終端利得を表す根付き木。
+  - term: 展開形ゲームの純粋戦略
+    english: pure strategy in an extensive-form game
+    meaning: プレイヤーが自分の全ての意思決定節点で何を選ぶかを、実際に到達するかどうかにかかわらず指定する完全な条件付き行動計画。
+  - term: 部分ゲーム
+    english: subgame
+    meaning: ある履歴を新しい根として、その先の履歴・手番・行動・終端利得を元のゲームから引き継いだゲーム。
+  - term: 部分ゲーム完全均衡
+    english: subgame-perfect equilibrium
+    meaning: 元のゲームを含む全ての部分ゲームで、戦略の制限が Nash 均衡になる戦略プロファイル。
+  - term: 後ろ向き帰納法
+    english: backward induction
+    meaning: 終端に近い意思決定から最適行動を確定し、その合理的な継続を見越して一段ずつ根へ戻る解法。
