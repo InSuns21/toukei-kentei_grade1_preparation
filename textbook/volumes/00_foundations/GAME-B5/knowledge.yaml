@@ -22,12 +22,13 @@ concepts:
       - game.tu-characteristic-function-game
 
   - id: game.imputation-set
-    name: インピュテーション集合
+    name: 協力ゲームの配分集合
     kind: definition
     aliases:
+      - インピュテーション集合
       - imputation set
     introduction: formal
-    introduction_aliases: ["定義（インピュテーション集合）"]
+    introduction_aliases: ["定義（配分集合）"]
     requires:
       - game.imputation
 
