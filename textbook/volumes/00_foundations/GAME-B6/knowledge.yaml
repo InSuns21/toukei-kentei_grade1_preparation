@@ -13,7 +13,6 @@ concepts:
     kind: definition
     aliases:
       - simple voting game
-      - simple game
     introduction: formal
     introduction_aliases: ["定義（単純投票ゲーム・勝利提携）"]
     requires:
@@ -62,17 +61,6 @@ concepts:
       - game.simple-voting-game
       - game.shapley-value
 
-  - id: game.pivotal-player
-    name: pivot プレイヤー
-    kind: concept
-    aliases:
-      - pivotal player
-      - pivot
-    introduction: prose
-    requires:
-      - game.winning-coalition
-      - game.shapley-shubik-power-index
-
   - id: game.shapley-shubik-pivot-probability
     name: Shapley--Shubik 指数の pivot 確率表示
     kind: proposition
@@ -87,7 +75,7 @@ concepts:
     name: Banzhaf swing
     kind: definition
     aliases:
-      - swing
+      - Banzhaf swing
       - critical coalition for a player
     introduction: formal
     introduction_aliases: ["定義（swing と Banzhaf swing 数）"]
@@ -144,4 +132,4 @@ concepts:
     requires:
       - game.shapley-shubik-power-index
       - game.banzhaf-power-index
-      - game.null-player
+      - game.shapley-axioms
