@@ -1,0 +1,26 @@
+chapter: "GAME-A8"
+terms:
+  - term: ベイジアンゲーム
+    english: Bayesian game
+    meaning: 各プレイヤーが自分のタイプだけを観察し、タイプについての事前分布とタイプ依存利得のもとで行動を選ぶ不完備情報ゲーム。
+  - term: タイプ
+    english: type
+    meaning: 利得・費用・価値など、プレイヤーが私的に知るゲーム上の特性を表す状態。
+  - term: 共通事前分布
+    english: common prior
+    meaning: タイプベクトルについて全プレイヤーが共有する事前確率分布。タイプの独立性は意味しない。
+  - term: 中間信念
+    english: interim belief
+    meaning: 自分のタイプを観察した後、そのタイプを条件として持つ他プレイヤーのタイプについての条件付き確率分布。
+  - term: ベイジアン戦略
+    english: Bayesian strategy
+    meaning: 自分のタイプごとに取る行動を指定する条件付き行動計画。
+  - term: 中間期待利得
+    english: interim expected payoff
+    meaning: 自分のタイプを既知として固定し、他プレイヤーのタイプと必要な混合行動について平均した期待利得。
+  - term: Bayesian Nash 均衡
+    english: Bayesian Nash equilibrium
+    meaning: 各プレイヤーの各正確率タイプが、自分の中間信念のもとで他プレイヤーの戦略に対する最適反応を選んでいる戦略プロファイル。
+  - term: Harsanyi 変換
+    english: Harsanyi transformation
+    meaning: 自然がタイプを抽選し各プレイヤーが自分のタイプを観察する構造を、タイプ条件付き行動計画を純粋戦略とする戦略形ゲームへ書き換える方法。

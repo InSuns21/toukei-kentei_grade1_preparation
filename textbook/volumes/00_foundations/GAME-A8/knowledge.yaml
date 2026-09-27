@@ -1,0 +1,109 @@
+chapter: GAME-A8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GAME-A3
+  - F0-00P2A
+
+forward_references: []
+
+concepts:
+  - id: game.bayesian-game
+    name: ベイジアンゲーム
+    kind: definition
+    aliases:
+      - Bayesian game
+    introduction: formal
+    introduction_aliases: ["定義（有限ベイジアンゲーム・共通事前分布）"]
+    requires:
+      - game.strategic-form-game
+
+  - id: game.common-prior
+    name: 共通事前分布
+    kind: definition
+    aliases:
+      - common prior
+    introduction: formal
+    introduction_aliases: ["定義（有限ベイジアンゲーム・共通事前分布）"]
+    requires:
+      - game.bayesian-game
+
+  - id: game.interim-belief
+    name: 中間信念
+    kind: definition
+    aliases:
+      - interim belief
+      - conditional type belief
+    introduction: formal
+    introduction_aliases: ["定義（中間信念）"]
+    requires:
+      - game.common-prior
+
+  - id: game.bayesian-strategy
+    name: ベイジアン戦略
+    kind: definition
+    aliases:
+      - Bayesian strategy
+      - type-contingent strategy
+    introduction: formal
+    introduction_aliases: ["定義（ベイジアン戦略）"]
+    requires:
+      - game.bayesian-game
+      - game.strategy-profile
+
+  - id: game.interim-expected-payoff
+    name: 中間期待利得
+    kind: definition
+    aliases:
+      - interim expected payoff
+    introduction: formal
+    introduction_aliases: ["定義（中間期待利得・Bayesian Nash 均衡）"]
+    requires:
+      - game.interim-belief
+      - game.bayesian-strategy
+
+  - id: game.bayesian-nash-equilibrium
+    name: Bayesian Nash 均衡
+    kind: definition
+    aliases:
+      - Bayesian Nash equilibrium
+    introduction: formal
+    introduction_aliases: ["定義（中間期待利得・Bayesian Nash 均衡）"]
+    requires:
+      - game.interim-expected-payoff
+      - game.best-response
+
+  - id: game.harsanyi-transformation
+    name: Harsanyi 変換
+    kind: definition
+    aliases:
+      - Harsanyi transformation
+    introduction: formal
+    introduction_aliases: ["定義（Harsanyi 変換）"]
+    requires:
+      - game.bayesian-game
+      - game.bayesian-strategy
+      - game.strategic-form-game
+
+  - id: game.harsanyi-bne-nash-equivalence
+    name: Harsanyi 変換と純粋 Bayesian Nash 均衡の同値
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（Harsanyi 変換と純粋 Bayesian Nash 均衡の同値）"]
+    requires:
+      - game.harsanyi-transformation
+      - game.bayesian-nash-equilibrium
+      - game.pure-strategy-nash-equilibrium
+
+  - id: game.finite-bayesian-nash-existence
+    name: 有限ベイジアンゲームの混合 Bayesian Nash 均衡存在
+    kind: theorem
+    aliases:
+      - finite Bayesian game equilibrium existence
+    introduction: formal
+    introduction_aliases: ["定理（有限ベイジアンゲームの混合 Bayesian Nash 均衡存在）"]
+    requires:
+      - game.harsanyi-transformation
+      - game.finite-nash-existence
+      - game.mixed-strategy-nash-equilibrium

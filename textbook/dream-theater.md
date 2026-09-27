@@ -272,7 +272,7 @@ Hilbert 空間と Riesz 表現から再生核を構成し、有限標本上の�
 
 ### ゲーム理論外伝 A
 
-戦略形ゲームの読み方から始め、相互最適反応としての Nash 均衡、混合戦略、minimax、均衡存在、連続ゲーム、展開形ゲームを経て、繰り返し相互作用・履歴依存戦略・フォーク定理へ進みます。
+戦略形ゲームの読み方から始め、相互最適反応としての Nash 均衡、混合戦略、minimax、均衡存在、連続ゲーム、展開形ゲーム、繰り返し相互作用・履歴依存戦略・フォーク定理を経て、私的タイプを持つベイジアンゲームと Bayesian Nash 均衡へ進みます。
 
 1. [GAME-A1 戦略形ゲーム・最適反応・Nash 均衡](textbook/volumes/00_foundations/GAME-A1/index.md)
 2. [GAME-A2 混合戦略・ゼロ和ゲーム・ミニマックス](textbook/volumes/00_foundations/GAME-A2/index.md)
@@ -281,6 +281,7 @@ Hilbert 空間と Riesz 表現から再生核を構成し、有限標本上の�
 5. [GAME-A5 展開形ゲーム・部分ゲーム完全均衡](textbook/volumes/00_foundations/GAME-A5/index.md)
 6. [GAME-A6 繰り返しゲーム・トリガー戦略](textbook/volumes/00_foundations/GAME-A6/index.md)
 7. [GAME-A7 フォーク定理入門](textbook/volumes/00_foundations/GAME-A7/index.md)
+8. [GAME-A8 ベイジアンゲーム・Bayesian Nash 均衡](textbook/volumes/00_foundations/GAME-A8/index.md)
 
 ---
 
