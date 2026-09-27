@@ -2268,7 +2268,7 @@ $$
 
 **7. Brouwer の適用**
 
-$\Delta$ は非空コンパクト凸なので、Brouwer 不動点定理から
+$\Delta$ は非空コンパクト凸なので、[非空コンパクト凸集合上の Brouwer 不動点定理](../FIX1/index.md#cor-fix1-brouwer-convex)から
 
 $$
 T(p^*)=p^*
