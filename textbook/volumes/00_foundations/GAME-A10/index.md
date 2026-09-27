@@ -111,9 +111,9 @@ $$
 >
 > 各情報集合 $I$ に属する節点 $h$ では、手番プレイヤーは同じであり、利用可能な行動集合も共通であるとする。この共通の行動集合を
 >
-> $$
-> A(I)
-> $$
+$$
+A(I)
+$$
 >
 > と書く。
 >
@@ -202,9 +202,9 @@ $$
 > **定義（行動戦略）**  
 > プレイヤー $i$ の各情報集合 $I$ に対して、利用可能行動集合 $A(I)$ 上の確率分布
 >
-> $$
-> \sigma_i(\,\cdot\mid I)\in\Delta(A(I))
-> $$
+$$
+\sigma_i(\,\cdot\mid I)\in\Delta(A(I))
+$$
 >
 > を指定する規則を、プレイヤー $i$ の **行動戦略（behavioral strategy）** という。
 >
@@ -300,33 +300,33 @@ $$
 > **定義（信念体系・評価組）**  
 > 各情報集合 $I$ に対し、その情報集合に含まれる節点上の確率分布
 >
-> $$
-> \mu_I\in\Delta(I)
-> $$
+$$
+\mu_I\in\Delta(I)
+$$
 >
 > を割り当てたものを **信念体系（belief system）** という。
 >
 > すなわち各 $h\in I$ に対して
 >
-> $$
-> \mu_I(h)\ge0,
-> \qquad
-> \sum_{h\in I}\mu_I(h)=1
-> $$
+$$
+\mu_I(h)\ge0,
+\qquad
+\sum_{h\in I}\mu_I(h)=1
+$$
 >
 > である。
 >
 > 行動戦略プロファイル
 >
-> $$
-> \sigma=(\sigma_i)_{i\in N}
-> $$
+$$
+\sigma=(\sigma_i)_{i\in N}
+$$
 >
 > と信念体系 $\mu$ の組
 >
-> $$
-> (\sigma,\mu)
-> $$
+$$
+(\sigma,\mu)
+$$
 >
 > を **評価組（assessment）** と呼ぶ。
 <!-- formal-statement-end -->
@@ -430,35 +430,37 @@ $$
 >
 > 情報集合 $I$ が
 >
-> $$
-> r_\sigma(I)>0
-> $$
+$$
+r_\sigma(I)>0
+$$
 >
 > を満たすとき、すべての $h\in I$ について
 >
-> $$
-> \boxed{
-> \mu_I(h)
-> =
-> \frac{r_\sigma(h)}
-> {\displaystyle\sum_{h'\in I}r_\sigma(h')}
-> }
-> $$
+$$
+\boxed{
+\mu_I(h)
+=
+\frac{r_\sigma(h)}
+{\displaystyle\sum_{h'\in I}r_\sigma(h')}
+}
+$$
 >
 > が成り立つことを、その情報集合での **Bayes 整合性** という。
 >
 > 本章で後に定義する弱い均衡概念では、
 >
-> $$
-> r_\sigma(I)=0
-> $$
+$$
+r_\sigma(I)=0
+$$
 >
 > の情報集合については、この式だけでは信念を定められないので、$\mu_I$ は $I$ 上の任意の確率分布を取り得る。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-game-a10-bayes-consistency -->
 
-**定義の確認：混合された認証行動から事後確率を作る**
+**定義の確認**
+
+混合された認証行動から事後確率を作ります。
 
 事前確率を
 
@@ -547,25 +549,25 @@ $$
 >
 > 情報集合 $I$ が
 >
-> $$
-> r_\sigma(I)>0
-> $$
+$$
+r_\sigma(I)>0
+$$
 >
 > を満たすなら、Bayes 整合的な信念 $\mu_I$ は
 >
-> $$
-> \mu_I(h)
-> =
-> \frac{r_\sigma(h)}{r_\sigma(I)}
-> $$
+$$
+\mu_I(h)
+=
+\frac{r_\sigma(h)}{r_\sigma(I)}
+$$
 >
 > により一意に定まる。
 >
 > 一方、
 >
-> $$
-> r_\sigma(I)=0
-> $$
+$$
+r_\sigma(I)=0
+$$
 >
 > なら、この比は $0/0$ となるため、この更新式だけからは $\mu_I$ を定められない。
 <!-- formal-statement-end -->
@@ -653,14 +655,14 @@ $I$ のどの節点 $h$ にいるかは信念 $\mu_I(h)$ で平均します。
 >
 > プレイヤー $i$ の情報集合 $I$ で行動 $a\in A(I)$ を選び、その後は $\sigma$ に従うときの継続期待利得を
 >
-> $$
-> V_i(a\mid I;\sigma,\mu)
-> =
-> \sum_{h\in I}
-> \mu_I(h)
-> \sum_{z\succeq(h,a)}
-> P_\sigma(z\mid h,a)\,u_i(z)
-> $$
+$$
+V_i(a\mid I;\sigma,\mu)
+=
+\sum_{h\in I}
+\mu_I(h)
+\sum_{z\succeq(h,a)}
+P_\sigma(z\mid h,a)\,u_i(z)
+$$
 >
 > とする。
 >
@@ -668,17 +670,17 @@ $I$ のどの節点 $h$ にいるかは信念 $\mu_I(h)$ で平均します。
 >
 > 評価組 $(\sigma,\mu)$ が情報集合 $I$ で **逐次合理的（sequentially rational）** であるとは、
 >
-> $$
-> \sigma_i(a\mid I)>0
-> $$
+$$
+\sigma_i(a\mid I)>0
+$$
 >
 > となるすべての行動 $a$ が
 >
-> $$
-> a\in
-> \operatorname*{arg\,max}_{a'\in A(I)}
-> V_i(a'\mid I;\sigma,\mu)
-> $$
+$$
+a\in
+\operatorname*{arg\,max}_{a'\in A(I)}
+V_i(a'\mid I;\sigma,\mu)
+$$
 >
 > を満たすことをいう。
 >
@@ -687,7 +689,9 @@ $I$ のどの節点 $h$ にいるかは信念 $\mu_I(h)$ で平均します。
 
 <!-- definition-example-start: def-game-a10-sequential-rationality -->
 
-**定義の確認：採用側の閾値を信念から求める**
+**定義の確認**
+
+採用側の閾値を信念から求めます。
 
 プレイヤー2が技術者を採用したときの利得を、
 
@@ -789,9 +793,9 @@ $$
 > **定義（Perfect Bayesian Equilibrium）**  
 > 本章で扱う有限・完全想起の動学的不完備情報ゲームにおいて、評価組
 >
-> $$
-> (\sigma^*,\mu^*)
-> $$
+$$
+(\sigma^*,\mu^*)
+$$
 >
 > が **Perfect Bayesian Equilibrium（PBE）** であるとは、次の二条件を満たすことをいう。
 >
@@ -801,12 +805,12 @@ $$
 > 2. **Bayes 整合性**  
 >    $\sigma^*$ のもとで正の確率で到達するすべての情報集合 $I$ について、
 >
-> $$
-> \mu_I^*(h)
-> =
-> \frac{r_{\sigma^*}(h)}
-> {r_{\sigma^*}(I)}
-> $$
+$$
+\mu_I^*(h)
+=
+\frac{r_{\sigma^*}(h)}
+{r_{\sigma^*}(I)}
+$$
 >
 >    がすべての $h\in I$ で成り立つ。
 >
@@ -886,15 +890,15 @@ PBE を解くときには、タイプごとの観察可能行動が同じか異�
 >
 > 二タイプ $H,L$、二行動 $S,N$ なら、
 >
-> $$
-> H\to S,\qquad L\to N
-> $$
+$$
+H\to S,\qquad L\to N
+$$
 >
 > は分離型であり、
 >
-> $$
-> H\to N,\qquad L\to N
-> $$
+$$
+H\to N,\qquad L\to N
+$$
 >
 > はプーリング型である。
 <!-- formal-statement-end -->
@@ -1543,9 +1547,9 @@ PBE の「perfect」は、経路外でも合理性を検査するという [GAME
 >
 > このとき純粋戦略プロファイル $s^*$ が部分ゲーム完全均衡であることと、
 >
-> $$
-> (s^*,\mu^*)
-> $$
+$$
+(s^*,\mu^*)
+$$
 >
 > が本章の PBE 条件を満たすことは同値である。
 <!-- formal-statement-end -->
