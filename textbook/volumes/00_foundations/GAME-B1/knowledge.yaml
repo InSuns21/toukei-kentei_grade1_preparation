@@ -8,6 +8,17 @@ prerequisites:
 forward_references: []
 
 concepts:
+  - id: game.cooperative-characteristic-function
+    name: 協力ゲームの特性関数
+    kind: definition
+    aliases:
+      - characteristic function of a cooperative game
+      - characteristic function of a TU game
+    introduction: formal
+    introduction_aliases: ["定義（特性関数・譲渡可能効用の特性関数形ゲーム）"]
+    requires:
+      - set.function
+
   - id: game.tu-characteristic-function-game
     name: 譲渡可能効用の特性関数形ゲーム
     kind: definition
@@ -15,10 +26,10 @@ concepts:
       - TU characteristic-function game
       - transferable-utility characteristic-function game
     introduction: formal
-    introduction_aliases: ["定義（譲渡可能効用の特性関数形ゲーム）"]
+    introduction_aliases: ["定義（特性関数・譲渡可能効用の特性関数形ゲーム）"]
     requires:
       - set.set
-      - set.function
+      - game.cooperative-characteristic-function
 
   - id: game.coalition
     name: 提携
@@ -26,7 +37,17 @@ concepts:
     aliases:
       - coalition
     introduction: formal
-    introduction_aliases: ["定義（譲渡可能効用の特性関数形ゲーム）"]
+    introduction_aliases: ["定義（特性関数・譲渡可能効用の特性関数形ゲーム）"]
+    requires:
+      - game.tu-characteristic-function-game
+
+  - id: game.payoff-allocation
+    name: 協力ゲームの配分
+    kind: definition
+    aliases:
+      - payoff allocation in a cooperative game
+    introduction: formal
+    introduction_aliases: ["定義（配分・インピュテーション）"]
     requires:
       - game.tu-characteristic-function-game
 
@@ -36,9 +57,9 @@ concepts:
     aliases:
       - imputation
     introduction: formal
-    introduction_aliases: ["定義（インピュテーション）"]
+    introduction_aliases: ["定義（配分・インピュテーション）"]
     requires:
-      - game.tu-characteristic-function-game
+      - game.payoff-allocation
 
   - id: game.blocking-coalition
     name: 提携によるブロック
