@@ -1,0 +1,41 @@
+id: "GAME-B4"
+title: "凸ゲーム・優モジュラ性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GAME-B1
+  - GAME-B3
+official_scope: []
+learning_objectives:
+  - 有限 TU ゲームの優モジュラ性 v(S∪T)+v(S∩T)≥v(S)+v(T) を定義し、具体的な特性関数が凸ゲームか判定できる
+  - 優モジュラ性と、S⊆T のとき同じプレイヤーの限界貢献が Δ_i v(S)≤Δ_i v(T) と増大することの同値を完全証明できる
+  - 順列に対応する限界ベクトルを定義し、望遠和からその効率性を導ける
+  - 凸ゲームでは任意の順列の限界ベクトルがコアに属することを、提携内順序と全体順序の限界貢献比較から証明できる
+  - すべての限界ベクトルがコアに属するなら限界貢献が増大型となり、ゲームが凸であることを証明できる
+  - Shapley 値が限界ベクトルの平均であることとコアの凸性を使い、凸ゲームの Shapley 値がコアに属することを証明できる
+  - 非凸ゲームではどの優モジュラ不等式と限界貢献比較が壊れ、その結果として限界ベクトルや Shapley 値がコア外へ出得るかを具体例で説明できる
+definitions:
+  - { id: GAME-B4-DEF-01, name: 優モジュラな特性関数・凸ゲーム }
+  - { id: GAME-B4-DEF-02, name: 限界ベクトル }
+theorems:
+  - { id: GAME-B4-PROP-01, name: 優モジュラ性と増大型限界貢献の同値 }
+  - { id: GAME-B4-COR-01, name: 凸ゲームの優加法性 }
+  - { id: GAME-B4-THM-01, name: 凸性と限界ベクトルのコア所属の特徴付け }
+  - { id: GAME-B4-COR-02, name: 凸ゲームの Shapley 値のコア所属 }
+canonical_examples:
+  - v(S)=|S|^2 の3人ゲームで優モジュラ性、限界貢献 1,3,5、全限界ベクトルのコア所属、Shapley 値 (3,3,3) を一貫して確認する例
+  - v(S)=Σ_{i∈S}a_i+Σ_{{i,j}⊆S}b_ij, b_ij≥0 の二人組相乗効果ゲームが凸であり、Shapley 値が a_i+1/2 Σ_{j≠i}b_ij となる一般例
+  - GAME-B3 の v12=v13=v123=4, v23=0 の3人ゲームで優モジュラ性と増大型限界貢献が破れ、限界ベクトル (0,4,0) と Shapley 値がコア外へ出る反例
+problem_patterns:
+  - GAME-B4-SUPERMODULAR-CHECK-1
+  - GAME-B4-INCREASING-MARGINALS-1
+  - GAME-B4-MARGINAL-VECTOR-1
+  - GAME-B4-SHAPLEY-AVERAGE-1
+  - GAME-B4-PAIR-SYNERGY-CONVEXITY-1
+  - GAME-B4-MARGINAL-CORE-PROOF-1
+  - GAME-B4-NONCONVEX-FAILURE-1
+  - GAME-B4-INTEGRATED-SYNERGY-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 4.5, review: 0.75 }
