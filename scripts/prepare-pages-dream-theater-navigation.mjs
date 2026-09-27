@@ -133,7 +133,7 @@ function renderSidebar(navSections) {
     '<strong>DREAM THEATER</strong>',
     '<ul class="dream-theater-sidebar-primary">',
     renderLink({ title: '全体目次', target: 'textbook/dream-theater.md' }, 'dream-theater-primary-link'),
-    renderLink({ title: '標準数学コア', target: 'textbook/dream-theater-standard-math-core.md' }, 'dream-theater-primary-link'),
+    renderLink({ title: '全体の読む順', target: 'textbook/dream-theater-standard-math-core.md' }, 'dream-theater-primary-link'),
     '</ul>',
     '</div>',
   ];
