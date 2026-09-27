@@ -117,7 +117,7 @@ Hilbert 空間・Riesz
 
  OPT1--6 + FIX1--3
         │
-        ├──→ MICRO1--8
+        ├──→ MICRO1--14
         └──→ GAME-A--D
 ```
 
@@ -622,6 +622,14 @@ GAME-A3 と MICRO7 の共通 existence engine とする。
 
 本系列は経済学公式集にせず、凸解析・最適化・不動点が価格、需要、効率性、均衡へどう現れるかを主題とする。
 
+水準の目安を次のように置く。
+
+- **MICRO1--6**：学部標準〜上級学部。選好・需要・双対性・生産・厚生・純粋交換経済までを閉じる。
+- **MICRO7--8**：大学院ミクロの一般均衡コア。Berge / Kakutani を使って均衡存在まで証明し、生産を含む Arrow--Debreu 経済へ進む。
+- **MICRO9--14**：大学院ミクロ理論 I の横方向を補完する選択理論。顕示選好、不確実性、リスク、異時点間・動学的選択を加える。
+
+したがって MICRO8 は一般均衡ルートの終点ではあるが、ミクロ理論全体の完成点とはしない。MICRO14 までで、価格理論・一般均衡と個人選択理論の主要幹を一通り接続する。
+
 ## MICRO1 選好・効用・凸性
 
 主題：
@@ -775,9 +783,122 @@ FIX2 / FIX3 を参照し、
 - Arrow--Debreu equilibrium
 - welfare theorems の統合
 
-有限財・有限主体の有限次元モデルで一度理論を閉じる。
+有限財・有限主体の有限次元モデルで一度一般均衡理論を閉じる。
 
 無限次元の商品空間、主体の連続体は本計画の完成条件に含めない。
+
+---
+
+## MICRO9 顕示選好・WARP / SARP / GARP
+
+効用関数を先に仮定して需要を導く向きとは逆に、観測された選択データが効用最大化として合理化可能かを問う。
+
+主題：
+
+- choice correspondence
+- revealed preference
+- direct / indirect revealed preference
+- WARP
+- SARP
+- GARP
+- 価格・所得データからの需要整合性
+- 選好表現との関係
+
+有限観測データを使い、循環が合理化可能性をどう壊すかを具体的に確認する。
+
+---
+
+## MICRO10 Afriat の定理
+
+有限個の価格・需要観測
+((p^t,x^t)) を対象に、GARP と局所非飽和・単調・凹効用による合理化の同値を扱う。
+
+主題：
+
+- Afriat inequalities
+- GARP との同値
+- 効用関数の構成
+- 支出効率指数の入口
+- 線形不等式系としての rationalizability test
+
+定理を「存在する」で済ませず、Afriat 不等式から piecewise-linear utility を構成する方向まで閉じる。OPT10 の線形不等式・実行可能性との接続も明示する。
+
+---
+
+## MICRO11 不確実性下の選択・期待効用
+
+主題：
+
+- lottery
+- compound lottery と reduction
+- completeness / transitivity
+- continuity
+- independence axiom
+- von Neumann--Morgenstern expected utility theorem
+- affine transformation による一意性
+- expected utility representation
+
+確実な消費選択と lottery 上の選好を区別し、期待効用が単なる「期待値を最大化する」という経験則ではなく、公理から導かれる表現定理であることを示す。
+
+---
+
+## MICRO12 リスク回避・Arrow--Pratt・確率優越
+
+主題：
+
+- risk aversion
+- certainty equivalent
+- risk premium
+- Jensen の不等式
+- absolute / relative risk aversion
+- Arrow--Pratt measure
+- first-order stochastic dominance
+- second-order stochastic dominance
+- mean-preserving spread
+
+凹効用、リスクプレミアム、二次確率優越の関係を具体例と証明で結ぶ。
+
+---
+
+## MICRO13 異時点間選択
+
+代表問題：
+
+$
+\max_{c_0,c_1} u(c_0)+\beta u(c_1)
+$
+
+を予算制約と組み合わせる。
+
+主題：
+
+- present value budget constraint
+- saving / borrowing
+- intertemporal MRS
+- interest rate
+- Euler equation
+- borrowing constraint
+- comparative statics
+
+静学的 KKT が異時点間資源配分へそのまま移ることを示す。
+
+---
+
+## MICRO14 動学的選択・時間整合性
+
+主題：
+
+- exponential discounting
+- dynamic consistency
+- hyperbolic / quasi-hyperbolic discounting
+- present bias
+- time inconsistency
+- commitment
+- sophisticated / naive agent の入口
+
+完全な動的計画法や確率制御は本章の完成条件に含めず、「同じ主体の時点間利害がなぜゲーム的構造を持ち得るか」までを閉じる。
+
+MICRO14 までを **DREAM THEATER の大学院ミクロ理論 I 相当の主要コア完成点**とする。情報の経済学・契約理論・メカニズムデザインは別系列とし、必要になった時点で INFO / MECH 系列として切り出す。
 
 ---
 
@@ -869,7 +990,112 @@ $$
 - subgame
 - subgame-perfect equilibrium
 
-Bayesian game、repeated game、stochastic game は今回の A 系列完成条件には入れない。
+A5 は完全情報動学ゲームの基礎であり、非協力ゲーム学部標準の中間点とする。
+
+---
+
+## GAME-A6 繰り返しゲーム・trigger strategy
+
+主題：
+
+- finitely repeated game
+- infinitely repeated game
+- history-dependent strategy
+- discount factor
+- grim trigger
+- tit-for-tat の位置付け
+- one-shot deviation principle
+
+stage game の Nash 均衡だけでは説明できない協力の持続可能性を、割引現在価値と逸脱利得の比較から導く。
+
+---
+
+## GAME-A7 Folk theorem 入門
+
+主題：
+
+- individually rational payoff
+- feasible payoff set
+- punishment
+- minmax payoff
+- repeated-game equilibrium payoff
+- Folk theorem の標準的な有限ゲーム版
+
+一般形の最強定理を一気に証明するのではなく、代表的な定理形と構成を閉じ、どの仮定が協力可能集合を広げるかを確認する。
+
+---
+
+## GAME-A8 Bayesian game・Bayesian Nash 均衡
+
+Harsanyi transformation により不完備情報をタイプ付き戦略形ゲームへ変換する。
+
+主題：
+
+- type
+- prior
+- private information
+- strategy as a type-contingent action
+- interim expected payoff
+- Bayesian Nash equilibrium
+- common prior
+- Harsanyi transformation
+
+有限 Bayesian game の具体例を必須とする。
+
+---
+
+## GAME-A9 オークション理論入門
+
+GAME-A8 の代表応用として扱う。
+
+主題：
+
+- private value
+- first-price auction
+- second-price auction
+- dominant strategy truth-telling
+- symmetric Bayesian Nash equilibrium の簡単な導出
+- revenue equivalence の入口
+
+Myerson 最適オークションや一般の mechanism design は本章には含めない。
+
+---
+
+## GAME-A10 動学的不完備情報・belief・Perfect Bayesian Equilibrium
+
+GAME-A5 と GAME-A8 を合流させる。
+
+主題：
+
+- information set
+- belief
+- Bayes rule
+- sequential rationality
+- consistency
+- Perfect Bayesian Equilibrium
+- pooling / separating の入口
+
+PBE が「どの history でも合理的に行動する」という逐次合理性と、観察から belief を更新する情報構造を同時に扱うことを明示する。
+
+---
+
+## GAME-A11 signaling・screening・cheap talk 入門
+
+主題：
+
+- signaling game
+- pooling equilibrium
+- separating equilibrium
+- semi-separating equilibrium の入口
+- education signaling 型の例
+- screening との役割差
+- cheap talk の基本構造
+
+GAME-A10 の PBE を実際に使い、不完備情報下で行動そのものが情報を伝える仕組みを閉じる。
+
+**非協力ゲームの学部標準修了ラインは GAME-A11** とする。A1--A3、A5--A11 を必須コアとし、A4「凹ゲーム・KKT・変分不等式」は数学接続を強めた上級学部〜大学院寄りの補強章として位置付ける。
+
+Sequential equilibrium、trembling-hand perfection、proper equilibrium、global games、stochastic game、evolutionary game は上級編へ送る。
 
 ---
 
@@ -978,6 +1204,24 @@ Shapley 値とは異なる公平性・安定性の考え方として比較する
 
 ---
 
+## GAME-B6 voting game・power index
+
+主題：
+
+- simple game
+- weighted voting game
+- winning coalition
+- veto player
+- Shapley--Shubik power index
+- Banzhaf power index
+- 議席比率と投票力の非線形性
+
+Shapley 値の「限界貢献の期待値」という考えが voting power にどう移るかを確認する。
+
+GAME-B1--B6 で transferable-utility cooperative game の学部標準コアを閉じる。協力ゲームを広い意味で一周する修了ラインは、これに GAME-C1--C3 の公理的交渉と GAME-D3--D4 の assignment game / market を加えた範囲とする。stable set、bargaining set、kernel、一般 NTU game は上級編へ送る。
+
+---
+
 # 11. ゲーム理論外伝 C：交渉ゲーム
 
 ## GAME-C1 Nash bargaining problem
@@ -1038,6 +1282,56 @@ alternating-offers game を GAME-A5 と接続する。
 - Rubinstein bargaining solution
 
 公理的交渉と戦略的交渉を比較する。
+
+---
+
+## GAME-C5 交渉力の比較静学・outside option・breakdown
+
+主題：
+
+- heterogeneous discount factors
+- first-mover advantage
+- impatience と bargaining power
+- exogenous breakdown risk
+- outside option
+- outside-option principle
+- disagreement payoff と outside option の区別
+
+「交渉力が強い」という日常語を、割引率、提案権、決裂確率、外部選択肢へ分解する。
+
+---
+
+## GAME-C6 公理的交渉解の非協力的基礎
+
+主題：
+
+- strategic bargaining と axiomatic bargaining の接続
+- Rubinstein 型交渉の極限
+- Nash bargaining solution への収束条件
+- bargaining protocol の制度依存性
+- cooperative solution の noncooperative foundation
+
+Nash 交渉解を単独の公平性公理として終わらせず、明示的な戦略ゲームからなぜ同様の配分が現れるかを確認する。
+
+---
+
+## GAME-C7 不完備情報下の交渉入門
+
+GAME-A10 の PBE を prerequisite とする。
+
+主題：
+
+- one-sided private information
+- buyer / seller type
+- offer と accept / reject による signaling
+- belief update
+- delay
+- simple screening
+- Perfect Bayesian Equilibrium による解法
+
+有限タイプの簡単な一方向情報モデルを一つ完全に解くことを完成条件とする。二側不完備情報の一般論、reputation / commitment type、連続時間交渉は上級編へ送る。
+
+**交渉ゲームの学部標準修了ラインは GAME-C7** とする。C1--C3 で公理的交渉、C4--C6 で完全情報の戦略的交渉、C7 で不完備情報への入口までを一巡する。
 
 ---
 
@@ -1105,26 +1399,38 @@ OPT、DOPT、MICRO、GAME-B、GAME-D が合流する総合章とする。
 
 # 13. 今回の完成条件に含めない発展領域
 
-次は将来の外伝候補とするが、今回の A--D 完成条件には含めない。
+今回の拡張で、学部標準として必要な repeated game、Bayesian game、auction 入門、PBE、signaling、Rubinstein bargaining、不完備情報交渉の入口は A / C 系列へ取り込む。
 
-- mechanism design
-- VCG
-- auction theory
-- Myerson
-- social choice
-- Bayesian mechanism design
-- Bayesian game
-- repeated game
+次は将来の上級外伝候補とし、今回の完成条件には含めない。
+
+- sequential equilibrium
+- trembling-hand perfect equilibrium
+- proper equilibrium
+- equilibrium refinement の体系
 - stochastic game
 - evolutionary game
 - differential game
 - mean-field game
+- global games
+- epistemic game theory / belief hierarchy
+- mechanism design
+- revelation principle
+- VCG
+- Myerson optimal auction
+- Bayesian mechanism design
+- social choice
+- stable set
+- bargaining set
+- kernel
 - NTU cooperative game の一般論
+- bargaining with two-sided continuous private information
+- reputation / commitment types の本格理論
 - infinite-dimensional general equilibrium
 - continuum of agents
 - Sonnenschein--Mantel--Debreu の本格証明
+- dynamic programming / stochastic control を用いる本格的動学ミクロ
 
-必要になった時点で GAME-E または MICRO-ADV として別計画を立てる。
+必要になった時点で GAME-ADV、INFO / MECH、または MICRO-ADV として別計画を立てる。
 
 ---
 
@@ -1255,9 +1561,13 @@ FIX1 → FIX2 → FIX3
 MICRO1 → MICRO2 → MICRO3 → MICRO4
    ↓
 MICRO5 → MICRO6 → MICRO7 → MICRO8
+                         │
+                         ├──→ MICRO9 → MICRO10
+                         ├──→ MICRO11 → MICRO12
+                         └──→ MICRO13 → MICRO14
 ```
 
-MICRO7 は FIX3 完成後とする。
+MICRO7 は FIX3 完成後とする。MICRO1--8 の一般均衡ルート完成後、MICRO9--14 を大学院ミクロ理論 I の横方向補完として実装する。
 
 - [x] MICRO1「選好・効用・凸性」を実装。選好関係、完備性・推移性、単調性、上位集合、凸選好、効用表現、狭義単調変換、有限集合での効用表現、辞書式選好の非表現可能性、凸選好と準凹性の同値を canonical 化した。凸選好と凸関数を混同しない反例と Cobb--Douglas 型の総合演習まで閉じた。
 - [x] MICRO2「消費者最適化・需要」を実装。正の価格による予算集合の非空・凸・コンパクト性、連続効用での Marshall 需要の存在、狭義単調性による予算使い切り、0次同次性、内点解・端点解、OPT5 の KKT 条件による価格当たり限界効用条件、限界代替率と価格比、Cobb--Douglas 型・CES 型需要を canonical 化した。凹性を失った KKT 停留条件の失敗例と、無料財で需要存在が壊れる例まで閉じた。
@@ -1267,11 +1577,19 @@ MICRO7 は FIX3 完成後とする。
 - [x] MICRO6「純粋交換経済・Walras 均衡」を実装。初期保有とその市場価値から個別需要を構成し、集計需要・超過需要、価格の0次同次性、Walras の法則、正価格下での一市場の冗長性、Walras 均衡と価格尺度不変性を canonical 化した。二財二消費者の Edgeworth ボックスと非対称 Cobb--Douglas 型交換経済で均衡相対価格・均衡配分・純取引を具体計算し、第一厚生定理から均衡配分の Pareto 効率性へ接続した。局所非飽和性を失うと予算使い切りと Walras の法則の等号が壊れる例まで閉じた。
 - [x] MICRO7「一般均衡の存在」を実装。価格尺度不変性から価格を境界を含む規格化単体へ移し、正の初期保有を使って切断予算対応の非空コンパクト凸値性・両半連続性を証明した。Berge 最大値定理で切断需要対応と競売人価格対応の正則性を確保し、その直積自己対応へ Kakutani 不動点定理を適用した。固定点から予算使い切り、Walras の法則、競売人最適化、ゼロ価格財の排除を順につないで全市場清算を導き、狭義準凹性で切断解を元の消費者問題へ戻して Walras 均衡存在を閉じた。正の初期保有や準凹性を失ったときに証明機構が壊れる反例も示した。
 - [x] MICRO8「Arrow--Debreu 経済」を実装。MICRO4 の企業利潤最大化を一般均衡へ戻し、企業所有比率・利潤所得・生産を含む実行可能性・Arrow--Debreu 均衡を canonical 化した。企業供給対応の Berge 正則性、生産経済版 Walras の法則、生産を含む第一厚生定理、支持価格と一括的所得移転による第二厚生定理を閉じた。さらに非空コンパクト凸生産集合と休業可能性のもとで、利潤所得を含む切断需要・企業供給・競売人価格を一つの自己対応へまとめ、Kakutani 不動点定理から正価格・全市場清算・切断除去まで追って Arrow--Debreu 均衡存在を証明した。所有比率の正規化喪失、非凸技術、無限利潤技術で壊れる機構も示した。
+- [ ] MICRO9「顕示選好・WARP / SARP / GARP」
+- [ ] MICRO10「Afriat の定理」
+- [ ] MICRO11「不確実性下の選択・期待効用」
+- [ ] MICRO12「リスク回避・Arrow--Pratt・確率優越」
+- [ ] MICRO13「異時点間選択」
+- [ ] MICRO14「動学的選択・時間整合性」
 
 ## Phase 6：ゲーム理論外伝 A
 
 ```text
 GAME-A1 → GAME-A2 → GAME-A3 → GAME-A4 → GAME-A5
+                                           ↓
+GAME-A6 → GAME-A7 → GAME-A8 → GAME-A9 → GAME-A10 → GAME-A11
 ```
 
 - [x] GAME-A1「戦略形ゲーム・最適反応・Nash 均衡」を実装。有限戦略形ゲーム、戦略プロファイル、一方的変更、厳密支配・弱支配、最適反応、純粋戦略 Nash 均衡を canonical 化した。Nash 均衡を相互最適反応として特徴付け、厳密被支配戦略の排除と全員が厳密な支配戦略を持つ場合の一意性を証明した。囚人のジレンマ、複数均衡を持つ協調ゲーム、弱く支配される戦略を含む均衡、表裏合わせゲーム の純粋均衡不存在、パラメータ付き2×2ゲームまでを具体計算で閉じた。
@@ -1279,25 +1597,35 @@ GAME-A1 → GAME-A2 → GAME-A3 → GAME-A4 → GAME-A5
 - [x] GAME-A3「Nash 均衡の存在」を実装。全混合戦略空間を単体の有限直積として構成し、Berge 最大値定理と期待利得の線形性から混合最適反応対応の非空・コンパクト・凸値性と上半連続性を確認して、FIX3 の Kakutani 不動点定理から有限ゲームの混合戦略 Nash 均衡存在を証明した。さらに一価の最適反応選択が同点で不連続になり得ることを確認し、正の逸脱利得を混合確率へ加えて正規化する Nash--Brouwer 写像を構成した。その固定点で全ての正の逸脱利得が消えることを加重平均の恒等式から証明し、FIX1 の Brouwer 不動点定理だけを使う独立な存在証明も閉じた。
 - [x] GAME-A4「凹ゲーム・KKT・変分不等式」を実装。連続戦略ゲームと凹ゲームを導入し、非空コンパクト凸な戦略集合・連続利得・各プレイヤー方向の凹性から、Berge 最大値定理と Kakutani 不動点定理で Nash 均衡存在を証明した。各プレイヤーの最適化を OPT5 の KKT 条件へ落とし、Slater 条件下のプレイヤー別 KKT 特徴付けを示したうえで、OPT3 の法錐と OPT6 の制約想定を使って KKT が法錐の制約表示であること、制約想定失敗時には Nash 条件を保ったまま KKT 乗数だけが失敗し得ることを整理した。さらに擬勾配写像と変分不等式を導入し、凹ゲームで Nash 均衡と VI が同値であること、強単調性から均衡一意性が従うことを証明し、Cournot 複占と境界均衡で具体計算した。
 - [x] GAME-A5「展開形ゲーム・部分ゲーム完全均衡」を実装。完全情報の有限展開形ゲームを履歴・手番・行動集合・終端利得から導入し、展開形の純粋戦略が経路外の節点も含む完全な条件付き行動計画であることを具体例で確認した。部分ゲームと部分ゲーム完全均衡を定義し、参入ゲームで Nash 均衡に残る空脅しを逐次合理性が除くことを示した。さらに後ろ向き帰納法を定式化し、木の高さに関する帰納法で純粋戦略の部分ゲーム完全均衡存在を証明した。同点による複数均衡、有限性・完全情報の役割、パラメータ付き三段階ゲームで Nash 均衡と部分ゲーム完全均衡の閾値がずれる例まで閉じた。
-- 次の実装対象：**GAME-B1「特性関数形ゲーム・core」**。
+- [ ] GAME-A6「繰り返しゲーム・trigger strategy」
+- [ ] GAME-A7「Folk theorem 入門」
+- [ ] GAME-A8「Bayesian game・Bayesian Nash 均衡」
+- [ ] GAME-A9「オークション理論入門」
+- [ ] GAME-A10「動学的不完備情報・belief・Perfect Bayesian Equilibrium」
+- [ ] GAME-A11「signaling・screening・cheap talk 入門」
+- 次の実装対象：**GAME-A6「繰り返しゲーム・trigger strategy」**。
 
 ## Phase 7：ゲーム理論外伝 B
 
 ```text
-GAME-B1 → GAME-B2 → GAME-B3 → GAME-B4 → GAME-B5
+GAME-B1 → GAME-B2 → GAME-B3 → GAME-B4 → GAME-B5 → GAME-B6
 ```
 
 - B2 は OPT10 / OPT2 を使う。
 - B5 は OPT10 を使う。
+- B6 は B3 の Shapley 値を voting power へ応用する。
+- 協力ゲームの広い学部修了ラインは B1--B6 に C1--C3 と D3--D4 を加えた範囲とする。
 
 ## Phase 8：ゲーム理論外伝 C
 
 ```text
-GAME-C1 → GAME-C2 → GAME-C3 → GAME-C4
+GAME-C1 → GAME-C2 → GAME-C3 → GAME-C4 → GAME-C5 → GAME-C6
+GAME-A10 ───────────────────────────────────────────→ GAME-C7
 ```
 
 - C1 は OPT5 を使う。
 - C4 は GAME-A5 を使う。
+- C7 は GAME-A10 の PBE を使う。
 
 ## Phase 9：ゲーム理論外伝 D
 
@@ -1370,12 +1698,15 @@ MICRO / GAME も `dream-theater-index.json` に掲載する場合は DREAM THEAT
 この計画全体を象徴する章として、次を重点章とする。
 
 1. **GAME-A2**：minimax を LP 双対として理解する。
-2. **GAME-B2**：Bondareva--Shapley を LP 双対 / Farkas として理解する。
-3. **GAME-C1**：Nash 交渉を凹最適化・KKT として理解する。
-4. **GAME-D4**：assignment LP・双対価格・core・競争均衡を統合する。
-5. **MICRO5**：Pareto 効率と価格を支持超平面で結ぶ。
-6. **MICRO7**：一般均衡存在を需要対応と Kakutani の不動点として閉じる。
-7. **RKHS4**：最大マージン SVM を凸 QP・双対・KKT として閉じる。
+2. **GAME-A10**：SPE と Bayesian game を belief / PBE で合流させる。
+3. **GAME-B2**：Bondareva--Shapley を LP 双対 / Farkas として理解する。
+4. **GAME-C4 / C6**：Rubinstein 交渉から公理的 Nash 解の非協力的基礎へ接続する。
+5. **GAME-D4**：assignment LP・双対価格・core・競争均衡を統合する。
+6. **MICRO5**：Pareto 効率と価格を支持超平面で結ぶ。
+7. **MICRO7**：一般均衡存在を需要対応と Kakutani の不動点として閉じる。
+8. **MICRO10**：顕示選好と Afriat の定理を線形不等式・合理化可能性で結ぶ。
+9. **MICRO11 / MICRO12**：期待効用の公理化からリスク回避・確率優越へ進む。
+10. **RKHS4**：最大マージン SVM を凸 QP・双対・KKT として閉じる。
 
 個別トピックを増やすことより、これらの章で複数系列が本当に合流することを優先する。
 
