@@ -104,7 +104,7 @@ $$
 
 を対数で扱いやすい凸最適化へ移し、[OPT5 の KKT 条件](../OPT5/index.md#thm-opt5-kkt)と接続します。
 
-なお、ここでいう **Nash 交渉解**は [GAME-A1](../GAME-A1/index.md) の **Nash 均衡**とは別の概念です。Nash 均衡は戦略と、相手の戦略を固定したときの利得最大化から定まりますが、本章では交渉手順を置かず、実行可能な効用配分と決裂点から一つの配分を選びます。
+なお、本章で後ほど定義する交渉の解は、[GAME-A1](../GAME-A1/index.md) の **Nash 均衡**とは別の考え方です。Nash 均衡は戦略と、相手の戦略を固定したときの利得最大化から定まりますが、本章では交渉手順を置かず、実行可能な効用配分と決裂点から一つの配分を選びます。
 
 本章の中心問いは、
 
@@ -146,15 +146,15 @@ $$
 > **定義（Nash 交渉問題）**  
 > 有限人数 $n\ge2$ に対し、非空なコンパクト凸集合
 >
-> $$
-> F\subset\mathbb R^n
-> $$
+$$
+F\subset\mathbb R^n
+$$
 >
 > と点
 >
-> $$
-> d\in F
-> $$
+$$
+d\in F
+$$
 >
 > の組 $(F,d)$ を **Nash 交渉問題（Nash bargaining problem）**という。$F$ を実行可能集合、$d$ を **決裂点（disagreement point）**という。
 <!-- formal-statement-end -->
@@ -242,23 +242,23 @@ $$
 > **定義（個別合理的集合）**  
 > Nash 交渉問題 $(F,d)$ に対し、
 >
-> $$
-> F_d
-> =
-> \left\{
-> x\in F:
-> x_i\ge d_i
-> \quad(i=1,\ldots,n)
-> \right\}
-> $$
+$$
+F_d
+=
+\left\{
+x\in F:
+x_i\ge d_i
+\quad(i=1,\ldots,n)
+\right\}
+$$
 >
 > を **個別合理的集合（individually rational set）**という。
 >
 > また、
 >
-> $$
-> g_i(x)=x_i-d_i
-> $$
+$$
+g_i(x)=x_i-d_i
+$$
 >
 > をプレイヤー $i$ の決裂点からの利得増分という。
 <!-- formal-statement-end -->
@@ -314,12 +314,12 @@ $$
 > **定義（本質的な交渉問題）**  
 > Nash 交渉問題 $(F,d)$ が、
 >
-> $$
-> \exists y\in F:
-> \qquad
-> y_i>d_i
-> \quad(i=1,\ldots,n)
-> $$
+$$
+\exists y\in F:
+\qquad
+y_i>d_i
+\quad(i=1,\ldots,n)
+$$
 >
 > を満たすとき、$(F,d)$ を **本質的な交渉問題（essential bargaining problem）**という。
 <!-- formal-statement-end -->
@@ -381,7 +381,7 @@ $$
 
 本質性は後で二つの役割を持ちます。
 
-第一に、Nash 積の最大値を正にできます。第二に、最適点で全ての利得増分が正になるため、
+第一に、後で定義する利得増分の積の最大値を正にできます。第二に、最適点で全ての利得増分が正になるため、
 
 $$
 \log(x_i-d_i)
@@ -401,22 +401,22 @@ $$
 > **定義（Nash 積と Nash 交渉解）**  
 > Nash 交渉問題 $(F,d)$ の個別合理的集合 $F_d$ 上で、
 >
-> $$
-> N(x;d)
-> =
-> \prod_{i=1}^n(x_i-d_i)
-> $$
+$$
+N(x;d)
+=
+\prod_{i=1}^n(x_i-d_i)
+$$
 >
 > を **Nash 積（Nash product）**という。
 >
 > Nash 積を最大化する点
 >
-> $$
-> x^*
-> \in
-> \operatorname*{arg\,max}_{x\in F_d}
-> N(x;d)
-> $$
+$$
+x^*
+\in
+\operatorname*{arg\,max}_{x\in F_d}
+N(x;d)
+$$
 >
 > を **Nash 交渉解（Nash bargaining solution）**という。
 <!-- formal-statement-end -->
@@ -514,30 +514,30 @@ $$
 >
 > Nash 積最大化問題の任意の最適解 $x^*$ は、
 >
-> $$
-> x_i^*>d_i
-> \quad(i=1,\ldots,n)
-> $$
+$$
+x_i^*>d_i
+\quad(i=1,\ldots,n)
+$$
 >
 > を満たす。
 >
 > さらに、
 >
-> $$
-> F_d^{++}
-> =
-> \{x\in F:x_i>d_i\ \forall i\}
-> $$
+$$
+F_d^{++}
+=
+\{x\in F:x_i>d_i\ \forall i\}
+$$
 >
 > 上では、
 >
-> $$
-> \operatorname*{arg\,max}_{x\in F_d^{++}}
-> \prod_{i=1}^n(x_i-d_i)
-> =
-> \operatorname*{arg\,max}_{x\in F_d^{++}}
-> \sum_{i=1}^n\log(x_i-d_i).
-> $$
+$$
+\operatorname*{arg\,max}_{x\in F_d^{++}}
+\prod_{i=1}^n(x_i-d_i)
+=
+\operatorname*{arg\,max}_{x\in F_d^{++}}
+\sum_{i=1}^n\log(x_i-d_i).
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -650,19 +650,19 @@ $$
 >
 > すなわち $F\subset\mathbb R^n$ は非空・コンパクト・凸、$d\in F$ であり、さらにある $y\in F$ が、
 >
-> $$
-> y_i>d_i
-> \quad(i=1,\ldots,n)
-> $$
+$$
+y_i>d_i
+\quad(i=1,\ldots,n)
+$$
 >
 > を満たすとする。
 >
 > このとき、
 >
-> $$
-> \max_{x\in F_d}
-> \prod_{i=1}^n(x_i-d_i)
-> $$
+$$
+\max_{x\in F_d}
+\prod_{i=1}^n(x_i-d_i)
+$$
 >
 > はただ一つの最適解を持つ。
 <!-- formal-statement-end -->
@@ -709,7 +709,7 @@ $$
 
 は連続です。したがってコンパクト集合 $F_d$ 上で最大値を取ります。よって最適解は少なくとも一つ存在します。
 
-本質性と前節の命題から、任意の最適解は、
+本質性と[前節の命題](#prop-game-c1-log-equivalence)から、任意の最適解は、
 
 $$
 x_i^*>d_i
@@ -859,52 +859,52 @@ $$
 > **命題（線形資源制約に対する KKT 表示）**  
 > $a_i>0$ とし、
 >
-> $$
-> F
-> =
-> \left\{
-> x\in\mathbb R^n:
-> x_i\ge d_i\ (i=1,\ldots,n),
-> \quad
-> \sum_{i=1}^n a_i x_i\le B
-> \right\}.
-> $$
+$$
+F
+=
+\left\{
+x\in\mathbb R^n:
+x_i\ge d_i\ (i=1,\ldots,n),
+\quad
+\sum_{i=1}^n a_i x_i\le B
+\right\}.
+$$
 >
 > さらに、
 >
-> $$
-> B>\sum_{i=1}^n a_i d_i
-> $$
+$$
+B>\sum_{i=1}^n a_i d_i
+$$
 >
 > とする。
 >
 > このとき Nash 交渉解は一意で、
 >
-> $$
-> \boxed{
-> x_i^*
-> =
-> d_i
-> +
-> \frac{
-> B-\sum_{j=1}^n a_jd_j
-> }{
-> n a_i
-> }
-> }
-> $$
+$$
+\boxed{
+x_i^*
+=
+d_i
++
+\frac{
+B-\sum_{j=1}^n a_jd_j
+}{
+n a_i
+}
+}
+$$
 >
 > で与えられる。
 >
 > 特に、
 >
-> $$
-> a_i(x_i^*-d_i)
-> =
-> \frac{
-> B-\sum_j a_jd_j
-> }{n}
-> $$
+$$
+a_i(x_i^*-d_i)
+=
+\frac{
+B-\sum_j a_jd_j
+}{n}
+$$
 >
 > であり、各プレイヤーが使う追加資源は等しい。
 <!-- formal-statement-end -->
@@ -923,7 +923,7 @@ $$
 
 と置きます。
 
-前節の存在・一意性定理により Nash 交渉解は存在し、本質性からその利得増分は全て正です。したがって、
+[前節の存在・一意性定理](#thm-game-c1-existence-uniqueness)により Nash 交渉解は存在し、本質性からその利得増分は全て正です。したがって、
 
 $$
 y_i=\log(x_i-d_i)
@@ -1069,7 +1069,7 @@ n a_i
 }.
 $$
 
-Slater 条件のもとでは KKT は最適性の必要十分条件なので、この点が最適解です。一意性は前節の定理から従います。
+[OPT5 の KKT 条件](../OPT5/index.md#thm-opt5-kkt)は Slater 条件のもとで最適性の必要十分条件なので、この点が最適解です。一意性は[前節の定理](#thm-game-c1-existence-uniqueness)から従います。
 
 $\square$
 <!-- proof-end -->
@@ -1120,7 +1120,7 @@ a_2=1,
 n=2.
 $$
 
-前節の公式から、
+[前節の KKT 表示](#prop-game-c1-kkt-linear-resource)から、
 
 $$
 x_1^*
@@ -1200,16 +1200,16 @@ Nash 積最大化解が、全員を同時に改善できる余地を残してい
 >
 > ある $y\in F$ が、
 >
-> $$
-> y_i\ge x_i^*
-> \quad(i=1,\ldots,n)
-> $$
+$$
+y_i\ge x_i^*
+\quad(i=1,\ldots,n)
+$$
 >
 > を満たし、少なくとも一つの成分 $j$ で、
 >
-> $$
-> y_j>x_j^*
-> $$
+$$
+y_j>x_j^*
+$$
 >
 > となることはない。
 >
@@ -2261,7 +2261,7 @@ $$
 
 1. この問題が本質的であることを示せ。
 2. $y_i=\log(x_i-d_i)$ と変数変換した KKT 問題を書け。
-3. KKT 条件から Nash 交渉解を求めよ。
+3. [OPT5 の KKT 条件](../OPT5/index.md#thm-opt5-kkt)から Nash 交渉解を求めよ。
 4. 各人の利得増分と追加資源使用量を求めよ。
 5. 解が一意でパレート効率的である理由を述べよ。
 6. 利得増分を三人で単純に等しくした配分と Nash 交渉解を比較せよ。
