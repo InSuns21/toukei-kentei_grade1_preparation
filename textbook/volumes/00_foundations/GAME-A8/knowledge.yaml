@@ -66,7 +66,6 @@ concepts:
     kind: definition
     aliases:
       - Bayesian Nash equilibrium
-      - BNE
     introduction: formal
     introduction_aliases: ["定義（中間期待利得・Bayesian Nash 均衡）"]
     requires:
