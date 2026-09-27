@@ -16,7 +16,6 @@ concepts:
     introduction_aliases: ["定義（繰り返しゲーム）"]
     requires:
       - game.strategic-form-game
-      - game.finite-perfect-information-extensive-form
 
   - id: game.history-dependent-strategy
     name: 履歴依存戦略
