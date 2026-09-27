@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - GAME-A8
+  - RA4
 
 forward_references: []
 
@@ -60,6 +61,7 @@ concepts:
       - auction.first-price
       - game.bayesian-nash-equilibrium
       - game.interim-expected-payoff
+      - analysis.ftc-2
 
   - id: auction.first-second-payment-equivalence
     name: 独立私的価値モデルにおける第一価格・第二価格の期待支払一致
@@ -70,3 +72,4 @@ concepts:
     requires:
       - auction.first-price-symmetric-bne
       - auction.second-price-truthful-dominance
+      - analysis.ftc-2
