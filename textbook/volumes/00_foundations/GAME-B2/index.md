@@ -169,7 +169,7 @@ $$
 S\in2^N\setminus\{\varnothing\}
 $$
 >
-> に非負の重み $\lambda_S\ge0$ を対応させる。
+> に非負の重み $\lambda_S\ge0$ を割り当てる。
 >
 > すべてのプレイヤー $i\in N$ について
 >
