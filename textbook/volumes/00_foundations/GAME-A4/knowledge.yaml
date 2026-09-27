@@ -51,11 +51,11 @@ concepts:
       - fixedpoint.kakutani-fixed-point-theorem
 
   - id: game.playerwise-kkt-characterization
-    name: 凹ゲームの player-wise KKT 特徴付け
+    name: 凹ゲームのプレイヤー別 KKT 特徴付け
     kind: theorem
     aliases: []
     introduction: formal
-    introduction_aliases: ["定理（凹ゲームの player-wise KKT 特徴付け）"]
+    introduction_aliases: ["定理（凹ゲームのプレイヤー別 KKT 特徴付け）"]
     requires:
       - game.concave-game
       - optimization.kkt-conditions
