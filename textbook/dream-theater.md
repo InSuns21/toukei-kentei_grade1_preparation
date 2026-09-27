@@ -1,5 +1,7 @@
 # DREAM THEATER 本編
 
+[全体の読む順](textbook/dream-theater-standard-math-core.md)
+
 ## 集合論・位相空間論
 
 1. [F0-00A 集合・写像・上限下限](textbook/volumes/00_foundations/F0_00A_集合_写像_上限下限/index.md)
