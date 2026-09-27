@@ -107,18 +107,18 @@ Kalai--Smorodinsky 解の幾何を安全に扱うため、本章ではさらに�
 > **定義（決裂点に対する下方包括性）**  
 > 二人の Nash 交渉問題 $(F,d)$ の個別合理的集合 $F_d$ が、
 >
-> $$
-> x\in F_d,
-> \qquad
-> d_i\le y_i\le x_i
-> \quad(i=1,2)
-> $$
+$$
+x\in F_d,
+\qquad
+d_i\le y_i\le x_i
+\quad(i=1,2)
+$$
 >
 > なら必ず
 >
-> $$
-> y\in F_d
-> $$
+$$
+y\in F_d
+$$
 >
 > を満たすとき、$F_d$ は **決裂点に対して下方包括的**であるという。
 <!-- formal-statement-end -->
@@ -200,20 +200,20 @@ Kalai--Smorodinsky 解では、実行可能集合の形を一つの参照点へ�
 > **定義（理想点）**  
 > 二人の本質的な Nash 交渉問題 $(F,d)$ に対し、
 >
-> $$
-> m_i(F,d)
-> =
-> \max_{x\in F_d}x_i
-> \qquad(i=1,2)
-> $$
+$$
+m_i(F,d)
+=
+\max_{x\in F_d}x_i
+\qquad(i=1,2)
+$$
 >
 > と定める。
 >
-> $$
-> m(F,d)
-> =
-> \bigl(m_1(F,d),m_2(F,d)\bigr)
-> $$
+$$
+m(F,d)
+=
+\bigl(m_1(F,d),m_2(F,d)\bigr)
+$$
 >
 > を、この交渉問題の **理想点（ideal point, utopia point）**という。
 <!-- formal-statement-end -->
@@ -342,12 +342,12 @@ $$
 > **定義（理想点への相対到達率）**  
 > 本質的な二人交渉問題 $(F,d)$ とその理想点 $m$ に対し、
 >
-> $$
-> r_i(x)
-> =
-> \frac{x_i-d_i}{m_i-d_i}
-> \qquad(i=1,2)
-> $$
+$$
+r_i(x)
+=
+\frac{x_i-d_i}{m_i-d_i}
+\qquad(i=1,2)
+$$
 >
 > を、合意 $x\in F_d$ におけるプレイヤー $i$ の **理想点への相対到達率**という。
 <!-- formal-statement-end -->
@@ -430,25 +430,25 @@ $$
 >
 > 理想点を $m=m(F,d)$ とし、
 >
-> $$
-> \lambda^*
-> =
-> \max
-> \left\{
-> \lambda\in[0,1]:
-> d+\lambda(m-d)\in F_d
-> \right\}
-> $$
+$$
+\lambda^*
+=
+\max
+\left\{
+\lambda\in[0,1]:
+d+\lambda(m-d)\in F_d
+\right\}
+$$
 >
 > と定める。
 >
 > 点
 >
-> $$
-> K(F,d)
-> =
-> d+\lambda^*(m-d)
-> $$
+$$
+K(F,d)
+=
+d+\lambda^*(m-d)
+$$
 >
 > を **Kalai--Smorodinsky 交渉解**という。
 <!-- formal-statement-end -->
@@ -540,17 +540,17 @@ $$
 >
 > このとき、
 >
-> $$
-> 0<\lambda^*\le1
-> $$
+$$
+0<\lambda^*\le1
+$$
 >
 > を満たす最大値 $\lambda^*$ が一意に存在し、
 >
-> $$
-> K(F,d)
-> =
-> d+\lambda^*(m-d)
-> $$
+$$
+K(F,d)
+=
+d+\lambda^*(m-d)
+$$
 >
 > は一意に定まる。
 <!-- formal-statement-end -->
@@ -710,9 +710,9 @@ $\square$
 > **定理（Kalai--Smorodinsky 解のパレート効率性）**  
 > 前節の仮定のもとで、Kalai--Smorodinsky 交渉解
 >
-> $$
-> K(F,d)
-> $$
+$$
+K(F,d)
+$$
 >
 > は $F_d$ 上でパレート効率的である。
 <!-- formal-statement-end -->
@@ -901,21 +901,21 @@ Nash 交渉解と同様、Kalai--Smorodinsky 解も効用の原点や正の単�
 > **命題（Kalai--Smorodinsky 解の正のアフィン不変性）**  
 > 各プレイヤーについて、
 >
-> $$
-> T_i(x_i)=a_i x_i+b_i,
-> \qquad
-> a_i>0
-> $$
+$$
+T_i(x_i)=a_i x_i+b_i,
+\qquad
+a_i>0
+$$
 >
 > とする。
 >
 > このとき、
 >
-> $$
-> K(T(F),T(d))
-> =
-> T(K(F,d)).
-> $$
+$$
+K(T(F),T(d))
+=
+T(K(F,d)).
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -1418,23 +1418,23 @@ Kalai--Smorodinsky の発想では、実行可能集合があるプレイヤー�
 > **定義（個人単調性）**  
 > 同じ決裂点 $d$ を持つ二つの二人交渉問題 $(F,d)$、$(G,d)$ が、
 >
-> $$
-> F_d\subseteq G_d
-> $$
+$$
+F_d\subseteq G_d
+$$
 >
 > を満たすとする。
 >
 > プレイヤー $i$ について、相手 $j\ne i$ の理想値が変わらず、
 >
-> $$
-> m_j(F,d)=m_j(G,d)
-> $$
+$$
+m_j(F,d)=m_j(G,d)
+$$
 >
 > なら、
 >
-> $$
-> \Psi_i(G,d)\ge\Psi_i(F,d)
-> $$
+$$
+\Psi_i(G,d)\ge\Psi_i(F,d)
+$$
 >
 > を要求する。この性質を **個人単調性（individual monotonicity）**という。
 <!-- formal-statement-end -->
@@ -1554,23 +1554,23 @@ $$
 > **命題（Kalai--Smorodinsky 解は個人単調性を満たす）**  
 > 本章の二人交渉問題の範囲で、
 >
-> $$
-> F_d\subseteq G_d
-> $$
+$$
+F_d\subseteq G_d
+$$
 >
 > とする。
 >
 > プレイヤー1について、
 >
-> $$
-> m_2(F,d)=m_2(G,d)
-> $$
+$$
+m_2(F,d)=m_2(G,d)
+$$
 >
 > なら、
 >
-> $$
-> K_1(G,d)\ge K_1(F,d).
-> $$
+$$
+K_1(G,d)\ge K_1(F,d).
+$$
 >
 > プレイヤー2についても対称な主張が成り立つ。
 <!-- formal-statement-end -->
@@ -1841,23 +1841,23 @@ $$
 > **定義（等利得増分ベンチマーク）**  
 > 二人交渉問題 $(F,d)$ に対し、
 >
-> $$
-> \tau^*
-> =
-> \max
-> \left\{
-> \tau\ge0:
-> d+\tau(1,1)\in F_d
-> \right\}
-> $$
+$$
+\tau^*
+=
+\max
+\left\{
+\tau\ge0:
+d+\tau(1,1)\in F_d
+\right\}
+$$
 >
 > と置き、
 >
-> $$
-> E(F,d)
-> =
-> d+\tau^*(1,1)
-> $$
+$$
+E(F,d)
+=
+d+\tau^*(1,1)
+$$
 >
 > を、本章では **等利得増分ベンチマーク**と呼ぶ。
 <!-- formal-statement-end -->
