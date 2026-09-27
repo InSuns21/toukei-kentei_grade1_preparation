@@ -60,6 +60,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-game-a4-continuous-game -->
+
+**定義の確認**
 ### 1.1 定義の確認：二人の目標追従ゲーム
 
 二人が $X_1=X_2=[0,1]$ から $x_1,x_2$ を選び、
@@ -137,6 +139,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-game-a4-concave-game -->
+
+**定義の確認**
 ### 2.1 定義の確認：二次利得の Hessian を見る
 
 $$
@@ -650,6 +654,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-game-a4-pseudogradient -->
+
+**定義の確認**
 ### 7.1 定義の確認：二人ゲームの擬勾配を作る
 
 各 $X_i=[0,1]$ とし、
@@ -703,6 +709,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-game-a4-vi -->
+
+**定義の確認**
 ### 7.2 定義の確認：零点は変分不等式を満たす
 
 直前の例の $F$ について $x^*=(0,0)$ とすると
@@ -946,6 +954,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-game-a4-monotonicity -->
+
+**定義の確認**
 ### 10.1 定義の確認：線形写像では対称部分を見る
 
 アフィン写像
