@@ -1,0 +1,14 @@
+chapter: "GAME-C2"
+terms:
+  - term: 交渉解規則
+    english: bargaining solution rule
+    meaning: 各本質的な Nash 交渉問題に対し、個別合理的な実行可能配分を一つ選ぶ規則。
+  - term: 正のアフィン変換に対する不変性
+    english: invariance to positive affine transformations
+    meaning: 各プレイヤーの効用の原点や正の尺度を変えても、選ばれる配分が同じ変換で移るという公理。
+  - term: 無関係な選択肢からの独立性
+    english: independence of irrelevant alternatives
+    meaning: 大きい実行可能集合で選ばれた配分を残したまま集合を縮めても、その配分を選び続けるという公理。
+  - term: Nash 交渉解の公理的特徴付け
+    english: axiomatic characterization of the Nash bargaining solution
+    meaning: パレート効率性・対称性・正のアフィン変換に対する不変性・無関係な選択肢からの独立性が Nash 交渉解を一意に定めること。
