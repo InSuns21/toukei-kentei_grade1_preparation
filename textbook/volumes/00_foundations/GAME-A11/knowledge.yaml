@@ -45,12 +45,13 @@ concepts:
       - game.bayesian-strategy
 
   - id: game.cheap-talk
-    name: cheap talk
+    name: チープトーク
     kind: definition
     aliases:
+      - cheap talk
       - cheap-talk communication
     introduction: formal
-    introduction_aliases: ["定義（cheap talk）"]
+    introduction_aliases: ["定義（チープトーク）"]
     requires:
       - game.signaling-game
 
@@ -66,11 +67,11 @@ concepts:
       - game.perfect-bayesian-equilibrium
 
   - id: game.cheap-talk-babbling-pbe
-    name: cheap-talk game における babbling PBE の存在
+    name: チープトークゲームにおける babbling PBE の存在
     kind: proposition
     aliases: []
     introduction: formal
-    introduction_aliases: ["命題（cheap-talk game における babbling PBE の存在）"]
+    introduction_aliases: ["命題（チープトークゲームにおける babbling PBE の存在）"]
     requires:
       - game.cheap-talk
       - game.perfect-bayesian-equilibrium
