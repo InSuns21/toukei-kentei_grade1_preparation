@@ -1,0 +1,44 @@
+id: "GAME-B3"
+title: "Shapley 値・限界貢献・公理化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GAME-B1
+official_scope: []
+learning_objectives:
+  - 有限 TU ゲームで、提携 S にプレイヤー i が加わる限界貢献 v(S∪{i})-v(S) を計算し、その意味を説明できる
+  - Shapley 値の部分集合表示を使い、3人程度の有限ゲームで各プレイヤーの値を具体計算できる
+  - Shapley 係数 |S|!(n-|S|-1)!/n! が、一様ランダムな到着順で i より前にいるプレイヤー集合が S となる確率であることを数え上げから導ける
+  - Shapley 値を、ランダムな到着順における限界貢献の期待値として表し、部分集合表示との同値を証明できる
+  - 配分規則に対する効率性・対称性・零プレイヤー性・加法性の四公理を定式化し、それぞれが何を要求するか説明できる
+  - Shapley 値が四公理を満たすことを、到着順表示と限界貢献の性質から証明できる
+  - 全会一致ゲームを定義し、任意の有限 TU ゲームを全会一致ゲームの有限和として表せることを再帰構成で証明できる
+  - 四公理を満たす配分規則が Shapley 値に一意に定まることを、全会一致ゲーム分解から核心まで証明できる
+  - Shapley 値が公平性・平均限界貢献を表す単一配分であり、一般にはコア所属を保証しないことを具体例で区別できる
+definitions:
+  - { id: GAME-B3-DEF-01, name: 限界貢献 }
+  - { id: GAME-B3-DEF-02, name: Shapley 値 }
+  - { id: GAME-B3-DEF-03, name: Shapley 値を特徴付ける四公理 }
+  - { id: GAME-B3-DEF-04, name: 全会一致ゲーム }
+theorems:
+  - { id: GAME-B3-PROP-01, name: Shapley 値のランダム到着順表示 }
+  - { id: GAME-B3-PROP-02, name: 有限 TU ゲームの全会一致ゲーム分解 }
+  - { id: GAME-B3-THM-01, name: Shapley 値の公理的特徴付け }
+canonical_examples:
+  - 単独価値0・二人提携価値が2,1,1・大提携価値3の3人ゲームで Shapley 値 (7/6,7/6,2/3) を計算する例
+  - 3人多数決型ゲームで対称性と効率性から Shapley 値が (1/3,1/3,1/3) となる一方、コアが空であることを比較する例
+  - T={1,3} の全会一致ゲームでプレイヤー2が零プレイヤーとなり、Shapley 値が (1/2,0,1/2) になる例
+  - コアが非空でも Shapley 値がコア外となる3人ゲーム v12=v13=v123=4, v23=0 の例
+problem_patterns:
+  - GAME-B3-MARGINAL-CONTRIBUTION-1
+  - GAME-B3-DIRECT-FORMULA-1
+  - GAME-B3-RANDOM-ORDER-1
+  - GAME-B3-AXIOMS-1
+  - GAME-B3-COUNT-COEFFICIENT-1
+  - GAME-B3-EFFICIENCY-PROOF-1
+  - GAME-B3-UNANIMITY-DECOMPOSITION-1
+  - GAME-B3-SHAPLEY-VS-CORE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.5, review: 0.75 }
