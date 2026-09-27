@@ -297,6 +297,10 @@ Hilbert 空間と Riesz 表現から再生核を構成し、有限標本上の�
 5. [GAME-B5 最小コア・仁](textbook/volumes/00_foundations/GAME-B5/index.md)
 6. [GAME-B6 投票ゲーム・投票力指数](textbook/volumes/00_foundations/GAME-B6/index.md)
 
+**ゲーム理論外伝 C：交渉ゲーム**では、合意可能な効用配分と決裂時の効用から交渉を記述します。まず Nash 積最大化を凸最適化として解き、以後は公理化、代替的交渉解、戦略的交渉へ進みます。
+
+- [GAME-C1 Nash 交渉問題](textbook/volumes/00_foundations/GAME-C1/index.md)
+
 ---
 
 ## 2. 確率論
