@@ -5,8 +5,7 @@ prerequisites:
   - GAME-C2
   - GAME-C5
 
-forward_references:
-  - GAME-C7
+forward_references: []
 
 concepts:
   - id: game.bargaining-noncooperative-foundation
