@@ -22,7 +22,7 @@ concepts:
       - game.tu-characteristic-function-game
 
   - id: game.imputation-set
-    name: 配分集合
+    name: 協力ゲームの配分集合
     kind: definition
     aliases:
       - インピュテーション集合
