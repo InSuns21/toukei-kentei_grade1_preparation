@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - GAME-A3
+  - F0-00P2A
 
 forward_references: []
 
