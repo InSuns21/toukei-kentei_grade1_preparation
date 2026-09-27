@@ -1,0 +1,42 @@
+id: "GAME-A9"
+title: "オークション理論入門"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GAME-A8
+official_scope: []
+learning_objectives:
+  - 単一財の独立私的価値モデルを、評価額を私的タイプとするベイジアンゲームとして記述し、準線形利得と入札戦略の意味を説明できる
+  - 第一価格オークションと第二価格オークションについて、落札者・支払額・落札者利得を具体的な入札ベクトルから計算できる
+  - 第二価格オークションで正直入札が弱支配戦略になることを、相手の最高入札額を固定した場合分けから証明できる
+  - 第一価格オークションでは正直入札が一般に最適でなく、落札確率と支払額のトレードオフが入札の切り下げを生むことを説明できる
+  - 独立同分布の連続評価額のもとで、仮想的な申告タイプへの逸脱から第一価格オークションの対称 Bayesian Nash 均衡を導出できる
+  - 一様分布の場合に第一価格オークションの対称均衡入札が beta(v)=(n-1)v/n になることを導き、二人の場合 beta(v)=v/2 を直接検算できる
+  - 同じ独立私的価値モデルで、第一価格均衡と第二価格正直入札のタイプ別期待支払が一致することを導き、収入同値の入口を説明できる
+  - リスク中立性・独立私的価値・共通分布・留保価格なし等の仮定が本章の結論にどう関わるかを説明し、一般のメカニズムデザインとの射程差を区別できる
+definitions:
+  - { id: GAME-A9-DEF-01, name: 単一財の独立私的価値モデル }
+  - { id: GAME-A9-DEF-02, name: 第一価格オークション }
+  - { id: GAME-A9-DEF-03, name: 第二価格オークション }
+theorems:
+  - { id: GAME-A9-THM-01, name: 第二価格オークションにおける正直入札の弱支配性 }
+  - { id: GAME-A9-THM-02, name: 第一価格オークションの対称 Bayesian Nash 均衡 }
+  - { id: GAME-A9-PROP-01, name: 独立私的価値モデルにおける第一価格・第二価格の期待支払一致 }
+canonical_examples:
+  - 三人の具体的な評価額と入札額から第一価格・第二価格の落札者、支払額、利得を比較する例
+  - 二人の評価額が独立一様分布に従う第一価格オークションで beta(v)=v/2 を直接最適化から導く例
+  - n人の独立一様分布で beta(v)=(n-1)v/n とタイプ別期待支払 (n-1)v^n/n を計算する例
+  - 第一価格均衡と第二価格正直入札の期待支払を積分で一致させ、売り手期待収入 (n-1)/(n+1) を導く例
+problem_patterns:
+  - GAME-A9-AUCTION-RULES-1
+  - GAME-A9-SECOND-PRICE-DOMINANCE-1
+  - GAME-A9-TWO-BIDDER-FIRST-PRICE-1
+  - GAME-A9-UNIFORM-N-BIDDERS-1
+  - GAME-A9-FIRST-PRICE-GENERAL-F-1
+  - GAME-A9-SECOND-PRICE-PAYMENT-1
+  - GAME-A9-REVENUE-COMPARISON-1
+  - GAME-A9-INTEGRATED-IPV-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.5, review: 0.75 }
