@@ -42,6 +42,8 @@ alias_matching:
     - tangent plane
     - 法線
     - normal vector
+    - 特性関数
+    - 配分
 
 rollout:
   # 既存ページは段階移行する。未移行ページそのものは audit では報告するが、
