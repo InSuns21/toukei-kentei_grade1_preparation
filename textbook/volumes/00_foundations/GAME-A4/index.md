@@ -267,7 +267,7 @@ $$
 
 [Kakutani 不動点定理](../FIX3/index.md#thm-fix3-kakutani)から
 
-$
+$$
 x^*\in BR(x^*)
 $$
 
@@ -830,23 +830,23 @@ $$
 
 $-u_i(\cdot,x_{-i}^*)$ は凸なので、OPT1 の[微分可能な凸関数の一次支持不等式](../OPT1/index.md#thm-opt1-first-order-convexity)を $-u_i$ に適用すると
 
-$
+$$
 -u_i(y_i,x_{-i}^*)
 \ge
 -u_i(x_i^*,x_{-i}^*)
 -
 \nabla_{x_i}u_i(x^*)^{\mathsf T}(y_i-x_i^*).
-$
+$$
 
 両辺に $-1$ を掛けると
 
-$
+$$
 u_i(y_i,x_{-i}^*)
 \le
 u_i(x_i^*,x_{-i}^*)
 +
 \nabla_{x_i}u_i(x^*)^{\mathsf T}(y_i-x_i^*).
-$
+$$
 
 右辺第2項は0以下なので
 
@@ -1813,7 +1813,7 @@ $$
 
 [KKT 条件](../OPT5/index.md#thm-opt5-kkt)のうち勾配を含む等式は
 
-$
+$$
 -1+\lambda g'(0)=0.
 $$
 
