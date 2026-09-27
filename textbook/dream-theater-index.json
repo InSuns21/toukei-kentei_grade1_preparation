@@ -45,12 +45,7 @@
         "textbook/volumes/00_foundations/F0_00F2_SVD_特異値_作用素ノルム/index.md",
         "textbook/volumes/00_foundations/LA6/index.md",
         "textbook/volumes/00_foundations/LA3D/index.md",
-        "textbook/volumes/00_foundations/LA3E/index.md"
-      ]
-    },
-    {
-      "name": "解析系",
-      "paths": [
+        "textbook/volumes/00_foundations/LA3E/index.md",
         "textbook/volumes/00_foundations/RA1/index.md",
         "textbook/volumes/00_foundations/RA1A/index.md",
         "textbook/volumes/00_foundations/RA2/index.md",
@@ -61,7 +56,12 @@
         "textbook/volumes/00_foundations/F0_02C3_Frechet微分_線形作用素_随伴/index.md",
         "textbook/volumes/00_foundations/RA6A/index.md",
         "textbook/volumes/00_foundations/RA7/index.md",
-        "textbook/volumes/00_foundations/RA8/index.md",
+        "textbook/volumes/00_foundations/RA8/index.md"
+      ]
+    },
+    {
+      "name": "解析系",
+      "paths": [
         "textbook/volumes/00_foundations/F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md",
         "textbook/volumes/00_foundations/F0_00D3_外測度_Caratheodory可測性/index.md",
         "textbook/volumes/00_foundations/F0_00D3A_pi_lambda_Dynkin/index.md",
