@@ -930,7 +930,7 @@ $$
 
 従って行プレイヤーの安全化問題 **(R)** は
 
-$
+$$
 \begin{aligned}
 \text{maximize}\quad & v\\
 \text{subject to}\quad
@@ -938,7 +938,7 @@ $
 &\mathbf 1_m^{\mathsf T}p=1,\\
 &p\ge0
 \end{aligned}
-$
+$$
 
 という線形計画です。
 
@@ -954,7 +954,7 @@ $$
 
 従って列プレイヤーの問題 **(C)** は
 
-$
+$$
 \begin{aligned}
 \text{minimize}\quad & w\\
 \text{subject to}\quad
@@ -962,7 +962,7 @@ $
 &\mathbf 1_n^{\mathsf T}q=1,\\
 &q\ge0
 \end{aligned}
-$
+$$
 
 です。
 
@@ -1014,7 +1014,7 @@ $$
 
 を使う標準形最小化問題 **(C-std)**
 
-$
+$$
 \begin{aligned}
 \text{minimize}\quad
 &w^+-w^-\\
@@ -1023,7 +1023,7 @@ $
 &\mathbf 1_n^{\mathsf T}q=1,\\
 &q,w^+,w^-,s\ge0
 \end{aligned}
-$
+$$
 
 になります。
 
