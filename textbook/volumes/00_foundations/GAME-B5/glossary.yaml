@@ -1,0 +1,17 @@
+chapter: "GAME-B5"
+terms:
+  - term: 超過要求
+    english: excess
+    meaning: 配分 x に対して提携 S が自力で作れる価値 v(S) と実際の受取額 x(S) の差 e(S,x)=v(S)-x(S)。
+  - term: 最小コア
+    english: least core
+    meaning: インピュテーション上で最大超過要求を最小化する配分全体。空コアでも最悪の提携不満を最小にする近似的安定集合を与える。
+  - term: 最小コア値
+    english: least-core value
+    meaning: 最大超過要求 E(x) のインピュテーション集合上の最小値 epsilon*。
+  - term: 仁
+    english: nucleolus
+    meaning: 真部分提携の超過要求を大きい順に並べたベクトルを辞書式に最小化する一意なインピュテーション。
+  - term: 辞書式順序
+    english: lexicographic order
+    meaning: 二つのベクトルを先頭から比較し、最初に異なる成分の大小で順序を決める規則。

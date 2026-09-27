@@ -1,0 +1,106 @@
+chapter: GAME-B5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GAME-B1
+  - GAME-B3
+  - OPT10
+
+forward_references: []
+
+concepts:
+  - id: game.coalition-excess
+    name: 提携の超過要求
+    kind: definition
+    aliases:
+      - coalition excess
+      - excess
+    introduction: formal
+    introduction_aliases: ["定義（超過要求）"]
+    requires:
+      - game.coalition
+      - game.tu-characteristic-function-game
+
+  - id: game.imputation-set
+    name: インピュテーション集合
+    kind: definition
+    aliases:
+      - imputation set
+    introduction: formal
+    introduction_aliases: ["定義（インピュテーション集合）"]
+    requires:
+      - game.imputation
+
+  - id: game.least-core
+    name: 最小コア
+    kind: definition
+    aliases:
+      - least core
+    introduction: formal
+    introduction_aliases: ["定義（最小コア）"]
+    requires:
+      - game.coalition-excess
+      - game.imputation-set
+
+  - id: game.least-core-linear-program
+    name: 最小コアの線形計画表示
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（最小コアの線形計画表示）"]
+    requires:
+      - game.least-core
+      - optimization.linear-program-standard-form
+
+  - id: game.least-core-core-nonemptiness
+    name: 最小コア値とコアの非空性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（最小コア値とコアの非空性）"]
+    requires:
+      - game.least-core
+      - game.core
+
+  - id: game.nucleolus
+    name: 仁
+    kind: definition
+    aliases:
+      - nucleolus
+    introduction: formal
+    introduction_aliases: ["定義（仁）"]
+    requires:
+      - game.coalition-excess
+      - game.imputation-set
+
+  - id: game.nucleolus-least-core
+    name: 仁の最小コア所属
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（仁は最小コアに属する）"]
+    requires:
+      - game.nucleolus
+      - game.least-core
+
+  - id: game.nucleolus-existence-uniqueness
+    name: 仁の存在と一意性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（仁の存在と一意性）"]
+    requires:
+      - game.nucleolus
+      - game.imputation-set
+
+  - id: game.nucleolus-sequential-linear-program
+    name: 仁の逐次線形計画
+    kind: proposition
+    aliases:
+      - sequential linear programming for the nucleolus
+    introduction: formal
+    introduction_aliases: ["命題（仁の逐次線形計画による決定）"]
+    requires:
+      - game.nucleolus
+      - game.least-core-linear-program
+      - game.nucleolus-existence-uniqueness

@@ -1,0 +1,47 @@
+id: "GAME-B5"
+title: "最小コア・仁"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GAME-B1
+  - GAME-B3
+  - OPT10
+official_scope: []
+learning_objectives:
+  - 有限 TU ゲームで提携 S の超過要求 e(S,x)=v(S)-x(S) を定義し、配分に対する提携の不足・余裕として符号を解釈できる
+  - インピュテーション上の最大超過要求 E(x) を最小化する最小コアを定義し、補助変数 epsilon を用いる線形計画として定式化できる
+  - 最小コア値 epsilon* が非正であることとコア非空が同値であり、コア非空時には最小コアがコアに含まれることを証明できる
+  - 空コアの3人多数決型ゲームで最小コア値 1/3 と対称配分 (1/3,1/3,1/3) を直接導出できる
+  - 超過要求を非増加順に並べたベクトルを辞書式最小化する仁を定義し、最小コアとの関係を説明できる
+  - 最小コアが線分として残る3人ゲームで、第2段階の最大未確定超過要求を最小化して仁 (3/4,3/4,1/2) を求められる
+  - 有限性・インピュテーション集合のコンパクト性・超過要求の線形性を使い、仁の存在と一意性を核心まで証明できる
+  - 仁の逐次線形計画では、ある端点でたまたま等号となる制約ではなく、前段階の最適面全体で固定される超過要求を保持すべき理由を説明できる
+  - Shapley 値の平均限界貢献と、仁の提携超過要求の辞書式最小化が異なる配分原理であることを具体例で比較できる
+definitions:
+  - { id: GAME-B5-DEF-01, name: 超過要求 }
+  - { id: GAME-B5-DEF-02, name: インピュテーション集合 }
+  - { id: GAME-B5-DEF-03, name: 最小コア }
+  - { id: GAME-B5-DEF-04, name: 仁 }
+theorems:
+  - { id: GAME-B5-PROP-01, name: 最小コアの線形計画表示 }
+  - { id: GAME-B5-PROP-02, name: 最小コア値とコアの非空性 }
+  - { id: GAME-B5-PROP-03, name: 仁の最小コア所属 }
+  - { id: GAME-B5-THM-01, name: 仁の存在と一意性 }
+  - { id: GAME-B5-PROP-04, name: 仁の逐次線形計画による決定 }
+canonical_examples:
+  - 3人多数決型ゲーム v({i,j})=1, v(N)=1 でコアが空でも最小コア値 1/3 と配分 (1/3,1/3,1/3) が得られる例
+  - v({1,2})=1, v(N)=2, その他の真部分提携価値0の3人ゲームで最小コアが線分 x=(t,3/2-t,1/2) となり、第2段階で仁 (3/4,3/4,1/2) に絞られる例
+  - 同じ3人ゲームで Shapley 値 (5/6,5/6,1/3) と仁 (3/4,3/4,1/2) を比較し、平均限界貢献と辞書式安定性の違いを確認する例
+problem_patterns:
+  - GAME-B5-EXCESS-1
+  - GAME-B5-MAJORITY-LEAST-CORE-1
+  - GAME-B5-CORE-SIGN-1
+  - GAME-B5-SECOND-STAGE-1
+  - GAME-B5-SYMMETRIC-LEAST-CORE-1
+  - GAME-B5-SHAPLEY-NUCLEOLUS-1
+  - GAME-B5-LP-FORMULATION-1
+  - GAME-B5-INTEGRATED-LEXICOGRAPHIC-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.5, review: 0.75 }
