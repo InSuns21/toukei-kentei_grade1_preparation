@@ -234,6 +234,15 @@
 17. [STO13 ポアソン過程・連続時間マルコフ連鎖・ランダム測度](textbook/volumes/00_foundations/STO13/index.md)
 18. [STO14 Lévy 過程・跳躍型確率解析](textbook/volumes/00_foundations/STO14/index.md)
 
+### 時系列解析（大学院レベル）
+
+1. [TSA1 定常過程・Hilbert 予測](textbook/volumes/00_foundations/TSA1/index.md)
+2. [TSA2 Wold 分解](textbook/volumes/00_foundations/TSA2/index.md)
+3. [TSA3 Herglotz の定理・スペクトル表現](textbook/volumes/00_foundations/TSA3/index.md)
+4. [TSA4 線形フィルタ・ARMA / ARIMA・周波数領域](textbook/volumes/00_foundations/TSA4/index.md)
+5. [TSA5 エルゴード性・混合性・従属極限定理](textbook/volumes/00_foundations/TSA5/index.md)
+6. [TSA6 状態空間・Kalman フィルタ・イノベーション](textbook/volumes/00_foundations/TSA6/index.md)
+
 ## 計算系
 
 ### 数値解析
@@ -395,15 +404,6 @@
 3. [RKHS3 カーネルリッジ回帰](textbook/volumes/00_foundations/RKHS3/index.md)
 4. [RKHS4 最大マージンとハードマージン SVM](textbook/volumes/00_foundations/RKHS4/index.md)
 5. [RKHS5 ソフトマージン・ヒンジ損失・カーネル SVM](textbook/volumes/00_foundations/RKHS5/index.md)
-
-### 時系列解析
-
-1. [TSA1 定常過程・Hilbert 予測](textbook/volumes/00_foundations/TSA1/index.md)
-2. [TSA2 Wold 分解](textbook/volumes/00_foundations/TSA2/index.md)
-3. [TSA3 Herglotz の定理・スペクトル表現](textbook/volumes/00_foundations/TSA3/index.md)
-4. [TSA4 線形フィルタ・ARMA / ARIMA・周波数領域](textbook/volumes/00_foundations/TSA4/index.md)
-5. [TSA5 エルゴード性・混合性・従属極限定理](textbook/volumes/00_foundations/TSA5/index.md)
-6. [TSA6 状態空間・Kalman フィルタ・イノベーション](textbook/volumes/00_foundations/TSA6/index.md)
 
 ### ミクロ経済学
 
