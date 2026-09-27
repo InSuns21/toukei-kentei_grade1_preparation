@@ -70,11 +70,11 @@ concepts:
       - game.deferred-acceptance-algorithm
 
   - id: game.deferred-acceptance-perfect-matching
-    name: 同数・完全選好の下での完全マッチング
+    name: 同数・完全選好の下では全員が組になる
     kind: proposition
     aliases: []
     introduction: formal
-    introduction_aliases: ["命題（同数・完全選好の下での完全マッチング）"]
+    introduction_aliases: ["命題（同数・完全選好の下では全員が組になる）"]
     requires:
       - game.deferred-acceptance-termination
 
