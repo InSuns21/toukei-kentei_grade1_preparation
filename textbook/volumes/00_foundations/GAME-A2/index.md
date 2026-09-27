@@ -1569,7 +1569,7 @@ $$
 (p^*)^{\mathsf T}Aq^*.
 $$
 
-ミニマックス定理より
+[ミニマックス定理](#thm-game-a2-minimax)より
 
 $$
 \underline v=\overline v=v^*
