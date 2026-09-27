@@ -13,7 +13,7 @@ learning_objectives:
   - 正のアフィン変換で理想点と解が同じ変換を受け、相対到達率が保存されることを証明できる
   - 曲線フロンティアの具体例で Nash 交渉解と Kalai--Smorodinsky 交渉解を双方計算し、両者が一般には一致しないことを説明できる
   - 実行可能集合の縮小で旧解が残っていても理想点が変われば Kalai--Smorodinsky 解が動く例を計算し、IIA を満たさない理由を説明できる
-  - 理想点固定の制限単調性を定式化し、実行可能集合の拡大で Kalai--Smorodinsky 解が悪化しないことを証明できる
+  - 個人単調性を定式化し、相手の理想値を変えずに自分の機会集合が拡大したとき Kalai--Smorodinsky 解で自分の効用が悪化しないことを証明できる
   - 絶対的な等利得増分と理想点への相対到達率を区別し、前者が効用尺度の変更に依存することを具体計算で示せる
   - 微分可能な効率的境界について Nash 解と Kalai--Smorodinsky 解が一致する接線条件を導出できる
 definitions:
@@ -21,13 +21,13 @@ definitions:
   - { id: GAME-C3-DEF-02, name: 理想点 }
   - { id: GAME-C3-DEF-03, name: 理想点への相対到達率 }
   - { id: GAME-C3-DEF-04, name: Kalai--Smorodinsky 交渉解 }
-  - { id: GAME-C3-DEF-05, name: 理想点固定の制限単調性 }
+  - { id: GAME-C3-DEF-05, name: 個人単調性 }
   - { id: GAME-C3-DEF-06, name: 等利得増分ベンチマーク }
 theorems:
   - { id: GAME-C3-PROP-01, name: Kalai--Smorodinsky 解の存在と一意性 }
   - { id: GAME-C3-THM-01, name: Kalai--Smorodinsky 解のパレート効率性 }
   - { id: GAME-C3-PROP-02, name: Kalai--Smorodinsky 解の正のアフィン不変性 }
-  - { id: GAME-C3-PROP-03, name: Kalai--Smorodinsky 解の理想点固定制限単調性 }
+  - { id: GAME-C3-PROP-03, name: Kalai--Smorodinsky 解は個人単調性を満たす }
 canonical_examples:
   - "F={x>=0:x1+x2<=10}, d=(2,1) で理想点 (9,8) への相対到達率をそろえると KS 解 (11/2,9/2) が Nash 解と一致する線形資源例"
   - "F={x>=0:x2<=1-x1^2}, d=0 で KS 解 ((sqrt(5)-1)/2,(sqrt(5)-1)/2) と Nash 解 (1/sqrt(3),2/3) が異なる曲線フロンティア例"
@@ -41,7 +41,7 @@ problem_patterns:
   - GAME-C3-AFFINE-INVARIANCE-1
   - GAME-C3-NASH-COMPARISON-1
   - GAME-C3-IIA-FAILURE-1
-  - GAME-C3-RESTRICTED-MONOTONICITY-1
+  - GAME-C3-INDIVIDUAL-MONOTONICITY-1
   - GAME-C3-EGALITARIAN-SCALE-1
   - GAME-C3-TANGENCY-COMPARISON-1
 past_exam_alignment: []
