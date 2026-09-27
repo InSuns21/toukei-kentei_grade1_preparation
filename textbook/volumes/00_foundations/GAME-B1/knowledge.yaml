@@ -47,7 +47,7 @@ concepts:
     aliases:
       - payoff allocation in a cooperative game
     introduction: formal
-    introduction_aliases: ["定義（配分・インピュテーション）"]
+    introduction_aliases: ["定義（協力ゲームの配分・インピュテーション）"]
     requires:
       - game.tu-characteristic-function-game
 
@@ -57,7 +57,7 @@ concepts:
     aliases:
       - imputation
     introduction: formal
-    introduction_aliases: ["定義（配分・インピュテーション）"]
+    introduction_aliases: ["定義（協力ゲームの配分・インピュテーション）"]
     requires:
       - game.payoff-allocation
 
