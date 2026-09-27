@@ -1,0 +1,75 @@
+chapter: GAME-A9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GAME-A8
+  - RA4
+
+forward_references: []
+
+concepts:
+  - id: auction.independent-private-values
+    name: 独立私的価値モデル
+    kind: definition
+    aliases:
+      - independent private values model
+    introduction: formal
+    introduction_aliases: ["定義（単一財の独立私的価値モデル）"]
+    requires:
+      - game.bayesian-game
+      - game.common-prior
+      - game.bayesian-strategy
+
+  - id: auction.first-price
+    name: 第一価格オークション
+    kind: definition
+    aliases:
+      - first-price auction
+    introduction: formal
+    introduction_aliases: ["定義（第一価格オークション）"]
+    requires:
+      - auction.independent-private-values
+
+  - id: auction.second-price
+    name: 第二価格オークション
+    kind: definition
+    aliases:
+      - second-price auction
+      - Vickrey auction
+    introduction: formal
+    introduction_aliases: ["定義（第二価格オークション）"]
+    requires:
+      - auction.independent-private-values
+
+  - id: auction.second-price-truthful-dominance
+    name: 第二価格オークションにおける正直入札の弱支配性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（第二価格オークションにおける正直入札の弱支配性）"]
+    requires:
+      - auction.second-price
+      - game.weak-dominance
+
+  - id: auction.first-price-symmetric-bne
+    name: 第一価格オークションの対称 Bayesian Nash 均衡
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（第一価格オークションの対称 Bayesian Nash 均衡）"]
+    requires:
+      - auction.first-price
+      - game.bayesian-nash-equilibrium
+      - game.interim-expected-payoff
+      - analysis.ftc-2
+
+  - id: auction.first-second-payment-equivalence
+    name: 独立私的価値モデルにおける第一価格・第二価格の期待支払一致
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（独立私的価値モデルにおける第一価格・第二価格の期待支払一致）"]
+    requires:
+      - auction.first-price-symmetric-bne
+      - auction.second-price-truthful-dominance
+      - analysis.ftc-2
