@@ -16,10 +16,12 @@ learning_objectives:
   - 3人多数決型ゲームで提携制約を加え、コアが空になることを直接証明できる
   - 対称3人ゲームでコア非空条件を導き、GAME-B2 の balancedness へつながる提携要求の両立可能性を説明できる
 definitions:
-  - { id: GAME-B1-DEF-01, name: 譲渡可能効用の特性関数形ゲーム }
-  - { id: GAME-B1-DEF-02, name: インピュテーション }
-  - { id: GAME-B1-DEF-03, name: 提携によるブロック }
-  - { id: GAME-B1-DEF-04, name: コア }
+  - { id: GAME-B1-DEF-01, name: 協力ゲームの特性関数 }
+  - { id: GAME-B1-DEF-02, name: 譲渡可能効用の特性関数形ゲーム }
+  - { id: GAME-B1-DEF-03, name: 協力ゲームの配分 }
+  - { id: GAME-B1-DEF-04, name: インピュテーション }
+  - { id: GAME-B1-DEF-05, name: 提携によるブロック }
+  - { id: GAME-B1-DEF-06, name: コア }
 theorems:
   - { id: GAME-B1-PROP-01, name: 有限 TU ゲームのコアの多面体性と有界性 }
   - { id: GAME-B1-PROP-02, name: コアとブロック不在の同値 }
