@@ -89,7 +89,7 @@ DREAM THEATER では各演習に詳細解答を必須とし、本番答案・20�
 
 ### 6. 依存関係
 
-対象章の `prerequisites`、knowledge DAG、standard math core の読順を確認する。
+対象章の `chapter.yaml` / `knowledge.yaml` の `prerequisites`、knowledge DAG、`dream-theater-standard-math-core.md` の通読順を確認する。通読順は実際の依存関係から導く案内であり、独立した依存DAGの正本として扱わない。
 
 - prerequisite 外の概念を暗黙使用しない。
 - prerequisite 済みの高度な概念を「難しそう」という理由だけで再定義・削除しない。
@@ -134,7 +134,7 @@ DREAM THEATER では各演習に詳細解答を必須とし、本番答案・20�
 - `npm run audit:proof-pedagogy`
 - `npm run audit:formalism-pedagogy`
 
-を使い、knowledge / standard math core を変更した場合は対応する strict validation も実行する。
+を使い、`knowledge.yaml`・全体概念レジストリ・依存監査ロジックを変更した場合は対応する strict validation も実行する。`dream-theater-standard-math-core.md` だけを変更した場合は Pages / リンク検証と prerequisite の人手照合を行う。
 
 DREAM THEATER の概念依存検証は、PR では変更ページに対する changed-only strict validation を原則とする。新規章を index へ追加するだけの pure-add と、その新規章の `knowledge.yaml` 追加を理由に全体概念監査を強制しない。既存章の `knowledge.yaml` 変更、index の削除・移動・並べ替え、全体レジストリ・推論規則・監査エンジンの変更など、未変更ページへ波及しうる変更では full audit を実行する。main への push では全体監査を行う。具体的な scope 判定は `DREAM_THEATER_AUTHORING_STANDARD.md` と CI の scope detector を正本とする。
 
