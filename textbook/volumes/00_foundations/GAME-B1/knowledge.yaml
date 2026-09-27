@@ -1,0 +1,94 @@
+chapter: GAME-B1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GAME-A1
+  - OPT10
+
+forward_references: []
+
+concepts:
+  - id: game.cooperative-characteristic-function
+    name: 協力ゲームの特性関数
+    kind: definition
+    aliases:
+      - characteristic function of a cooperative game
+      - characteristic function of a TU game
+    introduction: formal
+    introduction_aliases: ["定義（特性関数・譲渡可能効用の特性関数形ゲーム）"]
+    requires:
+      - set.function
+
+  - id: game.tu-characteristic-function-game
+    name: 譲渡可能効用の特性関数形ゲーム
+    kind: definition
+    aliases:
+      - TU characteristic-function game
+      - transferable-utility characteristic-function game
+    introduction: formal
+    introduction_aliases: ["定義（特性関数・譲渡可能効用の特性関数形ゲーム）"]
+    requires:
+      - set.set
+      - game.cooperative-characteristic-function
+
+  - id: game.coalition
+    name: 提携
+    kind: definition
+    aliases:
+      - coalition
+    introduction: formal
+    introduction_aliases: ["定義（特性関数・譲渡可能効用の特性関数形ゲーム）"]
+    requires:
+      - game.tu-characteristic-function-game
+
+  - id: game.imputation
+    name: インピュテーション
+    kind: definition
+    aliases:
+      - imputation
+    introduction: formal
+    introduction_aliases: ["定義（インピュテーション）"]
+    requires:
+      - game.tu-characteristic-function-game
+
+  - id: game.blocking-coalition
+    name: 提携によるブロック
+    kind: definition
+    aliases:
+      - blocking coalition
+    introduction: formal
+    introduction_aliases: ["定義（提携によるブロック）"]
+    requires:
+      - game.tu-characteristic-function-game
+
+  - id: game.core
+    name: コア
+    kind: definition
+    aliases:
+      - core of a cooperative game
+    introduction: formal
+    introduction_aliases: ["定義（コア）"]
+    requires:
+      - game.imputation
+      - game.blocking-coalition
+      - optimization.polyhedron
+
+  - id: game.core-polytope
+    name: 有限 TU ゲームのコアの多面体性と有界性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（有限 TU ゲームのコアは多面体であり、非空なら有界である）"]
+    requires:
+      - game.core
+      - optimization.polyhedron
+
+  - id: game.core-no-block-equivalence
+    name: コアとブロック不在の同値
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（コアとブロック不在の同値）"]
+    requires:
+      - game.core
+      - game.blocking-coalition

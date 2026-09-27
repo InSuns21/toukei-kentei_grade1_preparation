@@ -286,6 +286,12 @@ Hilbert 空間と Riesz 表現から再生核を構成し、有限標本上の�
 10. [GAME-A10 動学的不完備情報・信念・Perfect Bayesian Equilibrium](textbook/volumes/00_foundations/GAME-A10/index.md)
 11. [GAME-A11 シグナリング・スクリーニング・チープトーク入門](textbook/volumes/00_foundations/GAME-A11/index.md)
 
+### ゲーム理論外伝 B
+
+提携ごとに作れる価値を特性関数で表し、その価値をどう配れば部分集団に離脱されないかを調べる協力ゲーム系列です。まず有限の譲渡可能効用ゲームを導入し、安定配分の集合であるコアを線形不等式と多面体として読みます。
+
+1. [GAME-B1 特性関数形ゲーム・コア](textbook/volumes/00_foundations/GAME-B1/index.md)
+
 ---
 
 ## 2. 確率論
