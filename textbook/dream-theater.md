@@ -482,3 +482,4 @@
 18. [GAME-C1 Nash 交渉問題](textbook/volumes/00_foundations/GAME-C1/index.md)
 19. [GAME-C2 Nash 交渉解の公理化](textbook/volumes/00_foundations/GAME-C2/index.md)
 20. [GAME-C3 代替的交渉解](textbook/volumes/00_foundations/GAME-C3/index.md)
+21. [GAME-C4 Rubinstein 交渉](textbook/volumes/00_foundations/GAME-C4/index.md)
