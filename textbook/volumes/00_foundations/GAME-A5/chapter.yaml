@@ -1,0 +1,44 @@
+id: "GAME-A5"
+title: "展開形ゲーム・部分ゲーム完全均衡"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GAME-A1
+official_scope: []
+learning_objectives:
+  - 完全情報の有限展開形ゲームを履歴・手番・行動集合・終端利得から定義し、ゲーム木の各要素を具体例で対応付けられる
+  - 展開形ゲームの純粋戦略が、実際に到達しない節点を含む完全な条件付き行動計画であることを説明し、戦略形へ変換できる
+  - 部分ゲームを切り出し、部分ゲーム完全均衡を各部分ゲームでの Nash 均衡として判定できる
+  - Nash 均衡には経路外の空脅しが残り得ることを参入ゲームで説明し、部分ゲーム完全性がそれを除く仕組みを示せる
+  - 後ろ向き帰納法を有限完全情報ゲームへ適用し、各節点での合理的継続から戦略プロファイルを構成できる
+  - 木の高さに関する帰納法を用いて、有限完全情報ゲームに純粋戦略の部分ゲーム完全均衡が存在することを証明できる
+  - 同点があると後ろ向き帰納法と部分ゲーム完全均衡が複数になり得ることを説明できる
+  - 有限性・完全情報の仮定が後ろ向き帰納法のどこで使われるかを説明できる
+definitions:
+  - { id: GAME-A5-DEF-01, name: 完全情報の有限展開形ゲーム }
+  - { id: GAME-A5-DEF-02, name: ゲーム木 }
+  - { id: GAME-A5-DEF-03, name: 展開形ゲームの純粋戦略 }
+  - { id: GAME-A5-DEF-04, name: 部分ゲーム }
+  - { id: GAME-A5-DEF-05, name: 部分ゲーム完全均衡 }
+  - { id: GAME-A5-DEF-06, name: 後ろ向き帰納法 }
+theorems:
+  - { id: GAME-A5-PROP-01, name: 部分ゲーム完全均衡は Nash 均衡 }
+  - { id: GAME-A5-THM-01, name: 後ろ向き帰納法による部分ゲーム完全均衡の存在 }
+canonical_examples:
+  - 参入阻止ゲームで Nash 均衡に残る空脅しを部分ゲーム完全性で除く例
+  - プレイヤーが複数回動く木で、到達しない節点の行動も純粋戦略に含まれることを確認する例
+  - 三段階ゲームを終端側から後ろ向き帰納法で解く例
+  - パラメータ付き三段階ゲームで Nash 均衡と部分ゲーム完全均衡の閾値が異なる例
+problem_patterns:
+  - GAME-A5-TREE-1
+  - GAME-A5-CONTINGENT-STRATEGY-1
+  - GAME-A5-NASH-VS-SPE-1
+  - GAME-A5-BACKWARD-INDUCTION-1
+  - GAME-A5-SUBGAME-FILTER-1
+  - GAME-A5-SPE-IMPLIES-NASH-1
+  - GAME-A5-PARAMETER-SPE-1
+  - GAME-A5-INTEGRATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 4.0, review: 0.75 }

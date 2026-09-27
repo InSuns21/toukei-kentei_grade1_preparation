@@ -272,12 +272,13 @@ Hilbert 空間と Riesz 表現から再生核を構成し、有限標本上の�
 
 ### ゲーム理論外伝 A
 
-戦略形ゲームの読み方から始め、相互最適反応としての Nash 均衡、混合戦略、minimax、均衡存在、連続ゲームへ進みます。
+戦略形ゲームの読み方から始め、相互最適反応としての Nash 均衡、混合戦略、minimax、均衡存在、連続ゲームを経て、意思決定の順序を明示する展開形ゲームへ進みます。
 
 1. [GAME-A1 戦略形ゲーム・最適反応・Nash 均衡](textbook/volumes/00_foundations/GAME-A1/index.md)
 2. [GAME-A2 混合戦略・ゼロ和ゲーム・ミニマックス](textbook/volumes/00_foundations/GAME-A2/index.md)
 3. [GAME-A3 Nash 均衡の存在](textbook/volumes/00_foundations/GAME-A3/index.md)
 4. [GAME-A4 凹ゲーム・KKT・変分不等式](textbook/volumes/00_foundations/GAME-A4/index.md)
+5. [GAME-A5 展開形ゲーム・部分ゲーム完全均衡](textbook/volumes/00_foundations/GAME-A5/index.md)
 
 ---
 

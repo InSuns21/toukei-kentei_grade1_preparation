@@ -1,0 +1,94 @@
+chapter: GAME-A5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GAME-A1
+
+forward_references: []
+
+concepts:
+  - id: game.finite-perfect-information-extensive-form
+    name: 完全情報の有限展開形ゲーム
+    kind: definition
+    aliases:
+      - finite extensive-form game with perfect information
+    introduction: formal
+    introduction_aliases: ["定義（完全情報の有限展開形ゲーム）"]
+    requires:
+      - game.strategic-form-game
+
+  - id: game.game-tree
+    name: ゲーム木
+    kind: definition
+    aliases:
+      - game tree
+    introduction: formal
+    introduction_aliases: ["定義（ゲーム木）"]
+    requires:
+      - game.finite-perfect-information-extensive-form
+
+  - id: game.extensive-form-pure-strategy
+    name: 展開形ゲームの純粋戦略
+    kind: definition
+    aliases:
+      - pure strategy in an extensive-form game
+    introduction: formal
+    introduction_aliases: ["定義（展開形ゲームの純粋戦略）"]
+    requires:
+      - game.finite-perfect-information-extensive-form
+      - game.strategy-profile
+
+  - id: game.subgame
+    name: 部分ゲーム
+    kind: definition
+    aliases:
+      - subgame
+    introduction: formal
+    introduction_aliases: ["定義（部分ゲーム）"]
+    requires:
+      - game.finite-perfect-information-extensive-form
+
+  - id: game.subgame-perfect-equilibrium
+    name: 部分ゲーム完全均衡
+    kind: definition
+    aliases:
+      - subgame-perfect equilibrium
+      - subgame perfect equilibrium
+      - SPNE
+    introduction: formal
+    introduction_aliases: ["定義（部分ゲーム完全均衡）"]
+    requires:
+      - game.subgame
+      - game.pure-strategy-nash-equilibrium
+      - game.extensive-form-pure-strategy
+
+  - id: game.backward-induction
+    name: 後ろ向き帰納法
+    kind: definition
+    aliases:
+      - backward induction
+    introduction: formal
+    introduction_aliases: ["定義（後ろ向き帰納法）"]
+    requires:
+      - game.finite-perfect-information-extensive-form
+      - game.subgame
+
+  - id: game.spe-implies-nash
+    name: 部分ゲーム完全均衡は Nash 均衡
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（部分ゲーム完全均衡は Nash 均衡）"]
+    requires:
+      - game.subgame-perfect-equilibrium
+      - game.pure-strategy-nash-equilibrium
+
+  - id: game.backward-induction-spe-existence
+    name: 後ろ向き帰納法による部分ゲーム完全均衡の存在
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（後ろ向き帰納法による部分ゲーム完全均衡の存在）"]
+    requires:
+      - game.backward-induction
+      - game.subgame-perfect-equilibrium
