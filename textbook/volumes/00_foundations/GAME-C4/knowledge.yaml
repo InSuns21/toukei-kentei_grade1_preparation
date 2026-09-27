@@ -1,0 +1,74 @@
+chapter: GAME-C4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GAME-C3
+  - GAME-A5
+
+forward_references: []
+
+concepts:
+  - id: game.rubinstein-alternating-offers
+    name: Rubinstein の交互提案交渉ゲーム
+    kind: definition
+    aliases:
+      - alternating-offers bargaining game
+      - Rubinstein bargaining game
+    introduction: formal
+    introduction_aliases: ["定義（Rubinstein の交互提案交渉ゲーム）"]
+    requires:
+      - game.subgame-perfect-equilibrium
+      - game.nash-bargaining-problem
+
+  - id: game.bargaining-stationary-strategy
+    name: 定常戦略
+    kind: definition
+    aliases:
+      - stationary strategy
+    introduction: formal
+    introduction_aliases: ["定義（定常戦略）"]
+    requires:
+      - game.rubinstein-alternating-offers
+
+  - id: game.rubinstein-stationary-spe
+    name: 定常戦略による部分ゲーム完全均衡
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（定常戦略による部分ゲーム完全均衡）"]
+    requires:
+      - game.rubinstein-alternating-offers
+      - game.bargaining-stationary-strategy
+      - game.subgame-perfect-equilibrium
+
+  - id: game.rubinstein-bargaining-theorem
+    name: Rubinstein 交渉定理
+    kind: theorem
+    aliases:
+      - Rubinstein bargaining theorem
+    introduction: formal
+    introduction_aliases: ["定理（Rubinstein 交渉定理：共通割引因子）"]
+    requires:
+      - game.rubinstein-alternating-offers
+      - game.rubinstein-stationary-spe
+      - game.subgame-perfect-equilibrium
+
+  - id: game.rubinstein-bargaining-solution
+    name: Rubinstein 交渉解
+    kind: definition
+    aliases:
+      - Rubinstein bargaining solution
+    introduction: formal
+    introduction_aliases: ["定義（Rubinstein 交渉解）"]
+    requires:
+      - game.rubinstein-bargaining-theorem
+
+  - id: game.finite-horizon-alternating-offers
+    name: 有限期限交互提案ゲームの後ろ向き帰納法
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（有限期限交互提案ゲームの後ろ向き帰納法）"]
+    requires:
+      - game.rubinstein-alternating-offers
+      - game.backward-induction
