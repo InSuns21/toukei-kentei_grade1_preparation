@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - GAME-A3
+  - F0-00P2A
 official_scope: []
 learning_objectives:
   - 有限ベイジアンゲームをプレイヤー・行動集合・タイプ集合・共通事前分布・タイプ依存利得から定義し、誰が何を観察するかを説明できる
