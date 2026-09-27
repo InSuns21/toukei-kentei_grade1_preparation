@@ -90,10 +90,10 @@ concepts:
       - optimization.kkt-conditions
 
   - id: game.nash-bargaining-pareto-efficiency
-    name: Nash 交渉解の パレート 効率性
+    name: Nash 交渉解の パレート効率性
     kind: theorem
     aliases: []
     introduction: formal
-    introduction_aliases: ["定理（Nash 交渉解は パレート 効率的である）"]
+    introduction_aliases: ["定理（Nash 交渉解は パレート効率的である）"]
     requires:
       - game.nash-bargaining-solution
