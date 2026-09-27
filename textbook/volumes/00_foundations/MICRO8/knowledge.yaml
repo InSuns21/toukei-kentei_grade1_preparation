@@ -104,12 +104,12 @@ concepts:
       - micro.first-welfare-theorem
 
   - id: micro.production-second-welfare-theorem
-    name: 生産経済の第二厚生定理
+    name: 生産経済の第二厚生定理：滑らかな凸版
     kind: theorem
     aliases:
       - second welfare theorem with production
     introduction: formal
-    introduction_aliases: ["定理（生産経済の第二厚生定理）"]
+    introduction_aliases: ["定理（生産経済の第二厚生定理：滑らかな凸版）"]
     requires:
       - micro.second-welfare-theorem
       - micro.production-supporting-price-theorem
