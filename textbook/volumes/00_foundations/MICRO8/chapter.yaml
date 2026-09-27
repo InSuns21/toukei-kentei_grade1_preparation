@@ -28,7 +28,7 @@ theorems:
   - { id: MICRO8-PROP-01, name: 企業供給対応と利潤関数の正則性 }
   - { id: MICRO8-PROP-02, name: 生産経済版 Walras の法則 }
   - { id: MICRO8-THM-01, name: 生産を含む第一厚生定理 }
-  - { id: MICRO8-THM-02, name: 生産経済の第二厚生定理 }
+  - { id: MICRO8-THM-02, name: 生産経済の第二厚生定理：滑らかな凸版 }
   - { id: MICRO8-THM-03, name: コンパクト凸生産集合の Arrow--Debreu 均衡の存在 }
 canonical_examples:
   - 二財二消費者一企業で企業所有比率から利潤所得と各消費者の所得を計算する例
