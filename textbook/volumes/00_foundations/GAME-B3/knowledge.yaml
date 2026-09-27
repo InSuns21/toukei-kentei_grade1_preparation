@@ -43,7 +43,7 @@ concepts:
     aliases:
       - random-order representation of the Shapley value
     introduction: formal
-    introduction_aliases: ["命題（Shapley 値はランダム到着順の期待限界貢献である）"]
+    introduction_aliases: ["命題（Shapley 値はランダム到着順の平均限界貢献である）"]
     requires:
       - game.shapley-value
       - game.marginal-contribution
