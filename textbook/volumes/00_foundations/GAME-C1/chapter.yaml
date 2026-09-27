@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - OPT5
+  - MICRO5
 official_scope: []
 learning_objectives:
   - 実行可能集合 F と決裂点 d から Nash 交渉問題を定式化し、各成分 x_i-d_i を交渉による利得増分として解釈できる
