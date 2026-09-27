@@ -472,7 +472,7 @@ $$
 
 $x\in\operatorname{Core}(v)$ を一つ取ります。
 
-[GAME-B1 のコアの定義](../GAME-B1/index.md#def-game-b1-core)から、すべての非空提携 $S$ について、
+[コア](../GAME-B1/index.md#def-game-b1-core)から、すべての非空提携 $S$ について、
 
 $$
 x(S)\ge v(S).
@@ -1093,7 +1093,7 @@ $$
 
 とします。
 
-すると [コア非空性から平衡性への命題](#prop-game-b2-core-implies-balanced)より、$(N,v)$ は平衡ゲームです。
+すると [コア非空性から平衡性への必要条件](#prop-game-b2-core-implies-balanced)より、$(N,v)$ は平衡ゲームです。
 
 逆に $(N,v)$ が平衡ゲームであるとします。
 
@@ -1166,7 +1166,7 @@ $$
 p^*=d^*=v(N).
 $$
 
-[コア被覆線形計画とコア非空性の同値](#prop-game-b2-core-covering-lp)より、
+[コア被覆線形計画と平衡重み双対](#prop-game-b2-core-covering-lp)より、
 
 $$
 p^*=v(N)
@@ -1250,7 +1250,7 @@ $$
 p^*=v(N)
 $$
 
-なら、[コア被覆線形計画の命題](#prop-game-b2-core-covering-lp)からコア配分が存在します。
+なら、[コア被覆線形計画と平衡重み双対](#prop-game-b2-core-covering-lp)からコア配分が存在します。
 
 したがってコアが空なら、
 
@@ -1276,7 +1276,7 @@ $$
 
 逆に、そのような平衡重み $\lambda$ が存在したとします。
 
-もしコア配分 $x$ が存在すれば、[コア非空性から平衡性への命題](#prop-game-b2-core-implies-balanced)により、
+もしコア配分 $x$ が存在すれば、[コア非空性から平衡性への必要条件](#prop-game-b2-core-implies-balanced)により、
 
 $$
 \sum_S\lambda_Sv(S)\le v(N)
@@ -1448,7 +1448,7 @@ $$
 
 が実際にコアに入ることを GAME-B1 で確認済みです。
 
-したがって [コア非空性から平衡性への命題](#prop-game-b2-core-implies-balanced)により、このゲームではすべての平衡不等式が自動的に成立します。
+したがって [コア非空性から平衡性への必要条件](#prop-game-b2-core-implies-balanced)により、このゲームではすべての平衡不等式が自動的に成立します。
 
 ここで、
 
