@@ -42,12 +42,13 @@ concepts:
       - game.tu-characteristic-function-game
 
   - id: game.imputation
-    name: インピュテーション
+    name: 配分
     kind: definition
     aliases:
+      - インピュテーション
       - imputation
     introduction: formal
-    introduction_aliases: ["定義（インピュテーション）"]
+    introduction_aliases: ["定義（配分）"]
     requires:
       - game.tu-characteristic-function-game
 
