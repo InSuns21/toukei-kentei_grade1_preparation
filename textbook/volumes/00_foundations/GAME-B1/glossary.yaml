@@ -1,0 +1,23 @@
+chapter: "GAME-B1"
+terms:
+  - term: 提携
+    english: coalition
+    meaning: 協力ゲームで共同して行動するプレイヤーの部分集合。
+  - term: 大提携
+    english: grand coalition
+    meaning: 全プレイヤーを含む提携 N。
+  - term: 特性関数
+    english: characteristic function
+    meaning: 各提携 S に、その提携だけで協力したときに実現できる総価値 v(S) を対応させる関数。
+  - term: 譲渡可能効用
+    english: transferable utility
+    meaning: 提携が作った総価値を、提携内部で自由に移転・再配分できるとする仮定。
+  - term: インピュテーション
+    english: imputation
+    meaning: 大提携の価値をちょうど配り切る効率性と、各プレイヤーへ単独価値以上を与える個人合理性を満たす配分。
+  - term: ブロック
+    english: blocking
+    meaning: 提携 S が現在の受取合計 x(S) より大きい価値 v(S) を自力で作れ、その余剰を使ってメンバー全員を厳密改善できること。
+  - term: コア
+    english: core
+    meaning: 大提携の価値を効率的に配り、どの提携にもブロックされない配分全体。
