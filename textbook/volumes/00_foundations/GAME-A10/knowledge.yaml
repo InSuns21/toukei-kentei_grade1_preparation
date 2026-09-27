@@ -86,6 +86,26 @@ concepts:
       - game.sequential-rationality
       - game.bayesian-consistency
 
+  - id: game.separating-strategy
+    name: 分離型戦略
+    kind: definition
+    aliases:
+      - separating strategy
+    introduction: formal
+    introduction_aliases: ["定義（分離型・プーリング型）"]
+    requires:
+      - game.perfect-bayesian-equilibrium
+
+  - id: game.pooling-strategy
+    name: プーリング型戦略
+    kind: definition
+    aliases:
+      - pooling strategy
+    introduction: formal
+    introduction_aliases: ["定義（分離型・プーリング型）"]
+    requires:
+      - game.perfect-bayesian-equilibrium
+
   - id: game.on-path-bayes-uniqueness
     name: 到達情報集合における Bayes 信念の一意性
     kind: proposition
