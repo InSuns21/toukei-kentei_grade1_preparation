@@ -83,7 +83,7 @@ $$
 
 です。
 
-結論は Bondareva--Shapley の定理です。
+結論は [Bondareva--Shapley の定理](#thm-game-b2-bondareva-shapley)です。
 
 $$
 \boxed{
@@ -248,7 +248,7 @@ $$
 
 よってこれは平衡重みです。
 
-対応する平衡集合族は、
+この重みで正の値を持つ提携からなる平衡集合族は、
 
 $$
 \mathcal B
@@ -1160,7 +1160,7 @@ $$
 d^*=v(N).
 $$
 
-線形計画の強双対性から、
+[線形計画の強双対性](../OPT10/index.md#thm-opt10-strong-duality)から、
 
 $$
 p^*=d^*=v(N).
@@ -1194,7 +1194,7 @@ $\square$
 
 ## 8. コアが空なら、どの提携要求が衝突しているかを平衡重みが証明する
 
-Bondareva--Shapley の定理を否定形で読むと、さらに実用的です。
+[Bondareva--Shapley の定理](#thm-game-b2-bondareva-shapley)を否定形で読むと、さらに実用的です。
 
 <a id="cor-game-b2-empty-core-certificate"></a>
 
@@ -1250,7 +1250,7 @@ $$
 p^*=v(N)
 $$
 
-なら、前節の命題からコア配分が存在します。
+なら、[コア被覆線形計画の命題](#prop-game-b2-core-covering-lp)からコア配分が存在します。
 
 したがってコアが空なら、
 
@@ -1357,7 +1357,7 @@ $$
 v(N).
 $$
 
-したがって Bondareva--Shapley の定理から、
+したがって [Bondareva--Shapley の定理](#thm-game-b2-bondareva-shapley)から、
 
 $$
 \boxed{
@@ -1679,7 +1679,7 @@ $$
 
 ## 14. 「コアの線形不等式」と「平衡性」は主問題と双対問題の二つの見方である
 
-本章の対応を一枚にまとめると、
+本章の主双対関係を一枚にまとめると、
 
 $$
 \boxed{
@@ -1900,7 +1900,7 @@ $$
 
 1. この重みが平衡であることを確認せよ。
 2. $\sum_S\lambda_Sv(S)$ を求めよ。
-3. Bondareva--Shapley の定理からコアが空であることを結論せよ。
+3. [Bondareva--Shapley の定理](#thm-game-b2-bondareva-shapley)からコアが空であることを結論せよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -1943,7 +1943,7 @@ $$
 
 平衡ゲームの条件に違反する平衡重みが存在します。
 
-Bondareva--Shapley の定理より、
+[Bondareva--Shapley の定理](#thm-game-b2-bondareva-shapley)より、
 
 $$
 \boxed{
@@ -2134,9 +2134,9 @@ $$
 \lambda_{123}
 $$
 
-を対応させる。
+を割り当てる。
 
-1. プレイヤー1,2,3に対応する双対等式をそれぞれ書け。
+1. プレイヤー1,2,3について得られる双対等式をそれぞれ書け。
 2. 双対目的関数を書け。
 3. 双対実行可能条件が平衡重みの条件になっていることを説明せよ。
 
@@ -2615,7 +2615,7 @@ $$
 
 1. 三つの二人提携へ各 $1/2$ を置く平衡重みから、コア非空性に必要な条件を導け。
 2. $b\ge3a/2$ のとき、対称配分 $x_i=b/3$ がコアに入ることを示せ。
-3. Bondareva--Shapley の定理と合わせ、
+3. [Bondareva--Shapley の定理](#thm-game-b2-bondareva-shapley)と合わせ、
    $$
    \operatorname{Core}(v)\ne\varnothing
    \iff
@@ -2844,7 +2844,7 @@ $$
    \le b
    $$
    を示し、ゲームが平衡であることを平衡重みから直接確認せよ。
-6. 1 と 5 を、Bondareva--Shapley の定理の「違反双対証明書」と「全双対実行可能値の上界」という二つの見方で説明せよ。
+6. 1 と 5 を、[Bondareva--Shapley の定理](#thm-game-b2-bondareva-shapley)の「違反双対証明書」と「全双対実行可能値の上界」という二つの見方で説明せよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -2891,7 +2891,7 @@ $$
 2>b=v(N).
 $$
 
-Bondareva--Shapley の定理より、
+[Bondareva--Shapley の定理](#thm-game-b2-bondareva-shapley)より、
 
 $$
 \boxed{
@@ -3158,7 +3158,7 @@ $$
 }
 $$
 
-という本章の対応を、空コア側と非空コア側の両方から確認しています。
+という本章の主双対関係を、空コア側と非空コア側の両方から確認しています。
 <!-- solution-end -->
 
 ---
