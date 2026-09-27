@@ -1,5 +1,5 @@
 id: "GAME-A11"
-title: "signaling・screening・cheap talk 入門"
+title: "シグナリング・スクリーニング・チープトーク入門"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -13,15 +13,15 @@ learning_objectives:
   - 同じモデルでプーリング候補を検査し、経路外信念が支えられる候補と、送り手の逸脱により支えられない候補を区別できる
   - screening を、情報を持たない側が選択肢のメニューを先に提示してタイプの自己選択を誘う仕組みとして説明し、signaling との手番差を区別できる
   - cheap talk を、メッセージ自体に直接費用も拘束力もない情報伝達として定義し、選好の不一致が情報伝達を壊し得ることを説明できる
-  - cheap-talk game で babbling equilibrium を構成し、選好が十分整合する場合には費用のないメッセージでも情報伝達が可能であることを具体例で確認できる
+  - チープトークゲームで babbling equilibrium を構成し、選好が十分整合する場合には費用のないメッセージでも情報伝達が可能であることを具体例で確認できる
 definitions:
   - { id: GAME-A11-DEF-01, name: シグナリングゲーム }
   - { id: GAME-A11-DEF-02, name: 半分離型戦略 }
   - { id: GAME-A11-DEF-03, name: スクリーニング }
-  - { id: GAME-A11-DEF-04, name: cheap talk }
+  - { id: GAME-A11-DEF-04, name: チープトーク }
 theorems:
   - { id: GAME-A11-PROP-01, name: 二タイプ教育シグナリングモデルの分離条件 }
-  - { id: GAME-A11-PROP-02, name: cheap-talk game における babbling PBE の存在 }
+  - { id: GAME-A11-PROP-02, name: チープトークゲームにおける babbling PBE の存在 }
 canonical_examples:
   - 高能力・低能力の労働者が費用の異なる教育シグナルを選び、企業が観察後に高職位へ配置するかを決める二タイプ signaling game
   - 高能力だけが教育を選ぶ分離型 PBE と、両タイプが無教育を選ぶプーリング PBE を同じ数値モデルで比較する例
