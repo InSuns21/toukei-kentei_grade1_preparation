@@ -37,8 +37,8 @@ concepts:
     aliases:
       - positive affine invariance
       - invariance to positive affine transformations
-    introduction: derived
-    introduction_aliases: ["正のアフィン変換に対する不変性"]
+    introduction: formal
+    introduction_aliases: ["定義（Nash 交渉解を特徴付ける四公理）"]
     requires:
       - game.nash-bargaining-axioms
 
@@ -48,8 +48,8 @@ concepts:
     aliases:
       - independence of irrelevant alternatives
       - IIA
-    introduction: derived
-    introduction_aliases: ["無関係な選択肢からの独立性"]
+    introduction: formal
+    introduction_aliases: ["定義（Nash 交渉解を特徴付ける四公理）"]
     requires:
       - game.nash-bargaining-axioms
 
@@ -87,4 +87,3 @@ concepts:
       - game.nash-bargaining-axioms
       - game.nash-bargaining-axiom-satisfaction
       - game.nash-bargaining-supporting-simplex
-      - game.shapley-axiomatic-characterization
