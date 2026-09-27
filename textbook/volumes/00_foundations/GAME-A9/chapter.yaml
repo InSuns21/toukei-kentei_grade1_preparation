@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - GAME-A8
+  - RA4
 official_scope: []
 learning_objectives:
   - 単一財の独立私的価値モデルを、評価額を私的タイプとするベイジアンゲームとして記述し、準線形利得と入札戦略の意味を説明できる
