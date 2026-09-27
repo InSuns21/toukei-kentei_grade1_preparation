@@ -1,7 +1,8 @@
 chapter: GAME-A1
 scope: dream-theater
 coverage: complete
-prerequisites: []
+prerequisites:
+  - F0-00A
 
 forward_references: []
 
@@ -15,7 +16,10 @@ concepts:
       - 標準形ゲーム
     introduction: formal
     introduction_aliases: ["定義（有限戦略形ゲーム・戦略プロファイル）"]
-    requires: []
+    requires:
+      - set.set
+      - set.cartesian-product
+      - set.function
 
   - id: game.strategy-profile
     name: 戦略プロファイル

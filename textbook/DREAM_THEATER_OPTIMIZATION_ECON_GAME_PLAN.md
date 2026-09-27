@@ -1266,7 +1266,7 @@ MICRO7 は FIX3 完成後とする。
 GAME-A1 → GAME-A2 → GAME-A3 → GAME-A4 → GAME-A5
 ```
 
-- [x] GAME-A1「戦略形ゲーム・最適反応・Nash 均衡」を実装。有限戦略形ゲーム、戦略プロファイル、一方的変更、厳密支配・弱支配、最適反応、純粋戦略 Nash 均衡を canonical 化した。Nash 均衡を相互最適反応として特徴付け、厳密被支配戦略の排除と全員が厳密な支配戦略を持つ場合の一意性を証明した。囚人のジレンマ、複数均衡を持つ協調ゲーム、弱く支配される戦略を含む均衡、matching pennies の純粋均衡不存在、パラメータ付き2×2ゲームまでを具体計算で閉じた。
+- [x] GAME-A1「戦略形ゲーム・最適反応・Nash 均衡」を実装。有限戦略形ゲーム、戦略プロファイル、一方的変更、厳密支配・弱支配、最適反応、純粋戦略 Nash 均衡を canonical 化した。Nash 均衡を相互最適反応として特徴付け、厳密被支配戦略の排除と全員が厳密な支配戦略を持つ場合の一意性を証明した。囚人のジレンマ、複数均衡を持つ協調ゲーム、弱く支配される戦略を含む均衡、表裏合わせゲーム の純粋均衡不存在、パラメータ付き2×2ゲームまでを具体計算で閉じた。
 - A2 は OPT10 を使う。
 - A3 は FIX3 を使う。
 - A4 は OPT5 / OPT6 を使う。
@@ -1335,7 +1335,7 @@ MICRO / GAME も `dream-theater-index.json` に掲載する場合は DREAM THEAT
 - LP：2変数 LP、輸送・割当の小規模例
 - RKHS：線形 kernel、多項式 kernel、Gaussian kernel
 - MICRO：Cobb--Douglas、CES、二財二主体純粋交換経済
-- GAME-A：matching pennies、prisoner's dilemma
+- GAME-A：表裏合わせゲーム、prisoner's dilemma
 - GAME-B：3人 transferable-utility game
 - GAME-C：二次元 bargaining polygon
 - GAME-D：小規模 stable marriage、4×4 程度の assignment

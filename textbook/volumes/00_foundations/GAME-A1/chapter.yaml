@@ -2,7 +2,8 @@ id: "GAME-A1"
 title: "戦略形ゲーム・最適反応・Nash 均衡"
 volume: "foundations"
 status: supplementary
-prerequisites: []
+prerequisites:
+  - F0-00A
 official_scope: []
 learning_objectives:
   - 有限戦略形ゲームをプレイヤー集合・戦略集合・利得関数の組として定義し、戦略プロファイルと一方的変更の記法を具体例で読める
@@ -14,7 +15,7 @@ learning_objectives:
   - 厳密に支配される戦略が純粋 Nash 均衡で選ばれないことと、全員に厳密な支配戦略がある場合の一意性を証明できる
   - 弱く支配される戦略が Nash 均衡で使われ得る例を通じて、厳密支配と弱支配の消去上の違いを説明できる
   - 囚人のジレンマで Nash 均衡と共同で高い利得を得る状態が一致しないことを説明できる
-  - matching pennies の全セルまたは最適反応から、有限ゲームでも純粋戦略 Nash 均衡が存在しないことを示せる
+  - 表裏合わせゲーム の全セルまたは最適反応から、有限ゲームでも純粋戦略 Nash 均衡が存在しないことを示せる
 definitions:
   - { id: GAME-A1-DEF-01, name: 有限戦略形ゲーム・戦略プロファイル }
   - { id: GAME-A1-DEF-02, name: 厳密支配・弱支配・厳密な支配戦略 }
@@ -28,7 +29,7 @@ canonical_examples:
   - 囚人のジレンマで両プレイヤーの厳密な支配戦略と一意な純粋戦略 Nash 均衡を求める例
   - 二つの協調均衡を持つ2×2ゲームで最適反応集合と複数 Nash 均衡を求める例
   - 弱く支配される戦略が純粋戦略 Nash 均衡で使われる例
-  - matching pennies に純粋戦略 Nash 均衡が存在しないことを全セルと最適反応の両方から確認する例
+  - 表裏合わせゲーム に純粋戦略 Nash 均衡が存在しないことを全セルと最適反応の両方から確認する例
   - パラメータが厳密支配・弱支配・複数均衡の境界を変える2×2ゲーム
 problem_patterns:
   - GAME-A1-PROFILE-DEVIATION-1
