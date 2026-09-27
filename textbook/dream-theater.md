@@ -54,8 +54,6 @@
 16. [LA3E テンソル積・外積代数（幾何学への発展分岐）](textbook/volumes/00_foundations/LA3E/index.md)
 17. [線形代数・院試／編入計算演習（A8・B10・C4、計22題）](textbook/volumes/00_foundations/F0_00CALC_線形代数_院試編入計算演習/index.md)
 
-## 解析系
-
 ### 実解析
 
 1. [RA1 数列・級数](textbook/volumes/00_foundations/RA1/index.md)
@@ -69,6 +67,8 @@
 9. [RA6A 逆関数定理・陰関数定理](textbook/volumes/00_foundations/RA6A/index.md)
 10. [RA7 多重Riemann積分・変数変換](textbook/volumes/00_foundations/RA7/index.md)
 11. [RA8 関数族のコンパクト性・近似](textbook/volumes/00_foundations/RA8/index.md)
+
+## 解析系
 
 ### 測度論
 
