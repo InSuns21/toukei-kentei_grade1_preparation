@@ -1,0 +1,14 @@
+chapter: "GAME-A3"
+terms:
+  - term: 混合戦略の最適反応対応
+    english: mixed-strategy best-response correspondence
+    meaning: 相手側の混合戦略を固定したとき、自分の期待利得を最大化する混合戦略を全て返す対応。
+  - term: Nash の存在定理
+    english: Nash existence theorem
+    meaning: 有限戦略形ゲームでは、混合戦略まで許せば少なくとも一つ Nash 均衡が存在するという定理。
+  - term: 逸脱利得
+    english: deviation gain
+    meaning: 現在の混合戦略プロファイルから特定の純粋戦略へ一方的に変更したときの利得増分の正の部分。
+  - term: Nash--Brouwer 写像
+    english: Nash--Brouwer map
+    meaning: 正の逸脱利得を現在の混合確率へ加えて正規化する連続自己写像で、その固定点が Nash 均衡と一致する。

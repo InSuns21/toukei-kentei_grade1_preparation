@@ -1,0 +1,43 @@
+id: "GAME-A3"
+title: "Nash 均衡の存在"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GAME-A2
+  - FIX1
+  - FIX3
+official_scope: []
+learning_objectives:
+  - 有限ゲームの全混合戦略空間を単体の有限直積として表し、非空・コンパクト・凸であることを確認できる
+  - 混合戦略の最適反応対応を定義し、Nash 均衡を積最適反応対応の不動点として特徴付けられる
+  - Berge 最大値定理と期待利得の線形性から、最適反応対応の非空・コンパクト・凸値性と上半連続性を示せる
+  - Kakutani 不動点定理の各仮定を有限ゲームで局所的に検証し、混合戦略 Nash 均衡の存在を証明できる
+  - 一価の最適反応選択が同点で不連続になり得るため Brouwer を直接適用できない理由を説明できる
+  - 正の逸脱利得から Nash--Brouwer 写像を構成し、それが連続な自己写像であることを示せる
+  - Nash--Brouwer 写像の固定点では正の逸脱利得が全て消えることを加重平均の恒等式から証明できる
+  - Brouwer 不動点定理から有限ゲームの Nash 均衡存在を独立に導き、Kakutani 証明との構造上の違いを比較できる
+definitions:
+  - { id: GAME-A3-DEF-01, name: 混合戦略の最適反応対応 }
+  - { id: GAME-A3-DEF-02, name: 逸脱利得と Nash--Brouwer 写像 }
+theorems:
+  - { id: GAME-A3-PROP-01, name: 有限ゲームの混合最適反応対応の正則性 }
+  - { id: GAME-A3-THM-01, name: Nash の存在定理：有限ゲーム }
+  - { id: GAME-A3-PROP-02, name: Nash--Brouwer 写像の固定点と Nash 均衡 }
+canonical_examples:
+  - 同点時に二つの純粋最適反応の凸結合全体が混合最適反応になる例
+  - 一価の最適反応選択が同点で不連続になる二択ゲーム
+  - 正の逸脱利得を加えて正規化する Nash--Brouwer 写像の具体計算
+  - 表裏合わせゲームで Kakutani と Brouwer の二つの固定点構成が同じ半々均衡を与える例
+problem_patterns:
+  - GAME-A3-PRODUCT-SIMPLEX-1
+  - GAME-A3-BEST-RESPONSE-CONVEXITY-1
+  - GAME-A3-BERGE-BEST-RESPONSE-1
+  - GAME-A3-KAKUTANI-NASH-1
+  - GAME-A3-BROUWER-MAP-1
+  - GAME-A3-BROUWER-FIXED-POINT-1
+  - GAME-A3-BEST-RESPONSE-SELECTION-DISCONTINUITY-1
+  - GAME-A3-TWO-PROOF-EXISTENCE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.5, review: 0.75 }
