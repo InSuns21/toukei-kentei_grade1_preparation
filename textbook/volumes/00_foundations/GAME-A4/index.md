@@ -354,9 +354,22 @@ $$
 <a id="thm-game-a4-player-kkt"></a>
 <!-- formal-statement-start -->
 > **定理（凹ゲームのプレイヤー別 KKT 特徴付け）**  
-> 各 $g_{ik}$ が微分可能な凸関数、$u_i(\cdot,x_{-i})$ が微分可能な凹関数であるとする。さらに各プレイヤーの可行集合が Slater 条件を満たすとする。
+> プレイヤー $i$ の戦略集合が
 >
-> このとき実行可能な戦略プロファイル $x^*$ が Nash 均衡であることと、各プレイヤー $i$ について乗数
+> $
+> X_i
+> =
+> \left\{
+> x_i:
+> g_{ik}(x_i)\le0\ (k=1,\dots,m_i),
+> \quad
+> A_ix_i=b_i
+> \right\}
+> $
+>
+> と表されるとする。各 $g_{ik}$ は微分可能な凸関数であり、$u_i(\cdot,x_{-i})$ は微分可能な凹関数とする。さらに各プレイヤーのこの制約系が Slater 条件を満たすとする。
+>
+> このとき実行可能な戦略プロファイル $x^*\in\prod_iX_i$ が Nash 均衡であることと、各プレイヤー $i$ について乗数
 >
 > $$
 > \lambda_i^*\ge0,
@@ -720,11 +733,17 @@ $$
 <a id="thm-game-a4-nash-vi"></a>
 <!-- formal-statement-start -->
 > **定理（Nash 均衡と変分不等式の同値）**  
-> 各 $X_i$ を非空凸集合とし、各 $u_i$ は自分の戦略について微分可能かつ凹であるとする。擬勾配写像を
+> 各 $X_i\subset\mathbb R^{d_i}$ を非空凸集合とし、
 >
-> $$
+> $
+> X=\prod_iX_i
+> $
+>
+> とする。各 $u_i$ は自分の戦略について微分可能かつ凹であるとし、擬勾配写像 $F:X\to\mathbb R^{\sum_i d_i}$ を成分ごとに
+>
+> $
 > F_i(x)=-\nabla_{x_i}u_i(x)
-> $$
+> $
 >
 > で定める。
 >
@@ -970,7 +989,7 @@ $$
 <a id="prop-game-a4-strong-monotone-unique"></a>
 <!-- formal-statement-start -->
 > **命題（強単調性による Nash 均衡の一意性）**  
-> 凹ゲームの擬勾配 $F$ が $X$ 上で強単調なら、Nash 均衡は存在するとして高々一つである。
+> 凹ゲームの積戦略集合を $X=\prod_iX_i$、擬勾配を $F:X\to\mathbb R^{\sum_i d_i}$ とする。$F$ が $X$ 上で強単調なら、Nash 均衡は存在するとして高々一つである。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
