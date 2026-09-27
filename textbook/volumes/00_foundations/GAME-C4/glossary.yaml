@@ -1,0 +1,17 @@
+chapter: "GAME-C4"
+terms:
+  - term: Rubinstein の交互提案交渉ゲーム
+    english: Rubinstein alternating-offers bargaining game
+    meaning: 二人が交互に配分を提案し、拒否のたびに次期へ進んで提案者が交代する無限期の完全情報交渉ゲーム。
+  - term: 割引因子
+    english: discount factor
+    meaning: 1期先の利得を現在価値へ換算する係数。本章では 0<delta<1 とし、1に近いほど将来の合意価値をあまり失わない。
+  - term: 継続価値
+    english: continuation value
+    meaning: 現在の提案を拒否して次の部分ゲームへ進んだときに得られる均衡利得を、現在時点へ割り引いて評価した価値。
+  - term: 定常戦略
+    english: stationary strategy
+    meaning: 提案内容と受諾規則を期番号や過去の履歴そのものではなく、現在の役割と提示された配分だけで定める戦略。
+  - term: Rubinstein 交渉解
+    english: Rubinstein bargaining solution
+    meaning: 共通割引因子を持つ基準的な交互提案ゲームで、部分ゲーム完全均衡の即時合意として得られる配分。
