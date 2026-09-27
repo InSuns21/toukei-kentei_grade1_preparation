@@ -162,7 +162,7 @@ $$
 <a id="def-game-b1-imputation"></a>
 
 <!-- formal-statement-start -->
-> **定義（配分・インピュテーション）**  
+> **定義（協力ゲームの配分・インピュテーション）**  
 > 特性関数形ゲーム $(N,v)$ に対し、各プレイヤーの受取額を並べた $x\in\mathbb R^N$ を **協力ゲームの配分**（payoff allocation）という。さらに配分 $x$ が
 >
 > **効率性**
