@@ -16,10 +16,11 @@ learning_objectives:
   - 有限性・完全情報の仮定が後ろ向き帰納法のどこで使われるかを説明できる
 definitions:
   - { id: GAME-A5-DEF-01, name: 完全情報の有限展開形ゲーム }
-  - { id: GAME-A5-DEF-02, name: 展開形ゲームの純粋戦略 }
-  - { id: GAME-A5-DEF-03, name: 部分ゲーム }
-  - { id: GAME-A5-DEF-04, name: 部分ゲーム完全均衡 }
-  - { id: GAME-A5-DEF-05, name: 後ろ向き帰納法 }
+  - { id: GAME-A5-DEF-02, name: ゲーム木 }
+  - { id: GAME-A5-DEF-03, name: 展開形ゲームの純粋戦略 }
+  - { id: GAME-A5-DEF-04, name: 部分ゲーム }
+  - { id: GAME-A5-DEF-05, name: 部分ゲーム完全均衡 }
+  - { id: GAME-A5-DEF-06, name: 後ろ向き帰納法 }
 theorems:
   - { id: GAME-A5-PROP-01, name: 部分ゲーム完全均衡は Nash 均衡 }
   - { id: GAME-A5-THM-01, name: 後ろ向き帰納法による部分ゲーム完全均衡の存在 }
