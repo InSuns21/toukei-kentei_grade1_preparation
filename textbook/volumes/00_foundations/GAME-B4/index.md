@@ -652,7 +652,7 @@ $$
 \Delta_i v(S)\le\Delta_i v(T).
 $$
 
-前節の同値命題から、このゲームは凸ゲームです。
+[優モジュラ性と増大型限界貢献の同値](#prop-game-b4-supermodular-marginal)から、このゲームは凸ゲームです。
 
 この形は直感的です。
 
@@ -950,7 +950,7 @@ $$
 
 が出ます。
 
-よって限界貢献は増大型であり、前節の同値命題から凸ゲームです。
+よって限界貢献は増大型であり、[優モジュラ性と増大型限界貢献の同値](#prop-game-b4-supermodular-marginal)から凸ゲームです。
 
 <!-- proof-start -->
 ### 証明
@@ -3004,7 +3004,7 @@ $$
 \Delta_i v(S)\le\Delta_i v(T).
 $$
 
-本文の同値命題から、
+[優モジュラ性と増大型限界貢献の同値](#prop-game-b4-supermodular-marginal)から、
 
 $$
 \boxed{
