@@ -1,0 +1,86 @@
+chapter: GAME-A6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GAME-A5
+
+forward_references: []
+
+concepts:
+  - id: game.repeated-game
+    name: 繰り返しゲーム
+    kind: definition
+    aliases:
+      - repeated game
+    introduction: formal
+    introduction_aliases: ["定義（繰り返しゲーム）"]
+    requires:
+      - game.strategic-form-game
+      - game.finite-perfect-information-extensive-form
+
+  - id: game.history-dependent-strategy
+    name: 履歴依存戦略
+    kind: definition
+    aliases:
+      - history-dependent strategy
+    introduction: formal
+    introduction_aliases: ["定義（履歴依存戦略）"]
+    requires:
+      - game.repeated-game
+      - game.extensive-form-pure-strategy
+
+  - id: game.discounted-repeated-payoff
+    name: 割引利得
+    kind: definition
+    aliases:
+      - discounted payoff
+    introduction: formal
+    introduction_aliases: ["定義（割引利得）"]
+    requires:
+      - game.repeated-game
+
+  - id: game.grim-trigger
+    name: トリガー戦略・グリム・トリガー
+    kind: definition
+    aliases:
+      - trigger strategy
+      - grim trigger
+    introduction: formal
+    introduction_aliases: ["定義（トリガー戦略・グリム・トリガー）"]
+    requires:
+      - game.history-dependent-strategy
+
+  - id: game.finite-repetition-unique-stage-ne
+    name: 一意な段階 Nash 均衡を持つ有限反復ゲームの後ろ向き帰納
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（一意な段階 Nash 均衡を持つ有限反復ゲームの後ろ向き帰納）"]
+    requires:
+      - game.repeated-game
+      - game.backward-induction
+      - game.subgame-perfect-equilibrium
+      - game.pure-strategy-nash-equilibrium
+
+  - id: game.one-shot-deviation-principle
+    name: 一回逸脱原理
+    kind: theorem
+    aliases:
+      - one-shot deviation principle
+    introduction: formal
+    introduction_aliases: ["定理（一回逸脱原理）"]
+    requires:
+      - game.history-dependent-strategy
+      - game.discounted-repeated-payoff
+      - game.subgame-perfect-equilibrium
+
+  - id: game.grim-trigger-cooperation-condition
+    name: グリム・トリガーによる協力維持の十分条件
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（グリム・トリガーによる協力維持の十分条件）"]
+    requires:
+      - game.grim-trigger
+      - game.one-shot-deviation-principle
+      - game.pure-strategy-nash-equilibrium
