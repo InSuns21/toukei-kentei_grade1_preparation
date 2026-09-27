@@ -1233,7 +1233,7 @@ p(v)
 \frac{n-1}{n}v^n.
 $$
 
-[期待支払一致の命題](#prop-game-a9-payment-equivalence)により、第二価格でも同じです。
+[独立私的価値モデルにおける第一価格・第二価格の期待支払一致](#prop-game-a9-payment-equivalence)により、第二価格でも同じです。
 
 一人の入札者について事前平均すると、
 
