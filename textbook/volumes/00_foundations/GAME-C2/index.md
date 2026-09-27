@@ -469,7 +469,7 @@ $$
 
 したがって $\sigma_{ij}(x^*)$ も Nash 積最大化点です。
 
-[GAME-C1 の存在と一意性定理](../GAME-C1/index.md#thm-game-c1-existence-uniqueness)から最大化点は一意なので、
+[Nash 交渉解の存在と一意性](../GAME-C1/index.md#thm-game-c1-existence-uniqueness)から最大化点は一意なので、
 
 $$
 \sigma_{ij}(x^*)=x^*.
@@ -1112,7 +1112,7 @@ $$
 
 とします。
 
-GAME-C1 の存在と一意性定理から $x^*$ は一意で、本質性から、
+[Nash 交渉解の存在と一意性](../GAME-C1/index.md#thm-game-c1-existence-uniqueness)から $x^*$ は一意で、本質性から、
 
 $$
 x_i^*>d_i
@@ -1220,7 +1220,7 @@ $$
 
 **第3段階：対称単体へ拡げる**
 
-[正規化した実行可能集合の補題](#lem-game-c2-supporting-simplex)から、
+[正規化した実行可能集合の対称単体包含](#lem-game-c2-supporting-simplex)から、
 
 $$
 G
