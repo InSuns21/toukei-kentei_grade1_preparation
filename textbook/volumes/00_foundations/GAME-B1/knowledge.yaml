@@ -5,7 +5,9 @@ prerequisites:
   - GAME-A1
   - OPT10
 
-forward_references: []
+forward_references:
+  - game.shapley-value
+  - game.bondareva-shapley-theorem
 
 concepts:
   - id: game.cooperative-characteristic-function
@@ -42,7 +44,7 @@ concepts:
       - game.tu-characteristic-function-game
 
   - id: game.imputation
-    name: 配分
+    name: 協力ゲームの配分
     kind: definition
     aliases:
       - インピュテーション
