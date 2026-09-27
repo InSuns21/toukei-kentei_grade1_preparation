@@ -58,7 +58,7 @@ $$
 <a id="def-game-b1-characteristic-game"></a>
 
 <!-- formal-statement-start -->
-> **定義（譲渡可能効用の特性関数形ゲーム）**  
+> **定義（特性関数・譲渡可能効用の特性関数形ゲーム）**  
 > 有限なプレイヤー集合 $N$ と、各提携 $S\subseteq N$ の総価値を与える関数
 >
 $$
@@ -162,8 +162,8 @@ $$
 <a id="def-game-b1-imputation"></a>
 
 <!-- formal-statement-start -->
-> **定義（インピュテーション）**  
-> 特性関数形ゲーム $(N,v)$ に対し、配分 $x\in\mathbb R^N$ が
+> **定義（配分・インピュテーション）**  
+> 特性関数形ゲーム $(N,v)$ に対し、各プレイヤーの受取額を並べた $x\in\mathbb R^N$ を **配分（payoff allocation）** という。さらに配分 $x$ が
 >
 > **効率性**
 >
