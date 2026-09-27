@@ -1729,7 +1729,7 @@ npm run audit:proof-pedagogy
 npm run audit:formalism-pedagogy
 ```
 
-knowledge / standard math core を変更する場合は対応する strict validation も実行する。
+`knowledge.yaml` や概念依存を変更する場合は対応する strict validation を実行する。読む順ガイドだけの変更は Pages / リンク検証と prerequisite の人手照合で確認する。
 
 PR では changed-only strict validation を原則とし、既存章の `knowledge.yaml`、index の削除・移動・並べ替え、全体レジストリ・監査エンジン等へ波及する変更だけ full audit を行う。
 
