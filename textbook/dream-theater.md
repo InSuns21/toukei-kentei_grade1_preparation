@@ -486,3 +486,4 @@
 22. [GAME-C5 交渉力の比較静学・外部選択肢・決裂リスク](textbook/volumes/00_foundations/GAME-C5/index.md)
 23. [GAME-C6 公理的交渉解の非協力的基礎](textbook/volumes/00_foundations/GAME-C6/index.md)
 24. [GAME-C7 不完備情報下の交渉入門](textbook/volumes/00_foundations/GAME-C7/index.md)
+25. [GAME-D1 安定結婚問題・Gale--Shapley アルゴリズム](textbook/volumes/00_foundations/GAME-D1/index.md)
