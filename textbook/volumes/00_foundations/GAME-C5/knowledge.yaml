@@ -1,0 +1,89 @@
+chapter: GAME-C5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GAME-C4
+
+forward_references: []
+
+concepts:
+  - id: game.heterogeneous-discount-bargaining
+    name: 異質な割引因子を持つ交互提案交渉ゲーム
+    kind: definition
+    aliases:
+      - heterogeneous-discount bargaining
+    introduction: formal
+    introduction_aliases: ["定義（異質な割引因子を持つ交互提案交渉ゲーム）"]
+    requires:
+      - game.rubinstein-alternating-offers
+
+  - id: game.heterogeneous-rubinstein-stationary-spe
+    name: 異質な割引因子の定常部分ゲーム完全均衡
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（異質な割引因子の定常部分ゲーム完全均衡）"]
+    requires:
+      - game.heterogeneous-discount-bargaining
+      - game.bargaining-stationary-strategy
+      - game.subgame-perfect-equilibrium
+
+  - id: game.bargaining-patience-comparative-statics
+    name: 忍耐強さと交渉配分の比較静学
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（忍耐強さと交渉配分の比較静学）"]
+    requires:
+      - game.heterogeneous-rubinstein-stationary-spe
+
+  - id: game.bargaining-first-mover-advantage
+    name: 先手優位
+    kind: proposition
+    aliases:
+      - first-mover advantage
+    introduction: formal
+    introduction_aliases: ["命題（先手優位）"]
+    requires:
+      - game.heterogeneous-rubinstein-stationary-spe
+
+  - id: game.bargaining-breakdown-risk
+    name: 外生的決裂リスク
+    kind: definition
+    aliases:
+      - exogenous breakdown risk
+    introduction: formal
+    introduction_aliases: ["定義（外生的決裂リスク）"]
+    requires:
+      - game.heterogeneous-discount-bargaining
+
+  - id: game.bargaining-effective-discount
+    name: 決裂リスクと有効割引因子
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（決裂リスクと有効割引因子）"]
+    requires:
+      - game.bargaining-breakdown-risk
+      - game.heterogeneous-rubinstein-stationary-spe
+
+  - id: game.bargaining-outside-option
+    name: 外部選択肢
+    kind: definition
+    aliases:
+      - outside option
+    introduction: formal
+    introduction_aliases: ["定義（外部選択肢）"]
+    requires:
+      - game.heterogeneous-discount-bargaining
+
+  - id: game.outside-option-principle
+    name: 外部選択肢原理
+    kind: proposition
+    aliases:
+      - outside-option principle
+    introduction: formal
+    introduction_aliases: ["命題（外部選択肢原理：片側外部選択肢）"]
+    requires:
+      - game.bargaining-outside-option
+      - game.heterogeneous-rubinstein-stationary-spe
