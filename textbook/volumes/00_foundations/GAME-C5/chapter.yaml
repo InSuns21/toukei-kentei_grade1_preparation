@@ -1,0 +1,45 @@
+id: "GAME-C5"
+title: "交渉力の比較静学・外部選択肢・決裂リスク"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GAME-C4
+official_scope: []
+learning_objectives:
+  - 異質な割引因子 delta_1, delta_2 を持つ交互提案交渉ゲームを定義し、各応答者の継続価値から二本の受諾境界を立てられる
+  - 異質な割引因子の定常部分ゲーム完全均衡を構成し、初回提案者の取り分 (1-delta_2)/(1-delta_1 delta_2) を導出できる
+  - 自分と相手の割引因子に関する比較静学を偏微分で行い、忍耐強さが拒否後継続価値を通じて配分へ効くことを説明できる
+  - 同一プレイヤーの先手時と後手時の利得差を導き、先手優位が1期の待機費用から生じることを説明できる
+  - 拒否後の外生的決裂リスクを定義し、決裂時利得が0なら beta_i=(1-q)delta_i という有効割引因子へまとめられることを示せる
+  - 対称な割引因子の下で、決裂確率が現在の提案者取り分へ与える影響を計算できる
+  - 片側外部選択肢を持つ交渉ゲームで受諾境界を max{outside option, continuation value} として定式化できる
+  - 外部選択肢原理を場合分けから導き、外部選択肢が既存の継続価値を上回るときだけ均衡配分を変えることを説明できる
+  - 決裂時利得と外部選択肢を、期待継続価値と選択可能な退出行動の違いとして区別できる
+definitions:
+  - { id: GAME-C5-DEF-01, name: 異質な割引因子を持つ交互提案交渉ゲーム }
+  - { id: GAME-C5-DEF-02, name: 外生的決裂リスク }
+  - { id: GAME-C5-DEF-03, name: 外部選択肢 }
+theorems:
+  - { id: GAME-C5-PROP-01, name: 異質な割引因子の定常部分ゲーム完全均衡 }
+  - { id: GAME-C5-PROP-02, name: 忍耐強さと交渉配分の比較静学 }
+  - { id: GAME-C5-PROP-03, name: 先手優位 }
+  - { id: GAME-C5-PROP-04, name: 決裂リスクと有効割引因子 }
+  - { id: GAME-C5-PROP-05, name: "外部選択肢原理：片側外部選択肢" }
+canonical_examples:
+  - "delta_1=4/5, delta_2=1/2 で、プレイヤー1が最初の提案者なら配分が (5/6,1/6) となり、プレイヤー2の拒否後価値が1/6と一致する例"
+  - "共通割引因子 delta=3/4、決裂確率 q=1/3 で有効割引因子が1/2となり、提案者取り分が2/3となる例"
+  - "共通割引因子3/4で、プレイヤー2の外部選択肢2/5は基準継続価値3/7を下回って効かず、1/2なら拘束して初回配分を (1/2,1/2) へ変える例"
+  - "決裂時利得は q d_i+(1-q)delta_i V_i に入り、外部選択肢は max{b_i, continuation value} に入るという役割の違い"
+problem_patterns:
+  - GAME-C5-HETEROGENEOUS-DISCOUNT-1
+  - GAME-C5-PATIENCE-COMPARATIVE-1
+  - GAME-C5-FIRST-MOVER-1
+  - GAME-C5-BREAKDOWN-RISK-1
+  - GAME-C5-OUTSIDE-OPTION-1
+  - GAME-C5-OUTSIDE-OPTION-PRINCIPLE-1
+  - GAME-C5-DISAGREEMENT-VS-OUTSIDE-1
+  - GAME-C5-INTEGRATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.0, review: 0.75 }
