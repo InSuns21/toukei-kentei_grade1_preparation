@@ -1,0 +1,20 @@
+chapter: "GAME-C3"
+terms:
+  - term: 決裂点に対する下方包括性
+    english: comprehensiveness relative to the disagreement point
+    meaning: 個別合理的な実行可能点から、各プレイヤーの効用を決裂点以上の範囲で下げた点も実行可能であるという性質。
+  - term: 理想点
+    english: ideal point / utopia point
+    meaning: 個別合理的集合上で各プレイヤーの効用を別々に最大化し、その最大値を座標ごとに並べた参照点。
+  - term: 理想点への相対到達率
+    english: relative attainment of the ideal point
+    meaning: 実際の利得増分を、そのプレイヤーが得られる最大利得増分で割った比率。
+  - term: Kalai--Smorodinsky 交渉解
+    english: Kalai--Smorodinsky bargaining solution
+    meaning: 決裂点から理想点へ向かう線上で、二人の相対到達率を等しく保ったまま実行可能な限り理想点側へ進んだ交渉解。
+  - term: 理想点固定の制限単調性
+    english: restricted monotonicity with a fixed ideal point
+    meaning: 理想点を変えずに実行可能集合が拡大したとき、各プレイヤーの解効用が下がらないという本章の制限的な単調性。
+  - term: 等利得増分ベンチマーク
+    english: equal-gain benchmark
+    meaning: 決裂点からの絶対的な利得増分を二人で等しくする比較用の基準。個別の効用尺度変更には不変でない。
