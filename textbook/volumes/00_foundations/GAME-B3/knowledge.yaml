@@ -1,0 +1,82 @@
+chapter: GAME-B3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GAME-B1
+
+forward_references: []
+
+concepts:
+  - id: game.marginal-contribution
+    name: 限界貢献
+    kind: definition
+    aliases:
+      - marginal contribution
+    introduction: formal
+    introduction_aliases: ["定義（限界貢献）"]
+    requires:
+      - game.tu-characteristic-function-game
+      - game.coalition
+
+  - id: game.shapley-value
+    name: Shapley 値
+    kind: definition
+    aliases:
+      - Shapley value
+    introduction: formal
+    introduction_aliases: ["定義（Shapley 値）"]
+    requires:
+      - game.marginal-contribution
+
+  - id: game.shapley-axioms
+    name: Shapley 値を特徴付ける四公理
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（効率性・対称性・零プレイヤー性・加法性）"]
+    requires:
+      - game.tu-characteristic-function-game
+
+  - id: game.shapley-random-order-representation
+    name: Shapley 値のランダム到着順表示
+    kind: proposition
+    aliases:
+      - random-order representation of the Shapley value
+    introduction: formal
+    introduction_aliases: ["命題（Shapley 値はランダム到着順の期待限界貢献である）"]
+    requires:
+      - game.shapley-value
+      - game.marginal-contribution
+
+  - id: game.unanimity-game
+    name: 全会一致ゲーム
+    kind: definition
+    aliases:
+      - unanimity game
+    introduction: formal
+    introduction_aliases: ["定義（全会一致ゲーム）"]
+    requires:
+      - game.tu-characteristic-function-game
+
+  - id: game.unanimity-decomposition
+    name: 有限 TU ゲームの全会一致ゲーム分解
+    kind: proposition
+    aliases:
+      - unanimity-game decomposition
+    introduction: formal
+    introduction_aliases: ["命題（任意の有限 TU ゲームは全会一致ゲームの有限和に一意に分解できる）"]
+    requires:
+      - game.unanimity-game
+
+  - id: game.shapley-axiomatic-characterization
+    name: Shapley 値の公理的特徴付け
+    kind: theorem
+    aliases:
+      - axiomatic characterization of the Shapley value
+    introduction: formal
+    introduction_aliases: ["定理（Shapley 値の公理的特徴付け）"]
+    requires:
+      - game.shapley-value
+      - game.shapley-axioms
+      - game.shapley-random-order-representation
+      - game.unanimity-decomposition
