@@ -27,7 +27,7 @@ concepts:
       - ownership share
       - firm ownership share
     introduction: formal
-    introduction_aliases: ["定義（企業所有比率・利潤所得）"]
+    introduction_aliases: ["定義（Arrow--Debreu 生産経済）", "定義（企業所有比率・利潤所得）"]
     requires:
       - micro.arrow-debreu-production-economy
 
