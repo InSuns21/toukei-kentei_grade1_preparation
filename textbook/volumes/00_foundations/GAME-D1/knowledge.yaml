@@ -27,13 +27,12 @@ concepts:
       - game.strict-preference-list
 
   - id: game.blocking-pair
-    name: blocking pair
+    name: ブロッキングペア
     kind: definition
     aliases:
       - blocking pair
-      - ブロッキングペア
     introduction: formal
-    introduction_aliases: ["定義（blocking pair・安定マッチング）"]
+    introduction_aliases: ["定義（ブロッキングペア・安定マッチング）"]
     requires:
       - game.one-to-one-matching
       - game.strict-preference-list
@@ -44,7 +43,7 @@ concepts:
     aliases:
       - stable matching
     introduction: formal
-    introduction_aliases: ["定義（blocking pair・安定マッチング）"]
+    introduction_aliases: ["定義（ブロッキングペア・安定マッチング）"]
     requires:
       - game.blocking-pair
 
