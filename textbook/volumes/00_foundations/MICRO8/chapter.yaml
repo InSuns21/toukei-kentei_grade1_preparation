@@ -1,0 +1,53 @@
+id: "MICRO8"
+title: "Arrow--Debreu 経済"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MICRO4
+  - MICRO5
+  - MICRO7
+official_scope: []
+learning_objectives:
+  - 有限財・有限消費者・有限企業からなる生産経済で、初期保有・生産集合・企業所有比率が何を表すかを具体的に説明できる
+  - 企業所有比率から各消費者の利潤所得を計算し、社会全体では企業利潤が所有者へ過不足なく分配される会計恒等式を証明できる
+  - 生産を含む実行可能性を、消費総量と初期保有・純生産の資源制約として判定できる
+  - Arrow--Debreu 均衡を、消費者最適化・企業利潤最大化・商品市場清算の同時成立として定義できる
+  - 二財二消費者一企業の具体例で、企業所有が所得分配を変えつつ市場清算する均衡を手計算できる
+  - 所有比率の正規化と企業利潤最大化を使って、生産経済版 Walras の法則を証明できる
+  - 局所非飽和性のもとで、生産を含む第一厚生定理を予算総和と企業利潤最大化の矛盾から証明できる
+  - 凸性により得た支持価格のもとで各企業の利潤最大化を導き、一括的所得移転により効率配分を分権化する第二厚生定理の構造を説明できる
+  - コンパクト凸生産集合に対して Berge 最大値定理から企業供給対応の非空コンパクト凸値性・上半連続性と利潤関数の連続性を導ける
+  - 利潤所得を含む切断予算対応、企業供給対応、競売人価格対応を一つの自己対応へまとめ、Kakutani 不動点定理から Arrow--Debreu 均衡の存在を証明できる
+  - 所有比率の総和が1でない場合、非凸生産集合、上方へ無限に利潤を増やせる技術で、それぞれ存在証明・会計のどの機構が壊れるかを説明できる
+definitions:
+  - { id: MICRO8-DEF-01, name: Arrow--Debreu 生産経済 }
+  - { id: MICRO8-DEF-02, name: 企業所有比率・利潤所得 }
+  - { id: MICRO8-DEF-03, name: 生産を含む実行可能配分 }
+  - { id: MICRO8-DEF-04, name: Arrow--Debreu 均衡 }
+theorems:
+  - { id: MICRO8-PROP-01, name: 企業供給対応と利潤関数の正則性 }
+  - { id: MICRO8-PROP-02, name: 生産経済版 Walras の法則 }
+  - { id: MICRO8-THM-01, name: 生産を含む第一厚生定理 }
+  - { id: MICRO8-THM-02, name: 生産経済の第二厚生定理：滑らかな凸版 }
+  - { id: MICRO8-THM-03, name: コンパクト凸生産集合の Arrow--Debreu 均衡の存在 }
+canonical_examples:
+  - 二財二消費者一企業で企業所有比率から利潤所得と各消費者の所得を計算する例
+  - 線形な有限生産技術で企業の利潤最大化と純生産を求める例
+  - 正の企業利潤を所有者へ分配した二財経済で消費需要と総資源・純生産が一致する Arrow--Debreu 均衡の例
+  - 一括的所得移転が総和ゼロになり、支持された効率配分を分権化する会計例
+  - 所有比率の総和が1でないため利潤所得の会計恒等式が壊れる例
+  - 非凸生産集合で利潤最大化供給集合の凸値性が壊れる例
+  - 上方へ無限に利潤を増やせる技術で利潤最大化点が存在しない例
+problem_patterns:
+  - MICRO8-PROFIT-INCOME-1
+  - MICRO8-PRODUCTION-FEASIBILITY-1
+  - MICRO8-WALRAS-LAW-1
+  - MICRO8-FIRM-SUPPLY-1
+  - MICRO8-EXPLICIT-EQUILIBRIUM-1
+  - MICRO8-FIRST-WELFARE-1
+  - MICRO8-ASSUMPTION-FAILURE-1
+  - MICRO8-EXISTENCE-PROOF-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 7.0, review: 1.0 }

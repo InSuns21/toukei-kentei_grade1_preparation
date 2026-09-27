@@ -1,0 +1,23 @@
+chapter: "MICRO8"
+terms:
+  - term: Arrow--Debreu 生産経済
+    english: Arrow--Debreu production economy
+    meaning: 有限個の消費者と企業を同時に扱い、初期保有・企業の生産技術・企業所有比率を明示した一般均衡モデル。
+  - term: 企業所有比率
+    english: ownership share
+    meaning: 消費者が企業利潤の何割を受け取るかを表す非負の比率。各企業について全消費者の持分を足すと1とする。
+  - term: 利潤所得
+    english: profit income
+    meaning: 消費者が保有する企業持分に応じて受け取る企業利潤。初期保有の市場価値に加わって予算を構成する。
+  - term: 生産を含む実行可能配分
+    english: feasible allocation with production
+    meaning: 消費総量が、初期保有に企業の純生産を加えた利用可能資源を成分ごとに超えない配分と生産計画。
+  - term: Arrow--Debreu 均衡
+    english: Arrow--Debreu equilibrium
+    meaning: 共通価格のもとで各消費者が予算内最適化し、各企業が利潤最大化し、全商品市場が同時に清算する状態。
+  - term: 生産経済の超過需要
+    english: excess demand with production
+    meaning: 消費総量から初期保有と企業の純生産を差し引いたベクトル。ゼロなら全商品市場が清算している。
+  - term: 一括的所得移転
+    english: lump-sum transfer
+    meaning: 個々の限界的な取引条件を変えず、最適化の前に購買力だけを加減する移転。第二厚生定理で効率配分を分権化するときに用いる。
