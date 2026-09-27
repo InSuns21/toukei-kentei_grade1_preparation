@@ -1,6 +1,17 @@
 # DREAM THEATER 本編
 
+> 統計検定1級の教材を読んでいたはずが、気づけば測度論・Fourier解析・PDE・Sobolev空間・確率過程・有限要素法・Monte Carloまで来てしまった人のための入口です。
+
+このページは **DREAM THEATER のオリエンテーション兼全体目次** です。数学的な依存関係を意識しながら、基礎科目から解析・計算・幾何・代数・応用へ広がる全体像を示します。
+
 [全体の読む順](textbook/dream-theater-standard-math-core.md)
+
+**読み方**
+
+- **統計検定1級の合格が目的なら、まず通常教材を優先してください。** DREAM THEATER は、そこで使う数学を出発点に、大学数学・大学院数学の標準的な理論まで体系的に掘り下げる系列です。
+- 通読するときは **全体の読む順** と各章の前提関係に沿って進んでください。章IDの番号順に読む必要はありません。
+- 基礎科目を土台に、目的に応じて解析系・計算系・幾何系・代数系・応用系へ分岐できます。
+- 各章では、定義と直接例、主要定理、証明、演習と詳細解答を通じて、前提章だけを既知として論証を再構成できることを目標にしています。
 
 ## 基礎科目
 
@@ -173,31 +184,34 @@
 11. [ODE10 平面力学系・周期軌道・Poincaré--Bendixson](textbook/volumes/00_foundations/ODE10/index.md)
 12. [ODE11 局所分岐・Poincaré 写像・周期軌道の安定性](textbook/volumes/00_foundations/ODE11/index.md)
 
-### 偏微分方程式
+### 偏微分方程式（学部レベル）
+
+1. [PDE1 PDEの基本・一次方程式・特性曲線](textbook/volumes/00_foundations/PDE1/index.md)
+2. [PDE2 二階線形PDEの分類](textbook/volumes/00_foundations/PDE2/index.md)
+3. [PDE3 熱方程式](textbook/volumes/00_foundations/PDE3/index.md)
+4. [PDE4 波動方程式](textbook/volumes/00_foundations/PDE4/index.md)
+5. [PDE5 Laplace・Poisson方程式と調和関数](textbook/volumes/00_foundations/PDE5/index.md)
+6. [PDE6 Greenの恒等式・基本解・Green関数](textbook/volumes/00_foundations/PDE6/index.md)
+7. [PDE7 固有関数展開・Green表現・三類型の統合](textbook/volumes/00_foundations/PDE7/index.md)
+8. [PDE8 Duhamel 原理・非斉次問題](textbook/volumes/00_foundations/PDE8/index.md)
+9. [PDE9 多次元波動方程式・Kirchhoff 公式・Huygens 原理](textbook/volumes/00_foundations/PDE9/index.md)
+10. [PDE10 多次元 Laplace・Poisson 方程式とポテンシャル論](textbook/volumes/00_foundations/PDE10/index.md)
+11. [PDE11 変数分離・Bessel・Legendre・球面調和関数](textbook/volumes/00_foundations/PDE11/index.md)
+12. [PDE12 一般一階 PDE・Hamilton--Jacobi 方程式](textbook/volumes/00_foundations/PDE12/index.md)
+
+### 偏微分方程式（大学院レベル）
 
 1. [弱解・Sobolev空間・PDEロードマップ](textbook/volumes/00_foundations/F0_00R3_EncoreIII_Distributions_Sobolev_Weak/index.md)
-2. [PDE1 PDEの基本・一次方程式・特性曲線](textbook/volumes/00_foundations/PDE1/index.md)
-3. [PDE2 二階線形PDEの分類](textbook/volumes/00_foundations/PDE2/index.md)
-4. [PDE3 熱方程式](textbook/volumes/00_foundations/PDE3/index.md)
-5. [PDE4 波動方程式](textbook/volumes/00_foundations/PDE4/index.md)
-6. [PDE5 Laplace・Poisson方程式と調和関数](textbook/volumes/00_foundations/PDE5/index.md)
-7. [PDE6 Greenの恒等式・基本解・Green関数](textbook/volumes/00_foundations/PDE6/index.md)
-8. [PDE7 固有関数展開・Green表現・三類型の統合](textbook/volumes/00_foundations/PDE7/index.md)
-9. [PDE8 Duhamel 原理・非斉次問題](textbook/volumes/00_foundations/PDE8/index.md)
-10. [PDE9 多次元波動方程式・Kirchhoff 公式・Huygens 原理](textbook/volumes/00_foundations/PDE9/index.md)
-11. [PDE10 多次元 Laplace・Poisson 方程式とポテンシャル論](textbook/volumes/00_foundations/PDE10/index.md)
-12. [PDE11 変数分離・Bessel・Legendre・球面調和関数](textbook/volumes/00_foundations/PDE11/index.md)
-13. [PDE12 一般一階 PDE・Hamilton--Jacobi 方程式](textbook/volumes/00_foundations/PDE12/index.md)
-14. [GPDE1 テスト関数・distribution](textbook/volumes/00_foundations/GPDE1/index.md)
-15. [GPDE2 distribution 微分・mollifier・弱微分](textbook/volumes/00_foundations/GPDE2/index.md)
-16. [GPDE3 Sobolev空間](textbook/volumes/00_foundations/GPDE3/index.md)
-17. [GPDE4 H0^1・Poincare・trace](textbook/volumes/00_foundations/GPDE4/index.md)
-18. [GPDE5 Sobolev embedding・compactness](textbook/volumes/00_foundations/GPDE5/index.md)
-19. [GPDE6 弱形式・変分形式](textbook/volumes/00_foundations/GPDE6/index.md)
-20. [GPDE7 Lax--Milgram](textbook/volumes/00_foundations/GPDE7/index.md)
-21. [GPDE8 二階線形楕円型PDE](textbook/volumes/00_foundations/GPDE8/index.md)
-22. [GPDE9 楕円型正則性](textbook/volumes/00_foundations/GPDE9/index.md)
-23. [GPDE10 Galerkin・時間発展PDEの弱解](textbook/volumes/00_foundations/GPDE10/index.md)
+2. [GPDE1 テスト関数・distribution](textbook/volumes/00_foundations/GPDE1/index.md)
+3. [GPDE2 distribution 微分・mollifier・弱微分](textbook/volumes/00_foundations/GPDE2/index.md)
+4. [GPDE3 Sobolev空間](textbook/volumes/00_foundations/GPDE3/index.md)
+5. [GPDE4 H0^1・Poincare・trace](textbook/volumes/00_foundations/GPDE4/index.md)
+6. [GPDE5 Sobolev embedding・compactness](textbook/volumes/00_foundations/GPDE5/index.md)
+7. [GPDE6 弱形式・変分形式](textbook/volumes/00_foundations/GPDE6/index.md)
+8. [GPDE7 Lax--Milgram](textbook/volumes/00_foundations/GPDE7/index.md)
+9. [GPDE8 二階線形楕円型PDE](textbook/volumes/00_foundations/GPDE8/index.md)
+10. [GPDE9 楕円型正則性](textbook/volumes/00_foundations/GPDE9/index.md)
+11. [GPDE10 Galerkin・時間発展PDEの弱解](textbook/volumes/00_foundations/GPDE10/index.md)
 
 ### 確率解析
 
@@ -219,12 +233,6 @@
 16. [STO12 ブラウン運動のマルチンゲール表現](textbook/volumes/00_foundations/STO12/index.md)
 17. [STO13 ポアソン過程・連続時間マルコフ連鎖・ランダム測度](textbook/volumes/00_foundations/STO13/index.md)
 18. [STO14 Lévy 過程・跳躍型確率解析](textbook/volumes/00_foundations/STO14/index.md)
-
-### 不動点理論
-
-1. [FIX1 Sperner の補題・Brouwer 不動点定理](textbook/volumes/00_foundations/FIX1/index.md)
-2. [FIX2 集合値写像・対応](textbook/volumes/00_foundations/FIX2/index.md)
-3. [FIX3 Berge 最大値定理・Kakutani 不動点定理](textbook/volumes/00_foundations/FIX3/index.md)
 
 ## 計算系
 
@@ -373,6 +381,12 @@
 11. [OPT10 線形計画 I：多面体・極点・双対](textbook/volumes/00_foundations/OPT10/index.md)
 12. [OPT11 線形計画 II：単体法・内点法・感度解析](textbook/volumes/00_foundations/OPT11/index.md)
 13. [OPT12 二次計画・錐計画入門](textbook/volumes/00_foundations/OPT12/index.md)
+
+### 不動点理論
+
+1. [FIX1 Sperner の補題・Brouwer 不動点定理](textbook/volumes/00_foundations/FIX1/index.md)
+2. [FIX2 集合値写像・対応](textbook/volumes/00_foundations/FIX2/index.md)
+3. [FIX3 Berge 最大値定理・Kakutani 不動点定理](textbook/volumes/00_foundations/FIX3/index.md)
 
 ### RKHS・カーネル法
 

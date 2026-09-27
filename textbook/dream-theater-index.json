@@ -146,7 +146,6 @@
         "textbook/volumes/00_foundations/ODE9/index.md",
         "textbook/volumes/00_foundations/ODE10/index.md",
         "textbook/volumes/00_foundations/ODE11/index.md",
-        "textbook/volumes/00_foundations/F0_00R3_EncoreIII_Distributions_Sobolev_Weak/index.md",
         "textbook/volumes/00_foundations/PDE1/index.md",
         "textbook/volumes/00_foundations/PDE2/index.md",
         "textbook/volumes/00_foundations/PDE3/index.md",
@@ -159,6 +158,7 @@
         "textbook/volumes/00_foundations/PDE10/index.md",
         "textbook/volumes/00_foundations/PDE11/index.md",
         "textbook/volumes/00_foundations/PDE12/index.md",
+        "textbook/volumes/00_foundations/F0_00R3_EncoreIII_Distributions_Sobolev_Weak/index.md",
         "textbook/volumes/00_foundations/GPDE1/index.md",
         "textbook/volumes/00_foundations/GPDE2/index.md",
         "textbook/volumes/00_foundations/GPDE3/index.md",
@@ -186,10 +186,7 @@
         "textbook/volumes/00_foundations/STO11/index.md",
         "textbook/volumes/00_foundations/STO12/index.md",
         "textbook/volumes/00_foundations/STO13/index.md",
-        "textbook/volumes/00_foundations/STO14/index.md",
-        "textbook/volumes/00_foundations/FIX1/index.md",
-        "textbook/volumes/00_foundations/FIX2/index.md",
-        "textbook/volumes/00_foundations/FIX3/index.md"
+        "textbook/volumes/00_foundations/STO14/index.md"
       ]
     },
     {
@@ -317,6 +314,9 @@
         "textbook/volumes/00_foundations/OPT10/index.md",
         "textbook/volumes/00_foundations/OPT11/index.md",
         "textbook/volumes/00_foundations/OPT12/index.md",
+        "textbook/volumes/00_foundations/FIX1/index.md",
+        "textbook/volumes/00_foundations/FIX2/index.md",
+        "textbook/volumes/00_foundations/FIX3/index.md",
         "textbook/volumes/00_foundations/RKHS1/index.md",
         "textbook/volumes/00_foundations/RKHS2/index.md",
         "textbook/volumes/00_foundations/RKHS3/index.md",
