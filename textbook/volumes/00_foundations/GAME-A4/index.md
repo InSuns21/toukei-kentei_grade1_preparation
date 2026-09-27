@@ -30,7 +30,7 @@ $$
 
 戦略集合が有限集合ではない場合、たとえば
 
-$
+$$
 X_i=[0,1],\qquad
 X_i=\{x_i\in\mathbb R^d:x_i\ge0,\ a^{\mathsf T}x_i\le b\}
 $$
