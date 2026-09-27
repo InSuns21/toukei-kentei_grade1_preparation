@@ -1,0 +1,121 @@
+chapter: GAME-A4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GAME-A3
+  - OPT5
+  - OPT6
+
+forward_references: []
+
+concepts:
+  - id: game.continuous-strategy-game
+    name: 連続戦略ゲーム
+    kind: definition
+    aliases:
+      - continuous-strategy game
+    introduction: formal
+    introduction_aliases: ["定義（連続戦略ゲーム・Nash 均衡）"]
+    requires:
+      - game.best-response
+
+  - id: game.continuous-nash-equilibrium
+    name: 連続戦略ゲームの Nash 均衡
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（連続戦略ゲーム・Nash 均衡）"]
+    requires:
+      - game.continuous-strategy-game
+
+  - id: game.concave-game
+    name: 凹ゲーム
+    kind: definition
+    aliases:
+      - concave game
+    introduction: formal
+    introduction_aliases: ["定義（凹ゲーム）"]
+    requires:
+      - game.continuous-strategy-game
+      - convex.convex-set
+
+  - id: game.continuous-concave-nash-existence
+    name: 連続凹ゲームの Nash 均衡存在
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（連続凹ゲームの Nash 均衡存在）"]
+    requires:
+      - game.concave-game
+      - optimization.berge-maximum-theorem
+      - fixedpoint.kakutani-fixed-point-theorem
+
+  - id: game.playerwise-kkt-characterization
+    name: 凹ゲームの player-wise KKT 特徴付け
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（凹ゲームの player-wise KKT 特徴付け）"]
+    requires:
+      - game.concave-game
+      - optimization.kkt-conditions
+      - optimization.slater-condition
+
+  - id: game.pseudogradient-map
+    name: 擬勾配写像
+    kind: definition
+    aliases:
+      - pseudo-gradient map
+    introduction: formal
+    introduction_aliases: ["定義（擬勾配写像・変分不等式）"]
+    requires:
+      - game.continuous-strategy-game
+
+  - id: optimization.variational-inequality
+    name: 変分不等式
+    kind: definition
+    aliases:
+      - variational inequality
+    introduction: formal
+    introduction_aliases: ["定義（擬勾配写像・変分不等式）"]
+    requires:
+      - game.pseudogradient-map
+
+  - id: game.nash-vi-equivalence
+    name: Nash 均衡と変分不等式の同値
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（Nash 均衡と変分不等式の同値）"]
+    requires:
+      - game.concave-game
+      - optimization.variational-inequality
+      - convex.normal-cone
+
+  - id: optimization.monotone-map
+    name: 単調写像
+    kind: definition
+    aliases:
+      - monotone map
+    introduction: inline
+    requires:
+      - optimization.variational-inequality
+
+  - id: optimization.strongly-monotone-map
+    name: 強単調写像
+    kind: definition
+    aliases:
+      - strongly monotone map
+    introduction: inline
+    requires:
+      - optimization.monotone-map
+
+  - id: game.strong-monotonicity-unique-nash
+    name: 強単調性による Nash 均衡の一意性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（強単調性による Nash 均衡の一意性）"]
+    requires:
+      - game.nash-vi-equivalence
+      - optimization.strongly-monotone-map
