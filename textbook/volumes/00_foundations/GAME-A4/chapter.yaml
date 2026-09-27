@@ -1,0 +1,45 @@
+id: "GAME-A4"
+title: "凹ゲーム・KKT・変分不等式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GAME-A3
+  - OPT5
+  - OPT6
+official_scope: []
+learning_objectives:
+  - 連続戦略ゲームを定義し、有限ゲームとの違いを戦略集合と利得関数の形から説明できる
+  - 各プレイヤーの戦略集合が凸で利得が自分の戦略について凹である凹ゲームを判定できる
+  - 連続・コンパクト・凸な戦略集合を持つ凹ゲームで、最適反応対応の仮定を確認して Nash 均衡存在を示せる
+  - 各プレイヤーの最適化問題へ KKT 条件を適用し、Nash 均衡を player-wise KKT 系として表せる
+  - 法錐を使って各プレイヤーの一次最適性条件をまとめ、Nash 均衡を積集合上の変分不等式として特徴付けられる
+  - 凹性が Nash 均衡と変分不等式の同値性の逆向きに必要であることを反例から説明できる
+  - 擬勾配写像の単調性・強単調性を判定し、強単調性から Nash 均衡の一意性を証明できる
+  - 制約想定を失うと KKT 乗数が存在しない場合があり、KKT は Nash 均衡の定義そのものではないことを説明できる
+definitions:
+  - { id: GAME-A4-DEF-01, name: 連続戦略ゲーム・Nash 均衡 }
+  - { id: GAME-A4-DEF-02, name: 凹ゲーム }
+  - { id: GAME-A4-DEF-03, name: 擬勾配写像・変分不等式 }
+theorems:
+  - { id: GAME-A4-THM-01, name: 連続凹ゲームの Nash 均衡存在 }
+  - { id: GAME-A4-THM-02, name: 凹ゲームの player-wise KKT 特徴付け }
+  - { id: GAME-A4-THM-03, name: Nash 均衡と変分不等式の同値 }
+  - { id: GAME-A4-PROP-01, name: 強単調性による Nash 均衡の一意性 }
+canonical_examples:
+  - 二人の二次凹ゲームで最適反応と Nash 均衡を直接計算する例
+  - 区間制約の境界 Nash 均衡で KKT 乗数と法錐を対応させる例
+  - Cournot 複占を擬勾配と変分不等式で解く例
+  - 非凹利得では変分不等式の解が Nash 均衡でない反例
+problem_patterns:
+  - GAME-A4-CONCAVITY-1
+  - GAME-A4-PLAYERWISE-KKT-1
+  - GAME-A4-NORMAL-CONE-1
+  - GAME-A4-VI-1
+  - GAME-A4-MONOTONICITY-1
+  - GAME-A4-COURNOT-1
+  - GAME-A4-CQ-1
+  - GAME-A4-INTEGRATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.5, review: 0.75 }
