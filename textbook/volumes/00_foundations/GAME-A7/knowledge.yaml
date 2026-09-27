@@ -5,8 +5,7 @@ prerequisites:
   - GAME-A6
   - GAME-A2
 
-forward_references:
-  - GAME-A8
+forward_references: []
 
 concepts:
   - id: game.feasible-payoff-set
@@ -67,4 +66,4 @@ concepts:
       - game.individually-rational-payoff
       - game.minmax-payoff
       - game.one-shot-deviation-principle
-      - game.pure-strategy-nash-equilibrium
+      - game.mixed-strategy-nash-equilibrium
