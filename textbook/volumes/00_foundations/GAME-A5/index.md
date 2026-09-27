@@ -8,7 +8,7 @@
 
 中心となる流れは
 
-$
+$$
 \boxed{
 \text{意思決定の木構造}
 \longrightarrow
@@ -20,7 +20,7 @@ $
 \longrightarrow
 \text{終端から根へ解く}
 }
-$
+$$
 
 です。
 
