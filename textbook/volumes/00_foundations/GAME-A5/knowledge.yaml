@@ -17,6 +17,16 @@ concepts:
     requires:
       - game.strategic-form-game
 
+  - id: game.game-tree
+    name: ゲーム木
+    kind: definition
+    aliases:
+      - game tree
+    introduction: formal
+    introduction_aliases: ["定義（ゲーム木）"]
+    requires:
+      - game.finite-perfect-information-extensive-form
+
   - id: game.extensive-form-pure-strategy
     name: 展開形ゲームの純粋戦略
     kind: definition
