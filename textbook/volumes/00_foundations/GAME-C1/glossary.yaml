@@ -9,7 +9,7 @@ terms:
   - term: 個別合理的集合
     english: individually rational set
     meaning: 各プレイヤーが決裂点以上の効用を得る実行可能配分の集合。
-  - term: essential な交渉問題
+  - term: 本質的な交渉問題
     english: essential bargaining problem
     meaning: 全プレイヤーが決裂点より厳密に高い効用を同時に得られる実行可能配分が存在する交渉問題。
   - term: Nash 積
