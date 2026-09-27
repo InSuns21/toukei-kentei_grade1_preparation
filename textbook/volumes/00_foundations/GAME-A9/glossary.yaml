@@ -1,0 +1,26 @@
+chapter: "GAME-A9"
+terms:
+  - term: 私的価値
+    english: private value
+    meaning: 財を得たときの自分の便益を表し、自分には観察できるが他の入札者には直接観察できない評価額。
+  - term: 独立私的価値モデル
+    english: independent private values model
+    meaning: 各入札者の評価額が私的タイプであり、入札者間で独立な共通分布から生じるとするオークションモデル。
+  - term: 第一価格オークション
+    english: first-price auction
+    meaning: 最高入札者が落札し、原則として自分の入札額を支払う単一財オークション。
+  - term: 第二価格オークション
+    english: second-price auction
+    meaning: 最高入札者が落札し、原則として二番目に高い入札額を支払う単一財オークション。
+  - term: 正直入札
+    english: truthful bidding
+    meaning: 自分の評価額 v をそのまま入札額 b=v として申告する入札戦略。
+  - term: 入札の切り下げ
+    english: bid shading
+    meaning: 自分の評価額より低い額を入札し、落札確率と落札時の支払額を調整する行動。
+  - term: 対称 Bayesian Nash 均衡
+    english: symmetric Bayesian Nash equilibrium
+    meaning: 同じタイプ分布を持つ入札者が、同じタイプ依存入札関数を用い、その関数から一方的に逸脱する誘因を持たない Bayesian Nash 均衡。
+  - term: 収入同値
+    english: revenue equivalence
+    meaning: 一定の仮定のもとで異なるオークション形式が同じ期待支払・期待売り手収入を生む現象。本章では第一価格と第二価格の標準独立私的価値モデルに限定して導く。
