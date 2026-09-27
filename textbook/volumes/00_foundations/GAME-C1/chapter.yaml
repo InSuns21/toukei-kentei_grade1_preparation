@@ -13,7 +13,7 @@ learning_objectives:
   - 凸性を失うと一意性証明の中点議論が壊れ、複数の Nash 積最大化解が生じ得ることを反例で説明できる
   - OPT5 の KKT 条件を適用するために、y_i=log(x_i-d_i) の変数変換後に目的関数と制約関数の有限値性・微分可能性・凸性、Slater 条件を局所的に確認できる
   - 線形資源制約 a・x<=B の下で x_i=d_i+(B-a・d)/(n a_i) を KKT から導出できる
-  - Nash 積最大化解が Pareto 効率的であることを、積の単調性から証明できる
+  - Nash 積最大化解が パレート 効率的であることを、積の単調性から証明できる
   - 決裂点の変化が同じ実行可能集合でも配分を変えることを具体的に計算し、Nash 均衡との概念上の違いを説明できる
 definitions:
   - { id: GAME-C1-DEF-01, name: Nash 交渉問題 }
@@ -24,7 +24,7 @@ theorems:
   - { id: GAME-C1-PROP-01, name: Nash 積最大化と対数和最大化の同値性 }
   - { id: GAME-C1-THM-01, name: Nash 交渉解の存在と一意性 }
   - { id: GAME-C1-PROP-02, name: 線形資源制約に対する KKT 表示 }
-  - { id: GAME-C1-THM-02, name: Nash 交渉解の Pareto 効率性 }
+  - { id: GAME-C1-THM-02, name: Nash 交渉解の パレート 効率性 }
 canonical_examples:
   - "F={(x_1,x_2)>=0:x_1+x_2<=10}, d=(2,1) で 余剰 7 を等しい利得増分 7/2,7/2 に分け、Nash 交渉解 (11/2,9/2) を得る例"
   - "F={(x_1,x_2):2x_1+x_2<=12, x>=(1,2)}, d=(1,2) で KKT から Nash 交渉解 (3,6) を導く例"
