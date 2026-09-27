@@ -1,0 +1,20 @@
+chapter: "GAME-A7"
+terms:
+  - term: 実現可能利得集合
+    english: feasible payoff set
+    meaning: 段階ゲームの純粋行動プロファイルが生む利得ベクトルの凸結合全体からなる集合。
+  - term: ミニマックス値
+    english: minmax payoff
+    meaning: 他のプレイヤーがあるプレイヤーの利得をできるだけ低くする戦略を選んだ後、そのプレイヤーが最適反応して確保できる最低保証水準。
+  - term: 個人合理的利得
+    english: individually rational payoff
+    meaning: 各プレイヤーの利得が、そのプレイヤー自身のミニマックス値以上である利得ベクトル。
+  - term: 厳密に個人合理的な利得
+    english: strictly individually rational payoff
+    meaning: 各プレイヤーの利得が、そのプレイヤー自身のミニマックス値を厳密に上回る利得ベクトル。
+  - term: フォーク定理
+    english: Folk theorem
+    meaning: 十分に将来を重く評価する繰り返しゲームで、実現可能かつ個人合理的な広い範囲の利得を均衡として支えられることを述べる一連の定理。
+  - term: 信頼可能な罰
+    english: credible punishment
+    meaning: 逸脱者を抑えるだけでなく、罰を実行する側にとっても各履歴後で逸脱する誘因がない罰の継続戦略。
