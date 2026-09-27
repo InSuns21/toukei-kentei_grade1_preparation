@@ -1,0 +1,29 @@
+chapter: "GAME-A6"
+terms:
+  - term: 繰り返しゲーム
+    english: repeated game
+    meaning: 同じ段階ゲームを複数期にわたって繰り返し、過去の行動履歴に応じて将来の行動を変えられる動学ゲーム。
+  - term: 段階ゲーム
+    english: stage game
+    meaning: 繰り返しゲームの各期にプレイされる一回限りの戦略形ゲーム。
+  - term: 履歴
+    english: history
+    meaning: 現在期より前に実現した行動プロファイルの有限列。
+  - term: 履歴依存戦略
+    english: history-dependent strategy
+    meaning: 各期の行動を、それまでに観察した履歴の関数として指定する戦略。
+  - term: 割引因子
+    english: discount factor
+    meaning: 将来の一単位の利得を現在の利得に対してどれだけ重く評価するかを表す0以上1未満の係数。
+  - term: トリガー戦略
+    english: trigger strategy
+    meaning: 所定の履歴条件が破られたことを契機に、以後の行動規則を協力から罰へ切り替える履歴依存戦略。
+  - term: グリム・トリガー
+    english: grim trigger
+    meaning: 一度でも協力経路から逸脱が観察されたら、その後は永久に罰行動を続けるトリガー戦略。
+  - term: 一回逸脱原理
+    english: one-shot deviation principle
+    meaning: 割引された無限回繰り返しゲームで、各有限履歴後の一期間だけの逸脱がすべて不利なら部分ゲーム完全均衡を確認できる原理。
+  - term: しっぺ返し
+    english: tit-for-tat
+    meaning: 初回は協力し、その後は相手が直前期に選んだ行動を模倣する代表的な履歴依存戦略。

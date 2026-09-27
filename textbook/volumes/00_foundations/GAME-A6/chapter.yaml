@@ -1,0 +1,43 @@
+id: "GAME-A6"
+title: "繰り返しゲーム・トリガー戦略"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GAME-A5
+official_scope: []
+learning_objectives:
+  - 有限回・無限回の繰り返しゲームを段階ゲーム、履歴、履歴依存戦略から定義し、同じ段階ゲームでも戦略集合が大きくなる理由を説明できる
+  - 段階ゲームの Nash 均衡が一意な有限反復では、後ろ向き帰納法により各期・各履歴でその均衡が繰り返されることを証明できる
+  - 無限回繰り返しゲームの割引因子と割引現在価値を説明し、正規化割引利得と非正規化割引利得が均衡判定で同値であることを示せる
+  - グリム・トリガー戦略を履歴から定義し、囚人のジレンマで協力を支える割引因子の閾値を逸脱利得と罰の現在価値から導ける
+  - 一回逸脱原理を使い、無限回繰り返しゲームの部分ゲーム完全均衡を各有限履歴後の一回逸脱だけで検査できる
+  - 一般の協力プロファイルと段階 Nash 均衡による罰について、トリガー戦略が部分ゲーム完全均衡になる十分条件を導ける
+  - 有限反復の後ろ向き帰納法と無限反復の将来罰の違いを説明し、終端の有無がインセンティブをどう変えるかを述べられる
+  - しっぺ返し戦略を代表的な履歴依存戦略として位置付け、直感的な協力戦略であることと部分ゲーム完全均衡であることを区別できる
+definitions:
+  - { id: GAME-A6-DEF-01, name: 繰り返しゲーム }
+  - { id: GAME-A6-DEF-02, name: 履歴依存戦略 }
+  - { id: GAME-A6-DEF-03, name: 割引利得 }
+  - { id: GAME-A6-DEF-04, name: トリガー戦略・グリム・トリガー }
+theorems:
+  - { id: GAME-A6-THM-01, name: 一意な段階 Nash 均衡を持つ有限反復ゲームの後ろ向き帰納 }
+  - { id: GAME-A6-THM-02, name: 一回逸脱原理 }
+  - { id: GAME-A6-PROP-01, name: グリム・トリガーによる協力維持の十分条件 }
+canonical_examples:
+  - 標準的な囚人のジレンマを有限回繰り返すと最終期から非協力が逆向きに伝播する例
+  - 標準的な囚人のジレンマを無限回繰り返し、グリム・トリガーが割引因子1/2以上で協力を支える例
+  - 複数の段階 Nash 均衡があると有限反復でも将来の均衡選択を報酬・罰として使える例
+  - しっぺ返しが標準囚人のジレンマで部分ゲーム完全均衡にならないことを異なる履歴後の一回逸脱で示す例
+problem_patterns:
+  - GAME-A6-HISTORY-1
+  - GAME-A6-DISCOUNTED-PAYOFF-1
+  - GAME-A6-FINITE-BACKWARD-1
+  - GAME-A6-GRIM-THRESHOLD-1
+  - GAME-A6-GENERAL-TRIGGER-1
+  - GAME-A6-ONE-SHOT-DEVIATION-1
+  - GAME-A6-TIT-FOR-TAT-1
+  - GAME-A6-INTEGRATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.5, review: 0.75 }
