@@ -1,0 +1,116 @@
+chapter: GAME-A2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GAME-A1
+  - OPT10
+
+forward_references:
+  - fixedpoint.fixed-point
+  - fixedpoint.kakutani-fixed-point-theorem
+
+concepts:
+  - id: game.mixed-strategy
+    name: 混合戦略
+    kind: definition
+    aliases:
+      - mixed strategy
+    introduction: formal
+    introduction_aliases: ["定義（混合戦略・台）"]
+    requires:
+      - game.strategic-form-game
+
+  - id: game.mixed-strategy-support
+    name: 混合戦略の台
+    kind: definition
+    aliases:
+      - support of a mixed strategy
+    introduction: formal
+    introduction_aliases: ["定義（混合戦略・台）"]
+    requires:
+      - game.mixed-strategy
+
+  - id: game.mixed-extension
+    name: 戦略形ゲームの混合拡張
+    kind: definition
+    aliases:
+      - mixed extension
+    introduction: formal
+    introduction_aliases: ["定義（混合拡張と混合戦略 Nash 均衡）"]
+    requires:
+      - game.mixed-strategy
+      - game.strategic-form-game
+
+  - id: game.mixed-strategy-nash-equilibrium
+    name: 混合戦略 Nash 均衡
+    kind: definition
+    aliases:
+      - mixed-strategy Nash equilibrium
+      - mixed Nash equilibrium
+    introduction: formal
+    introduction_aliases: ["定義（混合拡張と混合戦略 Nash 均衡）"]
+    requires:
+      - game.mixed-extension
+      - game.best-response
+
+  - id: game.mixed-nash-support-best-response
+    name: 混合戦略 Nash 均衡の台にある純粋戦略は最適反応
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（均衡で正の確率を与える純粋戦略は最適反応）"]
+    requires:
+      - game.mixed-strategy-nash-equilibrium
+      - game.mixed-strategy-support
+
+  - id: game.zero-sum-game
+    name: 二人ゼロ和ゲーム
+    kind: definition
+    aliases:
+      - zero-sum game
+    introduction: formal
+    introduction_aliases: ["定義（二人ゼロ和ゲーム・利得行列）"]
+    requires:
+      - game.strategic-form-game
+
+  - id: game.zero-sum-security-values
+    name: ゼロ和ゲームの下側保証値・上側保証値
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（下側保証値・上側保証値）"]
+    requires:
+      - game.zero-sum-game
+      - game.mixed-strategy
+
+  - id: game.maximin-minimax-weak-inequality
+    name: maximin と minimax の弱不等式
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（maximin と minimax の弱不等式）"]
+    requires:
+      - game.zero-sum-security-values
+
+  - id: game.von-neumann-minimax-theorem
+    name: von Neumann のミニマックス定理
+    kind: theorem
+    aliases:
+      - ミニマックス定理
+      - von Neumann minimax theorem
+    introduction: formal
+    introduction_aliases: ["定理（von Neumann のミニマックス定理）"]
+    requires:
+      - game.maximin-minimax-weak-inequality
+      - optimization.linear-program-strong-duality
+      - optimization.linear-program-dual
+
+  - id: game.zero-sum-nash-security-equivalence
+    name: ゼロ和ゲームの混合戦略 Nash 均衡と最適保証戦略
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（ゼロ和ゲームの均衡と最適保証戦略）"]
+    requires:
+      - game.von-neumann-minimax-theorem
+      - game.mixed-strategy-nash-equilibrium

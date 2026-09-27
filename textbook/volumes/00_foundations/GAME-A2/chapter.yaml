@@ -1,0 +1,46 @@
+id: "GAME-A2"
+title: "混合戦略・ゼロ和ゲーム・ミニマックス"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GAME-A1
+  - OPT10
+official_scope: []
+learning_objectives:
+  - 有限戦略集合上の混合戦略を確率分布として定義し、確率単体・台・純粋戦略との関係を具体例で説明できる
+  - 独立に選ばれる混合戦略の下で期待利得を有限和として計算し、二人ゲームでは双線形形式として書ける
+  - 混合戦略 Nash 均衡を定義し、均衡で正の確率を与える純粋戦略が最適反応であることを示せる
+  - 二人有限ゼロ和ゲームを利得行列で表し、行プレイヤーの保証値と列プレイヤーの保証上界を定義できる
+  - 任意の二人ゼロ和ゲームで maximin 値が minimax 値を超えないことを直接示せる
+  - 行プレイヤーと列プレイヤーの安全化問題を線形計画として定式化できる
+  - 列プレイヤーの線形計画を OPT10 の標準形へ直し、その双対が行プレイヤーの線形計画になることを導出できる
+  - 線形計画の強双対性から有限ゼロ和ゲームの von Neumann のミニマックス定理を証明できる
+  - 表裏合わせゲームと非対称2×2ゼロ和ゲームで最適混合戦略とゲームの値を手計算できる
+definitions:
+  - { id: GAME-A2-DEF-01, name: 混合戦略・台 }
+  - { id: GAME-A2-DEF-02, name: 混合拡張と混合戦略 Nash 均衡 }
+  - { id: GAME-A2-DEF-03, name: 二人ゼロ和ゲーム・利得行列 }
+  - { id: GAME-A2-DEF-04, name: 下側保証値・上側保証値 }
+theorems:
+  - { id: GAME-A2-PROP-01, name: 混合戦略 Nash 均衡の台にある純粋戦略は最適反応 }
+  - { id: GAME-A2-PROP-02, name: maximin と minimax の弱不等式 }
+  - { id: GAME-A2-THM-01, name: von Neumann のミニマックス定理 }
+  - { id: GAME-A2-PROP-03, name: ゼロ和ゲームの混合戦略 Nash 均衡と最適保証戦略 }
+canonical_examples:
+  - 表裏合わせゲームで各プレイヤーが表裏を2分の1ずつ混ぜる均衡
+  - 2×2対角型ゼロ和ゲームで無差別条件から非対称な最適混合比を求める例
+  - 純粋鞍点を持つゼロ和ゲームで混合しても値が変わらない例
+  - 列プレイヤーの安全化問題を標準形線形計画へ変換し、双対から行プレイヤーの問題を復元する例
+problem_patterns:
+  - GAME-A2-MIXED-STRATEGY-1
+  - GAME-A2-EXPECTED-PAYOFF-1
+  - GAME-A2-SUPPORT-BEST-RESPONSE-1
+  - GAME-A2-SADDLE-POINT-1
+  - GAME-A2-TWO-BY-TWO-MINIMAX-1
+  - GAME-A2-LP-DUALITY-1
+  - GAME-A2-ZERO-SUM-NASH-1
+  - GAME-A2-PARAMETER-CLASSIFICATION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 4.5, review: 0.75 }

@@ -1,0 +1,20 @@
+chapter: "GAME-A2"
+terms:
+  - term: 混合戦略
+    english: mixed strategy
+    meaning: 有限個の純粋戦略に確率を割り当て、各純粋戦略をその確率で選ぶ戦略。
+  - term: 台
+    english: support
+    meaning: 混合戦略が正の確率を割り当てる純粋戦略の集合。
+  - term: 混合戦略 Nash 均衡
+    english: mixed-strategy Nash equilibrium
+    meaning: 他のプレイヤーの混合戦略を固定したとき、どのプレイヤーも自分の混合戦略だけを変更して期待利得を増やせない混合戦略プロファイル。
+  - term: ゼロ和ゲーム
+    english: zero-sum game
+    meaning: 二人の利得の和が全ての戦略プロファイルで0となり、一方の利得が他方の損失になるゲーム。
+  - term: ゲームの値
+    english: value of the game
+    meaning: 有限ゼロ和ゲームで、最大化側の最適保証値と最小化側の最適保証上界が一致した共通値。
+  - term: ミニマックス定理
+    english: minimax theorem
+    meaning: 有限二人ゼロ和ゲームで、最大化側の maximin 値と最小化側の minimax 値が一致することを述べる定理。
