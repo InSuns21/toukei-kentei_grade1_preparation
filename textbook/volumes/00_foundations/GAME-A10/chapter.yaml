@@ -1,0 +1,45 @@
+id: "GAME-A10"
+title: "動学的不完備情報・信念・Perfect Bayesian Equilibrium"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GAME-A5
+  - GAME-A8
+official_scope: []
+learning_objectives:
+  - 動学的不完備情報ゲームで、どの履歴を同じ情報集合へまとめるべきかを「手番プレイヤーが区別できるか」という観点から説明できる
+  - 情報集合ごとに行動を指定する行動戦略と、情報集合内のどの節点にいるかを表す信念体系を区別できる
+  - 戦略と自然の確率から情報集合への到達確率を計算し、到達確率が正なら Bayes の公式で信念を更新できる
+  - 経路上の情報集合では Bayes の公式が信念を一意に定める一方、経路外の情報集合では弱い PBE の定義だけでは信念が一意に定まらないことを説明できる
+  - 信念を固定して各情報集合で継続期待利得を計算し、逐次合理性を判定できる
+  - 評価組・Bayes 整合性・逐次合理性から、本章で用いる有限ゲーム版 Perfect Bayesian Equilibrium を定義し候補を検証できる
+  - 二タイプの認証ゲームで分離型 PBE とプーリング型 PBE を具体的に導出し、経路外信念が均衡を支える仕組みを説明できる
+  - 完全情報では PBE が部分ゲーム完全均衡へ、静学的な私的情報ゲームでは Bayesian Nash 均衡へ戻ることを説明できる
+definitions:
+  - { id: GAME-A10-DEF-01, name: 情報集合 }
+  - { id: GAME-A10-DEF-02, name: 行動戦略 }
+  - { id: GAME-A10-DEF-03, name: 信念体系・評価組 }
+  - { id: GAME-A10-DEF-04, name: 逐次合理性 }
+  - { id: GAME-A10-DEF-05, name: Bayes 整合性 }
+  - { id: GAME-A10-DEF-06, name: Perfect Bayesian Equilibrium }
+theorems:
+  - { id: GAME-A10-PROP-01, name: 到達情報集合における Bayes 信念の一意性 }
+  - { id: GAME-A10-PROP-02, name: 完全情報特殊化における PBE と部分ゲーム完全均衡の一致 }
+canonical_examples:
+  - 高能力・低能力の二タイプが認証を取得するか選び、雇用側が認証だけを見て採用を決める二段階ゲーム
+  - 高能力だけが認証を取得する分離型戦略から、認証後の信念1・無認証後の信念0を Bayes の公式で導く例
+  - 両タイプが認証を取得しないプーリング型戦略で、経路上の信念は事前確率に固定される一方、経路外の認証後信念が区間で許される例
+  - 到達確率0の情報集合で常に劣る行動を指定すると、Nash・SPE では見逃し得ても PBE の逐次合理性では排除される例
+problem_patterns:
+  - GAME-A10-INFORMATION-SET-1
+  - GAME-A10-BAYES-POSTERIOR-1
+  - GAME-A10-SEQUENTIAL-RATIONALITY-1
+  - GAME-A10-ON-OFF-PATH-1
+  - GAME-A10-SEPARATING-PBE-1
+  - GAME-A10-POOLING-PBE-1
+  - GAME-A10-OFFPATH-BELIEF-1
+  - GAME-A10-INTEGRATED-PARAMETRIC-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.5, review: 0.75 }
