@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-[GAME-A6](../GAME-A6/index.md) では、無限回繰り返しゲームで将来の罰が現在の逸脱を抑えられることを、グリム・トリガーと一回逸脱原理から確認しました。
+[GAME-A6](../GAME-A6/index.md) では、無限回繰り返しゲームで将来の罰が現在の逸脱を抑えられることを、グリム・トリガーと[一回逸脱原理](../GAME-A6/index.md#thm-game-a6-one-shot-deviation)から確認しました。
 
 ただし、そこで支えたのは主に「毎期同じ協力行動を続ける」という一つの利得流列でした。本章では問いを一段広げます。
 
@@ -1427,7 +1427,7 @@ $$
 
 従って今期だけ別行動へ変える利得はありません。
 
-罰状態 $(D,D)$ も段階 Nash 均衡なので、一回逸脱原理により $\delta\ge1/4$ で全履歴の検査が閉じます。
+罰状態 $(D,D)$ も段階 Nash 均衡なので、[一回逸脱原理](../GAME-A6/index.md#thm-game-a6-one-shot-deviation)により $\delta\ge1/4$ で全履歴の検査が閉じます。
 <!-- solution-end -->
 
 <a id="ex-game-a7-b02"></a>
@@ -2097,7 +2097,7 @@ $$
 
 なので、罰履歴後の一回逸脱は有利ではありません。
 
-従って一回逸脱原理より、
+従って[一回逸脱原理](../GAME-A6/index.md#thm-game-a6-one-shot-deviation)より、
 
 $$
 \boxed{
