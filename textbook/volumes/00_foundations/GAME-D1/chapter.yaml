@@ -2,7 +2,8 @@ id: "GAME-D1"
 title: "安定結婚問題・Gale--Shapley アルゴリズム"
 volume: "foundations"
 status: supplementary
-prerequisites: []
+prerequisites:
+  - F0-00A
 official_scope: []
 learning_objectives:
   - 二つの同数な有限集合と各主体の厳密な選好順位から、一対一マッチング市場を定式化できる
