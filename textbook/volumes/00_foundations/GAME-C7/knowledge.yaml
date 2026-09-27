@@ -49,8 +49,9 @@ concepts:
     introduction: formal
     introduction_aliases: ["命題（最終期提示の信念閾値）"]
     requires:
-      - game.bargaining-posterior-belief
-      - game.bargaining-screening-offer
+      - game.one-sided-private-information-bargaining
+      - game.belief-system
+      - game.sequential-rationality
 
   - id: game.two-period-private-information-bargaining-pbe
     name: 二期片側私的情報交渉の PBE
@@ -60,6 +61,8 @@ concepts:
     introduction_aliases: ["定理（二期片側私的情報交渉の PBE）"]
     requires:
       - game.final-offer-belief-cutoff
+      - game.bargaining-screening-offer
+      - game.bargaining-posterior-belief
       - game.perfect-bayesian-equilibrium
       - game.sequential-rationality
 
