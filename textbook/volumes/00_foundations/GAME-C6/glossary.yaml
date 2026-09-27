@@ -1,0 +1,20 @@
+chapter: "GAME-C6"
+terms:
+  - term: 非協力的基礎
+    english: noncooperative foundation
+    meaning: 公理的に定義された交渉解を、提案・受諾・拒否などを明示した非協力ゲームの均衡またはその極限として説明する考え方。
+  - term: 遅延消失極限
+    english: vanishing-delay limit
+    meaning: 交互提案ゲームで一手の時間間隔 h を0へ近づけ、1期割引因子 delta_i(h)=exp(-r_i h) を1へ近づけたときの均衡結果の極限。
+  - term: 時間費用率
+    english: impatience rate
+    meaning: 交渉余剰の時間価値が指数関数的に減衰する速さを表す正の係数 r_i。大きいほど待つことの費用が大きい。
+  - term: 交渉余剰
+    english: bargaining surplus
+    meaning: 合意利得 u_i から決裂点で得る基準利得 d_i を引いた s_i=u_i-d_i。遅延消失モデルではこの上積み部分を割り引く。
+  - term: 重み付き Nash 交渉解
+    english: weighted Nash bargaining solution
+    meaning: 正の重み alpha_1,alpha_2 に対し、交渉余剰の積 s_1^alpha_1 s_2^alpha_2 を最大化する個別合理的実行可能点。
+  - term: プロトコル依存性
+    english: protocol dependence
+    meaning: 交渉結果が提案順序、時間費用、決裂規則、外部選択肢の行使条件などの交渉手続きに依存する性質。
