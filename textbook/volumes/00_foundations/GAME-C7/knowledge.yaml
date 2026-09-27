@@ -1,0 +1,87 @@
+chapter: GAME-C7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GAME-A11
+  - GAME-C6
+
+forward_references: []
+
+concepts:
+  - id: game.one-sided-private-information-bargaining
+    name: 片側私的情報交渉
+    kind: definition
+    aliases:
+      - bargaining with one-sided private information
+    introduction: formal
+    introduction_aliases: ["定義（片側私的情報交渉）"]
+    requires:
+      - game.perfect-bayesian-equilibrium
+      - game.bargaining-noncooperative-foundation
+
+  - id: game.bargaining-screening-offer
+    name: 交渉におけるスクリーニング提示
+    kind: definition
+    aliases:
+      - screening offer
+    introduction: formal
+    introduction_aliases: ["定義（交渉におけるスクリーニング提示）"]
+    requires:
+      - game.screening
+      - game.one-sided-private-information-bargaining
+
+  - id: game.bargaining-posterior-belief
+    name: 交渉行動による事後信念
+    kind: definition
+    aliases:
+      - bargaining posterior belief
+    introduction: formal
+    introduction_aliases: ["定義（交渉行動による事後信念）"]
+    requires:
+      - game.belief-system
+      - game.bayesian-consistency
+      - game.one-sided-private-information-bargaining
+
+  - id: game.final-offer-belief-cutoff
+    name: 最終期提示の信念閾値
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（最終期提示の信念閾値）"]
+    requires:
+      - game.one-sided-private-information-bargaining
+      - game.belief-system
+      - game.sequential-rationality
+
+  - id: game.two-period-private-information-bargaining-pbe
+    name: 二期片側私的情報交渉の PBE
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（二期片側私的情報交渉の PBE）"]
+    requires:
+      - game.final-offer-belief-cutoff
+      - game.bargaining-screening-offer
+      - game.bargaining-posterior-belief
+      - game.perfect-bayesian-equilibrium
+      - game.sequential-rationality
+
+  - id: game.informational-bargaining-delay
+    name: スクリーニング領域と遅延確率
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（スクリーニング領域と遅延確率）"]
+    requires:
+      - game.two-period-private-information-bargaining-pbe
+
+  - id: game.informed-proposer-separating-offer
+    name: 私的情報を持つ提案者による分離型提示
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（私的情報を持つ提案者による分離型提示）"]
+    requires:
+      - game.signaling-game
+      - game.separating-strategy
+      - game.perfect-bayesian-equilibrium
