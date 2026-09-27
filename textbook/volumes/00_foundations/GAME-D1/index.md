@@ -313,7 +313,7 @@ Gale--Shapley の核心は、ここを「受諾」ではなく**保留**にす�
 
 ---
 
-## 5. 受入保留アルゴリズム
+## 5. 提案と保留を繰り返す
 
 <a id="def-game-d1-deferred-acceptance"></a>
 
