@@ -96,6 +96,7 @@ concepts:
     name: von Neumann のミニマックス定理
     kind: theorem
     aliases:
+      - ミニマックス定理
       - von Neumann minimax theorem
     introduction: formal
     introduction_aliases: ["定理（von Neumann のミニマックス定理）"]
