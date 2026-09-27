@@ -1,0 +1,45 @@
+id: "GAME-C6"
+title: "公理的交渉解の非協力的基礎"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GAME-C2
+  - GAME-C5
+official_scope: []
+learning_objectives:
+  - 公理的交渉解と非協力的基礎の役割を区別し、ゲーム族の均衡極限として解規則を基礎付ける意味を説明できる
+  - 決裂点からの余剰 s_i=u_i-d_i を導入し、余剰部分だけを指数型に割り引く交互提案ゲームを定式化できる
+  - delta_i(h)=exp(-r_i h) を用いた遅延消失ゲーム族を定義し、単位パイの Rubinstein 均衡から極限配分 (r_2/(r_1+r_2), r_1/(r_1+r_2)) を導出できる
+  - 重み付き Nash 交渉解を定義し、単位パイの遅延消失極限が重み (r_2,r_1) の重み付き Nash 解と一致することを示せる
+  - 滑らかな余剰フロンティア s_2=g(s_1) 上で二本の受諾境界 b_h=delta_1 a_h, g(a_h)=delta_2 g(b_h) を立てられる
+  - Cauchy の平均値の定理を用いて受諾境界の極限から r_2 g(s)+r_1 s g'(s)=0 を導出できる
+  - 上の極限条件が r_2 log s_1+r_1 log s_2 の一階条件と一致することを示し、対称な時間費用なら通常の Nash 交渉解へ収束することを説明できる
+  - 非対称な時間費用率が重みとして極限に残ることを具体例で計算し、遅延消失だけでは制度依存性が消えないことを説明できる
+  - disagreement point と outside option を区別し、外部選択肢の行使規則が受諾境界と極限結果を変え得ることを説明できる
+definitions:
+  - { id: GAME-C6-DEF-01, name: 交渉解の非協力的基礎 }
+  - { id: GAME-C6-DEF-02, name: 遅延が消える交互提案ゲーム族 }
+  - { id: GAME-C6-DEF-03, name: 重み付き Nash 交渉解 }
+theorems:
+  - { id: GAME-C6-PROP-01, name: 単位パイにおける遅延消失極限 }
+  - { id: GAME-C6-THM-01, name: 滑らかなフロンティアにおける重み付き Nash 極限 }
+  - { id: GAME-C6-COR-01, name: 対称な時間費用と Nash 交渉解 }
+  - { id: GAME-C6-PROP-02, name: 遅延消失極限のプロトコル依存性 }
+canonical_examples:
+  - "delta_i(h)=exp(-r_i h) の単位パイで初回提案者1の取り分が h→0 で r_2/(r_1+r_2) へ収束する例"
+  - "r_1=r_2 のとき単位パイの極限が (1/2,1/2) となり、通常の Nash 交渉解と一致する例"
+  - "余剰フロンティア s_2=1-s_1^2 で対称な時間費用なら極限が (1/sqrt(3),2/3) となる例"
+  - "同じフロンティアで r_1=2,r_2=1 とすると極限が (1/sqrt(5),4/5) となり、重み付き Nash 解として制度依存性が残る例"
+problem_patterns:
+  - GAME-C6-UNIT-PIE-LIMIT-1
+  - GAME-C6-HETEROGENEOUS-RATE-1
+  - GAME-C6-DISAGREEMENT-SURPLUS-1
+  - GAME-C6-WEIGHTED-NASH-1
+  - GAME-C6-SMOOTH-FRONTIER-1
+  - GAME-C6-MEAN-VALUE-DERIVATION-1
+  - GAME-C6-FIRST-MOVER-RATE-1
+  - GAME-C6-INTEGRATED-FOUNDATION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 5.5, review: 0.75 }
