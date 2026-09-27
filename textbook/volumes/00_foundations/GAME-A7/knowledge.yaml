@@ -1,0 +1,70 @@
+chapter: GAME-A7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GAME-A6
+  - GAME-A2
+
+forward_references:
+  - GAME-A8
+
+concepts:
+  - id: game.feasible-payoff-set
+    name: 実現可能利得集合
+    kind: definition
+    aliases:
+      - feasible payoff set
+    introduction: formal
+    introduction_aliases: ["定義（実現可能利得集合）"]
+    requires:
+      - game.repeated-game
+      - game.mixed-strategy
+
+  - id: game.minmax-payoff
+    name: ミニマックス値
+    kind: definition
+    aliases:
+      - minmax payoff
+      - minmax value
+    introduction: formal
+    introduction_aliases: ["定義（ミニマックス値）"]
+    requires:
+      - game.mixed-strategy
+      - game.best-response
+
+  - id: game.individually-rational-payoff
+    name: 個人合理的利得
+    kind: definition
+    aliases:
+      - individually rational payoff
+      - individually rational
+    introduction: formal
+    introduction_aliases: ["定義（個人合理的利得・厳密に個人合理的な利得）"]
+    requires:
+      - game.minmax-payoff
+
+  - id: game.repeated-equilibrium-necessary-region
+    name: 均衡利得の必要領域
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（均衡利得の必要領域）"]
+    requires:
+      - game.feasible-payoff-set
+      - game.individually-rational-payoff
+      - game.discounted-repeated-payoff
+      - game.mixed-strategy-nash-equilibrium
+
+  - id: game.credible-minmax-folk-construction
+    name: 信頼可能なミニマックス罰を持つ有限ゲームのフォーク定理型構成
+    kind: theorem
+    aliases:
+      - Folk theorem with credible minmax punishment
+    introduction: formal
+    introduction_aliases: ["定理（信頼可能なミニマックス罰を持つ有限ゲームのフォーク定理型構成）"]
+    requires:
+      - game.feasible-payoff-set
+      - game.individually-rational-payoff
+      - game.minmax-payoff
+      - game.one-shot-deviation-principle
+      - game.pure-strategy-nash-equilibrium
