@@ -22,7 +22,7 @@ definitions:
   - { id: GAME-A4-DEF-03, name: 擬勾配写像・変分不等式 }
 theorems:
   - { id: GAME-A4-THM-01, name: 連続凹ゲームの Nash 均衡存在 }
-  - { id: GAME-A4-THM-02, name: 凹ゲームの player-wise KKT 特徴付け }
+  - { id: GAME-A4-THM-02, name: 凹ゲームのプレイヤー別 KKT 特徴付け }
   - { id: GAME-A4-THM-03, name: Nash 均衡と変分不等式の同値 }
   - { id: GAME-A4-PROP-01, name: 強単調性による Nash 均衡の一意性 }
 canonical_examples:
