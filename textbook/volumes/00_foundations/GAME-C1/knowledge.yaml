@@ -1,0 +1,101 @@
+chapter: GAME-C1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OPT5
+  - MICRO5
+
+forward_references: []
+
+concepts:
+  - id: game.nash-bargaining-problem
+    name: Nash 交渉問題
+    kind: definition
+    aliases:
+      - Nash bargaining problem
+    introduction: formal
+    introduction_aliases: ["定義（Nash 交渉問題）"]
+    requires:
+      - convex.convex-set
+
+  - id: game.individually-rational-bargaining-set
+    name: 個別合理的集合
+    kind: definition
+    aliases:
+      - individually rational set
+    introduction: formal
+    introduction_aliases: ["定義（個別合理的集合）"]
+    requires:
+      - game.nash-bargaining-problem
+
+  - id: game.essential-bargaining-problem
+    name: 本質的な交渉問題
+    kind: definition
+    aliases:
+      - essential bargaining problem
+    introduction: formal
+    introduction_aliases: ["定義（本質的な交渉問題）"]
+    requires:
+      - game.nash-bargaining-problem
+      - game.individually-rational-bargaining-set
+
+  - id: game.nash-product
+    name: Nash 積
+    kind: definition
+    aliases:
+      - Nash product
+    introduction: formal
+    introduction_aliases: ["定義（Nash 積と Nash 交渉解）"]
+    requires:
+      - game.individually-rational-bargaining-set
+
+  - id: game.nash-bargaining-solution
+    name: Nash 交渉解
+    kind: definition
+    aliases:
+      - Nash bargaining solution
+    introduction: formal
+    introduction_aliases: ["定義（Nash 積と Nash 交渉解）"]
+    requires:
+      - game.nash-product
+
+  - id: game.nash-product-log-equivalence
+    name: Nash 積最大化と対数和最大化の同値性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（Nash 積最大化と対数和最大化の同値性）"]
+    requires:
+      - game.nash-product
+      - game.essential-bargaining-problem
+
+  - id: game.nash-bargaining-existence-uniqueness
+    name: Nash 交渉解の存在と一意性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（Nash 交渉解の存在と一意性）"]
+    requires:
+      - game.nash-bargaining-solution
+      - game.nash-product-log-equivalence
+      - convex.convex-set
+
+  - id: game.nash-bargaining-kkt-linear-frontier
+    name: 線形資源制約に対する Nash 交渉解の KKT 表示
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（線形資源制約に対する KKT 表示）"]
+    requires:
+      - game.nash-bargaining-solution
+      - optimization.kkt-conditions
+
+  - id: game.nash-bargaining-pareto-efficiency
+    name: Nash 交渉解のパレート効率性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（Nash 交渉解はパレート効率的である）"]
+    requires:
+      - game.nash-bargaining-solution
+      - micro.pareto-efficiency

@@ -1,0 +1,20 @@
+chapter: "GAME-C1"
+terms:
+  - term: Nash 交渉問題
+    english: Nash bargaining problem
+    meaning: 実行可能な効用配分の集合 F と、交渉決裂時の効用を表す決裂点 d からなる交渉モデル。
+  - term: 決裂点
+    english: disagreement point
+    meaning: 交渉が合意に至らなかったとき各プレイヤーが受け取る効用ベクトル d。
+  - term: 個別合理的集合
+    english: individually rational set
+    meaning: 各プレイヤーが決裂点以上の効用を得る実行可能配分の集合。
+  - term: 本質的な交渉問題
+    english: essential bargaining problem
+    meaning: 全プレイヤーが決裂点より厳密に高い効用を同時に得られる実行可能配分が存在する交渉問題。
+  - term: Nash 積
+    english: Nash product
+    meaning: 各プレイヤーの決裂点からの利得増分を掛け合わせた値。
+  - term: Nash 交渉解
+    english: Nash bargaining solution
+    meaning: 個別合理的な実行可能配分のうち Nash 積を最大化する配分。
