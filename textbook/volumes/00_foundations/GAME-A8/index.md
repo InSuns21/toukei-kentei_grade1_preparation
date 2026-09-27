@@ -126,16 +126,16 @@ $$
 > **定義（有限ベイジアンゲーム・共通事前分布）**  
 > 有限ベイジアンゲームを
 >
-> $$
-> G=
-> \left(
-> N,\,
-> (A_i)_{i\in N},\,
-> (T_i)_{i\in N},\,
-> \pi,\,
-> (u_i)_{i\in N}
-> \right)
-> $$
+$$
+G=
+\left(
+N,\,
+(A_i)_{i\in N},\,
+(T_i)_{i\in N},\,
+\pi,\,
+(u_i)_{i\in N}
+\right)
+$$
 >
 > で表す。
 >
@@ -145,18 +145,18 @@ $$
 > - $T=\prod_i T_i$ をタイプベクトル全体の集合とする。
 > - $\pi:T\to[0,1]$ は
 >
-> $$
-> \sum_{t\in T}\pi(t)=1
-> $$
+$$
+\sum_{t\in T}\pi(t)=1
+$$
 >
 > を満たすタイプベクトルの確率分布であり、**共通事前分布（common prior）**と呼ぶ。
 > - 利得関数は
 >
-> $$
-> u_i:A\times T\to\mathbb R,
-> \qquad
-> A=\prod_i A_i
-> $$
+$$
+u_i:A\times T\to\mathbb R,
+\qquad
+A=\prod_i A_i
+$$
 >
 > である。
 >
@@ -233,11 +233,11 @@ $$
 >
 > プレイヤー $i$ が自分のタイプ $t_i$ を観察した後に持つ、他プレイヤーのタイプ $t_{-i}$ についての **中間信念（interim belief）**を
 >
-> $$
-> \mu_i(t_{-i}\mid t_i)
-> =
-> \frac{\pi(t_i,t_{-i})}{\pi_i(t_i)}
-> $$
+$$
+\mu_i(t_{-i}\mid t_i)
+=
+\frac{\pi(t_i,t_{-i})}{\pi_i(t_i)}
+$$
 >
 > と定める。
 <!-- formal-statement-end -->
@@ -325,9 +325,9 @@ $$
 > **定義（ベイジアン戦略）**  
 > プレイヤー $i$ の **純粋ベイジアン戦略**とは写像
 >
-> $$
-> s_i:T_i\to A_i
-> $$
+$$
+s_i:T_i\to A_i
+$$
 >
 > である。
 >
@@ -335,9 +335,9 @@ $$
 >
 > また、タイプごとに混合行動を指定する写像
 >
-> $$
-> \sigma_i:T_i\to\Delta(A_i)
-> $$
+$$
+\sigma_i:T_i\to\Delta(A_i)
+$$
 >
 > を **行動的な混合ベイジアン戦略**と呼ぶ。
 <!-- formal-statement-end -->
@@ -405,46 +405,46 @@ $$
 >
 > 相手が純粋戦略 $s_{-i}$ を使うとき、タイプ $t_i$ のプレイヤー $i$ が行動 $a_i$ を選んだ **中間期待利得（interim expected payoff）**を
 >
-> $$
-> V_i(a_i;s_{-i}\mid t_i)
-> =
-> \sum_{t_{-i}}
-> \mu_i(t_{-i}\mid t_i)
-> u_i\left(
-> a_i,\,
-> s_{-i}(t_{-i}),\,
-> t_i,\,
-> t_{-i}
-> \right)
-> $$
+$$
+V_i(a_i;s_{-i}\mid t_i)
+=
+\sum_{t_{-i}}
+\mu_i(t_{-i}\mid t_i)
+u_i\left(
+a_i,\,
+s_{-i}(t_{-i}),\,
+t_i,\,
+t_{-i}
+\right)
+$$
 >
 > と定める。
 >
 > 相手が行動的混合戦略 $\sigma_{-i}$ を使うときは
 >
-> $$
-> V_i(a_i;\sigma_{-i}\mid t_i)
-> =
-> \sum_{t_{-i}}
-> \mu_i(t_{-i}\mid t_i)
-> \sum_{a_{-i}}
-> \left(
-> \prod_{j\ne i}
-> \sigma_j(a_j\mid t_j)
-> \right)
-> u_i(a_i,a_{-i},t_i,t_{-i})
-> $$
+$$
+V_i(a_i;\sigma_{-i}\mid t_i)
+=
+\sum_{t_{-i}}
+\mu_i(t_{-i}\mid t_i)
+\sum_{a_{-i}}
+\left(
+\prod_{j\ne i}
+\sigma_j(a_j\mid t_j)
+\right)
+u_i(a_i,a_{-i},t_i,t_{-i})
+$$
 >
 > と定める。
 >
 > 純粋戦略プロファイル $s^*=(s_i^*)_i$ が **Bayesian Nash 均衡**であるとは、すべてのプレイヤー $i$ と、$\pi_i(t_i)>0$ を満たすすべてのタイプ $t_i$ について
 >
-> $$
-> s_i^*(t_i)
-> \in
-> \operatorname*{arg\,max}_{a_i\in A_i}
-> V_i(a_i;s_{-i}^*\mid t_i)
-> $$
+$$
+s_i^*(t_i)
+\in
+\operatorname*{arg\,max}_{a_i\in A_i}
+V_i(a_i;s_{-i}^*\mid t_i)
+$$
 >
 > が成り立つことをいう。
 >
@@ -667,32 +667,32 @@ Bayesian Nash 均衡の逸脱判定は、タイプを観察したプレイヤー
 > **定義（Harsanyi 変換）**  
 > 有限ベイジアンゲーム
 >
-> $$
-> G=
-> \left(
-> N,(A_i),(T_i),\pi,(u_i)
-> \right)
-> $$
+$$
+G=
+\left(
+N,(A_i),(T_i),\pi,(u_i)
+\right)
+$$
 >
 > に対し、プレイヤー $i$ の純粋戦略集合を
 >
-> $$
-> S_i=A_i^{T_i}
-> =
-> \{s_i:T_i\to A_i\}
-> $$
+$$
+S_i=A_i^{T_i}
+=
+\{s_i:T_i\to A_i\}
+$$
 >
 > とする戦略形ゲームを作る。
 >
 > 戦略プロファイル $s=(s_i)_i$ の利得を
 >
-> $$
-> \bar u_i(s)
-> =
-> \sum_{t\in T}
-> \pi(t)\,
-> u_i\bigl(s_1(t_1),\dots,s_n(t_n),t\bigr)
-> $$
+$$
+\bar u_i(s)
+=
+\sum_{t\in T}
+\pi(t)\,
+u_i\bigl(s_1(t_1),\dots,s_n(t_n),t\bigr)
+$$
 >
 > と定める。
 >
@@ -782,9 +782,9 @@ $$
 > **定理（Harsanyi 変換と純粋 Bayesian Nash 均衡の同値）**  
 > 有限ベイジアンゲームを考え、各プレイヤーの各タイプについて
 >
-> $$
-> \pi_i(t_i)>0
-> $$
+$$
+\pi_i(t_i)>0
+$$
 >
 > とする。
 >
@@ -937,9 +937,9 @@ $$
 >
 > このゲームには、タイプ条件付き純粋戦略
 >
-> $$
-> S_i=A_i^{T_i}
-> $$
+$$
+S_i=A_i^{T_i}
+$$
 >
 > 上の混合戦略を許せば、少なくとも一つの混合 Bayesian Nash 均衡が存在する。
 <!-- formal-statement-end -->
