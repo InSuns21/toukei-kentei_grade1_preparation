@@ -1,0 +1,131 @@
+chapter: MICRO8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MICRO4
+  - MICRO5
+  - MICRO7
+
+forward_references: []
+
+concepts:
+  - id: micro.arrow-debreu-production-economy
+    name: Arrow--Debreu 生産経済
+    kind: definition
+    aliases:
+      - Arrow--Debreu production economy
+    introduction: formal
+    introduction_aliases: ["定義（Arrow--Debreu 生産経済）"]
+    requires:
+      - micro.endowment
+      - micro.production-set
+
+  - id: micro.firm-ownership-share
+    name: 企業所有比率
+    kind: definition
+    aliases:
+      - ownership share
+      - firm ownership share
+    introduction: formal
+    introduction_aliases: ["定義（企業所有比率・利潤所得）"]
+    requires:
+      - micro.arrow-debreu-production-economy
+
+  - id: micro.profit-income
+    name: 利潤所得
+    kind: definition
+    aliases:
+      - profit income
+    introduction: formal
+    introduction_aliases: ["定義（企業所有比率・利潤所得）"]
+    requires:
+      - micro.firm-ownership-share
+      - micro.profit-function
+
+  - id: micro.production-feasible-allocation
+    name: 生産を含む実行可能配分
+    kind: definition
+    aliases:
+      - feasible allocation with production
+    introduction: formal
+    introduction_aliases: ["定義（生産を含む実行可能配分）"]
+    requires:
+      - micro.feasible-allocation
+      - micro.production-set
+
+  - id: micro.arrow-debreu-equilibrium
+    name: Arrow--Debreu 均衡
+    kind: definition
+    aliases:
+      - Arrow--Debreu equilibrium
+      - competitive equilibrium with production
+    introduction: formal
+    introduction_aliases: ["定義（Arrow--Debreu 均衡）"]
+    requires:
+      - micro.profit-income
+      - micro.production-feasible-allocation
+      - micro.profit-supply-set
+      - micro.walras-equilibrium
+
+  - id: micro.production-supply-regularity
+    name: 企業供給対応と利潤関数の正則性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（企業供給対応と利潤関数の正則性）"]
+    requires:
+      - micro.profit-supply-set
+      - optimization.berge-maximum-theorem
+      - fixedpoint.upper-hemicontinuity
+
+  - id: micro.production-walras-law
+    name: 生産経済版 Walras の法則
+    kind: proposition
+    aliases:
+      - Walras' law with production
+      - Walras law with production
+    introduction: formal
+    introduction_aliases: ["命題（生産経済版 Walras の法則）"]
+    requires:
+      - micro.profit-income
+      - micro.profit-supply-set
+      - micro.walras-law
+
+  - id: micro.production-first-welfare-theorem
+    name: 生産を含む第一厚生定理
+    kind: theorem
+    aliases:
+      - first welfare theorem with production
+    introduction: formal
+    introduction_aliases: ["定理（生産を含む第一厚生定理）"]
+    requires:
+      - micro.arrow-debreu-equilibrium
+      - micro.local-nonsatiation
+      - micro.first-welfare-theorem
+
+  - id: micro.production-second-welfare-theorem
+    name: 生産経済の第二厚生定理
+    kind: theorem
+    aliases:
+      - second welfare theorem with production
+    introduction: formal
+    introduction_aliases: ["定理（生産経済の第二厚生定理）"]
+    requires:
+      - micro.second-welfare-theorem
+      - micro.production-supporting-price-theorem
+      - micro.firm-ownership-share
+
+  - id: micro.production-equilibrium-existence
+    name: コンパクト凸生産集合の Arrow--Debreu 均衡の存在
+    kind: theorem
+    aliases:
+      - existence of Arrow--Debreu equilibrium
+    introduction: formal
+    introduction_aliases: ["定理（コンパクト凸生産集合の Arrow--Debreu 均衡の存在）"]
+    requires:
+      - micro.production-supply-regularity
+      - micro.normalized-price-simplex
+      - optimization.berge-maximum-theorem
+      - fixedpoint.kakutani-fixed-point-theorem
+      - micro.production-walras-law
+      - micro.arrow-debreu-equilibrium
