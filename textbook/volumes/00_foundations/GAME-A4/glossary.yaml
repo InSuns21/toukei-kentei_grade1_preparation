@@ -1,0 +1,20 @@
+chapter: "GAME-A4"
+terms:
+  - term: 連続戦略ゲーム
+    english: continuous-strategy game
+    meaning: 各プレイヤーの戦略集合が有限集合とは限らず、Euclid 空間内の連続な集合として与えられる戦略形ゲーム。
+  - term: 凹ゲーム
+    english: concave game
+    meaning: 各プレイヤーの戦略集合が凸で、相手の戦略を固定したとき自分の利得が自分の戦略について凹になるゲーム。
+  - term: 擬勾配写像
+    english: pseudo-gradient map
+    meaning: 各プレイヤーの自分の戦略に関する利得勾配の符号を反転し、一つのベクトルへ束ねた写像。
+  - term: 変分不等式
+    english: variational inequality
+    meaning: 集合 X と写像 F に対し、F(x*)^T(y-x*) >= 0 が全ての y in X で成り立つ x* を求める問題。
+  - term: 単調写像
+    english: monotone map
+    meaning: 任意の x,y について (F(x)-F(y))^T(x-y) >= 0 を満たす写像。
+  - term: 強単調写像
+    english: strongly monotone map
+    meaning: ある mu>0 が存在して (F(x)-F(y))^T(x-y) >= mu||x-y||^2 を満たす写像。
