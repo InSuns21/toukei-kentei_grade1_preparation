@@ -1,0 +1,43 @@
+id: "GAME-B1"
+title: "特性関数形ゲーム・コア"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GAME-A1
+  - OPT10
+official_scope: []
+learning_objectives:
+  - 有限プレイヤー集合と特性関数から譲渡可能効用の特性関数形ゲームを記述し、提携と大提携の意味を説明できる
+  - 配分ベクトルと提携合計 x(S) を用い、効率性・個人合理性・インピュテーションを具体例で判定できる
+  - 提携が配分をブロックする条件 x(S)<v(S) を、譲渡可能効用による全員の厳密改善と結び付けて説明できる
+  - コアを効率性と全提携に対する提携合理性 x(S)>=v(S) で定義し、インピュテーションとの包含関係を説明できる
+  - 3人ゲームのコアを線形等式・不等式として書き下し、具体的な配分の所属を判定できる
+  - OPT10 の多面体の言葉を使い、有限 TU ゲームのコアが凸多面体であり非空なら有界であることを証明できる
+  - 3人多数決型ゲームで提携制約を加え、コアが空になることを直接証明できる
+  - 対称3人ゲームでコア非空条件を導き、GAME-B2 の balancedness へつながる提携要求の両立可能性を説明できる
+definitions:
+  - { id: GAME-B1-DEF-01, name: 譲渡可能効用の特性関数形ゲーム }
+  - { id: GAME-B1-DEF-02, name: インピュテーション }
+  - { id: GAME-B1-DEF-03, name: 提携によるブロック }
+  - { id: GAME-B1-DEF-04, name: コア }
+theorems:
+  - { id: GAME-B1-PROP-01, name: 有限 TU ゲームのコアの多面体性と有界性 }
+  - { id: GAME-B1-PROP-02, name: コアとブロック不在の同値 }
+canonical_examples:
+  - 単独価値0・二人提携価値1・大提携価値2の3人ゲームでコア制約を具体計算する例
+  - 効率的かつ個人合理的だが二人提携にブロックされる配分を用いてインピュテーションとコアを区別する例
+  - 二人以上で価値1を作る3人多数決型ゲームでコアが空になることを制約の加算から示す例
+  - 二人提携価値a・大提携価値bの対称3人ゲームでコア非空条件 b>=3a/2 を導く例
+problem_patterns:
+  - GAME-B1-CHARACTERISTIC-VALUE-1
+  - GAME-B1-IMPUTATION-1
+  - GAME-B1-BLOCKING-COALITION-1
+  - GAME-B1-CORE-INEQUALITIES-1
+  - GAME-B1-CORE-MEMBERSHIP-1
+  - GAME-B1-IMPUTATION-NOT-CORE-1
+  - GAME-B1-EMPTY-CORE-1
+  - GAME-B1-PARAMETRIC-NONEMPTY-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 4.0, review: 0.75 }
