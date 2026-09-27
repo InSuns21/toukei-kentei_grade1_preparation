@@ -22,6 +22,7 @@ definitions:
   - { id: GAME-A10-DEF-04, name: 逐次合理性 }
   - { id: GAME-A10-DEF-05, name: Bayes 整合性 }
   - { id: GAME-A10-DEF-06, name: Perfect Bayesian Equilibrium }
+  - { id: GAME-A10-DEF-07, name: 分離型・プーリング型 }
 theorems:
   - { id: GAME-A10-PROP-01, name: 到達情報集合における Bayes 信念の一意性 }
   - { id: GAME-A10-PROP-02, name: 完全情報特殊化における PBE と部分ゲーム完全均衡の一致 }
