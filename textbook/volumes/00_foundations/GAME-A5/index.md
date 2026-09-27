@@ -59,6 +59,7 @@ $
 
 <!-- definition-example-start: def-game-a5-extensive-form -->
 
+**定義の確認**
 ### 1.1 定義の確認：参入ゲームを履歴で書く
 
 空履歴を $\varnothing$ とします。
@@ -132,6 +133,7 @@ $$
 
 <!-- definition-example-start: def-game-a5-game-tree -->
 
+**定義の確認**
 ### 1.2 定義の確認：参入ゲームを節点と辺で読む
 
 参入ゲームでは、根 $\varnothing$ から $O,E$ の二本の辺が出ます。
@@ -183,6 +185,7 @@ $$
 
 <!-- definition-example-start: def-game-a5-pure-strategy -->
 
+**定義の確認**
 ### 2.1 定義の確認：到達しない節点の行動も戦略に含まれる
 
 プレイヤー1が最初に $L$ または $R$ を選ぶとします。$L$ ならゲームは終了し、$R$ ならプレイヤー2が $U$ または $D$ を選びます。$D$ の後にだけ、プレイヤー1が再び $A$ または $B$ を選ぶとします。
@@ -253,6 +256,7 @@ Nash 均衡は、均衡経路から外れた後の合理性を必ずしも検査
 
 <!-- definition-example-start: def-game-a5-subgame -->
 
+**定義の確認**
 ### 4.1 定義の確認：参入後だけを切り出す
 
 参入ゲームで履歴 $E$ の後だけを切り出すと、プレイヤー2が
@@ -290,6 +294,7 @@ $(O,F)$ が怪しい理由は、この真部分ゲームで $F$ が合理的で�
 
 <!-- definition-example-start: def-game-a5-spe -->
 
+**定義の確認**
 ### 5.1 定義の確認：参入ゲームの二つの Nash 均衡をふるいにかける
 
 $(O,F)$ を考えます。
@@ -381,6 +386,7 @@ $$
 
 <!-- definition-example-start: def-game-a5-backward-induction -->
 
+**定義の確認**
 ### 6.1 定義の確認：三段階の木を根まで戻る
 
 プレイヤー1が最初に $A$ または $B$ を選びます。
