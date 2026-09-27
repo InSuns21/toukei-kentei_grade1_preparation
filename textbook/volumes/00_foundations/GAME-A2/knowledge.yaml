@@ -5,7 +5,9 @@ prerequisites:
   - GAME-A1
   - OPT10
 
-forward_references: []
+forward_references:
+  - fixedpoint.fixed-point
+  - fixedpoint.kakutani-fixed-point-theorem
 
 concepts:
   - id: game.mixed-strategy
