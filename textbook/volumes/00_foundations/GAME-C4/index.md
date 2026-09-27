@@ -1090,7 +1090,7 @@ $$
 
 再帰式は GAME-A5 の後ろ向き帰納法そのものです。
 
-閉じた式は有限等比級数で求まり、極限では $|\delta|<1$ が働きます。
+閉じた式は有限和へ $(1+\delta)$ を掛けて直接求め、極限では $|\delta|<1$ が働きます。
 
 <!-- proof-start -->
 ### 証明
@@ -1127,13 +1127,29 @@ p_n
 1-\delta+\delta^2-\cdots+(-\delta)^{n-1}.
 $$
 
-有限等比級数の公式より、
+この有限和を $S_n=p_n$ と置きます。すると、
 
-$$
-p_n
+$
+\delta S_n
+=
+\delta-\delta^2+\cdots-(-\delta)^n.
+$
+
+したがって辺々を足すと中間項が消え、
+
+$
+(1+\delta)S_n
+=
+1-(-\delta)^n.
+$
+
+よって、
+
+$
+p_n=S_n
 =
 \frac{1-(-\delta)^n}{1+\delta}.
-$$
+$
 
 最後に、
 
@@ -1799,17 +1815,23 @@ p_n
 1-\delta+\delta^2-\cdots+(-\delta)^{n-1}.
 $$
 
-これは初項1、公比 $-\delta$ の有限等比級数なので、
+この和を $S_n=p_n$ と置きます。$\delta S_n$ を足すと中間項が打ち消し合い、
 
-$$
-p_n
+$
+(1+\delta)S_n
 =
-\frac{1-(-\delta)^n}{1-(-\delta)}
+1-(-\delta)^n.
+$
+
+したがって、
+
+$
+p_n
 =
 \boxed{
 \frac{1-(-\delta)^n}{1+\delta}
 }.
-$$
+$
 
 5. $0<\delta<1$ より、
 
@@ -2159,15 +2181,23 @@ p_n
 1-\delta+\delta^2-\cdots+(-\delta)^{n-1}.
 $$
 
-有限等比級数より、
+この和を $S_n=p_n$ と置き、$\delta S_n$ を加えると、
 
-$$
+$
+(1+\delta)S_n
+=
+1-(-\delta)^n.
+$
+
+従って、
+
+$
 \boxed{
 p_n
 =
 \frac{1-(-\delta)^n}{1+\delta}
 }.
-$$
+$
 
 $0<\delta<1$ だから、
 
