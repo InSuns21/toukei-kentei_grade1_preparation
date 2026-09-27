@@ -1553,7 +1553,7 @@ Shapley 値は四公理で一つの配分を選びます。
 
 ### 13.1 コアが空でも Shapley 値は存在する
 
-[GAME-B1 の3人多数決型ゲーム](../GAME-B1/index.md#def-game-b1-core)を思い出します。
+GAME-B1 で扱った3人多数決型ゲームを思い出します。
 
 $$
 v(S)
@@ -2042,17 +2042,19 @@ $$
 
 プレイヤー1について、
 
-$$
+$
 \begin{aligned}
 \phi_1(v)
 &=
-\frac13(v_1-v_\varnothing)
+\frac13\bigl(v(\{1\})-v(\varnothing)\bigr)
 +
-\frac16(v_{12}-v_2)
+\frac16\bigl(v(\{1,2\})-v(\{2\})\bigr)
+\\
+&\quad
 +
-\frac16(v_{13}-v_3)
+\frac16\bigl(v(\{1,3\})-v(\{3\})\bigr)
 +
-\frac13(v_{123}-v_{23})
+\frac13\bigl(v(N)-v(\{2,3\})\bigr)
 \\
 &=
 0
@@ -2071,23 +2073,27 @@ $$
 &=
 \frac43.
 \end{aligned}
-$$
-
-ここで $v_{12}$ は $v(\{1,2\})$ の略記です。
+$
 
 プレイヤー2について、
 
-$$
+$
 \begin{aligned}
 \phi_2(v)
 &=
-\frac16(v_{12}-v_1)
+\frac13\bigl(v(\{2\})-v(\varnothing)\bigr)
 +
-\frac16(v_{23}-v_3)
+\frac16\bigl(v(\{1,2\})-v(\{1\})\bigr)
+\\
+&\quad
 +
-\frac13(v_{123}-v_{13})
+\frac16\bigl(v(\{2,3\})-v(\{3\})\bigr)
++
+\frac13\bigl(v(N)-v(\{1,3\})\bigr)
 \\
 &=
+0
++
 \frac16(3)
 +
 \frac16(2)
@@ -2100,21 +2106,27 @@ $$
 &=
 \frac{11}{6}.
 \end{aligned}
-$$
+$
 
 プレイヤー3について、
 
-$$
+$
 \begin{aligned}
 \phi_3(v)
 &=
-\frac16(v_{13}-v_1)
+\frac13\bigl(v(\{3\})-v(\varnothing)\bigr)
 +
-\frac16(v_{23}-v_2)
+\frac16\bigl(v(\{1,3\})-v(\{1\})\bigr)
+\\
+&\quad
 +
-\frac13(v_{123}-v_{12})
+\frac16\bigl(v(\{2,3\})-v(\{2\})\bigr)
++
+\frac13\bigl(v(N)-v(\{1,2\})\bigr)
 \\
 &=
+0
++
 \frac16(1)
 +
 \frac16(2)
@@ -2127,7 +2139,7 @@ $$
 &=
 \frac56.
 \end{aligned}
-$$
+$
 
 したがって、
 
