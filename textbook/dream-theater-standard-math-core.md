@@ -18,6 +18,7 @@
 5. [**測度論**](textbook/dream-theater.md#dt-subject-measure-theory)：Lebesgue 積分、収束定理、積測度、Radon--Nikodym 理論、$L^p$ 空間までを扱う。
 
 > **測度論の初回は、すべての証明を完走しなくても構いません。** 後続科目へ進むための一巡目では、測度・可測性・Lebesgue 積分・ほとんど至る所での性質・$L^p$ の定義と、単調収束定理・Fatou の補題・優収束定理・Tonelli--Fubini の定理・Radon--Nikodym の定理・$L^p$ の完備性や稠密性について、まず**主張と適用条件を確認して正しく使えること**を優先します。証明の仕組み自体が必要になった地点で該当章へ戻って補う読み方でも大丈夫です。測度論そのものを体系的に修了したい場合は、科目目次を上から通読してください。
+
 6. [**確率論**](textbook/dream-theater.md#dt-subject-probability)：測度論を基礎に、条件付き期待値、収束、極限定理、統計理論への接続までを扱う。
 7. [**関数解析**](textbook/dream-theater.md#dt-subject-functional-analysis)：Banach・Hilbert 空間、双対、弱位相、作用素とスペクトルを扱う。
 8. [**常微分方程式 I（ODE1--ODE7）**](textbook/dream-theater.md#dt-subject-ode-i)：一階方程式、線形方程式、連立系、非線形系、Laplace 変換、級数解、Sturm--Liouville 理論までを扱う。
