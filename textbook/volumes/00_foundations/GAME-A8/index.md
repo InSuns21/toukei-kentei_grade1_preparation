@@ -244,7 +244,9 @@ $$
 
 <!-- definition-example-start: def-game-a8-interim-belief -->
 
-**定義の確認：相関したタイプ**
+**定義の確認**
+
+ここでは相関したタイプを使います。
 
 二人とも
 
@@ -699,7 +701,9 @@ Bayesian Nash 均衡の逸脱判定は、タイプを観察したプレイヤー
 
 <!-- definition-example-start: def-game-a8-harsanyi -->
 
-**定義の確認：通し例を4×2ゲームへ変換する**
+**定義の確認**
+
+通し例を4×2ゲームへ変換します。
 
 プレイヤー1の戦略は
 
