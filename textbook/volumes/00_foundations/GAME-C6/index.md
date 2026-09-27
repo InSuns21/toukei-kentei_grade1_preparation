@@ -210,7 +210,7 @@ $$
 
 大きさ1のパイを分け、決裂点を $(0,0)$ とします。
 
-GAME-C5 の公式から、プレイヤー1が最初の提案者であるときの取り分は、
+[GAME-C5 の異質な割引因子の定常部分ゲーム完全均衡](../GAME-C5/index.md#prop-game-c5-heterogeneous-spe)から、プレイヤー1が最初の提案者であるときの取り分は、
 
 $$
 x_h
@@ -296,7 +296,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-GAME-C5 の異質な割引因子の公式より、
+[GAME-C5 の異質な割引因子の定常部分ゲーム完全均衡](../GAME-C5/index.md#prop-game-c5-heterogeneous-spe)より、
 
 $$
 x_h
