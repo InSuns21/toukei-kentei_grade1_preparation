@@ -5,8 +5,7 @@ prerequisites:
   - GAME-C1
   - GAME-B3
 
-forward_references:
-  - GAME-C3
+forward_references: []
 
 concepts:
   - id: game.bargaining-solution-rule
