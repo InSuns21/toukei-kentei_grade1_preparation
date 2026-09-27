@@ -28,12 +28,12 @@ concepts:
       - game.nash-bargaining-problem
 
   - id: game.essential-bargaining-problem
-    name: essential な交渉問題
+    name: 本質的な交渉問題
     kind: definition
     aliases:
       - essential bargaining problem
     introduction: formal
-    introduction_aliases: ["定義（essential な交渉問題）"]
+    introduction_aliases: ["定義（本質的な交渉問題）"]
     requires:
       - game.nash-bargaining-problem
       - game.individually-rational-bargaining-set
