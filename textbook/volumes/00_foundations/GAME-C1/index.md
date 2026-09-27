@@ -947,29 +947,86 @@ $square$
 
 ## 6. OPT5 の KKT へつなぐ
 
-ここから、具体的な交渉問題を [OPT5 の KKT 条件](../OPT5/index.md#thm-opt5-kkt)で解きます。
-
-正の利得増分の領域で、
+正の利得増分の領域では、
 
 $$
-max_x
-sum_{i=1}^nlog(x_i-d_i)
+\max_x
+\sum_{i=1}^n\log(x_i-d_i)
 $$
 
-を考えます。
+を考えられます。
 
-OPT5 は最小化問題の形で整理しているので、
+ただし、ここで
 
 $$
-min_x
--sum_{i=1}^nlog(x_i-d_i)
+-\sum_i\log(x_i-d_i)
 $$
 
-と書きます。
+をそのまま [OPT5 の KKT 条件](../OPT5/index.md#thm-opt5-kkt)へ代入するのは、OPT5 の定理を文字どおり使うには一段注意が必要です。
 
-目的関数は凸です。
+OPT5 では目的関数と制約関数を有限値の微分可能凸関数として定式化しました。一方、
 
-線形制約を組み合わせれば、凸最適化問題になるため、Slater 条件を確認した上で KKT を必要十分条件として使えます。
+$$
+-\log(x_i-d_i)
+$$
+
+は
+
+$$
+x_i\le d_i
+$$
+
+では有限値関数として定義されません。
+
+そこで、利得増分が正であることを変数そのものへ組み込みます。
+
+$$
+y_i=\log(x_i-d_i)
+$$
+
+と置けば、
+
+$$
+x_i=d_i+e^{y_i},
+\qquad
+y_i\in\mathbb R.
+$$
+
+です。
+
+Nash 積最大化は、
+
+$$
+\max_y \sum_i y_i
+$$
+
+へ変わります。
+
+この形なら目的関数
+
+$$
+-\sum_i y_i
+$$
+
+は全空間 $\mathbb R^n$ 上の有限値凸関数です。
+
+線形資源制約
+
+$$
+\sum_i a_i x_i\le B
+$$
+
+も、
+
+$$
+\sum_i a_i(d_i+e^{y_i})-B\le0
+$$
+
+へ変わります。
+
+指数関数は凸なので、左辺は $y$ の有限値凸関数です。
+
+したがって、この $y$ 変数の問題なら OPT5 の定理の仮定をそのまま確認して KKT を使えます。
 
 ### 線形資源制約
 
@@ -984,7 +1041,7 @@ $$
 利用できる総資源が $B$ なら、
 
 $$
-sum_{i=1}^n a_i x_ile B
+\sum_{i=1}^n a_i x_i\le B
 $$
 
 です。
@@ -992,13 +1049,13 @@ $$
 決裂点を維持するだけで使う資源は、
 
 $$
-sum_i a_i d_i.
+\sum_i a_i d_i.
 $$
 
 したがって、
 
 $$
-B-sum_i a_i d_i
+B-\sum_i a_i d_i
 $$
 
 が交渉によって追加配分できる資源です。
@@ -1012,12 +1069,12 @@ $$
 $$
 F
 =
-left{
-xinmathbb R^n:
-x_ige d_i (i=1,ldots,n),
-quad
-sum_{i=1}^n a_i x_ile B
-ight}
+\left\{
+x\in\mathbb R^n:
+x_i\ge d_i\ (i=1,\ldots,n),
+\quad
+\sum_{i=1}^n a_i x_i\le B
+\right\}
 $$
 >
 > を考える。
@@ -1025,7 +1082,7 @@ $$
 > さらに
 >
 $$
-B>sum_{i=1}^n a_i d_i
+B>\sum_{i=1}^n a_i d_i
 $$
 >
 > とする。
@@ -1033,13 +1090,13 @@ $$
 > このとき Nash 交渉解は一意で、
 >
 $$
-oxed{
+\boxed{
 x_i^*
 =
 d_i
 +
-rac{
-B-sum_{j=1}^n a_jd_j
+\frac{
+B-\sum_{j=1}^n a_jd_j
 }{
 n a_i
 }
@@ -1053,8 +1110,8 @@ $$
 $$
 a_i(x_i^*-d_i)
 =
-rac{
-B-sum_j a_jd_j
+\frac{
+B-\sum_j a_jd_j
 }{n}
 $$
 >
@@ -1064,151 +1121,134 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず、
+余剰資源を、
 
 $$
-B>sum_i a_i d_i
-$$
-
-なので、十分小さい $arepsilon>0$ を取れば、
-
-$$
-x_i=d_i+arepsilon
-$$
-
-として、
-
-$$
-sum_i a_i x_i
-<
-B
-$$
-
-を満たせます。
-
-したがって全ての不等式を厳密に満たす点が存在し、Slater 条件が成り立ちます。
-
-正の利得増分の領域で、
-
-$$
-f(x)
+R
 =
--sum_{i=1}^nlog(x_i-d_i)
+B-\sum_i a_i d_i
+>0
 $$
 
-を最小化します。
+と置きます。
 
-制約を OPT5 の形に書くと、
+正の利得増分に対して、
 
 $$
-g_0(x)
+y_i=\log(x_i-d_i)
+$$
+
+と変数変換します。
+
+すると、
+
+$$
+x_i=d_i+e^{y_i}
+$$
+
+なので、Nash 積最大化は、
+
+$$
+\min_{y\in\mathbb R^n}
+-\sum_{i=1}^n y_i
+$$
+
+subject to
+
+$$
+g(y)
 =
-sum_i a_i x_i-B
-le0,
+\sum_{i=1}^n a_i(d_i+e^{y_i})-B
+\le0
 $$
 
+へ変わります。
+
+目的関数はアフィン関数、$g$ は指数関数の正の線形結合に定数を加えた凸関数です。どちらも $\mathbb R^n$ 全体で有限値かつ微分可能です。
+
+さらに、全ての $y_i$ を十分小さく取れば、
+
 $$
-g_i(x)
+\sum_i a_i e^{y_i}<R
+$$
+
+となるので、
+
+$$
+g(y)<0.
+$$
+
+したがって Slater 条件が成り立ちます。
+
+[OPT5 の KKT 条件](../OPT5/index.md#thm-opt5-kkt)を適用します。
+
+制約 $g(y)\le0$ の乗数を $\lambda\ge0$ とすると、Lagrangian は、
+
+$$
+L(y,\lambda)
 =
-d_i-x_i
-le0
-qquad(i=1,ldots,n)
-$$
-
-です。
-
-$g_0$ の乗数を $lambdage0$、$g_i$ の乗数を $mu_ige0$ とします。
-
-Lagrangian は、
-
-$$
-L(x,lambda,mu)
-=
--sum_ilog(x_i-d_i)
+-\sum_i y_i
 +
-lambdaleft(
-sum_i a_i x_i-B
-ight)
-+
-sum_imu_i(d_i-x_i).
+\lambda
+\left[
+\sum_i a_i(d_i+e^{y_i})-B
+\right].
 $$
 
 停留条件は各 $i$ について、
 
 $$
--rac1{x_i-d_i}
-+
-lambda a_i
--
-mu_i
-=
-0.
-$$
-
-Nash 積最大化解では essentiality により、
-
-$$
-x_i>d_i
-$$
-
-です。
-
-したがって下限制約
-
-$$
-d_i-x_i<0
-$$
-
-は非活性です。
-
-相補性から、
-
-$$
-mu_i=0.
-$$
-
-よって停留条件は、
-
-$$
-rac1{x_i-d_i}
-=
-lambda a_i.
+-1+\lambda a_i e^{y_i}=0.
 $$
 
 したがって、
 
 $$
-a_i(x_i-d_i)
+a_i e^{y_i}
 =
-rac1lambda
+\frac1\lambda.
 $$
 
-であり、追加資源量は全員で同じです。
-
-また目的関数
+ここで、
 
 $$
-sum_ilog(x_i-d_i)
+e^{y_i}=x_i-d_i
 $$
 
-は各 $x_i$ に関して単調増加です。
-
-もし資源制約に余りがあれば、ある $x_i$ を少し増やして目的値を上げられます。
-
-したがって最適点では、
+なので、
 
 $$
-sum_i a_i x_i=B
+\boxed{
+a_i(x_i-d_i)=\frac1\lambda
+}.
 $$
 
-です。
-
-$x_i=d_i+1/(lambda a_i)$ を代入すると、
+また $\lambda=0$ なら停留条件が $-1=0$ となり不可能です。よって、
 
 $$
-sum_i a_i d_i
+\lambda>0.
+$$
+
+相補性から、
+
+$$
+g(y)=0,
+$$
+
+すなわち資源制約は活性です。
+
+したがって、
+
+$$
+\sum_i a_i x_i=B.
+$$
+
+$x_i=d_i+1/(\lambda a_i)$ を代入すると、
+
+$$
+\sum_i a_i d_i
 +
-sum_irac1lambda
+\sum_i\frac1\lambda
 =
 B.
 $$
@@ -1216,41 +1256,39 @@ $$
 プレイヤー数は $n$ なので、
 
 $$
-sum_i a_i d_i
+\sum_i a_i d_i
 +
-rac nlambda
+\frac n\lambda
 =
 B.
-$$
-
-したがって、
-
-$$
-rac1lambda
-=
-rac{
-B-sum_i a_i d_i
-}{n}.
 $$
 
 よって、
 
 $$
+\frac1\lambda
+=
+\frac{
+B-\sum_i a_i d_i
+}{n}.
+$$
+
+したがって、
+
+$$
 x_i^*
 =
 d_i+
-rac{
-B-sum_j a_jd_j
+\frac{
+B-\sum_j a_jd_j
 }{
 n a_i
 }.
 $$
 
-目的関数 $-sum_ilog(x_i-d_i)$ は狭義凸で、実行可能集合は凸です。
+Slater 条件のもとで KKT は最適性の必要十分条件です。また元の Nash 交渉問題は compact・convex・essential なので、前節の一意性定理からこの解は唯一です。
 
-したがってこの KKT 点が一意な大域最適解です。
-
-$square$
+$\square$
 <!-- proof-end -->
 
 この式は「効用増分を必ず等しくする」とは言っていません。
@@ -2329,199 +2367,193 @@ $a_i>0$ とし、
 $$
 F
 =
-left{
+\left\{
 x:
-x_ige d_i,
-quad
-sum_{i=1}^n a_ix_ile B
-ight},
+x_i\ge d_i,
+\quad
+\sum_{i=1}^n a_ix_i\le B
+\right\},
 $$
 
 $$
-B>sum_i a_id_i
+B>\sum_i a_id_i
 $$
 
 とする。
 
-1. Slater 条件を確認せよ。
-2. 対数化した Nash 積最大化を最小化問題へ直せ。
-3. KKT の停留条件と相補性から、
+1. $y_i=\log(x_i-d_i)$ と変数変換し、Nash 積最大化を $y\in\mathbb R^n$ 上の凸最小化問題へ書き換えよ。
+2. 変換後の目的関数と制約関数が OPT5 の KKT 定理の有限値・微分可能・凸という仮定を満たすことを確認せよ。
+3. Slater 条件を確認せよ。
+4. KKT の停留条件と相補性から、
    $$
-   a_i(x_i-d_i)=rac1lambda
+   a_i(x_i-d_i)=\frac1\lambda
    $$
    を導け。
-4. 資源制約が活性になることを示せ。
 5. Nash 交渉解の閉形式を導け。
 
 <!-- solution-start -->
 #### 詳細解答
 
-1. 余剰資源を、
+1. 正の利得増分について、
 
 $$
-R
+y_i=\log(x_i-d_i)
+$$
+
+と置くと、
+
+$$
+x_i=d_i+e^{y_i}.
+$$
+
+Nash 積の対数は、
+
+$$
+\sum_i\log(x_i-d_i)
 =
-B-sum_i a_id_i
->0
+\sum_i y_i
+$$
+
+です。
+
+したがって最大化問題は、
+
+$$
+\boxed{
+\min_{y\in\mathbb R^n}
+-\sum_i y_i
+}
+$$
+
+subject to
+
+$$
+\boxed{
+\sum_i a_i(d_i+e^{y_i})-B\le0
+}
+$$
+
+へ変わります。
+
+2. 目的関数 $-\sum_i y_i$ はアフィンなので凸であり、$\mathbb R^n$ 全体で有限値かつ微分可能です。
+
+制約関数、
+
+$$
+g(y)
+=
+\sum_i a_i(d_i+e^{y_i})-B
+$$
+
+について、$a_i>0$ で指数関数 $e^{y_i}$ は凸です。
+
+したがって $g$ は凸です。また指数関数は全実数で有限値・微分可能なので、$g$ も $\mathbb R^n$ 全体で有限値・微分可能です。
+
+よって OPT5 の KKT 定理の関数に関する仮定を満たします。
+
+3. 余剰資源を、
+
+$$
+R=B-\sum_i a_id_i>0
 $$
 
 とします。
 
-$a_i>0$ なので、十分小さい $arepsilon>0$ を取れば、
+全ての $y_i$ を十分小さく取れば、
 
 $$
-arepsilonsum_i a_i<R.
+\sum_i a_i e^{y_i}<R
 $$
 
-そこで、
+となります。
+
+このとき、
 
 $$
-x_i=d_i+arepsilon
-$$
-
-と置けば、
-
-$$
-x_i>d_i
-$$
-
-かつ、
-
-$$
-sum_i a_ix_i
+g(y)
 =
-sum_i a_id_i
-+
-arepsilonsum_i a_i
-<
-B.
+\sum_i a_i e^{y_i}-R
+<0.
 $$
 
 したがって Slater 条件が成り立ちます。
 
-2. 正の利得増分領域で、
+4. 乗数を $\lambda\ge0$ とすると、
 
 $$
-max_x
-sum_ilog(x_i-d_i)
+L(y,\lambda)
+=
+-\sum_i y_i
++
+\lambda
+\left[
+\sum_i a_i(d_i+e^{y_i})-B
+\right].
 $$
-
-と同値です。
-
-OPT5 の最小化形へ合わせて、
-
-$$
-oxed{
-min_x
--sum_ilog(x_i-d_i)
-}
-$$
-
-とします。
-
-3. 資源制約の乗数を $lambdage0$、下限制約 $d_i-x_ile0$ の乗数を $mu_ige0$ とします。
 
 停留条件は、
 
 $$
--rac1{x_i-d_i}
-+
-lambda a_i
--
-mu_i
-=
-0.
-$$
-
-最適解では $x_i>d_i$ なので下限制約は非活性です。
-
-相補性より、
-
-$$
-mu_i=0.
+-1+\lambda a_i e^{y_i}=0.
 $$
 
 したがって、
 
 $$
-rac1{x_i-d_i}
-=
-lambda a_i.
+a_i e^{y_i}=\frac1\lambda.
 $$
 
-よって、
+$e^{y_i}=x_i-d_i$ なので、
 
 $$
-oxed{
-a_i(x_i-d_i)=rac1lambda
+\boxed{
+a_i(x_i-d_i)=\frac1\lambda
 }.
 $$
 
-4. もし、
+また $\lambda=0$ は停留条件に反するので、
 
 $$
-sum_i a_ix_i<B
+\lambda>0.
 $$
 
-なら、少なくとも一つの $x_i$ をわずかに増やしても実行可能です。
-
-対数目的関数は各 $x_i$ について単調増加なので、目的値を改善できます。
-
-これは最適性に反します。
-
-したがって、
+相補性より制約は活性で、
 
 $$
-oxed{
-sum_i a_ix_i=B
-}.
+\sum_i a_ix_i=B.
 $$
 
 5. 停留条件から、
 
 $$
-x_i
-=
-d_i+rac1{lambda a_i}.
+x_i=d_i+\frac1{\lambda a_i}.
 $$
 
 資源制約へ代入すると、
 
 $$
-sum_i a_id_i
-+
-sum_irac1lambda
-=
-B.
-$$
-
-よって、
-
-$$
-rac nlambda
-=
-B-sum_i a_id_i.
+\sum_i a_id_i+\frac n\lambda=B.
 $$
 
 したがって、
 
 $$
-rac1lambda
+\frac1\lambda
 =
-rac{
-B-sum_i a_id_i
+\frac{
+B-\sum_i a_id_i
 }{n}.
 $$
 
-最終的に、
+よって、
 
 $$
-oxed{
+\boxed{
 x_i^*
 =
 d_i+
-rac{
-B-sum_j a_jd_j
+\frac{
+B-\sum_j a_jd_j
 }{
 n a_i
 }
