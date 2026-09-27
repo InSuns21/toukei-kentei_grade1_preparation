@@ -1,0 +1,17 @@
+chapter: "GAME-C7"
+terms:
+  - term: 片側私的情報交渉
+    english: bargaining with one-sided private information
+    meaning: 一方だけが自分のタイプや留保条件を知り、他方は事前分布と交渉中の行動からそのタイプを推測する交渉ゲーム。
+  - term: スクリーニング提示
+    english: screening offer
+    meaning: 情報を持たない側が、異なるタイプに異なる受諾反応をさせることを狙って提示する条件。反応からタイプ情報を得る。
+  - term: 事後信念
+    english: posterior belief
+    meaning: 提示への受諾・拒否や相手の提示価格を観察した後に、Bayes の公式で更新された相手タイプについての確率。
+  - term: 情報による遅延
+    english: informational delay
+    meaning: 私的情報を見分けるために一部タイプとの合意が後の期へ持ち越されること。単なる時間費用だけでなく情報獲得の結果として生じる。
+  - term: 分離型提示
+    english: separating offer
+    meaning: 私的情報を持つ異なるタイプが異なる提示を選び、観察された提示からタイプが識別される戦略。
