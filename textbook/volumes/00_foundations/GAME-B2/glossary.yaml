@@ -1,0 +1,14 @@
+chapter: "GAME-B2"
+terms:
+  - term: 平衡重み
+    english: balanced weights
+    meaning: 各プレイヤーについて、そのプレイヤーを含む提携へ割り当てた非負重みの総和が1になる重み付け。
+  - term: 平衡集合族
+    english: balanced collection
+    meaning: ある平衡重みのもとで正の重みを持つ提携の集合。
+  - term: 平衡ゲーム
+    english: balanced game
+    meaning: 任意の平衡重みに対し、提携価値の重み付き総和が大提携価値を超えない有限TUゲーム。
+  - term: Bondareva--Shapley の定理
+    english: Bondareva--Shapley theorem
+    meaning: 有限TUゲームのコアが非空であることと、そのゲームが平衡であることが同値だと述べる定理。
