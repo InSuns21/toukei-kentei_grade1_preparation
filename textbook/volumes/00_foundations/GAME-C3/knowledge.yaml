@@ -1,0 +1,114 @@
+chapter: GAME-C3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GAME-C2
+
+forward_references: []
+
+concepts:
+  - id: game.bargaining-downward-comprehensiveness
+    name: 決裂点に対する下方包括性
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（決裂点に対する下方包括性）"]
+    requires:
+      - game.nash-bargaining-problem
+      - game.individually-rational-bargaining-set
+
+  - id: game.bargaining-ideal-point
+    name: 理想点
+    kind: definition
+    aliases:
+      - ideal point
+      - utopia point
+    introduction: formal
+    introduction_aliases: ["定義（理想点）"]
+    requires:
+      - game.individually-rational-bargaining-set
+      - game.essential-bargaining-problem
+
+  - id: game.bargaining-relative-ideal-attainment
+    name: 理想点への相対到達率
+    kind: definition
+    aliases:
+      - relative attainment of the ideal point
+    introduction: formal
+    introduction_aliases: ["定義（理想点への相対到達率）"]
+    requires:
+      - game.bargaining-ideal-point
+      - game.essential-bargaining-problem
+
+  - id: game.kalai-smorodinsky-solution
+    name: Kalai--Smorodinsky 交渉解
+    kind: definition
+    aliases:
+      - Kalai--Smorodinsky bargaining solution
+    introduction: formal
+    introduction_aliases: ["定義（Kalai--Smorodinsky 交渉解）"]
+    requires:
+      - game.bargaining-ideal-point
+      - game.bargaining-relative-ideal-attainment
+      - game.bargaining-downward-comprehensiveness
+
+  - id: game.kalai-smorodinsky-existence-uniqueness
+    name: Kalai--Smorodinsky 解の存在と一意性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（Kalai--Smorodinsky 解の存在と一意性）"]
+    requires:
+      - game.kalai-smorodinsky-solution
+      - game.essential-bargaining-problem
+
+  - id: game.kalai-smorodinsky-pareto-efficiency
+    name: Kalai--Smorodinsky 解のパレート効率性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（Kalai--Smorodinsky 解のパレート効率性）"]
+    requires:
+      - game.kalai-smorodinsky-solution
+      - game.kalai-smorodinsky-existence-uniqueness
+      - micro.pareto-efficiency
+      - convex.convex-set
+
+  - id: game.kalai-smorodinsky-affine-invariance
+    name: Kalai--Smorodinsky 解の正のアフィン不変性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（Kalai--Smorodinsky 解の正のアフィン不変性）"]
+    requires:
+      - game.kalai-smorodinsky-solution
+      - game.bargaining-positive-affine-invariance
+
+  - id: game.bargaining-fixed-ideal-restricted-monotonicity
+    name: 理想点固定の制限単調性
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（理想点固定の制限単調性）"]
+    requires:
+      - game.bargaining-ideal-point
+      - game.bargaining-solution-rule
+
+  - id: game.kalai-smorodinsky-restricted-monotonicity
+    name: Kalai--Smorodinsky 解の理想点固定制限単調性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（Kalai--Smorodinsky 解の理想点固定制限単調性）"]
+    requires:
+      - game.kalai-smorodinsky-solution
+      - game.bargaining-fixed-ideal-restricted-monotonicity
+
+  - id: game.equal-gain-bargaining-benchmark
+    name: 等利得増分ベンチマーク
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（等利得増分ベンチマーク）"]
+    requires:
+      - game.individually-rational-bargaining-set
