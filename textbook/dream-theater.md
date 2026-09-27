@@ -483,3 +483,4 @@
 19. [GAME-C2 Nash 交渉解の公理化](textbook/volumes/00_foundations/GAME-C2/index.md)
 20. [GAME-C3 代替的交渉解](textbook/volumes/00_foundations/GAME-C3/index.md)
 21. [GAME-C4 Rubinstein 交渉](textbook/volumes/00_foundations/GAME-C4/index.md)
+22. [GAME-C5 交渉力の比較静学・外部選択肢・決裂リスク](textbook/volumes/00_foundations/GAME-C5/index.md)

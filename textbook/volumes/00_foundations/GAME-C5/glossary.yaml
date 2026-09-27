@@ -1,0 +1,20 @@
+chapter: "GAME-C5"
+terms:
+  - term: 異質な割引因子
+    english: heterogeneous discount factors
+    meaning: プレイヤーごとに異なる時間選好を表す割引因子。本章ではプレイヤー i の割引因子を delta_i とし、1に近いほど将来の合意価値をあまり失わない。
+  - term: 先手優位
+    english: first-mover advantage
+    meaning: 正の待機費用がある交互提案交渉で、同じプレイヤーが最初の提案者である場合に最初の応答者である場合より高い利得を得る効果。
+  - term: 外生的決裂リスク
+    english: exogenous breakdown risk
+    meaning: 提案拒否後にプレイヤーの選択とは独立に交渉そのものが終了する危険。本章では拒否後に確率 q で決裂するモデルを扱う。
+  - term: 有効割引因子
+    english: effective discount factor
+    meaning: 決裂時利得が0のとき、時間割引と交渉継続確率をまとめた係数 beta_i=(1-q)delta_i。
+  - term: 外部選択肢
+    english: outside option
+    meaning: プレイヤーが現在の交渉を自ら終了し、別の機会へ移ることで直ちに得られる代替利得。
+  - term: 外部選択肢原理
+    english: outside-option principle
+    meaning: 外部選択肢が既存の交渉継続価値を上回る場合にだけ受諾境界を押し上げ、均衡配分を変えるという原理。
