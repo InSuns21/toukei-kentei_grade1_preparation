@@ -902,26 +902,24 @@ $$
 <!-- formal-statement-start -->
 > **定義（単調写像・強単調写像）**  
 > 集合 $X\subset\mathbb R^d$ 上の写像 $F:X\to\mathbb R^d$ が **単調**であるとは、
->
-> $
-> (F(x)-F(y))^{\mathsf T}(x-y)
-> \ge0
-> \qquad
-> (\forall x,y\in X)
-> $
->
-> を満たすことをいう。
->
-> さらに、ある $\mu>0$ が存在して
->
-> $
-> (F(x)-F(y))^{\mathsf T}(x-y)
-> \ge
-> \mu\|x-y\|^2
-> \qquad
-> (\forall x,y\in X)
-> $
->
+
+$$
+(F(x)-F(y))^{\mathsf T}(x-y)
+\ge0
+\qquad
+(\forall x,y\in X)
+$$
+
+> を満たすことをいう。さらに、ある $\mu>0$ が存在して
+
+$$
+(F(x)-F(y))^{\mathsf T}(x-y)
+\ge
+\mu\|x-y\|^2
+\qquad
+(\forall x,y\in X)
+$$
+
 > を満たすとき、$F$ を **強単調**という。
 <!-- formal-statement-end -->
 
@@ -930,41 +928,43 @@ $$
 
 アフィン写像
 
-$
+$$
 F(x)=Mx+q
-$
+$$
 
 では
 
-$
+$$
 F(x)-F(y)=M(x-y).
-$
+$$
 
 従って $z=x-y$ と置けば
 
-$
+$$
 (F(x)-F(y))^{\mathsf T}(x-y)
 =
 z^{\mathsf T}Mz.
-$
+$$
 
 反対称部分は二次形式に寄与しないので
 
-$
+$$
 z^{\mathsf T}Mz
 =
 z^{\mathsf T}
 \frac{M+M^{\mathsf T}}2
 z.
-$
+$$
 
-したがって、対称部分が正半定値なら $F$ は単調、最小固有値が $\mu>0$ なら
+したがって、対称部分が正半定値なら $F$ は単調です。さらに対称部分の最小固有値が $\mu>0$ なら
 
-$
-z^{\mathsf T}Mz\ge\mu\|z\|^2
-$
+$$
+z^{\mathsf T}Mz
+\ge
+\mu\|z\|^2
+$$
 
-となり $F$ は強単調です。
+となり、$F$ は強単調です。
 <!-- definition-example-end -->
 
 <a id="prop-game-a4-strong-monotone-unique"></a>
@@ -1046,22 +1046,14 @@ $$
 
 $$
 P(Q)=a-bQ
-$
-
-とし、考える戦略範囲では価格が非負になるとします。単位費用を $c$ とすると企業 $i$ の利潤は
-
-$
-\pi_i(q_i,q_j)
-=
-q_i(a-b(q_i+q_j))-cq_i
 $$
 
-とします。単位費用を $c$ とすると企業 $i$ の利潤は
+とします。考える戦略範囲では価格が非負になるとし、単位費用を $c$ とします。企業 $i$ の利潤は
 
 $$
 \pi_i(q_i,q_j)
 =
-q_i(a-b(q_i+q_j))-cq_i.
+q_i\bigl(a-b(q_i+q_j)\bigr)-cq_i.
 $$
 
 整理すると
@@ -1082,7 +1074,7 @@ $$
 -2b<0
 $$
 
-なので凹ゲームです。
+なので、$b>0$ なら凹ゲームです。
 
 擬勾配は
 
