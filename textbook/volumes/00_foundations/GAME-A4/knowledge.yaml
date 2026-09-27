@@ -97,7 +97,8 @@ concepts:
     kind: definition
     aliases:
       - monotone map
-    introduction: inline
+    introduction: formal
+    introduction_aliases: ["定義（単調写像・強単調写像）"]
     requires:
       - optimization.variational-inequality
 
@@ -106,7 +107,8 @@ concepts:
     kind: definition
     aliases:
       - strongly monotone map
-    introduction: inline
+    introduction: formal
+    introduction_aliases: ["定義（単調写像・強単調写像）"]
     requires:
       - optimization.monotone-map
 
