@@ -1,0 +1,44 @@
+id: "GAME-C1"
+title: "Nash 交渉問題"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OPT5
+official_scope: []
+learning_objectives:
+  - 実行可能集合 F と決裂点 d から Nash 交渉問題を定式化し、各成分 x_i-d_i を交渉による利得増分として解釈できる
+  - 個別合理的集合 F_d と essential な交渉問題を定義し、正の利得増分を全員が得られるかを具体例で判定できる
+  - Nash 積を最大化する問題を定式化し、正の利得増分の領域では対数和最大化と同値であることを示せる
+  - コンパクト性・essentiality・凸性を使って Nash 積最大化解の存在と一意性を証明できる
+  - 凸性を失うと一意性証明の中点議論が壊れ、複数の Nash 積最大化解が生じ得ることを反例で説明できる
+  - OPT5 の KKT 条件を適用するために、対数化した目的関数の凹性、線形制約、Slater 条件を局所的に確認できる
+  - 線形資源制約 a・x<=B の下で x_i=d_i+(B-a・d)/(n a_i) を KKT から導出できる
+  - Nash 積最大化解が Pareto 効率的であることを、積の単調性から証明できる
+  - disagreement point の変化が同じ実行可能集合でも配分を変えることを具体的に計算し、Nash 均衡との概念上の違いを説明できる
+definitions:
+  - { id: GAME-C1-DEF-01, name: Nash 交渉問題 }
+  - { id: GAME-C1-DEF-02, name: 個別合理的集合 }
+  - { id: GAME-C1-DEF-03, name: essential な交渉問題 }
+  - { id: GAME-C1-DEF-04, name: Nash 積と Nash 交渉解 }
+theorems:
+  - { id: GAME-C1-PROP-01, name: Nash 積最大化と対数和最大化の同値性 }
+  - { id: GAME-C1-THM-01, name: Nash 交渉解の存在と一意性 }
+  - { id: GAME-C1-PROP-02, name: 線形資源制約に対する KKT 表示 }
+  - { id: GAME-C1-THM-02, name: Nash 交渉解の Pareto 効率性 }
+canonical_examples:
+  - "F={(x_1,x_2)>=0:x_1+x_2<=10}, d=(2,1) で surplus 7 を等しい利得増分 7/2,7/2 に分け、Nash 交渉解 (11/2,9/2) を得る例"
+  - "F={(x_1,x_2):2x_1+x_2<=12, x>=(1,2)}, d=(1,2) で KKT から Nash 交渉解 (3,6) を導く例"
+  - "非凸実行可能集合 {(0,0),(4,1),(1,4)} と d=(0,0) では Nash 積最大化解が二つ残り、凸性が一意性に必要な機構を確認する例"
+problem_patterns:
+  - GAME-C1-FEASIBLE-DISAGREEMENT-1
+  - GAME-C1-NASH-PRODUCT-1
+  - GAME-C1-LOG-TRANSFORM-1
+  - GAME-C1-KKT-LINEAR-FRONTIER-1
+  - GAME-C1-DISAGREEMENT-COMPARATIVE-1
+  - GAME-C1-EXISTENCE-UNIQUENESS-1
+  - GAME-C1-PARETO-NONCONVEX-1
+  - GAME-C1-MULTIPLAYER-INTEGRATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 5.0, review: 0.75 }
