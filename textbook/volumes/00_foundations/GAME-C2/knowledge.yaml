@@ -1,0 +1,88 @@
+chapter: GAME-C2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GAME-C1
+  - GAME-B3
+
+forward_references: []
+
+concepts:
+  - id: game.bargaining-solution-rule
+    name: 交渉解規則
+    kind: definition
+    aliases:
+      - bargaining solution rule
+    introduction: formal
+    introduction_aliases: ["定義（交渉解規則）"]
+    requires:
+      - game.nash-bargaining-problem
+      - game.individually-rational-bargaining-set
+      - game.essential-bargaining-problem
+
+  - id: game.nash-bargaining-axioms
+    name: Nash 交渉解を特徴付ける四公理
+    kind: definition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定義（Nash 交渉解を特徴付ける四公理）"]
+    requires:
+      - game.bargaining-solution-rule
+      - micro.pareto-efficiency
+
+  - id: game.bargaining-positive-affine-invariance
+    name: 正のアフィン変換に対する不変性
+    kind: definition
+    aliases:
+      - positive affine invariance
+      - invariance to positive affine transformations
+    introduction: formal
+    introduction_aliases: ["定義（Nash 交渉解を特徴付ける四公理）"]
+    requires:
+      - game.nash-bargaining-axioms
+
+  - id: game.bargaining-iia
+    name: 無関係な選択肢からの独立性
+    kind: definition
+    aliases:
+      - independence of irrelevant alternatives
+      - IIA
+    introduction: formal
+    introduction_aliases: ["定義（Nash 交渉解を特徴付ける四公理）"]
+    requires:
+      - game.nash-bargaining-axioms
+
+  - id: game.nash-bargaining-axiom-satisfaction
+    name: Nash 交渉解の四公理充足
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（Nash 交渉解は四公理を満たす）"]
+    requires:
+      - game.nash-bargaining-solution
+      - game.nash-bargaining-axioms
+      - game.nash-bargaining-existence-uniqueness
+      - game.nash-bargaining-pareto-efficiency
+
+  - id: game.nash-bargaining-supporting-simplex
+    name: 正規化した実行可能集合の対称単体包含
+    kind: lemma
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["補題（正規化した実行可能集合は対称単体に含まれる）"]
+    requires:
+      - game.nash-product
+      - convex.convex-set
+
+  - id: game.nash-bargaining-axiomatic-characterization
+    name: Nash 交渉解の公理的特徴付け
+    kind: theorem
+    aliases:
+      - axiomatic characterization of the Nash bargaining solution
+    introduction: formal
+    introduction_aliases: ["定理（Nash 交渉解の公理的特徴付け）"]
+    requires:
+      - game.nash-bargaining-solution
+      - game.nash-bargaining-axioms
+      - game.nash-bargaining-axiom-satisfaction
+      - game.nash-bargaining-supporting-simplex

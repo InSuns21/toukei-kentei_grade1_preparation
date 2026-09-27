@@ -1,0 +1,43 @@
+id: "GAME-C2"
+title: "Nash 交渉解の公理化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GAME-C1
+  - GAME-B3
+official_scope: []
+learning_objectives:
+  - 本質的な Nash 交渉問題に対する交渉解規則を個別合理的集合から一点を選ぶ写像として定義し、単一問題の解と問題族に対する解規則を区別できる
+  - パレート効率性・対称性・正のアフィン変換に対する不変性・無関係な選択肢からの独立性を定式化し、それぞれが何を要求するか具体例で判定できる
+  - 正のアフィン変換に対する不変性が「数値が不変」ではなく、効用の原点・単位変更に対して選択点が同じ変換で移ることを意味すると説明できる
+  - Nash 交渉解が四公理を満たすことを、GAME-C1 の一意性と Nash 積の変換則から証明できる
+  - 任意の本質的な交渉問題を T_i(x_i)=(x_i-d_i)/(x_i^*-d_i) により d=0、Nash 解=(1,...,1) へ正規化できる
+  - 正規化後の積最大化点 (1,...,1) から凸性と方向微分を使って実行可能集合が sum_i y_i<=n の対称単体に含まれることを証明できる
+  - 対称単体上で対称性とパレート効率性から解が (1,...,1) に一意化され、IIA で部分集合へ戻ることを説明できる
+  - 四公理から Nash 交渉解の公理的特徴付け定理を核心論証まで再構成でき、各公理を外したとき証明のどの機構が失われるか説明できる
+  - GAME-B3 の Shapley 値の公理化と比較し、全会一致ゲーム分解と加法性による証明と、正規化・幾何的包含・IIA による証明の違いを説明できる
+definitions:
+  - { id: GAME-C2-DEF-01, name: 交渉解規則 }
+  - { id: GAME-C2-DEF-02, name: Nash 交渉解を特徴付ける四公理 }
+theorems:
+  - { id: GAME-C2-PROP-01, name: Nash 交渉解は四公理を満たす }
+  - { id: GAME-C2-LEM-01, name: 正規化した実行可能集合は対称単体に含まれる }
+  - { id: GAME-C2-THM-01, name: Nash 交渉解の公理的特徴付け }
+canonical_examples:
+  - "H_2={x>=0:x_1+x_2<=2}, d=0 では対称性とパレート効率性だけで解が (1,1) に決まり、その点を残す非対称な部分集合 G へ縮小しても IIA により解が変わらない例"
+  - "F={x>=0:x_1+x_2<=10}, d=(2,1) の Nash 交渉解 (11/2,9/2) を u_1=2x_1+3, u_2=x_2/2-1 へ正のアフィン変換し、解も同じ変換で移る例"
+  - "正規化後に (1,...,1) が積最大化点なら、線分方向の積の右微分から sum_i y_i<=n を導いて実行可能集合を対称単体へ包含する例"
+  - "対称な H_2 上で重み付き Nash 積 x_1^2 x_2 が (4/3,2/3) を選び、対称性を外すと通常の Nash 解以外の規則が残る例"
+problem_patterns:
+  - GAME-C2-SOLUTION-RULE-1
+  - GAME-C2-AXIOMS-1
+  - GAME-C2-AFFINE-INVARIANCE-1
+  - GAME-C2-IIA-1
+  - GAME-C2-SUPPORTING-SIMPLEX-1
+  - GAME-C2-AXIOM-ROLE-1
+  - GAME-C2-CHARACTERIZATION-PROOF-1
+  - GAME-C2-SHAPLEY-COMPARISON-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.0, review: 0.75 }
