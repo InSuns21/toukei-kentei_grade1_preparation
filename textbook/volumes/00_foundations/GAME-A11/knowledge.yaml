@@ -1,0 +1,77 @@
+chapter: GAME-A11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GAME-A10
+
+forward_references: []
+
+concepts:
+  - id: game.signaling-game
+    name: シグナリングゲーム
+    kind: definition
+    aliases:
+      - signaling game
+      - signalling game
+    introduction: formal
+    introduction_aliases: ["定義（シグナリングゲーム）"]
+    requires:
+      - game.perfect-bayesian-equilibrium
+      - game.information-set
+      - game.belief-system
+
+  - id: game.semi-separating-strategy
+    name: 半分離型戦略
+    kind: definition
+    aliases:
+      - semi-separating strategy
+      - partially pooling strategy
+    introduction: formal
+    introduction_aliases: ["定義（半分離型戦略）"]
+    requires:
+      - game.separating-strategy
+      - game.pooling-strategy
+      - game.behavioral-strategy
+
+  - id: game.screening
+    name: スクリーニング
+    kind: definition
+    aliases:
+      - screening
+    introduction: formal
+    introduction_aliases: ["定義（スクリーニング）"]
+    requires:
+      - game.bayesian-game
+      - game.bayesian-strategy
+
+  - id: game.cheap-talk
+    name: チープトーク
+    kind: definition
+    aliases:
+      - cheap talk
+      - cheap-talk communication
+    introduction: formal
+    introduction_aliases: ["定義（チープトーク）"]
+    requires:
+      - game.signaling-game
+
+  - id: game.education-signaling-separation
+    name: 二タイプ教育シグナリングモデルの分離条件
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（二タイプ教育シグナリングモデルの分離条件）"]
+    requires:
+      - game.signaling-game
+      - game.separating-strategy
+      - game.perfect-bayesian-equilibrium
+
+  - id: game.cheap-talk-babbling-pbe
+    name: チープトークゲームにおける babbling PBE の存在
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（チープトークゲームにおける babbling PBE の存在）"]
+    requires:
+      - game.cheap-talk
+      - game.perfect-bayesian-equilibrium

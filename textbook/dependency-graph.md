@@ -590,6 +590,7 @@ RA4 標準実解析 IV：Riemann/Darboux積分・FTC ─────────
 GAME-A8 ベイジアンゲーム・Bayesian Nash 均衡 ────────────────────┴→ GAME-A9 オークション理論入門
 GAME-A5 展開形ゲーム・部分ゲーム完全均衡 ─────────────────────────┐
 GAME-A8 ベイジアンゲーム・Bayesian Nash 均衡 ─────────────────────┴→ GAME-A10 動学的不完備情報・信念・Perfect Bayesian Equilibrium
+GAME-A10 動学的不完備情報・信念・Perfect Bayesian Equilibrium ─────→ GAME-A11 シグナリング・スクリーニング・チープトーク入門
 
 PDE3 熱方程式 ──────────────────────────┐
 NA7 前進・後退 Euler 法 ────────────────┤

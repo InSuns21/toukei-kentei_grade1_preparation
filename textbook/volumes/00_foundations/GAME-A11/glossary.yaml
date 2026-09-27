@@ -1,0 +1,23 @@
+chapter: "GAME-A11"
+terms:
+  - term: シグナリングゲーム
+    english: signaling game
+    meaning: 私的タイプを知る送り手が観察可能な行動を先に選び、受け手がその行動からタイプについて信念を更新して応答する動学的不完備情報ゲーム。
+  - term: シグナル
+    english: signal
+    meaning: 受け手が観察でき、送り手のタイプについて情報を含み得る行動。タイプごとに費用や便益が異なると分離を支えることがある。
+  - term: 半分離
+    english: semi-separating
+    meaning: 少なくとも一つのタイプが複数のシグナルを正の確率で使うため、観察されたシグナルからタイプが完全には判別されないが、事前分布より情報が得られる状態。
+  - term: スクリーニング
+    english: screening
+    meaning: 情報を持たない側が契約や選択肢のメニューを先に提示し、情報を持つ側の自己選択からタイプを選別する仕組み。
+  - term: 自己選択
+    english: self-selection
+    meaning: 異なるタイプが同じメニューから自分に最も有利な選択肢を選び、その選択差によってタイプが表れること。
+  - term: チープトーク
+    english: cheap talk
+    meaning: メッセージ自体に直接費用がなく、将来行動を拘束もしない情報伝達。情報が伝わるかどうかは送り手と受け手の利害関係に依存する。
+  - term: babbling equilibrium
+    english: babbling equilibrium
+    meaning: 送り手のメッセージがタイプについて情報を持たず、受け手がメッセージを無視して事前分布に対する最適行動を選ぶ チープトーク均衡。
