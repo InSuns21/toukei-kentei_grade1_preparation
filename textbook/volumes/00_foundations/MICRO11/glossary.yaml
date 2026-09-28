@@ -12,6 +12,9 @@ terms:
   - term: くじの混合
     english: mixture of lotteries
     meaning: 二つのくじ p と q を確率 alpha と 1-alpha で選ぶ操作。縮約後の確率ベクトルは alpha p+(1-alpha)q になる。
+  - term: 標準くじ
+    english: standard lottery
+    meaning: 最良結果と最悪結果だけを使い、最良結果を確率 alpha、最悪結果を確率 1-alpha で与える二点くじ。期待効用定理の構成証明でくじを一次元化する物差しとして使う。
   - term: 混合連続性
     english: mixture continuity
     meaning: 二つのくじの混合比率を連続的に変えたとき、第三のくじとの上位・下位関係が閉集合をなすという選好の連続性条件。
