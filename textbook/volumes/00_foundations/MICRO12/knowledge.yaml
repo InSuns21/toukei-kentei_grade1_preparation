@@ -145,7 +145,7 @@ concepts:
     name: 平均保存拡散
     kind: definition
     aliases:
-      - 平均保存拡散
+      - mean-preserving spread
       - mean preserving spread
     introduction: formal
     introduction_aliases: ["定義（平均保存拡散（mean-preserving spread））"]
