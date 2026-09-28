@@ -5,7 +5,8 @@ prerequisites:
   - GAME-D1
 
 forward_references:
-  - DOPT3
+  - optimization.matching
+  - optimization.assignment-problem
 
 concepts:
   - id: game.stable-partner
