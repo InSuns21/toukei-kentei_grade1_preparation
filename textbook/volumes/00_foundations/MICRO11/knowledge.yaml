@@ -1,0 +1,132 @@
+chapter: MICRO11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MICRO1
+
+forward_references: []
+
+concepts:
+  - id: micro.simple-lottery
+    name: 単純なくじ
+    kind: definition
+    aliases:
+      - simple lottery
+      - lottery
+    introduction: formal
+    introduction_aliases: ["定義（単純なくじ）"]
+    requires:
+      - micro.preference-relation
+
+  - id: micro.compound-lottery-reduction
+    name: 複合くじの縮約
+    kind: definition
+    aliases:
+      - reduction of compound lotteries
+    introduction: formal
+    introduction_aliases: ["定義（複合くじの縮約）"]
+    requires:
+      - micro.simple-lottery
+
+  - id: micro.lottery-mixture
+    name: くじの混合
+    kind: definition
+    aliases:
+      - mixture of lotteries
+    introduction: formal
+    introduction_aliases: ["定義（くじの混合）"]
+    requires:
+      - micro.simple-lottery
+      - micro.compound-lottery-reduction
+
+  - id: micro.positive-affine-transformation
+    name: 正のアフィン変換
+    kind: definition
+    aliases:
+      - positive affine transformation
+    introduction: formal
+    introduction_aliases: ["定義（正のアフィン変換）"]
+    requires:
+      - micro.utility-representation
+
+  - id: micro.standard-lottery
+    name: 標準くじ
+    kind: definition
+    aliases:
+      - standard lottery
+    introduction: formal
+    introduction_aliases: ["定義（標準くじ）"]
+    requires:
+      - micro.simple-lottery
+      - micro.preference-relation
+
+  - id: micro.mixture-continuity
+    name: 混合連続性
+    kind: definition
+    aliases:
+      - mixture continuity
+    introduction: formal
+    introduction_aliases: ["定義（混合連続性）"]
+    requires:
+      - micro.lottery-mixture
+      - micro.preference-relation
+
+  - id: micro.independence-axiom
+    name: 独立性公理
+    kind: definition
+    aliases:
+      - independence axiom
+    introduction: formal
+    introduction_aliases: ["定義（独立性公理）"]
+    requires:
+      - micro.lottery-mixture
+      - micro.preference-relation
+
+  - id: micro.expected-utility-representation
+    name: 期待効用表現
+    kind: definition
+    aliases:
+      - expected utility representation
+    introduction: formal
+    introduction_aliases: ["定義（期待効用表現）"]
+    requires:
+      - micro.simple-lottery
+      - micro.utility-representation
+
+  - id: micro.standard-lottery-monotonicity
+    name: 標準くじの単調性
+    kind: lemma
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["補題（標準くじの単調性）"]
+    requires:
+      - micro.standard-lottery
+      - micro.independence-axiom
+
+  - id: micro.indifferent-lottery-substitution
+    name: 無差別なくじの混合置換
+    kind: lemma
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["補題（無差別なくじの混合置換）"]
+    requires:
+      - micro.independence-axiom
+      - micro.lottery-mixture
+
+  - id: micro.vnm-expected-utility-theorem
+    name: von Neumann--Morgenstern の期待効用定理
+    kind: theorem
+    aliases:
+      - von Neumann--Morgenstern expected utility theorem
+    introduction: formal
+    introduction_aliases: ["定理（von Neumann--Morgenstern の期待効用定理）"]
+    requires:
+      - micro.preference-completeness
+      - micro.preference-transitivity
+      - micro.mixture-continuity
+      - micro.independence-axiom
+      - micro.compound-lottery-reduction
+      - micro.expected-utility-representation
+      - micro.positive-affine-transformation
+      - micro.standard-lottery-monotonicity
+      - micro.indifferent-lottery-substitution

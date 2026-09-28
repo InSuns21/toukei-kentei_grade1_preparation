@@ -1,0 +1,32 @@
+chapter: "MICRO11"
+terms:
+  - term: 単純なくじ
+    english: simple lottery
+    meaning: 有限個の結果に対して非負で総和1の確率を割り当てた確率分布。確実な結果は一つの結果に確率1を置く退化くじとして含まれる。
+  - term: 複合くじ
+    english: compound lottery
+    meaning: まず複数のくじのどれを実行するかを確率的に選び、その後に選ばれたくじの結果が実現する二段階以上のくじ。
+  - term: 複合くじの縮約
+    english: reduction of compound lotteries
+    meaning: 複合くじを、各最終結果が起こる総確率を足し合わせた一つの単純なくじへ置き換えること。
+  - term: くじの混合
+    english: mixture of lotteries
+    meaning: 二つのくじ p と q を確率 alpha と 1-alpha で選ぶ操作。縮約後の確率ベクトルは alpha p+(1-alpha)q になる。
+  - term: 標準くじ
+    english: standard lottery
+    meaning: 最良結果と最悪結果だけを使い、最良結果を確率 alpha、最悪結果を確率 1-alpha で与える二点くじ。期待効用定理の構成証明でくじを一次元化する物差しとして使う。
+  - term: 混合連続性
+    english: mixture continuity
+    meaning: 二つのくじの混合比率を連続的に変えたとき、第三のくじとの上位・下位関係が閉集合をなすという選好の連続性条件。
+  - term: 独立性公理
+    english: independence axiom
+    meaning: p と q の順位が、両方を同じ第三のくじ r と同じ比率で混合しても保存されることを要求する公理。
+  - term: 期待効用表現
+    english: expected utility representation
+    meaning: 各結果 z に数値 u(z) を割り当て、くじ p を総和 sum_z p(z)u(z) で評価して選好を表すこと。
+  - term: 正のアフィン変換
+    english: positive affine transformation
+    meaning: 実数値関数 u を a u+b（a>0）へ変換すること。期待効用表現では結果効用の許容される尺度変更になる。
+  - term: von Neumann--Morgenstern の期待効用定理
+    english: von Neumann--Morgenstern expected utility theorem
+    meaning: 有限結果上のくじの選好について、完備性・推移性・混合連続性・独立性を満たすことと期待効用表現を持つことが同値であり、その結果効用は正のアフィン変換を除いて一意であることを述べる定理。
