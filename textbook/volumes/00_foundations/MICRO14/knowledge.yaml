@@ -1,0 +1,128 @@
+chapter: MICRO14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MICRO13
+
+forward_references: []
+
+concepts:
+  - id: micro.discount-function
+    name: 割引関数
+    kind: definition
+    aliases:
+      - discount function
+    introduction: formal
+    introduction_aliases: ["定義（割引関数）"]
+    requires:
+      - micro.utility-representation
+
+  - id: micro.exponential-discounting
+    name: 指数割引
+    kind: definition
+    aliases:
+      - exponential discounting
+    introduction: formal
+    introduction_aliases: ["定義（指数割引）"]
+    requires:
+      - micro.discount-function
+
+  - id: micro.dynamic-consistency
+    name: 時間整合性
+    kind: definition
+    aliases:
+      - dynamic consistency
+    introduction: formal
+    introduction_aliases: ["定義（時間整合性）"]
+    requires:
+      - micro.discount-function
+
+  - id: micro.exponential-dynamic-consistency
+    name: 指数割引の時間整合性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（指数割引の時間整合性）"]
+    requires:
+      - micro.exponential-discounting
+      - micro.dynamic-consistency
+
+  - id: micro.hyperbolic-discounting
+    name: 双曲割引
+    kind: definition
+    aliases:
+      - hyperbolic discounting
+    introduction: formal
+    introduction_aliases: ["定義（双曲割引）"]
+    requires:
+      - micro.discount-function
+
+  - id: micro.hyperbolic-one-period-discount-ratio
+    name: 双曲割引の一期間割引比率
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（双曲割引の一期間割引比率）"]
+    requires:
+      - micro.hyperbolic-discounting
+
+  - id: micro.quasi-hyperbolic-discounting
+    name: 準双曲割引
+    kind: definition
+    aliases:
+      - quasi-hyperbolic discounting
+      - beta-delta discounting
+    introduction: formal
+    introduction_aliases: ["定義（準双曲割引）"]
+    requires:
+      - micro.discount-function
+
+  - id: micro.present-bias
+    name: 現在バイアス
+    kind: definition
+    aliases:
+      - present bias
+    introduction: formal
+    introduction_aliases: ["定義（現在バイアス）"]
+    requires:
+      - micro.quasi-hyperbolic-discounting
+
+  - id: micro.quasi-hyperbolic-choice-reversal
+    name: 準双曲割引の選好逆転条件
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（準双曲割引の選好逆転条件）"]
+    requires:
+      - micro.present-bias
+      - micro.dynamic-consistency
+
+  - id: micro.commitment
+    name: コミットメント
+    kind: definition
+    aliases:
+      - commitment
+    introduction: formal
+    introduction_aliases: ["定義（コミットメント）"]
+    requires:
+      - micro.quasi-hyperbolic-choice-reversal
+
+  - id: micro.naive-sophisticated-agent
+    name: 素朴な主体・洗練された主体
+    kind: definition
+    aliases:
+      - naive agent and sophisticated agent
+    introduction: formal
+    introduction_aliases: ["定義（素朴な主体・洗練された主体）"]
+    requires:
+      - micro.quasi-hyperbolic-choice-reversal
+
+  - id: micro.commitment-cost-threshold
+    name: 線形効用でのコミットメント費用の閾値
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（線形効用でのコミットメント費用の閾値）"]
+    requires:
+      - micro.commitment
+      - micro.naive-sophisticated-agent
