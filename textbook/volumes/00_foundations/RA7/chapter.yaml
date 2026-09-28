@@ -4,7 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - RA4
-  - F0-02C3
+  - RA6
   - LA3C
 official_scope: []
 learning_objectives:
