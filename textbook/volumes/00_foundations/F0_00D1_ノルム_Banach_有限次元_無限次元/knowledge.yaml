@@ -8,12 +8,19 @@ prerequisites:
 
 forward_references:
   - functional.hilbert-space
+  - measure.measure-space
+  - measure.almost-everywhere
+  - measure.measurable-function
+  - measure.lebesgue-integral
+  - stochastic.stochastic-process
 
 concepts:
   - id: functional.norm
-    name: ノルム
+    name: ノルム空間のノルム
     kind: definition
-    aliases: [ノルム]
+    aliases: [ノルム空間におけるノルム]
+    introduction: formal
+    introduction_aliases: ["定義（ノルム）"]
     requires:
       - linear.vector-space
 
