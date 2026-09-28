@@ -49,12 +49,12 @@ JacobianのLipschitz性
 
 を一つの流れとして整理します。
 
-直接の前提は [NA1 浮動小数点・誤差・条件数・安定性](../NA1/index.md)、[NA2 非線形方程式・不動点反復・Newton 法](../NA2/index.md)、[RA6 多変数微分・Jacobian 行列・連鎖律](../RA6/index.md)、[RA4 Riemann積分・微積分学の基本定理](../RA4/index.md) です。
+直接の前提は [NA1 浮動小数点・誤差・条件数・安定性](../NA1/index.md)、[NA2 非線形方程式・反復法・Newton 法](../NA2/index.md)、[RA6 多変数微分・Jacobian 行列・連鎖律](../RA6/index.md)、[RA4 Riemann積分・微積分学の基本定理](../RA4/index.md) です。
 
 特に本章では、
 
 - Jacobian は [RA6 の多変数微分](../RA6/index.md#def-ra6-multivariable-differentiability)
-- 作用素ノルムは [F0-00F2 の行列の2-作用素ノルム](../F0_00F2_SVD_特異値_作用素ノルム/index.md)
+- 行列の $2$-ノルムは [F0-00F2 の行列の2-ノルム](../F0_00F2_SVD_特異値_行列の $2$-ノルム/index.md)
 - 行列条件数と最小特異値は [NA1 の 2-ノルム条件数](../NA1/index.md#def-na1-matrix-condition-number)
 - 収束次数は [NA2 の収束次数](../NA2/index.md#def-na2-order-of-convergence)
 
@@ -540,7 +540,7 @@ J_F(z)-J_F(w)
 \end{pmatrix}.
 $$
 
-この行列の 2-作用素ノルムは第一行の Euclid ノルムに等しいので
+この行列の 2-ノルムは第一行の Euclid ノルムに等しいので
 
 $$
 \|J_F(z)-J_F(w)\|_2
@@ -563,7 +563,7 @@ $$
 <!-- formal-statement-start -->
 ### 命題（Lipschitz Jacobian による二次剰余評価）
 
-凸集合 $D\subset\mathbb R^n$ 上で $F:D\to\mathbb R^n$ が連続微分可能で、$J_F$ が Lipschitz 定数 $L$ を持つとする。
+$D\subset\mathbb R^n$ 上で $F:D\to\mathbb R^n$ が連続微分可能で、$x$ と $x+h$ を結ぶ線分が $D$ に含まれ、$J_F$ がその線分上で Lipschitz 定数 $L$ を持つとする。
 
 $x,x+h\in D$ なら
 
@@ -634,7 +634,7 @@ F(x+h)-F(x)-J_F(x)h
 \{J_F(x+th)-J_F(x)\}h\,dt.
 $$
 
-作用素ノルムの評価から
+行列の $2$-ノルムの評価から
 
 $$
 \begin{aligned}
@@ -751,7 +751,7 @@ $$
 I+(-1)^mB^{m+1}.
 $$
 
-作用素ノルムの劣乗法性より
+行列の $2$-ノルムの劣乗法性より
 
 $$
 \|B^{m+1}\|_2
@@ -766,7 +766,7 @@ $$
 \sum_{k=0}^{\infty}(-B)^k
 $$
 
-は作用素ノルムで絶対収束します。極限を $S$ とすると
+は行列の $2$-ノルムで絶対収束します。極限を $S$ とすると
 
 $$
 (I+B)S=I.
@@ -1864,7 +1864,7 @@ $$
 #### NA3-B01 一次近似の二次剰余を積分から導く
 - Level: B
 
-凸集合 $D$ 上で $J_F$ が Lipschitz 定数 $L$ を持つとする。
+$x$ と $x+h$ を結ぶ線分が $D$ に含まれ、$J_F$ がその線分上で Lipschitz 定数 $L$ を持つとする。
 
 $$
 F(x+h)-F(x)
@@ -2324,7 +2324,7 @@ $$
 \end{aligned}
 $$
 
-作用素ノルムの定義より
+行列の $2$-ノルムの定義より
 
 $$
 \|\{J_F(x+th)-J_F(x)\}h\|_2
@@ -2363,7 +2363,7 @@ $$
 
 1. 各成分への微積分学の基本定理IIの適用
 2. ベクトル値積分のノルム評価
-3. 作用素ノルムの評価
+3. 行列の $2$-ノルムの評価
 4. Jacobian の Lipschitz 性
 
 です。
@@ -2629,7 +2629,7 @@ J_F(z)-J_F(w)
 \end{pmatrix}.
 $$
 
-この行列の 2-作用素ノルムは第一行の Euclid ノルムだから
+この行列の 2-ノルムは第一行の Euclid ノルムだから
 
 $$
 \|J_F(z)-J_F(w)\|_2
