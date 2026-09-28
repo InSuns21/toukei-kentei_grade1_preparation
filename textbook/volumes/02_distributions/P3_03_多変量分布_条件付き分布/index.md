@@ -81,7 +81,18 @@ $E[X]=1$, $E[Y]=2$ なら、$\boldsymbol X=(X,Y)^{\mathsf T}$ の平均ベクト
 
 <!-- formal-statement-start -->
 > **定義（分散共分散行列）**  
-> 平均ベクトル $\boldsymbol\mu$ をもつ $p$ 変量確率ベクトル $\boldsymbol X$ に対し、$\Sigma=E[(\boldsymbol X-\boldsymbol\mu)(\boldsymbol X-\boldsymbol\mu)^{\mathsf T}]$ を **分散共分散行列** という。$(i,j)$ 成分は $\operatorname{Cov}(X_i,X_j)$ で、対角成分は各成分の分散である。
+> 平均ベクトル $\boldsymbol\mu$ をもつ $p$ 変量確率ベクトル $\boldsymbol X$ に対して
+
+$$
+\Sigma
+=
+E\!\left[
+(\boldsymbol X-\boldsymbol\mu)
+(\boldsymbol X-\boldsymbol\mu)^{\mathsf T}
+\right]
+$$
+
+> を **分散共分散行列** という。$(i,j)$ 成分は $\operatorname{Cov}(X_i,X_j)$ で、対角成分は各成分の分散である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-p3-03-covariance-matrix -->
@@ -189,7 +200,23 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（条件付き分布）**  
-> 一方の確率変数 $X$ の値を $x$ に固定したという条件のもとでの他方の確率変数 $Y$ の確率法則を、$Y\mid(X=x)$ の **条件付き分布** という。離散型で $P(X=x)>0$ なら $P(Y=y\mid X=x)=p_{X,Y}(x,y)/p_X(x)$、連続型で $f_X(x)>0$ なら条件付き密度は $f_{Y\mid X}(y\mid x)=f_{X,Y}(x,y)/f_X(x)$ で与えられる。
+> 一方の確率変数 $X$ の値を $x$ に固定したという条件のもとでの他方の確率変数 $Y$ の確率法則を、$Y\mid(X=x)$ の **条件付き分布** という。離散型で $P(X=x)>0$ なら
+
+$$
+P(Y=y\mid X=x)
+=
+\frac{p_{X,Y}(x,y)}{p_X(x)}
+$$
+
+> で与えられる。連続型で $f_X(x)>0$ なら条件付き密度は
+
+$$
+f_{Y\mid X}(y\mid x)
+=
+\frac{f_{X,Y}(x,y)}{f_X(x)}
+$$
+
+> で与えられる。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-p3-03-conditional-distribution -->
