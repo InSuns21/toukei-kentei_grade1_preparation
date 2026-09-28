@@ -1,0 +1,78 @@
+chapter: GAME-D3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - DOPT3
+  - DOPT4
+
+forward_references: []
+
+concepts:
+  - id: game.weighted-bipartite-matching
+    name: 重み付き二部マッチング
+    kind: definition
+    aliases:
+      - weighted bipartite matching
+    introduction: formal
+    introduction_aliases: ["定義（重み付き二部マッチング）"]
+    requires:
+      - optimization.matching
+
+  - id: game.assignment-welfare-lp
+    name: 余剰最大化割当問題の 0--1 線形計画表示
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（余剰最大化割当問題の 0--1 線形計画表示）"]
+    requires:
+      - game.weighted-bipartite-matching
+      - optimization.assignment-binary-formulation
+
+  - id: game.assignment-welfare-lp-integrality
+    name: 余剰最大化割当 LP の整数最適解
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（余剰最大化割当 LP の整数最適解）"]
+    requires:
+      - game.assignment-welfare-lp
+      - optimization.assignment-lp-integrality
+
+  - id: game.assignment-welfare-dual
+    name: 余剰最大化割当 LP の双対
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（余剰最大化割当 LP の双対）"]
+    requires:
+      - optimization.assignment-lp-dual
+      - game.assignment-welfare-lp
+
+  - id: game.assignment-dual-price-system
+    name: 割当市場の双対価格系
+    kind: definition
+    aliases:
+      - dual price system for an assignment market
+    introduction: formal
+    introduction_aliases: ["定義（割当市場の双対価格系）"]
+    requires:
+      - game.assignment-welfare-dual
+
+  - id: game.assignment-price-support
+    name: 双対価格による最適割当ての支持
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（双対価格による最適割当ての支持）"]
+    requires:
+      - game.assignment-dual-price-system
+      - game.assignment-welfare-dual
+
+  - id: game.assignment-price-level-invariance
+    name: 双対価格の水準移動不変性
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（双対価格の水準移動不変性）"]
+    requires:
+      - game.assignment-dual-price-system
