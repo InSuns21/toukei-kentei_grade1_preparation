@@ -3022,7 +3022,7 @@ $$
 \delta_H\succ\delta_L
 $$
 
-から得られる標準くじの単調性により、
+から得られる[標準くじの単調性](#lem-micro11-standard-lottery)により、
 
 $$
 c>d
@@ -3124,7 +3124,7 @@ $$
 q\sim L(q_Mc+q_H).
 $$
 
-標準くじの単調性から、
+[標準くじの単調性](#lem-micro11-standard-lottery)から、
 
 $$
 p\succeq q
