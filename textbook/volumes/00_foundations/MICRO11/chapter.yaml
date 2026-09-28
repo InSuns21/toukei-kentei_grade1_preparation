@@ -18,7 +18,7 @@ learning_objectives:
   - 期待効用と賞金額そのものの期待値を区別できる
 definitions:
   - { id: MICRO11-DEF-01, name: 単純なくじ }
-  - { id: MICRO11-DEF-02, name: 複合くじと縮約 }
+  - { id: MICRO11-DEF-02, name: 複合くじの縮約 }
   - { id: MICRO11-DEF-03, name: くじの混合 }
   - { id: MICRO11-DEF-04, name: 混合連続性 }
   - { id: MICRO11-DEF-05, name: 独立性公理 }
