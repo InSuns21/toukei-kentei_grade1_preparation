@@ -1,0 +1,47 @@
+id: "GAME-D2"
+title: "マッチング市場の構造・提案側最適性・大学入試"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GAME-D1
+official_scope: []
+learning_objectives:
+  - 安定相手と提案側最適安定マッチングを定義し、小規模市場で複数の安定マッチングと端点を直接比較できる
+  - 安定相手による最初の拒否を仮定すると別の安定マッチングにブロッキングペアが生じることを示し、提案側受入保留の提案側最適性を完全証明できる
+  - 提案側最適安定マッチングが受け手側最悪でもあることをブロッキングペアによる背理法で証明できる
+  - 提案処理順序が出力を変えないことと、提案側最適・受け手側最適が一致することによる安定マッチング一意性判定を説明できる
+  - マッチング規則の提案側に対する耐戦略性を定義し、割当相手の最上位化不変性から提案側受入保留の耐戦略性を完全証明できる
+  - 提案側受入保留が受け手側には一般に耐戦略的でないことを、3対3の虚偽申告例を逐次実行して確認できる
+  - 定員付き多対一マッチングと、そのブロッキングペア・安定性を大学入試型市場の意味とともに定式化できる
+  - 学生提案型受入保留アルゴリズムを定員付き市場で手計算し、拒否後の保留順位が悪化しないことから有限停止と安定性を完全証明できる
+  - 大学側の応答的な優先順位と定員が一対一の受入保留を多対一へ拡張できる理由を説明できる
+definitions:
+  - { id: GAME-D2-DEF-01, name: 安定相手・提案側最適安定マッチング }
+  - { id: GAME-D2-DEF-02, name: 提案側に対する耐戦略性 }
+  - { id: GAME-D2-DEF-03, name: 定員付き多対一マッチング }
+  - { id: GAME-D2-DEF-04, name: 定員付き市場のブロッキングペア・安定性 }
+  - { id: GAME-D2-DEF-05, name: 学生提案型受入保留アルゴリズム }
+theorems:
+  - { id: GAME-D2-THM-01, name: 提案側受入保留の提案側最適性 }
+  - { id: GAME-D2-COR-01, name: 提案側最適安定マッチングの受け手側最悪性 }
+  - { id: GAME-D2-COR-02, name: 安定マッチング一意性の端点判定 }
+  - { id: GAME-D2-LEM-01, name: 割当相手の最上位化に対する不変性 }
+  - { id: GAME-D2-THM-02, name: 提案側受入保留の耐戦略性 }
+  - { id: GAME-D2-THM-03, name: 学生提案型受入保留の安定性 }
+canonical_examples:
+  - "2対2市場で提案側最適と受け手側最適の二つの安定マッチングが存在し、提案する側を入れ替えると端点が入れ替わる例"
+  - "3対3市場で受け手 y が順位を b>c>a から b>a>c と虚偽申告すると、相手が c から真により好む b へ変わる例"
+  - "定員 (2,1,1) の3大学市場で、大学が上位 q_c 人を保留しながら拒否連鎖を起こし、最終的に安定な多対一マッチングへ到達する例"
+problem_patterns:
+  - GAME-D2-STABLE-EXTREMES-1
+  - GAME-D2-FIRST-STABLE-REJECTION-1
+  - GAME-D2-RECEIVER-MANIPULATION-1
+  - GAME-D2-MANY-TO-ONE-TRACE-1
+  - GAME-D2-RECEIVER-PESSIMAL-PROOF-1
+  - GAME-D2-TOP-SHIFT-INVARIANCE-1
+  - GAME-D2-MANY-TO-ONE-STABILITY-PROOF-1
+  - GAME-D2-COLLEGE-ADMISSIONS-INTEGRATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.5, exercises: 6.0, review: 1.0 }
