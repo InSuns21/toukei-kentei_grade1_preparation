@@ -1,0 +1,26 @@
+chapter: "GAME-D2"
+terms:
+  - term: 安定相手
+    english: stable partner
+    meaning: 少なくとも一つの安定マッチングで実際に組になる相手。
+  - term: 提案側最適安定マッチング
+    english: proposer-optimal stable matching
+    meaning: 各提案者に、全ての安定マッチングで実現可能な相手のうち最も好む相手を同時に与える安定マッチング。
+  - term: 受け手側最悪性
+    english: receiver-pessimality
+    meaning: 提案側最適安定マッチングでは、各受け手が安定相手のうち最も好ましくない相手を得るという端点性質。
+  - term: 耐戦略性
+    english: strategy-proofness
+    meaning: 他者の申告を固定したとき、自分の真の選好を偽っても真により良い結果へ改善できない性質。
+  - term: 定員付き多対一マッチング
+    english: many-to-one matching with capacities
+    meaning: 各学生を高々一つの受け手へ割り当て、各受け手は所定の定員以下の複数学生を受け入れる割当て。
+  - term: 定員付き市場のブロッキングペア
+    english: blocking pair in many-to-one matching
+    meaning: 学生が現在先より大学を好み、大学側にも空席があるか現在学生よりその学生を上位に置く未成立の組。
+  - term: 学生提案型受入保留アルゴリズム
+    english: student-proposing deferred acceptance
+    meaning: 学生が志望順に提案し、各大学が現在までの候補から優先順位上位の定員人数までを暫定保留する手続き。
+  - term: 応答的な選好
+    english: responsive preferences
+    meaning: 定員内では個々の学生の優先順位に従い、より上位の学生への置換を大学が改善とみなす集合選好。
