@@ -1,0 +1,84 @@
+chapter: GAME-D4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GAME-D3
+  - GAME-B1
+  - MICRO6
+
+forward_references: []
+
+concepts:
+  - id: game.assignment-game
+    name: 割当ゲーム
+    kind: definition
+    aliases:
+      - assignment game
+    introduction: formal
+    introduction_aliases: ["定義（割当ゲーム）"]
+    requires:
+      - game.weighted-bipartite-matching
+      - game.tu-characteristic-function-game
+      - game.coalition
+
+  - id: game.assignment-game-core-pairwise
+    name: 割当ゲームのコアの二者制約表示
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（割当ゲームのコアの二者制約表示）"]
+    requires:
+      - game.assignment-game
+      - game.core
+
+  - id: game.assignment-game-core-duality
+    name: 割当ゲームのコアと最適双対解の一致
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（割当ゲームのコアと最適双対解の一致）"]
+    requires:
+      - game.assignment-game-core-pairwise
+      - optimization.linear-program-strong-duality
+      - optimization.assignment-lp-integrality
+
+  - id: game.assignment-game-core-nonempty
+    name: 割当ゲームのコアの非空性
+    kind: corollary
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["系（割当ゲームのコアは非空である）"]
+    requires:
+      - game.assignment-game-core-duality
+
+  - id: game.assignment-market-competitive-equilibrium
+    name: 割当市場の競争均衡
+    kind: definition
+    aliases:
+      - competitive equilibrium in an assignment market
+    introduction: formal
+    introduction_aliases: ["定義（割当市場の競争均衡）"]
+    requires:
+      - game.assignment-game
+      - micro.walras-equilibrium
+
+  - id: game.assignment-competitive-core-equivalence
+    name: 競争均衡とコアの一致
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（割当市場の競争均衡とコアの一致）"]
+    requires:
+      - game.assignment-market-competitive-equilibrium
+      - game.assignment-game-core-duality
+      - game.assignment-price-support
+
+  - id: game.assignment-core-side-transfer
+    name: コア内の側間移転と価格水準の移動
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（コア内の側間移転と価格水準の移動）"]
+    requires:
+      - game.assignment-game-core-duality
+      - game.assignment-price-level-invariance
