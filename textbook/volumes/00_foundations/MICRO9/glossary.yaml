@@ -1,0 +1,29 @@
+chapter: "MICRO9"
+terms:
+  - term: 選択対応
+    english: choice correspondence
+    meaning: 各選択可能集合に対して、その集合から実際に選ばれ得る要素の集合を対応させる写像。最適解が複数ある場合を一価関数に潰さず扱える。
+  - term: 顕示選好
+    english: revealed preference
+    meaning: 効用関数を直接観測せず、ある束を選んだとき別の束も買えたという選択事実から推測する選好関係。
+  - term: 直接顕示選好
+    english: direct revealed preference
+    meaning: 観測 t で選ばれた束 x^t の予算内に別の観測束 x^s が入っているとき、x^t が x^s に直接顕示選好されるという関係。
+  - term: 間接顕示選好
+    english: indirect revealed preference
+    meaning: 直接顕示選好を有限本つないで得る推移的な関係。
+  - term: 顕示選好の弱公理
+    english: Weak Axiom of Revealed Preference
+    abbreviation: WARP
+    meaning: 異なる二つの観測束が互いに直接顕示選好されることを禁じる二観測の整合性条件。
+  - term: 顕示選好の強公理
+    english: Strong Axiom of Revealed Preference
+    abbreviation: SARP
+    meaning: 異なる観測束からなる直接顕示選好の循環を禁じる条件。
+  - term: 一般化顕示選好公理
+    english: Generalized Axiom of Revealed Preference
+    abbreviation: GARP
+    meaning: x^t が x^s に間接顕示選好されるなら、逆向きに x^s が x^t を狭義直接顕示選好してはならないという条件。無差別による等号循環は許す。
+  - term: 合理化
+    english: rationalization
+    meaning: 観測された各選択が、共通する一つの選好関係のもとで各予算集合上の最適選択として説明できること。
