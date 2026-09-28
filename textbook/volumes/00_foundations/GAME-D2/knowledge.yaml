@@ -4,8 +4,7 @@ coverage: complete
 prerequisites:
   - GAME-D1
 
-forward_references:
-  - GAME-D3
+forward_references: []
 
 concepts:
   - id: game.stable-partner
