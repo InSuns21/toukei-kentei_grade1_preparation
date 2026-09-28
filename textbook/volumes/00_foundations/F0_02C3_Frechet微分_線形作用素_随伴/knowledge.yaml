@@ -12,24 +12,24 @@ forward_references:
 
 concepts:
   - id: functional.bounded-linear-operator
-    name: 有界線形作用素
+    name: 有界線形写像
     kind: definition
-    aliases: [有界線形作用素]
+    aliases: [有界線形写像]
     requires:
       - linear.linear-map
       - functional.normed-space
 
   - id: functional.bounded-linear-continuous-equivalence
-    name: 線形作用素の有界性と連続性
+    name: 線形写像の有界性と連続性
     kind: theorem
-    aliases: [線形作用素の有界性と連続性]
+    aliases: [線形写像の有界性と連続性]
     requires:
       - functional.bounded-linear-operator
 
   - id: functional.operator-norm
-    name: 有界線形作用素の作用素ノルム
+    name: 有界線形写像の作用素ノルム
     kind: definition
-    aliases: [有界線形作用素の作用素ノルム]
+    aliases: [有界線形写像の作用素ノルム]
     introduction: formal
     introduction_aliases: ["定義（作用素ノルム）"]
     requires:
