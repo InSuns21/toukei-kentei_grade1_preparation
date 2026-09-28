@@ -51,8 +51,7 @@ concepts:
   - id: game.assignment-dual-price-system
     name: 割当市場の双対価格系
     kind: definition
-    aliases:
-      - dual price system for an assignment market
+    aliases: []
     introduction: formal
     introduction_aliases: ["定義（割当市場の双対価格系）"]
     requires:
