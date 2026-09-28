@@ -5,8 +5,7 @@ prerequisites:
   - MICRO2
   - MICRO5
 
-forward_references:
-  - MICRO10
+forward_references: []
 
 concepts:
   - id: micro.choice-correspondence
