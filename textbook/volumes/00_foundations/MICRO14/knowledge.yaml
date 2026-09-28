@@ -15,7 +15,7 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（割引関数）"]
     requires:
-      - micro.two-period-consumption-euler-equation
+      - micro.utility-representation
 
   - id: micro.exponential-discounting
     name: 指数割引
@@ -102,7 +102,6 @@ concepts:
     kind: definition
     aliases:
       - commitment
-      - commitment device
     introduction: formal
     introduction_aliases: ["定義（コミットメント）"]
     requires:
