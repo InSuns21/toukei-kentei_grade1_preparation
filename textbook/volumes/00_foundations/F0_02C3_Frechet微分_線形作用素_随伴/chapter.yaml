@@ -1,32 +1,34 @@
 id: "F0-02C3"
-title: "関数解析III：Fréchet微分・有界線形作用素・連鎖律"
+title: "関数解析III：Banach空間のFréchet微分・有界線形作用素・連鎖律"
 volume: "foundations"
 status: supplementary
 prerequisites:
+  - F0-02C1
   - F0-02C2
-  - RA3
+  - RA6
 official_scope: []
 learning_objectives:
-  - Fréchet微分を一つの線形一次近似として定義し、一意性と連続性を証明できる
+  - 有界線形作用素の有界性と連続性の同値を証明できる
+  - 作用素ノルムを定義し基本評価を使える
+  - Fréchet微分を有界線形作用素による一次近似として定義できる
+  - Fréchet微分の一意性と微分可能性からの連続性を証明できる
   - 方向微分・Gâteaux微分・Fréchet微分を区別できる
-  - 有限次元で偏微分・全微分・Jacobianの関係を説明できる
-  - 全偏微分の存在だけでは微分可能性を保証しない反例を計算できる
-  - 連続偏微分からFréchet微分可能性を座標増分と平均値定理で証明できる
+  - Gâteaux微分可能性だけではFréchet微分可能性に足りない反例を説明できる
+  - Hilbert空間でRiesz表現により微分を勾配として表せる
   - Fréchet連鎖律を残差評価から証明できる
-  - 高階微分・Hessian・二階Taylor展開を一次近似の反復として説明できる
-  - 有界線形作用素と作用素ノルムを定義できる
 definitions:
-  - { id: F002C3-DEF-01, name: 方向微分 }
-  - { id: F002C3-DEF-02, name: Gâteaux微分 }
+  - { id: F002C3-DEF-01, name: 有界線形作用素 }
+  - { id: F002C3-DEF-02, name: 作用素ノルム }
   - { id: F002C3-DEF-03, name: Fréchet微分 }
-  - { id: F002C3-DEF-04, name: 有界線形作用素 }
-  - { id: F002C3-DEF-05, name: 作用素ノルム }
+  - { id: F002C3-DEF-04, name: 方向微分 }
+  - { id: F002C3-DEF-05, name: Gâteaux微分 }
 theorems:
-  - { id: F002C3-THM-01, name: Fréchet微分の一意性と微分可能性からの連続性 }
-  - { id: F002C3-THM-02, name: 連続な偏微分による微分可能性 }
+  - { id: F002C3-THM-01, name: 線形作用素の有界性と連続性 }
+  - { id: F002C3-THM-02, name: Fréchet微分の一意性と微分可能性からの連続性 }
   - { id: F002C3-THM-03, name: Fréchet連鎖律 }
-  - { id: F002C3-THM-04, name: 二階の多変数Taylor展開 }
-canonical_examples: [ノルム二乗の微分, 全偏微分が存在するが微分可能でない関数, Jacobian計算, 二乗誤差汎関数]
-problem_patterns: [RA-MULTIVARIABLE-DERIVATIVE-1, FA-DERIVATIVE-1]
+canonical_examples: [積分汎関数の作用素ノルム, 有界線形作用素の微分, Hilbert空間の二乗ノルム, Gâteaux微分可能だがFréchet微分可能でない関数]
+problem_patterns: [FA-BOUNDED-OPERATOR-1, FA-DERIVATIVE-1, FA-CHAIN-RULE-1]
+past_exam_alignment: []
+integrated_exam_problems: []
 exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
-estimated_hours: { reading: 4.0, exercises: 3.0, review: 1.0 }
+estimated_hours: { reading: 3.0, exercises: 2.5, review: 0.5 }
