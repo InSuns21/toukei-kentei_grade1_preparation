@@ -15,26 +15,49 @@ const stableAnchorRe = new RegExp(`^\\s*<a\\s+id=["'](${STABLE_PREFIX}-[a-z0-9][
 
 const inlineMathRe = /(?<!\$)\$(?!\$)([^$\n]+?)\$(?!\$)/gu;
 
+function visualMathLength(tex) {
+  return tex
+    .replace(/\\(?:left|right|bigl|bigr|Bigl|Bigr|displaystyle|textstyle)/gu, '')
+    .replace(/\\(?:mathbb|mathrm|mathbf|mathsf|operatorname|text|cal|mathcal)/gu, '')
+    .replace(/\\[A-Za-z]+/gu, 'x')
+    .replace(/\\/gu, '')
+    .replace(/[{}]/gu, '')
+    .replace(/\s+/gu, '')
+    .length;
+}
+
+function relationMathLength(tex) {
+  const hasMainRelation = /(?:=|\\(?:le|ge|neq|iff|Longleftrightarrow|Rightarrow|implies)\b|\\to\s*(?:0|\\infty)\b|\\xrightarrow)/u.test(tex);
+  return hasMainRelation ? visualMathLength(tex) : 0;
+}
+
+function estimatedDisplayWidth(line) {
+  const withMathWidths = line.replace(inlineMathRe, (_full, tex) => 'x'.repeat(visualMathLength(tex)));
+  const plain = withMathWidths.replace(/[*_>`#]/gu, '');
+  let width = 0;
+  for (const char of plain) {
+    if (/\s/u.test(char)) width += 0.5;
+    else width += char.codePointAt(0) > 0x7f ? 2 : 1;
+  }
+  return width;
+}
+
 function denseInlineMathReason(line) {
   const maths = [...line.matchAll(inlineMathRe)].map((match) => match[1].trim());
   if (maths.length === 0) return null;
 
-  const lengths = maths.map((tex) => tex.replace(/\s+/gu, '').length);
-  const maxLength = Math.max(...lengths);
-  const totalLength = lengths.reduce((sum, length) => sum + length, 0);
+  const relationLengths = maths.map(relationMathLength);
+  const maxRelationLength = Math.max(...relationLengths);
+  const displayWidth = estimatedDisplayWidth(line);
 
-  if (maxLength >= 30) {
-    return `long inline formula (${maxLength} TeX characters)`;
+  if (maxRelationLength >= 24) {
+    return `long inline relation/formula (estimated display length ${maxRelationLength})`;
   }
-  if (maths.length >= 5 && totalLength >= 40) {
-    return `too many inline formula fragments (${maths.length} fragments / ${totalLength} TeX characters)`;
-  }
-  if (line.length >= 160 && totalLength >= 40) {
-    return `math-heavy formal statement line (${line.length} source characters / ${totalLength} TeX characters)`;
+  if (displayWidth >= 120 && maths.length >= 5 && maxRelationLength >= 10) {
+    return `math-heavy formal statement line (estimated display width ${displayWidth.toFixed(1)}, ${maths.length} inline fragments)`;
   }
   return null;
 }
-
 function walk(dir) {
   if (!fs.existsSync(dir)) return [];
   const out = [];
