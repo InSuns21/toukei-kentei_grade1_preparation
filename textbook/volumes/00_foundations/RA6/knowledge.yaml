@@ -1,0 +1,73 @@
+chapter: RA6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RA3
+  - F0-00F2
+
+forward_references:
+  - functional.frechet-derivative
+  - functional.bounded-linear-operator
+
+concepts:
+  - id: analysis.multivariable-differentiability
+    name: 多変数での微分可能性
+    kind: definition
+    aliases: [多変数微分可能性]
+    requires:
+      - linear.linear-map
+      - linear.spectral-norm
+
+  - id: analysis.multivariable-derivative-uniqueness-continuity
+    name: 微分の一意性と微分可能性からの連続性
+    kind: theorem
+    aliases: [微分の一意性と微分可能性からの連続性]
+    requires:
+      - analysis.multivariable-differentiability
+
+  - id: analysis.jacobian-matrix
+    name: Jacobian 行列
+    kind: definition
+    aliases: [Jacobian行列, ヤコビ行列]
+    requires:
+      - analysis.multivariable-differentiability
+
+  - id: analysis.continuous-partials-differentiability
+    name: 連続な偏微分による微分可能性
+    kind: theorem
+    aliases: [連続な偏微分による微分可能性]
+    requires:
+      - analysis.multivariable-differentiability
+      - analysis.mean-value-theorem
+
+  - id: analysis.multivariable-chain-rule
+    name: 多変数の連鎖律
+    kind: theorem
+    aliases: [多変数連鎖律]
+    requires:
+      - analysis.multivariable-differentiability
+      - linear.spectral-norm
+
+  - id: analysis.hessian
+    name: Hessian
+    kind: definition
+    aliases: [Hessian行列, ヘッセ行列]
+    requires:
+      - analysis.multivariable-differentiability
+
+  - id: analysis.mixed-partials-symmetry
+    name: 混合偏微分の交換
+    kind: theorem
+    aliases: [混合偏微分の交換]
+    requires:
+      - analysis.mean-value-theorem
+      - analysis.hessian
+
+  - id: analysis.multivariable-second-order-taylor
+    name: 二階の多変数 Taylor 展開
+    kind: theorem
+    aliases: [二階の多変数Taylor展開]
+    requires:
+      - analysis.multivariable-chain-rule
+      - analysis.taylor-theorem
+      - analysis.hessian
