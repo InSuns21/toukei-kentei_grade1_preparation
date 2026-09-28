@@ -24,6 +24,9 @@ terms:
   - term: 期待効用表現
     english: expected utility representation
     meaning: 各結果 z に数値 u(z) を割り当て、くじ p を総和 sum_z p(z)u(z) で評価して選好を表すこと。
+  - term: 正のアフィン変換
+    english: positive affine transformation
+    meaning: 実数値関数 u を a u+b（a>0）へ変換すること。期待効用表現では結果効用の許容される尺度変更になる。
   - term: von Neumann--Morgenstern の期待効用定理
     english: von Neumann--Morgenstern expected utility theorem
     meaning: 有限結果上のくじの選好について、完備性・推移性・混合連続性・独立性を満たすことと期待効用表現を持つことが同値であり、その結果効用は正のアフィン変換を除いて一意であることを述べる定理。
