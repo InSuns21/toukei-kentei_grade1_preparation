@@ -1,0 +1,163 @@
+chapter: MICRO12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MICRO11
+
+forward_references: []
+
+concepts:
+  - id: micro.risk-aversion
+    name: リスク回避
+    kind: definition
+    aliases:
+      - risk aversion
+    introduction: formal
+    introduction_aliases: ["定義（リスク回避）"]
+    requires:
+      - micro.expected-utility-representation
+
+  - id: micro.risk-aversion-concavity-equivalence
+    name: リスク回避と凹効用の同値
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（リスク回避と凹効用の同値）"]
+    requires:
+      - micro.risk-aversion
+      - micro.expected-utility-representation
+
+  - id: micro.certainty-equivalent
+    name: 確実性等価
+    kind: definition
+    aliases:
+      - certainty equivalent
+    introduction: formal
+    introduction_aliases: ["定義（確実性等価）"]
+    requires:
+      - micro.expected-utility-representation
+
+  - id: micro.risk-premium
+    name: リスクプレミアム
+    kind: definition
+    aliases:
+      - risk premium
+    introduction: formal
+    introduction_aliases: ["定義（リスクプレミアム）"]
+    requires:
+      - micro.certainty-equivalent
+
+  - id: micro.certainty-equivalent-risk-premium-sign
+    name: 確実性等価とリスクプレミアムの符号
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（確実性等価とリスクプレミアムの符号）"]
+    requires:
+      - micro.risk-aversion-concavity-equivalence
+      - micro.certainty-equivalent
+      - micro.risk-premium
+
+  - id: micro.arrow-pratt-absolute-risk-aversion
+    name: Arrow--Pratt の絶対的リスク回避度
+    kind: definition
+    aliases:
+      - Arrow--Pratt absolute risk aversion
+      - absolute risk aversion
+    introduction: formal
+    introduction_aliases: ["定義（Arrow--Pratt の絶対的・相対的リスク回避度）"]
+    requires:
+      - micro.risk-aversion
+
+  - id: micro.arrow-pratt-relative-risk-aversion
+    name: Arrow--Pratt の相対的リスク回避度
+    kind: definition
+    aliases:
+      - Arrow--Pratt relative risk aversion
+      - relative risk aversion
+    introduction: formal
+    introduction_aliases: ["定義（Arrow--Pratt の絶対的・相対的リスク回避度）"]
+    requires:
+      - micro.arrow-pratt-absolute-risk-aversion
+
+  - id: micro.arrow-pratt-risk-aversion-order
+    name: Arrow--Pratt のリスク回避順序
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（Arrow--Pratt のリスク回避順序）"]
+    requires:
+      - micro.arrow-pratt-absolute-risk-aversion
+      - micro.certainty-equivalent
+
+  - id: micro.local-risk-premium-approximation
+    name: 小リスクのリスクプレミアム近似
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（小リスクのリスクプレミアム近似）"]
+    requires:
+      - micro.arrow-pratt-absolute-risk-aversion
+      - micro.risk-premium
+
+  - id: micro.first-order-stochastic-dominance
+    name: 一次確率優越
+    kind: definition
+    aliases:
+      - first-order stochastic dominance
+      - FOSD
+    introduction: formal
+    introduction_aliases: ["定義（一次確率優越）"]
+    requires:
+      - micro.expected-utility-representation
+
+  - id: micro.fosd-expected-utility-characterization
+    name: 一次確率優越の期待効用特徴付け
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（一次確率優越の期待効用特徴付け）"]
+    requires:
+      - micro.first-order-stochastic-dominance
+
+  - id: micro.second-order-stochastic-dominance
+    name: 二次確率優越
+    kind: definition
+    aliases:
+      - second-order stochastic dominance
+      - SSD
+    introduction: formal
+    introduction_aliases: ["定義（二次確率優越）"]
+    requires:
+      - micro.expected-utility-representation
+
+  - id: micro.ssd-expected-utility-characterization
+    name: 二次確率優越の期待効用特徴付け
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（二次確率優越の期待効用特徴付け）"]
+    requires:
+      - micro.second-order-stochastic-dominance
+      - micro.risk-aversion-concavity-equivalence
+
+  - id: micro.mean-preserving-spread
+    name: mean-preserving spread
+    kind: definition
+    aliases:
+      - 平均保存拡散
+      - mean preserving spread
+    introduction: formal
+    introduction_aliases: ["定義（mean-preserving spread）"]
+    requires:
+      - micro.second-order-stochastic-dominance
+
+  - id: micro.mean-preserving-spread-ssd
+    name: mean-preserving spread は二次確率優越で悪化させる
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（mean-preserving spread は二次確率優越で悪化させる）"]
+    requires:
+      - micro.mean-preserving-spread
+      - micro.ssd-expected-utility-characterization
