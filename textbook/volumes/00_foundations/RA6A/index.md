@@ -15,13 +15,13 @@ $$
 
 の局所可逆性を調べることで導きます。この一本の流れを証明まで追うことが本章の主題です。
 
-前提として [多変数微分・Fréchet微分](../F0_02C3_Frechet微分_線形作用素_随伴/index.md)、[微積分学の基本定理II](../RA4/index.md#thm-ra4-ftc2)、[行列式と可逆性](../LA3C/index.md) を使います。後続の [多重Riemann積分・変数変換](../RA7/index.md) では、ここで得る局所可逆性が座標変換の理論的な土台になります。
+前提として [多変数微分・Jacobian 行列・連鎖律](../RA6/index.md)、[微積分学の基本定理II](../RA4/index.md#thm-ra4-ftc2)、[行列式と可逆性](../LA3C/index.md) を使います。後続の [多重Riemann積分・変数変換](../RA7/index.md) では、ここで得る局所可逆性が座標変換の理論的な土台になります。
 
 ---
 
 ## 1. 「Jacobianが正則」の意味
 
-$f:U\subset\mathbb R^n\to\mathbb R^n$ が $a\in U$ でFréchet微分可能なら
+$f:U\subset\mathbb R^n\to\mathbb R^n$ が $a\in U$ で微分可能なら
 
 $$
 f(a+h)=f(a)+Df(a)h+o(\|h\|).
@@ -941,7 +941,7 @@ $$
 依存関係をまとめると
 
 ```text
-Fréchet微分・連鎖律 + FTC + 行列の可逆性
+多変数微分・連鎖律 + FTC + 行列の可逆性
               ↓
        線分上の積分評価
               ↓
@@ -1530,7 +1530,7 @@ $$
 \boxed{\theta_1'(0)=1,\qquad\theta_2'(0)=0}.
 $$
 
-$\theta(0)=(0,0)$ なのでFréchet微分の一次近似から
+$\theta(0)=(0,0)$ なので多変数微分の一次近似から
 
 $$
 \theta(t)
