@@ -61,7 +61,6 @@ concepts:
       - micro.demand-rationalization
       - micro.garp-cycle-characterization
       - micro.afriat-inequalities
-      - micro.afriat-utility-function
 
   - id: micro.afriat-lp-feasibility
     name: Afriat 不等式の線形計画実行可能性表示
