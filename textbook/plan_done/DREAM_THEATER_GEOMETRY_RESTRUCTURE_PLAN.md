@@ -699,7 +699,7 @@ Hopf--Rinow は本系列の主要定理として核心証明を閉じる。局�
 
 ## 7. 抽象代数を独立系列として整備する
 
-Lie 群のための群論だけを局所実装せず、群・環・体の学部標準内容を独立した canonical series として整備する。詳細な範囲・証明責務・実装順は **`textbook/plan_done/textbook/plan_done/DREAM_THEATER_ABSTRACT_ALGEBRA_PLAN.md`** を正本とする。
+Lie 群のための群論だけを局所実装せず、群・環・体の学部標準内容を独立した canonical series として整備する。詳細な範囲・証明責務・実装順は **`textbook/plan_done/DREAM_THEATER_ABSTRACT_ALGEBRA_PLAN.md`** を正本とする。
 
 Lie 系列が直接要求するのはその前半だけである。
 
