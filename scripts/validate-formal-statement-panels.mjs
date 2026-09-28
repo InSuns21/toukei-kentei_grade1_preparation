@@ -7,22 +7,20 @@ const ROOTS = pagesMode
   : ['textbook/volumes', 'applied-rikou-80', 'statistical-mathematics'];
 const START = '<!-- formal-statement-start -->';
 const END = '<!-- formal-statement-end -->';
-const dreamTheaterIndexPath = path.resolve('textbook/dream-theater-index.json');
-const DREAM_THEATER_PATHS = fs.existsSync(dreamTheaterIndexPath)
-  ? new Set(JSON.parse(fs.readFileSync(dreamTheaterIndexPath, 'utf8')).sections.flatMap((section) => section.paths ?? []))
-  : new Set();
 const LABEL = '(?:定義|定理|命題|補題|系|公理|原理)';
 const STABLE_PREFIX = '(?:def|thm|prop|lem|cor|axiom|principle|ref)';
 const labelRe = new RegExp(`^\\s*(?:>\\s*)?\\*\\*${LABEL}(?:[（(：:].*)?\\*\\*`, 'u');
 const formalHeadingRe = new RegExp(`^#{2,6}\\s+(?:\\d+(?:\\.\\d+)*(?:[.)．])?\\s*)?${LABEL}(?:[（(：:]|$)`, 'u');
 const stableAnchorRe = new RegExp(`^\\s*<a\\s+id=["'](${STABLE_PREFIX}-[a-z0-9][a-z0-9-]*)["']\\s*><\\/a>\\s*$`, 'iu');
 
+const dreamTheaterIndexPath = path.resolve('textbook/dream-theater-index.json');
+const DREAM_THEATER_PATHS = fs.existsSync(dreamTheaterIndexPath)
+  ? new Set(JSON.parse(fs.readFileSync(dreamTheaterIndexPath, 'utf8')).sections.flatMap((section) => section.paths ?? []))
+  : new Set();
 const inlineMathRe = /(?<!\$)\$(?!\$)([^$\n]+?)\$(?!\$)/gu;
 
-// Known pre-existing layout debt. Keep this list anchor-scoped so new panels
-// and additional violations in the same panel still fail CI. Remove entries
-// when the corresponding DREAM THEATER page can be edited together with any
-// concept-dependency debt exposed by changed-only strict validation.
+// Known pre-existing layout debt. Entries are anchor-scoped: new violations
+// in the same page still fail. This list is temporary and should shrink.
 const FORMAL_LAYOUT_BASELINE = new Set([
   'textbook/volumes/00_foundations/CA8/index.md#cor-ca8-lifted-homotopy-endpoint',
   'textbook/volumes/00_foundations/F0_02C1_ノルム空間_Banach_Hilbert/index.md#def-f0-02c1-inner-product',
@@ -72,47 +70,30 @@ function standaloneInlineMathReason(line) {
 function denseInlineMathReason(line, panelHasDisplayMath) {
   const maths = [...line.matchAll(inlineMathRe)].map((match) => match[1].trim());
   if (maths.length === 0) return null;
-
   const relationLengths = maths.map(relationMathLength);
   const maxRelationLength = Math.max(...relationLengths);
   const displayWidth = estimatedDisplayWidth(line);
-
-  // A visibly long equality/inequality/limit should normally stand on its own.
-  // Keep the threshold conservative so short type declarations and notation
-  // do not become display math merely because their TeX source is verbose.
   if (maxRelationLength >= 30 && displayWidth >= 80) {
     return `long inline relation/formula (estimated display length ${maxRelationLength})`;
   }
-
-  // When the panel has no display equation at all, a long prose line carrying
-  // many math fragments is a strong signal that the main condition/result was
-  // packed inline. If the panel already has display math, this usually describes
-  // harmless hypotheses surrounding a properly displayed main formula.
   if (!panelHasDisplayMath && displayWidth >= 120 && maths.length >= 5 && maxRelationLength >= 10) {
     return `math-heavy formal statement line without display math (estimated display width ${displayWidth.toFixed(1)}, ${maths.length} inline fragments)`;
   }
   return null;
 }
 
-function selfTestDenseInlineMath() {
+function selfTestFormalMathLint() {
   const bad = '> $f\\in C([0,1])$ に対し $B_nf(x)=\\sum_{k=0}^n f(k/n)\\binom nk x^k(1-x)^{n-k}$ を $f$ の第 $n$ Bernstein多項式という。';
   const good = '> 真関数 $f:\\mathbb R^n\\to(-\\infty,+\\infty]$ が凸であるとは、任意の $x,y\\in\\mathbb R^n$ に対して';
-  if (!denseInlineMathReason(bad, false)) {
-    throw new Error('formal statement math lint self-test failed: long inline defining equation was not detected');
-  }
-  if (denseInlineMathReason(good, true)) {
-    throw new Error('formal statement math lint self-test failed: short type/hypothesis notation was falsely detected');
-  }
+  if (!denseInlineMathReason(bad, false)) throw new Error('formal math lint: long defining equation not detected');
+  if (denseInlineMathReason(good, true)) throw new Error('formal math lint: type/hypothesis false positive');
   const standaloneBad = '> $H(0,p)=f_0(p), \\qquad H(1,p)=f_1(p)$';
   const standaloneGood = '> $x$';
-  if (!standaloneInlineMathReason(standaloneBad)) {
-    throw new Error('formal statement math lint self-test failed: standalone inline formula was not detected');
-  }
-  if (standaloneInlineMathReason(standaloneGood)) {
-    throw new Error('formal statement math lint self-test failed: short standalone symbol was falsely detected');
-  }
+  if (!standaloneInlineMathReason(standaloneBad)) throw new Error('formal math lint: standalone inline formula not detected');
+  if (standaloneInlineMathReason(standaloneGood)) throw new Error('formal math lint: short standalone symbol false positive');
 }
-selfTestDenseInlineMath();
+
+selfTestFormalMathLint();
 
 function walk(dir) {
   if (!fs.existsSync(dir)) return [];
@@ -136,8 +117,8 @@ let stableAnchorCount = 0;
 for (const root of ROOTS.map((p) => path.resolve(p))) {
   for (const file of walk(root)) {
     const rel = path.relative(process.cwd(), file).replaceAll(path.sep, '/');
-    const isDreamTheater = DREAM_THEATER_PATHS.has(rel);
     const lines = fs.readFileSync(file, 'utf8').split(/\r?\n/);
+    const isDreamTheater = DREAM_THEATER_PATHS.has(rel);
 
     if (!pagesMode) {
       let panelStart = -1;
@@ -181,219 +162,8 @@ for (const root of ROOTS.map((p) => path.resolve(p))) {
         }
         panelStart = -1;
       }
-    }    let depth = 0;
-    let proofDepth = 0;
-    let fence = null;
-    let declarationsInPanel = 0;
-    let filePanels = 0;
-    const seenAnchors = new Set();
-
-    for (let i = 0; i < lines.length; i += 1) {
-      const line = lines[i];
-      const t = line.trim();
-      const lineNo = i + 1;
-
-      if (fence) {
-        if (new RegExp(`^ {0,3}${fence.char}{${fence.length},}\\s*$`).test(line)) fence = null;
-        continue;
-      }
-      const openFence = line.match(/^ {0,3}(`{3,}|~{3,})/);
-      if (openFence) {
-        fence = { char: openFence[1][0], length: openFence[1].length };
-        continue;
-      }
-
-      const anchorMatch = stableAnchorRe.exec(line);
-      if (anchorMatch) {
-        const id = anchorMatch[1];
-        stableAnchorCount += 1;
-        if (seenAnchors.has(id)) errors.push(`${rel}:${lineNo}: duplicate stable formal anchor #${id}`);
-        seenAnchors.add(id);
-      }
-
-      if (t === '<!-- proof-start -->') {
-        if (depth > 0) {
-          errors.push(`${rel}:${lineNo}: folded proof must not start inside a formal statement panel; close formal-statement-end first`);
-        }
-        proofDepth += 1;
-      }
-      if (t === '<!-- proof-end -->') proofDepth = Math.max(0, proofDepth - 1);
-
-      if (t === START) {
-        if (depth > 0) errors.push(`${rel}:${lineNo}: nested formal statement panel is not allowed`);
-        if (proofDepth > 0) errors.push(`${rel}:${lineNo}: formal statement panel must not start inside a folded proof`);
-
-        const nearbyAnchors = [];
-        for (let j = Math.max(0, i - 8); j < i; j += 1) {
-          const m = stableAnchorRe.exec(lines[j]);
-          if (m) nearbyAnchors.push({ id: m[1], line: j + 1 });
-        }
-        if (nearbyAnchors.length === 0) {
-          errors.push(`${rel}:${lineNo}: formal statement must have an explicit stable def-/thm-/prop-/lem-/cor-/axiom-/principle-/ref- anchor immediately before it`);
-        } else {
-          anchoredPanelCount += 1;
-        }
-
-        depth += 1;
-        declarationsInPanel = 0;
-        panelCount += 1;
-        filePanels += 1;
-        continue;
-      }
-
-      if (t === END) {
-        if (depth === 0) {
-          errors.push(`${rel}:${lineNo}: unmatched formal-statement-end marker`);
-        } else if (declarationsInPanel !== 1) {
-          errors.push(`${rel}:${lineNo}: formal statement panel must contain exactly one formal declaration; found ${declarationsInPanel}`);
-        }
-        depth = Math.max(0, depth - 1);
-        declarationsInPanel = 0;
-        continue;
-      }
-
-
-      const isLabel = labelRe.test(line);
-      const isHeading = formalHeadingRe.test(line);
-      if (isLabel || isHeading) {
-        labelCount += 1;
-        if (depth === 0) {
-          errors.push(`${rel}:${lineNo}: formal ${isHeading ? 'heading' : 'label'} is outside the standard blue-line panel markers`);
-        } else {
-          declarationsInPanel += 1;
-        }
-      }
     }
-
-    if (depth !== 0) errors.push(`${rel}: unmatched formal-statement-start marker at end of file`);
-    if (filePanels > 0) pageCount += 1;
-  }
-}
-
-if (panelCount !== labelCount) {
-  errors.push(`formal statement count mismatch: ${panelCount} panel(s) for ${labelCount} detected declaration(s)`);
-}
-if (panelCount !== anchoredPanelCount) {
-  errors.push(`formal statement anchor mismatch: ${anchoredPanelCount}/${panelCount} panel(s) have a nearby stable anchor`);
-}
-
-const runtimeRoot = pagesMode ? path.resolve('_site') : path.resolve('pages');
-const indexPath = path.join(runtimeRoot, 'index.html');
-const rendererPath = path.join(runtimeRoot, 'math-renderer.js');
-
-if (!fs.existsSync(indexPath)) {
-  errors.push(`${path.relative(process.cwd(), indexPath)}: missing Pages index; formal statement styling cannot be verified`);
-} else {
-  const html = fs.readFileSync(indexPath, 'utf8');
-  const styleChecks = [
-    [/--formal-statement-rule:\s*#2f6f9f\b/i, 'standard blue rule token (--formal-statement-rule: #2f6f9f)'],
-    [/\.formal-statement\s*\{[^}]*border-left:\s*[4-6]px\s+solid\s+var\(--formal-statement-rule\)/is, '4–6px formal statement left rule'],
-    [/\.formal-statement\s*>\s*blockquote\s*\{[^}]*border-left:\s*0/is, 'blockquote double-rule suppression'],
-  ];
-  for (const [pattern, label] of styleChecks) {
-    if (!pattern.test(html)) errors.push(`${path.relative(process.cwd(), indexPath)}: missing ${label}`);
-  }
-}
-
-if (!fs.existsSync(rendererPath)) {
-  errors.push(`${path.relative(process.cwd(), rendererPath)}: missing Pages renderer; formal statement wrapping cannot be verified`);
-} else {
-  const js = fs.readFileSync(rendererPath, 'utf8');
-  const required = [
-    ['wrapFormalStatementBlocks', 'formal statement wrapper transform'],
-    [START, 'formal-statement-start marker'],
-    [END, 'formal-statement-end marker'],
-    ['<div class="formal-statement">$1</div>', 'formal statement wrapper output'],
-    ['hook.afterEach', 'post-Markdown wrapping hook'],
-  ];
-  for (const [needle, label] of required) {
-    if (!js.includes(needle)) errors.push(`${path.relative(process.cwd(), rendererPath)}: missing ${label} (${needle})`);
-  }
-}
-
-if (baselineIssues.length) {
-  console.warn(`Formal statement layout baseline: ${baselineIssues.length} known pre-existing issue(s):`);
-  for (const issue of baselineIssues) console.warn(`- ${issue}`);
-}
-
-if (errors.length) {
-  console.error(`Formal statement panel validation failed with ${errors.length} issue(s):`);
-  for (const error of errors) console.error(`- ${error}`);
-  process.exit(1);
-}
-
-console.log(`Formal statement panel validation passed${pagesMode ? ' for generated Pages' : ''}: ${panelCount} panel(s), ${anchoredPanelCount} anchored panel(s), ${stableAnchorCount} stable anchor(s), ${labelCount} declaration(s), ${pageCount} page(s), standard blue rule verified, ${baselineIssues.length} known layout baseline issue(s).`);
-;
-  const standaloneGood = '> $x
-}
-
-selfTestDenseInlineMath();
-
-function walk(dir) {
-  if (!fs.existsSync(dir)) return [];
-  const out = [];
-  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    const full = path.join(dir, entry.name);
-    if (entry.isDirectory()) out.push(...walk(full));
-    else if (entry.isFile() && entry.name.endsWith('.md')) out.push(full);
-  }
-  return out;
-}
-
-const errors = [];
-const baselineIssues = [];
-let panelCount = 0;
-let pageCount = 0;
-let labelCount = 0;
-let anchoredPanelCount = 0;
-let stableAnchorCount = 0;
-
-for (const root of ROOTS.map((p) => path.resolve(p))) {
-  for (const file of walk(root)) {
-    const rel = path.relative(process.cwd(), file).replaceAll(path.sep, '/');
-    const lines = fs.readFileSync(file, 'utf8').split(/\r?\n/);
-
-    if (!pagesMode) {
-      let panelStart = -1;
-      for (let k = 0; k < lines.length; k += 1) {
-        const trimmed = lines[k].trim();
-        if (trimmed === START) {
-          panelStart = k;
-          continue;
-        }
-        if (trimmed !== END || panelStart < 0) continue;
-
-        const panelLines = lines.slice(panelStart + 1, k);
-        const panelHasDisplayMath = panelLines.some((panelLine) => panelLine.trim() === '$$');
-        let panelAnchor = null;
-        for (let j = panelStart - 1; j >= Math.max(0, panelStart - 8); j -= 1) {
-          const anchorMatch = stableAnchorRe.exec(lines[j]);
-          if (anchorMatch) {
-            panelAnchor = anchorMatch[1];
-            break;
-          }
-        }
-        const baselineKey = panelAnchor ? `${rel}#${panelAnchor}` : null;
-        let baselineConsumed = false;
-
-        for (let offset = 0; offset < panelLines.length; offset += 1) {
-          const panelLine = panelLines[offset];
-          if (panelLine.trim() === '$$') continue;
-          const reason = denseInlineMathReason(panelLine, panelHasDisplayMath);
-          if (!reason) continue;
-
-          const sourceLineNo = panelStart + offset + 2;
-          const message = `${rel}:${sourceLineNo}: ${reason} inside a formal statement; keep short notation inline, but move the main equation or condition to an unquoted $$...$$ display block`;
-          if (baselineKey && FORMAL_LAYOUT_BASELINE.has(baselineKey) && !baselineConsumed) {
-            baselineIssues.push(message);
-            baselineConsumed = true;
-          } else {
-            errors.push(message);
-          }
-        }
-        panelStart = -1;
-      }
-    }    let depth = 0;
+    let depth = 0;
     let proofDepth = 0;
     let fence = null;
     let declarationsInPanel = 0;
@@ -463,224 +233,6 @@ for (const root of ROOTS.map((p) => path.resolve(p))) {
         declarationsInPanel = 0;
         continue;
       }
-
-
-      const isLabel = labelRe.test(line);
-      const isHeading = formalHeadingRe.test(line);
-      if (isLabel || isHeading) {
-        labelCount += 1;
-        if (depth === 0) {
-          errors.push(`${rel}:${lineNo}: formal ${isHeading ? 'heading' : 'label'} is outside the standard blue-line panel markers`);
-        } else {
-          declarationsInPanel += 1;
-        }
-      }
-    }
-
-    if (depth !== 0) errors.push(`${rel}: unmatched formal-statement-start marker at end of file`);
-    if (filePanels > 0) pageCount += 1;
-  }
-}
-
-if (panelCount !== labelCount) {
-  errors.push(`formal statement count mismatch: ${panelCount} panel(s) for ${labelCount} detected declaration(s)`);
-}
-if (panelCount !== anchoredPanelCount) {
-  errors.push(`formal statement anchor mismatch: ${anchoredPanelCount}/${panelCount} panel(s) have a nearby stable anchor`);
-}
-
-const runtimeRoot = pagesMode ? path.resolve('_site') : path.resolve('pages');
-const indexPath = path.join(runtimeRoot, 'index.html');
-const rendererPath = path.join(runtimeRoot, 'math-renderer.js');
-
-if (!fs.existsSync(indexPath)) {
-  errors.push(`${path.relative(process.cwd(), indexPath)}: missing Pages index; formal statement styling cannot be verified`);
-} else {
-  const html = fs.readFileSync(indexPath, 'utf8');
-  const styleChecks = [
-    [/--formal-statement-rule:\s*#2f6f9f\b/i, 'standard blue rule token (--formal-statement-rule: #2f6f9f)'],
-    [/\.formal-statement\s*\{[^}]*border-left:\s*[4-6]px\s+solid\s+var\(--formal-statement-rule\)/is, '4–6px formal statement left rule'],
-    [/\.formal-statement\s*>\s*blockquote\s*\{[^}]*border-left:\s*0/is, 'blockquote double-rule suppression'],
-  ];
-  for (const [pattern, label] of styleChecks) {
-    if (!pattern.test(html)) errors.push(`${path.relative(process.cwd(), indexPath)}: missing ${label}`);
-  }
-}
-
-if (!fs.existsSync(rendererPath)) {
-  errors.push(`${path.relative(process.cwd(), rendererPath)}: missing Pages renderer; formal statement wrapping cannot be verified`);
-} else {
-  const js = fs.readFileSync(rendererPath, 'utf8');
-  const required = [
-    ['wrapFormalStatementBlocks', 'formal statement wrapper transform'],
-    [START, 'formal-statement-start marker'],
-    [END, 'formal-statement-end marker'],
-    ['<div class="formal-statement">$1</div>', 'formal statement wrapper output'],
-    ['hook.afterEach', 'post-Markdown wrapping hook'],
-  ];
-  for (const [needle, label] of required) {
-    if (!js.includes(needle)) errors.push(`${path.relative(process.cwd(), rendererPath)}: missing ${label} (${needle})`);
-  }
-}
-
-if (baselineIssues.length) {
-  console.warn(`Formal statement layout baseline: ${baselineIssues.length} known pre-existing issue(s):`);
-  for (const issue of baselineIssues) console.warn(`- ${issue}`);
-}
-
-if (errors.length) {
-  console.error(`Formal statement panel validation failed with ${errors.length} issue(s):`);
-  for (const error of errors) console.error(`- ${error}`);
-  process.exit(1);
-}
-
-console.log(`Formal statement panel validation passed${pagesMode ? ' for generated Pages' : ''}: ${panelCount} panel(s), ${anchoredPanelCount} anchored panel(s), ${stableAnchorCount} stable anchor(s), ${labelCount} declaration(s), ${pageCount} page(s), standard blue rule verified, ${baselineIssues.length} known layout baseline issue(s).`);
-;
-  if (!standaloneInlineMathReason(standaloneBad)) {
-    throw new Error('formal statement math lint self-test failed: standalone inline formula was not detected');
-  }
-  if (standaloneInlineMathReason(standaloneGood)) {
-    throw new Error('formal statement math lint self-test failed: short standalone symbol was falsely detected');
-  }
-}
-
-selfTestDenseInlineMath();
-
-function walk(dir) {
-  if (!fs.existsSync(dir)) return [];
-  const out = [];
-  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    const full = path.join(dir, entry.name);
-    if (entry.isDirectory()) out.push(...walk(full));
-    else if (entry.isFile() && entry.name.endsWith('.md')) out.push(full);
-  }
-  return out;
-}
-
-const errors = [];
-const baselineIssues = [];
-let panelCount = 0;
-let pageCount = 0;
-let labelCount = 0;
-let anchoredPanelCount = 0;
-let stableAnchorCount = 0;
-
-for (const root of ROOTS.map((p) => path.resolve(p))) {
-  for (const file of walk(root)) {
-    const rel = path.relative(process.cwd(), file).replaceAll(path.sep, '/');
-    const lines = fs.readFileSync(file, 'utf8').split(/\r?\n/);
-
-    if (!pagesMode) {
-      let panelStart = -1;
-      for (let k = 0; k < lines.length; k += 1) {
-        const trimmed = lines[k].trim();
-        if (trimmed === START) {
-          panelStart = k;
-          continue;
-        }
-        if (trimmed !== END || panelStart < 0) continue;
-
-        const panelLines = lines.slice(panelStart + 1, k);
-        const panelHasDisplayMath = panelLines.some((panelLine) => panelLine.trim() === '$$');
-        let panelAnchor = null;
-        for (let j = panelStart - 1; j >= Math.max(0, panelStart - 8); j -= 1) {
-          const anchorMatch = stableAnchorRe.exec(lines[j]);
-          if (anchorMatch) {
-            panelAnchor = anchorMatch[1];
-            break;
-          }
-        }
-        const baselineKey = panelAnchor ? `${rel}#${panelAnchor}` : null;
-        let baselineConsumed = false;
-
-        for (let offset = 0; offset < panelLines.length; offset += 1) {
-          const panelLine = panelLines[offset];
-          if (panelLine.trim() === '$$') continue;
-          const reason = denseInlineMathReason(panelLine, panelHasDisplayMath);
-          if (!reason) continue;
-
-          const sourceLineNo = panelStart + offset + 2;
-          const message = `${rel}:${sourceLineNo}: ${reason} inside a formal statement; keep short notation inline, but move the main equation or condition to an unquoted $$...$$ display block`;
-          if (baselineKey && FORMAL_LAYOUT_BASELINE.has(baselineKey) && !baselineConsumed) {
-            baselineIssues.push(message);
-            baselineConsumed = true;
-          } else {
-            errors.push(message);
-          }
-        }
-        panelStart = -1;
-      }
-    }    let depth = 0;
-    let proofDepth = 0;
-    let fence = null;
-    let declarationsInPanel = 0;
-    let filePanels = 0;
-    const seenAnchors = new Set();
-
-    for (let i = 0; i < lines.length; i += 1) {
-      const line = lines[i];
-      const t = line.trim();
-      const lineNo = i + 1;
-
-      if (fence) {
-        if (new RegExp(`^ {0,3}${fence.char}{${fence.length},}\\s*$`).test(line)) fence = null;
-        continue;
-      }
-      const openFence = line.match(/^ {0,3}(`{3,}|~{3,})/);
-      if (openFence) {
-        fence = { char: openFence[1][0], length: openFence[1].length };
-        continue;
-      }
-
-      const anchorMatch = stableAnchorRe.exec(line);
-      if (anchorMatch) {
-        const id = anchorMatch[1];
-        stableAnchorCount += 1;
-        if (seenAnchors.has(id)) errors.push(`${rel}:${lineNo}: duplicate stable formal anchor #${id}`);
-        seenAnchors.add(id);
-      }
-
-      if (t === '<!-- proof-start -->') {
-        if (depth > 0) {
-          errors.push(`${rel}:${lineNo}: folded proof must not start inside a formal statement panel; close formal-statement-end first`);
-        }
-        proofDepth += 1;
-      }
-      if (t === '<!-- proof-end -->') proofDepth = Math.max(0, proofDepth - 1);
-
-      if (t === START) {
-        if (depth > 0) errors.push(`${rel}:${lineNo}: nested formal statement panel is not allowed`);
-        if (proofDepth > 0) errors.push(`${rel}:${lineNo}: formal statement panel must not start inside a folded proof`);
-
-        const nearbyAnchors = [];
-        for (let j = Math.max(0, i - 8); j < i; j += 1) {
-          const m = stableAnchorRe.exec(lines[j]);
-          if (m) nearbyAnchors.push({ id: m[1], line: j + 1 });
-        }
-        if (nearbyAnchors.length === 0) {
-          errors.push(`${rel}:${lineNo}: formal statement must have an explicit stable def-/thm-/prop-/lem-/cor-/axiom-/principle-/ref- anchor immediately before it`);
-        } else {
-          anchoredPanelCount += 1;
-        }
-
-        depth += 1;
-        declarationsInPanel = 0;
-        panelCount += 1;
-        filePanels += 1;
-        continue;
-      }
-
-      if (t === END) {
-        if (depth === 0) {
-          errors.push(`${rel}:${lineNo}: unmatched formal-statement-end marker`);
-        } else if (declarationsInPanel !== 1) {
-          errors.push(`${rel}:${lineNo}: formal statement panel must contain exactly one formal declaration; found ${declarationsInPanel}`);
-        }
-        depth = Math.max(0, depth - 1);
-        declarationsInPanel = 0;
-        continue;
-      }
-
 
       const isLabel = labelRe.test(line);
       const isHeading = formalHeadingRe.test(line);
