@@ -766,7 +766,7 @@ $$
 D\ell(y)=\ell
 $$
 
-です。Fréchet 連鎖律から
+です。[Fréchet 連鎖律](#thm-f0-02c3-frechet-composition)から
 
 $$
 D(\ell\circ f)(a)
