@@ -3,9 +3,9 @@ terms:
   - term: 割当ゲーム
     english: assignment game
     meaning: 二つの主体集合の間で組を作ると余剰が生じ、各提携の価値をその提携内で実現できる最大重みマッチングの総余剰として定める譲渡可能効用ゲーム。
-  - term: 外部選択肢
-    english: outside option
-    meaning: どの相手とも組まない場合に主体が確保できる利得。本章では基準を0とする。
+  - term: 単独時の基準利得
+    english: unmatched payoff
+    meaning: どの相手とも組まない場合に主体が確保できる利得。本章では0とする。
   - term: 二者制約
     english: pairwise core constraint
     meaning: 任意の組 i,j について、その二人の利得合計が組から生じる余剰 w_ij 以上であるというコアの必要条件 u_i+p_j>=w_ij。
