@@ -711,22 +711,7 @@ $$
 <a id="def-opt1-local-global-minimizer"></a>
 <!-- formal-statement-start -->
 > **定義（局所最小点・大域最小点）**  
-> 集合 $C\subset\mathbb R^n$ 上の関数 $f:C\to\mathbb R$ と点 $x^\ast\in C$ を考える。ある $r>0$ が存在し、
-
-$$
-\|x-x^\ast\|<r
-\quad\Longrightarrow\quad
-f(x^\ast)\le f(x)
-\qquad(x\in C)
-$$
-
-> が成り立つとき $x^\ast$ を **局所最小点** という。一方、すべての $x\in C$ に対して
-
-$$
-f(x^\ast)\le f(x)
-$$
-
-> が成り立つとき $x^\ast$ を **大域最小点** という。
+> 集合 $C\subset\mathbb R^n$ 上の関数 $f:C\to\mathbb R$ と点 $x^\ast\in C$ を考える。ある $r>0$ が存在し、$\|x-x^\ast\|<r$ を満たすすべての $x\in C$ に対して $f(x^\ast)\le f(x)$ となるとき $x^\ast$ を **局所最小点** という。すべての $x\in C$ に対して $f(x^\ast)\le f(x)$ となるとき $x^\ast$ を **大域最小点** という。
 <!-- formal-statement-end -->
 
 この二つは一般には別物です。凸性が入ると、後で証明するように局所最小点が大域最小点へ昇格します。
