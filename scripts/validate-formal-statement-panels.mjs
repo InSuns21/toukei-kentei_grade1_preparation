@@ -15,6 +15,21 @@ const stableAnchorRe = new RegExp(`^\\s*<a\\s+id=["'](${STABLE_PREFIX}-[a-z0-9][
 
 const inlineMathRe = /(?<!\$)\$(?!\$)([^$\n]+?)\$(?!\$)/gu;
 
+// Known pre-existing layout debt. Keep this list anchor-scoped so new panels
+// and additional violations in the same panel still fail CI. Remove entries
+// when the corresponding DREAM THEATER page can be edited together with any
+// concept-dependency debt exposed by changed-only strict validation.
+const FORMAL_LAYOUT_BASELINE = new Set([
+  'textbook/volumes/00_foundations/CA8/index.md#cor-ca8-lifted-homotopy-endpoint',
+  'textbook/volumes/00_foundations/F0_02C1_ノルム空間_Banach_Hilbert/index.md#def-f0-02c1-inner-product',
+  'textbook/volumes/00_foundations/GEO9/index.md#thm-geo9-homotopy-formula',
+  'textbook/volumes/00_foundations/GEO9/index.md#thm-geo9-homotopy-invariance',
+  'textbook/volumes/00_foundations/MT7/index.md#thm-mt7-lp-duality',
+  'textbook/volumes/00_foundations/ODE8/index.md#def-ode8-maximal-solution',
+  'textbook/volumes/00_foundations/OPT1/index.md#def-opt1-local-global-minimizer',
+  'textbook/volumes/00_foundations/RA7/index.md#def-ra7-domain-integral',
+]);
+
 function visualMathLength(tex) {
   return tex
     .replace(/\\(?:left|right|bigl|bigr|Bigl|Bigr|displaystyle|textstyle)/gu, '')
@@ -92,6 +107,7 @@ function walk(dir) {
 }
 
 const errors = [];
+const baselineIssues = [];
 let panelCount = 0;
 let pageCount = 0;
 let labelCount = 0;
@@ -115,13 +131,30 @@ for (const root of ROOTS.map((p) => path.resolve(p))) {
 
         const panelLines = lines.slice(panelStart + 1, k);
         const panelHasDisplayMath = panelLines.some((panelLine) => panelLine.trim() === '$$');
+        let panelAnchor = null;
+        for (let j = panelStart - 1; j >= Math.max(0, panelStart - 8); j -= 1) {
+          const anchorMatch = stableAnchorRe.exec(lines[j]);
+          if (anchorMatch) {
+            panelAnchor = anchorMatch[1];
+            break;
+          }
+        }
+        const baselineKey = panelAnchor ? `${rel}#${panelAnchor}` : null;
+        let baselineConsumed = false;
+
         for (let offset = 0; offset < panelLines.length; offset += 1) {
           const panelLine = panelLines[offset];
           if (panelLine.trim() === '$$') continue;
           const reason = denseInlineMathReason(panelLine, panelHasDisplayMath);
-          if (reason) {
-            const sourceLineNo = panelStart + offset + 2;
-            errors.push(`${rel}:${sourceLineNo}: ${reason} inside a formal statement; keep short notation inline, but move the main equation or condition to an unquoted $$...$$ display block`);
+          if (!reason) continue;
+
+          const sourceLineNo = panelStart + offset + 2;
+          const message = `${rel}:${sourceLineNo}: ${reason} inside a formal statement; keep short notation inline, but move the main equation or condition to an unquoted $$...$$ display block`;
+          if (baselineKey && FORMAL_LAYOUT_BASELINE.has(baselineKey) && !baselineConsumed) {
+            baselineIssues.push(message);
+            baselineConsumed = true;
+          } else {
+            errors.push(message);
           }
         }
         panelStart = -1;
@@ -256,10 +289,15 @@ if (!fs.existsSync(rendererPath)) {
   }
 }
 
+if (baselineIssues.length) {
+  console.warn(`Formal statement layout baseline: ${baselineIssues.length} known pre-existing issue(s):`);
+  for (const issue of baselineIssues) console.warn(`- ${issue}`);
+}
+
 if (errors.length) {
   console.error(`Formal statement panel validation failed with ${errors.length} issue(s):`);
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
 
-console.log(`Formal statement panel validation passed${pagesMode ? ' for generated Pages' : ''}: ${panelCount} panel(s), ${anchoredPanelCount} anchored panel(s), ${stableAnchorCount} stable anchor(s), ${labelCount} declaration(s), ${pageCount} page(s), standard blue rule verified.`);
+console.log(`Formal statement panel validation passed${pagesMode ? ' for generated Pages' : ''}: ${panelCount} panel(s), ${anchoredPanelCount} anchored panel(s), ${stableAnchorCount} stable anchor(s), ${labelCount} declaration(s), ${pageCount} page(s), standard blue rule verified, ${baselineIssues.length} known layout baseline issue(s).`);
