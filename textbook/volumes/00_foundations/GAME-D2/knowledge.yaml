@@ -4,7 +4,8 @@ coverage: complete
 prerequisites:
   - GAME-D1
 
-forward_references: []
+forward_references:
+  - DOPT3
 
 concepts:
   - id: game.stable-partner
