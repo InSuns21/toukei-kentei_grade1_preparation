@@ -4,7 +4,9 @@ coverage: complete
 prerequisites:
   - ODE1
   - NA1
-forward_references: []
+forward_references:
+  - numerical.stability-function
+  - numerical.absolute-stability-region
 
 concepts:
   - id: numerical.time-grid
@@ -105,9 +107,9 @@ concepts:
       - numerical.one-step-method
 
   - id: numerical.convergence-order
-    name: 収束次数
+    name: 大域誤差の収束次数
     kind: definition
-    aliases: [order of convergence]
+    aliases: [数値ODEの収束次数, order of convergence of global error]
     introduction: formal
     introduction_aliases: ["定義（大域誤差・収束次数）"]
     requires:
