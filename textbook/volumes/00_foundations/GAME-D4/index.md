@@ -40,7 +40,7 @@ $$
 
 を最大にする対象を選ぶという競争均衡条件も、同じ双対条件に戻ります。
 
-[GAME-B1 のコア](../GAME-B1/index.md#def-game-b1-core)、GAME-D3 の割当 LP、MICRO6 の「価格下の個別最適化と市場清算」が、ここで一つの構造として合流します。
+[GAME-B1 のコア](../GAME-B1/index.md#def-game-b1-core)、[GAME-D3 の割当 LP](../GAME-D3/index.md#prop-game-d3-welfare-assignment-lp)、[MICRO6 の Walras 均衡](../MICRO6/index.md#def-micro6-walras-equilibrium)が、ここで一つの構造として合流します。
 
 ---
 
@@ -1518,7 +1518,7 @@ $$
 
 という一つのスカラー不等式だけではブロック可能性を表せません。
 
-このとき assignment game の TU 構造が壊れ、LP 双対変数をそのままコア配分として読む証明は使えません。
+このとき割当ゲームの譲渡可能効用構造が壊れ、LP 双対変数をそのままコア配分として読む証明は使えません。
 
 ### 二部マッチング構造を失う場合
 
