@@ -1983,7 +1983,7 @@ E[u(X)].
 \end{aligned}
 $$
 
-特に全ての非減少凹効用についてこの不等式が成り立つので、二次確率優越の期待効用特徴付けから
+特に全ての非減少凹効用についてこの不等式が成り立つので、[二次確率優越の期待効用特徴付け](#thm-micro12-ssd-eu)から
 
 $$
 X\succeq_{\mathrm{SSD}}Y.
@@ -3192,7 +3192,7 @@ $$
 A_2(w)>A_1(w).
 $$
 
-Arrow--Pratt のリスク回避順序の定理から、
+[Arrow--Pratt のリスク回避順序](#thm-micro12-arrow-pratt-order)から、
 
 $$
 \boxed{
