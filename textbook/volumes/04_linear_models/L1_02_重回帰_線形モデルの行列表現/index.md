@@ -41,8 +41,22 @@
 <!-- formal-statement-start -->
 > **定義（線形重回帰）**  
 > 複数の説明変数 $x_1,\ldots,x_{p-1}$ と応答 $Y$ について、条件付き平均が
-> $E[Y\mid x_1,\ldots,x_{p-1}]=\beta_0+\sum_{j=1}^{p-1}\beta_jx_j$
-> の形で表される回帰モデルを **線形重回帰** という。$n$ 個の観測をまとめると $\boldsymbol Y=\boldsymbol X\boldsymbol\beta+\boldsymbol\varepsilon$ と表せる。
+
+$$
+E[Y\mid x_1,\ldots,x_{p-1}]
+=
+\beta_0+\sum_{j=1}^{p-1}\beta_jx_j
+$$
+
+> の形で表される回帰モデルを **線形重回帰** という。$n$ 個の観測をまとめると
+
+$$
+\boldsymbol Y
+=
+\boldsymbol X\boldsymbol\beta+\boldsymbol\varepsilon
+$$
+
+> と表せる。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-l1-02-multiple-linear-regression -->
@@ -514,7 +528,15 @@ $$
 > **命題（一般線形仮説のF検定）**  
 > 正規線形モデル $\boldsymbol Y=\boldsymbol X\boldsymbol\beta+\boldsymbol\varepsilon$ で、$\boldsymbol X\in\mathbb R^{n\times p}$ は列フルランク、$\boldsymbol\varepsilon\sim N_n(\boldsymbol0,\sigma^2\boldsymbol I_n)$ とする。
 > $\boldsymbol R\in\mathbb R^{q\times p}$ は行フルランクで、帰無仮説を $H_0:\boldsymbol R\boldsymbol\beta=\boldsymbol r$ とする。制約なしモデルの残差平方和を $SSE_F$、この制約の下での残差平方和を $SSE_R$ とすると、
-> $F=\dfrac{(SSE_R-SSE_F)/q}{SSE_F/(n-p)}\sim F_{q,n-p}$
+
+$$
+F
+=
+\dfrac{(SSE_R-SSE_F)/q}{SSE_F/(n-p)}
+\sim
+F_{q,n-p}
+$$
+
 > が $H_0$ のもとで成り立つ。
 <!-- formal-statement-end -->
 
