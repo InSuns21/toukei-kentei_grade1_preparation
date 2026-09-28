@@ -236,7 +236,15 @@ $\operatorname{Var}(T_1)=\sigma^2/n$、$\operatorname{Var}(T_2)=2\sigma^2/n$ な
 
 <!-- formal-statement-start -->
 > **定義（バイアス・不偏性）**  
-> $T$ のバイアスを $\operatorname{Bias}_\theta(T)=E_\theta[T]-g(\theta)$ とする。すべての $\theta$ でバイアスが0である性質を **不偏性** といい、そのとき $T$ を $g(\theta)$ の不偏推定量という。
+> $T$ のバイアスを
+
+$$
+\operatorname{Bias}_\theta(T)
+=
+E_\theta[T]-g(\theta)
+$$
+
+> とする。すべての $\theta$ でバイアスが0である性質を **不偏性** といい、そのとき $T$ を $g(\theta)$ の不偏推定量という。
 <!-- formal-statement-end -->
 
 <a id="def-i1-02-mse"></a>
