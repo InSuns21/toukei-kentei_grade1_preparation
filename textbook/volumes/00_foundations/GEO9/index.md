@@ -239,15 +239,21 @@ $$
 > **定義（滑らかなホモトピー）**  
 > 滑らかな多様体 $M,N$ と滑らかな写像
 >
-> $f_0,f_1:M\to N$
+$$
+f_0,f_1:M\to N
+$$
 >
 > に対し、滑らかな写像
 >
-> $H:[0,1]\times M\to N$
+$$
+H:[0,1]\times M\to N
+$$
 >
 > が
 >
-> $H(0,p)=f_0(p), \qquad H(1,p)=f_1(p)$
+$$
+H(0,p)=f_0(p), \qquad H(1,p)=f_1(p)
+$$
 >
 > を満たすとき、$H$ を $f_0$ と $f_1$ の **滑らかなホモトピー**という。
 <!-- formal-statement-end -->
@@ -287,11 +293,15 @@ $$
 > **定義（ホモトピー作用素）**  
 > 滑らかなホモトピー
 >
-> $H:[0,1]\times M\to N$
+$$
+H:[0,1]\times M\to N
+$$
 >
 > に対して、$k\ge1$ と $\omega\in\Omega^k(N)$ に
 >
-> $K_H\omega := \int_0^1 j_t^* \left( \iota_{\partial_t}H^*\omega \right) dt$
+$$
+K_H\omega := \int_0^1 j_t^* \left( \iota_{\partial_t}H^*\omega \right) dt
+$$
 >
 > と定める。
 >
@@ -363,11 +373,15 @@ $$
 > **定理（ホモトピー公式）**  
 > $H:[0,1]\times M\to N$ を滑らかなホモトピーとし、
 >
-> $H_t(p):=H(t,p)$
+$$
+H_t(p):=H(t,p)
+$$
 >
 > と書く。任意の $\omega\in\Omega^k(N)$ に対して
 >
-> $\boxed{ H_1^*\omega-H_0^*\omega = d(K_H\omega)+K_H(d\omega) }$
+$$
+\boxed{ H_1^*\omega-H_0^*\omega = d(K_H\omega)+K_H(d\omega) }
+$$
 >
 > が成り立つ。
 >
@@ -510,11 +524,15 @@ $$
 > **定理（微分形式の Poincaré の補題）**  
 > $U\subset\mathbb R^n$ を星型開集合とし、$k\ge1$ とする。
 >
-> $\omega\in\Omega^k(U), \qquad d\omega=0$
+$$
+\omega\in\Omega^k(U), \qquad d\omega=0
+$$
 >
 > ならば、ある
 >
-> $\eta\in\Omega^{k-1}(U)$
+$$
+\eta\in\Omega^{k-1}(U)
+$$
 >
 > が存在して
 >
@@ -636,7 +654,9 @@ $$
 > **定義（de Rham 複体）**  
 > 滑らかな $n$ 次元多様体 $M$ に対して
 >
-> $0 \longrightarrow \Omega^0(M) \xrightarrow{d} \Omega^1(M) \xrightarrow{d} \cdots \xrightarrow{d} \Omega^n(M) \longrightarrow 0$
+$$
+0 \longrightarrow \Omega^0(M) \xrightarrow{d} \Omega^1(M) \xrightarrow{d} \cdots \xrightarrow{d} \Omega^n(M) \longrightarrow 0
+$$
 >
 > を **de Rham 複体**という。
 >
@@ -710,7 +730,9 @@ $$
 > **定義（de Rham コホモロジー）**  
 > 滑らかな多様体 $M$ の $k$ 次 **de Rham コホモロジー**を
 >
-> $H^k_{\mathrm{dR}}(M) := \frac{Z^k(M)}{B^k(M)}$
+$$
+H^k_{\mathrm{dR}}(M) := \frac{Z^k(M)}{B^k(M)}
+$$
 >
 > と定める。
 >
@@ -783,7 +805,9 @@ $$
 > **定理（連結多様体の0次 de Rham コホモロジー）**  
 > $M$ が非空の連結滑らかな多様体なら
 >
-> $H^0_{\mathrm{dR}}(M) \cong \mathbb R.$
+$$
+H^0_{\mathrm{dR}}(M) \cong \mathbb R.
+$$
 >
 > 同型は定数関数 $c$ を実数 $c$ に対応させることで与えられる。
 <!-- formal-statement-end -->
@@ -898,11 +922,15 @@ $$
 > **定理（de Rham コホモロジーの滑らかなホモトピー不変性）**  
 > 滑らかな写像
 >
-> $f_0,f_1:M\to N$
+$$
+f_0,f_1:M\to N
+$$
 >
 > が滑らかにホモトープなら、全ての $k\ge0$ について誘導写像は一致する。
 >
-> $f_0^* = f_1^* : H^k_{\mathrm{dR}}(N) \to H^k_{\mathrm{dR}}(M).$
+$$
+f_0^* = f_1^* : H^k_{\mathrm{dR}}(N) \to H^k_{\mathrm{dR}}(M).
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1007,19 +1035,27 @@ $$
 > **定理（円周の1次 de Rham コホモロジー）**  
 > 反時計回りに向き付けた円周 $S^1$ について
 >
-> $\boxed{ H^1_{\mathrm{dR}}(S^1) \cong \mathbb R }.$
+$$
+\boxed{ H^1_{\mathrm{dR}}(S^1) \cong \mathbb R }.
+$$
 >
 > 具体的には
 >
-> $[\omega] \longmapsto \int_{S^1}\omega$
+$$
+[\omega] \longmapsto \int_{S^1}\omega
+$$
 >
 > が線形同型である。
 >
-> $\eta := x\,dy-y\,dx$
+$$
+\eta := x\,dy-y\,dx
+$$
 >
 > の $S^1$ への制限は
 >
-> $\int_{S^1}\eta=2\pi$
+$$
+\int_{S^1}\eta=2\pi
+$$
 >
 > を満たし、$H^1_{\mathrm{dR}}(S^1)$ の生成元を与える。
 <!-- formal-statement-end -->
@@ -1275,11 +1311,15 @@ $$
 > **系（穴あき平面の1次 de Rham コホモロジー）**  
 > $X=\mathbb R^2\setminus\{0\}$ とする。このとき
 >
-> $\boxed{ H^1_{\mathrm{dR}}(X) \cong \mathbb R }.$
+$$
+\boxed{ H^1_{\mathrm{dR}}(X) \cong \mathbb R }.
+$$
 >
 > 生成元は
 >
-> $\alpha = \frac{-y\,dx+x\,dy}{x^2+y^2}$
+$$
+\alpha = \frac{-y\,dx+x\,dy}{x^2+y^2}
+$$
 >
 > のコホモロジー類 $[\alpha]$ で与えられる。
 <!-- formal-statement-end -->
