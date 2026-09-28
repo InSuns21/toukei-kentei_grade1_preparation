@@ -318,7 +318,16 @@ $$
 <a id="def-ra8-bernstein"></a>
 <!-- formal-statement-start -->
 > **定義（Bernstein多項式）**  
-> $f\in C([0,1])$ に対し $B_nf(x)=\sum_{k=0}^n f(k/n)\binom nk x^k(1-x)^{n-k}$ を $f$ の第 $n$ Bernstein多項式という。
+> $f\in C([0,1])$ に対して
+
+$$
+B_nf(x)
+=
+\sum_{k=0}^n
+f(k/n)\binom nk x^k(1-x)^{n-k}
+$$
+
+> を $f$ の第 $n$ Bernstein多項式という。
 <!-- formal-statement-end -->
 
 各 $B_nf$ は有限和なので $x$ の多項式です。
