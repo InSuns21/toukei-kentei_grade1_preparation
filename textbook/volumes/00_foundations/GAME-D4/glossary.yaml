@@ -1,0 +1,20 @@
+chapter: "GAME-D4"
+terms:
+  - term: 割当ゲーム
+    english: assignment game
+    meaning: 二つの主体集合の間で組を作ると余剰が生じ、各提携の価値をその提携内で実現できる最大重みマッチングの総余剰として定める譲渡可能効用ゲーム。
+  - term: 単独時の基準利得
+    english: unmatched payoff
+    meaning: どの相手とも組まない場合に主体が確保できる利得。本章では0とする。
+  - term: 二者制約
+    english: pairwise core constraint
+    meaning: 任意の組 i,j について、その二人の利得合計が組から生じる余剰 w_ij 以上であるというコアの必要条件 u_i+p_j>=w_ij。
+  - term: 割当市場の競争均衡
+    english: competitive equilibrium in an assignment market
+    meaning: 各対象に価格を付けたとき、各主体が価格控除後の純余剰を最大にする対象を割り当てられ、割当てが市場全体で両立している状態。
+  - term: コア・双対対応
+    english: core-duality correspondence
+    meaning: 割当ゲームのコア配分が最大重みマッチング LP の最適双対解とちょうど一致する対応。
+  - term: 側間移転
+    english: side-to-side transfer
+    meaning: 全主体側の利得から同じ定数を引き、全対象側の利得へ同じ定数を足すことで総余剰分解を保ったまま取り分を移す操作。
