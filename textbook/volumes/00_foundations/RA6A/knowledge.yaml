@@ -3,7 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - RA4
-  - F0-02C3
+  - RA6
   - LA3C
 
 # 本文末尾のRA7への接続、および既存レジストリの短いaliasが本文中の一般語へ
@@ -23,7 +23,7 @@ concepts:
     kind: lemma
     aliases: [線分上の微分の積分表示, 線分積分表示]
     requires:
-      - functional.frechet-chain-rule
+      - analysis.multivariable-chain-rule
       - analysis.ftc-2
 
   - id: analysis.closed-ball-contraction-fixed-point
@@ -42,8 +42,8 @@ concepts:
     requires:
       - analysis.segment-derivative-integral-formula
       - analysis.closed-ball-contraction-fixed-point
-      - functional.frechet-derivative
-      - functional.operator-norm
+      - analysis.multivariable-differentiability
+      - linear.spectral-norm
       - linear.determinant-invertibility-criterion
 
   - id: analysis.implicit-function-theorem
@@ -52,7 +52,7 @@ concepts:
     aliases: [陰関数定理, 陰関数定理の微分公式, implicit function theorem]
     requires:
       - analysis.inverse-function-theorem
-      - functional.frechet-chain-rule
+      - analysis.multivariable-chain-rule
       - linear.determinant-invertibility-criterion
 
   - id: analysis.regular-level-set-local-graph
