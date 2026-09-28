@@ -34,6 +34,15 @@ concepts:
     requires:
       - analysis.multivariable-differentiability
 
+  - id: analysis.directional-derivative
+    name: 方向微分
+    kind: definition
+    aliases: [多変数関数の方向微分]
+    introduction: formal
+    introduction_aliases: ["定義（方向微分）"]
+    requires:
+      - analysis.derivative
+
   - id: analysis.continuous-partials-differentiability
     name: 連続な偏微分による微分可能性
     kind: theorem
