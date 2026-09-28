@@ -7,7 +7,7 @@
 3. 反復積分が同じ多重積分を計算していることを確かめる。
 4. 座標変換を小領域ごとの線形近似として読み、局所体積倍率が $|\det D\Phi|$ になることを示す。
 
-変数変換の微分部分は [Fréchet微分](../F0_02C3_Frechet微分_線形作用素_随伴/index.md#def-f0-02c3-frechet-derivative)、行列式の計算則は [基本変形と行列式](../LA3C/index.md#thm-la3c-det-elementary-operations) と [行列式の乗法性](../LA3C/index.md#thm-la3c-det-multiplicative) を正本として使います。測度論側の反復積分・積分交換の結果には依存しません。
+変数変換の微分部分は [多変数での微分可能性](../RA6/index.md#def-ra6-multivariable-differentiability)、行列式の計算則は [基本変形と行列式](../LA3C/index.md#thm-la3c-det-elementary-operations) と [行列式の乗法性](../LA3C/index.md#thm-la3c-det-multiplicative) を正本として使います。測度論側の反復積分・積分交換の結果には依存しません。
 
 ---
 
@@ -307,7 +307,7 @@ $$
 
 ## 6. 非線形写像では局所線形化する
 
-$\Phi:U\to\mathbb R^n$ を $C^1$ 級とします。RA6のFréchet微分により、点 $a$ の近くでは
+$\Phi:U\to\mathbb R^n$ を $C^1$ 級とします。RA6の多変数微分により、点 $a$ の近くでは
 
 $$
 \Phi(a+h)=\Phi(a)+D\Phi(a)h+r_a(h),
@@ -435,7 +435,7 @@ $$
 $\square$
 <!-- proof-end -->
 
-この補題で重要なのは「各点でFréchet近似できる」だけでは足りず、**コンパクト集合上で微分が連続だから誤差を全小矩形について一様に制御でき、その誤差を体積の二側評価へ変換できる**ことです。
+この補題で重要なのは「各点で一次近似できる」だけでは足りず、**コンパクト集合上で微分が連続だから誤差を全小矩形について一様に制御でき、その誤差を体積の二側評価へ変換できる**ことです。
 
 ---
 
