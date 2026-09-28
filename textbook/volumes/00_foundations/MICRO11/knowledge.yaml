@@ -39,6 +39,16 @@ concepts:
       - micro.simple-lottery
       - micro.compound-lottery-reduction
 
+  - id: micro.positive-affine-transformation
+    name: 正のアフィン変換
+    kind: definition
+    aliases:
+      - positive affine transformation
+    introduction: formal
+    introduction_aliases: ["定義（正のアフィン変換）"]
+    requires:
+      - micro.utility-representation
+
   - id: micro.standard-lottery
     name: 標準くじ
     kind: definition
@@ -117,5 +127,6 @@ concepts:
       - micro.independence-axiom
       - micro.compound-lottery-reduction
       - micro.expected-utility-representation
+      - micro.positive-affine-transformation
       - micro.standard-lottery-monotonicity
       - micro.indifferent-lottery-substitution
