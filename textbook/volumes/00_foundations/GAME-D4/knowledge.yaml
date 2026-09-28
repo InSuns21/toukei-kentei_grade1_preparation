@@ -40,7 +40,7 @@ concepts:
     requires:
       - game.assignment-game-core-pairwise
       - optimization.linear-program-strong-duality
-      - optimization.assignment-lp-integrality
+      - optimization.bipartite-matching-polytope-description
 
   - id: game.assignment-game-core-nonempty
     name: 割当ゲームのコアの非空性
