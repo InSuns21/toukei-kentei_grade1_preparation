@@ -205,7 +205,7 @@
 3. [F0-02C1 Banach・Hilbert](textbook/volumes/00_foundations/F0_02C1_ノルム空間_Banach_Hilbert/index.md)
 4. [F0-02C1A Hilbert射影定理](textbook/volumes/00_foundations/F0_02C1A_Hilbert射影定理_直交分解/index.md)
 5. [F0-02C2 双対空間・Riesz](textbook/volumes/00_foundations/F0_02C2_線形汎関数_双対空間_Riesz/index.md)
-6. [F0-02C3 Banach空間のFréchet微分・有界線形作用素・連鎖律](textbook/volumes/00_foundations/F0_02C3_Frechet微分_線形作用素_随伴/index.md)
+6. [F0-02C3 Banach空間のFréchet微分・有界線形写像・連鎖律](textbook/volumes/00_foundations/F0_02C3_Frechet微分_線形作用素_随伴/index.md)
 7. [F0-02C3A Banach双対・Hilbert随伴](textbook/volumes/00_foundations/F0_02C3A_随伴作用素_Banach_Hilbert/index.md)
 8. [F0-02C3B Fréchet連鎖律・Hilbert随伴の証明](textbook/volumes/00_foundations/F0_02C3B_Frechet_chain_adjoint_proofs/index.md)
 9. [FA1 Banach空間の商・Baire・一様有界性原理](textbook/volumes/00_foundations/FA1/index.md)
