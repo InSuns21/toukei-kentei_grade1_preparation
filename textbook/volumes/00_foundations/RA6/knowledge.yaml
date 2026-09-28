@@ -8,6 +8,8 @@ prerequisites:
 forward_references:
   - functional.frechet-derivative
   - functional.bounded-linear-operator
+  - analysis.inverse-function-theorem
+  - analysis.implicit-function-theorem
 
 concepts:
   - id: analysis.multivariable-differentiability
