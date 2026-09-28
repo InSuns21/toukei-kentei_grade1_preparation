@@ -13,13 +13,13 @@ const labelRe = new RegExp(`^\\s*(?:>\\s*)?\\*\\*${LABEL}(?:[（(：:].*)?\\*\\*
 const formalHeadingRe = new RegExp(`^#{2,6}\\s+(?:\\d+(?:\\.\\d+)*(?:[.)．])?\\s*)?${LABEL}(?:[（(：:]|$)`, 'u');
 const stableAnchorRe = new RegExp(`^\\s*<a\\s+id=["'](${STABLE_PREFIX}-[a-z0-9][a-z0-9-]*)["']\\s*><\\/a>\\s*$`, 'iu');
 
-const inlineMathRe = /(?<!\\$)\\$(?!\\$)([^$\\n]+?)\\$(?!\\$)/gu;
+const inlineMathRe = /(?<!\$)\$(?!\$)([^$\n]+?)\$(?!\$)/gu;
 
 function denseInlineMathReason(line) {
   const maths = [...line.matchAll(inlineMathRe)].map((match) => match[1].trim());
   if (maths.length === 0) return null;
 
-  const lengths = maths.map((tex) => tex.replace(/\\s+/gu, '').length);
+  const lengths = maths.map((tex) => tex.replace(/\s+/gu, '').length);
   const maxLength = Math.max(...lengths);
   const totalLength = lengths.reduce((sum, length) => sum + length, 0);
 
