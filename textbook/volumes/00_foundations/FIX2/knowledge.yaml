@@ -9,9 +9,10 @@ forward_references: []
 
 concepts:
   - id: fixedpoint.correspondence
-    name: 対応
+    name: 集合値対応
     kind: definition
     aliases:
+      - 集合値写像
       - set-valued map
       - set-valued mapping
       - correspondence
