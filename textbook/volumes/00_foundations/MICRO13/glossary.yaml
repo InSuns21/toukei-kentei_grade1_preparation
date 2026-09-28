@@ -1,0 +1,29 @@
+chapter: "MICRO13"
+terms:
+  - term: 現在価値
+    english: present value
+    meaning: 将来の金額を粗利子率で割り引き、現在時点の金額へ換算した値。二期間では将来の1単位の現在価値は 1/R となる。
+  - term: 現在価値予算制約
+    english: present value budget constraint
+    meaning: 現在消費と割り引いた将来消費の合計が、現在所得と割り引いた将来所得の合計を超えないという二期間の予算制約。
+  - term: 貯蓄
+    english: saving
+    meaning: 現在所得の一部を金融資産として将来へ移すこと。本章の記号では資産保有 a>0 に対応する。
+  - term: 借入
+    english: borrowing
+    meaning: 将来の返済と引き換えに現在の消費可能額を増やすこと。本章の記号では資産保有 a<0 に対応する。
+  - term: 粗利子率
+    english: gross interest rate
+    meaning: 現在の1単位を一期間運用したとき将来に得る単位数。利子率を r とすると R=1+r。
+  - term: 割引因子
+    english: discount factor
+    meaning: 時間分離的効用で将来効用へ掛ける重み。本章では 0<β≤1 とし、β が小さいほど同じ消費量なら現在を相対的に重く評価する。
+  - term: 異時点間限界代替率
+    english: intertemporal marginal rate of substitution
+    meaning: 効用を一定に保ちながら現在消費1単位を限界的に減らすとき必要な将来消費の増加量。内点最適解では粗利子率と一致する。
+  - term: Euler 方程式
+    english: Euler equation
+    meaning: 内点の異時点間最適化で現在と将来の限界効用を市場の収益率と結ぶ条件。本章では u'(c0)=βR u'(c1)。
+  - term: 借入制約
+    english: borrowing constraint
+    meaning: 金融資産の下限 a≥-b を課して借入額を制限する条件。拘束的なら Euler 方程式は等号ではなく不等式になり得る。
