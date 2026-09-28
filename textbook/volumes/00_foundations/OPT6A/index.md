@@ -1560,7 +1560,7 @@ N_{-K}(Y)
 $$
 <!-- solution-end -->
 
-### OPT6A-B03 Robinson と MFCQ の対応
+### OPT6A-B03 Robinson と MFCQ の関係
 
 - Level: B
 - 目安時間: 20分
@@ -1573,7 +1573,7 @@ g_2(x)=2x_1\le0,\qquad
 h(x)=x_2=0
 $$
 
-を原点で考える。LICQ、MFCQ を判定し、Robinson 制約想定との対応を説明せよ。
+を原点で考える。LICQ、MFCQ を判定し、Robinson 制約想定との関係を説明せよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -1637,7 +1637,7 @@ $$
    \succeq0
    $$
    に対する停留条件と相補性を解け。
-4. 通常の二本の不等式として書いた KKT と対応させよ。
+4. 通常の二本の不等式として書いた KKT と照合せよ。
 
 <!-- solution-start -->
 #### 詳細解答
