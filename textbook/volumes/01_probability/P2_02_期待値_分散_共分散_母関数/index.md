@@ -78,7 +78,33 @@
 
 <!-- formal-statement-start -->
 > **定義（期待値）**  
-> 離散型確率変数 $X$ で $\sum_x|x|p_X(x)<\infty$ のとき $E[X]=\sum_x x p_X(x)$、連続型で $\int_{-\infty}^{\infty}|x|f_X(x)\,dx<\infty$ のとき $E[X]=\int_{-\infty}^{\infty}x f_X(x)\,dx$ と定め、$X$ の **期待値** という。一般に $E[|g(X)|]<\infty$ なら $E[g(X)]$ も同じ考え方で定める。
+> 離散型確率変数 $X$ で
+
+$$
+\sum_x|x|p_X(x)<\infty
+$$
+
+> のとき
+
+$$
+E[X]=\sum_x x p_X(x)
+$$
+
+> と定める。連続型では
+
+$$
+\int_{-\infty}^{\infty}|x|f_X(x)\,dx<\infty
+$$
+
+> のとき
+
+$$
+E[X]
+=
+\int_{-\infty}^{\infty}x f_X(x)\,dx
+$$
+
+> と定め、これらを $X$ の **期待値** という。一般に $E[|g(X)|]<\infty$ なら $E[g(X)]$ も同じ考え方で定める。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-p2-02-expectation -->
@@ -94,7 +120,19 @@ $X\sim\operatorname{Bernoulli}(p)$ なら $E[X]=0\cdot(1-p)+1\cdot p=p$ です�
 
 <!-- formal-statement-start -->
 > **定義（モーメント）**  
-> $r$ を正の整数とする。$E[|X|^r]<\infty$ のとき $m_r=E[X^r]$ を **$r$ 次モーメント（原点まわりのモーメント）** という。また平均 $\mu=E[X]$ が存在し $E[|X-\mu|^r]<\infty$ なら $\mu_r=E[(X-\mu)^r]$ を **$r$ 次中心モーメント** という。
+> $r$ を正の整数とする。$E[|X|^r]<\infty$ のとき
+
+$$
+m_r=E[X^r]
+$$
+
+> を **$r$ 次モーメント（原点まわりのモーメント）** という。また平均 $\mu=E[X]$ が存在し $E[|X-\mu|^r]<\infty$ なら
+
+$$
+\mu_r=E[(X-\mu)^r]
+$$
+
+> を **$r$ 次中心モーメント** という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-p2-02-moment -->
@@ -247,7 +285,17 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（確率母関数）**  
-> $\mathbb N_0$ 値確率変数 $X$ に対し、$G_X(s)=E[s^X]=\sum_{k=0}^{\infty}P(X=k)s^k$ を $X$ の **確率母関数** という。少なくとも $|s|\le1$ では有限であり、確率質量をべき級数の係数としてまとめた関数である。
+> $\mathbb N_0$ 値確率変数 $X$ に対して
+
+$$
+G_X(s)
+=
+E[s^X]
+=
+\sum_{k=0}^{\infty}P(X=k)s^k
+$$
+
+> を $X$ の **確率母関数** という。少なくとも $|s|\le1$ では有限であり、確率質量をべき級数の係数としてまとめた関数である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-p2-02-pgf -->
@@ -762,10 +810,18 @@ $X\sim N(\mu,\sigma^2)$ では対称性から歪度は0、尖度は3、超過尖
 <!-- formal-statement-start -->
 > **定義（パーセント点・中央値・四分位数・四分位範囲）**  
 > 累積分布関数を $F$ とし、$0<p<1$ に対して一般化逆関数
->
-> $q_p=\inf\{x:F(x)\ge p\}$
->
-> を $p$ 分位点とする。$100p$ パーセント点は $q_p$、**中央値**は $Q_2=q_{0.50}$、四分位数は $Q_1=q_{0.25}$、$Q_2=q_{0.50}$、$Q_3=q_{0.75}$、四分位範囲は $IQR=Q_3-Q_1$ である。この一般化逆関数による定義では、離散分布などで中央値の候補が複数ある場合も一つの規則で $Q_2$ を選べる。
+
+$$
+q_p=\inf\{x:F(x)\ge p\}
+$$
+
+> を $p$ 分位点とする。$100p$ パーセント点は $q_p$、**中央値**は $Q_2=q_{0.50}$、四分位数は $Q_1=q_{0.25}$、$Q_2=q_{0.50}$、$Q_3=q_{0.75}$、四分位範囲は
+
+$$
+IQR=Q_3-Q_1
+$$
+
+> である。この一般化逆関数による定義では、離散分布などで中央値の候補が複数ある場合も一つの規則で $Q_2$ を選べる。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-p2-02-quantiles -->
