@@ -2,8 +2,8 @@ chapter: MICRO9
 scope: dream-theater
 coverage: complete
 prerequisites:
-  - MICRO1
   - MICRO2
+  - MICRO5
 
 forward_references:
   - MICRO10
@@ -126,7 +126,7 @@ concepts:
       - micro.demand-rationalization
       - micro.garp
       - micro.preference-transitivity
-      - micro.budget-exhaustion
+      - micro.local-nonsatiation
 
   - id: micro.garp-transitive-closure-test
     name: 推移閉包による有限データの GARP 判定
