@@ -1,0 +1,82 @@
+chapter: MICRO13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MICRO2
+  - MICRO12
+
+forward_references: []
+
+concepts:
+  - id: micro.present-value-budget-constraint
+    name: 現在価値予算制約
+    kind: definition
+    aliases:
+      - present value budget constraint
+    introduction: formal
+    introduction_aliases: ["定義（現在価値予算制約）"]
+    requires:
+      - micro.budget-set
+
+  - id: micro.saving-borrowing
+    name: 貯蓄・借入
+    kind: definition
+    aliases:
+      - saving and borrowing
+    introduction: formal
+    introduction_aliases: ["定義（貯蓄・借入）"]
+    requires:
+      - micro.present-value-budget-constraint
+
+  - id: micro.intertemporal-marginal-rate-substitution
+    name: 異時点間限界代替率
+    kind: definition
+    aliases:
+      - intertemporal marginal rate of substitution
+      - intertemporal MRS
+    introduction: formal
+    introduction_aliases: ["定義（異時点間限界代替率）"]
+    requires:
+      - micro.marginal-rate-substitution
+      - micro.present-value-budget-constraint
+
+  - id: micro.two-period-consumption-euler-equation
+    name: 二期間消費の Euler 方程式
+    kind: theorem
+    aliases:
+      - Euler equation for two-period consumption
+    introduction: formal
+    introduction_aliases: ["定理（二期間消費の Euler 方程式）"]
+    requires:
+      - micro.consumer-kkt
+      - micro.intertemporal-marginal-rate-substitution
+      - micro.present-value-budget-constraint
+
+  - id: micro.crra-optimal-consumption-growth
+    name: CRRA 型効用の最適消費成長率
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（CRRA 型効用の最適消費成長率）"]
+    requires:
+      - micro.two-period-consumption-euler-equation
+
+  - id: micro.borrowing-constraint
+    name: 借入制約
+    kind: definition
+    aliases:
+      - borrowing constraint
+    introduction: formal
+    introduction_aliases: ["定義（借入制約）"]
+    requires:
+      - micro.saving-borrowing
+
+  - id: micro.borrowing-constrained-euler-inequality
+    name: 借入制約下の Euler 不等式
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（借入制約下の Euler 不等式）"]
+    requires:
+      - micro.borrowing-constraint
+      - micro.two-period-consumption-euler-equation
