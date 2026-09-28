@@ -26,7 +26,23 @@ $$
 <a id="def-ra8-ck-uniform-norm"></a>
 <!-- formal-statement-start -->
 > **定義（C(K)の一様ノルム）**  
-> コンパクト距離空間 $K$ に対し、$K$ 上の実数値連続関数全体を $C(K)$ と書く。$f\in C(K)$ に対し $\|f\|_\infty=\sup_{x\in K}|f(x)|$ を **一様ノルム** と呼ぶ。二関数の距離を $d_\infty(f,g)=\|f-g\|_\infty$ とする。
+> コンパクト距離空間 $K$ に対し、$K$ 上の実数値連続関数全体を $C(K)$ と書く。$f\in C(K)$ に対して
+
+$$
+\|f\|_\infty
+=
+\sup_{x\in K}|f(x)|
+$$
+
+> を **一様ノルム** と呼ぶ。二関数の距離は
+
+$$
+d_\infty(f,g)
+=
+\|f-g\|_\infty
+$$
+
+> とする。
 <!-- formal-statement-end -->
 
 コンパクト集合上の連続関数は有界なので、$\|f\|_\infty$ は有限です。一様収束 $f_n\to f$ は、そのまま
