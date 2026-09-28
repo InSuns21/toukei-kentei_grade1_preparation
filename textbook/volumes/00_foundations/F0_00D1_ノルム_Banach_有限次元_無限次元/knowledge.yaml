@@ -11,11 +11,9 @@ forward_references:
 
 concepts:
   - id: functional.norm
-    name: ノルム空間のノルム
+    name: ノルム
     kind: definition
-    aliases: [ノルム空間におけるノルム]
-    introduction: formal
-    introduction_aliases: ["定義（ノルム）"]
+    aliases: [ノルム]
     requires:
       - linear.vector-space
 
