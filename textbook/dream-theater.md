@@ -462,6 +462,7 @@
 10. [MICRO10 Afriat の定理](textbook/volumes/00_foundations/MICRO10/index.md)
 11. [MICRO11 不確実性下の選択・期待効用](textbook/volumes/00_foundations/MICRO11/index.md)
 12. [MICRO12 リスク回避・Arrow--Pratt・確率優越](textbook/volumes/00_foundations/MICRO12/index.md)
+13. [MICRO13 異時点間選択](textbook/volumes/00_foundations/MICRO13/index.md)
 
 <a id="dt-subject-game-theory"></a>
 ### ゲーム理論
