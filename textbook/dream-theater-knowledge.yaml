@@ -44,6 +44,8 @@ alias_matching:
     - normal vector
     - 特性関数
     - 配分
+    - 整合性
+    - consistency
 
 rollout:
   # 既存ページは段階移行する。未移行ページそのものは audit では報告するが、
