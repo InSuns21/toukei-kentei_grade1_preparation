@@ -40,7 +40,7 @@ $$
 
 を最大にする対象を選ぶという競争均衡条件も、同じ双対条件に戻ります。
 
-GAME-B1 のコア、GAME-D3 の割当 LP、MICRO6 の「価格下の個別最適化と市場清算」が、ここで一つの構造として合流します。
+[GAME-B1 のコア](../GAME-B1/index.md#def-game-b1-core)、GAME-D3 の割当 LP、MICRO6 の「価格下の個別最適化と市場清算」が、ここで一つの構造として合流します。
 
 ---
 
@@ -301,7 +301,7 @@ $$
 
 ## 3. コアの全提携制約は、割当ゲームでは二者制約へ縮約できる
 
-GAME-B1 のコアでは、配分 $z=(z_k)_{k\in N}$ が
+[GAME-B1 のコア](../GAME-B1/index.md#def-game-b1-core)では、配分 $z=(z_k)_{k\in N}$ が
 
 $$
 \sum_{k\in N}z_k=v(N)
@@ -606,7 +606,7 @@ $$
 \sum_i u_i+\sum_jp_j=v(N).
 $$
 
-一方、主問題の最適値も割当ゲームの定義と DOPT4 の整数性により
+一方、主問題の最適値も割当ゲームの定義と [DOPT4 の二部マッチング多面体の次数制約記述](../DOPT4/index.md#thm-dopt4-bipartite-matching-polytope)により
 
 $$
 v(N)
@@ -645,7 +645,7 @@ $\square$
 
 ここでは二つの既出結果を別々の役割で使っています。
 
-- DOPT4 の整数性：LP の主最適値が本当に整数マッチングの価値 $v(N)$ であることを保証する。
+- [DOPT4 の二部マッチング多面体の次数制約記述](../DOPT4/index.md#thm-dopt4-bipartite-matching-polytope)：LP の主最適値が本当に整数マッチングの価値 $v(N)$ であることを保証する。
 - [OPT10 の線形計画の強双対性](../OPT10/index.md#thm-opt10-strong-duality)：主最適値と双対最適値が一致することを保証する。
 
 整数性だけでは価格・利得分解は出ません。
@@ -964,7 +964,7 @@ $$
 です。
 <!-- definition-example-end -->
 
-MICRO6 の Walras 均衡でも、
+[MICRO6 の Walras 均衡](../MICRO6/index.md#def-micro6-walras-equilibrium)でも、
 
 $$
 \boxed{
@@ -1062,7 +1062,7 @@ $$
 
 よって両方とも最適です。
 
-これは D3 の価格支持定理に、外部選択肢0と非負性を加えた形です。
+これは [GAME-D3 の価格支持定理](../GAME-D3/index.md#thm-game-d3-price-support)に、外部選択肢0と非負性を加えた形です。
 
 ---
 
@@ -1174,7 +1174,7 @@ $(u,p)$ を任意のコア配分とします。
 
 第4節の定理により、$(u,p)$ は双対最適解です。
 
-DOPT4 の整数性により、主問題には0--1の最適マッチングが存在します。
+[DOPT4 の二部マッチング多面体の次数制約記述](../DOPT4/index.md#thm-dopt4-bipartite-matching-polytope)により、主問題には0--1の最適マッチングが存在します。
 
 $I,J$ は同数で全ての $w_{ij}\ge0$ なので、未使用の左側主体と右側主体が残っていれば、それらを追加で組ませても目的値は下がりません。
 
@@ -1591,7 +1591,7 @@ $$
 
 です。
 
-DOPT4 の整数性により、最適解を実際のマッチングに選べます。
+[DOPT4 の二部マッチング多面体の次数制約記述](../DOPT4/index.md#thm-dopt4-bipartite-matching-polytope)により、最適解を実際のマッチングに選べます。
 
 ### 線形計画の双対として
 
@@ -3052,7 +3052,7 @@ $$
   $$
   だけで特徴付けられる。
 - この条件は最大重みマッチング LP の最適双対解の条件そのものである。
-- DOPT4 の整数性と [OPT10 の線形計画の強双対性](../OPT10/index.md#thm-opt10-strong-duality)から、割当ゲームのコアは非空になる。
+- [DOPT4 の二部マッチング多面体の次数制約記述](../DOPT4/index.md#thm-dopt4-bipartite-matching-polytope)と [OPT10 の線形計画の強双対性](../OPT10/index.md#thm-opt10-strong-duality)から、割当ゲームのコアは非空になる。
 - $p_j$ を対象価格と読むと、割当辺の等号
   $$
   u_i+p_{\pi(i)}=w_{i,\pi(i)}
