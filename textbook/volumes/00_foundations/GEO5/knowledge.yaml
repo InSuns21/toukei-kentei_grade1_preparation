@@ -5,6 +5,9 @@ prerequisites:
   - GEO2
   - ODE1
   - ODE4
+forward_references:
+  - geometry.smooth-distribution
+
 concepts:
   - id: geometry.smooth-vector-field
     name: 滑らかなベクトル場
