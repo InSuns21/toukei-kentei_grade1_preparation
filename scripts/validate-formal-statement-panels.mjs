@@ -19,18 +19,8 @@ const DREAM_THEATER_PATHS = fs.existsSync(dreamTheaterIndexPath)
   : new Set();
 const inlineMathRe = /(?<!\$)\$(?!\$)([^$\n]+?)\$(?!\$)/gu;
 
-// Known pre-existing layout debt. Entries are anchor-scoped: new violations
-// in the same page still fail. This list is temporary and should shrink.
-const FORMAL_LAYOUT_BASELINE = new Set([
-  'textbook/volumes/00_foundations/CA8/index.md#cor-ca8-lifted-homotopy-endpoint',
-  'textbook/volumes/00_foundations/F0_02C1_ノルム空間_Banach_Hilbert/index.md#def-f0-02c1-inner-product',
-  'textbook/volumes/00_foundations/GEO9/index.md#thm-geo9-homotopy-formula',
-  'textbook/volumes/00_foundations/GEO9/index.md#thm-geo9-homotopy-invariance',
-  'textbook/volumes/00_foundations/MT7/index.md#thm-mt7-lp-duality',
-  'textbook/volumes/00_foundations/ODE8/index.md#def-ode8-maximal-solution',
-  'textbook/volumes/00_foundations/OPT1/index.md#def-opt1-local-global-minimizer',
-  'textbook/volumes/00_foundations/RA7/index.md#def-ra7-domain-integral',
-]);
+// No existing layout violations are grandfathered. New detections are blocking.
+const FORMAL_LAYOUT_BASELINE = new Set();
 
 function visualMathLength(tex) {
   return tex
