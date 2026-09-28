@@ -71,15 +71,6 @@ concepts:
       - game.strict-preference-list
       - game.one-to-one-matching
 
-  - id: game.top-shift-invariance
-    name: 割当相手の最上位化に対する不変性
-    kind: lemma
-    aliases: []
-    introduction: formal
-    introduction_aliases: ["補題（割当相手の最上位化に対する不変性）"]
-    requires:
-      - game.proposer-optimal-stable-matching
-
   - id: game.proposer-da-strategy-proofness
     name: 提案側受入保留の耐戦略性
     kind: theorem
@@ -88,9 +79,8 @@ concepts:
     introduction_aliases: ["定理（提案側受入保留の耐戦略性）"]
     requires:
       - game.matching-proposer-strategy-proofness
-      - game.top-shift-invariance
-      - game.proposer-optimality-theorem
       - game.deferred-acceptance-algorithm
+      - game.gale-shapley-stable-matching-existence
 
   - id: game.many-to-one-matching
     name: 定員付き多対一マッチング
