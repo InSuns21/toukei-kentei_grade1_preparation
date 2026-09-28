@@ -314,7 +314,19 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（実内積）**  
-> 実ベクトル空間 $H$ 上の二変数関数 $\langle\cdot,\cdot\rangle:H\times H\to\mathbb R$ が、任意の $x,y,z\in H$ と $a,b\in\mathbb R$ に対して、正定値性、対称性、線形性を満たすとき **内積** といいます。すなわち $\langle x,x\rangle\ge0$、$\langle x,x\rangle=0\iff x=0$、$\langle x,y\rangle=\langle y,x\rangle$、および $\langle ax+by,z\rangle=a\langle x,z\rangle+b\langle y,z\rangle$ が成り立ちます。
+> 実ベクトル空間 $H$ 上の二変数関数 $\langle\cdot,\cdot\rangle:H\times H\to\mathbb R$ が、任意の $x,y,z\in H$ と $a,b\in\mathbb R$ に対して次を満たすとき **内積** といいます。
+
+$$
+\begin{aligned}
+\langle x,x\rangle &\ge 0,\\
+\langle x,x\rangle=0 &\iff x=0,\\
+\langle x,y\rangle &= \langle y,x\rangle,\\
+\langle ax+by,z\rangle
+&=a\langle x,z\rangle+b\langle y,z\rangle.
+\end{aligned}
+$$
+
+> これらはそれぞれ正定値性、対称性、線形性を表します。
 <!-- formal-statement-end -->
 
 内積から
