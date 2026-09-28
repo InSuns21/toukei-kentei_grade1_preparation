@@ -1,0 +1,18 @@
+chapter: "MICRO10"
+terms:
+  - term: 支出差行列
+    english: expenditure-difference matrix
+    meaning: 観測 t の価格で観測束 s と観測束 t の支出差 a_ts=p^t・(x^s-x^t) を並べた行列。a_ts<=0 は x^t が x^s に直接顕示選好されることに対応する。
+  - term: Afriat 不等式
+    english: Afriat inequalities
+    meaning: 未知の効用水準 u_t と正の係数 lambda_t に対する u_s<=u_t+lambda_t p^t・(x^s-x^t) という有限線形不等式系。
+  - term: Afriat の定理
+    english: Afriat's theorem
+    meaning: 有限需要観測について、局所非飽和な合理化、GARP、Afriat 不等式の可解性、連続・狭義単調・凹な効用による合理化が同値であることを述べる定理。
+  - term: Afriat 効用関数
+    english: Afriat utility function
+    meaning: Afriat 不等式の解から u(x)=min_t{u_t+lambda_t p^t・(x-x^t)} と構成する区分線形効用。各観測を合理化し、連続・狭義単調・凹になる。
+  - term: 共通支出効率指数
+    english: Critical Cost Efficiency Index
+    abbreviation: CCEI
+    meaning: 全観測の予算を共通比率 e で縮めた顕示選好検査が GARP を満たす最大の e。1 に近いほど GARP 回復に必要な予算縮小が小さい。
