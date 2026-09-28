@@ -236,6 +236,27 @@ $$
 > を $f$ の $a$ における **Jacobian 行列** という。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-ra6-jacobian -->
+### 例：2変数から2変数への写像
+
+$$
+F(x,y)=(x^2y,e^x\sin y)
+$$
+
+とすると、
+
+$$
+J_F(x,y)
+=
+\begin{pmatrix}
+2xy & x^2\\
+e^x\sin y & e^x\cos y
+\end{pmatrix}.
+$$
+
+第1列は $x$ 方向、第2列は $y$ 方向の偏微分を並べたものです。
+<!-- definition-example-end -->
+
 $f$ が $a$ で微分可能なら、$Df(a)$ の標準基底に関する表現行列が $J_f(a)$ なので、
 
 $$
@@ -556,7 +577,26 @@ $$
 > を $f$ の $a$ における **Hessian** という。
 <!-- formal-statement-end -->
 
-を使います。
+<!-- definition-example-start: def-ra6-hessian -->
+### 例：二次関数のHessian
+
+$$
+f(x,y)=x^2+xy+3y^2
+$$
+
+では、
+
+$$
+H_f(x,y)
+=
+\begin{pmatrix}
+2&1\\
+1&6
+\end{pmatrix}.
+$$
+
+二次関数では Hessian が点によらず一定になります。
+<!-- definition-example-end -->
 
 二次形式としては
 
