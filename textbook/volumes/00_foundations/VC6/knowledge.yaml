@@ -6,6 +6,7 @@ prerequisites:
 
 forward_references:
   - pde.pde1-partial-differential-equation
+  - vector-calculus.vorticity
 
 concepts:
   - id: vector-calculus.orthogonal-curvilinear-coordinates
