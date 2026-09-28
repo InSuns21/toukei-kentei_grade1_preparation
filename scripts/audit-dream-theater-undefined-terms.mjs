@@ -197,11 +197,17 @@ if (findings.length > 250) console.log(`  ...ほか ${findings.length - 250} 件
 if (strict && findings.some((finding) => finding.severity === 'ERROR')) process.exit(1);
 
 function resolveAliasOwners(page, alias, owners, lineNumber) {
-  const activeLocal = activeLocalOwners(page.localAliases, alias, lineNumber).map((entry) => entry.concept);
+  const dedupeOwners = (items) => [...new Map(items.map((owner) => [owner.id, owner])).values()];
+
+  const activeLocal = dedupeOwners(
+    activeLocalOwners(page.localAliases, alias, lineNumber).map((entry) => entry.concept)
+  );
   if (activeLocal.length === 1) return { status: 'resolved', owners: activeLocal };
   if (activeLocal.length > 1) return { status: 'ambiguous', owners: activeLocal };
 
-  const reachable = owners.filter((owner) => owner.page.id !== page.id && page.ancestors.has(owner.page.id));
+  const reachable = dedupeOwners(
+    owners.filter((owner) => owner.page.id !== page.id && page.ancestors.has(owner.page.id))
+  );
   if (reachable.length <= 1) return { status: reachable.length === 1 ? 'resolved' : 'unresolved', owners: reachable };
   return { status: 'ambiguous', owners: reachable };
 }
@@ -465,6 +471,14 @@ function runSelfTest() {
   const local = buildLocalAliasIntroductions(source, doc, 'P');
   if (activeLocalOwners(local, 'Lipschitz連続', 2).length !== 0) failures.push('local shadow before introduction');
   if (activeLocalOwners(local, 'Lipschitz連続', 4).length !== 1) failures.push('local shadow after introduction');
+  {
+    const duplicateOwner = { id: 'measure.sigma-finite', page: { id: 'MT1' } };
+    const page = { id: 'MT7', ancestors: new Set(['MT1']), localAliases: new Map() };
+    const resolution = resolveAliasOwners(page, 'σ-finite測度', [duplicateOwner, duplicateOwner], 1);
+    if (resolution.status !== 'resolved' || resolution.owners.length !== 1) {
+      failures.push('duplicate alias owner deduplication');
+    }
+  }
 
   if (failures.length) {
     console.error(`DREAM THEATER concept audit self-test failed: ${failures.join(', ')}`);

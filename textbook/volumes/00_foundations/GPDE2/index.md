@@ -1106,7 +1106,9 @@ $$
 > **補題（Rd の平行移動補題）**  
 > $w\in L^1(\mathbb R^d)$ とし、$(\tau_h w)(x)=w(x-h)$（$h\in\mathbb R^d$）と置く。このとき
 >
-> $\|\tau_h w-w\|_{L^1(\mathbb R^d)}\to0\quad(h\to0)$
+$$
+\|\tau_h w-w\|_{L^1(\mathbb R^d)}\to0\quad(h\to0)
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->

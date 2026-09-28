@@ -189,8 +189,22 @@ $$
 <!-- formal-statement-start -->
 > **定義（工程能力指数）**  
 > 管理状態にある工程の分布が規格幅に対してどの程度余裕を持つかを、工程のばらつきと規格限界から無次元化して表す指標を **工程能力指数** という。正規近似 $X\sim N(\mu,\sigma^2)$ のもとで、中心ずれを無視した指数を
-> $C_p=(USL-LSL)/(6\sigma)$、中心ずれも考慮した指数を
-> $C_{pk}=\min\{(USL-\mu)/(3\sigma),(\mu-LSL)/(3\sigma)\}$
+
+$$
+C_p=\frac{USL-LSL}{6\sigma}
+$$
+
+> 中心ずれも考慮した指数を
+
+$$
+C_{pk}
+=
+\min\left\{
+\frac{USL-\mu}{3\sigma},
+\frac{\mu-LSL}{3\sigma}
+\right\}
+$$
+
 > と定める。
 <!-- formal-statement-end -->
 

@@ -166,7 +166,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（一元配置分散分析）**  
 > 一つのカテゴリ因子が $a$ 個の水準を持ち、水準 $i$ の観測を $Y_{ij}$ とする。各群の条件付き平均を $E[Y_{ij}\mid i]=\mu_i$ とし、群内に共通の誤差分散 $\sigma^2$ を仮定して、群間変動と群内変動を比較することで
-> $H_0:\mu_1=\cdots=\mu_a$
+
+$$
+H_0:\mu_1=\cdots=\mu_a
+$$
+
 > を検討する方法を **一元配置分散分析** という。有限標本で通常のF分布を厳密に用いるときは、誤差の独立な正規性も仮定する。
 <!-- formal-statement-end -->
 
@@ -278,7 +282,15 @@ $$
 > $SSA=\sum_i n_i(\bar Y_{i\cdot}-\bar Y_{\cdot\cdot})^2$、
 > $SSE=\sum_{i,j}(Y_{ij}-\bar Y_{i\cdot})^2$ と置く。
 > 帰無仮説 $H_0:\mu_1=\cdots=\mu_a$ のもとで $SSA/\sigma^2\sim\chi^2_{a-1}$、$SSE/\sigma^2\sim\chi^2_{N-a}$ で両者は独立であり、
-> $F=\dfrac{SSA/(a-1)}{SSE/(N-a)}\sim F_{a-1,N-a}$
+
+$$
+F
+=
+\dfrac{SSA/(a-1)}{SSE/(N-a)}
+\sim
+F_{a-1,N-a}
+$$
+
 > が成り立つ。
 <!-- formal-statement-end -->
 
@@ -574,9 +586,19 @@ $$
 <!-- formal-statement-start -->
 > **命題（均衡二元配置の平方和と自由度の分解）**  
 > 各セルに $r$ 回の反復がある $a\times b$ 均衡二元配置で、上の固定効果モデルと識別制約を用いる。このとき
-> $SST=SSA+SSB+SSAB+SSE$
+
+$$
+SST=SSA+SSB+SSAB+SSE
+$$
+
 > であり、対応する自由度は
-> $abr-1=(a-1)+(b-1)+(a-1)(b-1)+ab(r-1)$
+
+$$
+abr-1
+=
+(a-1)+(b-1)+(a-1)(b-1)+ab(r-1)
+$$
+
 > と分解される。独立な正規誤差を仮定すれば、各帰無仮説 $H_{0A}:\alpha_i=0\ (\forall i)$、$H_{0B}:\beta_j=0\ (\forall j)$、$H_{0AB}:(\alpha\beta)_{ij}=0\ (\forall i,j)$ のもとで、それぞれ
 > $F_A=MSA/MSE$、$F_B=MSB/MSE$、$F_{AB}=MSAB/MSE$
 > は対応する分子自由度 $a-1,b-1,(a-1)(b-1)$ と分母自由度 $ab(r-1)$ のF分布に従う。
