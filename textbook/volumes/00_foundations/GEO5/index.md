@@ -2954,7 +2954,7 @@ Y=\partial_\rho
 }.
 $$
 
-二つの座標方向は混合偏微分の交換から
+二つの座標方向は[混合偏微分の交換](../RA6/index.md#thm-ra6-mixed-partials)から
 
 $$
 [\partial_\theta,\partial_\rho]=0
