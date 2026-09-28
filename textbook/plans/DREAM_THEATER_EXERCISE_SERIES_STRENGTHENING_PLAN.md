@@ -180,7 +180,7 @@ RA8 だけでは RA4A・RA6A・RA7 の全内容を経由しないため、単に
 - 仮定を外した反例
 - パラメータ積分
 
-この部分は `DREAM_THEATER_REAL_ANALYSIS_STRENGTHENING_PLAN.md` で予定する RA5 補強と同期する。
+この部分は `textbook/plans/DREAM_THEATER_REAL_ANALYSIS_STRENGTHENING_PLAN.md` で予定する RA5 補強と同期する。
 
 ### 3.6 多変数積分・変数変換
 

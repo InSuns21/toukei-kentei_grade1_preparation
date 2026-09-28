@@ -31,7 +31,7 @@
 
 までを、学部標準の一本の主線として整備する。
 
-Lie 群・Lie 環は幾何学本線へ必須 prerequisite としない。Lie 群へ入る前に `DREAM_THEATER_ABSTRACT_ALGEBRA_PLAN.md` の GRP1--GRP3 で必要な群論を整備し、その後に `LIE1--LIE4` へ進む。抽象代数系列自体は Lie 群の補助に限定せず、GRP1--GRP4・RNG1--RNG4・MOD1--MOD2・FLD1--FLD5 の15講で群・環・体の学部標準コアを閉じる。表現論は Lie 群の prerequisite にはせず、さらに後続の独立系列へ送る。
+Lie 群・Lie 環は幾何学本線へ必須 prerequisite としない。Lie 群へ入る前に `textbook/plan_done/DREAM_THEATER_ABSTRACT_ALGEBRA_PLAN.md` の GRP1--GRP3 で必要な群論を整備し、その後に `LIE1--LIE4` へ進む。抽象代数系列自体は Lie 群の補助に限定せず、GRP1--GRP4・RNG1--RNG4・MOD1--MOD2・FLD1--FLD5 の15講で群・環・体の学部標準コアを閉じる。表現論は Lie 群の prerequisite にはせず、さらに後続の独立系列へ送る。
 
 ---
 
@@ -699,7 +699,7 @@ Hopf--Rinow は本系列の主要定理として核心証明を閉じる。局�
 
 ## 7. 抽象代数を独立系列として整備する
 
-Lie 群のための群論だけを局所実装せず、群・環・体の学部標準内容を独立した canonical series として整備する。詳細な範囲・証明責務・実装順は **`textbook/DREAM_THEATER_ABSTRACT_ALGEBRA_PLAN.md`** を正本とする。
+Lie 群のための群論だけを局所実装せず、群・環・体の学部標準内容を独立した canonical series として整備する。詳細な範囲・証明責務・実装順は **`textbook/plan_done/textbook/plan_done/DREAM_THEATER_ABSTRACT_ALGEBRA_PLAN.md`** を正本とする。
 
 Lie 系列が直接要求するのはその前半だけである。
 
@@ -986,7 +986,7 @@ Phase 4 完了。GEO15 → GEO16 → GEO17 → GEO18 → GEO19 を完了し、�
 - FLD1--FLD2 ✅ 2026-09-23
 - FLD3--FLD5 ✅ 2026-09-24
 
-抽象代数系列全体の設計は `DREAM_THEATER_ABSTRACT_ALGEBRA_PLAN.md` を正本とする。全15講を1講1本の主線へ分割する。Lie 系列の開始に必要なのは GRP2 まで、Adjoint 表現・Lie 群作用まで進むために必要なのは GRP3 までであり、GRP4・環論・加群論・体論の完走は要求しない。
+抽象代数系列全体の設計は `textbook/plan_done/DREAM_THEATER_ABSTRACT_ALGEBRA_PLAN.md` を正本とする。全15講を1講1本の主線へ分割する。Lie 系列の開始に必要なのは GRP2 まで、Adjoint 表現・Lie 群作用まで進むために必要なのは GRP3 までであり、GRP4・環論・加群論・体論の完走は要求しない。
 
 ### Phase 6：独立 Lie 系列
 

@@ -254,7 +254,7 @@ Encore III 本線で正本化する解概念は次とする。
 - measure-valued solution
 - Leray--Hopf 型 Navier--Stokes weak solution の本格理論
 
-これらは DREAM_THEATER_POST_GPDE_PDE_EXTENSIONS_PLAN.md の別系列で計画する。
+これらは textbook/plans/DREAM_THEATER_POST_GPDE_PDE_EXTENSIONS_PLAN.md の別系列で計画する。
 
 ## 4. 依存 DAG
 

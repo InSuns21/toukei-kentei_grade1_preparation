@@ -1748,7 +1748,7 @@ CI green は完成の十分条件ではない。各章で learning objective、�
 
 # 19. 本計画と地下帝国計画の境界
 
-`DREAM_THEATER_UNDERGROUND_EMPIRE_PLAN.md` は「現実の問題から数学へ降りる」応用記事群を設計する。
+`textbook/plans/DREAM_THEATER_UNDERGROUND_EMPIRE_PLAN.md` は「現実の問題から数学へ降りる」応用記事群を設計する。
 
 本計画は、それとは別に **標準数学・数理経済学・ゲーム理論として体系的に読む主線／外伝系列**を設計する。
 

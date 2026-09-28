@@ -257,7 +257,7 @@ HA2 Riesz potential / HLS
 HA3 singular integral / Riesz transform / Calderón--Zygmund
 ~~~
 
-RAX1 は理論章の標準 A4/B3/C1 を増量する代わりではなく、既存の LAX1 / CAX1 と同じく **理論系列とは別の演習専用章**として計画する。詳細は `DREAM_THEATER_EXERCISE_SERIES_STRENGTHENING_PLAN.md` を参照する。
+RAX1 は理論章の標準 A4/B3/C1 を増量する代わりではなく、既存の LAX1 / CAX1 と同じく **理論系列とは別の演習専用章**として計画する。詳細は `textbook/plans/DREAM_THEATER_EXERCISE_SERIES_STRENGTHENING_PLAN.md` を参照する。
 
 ただし LAX1 / CAX1 の現行 A8/B10/C4 を RAX1 に機械的に適用しない。実解析では epsilon 論法、仮定確認、反例、短い証明の比重を上げ、分野に合う問題構成を採る。
 
@@ -265,7 +265,7 @@ RAX1 は理論章の標準 A4/B3/C1 を増量する代わりではなく、既�
 
 ## 6. Encore III 後続 PDE との接続
 
-DREAM_THEATER_POST_GPDE_PDE_EXTENSIONS_PLAN.md の Track H / Track E とは次のようにつなぐ。
+textbook/plans/DREAM_THEATER_POST_GPDE_PDE_EXTENSIONS_PLAN.md の Track H / Track E とは次のようにつなぐ。
 
 ~~~text
 RA / MT / FOU
