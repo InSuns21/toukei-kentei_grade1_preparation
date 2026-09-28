@@ -24,6 +24,6 @@ terms:
   - term: 下方部分期待値
     english: lower partial expectation
     meaning: 閾値 t に対する E[(t-X)_+]。X が t を下回った不足分だけを平均した量で、有限支持では分布関数の積分と一致する。
-  - term: mean-preserving spread
+  - term: 平均保存拡散
     english: mean-preserving spread
     meaning: 元の実現値 x ごとに、条件付き平均を x に保つ追加のくじへ置き換える拡散操作。平均は変えず、凹効用の期待値を弱く低下させる。
