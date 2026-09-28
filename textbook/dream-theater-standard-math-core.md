@@ -53,7 +53,7 @@
 
 ## 応用系
 
-31. [**ミクロ経済学**](textbook/dream-theater.md#dt-subject-microeconomics)：消費者・生産者理論、厚生定理、一般均衡、顕示選好、Afriat の定理、期待効用、リスク回避、確率優越、異時点間選択を扱う。
+31. [**ミクロ経済学**](textbook/dream-theater.md#dt-subject-microeconomics)：消費者・生産者理論、厚生定理、一般均衡、顕示選好、Afriat の定理、期待効用、リスク回避、確率優越、異時点間選択、時間整合性を扱う。
 32. [**ゲーム理論**](textbook/dream-theater.md#dt-subject-game-theory)：非協力ゲーム、情報不完備ゲーム、協力ゲーム、交渉を扱う。
 
 ## 科目を分ける境界

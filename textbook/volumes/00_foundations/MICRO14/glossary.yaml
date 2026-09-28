@@ -1,0 +1,35 @@
+chapter: "MICRO14"
+terms:
+  - term: 割引関数
+    english: discount function
+    meaning: 何期先の効用を現在時点からどれだけ重く評価するかを表す重み D(k)。本章では D(0)=1 に正規化する。
+  - term: 指数割引
+    english: exponential discounting
+    meaning: D(k)=delta^k とする割引。隣接期間の相対重み D(k+1)/D(k)=delta が時間距離に依存しない。
+  - term: 時間整合性
+    english: dynamic consistency
+    meaning: 同じ情報・同じ実行可能集合の下で、将来計画同士の順位が評価時点の移動だけでは逆転しない性質。
+  - term: 時間非整合
+    english: time inconsistency
+    meaning: 外部条件を固定しても、時間経過だけで将来計画の順位が逆転し得る性質。
+  - term: 双曲割引
+    english: hyperbolic discounting
+    meaning: 代表形 D(k)=1/(1+alpha*k) を用いる非指数型の割引。現在に近い一期間差を相対的に強く割り引く。
+  - term: 準双曲割引
+    english: quasi-hyperbolic discounting
+    meaning: D(0)=1、k>=1 で D(k)=beta*delta^k とする beta-delta 割引。現在と将来の間に追加の beta を置く。
+  - term: 現在バイアス
+    english: present bias
+    meaning: 準双曲割引で beta<1 とし、現在の効用を将来効用より追加的に重く評価する性質。
+  - term: コミットメント
+    english: commitment
+    meaning: 将来の自己による計画変更を防ぐため、早い時点で将来の実行可能な選択肢を意図的に制限すること。
+  - term: コミットメント装置
+    english: commitment device
+    meaning: 将来の選択肢を制限し、以前の計画を実行しやすくする契約・制度・仕組み。
+  - term: 素朴な主体
+    english: naive agent
+    meaning: 現在立てた将来計画を将来の自己もそのまま実行すると予想し、将来の選好逆転を織り込まない主体。
+  - term: 洗練された主体
+    english: sophisticated agent
+    meaning: 将来の自己が将来時点の選好に従って計画を変更し得ることを正しく予想し、その反応を現在の選択へ織り込む主体。

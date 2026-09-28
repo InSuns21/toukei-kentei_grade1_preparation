@@ -1,0 +1,48 @@
+id: "MICRO14"
+title: "動学的選択・時間整合性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MICRO13
+official_scope: []
+learning_objectives:
+  - 割引関数を定義し、多期間の時間分離的効用を各期の効用と割引重みから書ける
+  - 指数割引を定義し、隣接期間の相対割引比率が一定であることを計算できる
+  - 時間整合性を同じ将来計画の順位不変性として定義し、指数割引が時間整合的であることを効用差の因数分解から証明できる
+  - 双曲割引の一期間割引比率が時間距離とともに変化することを示し、選好逆転の具体例を計算できる
+  - 準双曲割引と現在バイアスを定義し、MICRO13 の二期間割引因子との記号上の違いを説明できる
+  - 準双曲割引で選好逆転が起こる条件 beta*delta*y < x < delta*y を導出し、その区間が beta<1 なら非空であることを示せる
+  - コミットメントを将来の実行可能集合の意図的な制限として説明し、線形効用で支払意思額の閾値を導出できる
+  - 素朴な主体と洗練された主体を将来自己の行動予測の違いとして区別し、逐次的な自己間相互作用を後ろから計算できる
+definitions:
+  - { id: MICRO14-DEF-01, name: 割引関数 }
+  - { id: MICRO14-DEF-02, name: 指数割引 }
+  - { id: MICRO14-DEF-03, name: 時間整合性 }
+  - { id: MICRO14-DEF-04, name: 双曲割引 }
+  - { id: MICRO14-DEF-05, name: 準双曲割引 }
+  - { id: MICRO14-DEF-06, name: 現在バイアス }
+  - { id: MICRO14-DEF-07, name: コミットメント }
+  - { id: MICRO14-DEF-08, name: 素朴な主体・洗練された主体 }
+theorems:
+  - { id: MICRO14-THM-01, name: 指数割引の時間整合性 }
+  - { id: MICRO14-PROP-01, name: 双曲割引の一期間割引比率 }
+  - { id: MICRO14-THM-02, name: 準双曲割引の選好逆転条件 }
+  - { id: MICRO14-PROP-02, name: 線形効用でのコミットメント費用の閾値 }
+canonical_examples:
+  - 指数割引で時点0と時点1の将来報酬順位が一致する例
+  - 双曲割引で時点0には遅い100を選び時点1には即時60へ逆転する例
+  - beta-delta 割引で1期後100と2期後110の順位が目前で逆転する例
+  - beta=0.6, delta=1 の主体で素朴さと洗練性を区別し、コミットメント費用の上限を計算する例
+problem_patterns:
+  - MICRO14-EXPONENTIAL-WEIGHTS-1
+  - MICRO14-HYPERBOLIC-RATIO-1
+  - MICRO14-REVERSAL-CHECK-1
+  - MICRO14-NAIVE-SOPHISTICATED-1
+  - MICRO14-DYNAMIC-CONSISTENCY-PROOF-1
+  - MICRO14-REVERSAL-INTERVAL-1
+  - MICRO14-MODEL-COMPARISON-1
+  - MICRO14-COMMITMENT-INTEGRATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 4.5, review: 0.75 }
