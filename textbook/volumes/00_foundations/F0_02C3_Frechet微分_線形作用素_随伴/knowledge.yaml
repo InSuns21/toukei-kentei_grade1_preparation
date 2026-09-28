@@ -27,9 +27,11 @@ concepts:
       - functional.bounded-linear-operator
 
   - id: functional.operator-norm
-    name: 作用素ノルム
+    name: 有界線形作用素の作用素ノルム
     kind: definition
-    aliases: [作用素ノルム]
+    aliases: [有界線形作用素の作用素ノルム]
+    introduction: formal
+    introduction_aliases: ["定義（作用素ノルム）"]
     requires:
       - functional.bounded-linear-operator
       - functional.norm
