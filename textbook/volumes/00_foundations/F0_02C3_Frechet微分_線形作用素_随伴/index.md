@@ -48,7 +48,13 @@ Fréchet微分の定義では、一次近似を連続な線形写像で表しま
 
 <!-- formal-statement-start -->
 > **定義（有界線形作用素）**  
-> ノルム空間 $X,Y$ の間の線形写像 $T:X\to Y$ が、ある $M<\infty$ に対して $\|Tx\|_Y\le M\|x\|_X$ をすべての $x\in X$ で満たすとき、$T$ を **有界線形作用素** といいます。
+> ノルム空間 $X,Y$ の間の線形写像 $T:X\to Y$ について、ある $M<\infty$ が存在し、すべての $x\in X$ に対して
+
+$$
+\|Tx\|_Y\le M\|x\|_X
+$$
+
+> が成り立つとき、$T$ を **有界線形作用素** といいます。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-f0-02c3-bounded-linear-operator -->
@@ -77,7 +83,14 @@ $f:X\to Y$ をノルム空間間の写像とします。
 
 <!-- formal-statement-start -->
 > **定義（Fréchet微分）**  
-> $f:X\to Y$ が点 $a$ で **Fréchet微分可能** であるとは、ある有界線形作用素 $A:X\to Y$ が存在して $\|f(a+h)-f(a)-Ah\|_Y/\|h\|_X\to0$（$h\to0$）となることです。この $A$ を $Df(a)$ と書きます。
+> $f:X\to Y$ が点 $a$ で **Fréchet微分可能** であるとは、ある有界線形作用素 $A:X\to Y$ が存在して
+
+$$
+\frac{\|f(a+h)-f(a)-Ah\|_Y}{\|h\|_X}\to0
+\qquad(h\to0)
+$$
+
+> となることです。この $A$ を $Df(a)$ と書きます。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-f0-02c3-frechet-derivative -->
@@ -165,7 +178,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（方向微分）**  
-> 点 $a$、方向 $v$ に対し $D_vf(a)=\lim_{t\to0}\{f(a+tv)-f(a)\}/t$ が存在するとき、これを方向 $v$ の **方向微分** といいます。
+> 点 $a$、方向 $v$ に対して極限
+
+$$
+D_vf(a):=\lim_{t\to0}\frac{f(a+tv)-f(a)}{t}
+$$
+
+> が存在するとき、これを方向 $v$ の **方向微分** といいます。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-f0-02c3-directional-derivative -->
@@ -331,7 +350,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（連続な偏微分による微分可能性）**  
-> $U\subset\mathbb R^n$ を開集合、$f:U\to\mathbb R$ とする。点 $a\in U$ の近傍で全偏微分 $\partial_jf$ が存在し、各 $\partial_jf$ が $a$ で連続なら、$f$ は $a$ でFréchet微分可能で $Df(a)h=\sum_{j=1}^n\partial_jf(a)h_j$ である。
+> $U\subset\mathbb R^n$ を開集合、$f:U\to\mathbb R$ とする。点 $a\in U$ の近傍で全偏微分 $\partial_jf$ が存在し、各 $\partial_jf$ が $a$ で連続なら、$f$ は $a$ でFréchet微分可能であり、
+
+$$
+Df(a)h=\sum_{j=1}^n\partial_jf(a)h_j
+$$
+
+> が成り立つ。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -406,7 +431,13 @@ Fréchet微分では一次近似を作用素として持っているため、合
 
 <!-- formal-statement-start -->
 > **定理（Fréchet連鎖律）**  
-> $f:X\to Y$ が $a$ でFréchet微分可能、$g:Y\to Z$ が $f(a)$ でFréchet微分可能なら、$g\circ f$ は $a$ でFréchet微分可能で $D(g\circ f)(a)=Dg(f(a))\circ Df(a)$ である。
+> $f:X\to Y$ が $a$ でFréchet微分可能、$g:Y\to Z$ が $f(a)$ でFréchet微分可能なら、$g\circ f$ は $a$ でFréchet微分可能であり、
+
+$$
+D(g\circ f)(a)=Dg(f(a))\circ Df(a)
+$$
+
+> が成り立つ。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -591,7 +622,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（二階の多変数Taylor展開）**  
-> $f$ が $a$ の近傍で二階連続微分可能なら $f(a+h)=f(a)+Df(a)h+\frac12D^2f(a)[h,h]+o(\|h\|^2)$ である。
+> $f$ が $a$ の近傍で二階連続微分可能なら
+
+$$
+f(a+h)=f(a)+Df(a)h+\frac12D^2f(a)[h,h]+o(\|h\|^2)
+$$
+
+> である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -727,7 +764,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（作用素ノルム）**  
-> 有界線形作用素 $T:X\to Y$ に対し $\|T\|=\sup_{\|x\|_X\le1}\|Tx\|_Y$ を $T$ の **作用素ノルム** といいます。
+> 有界線形作用素 $T:X\to Y$ に対して
+
+$$
+\|T\|=\sup_{\|x\|_X\le1}\|Tx\|_Y
+$$
+
+> を $T$ の **作用素ノルム** といいます。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-f0-02c3-operator-norm -->
