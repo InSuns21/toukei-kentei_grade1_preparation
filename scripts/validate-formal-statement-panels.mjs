@@ -42,7 +42,7 @@ function estimatedDisplayWidth(line) {
   return width;
 }
 
-function denseInlineMathReason(line) {
+function denseInlineMathReason(line, panelHasDisplayMath) {
   const maths = [...line.matchAll(inlineMathRe)].map((match) => match[1].trim());
   if (maths.length === 0) return null;
 
@@ -50,11 +50,19 @@ function denseInlineMathReason(line) {
   const maxRelationLength = Math.max(...relationLengths);
   const displayWidth = estimatedDisplayWidth(line);
 
-  if (maxRelationLength >= 24) {
+  // A visibly long equality/inequality/limit should normally stand on its own.
+  // Keep the threshold conservative so short type declarations and notation
+  // do not become display math merely because their TeX source is verbose.
+  if (maxRelationLength >= 30 && displayWidth >= 80) {
     return `long inline relation/formula (estimated display length ${maxRelationLength})`;
   }
-  if (displayWidth >= 120 && maths.length >= 5 && maxRelationLength >= 10) {
-    return `math-heavy formal statement line (estimated display width ${displayWidth.toFixed(1)}, ${maths.length} inline fragments)`;
+
+  // When the panel has no display equation at all, a long prose line carrying
+  // many math fragments is a strong signal that the main condition/result was
+  // packed inline. If the panel already has display math, this usually describes
+  // harmless hypotheses surrounding a properly displayed main formula.
+  if (!panelHasDisplayMath && displayWidth >= 120 && maths.length >= 5 && maxRelationLength >= 10) {
+    return `math-heavy formal statement line without display math (estimated display width ${displayWidth.toFixed(1)}, ${maths.length} inline fragments)`;
   }
   return null;
 }
@@ -80,7 +88,31 @@ for (const root of ROOTS.map((p) => path.resolve(p))) {
   for (const file of walk(root)) {
     const rel = path.relative(process.cwd(), file).replaceAll(path.sep, '/');
     const lines = fs.readFileSync(file, 'utf8').split(/\r?\n/);
-    let depth = 0;
+
+    if (!pagesMode) {
+      let panelStart = -1;
+      for (let k = 0; k < lines.length; k += 1) {
+        const trimmed = lines[k].trim();
+        if (trimmed === START) {
+          panelStart = k;
+          continue;
+        }
+        if (trimmed !== END || panelStart < 0) continue;
+
+        const panelLines = lines.slice(panelStart + 1, k);
+        const panelHasDisplayMath = panelLines.some((panelLine) => panelLine.trim() === '$');
+        for (let offset = 0; offset < panelLines.length; offset += 1) {
+          const panelLine = panelLines[offset];
+          if (panelLine.includes('$')) continue;
+          const reason = denseInlineMathReason(panelLine, panelHasDisplayMath);
+          if (reason) {
+            const sourceLineNo = panelStart + offset + 2;
+            errors.push(`${rel}:${sourceLineNo}: ${reason} inside a formal statement; keep short notation inline, but move the main equation or condition to an unquoted $...$ display block`);
+          }
+        }
+        panelStart = -1;
+      }
+    }    let depth = 0;
     let proofDepth = 0;
     let fence = null;
     let declarationsInPanel = 0;
@@ -151,12 +183,6 @@ for (const root of ROOTS.map((p) => path.resolve(p))) {
         continue;
       }
 
-      if (!pagesMode && depth > 0 && !line.includes('$$')) {
-        const reason = denseInlineMathReason(line);
-        if (reason) {
-          errors.push(`${rel}:${lineNo}: ${reason} inside a formal statement; keep short notation inline, but move the main equation or condition to an unquoted $$...$$ display block`);
-        }
-      }
 
       const isLabel = labelRe.test(line);
       const isHeading = formalHeadingRe.test(line);
