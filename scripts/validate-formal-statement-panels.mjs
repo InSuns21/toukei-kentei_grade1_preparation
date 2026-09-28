@@ -66,6 +66,20 @@ function denseInlineMathReason(line, panelHasDisplayMath) {
   }
   return null;
 }
+
+function selfTestDenseInlineMath() {
+  const bad = '> $f\\in C([0,1])$ に対し $B_nf(x)=\\sum_{k=0}^n f(k/n)\\binom nk x^k(1-x)^{n-k}$ を定義する。';
+  const good = '> 真関数 $f:\\mathbb R^n\\to(-\\infty,+\\infty]$ が凸であるとは、任意の $x,y\\in\\mathbb R^n$ に対して';
+  if (!denseInlineMathReason(bad, false)) {
+    throw new Error('formal statement math lint self-test failed: long inline defining equation was not detected');
+  }
+  if (denseInlineMathReason(good, true)) {
+    throw new Error('formal statement math lint self-test failed: short type/hypothesis notation was falsely detected');
+  }
+}
+
+selfTestDenseInlineMath();
+
 function walk(dir) {
   if (!fs.existsSync(dir)) return [];
   const out = [];
@@ -100,14 +114,14 @@ for (const root of ROOTS.map((p) => path.resolve(p))) {
         if (trimmed !== END || panelStart < 0) continue;
 
         const panelLines = lines.slice(panelStart + 1, k);
-        const panelHasDisplayMath = panelLines.some((panelLine) => panelLine.trim() === '$');
+        const panelHasDisplayMath = panelLines.some((panelLine) => panelLine.trim() === '$$');
         for (let offset = 0; offset < panelLines.length; offset += 1) {
           const panelLine = panelLines[offset];
-          if (panelLine.includes('$')) continue;
+          if (panelLine.trim() === '$$') continue;
           const reason = denseInlineMathReason(panelLine, panelHasDisplayMath);
           if (reason) {
             const sourceLineNo = panelStart + offset + 2;
-            errors.push(`${rel}:${sourceLineNo}: ${reason} inside a formal statement; keep short notation inline, but move the main equation or condition to an unquoted $...$ display block`);
+            errors.push(`${rel}:${sourceLineNo}: ${reason} inside a formal statement; keep short notation inline, but move the main equation or condition to an unquoted $$...$$ display block`);
           }
         }
         panelStart = -1;
