@@ -363,16 +363,12 @@ $$
 > **定理（ホモトピー公式）**  
 > $H:[0,1]\times M\to N$ を滑らかなホモトピーとし、
 >
-> $H_t(p):=H(t,p)$ と書く。任意の $\omega\in\Omega^k(N)$ に対して
-
-$$
-\boxed{
-H_1^*\omega-H_0^*\omega
-=
-d(K_H\omega)+K_H(d\omega)
-}
-$$
-
+> $H_t(p):=H(t,p)$
+>
+> と書く。任意の $\omega\in\Omega^k(N)$ に対して
+>
+> $\boxed{ H_1^*\omega-H_0^*\omega = d(K_H\omega)+K_H(d\omega) }$
+>
 > が成り立つ。
 >
 > $k=0$ では $K_H\omega=0$ と解釈する。
@@ -904,19 +900,9 @@ $$
 >
 > $f_0,f_1:M\to N$
 >
-> が滑らかにホモトープなら、全ての $k\ge0$ について誘導写像は一致し、
-
-$$
-f_0^*
-=
-f_1^*
-:
-H^k_{\mathrm{dR}}(N)
-\to
-H^k_{\mathrm{dR}}(M)
-$$
-
-> が成り立つ。
+> が滑らかにホモトープなら、全ての $k\ge0$ について誘導写像は一致する。
+>
+> $f_0^* = f_1^* : H^k_{\mathrm{dR}}(N) \to H^k_{\mathrm{dR}}(M).$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
