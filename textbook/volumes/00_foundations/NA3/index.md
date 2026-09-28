@@ -54,7 +54,7 @@ JacobianのLipschitz性
 特に本章では、
 
 - Jacobian は [RA6 の多変数微分](../RA6/index.md#def-ra6-multivariable-differentiability)
-- 行列の $2$-ノルムは [F0-00F2 の行列の2-ノルム](../F0_00F2_SVD_特異値_行列の $2$-ノルム/index.md)
+- 行列の $2$-ノルムは [F0-00F2 の行列の 2-ノルム](../F0_00F2_SVD_特異値_作用素ノルム/index.md)
 - 行列条件数と最小特異値は [NA1 の 2-ノルム条件数](../NA1/index.md#def-na1-matrix-condition-number)
 - 収束次数は [NA2 の収束次数](../NA2/index.md#def-na2-order-of-convergence)
 
@@ -654,7 +654,7 @@ $$
 $\square$
 <!-- proof-end -->
 
-ここで凸性を使ったのは、$x$ から $x+h$ への線分全体が $D$ に留まり、積分表示をその区間で使えるようにするためです。
+ここで必要なのは、$x$ から $x+h$ への線分全体が $D$ に留まることです。これにより積分表示を線分全体で使えます。
 
 ---
 
