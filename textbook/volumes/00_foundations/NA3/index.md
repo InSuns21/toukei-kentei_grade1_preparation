@@ -28,7 +28,7 @@ $$
 ~~~text
 F(x)=0
   ↓
-Fréchet微分・Jacobianで一次近似
+多変数微分・Jacobianで一次近似
   ↓
 J_F(x_k)s_k=-F(x_k)
   ↓
@@ -49,12 +49,12 @@ JacobianのLipschitz性
 
 を一つの流れとして整理します。
 
-直接の前提は [NA1 浮動小数点・誤差・条件数・安定性](../NA1/index.md)、[NA2 非線形方程式・不動点反復・Newton 法](../NA2/index.md)、[F0-02C3 Fréchet微分・Jacobian・連鎖律](../F0_02C3_Frechet微分_線形作用素_随伴/index.md)、[RA4 Riemann積分・微積分学の基本定理](../RA4/index.md) です。
+直接の前提は [NA1 浮動小数点・誤差・条件数・安定性](../NA1/index.md)、[NA2 非線形方程式・不動点反復・Newton 法](../NA2/index.md)、[RA6 多変数微分・Jacobian 行列・連鎖律](../RA6/index.md)、[RA4 Riemann積分・微積分学の基本定理](../RA4/index.md) です。
 
 特に本章では、
 
-- Jacobian は [F0-02C3 の Fréchet 微分の行列表示](../F0_02C3_Frechet微分_線形作用素_随伴/index.md#def-f0-02c3-frechet-derivative)
-- 作用素ノルムは [F0-02C3 の作用素ノルム](../F0_02C3_Frechet微分_線形作用素_随伴/index.md#def-f0-02c3-operator-norm)
+- Jacobian は [RA6 の多変数微分](../RA6/index.md#def-ra6-multivariable-differentiability)
+- 作用素ノルムは [F0-00F2 の行列の2-作用素ノルム](../F0_00F2_SVD_特異値_作用素ノルム/index.md)
 - 行列条件数と最小特異値は [NA1 の 2-ノルム条件数](../NA1/index.md#def-na1-matrix-condition-number)
 - 収束次数は [NA2 の収束次数](../NA2/index.md#def-na2-order-of-convergence)
 
@@ -178,7 +178,7 @@ $$
 
 ## 1. Jacobian は非線形写像の局所線形モデル
 
-$F=(F_1,\dots,F_n)^{\mathsf T}$ が $x$ で Fréchet 微分可能なら、
+$F=(F_1,\dots,F_n)^{\mathsf T}$ が $x$ で微分可能なら、
 
 $$
 F(x+h)
@@ -211,7 +211,7 @@ J_F(x)
 \end{pmatrix}.
 $$
 
-これは [F0-02C3](../F0_02C3_Frechet微分_線形作用素_随伴/index.md) で構成した Fréchet 微分 $DF(x)$ を標準基底で表したものです。
+これは [RA6](../RA6/index.md#def-ra6-jacobian) で学んだ微分 $DF(x)$ の標準基底に関する表現行列です。
 
 ### 例：円と直線
 
@@ -2915,7 +2915,7 @@ $$
   F(x)=0
   $$
   と書き、残差を $F(x)$ とした。
-- Fréchet 微分の行列表示として Jacobian を使い、
+- 多変数微分の行列表示として Jacobian を使い、
   $$
   F(x+s)
   \approx
