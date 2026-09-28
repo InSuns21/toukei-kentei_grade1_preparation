@@ -1,0 +1,54 @@
+id: "MICRO12"
+title: "リスク回避・Arrow--Pratt・確率優越"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MICRO11
+official_scope: []
+learning_objectives:
+  - 金銭的な有限支持くじについてリスク回避を定義し、期待効用表現の下でリスク回避と効用関数の凹性が同値であることを証明できる
+  - 確実性等価とリスクプレミアムを定義し、凹効用の下で確実性等価が平均以下になることを 有限 Jensen の不等式から導ける
+  - 絶対的リスク回避度と相対的リスク回避度を定義し、正のアフィン変換に対する不変性を確認できる
+  - 二つの滑らかな効用関数について Arrow--Pratt の絶対的リスク回避度の大小と凹変換によるリスク回避順序を結び付けられる
+  - 小さな平均ゼロリスクに対するリスクプレミアムが二乗幅の確率加重平均と Arrow--Pratt の絶対的リスク回避度で二次近似されることを導ける
+  - 一次確率優越を分布関数の順序で定義し、有限支持では全ての単調効用による期待効用順序と同値であることを証明できる
+  - 二次確率優越を下方部分期待値または積分分布関数の順序で定義し、有限支持では全ての非減少凹効用による期待効用順序と同値であることを証明できる
+  - 平均保存拡散が平均を保ったまま凹効用の確率加重平均を低下させ、二次確率優越の劣位を生むことを証明できる
+  - 一次確率優越と二次確率優越を具体的な有限支持分布で判定し、平均だけではリスク比較を決められないことを説明できる
+definitions:
+  - { id: MICRO12-DEF-01, name: リスク回避 }
+  - { id: MICRO12-DEF-02, name: 確実性等価 }
+  - { id: MICRO12-DEF-03, name: リスクプレミアム }
+  - { id: MICRO12-DEF-04, name: Arrow--Pratt の絶対的リスク回避度 }
+  - { id: MICRO12-DEF-05, name: Arrow--Pratt の相対的リスク回避度 }
+  - { id: MICRO12-DEF-06, name: 一次確率優越 }
+  - { id: MICRO12-DEF-07, name: 二次確率優越 }
+  - { id: MICRO12-DEF-08, name: 平均保存拡散 }
+theorems:
+  - { id: MICRO12-THM-00, name: 有限 Jensen の不等式 }
+  - { id: MICRO12-THM-01, name: リスク回避と凹効用の同値 }
+  - { id: MICRO12-PROP-01, name: 確実性等価とリスクプレミアムの符号 }
+  - { id: MICRO12-THM-02, name: Arrow--Pratt のリスク回避順序 }
+  - { id: MICRO12-THM-03, name: 小リスクのリスクプレミアム近似 }
+  - { id: MICRO12-THM-04, name: 一次確率優越の期待効用特徴付け }
+  - { id: MICRO12-THM-05, name: 二次確率優越の期待効用特徴付け }
+  - { id: MICRO12-PROP-02, name: 平均保存拡散は二次確率優越で悪化させる }
+canonical_examples:
+  - 平均100の二点くじを平方根効用で評価して確実性等価とリスクプレミアムを計算する例
+  - 指数型効用と CRRA 効用で絶対的・相対的リスク回避度を計算する例
+  - 二つの有限支持くじの累積確率を比較して一次確率優越を判定する例
+  - 確実な100と80・120の等確率くじを比較し、一次確率優越は成立しないが二次確率優越は成立する例
+  - 各実現値を、その値を平均に持つ二点くじへ置き換えて平均保存拡散を構成する例
+problem_patterns:
+  - MICRO12-RISK-AVERSION-1
+  - MICRO12-CE-PREMIUM-1
+  - MICRO12-ARROW-PRATT-1
+  - MICRO12-LOCAL-PREMIUM-1
+  - MICRO12-FOSD-1
+  - MICRO12-SSD-1
+  - MICRO12-MPS-1
+  - MICRO12-INTEGRATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.5, exercises: 4.5, review: 0.75 }

@@ -1,0 +1,29 @@
+chapter: "MICRO12"
+terms:
+  - term: リスク回避
+    english: risk aversion
+    meaning: 同じ平均を持つ不確実なくじより、その平均額を確実に受け取ることを弱く好む性質。期待効用表現の下では結果効用の凹性と同値になる。
+  - term: 確実性等価
+    english: certainty equivalent
+    meaning: あるくじと無差別になる確実な金額。厳密単調な期待効用 u の下では u(CE)=E[u(X)] を満たす唯一の金額として定まる。
+  - term: リスクプレミアム
+    english: risk premium
+    meaning: くじの平均額から確実性等価を引いた差。リスク回避的なら非負となり、不確実性を除くために最大いくらまで平均から手放せるかを表す。
+  - term: Arrow--Pratt の絶対的リスク回避度
+    english: Arrow--Pratt absolute risk aversion
+    meaning: 二階微分可能で増加する効用 u に対する -u''(w)/u'(w)。小さな加法的リスクへの局所的な嫌悪の強さを表す。
+  - term: Arrow--Pratt の相対的リスク回避度
+    english: Arrow--Pratt relative risk aversion
+    meaning: -w u''(w)/u'(w)。富に比例する乗法的なリスクに対する局所的な嫌悪の強さを表す。
+  - term: 一次確率優越
+    english: first-order stochastic dominance
+    meaning: 高い金額ほど望ましいとする全ての単調効用で一方のくじが他方以上に評価される順序。分布関数では優越する側の累積確率が全ての閾値で小さい。
+  - term: 二次確率優越
+    english: second-order stochastic dominance
+    meaning: 高い金額ほど望ましく、かつリスク回避的な全ての単調凹効用で一方のくじが他方以上に評価される順序。有限支持では下方部分期待値 E[(t-X)_+] の全閾値比較で判定できる。
+  - term: 下方不足量
+    english: lower partial expectation
+    meaning: 閾値 t に対する E[(t-X)_+]。X が t を下回った不足分だけを平均した量で、有限支持では分布関数の積分と一致する。
+  - term: 平均保存拡散
+    english: mean-preserving spread
+    meaning: 元の実現値 x ごとに、条件付き平均を x に保つ追加のくじへ置き換える拡散操作。平均は変えず、凹効用の期待値を弱く低下させる。
