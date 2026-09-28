@@ -5,7 +5,10 @@ prerequisites:
   - DOPT3
   - DOPT4
 
-forward_references: []
+forward_references:
+  - game.imputation
+  - game.core
+  - micro.walras-equilibrium
 
 concepts:
   - id: game.weighted-bipartite-matching
