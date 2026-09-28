@@ -99,9 +99,9 @@ concepts:
       - geometry.unit-normal-field
 
   - id: geometry.shape-operator
-    name: Gauss 写像の形作用素
+    name: 形作用素
     kind: definition
-    aliases: [shape operator, Weingarten map]
+    aliases: [形作用素, shape operator, Weingarten map]
     introduction: formal
     introduction_aliases: ["定義（Gauss 写像・形作用素・第二基本形式）"]
     requires:
