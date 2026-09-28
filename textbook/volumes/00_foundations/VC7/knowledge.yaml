@@ -75,7 +75,7 @@ concepts:
   - id: vector-calculus.trace-double-contraction
     name: 跡・二重縮約
     kind: definition
-    aliases: [trace, double contraction, 跡, 二重縮約]
+    aliases: [trace, double contraction, 行列の跡, テンソルの跡, 二重縮約]
     introduction: formal
     introduction_aliases: ["定義（跡・二重縮約）"]
     requires:
