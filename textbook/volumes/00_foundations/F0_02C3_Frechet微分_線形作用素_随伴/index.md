@@ -43,9 +43,9 @@ $X,Y$ をノルム空間とします。
 <!-- definition-example-start: def-f0-02c3-bounded-linear-operator -->
 ### 例：積分で一つの数を返す作用素
 
-$X=C([0,1])$ に一様ノルム
+$X=C([0,1])$ に
 
-$$
+$
 \|f\|_\infty=\sup_{0\le t\le1}|f(t)|
 $$
 
@@ -431,7 +431,7 @@ $$
 
 ---
 
-## 5. Hilbert空間では微分を勾配で表せる
+## 5. Hilbert空間では微分をRiesz表現ベクトルで表せる
 
 $f:H\to\mathbb R$ が Fréchet 微分可能なら、
 
@@ -439,12 +439,12 @@ $$
 Df(x):H\to\mathbb R
 $$
 
-は連続線形汎関数です。従って [Riesz表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation) により、一意な $\nabla_Hf(x)\in H$ が存在して
+は連続線形汎関数です。従って [Riesz表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation) により、一意な $g_f(x)\in H$ が存在して
 
 $$
 Df(x)[h]
 =
-\langle \nabla_Hf(x),h\rangle_H
+\langle g_f(x),h\rangle_H
 $$
 
 と書けます。
@@ -468,7 +468,7 @@ $$
 $$
 Df(x)[h]=\langle x,h\rangle,
 \qquad
-\nabla_Hf(x)=x.
+g_f(x)=x.
 $$
 
 固定した $g\in H$ に対する
@@ -484,10 +484,10 @@ DJ(x)[h]
 =
 \langle x-g,h\rangle,
 \qquad
-\nabla_HJ(x)=x-g.
+g_J(x)=x-g.
 $$
 
-有限次元の勾配は、この Hilbert 空間での表現の特別な場合です。
+有限次元で偏微分を並べたベクトル表示は、この Riesz 表現の特別な場合です。
 
 ---
 
@@ -643,7 +643,7 @@ $$
 
 - Level: A
 
-$X=C([0,1])$ に一様ノルムを入れ、
+$X=C([0,1])$ に $\|f\|_\infty=\sup_{0\le t\le1}|f(t)|$ を入れ、
 
 $$
 T(f)=\int_0^1f(t)\,dt
@@ -717,7 +717,7 @@ $$
 f(x)=\frac12\|x\|^2
 $$
 
-とする。$Df(x)$ と Hilbert 空間での勾配を求めよ。
+とする。$Df(x)$ と、それを表す Riesz 表現ベクトルを求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -747,7 +747,7 @@ $$
 なので Fréchet 微分です。Riesz 表現から
 
 $$
-\boxed{\nabla_Hf(x)=x}.
+\boxed{g_f(x)=x}.
 $$
 <!-- solution-end -->
 
@@ -1040,5 +1040,5 @@ $$
 - 作用素ノルムを定義し、基本評価 $\|Tx\|\le\|T\|\|x\|$ を使える。
 - Fréchet 微分を有界線形作用素による一次近似として定義できる。
 - Gâteaux 微分と Fréchet 微分の違いを反例込みで説明できる。
-- Hilbert 空間で Fréchet 微分を Riesz 表現により勾配として表せる。
+- Hilbert 空間で Fréchet 微分を Riesz 表現ベクトルとして表せる。
 - Fréchet 連鎖律を残差評価から証明できる。
