@@ -24,6 +24,7 @@ definitions:
   - { id: MICRO11-DEF-05, name: 独立性公理 }
   - { id: MICRO11-DEF-06, name: 期待効用表現 }
   - { id: MICRO11-DEF-07, name: 標準くじ }
+  - { id: MICRO11-DEF-08, name: 正のアフィン変換 }
 theorems:
   - { id: MICRO11-LEM-01, name: 標準くじの単調性 }
   - { id: MICRO11-LEM-02, name: 無差別なくじの混合置換 }
