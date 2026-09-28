@@ -1,0 +1,46 @@
+id: "MICRO13"
+title: "異時点間選択"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MICRO2
+  - MICRO12
+official_scope: []
+learning_objectives:
+  - 二期間の逐次的な会計式から現在価値予算制約を導き、所得流列と消費流列の現在価値を計算できる
+  - 金融資産保有額の符号から貯蓄・借入・そのどちらでもない状態を判定し、現在消費と将来消費の移転として説明できる
+  - 時間分離的効用に割引因子を導入し、異時点間限界代替率を限界効用比として定義・計算できる
+  - MICRO2 の消費者問題の KKT 条件を二つの時点財へ適用し、二期間消費の Euler 方程式を導出できる
+  - 対数効用で最適な現在消費・将来消費・資産保有を明示的に解き、所得の時点構成から貯蓄か借入かを判定できる
+  - CRRA 型効用について Euler 方程式から最適消費成長率を導き、曲率パラメータと消費平準化の関係を説明できる
+  - 将来所得がゼロの CRRA 型モデルで利子率の比較静学を行い、利子率上昇が貯蓄を必ず増やすとは限らないことを示せる
+  - 借入制約を定義し、制約が拘束的なとき Euler 方程式が不等式へ変わる理由を一方向微分から証明できる
+  - 借入上限を緩和したときの解を拘束的領域と非拘束的領域に分け、無制約解への切り替わりを計算できる
+definitions:
+  - { id: MICRO13-DEF-01, name: 現在価値予算制約 }
+  - { id: MICRO13-DEF-02, name: 貯蓄・借入 }
+  - { id: MICRO13-DEF-03, name: 異時点間限界代替率 }
+  - { id: MICRO13-DEF-04, name: 借入制約 }
+theorems:
+  - { id: MICRO13-THM-01, name: 二期間消費の Euler 方程式 }
+  - { id: MICRO13-PROP-01, name: CRRA 型効用の最適消費成長率 }
+  - { id: MICRO13-PROP-02, name: 借入制約下の Euler 不等式 }
+canonical_examples:
+  - 現在所得80・将来所得55・粗利子率1.1で現在価値予算と20の借入を同時に確認する例
+  - 対数効用で異時点間限界代替率と粗利子率が一致する内点解の例
+  - 対数効用の最適消費と資産保有を現在価値から直接計算する例
+  - CRRA 型効用で利子率上昇に対する現在消費と貯蓄の方向が曲率パラメータで変わる例
+  - 将来所得が大きい主体で借入禁止が拘束的となり Euler 条件が狭義不等式になる例
+problem_patterns:
+  - MICRO13-PRESENT-VALUE-1
+  - MICRO13-IMRS-1
+  - MICRO13-LOG-CHOICE-1
+  - MICRO13-BORROWING-CONSTRAINT-1
+  - MICRO13-EULER-DERIVATION-1
+  - MICRO13-CRRA-COMPARATIVE-STATICS-1
+  - MICRO13-INCOME-TIMING-1
+  - MICRO13-INTEGRATED-CONSTRAINT-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 4.5, review: 0.75 }
