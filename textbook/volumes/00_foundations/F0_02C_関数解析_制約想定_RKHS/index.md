@@ -15,7 +15,7 @@ A → A1 → A2 → A3 → B
 → C1   Banach / Hilbert
 → C1A  Hilbert射影定理 / 直交分解
 → C2   双対空間 / Riesz
-→ C3   Fréchet微分 / 有界線形作用素
+→ C3   Banach空間のFréchet微分 / 有界線形作用素
 → C3A  随伴作用素
 → C3B  Fréchet連鎖律 / Hilbert随伴の証明
 → C6   Hahn--Banach
@@ -53,7 +53,7 @@ Hilbert射影
  ↓
 双対空間 / Riesz
  ↓
-Fréchet微分 / 有界作用素
+Banach空間のFréchet微分 / 有界作用素
  ↓
 随伴作用素
  ↓
