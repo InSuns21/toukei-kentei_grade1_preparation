@@ -1,0 +1,48 @@
+id: "MICRO11"
+title: "不確実性下の選択・期待効用"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MICRO1
+official_scope: []
+learning_objectives:
+  - 有限個の結果集合上の単純なくじを確率ベクトルとして定義し、確実な結果を退化くじとして表せる
+  - 複合くじを縮約して最終結果の確率分布を計算できる
+  - 二つのくじの混合を確率ベクトルの凸結合として扱える
+  - くじ上の選好について完備性・推移性・混合連続性・独立性公理を区別して説明できる
+  - 独立性公理が共通の第三くじとの混合によって順位を保存する条件であることを具体例で検証できる
+  - 最良結果と最悪結果から標準くじを構成し、各確実結果を一意な標準くじへ対応させられる
+  - von Neumann--Morgenstern の期待効用定理を有限結果の場合に証明できる
+  - 任意のくじの評価が結果効用の確率加重平均に一致することを複合くじの縮約と独立性から導ける
+  - 期待効用表現の正のアフィン変換による一意性を証明できる
+  - 期待効用と賞金額そのものの期待値を区別できる
+definitions:
+  - { id: MICRO11-DEF-01, name: 単純なくじ }
+  - { id: MICRO11-DEF-02, name: 複合くじと縮約 }
+  - { id: MICRO11-DEF-03, name: くじの混合 }
+  - { id: MICRO11-DEF-04, name: 混合連続性 }
+  - { id: MICRO11-DEF-05, name: 独立性公理 }
+  - { id: MICRO11-DEF-06, name: 期待効用表現 }
+theorems:
+  - { id: MICRO11-LEM-01, name: 標準くじの単調性 }
+  - { id: MICRO11-LEM-02, name: 無差別なくじの混合置換 }
+  - { id: MICRO11-THM-01, name: von Neumann--Morgenstern の期待効用定理 }
+canonical_examples:
+  - 三つの結果を持つ単純なくじを確率ベクトルで表す例
+  - 二段階の複合くじを最終結果の確率分布へ縮約する例
+  - 共通の第三くじとの混合で独立性公理を数値確認する例
+  - 三結果の各確実結果を最良・最悪結果の標準くじへ置き換えて期待効用を構成する例
+  - 期待賞金は異なるが期待効用が等しい二つのくじの例
+problem_patterns:
+  - MICRO11-LOTTERY-1
+  - MICRO11-COMPOUND-REDUCTION-1
+  - MICRO11-MIXTURE-1
+  - MICRO11-INDEPENDENCE-1
+  - MICRO11-STANDARD-LOTTERY-1
+  - MICRO11-EU-CALCULATION-1
+  - MICRO11-AFFINE-UNIQUENESS-1
+  - MICRO11-INTEGRATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 4.5, review: 0.75 }
