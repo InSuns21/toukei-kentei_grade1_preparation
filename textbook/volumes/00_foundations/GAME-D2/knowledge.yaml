@@ -1,0 +1,137 @@
+chapter: GAME-D2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GAME-D1
+
+forward_references:
+  - optimization.matching
+  - optimization.assignment-problem
+
+concepts:
+  - id: game.stable-partner
+    name: 安定相手
+    kind: definition
+    aliases:
+      - stable partner
+    introduction: formal
+    introduction_aliases: ["定義（安定相手・提案側最適安定マッチング）"]
+    requires:
+      - game.stable-matching
+
+  - id: game.proposer-optimal-stable-matching
+    name: 提案側最適安定マッチング
+    kind: definition
+    aliases:
+      - proposer-optimal stable matching
+    introduction: formal
+    introduction_aliases: ["定義（安定相手・提案側最適安定マッチング）"]
+    requires:
+      - game.stable-partner
+      - game.stable-matching
+
+  - id: game.proposer-optimality-theorem
+    name: 提案側受入保留の提案側最適性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（提案側受入保留の提案側最適性）"]
+    requires:
+      - game.proposer-optimal-stable-matching
+      - game.deferred-acceptance-algorithm
+      - game.gale-shapley-stable-matching-existence
+
+  - id: game.receiver-pessimality
+    name: 提案側最適安定マッチングの受け手側最悪性
+    kind: proposition
+    aliases:
+      - receiver-pessimality
+    introduction: formal
+    introduction_aliases: ["系（提案側最適安定マッチングの受け手側最悪性）"]
+    requires:
+      - game.proposer-optimality-theorem
+
+  - id: game.stable-matching-extreme-uniqueness
+    name: 安定マッチング一意性の端点判定
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["系（安定マッチング一意性の端点判定）"]
+    requires:
+      - game.proposer-optimality-theorem
+      - game.receiver-pessimality
+
+  - id: game.matching-proposer-strategy-proofness
+    name: マッチング規則の提案側に対する耐戦略性
+    kind: definition
+    aliases:
+      - proposer strategy-proofness in matching
+    introduction: formal
+    introduction_aliases: ["定義（提案側に対する耐戦略性）"]
+    requires:
+      - game.strict-preference-list
+      - game.one-to-one-matching
+
+  - id: game.proposer-da-strategy-proofness
+    name: 提案側受入保留の耐戦略性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（提案側受入保留の耐戦略性）"]
+    requires:
+      - game.matching-proposer-strategy-proofness
+      - game.deferred-acceptance-algorithm
+      - game.gale-shapley-stable-matching-existence
+
+  - id: game.many-to-one-matching
+    name: 定員付き多対一マッチング
+    kind: definition
+    aliases:
+      - many-to-one matching
+    introduction: formal
+    introduction_aliases: ["定義（定員付き多対一マッチング）"]
+    requires:
+      - game.one-to-one-matching
+
+  - id: game.many-to-one-blocking-pair
+    name: 定員付き市場のブロッキングペア
+    kind: definition
+    aliases:
+      - blocking pair in many-to-one matching
+    introduction: formal
+    introduction_aliases: ["定義（定員付き市場のブロッキングペア・安定性）"]
+    requires:
+      - game.many-to-one-matching
+      - game.blocking-pair
+
+  - id: game.many-to-one-stable-matching
+    name: 定員付き市場の安定マッチング
+    kind: definition
+    aliases:
+      - stable many-to-one matching
+    introduction: formal
+    introduction_aliases: ["定義（定員付き市場のブロッキングペア・安定性）"]
+    requires:
+      - game.many-to-one-blocking-pair
+      - game.stable-matching
+
+  - id: game.student-proposing-deferred-acceptance
+    name: 学生提案型受入保留アルゴリズム
+    kind: definition
+    aliases:
+      - student-proposing deferred acceptance
+    introduction: formal
+    introduction_aliases: ["定義（学生提案型受入保留アルゴリズム）"]
+    requires:
+      - game.many-to-one-matching
+      - game.deferred-acceptance-algorithm
+
+  - id: game.many-to-one-da-stability
+    name: 学生提案型受入保留の安定性
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（学生提案型受入保留の安定性）"]
+    requires:
+      - game.student-proposing-deferred-acceptance
+      - game.many-to-one-stable-matching
