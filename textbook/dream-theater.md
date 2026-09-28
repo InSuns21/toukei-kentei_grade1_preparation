@@ -488,3 +488,4 @@
 24. [GAME-C7 不完備情報下の交渉入門](textbook/volumes/00_foundations/GAME-C7/index.md)
 25. [GAME-D1 安定結婚問題・Gale--Shapley アルゴリズム](textbook/volumes/00_foundations/GAME-D1/index.md)
 26. [GAME-D2 マッチング市場の構造・提案側最適性・大学入試](textbook/volumes/00_foundations/GAME-D2/index.md)
+27. [GAME-D3 重み付き割当問題・割当 LP・双対価格](textbook/volumes/00_foundations/GAME-D3/index.md)
