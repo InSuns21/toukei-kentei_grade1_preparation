@@ -9,13 +9,16 @@ prerequisites:
 # 本文末尾のRA7への接続、および既存レジストリの短いaliasが本文中の一般語へ
 # 反応する箇所を、正本依存へ昇格させずreader-facingな先取りとして明示する。
 forward_references:
-  - analysis.multiple-riemann-integral
+- analysis.multiple-riemann-integral
   - analysis.ck-uniform-norm
   - complex-analysis.isolated-singularity
   - convex.hyperplane
   - geometry.constant-rank-theorem
   - geometry.embedding
   - geometry.embedded-submanifold
+  - fixedpoint.fixed-point
+  - vector-calculus.level-surface
+  - geometry.tangent-space
 
 concepts:
   - id: analysis.segment-derivative-integral-formula
