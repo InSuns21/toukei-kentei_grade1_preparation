@@ -25,6 +25,7 @@ definitions:
   - { id: MICRO12-DEF-07, name: 二次確率優越 }
   - { id: MICRO12-DEF-08, name: 平均保存拡散 }
 theorems:
+  - { id: MICRO12-THM-00, name: 有限 Jensen の不等式 }
   - { id: MICRO12-THM-01, name: リスク回避と凹効用の同値 }
   - { id: MICRO12-PROP-01, name: 確実性等価とリスクプレミアムの符号 }
   - { id: MICRO12-THM-02, name: Arrow--Pratt のリスク回避順序 }
