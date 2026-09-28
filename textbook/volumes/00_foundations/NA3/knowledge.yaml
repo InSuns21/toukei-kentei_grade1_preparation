@@ -4,7 +4,7 @@ coverage: complete
 prerequisites:
   - NA1
   - NA2
-  - F0-02C3
+  - RA6
   - RA4
 forward_references: []
 
@@ -23,7 +23,7 @@ concepts:
     aliases: [多変数 Newton 法]
     introduction: formal
     introduction_aliases: ["定義（非線形連立方程式に対する Newton 法）"]
-    requires: [numerical.newton-method, functional.frechet-derivative]
+    requires: [numerical.newton-method, analysis.multivariable-differentiability]
 
   - id: numerical.jacobian-lipschitz
     name: Jacobian の Lipschitz 連続性
@@ -31,7 +31,7 @@ concepts:
     aliases: [Lipschitz 連続な Jacobian]
     introduction: formal
     introduction_aliases: ["定義（Jacobian の Lipschitz 連続性）"]
-    requires: [functional.frechet-derivative, functional.operator-norm]
+    requires: [analysis.multivariable-differentiability, linear.spectral-norm]
 
   - id: numerical.jacobian-quadratic-remainder
     name: Lipschitz Jacobian による二次剰余評価
@@ -47,7 +47,7 @@ concepts:
     aliases: [Newton 解析における可逆行列の摂動評価]
     introduction: formal
     introduction_aliases: ["補題（可逆行列の摂動と逆行列ノルム）"]
-    requires: [functional.operator-norm]
+    requires: [linear.spectral-norm]
 
   - id: numerical.system-newton-local-convergence
     name: 非線形連立方程式に対する Newton 法の局所収束
@@ -67,7 +67,7 @@ concepts:
     aliases: [根の局所絶対条件数]
     introduction: formal
     introduction_aliases: ["定義（根の局所絶対条件数）"]
-    requires: [numerical.nonlinear-system-root-residual, functional.operator-norm]
+    requires: [numerical.nonlinear-system-root-residual, linear.spectral-norm]
 
   - id: numerical.system-residual-root-error
     name: 非線形連立方程式における残差から根誤差への局所評価
