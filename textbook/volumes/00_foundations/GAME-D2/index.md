@@ -735,7 +735,7 @@ $$
 
 は虚偽申告プロファイル $\widehat{\succ}$ において $N$ のブロッキングペアです。
 
-しかし $N$ は提案側受入保留の出力なので、GAME-D1 の安定性定理より $\widehat{\succ}$ に関して安定です。
+しかし $N$ は提案側受入保留の出力なので、[Gale--Shapley の安定マッチング存在定理](../GAME-D1/index.md#thm-game-d1-gale-shapley)より $\widehat{\succ}$ に関して安定です。
 
 矛盾しました。
 
