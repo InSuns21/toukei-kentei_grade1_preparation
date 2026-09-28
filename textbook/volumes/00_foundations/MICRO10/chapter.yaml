@@ -1,0 +1,46 @@
+id: "MICRO10"
+title: "Afriat の定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MICRO9
+  - OPT10
+official_scope: []
+learning_objectives:
+  - 有限需要観測から支出差行列を作り、直接顕示選好と各成分の符号を対応付けられる
+  - Afriat 不等式を効用水準 u_t と正の係数 lambda_t に関する有限線形不等式系として定式化できる
+  - GARP を支出差行列の非正閉路に厳密負の辺が存在しない条件として言い換えられる
+  - GARP から Afriat 不等式の可解性を、零の支出差を含む帰納構成で証明できる
+  - Afriat 不等式から区分線形効用を有限個のアフィン関数の最小値として構成できる
+  - 構成した効用の連続性・凹性・狭義単調性をそれぞれ検証できる
+  - 各観測束で構成効用が u_t に一致し、予算集合上で選択束を最大化することを証明できる
+  - 局所非飽和な合理化・GARP・Afriat 不等式・連続狭義単調凹効用による合理化の同値を説明できる
+  - Afriat 不等式の正の係数を 1 以上に正規化し、合理化可能性を線形計画の実行可能性問題として書ける
+  - 共通支出効率指数を予算をどこまで縮めれば GARP を回復するかという指標として計算できる
+definitions:
+  - { id: MICRO10-DEF-01, name: 支出差行列 }
+  - { id: MICRO10-DEF-02, name: Afriat 不等式 }
+  - { id: MICRO10-DEF-03, name: Afriat 効用関数 }
+  - { id: MICRO10-DEF-04, name: 共通支出効率指数 }
+theorems:
+  - { id: MICRO10-LEM-01, name: GARP の閉路特徴付け }
+  - { id: MICRO10-THM-01, name: Afriat の定理 }
+  - { id: MICRO10-PROP-01, name: Afriat 不等式の線形計画実行可能性表示 }
+canonical_examples:
+  - 二財二観測で Afriat 不等式の実行可能解を手計算し、区分線形効用を構成する例
+  - 三観測の厳密な顕示選好循環を Afriat 不等式の和で矛盾させる例
+  - 三本の支持平面の下包絡として区分線形効用を構成する例
+  - 相互に厳密顕示選好する二観測で共通支出効率指数が 1/2 になる例
+problem_patterns:
+  - MICRO10-EXPENDITURE-DIFFERENCE-1
+  - MICRO10-AFRIAT-INEQUALITIES-1
+  - MICRO10-UTILITY-CONSTRUCTION-1
+  - MICRO10-CONCAVITY-MONOTONICITY-1
+  - MICRO10-LP-FEASIBILITY-1
+  - MICRO10-GARP-CYCLE-1
+  - MICRO10-EFFICIENCY-INDEX-1
+  - MICRO10-INTEGRATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 4.5, review: 0.75 }
