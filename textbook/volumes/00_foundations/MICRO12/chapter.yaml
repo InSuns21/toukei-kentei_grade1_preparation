@@ -13,7 +13,7 @@ learning_objectives:
   - 小さな平均ゼロリスクに対するリスクプレミアムが分散と Arrow--Pratt の絶対的リスク回避度で二次近似されることを導ける
   - 一次確率優越を分布関数の順序で定義し、有限支持では全ての単調効用による期待効用順序と同値であることを証明できる
   - 二次確率優越を下方部分期待値または積分分布関数の順序で定義し、有限支持では全ての非減少凹効用による期待効用順序と同値であることを証明できる
-  - mean-preserving spread が平均を保ったまま凹効用の期待値を低下させ、二次確率優越の劣位を生むことを証明できる
+  - 平均保存拡散 が平均を保ったまま凹効用の期待値を低下させ、二次確率優越の劣位を生むことを証明できる
   - 一次確率優越と二次確率優越を具体的な有限支持分布で判定し、平均だけではリスク比較を決められないことを説明できる
 definitions:
   - { id: MICRO12-DEF-01, name: リスク回避 }
@@ -23,7 +23,7 @@ definitions:
   - { id: MICRO12-DEF-05, name: Arrow--Pratt の相対的リスク回避度 }
   - { id: MICRO12-DEF-06, name: 一次確率優越 }
   - { id: MICRO12-DEF-07, name: 二次確率優越 }
-  - { id: MICRO12-DEF-08, name: mean-preserving spread }
+  - { id: MICRO12-DEF-08, name: 平均保存拡散 }
 theorems:
   - { id: MICRO12-THM-01, name: リスク回避と凹効用の同値 }
   - { id: MICRO12-PROP-01, name: 確実性等価とリスクプレミアムの符号 }
@@ -31,13 +31,13 @@ theorems:
   - { id: MICRO12-THM-03, name: 小リスクのリスクプレミアム近似 }
   - { id: MICRO12-THM-04, name: 一次確率優越の期待効用特徴付け }
   - { id: MICRO12-THM-05, name: 二次確率優越の期待効用特徴付け }
-  - { id: MICRO12-PROP-02, name: mean-preserving spread は二次確率優越で悪化させる }
+  - { id: MICRO12-PROP-02, name: 平均保存拡散 は二次確率優越で悪化させる }
 canonical_examples:
   - 平均100の二点くじを平方根効用で評価して確実性等価とリスクプレミアムを計算する例
   - 指数型効用と CRRA 効用で絶対的・相対的リスク回避度を計算する例
   - 二つの有限支持くじの累積確率を比較して一次確率優越を判定する例
   - 確実な100と80・120の等確率くじを比較し、一次確率優越は成立しないが二次確率優越は成立する例
-  - 各実現値を条件付き平均を保つ二点くじへ置き換えて mean-preserving spread を構成する例
+  - 各実現値を条件付き平均を保つ二点くじへ置き換えて 平均保存拡散 を構成する例
 problem_patterns:
   - MICRO12-RISK-AVERSION-1
   - MICRO12-CE-PREMIUM-1
