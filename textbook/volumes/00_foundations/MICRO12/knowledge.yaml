@@ -142,22 +142,22 @@ concepts:
       - micro.risk-aversion-concavity-equivalence
 
   - id: micro.mean-preserving-spread
-    name: mean-preserving spread
+    name: 平均保存拡散
     kind: definition
     aliases:
       - 平均保存拡散
       - mean preserving spread
     introduction: formal
-    introduction_aliases: ["定義（mean-preserving spread）"]
+    introduction_aliases: ["定義（平均保存拡散（mean-preserving spread））"]
     requires:
       - micro.second-order-stochastic-dominance
 
   - id: micro.mean-preserving-spread-ssd
-    name: mean-preserving spread は二次確率優越で悪化させる
+    name: 平均保存拡散は二次確率優越で悪化させる
     kind: proposition
     aliases: []
     introduction: formal
-    introduction_aliases: ["命題（mean-preserving spread は二次確率優越で悪化させる）"]
+    introduction_aliases: ["命題（平均保存拡散は二次確率優越で悪化させる）"]
     requires:
       - micro.mean-preserving-spread
       - micro.ssd-expected-utility-characterization
