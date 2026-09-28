@@ -53,9 +53,11 @@ concepts:
       - functional.operator-norm
 
   - id: functional.directional-derivative
-    name: 方向微分
+    name: ノルム空間上の方向微分
     kind: definition
-    aliases: [方向微分]
+    aliases: [ノルム空間上の方向微分]
+    introduction: formal
+    introduction_aliases: ["定義（方向微分）"]
     requires:
       - functional.normed-space
 
