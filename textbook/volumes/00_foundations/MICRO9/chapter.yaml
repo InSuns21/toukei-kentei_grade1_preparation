@@ -3,8 +3,8 @@ title: "顕示選好・WARP・SARP・GARP"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - MICRO1
   - MICRO2
+  - MICRO5
 official_scope: []
 learning_objectives:
   - 選択対応と有限需要観測データを区別して定義し、価格・所得・選択束が表す情報を説明できる
