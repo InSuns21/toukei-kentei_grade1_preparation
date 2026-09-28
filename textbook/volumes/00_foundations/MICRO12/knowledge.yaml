@@ -17,6 +17,15 @@ concepts:
     requires:
       - micro.expected-utility-representation
 
+  - id: micro.finite-jensen-inequality
+    name: 有限 Jensen の不等式
+    kind: theorem
+    aliases:
+      - finite Jensen inequality
+    introduction: formal
+    introduction_aliases: ["定理（有限 Jensen の不等式）"]
+    requires: []
+
   - id: micro.risk-aversion-concavity-equivalence
     name: リスク回避と凹効用の同値
     kind: theorem
@@ -26,6 +35,7 @@ concepts:
     requires:
       - micro.risk-aversion
       - micro.expected-utility-representation
+      - micro.finite-jensen-inequality
 
   - id: micro.certainty-equivalent
     name: 確実性等価
