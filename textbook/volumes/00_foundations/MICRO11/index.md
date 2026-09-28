@@ -805,17 +805,44 @@ $$
 
 とします。
 
-$\alpha\in[0,1]$ に対し、
+<a id="def-micro11-standard-lottery"></a>
 
+<!-- formal-statement-start -->
+> **定義（標準くじ）**  
+> 有限結果集合 $Z$ 上の退化くじのうち、最良結果を $\delta_b$、最悪結果を $\delta_w$ とし、
+>
+$$
+\delta_b\succ\delta_w
+$$
+>
+> とする。
+>
+> $\alpha\in[0,1]$ に対し、
+>
 $$
 L(\alpha)
 =
 \alpha\delta_b+(1-\alpha)\delta_w
 $$
+>
+> を **標準くじ**という。
+<!-- formal-statement-end -->
 
-を **標準くじ**と呼ぶことにします。
+<!-- definition-example-start: def-micro11-standard-lottery -->
+**定義の確認**：最良結果を確率 $3/4$ で得る標準くじ
 
-これは最良結果が確率 $\alpha$、最悪結果が確率 $1-\alpha$ で起こる二点くじです。
+$\alpha=3/4$ なら、
+
+$$
+L\left(\frac34\right)
+=
+\frac34\delta_b
++
+\frac14\delta_w.
+$$
+
+したがって、最良結果が確率 $3/4$、最悪結果が確率 $1/4$ で起こり、それ以外の結果には確率0を割り当てる二点くじです。
+<!-- definition-example-end -->
 
 <a id="lem-micro11-standard-lottery"></a>
 
