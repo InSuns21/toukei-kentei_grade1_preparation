@@ -23,15 +23,7 @@ $$
 <a id="def-ode8-maximal-solution"></a>
 <!-- formal-statement-start -->
 > **定義（最大解・最大存在区間）**  
-> 開集合 $D\subset\mathbb R^d$ 上で、自律系と初期値
-
-$$
-x'=F(x),
-\qquad
-x(t_0)=x_0\in D
-$$
-
-> を考える。解 $x:I\to D$ が最大解であるとは、同じ初期値を持つ解として真に大きい区間へ延長できないことをいう。このとき $I$ を最大存在区間という。
+> 開集合 $D\subset\mathbb R^d$ 上の自律系 $x'=F(x)$ と初期値 $x(t_0)=x_0\in D$ を考える。解 $x:I\to D$ が最大解であるとは、同じ初期値を持つ解として真に大きい区間へ延長できないことをいう。このとき $I$ を最大存在区間という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ode8-maximal-solution -->
