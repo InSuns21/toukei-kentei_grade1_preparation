@@ -1740,14 +1740,14 @@ $$
 
 ---
 
-## 7. mean-preserving spread：平均を変えずにリスクだけを広げる
+## 7. 平均保存拡散：平均を変えずにリスクだけを広げる
 
 「平均はそのまま、各結果の周りに追加のばらつきを載せる」という操作を明示します。
 
 <a id="def-micro12-mps"></a>
 
 <!-- formal-statement-start -->
-> **定義（mean-preserving spread）**  
+> **定義（平均保存拡散（mean-preserving spread））**  
 > 有限支持確率変数 $X$ に対し、同じ確率空間上の有限支持確率変数 $Y$ が
 >
 $$
@@ -1768,7 +1768,7 @@ $$
 
 である。
 
-この条件を満たす $Y$ を $X$ から得られる **mean-preserving spread** と呼ぶ。
+この条件を満たす $Y$ を $X$ から得られる **平均保存拡散** と呼ぶ。
 <!-- formal-statement-end -->
 
 これは、各元の結果 $x$ を「平均だけは $x$ のままの追加くじ」に置き換える操作です。
@@ -1806,14 +1806,14 @@ E[Y\mid X=100]
 X.
 $$
 
-したがって $Y$ は $X$ の mean-preserving spread です。
+したがって $Y$ は $X$ の 平均保存拡散 です。
 <!-- definition-example-end -->
 
 <a id="prop-micro12-mps-ssd"></a>
 
 <!-- formal-statement-start -->
-> **命題（mean-preserving spread は二次確率優越で悪化させる）**  
-> $Y$ が有限支持確率変数 $X$ の mean-preserving spread であるとする。
+> **命題（平均保存拡散 は二次確率優越で悪化させる）**  
+> $Y$ が有限支持確率変数 $X$ の 平均保存拡散 であるとする。
 >
 > このとき
 >
@@ -1906,7 +1906,7 @@ $$
 $\square$
 <!-- proof-end -->
 
-この命題は、凹効用・mean-preserving spread・二次確率優越を一つの図にまとめます。
+この命題は、凹効用・平均保存拡散・二次確率優越を一つの図にまとめます。
 
 $$
 \boxed{
@@ -2824,7 +2824,7 @@ $$
 
 1. 三つの平均を求めよ。
 2. $A,B,C$ の間では FOSD による比較が成立しない組があることを確認せよ。
-3. $B$ が $A$ の mean-preserving spread、$C$ が $B$ からさらに平均を保って広げた分布として構成できることを示せ。
+3. $B$ が $A$ の 平均保存拡散、$C$ が $B$ からさらに平均を保って広げた分布として構成できることを示せ。
 4.
 $$
 A\succeq_{\mathrm{SSD}}B\succeq_{\mathrm{SSD}}C
@@ -2906,7 +2906,7 @@ $$
 \frac12(80+120)=100.
 $$
 
-従って $B$ は $A$ の mean-preserving spread です。
+従って $B$ は $A$ の 平均保存拡散 です。
 
 次に $B$ から $C$ を作ります。
 
@@ -2966,9 +2966,9 @@ $$
 
 $Y=140$ も同様に $1/2$ です。
 
-従って $Y$ の周辺分布はちょうど $C$ であり、$C$ は $B$ の mean-preserving spread として構成できます。
+従って $Y$ の周辺分布はちょうど $C$ であり、$C$ は $B$ の 平均保存拡散 として構成できます。
 
-4. mean-preserving spread は SSD で悪化させる命題から、
+4. 平均保存拡散 は SSD で悪化させる命題から、
 
 $$
 A\succeq_{\mathrm{SSD}}B
