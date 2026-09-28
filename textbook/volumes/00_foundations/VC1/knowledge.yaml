@@ -19,7 +19,7 @@ concepts:
     aliases: [scalar field, vector field, スカラー場, ベクトル場]
     introduction: inline
     requires:
-      - functional.frechet-derivative
+      - analysis.multivariable-differentiability
 
   - id: vector-calculus.gradient
     name: 勾配
@@ -28,7 +28,7 @@ concepts:
     introduction: inline
     requires:
       - vector-calculus.scalar-vector-field
-      - functional.frechet-derivative
+      - analysis.multivariable-differentiability
 
   - id: vector-calculus.level-surface
     name: レベル集合・レベル曲面
