@@ -666,6 +666,90 @@ $$
 > （Strong Axiom of Revealed Preference; SARP）という。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-micro9-sarp -->
+**定義の確認**：片方向の顕示選好だけなら循環はできない
+
+二財二観測で、
+
+$$
+p^1=(1,1),
+\qquad
+m^1=2,
+\qquad
+x^1=(2,0),
+$$
+
+$$
+p^2=(2,1),
+\qquad
+m^2=1,
+\qquad
+x^2=(0,1)
+$$
+
+とします。
+
+観測1の価格では、
+
+$$
+p^1\cdot x^1=2,
+\qquad
+p^1\cdot x^2=1,
+$$
+
+なので、
+
+$$
+x^1P^Dx^2
+$$
+
+であり、特に
+
+$$
+x^1R^Dx^2
+$$
+
+です。
+
+一方、観測2の価格では、
+
+$$
+p^2\cdot x^2=1,
+\qquad
+p^2\cdot x^1=4.
+$$
+
+したがって、
+
+$$
+x^2R^Dx^1
+$$
+
+ではありません。
+
+異なる二束の間の直接顕示選好は
+
+$$
+x^1\to x^2
+$$
+
+の一方向だけなので、推移閉包にも $x^2Rx^1$ は現れません。
+
+従って、異なる $t,s$ について
+
+$$
+x^tRx^s
+$$
+
+と
+
+$$
+x^sR^Dx^t
+$$
+
+が同時に成立する組はなく、この二観測データは SARP を満たします。
+<!-- definition-example-end -->
+
 SARP は、長さ2だけでなく、
 
 $$
