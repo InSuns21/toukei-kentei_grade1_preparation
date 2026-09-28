@@ -172,7 +172,7 @@ $$
 <a id="def-micro11-compound-reduction"></a>
 
 <!-- formal-statement-start -->
-> **定義（複合くじと縮約）**  
+> **定義（複合くじの縮約）**  
 > $Z=\{z_1,\dots,z_n\}$ 上の単純なくじ
 >
 $$
