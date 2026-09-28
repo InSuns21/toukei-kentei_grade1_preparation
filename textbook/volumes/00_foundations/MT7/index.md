@@ -460,7 +460,25 @@ $$
 <!-- formal-statement-start -->
 ### 定理（σ-finite Lp双対定理）
 
-$(X,\mathcal F,\mu)$ を σ-finite 測度空間、$1\le p<\infty$、$q$ は $1/p+1/q=1$ を満たすとする。このとき任意の $T\in(L^p(\mu))^*$ に対し一意な $g\in L^q(\mu)$ が存在して $T(f)=\int fg\,d\mu$ が全ての $f\in L^p$ で成り立ち、さらに $\|T\|=\|g\|_q$ である。
+$(X,\mathcal F,\mu)$ を σ-finite 測度空間、$1\le p<\infty$ とし、$q$ は
+
+$$
+\frac1p+\frac1q=1
+$$
+
+を満たすとする。このとき任意の $T\in(L^p(\mu))^*$ に対し一意な $g\in L^q(\mu)$ が存在して、全ての $f\in L^p$ について
+
+$$
+T(f)=\int fg\,d\mu
+$$
+
+が成り立つ。さらに
+
+$$
+\|T\|=\|g\|_q
+$$
+
+である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
