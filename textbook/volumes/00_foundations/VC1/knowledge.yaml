@@ -11,6 +11,7 @@ forward_references:
   - vector-calculus.flux-integral
   - vector-calculus.gauss-divergence
   - complex-analysis.harmonic-function
+  - vector-calculus.vorticity
 
 concepts:
   - id: vector-calculus.scalar-vector-field
@@ -29,6 +30,7 @@ concepts:
     requires:
       - vector-calculus.scalar-vector-field
       - analysis.multivariable-differentiability
+      - analysis.directional-derivative
 
   - id: vector-calculus.level-surface
     name: レベル集合・レベル曲面
