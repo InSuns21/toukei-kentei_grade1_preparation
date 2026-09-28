@@ -103,9 +103,15 @@ function selfTestDenseInlineMath() {
   if (denseInlineMathReason(good, true)) {
     throw new Error('formal statement math lint self-test failed: short type/hypothesis notation was falsely detected');
   }
-  const standaloneBad = '> $H(0,p)=f_0(p), \\qquad H(1,p)=f_1(p)
+  const standaloneBad = '> $H(0,p)=f_0(p), \\qquad H(1,p)=f_1(p)$';
+  const standaloneGood = '> $x$';
+  if (!standaloneInlineMathReason(standaloneBad)) {
+    throw new Error('formal statement math lint self-test failed: standalone inline formula was not detected');
+  }
+  if (standaloneInlineMathReason(standaloneGood)) {
+    throw new Error('formal statement math lint self-test failed: short standalone symbol was falsely detected');
+  }
 }
-
 selfTestDenseInlineMath();
 
 function walk(dir) {
