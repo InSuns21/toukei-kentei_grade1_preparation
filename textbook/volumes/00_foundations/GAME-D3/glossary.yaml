@@ -1,0 +1,20 @@
+chapter: "GAME-D3"
+terms:
+  - term: 重み付き二部マッチング
+    english: weighted bipartite matching
+    meaning: 二部グラフの各辺に重みを与え、選んだマッチング辺の重みの総和で割当てを評価するマッチング問題。
+  - term: 総余剰
+    english: total surplus
+    meaning: 完全マッチングで選ばれた各組の余剰 w_ij を全組について足した値。
+  - term: 余剰最大化割当 LP
+    english: surplus-maximizing assignment LP
+    meaning: 各行和・各列和を1、変数を非負とし、sum_ij w_ij x_ij を最大化する割当問題の線形計画緩和。
+  - term: 双対価格系
+    english: dual price system
+    meaning: すべての組で u_i+p_j>=w_ij を満たす主体側変数 u_i と対象側価格 p_j の組。
+  - term: 価格による支持
+    english: price support
+    meaning: 各主体が価格を引いた純余剰 w_ij-p_j を最大にする対象を割り当てられ、その個別最適選択が完全マッチングとして両立すること。
+  - term: 価格水準の移動不変性
+    english: price-level shift invariance
+    meaning: 全ての対象価格に同じ定数を加え、主体側余剰から同じ定数を引いても、双対制約・目的値・対象間の純余剰順位が変わらない性質。
