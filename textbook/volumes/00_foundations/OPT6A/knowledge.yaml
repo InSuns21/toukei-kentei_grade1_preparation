@@ -7,6 +7,9 @@ prerequisites:
 
 forward_references:
   - optimization.steepest-descent
+  - optimization.strong-convexity
+  - optimization.descent-lemma
+  - optimization.lipschitz-gradient
 
 concepts:
   - id: optimization.cone-constraint
