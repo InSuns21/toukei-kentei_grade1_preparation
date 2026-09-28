@@ -11,20 +11,7 @@ const LABEL = '(?:定義|定理|命題|補題|系|公理|原理)';
 const STABLE_PREFIX = '(?:def|thm|prop|lem|cor|axiom|principle|ref)';
 const labelRe = new RegExp(`^\\s*(?:>\\s*)?\\*\\*${LABEL}(?:[（(：:].*)?\\*\\*`, 'u');
 const formalHeadingRe = new RegExp(`^#{2,6}\\s+(?:\\d+(?:\\.\\d+)*(?:[.)．])?\\s*)?${LABEL}(?:[（(：:]|$)`, 'u');
-const stableAnchorRe = new RegExp(`^\\s*<a\\s+id=["'](${STABLE_PREFIX}-[a-z0-9][a-z0-9-]*)["']\\s*><\\/a>\\s*import fs from 'node:fs';
-import path from 'node:path';
-
-const pagesMode = process.argv.includes('--pages');
-const ROOTS = pagesMode
-  ? ['_site/textbook/volumes', '_site/applied-rikou-80', '_site/statistical-mathematics']
-  : ['textbook/volumes', 'applied-rikou-80', 'statistical-mathematics'];
-const START = '<!-- formal-statement-start -->';
-const END = '<!-- formal-statement-end -->';
-const LABEL = '(?:定義|定理|命題|補題|系|公理|原理)';
-const STABLE_PREFIX = '(?:def|thm|prop|lem|cor|axiom|principle|ref)';
-const labelRe = new RegExp(`^\\s*(?:>\\s*)?\\*\\*${LABEL}(?:[（(：:].*)?\\*\\*`, 'u');
-const formalHeadingRe = new RegExp(`^#{2,6}\\s+(?:\\d+(?:\\.\\d+)*(?:[.)．])?\\s*)?${LABEL}(?:[（(：:]|$)`, 'u');
-, 'iu');
+const stableAnchorRe = new RegExp(`^\\s*<a\\s+id=["'](${STABLE_PREFIX}-[a-z0-9][a-z0-9-]*)["']\\s*><\\/a>\\s*$`, 'iu');
 
 const inlineMathRe = /(?<!\\$)\\$(?!\\$)([^$\\n]+?)\\$(?!\\$)/gu;
 
@@ -141,10 +128,10 @@ for (const root of ROOTS.map((p) => path.resolve(p))) {
         continue;
       }
 
-      if (!pagesMode && depth > 0 && !line.includes('$')) {
+      if (!pagesMode && depth > 0 && !line.includes('$$')) {
         const reason = denseInlineMathReason(line);
         if (reason) {
-          errors.push(`${rel}:${lineNo}: ${reason} inside a formal statement; keep short notation inline, but move the main equation or condition to an unquoted $...$ display block`);
+          errors.push(`${rel}:${lineNo}: ${reason} inside a formal statement; keep short notation inline, but move the main equation or condition to an unquoted $$...$$ display block`);
         }
       }
 
