@@ -15,7 +15,7 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（直交曲線座標）"]
     requires:
-      - functional.frechet-derivative
+      - analysis.multivariable-differentiability
       - vector-calculus.surface-tangent-normal
 
   - id: vector-calculus.curvilinear-scale-factors
