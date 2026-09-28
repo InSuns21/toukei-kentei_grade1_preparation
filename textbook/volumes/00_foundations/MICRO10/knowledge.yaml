@@ -1,0 +1,86 @@
+chapter: MICRO10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MICRO9
+  - OPT10
+
+forward_references: []
+
+concepts:
+  - id: micro.expenditure-difference-matrix
+    name: 支出差行列
+    kind: definition
+    aliases:
+      - expenditure-difference matrix
+    introduction: formal
+    introduction_aliases: ["定義（支出差行列）"]
+    requires:
+      - micro.finite-demand-dataset
+      - micro.direct-revealed-preference
+
+  - id: micro.afriat-inequalities
+    name: Afriat 不等式
+    kind: definition
+    aliases:
+      - Afriat inequalities
+    introduction: formal
+    introduction_aliases: ["定義（Afriat 不等式）"]
+    requires:
+      - micro.expenditure-difference-matrix
+
+  - id: micro.garp-cycle-characterization
+    name: GARP の閉路特徴付け
+    kind: lemma
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["補題（GARP の閉路特徴付け）"]
+    requires:
+      - micro.garp
+      - micro.expenditure-difference-matrix
+
+  - id: micro.afriat-utility-function
+    name: Afriat 効用関数
+    kind: definition
+    aliases:
+      - Afriat utility function
+    introduction: formal
+    introduction_aliases: ["定義（Afriat 効用関数）"]
+    requires:
+      - micro.afriat-inequalities
+
+  - id: micro.afriat-theorem
+    name: Afriat の定理
+    kind: theorem
+    aliases:
+      - Afriat's theorem
+    introduction: formal
+    introduction_aliases: ["定理（Afriat の定理）"]
+    requires:
+      - micro.garp
+      - micro.demand-rationalization
+      - micro.garp-cycle-characterization
+      - micro.afriat-inequalities
+      - micro.afriat-utility-function
+
+  - id: micro.afriat-lp-feasibility
+    name: Afriat 不等式の線形計画実行可能性表示
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（Afriat 不等式の線形計画実行可能性表示）"]
+    requires:
+      - micro.afriat-inequalities
+      - optimization.linear-program-standard-form
+
+  - id: micro.critical-cost-efficiency-index
+    name: 共通支出効率指数
+    kind: definition
+    aliases:
+      - Critical Cost Efficiency Index
+      - CCEI
+    introduction: formal
+    introduction_aliases: ["定義（共通支出効率指数）"]
+    requires:
+      - micro.garp
+      - micro.direct-revealed-preference
