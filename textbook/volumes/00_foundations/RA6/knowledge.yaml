@@ -30,7 +30,7 @@ concepts:
   - id: analysis.jacobian-matrix
     name: Jacobian 行列
     kind: definition
-    aliases: [Jacobian行列, ヤコビ行列]
+    aliases: [ヤコビ行列]
     requires:
       - analysis.multivariable-differentiability
 
@@ -77,7 +77,7 @@ concepts:
   - id: analysis.multivariable-second-order-taylor
     name: 二階の多変数 Taylor 展開
     kind: theorem
-    aliases: [二階の多変数Taylor展開]
+    aliases: [多変数二階Taylor展開]
     requires:
       - analysis.multivariable-chain-rule
       - analysis.taylor-theorem
