@@ -487,3 +487,4 @@
 23. [GAME-C6 公理的交渉解の非協力的基礎](textbook/volumes/00_foundations/GAME-C6/index.md)
 24. [GAME-C7 不完備情報下の交渉入門](textbook/volumes/00_foundations/GAME-C7/index.md)
 25. [GAME-D1 安定結婚問題・Gale--Shapley アルゴリズム](textbook/volumes/00_foundations/GAME-D1/index.md)
+26. [GAME-D2 マッチング市場の構造・提案側最適性・大学入試](textbook/volumes/00_foundations/GAME-D2/index.md)
