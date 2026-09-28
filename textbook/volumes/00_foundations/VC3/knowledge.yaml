@@ -21,7 +21,7 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（正則パラメータ曲面）"]
     requires:
-      - functional.frechet-derivative
+      - analysis.multivariable-differentiability
 
   - id: vector-calculus.surface-tangent-normal
     name: 接平面・法線
