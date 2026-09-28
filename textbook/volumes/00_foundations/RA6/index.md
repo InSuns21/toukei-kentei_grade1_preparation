@@ -286,12 +286,12 @@ $$
 > **定義（方向微分）**  
 > $f:U\subset\mathbb R^n\to\mathbb R^m$、$a\in U$、$v\in\mathbb R^n$ とする。
 >
-> $
+> $$
 > D_vf(a)
 > =
 > \lim_{t\to0}
 > \frac{f(a+tv)-f(a)}{t}
-> $
+> $$
 >
 > が存在するとき、これを $a$ における方向 $v$ の **方向微分** という。
 <!-- formal-statement-end -->
@@ -299,38 +299,38 @@ $$
 <!-- definition-example-start: def-ra6-directional-derivative -->
 ### 例：二次関数の方向微分
 
-$
+$$
 f(x,y)=x^2+y^2
-$
+$$
 
 とし、$a=(1,2)$、$v=(v_1,v_2)$ とします。すると
 
-$
+$$
 \frac{f(a+tv)-f(a)}{t}
 =
 2v_1+4v_2+t(v_1^2+v_2^2),
-$
+$$
 
 なので
 
-$
+$$
 D_vf(1,2)=2v_1+4v_2.
-$
+$$
 <!-- definition-example-end -->
 
 $f$ が $a$ で微分可能なら、
 
-$
+$$
 f(a+tv)-f(a)
 =
 tDf(a)v+o(|t|),
-$
+$$
 
 したがって
 
-$
+$$
 \boxed{D_vf(a)=Df(a)v}.
-$
+$$
 
 方向微分は一方向ずつの変化率であり、微分可能性は全方向を一つの線形写像で同時に近似できるという、より強い条件です。
 
