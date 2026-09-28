@@ -458,6 +458,7 @@
 6. [MICRO6 純粋交換経済・Walras 均衡](textbook/volumes/00_foundations/MICRO6/index.md)
 7. [MICRO7 一般均衡の存在](textbook/volumes/00_foundations/MICRO7/index.md)
 8. [MICRO8 Arrow--Debreu 経済](textbook/volumes/00_foundations/MICRO8/index.md)
+9. [MICRO9 顕示選好・WARP・SARP・GARP](textbook/volumes/00_foundations/MICRO9/index.md)
 
 <a id="dt-subject-game-theory"></a>
 ### ゲーム理論

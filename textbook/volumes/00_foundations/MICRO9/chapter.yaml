@@ -1,0 +1,51 @@
+id: "MICRO9"
+title: "顕示選好・WARP・SARP・GARP"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MICRO2
+  - MICRO5
+official_scope: []
+learning_objectives:
+  - 選択対応と有限需要観測データを区別して定義し、価格・所得・選択束が表す情報を説明できる
+  - 直接顕示選好と狭義直接顕示選好を支出比較から判定できる
+  - 間接顕示選好を直接顕示選好の推移閉包として構成できる
+  - 顕示選好の弱公理 WARP を二つの観測間の相互選択として判定できる
+  - 顕示選好の強公理 SARP を非自明な顕示選好循環の不存在として判定できる
+  - 一般化顕示選好公理 GARP を、間接顕示選好と逆向きの狭義直接顕示選好の両立禁止として判定できる
+  - SARP が WARP と GARP を含意する一方、WARP と GARP は一般には互いを含意しないことを具体例で説明できる
+  - 完備・推移的で局所非飽和な選好による需要合理化が GARP を必要とすることを証明できる
+  - 有限データの直接顕示選好行列から推移閉包を計算し、GARP 違反を機械的に検出できる
+  - 同じ予算集合上の複数最適解が WARP/SARP と GARP の差を生むことを説明できる
+  - 3観測以上の循環により、二観測だけを調べる WARP では見逃す不整合があることを説明できる
+definitions:
+  - { id: MICRO9-DEF-01, name: 選択対応 }
+  - { id: MICRO9-DEF-02, name: 有限需要観測データ }
+  - { id: MICRO9-DEF-03, name: 直接顕示選好・狭義直接顕示選好 }
+  - { id: MICRO9-DEF-04, name: 間接顕示選好 }
+  - { id: MICRO9-DEF-05, name: 顕示選好の弱公理 WARP }
+  - { id: MICRO9-DEF-06, name: 顕示選好の強公理 SARP }
+  - { id: MICRO9-DEF-07, name: 一般化顕示選好公理 GARP }
+  - { id: MICRO9-DEF-08, name: 需要データの合理化 }
+theorems:
+  - { id: MICRO9-PROP-01, name: SARP は WARP と GARP を含意する }
+  - { id: MICRO9-THM-01, name: 局所非飽和な選好による合理化は GARP を必要とする }
+  - { id: MICRO9-PROP-02, name: 推移閉包による有限データの GARP 判定 }
+canonical_examples:
+  - 同一予算線上の二つの異なる最適束が相互に直接顕示選好され、WARP を破るが GARP は破らない例
+  - 三財三観測で各二観測には相互直接顕示選好がなく WARP を満たす一方、長さ3の循環で GARP を破る例
+  - 直接顕示選好行列の Warshall 型推移閉包から GARP 違反を検出する例
+  - 効用 u(x)=x1+x2 が同一予算線上の複数最適束を合理化する例
+problem_patterns:
+  - MICRO9-DIRECT-REVEALED-1
+  - MICRO9-WARP-1
+  - MICRO9-SARP-1
+  - MICRO9-GARP-1
+  - MICRO9-TRANSITIVE-CLOSURE-1
+  - MICRO9-RATIONALIZATION-1
+  - MICRO9-LONG-CYCLE-1
+  - MICRO9-INTEGRATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.5, review: 0.75 }

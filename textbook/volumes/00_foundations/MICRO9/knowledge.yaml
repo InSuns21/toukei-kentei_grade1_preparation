@@ -1,0 +1,138 @@
+chapter: MICRO9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MICRO2
+  - MICRO5
+
+forward_references: []
+
+concepts:
+  - id: micro.choice-correspondence
+    name: 選択対応
+    kind: definition
+    aliases:
+      - choice correspondence
+    introduction: formal
+    introduction_aliases: ["定義（選択対応）"]
+    requires: []
+
+  - id: micro.finite-demand-dataset
+    name: 有限需要観測データ
+    kind: definition
+    aliases:
+      - finite demand dataset
+    introduction: formal
+    introduction_aliases: ["定義（有限需要観測データ）"]
+    requires:
+      - micro.budget-set
+
+  - id: micro.direct-revealed-preference
+    name: 直接顕示選好
+    kind: definition
+    aliases:
+      - direct revealed preference
+    introduction: formal
+    introduction_aliases: ["定義（直接顕示選好・狭義直接顕示選好）"]
+    requires:
+      - micro.finite-demand-dataset
+
+  - id: micro.strict-direct-revealed-preference
+    name: 狭義直接顕示選好
+    kind: definition
+    aliases:
+      - strict direct revealed preference
+    introduction: formal
+    introduction_aliases: ["定義（直接顕示選好・狭義直接顕示選好）"]
+    requires:
+      - micro.direct-revealed-preference
+
+  - id: micro.indirect-revealed-preference
+    name: 間接顕示選好
+    kind: definition
+    aliases:
+      - indirect revealed preference
+      - transitive revealed preference
+    introduction: formal
+    introduction_aliases: ["定義（間接顕示選好）"]
+    requires:
+      - micro.direct-revealed-preference
+
+  - id: micro.warp
+    name: 顕示選好の弱公理
+    kind: definition
+    aliases:
+      - Weak Axiom of Revealed Preference
+      - WARP
+    introduction: formal
+    introduction_aliases: ["定義（顕示選好の弱公理 WARP）"]
+    requires:
+      - micro.direct-revealed-preference
+
+  - id: micro.sarp
+    name: 顕示選好の強公理
+    kind: definition
+    aliases:
+      - Strong Axiom of Revealed Preference
+      - SARP
+    introduction: formal
+    introduction_aliases: ["定義（顕示選好の強公理 SARP）"]
+    requires:
+      - micro.indirect-revealed-preference
+
+  - id: micro.garp
+    name: 一般化顕示選好公理
+    kind: definition
+    aliases:
+      - Generalized Axiom of Revealed Preference
+      - GARP
+    introduction: formal
+    introduction_aliases: ["定義（一般化顕示選好公理 GARP）"]
+    requires:
+      - micro.indirect-revealed-preference
+      - micro.strict-direct-revealed-preference
+
+  - id: micro.demand-rationalization
+    name: 需要データの合理化
+    kind: definition
+    aliases:
+      - demand rationalization
+      - rationalizability of demand data
+    introduction: formal
+    introduction_aliases: ["定義（需要データの合理化）"]
+    requires:
+      - micro.preference-relation
+      - micro.finite-demand-dataset
+
+  - id: micro.sarp-implies-warp-garp
+    name: SARP から WARP・GARP への含意
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（SARP は WARP と GARP を含意する）"]
+    requires:
+      - micro.warp
+      - micro.sarp
+      - micro.garp
+
+  - id: micro.rationalization-implies-garp
+    name: 局所非飽和な選好による合理化は GARP を必要とする
+    kind: theorem
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["定理（局所非飽和な選好による合理化は GARP を必要とする）"]
+    requires:
+      - micro.demand-rationalization
+      - micro.garp
+      - micro.preference-transitivity
+      - micro.local-nonsatiation
+
+  - id: micro.garp-transitive-closure-test
+    name: 推移閉包による有限データの GARP 判定
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: ["命題（推移閉包による有限データの GARP 判定）"]
+    requires:
+      - micro.garp
+      - micro.indirect-revealed-preference
