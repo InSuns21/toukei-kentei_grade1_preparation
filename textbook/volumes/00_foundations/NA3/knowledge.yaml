@@ -6,7 +6,8 @@ prerequisites:
   - NA2
   - RA6
   - RA4
-forward_references: []
+forward_references:
+  - numerical.newton-interpolation
 
 concepts:
   - id: numerical.nonlinear-system-root-residual
