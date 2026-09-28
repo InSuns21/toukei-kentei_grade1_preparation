@@ -24,7 +24,7 @@ concepts:
     aliases:
       - reduction of compound lotteries
     introduction: formal
-    introduction_aliases: ["定義（複合くじと縮約）"]
+    introduction_aliases: ["定義（複合くじの縮約）"]
     requires:
       - micro.simple-lottery
 
