@@ -336,7 +336,7 @@ $$
 a_{ts}\le0
 $$
 
-なら Afriat 不等式から、
+なら [Afriat 不等式](textbook/volumes/00_foundations/MICRO10/index.md#def-micro10-afriat-inequalities)から、
 
 $$
 u_s
@@ -1057,7 +1057,7 @@ $$
 
 ---
 
-## 7. Afriat 不等式から効用関数を実際に作る
+## 7. [Afriat 不等式](textbook/volumes/00_foundations/MICRO10/index.md#def-micro10-afriat-inequalities)から効用関数を実際に作る
 
 <a id="def-micro10-afriat-utility"></a>
 
@@ -1185,7 +1185,7 @@ $$
 
 観測 $x^s$ を代入します。
 
-Afriat 不等式から全ての $t$ について、
+[Afriat 不等式](textbook/volumes/00_foundations/MICRO10/index.md#def-micro10-afriat-inequalities)から全ての $t$ について、
 
 $$
 u_s
@@ -1467,7 +1467,7 @@ $$
 a_{t_kt_0}<0.
 $$
 
-Afriat 不等式から、
+[Afriat 不等式](textbook/volumes/00_foundations/MICRO10/index.md#def-micro10-afriat-inequalities)から、
 
 $$
 u_{t_0}
@@ -2528,7 +2528,7 @@ Afriat 不等式に $\lambda_1,\lambda_2,\lambda_3>0$ を持つ解が存在し�
 <!-- solution-start -->
 #### 詳細解答
 
-Afriat 不等式から、
+[Afriat 不等式](textbook/volumes/00_foundations/MICRO10/index.md#def-micro10-afriat-inequalities)から、
 
 $$
 u_2
@@ -2610,7 +2610,7 @@ $$
 
 <a id="ex-micro10-b02"></a>
 
-### MICRO10-B02 Afriat 不等式から GARP を直接導く
+### MICRO10-B02 [Afriat 不等式](textbook/volumes/00_foundations/MICRO10/index.md#def-micro10-afriat-inequalities)から GARP を直接導く
 
 - Level: B
 - 目安時間: 25分
@@ -2650,7 +2650,7 @@ $$
 a_{t_rt_{r+1}}\le0.
 $$
 
-Afriat 不等式から、
+[Afriat 不等式](textbook/volumes/00_foundations/MICRO10/index.md#def-micro10-afriat-inequalities)から、
 
 $$
 u_{t_{r+1}}
@@ -2706,7 +2706,7 @@ $$
 a_{t_kt_0}<0.
 $$
 
-Afriat 不等式から、
+[Afriat 不等式](textbook/volumes/00_foundations/MICRO10/index.md#def-micro10-afriat-inequalities)から、
 
 $$
 u_{t_0}
