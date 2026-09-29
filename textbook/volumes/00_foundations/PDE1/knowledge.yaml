@@ -35,11 +35,11 @@ concepts:
     requires: [pde.pde1-partial-differential-equation]
 
   - id: pde.pde1-well-posedness
-    name: well-posedness
+    name: Hadamardの意味での適切性
     kind: definition
-    aliases: [well-posed, 適切性, Hadamardの意味での適切性]
+    aliases: [well-posedness, well-posed, 適切性]
     introduction: formal
-    introduction_aliases: ["定義（well-posedness）"]
+    introduction_aliases: ["定義（Hadamardの意味での適切性）"]
     requires: [pde.pde1-initial-boundary-value-problem]
 
   - id: pde.pde1-curve-chain-rule
