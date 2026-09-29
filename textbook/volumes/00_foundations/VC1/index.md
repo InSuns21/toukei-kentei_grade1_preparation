@@ -847,20 +847,7 @@ Q_zC+QC_z-R_zB-RB_z\\
 \end{aligned}
 $$
 
-一方、主張する右辺の第二成分は
-
-$$
-\begin{aligned}
-&
-Q(A_x+B_y+C_z)
--B(P_x+Q_y+R_z)\\
-&\quad
-+(AP_x+BP_y+CP_z)
--(PA_x+QA_y+RA_z)\Big|_{\text{第2成分}}
-\end{aligned}
-$$
-
-と一つの式で読むのではなく、各ベクトル項の第2成分を取り出して
+一方、主張する右辺の各ベクトル項から第2成分を取り出すと
 
 $$
 \begin{aligned}
