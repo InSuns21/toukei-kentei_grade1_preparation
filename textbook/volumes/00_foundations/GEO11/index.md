@@ -3043,7 +3043,19 @@ $$
 \end{aligned}
 $$
 
-問題文で与えた第1節の恒等式により括弧内は0なので
+ここで
+
+$$
+\partial_i g_{jk}
+-
+\Gamma^m_{ij}g_{mk}
+-
+\Gamma^m_{ik}g_{jm}
+=
+0
+$$
+
+なので
 
 $$
 \nabla_i b_{jk}
