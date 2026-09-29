@@ -834,8 +834,8 @@ $$
 $$
 C_T
 =
-\int_{\substack{u\ge0,\ v\ge0\\u+v\le T}}
-f_s(u)g_s(v)\,du\,dv.
+\iint_{\substack{u\ge0,\ v\ge0\\u+v\le T}}
+f_s(u)g_s(v)\,dv\,du.
 $$
 
 つまり $C_T$ は正方形 $[0,T]^2$ のうち $u+v\le T$ の三角部分の積分に一致します。
