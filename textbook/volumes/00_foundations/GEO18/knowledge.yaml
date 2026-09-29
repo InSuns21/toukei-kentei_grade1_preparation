@@ -79,11 +79,20 @@ concepts:
     requires:
       - topology.path-connected-space
 
+  - id: topology.covering-map
+    name: 被覆写像
+    kind: definition
+    aliases: [被覆写像, covering map]
+    introduction: formal
+    introduction_aliases: ["定義（被覆写像）"]
+    requires: []
+
   - id: geometry.expanding-local-diffeomorphism-covering
     name: 拡大局所微分同相の被覆補題
     kind: lemma
     aliases: [拡大局所微分同相の被覆補題]
     requires:
+      - topology.covering-map
       - geometry.riemannian-metric-completeness
       - geometry.convex-normal-neighborhood
 
