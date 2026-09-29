@@ -604,93 +604,93 @@ $$
 
 まず $\lambda=0$ なら
 
-$
+$$
 -X''=0
 \quad\Longleftrightarrow\quad
 X''=0.
-$
+$$
 
 したがって
 
-$
+$$
 X(x)=Ax+B.
-$
+$$
 
 境界条件 $X(0)=0$ から $B=0$、さらに $X(L)=0$ から $AL=0$、すなわち $A=0$ です。よって非零解はありません。
 
 次に $\lambda<0$ とし、
 
-$
+$$
 \lambda=-\mu^2,
 \qquad
 \mu>0
-$
+$$
 
 と置きます。固有値方程式は
 
-$
+$$
 -X''=-\mu^2X
 \quad\Longleftrightarrow\quad
 X''=\mu^2X.
-$
+$$
 
 一般解は
 
-$
+$$
 X(x)=A\cosh(\mu x)+B\sinh(\mu x).
-$
+$$
 
 $X(0)=0$ から $A=0$ です。さらに
 
-$
+$$
 X(L)=B\sinh(\mu L)=0.
-$
+$$
 
 $\mu L>0$ では $\sinh(\mu L)\ne0$ なので $B=0$ となり、この場合も非零解はありません。
 
 最後に $\lambda>0$ とし、
 
-$
+$$
 \lambda=\mu^2,
 \qquad
 \mu>0
-$
+$$
 
 と置きます。このとき
 
-$
+$$
 X''+\mu^2X=0
-$
+$$
 
 で、一般解は
 
-$
+$$
 X(x)=A\cos(\mu x)+B\sin(\mu x).
-$
+$$
 
 $X(0)=0$ から $A=0$。非零解を得るには $B\ne0$ が必要なので、もう一方の境界条件
 
-$
+$$
 X(L)=B\sin(\mu L)=0
-$
+$$
 
 から
 
-$
+$$
 \sin(\mu L)=0
-$
+$$
 
 でなければなりません。従って
 
-$
+$$
 \mu L=n\pi,
 \qquad
 n=1,2,\ldots
-$
+$$
 
 であり、
 
-$
+$$
 \boxed{
 \lambda_n
 =
@@ -700,52 +700,52 @@ X_n(x)
 =
 \sin\left(\frac{n\pi x}{L}\right)
 }
-$
+$$
 
 を得ます。定数倍は時間側の係数へ吸収できるので、$X_n$ の係数を 1 に選びました。
 
 次に、この $\lambda=\lambda_n$ を時間側の ODE
 
-$
+$$
 T'+\kappa\lambda T=0
-$
+$$
 
 へ代入します。すなわち
 
-$
+$$
 T_n'
 +
 \kappa\left(\frac{n\pi}{L}\right)^2T_n
 =
 0.
-$
+$$
 
 $T_n\ne0$ の区間で両辺を $T_n$ で割ると
 
-$
+$$
 \frac{T_n'}{T_n}
 =
 -\kappa\left(\frac{n\pi}{L}\right)^2.
-$
+$$
 
 $t$ で積分して
 
-$
+$$
 \log|T_n(t)|
 =
 -\kappa\left(\frac{n\pi}{L}\right)^2t+C,
-$
+$$
 
 従って定数をまとめ直せば
 
-$
+$$
 \boxed{
 T_n(t)
 =
 C_n
 e^{-\kappa(n\pi/L)^2t}
 }.
-$
+$$
 
 したがって各モードは
 
