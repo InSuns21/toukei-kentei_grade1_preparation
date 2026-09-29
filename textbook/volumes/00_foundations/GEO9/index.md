@@ -440,7 +440,7 @@ $$
 
 $H^*\omega$ を $[0,1]\times M$ 上の形式として見ます。
 
-$t$ を動かしたときの変化率は、$\partial_t$ に沿う Lie 微分です。[GEO7 の Cartan の公式](../GEO7/index.md#thm-geo7-cartan-formula)
+内部の時刻 $0<t<1$ では、$t$ を動かしたときの変化率は $\partial_t$ に沿う Lie 微分であり、[GEO7 の Cartan の公式](../GEO7/index.md#thm-geo7-cartan-formula)
 
 $$
 \mathcal L_{\partial_t}
@@ -450,7 +450,13 @@ d\iota_{\partial_t}
 \iota_{\partial_t}d
 $$
 
-を使い、$t=0$ から $1$ まで積分します。
+が使えます。ただし $[0,1]\times M$ には境界があり、端点では $\partial_t$ の両方向の局所流をそのまま使えません。そこで証明では
+
+$$
+\beta=dt\wedge\alpha_t+\gamma_t
+$$
+
+と分解し、Cartan の公式と同じ係数恒等式が端点まで成り立つことを直接確認してから $t=0$ から $1$ まで積分します。
 
 <!-- proof-start -->
 ### 証明
