@@ -9,6 +9,8 @@ prerequisites:
 # companion vector に束ねるが、必要な Picard 反復を本章内で直接閉じる。
 forward_references:
   - ode.matrix-exponential
+  - ode.ode3-fundamental-matrix
+  - pde.pde1-partial-differential-equation
 
 concepts:
   - id: ode.ode2-linear-higher-order
