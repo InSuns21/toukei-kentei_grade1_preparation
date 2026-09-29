@@ -15,6 +15,15 @@ concepts:
     requires:
       - topology.topological-continuous-map
 
+  - id: topology.covering-map
+    name: 被覆写像
+    kind: definition
+    aliases: [被覆写像, covering map]
+    introduction: formal
+    introduction_aliases: ["定義（被覆写像）"]
+    requires:
+      - topology.homeomorphism
+
   - id: set.equivalence-relation-class
     name: 同値関係・同値類
     kind: definition
