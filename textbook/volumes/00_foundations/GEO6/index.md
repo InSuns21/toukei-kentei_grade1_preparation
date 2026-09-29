@@ -1,4 +1,4 @@
-# GEO6 幾何学 VI
+# GEO6 線形分布はいつ部分多様体に積分できるか
 
 <!-- definition-example-audit: strict -->
 
