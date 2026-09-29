@@ -39,5 +39,5 @@ canonical_examples:
 problem_patterns: [SIGMA-ALGEBRA-1, MEASURE-1, AE-1, MEASURABLE-FUNCTION-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 2, level_b: 3, level_c: 0, level_d: 0 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 3, exercises: 1.5, review: 0.5 }
