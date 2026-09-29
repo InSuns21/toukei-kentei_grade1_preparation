@@ -30,6 +30,121 @@ $$
 
 ## 1. 三次元で一点源を表す核
 
+まず「なぜ $1/|x|$ が出てくるのか」を先に作ります。原点以外には源がない一点源を表したいので、原点からの距離
+
+$$
+r=|x|
+$$
+
+だけに依存し、$r>0$ では
+
+$$
+\Delta h=0
+$$
+
+となる関数 $h=h(r)$ を探します。
+
+$r>0$ では
+
+$$
+\frac{\partial r}{\partial x_i}
+=
+\frac{x_i}{r}
+$$
+
+なので、連鎖律から
+
+$$
+\partial_i h
+=
+h'(r)\frac{x_i}{r}.
+$$
+
+さらに
+
+$$
+\begin{aligned}
+\Delta h
+&=
+\sum_{i=1}^3
+\partial_i
+\left(
+h'(r)\frac{x_i}{r}
+\right)\\
+&=
+h''(r)
+\sum_{i=1}^3\frac{x_i^2}{r^2}
++
+h'(r)
+\sum_{i=1}^3
+\left(
+\frac1r-\frac{x_i^2}{r^3}
+\right)\\
+&=
+h''(r)+\frac2r h'(r).
+\end{aligned}
+$$
+
+従って $\Delta h=0$ は
+
+$$
+\frac{d}{dr}
+\left(
+r^2h'(r)
+\right)
+=
+0
+$$
+
+と同値です。よって
+
+$$
+h(r)=c_0+\frac{c_1}{r}
+$$
+
+という形になります。無限遠で 0 へ減衰させるため $c_0=0$ とし、
+
+$$
+h(r)=\frac{c_1}{r}
+$$
+
+を考えます。
+
+このとき
+
+$$
+-\nabla h
+=
+c_1\frac{x}{r^3}.
+$$
+
+半径 $R$ の球面では $n=x/R$ なので
+
+$$
+(-\nabla h)\cdot n
+=
+\frac{c_1}{R^2}.
+$$
+
+したがって外向き流束は
+
+$$
+\int_{S_R}
+(-\nabla h)\cdot n\,dS
+=
+\frac{c_1}{R^2}\,4\pi R^2
+=
+4\pi c_1.
+$$
+
+一点源の強さを 1 に正規化したければ
+
+$$
+c_1=\frac1{4\pi}
+$$
+
+と選べばよいことが分かります。こうして次の核が自然に決まります。
+
 <a id="def-vc8-newton-kernel"></a>
 
 <!-- formal-statement-start -->
@@ -397,20 +512,51 @@ $$
 \int_0^\infty M_x'(r)\,dr.
 $$
 
-$M_x$ は大きな $r$ で 0 であり、$rM_x'(r)\to0$ です。また $r\downarrow0$ でも $rM_x'(r)\to0$ です。従って
+$f$ はコンパクトな台を持つので、十分大きい $r$ では $M_x(r)=0$ だけでなく $M_x'(r)=0$ です。従って
+
+$$
+\lim_{r\to\infty}rM_x'(r)=0.
+$$
+
+一方、$r$ が 0 に近い範囲では $\nabla f$ が有界なので
+
+$$
+|M_x'(r)|
+\le
+\sup_{|z-x|\le r}|\nabla f(z)|.
+$$
+
+右辺は有限ですから
+
+$$
+\lim_{r\downarrow0}rM_x'(r)=0.
+$$
+
+従って
 
 $$
 \Delta u(x)
 =
 \int_0^\infty M_x'(r)\,dr
 =
-M_x(\infty)-M_x(0).
+\lim_{R\to\infty}M_x(R)-M_x(0).
 $$
 
-ここで
+十分大きい $R$ では $M_x(R)=0$ です。また $r=0$ では $f(x+r\omega)=f(x)$ が $\omega$ に依存しないため
 
 $$
-M_x(\infty)=0,
+M_x(0)
+=
+\frac1{4\pi}
+\int_{S^2}f(x)\,d\omega
+=
+f(x).
+$$
+
+従って
+
+$$
+\lim_{R\to\infty}M_x(R)=0,
 \qquad
 M_x(0)=f(x)
 $$
@@ -781,14 +927,37 @@ $$
 -\Delta C=F.
 $$
 
-次に $\operatorname{div}C$ を計算します。
+次に $\operatorname{div}C$ を計算します。ここでは核が $y=x$ で特異なので、通常の部分積分をそのまま書かず、まず特異点を小球でくり抜きます。
+
+一階微分核は
+
+$$
+|\nabla_xG(x-y)|
+=
+\frac1{4\pi|x-y|^2}
+$$
+
+であり、$y=x$ の近くでも
+
+$$
+\int_{|x-y|<\delta}
+|\nabla_xG(x-y)|\,dy
+=
+\int_0^\delta dr
+=
+\delta
+$$
+
+と局所可積分です。したがって
 
 $$
 \operatorname{div}C
 =
 \int_{\mathbb R^3}
-\nabla_xG(x-y)\cdot F(y)\,dy.
+\nabla_xG(x-y)\cdot F(y)\,dy
 $$
+
+と書けます。
 
 $$
 \nabla_xG(x-y)
@@ -805,7 +974,61 @@ $$
 \nabla_yG(x-y)\cdot F(y)\,dy.
 $$
 
-$F$ はコンパクトな台を持つため、十分大きな球の境界では $F=0$ です。したがって発散定理による部分積分の境界項は 0 で、
+$\operatorname{supp}F$ を含み、固定した $x$ も内部に入る十分大きな球 $B_R$ を取ります。さらに
+
+$$
+\Omega_{\varepsilon,R}
+=
+B_R\setminus\overline{B_\varepsilon(x)}
+$$
+
+とします。この領域では $G(x-y)$ は滑らかです。
+
+積の微分則から
+
+$$
+\nabla_y\cdot
+\left(
+G(x-y)F(y)
+\right)
+=
+\nabla_yG(x-y)\cdot F(y)
++
+G(x-y)\operatorname{div}F(y).
+$$
+
+従って Gauss--Ostrogradsky の発散定理を $\Omega_{\varepsilon,R}$ に適用すると
+
+$$
+\begin{aligned}
+-\int_{\Omega_{\varepsilon,R}}
+\nabla_yG\cdot F\,dy
+&=
+-\int_{\partial\Omega_{\varepsilon,R}}
+G\,F\cdot n\,dS\\
+&\quad+
+\int_{\Omega_{\varepsilon,R}}
+G\,\operatorname{div}F\,dy.
+\end{aligned}
+$$
+
+外側境界 $\partial B_R$ では $F=0$ なので寄与は 0 です。内側境界 $\partial B_\varepsilon(x)$ では $G=1/(4\pi\varepsilon)$ だから
+
+$$
+\left|
+\int_{\partial B_\varepsilon(x)}
+G\,F\cdot n\,dS
+\right|
+\le
+\frac1{4\pi\varepsilon}
+\sup_{\partial B_\varepsilon(x)}|F|
+\cdot4\pi\varepsilon^2
+=
+\varepsilon
+\sup_{\partial B_\varepsilon(x)}|F|.
+$$
+
+$F$ は連続なので右辺は $\varepsilon\downarrow0$ で 0 へ行きます。よって極限を取ると
 
 $$
 \operatorname{div}C
@@ -861,13 +1084,59 @@ $$
 \end{aligned}
 $$
 
-十分大きな球で積分を切れば、その境界では $F=0$ です。したがって各項を $y_2,y_3$ について部分積分して境界項を捨てることができ、
+ここでも $y=x$ の特異点を無視しません。同じ
+
+$$
+\Omega_{\varepsilon,R}
+=
+B_R\setminus\overline{B_\varepsilon(x)}
+$$
+
+上で各項を部分積分します。例えば
+
+$$
+\begin{aligned}
+-\int_{\Omega_{\varepsilon,R}}
+\partial_{y_2}G\,F_3\,dy
+&=
+-\int_{\partial\Omega_{\varepsilon,R}}
+G F_3 n_2\,dS\\
+&\quad+
+\int_{\Omega_{\varepsilon,R}}
+G\,\partial_{y_2}F_3\,dy,
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\int_{\Omega_{\varepsilon,R}}
+\partial_{y_3}G\,F_2\,dy
+&=
+\int_{\partial\Omega_{\varepsilon,R}}
+G F_2 n_3\,dS\\
+&\quad-
+\int_{\Omega_{\varepsilon,R}}
+G\,\partial_{y_3}F_2\,dy.
+\end{aligned}
+$$
+
+外側境界では $F=0$ です。内側境界では、どちらの境界項も
+
+$$
+\frac1{4\pi\varepsilon}
+\sup_{\partial B_\varepsilon(x)}|F|
+\cdot4\pi\varepsilon^2
+=
+O(\varepsilon)
+$$
+
+で 0 へ行きます。したがって $\varepsilon\downarrow0$ とすると
 
 $$
 \begin{aligned}
 (\nabla\times C)_1
 &=
-\int
+\int_{\mathbb R^3}
 G(x-y)
 \left[
 \partial_{y_2}F_3(y)
@@ -875,7 +1144,7 @@ G(x-y)
 \partial_{y_3}F_2(y)
 \right]dy\\
 &=
-\int
+\int_{\mathbb R^3}
 G(x-y)
 (\nabla_y\times F(y))_1\,dy.
 \end{aligned}
@@ -1491,6 +1760,29 @@ A(x)
 \int
 \frac{\omega(y)}{|x-y|}\,dy.
 $$
+
+ここで $x$ 微分を積分内へ入れると核の一階微分が現れますが、
+
+$$
+\left|
+\nabla_x\frac1{|x-y|}
+\right|
+=
+\frac1{|x-y|^2}
+$$
+
+であり、三次元では
+
+$$
+\int_{|x-y|<\delta}
+\frac{dy}{|x-y|^2}
+=
+4\pi\delta
+<
+\infty.
+$$
+
+さらに $\omega$ はコンパクトな台を持つ連続関数です。したがって特異点の小球とその外側に分ければ、一階微分を積分内へ入れる操作を正当化できます。
 
 $y$ は積分変数なので
 
