@@ -449,7 +449,7 @@ $$
 
 <a id="def-ode2-characteristic"></a>
 <!-- formal-statement-start -->
-> **定義（特性多項式）**  
+> **定義（定係数線形ODEの特性多項式）**  
 > 定数 $a_0,\ldots,a_{n-1}$ に対する定係数斉次方程式
 
 $$
