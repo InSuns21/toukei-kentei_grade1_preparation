@@ -447,7 +447,29 @@ $$
 \int P\,d\mu-\int N\,d\mu.
 $$
 
-ここで
+ここで実数 $a,b$ に対して
+
+$$
+a^+=\max(a,0),
+\qquad
+a^-=\max(-a,0),
+$$
+
+$$
+b^+=\max(b,0),
+\qquad
+b^-=\max(-b,0)
+$$
+
+と置きます。このとき
+
+$$
+a=a^+-a^-,
+\qquad
+b=b^+-b^-.
+$$
+
+さらに
 
 $$
 au+bv
@@ -455,7 +477,7 @@ au+bv
 P-N
 $$
 
-とし、
+となるよう
 
 $$
 P
@@ -952,7 +974,55 @@ $$
 \end{aligned}
 $$
 
-よって積分も収束します。$\square$
+ここまでの $f_n,f$ は、零集合 $N$ 上を0へ変更した代表でした。元の関数を $f_n^{\mathrm{orig}},f^{\mathrm{orig}}$ と書くと
+
+$$
+|f_n^{\mathrm{orig}}|
+=
+|f_n|
+\quad\text{a.e.},
+\qquad
+|f^{\mathrm{orig}}|
+=
+|f|
+\quad\text{a.e.}
+$$
+
+です。[D2A の非負可測関数の a.e. 変更による積分不変性](../F0_00D2A_単関数_Lebesgue積分_構成/index.md#prop-f0-00d2a-nonnegative-ae-invariance)から、元の $f_n^{\mathrm{orig}},f^{\mathrm{orig}}$ も可積分です。
+
+そこで [D2A の零集合上の変更に関する定理](../F0_00D2A_単関数_Lebesgue積分_構成/index.md#thm-f0-00d2a-01)を適用すると
+
+$$
+\int f_n^{\mathrm{orig}}\,d\mu
+=
+\int f_n\,d\mu,
+\qquad
+\int f^{\mathrm{orig}}\,d\mu
+=
+\int f\,d\mu.
+$$
+
+また
+
+$$
+|f_n^{\mathrm{orig}}-f^{\mathrm{orig}}|
+=
+|f_n-f|
+\quad\text{a.e.}
+$$
+
+なので、非負関数の a.e. 不変性から
+
+$$
+\int
+|f_n^{\mathrm{orig}}-f^{\mathrm{orig}}|
+\,d\mu
+=
+\int|f_n-f|\,d\mu
+\to0.
+$$
+
+従って元の関数列についても $L^1$ 収束と積分の収束が成り立ちます。$\square$
 <!-- proof-end -->
 
 ### 例3：$x^n$ にDCTを使う
