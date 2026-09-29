@@ -563,7 +563,7 @@ $$
 E_1\left(-\frac zk\right),
 $$
 
-ここで $E_1$ は [CA10 の Weierstrass 基本因子](../CA10/index.md#def-ca10-elementary-factor)である。コンパクト集合 $|z|\le R$ 上では大きい $k$ に対して
+ここで $E_1$ は [CA10 の $E_1$ の定義](../CA10/index.md#def-ca10-elementary-factor)である。コンパクト集合 $|z|\le R$ 上では大きい $k$ に対して
 
 $$
 \left|
@@ -595,7 +595,7 @@ $$
 [逆 Gamma 関数の Weierstrass 積](#thm-ca11-reciprocal-product)により $1/\Gamma$ は全平面で整関数である。Gamma 関数が有限点で零点を持てば、その逆数はその点に極を持つので矛盾する。$\square$
 <!-- proof-end -->
 
-ここで CA10 の構成論が単なる一般論ではなくなる。Gamma 関数の極集合は、その逆数では **指定された零点集合**になり、基本因子が収束を担当する。
+ここで CA10 の構成論が単なる一般論ではなくなる。Gamma 関数の極集合は、その逆数では **指定された零点集合**になり、$E_1$ 型の補正因子が収束を担当する。
 
 ---
 
