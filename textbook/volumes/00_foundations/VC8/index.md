@@ -549,26 +549,68 @@ $$
 \nabla\times(bR).
 $$
 
-成分計算すると $r<1$ で
+$r<1$ では
 
 $$
+bR
+=
+(-b y_2,\ b y_1,\ 0),
+\qquad
+\frac{\partial b}{\partial y_j}
+=
+-8y_j(1-r^2)^3.
+$$
+
+したがって回転の第1成分は
+
+$$
+\begin{aligned}
 \omega_1
-=
-8y_1y_3(1-r^2)^3,
+&=
+\partial_{y_2}(0)-\partial_{y_3}(b y_1)\\
+&=
+-y_1\frac{\partial b}{\partial y_3}\\
+&=
+8y_1y_3(1-r^2)^3.
+\end{aligned}
 $$
 
+第2成分は
+
 $$
+\begin{aligned}
 \omega_2
-=
-8y_2y_3(1-r^2)^3,
+&=
+\partial_{y_3}(-b y_2)-\partial_{y_1}(0)\\
+&=
+-y_2\frac{\partial b}{\partial y_3}\\
+&=
+8y_2y_3(1-r^2)^3.
+\end{aligned}
 $$
 
+第3成分では積の微分則を使って
+
 $$
+\begin{aligned}
 \omega_3
-=
+&=
+\partial_{y_1}(b y_1)
+-
+\partial_{y_2}(-b y_2)\\
+&=
+\left(
+b+y_1\frac{\partial b}{\partial y_1}
+\right)
++
+\left(
+b+y_2\frac{\partial b}{\partial y_2}
+\right)\\
+&=
 2(1-r^2)^4
 -
 8(y_1^2+y_2^2)(1-r^2)^3.
+\end{aligned}
 $$
 
 これらを同じ場 $F$ の発散と回転としてポテンシャルへ入れます。
@@ -1271,29 +1313,61 @@ $$
 
 で無限遠境界項を確実に 0 にするためでした。
 
-半径 $R$ の球で切って計算すると、境界項は概ね
+半径 $R$ の球 $B_R$ で積分を切ると、発散定理による部分積分から境界項
 
 $$
+E_R(x)
+=
 \int_{|y|=R}
 G(x-y)F(y)\cdot n\,dS
 $$
 
-です。固定した $x$ に対して $R\to\infty$ では
+が現れます。固定した $x$ に対して $R>2|x|$ とすれば、$|y|=R$ 上で
 
 $$
-G(x-y)=O(R^{-1}),
-\qquad
-dS=O(R^2),
+|x-y|
+\ge
+R-|x|
+>
+\frac R2
 $$
 
-なので、例えば
+なので
+
+$$
+G(x-y)
+=
+\frac1{4\pi|x-y|}
+\le
+\frac1{2\pi R}.
+$$
+
+従って球面積 $4\pi R^2$ を使うと
+
+$$
+\begin{aligned}
+|E_R(x)|
+&\le
+\sup_{|y|=R}G(x-y)
+\sup_{|y|=R}|F(y)|
+\operatorname{Area}(S_R)\\
+&\le
+\frac1{2\pi R}
+\sup_{|y|=R}|F(y)|
+\,4\pi R^2\\
+&=
+2R\sup_{|y|=R}|F(y)|.
+\end{aligned}
+$$
+
+したがって、例えば
 
 $$
 R\sup_{|y|=R}|F(y)|
 \longrightarrow0
 $$
 
-ならこの境界項は消えます。
+なら $E_R(x)\to0$ となり、無限遠境界項は消えます。
 
 従ってコンパクトな台は十分条件の一つであり、本質は **積分の収束・微分交換・無限遠境界項の消失**です。
 
