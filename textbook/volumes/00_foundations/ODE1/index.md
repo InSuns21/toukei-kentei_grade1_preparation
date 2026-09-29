@@ -719,21 +719,23 @@ $$
 
 と書きます。積分の絶対値を評価し、各 $s$ で $y$ に関する Lipschitz 条件を使うと
 
+$a_t:=\min\{t,t_0\}$、$b_t:=\max\{t,t_0\}$ と置きます。向き付き積分の絶対値は、向きを外した区間上の絶対値積分で評価できるので
+
 $$
 \begin{aligned}
 |(Tu)(t)-(Tv)(t)|
 &\le
-\int_{t_0}^{t}
-|f(s,u(s))-f(s,v(s))|\,|ds|\\
+\int_{a_t}^{b_t}
+|f(s,u(s))-f(s,v(s))|\,ds\\
 &\le
-L\int_{t_0}^{t}|u(s)-v(s)|\,|ds|\\
+L\int_{a_t}^{b_t}|u(s)-v(s)|\,ds\\
 &\le
+L(b_t-a_t)\,\|u-v\|_\infty\\
+&=
 L|t-t_0|\,\|u-v\|_\infty\\
 &\le Lh\,\|u-v\|_\infty.
 \end{aligned}
 $$
-
-ここで向き付き積分の場合も、絶対値を取った評価は区間長 $|t-t_0|$ で同じ形になります。
 
 $q=Lh<1$ と置けば
 
