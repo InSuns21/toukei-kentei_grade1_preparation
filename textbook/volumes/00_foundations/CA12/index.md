@@ -6,7 +6,7 @@
 
 ## 0. この章の主線
 
-Gamma 関数は [CA11](../CA11/index.md#def-ca11-gamma-function)、無限積の非消滅性は [CA10](../CA10/index.md#thm-ca10-infinite-product-criterion)、Gauss 関数の Fourier 変換は [FOU3](../FOU3/index.md#lem-fou3-gaussian-transform)、周期関数の Fourier 級数収束は [FOU2](../FOU2/index.md#thm-fou2-dirichlet-convergence)、積分と総和の交換は [Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02)を正本とする。
+Gamma 関数は [CA11](../CA11/index.md#def-ca11-gamma-function)、無限積の非消滅性は [CA10](../CA10/index.md#thm-ca10-infinite-product-criterion)、Gauss 関数の Fourier 変換は [FOU3](../FOU3/index.md#lem-fou3-gaussian-transform)、周期関数の Fourier 級数収束は [FOU2](../FOU2/index.md#thm-fou2-dirichlet-convergence)、積分と総和の交換は [Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02)を使う。
 
 ~~~text
 Dirichlet 級数
@@ -30,7 +30,7 @@ Gauss 関数の周期化の変換公式
 負の偶数の零点・特殊値
 ~~~
 
-本章では Riemann ζ 関数の解析接続・関数等式・自明零点と標準特殊値までを扱う。素数分布や零点分布をさらに深く調べるには別の解析的道具が必要になるため、ここでは Riemann 予想も主張の位置付けを確認するところまでにとどめる。
+本章では Riemann ζ 関数の解析接続・関数等式・自明零点と標準特殊値までを扱う。素数分布や非自明零点の詳細をさらに調べるには別の解析的道具が必要になるため、ここではそれらの入口までにとどめる。
 
 ---
 
