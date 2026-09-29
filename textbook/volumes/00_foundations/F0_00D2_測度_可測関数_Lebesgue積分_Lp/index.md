@@ -125,7 +125,10 @@ $$
 なので集合差も可測です。$\square$
 <!-- proof-end -->
 
+<!-- definition-example-start: def-f0-00d2-01 -->
 ### 例1：有限集合上のσ代数
+
+**定義の確認**
 
 $\Omega=\{1,2,3,4\}$ とし、
 
@@ -144,6 +147,7 @@ $$
 $$
 
 はσ代数ではありません。$\{1\}$ の補集合 $\{2,3,4\}$ が入っていないからです。
+<!-- definition-example-end -->
 
 ---
 
@@ -175,6 +179,34 @@ $$
 
 と構成でき、これが $\mathcal C$ を含む最小のσ代数です。
 
+<!-- definition-example-start: def-f0-00d2-02 -->
+### 生成σ代数を有限集合で確認する
+
+**定義の確認**
+
+$\Omega=\{1,2,3,4\}$、$A=\{1,2\}$ とし、
+
+$
+\mathcal C=\{A\}
+$
+
+とします。$A$ を含むσ代数は補集合 $A^c=\{3,4\}$ も含み、さらに $\Omega$ と $\varnothing$ も含まなければなりません。そこで
+
+$
+\mathcal F
+=
+\{\varnothing,A,A^c,\Omega\}
+$
+
+と置くと、$\mathcal F$ は補集合と可算和で閉じるσ代数です。また $A$ を含む任意のσ代数はこの4集合を全て含むので、
+
+$
+\sigma(\mathcal C)=\mathcal F.
+$
+
+「生成σ代数」は、必要な閉性を満たすために強制される集合を加えた **最小のσ代数** であることを、この有限例で直接確認できます。
+<!-- definition-example-end -->
+
 <a id="def-f0-00d2-03"></a>
  
 <!-- formal-statement-start -->
@@ -193,7 +225,10 @@ $$
 Borel集合には開集合・閉集合・区間だけでなく、それらから可算回の和・共通部分・補集合で作れる集合がすべて含まれます。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-f0-00d2-03 -->
 ### 例2：区間はBorel集合
+
+**定義の確認**
 
 閉集合 $[a,b]$ は開集合 $(-\infty,a)\cup(b,\infty)$ の補集合なのでBorel集合です。半開区間も
 
@@ -202,7 +237,8 @@ $$
 =(-\infty,b]\setminus(-\infty,a]
 $$
 
-のように書けるためBorel集合です。
+のように書けるためBorel集合です。どちらも開集合から補集合・和・差を有限回使って得られるので、開集合が生成する $\mathcal B(\mathbb R)$ に属します。
+<!-- definition-example-end -->
 
 ---
 
@@ -246,7 +282,10 @@ $$
 
 とします。無限集合なら $\mu(A)=\infty$ とします。これは数え上げ測度です。
 
+<!-- definition-example-start: def-f0-00d2-04 -->
 ### 例4：Dirac測度
+
+**定義の確認**
 
 固定した $x_0\in\Omega$ に対して
 
@@ -273,6 +312,7 @@ $$
 $$
 
 したがって可算加法性が成り立ち、$\delta_{x_0}$ は測度です。
+<!-- definition-example-end -->
 
 ### 例5：確率測度
 
@@ -407,6 +447,20 @@ $$
 を満たすとき、$N$ を **測度0集合** または **零集合** という。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-f0-00d2-05 -->
+### 例：非空でも測度0になりうる
+
+**定義の確認**
+
+$\mathbb R$ 上の Dirac 測度 $\delta_0$ を考え、$N=\{1\}$ とします。$0\notin N$ なので
+
+$
+\delta_0(N)=0.
+$
+
+従って $N$ は測度0集合です。しかも $N$ は空集合ではありません。測度0という条件は「点が一つもない」という意味ではないことが分かります。
+<!-- definition-example-end -->
+
 <a id="def-f0-00d2-06"></a>
  
 <!-- formal-statement-start -->
@@ -433,7 +487,10 @@ $$
 
 ---
 
+<!-- definition-example-start: def-f0-00d2-06 -->
 ### 5.1 具体例：確率0の例外は「存在しない」とは違う
+
+**定義の確認**
 
 一様分布 $U\sim\mathrm{Unif}(0,1)$ では
 
@@ -449,7 +506,14 @@ Lebesgue測度では、可算集合 $\mathbb Q\cap[0,1]$ は無数の点を含�
 
 > **例外集合は空ではないかもしれないが、積分・確率の観点では大きさ0**
 
-という意味です。これが後で「関数を測度0集合上の違いを無視して同一視する」$L^p$ 空間につながります。
+という意味です。例えば「$U\ne 1/2$」という性質が失敗する集合は $\{1/2\}$ で、その確率は0です。従って
+
+$
+U\ne 1/2\quad\text{a.e.}
+$
+
+と書けます。これが後で「関数を測度0集合上の違いを無視して同一視する」$L^p$ 空間につながります。
+<!-- definition-example-end -->
 
 ## 6. 可測関数
 
@@ -492,6 +556,31 @@ $$
 
 という逆像条件です。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00d2-07 -->
+### 例：定数関数は可測
+
+**定義の確認**
+
+任意の定数 $c\in\mathbb R$ に対し
+
+$
+f(\omega)=c
+$
+
+と置きます。任意の $a\in\mathbb R$ について
+
+$
+\{\omega:f(\omega)\le a\}
+=
+\begin{cases}
+\varnothing,& a<c,\\
+\Omega,& a\ge c.
+\end{cases}
+$
+
+$\varnothing$ と $\Omega$ はどちらもσ代数 $\mathcal F$ に属するので、定義により $f$ は可測です。
+<!-- definition-example-end -->
 
 <a id="thm-f0-00d2-02"></a>
  
