@@ -85,13 +85,23 @@ $$
 
 ## 2. 行列指数を級数から作る
 
-スカラーでは
+スカラー方程式 $y'=ay$ では、初期値 $y(0)=y_0$ に対して $y(t)=e^{at}y_0$ と書けました。連立系 $x'=Ax$ でも同じ役割をする行列 $E(t)$ が欲しく、
+
+$$
+E'(t)=AE(t),
+\qquad
+E(0)=I
+$$
+
+を満たしてほしいと考えます。
+
+$A$ が対角化できる場合だけなら固有ベクトルごとに指数関数を作れます。しかし、対角化できない行列も扱いたいので、それを定義そのものには使えません。そこでスカラーの冪級数
 
 $$
 e^z=\sum_{k=0}^{\infty}\frac{z^k}{k!}
 $$
 
-でした。行列でも同じ式を採用します。ただし、まず級数が本当に収束し、微分してよいことを確認する必要があります。
+へ行列 $tA$ をそのまま入れる方法を採用します。この定義が本当に使えるためには、級数が収束し、項別微分によって $E'=AE$ が得られることを確認する必要があります。
 
 <a id="def-ode3-matrix-exponential"></a>
 <!-- formal-statement-start -->
@@ -453,7 +463,9 @@ $x_2$ 軸上では原点へ近づきますが、少しでも $x_1$ 成分があ�
 
 ## 5. 対角化できないとき：Jordan block が多項式を生む
 
-LA4 で証明した [Jordan標準形定理](../LA4/index.md#thm-la4-jordan-form) を使います。ここで必要なのは、各 Jordan block の指数を実際に計算することです。
+前節の固有方向ごとの分解は、固有ベクトルが基底を作れる場合にしか使えません。対角化できない行列では、足りない固有ベクトルの代わりに何が時間発展へ現れるのかを調べる必要があります。
+
+LA4 で証明した [Jordan標準形定理](../LA4/index.md#thm-la4-jordan-form) を使うと、各 block は「固有値部分 $\lambda I$」と「冪零部分 $N$」に分かれます。ここでは Jordan 標準形自体を再証明せず、冪零部分 $N$ が行列指数に $t,t^2,\ldots$ という多項式因子を生むところを実際に計算します。
 
 <a id="thm-ode3-jordan-exponential"></a>
 <!-- formal-statement-start -->
@@ -522,10 +534,42 @@ $$
 e^{tJ}
 &=\sum_{r=0}^{m-1}
 N^r\sum_{k=r}^{\infty}
-\frac{t^k}{k!}\binom kr\lambda^{k-r}\\
-&=\sum_{r=0}^{m-1}
-\frac{t^rN^r}{r!}
+\frac{t^k}{k!}\binom kr\lambda^{k-r}.
+\end{aligned}
+$$
+
+ここで
+
+$$
+\frac{1}{k!}\binom kr
+=
+\frac{1}{r!(k-r)!}
+$$
+
+を使い、内側の和で $q=k-r$ と置きます。すると $k=q+r$ なので
+
+$$
+\begin{aligned}
+\sum_{k=r}^{\infty}
+\frac{t^k}{k!}\binom kr\lambda^{k-r}
+&=
+\sum_{q=0}^{\infty}
+\frac{t^{q+r}\lambda^q}{r!q!}\\
+&=
+\frac{t^r}{r!}
 \sum_{q=0}^{\infty}\frac{(\lambda t)^q}{q!}\\
+&=
+\frac{t^r}{r!}e^{\lambda t}.
+\end{aligned}
+$$
+
+これを外側の有限和へ戻して
+
+$$
+\begin{aligned}
+e^{tJ}
+&=\sum_{r=0}^{m-1}
+\frac{t^rN^r}{r!}e^{\lambda t}\\
 &=e^{\lambda t}
 \sum_{r=0}^{m-1}\frac{t^rN^r}{r!}.
 \end{aligned}
@@ -727,24 +771,51 @@ $$
 
 を使うと主張の公式を得ます。
 
-逆に右辺を $X(t)$ と置きます。積分項について、被積分関数は連続であり、$t$ による微分は
+逆に右辺を $X(t)$ と置き、積分項を
 
 $$
-Ae^{(t-s)A}f(s)
-$$
-
-です。差の正当化は成分ごとに連続関数の微積分学の基本定理と積の微分を使えばよく、
-
-$$
-\frac{d}{dt}
+I(t):=
 \int_{t_0}^{t}e^{(t-s)A}f(s)\,ds
-=f(t)+A\int_{t_0}^{t}e^{(t-s)A}f(s)\,ds.
 $$
 
-従って
+と書きます。この積分をいきなり「上端も被積分関数も $t$ に依存する積分」として微分せず、時間加法則で
 
 $$
-X'=AX+f.
+e^{(t-s)A}=e^{tA}e^{-sA}
+$$
+
+と分けます。$e^{tA}$ は積分変数 $s$ に依存しないので
+
+$$
+I(t)
+=
+e^{tA}
+\int_{t_0}^{t}e^{-sA}f(s)\,ds.
+$$
+
+ここで積の微分則を使い、後半の積分には [微積分学の基本定理I](../RA4/index.md#thm-ra4-ftc1) を適用します。積分の上端は $t$ なので、被積分関数 $e^{-sA}f(s)$ へ $s=t$ を代入して
+
+$$
+\begin{aligned}
+I'(t)
+&=
+Ae^{tA}\int_{t_0}^{t}e^{-sA}f(s)\,ds
++
+e^{tA}e^{-tA}f(t)\\
+&=
+AI(t)+f(t).
+\end{aligned}
+$$
+
+したがって
+
+$$
+\begin{aligned}
+X'(t)
+&=Ae^{(t-t_0)A}x_0+I'(t)\\
+&=Ae^{(t-t_0)A}x_0+AI(t)+f(t)\\
+&=AX(t)+f(t).
+\end{aligned}
 $$
 
 $t=t_0$ では積分が0、指数が $I$ なので $X(t_0)=x_0$ です。一意性は、二つの解の差が斉次系を満たし、[定係数斉次線形系の初期値問題](#thm-ode3-homogeneous-ivp)の一意性から0になることに従います。$\square$
@@ -1120,7 +1191,13 @@ e^{tA}
 =\begin{pmatrix}e^{-2t}&0\\0&e^{3t}\end{pmatrix}.
 $$
 
-[定係数斉次線形系の初期値問題](#thm-ode3-homogeneous-ivp)より
+この問題では初期時刻が $t_0=0$ なので、[定係数斉次線形系の初期値問題](#thm-ode3-homogeneous-ivp)の
+
+$$
+x(t)=e^{(t-t_0)A}x_0
+$$
+
+へ $t_0=0$、$x_0=(1,2)^\top$ を代入します。すると
 
 $$
 x(t)=e^{tA}x(0)
@@ -1256,7 +1333,17 @@ e^{(t-s)A}
 =\begin{pmatrix}e^{-(t-s)}&0\\0&e^{-2(t-s)}\end{pmatrix}.
 $$
 
-初期値は0だから、[定数変化公式](#thm-ode3-variation-of-constants)より
+[定数変化公式](#thm-ode3-variation-of-constants)へ、この問題の
+
+$$
+t_0=0,
+\qquad
+x_0=0,
+\qquad
+f(s)=\begin{pmatrix}1\\e^{-2s}\end{pmatrix}
+$$
+
+を代入します。初期値項 $e^{tA}x_0$ は0になり、上で求めた $e^{(t-s)A}$ を使えば
 
 $$
 x(t)
