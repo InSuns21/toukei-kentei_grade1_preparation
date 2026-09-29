@@ -186,23 +186,23 @@ $$
 
 $\Omega=\{1,2,3,4\}$、$A=\{1,2\}$ とし、
 
-$
+$$
 \mathcal C=\{A\}
-$
+$$
 
 とします。$A$ を含むσ代数は補集合 $A^c=\{3,4\}$ も含み、さらに $\Omega$ と $\varnothing$ も含まなければなりません。そこで
 
-$
+$$
 \mathcal F
 =
 \{\varnothing,A,A^c,\Omega\}
-$
+$$
 
 と置くと、$\mathcal F$ は補集合と可算和で閉じるσ代数です。また $A$ を含む任意のσ代数はこの4集合を全て含むので、
 
-$
+$$
 \sigma(\mathcal C)=\mathcal F.
-$
+$$
 
 「生成σ代数」は、必要な閉性を満たすために強制される集合を加えた **最小のσ代数** であることを、この有限例で直接確認できます。
 <!-- definition-example-end -->
@@ -454,9 +454,9 @@ $$
 
 $\mathbb R$ 上の Dirac 測度 $\delta_0$ を考え、$N=\{1\}$ とします。$0\notin N$ なので
 
-$
+$$
 \delta_0(N)=0.
-$
+$$
 
 従って $N$ は測度0集合です。しかも $N$ は空集合ではありません。測度0という条件は「点が一つもない」という意味ではないことが分かります。
 <!-- definition-example-end -->
@@ -508,9 +508,9 @@ Lebesgue測度では、可算集合 $\mathbb Q\cap[0,1]$ は無数の点を含�
 
 という意味です。例えば「$U\ne 1/2$」という性質が失敗する集合は $\{1/2\}$ で、その確率は0です。従って
 
-$
+$$
 U\ne 1/2\quad\text{a.e.}
-$
+$$
 
 と書けます。これが後で「関数を測度0集合上の違いを無視して同一視する」$L^p$ 空間につながります。
 <!-- definition-example-end -->
@@ -564,20 +564,20 @@ $$
 
 任意の定数 $c\in\mathbb R$ に対し
 
-$
+$$
 f(\omega)=c
-$
+$$
 
 と置きます。任意の $a\in\mathbb R$ について
 
-$
+$$
 \{\omega:f(\omega)\le a\}
 =
 \begin{cases}
 \varnothing,& a<c,\\
 \Omega,& a\ge c.
 \end{cases}
-$
+$$
 
 $\varnothing$ と $\Omega$ はどちらもσ代数 $\mathcal F$ に属するので、定義により $f$ は可測です。
 <!-- definition-example-end -->
