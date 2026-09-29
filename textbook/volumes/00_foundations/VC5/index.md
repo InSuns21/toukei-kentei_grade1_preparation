@@ -101,9 +101,9 @@ $$
 [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence) は
 
 $$
-\text{closed surface の flux}
+\text{閉曲面を通る流束}
 \longleftrightarrow
-\text{volume 内の divergence}
+\text{体積内部の発散}
 $$
 
 を結びました。
@@ -111,9 +111,9 @@ $$
 [Stokes の定理](#thm-vc5-stokes) は
 
 $$
-\text{boundary curve の circulation}
+\text{境界曲線の循環}
 \longleftrightarrow
-\text{surface 上の curl flux}
+\text{曲面上の回転の流束}
 $$
 
 を結びます。
