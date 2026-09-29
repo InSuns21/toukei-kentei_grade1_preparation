@@ -42,9 +42,9 @@ $$
 
 です。
 
-> **この章の停止線**
->
-> 元が有限個の体どうしの拡大が分離的かつ正規であるところまで示します。自己同型群と中間体を一般の有限拡大について対応させる有限 Galois 理論の基本定理は FLD4 で扱います。
+この章では、有限体の大きさが素数冪に限られる理由から出発し、$p$ 乗写像が体の構造を強く制約することを見ます。そこから乗法群の巡回性、有限体の存在・一意性、部分体の包含条件までを一つの流れで導きます。
+
+最後に有限体どうしの拡大が分離的かつ正規であることを確認し、FLD4 で自己同型群と中間体の対応へ進む準備を整えます。
 
 ---
 
@@ -306,10 +306,16 @@ $$
 (x+y)^p=x^p+y^p
 $$
 
-です。積については明らかに
-
+です。積については、可換体の乗法を $p$ 回繰り返せば
 $$
-(xy)^p=x^py^p.
+(xy)^p
+=
+\underbrace{(xy)\cdots(xy)}_{p\text{ 個}}
+=
+\left(\underbrace{x\cdots x}_{p\text{ 個}}\right)
+\left(\underbrace{y\cdots y}_{p\text{ 個}}\right)
+=
+x^py^p.
 $$
 
 単射性は
@@ -372,20 +378,30 @@ $$
 
 を一変数有理関数体とします。Frobenius は依然として単射ですが、$t$ は $p$ 乗になりません。
 
-実際
-
-$$
-\left(\frac{f(t)}{g(t)}\right)^p
-=
-\frac{f(t)^p}{g(t)^p}
-$$
-
-では分子・分母に現れる $t$ の指数が全て $p$ の倍数です。従って
-
+実際、もし
 $$
 x^p=t
 $$
+を満たす $x\in\mathbb F_p(t)$ が存在するとします。$x=f(t)/g(t)$ とし、$f,g\in\mathbb F_p[t]$、$g\ne0$ と書けば
+$$
+\frac{f(t)^p}{g(t)^p}=t.
+$$
+分母を払うと
+$$
+f(t)^p=t\,g(t)^p.
+$$
+両辺は非零多項式なので次数を比較でき、
+$$
+p\deg f
+=
+1+p\deg g.
+$$
+左辺は $p$ の倍数ですが右辺は $p$ で割ると余り $1$ です。これは不可能です。
 
+従って
+$$
+x^p=t
+$$
 を満たす $x\in\mathbb F_p(t)$ は存在しません。
 
 ここで失った仮定は **有限性** です。有限性があると「単射なら全射」という集合論的機構が働きますが、無限体ではその機構が使えません。
@@ -450,10 +466,13 @@ $$
 u=a^{\ell^r}
 $$
 
-と置くと
-
+と置きます。$\operatorname{ord}(a)=\ell^r d'$ かつ $\ell\nmid d'$ なので
 $$
-\operatorname{ord}(u)=d'.
+\operatorname{ord}(u)
+=
+\frac{\ell^r d'}{\gcd(\ell^r d',\ell^r)}
+=
+d'.
 $$
 
 また
@@ -462,10 +481,13 @@ $$
 v=b^{e'}
 $$
 
-と置くと
-
+と置きます。$\operatorname{ord}(b)=\ell^s e'$ かつ $\ell\nmid e'$ なので
 $$
-\operatorname{ord}(v)=\ell^s.
+\operatorname{ord}(v)
+=
+\frac{\ell^s e'}{\gcd(\ell^s e',e')}
+=
+\ell^s.
 $$
 
 $G$ は Abel 群なので $u$ と $v$ は可換です。しかも $d'$ と $\ell^s$ は互いに素です。
@@ -478,13 +500,44 @@ $$
 \operatorname{ord}(u)\operatorname{ord}(v)
 $$
 
-です。実際 $(uv)^k=1$ なら $u^k=v^{-k}$ は $\langle u\rangle\cap\langle v\rangle$ に入ります。その交わりの元の位数は $d'$ と $\ell^s$ の両方を割るので $1$ しかありません。従って $u^k=v^k=1$ であり、$d'\mid k$ と $\ell^s\mid k$ が同時に成り立つため $d'\ell^s\mid k$ です。
-
-よって
-
+です。まず可換性から
 $$
-\operatorname{ord}(uv)
+(uv)^{d'\ell^s}
 =
+u^{d'\ell^s}v^{d'\ell^s}
+=
+1,
+$$
+なので
+$$
+\operatorname{ord}(uv)\mid d'\ell^s.
+$$
+
+逆に $(uv)^k=1$ なら $u^k=v^{-k}$ は $\langle u\rangle\cap\langle v\rangle$ に入ります。その交わりの元の位数は $d'$ と $\ell^s$ の両方を割りますが、
+$$
+\gcd(d',\ell^s)=1
+$$
+なので交わりは単位元だけです。従って
+$$
+u^k=v^k=1.
+$$
+よって
+$$
+d'\mid k,
+\qquad
+\ell^s\mid k.
+$$
+両者は互いに素なので
+$$
+d'\ell^s\mid k.
+$$
+
+以上から
+$$
+\operatorname{ord}(uv)=d'\ell^s.
+$$
+しかも $s>r$ だから
+$$
 d'\ell^s
 >
 d'\ell^r
@@ -662,17 +715,19 @@ $$
 
 従って $\alpha+\beta\in S_n$ です。
 
-同様に
-
+加法逆元については、Frobenius の加法性から
 $$
-(-\alpha)^{p^n}
+0
 =
--\alpha^{p^n}
+(\alpha+(-\alpha))^{p^n}
 =
--\alpha
+\alpha^{p^n}+(-\alpha)^{p^n}.
 $$
-
-なので $-\alpha\in S_n$ です。
+$\alpha^{p^n}=\alpha$ なので
+$$
+(-\alpha)^{p^n}=-\alpha.
+$$
+従って $-\alpha\in S_n$ です。
 
 積については
 
@@ -966,16 +1021,17 @@ $$
 \alpha^{p^n}=\alpha.
 $$
 
-固定した代数閉包の中で
-
+固定した代数閉包の中では
 $$
-\mathbb F_{p^r}
+\mathbb F_{p^n}
 =
-\{\alpha:\alpha^{p^r}=\alpha\}
+\{\alpha:\alpha^{p^n}=\alpha\}
 $$
-
-と取っているので
-
+と取っています。上で任意の $\alpha\in\mathbb F_{p^m}$ が
+$$
+\alpha^{p^n}=\alpha
+$$
+を満たすことを示したので
 $$
 \mathbb F_{p^m}\subset\mathbb F_{p^n}.
 $$
@@ -1524,8 +1580,15 @@ $$
 
 なので $\mathbb F_2$ に根を持ちません。三次多項式が可約なら一次因子を持つため、$f,g$ はともに既約です。
 
-積を計算すると
-
+二つの三次式を掛けると
+$$
+\begin{aligned}
+f(x)g(x)
+&=(x^3+x+1)(x^3+x^2+1)\\
+&=x^6+x^5+x^3+x^4+x^3+x+x^3+x^2+1.
+\end{aligned}
+$$
+$\mathbb F_2$ では $3x^3=x^3$ なので
 $$
 f(x)g(x)
 =
@@ -1533,13 +1596,21 @@ x^6+x^5+x^4+x^3+x^2+x+1.
 $$
 
 さらに
-
 $$
 x(x+1)=x^2+x.
 $$
-
-従って
-
+そこで
+$$
+\begin{aligned}
+&(x^2+x)
+(x^6+x^5+x^4+x^3+x^2+x+1)\\
+&=
+(x^8+x^7+x^6+x^5+x^4+x^3)
++
+(x^7+x^6+x^5+x^4+x^3+x^2+x).
+\end{aligned}
+$$
+標数 $2$ では同じ項が二つずつ現れる部分が消えるので
 $$
 (x^2+x)
 (x^6+x^5+x^4+x^3+x^2+x+1)
@@ -2020,14 +2091,24 @@ $$
 7.
 $$
 
-従って
-
+従って $h\in\langle g^9\rangle$ なら $h^7=1$ です。$h\ne0$ なので
+$$
+h^8=h,
+$$
+すなわち $h\in E^\times$ です。よって
+$$
+\langle g^9\rangle\subset E^\times.
+$$
+両辺の位数はとも $7$ なので
 $$
 \boxed{E^\times=\langle g^9\rangle}.
 $$
 
-同様に $H^\times$ の位数は $3$ であり、
-
+$H^\times$ の位数は
+$$
+|H^\times|=4-1=3.
+$$
+一方
 $$
 \operatorname{ord}(g^{21})
 =
@@ -2035,9 +2116,15 @@ $$
 =
 3.
 $$
-
-従って
-
+従って $h\in\langle g^{21}\rangle$ なら $h^3=1$ なので
+$$
+h^4=h.
+$$
+よって $h\in H^\times$ であり
+$$
+\langle g^{21}\rangle\subset H^\times.
+$$
+両辺の位数はとも $3$ だから
 $$
 \boxed{H^\times=\langle g^{21}\rangle}.
 $$
