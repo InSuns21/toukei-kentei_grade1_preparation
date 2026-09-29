@@ -1163,7 +1163,7 @@ $$
 
 とします。
 
-曲線 $p(s)$ に沿う共変微分の座標公式から
+[曲線に沿う共変微分の座標公式](../GEO13/index.md#prop-geo13-coordinate-formula)から
 
 $$
 \left.
