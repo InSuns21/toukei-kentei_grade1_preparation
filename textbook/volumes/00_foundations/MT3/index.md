@@ -177,7 +177,7 @@ $$
 $$
 \alpha
 :=
-sup_{f\in\mathcal C}\int_Xf\,d\mu
+\sup_{f\in\mathcal C}\int_Xf\,d\mu
 $$
 
 は有限です。
