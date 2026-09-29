@@ -1,0 +1,29 @@
+id: "F0-00D3A"
+title: "π–λ定理・Dynkin族"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00A
+  - F0-00A1C
+  - F0-00D3
+official_scope: []
+learning_objectives:
+  - π系とDynkin族の閉性条件の違いを具体例とともに説明できる
+  - Dynkin族で包含関係のある差集合を作れることを証明できる
+  - π–λ定理の証明で有限交差閉性を二段階に拡張する理由を説明し、証明を再現できる
+  - Dynkin族と有限交差閉性からσ代数の可算和閉性を導ける
+  - π–λ定理を有限測度の一意性とBorel確率測度の一意性に適用できる
+definitions:
+  - { id: F000D3A-DEF-01, name: π系 }
+  - { id: F000D3A-DEF-02, name: Dynkin族 }
+theorems:
+  - { id: F000D3A-THM-01, name: π–λ定理 }
+canonical_examples:
+  - 可測長方形のπ系
+  - 偶数濃度部分集合からなるDynkin族
+  - 半直線族からBorel σ代数を生成する例
+problem_patterns: [PI-SYSTEM-1, DYNKIN-SYSTEM-1, PI-LAMBDA-UNIQUENESS-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2.5, exercises: 1.5, review: 0.5 }
