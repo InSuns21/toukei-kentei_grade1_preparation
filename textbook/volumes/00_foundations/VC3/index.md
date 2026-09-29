@@ -1,6 +1,8 @@
 # VC3 曲面のパラメータ表示と積分幾何
 
-VC2 では 1 次元の曲線に沿う積分を作りました。VC3 では 2 変数のパラメータで $\mathbb R^3$ 内の曲面を記述し、
+VC2 では、1 次元の曲線をパラメータ表示して、その上で長さ・仕事・循環を積分できるようになりました。ところが曲面では、一本のパラメータだけでは面全体を動けません。また [RA7](../RA7/index.md) の二重積分は平面上の面積 $du\,dv$ を積み上げますが、傾いた面や球面では、その $du\,dv$ が空間内で実際にどれだけの面積になるかを補正する必要があります。
+
+そこで VC3 では 2 変数のパラメータで $\mathbb R^3$ 内の曲面を記述し、
 
 - 曲面に沿う二つの独立な接方向
 - 曲面に垂直な方向
@@ -10,11 +12,21 @@ VC2 では 1 次元の曲線に沿う積分を作りました。VC3 では 2 変
 
 を順に構成します。
 
-多重積分と変数変換は [RA7](../RA7/index.md) を正本とし、本章では「パラメータ平面の小面積が空間内でどれだけ引き伸ばされるか」に集中します。
+多重積分と変数変換そのものは RA7 を使います。本章で新しく作るのは、「平面の小面積を曲面の小面積へ直す係数」と「その面を横切る向きを持った量」です。
 
 ---
 
 ## 1. 正則なパラメータ曲面
+
+2 変数 $(u,v)$ を使っても、写像が面を本当に二方向へ広げてくれるとは限りません。例えば
+
+$$
+r(u,v)=(u,0,0)
+$$
+
+では $v$ を動かしても像が変わらず、二次元の領域が一本の直線へ潰れます。
+
+曲面として扱うには、各点で $u$ 方向と $v$ 方向の二つが独立な接方向を与える必要があります。$r_u,r_v$ が一次独立であることは、三次元では外積が 0 でないことと同値です。
 
 <a id="def-vc3-regular-surface"></a>
 
@@ -87,27 +99,61 @@ $$
 p=r(u_0,v_0)
 $$
 
-を通る曲線を、パラメータ領域の曲線
+を通る曲線を考えます。パラメータ領域で
 
 $$
-(u(t),v(t))
+u(0)=u_0,
+\qquad
+v(0)=v_0
 $$
 
-から
+を満たす曲線 $(u(t),v(t))$ を選び、
 
 $$
 \gamma(t)=r(u(t),v(t))
 $$
 
-として作ると、連鎖律より
+と置けば、$\gamma(0)=p$ です。
+
+ここで $r$ は二変数、$(u(t),v(t))$ は一変数なので、多変数の連鎖律をこの合成写像へ適用します。$t=0$ で
+
+$$
+\begin{aligned}
+\gamma'(0)
+&=
+Dr(u_0,v_0)
+\begin{pmatrix}
+u'(0)\\
+v'(0)
+\end{pmatrix}\\
+&=
+r_u(u_0,v_0)u'(0)
++
+r_v(u_0,v_0)v'(0).
+\end{aligned}
+$$
+
+したがって曲面上をどの向きに走る曲線を選んでも、その曲線の速度ベクトルは $r_u(u_0,v_0),r_v(u_0,v_0)$ の線形結合になります。
+
+逆に任意の係数 $a,b$ に対して、$U$ が開集合なので十分小さい $|t|$ では
+
+$$
+(u(t),v(t))
+=
+(u_0+at,v_0+bt)
+$$
+
+が $U$ 内に残ります。この曲線を $r$ で写せば
 
 $$
 \gamma'(0)
 =
-r_u\,u'(0)+r_v\,v'(0).
+a\,r_u(u_0,v_0)
++
+b\,r_v(u_0,v_0)
 $$
 
-したがって接方向は $r_u,r_v$ の線形結合です。
+です。従って曲面上の接方向はちょうど $r_u,r_v$ の張る二次元空間になり、これを接平面の方向空間として使えます。
 
 <a id="def-vc3-tangent-normal"></a>
 
@@ -178,6 +224,10 @@ $$
 
 ## 3. 向き付け可能性
 
+一点の近くでは $r_u\times r_v$ かその反対向きを選べば法線を作れます。しかしベクトル場が曲面を通過する総量を向き付きで測るには、場所ごとに法線の符号を勝手に選ぶわけにはいきません。隣り合う点では法線が連続につながり、曲面を一周して戻ったときにも同じ向きへ戻る必要があります。
+
+この「局所的に選べる法線を、曲面全体で矛盾なくつなげられるか」を表すのが向き付け可能性です。
+
 <a id="def-vc3-orientable"></a>
 
 <!-- formal-statement-start -->
@@ -211,25 +261,59 @@ $$
 
 ## 4. 面積要素
 
-小さなパラメータ長方形
+RA7 の二重積分を曲面へ移すには、パラメータ平面の小長方形が空間内でどれだけの面積へ変わるかを知る必要があります。
+
+点 $(u,v)$ を固定します。$u$ 方向へ $du$ だけ動かした辺は、$r$ の微分可能性から
+
+$$
+r(u+du,v)-r(u,v)
+=
+r_u(u,v)\,du
++
+o(|du|).
+$$
+
+$v$ だけを動かした差分にも同じ微分可能性を適用すると
+
+$$
+r(u,v+dv)-r(u,v)
+=
+r_v(u,v)\,dv
++
+o(|dv|).
+$$
+
+したがって小さなパラメータ長方形
 
 $$
 [u,u+du]\times[v,v+dv]
 $$
 
-は一次近似で、空間内の平行四辺形
+の像は、一次の大きさでは二辺
 
 $$
-r_u\,du,\qquad r_v\,dv
+r_u(u,v)\,du,
+\qquad
+r_v(u,v)\,dv
 $$
 
-へ移ります。その面積は
+を持つ平行四辺形で近似できます。二つのベクトル $a,b$ が張る平行四辺形の面積は $|a\times b|$ なので、
 
 $$
-|r_u\times r_v|\,du\,dv
+\begin{aligned}
+\text{曲面上の微小面積}
+&\approx
+\left|
+\left(r_u\,du\right)
+\times
+\left(r_v\,dv\right)
+\right|\\
+&=
+|r_u\times r_v|\,du\,dv.
+\end{aligned}
 $$
 
-です。
+この一次近似の係数 $|r_u\times r_v|$ を、平面上の面積要素を曲面上の面積要素へ変換する倍率として使います。
 
 <a id="def-vc3-area-element"></a>
 
@@ -281,6 +365,10 @@ $$
 
 ## 5. パラメータを変えても面積は変わらない
 
+同じ曲面でも、パラメータの取り方は一つではありません。例えば球面では角度の選び方や進む速さを変えても、幾何学的な面積そのものは変わらないはずです。
+
+ところが公式 $|r_u\times r_v|\,du\,dv$ にはパラメータが明示的に入っています。そこで、パラメータを取り替えたとき外積と平面上の面積要素がどのように補償し合うかを確認します。
+
 <a id="thm-vc3-area-invariance"></a>
 
 <!-- formal-statement-start -->
@@ -294,10 +382,10 @@ $$
 > を $C^1$ 級の全単射で、逆写像も $C^1$ 級である写像とする。$\widetilde r=r\circ\psi$ と置くと
 >
 $$
-|\widetilde r_s\times\widetilde r_t|
+|\widetilde r_s(s,t)\times\widetilde r_t(s,t)|
 =
-|r_u\times r_v|\,
-|\det D\psi|.
+|r_u(\psi(s,t))\times r_v(\psi(s,t))|\,
+|\det D\psi(s,t)|.
 $$
 >
 > 従って [Riemann積分の多変数変数変換定理](../RA7/index.md#thm-ra7-change-of-variables) と合わせて曲面積はパラメータ表示に依存しない。
@@ -314,21 +402,52 @@ $$
 \psi(s,t)=(u(s,t),v(s,t))
 $$
 
-とします。連鎖律より
+とします。$\widetilde r(s,t)=r(u(s,t),v(s,t))$ なので、連鎖律を $s,t$ それぞれについて適用すると
 
 $$
 \widetilde r_s
 =
-r_u u_s+r_v v_s,
+(r_u\circ\psi)u_s
++
+(r_v\circ\psi)v_s,
 $$
 
 $$
 \widetilde r_t
 =
-r_u u_t+r_v v_t.
+(r_u\circ\psi)u_t
++
+(r_v\circ\psi)v_t.
 $$
 
-外積の双線形性と $a\times a=0$ から
+以下では式を読みやすくするため、$r_u\circ\psi,r_v\circ\psi$ を一時的に $r_u,r_v$ と略記します。外積を双線形性で四項に展開すると
+
+$$
+\begin{aligned}
+\widetilde r_s\times\widetilde r_t
+&=
+u_su_t(r_u\times r_u)
++
+u_sv_t(r_u\times r_v)\\
+&\quad
++
+v_su_t(r_v\times r_u)
++
+v_sv_t(r_v\times r_v).
+\end{aligned}
+$$
+
+ここで
+
+$$
+r_u\times r_u=0,
+\qquad
+r_v\times r_v=0,
+\qquad
+r_v\times r_u=-(r_u\times r_v)
+$$
+
+なので
 
 $$
 \begin{aligned}
@@ -345,14 +464,34 @@ $$
 $$
 |\widetilde r_s\times\widetilde r_t|
 =
-|\det D\psi|\,
-|r_u\times r_v|.
+\left(|r_u\times r_v|\circ\psi\right)
+|\det D\psi|.
 $$
 
-あとは RA7 の変数変換公式を適用すれば、面積積分の値は一致します。
+ここで RA7 の変数変換定理へ
+
+$$
+g(u,v)=|r_u(u,v)\times r_v(u,v)|
+$$
+
+を代入します。すると
+
+$$
+\iint_{\widetilde U}
+(g\circ\psi)|\det D\psi|\,ds\,dt
+=
+\iint_U
+g(u,v)\,du\,dv.
+$$
+
+左辺は再パラメータ表示 $\widetilde r$ で計算した曲面積、右辺は元の $r$ で計算した曲面積です。したがって曲面積はパラメータの取り方に依存しません。
 <!-- proof-end -->
 
 ## 6. スカラー場を曲面上で積分する
+
+一次元の対象で「密度 × 微小な長さ」を積み上げるのと同じ発想で、曲面では「面密度 × 微小面積」を積み上げます。
+
+パラメータ平面では微小面積が $du\,dv$ ですが、曲面上では $|r_u\times r_v|du\,dv$ へ拡大されます。また曲面上の点での値は $f(r(u,v))$ です。この二つを掛けて $U$ 上で二重積分します。
 
 <a id="def-vc3-scalar-surface-integral"></a>
 
@@ -394,11 +533,73 @@ $$
 
 $f=1$ なら曲面積そのものです。
 
+この定義がパラメータ表示に依存しないことも、面積の場合と同じ変数変換で確認できます。$\widetilde r=r\circ\psi$ とすると、前節の計算から
+
+$$
+|\widetilde r_s\times\widetilde r_t|
+=
+\left(|r_u\times r_v|\circ\psi\right)|\det D\psi|.
+$$
+
+また
+
+$$
+f(\widetilde r)
+=
+f(r\circ\psi)
+=
+(f\circ r)\circ\psi
+$$
+
+なので、再パラメータ表示での被積分関数は
+
+$$
+\begin{aligned}
+f(\widetilde r)
+|\widetilde r_s\times\widetilde r_t|
+&=
+\left[
+f(r)|r_u\times r_v|
+\right]\circ\psi
+\,|\det D\psi|.
+\end{aligned}
+$$
+
+ここで RA7 の変数変換定理へ
+
+$$
+g(u,v)
+=
+f(r(u,v))
+|r_u(u,v)\times r_v(u,v)|
+$$
+
+を代入すれば、
+
+$$
+\iint_{\widetilde U}
+f(\widetilde r)
+|\widetilde r_s\times\widetilde r_t|\,ds\,dt
+=
+\iint_U
+f(r)|r_u\times r_v|\,du\,dv.
+$$
+
+したがってスカラー曲面積分は、同じ曲面を別の正則パラメータで表しても同じ値になります。
+
 ---
 
 ## 7. 向きを入れて曲面通過量を測る
 
-向きを選ぶと絶対値を外してベクトル面積要素を使えます。
+スカラー曲面積分は面の「量」を足すだけなので向きは不要でした。しかしベクトル場が面をどちら向きに通過するかを測るには、面の表裏を決める必要があります。
+
+単位法線を $n$ とすると、$F\cdot n$ は $F$ の法線方向成分です。これに微小面積 $dS$ を掛けた
+
+$$
+F\cdot n\,dS
+$$
+
+が、その小面を正の向きへ通過する量になります。パラメータ表示では $n\,dS$ を一つのベクトル面積要素としてまとめると計算が簡潔になります。
 
 <a id="def-vc3-oriented-area-flux"></a>
 
@@ -525,7 +726,26 @@ F(r)\cdot(r_u\times r_v)
 \end{aligned}
 $$
 
-[Riemann積分の多変数変数変換定理](../RA7/index.md#thm-ra7-change-of-variables) を適用すると
+ここで
+
+$$
+g(u,v)
+=
+F(r(u,v))\cdot
+(r_u(u,v)\times r_v(u,v))
+$$
+
+と置きます。$\det D\psi>0$ なので $|\det D\psi|=\det D\psi$ です。[Riemann積分の多変数変数変換定理](../RA7/index.md#thm-ra7-change-of-variables) を $g$ に適用すると
+
+$$
+\iint_{\widetilde U}
+(g\circ\psi)|\det D\psi|\,ds\,dt
+=
+\iint_U
+g(u,v)\,du\,dv.
+$$
+
+したがって
 
 $$
 \iint_U
@@ -534,7 +754,7 @@ F(r(u,v))
 (r_u\times r_v)\,du\,dv
 $$
 
-になります。
+が得られます。
 
 一方 $\det D\psi<0$ なら
 
@@ -570,6 +790,34 @@ $$
 $$
 r_x\times r_y=(-g_x,-g_y,1).
 $$
+
+したがって外積の長さは
+
+$$
+|r_x\times r_y|
+=
+\sqrt{(-g_x)^2+(-g_y)^2+1^2}
+=
+\sqrt{1+g_x^2+g_y^2}.
+$$
+
+よって曲面積要素の定義へ代入すると
+
+$$
+dS
+=
+\sqrt{1+g_x^2+g_y^2}\,dx\,dy.
+$$
+
+さらに第三成分が $1>0$ なので、$r_x\times r_y$ は上向き法線と同じ向きです。従って上向きのベクトル面積要素は
+
+$$
+n\,dS
+=
+(-g_x,-g_y,1)\,dx\,dy
+$$
+
+となります。
 
 <a id="prop-vc3-graph-formulas"></a>
 
@@ -620,7 +868,46 @@ r(\theta,\varphi)
  R\cos\varphi)
 $$
 
-とすると
+とします。$\theta$ と $\varphi$ について各成分を偏微分すると
+
+$$
+r_\theta
+=
+(-R\sin\varphi\sin\theta,\,
+ R\sin\varphi\cos\theta,\,
+ 0),
+$$
+
+$$
+r_\varphi
+=
+(R\cos\varphi\cos\theta,\,
+ R\cos\varphi\sin\theta,\,
+ -R\sin\varphi).
+$$
+
+外積の各成分を順に作ると
+
+$$
+r_\theta\times r_\varphi
+=
+(-R^2\sin^2\varphi\cos\theta,\,
+ -R^2\sin^2\varphi\sin\theta,\,
+ -R^2\sin\varphi\cos\varphi).
+$$
+
+共通因子 $-R^2\sin\varphi$ をくくれば
+
+$$
+r_\theta\times r_\varphi
+=
+-R^2\sin\varphi
+(\sin\varphi\cos\theta,\,
+ \sin\varphi\sin\theta,\,
+ \cos\varphi).
+$$
+
+括弧内は長さ 1 のベクトルなので、$0\le\varphi\le\pi$ では $\sin\varphi\ge0$ より
 
 $$
 |r_\theta\times r_\varphi|
@@ -808,13 +1095,80 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-球面では
+半径 $R$ の球面を
 
 $$
-dS=R^2\sin\varphi\,d\varphi\,d\theta.
+r(\theta,\varphi)
+=
+(R\sin\varphi\cos\theta,\,
+ R\sin\varphi\sin\theta,\,
+ R\cos\varphi),
 $$
 
-よって
+$$
+0\le\theta\le2\pi,
+\qquad
+0\le\varphi\le\pi
+$$
+
+と表します。$0<\varphi<\pi$ では正則で、$\varphi=0,\pi$ の極ではこの座標だけが退化します。極は二点だけで面積への寄与を持たず、以下の面積密度は端点まで連続に延びるので、積分範囲には $0\le\varphi\le\pi$ を使えます。
+
+$\theta,\varphi$ 方向の速度ベクトルは
+
+$$
+r_\theta
+=
+(-R\sin\varphi\sin\theta,\,
+ R\sin\varphi\cos\theta,\,
+ 0),
+$$
+
+$$
+r_\varphi
+=
+(R\cos\varphi\cos\theta,\,
+ R\cos\varphi\sin\theta,\,
+ -R\sin\varphi).
+$$
+
+外積の各成分は
+
+$$
+r_\theta\times r_\varphi
+=
+(-R^2\sin^2\varphi\cos\theta,\,
+ -R^2\sin^2\varphi\sin\theta,\,
+ -R^2\sin\varphi\cos\varphi),
+$$
+
+したがって
+
+$$
+r_\theta\times r_\varphi
+=
+-R^2\sin\varphi
+(\sin\varphi\cos\theta,\,
+ \sin\varphi\sin\theta,\,
+ \cos\varphi).
+$$
+
+括弧内のベクトルの長さは 1 なので
+
+$$
+|r_\theta\times r_\varphi|
+=
+R^2\sin\varphi.
+$$
+
+従って曲面積要素は
+
+$$
+dS
+=
+R^2\sin\varphi\,d\varphi\,d\theta.
+$$
+
+これを球面全体で積分して
 
 $$
 \begin{aligned}
@@ -1087,16 +1441,40 @@ $$
 r(\theta,z)=(R\cos\theta,R\sin\theta,z)
 $$
 
-と置きます。外向き単位法線は
+と置きます。まず
 
 $$
-n=(\cos\theta,\sin\theta,0),
+r_\theta
+=
+(-R\sin\theta,R\cos\theta,0),
+\qquad
+r_z=(0,0,1)
 $$
 
-面積要素は
+なので
 
 $$
-dS=R\,d\theta\,dz.
+r_\theta\times r_z
+=
+(R\cos\theta,R\sin\theta,0).
+$$
+
+これは円柱の外向きです。その長さは $R$ なので
+
+$$
+n
+=
+\frac{r_\theta\times r_z}{|r_\theta\times r_z|}
+=
+(\cos\theta,\sin\theta,0),
+$$
+
+$$
+dS
+=
+|r_\theta\times r_z|\,d\theta\,dz
+=
+R\,d\theta\,dz.
 $$
 
 側面上で
@@ -1126,7 +1504,7 @@ $$
 上面の面積は $\pi R^2$ だから
 
 $$
-\text{上面 flux}
+\text{上面の流束}
 =
 2H\pi R^2.
 $$
@@ -1157,9 +1535,9 @@ $$
 VC3 で法線と流束が定義できました。次の VC4 では、
 
 $$
-\text{内部の divergence}
+\text{内部の発散}
 \quad\longleftrightarrow\quad
-\text{境界を通る flux}
+\text{境界を通る流束}
 $$
 
 を Green の定理と Gauss--Ostrogradsky の発散定理として証明します。

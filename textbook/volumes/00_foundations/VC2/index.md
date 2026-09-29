@@ -1,14 +1,22 @@
 # VC2 曲線・線積分・保存場
 
-VC1 ではベクトル場の局所微分を調べました。本章では場を **曲線に沿って積分**し、仕事・循環・ポテンシャルを結びます。
+VC1 では、ある一点の近くでベクトル場が湧き出すか、回り込むかを微分から読みました。しかし局所情報だけでは、「物体をある道筋に沿って動かしたとき、場が全体としてどれだけ仕事をしたか」は求められません。道筋の各点で受ける寄与を、進行方向も含めて足し上げる必要があります。
 
-中心となる問いは
+そこで本章では、まず曲線をパラメータで記述し、その上でスカラー場とベクトル場を **曲線に沿って積分**します。これにより、長さ・仕事・循環を同じ枠組みで計算できるようになります。
+
+さらに、場があるスカラー関数の勾配
 
 $$
-\nabla\phi=F
+F=\nabla\phi
 $$
 
-と書けることと、
+として書ける場合には、曲線の途中を逐一追わなくても端点だけで積分値が決まります。中心となる問いは、
+
+$$
+F=\nabla\phi
+$$
+
+と書けることと
 
 $$
 \int_\gamma F\cdot dr
@@ -19,6 +27,10 @@ $$
 ---
 
 ## 1. パラメータ表示された曲線
+
+曲線を単なる点の集合として見るだけでは、「どちら向きに進むか」「どの速さでパラメータが進むか」を記録できません。積分ではこの二つが必要になるので、曲線上の点を時刻のような変数 $t$ で指定します。
+
+同じ円でも $t$ の取り方を変えれば進む速さは変わりますが、幾何学的な長さは変わってほしくありません。後でその不変性を確認できるよう、まず微分可能なパラメータ表示を定義します。
 
 <a id="def-vc2-regular-curve"></a>
 
@@ -56,19 +68,31 @@ $$
 で、常に長さ 1 です。従って単位円の正則なパラメータ表示です。
 <!-- definition-example-end -->
 
-同じ幾何学的曲線でもパラメータの進み方は変えられます。$C^1$ 級の単調増加全単射
+同じ幾何学的曲線でもパラメータの進み方は変えられます。$C^1$ 級の全単射
 
 $$
 \varphi:[c,d]\to[a,b]
 $$
 
-に対し
+が逆写像も $C^1$ 級で、$\varphi'(s)>0$ を満たすとします。このとき
 
 $$
 \widetilde\gamma(s)=\gamma(\varphi(s))
 $$
 
-とすれば、向きを保った再パラメータ表示です。$\varphi$ が単調減少なら向きは反転します。
+は、同じ曲線を同じ向きにたどる再パラメータ表示です。$\varphi'(s)<0$ なら同じ曲線を逆向きにたどります。
+
+逆写像まで $C^1$ 級とするのは、再パラメータ表示の途中で進む速さが 0 になって正則性を失うことを避けるためです。
+
+パラメータ $t$ 自体の増分 $dt$ は、曲線上の実際の長さではありません。短い時間 $dt$ の間に
+
+$$
+\gamma(t+dt)-\gamma(t)
+\approx
+\gamma'(t)dt
+$$
+
+だけ進むので、一次近似での長さは $|\gamma'(t)|dt$ です。これを積み上げると、パラメータの進み方を補正した幾何学的な長さになります。
 
 <a id="def-vc2-arclength"></a>
 
@@ -111,11 +135,56 @@ $$
 したがって $0\le t\le2\pi$ の弧長は $2\pi$ で、$T$ は各点で長さ 1 の接方向です。
 <!-- definition-example-end -->
 
-向きを保つ再パラメータ表示では、1 変数の変数変換により弧長は変わりません。
+向きを保つ再パラメータ表示 $\widetilde\gamma=\gamma\circ\varphi$ で弧長が変わらないことを、変数を対応させて確認します。連鎖律から
+
+$$
+\widetilde\gamma'(s)
+=
+\gamma'(\varphi(s))\varphi'(s).
+$$
+
+$\varphi'(s)>0$ なので
+
+$$
+|\widetilde\gamma'(s)|
+=
+|\gamma'(\varphi(s))|\varphi'(s).
+$$
+
+従って
+
+$$
+\begin{aligned}
+L(\widetilde\gamma)
+&=
+\int_c^d
+|\gamma'(\varphi(s))|\varphi'(s)\,ds.
+\end{aligned}
+$$
+
+ここで一変数の変数変換 $t=\varphi(s)$ を使います。向きを保つので $\varphi(c)=a,\varphi(d)=b$ であり、
+
+$$
+L(\widetilde\gamma)
+=
+\int_a^b|\gamma'(t)|\,dt
+=
+L(\gamma).
+$$
+
+つまり $|\gamma'|$ は、パラメータの進む速さをちょうど打ち消して幾何学的な長さだけを残します。
 
 ---
 
 ## 2. スカラー場の線積分
+
+弧長が作れれば、曲線上に置かれた密度も積み上げられます。例えば針金の位置 $x$ に線密度 $f(x)$ が与えられているなら、短い部分の質量はおよそ
+
+$$
+f\times\text{短い弧長}
+$$
+
+です。次の定義では、この「密度 × 微小な長さ」の総和を曲線全体の積分として定式化します。
 
 <a id="def-vc2-scalar-line-integral"></a>
 
@@ -148,7 +217,35 @@ $$
 一定密度 1 のスカラー線積分が曲線の長さそのものになることを確認できます。
 <!-- definition-example-end -->
 
-これは曲線に沿った「密度 × 長さ」の総和です。向きを反転しても $ds$ は正なので値は変わりません。
+これは曲線に沿った「密度 × 長さ」の総和です。
+
+向きを保つ再パラメータ表示では、先ほどと同じ連鎖律から
+
+$$
+|\widetilde\gamma'(s)|
+=
+|\gamma'(\varphi(s))|\varphi'(s)
+$$
+
+となるので
+
+$$
+\begin{aligned}
+\int_{\widetilde\gamma}f\,ds
+&=
+\int_c^d
+f(\gamma(\varphi(s)))
+|\gamma'(\varphi(s))|
+\varphi'(s)\,ds\\
+&=
+\int_a^b
+f(\gamma(t))|\gamma'(t)|\,dt\\
+&=
+\int_\gamma f\,ds.
+\end{aligned}
+$$
+
+向きを反転する場合も絶対値 $|\widetilde\gamma'|$ が速さを正にするため、スカラー線積分の値は変わりません。
 
 例えば単位円上で $f(x,y)=x^2$ を積分すると
 
@@ -163,6 +260,16 @@ $$
 ---
 
 ## 3. ベクトル場の線積分：仕事と循環
+
+スカラー場では向きを反転しても「密度 × 長さ」は変わりません。一方、力 $F$ の中で微小変位 $dr$ に沿って仕事をするのは、力の進行方向成分です。したがって短い区間の寄与は内積
+
+$$
+F\cdot dr
+$$
+
+で測る必要があります。
+
+パラメータ表示 $r=\gamma(t)$ では微小変位を一次近似すると $\gamma'(t)dt$ なので、積分すべき量は $F(\gamma(t))\cdot\gamma'(t)$ になります。
 
 <a id="def-vc2-vector-line-integral"></a>
 
@@ -209,7 +316,49 @@ $$
 回転場に沿って一周すると正の循環が現れます。
 <!-- definition-example-end -->
 
-向きを保つ再パラメータ表示では値は不変です。向きを反転すれば $\gamma'$ の符号が反転するので、ベクトル線積分の符号も反転します。
+向きを保つ再パラメータ表示では、連鎖律により
+
+$$
+\widetilde\gamma'(s)
+=
+\gamma'(\varphi(s))\varphi'(s)
+$$
+
+なので
+
+$$
+\begin{aligned}
+\int_{\widetilde\gamma}F\cdot dr
+&=
+\int_c^d
+F(\gamma(\varphi(s)))
+\cdot
+\gamma'(\varphi(s))
+\varphi'(s)\,ds\\
+&=
+\int_a^b
+F(\gamma(t))\cdot\gamma'(t)\,dt\\
+&=
+\int_\gamma F\cdot dr.
+\end{aligned}
+$$
+
+第二行では $t=\varphi(s)$ と変数変換しました。
+
+一方 $\varphi'(s)<0$ で向きを反転する場合は、$\varphi(c)=b,\varphi(d)=a$ となります。同じ変数変換をすると積分区間が逆向きになり、
+
+$$
+\int_{\widetilde\gamma}F\cdot dr
+=
+\int_b^a
+F(\gamma(t))\cdot\gamma'(t)\,dt
+=
+-
+\int_a^b
+F(\gamma(t))\cdot\gamma'(t)\,dt.
+$$
+
+したがってベクトル線積分は向きを反転すると符号も反転します。
 
 ---
 
@@ -273,6 +422,14 @@ $$
 ---
 
 ## 5. 保存場と経路独立性
+
+[線積分の基本定理](#thm-vc2-line-ftc)から、$F=\nabla\phi$ と書ける場では、途中の経路をどれほど曲げても積分値は
+
+$$
+\phi(\text{終点})-\phi(\text{始点})
+$$
+
+だけで決まります。そこで「勾配として書ける場」と「積分が経路に依らない性質」に名前を付け、逆向きの含意まで整理します。
 
 <a id="def-vc2-conservative"></a>
 
@@ -380,23 +537,48 @@ $$
 \int_{p_0}^{x}F\cdot dr
 $$
 
-と置きます。経路独立性により良定義です。
+と置きます。経路独立性により、$p_0$ から $x$ へどの曲線を選んでも同じ値になるため良定義です。
 
-$x\in\Omega$ を固定します。$\Omega$ は開なので、十分小さい $h$ に対し $x+he_j\in\Omega$ です。$p_0$ から $x$ までの曲線の後に線分
-
-$$
-s\mapsto x+se_j,\qquad 0\le s\le h
-$$
-
-を付けると
+$x\in\Omega$ を固定します。$\Omega$ は開なので、十分小さい $|h|$ に対し $x+he_j\in\Omega$ です。$p_0$ から $x$ までの曲線の後に
 
 $$
+\eta_h(t)=x+th e_j,
+\qquad
+0\le t\le1
+$$
+
+という短い線分を付けます。この線分では
+
+$$
+\eta_h'(t)=h e_j
+$$
+
+なので、ベクトル線積分の定義から
+
+$$
+\begin{aligned}
 \phi(x+he_j)-\phi(x)
-=
-\int_0^h F_j(x+se_j)\,ds.
+&=
+\int_{\eta_h}F\cdot dr\\
+&=
+\int_0^1
+F(x+th e_j)\cdot h e_j\,dt\\
+&=
+h\int_0^1
+F_j(x+th e_j)\,dt.
+\end{aligned}
 $$
 
-$h$ で割り、$h\to0$ とすると $F$ の連続性から
+したがって $h\neq0$ に対して
+
+$$
+\frac{\phi(x+he_j)-\phi(x)}{h}
+=
+\int_0^1
+F_j(x+th e_j)\,dt.
+$$
+
+この形なら $h>0$ と $h<0$ の両方を同じ式で扱えます。$F_j$ は連続なので、$h\to0$ では各 $t\in[0,1]$ に対して $F_j(x+th e_j)\to F_j(x)$ となり、区間が固定されていることから右辺は $F_j(x)$ へ収束します。従って
 
 $$
 \frac{\partial\phi}{\partial x_j}(x)
@@ -414,6 +596,20 @@ $$
 ---
 
 ## 6. 回転が 0 なら保存場か：星型領域では成り立つ
+
+VC1 で、$F=\nabla\phi$ なら
+
+$$
+\nabla\times F
+=
+\nabla\times\nabla\phi
+=
+0
+$$
+
+となることを示しました。すると逆に、「回転が 0 ならポテンシャルが存在するのか」と聞きたくなります。
+
+局所的な微分条件だけから大域的なポテンシャルを作るには、点どうしを領域の中で安全につなぐ方法が必要です。まず、基準点から任意の点へ直線を引いても領域の外へ出ない **星型領域** なら、この構成を直接実行できます。
 
 <a id="def-vc2-star-shaped"></a>
 
@@ -446,7 +642,7 @@ $$
 なので、原点から $x$ への線分全体が開球内に残ります。
 <!-- definition-example-end -->
 
-Euclidean 空間の凸領域なら任意の点を中心として星型です。
+ユークリッド空間の凸領域なら任意の点を中心として星型です。
 
 <a id="thm-vc2-poincare-star"></a>
 
@@ -494,7 +690,38 @@ $$
 
 と定めます。
 
-$F\in C^1$ なので積分記号下微分ができ、
+$F\in C^1$ なので、$t\in[0,1]$ のコンパクト区間上で被積分関数とその $x_i$ 微分は連続です。したがって積分記号下で $x_i$ 微分できます。
+
+まず各項
+
+$$
+F_j(tx)x_j
+$$
+
+を $x_i$ で微分します。連鎖律と積の微分則から
+
+$$
+\frac{\partial}{\partial x_i}
+\left(F_j(tx)x_j\right)
+=
+t\frac{\partial F_j}{\partial x_i}(tx)x_j
++
+F_j(tx)
+\frac{\partial x_j}{\partial x_i}.
+$$
+
+ここで
+
+$$
+\frac{\partial x_j}{\partial x_i}
+=
+\begin{cases}
+1,&i=j,\\
+0,&i\ne j
+\end{cases}
+$$
+
+です。したがって $j$ について和を取ると第二項では $j=i$ だけが残り、
 
 $$
 \frac{\partial\phi}{\partial x_i}
@@ -508,24 +735,52 @@ t\sum_{j=1}^3
 \right)dt.
 $$
 
-回転が 0 であることより
+回転が 0 であることは、三次元では成分ごとに
 
 $$
 \frac{\partial F_j}{\partial x_i}
 =
-\frac{\partial F_i}{\partial x_j}.
+\frac{\partial F_i}{\partial x_j}
 $$
 
-従って被積分関数は
+を意味します。これを上式へ代入すると
 
 $$
+\frac{\partial\phi}{\partial x_i}
+=
+\int_0^1
+\left(
 F_i(tx)
 +
 t\sum_j
 \frac{\partial F_i}{\partial x_j}(tx)x_j
-=
-\frac{d}{dt}\left[tF_i(tx)\right].
+\right)dt.
 $$
+
+一方、$tF_i(tx)$ を $t$ で微分すると、積の微分則と連鎖律により
+
+$$
+\begin{aligned}
+\frac{d}{dt}\left[tF_i(tx)\right]
+&=
+F_i(tx)
++
+t\frac{d}{dt}F_i(tx)\\
+&=
+F_i(tx)
++
+t\sum_j
+\frac{\partial F_i}{\partial x_j}(tx)x_j.
+\end{aligned}
+$$
+
+したがって被積分関数はちょうど
+
+$$
+\frac{d}{dt}\left[tF_i(tx)\right]
+$$
+
+です。
 
 よって
 
