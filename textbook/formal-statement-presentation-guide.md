@@ -69,6 +69,31 @@ $$
 <!-- formal-statement-end -->
 ```
 
+### 2.1 長い式は本文へ埋め込まない
+
+formal statement の文章中には、$X$、$f:X\to Y$、$a\in U$ のような短い記号はインライン数式として置いてよい。一方、定義条件・等式・不等式・極限・主要な結論を表す長い式を文章へ埋め込み、ブラウザ幅に応じて文章ごと折り返させない。
+
+長い条件や結論は、文章で役割を述べてから独立した表示数式にする。
+
+```md
+<!-- formal-statement-start -->
+> **定義（TODO）**  
+> 写像 $f:X\to Y$ が点 $a$ で条件
+
+$$
+\frac{\|f(a+h)-f(a)-Ah\|}{\|h\|}\to0
+$$
+
+> を満たすとき、TODO と定義する。
+<!-- formal-statement-end -->
+```
+
+表示数式の区切り行には Markdown の `>` を付けない。短い記号まで機械的に別行立てにはしない。
+
+DREAM THEATER ではさらに、**数式だけで一行を使う場合はインライン数式のまま置かず、表示数式にする**。formal statement 内で「blockquote の一行を数式だけが占める」書き方は使わない。文章中の短い記号は従来どおりインラインでよい。
+
+`npm run validate:formal-statements` は、formal statement 内で明らかに長いインライン数式、一行へ過度に多くの数式断片を詰め込んだ箇所、DREAM THEATER で数式だけの一行をインライン数式として置いた箇所を検出する。数式を一律に別行化するのではなく、折り返しによって定義・定理の視認性が落ちるケースを高い確度で止める。
+
 ## 3. 参照リンク
 
 formal result を他の場所から使う場合は、章トップや見出し自動IDではなく、その result の安定 anchor をリンク先にする。
@@ -138,6 +163,8 @@ formal statement marker と proof marker を入れ子にしない。
 - folded proof の中に formal statement panel を置く、または panel の中で proof を開始する。
 - Pages の共通青線 `#2f6f9f`、4〜6px の左罫線、blockquote の二重線抑制が失われる。
 - Pages runtime の marker → `.formal-statement` 変換が失われる。
+- 長い主条件・主結論を文章内へ詰め込み、可読性を損なう。
+- DREAM THEATER の formal statement で、数式だけの一行をインライン数式として置く。
 
 `npm run validate:formal-references` は formal result を使うリンクが章トップ止まりでないこと、指定 fragment が実在することを検査する。`npm run validate:pages` は生成後Pagesでも全種の安定 formal anchor へのリンクが実際に着地できることを再検証する。
 

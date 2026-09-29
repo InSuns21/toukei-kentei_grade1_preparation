@@ -55,7 +55,13 @@
 
 <!-- formal-statement-start -->
 > **定義（確率変数）**  
-> 確率空間 $(\Omega,\mathcal F,P)$ 上で、$X:\Omega\to\mathbb R$ が全ての $x\in\mathbb R$ について $\{\omega:X(\omega)\le x\}\in\mathcal F$ を満たすとき、$X$ を **実確率変数** という。すなわち、標本点を実数へ写し、$P(X\le x)$ のような確率が定義できる可測写像である。
+> 確率空間 $(\Omega,\mathcal F,P)$ 上で、$X:\Omega\to\mathbb R$ が全ての $x\in\mathbb R$ について
+
+$$
+\{\omega:X(\omega)\le x\}\in\mathcal F
+$$
+
+> を満たすとき、$X$ を **実確率変数** という。すなわち、標本点を実数へ写し、$P(X\le x)$ のような確率が定義できる可測写像である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-p2-01-random-variable -->
@@ -118,7 +124,21 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（確率密度関数）**  
-> 非負関数 $f_X$ が全ての $a<b$ について $P(a<X\le b)=\int_a^b f_X(x)\,dx$ を満たし、かつ $\int_{-\infty}^{\infty}f_X(x)\,dx=1$ であるとき、$f_X$ を $X$ の **確率密度関数** という。確率は密度の値そのものではなく、区間上の積分で与えられる。
+> 非負関数 $f_X$ が全ての $a<b$ について
+
+$$
+P(a<X\le b)
+=
+\int_a^b f_X(x)\,dx
+$$
+
+> を満たし、かつ
+
+$$
+\int_{-\infty}^{\infty}f_X(x)\,dx=1
+$$
+
+> であるとき、$f_X$ を $X$ の **確率密度関数** という。確率は密度の値そのものではなく、区間上の積分で与えられる。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-p2-01-pdf -->
@@ -213,7 +233,15 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（確率変数の独立）**  
-> 確率変数 $X,Y$ について、任意の適切な集合 $A,B$ に対し $P(X\in A,Y\in B)=P(X\in A)P(Y\in B)$ が成り立つとき、$X,Y$ は **独立** であるという。これは $X$ から作る事象と $Y$ から作る事象が独立であることを表す。
+> 確率変数 $X,Y$ について、任意の適切な集合 $A,B$ に対して
+
+$$
+P(X\in A,Y\in B)
+=
+P(X\in A)P(Y\in B)
+$$
+
+> が成り立つとき、$X,Y$ は **独立** であるという。これは $X$ から作る事象と $Y$ から作る事象が独立であることを表す。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-p2-01-rv-independence -->

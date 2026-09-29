@@ -13,6 +13,78 @@ const labelRe = new RegExp(`^\\s*(?:>\\s*)?\\*\\*${LABEL}(?:[（(：:].*)?\\*\\*
 const formalHeadingRe = new RegExp(`^#{2,6}\\s+(?:\\d+(?:\\.\\d+)*(?:[.)．])?\\s*)?${LABEL}(?:[（(：:]|$)`, 'u');
 const stableAnchorRe = new RegExp(`^\\s*<a\\s+id=["'](${STABLE_PREFIX}-[a-z0-9][a-z0-9-]*)["']\\s*><\\/a>\\s*$`, 'iu');
 
+const dreamTheaterIndexPath = path.resolve('textbook/dream-theater-index.json');
+const DREAM_THEATER_PATHS = fs.existsSync(dreamTheaterIndexPath)
+  ? new Set(JSON.parse(fs.readFileSync(dreamTheaterIndexPath, 'utf8')).sections.flatMap((section) => section.paths ?? []))
+  : new Set();
+const inlineMathRe = /(?<!\$)\$(?!\$)([^$\n]+?)\$(?!\$)/gu;
+
+// No existing layout violations are grandfathered. New detections are blocking.
+const FORMAL_LAYOUT_BASELINE = new Set();
+
+function visualMathLength(tex) {
+  return tex
+    .replace(/\\(?:left|right|bigl|bigr|Bigl|Bigr|displaystyle|textstyle)/gu, '')
+    .replace(/\\(?:mathbb|mathrm|mathbf|mathsf|operatorname|text|cal|mathcal)/gu, '')
+    .replace(/\\[A-Za-z]+/gu, 'x')
+    .replace(/\\/gu, '')
+    .replace(/[{}]/gu, '')
+    .replace(/\s+/gu, '')
+    .length;
+}
+
+function relationMathLength(tex) {
+  const hasMainRelation = /(?:=|\\(?:le|ge|neq|iff|Longleftrightarrow|Rightarrow|implies)\b|\\to\s*(?:0|\\infty)\b|\\xrightarrow)/u.test(tex);
+  return hasMainRelation ? visualMathLength(tex) : 0;
+}
+
+function estimatedDisplayWidth(line) {
+  const withMathWidths = line.replace(inlineMathRe, (_full, tex) => 'x'.repeat(visualMathLength(tex)));
+  const plain = withMathWidths.replace(/[*_>`#]/gu, '');
+  let width = 0;
+  for (const char of plain) {
+    if (/\s/u.test(char)) width += 0.5;
+    else width += char.codePointAt(0) > 0x7f ? 2 : 1;
+  }
+  return width;
+}
+
+function standaloneInlineMathReason(line) {
+  const match = /^\s*(?:>\s*)?\$([^$\n]+)\$\s*$/u.exec(line);
+  if (!match) return null;
+  const length = visualMathLength(match[1]);
+  if (length < 8) return null;
+  return `standalone formula uses inline math delimiters (estimated display length ${length})`;
+}
+
+function denseInlineMathReason(line, panelHasDisplayMath) {
+  const maths = [...line.matchAll(inlineMathRe)].map((match) => match[1].trim());
+  if (maths.length === 0) return null;
+  const relationLengths = maths.map(relationMathLength);
+  const maxRelationLength = Math.max(...relationLengths);
+  const displayWidth = estimatedDisplayWidth(line);
+  if (maxRelationLength >= 30 && displayWidth >= 80) {
+    return `long inline relation/formula (estimated display length ${maxRelationLength})`;
+  }
+  if (!panelHasDisplayMath && displayWidth >= 120 && maths.length >= 5 && maxRelationLength >= 10) {
+    return `math-heavy formal statement line without display math (estimated display width ${displayWidth.toFixed(1)}, ${maths.length} inline fragments)`;
+  }
+  return null;
+}
+
+function selfTestFormalMathLint() {
+  const bad = '> $f\\in C([0,1])$ に対し $B_nf(x)=\\sum_{k=0}^n f(k/n)\\binom nk x^k(1-x)^{n-k}$ を $f$ の第 $n$ Bernstein多項式という。';
+  const good = '> 真関数 $f:\\mathbb R^n\\to(-\\infty,+\\infty]$ が凸であるとは、任意の $x,y\\in\\mathbb R^n$ に対して';
+  if (!denseInlineMathReason(bad, false)) throw new Error('formal math lint: long defining equation not detected');
+  if (denseInlineMathReason(good, true)) throw new Error('formal math lint: type/hypothesis false positive');
+  const standaloneBad = '> $H(0,p)=f_0(p), \\qquad H(1,p)=f_1(p)$';
+  const standaloneGood = '> $x$';
+  if (!standaloneInlineMathReason(standaloneBad)) throw new Error('formal math lint: standalone inline formula not detected');
+  if (standaloneInlineMathReason(standaloneGood)) throw new Error('formal math lint: short standalone symbol false positive');
+}
+
+selfTestFormalMathLint();
+
 function walk(dir) {
   if (!fs.existsSync(dir)) return [];
   const out = [];
@@ -25,6 +97,7 @@ function walk(dir) {
 }
 
 const errors = [];
+const baselineIssues = [];
 let panelCount = 0;
 let pageCount = 0;
 let labelCount = 0;
@@ -35,6 +108,51 @@ for (const root of ROOTS.map((p) => path.resolve(p))) {
   for (const file of walk(root)) {
     const rel = path.relative(process.cwd(), file).replaceAll(path.sep, '/');
     const lines = fs.readFileSync(file, 'utf8').split(/\r?\n/);
+    const isDreamTheater = DREAM_THEATER_PATHS.has(rel);
+
+    if (!pagesMode) {
+      let panelStart = -1;
+      for (let k = 0; k < lines.length; k += 1) {
+        const trimmed = lines[k].trim();
+        if (trimmed === START) {
+          panelStart = k;
+          continue;
+        }
+        if (trimmed !== END || panelStart < 0) continue;
+
+        const panelLines = lines.slice(panelStart + 1, k);
+        const panelHasDisplayMath = panelLines.some((panelLine) => panelLine.trim() === '$$');
+        let panelAnchor = null;
+        for (let j = panelStart - 1; j >= Math.max(0, panelStart - 8); j -= 1) {
+          const anchorMatch = stableAnchorRe.exec(lines[j]);
+          if (anchorMatch) {
+            panelAnchor = anchorMatch[1];
+            break;
+          }
+        }
+        const baselineKey = panelAnchor ? `${rel}#${panelAnchor}` : null;
+        let baselineConsumed = false;
+
+        for (let offset = 0; offset < panelLines.length; offset += 1) {
+          const panelLine = panelLines[offset];
+          if (panelLine.trim() === '$$') continue;
+          const reason =
+            (isDreamTheater ? standaloneInlineMathReason(panelLine) : null)
+            ?? denseInlineMathReason(panelLine, panelHasDisplayMath);
+          if (!reason) continue;
+
+          const sourceLineNo = panelStart + offset + 2;
+          const message = `${rel}:${sourceLineNo}: ${reason} inside a formal statement; keep short notation inline, but move the main equation or condition to an unquoted $$...$$ display block`;
+          if (baselineKey && FORMAL_LAYOUT_BASELINE.has(baselineKey) && !baselineConsumed) {
+            baselineIssues.push(message);
+            baselineConsumed = true;
+          } else {
+            errors.push(message);
+          }
+        }
+        panelStart = -1;
+      }
+    }
     let depth = 0;
     let proofDepth = 0;
     let fence = null;
@@ -164,10 +282,15 @@ if (!fs.existsSync(rendererPath)) {
   }
 }
 
+if (baselineIssues.length) {
+  console.warn(`Formal statement layout baseline: ${baselineIssues.length} known pre-existing issue(s):`);
+  for (const issue of baselineIssues) console.warn(`- ${issue}`);
+}
+
 if (errors.length) {
   console.error(`Formal statement panel validation failed with ${errors.length} issue(s):`);
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
 
-console.log(`Formal statement panel validation passed${pagesMode ? ' for generated Pages' : ''}: ${panelCount} panel(s), ${anchoredPanelCount} anchored panel(s), ${stableAnchorCount} stable anchor(s), ${labelCount} declaration(s), ${pageCount} page(s), standard blue rule verified.`);
+console.log(`Formal statement panel validation passed${pagesMode ? ' for generated Pages' : ''}: ${panelCount} panel(s), ${anchoredPanelCount} anchored panel(s), ${stableAnchorCount} stable anchor(s), ${labelCount} declaration(s), ${pageCount} page(s), standard blue rule verified, ${baselineIssues.length} known layout baseline issue(s).`);

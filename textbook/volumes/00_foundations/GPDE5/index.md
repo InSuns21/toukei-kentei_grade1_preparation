@@ -354,7 +354,9 @@ $$
 > **補題（関数型 Loomis--Whitney 不等式）**  
 > $d\ge2$ とし、各 $i=1,\dots,d$ について
 >
-> $g_i:\mathbb R^{d-1}\to[0,\infty)$
+$$
+g_i:\mathbb R^{d-1}\to[0,\infty)
+$$
 >
 > を可積分関数とする。
 >

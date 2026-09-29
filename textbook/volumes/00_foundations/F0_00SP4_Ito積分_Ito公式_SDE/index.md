@@ -493,7 +493,13 @@ $\int_0^T0ds=0$、$\int_0^T1^2ds=T<\infty$ なので積分可能性条件も満�
 
 <!-- formal-statement-start -->
 > **定理（1次元Itô processに対するItô公式）**  
-> $X_t=X_0+\int_0^tb_sds+\int_0^t\sigma_s dB_s$ をItô processとし、$f\in C^{1,2}([0,T]\times\mathbb R)$ とします。必要な積分をlocalizationで可積分にした上で
+> $X$ を
+
+$$
+X_t=X_0+\int_0^t b_s\,ds+\int_0^t\sigma_s\,dB_s
+$$
+
+> と表されるItô processとし、$f\in C^{1,2}([0,T]\times\mathbb R)$ とします。必要な積分をlocalizationで可積分にした上で
 
 $$
 \boxed{
