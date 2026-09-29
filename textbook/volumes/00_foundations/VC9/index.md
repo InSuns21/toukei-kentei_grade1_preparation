@@ -1383,7 +1383,7 @@ $$
 -\partial_tB.
 $$
 
-[Ampère--Maxwell の法則](#principle-vc9-maxwell-integral)では、まず左辺の境界循環へ Kelvin--Stokes の定理を適用して
+[Ampère--Maxwell の法則](#principle-vc9-maxwell-integral)では、まず左辺の境界循環へ [Kelvin--Stokes の定理](../VC5/index.md#thm-vc5-stokes)を適用して
 
 $$
 \oint_{\partial S}B\cdot dr
@@ -1442,7 +1442,7 @@ $$
 \int_\Omega\rho_e\,dV,
 $$
 
-左辺へ Gauss--Ostrogradsky の発散定理を適用して Gauss の積分形を得ます。
+左辺へ [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)を適用して Gauss の積分形を得ます。
 
 同じく $\operatorname{div}B=0$ を体積積分すれば磁束に対する Gauss の法則へ戻ります。Faraday の微分形は面積分して
 
