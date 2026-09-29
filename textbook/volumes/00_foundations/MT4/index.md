@@ -295,7 +295,7 @@ $$
 \boxed{
 Mf(x)
 :=
-sup_{I\ni x}
+\sup_{I\ni x}
 \frac1{|I|}\int_I|f(y)|\,dy,}
 $$
 
