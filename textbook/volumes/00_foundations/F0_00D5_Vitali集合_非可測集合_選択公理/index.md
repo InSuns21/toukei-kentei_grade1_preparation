@@ -893,7 +893,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-Lebesgue測度の平行移動不変性から、全ての $q$ について
+[D4 の Lebesgue測度の平行移動不変性](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#cor-f0-00d4-lebesgue-translation-invariance)から、全ての $q$ について
 
 $$
 \lambda(V+q)=\lambda(V).
@@ -1055,16 +1055,24 @@ $$
 U=\bigcup_q(V+q).
 $$
 
-従って $\lambda^*(U)=0$ です。しかし $[0,1]\subset U$ なので外測度の単調性から
+従って $\lambda^*(U)=0$ です。しかし $[0,1]\subset U$ です。$U$ の任意の開区間被覆はそのまま $[0,1]$ の被覆でもあるため、外測度の定義から
 
-$$
+$
+\lambda^*([0,1])
+\le
+\lambda^*(U).
+$
+
+一方 D4 で $\lambda^*([0,1])=1$ を示したので
+
+$
 1
 =
 \lambda^*([0,1])
 \le
 \lambda^*(U)
 =0,
-$$
+$
 
 となり矛盾します。従って $\lambda^*(V)>0$ です。
 
@@ -1105,7 +1113,7 @@ $$
 \subset[-1,2].
 $$
 
-平行移動不変性と可算加法性から左辺の測度は
+[D4 の Lebesgue測度の平行移動不変性](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#cor-f0-00d4-lebesgue-translation-invariance)と可算加法性から左辺の測度は
 
 $$
 \sum_q\lambda(E)=\infty.
