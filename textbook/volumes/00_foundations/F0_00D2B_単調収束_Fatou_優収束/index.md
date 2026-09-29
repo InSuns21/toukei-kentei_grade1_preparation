@@ -1118,21 +1118,27 @@ $$
 
 なので積分は0へ収束しません。
 
-この列を一つの可積分関数 $g$ で支配することはできません。実際、各 $n$ について $g\ge f_n$ a.e. と仮定します。各不等式が失敗する零集合を $N_n$ とし、
+この列を一つの可積分関数 $g$ で支配することはできません。実際、各 $n$ について
 
-$
+$$
+f_n\le g\quad\text{a.e.}
+$$
+
+と仮定します。各不等式が失敗する零集合を $N_n$ とし、
+
+$$
 N=\bigcup_{n=1}^{\infty}N_n
-$
+$$
 
 と置けば $\mu(N)=0$ で、$N^c$ 上では全ての $n$ について同時に $g\ge f_n$ です。
 
-$
+$$
 I_n
 =
 \left(\frac1{n+1},\frac1n\right)
 $$
 
-と置くと、$x\in I_n$ では $x<1/n$ なので
+と置くと、$x\in I_n\setminus N$ では $x<1/n$ なので
 
 $$
 f_n(x)=n,
@@ -1140,7 +1146,17 @@ f_n(x)=n,
 g(x)\ge n.
 $$
 
-区間 $I_n$ は互いに素だから
+区間 $I_n$ は互いに素で、零集合 $N$ を除いても
+
+$$
+\lambda(I_n\setminus N)
+=
+\lambda(I_n)
+=
+\frac1n-\frac1{n+1}.
+$$
+
+従って非負積分の加法性と単調性から
 
 $$
 \begin{aligned}
@@ -1150,8 +1166,9 @@ $$
 \int_{I_n\setminus N}g(x)\,dx\\
 &\ge
 \sum_{n=1}^{\infty}
-n\,\lambda(I_n\setminus N)
-=
+n\,\lambda(I_n\setminus N)\\
+&=
+\sum_{n=1}^{\infty}
 n\left(
 \frac1n-\frac1{n+1}
 \right)\\
@@ -1428,7 +1445,13 @@ $$
 \int_0^1f_n=n\cdot\frac1n=1.
 $$
 
-もし一つの可積分 $g$ が全ての $f_n$ を支配すると仮定します。
+もし DCT の仮定を満たす可積分関数 $g$ が存在すると仮定します。各 $n$ について
+
+$$
+f_n\le g\quad\text{a.e.}
+$$
+
+なので、失敗する零集合を全部まとめた可算和 $N$ を除けば、全ての $n$ について同時に $f_n\le g$ です。
 
 $$
 I_n
@@ -1436,15 +1459,25 @@ I_n
 \left(\frac1{n+1},\frac1n\right)
 $$
 
-では $f_n=n$ なので $g\ge n$ です。従って互いに素な区間 $I_n$ 上で積分すると
+では $f_n=n$ だから、$I_n\setminus N$ 上で $g\ge n$ です。$N$ は零集合なので
+
+$$
+\lambda(I_n\setminus N)
+=
+\lambda(I_n)
+=
+\frac1n-\frac1{n+1}.
+$$
+
+従って
 
 $$
 \begin{aligned}
 \int_0^1g(x)\,dx
 &\ge
 \sum_{n=1}^{\infty}
-n\,|I_n|\\
-&=
+\int_{I_n\setminus N}g(x)\,dx\\
+&\ge
 \sum_{n=1}^{\infty}
 n\left(
 \frac1n-\frac1{n+1}
