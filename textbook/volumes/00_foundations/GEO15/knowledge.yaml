@@ -63,6 +63,7 @@ concepts:
     requires:
       - geometry.normal-ball
       - geometry.normal-distance
+      - geometry.radial-geodesic-minimizing
       - geometry.riemannian-distance
       - topology.continuous-image-compact-space
 
@@ -74,6 +75,8 @@ concepts:
       - geometry.minimizing-geodesic
       - geometry.convex-normal-neighborhood
       - geometry.convex-normal-neighborhood-existence
+      - geometry.normal-coordinates
+      - geometry.normal-coordinate-properties
 
   - id: geometry.total-exponential-map-minimizer
     name: 全域指数写像から最短測地線を得る

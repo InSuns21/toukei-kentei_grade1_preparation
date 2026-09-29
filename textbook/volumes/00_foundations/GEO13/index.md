@@ -1,4 +1,4 @@
-# GEO13 幾何学 XIII
+# GEO13 異なる接空間のベクトルをどう比べるか：接続・平行移動・Levi-Civita 接続
 
 <!-- definition-example-audit: strict -->
 
@@ -653,13 +653,27 @@ fT(X,Y).
 \end{aligned}
 $$
 
-同様に
+第二変数についても項を展開すると
 
 $$
-T(X,fY)=fT(X,Y)
+\begin{aligned}
+T(X,fY)
+&=
+\nabla_X(fY)-\nabla_{fY}X-[X,fY]
+\\
+&=
+\{X(f)Y+f\nabla_XY\}
+-
+f\nabla_YX
+-
+\{X(f)Y+f[X,Y]\}
+\\
+&=
+fT(X,Y).
+\end{aligned}
 $$
 
-です。従って $T$ はテンソル場です。
+従って $T$ は両変数について $C^\infty(M)$-線形なテンソル場です。
 
 座標基底では
 
@@ -1670,16 +1684,16 @@ $$
 
 と打ち消し合います。
 
-同様に
-
-$$
-Y(f)g(Z,X)
-$$
-
-は
+また、$-g([Y,fZ],X)$ を展開すると
 
 $$
 -Y(f)g(Z,X)
+$$
+
+が現れるので、第二項から出た
+
+$$
+Y(f)g(Z,X)
 $$
 
 と打ち消し合います。
@@ -1693,6 +1707,50 @@ K(X,Y,fZ)=fK(X,Y,Z)
 $$
 
 です。
+
+ここで「$C^\infty(M)$-線形だから点 $p$ の値 $Z_p$ だけで決まる」という部分も確認します。
+
+$Z_p=\widetilde Z_p$ とし、
+
+$$
+W:=Z-\widetilde Z
+$$
+
+と置きます。局所座標基底で
+
+$$
+W=W^a\partial_a
+$$
+
+と書けば
+
+$$
+W^a(p)=0
+$$
+
+です。第三変数の $C^\infty(M)$-線形性から
+
+$$
+K(X,Y,W)
+=
+W^aK(X,Y,\partial_a),
+$$
+
+したがって
+
+$$
+K(X,Y,W)(p)=0.
+$$
+
+よって
+
+$$
+K(X,Y,Z)(p)
+=
+K(X,Y,\widetilde Z)(p)
+$$
+
+であり、値は延長したベクトル場の選び方ではなく $Z_p$ だけに依存します。
 
 従って各点 $p$ で
 
@@ -1719,11 +1777,70 @@ $$
 
 を満たします。
 
-局所座標基底 $\partial_\ell$ に対して右辺は滑らかな関数です。また $G^{-1}=(g^{k\ell})$ も滑らかなので、$\nabla_XY$ の成分も滑らかです。
+滑らかさも座標で確認できます。局所座標で
+
+$$
+\nabla_XY=A^k\partial_k
+$$
+
+と書くと、
+
+$$
+g_{k\ell}A^k
+=
+\frac12K(X,Y,\partial_\ell).
+$$
+
+両辺に $g^{m\ell}$ を掛ければ
+
+$$
+A^m
+=
+\frac12
+g^{m\ell}
+K(X,Y,\partial_\ell).
+$$
+
+右辺は滑らかな関数なので、$\nabla_XY$ は滑らかなベクトル場です。
 
 #### 2. 接続の公理
 
-同じ展開を第一変数について行うと
+第一変数の $C^\infty(M)$-線形性を実際に展開します。
+
+$$
+\begin{aligned}
+K(fX,Y,Z)
+={}&
+fXg(Y,Z)
++
+Y\bigl(fg(Z,X)\bigr)
+-
+Z\bigl(fg(X,Y)\bigr)
+\\
+&+
+g([fX,Y],Z)
+-
+g([Y,Z],fX)
++
+g([Z,fX],Y).
+\end{aligned}
+$$
+
+Lie 括弧の公式
+
+$$
+[fX,Y]
+=
+f[X,Y]-Y(f)X,
+$$
+
+$$
+[Z,fX]
+=
+Z(f)X+f[Z,X]
+$$
+
+を代入すると、$Y(f)$ を含む二項と $Z(f)$ を含む二項がそれぞれ打ち消し合います。残る項は全て $f$ を因子に持つので
 
 $$
 K(fX,Y,Z)
@@ -1734,12 +1851,59 @@ $$
 従って
 
 $$
-\nabla_{fX}Y
+g(\nabla_{fX}Y,Z)
 =
-f\nabla_XY.
+f,g(\nabla_XY,Z)
 $$
 
-第二変数については、関数微分の項が二つ残り、
+が全ての $Z$ について成り立ち、
+
+$$
+\boxed{
+\nabla_{fX}Y
+=
+f\nabla_XY
+}
+$$
+
+です。
+
+次に第二変数を $fY$ に置き換えます。
+
+$$
+\begin{aligned}
+K(X,fY,Z)
+={}&
+X\bigl(fg(Y,Z)\bigr)
++
+fYg(Z,X)
+-
+Z\bigl(fg(X,Y)\bigr)
+\\
+&+
+g([X,fY],Z)
+-
+g([fY,Z],X)
++
+g([Z,X],fY).
+\end{aligned}
+$$
+
+ここで
+
+$$
+[X,fY]
+=
+X(f)Y+f[X,Y],
+$$
+
+$$
+[fY,Z]
+=
+f[Y,Z]-Z(f)Y.
+$$
+
+を代入します。$Z(f)g(X,Y)$ の二項は打ち消し合い、$X(f)g(Y,Z)$ は最初の積の微分と Lie 括弧項から一つずつ現れるので
 
 $$
 K(X,fY,Z)
@@ -1749,7 +1913,7 @@ fK(X,Y,Z)
 2X(f)g(Y,Z).
 $$
 
-従って
+したがって
 
 $$
 \begin{aligned}
@@ -1758,7 +1922,7 @@ g(\nabla_X(fY),Z)
 \frac12K(X,fY,Z)
 \\
 &=
-f\,g(\nabla_XY,Z)
+f,g(\nabla_XY,Z)
 +
 X(f)g(Y,Z)
 \\
@@ -1767,21 +1931,50 @@ g(f\nabla_XY+X(f)Y,Z).
 \end{aligned}
 $$
 
-全ての $Z$ に対して成り立ち、$g$ は非退化なので
+全ての $Z$ に対して成り立つため
 
 $$
+\boxed{
 \nabla_X(fY)
 =
-f\nabla_XY+X(f)Y.
+f\nabla_XY+X(f)Y
+}
 $$
 
-実線形性と加法性は $K$ の式から直接従います。従って $\nabla$ はアフィン接続です。
+です。
+
+$K$ の各項は $X,Y$ の和と実定数倍について線形なので、同じ等式を $X_1+X_2$ や $aY_1+bY_2$ に代入すれば加法性・実線形性も得られます。これで接続の全公理を確認しました。
 
 #### 3. 捩率0
 
-$K(X,Y,Z)$ と $K(Y,X,Z)$ の差を取ります。
+$K(X,Y,Z)$ と $K(Y,X,Z)$ の差を取ります。微分項と Lie 括弧項を並べると、
 
-項を対応させると
+$$
+\begin{aligned}
+&K(X,Y,Z)-K(Y,X,Z)
+\\
+={}&
+g([X,Y],Z)-g([Y,X],Z)
+\\
+&-
+g([Y,Z],X)-g([Z,Y],X)
+\\
+&+
+g([Z,X],Y)+g([X,Z],Y).
+\end{aligned}
+$$
+
+Lie 括弧の反対称性
+
+$$
+[Y,X]=-[X,Y],
+\quad
+[Z,Y]=-[Y,Z],
+\quad
+[X,Z]=-[Z,X]
+$$
+
+を使うと後二行は消え、最初の二項だけが残って
 
 $$
 K(X,Y,Z)-K(Y,X,Z)
@@ -1792,11 +1985,9 @@ $$
 従って
 
 $$
-\begin{aligned}
 2g(\nabla_XY-\nabla_YX,Z)
-&=
+=
 2g([X,Y],Z).
-\end{aligned}
 $$
 
 全ての $Z$ に対して成り立つので
@@ -1809,9 +2000,62 @@ $$
 
 #### 4. 計量両立性
 
-今度は第二・第三変数を入れ替えて足します。
+今度は $K(X,Y,Z)$ と $K(X,Z,Y)$ を足します。まず微分項は
 
-直接整理すると
+$$
+\begin{aligned}
+&
+Xg(Y,Z)+Yg(Z,X)-Zg(X,Y)
+\\
+&+
+Xg(Z,Y)+Zg(Y,X)-Yg(X,Z)
+\\
+={}&
+2Xg(Y,Z)
+\end{aligned}
+$$
+
+です。ここでは計量の対称性
+
+$$
+g(Y,Z)=g(Z,Y)
+$$
+
+を使いました。
+
+Lie 括弧項は
+
+$$
+\begin{aligned}
+&
+g([X,Y],Z)
+-
+g([Y,Z],X)
++
+g([Z,X],Y)
+\\
+&+
+g([X,Z],Y)
+-
+g([Z,Y],X)
++
+g([Y,X],Z)
+\end{aligned}
+$$
+
+です。反対称性により
+
+$$
+[X,Z]=-[Z,X],
+\quad
+[Z,Y]=-[Y,Z],
+\quad
+[Y,X]=-[X,Y]
+$$
+
+なので、三組が全て打ち消し合います。
+
+従って
 
 $$
 K(X,Y,Z)+K(X,Z,Y)
@@ -1819,19 +2063,17 @@ K(X,Y,Z)+K(X,Z,Y)
 2Xg(Y,Z).
 $$
 
-従って
+定義した $\nabla$ について
 
 $$
-\begin{aligned}
-2g(\nabla_XY,Z)
-+
-2g(\nabla_XZ,Y)
-=
-2Xg(Y,Z).
-\end{aligned}
+K(X,Y,Z)=2g(\nabla_XY,Z),
 $$
 
-計量の対称性から
+$$
+K(X,Z,Y)=2g(\nabla_XZ,Y)
+$$
+
+だから
 
 $$
 Xg(Y,Z)
@@ -1841,7 +2083,7 @@ g(\nabla_XY,Z)
 g(Y,\nabla_XZ).
 $$
 
-従って $\nabla$ は $g$ と両立します。
+これは計量両立性そのものです。
 
 以上で [Koszul の公式](#thm-geo13-koszul)から Levi-Civita 接続が存在することを示しました。
 
