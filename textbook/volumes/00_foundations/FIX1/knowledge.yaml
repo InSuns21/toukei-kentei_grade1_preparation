@@ -30,10 +30,10 @@ concepts:
       - fixedpoint.simplex
 
   - id: fixedpoint.triangulation
-    name: 単体の三角形分割
+    name: 三角形分割
     kind: definition
     aliases:
-      - triangulation of a simplex
+      - triangulation
     introduction: formal
     introduction_aliases: ["定義（三角形分割とメッシュ）"]
     requires:
