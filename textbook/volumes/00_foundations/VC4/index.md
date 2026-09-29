@@ -609,7 +609,7 @@ $$
 任意の適切な領域 $\Omega$ について
 
 $$
-\text{境界から外へ出る total flux}
+\text{境界から外へ出る総流束}
 =
 \text{内部の source density の総和}.
 $$
