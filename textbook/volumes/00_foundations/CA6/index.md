@@ -640,7 +640,7 @@ $$
 
 で、$C^2$ 性から $u_{xy}=u_{yx}$ なので $p_y=-q_x$。従って $h$ は Cauchy–Riemann 方程式を満たす。[Cauchy–Riemann 十分条件](../CA1/index.md#thm-ca1-cr-sufficient) により $h$ は正則である。
 
-円板は星型なので [CA2 の局所原始関数](../CA2/index.md#cor-ca2-local-primitive) の構成を使い、$D(a,R)$ 上で
+円板 $D(a,R)$ は星型なので、[CA2 の星型領域の Cauchy の定理](../CA2/index.md#thm-ca2-cauchy-star-shaped)を $h$ に適用し、$D(a,R)$ 上で
 
 $$
 H'=h
