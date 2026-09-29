@@ -411,7 +411,7 @@ $$
 C\subset P.
 $$
 
-[群の対応定理](../GRP2/index.md#thm-grp2-correspondence)を、正規部分群 $C\trianglelefteq G$ と商群の部分群 $\overline P\le G/C$ に適用すると、逆像 $P$ に対応する商部分群は
+[群の対応定理](../GRP2/index.md#thm-grp2-correspondence)を、正規部分群 $C\trianglelefteq G$ と商群の部分群 $\overline P\le G/C$ に適用すると、逆像 $P$ から得られる商部分群は
 
 $$
 P/C
@@ -2282,7 +2282,7 @@ $$
 G=PQ.
 $$
 
-さらに $P,Q$ はともに正規です。$x\in P$, $y\in Q$ に対して、$Q$ の正規性から $xyx^{-1}y^{-1}\in Q$、$P$ の正規性から同じ交換子が $P$ に入ります。したがってこの積は $P\cap Q=\{e\}$ に入り、$xy=yx$ です。
+さらに $P,Q$ はともに正規です。$x\in P$, $y\in Q$ に対して、$Q$ の正規性から $xyx^{-1}y^{-1}\in Q$、$P$ の正規性から同じ積 $xyx^{-1}y^{-1}$ が $P$ に入ります。したがってこの積は $P\cap Q=\{e\}$ に入り、$xy=yx$ です。
 
 よって積写像 $P\times Q\to G$ は群同型で、
 
