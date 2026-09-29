@@ -35,6 +35,14 @@ concepts:
     requires:
       - measure.lebesgue-outer-measure
 
+  - id: measure.lebesgue-translation-invariance
+    name: Lebesgue測度の平行移動不変性
+    kind: corollary
+    aliases: [Lebesgue測度の平行移動不変性]
+    requires:
+      - measure.lebesgue-outer-translation-invariance
+      - measure.caratheodory-measurability
+
   - id: measure.halfline-lebesgue-measurability
     name: 半直線の可測性
     kind: lemma
