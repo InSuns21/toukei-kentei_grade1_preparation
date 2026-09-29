@@ -378,7 +378,13 @@ $$
 \end{aligned}
 $$
 
-正の斉次性も同じです。$c>0$ なら $c\phi_n\uparrow cu$ で、単関数では
+正の斉次性を示します。$c>0$ とします。$\phi_n\uparrow u$ なら、正の定数を掛けても不等号の向きは変わらないので
+
+$$
+c\phi_n\uparrow cu.
+$$
+
+単関数積分の定義では各高さが $c$ 倍されるため
 
 $$
 \int c\phi_n\,d\mu
@@ -386,15 +392,21 @@ $$
 c\int\phi_n\,d\mu.
 $$
 
-MCT を適用して
+ここで MCT を $c\phi_n\uparrow cu$ に適用すると
 
 $$
+\begin{aligned}
 \int cu\,d\mu
-=
+&=
+\lim_{n\to\infty}\int c\phi_n\,d\mu\\
+&=
+c\lim_{n\to\infty}\int\phi_n\,d\mu\\
+&=
 c\int u\,d\mu.
+\end{aligned}
 $$
 
-$c=0$ は両辺0です。$\square$
+$c=0$ なら $cu=0$ なので両辺とも0です。$\square$
 <!-- proof-end -->
 
 <a id="cor-f0-00d2b-integral-linearity"></a>
@@ -504,14 +516,48 @@ N
 a^+u^- + a^-u^+ + b^+v^- + b^-v^+
 $$
 
-と取れば、$P,N$ は非負可積分です。非負積分の加法性と正の斉次性を使って整理すると
+と取ります。$u,v$ は可積分なので
 
 $$
+\int u^+\,d\mu,quad
+\int u^-\,d\mu,quad
+\int v^+\,d\mu,quad
+\int v^-\,d\mu
+$$
+
+は全て有限です。係数 $a^\pm,b^\pm$ は有限の非負実数なので、直前の加法性と正の斉次性から
+
+$$
+\begin{aligned}
+\int P\,d\mu
+&=
+a^+\int u^+\,d\mu
++a^-\int u^-\,d\mu\\
+&\quad
++b^+\int v^+\,d\mu
++b^-\int v^-\,d\mu
+<\infty,
+\end{aligned}
+$$
+
+同じ形で $\int N\,d\mu<\infty$ です。従って $P,N$ は非負可積分であり、$au+bv=P-N$ も可積分です。
+
+先ほど示した $h=P-N$ の積分公式を使うと
+
+$$
+\begin{aligned}
 \int(au+bv)\,d\mu
-=
+&=
+\int P\,d\mu-\int N\,d\mu\\
+&=
+a\left(\int u^+\,d\mu-\int u^-\,d\mu\right)
++
+b\left(\int v^+\,d\mu-\int v^-\,d\mu\right)\\
+&=
 a\int u\,d\mu
 +
 b\int v\,d\mu.
+\end{aligned}
 $$
 
 最後に
