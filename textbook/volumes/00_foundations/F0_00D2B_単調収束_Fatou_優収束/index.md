@@ -576,7 +576,7 @@ $$
 }
 $$
 
-を $(f_n)$ の **点ごとの下極限** という。
+を $(f_n)$ の **可測関数列の下極限** という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-f0-00d2b-01 -->
