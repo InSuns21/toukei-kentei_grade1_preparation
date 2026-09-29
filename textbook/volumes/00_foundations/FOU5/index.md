@@ -917,7 +917,7 @@ $$
 | 対象 | 変換 | 周波数側 | 復元・一意性の機構 |
 |---|---|---|---|
 | $f\in L^1(\mathbb R)$ や $L^2(\mathbb R)$ | 連続 Fourier 変換 | 連続変数 $\xi$ | FOU3 の反転、FOU4 の Plancherel |
-| 確率分布 $\mu$ | 有限測度の Fourier 変換 / 特性関数 | 連続変数 $t$ | 特性関数一意性・Lévy連続性定理 |
+| 確率分布 $\mu$ | 有限測度の Fourier 変換 / 特性関数 | 連続変数 $t$ | 特性関数一意性・[Lévy連続性定理](../F0_00P6_特性関数_中心極限定理/index.md#thm-f0-00p6-levy-continuity) |
 | 有限列 $x\in\mathbb C^N$ | 離散 Fourier 変換 | $k=0,\dots,N-1$ | $1$ の $N$ 乗根の直交性 |
 
 共通しているのは
