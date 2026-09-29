@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00D2A
+  - RA1
 official_scope: []
 learning_objectives:
   - 単調収束定理を自己完結した定理文として述べ、証明できる
@@ -13,8 +14,7 @@ learning_objectives:
   - MCT・Fatou・DCTの使い分けを説明できる
   - DCTがL1収束まで与えることを示せる
   - 支配条件がないと積分と極限の交換が失敗する例を扱える
-definitions:
-  - { id: F000D2B-DEF-01, name: liminf }
+definitions: []
 theorems:
   - { id: F000D2B-THM-01, name: 単調収束定理 }
   - { id: F000D2B-PROP-01, name: 非負Lebesgue積分の加法性と正の斉次性 }
