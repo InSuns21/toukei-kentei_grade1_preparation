@@ -83,20 +83,20 @@ concepts:
       - measure.null-set
 
   - id: measure.set-algebra
-    name: 集合のalgebra
+    name: 集合代数
     kind: definition
-    aliases: [集合のalgebra]
+    aliases: [集合代数, algebra of sets, algebra]
     requires: []
 
   - id: measure.premeasure
-    name: premeasure
+    name: 前測度
     kind: definition
-    aliases: [premeasure]
+    aliases: [前測度, premeasure]
     requires:
       - measure.set-algebra
 
   - id: measure.hopf-premeasure-criterion
-    name: Hopf型のpremeasure判定
+    name: Hopf型の前測度判定
     kind: lemma
     aliases:
       - 空集合への連続性によるpremeasure判定
@@ -106,17 +106,17 @@ concepts:
       - measure.set-algebra
 
   - id: measure.premeasure-induced-outer-measure
-    name: premeasureから作る外測度
+    name: 前測度から作る外測度
     kind: lemma
-    aliases: [premeasureから作る外測度]
+    aliases: [前測度から作る外測度, premeasureから作る外測度]
     requires:
       - measure.premeasure
       - measure.outer-measure
 
   - id: measure.outer-measure-extends-premeasure
-    name: 外測度はpremeasureを拡張する
+    name: 外測度は前測度を拡張する
     kind: lemma
-    aliases: [外測度はpremeasureを拡張する]
+    aliases: [外測度は前測度を拡張する, 外測度はpremeasureを拡張する]
     requires:
       - measure.premeasure-induced-outer-measure
       - measure.premeasure
@@ -131,11 +131,11 @@ concepts:
       - measure.caratheodory-measurability
 
   - id: measure.sigma-finite-premeasure
-    name: σ有限premeasure
+    name: σ有限前測度
     kind: definition
     introduction: inline
-    introduction_aliases: [全空間を可算個の有限premeasure集合で覆える]
-    aliases: [σ有限premeasure]
+    introduction_aliases: [全空間を可算個の前測度が有限な集合で覆える]
+    aliases: [σ有限前測度, σ有限premeasure]
     requires:
       - measure.premeasure
 
