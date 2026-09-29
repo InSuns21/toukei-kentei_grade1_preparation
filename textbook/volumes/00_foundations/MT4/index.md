@@ -983,85 +983,135 @@ $$
 <!-- proof-start -->
 ### 証明
 
-半開区間 $(s,t]$ と $\{a\}$ の有限互いに素和からなる集合代数を $\mathcal A$ とします。まず
+$[a,b]$ の区間について端点の開閉を自由に許し、さらに一点集合も許した有限互いに素和全体を $\mathcal A$ とします。これは補集合・有限和・差について閉じた集合代数です。
+
+$s<t$ に対し、$I$ が端点 $s,t$ を持つ区間なら、端点を含むかどうかにかかわらず
 
 $$
-\nu_0((s,t])=G(t)-G(s),
-\qquad
-\nu_0(\{a\})=0
+\nu_0(I):=G(t)-G(s),
 $$
 
-と置き、互いに素な有限和では各成分の値を足して $\nu_0$ を定めます。二つの表示に共通の端点を全て挿入して細分すれば、値は望遠和
+一点集合には
+
+$$
+\nu_0(\{x\})=0
+$$
+
+と置きます。一般の $E\in\mathcal A$ は互いに素な区間と一点集合の有限和へ分け、その値の和で $\nu_0(E)$ を定めます。
+
+この定義が表示の仕方に依存しないことを確認します。二つの表示に現れる端点をすべて挿入して共通細分を取ると、一つの区間 $I$ の寄与は
 
 $$
 G(t)-G(s)
 =
-\sum_i\bigl(G(t_i)-G(t_{i-1})\bigr)
+\sum_{i=1}^{m}
+\bigl(G(t_i)-G(t_{i-1})\bigr)
 $$
 
-へ一致するため、この定義は表示の仕方に依存しません。同じ計算から有限加法性も従います。
+という望遠和へ分かれます。一点集合の寄与は0なので、端点をどちらの隣接区間へ含めても値は変わりません。従って $\nu_0$ は well-defined で、同じ共通細分を使えば有限加法性も従います。
 
-次に前測度性を確認します。[Hopf 型の前測度判定](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#lem-f0-00d4-hopf-premeasure)へ入力するため、
+次に前測度性を示します。[Hopf 型の前測度判定](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#lem-f0-00d4-hopf-premeasure)へ入力するため、
 
 $$
 E_1\supset E_2\supset\cdots,
 \qquad
 E_n\in\mathcal A,
 \qquad
-\bigcap_nE_n=\varnothing
+\bigcap_{n=1}^{\infty}E_n=\varnothing
 $$
 
-なら $\nu_0(E_n)\downarrow0$ を示せば十分です。
-
-もし極限が $L>0$ だと仮定します。$G$ はコンパクト区間 $[a,b]$ 上で一様連続なので、各 $E_n$ の有限個の半開区間成分の左端をわずかに右へ動かし、$E_n$ の内部にコンパクト集合 $K_n$ を取って
+なら
 
 $$
-\nu_0(E_n)-\nu_0(K_n)<2^{-n-2}L
+\nu_0(E_n)\downarrow0
 $$
 
-とできます。ここで有限個の端点の質量は $G$ の連続性により0なので、閉区間で作った $K_n$ にも同じ増分和で $\nu_0(K_n)$ を読めます。
+を示せば十分です。
+
+単調性から $\nu_0(E_n)$ は減少するので、その極限を $L\ge0$ とします。$L>0$ と仮定して矛盾を導きます。
+
+各 $E_n$ は有限個の区間と一点集合の和です。一点集合は $\nu_0$-質量0なので無視できます。$G$ はコンパクト区間 $[a,b]$ 上で一様連続です。従って各区間成分の端点を必要なら内側へ少し動かし、有限個の閉区間の和であるコンパクト集合
+
+$$
+K_n\subset E_n
+$$
+
+を
+
+$$
+\nu_0(E_n\setminus K_n)
+<
+2^{-n-2}L
+$$
+
+となるように取れます。ここで $E_n\setminus K_n\in\mathcal A$ なので、左辺は同じ $\nu_0$ で定義されています。
+
+次に
 
 $$
 F_n:=K_1\cap\cdots\cap K_n
 $$
 
-と置くと $(F_n)$ は減少するコンパクト集合列です。また $E_n\subset E_k$ $(k\le n)$ なので
+と置きます。有限個のコンパクト集合の共通部分なので $F_n$ はコンパクトで、$F_{n+1}\subset F_n$ です。また $E_n\subset E_k$ $(k\le n)$ だから
 
 $$
 E_n\setminus F_n
 \subset
-\bigcup_{k=1}^n(E_k\setminus K_k).
+\bigcup_{k=1}^{n}(E_k\setminus K_k).
 $$
 
-有限加法性から得られる有限劣加法性を使えば
+有限加法性から得られる単調性と有限劣加法性を使うと
 
 $$
+\begin{aligned}
 \nu_0(F_n)
-\ge
+&=
+\nu_0(E_n)-\nu_0(E_n\setminus F_n)\\
+&\ge
 \nu_0(E_n)
 -
-\sum_{k=1}^n\bigl(\nu_0(E_k)-\nu_0(K_k)\bigr)
->
-L-\frac L2
-=
+\sum_{k=1}^{n}\nu_0(E_k\setminus K_k)\\
+&>
+L-
+\sum_{k=1}^{n}2^{-k-2}L\\
+&>
 \frac L2.
+\end{aligned}
 $$
 
-従って全ての $F_n$ は空でありません。減少する非空コンパクト集合列なので
+従って $F_n\ne\varnothing$ です。$(F_n)$ は減少する非空コンパクト集合列なので、コンパクト性から
 
 $$
-\bigcap_nF_n\ne\varnothing.
+\bigcap_{n=1}^{\infty}F_n\ne\varnothing.
 $$
 
-しかし $F_n\subset E_n$ だからこれは $\bigcap_nE_n=\varnothing$ に矛盾します。よって $L=0$ であり、Hopf 型判定から $\nu_0$ は前測度です。
-
-最後に [Carathéodory 拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)を、集合代数 $\mathcal A$ 上の前測度 $\nu_0$ へ適用します。半開区間は $[a,b]$ の Borel $\sigma$-代数を生成し、
+しかし $F_n\subset E_n$ だから
 
 $$
-\nu_0([a,b])=G(b)-G(a)<\infty
+\bigcap_nF_n
+\subset
+\bigcap_nE_n
+=
+\varnothing,
 $$
 
-なので、Borel 集合への拡張は存在し一意です。$\square$
+となり矛盾です。従って $L=0$。Hopf 型判定により $\nu_0$ は $\mathcal A$ 上の前測度です。
+
+最後に [Carathéodory 拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)を $\nu_0$ へ適用します。$\mathcal A$ は半開区間を含むので生成する $\sigma$-代数は $[a,b]$ の Borel $\sigma$-代数です。また
+
+$$
+\nu_0([a,b])=G(b)-G(a)<\infty.
+$$
+
+従って Borel 集合への拡張 $\nu_G$ が存在し、有限前測度の拡張なので一意です。構成から
+
+$$
+\nu_G(\{a\})=0,
+\qquad
+\nu_G((s,t])=G(t)-G(s)
+$$
+
+を満たします。$\square$
 <!-- proof-end -->
 
 この補題では Carathéodory 拡張定理そのものを再証明せず、**どの前測度へ適用しているか**を明示しています。
