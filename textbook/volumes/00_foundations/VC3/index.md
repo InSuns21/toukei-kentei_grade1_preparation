@@ -1126,7 +1126,7 @@ $$
 上面の面積は $\pi R^2$ だから
 
 $$
-\text{上面 flux}
+\text{上面の流束}
 =
 2H\pi R^2.
 $$
@@ -1157,9 +1157,9 @@ $$
 VC3 で法線と流束が定義できました。次の VC4 では、
 
 $$
-\text{内部の divergence}
+\text{内部の発散}
 \quad\longleftrightarrow\quad
-\text{境界を通る flux}
+\text{境界を通る流束}
 $$
 
 を Green の定理と Gauss--Ostrogradsky の発散定理として証明します。
