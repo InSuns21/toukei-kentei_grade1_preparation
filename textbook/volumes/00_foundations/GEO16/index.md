@@ -1638,54 +1638,69 @@ $$
 
 ### この和は基底の選び方に依存しない
 
-定義に正規直交基底 $e_1,\dots,e_n$ が現れるので、別の正規直交基底を選んだら値が変わらないことを確認しておきます。
+定義に正規直交基底 $e_1,\dots,e_n$ が現れるので、別の正規直交基底を選んだら値が変わらないことを直接確認しておきます。
 
-$Y,Z$ を固定し、
+別の正規直交基底を
 
 $$
-L_{Y,Z}(X):=R(X,Y)Z
+e'_a
+=
+O_a{}^i e_i
 $$
 
-という $T_pM$ 上の線形写像を考えます。正規直交基底では
+と書きます。ここで $O=(O_a{}^i)$ は直交行列なので
+
+$$
+\sum_a
+O_a{}^iO_a{}^j
+=
+\delta^{ij}.
+$$
+
+$Y,Z$ を固定すると、多重線形性から
 
 $$
 \begin{aligned}
-\operatorname{tr}L_{Y,Z}
+\sum_a
+\operatorname{Rm}(e'_a,Y,Z,e'_a)
 &=
-\sum_i g(L_{Y,Z}e_i,e_i)
+\sum_{a,i,j}
+O_a{}^iO_a{}^j
+\operatorname{Rm}(e_i,Y,Z,e_j)
 \\
 &=
-\sum_i g(R(e_i,Y)Z,e_i)
+\sum_{i,j}
+\delta^{ij}
+\operatorname{Rm}(e_i,Y,Z,e_j)
 \\
 &=
-\sum_i\operatorname{Rm}(e_i,Y,Z,e_i).
+\sum_i
+\operatorname{Rm}(e_i,Y,Z,e_i).
 \end{aligned}
 $$
 
-したがって
+従って Ricci 曲率は、どの正規直交基底で和を取っても同じ値になります。
+
+スカラー曲率についても同じ基底変換を使います。すでに Ricci 曲率が基底に依らず定まる双線形形式だと分かっているので、
 
 $$
-\operatorname{Ric}(Y,Z)
-=
-\operatorname{tr}L_{Y,Z}.
-$$
-
-線形写像の跡は基底変換で変わらないので、Ricci 曲率は選んだ正規直交基底に依存しません。
-
-スカラー曲率についても、正規直交基底を $e'_i=O_i{}^j e_j$ と取り替えると、Ricci 曲率の行列は
-
-$$
-[\operatorname{Ric}]'
-=
-O[\operatorname{Ric}]O^{\mathsf T}
-$$
-
-と変換されます。直交行列 $O$ に対して跡は不変なので
-
-$$
-\sum_i\operatorname{Ric}(e'_i,e'_i)
-=
-\sum_i\operatorname{Ric}(e_i,e_i).
+\begin{aligned}
+\sum_a
+\operatorname{Ric}(e'_a,e'_a)
+&=
+\sum_{a,i,j}
+O_a{}^iO_a{}^j
+\operatorname{Ric}(e_i,e_j)
+\\
+&=
+\sum_{i,j}
+\delta^{ij}
+\operatorname{Ric}(e_i,e_j)
+\\
+&=
+\sum_i
+\operatorname{Ric}(e_i,e_i).
+\end{aligned}
 $$
 
 よってスカラー曲率も基底の選び方に依存しません。
