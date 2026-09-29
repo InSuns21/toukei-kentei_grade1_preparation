@@ -784,24 +784,24 @@ Plancherel だけでは「一つの関数のエネルギー」が保たれるこ
 
 まず本章の「第1変数について線形」という内積規約では
 
-$
+$$
 \begin{aligned}
 \|u+v\|^2-\|u-v\|^2
 &=2\langle u,v\rangle+2\langle v,u\rangle,\\
 \|u+iv\|^2-\|u-iv\|^2
 &=-2i\langle u,v\rangle+2i\langle v,u\rangle.
 \end{aligned}
-$
+$$
 
 第2式へ $i$ を掛けて第1式へ足すと $\langle v,u\rangle$ の項が消えるため、
 
-$
+$$
 \langle u,v\rangle
 =\frac14\Bigl(
 \|u+v\|^2-\|u-v\|^2
 +i\|u+iv\|^2-i\|u-iv\|^2
 \Bigr).
-$
+$$
 
 この恒等式を $u=\mathcal F_2f$、$v=\mathcal F_2g$ に使います。ここで
 
@@ -831,14 +831,14 @@ $$
 u-iv=\mathcal F_2(f-ig).
 $$
 
-従って 偏極恒等式 に現れる四つのノルムは、いずれも $\mathcal F_2$ を一つの $L^2$ 関数へ適用した形になりました。Plancherel をそれぞれへ適用すると
+従って上の恒等式に現れる四つのノルムは、いずれも $\mathcal F_2$ を一つの $L^2$ 関数へ適用した形になりました。Plancherel をそれぞれへ適用すると
 
 $$
 \|\mathcal F_2(f+ig)\|_2^2
 =2\pi\|f+ig\|_2^2
 $$
 
-など、四つのノルム二乗がすべて $2\pi$ 倍されます。従って偏極恒等式全体から共通因子 $2\pi$ を外せて
+など、四つのノルム二乗がすべて $2\pi$ 倍されます。従って上の恒等式全体から共通因子 $2\pi$ を外せて
 
 $$
 \langle\mathcal F_2f,\mathcal F_2g\rangle
@@ -1355,7 +1355,7 @@ $$
 \|\mathcal F_2h\|_2^2=2\pi\|h\|_2^2
 $$
 
-を全ての $h\in L^2$ に対して既知として、複素 偏極恒等式 から
+を全ての $h\in L^2$ に対して既知として、本章で確認した四つのノルムの恒等式から
 
 $$
 \langle\mathcal F_2f,\mathcal F_2g\rangle
@@ -1369,13 +1369,13 @@ $$
 
 本章で確認した恒等式
 
-$
+$$
 \langle u,v\rangle
 =\frac14\bigl(
 \|u+v\|^2-\|u-v\|^2
 +i\|u+iv\|^2-i\|u-iv\|^2
 \bigr)
-$
+$$
 
 で複素内積を四つのノルムから復元します。$u=\mathcal F_2f$、$v=\mathcal F_2g$ とします。線形性により
 
