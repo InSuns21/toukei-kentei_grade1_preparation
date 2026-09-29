@@ -251,7 +251,7 @@ $$
 > が成り立つ。
 <!-- formal-statement-end -->
 
-微分可能性の定義から、ある残差 $r(h)$ が存在して
+[多変数での微分可能性](#def-ra6-multivariable-differentiability)より、ある残差 $r(h)$ が存在して
 
 $$
 f(a+h)-f(a)
