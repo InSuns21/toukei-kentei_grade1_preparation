@@ -768,6 +768,8 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
+$H$ と $F$ は多項式から作られているので $C^1$ です。また
+
 $$
 \nabla H=(x+x^3,y),\qquad F=(y,-x-x^3).
 $$
@@ -778,7 +780,7 @@ $$
 \nabla H\cdot F=(x+x^3)y+y(-x-x^3)=0.
 $$
 
-[保存量の微分判定](#thm-ode4-first-integral-criterion)より $H$ は一定。したがって
+これで [保存量の微分判定](#thm-ode4-first-integral-criterion) の「$C^1$」と「$\nabla H\cdot F=0$」の両条件を確認できたので、$H$ は一定です。したがって
 
 $$
 \boxed{\frac12y(t)^2+\frac12x(t)^2+\frac14x(t)^4=c}
@@ -906,11 +908,22 @@ $$
 \boxed{(k\pi,0)\quad(k\in\mathbb Z)}.
 $$
 
+$H$ と $F$ は $C^1$ で、
+
 $$
 \nabla H=(\sin x,y),\qquad F=(y,-\sin x)
 $$
 
-なので $\nabla H\cdot F=0$。従って $H$ は保存量。
+です。内積は
+
+$$
+\nabla H\cdot F
+=
+(\sin x)y+y(-\sin x)
+=0.
+$$
+
+したがって [保存量の微分判定](#thm-ode4-first-integral-criterion) の仮定を満たし、$H$ は保存量です。
 
 Jacobian は
 
