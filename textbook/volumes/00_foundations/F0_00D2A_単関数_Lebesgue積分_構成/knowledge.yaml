@@ -26,9 +26,10 @@ concepts:
       - measure.nonnegative-simple-function
 
   - id: measure.simple-function-integral-well-defined
-    name: 表現に依存しない
+    name: 単関数積分の表現不変性
     kind: proposition
-    aliases: [表現に依存しない]
+    aliases: [単関数積分の表現不変性]
+    introduction_aliases: ["### 命題（表現に依存しない）"]
     requires:
       - measure.simple-function-integral
 
@@ -59,7 +60,8 @@ concepts:
   - id: measure.positive-negative-parts
     name: 正部分・負部分
     kind: definition
-    aliases: [正部分・負部分, 正部分, 負部分]
+    aliases: [正部分・負部分, positive and negative parts]
+    introduction_aliases: [正部分, 負部分]
     requires:
       - measure.measurable-function
 
