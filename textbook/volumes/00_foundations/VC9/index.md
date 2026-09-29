@@ -12,11 +12,11 @@ VC1--VC8 では、勾配・発散・回転から始め、線積分・曲面積�
 - 二階テンソルの発散は、表面力を体積力密度へ変える。
 - 電磁場では、Gauss--Ostrogradsky と Kelvin--Stokes の各定理が、大域的な収支・循環と局所的な微分式を結ぶ。
 
-直接の前提は [VC7 の二階テンソル場・応力テンソル](../VC7/index.md#def-vc7-stress) と [VC8 の Helmholtz 分解・Biot--Savart 型再構成](../VC8/index.md#cor-vc8-biot-savart) です。保存則そのものの一般論は [VC4 の局所保存則](../VC4/index.md#def-vc4-local-conservation) を正本として再利用し、本章で重複定義しません。
+本章では [VC7 の二階テンソル場・応力テンソル](../VC7/index.md#def-vc7-stress) と [VC8 の Helmholtz 分解・Biot--Savart 型再構成](../VC8/index.md#cor-vc8-biot-savart) を使います。保存則の一般形は [VC4 の局所保存則](../VC4/index.md#def-vc4-local-conservation) ですでに学んだので、まずそれを質量保存へ具体化します。
 
 ---
 
-## 1. 保存則の正本を質量へ適用する
+## 1. 一般の保存則を質量へ適用する
 
 VC4 では、密度 $q$、流束 $J$、生成項 $s$ に対する一般の局所保存則
 
