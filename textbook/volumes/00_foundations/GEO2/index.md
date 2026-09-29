@@ -63,9 +63,9 @@ $$
 
 Euclid 空間では、方向ベクトル $a\in\mathbb R^n$ があれば
 
-$
+$$
 f\longmapsto D_af(p)
-$
+$$
 
 という方向微分を作れます。しかし多様体上では、座標を選ぶ前から使える「矢印 $a$」はまだありません。
 
@@ -268,7 +268,7 @@ $$
 
 と置けば所望の分解を得ます。被積分関数は $(t,x)$ の滑らかな関数です。ここで「積分したら滑らかさも残る」を一段だけ展開しておきます。たとえば $x^j$ で一回微分すると、連鎖律から
 
-$
+$$
 \frac{\partial H_i}{\partial x^j}(x)
 =
 \int_0^1
@@ -276,7 +276,7 @@ t\,
 \frac{\partial^2F}{\partial x^j\partial x^i}
 (a+t(x-a))
 \,dt.
-$
+$$
 
 右辺は再び $t\in[0,1]$ 上の連続関数の積分です。同じ操作を任意回繰り返せるので、$H_i$ は $C^\infty$ 級です。また $x=a$ を代入すると
 
@@ -451,26 +451,26 @@ $$
 
 この定義は座標の選び方に依存しません。別の座標 $\psi$ を使うとき、座標変換を
 
-$
+$$
 F=\psi\circ\varphi^{-1}
-$
+$$
 
 と置きます。$\gamma(0)=p$ なので
 
-$
+$$
 \psi\circ\gamma
 =
 F\circ(\varphi\circ\gamma)
-$
+$$
 
 と書けます。ここで一変数曲線 $t\mapsto\varphi(\gamma(t))$ に Euclid 空間の連鎖律を適用し、評価点を $t=0$、したがって $\varphi(\gamma(0))=\varphi(p)$ とすると
 
-$
+$$
 (\psi\circ\gamma)'(0)
 =
 DF_{\varphi(p)}
 (\varphi\circ\gamma)'(0).
-$
+$$
 
 $\eta$ にも同じ式が成り立つので、$\varphi$ 座標で二つの速度が等しければ、$\psi$ 座標でも等しくなります。
 
@@ -667,7 +667,7 @@ $$
 
 実際、$x$ 座標の座標写像を $\varphi$、$y$ 座標の座標写像を $\psi$ とし、任意の滑らかな関数の芽 $[f]$ に作用させます。右辺は
 
-$
+$$
 \begin{aligned}
 &\sum_{j=1}^n
 \frac{\partial y^j}{\partial x^i}(p)
@@ -679,41 +679,41 @@ $
 \frac{\partial(f\circ\psi^{-1})}{\partial y^j}
 (\psi(p)).
 \end{aligned}
-$
+$$
 
 これは多変数連鎖律を
 
-$
+$$
 (f\circ\psi^{-1})\circ(\psi\circ\varphi^{-1})
 =
 f\circ\varphi^{-1}
-$
+$$
 
 へ適用した式そのものなので、
 
-$
+$$
 \sum_{j=1}^n
 \frac{\partial y^j}{\partial x^i}(p)
 \left.\frac{\partial}{\partial y^j}\right|_p(f)
 =
 \left.\frac{\partial}{\partial x^i}\right|_p(f).
-$
+$$
 
 任意の $[f]$ で作用が一致するため、接ベクトルとして
 
-$
+$$
 \left.\frac{\partial}{\partial x^i}\right|_p
 =
 \sum_{j=1}^n
 \frac{\partial y^j}{\partial x^i}(p)
 \left.\frac{\partial}{\partial y^j}\right|_p
-$
+$$
 
 が成り立ちます。
 
 従って
 
-$
+$$
 v
 =
 \sum_i v^i
@@ -810,36 +810,36 @@ $$
 
 とします。$p=(1,0)$ で、各成分を別々に微分すると
 
-$
+$$
 D(x^2y)_{(1,0)}
 =
 (2xy,x^2)\big|_{(1,0)}
 =
 (0,1),
-$
+$$
 
-$
+$$
 D(e^x+y)_{(1,0)}
 =
 (e^x,1)\big|_{(1,0)}
 =
 (e,1).
-$
+$$
 
 従って
 
-$
+$$
 Df_p
 =
 \begin{pmatrix}
 0 & 1\\
 e & 1
 \end{pmatrix}.
-$
+$$
 
 接ベクトル $v=a\partial_x+b\partial_y$ の成分列 $(a,b)^{\mathsf T}$ にこの Jacobi 行列を掛けると
 
-$
+$$
 \begin{pmatrix}
 0 & 1\\
 e & 1
@@ -853,17 +853,17 @@ b
 b\\
 ea+b
 \end{pmatrix}.
-$
+$$
 
 したがって
 
-$
+$$
 df_p(v)
 =
 b\,\partial_u
 +
 (ea+b)\,\partial_v.
-$
+$$
 
 通常の多変数微分と一致しています。
 <!-- definition-example-end -->
