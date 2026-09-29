@@ -84,10 +84,10 @@ TOP2 は位相構造を入れた商を扱い、SET-U1 は集合としての商�
 - 有限集合・無限集合
 - 可算集合
 - 高々可算
-- \\(\\mathbb N\\times\\mathbb N\\) の可算性
+- $\mathbb N\times\mathbb N$ の可算性
 - 有限個・可算個の可算集合の和
-- \\(\\mathbb Z,\\mathbb Q\\) の可算性
-- \\(\\mathbb R\\) の非可算性
+- $\mathbb Z,\mathbb Q$ の可算性
+- $\mathbb R$ の非可算性
 - Cantor の対角線論法
 
 候補 ID: **SET-U2「可算集合・非可算集合」**
@@ -99,13 +99,13 @@ TOP2 は位相構造を入れた商を扱い、SET-U1 は集合としての商�
 - 全単射による同じ濃度
 - 単射による濃度比較
 - Cantor--Bernstein の定理
-- Cantor の定理 \\(X\\not\\cong\\mathcal P(X)\\)
-- \\(\\mathbb R\\) と \\(\\mathcal P(\\mathbb N)\\) の濃度
+- Cantor の定理 $X\not\cong\mathcal P(X)$
+- $\mathbb R$ と $\mathcal P(\mathbb N)$ の濃度
 - 可算無限と連続体の違い
 
 候補 ID: **SET-U3「濃度・Cantor--Bernstein・Cantor の定理」**
 
-ここでは基数を順序数として構成しない。\\(\\aleph\\) 記法や初期順序数を本格的に扱う場合は独立科目「集合論・数学基礎論」へ送る。
+ここでは基数を順序数として構成しない。$\aleph$ 記法や初期順序数を本格的に扱う場合は独立科目「集合論・数学基礎論」へ送る。
 
 ### 3.4 順序論の学部標準化
 
@@ -253,9 +253,9 @@ Baire・net / フィルタ
 題材候補:
 
 - 同値関係を実際に検証して商集合を作る
-- \\(\\mathbb Z/n\\mathbb Z\\) を集合として構成する
-- \\(\\mathbb N\\times\\mathbb N\\) の可算性
-- \\(\\mathbb Q\\) の可算性
+- $\mathbb Z/n\mathbb Z$ を集合として構成する
+- $\mathbb N\times\mathbb N$ の可算性
+- $\mathbb Q$ の可算性
 - Cantor の対角線論法
 - Cantor--Bernstein の具体的適用
 - べき集合が元集合より真に大きいことの証明
