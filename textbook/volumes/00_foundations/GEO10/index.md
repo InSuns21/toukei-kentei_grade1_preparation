@@ -1,4 +1,4 @@
-# GEO10 幾何学 X
+# GEO10 曲線・超曲面の曲がり方：Frenet 標構・形作用素・曲率
 
 [GEO3](../GEO3/index.md) では Euclid 空間内の正則レベル集合を埋め込み部分多様体として扱い、接空間を微分の核として計算できるようにしました。[VC2](../VC2/index.md) では正則曲線・弧長・単位接ベクトルを、[VC3](../VC3/index.md) ではパラメータ曲面・接平面・法線・曲面積を具体計算しました。[LA5](../LA5/index.md) では有限次元内積空間上の作用素を正規直交基底で対角化する考え方を整えました。
 
@@ -481,13 +481,85 @@ $\square$
 
 ### 一般パラメータでの計算公式
 
-正則曲線 $\gamma(t)$ で
+実際の計算では、最初から弧長パラメータが与えられるとは限りません。そこで、一般のパラメータ $t$ で書かれた正則曲線から、弧長微分へどう変換するかを一度展開します。
+
+速度を
 
 $$
-\gamma'(t)\times\gamma''(t)\ne0
+v(t):=\|\gamma'(t)\|>0
 $$
 
-とします。弧長へ直して定義を代入すると
+と置きます。弧長 $s$ は
+
+$$
+\frac{ds}{dt}=v
+$$
+
+を満たすので、曲線に沿う任意の量を微分するとき
+
+$$
+\frac{d}{ds}
+=
+\frac1v\frac{d}{dt}
+$$
+
+です。また単位接ベクトルは
+
+$$
+T
+=
+\frac{d\gamma}{ds}
+=
+\frac{\gamma'}v
+$$
+
+です。
+
+まず曲率を求めます。$T$ を $s$ で微分すると
+
+$$
+\frac{dT}{ds}
+=
+\frac1v
+\frac{d}{dt}
+\left(
+\frac{\gamma'}v
+\right)
+=
+\frac{\gamma''}{v^2}
+-
+\frac{v'}{v^3}\gamma'.
+$$
+
+この式と $T=\gamma'/v$ のベクトル積を取ると、$\gamma'\times\gamma'=0$ なので
+
+$$
+T\times\frac{dT}{ds}
+=
+\frac{\gamma'\times\gamma''}{v^3}.
+$$
+
+一方、$\|T\|=1$ を微分すれば
+
+$$
+T\cdot\frac{dT}{ds}=0.
+$$
+
+従って $T$ と $dT/ds$ は直交し、
+
+$$
+\left\|
+T\times\frac{dT}{ds}
+\right\|
+=
+\left\|
+\frac{dT}{ds}
+\right\|
+=
+\kappa.
+$$
+
+よって
 
 $$
 \boxed{
@@ -499,7 +571,112 @@ $$
 
 を得ます。
 
-さらに三階微分まで存在し、分母が0でなければ
+次に捩率を求めます。Frenet--Serret 公式を一般パラメータへ戻すため、
+
+$$
+\gamma'=vT
+$$
+
+を $t$ で微分します。$dT/dt=(ds/dt)(dT/ds)=v\kappa N$ なので
+
+$$
+\gamma''
+=
+v'T+v^2\kappa N.
+$$
+
+従って
+
+$$
+\gamma'\times\gamma''
+=
+(vT)\times(v'T+v^2\kappa N)
+=
+v^3\kappa B.
+$$
+
+特に
+
+$$
+\|\gamma'\times\gamma''\|^2
+=
+v^6\kappa^2.
+$$
+
+さらに $\gamma''$ をもう一度 $t$ で微分します。Frenet--Serret 公式
+
+$$
+\frac{dT}{ds}=\kappa N,
+\qquad
+\frac{dN}{ds}=-\kappa T+\tau B
+$$
+
+と
+
+$$
+\frac{d}{dt}
+=
+v\frac{d}{ds}
+$$
+
+を使うと
+
+$$
+\begin{aligned}
+\gamma'''
+&=
+v''T
++
+v'\frac{dT}{dt}
++
+2vv'\kappa N
++
+v^2\frac{d\kappa}{dt}N
++
+v^2\kappa\frac{dN}{dt}
+\\
+&=
+\left(
+v''-v^3\kappa^2
+\right)T
++
+\left(
+3vv'\kappa+v^2\frac{d\kappa}{dt}
+\right)N
++
+v^3\kappa\tau B.
+\end{aligned}
+$$
+
+正向き正規直交基底 $(T,N,B)$ に関して、$\gamma',\gamma'',\gamma'''$ の成分はそれぞれ
+
+$$
+(v,0,0),
+$$
+
+$$
+(v',v^2\kappa,0),
+$$
+
+$$
+\left(
+v''-v^3\kappa^2,,
+3vv'\kappa+v^2\frac{d\kappa}{dt},,
+v^3\kappa\tau
+\right)
+$$
+
+です。したがって行列式は三角形の形になり、
+
+$$
+\det(\gamma',\gamma'',\gamma''')
+=
+v\cdot v^2\kappa\cdot v^3\kappa\tau
+=
+v^6\kappa^2\tau.
+$$
+
+$\gamma'\times\gamma''\ne0$、すなわち $\kappa>0$ の区間では
 
 $$
 \boxed{
@@ -513,9 +690,18 @@ $$
 }
 $$
 
-です。
+となります。
 
-この二式は計算には便利ですが、意味の正本は「単位接ベクトルの変化率」と「Frenet 標構の回転」です。
+この二式は単なる暗記公式ではありません。一般パラメータの微分を
+
+$$
+\frac{d}{ds}
+=
+\frac1{\|\gamma'\|}
+\frac{d}{dt}
+$$
+
+で弧長微分へ直し、Frenet 標構へ分解した結果です。
 
 ### らせん
 

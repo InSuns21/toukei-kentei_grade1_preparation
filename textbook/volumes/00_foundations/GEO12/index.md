@@ -1,4 +1,4 @@
-# GEO12 幾何学 XII
+# GEO12 多様体の内部だけで長さを測る：Riemann 計量・距離・体積
 
 [GEO11](../GEO11/index.md) では、Euclid 空間に埋め込まれた超曲面について、超曲面上の計量データだけから内在曲率が読み取れることを見ました。そこで残る問いは明確です。
 
@@ -1255,7 +1255,26 @@ $$
 L_g(\gamma)\ge\sqrt m\,r.
 $$
 
-以上から $p\ne q$ なら全ての結合曲線の長さがある正数で下から押さえられ、
+以上の二つの場合を一つの下界にまとめます。
+
+$q\in K$ なら、$K$ 内にとどまる曲線と $K$ を出る曲線のどちらに対しても
+
+$$
+L_g(\gamma)
+\ge
+\sqrt m
+\min\{|x(q)|,r\}.
+$$
+
+$p\ne q$ なので $|x(q)|>0$ であり、右辺は正です。
+
+$q\notin K$ なら全ての結合曲線について
+
+$$
+L_g(\gamma)\ge\sqrt m,r>0.
+$$
+
+したがって $p\ne q$ のとき、結合曲線全体に共通する正の下界が存在し、
 
 $$
 d_g(p,q)>0.
@@ -1627,6 +1646,28 @@ $(M,g)$ を向き付けられた $n$ 次元 Riemann 多様体とします。
 
 各点で正の $g$-正規直交基底を取ったとき、その基底で値1を取る最高次形式が自然に定まります。
 
+ここで「どの正規直交基底を選んでも同じ値になる」ことを先に確認します。二つの正の $g_p$-正規直交基底
+
+$$
+(e_1,\dots,e_n),
+\qquad
+(\widetilde e_1,\dots,\widetilde e_n)
+$$
+
+の間の変換行列を $Q$ とすると、どちらも正規直交基底なので
+
+$$
+Q^{\mathsf T}Q=I.
+$$
+
+さらに両方とも正の基底だから
+
+$$
+\det Q=1.
+$$
+
+$n$ 形式は基底変換で $\det Q$ 倍されるので、一方の正規直交基底で値1を取る正の $n$ 形式は、もう一方でも値1を取ります。したがって次の定義は基底の選択に依存しません。
+
 <a id="def-geo12-volume"></a>
 <!-- formal-statement-start -->
 > **定義（Riemann 体積形式）**  
@@ -1888,47 +1929,108 @@ $$
 <!-- definition-example-start: def-geo12-div-laplacian -->
 **定義の確認**
 
-標準 Euclid 計量では
+標準 Euclid 計量の $\mathbb R^n$ で
 
 $$
+\mu
+:=
 \operatorname{vol}_g
 =
-dx^1\wedge\cdots\wedge dx^n.
+dx^1\wedge\cdots\wedge dx^n
 $$
 
-ベクトル場
+とし、放射状ベクトル場
 
 $$
-X=\sum_i X^i\partial_i
-$$
-
-に対して後の公式は
-
-$$
-\operatorname{div}_gX
+X
 =
-\sum_i\partial_iX^i.
+\sum_{i=1}^n
+x^i\partial_i
 $$
 
-これは [VC1 の発散](../VC1/index.md#def-vc1-divergence)です。
+を考えます。
 
-また
+[GEO7 の Cartan の公式](../GEO7/index.md#thm-geo7-cartan-formula)を使うと、$d\mu=0$ なので
+
+$$
+\mathcal L_X\mu
+=
+d(\iota_X\mu).
+$$
+
+内部積は
+
+$$
+\iota_X\mu
+=
+\sum_{i=1}^n
+(-1)^{i-1}
+x^i
+dx^1\wedge\cdots
+\wedge\widehat{dx^i}\wedge\cdots
+\wedge dx^n.
+$$
+
+各項を外微分すると、$dx^i$ が欠けている場所へ $dx^i$ が戻り、それぞれちょうど $\mu$ になります。従って
+
+$$
+d(\iota_X\mu)
+=
+n\mu.
+$$
+
+発散の定義
+
+$$
+\mathcal L_X\mu
+=
+(\operatorname{div}_gX)\mu
+$$
+
+と比較して
+
+$$
+\operatorname{div}_gX=n.
+$$
+
+次に
+
+$$
+f(x)
+=
+\frac12
+\sum_{i=1}^n(x^i)^2
+$$
+
+と置きます。標準 Euclid 計量では
+
+$$
+df
+=
+\sum_i x^i dx^i
+$$
+
+です。標準 Euclid 計量では計量行列が単位行列なので、余ベクトルの成分を sharp でベクトルへ戻しても成分は変わりません。従って
 
 $$
 \operatorname{grad}_g f
 =
-\sum_i\partial_i f\,\partial_i
-$$
-
-なので
-
-$$
-\Delta_gf
+\sum_i x^i\partial_i
 =
-\sum_i\partial_i^2f,
+X.
 $$
 
-すなわち [VC1 のスカラー・ラプラシアン](../VC1/index.md#def-vc1-laplacian)を回収します。
+よって Laplace--Beltrami 作用素の定義から
+
+$$
+\Delta_g f
+=
+\operatorname{div}_g(\operatorname{grad}_g f)
+=
+n.
+$$
+
+発散と Laplace--Beltrami 作用素の定義を、座標公式を先取りせず直接確認できました。
 <!-- definition-example-end -->
 
 <a id="prop-geo12-div-laplacian-coordinate"></a>
@@ -2394,37 +2496,73 @@ $$
 0\le t\le2\pi
 $$
 
-と
+とする。さらに
 
 $$
-\widetilde\gamma(s)
+\varphi(s)
 =
-(R\cos s^2,R\sin s^2),
+s+\frac12\sin s,
 \qquad
-0\le s\le\sqrt{2\pi}
+0\le s\le2\pi
 $$
 
-で表す。
+と置き、
 
-1. 両曲線の長さを求めよ。
-2. 両曲線の曲線エネルギーを求めよ。
-3. 長さは一致するが曲線エネルギーは一致しないことを確認せよ。
+$$
+\widetilde\gamma
+=
+\gamma\circ\varphi
+$$
+
+で同じ円を別の速さでたどる。
+
+1. $\varphi$ が $[0,2\pi]$ から自身への滑らかな増加微分同相であることを確認せよ。
+2. 両曲線の長さを求めよ。
+3. 両曲線の曲線エネルギーを求めよ。
+4. 長さは一致するが曲線エネルギーは一致しないことを確認せよ。
 
 <!-- solution-start -->
 **解答**
 
-1. $\gamma$ では
+1. 端点では
+
+   $$
+   \varphi(0)=0,
+   \qquad
+   \varphi(2\pi)=2\pi.
+   $$
+
+   また
+
+   $$
+   \varphi'(s)
+   =
+   1+\frac12\cos s.
+   $$
+
+   $-1\le\cos s\le1$ なので
+
+   $$
+   \varphi'(s)
+   \ge
+   \frac12
+   >0.
+   $$
+
+   従って $\varphi$ は狭義単調増加で、[逆関数定理](../RA6A/index.md#thm-ra6a-inverse-function)により内部では滑らかな逆関数を持ちます。端点を含めても $[0,2\pi]$ から自身への滑らかな増加再パラメータとして使えます。
+
+2. $\gamma$ では
 
    $$
    \dot\gamma(t)
    =
-   (-R\sin t,R\cos t)
+   (-R\sin t,R\cos t),
    $$
 
-   なので
+   したがって
 
    $$
-   |\dot\gamma|=R.
+   |\dot\gamma(t)|=R.
    $$
 
    よって
@@ -2437,31 +2575,44 @@ $$
    2\pi R.
    $$
 
-   一方
+   次に連鎖律から
 
    $$
    \widetilde\gamma'(s)
    =
-   2sR(-\sin s^2,\cos s^2),
+   \dot\gamma(\varphi(s))\varphi'(s).
    $$
 
-   だから
+   $\varphi'(s)>0$ なので
 
    $$
-   |\widetilde\gamma'(s)|=2sR.
+   |\widetilde\gamma'(s)|
+   =
+   R
+   \left(
+   1+\frac12\cos s
+   \right).
    $$
 
-   よって
+   従って
 
    $$
+   \begin{aligned}
    L(\widetilde\gamma)
-   =
-   \int_0^{\sqrt{2\pi}}2sR\,ds
-   =
+   &=
+   R\int_0^{2\pi}
+   \left(
+   1+\frac12\cos s
+   \right)ds
+   \\
+   &=
    2\pi R.
+   \end{aligned}
    $$
 
-2. $\gamma$ の曲線エネルギーは
+   これは本文の再パラメータ不変性を、この具体的な微分同相で直接確認した計算です。
+
+3. $\gamma$ の曲線エネルギーは
 
    $$
    E(\gamma)
@@ -2472,32 +2623,69 @@ $$
    \pi R^2.
    $$
 
-   $\widetilde\gamma$ では
+   一方、
+
+   $$
+   \begin{aligned}
+   E(\widetilde\gamma)
+   &=
+   \frac{R^2}{2}
+   \int_0^{2\pi}
+   \left(
+   1+\frac12\cos s
+   \right)^2ds
+   \\
+   &=
+   \frac{R^2}{2}
+   \int_0^{2\pi}
+   \left(
+   1+\cos s+\frac14\cos^2s
+   \right)ds.
+   \end{aligned}
+   $$
+
+   ここで
+
+   $$
+   \int_0^{2\pi}\cos s\,ds=0,
+   \qquad
+   \int_0^{2\pi}\cos^2s\,ds=\pi
+   $$
+
+   なので
 
    $$
    E(\widetilde\gamma)
    =
-   \frac12
-   \int_0^{\sqrt{2\pi}}
-   4s^2R^2\,ds.
-   $$
-
-   従って
-
-   $$
-   E(\widetilde\gamma)
+   \frac{R^2}{2}
+   \left(
+   2\pi+\frac\pi4
+   \right)
    =
-   2R^2
-   \left[
-   \frac{s^3}{3}
-   \right]_0^{\sqrt{2\pi}}
-   =
-   \frac{2R^2}{3}(2\pi)^{3/2}.
+   \frac{9\pi}{8}R^2.
    $$
 
-3. 長さはどちらも $2\pi R$ ですが、曲線エネルギーは異なります。
+4. 長さは
 
-   これは長さが再パラメータ不変である一方、曲線エネルギーは速度配分に依存することの具体例です。
+   $$
+   L(\gamma)
+   =
+   L(\widetilde\gamma)
+   =
+   2\pi R
+   $$
+
+   ですが、
+
+   $$
+   E(\gamma)=\pi R^2,
+   \qquad
+   E(\widetilde\gamma)=\frac{9\pi}{8}R^2
+   $$
+
+   で一致しません。
+
+   今回の $\varphi$ は本文の再パラメータ不変性の仮定を実際に満たしています。したがって「長さはたどり方の速さに依存しないが、曲線エネルギーは速度配分に依存する」という違いを、定理の適用条件ごと確認できました。
 <!-- solution-end -->
 
 <a id="ex-geo12-a04"></a>
