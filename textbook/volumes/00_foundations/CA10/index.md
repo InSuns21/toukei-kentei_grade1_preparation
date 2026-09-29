@@ -6,7 +6,7 @@
 
 ## 0. この章の主線
 
-局所一様収束と正則関数列の極限は [CA7](../CA7/index.md#def-ca7-locally-uniform-convergence)、Laurent 展開と留数定理は [CA4](../CA4/index.md#thm-ca4-laurent) と [CA4 の留数定理](../CA4/index.md#thm-ca4-residue)を正本とする。単連結領域で正則関数が原始関数を持つことは [CA2](../CA2/index.md#thm-ca2-cauchy-simply-connected)を使う。
+局所一様収束と正則関数列の極限は [CA7](../CA7/index.md#def-ca7-locally-uniform-convergence)、Laurent 展開と留数定理は [CA4](../CA4/index.md#thm-ca4-laurent) と [CA4 の留数定理](../CA4/index.md#thm-ca4-residue)を使う。単連結領域で正則関数が原始関数を持つことは [CA2](../CA2/index.md#thm-ca2-cauchy-simply-connected)を使う。
 
 ~~~text
 有限積
@@ -32,7 +32,7 @@ Mittag--Leffler
 正弦関数の積表示
 ~~~
 
-本章では一般の整関数・有理型関数を零点と主部から構成するところまでを扱う。Hadamard の有限位数因数分解、Runge / Mergelyan の近似定理、Picard の定理、Nevanlinna 理論には、それぞれ成長度や近似論の追加の道具が必要になるため、後続の話題とする。
+本章では一般の整関数・有理型関数を零点と主部から構成するところまでを扱う。整関数の成長度、近似論、値分布論へ進むには追加の道具が必要になるため、それらは後続の学習へ回す。
 
 ---
 
