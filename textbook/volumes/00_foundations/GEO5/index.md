@@ -655,7 +655,7 @@ R_\eta(t)
 \frac{J_{a+\eta c}(t)b-J_a(t)b}{\eta}
 $$
 
-と置き、$J_{a+\eta c}b$ と $J_ab$ の積分方程式を引きます。すると
+と置き、$J_{a+\eta c}b$ と $J_a b$ の積分方程式を引きます。すると
 
 $$
 \begin{aligned}
@@ -710,7 +710,7 @@ $$
 また $a\mapsto J_a$ の連続性から
 
 $$
-J_{a+\eta c}b\longrightarrow J_ab
+J_{a+\eta c}b\longrightarrow J_a b
 $$
 
 が時間区間上で一様に成り立ちます。$D^2F$ も考えているコンパクト集合上で一様連続なので、
@@ -759,19 +759,19 @@ $$
 \begin{aligned}
 W_a(t)[b,c,d]
 &=
-\int_0^t DF(u_a(s))W_a(s)[b,c,d],ds\\
+\int_0^t DF(u_a(s))W_a(s)[b,c,d]\,ds\\
 &\quad+
 \int_0^t D^2F(u_a(s))
-\bigl[V_a(s)[b,c],J_a(s)d\bigr],ds\\
+\bigl[V_a(s)[b,c],J_a(s)d\bigr]\,ds\\
 &\quad+
 \int_0^t D^2F(u_a(s))
-\bigl[V_a(s)[b,d],J_a(s)c\bigr],ds\\
+\bigl[V_a(s)[b,d],J_a(s)c\bigr]\,ds\\
 &\quad+
 \int_0^t D^2F(u_a(s))
-\bigl[V_a(s)[c,d],J_a(s)b\bigr],ds\\
+\bigl[V_a(s)[c,d],J_a(s)b\bigr]\,ds\\
 &\quad+
 \int_0^t D^3F(u_a(s))
-\bigl[J_a(s)b,J_a(s)c,J_a(s)d\bigr],ds
+\bigl[J_a(s)b,J_a(s)c,J_a(s)d\bigr]\,ds
 \end{aligned}
 $$
 
@@ -780,24 +780,24 @@ $$
 この式は、二階微分の式を初期値方向 $d$ に微分したときに出ます。例えば
 
 $$
-D^2F(u_a)[J_ab,J_ac]
+D^2F(u_a)[J_a b,J_a c]
 $$
 
 を $a$ から $a+\eta d$ へ動かすと、極限では
 
 $$
-D^3F(u_a)[J_ad,J_ab,J_ac]
+D^3F(u_a)[J_a d,J_a b,J_a c]
 +
-D^2F(u_a)[V_a[d,b],J_ac]
+D^2F(u_a)[V_a[d,b],J_a c]
 +
-D^2F(u_a)[J_ab,V_a[d,c]]
+D^2F(u_a)[J_a b,V_a[d,c]]
 $$
 
 の三項が現れます。これが上の $D^3F$ の項と二つの $D^2F$ の項を生み、さらに
 $DF(u_a)V_a[b,c]$ を動かしたときの
 
 $$
-D^2F(u_a)[J_ad,V_a[b,c]]
+D^2F(u_a)[J_a d,V_a[b,c]]
 +
 DF(u_a)W_a[b,c,d]
 $$
@@ -824,7 +824,7 @@ U_k(t)[b_1,\dots,b_k]
 &=
 \int_0^t
 DF(u_a(s))
-U_k(s)[b_1,\dots,b_k],ds\\
+U_k(s)[b_1,\dots,b_k]\,ds\\
 &\quad+
 R_k(t)[b_1,\dots,b_k]
 \end{aligned}
