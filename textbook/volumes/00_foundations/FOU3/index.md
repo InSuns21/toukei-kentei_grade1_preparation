@@ -265,12 +265,21 @@ $$
 h=\frac{\pi}{\xi}
 $$
 
-と置きます。すると $e^{i\xi h}=-1$ です。変数変換により
+と置きます。すると $e^{i\xi h}=-1$ です。ここで左辺に $y=x+h$、すなわち $x=y-h$ を代入すると
 
 $$
+\begin{aligned}
 \int f(x+h)e^{-i\xi x}dx
-=e^{i\xi h}\widehat f(\xi)
-=-\widehat f(\xi).
+&=\int f(y)e^{-i\xi(y-h)}dy\\
+&=e^{i\xi h}\int f(y)e^{-i\xi y}dy\\
+&=e^{i\xi h}\widehat f(\xi).
+\end{aligned}
+$$
+
+いま $h=\pi/\xi$ なので $e^{i\xi h}=e^{i\pi}=-1$ です。したがって
+
+$$
+\int f(x+h)e^{-i\xi x}dx=-\widehat f(\xi).
 $$
 
 したがって
@@ -645,11 +654,24 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず Minkowski 型の積分評価と平行移動不変性から
+まず $\int k_\varepsilon(y)dy=1$ を使うと、各 $x$ で
 
 $$
+(f*k_\varepsilon)(x)-f(x)
+=\int k_\varepsilon(y)\{f(x-y)-f(x)\}\,dy.
+$$
+
+絶対値を取り、$x$ について積分します。被積分関数は非負なので Tonelli の定理で積分順序を交換でき、
+
+$$
+\begin{aligned}
 \|f*k_\varepsilon-f\|_1
-\le\int k_\varepsilon(y)\|\tau_yf-f\|_1dy.
+&\le\int_{\mathbb R}\int_{\mathbb R}
+k_\varepsilon(y)|f(x-y)-f(x)|\,dy\,dx\\
+&=\int_{\mathbb R}k_\varepsilon(y)
+\left\{\int_{\mathbb R}|f(x-y)-f(x)|\,dx\right\}dy\\
+&=\int_{\mathbb R}k_\varepsilon(y)\|\tau_yf-f\|_1dy.
+\end{aligned}
 $$
 
 任意の $\eta>0$ に対し、[L1の平行移動連続性](#lem-fou3-l1-translation)から $|y|<\delta$ なら $\|\tau_yf-f\|_1<\eta$ となる $\delta>0$ を取れます。一方常に
@@ -734,7 +756,14 @@ I_\varepsilon(x)
 \int_{\mathbb R}\widehat f(\xi)e^{i\xi x}e^{-\varepsilon\xi^2}d\xi
 $$
 
-と置きます。$\widehat f\in L^1$ なので[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)により
+と置きます。$\varepsilon\downarrow0$ なら各 $\xi$ で $e^{-\varepsilon\xi^2}\to1$ です。また
+
+$$
+\left|\widehat f(\xi)e^{i\xi x}e^{-\varepsilon\xi^2}\right|
+\le|\widehat f(\xi)|
+$$
+
+で、仮定より $|\widehat f|$ は可積分です。したがって[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)を積分変数 $\xi$ に適用でき、
 
 $$
 I_\varepsilon(x)
@@ -1071,10 +1100,15 @@ $f\in L^1(\mathbb R)$ とする。$h=\pi/\xi$ を用いて Riemann--Lebesgue の
 <!-- solution-start -->
 ### 詳細解答
 
-$\xi\ne0$ とし $h=\pi/\xi$ とすると $e^{i\xi h}=-1$ です。変数変換により
+$\xi\ne0$ とし $h=\pi/\xi$ とすると $e^{i\xi h}=-1$ です。$y=x+h$ と置けば $x=y-h$ なので
 
 $$
-\int f(x+h)e^{-i\xi x}dx=-\widehat f(\xi).
+\begin{aligned}
+\int f(x+h)e^{-i\xi x}dx
+&=\int f(y)e^{-i\xi(y-h)}dy\\
+&=e^{i\xi h}\widehat f(\xi)\\
+&=-\widehat f(\xi).
+\end{aligned}
 $$
 
 元の式と引き算すれば
