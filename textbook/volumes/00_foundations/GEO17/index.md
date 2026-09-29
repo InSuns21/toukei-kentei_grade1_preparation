@@ -1208,7 +1208,46 @@ p'(0)
 J(a).
 $$
 
-また測地線の初速度は $v(s)$ なので
+また
+
+$$
+\widetilde J
+=
+\left.
+\frac{\partial F}{\partial s}
+\right|_{s=0}
+$$
+
+なので、変分方向と曲線方向の共変微分の交換を $t=a$ で使うと
+
+$$
+\begin{aligned}
+\frac{D\widetilde J}{dt}(a)
+&=
+\left.
+\frac{D}{\partial t}
+\frac{\partial F}{\partial s}
+\right|_{(0,a)}
+\\
+&=
+\left.
+\frac{D}{\partial s}
+\frac{\partial F}{\partial t}
+\right|_{(0,a)}.
+\end{aligned}
+$$
+
+一方、$t=a$ における測地線の初速度は
+
+$$
+\left.
+\frac{\partial F}{\partial t}
+\right|_{(s,a)}
+=
+v(s)
+$$
+
+です。従って
 
 $$
 \frac{D\widetilde J}{dt}(a)
@@ -1264,7 +1303,9 @@ J_w(0)=0,
 \frac{DJ_w}{dt}(0)=w
 $$
 >
-> であり、任意の $T$ について
+> である。
+>
+> さらに $Tv\in\mathcal D_p$ となる任意の $T$ について
 >
 $$
 \boxed{
@@ -1323,13 +1364,25 @@ $$
 w.
 $$
 
-一方、
+$Tv\in\mathcal D_p$ とします。指数写像の定義域 $\mathcal D_p$ は開集合なので、$s$ を十分0に近く取れば
+
+$$
+T(v+sw)
+=
+Tv+sTw
+\in
+\mathcal D_p
+$$
+
+です。従って
 
 $$
 F(s,T)
 =
-\exp_p\bigl(Tv+sTw\bigr).
+\exp_p\bigl(Tv+sTw\bigr)
 $$
+
+が $s=0$ の近くで定義されます。
 
 $s$ で微分すると
 
