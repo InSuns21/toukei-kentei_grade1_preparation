@@ -1288,6 +1288,8 @@ $$
 
 ## 14. Green 関数から Poisson 核を定義する
 
+Dirichlet Green 関数による表現では、調和関数の場合 $f=0$ なので内部源の項が消え、境界データ $g$ に掛かる係数だけが残ります。この係数を一つの境界核として取り出しておけば、PDE5 の円板公式と一般領域の Green 関数表示を同じ形で比較できます。そのために $-\partial_{n_y}G$ を Poisson 核として定義します。
+
 <a id="def-pde6-poisson-kernel"></a>
 <!-- formal-statement-start -->
 > **定義（Green 関数から得る Poisson 核）**  
