@@ -209,14 +209,31 @@ $$
 
 のうち $j=i$ の項だけが残ります。
 
-同様に
+二つの Kronecker のデルタを縮約する場合も、$j$ を固定して追えます。$i,k$ を固定すると
 
 $$
-\delta_{ij}\delta_{jk}=\delta_{ik},
+\delta_{ij}\delta_{jk}
+=
+\sum_{j=1}^3
+\delta_{ij}\delta_{jk}.
 $$
 
+$\delta_{ij}$ が非零なのは $j=i$ のときだけなので
+
 $$
-\delta_{ii}=3.
+\delta_{ij}\delta_{jk}
+=
+\delta_{ik}.
+$$
+
+また
+
+$$
+\delta_{ii}
+=
+\delta_{11}+\delta_{22}+\delta_{33}
+=
+3.
 $$
 
 <!-- definition-example-start: def-vc7-delta -->
@@ -444,6 +461,49 @@ Q_{ij}v_j
 $$
 
 と変換します。
+
+ベクトルでは成分に添字が一つしかないので、変換行列 $Q$ も一つだけ現れました。では、**ベクトルを入力してベクトルを返す線形写像**では何が起こるでしょうか。
+
+線形写像 $T:\mathbb R^3\to\mathbb R^3$ の成分を
+
+$$
+T_{pq}
+:=
+e_p\cdot T(e_q)
+$$
+
+と書きます。新しい基底では
+
+$$
+T'_{ij}
+=
+e'_i\cdot T(e'_j).
+$$
+
+ここへ
+
+$$
+e'_i=Q_{ip}e_p,
+\qquad
+e'_j=Q_{jq}e_q
+$$
+
+を代入すると、$T$ の線形性と内積の双線形性から
+
+$$
+\begin{aligned}
+T'_{ij}
+&=
+(Q_{ip}e_p)\cdot T(Q_{jq}e_q)\\
+&=
+Q_{ip}Q_{jq}\,
+e_p\cdot T(e_q)\\
+&=
+Q_{ip}Q_{jq}T_{pq}.
+\end{aligned}
+$$
+
+つまり、出力側の添字 $i$ と入力側の添字 $j$ のそれぞれに一つずつ $Q$ が掛かります。この変換則を満たす二階量を、次で正式に名前付けします。
 
 <a id="def-vc7-cartesian-tensor"></a>
 
@@ -848,17 +908,92 @@ Q_{ip}Q_{jq}Q_{kr}\varepsilon_{pqr}
 (\det Q)\varepsilon_{ijk}.
 $$
 
-したがって $\varepsilon_{ijk}$ は鏡映を含む一般の直交変換では通常の三階テンソルのようには振る舞いません。
+この式も途中を確認できます。左辺は、$Q$ の第 $i,j,k$ 行をこの順に並べた $3\times3$ 行列の行列式です。$i,j,k$ のどれかが重複すれば同じ行が二本あるので 0 です。一方、$(i,j,k)$ が $(1,2,3)$ を重複なく並べ替えた三つ組なら、行をその順に並べ替えた回数の偶奇だけ符号が変わるため
 
-このためベクトル積は
+$$
+\det
+\begin{pmatrix}
+Q_{i1}&Q_{i2}&Q_{i3}\\
+Q_{j1}&Q_{j2}&Q_{j3}\\
+Q_{k1}&Q_{k2}&Q_{k3}
+\end{pmatrix}
+=
+\varepsilon_{ijk}\det Q.
+$$
+
+したがって上の恒等式が得られます。
+
+これをベクトル積へ使うと
+
+$$
+\begin{aligned}
+[(Qa)\times(Qb)]_i
+&=
+\varepsilon_{ijk}
+(Qa)_j(Qb)_k\\
+&=
+\varepsilon_{ijk}
+Q_{jp}Q_{kq}a_pb_q.
+\end{aligned}
+$$
+
+ここで
+
+$$
+\varepsilon_{ijk}Q_{jp}Q_{kq}
+=
+(\det Q)Q_{ir}\varepsilon_{rpq}
+$$
+
+を使います。この式も一段確認します。両辺へ $Q_{is}$ を掛けて $i$ について和を取ります。左辺は
+
+$$
+Q_{is}Q_{jp}Q_{kq}\varepsilon_{ijk}
+=
+(\det Q)\varepsilon_{spq},
+$$
+
+で、これは三つの列を $(s,p,q)$ の順に取った行列式の変換公式です。右辺は直交性
+
+$$
+Q_{is}Q_{ir}
+=
+\delta_{sr}
+$$
+
+から
+
+$$
+(\det Q)\delta_{sr}\varepsilon_{rpq}
+=
+(\det Q)\varepsilon_{spq}.
+$$
+
+両辺へ $Q_{is}$ を掛けた結果がすべての $s$ で一致し、$Q$ は可逆なので元の式も一致します。
+
+従って
+
+$$
+\begin{aligned}
+[(Qa)\times(Qb)]_i
+&=
+(\det Q)Q_{ir}
+\varepsilon_{rpq}a_pb_q\\
+&=
+(\det Q)
+[Q(a\times b)]_i.
+\end{aligned}
+$$
+
+すなわち
 
 $$
 (Qa)\times(Qb)
 =
-(\det Q)\,Q(a\times b)
+(\det Q)\,Q(a\times b).
 $$
 
-と変換します。
+$\det Q=-1$ の鏡映では追加の符号が出るため、$\varepsilon_{ijk}$ やベクトル積は通常の極性ベクトルとは異なる変換をします。
 
 <a id="def-vc7-axial-vector"></a>
 
@@ -1577,15 +1712,61 @@ a_iI_{ij}a_j
 \right)dV.
 $$
 
-Lagrange の恒等式
+ここで新しい恒等式を暗黙に使わず、本章の [Levi--Civita 記号の縮約公式](#prop-vc7-epsilon-contraction) からベクトル積の長さを計算します。
+
+$$
+(x\times a)_i
+=
+\varepsilon_{ijk}x_ja_k
+$$
+
+なので
+
+$$
+\begin{aligned}
+|x\times a|^2
+&=
+(\varepsilon_{ijk}x_ja_k)
+(\varepsilon_{i\ell m}x_\ell a_m)\\
+&=
+(\delta_{j\ell}\delta_{km}
+-
+\delta_{jm}\delta_{k\ell})
+x_ja_kx_\ell a_m.
+\end{aligned}
+$$
+
+第一項は
+
+$$
+\delta_{j\ell}\delta_{km}
+x_ja_kx_\ell a_m
+=
+(x_jx_j)(a_ka_k)
+=
+|x|^2|a|^2,
+$$
+
+第二項は
+
+$$
+\delta_{jm}\delta_{k\ell}
+x_ja_kx_\ell a_m
+=
+(x_ja_j)(x_ka_k)
+=
+(x\cdot a)^2.
+$$
+
+従って
 
 $$
 |x\times a|^2
 =
-|x|^2|a|^2-(x\cdot a)^2
+|x|^2|a|^2-(x\cdot a)^2.
 $$
 
-より
+これを上の二次形式へ戻すと
 
 $$
 a_iI_{ij}a_j
@@ -1671,13 +1852,61 @@ T=
 \operatorname{diag}(\lambda_1,\lambda_2,\lambda_3).
 $$
 
-次に第 1 軸と第 2 軸を入れ替える直交行列 $P_{12}$ を使います。$P_{12}TP_{12}^T=T$ だから
+次に第 1 軸と第 2 軸を入れ替える直交行列
+
+$$
+P_{12}
+=
+\begin{pmatrix}
+0&1&0\\
+1&0&0\\
+0&0&1
+\end{pmatrix}
+$$
+
+を使います。実際に共役すると
+
+$$
+P_{12}TP_{12}^T
+=
+\operatorname{diag}(\lambda_2,\lambda_1,\lambda_3).
+$$
+
+仮定ではこれが
+
+$$
+T
+=
+\operatorname{diag}(\lambda_1,\lambda_2,\lambda_3)
+$$
+
+に等しいので
 
 $$
 \lambda_1=\lambda_2.
 $$
 
-第 2 軸と第 3 軸を入れ替える変換から
+続いて第2軸と第3軸を交換する
+
+$$
+P_{23}
+=
+\begin{pmatrix}
+1&0&0\\
+0&0&1\\
+0&1&0
+\end{pmatrix}
+$$
+
+について
+
+$$
+P_{23}TP_{23}^T
+=
+\operatorname{diag}(\lambda_1,\lambda_3,\lambda_2)
+$$
+
+です。これが $T$ に等しいため
 
 $$
 \lambda_2=\lambda_3.

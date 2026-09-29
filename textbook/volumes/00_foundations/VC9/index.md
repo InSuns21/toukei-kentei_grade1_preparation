@@ -882,52 +882,157 @@ $$
 <!-- proof-start -->
 ### 証明
 
-表面力によるトルクの第 $i$ 成分は
+角運動量保存の「どの項を引けば何が残るか」を展開します。第 $i$ 成分の角運動量密度は
 
 $$
-\int_{\partial\Omega}
-\varepsilon_{ijk}x_j
-\sigma_{k\ell}n_\ell\,dS.
+\varepsilon_{ijk}x_j\rho u_k
 $$
 
-[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)を適用すると
+です。偶力応力と体積偶力がないという仮定の下で、固定検査体積の角運動量保存は
 
 $$
+\begin{aligned}
+\frac{d}{dt}
 \int_\Omega
-\partial_\ell
-\left(
-\varepsilon_{ijk}x_j\sigma_{k\ell}
-\right)dV.
+\varepsilon_{ijk}x_j\rho u_k\,dV
+&=
+-\int_{\partial\Omega}
+\varepsilon_{ijk}x_j\rho u_k u_\ell n_\ell\,dS\\
+&\quad+
+\int_{\partial\Omega}
+\varepsilon_{ijk}x_j\sigma_{k\ell}n_\ell\,dS\\
+&\quad+
+\int_\Omega
+\varepsilon_{ijk}x_j\rho b_k\,dV.
+\end{aligned}
 $$
 
-積の微分則から
+境界の二項を体積積分へ移します。移流項には、二階成分場
 
 $$
-\partial_\ell
-\left(
-\varepsilon_{ijk}x_j\sigma_{k\ell}
-\right)
+M_{i\ell}
 =
+\varepsilon_{ijk}x_j\rho u_k u_\ell
+$$
+
+へ [VC7 の二階テンソル版 Gauss--Ostrogradsky の発散定理](../VC7/index.md#thm-vc7-tensor-divergence) を適用します。応力によるトルクには
+
+$$
+N_{i\ell}
+=
+\varepsilon_{ijk}x_j\sigma_{k\ell}
+$$
+
+を使います。時間微分も積分内へ入れられるとすると、任意の十分小さい $\Omega$ で
+
+$$
+\begin{aligned}
+0
+=
+\int_\Omega
+\Big[
+&\partial_t(\varepsilon_{ijk}x_j\rho u_k)
++
+\partial_\ell(\varepsilon_{ijk}x_j\rho u_ku_\ell)\\
+&-
+\partial_\ell(\varepsilon_{ijk}x_j\sigma_{k\ell})
+-
+\varepsilon_{ijk}x_j\rho b_k
+\Big]dV.
+\end{aligned}
+$$
+
+局所化すると被積分関数自身が 0 です。ここから各積の微分を一つずつ開きます。$x_j$ は時間に依存しないので
+
+$$
+\partial_t(\varepsilon_{ijk}x_j\rho u_k)
+=
+\varepsilon_{ijk}x_j
+\partial_t(\rho u_k).
+$$
+
+移流項は
+
+$$
+\begin{aligned}
+\partial_\ell
+(\varepsilon_{ijk}x_j\rho u_ku_\ell)
+&=
+\varepsilon_{ijk}\delta_{j\ell}\rho u_ku_\ell\\
+&\quad+
+\varepsilon_{ijk}x_j
+\partial_\ell(\rho u_ku_\ell).
+\end{aligned}
+$$
+
+第一項は
+
+$$
+\varepsilon_{i\ell k}\rho u_ku_\ell=0
+$$
+
+です。$\varepsilon_{i\ell k}$ は $\ell,k$ の交換で符号が変わる一方、$u_ku_\ell$ は交換しても変わらないため、縮約すると相殺します。
+
+応力項は
+
+$$
+\begin{aligned}
+\partial_\ell
+(\varepsilon_{ijk}x_j\sigma_{k\ell})
+&=
+\varepsilon_{ijk}\delta_{j\ell}\sigma_{k\ell}\\
+&\quad+
+\varepsilon_{ijk}x_j
+\partial_\ell\sigma_{k\ell}\\
+&=
 \varepsilon_{ijk}\sigma_{kj}
 +
 \varepsilon_{ijk}x_j
 \partial_\ell\sigma_{k\ell}.
+\end{aligned}
 $$
 
-第二項は $x\times\operatorname{div}\sigma$ の第 $i$ 成分です。角運動量保存から、線形運動量収支に $x\times$ を作用させた式を差し引くと、体積力と加速度から生じる項は相殺し、
+従って局所角運動量式は
 
 $$
-\int_\Omega
-\varepsilon_{ijk}\sigma_{kj}\,dV
+\begin{aligned}
+\varepsilon_{ijk}x_j
+\left[
+\partial_t(\rho u_k)
++
+\partial_\ell(\rho u_ku_\ell)
+\right]
+&=
+\varepsilon_{ijk}\sigma_{kj}\\
+&\quad+
+\varepsilon_{ijk}x_j
+\left[
+\partial_\ell\sigma_{k\ell}
++
+\rho b_k
+\right].
+\end{aligned}
+$$
+
+一方、[局所運動量収支](#thm-vc9-momentum-local) の第 $k$ 成分は
+
+$$
+\partial_t(\rho u_k)
++
+\partial_\ell(\rho u_ku_\ell)
 =
-0
+\partial_\ell\sigma_{k\ell}
++
+\rho b_k.
 $$
 
-が任意の十分小さい $\Omega$ で成り立ちます。従って局所化により
+これを左辺の角括弧へ代入すると、$x_j$ を含む項は左右で同じになって消え、残るのは
 
 $$
-\varepsilon_{ijk}\sigma_{kj}=0.
+\varepsilon_{ijk}\sigma_{kj}=0
 $$
+
+だけです。
 
 $i=1$ では、非零な Levi--Civita 記号が
 
@@ -1444,7 +1549,21 @@ $$
 
 左辺へ [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)を適用して Gauss の積分形を得ます。
 
-同じく $\operatorname{div}B=0$ を体積積分すれば磁束に対する Gauss の法則へ戻ります。Faraday の微分形は面積分して
+$\operatorname{div}B=0$ も体積 $\Omega$ 上で積分して
+
+$$
+\int_\Omega\operatorname{div}B\,dV=0
+$$
+
+とし、[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence) を使えば
+
+$$
+\int_{\partial\Omega}B\cdot n\,dS=0
+$$
+
+へ戻ります。
+
+Faraday の微分形は面積分して
 
 $$
 \int_S(\nabla\times E)\cdot n\,dS
@@ -1453,7 +1572,51 @@ $$
 \int_S\partial_tB\cdot n\,dS
 $$
 
-とし、左辺に Kelvin--Stokes の定理、右辺に固定曲面上での時間微分と積分の交換を使えば Faraday の積分形です。Ampère--Maxwell の微分形も同じ二つの操作で元の積分形へ戻ります。
+とします。左辺へ [Kelvin--Stokes の定理](../VC5/index.md#thm-vc5-stokes) を適用し、固定曲面 $S$ では
+
+$$
+\int_S\partial_tB\cdot n\,dS
+=
+\frac{d}{dt}
+\int_SB\cdot n\,dS
+$$
+
+なので
+
+$$
+\oint_{\partial S}E\cdot dr
+=
+-
+\frac{d}{dt}
+\int_SB\cdot n\,dS.
+$$
+
+Ampère--Maxwell の微分形も、まず $S$ 上で積分して
+
+$$
+\begin{aligned}
+\int_S(\nabla\times B)\cdot n\,dS
+&=
+\mu_0\int_Sj\cdot n\,dS\\
+&\quad+
+\mu_0\varepsilon_0
+\int_S\partial_tE\cdot n\,dS.
+\end{aligned}
+$$
+
+左辺へ [Kelvin--Stokes の定理](../VC5/index.md#thm-vc5-stokes) を適用し、最後の項で時間微分と面積分を交換すると
+
+$$
+\oint_{\partial S}B\cdot dr
+=
+\mu_0\int_Sj\cdot n\,dS
++
+\mu_0\varepsilon_0
+\frac{d}{dt}
+\int_SE\cdot n\,dS.
+$$
+
+これで四本すべてについて微分形から積分形への戻し方も明示できました。
 <!-- proof-end -->
 
 四本の式は二種類に分かれています。
@@ -1679,7 +1842,52 @@ $$
 
 次に、接線方向の単位ベクトル $\tau$ と法線 $n$ が張る細い長方形を考えます。界面に平行な辺の長さを $L$、法線方向の幅を $2h$ とし、$h\to0$ とします。
 
-[Faraday の法則](#principle-vc9-maxwell-integral)では、磁束を通る面積が $2hL$ なので、$\partial_tB$ が有界なら右辺は 0 へ行きます。線積分の主要項だけが残り、
+向きは、媒質 2 側の長辺を $+\tau$、媒質 1 側の長辺を $-\tau$ に進むように取ります。この長辺の進行方向と整合する長方形の単位法線を
+
+$$
+n_S=n\times\tau
+$$
+
+と取れます。実際、媒質 2 側の長辺では面内の外向き方向が $n$ なので
+
+$$
+n_S\times n
+=
+(n\times\tau)\times n
+=
+\tau
+$$
+
+となり、選んだ進行方向と一致します。
+
+[Faraday の法則](#principle-vc9-maxwell-integral)の左辺を四辺に分けます。二本の長辺から
+
+$$
+L\,E_2\cdot\tau
+-
+L\,E_1\cdot\tau
+$$
+
+が出ます。二本の短辺は長さが $2h$ なので、$E$ が両側で有界なら寄与は $O(h)$ で 0 へ行きます。従って
+
+$$
+\oint_{\partial S_h}E\cdot dr
+\longrightarrow
+L(E_2-E_1)\cdot\tau.
+$$
+
+一方、磁束を通る面積は $2hL$ なので、$\partial_tB$ が有界なら
+
+$$
+\left|
+\int_{S_h}\partial_tB\cdot n_S\,dS
+\right|
+=
+O(hL)
+\longrightarrow0.
+$$
+
+したがって Faraday の法則の極限は
 
 $$
 L(E_2-E_1)\cdot\tau=0.
@@ -1691,17 +1899,43 @@ $$
 n\times(E_2-E_1)=0.
 $$
 
-[Ampère--Maxwell の法則](#principle-vc9-maxwell-integral)では、変位電流項の面積は $2hL$ なので、$\partial_tE$ が有界なら
+[Ampère--Maxwell の法則](#principle-vc9-maxwell-integral)でも同じ向きの長方形を使います。二本の長辺からの循環は
+
+$$
+L\,B_2\cdot\tau
+-
+L\,B_1\cdot\tau
+=
+L(B_2-B_1)\cdot\tau,
+$$
+
+短辺の寄与は $B$ が有界なら $O(h)$ で消えます。
+
+変位電流項の面積は $2hL$ なので、$\partial_tE$ が有界なら
 
 $$
 \mu_0\varepsilon_0
-\int_S\partial_tE\cdot n_S\,dS
+\int_{S_h}\partial_tE\cdot n_S\,dS
 =
 O(hL)
 \longrightarrow0.
 $$
 
-体積電流密度 $j$ の有界な部分も面積 $2hL$ とともに 0 へ行きます。一方、界面に集中する表面電流は、長方形が界面を横切る線分に沿って有限の寄与を残します。その寄与が $L\,K\cdot(n\times\tau)$ なので
+体積電流密度 $j$ の有界な部分も面積 $2hL$ とともに 0 へ行きます。一方、界面に集中する表面電流 $K$ は、長方形と界面の交線に沿って有限の寄与を残します。長方形の法線は
+
+$$
+n_S=n\times\tau
+$$
+
+なので、その寄与は
+
+$$
+L\,K\cdot n_S
+=
+L\,K\cdot(n\times\tau).
+$$
+
+従って極限で
 
 $$
 L(B_2-B_1)\cdot\tau
@@ -2726,7 +2960,7 @@ $$
 -\Omega^2x.
 $$
 
-同様に
+第2成分は
 
 $$
 (u\cdot\nabla)u_2
