@@ -11,11 +11,26 @@ forward_references:
   - prob.probability-space
 
 concepts:
+  - id: measure.vitali-equivalence
+    name: Vitali同値関係
+    kind: definition
+    aliases: [Vitali同値関係]
+    requires:
+      - set.set
+
+  - id: measure.lebesgue-nonmeasurable-set
+    name: Lebesgue非可測集合
+    kind: definition
+    aliases: [Lebesgue非可測集合]
+    requires:
+      - measure.caratheodory-measurability
+
   - id: measure.vitali-set
     name: Vitali集合
     kind: definition
     aliases: [Vitali集合]
     requires:
+      - measure.vitali-equivalence
       - set.choice-axiom
 
   - id: measure.vitali-nonmeasurability
@@ -24,6 +39,7 @@ concepts:
     aliases: [Vitali集合の非可測性]
     requires:
       - measure.vitali-set
+      - measure.lebesgue-nonmeasurable-set
       - measure.lebesgue-translation-invariance
       - measure.interval-lebesgue-outer-measure
       - measure.measure-space
