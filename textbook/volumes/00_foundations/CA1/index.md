@@ -436,7 +436,38 @@ $$
 =o(r).
 $$
 
-同様に
+$v$ についても、増分を横方向と縦方向へ分けて
+
+$$
+\begin{aligned}
+&v(x_0+s,y_0+t)-v(x_0,y_0)\\
+&=\bigl[v(x_0+s,y_0+t)-v(x_0,y_0+t)\bigr]\\
+&\qquad+
+\bigl[v(x_0,y_0+t)-v(x_0,y_0)\bigr]
+\end{aligned}
+$$
+
+とします。各括弧へ実1変数の平均値定理を適用し、偏導関数の $(x_0,y_0)$ での連続性を使えば
+
+$$
+\Delta v
+=
+v_x s+v_y t+\gamma(h)s+\delta(h)t,
+\qquad
+\gamma(h),\delta(h)\to0.
+$$
+
+したがって $|s|,|t|\le r$ から
+
+$$
+|\gamma(h)s+\delta(h)t|
+\le
+(|\gamma(h)|+|\delta(h)|)r
+=
+o(r),
+$$
+
+よって
 
 $$
 \Delta v=v_x s+v_y t+o(r).
@@ -702,7 +733,7 @@ f'(\gamma(t))(z-a)
 0.
 $$
 
-[RA3 の平均値定理](../RA3/index.md#thm-ra3-mvt)を $\operatorname{Re}\phi$ と $\operatorname{Im}\phi$ へそれぞれ適用すると、両者は $[0,1]$ 上定数です。従って $\phi$ 自身も定数です。従って
+[RA3 の平均値定理](../RA3/index.md#thm-ra3-mvt)を $\operatorname{Re}\phi$ と $\operatorname{Im}\phi$ へそれぞれ適用すると、両者は $[0,1]$ 上定数です。従って $\phi$ 自身も定数であり、
 
 $$
 f(z)=\phi(1)=\phi(0)=f(a).
@@ -911,12 +942,35 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[複素指数関数の基本性質](#thm-ca1-complex-exponential) と [複素微分の微分法則](#thm-ca1-derivative-rules) を使います。合成則により
+[複素指数関数の基本性質](#thm-ca1-complex-exponential) と [複素微分の微分法則](#thm-ca1-derivative-rules) を使います。まず外側の関数を $G(w)=e^w$、内側を
 
 $$
-\frac d{dz}e^{iz}=ie^{iz},
+\varphi(z)=iz,
 \qquad
-\frac d{dz}e^{-iz}=-ie^{-iz}.
+\psi(z)=-iz
+$$
+
+と置きます。複素指数関数について $G'(w)=e^w$、また
+
+$$
+\varphi'(z)=i,
+\qquad
+\psi'(z)=-i
+$$
+
+です。合成則を $G\circ\varphi$ と $G\circ\psi$ にそれぞれ適用すると
+
+$$
+\begin{aligned}
+\frac d{dz}e^{iz}
+&=G'(\varphi(z))\varphi'(z)
+=e^{iz}i
+=ie^{iz},\\
+\frac d{dz}e^{-iz}
+&=G'(\psi(z))\psi'(z)
+=e^{-iz}(-i)
+=-ie^{-iz}.
+\end{aligned}
 $$
 
 従って
