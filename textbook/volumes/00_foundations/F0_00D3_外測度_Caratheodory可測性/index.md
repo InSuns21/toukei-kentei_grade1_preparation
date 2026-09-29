@@ -887,7 +887,7 @@ $T\cap E^c=T\setminus E$、$T\setminus E^c=T\cap E$ なので、$E$ の Carathé
 - $E^c$ 可測の結論：2点
 <!-- solution-end -->
 
-## F0-00D3-A04 可算集合のLebesgue外測度
+## F0-00D3-A04 可算集合を短い区間で覆う
 
 - Level: A
 - 目安時間: 12分
