@@ -997,7 +997,7 @@ G(x-y)F(y)
 G(x-y)\operatorname{div}F(y).
 $$
 
-従って Gauss--Ostrogradsky の発散定理を $\Omega_{\varepsilon,R}$ に適用すると
+従って [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence) を $\Omega_{\varepsilon,R}$ に適用すると
 
 $$
 \begin{aligned}
