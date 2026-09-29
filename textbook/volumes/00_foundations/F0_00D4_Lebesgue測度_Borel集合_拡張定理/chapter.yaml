@@ -19,7 +19,6 @@ learning_objectives:
   - σ有限性の下で拡張の一意性を証明できる
   - 積測度の存在一意性を拡張定理の応用として説明できる
 definitions:
-  - { id: F000D4-DEF-01, name: Borel σ代数 }
   - { id: F000D4-DEF-02, name: 完備化 }
   - { id: F000D4-DEF-03, name: 集合代数 }
   - { id: F000D4-DEF-04, name: 前測度 }
