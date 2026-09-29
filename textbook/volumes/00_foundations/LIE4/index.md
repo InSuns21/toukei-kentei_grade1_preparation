@@ -24,9 +24,7 @@ $$
 
 です。
 
-> **この章の停止線**
->
-> 一般表現論、半単純 Lie 環、ルート系、主束、接続形式、ゲージ理論 は扱いません。本章では有限次元 Lie 群の滑らかな作用と、その作用から自然に現れる商空間・1形式までを閉じます。
+本章では、有限次元 Lie 群が多様体を滑らかに動かす状況から始め、その運動を接ベクトルへ微分し、さらに剰余類に入る多様体構造と1形式へつなぎます。ここで得た道具を土台にすると、後続では Lie 群を線形変換として調べる理論や、より発展的な幾何へ進めます。
 
 ---
 
@@ -208,18 +206,37 @@ $$
 ## 3. 群の接ベクトルを多様体上の滑らかな運動方向へ移す
 
 $X\in\mathfrak g=T_eG$ を取ります。[LIE2 の Lie 群の指数写像](../LIE2/index.md#def-lie2-exponential-map)により
-
 $$
 t\longmapsto \exp(tX)
 $$
-
 は $G$ の1パラメータ部分群です。これを作用させれば、各点 $p\in M$ に曲線
-
 $$
 t\longmapsto \exp(tX)\cdot p
 $$
-
 が得られます。
+
+ここで §2 の軌道写像を点 $p$ について
+$$
+\Phi_p(g)=g\cdot p
+$$
+と書くと、
+$$
+\exp(0)=e,
+\qquad
+\left.\frac d{dt}\right|_0\exp(tX)=X
+$$
+なので連鎖律から
+$$
+\left.\frac d{dt}\right|_0
+\Phi_p(\exp(tX))
+=
+d(\Phi_p)_e(X).
+$$
+したがって、次に定義する各点の接ベクトルは
+$$
+(X_M)_p=d(\Phi_p)_e(X)
+$$
+とも書けます。特に $X\mapsto (X_M)_p$ は微分 $d(\Phi_p)_e$ そのものなので線形です。
 
 <a id="def-lie4-fundamental-vector-field"></a>
 <!-- formal-statement-start -->
@@ -246,6 +263,20 @@ $$
 >
 > をこの作用の **無限小作用** という。
 <!-- formal-statement-end -->
+
+この定義で本当に滑らかなベクトル場が得られることも確認しておきます。写像
+$$
+F:\mathbb R\times M\to M,
+\qquad
+F(t,p)=\exp(tX)\cdot p
+$$
+は、LIE2 で構成した曲線 $t\mapsto\exp(tX)$ と作用写像の合成なので滑らかです。局所座標で $F$ を成分表示すると
+$$
+(X_M)_p
+=
+\left.\frac{\partial F}{\partial t}\right|_{(0,p)}
+$$
+であり、滑らかな関数の偏微分は $p$ に滑らかに依存します。したがって $p\mapsto(X_M)_p$ は滑らかなベクトル場です。
 
 <!-- definition-example-start: def-lie4-fundamental-vector-field -->
 **定義の確認**：$SO(2)$ の基本ベクトル場
@@ -351,7 +382,37 @@ $$
 \Psi_t(\Psi_s(p)).
 $$
 
-また $t=0$ での速度は定義より $X_M$ です。従って $\Psi_t$ は $X_M$ の流れです。
+流れであることを示すには、時刻0だけでなく任意の時刻 $t$ で速度が $X_M$ と一致することを確認する必要があります。$t$ を固定し、新しい変数 $s$ で微分すると
+$$
+\begin{aligned}
+\left.
+\frac d{ds}
+\right|_{s=0}
+\Psi_{t+s}(p)
+&=
+\left.
+\frac d{ds}
+\right|_{s=0}
+\exp(sX)\cdot\bigl(\exp(tX)\cdot p\bigr)\\
+&=
+(X_M)_{\Psi_t(p)}.
+\end{aligned}
+$$
+左辺は
+$$
+\frac d{dt}\Psi_t(p)
+$$
+そのものなので
+$$
+\frac d{dt}\Psi_t(p)
+=
+(X_M)_{\Psi_t(p)}.
+$$
+また
+$$
+\Psi_0(p)=e\cdot p=p.
+$$
+従って $\Psi_t$ は $X_M$ の積分曲線を全ての $t\in\mathbb R$ で与え、$X_M$ の大域流です。
 
 次に $g\in G$ と $Y\in\mathfrak g$ について、$\Phi_g(p)=g\cdot p$ と書きます。$q=g\cdot p$ とすると
 
@@ -395,8 +456,32 @@ $$
 (\operatorname{Ad}_{\exp(-tX)}Y)_M.
 $$
 
-$t=0$ で微分します。[LIE2 の無限小随伴作用](../LIE2/index.md#thm-lie2-infinitesimal-adjoint-bracket)から
-
+$t=0$ で微分します。ここで
+$$
+c(t):=\exp(-tX)
+$$
+と置けば
+$$
+c(0)=e,
+\qquad
+c'(0)=-X.
+$$
+したがって $\operatorname{Ad}:G\to GL(\mathfrak g)$ へ連鎖律を適用すると
+$$
+\left.
+\frac{d}{dt}
+\right|_0
+\operatorname{Ad}_{c(t)}
+=
+d(\operatorname{Ad})_e(-X)
+=
+-\operatorname{ad}_X.
+$$
+この線形写像を $Y$ に作用させ、[LIE2 の無限小随伴作用](../LIE2/index.md#thm-lie2-infinitesimal-adjoint-bracket)の
+$$
+\operatorname{ad}_X(Y)=[X,Y]
+$$
+を使うと
 $$
 \left.
 \frac{d}{dt}
@@ -517,8 +602,19 @@ $$
 t\mapsto\exp(tX)\cdot p
 $$
 
-です。点 $x$ では定数曲線 $t\mapsto x$ も $X_M$ の積分曲線です。積分曲線の一意性により
-
+です。点 $x$ では
+$$
+(X_M)_x=0
+$$
+なので、定数曲線 $c(t)=x$ は
+$$
+c'(t)=0=(X_M)_{c(t)}
+$$
+を満たす $X_M$ の積分曲線です。一方
+$$
+t\longmapsto\exp(tX)\cdot x
+$$
+も同じ初期点 $x$ から出る積分曲線でした。積分曲線の一意性により
 $$
 \exp(tX)\cdot x=x
 $$
@@ -672,13 +768,36 @@ $$
 
 を考えます。
 
-[LIE2 の Lie 群の指数写像の微分](../LIE2/index.md#thm-lie2-exponential-basic)から $d\exp_0=\operatorname{id}_{\mathfrak g}$ です。積写像の単位元での微分は和なので
-
+[LIE2 の Lie 群の指数写像の滑らかさと局所可逆性](../LIE2/index.md#thm-lie2-exponential-local-diffeomorphism)から
 $$
-dF_{(0,0)}(X,Y)=X+Y.
+d(\exp)_0=\operatorname{id}_{\mathfrak g}.
+$$
+また群の乗法を $m(a,b)=ab$ とすると、単位元 $(e,e)$ で
+$$
+dm_{(e,e)}(U,V)=U+V
+$$
+です。$F=m\circ(\exp,\exp)$ なので連鎖律から
+$$
+\begin{aligned}
+dF_{(0,0)}(X,Y)
+&=
+dm_{(e,e)}
+\left(
+d(\exp)_0X,\,
+d(\exp)_0Y
+\right)\\
+&=
+dm_{(e,e)}(X,Y)\\
+&=
+X+Y.
+\end{aligned}
 $$
 
-$\mathfrak g=\mathfrak m\oplus\mathfrak h$ よりこれは線形同型です。[逆関数定理](../RA6A/index.md#thm-ra6a-inverse-function)を適用すると、$0$ の近傍 $U_{\mathfrak m}\subset\mathfrak m$、$U_{\mathfrak h}\subset\mathfrak h$ を十分小さく取れば、
+$\mathfrak g=\mathfrak m\oplus\mathfrak h$ なので、写像
+$$
+(X,Y)\longmapsto X+Y
+$$
+は $\mathfrak m\times\mathfrak h$ から $\mathfrak g$ への線形同型です。[逆関数定理](../RA6A/index.md#thm-ra6a-inverse-function)を $F$ の点 $(0,0)$ に適用すると、$0$ の近傍 $U_{\mathfrak m}\subset\mathfrak m$、$U_{\mathfrak h}\subset\mathfrak h$ を十分小さく取れば、
 
 $$
 F:
@@ -759,7 +878,57 @@ $$
 
 この全単射を使い、$q(W)$ の座標を $U_{\mathfrak m}$ で定めます。一般の $gH$ の近くでは左移動した $gW$ を用います。二つの座標近傍の重なりでは、$g'^{-1}g$ を掛けた後に局所積分解 $F^{-1}$ の $\mathfrak m$ 成分を取れば座標変換が得られます。群積、逆元、$F^{-1}$ は滑らかなので座標変換は滑らかです。
 
-従って $G/H$ に滑らかな多様体構造が入ります。この座標では $q$ は局所的に
+多様体として使うため、商位相の Hausdorff 性と第2可算性も確認します。まず $G$ の可算基底を
+$$
+\mathcal B=\{B_1,B_2,\ldots\}
+$$
+とします。$q$ は開集合を開集合へ送るので
+$$
+\{q(B_j):j\ge1\}
+$$
+は $G/H$ の可算基底になります。実際、開集合 $O\subset G/H$ と $gH\in O$ に対して $q^{-1}(O)$ は $g$ を含む開集合なので、ある $B_j$ が
+$$
+g\in B_j\subset q^{-1}(O)
+$$
+を満たし、
+$$
+gH\in q(B_j)\subset O
+$$
+となります。
+
+次に異なる剰余類 $g_1H\ne g_2H$ を取ります。このとき
+$$
+g_2^{-1}g_1\notin H.
+$$
+$H$ は閉集合なので、その補集合 $G\setminus H$ は開です。連続写像
+$$
+\mu:G\times G\to G,
+\qquad
+\mu(u,v)=v^{-1}u
+$$
+に対し
+$$
+\mu(g_1,g_2)=g_2^{-1}g_1\in G\setminus H.
+$$
+したがって $g_1,g_2$ の開近傍 $U_1,U_2$ を十分小さく取って
+$$
+U_2^{-1}U_1
+\subset
+G\setminus H
+$$
+とできます。
+
+もし $q(U_1)\cap q(U_2)\ne\varnothing$ なら、ある $u_i\in U_i$ について
+$$
+u_1H=u_2H
+$$
+となり、
+$$
+u_2^{-1}u_1\in H
+$$
+です。これは $U_2^{-1}U_1\subset G\setminus H$ に矛盾します。よって $q(U_1),q(U_2)$ は互いに素な開近傍で、$G/H$ は Hausdorff です。
+
+以上から、上の座標系は商位相と両立する滑らかな多様体構造を与えます。この座標では $q$ は局所的に
 
 $$
 U_{\mathfrak m}\times U_{\mathfrak h}
@@ -794,7 +963,9 @@ $$
 最後に、この「$q$ が沈め込みになる」という条件は局所座標を $q$ から復元するので、多様体構造は一意です。$\square$
 <!-- proof-end -->
 
-この証明で閉性を使った場所は、$H$ が LIE3 の意味で埋め込み Lie 部分群として扱えることです。閉でない部分群では、剰余類空間が Hausdorff 多様体にならないことがあります。
+この証明で $H$ の **閉性** を直接使ったのは、商位相が Hausdorff であることを示す箇所です。一方、局所積分解では $H$ が埋め込み部分多様体であり、$T_eH=\mathfrak h$ を持つことを使いました。もし最初に「閉部分群」であることだけが分かっているなら、後者は [LIE3 の閉部分群定理](../LIE3/index.md#thm-lie3-closed-subgroup)から得られます。
+
+したがって閉性を失うと、局所的な微分計算ができても、剰余類空間の位相が Hausdorff にならず多様体として扱えない場合があります。
 
 ### 4.1 自然な作用
 
@@ -815,6 +986,14 @@ $$
 ---
 
 ## 5. 全ての点が同じ見え方をする空間
+
+§4 では、部分群方向を忘れることで $G/H$ という多様体を作りました。逆に、ある多様体 $M$ 上で Lie 群がどの点からどの点へも移せるなら、$M$ 全体は「一つの基点を動かして得られる空間」です。
+
+このとき基点 $x$ を動かさない群要素だけをまとめた安定化群 $G_x$ を忘れれば、
+$$
+G/G_x
+$$
+が $M$ を復元するはずです。その状況に名前を付けます。
 
 <a id="def-lie4-homogeneous-space"></a>
 <!-- formal-statement-start -->
@@ -940,12 +1119,37 @@ $$
 $$
 
 §4 より
-
 $$
 \ker dq_e=\mathfrak g_x.
 $$
 
-従って $d(\overline{\Phi}_x)_{eG_x}$ は単射です。$G$-同変性と各群要素による作用が微分同相であることから、全ての点で微分は単射です。従って $\overline{\Phi}_x$ ははめ込みです。
+ここで $v\in T_{eG_x}(G/G_x)$ が
+$$
+d(\overline{\Phi}_x)_{eG_x}(v)=0
+$$
+を満たすとします。$dq_e$ は全射なので、ある $X\in\mathfrak g$ を
+$$
+dq_e(X)=v
+$$
+となるように取れます。すると
+$$
+d(\Phi_x)_e(X)
+=
+d(\overline{\Phi}_x)_{eG_x}(dq_eX)
+=
+0,
+$$
+よって
+$$
+X\in\ker d(\Phi_x)_e
+=
+\mathfrak g_x
+=
+\ker dq_e.
+$$
+したがって $v=dq_e(X)=0$ であり、$d(\overline{\Phi}_x)_{eG_x}$ は単射です。
+
+さらに $G$-同変性から、任意の $g\in G$ について「$G/G_x$ 上の左移動」と「$M$ 上の $g$ による作用」を $\overline{\Phi}_x$ が可換にします。両側の移動は微分同相なので、単位剰余類での微分の単射性は全ての点へ運ばれます。従って $\overline{\Phi}_x$ ははめ込みです。
 
 ここで
 
@@ -995,15 +1199,17 @@ $$
 \overline{B_1}\subset B_0\setminus F_1
 $$
 
-となる非空座標球 $B_1$ を取れます。同様に帰納的に、半径も $1/j$ 未満へ縮めながら
-
+となる非空座標球 $B_1$ を取れます。帰納的に、$B_{j-1}$ が取れたとします。$F_j$ は内部が空なので
+$$
+B_{j-1}\setminus F_j
+$$
+は非空開集合です。その中に閉包まで入る非空座標球 $B_j$ を、半径が $1/j$ 未満になるように選べます。従って
 $$
 \overline{B_j}
 \subset
 B_{j-1}\setminus F_j
 $$
-
-となる非空座標球 $B_j$ を取ります。最初の球の閉包をコンパクトに取っているので、入れ子になったコンパクト集合
+となります。最初の球の閉包をコンパクトに取っているので、入れ子になったコンパクト集合
 
 $$
 \overline{B_1}\supset\overline{B_2}\supset\cdots
@@ -1077,12 +1283,30 @@ $$
 ## 6. 軌道はいつも埋め込み部分多様体とは限らない
 
 一般の作用が推移的でなくても、各軌道は $G/G_x$ と全単射です。§4 の多様体構造を $G/G_x$ に入れ、軌道への写像
-
 $$
 \overline{\Phi}_x:G/G_x\to M
 $$
+を考えます。
 
-を考えると、§5 の証明の途中と同じ議論で微分は単射です。従って各軌道には自然な **はめ込み多様体** の構造があります。
+単位剰余類では
+$$
+d(\Phi_x)_e
+=
+d(\overline{\Phi}_x)_{eG_x}\circ dq_e
+$$
+であり、
+$$
+\ker d(\Phi_x)_e
+=
+\ker dq_e
+=
+\mathfrak g_x.
+$$
+$dq_e$ は全射なので、§5 と同じ核の比較により
+$$
+d(\overline{\Phi}_x)_{eG_x}
+$$
+は単射です。さらに群の作用でこの単射性を各剰余類へ運べるため、$\overline{\Phi}_x$ ははめ込みです。従って各軌道には自然な **はめ込み多様体** の構造があります。
 
 ただし、部分集合として常に埋め込み部分多様体になるとは限りません。
 
@@ -1164,6 +1388,14 @@ $$
 <!-- definition-example-end -->
 
 基底を変えると係数は定数行列で線形変換されるので、成分ごとに外微分する定義は基底に依存しません。
+
+Lie 群 $G$ では、点 $g$ ごとに接空間 $T_gG$ が別々にあります。LIE1 では左移動の微分を使えば、単位元の一つの接空間
+$$
+\mathfrak g=T_eG
+$$
+から全ての左不変ベクトル場を復元できました。
+
+今度は逆向きに、任意の $V\in T_gG$ を左移動で単位元へ戻します。各点の接ベクトルを共通の $\mathfrak g$ で測るこの1形式が、Lie 群の局所的な「移動座標」になります。
 
 <a id="def-lie4-maurer-cartan-form"></a>
 <!-- formal-statement-start -->
@@ -1336,6 +1568,14 @@ $\square$
 ---
 
 ## 8. Lie 括弧を2形式へ組み込む
+
+通常の実数値1形式では、二つの1形式を外積して2形式を作れます。しかし $\mathfrak g$ 値1形式の値は Lie 環の元なので、二つの値を掛ける代わりに Lie 括弧
+$$
+[\omega(U),\omega(V)]
+$$
+を使いたくなります。
+
+2形式にするには $U,V$ を交換したとき符号が反転する必要があります。そこで Lie 括弧を交代化して、次の $\mathfrak g$ 値2形式を作ります。
 
 <a id="def-lie4-bracket-wedge"></a>
 <!-- formal-statement-start -->
@@ -1605,15 +1845,64 @@ $$
 <!-- definition-example-end -->
 
 Maurer--Cartan 形式を
-
 $$
 \theta
 =
-\sum_{k=1}^r\theta^kE_k
+\sum_{i=1}^r\theta^iE_i
+$$
+と成分表示します。まず $U,V$ に対して
+$$
+\theta(U)=\sum_i\theta^i(U)E_i,
+\qquad
+\theta(V)=\sum_j\theta^j(V)E_j.
+$$
+したがって括弧の双線形性から
+$$
+[\theta(U),\theta(V)]
+=
+\sum_{i,j}
+\theta^i(U)\theta^j(V)[E_i,E_j].
+$$
+構造定数
+$$
+[E_i,E_j]
+=
+\sum_k c_{ij}^{\,k}E_k
+$$
+を代入すると
+$$
+[\theta(U),\theta(V)]
+=
+\sum_k
+\left(
+\sum_{i,j}
+c_{ij}^{\,k}
+\theta^i(U)\theta^j(V)
+\right)E_k.
 $$
 
-と成分表示すると、Maurer--Cartan 方程式の $E_k$ 成分は
-
+一方、括弧付き外積は交代化しているので
+$$
+[\theta\wedge\theta]
+=
+\sum_k
+\left(
+\sum_{i,j}
+c_{ij}^{\,k}\,
+\theta^i\wedge\theta^j
+\right)E_k.
+$$
+また
+$$
+d\theta
+=
+\sum_k d\theta^k\,E_k.
+$$
+これらを
+$$
+d\theta+\frac12[\theta\wedge\theta]=0
+$$
+へ代入し、基底 $E_k$ の係数を比較すると
 $$
 \boxed{
 d\theta^k
@@ -1624,8 +1913,7 @@ c_{ij}^{\,k}
 \theta^i\wedge\theta^j
 }
 $$
-
-です。
+を得ます。
 
 ### 例：2次元アフィン Lie 群
 
