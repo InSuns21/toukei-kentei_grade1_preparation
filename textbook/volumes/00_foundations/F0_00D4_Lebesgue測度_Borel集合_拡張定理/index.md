@@ -343,7 +343,7 @@ $$
 +
 \sum_{n=1}^{\infty}\frac{\varepsilon}{2^{n+2}}
 <
-\lambda^*(T)+\frac{\varepsilon}{2}+rac{\varepsilon}{4}
+\lambda^*(T)+\frac{\varepsilon}{2}+\frac{\varepsilon}{4}
 <
 \lambda^*(T)+\varepsilon.
 $$
