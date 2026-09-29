@@ -7,7 +7,7 @@ prerequisites:
 official_scope: []
 learning_objectives:
   - 偏微分方程式を階数と線形性の観点から分類し、線形・半線形・準線形を具体例で判別できる
-  - 初期値問題・境界値問題とHadamardの意味でのwell-posednessを説明できる
+  - 初期値問題・境界値問題とHadamardの意味での適切性を説明できる
   - 曲線に沿う連鎖律を用いて一次輸送方程式の特性曲線を導出できる
   - 定係数輸送方程式を特性曲線で解き、解の一意性と初期値への連続依存を確認できる
   - 非斉次輸送方程式を特性曲線に沿う積分へ還元して解ける
@@ -18,7 +18,7 @@ definitions:
   - { id: PDE1-DEF-01, name: 偏微分方程式・階数 }
   - { id: PDE1-DEF-02, name: 線形・半線形・準線形 }
   - { id: PDE1-DEF-03, name: 初期値問題・境界値問題 }
-  - { id: PDE1-DEF-04, name: well-posedness }
+  - { id: PDE1-DEF-04, name: Hadamardの意味での適切性 }
   - { id: PDE1-DEF-05, name: 特性曲線 }
 theorems:
   - { id: PDE1-PROP-01, name: 曲線に沿う連鎖律 }
