@@ -32,13 +32,19 @@ L_aL_b=L_{ab}
 $$
 を満たしました。これは本章で一般化する「積を保つ写像」の具体例です。
 
-> **この章の停止線**
->
-> 群作用、その作用で生じる点の分類、安定化群・共役類・類等式は GRP3 で扱います。ここでは商構造と同型定理までを閉じます。
+本章では、群どうしを結ぶ写像と「区別しない情報を潰して新しい群を作る」操作を扱います。準同型・核・像・剰余類・商群を同じ流れで組み立て、同型定理まで進みます。群を集合上の変換として働かせ、軌道や安定化群を調べる考え方は次の GRP3 で扱います。
 
 ---
 
 ## 1. 積を保つ写像
+
+GRP1 では、左移動 $a\mapsto L_a$ が群の積を置換の合成へ移すことを見ました。ここで重要だったのは、単に元を一対一に対応させたことではなく、
+
+$$
+L_{ab}=L_aL_b
+$$
+
+と演算そのものを保っていたことです。二つの群の構造を比較するときも、任意の写像や全単射ではなく「積を保つか」を基準にしたいので、その性質を一般化します。
 
 <a id="def-grp2-homomorphism"></a>
 <!-- formal-statement-start -->
@@ -200,6 +206,8 @@ $$
 ---
 
 ## 2. 核は「写像が潰す部分」、像は「届く部分」
+
+準同型が積を保っていても、異なる元が同じ像へ送られることも、終域の一部にしか届かないこともあります。そこで「どの元が単位元と区別できなくなるか」と「実際にどこまで届くか」を分けて記録します。前者が核、後者が像です。
 
 <a id="def-grp2-kernel-image"></a>
 <!-- formal-statement-start -->
@@ -446,6 +454,8 @@ $$
 ---
 
 ## 4. 有限群の位数を剰余類で数える
+
+前節で、左剰余類は $G$ を重なりなく分割し、有限群では各剰余類が $H$ と同じ個数の元を持つことを確認しました。したがって「同じ大きさの箱が何箱あるか」を数えれば $|G|$ が分かります。この数え上げを定理としてまとめたものが Lagrange の定理です。
 
 <a id="thm-grp2-lagrange"></a>
 <!-- formal-statement-start -->
@@ -1022,9 +1032,11 @@ $$
 
 ## 8. 核を潰すと像だけが残る
 
+法 $n$ 写像では $n$ の倍数どうしの違いが消え、符号準同型では同じ偶奇を持つ置換の細かな違いが消えます。どちらも「準同型が見分けられない差」は核に入っています。そこで、核の違いを最初から同一視した商群を作れば、残った情報は像とちょうど一致するはずです。
+
 <a id="thm-grp2-first-isomorphism"></a>
 <!-- formal-statement-start -->
-> **定理（群の群の第一同型定理）**
+> **定理（群の第一同型定理）**
 >
 > 群準同型
 >
@@ -1143,12 +1155,42 @@ $q_n:\mathbb Z\to\mathbb Z_n$ は全射で
 $$
 \ker q_n=n\mathbb Z.
 $$
-[群の第一同型定理](#thm-grp2-first-isomorphism)から
+
+[群の第一同型定理](#thm-grp2-first-isomorphism)を
+
+$$
+G=\mathbb Z,
+\qquad
+H=\mathbb Z_n,
+\qquad
+f=q_n
+$$
+
+として適用します。このとき
+
+$$
+G/\ker f
+=
+\mathbb Z/n\mathbb Z,
+$$
+
+また全射性から
+
+$$
+\operatorname{Im}f
+=
+\mathbb Z_n.
+$$
+
+したがって定理の結論は
+
 $$
 \mathbb Z/n\mathbb Z
 \cong
-\mathbb Z_n.
+\mathbb Z_n
 $$
+
+となります。
 
 つまり GRP1 で具体的に使った法 $n$ の加法群は、整数群から $n$ の倍数を0へ潰した商群として再構成できます。
 
@@ -1162,7 +1204,19 @@ $$
 $$
 \ker(\operatorname{sgn})=A_n.
 $$
-従って
+
+[群の第一同型定理](#thm-grp2-first-isomorphism)を
+
+$$
+G=S_n,
+\qquad
+H=\{1,-1\},
+\qquad
+f=\operatorname{sgn}
+$$
+
+として適用します。核は $A_n$、像は全射性から $\{1,-1\}$ なので、
+
 $$
 S_n/A_n
 \cong
@@ -1215,6 +1269,8 @@ $$
 ---
 
 ## 9. 部分群と正規部分群を交差させる
+
+第一同型定理は、準同型の核を潰すと像が残るという原理でした。では、部分群 $H$ の元を正規部分群 $N$ で割ったとき、$H$ のどの部分が潰れ、どこへ届くのでしょうか。自然な写像 $h\mapsto hN$ を調べると、核は $H\cap N$、像は $HN/N$ になります。
 
 <a id="thm-grp2-second-isomorphism"></a>
 <!-- formal-statement-start -->
@@ -1330,7 +1386,26 @@ $$
 \operatorname{Im}\varphi=HN/N.
 $$
 
-[群の第一同型定理](#thm-grp2-first-isomorphism)から
+ここで[群の第一同型定理](#thm-grp2-first-isomorphism)を
+
+$$
+G=H,
+\qquad
+H_{\text{cod}}=HN/N,
+\qquad
+f=\varphi
+$$
+
+として適用します。いま確認したように
+
+$$
+\ker\varphi=H\cap N,
+\qquad
+\operatorname{Im}\varphi=HN/N
+$$
+
+なので、
+
 $$
 H/(H\cap N)
 \cong
@@ -1342,6 +1417,8 @@ $\square$
 ---
 
 ## 10. 二段階の商を一段階へまとめる
+
+$N\subset H$ のとき、まず $N$ を潰して $G/N$ を作り、その後さらに $H/N$ を潰す操作を考えられます。直感的には「最終的に $H$ の差を無視する」ので、最初から $H$ で割った $G/H$ と同じ情報になるはずです。これを代表元に依存しない写像として確かめます。
 
 <a id="thm-grp2-third-isomorphism"></a>
 <!-- formal-statement-start -->
@@ -1447,6 +1524,8 @@ $\square$
 ---
 
 ## 11. 商群の部分群を元の群へ引き戻す
+
+商群 $G/N$ を作ると、元の群より情報が減りますが、部分群構造まで無秩序に失われるわけではありません。$N$ を含む部分群は商へ送ることができ、商群の部分群は標準射影で逆像を取れば元へ戻せます。この二つの操作が本当に互いに逆になることを確認します。
 
 <a id="thm-grp2-correspondence"></a>
 <!-- formal-statement-start -->
@@ -1751,11 +1830,8 @@ gH=G\setminus H
 $$
 です。
 
-同様に右剰余類も $H$ ともう一つだけです。$g\notin H$ なので
-$$
-Hg\ne H,
-$$
-従って
+右剰余類についても、指数が2なので全部で2個です。一つは $H$ 自身です。$g\notin H$ なら $Hg=H$ は起こらないので、$Hg$ は右剰余類のうち $H$ でない方です。右剰余類も $G$ を分割するため、
+
 $$
 Hg=G\setminus H.
 $$
@@ -1948,13 +2024,23 @@ $$
 $$
 よって全射です。
 
-[群の第一同型定理](#thm-grp2-first-isomorphism)から
+[群の第一同型定理](#thm-grp2-first-isomorphism)を
+
+$$
+G=S_4,
+\qquad
+f=\operatorname{sgn}
+$$
+
+として適用すると、
+
 $$
 S_4/\ker(\operatorname{sgn})
 \cong
 \operatorname{Im}(\operatorname{sgn}),
 $$
-従って
+
+です。上で求めた核と像を代入して
 $$
 \boxed{
 S_4/A_4\cong\{1,-1\}
@@ -2021,13 +2107,31 @@ $$
 H\cap N=12\mathbb Z.
 $$
 
-第二同型定理から
+[群の第二同型定理](#thm-grp2-second-isomorphism)を、加法群 $G=\mathbb Z$ の
+
+$$
+H=4\mathbb Z,
+\qquad
+N=6\mathbb Z
+$$
+
+に適用します。上で求めた
+
+$$
+H+N=2\mathbb Z,
+\qquad
+H\cap N=12\mathbb Z
+$$
+
+を定理の式
+
 $$
 H/(H\cap N)
 \cong
-(H+N)/N.
+(H+N)/N
 $$
-従って
+
+へ代入すると
 $$
 \boxed{
 4\mathbb Z/12\mathbb Z
