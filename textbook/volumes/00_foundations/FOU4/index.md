@@ -54,7 +54,7 @@ L2 の平行移動・変調・L1-L2 畳み込み
 
 > **この章で使う関数解析は限定的です。** 使うのは $L^2$ の完備性、完備内積空間の内積、稠密部分空間、連続延長です。Hahn--Banach、Riesz 表現定理、スペクトル定理は使いません。
 >
-> **複素解析は前提ではありません。** 留数定理は特定の Fourier 積分を計算する便利な別ルートですが、Plancherel、$L^2$ 延長、反転、unitary 性の証明には使いません。
+> **複素解析は前提ではありません。** 留数定理は特定の Fourier 積分を計算する便利な別ルートですが、Plancherel、$L^2$ 延長、反転、ユニタリ性の証明には使いません。
 
 FOU3 と同じく
 
@@ -109,7 +109,15 @@ $$
 位相因子 $e^{ix}$ は $L^2$ ノルムを変えません。
 <!-- definition-example-end -->
 
-複素 $L^2$ の完備性は新しい難所ではありません。$f_n=u_n+iv_n$ が複素 $L^2$ で Cauchy なら
+複素 $L^2$ の完備性は、実 $L^2$ の完備性へ分解して確認できます。$f_n=u_n+iv_n$ が複素 $L^2$ で Cauchy なら、点ごとに
+
+$$
+|u_n-u_m|\le|f_n-f_m|,
+\qquad
+|v_n-v_m|\le|f_n-f_m|
+$$
+
+なので
 
 $$
 \|u_n-u_m\|_2\le\|f_n-f_m\|_2,
@@ -117,7 +125,27 @@ $$
 \|v_n-v_m\|_2\le\|f_n-f_m\|_2.
 $$
 
-したがって実 $L^2$ の完備性から $u_n\to u$、$v_n\to v$ が得られ、$f_n\to u+iv$ です。以後はこの完備性を使います。
+従って $(u_n)$ と $(v_n)$ は実 $L^2$ の Cauchy 列です。実 $L^2$ の完備性から、ある $u,v\in L^2$ が存在して
+
+$$
+u_n\to u,
+\qquad
+v_n\to v
+\qquad\text{in }L^2
+$$
+
+となります。最後に
+
+$$
+\begin{aligned}
+\|f_n-(u+iv)\|_2^2
+&=\int_{\mathbb R}|(u_n-u)+i(v_n-v)|^2dx\\
+&=\|u_n-u\|_2^2+\|v_n-v\|_2^2
+\to0.
+\end{aligned}
+$$
+
+従って複素 $L^2$ も完備です。以後はこの完備性を使います。
 
 ---
 
@@ -233,7 +261,18 @@ FOU3 の $L^1$ 証明と同じ形ですが、平行移動差を $L^2$ ノルム�
 <!-- proof-start -->
 ### 証明
 
-[Minkowskiの不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-02)から
+まず $\int k_\varepsilon(y)dy=1$ なので、各 $x$ で
+
+$$
+\begin{aligned}
+(f*k_\varepsilon)(x)-f(x)
+&=\int k_\varepsilon(y)f(x-y)dy
+-f(x)\int k_\varepsilon(y)dy\\
+&=\int k_\varepsilon(y)\{f(x-y)-f(x)\}dy.
+\end{aligned}
+$$
+
+ここで $f(x-y)=(\tau_yf)(x)$ です。従って [Minkowskiの不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-02)を積分変数 $y$ に対して適用すると
 
 $$
 \begin{aligned}
@@ -357,7 +396,7 @@ $$
 \|f-h\|_2<\frac\eta2
 $$
 
-となるように取れます。前節の $L^2$ [Gaussian approximate identity](../FOU3/index.md#thm-fou3-gaussian-approximation) により、十分小さい $\varepsilon>0$ で
+となるように取れます。前節の [$L^2$ 版 Gaussian 近似恒等族](#thm-fou4-l2-gaussian-approximation) により、十分小さい $\varepsilon>0$ で
 
 $$
 \|h*k_\varepsilon-h\|_2<\frac\eta2.
@@ -386,10 +425,22 @@ $$
 g^\sharp(x):=\overline{g(-x)}
 $$
 
-と置きます。直接の変数変換から
+と置きます。この反射と複素共役を組み合わせる理由は、Fourier 変換後に絶対値二乗を作るためです。実際、定義から
 
 $$
-\widehat{g^\sharp}(\xi)=\overline{\widehat g(\xi)}.
+\widehat{g^\sharp}(\xi)
+=\int_{\mathbb R}\overline{g(-x)}e^{-i\xi x}dx.
+$$
+
+ここで $y=-x$ と置くと積分方向も反転するので
+
+$$
+\begin{aligned}
+\widehat{g^\sharp}(\xi)
+&=\int_{\mathbb R}\overline{g(y)}e^{i\xi y}dy\\
+&=\overline{\int_{\mathbb R}g(y)e^{-i\xi y}dy}\\
+&=\overline{\widehat g(\xi)}.
+\end{aligned}
 $$
 
 従って [L1畳み込みと畳み込み定理](../FOU3/index.md#thm-fou3-convolution)により
@@ -569,7 +620,33 @@ $$
 
 よって二つの Fourier 側の極限は同じです。従って定義は近似列に依存しません。
 
-線形性は $g_n\to f$、$h_n\to h$ に対して、$\mathcal G$ の線形性から $ag_n+bh_n\in\mathcal G$ かつ $ag_n+bh_n\to af+bh$ であることを使い、core 上の Fourier 変換の線形性を極限へ移せば従います。
+線形性も近似列を具体的に追えば確認できます。$g_n\to f$、$h_n\to h$ を $L^2$ で満たす $g_n,h_n\in\mathcal G$ を取り、$a,b\in\mathbb C$ とします。$\mathcal G$ は線形空間なので
+
+$$
+ag_n+bh_n\in\mathcal G,
+$$
+
+また三角不等式から
+
+$$
+\|(ag_n+bh_n)-(af+bh)\|_2
+\le |a|\|g_n-f\|_2+|b|\|h_n-h\|_2
+\to0.
+$$
+
+core 上では Fourier 変換が線形なので
+
+$$
+\widehat{ag_n+bh_n}
+=a\widehat g_n+b\widehat h_n.
+$$
+
+左辺は定義により $\mathcal F_2(af+bh)$ へ、右辺は $a\mathcal F_2f+b\mathcal F_2h$ へ $L^2$ 収束します。従って
+
+$$
+\mathcal F_2(af+bh)
+=a\mathcal F_2f+b\mathcal F_2h.
+$$
 
 最後に Plancherel とノルムの連続性から
 
@@ -582,7 +659,21 @@ $$
 \end{aligned}
 $$
 
-一意性も稠密性から従います。二つの連続線形拡張が $\mathcal G$ 上で一致するなら、任意の $f$ を $g_n\in\mathcal G$ で近似して極限を取れば $f$ 上でも一致します。
+一意性も同じ近似を一段ずつ使います。$T_1,T_2:L^2\to L^2$ が連続線形で、$\mathcal G$ 上ではともに古典 Fourier 変換と一致するとします。任意の $f\in L^2$ に対して $g_n\in\mathcal G$、$g_n\to f$ を取れば
+
+$$
+T_1g_n=T_2g_n
+$$
+
+です。連続性から
+
+$$
+T_1g_n\to T_1f,
+\qquad
+T_2g_n\to T_2f
+$$
+
+なので、同じ列の極限の一意性より $T_1f=T_2f$ です。
 <!-- proof-end -->
 
 この節が「関数解析をある程度前提にする」部分の本体です。使った一般原理は
@@ -682,7 +773,7 @@ $$
 
 ### 証明の見取り図
 
-Plancherel はノルムの等式です。複素内積は $f+g$ と $f+ig$ のノルムから復元できます。
+Plancherel だけでは「一つの関数のエネルギー」が保たれることしか直接には分かりません。二つの関数の内積まで保たれることを示したいので、複素内積を四つのノルムから復元する polarization identity を使います。どのノルムへ Plancherel を適用するかを明示して計算します。
 
 <!-- proof-start -->
 ### 証明
@@ -697,7 +788,30 @@ $$
 \Bigr)
 $$
 
-を使います。$\mathcal F_2$ は線形で、各ノルムを $\sqrt{2\pi}$ 倍するので、右辺の四つのノルム二乗は全て $2\pi$ 倍されます。従って
+を使います。ここで
+
+$$
+u=\mathcal F_2f,
+\qquad
+v=\mathcal F_2g
+$$
+
+と置きます。線形性から、例えば
+
+$$
+u+iv
+=\mathcal F_2f+i\mathcal F_2g
+=\mathcal F_2(f+ig)
+$$
+
+であり、他の三つも同様に $\mathcal F_2(f\pm g)$、$\mathcal F_2(f-ig)$ と書けます。Plancherel をそれぞれへ適用すると
+
+$$
+\|\mathcal F_2(f+ig)\|_2^2
+=2\pi\|f+ig\|_2^2
+$$
+
+など、四つのノルム二乗がすべて $2\pi$ 倍されます。従って polarization identity 全体から共通因子 $2\pi$ を外せて
 
 $$
 \langle\mathcal F_2f,\mathcal F_2g\rangle
@@ -743,12 +857,12 @@ $$
 \|Uf\|_2=\|f\|_2.
 $$
 
-つまり $U$ は少なくとも等長作用素です。次節で全射性まで示して unitary であることを確定します。
+つまり $U$ は少なくとも等長作用素です。次節で全射性まで示して ユニタリ であることを確定します。
 <!-- definition-example-end -->
 
 ---
 
-## 9. $L^2$ Fourier 反転と unitary 性
+## 9. $L^2$ Fourier 反転と ユニタリ 性
 
 反射作用素
 
@@ -777,7 +891,7 @@ U^2=J,
 U^4=I.
 $$
 >
-> 特に $U$ は全射な等長作用素、すなわち unitary 作用素である。また
+> 特に $U$ は全射な等長作用素、すなわち ユニタリ 作用素である。また
 >
 $$
 \boxed{
@@ -825,7 +939,7 @@ $$
 h=U(U^3h)
 $$
 
-と書けるので $U$ は全射です。等長性から単射でもあり、既に内積を保つことを示したため $U$ は unitary です。従って $\mathcal F_2$ も全単射です。
+と書けるので $U$ は全射です。等長性から単射でもあり、既に内積を保つことを示したため $U$ は ユニタリ です。従って $\mathcal F_2$ も全単射です。
 
 最後に
 
@@ -852,7 +966,7 @@ $$
 $$
 <!-- proof-end -->
 
-一般の $L^2$ 関数について、逆変換は pointwise に絶対収束する積分とは限りません。反転は $L^2$ ノルムで成立する等式です。ここを FOU3 の反転定理と混同しないことが重要です。
+一般の $L^2$ 関数について、逆変換は 各点で に絶対収束する積分とは限りません。反転は $L^2$ ノルムで成立する等式です。ここを FOU3 の反転定理と混同しないことが重要です。
 
 ---
 
@@ -899,7 +1013,31 @@ $$
 =\widehat g_n(\xi-b).
 $$
 
-周波数側で位相因子の乗算と平行移動も $L^2$ ノルムを保ちます。従って $n\to\infty$ とすれば所望の二式が得られます。
+周波数側でも、位相因子の乗算と平行移動は $L^2$ ノルムを保ちます。したがって
+
+$$
+e^{-ia\xi}\widehat g_n(\xi)
+\to e^{-ia\xi}\mathcal F_2f(\xi)
+\quad\text{in }L^2,
+$$
+
+また
+
+$$
+\widehat g_n(\xi-b)
+\to(\mathcal F_2f)(\xi-b)
+\quad\text{in }L^2.
+$$
+
+一方、$\tau_ag_n\to\tau_af$ と $e^{ibx}g_n\to e^{ibx}f$ なので、$L^2$ Fourier 変換の連続性から左辺はそれぞれ
+
+$$
+\mathcal F_2(\tau_af),
+\qquad
+\mathcal F_2(e^{ibx}f)
+$$
+
+へ収束します。同じ $L^2$ 極限の一意性から所望の二式が得られます。
 <!-- proof-end -->
 
 FOU3 の公式を「一般の $L^2$ 関数にも積分計算がそのままできる」と誤解せず、稠密な $L^1$ core で証明して連続性で運ぶのがポイントです。
@@ -1008,7 +1146,22 @@ $$
 =2\pi.
 $$
 
-$u=\xi/2$ と置けば
+$u=\xi/2$、すなわち $\xi=2u$、$d\xi=2du$ と置くと
+
+$$
+\frac{2\sin(\xi/2)}{\xi}
+=\frac{\sin u}{u}.
+$$
+
+従って
+
+$$
+2\int_{-\infty}^{\infty}
+\left(\frac{\sin u}{u}\right)^2du
+=2\pi,
+$$
+
+両辺を2で割って
 
 $$
 \boxed{
@@ -1055,7 +1208,7 @@ FOU1–FOU3 では、完備内積空間という一般語を知らなくても�
 - 稠密部分で写像を定義する
 - ノルム評価から Cauchy 性を得る
 - 完備性で像の極限を作る
-- 内積保存・unitary 作用素として読む
+- 内積保存・ユニタリ作用素として読む
 
 という構造が本質的です。
 
@@ -1457,7 +1610,7 @@ $$
 1. $g\in\mathcal G$ なら $U^2g=Jg$、ただし $(Jg)(x)=g(-x)$。
 2. $\mathcal G$ の稠密性と $U,J$ の連続性から $U^2=J$ を全 $L^2$ へ延長せよ。
 3. $U^4=I$ を示し、これから $U$ が全射であることを示せ。
-4. Parseval と合わせて $U$ が unitary であることを説明せよ。
+4. Parseval と合わせて $U$ が ユニタリ であることを説明せよ。
 5. $\mathcal F_2^{-1}=(2\pi)^{-1}J\mathcal F_2$ を導け。
 
 <!-- solution-start -->
@@ -1511,7 +1664,7 @@ $$
 h=U(U^3h)
 $$
 
-と書けるため、$U$ は全射です。等長性から単射でもあります。Parseval から $U$ は内積を保つので、全射等長線形作用素として unitary です。従って $\mathcal F_2$ も全単射です。
+と書けるため、$U$ は全射です。等長性から単射でもあります。Parseval から $U$ は内積を保つので、全射等長線形作用素として ユニタリ です。従って $\mathcal F_2$ も全単射です。
 
 最後に
 
@@ -1537,7 +1690,7 @@ $$
 }.
 $$
 
-この証明の核心は、FOU3 の pointwise 反転を稠密な線形 core 上だけで使い、最後は $L^2$ 連続性で全空間へ運ぶことです。
+この証明の核心は、FOU3 の 各点で 反転を稠密な線形 core 上だけで使い、最後は $L^2$ 連続性で全空間へ運ぶことです。
 <!-- solution-end -->
 
 ---
