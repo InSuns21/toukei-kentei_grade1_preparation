@@ -61,7 +61,65 @@ $$
 が平衡点です。例えば $F(1,0)=0$ なので $(x(t),y(t))\equiv(1,0)$ は実際に解です。
 <!-- definition-example-end -->
 
-$F$ が $C^1$ なら局所 Lipschitz なので、ODE1 の [Picard--Lindelöf の局所存在・一意性](../ODE1/index.md#thm-ode1-picard-lindelof)が使えます。一意性があるため、同じ時刻に同じ状態へ来た二つの解が、その後別々に進むことはありません。
+$F$ が $C^1$ なら、有限次元では ODE1 の Picard 反復をそのままベクトル値へ拡張できます。ここは後続理論を暗黙に使わず、必要な対応を確認しておきます。
+
+初期点 $x_0\in U$ のまわりに閉球 $\overline B(x_0,r)\subset U$ を取ります。$DF$ は連続なので、この閉球上である $L>0$ に対し
+
+$$
+\|DF(x)\|\le L
+$$
+
+とできます。$y,z\in\overline B(x_0,r)$ を取り、線分が球内に入るよう十分小さい球を選んでおけば、
+
+$$
+\phi(\theta):=F\bigl(z+\theta(y-z)\bigr)
+\qquad(0\le\theta\le1)
+$$
+
+に一変数の微積分学の基本定理を成分ごとに適用できます。連鎖律から
+
+$$
+\phi'(\theta)
+=
+DF\bigl(z+\theta(y-z)\bigr)(y-z)
+$$
+
+なので
+
+$$
+\begin{aligned}
+\|F(y)-F(z)\|
+&=
+\left\|
+\int_0^1
+DF\bigl(z+\theta(y-z)\bigr)(y-z)\,d\theta
+\right\|\\
+&\le
+L\|y-z\|.
+\end{aligned}
+$$
+
+したがって $F$ はこの球上で Lipschitz です。
+
+次に連続ベクトル値関数の空間で
+
+$$
+(Tu)(t)
+=
+x_0+\int_0^t F(u(s))\,ds
+$$
+
+と置きます。ODE1 の証明で絶対値を Euclid ノルムへ置き換えると
+
+$$
+\|Tu-Tv\|_\infty
+\le
+Lh\|u-v\|_\infty
+$$
+
+となります。$h$ を十分小さくして $Lh<1$ とすれば、ODE1 と同じ Picard 反復の Cauchy 評価がそのまま働き、局所解の存在・一意性を得ます。
+
+したがって本章では、$C^1$ ベクトル場について局所解と一意性を使ってよい状態になりました。一意性があるため、同じ時刻に同じ状態へ来た二つの解が、その後別々に進むことはありません。
 
 ---
 
