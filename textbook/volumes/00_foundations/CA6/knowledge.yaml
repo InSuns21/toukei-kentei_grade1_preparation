@@ -66,7 +66,7 @@ concepts:
     name: 調和関数の局所正則表示
     kind: lemma
     aliases: [調和関数の局所正則表示, 局所調和共役, local harmonic conjugate]
-    requires: [complex-analysis.harmonic-function, complex-analysis.cauchy-riemann-sufficient, complex-analysis.local-primitive]
+    requires: [complex-analysis.harmonic-function, complex-analysis.cauchy-riemann-sufficient, complex-analysis.cauchy-star-shaped]
 
   - id: complex-analysis.harmonic-mean-value-property
     name: 調和関数の平均値性質
