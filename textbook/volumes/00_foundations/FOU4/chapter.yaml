@@ -11,7 +11,7 @@ prerequisites:
 official_scope: []
 learning_objectives:
   - 複素L2の内積・完備性とFourier規約の正規化定数を区別して扱える
-  - L2平行移動連続性をCc稠密性から証明し、Gaussian approximate identity がL2でも収束することを示せる
+  - L2平行移動連続性をCc稠密性から証明し、Gaussian 近似恒等族がL2でも収束することを示せる
   - Gaussian正則化で得られる稠密な良い関数族上でPlancherel等式をFourier反転から証明できる
   - 稠密部分空間上のFourier変換をL2完備性により全L2へ一意に延長できる
   - L1かつL2の関数ではL2 Fourier変換が従来のL1 Fourier変換と一致することを示せる
@@ -25,7 +25,7 @@ definitions:
   - { id: FOU4-DEF-04, name: 正規化Fourier作用素 }
 theorems:
   - { id: FOU4-LEM-01, name: L2平行移動連続性 }
-  - { id: FOU4-THM-01, name: Gaussian approximate identity のL2収束 }
+  - { id: FOU4-THM-01, name: Gaussian 近似恒等族のL2収束 }
   - { id: FOU4-THM-02, name: Gaussian Fourier core のL2稠密性 }
   - { id: FOU4-THM-03, name: core上のPlancherel等式 }
   - { id: FOU4-THM-04, name: L2 Fourier変換の一意な拡張 }
