@@ -929,19 +929,69 @@ $$
 \varepsilon_{ijk}\sigma_{kj}=0.
 $$
 
-例えば $i=1$ なら
+$i=1$ では、非零な Levi--Civita 記号が
 
-$$
-\sigma_{32}-\sigma_{23}=0.
-$$
+$
+\varepsilon_{123}=1,
+\qquad
+\varepsilon_{132}=-1
+$
 
-$i=2,3$ でも同様に
+なので
 
-$$
+$
+\varepsilon_{1jk}\sigma_{kj}
+=
+\sigma_{32}-\sigma_{23}
+=
+0.
+$
+
+$i=2$ では
+
+$
+\varepsilon_{231}=1,
+\qquad
+\varepsilon_{213}=-1
+$
+
+から
+
+$
+\varepsilon_{2jk}\sigma_{kj}
+=
+\sigma_{13}-\sigma_{31}
+=
+0.
+$
+
+$i=3$ では
+
+$
+\varepsilon_{312}=1,
+\qquad
+\varepsilon_{321}=-1
+$
+
+より
+
+$
+\varepsilon_{3jk}\sigma_{kj}
+=
+\sigma_{21}-\sigma_{12}
+=
+0.
+$
+
+従って
+
+$
+\sigma_{23}=\sigma_{32},
+\qquad
 \sigma_{13}=\sigma_{31},
 \qquad
-\sigma_{21}=\sigma_{12}.
-$$
+\sigma_{12}=\sigma_{21}.
+$
 
 従って
 
@@ -1287,11 +1337,21 @@ $$
 \frac{\rho_e}{\varepsilon_0}.
 $$
 
-同様に[磁束に対する Gauss の法則](#principle-vc9-maxwell-integral)から
+[磁束に対する Gauss の法則](#principle-vc9-maxwell-integral)には右辺の源項がありません。[VC4 の Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)を $B$ へ適用すると
 
-$$
+$
+0
+=
+\int_{\partial\Omega}B\cdot n\,dS
+=
+\int_\Omega \operatorname{div}B\,dV.
+$
+
+これも任意の十分小さい $\Omega$ で成り立つため
+
+$
 \operatorname{div}B=0.
-$$
+$
 
 次に [Faraday の法則](#principle-vc9-maxwell-integral)へ [VC5 の Kelvin--Stokes の定理](../VC5/index.md#thm-vc5-stokes)を使うと
 
@@ -1323,9 +1383,26 @@ $$
 -\partial_tB.
 $$
 
-[Ampère--Maxwell の法則](#principle-vc9-maxwell-integral)も同様に
+[Ampère--Maxwell の法則](#principle-vc9-maxwell-integral)では、まず左辺の境界循環へ Kelvin--Stokes の定理を適用して
 
-$$
+$
+\oint_{\partial S}B\cdot dr
+=
+\int_S(\nabla\times B)\cdot n\,dS
+$
+
+とします。また $S$ は固定されているので
+
+$
+\frac{d}{dt}
+\int_SE\cdot n\,dS
+=
+\int_S\partial_tE\cdot n\,dS.
+$
+
+したがって積分形は
+
+$
 \int_S
 \left(
 \nabla\times B
@@ -1335,20 +1412,48 @@ $$
 \mu_0\varepsilon_0\partial_tE
 \right)\cdot n\,dS
 =
-0
-$$
+0.
+$
 
-から
+これが任意の十分小さい向き付けられた面 $S$ で成り立つので
 
-$$
+$
 \nabla\times B
 =
 \mu_0j
 +
 \mu_0\varepsilon_0\partial_tE.
-$$
+$
 
-逆向きは、四本の微分形をそれぞれ体積・曲面上で積分し、Gauss--Ostrogradsky と Kelvin--Stokes の各定理を適用すれば積分形へ戻ります。
+逆向きも各式ごとに戻せます。例えば
+
+$
+\operatorname{div}E
+=
+\frac{\rho_e}{\varepsilon_0}
+$
+
+を体積 $\Omega$ 上で積分すると
+
+$
+\int_\Omega\operatorname{div}E\,dV
+=
+\frac1{\varepsilon_0}
+\int_\Omega\rho_e\,dV,
+$
+
+左辺へ Gauss--Ostrogradsky の発散定理を適用して Gauss の積分形を得ます。
+
+同じく $\operatorname{div}B=0$ を体積積分すれば磁束に対する Gauss の法則へ戻ります。Faraday の微分形は面積分して
+
+$
+\int_S(\nabla\times E)\cdot n\,dS
+=
+-
+\int_S\partial_tB\cdot n\,dS
+$
+
+とし、左辺に Kelvin--Stokes の定理、右辺に固定曲面上での時間微分と積分の交換を使えば Faraday の積分形です。Ampère--Maxwell の微分形も同じ二つの操作で対応する積分形へ戻ります。
 <!-- proof-end -->
 
 四本の式は二種類に分かれています。
@@ -1552,11 +1657,25 @@ n\cdot(E_2-E_1)
 \frac{\sigma_s}{\varepsilon_0}.
 $$
 
-磁場について同じ箱を使えば右辺は 0 なので
+磁場について同じ薄い箱へ磁束に対する Gauss の法則を適用します。上面・下面の寄与は
 
-$$
+$
+A\,B_2\cdot n
+-
+A\,B_1\cdot n
+$
+
+で、側面流束は $h\to0$ で消えます。右辺は常に 0 なので
+
+$
+A\,n\cdot(B_2-B_1)=0.
+$
+
+$A>0$ で割れば
+
+$
 n\cdot(B_2-B_1)=0.
-$$
+$
 
 次に、接線方向の単位ベクトル $\tau$ と法線 $n$ が張る細い長方形を考えます。界面に平行な辺の長さを $L$、法線方向の幅を $2h$ とし、$h\to0$ とします。
 
@@ -1572,7 +1691,17 @@ $$
 n\times(E_2-E_1)=0.
 $$
 
-[Ampère--Maxwell の法則](#principle-vc9-maxwell-integral)では、変位電流の面積項は同様に 0 へ行きます。一方、界面に集中する表面電流は細い長方形を横切って $K$ の寄与を残します。その結果
+[Ampère--Maxwell の法則](#principle-vc9-maxwell-integral)では、変位電流項の面積は $2hL$ なので、$\partial_tE$ が有界なら
+
+$
+\mu_0\varepsilon_0
+\int_S\partial_tE\cdot n_S\,dS
+=
+O(hL)
+\longrightarrow0.
+$
+
+体積電流密度 $j$ の有界な部分も面積 $2hL$ とともに 0 へ行きます。一方、界面に集中する表面電流は、長方形が界面を横切る線分に沿って有限の寄与を残します。その寄与が $L\,K\cdot(n\times\tau)$ なので
 
 $$
 L(B_2-B_1)\cdot\tau
@@ -1659,11 +1788,9 @@ $$
 
 ---
 
-## 14. 本章と系列の停止線
+## 14. ここから先の物理理論への接続
 
-本章では、ベクトル解析の道具が後続理論へ入る入口までを扱いました。
-
-ここから先は別系列です。
+本章では、ベクトル解析の道具が後続する流体力学・電磁気学へ入る入口までを扱いました。ここから先では追加の物理法則や解析理論が主役になります。
 
 - 移動・変形する検査体積に対する Reynolds 輸送定理
 - 圧縮性流体の熱力学とエネルギー保存
@@ -1676,9 +1803,7 @@ $$
 - 相対論的な四元テンソル形式
 - 微分形式による一般 Stokes の定理
 
-これらを VC9 に詰め込むと、ベクトル解析と後続の物理理論の正本が混ざります。
-
-VC9 の役割は、**後続理論で現れる式を見たとき、どのベクトル解析の構造が働いているかを読める状態にすること**です。
+これらは、それぞれ流体力学・偏微分方程式・電磁気学・微分幾何学で必要な追加構造とともに扱います。ここでは、**後続理論で現れる式を見たとき、どのベクトル解析の構造が働いているかを読める状態**までを目標とします。
 
 ---
 
