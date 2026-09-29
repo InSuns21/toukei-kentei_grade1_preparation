@@ -243,7 +243,7 @@ $$
 
 <a id="thm-fou4-l2-gaussian-approximation"></a>
 <!-- formal-statement-start -->
-> **定理（Gaussian approximate identity のL2収束）**  
+> **定理（Gaussian 近似恒等族のL2収束）**  
 > $f\in L^2(\mathbb R)$ なら $f*k_\varepsilon$ は $L^2$ の元として定義でき、
 >
 $$
@@ -827,7 +827,7 @@ $$
 =2\pi\|f+ig\|_2^2
 $$
 
-など、四つのノルム二乗がすべて $2\pi$ 倍されます。従って 偏極恒等式 全体から共通因子 $2\pi$ を外せて
+など、四つのノルム二乗がすべて $2\pi$ 倍されます。従って偏極恒等式全体から共通因子 $2\pi$ を外せて
 
 $$
 \langle\mathcal F_2f,\mathcal F_2g\rangle
