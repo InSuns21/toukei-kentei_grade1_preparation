@@ -2375,16 +2375,57 @@ $$
 \nabla_yG(x-y)\cdot F(y)\,dy.
 $$
 
-$F$ はコンパクトな台を持つため、十分大きい球 $B_R$ では $\partial B_R$ 上で $F=0$ です。従って発散定理による部分積分の境界項
+ただし $G(x-y)$ は $y=x$ で特異なので、$B_R$ 全体でいきなり部分積分はしません。$\operatorname{supp}F$ と $x$ を含む十分大きい球 $B_R$ を取り、
 
 $$
-\int_{\partial B_R}
-G(x-y)F(y)\cdot n\,dS
+\Omega_{\varepsilon,R}
+=
+B_R\setminus\overline{B_\varepsilon(x)}
 $$
 
-は 0 です。
+で計算します。
 
-よって
+積の微分則から
+
+$$
+\nabla_y\cdot(GF)
+=
+\nabla_yG\cdot F
++
+G\,\operatorname{div}F
+$$
+
+なので
+
+$$
+-\int_{\Omega_{\varepsilon,R}}
+\nabla_yG\cdot F\,dy
+=
+-\int_{\partial\Omega_{\varepsilon,R}}
+GF\cdot n\,dS
++
+\int_{\Omega_{\varepsilon,R}}
+G\,\operatorname{div}F\,dy.
+$$
+
+外側境界では $F=0$ です。内側の半径 $\varepsilon$ の球面では
+
+$$
+|G|=\frac1{4\pi\varepsilon},
+\qquad
+\operatorname{Area}(\partial B_\varepsilon)=4\pi\varepsilon^2,
+$$
+
+なので境界項の絶対値は
+
+$$
+\le
+\varepsilon
+\sup_{\partial B_\varepsilon(x)}|F|
+\longrightarrow0.
+$$
+
+従って $\varepsilon\downarrow0$ とすれば
 
 $$
 \operatorname{div}C
@@ -2397,7 +2438,7 @@ N(\operatorname{div}F)
 }.
 $$
 
-3. 回転も成分ごとに同じ部分積分を行います。$i$ 成分は
+3. 回転も成分ごとに部分積分します。$i$ 成分は
 
 $$
 [\nabla\times C]_i
@@ -2407,7 +2448,30 @@ $$
 \partial_{x_j}G(x-y)F_k(y)\,dy.
 $$
 
-$\partial_{x_j}G=-\partial_{y_j}G$ を使い、$y_j$ について部分積分します。境界項は $F=0$ により消え、
+$\partial_{x_j}G=-\partial_{y_j}G$ を使うと
+
+$$
+[\nabla\times C]_i
+=
+-\int
+\varepsilon_{ijk}
+\partial_{y_j}G(x-y)F_k(y)\,dy.
+$$
+
+ここでも $\Omega_{\varepsilon,R}$ 上で部分積分します。各 $j,k$ について
+
+$$
+-\int_{\Omega_{\varepsilon,R}}
+\partial_{y_j}G\,F_k\,dy
+=
+-\int_{\partial\Omega_{\varepsilon,R}}
+G F_k n_j\,dS
++
+\int_{\Omega_{\varepsilon,R}}
+G\,\partial_{y_j}F_k\,dy.
+$$
+
+外側境界では $F=0$、内側境界は 2. と同じ評価で $O(\varepsilon)$ です。従って極限を取ると
 
 $$
 [\nabla\times C]_i
