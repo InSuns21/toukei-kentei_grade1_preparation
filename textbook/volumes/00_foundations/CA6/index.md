@@ -1,6 +1,6 @@
 # CA6 Möbius変換・Schwarz補題・調和関数・Poisson核
 
-> **標準複素解析コア VI**。CA5 までで Cauchy 理論、正則関数の局所構造、留数、解析接続を整備した。本章ではまず Riemann 球面上の Möbius 変換と単位円板の自己同型を調べ、Schwarz lemma でその剛性を証明する。後半では $C^2$ 調和関数を正則関数へ局所的に持ち上げ、平均値性質・最大最小値原理を導いた後、Poisson kernel により連続境界データを単位円板へ調和的に延長する。Fourier 級数は最後に現れるが、Fourier 解析そのものを前提にはしない。
+> **標準複素解析コア VI**。CA5 までで Cauchy 理論、正則関数の局所構造、留数、解析接続を整備した。本章ではまず Riemann 球面上の Möbius 変換と単位円板の自己同型を調べ、Schwarz の補題 でその剛性を証明する。後半では $C^2$ 調和関数を正則関数へ局所的に持ち上げ、平均値性質・最大最小値原理を導いた後、Poisson 核 により連続境界データを単位円板へ調和的に延長する。Fourier 級数は最後に現れるが、Fourier 解析そのものを前提にはしない。
 
 <!-- definition-example-audit: strict -->
 
@@ -10,7 +10,7 @@
 
 一方、次は使わない。
 
-- Riemann mapping theorem、normal family、Montel theorem。
+- Riemann 写像定理、正規族、Montel の定理。
 - Green の公式・Stokes の定理・一般領域の Dirichlet 問題。
 - 弱解・分布の意味での調和関数。
 - Fourier 解析側の収束定理。
@@ -22,7 +22,7 @@ Möbius変換
   ↓ 直接計算
 円板の標準自己同型
   ↓ 最大値原理
-Schwarz lemma → 円板自己同型の分類
+Schwarz の補題 → 円板自己同型の分類
 
 C2調和関数
   ↓ u_x-i u_y にCRを確認
@@ -30,7 +30,7 @@ C2調和関数
   ↓ Cauchy平均値公式
 平均値性質 → 最大・最小値原理
 
-Poisson kernel
+Poisson 核
   ↓ 非負性・質量1・遠方質量→0
 Poisson integral
   ↓ 積分核から正則関数を構成
@@ -252,7 +252,7 @@ $$
 
 ---
 
-## 2. 円板自己同型と Schwarz lemma
+## 2. 円板自己同型と Schwarz の補題
 
 $$
 \mathbb D=\{z\in\mathbb C:|z|<1\}
@@ -268,7 +268,7 @@ $F:\mathbb D\to\mathbb D$ が **円板自己同型**であるとは、$F$ が全
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ca6-disk-automorphism -->
-**定義の確認**：$|\lambda|=1$ に対する $F(z)=\lambda z$ は円板自己同型で、逆は $z\mapsto\overline\lambda z$ である。Schwarz lemma は、原点を固定する自己同型が実はこの回転しかないことを示す。
+**定義の確認**：$|\lambda|=1$ に対する $F(z)=\lambda z$ は円板自己同型で、逆は $z\mapsto\overline\lambda z$ である。Schwarz の補題 は、原点を固定する自己同型が実はこの回転しかないことを示す。
 <!-- definition-example-end -->
 
 <a id="lem-ca6-standard-disk-automorphism"></a>
@@ -326,7 +326,7 @@ $$
 
 <a id="thm-ca6-schwarz-lemma"></a>
 <!-- formal-statement-start -->
-### 定理（Schwarz lemma）
+### 定理（Schwarz の補題）
 
 $f:\mathbb D\to\mathbb D$ を正則とし $f(0)=0$ とする。このとき
 
@@ -409,7 +409,7 @@ $$
 $\square$
 <!-- proof-end -->
 
-Schwarz lemma で単位円板のコンパクト性を仮定してはいない。半径 $R<1$ の閉円板へ局所化して[最大値原理](../CA3/index.md#thm-ca3-maximum-modulus)を適用し、最後に $R\uparrow1$ とした点が重要である。
+Schwarz の補題 で単位円板のコンパクト性を仮定してはいない。半径 $R<1$ の閉円板へ局所化して[最大値原理](../CA3/index.md#thm-ca3-maximum-modulus)を適用し、最後に $R\uparrow1$ とした点が重要である。
 
 <a id="cor-ca6-disk-automorphism-classification"></a>
 <!-- formal-statement-start -->
@@ -441,7 +441,7 @@ $$
 G=F\circ\phi_a^{-1}
 $$
 
-は円板自己同型で $G(0)=0$ である。[Schwarz lemma](#thm-ca6-schwarz-lemma) により
+は円板自己同型で $G(0)=0$ である。[Schwarz の補題](#thm-ca6-schwarz-lemma) により
 
 $$
 |G(z)|\le|z|.
@@ -459,7 +459,7 @@ $$
 |z|\le|G(z)|.
 $$
 
-従って $|G(z)|=|z|$ が全ての $z$ で成り立つ。[Schwarz lemma](#thm-ca6-schwarz-lemma) の等号条件から
+従って $|G(z)|=|z|$ が全ての $z$ で成り立つ。[Schwarz の補題](#thm-ca6-schwarz-lemma) の等号条件から
 
 $$
 G(z)=e^{i\theta}z.
@@ -476,7 +476,7 @@ $$
 逆向きは回転と $\phi_a$ がともに円板自己同型であることから従う。$\square$
 <!-- proof-end -->
 
-### 例：Schwarz lemma の不等号が厳しい場合
+### 例：Schwarz の補題 の不等号が厳しい場合
 
 $f(z)=z^2$ は $\mathbb D$ を $\mathbb D$ へ写し $f(0)=0$ だが、$0<|z|<1$ では
 
@@ -784,13 +784,13 @@ $$
 
 ---
 
-## 4. Poisson kernel は境界へ質量を集中させる
+## 4. Poisson 核 は境界へ質量を集中させる
 
 平均値性質は「内部の値から円周平均が分かる」ことを教えるが、逆に任意の境界データ $g$ から内部の調和関数をどう作るかはまだ分からない。内部点 $re^{i\theta}$ が境界へ近づくとき、境界点 $e^{i\theta}$ の近くを強く、遠い点を弱く平均する正の重みが欲しい。その重みには、総質量を1に保ちながら $r\uparrow1$ で角度差0の近くへ集中する性質が必要になる。
 
 <a id="def-ca6-poisson-kernel"></a>
 <!-- formal-statement-start -->
-### 定義（Poisson kernel）
+### 定義（Poisson 核）
 
 $0\le r<1$、$\varphi\in\mathbb R$ に対して
 
@@ -804,7 +804,7 @@ P_r(\varphi)
 }
 $$
 
-を単位円板の **Poisson kernel** と呼ぶ。
+を単位円板の **Poisson 核** と呼ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ca6-poisson-kernel -->
@@ -813,7 +813,7 @@ $$
 
 <a id="lem-ca6-poisson-kernel-approximate-identity"></a>
 <!-- formal-statement-start -->
-### 補題（Poisson kernelのapproximate identity性）
+### 補題（Poisson 核のapproximate identity性）
 
 $0\le r<1$ に対して次が成り立つ。
 
@@ -1075,7 +1075,7 @@ $$
 
 #### 2. 境界収束を近傍と遠方に分ける
 
-$G(\theta)=g(e^{i\theta})$ と置く。$G$ は $2\pi$ 周期の連続関数で、円周のコンパクト性から一様連続である。Poisson kernel の質量1を使えば
+$G(\theta)=g(e^{i\theta})$ と置く。$G$ は $2\pi$ 周期の連続関数で、円周のコンパクト性から一様連続である。Poisson 核 の質量1を使えば
 
 $$
 \begin{aligned}
@@ -1176,7 +1176,7 @@ $$
 
 <a id="cor-ca6-poisson-fourier-series"></a>
 <!-- formal-statement-start -->
-### 系（Poisson kernelのFourier級数）
+### 系（Poisson 核のFourier級数）
 
 $0\le r<1$ に対して
 
@@ -1346,7 +1346,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-ca6-a04"></a>
-#### CA6-A04 Poisson kernel の基本形
+#### CA6-A04 Poisson 核 の基本形
 - Level: A
 
 $0\le r<1$ に対し $P_r(0)$、$P_r(\pi)$ を求め、$P_r$ が正で偶関数であることを示せ。
@@ -1374,13 +1374,13 @@ $r\uparrow1$ で0付近が高く、反対側が低くなることが質量集中
 ### Level B
 
 <a id="ex-ca6-b01"></a>
-#### CA6-B01 Schwarz lemma から円板自己同型を分類する
+#### CA6-B01 Schwarz の補題 から円板自己同型を分類する
 - Level: B
 
-$F$ を円板自己同型とし $a=F^{-1}(0)$ とする。$G=F\circ\phi_a^{-1}$ と $G^{-1}$ の両方へ [Schwarz lemma](#thm-ca6-schwarz-lemma) を適用し、$F$ の一般形を導け。
+$F$ を円板自己同型とし $a=F^{-1}(0)$ とする。$G=F\circ\phi_a^{-1}$ と $G^{-1}$ の両方へ [Schwarz の補題](#thm-ca6-schwarz-lemma) を適用し、$F$ の一般形を導け。
 
 <!-- solution-start -->
-**解答**：$G$ は円板自己同型で $G(0)=0$。[Schwarz lemma](#thm-ca6-schwarz-lemma) から
+**解答**：$G$ は円板自己同型で $G(0)=0$。[Schwarz の補題](#thm-ca6-schwarz-lemma) から
 
 $$
 |G(z)|\le|z|.
@@ -1392,7 +1392,7 @@ $$
 |G^{-1}(w)|\le|w|.
 $$
 
-$w=G(z)$ とすれば $|z|\le|G(z)|$。よって全ての $z$ で $|G(z)|=|z|$。非零点を一つ取れば [Schwarz lemma](#thm-ca6-schwarz-lemma) の等号条件から
+$w=G(z)$ とすれば $|z|\le|G(z)|$。よって全ての $z$ で $|G(z)|=|z|$。非零点を一つ取れば [Schwarz の補題](#thm-ca6-schwarz-lemma) の等号条件から
 
 $$
 G(z)=e^{i\theta}z.
@@ -1437,7 +1437,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-ca6-b03"></a>
-#### CA6-B03 Poisson kernel の質量と遠方評価
+#### CA6-B03 Poisson 核 の質量と遠方評価
 - Level: B
 
 $0<\delta<\pi$ とする。幾何級数から
@@ -1555,15 +1555,15 @@ $$
 
 - Möbius 変換の全単射性は逆写像を直接解き、等角性は有限点だけでなく極と $\infty$ を局所座標へ移して確認した。
 - 一般化円の保存は「有名な定理」で済ませず、平行移動・非零定数倍・反転への分解と一般化円の方程式から閉じた。
-- [Schwarz lemma](#thm-ca6-schwarz-lemma) では $|z|=1$ 上の境界値を仮定せず、$R<1$ の閉円板で[最大値原理](../CA3/index.md#thm-ca3-maximum-modulus)を使って $R\uparrow1$ とした。
-- 円板自己同型の分類では全単射性を $G^{-1}$ に [Schwarz lemma](#thm-ca6-schwarz-lemma) を適用する箇所で使った。
+- [Schwarz の補題](#thm-ca6-schwarz-lemma) では $|z|=1$ 上の境界値を仮定せず、$R<1$ の閉円板で[最大値原理](../CA3/index.md#thm-ca3-maximum-modulus)を使って $R\uparrow1$ とした。
+- 円板自己同型の分類では全単射性を $G^{-1}$ に [Schwarz の補題](#thm-ca6-schwarz-lemma) を適用する箇所で使った。
 - 調和関数の平均値性質は Green 公式を先取りせず、$u_x-iu_y$ の正則性、局所原始関数、Cauchy 平均値公式の順に導いた。
 - 調和関数の最大・最小値原理では平均値の等号から局所定数性を出し、$u_x-iu_y$ と恒等定理で領域全体へ伝播した。
-- Poisson kernel は非負性・質量1・遠方質量消失を分離して証明した。
+- Poisson 核 は非負性・質量1・遠方質量消失を分離して証明した。
 - Poisson積分の調和性は積分核の差商を内部点から境界までの正距離で一様評価し、正則関数の実部として得た。
 - 境界収束では円周上の連続性から一様連続性を得て、近傍誤差と遠方誤差を別々に抑えた。
 - Dirichlet問題の一意性は閉円板のコンパクト性で最大・最小を達成させ、内部最大・最小を調和関数の原理で排除した。
-- Riemann mapping theorem、normal family、Montel theorem、Green/Stokes、一般領域の Dirichlet 問題は使用していない。
+- Riemann 写像定理、正規族、Montel の定理、Green の公式・Stokes の定理・一般領域の Dirichlet 問題は使用していない。
 
 
 ### 複素解析 II への接続
