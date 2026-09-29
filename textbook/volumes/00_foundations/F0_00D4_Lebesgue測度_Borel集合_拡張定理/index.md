@@ -211,27 +211,52 @@ $$
 
 まず $\lambda^*(T)<\infty$ とします。任意の $\varepsilon>0$ に対して
 
-$$
+$
 T\subset\bigcup_n I_n,
 \qquad
-\sum_n|I_n|<\lambda^*(T)+\varepsilon
-$$
+\sum_n|I_n|<\lambda^*(T)+\frac{\varepsilon}{2}
+$
 
-となる開区間被覆を取ります。各 $I_n$ を点 $c$ の左側と右側に切ります。切った断片が半開区間になった場合は、それぞれを総追加長が $\varepsilon2^{-n}$ 以下となる開区間で少しだけ膨らませます。
+となる開区間被覆を取ります。
 
-すると $T\cap H$ と $T\setminus H$ の開区間被覆が得られ、その二つの総延長の和は
+各 $I_n=(\alpha_n,\beta_n)$ を点 $c$ で左側と右側に分けます。$I_n$ が $c$ をまたがない場合は、そのまま片側の被覆に使えます。$\alpha_n<c<\beta_n$ の場合だけ、左側の断片 $(\alpha_n,c]$ を開集合で覆うため
 
-$$
-\sum_n|I_n|+\varepsilon
-$$
+$
+L_n
+=
+\left(
+\alpha_n,,
+c+\frac{\varepsilon}{2^{n+2}}
+\right),
+$
 
-以下です。従って
+右側には
 
-$$
+$
+R_n=(c,\beta_n)
+$
+
+を使います。$L_n$ は $I_n\cap H$ を、$R_n$ は $I_n\setminus H$ を覆います。また、もとの区間長 $\beta_n-\alpha_n$ に対して増える長さは高々 $\varepsilon/2^{n+2}$ です。
+
+したがって全ての $n$ を合わせると、$T\cap H$ と $T\setminus H$ の二つの開区間被覆の総延長は
+
+$
+\sum_n|I_n|
++
+\sum_{n=1}^{\infty}\frac{\varepsilon}{2^{n+2}}
+<
+\lambda^*(T)+\frac{\varepsilon}{2}+rac{\varepsilon}{4}
+<
+\lambda^*(T)+\varepsilon.
+$
+
+外測度は被覆コストの下限なので
+
+$
 \lambda^*(T\cap H)+\lambda^*(T\setminus H)
-\le
-\lambda^*(T)+2\varepsilon.
-$$
+<
+\lambda^*(T)+\varepsilon.
+$
 
 $\varepsilon\downarrow0$ として必要な逆向き不等式を得ます。
 
@@ -731,15 +756,52 @@ $\varnothing$ は $\varnothing\in\mathcal A$ 一つで覆え、premeasure から
 
 $E\subset F$ なら $F$ の任意の $\mathcal A$-被覆は $E$ も覆うので単調性が従います。
 
-可算劣加法性は D3 の Lebesgue 外測度と同じ $\varepsilon/2^n$ 議論です。各 $E_n$ に対し総コストが $\mu^*(E_n)+\varepsilon2^{-n}$ 未満の被覆を取り、全被覆を合わせれば $\bigcup_nE_n$ を覆うので
+可算劣加法性を示します。もし
 
-$$
-\mu^*\left(\bigcup_nE_n\right)
+$
+\sum_{n=1}^{\infty}\mu^*(E_n)=\infty
+$
+
+なら、示すべき不等式の右辺が $\infty$ なので主張は自動です。以下ではこの和が有限の場合を考えます。
+
+任意の $\varepsilon>0$ を固定します。各 $n$ について $\mu^*(E_n)$ は被覆コストの下限だから、$\mathcal A$ の集合 $A_{n,1},A_{n,2},\ldots$ を
+
+$
+E_n\subset\bigcup_{k=1}^{\infty}A_{n,k},
+\qquad
+\sum_{k=1}^{\infty}\mu_0(A_{n,k})
+<
+\mu^*(E_n)+\frac{\varepsilon}{2^n}
+$
+
+となるように選べます。
+
+自然数の組 $(n,k)$ 全体は一列に並べられるので、全ての $A_{n,k}$ をまとめると $\bigcup_nE_n$ の可算な $\mathcal A$-被覆になります。従って定義から
+
+$
+\begin{aligned}
+\mu^*\left(\bigcup_{n=1}^{\infty}E_n\right)
+&\le
+\sum_{n=1}^{\infty}\sum_{k=1}^{\infty}\mu_0(A_{n,k})\\
+&<
+\sum_{n=1}^{\infty}
+\left(
+\mu^*(E_n)+\frac{\varepsilon}{2^n}
+\right)\\
+&=
+\sum_{n=1}^{\infty}\mu^*(E_n)+\varepsilon.
+\end{aligned}
+$
+
+$\varepsilon>0$ は任意なので
+
+$
+\mu^*\left(\bigcup_{n=1}^{\infty}E_n\right)
 \le
-\sum_n\mu^*(E_n)+\varepsilon.
-$$
+\sum_{n=1}^{\infty}\mu^*(E_n).
+$
 
-$\varepsilon\downarrow0$ とすればよい。$\square$
+これで可算劣加法性が示され、$\mu^*$ は外測度です。$\square$
 <!-- proof-end -->
 
 ---
@@ -1030,23 +1092,78 @@ $$
 
 よって有限測度の場合は一意です。
 
-一般のσ有限の場合、$X$ を有限 premeasure の algebra 集合で覆う列から差を取って、互いに素な $B_n\in\mathcal A$ で
+一般のσ有限の場合を扱います。まず
 
-$$
-X=\bigsqcup_nB_n,
+$
+X=\bigcup_{n=1}^{\infty}A_n,
 \qquad
-\mu_0(B_n)<\infty
-$$
+A_n\in\mathcal A,
+\qquad
+\mu_0(A_n)<\infty
+$
 
-となるようにできます。
+となる列を取ります。これを
 
-各 $B_n$ 上に制限すると有限測度の場合の一意性から、任意の $E\in\sigma(\mathcal A)$ について
+$
+B_1=A_1,
+\qquad
+B_n
+=
+A_n\setminus\bigcup_{k<n}A_k
+\quad(n\ge2)
+$
 
-$$
+と置き換えます。集合代数は有限和と差で閉じるので $B_n\in\mathcal A$ です。また $B_n\subset A_n$ だから有限加法性から
+
+$
+\mu_0(B_n)\le\mu_0(A_n)<\infty.
+$
+
+構成から $(B_n)$ は互いに素で、
+
+$
+X=\bigsqcup_{n=1}^{\infty}B_n.
+$
+
+固定した $n$ について
+
+$
+\mathcal A_{B_n}
+:=
+\{A\cap B_n:A\in\mathcal A\}
+$
+
+を考えます。これは $B_n$ 上の集合代数です。さらに
+
+$
+\sigma(\mathcal A_{B_n})
+=
+\{E\cap B_n:E\in\sigma(\mathcal A)\}
+$
+
+です。左辺は $\mathcal A_{B_n}$ を含む最小のσ代数であり、右辺も $B_n$ 上のσ代数で $\mathcal A_{B_n}$ を含むので一方の包含が出ます。逆向きは、$E$ を「$E\cap B_n$ が左辺に入る集合」として集めるとそれが $\mathcal A$ を含むσ代数になることから従います。
+
+ここで $\mu$ と $\nu$ を $B_n$ 上へ制限すると、どちらも $\mathcal A_{B_n}$ 上で
+
+$
+A\cap B_n
+\longmapsto
+\mu_0(A\cap B_n)
+$
+
+を拡張する有限測度です。全質量は
+
+$
+\mu(B_n)=\nu(B_n)=\mu_0(B_n)<\infty.
+$
+
+したがって、すでに示した有限測度の場合の一意性を $B_n$ 上で適用でき、任意の $E\in\sigma(\mathcal A)$ に対して
+
+$
 \mu(E\cap B_n)=\nu(E\cap B_n).
-$$
+$
 
-可算加法性により
+最後に $E\cap B_n$ は互いに素で、その和が $E$ だから、可算加法性により
 
 $$
 \mu(E)
