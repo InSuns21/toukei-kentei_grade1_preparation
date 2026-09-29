@@ -342,7 +342,7 @@ $$
 
 ここで $V$ がLebesgue可測だと仮定します。
 
-Lebesgue測度は平行移動不変なので
+[D4 の平行移動不変性](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#cor-f0-00d4-lebesgue-translation-invariance)より、$V$ が可測なら各 $V+q$ も可測で、
 
 $$
 \lambda(V+q)=\lambda(V)
