@@ -931,67 +931,67 @@ $$
 
 $i=1$ では、非零な Levi--Civita 記号が
 
-$
+$$
 \varepsilon_{123}=1,
 \qquad
 \varepsilon_{132}=-1
-$
+$$
 
 なので
 
-$
+$$
 \varepsilon_{1jk}\sigma_{kj}
 =
 \sigma_{32}-\sigma_{23}
 =
 0.
-$
+$$
 
 $i=2$ では
 
-$
+$$
 \varepsilon_{231}=1,
 \qquad
 \varepsilon_{213}=-1
-$
+$$
 
 から
 
-$
+$$
 \varepsilon_{2jk}\sigma_{kj}
 =
 \sigma_{13}-\sigma_{31}
 =
 0.
-$
+$$
 
 $i=3$ では
 
-$
+$$
 \varepsilon_{312}=1,
 \qquad
 \varepsilon_{321}=-1
-$
+$$
 
 より
 
-$
+$$
 \varepsilon_{3jk}\sigma_{kj}
 =
 \sigma_{21}-\sigma_{12}
 =
 0.
-$
+$$
 
 従って
 
-$
+$$
 \sigma_{23}=\sigma_{32},
 \qquad
 \sigma_{13}=\sigma_{31},
 \qquad
 \sigma_{12}=\sigma_{21}.
-$
+$$
 
 従って
 
@@ -1339,19 +1339,19 @@ $$
 
 [磁束に対する Gauss の法則](#principle-vc9-maxwell-integral)には右辺の源項がありません。[VC4 の Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)を $B$ へ適用すると
 
-$
+$$
 0
 =
 \int_{\partial\Omega}B\cdot n\,dS
 =
 \int_\Omega \operatorname{div}B\,dV.
-$
+$$
 
 これも任意の十分小さい $\Omega$ で成り立つため
 
-$
+$$
 \operatorname{div}B=0.
-$
+$$
 
 次に [Faraday の法則](#principle-vc9-maxwell-integral)へ [VC5 の Kelvin--Stokes の定理](../VC5/index.md#thm-vc5-stokes)を使うと
 
@@ -1385,24 +1385,24 @@ $$
 
 [Ampère--Maxwell の法則](#principle-vc9-maxwell-integral)では、まず左辺の境界循環へ Kelvin--Stokes の定理を適用して
 
-$
+$$
 \oint_{\partial S}B\cdot dr
 =
 \int_S(\nabla\times B)\cdot n\,dS
-$
+$$
 
 とします。また $S$ は固定されているので
 
-$
+$$
 \frac{d}{dt}
 \int_SE\cdot n\,dS
 =
 \int_S\partial_tE\cdot n\,dS.
-$
+$$
 
 したがって積分形は
 
-$
+$$
 \int_S
 \left(
 \nabla\times B
@@ -1413,45 +1413,45 @@ $
 \right)\cdot n\,dS
 =
 0.
-$
+$$
 
 これが任意の十分小さい向き付けられた面 $S$ で成り立つので
 
-$
+$$
 \nabla\times B
 =
 \mu_0j
 +
 \mu_0\varepsilon_0\partial_tE.
-$
+$$
 
 逆向きも各式ごとに戻せます。例えば
 
-$
+$$
 \operatorname{div}E
 =
 \frac{\rho_e}{\varepsilon_0}
-$
+$$
 
 を体積 $\Omega$ 上で積分すると
 
-$
+$$
 \int_\Omega\operatorname{div}E\,dV
 =
 \frac1{\varepsilon_0}
 \int_\Omega\rho_e\,dV,
-$
+$$
 
 左辺へ Gauss--Ostrogradsky の発散定理を適用して Gauss の積分形を得ます。
 
 同じく $\operatorname{div}B=0$ を体積積分すれば磁束に対する Gauss の法則へ戻ります。Faraday の微分形は面積分して
 
-$
+$$
 \int_S(\nabla\times E)\cdot n\,dS
 =
 -
 \int_S\partial_tB\cdot n\,dS
-$
+$$
 
 とし、左辺に Kelvin--Stokes の定理、右辺に固定曲面上での時間微分と積分の交換を使えば Faraday の積分形です。Ampère--Maxwell の微分形も同じ二つの操作で対応する積分形へ戻ります。
 <!-- proof-end -->
@@ -1659,23 +1659,23 @@ $$
 
 磁場について同じ薄い箱へ磁束に対する Gauss の法則を適用します。上面・下面の寄与は
 
-$
+$$
 A\,B_2\cdot n
 -
 A\,B_1\cdot n
-$
+$$
 
 で、側面流束は $h\to0$ で消えます。右辺は常に 0 なので
 
-$
+$$
 A\,n\cdot(B_2-B_1)=0.
-$
+$$
 
 $A>0$ で割れば
 
-$
+$$
 n\cdot(B_2-B_1)=0.
-$
+$$
 
 次に、接線方向の単位ベクトル $\tau$ と法線 $n$ が張る細い長方形を考えます。界面に平行な辺の長さを $L$、法線方向の幅を $2h$ とし、$h\to0$ とします。
 
@@ -1693,13 +1693,13 @@ $$
 
 [Ampère--Maxwell の法則](#principle-vc9-maxwell-integral)では、変位電流項の面積は $2hL$ なので、$\partial_tE$ が有界なら
 
-$
+$$
 \mu_0\varepsilon_0
 \int_S\partial_tE\cdot n_S\,dS
 =
 O(hL)
 \longrightarrow0.
-$
+$$
 
 体積電流密度 $j$ の有界な部分も面積 $2hL$ とともに 0 へ行きます。一方、界面に集中する表面電流は、長方形が界面を横切る線分に沿って有限の寄与を残します。その寄与が $L\,K\cdot(n\times\tau)$ なので
 
@@ -1711,25 +1711,25 @@ $$
 
 となります。ここでスカラー三重積を入れ替えると
 
-$
+$$
 K\cdot(n\times\tau)
 =
 (K\times n)\cdot\tau.
-$
+$$
 
 従って任意の接線 $\tau$ に対して
 
-$
+$$
 \left[
 (B_2-B_1)-\mu_0(K\times n)
 \right]\cdot\tau
 =
 0.
-$
+$$
 
 これは $B_2-B_1$ の接線成分が $\mu_0(K\times n)$ であることを意味します。両辺へ左から $n\times$ を作用させると、法線成分は消え、$K\cdot n=0$ なのでベクトル三重積から
 
-$
+$$
 \begin{aligned}
 n\times(B_2-B_1)
 &=
@@ -1739,7 +1739,7 @@ n\times(B_2-B_1)
 &=
 \mu_0K.
 \end{aligned}
-$
+$$
 <!-- proof-end -->
 
 ここでは真空中の $E,B$ を使いました。誘電体・磁性体で $D,H$ を導入する構成則、分極・磁化、分布としての表面源は電磁気学側の後続内容です。
