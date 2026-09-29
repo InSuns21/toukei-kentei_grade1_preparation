@@ -945,43 +945,59 @@ $$
 ここで
 
 $$
-a_n:=\int h_n\,d\mu
-$$
-
-と置くと $0\le a_n\le2\int g\,d\mu<\infty$ です。有限定数
-
-$$
+a_n:=\int h_n\,d\mu,
+\qquad
 C:=2\int g\,d\mu
 $$
 
-に対して
+と置きます。$0\le a_n\le C<\infty$ であり、
 
 $$
-\liminf_{n\to\infty}(C-a_n)
-=
-C-\limsup_{n\to\infty}a_n
+\int q_n\,d\mu=C-a_n.
 $$
 
-なので、これを Fatou の不等式へ代入すると
+従って Fatou の不等式は
 
 $$
-2\int g\,d\mu
+C
 \le
-2\int g\,d\mu
--
-\limsup_{n\to\infty}
-\int h_n\,d\mu.
+\liminf_{n\to\infty}(C-a_n)
+$$
+
+となります。一方、$a_n\ge0$ なので各 $n$ で
+
+$$
+C-a_n\le C.
 $$
 
 従って
 
 $$
-\limsup_{n\to\infty}
-\int h_n\,d\mu
-\le0.
+\liminf_{n\to\infty}(C-a_n)=C.
 $$
 
-各積分は非負なので
+この等式から $a_n\to0$ を直接確認します。任意の $\varepsilon>0$ に対して、下極限の定義から十分大きい $N$ を取れば
+
+$$
+n\ge N
+\quad\Longrightarrow\quad
+C-a_n>C-\varepsilon.
+$$
+
+従って
+
+$$
+0\le a_n<\varepsilon
+\qquad(n\ge N).
+$$
+
+よって
+
+$$
+a_n\to0,
+$$
+
+すなわち
 
 $$
 \int|f_n-f|\,d\mu
