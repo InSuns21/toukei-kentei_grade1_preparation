@@ -264,6 +264,20 @@ $$
 > をこの作用の **無限小作用** という。
 <!-- formal-statement-end -->
 
+この定義で本当に滑らかなベクトル場が得られることも確認しておきます。写像
+$$
+F:\mathbb R\times M\to M,
+\qquad
+F(t,p)=\exp(tX)\cdot p
+$$
+は、指数写像と作用写像の合成なので滑らかです。局所座標で $F$ を成分表示すると
+$$
+(X_M)_p
+=
+\left.\frac{\partial F}{\partial t}\right|_{(0,p)}
+$$
+であり、滑らかな関数の偏微分は $p$ に滑らかに依存します。したがって $p\mapsto(X_M)_p$ は滑らかなベクトル場です。
+
 <!-- definition-example-start: def-lie4-fundamental-vector-field -->
 **定義の確認**：$SO(2)$ の基本ベクトル場
 
@@ -368,7 +382,37 @@ $$
 \Psi_t(\Psi_s(p)).
 $$
 
-また $t=0$ での速度は定義より $X_M$ です。従って $\Psi_t$ は $X_M$ の流れです。
+流れであることを示すには、時刻0だけでなく任意の時刻 $t$ で速度が $X_M$ と一致することを確認する必要があります。$t$ を固定し、新しい変数 $s$ で微分すると
+$$
+\begin{aligned}
+\left.
+\frac d{ds}
+\right|_{s=0}
+\Psi_{t+s}(p)
+&=
+\left.
+\frac d{ds}
+\right|_{s=0}
+\exp(sX)\cdot\bigl(\exp(tX)\cdot p\bigr)\\
+&=
+(X_M)_{\Psi_t(p)}.
+\end{aligned}
+$$
+左辺は
+$$
+\frac d{dt}\Psi_t(p)
+$$
+そのものなので
+$$
+\frac d{dt}\Psi_t(p)
+=
+(X_M)_{\Psi_t(p)}.
+$$
+また
+$$
+\Psi_0(p)=e\cdot p=p.
+$$
+従って $\Psi_t$ は $X_M$ の積分曲線を全ての $t\in\mathbb R$ で与え、$X_M$ の大域流です。
 
 次に $g\in G$ と $Y\in\mathfrak g$ について、$\Phi_g(p)=g\cdot p$ と書きます。$q=g\cdot p$ とすると
 
