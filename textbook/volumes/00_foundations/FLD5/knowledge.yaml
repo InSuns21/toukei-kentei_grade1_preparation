@@ -47,7 +47,7 @@ concepts:
       - algebra.minimal-polynomial
 
   - id: algebra.group-commutator
-    name: 交換子
+    name: 群の交換子
     kind: definition
     aliases: [group commutator]
     introduction: formal
