@@ -85,7 +85,8 @@ concepts:
     aliases: [被覆写像, covering map]
     introduction: formal
     introduction_aliases: ["定義（被覆写像）"]
-    requires: []
+    requires:
+      - topology.homeomorphism
 
   - id: geometry.expanding-local-diffeomorphism-covering
     name: 拡大局所微分同相の被覆補題
