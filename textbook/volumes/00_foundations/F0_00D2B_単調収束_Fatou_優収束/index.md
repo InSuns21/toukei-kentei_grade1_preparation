@@ -153,7 +153,20 @@ E_n
 \{\omega:f_n(\omega)\ge\alpha\phi(\omega)\}
 $$
 
-と置きます。$f_n$ は単調増加なので
+と置きます。この集合が可測であることを、$\phi$ の有限値性から確認します。$\phi$ の正の値を $a_1,\ldots,a_m$、対応する値集合を $A_1,\ldots,A_m$ とすると
+
+$$
+E_n
+=
+\{\phi=0\}
+\cup
+\bigcup_{k=1}^m
+\left(
+A_k\cap\{f_n\ge\alpha a_k\}
+\right).
+$$
+
+各集合は可測なので $E_n$ も可測です。$f_n$ は単調増加だから
 
 $$
 E_1\subset E_2\subset\cdots.
@@ -863,7 +876,7 @@ $$
 \infty.
 $$
 
-従って $f$ は可積分です。同様に各 $f_n$ も
+従って $f$ は可積分です。各 $n$ についても $|f_n|\le g$ なので
 
 $$
 \int|f_n|\,d\mu
@@ -929,7 +942,27 @@ $$
 \int h_n\,d\mu.
 $$
 
-これを Fatou の不等式へ代入すると
+ここで
+
+$$
+a_n:=\int h_n\,d\mu
+$$
+
+と置くと $0\le a_n\le2\int g\,d\mu<\infty$ です。有限定数
+
+$$
+C:=2\int g\,d\mu
+$$
+
+に対して
+
+$$
+\liminf_{n\to\infty}(C-a_n)
+=
+C-\limsup_{n\to\infty}a_n
+$$
+
+なので、これを Fatou の不等式へ代入すると
 
 $$
 2\int g\,d\mu
@@ -1085,9 +1118,15 @@ $$
 
 なので積分は0へ収束しません。
 
-この列を一つの可積分関数 $g$ で支配することはできません。実際、$g\ge f_n$ が全ての $n$ で成り立つと仮定します。
+この列を一つの可積分関数 $g$ で支配することはできません。実際、各 $n$ について $g\ge f_n$ a.e. と仮定します。各不等式が失敗する零集合を $N_n$ とし、
 
-$$
+$
+N=\bigcup_{n=1}^{\infty}N_n
+$
+
+と置けば $\mu(N)=0$ で、$N^c$ 上では全ての $n$ について同時に $g\ge f_n$ です。
+
+$
 I_n
 =
 \left(\frac1{n+1},\frac1n\right)
@@ -1108,9 +1147,11 @@ $$
 \int_0^1g(x)\,dx
 &\ge
 \sum_{n=1}^{\infty}
-\int_{I_n}g(x)\,dx\\
+\int_{I_n\setminus N}g(x)\,dx\\
 &\ge
 \sum_{n=1}^{\infty}
+n\,\lambda(I_n\setminus N)
+=
 n\left(
 \frac1n-\frac1{n+1}
 \right)\\
