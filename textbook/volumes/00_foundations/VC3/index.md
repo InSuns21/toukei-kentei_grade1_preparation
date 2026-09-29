@@ -133,7 +133,27 @@ r_v(u_0,v_0)v'(0).
 \end{aligned}
 $$
 
-したがって曲面上をどの向きに走る曲線を選んでも、その接ベクトルは $r_u(u_0,v_0),r_v(u_0,v_0)$ の線形結合になります。これが接平面を二つの座標接ベクトルで張れる理由です。
+したがって曲面上をどの向きに走る曲線を選んでも、その接ベクトルは $r_u(u_0,v_0),r_v(u_0,v_0)$ の線形結合になります。
+
+逆に任意の係数 $a,b$ に対して、$U$ が開集合なので十分小さい $|t|$ では
+
+$$
+(u(t),v(t))
+=
+(u_0+at,v_0+bt)
+$$
+
+が $U$ 内に残ります。この曲線を $r$ で写せば
+
+$$
+\gamma'(0)
+=
+a\,r_u(u_0,v_0)
++
+b\,r_v(u_0,v_0)
+$$
+
+です。従って曲面上の接方向はちょうど $r_u,r_v$ の張る二次元空間になり、これを接平面の方向空間として使えます。
 
 <a id="def-vc3-tangent-normal"></a>
 
@@ -249,7 +269,7 @@ r_u(u,v)\,du
 o(|du|).
 $$
 
-同様に $v$ 方向の辺は
+$v$ だけを動かした差分にも同じ微分可能性を適用すると
 
 $$
 r(u,v+dv)-r(u,v)
@@ -804,7 +824,17 @@ r_\varphi
  -R\sin\varphi).
 $$
 
-外積を計算すると
+外積の各成分を順に作ると
+
+$$
+r_\theta\times r_\varphi
+=
+(-R^2\sin^2\varphi\cos\theta,\,
+ -R^2\sin^2\varphi\sin\theta,\,
+ -R^2\sin\varphi\cos\varphi).
+$$
+
+共通因子 $-R^2\sin\varphi$ をくくれば
 
 $$
 r_\theta\times r_\varphi
@@ -1019,7 +1049,9 @@ $$
 0\le\varphi\le\pi
 $$
 
-と表します。座標接ベクトルは
+と表します。$0<\varphi<\pi$ では正則で、$\varphi=0,\pi$ の極ではこの座標だけが退化します。極は二点だけで面積への寄与を持たず、以下の面積密度は端点まで連続に延びるので、積分範囲には $0\le\varphi\le\pi$ を使えます。
+
+座標接ベクトルは
 
 $$
 r_\theta
@@ -1037,7 +1069,17 @@ r_\varphi
  -R\sin\varphi).
 $$
 
-外積は
+外積の各成分は
+
+$$
+r_\theta\times r_\varphi
+=
+(-R^2\sin^2\varphi\cos\theta,\,
+ -R^2\sin^2\varphi\sin\theta,\,
+ -R^2\sin\varphi\cos\varphi),
+$$
+
+したがって
 
 $$
 r_\theta\times r_\varphi
