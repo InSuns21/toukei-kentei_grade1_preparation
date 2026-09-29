@@ -35,7 +35,7 @@ Cc 稠密性
   ↓
 L2 平行移動連続性
   ↓
-Gaussian approximate identity in L2
+Gaussian 近似恒等族の $L^2$ 収束
   ↓
 Gaussian Fourier core が L2 に稠密
   ↓
@@ -43,7 +43,7 @@ core 上の Plancherel
   ↓
 L2 完備性で Fourier 変換を延長
   ↓
-Parseval・反転・unitary
+Parseval・反転・ユニタリ性
   ↓
 L2 の平行移動・変調・L1-L2 畳み込み
 ```
@@ -54,7 +54,7 @@ L2 の平行移動・変調・L1-L2 畳み込み
 
 > **この章で使う関数解析は限定的です。** 使うのは $L^2$ の完備性、完備内積空間の内積、稠密部分空間、連続延長です。Hahn--Banach、Riesz 表現定理、スペクトル定理は使いません。
 >
-> **複素解析は前提ではありません。** 留数定理は特定の Fourier 積分を計算する便利な別ルートですが、Plancherel、$L^2$ 延長、反転、unitary 性の証明には使いません。
+> **複素解析は前提ではありません。** 留数定理は特定の Fourier 積分を計算する便利な別ルートですが、Plancherel、$L^2$ 延長、反転、ユニタリ性の証明には使いません。
 
 FOU3 と同じく
 
@@ -64,7 +64,7 @@ $$
 f(x)=\frac1{2\pi}\int_{\mathbb R}\widehat f(\xi)e^{i\xi x}\,d\xi
 $$
 
-を規約とします。この規約では Fourier 変換そのものは $L^2$ ノルムを $\sqrt{2\pi}$ 倍します。unitary にしたいときは $1/\sqrt{2\pi}$ を掛けます。
+を規約とします。この規約では Fourier 変換そのものは $L^2$ ノルムを $\sqrt{2\pi}$ 倍します。ユニタリに正規化したいときは $1/\sqrt{2\pi}$ を掛けます。
 
 ---
 
@@ -109,7 +109,15 @@ $$
 位相因子 $e^{ix}$ は $L^2$ ノルムを変えません。
 <!-- definition-example-end -->
 
-複素 $L^2$ の完備性は新しい難所ではありません。$f_n=u_n+iv_n$ が複素 $L^2$ で Cauchy なら
+複素 $L^2$ の完備性は、実 $L^2$ の完備性へ分解して確認できます。$f_n=u_n+iv_n$ が複素 $L^2$ で Cauchy なら、点ごとに
+
+$$
+|u_n-u_m|\le|f_n-f_m|,
+\qquad
+|v_n-v_m|\le|f_n-f_m|
+$$
+
+なので
 
 $$
 \|u_n-u_m\|_2\le\|f_n-f_m\|_2,
@@ -117,7 +125,27 @@ $$
 \|v_n-v_m\|_2\le\|f_n-f_m\|_2.
 $$
 
-したがって実 $L^2$ の完備性から $u_n\to u$、$v_n\to v$ が得られ、$f_n\to u+iv$ です。以後はこの完備性を使います。
+従って $(u_n)$ と $(v_n)$ は実 $L^2$ の Cauchy 列です。実 $L^2$ の完備性から、ある $u,v\in L^2$ が存在して
+
+$$
+u_n\to u,
+\qquad
+v_n\to v
+\qquad\text{in }L^2
+$$
+
+となります。最後に
+
+$$
+\begin{aligned}
+\|f_n-(u+iv)\|_2^2
+&=\int_{\mathbb R}|(u_n-u)+i(v_n-v)|^2dx\\
+&=\|u_n-u\|_2^2+\|v_n-v\|_2^2
+\to0.
+\end{aligned}
+$$
+
+従って複素 $L^2$ も完備です。以後はこの完備性を使います。
 
 ---
 
@@ -154,7 +182,7 @@ $$
 
 ### 証明の見取り図
 
-一般の $L^2$ 関数を直接点wiseに扱いません。まず $C_c$ 関数で一様連続性を使い、その後 $C_c$ の $L^2$ 稠密性で一般の $f$ へ移します。
+一般の $L^2$ 関数を直接各点でに扱いません。まず $C_c$ 関数で一様連続性を使い、その後 $C_c$ の $L^2$ 稠密性で一般の $f$ へ移します。
 
 <!-- proof-start -->
 ### 証明
@@ -199,7 +227,7 @@ $\varepsilon$ は任意なので極限は $0$ です。
 
 ---
 
-## 3. Gaussian approximate identity は $L^2$ でも元へ戻る
+## 3. Gaussian 近似恒等族は $L^2$ でも元へ戻る
 
 FOU3 の Gaussian 核
 
@@ -215,7 +243,7 @@ $$
 
 <a id="thm-fou4-l2-gaussian-approximation"></a>
 <!-- formal-statement-start -->
-> **定理（Gaussian approximate identity のL2収束）**  
+> **定理（Gaussian 近似恒等族のL2収束）**  
 > $f\in L^2(\mathbb R)$ なら $f*k_\varepsilon$ は $L^2$ の元として定義でき、
 >
 $$
@@ -233,7 +261,18 @@ FOU3 の $L^1$ 証明と同じ形ですが、平行移動差を $L^2$ ノルム�
 <!-- proof-start -->
 ### 証明
 
-[Minkowskiの不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-02)から
+まず $\int k_\varepsilon(y)dy=1$ です。$L^2$ 関数は同値類として扱うので、以下の等式は畳み込みが定義されるほとんどすべての $x$ で読みます。
+
+$$
+\begin{aligned}
+(f*k_\varepsilon)(x)-f(x)
+&=\int k_\varepsilon(y)f(x-y)dy
+-f(x)\int k_\varepsilon(y)dy\\
+&=\int k_\varepsilon(y)\{f(x-y)-f(x)\}dy.
+\end{aligned}
+$$
+
+ここで $f(x-y)=(\tau_yf)(x)$ です。従って [Minkowskiの不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-02)を積分変数 $y$ に対して適用すると
 
 $$
 \begin{aligned}
@@ -271,7 +310,7 @@ $$
 Gaussian 核は原点へ質量集中するので、$\varepsilon\downarrow0$ で第二項は $0$ へ行きます。その後 $\eta\downarrow0$ とすれば結論を得ます。
 <!-- proof-end -->
 
-この証明で使ったのは positivity、質量 $1$、原点集中と平行移動連続性だけです。Gaussian の具体式は後で Fourier 側の可積分性を保証するために効きます。
+この証明で使ったのは非負性、質量 $1$、原点集中と平行移動連続性だけです。Gaussian の具体式は後で Fourier 側の可積分性を保証するために効きます。
 
 ---
 
@@ -357,7 +396,7 @@ $$
 \|f-h\|_2<\frac\eta2
 $$
 
-となるように取れます。前節の $L^2$ [Gaussian approximate identity](../FOU3/index.md#thm-fou3-gaussian-approximation) により、十分小さい $\varepsilon>0$ で
+となるように取れます。前節の [$L^2$ 版 Gaussian 近似恒等族](#thm-fou4-l2-gaussian-approximation) により、十分小さい $\varepsilon>0$ で
 
 $$
 \|h*k_\varepsilon-h\|_2<\frac\eta2.
@@ -386,10 +425,22 @@ $$
 g^\sharp(x):=\overline{g(-x)}
 $$
 
-と置きます。直接の変数変換から
+と置きます。この反射と複素共役を組み合わせる理由は、Fourier 変換後に絶対値二乗を作るためです。実際、定義から
 
 $$
-\widehat{g^\sharp}(\xi)=\overline{\widehat g(\xi)}.
+\widehat{g^\sharp}(\xi)
+=\int_{\mathbb R}\overline{g(-x)}e^{-i\xi x}dx.
+$$
+
+ここで $y=-x$ と置くと積分方向も反転するので
+
+$$
+\begin{aligned}
+\widehat{g^\sharp}(\xi)
+&=\int_{\mathbb R}\overline{g(y)}e^{i\xi y}dy\\
+&=\overline{\int_{\mathbb R}g(y)e^{-i\xi y}dy}\\
+&=\overline{\widehat g(\xi)}.
+\end{aligned}
 $$
 
 従って [L1畳み込みと畳み込み定理](../FOU3/index.md#thm-fou3-convolution)により
@@ -548,7 +599,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$g_n\to f$ in $L^2$ とします。$\mathcal G$ は線形空間なので $g_n-g_m\in\mathcal G$ です。従って core 上の Plancherel を差へ適用でき、
+$g_n\to f$ と $L^2$ で収束するとします。$\mathcal G$ は線形空間なので $g_n-g_m\in\mathcal G$ です。従って core 上の Plancherel を差へ適用でき、
 
 $$
 \|\widehat g_n-\widehat g_m\|_2
@@ -569,7 +620,33 @@ $$
 
 よって二つの Fourier 側の極限は同じです。従って定義は近似列に依存しません。
 
-線形性は $g_n\to f$、$h_n\to h$ に対して、$\mathcal G$ の線形性から $ag_n+bh_n\in\mathcal G$ かつ $ag_n+bh_n\to af+bh$ であることを使い、core 上の Fourier 変換の線形性を極限へ移せば従います。
+線形性も近似列を具体的に追えば確認できます。$g_n\to f$、$h_n\to h$ を $L^2$ で満たす $g_n,h_n\in\mathcal G$ を取り、$a,b\in\mathbb C$ とします。$\mathcal G$ は線形空間なので
+
+$$
+ag_n+bh_n\in\mathcal G,
+$$
+
+また三角不等式から
+
+$$
+\|(ag_n+bh_n)-(af+bh)\|_2
+\le |a|\|g_n-f\|_2+|b|\|h_n-h\|_2
+\to0.
+$$
+
+core 上では Fourier 変換が線形なので
+
+$$
+\widehat{ag_n+bh_n}
+=a\widehat g_n+b\widehat h_n.
+$$
+
+左辺は定義により $\mathcal F_2(af+bh)$ へ、右辺は $a\mathcal F_2f+b\mathcal F_2h$ へ $L^2$ 収束します。従って
+
+$$
+\mathcal F_2(af+bh)
+=a\mathcal F_2f+b\mathcal F_2h.
+$$
 
 最後に Plancherel とノルムの連続性から
 
@@ -582,7 +659,21 @@ $$
 \end{aligned}
 $$
 
-一意性も稠密性から従います。二つの連続線形拡張が $\mathcal G$ 上で一致するなら、任意の $f$ を $g_n\in\mathcal G$ で近似して極限を取れば $f$ 上でも一致します。
+一意性も同じ近似を一段ずつ使います。$T_1,T_2:L^2\to L^2$ が連続線形で、$\mathcal G$ 上ではともに古典 Fourier 変換と一致するとします。任意の $f\in L^2$ に対して $g_n\in\mathcal G$、$g_n\to f$ を取れば
+
+$$
+T_1g_n=T_2g_n
+$$
+
+です。連続性から
+
+$$
+T_1g_n\to T_1f,
+\qquad
+T_2g_n\to T_2f
+$$
+
+なので、[距離空間における極限の一意性](../F0_00B_距離空間_開集合_閉集合_収束/index.md#prop-f0-00b-01)より $T_1f=T_2f$ です。
 <!-- proof-end -->
 
 この節が「関数解析をある程度前提にする」部分の本体です。使った一般原理は
@@ -623,7 +714,7 @@ $$
 
 $g_\varepsilon=f*k_\varepsilon$ とします。$f\in L^1\cap L^2$ なので $g_\varepsilon$ は $\mathcal G$ の生成元、従って $g_\varepsilon\in\mathcal G$ です。
 
-FOU3 の $L^1$ Gaussian approximate identity と本章の $L^2$ 版から
+FOU3 の $L^1$ 版 Gaussian 近似恒等族と本章の $L^2$ 版から
 
 $$
 \|g_\varepsilon-f\|_1\to0,
@@ -665,6 +756,10 @@ $$
 
 ## 8. Parseval：ノルムだけでなく内積も保つ
 
+Plancherel で分かったのは、各関数の $L^2$ ノルム、つまり一つの関数の「エネルギー」が Fourier 変換で定数倍を除いて保たれることです。しかし二つの関数の角度や相関に当たる内積まで保たれるかは、ノルム等式だけを書いただけではまだ見えていません。
+
+複素内積空間では、内積を四つのノルムから復元できます。そこで Plancherel を $f+g$、$f-g$、$f+ig$、$f-ig$ に適用し、その四つを組み合わせて内積の等式へ戻します。
+
 <a id="thm-fou4-parseval"></a>
 <!-- formal-statement-start -->
 > **定理（Parseval内積等式）**  
@@ -682,22 +777,68 @@ $$
 
 ### 証明の見取り図
 
-Plancherel はノルムの等式です。複素内積は $f+g$ と $f+ig$ のノルムから復元できます。
+Plancherel だけでは「一つの関数のエネルギー」が保たれることしか直接には分かりません。二つの関数の内積まで保たれることを示すため、内積を直接展開して四つのノルムだけで書き直します。その計算も省略せず、その場で確認します。
 
 <!-- proof-start -->
 ### 証明
 
-複素内積の polarization identity
+まず本章の「第1変数について線形」という内積規約では
+
+$$
+\begin{aligned}
+\|u+v\|^2-\|u-v\|^2
+&=2\langle u,v\rangle+2\langle v,u\rangle,\\
+\|u+iv\|^2-\|u-iv\|^2
+&=-2i\langle u,v\rangle+2i\langle v,u\rangle.
+\end{aligned}
+$$
+
+第2式へ $i$ を掛けて第1式へ足すと $\langle v,u\rangle$ の項が消えるため、
 
 $$
 \langle u,v\rangle
 =\frac14\Bigl(
 \|u+v\|^2-\|u-v\|^2
 +i\|u+iv\|^2-i\|u-iv\|^2
-\Bigr)
+\Bigr).
 $$
 
-を使います。$\mathcal F_2$ は線形で、各ノルムを $\sqrt{2\pi}$ 倍するので、右辺の四つのノルム二乗は全て $2\pi$ 倍されます。従って
+この式へ $u=\mathcal F_2f$、$v=\mathcal F_2g$ を代入します。ここで
+
+$$
+u=\mathcal F_2f,
+\qquad
+v=\mathcal F_2g
+$$
+
+と置きます。線形性から、例えば
+
+$$
+u+iv
+=\mathcal F_2f+i\mathcal F_2g
+=\mathcal F_2(f+ig)
+$$
+
+です。同じく
+
+$$
+u+v=\mathcal F_2(f+g),
+\qquad
+u-v=\mathcal F_2(f-g),
+$$
+
+$$
+u-iv=\mathcal F_2(f-ig).
+$$
+
+従って直前の式に現れる四つのノルムは、いずれも $\mathcal F_2$ を一つの $L^2$ 関数へ適用した形になりました。Plancherel をそれぞれへ適用すると
+
+$$
+\|\mathcal F_2(f+ig)\|_2^2
+=2\pi\|f+ig\|_2^2
+$$
+
+など、四つのノルム二乗がすべて $2\pi$ 倍されます。従って直前の四項全体から共通因子 $2\pi$ を外せて
 
 $$
 \langle\mathcal F_2f,\mathcal F_2g\rangle
@@ -743,12 +884,16 @@ $$
 \|Uf\|_2=\|f\|_2.
 $$
 
-つまり $U$ は少なくとも等長作用素です。次節で全射性まで示して unitary であることを確定します。
+つまり $U$ は少なくとも等長作用素です。次節で全射性まで示してユニタリであることを確定します。
 <!-- definition-example-end -->
 
 ---
 
-## 9. $L^2$ Fourier 反転と unitary 性
+## 9. $L^2$ Fourier 反転とユニタリ性
+
+正規化 Fourier 作用素 $U$ が内積を保つことは分かりました。しかし「等長写像」であるだけでは、値域が $L^2$ 全体とは限りません。逆変換を作るには、$U$ が全射であることまで確かめる必要があります。
+
+FOU3 の反転公式を見ると、Fourier 変換を二回行うと元の関数が $x\mapsto -x$ と反射して戻ることが予想されます。この関係をまず良い関数で証明し、それを全 $L^2$ へ延長すると、全射性と逆作用素が同時に得られます。
 
 反射作用素
 
@@ -777,7 +922,7 @@ U^2=J,
 U^4=I.
 $$
 >
-> 特に $U$ は全射な等長作用素、すなわち unitary 作用素である。また
+> 特に $U$ は全射な等長作用素、すなわちユニタリ作用素である。また
 >
 $$
 \boxed{
@@ -825,7 +970,7 @@ $$
 h=U(U^3h)
 $$
 
-と書けるので $U$ は全射です。等長性から単射でもあり、既に内積を保つことを示したため $U$ は unitary です。従って $\mathcal F_2$ も全単射です。
+と書けるので $U$ は全射です。等長性から単射でもあり、既に内積を保つことを示したため $U$ はユニタリです。従って $\mathcal F_2$ も全単射です。
 
 最後に
 
@@ -852,7 +997,7 @@ $$
 $$
 <!-- proof-end -->
 
-一般の $L^2$ 関数について、逆変換は pointwise に絶対収束する積分とは限りません。反転は $L^2$ ノルムで成立する等式です。ここを FOU3 の反転定理と混同しないことが重要です。
+一般の $L^2$ 関数について、逆変換は 各点で に絶対収束する積分とは限りません。反転は $L^2$ ノルムで成立する等式です。ここを FOU3 の反転定理と混同しないことが重要です。
 
 ---
 
@@ -879,7 +1024,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$g_n\in\mathcal G$ で $g_n\to f$ in $L^2$ とします。平行移動と変調は $L^2$ ノルムを保つので
+$g_n\in\mathcal G$ で $g_n\to f$ と $L^2$ で収束するとします。平行移動と変調は $L^2$ ノルムを保つので
 
 $$
 \tau_ag_n\to\tau_af,
@@ -899,14 +1044,38 @@ $$
 =\widehat g_n(\xi-b).
 $$
 
-周波数側で位相因子の乗算と平行移動も $L^2$ ノルムを保ちます。従って $n\to\infty$ とすれば所望の二式が得られます。
+周波数側でも、位相因子の乗算と平行移動は $L^2$ ノルムを保ちます。したがって
+
+$$
+e^{-ia\xi}\widehat g_n(\xi)
+\to e^{-ia\xi}\mathcal F_2f(\xi)
+\quad\text{in }L^2,
+$$
+
+また
+
+$$
+\widehat g_n(\xi-b)
+\to(\mathcal F_2f)(\xi-b)
+\quad\text{in }L^2.
+$$
+
+一方、$\tau_ag_n\to\tau_af$ と $e^{ibx}g_n\to e^{ibx}f$ なので、$L^2$ Fourier 変換の連続性から左辺はそれぞれ
+
+$$
+\mathcal F_2(\tau_af),
+\qquad
+\mathcal F_2(e^{ibx}f)
+$$
+
+へ収束します。[距離空間における極限の一意性](../F0_00B_距離空間_開集合_閉集合_収束/index.md#prop-f0-00b-01)から所望の二式が得られます。
 <!-- proof-end -->
 
 FOU3 の公式を「一般の $L^2$ 関数にも積分計算がそのままできる」と誤解せず、稠密な $L^1$ core で証明して連続性で運ぶのがポイントです。
 
 ---
 
-## 11. $L^1$ kernel と $L^2$ signal の畳み込み
+## 11. $L^1$ 核と $L^2$ 信号の畳み込み
 
 PDE や信号処理では、核 $k$ は $L^1$、信号 $f$ は $L^2$ という組合せが自然に現れます。
 
@@ -949,7 +1118,7 @@ $$
 
 従って $f\mapsto k*f$ は $L^2$ 上の連続線形作用素です。
 
-次に $g_n\in\mathcal G$、$g_n\to f$ in $L^2$ とします。$g_n\in L^1$ なので $k*g_n\in L^1\cap L^2$ であり、FOU3 の畳み込み定理と本章の $L^1\cap L^2$ 整合性から
+次に $g_n\in\mathcal G$、$g_n\to f$ と $L^2$ で収束するとします。$g_n\in L^1$ なので $k*g_n\in L^1\cap L^2$ であり、FOU3 の畳み込み定理と本章の $L^1\cap L^2$ 整合性から
 
 $$
 \mathcal F_2(k*g_n)
@@ -1008,7 +1177,22 @@ $$
 =2\pi.
 $$
 
-$u=\xi/2$ と置けば
+$u=\xi/2$、すなわち $\xi=2u$、$d\xi=2du$ と置くと
+
+$$
+\frac{2\sin(\xi/2)}{\xi}
+=\frac{\sin u}{u}.
+$$
+
+従って
+
+$$
+2\int_{-\infty}^{\infty}
+\left(\frac{\sin u}{u}\right)^2du
+=2\pi,
+$$
+
+両辺を2で割って
 
 $$
 \boxed{
@@ -1045,7 +1229,7 @@ $$
 \int_{\mathbb R}\frac{e^{-i\xi x}}{1+x^2}dx
 $$
 
-のような具体的な変換対を留数定理で高速に計算するとき、複素解析は非常に強力です。したがって複素解析は **Fourier 理論の基礎依存ではなく、計算技法・発展接続として横から合流する** と考えるのが自然です。
+のような具体的な変換対を留数定理で効率よく計算する場面では、複素解析は非常に強力です。したがって複素解析は **Fourier 理論の基礎依存ではなく、計算技法・発展接続として横から合流する** と考えるのが自然です。
 
 ### 13.2 関数解析は FOU4 から本質的に現れる
 
@@ -1055,11 +1239,11 @@ FOU1–FOU3 では、完備内積空間という一般語を知らなくても�
 - 稠密部分で写像を定義する
 - ノルム評価から Cauchy 性を得る
 - 完備性で像の極限を作る
-- 内積保存・unitary 作用素として読む
+- 内積保存・ユニタリ作用素として読む
 
 という構造が本質的です。
 
-ただし「関数解析を全部終えてから Fourier 解析」ではありません。本章に必要なのはこの部分だけです。より深い関数解析が本格的に必要になるのは、スペクトル理論、弱微分、Sobolev 空間、distribution、一般の偏微分作用素へ進む段階です。
+ただし「関数解析を全部終えてから Fourier 解析」ではありません。本章に必要なのはこの部分だけです。より深い関数解析が本格的に必要になるのは、スペクトル理論、弱微分、Sobolev 空間、超関数、一般の偏微分作用素へ進む段階です。
 
 ---
 
@@ -1160,7 +1344,7 @@ $$
 $\varepsilon\downarrow0$ では $k_\varepsilon$ は原点近くへ狭く集中します。一方 $e^{-\varepsilon\xi^2}$ は周波数側で広がり、固定した $\xi$ では1へ近づきます。空間で狭くなるほど周波数では広くなる対応です。
 <!-- solution-end -->
 
-## FOU4-A03 Parseval を polarization から導く
+## FOU4-A03 Parseval を四つのノルムから導く
 
 - Level: A
 - 目安時間: 15分
@@ -1171,7 +1355,7 @@ $$
 \|\mathcal F_2h\|_2^2=2\pi\|h\|_2^2
 $$
 
-を全ての $h\in L^2$ に対して既知として、複素 polarization identity から
+を全ての $h\in L^2$ に対して既知として、本章と同じように内積を四つのノルムへ展開して
 
 $$
 \langle\mathcal F_2f,\mathcal F_2g\rangle
@@ -1183,7 +1367,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-複素内積は
+本章で確認した式
 
 $$
 \langle u,v\rangle
@@ -1193,7 +1377,7 @@ $$
 \bigr)
 $$
 
-で復元できます。$u=\mathcal F_2f$、$v=\mathcal F_2g$ とします。線形性により
+で複素内積を四つのノルムから復元します。$u=\mathcal F_2f$、$v=\mathcal F_2g$ とします。線形性により
 
 $$
 u\pm v=\mathcal F_2(f\pm g),
@@ -1201,7 +1385,23 @@ u\pm v=\mathcal F_2(f\pm g),
 u\pm iv=\mathcal F_2(f\pm ig).
 $$
 
-各ノルム二乗へ Plancherel を適用すると全て $2\pi$ 倍されるので、共通因子を外して
+例えば
+
+$$
+\|u+v\|_2^2
+=\|\mathcal F_2(f+g)\|_2^2
+=2\pi\|f+g\|_2^2,
+$$
+
+また
+
+$$
+\|u+iv\|_2^2
+=\|\mathcal F_2(f+ig)\|_2^2
+=2\pi\|f+ig\|_2^2.
+$$
+
+$u-v$ と $u-iv$ についても、それぞれ $f-g$ と $f-ig$ に Plancherel を適用します。従って上の式の四項すべてから共通因子 $2\pi$ を外せて
 
 $$
 \langle\mathcal F_2f,\mathcal F_2g\rangle
@@ -1379,7 +1579,7 @@ FOU3 では三角形関数の Fourier 反転を経由しましたが、FOU4 で�
 $k\in L^1$、$f\in L^2$ とする。
 
 1. Minkowski の積分不等式から $\|k*f\|_2\le\|k\|_1\|f\|_2$ を導け。
-2. $g_n\in\mathcal G$、$g_n\to f$ in $L^2$ を用い、
+2. $g_n\in\mathcal G$、$g_n\to f$ と $L^2$ で を用い、
 
 $$
 \mathcal F_2(k*f)=\widehat k\,\mathcal F_2f
@@ -1408,7 +1608,7 @@ $$
 \end{aligned}
 $$
 
-次に $g_n\to f$ in $L^2$ とします。上の評価から
+次に $g_n\to f$ と $L^2$ で収束するとします。上の評価から
 
 $$
 \|k*g_n-k*f\|_2
@@ -1457,7 +1657,7 @@ $$
 1. $g\in\mathcal G$ なら $U^2g=Jg$、ただし $(Jg)(x)=g(-x)$。
 2. $\mathcal G$ の稠密性と $U,J$ の連続性から $U^2=J$ を全 $L^2$ へ延長せよ。
 3. $U^4=I$ を示し、これから $U$ が全射であることを示せ。
-4. Parseval と合わせて $U$ が unitary であることを説明せよ。
+4. Parseval と合わせて $U$ がユニタリであることを説明せよ。
 5. $\mathcal F_2^{-1}=(2\pi)^{-1}J\mathcal F_2$ を導け。
 
 <!-- solution-start -->
@@ -1511,7 +1711,7 @@ $$
 h=U(U^3h)
 $$
 
-と書けるため、$U$ は全射です。等長性から単射でもあります。Parseval から $U$ は内積を保つので、全射等長線形作用素として unitary です。従って $\mathcal F_2$ も全単射です。
+と書けるため、$U$ は全射です。等長性から単射でもあります。Parseval から $U$ は内積を保つので、全射等長線形作用素としてユニタリです。従って $\mathcal F_2$ も全単射です。
 
 最後に
 
@@ -1537,7 +1737,7 @@ $$
 }.
 $$
 
-この証明の核心は、FOU3 の pointwise 反転を稠密な線形 core 上だけで使い、最後は $L^2$ 連続性で全空間へ運ぶことです。
+この証明の核心は、FOU3 の各点での反転を稠密な線形 core 上だけで使い、最後は $L^2$ 連続性で全空間へ運ぶことです。
 <!-- solution-end -->
 
 ---
@@ -1546,7 +1746,7 @@ $$
 
 - 一般の $L^2$ 関数で Fourier 積分を各 $\xi$ ごとの絶対収束として定義してはいけない理由を説明できるか。
 - $C_c$ 稠密性から $L^2$ 平行移動連続性を証明できるか。
-- Gaussian approximate identity の $L^2$ 収束で、近傍と遠方をどう分けるか説明できるか。
+- Gaussian 近似恒等族の $L^2$ 収束で、近傍と遠方をどう分けるか説明できるか。
 - $\mathcal G$ を単なる Gaussian 正則化の集合ではなく、その有限線形結合全体として取る理由を説明できるか。
 - Gaussian 正則化が $g,\widehat g$ の双方に必要な可積分性を与える理由を説明できるか。
 - [Fourier反転定理](../FOU3/index.md#thm-fou3-inversion)を $g*g^\sharp$ に適用して core 上の Plancherel を再構成できるか。

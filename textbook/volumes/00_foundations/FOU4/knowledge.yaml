@@ -39,7 +39,7 @@ concepts:
     introduction: formal
 
   - id: fourier.fou4-l2-gaussian-approximation
-    name: Gaussian approximate identity のL2収束
+    name: Gaussian 近似恒等族のL2収束
     kind: theorem
     aliases: [Gaussian approximate identity in L2]
     introduction: formal
