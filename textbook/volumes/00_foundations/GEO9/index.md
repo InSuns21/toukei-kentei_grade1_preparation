@@ -471,7 +471,9 @@ $$
 
 です。
 
-この等式を使う前に、左辺の $t$ 微分がなぜ Lie 微分になるかを局所座標で確認します。$M$ の局所座標を $(x^1,\dots,x^m)$ とすると、$[0,1]\times M$ 上の $k$ 形式 $\beta$ は一意に
+ここでは $[0,1]\times M$ に境界があるため、端点 $t=0,1$ で $\partial_t$ の両方向の流れを無理に使わず、局所座標で必要な恒等式を直接確認します。
+
+$M$ の局所座標を $(x^1,\dots,x^m)$ とすると、$[0,1]\times M$ 上の $k$ 形式 $\beta$ は一意に
 
 $$
 \beta
@@ -483,15 +485,13 @@ $$
 
 と分けられます。ここで $\alpha_t$ は $x$ 方向だけを含む $(k-1)$ 形式、$\gamma_t$ は $x$ 方向だけを含む $k$ 形式で、どちらの係数も $(t,x)$ の滑らかな関数です。
 
-包含写像 $j_t(p)=(t,p)$ で引き戻すと $j_t^*dt=0$ なので
+$x$ 変数だけに関する外微分を一時的に $d_M$ と書きます。すると
 
 $$
-j_t^*\beta
-=
-\gamma_t.
+j_t^*\beta=\gamma_t
 $$
 
-従って
+なので
 
 $$
 \frac{d}{dt}j_t^*\beta
@@ -499,52 +499,72 @@ $$
 \frac{\partial\gamma_t}{\partial t}.
 $$
 
-一方、$\partial_t$ の局所流は
+一方、
 
 $$
-\Phi_h(t,x)=(t+h,x)
-$$
-
-という $t$ 方向の平行移動です。したがって $dt$ と各 $dx^i$ はこの流れで変わらず、Lie 微分は係数だけを $t$ で微分します。よって
-
-$$
-\mathcal L_{\partial_t}\beta
+d\beta
 =
-dt\wedge
-\frac{\partial\alpha_t}{\partial t}
+-dt\wedge d_M\alpha_t
++
+dt\wedge\frac{\partial\gamma_t}{\partial t}
++
+d_M\gamma_t.
+$$
+
+また
+
+$$
+\iota_{\partial_t}\beta=\alpha_t
+$$
+
+なので
+
+$$
+d(\iota_{\partial_t}\beta)
+=
+dt\wedge\frac{\partial\alpha_t}{\partial t}
++
+d_M\alpha_t.
+$$
+
+さらに $\partial_t$ を $d\beta$ に差し込むと、$d_M\gamma_t$ には $dt$ が含まれないため消え、
+
+$$
+\iota_{\partial_t}(d\beta)
+=
+-d_M\alpha_t
 +
 \frac{\partial\gamma_t}{\partial t}.
 $$
 
-これを $j_t$ で引き戻すと $dt$ を含む第一項が消え、
+二式を足すと $d_M\alpha_t$ が相殺し、
 
 $$
-j_t^*(\mathcal L_{\partial_t}\beta)
-=
-\frac{\partial\gamma_t}{\partial t}
-=
-\frac{d}{dt}j_t^*\beta.
-$$
-
-これで
-
-$$
-\frac{d}{dt}j_t^*\beta
-=
-j_t^*(\mathcal L_{\partial_t}\beta)
-$$
-
-を、今回の $j_t$ に対して直接確認できました。
-
-[GEO7 の Cartan の公式](../GEO7/index.md#thm-geo7-cartan-formula)から
-
-$$
-\mathcal L_{\partial_t}\beta
-=
 d(\iota_{\partial_t}\beta)
 +
-\iota_{\partial_t}(d\beta).
+\iota_{\partial_t}(d\beta)
+=
+dt\wedge\frac{\partial\alpha_t}{\partial t}
++
+\frac{\partial\gamma_t}{\partial t}.
 $$
+
+これを $j_t$ で引き戻すと $dt$ を含む項が消えるので
+
+$$
+\boxed{
+\frac{d}{dt}j_t^*\beta
+=
+j_t^*
+\left(
+d(\iota_{\partial_t}\beta)
++
+\iota_{\partial_t}(d\beta)
+\right)
+}.
+$$
+
+内部の点 $0<t<1$ では、これは [GEO7 の Cartan の公式](../GEO7/index.md#thm-geo7-cartan-formula)を $\partial_t$ に適用した式そのものです。上の座標計算は端点でも同じ係数式が成り立つことまで直接確認しています。
 
 よって
 
@@ -576,7 +596,35 @@ j_t^*\iota_{\partial_t}H^*\omega
 j_t^*\iota_{\partial_t}H^*(d\omega).
 $$
 
-$t$ について $0$ から $1$ まで積分します。係数は $[0,1]$ 上で滑らかなので、外微分は係数の $t$ 積分と交換できます。従って
+$t$ について $0$ から $1$ まで積分します。外微分と $t$ 積分の交換も係数ごとに確認できます。例えば
+
+$$
+\theta_t
+=
+\sum_I a_I(t,x)\,dx^I
+$$
+
+なら
+
+$$
+d_M\left(\int_0^1\theta_t\,dt\right)
+=
+\sum_{I,j}
+\frac{\partial}{\partial x^j}
+\left(
+\int_0^1 a_I(t,x)\,dt
+\right)
+dx^j\wedge dx^I.
+$$
+
+係数 $a_I$ はコンパクトな $t$ 区間上で滑らかなので、偏微分と積分を交換して
+
+$$
+=
+\int_0^1 d_M\theta_t\,dt.
+$$
+
+従って
 
 $$
 H_1^*\omega-H_0^*\omega
@@ -742,7 +790,14 @@ t^{k-1}
 dt.
 $$
 
-ここで $t^{k-1}$ は、$v_1,dots,v_{k-1}$ が $dH$ によってそれぞれ $t$ 倍されるために現れます。
+ここで $dH_{(t,x)}(\partial_t)=x$ であり、
+
+$$
+dH_{(t,x)}(v_r)=t\,v_r
+\qquad(r=1,\dots,k-1)
+$$
+
+です。従って $\partial_t$ に対応する最初の引数には倍率が付かず、残りの $k-1$ 本からそれぞれ $t$ が一つずつ出ます。その積が $t^{k-1}$ です。
 
 [微分形式の Poincaré の補題](#thm-geo9-poincare-lemma)が言っているのは、
 
@@ -1008,13 +1063,31 @@ $$
 
 を与えます。
 
-外微分の自然性
+[GEO7 の外微分の自然性](../GEO7/index.md#thm-geo7-pullback-commutes-d)
 
 $$
 d(f^*\omega)=f^*(d\omega)
 $$
 
-から、閉形式は閉形式へ、完全形式は完全形式へ写ります。従って
+から、閉形式は閉形式へ、完全形式は完全形式へ写ります。
+
+さらに代表元を変えて
+
+$$
+\omega'=\omega+d\eta
+$$
+
+としたとき、
+
+$$
+f^*\omega'
+=
+f^*\omega+f^*(d\eta)
+=
+f^*\omega+d(f^*\eta).
+$$
+
+従って $f^*\omega'$ と $f^*\omega$ の差も完全形式です。つまりコホモロジー類の代表元の選び方に依存せず、
 
 $$
 f^*:H^k_{\mathrm{dR}}(N)\to H^k_{\mathrm{dR}}(M)
@@ -1306,13 +1379,23 @@ $$
 F(t+2\pi)=F(t).
 $$
 
-従って $F$ は円周上の滑らかな関数 $f:S^1\to\mathbb R$ を
+従って $F$ は円周上の関数 $f:S^1\to\mathbb R$ を
 
 $$
 f(p(t))=F(t)
 $$
 
-によって定めます。周期性があるのでこれは well-defined です。
+によって定めます。$p(t)=p(t+2\pi m)$ という同じ点の別表示を選んでも $F(t)=F(t+2\pi m)$ なので、これは well-defined です。
+
+滑らかさも確認します。任意の $q\in S^1$ に対し $p(t_0)=q$ となる $t_0$ を取ると、$p$ は $t_0$ の十分小さい区間から $q$ の近傍への微分同相です。その近傍では
+
+$$
+f
+=
+F\circ(p|_J)^{-1}
+$$
+
+と書けるので $f$ は滑らかです。
 
 両辺を微分すると
 
@@ -1328,7 +1411,17 @@ a(t)dt
 p^*\omega.
 $$
 
-$p$ は各点の近くで局所微分同相であり全射なので、1形式の等式は円周上へ戻して
+最後に、引き戻した1形式の一致から元の1形式の一致が従うことを点ごとに確認します。$q\in S^1$ を取り、$p(t)=q$ とします。$dp_t:T_t\mathbb R\to T_qS^1$ は線形同型です。任意の $v\in T_qS^1$ に対して $dp_t(u)=v$ となる $u$ を取れば、
+
+$$
+(df-\omega)_q(v)
+=
+\bigl(p^*(df-\omega)\bigr)_t(u)
+=
+0.
+$$
+
+従って
 
 $$
 df=\omega.
@@ -1371,7 +1464,17 @@ $$
 
 を包含写像とします。
 
-明らかに
+$x\in S^1$ では $\|x\|=1$ なので
+
+$$
+r(i(x))
+=
+\frac{x}{\|x\|}
+=
+x.
+$$
+
+従って
 
 $$
 r\circ i
@@ -1590,10 +1693,10 @@ $$
 c
 =
 \frac{1}{2\pi}
-\int_{S^1}\omega
+\int_{S^1}i^*\omega
 $$
 
-と決まります。
+と決まります。ここで $i:S^1\hookrightarrow X$ は包含写像です。
 
 これは [VC2](../VC2/index.md) や [VC5](../VC5/index.md) で現れた「局所的には保存場に見えるのに、大域ポテンシャルが存在しない」現象の正体です。
 
