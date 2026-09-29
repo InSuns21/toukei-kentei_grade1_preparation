@@ -994,10 +994,53 @@ $$
 \omega=P\,dx+Q\,dy+R\,dz
 $$
 
-を対応させます。直接計算すると
+を対応させます。まず
 
 $$
-\begin{aligned}d\omega
+d\omega
+=
+dP\wedge dx+dQ\wedge dy+dR\wedge dz
+$$
+
+であり、
+
+$$
+dP=P_x\,dx+P_y\,dy+P_z\,dz
+$$
+
+なので
+
+$$
+dP\wedge dx
+=
+-P_y\,dx\wedge dy
++
+P_z\,dz\wedge dx.
+$$
+
+同じように各係数を一度微分すると
+
+$$
+dQ\wedge dy
+=
+Q_x\,dx\wedge dy
+-
+Q_z\,dy\wedge dz,
+$$
+
+$$
+dR\wedge dz
+=
+R_y\,dy\wedge dz
+-
+R_x\,dz\wedge dx.
+$$
+
+三式を同じ基底2形式ごとにまとめると
+
+$$
+\begin{aligned}
+d\omega
 &=(Q_x-P_y)\,dx\wedge dy\\
 &\quad +(R_y-Q_z)\,dy\wedge dz\\
 &\quad +(P_z-R_x)\,dz\wedge dx.
@@ -1665,7 +1708,41 @@ M=S,
 \omega=P\,dx+Q\,dy+R\,dz
 $$
 
-とします。計算すると
+とします。外微分の定義から
+
+$$
+d\omega
+=
+dP\wedge dx+dQ\wedge dy+dR\wedge dz.
+$$
+
+各項を展開すると
+
+$$
+dP\wedge dx
+=
+-P_y\,dx\wedge dy
++
+P_z\,dz\wedge dx,
+$$
+
+$$
+dQ\wedge dy
+=
+Q_x\,dx\wedge dy
+-
+Q_z\,dy\wedge dz,
+$$
+
+$$
+dR\wedge dz
+=
+R_y\,dy\wedge dz
+-
+R_x\,dz\wedge dx.
+$$
+
+従って
 
 $$
 \begin{aligned}
