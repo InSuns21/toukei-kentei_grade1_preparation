@@ -54,7 +54,7 @@ $$
 $f$ が有界なら値域は有限区間 $[-M,M]$ に入ります。この有限区間を幅 $\varepsilon$ 未満の有限個の小区間に切り、各点 $x$ で $f(x)$ が入った区間の左端を $s(x)$ とします。
 
 - 小区間は有限個なので $s$ は有限個の値しか取らない。
-- 各レベル集合は $f$ による区間の逆像なので可測。
+- 値域分割に対応する各集合は $f$ による区間の逆像なので可測。
 - 同じ小区間の中で丸めるので誤差は一様に $\varepsilon$ 未満。
 
 ここでは $\mu(X)<\infty$ のような測度条件を一切使いません。
@@ -86,7 +86,34 @@ $$
 A_{N-1}=\{x:t_{N-1}\le f(x)\le t_N\}
 $$
 
-とします。$f$ は可測なので全ての $A_j$ は可測で、これらは $X$ を有限分割します。
+とします。ここで $A_j$ の可測性を、D2 のしきい値定義から一段ずつ確認します。まず任意の $t\in\mathbb R$ について
+
+$$
+\{x:f(x)<t\}
+=
+\bigcup_{m=1}^{\infty}
+\left\{
+x:f(x)\le t-\frac1m
+\right\}
+$$
+
+なので、右辺は可測集合の可算和として可測です。従って $j=0,\ldots,N-2$ では
+
+$$
+A_j
+=
+\{f<t_{j+1}\}\setminus\{f<t_j\}
+$$
+
+が可測です。最後の集合も
+
+$$
+A_{N-1}
+=
+\{f\le t_N\}\setminus\{f<t_{N-1}\}
+$$
+
+と書けるので可測です。これらは互いに素で、$|f|\le M$ から全体で $X$ を覆います。したがって $(A_j)_{j=0}^{N-1}$ は $X$ の有限可測分割です。
 
 そこで
 
@@ -94,19 +121,101 @@ $$
 s(x)=\sum_{j=0}^{N-1}t_j1_{A_j}(x)
 $$
 
-と定めます。$s$ は有限値可測単関数です。$x\in A_j$ なら
+と定めます。$s$ は有限値可測単関数です。$j=0,\ldots,N-2$ で $x\in A_j$ なら
 
 $$
-0\le f(x)-s(x)\le t_{j+1}-t_j=\frac{2M}{N}<\varepsilon,
+t_j\le f(x)<t_{j+1},
+\qquad
+s(x)=t_j,
 $$
 
-最後の区間でも同じ評価が成り立ちます。従って
+なので
+
+$$
+0\le f(x)-s(x)<t_{j+1}-t_j=\frac{2M}{N}<\varepsilon.
+$$
+
+最後の集合 $A_{N-1}$ では
+
+$$
+t_{N-1}\le f(x)\le t_N,
+\qquad
+s(x)=t_{N-1},
+$$
+
+だから
+
+$$
+0\le f(x)-s(x)
+\le
+t_N-t_{N-1}
+=
+\frac{2M}{N}
+<
+\varepsilon.
+$$
+
+従って全ての $x\in X$ で $|f(x)-s(x)|<\varepsilon$ となり、
 
 $$
 \sup_{x\in X}|f(x)-s(x)|<\varepsilon.
 $$
 
-$\varepsilon=2^{-n}$ として各 $n$ で $s_n$ を選べば $\|f-s_n\|_\infty\to0$ です。$\square$
+列を具体的に作るには、各 $n\ge1$ について
+
+$$
+N_n
+=
+\left\lfloor 2^{n+1}M\right\rfloor+1,
+\qquad
+t_{n,j}
+=
+-M+\frac{2Mj}{N_n}
+\quad(j=0,\ldots,N_n)
+$$
+
+と置きます。すると
+
+$$
+\frac{2M}{N_n}<2^{-n}.
+$$
+
+さらに
+
+$$
+A_{n,j}
+=
+\{x:t_{n,j}\le f(x)<t_{n,j+1}\}
+\quad(j=0,\ldots,N_n-2),
+$$
+
+$$
+A_{n,N_n-1}
+=
+\{x:t_{n,N_n-1}\le f(x)\le t_{n,N_n}\}
+$$
+
+とし、
+
+$$
+s_n(x)
+=
+\sum_{j=0}^{N_n-1}
+t_{n,j}1_{A_{n,j}}(x)
+$$
+
+と定めます。先ほど確認した可測性と誤差評価を $N=N_n$ に代入すると
+
+$$
+\|f-s_n\|_\infty
+<
+\frac{2M}{N_n}
+<
+2^{-n}
+\to0.
+$$
+
+これで一様近似列まで具体的に構成できました。$\square$
 <!-- proof-end -->
 
 ### 何が D2A の単調近似と違うか
@@ -139,6 +248,18 @@ $$
 
 となる。
 <!-- formal-statement-end -->
+
+### 証明の見取り図
+
+外測度の定義では、$A$ を「ほぼ最小コスト」の開区間列で外側から覆えます。その区間を全部合わせた開集合を $G$ とすると
+
+$$
+A\subset G,
+\qquad
+\lambda(G)\lesssim\lambda(A)
+$$
+
+となります。最後に $G=A\sqcup(G\setminus A)$ と分解し、$\lambda(A)<\infty$ を使って差を取ると、余分な部分 $G\setminus A$ の測度が小さいことが分かります。
 
 <!-- proof-start -->
 ### 証明
@@ -290,11 +411,11 @@ $$
 となるコンパクト $K_j\subset A_j$ を取ります。有限和を取れば結論です。$\square$
 <!-- proof-end -->
 
-この系は Lusin の証明で、有限値単関数の各レベル集合を「ほとんど失わずコンパクト集合へ縮める」ために使います。
+この系は Lusin の証明で、有限値単関数が各値を取る可測集合を「ほとんど失わずコンパクト集合へ縮める」ために使います。
 
 ---
 
-## 4. 例：巨大で形の悪い可測集合でも内側から compact にできる
+## 4. 例：巨大で形の悪い可測集合でも内側からコンパクト集合で近似できる
 
 $A=[0,1]\setminus\mathbb Q$ とします。$A$ は開でも閉でもありませんが、
 
@@ -302,7 +423,7 @@ $$
 \lambda(A)=1.
 $$
 
-内正則性により任意の $\varepsilon>0$ に対して compact $K\subset A$ で
+内正則性により任意の $\varepsilon>0$ に対してコンパクト集合 $K\subset A$ で
 
 $$
 \lambda(K)>1-\varepsilon
@@ -431,7 +552,7 @@ $$
 内正則性の証明で、なぜ最初から $A^c$ に外正則性を適用しなかったのでしょうか。
 
 <!-- solution-start -->
-**解答**：$A$ が有限測度でも $A^c$ は無限測度かもしれず、この章で証明した外正則性は有限測度集合に対する形だからです。先に $A$ の大部分を有限区間 $H=[-R,R]$ に閉じ込めると、$C=H\setminus A_R$ は自動的に有限測度になります。そこで初めて外正則性を適用し、$H$ の中で補集合を取ることで compact 集合を得ています。
+**解答**：$A$ が有限測度でも $A^c$ は無限測度かもしれず、この章で証明した外正則性は有限測度集合に対する形だからです。先に $A$ の大部分を有限区間 $H=[-R,R]$ に閉じ込めると、$C=H\setminus A_R$ は自動的に有限測度になります。そこで初めて外正則性を適用し、$H$ の中で補集合を取ることでコンパクト集合を得ています。
 <!-- solution-end -->
 
 <a id="ex-mt0-b02"></a>
@@ -441,13 +562,13 @@ $$
 $A\subset\mathbb R$ が Lebesgue 可測で $\lambda(A)<\infty$ とします。内正則性から
 
 $$
-\lambda(A)=\sup\{\lambda(K):K\subset A,\ K\text{ compact}\}
+\lambda(A)=\sup\{\lambda(K):K\subset A,\ K\text{ はコンパクト}\}
 $$
 
 を示してください。
 
 <!-- solution-start -->
-**解答**：$K\subset A$ なら[測度の単調性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#prop-f0-00d2-02)から $\lambda(K)\le\lambda(A)$ なので、右辺は高々 $\lambda(A)$ です。一方、任意の $\varepsilon>0$ に対して内正則性より compact $K\subset A$ で
+**解答**：$K\subset A$ なら[測度の単調性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#prop-f0-00d2-02)から $\lambda(K)\le\lambda(A)$ なので、右辺は高々 $\lambda(A)$ です。一方、任意の $\varepsilon>0$ に対して内正則性よりコンパクト集合 $K\subset A$ で
 
 $$
 \lambda(A\setminus K)<\varepsilon
@@ -459,14 +580,14 @@ $$
 \lambda(K)=\lambda(A)-\lambda(A\setminus K)>\lambda(A)-\varepsilon.
 $$
 
-従って compact 部分集合の測度は $\lambda(A)$ に下から任意に近づけるので、上限は $\lambda(A)$ です。
+従ってコンパクト部分集合の測度は $\lambda(A)$ に下から任意に近づけるので、上限は $\lambda(A)$ です。
 <!-- solution-end -->
 
 <a id="ex-mt0-b03"></a>
-#### MT0-B03 互いに素な compact 集合は有限族なら正の距離で分離できる
+#### MT0-B03 互いに素なコンパクト集合は有限族なら正の距離で分離できる
 - Level: B
 
-$K_1,\ldots,K_m\subset\mathbb R$ を互いに素な非空 compact 集合とします。各 $i\ne j$ について
+$K_1,\ldots,K_m\subset\mathbb R$ を互いに素な非空コンパクト集合とします。各 $i\ne j$ について
 
 $$
 \operatorname{dist}(K_i,K_j)>0
@@ -475,7 +596,7 @@ $$
 を示し、有限族全体に共通する正の分離幅が取れることを示してください。
 
 <!-- solution-start -->
-**解答**：固定した $i\ne j$ について、連続関数 $d(x,y)=|x-y|$ は compact 集合 $K_i\times K_j$ 上で最小値を取ります。もし最小値が0なら、ある $(x,y)\in K_i\times K_j$ で $|x-y|=0$、すなわち $x=y$ となり $K_i\cap K_j\ne\varnothing$ に矛盾します。従って
+**解答**：固定した $i\ne j$ について、連続関数 $d(x,y)=|x-y|$ はコンパクト集合 $K_i\times K_j$ 上で最小値を取ります。もし最小値が0なら、ある $(x,y)\in K_i\times K_j$ で $|x-y|=0$、すなわち $x=y$ となり $K_i\cap K_j\ne\varnothing$ に矛盾します。従って
 
 $$
 d_{ij}:=\operatorname{dist}(K_i,K_j)>0.
@@ -487,7 +608,7 @@ $$
 d_*:=\min_{i<j}d_{ij}>0.
 $$
 
-この有限性が、有限値単関数を各 compact レベル集合上で連続にする際の分離機構です。
+この有限性が、有限値単関数を各コンパクト部分集合上で連続にする際の分離機構です。
 <!-- solution-end -->
 
 ### Level C
@@ -502,7 +623,7 @@ $$
 s=\sum_{j=1}^m a_j1_{A_j}
 $$
 
-を $F$ 上の有限値可測単関数とします。$A_1,\ldots,A_m$ は互いに素で $F$ を分割するとします。任意の $\delta>0$ に対し compact $K\subset F$ を
+を $F$ 上の有限値可測単関数とします。$A_1,\ldots,A_m$ は互いに素で $F$ を分割するとします。任意の $\delta>0$ に対しコンパクト集合 $K\subset F$ を
 
 $$
 \lambda(F\setminus K)<\delta
@@ -511,13 +632,13 @@ $$
 かつ $s|_K$ が連続となるように構成してください。
 
 <!-- solution-start -->
-**解答**：有限分割のコンパクト近似を使い、各 $A_j$ の compact 部分集合 $K_j\subset A_j$ を
+**解答**：有限分割のコンパクト近似を使い、各 $A_j$ のコンパクト部分集合 $K_j\subset A_j$ を
 
 $$
 \sum_{j=1}^m\lambda(A_j\setminus K_j)<\delta
 $$
 
-となるように取ります。$K=\bigcup_{j=1}^mK_j$ は有限個の compact 集合の和なので compact で、
+となるように取ります。$K=\bigcup_{j=1}^mK_j$ は有限個のコンパクト集合の和なのでコンパクト で、
 
 $$
 F\setminus K=\bigsqcup_{j=1}^m(A_j\setminus K_j)
@@ -551,6 +672,6 @@ $$
 Lusin で使う依存はこの章の二本だけです。
 
 1. 有界可測関数 $\Rightarrow$ 有限値単関数による一様近似。
-2. 有限測度 Lebesgue 可測集合 $\Rightarrow$ 内側から compact 集合で任意精度に近似。
+2. 有限測度 Lebesgue 可測集合 $\Rightarrow$ 内側からコンパクト集合で任意精度に近似。
 
 これらを暗黙の「よく知られた事実」として使わず、ここを正本として参照します。
