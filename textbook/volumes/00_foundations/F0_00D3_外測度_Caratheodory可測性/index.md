@@ -638,7 +638,7 @@ $$
 
 Step 3 で得た有限段階の式を、ここではテスト集合 $T=E$ に適用します。すると
 
-$
+$$
 \mu^*(E)
 =
 \sum_{k=1}^n\mu^*(E\cap E_k)
@@ -646,23 +646,23 @@ $
 \mu^*(E\setminus F_n),
 \qquad
 F_n=\bigcup_{k=1}^nE_k.
-$
+$$
 
 各 $E_k\subset E$ なので $E\cap E_k=E_k$ で、最後の項は非負です。従って
 
-$
+$$
 \mu^*(E)
 \ge
 \sum_{k=1}^n\mu^*(E_k)
-$
+$$
 
 が全ての $n$ で成り立ちます。右辺の有限和を $n\to\infty$ とすれば
 
-$
+$$
 \mu^*(E)
 \ge
 \sum_{k=1}^\infty\mu^*(E_k).
-$
+$$
 
 逆向きは外測度の可算劣加法性です。従って
 
@@ -894,9 +894,9 @@ $T\cap E^c=T\setminus E$、$T\setminus E^c=T\cap E$ なので、$E$ の Carathé
 
 可算集合
 
-$
+$$
 A=\{x_1,x_2,\ldots\}\subset\mathbb R
-$
+$$
 
 に対して $\lambda^*(A)=0$ を示せ。
 
@@ -905,19 +905,19 @@ $
 
 任意の $\varepsilon>0$ を固定します。各点 $x_n$ を中心とする長さ
 
-$
+$$
 \frac{\varepsilon}{2^n}
-$
+$$
 
 の開区間 $I_n$ を取ります。すると $x_n\in I_n$ なので
 
-$
+$$
 A\subset\bigcup_{n=1}^{\infty}I_n.
-$
+$$
 
 Lebesgue 外測度の定義から
 
-$
+$$
 0\le\lambda^*(A)
 \le
 \sum_{n=1}^{\infty}|I_n|
@@ -925,7 +925,7 @@ $
 \sum_{n=1}^{\infty}\frac{\varepsilon}{2^n}
 =
 \varepsilon.
-$
+$$
 
 $\varepsilon>0$ は任意なので $\lambda^*(A)=0$ です。
 <!-- solution-end -->
@@ -1101,12 +1101,12 @@ $A\subset N$、$\mu(N)=0$ なら単調性より $\mu^*(A)=0$。外測度0集合�
 
 Carathéodory 可測集合全体を $\mathcal M$ とする。任意の列 $A_1,A_2,\ldots\in\mathcal M$ に対して
 
-$
+$$
 E_1=A_1,
 \qquad
 E_n=A_n\setminus\bigcup_{k<n}A_k
 \quad(n\ge2)
-$
+$$
 
 と置く。
 
@@ -1120,46 +1120,46 @@ $
 
 1. 固定した $n\ge2$ について
 
-$
+$$
 F_{n-1}:=\bigcup_{k<n}A_k
-$
+$$
 
 と置きます。これは有限個の可測集合の和なので $F_{n-1}\in\mathcal M$ です。補集合閉性と有限共通部分閉性から
 
-$
+$$
 E_n=A_n\cap F_{n-1}^c\in\mathcal M.
-$
+$$
 
 $E_1=A_1$ も可測です。
 
 2. $m<n$ とします。$E_m\subset A_m$ です。一方、$E_n$ は $A_1,\ldots,A_{n-1}$ を全て除いた部分なので、特に $E_n\subset A_m^c$ です。従って
 
-$
+$$
 E_m\cap E_n=\varnothing.
-$
+$$
 
 3. 各 $E_n\subset A_n$ なので $\bigcup_nE_n\subset\bigcup_nA_n$ です。逆に $x\in\bigcup_nA_n$ を取ります。$x\in A_n$ となる自然数のうち最小のものを $m$ とすると、$x$ は $A_1,\ldots,A_{m-1}$ に入らないので
 
-$
+$$
 x\in
 A_m\setminus\bigcup_{k<m}A_k
 =
 E_m.
-$
+$$
 
 従って
 
-$
+$$
 \bigcup_nA_n
 =
 \bigsqcup_nE_n.
-$
+$$
 
 4. 各 $E_n$ は可測で互いに素なので、本文 Step 3 により $\bigsqcup_nE_n$ は可測です。3 の等式から
 
-$
+$$
 \bigcup_nA_n\in\mathcal M.
-$
+$$
 
 これで一般の可算和閉性が、有限和・補集合・互いに素な可算和から再構成できました。
 <!-- solution-end -->
