@@ -611,7 +611,15 @@ $$
 \frac{dN}{ds}=-\kappa T+\tau B
 $$
 
-と $d/dt=v,d/ds$ を使うと
+と
+
+$$
+\frac{d}{dt}
+=
+v\frac{d}{ds}
+$$
+
+を使うと
 
 $$
 \begin{aligned}
