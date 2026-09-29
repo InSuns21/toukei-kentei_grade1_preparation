@@ -995,7 +995,43 @@ $$
 <!-- proof-start -->
 ### 証明
 
-一変数の [Taylor の定理](../RA3/index.md#thm-ra3-taylor)より、ある $\theta\in(0,1)$ が存在して
+上で定めた一変数関数 $\phi(t)=f(a+th)$ に [Taylor の定理](../RA3/index.md#thm-ra3-taylor)を適用します。展開点を $t=0$、評価点を $t=1$、次数を $n=1$ とすると、ある $\theta\in(0,1)$ が存在して
+
+$$
+\phi(1)
+=
+\phi(0)
++
+\phi'(0)
++
+\frac12\phi''(\theta)
+$$
+
+となります。
+
+それぞれの項は、先ほどの計算から
+
+$$
+\phi(0)=f(a),
+\qquad
+\phi(1)=f(a+h),
+$$
+
+$$
+\phi'(0)
+=
+\nabla f(a)^{\mathsf T}h,
+$$
+
+さらに
+
+$$
+\phi''(\theta)
+=
+h^{\mathsf T}H_f(a+\theta h)h
+$$
+
+です。これらを一変数 Taylor の式へ代入すると
 
 $$
 f(a+h)
