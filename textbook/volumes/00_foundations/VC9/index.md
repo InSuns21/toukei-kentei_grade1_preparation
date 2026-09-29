@@ -1709,11 +1709,37 @@ L(B_2-B_1)\cdot\tau
 \mu_0L\,K\cdot(n\times\tau)
 $$
 
-となります。任意の接線 $\tau$ について整理すると
+となります。ここでスカラー三重積を入れ替えると
 
-$$
-n\times(B_2-B_1)=\mu_0K.
-$$
+$
+K\cdot(n\times\tau)
+=
+(K\times n)\cdot\tau.
+$
+
+従って任意の接線 $\tau$ に対して
+
+$
+\left[
+(B_2-B_1)-\mu_0(K\times n)
+\right]\cdot\tau
+=
+0.
+$
+
+これは $B_2-B_1$ の接線成分が $\mu_0(K\times n)$ であることを意味します。両辺へ左から $n\times$ を作用させると、法線成分は消え、$K\cdot n=0$ なのでベクトル三重積から
+
+$
+\begin{aligned}
+n\times(B_2-B_1)
+&=
+\mu_0 n\times(K\times n)\\
+&=
+\mu_0\{K(n\cdot n)-n(n\cdot K)\}\\
+&=
+\mu_0K.
+\end{aligned}
+$
 <!-- proof-end -->
 
 ここでは真空中の $E,B$ を使いました。誘電体・磁性体で $D,H$ を導入する構成則、分極・磁化、分布としての表面源は電磁気学側の後続内容です。
