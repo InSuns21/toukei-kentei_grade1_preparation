@@ -852,37 +852,55 @@ $$
 - Level: B
 - 目安時間: 15分
 
-連続関数 $f:\mathbb R\to\mathbb R$ がBorel可測であることを、「開集合の逆像が開」と「逆像が集合演算と可換」を使って示せ。
+連続関数 $f:\mathbb R\to\mathbb R$ がBorel可測であることを、この章の定義
+
+$$
+\{x:f(x)\le a\}\in\mathcal B(\mathbb R)
+\qquad(a\in\mathbb R)
+$$
+
+から直接示せ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-本文の定理と同様に
+任意の $a\in\mathbb R$ を固定します。可測性の定義で調べる集合は
 
 $$
-\mathcal C
+\{x:f(x)\le a\}
 =
-\{B\subset\mathbb R:f^{-1}(B)\in\mathcal B(\mathbb R)\}
+f^{-1}(( -\infty,a])
 $$
 
-と置く。逆像は補集合・可算和と可換なので $\mathcal C$ はσ代数。連続性から任意の開集合 $G$ について $f^{-1}(G)$ は開集合、したがってBorel集合である。よって $\mathcal C$ は全開集合を含み、
+です。
+
+出力側の集合 $(-\infty,a]$ は閉集合です。$f$ は連続なので、閉集合の逆像は閉集合です。従って
 
 $$
-\mathcal B(\mathbb R)\subset\mathcal C.
+f^{-1}(( -\infty,a])
 $$
 
-したがって $f$ はBorel可測。
+は $\mathbb R$ の閉集合であり、特にBorel集合です。
+
+$a$ は任意だったので
+
+$$
+\{x:f(x)\le a\}\in\mathcal B(\mathbb R)
+$$
+
+が全ての $a$ で成り立ち、$f$ はBorel可測です。
 
 ### 本番答案
 
-$\mathcal C=\{B:f^{-1}(B)\in\mathcal B(\mathbb R)\}$ は逆像の性質からσ代数。連続性より開集合 $G$ の逆像は開なので $G\in\mathcal C$。よって開集合が生成する $\mathcal B(\mathbb R)\subset\mathcal C$ であり、$f$ はBorel可測。
+任意の $a\in\mathbb R$ に対し $(-\infty,a]$ は閉集合であり、連続性から $f^{-1}(( -\infty,a])=\{x:f(x)\le a\}$ も閉集合、従ってBorel集合である。よって $f$ はBorel可測。
 
 ### 採点基準（20点）
 
-- $\mathcal C$ の定義: 4点
-- σ代数確認: 6点
-- 開集合を含む: 6点
-- 生成σ代数から結論: 4点
+- 任意の $a$ を固定: 3点
+- しきい値集合を逆像で表示: 5点
+- $(-\infty,a]$ が閉集合: 3点
+- 連続性から逆像が閉集合: 5点
+- 可測性の定義へ戻して結論: 4点
 <!-- solution-end -->
 
 ## F0-00D2-C01 粗いσ代数で可測関数を特徴づける
