@@ -1,6 +1,6 @@
-# CA11 標準複素解析 XI：特殊関数・反射恒等式・階乗の漸近
+# CA11 標準複素解析 XI：Gamma 関数・反射公式・Stirling 公式
 
-> **複素解析 II の特殊関数編 I**。CA10 では零点・極のデータから関数を構成した。本章では、その構成論が一つの古典的特殊関数にどう現れるかを見る。Euler 型積分から始め、関数等式で有理型解析接続し、その逆数の無限積を導く。そこから CA10 の正弦関数の Euler 積と比較して反射恒等式を証明し、最後に Wallis 積まで戻って階乗型の漸近定数 sqrt(2pi) を決定する。
+> **複素解析 II の特殊関数編 I**。CA10 では零点・極のデータから関数を構成した。本章では、その構成論が一つの古典的特殊関数にどう現れるかを見る。Euler 型積分から始め、関数等式で有理型解析接続し、その逆数の無限積を導く。そこから CA10 の正弦関数の Euler 積と比較して反射公式を証明し、最後に Wallis 積まで戻って階乗型の漸近定数 $\sqrt{2\pi}$ を決定する。
 
 <!-- definition-example-audit: strict -->
 
@@ -21,7 +21,7 @@ Euler 積分
   ↓ CA10 の基本因子
 逆数の Weierstrass 積
   ↓ CA10 の sin(pi z) の Euler 積
-反射恒等式
+反射公式
   ↓
 半整数値・特殊値
   ↓ Wallis 積
@@ -30,11 +30,13 @@ Euler 積分
 倍角恒等式
 ~~~
 
-Bohr--Mollerup の特徴付け、高次の漸近展開、Barnes G 関数やその多重版は本章の停止線より先に置く。
+本章では Gamma 関数の構成・解析接続・積表示・反射公式・正の実軸上の Stirling 公式までを一続きに扱う。Bohr--Mollerup の特徴付け、高次の漸近展開、Barnes G 関数やその多重版には追加の道具が必要になるため、後続の話題とする。
 
 ---
 
 ## 1. Euler 型積分から特殊関数を作る
+
+階乗 $n!$ は整数 $n$ にしかそのまま定義されていない。しかし後で複素変数を含む恒等式へ組み込みたいなら、整数値を保ちながら複素変数へ拡張した関数が欲しい。積 $1\cdot2\cdots n$ を直接複素数個だけ掛けることはできないので、まず「変数を指数に入れた積分」へ置き換える。指数関数 $e^{-t}$ が無限遠で減衰し、$t^{z-1}$ が階乗の漸化式を部分積分から生むことが、次の定義を選ぶ理由である。
 
 <a id="def-ca11-gamma-function"></a>
 <!-- formal-statement-start -->
@@ -136,7 +138,20 @@ $$
 
 は $\varepsilon\downarrow0$, $R\uparrow\infty$ のとき $K$ 上一様に $\Gamma(z)$ へ収束する。
 
-固定した $0<\varepsilon<R<\infty$ では 被積分関数 は $z$ の整関数であり、有限区間上の積分は Riemann 和の一様極限として正則である。よって $\Gamma_{\varepsilon,R}$ は正則である。
+固定した $0<\varepsilon<R<\infty$ では、被積分関数
+
+$$
+(z,t)\longmapsto t^{z-1}e^{-t}
+$$
+
+は $K\times[\varepsilon,R]$ 上連続であり、$z$ について整関数である。コンパクト集合上の連続性から一様連続なので、区間分割の幅を0へ送ると Riemann 和
+
+$$
+\sum_j
+t_j^{z-1}e^{-t_j}\,\Delta t_j
+$$
+
+は $z\in K$ について一様に $\Gamma_{\varepsilon,R}(z)$ へ収束する。各 Riemann 和は $z$ の整関数だから、[正則関数列の局所一様極限](../CA7/index.md#thm-ca7-holomorphic-locally-uniform-limit)により $\Gamma_{\varepsilon,R}$ は $K$ の内部で正則である。
 
 したがって [正則関数列の局所一様極限](../CA7/index.md#thm-ca7-holomorphic-locally-uniform-limit)により $\Gamma$ は $H$ 上正則である。$\square$
 <!-- proof-end -->
@@ -433,15 +448,46 @@ $$
 e^{-u}.
 $$
 
-従って $0<u\le1$ では絶対値は $u^{\delta-1}$ 以下、$u\ge1$ では $u^{M-1}e^{-u}$ 以下である。両者は可積分だから、有限区間上の一様収束と両端の一様な tail 評価を組み合わせれば、$K$ 上一様に
+従って $0<u\le1$ では絶対値は $u^{\delta-1}$ 以下、$u\ge1$ では $u^{M-1}e^{-u}$ 以下である。ここから一様収束を三つの区間に分けて確認する。
+
+任意の $\varepsilon>0$ に対し、まず $0<\eta<1<A$ を選び、
+
+$$
+\int_0^\eta u^{\delta-1}\,du<\varepsilon,
+\qquad
+\int_A^\infty u^{M-1}e^{-u}\,du<\varepsilon
+$$
+
+とする。この二つの評価は $z\in K$ と $n$ に依らない。
+
+中間区間 $[\eta,A]$ では、$n>A$ とすれば
+
+$$
+\left(1-\frac un\right)^n\to e^{-u}
+$$
+
+が $u\in[\eta,A]$ 上一様に成り立つ。また $u^{z-1}$ は $(z,u)\in K\times[\eta,A]$ 上一様有界だから、
+
+$$
+u^{z-1}
+\left(1-\frac un\right)^n
+\to
+u^{z-1}e^{-u}
+$$
+
+は $(z,u)$ について一様である。従って中間区間の積分差も $K$ 上一様に0へ行く。
+
+小区間・中間区間・尾部を合わせると、
 
 $$
 n^zB_n(z)
 \to
 \int_0^\infty u^{z-1}e^{-u}\,du
 =
-\Gamma(z).
+\Gamma(z)
 $$
+
+が $z\in K$ について一様に成り立つ。
 
 $B_n$ の式を代入すれば主張を得る。$\square$
 <!-- proof-end -->
@@ -879,7 +925,34 @@ I_{2n}I_{2n+1}
 \frac{\pi}{2(2n+1)}.
 $$
 
-従って
+ここで
+
+$$
+r_n=\frac{I_{2n+1}}{I_{2n}}
+\to1
+$$
+
+と置くと
+
+$$
+I_{2n}^2 r_n
+=
+I_{2n}I_{2n+1}
+=
+\frac{\pi}{2(2n+1)}.
+$$
+
+したがって
+
+$$
+I_{2n}^2
+=
+\frac{\pi}{2(2n+1)r_n}
+\sim
+\frac{\pi}{4n}.
+$$
+
+$I_{2n}>0$ なので正の平方根を取り、
 
 $$
 I_{2n}
@@ -1069,7 +1142,7 @@ $$
 
 とし、$\log z$ にはこの扇形領域上で主値に一致する正則な対数分枝を使う。
 
-本章で核心証明したのは正の実軸上の形である。扇形領域版の完全証明には Binet 表示または Euler--Maclaurin 展開を追加で準備する必要があるため、適用範囲だけを明示し、高次漸近展開とともに停止線の先へ送る。
+本章で核心証明したのは正の実軸上の形である。扇形領域版を証明するには Binet 表示や Euler--Maclaurin 展開など、ここまでに導入していない道具が必要になる。そのため本章では、後で参照できるよう適用範囲だけを明示し、証明は扱わない。
 
 ---
 
@@ -1111,31 +1184,72 @@ $$
 
 と置く。右半平面では Gamma 関数に極も零点もないので $R$ は正則である。
 
-関数等式を用いると
+関数等式を用いると周期1が現れる。実際、
 
 $$
-R(z+1)
-=
-R(z).
-$$
-
-実際、分子に増える因子は
-
-$$
-z\left(z+\frac12\right),
-$$
-
-分母に増える因子は
-
-$$
-\frac14(2z)(2z+1)
-=
+\begin{aligned}
+\frac{R(z+1)}{R(z)}
+&=
+\frac{\Gamma(z+1)}{\Gamma(z)}
+\frac{\Gamma(z+3/2)}{\Gamma(z+1/2)}
+\frac{2^{1-2z}}{2^{1-2(z+1)}}
+\frac{\Gamma(2z)}{\Gamma(2z+2)}\\
+&=
 z\left(z+\frac12\right)
+\cdot4\cdot
+\frac1{(2z)(2z+1)}\\
+&=1.
+\end{aligned}
 $$
 
-で完全に相殺する。
+従って
 
-正の実数 $x\to+\infty$ では [Stirling 公式](#thm-ca11-stirling)を三つの Gamma 因子へ適用すると
+$$
+R(z+1)=R(z).
+$$
+
+次に正の実数 $x\to+\infty$ で [Stirling 公式](#thm-ca11-stirling)を三つの Gamma 因子へ適用する。分子は
+
+$$
+\Gamma(x)\Gamma(x+1/2)
+\sim
+2\pi,
+x^{x-1/2}
+\left(x+\frac12\right)^x
+e^{-2x-1/2}.
+$$
+
+分母は
+
+$$
+\begin{aligned}
+2^{1-2x}\sqrt\pi\,\Gamma(2x)
+&\sim
+2^{1-2x}\sqrt\pi\,
+\sqrt{2\pi},
+(2x)^{2x-1/2}e^{-2x}\\
+&=
+2\pi\,
+x^{2x-1/2}e^{-2x}.
+\end{aligned}
+$$
+
+したがって
+
+$$
+R(x)
+\sim
+\left(1+\frac1{2x}\right)^x e^{-1/2}.
+$$
+
+対数を取れば
+
+$$
+x\log\left(1+\frac1{2x}\right)-\frac12
+\longrightarrow0,
+$$
+
+よって
 
 $$
 R(x)\to1.
@@ -1412,7 +1526,7 @@ $$
 $\square$
 <!-- proof-end -->
 
-この証明は二重積分を使わず、Beta 関数の漸化式・1変数の極限評価・本章で証明した Euler の極限公式だけで閉じている。したがって CA11 の直接 prerequisite `CA10, CA7` を増やさない。
+この証明は二重積分へ持ち上げず、Beta 関数の漸化式・一変数の極限評価・本章で証明した Euler の極限公式だけで閉じている。新しい多変数積分の理論を必要としない点が、この証明経路の利点である。
 
 **直接例**。$z=w=1/2$ とすると
 
@@ -2272,7 +2386,7 @@ CA11 を終えた段階で、次を自力で再構成できることを目標と
 3. [Euler の極限公式](#thm-ca11-euler-limit)から逆 Gamma 関数の Weierstrass 積を導く。
 4. Gamma 関数が零点を持たないことを積表示から読む。
 5. CA10 の正弦関数の Euler 積と比較して反射公式を証明する。
-6. Wallis 積で Stirling 公式の定数 sqrt(2pi) まで決定する。
+6. Wallis 積で Stirling 公式の定数 $\sqrt{2\pi}$ まで決定する。
 7. Stirling と周期性から Legendre の倍角公式を証明する。
 8. Beta--Gamma 関係式を漸化式と [Euler の極限公式](#thm-ca11-euler-limit)から導く。
 
