@@ -53,7 +53,7 @@
         "textbook/volumes/00_foundations/RA4/index.md",
         "textbook/volumes/00_foundations/RA4A/index.md",
         "textbook/volumes/00_foundations/RA5/index.md",
-        "textbook/volumes/00_foundations/F0_02C3_Frechet微分_線形作用素_随伴/index.md",
+        "textbook/volumes/00_foundations/RA6/index.md",
         "textbook/volumes/00_foundations/RA6A/index.md",
         "textbook/volumes/00_foundations/RA7/index.md",
         "textbook/volumes/00_foundations/RA8/index.md"
@@ -147,6 +147,7 @@
         "textbook/volumes/00_foundations/F0_02C1_ノルム空間_Banach_Hilbert/index.md",
         "textbook/volumes/00_foundations/F0_02C1A_Hilbert射影定理_直交分解/index.md",
         "textbook/volumes/00_foundations/F0_02C2_線形汎関数_双対空間_Riesz/index.md",
+        "textbook/volumes/00_foundations/F0_02C3_Frechet微分_線形作用素_随伴/index.md",
         "textbook/volumes/00_foundations/F0_02C3A_随伴作用素_Banach_Hilbert/index.md",
         "textbook/volumes/00_foundations/F0_02C3B_Frechet_chain_adjoint_proofs/index.md",
         "textbook/volumes/00_foundations/FA1/index.md",

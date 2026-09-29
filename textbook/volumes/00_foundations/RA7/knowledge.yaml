@@ -3,7 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - RA4
-  - F0-02C3
+  - RA6
   - LA3C
 
 concepts:
@@ -67,7 +67,7 @@ concepts:
     aliases: [C1写像の局所体積倍率, 局所体積倍率補題]
     requires:
       - analysis.linear-volume-scaling
-      - functional.frechet-derivative
+      - analysis.multivariable-differentiability
       - linear.determinant-invertibility-criterion
 
   - id: analysis.multivariable-riemann-change-of-variables
@@ -77,7 +77,7 @@ concepts:
     requires:
       - analysis.jordan-domain-riemann-integral
       - analysis.local-volume-scaling
-      - functional.frechet-derivative
+      - analysis.multivariable-differentiability
       - linear.matrix-determinant
 
   - id: analysis.polar-spherical-riemann-change-of-variables

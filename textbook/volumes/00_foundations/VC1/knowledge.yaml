@@ -11,6 +11,7 @@ forward_references:
   - vector-calculus.flux-integral
   - vector-calculus.gauss-divergence
   - complex-analysis.harmonic-function
+  - vector-calculus.vorticity
 
 concepts:
   - id: vector-calculus.scalar-vector-field
@@ -19,7 +20,7 @@ concepts:
     aliases: [scalar field, vector field, スカラー場, ベクトル場]
     introduction: inline
     requires:
-      - functional.frechet-derivative
+      - analysis.multivariable-differentiability
 
   - id: vector-calculus.gradient
     name: 勾配
@@ -28,7 +29,8 @@ concepts:
     introduction: inline
     requires:
       - vector-calculus.scalar-vector-field
-      - functional.frechet-derivative
+      - analysis.multivariable-differentiability
+      - analysis.directional-derivative
 
   - id: vector-calculus.level-surface
     name: レベル集合・レベル曲面

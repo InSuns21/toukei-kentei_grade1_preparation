@@ -1,132 +1,258 @@
-# F0-02C3 関数解析III：Fréchet微分・有界線形作用素・連鎖律
+# F0-02C3 関数解析III：Banach空間のFréchet微分・有界線形写像・連鎖律
 
-この講義の主題は「**微分とは、点の近くを一つの線形写像で近似すること**」です。
+[実解析の多変数微分](../RA6/index.md)では、$\mathbb R^n$ 上の微分を「一つの線形写像による一次近似」として学びました。この章では、その考え方を一般のノルム空間へ広げます。
 
-標準数学コア **RA6「多変数微分」** として読む場合は、まず **Section 1〜10** を読めば有限次元の核心が閉じます。ここでは一変数微分の理論（RA3）から、Fréchet微分、偏微分、全微分、Jacobian、連鎖律、高階微分までを構成します。Section 11以降はBanach/Hilbert空間への発展で、双対空間やRiesz表現を使います。
+有限次元では線形写像は自動的に連続でした。無限次元ではそうとは限らないため、一次近似に使う線形写像には **有界性（連続性）** が必要です。ここが実解析の多変数微分から関数解析へ移る本質的な違いです。
 
-```text
-一変数の一次近似
+この章の中心線は
+
+~~~text
+ノルム空間
+  ↓
+連続な線形一次近似・その大きさ
   ↓
 Fréchet微分
   ↓
-偏微分・全微分・Jacobian
+方向ごとの微分との比較
   ↓
-連続偏微分 ⇒ 微分可能
-  ↓
-chain rule
-  ↓
-高階微分・Hessian・多変数Taylor
-```
+合成に対する微分則
+~~~
+
+です。
 
 ---
 
-## 1. 一変数微分を「一次近似」として読み直す
+## 1. 有界線形写像
 
-一変数関数 $f:\mathbb R\to\mathbb R$ が $x$ で微分可能なら
-
-$$
-f(x+h)=f(x)+f'(x)h+o(|h|).
-$$
-
-重要なのは、微分係数 $f'(x)$ そのものより
-
-$$
-\boxed{f(x+h)-f(x)\approx f'(x)h}
-$$
-
-という **線形な一次近似** があることです。
-
-多変数では $h$ はベクトルなので、$f'(x)h$ に相当するものは「ベクトル $h$ を別のベクトルへ送る線形写像」になります。
-
----
-
-## 2. 一次近似に使う線形写像
-
-Fréchet微分の定義では、一次近似を連続な線形写像で表します。そこで必要な概念をここで局所的に準備します。
+$X,Y$ をノルム空間とします。
 
 <a id="def-f0-02c3-bounded-linear-operator"></a>
 
 <!-- formal-statement-start -->
-> **定義（有界線形作用素）**  
-> ノルム空間 $X,Y$ の間の線形写像 $T:X\to Y$ について、ある $M<\infty$ が存在し、すべての $x\in X$ に対して
+> **定義（有界線形写像）**  
+> 線形写像 $T:X\to Y$ に対し、ある $M<\infty$ が存在して
 
 $$
 \|Tx\|_Y\le M\|x\|_X
+\qquad(\forall x\in X)
 $$
 
-> が成り立つとき、$T$ を **有界線形作用素** といいます。
+> が成り立つとき、$T$ を **有界線形写像** という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-f0-02c3-bounded-linear-operator -->
-### 例：行列は有限次元の線形作用素
+### 例：積分で一つの数を返す作用素
 
-**定義の確認**
+**定義の確認**：線形性に加え、定義の不等式を具体的な定数 $M=1$ で確かめます。
 
-$A\in\mathbb R^{m\times n}$ に対し $T(h)=Ah$ と置きます。有限次元ではある定数 $M$ が存在して
+$X=C([0,1])$ に
 
 $$
-\|Ah\|\le M\|h\|
+\|f\|_\infty=\sup_{0\le t\le1}|f(t)|
 $$
 
-となるため、行列が定める線形写像は有界です。したがって有限次元の多変数微分では、一次近似作用素を行列で表せます。
+を入れ、
+
+$$
+T(f)=\int_0^1f(t)\,dt
+$$
+
+とします。$T$ は線形で、
+
+$$
+|T(f)|
+\le
+\int_0^1|f(t)|\,dt
+\le
+\|f\|_\infty
+$$
+
+なので有界です。
 <!-- definition-example-end -->
 
-線形写像について「有界」と「連続」は同値です。有限次元では線形写像は自動的に連続なので、RA6では「一次近似を一つの行列で表す」と読んでも構いません。
+線形写像については、有界性と連続性が同値です。
 
----
-
-## 3. Fréchet微分
-
-$f:X\to Y$ をノルム空間間の写像とします。
-
-<a id="def-f0-02c3-frechet-derivative"></a>
+<a id="thm-f0-02c3-bounded-continuous-equivalence"></a>
 
 <!-- formal-statement-start -->
-> **定義（Fréchet微分）**  
-> $f:X\to Y$ が点 $a$ で **Fréchet微分可能** であるとは、ある有界線形作用素 $A:X\to Y$ が存在して
-
-$$
-\frac{\|f(a+h)-f(a)-Ah\|_Y}{\|h\|_X}\to0
-\qquad(h\to0)
-$$
-
-> となることです。この $A$ を $Df(a)$ と書きます。
+> **定理（線形写像の有界性と連続性）**  
+> ノルム空間 $X,Y$ の間の線形写像 $T:X\to Y$ について、次は同値である。
+>
+> 1. $T$ は有界である。
+> 2. $T$ は $0$ で連続である。
+> 3. $T$ は $X$ の各点で連続である。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-f0-02c3-frechet-derivative -->
-### 例：二次関数のFréchet微分
+### 証明の見取り図
 
-**定義の確認**
-
-$\mathbb R^p$ 上で $f(x)=\frac12\|x\|^2$ とし
+有界なら
 
 $$
-Ah=x^{\mathsf T}h
+\|Tx-Ty\|_Y
+=
+\|T(x-y)\|_Y
+\le
+M\|x-y\|_X
 $$
 
-と置くと
+なので Lipschitz 連続です。逆向きは、$0$ での連続性を線形性で拡大縮小して全空間の評価へ変換します。
+
+<!-- proof-start -->
+### 証明
+
+有界性を仮定すると、
 
 $$
-f(x+h)-f(x)-Ah=\frac12\|h\|^2.
+\|Tx-Ty\|_Y
+=
+\|T(x-y)\|_Y
+\le
+M\|x-y\|_X
+$$
+
+なので $T$ は各点で連続です。各点で連続なら $0$ で連続なのは明らかです。
+
+逆に $T$ が $0$ で連続とします。$\varepsilon=1$ に対し、ある $\delta>0$ が存在して
+
+$$
+\|x\|_X<\delta
+\quad\Longrightarrow\quad
+\|Tx\|_Y<1
+$$
+
+となります。$x\ne0$ に対し
+
+$$
+u=\frac{\delta}{2\|x\|_X}x
+$$
+
+と置けば $\|u\|_X=\delta/2<\delta$ なので $\|Tu\|_Y<1$。線形性から
+
+$$
+\frac{\delta}{2\|x\|_X}\|Tx\|_Y<1,
 $$
 
 従って
 
 $$
-\frac{|f(x+h)-f(x)-Ah|}{\|h\|}
-=\frac12\|h\|\to0.
+\|Tx\|_Y
+<
+\frac{2}{\delta}\|x\|_X.
 $$
 
-よって $Df(x)[h]=x^{\mathsf T}h$ です。
+$x=0$ でも同じ評価が成り立つので $T$ は有界です。$\square$
+<!-- proof-end -->
+
+---
+
+## 2. 作用素ノルム
+
+<a id="def-f0-02c3-operator-norm"></a>
+
+<!-- formal-statement-start -->
+> **定義（作用素ノルム）**  
+> 有界線形写像 $T:X\to Y$ に対し、
+
+$$
+\|T\|
+=
+\sup_{\|x\|_X\le1}\|Tx\|_Y
+$$
+
+> を $T$ の **作用素ノルム** という。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-02c3-operator-norm -->
+### 例：2倍写像
+
+**定義の確認**：単位球 $|x|\le1$ 上で $|Tx|$ の上限を直接計算します。
+
+$T:\mathbb R\to\mathbb R$、$T(x)=2x$ なら、
+
+$$
+\|T\|
+=
+\sup_{|x|\le1}|2x|
+=
+2.
+$$
+<!-- definition-example-end -->
+
+定義から直ちに
+
+$$
+\boxed{
+\|Tx\|_Y\le\|T\|\|x\|_X
+}
+$$
+
+が得られます。また $x\ne0$ として $x/\|x\|_X$ を単位球へ入れれば、
+
+$$
+\|T\|
+=
+\sup_{x\ne0}
+\frac{\|Tx\|_Y}{\|x\|_X}
+$$
+
+とも書けます。
+
+---
+
+## 3. Fréchet微分
+
+$U\subset X$ を開集合、$f:U\to Y$ とします。
+
+<a id="def-f0-02c3-frechet-derivative"></a>
+
+<!-- formal-statement-start -->
+> **定義（Fréchet微分）**  
+> $a\in U$ とする。ある有界線形写像 $A:X\to Y$ が存在して
+
+$$
+\frac{\|f(a+h)-f(a)-Ah\|_Y}{\|h\|_X}
+\to0
+\qquad(h\to0)
+$$
+
+> となるとき、$f$ は $a$ で **Fréchet微分可能** であるという。この $A$ を $Df(a)$ と書く。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-02c3-frechet-derivative -->
+### 例：有界線形写像そのものを微分する
+
+**定義の確認**：一次近似の候補 $A=T$ が有界線形であり、定義に現れる剰余が恒等的に0になることを確かめます。
+
+$T:X\to Y$ を有界線形写像とし、$f(x)=Tx$ とします。任意の $x,h\in X$ について
+
+$$
+f(x+h)-f(x)-Th
+=
+T(x+h)-Tx-Th
+=
+0.
+$$
+
+したがって
+
+$$
+Df(x)=T
+$$
+
+です。線形写像は、自分自身がそのまま一次近似になっています。
 <!-- definition-example-end -->
 
 定義は
 
 $$
-\boxed{f(a+h)=f(a)+Df(a)h+r(h),\qquad r(h)=o(\|h\|)}
+f(a+h)
+=
+f(a)+Df(a)h+r(h),
+\qquad
+\|r(h)\|_Y=o(\|h\|_X)
 $$
 
-と同じです。ここで重要なのは、方向ごとに別の近似を選ぶのではなく、**すべての十分小さい $h$ を一つの線形写像 $Df(a)$ で同時に近似する**ことです。
+と同値です。
 
 <a id="thm-f0-02c3-frechet-uniqueness-continuity"></a>
 
@@ -135,67 +261,91 @@ $$
 > $f$ が $a$ でFréchet微分可能なら、$Df(a)$ は一意であり、$f$ は $a$ で連続である。
 <!-- formal-statement-end -->
 
+### 証明の見取り図
+
+一意性は二つの候補を直線 $h=tv$ 上で比較します。連続性は $Df(a)$ の有界性により線形項を $O(\|h\|)$ で抑えることで従います。
+
 <!-- proof-start -->
 ### 証明
 
-まず $A,B$ がともに一次近似を与えるとします。固定した $v\ne0$ に対し $h=tv$ と置けば
+$A,B$ がともに Fréchet 微分の候補だとします。固定した $v\ne0$ に対し $h=tv$ と置くと、
 
 $$
 (A-B)tv
-=\{f(a+tv)-f(a)-Btv\}-\{f(a+tv)-f(a)-Atv\}.
+=
+\{f(a+tv)-f(a)-Btv\}
+-
+\{f(a+tv)-f(a)-Atv\}.
 $$
 
-両辺のノルムを $|t|\|v\|$ で割って $t\to0$ とすると、右辺は0へ収束します。一方、左辺は
+ノルムを取り $|t|\|v\|$ で割って $t\to0$ とすると、
 
 $$
-\frac{\|(A-B)tv\|}{|t|\|v\|}
-=\frac{\|(A-B)v\|}{\|v\|}
+\frac{\|(A-B)v\|}{\|v\|}=0.
 $$
 
-で $t$ に依らないため、$(A-B)v=0$ です。任意の $v$ で成り立つので $A=B$。
+従って $(A-B)v=0$。任意の $v$ について成り立つため $A=B$ です。
 
 次に
 
 $$
-f(a+h)-f(a)=Df(a)h+r(h)
+f(a+h)-f(a)
+=
+Df(a)h+r(h)
 $$
 
-より
+と書けば、有界性から
 
 $$
-\|f(a+h)-f(a)\|
-\le \|Df(a)\|\,\|h\|+\|r(h)\|.
+\|f(a+h)-f(a)\|_Y
+\le
+\|Df(a)\|\|h\|_X+\|r(h)\|_Y.
 $$
 
-第1項は $h\to0$ で0へ、第2項も $r(h)=o(\|h\|)$ なので0へ収束します。従って $f(a+h)\to f(a)$。$\square$
+右辺は $h\to0$ で0へ収束するので、$f$ は $a$ で連続です。$\square$
 <!-- proof-end -->
 
 ---
 
 ## 4. 方向微分とGâteaux微分
 
+Fréchet 微分は「全方向を一つの線形写像で同時に近似する」条件でした。方向を一つずつ固定して調べるのが方向微分です。
+
 <a id="def-f0-02c3-directional-derivative"></a>
 
 <!-- formal-statement-start -->
 > **定義（方向微分）**  
-> 点 $a$、方向 $v$ に対して極限
+> $a\in U$、$v\in X$ に対し、
 
 $$
-D_vf(a):=\lim_{t\to0}\frac{f(a+tv)-f(a)}{t}
+D_vf(a)
+=
+\lim_{t\to0}
+\frac{f(a+tv)-f(a)}{t}
 $$
 
-> が存在するとき、これを方向 $v$ の **方向微分** といいます。
+> が $Y$ で存在するとき、これを $f$ の $a$ における方向 $v$ の **方向微分** という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-f0-02c3-directional-derivative -->
-### 例：二次関数の方向微分
+### 例：二乗ノルムの方向微分
 
-**定義の確認**
+**定義の確認**：方向 $v$ を固定し、定義の一変数差商の極限を直接計算します。
 
-$f(x)=x^2$、$a=1$、$v=3$ なら
+実 Hilbert 空間 $H$ 上で $f(x)=\|x\|^2$ とすると、
 
 $$
-D_3f(1)=\lim_{t\to0}\frac{(1+3t)^2-1}{t}=6.
+\frac{f(x+tv)-f(x)}{t}
+=
+2\langle x,v\rangle+t\|v\|^2
+\to
+2\langle x,v\rangle.
+$$
+
+従って
+
+$$
+D_vf(x)=2\langle x,v\rangle.
 $$
 <!-- definition-example-end -->
 
@@ -203,242 +353,180 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（Gâteaux微分）**  
-> すべての方向 $v$ について方向微分が存在し、$v\mapsto D_vf(a)$ が線形であるとき、その線形写像を $D_Gf(a)$ と書きます。
+> $f:U\to Y$ について、すべての $v\in X$ で方向微分 $D_vf(a)$ が存在し、写像
+
+$$
+v\longmapsto D_vf(a)
+$$
+
+> が線形であるとき、この線形写像を $f$ の $a$ における **Gâteaux微分** といい、$D_Gf(a)$ と書く。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-f0-02c3-gateaux-derivative -->
-### 例：ノルム二乗のGâteaux微分
+### 例：二乗ノルムのGâteaux微分
 
-**定義の確認**
+**定義の確認**：全方向で方向微分が存在し、その値が方向 $v$ に関して線形になることを確かめます。
 
-$\mathbb R^p$ 上で $f(x)=\|x\|^2$ とすると
+上の Hilbert 空間の例では、
 
 $$
-\frac{f(x+tv)-f(x)}{t}
-=2x^{\mathsf T}v+t\|v\|^2
-\to2x^{\mathsf T}v.
+D_Gf(x)[v]
+=
+2\langle x,v\rangle.
 $$
 
-従って $D_Gf(x)[v]=2x^{\mathsf T}v$ です。
+$v$ に関して線形なので Gâteaux 微分になっています。
 <!-- definition-example-end -->
 
-Fréchet微分可能なら
+Fréchet 微分可能なら、$h=tv$ を代入して
 
 $$
-f(a+tv)-f(a)=tDf(a)v+o(|t|\|v\|)
+f(a+tv)-f(a)
+=
+tDf(a)v+o(|t|\|v\|)
 $$
 
-なので、固定した $v$ について $t$ で割れば
+となるため、
 
 $$
-D_vf(a)=Df(a)v.
+\boxed{
+D_Gf(a)=Df(a)
+}
 $$
 
-従って
+です。
+
+しかし逆は一般に成り立ちません。方向ごとの極限は、方向を変えながら $h\to0$ とする挙動を制御しないからです。
+
+### 例：Gâteaux微分可能だがFréchet微分可能でない
+
+$\mathbb R^2$ 上で
 
 $$
-\boxed{\text{Fréchet微分可能}\Longrightarrow\text{Gâteaux微分可能}}
-$$
-
-です。逆は一般には成り立ちません。方向ごとの収束情報だけでは、方向を変えながら $h\to0$ としたときの誤差を制御できないためです。
-
----
-
-## 5. 偏微分・全微分・Jacobian
-
-ここから有限次元 $f:\mathbb R^n\to\mathbb R^m$ を考えます。$e_j$ を第 $j$ 標準基底ベクトルとします。
-
-$f$ が $a$ でFréchet微分可能なら、Section 4から
-
-$$
-\frac{\partial f}{\partial x_j}(a)
-=D_{e_j}f(a)
-=Df(a)e_j.
-$$
-
-つまり **偏微分は全微分を座標軸方向へ作用させたもの** です。
-
-$Df(a)$ を標準基底で行列表示したものをJacobian行列といい、
-
-$$
-J_f(a)=
-\begin{pmatrix}
-\dfrac{\partial f_1}{\partial x_1}(a)&\cdots&\dfrac{\partial f_1}{\partial x_n}(a)\\
-\vdots&&\vdots\\
-\dfrac{\partial f_m}{\partial x_1}(a)&\cdots&\dfrac{\partial f_m}{\partial x_n}(a)
-\end{pmatrix}.
-$$
-
-従って
-
-$$
-\boxed{Df(a)h=J_f(a)h}.
-$$
-
-実数値関数 $f:\mathbb R^n\to\mathbb R$ なら
-
-$$
-Df(a)h
-=\sum_{j=1}^n\frac{\partial f}{\partial x_j}(a)h_j
-=\nabla f(a)^{\mathsf T}h.
-$$
-
-「全微分 $df$」「Fréchet微分 $Df$」「Jacobian」「勾配」は別々の現象ではなく、同じ一次近似を異なる記法で表したものです。
-
----
-
-## 6. 全偏微分が存在しても微分可能とは限らない
-
-偏微分は座標軸という有限個の方向しか見ません。したがって全偏微分の存在だけでは、全方向を一様に制御するFréchet微分可能性は導けません。
-
-<a id="ex-f0-02c3-partials-not-differentiable"></a>
-
-### 例：原点で全偏微分は存在するが微分可能でない関数
-
-$$
-f(x,y)=
+f(x,y)
+=
 \begin{cases}
-\dfrac{xy}{\sqrt{x^2+y^2}},&(x,y)\ne(0,0),\\
-0,&(x,y)=(0,0).
+\dfrac{x^6y}{x^{12}+y^2},&(x,y)\ne(0,0),\\
+0,&(x,y)=(0,0)
 \end{cases}
 $$
 
-$x$ 軸上・$y$ 軸上では常に $f=0$ なので
+とします。固定した方向 $v=(a,b)$ について $t\to0$ を考えます。
+
+$b\ne0$ なら
 
 $$
-\frac{\partial f}{\partial x}(0,0)
-=\frac{\partial f}{\partial y}(0,0)=0.
+\frac{f(ta,tb)}{t}
+=
+\frac{t^4a^6b}{t^{10}a^{12}+b^2}
+\to0,
 $$
 
-もし原点でFréchet微分可能なら、偏微分から候補となる微分は $Df(0,0)=0$ しかありません。ところが $h=(t,t)$ とすると
+$b=0$ なら最初から0です。従って全方向微分は0で、
 
 $$
-f(t,t)=\frac{t^2}{\sqrt{2t^2}}=\frac{|t|}{\sqrt2},
-\qquad
-\|(t,t)\|=\sqrt2|t|,
+D_Gf(0,0)=0
 $$
 
-従って
+です。
+
+ところが曲線 $y=x^6$ 上では
 
 $$
-\frac{|f(t,t)-f(0,0)-0|}{\|(t,t)\|}=\frac12.
+f(x,x^6)=\frac12
+\qquad(x\ne0).
 $$
 
-比は0へ行かないので、原点ではFréchet微分可能ではありません。
-
-なお
-
-$$
-|xy|\le\frac{x^2+y^2}{2}
-$$
-
-より
-
-$$
-|f(x,y)|\le\frac12\sqrt{x^2+y^2}\to0
-$$
-
-だから、この関数は原点で連続です。従って破綻点は「連続性」ではなく、**一つの線形写像で誤差を $o(\|h\|)$ にできないこと**です。
+原点へ近づいても値が0へ行かないため、$f$ は原点で連続ですらありません。Fréchet 微分可能なら連続であるため、原点では Fréchet 微分可能ではありません。
 
 ---
 
-## 7. 微分可能性を偏微分から判定する
+## 5. Hilbert空間では微分をRiesz表現ベクトルで表せる
 
-全偏微分の存在だけでは不足しました。そこで偏微分の **近傍での連続性** を加えます。
-
-<a id="thm-f0-02c3-continuous-partials"></a>
-
-<!-- formal-statement-start -->
-> **定理（連続な偏微分による微分可能性）**  
-> $U\subset\mathbb R^n$ を開集合、$f:U\to\mathbb R$ とする。点 $a\in U$ の近傍で全偏微分 $\partial_jf$ が存在し、各 $\partial_jf$ が $a$ で連続なら、$f$ は $a$ でFréchet微分可能であり、
+$f:H\to\mathbb R$ が Fréchet 微分可能なら、
 
 $$
-Df(a)h=\sum_{j=1}^n\partial_jf(a)h_j
+Df(x):H\to\mathbb R
 $$
 
-> が成り立つ。
-<!-- formal-statement-end -->
-
-<!-- proof-start -->
-### 証明
-
-$h=(h_1,\ldots,h_n)$ を十分小さく取り、
+は連続線形汎関数です。従って [Riesz表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation) により、一意な $g_f(x)\in H$ が存在して
 
 $$
-a^{(0)}=a,
+Df(x)[h]
+=
+\langle g_f(x),h\rangle_H
+$$
+
+と書けます。
+
+### 例：二乗ノルム
+
+$$
+f(x)=\frac12\|x\|^2
+$$
+
+なら、
+
+$$
+f(x+h)-f(x)
+=
+\langle x,h\rangle+\frac12\|h\|^2.
+$$
+
+したがって
+
+$$
+Df(x)[h]=\langle x,h\rangle,
 \qquad
-a^{(j)}=a+(h_1,\ldots,h_j,0,\ldots,0)
+g_f(x)=x.
 $$
 
-と置きます。差を座標ごとに分解すると
+固定した $g\in H$ に対する
 
 $$
-f(a+h)-f(a)
-=\sum_{j=1}^n\{f(a^{(j)})-f(a^{(j-1)})\}.
+J(x)=\frac12\|x-g\|^2
 $$
 
-第 $j$ 項は第 $j$ 座標だけを動かす一変数関数なので、$h_j\ne0$ なら [一変数平均値定理](../RA3/index.md#thm-ra3-mvt) により、$a^{(j-1)}$ と $a^{(j)}$ の間の点 $\xi_j$ が存在して
+では、
 
 $$
-f(a^{(j)})-f(a^{(j-1)})
-=\partial_jf(\xi_j)h_j.
+DJ(x)[h]
+=
+\langle x-g,h\rangle,
+\qquad
+g_J(x)=x-g.
 $$
 
-$h_j=0$ のときも両辺を0と読めばよいので
-
-$$
-f(a+h)-f(a)-\sum_{j=1}^n\partial_jf(a)h_j
-=\sum_{j=1}^n\{\partial_jf(\xi_j)-\partial_jf(a)\}h_j.
-$$
-
-ここで $\|\xi_j-a\|\le\|h\|$ なので、$h\to0$ なら全ての $\xi_j\to a$。各偏微分の $a$ での連続性から
-
-$$
-\varepsilon(h):=
-\max_{1\le j\le n}
-|\partial_jf(\xi_j)-\partial_jf(a)|\to0.
-$$
-
-従って有限次元のノルム比較 $\sum_{j=1}^n|h_j|\le\sqrt n\,\|h\|$ より
-
-$$
-\begin{aligned}
-\left|f(a+h)-f(a)-\sum_{j=1}^n\partial_jf(a)h_j\right|
-&\le \varepsilon(h)\sum_{j=1}^n|h_j|\\
-&\le \sqrt n\,\varepsilon(h)\|h\|
-=o(\|h\|).
-\end{aligned}
-$$
-
-よってFréchet微分可能です。$\square$
-<!-- proof-end -->
-
-$f:U\to\mathbb R^m$ の場合も各成分 $f_i$ にこの定理を適用すれば、全ての一階偏微分が近傍で存在して $a$ で連続なら
-
-$$
-Df(a)h=J_f(a)h
-$$
-
-となります。
+有限次元で偏微分を並べたベクトル表示は、この Riesz 表現の特別な場合です。
 
 ---
 
-## 8. 連鎖律
-
-Fréchet微分では一次近似を作用素として持っているため、合成写像の微分は作用素の合成になります。
+## 6. Fréchet連鎖律
 
 <a id="thm-f0-02c3-frechet-composition"></a>
 
 <!-- formal-statement-start -->
 > **定理（Fréchet連鎖律）**  
-> $f:X\to Y$ が $a$ でFréchet微分可能、$g:Y\to Z$ が $f(a)$ でFréchet微分可能なら、$g\circ f$ は $a$ でFréchet微分可能であり、
+> $X,Y,Z$ をノルム空間、$U\subset X$、$V\subset Y$ を開集合とする。$f:U\to V$ が $a$ で Fréchet 微分可能、$g:V\to Z$ が $f(a)$ で Fréchet 微分可能なら、$g\circ f$ は $a$ で Fréchet 微分可能で
 
 $$
-D(g\circ f)(a)=Dg(f(a))\circ Df(a)
+D(g\circ f)(a)
+=
+Dg(f(a))\circ Df(a)
 $$
 
-> が成り立つ。
+> である。
 <!-- formal-statement-end -->
+
+### 証明の見取り図
+
+$f$ と $g$ をそれぞれ「有界線形部分 + 小さい残差」に分けます。核心は
+
+$$
+f(a+h)-f(a)=O(\|h\|_X)
+$$
+
+を先に示し、$g$ の残差を $\|h\|_X$ に対しても小さくできることです。
 
 <!-- proof-start -->
 ### 証明
@@ -446,37 +534,472 @@ $$
 $A=Df(a)$、$B=Dg(f(a))$ と置き、
 
 $$
-f(a+h)=f(a)+Ah+r_f(h),
-\qquad r_f(h)=o(\|h\|)
+f(a+h)
+=
+f(a)+Ah+r_f(h),
+\qquad
+\|r_f(h)\|_Y=o(\|h\|_X)
 $$
 
 と書きます。また
 
 $$
-g(f(a)+k)=g(f(a))+Bk+r_g(k),
-\qquad r_g(k)=o(\|k\|).
+g(f(a)+k)
+=
+g(f(a))+Bk+r_g(k),
+\qquad
+\|r_g(k)\|_Z=o(\|k\|_Y).
 $$
 
 ここで
 
 $$
-k(h):=Ah+r_f(h)=f(a+h)-f(a).
+k(h)=Ah+r_f(h)
+=
+f(a+h)-f(a).
+$$
+
+$A$ の有界性から
+
+$$
+\|k(h)\|_Y
+\le
+\|A\|\|h\|_X+\|r_f(h)\|_Y
+=
+O(\|h\|_X),
+$$
+
+従って $k(h)\to0$ です。
+
+よって
+
+$$
+\begin{aligned}
+g(f(a+h))-g(f(a))
+&=
+Bk(h)+r_g(k(h))\\
+&=
+BAh+Br_f(h)+r_g(k(h)).
+\end{aligned}
+$$
+
+第1残差について、
+
+$$
+\frac{\|Br_f(h)\|_Z}{\|h\|_X}
+\le
+\|B\|
+\frac{\|r_f(h)\|_Y}{\|h\|_X}
+\to0.
+$$
+
+$k(h)\ne0$ のとき第2残差は
+
+$$
+\frac{\|r_g(k(h))\|_Z}{\|h\|_X}
+=
+\frac{\|r_g(k(h))\|_Z}{\|k(h)\|_Y}
+\frac{\|k(h)\|_Y}{\|h\|_X}.
+$$
+
+第1因子は0へ収束し、第2因子は有界です。$k(h)=0$ の場合も $r_g(0)=0$ なので同じ結論になります。
+
+従って全残差は $o(\|h\|_X)$ であり、
+
+$$
+D(g\circ f)(a)=BA.
+$$
+
+$\square$
+<!-- proof-end -->
+
+有限次元で学んだ
+
+$$
+J_{g\circ f}(a)
+=
+J_g(f(a))J_f(a)
+$$
+
+は、この定理の行列表現です。
+
+---
+
+## 7. この章で有限次元から変わったこと
+
+[RA6](../RA6/index.md) では $\mathbb R^n$ と行列だけで微分を扱えました。この章で新たに必要になったのは次の三点です。
+
+1. 入力・出力を一般のノルム空間に広げた。
+2. 線形写像を「有界線形写像」に限定した。
+3. 行列ノルムの代わりに一般の作用素ノルムを使った。
+
+一方、一次近似と残差
+
+$$
+f(a+h)
+=
+f(a)+Df(a)h+o(\|h\|)
+$$
+
+という微分の骨格自体は変わっていません。
+
+次は [F0-02C3A 随伴作用素・Banach双対・Hilbert随伴](../F0_02C3A_随伴作用素_Banach_Hilbert/index.md) で、作用素を双対空間の向きへ引き戻す操作を学びます。
+
+---
+
+## 演習
+
+### F0-02C3-A01 積分で定まる写像のノルム
+
+- Level: A
+
+$X=C([0,1])$ に $\|f\|_\infty=\sup_{0\le t\le1}|f(t)|$ を入れ、
+
+$$
+T(f)=\int_0^1f(t)\,dt
+$$
+
+とする。$T$ が有界線形写像であり、$\|T\|=1$ であることを示せ。
+
+<!-- solution-start -->
+### 詳細解答
+
+線形性は積分の線形性から従います。また
+
+$$
+|T(f)|
+\le
+\int_0^1|f(t)|\,dt
+\le
+\|f\|_\infty
+$$
+
+なので $\|T\|\le1$ です。
+
+一方、定数関数 $f(t)=1$ を取ると $\|f\|_\infty=1$ かつ
+
+$$
+T(f)=1.
+$$
+
+従って $\|T\|\ge1$。以上より
+
+$$
+\boxed{\|T\|=1}.
+$$
+<!-- solution-end -->
+
+### F0-02C3-A02 有界線形写像のFréchet微分
+
+- Level: A
+
+有界線形写像 $T:X\to Y$ に対し $f(x)=Tx$ とする。任意の $x\in X$ で $Df(x)=T$ であることを定義から示せ。
+
+<!-- solution-start -->
+### 詳細解答
+
+任意の $h\in X$ について
+
+$$
+f(x+h)-f(x)-Th
+=
+T(x+h)-Tx-Th
+=
+0.
+$$
+
+従って
+
+$$
+\frac{\|f(x+h)-f(x)-Th\|_Y}{\|h\|_X}=0
+$$
+
+であり、$h\to0$ の極限も0です。よって $Df(x)=T$ です。
+<!-- solution-end -->
+
+### F0-02C3-A03 二乗ノルムの微分
+
+- Level: A
+
+実 Hilbert 空間 $H$ 上で
+
+$$
+f(x)=\frac12\|x\|^2
+$$
+
+とする。$Df(x)$ と、それを表す Riesz 表現ベクトルを求めよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+内積を展開すると
+
+$$
+f(x+h)-f(x)
+=
+\langle x,h\rangle+\frac12\|h\|^2.
+$$
+
+従って線形候補は
+
+$$
+Df(x)[h]=\langle x,h\rangle.
+$$
+
+残差について
+
+$$
+\frac{\frac12\|h\|^2}{\|h\|}
+=
+\frac12\|h\|\to0,
+$$
+
+なので Fréchet 微分です。Riesz 表現から
+
+$$
+\boxed{g_f(x)=x}.
+$$
+<!-- solution-end -->
+
+### F0-02C3-A04 実数値線形写像との合成
+
+- Level: A
+
+$f:X\to Y$ が $a$ で Fréchet 微分可能、$\ell:Y\to\mathbb R$ が連続線形汎関数とする。$\ell\circ f$ の微分を求めよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+$\ell$ 自身は有界線形写像なので
+
+$$
+D\ell(y)=\ell
+$$
+
+です。[Fréchet 連鎖律](#thm-f0-02c3-frechet-composition)から
+
+$$
+D(\ell\circ f)(a)
+=
+D\ell(f(a))\circ Df(a)
+=
+\ell\circ Df(a).
+$$
+
+従って
+
+$$
+\boxed{
+D(\ell\circ f)(a)[h]
+=
+\ell(Df(a)[h])
+}.
+$$
+<!-- solution-end -->
+
+### F0-02C3-B01 有界性とLipschitz連続性
+
+- Level: B
+
+線形写像 $T:X\to Y$ が有界なら Lipschitz 連続であることを示せ。また、線形性がこの結論のどこで使われるか説明せよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+線形性から
+
+$$
+Tx-Ty=T(x-y)
+$$
+
+なので、
+
+$$
+\|Tx-Ty\|_Y
+=
+\|T(x-y)\|_Y
+\le
+\|T\|\|x-y\|_X.
+$$
+
+従って Lipschitz 定数 $\|T\|$ を持つ Lipschitz 連続写像です。
+
+線形性は、二点の出力差 $Tx-Ty$ を一つの入力差 $T(x-y)$ へ変換する箇所で使っています。
+<!-- solution-end -->
+
+### F0-02C3-B02 Gâteaux微分可能だがFréchet微分可能でない例
+
+- Level: B
+
+$$
+f(x,y)
+=
+\begin{cases}
+\dfrac{x^6y}{x^{12}+y^2},&(x,y)\ne(0,0),\\
+0,&(x,y)=(0,0)
+\end{cases}
+$$
+
+について、原点で Gâteaux 微分が0である一方、Fréchet 微分可能でないことを示せ。
+
+<!-- solution-start -->
+### 詳細解答
+
+固定した $v=(a,b)$ を取ります。$b\ne0$ なら
+
+$$
+\frac{f(ta,tb)}{t}
+=
+\frac{t^4a^6b}{t^{10}a^{12}+b^2}
+\to0.
+$$
+
+$b=0$ なら $f(ta,0)=0$ なので同じく方向微分は0です。従って
+
+$$
+D_vf(0,0)=0
+$$
+
+が全ての $v$ で成り立ち、$v\mapsto0$ は線形なので
+
+$$
+D_Gf(0,0)=0.
+$$
+
+一方、$y=x^6$ とすると
+
+$$
+f(x,x^6)=\frac12
+$$
+
+であり、$(x,x^6)\to(0,0)$ でも $f(x,x^6)\not\to0$。従って $f$ は原点で連続ではありません。Fréchet 微分可能性は連続性を含意するので、原点では Fréchet 微分可能ではありません。
+<!-- solution-end -->
+
+### F0-02C3-B03 連鎖律の残差評価
+
+- Level: B
+
+Fréchet 連鎖律の証明で
+
+$$
+k(h)=Df(a)h+r_f(h)
+$$
+
+と置く。なぜ $\|k(h)\|=O(\|h\|)$ となり、それが
+
+$$
+r_g(k(h))=o(\|h\|)
+$$
+
+を導くのか説明せよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+$A=Df(a)$ とすると有界性から
+
+$$
+\|Ah\|
+\le
+\|A\|\|h\|.
+$$
+
+また $r_f(h)=o(\|h\|)$ なので、十分小さい $h$ では例えば
+
+$$
+\|r_f(h)\|\le\|h\|
+$$
+
+とできます。従って
+
+$$
+\|k(h)\|
+\le
+(\|A\|+1)\|h\|,
+$$
+
+すなわち $\|k(h)\|=O(\|h\|)$ です。
+
+さらに
+
+$$
+\frac{\|r_g(k(h))\|}{\|h\|}
+=
+\frac{\|r_g(k(h))\|}{\|k(h)\|}
+\frac{\|k(h)\|}{\|h\|}
+$$
+
+と分けると、第1因子は $k(h)\to0$ により0へ、第2因子は $O(1)$ です。従って積は0へ収束し、
+
+$$
+r_g(k(h))=o(\|h\|)
+$$
+
+となります。
+<!-- solution-end -->
+
+### F0-02C3-C01 Fréchet連鎖律を再構成する
+
+- Level: C
+
+$X,Y,Z$ をノルム空間とし、$f:X\to Y$ が $a$ で Fréchet 微分可能、$g:Y\to Z$ が $f(a)$ で Fréchet 微分可能とする。残差表示から
+
+$$
+D(g\circ f)(a)
+=
+Dg(f(a))\circ Df(a)
+$$
+
+を証明せよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+$A=Df(a)$、$B=Dg(f(a))$ と置き、
+
+$$
+f(a+h)
+=
+f(a)+Ah+r_f(h),
+\qquad
+\|r_f(h)\|=o(\|h\|)
+$$
+
+と書きます。また
+
+$$
+g(f(a)+k)
+=
+g(f(a))+Bk+r_g(k),
+\qquad
+\|r_g(k)\|=o(\|k\|).
+$$
+
+ここで
+
+$$
+k(h)
+=
+Ah+r_f(h).
 $$
 
 $A$ の有界性と $r_f(h)=o(\|h\|)$ から
 
 $$
 \|k(h)\|=O(\|h\|),
-\qquad k(h)\to0.
+\qquad
+k(h)\to0.
 $$
 
-従って
+したがって
 
 $$
 \begin{aligned}
 g(f(a+h))-g(f(a))
-&=Bk(h)+r_g(k(h))\\
-&=BAh+Br_f(h)+r_g(k(h)).
+&=
+Bk(h)+r_g(k(h))\\
+&=
+BAh+Br_f(h)+r_g(k(h)).
 \end{aligned}
 $$
 
@@ -484,676 +1007,48 @@ $$
 
 $$
 \frac{\|Br_f(h)\|}{\|h\|}
-\le\|B\|\frac{\|r_f(h)\|}{\|h\|}\to0.
+\le
+\|B\|
+\frac{\|r_f(h)\|}{\|h\|}
+\to0.
 $$
 
-また $k(h)\ne0$ なら
+第2残差は、$k(h)\ne0$ のとき
 
 $$
 \frac{\|r_g(k(h))\|}{\|h\|}
 =
 \frac{\|r_g(k(h))\|}{\|k(h)\|}
-\frac{\|k(h)\|}{\|h\|}.
+\frac{\|k(h)\|}{\|h\|}
+\to0,
 $$
 
-第1因子は $k(h)\to0$ から0へ、第2因子は $k(h)=O(\|h\|)$ から有界です。$k(h)=0$ の場合は $r_g(0)=0$。従って全残差は $o(\|h\|)$ であり、微分は $BA$ です。$\square$
-<!-- proof-end -->
-
-有限次元では
-
-$$
-\boxed{J_{g\circ f}(a)=J_g(f(a))J_f(a)}.
-$$
-
-ここで行列積の順序は、まず $Df(a)$ で $h$ を送ってから $Dg(f(a))$ を作用させるという写像の合成順序そのものです。
-
----
-
-## 9. 高階微分とHessian
-
-$f:U\subset\mathbb R^n\to\mathbb R^m$ が各点で微分可能なら
-
-$$
-Df:U\to\mathcal L(\mathbb R^n,\mathbb R^m)
-$$
-
-という新しい写像が得られます。この $Df$ 自身が $a$ でFréchet微分可能なら、その微分を
-
-$$
-D^2f(a)
-$$
-
-と書きます。
-
-$D^2f(a)$ は二つの増分 $u,v$ を受け取る双線形写像として読めます。実数値関数 $f:\mathbb R^n\to\mathbb R$ では、標準基底に関する行列表示がHessian
-
-$$
-H_f(a)=
-\left(\frac{\partial^2f}{\partial x_i\partial x_j}(a)\right)_{i,j}
-$$
-
-です。
-
-二階偏微分が近傍で連続するとき、Hessian が対称になる根拠もここで閉じます。
-
-### 混合偏微分の交換を確認する
-
-$f$ が $a\in\mathbb R^n$ の近傍で二階偏微分を持ち、それらが連続であるとします。異なる二つの座標 $i,j$ だけを動かし、他の座標は $a$ に固定します。十分小さい $h,k$ に対して矩形増分
-
-$$
-\Delta(h,k)
-=f(a+he_i+ke_j)-f(a+he_i)-f(a+ke_j)+f(a)
-$$
-
-を考えます。
-
-まず
-
-$$
-g_i(t)=f(a+te_i+ke_j)-f(a+te_i)
-$$
-
-と置きます。すると $\Delta(h,k)=g_i(h)-g_i(0)$ なので、[一変数平均値定理](../RA3/index.md#thm-ra3-mvt)から、ある $\theta\in(0,1)$ が存在して
-
-$$
-\Delta(h,k)
-=h\,g_i'(\theta h)
-=h\{\partial_i f(a+\theta h e_i+ke_j)-\partial_i f(a+\theta h e_i)\}.
-$$
-
-中括弧へ $j$ 方向の[一変数平均値定理](../RA3/index.md#thm-ra3-mvt)を使うと、ある $\eta\in(0,1)$ が存在して
-
-$$
-\Delta(h,k)
-=hk\,\partial_j\partial_i f
-(a+\theta h e_i+\eta k e_j).
-$$
-
-座標の役割を逆にして同じ矩形増分を計算すれば、ある $\theta',\eta'\in(0,1)$ に対して
-
-$$
-\Delta(h,k)
-=hk\,\partial_i\partial_j f
-(a+\theta' h e_i+\eta' k e_j).
-$$
-
-$hk\ne0$ で割ると両者は等しいので、$(h,k)\to(0,0)$ とします。二階偏微分の連続性から評価点はいずれも $a$ へ近づき、
-
-$$
-\partial_j\partial_i f(a)=\partial_i\partial_j f(a)
-$$
-
-を得ます。したがって $C^2$ 級の実数値関数では Hessian は対称です。
-
-この証明の要点は、混合偏微分を「記号の順序交換」として扱わず、**同じ矩形増分 $\Delta(h,k)$ を二通りの順序で一変数平均値定理へ還元する**ことです。
-
-このとき
-
-$$
-D^2f(a)[u,v]=u^{\mathsf T}H_f(a)v.
-$$
-
-高階も同様に、$D^{k-1}f$ を作用素値写像とみなし、そのFréchet微分として $D^kf$ を定義します。
-
----
-
-## 10. 多変数Taylorは直線上の一変数Taylorに帰着する
-
-$a$ と $a+h$ を結ぶ線分が定義域に含まれるとします。実数値関数 $f$ に対し
-
-$$
-\phi(t)=f(a+th)
-\qquad(0\le t\le1)
-$$
-
-と置けば、連鎖律により
-
-$$
-\phi'(t)=Df(a+th)h,
-$$
-
-二階微分可能なら
-
-$$
-\phi''(t)=D^2f(a+th)[h,h].
-$$
-
-<a id="thm-f0-02c3-second-order-taylor"></a>
-
-<!-- formal-statement-start -->
-> **定理（二階の多変数Taylor展開）**  
-> $f$ が $a$ の近傍で二階連続微分可能なら
-
-$$
-f(a+h)=f(a)+Df(a)h+\frac12D^2f(a)[h,h]+o(\|h\|^2)
-$$
-
-> である。
-<!-- formal-statement-end -->
-
-<!-- proof-start -->
-### 証明
-
-$\phi(t)=f(a+th)$ に [RA3の一変数Taylor定理](../RA3/index.md#thm-ra3-taylor) を適用すると、ある $\theta\in(0,1)$ が存在して
-
-$$
-\phi(1)=\phi(0)+\phi'(0)+\frac12\phi''(\theta).
-$$
+です。第1因子は0へ収束し、第2因子は有界だからです。$k(h)=0$ なら残差も0です。
 
 従って
 
 $$
-f(a+h)
-=f(a)+Df(a)h+\frac12D^2f(a+\theta h)[h,h].
+g(f(a+h))-g(f(a))-BAh
+=
+o(\|h\|),
 $$
 
-ここから $\frac12D^2f(a)[h,h]$ を分離すると、剰余は
-
-$$
-R(h)=\frac12\{D^2f(a+\theta h)-D^2f(a)\}[h,h].
-$$
-
-双線形作用素のノルム評価により
-
-$$
-|R(h)|
-\le
-\frac12\|D^2f(a+\theta h)-D^2f(a)\|\,\|h\|^2.
-$$
-
-$0<\theta<1$ だから $a+\theta h\to a$。$D^2f$ の $a$ での連続性により右辺の係数は0へ収束するので
-
-$$
-R(h)=o(\|h\|^2).
-$$
-
-これで主張が従います。$\square$
-<!-- proof-end -->
-
-実数値関数なら
-
-$$
-D^2f(a)[h,h]=h^{\mathsf T}H_f(a)h
-$$
-
-なので
-
-$$
-f(a+h)
-=f(a)+\nabla f(a)^{\mathsf T}h
-+\frac12h^{\mathsf T}H_f(a)h
-+o(\|h\|^2).
-$$
-
-これが多変数の二次近似です。
-
----
-
-## 11. 発展：実数値関数の微分と双対空間
-
-ここからは関数解析への接続です。$f:X\to\mathbb R$ なら
-
-$$
-Df(x):X\to\mathbb R
-$$
-
-は連続線形汎関数なので
-
-$$
-Df(x)\in X^*.
-$$
-
-Hilbert空間 $H$ では [Riesz表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation) により一意な $g\in H$ が存在して
-
-$$
-Df(x)[h]=\langle g,h\rangle_H.
-$$
-
-この $g$ をHilbert空間での勾配 $\nabla_Hf(x)$ とみなします。有限次元で
-
-$$
-Df(x)[h]=\nabla f(x)^{\mathsf T}h
-$$
-
-と書けたことの無限次元版です。
-
----
-
-## 12. 発展例：Hilbert空間の二乗ノルムと二乗誤差
-
-Hilbert空間 $H$ 上で
-
-$$
-f(x)=\frac12\|x\|^2
-$$
-
-とすると
-
-$$
-f(x+h)
-=f(x)+\langle x,h\rangle+\frac12\|h\|^2.
-$$
-
-従って
-
-$$
-Df(x)[h]=\langle x,h\rangle,
-\qquad
-\nabla_Hf(x)=x.
-$$
-
-同様に、固定した $g\in L^2([0,1])$ に対する
-
-$$
-J(f)=\frac12\|f-g\|_2^2
-$$
-
-では
-
-$$
-DJ(f)[h]=\langle f-g,h\rangle,
-\qquad
-\nabla_HJ(f)=f-g.
-$$
-
----
-
-## 13. 発展：作用素ノルム
-
-<a id="def-f0-02c3-operator-norm"></a>
-
-<!-- formal-statement-start -->
-> **定義（作用素ノルム）**  
-> 有界線形作用素 $T:X\to Y$ に対して
-
-$$
-\|T\|=\sup_{\|x\|_X\le1}\|Tx\|_Y
-$$
-
-> を $T$ の **作用素ノルム** といいます。
-<!-- formal-statement-end -->
-
-<!-- definition-example-start: def-f0-02c3-operator-norm -->
-### 例：2倍写像
-
-**定義の確認**
-
-$T:\mathbb R\to\mathbb R$、$T(x)=2x$ なら
-
-$$
-\|T\|=\sup_{|x|\le1}|2x|=2.
-$$
-<!-- definition-example-end -->
-
-同値に
-
-$$
-\|T\|=\sup_{x\ne0}\frac{\|Tx\|_Y}{\|x\|_X},
-$$
-
-従って
-
-$$
-\|Tx\|_Y\le\|T\|\|x\|_X.
-$$
-
-この評価がSection 8の連鎖律で残差を制御した仕組みです。
-
----
-
-## 14. この章の位置づけ
-
-RA6としての核心は次の論理関係です。
+よって
 
 $$
 \boxed{
-C^1
-\Longrightarrow
-\text{Fréchet微分可能}
-\Longrightarrow
-\text{全偏微分が存在}
-}
+D(g\circ f)(a)=BA
+}.
 $$
-
-右向きの逆は一般には偽で、Section 6がその反例です。連鎖律はFréchet微分の残差表示から直接導け、高階微分は微分写像をさらに微分することで得られます。
-
-関数解析として先へ進む場合は [F0-02C3A 随伴作用素](../F0_02C3A_随伴作用素_Banach_Hilbert/index.md) と [F0-02C3B Fréchet連鎖律・Hilbert随伴の証明](../F0_02C3B_Frechet_chain_adjoint_proofs/index.md) へ進みます。
-
----
-
-## 演習A
-
-### F0-02C3-A01 ノルム二乗のFréchet微分
-
-- Level: A
-- 目安時間: 10分
-
-$\mathbb R^n$ 上の $f(x)=\frac12\|x\|^2$ について $Df(x)$ を求め、定義から確認せよ。
-
-<!-- solution-start -->
-**詳細解答**
-
-$$
-f(x+h)-f(x)=x^{\mathsf T}h+\frac12\|h\|^2.
-$$
-
-従って候補は $Df(x)[h]=x^{\mathsf T}h$。残差を $\|h\|$ で割ると $\frac12\|h\|\to0$ なのでFréchet微分の定義を満たす。
-
-**本番答案**
-
-$Df(x)[h]=x^{\mathsf T}h$。実際、残差は $\frac12\|h\|^2=o(\|h\|)$。
-
-**採点基準（20点）**：候補設定6点、残差計算10点、結論4点。
-<!-- solution-end -->
-
-### F0-02C3-A02 Jacobianの計算
-
-- Level: A
-- 目安時間: 10分
-
-$$
-F(x,y)=(x^2y,\ e^x\sin y)
-$$
-
-のJacobian $J_F(x,y)$ と $DF(x,y)[h_1,h_2]$ を求めよ。
-
-<!-- solution-start -->
-**詳細解答**
-
-成分ごとに偏微分して
-
-$$
-J_F(x,y)=
-\begin{pmatrix}
-2xy & x^2\\
-e^x\sin y & e^x\cos y
-\end{pmatrix}.
-$$
-
-従って
-
-$$
-DF(x,y)\binom{h_1}{h_2}
-=
-\binom{2xyh_1+x^2h_2}{e^x\sin y\,h_1+e^x\cos y\,h_2}.
-$$
-
-**本番答案**
-
-上のJacobianを計算し、$DF(x,y)h=J_F(x,y)h$ と書けばよい。
-
-**採点基準（20点）**：各偏微分8点、行列4点、作用8点。
-<!-- solution-end -->
-
-### F0-02C3-A03 Fréchet微分から偏微分へ
-
-- Level: A
-- 目安時間: 10分
-
-$f:\mathbb R^n\to\mathbb R^m$ が $a$ でFréchet微分可能なら、各偏微分が存在し
-
-$$
-\partial_jf(a)=Df(a)e_j
-$$
-
-となることを示せ。
-
-<!-- solution-start -->
-**詳細解答**
-
-Fréchet微分の残差表示に $h=te_j$ を代入すると
-
-$$
-f(a+te_j)-f(a)=tDf(a)e_j+r(te_j),
-\qquad
-\frac{\|r(te_j)\|}{|t|}\to0.
-$$
-
-$t$ で割って $t\to0$ とすれば
-
-$$
-\lim_{t\to0}\frac{f(a+te_j)-f(a)}{t}=Df(a)e_j.
-$$
-
-左辺が第 $j$ 偏微分なので結論を得る。
-
-**本番答案**
-
-Fréchet展開に $h=te_j$ を代入して $t$ で割り、残差が0へ行くことを使う。
-
-**採点基準（20点）**：方向選択6点、残差評価8点、収束と結論6点。
-<!-- solution-end -->
-
-### F0-02C3-A04 Hessianと二次近似
-
-- Level: A
-- 目安時間: 15分
-
-$$
-f(x,y)=x^2+xy+3y^2
-$$
-
-について $\nabla f$、$H_f$ を求め、点 $a=(1,-1)$ まわりの二次Taylor展開を書け。
-
-<!-- solution-start -->
-**詳細解答**
-
-$$
-\nabla f(x,y)=(2x+y,\ x+6y),
-\qquad
-H_f=
-\begin{pmatrix}
-2&1\\1&6
-\end{pmatrix}.
-$$
-
-$a=(1,-1)$ では $f(a)=3$、$\nabla f(a)=(1,-5)$。$h=(h_1,h_2)$ とすれば
-
-$$
-f(a+h)=3+h_1-5h_2+
-\frac12
-\begin{pmatrix}h_1&h_2\end{pmatrix}
-\begin{pmatrix}2&1\\1&6\end{pmatrix}
-\binom{h_1}{h_2}.
-$$
-
-二次多項式なので剰余は0。
-
-**本番答案**
-
-$\nabla f(a)=(1,-5)$、$H_f=\begin{pmatrix}2&1\\1&6\end{pmatrix}$ をTaylor公式へ代入する。
-
-**採点基準（20点）**：勾配6点、Hessian6点、展開8点。
-<!-- solution-end -->
-
----
-
-## 演習B
-
-### F0-02C3-B01 有界線形作用素はLipschitz
-
-- Level: B
-- 目安時間: 10分
-
-有界線形作用素 $T:X\to Y$ に対し
-
-$$
-\|Tx-Ty\|\le\|T\|\|x-y\|
-$$
-
-を示し、連続性を結論せよ。
-
-<!-- solution-start -->
-**詳細解答**
-
-線形性から $Tx-Ty=T(x-y)$。作用素ノルムの定義より
-
-$$
-\|T(x-y)\|\le\|T\|\|x-y\|.
-$$
-
-従って $T$ はLipschitz連続である。
-
-**本番答案**
-
-$Tx-Ty=T(x-y)$ に作用素ノルム評価を適用する。
-
-**採点基準（20点）**：線形性6点、ノルム評価8点、連続性6点。
-<!-- solution-end -->
-
-### F0-02C3-B02 全偏微分存在と微分可能性
-
-- Level: B
-- 目安時間: 20分
-
-Section 6の関数
-
-$$
-f(x,y)=\frac{xy}{\sqrt{x^2+y^2}}
-$$
-
-（原点では0と定義）について、原点で連続であり全偏微分も存在するがFréchet微分可能でないことを自力で示せ。
-
-<!-- solution-start -->
-**詳細解答**
-
-$|xy|\le(x^2+y^2)/2$ より
-
-$$
-|f(x,y)|\le\frac12\sqrt{x^2+y^2}\to0,
-$$
-
-従って連続。座標軸上では $f=0$ なので両偏微分は0。Fréchet微分が存在するなら、その行列は偏微分から零写像でなければならない。しかし $h=(t,t)$ では
-
-$$
-\frac{|f(t,t)|}{\|(t,t)\|}=\frac12
-$$
-
-となり0へ収束しない。従って微分可能でない。
-
-**本番答案**
-
-連続性、偏微分0、対角線方向でFréchet残差比が $1/2$ の三段階を書く。
-
-**採点基準（20点）**：連続性5点、偏微分5点、微分候補の特定4点、反証6点。
-<!-- solution-end -->
-
-### F0-02C3-B03 連鎖律の行列計算
-
-- Level: B
-- 目安時間: 20分
-
-$$
-F(x,y)=(x+y,xy),
-\qquad
-g(u,v)=u^2+e^v
-$$
-
-とする。$g\circ F$ の勾配を、(i) 直接微分、(ii) Jacobianによる連鎖律、の二通りで求めて一致を確認せよ。
-
-<!-- solution-start -->
-**詳細解答**
-
-直接には
-
-$$
-(g\circ F)(x,y)=(x+y)^2+e^{xy},
-$$
-
-従って
-
-$$
-\nabla(g\circ F)
-=(2(x+y)+ye^{xy},\ 2(x+y)+xe^{xy}).
-$$
-
-一方
-
-$$
-J_F=
-\begin{pmatrix}1&1\\y&x\end{pmatrix},
-\qquad
-\nabla g(u,v)=\binom{2u}{e^v}.
-$$
-
-実数値合成では
-
-$$
-\nabla(g\circ F)=J_F^{\mathsf T}\nabla g(F(x,y)),
-$$
-
-だから同じ式を得る。
-
-**本番答案**
-
-$J_F^{\mathsf T}(2(x+y),e^{xy})^{\mathsf T}$ を計算し、直接微分と照合する。
-
-**採点基準（20点）**：直接微分6点、各Jacobian6点、連鎖律と一致8点。
-<!-- solution-end -->
-
----
-
-## 演習C
-
-### F0-02C3-C01 連続偏微分からFréchet微分可能性を再構成する
-
-- Level: C
-- 目安時間: 30分
-
-$f:U\subset\mathbb R^n\to\mathbb R$ の全偏微分が $a$ の近傍で存在し、各偏微分が $a$ で連続するとする。Section 7の証明を参照せず、座標ごとの差分分解と [一変数平均値定理](../RA3/index.md#thm-ra3-mvt) だけから $f$ が $a$ でFréchet微分可能であることを証明せよ。
-
-<!-- solution-start -->
-**詳細解答**
-
-$h=(h_1,\ldots,h_n)$ に対し
-
-$$
-a^{(j)}=a+(h_1,\ldots,h_j,0,\ldots,0)
-$$
-
-と置く。すると
-
-$$
-f(a+h)-f(a)=\sum_{j=1}^n\{f(a^{(j)})-f(a^{(j-1)})\}.
-$$
-
-各項へ [一変数平均値定理](../RA3/index.md#thm-ra3-mvt) を使い、線分上の点 $\xi_j$ を取れば
-
-$$
-f(a+h)-f(a)=\sum_{j=1}^n\partial_jf(\xi_j)h_j.
-$$
-
-候補
-
-$$
-Ah=\sum_{j=1}^n\partial_jf(a)h_j
-$$
-
-を引くと
-
-$$
-|f(a+h)-f(a)-Ah|
-\le
-\max_j|\partial_jf(\xi_j)-\partial_jf(a)|\sum_j|h_j|.
-$$
-
-$\|\xi_j-a\|\le\|h\|$ かつ偏微分は $a$ で連続だから最大値因子は $o(1)$。さらに $\sum_j|h_j|\le\sqrt n\|h\|$ なので、右辺は $o(\|h\|)$。従ってFréchet微分可能で $Df(a)=A$。
-
-**本番答案**
-
-座標増分へ望遠和分解し、各項に [一変数平均値定理](../RA3/index.md#thm-ra3-mvt) を適用する。偏微分の連続性で係数差を $o(1)$、有限次元のノルム比較で残差を $o(\|h\|)$ と評価する。
-
-**採点基準（30点）**：望遠和6点、平均値定理6点、線形候補4点、連続性による一様な係数評価8点、$o(\|h\|)$ 結論6点。
 <!-- solution-end -->
 
 ---
 
 ## 章末チェック
 
-- Fréchet微分を「一つの線形写像による一次近似」として定義から説明できる。
-- Fréchet微分から偏微分とJacobianを取り出せる。
-- 全偏微分の存在だけでは不十分な反例を、破綻する残差比まで計算できる。
-- 連続な偏微分から微分可能性を座標増分と一変数平均値定理で証明できる。
-- Fréchet連鎖律を二つの残差項の評価から証明できる。
-- 二階偏微分の連続性から、矩形増分を二通りに評価して混合偏微分の交換とHessianの対称性を示せる。
-- 高階微分・Hessian・二階Taylor展開を一次近似の反復として説明できる。
+- 有界線形写像の有界性と連続性が同値である理由を説明できる。
+- 作用素ノルムを定義し、基本評価 $\|Tx\|\le\|T\|\|x\|$ を使える。
+- Fréchet 微分を有界線形写像による一次近似として定義できる。
+- Gâteaux 微分と Fréchet 微分の違いを反例込みで説明できる。
+- Hilbert 空間で Fréchet 微分を Riesz 表現ベクトルとして表せる。
+- Fréchet 連鎖律を残差評価から証明できる。

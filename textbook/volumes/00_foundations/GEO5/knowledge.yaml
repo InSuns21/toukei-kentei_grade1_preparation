@@ -5,6 +5,9 @@ prerequisites:
   - GEO2
   - ODE1
   - ODE4
+forward_references:
+  - geometry.smooth-distribution
+
 concepts:
   - id: geometry.smooth-vector-field
     name: 滑らかなベクトル場
@@ -83,9 +86,9 @@ concepts:
       - geometry.maximal-flow
 
   - id: geometry.maximal-flow-local-group-law
-    name: 最大流の滑らかさと局所群則
+    name: 最大流の滑らかさと局所合成則
     kind: theorem
-    aliases: [最大流の局所群則, local group law of the maximal flow]
+    aliases: [最大流の局所合成則, local composition law of the maximal flow]
     requires:
       - geometry.maximal-flow
       - geometry.local-flow

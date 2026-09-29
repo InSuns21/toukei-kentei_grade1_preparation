@@ -7,6 +7,9 @@ prerequisites:
 
 forward_references:
   - optimization.steepest-descent
+  - optimization.strong-convexity
+  - optimization.descent-lemma
+  - optimization.lipschitz-gradient
 
 concepts:
   - id: optimization.cone-constraint
@@ -51,7 +54,7 @@ concepts:
     requires:
       - optimization.cone-constraint
       - convex.bouligand-tangent-cone
-      - functional.frechet-derivative
+      - analysis.multivariable-differentiability
 
   - id: optimization.robinson-cq
     name: Robinson制約想定

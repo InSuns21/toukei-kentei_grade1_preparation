@@ -4,11 +4,11 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - RA4
-  - F0-02C3
+  - RA6
   - LA3C
 official_scope: []
 learning_objectives:
-  - Fréchet微分の可逆性から局所逆写像が生じる機構を説明できる
+  - 多変数微分の可逆性から局所逆写像が生じる機構を説明できる
   - 収縮写像を用いて逆関数定理を有限次元で証明できる
   - 逆写像の微分公式 D(f^{-1})(f(x))=[Df(x)]^{-1} を導ける
   - 陰関数定理を逆関数定理から導き Dφ=-(D_yF)^{-1}D_xF を計算できる

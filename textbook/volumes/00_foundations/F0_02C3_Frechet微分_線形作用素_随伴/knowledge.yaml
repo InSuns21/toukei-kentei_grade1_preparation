@@ -2,18 +2,62 @@ chapter: F0-02C3
 scope: dream-theater
 coverage: complete
 prerequisites:
+  - F0-02C1
   - F0-02C2
-  - RA3
+  - RA6
 
 forward_references:
   - functional.adjoint-operator
   - functional.hilbert-adjoint
 
 concepts:
-  - id: functional.directional-derivative
-    name: 方向微分
+  - id: functional.bounded-linear-operator
+    name: 有界線形写像
     kind: definition
-    aliases: [方向微分]
+    aliases: [有界線形写像]
+    requires:
+      - linear.linear-map
+      - functional.normed-space
+
+  - id: functional.bounded-linear-continuous-equivalence
+    name: 線形写像の有界性と連続性
+    kind: theorem
+    aliases: [線形写像の有界性と連続性]
+    requires:
+      - functional.bounded-linear-operator
+
+  - id: functional.operator-norm
+    name: 有界線形写像の作用素ノルム
+    kind: definition
+    aliases: [有界線形写像の作用素ノルム]
+    introduction: formal
+    introduction_aliases: ["定義（作用素ノルム）"]
+    requires:
+      - functional.bounded-linear-operator
+      - functional.norm
+
+  - id: functional.frechet-derivative
+    name: Fréchet微分
+    kind: definition
+    aliases: [Fréchet微分, Frechet微分]
+    requires:
+      - functional.normed-space
+      - functional.bounded-linear-operator
+
+  - id: functional.frechet-derivative-uniqueness-continuity
+    name: Fréchet微分の一意性と微分可能性からの連続性
+    kind: theorem
+    aliases: [Fréchet微分の一意性と微分可能性からの連続性]
+    requires:
+      - functional.frechet-derivative
+      - functional.operator-norm
+
+  - id: functional.directional-derivative
+    name: ノルム空間上の方向微分
+    kind: definition
+    aliases: [ノルム空間上の方向微分]
+    introduction: formal
+    introduction_aliases: ["定義（方向微分）"]
     requires:
       - functional.normed-space
 
@@ -24,45 +68,6 @@ concepts:
     requires:
       - functional.directional-derivative
 
-  - id: functional.bounded-linear-operator
-    name: 有界線形作用素
-    kind: definition
-    aliases: [有界線形作用素]
-    requires:
-      - linear.linear-map
-      - functional.normed-space
-
-  - id: functional.frechet-derivative
-    name: Fréchet微分
-    kind: definition
-    aliases: [Fréchet微分, Frechet微分]
-    requires:
-      - functional.normed-space
-      - functional.bounded-linear-operator
-
-  - id: functional.operator-norm
-    name: 作用素ノルム
-    kind: definition
-    aliases: [作用素ノルム]
-    requires:
-      - functional.bounded-linear-operator
-      - functional.norm
-
-  - id: functional.frechet-derivative-uniqueness-continuity
-    name: Fréchet微分の一意性と微分可能性からの連続性
-    kind: theorem
-    aliases: [Fréchet微分の一意性と微分可能性からの連続性]
-    requires:
-      - functional.frechet-derivative
-
-  - id: analysis.continuous-partials-differentiability
-    name: 連続な偏微分による微分可能性
-    kind: theorem
-    aliases: [連続な偏微分による微分可能性]
-    requires:
-      - functional.frechet-derivative
-      - analysis.mean-value-theorem
-
   - id: functional.frechet-chain-rule
     name: Fréchet連鎖律
     kind: theorem
@@ -70,12 +75,4 @@ concepts:
     requires:
       - functional.frechet-derivative
       - functional.bounded-linear-operator
-
-  - id: analysis.multivariable-second-order-taylor
-    name: 二階の多変数Taylor展開
-    kind: theorem
-    aliases: [二階の多変数Taylor展開]
-    requires:
-      - functional.frechet-derivative
-      - analysis.taylor-theorem
-      - functional.frechet-chain-rule
+      - functional.operator-norm

@@ -6,6 +6,7 @@ prerequisites:
 
 forward_references:
   - pde.pde1-partial-differential-equation
+  - vector-calculus.vorticity
 
 concepts:
   - id: vector-calculus.orthogonal-curvilinear-coordinates
@@ -15,7 +16,7 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（直交曲線座標）"]
     requires:
-      - functional.frechet-derivative
+      - analysis.multivariable-differentiability
       - vector-calculus.surface-tangent-normal
 
   - id: vector-calculus.curvilinear-scale-factors

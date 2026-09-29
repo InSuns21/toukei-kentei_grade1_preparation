@@ -1,0 +1,32 @@
+id: "RA6"
+title: "標準実解析 VI：多変数微分・Jacobian 行列・連鎖律"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RA3
+  - F0-00F2
+official_scope: []
+learning_objectives:
+  - 多変数の微分可能性を線形一次近似として定義し、一意性と連続性を証明できる
+  - 偏微分・全微分・Jacobian 行列の関係を説明できる
+  - 全偏微分の存在だけでは微分可能性を保証しない反例を計算できる
+  - 連続偏微分から微分可能性を座標増分と平均値定理で証明できる
+  - 多変数の連鎖律を残差評価から証明できる
+  - Hessian・混合偏微分の交換・二階 Taylor 展開を説明できる
+definitions:
+  - { id: RA6-DEF-01, name: 多変数での微分可能性 }
+  - { id: RA6-DEF-02, name: Jacobian 行列 }
+  - { id: RA6-DEF-03, name: Hessian }
+  - { id: RA6-DEF-04, name: 方向微分 }
+theorems:
+  - { id: RA6-THM-01, name: 微分の一意性と微分可能性からの連続性 }
+  - { id: RA6-THM-02, name: 連続な偏微分による微分可能性 }
+  - { id: RA6-THM-03, name: 多変数の連鎖律 }
+  - { id: RA6-THM-04, name: 混合偏微分の交換 }
+  - { id: RA6-THM-05, name: 二階の多変数 Taylor 展開 }
+canonical_examples: [ノルム二乗の微分, 全偏微分が存在するが微分可能でない関数, Jacobian計算, 二次Taylor展開]
+problem_patterns: [RA-MULTIVARIABLE-DERIVATIVE-1, RA-CHAIN-RULE-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 2.5, review: 0.5 }

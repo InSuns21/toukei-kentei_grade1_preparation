@@ -1,0 +1,14 @@
+chapter: "RA6"
+terms:
+  - term: 多変数での微分可能性
+    english: differentiability in several variables
+    meaning: 関数の増分を一つの線形写像で一次まで近似でき、残差が増分の大きさより高次に小さくなる性質。
+  - term: Jacobian 行列
+    english: Jacobian matrix
+    meaning: 多変数写像の一階偏微分を行列に並べたもの。微分の標準基底に関する表現行列になる。
+  - term: 方向微分
+    english: directional derivative
+    meaning: 一つの方向へ直線的に動いたときの一変数微分として得られる変化率。
+  - term: Hessian
+    english: Hessian matrix
+    meaning: 実数値関数の二階偏微分を並べた行列。二次の局所変化を表す。
