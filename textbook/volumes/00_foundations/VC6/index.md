@@ -1287,10 +1287,20 @@ $$
 
 $\theta$ は $+z$ 軸から測る極角、$\phi$ は $xy$ 平面内の方位角です。
 
-尺度因子を完成形から覚えず、座標写像を実際に偏微分します。$r$ については
+位置ベクトルを
 
 $$
-\frac{\partial r}{\partial r}
+R(r,\theta,\phi)
+=
+(r\sin\theta\cos\phi,\,
+ r\sin\theta\sin\phi,\,
+ r\cos\theta)
+$$
+
+と書きます。尺度因子を完成形から覚えず、この座標写像を実際に偏微分します。$r$ については
+
+$$
+\frac{\partial R}{\partial r}
 =
 (\sin\theta\cos\phi,\,
  \sin\theta\sin\phi,\,
@@ -1303,7 +1313,7 @@ $$
 h_r
 =
 \left|
-\frac{\partial r}{\partial r}
+\frac{\partial R}{\partial r}
 \right|
 =
 \sqrt{
@@ -1317,7 +1327,7 @@ $$
 極角 $\theta$ については
 
 $$
-\frac{\partial r}{\partial\theta}
+\frac{\partial R}{\partial\theta}
 =
 (r\cos\theta\cos\phi,\,
  r\cos\theta\sin\phi,\,
@@ -1340,7 +1350,7 @@ $$
 方位角 $\phi$ については
 
 $$
-\frac{\partial r}{\partial\phi}
+\frac{\partial R}{\partial\phi}
 =
 (-r\sin\theta\sin\phi,\,
  r\sin\theta\cos\phi,\,
@@ -1361,9 +1371,9 @@ $$
 また三本の相互内積は 0 です。例えば
 
 $$
-\frac{\partial r}{\partial r}
+\frac{\partial R}{\partial r}
 \cdot
-\frac{\partial r}{\partial\theta}
+\frac{\partial R}{\partial\theta}
 =
 r\sin\theta\cos\theta-r\sin\theta\cos\theta
 =
