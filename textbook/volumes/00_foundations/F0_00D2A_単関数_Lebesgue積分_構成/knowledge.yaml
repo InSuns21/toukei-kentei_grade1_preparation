@@ -71,6 +71,14 @@ concepts:
       - measure.lebesgue-integral
       - measure.positive-negative-parts
 
+  - id: measure.nonnegative-ae-integral-invariance
+    name: 非負可測関数のa.e.変更による積分不変性
+    kind: proposition
+    aliases: [非負可測関数のa.e.変更による積分不変性]
+    requires:
+      - measure.lebesgue-integral
+      - measure.almost-everywhere
+
   - id: measure.null-set-integral-invariance
     name: 零集合上の変更は積分を変えない
     kind: theorem
@@ -79,3 +87,4 @@ concepts:
       - measure.lebesgue-integral
       - measure.integrable-function
       - measure.almost-everywhere
+      - measure.nonnegative-ae-integral-invariance
