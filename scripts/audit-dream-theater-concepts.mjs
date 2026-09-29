@@ -11,7 +11,7 @@ const writeReport = process.argv.includes('--write-report');
 const indexPath = path.join(root, 'textbook/dream-theater-index.json');
 const policyPath = path.join(root, 'textbook/dream-theater-knowledge.yaml');
 const reportPath = path.join(root, 'textbook/dream-theater-concept-tree.md');
-const DEFINITION_INTRO_SKIP_RE = /^<!--\\s*definition-intro-skip:\\s*([^|>]+?)\\s*\\|\\s*(.+?)\\s*-->$/u;
+const DEFINITION_INTRO_SKIP_RE = /^<!--\s*definition-intro-skip:\s*([^|>]+?)\s*\|\s*(.+?)\s*-->$/u;
 
 if (!fs.existsSync(indexPath)) fatal('textbook/dream-theater-index.json が見つかりません。');
 if (!fs.existsSync(policyPath)) fatal('textbook/dream-theater-knowledge.yaml が見つかりません。');
@@ -110,8 +110,13 @@ for (const page of pages.values()) {
   const pageChanged = changedOnly && (changedFiles.has(page.path) || changedFiles.has(knowledgeRel));
   const proseChanged = changedOnly && changedFiles.has(page.path);
   const hasFormal = lines.some(isFormalDeclarationLine);
-  const definitionIntroContext = buildDefinitionIntroContext(lines, rawLines);
-  const definitionIntroDirectives = collectDefinitionIntroSkipDirectives(rawLines);
+  const shouldCheckDefinitionIntros = pageChanged || !changedOnly;
+  const definitionIntroContext = shouldCheckDefinitionIntros
+    ? buildDefinitionIntroContext(lines, rawLines)
+    : null;
+  const definitionIntroDirectives = shouldCheckDefinitionIntros
+    ? collectDefinitionIntroSkipDirectives(rawLines)
+    : { skips: new Map(), errors: [] };
 
   for (const issue of definitionIntroDirectives.errors) {
     findings.push({
@@ -188,7 +193,8 @@ for (const page of pages.values()) {
   }
 
   for (const concept of localDefinitionConcepts.values()) {
-    const formalDefinitionLine = findFormalDefinitionLine(lines, concept);
+    if (!shouldCheckDefinitionIntros) break;
+    const formalDefinitionLine = findFormalDefinitionLine(rawLines, concept);
     if (formalDefinitionLine == null) continue;
 
     const directive = definitionIntroDirectives.skips.get(concept.id);
@@ -809,7 +815,7 @@ function runDefinitionIntroSelfTest() {
 function assertDefinitionIntro(source, concept, expected, label) {
   const rawLines = source.split(/\r?\n/u);
   const lines = stripNonReaderContent(source).split(/\r?\n/u);
-  const formalLine = findFormalDefinitionLine(lines, concept);
+  const formalLine = findFormalDefinitionLine(rawLines, concept);
   if (formalLine == null) throw new Error(`${label}: formal definition を検出できませんでした。`);
   const actual = hasDefinitionIntroBefore(
     formalLine,
