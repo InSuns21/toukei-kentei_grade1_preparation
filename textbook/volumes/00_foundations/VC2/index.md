@@ -593,7 +593,18 @@ t\frac{\partial F_j}{\partial x_i}(tx)x_j
 F_j(tx)\,\delta_{ij},
 $$
 
-ここで $\delta_{ij}$ は Kronecker のデルタです。$j$ について和を取ると、第二項では $j=i$ だけが残るため
+ここで Kronecker のデルタ $\delta_{ij}$ は
+
+$$
+\delta_{ij}
+=
+\begin{cases}
+1,&i=j,\\
+0,&i\ne j
+\end{cases}
+$$
+
+です。$j$ について和を取ると、第二項では $j=i$ だけが残るため
 
 $$
 \frac{\partial\phi}{\partial x_i}
