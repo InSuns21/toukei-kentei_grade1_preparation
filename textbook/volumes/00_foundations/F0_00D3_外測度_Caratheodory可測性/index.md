@@ -535,7 +535,7 @@ $$
 T\setminus F\subset T\setminus F_n.
 $$
 
-外測度の単調性から
+[外測度の定義](#def-f0-00d3-outer-measure)の第2条件をこの包含関係に適用すると
 
 $$
 \mu^*(T\setminus F)
