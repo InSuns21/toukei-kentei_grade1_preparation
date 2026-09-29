@@ -422,18 +422,18 @@ $$
 
 と置きます。経路独立性により、$p_0$ から $x$ へどの曲線を選んでも同じ値になるため良定義です。
 
-$x\in\Omega$ を固定します。$\Omega$ は開なので、十分小さい $h$ に対し $x+he_j\in\Omega$ です。$p_0$ から $x$ までの曲線の後に
+$x\in\Omega$ を固定します。$\Omega$ は開なので、十分小さい $|h|$ に対し $x+he_j\in\Omega$ です。$p_0$ から $x$ までの曲線の後に
 
 $$
-\eta_h(s)=x+se_j,
+\eta_h(t)=x+th e_j,
 \qquad
-0\le s\le h
+0\le t\le1
 $$
 
 という短い線分を付けます。この線分では
 
 $$
-\eta_h'(s)=e_j
+\eta_h'(t)=h e_j
 $$
 
 なので、ベクトル線積分の定義から
@@ -444,11 +444,11 @@ $$
 &=
 \int_{\eta_h}F\cdot dr\\
 &=
-\int_0^h
-F(x+se_j)\cdot e_j\,ds\\
+\int_0^1
+F(x+th e_j)\cdot h e_j\,dt\\
 &=
-\int_0^h
-F_j(x+se_j)\,ds.
+h\int_0^1
+F_j(x+th e_j)\,dt.
 \end{aligned}
 $$
 
@@ -457,12 +457,11 @@ $$
 $$
 \frac{\phi(x+he_j)-\phi(x)}{h}
 =
-\frac1h
-\int_0^h
-F_j(x+se_j)\,ds.
+\int_0^1
+F_j(x+th e_j)\,dt.
 $$
 
-右辺は $F_j$ の $x$ 近傍での平均です。$F_j$ は連続なので $h\to0$ でこの平均は $F_j(x)$ へ収束し、
+この形なら $h>0$ と $h<0$ の両方を同じ式で扱えます。$F_j$ は連続なので、$h\to0$ では各 $t\in[0,1]$ に対して $F_j(x+th e_j)\to F_j(x)$ となり、区間が固定されていることから右辺は $F_j(x)$ へ収束します。従って
 
 $$
 \frac{\partial\phi}{\partial x_j}(x)
@@ -590,13 +589,14 @@ $$
 =
 t\frac{\partial F_j}{\partial x_i}(tx)x_j
 +
-F_j(tx)\,\delta_{ij},
+F_j(tx)
+\frac{\partial x_j}{\partial x_i}.
 $$
 
-ここで Kronecker のデルタ $\delta_{ij}$ は
+ここで
 
 $$
-\delta_{ij}
+\frac{\partial x_j}{\partial x_i}
 =
 \begin{cases}
 1,&i=j,\\
@@ -604,7 +604,7 @@ $$
 \end{cases}
 $$
 
-です。$j$ について和を取ると、第二項では $j=i$ だけが残るため
+です。したがって $j$ について和を取ると第二項では $j=i$ だけが残り、
 
 $$
 \frac{\partial\phi}{\partial x_i}
