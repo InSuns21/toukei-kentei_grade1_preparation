@@ -1448,13 +1448,13 @@ $$
 
 ---
 
-### 被覆写像とは何か
+### 被覆の局所シート構造を確認する
 
 Cartan--Hadamard では「局所的には逆写像を持つ」ことから、まず「大域的には何枚かのシートで同じ多様体を覆う」ところまで進みます。その状態を先に定義します。
 
 <a id="def-geo18-covering-map"></a>
 <!-- formal-statement-start -->
-> **定義（被覆写像）**  
+> **定義（比較幾何で使う被覆写像の再掲）**  
 > 滑らかな全射
 >
 $$
@@ -1478,6 +1478,8 @@ $$
 > が微分同相になることをいう。
 >
 > 各 $U_\lambda$ は、同じ $U$ を一枚ずつ写し取る **シート**と考えられる。
+>
+> これは [TOP2 の被覆写像](../TOP2/index.md#def-top2-covering-map) と同じ定義であり、本章では Riemann 多様体間の滑らかな写像に対して使う。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-geo18-covering-map -->
