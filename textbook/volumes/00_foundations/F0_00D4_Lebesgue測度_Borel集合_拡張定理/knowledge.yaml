@@ -66,14 +66,6 @@ concepts:
     requires:
       - measure.interval-lebesgue-measurability
 
-  - id: measure.borel-sigma-algebra-recap
-    name: Borel σ代数の再導入
-    kind: definition
-    aliases: ["### 定義（Borel σ代数）"]
-    requires:
-      - measure.borel-sigma-algebra
-      - measure.open-set-decomposition
-
   - id: measure.measure-completion
     name: 測度空間の完備化
     kind: definition
@@ -85,7 +77,7 @@ concepts:
   - id: measure.set-algebra
     name: 集合代数
     kind: definition
-    aliases: [集合代数, algebra of sets, algebra]
+    aliases: [集合代数, algebra of sets]
     requires: []
 
   - id: measure.premeasure
@@ -99,7 +91,7 @@ concepts:
     name: Hopf型の前測度判定
     kind: lemma
     aliases:
-      - 空集合への連続性によるpremeasure判定
+      - 空集合への連続性による前測度判定
       - continuity from above criterion for premeasures
     requires:
       - measure.premeasure
@@ -122,9 +114,9 @@ concepts:
       - measure.premeasure
 
   - id: measure.algebra-caratheodory-measurable
-    name: algebra集合のCarathéodory可測性
+    name: 集合代数の集合のCarathéodory可測性
     kind: lemma
-    aliases: [algebra集合のCarathéodory可測性]
+    aliases: [集合代数の集合のCarathéodory可測性, algebra集合のCarathéodory可測性]
     requires:
       - measure.premeasure-induced-outer-measure
       - measure.set-algebra
