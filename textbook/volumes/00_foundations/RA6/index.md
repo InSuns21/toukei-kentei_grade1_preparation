@@ -89,12 +89,12 @@ $$
 <!-- formal-statement-start -->
 > **定義（多変数での微分可能性）**  
 > $U\subset\mathbb R^n$ を開集合、$f:U\to\mathbb R^m$、$a\in U$ とする。ある線形写像 $A:\mathbb R^n\to\mathbb R^m$ が存在して
->
-> $$
-> \frac{\|f(a+h)-f(a)-Ah\|}{\|h\|}\to0
-> \qquad(h\to0)
-> $$
->
+
+$$
+\frac{\|f(a+h)-f(a)-Ah\|}{\|h\|}\to0
+\qquad(h\to0)
+$$
+
 > となるとき、$f$ は $a$ で **微分可能** であるという。この $A$ を $Df(a)$ と書く。
 <!-- formal-statement-end -->
 
@@ -224,15 +224,15 @@ $$
 <!-- formal-statement-start -->
 > **定義（Jacobian 行列）**  
 > $f=(f_1,\ldots,f_m):U\subset\mathbb R^n\to\mathbb R^m$ の各一階偏微分が $a$ で存在するとき、
->
-> $$
-> J_f(a)
-> =
-> \left(
-> \frac{\partial f_i}{\partial x_j}(a)
-> \right)_{\substack{1\le i\le m\\1\le j\le n}}
-> $$
->
+
+$$
+J_f(a)
+=
+\left(
+\frac{\partial f_i}{\partial x_j}(a)
+\right)_{\substack{1\le i\le m\\1\le j\le n}}
+$$
+
 > を $f$ の $a$ における **Jacobian 行列** という。
 <!-- formal-statement-end -->
 
@@ -285,14 +285,14 @@ $$
 <!-- formal-statement-start -->
 > **定義（方向微分）**  
 > $f:U\subset\mathbb R^n\to\mathbb R^m$、$a\in U$、$v\in\mathbb R^n$ とする。
->
-> $$
-> D_vf(a)
-> =
-> \lim_{t\to0}
-> \frac{f(a+tv)-f(a)}{t}
-> $$
->
+
+$$
+D_vf(a)
+=
+\lim_{t\to0}
+\frac{f(a+tv)-f(a)}{t}
+$$
+
 > が存在するとき、これを $a$ における方向 $v$ の **方向微分** という。
 <!-- formal-statement-end -->
 
@@ -400,13 +400,13 @@ $$
 <!-- formal-statement-start -->
 > **定理（連続な偏微分による微分可能性）**  
 > $U\subset\mathbb R^n$ を開集合、$f:U\to\mathbb R$ とする。点 $a\in U$ の近傍で全偏微分 $\partial_jf$ が存在し、各 $\partial_jf$ が $a$ で連続なら、$f$ は $a$ で微分可能で
->
-> $$
-> Df(a)h
-> =
-> \sum_{j=1}^n\partial_jf(a)h_j
-> $$
->
+
+$$
+Df(a)h
+=
+\sum_{j=1}^n\partial_jf(a)h_j
+$$
+
 > である。
 <!-- formal-statement-end -->
 
@@ -507,13 +507,13 @@ $$
 <!-- formal-statement-start -->
 > **定理（多変数の連鎖律）**  
 > $U\subset\mathbb R^n$、$V\subset\mathbb R^m$ を開集合とし、$f:U\to V$ が $a$ で微分可能、$g:V\to\mathbb R^k$ が $f(a)$ で微分可能とする。このとき $g\circ f$ は $a$ で微分可能で
->
-> $$
-> D(g\circ f)(a)
-> =
-> Dg(f(a))\circ Df(a)
-> $$
->
+
+$$
+D(g\circ f)(a)
+=
+Dg(f(a))\circ Df(a)
+$$
+
 > である。
 <!-- formal-statement-end -->
 
@@ -627,15 +627,15 @@ $$
 <!-- formal-statement-start -->
 > **定義（Hessian）**  
 > $f$ の二階偏微分が $a$ で存在するとき、
->
-> $$
-> H_f(a)
-> =
-> \left(
-> \frac{\partial^2 f}{\partial x_i\partial x_j}(a)
-> \right)_{i,j=1}^n
-> $$
->
+
+$$
+H_f(a)
+=
+\left(
+\frac{\partial^2 f}{\partial x_i\partial x_j}(a)
+\right)_{i,j=1}^n
+$$
+
 > を $f$ の $a$ における **Hessian** という。
 <!-- formal-statement-end -->
 
@@ -673,13 +673,13 @@ $$
 <!-- formal-statement-start -->
 > **定理（混合偏微分の交換）**  
 > $f$ が $a$ の近傍で二階偏微分を持ち、それらが連続なら、
->
-> $$
-> \partial_i\partial_j f(a)
-> =
-> \partial_j\partial_i f(a)
-> $$
->
+
+$$
+\partial_i\partial_j f(a)
+=
+\partial_j\partial_i f(a)
+$$
+
 > が成り立つ。従って $H_f(a)$ は対称行列である。
 <!-- formal-statement-end -->
 
@@ -768,19 +768,19 @@ $$
 <!-- formal-statement-start -->
 > **定理（二階の多変数 Taylor 展開）**  
 > $f:U\subset\mathbb R^n\to\mathbb R$ が $a$ の近傍で二階連続微分可能なら、
->
-> $$
-> f(a+h)
-> =
-> f(a)
-> +
-> \nabla f(a)^{\mathsf T}h
-> +
-> \frac12h^{\mathsf T}H_f(a)h
-> +
-> o(\|h\|^2)
-> $$
->
+
+$$
+f(a+h)
+=
+f(a)
++
+\nabla f(a)^{\mathsf T}h
++
+\frac12h^{\mathsf T}H_f(a)h
++
+o(\|h\|^2)
+$$
+
 > が成り立つ。
 <!-- formal-statement-end -->
 
