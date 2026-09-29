@@ -31,12 +31,12 @@ $X,Y$ をノルム空間とします。
 <!-- formal-statement-start -->
 > **定義（有界線形写像）**  
 > 線形写像 $T:X\to Y$ に対し、ある $M<\infty$ が存在して
->
-> $$
-> \|Tx\|_Y\le M\|x\|_X
-> \qquad(\forall x\in X)
-> $$
->
+
+$$
+\|Tx\|_Y\le M\|x\|_X
+\qquad(\forall x\in X)
+$$
+
 > が成り立つとき、$T$ を **有界線形写像** という。
 <!-- formal-statement-end -->
 
@@ -150,13 +150,13 @@ $x=0$ でも同じ評価が成り立つので $T$ は有界です。$\square$
 <!-- formal-statement-start -->
 > **定義（作用素ノルム）**  
 > 有界線形写像 $T:X\to Y$ に対し、
->
-> $$
-> \|T\|
-> =
-> \sup_{\|x\|_X\le1}\|Tx\|_Y
-> $$
->
+
+$$
+\|T\|
+=
+\sup_{\|x\|_X\le1}\|Tx\|_Y
+$$
+
 > を $T$ の **作用素ノルム** という。
 <!-- formal-statement-end -->
 
@@ -204,13 +204,13 @@ $U\subset X$ を開集合、$f:U\to Y$ とします。
 <!-- formal-statement-start -->
 > **定義（Fréchet微分）**  
 > $a\in U$ とする。ある有界線形写像 $A:X\to Y$ が存在して
->
-> $$
-> \frac{\|f(a+h)-f(a)-Ah\|_Y}{\|h\|_X}
-> \to0
-> \qquad(h\to0)
-> $$
->
+
+$$
+\frac{\|f(a+h)-f(a)-Ah\|_Y}{\|h\|_X}
+\to0
+\qquad(h\to0)
+$$
+
 > となるとき、$f$ は $a$ で **Fréchet微分可能** であるという。この $A$ を $Df(a)$ と書く。
 <!-- formal-statement-end -->
 
@@ -310,14 +310,14 @@ Fréchet 微分は「全方向を一つの線形写像で同時に近似する�
 <!-- formal-statement-start -->
 > **定義（方向微分）**  
 > $a\in U$、$v\in X$ に対し、
->
-> $$
-> D_vf(a)
-> =
-> \lim_{t\to0}
-> \frac{f(a+tv)-f(a)}{t}
-> $$
->
+
+$$
+D_vf(a)
+=
+\lim_{t\to0}
+\frac{f(a+tv)-f(a)}{t}
+$$
+
 > が $Y$ で存在するとき、これを $f$ の $a$ における方向 $v$ の **方向微分** という。
 <!-- formal-statement-end -->
 
@@ -346,11 +346,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（Gâteaux微分）**  
 > $f:U\to Y$ について、すべての $v\in X$ で方向微分 $D_vf(a)$ が存在し、写像
->
-> $$
-> v\longmapsto D_vf(a)
-> $$
->
+
+$$
+v\longmapsto D_vf(a)
+$$
+
 > が線形であるとき、この線形写像を $f$ の $a$ における **Gâteaux微分** といい、$D_Gf(a)$ と書く。
 <!-- formal-statement-end -->
 
@@ -498,13 +498,13 @@ $$
 <!-- formal-statement-start -->
 > **定理（Fréchet連鎖律）**  
 > $X,Y,Z$ をノルム空間、$U\subset X$、$V\subset Y$ を開集合とする。$f:U\to V$ が $a$ で Fréchet 微分可能、$g:V\to Z$ が $f(a)$ で Fréchet 微分可能なら、$g\circ f$ は $a$ で Fréchet 微分可能で
->
-> $$
-> D(g\circ f)(a)
-> =
-> Dg(f(a))\circ Df(a)
-> $$
->
+
+$$
+D(g\circ f)(a)
+=
+Dg(f(a))\circ Df(a)
+$$
+
 > である。
 <!-- formal-statement-end -->
 
