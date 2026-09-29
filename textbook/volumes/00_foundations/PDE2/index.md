@@ -360,41 +360,41 @@ PDE1 では、曲線そのものに沿って解を追うため「特性曲線の
 
 直線族
 
-$
+$$
 \phi(x,y)=px+qy=\text{定数}
-$
+$$
 
 を考えると、$(p,q)$ はこの直線の法線方向です。
 
 ここで「なぜ $Ap^2+2Bpq+Cq^2=0$ を調べるのか」を座標変換で一度確認します。新しい座標の一つを
 
-$
+$$
 \xi=px+qy
-$
+$$
 
 とし、もう一つの座標 $\eta=rx+sy$ を
 
-$
+$$
 ps-qr\ne0
-$
+$$
 
 となるように選びます。すると
 
-$
+$$
 \partial_x=p\partial_\xi+r\partial_\eta,
 \qquad
 \partial_y=q\partial_\xi+s\partial_\eta.
-$
+$$
 
 二回微分して主要部
 $Au_{xx}+2Bu_{xy}+Cu_{yy}$
 へ代入すると、$U_{\xi\xi}$ の係数は
 
-$
+$$
 \boxed{
 Ap^2+2Bpq+Cq^2
 }
-$
+$$
 
 になります。したがってこの量が 0 になる法線方向では、新座標 $\xi$ に沿う純粋二階微分が主要部から消えます。これが「特性」と呼ぶ理由です。
 
@@ -957,70 +957,70 @@ $$
 
 まず
 
-$
+$$
 \alpha=\frac{\xi}{\sqrt{|A|}}
-$
+$$
 
 と置くと
 
-$
+$$
 U_{\xi\xi}
 =
 \frac1{|A|}V_{\alpha\alpha},
-$
+$$
 
 したがって
 
-$
+$$
 A\,U_{\xi\xi}
 =
 \operatorname{sgn}(A)V_{\alpha\alpha}.
-$
+$$
 
 $\mathcal D\ne0$ のときはさらに
 
-$
+$$
 \beta
 =
 \sqrt{\frac{|A|}{|\mathcal D|}}\,\eta
-$
+$$
 
 と置きます。このとき
 
-$
+$$
 U_{\eta\eta}
 =
 \frac{|A|}{|\mathcal D|}V_{\beta\beta},
-$
+$$
 
 ゆえに
 
-$
+$$
 -\frac{\mathcal D}{A}U_{\eta\eta}
 =
 -\operatorname{sgn}\!\left(\frac{\mathcal D}{A}\right)V_{\beta\beta}.
-$
+$$
 
 したがって、
 
 - $\mathcal D<0$ なら二つの係数は同符号です。必要なら方程式全体を $-1$ 倍して
-  $
+$$
   V_{\alpha\alpha}+V_{\beta\beta}
-  $
+$$
   型になります。
 - $\mathcal D=0$ なら第二項が消れ、
-  $
+$$
   A\,U_{\xi\xi}
-  $
+$$
   だけが残ります。同じ $\alpha$ への尺度変更と方程式全体の非零定数倍で
-  $
+$$
   V_{\alpha\alpha}
-  $
+$$
   型になります。
 - $\mathcal D>0$ なら二つの係数は異符号なので
-  $
+$$
   V_{\alpha\alpha}-V_{\beta\beta}
-  $
+$$
   型になります。
 
 $A=0$ で $C\ne0$ なら、最初に $x,y$ を交換すれば上の議論へ戻れます。
