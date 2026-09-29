@@ -300,7 +300,23 @@ $$
 u=\frac t{\sqrt n}
 $$
 
-を代入します。固定した $t$ に対して $u\to0$ なので
+を代入します。固定した $t$ に対して $u=t/\sqrt n\to0$ です。剰余を
+
+$$
+r(u):=\varphi(u)-1+\frac{u^2}{2}
+$$
+
+と書けば $r(u)/u^2\to0$ です。従って
+
+$$
+n\,r\left(\frac t{\sqrt n}\right)
+=
+t^2
+\frac{r(t/\sqrt n)}{(t/\sqrt n)^2}
+\longrightarrow0
+$$
+
+であり、
 
 $$
 \varphi\left(\frac t{\sqrt n}\right)
@@ -309,16 +325,29 @@ $$
 +o\left(\frac1n\right).
 $$
 
-従って
+ここで
 
 $$
+a_n:=-\frac{t^2}{2n}+o\left(\frac1n\right)
+$$
+
+と置くと $a_n\to0$ かつ $na_n\to-t^2/2$ です。$\log(1+a_n)=a_n+o(a_n)$ なので
+
+$$
+n\log(1+a_n)
+=na_n+n\,o(a_n)
+\longrightarrow-\frac{t^2}{2}.
+$$
+
+指数関数へ戻すと
+
+$$
+\begin{aligned}
 \varphi_{Z_n}(t)
-=
-\left[
-1-\frac{t^2}{2n}
-+o\left(\frac1n\right)
-\right]^n
-\longrightarrow e^{-t^2/2}.
+&=(1+a_n)^n\\
+&=\exp\{n\log(1+a_n)\}\\
+&\longrightarrow e^{-t^2/2}.
+\end{aligned}
 $$
 
 つまり、この極限で行っていることは
@@ -1113,19 +1142,39 @@ X_k
 \end{aligned}
 $$
 
-$k+4$ を代入すると $e^{-2\pi i(k+4)/8}=-e^{-2\pi ik/8}$ なので
+$X_{k+4}$ も偶奇へ分けます。偶数番側では
+
+$$
+e^{-2\pi i(k+4)r/4}
+=e^{-2\pi ikr/4}e^{-2\pi ir}
+=e^{-2\pi ikr/4},
+$$
+
+なので $E_k$ はそのままです。奇数番側の前係数は
+
+$$
+e^{-2\pi i(k+4)/8}
+=e^{-2\pi ik/8}e^{-\pi i}
+=-e^{-2\pi ik/8}.
+$$
+
+従って
 
 $$
 X_{k+4}=E_k-e^{-2\pi ik/8}O_k.
 $$
 
-長さ $N$ を長さ $N/2$ の二問題へ分け、各段の結合が $O(N)$ だから
+一般の $N=2^m$ では、長さ $N$ を長さ $N/2$ の二問題へ分け、二つの部分変換を結合する仕事が $O(N)$ です。よって
 
 $$
 T(N)=2T(N/2)+O(N).
 $$
 
-$N=2^m$ では段数が $m=\log_2N$ なので、各段 $O(N)$ を合計して $T(N)=O(N\log N)$ です。
+再帰の各深さでは部分問題の長さの総和が $N$ なので仕事量は $O(N)$、深さは $m=\log_2N$ です。従って
+
+$$
+T(N)=O(N\log N).
+$$
 <!-- solution-end -->
 
 ## FOU5-B03 独立 Bernoulli 和を Fourier 側で読む
