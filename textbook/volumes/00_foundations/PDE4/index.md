@@ -12,8 +12,7 @@ PDE2 では二階線形 PDE を楕円型・放物型・双曲型へ分類し、P
 
 直接の前提は [PDE3 熱方程式](../PDE3/index.md) です。PDE3 の prerequisite として学んだ [PDE2 二階線形PDEの分類](../PDE2/index.md)、[ODE7 境界値問題と Sturm--Liouville 理論](../ODE7/index.md)、[FOU2 Fourier級数の収束論](../FOU2/index.md)、[FOU3 Fourier変換](../FOU3/index.md) の結果を、本章でも再利用します。
 
-> **証明境界**  
-> 本章はこの双曲型方程式の古典解を扱います。特性座標による明示解、初期擾乱が有限の速さで伝わること、固定端でのエネルギー保存と一意性、十分滑らかな初期値に対する Fourier 正弦級数解、Fourier 変換による全空間表示との一致までを本文で閉じます。弱解、エネルギー空間 $H^1\times L^2$、高次元の Kirchhoff / Poisson 公式、一般双曲型作用素は Encore III 以降へ送り、本章の証明へ逆輸入しません。
+本章では、この双曲型方程式を古典解の範囲で調べます。特性座標による明示解、初期擾乱の有限伝播、固定端でのエネルギー保存と一意性、十分滑らかな初期値に対する Fourier 正弦級数解、Fourier 変換による全空間表示までを扱います。弱解やエネルギー空間 $H^1\times L^2$、高次元の Kirchhoff / Poisson 公式、一般双曲型作用素は後の発展章で学びます。
 
 ---
 
@@ -272,7 +271,54 @@ $$
 G'(x)=\frac12f'(x)+\frac1{2c}g(x).
 $$
 
-これを積分して定数を合わせれば、次の公式が得られます。
+ここで「積分して定数を合わせる」の中身を一度書き下します。任意の基準点 $x_*$ を固定し、
+
+$$
+H(x):=\int_{x_*}^{x}g(s)\,ds
+$$
+
+と置けば $H'(x)=g(x)$ です。したがって
+
+$$
+F(x)
+=
+\frac12f(x)-\frac1{2c}H(x)+C_F,
+$$
+
+$$
+G(x)
+=
+\frac12f(x)+\frac1{2c}H(x)+C_G
+$$
+
+と書けます。初期変位の条件 $F(x)+G(x)=f(x)$ を戻すと
+
+$$
+C_F+C_G=0.
+$$
+
+よって $u(t,x)=F(x-ct)+G(x+ct)$ に代入したとき定数項は打ち消し合い、
+
+$$
+\begin{aligned}
+u(t,x)
+&=
+\frac{f(x-ct)+f(x+ct)}2\\
+&\quad+
+\frac1{2c}
+\{H(x+ct)-H(x-ct)\}.
+\end{aligned}
+$$
+
+最後に $H$ の定義から
+
+$$
+H(x+ct)-H(x-ct)
+=
+\int_{x-ct}^{x+ct}g(s)\,ds.
+$$
+
+これで初期データから d'Alembert 公式の形が具体的に決まります。
 
 <a id="thm-pde4-dalembert"></a>
 <!-- formal-statement-start -->
@@ -1093,33 +1139,70 @@ $$
 
 ## 11. Fourier 変換では各周波数が調和振動子になる
 
-実数全体では境界条件がないため、FOU3 の Fourier 変換が自然です。空間変数 $x$ について変換すると、[Fourier変換と微分](../FOU3/index.md#thm-fou3-derivative-rule)から形式的に
+実数全体では境界条件がないため、FOU3 の Fourier 変換が自然です。ただし、ここで最初に行うのは**周波数表示の候補を見つける計算**です。微分と Fourier 変換、時間微分と積分の交換条件を曖昧にしたまま古典解の存在証明にしてはいけません。直後の命題では $f,g\in C_c^\infty(\mathbb R)$ として d'Alembert 解からこの表示を厳密に確認します。
+
+候補式を導くため、時刻 $t$ を固定し、まず $x\mapsto u(t,x)$ が [Fourier変換と微分](../FOU3/index.md#thm-fou3-derivative-rule)を二回適用できるだけ十分滑らかで減衰していると仮定します。このとき、同定理を空間変数 $x$ に適用して
 
 $$
-\widehat u_{tt}(t,\xi)
+\widehat{u_{xx}}(t,\xi)
+=
+(i\xi)^2\widehat u(t,\xi)
+=
+-\xi^2\widehat u(t,\xi).
+$$
+
+さらに $t$ に関する二階微分を Fourier 積分の中へ入れられると仮定すれば
+
+$$
+\widehat{u_{tt}}(t,\xi)
+=
+\frac{\partial^2}{\partial t^2}\widehat u(t,\xi).
+$$
+
+したがって波動方程式 $u_{tt}=c^2u_{xx}$ を変換した式は
+
+$$
+\frac{\partial^2}{\partial t^2}\widehat u(t,\xi)
 =
 -c^2\xi^2\widehat u(t,\xi).
 $$
 
-すなわち各 $\xi$ ごとに
+周波数 $\xi$ を一つ固定して
 
 $$
-\widehat u_{tt}
-+
-c^2\xi^2\widehat u
-=
-0.
+Y_\xi(t):=\widehat u(t,\xi)
 $$
 
-これは調和振動子です。初期値
+と置けば、これは一変数の初期値問題
 
 $$
-\widehat u(0,\xi)=\widehat f(\xi),
+Y_\xi''(t)+(c\xi)^2Y_\xi(t)=0,
+$$
+
+$$
+Y_\xi(0)=\widehat f(\xi),
 \qquad
-\widehat u_t(0,\xi)=\widehat g(\xi)
+Y_\xi'(0)=\widehat g(\xi)
 $$
 
-から
+です。$\xi\ne0$ では調和振動子の解から
+
+$$
+Y_\xi(t)
+=
+\widehat f(\xi)\cos(c\xi t)
++
+\widehat g(\xi)
+\frac{\sin(c\xi t)}{c\xi}.
+$$
+
+$\xi=0$ では方程式が $Y_0''=0$ となるので
+
+$$
+Y_0(t)=\widehat f(0)+t\widehat g(0).
+$$
+
+これは $\sin(c\xi t)/(c\xi)\to t$ という極限と一致します。したがって候補となる周波数表示は
 
 $$
 \widehat u(t,\xi)
@@ -1127,12 +1210,12 @@ $$
 \widehat f(\xi)\cos(c\xi t)
 +
 \widehat g(\xi)
-\frac{\sin(c\xi t)}{c\xi},
+\frac{\sin(c\xi t)}{c\xi}
 $$
 
-ここで $\xi=0$ では第二因子を極限値 $t$ と解釈します。
+です。
 
-この表示が [d'Alembert 公式](#thm-pde4-dalembert)と本当に同じであることを確認します。
+この表示が [d'Alembert 公式](#thm-pde4-dalembert)と本当に同じであることを、十分滑らかでコンパクト台を持つ初期データについて確認します。
 
 <a id="prop-pde4-fourier-dalembert"></a>
 <!-- formal-statement-start -->
