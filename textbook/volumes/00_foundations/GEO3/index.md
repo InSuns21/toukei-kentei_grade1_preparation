@@ -325,7 +325,7 @@ K'(\tau)
 D_tH(s,\tau t)[t].
 $$
 
-右辺は $D_tH=0$ だから0です。従って一変数の微積分学の基本定理から
+右辺は $D_tH=0$ だから0です。従って [微積分学の基本定理II](../RA4/index.md#thm-ra4-ftc2) から
 
 $$
 \begin{aligned}
