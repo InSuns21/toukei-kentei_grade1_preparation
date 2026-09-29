@@ -881,30 +881,91 @@ $\square$
 
 ## 10. 多変数 Taylor 展開
 
-$a$ と $a+h$ を結ぶ線分が定義域に含まれるとし、
+$a$ と $a+h$ を結ぶ線分が定義域に含まれるとします。多変数関数をこの直線上だけで見るため、
 
 $$
 \phi(t)=f(a+th),
 \qquad 0\le t\le1
 $$
 
-と置きます。
+と置きます。ここで $a=(a_1,\ldots,a_n)$ と $h=(h_1,\ldots,h_n)$ は固定し、動くのは実数 $t$ だけです。したがって
 
-連鎖律から
+$$
+\phi(t)
+=
+f(a_1+th_1,\ldots,a_n+th_n)
+$$
+
+は一変数関数です。
+
+まず $\phi'(t)$ を計算します。[多変数の連鎖律](#thm-ra6-chain-rule)より、
 
 $$
 \phi'(t)
 =
-\nabla f(a+th)^{\mathsf T}h,
+\sum_{i=1}^n
+\frac{\partial f}{\partial x_i}(a+th)\,h_i.
 $$
 
-さらに二階微分可能なら
+これは勾配を使えば
+
+$$
+\boxed{
+\phi'(t)
+=
+\nabla f(a+th)^{\mathsf T}h
+}
+$$
+
+です。つまり $\phi'(t)$ は、点 $a+th$ で方向 $h$ へ進んだときの変化率です。
+
+次に、$f$ が二階微分可能であるとして $\phi'(t)$ をもう一度 $t$ で微分します。$h_i$ は $t$ に依らない定数なので、
 
 $$
 \phi''(t)
 =
-h^{\mathsf T}H_f(a+th)h.
+\sum_{i=1}^n
+h_i
+\frac{d}{dt}
+\left[
+\frac{\partial f}{\partial x_i}(a+th)
+\right].
 $$
+
+各 $\partial_i f$ にもう一度連鎖律を使うと、
+
+$$
+\frac{d}{dt}
+\left[
+\frac{\partial f}{\partial x_i}(a+th)
+\right]
+=
+\sum_{j=1}^n
+\frac{\partial^2 f}{\partial x_j\partial x_i}(a+th)\,h_j.
+$$
+
+したがって
+
+$$
+\phi''(t)
+=
+\sum_{i=1}^n\sum_{j=1}^n
+h_i
+\frac{\partial^2 f}{\partial x_j\partial x_i}(a+th)
+h_j.
+$$
+
+二階偏微分が連続なら、前節の[混合偏微分の交換](#thm-ra6-mixed-partials)により添字の順序を交換できます。よって Hessian の二次形式として
+
+$$
+\boxed{
+\phi''(t)
+=
+h^{\mathsf T}H_f(a+th)h
+}
+$$
+
+と書けます。
 
 <a id="thm-ra6-second-order-taylor"></a>
 
