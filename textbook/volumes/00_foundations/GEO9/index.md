@@ -1,4 +1,4 @@
-# GEO9 幾何学 IX
+# GEO9 Poincaré の補題と de Rham コホモロジー
 
 [GEO7](../GEO7/index.md) では微分形式と外微分を構成し、[外微分の二乗は0](../GEO7/index.md#thm-geo7-d-square-zero) を証明しました。[GEO8](../GEO8/index.md) では微分形式を積分し、[一般 Stokes の定理](../GEO8/index.md#thm-geo8-general-stokes) まで進みました。
 
@@ -321,27 +321,71 @@ $$
 
 を考えます。
 
-$k=1$ なので $K_H\omega$ は0形式、すなわち関数です。後で導く星型開集合の公式をこの例に直接使うと
+$k=1$ なので $K_H\omega$ は0形式、すなわち関数です。ここでは後の公式を先取りせず、定義から直接計算します。標的側の座標を $(X,Y)$ と書くと
 
 $$
-(K_H\omega)(x,y)
+H^*X=tx,
+\qquad
+H^*Y=ty,
+$$
+
+したがって
+
+$$
+H^*(dX)
 =
-\int_0^1
-\omega_{(tx,ty)}((x,y))
-dt.
-$$
-
-ここで
-
-$$
-\omega_{(tx,ty)}((x,y))
+d(tx)
 =
-ty\,x+tx\,y
+x\,dt+t\,dx,
+$$
+
+$$
+H^*(dY)
+=
+d(ty)
+=
+y\,dt+t\,dy.
+$$
+
+よって
+
+$$
+\begin{aligned}
+H^*\omega
+&=
+H^*Y\,H^*(dX)
++
+H^*X\,H^*(dY)\\
+&=
+ty(x\,dt+t\,dx)
++
+tx(y\,dt+t\,dy)\\
+&=
+2txy\,dt
++
+t^2y\,dx
++
+t^2x\,dy.
+\end{aligned}
+$$
+
+ここへ $\partial_t$ を差し込むと、$dx(\partial_t)=dy(\partial_t)=0$、$dt(\partial_t)=1$ なので
+
+$$
+\iota_{\partial_t}H^*\omega
 =
 2txy.
 $$
 
-従って
+0形式の引き戻しは単なる代入なので
+
+$$
+j_t^*\bigl(\iota_{\partial_t}H^*\omega\bigr)
+=
+2txy.
+$$
+
+従って定義から
 
 $$
 K_H\omega
@@ -423,13 +467,70 @@ $$
 
 です。
 
-局所座標で $\beta$ の係数を書けば、$t$ に関する微分は係数の偏微分です。従って
+この等式を使う前に、左辺の $t$ 微分がなぜ Lie 微分になるかを局所座標で確認します。$M$ の局所座標を $(x^1,\dots,x^m)$ とすると、$[0,1]\times M$ 上の $k$ 形式 $\beta$ は一意に
+
+$$
+\beta
+=
+dt\wedge\alpha_t
++
+\gamma_t
+$$
+
+と分けられます。ここで $\alpha_t$ は $x$ 方向だけを含む $(k-1)$ 形式、$\gamma_t$ は $x$ 方向だけを含む $k$ 形式で、どちらの係数も $(t,x)$ の滑らかな関数です。
+
+包含写像 $j_t(p)=(t,p)$ で引き戻すと $j_t^*dt=0$ なので
+
+$$
+j_t^*\beta
+=
+\gamma_t.
+$$
+
+従って
 
 $$
 \frac{d}{dt}j_t^*\beta
 =
-j_t^*(\mathcal L_{\partial_t}\beta).
+\frac{\partial\gamma_t}{\partial t}.
 $$
+
+一方、$\partial_t$ の局所流は
+
+$$
+\Phi_h(t,x)=(t+h,x)
+$$
+
+という $t$ 方向の平行移動です。したがって $dt$ と各 $dx^i$ はこの流れで変わらず、Lie 微分は係数だけを $t$ で微分します。よって
+
+$$
+\mathcal L_{\partial_t}\beta
+=
+dt\wedge
+\frac{\partial\alpha_t}{\partial t}
++
+\frac{\partial\gamma_t}{\partial t}.
+$$
+
+これを $j_t$ で引き戻すと $dt$ を含む第一項が消え、
+
+$$
+j_t^*(\mathcal L_{\partial_t}\beta)
+=
+\frac{\partial\gamma_t}{\partial t}
+=
+\frac{d}{dt}j_t^*\beta.
+$$
+
+これで
+
+$$
+\frac{d}{dt}j_t^*\beta
+=
+j_t^*(\mathcal L_{\partial_t}\beta)
+$$
+
+を、今回の $j_t$ に対して直接確認できました。
 
 [GEO7 の Cartan の公式](../GEO7/index.md#thm-geo7-cartan-formula)から
 
