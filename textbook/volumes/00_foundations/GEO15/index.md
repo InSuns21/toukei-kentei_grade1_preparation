@@ -1,4 +1,4 @@
-# GEO15 幾何学 XV
+# GEO15 局所的な測地線はどこまで大域化できるか：完備性・Hopf--Rinow
 
 <!-- definition-example-audit: strict -->
 
@@ -620,12 +620,76 @@ $$
 
 その最初の点を $y_n$ とします。
 
-[正規球での基点からの距離](../GEO14/index.md#cor-geo14-normal-distance)により
+ここで距離 $\delta$ の球面が、接空間の半径 $\delta$ の球面の指数像になることを確認します。
+
+まず $|v|=\delta$ なら $\delta<\rho$ なので
 
 $$
+\exp_x(v)\in U.
+$$
+
+[正規球での基点からの距離](../GEO14/index.md#cor-geo14-normal-distance)から
+
+$$
+d(x,\exp_x(v))=|v|=\delta.
+$$
+
+従って
+
+$$
+\exp_x\{v:|v|=\delta\}
+\subset
+\{z:d(x,z)=\delta\}.
+$$
+
+逆に
+
+$$
+d(x,z)=\delta
+$$
+
+とします。$\delta<\rho$ なので、距離の定義から $x$ と $z$ を結ぶ曲線 $\alpha$ で
+
+$$
+L(\alpha)<\rho
+$$
+
+となるものを取れます。
+
+もし $z\notin U$ なら、$\alpha$ は $U$ を一度は出ます。最初の退出直前まで
+
+$$
+\beta(t)
+=
+\exp_x^{-1}(\alpha(t))
+$$
+
+と書けます。[正規球内の放射測地線の最短性](../GEO14/index.md#thm-geo14-radial-minimizing)の証明で使った長さ評価を退出直前まで適用すると、
+
+$$
+L(\alpha)
+\ge
+\lim_{t\uparrow t_*}|\beta(t)|
+=
+\rho.
+$$
+
+これは $L(\alpha)<\rho$ に反します。従って $z\in U$ です。
+
+正規球では $z=\exp_x(v)$ と一意に書け、再び基点からの距離公式から
+
+$$
+|v|=d(x,z)=\delta.
+$$
+
+よって
+
+$$
+\boxed{
 \{z:d(x,z)=\delta\}
 =
-\exp_x\{v\in T_xM:|v|=\delta\}.
+\exp_x\{v\in T_xM:|v|=\delta\}
+}.
 $$
 
 右辺の接空間の球面は有限次元 Euclid 空間でコンパクトです。
@@ -720,37 +784,140 @@ $$
 
 左速度と右速度の向きが異なると仮定します。
 
-$x$ の凸正規近傍 $U$ を [GEO14](../GEO14/index.md#thm-geo14-convex-normal-existence)から取ります。
+まず $x$ の凸正規近傍 $U$ を [凸正規近傍の局所存在](../GEO14/index.md#thm-geo14-convex-normal-existence)から取ります。その中で $x$ を中心とする正規座標をさらに小さく取ります。
 
-$x$ の直前と直後に、十分近い二点 $a,b\in U$ を選びます。
-
-元の曲線の $a$ から $b$ までの部分は
+両側の測地線片はアフィン再パラメータ化して単位速としてよいので、$x$ での前向き単位速度を
 
 $$
-a\longrightarrow x\longrightarrow b
+u_-,
+\qquad
+u_+
 $$
 
-という二本の測地線片です。
-
-一方、凸正規近傍の定義から $a,b$ は $U$ 内の一意な最短測地線 $\eta$ で結ばれます。
-
-もし元の折れ線も $a,b$ 間で最短なら、一意性によりその像は $\eta$ と一致しなければなりません。
-
-しかし $\eta$ は滑らかな一本の測地線なので、$x$ で異なる左右方向を持つことはできません。
-
-従って折れ線は $a,b$ 間で最短ではなく、
+と書きます。仮定は
 
 $$
-d(a,b)
-<
-d(a,x)+d(x,b)
+u_-\ne u_+.
+$$
+
+十分小さい $\varepsilon>0$ に対して、$x$ の直前・直後の点を
+
+$$
+a=\sigma(-\varepsilon),
+\qquad
+b=\sigma(\varepsilon)
+$$
+
+と取ります。正規座標では放射測地線が直線になるため、
+
+$$
+a\leftrightarrow-\varepsilon u_-,
+\qquad
+b\leftrightarrow\varepsilon u_+.
+$$
+
+元の折れ線 $a\to x\to b$ の長さは
+
+$$
+2\varepsilon
 $$
 
 です。
 
-元の曲線の $a$ から $b$ の部分を $\eta$ へ置き換えると全体の長さが短くなり、全体が距離を実現するという仮定に反します。
+ここで二つの座標点を Euclid 的な線分で結びます。
 
-よって角は存在しません。$\square$
+$$
+c(s)
+=
+(1-s)(-\varepsilon u_-)
++
+s(\varepsilon u_+),
+\qquad
+0\le s\le1.
+$$
+
+その Euclid 速度は一定で
+
+$$
+c'(s)
+=
+\varepsilon(u_-+u_+),
+$$
+
+従って Euclid 長は
+
+$$
+\varepsilon|u_-+u_+|.
+$$
+
+$u_-,u_+$ は異なる単位ベクトルなので
+
+$$
+|u_-+u_+|<2.
+$$
+
+[正規座標の基点での基本性質](../GEO14/index.md#thm-geo14-normal-coordinate-properties)から
+
+$$
+g_{ij}(x)=\delta_{ij}.
+$$
+
+計量係数は連続なので、座標球を十分小さくすれば、ある $M>1$ を $1$ に十分近く選んで
+
+$$
+g_z(\xi,\xi)
+\le
+M|\xi|_{\mathrm E}^2
+$$
+
+をその球内の全ての $z,\xi$ について成り立たせられます。
+
+$|u_-+u_+|<2$ なので、先に $M>1$ を
+
+$$
+\sqrt M,|u_-+u_+|<2
+$$
+
+となるよう選べます。その後 $\varepsilon$ を十分小さく取れば、線分 $c$ 全体はこの座標球に入ります。
+
+$c$ を正規座標から $M$ へ戻した曲線を $\eta$ とすると、
+
+$$
+\begin{aligned}
+L(\eta)
+&=
+\int_0^1
+\sqrt{
+g_{c(s)}(c'(s),c'(s))
+}
+\,ds
+\\
+&\le
+\sqrt M
+\int_0^1|c'(s)|_{\mathrm E}\,ds
+\\
+&=
+\sqrt M\,
+\varepsilon|u_-+u_+|
+\\
+&<
+2\varepsilon.
+\end{aligned}
+$$
+
+つまり $a\to x\to b$ という折れ線より短い曲線を局所的に作れました。
+
+一方、全体の曲線 $\sigma$ が両端間の距離を実現するなら、その任意の部分曲線も両端間の距離を実現しなければなりません。そうでなければ、その部分だけをより短い曲線へ置き換えて全体を短くできるからです。
+
+従って $a\to x\to b$ の部分が長さ $2\varepsilon$ で最短であることと、上で $L(\eta)<2\varepsilon$ を得たことは矛盾します。
+
+よって
+
+$$
+u_-=u_+.
+$$
+
+単位速にそろえた左右速度は一致し、一般の速さでは向きをそろえた同一直線上にあります。$\square$
 <!-- proof-end -->
 
 ---
@@ -2020,8 +2187,45 @@ $$
    (x(p),v)
    $$
    です。
-   測地線方程式の局所存在一意性を初期状態 $(p,v)$ へ適用すれば、$b$ より後まで解を延長できます。
-   これは最大性に反します。
+   ここで一次の状態を
+
+   $$
+   z(t)=(x(t),\dot x(t))
+   $$
+
+   と書き、測地線方程式を
+
+   $$
+   \dot z=F(z)
+   $$
+
+   とします。$F$ は滑らかです。
+
+   任意の $t_1<b$ について
+
+   $$
+   z(t)
+   =
+   z(t_1)
+   +
+   \int_{t_1}^{t}F(z(s))\,ds
+   $$
+
+   です。$z(t)\to z_b:=(x(p),v)$ かつ $F(z(t))\to F(z_b)$ なので、$t\uparrow b$ として
+
+   $$
+   z_b
+   =
+   z(t_1)
+   +
+   \int_{t_1}^{b}F(z(s))\,ds.
+   $$
+
+   したがって $z(b):=z_b$ と置けば、元の解は時刻 $b$ まで連続に延び、積分方程式も $b$ まで成り立ちます。
+
+   次に [測地線の局所存在・一意性](../GEO14/index.md#thm-geo14-geodesic-existence)を時刻 $b$ の初期状態 $z_b$ に適用します。得られた局所解は、$b$ の左側で元の解と同じ初期状態へ接続されるため、一意性により重なりで一致します。
+
+   よって元の測地線を $b$ より後まで延長でき、最大性に反します。
 <!-- solution-end -->
 
 <a id="ex-geo15-b02"></a>
@@ -2270,7 +2474,63 @@ $$
    =
    r-(t+\delta).
    $$
-   同様の三角不等式を途中時刻へ適用すれば、$[t,t+\delta]$ 全体が $A$ に入ります。
+
+   さらに $0\le s\le\delta$ とします。$z=\gamma(t+\delta)$ なので、測地線の $\gamma(t+s)$ から $z$ までの部分の長さは $\delta-s$ です。従って
+
+   $$
+   \begin{aligned}
+   d(\gamma(t+s),q)
+   &\le
+   d(\gamma(t+s),z)+d(z,q)
+   \\
+   &\le
+   (\delta-s)+(r-t-\delta)
+   \\
+   &=
+   r-(t+s).
+   \end{aligned}
+   $$
+
+   逆向きには
+
+   $$
+   \begin{aligned}
+   r-t
+   &=
+   d(x,q)
+   \\
+   &\le
+   d(x,\gamma(t+s))
+   +
+   d(\gamma(t+s),q)
+   \\
+   &\le
+   s+d(\gamma(t+s),q).
+   \end{aligned}
+   $$
+
+   よって
+
+   $$
+   d(\gamma(t+s),q)
+   \ge
+   r-(t+s).
+   $$
+
+   両方を合わせると
+
+   $$
+   d(\gamma(t+s),q)
+   =
+   r-(t+s)
+   $$
+
+   なので
+
+   $$
+   [t,t+\delta]\cap[\rho,r]
+   \subset A.
+   $$
 
 5. $T=\sup A$ とします。
    上限の定義から $t_n\in A$ で $t_n\to T$ となる点列を選べます。$A$ は閉なので、[距離空間における閉集合の点列特徴付け](../F0_00B_距離空間_開集合_閉集合_収束/index.md#thm-f0-00b-01)から $T\in A$ です。
