@@ -1,6 +1,6 @@
 # PDE6 Laplace・Poisson 方程式の境界積分法
 
-PDE5 では、Laplace・Poisson 方程式を平均値性質、[強最大原理](../PDE5/index.md#thm-pde5-maximum-principle)、変数分離、Poisson 核 から調べました。本章では同じ楕円型方程式を、**領域内部の微分を境界積分へ移す**という別の視点から見直します。
+PDE5 では、Laplace・Poisson 方程式を平均値性質、[強最大原理](../PDE5/index.md#thm-pde5-maximum-principle)、変数分離、Poisson 核から調べました。本章では同じ楕円型方程式を、**領域内部の微分を境界積分へ移す**という別の視点から見直します。
 
 ここでは、ベクトル解析で学んだ次の道具を使います。
 
@@ -33,7 +33,7 @@ $$
 1. なぜ $\Delta$ を含む面積分が境界上の法線微分へ変わるのか。
 2. 原点に集中した「単位源」を、古典解の範囲でどう表現するのか。
 3. 境界条件を満たすよう基本解を補正すると、なぜ Green 関数になるのか。
-4. PDE5 の Poisson 核 は Green 関数からどう再発見できるのか。
+4. PDE5 の Poisson 核は Green 関数からどう再発見できるのか。
 
 ---
 
@@ -930,6 +930,8 @@ $$
 
 ## 11. 境界条件を基本解へ埋め込む
 
+基本解だけでも一点値の表現は得られましたが、Dirichlet 問題で未知な $\partial_nu$ が境界積分に残りました。そこで、基本解が持つ点源の特異性は保ったまま調和関数を加え、境界上では値が 0 になるよう補正します。そうすれば未知の法線微分を掛ける項を消し、既知の Dirichlet データだけを残せます。この補正済みの核が Dirichlet Green 関数です。
+
 <a id="def-pde6-green-function"></a>
 <!-- formal-statement-start -->
 > **定義（Dirichlet Green 関数）**  
@@ -1284,7 +1286,7 @@ $$
 
 ---
 
-## 14. Green 関数から Poisson 核 を定義する
+## 14. Green 関数から Poisson 核を定義する
 
 <a id="def-pde6-poisson-kernel"></a>
 <!-- formal-statement-start -->
@@ -1300,7 +1302,7 @@ P_\Omega(x,y)
 }
 $$
 
-> と定める。この境界核を Green 関数から得る Poisson 核 と呼ぶ。
+> と定める。この境界核を Green 関数から得る Poisson 核と呼ぶ。
 <!-- formal-statement-end -->
 
 この定義なら、調和関数 $u$、すなわち $f=0$ の Dirichlet 問題は
@@ -1354,12 +1356,12 @@ $$
 
 ---
 
-## 15. 単位円板では PDE5 の Poisson 核 がそのまま戻る
+## 15. 単位円板では PDE5 の Poisson 核がそのまま戻る
 
 <a id="prop-pde6-disk-poisson"></a>
 <!-- formal-statement-start -->
 > **命題（単位円板の Poisson 核）**  
-> $D=\{y:|y|<1\}$ とし、$x\in D$、$\xi\in\partial D$ とする。このとき単位円板の Green 関数から得る Poisson 核 は
+> $D=\{y:|y|<1\}$ とし、$x\in D$、$\xi\in\partial D$ とする。このとき単位円板の Green 関数から得る Poisson 核は
 
 $$
 \boxed{
@@ -2181,7 +2183,7 @@ $$
 よって Green 表現公式を中心で直接確認できました。
 <!-- solution-end -->
 
-## PDE6-B03 円板 Green 関数から Poisson 核 を導く
+## PDE6-B03 円板 Green 関数から Poisson 核を導く
 
 - Level: B
 - 目安時間: 22分
@@ -2328,7 +2330,7 @@ $$
 {2\pi|x-\xi|^2}.
 $$
 
-これが単位円板の Poisson 核 です。
+これが単位円板の Poisson 核です。
 <!-- solution-end -->
 
 ## PDE6-C01 内部源と境界データを同時に持つ円板問題
@@ -2589,7 +2591,7 @@ $$
 - Green 表現公式で小円の法線向きと $u(x)$ の出現を説明できる。
 - Dirichlet Green 関数が「基本解 + 調和補正」で境界条件を埋め込むことを説明できる。
 - 単位円板の Green 関数を境界条件まで検証できる。
-- $-\partial_{n_y}G$ から Poisson 核 を導ける。
-- PDE5 の Fourier 由来の Poisson 核 と PDE6 の Green 関数由来の核が一致することを示せる。
+- $-\partial_{n_y}G$ から Poisson 核を導ける。
+- PDE5 の Fourier 由来の Poisson 核と PDE6 の Green 関数由来の核が一致することを示せる。
 
 次の PDE7 では、Fourier 法・固有関数法・Green 表現を同じ線形作用素の解法として整理します。
