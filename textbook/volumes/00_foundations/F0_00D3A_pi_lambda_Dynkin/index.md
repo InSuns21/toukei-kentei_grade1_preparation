@@ -242,11 +242,11 @@ $$
 
 まず「$\mathcal P$ を含む最小のDynkin族」が存在することを確認します。$\mathcal P$ を含むDynkin族全体を考えると、少なくとも $2^\Omega$ がその一つです。その全ての共通部分を
 
-$
+$$
 \lambda(\mathcal P)
 :=
 \bigcap\{\mathcal D:\mathcal D\text{ は }\mathcal P\text{ を含むDynkin族}\}
-$
+$$
 
 と置きます。Dynkin族の三条件は共通部分を取っても保たれるので、$\lambda(\mathcal P)$ 自身もDynkin族です。また定義から、$\mathcal P$ を含む任意のDynkin族に含まれる最小のものです。
 
@@ -329,13 +329,15 @@ $$
 \in\mathcal L.
 $$
 
-左辺は分配法則により
+実際、
 
-$$
+$
+\bigcup_{n=1}^{\infty}(A\cap B_n)
+=
 A\cap\left(\bigcup_{n=1}^{\infty}B_n\right)
-$$
+$
 
-です。従って $\bigcup_nB_n\in\mathcal D_A$ です。
+なので、$\bigcup_nB_n\in\mathcal D_A$ です。
 
 以上から $\mathcal D_A$ はDynkin族です。
 
@@ -357,7 +359,6 @@ $$
 A\in\mathcal P,\ B\in\mathcal L
 \Longrightarrow
 A\cap B\in\mathcal L.
-\tag{1}
 $$
 
 #### Step 2：左側も $\mathcal L$ 全体へ広げる
@@ -412,7 +413,7 @@ $$
 
 従って $\mathcal E_B$ もDynkin族です。
 
-Step 1 の式 (1) により、任意の $A\in\mathcal P$ について
+Step 1 の結論により、任意の $A\in\mathcal P$ について
 
 $$
 A\cap B\in\mathcal L.
@@ -815,15 +816,7 @@ $$
 
 従って $\bigcup_nA_n\in\mathcal D$ です。以上から $\mathcal D$ はDynkin族です。
 
-仮定より $\mathcal P\subset\mathcal D$ なので、π–λ定理を
-
-$$
-\text{π系 }\mathcal P,
-\qquad
-\text{Dynkin族 }\mathcal D
-$$
-
-に適用して
+仮定より $\mathcal P\subset\mathcal D$ です。そこで、π系 $\mathcal P$ とDynkin族 $\mathcal D$ にπ–λ定理を適用して
 
 $$
 \sigma(\mathcal P)\subset\mathcal D
