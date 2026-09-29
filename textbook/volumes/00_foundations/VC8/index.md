@@ -315,7 +315,7 @@ $$
 u\in C^2(\mathbb R^3).
 $$
 
-次に球面平均の基本関係を示します。$r>0$ で
+次に球面上の平均値の基本関係を示します。$r>0$ で
 
 $$
 M_x'(r)
@@ -357,7 +357,7 @@ r^2
 \Delta f(x+r\omega)\,d\omega.
 $$
 
-右辺の球面平均は $\Delta_xM_x(r)$ に等しいので
+右辺の球面上の平均値は $\Delta_xM_x(r)$ に等しいので
 
 $$
 \Delta_xM_x(r)
@@ -376,7 +376,7 @@ $$
 r\Delta_xM_x(r)\,dr.
 $$
 
-球面平均の式を代入すると
+球面上の平均値の式を代入すると
 
 $$
 \Delta u(x)
@@ -434,7 +434,7 @@ $$
 
 ## 3. 発散と回転から二つのポテンシャルを作る
 
-$F$ を十分滑らかなベクトル場とし
+$F\in C_c^3(\mathbb R^3;\mathbb R^3)$ とし
 
 $$
 \rho
@@ -549,26 +549,68 @@ $$
 \nabla\times(bR).
 $$
 
-成分計算すると $r<1$ で
+$r<1$ では
 
 $$
+bR
+=
+(-b y_2,\ b y_1,\ 0),
+\qquad
+\frac{\partial b}{\partial y_j}
+=
+-8y_j(1-r^2)^3.
+$$
+
+したがって回転の第1成分は
+
+$$
+\begin{aligned}
 \omega_1
-=
-8y_1y_3(1-r^2)^3,
+&=
+\partial_{y_2}(0)-\partial_{y_3}(b y_1)\\
+&=
+-y_1\frac{\partial b}{\partial y_3}\\
+&=
+8y_1y_3(1-r^2)^3.
+\end{aligned}
 $$
 
+第2成分は
+
 $$
+\begin{aligned}
 \omega_2
-=
-8y_2y_3(1-r^2)^3,
+&=
+\partial_{y_3}(-b y_2)-\partial_{y_1}(0)\\
+&=
+-y_2\frac{\partial b}{\partial y_3}\\
+&=
+8y_2y_3(1-r^2)^3.
+\end{aligned}
 $$
 
+第3成分では積の微分則を使って
+
 $$
+\begin{aligned}
 \omega_3
-=
+&=
+\partial_{y_1}(b y_1)
+-
+\partial_{y_2}(-b y_2)\\
+&=
+\left(
+b+y_1\frac{\partial b}{\partial y_1}
+\right)
++
+\left(
+b+y_2\frac{\partial b}{\partial y_2}
+\right)\\
+&=
 2(1-r^2)^4
 -
 8(y_1^2+y_2^2)(1-r^2)^3.
+\end{aligned}
 $$
 
 これらを同じ場 $F$ の発散と回転としてポテンシャルへ入れます。
@@ -774,7 +816,99 @@ G(x-y)\operatorname{div}F(y)\,dy
 \phi(x).
 $$
 
-同様に各成分で部分積分すると
+次に $\nabla\times C$ も、どの成分へ部分積分を使うかを明示します。まず第1成分を書くと
+
+$$
+(\nabla\times C)_1
+=
+\partial_{x_2}C_3-\partial_{x_3}C_2.
+$$
+
+$C_i$ の積分表示を代入して
+
+$$
+\begin{aligned}
+(\nabla\times C)_1
+&=
+\int_{\mathbb R^3}
+\left[
+\partial_{x_2}G(x-y)F_3(y)
+-
+\partial_{x_3}G(x-y)F_2(y)
+\right]dy.
+\end{aligned}
+$$
+
+ここで
+
+$$
+\partial_{x_j}G(x-y)
+=
+-\partial_{y_j}G(x-y)
+$$
+
+なので
+
+$$
+\begin{aligned}
+(\nabla\times C)_1
+&=
+-\int
+\partial_{y_2}G(x-y)F_3(y)\,dy
++
+\int
+\partial_{y_3}G(x-y)F_2(y)\,dy.
+\end{aligned}
+$$
+
+十分大きな球で積分を切れば、その境界では $F=0$ です。したがって各項を $y_2,y_3$ について部分積分して境界項を捨てることができ、
+
+$$
+\begin{aligned}
+(\nabla\times C)_1
+&=
+\int
+G(x-y)
+\left[
+\partial_{y_2}F_3(y)
+-
+\partial_{y_3}F_2(y)
+\right]dy\\
+&=
+\int
+G(x-y)
+(\nabla_y\times F(y))_1\,dy.
+\end{aligned}
+$$
+
+第2成分では
+
+$$
+(\nabla\times C)_2
+=
+\partial_{x_3}C_1-\partial_{x_1}C_3,
+$$
+
+第3成分では
+
+$$
+(\nabla\times C)_3
+=
+\partial_{x_1}C_2-\partial_{x_2}C_1
+$$
+
+から出発し、同じ $\partial_{x_j}G=-\partial_{y_j}G$ と部分積分を使います。その結果
+
+$$
+(\nabla\times C)_i
+=
+\int_{\mathbb R^3}
+G(x-y)
+(\nabla_y\times F(y))_i\,dy
+\qquad(i=1,2,3).
+$$
+
+従って
 
 $$
 \nabla\times C
@@ -788,27 +922,41 @@ G(x-y)
 A(x).
 $$
 
-ここでベクトル・ラプラシアンの恒等式を成分から確認します。$C=(P,Q,R)$ とすると、例えば第1成分は
+ここでベクトル・ラプラシアンの恒等式を成分から確認します。$C=(P,Q,R)$ とすると
 
 $$
-[\nabla\times(\nabla\times C)]_1
+\nabla\times C
 =
-\partial_y(P_y-Q_x)
--
-\partial_z(R_x-P_z).
+(R_y-Q_z,\ P_z-R_x,\ Q_x-P_y).
 $$
 
-混合偏微分を交換すると
+したがって第1成分は
 
 $$
+\begin{aligned}
 [\nabla\times(\nabla\times C)]_1
-=
-\partial_x(P_x+Q_y+R_z)
+&=
+\partial_y(Q_x-P_y)
 -
-(P_{xx}+P_{yy}+P_{zz}).
+\partial_z(P_z-R_x)\\
+&=
+Q_{xy}+R_{xz}-P_{yy}-P_{zz}.
+\end{aligned}
 $$
 
-すなわち
+混合偏微分を交換し、$P_{xx}$ を足して引くと
+
+$$
+\begin{aligned}
+Q_{xy}+R_{xz}-P_{yy}-P_{zz}
+&=
+\partial_x(P_x+Q_y+R_z)\\
+&\quad-
+(P_{xx}+P_{yy}+P_{zz}),
+\end{aligned}
+$$
+
+よって
 
 $$
 [\nabla\times(\nabla\times C)]_1
@@ -818,7 +966,63 @@ $$
 [\Delta C]_1.
 $$
 
-第2・第3成分も同じ計算なので
+第2成分も
+
+$$
+\begin{aligned}
+[\nabla\times(\nabla\times C)]_2
+&=
+\partial_z(R_y-Q_z)
+-
+\partial_x(Q_x-P_y)\\
+&=
+R_{yz}+P_{xy}-Q_{zz}-Q_{xx}\\
+&=
+\partial_y(P_x+Q_y+R_z)
+-
+(Q_{xx}+Q_{yy}+Q_{zz}),
+\end{aligned}
+$$
+
+なので
+
+$$
+[\nabla\times(\nabla\times C)]_2
+=
+[\nabla(\operatorname{div}C)]_2
+-
+[\Delta C]_2.
+$$
+
+第3成分では
+
+$$
+\begin{aligned}
+[\nabla\times(\nabla\times C)]_3
+&=
+\partial_x(P_z-R_x)
+-
+\partial_y(R_y-Q_z)\\
+&=
+P_{xz}+Q_{yz}-R_{xx}-R_{yy}\\
+&=
+\partial_z(P_x+Q_y+R_z)
+-
+(R_{xx}+R_{yy}+R_{zz}),
+\end{aligned}
+$$
+
+したがって
+
+$$
+[\nabla\times(\nabla\times C)]_3
+=
+[\nabla(\operatorname{div}C)]_3
+-
+[\Delta C]_3.
+$$
+
+三成分をまとめると
 
 $$
 \nabla\times(\nabla\times C)
@@ -1031,7 +1235,7 @@ $$
 
 ---
 
-## 7. 一意性を壊すもの：調和成分と境界条件
+## 7. 一意性を壊すもの：調和成分と境界で与える情報
 
 発散と回転だけでは、どんな領域でも場が一意に決まるわけではありません。
 
@@ -1091,7 +1295,7 @@ $$
 
 がこの曖昧さを固定します。
 
-一方、有界領域では法線成分・接線成分などの境界条件が必要です。また穴のある領域では、VC5 の [穴による大域ポテンシャルの障害](../VC5/index.md#prop-vc5-hole-obstruction) が加わります。
+一方、有界領域では法線成分・接線成分などの境界で与える情報が必要です。また穴のある領域では、VC5 の [穴による大域ポテンシャルの障害](../VC5/index.md#prop-vc5-hole-obstruction) が加わります。
 
 ---
 
@@ -1109,29 +1313,61 @@ $$
 
 で無限遠境界項を確実に 0 にするためでした。
 
-半径 $R$ の球で切って計算すると、境界項は概ね
+半径 $R$ の球 $B_R$ で積分を切ると、発散定理による部分積分から境界項
 
 $$
+E_R(x)
+=
 \int_{|y|=R}
 G(x-y)F(y)\cdot n\,dS
 $$
 
-です。固定した $x$ に対して $R\to\infty$ では
+が現れます。固定した $x$ に対して $R>2|x|$ とすれば、$|y|=R$ 上で
 
 $$
-G(x-y)=O(R^{-1}),
-\qquad
-dS=O(R^2),
+|x-y|
+\ge
+R-|x|
+>
+\frac R2
 $$
 
-なので、例えば
+なので
+
+$$
+G(x-y)
+=
+\frac1{4\pi|x-y|}
+\le
+\frac1{2\pi R}.
+$$
+
+従って球面積 $4\pi R^2$ を使うと
+
+$$
+\begin{aligned}
+|E_R(x)|
+&\le
+\sup_{|y|=R}G(x-y)
+\sup_{|y|=R}|F(y)|
+\operatorname{Area}(S_R)\\
+&\le
+\frac1{2\pi R}
+\sup_{|y|=R}|F(y)|
+\,4\pi R^2\\
+&=
+2R\sup_{|y|=R}|F(y)|.
+\end{aligned}
+$$
+
+したがって、例えば
 
 $$
 R\sup_{|y|=R}|F(y)|
 \longrightarrow0
 $$
 
-ならこの境界項は消えます。
+なら $E_R(x)\to0$ となり、無限遠境界項は消えます。
 
 従ってコンパクトな台は十分条件の一つであり、本質は **積分の収束・微分交換・無限遠境界項の消失**です。
 
@@ -1145,7 +1381,7 @@ $$
 
 ---
 
-## 9. 無発散場を渦度から戻す
+## 9. 無発散場を回転から戻す
 
 特に
 
@@ -1161,7 +1397,7 @@ $$
 
 となります。
 
-渦度
+回転
 
 $$
 \omega=\nabla\times u
@@ -1287,7 +1523,7 @@ u(x)
 \times\omega(y)\,dy.
 $$
 
-外積の順序を入れ替えて
+ベクトル積の順序を入れ替えて
 
 $$
 u(x)
@@ -1298,7 +1534,7 @@ u(x)
 $$
 <!-- proof-end -->
 
-これは VC9 で非圧縮流と渦度を結ぶときの基本式になります。
+これは VC9 で無発散の速度場とその回転を結ぶときの基本式になります。
 
 ---
 
@@ -1342,15 +1578,15 @@ $$
 
 というベクトルポテンシャル表示が自然です。$A$ にはゲージ自由度があります。
 
-### 非圧縮流
+### 無発散の速度場
 
-非圧縮条件
+速度場が
 
 $$
 \operatorname{div}u=0
 $$
 
-の下では、速度場は渦度
+を満たすとき、速度場はその回転
 
 $$
 \omega=\nabla\times u
@@ -1362,27 +1598,27 @@ $$
 
 ---
 
-## 11. 本章の停止線
+## 11. 本章で扱った範囲と次章への接続
 
 本章では
 
 - 三次元ユークリッド空間
 - 古典的な偏微分
 - Newton 核
-- 全空間または境界条件を意識した [Helmholtz 分解](#thm-vc8-helmholtz)
+- 全空間または境界で与える情報を意識した [Helmholtz 分解](#thm-vc8-helmholtz)
 
 までを扱いました。
 
 次は VC9 で
 
 - 保存則
-- 非圧縮流と渦度
+- 無発散の速度場とその回転
 - 応力テンソルと運動量収支
-- Maxwell 方程式の積分形・微分形
+- 電磁場の積分法則と局所微分式
 
 へ進みます。
 
-Hodge 分解、微分形式、de Rham cohomology、一般 Riemann 多様体上のラプラシアンは本系列の外です。
+より一般の多様体上の分解や、位相的な穴を記録する一般化はここでは扱いません。これらは後続の幾何学・偏微分方程式で、必要な追加構造とともに学びます。
 
 ---
 
@@ -2020,10 +2256,10 @@ $$
 F(x)\to0
 $$
 
-のような無限遠条件を課せば、非零の定数成分は許されません。境界条件・無限遠条件が一意性を固定する役割を持ちます。
+のような無限遠条件を課せば、非零の定数成分は許されません。境界で与える情報・無限遠条件が一意性を固定する役割を持ちます。
 <!-- solution-end -->
 
-#### VC8-C01 渦度から速度を再構成する
+#### VC8-C01 回転から速度を再構成する
 - Level: C
 - 目安時間: 45分
 
@@ -2135,7 +2371,7 @@ u(x)
 \times\omega(y)\,dy.
 $$
 
-外積の反交換性
+ベクトル積の反交換性
 
 $$
 a\times b=-b\times a
@@ -2200,14 +2436,14 @@ $$
 
 です。
 
-ただし式だけを覚えるのではなく、次の対応を追えることが重要です。
+ただし式だけを覚えるのではなく、次の関係を追えることが重要です。
 
 - $\operatorname{div}F$ を Newton 核で広げると $\phi$ が得られる。
 - $\nabla\times F$ を Newton 核で広げると $A$ が得られる。
 - Newton 核は $-\Delta$ の三次元全空間基本解として働く。
 - コンパクトな台は、積分の収束と無限遠境界項の消失を保証する。
 - $A$ にはゲージ自由度があり、Helmholtz の積分表示は Coulomb ゲージを選ぶ。
-- 有界領域では発散・回転だけでなく境界条件と調和成分を管理する必要がある。
-- 無発散場では渦度から Biot--Savart 型公式で場を再構成できる。
+- 有界領域では発散・回転だけでなく境界で与える情報と調和成分を管理する必要がある。
+- 無発散場では回転 $\omega=\nabla\times u$ から Biot--Savart 型公式で場を再構成できる。
 
 これで VC9 の保存則・非圧縮流・Maxwell 方程式を、単なる公式の寄せ集めではなく「発散・回転・積分定理・ポテンシャル」という共通構造から読める準備が整いました。

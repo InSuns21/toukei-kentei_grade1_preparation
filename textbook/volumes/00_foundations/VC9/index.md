@@ -12,11 +12,11 @@ VC1--VC8 では、勾配・発散・回転から始め、線積分・曲面積�
 - 二階テンソルの発散は、表面力を体積力密度へ変える。
 - 電磁場では、Gauss--Ostrogradsky と Kelvin--Stokes の各定理が、大域的な収支・循環と局所的な微分式を結ぶ。
 
-直接の前提は [VC7 の二階テンソル場・応力テンソル](../VC7/index.md#def-vc7-stress) と [VC8 の Helmholtz 分解・Biot--Savart 型再構成](../VC8/index.md#cor-vc8-biot-savart) です。保存則そのものの一般論は [VC4 の局所保存則](../VC4/index.md#def-vc4-local-conservation) を正本として再利用し、本章で重複定義しません。
+本章では [VC7 の応力テンソル](../VC7/index.md#def-vc7-stress) と [VC8 の Helmholtz 分解・Biot--Savart 型再構成](../VC8/index.md#cor-vc8-biot-savart) を使います。保存則の一般形は [VC4 の局所保存則](../VC4/index.md#def-vc4-local-conservation) ですでに学んだので、まずそれを質量保存へ具体化します。
 
 ---
 
-## 1. 保存則の正本を質量へ適用する
+## 1. 一般の保存則を質量へ適用する
 
 VC4 では、密度 $q$、流束 $J$、生成項 $s$ に対する一般の局所保存則
 
@@ -621,7 +621,7 @@ $$
 \text{流れ関数}
 $$
 
-という Poisson 方程式が現れます。三次元での対応物が、VC8 の [Biot--Savart 型の渦度再構成](../VC8/index.md#cor-vc8-biot-savart)です。
+という Poisson 方程式が現れます。三次元では、VC8 の [Biot--Savart 型の渦度再構成](../VC8/index.md#cor-vc8-biot-savart)が同じ役割を果たします。
 
 ---
 
@@ -877,7 +877,7 @@ $$
 
 ### 証明の見取り図
 
-角運動量収支から、位置ベクトル $x$ と線形運動量収支の外積に相当する部分を引きます。残るのは応力の反対称成分だけです。
+角運動量収支から、位置ベクトル $x$ と線形運動量収支のベクトル積に相当する部分を引きます。残るのは応力の反対称成分だけです。
 
 <!-- proof-start -->
 ### 証明
@@ -914,7 +914,7 @@ $$
 \partial_\ell\sigma_{k\ell}.
 $$
 
-第二項は $x\times\operatorname{div}\sigma$ の第 $i$ 成分です。角運動量保存から、線形運動量収支に $x\times$ を作用させた式を差し引くと、体積力と加速度に対応する項は相殺し、
+第二項は $x\times\operatorname{div}\sigma$ の第 $i$ 成分です。角運動量保存から、線形運動量収支に $x\times$ を作用させた式を差し引くと、体積力と加速度から生じる項は相殺し、
 
 $$
 \int_\Omega
@@ -929,18 +929,68 @@ $$
 \varepsilon_{ijk}\sigma_{kj}=0.
 $$
 
-例えば $i=1$ なら
+$i=1$ では、非零な Levi--Civita 記号が
 
 $$
-\sigma_{32}-\sigma_{23}=0.
+\varepsilon_{123}=1,
+\qquad
+\varepsilon_{132}=-1
 $$
 
-$i=2,3$ でも同様に
+なので
 
 $$
+\varepsilon_{1jk}\sigma_{kj}
+=
+\sigma_{32}-\sigma_{23}
+=
+0.
+$$
+
+$i=2$ では
+
+$$
+\varepsilon_{231}=1,
+\qquad
+\varepsilon_{213}=-1
+$$
+
+から
+
+$$
+\varepsilon_{2jk}\sigma_{kj}
+=
+\sigma_{13}-\sigma_{31}
+=
+0.
+$$
+
+$i=3$ では
+
+$$
+\varepsilon_{312}=1,
+\qquad
+\varepsilon_{321}=-1
+$$
+
+より
+
+$$
+\varepsilon_{3jk}\sigma_{kj}
+=
+\sigma_{21}-\sigma_{12}
+=
+0.
+$$
+
+従って
+
+$$
+\sigma_{23}=\sigma_{32},
+\qquad
 \sigma_{13}=\sigma_{31},
 \qquad
-\sigma_{21}=\sigma_{12}.
+\sigma_{12}=\sigma_{21}.
 $$
 
 従って
@@ -1287,7 +1337,17 @@ $$
 \frac{\rho_e}{\varepsilon_0}.
 $$
 
-同様に[磁束に対する Gauss の法則](#principle-vc9-maxwell-integral)から
+[磁束に対する Gauss の法則](#principle-vc9-maxwell-integral)には右辺の源項がありません。[VC4 の Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)を $B$ へ適用すると
+
+$$
+0
+=
+\int_{\partial\Omega}B\cdot n\,dS
+=
+\int_\Omega \operatorname{div}B\,dV.
+$$
+
+これも任意の十分小さい $\Omega$ で成り立つため
 
 $$
 \operatorname{div}B=0.
@@ -1323,7 +1383,24 @@ $$
 -\partial_tB.
 $$
 
-[Ampère--Maxwell の法則](#principle-vc9-maxwell-integral)も同様に
+[Ampère--Maxwell の法則](#principle-vc9-maxwell-integral)では、まず左辺の境界循環へ [Kelvin--Stokes の定理](../VC5/index.md#thm-vc5-stokes)を適用して
+
+$$
+\oint_{\partial S}B\cdot dr
+=
+\int_S(\nabla\times B)\cdot n\,dS
+$$
+
+とします。また $S$ は固定されているので
+
+$$
+\frac{d}{dt}
+\int_SE\cdot n\,dS
+=
+\int_S\partial_tE\cdot n\,dS.
+$$
+
+したがって積分形は
 
 $$
 \int_S
@@ -1335,10 +1412,10 @@ $$
 \mu_0\varepsilon_0\partial_tE
 \right)\cdot n\,dS
 =
-0
+0.
 $$
 
-から
+これが任意の十分小さい向き付けられた面 $S$ で成り立つので
 
 $$
 \nabla\times B
@@ -1348,7 +1425,35 @@ $$
 \mu_0\varepsilon_0\partial_tE.
 $$
 
-逆向きは、四本の微分形をそれぞれ体積・曲面上で積分し、Gauss--Ostrogradsky と Kelvin--Stokes の各定理を適用すれば積分形へ戻ります。
+逆向きも各式ごとに戻せます。例えば
+
+$$
+\operatorname{div}E
+=
+\frac{\rho_e}{\varepsilon_0}
+$$
+
+を体積 $\Omega$ 上で積分すると
+
+$$
+\int_\Omega\operatorname{div}E\,dV
+=
+\frac1{\varepsilon_0}
+\int_\Omega\rho_e\,dV,
+$$
+
+左辺へ [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)を適用して Gauss の積分形を得ます。
+
+同じく $\operatorname{div}B=0$ を体積積分すれば磁束に対する Gauss の法則へ戻ります。Faraday の微分形は面積分して
+
+$$
+\int_S(\nabla\times E)\cdot n\,dS
+=
+-
+\int_S\partial_tB\cdot n\,dS
+$$
+
+とし、左辺に Kelvin--Stokes の定理、右辺に固定曲面上での時間微分と積分の交換を使えば Faraday の積分形です。Ampère--Maxwell の微分形も同じ二つの操作で元の積分形へ戻ります。
 <!-- proof-end -->
 
 四本の式は二種類に分かれています。
@@ -1552,7 +1657,21 @@ n\cdot(E_2-E_1)
 \frac{\sigma_s}{\varepsilon_0}.
 $$
 
-磁場について同じ箱を使えば右辺は 0 なので
+磁場について同じ薄い箱へ磁束に対する Gauss の法則を適用します。上面・下面の寄与は
+
+$$
+A\,B_2\cdot n
+-
+A\,B_1\cdot n
+$$
+
+で、側面流束は $h\to0$ で消えます。右辺は常に 0 なので
+
+$$
+A\,n\cdot(B_2-B_1)=0.
+$$
+
+$A>0$ で割れば
 
 $$
 n\cdot(B_2-B_1)=0.
@@ -1572,7 +1691,17 @@ $$
 n\times(E_2-E_1)=0.
 $$
 
-[Ampère--Maxwell の法則](#principle-vc9-maxwell-integral)では、変位電流の面積項は同様に 0 へ行きます。一方、界面に集中する表面電流は細い長方形を横切って $K$ の寄与を残します。その結果
+[Ampère--Maxwell の法則](#principle-vc9-maxwell-integral)では、変位電流項の面積は $2hL$ なので、$\partial_tE$ が有界なら
+
+$$
+\mu_0\varepsilon_0
+\int_S\partial_tE\cdot n_S\,dS
+=
+O(hL)
+\longrightarrow0.
+$$
+
+体積電流密度 $j$ の有界な部分も面積 $2hL$ とともに 0 へ行きます。一方、界面に集中する表面電流は、長方形が界面を横切る線分に沿って有限の寄与を残します。その寄与が $L\,K\cdot(n\times\tau)$ なので
 
 $$
 L(B_2-B_1)\cdot\tau
@@ -1580,10 +1709,36 @@ L(B_2-B_1)\cdot\tau
 \mu_0L\,K\cdot(n\times\tau)
 $$
 
-となります。任意の接線 $\tau$ について整理すると
+となります。ここでスカラー三重積を入れ替えると
 
 $$
-n\times(B_2-B_1)=\mu_0K.
+K\cdot(n\times\tau)
+=
+(K\times n)\cdot\tau.
+$$
+
+従って任意の接線 $\tau$ に対して
+
+$$
+\left[
+(B_2-B_1)-\mu_0(K\times n)
+\right]\cdot\tau
+=
+0.
+$$
+
+これは $B_2-B_1$ の接線成分が $\mu_0(K\times n)$ であることを意味します。両辺へ左から $n\times$ を作用させると、法線成分は消え、$K\cdot n=0$ なのでベクトル三重積から
+
+$$
+\begin{aligned}
+n\times(B_2-B_1)
+&=
+\mu_0 n\times(K\times n)\\
+&=
+\mu_0\{K(n\cdot n)-n(n\cdot K)\}\\
+&=
+\mu_0K.
+\end{aligned}
 $$
 <!-- proof-end -->
 
@@ -1659,11 +1814,9 @@ $$
 
 ---
 
-## 14. 本章と系列の停止線
+## 14. ここから先の物理理論への接続
 
-本章では、ベクトル解析の道具が後続理論へ入る入口までを扱いました。
-
-ここから先は別系列です。
+本章では、ベクトル解析の道具が後続する流体力学・電磁気学へ入る入口までを扱いました。ここから先では追加の物理法則や解析理論が主役になります。
 
 - 移動・変形する検査体積に対する Reynolds 輸送定理
 - 圧縮性流体の熱力学とエネルギー保存
@@ -1674,11 +1827,9 @@ $$
 - 時間依存する電磁ポテンシャルと Lorenz ゲージ
 - 誘電体・磁性体の構成則
 - 相対論的な四元テンソル形式
-- 微分形式による一般 Stokes の定理
+- 多様体上へ拡張された境界積分定理
 
-これらを VC9 に詰め込むと、ベクトル解析と後続の物理理論の正本が混ざります。
-
-VC9 の役割は、**後続理論で現れる式を見たとき、どのベクトル解析の構造が働いているかを読める状態にすること**です。
+これらは、それぞれ流体力学・偏微分方程式・電磁気学・微分幾何学で必要な追加構造とともに扱います。ここでは、**後続理論で現れる式を見たとき、どのベクトル解析の構造が働いているかを読める状態**までを目標とします。
 
 ---
 
