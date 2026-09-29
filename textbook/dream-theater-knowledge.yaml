@@ -46,6 +46,12 @@ alias_matching:
     - 配分
     - 整合性
     - consistency
+    - 三角形分割
+    - triangulation
+    - 交換子
+    - commutator
+    - 対応
+    - correspondence
 
 rollout:
   # 既存ページは段階移行する。未移行ページそのものは audit では報告するが、
