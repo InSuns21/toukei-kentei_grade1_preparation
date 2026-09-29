@@ -1095,7 +1095,30 @@ F_t(\xi)-F_t(0)
 \delta\xi,
 $$
 
-なので $\xi\to\infty$ で $F_t(\xi)\to\infty$。同様に $\xi\to-\infty$ で $F_t(\xi)\to-\infty$ です。従って $F_t$ は $\mathbb R$ から $\mathbb R$ への全単射です。
+なので $\xi\to\infty$ で $F_t(\xi)\to\infty$ です。
+
+負の向きも積分で確認します。$\xi<0$ なら
+
+$$
+F_t(0)-F_t(\xi)
+=
+\int_\xi^0 F_t'(r)\,dr
+\ge
+-\delta\xi.
+$$
+
+したがって
+
+$$
+F_t(\xi)
+\le
+F_t(0)+\delta\xi
+\to-\infty
+\qquad
+(\xi\to-\infty).
+$$
+
+従って $F_t$ は $\mathbb R$ から $\mathbb R$ への全単射です。
 
 各 $(t,x)$ に対する唯一の $\xi=\xi(t,x)$ を
 
