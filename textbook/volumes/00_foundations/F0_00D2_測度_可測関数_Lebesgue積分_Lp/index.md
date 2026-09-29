@@ -80,7 +80,6 @@ $$
 
 組 $(\Omega,\mathcal F)$ を **可測空間** といい、$A\in\mathcal F$ を **可測集合** という。
 
-この定義はステートメントの中だけで対象・記号・条件が完結しています。
 <!-- formal-statement-end -->
 
 <a id="prop-f0-00d2-01"></a>
@@ -126,7 +125,10 @@ $$
 なので集合差も可測です。$\square$
 <!-- proof-end -->
 
+<!-- definition-example-start: def-f0-00d2-01 -->
 ### 例1：有限集合上のσ代数
+
+**定義の確認**
 
 $\Omega=\{1,2,3,4\}$ とし、
 
@@ -145,6 +147,7 @@ $$
 $$
 
 はσ代数ではありません。$\{1\}$ の補集合 $\{2,3,4\}$ が入っていないからです。
+<!-- definition-example-end -->
 
 ---
 
@@ -166,6 +169,44 @@ $$
 と書き、$\mathcal C$ が生成するσ代数という。
 <!-- formal-statement-end -->
 
+「最小のσ代数」が本当に存在することも確認しておきます。$\mathcal C$ を含むσ代数全体を集めると、少なくとも $2^\Omega$ がその一つなので空ではありません。その全ての共通部分を取ると、$\Omega$ を含むこと・補集合で閉じること・可算和で閉じることは共通部分にも引き継がれます。したがって
+
+$$
+\sigma(\mathcal C)
+=
+\bigcap\{\mathcal A:\mathcal A\text{ は }\mathcal C\text{ を含む }\sigma\text{代数}\}
+$$
+
+と構成でき、これが $\mathcal C$ を含む最小のσ代数です。
+
+<!-- definition-example-start: def-f0-00d2-02 -->
+### 生成σ代数を有限集合で確認する
+
+**定義の確認**
+
+$\Omega=\{1,2,3,4\}$、$A=\{1,2\}$ とし、
+
+$$
+\mathcal C=\{A\}
+$$
+
+とします。$A$ を含むσ代数は補集合 $A^c=\{3,4\}$ も含み、さらに $\Omega$ と $\varnothing$ も含まなければなりません。そこで
+
+$$
+\mathcal F
+=
+\{\varnothing,A,A^c,\Omega\}
+$$
+
+と置くと、$\mathcal F$ は補集合と可算和で閉じるσ代数です。また $A$ を含む任意のσ代数はこの4集合を全て含むので、
+
+$$
+\sigma(\mathcal C)=\mathcal F.
+$$
+
+「生成σ代数」は、必要な閉性を満たすために強制される集合を加えた **最小のσ代数** であることを、この有限例で直接確認できます。
+<!-- definition-example-end -->
+
 <a id="def-f0-00d2-03"></a>
  
 <!-- formal-statement-start -->
@@ -184,7 +225,10 @@ $$
 Borel集合には開集合・閉集合・区間だけでなく、それらから可算回の和・共通部分・補集合で作れる集合がすべて含まれます。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-f0-00d2-03 -->
 ### 例2：区間はBorel集合
+
+**定義の確認**
 
 閉集合 $[a,b]$ は開集合 $(-\infty,a)\cup(b,\infty)$ の補集合なのでBorel集合です。半開区間も
 
@@ -193,7 +237,8 @@ $$
 =(-\infty,b]\setminus(-\infty,a]
 $$
 
-のように書けるためBorel集合です。
+のように書けるためBorel集合です。どちらも開集合から補集合・和・差を有限回使って得られるので、開集合が生成する $\mathcal B(\mathbb R)$ に属します。
+<!-- definition-example-end -->
 
 ---
 
@@ -237,7 +282,10 @@ $$
 
 とします。無限集合なら $\mu(A)=\infty$ とします。これは数え上げ測度です。
 
+<!-- definition-example-start: def-f0-00d2-04 -->
 ### 例4：Dirac測度
+
+**定義の確認**
 
 固定した $x_0\in\Omega$ に対して
 
@@ -250,7 +298,21 @@ $$
 \end{cases}
 $$
 
-と置くと測度になります。
+と置きます。測度の二条件を直接確認します。
+
+まず $\delta_{x_0}(\varnothing)=0$ です。次に互いに素な可測集合列 $A_1,A_2,\ldots$ を取ります。互いに素なので、$x_0$ が属する $A_n$ は高々一つです。
+
+- どの $A_n$ にも $x_0$ が属さなければ、和集合にも属さず、両辺は0です。
+- ちょうど一つ $A_j$ に属すれば、和集合にも属し、
+
+$$
+\delta_{x_0}\!\left(\bigcup_n A_n\right)=1
+=
+\sum_n\delta_{x_0}(A_n).
+$$
+
+したがって可算加法性が成り立ち、$\delta_{x_0}$ は測度です。
+<!-- definition-example-end -->
 
 ### 例5：確率測度
 
@@ -339,7 +401,7 @@ B_1=A_1,
 B_n=A_n\setminus A_{n-1}
 $$
 
-へ分解します。$B_n$ は互いに素なので、集合の増加問題を数列の部分和問題へ変換できます。
+へ分解します。$B_n$ は互いに素なので、集合の増加問題を、互いに素な集合の有限和を順に増やす問題へ変換できます。
 
 <!-- proof-start -->
 #### 証明
@@ -385,6 +447,20 @@ $$
 を満たすとき、$N$ を **測度0集合** または **零集合** という。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-f0-00d2-05 -->
+### 例：非空でも測度0になりうる
+
+**定義の確認**
+
+$\mathbb R$ 上の Dirac 測度 $\delta_0$ を考え、$N=\{1\}$ とします。$0\notin N$ なので
+
+$$
+\delta_0(N)=0.
+$$
+
+従って $N$ は測度0集合です。しかも $N$ は空集合ではありません。測度0という条件は「点が一つもない」という意味ではないことが分かります。
+<!-- definition-example-end -->
+
 <a id="def-f0-00d2-06"></a>
  
 <!-- formal-statement-start -->
@@ -411,7 +487,10 @@ $$
 
 ---
 
+<!-- definition-example-start: def-f0-00d2-06 -->
 ### 5.1 具体例：確率0の例外は「存在しない」とは違う
+
+**定義の確認**
 
 一様分布 $U\sim\mathrm{Unif}(0,1)$ では
 
@@ -421,13 +500,20 @@ $$
 
 ですが、$U=1/2$ という値そのものが論理的に不可能なわけではありません。
 
-同様にLebesgue測度では、可算集合 $\mathbb Q\cap[0,1]$ は無数の点を含むにもかかわらず測度0です。
+Lebesgue測度では、可算集合 $\mathbb Q\cap[0,1]$ は無数の点を含むにもかかわらず測度0です。
 
 したがって a.e. は
 
 > **例外集合は空ではないかもしれないが、積分・確率の観点では大きさ0**
 
-という意味です。これが後で「関数を測度0集合上の違いを無視して同一視する」$L^p$ 空間につながります。
+という意味です。例えば「$U\ne 1/2$」という性質が失敗する集合は $\{1/2\}$ で、その確率は0です。従って
+
+$$
+U\ne 1/2\quad\text{a.e.}
+$$
+
+と書けます。これが後で「関数を測度0集合上の違いを無視して同一視する」$L^p$ 空間につながります。
+<!-- definition-example-end -->
 
 ## 6. 可測関数
 
@@ -471,6 +557,31 @@ $$
 という逆像条件です。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-f0-00d2-07 -->
+### 例：定数関数は可測
+
+**定義の確認**
+
+任意の定数 $c\in\mathbb R$ に対し
+
+$$
+f(\omega)=c
+$$
+
+と置きます。任意の $a\in\mathbb R$ について
+
+$$
+\{\omega:f(\omega)\le a\}
+=
+\begin{cases}
+\varnothing,& a<c,\\
+\Omega,& a\ge c.
+\end{cases}
+$$
+
+$\varnothing$ と $\Omega$ はどちらもσ代数 $\mathcal F$ に属するので、定義により $f$ は可測です。
+<!-- definition-example-end -->
+
 <a id="thm-f0-00d2-02"></a>
  
 <!-- formal-statement-start -->
@@ -479,32 +590,40 @@ $$
 連続関数 $f:\mathbb R\to\mathbb R$ は、可測空間 $(\mathbb R,\mathcal B(\mathbb R))$ から $(\mathbb R,\mathcal B(\mathbb R))$ への可測関数である。
 <!-- formal-statement-end -->
 
-#### 証明の見取り図：連続性の逆像条件をBorel集合全体へ広げる
+#### 証明の見取り図：可測関数の定義に出てくる半直線をそのまま引き戻す
 
-連続関数なら開集合の逆像は開集合なのでBorelです。
+この章では実数値可測関数を
 
-そこで「逆像がBorelになる出力集合の族」を $\mathcal C$ と置き、$\mathcal C$ 自身が$\sigma$代数で全ての開集合を含むことを示します。すると開集合が生成する最小の$\sigma$代数、すなわちBorel$\sigma$代数全体が $\mathcal C$ に入ります。
+$$
+\{x:f(x)\le a\}=f^{-1}(( -\infty,a])
+$$
+
+が全てBorel集合になることとして定義しました。したがって、任意の $a$ を固定し、出力側の閉半直線 $(-\infty,a]$ を連続関数で引き戻せば十分です。
 
 <!-- proof-start -->
 #### 証明
 
-連続性より任意の開集合 $G\subset\mathbb R$ に対して $f^{-1}(G)$ は開集合です。したがって $f^{-1}(G)\in\mathcal B(\mathbb R)$。
-
-そこで
+任意の $a\in\mathbb R$ を固定し、
 
 $$
-\mathcal C
+C_a:=(-\infty,a]
+$$
+
+と置きます。$C_a$ は閉集合です。連続関数は閉集合の逆像を閉集合へ戻すので
+
+$$
+f^{-1}(C_a)
 =
-\{B\subset\mathbb R:f^{-1}(B)\in\mathcal B(\mathbb R)\}
+\{x\in\mathbb R:f(x)\le a\}
 $$
 
-と置きます。逆像は補集合・可算和と可換なので、$\mathcal C$ はσ代数です。さらに全ての開集合を含むので
+は $\mathbb R$ の閉集合です。閉集合はBorel集合だから
 
 $$
-\mathcal B(\mathbb R)\subset\mathcal C.
+\{x:f(x)\le a\}\in\mathcal B(\mathbb R).
 $$
 
-よって任意のBorel集合 $B$ に対して $f^{-1}(B)$ はBorel集合です。$\square$
+$a$ は任意だったので、可測関数の定義を満たし、$f$ はBorel可測です。$\square$
 <!-- proof-end -->
 
 <a id="prop-f0-00d2-03"></a>
@@ -541,15 +660,19 @@ $$
 
 $A\in\mathcal F$ なら、任意の $a$ に対して $\{1_A\le a\}$ は $\varnothing,A^c,\Omega$ のいずれかなので可測です。
 
-逆に $1_A$ が可測なら
+逆に $1_A$ が可測なら、定義を $a=1/2$ に適用して
 
 $$
-A
-=
-\{\omega:1_A(\omega)>1/2\}
+\{\omega:1_A(\omega)\le1/2\}=A^c\in\mathcal F.
 $$
 
-は可測です。$\square$
+σ代数は補集合で閉じるので
+
+$$
+A=(A^c)^c\in\mathcal F.
+$$
+
+従って $A$ は可測です。$\square$
 <!-- proof-end -->
 
 ---
@@ -661,6 +784,92 @@ $\mathbb Q\cap[0,1]$ は可算でLebesgue測度0。$\{x:f(x)\ne0\}=\mathbb Q\cap
 - 結論: 2点
 <!-- solution-end -->
 
+## F0-00D2-A03 しきい値集合を書き下す
+
+- Level: A
+- 目安時間: 8分
+
+$f(x)=x^2$ とする。任意の $a\in\mathbb R$ に対して
+
+$$
+\{x\in\mathbb R:f(x)\le a\}
+$$
+
+がBorel集合であることを、集合を具体的に書いて確認せよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+$a<0$ なら $x^2\le a$ を満たす実数はないので
+
+$$
+\{x:x^2\le a\}=\varnothing.
+$$
+
+$a\ge0$ なら
+
+$$
+x^2\le a
+\iff
+-\sqrt a\le x\le\sqrt a
+$$
+
+だから
+
+$$
+\{x:x^2\le a\}
+=
+[-\sqrt a,\sqrt a].
+$$
+
+空集合も閉区間もBorel集合です。従って全ての $a$ についてしきい値集合はBorel集合であり、$f(x)=x^2$ はこの章の定義でBorel可測です。
+<!-- solution-end -->
+
+## F0-00D2-A04 増加する集合を数え上げる
+
+- Level: A
+- 目安時間: 8分
+
+$\Omega=\mathbb N$ に数え上げ測度 $\mu$ を入れ、
+
+$$
+A_n=\{1,2,\ldots,n\}
+$$
+
+とする。$A_n\uparrow\mathbb N$ と
+
+$$
+\mu(A_n)\uparrow\mu(\mathbb N)
+$$
+
+を直接確認せよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+$A_n\subset A_{n+1}$ であり、任意の自然数 $m$ は $A_m$ に入るので
+
+$$
+\bigcup_{n=1}^{\infty}A_n=\mathbb N.
+$$
+
+数え上げ測度では
+
+$$
+\mu(A_n)=n,
+\qquad
+\mu(\mathbb N)=\infty.
+$$
+
+従って
+
+$$
+\mu(A_n)=n\uparrow\infty=\mu(\mathbb N).
+$$
+
+この例では、集合の増加 $A_n\uparrow\mathbb N$ が測度の増加極限へそのまま移ることを具体的に確認できます。
+<!-- solution-end -->
+
 ## F0-00D2-B01 最小のσ代数
 
 - Level: B
@@ -732,37 +941,131 @@ $$
 - Level: B
 - 目安時間: 15分
 
-連続関数 $f:\mathbb R\to\mathbb R$ がBorel可測であることを、「開集合の逆像が開」と「逆像が集合演算と可換」を使って示せ。
+連続関数 $f:\mathbb R\to\mathbb R$ がBorel可測であることを、この章の定義
+
+$$
+\{x:f(x)\le a\}\in\mathcal B(\mathbb R)
+\qquad(a\in\mathbb R)
+$$
+
+から直接示せ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-本文の定理と同様に
+任意の $a\in\mathbb R$ を固定します。可測性の定義で調べる集合は
 
 $$
-\mathcal C
+\{x:f(x)\le a\}
 =
-\{B\subset\mathbb R:f^{-1}(B)\in\mathcal B(\mathbb R)\}
+f^{-1}(( -\infty,a])
 $$
 
-と置く。逆像は補集合・可算和と可換なので $\mathcal C$ はσ代数。連続性から任意の開集合 $G$ について $f^{-1}(G)$ は開集合、したがってBorel集合である。よって $\mathcal C$ は全開集合を含み、
+です。
+
+出力側の集合 $(-\infty,a]$ は閉集合です。$f$ は連続なので、閉集合の逆像は閉集合です。従って
 
 $$
-\mathcal B(\mathbb R)\subset\mathcal C.
+f^{-1}(( -\infty,a])
 $$
 
-したがって $f$ はBorel可測。
+は $\mathbb R$ の閉集合であり、特にBorel集合です。
+
+$a$ は任意だったので
+
+$$
+\{x:f(x)\le a\}\in\mathcal B(\mathbb R)
+$$
+
+が全ての $a$ で成り立ち、$f$ はBorel可測です。
 
 ### 本番答案
 
-$\mathcal C=\{B:f^{-1}(B)\in\mathcal B(\mathbb R)\}$ は逆像の性質からσ代数。連続性より開集合 $G$ の逆像は開なので $G\in\mathcal C$。よって開集合が生成する $\mathcal B(\mathbb R)\subset\mathcal C$ であり、$f$ はBorel可測。
+任意の $a\in\mathbb R$ に対し $(-\infty,a]$ は閉集合であり、連続性から $f^{-1}(( -\infty,a])=\{x:f(x)\le a\}$ も閉集合、従ってBorel集合である。よって $f$ はBorel可測。
 
 ### 採点基準（20点）
 
-- $\mathcal C$ の定義: 4点
-- σ代数確認: 6点
-- 開集合を含む: 6点
-- 生成σ代数から結論: 4点
+- 任意の $a$ を固定: 3点
+- しきい値集合を逆像で表示: 5点
+- $(-\infty,a]$ が閉集合: 3点
+- 連続性から逆像が閉集合: 5点
+- 可測性の定義へ戻して結論: 4点
+<!-- solution-end -->
+
+## F0-00D2-C01 粗いσ代数で可測関数を特徴づける
+
+- Level: C
+- 目安時間: 20分
+
+$\Omega=\{1,2,3,4\}$ とし、
+
+$$
+\mathcal F
+=
+\{\varnothing,\{1,2\},\{3,4\},\Omega\}
+$$
+
+とする。関数 $f:\Omega\to\mathbb R$ が $\mathcal F$-可測であるための必要十分条件が
+
+$$
+f(1)=f(2),
+\qquad
+f(3)=f(4)
+$$
+
+であることを示せ。
+
+<!-- solution-start -->
+### 詳細解答
+
+まず十分性を示します。
+
+$$
+f(1)=f(2)=:\alpha,
+\qquad
+f(3)=f(4)=:\beta
+$$
+
+とします。任意の $a\in\mathbb R$ に対して、しきい値集合
+
+$$
+\{\omega:f(\omega)\le a\}
+$$
+
+は、$\alpha,\beta$ と $a$ の大小関係に応じて
+
+$$
+\varnothing,\qquad
+\{1,2\},\qquad
+\{3,4\},\qquad
+\Omega
+$$
+
+のいずれかです。したがって常に $\mathcal F$ に属し、$f$ は可測です。
+
+次に必要性を示します。$f$ が可測で、たとえば $f(1)\ne f(2)$ と仮定します。必要なら1と2を入れ替えて
+
+$$
+f(1)<f(2)
+$$
+
+としてよいので、その間の実数 $a$ を
+
+$$
+f(1)<a<f(2)
+$$
+
+となるように取ります。すると
+
+$$
+1\in\{\omega:f(\omega)\le a\},
+\qquad
+2\notin\{\omega:f(\omega)\le a\}.
+$$
+
+しかし $\mathcal F$ の集合は1と2を常に同時に含むか、同時に含みません。従ってこのしきい値集合は $\mathcal F$ に属さず、可測性に反します。よって $f(1)=f(2)$ です。
+
+同じ議論を3と4に適用して $f(3)=f(4)$ も得ます。以上から必要十分条件が示されました。
 <!-- solution-end -->
 
 ---

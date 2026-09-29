@@ -1,0 +1,14 @@
+chapter: "F0-00D3A"
+terms:
+  - term: π系
+    english: pi-system
+    meaning: 二つの集合の共通部分を取っても同じ集合族に残る集合族。生成元上の性質をπ–λ定理で生成σ代数へ広げる際に使う。
+  - term: Dynkin族
+    english: Dynkin system
+    meaning: 全体集合を含み、補集合と互いに素な可算和について閉じた集合族。λ系ともいう。
+  - term: λ系
+    english: lambda-system
+    meaning: Dynkin族の別名。
+  - term: π–λ定理
+    english: pi-lambda theorem
+    meaning: π系を含むDynkin族は、そのπ系が生成するσ代数全体を含むという定理。

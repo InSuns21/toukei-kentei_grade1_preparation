@@ -1,7 +1,12 @@
 chapter: F0-00D2
 scope: dream-theater
 coverage: complete
-prerequisites: []
+prerequisites:
+  - F0-00A
+  - F0-00A1C
+  - F0-00B
+  - F0-00C
+  - F0-00D
 
 # 冒頭ロードマップと後続章への言及。ここでは使うのではなく「この先で扱う」と予告する。
 # borel-sigma-algebra-recap は D4 が同じ「定義（Borel σ代数）」見出しを再掲するため、
