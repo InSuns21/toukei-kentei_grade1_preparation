@@ -2325,7 +2325,7 @@ $$
 
 1. $-\Delta C=F$ を示せ。
 2. $\operatorname{div}C=N(\operatorname{div}F)$ を、無限遠境界項に言及して示せ。
-3. $\nabla\times C=N(\nabla\times F)$ を同様に示せ。
+3. $\nabla\times C=N(\nabla\times F)$ を、成分ごとの部分積分と $y=x$ の小球境界項の評価を明示して示せ。
 4. 以上から [Helmholtz 分解](#thm-vc8-helmholtz)を導け。
 
 <!-- solution-start -->
