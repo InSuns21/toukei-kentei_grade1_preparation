@@ -227,27 +227,27 @@ $$
 <!-- formal-statement-start -->
 > **命題（微分と Jacobian 行列の対応）**  
 > $U\subset\mathbb R^n$ を開集合、$f:U\to\mathbb R^m$、$a\in U$ とし、$f$ が $a$ で微分可能であるとする。$e_j$ を $\mathbb R^n$ の第 $j$ 標準基底ベクトルとすると、各 $j=1,\ldots,n$ について
->
-> $
-> Df(a)e_j
-> =
-> \frac{\partial f}{\partial x_j}(a)
-> $
->
+
+$$
+Df(a)e_j
+=
+\frac{\partial f}{\partial x_j}(a)
+$$
+
 > が成り立つ。したがって、標準基底に関する $Df(a)$ の[表現行列](../F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md#def-f0-00f-representation-matrix)は Jacobian 行列であり、
->
-> $
-> [Df(a)]_{\mathcal E_m\leftarrow\mathcal E_n}
-> =
-> J_f(a)
-> $
->
+
+$$
+[Df(a)]_{\mathcal E_m\leftarrow\mathcal E_n}
+=
+J_f(a)
+$$
+
 > である。特に任意の $h\in\mathbb R^n$ に対して
->
-> $
-> Df(a)h=J_f(a)h
-> $
->
+
+$$
+Df(a)h=J_f(a)h
+$$
+
 > が成り立つ。
 <!-- formal-statement-end -->
 
