@@ -641,7 +641,7 @@ DF(u_a(s))V_a(s)[b,c]\,ds\\
 &\quad+
 \int_0^t
 D^2F(u_a(s))
-\bigl[J_a(s)b,J_a(s)c\bigr],ds
+\bigl[J_a(s)b,J_a(s)c\bigr]\,ds
 \end{aligned}
 $$
 
