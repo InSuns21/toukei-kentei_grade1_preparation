@@ -74,6 +74,8 @@ $$
 
 $A$ 自身には可測性を仮定していません。$\lambda^*$ は全ての部分集合に定義されます。
 
+定義中の被覆候補が空になる心配もありません。例えば $(-n,n)$ $(n\ge1)$ は $\mathbb R$ 全体を覆うので、任意の $A\subset\mathbb R$ も可算個の開区間で覆えます。したがって「被覆の長さ総和の下限を取る」という操作が、どの集合 $A$ に対しても意味を持ちます。
+
 <!-- definition-example-start: def-f0-00d3-lebesgue-outer-measure -->
 ### 例1：一点集合
 
@@ -184,50 +186,81 @@ $\lambda^*$ は $\mathbb R$ 上の外測度である。
 <!-- proof-start -->
 ### 証明
 
-空集合は空の被覆で覆えるので $\lambda^*(\varnothing)=0$。
+まず空集合を考えます。任意の $\varepsilon>0$ に対し、長さ $\varepsilon/2^n$ の開区間 $I_n$ を一つずつ取れば
 
-$A\subset B$ なら、$B$ を覆う任意の区間族は $A$ も覆うため
+$$
+\varnothing\subset\bigcup_{n=1}^{\infty}I_n,
+\qquad
+\sum_{n=1}^{\infty}|I_n|=\varepsilon.
+$$
+
+従って $0\le\lambda^*(\varnothing)\le\varepsilon$。$\varepsilon$ は任意なので
+
+$$
+\lambda^*(\varnothing)=0.
+$$
+
+次に $A\subset B$ とします。$B$ を覆う任意の区間族は、そのまま $A$ の被覆にもなります。従って $A$ では $B$ より広い被覆候補から infimum を取れるので
 
 $$
 \lambda^*(A)\le\lambda^*(B).
 $$
 
-可算劣加法性を示します。任意の $\varepsilon>0$ を固定します。各 $A_n$ について外測度の infimum の定義から
+最後に可算劣加法性を示します。もし
 
 $$
-A_n\subset\bigcup_{k=1}^\infty I_{n,k},
+\sum_{n=1}^{\infty}\lambda^*(A_n)=\infty
+$$
+
+なら、右辺が $\infty$ なので不等式は自動です。そこで以下ではこの和が有限の場合だけ考えます。このとき各 $\lambda^*(A_n)$ も有限です。
+
+任意の $\varepsilon>0$ を固定します。各 $n$ について、$\lambda^*(A_n)$ が被覆コストの infimum であることから
+
+$$
+A_n\subset\bigcup_{k=1}^{\infty}I_{n,k},
 \qquad
-\sum_k|I_{n,k}|
+\sum_{k=1}^{\infty}|I_{n,k}|
 <
 \lambda^*(A_n)+\frac{\varepsilon}{2^n}
 $$
 
-となる被覆を選べます。$\lambda^*(A_n)=\infty$ の項があれば主張は自明なので、有限の項だけ考えれば十分です。
+となる開区間被覆を選べます。
 
-すると
+添字集合 $\mathbb N\times\mathbb N$ は可算なので、二重列 $(I_{n,k})_{n,k}$ は一つの可算な開区間族として並べ直せます。また各 $A_n$ はその $n$ 行の区間で覆われるので
 
 $$
-\bigcup_nA_n
+\bigcup_{n=1}^{\infty}A_n
 \subset
-\bigcup_{n,k}I_{n,k}
+\bigcup_{n=1}^{\infty}\bigcup_{k=1}^{\infty}I_{n,k}.
 $$
 
-だから
+従って、この二重列を $\bigcup_nA_n$ の被覆として定義へ代入すると
 
 $$
 \begin{aligned}
-\lambda^*\left(\bigcup_nA_n\right)
-&\le\sum_{n,k}|I_{n,k}|\\
-&<\sum_n\lambda^*(A_n)+\varepsilon.
+\lambda^*\left(\bigcup_{n=1}^{\infty}A_n\right)
+&\le
+\sum_{n=1}^{\infty}\sum_{k=1}^{\infty}|I_{n,k}|\\
+&<
+\sum_{n=1}^{\infty}
+\left(
+\lambda^*(A_n)+\frac{\varepsilon}{2^n}
+\right)\\
+&=
+\sum_{n=1}^{\infty}\lambda^*(A_n)+\varepsilon.
 \end{aligned}
 $$
 
-$\varepsilon\downarrow0$ として
+最後の等号では $\sum_{n=1}^{\infty}2^{-n}=1$ を使いました。$\varepsilon>0$ は任意なので
 
 $$
-\lambda^*\left(\bigcup_nA_n\right)
-\le\sum_n\lambda^*(A_n).
+\lambda^*\left(\bigcup_{n=1}^{\infty}A_n\right)
+\le
+\sum_{n=1}^{\infty}\lambda^*(A_n).
 $$
+
+よって $\lambda^*$ は外測度です。$\square$
+<!-- proof-end -->
 
 よって $\lambda^*$ は外測度です。$\square$
 <!-- proof-end -->
@@ -431,19 +464,89 @@ F_n:=\bigcup_{k=1}^nE_k,
 F:=\bigcup_{k=1}^\infty E_k
 $$
 
-とします。有限和の結果から $F_n\in\mathcal M$。
+とします。Step 2 の有限和閉性から $F_n\in\mathcal M$ です。
 
-Carathéodory 条件を順に適用すると、任意の $T$ について
+ここで「Carathéodory 条件を繰り返す」部分を具体的に書きます。任意の $T\subset X$ を固定します。まず $E_1$ の可測性を $T$ に適用して
+
+$$
+\mu^*(T)
+=
+\mu^*(T\cap E_1)
++
+\mu^*(T\setminus E_1).
+$$
+
+次に $E_2$ の可測性を、元の $T$ ではなく
+
+$$
+S:=T\setminus E_1
+$$
+
+へ適用します。すると
+
+$$
+\mu^*(T\setminus E_1)
+=
+\mu^*((T\setminus E_1)\cap E_2)
++
+\mu^*((T\setminus E_1)\setminus E_2).
+$$
+
+$E_1$ と $E_2$ は互いに素なので
+
+$$
+(T\setminus E_1)\cap E_2=T\cap E_2,
+$$
+
+また
+
+$$
+(T\setminus E_1)\setminus E_2
+=
+T\setminus(E_1\cup E_2)
+=
+T\setminus F_2.
+$$
+
+従って
+
+$$
+\mu^*(T)
+=
+\mu^*(T\cap E_1)
++
+\mu^*(T\cap E_2)
++
+\mu^*(T\setminus F_2).
+$$
+
+この一段を $E_3,E_4,\ldots,E_n$ について繰り返すと、帰納的に
 
 $$
 \mu^*(T)
 =
 \sum_{k=1}^n\mu^*(T\cap E_k)
 +
+\mu^*(T\setminus F_n)
+$$
+
+を得ます。
+
+$F_n\subset F$ なので
+
+$$
+T\setminus F\subset T\setminus F_n.
+$$
+
+外測度の単調性から
+
+$$
+\mu^*(T\setminus F)
+\le
 \mu^*(T\setminus F_n).
 $$
 
-$T\setminus F\subset T\setminus F_n$ なので
+従って全ての $n$ について
 
 $$
 \mu^*(T)
@@ -453,7 +556,7 @@ $$
 \mu^*(T\setminus F).
 $$
 
-$n\to\infty$ として
+右辺の有限和は非負項の部分和として増加するので、$n\to\infty$ として
 
 $$
 \mu^*(T)
@@ -463,7 +566,15 @@ $$
 \mu^*(T\setminus F).
 $$
 
-さらに劣加法性から
+一方、
+
+$$
+T\cap F
+=
+\bigcup_{k=1}^{\infty}(T\cap E_k)
+$$
+
+だから可算劣加法性より
 
 $$
 \mu^*(T\cap F)
@@ -471,7 +582,7 @@ $$
 \sum_{k=1}^\infty\mu^*(T\cap E_k).
 $$
 
-よって
+従って
 
 $$
 \mu^*(T)
@@ -479,7 +590,13 @@ $$
 \mu^*(T\cap F)+\mu^*(T\setminus F).
 $$
 
-逆向きは自動なので $F\in\mathcal M$。
+逆向きは
+
+$$
+T=(T\cap F)\cup(T\setminus F)
+$$
+
+への劣加法性から成り立つので等号です。従って $F\in\mathcal M$。
 
 #### Step 4：一般の可算和
 
@@ -489,15 +606,28 @@ $$
 E_1=A_1,
 \qquad
 E_n=A_n\setminus\bigcup_{k<n}A_k
+\quad(n\ge2)
 $$
 
-と disjoint 化します。各 $E_n\in\mathcal M$ で
+と置きます。$\bigcup_{k<n}A_k$ は有限和なので Step 2 から可測で、その補集合も可測です。従って
 
 $$
-\bigcup_nA_n=\bigsqcup_nE_n.
+E_n
+=
+A_n\cap
+\left(\bigcup_{k<n}A_k\right)^c
+\in\mathcal M.
 $$
 
-Step 3 より右辺は可測。したがって $\mathcal M$ はσ代数です。
+この $E_n$ は「$A_n$ のうち、それ以前の集合にまだ現れていない部分」だけを残すので互いに素です。また、$x\in\bigcup_nA_n$ なら $x$ が初めて現れる $A_m$ を取ることで $x\in E_m$ となります。逆に $E_n\subset A_n$ です。従って
+
+$$
+\bigcup_{n=1}^{\infty}A_n
+=
+\bigsqcup_{n=1}^{\infty}E_n.
+$$
+
+Step 3 により右辺は可測です。従って $\mathcal M$ は任意の可算和で閉じ、すでに補集合でも閉じているのでσ代数です。
 
 #### Step 5：外測度の制限は可算加法的
 
@@ -509,21 +639,33 @@ $$
 
 とします。前段より $E\in\mathcal M$。
 
-有限段階で Carathéodory 条件を繰り返し、テスト集合に $T=E$ を入れると
+Step 3 で得た有限段階の式を、ここではテスト集合 $T=E$ に適用します。すると
 
-$$
+$
+\mu^*(E)
+=
+\sum_{k=1}^n\mu^*(E\cap E_k)
++
+\mu^*(E\setminus F_n),
+\qquad
+F_n=\bigcup_{k=1}^nE_k.
+$
+
+各 $E_k\subset E$ なので $E\cap E_k=E_k$ で、最後の項は非負です。従って
+
+$
 \mu^*(E)
 \ge
 \sum_{k=1}^n\mu^*(E_k)
-$$
+$
 
-なので
+が全ての $n$ で成り立ちます。非負項級数の部分和を $n\to\infty$ とすれば
 
-$$
+$
 \mu^*(E)
 \ge
 \sum_{k=1}^\infty\mu^*(E_k).
-$$
+$
 
 逆向きは外測度の可算劣加法性です。従って
 
@@ -748,6 +890,49 @@ $T\cap E^c=T\setminus E$、$T\setminus E^c=T\cap E$ なので、$E$ の Carathé
 - $E^c$ 可測の結論：2点
 <!-- solution-end -->
 
+## F0-00D3-A04 可算集合のLebesgue外測度
+
+- Level: A
+- 目安時間: 12分
+
+可算集合
+
+$
+A=\{x_1,x_2,\ldots\}\subset\mathbb R
+$
+
+に対して $\lambda^*(A)=0$ を示せ。
+
+<!-- solution-start -->
+### 詳細解答
+
+任意の $\varepsilon>0$ を固定します。各点 $x_n$ を中心とする長さ
+
+$
+\frac{\varepsilon}{2^n}
+$
+
+の開区間 $I_n$ を取ります。すると $x_n\in I_n$ なので
+
+$
+A\subset\bigcup_{n=1}^{\infty}I_n.
+$
+
+Lebesgue 外測度の定義から
+
+$
+0\le\lambda^*(A)
+\le
+\sum_{n=1}^{\infty}|I_n|
+=
+\sum_{n=1}^{\infty}\frac{\varepsilon}{2^n}
+=
+\varepsilon.
+$
+
+$\varepsilon>0$ は任意なので $\lambda^*(A)=0$ です。
+<!-- solution-end -->
+
 ## F0-00D3-B01 有限和の可測性
 
 - Level: B
@@ -891,7 +1076,7 @@ Carathéodory 構成で得た測度が完全であることを説明せよ。
 <!-- solution-start -->
 ### 詳細解答
 
-$N\in\mathcal M$、$\mu(N)=0$ とし $A\subset N$ を任意に取る。外[測度の単調性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#prop-f0-00d2-02)から
+$N\in\mathcal M$、$\mu(N)=0$ とし $A\subset N$ を任意に取る。外測度の定義に含まれる単調性から
 
 $$
 0\le\mu^*(A)\le\mu^*(N)=0
@@ -910,6 +1095,76 @@ $A\subset N$、$\mu(N)=0$ なら単調性より $\mu^*(A)=0$。外測度0集合�
 - 外測度0集合の可測性：5点
 - $\mu(A)=0$：2点
 - 完全性の結論：3点
+<!-- solution-end -->
+
+## F0-00D3-C01 可算和閉性を分解から再構成する
+
+- Level: C
+- 目安時間: 25分
+
+Carathéodory 可測集合全体を $\mathcal M$ とする。任意の列 $A_1,A_2,\ldots\in\mathcal M$ に対して
+
+$
+E_1=A_1,
+\qquad
+E_n=A_n\setminus\bigcup_{k<n}A_k
+\quad(n\ge2)
+$
+
+と置く。
+
+1. 各 $E_n$ が $\mathcal M$ に属することを示せ。
+2. $(E_n)$ が互いに素であることを示せ。
+3. $\bigcup_nA_n=\bigsqcup_nE_n$ を示せ。
+4. 互いに素な可測集合の可算和が可測であるという本文の結果を使い、$\bigcup_nA_n\in\mathcal M$ を結論せよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+1. 固定した $n\ge2$ について
+
+$
+F_{n-1}:=\bigcup_{k<n}A_k
+$
+
+と置きます。これは有限個の可測集合の和なので $F_{n-1}\in\mathcal M$ です。補集合閉性と有限共通部分閉性から
+
+$
+E_n=A_n\cap F_{n-1}^c\in\mathcal M.
+$
+
+$E_1=A_1$ も可測です。
+
+2. $m<n$ とします。$E_m\subset A_m$ です。一方、$E_n$ は $A_1,\ldots,A_{n-1}$ を全て除いた部分なので、特に $E_n\subset A_m^c$ です。従って
+
+$
+E_m\cap E_n=\varnothing.
+$
+
+3. 各 $E_n\subset A_n$ なので $\bigcup_nE_n\subset\bigcup_nA_n$ です。逆に $x\in\bigcup_nA_n$ を取ります。$x\in A_n$ となる自然数のうち最小のものを $m$ とすると、$x$ は $A_1,\ldots,A_{m-1}$ に入らないので
+
+$
+x\in
+A_m\setminus\bigcup_{k<m}A_k
+=
+E_m.
+$
+
+従って
+
+$
+\bigcup_nA_n
+=
+\bigsqcup_nE_n.
+$
+
+4. 各 $E_n$ は可測で互いに素なので、本文 Step 3 により $\bigsqcup_nE_n$ は可測です。3 の等式から
+
+$
+\bigcup_nA_n\in\mathcal M.
+$
+
+これで一般の可算和閉性が、有限和・補集合・互いに素な可算和から再構成できました。
 <!-- solution-end -->
 
 ---
