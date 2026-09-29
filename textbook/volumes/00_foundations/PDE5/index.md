@@ -10,8 +10,7 @@ PDE3 では放物型の代表として熱方程式、PDE4 では双曲型の代�
 
 直接の前提は [PDE4 波動方程式](../PDE4/index.md) です。PDE4 までで導入した PDE の型、境界値問題、Fourier 級数、変数分離、Sturm--Liouville の基本結果を再利用します。
 
-> **証明境界**  
-> 本章は二次元の古典解を中心に、平均値性質、最大原理、Dirichlet 一意性、長方形の変数分離、単位円板の境界積分表示を複素解析なしで閉じます。Green の第一・第二恒等式、基本解、Green 関数は PDE6 へ送ります。弱微分、Sobolev 空間、Lax--Milgram、一般楕円型方程式の弱解は Encore III の正本で扱い、本章へ逆輸入しません。
+本章では二次元の古典解を中心に、平均値性質、最大原理、Dirichlet 一意性、長方形の変数分離、単位円板の境界積分表示までを複素解析に頼らず導きます。Green の第一・第二恒等式、基本解、Green 関数は次章で学び、弱微分、Sobolev 空間、Lax--Milgram、一般楕円型方程式の弱解は後の発展章で扱います。
 
 ---
 
@@ -103,6 +102,8 @@ $$
 
 ## 2. Laplace 方程式の解に名前を付ける
 
+これから平均値性質や最大原理を何度も使うので、「$\Delta u=0$ を満たす関数」と毎回言い直す代わりに、この解のクラスへ名前を付けます。重要なのは新しい条件を加えることではなく、Laplace 方程式の古典解そのものを一つの対象として扱えるようにすることです。
+
 <a id="def-pde5-harmonic"></a>
 <!-- formal-statement-start -->
 > **定義（Laplace 方程式の解としての調和関数）**  
@@ -144,6 +145,8 @@ $$
 ---
 
 ## 3. 境界で何を指定するか：Dirichlet と Neumann
+
+時間発展方程式では初期時刻の値を与えましたが、Laplace・Poisson 方程式には時間変数がありません。そこで領域の内部を決めるための情報を境界で与えます。値そのものを指定する方法と、境界を横切る変化率を指定する方法を区別しておくと、この後の一意性や積分公式の役割が見えやすくなります。
 
 <a id="def-pde5-boundary-problems"></a>
 <!-- formal-statement-start -->
@@ -987,25 +990,66 @@ r\frac{R'}{R}
 \lambda.
 $$
 
-$2\pi$ 周期性から $\lambda=n^2$ が現れ、
+したがって角度側は
 
 $$
-\Theta(\theta)=\cos n\theta,\ \sin n\theta.
+\Theta''+\lambda\Theta=0
 $$
 
-半径側は Euler 型方程式
+です。ここで $\Theta$ は角度を一周して同じ値へ戻る必要があるので $2\pi$ 周期です。$\lambda$ の符号ごとに見ると、
+
+- $\lambda<0$ では指数関数型となり、非零の $2\pi$ 周期解はない。
+- $\lambda=0$ では $\Theta=A+B\theta$ であり、周期性から $B=0$、すなわち定数モードになる。
+- $\lambda>0$ では $\Theta=A\cos(\sqrt\lambda\,\theta)+B\sin(\sqrt\lambda\,\theta)$ であり、$2\pi$ 周期になるためには $\sqrt\lambda=n\in\mathbb N$ が必要になる。
+
+従って
+
+$$
+\lambda=n^2,
+\qquad
+\Theta(\theta)=\cos n\theta,\ \sin n\theta
+\qquad(n\ge1)
+$$
+
+が非定数モードで、$n=0$ が定数モードです。
+
+$n\ge1$ の半径側は Euler 型方程式
 
 $$
 r^2R''+rR'-n^2R=0
 $$
 
-で、$n\ge1$ なら
+です。$R(r)=r^\alpha$ を代入すると
+
+$$
+\alpha(\alpha-1)+\alpha-n^2
+=
+\alpha^2-n^2
+=
+0,
+$$
+
+したがって $\alpha=\pm n$ で
 
 $$
 R(r)=Ar^n+Br^{-n}.
 $$
 
-中心 $r=0$ で有限な古典解を求めるので $r^{-n}$ は捨てます。$n=0$ では定数モードを採用します。
+中心 $r=0$ まで連続な古典解を求めるので、発散する $r^{-n}$ の項は $B=0$ とします。
+
+$n=0$ では
+
+$$
+r^2R''+rR'=0,
+$$
+
+すなわち $(rR')'=0$ です。従って
+
+$$
+R(r)=A+B\log r.
+$$
+
+中心で有限にするには $B=0$ なので、こちらは定数モードになります。
 
 したがって境界の Fourier モード
 
@@ -1025,9 +1069,11 @@ $$
 
 ## 12. 全モードを一つの核にまとめる
 
+前節では、境界の第 $n$ Fourier モードが内部で $r^n$ 倍されることが分かりました。しかし一般の境界データについて毎回 Fourier 係数を一つずつ並べるのは不便です。そこで、すべての重み $1,r,r^2,\ldots$ を一つの周期関数へまとめ、境界データとの積分だけで内部値を書けるようにします。
+
 <a id="def-pde5-poisson-kernel"></a>
 <!-- formal-statement-start -->
-> **定義（円板境界値問題の Poisson kernel）**  
+> **定義（円板境界値問題の Poisson 核）**  
 > $0\le r<1$、$\phi\in\mathbb R$ に対して
 
 $$
@@ -1038,10 +1084,10 @@ P_r(\phi)
 }
 $$
 
-> を単位円板の **Poisson kernel** という。
+> を単位円板の **Poisson 核** という。
 <!-- formal-statement-end -->
 
-これは [CA6 の Poisson kernel](../CA6/index.md#def-ca6-poisson-kernel) と同じ核です。ただし本章では複素解析の表示公式を前提にせず、Fourier モードを半径方向へ延長した総和として導きます。
+これは [CA6 の Poisson 核](../CA6/index.md#def-ca6-poisson-kernel) と同じ核です。ただし本章では複素解析の表示公式を前提にせず、Fourier モードを半径方向へ延長した総和として導きます。
 
 分母は
 
@@ -1057,7 +1103,60 @@ $$
 P_r(\phi)>0.
 $$
 
-また有限等比級数の極限を使うだけで
+この式が Fourier モードの重みを本当にまとめていることを、等比級数から確認します。$z=re^{i\phi}$ と置けば $|z|<1$ なので
+
+$$
+\sum_{n=1}^{\infty}z^n
+=
+\frac{z}{1-z}.
+$$
+
+実部を取ると
+
+$$
+\sum_{n=1}^{\infty}r^n\cos(n\phi)
+=
+\operatorname{Re}
+\frac{re^{i\phi}}{1-re^{i\phi}}.
+$$
+
+分母を実数化するため $1-re^{-i\phi}$ を掛けると
+
+$$
+\frac{re^{i\phi}}{1-re^{i\phi}}
+=
+\frac{re^{i\phi}-r^2}
+{1-2r\cos\phi+r^2}.
+$$
+
+したがって
+
+$$
+\operatorname{Re}
+\frac{re^{i\phi}}{1-re^{i\phi}}
+=
+\frac{r\cos\phi-r^2}
+{1-2r\cos\phi+r^2}.
+$$
+
+ここから
+
+$$
+\begin{aligned}
+1+2\sum_{n=1}^{\infty}r^n\cos(n\phi)
+&=
+1+
+\frac{2r\cos\phi-2r^2}
+{1-2r\cos\phi+r^2}\\
+&=
+\frac{1-r^2}
+{1-2r\cos\phi+r^2}\\
+&=
+P_r(\phi).
+\end{aligned}
+$$
+
+従って
 
 $$
 \boxed{
@@ -1067,7 +1166,7 @@ P_r(\phi)
 }
 $$
 
-が得られます。$r\le\rho<1$ では右辺は絶対一様収束します。
+です。$r\le\rho<1$ では $\sum \rho^n<\infty$ なので、右辺は絶対一様収束します。
 
 <!-- definition-example-start: def-pde5-poisson-kernel -->
 **定義の確認**
@@ -1122,7 +1221,7 @@ $$
 
 証明は三段です。
 
-1. Poisson kernel の Fourier 展開から、$u$ は各境界 Fourier モードを $r^n$ 倍して内部へ運ぶ。
+1. Poisson 核 の Fourier 展開から、$u$ は各境界 Fourier モードを $r^n$ 倍して内部へ運ぶ。
 2. $r<1$ のコンパクトな範囲では微分後の級数も一様収束するので、各モードの調和性から $\Delta u=0$。
 3. $P_r/(2\pi)$ は質量 1 で $\phi=0$ 付近へ集中するため、$r\uparrow1$ で $u(r,\theta)\to g(\theta)$ が一様に成り立つ。
 
@@ -1145,7 +1244,7 @@ $$
 
 とします。
 
-Poisson kernel の展開
+Poisson 核 の展開
 
 $$
 P_r(\theta-\varphi)
@@ -1264,7 +1363,7 @@ $$
 
 が全ての $\theta$ で成り立ちます。
 
-積分を $|\psi|<\delta$ と $|\psi|\ge\delta$ に分けます。近い部分では、Poisson kernel の全質量が $2\pi$ なので寄与は高々 $\varepsilon$ です。
+積分を $|\psi|<\delta$ と $|\psi|\ge\delta$ に分けます。近い部分では、Poisson 核 の全質量が $2\pi$ なので寄与は高々 $\varepsilon$ です。
 
 遠い部分では $|\psi|\ge\delta$ なら
 
@@ -1295,7 +1394,7 @@ $$
 
 ---
 
-## 14. 単一 Fourier モードなら Poisson kernel は一瞬で読める
+## 14. 単一 Fourier モードなら Poisson 核 は一瞬で読める
 
 境界データ
 
@@ -1725,7 +1824,7 @@ $$
 従って $u+C$ も同じ Neumann 問題の解です。これが定数不定性です。
 <!-- solution-end -->
 
-## PDE5-B02 Poisson kernel で一つの Fourier モードを延長する
+## PDE5-B02 Poisson 核 で一つの Fourier モードを延長する
 
 - Level: B
 - 目安時間: 15分
@@ -1888,7 +1987,7 @@ $$
 $$
 
 を求め、$N\to\infty$ での極限を示せ。
-3. 境界では $\|g_N\|_\infty=1$ が全く小さくならないのに、内部コンパクト集合では解が 0 へ一様収束する理由を、Poisson kernel と最大原理の役割を区別して説明せよ。
+3. 境界では $\|g_N\|_\infty=1$ が全く小さくならないのに、内部コンパクト集合では解が 0 へ一様収束する理由を、Poisson 核 と最大原理の役割を区別して説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1955,7 +2054,7 @@ $$
 
 という境界から内部への上界は得られますが、$\rho^N$ という高周波依存の減衰率までは与えません。
 
-一方 Poisson kernel / Fourier モード表示は
+一方 Poisson 核 / Fourier モード表示は
 
 $$
 \cos(N\theta)
@@ -1974,7 +2073,7 @@ $$
 $$
 
 $$
-\text{Poisson kernel}
+\text{Poisson 核}
 \Rightarrow
 \text{各周波数が内部へどう伝わるかの定量表示}
 $$
@@ -1995,7 +2094,7 @@ $$
 - 平均値性質から強最大原理を証明できる。
 - 最大原理から Poisson 方程式の Dirichlet 一意性を証明できる。
 - 長方形で変数分離し、正弦モードと双曲線関数を組み合わせられる。
-- 単位円板の Poisson kernel を Fourier モードの総和として説明できる。
+- 単位円板の Poisson 核 を Fourier モードの総和として説明できる。
 - Poisson 積分が連続境界データへ戻る理由を近似恒等核として説明できる。
 - Neumann 問題の定数不定性と、長方形での積分整合条件を導ける。
 - 熱・波動・Laplace の各モードが、減衰・振動・境界補間という異なる役割を持つことを比較できる。

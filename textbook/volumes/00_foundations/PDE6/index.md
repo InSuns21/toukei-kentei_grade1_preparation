@@ -1,14 +1,14 @@
 # PDE6 Laplace・Poisson 方程式の境界積分法
 
-PDE5 では、Laplace・Poisson 方程式を平均値性質、[強最大原理](../PDE5/index.md#thm-pde5-maximum-principle)、変数分離、Poisson kernel から調べました。本章では同じ楕円型方程式を、**領域内部の微分を境界積分へ移す**という別の視点から見直します。
+PDE5 では、Laplace・Poisson 方程式を平均値性質、[強最大原理](../PDE5/index.md#thm-pde5-maximum-principle)、変数分離、Poisson 核から調べました。本章では同じ楕円型方程式を、**領域内部の微分を境界積分へ移す**という別の視点から見直します。
 
-ベクトル解析の一般論は VC 系列へ正本化しました。本章は
+ここでは、ベクトル解析で学んだ次の道具を使います。
 
-- [VC1 の gradient / divergence と積の微分則](../VC1/index.md#prop-vc1-product-rules)
-- [VC3 の法線・向き・flux](../VC3/index.md#def-vc3-oriented-area-flux)
-- [VC4 の Green theorem・Gauss--Ostrogradsky theorem](../VC4/index.md#thm-vc4-gauss-divergence)
+- [VC1 の勾配・発散と積の微分則](../VC1/index.md#prop-vc1-product-rules)
+- [VC3 の法線・向き・流束](../VC3/index.md#def-vc3-oriented-area-flux)
+- [VC4 の Green の定理（流束形）と Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)
 
-を既知として使い、発散定理そのものを再実装しません。
+発散定理そのものの証明は既習として、本章では「どのベクトル場を発散定理へ入れると PDE に役立つ境界項が出るか」に集中します。
 
 中心となる流れは
 
@@ -26,20 +26,20 @@ $$
 
 です。
 
-本章では PDE5 と同じく二次元の古典解を主対象にします。弱微分、超関数としての $-\Delta\Phi=\delta_0$、Sobolev 空間は Encore III へ送り、ここでは逆輸入しません。
+本章では PDE5 と同じく二次元の古典解を主対象にします。弱微分、超関数としての $-\Delta\Phi=\delta_0$、Sobolev 空間は後の発展章で扱うので、ここでは古典微分と通常の境界積分だけで議論します。
 
 この章の中心問いは次の四つです。
 
 1. なぜ $\Delta$ を含む面積分が境界上の法線微分へ変わるのか。
 2. 原点に集中した「単位源」を、古典解の範囲でどう表現するのか。
 3. 境界条件を満たすよう基本解を補正すると、なぜ Green 関数になるのか。
-4. PDE5 の Poisson kernel は Green 関数からどう再発見できるのか。
+4. PDE5 の Poisson 核は Green 関数からどう再発見できるのか。
 
 ---
 
 ## 1. VC の外向き法線から PDE の法線微分へ
 
-VC3--VC4 では曲面・境界の向きと外向き flux を一般のベクトル解析として扱いました。PDE では、その法線方向へ scalar field を微分した量を境界条件として使います。
+VC3--VC4 では曲面・境界の向きと外向き流束を一般のベクトル解析として扱いました。PDE では、その法線方向へスカラー場を微分した量を境界条件として使います。
 
 <a id="def-pde6-normal-derivative"></a>
 <!-- formal-statement-start -->
@@ -83,9 +83,9 @@ $$
 
 ---
 
-## 2. 発散定理は VC4 を canonical owner とする
+## 2. 発散定理を二次元の境界積分へ使う
 
-二次元で本章が使う形は [VC4 の Green theorem：flux form](../VC4/index.md#cor-vc4-green-flux)
+二次元で本章が使う形は [VC4 の Green の定理：流束形](../VC4/index.md#cor-vc4-green-flux)
 
 $$
 \int_{\partial\Omega}F\cdot n\,ds
@@ -93,19 +93,19 @@ $$
 \iint_\Omega\operatorname{div}F\,dA
 $$
 
-です。一般の三次元閉曲面では [Gauss--Ostrogradsky divergence theorem](../VC4/index.md#thm-vc4-gauss-divergence) が対応します。
+です。一般の三次元閉曲面では [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence) が対応します。
 
-VC4 では、simple region で [微積分学の基本定理II](../RA4/index.md#thm-ra4-ftc2) を使い、有限分割で生じる内部境界が反対向き法線により相殺するところまで証明済みです。PDE6 ではこの証明を繰り返さず、PDE 固有の選び方
+VC4 では、単純領域で [微積分学の基本定理II](../RA4/index.md#thm-ra4-ftc2) を使い、有限分割で生じる内部境界が反対向き法線により相殺するところまで証明しました。ここではその結果を使い、PDE に合うベクトル場
 
 $$
 F=u\nabla v
 $$
 
-へ進みます。
+を選ぶところから始めます。
 
 ---
 
-## 3. PDE6 が新しく行うこと
+## 3. PDE に合うベクトル場を選ぶ
 
 VC1 の [積の微分則](../VC1/index.md#prop-vc1-product-rules) から
 
@@ -124,7 +124,7 @@ $$
 u\frac{\partial v}{\partial n}.
 $$
 
-つまり VC4 の flux theorem へ $F=u\nabla v$ を入れるだけで、内部の二階微分を境界法線微分へ移せます。ここから先が PDE6 の canonical 内容です。
+つまり [VC4 の Green の定理：流束形](../VC4/index.md#cor-vc4-green-flux)へ $F=u\nabla v$ を代入すると、内部の二階微分を境界法線微分へ移せます。この具体的な選び方から、次節の積分恒等式が生まれます。
 
 ---
 
@@ -145,7 +145,7 @@ $$
 <a id="thm-pde6-green-first"></a>
 <!-- formal-statement-start -->
 > **定理（Green の第一恒等式）**  
-> $\Omega$ をVC4 の Green theorem：flux form を適用できる有界連結領域とし、$u,v\in C^2(\overline\Omega)$ とする。このとき
+> $\Omega$ をVC4 の Green の定理：流束形 を適用できる有界連結領域とし、$u,v\in C^2(\overline\Omega)$ とする。このとき
 
 $$
 \boxed{
@@ -193,7 +193,7 @@ u\nabla v\cdot n
 u\frac{\partial v}{\partial n}.
 $$
 
-したがって[VC4 の Green theorem：flux form](../VC4/index.md#cor-vc4-green-flux)を適用すると
+したがって[VC4 の Green の定理：流束形](../VC4/index.md#cor-vc4-green-flux)を適用すると
 
 $$
 \iint_\Omega
@@ -520,7 +520,7 @@ $$
 
 と書けるようにします。しかし本章では、その記法をまだ前提にしません。
 
-代わりに、原点以外では調和的であり、原点を囲む円を通して総量1の flux が出入りすることを条件にします。
+代わりに、原点以外では調和的であり、原点を囲む円を通して総量1の流束が出入りすることを条件にします。
 
 <a id="def-pde6-fundamental-solution"></a>
 <!-- formal-statement-start -->
@@ -641,7 +641,7 @@ $$
 \phi(r)=C\log r+D
 $$
 
-となります。単位 flux 条件が $C=-1/(2\pi)$ を選びます。
+となります。単位流束 条件が $C=-1/(2\pi)$ を選びます。
 
 ---
 
@@ -680,7 +680,7 @@ $$
 <a id="thm-pde6-green-representation"></a>
 <!-- formal-statement-start -->
 > **定理（基本解による Green 表現公式）**  
-> $\Omega$ をVC4 の Green theorem：flux form を適用できる有界領域とし、$x\in\Omega$ とする。$u\in C^2(\overline\Omega)$ が
+> $\Omega$ をVC4 の Green の定理：流束形 を適用できる有界領域とし、$x\in\Omega$ とする。$u\in C^2(\overline\Omega)$ が
 
 $$
 -\Delta u=f
@@ -930,6 +930,8 @@ $$
 
 ## 11. 境界条件を基本解へ埋め込む
 
+基本解だけでも一点値の表現は得られましたが、Dirichlet 問題で未知な $\partial_nu$ が境界積分に残りました。そこで、基本解が持つ点源の特異性は保ったまま調和関数を加え、境界上では値が 0 になるよう補正します。そうすれば未知の法線微分を掛ける項を消し、既知の Dirichlet データだけを残せます。この補正済みの核を、次で定義します。
+
 <a id="def-pde6-green-function"></a>
 <!-- formal-statement-start -->
 > **定義（Dirichlet Green 関数）**  
@@ -1082,18 +1084,34 @@ $$
 
 を置くと $|x^*|>1$ なので、$x^*$ は閉単位円板の外にあります。
 
-直接計算すると
+反転点の定義を代入して距離を展開すると
 
 $$
+\begin{aligned}
 |x|^2|y-x^*|^2
-=
+&=
+|x|^2
+\left|
+y-\frac{x}{|x|^2}
+\right|^2\\
+&=
+|x|^2
+\left(
+|y|^2
+-
+2y\cdot\frac{x}{|x|^2}
++
+\frac1{|x|^2}
+\right)\\
+&=
 |x|^2|y|^2
 -
 2x\cdot y
 +
-1
-=
+1\\
+&=
 A_x(y).
+\end{aligned}
 $$
 
 従って
@@ -1268,11 +1286,13 @@ $$
 
 ---
 
-## 14. Green 関数から Poisson kernel を定義する
+## 14. Green 関数から Poisson 核を定義する
+
+Dirichlet Green 関数による表現では、調和関数の場合 $f=0$ なので内部源の項が消え、境界データ $g$ に掛かる係数だけが残ります。この係数を一つの境界核として取り出しておけば、PDE5 の円板公式と一般領域の Green 関数表示を同じ形で比較できます。そのために $-\partial_{n_y}G$ を Poisson 核として定義します。
 
 <a id="def-pde6-poisson-kernel"></a>
 <!-- formal-statement-start -->
-> **定義（Green 関数から得る Poisson kernel）**  
+> **定義（Green 関数から得る Poisson 核）**  
 > Dirichlet Green 関数 $G$ が存在する領域 $\Omega$ で、$x\in\Omega$、$y\in\partial\Omega$ に対し
 
 $$
@@ -1284,7 +1304,7 @@ P_\Omega(x,y)
 }
 $$
 
-> と定める。この境界核を Green 関数から得る Poisson kernel と呼ぶ。
+> と定める。この境界核を Green 関数から得る Poisson 核と呼ぶ。
 <!-- formal-statement-end -->
 
 この定義なら、調和関数 $u$、すなわち $f=0$ の Dirichlet 問題は
@@ -1338,12 +1358,12 @@ $$
 
 ---
 
-## 15. 単位円板では PDE5 の Poisson kernel がそのまま戻る
+## 15. 単位円板では PDE5 の Poisson 核がそのまま戻る
 
 <a id="prop-pde6-disk-poisson"></a>
 <!-- formal-statement-start -->
-> **命題（単位円板の Poisson kernel）**  
-> $D=\{y:|y|<1\}$ とし、$x\in D$、$\xi\in\partial D$ とする。このとき単位円板の Green 関数から得る Poisson kernel は
+> **命題（単位円板の Poisson 核）**  
+> $D=\{y:|y|<1\}$ とし、$x\in D$、$\xi\in\partial D$ とする。このとき単位円板の Green 関数から得る Poisson 核は
 
 $$
 \boxed{
@@ -1489,7 +1509,7 @@ P_D(x,\xi)
 {1-2r\cos(\theta-\phi)+r^2}.
 $$
 
-これは [PDE5 で Fourier 級数から導いた Poisson kernel](../PDE5/index.md#def-pde5-poisson-kernel) と完全に一致します。
+これは [PDE5 で Fourier 級数から導いた Poisson 核](../PDE5/index.md#def-pde5-poisson-kernel) と完全に一致します。
 
 同じ核へ
 
@@ -1845,7 +1865,7 @@ $$
 2\pi A.
 $$
 
-単位 flux 条件から
+単位流束 条件から
 
 $$
 -2\pi A=1,
@@ -1857,7 +1877,7 @@ $$
 A=-\frac1{2\pi}.
 $$
 
-加法定数 $B$ は Laplacian と flux を変えません。標準的に $B=0$ を選べば
+加法定数 $B$ は Laplacian と流束を変えません。標準的に $B=0$ を選べば
 
 $$
 \Phi(r)
@@ -2165,7 +2185,7 @@ $$
 よって Green 表現公式を中心で直接確認できました。
 <!-- solution-end -->
 
-## PDE6-B03 円板 Green 関数から Poisson kernel を導く
+## PDE6-B03 円板 Green 関数から Poisson 核を導く
 
 - Level: B
 - 目安時間: 22分
@@ -2312,7 +2332,7 @@ $$
 {2\pi|x-\xi|^2}.
 $$
 
-これが単位円板の Poisson kernel です。
+これが単位円板の Poisson 核です。
 <!-- solution-end -->
 
 ## PDE6-C01 内部源と境界データを同時に持つ円板問題
@@ -2563,17 +2583,17 @@ $$
 
 ## 17. 章末チェック
 
-- VC3--VC4 で正本化された外向き法線・flux・発散定理の仮定を確認して使える。
+- VC3--VC4 で学んだ外向き法線・流束・発散定理の仮定を確認して使える。
 - 法線微分を円・長方形で計算できる。
 - Green の第一恒等式を $\operatorname{div}(u\nabla v)$ から導ける。
 - Green の第二恒等式を第一恒等式の差として導ける。
 - Dirichlet 一意性を最大原理ではなくエネルギーから証明できる。
 - Neumann 問題の整合条件の符号を $-\Delta u=f$ の規約から導ける。
-- 二次元基本解 $-(2\pi)^{-1}\log|x|$ の調和性と単位 flux を確認できる。
+- 二次元基本解 $-(2\pi)^{-1}\log|x|$ の調和性と単位流束 を確認できる。
 - Green 表現公式で小円の法線向きと $u(x)$ の出現を説明できる。
 - Dirichlet Green 関数が「基本解 + 調和補正」で境界条件を埋め込むことを説明できる。
 - 単位円板の Green 関数を境界条件まで検証できる。
-- $-\partial_{n_y}G$ から Poisson kernel を導ける。
-- PDE5 の Fourier 由来の Poisson kernel と PDE6 の Green 関数由来の核が一致することを示せる。
+- $-\partial_{n_y}G$ から Poisson 核を導ける。
+- PDE5 の Fourier 由来の Poisson 核と PDE6 の Green 関数由来の核が一致することを示せる。
 
 次の PDE7 では、Fourier 法・固有関数法・Green 表現を同じ線形作用素の解法として整理します。

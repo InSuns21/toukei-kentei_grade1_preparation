@@ -8,6 +8,16 @@
 
 ## 1. 絶対連続性：零集合を新しく作らない
 
+[P1](../F0_00P1_確率空間_確率変数_分布/index.md) では、ある分布がLebesgue測度に対する積分で表せる場合を「確率密度関数を持つ」と見ました。では、基準測度 $\mu$ に対して別の測度 $\nu$ を
+
+$$
+\nu(A)=\int_A f\,d\mu
+$$
+
+と表したいとき、最低限どんな条件が必要でしょうか。
+
+もし $\mu(A)=0$ なら、どんな非負可測関数 $f$ を使っても右辺は $0$ です。したがって、この表示が可能なら必ず $\nu(A)=0$ でなければなりません。**基準測度が零とみなす集合へ、$\nu$ だけが新しい質量を置かないこと**を切り出した条件が絶対連続性です。
+
 <a id="def-f0-00p2-absolute-continuity"></a>
 
 <!-- formal-statement-start -->
@@ -51,6 +61,10 @@ $$
 
 ## 2. 基準測度に対する密度
 
+絶対連続性は、密度表示が存在するために必要な条件を与えました。次に欲しいのは、集合ごとの値 $\nu(A)$ を毎回別々に扱うのではなく、**一つの関数 $f$ を積分すれば全ての $\nu(A)$ を復元できる表現**です。
+
+この $f$ は、基準測度 $\mu$ に対して $\nu$ がどこにどれだけ質量を置くかを記録します。この役割を持つ関数を次で定義します。
+
 <a id="def-f0-00p2-rn-density"></a>
 
 <!-- formal-statement-start -->
@@ -91,6 +105,10 @@ $$
 
 ## 3. 準備：Hilbert空間から表現を作る
 
+Radon--Nikodym微分の存在を示したいのですが、測度 $\nu$ と $\mu$ は点ごとの値を持つ関数ではないので、単純に「$\nu/\mu$ を割り算する」ことはできません。そこで有限測度の場合には、関数 $g$ を入力すると $\int g\,d\nu$ を返す写像を考え、これをHilbert空間 $L^2$ 上の線形汎関数として扱います。
+
+[Hilbert射影定理](../F0_02C1A_Hilbert射影定理_直交分解/index.md#thm-hilbert-projection)を使えば、その線形汎関数を「ある $h$ との内積」として表せます。すると、測度の問題を関数 $h$ の問題へ移せます。その橋渡しが次の補題です。
+
 <a id="lem-f0-00p2-l2-representation"></a>
 
 <!-- formal-statement-start -->
@@ -104,6 +122,10 @@ $$
 
 > と書けます。$h$ は $\rho$-a.e. の意味で一意です。
 <!-- formal-statement-end -->
+
+### 証明の見取り図
+
+$T$ の核 $M=\ker T$ は閉部分空間です。$T$ が消えない方向を一つ取り、そのベクトルを $M$ と直交する成分 $u$ へ射影します。すると、任意の $g$ から適切な倍数 $\alpha u$ を引けば $M$ に入るため、$g$ の「$T$ に見える成分」は $u$ の方向だけで決まります。直交性を使ってその係数 $\alpha$ を内積から計算すると、$T(g)=\langle g,h\rangle$ の形が得られます。
 
 <!-- proof-start -->
 ### 証明
@@ -182,6 +204,16 @@ $g=h_1-h_2$ と取れば $\|h_1-h_2\|_2^2=0$ なので、$h_1=h_2$ が $\rho$-a.
 
 ## 4. Radon--Nikodym定理
 
+ここまでで、密度表示があるなら $\nu\ll\mu$ が必要であることを確認しました。次の定理は、$\sigma$ 有限という標準的な有限化条件の下では、**この必要条件がそのまま十分条件になる**ことを述べます。
+
+証明ではまず有限測度の場合を扱います。$\rho:=\mu+\nu$ を共通の基準測度にし、前節の $L^2$ 表現で $\nu$ を
+
+$$
+\nu(A)=\int_A h\,d\rho
+$$
+
+と書きます。同時に $\mu(A)=\int_A(1-h)\,d\rho$ となるので、$\rho$ に対する二つの密度 $h$ と $1-h$ の比から、求める $\mu$ に対する密度 $h/(1-h)$ を作れます。$\sigma$ 有限の場合は、空間を有限測度の部分へ分割してこの構成を貼り合わせます。
+
 <a id="thm-f0-00p2-radon-nikodym"></a>
 
 <!-- formal-statement-start -->
@@ -198,65 +230,218 @@ $$
 <!-- proof-start -->
 ### 4.1 証明：有限測度の場合
 
-まず $\mu(\Omega)<\infty$, $\nu(\Omega)<\infty$ とし
+まず
 
 $$
-\rho:=\mu+\nu,
+\mu(\Omega)<\infty,
 \qquad
+\nu(\Omega)<\infty
+$$
+
+とします。二つの測度を同時に支配する有限測度として
+
+$$
+\rho:=\mu+\nu
+$$
+
+を置き、$g\in L^2(\rho)$ に対して
+
+$$
 T(g):=\int g\,d\nu
 $$
 
-と置きます。$\nu\le\rho$ と[Cauchy--Schwarzの不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
+と定めます。
+
+$L^2(\rho)$ では、$\rho$-a.e. 等しい関数を同じ元として扱います。そこでまず、代表関数を取り替えても $T$ の値が変わらないことを確認します。$g_1=g_2$ が $\rho$-a.e. 成り立つなら
+
+$$
+\rho(\{g_1\ne g_2\})=0.
+$$
+
+$\nu\le\rho$ なので
+
+$$
+\nu(\{g_1\ne g_2\})=0
+$$
+
+でもあり、$g_1=g_2$ が $\nu$-a.e. 成り立ちます。従って $\int g_1\,d\nu=\int g_2\,d\nu$ で、$T(g)$ は代表元の選び方に依存しません。
+
+次に、この積分が有限で $T$ が連続であることを確認します。$\nu\le\rho$ なので
+
+$$
+\int g^2\,d\nu
+\le
+\int g^2\,d\rho
+<\infty.
+$$
+
+さらに $\nu(\Omega)<\infty$ ですから、[Cauchy--Schwarzの不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)を $|g|$ と定数関数 $1$ に適用して
 
 $$
 \begin{aligned}
-|T(g)|
-&\le\left(\int g^2\,d\nu\right)^{1/2}\nu(\Omega)^{1/2}\\
-&\le\nu(\Omega)^{1/2}\|g\|_{L^2(\rho)}.
+\int |g|\,d\nu
+&\le
+\left(\int g^2\,d\nu\right)^{1/2}
+\left(\int 1^2\,d\nu\right)^{1/2}\\
+&=
+\left(\int g^2\,d\nu\right)^{1/2}\nu(\Omega)^{1/2}\\
+&\le
+\nu(\Omega)^{1/2}\|g\|_{L^2(\rho)}
+<\infty.
 \end{aligned}
 $$
 
-従って $T$ は連続です。[L^2表現補題](#lem-f0-00p2-l2-representation)から
+従って $T(g)$ は有限値として定義でき、積分の線形性から $T$ は線形です。また同じ評価から
+
+$$
+|T(g)|
+\le
+\nu(\Omega)^{1/2}\|g\|_{L^2(\rho)}
+$$
+
+なので $T$ は連続です。
+
+[L^2表現補題](#lem-f0-00p2-l2-representation)をこの $T$ に適用すると、ある $h\in L^2(\rho)$ が存在して
 
 $$
 T(g)=\int gh\,d\rho
+\qquad
+(\forall g\in L^2(\rho))
 $$
 
-となる $h\in L^2(\rho)$ が存在します。$\rho$ は有限なので $\boldsymbol{1}_A\in L^2(\rho)$ であり
+となります。$\rho(\Omega)<\infty$ なので、任意の $A\in\mathcal F$ について $\boldsymbol{1}_A\in L^2(\rho)$ です。ここで $g=\boldsymbol{1}_A$ を代入すると
 
 $$
-\nu(A)=\int_Ah\,d\rho.
+\nu(A)
+=T(\boldsymbol{1}_A)
+=\int \boldsymbol{1}_Ah\,d\rho
+=\int_Ah\,d\rho.
 $$
 
-$B:=\{h<0\}$ が正の $\rho$-測度を持てば $\nu(B)=\int_Bh\,d\rho<0$ となるので、$h\ge0$ a.e.です。また
+次に $h$ の値域を確認します。$B:=\{h<0\}$ が正の $\rho$-測度を持つとします。すると
 
 $$
-\mu(A)=\rho(A)-\nu(A)=\int_A(1-h)\,d\rho
+B=\bigcup_{m=1}^{\infty}\{h\le-1/m\}
 $$
 
-から同様に $h\le1$ a.e.です。
+なので、ある $m$ について
+
+$$
+B_m:=\{h\le-1/m\}
+$$
+
+が $\rho(B_m)>0$ を満たします。しかし
+
+$$
+\nu(B_m)
+=\int_{B_m}h\,d\rho
+\le
+-\frac1m\rho(B_m)
+<0,
+$$
+
+となり、$\nu$ が非負測度であることに反します。従って $h\ge0$ が $\rho$-a.e. 成り立ちます。
+
+また、任意の $A\in\mathcal F$ について
+
+$$
+\begin{aligned}
+\mu(A)
+&=\rho(A)-\nu(A)\\
+&=\int_A1\,d\rho-\int_Ah\,d\rho\\
+&=\int_A(1-h)\,d\rho.
+\end{aligned}
+$$
+
+もし $C:=\{h>1\}$ が正の $\rho$-測度を持てば、同様にある $m$ について
+
+$$
+C_m:=\{h\ge1+1/m\}
+$$
+
+が正の $\rho$-測度を持ち、
+
+$$
+\mu(C_m)
+=\int_{C_m}(1-h)\,d\rho
+\le
+-\frac1m\rho(C_m)
+<0
+$$
+
+となって矛盾します。従って $0\le h\le1$ が $\rho$-a.e. 成り立ちます。
+
+$h$ は $L^2(\rho)$ の元として得られているので、$\rho$-零集合上で代表関数の値を変えても、これまでの積分表示は変わりません。そこで例外的な零集合上では $h:=0$ と取り直し、以下では
+
+$$
+0\le h\le1
+$$
+
+が全ての点で成り立つ代表元を使います。
+
+ここで
 
 $$
 D:=\{h=1\}
 $$
 
-と置くと $\mu(D)=0$。$\nu\ll\mu$ から $\nu(D)=0$ でもあるので $\rho(D)=0$ です。
-
-$D^c$ 上で $f:=h/(1-h)$、$D$ 上で $f:=0$ とします。
+と置きます。上で得た $\mu$ の表示から
 
 $$
-\mu(A)=\int_A(1-h)\,d\rho
+\mu(D)=\int_D(1-h)\,d\rho=0.
 $$
 
-を指示関数から非負単関数、さらに[単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)で非負可測関数へ拡張すると
+仮定 $\nu\ll\mu$ を集合 $D$ に適用すると $\nu(D)=0$ でもあるので
 
 $$
+\rho(D)=\mu(D)+\nu(D)=0.
+$$
+
+$D^c$ では $1-h>0$ ですから
+
+$$
+f:=\frac{h}{1-h}
+$$
+
+と置き、$D$ 上では $f:=0$ と定めます。$h$ は可測なので $f$ も非負可測です。
+
+残る仕事は、$\mu$ に関する積分を $\rho$ に関する積分へ移すことです。まず非負単関数
+
+$$
+\varphi=\sum_{j=1}^m a_j\boldsymbol{1}_{A_j},
+\qquad
+a_j\ge0
+$$
+
+について、先ほどの集合ごとの表示を使うと
+
+$$
+\begin{aligned}
 \int\varphi\,d\mu
-=
-\int\varphi(1-h)\,d\rho.
+&=\sum_{j=1}^m a_j\mu(A_j)\\
+&=\sum_{j=1}^m a_j\int_{A_j}(1-h)\,d\rho\\
+&=\int\varphi(1-h)\,d\rho.
+\end{aligned}
 $$
 
-$\varphi=f\boldsymbol{1}_A$ とすれば
+一般の非負可測関数 $\varphi$ については、非負単関数列 $\varphi_n\uparrow\varphi$ を取ります。[単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)を $\mu$ と $\rho$ の両方に適用して
+
+$$
+\begin{aligned}
+\int\varphi\,d\mu
+&=\lim_{n\to\infty}\int\varphi_n\,d\mu\\
+&=\lim_{n\to\infty}\int\varphi_n(1-h)\,d\rho\\
+&=\int\varphi(1-h)\,d\rho.
+\end{aligned}
+$$
+
+ここで任意の $A\in\mathcal F$ に対し
+
+$$
+\varphi=f\boldsymbol{1}_A
+$$
+
+を代入します。$D^c$ では $f(1-h)=h$、また $\rho(D)=0$ なので
 
 $$
 \begin{aligned}
@@ -268,21 +453,52 @@ $$
 \end{aligned}
 $$
 
-有限測度の場合が示されました。
+これで有限測度の場合が示されました。
 
 ### 4.2 証明：$\sigma$ 有限の場合
 
-$\mu$ の有限測度被覆 $(E_i)$ と $\nu$ の有限測度被覆 $(F_j)$ を取り、交差 $E_i\cap F_j$ を一列 $C_1,C_2,\ldots$ に並べます。
+$\mu$ の $\sigma$ 有限性から
+
+$$
+\Omega=\bigcup_{i=1}^{\infty}E_i,
+\qquad
+\mu(E_i)<\infty,
+$$
+
+となる可測集合列 $(E_i)$ を取れます。同様に $\nu$ について
+
+$$
+\Omega=\bigcup_{j=1}^{\infty}F_j,
+\qquad
+\nu(F_j)<\infty
+$$
+
+となる $(F_j)$ を取ります。
+
+全ての交差 $E_i\cap F_j$ は可算個なので、一列
+
+$$
+C_1,C_2,\ldots
+$$
+
+に並べられます。各 $C_k$ では $\mu(C_k)<\infty$ かつ $\nu(C_k)<\infty$ です。重なりを除くため
 
 $$
 D_1:=C_1,
 \qquad
 D_k:=C_k\setminus\bigcup_{j<k}C_j
+\quad(k\ge2)
 $$
 
-と置けば、$D_k$ は互いに素で $\Omega$ を覆い、各 $D_k$ 上で $\mu,\nu$ は有限です。
+と置きます。すると $D_k$ は互いに素で $\Omega$ を覆い、$D_k\subseteq C_k$ なので
 
-制限測度
+$$
+\mu(D_k)<\infty,
+\qquad
+\nu(D_k)<\infty.
+$$
+
+各 $D_k$ へ制限した測度を
 
 $$
 \mu_k(A):=\mu(A\cap D_k),
@@ -290,36 +506,87 @@ $$
 \nu_k(A):=\nu(A\cap D_k)
 $$
 
-について、$\mu_k(A)=0$ なら $\mu(A\cap D_k)=0$ なので $\nu\ll\mu$ から $\nu_k(A)=0$。従って $\nu_k\ll\mu_k$ です。
+と定めます。$\mu_k(A)=0$ なら $\mu(A\cap D_k)=0$ なので、仮定 $\nu\ll\mu$ から
 
-各 $D_k$ に有限測度版を適用して密度 $f_k$ を取り
+$$
+\nu(A\cap D_k)=0.
+$$
+
+従って $\nu_k\ll\mu_k$ です。
+
+有限測度版を $(\mu_k,\nu_k)$ に適用すると、非負可測関数 $f_k$ が存在して
+
+$$
+\nu(A\cap D_k)
+=
+\int_{A\cap D_k}f_k\,d\mu
+$$
+
+となります。そこで
 
 $$
 f:=\sum_{k=1}^{\infty}f_k\boldsymbol{1}_{D_k}
 $$
 
-と置くと
+と定めます。$D_k$ は互いに素なので、各点では高々一つの項だけが非零です。有限段階の近似
+
+$$
+f^{(N)}
+:=
+\sum_{k=1}^{N}f_k\boldsymbol{1}_{D_k}
+$$
+
+は $f^{(N)}\uparrow f$ を満たすため、[単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)から
 
 $$
 \begin{aligned}
 \int_Af\,d\mu
-&=\sum_k\int_{A\cap D_k}f_k\,d\mu\\
-&=\sum_k\nu(A\cap D_k)\\
+&=\lim_{N\to\infty}\sum_{k=1}^{N}\int_{A\cap D_k}f_k\,d\mu\\
+&=\lim_{N\to\infty}\sum_{k=1}^{N}\nu(A\cap D_k)\\
+&=\nu\left(A\cap\bigcup_{k=1}^{\infty}D_k\right)\\
 &=\nu(A).
 \end{aligned}
 $$
 
+最後から2行目では、互いに素な集合 $A\cap D_k$ に対する $\nu$ の可算加法性を使いました。
+
 ### 4.3 証明：一意性
 
-$f,g$ がともにRadon--Nikodym微分だとします。各有限測度部分 $D_k$ で $f,g$ はa.e.有限です。
-
-もし $H:=D_k\cap\{f>g\}$ が正の測度を持つなら
+$f,g$ がともにRadon--Nikodym微分だとします。上の $\sigma$ 有限分割 $(D_k)$ を使います。各 $D_k$ について
 
 $$
-H=\bigcup_{n=1}^{\infty}D_k\cap\{f\ge g+1/n\}
+\int_{D_k}f\,d\mu
+=
+\nu(D_k)
+<\infty,
+\qquad
+\int_{D_k}g\,d\mu
+=
+\nu(D_k)
+<\infty
 $$
 
-がa.e.の意味で成り立つので、ある $n$ で $H_n:=D_k\cap\{f\ge g+1/n\}$ が正の測度を持ちます。しかし
+なので、$f,g$ は $D_k$ 上で $\mu$-a.e. 有限です。
+
+$$
+H:=D_k\cap\{f>g\}
+$$
+
+が正の $\mu$-測度を持つと仮定します。$f,g$ が有限な点で $f>g$ なら差 $f-g$ は正なので、十分大きい $n$ を選べば $f-g\ge1/n$ となります。従って零集合を除けば
+
+$$
+H=
+\bigcup_{n=1}^{\infty}
+\left(D_k\cap\{f\ge g+1/n\}\right).
+$$
+
+可算和の測度が正なら少なくとも一つの項が正の測度を持つので、ある $n$ について
+
+$$
+H_n:=D_k\cap\{f\ge g+1/n\}
+$$
+
+が $\mu(H_n)>0$ を満たします。しかし
 
 $$
 \begin{aligned}
@@ -361,6 +628,10 @@ $$
 ---
 
 ## 6. 支配測度
+
+一つの分布だけなら、その分布に合わせて基準測度を選べます。しかし、母数 $\theta$ によって分布 $P_\theta$ が変わる族を同時に扱うとき、分布ごとに別の基準測度を使うと密度を同じ土俵で比較できません。
+
+そこで、**族の全ての分布が密度を持てる共通の基準測度**を一つ選びます。その役割を持つ測度を次で定義します。
 
 <a id="def-f0-00p2-dominating-measure"></a>
 

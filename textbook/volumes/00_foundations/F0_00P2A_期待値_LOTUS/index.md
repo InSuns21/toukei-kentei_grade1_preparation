@@ -8,6 +8,16 @@
 
 ## 1. 期待値
 
+確率変数 $X$ は、各結果 $\omega$ に数値 $X(\omega)$ を対応させる可測関数でした。個々の値だけでなく、確率を重みとして全体を平均した量を取り出したいとき、測度論で準備したLebesgue積分をそのまま使えます。
+
+ただし $X$ が正負の大きな値を取り得る場合、正の部分と負の部分がともに無限大になって「$\infty-\infty$」のような未定義の差が生じることは避けなければなりません。そのため、有限の実数として期待値を扱うときは
+
+$$
+\int_\Omega |X|\,dP<\infty
+$$
+
+を要求します。この条件の下で、確率変数の平均を積分として定義します。
+
 <a id="def-f0-00p2a-expectation"></a>
 
 <!-- formal-statement-start -->
@@ -40,13 +50,24 @@ $$
 E[|X|]\le1<\infty,
 $$
 
-従って $X$ は可積分です。また
+従って $X$ は可積分です。また $X$ は
 
 $$
-E[X]
-=0\cdot P(X=0)+1\cdot P(X=1)
-=p.
+X=\boldsymbol{1}_{\{X=1\}}
 $$
+
+と書けます。これは係数 $1$ の非負単関数なので、その積分を直接計算すると
+
+$$
+\begin{aligned}
+E[X]
+&=\int_\Omega \boldsymbol{1}_{\{X=1\}}\,dP\\
+&=1\cdot P(\{X=1\})\\
+&=p.
+\end{aligned}
+$$
+
+後でLOTUSを証明すると、この計算が離散分布の「値 $\times$ 確率の和」の特殊例として統一されます。
 <!-- definition-example-end -->
 
 Borel可測関数 $g:\mathbb R\to\mathbb R$ に対して $g(X)$ が可積分なら
@@ -60,6 +81,18 @@ $$
 ---
 
 ## 2. LOTUS：分布だけで期待値を計算する
+
+期待値の定義は標本空間 $\Omega$ 上の積分
+
+$$
+E[g(X)]
+=
+\int_\Omega g(X(\omega))\,dP(\omega)
+$$
+
+です。しかし、具体的な計算では $\Omega$ の構造を詳しく知るより、$X$ の分布 $P_X$ だけが分かっていることの方が多くあります。
+
+[P1 の押し出し測度](../F0_00P1_確率空間_確率変数_分布/index.md#def-f0-00p1-pushforward)は、集合の確率を $\Omega$ から値空間へ運びました。今度は同じ仕組みで**積分そのものを値空間へ運べるか**を問います。これができれば、$g(X)$ の分布を別に求めなくても、$X$ の分布に対して $g$ を積分するだけで期待値が計算できます。
 
 <a id="thm-f0-00p2a-lotus"></a>
 
@@ -79,6 +112,10 @@ $$
 <!-- formal-statement-end -->
 
 この公式をLOTUSと呼びます。内容は、$g(X)$ の分布を先に求めなくても、$X$ の分布 $P_X$ に対して $g$ を積分すればよい、というものです。
+
+### 証明の見取り図
+
+いきなり一般の $g$ を扱わず、Lebesgue積分を構成した順序をそのまま辿ります。まず指示関数で押し出し測度の定義そのものを確認し、有限線形性で非負単関数へ広げます。次に単調収束定理で非負可測関数へ進み、最後に正部分・負部分へ分解して可積分な実数値関数まで拡張します。
 
 <!-- proof-start -->
 ### 2.1 証明：指示関数から一般の可測関数へ
@@ -182,7 +219,7 @@ $$
 これで証明が完了しました。
 <!-- proof-end -->
 
-一般の測度空間と可測写像に対する形は、後続のP3Dで押し出し積分公式として整理します。ここで必要なのは、その確率論版を自力で証明し、期待値計算に使えることです。
+一般の測度空間と可測関数に対する形は、後続のP3Dで押し出し積分公式として整理します。ここで必要なのは、その確率論版を自力で証明し、期待値計算に使えることです。
 
 ---
 
@@ -217,6 +254,10 @@ $$
 ---
 
 ## 4. モーメント
+
+期待値 $E[X]$ は分布の中心を表しますが、それだけでは分布の広がりや裾の違いまでは捉えられません。そこで $X$ の高い冪も平均し、分布の形を調べる材料にします。
+
+ただし $E[X^k]$ という記号だけでは、正負の相殺で見かけ上値が出る場合を排除できません。この $k$ 乗の平均を有限な量として扱うときは、まず絶対値を付けた $E[|X|^k]$ が有限であることを要求します。
 
 <a id="def-f0-00p2a-moment"></a>
 
@@ -287,6 +328,10 @@ $$
 
 ## 6. 可算劣加法性（union bound）
 
+複数の「悪い事象」$A_1,A_2,\ldots$ のどれか一つでも起こる確率を評価したいとします。交わりの確率まで分かっていれば正確に計算できますが、個々の $P(A_n)$ しか分からないことも多くあります。
+
+その場合でも、重なりを無視して全部を足せば上からは必ず押さえられます。独立性を仮定せず使えるこの評価が可算劣加法性です。
+
 <a id="thm-f0-00p2a-union-bound"></a>
 
 <!-- formal-statement-start -->
@@ -336,6 +381,16 @@ $$
 ---
 
 ## 7. 確率測度の減少列連続性
+
+事象を少しずつ厳しくして
+
+$$
+A_1\supset A_2\supset\cdots
+$$
+
+と絞り込んだとき、その確率も極限の事象 $A=\bigcap_nA_n$ の確率へ近づいてほしいところです。既習なのは増加列に対する「下からの連続性」なので、減少列をそのまま適用することはできません。
+
+ここでは $A_1\setminus A_n$ を考えて増加列へ変換します。確率測度では $P(A_1)\le1<\infty$ なので、この差を取る操作が安全に使えます。
 
 <a id="thm-f0-00p2a-continuity-from-above"></a>
 
@@ -395,6 +450,10 @@ $$
 
 ## 8. Markovの不等式
 
+分布の詳しい形は分からなくても、非負確率変数 $Y$ の平均 $E[Y]$ だけは分かっているとします。この情報だけで「$Y$ が大きな値を取る確率」をどこまで制御できるでしょうか。
+
+事象 $\{Y\ge a\}$ の上では $Y$ は少なくとも $a$ です。したがって、$Y$ は点ごとに「その事象の指示関数を $a$ 倍したもの」以上になります。この単純な比較を期待値へ移すと、裾確率の上界が得られます。
+
 <a id="thm-f0-00p2a-markov"></a>
 
 <!-- formal-statement-start -->
@@ -441,6 +500,16 @@ $$
 ---
 
 ## 9. Chebyshevの不等式
+
+Markovの不等式は非負確率変数へ使えます。一般の $X$ について平均 $\mu$ から大きく外れる確率を評価したいなら、ずれそのものではなく
+
+$$
+Y:=(X-\mu)^2
+$$
+
+を考えれば $Y\ge0$ になり、その期待値は分散です。さらに、$|X-\mu|\ge\varepsilon$ という事象は $Y\ge\varepsilon^2$ と同じです。
+
+つまり、**偏差を二乗してMarkovの不等式へ入力する**ことで、平均と分散だけから偏差確率を評価できます。この考えを次の不等式として定式化します。
 
 <a id="thm-f0-00p2a-chebyshev"></a>
 
@@ -700,76 +769,138 @@ E[X]=\int_0^1x\,dx=\frac12.
 $$
 <!-- solution-end -->
 
-### F0-00P2A-C01 標本平均をChebyshevで評価する
+### F0-00P2A-C01 LOTUS・モーメント・Chebyshevを一つの分布でつなぐ
 - Level: C
 - 目安時間: 25分
 
-独立同分布な確率変数 $X_1,\ldots,X_n$ が
+実数値確率変数 $X$ の分布 $P_X$ が、Lebesgue測度に関して確率密度関数
 
 $$
-E[X_i]=\mu,
-\qquad
-\operatorname{Var}(X_i)=\sigma^2<\infty
+f_X(x)
+=
+2x\boldsymbol{1}_{(0,1)}(x)
 $$
 
-を満たすとする。
+を持つとする。
+
+1. $f_X$ が非負で、全積分が $1$ になることを確認せよ。
+2. LOTUSを使って $E[X]$ を求めよ。
+3. $E[X^2]$ と $\operatorname{Var}(X)$ を求めよ。
+4. [Chebyshevの不等式](#thm-f0-00p2a-chebyshev)を使って
 
 $$
-\overline X_n:=\frac1n\sum_{i=1}^nX_i
+P\left(\left|X-\frac23\right|\ge\frac13\right)
 $$
 
-について、次を示せ。
-
-1. $E[\overline X_n]=\mu$。
-2. $\operatorname{Var}(\overline X_n)=\sigma^2/n$。
-3. $P(|\overline X_n-\mu|\ge\varepsilon)\le\sigma^2/(n\varepsilon^2)$。
-4. $\overline X_n\to\mu$ in probability。
+の上界を求めよ。
+5. 同じ確率を密度から直接計算し、4. の上界と比較せよ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-**1.** 線形性より
+**1. 確率密度関数の確認。**  
+$(0,1)$ では $2x>0$、それ以外では $f_X(x)=0$ なので
 
 $$
-E[\overline X_n]
-=\frac1n\sum_{i=1}^nE[X_i]
-=\mu.
+f_X(x)\ge0
 $$
 
-**2.** 独立性から $i\ne j$ で
-
-$$
-\operatorname{Cov}(X_i,X_j)=0.
-$$
-
-従って
+です。また
 
 $$
 \begin{aligned}
-\operatorname{Var}(\overline X_n)
-&=\frac1{n^2}\operatorname{Var}\left(\sum_{i=1}^nX_i\right)\\
-&=\frac1{n^2}\sum_{i=1}^n\sigma^2\\
-&=\frac{\sigma^2}{n}.
+\int_{\mathbb R}f_X(x)\,dx
+&=\int_0^1 2x\,dx\\
+&=\left[x^2\right]_0^1\\
+&=1.
 \end{aligned}
 $$
 
-**3.** [Chebyshevの不等式](#thm-f0-00p2a-chebyshev)から
+従って、非負性と全質量 $1$ の条件を満たしています。
+
+**2. 一次モーメント。**  
+[LOTUS](#thm-f0-00p2a-lotus)を $g(x)=x$ に適用します。$X$ の分布は $(0,1)$ に集中しているので $|X|le1$ がほとんど至る所で成り立ち、$X$ は可積分です。従って
 
 $$
-P(|\overline X_n-\mu|\ge\varepsilon)
-\le
-\frac{\operatorname{Var}(\overline X_n)}{\varepsilon^2}
-=
-\frac{\sigma^2}{n\varepsilon^2}.
+\begin{aligned}
+E[X]
+&=\int_{\mathbb R}x\,dP_X(x)\\
+&=\int_{\mathbb R}x f_X(x)\,dx\\
+&=\int_0^1 2x^2\,dx\\
+&=\left[\frac{2x^3}{3}\right]_0^1\\
+&=\frac23.
+\end{aligned}
 $$
 
-**4.** 固定した任意の $\varepsilon>0$ について右辺は $n\to\infty$ で0へ収束するので
+**3. 二次モーメントと分散。**  
+今度はLOTUSを $g(x)=x^2$ に適用します。$0<X<1$ なので $X^2$ も可積分です。
 
 $$
-P(|\overline X_n-\mu|\ge\varepsilon)\to0.
+\begin{aligned}
+E[X^2]
+&=\int_{\mathbb R}x^2 f_X(x)\,dx\\
+&=\int_0^1 2x^3\,dx\\
+&=\left[\frac{x^4}{2}\right]_0^1\\
+&=\frac12.
+\end{aligned}
 $$
 
-これは確率収束の定義です。
+$\mu=E[X]=2/3$ と置くと
+
+$$
+\begin{aligned}
+\operatorname{Var}(X)
+&=E[(X-\mu)^2]\\
+&=E[X^2-2\mu X+\mu^2]\\
+&=E[X^2]-2\mu E[X]+\mu^2\\
+&=E[X^2]-\mu^2\\
+&=\frac12-\left(\frac23\right)^2\\
+&=\frac1{18}.
+\end{aligned}
+$$
+
+**4. Chebyshevの不等式。**  
+平均は $\mu=2/3$、分散は $\sigma^2=1/18<\infty$ なので、[Chebyshevの不等式](#thm-f0-00p2a-chebyshev)を $\varepsilon=1/3$ として適用できます。
+
+$$
+\begin{aligned}
+P\left(\left|X-\frac23\right|\ge\frac13\right)
+&\le
+\frac{1/18}{(1/3)^2}\\
+&=
+\frac{1/18}{1/9}\\
+&=\frac12.
+\end{aligned}
+$$
+
+**5. 密度から直接計算。**  
+不等式
+
+$$
+\left|X-\frac23\right|\ge\frac13
+$$
+
+は
+
+$$
+X\le\frac13
+\quad\text{または}\quad
+X\ge1
+$$
+
+と同値です。$X$ の分布は $(0,1)$ に集中しているので $P(X\ge1)=0$ です。従って
+
+$$
+\begin{aligned}
+P\left(\left|X-\frac23\right|\ge\frac13\right)
+&=P\left(X\le\frac13\right)\\
+&=\int_0^{1/3}2x\,dx\\
+&=\left[x^2\right]_0^{1/3}\\
+&=\frac19.
+\end{aligned}
+$$
+
+実際の確率は $1/9$、Chebyshevの上界は $1/2$ です。[Chebyshevの不等式](#thm-f0-00p2a-chebyshev)は分布の細部を使わず平均と分散だけから得る一般上界なので、この例では等号にはならず、余裕のある上界になっています。
 <!-- solution-end -->
 
 ---

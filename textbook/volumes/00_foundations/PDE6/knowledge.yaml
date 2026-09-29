@@ -116,20 +116,20 @@ concepts:
       - pde.pde6-dirichlet-green-function
 
   - id: pde.pde6-poisson-kernel
-    name: Green関数から得るPoisson kernel
+    name: Green関数から得るPoisson 核
     kind: definition
     aliases: [Poisson kernel from Green function]
     introduction: formal
-    introduction_aliases: ["定義（Green 関数から得る Poisson kernel）"]
+    introduction_aliases: ["定義（Green 関数から得る Poisson 核）"]
     requires:
       - pde.pde6-dirichlet-green-function
 
   - id: pde.pde6-disk-poisson-kernel
-    name: 単位円板のPoisson kernel再導出
+    name: 単位円板のPoisson 核再導出
     kind: proposition
     aliases: [unit disk Poisson kernel from Green function]
     introduction: formal
-    introduction_aliases: ["命題（単位円板の Poisson kernel）"]
+    introduction_aliases: ["命題（単位円板の Poisson 核）"]
     requires:
       - pde.pde6-disk-green-function
       - pde.pde6-poisson-kernel
