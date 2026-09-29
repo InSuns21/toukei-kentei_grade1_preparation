@@ -556,35 +556,60 @@ $\square$
 <a id="def-f0-00d2b-01"></a>
  
 <!-- formal-statement-start -->
-### 定義（点ごとのliminf）
+### 定義（可測関数列の下極限）
 
-実数列 $(a_n)$ に対して
+非負可測関数列 $(f_n)$ に対し、各 $\omega\in\Omega$ で
 
 $$
-\liminf_{n\to\infty}a_n
+g_n(\omega)
 :=
-\lim_{n\to\infty}\inf_{k\ge n}a_k.
+\inf_{k\ge n}f_k(\omega)
 $$
 
-関数列では各 $\omega$ ごとにこの定義を適用します。
+と置く。このとき
+
+$$
+\boxed{
+\liminf_{n\to\infty}f_n(\omega)
+:=
+\lim_{n\to\infty}g_n(\omega)
+}
+$$
+
+を $(f_n)$ の **点ごとの下極限** という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-f0-00d2b-01 -->
 **定義の確認**
 
-例えば $a_n=0$（$n$ が偶数）、$a_n=1$（$n$ が奇数）とします。どの $n$ から先を見ても 0 と 1 が現れるので、
+一番小さい測度空間として $\Omega=\{\omega_0\}$ を考え、
 
 $$
-\inf_{k\ge n}a_k=0
+f_n(\omega_0)
+=
+\begin{cases}
+0,&n\text{ が偶数},\\
+1,&n\text{ が奇数}
+\end{cases}
 $$
 
-が全ての $n$ で成り立ちます。したがって定義どおり
+とします。どの $n$ から先を見ても値0と1が現れるので
 
 $$
-\liminf_{n\to\infty}a_n=0.
+g_n(\omega_0)
+=
+\inf_{k\ge n}f_k(\omega_0)
+=
+0
 $$
 
-つまり liminf は「十分先の尾部に残り続ける下側の値」を拾う量です。
+が全ての $n$ で成り立ちます。従って定義から
+
+$$
+\liminf_{n\to\infty}f_n(\omega_0)=0.
+$$
+
+この量は「十分先の尾部に残り続ける下側の値」を、各点ごとに拾っています。
 <!-- definition-example-end -->
 
 ### 2.1 直感：単調でない列から「単調な下側包絡」を作る
@@ -976,7 +1001,7 @@ $$
 \liminf_{n\to\infty}(C-a_n)=C.
 $$
 
-この等式から $a_n\to0$ を直接確認します。任意の $\varepsilon>0$ に対して、下極限の定義から十分大きい $N$ を取れば
+この等式から $a_n\to0$ を直接確認します。任意の $\varepsilon>0$ に対して、尾部下限の極限という定義から十分大きい $N$ を取れば
 
 $$
 n\ge N
@@ -1241,7 +1266,7 @@ $$
 
 <!-- solution-end -->
 
-## F0-00D2B-A03 liminf を尾部下限から計算する
+## F0-00D2B-A03 尾部下限の極限を計算する
 
 - Level: A
 - 目安時間: 10分
