@@ -12,7 +12,7 @@ VC1--VC8 では、勾配・発散・回転から始め、線積分・曲面積�
 - 二階テンソルの発散は、表面力を体積力密度へ変える。
 - 電磁場では、Gauss--Ostrogradsky と Kelvin--Stokes の各定理が、大域的な収支・循環と局所的な微分式を結ぶ。
 
-本章では [VC7 の二階テンソル場・応力テンソル](../VC7/index.md#def-vc7-stress) と [VC8 の Helmholtz 分解・Biot--Savart 型再構成](../VC8/index.md#cor-vc8-biot-savart) を使います。保存則の一般形は [VC4 の局所保存則](../VC4/index.md#def-vc4-local-conservation) ですでに学んだので、まずそれを質量保存へ具体化します。
+本章では [VC7 の応力テンソル](../VC7/index.md#def-vc7-stress) と [VC8 の Helmholtz 分解・Biot--Savart 型再構成](../VC8/index.md#cor-vc8-biot-savart) を使います。保存則の一般形は [VC4 の局所保存則](../VC4/index.md#def-vc4-local-conservation) ですでに学んだので、まずそれを質量保存へ具体化します。
 
 ---
 
@@ -621,7 +621,7 @@ $$
 \text{流れ関数}
 $$
 
-という Poisson 方程式が現れます。三次元での対応物が、VC8 の [Biot--Savart 型の渦度再構成](../VC8/index.md#cor-vc8-biot-savart)です。
+という Poisson 方程式が現れます。三次元では、VC8 の [Biot--Savart 型の渦度再構成](../VC8/index.md#cor-vc8-biot-savart)が同じ役割を果たします。
 
 ---
 
@@ -877,7 +877,7 @@ $$
 
 ### 証明の見取り図
 
-角運動量収支から、位置ベクトル $x$ と線形運動量収支の外積に相当する部分を引きます。残るのは応力の反対称成分だけです。
+角運動量収支から、位置ベクトル $x$ と線形運動量収支のベクトル積に相当する部分を引きます。残るのは応力の反対称成分だけです。
 
 <!-- proof-start -->
 ### 証明
@@ -914,7 +914,7 @@ $$
 \partial_\ell\sigma_{k\ell}.
 $$
 
-第二項は $x\times\operatorname{div}\sigma$ の第 $i$ 成分です。角運動量保存から、線形運動量収支に $x\times$ を作用させた式を差し引くと、体積力と加速度に対応する項は相殺し、
+第二項は $x\times\operatorname{div}\sigma$ の第 $i$ 成分です。角運動量保存から、線形運動量収支に $x\times$ を作用させた式を差し引くと、体積力と加速度から生じる項は相殺し、
 
 $$
 \int_\Omega
@@ -1453,7 +1453,7 @@ $$
 \int_S\partial_tB\cdot n\,dS
 $$
 
-とし、左辺に Kelvin--Stokes の定理、右辺に固定曲面上での時間微分と積分の交換を使えば Faraday の積分形です。Ampère--Maxwell の微分形も同じ二つの操作で対応する積分形へ戻ります。
+とし、左辺に Kelvin--Stokes の定理、右辺に固定曲面上での時間微分と積分の交換を使えば Faraday の積分形です。Ampère--Maxwell の微分形も同じ二つの操作で元の積分形へ戻ります。
 <!-- proof-end -->
 
 四本の式は二種類に分かれています。
@@ -1827,7 +1827,7 @@ $$
 - 時間依存する電磁ポテンシャルと Lorenz ゲージ
 - 誘電体・磁性体の構成則
 - 相対論的な四元テンソル形式
-- 微分形式による一般 Stokes の定理
+- 多様体上へ拡張された境界積分定理
 
 これらは、それぞれ流体力学・偏微分方程式・電磁気学・微分幾何学で必要な追加構造とともに扱います。ここでは、**後続理論で現れる式を見たとき、どのベクトル解析の構造が働いているかを読める状態**までを目標とします。
 
