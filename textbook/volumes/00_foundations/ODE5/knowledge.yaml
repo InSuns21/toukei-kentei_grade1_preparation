@@ -7,6 +7,10 @@ prerequisites:
 # 一般の逆Laplace変換一意性やDirac deltaの超関数論は本章の前提外。
 # 逆変換は変換表・部分分数・移動則で候補を構成し、順変換またはODE2のIVP一意性で検証する。
 
+forward_references:
+  - distribution.schwartz-distribution
+  - distribution.dirac-delta
+
 concepts:
   - id: ode.ode5-exponential-order
     name: 指数位数
