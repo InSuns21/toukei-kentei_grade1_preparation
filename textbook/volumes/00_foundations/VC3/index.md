@@ -868,7 +868,7 @@ r(\theta,\varphi)
  R\cos\varphi)
 $$
 
-とします。まず二つの座標接ベクトルを計算すると
+とします。$\theta$ と $\varphi$ について各成分を偏微分すると
 
 $$
 r_\theta
