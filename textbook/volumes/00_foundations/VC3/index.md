@@ -224,6 +224,10 @@ $$
 
 ## 3. 向き付け可能性
 
+一点の近くでは $r_u\times r_v$ かその反対向きを選べば法線を作れます。しかし流束を曲面全体で積分するには、場所ごとに法線の符号を勝手に選ぶわけにはいきません。隣り合う点では法線が連続につながり、曲面を一周して戻ったときにも同じ向きへ戻る必要があります。
+
+この「局所的に選べる法線を、曲面全体で矛盾なくつなげられるか」を表すのが向き付け可能性です。
+
 <a id="def-vc3-orientable"></a>
 
 <!-- formal-statement-start -->
@@ -360,6 +364,10 @@ $$
 ---
 
 ## 5. パラメータを変えても面積は変わらない
+
+同じ曲面でも、パラメータの取り方は一つではありません。例えば球面では角度の選び方や進む速さを変えても、幾何学的な面積そのものは変わらないはずです。
+
+ところが公式 $|r_u\times r_v|\,du\,dv$ にはパラメータが明示的に入っています。そこで、パラメータを取り替えたとき外積と平面上の面積要素がどのように補償し合うかを確認します。
 
 <a id="thm-vc3-area-invariance"></a>
 
@@ -524,6 +532,60 @@ $$
 <!-- definition-example-end -->
 
 $f=1$ なら曲面積そのものです。
+
+この定義がパラメータ表示に依存しないことも、面積の場合と同じ変数変換で確認できます。$\widetilde r=r\circ\psi$ とすると、前節の計算から
+
+$$
+|\widetilde r_s\times\widetilde r_t|
+=
+\left(|r_u\times r_v|\circ\psi\right)|\det D\psi|.
+$$
+
+また
+
+$$
+f(\widetilde r)
+=
+f(r\circ\psi)
+=
+(f\circ r)\circ\psi
+$$
+
+なので、再パラメータ表示での被積分関数は
+
+$$
+\begin{aligned}
+f(\widetilde r)
+|\widetilde r_s\times\widetilde r_t|
+&=
+\left[
+f(r)|r_u\times r_v|
+\right]\circ\psi
+\,|\det D\psi|.
+\end{aligned}
+$$
+
+ここで RA7 の変数変換定理へ
+
+$$
+g(u,v)
+=
+f(r(u,v))
+|r_u(u,v)\times r_v(u,v)|
+$$
+
+を代入すれば、
+
+$$
+\iint_{\widetilde U}
+f(\widetilde r)
+|\widetilde r_s\times\widetilde r_t|\,ds\,dt
+=
+\iint_U
+f(r)|r_u\times r_v|\,du\,dv.
+$$
+
+したがってスカラー曲面積分は、同じ曲面を別の正則パラメータで表しても同じ値になります。
 
 ---
 
