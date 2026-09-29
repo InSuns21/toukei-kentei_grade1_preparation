@@ -389,7 +389,7 @@ $$
 
 を考えます。
 
-前節の曲線に沿う連鎖律では
+前節の[曲線に沿う連鎖律](#prop-pde1-curve-composition)では
 
 $$
 \frac d{ds}u(t(s),x(s))
