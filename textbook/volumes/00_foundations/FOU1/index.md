@@ -337,18 +337,28 @@ $$
 =A_m\pi.
 $$
 
-正弦係数も、今度は $T_N(x)\sin mx$ を積分して
+正弦係数では $T_N(x)\sin mx$ を積分します。こちらも消える項を先に書き出すと
 
 $$
 \begin{aligned}
 \int_{-\pi}^{\pi}T_N(x)\sin mx\,dx
-&=\sum_{n=1}^{N}B_n
-\int_{-\pi}^{\pi}\sin nx\sin mx\,dx\\
-&=B_m\pi
+&=\frac{A_0}{2}\int_{-\pi}^{\pi}\sin mx\,dx\\
+&\quad+\sum_{n=1}^{N}A_n
+\int_{-\pi}^{\pi}\cos nx\sin mx\,dx\\
+&\quad+\sum_{n=1}^{N}B_n
+\int_{-\pi}^{\pi}\sin nx\sin mx\,dx.
 \end{aligned}
 $$
 
-となります。各式を $\pi$ で割れば $A_0,A_m,B_m$ を回収できます。
+最初の項と余弦・正弦の交差項は0で、最後の和では $n=m$ の項だけが残ります。よって
+
+$$
+\int_{-\pi}^{\pi}T_N(x)\sin mx\,dx
+=B_m\int_{-\pi}^{\pi}\sin^2mx\,dx
+=B_m\pi.
+$$
+
+各式を $\pi$ で割れば $A_0,A_m,B_m$ を回収できます。
 <!-- proof-end -->
 
 ---
@@ -879,7 +889,7 @@ b_3
 \end{aligned}
 $$
 
-$n\ne3$ の正弦係数は直交性により0です。したがって
+$n\ne3$ の正弦係数は[一周期積分消去則](#thm-fou1-frequency-cancellation)により0です。したがって
 
 $$
 S_3f(x)=3+2\cos2x-4\sin3x=f(x).
