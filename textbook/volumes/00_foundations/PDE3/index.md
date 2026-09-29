@@ -13,8 +13,7 @@ PDE2 では、二階線形 PDE を主要部から楕円型・放物型・双曲�
 
 本章の直接の前提は [PDE2 二階線形PDEの分類](../PDE2/index.md)、[ODE7 境界値問題と Sturm--Liouville 理論](../ODE7/index.md)、[FOU2 Fourier級数の収束論](../FOU2/index.md)、[FOU3 Fourier変換](../FOU3/index.md) です。
 
-> **証明境界**  
-> 本章は一次元熱方程式を点ごとに扱える滑らかな解の範囲で議論します。温度の極値制御、一意性、エネルギー散逸、有限区間の Fourier 正弦級数による構成、実数全体の Gaussian 畳み込み表示までは本文で閉じます。弱解、Sobolev 空間、一般の放物型作用素、半群論は Encore III 以降へ送り、本章の証明へ逆輸入しません。
+本章では、一次元熱方程式を点ごとに扱える滑らかな解を中心に学びます。温度の極値制御、一意性、エネルギー散逸、有限区間の Fourier 正弦級数による構成、実数全体の Gaussian 畳み込み表示までを、この章までの道具で追います。より粗い初期値を扱う弱解、Sobolev 空間、一般の放物型作用素、半群論は、関数空間の準備が整った後続章で扱います。
 
 ---
 
@@ -601,32 +600,152 @@ $$
 X(0)=X(L)=0.
 $$
 
-空間側は [ODE7 の固有値・固有関数](../ODE7/index.md#def-ode7-eigenpair) で扱った Dirichlet 固有値問題そのものです。
+空間側は [ODE7 の固有値・固有関数](../ODE7/index.md#def-ode7-eigenpair) で扱った Dirichlet 固有値問題そのものです。ただし、ここで固有値を完成式として借りるだけでは変数分離の核心が見えないので、この区間の問題を三つの場合に分けて解きます。
 
-この具体問題を直接解くと、$\lambda\le0$ では非零解がなく、$\lambda>0$ では
+まず $\lambda=0$ なら
 
-$$
+$
+-X''=0
+\quad\Longleftrightarrow\quad
+X''=0.
+$
+
+したがって
+
+$
+X(x)=Ax+B.
+$
+
+境界条件 $X(0)=0$ から $B=0$、さらに $X(L)=0$ から $AL=0$、すなわち $A=0$ です。よって非零解はありません。
+
+次に $\lambda<0$ とし、
+
+$
+\lambda=-\mu^2,
+\qquad
+\mu>0
+$
+
+と置きます。固有値方程式は
+
+$
+-X''=-\mu^2X
+\quad\Longleftrightarrow\quad
+X''=\mu^2X.
+$
+
+一般解は
+
+$
+X(x)=A\cosh(\mu x)+B\sinh(\mu x).
+$
+
+$X(0)=0$ から $A=0$ です。さらに
+
+$
+X(L)=B\sinh(\mu L)=0.
+$
+
+$\mu L>0$ では $\sinh(\mu L)\ne0$ なので $B=0$ となり、この場合も非零解はありません。
+
+最後に $\lambda>0$ とし、
+
+$
+\lambda=\mu^2,
+\qquad
+\mu>0
+$
+
+と置きます。このとき
+
+$
+X''+\mu^2X=0
+$
+
+で、一般解は
+
+$
+X(x)=A\cos(\mu x)+B\sin(\mu x).
+$
+
+$X(0)=0$ から $A=0$。非零解を得るには $B\ne0$ が必要なので、もう一方の境界条件
+
+$
+X(L)=B\sin(\mu L)=0
+$
+
+から
+
+$
+\sin(\mu L)=0
+$
+
+でなければなりません。従って
+
+$
+\mu L=n\pi,
+\qquad
+n=1,2,\ldots
+$
+
+であり、
+
+$
+\boxed{
 \lambda_n
 =
 \left(\frac{n\pi}{L}\right)^2,
 \qquad
 X_n(x)
 =
-\sin\left(\frac{n\pi x}{L}\right),
-\qquad
-n=1,2,\ldots
-$$
+\sin\left(\frac{n\pi x}{L}\right)
+}
+$
 
-となります。
+を得ます。定数倍は時間側の係数へ吸収できるので、$X_n$ の係数を 1 に選びました。
 
-時間側は
+次に、この $\lambda=\lambda_n$ を時間側の ODE
 
-$$
+$
+T'+\kappa\lambda T=0
+$
+
+へ代入します。すなわち
+
+$
+T_n'
++
+\kappa\left(\frac{n\pi}{L}\right)^2T_n
+=
+0.
+$
+
+$T_n\ne0$ の区間で両辺を $T_n$ で割ると
+
+$
+\frac{T_n'}{T_n}
+=
+-\kappa\left(\frac{n\pi}{L}\right)^2.
+$
+
+$t$ で積分して
+
+$
+\log|T_n(t)|
+=
+-\kappa\left(\frac{n\pi}{L}\right)^2t+C,
+$
+
+従って定数をまとめ直せば
+
+$
+\boxed{
 T_n(t)
 =
 C_n
-e^{-\kappa(n\pi/L)^2t}.
-$$
+e^{-\kappa(n\pi/L)^2t}
+}.
+$
 
 したがって各モードは
 
@@ -1372,7 +1491,7 @@ $$
 
 と書けます。
 
-したがって時間を $t$ 倍にすると、典型的な空間幅は $\sqrt t$ 倍です。
+したがって、ある時刻 $t_0>0$ から時刻 $a t_0$（$a>0$）へ進めると、典型的な空間幅は $\sqrt a$ 倍になります。
 
 より定量的には、$G_t$ を確率密度と見れば平均は 0 で、
 
