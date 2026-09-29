@@ -166,11 +166,22 @@ $$
 =\widehat f(\xi-a).
 $$
 
-尺度変換では $y=ax$ と置く。$a>0$ と $a<0$ を積分方向まで含めてまとめると $dx=dy/|a|$ の効果が現れ、
+尺度変換では $y=ax$ と置きます。まず $a>0$ なら $dx=dy/a$ で積分方向は変わらないので
+
+$$
+\begin{aligned}
+\widehat g(\xi)
+&=\int_{\mathbb R}f(ax)e^{-i\xi x}dx\\
+&=\frac1a\int_{\mathbb R}f(y)e^{-i(\xi/a)y}dy\\
+&=\frac1a\widehat f(\xi/a).
+\end{aligned}
+$$
+
+$a<0$ では $y=ax$ により積分端点の向きが反転し、$dx=dy/a$ の負号と相殺されます。その結果、係数は $1/|a|$ となります。二つの場合をまとめると
 
 $$
 \widehat g(\xi)
-=\frac1{|a|}\int f(y)e^{-i(\xi/a)y}dy
+=\frac1{|a|}\int_{\mathbb R}f(y)e^{-i(\xi/a)y}dy
 =\frac1{|a|}\widehat f(\xi/a).
 $$
 <!-- proof-end -->
@@ -254,12 +265,21 @@ $$
 h=\frac{\pi}{\xi}
 $$
 
-と置きます。すると $e^{i\xi h}=-1$ です。変数変換により
+と置きます。すると $e^{i\xi h}=-1$ です。ここで左辺に $y=x+h$、すなわち $x=y-h$ を代入すると
 
 $$
+\begin{aligned}
 \int f(x+h)e^{-i\xi x}dx
-=e^{i\xi h}\widehat f(\xi)
-=-\widehat f(\xi).
+&=\int f(y)e^{-i\xi(y-h)}dy\\
+&=e^{i\xi h}\int f(y)e^{-i\xi y}dy\\
+&=e^{i\xi h}\widehat f(\xi).
+\end{aligned}
+$$
+
+いま $h=\pi/\xi$ なので $e^{i\xi h}=e^{i\pi}=-1$ です。したがって
+
+$$
+\int f(x+h)e^{-i\xi x}dx=-\widehat f(\xi).
 $$
 
 したがって
@@ -284,6 +304,16 @@ $|\xi|\to\infty$ なら $h\to0$ なので、[L1の平行移動連続性](#lem-fo
 ---
 
 ## 4. 空間側の混合が周波数側の積になる
+
+ここまでは、一つの関数を平行移動したり拡大・縮小したりしたとき、Fourier 変換がどう変わるかを見ました。次に必要なのは、**二つの関数を組み合わせる操作**です。
+
+たとえば、ある波形 $f$ を周囲の値でならして滑らかにしたいとします。単なる点ごとの積 $f(x)g(x)$ では、$x$ の近くにある $f$ の値を集められません。そこで、$g(y)$ を重みとして、ずらした値 $f(x-y)$ を $y$ 全体にわたって足し合わせます。
+
+$$
+int_{mathbb R}f(x-y)g(y)\,dy
+$$
+
+この操作なら「$x$ の周囲の値を、核 $g$ で重み付けして混ぜる」という目的を表せます。さらに Fourier 変換すると、この混合が周波数ごとの単純な積へ変わります。この二つの役割を持つ操作を畳み込みとして定義します。
 
 <a id="def-fou3-convolution"></a>
 <!-- formal-statement-start -->
@@ -463,27 +493,69 @@ $$
 I'(\xi)=-i\int xe^{-x^2}e^{-i\xi x}\,dx.
 $$
 
-$(e^{-x^2})'=-2xe^{-x^2}$ を代入して部分積分すると、境界項は Gaussian の減衰で消え、
+ここで
 
 $$
-I'(\xi)=-\frac\xi2 I(\xi).
+xe^{-x^2}=-\frac12(e^{-x^2})'
 $$
 
-また Gaussian 積分から $I(0)=\sqrt\pi$ です。従って
+を代入すると
+
+$$
+I'(\xi)
+=\frac{i}{2}\int_{\mathbb R}(e^{-x^2})'e^{-i\xi x}\,dx.
+$$
+
+部分積分はまず有限区間 $[-R,R]$ で行います。
+
+$$
+\begin{aligned}
+\int_{-R}^{R}(e^{-x^2})'e^{-i\xi x}\,dx
+&=\left[e^{-x^2}e^{-i\xi x}\right]_{-R}^{R}
++i\xi\int_{-R}^{R}e^{-x^2}e^{-i\xi x}\,dx.
+\end{aligned}
+$$
+
+$R\to\infty$ では $e^{-R^2}\to0$ なので境界項は0へ行き、積分項は $I(\xi)$ へ収束します。したがって
+
+$$
+I'(\xi)
+=\frac{i}{2}\,i\xi I(\xi)
+=-\frac\xi2 I(\xi).
+$$
+
+この一階 ODE は、積 $e^{\xi^2/4}I(\xi)$ を微分すると
+
+$$
+\frac{d}{d\xi}\left(e^{\xi^2/4}I(\xi)\right)
+=e^{\xi^2/4}\left(I'(\xi)+\frac\xi2I(\xi)\right)
+=0
+$$
+
+となるので、
+
+$$
+I(\xi)=I(0)e^{-\xi^2/4}.
+$$
+
+Gaussian 積分から $I(0)=\sqrt\pi$ ですから
 
 $$
 I(\xi)=\sqrt\pi e^{-\xi^2/4}.
 $$
 
-一般の $a>0$ は $e^{-ax^2}=g_1(\sqrt a\,x)$ と尺度変換則から
+一般の $a>0$ では $g_a(x)=g_1(\sqrt a\,x)$ です。尺度変換則で尺度パラメータを $\sqrt a$ とすると
 
 $$
+\begin{aligned}
 \widehat g_a(\xi)
-=\frac1{\sqrt a}\sqrt\pi
-\exp\!\left(-\frac{(\xi/\sqrt a)^2}{4}\right)
+&=\frac1{\sqrt a}\widehat g_1\!\left(\frac\xi{\sqrt a}\right)\\
+&=\frac1{\sqrt a}\sqrt\pi
+\exp\!\left(-\frac{(\xi/\sqrt a)^2}{4}\right)\\
+&=\sqrt{\frac\pi a}
+\exp\!\left(-\frac{\xi^2}{4a}\right).
+\end{aligned}
 $$
-
-となります。
 <!-- proof-end -->
 
 Gaussian が特別なのは、変換後も同じ型に留まることです。次節ではこれを「周波数側の滑らかなカットオフ」と「空間側の原点集中」の両方に使います。
@@ -491,6 +563,16 @@ Gaussian が特別なのは、変換後も同じ型に留まることです。�
 ---
 
 ## 7. 原点へ集中する核で関数を平均する
+
+畳み込みを使えば関数を周囲の値で平均できます。しかし、どんな核で平均しても元の関数へ戻るわけではありません。たとえば幅の広い核を固定したままなら、いつまでも遠くの値まで混ざります。
+
+元の関数へ戻したいなら、平均に使う核をだんだん原点の近くへ集中させる必要があります。そのとき欲しい性質は次の三つです。
+
+1. 重みが負にならない。
+2. 全重みが1で、定数関数を変えない。
+3. パラメータを小さくすると、原点から離れた場所の重みが消える。
+
+Gaussian 核はまさにこの振る舞いをします。そこで、この三条件を満たす核族を一つの概念としてまとめます。
 
 <a id="def-fou3-approximate-identity"></a>
 <!-- formal-statement-start -->
@@ -572,11 +654,24 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず Minkowski 型の積分評価と平行移動不変性から
+まず $\int k_\varepsilon(y)dy=1$ を使うと、各 $x$ で
 
 $$
+(f*k_\varepsilon)(x)-f(x)
+=\int k_\varepsilon(y)\{f(x-y)-f(x)\}\,dy.
+$$
+
+絶対値を取り、$x$ について積分します。被積分関数は非負なので Tonelli の定理で積分順序を交換でき、
+
+$$
+\begin{aligned}
 \|f*k_\varepsilon-f\|_1
-\le\int k_\varepsilon(y)\|\tau_yf-f\|_1dy.
+&\le\int_{\mathbb R}\int_{\mathbb R}
+k_\varepsilon(y)|f(x-y)-f(x)|\,dy\,dx\\
+&=\int_{\mathbb R}k_\varepsilon(y)
+\left\{\int_{\mathbb R}|f(x-y)-f(x)|\,dx\right\}dy\\
+&=\int_{\mathbb R}k_\varepsilon(y)\|\tau_yf-f\|_1dy.
+\end{aligned}
 $$
 
 任意の $\eta>0$ に対し、[L1の平行移動連続性](#lem-fou3-l1-translation)から $|y|<\delta$ なら $\|\tau_yf-f\|_1<\eta$ となる $\delta>0$ を取れます。一方常に
@@ -602,15 +697,25 @@ $$
 =\int k_\varepsilon(z)\{f(x-z)-f(x)\}dz.
 $$
 
-任意の $\eta>0$ に対し、$|z|<\delta$ で $|f(x-z)-f(x)|<\eta$ とできます。近傍部分は $\eta$ 以下です。遠方部分では
+任意の $\eta>0$ に対し、$|z|<\delta$ で $|f(x-z)-f(x)|<\eta$ とできます。近傍部分は $\eta$ 以下です。遠方部分では、Gaussian 核は $|z|$ とともに減少するので
+
+$$
+\sup_{|z|\ge\delta}k_\varepsilon(z)
+=
+\frac1{2\sqrt{\pi\varepsilon}}
+\exp\!\left(-\frac{\delta^2}{4\varepsilon}\right).
+$$
+
+$\varepsilon^{-1/2}$ の増加より指数減衰の方が速いため、この上限は $\varepsilon\downarrow0$ で0へ行きます。したがって
 
 $$
 \int_{|z|\ge\delta}k_\varepsilon(z)|f(x-z)|dz
 \le
-\left(\sup_{|z|\ge\delta}k_\varepsilon(z)\right)\|f\|_1\to0,
+\left(\sup_{|z|\ge\delta}k_\varepsilon(z)\right)\|f\|_1
+\to0.
 $$
 
-かつ
+また
 
 $$
 |f(x)|\int_{|z|\ge\delta}k_\varepsilon(z)dz\to0.
@@ -651,7 +756,14 @@ I_\varepsilon(x)
 \int_{\mathbb R}\widehat f(\xi)e^{i\xi x}e^{-\varepsilon\xi^2}d\xi
 $$
 
-と置きます。$\widehat f\in L^1$ なので[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)により
+と置きます。$\varepsilon\downarrow0$ なら各 $\xi$ で $e^{-\varepsilon\xi^2}\to1$ です。また
+
+$$
+\left|\widehat f(\xi)e^{i\xi x}e^{-\varepsilon\xi^2}\right|
+\le|\widehat f(\xi)|
+$$
+
+で、仮定より $|\widehat f|$ は可積分です。したがって[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)を積分変数 $\xi$ に適用でき、
 
 $$
 I_\varepsilon(x)
@@ -674,7 +786,27 @@ $$
 =\|f\|_1\int e^{-\varepsilon\xi^2}d\xi<\infty
 $$
 
-ですから Fubini を使えます。Gaussian の変換公式を $a=\varepsilon$ に適用すると
+ですから Fubini を使えます。ここで Gaussian の変換公式をどの変数へ使うかを明示します。積分変数を $\xi$ とし、
+
+$$
+g_\varepsilon(\xi):=e^{-\varepsilon\xi^2}
+$$
+
+と置きます。補題の周波数変数へ $y-x$ を代入すると
+
+$$
+\begin{aligned}
+\widehat g_\varepsilon(y-x)
+&=\int_{\mathbb R}e^{-\varepsilon\xi^2}
+e^{-i(y-x)\xi}\,d\xi\\
+&=\int_{\mathbb R}e^{-\varepsilon\xi^2}
+e^{i\xi(x-y)}\,d\xi\\
+&=\sqrt{\frac\pi\varepsilon}
+\exp\!\left(-\frac{(x-y)^2}{4\varepsilon}\right).
+\end{aligned}
+$$
+
+$k_\varepsilon$ の定義から右辺は $2\pi k_\varepsilon(x-y)$ なので
 
 $$
 \frac1{2\pi}\int e^{-\varepsilon\xi^2}e^{i\xi(x-y)}d\xi
@@ -713,12 +845,38 @@ $$
 $f(x)=e^{-|x|}$ は偶関数なので
 
 $$
-\begin{aligned}
 \widehat f(\xi)
-&=2\int_0^\infty e^{-x}\cos(\xi x)dx\\
-&=2\operatorname{Re}\frac1{1-i\xi}\\
-&=\boxed{\frac{2}{1+\xi^2}}.
-\end{aligned}
+=2\int_0^\infty e^{-x}\cos(\xi x)dx.
+$$
+
+右辺は複素指数積分の実部として計算できます。$R>0$ に対し
+
+$$
+\int_0^R e^{-(1-i\xi)x}dx
+=\frac{1-e^{-(1-i\xi)R}}{1-i\xi}.
+$$
+
+$|e^{-(1-i\xi)R}|=e^{-R}\to0$ なので
+
+$$
+\int_0^\infty e^{-(1-i\xi)x}dx
+=\frac1{1-i\xi}
+=\frac{1+i\xi}{1+\xi^2}.
+$$
+
+実部を取れば
+
+$$
+\int_0^\infty e^{-x}\cos(\xi x)dx
+=\frac1{1+\xi^2},
+$$
+
+したがって
+
+$$
+\boxed{
+\widehat f(\xi)=\frac{2}{1+\xi^2}
+}.
 $$
 
 空間側も周波数側も $L^1$ なので反転定理をそのまま使えます。例えば $x=0$ では
@@ -802,13 +960,22 @@ $$
 =2\int_0^\infty e^{-x}\cos(\xi x)dx.
 $$
 
-複素積分
+$R>0$ でまず有限区間を積分すると
 
 $$
-\int_0^\infty e^{-(1-i\xi)x}dx=\frac1{1-i\xi}
+\int_0^R e^{-(1-i\xi)x}dx
+=\frac{1-e^{-(1-i\xi)R}}{1-i\xi}.
 $$
 
-の実部を取れば
+実部が1なので $|e^{-(1-i\xi)R}|=e^{-R}\to0$ です。よって
+
+$$
+\int_0^\infty e^{-(1-i\xi)x}dx
+=\frac1{1-i\xi}
+=\frac{1+i\xi}{1+\xi^2}.
+$$
+
+左辺の実部が $\int_0^\infty e^{-x}\cos(\xi x)dx$ なので
 
 $$
 \int_0^\infty e^{-x}\cos(\xi x)dx
@@ -933,10 +1100,15 @@ $f\in L^1(\mathbb R)$ とする。$h=\pi/\xi$ を用いて Riemann--Lebesgue の
 <!-- solution-start -->
 ### 詳細解答
 
-$\xi\ne0$ とし $h=\pi/\xi$ とすると $e^{i\xi h}=-1$ です。変数変換により
+$\xi\ne0$ とし $h=\pi/\xi$ とすると $e^{i\xi h}=-1$ です。$y=x+h$ と置けば $x=y-h$ なので
 
 $$
-\int f(x+h)e^{-i\xi x}dx=-\widehat f(\xi).
+\begin{aligned}
+\int f(x+h)e^{-i\xi x}dx
+&=\int f(y)e^{-i\xi(y-h)}dy\\
+&=e^{i\xi h}\widehat f(\xi)\\
+&=-\widehat f(\xi).
+\end{aligned}
 $$
 
 元の式と引き算すれば

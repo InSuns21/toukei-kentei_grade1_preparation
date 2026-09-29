@@ -14,8 +14,7 @@ Fourier 解析の入口で最初に行うのは、無限和の極限判定では
 
 前提は [RA4 Riemann/Darboux積分・FTC](../RA4/index.md) です。本章の計算は区分ごとの Riemann 積分と有限和だけで閉じます。Lebesgue 積分や Hilbert 空間の一般論は前提にしません。
 
-> **この章の停止線**  
-> 係数を計算できることと、次数を無限に増やした極限を確定することは別問題です。本章では有限次数の係数計算と近似までを閉じます。極限の意味、跳びを含む波形での極限、平均化、無限個の係数を使う等式は FOU2 で扱います。
+係数を計算できることと、次数を無限に増やした極限を確定することは別問題です。本章では有限次数の係数計算と近似までを扱います。極限の意味、跳びを含む波形での極限、平均化、無限個の係数を使う等式は、次章 FOU2 で一つずつ確かめます。
 
 ---
 
@@ -160,19 +159,35 @@ $$
 \int_{-\pi}^{\pi}\cos^2nx\,dx=\frac12(2\pi)+0=\pi.
 $$
 
-同様に
+正弦側も式を省略せず確認します。
 
 $$
 \sin^2nx=\frac{1-\cos2nx}{2}
 $$
 
-から
+なので
 
 $$
-\int_{-\pi}^{\pi}\sin^2nx\,dx=\pi.
+\int_{-\pi}^{\pi}\sin^2nx\,dx
+=\frac12(2\pi)-\frac12\int_{-\pi}^{\pi}\cos2nx\,dx
+=\pi.
 $$
 
-$m\ne n$ の $\sin mx\sin nx$ も積和公式で二つの非零周波数へ分かれるので0です。また $\sin mx\cos nx$ は奇関数なので対称区間上の積分は0です。
+$m\ne n$ では
+
+$$
+\sin mx\sin nx
+=\frac12\{\cos((m-n)x)-\cos((m+n)x)\},
+$$
+
+であり、$m-n$ と $m+n$ はともに非零なので両方の積分が0です。また
+
+$$
+\sin mx\cos nx
+=\frac12\{\sin((m+n)x)+\sin((m-n)x)\}
+$$
+
+は非零周波数の正弦の和であり、一周期積分は0です。
 
 最後に
 
@@ -289,25 +304,61 @@ $\cos mx$ を掛けると $A_m\cos^2mx$ だけが残り、$\sin mx$ を掛ける
 <!-- proof-start -->
 ### 証明
 
-そのまま積分すると、[正弦・余弦の一周期積分消去則](#thm-fou1-frequency-cancellation)により定数項以外は消えるので
+まず $T_N$ 自身を積分します。定数項は
+
+$$
+\int_{-\pi}^{\pi}\frac{A_0}{2}\,dx=A_0\pi
+$$
+
+であり、$n\ge1$ の正弦・余弦項は一周期積分で消えるため
 
 $$
 \int_{-\pi}^{\pi}T_N(x)\,dx=A_0\pi.
 $$
 
-次に $T_N\cos mx$ を積分すると
+次に固定した $m\in\{1,\ldots,N\}$ に対して $T_N(x)\cos mx$ を積分します。有限和を展開すると
 
 $$
-\int_{-\pi}^{\pi}T_N(x)\cos mx\,dx=A_m\pi.
+\begin{aligned}
+\int_{-\pi}^{\pi}T_N(x)\cos mx\,dx
+&=\frac{A_0}{2}\int_{-\pi}^{\pi}\cos mx\,dx\\
+&\quad+\sum_{n=1}^{N}A_n
+\int_{-\pi}^{\pi}\cos nx\cos mx\,dx\\
+&\quad+\sum_{n=1}^{N}B_n
+\int_{-\pi}^{\pi}\sin nx\cos mx\,dx.
+\end{aligned}
 $$
 
-同様に
+[正弦・余弦の一周期積分消去則](#thm-fou1-frequency-cancellation)により、最初の項と正弦・余弦の交差項は0、余弦どうしの和では $n=m$ の項だけが残ります。したがって
 
 $$
-\int_{-\pi}^{\pi}T_N(x)\sin mx\,dx=B_m\pi.
+\int_{-\pi}^{\pi}T_N(x)\cos mx\,dx
+=A_m\int_{-\pi}^{\pi}\cos^2mx\,dx
+=A_m\pi.
 $$
 
-それぞれ $\pi$ で割ればよいことが分かります。
+正弦係数では $T_N(x)\sin mx$ を積分します。こちらも消える項を先に書き出すと
+
+$$
+\begin{aligned}
+\int_{-\pi}^{\pi}T_N(x)\sin mx\,dx
+&=\frac{A_0}{2}\int_{-\pi}^{\pi}\sin mx\,dx\\
+&\quad+\sum_{n=1}^{N}A_n
+\int_{-\pi}^{\pi}\cos nx\sin mx\,dx\\
+&\quad+\sum_{n=1}^{N}B_n
+\int_{-\pi}^{\pi}\sin nx\sin mx\,dx.
+\end{aligned}
+$$
+
+最初の項と余弦・正弦の交差項は0で、最後の和では $n=m$ の項だけが残ります。よって
+
+$$
+\int_{-\pi}^{\pi}T_N(x)\sin mx\,dx
+=B_m\int_{-\pi}^{\pi}\sin^2mx\,dx
+=B_m\pi.
+$$
+
+各式を $\pi$ で割れば $A_0,A_m,B_m$ を回収できます。
 <!-- proof-end -->
 
 ---
@@ -343,19 +394,40 @@ $f-S_Nf$ は、$1,\cos mx,\sin mx$ のうち $m\le N$ のものを掛けて積�
 <!-- proof-start -->
 ### 証明
 
-$R_N:=T_N-S_Nf$ と置きます。係数の定義と[正弦・余弦の一周期積分消去則](#thm-fou1-frequency-cancellation)から
+$R_N:=T_N-S_Nf$ と置きます。まず、$f-S_Nf$ が使っている各周波数に対して積分すると0になることを式で確認します。
+
+定数項については、$a_0$ の定義と $S_Nf$ の定数係数から
 
 $$
-\int_{-\pi}^{\pi}(f-S_Nf)\,dx=0,
+\begin{aligned}
+\int_{-\pi}^{\pi}(f-S_Nf)\,dx
+&=\int_{-\pi}^{\pi}f(x)\,dx
+-\int_{-\pi}^{\pi}S_Nf(x)\,dx\\
+&=\pi a_0-\pi a_0=0.
+\end{aligned}
 $$
 
+固定した $m\in\{1,\ldots,N\}$ に対しては、$a_m$ の定義と[一周期積分による係数抽出](#thm-fou1-coefficient-extraction)から
+
 $$
-\int_{-\pi}^{\pi}(f-S_Nf)\cos mx\,dx=0,
-\qquad
-\int_{-\pi}^{\pi}(f-S_Nf)\sin mx\,dx=0
+\begin{aligned}
+\int_{-\pi}^{\pi}(f-S_Nf)\cos mx\,dx
+&=\int_{-\pi}^{\pi}f(x)\cos mx\,dx
+-\int_{-\pi}^{\pi}S_Nf(x)\cos mx\,dx\\
+&=\pi a_m-\pi a_m=0.
+\end{aligned}
 $$
 
-が $1\le m\le N$ で成り立ちます。$R_N$ はこれらの有限線形結合なので
+同じく $b_m$ について
+
+$$
+\begin{aligned}
+\int_{-\pi}^{\pi}(f-S_Nf)\sin mx\,dx
+&=\pi b_m-\pi b_m=0.
+\end{aligned}
+$$
+
+したがって $f-S_Nf$ は、$1,\cos mx,\sin mx$ のうち $m\le N$ のどれを掛けても積分が0になります。$R_N$ はこれらの有限線形結合なので
 
 $$
 \int_{-\pi}^{\pi}(f-S_Nf)R_N\,dx=0.
@@ -553,12 +625,22 @@ c_n
 \end{aligned}
 $$
 
-同様に
+負の添字では指数の符号が反転するので
 
 $$
-c_{-n}=\frac{a_n+ib_n}{2},
-\qquad
-c_0=\frac{a_0}{2}.
+\begin{aligned}
+c_{-n}
+&=\frac1{2\pi}\int_{-\pi}^{\pi}
+f(x)(\cos nx+i\sin nx)\,dx\\
+&=\frac{a_n+ib_n}{2}.
+\end{aligned}
+$$
+
+また $n=0$ を定義へ代入すると
+
+$$
+c_0=\frac1{2\pi}\int_{-\pi}^{\pi}f(x)\,dx
+=\frac{a_0}{2}.
 $$
 
 $f$ が実数値なら $c_{-n}=\overline{c_n}$ です。また
@@ -817,17 +899,18 @@ a_2
 \end{aligned}
 $$
 
-他の余弦側の係数は0です。同様に
+他の余弦側の係数は0です。正弦側では、$\sin3x$ を掛けると $-4\sin^23x$ だけが残るので
 
 $$
 \begin{aligned}
 b_3
 &=\frac1\pi\int_{-\pi}^{\pi}f(x)\sin3x\,dx\\
-&=\frac1\pi\int_{-\pi}^{\pi}(-4)\sin^23x\,dx=-4,
+&=\frac1\pi\int_{-\pi}^{\pi}(-4)\sin^23x\,dx\\
+&=\frac{-4}{\pi}\cdot\pi=-4.
 \end{aligned}
 $$
 
-他の正弦側は0です。したがって
+$n\ne3$ の正弦係数は[一周期積分消去則](#thm-fou1-frequency-cancellation)により0です。したがって
 
 $$
 S_3f(x)=3+2\cos2x-4\sin3x=f(x).
