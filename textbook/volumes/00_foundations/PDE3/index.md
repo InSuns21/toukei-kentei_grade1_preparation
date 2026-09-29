@@ -1257,7 +1257,7 @@ $$
 
 Gaussian 積分から $K_t\in L^1(\mathbb R)$ であることも分かります。実際、同じ変数変換で $\int K_t=1$ です。したがって $f\in L^1$ なら畳み込み定理を適用でき、
 
-さらに FOU3 の畳み込み定理から、$K_t*f$ の Fourier 変換は
+さらに [FOU3 の L1畳み込みと畳み込み定理](../FOU3/index.md#thm-fou3-convolution) を $K_t$ と $f$ に適用すると、$K_t*f$ の Fourier 変換は
 
 $$
 \widehat{K_t*f}
