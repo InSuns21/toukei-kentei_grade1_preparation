@@ -5,7 +5,7 @@ D3では、任意の外測度 $\mu^*$ から Carathéodory 可測集合を選ぶ
 この章では二つの仕事をします。
 
 1. 実数直線上で区間の長さから Lebesgue 測度を完成させる。
-2. 同じ構成を一般化し、premeasure から測度を作る Carathéodory 拡張定理を証明する。
+2. 同じ構成を一般化し、前測度 から測度を作る Carathéodory 拡張定理を証明する。
 
 中心線は
 
@@ -18,13 +18,13 @@ Lebesgue外測度
  ↓
 Lebesgue測度
 
-algebra上のpremeasure
+集合代数（algebra）上の前測度（premeasure）
  ↓
 被覆infimumで外測度
  ↓
 Carathéodory可測性
  ↓
-σ(algebra)上の測度
+σ(集合代数)上の測度
  ↓ σ有限なら一意
 ```
 
@@ -32,12 +32,12 @@ Carathéodory可測性
 
 ### 名称について：Hopf の拡張定理はどこにいるか
 
-測度の拡張定理には文献ごとの名称差があります。algebra や ring 上の集合関数を生成 σ 代数上の測度へ延長する結果は、**Carathéodory の拡張定理**、**Hopf の拡張定理**、**Hahn--Kolmogorov の拡張定理**などの名前で現れます。出発点を「premeasure」とするか、「有限加法性と連続性」から始めるかでも定理の見た目が変わります。
+測度の拡張定理には文献ごとの名称差があります。集合代数 や ring 上の集合関数を生成 σ 代数上の測度へ延長する結果は、**Carathéodory の拡張定理**、**Hopf の拡張定理**、**Hahn--Kolmogorov の拡張定理**などの名前で現れます。出発点を「前測度」とするか、「有限加法性と連続性」から始めるかでも定理の見た目が変わります。
 
 本章では混同を避けるため、次の二段階に分けて扱います。
 
-- 有限加法性と空集合への連続性から premeasure 性を得るための判定を先に証明する。
-- premeasure から外測度を作り、生成 σ 代数へ測度を延長する定理を **Carathéodory 拡張定理（Hopf / Hahn--Kolmogorov 型）**として扱う。
+- 有限加法性と空集合への連続性から 前測度性を得るための判定を先に証明する。
+- 前測度 から外測度を作り、生成 σ 代数へ測度を延長する定理を **Carathéodory 拡張定理（Hopf / Hahn--Kolmogorov 型）**として扱う。
 
 後の STO3 に現れる **Kolmogorov 拡張定理**は、有限個の時刻ごとに与えた整合的な確率法則を、一つの全体法則へまとめる定理です。その証明で本章の測度拡張定理を使いますが、二つは同じ定理ではありません。
 
@@ -490,7 +490,7 @@ $$
 を **Borel σ代数** という。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-borel-sigma-algebra -->
+<!-- definition-example-start: def-borel-sigma-集合代数 -->
 ### 例1：有理数集合は Borel 集合
 
 **定義の確認**
@@ -581,12 +581,12 @@ $$
 
 # Part II：Carathéodory拡張定理
 
-## 9. algebra と premeasure
+## 9. 集合代数 と 前測度
 
 <a id="def-set-algebra"></a>
 
 <!-- formal-statement-start -->
-### 定義（集合のalgebra）
+### 定義（集合代数）
 
 $\mathcal A\subset2^X$ が
 
@@ -594,11 +594,11 @@ $\mathcal A\subset2^X$ が
 2. $A\in\mathcal A\Rightarrow A^c\in\mathcal A$
 3. $A,B\in\mathcal A\Rightarrow A\cup B\in\mathcal A$
 
-を満たすとき $X$ 上の **algebra** という。
+を満たすとき $X$ 上の **集合代数（algebra）** という。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-set-algebra -->
-### 9.1 例：一つの集合から作る4集合のalgebra
+<!-- definition-example-start: def-set-集合代数 -->
+### 9.1 例：一つの集合から作る4集合代数
 
 **定義の確認**
 
@@ -611,14 +611,14 @@ $$
 とします。まず $X\in\mathcal A$。補集合は $\varnothing\leftrightarrow X$、$A\leftrightarrow A^c$ と同じ4集合内に残ります。二集合の和も、$A\cup A^c=X$ を含め必ずこの4集合のどれかです。従って定義の3条件を全て満たします。
 <!-- definition-example-end -->
 
-algebra は有限集合演算で閉じますが、可算和で閉じるとは限りません。
+集合代数 は有限集合演算で閉じますが、可算和で閉じるとは限りません。
 
 <a id="def-premeasure"></a>
 
 <!-- formal-statement-start -->
-### 定義（premeasure）
+### 定義（前測度）
 
-$\mu_0:\mathcal A\to[0,\infty]$ が **premeasure** であるとは、互いに素な $A_n\in\mathcal A$ について、もし
+$\mu_0:\mathcal A\to[0,\infty]$ が **前測度（premeasure）** であるとは、互いに素な $A_n\in\mathcal A$ について、もし
 
 $$
 \bigcup_{n=1}^\infty A_n\in\mathcal A
@@ -635,38 +635,38 @@ $$
 を満たすことをいう。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-premeasure -->
+<!-- definition-example-start: def-前測度 -->
 ### 例2：半開区間の長さ
 
 **定義の確認**
 
-$\mathbb R$ 上で半開区間 $[a,b)$ の有限互いに素和からなる algebra を考え
+$\mathbb R$ 上で半開区間 $[a,b)$ の有限互いに素和からなる 集合代数 を考え
 
 $$
 \mu_0([a,b))=b-a
 $$
 
-と定め、有限互いに素和には加法的に延長します。互いに素な $A_n$ の可算和が再びこの algebra に属する場合、その和は有限個の半開区間へ整理でき、各区間の長さは互いに素な部分区間の長さの和になります。従って
+と定め、有限互いに素和には加法的に延長します。互いに素な $A_n$ の可算和が再びこの 集合代数 に属する場合、その和は有限個の半開区間へ整理でき、各区間の長さは互いに素な部分区間の長さの和になります。従って
 
 $$
 \mu_0\left(\bigsqcup_n A_n\right)=\sum_n\mu_0(A_n),
 $$
 
-となり premeasure の可算加法条件を満たします。これが Lebesgue 測度を作る元の premeasure です。
+となり 前測度 の可算加法条件を満たします。これが Lebesgue 測度を作る元の 前測度 です。
 <!-- definition-example-end -->
 
 ---
 
-## 9.5 有限加法性から premeasure へ：Hopf 型の判定
+## 9.5 有限加法性から 前測度 へ：Hopf 型の判定
 
 実際の構成では、最初から可算加法性を直接確認するより、まず有限加法性を示し、減少列に対する連続性を確認する方が容易なことがあります。確率測度の候補では全空間の質量が $1$ なので、特にこの形が使いやすくなります。
 
 <a id="lem-f0-00d4-hopf-premeasure"></a>
 
 <!-- formal-statement-start -->
-### 補題（Hopf型のpremeasure判定）
+### 補題（Hopf型の前測度判定）
 
-$X$ 上の algebra $\mathcal A$ と写像
+$X$ 上の 集合代数 $\mathcal A$ と写像
 
 $$
 \mu_0:\mathcal A\to[0,\infty)
@@ -682,7 +682,7 @@ $$
 
 このとき次は同値である。
 
-1. $\mu_0$ は $\mathcal A$ 上の premeasure である。
+1. $\mu_0$ は $\mathcal A$ 上の 前測度 である。
 2. 任意の減少列 $E_1\supset E_2\supset\cdots$、$E_n\in\mathcal A$ で $\bigcap_nE_n=\varnothing$ となるものについて
 
 $$
@@ -694,7 +694,7 @@ $$
 
 ### 証明の見取り図
 
-premeasure から空集合への連続性を出す向きでは、減少列を互いに素な「層」
+前測度 から空集合への連続性を出す向きでは、減少列を互いに素な「層」
 
 $$
 E_n\setminus E_{n+1}
@@ -713,7 +713,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $\mu_0$ が premeasure であるとします。
+まず $\mu_0$ が 前測度 であるとします。
 
 $$
 E_1\supset E_2\supset\cdots,
@@ -735,7 +735,7 @@ E_1
 \bigsqcup_{n=1}^{\infty}D_n.
 $$
 
-premeasure 性から
+前測度性から
 
 $$
 \mu_0(E_1)
@@ -785,7 +785,7 @@ R_N
 A\setminus\bigcup_{n=1}^N A_n
 $$
 
-と置きます。algebra は有限和と差で閉じるので $R_N\in\mathcal A$ です。また
+と置きます。集合代数 は有限和と差で閉じるので $R_N\in\mathcal A$ です。また
 
 $$
 R_1\supset R_2\supset\cdots,
@@ -826,14 +826,14 @@ $$
 \sum_{n=1}^{\infty}\mu_0(A_n).
 $$
 
-したがって $\mu_0$ は premeasure です。$\square$
+したがって $\mu_0$ は 前測度 です。$\square$
 <!-- proof-end -->
 
-この補題は、**「有限加法性は分かるが、可算加法性を直接扱いにくい」**場面を premeasure へ渡す橋です。とくに全質量 $1$ の確率候補では $\mu_0(X)<\infty$ が自動なので、空集合へ減少する列だけを制御すればよくなります。
+この補題は、**「有限加法性は分かるが、可算加法性を直接扱いにくい」**場面を 前測度 へ渡す橋です。とくに全質量 $1$ の確率候補では $\mu_0(X)<\infty$ が自動なので、空集合へ減少する列だけを制御すればよくなります。
 
 ---
 
-## 10. premeasure から外測度を作る
+## 10. 前測度 から外測度を作る
 
 任意の $E\subset X$ に対して
 
@@ -854,7 +854,7 @@ $$
 <a id="lem-premeasure-outer"></a>
 
 <!-- formal-statement-start -->
-### 補題（premeasureから作る外測度）
+### 補題（前測度から作る外測度）
 
 上で定めた $\mu^*$ は外測度である。
 <!-- formal-statement-end -->
@@ -862,7 +862,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\varnothing$ は $\varnothing\in\mathcal A$ 一つで覆え、premeasure から $\mu_0(\varnothing)=0$ なので $\mu^*(\varnothing)=0$。
+$\varnothing$ は $\varnothing\in\mathcal A$ 一つで覆え、前測度 から $\mu_0(\varnothing)=0$ なので $\mu^*(\varnothing)=0$。
 
 $E\subset F$ なら $F$ の任意の $\mathcal A$-被覆は $E$ も覆うので単調性が従います。
 
@@ -916,12 +916,12 @@ $$
 
 ---
 
-## 11. 元の algebra 上では値が変わらない
+## 11. 元の 集合代数上では値が変わらない
 
 <a id="lem-extension-agrees"></a>
 
 <!-- formal-statement-start -->
-### 補題（外測度はpremeasureを拡張する）
+### 補題（外測度は前測度を拡張する）
 
 任意の $A\in\mathcal A$ に対して
 
@@ -956,7 +956,7 @@ $$
 A=\bigsqcup_nB_n.
 $$
 
-和集合 $A$ 自身が $\mathcal A$ に入るので premeasure の可算加法性を使えます。従って
+和集合 $A$ 自身が $\mathcal A$ に入るので 前測度 の可算加法性を使えます。従って
 
 $$
 \mu_0(A)=\sum_n\mu_0(B_n)
@@ -975,12 +975,12 @@ $$
 
 ---
 
-## 12. algebra の集合は Carathéodory 可測
+## 12. 集合代数の集合は Carathéodory 可測
 
 <a id="lem-algebra-caratheodory"></a>
 
 <!-- formal-statement-start -->
-### 補題（algebra集合のCarathéodory可測性）
+### 補題（集合代数の集合のCarathéodory可測性）
 
 任意の $A\in\mathcal A$ は、上で構成した外測度 $\mu^*$ に関して Carathéodory 可測である。
 <!-- formal-statement-end -->
@@ -1006,7 +1006,7 @@ A_n\cap A,
 A_n\setminus A
 $$
 
-も $\mathcal A$ に属し、互いに素な二分割です。premeasure の有限加法性から
+も $\mathcal A$ に属し、互いに素な二分割です。前測度 の有限加法性から
 
 $$
 \mu_0(A_n)
@@ -1049,7 +1049,7 @@ $$
 
 次の拡張定理では、一意性の条件として **σ有限** という語を使います。先に意味を固定します。
 
-premeasure $\mu_0$ が **σ有限** であるとは、可算個の $A_n\in\mathcal A$ が存在して
+前測度 $\mu_0$ が **σ有限** であるとは、可算個の $A_n\in\mathcal A$ が存在して
 
 $$
 X=\bigcup_{n=1}^{\infty}A_n,
@@ -1057,31 +1057,31 @@ X=\bigcup_{n=1}^{\infty}A_n,
 \mu_0(A_n)<\infty
 $$
 
-となることをいいます。つまり **全空間を可算個の有限premeasure集合で覆える** という条件です。
+となることをいいます。つまり **全空間を可算個の前測度が有限な集合で覆える** という条件です。
 
 具体例と一意性証明はSection 14で改めて確認します。
 
 ---
 
-## 13. premeasure を生成 σ 代数へ拡張する
+## 13. 前測度 を生成 σ 代数へ拡張する
 
 <a id="thm-caratheodory-extension"></a>
 
 <!-- formal-statement-start -->
 ### 定理（Carathéodory拡張定理；Hopf / Hahn--Kolmogorov 型）
 
-集合 $X$ 上の algebra $\mathcal A$ と、その上の premeasure $\mu_0$ に対して、$\mu_0$ と $\mathcal A$ 上で一致する測度 $\mu$ が生成σ代数 $\sigma(\mathcal A)$ 上に存在する。
+集合 $X$ 上の 集合代数 $\mathcal A$ と、その上の 前測度 $\mu_0$ に対して、$\mu_0$ と $\mathcal A$ 上で一致する測度 $\mu$ が生成σ代数 $\sigma(\mathcal A)$ 上に存在する。
 
 さらに $\mu_0$ がσ有限なら、この拡張は一意である。
 <!-- formal-statement-end -->
 
-この定理の存在部分で必要なのは、premeasure から作った外測度が
+この定理の存在部分で必要なのは、前測度 から作った外測度が
 
-1. 元の algebra 上で値を保ち、
-2. algebra の各集合を Carathéodory 可測にし、
+1. 元の 集合代数上で値を保ち、
+2. 集合代数の各集合を Carathéodory 可測にし、
 3. したがって生成 σ 代数全体を Carathéodory 可測集合族へ入れる
 
-という三段階です。有限加法的な有限集合関数から出発する場合は、先に [Hopf 型の premeasure 判定](#lem-f0-00d4-hopf-premeasure)で premeasure 性を確認してからこの定理へ渡せます。
+という三段階です。有限加法的な有限集合関数から出発する場合は、先に [Hopf 型の 前測度 判定](#lem-f0-00d4-hopf-premeasure)で 前測度性を確認してからこの定理へ渡せます。
 
 ### 証明の見取り図
 
@@ -1128,9 +1128,9 @@ $$
 <a id="def-sigma-finite"></a>
 
 <!-- formal-statement-start -->
-### 定義（σ有限premeasure）
+### 定義（σ有限前測度）
 
-premeasure $\mu_0$ が **σ有限** であるとは、$A_n\in\mathcal A$ が存在して
+前測度 $\mu_0$ が **σ有限** であるとは、$A_n\in\mathcal A$ が存在して
 
 $$
 X=\bigcup_{n=1}^\infty A_n,
@@ -1142,11 +1142,11 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sigma-finite -->
-### 14.1 例：区間長premeasureはσ有限
+### 14.1 例：区間長前測度はσ有限
 
 **定義の確認**
 
-半開区間の有限互いに素和からなる algebra 上の長さ premeasure を考えます。
+半開区間の有限互いに素和からなる 集合代数上の長さ 前測度 を考えます。
 
 $$
 A_n=[-n,n)
@@ -1160,7 +1160,7 @@ $$
 \mu_0(A_n)=2n<\infty.
 $$
 
-従って定義の「全空間を可算個の有限premeasure集合で覆う」という条件を満たし、この premeasure はσ有限です。
+従って定義の「全空間を可算個の前測度が有限な集合で覆う」という条件を満たし、この 前測度 はσ有限です。
 <!-- definition-example-end -->
 
 ### 証明の見取り図
@@ -1300,7 +1300,7 @@ $$
 \pi(A\times B):=\mu(A)\nu(B)
 $$
 
-と置き、有限互いに素和へ加法的に延長します。これが premeasure になることの確認は、後の D2C で行います。本節ではその確認を前提にし、**premeasure が得られた後の拡張機構**だけを回収します。
+と置き、有限互いに素和へ加法的に延長します。これが 前測度 になることの確認は、後の D2C で行います。本節ではその確認を前提にし、**前測度 が得られた後の拡張機構**だけを回収します。
 
 [Carathéodory 拡張定理](#thm-caratheodory-extension)から
 
@@ -1310,7 +1310,7 @@ $$
 \mathcal A\otimes\mathcal B
 $$
 
-上に拡張測度が存在します。$\mu,\nu$ がσ有限なら長方形 premeasure もσ有限なので一意です。
+上に拡張測度が存在します。$\mu,\nu$ がσ有限なら長方形 前測度 もσ有限なので一意です。
 
 従って
 
@@ -1326,9 +1326,9 @@ $$
 
 ## 16. 確率論との接続
 
-確率測度は有限測度なのでσ有限です。そのため、簡単な事象の algebra 上で整合的に確率を定め、生成σ代数へ拡張するとき一意性が得やすいという利点があります。
+確率測度は有限測度なのでσ有限です。そのため、簡単な事象の 集合代数上で整合的に確率を定め、生成σ代数へ拡張するとき一意性が得やすいという利点があります。
 
-さらに、algebra 上でまず有限加法的な確率候補 $P_0$ を作った場合、
+さらに、集合代数上でまず有限加法的な確率候補 $P_0$ を作った場合、
 
 $$
 A_n\downarrow\varnothing
@@ -1336,7 +1336,7 @@ A_n\downarrow\varnothing
 P_0(A_n)\downarrow0
 $$
 
-を示せば、[Hopf 型の premeasure 判定](#lem-f0-00d4-hopf-premeasure)によって $P_0$ は premeasure になります。後の STO3 では、有限個の座標だけを見る事象に定めた確率を、より大きな σ 代数へ延長するとき、この「有限加法性 → 空集合への連続性 → premeasure → 測度拡張」という流れがそのまま現れます。
+を示せば、[Hopf 型の 前測度 判定](#lem-f0-00d4-hopf-premeasure)によって $P_0$ は 前測度 になります。後の STO3 では、有限個の座標だけを見る事象に定めた確率を、より大きな σ 代数へ延長するとき、この「有限加法性 → 空集合への連続性 → 前測度 → 測度拡張」という流れがそのまま現れます。
 
 また非負可測関数 $f$ が
 
@@ -1412,7 +1412,7 @@ $$
 
 <!-- solution-end -->
 
-## F0-00D4-A03 premeasureと外測度
+## F0-00D4-A03 前測度と外測度
 
 - Level: A
 - 目安時間: 12分
@@ -1434,7 +1434,7 @@ $$
 \sum_n|I_n|
 $$
 
-の infimum を取った。一般の拡張では「開区間」を algebra の集合 $A_n$ に、「区間長」を premeasure $\mu_0(A_n)$ に置き換える。従って同じ外側近似の構造
+の infimum を取った。一般の拡張では「開区間」を 集合代数の集合 $A_n$ に、「区間長」を 前測度 $\mu_0(A_n)$ に置き換える。従って同じ外側近似の構造
 
 $$
 \text{covering objects} + \text{cost} + \inf
@@ -1450,7 +1450,7 @@ $$
 - Level: A
 - 目安時間: 12分
 
-$\mathcal A$ を $X$ 上の algebra、$\mu_0:\mathcal A\to[0,\infty)$ を有限加法的な集合関数とする。互いに素な $A_n\in\mathcal A$ について
+$\mathcal A$ を $X$ 上の 集合代数、$\mu_0:\mathcal A\to[0,\infty)$ を有限加法的な集合関数とする。互いに素な $A_n\in\mathcal A$ について
 
 $$
 A=\bigsqcup_{n=1}^{\infty}A_n\in\mathcal A
@@ -1534,7 +1534,7 @@ $$
 \sum_{n=1}^{\infty}\mu_0(A_n).
 $$
 
-これが Hopf 型判定の「有限加法性と空集合への連続性から premeasure 性を得る」向きの核心です。
+これが Hopf 型判定の「有限加法性と空集合への連続性から 前測度性を得る」向きの核心です。
 <!-- solution-end -->
 
 ## F0-00D4-B01 元の値を保つこと
@@ -1578,7 +1578,7 @@ $$
 
 <!-- solution-end -->
 
-## F0-00D4-B02 algebra集合のCarathéodory可測性
+## F0-00D4-B02 集合代数の集合のCarathéodory可測性
 
 - Level: B
 - 目安時間: 20分
@@ -1676,13 +1676,13 @@ $$
 - Level: B
 - 目安時間: 20分
 
-$(X,\mathcal A,\mu)$、$(Y,\mathcal B,\nu)$ を σ有限測度空間とする。可測長方形の有限互いに素和からなる algebra $\mathcal R$ 上に、長方形では
+$(X,\mathcal A,\mu)$、$(Y,\mathcal B,\nu)$ を σ有限測度空間とする。可測長方形の有限互いに素和からなる 集合代数 $\mathcal R$ 上に、長方形では
 
 $$
 \pi(A\times B)=\mu(A)\nu(B)
 $$
 
-を満たす **σ有限な premeasure $\pi$ が構成済みである**と仮定する。
+を満たす **σ有限な 前測度 $\pi$ が構成済みである**と仮定する。
 
 この仮定から、積 σ 代数 $\mathcal A\otimes\mathcal B$ 上に
 
@@ -1695,13 +1695,13 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-まず $\mathcal R$ は可測長方形の有限互いに素和からなる algebra であり、問題文の仮定により
+まず $\mathcal R$ は可測長方形の有限互いに素和からなる 集合代数 であり、問題文の仮定により
 
 $$
 \pi:\mathcal R\to[0,\infty]
 $$
 
-は premeasure です。したがって [Carathéodory 拡張定理](#thm-caratheodory-extension)の存在部分を適用でき、
+は 前測度 です。したがって [Carathéodory 拡張定理](#thm-caratheodory-extension)の存在部分を適用でき、
 
 $$
 \sigma(\mathcal R)
@@ -1719,7 +1719,7 @@ $$
 \mathcal A\otimes\mathcal B.
 $$
 
-従って得られた測度を $\mu\times\nu$ と書けば、元の algebra 上では $\pi$ と一致するため、特に長方形について
+従って得られた測度を $\mu\times\nu$ と書けば、元の 集合代数上では $\pi$ と一致するため、特に長方形について
 
 $$
 (\mu\times\nu)(A\times B)
@@ -1731,7 +1731,7 @@ $$
 
 さらに問題文で $\pi$ は σ有限と仮定されています。よって拡張定理の一意性部分を適用でき、$\mathcal A\otimes\mathcal B$ 上でこの条件を満たす拡張は一意です。
 
-ここでは rectangle set function が premeasure であること自体は仮定しました。その確認は積測度を本格的に扱う D2C で行い、本問では **premeasure から積測度へ進む拡張部分**だけを切り出しています。
+ここでは rectangle set function が 前測度 であること自体は仮定しました。その確認は積測度を本格的に扱う D2C で行い、本問では **前測度 から積測度へ進む拡張部分**だけを切り出しています。
 <!-- solution-end -->
 
 ## F0-00D4-C01 Carathéodory拡張定理の再構成
@@ -1739,7 +1739,7 @@ $$
 - Level: C
 - 目安時間: 35分
 
-$X$ 上の algebra $\mathcal A$ と有限加法的な集合関数
+$X$ 上の 集合代数 $\mathcal A$ と有限加法的な集合関数
 
 $$
 P_0:\mathcal A\to[0,1],
@@ -1759,7 +1759,7 @@ $$
 
 次を順に示せ。
 
-1. $P_0$ は premeasure である。
+1. $P_0$ は 前測度 である。
 2. 被覆 infimum から外測度 $P^*$ を作ると、$P^*=P_0$ on $\mathcal A$ であり、$\mathcal A$ の各集合は $P^*$-Carathéodory 可測である。
 3. $P_0$ は $\sigma(\mathcal A)$ 上の確率測度 $P$ へ拡張される。
 4. この拡張は一意である。
@@ -1767,15 +1767,15 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-#### 1. Hopf 型判定で premeasure 性を得る
+#### 1. Hopf 型判定で 前測度性を得る
 
-$P_0(X)=1<\infty$ であり、問題文で有限加法性と空集合への連続性が与えられています。したがって [Hopf 型の premeasure 判定](#lem-f0-00d4-hopf-premeasure)を適用でき、
+$P_0(X)=1<\infty$ であり、問題文で有限加法性と空集合への連続性が与えられています。したがって [Hopf 型の 前測度 判定](#lem-f0-00d4-hopf-premeasure)を適用でき、
 
 $$
 P_0
 $$
 
-は $\mathcal A$ 上の premeasure です。
+は $\mathcal A$ 上の 前測度 です。
 
 適用条件を式で確認すると、互いに素な $A_n\in\mathcal A$ で
 
@@ -1806,7 +1806,7 @@ $$
 P_0(A)=\sum_{n=1}^{\infty}P_0(A_n).
 $$
 
-#### 2. 外測度を作り、元の algebra を回収する
+#### 2. 外測度を作り、元の 集合代数 を回収する
 
 任意の $E\subset X$ に対し
 
@@ -1819,15 +1819,15 @@ E\subset\bigcup_nA_n,\ A_n\in\mathcal A
 \right\}
 $$
 
-と定めます。1で $P_0$ が premeasure であることを確認したので、[premeasureから作る外測度](#lem-premeasure-outer)より $P^*$ は外測度です。
+と定めます。1で $P_0$ が 前測度 であることを確認したので、[前測度から作る外測度](#lem-premeasure-outer)より $P^*$ は外測度です。
 
-[外測度はpremeasureを拡張する](#lem-extension-agrees)から、任意の $A\in\mathcal A$ について
+[外測度は前測度を拡張する](#lem-extension-agrees)から、任意の $A\in\mathcal A$ について
 
 $$
 P^*(A)=P_0(A).
 $$
 
-[algebra集合のCarathéodory可測性](#lem-algebra-caratheodory)から、各 $A\in\mathcal A$ は $P^*$-Carathéodory 可測です。
+[集合代数の集合のCarathéodory可測性](#lem-algebra-caratheodory)から、各 $A\in\mathcal A$ は $P^*$-Carathéodory 可測です。
 
 #### 3. 生成 σ 代数へ拡張する
 
@@ -1877,7 +1877,7 @@ $$
 \to
 \text{空集合への連続性}
 \to
-\text{premeasure}
+\text{前測度}
 \to
 \text{外測度}
 \to
@@ -1899,8 +1899,8 @@ $$
 - 半直線・開区間が Carathéodory 可測であることを証明できる。
 - 実数上の開集合が高々可算個の互いに素な開区間へ分解されることを証明できる。
 - Borel σ代数と Lebesgue σ代数、完備化を区別できる。
-- 有限加法的な有限集合関数について、空集合への連続性から premeasure 性を導く Hopf 型判定を証明できる。
-- premeasure から被覆 infimum で外測度を作れる。
+- 有限加法的な有限集合関数について、空集合への連続性から 前測度性を導く Hopf 型判定を証明できる。
+- 前測度 から被覆 infimum で外測度を作れる。
 - $\mu^*=\mu_0$ on $\mathcal A$ を証明できる。
 - $\mathcal A$ の集合が Carathéodory 可測であることを証明できる。
 - Carathéodory 拡張定理が Hopf / Hahn--Kolmogorov 型の拡張定理としても現れることを把握し、存在を証明できる。
