@@ -760,7 +760,53 @@ $$
 \operatorname{div}F=0
 $$
 
-です。
+です。ここも「計算すると 0」で済ませず、どこで原点を除いているかまで確認します。$r=|x|$、$x=(x_1,x_2,x_3)$ と書けば
+
+$$
+F_i=x_i r^{-3}.
+$$
+
+$r>0$ では積の微分則と連鎖律から
+
+$$
+\frac{\partial F_i}{\partial x_i}
+=
+r^{-3}
++
+x_i\frac{\partial r^{-3}}{\partial x_i},
+$$
+
+$$
+\frac{\partial r^{-3}}{\partial x_i}
+=
+-3r^{-4}\frac{\partial r}{\partial x_i}
+=
+-3r^{-4}\frac{x_i}{r}
+=
+-3x_i r^{-5}.
+$$
+
+従って
+
+$$
+\begin{aligned}
+\operatorname{div}F
+&=
+\sum_{i=1}^3
+\left(
+r^{-3}-3x_i^2r^{-5}
+\right)\\
+&=
+3r^{-3}
+-
+3r^{-5}(x_1^2+x_2^2+x_3^2)\\
+&=
+3r^{-3}-3r^{-5}r^2\\
+&=0.
+\end{aligned}
+$$
+
+この計算自体が $r>0$ を使っており、原点では実行できません。
 
 ところが原点を囲む半径 $R$ の球面では VC3 で
 
@@ -1305,16 +1351,20 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-原点を除けば
+原点を除けば、本文 §8 の成分計算から
 
 $$
 \operatorname{div}F=0.
 $$
 
-従って
+球殻 $\Omega_{\varepsilon,R}$ の閉包では常に $|x|\ge\varepsilon>0$ なので、$F$ はその近傍で $C^1$ です。したがって [Gauss--Ostrogradsky の発散定理](#thm-vc4-gauss-divergence) をこの球殻へ適用でき、
 
 $$
-\int_{\partial\Omega_{\varepsilon,R}}F\cdot n\,dS=0.
+\int_{\partial\Omega_{\varepsilon,R}}F\cdot n\,dS
+=
+\iiint_{\Omega_{\varepsilon,R}}0\,dV
+=
+0.
 $$
 
 外球 $|x|=R$ では外向き法線が放射方向外向きなので流束は
