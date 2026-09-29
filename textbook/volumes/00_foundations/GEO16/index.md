@@ -1659,16 +1659,33 @@ $$
 <!-- proof-start -->
 ### 証明
 
-Riemann 曲率テンソルは各変数について線形なので、基底を一つ固定した表示
+Riemann 曲率テンソルは各変数について線形です。例えば $a,b\in\mathbb R$ とすると
 
 $$
-\operatorname{Ric}(Y,Z)
-=
+\begin{aligned}
+\operatorname{Ric}(aY_1+bY_2,Z)
+&=
 \sum_i
-\operatorname{Rm}(e_i,Y,Z,e_i)
+\operatorname{Rm}(e_i,aY_1+bY_2,Z,e_i)
+\\
+&=
+a\operatorname{Ric}(Y_1,Z)
++
+b\operatorname{Ric}(Y_2,Z).
+\end{aligned}
 $$
 
-から、$Y,Z$ についての双線形性が直ちに従います。前節で基底の選び方にも依存しないことを確認したので、Ricci 曲率は well-defined な2階テンソルです。
+第三変数についても同じ多重線形性から
+
+$$
+\operatorname{Ric}(Y,aZ_1+bZ_2)
+=
+a\operatorname{Ric}(Y,Z_1)
++
+b\operatorname{Ric}(Y,Z_2).
+$$
+
+従って $Y,Z$ について双線形です。前節で基底の選び方にも依存しないことを確認したので、Ricci 曲率は基底に依らず定まる2階テンソルです。
 
 残る対称性を示します。正規直交基底 $e_i$ を用いると
 
