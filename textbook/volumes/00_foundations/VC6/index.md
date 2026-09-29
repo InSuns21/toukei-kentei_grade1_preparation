@@ -1380,7 +1380,34 @@ r\sin\theta\cos\theta-r\sin\theta\cos\theta
 0,
 $$
 
-他の二組も成分を掛けて足すと 0 になります。従って $r>0$、$0<\theta<\pi$ では本当に直交曲線座標であり、
+残りも直接確認できます。
+
+$$
+\frac{\partial R}{\partial r}
+\cdot
+\frac{\partial R}{\partial\phi}
+=
+-r\sin^2\theta\cos\phi\sin\phi
++
+r\sin^2\theta\sin\phi\cos\phi
+=
+0,
+$$
+
+$$
+\begin{aligned}
+\frac{\partial R}{\partial\theta}
+\cdot
+\frac{\partial R}{\partial\phi}
+&=
+-r^2\cos\theta\sin\theta\cos\phi\sin\phi\\
+&\quad+
+r^2\cos\theta\sin\theta\sin\phi\cos\phi\\
+&=0.
+\end{aligned}
+$$
+
+従って $r>0$、$0<\theta<\pi$ では本当に直交曲線座標であり、
 
 $$
 h_r=1,
