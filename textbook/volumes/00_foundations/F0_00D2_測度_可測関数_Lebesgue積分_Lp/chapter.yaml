@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00A
+  - F0-00A1C
   - F0-00B
   - F0-00C
   - F0-00D
