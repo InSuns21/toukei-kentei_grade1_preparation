@@ -121,13 +121,41 @@ $$
 s(x)=\sum_{j=0}^{N-1}t_j1_{A_j}(x)
 $$
 
-と定めます。$s$ は有限値可測単関数です。$x\in A_j$ なら
+と定めます。$s$ は有限値可測単関数です。$j=0,\ldots,N-2$ で $x\in A_j$ なら
 
 $$
-0\le f(x)-s(x)\le t_{j+1}-t_j=\frac{2M}{N}<\varepsilon,
+t_j\le f(x)<t_{j+1},
+\qquad
+s(x)=t_j,
 $$
 
-最後の区間でも同じ評価が成り立ちます。従って
+なので
+
+$$
+0\le f(x)-s(x)<t_{j+1}-t_j=\frac{2M}{N}<\varepsilon.
+$$
+
+最後の集合 $A_{N-1}$ では
+
+$$
+t_{N-1}\le f(x)\le t_N,
+\qquad
+s(x)=t_{N-1},
+$$
+
+だから
+
+$$
+0\le f(x)-s(x)
+\le
+t_N-t_{N-1}
+=
+\frac{2M}{N}
+<
+\varepsilon.
+$$
+
+従って全ての $x\in X$ で $|f(x)-s(x)|<\varepsilon$ となり、
 
 $$
 \sup_{x\in X}|f(x)-s(x)|<\varepsilon.
@@ -138,19 +166,53 @@ $$
 $$
 N_n
 =
-\left\lfloor 2^{n+1}M\right\rfloor+1
+\left\lfloor 2^{n+1}M\right\rfloor+1,
+\qquad
+t_{n,j}
+=
+-M+\frac{2Mj}{N_n}
+\quad(j=0,\ldots,N_n)
 $$
 
-と置けば
+と置きます。すると
 
 $$
-\frac{2M}{N_n}<2^{-n}
+\frac{2M}{N_n}<2^{-n}.
 $$
 
-です。上と同じ分割を $N=N_n$ で作って得た単関数を $s_n$ とすれば
+さらに
 
 $$
-\|f-s_n\|_\infty<2^{-n}\to0.
+A_{n,j}
+=
+\{x:t_{n,j}\le f(x)<t_{n,j+1}\}
+\quad(j=0,\ldots,N_n-2),
+$$
+
+$$
+A_{n,N_n-1}
+=
+\{x:t_{n,N_n-1}\le f(x)\le t_{n,N_n}\}
+$$
+
+とし、
+
+$$
+s_n(x)
+=
+\sum_{j=0}^{N_n-1}
+t_{n,j}1_{A_{n,j}}(x)
+$$
+
+と定めます。先ほど確認した可測性と誤差評価を $N=N_n$ に代入すると
+
+$$
+\|f-s_n\|_\infty
+<
+\frac{2M}{N_n}
+<
+2^{-n}
+\to0.
 $$
 
 これで一様近似列まで具体的に構成できました。$\square$
