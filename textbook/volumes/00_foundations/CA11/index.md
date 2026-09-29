@@ -6,7 +6,7 @@
 
 ## 0. この章の主線
 
-正則関数列の局所一様極限は [CA7](../CA7/index.md#thm-ca7-holomorphic-locally-uniform-limit)、Weierstrass の基本因子と正弦関数の Euler 積は [CA10](../CA10/index.md#def-ca10-elementary-factor) と [CA10 の Euler 積](../CA10/index.md#thm-ca10-euler-sine-product)を正本とする。
+正則関数列の局所一様極限は [CA7](../CA7/index.md#thm-ca7-holomorphic-locally-uniform-limit)、Weierstrass の基本因子と正弦関数の Euler 積は [CA10](../CA10/index.md#def-ca10-elementary-factor) と [CA10 の Euler 積](../CA10/index.md#thm-ca10-euler-sine-product)を使う。
 
 ~~~text
 Euler 積分
@@ -30,7 +30,7 @@ Euler 積分
 倍角恒等式
 ~~~
 
-本章では Gamma 関数の構成・解析接続・積表示・反射公式・正の実軸上の Stirling 公式までを一続きに扱う。Bohr--Mollerup の特徴付け、高次の漸近展開、Barnes G 関数やその多重版には追加の道具が必要になるため、後続の話題とする。
+本章では Gamma 関数の構成・解析接続・積表示・反射公式・正の実軸上の Stirling 公式までを一続きに扱う。特徴付け定理や高次の漸近展開、さらに別の特殊関数へ進むには追加の道具が必要になるため、それらは後続の学習へ回す。
 
 ---
 
