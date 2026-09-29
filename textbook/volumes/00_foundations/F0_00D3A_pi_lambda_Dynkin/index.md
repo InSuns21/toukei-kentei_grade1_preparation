@@ -567,7 +567,7 @@ $$
   \nu\left(\bigcup_nA_n\right).
   $$
 
-従って $\mathcal D$ はDynkin族です。もともと $\mathcal P\subset\mathcal D$ なので π–λ 定理から
+従って $\mathcal D$ はDynkin族です。もともと $\mathcal P\subset\mathcal D$ なので [π–λ定理](#thm-f0-00d3a-pi-lambda) から
 
 $$
 \sigma(\mathcal P)\subset\mathcal D.
@@ -816,7 +816,7 @@ $$
 
 従って $\bigcup_nA_n\in\mathcal D$ です。以上から $\mathcal D$ はDynkin族です。
 
-仮定より $\mathcal P\subset\mathcal D$ です。そこで、π系 $\mathcal P$ とDynkin族 $\mathcal D$ にπ–λ定理を適用して
+仮定より $\mathcal P\subset\mathcal D$ です。そこで、π系 $\mathcal P$ とDynkin族 $\mathcal D$ に[π–λ定理](#thm-f0-00d3a-pi-lambda)を適用して
 
 $$
 \sigma(\mathcal P)\subset\mathcal D
@@ -936,7 +936,7 @@ $$
 \nu(( -\infty,a])
 $$
 
-が成り立つとする。π–λ定理を使って
+が成り立つとする。[π–λ定理](#thm-f0-00d3a-pi-lambda)を使って
 
 $$
 \mu(B)=\nu(B)
