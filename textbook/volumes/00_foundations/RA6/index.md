@@ -103,6 +103,8 @@ $$
 <!-- definition-example-start: def-ra6-multivariable-differentiability -->
 ### 例：二次関数を定義から微分する
 
+**定義の確認**：線形写像 $A$ を具体的に置き、残差を $\|h\|$ で割った量が0へ収束することを確かめます。
+
 $f:\mathbb R^p\to\mathbb R$ を
 
 $$
@@ -239,6 +241,8 @@ $$
 <!-- definition-example-start: def-ra6-jacobian -->
 ### 例：2変数から2変数への写像
 
+**定義の確認**：各成分の偏微分を計算し、定義どおり行と列へ並べて Jacobian 行列を作ります。
+
 $$
 F(x,y)=(x^2y,e^x\sin y)
 $$
@@ -298,6 +302,8 @@ $$
 
 <!-- definition-example-start: def-ra6-directional-derivative -->
 ### 例：二次関数の方向微分
+
+**定義の確認**：方向 $v$ を固定して差商を作り、$t\to0$ の極限が存在することを確かめます。
 
 $$
 f(x,y)=x^2+y^2
@@ -641,6 +647,8 @@ $$
 
 <!-- definition-example-start: def-ra6-hessian -->
 ### 例：二次関数のHessian
+
+**定義の確認**：すべての二階偏微分を計算し、定義どおり Hessian 行列へ並べます。
 
 $$
 f(x,y)=x^2+xy+3y^2
