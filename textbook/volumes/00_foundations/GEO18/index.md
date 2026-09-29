@@ -854,10 +854,20 @@ $$
 $v=0$ では
 
 $$
-(d\exp_p)_0=\operatorname{id}_{T_pM}
+(d\exp_p)_0=\operatorname{id}_{T_pM}.
 $$
 
-なので明らかです。
+したがって任意の $w\in T_pM$ に対して
+
+$$
+\left|
+(d\exp_p)_0(w)
+\right|
+=
+|w|,
+$$
+
+なので主張は等号で成り立ちます。
 
 $v\ne0$ とし、
 
