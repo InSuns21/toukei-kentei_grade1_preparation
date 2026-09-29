@@ -15,7 +15,7 @@ learning_objectives:
 definitions:
   - { id: F000D5-DEF-01, name: Vitali同値関係 }
   - { id: F000D5-DEF-02, name: Vitali集合 }
-  - { id: F000D5-DEF-03, name: 非可測集合 }
+  - { id: F000D5-DEF-03, name: Lebesgue非可測集合 }
 theorems:
   - { id: F000D5-THM-01, name: Vitali集合の非可測性 }
 canonical_examples:
