@@ -634,7 +634,7 @@ $$
 g_n\uparrow\liminf f_n.
 $$
 
-したがってFatouは「振動する列を liminf という単調な下側近似へ変換し、[MCT](#ref-limit-integral-exchange)を使う定理」と読めます。
+したがって Fatou は「振動する列から、[可測関数列の下極限](#def-f0-00d2b-01)へ向かって増える単調な下側近似を作り、[MCT](#ref-limit-integral-exchange)を使う定理」と読めます。
 
 <a id="lem-f0-00d2b-01"></a>
  
@@ -1001,11 +1001,26 @@ $$
 \liminf_{n\to\infty}(C-a_n)=C.
 $$
 
-この等式から $a_n\to0$ を直接確認します。任意の $\varepsilon>0$ に対して、尾部下限の極限という定義から十分大きい $N$ を取れば
+この等式から $a_n\to0$ を直接確認します。上の等式を尾部の下限で書き直すと
 
 $$
-n\ge N
-\quad\Longrightarrow\quad
+\lim_{N\to\infty}
+\inf_{n\ge N}(C-a_n)
+=
+C.
+$$
+
+従って任意の $\varepsilon>0$ に対して十分大きい $N$ を取れば
+
+$$
+\inf_{n\ge N}(C-a_n)
+>
+C-\varepsilon.
+$$
+
+よって全ての $n\ge N$ について
+
+$$
 C-a_n>C-\varepsilon.
 $$
 
@@ -1064,7 +1079,7 @@ $$
 
 です。[D2A の非負可測関数の a.e. 変更による積分不変性](../F0_00D2A_単関数_Lebesgue積分_構成/index.md#prop-f0-00d2a-nonnegative-ae-invariance)から、元の $f_n^{\mathrm{orig}},f^{\mathrm{orig}}$ も可積分です。
 
-そこで [D2A の零集合上の変更に関する定理](../F0_00D2A_単関数_Lebesgue積分_構成/index.md#thm-f0-00d2a-01)を適用すると
+そこで [零集合上の変更は積分を変えない](../F0_00D2A_単関数_Lebesgue積分_構成/index.md#thm-f0-00d2a-01)を適用すると
 
 $$
 \int f_n^{\mathrm{orig}}\,d\mu
