@@ -36,5 +36,5 @@ canonical_examples: [指示関数の密度点, L1不定積分, Cantor関数]
 problem_patterns: [MT4-MAXIMAL-WEAK11-1, MT4-DIFFERENTIATION-1, MT4-AC-FTC-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 3, level_b: 3, level_c: 2, level_d: 0 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 2, level_d: 0 }
 estimated_hours: { reading: 6.0, exercises: 3.5, review: 1.0 }
