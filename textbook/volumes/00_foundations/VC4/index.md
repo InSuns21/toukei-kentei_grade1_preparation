@@ -1295,7 +1295,7 @@ $$
 $$
 \operatorname{curl}
 \quad\longleftrightarrow\quad
-\text{boundary circulation}
+\text{境界循環}
 $$
 
-という対応を曲面上で正本化します。
+という対応を曲面上で導きます。
