@@ -68,10 +68,10 @@ $$
 
 線形写像 $A:\mathbb R^n\to\mathbb R^m$ は、標準基底を選べば行列として表せます。
 
-線形代数で学んだ行列の $2$-ノルムを用いると、
+線形代数で学んだ[行列の $2$-作用素ノルム](../F0_00F2_SVD_特異値_作用素ノルム/index.md#def-f0-00f2-operator-norm)を用いると、
 
 $$
-\|Ah\|_2\le \|A\|_2\|h\|_2
+\|Ah\|_2\le \|A\|_{\mathrm{op}}\|h\|_2
 $$
 
 が成り立ちます。
@@ -95,8 +95,10 @@ $$
 \qquad(h\to0)
 $$
 
-> となるとき、$f$ は $a$ で **微分可能** であるという。この $A$ を $Df(a)$ と書く。
+> となるとき、$f$ は $a$ で **微分可能** であるという。この $A$ を $f$ の $a$ における **微分** といい、$Df(a)$ と書く。
 <!-- formal-statement-end -->
+
+この線形写像 $Df(a)$ は、有限次元の多変数解析では **全微分（total derivative）** と呼ばれることもあります。本章では以後、単に「微分」と呼びます。
 
 関数解析の言葉では、これは有限次元 Euclid 空間における Fréchet 微分可能性です。しかしこの章では、有限次元の距離と行列だけで多変数微分として扱います。
 
@@ -191,7 +193,7 @@ $$
 $$
 \|f(a+h)-f(a)\|
 \le
-\|Df(a)\|_2\|h\|+\|r(h)\|.
+\|Df(a)\|_{\mathrm{op}}\|h\|+\|r(h)\|.
 $$
 
 右辺は $h\to0$ で0へ収束するので、$f(a+h)\to f(a)$ です。$\square$
@@ -199,27 +201,9 @@ $$
 
 ---
 
-## 4. 偏微分は全体の一次近似の一部である
+## 4. 微分・偏微分・Jacobian 行列の関係
 
-$e_j$ を $\mathbb R^n$ の第 $j$ 標準基底ベクトルとします。
-
-$f$ が $a$ で微分可能なら、
-
-$$
-f(a+te_j)-f(a)
-=
-tDf(a)e_j+o(|t|).
-$$
-
-$t$ で割って $t\to0$ とすれば、
-
-$$
-\frac{\partial f}{\partial x_j}(a)
-=
-Df(a)e_j.
-$$
-
-つまり、偏微分は $Df(a)$ を座標軸方向へ作用させたものです。
+偏微分は座標軸方向の変化だけを取り出します。$f$ が微分可能なとき、それらは一つの線形写像 $Df(a)$ の標準基底方向への値として同時に現れます。
 
 <a id="def-ra6-jacobian"></a>
 
@@ -237,6 +221,122 @@ $$
 
 > を $f$ の $a$ における **Jacobian 行列** という。
 <!-- formal-statement-end -->
+
+<a id="prop-ra6-derivative-jacobian"></a>
+
+<!-- formal-statement-start -->
+> **命題（微分と Jacobian 行列の対応）**  
+> $U\subset\mathbb R^n$ を開集合、$f:U\to\mathbb R^m$、$a\in U$ とし、$f$ が $a$ で微分可能であるとする。$e_j$ を $\mathbb R^n$ の第 $j$ 標準基底ベクトルとすると、各 $j=1,\ldots,n$ について
+
+$$
+Df(a)e_j
+=
+\frac{\partial f}{\partial x_j}(a)
+$$
+
+> が成り立つ。したがって、標準基底に関する $Df(a)$ の[表現行列](../F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md#def-f0-00f-representation-matrix)は Jacobian 行列であり、
+
+$$
+[Df(a)]_{\mathcal E_m\leftarrow\mathcal E_n}
+=
+J_f(a)
+$$
+
+> である。特に任意の $h\in\mathbb R^n$ に対して
+
+$$
+Df(a)h=J_f(a)h
+$$
+
+> が成り立つ。
+<!-- formal-statement-end -->
+
+[多変数での微分可能性](#def-ra6-multivariable-differentiability)より、ある残差 $r(h)$ が存在して
+
+$$
+f(a+h)-f(a)
+=
+Df(a)h+r(h),
+\qquad
+\frac{\|r(h)\|}{\|h\|}\to0
+$$
+
+と書けます。
+
+<!-- proof-start -->
+### 証明
+
+$h=te_j$ と置きます。$\|e_j\|=1$ なので $\|te_j\|=|t|$ であり、
+
+$$
+f(a+te_j)-f(a)
+=
+tDf(a)e_j+r(te_j)
+$$
+
+です。$t\ne0$ で両辺を $t$ で割ると、
+
+$$
+\frac{f(a+te_j)-f(a)}{t}
+=
+Df(a)e_j
++
+\frac{r(te_j)}{t}.
+$$
+
+残差について
+
+$$
+\left\|
+\frac{r(te_j)}{t}
+\right\|
+=
+\frac{\|r(te_j)\|}{|t|}
+=
+\frac{\|r(te_j)\|}{\|te_j\|}
+\to0
+$$
+
+なので、$t\to0$ とすれば
+
+$$
+\frac{\partial f}{\partial x_j}(a)
+=
+Df(a)e_j
+$$
+
+を得ます。したがって各一階偏微分は存在します。
+
+一方、表現行列の第 $j$ 列は、線形写像を第 $j$ 標準基底ベクトルへ作用させた値の座標です。よって $Df(a)$ の表現行列の第 $j$ 列は
+
+$$
+Df(a)e_j
+=
+\frac{\partial f}{\partial x_j}(a)
+=
+\begin{pmatrix}
+\dfrac{\partial f_1}{\partial x_j}(a)\\
+\vdots\\
+\dfrac{\partial f_m}{\partial x_j}(a)
+\end{pmatrix}.
+$$
+
+これは Jacobian 行列 $J_f(a)$ の第 $j$ 列そのものです。すべての列が一致するので
+
+$$
+[Df(a)]_{\mathcal E_m\leftarrow\mathcal E_n}
+=
+J_f(a).
+$$
+
+したがって任意の $h\in\mathbb R^n$ に対して
+
+$$
+Df(a)h=J_f(a)h
+$$
+
+です。$\square$
+<!-- proof-end -->
 
 <!-- definition-example-start: def-ra6-jacobian -->
 ### 例：2変数から2変数への写像
@@ -261,11 +361,7 @@ $$
 第1列は $x$ 方向、第2列は $y$ 方向の偏微分を並べたものです。
 <!-- definition-example-end -->
 
-$f$ が $a$ で微分可能なら、$Df(a)$ の標準基底に関する表現行列が $J_f(a)$ なので、
-
-$$
-\boxed{Df(a)h=J_f(a)h}.
-$$
+この命題により、微分 $Df(a)$ という座標に依らない線形写像と、Jacobian 行列という標準基底での座標表示が結び付きます。
 
 実数値関数 $f:\mathbb R^n\to\mathbb R$ では、
 
@@ -563,7 +659,7 @@ $$
 $$
 \|k(h)\|
 \le
-\|A\|_2\|h\|+\|r_f(h)\|
+\|A\|_{\mathrm{op}}\|h\|+\|r_f(h)\|
 =
 O(\|h\|),
 $$
@@ -587,7 +683,7 @@ $$
 $$
 \frac{\|Br_f(h)\|}{\|h\|}
 \le
-\|B\|_2
+\|B\|_{\mathrm{op}}
 \frac{\|r_f(h)\|}{\|h\|}
 \to0.
 $$
@@ -829,7 +925,7 @@ $$
 |R(h)|
 \le
 \frac12
-\|H_f(a+\theta h)-H_f(a)\|_2
+\|H_f(a+\theta h)-H_f(a)\|_{\mathrm{op}}
 \|h\|^2.
 $$
 
@@ -1031,7 +1127,7 @@ $A\in\mathbb R^{m\times n}$ に対し、
 $$
 \|Ax-Ay\|_2
 \le
-\|A\|_2\|x-y\|_2
+\|A\|_{\mathrm{op}}\|x-y\|_2
 $$
 
 を示し、線形写像 $x\mapsto Ax$ が連続であることを結論せよ。
@@ -1050,7 +1146,7 @@ $$
 $$
 \|A(x-y)\|_2
 \le
-\|A\|_2\|x-y\|_2.
+\|A\|_{\mathrm{op}}\|x-y\|_2.
 $$
 
 従って $x\mapsto Ax$ は Lipschitz 連続です。

@@ -34,6 +34,14 @@ concepts:
     requires:
       - analysis.multivariable-differentiability
 
+  - id: analysis.derivative-jacobian-representation
+    name: 微分と Jacobian 行列の対応
+    kind: theorem
+    requires:
+      - analysis.multivariable-differentiability
+      - analysis.jacobian-matrix
+      - linear.representation-matrix
+
   - id: analysis.directional-derivative
     name: 方向微分
     kind: definition
