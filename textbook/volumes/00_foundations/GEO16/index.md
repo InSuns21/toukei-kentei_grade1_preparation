@@ -1,4 +1,4 @@
-# GEO16 幾何学 XVI
+# GEO16 曲率は何を測っているのか：Riemann 曲率・断面曲率・Ricci 曲率
 
 <!-- definition-example-audit: strict -->
 
@@ -290,15 +290,48 @@ R(fX,Y)Z
 fR(X,Y)Z.
 $$
 
-第二変数についても
+第二変数も、相殺する項を実際に確認します。
 
 $$
-[X,fY]
+\begin{aligned}
+R(X,fY)Z
+&=
+\nabla_X\nabla_{fY}Z
+-
+\nabla_{fY}\nabla_XZ
+-
+\nabla_{[X,fY]}Z
+\\
+&=
+\nabla_X(f\nabla_YZ)
+-
+f\nabla_Y\nabla_XZ
+-
+\nabla_{f[X,Y]+X(f)Y}Z.
+\end{aligned}
+$$
+
+第一項を Leibniz 則で展開すると
+
+$$
+\nabla_X(f\nabla_YZ)
 =
-f[X,Y]+X(f)Y
+X(f)\nabla_YZ
++
+f\nabla_X\nabla_YZ,
 $$
 
-を用いると同じ相殺が起こり、
+最後の項は
+
+$$
+\nabla_{f[X,Y]+X(f)Y}Z
+=
+f\nabla_{[X,Y]}Z
++
+X(f)\nabla_YZ.
+$$
+
+したがって $X(f)\nabla_YZ$ が打ち消し合い、
 
 $$
 R(X,fY)Z
@@ -402,15 +435,23 @@ $$
 \end{aligned}
 $$
 
-第二項も同様に
+第二項も Leibniz 則を同じ形で適用して
 
 $$
+\begin{aligned}
+\nabla_{\partial_j}
+(\Gamma^m_{ik}\partial_m)
+&=
+(\partial_j\Gamma^m_{ik})\partial_m
++
+\Gamma^m_{ik}\nabla_{\partial_j}\partial_m
+\\
+&=
 (\partial_j\Gamma^\ell_{ik})\partial_\ell
 +
-\Gamma^m_{ik}\Gamma^\ell_{jm}\partial_\ell
+\Gamma^m_{ik}\Gamma^\ell_{jm}\partial_\ell.
+\end{aligned}
 $$
-
-です。
 
 差を取れば
 
@@ -766,14 +807,90 @@ Xg(U,V)
 g(\nabla_XU,V)+g(U,\nabla_XV)
 $$
 
-を各項へ二回適用します。交差項は相殺し、残る項は
+を各項へ適用します。まず第一項は
 
 $$
+\begin{aligned}
+X(Yg(Z,W))
+={}&
+g(\nabla_X\nabla_YZ,W)
++
+g(\nabla_YZ,\nabla_XW)
+\\
+&+
+g(\nabla_XZ,\nabla_YW)
++
+g(Z,\nabla_X\nabla_YW).
+\end{aligned}
+$$
+
+第二項は
+
+$$
+\begin{aligned}
+Y(Xg(Z,W))
+={}&
+g(\nabla_Y\nabla_XZ,W)
++
+g(\nabla_XZ,\nabla_YW)
+\\
+&+
+g(\nabla_YZ,\nabla_XW)
++
+g(Z,\nabla_Y\nabla_XW).
+\end{aligned}
+$$
+
+また第三項は
+
+$$
+[X,Y]g(Z,W)
+=
+g(\nabla_{[X,Y]}Z,W)
++
+g(Z,\nabla_{[X,Y]}W).
+$$
+
+最初の二式を引くと、
+
+$$
+g(\nabla_YZ,\nabla_XW),
+\qquad
+g(\nabla_XZ,\nabla_YW)
+$$
+
+の二つの交差項はそれぞれ同じ符号・同じ値で現れるため打ち消し合います。
+
+残った項から
+
+$$
+\begin{aligned}
+0
+={}&
+g(
+\nabla_X\nabla_YZ
+-
+\nabla_Y\nabla_XZ
+-
+\nabla_{[X,Y]}Z,
+W
+)
+\\
+&+
+g(
+Z,
+\nabla_X\nabla_YW
+-
+\nabla_Y\nabla_XW
+-
+\nabla_{[X,Y]}W
+)
+\\
+={}&
 g(R(X,Y)Z,W)
 +
-g(Z,R(X,Y)W)
-=
-0.
+g(Z,R(X,Y)W).
+\end{aligned}
 $$
 
 従って
@@ -1519,6 +1636,75 @@ $$
 > を **スカラー曲率**という。
 <!-- formal-statement-end -->
 
+### この和は基底の選び方に依存しない
+
+定義に正規直交基底 $e_1,\dots,e_n$ が現れるので、別の正規直交基底を選んだら値が変わらないことを直接確認しておきます。
+
+別の正規直交基底を
+
+$$
+e'_a
+=
+O_a{}^i e_i
+$$
+
+と書きます。ここで $O=(O_a{}^i)$ は直交行列なので
+
+$$
+\sum_a
+O_a{}^iO_a{}^j
+=
+\delta^{ij}.
+$$
+
+$Y,Z$ を固定すると、多重線形性から
+
+$$
+\begin{aligned}
+\sum_a
+\operatorname{Rm}(e'_a,Y,Z,e'_a)
+&=
+\sum_{a,i,j}
+O_a{}^iO_a{}^j
+\operatorname{Rm}(e_i,Y,Z,e_j)
+\\
+&=
+\sum_{i,j}
+\delta^{ij}
+\operatorname{Rm}(e_i,Y,Z,e_j)
+\\
+&=
+\sum_i
+\operatorname{Rm}(e_i,Y,Z,e_i).
+\end{aligned}
+$$
+
+従って Ricci 曲率は、どの正規直交基底で和を取っても同じ値になります。
+
+スカラー曲率についても同じ基底変換を使います。すでに Ricci 曲率が基底に依らず定まる双線形形式だと分かっているので、
+
+$$
+\begin{aligned}
+\sum_a
+\operatorname{Ric}(e'_a,e'_a)
+&=
+\sum_{a,i,j}
+O_a{}^iO_a{}^j
+\operatorname{Ric}(e_i,e_j)
+\\
+&=
+\sum_{i,j}
+\delta^{ij}
+\operatorname{Ric}(e_i,e_j)
+\\
+&=
+\sum_i
+\operatorname{Ric}(e_i,e_i).
+\end{aligned}
+$$
+
+よってスカラー曲率も基底の選び方に依存しません。
+
 <!-- definition-example-start: def-geo16-ricci-scalar -->
 **定義の確認**
 
@@ -1564,7 +1750,35 @@ $$
 <!-- proof-start -->
 ### 証明
 
-正規直交基底 $e_i$ を用いると
+Riemann 曲率テンソルは各変数について線形です。例えば $a,b\in\mathbb R$ とすると
+
+$$
+\begin{aligned}
+\operatorname{Ric}(aY_1+bY_2,Z)
+&=
+\sum_i
+\operatorname{Rm}(e_i,aY_1+bY_2,Z,e_i)
+\\
+&=
+a\operatorname{Ric}(Y_1,Z)
++
+b\operatorname{Ric}(Y_2,Z).
+\end{aligned}
+$$
+
+第三変数についても同じ多重線形性から
+
+$$
+\operatorname{Ric}(Y,aZ_1+bZ_2)
+=
+a\operatorname{Ric}(Y,Z_1)
++
+b\operatorname{Ric}(Y,Z_2).
+$$
+
+従って $Y,Z$ について双線形です。前節で基底の選び方にも依存しないことを確認したので、Ricci 曲率は基底に依らず定まる2階テンソルです。
+
+残る対称性を示します。正規直交基底 $e_i$ を用いると
 
 $$
 \operatorname{Ric}(Z,Y)
@@ -1732,7 +1946,77 @@ $$
 
 を考えます。
 
-直接確認すると $A$ は Riemann 曲率テンソルと同じ反対称性・対交換対称性・第一 Bianchi 恒等式を満たします。
+必要な対称性を順に確認します。まず
+
+$$
+\begin{aligned}
+A(Y,X,Z,W)
+&=
+c\left(
+g(X,Z)g(Y,W)
+-
+g(Y,Z)g(X,W)
+\right)
+\\
+&=
+-A(X,Y,Z,W).
+\end{aligned}
+$$
+
+同じく後ろ二変数を交換すると
+
+$$
+A(X,Y,W,Z)
+=
+-A(X,Y,Z,W).
+$$
+
+対交換については
+
+$$
+\begin{aligned}
+A(Z,W,X,Y)
+&=
+c\left(
+g(W,X)g(Z,Y)
+-
+g(Z,X)g(W,Y)
+\right)
+\\
+&=
+A(X,Y,Z,W),
+\end{aligned}
+$$
+
+ここで計量の対称性を使いました。
+
+最後に第一 Bianchi 恒等式の左辺を展開すると
+
+$$
+\begin{aligned}
+&
+A(X,Y,Z,W)
++
+A(Y,Z,X,W)
++
+A(Z,X,Y,W)
+\\
+={}&
+c\bigl[
+g(Y,Z)g(X,W)-g(X,Z)g(Y,W)
+\\
+&\quad
++g(Z,X)g(Y,W)-g(Y,X)g(Z,W)
+\\
+&\quad
++g(X,Y)g(Z,W)-g(Z,Y)g(X,W)
+\bigr]
+\\
+={}&0.
+\end{aligned}
+$$
+
+従って $A$ は Riemann 曲率テンソルと同じ代数的対称性を全て満たします。
 
 また
 
@@ -2761,7 +3045,60 @@ $$
    -u_x.
    $$
 
-   $x,y$ を交換して同様に計算すると
+   残る $y$ 成分も一般公式へ直接代入します。まず
+
+   $$
+   \begin{aligned}
+   \Gamma^y_{xx}
+   &=
+   \frac12 g^{yy}
+   \left(
+   \partial_x g_{xy}
+   +
+   \partial_x g_{xy}
+   -
+   \partial_y g_{xx}
+   \right)
+   \\
+   &=
+   -\frac12e^{-2u}\partial_y(e^{2u})
+   =
+   -u_y.
+   \end{aligned}
+   $$
+
+   次に
+
+   $$
+   \begin{aligned}
+   \Gamma^y_{xy}
+   &=
+   \frac12 g^{yy}
+   \partial_x g_{yy}
+   \\
+   &=
+   \frac12e^{-2u}\partial_x(e^{2u})
+   =
+   u_x,
+   \end{aligned}
+   $$
+
+   そして
+
+   $$
+   \begin{aligned}
+   \Gamma^y_{yy}
+   &=
+   \frac12 g^{yy}\partial_y g_{yy}
+   \\
+   &=
+   \frac12e^{-2u}\partial_y(e^{2u})
+   =
+   u_y.
+   \end{aligned}
+   $$
+
+   したがって
 
    $$
    \Gamma^y_{xx}=-u_y,

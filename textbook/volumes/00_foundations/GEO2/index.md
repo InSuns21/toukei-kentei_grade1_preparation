@@ -9,7 +9,7 @@ Euclid 空間では、点 $x$ における方向はベクトル $v\in\mathbb R^n
 
 は座標に依存しない形で構成できます。本章では、この二つの構成が同じ一次情報を表すことを証明します。
 
-その後、滑らかな写像が一次方向をどう写すか、その双対空間をどう作るか、さらに点ごとの一次情報を一つの滑らかな空間としてまとめる方法まで進みます。
+その後、滑らかな写像が一次方向をどう写すか、一次方向を実数で測る側の情報をどう作るか、さらに点ごとの一次情報を一つの滑らかな空間としてまとめる方法まで進みます。
 
 直接 prerequisite は [GEO1](../GEO1/index.md) と [LA3A](../LA3A/index.md) です。局所座標内の多変数微分と連鎖律は GEO1 の prerequisite である RA6A までを使います。
 
@@ -60,6 +60,21 @@ $$
 ---
 
 ## 2. 点での一次方向を微分作用素として定義する
+
+Euclid 空間では、方向ベクトル $a\in\mathbb R^n$ があれば
+
+$$
+f\longmapsto D_af(p)
+$$
+
+という方向微分を作れます。しかし多様体上では、座標を選ぶ前から使える「矢印 $a$」はまだありません。
+
+そこで順序を逆にします。方向微分が必ず持つ
+
+- 線形性
+- 積の微分則
+
+だけを抽出し、この二条件を満たす作用そのものを「点 $p$ での一次方向」と定義します。後で局所座標を入れると、こうして定義した作用と通常の方向ベクトルが一対一になることを証明します。
 
 <a id="def-geo2-tangent-derivation"></a>
 <!-- formal-statement-start -->
@@ -251,7 +266,19 @@ H_i(x)
 \,dt
 $$
 
-と置けば所望の分解を得ます。被積分関数は $(t,x)$ の滑らかな関数なので $H_i$ も滑らかです。また $x=a$ を代入すると
+と置けば所望の分解を得ます。被積分関数は $(t,x)$ の滑らかな関数です。ここで「積分したら滑らかさも残る」を一段だけ展開しておきます。たとえば $x^j$ で一回微分すると、連鎖律から
+
+$$
+\frac{\partial H_i}{\partial x^j}(x)
+=
+\int_0^1
+t\,
+\frac{\partial^2F}{\partial x^j\partial x^i}
+(a+t(x-a))
+\,dt.
+$$
+
+右辺は再び $t\in[0,1]$ 上の連続関数の積分です。同じ操作を任意回繰り返せるので、$H_i$ は $C^\infty$ 級です。また $x=a$ を代入すると
 
 $$
 H_i(a)
@@ -422,21 +449,30 @@ $$
 なので二曲線は一次同値です。二次の曲がり方は違っても、接ベクトルは一次の速度しか記録しません。
 <!-- definition-example-end -->
 
-この定義は座標の選び方に依存しません。別の座標 $\psi$ を使えば、座標変換
+この定義は座標の選び方に依存しません。別の座標 $\psi$ を使うとき、座標変換を
 
 $$
 F=\psi\circ\varphi^{-1}
 $$
 
-に対して Euclid 空間の連鎖律から
+と置きます。$\gamma(0)=p$ なので
+
+$$
+\psi\circ\gamma
+=
+F\circ(\varphi\circ\gamma)
+$$
+
+と書けます。ここで一変数曲線 $t\mapsto\varphi(\gamma(t))$ に Euclid 空間の連鎖律を適用し、評価点を $t=0$、したがって $\varphi(\gamma(0))=\varphi(p)$ とすると
 
 $$
 (\psi\circ\gamma)'(0)
 =
-DF_{\varphi(p)}(\varphi\circ\gamma)'(0)
+DF_{\varphi(p)}
+(\varphi\circ\gamma)'(0).
 $$
 
-となるからです。
+$\eta$ にも同じ式が成り立つので、$\varphi$ 座標で二つの速度が等しければ、$\psi$ 座標でも等しくなります。
 
 <a id="def-geo2-curve-tangent"></a>
 <!-- formal-statement-start -->
@@ -629,7 +665,51 @@ $$
 
 と変換します。
 
-実際、任意の滑らかな関数の芽 $[f]$ に作用させると、右辺は多変数連鎖律によって左辺と同じ値を与えます。
+実際、$x$ 座標の座標写像を $\varphi$、$y$ 座標の座標写像を $\psi$ とし、任意の滑らかな関数の芽 $[f]$ に作用させます。右辺は
+
+$$
+\begin{aligned}
+&\sum_{j=1}^n
+\frac{\partial y^j}{\partial x^i}(p)
+\left.\frac{\partial}{\partial y^j}\right|_p(f)\\
+&=
+\sum_{j=1}^n
+\frac{\partial(\psi\circ\varphi^{-1})^j}{\partial x^i}
+(\varphi(p))
+\frac{\partial(f\circ\psi^{-1})}{\partial y^j}
+(\psi(p)).
+\end{aligned}
+$$
+
+これは多変数連鎖律を
+
+$$
+(f\circ\psi^{-1})\circ(\psi\circ\varphi^{-1})
+=
+f\circ\varphi^{-1}
+$$
+
+へ適用した式そのものなので、
+
+$$
+\sum_{j=1}^n
+\frac{\partial y^j}{\partial x^i}(p)
+\left.\frac{\partial}{\partial y^j}\right|_p(f)
+=
+\left.\frac{\partial}{\partial x^i}\right|_p(f).
+$$
+
+任意の $[f]$ で作用が一致するため、接ベクトルとして
+
+$$
+\left.\frac{\partial}{\partial x^i}\right|_p
+=
+\sum_{j=1}^n
+\frac{\partial y^j}{\partial x^i}(p)
+\left.\frac{\partial}{\partial y^j}\right|_p
+$$
+
+が成り立ちます。
 
 従って
 
@@ -688,6 +768,10 @@ $$
 
 ## 6. 滑らかな写像は一次方向をどう写すか
 
+$M$ と $N$ の各点に接空間を作ったので、次は滑らかな写像 $f:M\to N$ が $p$ での一次方向を $f(p)$ での一次方向へどう送るかを知りたいところです。
+
+曲線表示なら答えの形は見えています。$p$ を通る曲線 $\gamma$ の速度を $v$ とみなすなら、その像 $f\circ\gamma$ の速度が「$v$ を $f$ で写した一次方向」であるはずです。微分作用素表示では、$N$ 上の試験関数 $h$ を $h\circ f$ として $M$ 側へ引き戻してから $v$ を作用させれば、同じ操作を座標なしで書けます。この考えを定義にします。
+
 <a id="def-geo2-differential"></a>
 <!-- formal-statement-start -->
 > **定義（滑らかな写像の微分）**  
@@ -728,28 +812,64 @@ f:\mathbb R^2\to\mathbb R^2,
 f(x,y)=(x^2y,e^x+y)
 $$
 
-とします。$p=(1,0)$ で
+とします。$p=(1,0)$ で、各成分を別々に微分すると
+
+$$
+D(x^2y)_{(1,0)}
+=
+(2xy,x^2)\big|_{(1,0)}
+=
+(0,1),
+$$
+
+$$
+D(e^x+y)_{(1,0)}
+=
+(e^x,1)\big|_{(1,0)}
+=
+(e,1).
+$$
+
+従って
 
 $$
 Df_p
 =
 \begin{pmatrix}
 0 & 1\\
-1 & 1
+e & 1
 \end{pmatrix}.
 $$
 
-接ベクトル $v=a\partial_x+b\partial_y$ に対し、
+接ベクトル $v=a\partial_x+b\partial_y$ の成分列 $(a,b)^{\mathsf T}$ にこの Jacobi 行列を掛けると
+
+$$
+\begin{pmatrix}
+0 & 1\\
+e & 1
+\end{pmatrix}
+\begin{pmatrix}
+a\\
+b
+\end{pmatrix}
+=
+\begin{pmatrix}
+b\\
+ea+b
+\end{pmatrix}.
+$$
+
+したがって
 
 $$
 df_p(v)
 =
-b\,\partial_{u}
+b\,\partial_u
 +
-(a+b)\,\partial_v
+(ea+b)\,\partial_v.
 $$
 
-です。通常の多変数微分と一致しています。
+通常の多変数微分と一致しています。
 <!-- definition-example-end -->
 
 <a id="thm-geo2-differential-coordinate"></a>
@@ -935,6 +1055,10 @@ $$
 
 ## 7. 双対側の一次情報
 
+接ベクトルは「どの向きへ進むか」を表しました。一方、滑らかな実数値関数 $h$ を一点で一次近似するときに知りたいのは、各方向 $v\in T_pM$ に対して変化率 $v(h)$ を返す仕組みです。
+
+これは $T_pM$ から $\mathbb R$ への線形写像です。内積をまだ入れていない一般の多様体では、これを接ベクトルと無理に同一視せず、$T_pM$ の代数的双対の元として扱うのが自然です。この線形写像を、接ベクトルとは別種の一次情報として扱います。次の定義で名前を付けます。
+
 <a id="def-geo2-cotangent-space"></a>
 <!-- formal-statement-start -->
 > **定義（余接空間）**  
@@ -1026,6 +1150,14 @@ $$
 通常の全微分がそのまま余ベクトルになっています。
 <!-- definition-example-end -->
 
+微分 $df_p$ は接ベクトルを $M$ から $N$ へ送ります。余接側では向きが逆になります。$N$ 側の余ベクトル $\alpha$ で像の速度 $df_p(v)$ を測るなら、
+
+$$
+v\longmapsto \alpha(df_p(v))
+$$
+
+は $M$ 側の余ベクトルです。これが引き戻しです。
+
 <a id="def-geo2-covector-pullback"></a>
 <!-- formal-statement-start -->
 > **定義（余ベクトルの引き戻し）**  
@@ -1069,7 +1201,7 @@ f^*\alpha
 $$
 <!-- definition-example-end -->
 
-ここで扱うのは一点の余ベクトルの引き戻しです。微分形式全体の引き戻しは GEO7 で扱います。
+ここで扱うのは一点の余ベクトルの引き戻しです。点ごとに余ベクトルを滑らかに選ぶ対象への拡張は後続章で扱います。
 
 <a id="prop-geo2-pullback-composition"></a>
 <!-- formal-statement-start -->
@@ -1111,7 +1243,9 @@ $$
 
 ## 8. 点ごとの一次情報をまとめる
 
-点ごとの接空間を全部まとめます。
+ここまでは各点ごとに別々の線形空間 $T_pM$ を作りました。しかし後で各点に接ベクトルを一つずつ滑らかに選びたいとき、$p$ が動くにつれて接ベクトルがどう動くかを一つの空間上で表す必要があります。
+
+そこで、基点 $p$ とその点での接ベクトル $v_p$ を組として扱えるよう、点ごとの接空間を全部まとめます。
 
 <a id="def-geo2-tangent-bundle"></a>
 <!-- formal-statement-start -->
@@ -1295,7 +1429,11 @@ $$
 
 ---
 
-## 9. 双対空間を点ごとにまとめる
+## 9. 余接空間を点ごとにまとめる
+
+接束と同じ理由で、余ベクトルも点ごとにばらばらのままでは、各点の余ベクトルを滑らかに選ぶという条件を定式化できません。後続章では、この点ごとの滑らかな選び方をさらに発展させます。
+
+その受け皿として余接空間を一つにまとめます。
 
 <a id="def-geo2-cotangent-bundle"></a>
 <!-- formal-statement-start -->
@@ -1443,7 +1581,7 @@ $$
 となるので滑らかです。また基点 $p$ を固定すると、$\alpha_p=\sum_i a_i dx^i|_p$ を $(a_1,\dots,a_n)$ に送る写像は $T_p^*M$ から $\mathbb R^n$ への線形同型です。従って各局所座標はファイバーごとに線形な局所自明化を与え、$T^*M$ は各ファイバーが $n$ 次元のベクトル束になります。$\square$
 <!-- proof-end -->
 
-接ベクトルの成分が $DF$ で変換されるのに対し、余ベクトルの成分は $(DF)^{-\mathsf T}$ で変換されます。この双対的な変換則が、後のテンソル場と微分形式の基礎になります。
+接ベクトルの成分が $DF$ で変換されるのに対し、余ベクトルの成分は $(DF)^{-\mathsf T}$ で変換されます。この双対的な変換則が、後で多重線形な量を座標に依存せず扱うための基礎になります。
 
 ---
 

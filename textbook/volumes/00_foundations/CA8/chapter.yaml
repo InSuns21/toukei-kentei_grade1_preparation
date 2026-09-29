@@ -12,7 +12,7 @@ official_scope: []
 learning_objectives:
   - Riemann 面をHausdorff性・第二可算性・複素座標近傍・正則遷移写像から定義し、正則性の座標不変性を証明できる
   - Riemann 面上の有理型関数と零点・極の位数を定義し、位数が座標不変であることを証明できる
-  - 被覆写像と正則被覆を定義し、経路持ち上げとホモトピー持ち上げを局所自明化とコンパクト性から証明できる
+  - TOP2 の被覆写像を Riemann 面上で再確認し、正則被覆を定義して、経路持ち上げとホモトピー持ち上げを局所自明化とコンパクト性から証明できる
   - 対数と平方根のRiemann面を構成し、多価性を被覆上の一価正則関数として説明できる
   - 格子Lambdaに対するC/LambdaのRiemann面アトラスを商位相から構成し、Hausdorff性・第二可算性・コンパクト性を証明できる
   - 連結コンパクトRiemann面から複素平面への正則関数が定数であることを最大値原理から証明できる
@@ -25,7 +25,7 @@ definitions:
   - { id: CA8-DEF-06, name: Riemann 面上の有理型関数 }
   - { id: CA8-DEF-07, name: 零点・極の位数 }
   - { id: CA8-DEF-08, name: 正則微分 }
-  - { id: CA8-DEF-09, name: 被覆写像 }
+  - { id: CA8-DEF-09, name: 複素解析で使う被覆写像の再掲 }
   - { id: CA8-DEF-10, name: 正則被覆 }
   - { id: CA8-DEF-11, name: 複素格子 }
 theorems:
