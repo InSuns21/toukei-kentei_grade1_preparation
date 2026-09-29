@@ -17,7 +17,6 @@ learning_objectives:
   - Lusinの定理を、大値部分の切断・有限単関数一様近似・Lebesgue測度の内正則性から構成できる
   - 成立しない逆向きを反例と証明機構の欠落の両方で説明できる
 definitions:
-  - { id: MT1-DEF-01, name: 各点収束の再掲 }
   - { id: MT1-DEF-02, name: a.e.収束 }
   - { id: MT1-DEF-03, name: 測度収束 }
   - { id: MT1-DEF-04, name: Lp収束 }
