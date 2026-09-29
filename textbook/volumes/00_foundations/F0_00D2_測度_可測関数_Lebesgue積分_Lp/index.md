@@ -167,11 +167,11 @@ $$
 
 「最小のσ代数」が本当に存在することも確認しておきます。$\mathcal C$ を含むσ代数全体を集めると、少なくとも $2^\Omega$ がその一つなので空ではありません。その全ての共通部分を取ると、$\Omega$ を含むこと・補集合で閉じること・可算和で閉じることは共通部分にも引き継がれます。したがって
 
-$
+$$
 \sigma(\mathcal C)
 =
-\bigcap\{\mathcal A:\mathcal A\text{ は }\mathcal C\text{ を含むσ代数}\}
-$
+\bigcap\{\mathcal A:\mathcal A\text{ は }\mathcal C\text{ を含む }\sigma\text{代数}\}
+$$
 
 と構成でき、これが $\mathcal C$ を含む最小のσ代数です。
 
@@ -266,11 +266,11 @@ $$
 - どの $A_n$ にも $x_0$ が属さなければ、和集合にも属さず、両辺は0です。
 - ちょうど一つ $A_j$ に属すれば、和集合にも属し、
 
-$
+$$
 \delta_{x_0}\!\left(\bigcup_n A_n\right)=1
 =
 \sum_n\delta_{x_0}(A_n).
-$
+$$
 
 したがって可算加法性が成り立ち、$\delta_{x_0}$ は測度です。
 
@@ -505,9 +505,9 @@ $$
 
 この章では実数値可測関数を
 
-$
+$$
 \{x:f(x)\le a\}=f^{-1}(( -\infty,a])
-$
+$$
 
 が全てBorel集合になることとして定義しました。したがって、任意の $a$ を固定し、出力側の閉半直線 $(-\infty,a]$ を連続関数で引き戻せば十分です。
 
@@ -516,23 +516,23 @@ $
 
 任意の $a\in\mathbb R$ を固定し、
 
-$
+$$
 C_a:=(-\infty,a]
-$
+$$
 
 と置きます。$C_a$ は閉集合です。連続関数は閉集合の逆像を閉集合へ戻すので
 
-$
+$$
 f^{-1}(C_a)
 =
 \{x\in\mathbb R:f(x)\le a\}
-$
+$$
 
 は $\mathbb R$ の閉集合です。閉集合はBorel集合だから
 
-$
+$$
 \{x:f(x)\le a\}\in\mathcal B(\mathbb R).
-$
+$$
 
 $a$ は任意だったので、可測関数の定義を満たし、$f$ はBorel可測です。$\square$
 <!-- proof-end -->
@@ -573,15 +573,15 @@ $A\in\mathcal F$ なら、任意の $a$ に対して $\{1_A\le a\}$ は $\varnot
 
 逆に $1_A$ が可測なら、定義を $a=1/2$ に適用して
 
-$
+$$
 \{\omega:1_A(\omega)\le1/2\}=A^c\in\mathcal F.
-$
+$$
 
 σ代数は補集合で閉じるので
 
-$
+$$
 A=(A^c)^c\in\mathcal F.
-$
+$$
 
 従って $A$ は可測です。$\square$
 <!-- proof-end -->
@@ -702,9 +702,9 @@ $\mathbb Q\cap[0,1]$ は可算でLebesgue測度0。$\{x:f(x)\ne0\}=\mathbb Q\cap
 
 $f(x)=x^2$ とする。任意の $a\in\mathbb R$ に対して
 
-$
+$$
 \{x\in\mathbb R:f(x)\le a\}
-$
+$$
 
 がBorel集合であることを、集合を具体的に書いて確認せよ。
 
@@ -713,25 +713,25 @@ $
 
 $a<0$ なら $x^2\le a$ を満たす実数はないので
 
-$
+$$
 \{x:x^2\le a\}=\varnothing.
-$
+$$
 
 $a\ge0$ なら
 
-$
+$$
 x^2\le a
 \iff
 -\sqrt a\le x\le\sqrt a
-$
+$$
 
 だから
 
-$
+$$
 \{x:x^2\le a\}
 =
 [-\sqrt a,\sqrt a].
-$
+$$
 
 空集合も閉区間もBorel集合です。従って全ての $a$ についてしきい値集合はBorel集合であり、$f(x)=x^2$ はこの章の定義でBorel可測です。
 <!-- solution-end -->
@@ -743,15 +743,15 @@ $
 
 $\Omega=\mathbb N$ に数え上げ測度 $\mu$ を入れ、
 
-$
+$$
 A_n=\{1,2,\ldots,n\}
-$
+$$
 
 とする。$A_n\uparrow\mathbb N$ と
 
-$
+$$
 \mu(A_n)\uparrow\mu(\mathbb N)
-$
+$$
 
 を直接確認せよ。
 
@@ -760,23 +760,23 @@ $
 
 $A_n\subset A_{n+1}$ であり、任意の自然数 $m$ は $A_m$ に入るので
 
-$
+$$
 \bigcup_{n=1}^{\infty}A_n=\mathbb N.
-$
+$$
 
 数え上げ測度では
 
-$
+$$
 \mu(A_n)=n,
 \qquad
 \mu(\mathbb N)=\infty.
-$
+$$
 
 従って
 
-$
+$$
 \mu(A_n)=n\uparrow\infty=\mu(\mathbb N).
-$
+$$
 
 この例では、集合の増加 $A_n\uparrow\mathbb N$ が測度の増加極限へそのまま移ることを具体的に確認できます。
 <!-- solution-end -->
@@ -910,19 +910,19 @@ $$
 
 $\Omega=\{1,2,3,4\}$ とし、
 
-$
+$$
 \mathcal F
 =
 \{\varnothing,\{1,2\},\{3,4\},\Omega\}
-$
+$$
 
 とする。関数 $f:\Omega\to\mathbb R$ が $\mathcal F$-可測であるための必要十分条件が
 
-$
+$$
 f(1)=f(2),
 \qquad
 f(3)=f(4)
-$
+$$
 
 であることを示せ。
 
@@ -931,48 +931,48 @@ $
 
 まず十分性を示します。
 
-$
+$$
 f(1)=f(2)=:\alpha,
 \qquad
 f(3)=f(4)=:\beta
-$
+$$
 
 とします。任意の $a\in\mathbb R$ に対して、しきい値集合
 
-$
+$$
 \{\omega:f(\omega)\le a\}
-$
+$$
 
 は、$\alpha,\beta$ と $a$ の大小関係に応じて
 
-$
+$$
 \varnothing,quad
 \{1,2\},quad
 \{3,4\},quad
 \Omega
-$
+$$
 
 のいずれかです。したがって常に $\mathcal F$ に属し、$f$ は可測です。
 
 次に必要性を示します。$f$ が可測で、たとえば $f(1)\ne f(2)$ と仮定します。必要なら1と2を入れ替えて
 
-$
+$$
 f(1)<f(2)
-$
+$$
 
 としてよいので、その間の実数 $a$ を
 
-$
+$$
 f(1)<a<f(2)
-$
+$$
 
 となるように取ります。すると
 
-$
+$$
 1\in\{\omega:f(\omega)\le a\},
 \qquad
 2\notin\{\omega:f(\omega)\le a\}.
-$
+$$
 
 しかし $\mathcal F$ の集合は1と2を常に同時に含むか、同時に含みません。従ってこのしきい値集合は $\mathcal F$ に属さず、可測性に反します。よって $f(1)=f(2)$ です。
 
