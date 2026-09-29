@@ -851,9 +851,9 @@ $$
 任意の適切な領域 $\Omega$ について
 
 $$
-\text{境界から外へ出る total flux}
+\text{境界から外へ出る総流束}
 =
-\text{内部の source density の総和}.
+\text{内部の湧き出し密度の総和}.
 $$
 
 つまり
@@ -1539,9 +1539,9 @@ $$
 次の VC5 では、残るもう一つの積分定理 [Kelvin--Stokes の定理](../VC5/index.md#thm-vc5-stokes) を扱います。そこで
 
 $$
-\operatorname{curl}
+\text{回転}
 \quad\longleftrightarrow\quad
-\text{boundary circulation}
+\text{境界循環}
 $$
 
-という対応を曲面上で正本化します。
+という対応を曲面上で確立します。
