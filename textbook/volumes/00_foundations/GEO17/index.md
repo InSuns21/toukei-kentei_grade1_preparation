@@ -1,4 +1,4 @@
-# GEO17 幾何学 XVII
+# GEO17 近い測地線はどう離れ、いつ最短性を失うか：変分・Jacobi 場・共役点
 
 <!-- definition-example-audit: strict -->
 
@@ -654,6 +654,16 @@ $$
 <!-- proof-start -->
 ### 証明
 
+ここでは、基準曲線上の変分ベクトル場 $V(t)$ と、変分面全体の $s$ 方向ベクトル場を区別します。
+
+$$
+\mathcal V(s,t)
+:=
+\frac{\partial F}{\partial s}(s,t),
+\qquad
+V(t)=\mathcal V(0,t).
+$$
+
 固定端点変分では各 $s$ について境界項が消えるので、第一変分公式を変分曲線 $F(s,\cdot)$ へ適用すると
 
 $$
@@ -662,30 +672,34 @@ E'(s)
 -
 \int_a^b
 g\left(
-V,
+\mathcal V,
 \frac{DT}{\partial t}
 \right)dt.
 $$
 
-$s$ で微分し、$s=0$ を代入します。
+ここで微分してから $s=0$ とすると
 
 $$
+\begin{aligned}
 E''(0)
 =
 -
 \int_a^b
-\left[
+\Biggl[
+&
 g\left(
-\frac{DV}{\partial s},
+\frac{D\mathcal V}{\partial s},
 \frac{DT}{\partial t}
 \right)
-+
+\\
+&+
 g\left(
-V,
+\mathcal V,
 \frac{D}{\partial s}\frac{DT}{\partial t}
 \right)
-\right]_{s=0}
+\Biggr]_{s=0}
 dt.
+\end{aligned}
 $$
 
 $\gamma$ は測地線なので
@@ -700,28 +714,48 @@ $$
 
 従って第一項は消えます。
 
-[変分方向と曲線方向の共変微分の交換](#lem-geo17-variation-commutation)から
+[変分方向と曲線方向の共変微分の交換](#lem-geo17-variation-commutation)を変分面上で使うと
 
 $$
 \frac{D}{\partial s}\frac{DT}{\partial t}
 =
 \frac{D}{\partial t}\frac{DT}{\partial s}
 +
-R(V,T)T.
+R(\mathcal V,T)T.
 $$
 
-さらに捩率0より
+さらに捩率0より、変分面上で
 
 $$
 \frac{DT}{\partial s}
 =
-\frac{DV}{\partial t}.
+\frac{D\mathcal V}{\partial t}.
 $$
 
-したがって $s=0$ で
+したがって
 
 $$
 \frac{D}{\partial s}\frac{DT}{\partial t}
+=
+\frac{D^2\mathcal V}{\partial t^2}
++
+R(\mathcal V,T)T.
+$$
+
+ここで初めて $s=0$ に制限すると
+
+$$
+\mathcal V(0,t)=V(t),
+\qquad
+T(0,t)=\dot\gamma(t),
+$$
+
+なので
+
+$$
+\left.
+\frac{D}{\partial s}\frac{DT}{\partial t}
+\right|_{s=0}
 =
 \frac{D^2V}{dt^2}
 +
@@ -1095,7 +1129,61 @@ $$
 
 となるように取ります。
 
-局所座標または局所標構を使えば、このような $v(s)$ は成分を一次に指定して構成できます。
+この条件が本当に指定できることを座標で確認します。$p$ の近くで局所座標を取り、
+
+$$
+p(s)=(p^1(s),\dots,p^n(s)),
+$$
+
+$$
+v(s)=v^k(s)\partial_k|_{p(s)}
+$$
+
+と書きます。また
+
+$$
+B
+:=
+\frac{DJ}{dt}(a)
+=
+B^k\partial_k|_p
+$$
+
+とします。
+
+曲線 $p(s)$ に沿う共変微分の座標公式から
+
+$$
+\left.
+\frac{Dv}{ds}
+\right|_{s=0}
+=
+\left[
+\frac{dv^k}{ds}(0)
++
+\Gamma^k_{ij}(p)
+\frac{dp^i}{ds}(0)
+v^j
+\right]
+\partial_k|_p.
+$$
+
+従って成分の初期微分を
+
+$$
+\boxed{
+\frac{dv^k}{ds}(0)
+=
+B^k
+-
+\Gamma^k_{ij}(p)
+p'^i(0)v^j
+}
+$$
+
+と選べば、望む共変微分が得られます。
+
+例えば各 $v^k(s)$ をこの初期値・初期微分を持つ滑らかな関数として取ればよいので、この $v(s)$ は実際に構成できます。
 
 十分小さい $s$ と $t-a$ に対して
 
@@ -1890,17 +1978,63 @@ $x(b)=0$ なので上端の境界項は0です。
 初期条件から
 
 $$
+A(a)=0,
+\qquad
+A'(a)=I_n
+$$
+
+なので Taylor 展開により
+
+$$
 A(t)
 =
 (t-a)I_n+O((t-a)^2),
 $$
 
-従って
+$$
+A'(t)
+=
+I_n+O(t-a).
+$$
+
+第一式から
 
 $$
-S(t)
+A(t)
 =
+(t-a)
+\left(
+I_n+O(t-a)
+\right)
+$$
+
+と因数分解できます。$t>a$ を十分 $a$ に近づければ括弧内は可逆で、
+
+$$
+A(t)^{-1}
+=
+\frac1{t-a}
+\left(
+I_n+O(t-a)
+\right).
+$$
+
+したがって
+
+$$
+\begin{aligned}
+S(t)
+&=
+A'(t)A(t)^{-1}
+\\
+&=
+\left(I_n+O(t-a)\right)
+\frac1{t-a}
+\left(I_n+O(t-a)\right)
+\\
+&=
 \frac1{t-a}I_n+O(1).
+\end{aligned}
 $$
 
 一方 $x(a)=0$ なので
@@ -2089,7 +2223,44 @@ $$
 I(U_\varepsilon,U_\varepsilon)<0.
 $$
 
-$V$ の角は $c$ だけなので、必要なら $c$ の小近傍で平滑化しても負性は保たれます。従って滑らかな端点0のベクトル場 $U$ で
+$U_\varepsilon$ は $c$ で値そのものは連続ですが、共変微分には跳びがあり得るので、このままでは滑らかな変分ベクトル場ではありません。
+
+そこで $c$ の十分小さい区間 $(c-\delta,c+\delta)$ だけで、平行標構に関する成分を滑らかにつなぎ直します。得られる滑らかな端点0のベクトル場を $U_\delta$ とします。
+
+区間の外では
+
+$$
+U_\delta=U_\varepsilon
+$$
+
+とし、区間内では成分とその一階微分を一様に有界に保ちながら接続できます。すると $\delta\downarrow0$ で
+
+$$
+\int_a^b
+|U_\delta-U_\varepsilon|^2dt
+\to0,
+$$
+
+$$
+\int_a^b
+\left|
+\frac{DU_\delta}{dt}
+-
+\frac{DU_\varepsilon}{dt}
+\right|^2dt
+\to0.
+$$
+
+曲率作用素はコンパクト区間上で有界なので、指数形式の二つの積分項も収束し、
+
+$$
+I(U_\delta,U_\delta)
+\longrightarrow
+I(U_\varepsilon,U_\varepsilon)
+<0.
+$$
+
+従って $\delta$ を十分小さく選べば、滑らかな端点0のベクトル場 $U:=U_\delta$ で
 
 $$
 I(U,U)<0
