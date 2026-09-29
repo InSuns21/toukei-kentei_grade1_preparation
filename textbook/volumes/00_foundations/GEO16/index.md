@@ -1659,7 +1659,18 @@ $$
 <!-- proof-start -->
 ### 証明
 
-正規直交基底 $e_i$ を用いると
+Riemann 曲率テンソルは各変数について線形なので、基底を一つ固定した表示
+
+$$
+\operatorname{Ric}(Y,Z)
+=
+\sum_i
+\operatorname{Rm}(e_i,Y,Z,e_i)
+$$
+
+から、$Y,Z$ についての双線形性が直ちに従います。前節で基底の選び方にも依存しないことを確認したので、Ricci 曲率は well-defined な2階テンソルです。
+
+残る対称性を示します。正規直交基底 $e_i$ を用いると
 
 $$
 \operatorname{Ric}(Z,Y)
