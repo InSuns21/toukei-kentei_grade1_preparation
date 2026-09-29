@@ -27,6 +27,7 @@ theorems:
   - { id: F000D4-THM-01, name: 区間のLebesgue外測度と長さの一致 }
   - { id: F000D4-THM-02, name: 半直線・開区間のCarathéodory可測性 }
   - { id: F000D4-THM-03, name: 実数上の開集合の可算開区間分解 }
+  - { id: F000D4-COR-01, name: Lebesgue測度の平行移動不変性 }
   - { id: F000D4-THM-04, name: Carathéodory拡張定理 }
   - { id: F000D4-THM-05, name: sigma有限拡張の一意性 }
   - { id: F000D4-THM-06, name: Hopf型のpremeasure判定 }
