@@ -687,9 +687,9 @@ $$
 
 正規球では $z=\exp_x(v)$ と一意に書けます。[正規球での基点からの距離](../GEO14/index.md#cor-geo14-normal-distance)をこの $z$ に適用すると
 
-$
+$$
 |v|=d(x,z)=\delta.
-$
+$$
 
 よって
 
