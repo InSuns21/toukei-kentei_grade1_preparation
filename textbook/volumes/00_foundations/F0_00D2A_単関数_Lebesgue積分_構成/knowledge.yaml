@@ -60,7 +60,7 @@ concepts:
   - id: measure.positive-negative-parts
     name: 正部分・負部分
     kind: definition
-    aliases: [正部分・負部分, 正部分, 負部分]
+    aliases: [正部分・負部分]
     requires:
       - measure.measurable-function
 
