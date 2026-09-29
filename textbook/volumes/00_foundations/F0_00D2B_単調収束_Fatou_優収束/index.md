@@ -108,7 +108,7 @@ $$
 \int f_n\gtrsim \alpha\int\phi
 $$
 
-を得て、最後に $\alpha\uparrow1$、さらに全ての $\phi\le f$ の supremum を取ります。
+を得て、最後に $\alpha\uparrow1$、さらに全ての $\phi\le f$ の 上限 を取ります。
 
 つまり **一般の $f$ を直接つかまず、Lebesgue積分の定義である単関数近似へ戻る** のが核心です。
 
@@ -317,7 +317,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-D2A の単関数近似定理から、非負単関数列 $(\phi_n),(\psi_n)$ を
+[D2A の単関数近似定理](../F0_00D2A_単関数_Lebesgue積分_構成/index.md#thm-simple-function-approximation)から、非負単関数列 $(\phi_n),(\psi_n)$ を
 
 $$
 0\le\phi_n\uparrow u,
@@ -795,15 +795,35 @@ N
 N_0\cup\bigcup_{n=1}^{\infty}N_n
 $$
 
-も測度0です。$N$ 上で $f_n,f$ を0へ変更しても、[D2A の零集合上の変更に関する定理](../F0_00D2A_単関数_Lebesgue積分_構成/index.md#thm-f0-00d2a-01)により積分値は変わりません。従って以下では
+も測度0です。そこで
 
 $$
-f_n\to f,
+\widetilde f_n=f_n1_{N^c},
 \qquad
-|f_n|\le g
+\widetilde f=f1_{N^c}
 $$
 
-が全ての点で成り立つとしてよいです。
+と置きます。$N^c$ 上では元の仮定が全て成り立ち、$N$ 上では両方0なので
+
+$$
+\widetilde f_n\to\widetilde f,
+\qquad
+|\widetilde f_n|\le g
+$$
+
+が全ての点で成り立ちます。
+
+また
+
+$$
+|\widetilde f_n|=|f_n|\quad\text{a.e.},
+\qquad
+|\widetilde f|=|f|\quad\text{a.e.}
+$$
+
+です。[D2A の非負可測関数の a.e. 変更による積分不変性](../F0_00D2A_単関数_Lebesgue積分_構成/index.md#prop-f0-00d2a-nonnegative-ae-invariance)から、絶対値の積分はこの変更で変わりません。
+
+以下では記号を簡単にするため $\widetilde f_n,\widetilde f$ を改めて $f_n,f$ と書きます。すると仮定は全点で成り立ちます。
 
 極限を取ると
 
@@ -811,17 +831,27 @@ $$
 |f|\le g.
 $$
 
-Lebesgue積分の単調性から
+[Lebesgue積分の単調性](../F0_00D2A_単関数_Lebesgue積分_構成/index.md#prop-f0-00d2a-02)から
 
 $$
 \int|f|\,d\mu
 \le
 \int g\,d\mu
 <
-\infty,
+\infty.
 $$
 
-従って $f$ は可積分です。
+従って $f$ は可積分です。同様に各 $f_n$ も
+
+$$
+\int|f_n|\,d\mu
+\le
+\int g\,d\mu
+<
+\infty
+$$
+
+なので可積分です。
 
 $$
 h_n:=|f_n-f|
