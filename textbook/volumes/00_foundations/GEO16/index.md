@@ -1,4 +1,4 @@
-# GEO16 幾何学 XVI
+# GEO16 曲率は何を測っているのか：Riemann 曲率・断面曲率・Ricci 曲率
 
 <!-- definition-example-audit: strict -->
 
@@ -290,15 +290,48 @@ R(fX,Y)Z
 fR(X,Y)Z.
 $$
 
-第二変数についても
+第二変数も、相殺する項を実際に確認します。
 
 $$
-[X,fY]
+\begin{aligned}
+R(X,fY)Z
+&=
+\nabla_X\nabla_{fY}Z
+-
+\nabla_{fY}\nabla_XZ
+-
+\nabla_{[X,fY]}Z
+\\
+&=
+\nabla_X(f\nabla_YZ)
+-
+f\nabla_Y\nabla_XZ
+-
+\nabla_{f[X,Y]+X(f)Y}Z.
+\end{aligned}
+$$
+
+第一項を Leibniz 則で展開すると
+
+$$
+\nabla_X(f\nabla_YZ)
 =
-f[X,Y]+X(f)Y
+X(f)\nabla_YZ
++
+f\nabla_X\nabla_YZ,
 $$
 
-を用いると同じ相殺が起こり、
+最後の項は
+
+$$
+\nabla_{f[X,Y]+X(f)Y}Z
+=
+f\nabla_{[X,Y]}Z
++
+X(f)\nabla_YZ.
+$$
+
+したがって $X(f)\nabla_YZ$ が打ち消し合い、
 
 $$
 R(X,fY)Z
@@ -402,15 +435,23 @@ $$
 \end{aligned}
 $$
 
-第二項も同様に
+第二項も Leibniz 則を同じ形で適用して
 
 $$
+\begin{aligned}
+\nabla_{\partial_j}
+(\Gamma^m_{ik}\partial_m)
+&=
+(\partial_j\Gamma^m_{ik})\partial_m
++
+\Gamma^m_{ik}\nabla_{\partial_j}\partial_m
+\\
+&=
 (\partial_j\Gamma^\ell_{ik})\partial_\ell
 +
-\Gamma^m_{ik}\Gamma^\ell_{jm}\partial_\ell
+\Gamma^m_{ik}\Gamma^\ell_{jm}\partial_\ell.
+\end{aligned}
 $$
-
-です。
 
 差を取れば
 
@@ -1518,6 +1559,60 @@ $$
 >
 > を **スカラー曲率**という。
 <!-- formal-statement-end -->
+
+### この和は基底の選び方に依存しない
+
+定義に正規直交基底 $e_1,\dots,e_n$ が現れるので、別の正規直交基底を選んだら値が変わらないことを確認しておきます。
+
+$Y,Z$ を固定し、
+
+$$
+L_{Y,Z}(X):=R(X,Y)Z
+$$
+
+という $T_pM$ 上の線形写像を考えます。正規直交基底では
+
+$$
+\begin{aligned}
+\operatorname{tr}L_{Y,Z}
+&=
+\sum_i g(L_{Y,Z}e_i,e_i)
+\\
+&=
+\sum_i g(R(e_i,Y)Z,e_i)
+\\
+&=
+\sum_i\operatorname{Rm}(e_i,Y,Z,e_i).
+\end{aligned}
+$$
+
+したがって
+
+$$
+\operatorname{Ric}(Y,Z)
+=
+\operatorname{tr}L_{Y,Z}.
+$$
+
+線形写像の跡は基底変換で変わらないので、Ricci 曲率は選んだ正規直交基底に依存しません。
+
+スカラー曲率についても、正規直交基底を $e'_i=O_i{}^j e_j$ と取り替えると、Ricci 曲率の行列は
+
+$$
+[\operatorname{Ric}]'
+=
+O[\operatorname{Ric}]O^{\mathsf T}
+$$
+
+と変換されます。直交行列 $O$ に対して跡は不変なので
+
+$$
+\sum_i\operatorname{Ric}(e'_i,e'_i)
+=
+\sum_i\operatorname{Ric}(e_i,e_i).
+$$
+
+よってスカラー曲率も基底の選び方に依存しません。
 
 <!-- definition-example-start: def-geo16-ricci-scalar -->
 **定義の確認**
@@ -2761,7 +2856,60 @@ $$
    -u_x.
    $$
 
-   $x,y$ を交換して同様に計算すると
+   残る $y$ 成分も一般公式へ直接代入します。まず
+
+   $$
+   \begin{aligned}
+   \Gamma^y_{xx}
+   &=
+   \frac12 g^{yy}
+   \left(
+   \partial_x g_{xy}
+   +
+   \partial_x g_{xy}
+   -
+   \partial_y g_{xx}
+   \right)
+   \\
+   &=
+   -\frac12e^{-2u}\partial_y(e^{2u})
+   =
+   -u_y.
+   \end{aligned}
+   $$
+
+   次に
+
+   $$
+   \begin{aligned}
+   \Gamma^y_{xy}
+   &=
+   \frac12 g^{yy}
+   \partial_x g_{yy}
+   \\
+   &=
+   \frac12e^{-2u}\partial_x(e^{2u})
+   =
+   u_x,
+   \end{aligned}
+   $$
+
+   そして
+
+   $$
+   \begin{aligned}
+   \Gamma^y_{yy}
+   &=
+   \frac12 g^{yy}\partial_y g_{yy}
+   \\
+   &=
+   \frac12e^{-2u}\partial_y(e^{2u})
+   =
+   u_y.
+   \end{aligned}
+   $$
+
+   したがって
 
    $$
    \Gamma^y_{xx}=-u_y,
