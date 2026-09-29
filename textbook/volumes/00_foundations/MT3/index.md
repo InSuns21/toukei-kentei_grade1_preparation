@@ -19,7 +19,7 @@ MT2：Hahn–Jordan・全変動
           ↓
 符号付き測度版
           ↓
-変数測度の積分公式・chain rule
+測度変更の積分公式・連鎖律
           ↓
 Lebesgue 分解
 ```
@@ -27,6 +27,22 @@ Lebesgue 分解
 ---
 
 ## 1. σ-finite 性と Radon–Nikodym 微分
+
+有限測度だけなら「全空間の質量が有限」という一つの条件の下で議論できます。しかし Lebesgue 測度のように全空間では無限大でも、有限区間ごとなら有限な測度を扱いたい場面が標準的です。
+
+例えば Lebesgue 測度 $\lambda$ は
+
+$$
+\lambda(\mathbb R)=\infty
+$$
+
+ですが、各 $[-n,n]$ では
+
+$$
+\lambda([-n,n])=2n<\infty.
+$$
+
+この「可算個の有限な場所へ分けられる」性質が、有限測度版の議論を一般の空間へ貼り合わせるための道具になります。
 
 <a id="def-mt3-sigma-finite"></a>
 <!-- formal-statement-start -->
@@ -45,6 +61,16 @@ $$
 <!-- formal-statement-end -->
 
 有限測度は σ-finite ですが、逆は一般に成り立ちません。Lebesgue 測度は $\mathbb R=\bigcup_n[-n,n]$ により σ-finite です。
+
+次に、絶対連続性 $\nu\ll\mu$ が「$\mu$ が見ない零集合を $\nu$ も見ない」という定性的条件だったことを思い出します。ここから一歩進めて、$\nu$ が $\mu$ の各場所へどれだけ重みを掛けたものかを関数で表したい、というのが Radon–Nikodym 微分です。
+
+例えば $[0,1]$ 上で
+
+$$
+\nu(E)=\int_E(1+x)\,d\lambda
+$$
+
+なら、区間の右側ほど Lebesgue 測度へ大きな重みを掛けています。この重み $1+x$ を抽象測度 $\nu$ から回収することが目標です。
 
 <a id="def-mt3-rn-density"></a>
 <!-- formal-statement-start -->
@@ -517,7 +543,17 @@ $$
 \nu(C_k)<\infty.
 $$
 
-$C_k$ 上の制限測度に [§2 の有限正測度版](#thm-mt3-rn-finite)を適用すると、$C_k$ 上の非負可測関数 $f_k$ が存在して
+各 $k$ について
+
+$$
+\mu_k(E):=\mu(E\cap C_k),
+\qquad
+\nu_k(E):=\nu(E\cap C_k)
+$$
+
+と制限測度を定めます。$\mu(C_k),\nu(C_k)<\infty$ なので $\mu_k,\nu_k$ は有限正測度であり、$\nu\ll\mu$ から $\nu_k\ll\mu_k$ も成り立ちます。
+
+したがって [§2 の有限正測度版](#thm-mt3-rn-finite)を **$\mu_k,\nu_k$ に適用**でき、$C_k$ 上の非負可測関数 $f_k$ が存在して
 
 $$
 \nu(E\cap C_k)
@@ -686,7 +722,13 @@ $$
 <!-- formal-statement-start -->
 ### 系（Radon–Nikodym 微分の連鎖律）
 
-$\lambda\ll\nu\ll\mu$ で、必要な測度が σ-finite とする。このとき
+$\mu,\nu,\lambda$ を同じ可測空間上の σ-finite 正測度とし、
+
+$$
+\lambda\ll\nu\ll\mu
+$$
+
+とする。このとき
 
 $$
 \boxed{
@@ -707,17 +749,35 @@ f=\frac{d\nu}{d\mu},
 g=\frac{d\lambda}{d\nu}
 $$
 
-と置きます。任意の $E$ について[測度変更の積分公式](#thm-mt3-change-measure)より
+と置きます。任意の可測集合 $E$ を固定します。$d\lambda/d\nu=g$ の定義から
 
 $$
-\lambda(E)
+\lambda(E)=\int_Eg\,d\nu.
+$$
+
+ここで[測度変更の積分公式](#thm-mt3-change-measure)へ入力する関数を
+
+$$
+h=g1_E
+$$
+
+と選びます。基準測度は $\mu$、変更後の測度は $\nu$、その密度が $f=d\nu/d\mu$ です。したがって
+
+$$
+\int_X g1_E\,d\nu
 =
-\int_Eg\,d\nu
+\int_X g1_E f\,d\mu
 =
 \int_Egf\,d\mu.
 $$
 
-従って $gf$ は $\lambda$ の $\mu$ に関する RN 密度です。一意性から結論が従います。$\square$
+以上をつなぐと
+
+$$
+\lambda(E)=\int_Egf\,d\mu
+$$
+
+が全ての可測 $E$ で成り立ちます。従って $gf$ は $\lambda$ の $\mu$ に関する RN 密度です。一意性から結論が従います。$\square$
 <!-- proof-end -->
 
 ---
@@ -830,6 +890,10 @@ $$
 
 ## 6. 特異性
 
+絶対連続性が「$\mu$ の零集合には質量を置かない」という関係なのに対し、反対側には「質量の全部を $\mu$ の零集合へ押し込められる」という関係があります。
+
+例えば $[0,1]$ 上の Lebesgue 測度 $\lambda$ と Dirac 測度 $\delta_0$ では、$\lambda(\{0\})=0$ ですが $\delta_0$ の全質量は $\{0\}$ にあります。この関係を特異性として定式化します。
+
 <a id="def-mt3-singular-positive"></a>
 <!-- formal-statement-start -->
 ### 定義（互いに特異な正測度）
@@ -917,6 +981,16 @@ $$
 ---
 
 ## 7. Lebesgue 分解：正測度版
+
+一般の測度は、絶対連続か特異かのどちらか一方とは限りません。例えば
+
+$$
+\nu(E)=\int_E x\,d\lambda+2\delta_0(E)
+$$
+
+は、密度 $x$ で表せる部分と、$\lambda$-零集合 $\{0\}$ に集中する部分を同時に持ちます。
+
+そこで任意の $\nu$ を、$\mu$ に対して密度で表せる部分と、$\mu$ の零集合へ集中する部分へ標準的に分けたい、というのが Lebesgue 分解です。
 
 <a id="thm-mt3-lebesgue-decomposition-positive"></a>
 <!-- formal-statement-start -->
@@ -1328,9 +1402,7 @@ $$
 
 ---
 
----
-
-## 9.5 定義の横断確認：有限離散測度
+## 10.5 定義の横断確認：有限離散測度
 
 <!-- definition-example-start: def-mt3-sigma-finite, def-mt3-rn-density, def-mt3-singular-positive, def-mt3-singular-signed -->
 $X=\{a,b\}$ とします。$\mu=\delta_a+\delta_b$ は有限測度なので、$X_1=X$ と取れば σ-finite です。$\nu=2\delta_a+3\delta_b$ とすると、$f(a)=2,f(b)=3$ に対して全ての $E\subseteq X$ で $\nu(E)=\int_E f\,d\mu$ となります。
@@ -1642,7 +1714,7 @@ $$
 - [Hahn 分解](../MT2/index.md#thm-mt2-hahn)を用いた残差消去
 - σ-finite 版への可算局所化
 - σ-finite 性を外したときの具体的反例
-- 測度変更の積分公式と RN 微分の chain rule
+- 測度変更の積分公式と RN 微分の連鎖律
 - 有限符号付き測度版 RN 定理
 - 正測度・有限符号付き測度の Lebesgue 分解
 - 絶対連続部分と特異部分の一意性
