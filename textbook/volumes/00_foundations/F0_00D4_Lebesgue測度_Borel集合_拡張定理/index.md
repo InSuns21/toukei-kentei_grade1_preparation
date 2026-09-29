@@ -187,7 +187,7 @@ $A+t$ に $-t$ を適用すれば逆向きも得るので等号です。$\square
 <a id="cor-f0-00d4-lebesgue-translation-invariance"></a>
 
 <!-- formal-statement-start -->
-### 系（Lebesgue可測性と測度の平行移動不変性）
+### 系（Lebesgue測度の平行移動不変性）
 
 $E\subset\mathbb R$ が Lebesgue 可測なら、任意の $t\in\mathbb R$ に対して $E+t$ も Lebesgue 可測であり、
 
@@ -476,19 +476,17 @@ $$
 
 <a id="def-borel-sigma-algebra"></a>
 
-<!-- formal-statement-start -->
-### 定義（Borel σ代数）
+### Borel σ代数の再確認
+
+D2 で導入した Borel σ代数を、この章で得た「全ての開集合が Lebesgue 可測」という事実へ接続します。定義は
 
 $$
-\boxed{
 \mathcal B(\mathbb R)
-:=
+=
 \sigma(\{G\subset\mathbb R:G\text{ は開集合}\})
-}
 $$
 
-を **Borel σ代数** という。
-<!-- formal-statement-end -->
+です。ここでは新しい概念を定義しているのではなく、既出の Borel σ代数を Lebesgue 可測集合族と比較するために再掲しています。
 
 <!-- definition-example-start: def-borel-sigma-集合代数 -->
 ### 例1：有理数集合は Borel 集合
