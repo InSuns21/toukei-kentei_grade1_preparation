@@ -25,7 +25,7 @@ definitions:
   - { id: CA8-DEF-06, name: Riemann 面上の有理型関数 }
   - { id: CA8-DEF-07, name: 零点・極の位数 }
   - { id: CA8-DEF-08, name: 正則微分 }
-  - { id: CA8-DEF-09, name: 被覆写像 }
+  - { id: CA8-DEF-09, name: 複素解析で使う被覆写像の再掲 }
   - { id: CA8-DEF-10, name: 正則被覆 }
   - { id: CA8-DEF-11, name: 複素格子 }
 theorems:
