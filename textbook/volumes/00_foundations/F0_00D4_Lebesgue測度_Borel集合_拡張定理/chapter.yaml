@@ -8,33 +8,33 @@ prerequisites:
   - F0-00C
 official_scope: []
 learning_objectives:
-  - 区間のLebesgue外測度が通常の長さに一致することを有限被覆補題とcompact性から証明できる
+  - 区間のLebesgue外測度が通常の長さに一致することを有限被覆補題とコンパクト性から証明できる
   - 半直線・開区間がCarathéodory可測であることを証明できる
   - 実数上の開集合が高々可算個の互いに素な開区間へ分解されることを証明できる
-  - Borel sigma代数とLebesgue sigma代数、完備化を区別できる
-  - 有限加法性と空集合への連続性からpremeasure性を導くHopf型判定を証明できる
-  - premeasureから外測度を構成し元のalgebra上で値が一致することを証明できる
+  - Borel σ代数とLebesgue σ代数、完備化を区別できる
+  - 有限加法性と空集合への連続性から前測度性を導くHopf型判定を証明できる
+  - 前測度から外測度を構成し元の集合代数上で値が一致することを証明できる
   - Carathéodory拡張定理がHopf / Hahn--Kolmogorov型としても現れることを説明し、その存在を証明できる
-  - sigma有限性の下で拡張の一意性を証明できる
+  - σ有限性の下で拡張の一意性を証明できる
   - 積測度の存在一意性を拡張定理の応用として説明できる
 definitions:
-  - { id: F000D4-DEF-01, name: Borel sigma代数 }
+  - { id: F000D4-DEF-01, name: Borel σ代数 }
   - { id: F000D4-DEF-02, name: 完備化 }
-  - { id: F000D4-DEF-03, name: algebra }
-  - { id: F000D4-DEF-04, name: premeasure }
-  - { id: F000D4-DEF-05, name: sigma有限premeasure }
+  - { id: F000D4-DEF-03, name: 集合代数 }
+  - { id: F000D4-DEF-04, name: 前測度 }
+  - { id: F000D4-DEF-05, name: σ有限前測度 }
 theorems:
   - { id: F000D4-THM-01, name: 区間のLebesgue外測度と長さの一致 }
   - { id: F000D4-THM-02, name: 半直線・開区間のCarathéodory可測性 }
   - { id: F000D4-THM-03, name: 実数上の開集合の可算開区間分解 }
   - { id: F000D4-COR-01, name: Lebesgue測度の平行移動不変性 }
   - { id: F000D4-THM-04, name: Carathéodory拡張定理 }
-  - { id: F000D4-THM-05, name: sigma有限拡張の一意性 }
-  - { id: F000D4-THM-06, name: Hopf型のpremeasure判定 }
+  - { id: F000D4-THM-05, name: σ有限拡張の一意性 }
+  - { id: F000D4-THM-06, name: Hopf型の前測度判定 }
 canonical_examples:
   - 閉区間の外測度をコンパクト性から評価する例
-  - Borel sigma代数とLebesgue sigma代数の真包含
-  - 半開区間algebra上の長さpremeasure
+  - Borel σ代数とLebesgue σ代数の真包含
+  - 半開区間集合代数上の長さ前測度
   - 積測度をCarathéodory拡張で構成する例
 problem_patterns: [LEBESGUE-CONSTRUCTION-1, BOREL-VS-LEBESGUE-1, MEASURE-EXTENSION-1, PRODUCT-MEASURE-EXTENSION-1]
 past_exam_alignment: []
