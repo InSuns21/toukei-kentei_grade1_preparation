@@ -184,6 +184,104 @@ $$
 $A+t$ に $-t$ を適用すれば逆向きも得るので等号です。$\square$
 <!-- proof-end -->
 
+<a id="cor-f0-00d4-lebesgue-translation-invariance"></a>
+
+<!-- formal-statement-start -->
+### 系（Lebesgue可測性と測度の平行移動不変性）
+
+$E\subset\mathbb R$ が Lebesgue 可測なら、任意の $t\in\mathbb R$ に対して $E+t$ も Lebesgue 可測であり、
+
+$$
+\lambda(E+t)=\lambda(E)
+$$
+
+が成り立つ。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+外測度の値が平行移動で変わらないだけでは、$E+t$ に測度記号 $\lambda(E+t)$ を使えるとはまだ限りません。先に Carathéodory 可測性そのものが平行移動で保たれることを確認し、その後で外測度の不変性を測度へ制限します。
+
+<!-- proof-start -->
+### 証明
+
+$E$ を Lebesgue 可測、$t\in\mathbb R$ とします。$E+t$ の Carathéodory 条件を確認するため、任意の $T\subset\mathbb R$ を取ります。
+
+$E$ の可測性を、平行移動したテスト集合
+
+$$
+T-t:=\{x-t:x\in T\}
+$$
+
+へ適用すると
+
+$$
+\lambda^*(T-t)
+=
+\lambda^*((T-t)\cap E)
++
+\lambda^*((T-t)\setminus E).
+$$
+
+各集合を $t$ だけ平行移動すると
+
+$$
+((T-t)\cap E)+t
+=
+T\cap(E+t),
+$$
+
+$$
+((T-t)\setminus E)+t
+=
+T\setminus(E+t).
+$$
+
+また直前の命題から外測度は平行移動不変なので
+
+$$
+\lambda^*(T-t)=\lambda^*(T),
+$$
+
+$$
+\lambda^*((T-t)\cap E)
+=
+\lambda^*(T\cap(E+t)),
+$$
+
+$$
+\lambda^*((T-t)\setminus E)
+=
+\lambda^*(T\setminus(E+t)).
+$$
+
+これらを Carathéodory 等式へ代入すると
+
+$$
+\lambda^*(T)
+=
+\lambda^*(T\cap(E+t))
++
+\lambda^*(T\setminus(E+t)).
+$$
+
+$T$ は任意なので $E+t$ は Lebesgue 可測です。
+
+最後に、Lebesgue測度は可測集合上で $\lambda=\lambda^*$ と定めたものだから
+
+$$
+\lambda(E+t)
+=
+\lambda^*(E+t)
+=
+\lambda^*(E)
+=
+\lambda(E).
+$$
+
+従って Lebesgue測度も平行移動不変です。$\square$
+<!-- proof-end -->
+
 ---
 
 ## 4. 半直線と開区間は Carathéodory 可測
@@ -1090,7 +1188,7 @@ $$
 
 が使えます。また互いに素な可算和では両測度の可算加法性から等しさが保たれます。従って $\mathcal D$ は Dynkin 族です。
 
-$\mathcal A$ は有限共通部分で閉じる π-system で、拡張は $\mathcal A$ 上でともに $\mu_0$ と一致するので
+$\mathcal A$ は有限共通部分で閉じる π系 で、拡張は $\mathcal A$ 上でともに $\mu_0$ と一致するので
 
 $$
 \mathcal A\subset\mathcal D.
