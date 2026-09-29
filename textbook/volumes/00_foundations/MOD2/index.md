@@ -125,7 +125,7 @@ $$
 
 に相当するものは PID では $(a,b)$ の生成元です。
 
-[RNG3 の Bézout 等式](../RNG3/index.md)より、$d$ が $(a,b)$ の生成元なら
+[単項イデアル整域の最大公約元と Bézout 等式](../RNG3/index.md#prop-rng3-pid-gcd-bezout)より、$d$ が $(a,b)$ の生成元なら
 
 $$
 d=ua+vb
@@ -1340,11 +1340,23 @@ $$
 
 は基底の下である $n\times q$ 行列 $A$ で表されます。
 
-[MOD1 の加群の第一同型定理](../MOD1/index.md#thm-mod1-first-isomorphism)から
+ここで $\pi:R^n\to M$ は $R$-加群準同型で、
+$$
+\ker\pi=K,
+\qquad
+\operatorname{Im}\pi=M
+$$
+です。後者は $\pi$ が全射であることから従います。
 
+したがって [MOD1 の加群の第一同型定理](../MOD1/index.md#thm-mod1-first-isomorphism)を、この $\pi$ に対して適用すると
 $$
 R^n/K
-\cong M.
+=
+R^n/\ker\pi
+\cong
+\operatorname{Im}\pi
+=
+M.
 $$
 
 一方
@@ -2081,8 +2093,29 @@ $$
 
 よって任意の $v$ がねじれ元であり、$V$ はねじれ加群です。
 
-$F[x]$ は PID なので [PID 上有限生成加群の構造定理](#thm-mod2-pid-structure)を適用できます。ねじれ加群なので自由部分はなく、
+$F[x]$ は PID なので [PID 上有限生成加群の構造定理](#thm-mod2-pid-structure)を適用できます。従ってまず
+$$
+V
+\cong
+F[x]^r
+\oplus
+F[x]/(f_1)
+\oplus\cdots\oplus
+F[x]/(f_s)
+$$
+という形が得られます。
 
+ここで $V$ はねじれ加群なので $r=0$ でなければなりません。実際、もし $r\ge1$ なら自由部分の標準基底元
+$$
+e=(1,0,\dots,0)
+$$
+は非零です。任意の非零多項式 $p(x)\in F[x]$ に対して
+$$
+p(x)e=(p(x),0,\dots,0)\ne0
+$$
+なので $e$ はねじれ元ではなく、全ての元がねじれ元であることに反します。
+
+従って自由部分は消え、
 $$
 V
 \cong
@@ -2090,7 +2123,6 @@ F[x]/(f_1)
 \oplus\cdots\oplus
 F[x]/(f_s)
 $$
-
 と書けます。
 
 $F[x]$ の単元は非零定数なので、各 $f_i$ は最高次係数が $1$ になるよう正規化でき、整除鎖も保てます。$\square$
