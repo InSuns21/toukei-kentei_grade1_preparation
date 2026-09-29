@@ -253,34 +253,34 @@ $$
 ここで「座標を変えても写像の階数が $r$ のまま」という点を式で確認します。$(s,t)$ に対応する元の点を
 
 $
-x=Phi^{-1}(s,t)
+x=\Phi^{-1}(s,t)
 $
 
-と置きます。$G=FcircPhi^{-1}$ なので、連鎖律から
+と置きます。$G=F\circ\Phi^{-1}$ なので、連鎖律から
 
 $
 DG_{(s,t)}
 =
-DF_xcirc D(Phi^{-1})_{(s,t)}.
+DF_x\circ D(\Phi^{-1})_{(s,t)}.
 $
 
-$Phi$ は局所微分同相写像だから $D(Phi^{-1})_{(s,t)}$ は可逆です。定義域側で可逆な線形写像を合成しても像は
+$\Phi$ は局所微分同相写像だから $D(\Phi^{-1})_{(s,t)}$ は可逆です。定義域側で可逆な線形写像を合成しても像は
 
 $
-operatorname{Im}
-igl(
-DF_xcirc D(Phi^{-1})_{(s,t)}
-igr)
+\operatorname{Im}
+\bigl(
+DF_x\circ D(\Phi^{-1})_{(s,t)}
+\bigr)
 =
-operatorname{Im}(DF_x)
+\operatorname{Im}(DF_x)
 $
 
 のままです。従って
 
 $
-operatorname{rank}DG_{(s,t)}
+\operatorname{rank}DG_{(s,t)}
 =
-operatorname{rank}DF_x
+\operatorname{rank}DF_x
 =
 r.
 $
@@ -309,34 +309,34 @@ $
 
 が近傍全体で成り立ちます。ここから $H$ が $t$ に依存しないことを、一変数の問題へ落として確認します。
 
-近傍を十分小さい直方体に縮め、$s$ と $t$ を固定します。$0le	aule1$ に対して
+近傍を十分小さい直方体に縮め、$s$ と $t$ を固定します。$0\le\tau\le1$ に対して
 
 $
-K(	au)
+K(\tau)
 =
-H(s,	au t)
+H(s,\tau t)
 $
 
 と置きます。$t$ 方向だけを動かす曲線です。連鎖律を $K$ に適用すると
 
 $
-K'(	au)
+K'(\tau)
 =
-D_tH(s,	au t)[t].
+D_tH(s,\tau t)[t].
 $
 
 右辺は $D_tH=0$ だから0です。従って一変数の微積分学の基本定理から
 
 $
-egin{aligned}
+\begin{aligned}
 H(s,t)-H(s,0)
 &=
-K(1)-K(0)\
+K(1)-K(0)\\
 &=
-int_0^1K'(	au),d	au\
+\int_0^1K'(\tau)\,d\tau\\
 &=
 0.
-end{aligned}
+\end{aligned}
 $
 
 よって
@@ -681,7 +681,7 @@ $
 Euclid 空間では、独立な方程式が $n$ 本あれば自由度が $n$ だけ減ると期待します。その「独立性」を一次近似で測る条件が、微分
 
 $
-df_p:T_pM	o T_qN
+df_p:T_pM\to T_qN
 $
 
 の全射性です。そこで、どの点で制約が独立か、またある値 $q$ の逆像全体で独立性が保たれているかを区別するため、正則点・臨界点・正則値を導入します。
