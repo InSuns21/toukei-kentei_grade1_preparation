@@ -17,9 +17,9 @@ forward_references:
 
 concepts:
   - id: measure.pi-system
-    name: π-system
+    name: π系
     kind: definition
-    aliases: [π-system, π系]
+    aliases: [π系, π-system]
     requires: []
 
   - id: measure.dynkin-system
