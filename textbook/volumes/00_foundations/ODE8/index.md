@@ -116,14 +116,21 @@ $$
 
 $$
 \begin{aligned}
-\|T\xi-T\eta\|_\infty
+\|(T\xi)(t)-(T\eta)(t)\|
 &\le
-\sup_{|t|\le h}
-\int_0^{|t|}
+\int_{\min\{0,t\}}^{\max\{0,t\}}
 \|F(\xi(s))-F(\eta(s))\|\,ds\\
 &\le
-Lh\|\xi-\eta\|_\infty.
+L|t|\|\xi-\eta\|_\infty.
 \end{aligned}
+$$
+
+従って $|t|\le h$ で上限を取れば
+
+$$
+\|T\xi-T\eta\|_\infty
+\le
+Lh\|\xi-\eta\|_\infty.
 $$
 
 必要なら $h$ をさらに小さくして $Lh<1$ とすれば、ODE4 で確認したベクトル値 Picard 反復と同じ縮小写像の議論が使えます。重要なのは、$r,L,M,h$ が $\xi_0$ ごとではなく **全ての** $\xi_0\in B(x_*,r)$ に共通だという点です。従ってどの $\xi_0$ からも同じ時間幅 $[-h,h]$ の局所解を開始できます。
