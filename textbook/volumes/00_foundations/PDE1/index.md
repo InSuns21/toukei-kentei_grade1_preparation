@@ -70,7 +70,7 @@ $$
 未知関数が $u(t,x)$ のように二変数であっても、変数の個数と階数は別です。「二変数だから二階」ではありません。
 <!-- definition-example-end -->
 
-PDE2 以降では二階 PDE を elliptic / parabolic / hyperbolic に分類します。本章では一階 PDE に集中します。
+PDE2 以降では二階 PDE を楕円型・放物型・双曲型に分類します。本章では一階 PDE に集中します。
 
 ---
 
