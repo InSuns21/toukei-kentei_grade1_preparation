@@ -1,4 +1,4 @@
-# GEO9 幾何学 IX
+# GEO9 Poincaré の補題と de Rham コホモロジー
 
 [GEO7](../GEO7/index.md) では微分形式と外微分を構成し、[外微分の二乗は0](../GEO7/index.md#thm-geo7-d-square-zero) を証明しました。[GEO8](../GEO8/index.md) では微分形式を積分し、[一般 Stokes の定理](../GEO8/index.md#thm-geo8-general-stokes) まで進みました。
 
@@ -288,6 +288,10 @@ $$
 
 とします。
 
+$H_1^*\omega-H_0^*\omega$ を調べるには、$t$ を少し動かしたときの $H_t^*\omega$ の変化を取り出し、それを $0$ から $1$ まで積分するのが自然です。そのために、まず $H^*\omega$ を積多様体 $[0,1]\times M$ 上へ持ち上げ、$t$ 方向 $\partial_t$ を一つ差し込んで「変形方向の成分」だけを取り出します。
+
+内部積 $\iota_{\partial_t}$ は形式の次数を1下げます。さらに $j_t^*$ で時刻 $t$ の切片 $\{t\}\times M$ へ戻し、最後に $t$ で積分すれば、$M$ 上の $(k-1)$ 形式が得られます。この一連の操作を、次の定義で一つの作用素としてまとめます。
+
 <a id="def-geo9-homotopy-operator"></a>
 <!-- formal-statement-start -->
 > **定義（ホモトピー作用素）**  
@@ -321,27 +325,71 @@ $$
 
 を考えます。
 
-$k=1$ なので $K_H\omega$ は0形式、すなわち関数です。後で導く星型開集合の公式をこの例に直接使うと
+$k=1$ なので $K_H\omega$ は0形式、すなわち関数です。ここでは後の公式を先取りせず、定義から直接計算します。標的側の座標を $(X,Y)$ と書くと
 
 $$
-(K_H\omega)(x,y)
+H^*X=tx,
+\qquad
+H^*Y=ty,
+$$
+
+したがって
+
+$$
+H^*(dX)
 =
-\int_0^1
-\omega_{(tx,ty)}((x,y))
-dt.
-$$
-
-ここで
-
-$$
-\omega_{(tx,ty)}((x,y))
+d(tx)
 =
-ty\,x+tx\,y
+x\,dt+t\,dx,
+$$
+
+$$
+H^*(dY)
+=
+d(ty)
+=
+y\,dt+t\,dy.
+$$
+
+よって
+
+$$
+\begin{aligned}
+H^*\omega
+&=
+H^*Y\,H^*(dX)
++
+H^*X\,H^*(dY)\\
+&=
+ty(x\,dt+t\,dx)
++
+tx(y\,dt+t\,dy)\\
+&=
+2txy\,dt
++
+t^2y\,dx
++
+t^2x\,dy.
+\end{aligned}
+$$
+
+ここへ $\partial_t$ を差し込むと、$dx(\partial_t)=dy(\partial_t)=0$、$dt(\partial_t)=1$ なので
+
+$$
+\iota_{\partial_t}H^*\omega
 =
 2txy.
 $$
 
-従って
+0形式の引き戻しは単なる代入なので
+
+$$
+j_t^*\bigl(\iota_{\partial_t}H^*\omega\bigr)
+=
+2txy.
+$$
+
+従って定義から
 
 $$
 K_H\omega
@@ -423,13 +471,70 @@ $$
 
 です。
 
-局所座標で $\beta$ の係数を書けば、$t$ に関する微分は係数の偏微分です。従って
+この等式を使う前に、左辺の $t$ 微分がなぜ Lie 微分になるかを局所座標で確認します。$M$ の局所座標を $(x^1,\dots,x^m)$ とすると、$[0,1]\times M$ 上の $k$ 形式 $\beta$ は一意に
+
+$$
+\beta
+=
+dt\wedge\alpha_t
++
+\gamma_t
+$$
+
+と分けられます。ここで $\alpha_t$ は $x$ 方向だけを含む $(k-1)$ 形式、$\gamma_t$ は $x$ 方向だけを含む $k$ 形式で、どちらの係数も $(t,x)$ の滑らかな関数です。
+
+包含写像 $j_t(p)=(t,p)$ で引き戻すと $j_t^*dt=0$ なので
+
+$$
+j_t^*\beta
+=
+\gamma_t.
+$$
+
+従って
 
 $$
 \frac{d}{dt}j_t^*\beta
 =
-j_t^*(\mathcal L_{\partial_t}\beta).
+\frac{\partial\gamma_t}{\partial t}.
 $$
+
+一方、$\partial_t$ の局所流は
+
+$$
+\Phi_h(t,x)=(t+h,x)
+$$
+
+という $t$ 方向の平行移動です。したがって $dt$ と各 $dx^i$ はこの流れで変わらず、Lie 微分は係数だけを $t$ で微分します。よって
+
+$$
+\mathcal L_{\partial_t}\beta
+=
+dt\wedge
+\frac{\partial\alpha_t}{\partial t}
++
+\frac{\partial\gamma_t}{\partial t}.
+$$
+
+これを $j_t$ で引き戻すと $dt$ を含む第一項が消え、
+
+$$
+j_t^*(\mathcal L_{\partial_t}\beta)
+=
+\frac{\partial\gamma_t}{\partial t}
+=
+\frac{d}{dt}j_t^*\beta.
+$$
+
+これで
+
+$$
+\frac{d}{dt}j_t^*\beta
+=
+j_t^*(\mathcal L_{\partial_t}\beta)
+$$
+
+を、今回の $j_t$ に対して直接確認できました。
 
 [GEO7 の Cartan の公式](../GEO7/index.md#thm-geo7-cartan-formula)から
 
@@ -809,7 +914,7 @@ $$
 H^0_{\mathrm{dR}}(M) \cong \mathbb R.
 $$
 >
-> 同型は定数関数 $c$ を実数 $c$ に対応させることで与えられる。
+> 同型は定数関数 $c$ をその値である実数 $c$ へ送る写像で与えられる。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1408,10 +1513,58 @@ r(x,y)
 \rho=\sqrt{x^2+y^2}.
 $$
 
-直接計算すると
+ここも「直接計算」で飛ばさず、引き戻しを順に展開します。$\rho=\sqrt{x^2+y^2}$ と置いたので
+
+$$
+r^*x=\frac{x}{\rho},
+\qquad
+r^*y=\frac{y}{\rho}.
+$$
+
+従って
+
+$$
+\begin{aligned}
+r^*\eta
+&=
+\frac{x}{\rho}
+\,d\left(\frac{y}{\rho}\right)
+-
+\frac{y}{\rho}
+\,d\left(\frac{x}{\rho}\right)\\
+&=
+\frac{x}{\rho}
+\left(
+\frac{dy}{\rho}
+-
+\frac{y}{\rho^2}d\rho
+\right)
+-
+\frac{y}{\rho}
+\left(
+\frac{dx}{\rho}
+-
+\frac{x}{\rho^2}d\rho
+\right).
+\end{aligned}
+$$
+
+$d\rho$ を含む二項は
+
+$$
+-\frac{xy}{\rho^3}d\rho
++
+\frac{xy}{\rho^3}d\rho
+=
+0
+$$
+
+と相殺するので
 
 $$
 r^*\eta
+=
+\frac{x\,dy-y\,dx}{\rho^2}
 =
 \frac{-y\,dx+x\,dy}{x^2+y^2}
 =
@@ -2012,7 +2165,7 @@ d(y\,dz\wedge dx)
 dy\wedge dz\wedge dx.
 $$
 
-$(dy,dz,dx)$ は $(dx,dy,dz)$ の循環置換なので符号は正であり、
+$(dy,dz,dx)$ を $(dx,dy,dz)$ の順へ戻すには、$dx$ を二つの1形式の前へ移す2回の入れ替えが必要です。したがって符号は $(-1)^2=1$ であり、
 
 $$
 dy\wedge dz\wedge dx
@@ -2679,8 +2832,8 @@ $f$ は $df$ だけで決まるので、$X$ が連結であることから加法
   $$
   を [Cartan の公式](../GEO7/index.md#thm-geo7-cartan-formula)から導ける。
 - 滑らかなホモトピーが同じコホモロジー写像を誘導することを示せる。
-- $H^0_{\mathrm{dR}}(M)$ が連結成分と対応することを説明できる。
+- $H^0_{\mathrm{dR}}(M)$ が各連結成分上の定数値によって決まることを説明できる。
 - $H^1_{\mathrm{dR}}(S^1)\cong\mathbb R$ を周期積分から直接証明できる。
 - 穴あき平面で角度1形式が生成元となり、循環が大域ポテンシャルの障害を測ることを説明できる。
 
-次章 GEO10 からは、Euclid 空間内の曲線・超曲面へ移り、第一・第二基本形式と形作用素を構成します。
+次章 GEO10 からは、Euclid 空間内の曲線・超曲面へ移ります。接方向の長さや角度に加えて、法線方向が場所ごとにどう変わるかを測る道具を作り、曲がり方を局所的に記述します。
