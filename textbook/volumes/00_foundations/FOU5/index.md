@@ -300,7 +300,9 @@ $$
 u=\frac t{\sqrt n}
 $$
 
-を代入します。固定した $t$ に対して $u=t/\sqrt n\to0$ です。剰余を
+を代入します。固定した $t$ に対して $u=t/\sqrt n\to0$ です。$t=0$ では $\varphi_{Z_n}(0)=1$ なので結論は直ちに成り立ちます。以下 $t\ne0$ とします。
+
+剰余を
 
 $$
 r(u):=\varphi(u)-1+\frac{u^2}{2}
@@ -313,41 +315,51 @@ n\,r\left(\frac t{\sqrt n}\right)
 =
 t^2
 \frac{r(t/\sqrt n)}{(t/\sqrt n)^2}
-\longrightarrow0
+\longrightarrow0.
 $$
 
-であり、
+そこで
+
+$$
+\rho_n:=r\left(\frac t{\sqrt n}\right)
+$$
+
+と置けば $n\rho_n\to0$、すなわち $\rho_n=o(1/n)$ です。これを代入して
 
 $$
 \varphi\left(\frac t{\sqrt n}\right)
 =
-1-\frac{t^2}{2n}
-+o\left(\frac1n\right).
+1-\frac{t^2}{2n}+\rho_n.
 $$
 
-ここで
+さらに
 
 $$
-a_n:=-\frac{t^2}{2n}+o\left(\frac1n\right)
+b_n:=-\frac{t^2}{2}+n\rho_n
 $$
 
-と置くと $a_n\to0$ かつ $na_n\to-t^2/2$ です。$\log(1+a_n)=a_n+o(a_n)$ なので
+と置くと $b_n\to-t^2/2$ で、
 
 $$
-n\log(1+a_n)
-=na_n+n\,o(a_n)
-\longrightarrow-\frac{t^2}{2}.
+1-\frac{t^2}{2n}+\rho_n
+=1+\frac{b_n}{n}.
 $$
 
-指数関数へ戻すと
+確率論側の中心極限定理の証明で用いた標準指数極限
 
 $$
-\begin{aligned}
+b_n\to b
+\quad\Longrightarrow\quad
+\left(1+\frac{b_n}{n}\right)^n\to e^b
+$$
+
+へ $b=-t^2/2$ を代入すると
+
+$$
 \varphi_{Z_n}(t)
-&=(1+a_n)^n\\
-&=\exp\{n\log(1+a_n)\}\\
-&\longrightarrow e^{-t^2/2}.
-\end{aligned}
+=
+\left(1+\frac{b_n}{n}\right)^n
+\longrightarrow e^{-t^2/2}.
 $$
 
 つまり、この極限で行っていることは
