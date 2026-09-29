@@ -137,7 +137,15 @@ $$
 <a id="def-ra7-domain-integral"></a>
 <!-- formal-statement-start -->
 > **定義（Jordan可測集合上のRiemann積分）**  
-> Jordan可測集合 $A\subset R$ と有界関数 $f:A\to\mathbb R$ に対し、$f$ を $A$ の外で0へ延長した関数 $\tilde f$ が $R$ 上Riemann可積分であるとき、$\int_A f(x)\,dx:=\int_R\tilde f(x)\,dx$ と定める。
+> Jordan可測集合 $A\subset R$ と有界関数 $f:A\to\mathbb R$ に対し、$f$ を $A$ の外で0へ延長した関数 $\tilde f$ が $R$ 上Riemann可積分であるとき、
+>
+> $
+> \int_A f(x)\,dx
+> :=
+> \int_R\tilde f(x)\,dx
+> $
+>
+> と定める。
 <!-- formal-statement-end -->
 
 $f$ が $\overline A$ の近傍で連続なら、この延長は境界で不連続になり得ます。しかし境界を覆う小矩形の総体積は任意に小さくでき、$f$ は有界なので、その小矩形が作る上和・下和の差も任意に小さくできます。従って連続関数はJordan可測領域上で積分できます。
