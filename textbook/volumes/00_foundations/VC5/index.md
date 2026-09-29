@@ -1,15 +1,17 @@
 # VC5 境界循環と曲面上の回転
 
-VC4 までで、二次元の Green の定理と三次元の [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence) がそろいました。本章では残る古典的な **曲面上の境界積分定理** を証明し、
+VC4 までで、平面領域では Green の定理、立体領域では [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence) を使い、**内部の微分量と境界の積分量**を結べるようになりました。
 
-- 境界の循環
-- 曲面上の回転の流束
-- 曲面の向きと境界の向き
-- 穴のある領域で大域ポテンシャルが壊れる理由
+まだ残っているのが、三次元空間内の **曲面** です。VC3 では曲面上の流束を直接計算でき、VC2 では曲線に沿う循環を直接計算できます。しかし、同じ曲面の境界を一周した循環と、その曲面内部に分布する回転との関係はまだありません。ここを埋めると、
 
-を一つの構造として結びます。
+- 複雑な境界曲線の循環を、張りやすい曲面上の積分へ移せる
+- VC1 の回転を「局所循環密度」として解釈できる
+- 回転が 0 でも大域ポテンシャルが存在しないとき、どの仮定が壊れたのかを特定できる
+- 無発散場をベクトルポテンシャルと結び付ける入口ができる
 
-この曲面上の積分定理の核心は、曲面をパラメータ平面へ戻すと Green の定理になることです。一般の微分形式や多様体上の一般定理は使いません。
+ようになります。
+
+本章ではそのための Kelvin--Stokes の定理を、**曲面をパラメータ平面へ戻して Green の定理を適用する**ところから証明します。一般の微分形式や多様体上の一般 Stokes の定理は使いません。
 
 ---
 
@@ -271,6 +273,8 @@ Q_u-P_v
 (DF(r)r_v)\cdot r_u.
 $$
 
+ここで必要なのは、Jacobian を含む差を回転と外積へ読み替える恒等式です。これを「成分計算で分かる」と飛ばさず展開します。
+
 任意のベクトル
 
 $$
@@ -279,24 +283,76 @@ a=(a_1,a_2,a_3),
 b=(b_1,b_2,b_3)
 $$
 
-に対して、左辺を成分ごとに組にすると
+に対して
+
+$$
+DF\,a
+=
+\begin{pmatrix}
+\partial_1F_1\,a_1+\partial_2F_1\,a_2+\partial_3F_1\,a_3\\
+\partial_1F_2\,a_1+\partial_2F_2\,a_2+\partial_3F_2\,a_3\\
+\partial_1F_3\,a_1+\partial_2F_3\,a_2+\partial_3F_3\,a_3
+\end{pmatrix}.
+$$
+
+従って
+
+$$
+(DF\,a)\cdot b
+=
+\sum_{i=1}^3\sum_{j=1}^3
+(\partial_jF_i)a_jb_i,
+$$
+
+一方
+
+$$
+(DF\,b)\cdot a
+=
+\sum_{i=1}^3\sum_{j=1}^3
+(\partial_jF_i)b_ja_i.
+$$
+
+$i=j$ の三項は差を取ると消えます。残る六項を $(1,2)$、$(2,3)$、$(3,1)$ の組にまとめると
 
 $$
 \begin{aligned}
 (DF\,a)\cdot b-(DF\,b)\cdot a
 &=
+(\partial_1F_2-\partial_2F_1)
+(a_1b_2-a_2b_1)\\
+&\quad+
 (\partial_2F_3-\partial_3F_2)
 (a_2b_3-a_3b_2)\\
 &\quad+
 (\partial_3F_1-\partial_1F_3)
-(a_3b_1-a_1b_3)\\
-&\quad+
-(\partial_1F_2-\partial_2F_1)
-(a_1b_2-a_2b_1).
+(a_3b_1-a_1b_3).
 \end{aligned}
 $$
 
-右辺の三つの微分係数は $\nabla\times F$ の三成分、括弧は $a\times b$ の三成分です。したがって
+ここで
+
+$$
+\nabla\times F
+=
+\bigl(
+\partial_2F_3-\partial_3F_2,\,
+\partial_3F_1-\partial_1F_3,\,
+\partial_1F_2-\partial_2F_1
+\bigr),
+$$
+
+$$
+a\times b
+=
+\bigl(
+a_2b_3-a_3b_2,\,
+a_3b_1-a_1b_3,\,
+a_1b_2-a_2b_1
+\bigr).
+$$
+
+二つの対応する成分を掛けて足すと、上の三項とちょうど一致します。したがって
 
 $$
 (DF\,a)\cdot b-(DF\,b)\cdot a
@@ -712,11 +768,47 @@ $$
 
 を考えます。
 
-$U$ 上では直接計算により
+$U$ 上では
 
 $$
 \nabla\times F=0.
 $$
+
+例えば $z$ 成分は
+
+$$
+\frac{\partial}{\partial x}
+\left(
+\frac{x}{x^2+y^2}
+\right)
+-
+\frac{\partial}{\partial y}
+\left(
+-\frac{y}{x^2+y^2}
+\right).
+$$
+
+$x^2+y^2>0$ なので商の微分を使え、
+
+$$
+\frac{\partial}{\partial x}
+\left(
+\frac{x}{x^2+y^2}
+\right)
+=
+\frac{y^2-x^2}{(x^2+y^2)^2},
+$$
+
+$$
+\frac{\partial}{\partial y}
+\left(
+-\frac{y}{x^2+y^2}
+\right)
+=
+\frac{y^2-x^2}{(x^2+y^2)^2}.
+$$
+
+差は 0 です。$x,y$ 成分は $F_3=0$ かつ $z$ 依存がないため 0 です。
 
 しかし $z=0$ 平面の単位円
 
