@@ -441,25 +441,27 @@ $$
 
 ## 7. 局所的にシートへ分かれる写像
 
-多価関数の大域的な振る舞いを整理するには、局所的に何枚かの同じシートが並ぶ写像を使う。
+多価関数の大域的な振る舞いを整理するには、局所的に何枚かの同じシートが並ぶ写像を使います。この概念自体は [TOP2 の被覆写像](../TOP2/index.md#def-top2-covering-map) で定義しました。
+
+Riemann 面で使うため、必要な条件をここでも式の形で確認します。
 
 <a id="def-ca8-covering-map"></a>
 <!-- formal-statement-start -->
-### 定義（被覆写像）
+### 定義（複素解析で使う被覆写像の再掲）
 
-連続全射 $p:X\to Y$ が **被覆写像**であるとは、各 $y\in Y$ に対して開近傍 $V$ が存在し、
+連続全射 $p:X\to Y$ について、各 $y\in Y$ に開近傍 $V$ があり、
 
 $$
 p^{-1}(V)=\bigsqcup_{\lambda\in L}U_\lambda
 $$
 
-と互いに素な開集合の和に分解でき、各制限
+と互いに素な開集合の和へ分かれ、各制限
 
 $$
 p|_{U_\lambda}:U_\lambda\to V
 $$
 
-が同相写像になることをいう。この $V$ を均等被覆近傍と呼ぶ。
+が同相写像になるとき、[TOP2 で定義した被覆写像](../TOP2/index.md#def-top2-covering-map)です。この $V$ を均等被覆近傍と呼びます。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ca8-covering-map -->

@@ -1,5 +1,5 @@
 id: "GEO18"
-title: "幾何学 XVIII：比較幾何入門"
+title: "曲率の符号は大域幾何をどう縛るか：比較定理・Bonnet--Myers・Cartan--Hadamard"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -13,12 +13,13 @@ learning_objectives:
   - Ricci 曲率下界 Ric>=(n-1)kappa g, kappa>0 の下で平行法標構と試験ベクトル場を指数形式へ代入し、Bonnet--Myers の直径評価を証明できる
   - 完備性と Bonnet--Myers の直径評価から多様体のコンパクト性を Hopf--Rinow の定理を用いて導ける
   - 非正断面曲率の下で指数写像の微分が長さを縮めないことを Jacobi 場比較と Gauss の補題から証明できる
-  - 完備な非正曲率多様体で指数写像が被覆写像になる機構を、局所逆写像の長さ制御と完備性から説明できる
+  - TOP2 の被覆写像を局所的なシート分解として再確認し、完備な非正曲率多様体で指数写像が被覆写像になる機構を、局所逆写像の長さ制御と完備性から説明できる
   - 単連結性を定義し、Cartan--Hadamard の定理から完備単連結非正曲率多様体が Euclid 空間と微分同相であることを導ける
   - 正の Ricci 曲率下限・断面曲率上限・非正断面曲率が、それぞれ直径・共役点・指数写像・大域位相へどのように効くかを区別して説明できる
 definitions:
   - { id: GEO18-DEF-01, name: 定曲率模型空間・比較関数 }
   - { id: GEO18-DEF-02, name: 単連結 }
+  - { id: GEO18-DEF-03, name: 比較幾何で使う被覆写像の再掲 }
 theorems:
   - { id: GEO18-LEM-01, name: 法 Jacobi 場の長さに対する微分不等式 }
   - { id: GEO18-THM-01, name: Rauch の比較定理（定曲率模型・上曲率版） }
