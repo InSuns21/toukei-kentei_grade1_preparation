@@ -116,7 +116,7 @@ $$
 \sum_{k=1}^m a_k1_{A_k}
 $$
 
-と書ける。$\phi=0$ となる点はこの和の外側に残してよい。したがって、積分を計算するときは係数0の集合をわざわざ表示へ含める必要はない。
+と書ける。$\phi=0$ となる点はこの和の外側に残してよい。したがって、積分表示では係数0の集合をわざわざ含める必要はありません。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-f0-00d2a-01 -->
@@ -721,42 +721,44 @@ $$
 
 ## 6. a.e.で等しい関数は同じ積分を持つ
 
-<a id="thm-f0-00d2a-01"></a>
- 
+まず非負関数で、「測度0集合の上だけ値を変えても積分は変わらない」ことを積分の定義から閉じます。符号付き可積分関数の場合は、その結果を正部分・負部分へ適用します。
+
+<a id="prop-f0-00d2a-nonnegative-ae-invariance"></a>
+
 <!-- formal-statement-start -->
-### 定理（零集合上の変更は積分を変えない）
+### 命題（非負可測関数の a.e. 変更による積分不変性）
 
-測度空間 $(\Omega,\mathcal F,\mu)$ 上の可積分関数 $f,g$ が
-
-$$
-f=g\quad\text{a.e.}
-$$
-
-を満たすなら
+測度空間 $(\Omega,\mathcal F,\mu)$ 上の非負可測関数 $u,v$ が
 
 $$
-\int f\,d\mu=\int g\,d\mu.
+u=v\quad\text{a.e.}
 $$
-<!-- formal-statement-end -->
 
-### 証明の見取り図：差がある場所の測度が0なら、その差の面積も0
-
-$h=|f-g|$ と置くと、$h$ が正になるのは測度0集合 $N$ の上だけです。
-
-$h$ 以下の単関数も $N$ の外では0なので、その積分は「有限の高さ × 測度0」の和になり0です。したがって $\int|f-g|=0$、積分値は一致します。
-
-<!-- proof-start -->
-#### 証明
-
-まず、非負可測関数 $u,v$ が $u=v$ a.e. なら
+を満たすなら、積分値が無限大の場合も含めて
 
 $$
+\boxed{
 \int u\,d\mu
 =
 \int v\,d\mu
+}
 $$
 
-となることを、積分の定義から示します。
+が成り立つ。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+$u$ の下にある任意の単関数 $\phi$ から、零集合 $N=\{u\ne v\}$ 上の部分だけを捨てた
+
+$$
+\widetilde\phi=\phi1_{N^c}
+$$
+
+を作ります。$N^c$ では $u=v$ なので $\widetilde\phi\le v$ です。一方、捨てた部分の測度は0なので単関数積分は変わりません。従って $u$ の全ての下側近似を $v$ の下側近似へ移せます。
+
+<!-- proof-start -->
+### 証明
 
 $$
 N=\{u\ne v\}
@@ -768,31 +770,32 @@ $$
 0\le\phi\le u
 $$
 
-を満たすものを取ります。$N$ の外だけを残して
+を満たすものを取ります。
 
 $$
 \widetilde\phi
 =
-\phi\,1_{N^c}
+\phi1_{N^c}
 $$
 
-と置くと、$\widetilde\phi$ も非負単関数で
+と置くと、$\widetilde\phi$ も非負単関数です。$N^c$ では $u=v$ だから
 
 $$
 0\le\widetilde\phi\le v.
 $$
 
-一方、$\phi$ と $\widetilde\phi$ が異なるのは $N$ 上だけです。$\phi$ の正の値を $a_1,\ldots,a_m$、対応する値集合を $A_1,\ldots,A_m$ とすれば
+$\phi$ の正の値を $a_1,\ldots,a_m$、対応する値集合を $A_1,\ldots,A_m$ とします。$\widetilde\phi$ は各 $A_k$ から $A_k\cap N$ を除いただけなので
 
 $$
+\begin{aligned}
 \int\phi\,d\mu
 -
 \int\widetilde\phi\,d\mu
-=
+&=
 \sum_{k=1}^m
-a_k\mu(A_k\cap N)
-=
-0.
+a_k\mu(A_k\cap N)\\
+&=0.
+\end{aligned}
 $$
 
 従って
@@ -813,9 +816,43 @@ $$
 \int v\,d\mu.
 $$
 
-$u,v$ の役割を交換すれば逆向きも得られるので、非負関数では a.e. 一致から積分の一致が従います。
+$u,v$ の役割を交換すれば
 
-いま $f=g$ a.e. だから
+$$
+\int v\,d\mu
+\le
+\int u\,d\mu
+$$
+
+も得られるので等号です。$\square$
+<!-- proof-end -->
+
+<a id="thm-f0-00d2a-01"></a>
+ 
+<!-- formal-statement-start -->
+### 定理（零集合上の変更は積分を変えない）
+
+測度空間 $(\Omega,\mathcal F,\mu)$ 上の可積分関数 $f,g$ が
+
+$$
+f=g\quad\text{a.e.}
+$$
+
+を満たすなら
+
+$$
+\int f\,d\mu=\int g\,d\mu.
+$$
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+$f=g$ a.e. なら正部分と負部分もそれぞれ a.e. で一致します。直前の非負関数の命題を $f^+,g^+$ と $f^-,g^-$ に適用し、可積分関数の定義へ戻します。
+
+<!-- proof-start -->
+### 証明
+
+$f=g$ a.e. だから
 
 $$
 f^+=g^+\quad\text{a.e.},
@@ -823,7 +860,7 @@ f^+=g^+\quad\text{a.e.},
 f^-=g^-\quad\text{a.e.}
 $$
 
-です。従って上で示した非負関数の場合をそれぞれ適用して
+です。[非負可測関数の a.e. 変更による積分不変性](#prop-f0-00d2a-nonnegative-ae-invariance)をそれぞれ適用すると
 
 $$
 \int f^+\,d\mu
@@ -1252,11 +1289,11 @@ $$
 0\le\psi\le f
 $$
 
-を満たすものを固定します。$\psi$ が取る正の値を
+を満たすものを固定します。$\psi\equiv0$ なら示すべき下側評価は自明です。以下では $\psi$ が正の値を少なくとも一つ取るとします。その正の値を
 
-$$
+$
 a_1,\ldots,a_m
-$$
+$
 
 とし、
 
