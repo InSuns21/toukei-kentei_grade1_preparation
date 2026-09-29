@@ -774,9 +774,101 @@ G(x-y)\operatorname{div}F(y)\,dy
 \phi(x).
 $$
 
-同様に各成分で部分積分すると
+次に $\nabla\times C$ も、どの成分へ部分積分を使うかを明示します。Levi--Civita 記号を使わずに第1成分を書くと
 
-$$
+$
+(\nabla\times C)_1
+=
+\partial_{x_2}C_3-\partial_{x_3}C_2.
+$
+
+$C_i$ の積分表示を代入して
+
+$
+\begin{aligned}
+(\nabla\times C)_1
+&=
+\int_{\mathbb R^3}
+\left[
+\partial_{x_2}G(x-y)F_3(y)
+-
+\partial_{x_3}G(x-y)F_2(y)
+\right]dy.
+\end{aligned}
+$
+
+ここで
+
+$
+\partial_{x_j}G(x-y)
+=
+-\partial_{y_j}G(x-y)
+$
+
+なので
+
+$
+\begin{aligned}
+(\nabla\times C)_1
+&=
+-\int
+\partial_{y_2}G(x-y)F_3(y)\,dy
++
+\int
+\partial_{y_3}G(x-y)F_2(y)\,dy.
+\end{aligned}
+$
+
+十分大きな球で積分を切れば、その境界では $F=0$ です。したがって各項を $y_2,y_3$ について部分積分して境界項を捨てることができ、
+
+$
+\begin{aligned}
+(\nabla\times C)_1
+&=
+\int
+G(x-y)
+\left[
+\partial_{y_2}F_3(y)
+-
+\partial_{y_3}F_2(y)
+\right]dy\\
+&=
+\int
+G(x-y)
+(\nabla_y\times F(y))_1\,dy.
+\end{aligned}
+$
+
+第2成分では
+
+$
+(\nabla\times C)_2
+=
+\partial_{x_3}C_1-\partial_{x_1}C_3,
+$
+
+第3成分では
+
+$
+(\nabla\times C)_3
+=
+\partial_{x_1}C_2-\partial_{x_2}C_1
+$
+
+から出発し、同じ $\partial_{x_j}G=-\partial_{y_j}G$ と部分積分を使います。その結果
+
+$
+(\nabla\times C)_i
+=
+\int_{\mathbb R^3}
+G(x-y)
+(\nabla_y\times F(y))_i\,dy
+\qquad(i=1,2,3).
+$
+
+従って
+
+$
 \nabla\times C
 =
 \int_{\mathbb R^3}
@@ -786,47 +878,117 @@ G(x-y)
 \right)dy
 =
 A(x).
-$$
+$
 
-ここでベクトル・ラプラシアンの恒等式を成分から確認します。$C=(P,Q,R)$ とすると、例えば第1成分は
+ここでベクトル・ラプラシアンの恒等式を成分から確認します。$C=(P,Q,R)$ とすると
 
-$$
-[\nabla\times(\nabla\times C)]_1
+$
+\nabla\times C
 =
-\partial_y(P_y-Q_x)
--
-\partial_z(R_x-P_z).
-$$
+(R_y-Q_z,\ P_z-R_x,\ Q_x-P_y).
+$
 
-混合偏微分を交換すると
+したがって第1成分は
 
-$$
+$
+\begin{aligned}
 [\nabla\times(\nabla\times C)]_1
-=
-\partial_x(P_x+Q_y+R_z)
+&=
+\partial_y(Q_x-P_y)
 -
-(P_{xx}+P_{yy}+P_{zz}).
-$$
+\partial_z(P_z-R_x)\\
+&=
+Q_{xy}+R_{xz}-P_{yy}-P_{zz}.
+\end{aligned}
+$
 
-すなわち
+混合偏微分を交換し、$P_{xx}$ を足して引くと
 
-$$
+$
+\begin{aligned}
+Q_{xy}+R_{xz}-P_{yy}-P_{zz}
+&=
+\partial_x(P_x+Q_y+R_z)\\
+&\quad-
+(P_{xx}+P_{yy}+P_{zz}),
+\end{aligned}
+$
+
+よって
+
+$
 [\nabla\times(\nabla\times C)]_1
 =
 [\nabla(\operatorname{div}C)]_1
 -
 [\Delta C]_1.
-$$
+$
 
-第2・第3成分も同じ計算なので
+第2成分も
 
-$$
+$
+\begin{aligned}
+[\nabla\times(\nabla\times C)]_2
+&=
+\partial_z(R_y-Q_z)
+-
+\partial_x(Q_x-P_y)\\
+&=
+R_{yz}+P_{xy}-Q_{zz}-Q_{xx}\\
+&=
+\partial_y(P_x+Q_y+R_z)
+-
+(Q_{xx}+Q_{yy}+Q_{zz}),
+\end{aligned}
+$
+
+なので
+
+$
+[\nabla\times(\nabla\times C)]_2
+=
+[\nabla(\operatorname{div}C)]_2
+-
+[\Delta C]_2.
+$
+
+第3成分では
+
+$
+\begin{aligned}
+[\nabla\times(\nabla\times C)]_3
+&=
+\partial_x(P_z-R_x)
+-
+\partial_y(R_y-Q_z)\\
+&=
+P_{xz}+Q_{yz}-R_{xx}-R_{yy}\\
+&=
+\partial_z(P_x+Q_y+R_z)
+-
+(R_{xx}+R_{yy}+R_{zz}),
+\end{aligned}
+$
+
+したがって
+
+$
+[\nabla\times(\nabla\times C)]_3
+=
+[\nabla(\operatorname{div}C)]_3
+-
+[\Delta C]_3.
+$
+
+三成分をまとめると
+
+$
 \nabla\times(\nabla\times C)
 =
 \nabla(\operatorname{div}C)
 -
 \Delta C.
-$$
+$
 
 従って
 
@@ -1362,7 +1524,7 @@ $$
 
 ---
 
-## 11. 本章の停止線
+## 11. 本章で扱った範囲と次章への接続
 
 本章では
 
@@ -1382,7 +1544,7 @@ $$
 
 へ進みます。
 
-Hodge 分解、微分形式、de Rham cohomology、一般 Riemann 多様体上のラプラシアンは本系列の外です。
+Hodge 分解、微分形式、de Rham コホモロジー、一般 Riemann 多様体上のラプラシアンは、ここでは扱いません。これらは微分形式・幾何学・偏微分方程式の後続科目で、必要な追加構造とともに学びます。
 
 ---
 
