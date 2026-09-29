@@ -1,13 +1,15 @@
 # VC6 曲線座標の幾何と微分演算子
 
-デカルト座標では基底ベクトル $e_x,e_y,e_z$ がどこでも同じ向きを向くため、勾配・発散・回転の公式は簡単です。
+デカルト座標では、$x$ を $dx$ だけ増やせば物理的にも長さ $dx$ だけ動き、基底ベクトル $e_x,e_y,e_z$ はどこでも同じ向きを向きます。そのため「成分を偏微分して足す」という勾配・発散・回転の公式を、そのまま使えました。
 
 しかし理論物理や PDE では、
 
 - 円柱対称なら円柱座標
 - 球対称なら球座標
 
-を使いたくなります。このとき基底ベクトル自身が位置によって回転し、座標の一目盛りの物理的長さも場所によって変わります。
+を使いたくなります。ここで単に $x,y,z$ を $\rho,\phi,z$ や $r,\theta,\phi$ に置き換えるだけでは失敗します。例えば円柱座標で $\phi$ を $d\phi$ だけ変えたときの移動距離は $d\phi$ ではなく $\rho\,d\phi$ であり、$e_\rho,e_\phi$ 自身も位置によって回転するからです。
+
+そこで本章では、**座標の一目盛りが実空間で何メートルに相当するか**と、**基底がどの向きを向くか**を先に作ります。その情報から微分演算子を再構成すれば、円柱座標・球座標の長い公式を暗記する必要がなくなります。
 
 本章では公式を暗記せず、
 
@@ -210,15 +212,47 @@ $$
 
 ## 3. 線素・面素・体積要素
 
-微小変位は
+まず「$dr$」が何を表しているかを全微分から確認します。$q=(q_1,q_2,q_3)$、$\Delta q=(\Delta q_1,\Delta q_2,\Delta q_3)$ とすると、$r$ の微分可能性から
+
+$$
+r(q+\Delta q)-r(q)
+=
+Dr(q)\Delta q
++
+o(|\Delta q|).
+$$
+
+Jacobian の各列は
+
+$$
+a_i=\frac{\partial r}{\partial q_i}
+$$
+
+なので、一次の主項は
+
+$$
+Dr(q)\Delta q
+=
+a_1\Delta q_1+a_2\Delta q_2+a_3\Delta q_3.
+$$
+
+この一次部分を微分記号で書いたものが
 
 $$
 dr
 =
-a_1\,dq_1+a_2\,dq_2+a_3\,dq_3
+a_1\,dq_1+a_2\,dq_2+a_3\,dq_3.
+$$
+
+さらに $a_i=h_ie_i$ を代入して
+
+$$
+dr
 =
 h_1e_1\,dq_1+h_2e_2\,dq_2+h_3e_3\,dq_3.
 $$
+
+つまり $dq_i$ は座標値の変化であり、実空間での一次の移動距離は $h_i\,dq_i$ です。
 
 <a id="prop-vc6-elements"></a>
 
@@ -995,13 +1029,170 @@ $$
 $$
 <!-- formal-statement-end -->
 
-これらは一般公式へ
+ここで「一般公式へ代入しただけ」の中身を一度追います。対応は
 
 $$
+(q_1,q_2,q_3)=(\rho,\phi,z),
+\qquad
 (h_1,h_2,h_3)=(1,\rho,1)
 $$
 
-を代入しただけです。
+です。
+
+勾配では
+
+$$
+\frac1{h_1}=1,
+\qquad
+\frac1{h_2}=\frac1\rho,
+\qquad
+\frac1{h_3}=1
+$$
+
+なので
+
+$$
+\nabla f
+=
+e_\rho f_\rho
++
+e_\phi\frac1\rho f_\phi
++
+e_zf_z.
+$$
+
+発散では一般式の三つの積を先に計算すると
+
+$$
+h_2h_3=\rho,
+\qquad
+h_3h_1=1,
+\qquad
+h_1h_2=\rho,
+$$
+
+$$
+h_1h_2h_3=\rho.
+$$
+
+従って
+
+$$
+\begin{aligned}
+\nabla\cdot A
+&=
+\frac1\rho
+\left[
+\partial_\rho(\rho A_\rho)
++
+\partial_\phi A_\phi
++
+\partial_z(\rho A_z)
+\right]\\
+&=
+\frac1\rho\partial_\rho(\rho A_\rho)
++
+\frac1\rho\partial_\phi A_\phi
++
+\partial_zA_z.
+\end{aligned}
+$$
+
+最後の等号では $\rho$ が $z$ に依存しないことを使いました。
+
+回転も三成分を一つずつ一般式へ入れます。例えば $\rho$ 成分は
+
+$$
+\begin{aligned}
+(\nabla\times A)_\rho
+&=
+\frac1{h_\phi h_z}
+\left[
+\partial_\phi(h_zA_z)
+-
+\partial_z(h_\phi A_\phi)
+\right]\\
+&=
+\frac1\rho
+\left[
+\partial_\phi A_z
+-
+\partial_z(\rho A_\phi)
+\right]\\
+&=
+\frac1\rho\partial_\phi A_z
+-
+\partial_zA_\phi.
+\end{aligned}
+$$
+
+$\phi$ 成分は
+
+$$
+\begin{aligned}
+(\nabla\times A)_\phi
+&=
+\frac1{h_zh_\rho}
+\left[
+\partial_z(h_\rho A_\rho)
+-
+\partial_\rho(h_zA_z)
+\right]\\
+&=
+\partial_zA_\rho-\partial_\rho A_z,
+\end{aligned}
+$$
+
+$z$ 成分は
+
+$$
+\begin{aligned}
+(\nabla\times A)_z
+&=
+\frac1{h_\rho h_\phi}
+\left[
+\partial_\rho(h_\phi A_\phi)
+-
+\partial_\phi(h_\rho A_\rho)
+\right]\\
+&=
+\frac1\rho\partial_\rho(\rho A_\phi)
+-
+\frac1\rho\partial_\phi A_\rho.
+\end{aligned}
+$$
+
+スカラー・ラプラシアンでは
+
+$$
+h_\rho h_\phi h_z=\rho
+$$
+
+を [一般公式](#prop-vc6-scalar-laplacian) へ代入し、
+
+$$
+\begin{aligned}
+\Delta f
+&=
+\frac1\rho
+\partial_\rho(\rho f_\rho)
++
+\frac1\rho
+\partial_\phi\left(\frac1\rho f_\phi\right)
++
+\frac1\rho
+\partial_z(\rho f_z)\\
+&=
+\frac1\rho
+\partial_\rho(\rho f_\rho)
++
+\frac1{\rho^2}f_{\phi\phi}
++
+f_{zz},
+\end{aligned}
+$$
+
+となります。二行目では $\rho$ が $\phi,z$ に依存しないことを使っています。
 
 ### 基底自身が回る
 
@@ -1096,7 +1287,127 @@ $$
 
 $\theta$ は $+z$ 軸から測る極角、$\phi$ は $xy$ 平面内の方位角です。
 
-微分すると
+位置ベクトルを
+
+$$
+R(r,\theta,\phi)
+=
+(r\sin\theta\cos\phi,\,
+ r\sin\theta\sin\phi,\,
+ r\cos\theta)
+$$
+
+と書きます。尺度因子を完成形から覚えず、この位置ベクトル表示 $R$ を実際に偏微分します。$r$ については
+
+$$
+\frac{\partial R}{\partial r}
+=
+(\sin\theta\cos\phi,\,
+ \sin\theta\sin\phi,\,
+ \cos\theta),
+$$
+
+なので
+
+$$
+h_r
+=
+\left|
+\frac{\partial R}{\partial r}
+\right|
+=
+\sqrt{
+\sin^2\theta(\cos^2\phi+\sin^2\phi)
++\cos^2\theta
+}
+=
+1.
+$$
+
+極角 $\theta$ については
+
+$$
+\frac{\partial R}{\partial\theta}
+=
+(r\cos\theta\cos\phi,\,
+ r\cos\theta\sin\phi,\,
+ -r\sin\theta),
+$$
+
+したがって
+
+$$
+h_\theta
+=
+r\sqrt{
+\cos^2\theta(\cos^2\phi+\sin^2\phi)
++\sin^2\theta
+}
+=
+r.
+$$
+
+方位角 $\phi$ については
+
+$$
+\frac{\partial R}{\partial\phi}
+=
+(-r\sin\theta\sin\phi,\,
+ r\sin\theta\cos\phi,\,
+ 0),
+$$
+
+なので
+
+$$
+h_\phi
+=
+r\sin\theta
+\sqrt{\sin^2\phi+\cos^2\phi}
+=
+r\sin\theta.
+$$
+
+また三本の相互内積は 0 です。例えば
+
+$$
+\frac{\partial R}{\partial r}
+\cdot
+\frac{\partial R}{\partial\theta}
+=
+r\sin\theta\cos\theta-r\sin\theta\cos\theta
+=
+0,
+$$
+
+残りも直接確認できます。
+
+$$
+\frac{\partial R}{\partial r}
+\cdot
+\frac{\partial R}{\partial\phi}
+=
+-r\sin^2\theta\cos\phi\sin\phi
++
+r\sin^2\theta\sin\phi\cos\phi
+=
+0,
+$$
+
+$$
+\begin{aligned}
+\frac{\partial R}{\partial\theta}
+\cdot
+\frac{\partial R}{\partial\phi}
+&=
+-r^2\cos\theta\sin\theta\cos\phi\sin\phi\\
+&\quad+
+r^2\cos\theta\sin\theta\sin\phi\cos\phi\\
+&=0.
+\end{aligned}
+$$
+
+従って $r>0$、$0<\theta<\pi$ では本当に直交曲線座標であり、
 
 $$
 h_r=1,
@@ -1197,6 +1508,181 @@ r^2\frac{\partial f}{\partial r}
 \frac{\partial^2f}{\partial\phi^2}.
 $$
 <!-- formal-statement-end -->
+
+一般公式からこの形へ移る代入も確認します。対応は
+
+$$
+(q_1,q_2,q_3)=(r,\theta,\phi),
+\qquad
+(h_1,h_2,h_3)=(1,r,r\sin\theta)
+$$
+
+です。
+
+発散では
+
+$$
+h_\theta h_\phi=r^2\sin\theta,
+\qquad
+h_\phi h_r=r\sin\theta,
+\qquad
+h_rh_\theta=r,
+$$
+
+$$
+h_rh_\theta h_\phi=r^2\sin\theta.
+$$
+
+従って
+
+$$
+\begin{aligned}
+\nabla\cdot A
+&=
+\frac1{r^2\sin\theta}
+\left[
+\partial_r(r^2\sin\theta\,A_r)
++
+\partial_\theta(r\sin\theta\,A_\theta)
++
+\partial_\phi(rA_\phi)
+\right]\\
+&=
+\frac1{r^2}\partial_r(r^2A_r)
++
+\frac1{r\sin\theta}
+\partial_\theta(\sin\theta A_\theta)
++
+\frac1{r\sin\theta}\partial_\phi A_\phi.
+\end{aligned}
+$$
+
+二行目では $\sin\theta$ が $r$ に依存せず、$r$ が $\theta,\phi$ に依存しないことを使いました。
+
+回転の $r$ 成分は
+
+$$
+\begin{aligned}
+(\nabla\times A)_r
+&=
+\frac1{h_\theta h_\phi}
+\left[
+\partial_\theta(h_\phi A_\phi)
+-
+\partial_\phi(h_\theta A_\theta)
+\right]\\
+&=
+\frac1{r^2\sin\theta}
+\left[
+\partial_\theta(r\sin\theta\,A_\phi)
+-
+\partial_\phi(rA_\theta)
+\right]\\
+&=
+\frac1{r\sin\theta}
+\left[
+\partial_\theta(\sin\theta A_\phi)
+-
+\partial_\phi A_\theta
+\right].
+\end{aligned}
+$$
+
+$\theta$ 成分は
+
+$$
+\begin{aligned}
+(\nabla\times A)_\theta
+&=
+\frac1{h_\phi h_r}
+\left[
+\partial_\phi(h_rA_r)
+-
+\partial_r(h_\phi A_\phi)
+\right]\\
+&=
+\frac1{r\sin\theta}
+\left[
+\partial_\phi A_r
+-
+\partial_r(r\sin\theta\,A_\phi)
+\right]\\
+&=
+\frac1r
+\left[
+\frac1{\sin\theta}\partial_\phi A_r
+-
+\partial_r(rA_\phi)
+\right],
+\end{aligned}
+$$
+
+$\phi$ 成分は
+
+$$
+\begin{aligned}
+(\nabla\times A)_\phi
+&=
+\frac1{h_rh_\theta}
+\left[
+\partial_r(h_\theta A_\theta)
+-
+\partial_\theta(h_rA_r)
+\right]\\
+&=
+\frac1r
+\left[
+\partial_r(rA_\theta)
+-
+\partial_\theta A_r
+\right].
+\end{aligned}
+$$
+
+スカラー・ラプラシアンでは一般公式の各係数
+
+$$
+\frac{h_rh_\theta h_\phi}{h_r^2}
+=
+r^2\sin\theta,
+$$
+
+$$
+\frac{h_rh_\theta h_\phi}{h_\theta^2}
+=
+\sin\theta,
+$$
+
+$$
+\frac{h_rh_\theta h_\phi}{h_\phi^2}
+=
+\frac1{\sin\theta}
+$$
+
+を代入して
+
+$$
+\begin{aligned}
+\Delta f
+&=
+\frac1{r^2\sin\theta}
+\left[
+\partial_r(r^2\sin\theta\,f_r)
++
+\partial_\theta(\sin\theta\,f_\theta)
++
+\partial_\phi\left(\frac1{\sin\theta}f_\phi\right)
+\right]\\
+&=
+\frac1{r^2}\partial_r(r^2f_r)
++
+\frac1{r^2\sin\theta}\partial_\theta(\sin\theta f_\theta)
++
+\frac1{r^2\sin^2\theta}f_{\phi\phi}.
+\end{aligned}
+$$
+
+こうして長い球座標公式も、尺度因子と一般式から一行ずつ再構成できます。
 
 ### 球座標の基底ベクトルの位置依存
 
