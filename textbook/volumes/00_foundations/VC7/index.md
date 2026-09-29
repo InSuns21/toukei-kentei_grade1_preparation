@@ -920,13 +920,39 @@ Q_{jp}Q_{kq}a_pb_q.
 \end{aligned}
 $$
 
-直交性を使って三つの $Q$ の恒等式から一つの $Q$ を外へ出すと
+ここで
 
 $$
 \varepsilon_{ijk}Q_{jp}Q_{kq}
 =
-(\det Q)Q_{ir}\varepsilon_{rpq}.
+(\det Q)Q_{ir}\varepsilon_{rpq}
 $$
+
+を使います。この式も一段確認します。両辺へ $Q_{is}$ を掛けて $i$ について和を取ります。左辺は
+
+$$
+Q_{is}Q_{jp}Q_{kq}\varepsilon_{ijk}
+=
+(\det Q)\varepsilon_{spq},
+$$
+
+で、これは三つの列を $(s,p,q)$ の順に取った行列式の変換公式です。右辺は直交性
+
+$$
+Q_{is}Q_{ir}
+=
+\delta_{sr}
+$$
+
+から
+
+$$
+(\det Q)\delta_{sr}\varepsilon_{rpq}
+=
+(\det Q)\varepsilon_{spq}.
+$$
+
+両辺へ $Q_{is}$ を掛けた結果がすべての $s$ で一致し、$Q$ は可逆なので元の式も一致します。
 
 従って
 
@@ -1669,7 +1695,7 @@ a_iI_{ij}a_j
 \right)dV.
 $$
 
-ここで新しい恒等式を暗黙に使わず、本章の Levi--Civita 記号の縮約公式から外積の長さを計算します。
+ここで新しい恒等式を暗黙に使わず、本章の [Levi--Civita 記号の縮約公式](#prop-vc7-epsilon-contraction) から外積の長さを計算します。
 
 $$
 (x\times a)_i
@@ -1843,7 +1869,7 @@ $$
 \lambda_1=\lambda_2.
 $$
 
-同様に、ではなく第2軸と第3軸を交換する
+続いて第2軸と第3軸を交換する
 
 $$
 P_{23}
