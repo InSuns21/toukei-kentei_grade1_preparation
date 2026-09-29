@@ -354,10 +354,10 @@ $$
 > を $C^1$ 級の全単射で、逆写像も $C^1$ 級である写像とする。$\widetilde r=r\circ\psi$ と置くと
 >
 $$
-|\widetilde r_s\times\widetilde r_t|
+|\widetilde r_s(s,t)\times\widetilde r_t(s,t)|
 =
-|r_u\times r_v|\,
-|\det D\psi|.
+|r_u(\psi(s,t))\times r_v(\psi(s,t))|\,
+|\det D\psi(s,t)|.
 $$
 >
 > 従って [Riemann積分の多変数変数変換定理](../RA7/index.md#thm-ra7-change-of-variables) と合わせて曲面積はパラメータ表示に依存しない。
