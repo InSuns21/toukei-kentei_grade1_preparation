@@ -26,6 +26,24 @@ concepts:
       - measure.measurable-function
       - measure.lebesgue-integral
 
+  - id: measure.nonnegative-integral-additivity-homogeneity
+    name: 非負Lebesgue積分の加法性と正の斉次性
+    kind: proposition
+    aliases: [非負Lebesgue積分の加法性と正の斉次性]
+    requires:
+      - measure.monotone-convergence-theorem
+      - measure.simple-function-approximation
+      - measure.simple-function-integral
+
+  - id: measure.integral-linearity-absolute-bound
+    name: 可積分関数の線形性と絶対値評価
+    kind: corollary
+    aliases: [可積分関数の線形性と絶対値評価]
+    requires:
+      - measure.nonnegative-integral-additivity-homogeneity
+      - measure.integrable-function
+      - measure.positive-negative-parts
+
   - id: measure.fatou-lemma
     name: Fatouの補題
     kind: lemma
@@ -59,4 +77,7 @@ concepts:
       - measure.dominating-function
       - measure.integrable-function
       - measure.fatou-lemma
+      - measure.nonnegative-integral-additivity-homogeneity
+      - measure.integral-linearity-absolute-bound
+      - measure.null-set-integral-invariance
       - measure.l1-convergence
