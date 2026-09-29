@@ -22,7 +22,7 @@ theorems:
   - { id: F000D2A-THM-01, name: 単関数積分の表現不変性 }
   - { id: F000D2A-THM-02, name: 単関数近似定理 }
   - { id: F000D2A-THM-03, name: Lebesgue積分の単調性 }
-  - { id: F000D2A-PROP-01, name: 非負可測関数のa.e.変更による積分不変性 }
+  - { id: F000D2A-PROP-03, name: 非負可測関数のa.e.変更による積分不変性 }
   - { id: F000D2A-THM-04, name: a.e.変更による積分不変性 }
 canonical_examples:
   - 三段の単関数
