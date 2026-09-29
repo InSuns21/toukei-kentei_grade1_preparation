@@ -238,6 +238,30 @@ $$
 > である。
 <!-- formal-statement-end -->
 
+局所座標で
+
+$$
+\alpha=\sum_I a_I\,dx^I,
+\qquad
+\beta=\sum_J b_J\,dx^J
+$$
+
+と書けば、
+
+$$
+\alpha\wedge\beta
+=
+\sum_{I,J}a_Ib_J\,dx^I\wedge dx^J.
+$$
+
+係数 $a_Ib_J$ は滑らかな関数の積で、項数は局所有限ではなく実際に有限です。従って点ごとに定めた外積は滑らかに変化し、確かに
+
+$$
+\alpha\wedge\beta\in\Omega^{k+\ell}(M)
+$$
+
+となります。
+
 <!-- definition-example-start: def-geo7-form-wedge -->
 **定義の確認**
 
@@ -332,6 +356,26 @@ $$
 >
 > と定める。この $k$ 形式 $F^*\omega\in\Omega^k(M)$ を $\omega$ の **引き戻し**という。
 <!-- formal-statement-end -->
+
+この点ごとの定義が滑らかな $k$ 形式になることも座標で確認できます。$N$ の局所座標を $(y^1,\dots,y^m)$ とし、
+
+$$
+\omega
+=
+\sum_I a_I\,dy^{i_1}\wedge\cdots\wedge dy^{i_k}
+$$
+
+と書きます。すると定義から
+
+$$
+F^*\omega
+=
+\sum_I
+(a_I\circ F)\,
+d(y^{i_1}\circ F)\wedge\cdots\wedge d(y^{i_k}\circ F).
+$$
+
+$a_I\circ F$ は滑らかで、各 $d(y^{i_r}\circ F)$ も滑らかな1形式なので、右辺は滑らかな $k$ 形式です。ここで使っている $d$ は関数の通常の微分であり、この後に定義する外微分の一般論を先取りしていません。
 
 <!-- definition-example-start: def-geo7-pullback-form -->
 **定義の確認**
@@ -2158,22 +2202,42 @@ d(P\,dx)
 P_z\,dz\wedge dx.
 $$
 
-同様に
+次に
 
 $$
+dQ=Q_xdx+Q_ydy+Q_zdz
+$$
+
+なので
+
+$$
+\begin{aligned}
 d(Q\,dy)
-=
-Q_x\,dx\wedge dy
--
-Q_z\,dy\wedge dz,
+&=dQ\wedge dy\\
+&=Q_x\,dx\wedge dy
++Q_z\,dz\wedge dy\\
+&=Q_x\,dx\wedge dy
+-Q_z\,dy\wedge dz.
+\end{aligned}
 $$
 
+また
+
 $$
+dR=R_xdx+R_ydy+R_zdz
+$$
+
+なので
+
+$$
+\begin{aligned}
 d(R\,dz)
-=
-R_y\,dy\wedge dz
--
-R_x\,dz\wedge dx.
+&=dR\wedge dz\\
+&=R_x\,dx\wedge dz
++R_y\,dy\wedge dz\\
+&=R_y\,dy\wedge dz
+-R_x\,dz\wedge dx.
+\end{aligned}
 $$
 
 従って
