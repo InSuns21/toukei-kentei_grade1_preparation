@@ -566,7 +566,13 @@ $$
 
 内部の点 $0<t<1$ では、これは [GEO7 の Cartan の公式](../GEO7/index.md#thm-geo7-cartan-formula)を $\partial_t$ に適用した式そのものです。上の座標計算は端点でも同じ係数式が成り立つことまで直接確認しています。
 
-よって
+さらに包含写像 $j_t:M\to[0,1]\times M$ に [GEO7 の外微分の自然性](../GEO7/index.md#thm-geo7-pullback-commutes-d)を適用すると
+
+$$
+j_t^*d\theta=d(j_t^*\theta)
+$$
+
+です。従って
 
 $$
 \frac{d}{dt}H_t^*\omega
