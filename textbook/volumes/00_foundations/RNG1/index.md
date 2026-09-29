@@ -20,13 +20,13 @@ $$
 $$
 \text{環}
 \longrightarrow
-\text{環準同型}
+\text{二つの演算を保つ写像}
 \longrightarrow
 \text{核とイデアル}
 \longrightarrow
 \text{商環}
 \longrightarrow
-\text{環の第一同型定理}
+\text{核で割った商と像の対応}
 $$
 
 です。
