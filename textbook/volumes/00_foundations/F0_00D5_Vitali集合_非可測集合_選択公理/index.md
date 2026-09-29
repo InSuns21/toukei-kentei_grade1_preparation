@@ -364,7 +364,7 @@ $$
 
 ここで $V$ がLebesgue可測だと仮定します。
 
-[D4 の平行移動不変性](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#cor-f0-00d4-lebesgue-translation-invariance)より、$V$ が可測なら各 $V+q$ も可測で、
+[D4 の平行移動不変性](textbook/volumes/00_foundations/F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#cor-f0-00d4-lebesgue-translation-invariance)より、$V$ が可測なら各 $V+q$ も可測で、
 
 $$
 \lambda(V+q)=\lambda(V)
@@ -408,7 +408,7 @@ $$
 \right)=0.
 $$
 
-しかしこの集合は $[0,1]$ を含むので単調性から
+しかしこの集合は $[0,1]$ を含むので[D2 の測度の単調性](textbook/volumes/00_foundations/F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#prop-f0-00d2-02)から
 
 $$
 1
@@ -893,7 +893,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-[D4 の Lebesgue測度の平行移動不変性](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#cor-f0-00d4-lebesgue-translation-invariance)から、全ての $q$ について
+[D4 の Lebesgue測度の平行移動不変性](textbook/volumes/00_foundations/F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#cor-f0-00d4-lebesgue-translation-invariance)から、全ての $q$ について
 
 $$
 \lambda(V+q)=\lambda(V).
@@ -907,7 +907,7 @@ $$
 \sum_{q\in\mathbb Q\cap[-1,1]}\lambda(V).
 $$
 
-まず $\lambda(V)=0$ なら右辺は0です。従って $\lambda(U)=0$。しかし A04 より $[0,1]\subset U$ なので単調性から
+まず $\lambda(V)=0$ なら右辺は0です。従って $\lambda(U)=0$。しかし A04 より $[0,1]\subset U$ なので[D2 の測度の単調性](textbook/volumes/00_foundations/F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#prop-f0-00d2-02)から
 
 $$
 1=\lambda([0,1])\le\lambda(U)=0,
@@ -1113,13 +1113,13 @@ $$
 \subset[-1,2].
 $$
 
-[D4 の Lebesgue測度の平行移動不変性](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#cor-f0-00d4-lebesgue-translation-invariance)と可算加法性から左辺の測度は
+[D4 の Lebesgue測度の平行移動不変性](textbook/volumes/00_foundations/F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#cor-f0-00d4-lebesgue-translation-invariance)と可算加法性から左辺の測度は
 
 $$
 \sum_q\lambda(E)=\infty.
 $$
 
-一方、単調性からその測度は高々
+一方、[D2 の測度の単調性](textbook/volumes/00_foundations/F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#prop-f0-00d2-02)からその測度は高々
 
 $$
 \lambda([-1,2])=3
