@@ -80,11 +80,11 @@ concepts:
       - ode.ode7-dirichlet-neumann-spectrum
 
   - id: pde.pde5-poisson-kernel
-    name: 円板境界値問題のPoisson kernel
+    name: 円板境界値問題のPoisson 核
     kind: definition
     aliases: [PDE5 Poisson kernel for the disk]
     introduction: formal
-    introduction_aliases: ["定義（円板境界値問題の Poisson kernel）"]
+    introduction_aliases: ["定義（円板境界値問題の Poisson 核）"]
     requires: [pde.pde5-harmonic-function]
 
   - id: pde.pde5-poisson-integral
