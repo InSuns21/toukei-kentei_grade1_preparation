@@ -331,11 +331,11 @@ $$
 
 実際、
 
-$
+$$
 \bigcup_{n=1}^{\infty}(A\cap B_n)
 =
 A\cap\left(\bigcup_{n=1}^{\infty}B_n\right)
-$
+$$
 
 なので、$\bigcup_nB_n\in\mathcal D_A$ です。
 
