@@ -24,6 +24,6 @@ concepts:
     aliases: [Vitali集合の非可測性]
     requires:
       - measure.vitali-set
-      - measure.lebesgue-outer-translation-invariance
+      - measure.lebesgue-translation-invariance
       - measure.interval-lebesgue-outer-measure
       - measure.measure-space
