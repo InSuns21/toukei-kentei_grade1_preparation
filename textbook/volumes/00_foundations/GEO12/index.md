@@ -2010,7 +2010,7 @@ df
 \sum_i x^i dx^i
 $$
 
-なので、flat・sharp の定義から
+です。標準 Euclid 計量では計量行列が単位行列なので、余ベクトルの成分を sharp でベクトルへ戻しても成分は変わりません。従って
 
 $$
 \operatorname{grad}_g f
