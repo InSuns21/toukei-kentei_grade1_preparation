@@ -69,7 +69,7 @@ $$
 曲面の向きを下向きに反転すると、境界向きも反転します。
 <!-- definition-example-end -->
 
-右手の親指を法線方向へ向けたとき、残りの指が境界の正向きを示す、という右手則はこの定義の記憶法です。向きを判断するときは、上のパラメータ領域の正向きという定義へ戻れば符号を確認できます。
+右手の親指を法線方向へ向けたとき、残りの指が境界の正向きを示す、という右手則はこの定義の記憶法です。正本はあくまでパラメータ領域の正向きです。
 
 ---
 
@@ -101,9 +101,9 @@ $$
 [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence) は
 
 $$
-\text{閉曲面を通る流束}
+\text{closed surface の flux}
 \longleftrightarrow
-\text{体積内部の発散}
+\text{volume 内の divergence}
 $$
 
 を結びました。
@@ -111,9 +111,9 @@ $$
 [Stokes の定理](#thm-vc5-stokes) は
 
 $$
-\text{境界曲線の循環}
+\text{boundary curve の circulation}
 \longleftrightarrow
-\text{曲面上の回転の流束}
+\text{surface 上の curl flux}
 $$
 
 を結びます。
@@ -880,7 +880,7 @@ $$
 $$
 <!-- proof-end -->
 
-逆に「無発散なら大域ベクトルポテンシャルが必ず存在する」とは、領域の位相構造と境界・減衰条件を無視しては言えません。この逆向きの存在条件は、VC8 の Helmholtz 分解で境界条件・無限遠条件とともに詳しく扱います。
+逆に「無発散なら大域ベクトルポテンシャルが必ず存在する」とは、領域の位相構造と境界・減衰条件を無視しては言えません。この逆向きの存在論は後続の分解定理の章で正本化します。
 
 <a id="prop-vc5-vector-potential-gauge"></a>
 
