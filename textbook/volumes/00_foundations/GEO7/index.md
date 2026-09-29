@@ -552,7 +552,7 @@ P=f_x,
 Q=f_y
 $$
 
-なので、混合偏微分の交換から
+なので、[RA6 の混合偏微分の交換](../RA6/index.md#thm-ra6-mixed-partials)から
 
 $$
 Q_x-P_y=0
