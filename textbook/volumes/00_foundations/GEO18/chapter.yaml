@@ -19,7 +19,7 @@ learning_objectives:
 definitions:
   - { id: GEO18-DEF-01, name: 定曲率模型空間・比較関数 }
   - { id: GEO18-DEF-02, name: 単連結 }
-  - { id: GEO18-DEF-03, name: 被覆写像 }
+  - { id: GEO18-DEF-03, name: 比較幾何で使う被覆写像の再掲 }
 theorems:
   - { id: GEO18-LEM-01, name: 法 Jacobi 場の長さに対する微分不等式 }
   - { id: GEO18-THM-01, name: Rauch の比較定理（定曲率模型・上曲率版） }
