@@ -25,7 +25,7 @@ forward_references:
   - functional.l2-completeness
   - functional.hilbert-space
   - measure.vitali-set
-  - measure.borel-sigma-algebra-recap
+  - measure.borel-sigma-algebra
   - prob.probability-space
   - prob.random-variable
 
