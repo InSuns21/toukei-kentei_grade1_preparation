@@ -609,9 +609,9 @@ $$
 任意の適切な領域 $\Omega$ について
 
 $$
-\text{境界から外へ出る総流束}
+\text{境界から外へ出る total flux}
 =
-\text{内部の湧き出し密度の総和}.
+\text{内部の source density の総和}.
 $$
 
 つまり
@@ -1295,7 +1295,7 @@ $$
 $$
 \operatorname{curl}
 \quad\longleftrightarrow\quad
-\text{境界循環}
+\text{boundary circulation}
 $$
 
-という対応を曲面上で導きます。
+という対応を曲面上で正本化します。
