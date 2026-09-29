@@ -394,19 +394,40 @@ $f-S_Nf$ は、$1,\cos mx,\sin mx$ のうち $m\le N$ のものを掛けて積�
 <!-- proof-start -->
 ### 証明
 
-$R_N:=T_N-S_Nf$ と置きます。係数の定義と[正弦・余弦の一周期積分消去則](#thm-fou1-frequency-cancellation)から
+$R_N:=T_N-S_Nf$ と置きます。まず、$f-S_Nf$ が使っている各周波数に対して積分すると0になることを式で確認します。
+
+定数項については、$a_0$ の定義と $S_Nf$ の定数係数から
 
 $$
-\int_{-\pi}^{\pi}(f-S_Nf)\,dx=0,
+\begin{aligned}
+\int_{-\pi}^{\pi}(f-S_Nf)\,dx
+&=\int_{-\pi}^{\pi}f(x)\,dx
+-\int_{-\pi}^{\pi}S_Nf(x)\,dx\\
+&=\pi a_0-\pi a_0=0.
+\end{aligned}
 $$
 
+固定した $m\in\{1,\ldots,N\}$ に対しては、$a_m$ の定義と[一周期積分による係数抽出](#thm-fou1-coefficient-extraction)から
+
 $$
-\int_{-\pi}^{\pi}(f-S_Nf)\cos mx\,dx=0,
-\qquad
-\int_{-\pi}^{\pi}(f-S_Nf)\sin mx\,dx=0
+\begin{aligned}
+\int_{-\pi}^{\pi}(f-S_Nf)\cos mx\,dx
+&=\int_{-\pi}^{\pi}f(x)\cos mx\,dx
+-\int_{-\pi}^{\pi}S_Nf(x)\cos mx\,dx\\
+&=\pi a_m-\pi a_m=0.
+\end{aligned}
 $$
 
-が $1\le m\le N$ で成り立ちます。$R_N$ はこれらの有限線形結合なので
+同じく $b_m$ について
+
+$$
+\begin{aligned}
+\int_{-\pi}^{\pi}(f-S_Nf)\sin mx\,dx
+&=\pi b_m-\pi b_m=0.
+\end{aligned}
+$$
+
+したがって $f-S_Nf$ は、$1,\cos mx,\sin mx$ のうち $m\le N$ のどれを掛けても積分が0になります。$R_N$ はこれらの有限線形結合なので
 
 $$
 \int_{-\pi}^{\pi}(f-S_Nf)R_N\,dx=0.
