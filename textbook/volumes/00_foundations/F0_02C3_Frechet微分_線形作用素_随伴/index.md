@@ -43,6 +43,8 @@ $$
 <!-- definition-example-start: def-f0-02c3-bounded-linear-operator -->
 ### 例：積分で一つの数を返す作用素
 
+**定義の確認**：線形性に加え、定義の不等式を具体的な定数 $M=1$ で確かめます。
+
 $X=C([0,1])$ に
 
 $$
@@ -163,6 +165,8 @@ $$
 <!-- definition-example-start: def-f0-02c3-operator-norm -->
 ### 例：2倍写像
 
+**定義の確認**：単位球 $|x|\le1$ 上で $|Tx|$ の上限を直接計算します。
+
 $T:\mathbb R\to\mathbb R$、$T(x)=2x$ なら、
 
 $$
@@ -216,6 +220,8 @@ $$
 
 <!-- definition-example-start: def-f0-02c3-frechet-derivative -->
 ### 例：有界線形写像そのものを微分する
+
+**定義の確認**：一次近似の候補 $A=T$ が有界線形であり、定義に現れる剰余が恒等的に0になることを確かめます。
 
 $T:X\to Y$ を有界線形写像とし、$f(x)=Tx$ とします。任意の $x,h\in X$ について
 
@@ -324,6 +330,8 @@ $$
 <!-- definition-example-start: def-f0-02c3-directional-derivative -->
 ### 例：二乗ノルムの方向微分
 
+**定義の確認**：方向 $v$ を固定し、定義の一変数差商の極限を直接計算します。
+
 実 Hilbert 空間 $H$ 上で $f(x)=\|x\|^2$ とすると、
 
 $$
@@ -356,6 +364,8 @@ $$
 
 <!-- definition-example-start: def-f0-02c3-gateaux-derivative -->
 ### 例：二乗ノルムのGâteaux微分
+
+**定義の確認**：全方向で方向微分が存在し、その値が方向 $v$ に関して線形になることを確かめます。
 
 上の Hilbert 空間の例では、
 
