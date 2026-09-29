@@ -18,7 +18,7 @@ Euler 積分
 全平面への有理型解析接続
   ↓
 有限積から得る極限表示
-  ↓ CA10 の基本因子
+  ↓ CA10 の Weierstrass の基本因子
 逆数の Weierstrass 積
   ↓ CA10 の sin(pi z) の Euler 積
 反射公式
