@@ -1855,7 +1855,77 @@ $$
 
 を考えます。
 
-直接確認すると $A$ は Riemann 曲率テンソルと同じ反対称性・対交換対称性・第一 Bianchi 恒等式を満たします。
+必要な対称性を順に確認します。まず
+
+$$
+\begin{aligned}
+A(Y,X,Z,W)
+&=
+c\left(
+g(X,Z)g(Y,W)
+-
+g(Y,Z)g(X,W)
+\right)
+\\
+&=
+-A(X,Y,Z,W).
+\end{aligned}
+$$
+
+同じく後ろ二変数を交換すると
+
+$$
+A(X,Y,W,Z)
+=
+-A(X,Y,Z,W).
+$$
+
+対交換については
+
+$$
+\begin{aligned}
+A(Z,W,X,Y)
+&=
+c\left(
+g(W,X)g(Z,Y)
+-
+g(Z,X)g(W,Y)
+\right)
+\\
+&=
+A(X,Y,Z,W),
+\end{aligned}
+$$
+
+ここで計量の対称性を使いました。
+
+最後に第一 Bianchi 恒等式の左辺を展開すると
+
+$$
+\begin{aligned}
+&
+A(X,Y,Z,W)
++
+A(Y,Z,X,W)
++
+A(Z,X,Y,W)
+\\
+={}&
+c\bigl[
+g(Y,Z)g(X,W)-g(X,Z)g(Y,W)
+\\
+&\quad
++g(Z,X)g(Y,W)-g(Y,X)g(Z,W)
+\\
+&\quad
++g(X,Y)g(Z,W)-g(Z,Y)g(X,W)
+\bigr]
+\\
+={}&0.
+\end{aligned}
+$$
+
+従って $A$ は Riemann 曲率テンソルと同じ代数的対称性を全て満たします。
 
 また
 
