@@ -9,6 +9,7 @@ forward_references:
   - measure.monotone-convergence-theorem
   - measure.fatou-lemma
   - measure.dominated-convergence-theorem
+  - analysis.riemann-integrable
 
 concepts:
   - id: measure.nonnegative-simple-function
