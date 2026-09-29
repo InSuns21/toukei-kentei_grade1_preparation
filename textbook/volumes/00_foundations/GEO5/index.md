@@ -762,13 +762,13 @@ W_a(t)[b,c,d]
 \int_0^t DF(u_a(s))W_a(s)[b,c,d]\,ds\\
 &\quad+
 \int_0^t D^2F(u_a(s))
-\bigl[V_a(s)[b,c],J_a(s)d\bigr]\,ds\\
+\bigl[J_a(s)d,V_a(s)[b,c]\bigr]\,ds\\
 &\quad+
 \int_0^t D^2F(u_a(s))
 \bigl[V_a(s)[b,d],J_a(s)c\bigr]\,ds\\
 &\quad+
 \int_0^t D^2F(u_a(s))
-\bigl[V_a(s)[c,d],J_a(s)b\bigr]\,ds\\
+\bigl[J_a(s)b,V_a(s)[c,d]\bigr]\,ds\\
 &\quad+
 \int_0^t D^3F(u_a(s))
 \bigl[J_a(s)b,J_a(s)c,J_a(s)d\bigr]\,ds
@@ -804,7 +804,7 @@ $$
 
 が残りの $D^2F$ の項と未知項を生みます。つまり三階でも、「どこへ連鎖律を使ったか」を追えば右辺の全項を再現できます。
 
-三階以上も同じ機構で帰納します。$k\ge3$ とし、方向
+四階以上も同じ機構で帰納します。$k\ge4$ とし、方向
 
 $$
 b_1,\dots,b_k\in\mathbb R^n
