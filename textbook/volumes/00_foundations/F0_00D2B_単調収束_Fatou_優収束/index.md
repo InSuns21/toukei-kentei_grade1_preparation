@@ -283,7 +283,7 @@ $$
 2\int g-\int h
 $$
 
-のような積分の代数を使います。これを暗黙の既知事項にせず、いま得た MCT から導いておきます。
+のような積分の代数を使います。これを暗黙の既知事項にせず、いま得た [MCT](#ref-limit-integral-exchange) から導いておきます。
 
 <a id="prop-f0-00d2b-nonnegative-additivity"></a>
 
@@ -325,7 +325,7 @@ $$
 \phi_n+\psi_n\uparrow u+v
 $$
 
-へ MCT を適用し、単関数での等式を一般の非負可測関数へ持ち上げます。
+へ [MCT](#ref-limit-integral-exchange) を適用し、単関数での等式を一般の非負可測関数へ持ち上げます。
 
 <!-- proof-start -->
 ### 証明
@@ -386,7 +386,7 @@ $$
 c\int\phi_n\,d\mu.
 $$
 
-MCT を適用して
+[MCT](#ref-limit-integral-exchange) を適用して
 
 $$
 \int cu\,d\mu
@@ -1337,7 +1337,7 @@ $$
 \int v\,d\mu=3
 $$
 
-を満たすとする。本文で MCT から導いた加法性を使って
+を満たすとする。本文で [MCT](#ref-limit-integral-exchange) から導いた加法性を使って
 
 $$
 \int(4u+2v)\,d\mu
@@ -1380,7 +1380,7 @@ $$
 14.
 $$
 
-使った順序は「正の斉次性で各係数を外へ出す → 加法性で和を分ける」です。これらは単関数での有限和計算を MCT で一般の非負可測関数へ持ち上げた性質です。
+使った順序は「正の斉次性で各係数を外へ出す → 加法性で和を分ける」です。これらは単関数での有限和計算を [MCT](#ref-limit-integral-exchange) で一般の非負可測関数へ持ち上げた性質です。
 <!-- solution-end -->
 
 ## F0-00D2B-B01 DCTで極限交換
