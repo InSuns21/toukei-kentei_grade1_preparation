@@ -240,7 +240,17 @@ $$
 
 ### 証明の見取り図
 
-$\lambda(\mathcal P)$ を、$\mathcal P$ を含む最小のDynkin族とします。示したい核心は
+まず「$\mathcal P$ を含む最小のDynkin族」が存在することを確認します。$\mathcal P$ を含むDynkin族全体を考えると、少なくとも $2^\Omega$ がその一つです。その全ての共通部分を
+
+$
+\lambda(\mathcal P)
+:=
+\bigcap\{\mathcal D:\mathcal D\text{ は }\mathcal P\text{ を含むDynkin族}\}
+$
+
+と置きます。Dynkin族の三条件は共通部分を取っても保たれるので、$\lambda(\mathcal P)$ 自身もDynkin族です。また定義から、$\mathcal P$ を含む任意のDynkin族に含まれる最小のものです。
+
+この $\lambda(\mathcal P)$ について、示したい核心は
 
 $$
 \lambda(\mathcal P)
