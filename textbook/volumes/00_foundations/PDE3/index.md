@@ -1107,17 +1107,17 @@ $$
 
 今度は境界のない実数全体
 
-$
+$$
 x\in\mathbb R
-$
+$$
 
 で
 
-$
+$$
 u_t=\kappa u_{xx},
 \qquad
 u(0,x)=f(x)
-$
+$$
 
 を考えます。
 
@@ -1125,145 +1125,145 @@ $
 
 固定した時刻 $t$ に対し、いったん $x\mapsto u(t,x)$ が [FOU3 の微分則](../FOU3/index.md#thm-fou3-derivative-rule)を適用できるだけ十分滑らかで減衰すると仮定します。二階微分に同定理を適用すると
 
-$
+$$
 \widehat{u_{xx}}(t,\xi)
 =
 -\xi^2\widehat u(t,\xi).
-$
+$$
 
 さらに時間微分と Fourier 積分を交換できると仮定すれば
 
-$
+$$
 \widehat{u_t}(t,\xi)
 =
 \partial_t\widehat u(t,\xi).
-$
+$$
 
 したがって熱方程式
 
-$
+$$
 u_t=\kappa u_{xx}
-$
+$$
 
 の両辺を Fourier 変換した式は
 
-$
+$$
 \partial_t\widehat u(t,\xi)
 =
 -\kappa\xi^2\widehat u(t,\xi)
-$
+$$
 
 です。
 
 ここで周波数 $\xi$ を一つ固定します。未知量を
 
-$
+$$
 Y_\xi(t):=\widehat u(t,\xi)
-$
+$$
 
 と書けば
 
-$
+$$
 Y_\xi'(t)
 =
 -\kappa\xi^2Y_\xi(t),
 \qquad
 Y_\xi(0)=\widehat f(\xi)
-$
+$$
 
 という一階 ODE です。係数 $-\kappa\xi^2$ は $t$ に依らないので、
 
-$
+$$
 \frac{d}{dt}
 \left(
 e^{\kappa\xi^2t}Y_\xi(t)
 \right)
 =
 0.
-$
+$$
 
 従って
 
-$
+$$
 Y_\xi(t)
 =
 e^{-\kappa t\xi^2}Y_\xi(0)
 =
 e^{-\kappa t\xi^2}\widehat f(\xi),
-$
+$$
 
 すなわち
 
-$
+$$
 \boxed{
 \widehat u(t,\xi)
 =
 e^{-\kappa t\xi^2}\widehat f(\xi)
 }.
-$
+$$
 
 これで「高周波ほど速く消える」が連続周波数でも見えました。次に、この乗数 $e^{-\kappa t\xi^2}$ を空間側へ戻します。
 
 [Gaussian の Fourier 変換](../FOU3/index.md#lem-fou3-gaussian-transform)では
 
-$
+$$
 g_a(x)=e^{-ax^2}
-$
+$$
 
 に対して
 
-$
+$$
 \widehat g_a(\xi)
 =
 \sqrt{\frac{\pi}{a}}
 \exp\left(-\frac{\xi^2}{4a}\right)
-$
+$$
 
 でした。ここで
 
-$
+$$
 a=\frac1{4\kappa t}
-$
+$$
 
 を代入すると
 
-$
+$$
 \widehat{
 \exp\left(-\frac{x^2}{4\kappa t}\right)
 }(\xi)
 =
 \sqrt{4\pi\kappa t}\,
 e^{-\kappa t\xi^2}.
-$
+$$
 
 したがって
 
-$
+$$
 G_t(x)
 :=
 \frac1{\sqrt{4\pi\kappa t}}
 \exp\left(-\frac{x^2}{4\kappa t}\right)
-$
+$$
 
 と置けば
 
-$
+$$
 \boxed{
 \widehat G_t(\xi)=e^{-\kappa t\xi^2}
 }
-$
+$$
 
 です。
 
 さらに FOU3 の畳み込み定理から、$G_t*f$ の Fourier 変換は
 
-$
+$$
 \widehat{G_t*f}
 =
 \widehat G_t\,\widehat f
 =
 e^{-\kappa t\xi^2}\widehat f(\xi).
-$
+$$
 
 つまり周波数側で得た候補と一致します。これが、熱核が Gaussian になる理由です。
 
