@@ -3,12 +3,14 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - F0-00D4
+  - TOP2
   - F0-00A2
 
 # 関数解析・確率論への接続節では、後で扱う概念を名前だけ先に紹介する。
 forward_references:
   - set.zorn-lemma
   - prob.probability-space
+  - linear.vector-space
 
 concepts:
   - id: measure.vitali-equivalence
