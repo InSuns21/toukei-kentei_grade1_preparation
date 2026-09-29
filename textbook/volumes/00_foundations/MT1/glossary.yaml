@@ -6,9 +6,9 @@ terms:
   - term: 測度収束
     english: convergence in measure
     meaning: 任意の正の誤差幅について、その幅を超えてずれる点の集合の測度が0へ収束すること。
-  - term: Lp収束
-    english: Lp convergence
-    meaning: 関数差のp乗積分から定まるLpノルムが0へ収束すること。
+  - term: L^p収束
+    english: L^p convergence
+    meaning: 関数差のp乗積分から定まるL^p量が0へ収束すること。
   - term: 測度の上からの連続性
     english: continuity from above
     meaning: 減少する可測集合列について、先頭集合が有限測度なら交わりの測度が各集合の測度の極限に等しくなる性質。
