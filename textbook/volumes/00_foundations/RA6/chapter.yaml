@@ -24,6 +24,7 @@ theorems:
   - { id: RA6-THM-03, name: 多変数の連鎖律 }
   - { id: RA6-THM-04, name: 混合偏微分の交換 }
   - { id: RA6-THM-05, name: 二階の多変数 Taylor 展開 }
+  - { id: RA6-THM-06, name: 微分と Jacobian 行列の対応 }
 canonical_examples: [ノルム二乗の微分, 全偏微分が存在するが微分可能でない関数, Jacobian計算, 二次Taylor展開]
 problem_patterns: [RA-MULTIVARIABLE-DERIVATIVE-1, RA-CHAIN-RULE-1]
 past_exam_alignment: []
