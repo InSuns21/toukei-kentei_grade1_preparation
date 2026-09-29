@@ -10,6 +10,9 @@ prerequisites:
 # ローカル alias として保持する。H1 を ODE1 の prerequisite にはしない。
 forward_references:
   - ode.matrix-exponential
+  - ode.ode3-linear-system
+  - ode.ode4-phase-plane-nullcline
+  - pde.pde1-partial-differential-equation
 
 concepts:
   - id: ode.ode1-ordinary-differential-equation
