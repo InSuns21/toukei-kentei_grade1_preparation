@@ -126,7 +126,7 @@ p^{-1}(V)
 =
 \bigsqcup_{k\in\mathbb Z}
 (
-\theta_0-\varepsilon+2\pi k,,
+\theta_0-\varepsilon+2\pi k,
 \theta_0+\varepsilon+2\pi k
 ).
 $$
@@ -137,7 +137,7 @@ $$
 U_k
 =
 (
-\theta_0-\varepsilon+2\pi k,,
+\theta_0-\varepsilon+2\pi k,
 \theta_0+\varepsilon+2\pi k
 )
 $$
@@ -151,7 +151,7 @@ p|_{U_k}:U_k\to V
 $$
 
 は全単射で、逆写像は $V$ 上で角度を一つの区間
-$(\theta_0-arepsilon+2\pi k,\theta_0+arepsilon+2\pi k)$
+$(\theta_0-\varepsilon+2\pi k,\theta_0+\varepsilon+2\pi k)$
 へ選ぶ写像です。この逆写像も連続なので、各制限は同相写像です。
 
 従って $p$ は被覆写像です。
