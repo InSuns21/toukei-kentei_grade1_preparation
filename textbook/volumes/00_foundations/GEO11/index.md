@@ -1,4 +1,4 @@
-# GEO11 幾何学 XI
+# GEO11 第一・第二基本形式はどう両立するか：Gauss--Codazzi と超曲面の基本定理
 
 [GEO10](../GEO10/index.md) では、Euclid 空間内の超曲面に第一基本形式・形作用素・第二基本形式を入れ、主曲率と Gauss 曲率を外在的に定義しました。本章では、そのデータが互いに独立ではないことを調べます。
 
@@ -1052,7 +1052,124 @@ $$
 \partial_iA_j-\partial_jA_i+[A_i,A_j]=0.
 $$
 
-左上ブロックを展開すると Gauss 方程式、左下ブロックを展開すると Codazzi 方程式です。右上ブロックは Codazzi 方程式の添字を第一基本形式で上げた式で、右下成分は $B G^{-1}B$ の対称性から0になります。
+ここで、どのブロックがどの整合条件を表すかを一度展開します。記号を短くするため
+
+$$
+\Gamma_i
+:=
+(\Gamma^k_{ij})_{k,j},
+\qquad
+b_i
+:=
+(b_{ij})_j,
+\qquad
+h_i
+:=
+(h_i{}^k)_k
+$$
+
+と書けば
+
+$$
+A_i
+=
+\begin{pmatrix}
+\Gamma_i&-h_i\\
+b_i^{\mathsf T}&0
+\end{pmatrix}.
+$$
+
+従って左上ブロックは
+
+$$
+\partial_i\Gamma_j
+-
+\partial_j\Gamma_i
++
+\Gamma_i\Gamma_j
+-
+\Gamma_j\Gamma_i
+-
+h_i b_j^{\mathsf T}
++
+h_j b_i^{\mathsf T}.
+$$
+
+その $(\ell,k)$ 成分を0と置くと
+
+$$
+R^\ell{}_{kij}
+-
+h_i{}^\ell b_{jk}
++
+h_j{}^\ell b_{ik}
+=
+0,
+$$
+
+すなわち Gauss 方程式
+
+$$
+R^\ell{}_{kij}
+=
+b_{jk}h_i{}^\ell
+-
+b_{ik}h_j{}^\ell
+$$
+
+です。
+
+左下ブロックは
+
+$$
+\partial_i b_j^{\mathsf T}
+-
+\partial_j b_i^{\mathsf T}
++
+b_i^{\mathsf T}\Gamma_j
+-
+b_j^{\mathsf T}\Gamma_i.
+$$
+
+$k$ 成分を0と置くと
+
+$$
+\partial_i b_{jk}
+-
+\partial_j b_{ik}
++
+b_{im}\Gamma^m_{jk}
+-
+b_{jm}\Gamma^m_{ik}
+=
+0.
+$$
+
+さらに $\Gamma^m_{ij}=\Gamma^m_{ji}$ を使って整理すれば
+
+$$
+\nabla_i b_{jk}
+=
+\nabla_j b_{ik},
+$$
+
+つまり Codazzi 方程式になります。
+
+右上ブロックはこの Codazzi 方程式の添字を $G^{-1}$ で上げた式です。右下成分は
+
+$$
+-b_i^{\mathsf T}h_j+b_j^{\mathsf T}h_i.
+$$
+
+$h_i=G^{-1}b_i$ と $G^{-1}$ の対称性から
+
+$$
+b_i^{\mathsf T}G^{-1}b_j
+=
+b_j^{\mathsf T}G^{-1}b_i
+$$
+
+なので、この成分は恒等的に0です。
 
 従って構造方程式は Gauss--Codazzi を一つの行列方程式へまとめたものです。$\square$
 <!-- proof-end -->
@@ -1471,6 +1588,8 @@ $$
 
 を満たします。
 
+以後、必要なら $V$ をさらに小さくし、座標上で $u_0$ を中心とする星型近傍として取ります。これで $u_0$ から任意の $u\in V$ まで、$V$ 内の線分で結べます。
+
 #### 3. 初期標構を第一基本形式に合わせる
 
 $G(u_0)$ は正定値です。従って $\mathbb R^{n+1}$ にベクトル
@@ -1506,53 +1625,163 @@ $$
 
 と置きます。
 
-Christoffel 係数の公式と $h_i{}^k=g^{k\ell}b_{i\ell}$ から、直接行列計算すると
+ここで「標構方程式を解けば正しい内積関係が保たれる」という部分を、行列の各ブロックまで確認します。
+
+$$
+A_i
+=
+\begin{pmatrix}
+\Gamma_i&-h_i\\
+b_i^{\mathsf T}&0
+\end{pmatrix},
+\qquad
+\widehat G
+=
+\begin{pmatrix}
+G&0\\
+0&1
+\end{pmatrix}
+$$
+
+なので
+
+$$
+A_i^{\mathsf T}\widehat G
++
+\widehat G A_i
+=
+\begin{pmatrix}
+\Gamma_i^{\mathsf T}G+G\Gamma_i
+&
+b_i-Gh_i
+\\
+b_i^{\mathsf T}-h_i^{\mathsf T}G
+&
+0
+\end{pmatrix}.
+$$
+
+第1節で導いた
+
+$$
+\partial_i g_{jk}
+=
+\Gamma^m_{ij}g_{mk}
++
+\Gamma^m_{ik}g_{jm}
+$$
+
+は、行列では
+
+$$
+\partial_iG
+=
+\Gamma_i^{\mathsf T}G+G\Gamma_i
+$$
+
+です。また
+
+$$
+h_i=G^{-1}b_i
+$$
+
+だから
+
+$$
+Gh_i=b_i.
+$$
+
+従って非対角ブロックは0になり、
 
 $$
 \partial_i\widehat G
 =
 A_i^{\mathsf T}\widehat G
 +
-\widehat G A_i.
+\widehat G A_i
 $$
 
-一方、
+を得ます。
+
+一方、$\partial_iF=FA_i$ から積の微分則を使うと
 
 $$
+\begin{aligned}
 \partial_i(F^{\mathsf T}F)
-=
+&=
+(\partial_iF)^{\mathsf T}F
++
+F^{\mathsf T}(\partial_iF)
+\\
+&=
 A_i^{\mathsf T}F^{\mathsf T}F
 +
 F^{\mathsf T}F A_i.
+\end{aligned}
 $$
 
-差
+差を
 
 $$
-Q:=F^{\mathsf T}F-\widehat G
+D:=F^{\mathsf T}F-\widehat G
 $$
 
-は
+と置けば
 
 $$
-\partial_iQ
+\partial_iD
 =
-A_i^{\mathsf T}Q+QA_i
+A_i^{\mathsf T}D+DA_i,
+\qquad
+D(u_0)=0.
 $$
 
-を満たし、
+任意の $u\in V$ を固定し、星型性を使って線分
 
 $$
-Q(u_0)=0.
+c(t)=u_0+t(u-u_0),
+\qquad
+0\le t\le1
 $$
 
-任意の滑らかな曲線に沿ってこの式を制限すると、$Q$ は初期値0の線形常微分方程式を満たします。常微分方程式の一意性から
+を取ります。$D(c(t))$ を $t$ で微分すると
 
 $$
-Q=0
+\frac{d}{dt}D(c(t))
+=
+C(t)^{\mathsf T}D(c(t))
++
+D(c(t))C(t),
 $$
 
-です。
+ただし
+
+$$
+C(t)
+:=
+\sum_i
+(u^i-u_0^i)A_i(c(t))
+$$
+
+です。これは行列成分についての線形常微分方程式で、初期値は
+
+$$
+D(c(0))=D(u_0)=0.
+$$
+
+零行列も同じ初期値問題の解なので、常微分方程式の一意性から
+
+$$
+D(c(t))=0.
+$$
+
+特に $D(u)=0$ です。$u$ は任意だったので $V$ 全体で
+
+$$
+F^{\mathsf T}F=\widehat G
+$$
+
+が成り立ちます。
 
 従って $V$ 上で
 
@@ -1602,7 +1831,7 @@ $$
 
 を意味します。
 
-$V$ をさらに小さくして星型に取ります。[GEO9 の Poincaré の補題](../GEO9/index.md#thm-geo9-poincare-lemma) を各成分へ適用すると、滑らかな写像
+$V$ はすでに星型に取ってあるので、[GEO9 の Poincaré の補題](../GEO9/index.md#thm-geo9-poincare-lemma) を各成分へ適用すると、滑らかな写像
 
 $$
 X:V\to\mathbb R^{n+1}
@@ -1677,10 +1906,36 @@ $$
 両者の標構は同じ係数 $A_i$ に対して
 
 $$
-\partial_iF=FA_i
+\partial_iF=FA_i,
+\qquad
+\partial_i\widetilde F=\widetilde F A_i
 $$
 
-を満たします。Frobenius の積分多様体の局所一意性、または各曲線に沿う線形常微分方程式の一意性から
+を満たします。
+
+任意の $u\in V$ に対し、先ほどと同じ線分
+
+$$
+c(t)=u_0+t(u-u_0)
+$$
+
+へ制限します。すると $F(c(t))$ と $\widetilde F(c(t))$ はどちらも
+
+$$
+\frac{dY}{dt}
+=
+Y
+\sum_i
+(u^i-u_0^i)A_i(c(t))
+$$
+
+を満たし、$t=0$ で同じ初期値を持ちます。線形常微分方程式の一意性から線分全体で一致するので
+
+$$
+F(u)=\widetilde F(u).
+$$
+
+$u$ は任意だから
 
 $$
 F=\widetilde F
@@ -1803,20 +2058,62 @@ b_{ij}
 \lambda g_{ij}.
 $$
 
-前節で得た Christoffel 係数は第一基本形式と両立するため、
+ここでは GEO13 で導入する一般の共変微分記法を先取りせず、第1節の座標恒等式をそのまま使います。
 
 $$
-\nabla_k g_{ij}=0.
+b_{jk}=\lambda g_{jk}
 $$
 
-従って
+を Codazzi 方程式の左辺へ代入すると
+
+$$
+\begin{aligned}
+\nabla_i b_{jk}
+&=
+\partial_i(\lambda g_{jk})
+-
+\Gamma^m_{ij}\lambda g_{mk}
+-
+\Gamma^m_{ik}\lambda g_{jm}
+\\
+&=
+(\partial_i\lambda)g_{jk}
++
+\lambda
+\left(
+\partial_i g_{jk}
+-
+\Gamma^m_{ij}g_{mk}
+-
+\Gamma^m_{ik}g_{jm}
+\right).
+\end{aligned}
+$$
+
+第1節で導いた
+
+$$
+\partial_i g_{jk}
+=
+\Gamma^m_{ij}g_{mk}
++
+\Gamma^m_{ik}g_{jm}
+$$
+
+により括弧内は0です。従って
 
 $$
 \nabla_i b_{jk}
 =
-\nabla_i(\lambda g_{jk})
-=
 (\partial_i\lambda)g_{jk}.
+$$
+
+同様に
+
+$$
+\nabla_j b_{ik}
+=
+(\partial_j\lambda)g_{ik}.
 $$
 
 [Codazzi 方程式](#thm-geo11-gauss-codazzi)から
@@ -2701,13 +2998,17 @@ $$
 
 とする。
 
-Codazzi 方程式と
+Codazzi 方程式と、第1節で導いた
 
 $$
-\nabla_k g_{ij}=0
+\partial_i g_{jk}
+=
+\Gamma^m_{ij}g_{mk}
++
+\Gamma^m_{ik}g_{jm}
 $$
 
-だけを使って $\lambda$ が局所定数であることを示せ。
+を使って $\lambda$ が局所定数であることを示せ。
 
 <!-- solution-start -->
 **解答**
@@ -2716,30 +3017,46 @@ $$
 b_{jk}=\lambda g_{jk}
 $$
 
-なので
+なので、定義を展開すると
 
 $$
+\begin{aligned}
 \nabla_i b_{jk}
-=
-\nabla_i(\lambda g_{jk})
-=
+&=
+\partial_i(\lambda g_{jk})
+-
+\Gamma^m_{ij}\lambda g_{mk}
+-
+\Gamma^m_{ik}\lambda g_{jm}
+\\
+&=
 (\partial_i\lambda)g_{jk}
 +
-\lambda\nabla_i g_{jk}.
+\lambda
+\left(
+\partial_i g_{jk}
+-
+\Gamma^m_{ij}g_{mk}
+-
+\Gamma^m_{ik}g_{jm}
+\right).
+\end{aligned}
 $$
 
-第1節で得た関係
-
-$$
-\nabla_i g_{jk}=0
-$$
-
-より
+問題文で与えた第1節の恒等式により括弧内は0なので
 
 $$
 \nabla_i b_{jk}
 =
 (\partial_i\lambda)g_{jk}.
+$$
+
+同じ計算で
+
+$$
+\nabla_j b_{ik}
+=
+(\partial_j\lambda)g_{ik}.
 $$
 
 Codazzi 方程式は
