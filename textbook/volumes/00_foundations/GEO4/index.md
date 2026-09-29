@@ -808,13 +808,13 @@ $$
 \beta_p=\eta_p\circ x_p
 $$
 
-なので滑らかです。一方、$q\notin W_p$ を取ります。集合
+なので滑らかです。一方、$q\notin W_p$ を取ります。$\operatorname{supp}\eta_p$ はコンパクトで、$x_p^{-1}$ は連続なので
 
 $$
 x_p^{-1}(\operatorname{supp}\eta_p)
 $$
 
-は $M$ の閉集合で、しかも $W_p$ の内部に含まれています。従って $q$ はこの閉集合の外にあり、$q$ のある開近傍 $O_q$ を
+もコンパクトです。多様体 $M$ は Hausdorff なので、コンパクト部分集合は閉集合です。しかもこの集合は $W_p$ の内部に含まれています。従って $q$ はこの閉集合の外にあり、$q$ のある開近傍 $O_q$ を
 
 $$
 O_q\cap x_p^{-1}(\operatorname{supp}\eta_p)=\varnothing
