@@ -753,6 +753,57 @@ $$
 
 です。
 
+三階では、二階の場合から何が増えるかを一度書いておきます。方向 $b,c,d\in\mathbb R^n$ を固定すると、三階微分の候補 $W_a(t)[b,c,d]$ は
+
+$$
+\begin{aligned}
+W_a(t)[b,c,d]
+&=
+\int_0^t DF(u_a(s))W_a(s)[b,c,d],ds\\
+&\quad+
+\int_0^t D^2F(u_a(s))
+\bigl[V_a(s)[b,c],J_a(s)d\bigr],ds\\
+&\quad+
+\int_0^t D^2F(u_a(s))
+\bigl[V_a(s)[b,d],J_a(s)c\bigr],ds\\
+&\quad+
+\int_0^t D^2F(u_a(s))
+\bigl[V_a(s)[c,d],J_a(s)b\bigr],ds\\
+&\quad+
+\int_0^t D^3F(u_a(s))
+\bigl[J_a(s)b,J_a(s)c,J_a(s)d\bigr],ds
+\end{aligned}
+$$
+
+を満たします。第一行だけが未知の三階微分を含み、残りの四項はすでに得られた $J_a$ と $V_a$ だけで書けています。したがって二階と同じ縮小評価を使えます。
+
+この式は、二階微分の式を初期値方向 $d$ に微分したときに出ます。例えば
+
+$$
+D^2F(u_a)[J_ab,J_ac]
+$$
+
+を $a$ から $a+\eta d$ へ動かすと、極限では
+
+$$
+D^3F(u_a)[J_ad,J_ab,J_ac]
++
+D^2F(u_a)[V_a[d,b],J_ac]
++
+D^2F(u_a)[J_ab,V_a[d,c]]
+$$
+
+の三項が現れます。これが上の $D^3F$ の項と二つの $D^2F$ の項を生み、さらに
+$DF(u_a)V_a[b,c]$ を動かしたときの
+
+$$
+D^2F(u_a)[J_ad,V_a[b,c]]
++
+DF(u_a)W_a[b,c,d]
+$$
+
+が残りの $D^2F$ の項と未知項を生みます。つまり三階でも、「どこへ連鎖律を使ったか」を追えば右辺の全項を再現できます。
+
 三階以上も同じ機構で帰納します。$k\ge3$ とし、方向
 
 $$
