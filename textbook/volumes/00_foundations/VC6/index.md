@@ -1287,7 +1287,90 @@ $$
 
 $\theta$ は $+z$ 軸から測る極角、$\phi$ は $xy$ 平面内の方位角です。
 
-微分すると
+尺度因子を完成形から覚えず、座標写像を実際に偏微分します。$r$ については
+
+$$
+\frac{\partial r}{\partial r}
+=
+(\sin\theta\cos\phi,\,
+ \sin\theta\sin\phi,\,
+ \cos\theta),
+$$
+
+なので
+
+$$
+h_r
+=
+\left|
+\frac{\partial r}{\partial r}
+\right|
+=
+\sqrt{
+\sin^2\theta(\cos^2\phi+\sin^2\phi)
++\cos^2\theta
+}
+=
+1.
+$$
+
+極角 $\theta$ については
+
+$$
+\frac{\partial r}{\partial\theta}
+=
+(r\cos\theta\cos\phi,\,
+ r\cos\theta\sin\phi,\,
+ -r\sin\theta),
+$$
+
+したがって
+
+$$
+h_\theta
+=
+r\sqrt{
+\cos^2\theta(\cos^2\phi+\sin^2\phi)
++\sin^2\theta
+}
+=
+r.
+$$
+
+方位角 $\phi$ については
+
+$$
+\frac{\partial r}{\partial\phi}
+=
+(-r\sin\theta\sin\phi,\,
+ r\sin\theta\cos\phi,\,
+ 0),
+$$
+
+なので
+
+$$
+h_\phi
+=
+r\sin\theta
+\sqrt{\sin^2\phi+\cos^2\phi}
+=
+r\sin\theta.
+$$
+
+また三本の相互内積は 0 です。例えば
+
+$$
+\frac{\partial r}{\partial r}
+\cdot
+\frac{\partial r}{\partial\theta}
+=
+r\sin\theta\cos\theta-r\sin\theta\cos\theta
+=
+0,
+$$
+
+他の二組も成分を掛けて足すと 0 になります。従って $r>0$、$0<\theta<\pi$ では本当に直交曲線座標であり、
 
 $$
 h_r=1,
@@ -1388,6 +1471,181 @@ r^2\frac{\partial f}{\partial r}
 \frac{\partial^2f}{\partial\phi^2}.
 $$
 <!-- formal-statement-end -->
+
+一般公式からこの形へ移る代入も確認します。対応は
+
+$$
+(q_1,q_2,q_3)=(r,\theta,\phi),
+\qquad
+(h_1,h_2,h_3)=(1,r,r\sin\theta)
+$$
+
+です。
+
+発散では
+
+$$
+h_\theta h_\phi=r^2\sin\theta,
+\qquad
+h_\phi h_r=r\sin\theta,
+\qquad
+h_rh_\theta=r,
+$$
+
+$$
+h_rh_\theta h_\phi=r^2\sin\theta.
+$$
+
+従って
+
+$$
+\begin{aligned}
+\nabla\cdot A
+&=
+\frac1{r^2\sin\theta}
+\left[
+\partial_r(r^2\sin\theta\,A_r)
++
+\partial_\theta(r\sin\theta\,A_\theta)
++
+\partial_\phi(rA_\phi)
+\right]\\
+&=
+\frac1{r^2}\partial_r(r^2A_r)
++
+\frac1{r\sin\theta}
+\partial_\theta(\sin\theta A_\theta)
++
+\frac1{r\sin\theta}\partial_\phi A_\phi.
+\end{aligned}
+$$
+
+二行目では $\sin\theta$ が $r$ に依存せず、$r$ が $\theta,\phi$ に依存しないことを使いました。
+
+回転の $r$ 成分は
+
+$$
+\begin{aligned}
+(\nabla\times A)_r
+&=
+\frac1{h_\theta h_\phi}
+\left[
+\partial_\theta(h_\phi A_\phi)
+-
+\partial_\phi(h_\theta A_\theta)
+\right]\\
+&=
+\frac1{r^2\sin\theta}
+\left[
+\partial_\theta(r\sin\theta\,A_\phi)
+-
+\partial_\phi(rA_\theta)
+\right]\\
+&=
+\frac1{r\sin\theta}
+\left[
+\partial_\theta(\sin\theta A_\phi)
+-
+\partial_\phi A_\theta
+\right].
+\end{aligned}
+$$
+
+$\theta$ 成分は
+
+$$
+\begin{aligned}
+(\nabla\times A)_\theta
+&=
+\frac1{h_\phi h_r}
+\left[
+\partial_\phi(h_rA_r)
+-
+\partial_r(h_\phi A_\phi)
+\right]\\
+&=
+\frac1{r\sin\theta}
+\left[
+\partial_\phi A_r
+-
+\partial_r(r\sin\theta\,A_\phi)
+\right]\\
+&=
+\frac1r
+\left[
+\frac1{\sin\theta}\partial_\phi A_r
+-
+\partial_r(rA_\phi)
+\right],
+\end{aligned}
+$$
+
+$\phi$ 成分は
+
+$$
+\begin{aligned}
+(\nabla\times A)_\phi
+&=
+\frac1{h_rh_\theta}
+\left[
+\partial_r(h_\theta A_\theta)
+-
+\partial_\theta(h_rA_r)
+\right]\\
+&=
+\frac1r
+\left[
+\partial_r(rA_\theta)
+-
+\partial_\theta A_r
+\right].
+\end{aligned}
+$$
+
+スカラー・ラプラシアンでは一般公式の各係数
+
+$$
+\frac{h_rh_\theta h_\phi}{h_r^2}
+=
+r^2\sin\theta,
+$$
+
+$$
+\frac{h_rh_\theta h_\phi}{h_\theta^2}
+=
+\sin\theta,
+$$
+
+$$
+\frac{h_rh_\theta h_\phi}{h_\phi^2}
+=
+\frac1{\sin\theta}
+$$
+
+を代入して
+
+$$
+\begin{aligned}
+\Delta f
+&=
+\frac1{r^2\sin\theta}
+\left[
+\partial_r(r^2\sin\theta\,f_r)
++
+\partial_\theta(\sin\theta\,f_\theta)
++
+\partial_\phi\left(\frac1{\sin\theta}f_\phi\right)
+\right]\\
+&=
+\frac1{r^2}\partial_r(r^2f_r)
++
+\frac1{r^2\sin\theta}\partial_\theta(\sin\theta f_\theta)
++
+\frac1{r^2\sin^2\theta}f_{\phi\phi}.
+\end{aligned}
+$$
+
+こうして長い球座標公式も、尺度因子と一般式から一行ずつ再構成できます。
 
 ### 球座標の基底ベクトルの位置依存
 
