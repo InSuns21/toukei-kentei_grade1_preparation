@@ -16,7 +16,7 @@ learning_objectives:
   - 商を取るとHausdorff性が失われうることを、二重原点直線の近傍計算で証明できる
 definitions:
   - { id: TOP2-DEF-01, name: 同相写像・同相 }
-  - { id: TOP2-DEF-01A, name: 被覆写像 }
+  - { id: TOP2-DEF-06, name: 被覆写像 }
   - { id: TOP2-DEF-02, name: 同値関係・同値類 }
   - { id: TOP2-DEF-03, name: 同値関係による同一視空間 }
   - { id: TOP2-DEF-04, name: 位相的直和 }
