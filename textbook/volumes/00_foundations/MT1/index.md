@@ -52,7 +52,7 @@ $$
 
 <a id="def-mt1-in-measure"></a>
 <!-- formal-statement-start -->
-### 定義（測度収束 / convergence 測度収束）
+### 定義（測度収束 / convergence in measure）
 
 $f_n$ が $f$ に測度収束するとは、
 
@@ -158,7 +158,7 @@ $$
 B_n=A_1\setminus A_n
 $$
 
-とします。すると $B_n\uparrow A_1\setminus A$ なので D2 の下からの連続性を使えます。$\mu(A_1)<\infty$ は、最後に $\mu(A_1)$ から差し引くために必要です。
+とします。すると $B_n\uparrow A_1\setminus A$ なので [D2 の下からの連続性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)を使えます。$\mu(A_1)<\infty$ は、最後に $\mu(A_1)$ から差し引くために必要です。
 
 <!-- proof-start -->
 ### 証明
@@ -216,7 +216,7 @@ $\square$
 <!-- formal-statement-start -->
 ### 定理（$L^p$収束 $\Rightarrow$ 測度収束）
 
-$1\le p<\infty$ とする。$f_n\to f$ in $L^p$ なら $f_n\to f$ 測度収束 である。
+$1\le p<\infty$ とする。$f_n\to f$ が $L^p$ 収束するなら、$f_n\to f$ は測度収束する。
 
 この含意に $\mu(X)<\infty$ は不要である。
 <!-- formal-statement-end -->
@@ -265,7 +265,7 @@ $$
 <!-- formal-statement-start -->
 ### 定理（有限測度空間で a.e.収束 $\Rightarrow$ 測度収束）
 
-$\mu(X)<\infty$ とする。$f_n\to f$ a.e. なら $f_n\to f$ 測度収束 である。
+$\mu(X)<\infty$ とする。$f_n\to f$ a.e. なら $f_n\to f$ は測度収束する。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -353,7 +353,7 @@ $$
 <!-- formal-statement-start -->
 ### 定理（測度収束から a.e.収束部分列）
 
-$f_n\to f$ 測度収束 とする。このとき部分列 $(f_{n_k})$ が存在して
+$f_n\to f$ が測度収束するとする。このとき部分列 $(f_{n_k})$ が存在して
 
 $$
 \boxed{f_{n_k}\to f\quad\text{a.e.}}
@@ -472,7 +472,7 @@ $$
 \lambda(\{|f_n|>1/2\})=2^{-k}\to0,
 $$
 
-なので $f_n\to0$ 測度収束 です。
+なので $f_n\to0$ は測度収束します。
 
 しかし各 $x\in[0,1)$ は**各ブロックでちょうど一回** $f_n(x)=1$ となり、それ以外では0です。従って列全体はどの $x\in[0,1)$ でも0へ収束しません。
 
@@ -523,7 +523,7 @@ $$
 かつ
 
 $$
-\boxed{f_n\to f\quad\text{一様収束する }E\setminus B}
+\boxed{f_n\to f\quad\text{$E\setminus B$ 上で一様収束}}
 $$
 
 となる。
@@ -654,7 +654,7 @@ $$
 f:E\to\mathbb R
 $$
 
-を実数値 Lebesgue 可測関数とする。このとき任意の $\varepsilon>0$ に対して コンパクト 集合 $K\subset E$ が存在し、
+を実数値 Lebesgue 可測関数とする。このとき任意の $\varepsilon>0$ に対してコンパクト集合 $K\subset E$ が存在し、
 
 $$
 \boxed{\lambda(E\setminus K)<\varepsilon}
@@ -738,7 +738,7 @@ $$
 
 #### 7.3 各単関数を大部分で連続にする
 
-$\delta_n=\varepsilon/2^{n+1}$ とします。[MT0 の有限分割のコンパクト近似](../MT0/index.md#cor-mt0-finite-partition-compactification) により、各 $A_{n,j}$ の中に コンパクト 集合 $K_{n,j}$ を取り、
+$\delta_n=\varepsilon/2^{n+1}$ とします。[MT0 の有限分割のコンパクト近似](../MT0/index.md#cor-mt0-finite-partition-compactification) により、各 $A_{n,j}$ の中にコンパクト集合 $K_{n,j}$ を取り、
 
 $$
 \sum_{j=1}^{r_n}\lambda(A_{n,j}\setminus K_{n,j})<\delta_n
@@ -750,7 +750,7 @@ $$
 K_n=\bigcup_{j=1}^{r_n}K_{n,j}
 $$
 
-と置けば $K_n$ は コンパクト で
+と置けば $K_n$ はコンパクトで
 
 $$
 \lambda(F\setminus K_n)<\delta_n.
@@ -783,13 +783,13 @@ $$
 
 $s_n$ は各 $K_{n,j}$ 上で定数 $a_{n,j}$ です。従って任意の $x\in K_n$ の十分小さい相対近傍で $s_n$ は一定になり、$s_n|_{K_n}$ は連続です。
 
-#### 7.4 一つの コンパクト 集合にまとめる
+#### 7.4 一つのコンパクト集合にまとめる
 
 $$
 K=\bigcap_{n=1}^\infty K_n
 $$
 
-と置きます。$K\subset K_1$ で、各 $K_n$ は閉だから $K$ は コンパクト です。また
+と置きます。$K\subset K_1$ で、各 $K_n$ は閉だから $K$ はコンパクトです。また
 
 $$
 F\setminus K
@@ -834,10 +834,10 @@ $$
 ### どこで何を使ったか
 
 - $\lambda(E)<\infty$：非有界な $f$ の大値部分 $\{|f|>M\}$ を小測度へ追い出すため。その論証はこの章で導いた[上からの連続性](#thm-mt1-continuity-from-above-finite)を使う。
-- $f$ の可測性：大値集合と有限単関数の値を取る集合を可測にするため。
-- [MT0 の一様近似](../MT0/index.md#thm-mt0-bounded-simple-uniform)：$f$ を有限個の値を取る集合へ落とすため。ここ自体には有限測度性不要。
-- [Lebesgue 測度の内正則性](../MT0/index.md#thm-mt0-inner-regularity-finite)：各値を取る集合をほとんど失わず コンパクト に縮めるため。
-- コンパクト 性：有限個の互いに素な コンパクト 値を取る集合を正の距離で分離し、単関数の制限を連続にするため。
+- $f$ の可測性：大値集合と、有限単関数を作るときの各値域区間の逆像を可測にするため。
+- [MT0 の一様近似](../MT0/index.md#thm-mt0-bounded-simple-uniform)：$f$ を有限個の値しか取らない可測単関数へ落とすため。ここ自体には有限測度性不要。
+- [Lebesgue 測度の内正則性](../MT0/index.md#thm-mt0-inner-regularity-finite)：単関数が各値を取る可測集合を、ほとんど失わずコンパクト集合へ縮めるため。
+- コンパクト性：有限個の互いに素なコンパクト集合を正の距離で分離し、単関数の制限を連続にするため。
 - 一様収束：連続な $s_n|_K$ の極限 $f|_K$ の連続性を得るため。
 
 ### 例：Dirichlet関数でも Lusin は壊れない
@@ -850,7 +850,7 @@ $$
 
 とします。$f$ は $[0,1]$ の全点で不連続です。それでも Lusin に矛盾しません。
 
-$A=[0,1]\setminus\mathbb Q$ は測度1です。[内正則性](../MT0/index.md#thm-mt0-inner-regularity-finite)により、任意の $\varepsilon>0$ に対して コンパクト $K\subset A$ で
+$A=[0,1]\setminus\mathbb Q$ は測度1です。[内正則性](../MT0/index.md#thm-mt0-inner-regularity-finite)により、任意の $\varepsilon>0$ に対してコンパクト集合 $K\subset A$ で
 
 $$
 \lambda(K)>1-\varepsilon
@@ -858,7 +858,7 @@ $$
 
 とできます。$K$ 上では $f\equiv0$ なので $f|_K$ は連続です。
 
-Lusin が言う「連続」は、元の $E$ 上での連続性ではなく **残した コンパクト 集合 $K$ の相対位相での連続性**です。
+Lusin が言う「連続」は、元の $E$ 上での連続性ではなく **残したコンパクト集合 $K$ の相対位相での連続性**です。
 
 ---
 
@@ -916,7 +916,7 @@ $$
 \le\frac{1}{\varepsilon^pn^p}.
 $$
 
-右辺は $n\to\infty$ で0へ収束するため、任意の固定 $\varepsilon>0$ について悪い集合の測度が0へ収束します。従って $f_n\to f$ 測度収束 です。ここでは $\mu(X)<\infty$ を使っていません。
+右辺は $n\to\infty$ で0へ収束するため、任意の固定 $\varepsilon>0$ について悪い集合の測度が0へ収束します。従って $f_n\to f$ は測度収束します。ここでは $\mu(X)<\infty$ を使っていません。
 <!-- solution-end -->
 
 <a id="ex-mt1-a02"></a>
@@ -929,7 +929,7 @@ $$
 f_n=1_{(0,1/n)}
 $$
 
-とします。$f_n\to0$ a.e. かつ 測度収束 であることを直接確認してください。
+とします。$f_n\to0$ が a.e. 収束し、かつ測度収束することを直接確認してください。
 
 <!-- solution-start -->
 **解答**：$x>0$ を固定すると、$n>1/x$ なら $x\notin(0,1/n)$ なので $f_n(x)=0$ です。$x=0$ でも全ての $n$ で $f_n(0)=0$ です。従って全点で $f_n(x)\to0$、特に a.e.収束します。
@@ -983,7 +983,7 @@ $$
 f_n=1_{[j/2^k,(j+1)/2^k)},\qquad j=n-2^k
 $$
 
-とします。$f_n\to0$ 測度収束 を定義から確認してください。
+とします。$f_n\to0$ が測度収束することを定義から確認してください。
 
 <!-- solution-start -->
 **解答**：$0<\varepsilon<1$ なら $f_n$ は0か1しか取らないので
@@ -1008,7 +1008,7 @@ $n\to\infty$ なら対応するブロック番号 $k\to\infty$ なので $2^{-k}
 #### MT1-B01 任意の部分列から a.e.収束部分列を抜ける
 - Level: B
 
-$f_n\to f$ 測度収束 とする。任意の部分列 $(f_{n_j})$ から、さらに a.e. で $f$ に収束する部分列を取れることを示してください。
+$f_n\to f$ が測度収束するとする。任意の部分列 $(f_{n_j})$ から、さらに a.e. で $f$ に収束する部分列を取れることを示してください。
 
 <!-- solution-start -->
 **解答**：元の列が測度収束するなら任意の部分列も測度収束します。実際、固定した $\varepsilon>0$ について
@@ -1086,11 +1086,11 @@ $$
 #### MT1-C01 Lusin の証明を一つの依存鎖として再構成する
 - Level: C
 
-Lusin の証明で、一つの有限単関数 $s$ を $f$ に近づけ、その $s$ が連続になる大きな コンパクト 集合を取るだけでは不十分です。一般の実数値可測関数 $f:E\to\mathbb R$ に対して、なぜ
+Lusin の証明で、一つの有限単関数 $s$ を $f$ に近づけ、その $s$ が連続になる大きなコンパクト集合を取るだけでは不十分です。一般の実数値可測関数 $f:E\to\mathbb R$ に対して、なぜ
 
 1. 大値部分の切断、
 2. 有限単関数列による一様近似、
-3. 各値を取る集合の コンパクト 近似、
+3. 各単関数が値を取る可測集合のコンパクト近似、
 4. 可算個の損失を一つの $K$ にまとめる操作、
 5. 一様極限の連続性
 
@@ -1111,7 +1111,7 @@ $$
 \|s_n-f\|_{L^\infty(F)}<2^{-n}
 $$
 
-となるように取ります。各 $s_n$ の有限可測分割を [MT0 の内正則性](../MT0/index.md#thm-mt0-inner-regularity-finite) で コンパクト 部分集合へ縮め、損失を $\delta_n=\varepsilon/2^{n+1}$ 未満にします。有限個の互いに素な コンパクト 値を取る集合は正の距離で分離されるので、$s_n$ は残した コンパクト 集合 $K_n$ 上で連続です。
+となるように取ります。各 $s_n$ の有限可測分割を [MT0 の内正則性](../MT0/index.md#thm-mt0-inner-regularity-finite) でコンパクト部分集合へ縮め、損失を $\delta_n=\varepsilon/2^{n+1}$ 未満にします。各部分集合は互いに素で、有限個の互いに素なコンパクト集合は正の距離で分離されるため、$s_n$ は残したコンパクト集合 $K_n$ 上で連続です。
 
 ただし $n$ ごとに別々の $K_n$ を使うだけでは、全ての $s_n$ が同じ定義域上で連続とは言えません。そこで
 
@@ -1128,7 +1128,7 @@ $$
 =\frac\varepsilon2
 $$
 
-を得ます。大値部分と合わせて $\lambda(E\setminus K)<\varepsilon$ です。$K\subset K_1$ かつ各 $K_n$ は閉なので $K$ は コンパクト です。
+を得ます。大値部分と合わせて $\lambda(E\setminus K)<\varepsilon$ です。$K\subset K_1$ かつ各 $K_n$ は閉なので $K$ はコンパクトです。
 
 最後に全ての $s_n|_K$ は連続で、
 
