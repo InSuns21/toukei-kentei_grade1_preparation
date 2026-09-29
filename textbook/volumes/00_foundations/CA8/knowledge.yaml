@@ -106,12 +106,12 @@ concepts:
     requires: [complex-analysis.holomorphic-atlas]
 
   - id: complex-analysis.covering-map
-    name: 被覆写像
+    name: 複素解析で使う被覆写像の再掲
     kind: definition
-    aliases: [被覆写像, covering map]
+    aliases: [複素解析で使う被覆写像の再掲]
     introduction: formal
-    introduction_aliases: ["定義（被覆写像）"]
-    requires: [topology.homeomorphism]
+    introduction_aliases: ["定義（複素解析で使う被覆写像の再掲）"]
+    requires: [topology.covering-map]
 
   - id: complex-analysis.holomorphic-covering
     name: 正則被覆
