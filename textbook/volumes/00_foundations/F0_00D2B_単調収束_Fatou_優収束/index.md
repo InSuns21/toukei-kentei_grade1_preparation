@@ -115,13 +115,23 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$f_n\le f$ なので[Lebesgue積分の単調性](../F0_00D2A_単関数_Lebesgue積分_構成/index.md#prop-f0-00d2a-02)より
+まず極限関数 $f$ が可測であることを確認します。任意の $a\in\mathbb R$ に対して、$f_n\uparrow f$ だから
+
+$$
+\{f\le a\}
+=
+\bigcap_{n=1}^{\infty}\{f_n\le a\}.
+$$
+
+各 $f_n$ は可測なので右辺は可測です。従って $f$ は非負可測関数です。
+
+また $f_n\le f$ なので[Lebesgue積分の単調性](../F0_00D2A_単関数_Lebesgue積分_構成/index.md#prop-f0-00d2a-02)より
 
 $$
 \int f_n\,d\mu\le\int f\,d\mu.
 $$
 
-したがって
+さらに $f_n\le f_{n+1}$ なので積分列も単調増加です。したがって拡張実数値の極限
 
 $$
 L:=\lim_{n\to\infty}\int f_n\,d\mu
@@ -165,7 +175,29 @@ $$
 \alpha\int_{E_n}\phi\,d\mu.
 $$
 
-$\phi=\sum_{k=1}^m a_k1_{A_k}$ と書けば
+D2A の定義に合わせ、$\phi$ が取る正の値だけを並べて
+
+$$
+\phi=\sum_{k=1}^m a_k1_{A_k},
+\qquad
+a_k>0,
+\qquad
+A_k=\{\phi=a_k\}
+$$
+
+と書きます。このとき
+
+$$
+A_k\subset\{\phi>0\}.
+$$
+
+したがって $\bigcup_nE_n\supset\{\phi>0\}$ から
+
+$$
+A_k\cap E_n\uparrow A_k.
+$$
+
+また
 
 $$
 \int_{E_n}\phi\,d\mu
@@ -173,13 +205,13 @@ $$
 \sum_{k=1}^m a_k\mu(A_k\cap E_n).
 $$
 
-D2の測度の[下からの連続性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)より、$E_n\uparrow\{\phi>0\}$ 上で
+D2の測度の[下からの連続性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)を各 $A_k\cap E_n$ に適用すると
 
 $$
-\mu(A_k\cap E_n)\uparrow\mu(A_k),
+\mu(A_k\cap E_n)\uparrow\mu(A_k).
 $$
 
-したがって
+有限個の和なので極限を各項へ通せて、
 
 $$
 \int_{E_n}\phi\,d\mu
@@ -225,6 +257,260 @@ $$
 $$
 
 実際左辺は $1-1/(n+1)$ です。
+
+---
+
+## 1.2 MCT から積分の加法性を回収する
+
+DCT の証明では
+
+$$
+\int(2g-h)
+=
+2\int g-\int h
+$$
+
+のような積分の代数を使います。これを暗黙の既知事項にせず、いま得た MCT から導いておきます。
+
+<a id="prop-f0-00d2b-nonnegative-additivity"></a>
+
+<!-- formal-statement-start -->
+### 命題（非負Lebesgue積分の加法性と正の斉次性）
+
+非負可測関数 $u,v$ と定数 $c\ge0$ に対して
+
+$$
+\int(u+v)\,d\mu
+=
+\int u\,d\mu
++
+\int v\,d\mu,
+$$
+
+$$
+\int cu\,d\mu
+=
+c\int u\,d\mu
+$$
+
+が成り立つ。値 $\infty$ を許し、$0\cdot\infty=0$ と約束する。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+D2A の単関数近似を
+
+$$
+\phi_n\uparrow u,
+\qquad
+\psi_n\uparrow v
+$$
+
+と取ります。単関数では共通細分を使えば加法性が有限和の計算として成り立ちます。そこで
+
+$$
+\phi_n+\psi_n\uparrow u+v
+$$
+
+へ MCT を適用し、単関数での等式を一般の非負可測関数へ持ち上げます。
+
+<!-- proof-start -->
+### 証明
+
+D2A の単関数近似定理から、非負単関数列 $(\phi_n),(\psi_n)$ を
+
+$$
+0\le\phi_n\uparrow u,
+\qquad
+0\le\psi_n\uparrow v
+$$
+
+となるように取ります。
+
+まず単関数の加法性を確認します。$\phi_n$ と $\psi_n$ の値を取る可測集合を共通細分すると、各小片上で $\phi_n,\psi_n$ は定数です。従って「高さ×測度」の有限和を小片ごとに足せば
+
+$$
+\int(\phi_n+\psi_n)\,d\mu
+=
+\int\phi_n\,d\mu
++
+\int\psi_n\,d\mu.
+$$
+
+また
+
+$$
+\phi_n+\psi_n\uparrow u+v.
+$$
+
+[MCT](#ref-limit-integral-exchange)を $\phi_n,\psi_n,\phi_n+\psi_n$ に適用すると
+
+$$
+\begin{aligned}
+\int(u+v)\,d\mu
+&=
+\lim_{n\to\infty}
+\int(\phi_n+\psi_n)\,d\mu\\
+&=
+\lim_{n\to\infty}
+\left(
+\int\phi_n\,d\mu
++
+\int\psi_n\,d\mu
+\right)\\
+&=
+\int u\,d\mu
++
+\int v\,d\mu.
+\end{aligned}
+$$
+
+正の斉次性も同じです。$c>0$ なら $c\phi_n\uparrow cu$ で、単関数では
+
+$$
+\int c\phi_n\,d\mu
+=
+c\int\phi_n\,d\mu.
+$$
+
+MCT を適用して
+
+$$
+\int cu\,d\mu
+=
+c\int u\,d\mu.
+$$
+
+$c=0$ は両辺0です。$\square$
+<!-- proof-end -->
+
+<a id="cor-f0-00d2b-integral-linearity"></a>
+
+<!-- formal-statement-start -->
+### 系（可積分関数の線形性と絶対値評価）
+
+可積分関数 $u,v$ と実数 $a,b$ に対して $au+bv$ は可積分で
+
+$$
+\int(au+bv)\,d\mu
+=
+a\int u\,d\mu
++
+b\int v\,d\mu.
+$$
+
+また任意の可積分関数 $h$ について
+
+$$
+\boxed{
+\left|\int h\,d\mu\right|
+\le
+\int|h|\,d\mu
+}
+$$
+
+が成り立つ。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+まず、非負可積分関数 $P,N$ があって
+
+$$
+h=P-N
+$$
+
+と書ける場合を考えます。点ごとに
+
+$$
+h^+ + N
+=
+h^- + P
+$$
+
+が成り立ちます。実際、$h=P-N$ の正負どちらの場合でも両辺は $\max(P,N)$ です。
+
+直前の非負積分の加法性から
+
+$$
+\int h^+\,d\mu+\int N\,d\mu
+=
+\int h^-\,d\mu+\int P\,d\mu.
+$$
+
+全て有限なので移項でき、
+
+$$
+\int h\,d\mu
+=
+\int P\,d\mu-\int N\,d\mu.
+$$
+
+ここで
+
+$$
+au+bv
+=
+P-N
+$$
+
+とし、
+
+$$
+P
+=
+a^+u^+ + a^-u^- + b^+v^+ + b^-v^-,
+$$
+
+$$
+N
+=
+a^+u^- + a^-u^+ + b^+v^- + b^-v^+
+$$
+
+と取れば、$P,N$ は非負可積分です。非負積分の加法性と正の斉次性を使って整理すると
+
+$$
+\int(au+bv)\,d\mu
+=
+a\int u\,d\mu
++
+b\int v\,d\mu.
+$$
+
+最後に
+
+$$
+|h|=h^++h^-
+$$
+
+なので非負積分の加法性から
+
+$$
+\int|h|\,d\mu
+=
+\int h^+\,d\mu
++
+\int h^-\,d\mu.
+$$
+
+従って
+
+$$
+\left|\int h\,d\mu\right|
+=
+\left|
+\int h^+\,d\mu
+-
+\int h^-\,d\mu
+\right|
+\le
+\int|h|\,d\mu.
+$$
+
+$\square$
+<!-- proof-end -->
 
 ---
 
@@ -327,11 +613,36 @@ g_n(\omega)
 \inf_{k\ge n}f_k(\omega)
 $$
 
-と置きます。$g_n$ は非負可測で
+と置きます。まず $g_n$ の可測性を確認します。任意の $t\in\mathbb R$ に対して
 
 $$
-g_1\le g_2\le\cdots,
-\qquad
+\{g_n<t\}
+=
+\bigcup_{k\ge n}\{f_k<t\}.
+$$
+
+右辺は可測集合の可算和なので可測です。さらに
+
+$$
+\{g_n\le a\}
+=
+\bigcap_{r=1}^{\infty}
+\left\{
+g_n<a+\frac1r
+\right\},
+$$
+
+よって D2 のしきい値による定義に照らして $g_n$ は可測です。
+
+尾部を短くすると下限は大きくなるので
+
+$$
+g_1\le g_2\le\cdots.
+$$
+
+また点ごとの liminf の定義そのものから
+
+$$
 g_n\uparrow\liminf_{n\to\infty}f_n.
 $$
 
@@ -476,73 +787,142 @@ DCT
 <!-- proof-start -->
 ### 証明
 
-$f_n\to f$ a.e. かつ $|f_n|\le g$ a.e. なので、極限を取って
+まず a.e. の条件を同じ零集合の外で同時に使える形へそろえます。$f_n\to f$ が失敗する零集合を $N_0$、$|f_n|\le g$ が失敗する零集合を $N_n$ とします。可算和
 
 $$
-|f|\le g\quad\text{a.e.}
+N
+=
+N_0\cup\bigcup_{n=1}^{\infty}N_n
 $$
 
-したがって $f$ は可積分です。
-
-また
+も測度0です。$N$ 上で $f_n,f$ を0へ変更しても、D2A の零集合上の変更に関する定理により積分値は変わりません。従って以下では
 
 $$
-|f_n-f|\le |f_n|+|f|\le2g
+f_n\to f,
+\qquad
+|f_n|\le g
 $$
 
-a.e. なので
+が全ての点で成り立つとしてよいです。
+
+極限を取ると
 
 $$
-2g-|f_n-f|\ge0.
+|f|\le g.
 $$
 
-Fatouの補題を非負関数列 $2g-|f_n-f|$ に適用すると
+Lebesgue積分の単調性から
 
 $$
-\int\liminf_{n\to\infty}\left(2g-|f_n-f|\right)d\mu
+\int|f|\,d\mu
 \le
-\liminf_{n\to\infty}\int\left(2g-|f_n-f|\right)d\mu.
+\int g\,d\mu
+<
+\infty,
 $$
 
-$f_n\to f$ a.e. より左辺は $2\int g$。右辺は
+従って $f$ は可積分です。
 
 $$
-2\int g
--
-\limsup_{n\to\infty}\int|f_n-f|\,d\mu.
+h_n:=|f_n-f|
+$$
+
+と置くと
+
+$$
+0\le h_n\le |f_n|+|f|\le2g,
+\qquad
+h_n\to0.
 $$
 
 したがって
 
 $$
-2\int g
+q_n:=2g-h_n
+$$
+
+は非負可測関数列で
+
+$$
+q_n\to2g.
+$$
+
+[Fatouの補題](#lem-f0-00d2b-01)を $(q_n)$ に適用すると
+
+$$
+2\int g\,d\mu
+=
+\int\liminf q_n\,d\mu
 \le
-2\int g
+\liminf_{n\to\infty}\int q_n\,d\mu.
+$$
+
+一方、$q_n+h_n=2g$ です。[非負Lebesgue積分の加法性と正の斉次性](#prop-f0-00d2b-nonnegative-additivity)より
+
+$$
+\int q_n\,d\mu
++
+\int h_n\,d\mu
+=
+2\int g\,d\mu.
+$$
+
+右辺は有限なので
+
+$$
+\int q_n\,d\mu
+=
+2\int g\,d\mu
 -
-\limsup_{n\to\infty}\int|f_n-f|\,d\mu,
+\int h_n\,d\mu.
 $$
 
-よって
+これを Fatou の不等式へ代入すると
 
 $$
-\limsup_{n\to\infty}\int|f_n-f|\,d\mu\le0.
-$$
-
-積分は非負なので
-
-$$
-\int|f_n-f|\,d\mu\to0.
-$$
-
-最後に
-
-$$
-\left|\int f_n\,d\mu-\int f\,d\mu\right|
+2\int g\,d\mu
 \le
-\int|f_n-f|\,d\mu\to0.
+2\int g\,d\mu
+-
+\limsup_{n\to\infty}
+\int h_n\,d\mu.
 $$
 
-$\square$
+従って
+
+$$
+\limsup_{n\to\infty}
+\int h_n\,d\mu
+\le0.
+$$
+
+各積分は非負なので
+
+$$
+\int|f_n-f|\,d\mu
+=
+\int h_n\,d\mu
+\to0.
+$$
+
+最後に[可積分関数の線形性と絶対値評価](#cor-f0-00d2b-integral-linearity)を $h=f_n-f$ に使うと
+
+$$
+\begin{aligned}
+\left|
+\int f_n\,d\mu-\int f\,d\mu
+\right|
+&=
+\left|
+\int(f_n-f)\,d\mu
+\right|\\
+&\le
+\int|f_n-f|\,d\mu
+\to0.
+\end{aligned}
+$$
+
+よって積分も収束します。$\square$
 <!-- proof-end -->
 
 ### 例3：$x^n$ にDCTを使う
@@ -605,7 +985,43 @@ $$
 
 なので積分は0へ収束しません。
 
-この列を一つの可積分関数 $g$ で支配することはできません。もし $g\ge f_n$ なら、$x\in(1/(n+1),1/n)$ 付近で $g(x)$ は少なくとも $n$ 程度必要となり、0近傍で積分不能になります。
+この列を一つの可積分関数 $g$ で支配することはできません。実際、$g\ge f_n$ が全ての $n$ で成り立つと仮定します。
+
+$$
+I_n
+=
+\left(\frac1{n+1},\frac1n\right)
+$$
+
+と置くと、$x\in I_n$ では $x<1/n$ なので
+
+$$
+f_n(x)=n,
+\qquad
+g(x)\ge n.
+$$
+
+区間 $I_n$ は互いに素だから
+
+$$
+\begin{aligned}
+\int_0^1g(x)\,dx
+&\ge
+\sum_{n=1}^{\infty}
+\int_{I_n}g(x)\,dx\\
+&\ge
+\sum_{n=1}^{\infty}
+n\left(
+\frac1n-\frac1{n+1}
+\right)\\
+&=
+\sum_{n=1}^{\infty}\frac1{n+1}
+=
+\infty.
+\end{aligned}
+$$
+
+従って可積分な共通支配関数は存在しません。失敗例では、幅が縮むのと同時に高さが上がり、その積分質量が消えずに残っています。
 
 ---
 
@@ -631,16 +1047,6 @@ $$
 
 実際左辺は $1-1/(n+1)$ です。
 
-### 本番答案
-
-$f_n\uparrow1_{[0,1)}$ かつ非負なので[MCT](#ref-limit-integral-exchange)より積分極限は1。
-
-### 採点基準（20点）
-
-- 非負: 4点
-- 単調性: 6点
-- 点wise極限: 5点
-- MCT適用と結論: 5点
 <!-- solution-end -->
 
 ## F0-00D2B-A02 Fatouの不等式
@@ -659,16 +1065,123 @@ $$
 0\le1.
 $$
 
-### 本番答案
+<!-- solution-end -->
 
-$\liminf f_n=0$ a.e. より左辺0。$\int f_n=1$ より右辺1。
+## F0-00D2B-A03 liminf を尾部下限から計算する
 
-### 採点基準（20点）
+- Level: A
+- 目安時間: 10分
 
-- a.e.極限: 8点
-- 左辺: 4点
-- 右辺: 4点
-- 結論: 4点
+実数列
+
+$$
+a_n
+=
+\begin{cases}
+2+1/n,&n\text{ が偶数},\\
+5+1/n,&n\text{ が奇数}
+\end{cases}
+$$
+
+について
+
+$$
+\inf_{k\ge n}a_k
+$$
+
+の極限を調べ、$\liminf a_n$ を求めよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+十分先の尾部にも偶数番目と奇数番目の項が両方残ります。奇数番目の項は常に5より大きい一方、偶数番目の項は
+
+$$
+2+\frac1k
+$$
+
+で2へ近づきます。
+
+従って各 $n$ について、尾部の下限は偶数番目の項から決まり、
+
+$$
+2
+\le
+\inf_{k\ge n}a_k
+\le
+2+\frac1m
+$$
+
+を満たす任意に大きな偶数 $m\ge n$ を取れます。$n\to\infty$ とすると
+
+$$
+\inf_{k\ge n}a_k\to2.
+$$
+
+したがって定義から
+
+$$
+\liminf_{n\to\infty}a_n=2.
+$$
+<!-- solution-end -->
+
+## F0-00D2B-A04 MCT から非負積分の加法性を使う
+
+- Level: A
+- 目安時間: 10分
+
+非負可測関数 $u,v$ が
+
+$$
+\int u\,d\mu=2,
+\qquad
+\int v\,d\mu=3
+$$
+
+を満たすとする。本文で MCT から導いた加法性を使って
+
+$$
+\int(4u+2v)\,d\mu
+$$
+
+を求め、どの性質をどの順に使ったか説明せよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+まず正の斉次性から
+
+$$
+\int4u\,d\mu
+=
+4\int u\,d\mu
+=
+8,
+$$
+
+$$
+\int2v\,d\mu
+=
+2\int v\,d\mu
+=
+6.
+$$
+
+次に非負積分の加法性から
+
+$$
+\int(4u+2v)\,d\mu
+=
+\int4u\,d\mu
++
+\int2v\,d\mu
+=
+8+6
+=
+14.
+$$
+
+使った順序は「正の斉次性で各係数を外へ出す → 加法性で和を分ける」です。これらは単関数での有限和計算を MCT で一般の非負可測関数へ持ち上げた性質です。
 <!-- solution-end -->
 
 ## F0-00D2B-B01 DCTで極限交換
@@ -700,16 +1213,6 @@ $$
 \int_0^10dx=0.
 $$
 
-### 本番答案
-
-$f_n\to0$ pointwise、$|f_n|\le x$ で $x\in L^1([0,1])$。[DCT](#thm-f0-00d2b-01)より極限は0。
-
-### 採点基準（20点）
-
-- 点wise極限: 5点
-- 支配関数: 7点
-- 可積分性: 4点
-- DCTと結論: 4点
 <!-- solution-end -->
 
 ## F0-00D2B-B02 MCTかDCTか
@@ -728,17 +1231,6 @@ $[0,1]$ 上で次の2列について、MCTとDCTのどちらが自然か理由�
 1. $f_n$ は非負で $n$ とともに増加し、$x>0$ で1へ収束するのでMCTが自然。
 2. $g_n$ は非負だが $n$ とともに減少するためMCTの形ではない。$0\le g_n\le1$、$g_n\to0$ a.e. なのでDCTが自然。
 
-### 本番答案
-
-$f_n$: 非負単調増加なのでMCT。$g_n$: 単調減少だが $|g_n|\le1\in L^1$ かつa.e.で0へ収束するのでDCT。
-
-### 採点基準（20点）
-
-- 1の単調性: 5点
-- MCT選択: 4点
-- 2の支配: 5点
-- DCT選択: 4点
-- 説明: 2点
 <!-- solution-end -->
 
 ## F0-00D2B-B03 $L^1$収束まで示す
@@ -765,16 +1257,6 @@ $$
 
 かつ $|f_n-f|\to0$ a.e.。$2g$ は可積分なのでDCTを $|f_n-f|$ に適用して結論を得る。
 
-### 本番答案
-
-$|f|\le g$ a.e. より $|f_n-f|\le2g\in L^1$、かつ $|f_n-f|\to0$ a.e.。[DCT](#thm-f0-00d2b-01)より $\int|f_n-f|\to0$。
-
-### 採点基準（20点）
-
-- $|f|\le g$: 5点
-- $2g$支配: 6点
-- a.e.収束: 4点
-- DCT適用: 5点
 <!-- solution-end -->
 
 ## F0-00D2B-C01 極限交換が失敗する列
@@ -805,18 +1287,36 @@ $$
 \int_0^1f_n=n\cdot\frac1n=1.
 $$
 
-もし一つの可積分 $g$ が全ての $f_n$ を支配したなら、0近傍で任意に大きな値を必要とする。実際 $x\in(1/(n+1),1/n)$ では $f_n(x)=n$ なので $g(x)\ge n$。この下界は0近傍で概ね $1/x$ 型となり可積分でない。よってDCTの支配条件を満たせない。
+もし一つの可積分 $g$ が全ての $f_n$ を支配すると仮定します。
 
-### 本番答案
+$$
+I_n
+=
+\left(\frac1{n+1},\frac1n\right)
+$$
 
-$f_n=n1_{(0,1/n)}$ とすれば $f_n\to0$ a.e. だが $\int f_n=1$。DCTが成立すれば積分も0へ行くはずなので、可積分な共通支配関数は存在しない。実際0近傍で $g\gtrsim1/x$ が必要となる。
+では $f_n=n$ なので $g\ge n$ です。従って互いに素な区間 $I_n$ 上で積分すると
 
-### 採点基準（20点）
+$$
+\begin{aligned}
+\int_0^1g(x)\,dx
+&\ge
+\sum_{n=1}^{\infty}
+n\,|I_n|\\
+&=
+\sum_{n=1}^{\infty}
+n\left(
+\frac1n-\frac1{n+1}
+\right)\\
+&=
+\sum_{n=1}^{\infty}\frac1{n+1}
+=
+\infty.
+\end{aligned}
+$$
 
-- 構成: 6点
-- a.e.収束: 5点
-- 積分1: 4点
-- DCT不適用理由: 5点
+これは $g$ が可積分という仮定に反します。したがって可積分な共通支配関数は存在せず、DCT の支配条件を満たせません。
+
 <!-- solution-end -->
 
 ---
