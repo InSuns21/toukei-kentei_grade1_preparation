@@ -11,7 +11,7 @@ terms:
     meaning: 非負可測関数を下から単調増加する非負単関数列で近似すること。
   - term: 非負可測関数のLebesgue積分
     english: Lebesgue integral of a nonnegative measurable function
-    meaning: 関数以下の非負単関数の積分値のsupremumとして定義する。
+    meaning: 関数以下の非負単関数の積分値の上限として定義する。
   - term: 正部分
     english: positive part
     meaning: f^+=max(f,0)。
