@@ -1037,7 +1037,7 @@ $$
 Ax-Ay=A(x-y).
 $$
 
-[行列の2-作用素ノルム](../F0_00F2_SVD_特異値_作用素ノルム/index.md#def-f0-00f2-spectral-norm)の定義より、
+[行列の2-作用素ノルム](../F0_00F2_SVD_特異値_作用素ノルム/index.md#def-f0-00f2-operator-norm)の定義より、
 
 $$
 \|A(x-y)\|_2
