@@ -141,6 +141,24 @@ CI green は必要条件であって十分条件ではない。
 
 特に、定義・定理・命題が数個続いたあとで初めて目的が分かる構成は避ける。読者が formal statement を読む前に、その statement が何の問題に答えるのかを分かる状態を作る。
 
+### 4.3 knowledge DAG 上の初出定義を CI で守る
+
+`knowledge.yaml` の `concepts` にそのページ自身の `kind: definition` として登録した概念は、そのページで新しく導入する概念とみなす。変更された DREAM THEATER ページでは、対応する初出の formal definition より前に、読者向けの通常文による導入が少なくとも一つ存在しなければ changed-only strict validation を失敗させる。
+
+機械検査は文章の教育的十分性を判定しない。確認するのは「定義パネルへ入る前に、数式・見出し・formal statement ではない読者向け説明が存在する」という最低限の構造である。導入文が本当に「既存手段の限界 → 解きたい問い → 新しい概念の役割」を伝えているかは `audit:formalism-pedagogy` と人手査読で判定する。CI を通すためだけの「ここで次の定義を導入します」のような定型文を置かない。
+
+同じ節で密接に関連する複数の定義をまとめて導入する場合は、節頭の一つの導入説明を共有してよい。また第1節の最初の定義は、章頭オリエンテーションが十分な導入を担っていればそれを利用してよい。
+
+教育上の理由で導入文を置かない方が自然な例外は、対象の concept ID と具体的理由を、初出定義より前に次のコメントで明示する。
+
+```md
+<!-- definition-intro-skip: concept.id | 既習概念の局所的な記号規約だけを固定するため -->
+```
+
+複数 concept を同じ理由で除外する場合は ID をカンマ区切りにしてよい。理由のない skip、対象定義より後の skip、別ページや非 definition concept を指す skip は無効とする。ページ全体を loose にする包括的な除外は設けない。
+
+実装上、この検査は既存の `audit-dream-theater-concepts.mjs --strict --changed-only` に統合する。concept audit がすでに読み込んだ `dream-theater-index.json`、各 `knowledge.yaml`、本文を再利用し、導入検査だけの別ジョブ・別全体走査は追加しない。これにより PR では変更ページだけを blocking 対象とし、CI 時間の増加を小さく保つ。
+
 ---
 
 ## 5. 定義・具体例・反例
