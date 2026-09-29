@@ -1399,7 +1399,7 @@ $$
 
 回転
 
-$
+$$
 \omega=\nabla\times u
 $$
 
@@ -1582,13 +1582,13 @@ $$
 
 速度場が
 
-$
+$$
 \operatorname{div}u=0
 $$
 
 を満たすとき、速度場はその回転
 
-$
+$$
 \omega=\nabla\times u
 $$
 
