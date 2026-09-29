@@ -139,11 +139,11 @@ $$
 > **定義（Jordan可測集合上のRiemann積分）**  
 > Jordan可測集合 $A\subset R$ と有界関数 $f:A\to\mathbb R$ に対し、$f$ を $A$ の外で0へ延長した関数 $\tilde f$ が $R$ 上Riemann可積分であるとき、
 >
-> $
+> $$
 > \int_A f(x)\,dx
 > :=
 > \int_R\tilde f(x)\,dx
-> $
+> $$
 >
 > と定める。
 <!-- formal-statement-end -->
