@@ -776,15 +776,15 @@ $$
 
 次に $\nabla\times C$ も、どの成分へ部分積分を使うかを明示します。Levi--Civita 記号を使わずに第1成分を書くと
 
-$
+$$
 (\nabla\times C)_1
 =
 \partial_{x_2}C_3-\partial_{x_3}C_2.
-$
+$$
 
 $C_i$ の積分表示を代入して
 
-$
+$$
 \begin{aligned}
 (\nabla\times C)_1
 &=
@@ -795,19 +795,19 @@ $
 \partial_{x_3}G(x-y)F_2(y)
 \right]dy.
 \end{aligned}
-$
+$$
 
 ここで
 
-$
+$$
 \partial_{x_j}G(x-y)
 =
 -\partial_{y_j}G(x-y)
-$
+$$
 
 なので
 
-$
+$$
 \begin{aligned}
 (\nabla\times C)_1
 &=
@@ -817,11 +817,11 @@ $
 \int
 \partial_{y_3}G(x-y)F_2(y)\,dy.
 \end{aligned}
-$
+$$
 
 十分大きな球で積分を切れば、その境界では $F=0$ です。したがって各項を $y_2,y_3$ について部分積分して境界項を捨てることができ、
 
-$
+$$
 \begin{aligned}
 (\nabla\times C)_1
 &=
@@ -837,38 +837,38 @@ G(x-y)
 G(x-y)
 (\nabla_y\times F(y))_1\,dy.
 \end{aligned}
-$
+$$
 
 第2成分では
 
-$
+$$
 (\nabla\times C)_2
 =
 \partial_{x_3}C_1-\partial_{x_1}C_3,
-$
+$$
 
 第3成分では
 
-$
+$$
 (\nabla\times C)_3
 =
 \partial_{x_1}C_2-\partial_{x_2}C_1
-$
+$$
 
 から出発し、同じ $\partial_{x_j}G=-\partial_{y_j}G$ と部分積分を使います。その結果
 
-$
+$$
 (\nabla\times C)_i
 =
 \int_{\mathbb R^3}
 G(x-y)
 (\nabla_y\times F(y))_i\,dy
 \qquad(i=1,2,3).
-$
+$$
 
 従って
 
-$
+$$
 \nabla\times C
 =
 \int_{\mathbb R^3}
@@ -878,19 +878,19 @@ G(x-y)
 \right)dy
 =
 A(x).
-$
+$$
 
 ここでベクトル・ラプラシアンの恒等式を成分から確認します。$C=(P,Q,R)$ とすると
 
-$
+$$
 \nabla\times C
 =
 (R_y-Q_z,\ P_z-R_x,\ Q_x-P_y).
-$
+$$
 
 したがって第1成分は
 
-$
+$$
 \begin{aligned}
 [\nabla\times(\nabla\times C)]_1
 &=
@@ -900,11 +900,11 @@ $
 &=
 Q_{xy}+R_{xz}-P_{yy}-P_{zz}.
 \end{aligned}
-$
+$$
 
 混合偏微分を交換し、$P_{xx}$ を足して引くと
 
-$
+$$
 \begin{aligned}
 Q_{xy}+R_{xz}-P_{yy}-P_{zz}
 &=
@@ -912,21 +912,21 @@ Q_{xy}+R_{xz}-P_{yy}-P_{zz}
 &\quad-
 (P_{xx}+P_{yy}+P_{zz}),
 \end{aligned}
-$
+$$
 
 よって
 
-$
+$$
 [\nabla\times(\nabla\times C)]_1
 =
 [\nabla(\operatorname{div}C)]_1
 -
 [\Delta C]_1.
-$
+$$
 
 第2成分も
 
-$
+$$
 \begin{aligned}
 [\nabla\times(\nabla\times C)]_2
 &=
@@ -940,21 +940,21 @@ R_{yz}+P_{xy}-Q_{zz}-Q_{xx}\\
 -
 (Q_{xx}+Q_{yy}+Q_{zz}),
 \end{aligned}
-$
+$$
 
 なので
 
-$
+$$
 [\nabla\times(\nabla\times C)]_2
 =
 [\nabla(\operatorname{div}C)]_2
 -
 [\Delta C]_2.
-$
+$$
 
 第3成分では
 
-$
+$$
 \begin{aligned}
 [\nabla\times(\nabla\times C)]_3
 &=
@@ -968,27 +968,27 @@ P_{xz}+Q_{yz}-R_{xx}-R_{yy}\\
 -
 (R_{xx}+R_{yy}+R_{zz}),
 \end{aligned}
-$
+$$
 
 したがって
 
-$
+$$
 [\nabla\times(\nabla\times C)]_3
 =
 [\nabla(\operatorname{div}C)]_3
 -
 [\Delta C]_3.
-$
+$$
 
 三成分をまとめると
 
-$
+$$
 \nabla\times(\nabla\times C)
 =
 \nabla(\operatorname{div}C)
 -
 \Delta C.
-$
+$$
 
 従って
 
