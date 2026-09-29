@@ -34,13 +34,19 @@ $$
 
 [GRP3](../GRP3/index.md#def-grp3-conjugation) の共役作用は集合上の群作用として導入済みです。本章ではそれを滑らかな Lie 群自己同型として微分します。また [ODE4](../ODE4/index.md#def-ode4-nonlinear-autonomous-system) の自律系の見方と、LIE1 の前提である [GEO5](../GEO5/index.md) の積分曲線・流れを使って、接ベクトルから大域的な曲線を構成します。
 
-> **この章の停止線**
->
-> Lie 部分群と閉部分群定理、古典群の体系的な Lie 環計算は LIE3 へ送ります。Lie 群作用・軌道・等質空間・Maurer--Cartan 形式は LIE4 へ送ります。一般表現論、半単純 Lie 環、root system、最高ウェイト理論は本系列のさらに後続です。Baker--Campbell--Hausdorff 公式は、本章では Lie 括弧が最初の非可換補正として現れる機構までを扱い、一般の収束公式を証明済みの道具としては使いません。
+本章では、単位元の接ベクトルを群の曲線へ戻し、共役作用を微分して Lie 括弧へ至るところまで扱います。Lie 部分群と閉部分群定理、古典群の体系的な Lie 環計算は LIE3、Lie 群作用・軌道・等質空間・Maurer--Cartan 形式は LIE4 で扱います。Baker--Campbell--Hausdorff 公式については、ここでは Lie 括弧が最初の非可換補正として現れる機構までを導き、一般の収束公式は後続で扱います。
 
 ---
 
 ## 1. 実数を群の中の曲線として入れる
+
+ODE の積分曲線は、一般には「時刻を $s$ 進めてから $t$ 進める」操作と群の積が直接結び付いているとは限りません。Lie 群では、単位元から出る一つの運動を群演算と両立させ、どの時刻からでも同じ規則で再開できる曲線を取り出したいところです。
+
+そこで時間の加法
+$$
+s+t
+$$
+を群の積へ送る曲線を考えます。この条件を入れると、曲線全体が初速度一つで決まり、後で接ベクトルと群の局所構造を結び付けられるようになります。
 
 <a id="def-lie2-one-parameter-subgroup"></a>
 <!-- formal-statement-start -->
@@ -321,7 +327,25 @@ $$
 
 従って右端は $+\infty$ です。
 
-左端についても同じ議論を時間反転して行えば $-\infty$ です。よって
+左端も具体的に確認します。左端が有限値 $a$ だと仮定し、
+$$
+a<s<a+\frac{\varepsilon}{2}
+$$
+となる $s\in I$ を取ります。同じ曲線
+$$
+t\longmapsto\gamma(s)\gamma(t-s)
+$$
+は
+$$
+s-\varepsilon<t<s+\varepsilon
+$$
+で定義され、既存の $\gamma$ と重なる区間では一意性により一致します。
+
+しかし
+$$
+s-\varepsilon<a
+$$
+なので、今度は $\gamma$ を $a$ より左へ延長してしまいます。これも最大性に反します。したがって左端は $-\infty$ であり、
 $$
 I=\mathbb R.
 $$
@@ -356,6 +380,10 @@ $$
 ---
 
 ## 4. 接ベクトルを「時刻1まで流す」
+
+前節で、各 $X\in\mathfrak g$ から一意な1パラメータ部分群 $\gamma_X$ が得られることが分かりました。しかし後続の計算で毎回曲線 $\gamma_X:\mathbb R\to G$ 全体を持ち歩くのは不便です。
+
+群則により $\gamma_X(t)$ は時刻1の対応をスカラー倍 $tX$ に適用すれば復元できます。そこで、接ベクトルを「時刻1まで流した終点」へ送る写像を基本対象にします。
 
 <a id="def-lie2-exponential-map"></a>
 <!-- formal-statement-start -->
@@ -951,6 +979,14 @@ $$
 
 ## 9. 共役自己同型を単位元で微分する
 
+前節の $C_g$ は群全体を動かす非線形な写像ですが、しかも単位元 $e$ を固定します。そこで $e$ の近くの接方向だけを見ると、
+$$
+T_eG=\mathfrak g
+$$
+の上に線形変換が得られます。
+
+つまり「有限の共役 $h\mapsto ghg^{-1}$ が、無限小方向をどう動かすか」を記録するのが次の写像です。
+
 <a id="def-lie2-adjoint-representation"></a>
 <!-- formal-statement-start -->
 > **定義（随伴表現）**
@@ -1195,7 +1231,9 @@ $$
 
 ## 11. Ad をさらに微分すると ad が現れる
 
-随伴表現自体も Lie 群準同型です。したがって単位元でさらに微分できます。
+随伴表現は、各 $g\in G$ に「共役が接空間をどう動かすか」という線形変換 $\operatorname{Ad}_g$ を割り当てました。次に知りたいのは、$g$ 自身を単位元から無限小に動かしたとき、その線形変換がどの速度で変わるかです。
+
+$\operatorname{Ad}:G\to GL(\mathfrak g)$ 自体が Lie 群準同型なので、単位元でさらに微分できます。この二段目の微分が、LIE1 で導入した Lie 括弧と一致します。
 
 <a id="def-lie2-infinitesimal-adjoint"></a>
 <!-- formal-statement-start -->
@@ -1244,13 +1282,36 @@ $$
 e^{tA}Be^{-tA}.
 $$
 
-$t=0$ で微分すると、積の微分則から
+ここで何を微分しているかを一段ずつ確認します。[ODE3 の行列指数の微分公式](../ODE3/index.md#thm-ode3-matrix-exponential-properties)から
+$$
+\frac d{dt}e^{tA}=Ae^{tA},
+\qquad
+\frac d{dt}e^{-tA}=-Ae^{-tA}.
+$$
+
+したがって積の微分則を三つの因子
+$$
+e^{tA},\quad B,\quad e^{-tA}
+$$
+へ適用すると
+$$
+\frac d{dt}
+\left(e^{tA}Be^{-tA}\right)
+=
+Ae^{tA}Be^{-tA}
++
+e^{tA}B(-A)e^{-tA}.
+$$
+
+$t=0$ では $e^{0A}=I$ なので
 $$
 \begin{aligned}
 \left.
 \frac{d}{dt}
 \right|_{0}
 e^{tA}Be^{-tA}
+&=
+AIBI+IB(-A)I\\
 &=
 AB-BA.
 \end{aligned}
@@ -1485,11 +1546,21 @@ $$
 
 [Lie 群準同型と Lie 群の指数写像の自然性](#thm-lie2-exponential-naturality)を
 $$
-\operatorname{Ad}:G\to GL(\mathfrak g)
+\Phi=\operatorname{Ad}:G\to GL(\mathfrak g)
 $$
-へ適用します。
+へ適用します。この定理の入力 $X\in\mathfrak g$ はそのまま現在の $X$、単位元での微分は
+$$
+d\Phi_e=d(\operatorname{Ad})_e=\operatorname{ad}
+$$
+です。
 
-すると
+したがって自然性の式
+$$
+\Phi(\exp_GX)
+=
+\exp_{GL(\mathfrak g)}(d\Phi_eX)
+$$
+へこの対応を代入すると
 $$
 \operatorname{Ad}(\exp_GX)
 =
@@ -1581,7 +1652,26 @@ x&y\\
 \end{pmatrix}.
 $$
 
-$k\ge1$ について
+まず冪を確認します。
+$$
+A^2
+=
+\begin{pmatrix}
+x&y\\
+0&0
+\end{pmatrix}
+\begin{pmatrix}
+x&y\\
+0&0
+\end{pmatrix}
+=
+\begin{pmatrix}
+x^2&xy\\
+0&0
+\end{pmatrix}.
+$$
+
+さらに
 $$
 A^k
 =
@@ -1590,9 +1680,36 @@ x^k&x^{k-1}y\\
 0&0
 \end{pmatrix}
 $$
-です。
+と仮定すると
+$$
+A^{k+1}
+=
+A^kA
+=
+\begin{pmatrix}
+x^{k+1}&x^ky\\
+0&0
+\end{pmatrix}.
+$$
+したがって帰納法でこの式は全ての $k\ge1$ に成り立ちます。
 
-従って $x\ne0$ なら
+$x\ne0$ のとき、指数級数
+$$
+e^A=I+\sum_{k=1}^{\infty}\frac{A^k}{k!}
+$$
+へ代入します。左上成分は
+$$
+1+\sum_{k=1}^{\infty}\frac{x^k}{k!}=e^x,
+$$
+右上成分は
+$$
+\sum_{k=1}^{\infty}\frac{x^{k-1}y}{k!}
+=
+\frac yx\sum_{k=1}^{\infty}\frac{x^k}{k!}
+=
+y\frac{e^x-1}{x}.
+$$
+従って
 $$
 e^A
 =
@@ -1644,11 +1761,46 @@ a^{-1}&-ba^{-1}\\
 \end{pmatrix}.
 $$
 
-直接計算すると
+まず左から掛けると
 $$
-g(xH+yE)g^{-1}
+g(xH+yE)
 =
+\begin{pmatrix}
+a&b\\
+0&1
+\end{pmatrix}
+\begin{pmatrix}
+x&y\\
+0&0
+\end{pmatrix}
+=
+\begin{pmatrix}
+ax&ay\\
+0&0
+\end{pmatrix}.
+$$
+
+次に $g^{-1}$ を右から掛けると
+$$
+\begin{aligned}
+g(xH+yE)g^{-1}
+&=
+\begin{pmatrix}
+ax&ay\\
+0&0
+\end{pmatrix}
+\begin{pmatrix}
+a^{-1}&-ba^{-1}\\
+0&1
+\end{pmatrix}\\
+&=
+\begin{pmatrix}
+x&ay-bx\\
+0&0
+\end{pmatrix}\\
+&=
 xH+(ay-bx)E.
+\end{aligned}
 $$
 
 従って
@@ -1894,7 +2046,28 @@ $$
 \operatorname{Ad}_{\exp(sX)}Y-Y.
 $$
 
-これを $s=0$ で微分すると
+これを $s=0$ で微分します。ここでは
+$$
+g(s):=\exp(sX)
+$$
+と置くと
+$$
+g(0)=e,
+\qquad
+g'(0)=X.
+$$
+したがって連鎖律により
+$$
+\left.
+\frac d{ds}
+\right|_{s=0}
+\operatorname{Ad}_{g(s)}
+=
+d(\operatorname{Ad})_e(X)
+=
+\operatorname{ad}_X.
+$$
+この線形写像を $Y$ に作用させれば
 $$
 \begin{aligned}
 \frac{\partial^2\kappa}{\partial s\,\partial t}(0,0)
@@ -2354,7 +2527,23 @@ $$
 
 従って有限右端はありません。
 
-4. 左端も同様に有限ではないので
+4. 左端も確認します。左端が有限値 $a$ だと仮定し、
+$$
+a<s<a+\varepsilon/2
+$$
+となる $s\in I$ を取ります。
+
+3と同じ曲線
+$$
+t\longmapsto\gamma(s)\gamma(t-s)
+$$
+は $s-\varepsilon<t<s+\varepsilon$ で定義され、既存の $\gamma$ と重なる区間では一意性により一致します。しかし
+$$
+s-\varepsilon<a
+$$
+なので $\gamma$ を左へ延長でき、最大性に反します。
+
+従って左右の有限端点はともに存在せず
 $$
 I=\mathbb R.
 $$
@@ -2420,7 +2609,21 @@ $$
 <!-- solution-start -->
 ##### 詳細解答
 
-1. $k=1$ では明らかです。
+1. $k=1$ では
+$$
+A^1
+=
+\begin{pmatrix}
+x&y\\
+0&0
+\end{pmatrix}
+=
+\begin{pmatrix}
+x^1&x^0y\\
+0&0
+\end{pmatrix}
+$$
+なので成立します。
 
 $k$ で式が成り立つと仮定すると
 $$
