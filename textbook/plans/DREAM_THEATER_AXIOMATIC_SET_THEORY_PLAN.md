@@ -120,15 +120,15 @@ ID は実装前に既存 ID / dream-theater-index / knowledge DAG を確認し�
 - 順序型
 - 推移的集合
 - von Neumann 順序数
-- \\(0,1,2,\\ldots\\)
-- \\(\\omega\\)
+- $0,1,2,\ldots$
+- $\omega$
 - 後続順序数
 - 極限順序数
 - 順序数の比較可能性
 - 任意の順序数の元も順序数であること
 - 順序数全体が集合ではないことの位置付け
 
-直接例として有限順序数、\\(\\omega\\)、\\(\\omega+1\\) を具体的に比較する。
+直接例として有限順序数、$\omega$、$\omega+1$ を具体的に比較する。
 
 ### SET3 超限帰納法
 
@@ -158,7 +158,7 @@ ID は実装前に既存 ID / dream-theater-index / knowledge DAG を確認し�
 
 - 自然数上の再帰との比較
 - 超限再帰定理
-- \\(F(\\alpha)=G(F|_\\alpha)\\) 型の定式化
+- $F(\alpha)=G(F|_\alpha)$ 型の定式化
 - 存在と一意性
 - 後続段階と極限段階
 - 順序数の加法
@@ -176,13 +176,13 @@ ID は実装前に既存 ID / dream-theater-index / knowledge DAG を確認し�
 
 扱う候補:
 
-- \\(V_0=\\varnothing\\)
-- \\(V_{\\alpha+1}=\\mathcal P(V_\\alpha)\\)
-- 極限順序数 \\(\\lambda\\) に対する \\(V_\\lambda=\\bigcup_{\\beta<\\lambda}V_\\beta\\)
+- $V_0=\varnothing$
+- $V_{\alpha+1}=\mathcal P(V_\alpha)$
+- 極限順序数 $\lambda$ に対する $V_\lambda=\bigcup_{\beta<\lambda}V_\beta$
 - 累積階層
 - 集合の rank
 - 正則性公理との接続
-- 各集合がどこかの \\(V_\\alpha\\) に現れること
+- 各集合がどこかの $V_\alpha$ に現れること
 - finite rank の具体例
 
 「極限段階では以前の段階を全部合併する」という超限構成の感覚をここで定着させる。
@@ -195,12 +195,12 @@ ID は実装前に既存 ID / dream-theater-index / knowledge DAG を確認し�
 
 - 基数
 - 初期順序数としての基数
-- \\(\\aleph_0\\)
-- \\(\\aleph_1\\) 以降の位置付け
+- $\aleph_0$
+- $\aleph_1$ 以降の位置付け
 - 基数の比較
 - 基数の加法・乗法・冪
 - Cantor の定理
-- \\(2^\\kappa\\)
+- $2^\kappa$
 - 順序数と基数の違い
 
 連続体仮説は主張の意味まで紹介してよいが、独立性証明を本科目の必修範囲にしない。
@@ -218,7 +218,7 @@ ID は実装前に既存 ID / dream-theater-index / knowledge DAG を確認し�
 - Replacement の役割
 - Hartogs 数
 - Hartogs の補題の完全証明
-- 「\\(X\\) より長すぎる順序数」が AC なしで作れること
+- 「$X$ より長すぎる順序数」が AC なしで作れること
 - AC から整列可能定理を導く際の停止保証
 
 この章を、現行 F0-00A3A で使っている Hartogs 補題の canonical owner とする候補。
@@ -234,9 +234,9 @@ ID は実装前に既存 ID / dream-theater-index / knowledge DAG を確認し�
 - 選択公理
 - 整列可能定理
 - Zorn の補題
-- Zorn \\(\\Rightarrow\\) AC: 部分選択関数の極大化
-- AC \\(\\Rightarrow\\) 整列可能定理: 選択関数 + Hartogs + 超限再帰
-- 整列可能定理 \\(\\Rightarrow\\) Zorn: greedy maximal chain
+- Zorn $\Rightarrow$ AC: 部分選択関数の極大化
+- AC $\Rightarrow$ 整列可能定理: 選択関数 + Hartogs + 超限再帰
+- 整列可能定理 $\Rightarrow$ Zorn: greedy maximal chain
 - 各方向で何を仮定しているか
 - 循環論法になっていないことの確認
 
@@ -325,7 +325,7 @@ ID は実装前に既存 ID / dream-theater-index / knowledge DAG を確認し�
 
 を knowledge DAG と公開目次の整合性から決定する。
 
-重複する AC \\(\\Leftrightarrow\\) Zorn 証明は作らない。
+重複する AC $\Leftrightarrow$ Zorn 証明は作らない。
 
 ## 5. 共通基礎にしないことの明文化
 
@@ -366,7 +366,7 @@ dream-theater-standard-math-core.md の共通基礎には、本科目を必修�
 ### 順序数
 
 - 有限 von Neumann 順序数を実際に書く
-- \\(\\omega\\) と \\(\\omega+1\\) の違い
+- $\omega$ と $\omega+1$ の違い
 - 順序同型の構成
 - 順序数の比較
 
@@ -379,8 +379,8 @@ dream-theater-standard-math-core.md の共通基礎には、本科目を必修�
 ### 超限再帰
 
 - 順序数加法の具体計算
-- \\(1+\\omega=\\omega\\) と \\(\\omega+1>\\omega\\) の確認
-- \\(V_0,V_1,V_2,V_3\\) の構成
+- $1+\omega=\omega$ と $\omega+1>\omega$ の確認
+- $V_0,V_1,V_2,V_3$ の構成
 - rank の計算
 
 ### Hartogs / AC
@@ -401,7 +401,7 @@ dream-theater-standard-math-core.md の共通基礎には、本科目を必修�
 - Gödel の完全性定理
 - Löwenheim--Skolem の定理
 - Gödel の不完全性定理
-- 構成可能宇宙 \\(L\\) の精密理論
+- 構成可能宇宙 $L$ の精密理論
 - forcing
 - Cohen による CH / AC 独立性証明
 - large cardinal 理論
@@ -435,13 +435,13 @@ dream-theater-standard-math-core.md の共通基礎には、本科目を必修�
 
 ## 9. 完成条件
 
-- 順序数を集合として定義し、有限順序数・\\(\\omega\\)・後続・極限を具体例から説明できる。
+- 順序数を集合として定義し、有限順序数・$\omega$・後続・極限を具体例から説明できる。
 - 超限帰納法で、後続段階と極限段階を区別して証明を再構成できる。
 - 超限再帰定理の仮定と結論を述べ、少なくとも順序数演算または累積階層を実際に構成できる。
-- 累積階層 \\(V_\\alpha\\) と rank を追える。
+- 累積階層 $V_\alpha$ と rank を追える。
 - 基数と順序数を混同しない。
 - Hartogs 補題を AC に依存せず証明できる。
-- AC \\(\\Leftrightarrow\\) 整列可能定理 \\(\\Leftrightarrow\\) Zorn の証明を、未習概念なしで追える。
+- AC $\Leftrightarrow$ 整列可能定理 $\Leftrightarrow$ Zorn の証明を、未習概念なしで追える。
 - 可算選択・DC・完全な AC が同一ではないことを説明できる。
 - 選択公理が Hamel 基底、Hahn--Banach、Vitali 集合などでどこに現れるかを局所的に説明できる。
 - 本科目を DREAM THEATER の共通基礎の必修にしていない。
