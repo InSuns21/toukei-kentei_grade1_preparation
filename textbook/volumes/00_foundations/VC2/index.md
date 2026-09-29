@@ -68,19 +68,21 @@ $$
 で、常に長さ 1 です。従って単位円の正則なパラメータ表示です。
 <!-- definition-example-end -->
 
-同じ幾何学的曲線でもパラメータの進み方は変えられます。$C^1$ 級の単調増加全単射
+同じ幾何学的曲線でもパラメータの進み方は変えられます。$C^1$ 級の全単射
 
 $$
 \varphi:[c,d]\to[a,b]
 $$
 
-に対し
+が逆写像も $C^1$ 級で、$\varphi'(s)>0$ を満たすとします。このとき
 
 $$
 \widetilde\gamma(s)=\gamma(\varphi(s))
 $$
 
-とすれば、向きを保った再パラメータ表示です。$\varphi$ が単調減少なら向きは反転します。
+は、同じ曲線を同じ向きにたどる再パラメータ表示です。$\varphi'(s)<0$ なら同じ曲線を逆向きにたどります。
+
+逆写像まで $C^1$ 級とするのは、再パラメータ表示の途中で進む速さが 0 になって正則性を失うことを避けるためです。
 
 パラメータ $t$ 自体の増分 $dt$ は、曲線上の実際の長さではありません。短い時間 $dt$ の間に
 
@@ -133,7 +135,44 @@ $$
 したがって $0\le t\le2\pi$ の弧長は $2\pi$ で、$T$ は各点で長さ 1 の接方向です。
 <!-- definition-example-end -->
 
-向きを保つ再パラメータ表示では、1 変数の変数変換により弧長は変わりません。
+向きを保つ再パラメータ表示 $\widetilde\gamma=\gamma\circ\varphi$ で弧長が変わらないことを、変数を対応させて確認します。連鎖律から
+
+$$
+\widetilde\gamma'(s)
+=
+\gamma'(\varphi(s))\varphi'(s).
+$$
+
+$\varphi'(s)>0$ なので
+
+$$
+|\widetilde\gamma'(s)|
+=
+|\gamma'(\varphi(s))|\varphi'(s).
+$$
+
+従って
+
+$$
+\begin{aligned}
+L(\widetilde\gamma)
+&=
+\int_c^d
+|\gamma'(\varphi(s))|\varphi'(s)\,ds.
+\end{aligned}
+$$
+
+ここで一変数の変数変換 $t=\varphi(s)$ を使います。向きを保つので $\varphi(c)=a,\varphi(d)=b$ であり、
+
+$$
+L(\widetilde\gamma)
+=
+\int_a^b|\gamma'(t)|\,dt
+=
+L(\gamma).
+$$
+
+つまり $|\gamma'|$ は、パラメータの進む速さをちょうど打ち消して幾何学的な長さだけを残します。
 
 ---
 
@@ -178,7 +217,35 @@ $$
 一定密度 1 のスカラー線積分が曲線の長さそのものになることを確認できます。
 <!-- definition-example-end -->
 
-これは曲線に沿った「密度 × 長さ」の総和です。向きを反転しても $ds$ は正なので値は変わりません。
+これは曲線に沿った「密度 × 長さ」の総和です。
+
+向きを保つ再パラメータ表示では、先ほどと同じ連鎖律から
+
+$$
+|\widetilde\gamma'(s)|
+=
+|\gamma'(\varphi(s))|\varphi'(s)
+$$
+
+となるので
+
+$$
+\begin{aligned}
+\int_{\widetilde\gamma}f\,ds
+&=
+\int_c^d
+f(\gamma(\varphi(s)))
+|\gamma'(\varphi(s))|
+\varphi'(s)\,ds\\
+&=
+\int_a^b
+f(\gamma(t))|\gamma'(t)|\,dt\\
+&=
+\int_\gamma f\,ds.
+\end{aligned}
+$$
+
+向きを反転する場合も絶対値 $|\widetilde\gamma'|$ が速さを正にするため、スカラー線積分の値は変わりません。
 
 例えば単位円上で $f(x,y)=x^2$ を積分すると
 
@@ -249,7 +316,49 @@ $$
 回転場に沿って一周すると正の循環が現れます。
 <!-- definition-example-end -->
 
-向きを保つ再パラメータ表示では値は不変です。向きを反転すれば $\gamma'$ の符号が反転するので、ベクトル線積分の符号も反転します。
+向きを保つ再パラメータ表示では、連鎖律により
+
+$$
+\widetilde\gamma'(s)
+=
+\gamma'(\varphi(s))\varphi'(s)
+$$
+
+なので
+
+$$
+\begin{aligned}
+\int_{\widetilde\gamma}F\cdot dr
+&=
+\int_c^d
+F(\gamma(\varphi(s)))
+\cdot
+\gamma'(\varphi(s))
+\varphi'(s)\,ds\\
+&=
+\int_a^b
+F(\gamma(t))\cdot\gamma'(t)\,dt\\
+&=
+\int_\gamma F\cdot dr.
+\end{aligned}
+$$
+
+第二行では $t=\varphi(s)$ と変数変換しました。
+
+一方 $\varphi'(s)<0$ で向きを反転する場合は、$\varphi(c)=b,\varphi(d)=a$ となります。同じ変数変換をすると積分区間が逆向きになり、
+
+$$
+\int_{\widetilde\gamma}F\cdot dr
+=
+\int_b^a
+F(\gamma(t))\cdot\gamma'(t)\,dt
+=
+-
+\int_a^b
+F(\gamma(t))\cdot\gamma'(t)\,dt.
+$$
+
+したがってベクトル線積分は向きを反転すると符号も反転します。
 
 ---
 
@@ -313,6 +422,14 @@ $$
 ---
 
 ## 5. 保存場と経路独立性
+
+線積分の基本定理から、$F=\nabla\phi$ と書ける場では、途中の経路をどれほど曲げても積分値は
+
+$$
+\phi(\text{終点})-\phi(\text{始点})
+$$
+
+だけで決まります。そこで「勾配として書ける場」と「積分が経路に依らない性質」に名前を付け、逆向きの含意まで整理します。
 
 <a id="def-vc2-conservative"></a>
 
