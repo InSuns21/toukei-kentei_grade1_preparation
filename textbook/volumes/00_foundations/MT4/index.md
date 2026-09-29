@@ -25,9 +25,25 @@ AC版 FTC：F(x)-F(a)=∫ F'
 
 本章は実数直線上の1次元版に集中します。高次元の球・立方体による微分基底や一般 Vitali covering theorem は扱いません。
 
+最初に目標を一つだけ具体化します。$f=1_{[0,1]}$ とすると、$x\in(0,1)$ では十分小さい $r>0$ に対して
+
+$$
+\frac1{2r}\int_{x-r}^{x+r}f(y)\,dy=1=f(x).
+$$
+
+つまり「点の値」を、その点の周りの小区間での平均から回収できます。一般の可積分関数でも、ほとんど至る所でこの回収が可能かを示すのが前半の目標です。後半では、この結果を使って
+
+$$
+F(x)=\int_a^x f(t)\,dt
+$$
+
+を微分すると元の $f$ が戻る条件を突き詰めます。
+
 ---
 
 ## 1. 局所可積分関数と平均
+
+Lebesgue 微分定理で見るのは点の近くの平均なので、全空間で積分可能である必要はありません。例えば定数関数 $f(x)=1$ は $L^1(\mathbb R)$ には属しませんが、どの有界区間上でも積分は有限で、局所平均は問題なく定義できます。
 
 <a id="def-mt4-l1loc"></a>
 <!-- formal-statement-start -->
@@ -74,25 +90,42 @@ $$
 
 #### 2.1 まず有界・有界台へ切る
 
+DCT を一つの列へ直接適用できるよう、切断の高さと台の大きさを同じ整数 $n$ で増やします。
+
 $$
-f_{M,R}(x)
+u_n(x)
 =
-\max(-M,\min(f(x),M))1_{[-R,R]}(x)
+\max(-n,\min(f(x),n))1_{[-n,n]}(x).
 $$
 
-と置きます。$M,R\to\infty$ とすれば $f_{M,R}\to f$ ほとんど至る所（almost everywhere; a.e.）で、
+各 $x$ で $n$ が十分大きければ $x\in[-n,n]$ となり、同時に切断値も $f(x)$ へ戻るので
 
 $$
-|f_{M,R}-f|\le2|f|
+u_n(x)\to f(x)
 $$
 
-です。[優収束定理（Dominated Convergence Theorem; DCT）](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01) により十分大きい $M,R$ で
+が a.e. に成り立ちます。また全ての $n$ で
 
 $$
-\|f-f_{M,R}\|_1<\frac\varepsilon3.
+|u_n(x)-f(x)|\le2|f(x)|.
 $$
 
-以後 $f_{M,R}$ を $u$ と書きます。
+ここで DCT へ入力する関数列は $|u_n-f|$、支配関数は $2|f|\in L^1$ です。[優収束定理（Dominated Convergence Theorem; DCT）](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01) により
+
+$$
+\|u_n-f\|_1
+=
+\int_{\mathbb R}|u_n-f|\,d\lambda
+\longrightarrow0.
+$$
+
+したがって十分大きい $n$ を一つ固定すれば
+
+$$
+\|f-u_n\|_1<\frac\varepsilon3.
+$$
+
+以後この $u_n$ を $u$、対応する整数を $R$ と書きます。
 
 #### 2.2 有限単関数へ落とす
 
@@ -196,6 +229,10 @@ $\square$
 
 ## 3. 1次元区間選択補題
 
+最大関数では、各点ごとに「平均が大きくなる区間」を一つずつ選ぶため、区間どうしが大量に重なります。そのまま長さを足すと重複分を何度も数えてしまいます。
+
+欲しいのは、重なりを捨てて互いに素な区間だけを残しつつ、元の区間族全体を定数倍の拡大で覆うことです。1次元では次の単純な貪欲法でそれができます。
+
 <a id="thm-mt4-interval-selection"></a>
 <!-- formal-statement-start -->
 ### 補題（有限区間族からの互いに素な選択）
@@ -246,6 +283,8 @@ $$
 
 ## 4. Hardy–Littlewood maximal function の弱 $(1,1)$ 評価
 
+Lebesgue 微分定理では、近似誤差 $h=f-g$ の「小区間平均がどれだけ大きくなり得るか」を全ての区間について同時に制御する必要があります。その最悪値を各点 $x$ に割り当てるのが最大関数です。
+
 <a id="def-mt4-maximal"></a>
 <!-- formal-statement-start -->
 ### 定義（非中心 Hardy–Littlewood maximal function）
@@ -262,6 +301,15 @@ $$
 
 ただし上限は $x$ を含む有界開区間 $I$ 全体について取る。
 <!-- formal-statement-end -->
+
+例えば $f=1_{[0,1]}$ なら、$x\in(0,1)$ では $[0,1]$ の内部に収まる十分小さい区間 $I\ni x$ を選べるので平均値は1になります。一方 $|f|\le1$ だからどの区間平均も1を超えず、
+
+$$
+Mf(x)=1
+\qquad(0<x<1)
+$$
+
+と定義を直接確認できます。
 
 <a id="thm-mt4-maximal-weak11"></a>
 <!-- formal-statement-start -->
@@ -528,6 +576,10 @@ $$
 
 ## 7. 絶対連続性
 
+通常の一様連続性は、一つの短い区間 $(x,y)$ に対して $|F(y)-F(x)|$ を小さくします。しかし微積分学の基本定理を逆向きに使うには、互いに離れた多数の短い区間を同時に選んだときも、変動の**総和**が小さくなる必要があります。
+
+この「短い区間をたくさん集めても総変動が暴れない」という条件が絶対連続性です。
+
 <a id="def-mt4-ac"></a>
 <!-- formal-statement-start -->
 ### 定義（絶対連続関数）
@@ -555,6 +607,16 @@ $$
 <!-- formal-statement-end -->
 
 $m=1$ とすれば AC なら一様連続、従って連続です。しかし連続だけでは、互いに素な多数の小区間上の変動総量を同時には制御できません。
+
+最小例として $F(x)=x$ を考えると、
+
+$$
+\sum_{k=1}^m|F(y_k)-F(x_k)|
+=
+\sum_{k=1}^m(y_k-x_k).
+$$
+
+したがって $\delta=\varepsilon$ と取れば定義条件がそのまま成立し、$F(x)=x$ は AC です。
 
 ---
 
@@ -706,6 +768,8 @@ $h<0$ でも区間 $[x+h,x]$ を使って同じ評価が成り立ちます。従
 
 ## 10. AC 関数は bounded variation
 
+絶対連続性は「短い区間族」に対する局所的な総変動の制御でした。逆向きの FTC へ進むには、区間全体で変動をどれだけ積み上げても有限に収まることをまず示したいので、全ての有限分割にわたる変動和の上限を導入します。
+
 逆向きの FTC を証明するため、AC 関数を単調関数の差へ分解します。
 
 <a id="def-mt4-bv"></a>
@@ -717,12 +781,24 @@ $F:[a,b]\to\mathbb R$ に対して
 $$
 V_a^b(F)
 :=
-sup_{a=x_0<\cdots<x_n=b}
+\sup_{a=x_0<\cdots<x_n=b}
 \sum_{i=1}^n|F(x_i)-F(x_{i-1})|.
 $$
 
 これが有限のとき $F$ は bounded variation（BV）であるという。
 <!-- formal-statement-end -->
+
+例えば $F(x)=x$ なら、任意の分割に対して
+
+$$
+\sum_{i=1}^n|F(x_i)-F(x_{i-1})|
+=
+\sum_{i=1}^n(x_i-x_{i-1})
+=
+b-a,
+$$
+
+なので $V_a^b(F)=b-a$ です。分割を細かくしても変動和が増えない最も単純な例です。
 
 <a id="thm-mt4-ac-implies-bv"></a>
 <!-- formal-statement-start -->
@@ -799,7 +875,35 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$x<y$ なら変動の加法性から
+まず証明で使う変動の加法性を確認します。$a\le x<y\le b$ とします。$[a,y]$ の任意の分割へ点 $x$ を追加すると、変動和は
+
+$$
+\text{$[a,x]$ 上の変動和}
++
+\text{$[x,y]$ 上の変動和}
+$$
+
+に分かれるので
+
+$$
+V_a^y(F)\le V_a^x(F)+V_x^y(F).
+$$
+
+逆に任意の $\varepsilon>0$ に対し、$[a,x]$ と $[x,y]$ でそれぞれ上限から $\varepsilon/2$ 以内の分割を選び、それらを $x$ で連結すれば
+
+$$
+V_a^y(F)
+\ge
+V_a^x(F)+V_x^y(F)-\varepsilon.
+$$
+
+$\varepsilon\downarrow0$ として
+
+$$
+V_a^y(F)=V_a^x(F)+V_x^y(F)
+$$
+
+です。したがって $V(x)=V_a^x(F)$ に対して
 
 $$
 V(y)-V(x)=V_x^y(F)\ge|F(y)-F(x)|.
@@ -845,6 +949,20 @@ $$
 
 ## 11. 増加 AC 関数から Lebesgue–Stieltjes 測度を作る
 
+増加関数 $G$ の増分 $G(t)-G(s)$ は非負なので、区間 $(s,t]$ の「質量」とみなせそうです。これを本当に Borel 測度へ延長できれば、関数 $G$ の変動を測度論へ移し、MT3 の Radon–Nikodym 定理を適用できます。
+
+つまりここでの狙いは
+
+$$
+\text{増加関数の増分}
+\longrightarrow
+\text{正測度}
+\longrightarrow
+\text{密度}
+$$
+
+という橋を作ることです。
+
 <a id="thm-mt4-stieltjes-measure"></a>
 <!-- formal-statement-start -->
 ### 補題（連続増加関数の Lebesgue–Stieltjes 測度）
@@ -853,8 +971,10 @@ $G:[a,b]\to\mathbb R$ を連続増加関数とする。このとき有限 Borel 
 
 $$
 \boxed{
+\nu_G(\{a\})=0,
+\qquad
 \nu_G((s,t])=G(t)-G(s)
-\qquad(a\le s<t\le b)}
+\quad(a\le s<t\le b)}
 $$
 
 となる。
@@ -863,7 +983,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-半開区間 $(s,t]$ と $\{a\}$ からなる半環上で
+半開区間 $(s,t]$ と $\{a\}$ の有限互いに素和からなる集合代数を $\mathcal A$ とします。まず
 
 $$
 \nu_0((s,t])=G(t)-G(s),
@@ -871,19 +991,77 @@ $$
 \nu_0(\{a\})=0
 $$
 
-と置き、有限互いに素和へ加法的に延長します。
-
-有限加法性は区間を端点で分割したときの望遠和
+と置き、互いに素な有限和では各成分の値を足して $\nu_0$ を定めます。二つの表示に共通の端点を全て挿入して細分すれば、値は望遠和
 
 $$
 G(t)-G(s)
 =
-\sum_i(G(t_i)-G(t_{i-1}))
+\sum_i\bigl(G(t_i)-G(t_{i-1})\bigr)
 $$
 
-から従います。また $G$ の連続性により、端点が単調に縮む区間列に対して対応する増分も0へ縮みます。このため半環上の有限加法的関数は空集合へ減少する列に対して0へ連続であり、したがって前測度になります。
+へ一致するため、この定義は表示の仕方に依存しません。同じ計算から有限加法性も従います。
 
-[Carathéodory 拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)を適用すると、生成される Borel $\sigma$-代数へ有限測度として延長できます。有限測度なので拡張の一意性条件も満たします。$\square$
+次に前測度性を確認します。[Hopf 型の前測度判定](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#lem-f0-00d4-hopf-premeasure)へ入力するため、
+
+$$
+E_1\supset E_2\supset\cdots,
+\qquad
+E_n\in\mathcal A,
+\qquad
+\bigcap_nE_n=\varnothing
+$$
+
+なら $\nu_0(E_n)\downarrow0$ を示せば十分です。
+
+もし極限が $L>0$ だと仮定します。$G$ はコンパクト区間 $[a,b]$ 上で一様連続なので、各 $E_n$ の有限個の半開区間成分の左端をわずかに右へ動かし、$E_n$ の内部にコンパクト集合 $K_n$ を取って
+
+$$
+\nu_0(E_n)-\nu_0(K_n)<2^{-n-2}L
+$$
+
+とできます。ここで有限個の端点の質量は $G$ の連続性により0なので、閉区間で作った $K_n$ にも同じ増分和で $\nu_0(K_n)$ を読めます。
+
+$$
+F_n:=K_1\cap\cdots\cap K_n
+$$
+
+と置くと $(F_n)$ は減少するコンパクト集合列です。また $E_n\subset E_k$ $(k\le n)$ なので
+
+$$
+E_n\setminus F_n
+\subset
+\bigcup_{k=1}^n(E_k\setminus K_k).
+$$
+
+有限加法性から得られる有限劣加法性を使えば
+
+$$
+\nu_0(F_n)
+\ge
+\nu_0(E_n)
+-
+\sum_{k=1}^n\bigl(\nu_0(E_k)-\nu_0(K_k)\bigr)
+>
+L-\frac L2
+=
+\frac L2.
+$$
+
+従って全ての $F_n$ は空でありません。減少する非空コンパクト集合列なので
+
+$$
+\bigcap_nF_n\ne\varnothing.
+$$
+
+しかし $F_n\subset E_n$ だからこれは $\bigcap_nE_n=\varnothing$ に矛盾します。よって $L=0$ であり、Hopf 型判定から $\nu_0$ は前測度です。
+
+最後に [Carathéodory 拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)を、集合代数 $\mathcal A$ 上の前測度 $\nu_0$ へ適用します。半開区間は $[a,b]$ の Borel $\sigma$-代数を生成し、
+
+$$
+\nu_0([a,b])=G(b)-G(a)<\infty
+$$
+
+なので、Borel 集合への拡張は存在し一意です。$\square$
 <!-- proof-end -->
 
 この補題では Carathéodory 拡張定理そのものを再証明せず、**どの前測度へ適用しているか**を明示しています。
@@ -912,7 +1090,20 @@ $$
 
 となるように取れます。$O\cap[a,b]$ は高々可算個の互いに素な区間の和です。
 
-有限個の成分区間 $I_1,\ldots,I_m$ について、その長さの総和は $\lambda(O)<\delta$ です。$G$ の連続性により端点の開閉は $\nu_G$ の値に影響せず、AC の定義から
+まず $x\in(a,b]$ に対し $s\uparrow x$ とすれば
+
+$$
+0\le\nu_G(\{x\})
+\le
+\nu_G((s,x])
+=
+G(x)-G(s)
+\longrightarrow0
+$$
+
+なので $\nu_G(\{x\})=0$ です。$\nu_G(\{a\})=0$ は定義済みなので、端点の開閉は $\nu_G$ の値に影響しません。
+
+有限個の成分区間 $I_1,\ldots,I_m$ について、その長さの総和は $\lambda(O)<\delta$ です。したがって AC の定義から
 
 $$
 \sum_{j=1}^m\nu_G(I_j)
@@ -983,7 +1174,7 @@ $$
 \nu_P\ll\lambda.
 $$
 
-$\nu_P$ は有限正測度なので [Radon–Nikodym 定理](../F0_00P2_密度_期待値_Radon_Nikodym/index.md#thm-f0-00p2-radon-nikodym)により $p\in L^1([a,b])$、$p\ge0$ が存在して
+$\nu_P$ は有限正測度、Lebesgue 測度 $\lambda$ は $[a,b]$ 上で有限正測度なので、[MT3 の Radon–Nikodym 定理](../MT3/index.md#thm-mt3-rn-sigma-finite)を $\nu_P\ll\lambda$ に適用できます。従って $p\in L^1([a,b])$、$p\ge0$ が存在して
 
 $$
 \nu_P(E)=\int_Ep\,d\lambda.
@@ -1089,7 +1280,7 @@ BV
 \text{a.e. 微分可能}
 $$
 
-最後の $BV\Rightarrow$ a.e.微分可能は本章では一般形を独立定理として証明していません。ただし AC の場合は [RN 定理](../F0_00P2_密度_期待値_Radon_Nikodym/index.md#thm-f0-00p2-radon-nikodym) と Lebesgue 微分定理を通じて証明済みです。
+最後の $BV\Rightarrow$ a.e.微分可能は本章では一般形を独立定理として証明していません。ただし AC の場合は [MT3 の RN 定理](../MT3/index.md#thm-mt3-rn-sigma-finite) と Lebesgue 微分定理を通じて証明済みです。
 
 逆向きは一般に成り立ちません。特に Cantor 関数は
 
