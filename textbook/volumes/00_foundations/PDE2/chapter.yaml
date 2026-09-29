@@ -13,7 +13,7 @@ learning_objectives:
   - 定係数主部を平方完成して三つの標準形へ変換できる
   - Laplace・熱・波動方程式を三類型の代表として位置付けられる
   - 変数係数PDEで型が点ごとに変わり得ることを判定できる
-  - 型と初期データ・境界データの関係をwell-posednessと区別して説明できる
+  - 型と初期データ・境界データの関係をHadamardの意味での適切性と区別して説明できる
   - Laplace方程式のCauchy問題が不安定になり得る具体列を検証できる
 definitions:
   - { id: PDE2-DEF-01, name: 二変数の二階線形PDE }
