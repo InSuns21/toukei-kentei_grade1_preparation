@@ -1,6 +1,6 @@
 # CA11 標準複素解析 XI：Gamma 関数・反射公式・Stirling 公式
 
-> **複素解析 II の特殊関数編 I**。CA10 では零点・極のデータから関数を構成した。本章では、その構成論が一つの古典的特殊関数にどう現れるかを見る。Euler 型積分から始め、関数等式で有理型解析接続し、その逆数の無限積を導く。そこから CA10 の正弦関数の Euler 積と比較して反射恒等式を証明し、最後に Wallis 積まで戻って階乗型の漸近定数 sqrt(2pi) を決定する。
+> **複素解析 II の特殊関数編 I**。CA10 では零点・極のデータから関数を構成した。本章では、その構成論が一つの古典的特殊関数にどう現れるかを見る。Euler 型積分から始め、関数等式で有理型解析接続し、その逆数の無限積を導く。そこから CA10 の正弦関数の Euler 積と比較して反射公式を証明し、最後に Wallis 積まで戻って階乗型の漸近定数 $\sqrt{2\pi}$ を決定する。
 
 <!-- definition-example-audit: strict -->
 
@@ -21,7 +21,7 @@ Euler 積分
   ↓ CA10 の基本因子
 逆数の Weierstrass 積
   ↓ CA10 の sin(pi z) の Euler 積
-反射恒等式
+反射公式
   ↓
 半整数値・特殊値
   ↓ Wallis 積
@@ -2386,7 +2386,7 @@ CA11 を終えた段階で、次を自力で再構成できることを目標と
 3. [Euler の極限公式](#thm-ca11-euler-limit)から逆 Gamma 関数の Weierstrass 積を導く。
 4. Gamma 関数が零点を持たないことを積表示から読む。
 5. CA10 の正弦関数の Euler 積と比較して反射公式を証明する。
-6. Wallis 積で Stirling 公式の定数 sqrt(2pi) まで決定する。
+6. Wallis 積で Stirling 公式の定数 $\sqrt{2\pi}$ まで決定する。
 7. Stirling と周期性から Legendre の倍角公式を証明する。
 8. Beta--Gamma 関係式を漸化式と [Euler の極限公式](#thm-ca11-euler-limit)から導く。
 
