@@ -79,5 +79,6 @@ concepts:
       - measure.fatou-lemma
       - measure.nonnegative-integral-additivity-homogeneity
       - measure.integral-linearity-absolute-bound
+      - measure.nonnegative-ae-integral-invariance
       - measure.null-set-integral-invariance
       - measure.l1-convergence
