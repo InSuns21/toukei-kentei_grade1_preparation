@@ -46,6 +46,8 @@ $$
 <!-- definition-example-start: def-f0-00d3a-pi-system -->
 ### 例：可測長方形はπ系
 
+**定義の確認**
+
 $\mathcal A,\mathcal B$ をそれぞれ $X,Y$ 上の σ 代数とし、
 
 $$
@@ -113,6 +115,8 @@ $$
 
 <!-- definition-example-start: def-f0-00d3a-dynkin-system -->
 ### 例：Dynkin族だがσ代数ではない集合族
+
+**定義の確認**
 
 $\Omega=\{1,2,3,4\}$ とし、
 
