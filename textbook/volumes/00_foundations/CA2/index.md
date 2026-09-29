@@ -458,7 +458,15 @@ f(z)
 =f(z_0)+f'(z_0)(z-z_0)+(z-z_0)\varepsilon(z),
 $$
 
-ただし $\varepsilon(z_0)=0$ と定めれば $z\to z_0$ で $\varepsilon(z)\to0$ と書けます。
+ただし $\varepsilon(z_0)=0$ と定めれば $z\to z_0$ で $\varepsilon(z)\to0$ と書けます。さらに $z\ne z_0$ では
+
+$$
+\varepsilon(z)
+=
+\frac{f(z)-f(z_0)-f'(z_0)(z-z_0)}{z-z_0}
+$$
+
+であり、分子・分母は連続で分母は0でないので $\varepsilon$ は連続です。$z=z_0$ でも上の極限が0なので、この延長は $z_0$ で連続です。従って各コンパクト三角形 $T_n$ 上で $|\varepsilon|$ は最大値を取ります。
 
 定数関数には原始関数 $f(z_0)z$ があり、一次関数 $f'(z_0)(z-z_0)$ には原始関数
 
