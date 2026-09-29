@@ -308,7 +308,13 @@ $$
 \mathcal L\{f'\}(s)=sF(s)-f(0).
 $$
 
-次に $f'$ へ同じ一階公式を適用すると
+次に、直前に示した $n=1$ の等式
+
+$$
+\mathcal L\{g'\}=s\mathcal L\{g\}-g(0)
+$$
+
+で $g=f'$ と置くと
 
 $$
 \begin{aligned}
