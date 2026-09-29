@@ -432,10 +432,22 @@ $$
 \frac{D\dot\gamma}{dt}=0.
 $$
 
-第一変分公式から直ちに
+固定端点変分では $V(a)=V(b)=0$ なので、第一変分公式の境界項も0です。従って
 
 $$
-E'(0)=0.
+\begin{aligned}
+E'(0)
+&=
+\left[g(V,\dot\gamma)\right]_a^b
+-
+\int_a^b
+g\left(
+V,\frac{D\dot\gamma}{dt}
+\right)dt
+\\
+&=
+0.
+\end{aligned}
 $$
 
 逆に、全ての固定端点変分に対して $E'(0)=0$ とします。
