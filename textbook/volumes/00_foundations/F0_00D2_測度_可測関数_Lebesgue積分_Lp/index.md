@@ -946,9 +946,9 @@ $$
 は、$\alpha,\beta$ と $a$ の大小関係に応じて
 
 $$
-\varnothing,quad
-\{1,2\},quad
-\{3,4\},quad
+\varnothing,\qquad
+\{1,2\},\qquad
+\{3,4\},\qquad
 \Omega
 $$
 
