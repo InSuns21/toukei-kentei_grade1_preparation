@@ -1555,7 +1555,7 @@ $$
 \int_\Omega\operatorname{div}B\,dV=0
 $$
 
-とし、Gauss--Ostrogradsky の発散定理を使えば
+とし、[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence) を使えば
 
 $$
 \int_{\partial\Omega}B\cdot n\,dS=0
@@ -1572,7 +1572,7 @@ $$
 \int_S\partial_tB\cdot n\,dS
 $$
 
-とします。左辺へ Kelvin--Stokes の定理を適用し、固定曲面 $S$ では
+とします。左辺へ [Kelvin--Stokes の定理](../VC5/index.md#thm-vc5-stokes) を適用し、固定曲面 $S$ では
 
 $$
 \int_S\partial_tB\cdot n\,dS
@@ -1604,7 +1604,7 @@ $$
 \end{aligned}
 $$
 
-左辺へ Kelvin--Stokes の定理を適用し、最後の項で時間微分と面積分を交換すると
+左辺へ [Kelvin--Stokes の定理](../VC5/index.md#thm-vc5-stokes) を適用し、最後の項で時間微分と面積分を交換すると
 
 $$
 \oint_{\partial S}B\cdot dr
