@@ -15,14 +15,6 @@ forward_references:
   - functional.norm
 
 concepts:
-  # 各点収束そのものの正本は RA5。MT1 の formal 再掲だけを別登録して二重正本を避ける。
-  - id: analysis.pointwise-convergence-mt1-recap
-    name: 各点収束の再掲
-    kind: definition
-    aliases: ["### 定義（各点収束）"]
-    requires:
-      - analysis.pointwise-convergence
-
   - id: measure.ae-convergence
     name: a.e.収束
     kind: definition
