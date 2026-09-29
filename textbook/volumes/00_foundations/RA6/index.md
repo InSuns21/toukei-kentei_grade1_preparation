@@ -907,7 +907,7 @@ $$
 \frac{\partial f}{\partial x_i}(a+th)\,h_i.
 $$
 
-これは勾配を使えば
+ここで、前節で導入した偏微分を並べた列ベクトル $\nabla f$ を使えば
 
 $$
 \boxed{
