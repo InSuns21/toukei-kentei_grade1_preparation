@@ -269,7 +269,7 @@ $$
 
 で測る必要があります。
 
-パラメータ表示 $r=\gamma(t)$ では微小変位の主要部が $\gamma'(t)dt$ なので、積分すべき量は $F(\gamma(t))\cdot\gamma'(t)$ になります。
+パラメータ表示 $r=\gamma(t)$ では微小変位を一次近似すると $\gamma'(t)dt$ なので、積分すべき量は $F(\gamma(t))\cdot\gamma'(t)$ になります。
 
 <a id="def-vc2-vector-line-integral"></a>
 
