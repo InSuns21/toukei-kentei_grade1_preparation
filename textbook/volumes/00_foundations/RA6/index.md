@@ -201,27 +201,9 @@ $$
 
 ---
 
-## 4. 偏微分は全体の一次近似の一部である
+## 4. 偏微分と Jacobian 行列は微分の座標表示である
 
-$e_j$ を $\mathbb R^n$ の第 $j$ 標準基底ベクトルとします。
-
-$f$ が $a$ で微分可能なら、
-
-$$
-f(a+te_j)-f(a)
-=
-tDf(a)e_j+o(|t|).
-$$
-
-$t$ で割って $t\to0$ とすれば、
-
-$$
-\frac{\partial f}{\partial x_j}(a)
-=
-Df(a)e_j.
-$$
-
-つまり、偏微分は $Df(a)$ を座標軸方向へ作用させたものです。
+偏微分は座標軸方向の変化だけを取り出します。$f$ が微分可能なとき、それらは一つの線形写像 $Df(a)$ の標準基底方向への値として同時に現れます。
 
 <a id="def-ra6-jacobian"></a>
 
@@ -229,16 +211,132 @@ $$
 > **定義（Jacobian 行列）**  
 > $f=(f_1,\ldots,f_m):U\subset\mathbb R^n\to\mathbb R^m$ の各一階偏微分が $a$ で存在するとき、
 
-$$
+$
 J_f(a)
 =
 \left(
 \frac{\partial f_i}{\partial x_j}(a)
 \right)_{\substack{1\le i\le m\\1\le j\le n}}
-$$
+$
 
 > を $f$ の $a$ における **Jacobian 行列** という。
 <!-- formal-statement-end -->
+
+<a id="prop-ra6-derivative-jacobian"></a>
+
+<!-- formal-statement-start -->
+> **命題（微分と Jacobian 行列の対応）**  
+> $U\subset\mathbb R^n$ を開集合、$f:U\to\mathbb R^m$、$a\in U$ とし、$f$ が $a$ で微分可能であるとする。$e_j$ を $\mathbb R^n$ の第 $j$ 標準基底ベクトルとすると、各 $j=1,\ldots,n$ について
+>
+> $
+> Df(a)e_j
+> =
+> \frac{\partial f}{\partial x_j}(a)
+> $
+>
+> が成り立つ。したがって、標準基底に関する $Df(a)$ の[表現行列](../F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md#def-f0-00f-representation-matrix)は Jacobian 行列であり、
+>
+> $
+> [Df(a)]_{\mathcal E_m\leftarrow\mathcal E_n}
+> =
+> J_f(a)
+> $
+>
+> である。特に任意の $h\in\mathbb R^n$ に対して
+>
+> $
+> Df(a)h=J_f(a)h
+> $
+>
+> が成り立つ。
+<!-- formal-statement-end -->
+
+微分可能性の定義から、ある残差 $r(h)$ が存在して
+
+$
+f(a+h)-f(a)
+=
+Df(a)h+r(h),
+\qquad
+\frac{\|r(h)\|}{\|h\|}\to0
+$
+
+と書けます。
+
+<!-- proof-start -->
+### 証明
+
+$h=te_j$ と置きます。$\|e_j\|=1$ なので $\|te_j\|=|t|$ であり、
+
+$
+f(a+te_j)-f(a)
+=
+tDf(a)e_j+r(te_j)
+$
+
+です。$t\ne0$ で両辺を $t$ で割ると、
+
+$
+\frac{f(a+te_j)-f(a)}{t}
+=
+Df(a)e_j
++
+\frac{r(te_j)}{t}.
+$
+
+残差について
+
+$
+\left\|
+\frac{r(te_j)}{t}
+\right\|
+=
+\frac{\|r(te_j)\|}{|t|}
+=
+\frac{\|r(te_j)\|}{\|te_j\|}
+\to0
+$
+
+なので、$t\to0$ とすれば
+
+$
+\frac{\partial f}{\partial x_j}(a)
+=
+Df(a)e_j
+$
+
+を得ます。したがって各一階偏微分は存在します。
+
+一方、表現行列の第 $j$ 列は、線形写像を第 $j$ 標準基底ベクトルへ作用させた値の座標です。よって $Df(a)$ の表現行列の第 $j$ 列は
+
+$
+Df(a)e_j
+=
+\frac{\partial f}{\partial x_j}(a)
+=
+\begin{pmatrix}
+\dfrac{\partial f_1}{\partial x_j}(a)\\
+\vdots\\
+\dfrac{\partial f_m}{\partial x_j}(a)
+\end{pmatrix}.
+$
+
+これは Jacobian 行列 $J_f(a)$ の第 $j$ 列そのものです。すべての列が一致するので
+
+$
+[Df(a)]_{\mathcal E_m\leftarrow\mathcal E_n}
+=
+J_f(a).
+$
+
+したがって任意の $h\in\mathbb R^n$ に対して
+
+$
+Df(a)h=J_f(a)h
+$
+
+です。$\square$
+<!-- proof-end -->
 
 <!-- definition-example-start: def-ra6-jacobian -->
 ### 例：2変数から2変数への写像
@@ -263,11 +361,7 @@ $$
 第1列は $x$ 方向、第2列は $y$ 方向の偏微分を並べたものです。
 <!-- definition-example-end -->
 
-$f$ が $a$ で微分可能なら、$Df(a)$ の標準基底に関する表現行列が $J_f(a)$ なので、
-
-$$
-\boxed{Df(a)h=J_f(a)h}.
-$$
+この命題により、微分 $Df(a)$ という座標に依らない線形写像と、Jacobian 行列という標準基底での座標表示が結び付きます。
 
 実数値関数 $f:\mathbb R^n\to\mathbb R$ では、
 
