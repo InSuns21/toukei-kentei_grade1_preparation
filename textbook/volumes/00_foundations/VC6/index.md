@@ -1,13 +1,15 @@
 # VC6 曲線座標の幾何と微分演算子
 
-デカルト座標では基底ベクトル $e_x,e_y,e_z$ がどこでも同じ向きを向くため、勾配・発散・回転の公式は簡単です。
+デカルト座標では、$x$ を $dx$ だけ増やせば物理的にも長さ $dx$ だけ動き、基底ベクトル $e_x,e_y,e_z$ はどこでも同じ向きを向きます。そのため「成分を偏微分して足す」という勾配・発散・回転の公式を、そのまま使えました。
 
 しかし理論物理や PDE では、
 
 - 円柱対称なら円柱座標
 - 球対称なら球座標
 
-を使いたくなります。このとき基底ベクトル自身が位置によって回転し、座標の一目盛りの物理的長さも場所によって変わります。
+を使いたくなります。ここで単に $x,y,z$ を $\rho,\phi,z$ や $r,\theta,\phi$ に置き換えるだけでは失敗します。例えば円柱座標で $\phi$ を $d\phi$ だけ変えたときの移動距離は $d\phi$ ではなく $\rho\,d\phi$ であり、$e_\rho,e_\phi$ 自身も位置によって回転するからです。
+
+そこで本章では、**座標の一目盛りが実空間で何メートルに相当するか**と、**基底がどの向きを向くか**を先に作ります。その情報から微分演算子を再構成すれば、円柱座標・球座標の長い公式を暗記する必要がなくなります。
 
 本章では公式を暗記せず、
 
@@ -210,15 +212,47 @@ $$
 
 ## 3. 線素・面素・体積要素
 
-微小変位は
+まず「$dr$」が何を表しているかを全微分から確認します。$q=(q_1,q_2,q_3)$、$\Delta q=(\Delta q_1,\Delta q_2,\Delta q_3)$ とすると、$r$ の微分可能性から
+
+$$
+r(q+\Delta q)-r(q)
+=
+Dr(q)\Delta q
++
+o(|\Delta q|).
+$$
+
+Jacobian の各列は
+
+$$
+a_i=\frac{\partial r}{\partial q_i}
+$$
+
+なので、一次の主項は
+
+$$
+Dr(q)\Delta q
+=
+a_1\Delta q_1+a_2\Delta q_2+a_3\Delta q_3.
+$$
+
+この一次部分を微分記号で書いたものが
 
 $$
 dr
 =
-a_1\,dq_1+a_2\,dq_2+a_3\,dq_3
+a_1\,dq_1+a_2\,dq_2+a_3\,dq_3.
+$$
+
+さらに $a_i=h_ie_i$ を代入して
+
+$$
+dr
 =
 h_1e_1\,dq_1+h_2e_2\,dq_2+h_3e_3\,dq_3.
 $$
+
+つまり $dq_i$ は座標値の変化であり、実空間での一次の移動距離は $h_i\,dq_i$ です。
 
 <a id="prop-vc6-elements"></a>
 
@@ -995,13 +1029,170 @@ $$
 $$
 <!-- formal-statement-end -->
 
-これらは一般公式へ
+ここで「一般公式へ代入しただけ」の中身を一度追います。対応は
 
 $$
+(q_1,q_2,q_3)=(\rho,\phi,z),
+\qquad
 (h_1,h_2,h_3)=(1,\rho,1)
 $$
 
-を代入しただけです。
+です。
+
+勾配では
+
+$$
+\frac1{h_1}=1,
+\qquad
+\frac1{h_2}=\frac1\rho,
+\qquad
+\frac1{h_3}=1
+$$
+
+なので
+
+$$
+\nabla f
+=
+e_\rho f_\rho
++
+e_\phi\frac1\rho f_\phi
++
+e_zf_z.
+$$
+
+発散では一般式の三つの積を先に計算すると
+
+$$
+h_2h_3=\rho,
+\qquad
+h_3h_1=1,
+\qquad
+h_1h_2=\rho,
+$$
+
+$$
+h_1h_2h_3=\rho.
+$$
+
+従って
+
+$$
+\begin{aligned}
+\nabla\cdot A
+&=
+\frac1\rho
+\left[
+\partial_\rho(\rho A_\rho)
++
+\partial_\phi A_\phi
++
+\partial_z(\rho A_z)
+\right]\\
+&=
+\frac1\rho\partial_\rho(\rho A_\rho)
++
+\frac1\rho\partial_\phi A_\phi
++
+\partial_zA_z.
+\end{aligned}
+$$
+
+最後の等号では $\rho$ が $z$ に依存しないことを使いました。
+
+回転も三成分を一つずつ一般式へ入れます。例えば $\rho$ 成分は
+
+$$
+\begin{aligned}
+(\nabla\times A)_\rho
+&=
+\frac1{h_\phi h_z}
+\left[
+\partial_\phi(h_zA_z)
+-
+\partial_z(h_\phi A_\phi)
+\right]\\
+&=
+\frac1\rho
+\left[
+\partial_\phi A_z
+-
+\partial_z(\rho A_\phi)
+\right]\\
+&=
+\frac1\rho\partial_\phi A_z
+-
+\partial_zA_\phi.
+\end{aligned}
+$$
+
+$\phi$ 成分は
+
+$$
+\begin{aligned}
+(\nabla\times A)_\phi
+&=
+\frac1{h_zh_\rho}
+\left[
+\partial_z(h_\rho A_\rho)
+-
+\partial_\rho(h_zA_z)
+\right]\\
+&=
+\partial_zA_\rho-\partial_\rho A_z,
+\end{aligned}
+$$
+
+$z$ 成分は
+
+$$
+\begin{aligned}
+(\nabla\times A)_z
+&=
+\frac1{h_\rho h_\phi}
+\left[
+\partial_\rho(h_\phi A_\phi)
+-
+\partial_\phi(h_\rho A_\rho)
+\right]\\
+&=
+\frac1\rho\partial_\rho(\rho A_\phi)
+-
+\frac1\rho\partial_\phi A_\rho.
+\end{aligned}
+$$
+
+スカラー・ラプラシアンでは
+
+$$
+h_\rho h_\phi h_z=\rho
+$$
+
+を [一般公式](#prop-vc6-scalar-laplacian) へ代入し、
+
+$$
+\begin{aligned}
+\Delta f
+&=
+\frac1\rho
+\partial_\rho(\rho f_\rho)
++
+\frac1\rho
+\partial_\phi\left(\frac1\rho f_\phi\right)
++
+\frac1\rho
+\partial_z(\rho f_z)\\
+&=
+\frac1\rho
+\partial_\rho(\rho f_\rho)
++
+\frac1{\rho^2}f_{\phi\phi}
++
+f_{zz},
+\end{aligned}
+$$
+
+となります。二行目では $\rho$ が $\phi,z$ に依存しないことを使っています。
 
 ### 基底自身が回る
 
