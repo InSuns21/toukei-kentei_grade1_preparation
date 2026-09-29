@@ -3,19 +3,36 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - F0-00D4
+  - TOP2
   - F0-00A2
 
 # 関数解析・確率論への接続節では、後で扱う概念を名前だけ先に紹介する。
 forward_references:
   - set.zorn-lemma
   - prob.probability-space
+  - linear.vector-space
 
 concepts:
+  - id: measure.vitali-equivalence
+    name: Vitali同値関係
+    kind: definition
+    aliases: [Vitali同値関係]
+    requires:
+      - set.set
+
+  - id: measure.lebesgue-nonmeasurable-set
+    name: Lebesgue非可測集合
+    kind: definition
+    aliases: [Lebesgue非可測集合]
+    requires:
+      - measure.caratheodory-measurability
+
   - id: measure.vitali-set
     name: Vitali集合
     kind: definition
     aliases: [Vitali集合]
     requires:
+      - measure.vitali-equivalence
       - set.choice-axiom
 
   - id: measure.vitali-nonmeasurability
@@ -24,6 +41,7 @@ concepts:
     aliases: [Vitali集合の非可測性]
     requires:
       - measure.vitali-set
-      - measure.lebesgue-outer-translation-invariance
+      - measure.lebesgue-nonmeasurable-set
+      - measure.lebesgue-translation-invariance
       - measure.interval-lebesgue-outer-measure
       - measure.measure-space
