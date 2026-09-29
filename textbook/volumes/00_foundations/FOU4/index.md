@@ -261,7 +261,7 @@ FOU3 の $L^1$ 証明と同じ形ですが、平行移動差を $L^2$ ノルム�
 <!-- proof-start -->
 ### 証明
 
-まず $\int k_\varepsilon(y)dy=1$ なので、各 $x$ で
+まず $\int k_\varepsilon(y)dy=1$ です。$L^2$ 関数は同値類として扱うので、以下の等式は畳み込みが定義されるほとんどすべての $x$ で読みます。
 
 $$
 \begin{aligned}
@@ -1374,7 +1374,23 @@ u\pm v=\mathcal F_2(f\pm g),
 u\pm iv=\mathcal F_2(f\pm ig).
 $$
 
-各ノルム二乗へ Plancherel を適用すると全て $2\pi$ 倍されるので、共通因子を外して
+例えば
+
+$$
+\|u+v\|_2^2
+=\|\mathcal F_2(f+g)\|_2^2
+=2\pi\|f+g\|_2^2,
+$$
+
+また
+
+$$
+\|u+iv\|_2^2
+=\|\mathcal F_2(f+ig)\|_2^2
+=2\pi\|f+ig\|_2^2.
+$$
+
+$u-v$ と $u-iv$ についても、それぞれ $f-g$ と $f-ig$ に Plancherel を適用します。従って偏極恒等式の四項すべてから共通因子 $2\pi$ を外せて
 
 $$
 \langle\mathcal F_2f,\mathcal F_2g\rangle
