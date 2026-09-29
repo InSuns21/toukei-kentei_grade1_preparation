@@ -11,14 +11,14 @@ learning_objectives:
   - 極座標表示から調和関数の円周平均値性質を証明し、円板平均値性質へ導ける
   - 平均値性質から強最大原理を証明し、Dirichlet問題の一意性を導ける
   - 長方形のLaplace方程式を変数分離し、Fourier正弦係数から境界値を内部へ延長できる
-  - 単位円板のPoisson kernelをFourier級数から導出し、連続境界データのPoisson積分を構成できる
+  - 単位円板のPoisson 核をFourier級数から導出し、連続境界データのPoisson積分を構成できる
   - Poisson方程式の簡単な特解を構成し、同じ右辺を持つ解の差が調和関数になることを利用できる
   - Laplace/Poissonを楕円型の代表として、熱・波動方程式との解法と一意性機構の違いを説明できる
 definitions:
   - { id: PDE5-DEF-01, name: Laplace方程式・Poisson方程式 }
   - { id: PDE5-DEF-02, name: 調和関数 }
   - { id: PDE5-DEF-03, name: Dirichlet問題・Neumann問題 }
-  - { id: PDE5-DEF-04, name: Poisson kernel }
+  - { id: PDE5-DEF-04, name: Poisson 核 }
 theorems:
   - { id: PDE5-THM-01, name: 調和関数の円周平均値性質 }
   - { id: PDE5-COR-01, name: 調和関数の円板平均値性質 }
