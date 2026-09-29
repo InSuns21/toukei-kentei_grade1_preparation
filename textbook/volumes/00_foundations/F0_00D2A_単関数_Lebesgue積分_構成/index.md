@@ -784,24 +784,30 @@ $$
 0\le\widetilde\phi\le v.
 $$
 
-$\phi$ の正の値を $a_1,\ldots,a_m$、対応する値集合を $A_1,\ldots,A_m$ とします。$\widetilde\phi$ は各 $A_k$ から $A_k\cap N$ を除いただけなので
+$\phi$ の正の値を $a_1,\ldots,a_m$、対応する値集合を $A_1,\ldots,A_m$ とします。$\widetilde\phi$ は各 $A_k$ から $A_k\cap N$ を除いただけです。各 $k$ について
 
 $$
-\begin{aligned}
+A_k
+=
+(A_k\cap N^c)\sqcup(A_k\cap N),
+$$
+
+かつ $\mu(A_k\cap N)=0$ なので
+
+$$
+\mu(A_k)
+=
+\mu(A_k\cap N^c).
+$$
+
+この等式は $\mu(A_k)=\infty$ の場合にも問題なく成り立ちます。従って単関数積分の定義から
+
+$$
 \int\phi\,d\mu
--
-\int\widetilde\phi\,d\mu
-&=
-\sum_{k=1}^m
-a_k\mu(A_k\cap N)\\
-&=0.
-\end{aligned}
-$$
-
-従って
-
-$$
-\int\phi\,d\mu
+=
+\sum_{k=1}^m a_k\mu(A_k)
+=
+\sum_{k=1}^m a_k\mu(A_k\cap N^c)
 =
 \int\widetilde\phi\,d\mu
 \le
@@ -1319,7 +1325,23 @@ $$
 f(x)\ge\psi(x)=a_j.
 $$
 
-この $n$ では切断高さ $2^n$ が $a_j$ より上にあり、$\phi_n(x)$ は $f(x)$ を幅 $2^{-n}$ で下へ丸めた値です。従って
+この $n$ では切断高さ $2^n$ が $a_j$ より上にあります。ここで二場合に分けます。
+
+もし $f(x)\ge2^n$ なら
+
+$$
+\phi_n(x)
+=
+2^n
+>
+A
+\ge
+a_j
+>
+\alpha a_j.
+$$
+
+もし $f(x)<2^n$ なら、$\phi_n(x)$ は $f(x)$ を幅 $2^{-n}$ で下へ丸めた値なので
 
 $$
 \phi_n(x)
@@ -1332,6 +1354,8 @@ a_j-2^{-n}
 =
 \alpha\psi(x).
 $$
+
+従ってどちらの場合も $\phi_n(x)>\alpha\psi(x)$ です。
 
 $\psi(x)=0$ の点では自動的に $\phi_n(x)\ge0=\alpha\psi(x)$ です。従って全ての $x$ で
 
