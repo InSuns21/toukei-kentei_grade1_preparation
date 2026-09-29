@@ -540,9 +540,32 @@ a^+\int u^+\,d\mu
 \end{aligned}
 $$
 
-同じ形で $\int N\,d\mu<\infty$ です。従って $P,N$ は非負可積分であり、$au+bv=P-N$ も可積分です。
+また
 
-先ほど示した $h=P-N$ の積分公式を使うと
+$
+\begin{aligned}
+\int N\,d\mu
+&=
+a^+\int u^-\,d\mu
++a^-\int u^+\,d\mu\\
+&\quad
++b^+\int v^-\,d\mu
++b^-\int v^+\,d\mu
+<\infty.
+\end{aligned}
+$
+
+従って $P,N$ は非負可積分であり、$au+bv=P-N$ も可積分です。
+
+上で $h=P-N$ に対して得た等式
+
+$
+\int h\,d\mu
+=
+\int P\,d\mu-\int N\,d\mu
+$
+
+へ $h=au+bv$ を代入すると
 
 $$
 \begin{aligned}
@@ -912,7 +935,7 @@ $$
 |\widetilde f|=|f|\quad\text{a.e.}
 $$
 
-です。[D2A の非負可測関数の a.e. 変更による積分不変性](../F0_00D2A_単関数_Lebesgue積分_構成/index.md#prop-f0-00d2a-nonnegative-ae-invariance)から、絶対値の積分はこの変更で変わりません。
+です。[非負可測関数のa.e.変更による積分不変性](../F0_00D2A_単関数_Lebesgue積分_構成/index.md#prop-f0-00d2a-nonnegative-ae-invariance)から、絶対値の積分はこの変更で変わりません。
 
 以下では記号を簡単にするため $\widetilde f_n,\widetilde f$ を改めて $f_n,f$ と書きます。すると仮定は全点で成り立ちます。
 
@@ -1077,9 +1100,9 @@ $$
 \quad\text{a.e.}
 $$
 
-です。[D2A の非負可測関数の a.e. 変更による積分不変性](../F0_00D2A_単関数_Lebesgue積分_構成/index.md#prop-f0-00d2a-nonnegative-ae-invariance)から、元の $f_n^{\mathrm{orig}},f^{\mathrm{orig}}$ も可積分です。
+です。[非負可測関数のa.e.変更による積分不変性](../F0_00D2A_単関数_Lebesgue積分_構成/index.md#prop-f0-00d2a-nonnegative-ae-invariance)から、元の $f_n^{\mathrm{orig}},f^{\mathrm{orig}}$ も可積分です。
 
-そこで [D2A の零集合上の変更に関する定理](../F0_00D2A_単関数_Lebesgue積分_構成/index.md#thm-f0-00d2a-01)を適用すると
+そこで [零集合上の変更は積分を変えない](../F0_00D2A_単関数_Lebesgue積分_構成/index.md#thm-f0-00d2a-01)を適用すると
 
 $$
 \int f_n^{\mathrm{orig}}\,d\mu
