@@ -51,6 +51,120 @@ $$
 重要なのは「全単射かつ連続」だけでは定義を満たさないことです。一般の位相空間では逆写像の連続性は自動ではありません。後で、その逆連続性をコンパクト性とHausdorff性から得る道具を証明します。
 <!-- definition-example-end -->
 
+### 1.2 局所的には同じ空間が何枚も重なる写像
+
+同相写像は空間全体を一対一に対応させます。しかし後で多様体や複素解析を扱うと、**局所的には同相写像なのに、大域的には同じ点の上に複数の点が重なる**写像が現れます。
+
+円周を角度で表すと、角度 $t$ と $t+2\pi$ は同じ点を表します。ところが円周の十分短い弧だけを見れば、角度は一意に戻せます。
+
+この「小さい近傍ごとには、互いに交わらない何枚かのコピーへ分かれる」という構造を定義します。
+
+<a id="def-top2-covering-map"></a>
+<!-- formal-statement-start -->
+> **定義（被覆写像）**  
+> 位相空間 $X,Y$ と連続全射
+>
+$$
+p:X\to Y
+$$
+>
+> を考える。
+>
+> 任意の $y\in Y$ に対して開近傍 $V\subset Y$ が存在し、
+>
+$$
+p^{-1}(V)
+=
+\bigsqcup_{\lambda\in\Lambda}U_\lambda
+$$
+>
+> と互いに素な開集合の和に分解でき、各 $\lambda$ について
+>
+$$
+p|_{U_\lambda}:U_\lambda\to V
+$$
+>
+> が同相写像になるとき、$p$ を **被覆写像**という。
+>
+> このような $V$ を **均等被覆近傍**と呼び、各 $U_\lambda$ を $V$ 上の **シート**と呼ぶ。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-top2-covering-map -->
+**定義の確認**
+
+写像
+
+$$
+p:\mathbb R\to S^1,
+\qquad
+p(t)=(\cos t,\sin t)
+$$
+
+を考えます。
+
+円周上の点 $y=p(\theta_0)$ を一つ固定し、$y$ のまわりに一周を含まない十分短い開弧 $V$ を取ります。角度幅を $0<\varepsilon<\pi$ として
+
+$$
+V
+=
+\left\{
+(\cos\theta,\sin\theta):
+\theta_0-\varepsilon
+<
+\theta
+<
+\theta_0+\varepsilon
+\right\}
+$$
+
+と書けます。
+
+その逆像は
+
+$$
+p^{-1}(V)
+=
+\bigsqcup_{k\in\mathbb Z}
+(
+\theta_0-\varepsilon+2\pi k,,
+\theta_0+\varepsilon+2\pi k
+).
+$$
+
+各区間を
+
+$$
+U_k
+=
+(
+\theta_0-\varepsilon+2\pi k,,
+\theta_0+\varepsilon+2\pi k
+)
+$$
+
+と置くと、$U_k$ は互いに素な開集合です。
+
+さらに
+
+$$
+p|_{U_k}:U_k\to V
+$$
+
+は全単射で、逆写像は $V$ 上で角度を一つの区間
+$(\theta_0-arepsilon+2\pi k,\theta_0+arepsilon+2\pi k)$
+へ選ぶ写像です。この逆写像も連続なので、各制限は同相写像です。
+
+従って $p$ は被覆写像です。
+
+この例では、円周の同じ小弧 $V$ の上に整数 $k$ ごとのシート $U_k$ が並びます。局所的には一対一ですが、大域的には
+
+$$
+p(t)=p(t+2\pi k)
+$$
+
+なので一対一ではありません。
+<!-- definition-example-end -->
+
 ---
 
 ## 2. まず、どの点をまとめるのかを正確に書く
