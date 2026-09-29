@@ -386,7 +386,7 @@ f\le t-\frac1r
 \right\}
 $$
 
-なので、D2 の可測関数の定義から $\{f<t\}$ も可測です。従って
+なので、[D2 の可測関数の定義](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#def-f0-00d2-07)から $\{f<t\}$ も可測です。従って
 
 $$
 \left\{
@@ -672,7 +672,7 @@ $$
 0\le f^-\le|f|
 $$
 
-なので、Lebesgue積分の単調性から $\int f^+$ と $\int f^-$ はともに有限です。従って $\infty-\infty$ の不定形は起こりません。
+なので、[Lebesgue積分の単調性](#prop-f0-00d2a-02)から $\int f^+$ と $\int f^-$ はともに有限です。従って $\infty-\infty$ の不定形は起こりません。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-f0-00d2a-05 -->
@@ -1302,9 +1302,9 @@ $$
 \phi_n\ge\alpha\psi.
 $$
 
-単関数積分の単調性から
+共通細分上で $\phi_n$ と $\alpha\psi$ の高さを比較すると
 
-$$
+$
 \int\phi_n\,d\mu
 \ge
 \alpha\int\psi\,d\mu.
