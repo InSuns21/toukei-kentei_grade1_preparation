@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - F0-00D2A
+  - RA1
 
 # 末尾の次章案内で D2C の積測度・Tonelli・Fubini を予告する。
 forward_references:
@@ -11,13 +12,6 @@ forward_references:
   - measure.fubini-theorem
 
 concepts:
-  - id: measure.limit-inferior
-    name: 可測関数列の下極限
-    kind: definition
-    aliases: [可測関数列の下極限, 関数列のliminf]
-    introduction_aliases: [liminf, 下極限]
-    requires: []
-
   - id: measure.monotone-convergence-theorem
     name: 単調収束定理
     kind: theorem
@@ -49,7 +43,7 @@ concepts:
     kind: lemma
     aliases: [Fatouの補題, Fatou's lemma]
     requires:
-      - measure.limit-inferior
+      - analysis.limsup-liminf
       - measure.monotone-convergence-theorem
 
   - id: measure.dominating-function
