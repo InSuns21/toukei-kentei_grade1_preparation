@@ -11,6 +11,7 @@ const writeReport = process.argv.includes('--write-report');
 const indexPath = path.join(root, 'textbook/dream-theater-index.json');
 const policyPath = path.join(root, 'textbook/dream-theater-knowledge.yaml');
 const reportPath = path.join(root, 'textbook/dream-theater-concept-tree.md');
+const DEFINITION_INTRO_SKIP_RE = /^<!--\\s*definition-intro-skip:\\s*([^|>]+?)\\s*\\|\\s*(.+?)\\s*-->$/u;
 
 if (!fs.existsSync(indexPath)) fatal('textbook/dream-theater-index.json が見つかりません。');
 if (!fs.existsSync(policyPath)) fatal('textbook/dream-theater-knowledge.yaml が見つかりません。');
@@ -102,12 +103,24 @@ const changedFiles = changedOnly ? collectChangedFiles() : new Set();
 for (const page of pages.values()) {
   if (!fs.existsSync(page.fullPath)) continue;
   const source = fs.readFileSync(page.fullPath, 'utf8');
+  const rawLines = source.split(/\r?\n/);
   const readerSource = stripNonReaderContent(source);
   const lines = readerSource.split(/\r?\n/);
   const knowledgeRel = relative(page.knowledgePath);
   const pageChanged = changedOnly && (changedFiles.has(page.path) || changedFiles.has(knowledgeRel));
   const proseChanged = changedOnly && changedFiles.has(page.path);
   const hasFormal = lines.some(isFormalDeclarationLine);
+  const definitionIntroContext = buildDefinitionIntroContext(lines, rawLines);
+  const definitionIntroDirectives = collectDefinitionIntroSkipDirectives(rawLines);
+
+  for (const issue of definitionIntroDirectives.errors) {
+    findings.push({
+      severity: strict && pageChanged ? 'ERROR' : 'AUDIT',
+      file: page.path,
+      line: issue.line,
+      message: issue.message,
+    });
+  }
 
   if (!fs.existsSync(page.knowledgePath)) {
     if (strict && pageChanged && hasFormal && policy.strict?.require_knowledge_for_changed_formal_page !== false) {
@@ -155,6 +168,50 @@ for (const page of pages.values()) {
       file: page.path,
       line: 1,
       message: `${concept.kind}「${concept.name}」は ${metadataFile} に登録されていますが、本文中の導入を確認できません。`,
+    });
+  }
+
+  const localDefinitionConcepts = new Map(
+    page.concepts
+      .filter((concept) => concept.kind === 'definition')
+      .map((concept) => [concept.id, concept]),
+  );
+
+  for (const [conceptId, directive] of definitionIntroDirectives.skips.entries()) {
+    if (localDefinitionConcepts.has(conceptId)) continue;
+    findings.push({
+      severity: strict && pageChanged ? 'ERROR' : 'AUDIT',
+      file: page.path,
+      line: directive.line,
+      message: `definition-intro-skip が、このページの definition concept ではない ${conceptId} を参照しています。`,
+    });
+  }
+
+  for (const concept of localDefinitionConcepts.values()) {
+    const formalDefinitionLine = findFormalDefinitionLine(lines, concept);
+    if (formalDefinitionLine == null) continue;
+
+    const directive = definitionIntroDirectives.skips.get(concept.id);
+    if (directive) {
+      if (directive.line >= formalDefinitionLine) {
+        findings.push({
+          severity: strict && pageChanged ? 'ERROR' : 'AUDIT',
+          file: page.path,
+          line: directive.line,
+          message: `definition-intro-skip for ${concept.id} は対象の初出定義より前に置いてください。`,
+        });
+      }
+      continue;
+    }
+
+    if (hasDefinitionIntroBefore(formalDefinitionLine, definitionIntroContext)) continue;
+
+    const mustBlock = strict && pageChanged;
+    findings.push({
+      severity: mustBlock ? 'ERROR' : 'AUDIT',
+      file: page.path,
+      line: formalDefinitionLine,
+      message: `初出定義「${concept.name}」(${concept.id}) の前に導入的な通常文がありません。定義へ入る前に、既存手段の限界・解きたい問い・この概念の役割のいずれかを読者向け文章で示してください。教育上の例外なら definition-intro-skip を理由付きで置いてください。`,
     });
   }
 
@@ -340,6 +397,135 @@ function findIntroductionLine(lines, concept) {
     if (aliases.some((alias) => aliasAppears(lines[i], alias))) return i + 1;
   }
   return null;
+}
+
+function findFormalDefinitionLine(lines, concept) {
+  const aliases = [...new Set([...concept.aliases, ...concept.introductionAliases])];
+  for (let i = 0; i < lines.length; i += 1) {
+    if (!isDefinitionDeclarationLine(lines[i])) continue;
+    if (aliases.some((alias) => aliasAppears(lines[i], alias))) return i + 1;
+  }
+  return null;
+}
+
+function isDefinitionDeclarationLine(line) {
+  const text = line.trim();
+  if (!text || /^#(?!#)\s+/u.test(text)) return false;
+  return /^(?:#{1,6}\s+|>\s*|[-*]\s*)?(?:\*\*)?定義(?:\*\*)?(?:[（(：:\s]|$)/u.test(text);
+}
+
+function collectDefinitionIntroSkipDirectives(rawLines) {
+  const skips = new Map();
+  const errors = [];
+
+  for (let i = 0; i < rawLines.length; i += 1) {
+    const match = DEFINITION_INTRO_SKIP_RE.exec(rawLines[i].trim());
+    if (!match) continue;
+
+    const ids = match[1].split(',').map((value) => value.trim()).filter(Boolean);
+    const reason = match[2].trim();
+
+    if (ids.length === 0) {
+      errors.push({ line: i + 1, message: 'definition-intro-skip には concept id が必要です。' });
+      continue;
+    }
+    if (reason.length < 8) {
+      errors.push({ line: i + 1, message: 'definition-intro-skip の理由が短すぎます。教育上の例外理由を具体的に書いてください。' });
+    }
+
+    for (const id of ids) {
+      if (skips.has(id)) {
+        errors.push({ line: i + 1, message: `definition-intro-skip が重複しています: ${id}` });
+        continue;
+      }
+      skips.set(id, { line: i + 1, reason });
+    }
+  }
+
+  return { skips, errors };
+}
+
+function buildDefinitionIntroContext(lines, rawLines) {
+  const prosePrefix = new Array(lines.length + 1).fill(0);
+  const lastH2AtLine = new Array(lines.length).fill(null);
+  const h2OrdinalAtLine = new Array(lines.length).fill(0);
+  let formalDepth = 0;
+  let lastH2 = null;
+  let h2Count = 0;
+  let firstH1 = null;
+
+  for (let i = 0; i < lines.length; i += 1) {
+    const raw = rawLines[i]?.trim() ?? '';
+    let inFormal = formalDepth > 0;
+
+    if (raw === '<!-- formal-statement-start -->') {
+      formalDepth += 1;
+      inFormal = true;
+    }
+
+    const text = lines[i]?.trim() ?? '';
+    if (!inFormal) {
+      if (firstH1 == null && /^#(?!#)\s+/u.test(text)) firstH1 = i;
+      if (/^##(?!#)\s+/u.test(text)) {
+        lastH2 = i;
+        h2Count += 1;
+      }
+    }
+
+    lastH2AtLine[i] = lastH2;
+    h2OrdinalAtLine[i] = h2Count;
+    prosePrefix[i + 1] = prosePrefix[i] + (!inFormal && isIntroProseLine(text) ? 1 : 0);
+
+    if (raw === '<!-- formal-statement-end -->') {
+      formalDepth = Math.max(0, formalDepth - 1);
+    }
+  }
+
+  return { prosePrefix, lastH2AtLine, h2OrdinalAtLine, firstH1 };
+}
+
+function hasDefinitionIntroBefore(formalDefinitionLine, context) {
+  const index = formalDefinitionLine - 1;
+  if (index < 0) return false;
+
+  const sectionStart = context.lastH2AtLine[index];
+  const start = sectionStart == null ? ((context.firstH1 ?? -1) + 1) : sectionStart + 1;
+  if (countIntroProse(context.prosePrefix, start, index) > 0) return true;
+
+  // 第1節の最初の定義だけは、章頭オリエンテーションがそのまま導入になる構成を許す。
+  if (sectionStart != null && context.h2OrdinalAtLine[index] === 1) {
+    const prefaceStart = (context.firstH1 ?? -1) + 1;
+    if (countIntroProse(context.prosePrefix, prefaceStart, sectionStart) > 0) return true;
+  }
+
+  return false;
+}
+
+function countIntroProse(prefix, start, endExclusive) {
+  const lo = Math.max(0, start);
+  const hi = Math.max(lo, endExclusive);
+  return prefix[hi] - prefix[lo];
+}
+
+function isIntroProseLine(line) {
+  const text = String(line ?? '').trim();
+  if (!text) return false;
+  if (/^#{1,6}\s+/u.test(text)) return false;
+  if (/^(?:---+|___+|\*\*\*+)$/u.test(text)) return false;
+  if (/^\|.*\|$/u.test(text)) return false;
+
+  const plain = text
+    .replace(/^>\s*/u, '')
+    .replace(/^[-*+]\s+/u, '')
+    .replace(/^\d+[.)]\s+/u, '')
+    .replace(/[*_~]/gu, '')
+    .replace(/\s+/gu, ' ')
+    .trim();
+
+  if (plain.length < 10) return false;
+  if (/^(?:定義の確認|解答|詳細解答|Level\s*[:：])/iu.test(plain)) return false;
+  if (/^(?:(?:ここで|次に|以下で|そこで)\s*)?(?:(?:次の|以下の)\s*)?定義(?:を|に|へ).{0,18}(?:導入|述べ|示し|与え|する|します)[。.]?$/u.test(plain)) return false;
+  return /[A-Za-z0-9\u3040-\u30ff\u3400-\u9fff]/u.test(plain);
 }
 
 function firstAliasUse(lines, aliases) {
@@ -542,7 +728,96 @@ function runAliasMatcherSelfTest() {
     }
   }
 
-  console.log('DREAM THEATER alias matcher self-test: OK');
+  runDefinitionIntroSelfTest();
+  console.log('DREAM THEATER alias matcher / definition intro self-test: OK');
+}
+
+function runDefinitionIntroSelfTest() {
+  const concept = {
+    aliases: ['距離'],
+    introductionAliases: [],
+  };
+
+  const withSectionIntro = [
+    '# TEST',
+    '',
+    '## 1. 距離が必要になる場面',
+    '',
+    '二つの点がどれだけ離れているかを数で比較できる道具が必要です。',
+    '',
+    '<a id="def-distance"></a>',
+    '<!-- formal-statement-start -->',
+    '> **定義（距離）**',
+    '> 条件。',
+    '<!-- formal-statement-end -->',
+  ].join('\n');
+  assertDefinitionIntro(withSectionIntro, concept, true, '節内の導入文');
+
+  const withChapterPreface = [
+    '# TEST',
+    '',
+    'この章では、近さを数値化して収束を扱うための道具を準備します。',
+    '',
+    '---',
+    '',
+    '## 1. 距離',
+    '',
+    '<a id="def-distance"></a>',
+    '<!-- formal-statement-start -->',
+    '> **定義（距離）**',
+    '> 条件。',
+    '<!-- formal-statement-end -->',
+  ].join('\n');
+  assertDefinitionIntro(withChapterPreface, concept, true, '第1節を章頭導入で受ける構成');
+
+  const withoutIntro = [
+    '# TEST',
+    '',
+    '## 1. 距離',
+    '',
+    '<a id="def-distance"></a>',
+    '<!-- formal-statement-start -->',
+    '> **定義（距離）**',
+    '> 条件。',
+    '<!-- formal-statement-end -->',
+  ].join('\n');
+  assertDefinitionIntro(withoutIntro, concept, false, '導入なし');
+
+  const boilerplateOnly = [
+    '# TEST',
+    '',
+    '## 1. 距離',
+    '',
+    'ここで次の定義を導入します。',
+    '',
+    '<a id="def-distance"></a>',
+    '<!-- formal-statement-start -->',
+    '> **定義（距離）**',
+    '> 条件。',
+    '<!-- formal-statement-end -->',
+  ].join('\n');
+  assertDefinitionIntro(boilerplateOnly, concept, false, 'CI回避だけの定型文');
+
+  const directives = collectDefinitionIntroSkipDirectives([
+    '<!-- definition-intro-skip: metric.distance | 既習概念の局所的な記号規約だけを固定するため -->',
+  ]);
+  if (directives.errors.length || !directives.skips.has('metric.distance')) {
+    throw new Error('definition-intro-skip の自己テストに失敗しました。');
+  }
+}
+
+function assertDefinitionIntro(source, concept, expected, label) {
+  const rawLines = source.split(/\r?\n/u);
+  const lines = stripNonReaderContent(source).split(/\r?\n/u);
+  const formalLine = findFormalDefinitionLine(lines, concept);
+  if (formalLine == null) throw new Error(`${label}: formal definition を検出できませんでした。`);
+  const actual = hasDefinitionIntroBefore(
+    formalLine,
+    buildDefinitionIntroContext(lines, rawLines),
+  );
+  if (actual !== expected) {
+    throw new Error(`${label}: expected intro=${expected}, actual=${actual}`);
+  }
 }
 
 function aliasAppears(line, alias) {
