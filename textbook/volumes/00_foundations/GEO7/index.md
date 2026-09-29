@@ -78,7 +78,49 @@ $$
 で、全て滑らかです。したがって $T$ は滑らかな $(1,1)$ 型テンソル場です。
 <!-- definition-example-end -->
 
-「成分が滑らか」という条件は座標に依存しません。座標変換では基底ベクトルと双対基底が Jacobi 行列およびその逆行列で変換されるため、新しい成分は古い成分と滑らかな座標変換の偏導関数の有限和・積として表されます。
+「成分が滑らか」という条件は座標に依存しません。その機構を、まず1形式で一度式にしておきます。
+
+二つの局所座標を
+
+$$
+x=(x^1,\dots,x^n),
+\qquad
+y=(y^1,\dots,y^n)
+$$
+
+とし、
+
+$$
+\alpha
+=
+\sum_i a_i\,dx^i
+=
+\sum_j b_j\,dy^j
+$$
+
+と書きます。[GEO2 の余接空間](../GEO2/index.md#def-geo2-cotangent-space)で見た双対基底の変換から
+
+$$
+dx^i
+=
+\sum_j
+\frac{\partial x^i}{\partial y^j}
+dy^j
+$$
+
+なので、
+
+$$
+b_j
+=
+\sum_i
+a_i
+\frac{\partial x^i}{\partial y^j}.
+$$
+
+古い成分 $a_i$ が滑らかで、座標変換 $x\circ y^{-1}$ も滑らかなら、その偏導関数も滑らかです。従って新しい成分 $b_j$ も滑らかです。
+
+一般の $(r,s)$ 型テンソルでも同じ機構で、各添字ごとに座標変換の Jacobi 行列またはその逆行列の成分が掛かります。新しい各成分は、それらと古い成分の有限和・積になるため滑らかです。従って「ある座標で成分が滑らか」という条件は、座標を変えても保たれます。
 
 特に、
 
@@ -196,6 +238,30 @@ $$
 > である。
 <!-- formal-statement-end -->
 
+局所座標で
+
+$$
+\alpha=\sum_I a_I\,dx^I,
+\qquad
+\beta=\sum_J b_J\,dx^J
+$$
+
+と書けば、
+
+$$
+\alpha\wedge\beta
+=
+\sum_{I,J}a_Ib_J\,dx^I\wedge dx^J.
+$$
+
+係数 $a_Ib_J$ は滑らかな関数の積で、項数は局所有限ではなく実際に有限です。従って点ごとに定めた外積は滑らかに変化し、確かに
+
+$$
+\alpha\wedge\beta\in\Omega^{k+\ell}(M)
+$$
+
+となります。
+
 <!-- definition-example-start: def-geo7-form-wedge -->
 **定義の確認**
 
@@ -290,6 +356,26 @@ $$
 >
 > と定める。この $k$ 形式 $F^*\omega\in\Omega^k(M)$ を $\omega$ の **引き戻し**という。
 <!-- formal-statement-end -->
+
+この点ごとの定義が滑らかな $k$ 形式になることも座標で確認できます。$N$ の局所座標を $(y^1,\dots,y^m)$ とし、
+
+$$
+\omega
+=
+\sum_I a_I\,dy^{i_1}\wedge\cdots\wedge dy^{i_k}
+$$
+
+と書きます。すると定義から
+
+$$
+F^*\omega
+=
+\sum_I
+(a_I\circ F)\,
+d(y^{i_1}\circ F)\wedge\cdots\wedge d(y^{i_k}\circ F).
+$$
+
+$a_I\circ F$ は滑らかで、各 $d(y^{i_r}\circ F)$ も滑らかな1形式なので、右辺は滑らかな $k$ 形式です。ここで使っている $d$ は関数の通常の微分です。この後で定義する、任意次数の形式に作用する一般の $d$ はまだ使っていません。
 
 <!-- definition-example-start: def-geo7-pullback-form -->
 **定義の確認**
@@ -450,7 +536,39 @@ $\square$
 
 ## 5. 次数を1つ上げる微分を座標から作る
 
-まず一つの座標近傍 $U$ と局所座標 $(x^1,\dots,x^n)$ を固定します。
+0形式、すなわち滑らかな関数 $f$ には、すでに微分 $df$ があります。では1形式
+
+$$
+\omega=P\,dx+Q\,dy
+$$
+
+には、何を「微分」として対応させればよいでしょうか。
+
+もし $\omega=df$ なら
+
+$$
+P=f_x,
+\qquad
+Q=f_y
+$$
+
+なので、[RA6 の混合偏微分の交換](../RA6/index.md#thm-ra6-mixed-partials)から
+
+$$
+Q_x-P_y=0
+$$
+
+です。したがって
+
+$$
+(Q_x-P_y)\,dx\wedge dy
+$$
+
+は、「$\omega$ が局所的に $df$ の形になれるか」を調べる量として自然です。高次の形式でも、**係数を一回微分し、その結果を交代化する**という同じ操作を作りたいところです。
+
+まず座標でその操作を定義し、その後で座標を変えても同じ微分形式になることを証明します。
+
+そこで一つの座標近傍 $U$ と局所座標 $(x^1,\dots,x^n)$ を固定します。
 
 $$
 \omega
@@ -623,13 +741,49 @@ d\omega
 \,dx^j\wedge dx^{i_1}\wedge\cdots\wedge dx^{i_k}.
 $$
 
-これを座標滑らかなベクトル場
+これを座標基底ベクトル
 
 $$
 \partial_{a_0},\dots,\partial_{a_k}
 $$
 
-へ評価すると、外積の交代性から
+へ評価します。ここは符号が見えにくいので、残る項を一度追います。
+
+外積
+
+$$
+dx^j\wedge dx^{i_1}\wedge\cdots\wedge dx^{i_k}
+$$
+
+が
+
+$$
+(\partial_{a_0},\dots,\partial_{a_k})
+$$
+
+に非零の値を持つのは、
+
+$$
+(j,i_1,\dots,i_k)
+$$
+
+が
+
+$$
+(a_0,\dots,a_k)
+$$
+
+の並べ替えになっている場合だけです。
+
+$j=a_m$ とすると、残りの添字は
+
+$$
+a_0,\dots,\widehat{a_m},\dots,a_k
+$$
+
+の並べ替えです。$dx^{a_m}$ を第 $m$ 位置から先頭へ動かすと $m$ 回の交換が起こるので $(-1)^m$ が出ます。残りの $k$ 個の添字の並べ替えは、係数 $\omega_{i_1\cdots i_k}$ の交代性と外積の符号が同時に変わるため全て同じ寄与になり、合計 $k!$ 個になります。この $k!$ が前の係数 $1/k!$ と打ち消し合います。
+
+従って
 
 $$
 d\omega
@@ -1140,6 +1294,10 @@ $\square$
 ---
 
 ## 9. 内部積はベクトルを一つ差し込む操作
+
+$k$ 形式は $k$ 本の接ベクトルを受け取って数を返します。そのうち一本を、あらかじめ $X$ に固定すると、残り $k-1$ 本だけを受け取る形式が得られます。ここで $X$ は直後の定義に現れる滑らかな接方向の場です。
+
+この操作は後で、流れを生む方向 $X$ と微分形式の相互作用を記述するために使います。例えば体積形式に $X$ を一つ差し込むと、GEO8 では境界上で積分する $(n-1)$ 形式を作るために使えます。
 
 <a id="def-geo7-interior-product"></a>
 <!-- formal-statement-start -->
@@ -2044,22 +2202,42 @@ d(P\,dx)
 P_z\,dz\wedge dx.
 $$
 
-同様に
+次に
 
 $$
+dQ=Q_xdx+Q_ydy+Q_zdz
+$$
+
+なので
+
+$$
+\begin{aligned}
 d(Q\,dy)
-=
-Q_x\,dx\wedge dy
--
-Q_z\,dy\wedge dz,
+&=dQ\wedge dy\\
+&=Q_x\,dx\wedge dy
++Q_z\,dz\wedge dy\\
+&=Q_x\,dx\wedge dy
+-Q_z\,dy\wedge dz.
+\end{aligned}
 $$
 
+また
+
 $$
+dR=R_xdx+R_ydy+R_zdz
+$$
+
+なので
+
+$$
+\begin{aligned}
 d(R\,dz)
-=
-R_y\,dy\wedge dz
--
-R_x\,dz\wedge dx.
+&=dR\wedge dz\\
+&=R_x\,dx\wedge dz
++R_y\,dy\wedge dz\\
+&=R_y\,dy\wedge dz
+-R_x\,dz\wedge dx.
+\end{aligned}
 $$
 
 従って
