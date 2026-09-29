@@ -488,7 +488,6 @@ $$
 
 です。ここでは新しい概念を定義しているのではなく、既出の Borel σ代数を Lebesgue 可測集合族と比較するために再掲しています。
 
-<!-- definition-example-start: def-borel-sigma-algebra -->
 ### 例1：有理数集合は Borel 集合
 
 **定義の確認**
@@ -504,7 +503,6 @@ $$
 $$
 \lambda(\mathbb Q)=0.
 $$
-<!-- definition-example-end -->
 
 開集合が全て Lebesgue 可測で、Lebesgue 可測集合族 $\mathcal L$ はσ代数なので
 
