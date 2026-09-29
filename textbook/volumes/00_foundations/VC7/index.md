@@ -209,14 +209,31 @@ $$
 
 のうち $j=i$ の項だけが残ります。
 
-同様に
+二つの Kronecker のデルタを縮約する場合も、$j$ を固定して追えます。$i,k$ を固定すると
 
 $$
-\delta_{ij}\delta_{jk}=\delta_{ik},
+\delta_{ij}\delta_{jk}
+=
+\sum_{j=1}^3
+\delta_{ij}\delta_{jk}.
 $$
 
+$\delta_{ij}$ が非零なのは $j=i$ のときだけなので
+
 $$
-\delta_{ii}=3.
+\delta_{ij}\delta_{jk}
+=
+\delta_{ik}.
+$$
+
+また
+
+$$
+\delta_{ii}
+=
+\delta_{11}+\delta_{22}+\delta_{33}
+=
+3.
 $$
 
 <!-- definition-example-start: def-vc7-delta -->
