@@ -211,13 +211,13 @@ $$
 > **定義（Jacobian 行列）**  
 > $f=(f_1,\ldots,f_m):U\subset\mathbb R^n\to\mathbb R^m$ の各一階偏微分が $a$ で存在するとき、
 
-$
+$$
 J_f(a)
 =
 \left(
 \frac{\partial f_i}{\partial x_j}(a)
 \right)_{\substack{1\le i\le m\\1\le j\le n}}
-$
+$$
 
 > を $f$ の $a$ における **Jacobian 行列** という。
 <!-- formal-statement-end -->
@@ -253,13 +253,13 @@ $
 
 微分可能性の定義から、ある残差 $r(h)$ が存在して
 
-$
+$$
 f(a+h)-f(a)
 =
 Df(a)h+r(h),
 \qquad
 \frac{\|r(h)\|}{\|h\|}\to0
-$
+$$
 
 と書けます。
 
@@ -268,25 +268,25 @@ $
 
 $h=te_j$ と置きます。$\|e_j\|=1$ なので $\|te_j\|=|t|$ であり、
 
-$
+$$
 f(a+te_j)-f(a)
 =
 tDf(a)e_j+r(te_j)
-$
+$$
 
 です。$t\ne0$ で両辺を $t$ で割ると、
 
-$
+$$
 \frac{f(a+te_j)-f(a)}{t}
 =
 Df(a)e_j
 +
 \frac{r(te_j)}{t}.
-$
+$$
 
 残差について
 
-$
+$$
 \left\|
 \frac{r(te_j)}{t}
 \right\|
@@ -295,21 +295,21 @@ $
 =
 \frac{\|r(te_j)\|}{\|te_j\|}
 \to0
-$
+$$
 
 なので、$t\to0$ とすれば
 
-$
+$$
 \frac{\partial f}{\partial x_j}(a)
 =
 Df(a)e_j
-$
+$$
 
 を得ます。したがって各一階偏微分は存在します。
 
 一方、表現行列の第 $j$ 列は、線形写像を第 $j$ 標準基底ベクトルへ作用させた値の座標です。よって $Df(a)$ の表現行列の第 $j$ 列は
 
-$
+$$
 Df(a)e_j
 =
 \frac{\partial f}{\partial x_j}(a)
@@ -319,21 +319,21 @@ Df(a)e_j
 \vdots\\
 \dfrac{\partial f_m}{\partial x_j}(a)
 \end{pmatrix}.
-$
+$$
 
 これは Jacobian 行列 $J_f(a)$ の第 $j$ 列そのものです。すべての列が一致するので
 
-$
+$$
 [Df(a)]_{\mathcal E_m\leftarrow\mathcal E_n}
 =
 J_f(a).
-$
+$$
 
 したがって任意の $h\in\mathbb R^n$ に対して
 
-$
+$$
 Df(a)h=J_f(a)h
-$
+$$
 
 です。$\square$
 <!-- proof-end -->
