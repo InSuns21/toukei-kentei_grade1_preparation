@@ -714,19 +714,19 @@ $$
 $\varepsilon>0$ を取ります。Cauchy性より、ある $N$ が存在して $m,n\ge N$ なら
 
 $$
-\|f_n-f_m\|_\infty<\varepsilon.
+\|f_n-f_m\|_\infty<\frac{\varepsilon}{2}.
 $$
 
 $n\ge N$ を固定します。この不等式から各 $t\in[0,1]$ について
 
 $$
-|f_n(t)-f_m(t)|<\varepsilon
+|f_n(t)-f_m(t)|<\frac{\varepsilon}{2}
 $$
 
 です。ここで $m\to\infty$ とすると $f_m(t)\to f(t)$ なので
 
 $$
-|f_n(t)-f(t)|\le\varepsilon.
+|f_n(t)-f(t)|\le\frac{\varepsilon}{2}.
 $$
 
 この評価は全ての $t$ で成り立つため
@@ -735,10 +735,12 @@ $$
 \|f_n-f\|_\infty
 =
 \sup_{t\in[0,1]}|f_n(t)-f(t)|
-\le\varepsilon.
+\le\frac{\varepsilon}{2}
+<
+\varepsilon.
 $$
 
-従って $n\ge N$ なら $\|f_n-f\|_\infty\le\varepsilon$ であり、$f_n\to f$ はsupノルムでの収束です。
+従って $n\ge N$ なら $\|f_n-f\|_\infty<\varepsilon$ であり、$f_n\to f$ はsupノルムでの収束です。
 <!-- solution-end -->
 
 ### F0-02C1-B03 $L^2$ の一点評価が元から決まらないことを確認する
