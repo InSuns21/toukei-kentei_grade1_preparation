@@ -827,7 +827,7 @@ $$
 
 よって $f_n\to0$ in $L^2$ である。
 
-任意の $m,n$ に対して三角不等式から
+任意の $m,n$ に対して [Minkowski の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-02)から
 
 $$
 \|f_n-f_m\|_2
