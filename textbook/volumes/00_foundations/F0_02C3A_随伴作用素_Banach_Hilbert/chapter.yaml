@@ -5,15 +5,19 @@ status: supplementary
 prerequisites:
   - F0-02C3
 learning_objectives:
-  - Banach空間で随伴作用素T*:Y*→X*を定義できる
+  - Banach空間で随伴作用素T*:Y*→X*を汎関数の合成として定義できる
+  - T*y*がX*の元になることを有界性評価で確認し、||T*||≤||T||を示せる
   - 有限次元で随伴が転置行列になることを示せる
-  - Hilbert空間でRiesz表現を介した随伴を説明できる
+  - Hilbert空間でRiesz表現から随伴が構成される理由を説明できる
+  - 内積で定まる具体的な有界線形写像で随伴と作用素ノルムを求められる
+  - 合成の随伴で作用素の順序が逆になることを示せる
+  - 最小二乗の停留条件を随伴と残差の直交性で説明できる
   - KKTのDG(x)*lambdaの型を説明できる
 definitions:
   - { id: F002C3A-DEF-01, name: 随伴作用素 }
   - { id: F002C3A-DEF-02, name: Hilbert随伴 }
 theorems: []
-canonical_examples: [転置行列, 積分作用素の随伴]
+canonical_examples: [転置行列, 内積で定まる具体的な写像の随伴, 直交射影の自己随伴性, 最小二乗の正規方程式]
 problem_patterns: [FA-ADJOINT-1]
-exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 1.5, exercises: 0.75, review: 0.5 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2.25, exercises: 2.0, review: 0.5 }
