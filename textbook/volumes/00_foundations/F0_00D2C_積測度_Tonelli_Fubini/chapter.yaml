@@ -3,6 +3,7 @@ title: "補講：積測度・Tonelliの定理・Fubiniの定理"
 volume: "foundations"
 status: supplementary
 prerequisites:
+  - RA1
   - F0-00D2B
   - F0-00D3A
   - F0-00D4
