@@ -20,8 +20,8 @@ concepts:
   - id: measure.mt4-cc-dense-l1
     name: 有界区間外で0となる連続関数のL1稠密性
     kind: theorem
-    aliases: ["### 補題（有界区間外で 0 となる連続関数の $L^1$ 稠密性）", "Cc(R) の L1 稠密性"]
-    introduction_aliases: ["### 補題（有界区間外で 0 となる連続関数の $L^1$ 稠密性）"]
+    aliases: ["### 補題（有界区間外で 0 となる連続関数の L1 稠密性）", "Cc(R) の L1 稠密性"]
+    introduction_aliases: ["### 補題（有界区間外で 0 となる連続関数の L1 稠密性）"]
     requires: []
 
   - id: measure.mt4-interval-selection
