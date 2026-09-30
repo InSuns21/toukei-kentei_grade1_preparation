@@ -10,7 +10,7 @@ concepts:
   - id: functional.open-map
     name: 開写像
     kind: definition
-    aliases: [開写像, open map, "### 定義（開写像）"]
+    aliases: [開写像, open map]
     introduction_aliases: ["### 定義（開写像）"]
     requires:
       - topology.open-set
@@ -18,7 +18,7 @@ concepts:
   - id: functional.closure-ball-to-image-ball
     name: 閉包内の球から像内の球への逐次近似
     kind: lemma
-    aliases: [閉包内の球から像内の球への逐次近似, "### 補題（閉包内の球を実際の像内の球へ押し上げる）"]
+    aliases: [閉包内の球から像内の球への逐次近似]
     introduction_aliases: ["### 補題（閉包内の球を実際の像内の球へ押し上げる）"]
     requires:
       - functional.banach-space
@@ -27,7 +27,7 @@ concepts:
   - id: functional.open-mapping-theorem
     name: 開写像定理
     kind: theorem
-    aliases: [開写像定理, open mapping theorem, "### 定理（開写像定理）"]
+    aliases: [開写像定理, open mapping theorem]
     introduction_aliases: ["### 定理（開写像定理）"]
     requires:
       - functional.open-map
@@ -38,7 +38,7 @@ concepts:
   - id: functional.bounded-inverse-theorem
     name: 有界逆定理
     kind: theorem
-    aliases: [有界逆定理, bounded inverse theorem, inverse mapping theorem, "### 定理（有界逆定理）"]
+    aliases: [有界逆定理, bounded inverse theorem, inverse mapping theorem]
     introduction_aliases: ["### 定理（有界逆定理）"]
     requires:
       - functional.open-mapping-theorem
@@ -46,7 +46,7 @@ concepts:
   - id: functional.operator-graph
     name: 作用素のグラフ
     kind: definition
-    aliases: [作用素のグラフ, graph of an operator, "### 定義（作用素のグラフ）"]
+    aliases: [作用素のグラフ, graph of an operator]
     introduction_aliases: ["### 定義（作用素のグラフ）"]
     requires:
       - linear.linear-map
@@ -54,7 +54,7 @@ concepts:
   - id: functional.closed-graph-theorem
     name: 閉グラフ定理
     kind: theorem
-    aliases: [閉グラフ定理, closed graph theorem, "### 定理（閉グラフ定理）"]
+    aliases: [閉グラフ定理, closed graph theorem]
     introduction_aliases: ["### 定理（閉グラフ定理）"]
     requires:
       - functional.operator-graph
@@ -64,7 +64,7 @@ concepts:
   - id: functional.surjective-quotient-lifting
     name: 全射作用素の商空間による定量的持ち上げ
     kind: corollary
-    aliases: [全射作用素の商空間による定量的持ち上げ, "### 系（商空間による全射作用素の定量的持ち上げ）"]
+    aliases: [全射作用素の商空間による定量的持ち上げ]
     introduction_aliases: ["### 系（商空間による全射作用素の定量的持ち上げ）"]
     requires:
       - functional.quotient-banach-space
@@ -73,7 +73,7 @@ concepts:
   - id: functional.graph-norm
     name: グラフノルム
     kind: definition
-    aliases: [グラフノルム, graph norm, "### 定義（グラフノルム）"]
+    aliases: [グラフノルム, graph norm]
     introduction_aliases: ["### 定義（グラフノルム）"]
     requires:
       - functional.operator-graph
@@ -82,7 +82,7 @@ concepts:
   - id: functional.closed-graph-graph-norm-equivalence
     name: 閉グラフとグラフノルムの同値性
     kind: corollary
-    aliases: [閉グラフとグラフノルムの同値性, "### 系（閉グラフとグラフノルム）"]
+    aliases: [閉グラフとグラフノルムの同値性]
     introduction_aliases: ["### 系（閉グラフとグラフノルム）"]
     requires:
       - functional.closed-graph-theorem
