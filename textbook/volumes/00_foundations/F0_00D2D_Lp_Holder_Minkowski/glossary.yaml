@@ -9,6 +9,9 @@ terms:
   - term: 本質的上限
     english: essential supremum
     meaning: 測度0集合を無視した上限。L∞ノルムを定義する。
+  - term: L∞空間
+    english: L-infinity space
+    meaning: 本質的上限が有限な可測関数をa.e.一致で同一視した空間。
   - term: 共役指数
     english: conjugate exponents
     meaning: 1/p+1/q=1を満たすp,q>1。
