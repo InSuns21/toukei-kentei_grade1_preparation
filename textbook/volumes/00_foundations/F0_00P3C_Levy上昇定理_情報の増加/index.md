@@ -40,7 +40,7 @@ a.s.極限を Fatou で同定
 <a id="def-f0-00p3c-increasing-sigma-fields"></a>
 
 <!-- formal-statement-start -->
-> **定義（増加する部分$\sigma$代数列）**  
+> **定義（増加する情報列）**  
 > 確率空間 $(\Omega,\mathcal F,P)$ の部分 $\sigma$ 代数列 $(\mathcal G_n)_{n\ge1}$ が次を満たすとき、$(\mathcal G_n)$ を増加する情報列と呼びます。
 
 $$
