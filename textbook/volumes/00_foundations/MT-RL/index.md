@@ -56,7 +56,34 @@ $$
 <!-- proof-start -->
 ### 証明
 
-各小区間上で $\ell_P,u_P$ は定数なので、[非負単関数の積分](../F0_00D2A_単関数_Lebesgue積分_構成/index.md#def-f0-00d2a-02) と同じ「高さ×区間長」の有限和になります。符号がある場合は正負に分ければよく、分割点はLebesgue測度0なので寄与しません。したがってそれぞれDarboux下和・上和に一致します。$\square$
+各 $i$ について区間の内部 $(x_{i-1},x_i)$ では $\ell_P=m_i$, $u_P=M_i$ です。分割点 $x_0,\ldots,x_n$ では値を $f(x_j)$ に取り直していますが、分割点全体は有限集合なので Lebesgue 測度 0 です。
+
+したがって、分割点での値を無視した単関数
+$$
+\widetilde\ell_P
+=
+\sum_{i=1}^n m_i1_{(x_{i-1},x_i)},
+\qquad
+\widetilde u_P
+=
+\sum_{i=1}^n M_i1_{(x_{i-1},x_i)}
+$$
+と $\ell_P,u_P$ はそれぞれほとんど至る所で一致します。各係数が負でも、正部分・負部分へ分けた有限単関数の積分の定義から
+$$
+\int_{[a,b]}\widetilde\ell_P\,dm
+=
+\sum_{i=1}^n m_i(x_i-x_{i-1})
+=
+L(f,P),
+$$
+$$
+\int_{[a,b]}\widetilde u_P\,dm
+=
+\sum_{i=1}^n M_i(x_i-x_{i-1})
+=
+U(f,P).
+$$
+零集合上の変更は積分値を変えないので、同じ等式が $\ell_P,u_P$ にも成り立ちます。また各小区間の内部で $m_i\le f\le M_i$、分割点では $\ell_P=u_P=f$ と置いたので、全点で $\ell_P\le f\le u_P$ です。$\square$
 <!-- proof-end -->
 
 つまりRiemann積分とLebesgue積分は、少なくとも階段近似の段階ではすでに同じ量を見ています。
@@ -80,56 +107,78 @@ $$
 <!-- proof-start -->
 ### 証明
 
-Riemann積分値を $I$ とします。[Darboux可積分性判定](../RA4/index.md#thm-ra4-darboux-criterion) により、分割を共通細分で取り直しながら
+Riemann 積分値を $I$ とします。まず、単に「良い分割を各 $n$ で一つ取る」だけでは $\ell_n$ が単調になるとは限らないので、共通細分を明示して分割列を作ります。
 
+[Darboux 可積分性判定](../RA4/index.md#thm-ra4-darboux-criterion) により、各 $n$ について分割 $Q_n$ を
 $$
-P_1\prec P_2\prec\cdots,
-\qquad
-U(f,P_n)-L(f,P_n)<2^{-n}
+U(f,Q_n)-L(f,Q_n)<2^{-n}
+$$
+となるように取れます。$P_n$ を $Q_1,\ldots,Q_n$ の共通細分とすれば
+$$
+P_1\prec P_2\prec\cdots
+$$
+であり、細分すると下和は増加し上和は減少するので
+$$
+U(f,P_n)-L(f,P_n)
+\le
+U(f,Q_n)-L(f,Q_n)
+<
+2^{-n}.
 $$
 
-となる分割列を取れます。対応する下側・上側単関数を $\ell_n,u_n$ とすると、細分によって
-
+$P_n$ に対応する下側・上側単関数を $\ell_n,u_n$ とします。細分の単調性から
 $$
 \ell_n\uparrow \ell,
 \qquad
 u_n\downarrow u,
 \qquad
-\ell_n\le f\le u_n
+\ell_n\le f\le u_n.
 $$
-
-です。$|f|\le M$ とすれば $|\ell_n|,|u_n|\le M$ なので、[Lebesgueの優収束定理（Dominated Convergence Theorem; DCT）](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01) により
-
+各 $\ell_n,u_n$ は可測なので、点ごとの極限 $\ell,u$ も可測です。また $|f|\le M$ とすると
+$$
+|\ell_n|\le M,
+\qquad
+|u_n|\le M,
+$$
+で、支配関数 $M1_{[a,b]}$ は有限区間上で可積分です。そこで [Lebesgue の優収束定理（Dominated Convergence Theorem; DCT）](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01) を $\ell_n$ と $u_n$ にそれぞれ適用すると
 $$
 \int\ell\,dm
 =
-\lim_nL(f,P_n)=I,
+\lim_{n\to\infty}L(f,P_n),
 \qquad
 \int u\,dm
 =
-\lim_nU(f,P_n)=I.
+\lim_{n\to\infty}U(f,P_n).
+$$
+さらに
+$$
+L(f,P_n)\le I\le U(f,P_n),
+\qquad
+U(f,P_n)-L(f,P_n)\to0
+$$
+なので挟み撃ちにより両極限は $I$ です。従って
+$$
+\int\ell\,dm=\int u\,dm=I.
 $$
 
-したがって
-
+よって
 $$
 \int(u-\ell)\,dm=0.
 $$
-
-$u-\ell\ge0$ なので $u=\ell$ a.e.（almost everywhere; ほとんど至る所）です。さらに
-
+$u-\ell\ge0$ なので $u=\ell$ ほとんど至る所（almost everywhere; a.e.）です。さらに
 $$
 \ell\le f\le u
 $$
-
-なので $f=\ell$ a.e. です。Lebesgue測度では零集合の部分集合も可測であるため、$f$ もLebesgue可測です。有限区間上で $|f|\le M$ だからLebesgue可積分でもあります。
+なので $f=\ell$ ほとんど至る所です。差が生じ得る集合は Lebesgue 零集合の部分集合であり、Lebesgue 測度は完備なので $f$ も Lebesgue 可測です。有限区間上で $|f|\le M$ だから
+$$
+\int|f|\,dm\le M(b-a)<\infty,
+$$
+よって Lebesgue 可積分です。
 
 最後に [零集合上の変更は積分を変えない](../F0_00D2A_単関数_Lebesgue積分_構成/index.md#thm-f0-00d2a-01) ことから
-
 $$
 \int f\,dm=\int\ell\,dm=I.
 $$
-
 $\square$
 <!-- proof-end -->
 
@@ -184,45 +233,97 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まずRiemann可積分とします。$\eta>0$ に対し
-
+まず $f$ が Riemann 可積分であるとします。$\eta>0$ に対し
 $$
-D_\eta=\{x:\omega_f(x)\ge\eta\}
+D_\eta:=\{x\in[a,b]:\omega_f(x)\ge\eta\}
 $$
+と置きます。
 
-と置きます。任意の $\varepsilon>0$ に対し
-
+任意の $\varepsilon>0$ に対し、Darboux 可積分性判定から分割
 $$
-U(f,P)-L(f,P)<\eta\varepsilon
+P:a=x_0<\cdots<x_n=b
 $$
-
-となる分割 $P$ を取ります。$D_\eta$ と交わる小区間では、分割点を除けばその区間内の振動幅が少なくとも $\eta$ です。したがって、そのような小区間の長さの総和は
-
+を
 $$
-\eta\times(\text{総延長})
-\le U(f,P)-L(f,P)
-<\eta\varepsilon.
+U(f,P)-L(f,P)<\eta\varepsilon/2
 $$
-
-よって $D_\eta$ は任意に小さい総延長の有限区間族で覆え、測度0です。さらに
-
+となるように取ります。小区間 $I_i=[x_{i-1},x_i]$ の内部に $x\in D_\eta$ があるとします。$x$ から両端点までの距離より小さい $\delta>0$ を取れば
 $$
-D(f)=\bigcup_{m=1}^{\infty}D_{1/m}
+[a,b]\cap(x-\delta,x+\delta)\subset I_i.
 $$
+$\omega_f(x)\ge\eta$ なので、この近傍での振動幅、従って $I_i$ 全体での振動幅 $M_i-m_i$ も少なくとも $\eta$ です。
 
-なので $D(f)$ も測度0です。
-
-逆に $D(f)$ が測度0とします。$M=\sup|f|$ とします。$\eta>0$ に対し $D_\eta$ は閉集合で、$D(f)$ の部分集合なので測度0です。したがって $D_\eta$ を総延長が任意に小さい有限個の開区間で覆えます。その合併を $G$ とします。
-
-コンパクト集合 $K=[a,b]\setminus G$ 上では各点の局所振動が $\eta$ 未満です。各 $x\in K$ について、ある半径 $r_x>0$ を取り、$B(x,2r_x)$ 内での $f$ の振動幅が $\eta$ 未満になるようにします。有限部分被覆 $B(x_i,r_i)$ を取り、分割の幅を $\min_i r_i$ より小さくします。すると $K$ と交わる各小区間は、ある $B(x_i,2r_i)$ に含まれるので、その区間での振動幅は $\eta$ 未満です。
-
-したがって、$G$ 内に入る悪い区間では振動幅を $2M$ で、$K$ と交わる良い区間では $\eta$ で抑えられます。$G$ の総延長を十分小さくし、さらに $\eta$ を十分小さく取れば
-
+内部が $D_\eta$ と交わる小区間の添字集合を $J$ とすると
 $$
-U(f,P)-L(f,P)<\varepsilon
+\eta\sum_{i\in J}(x_i-x_{i-1})
+\le
+\sum_{i\in J}(M_i-m_i)(x_i-x_{i-1})
+\le
+U(f,P)-L(f,P)
+<
+\eta\varepsilon/2.
 $$
+従ってこれらの小区間の総延長は $<\varepsilon/2$ です。$D_\eta$ のうち残る可能性があるのは有限個の分割点だけなので、それぞれを開区間で覆い、その総延長を $<\varepsilon/2$ にできます。結局 $D_\eta$ は総延長 $<\varepsilon$ の有限開区間族で覆え、Lebesgue 測度 0 です。
 
-とできます。[Darboux可積分性判定](../RA4/index.md#thm-ra4-darboux-criterion) より $f$ はRiemann可積分です。$\square$
+$f$ が $x$ で不連続であることは $\omega_f(x)>0$ と同値なので
+$$
+D(f)=\bigcup_{m=1}^\infty D_{1/m}.
+$$
+可算個の零集合の合併は零集合だから $m(D(f))=0$ です。
+
+逆に $m(D(f))=0$ とします。$M:=\sup_{[a,b]}|f|$ とし、任意の目標誤差 $\varepsilon>0$ を固定します。$M=0$ なら $f\equiv0$ で自明なので、以下 $M>0$ とします。まず
+$$
+\eta:=\frac{\varepsilon}{2(b-a)}
+$$
+と置きます。
+
+集合 $D_\eta=\{x:\omega_f(x)\ge\eta\}$ は閉です。実際 $x\notin D_\eta$ なら $\omega_f(x)<\eta$ なので、ある $r>0$ で $B(x,2r)\cap[a,b]$ 上の振動幅が $<\eta$ になります。このとき $y\in B(x,r)$ なら $B(y,r)\subset B(x,2r)$ なので $\omega_f(y)<\eta$、従って $D_\eta^c$ は開です。
+
+$D_\eta\subset D(f)$ で測度 0、しかも $[a,b]$ の閉部分集合なのでコンパクトです。したがって有限個の開区間の合併 $G$ で
+$$
+D_\eta\subset G,
+\qquad
+m(G)<\frac{\varepsilon}{4M}
+$$
+となるものを取れます。
+
+$K:=[a,b]\setminus G$ と置くと $K$ はコンパクトで、各 $x\in K$ について $\omega_f(x)<\eta$ です。従ってある $r_x>0$ を
+$$
+\operatorname{osc}_{B(x,2r_x)\cap[a,b]}f<\eta
+$$
+となるように取れます。$K$ のコンパクト性から
+$$
+K\subset\bigcup_{j=1}^r B(x_j,r_{x_j})
+$$
+と有限部分被覆を取ります。分割 $P$ の幅を
+$$
+\operatorname{mesh}(P)<\min_{1\le j\le r}r_{x_j}
+$$
+となるように選び、さらに $G$ を作る有限個の開区間の端点も分割点へ加えます。
+
+各小区間 $I$ は二種類に分かれます。$I\subset G$ なら振動幅は高々 $2M$ です。一方 $I\not\subset G$ なら $I$ は $K$ と交わるので $y\in I\cap K$ を取れます。$y\in B(x_j,r_{x_j})$ となる $j$ を選ぶと、$I$ の長さは $r_{x_j}$ 未満だから
+$$
+I\subset B(x_j,2r_{x_j}),
+$$
+従って $I$ 上の振動幅は $<\eta$ です。
+
+よって Darboux 差は
+$$
+\begin{aligned}
+U(f,P)-L(f,P)
+&=
+\sum_{I\subset G}\operatorname{osc}_I(f)|I|
++
+\sum_{I\not\subset G}\operatorname{osc}_I(f)|I|\\
+&<
+2M\,m(G)+\eta(b-a)\\
+&<
+\frac{\varepsilon}{2}+\frac{\varepsilon}{2}
+=
+\varepsilon.
+\end{aligned}
+$$
+任意の $\varepsilon>0$ でこのような分割を作れるので、Darboux 可積分性判定より $f$ は Riemann 可積分です。$\square$
 <!-- proof-end -->
 
 この判定は「不連続点があるとRiemann積分できない」という誤解を壊します。許されないのは不連続点の**個数**ではなく、その集合のLebesgue測度です。
@@ -283,38 +384,50 @@ $$
 =
 \lim_{c\downarrow a}\int_c^bf(x)\,dx
 $$
-> が $[0,\infty]$ の値として成り立つ。右辺は広義Riemann積分である。無限区間でも同様に、切断区間を単調に広げれば一致する。
+> が $[0,\infty]$ の値として成り立つ。右辺は広義Riemann積分である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
 
-$a_n\downarrow a$ とし
-
+$a_n\downarrow a$ となる列を一つ固定し
 $$
-f_n=f\,1_{[a_n,b]}
+f_n:=f1_{[a_n,b]}
 $$
-
-と置くと $0\le f_n\uparrow f$ です。各 $f_n$ は有界閉区間上でRiemann可積分なので、[Riemann積分とLebesgue積分の一致](#thm-mt-rl-agreement) から
-
+と置きます。各 $x\in(a,b]$ について、十分大きい $n$ では $a_n\le x$ なので
 $$
-\int f_n\,dm
+0\le f_n(x)\uparrow f(x).
+$$
+各 $f_n$ は有界閉区間 $[a_n,b]$ 上で連続、従って Riemann 可積分です。[Riemann 積分と Lebesgue 積分の一致](#thm-mt-rl-agreement)を $f|_{[a_n,b]}$ に適用すると
+$$
+\int_{(a,b]} f_n\,dm
 =
-\int_{a_n}^bf(x)\,dx.
+\int_{a_n}^b f(x)\,dx.
 $$
+左辺の積分領域を $(a,b]$ と書いても、$f_n$ は $[a_n,b]$ の外で 0 だから同じです。
 
-[単調収束定理（Monotone Convergence Theorem; MCT）](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange) により
-
+[単調収束定理（Monotone Convergence Theorem; MCT）](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)を非負列 $(f_n)$ に適用すると
 $$
-\int f\,dm
+\int_{(a,b]} f\,dm
 =
-\lim_n\int f_n\,dm
+\lim_{n\to\infty}\int_{(a,b]}f_n\,dm
 =
-\lim_n\int_{a_n}^bf(x)\,dx.
+\lim_{n\to\infty}\int_{a_n}^b f(x)\,dx.
 $$
-
-$\square$
+広義積分の極限は $a_n\downarrow a$ の列の取り方によらないので、これは $c\downarrow a$ の極限に一致します。$\square$
 <!-- proof-end -->
+
+無限区間でも使う定理は同じですが、何を単調増加させるかを明示しておきます。たとえば $f:[a,\infty)\to[0,\infty)$ なら $b_n\uparrow\infty$ として
+$
+f_n=f1_{[a,b_n]}
+$
+と置けば $0\le f_n\uparrow f$ なので、単調収束定理から
+$
+\int_{[a,\infty)}f\,dm
+=
+\lim_{n\to\infty}\int_a^{b_n}f(x)\,dx.
+$
+両側無限区間では $a_n\downarrow-\infty$, $b_n\uparrow\infty$ として $f1_{[a_n,b_n]}\uparrow f$ とすれば同じ議論になります。
 
 符号を持つ関数では注意が必要です。絶対値の広義積分まで有限ならLebesgue可積分で値も一致しますが、**条件収束する広義積分**はLebesgue可積分とは限りません。
 
