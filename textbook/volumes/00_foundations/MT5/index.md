@@ -38,7 +38,7 @@ open set 上の一致から一意性
 
 を一段ずつ閉じます。
 
-位相的な唯一の新しい道具は [TOP5A「Urysohn の補題・局所コンパクト性・cutoff」](../TOP5A/index.md#thm-top5a-lch-cutoff) に正本化しました。したがって本章では Urysohn 補題、partition of unity、one-point compactification を暗黙に使いません。
+位相的な唯一の新しい道具は [TOP5A「Urysohn の補題・局所コンパクト性・cutoff」](../TOP5A/index.md#thm-top5a-lch-cutoff) に正本化しました。したがって本章では Urysohn 補題、空間全体に従属する一般的な分割構成、one-point compactification を暗黙に使いません。
 
 また Hahn–Banach、Banach 双対、Jordan 分解された汎関数も使いません。まず **正汎関数版**だけを完全に証明します。
 
@@ -248,7 +248,7 @@ $$
 
 ## 4. 有限 open cover に従属する有限分解
 
-open set の可算劣加法性を証明するには、compact support を有限個の open set へ分解する必要があります。一般の partition of unity は使いません。TOP5A の cutoff を有限回掛け合わせるだけで十分です。
+open set の可算劣加法性を証明するには、compact support を有限個の open set へ分解する必要があります。一般の 空間全体に従属する一般的な分割構成 は使いません。TOP5A の cutoff を有限回掛け合わせるだけで十分です。
 
 <a id="lem-mt5-finite-cutoff-partition"></a>
 <!-- formal-statement-start -->
@@ -333,7 +333,7 @@ $$
 が成り立ちます。$x\in K$ では少なくとも一つの $g_j(x)=1$ なので右辺は1です。$\square$
 <!-- proof-end -->
 
-この補題は一般の partition of unity より弱いですが、Riesz–Markov の構成にはこれで足ります。
+この補題は一般の 空間全体に従属する一般的な分割構成 より弱いですが、Riesz–Markov の構成にはこれで足ります。
 
 ---
 
@@ -1330,7 +1330,7 @@ $$
 | 表現 | 高さ方向の有限分割 + 正性の局所 order bound |
 | 一意性 | cutoff + inner/outer regularity |
 
-Hahn–Banach、Banach–Alaoglu、一般の partition of unity、一般の Urysohn 補題を外部定理としては使っていません。
+Hahn–Banach、Banach–Alaoglu、一般の 空間全体に従属する一般的な分割構成、一般の Urysohn 補題を外部定理としては使っていません。
 
 ---
 
@@ -1540,7 +1540,7 @@ $$
 
 - Level: B
 
-$m(U)$ の可算劣加法性の証明で、なぜ open cover $U\subseteq\bigcup_nU_n$ から最初から全空間の partition of unity を作る必要がないのか説明せよ。
+$m(U)$ の可算劣加法性の証明で、なぜ open cover $U\subseteq\bigcup_nU_n$ から最初から全空間の 空間全体に従属する一般的な分割構成 を作る必要がないのか説明せよ。
 
 ## B2. open set 上の一致だけで一意性が出る理由
 
@@ -1675,7 +1675,7 @@ $$
 
 で有限分解すれば足ります。
 
-つまり必要なのは「空間全体に従属する partition of unity」ではなく、**一つの compact support を有限化する能力**です。これが一般 partition of unity を依存に入れなくてよい理由です。
+つまり必要なのは「空間全体に従属する 空間全体に従属する一般的な分割構成」ではなく、**一つの compact support を有限化する能力**です。これが一般 空間全体に従属する一般的な分割構成 を依存に入れなくてよい理由です。
 
 ## B2 解答
 
