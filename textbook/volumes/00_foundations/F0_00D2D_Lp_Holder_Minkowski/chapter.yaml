@@ -17,8 +17,8 @@ learning_objectives:
 definitions:
   - { id: F000D2D-DEF-01, name: a.e.同値関係 }
   - { id: F000D2D-DEF-02, name: Lp空間 }
-  - { id: F000D2D-DEF-03, name: L∞空間 }
-  - { id: F000D2D-DEF-04, name: 本質的上限 }
+  - { id: F000D2D-DEF-03, name: 本質的上限 }
+  - { id: F000D2D-DEF-04, name: L∞空間 }
 theorems:
   - { id: F000D2D-THM-01, name: Youngの不等式 }
   - { id: F000D2D-THM-02, name: Hölderの不等式 }
