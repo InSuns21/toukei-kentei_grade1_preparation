@@ -1,5 +1,5 @@
 id: "F0-00P5A"
-title: "truncation・Kolmogorov収束定理・Kronecker補題・一般iid強大数則"
+title: "切断・Kolmogorov収束定理・Kronecker補題・一般独立同分布強大数則"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -7,18 +7,18 @@ prerequisites:
   - F0-00D2C
 official_scope: []
 learning_objectives:
-  - 有限平均からtail確率和の有限性を示せる
+  - 有限平均から尾確率和の有限性を示せる
   - 切断変数の分散級数を評価できる
   - Kolmogorov収束定理を最大不等式から説明できる
-  - Kronecker補題をsummation by partsで証明できる
-  - 一般iid強大数則を閉じた証明として再構成できる
+  - Kronecker補題を部分和変換で証明できる
+  - 一般独立同分布強大数則を閉じた証明として再構成できる
 definitions:
-  - { id: F0P5A-DEF-01, name: truncation }
+  - { id: F0P5A-DEF-01, name: 切断 }
 theorems:
   - { id: F0P5A-THM-01, name: Kolmogorov収束定理 }
   - { id: F0P5A-THM-02, name: Kronecker補題 }
-  - { id: F0P5A-THM-03, name: iid有限平均強大数則 }
-canonical_examples: [heavy-tail finite mean]
+  - { id: F0P5A-THM-03, name: 独立同分布・有限平均版の強大数則 }
+canonical_examples: [有限平均・無限分散の重い尾をもつ分布]
 problem_patterns: [SLLN-TRUNCATION-1, KRONECKER-1]
 past_exam_alignment: []
 integrated_exam_problems: []
