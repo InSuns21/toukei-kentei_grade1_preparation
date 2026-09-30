@@ -19,10 +19,10 @@ concepts:
       - prob.random-variable
 
   - id: prob.dyadic-subsequence
-    name: dyadic subsequence
+    name: 2冪部分列
     kind: definition
-    aliases: [dyadic subsequence]
-    introduction_aliases: ["定義（dyadic subsequence）"]
+    aliases: [2冪部分列, dyadic subsequence]
+    introduction_aliases: ["定義（2冪部分列（dyadic subsequence））"]
     requires: []
 
   - id: prob.fourth-moment-slln
@@ -48,9 +48,9 @@ concepts:
       - prob.variance
 
   - id: prob.finite-variance-slln
-    name: 有限分散iid強大数則
+    name: 有限分散版強大数則
     kind: theorem
-    aliases: [有限分散iid強大数則, 有限分散版強大数則, 有限分散版の強大数則]
+    aliases: [有限分散版強大数則, 有限分散版の強大数則, 有限分散独立同分布強大数則]
     introduction_aliases: ["定理（有限分散版強大数則）"]
     requires:
       - prob.kolmogorov-maximal-inequality
