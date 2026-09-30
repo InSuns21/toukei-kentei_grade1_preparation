@@ -3,6 +3,7 @@ title: "補講：Lp空間・Hölderの不等式・Minkowskiの不等式"
 volume: "foundations"
 status: supplementary
 prerequisites:
+  - F0-00D1
   - F0-00D2A
 official_scope: []
 learning_objectives:
