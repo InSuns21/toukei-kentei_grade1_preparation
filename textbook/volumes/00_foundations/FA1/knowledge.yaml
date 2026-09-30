@@ -13,7 +13,7 @@ concepts:
   - id: functional.quotient-norm
     name: 商ノルム
     kind: definition
-    aliases: [商ノルム, quotient norm, "### 定義（商ノルム）"]
+    aliases: [商ノルム, quotient norm]
     introduction_aliases: ["### 定義（商ノルム）"]
     requires:
       - linear.quotient-space
@@ -22,7 +22,7 @@ concepts:
   - id: functional.quotient-norm-well-defined
     name: 商ノルムの代表元によらない定まり方とノルム性
     kind: theorem
-    aliases: [商ノルムのwell-defined性とノルム性, 商ノルムの代表元によらない定まり方とノルム性, "### 定理（商ノルムの代表元によらない定まり方とノルム性）"]
+    aliases: [商ノルムのwell-defined性とノルム性, 商ノルムの代表元によらない定まり方とノルム性]
     introduction_aliases: ["### 定理（商ノルムの代表元によらない定まり方とノルム性）"]
     requires:
       - functional.quotient-norm
@@ -31,7 +31,7 @@ concepts:
   - id: functional.quotient-map-open-balls
     name: 標準商写像の開球像
     kind: lemma
-    aliases: [標準商写像の開球像, "### 補題（標準商写像は開球を開球へ写す）"]
+    aliases: [標準商写像の開球像]
     introduction_aliases: ["### 補題（標準商写像は開球を開球へ写す）"]
     requires:
       - functional.quotient-norm-well-defined
@@ -40,7 +40,7 @@ concepts:
   - id: functional.quotient-banach-space
     name: Banach空間の閉部分空間による商はBanach
     kind: theorem
-    aliases: [Banach空間の閉部分空間による商はBanach, quotient Banach space, "### 定理（Banach 空間の閉部分空間による商は Banach）"]
+    aliases: [Banach空間の閉部分空間による商はBanach, quotient Banach space]
     introduction_aliases: ["### 定理（Banach 空間の閉部分空間による商は Banach）"]
     requires:
       - functional.quotient-norm-well-defined
@@ -49,7 +49,7 @@ concepts:
   - id: functional.pointwise-bounded-operator-family
     name: 点ごとに有界な作用素族
     kind: definition
-    aliases: [点ごとに有界な作用素族, pointwise bounded operator family, "### 定義（点ごとに有界な作用素族）"]
+    aliases: [点ごとに有界な作用素族, pointwise bounded operator family]
     introduction_aliases: ["### 定義（点ごとに有界な作用素族）"]
     requires:
       - functional.bounded-linear-operator
@@ -57,7 +57,7 @@ concepts:
   - id: functional.uniformly-bounded-operator-family
     name: 一様有界な作用素族
     kind: definition
-    aliases: [一様有界な作用素族, uniformly bounded family, "### 定義（一様有界な作用素族）"]
+    aliases: [一様有界な作用素族, uniformly bounded family]
     introduction_aliases: ["### 定義（一様有界な作用素族）"]
     requires:
       - functional.operator-norm
@@ -65,7 +65,7 @@ concepts:
   - id: functional.uniform-boundedness-principle
     name: 一様有界性原理
     kind: theorem
-    aliases: [一様有界性原理, Banach-Steinhaus, Banach–Steinhaus, uniform boundedness principle, "### 定理（一様有界性原理：Banach–Steinhaus）"]
+    aliases: [一様有界性原理, Banach-Steinhaus, Banach–Steinhaus, uniform boundedness principle]
     introduction_aliases: ["### 定理（一様有界性原理：Banach–Steinhaus）"]
     requires:
       - functional.pointwise-bounded-operator-family
@@ -76,7 +76,7 @@ concepts:
   - id: functional.pointwise-limit-uniform-boundedness
     name: 各点収束する作用素列の一様有界性
     kind: corollary
-    aliases: [pointwise収束する作用素列の一様有界性, 各点収束する作用素列の一様有界性, "### 系（各点収束する作用素列の一様有界性）"]
+    aliases: [pointwise収束する作用素列の一様有界性, 各点収束する作用素列の一様有界性]
     introduction_aliases: ["### 系（各点収束する作用素列の一様有界性）"]
     requires:
       - functional.uniform-boundedness-principle
@@ -84,7 +84,7 @@ concepts:
   - id: functional.dense-unbounded-orbits
     name: 一様非有界作用素族の発散点は稠密
     kind: corollary
-    aliases: [一様非有界作用素族の発散点は稠密, "### 系（一様非有界作用素族の発散点は稠密）"]
+    aliases: [一様非有界作用素族の発散点は稠密]
     introduction_aliases: ["### 系（一様非有界作用素族の発散点は稠密）"]
     requires:
       - functional.uniform-boundedness-principle
