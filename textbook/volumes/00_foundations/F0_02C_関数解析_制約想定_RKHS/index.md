@@ -18,6 +18,8 @@ A → A1 → A2 → A3 → B
 → C3   Banach空間のFréchet微分 / 有界線形写像
 → C3A  随伴作用素
 → C3B  Fréchet連鎖律 / Hilbert随伴の証明
+→ FA1  Banach空間の商 / Baire / 一様有界性原理
+→ FA2  開写像定理 / 有界逆定理 / 閉グラフ定理
 → C6   Hahn--Banach
 → C6A  分離定理 / Minkowski functional / Farkas
 
@@ -56,6 +58,12 @@ Hilbert射影
 Banach空間のFréchet微分 / 有界線形写像
  ↓
 随伴作用素
+ ↓
+Fréchet連鎖律 / Hilbert随伴の証明
+ ↓
+Banach空間の商 / Baire / 一様有界性原理
+ ↓
+開写像定理 / 有界逆定理 / 閉グラフ定理
  ↓
 Hahn--Banach
  ↓
@@ -145,6 +153,7 @@ representer theorem / kernel SVM
 - **Banach/Hilbertの基礎**：F0-02C1まで。
 - **Hilbert射影定理とRiesz**：F0-02C2まで（C1Aを経由）。
 - **Fréchet微分と随伴**：F0-02C3Bまで。
+- **Baire系の基本三定理**：FA2まで（一様有界性原理・開写像定理・有界逆定理・閉グラフ定理を含む）。
 - **Hahn--Banachと分離**：F0-02C6Aまで。
 - **凸性の基礎**：F0-00Gまで。
 - **epigraph・閉凸関数・支持超平面**：F0-00G1まで。
@@ -161,7 +170,7 @@ representer theorem / kernel SVM
 標準通読順は上の通りですが、数学的な必須前提だけを見ると次の短絡ができます。
 
 - `F0-00G` は `F0-00F1` のあとから読める。
-- Hahn--Banach本体は `F0-00A3 + F0-02C2` から読める。
+- Hahn--Banach本体は `F0-00A3 + F0-02C2` から読めるため、数学的な最小前提だけを求めるなら FA1/FA2 を先に通らなくてもよい。
 - RKHS1 は `F0-02C2` から読める。
 - RKHS2 は RKHS1 から読める。
 - 有限次元KKTの概要 `F0-02` は `F0-00G` のあとに先取りできる。
