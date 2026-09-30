@@ -8,7 +8,7 @@ prerequisites:
 official_scope: []
 learning_objectives:
   - 事象列のlimsupとliminfを量化記号と経路上の意味の両方で説明できる
-  - i.o.とeventuallyをlimsupとliminfに対応付けられる
+  - i.o.と「最終的に」の意味をlimsupとliminfに対応付けられる
   - limsupとliminfの補集合関係を証明できる
   - 独立な事象列と末尾sigma代数・末尾事象を定義できる
   - 独立列のブロック独立性をpi-lambda定理から証明できる
