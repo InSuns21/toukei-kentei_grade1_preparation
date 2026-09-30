@@ -186,17 +186,55 @@ $$
 s=\pm |m|.
 $$
 
-原点で有限な枝は $s=|m|$ の方です。標準正規化を施したものを Bessel 関数 $J_{|m|}$ と呼びます。整数 $m\ge0$ なら
+原点で有限な枝は $s=|m|$ の方です。ただし線形 ODE の解は定数倍だけ不定なので、固有モードとして共通に使うには正規化も固定する必要があります。先頭項を
+
+$$
+\frac1{m!}\left(\frac{\rho}{2}\right)^m
+$$
+
+とする標準正規化を採用します。
+
+<a id="def-pde11-bessel-function"></a>
+<!-- formal-statement-start -->
+> **定義（整数次数 Bessel 関数）**  
+> 非負整数 $m$ に対し
 
 $$
 J_m(\rho)
 =
 \sum_{k=0}^{\infty}
 \frac{(-1)^k}{k!(m+k)!}
-\left(\frac{\rho}{2}\right)^{2k+m}.
+\left(\frac{\rho}{2}\right)^{2k+m}
 $$
 
-実際、$R=\rho^m\sum_{k\ge0}a_k\rho^{2k}$ を代入すると
+> で定まる関数を、整数次数 $m$ の Bessel 関数と呼ぶ。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-pde11-bessel-function -->
+**定義の確認**：$m=0$ では
+
+$$
+J_0(\rho)
+=
+1-\frac{\rho^2}{4}
++\frac{\rho^4}{64}
+-\cdots,
+$$
+
+$m=1$ では
+
+$$
+J_1(\rho)
+=
+\frac{\rho}{2}
+-\frac{\rho^3}{16}
++\cdots.
+$$
+
+したがって $J_0(0)=1$ で、$m\ge1$ では $J_m(\rho)$ は $\rho^m$ の次数から始まり、原点で有限です。
+<!-- definition-example-end -->
+
+この級数が半径方程式から出ることを係数漸化式で確認します。$R=\rho^m\sum_{k\ge0}a_k\rho^{2k}$ を代入すると
 
 $$
 a_{k+1}
@@ -400,6 +438,8 @@ $$
 
 です。
 <!-- proof-end -->
+
+正則な半径解 $J_{|m|}$ が得られたので、次は外周 $r=1$ の Dirichlet 条件を課します。境界値を0にするには $J_{|m|}(\sqrt\lambda)=0$ が必要であり、正零点 $j_{|m|,k}$ ごとに離散的な固有値が選ばれます。この「角モード + 正則な半径モード + 境界零点」を一つの固有モードとしてまとめます。
 
 <a id="def-pde11-bessel-mode"></a>
 <!-- formal-statement-start -->
@@ -693,7 +733,12 @@ $$
 
 これは Legendre の陪微分方程式（associated Legendre equation）です。
 
-ここで「正則解を選ぶ」とだけ言って済ませず、Legendre 多項式から実際に作ります。$0\le m\le\ell$ に対して
+ここで「正則解を選ぶ」とだけ言って済ませず、Legendre 多項式から実際に作ります。方位角モード $m$ が増えるほど極 $x=\pm1$ で特異項 $m^2/(1-x^2)$ が強くなるため、$P_\ell$ を $m$ 回微分した後に $(1-x^2)^{m/2}$ を掛け、極での振る舞いを補正します。
+
+<a id="def-pde11-associated-legendre"></a>
+<!-- formal-statement-start -->
+> **定義（Legendre 陪関数）**  
+> $\ell=0,1,2,\ldots$ と $0\le m\le\ell$ に対し
 
 $$
 P_\ell^m(x)
@@ -703,7 +748,31 @@ P_\ell^m(x)
 \frac{d^m}{dx^m}P_\ell(x)
 $$
 
-と定めます。
+> を Legendre 陪関数と呼ぶ。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-pde11-associated-legendre -->
+**定義の確認**：$P_1(x)=x$ なので
+
+$$
+P_1^1(x)
+=
+-(1-x^2)^{1/2}
+\frac d{dx}x
+=
+-\sqrt{1-x^2}.
+$$
+
+$x=\cos\theta$ なら
+
+$$
+P_1^1(\cos\theta)=-\sin\theta,
+$$
+
+となり、極 $\theta=0,\pi$ で0になることも直接確認できます。
+<!-- definition-example-end -->
+
+この定義が実際に Legendre の陪微分方程式を満たすことを次で確かめます。
 
 <a id="prop-pde11-spherical-eigenmode"></a>
 <!-- formal-statement-start -->
