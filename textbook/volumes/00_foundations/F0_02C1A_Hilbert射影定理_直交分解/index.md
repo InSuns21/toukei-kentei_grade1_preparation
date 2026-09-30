@@ -134,13 +134,19 @@ $$
 \delta=\inf_{x\in C}\|z-x\|
 $$
 
-と置きます。infimumの定義から、各 $n\ge1$ に対して
+と置きます。距離値の集合
+
+$$
+S=\{\|z-x\|:x\in C\}
+$$
+
+を考えると、$\delta=\inf S$ です。各 $n\ge1$ について $\delta+1/n$ が $S$ の下界なら $\delta$ より大きい下界が存在してしまうので、$\delta+1/n$ は下界ではありません。従って、ある $x_n\in C$ が存在して
 
 $$
 \delta\le\|z-x_n\|<\delta+\frac1n
 $$
 
-を満たす $x_n\in C$ を取れます。したがって
+となります。したがって
 
 $$
 \|z-x_n\|\to\delta.
@@ -197,7 +203,19 @@ $$
 2\delta^2+2\delta^2-4\delta^2=0
 $$
 
-へ行きます。よって任意の $\varepsilon>0$ に対して十分大きい $n,m$ では $\|x_n-x_m\|<\varepsilon$ となり、$(x_n)$ はCauchy列です。
+へ行きます。ここで任意の $\varepsilon>0$ を固定します。十分大きい $n,m$ を取れば上の右辺を $\varepsilon^2$ より小さくできるので
+
+$$
+0\le\|x_n-x_m\|^2<\varepsilon^2.
+$$
+
+両辺の平方根を取って
+
+$$
+\|x_n-x_m\|<\varepsilon
+$$
+
+を得ます。従って $(x_n)$ はCauchy列です。
 
 $H$ は完備なので、ある $p\in H$ が存在して
 
@@ -749,17 +767,28 @@ $$
 C=\{x\in H:\|x\|\le r\}
 $$
 
-とする。$\|z\|>r$ のとき
+とする。$C$ が閉かつ凸であることを確認したうえで、$\|z\|>r$ のとき
 
 $$
 P_C(z)=r\frac{z}{\|z\|}
 $$
 
-であることを、[Hilbert射影の変分不等式特徴付け](#thm-f0-02c1a-projection-characterization)を使って示せ。なお $C$ が凸であることも確認せよ。
+であることを、[Hilbert射影の変分不等式特徴付け](#thm-f0-02c1a-projection-characterization)を使って示せ。
 
 <!-- solution-start -->
 #### 詳細解答
-まず $x,y\in C$、$0\le t\le1$ なら三角不等式より
+まず閉性を確認します。$x_n\in C$ かつ $x_n\to x$ とすると、前章の[ノルム写像の連続性](../F0_02C1_ノルム空間_Banach_Hilbert/index.md#lem-f0-02c1-norm-continuity)より
+
+$$
+\|x\|
+=
+\lim_{n\to\infty}\|x_n\|
+\le r.
+$$
+
+従って $x\in C$ なので、[閉集合の点列特徴付け](../F0_00B_距離空間_開集合_閉集合_収束/index.md#thm-f0-00b-01)から $C$ は閉です。
+
+次に $x,y\in C$、$0\le t\le1$ なら三角不等式より
 
 $$
 \|(1-t)x+ty\|
