@@ -552,7 +552,23 @@ $$
 と定める。
 <!-- formal-statement-end -->
 
-$P$ は正集合、$N$ は負集合なので $\nu^+,\nu^-$ は非負値です。可算加法性は $\nu$ の可算加法性から直ちに従うため、どちらも有限な正の測度です。また
+$P$ は正集合、$N$ は負集合なので $\nu^+,\nu^-$ は非負値です。可算加法性も式で確認します。互いに素な可測集合列 $(E_j)$ に対して
+
+$$
+\begin{aligned}
+\nu^+\left(\bigsqcup_jE_j\right)
+&=
+\nu\left(\left(\bigsqcup_jE_j\right)\cap P\right)\\
+&=
+\nu\left(\bigsqcup_j(E_j\cap P)\right)\\
+&=
+\sum_j\nu(E_j\cap P)
+=
+\sum_j\nu^+(E_j).
+\end{aligned}
+$$
+
+$\nu^-$ についても、$N$ との共通部分を取って最後に符号を反転すれば同じ可算加法性が得られます。従ってどちらも有限な正の測度です。また
 
 $$
 \nu(E)
