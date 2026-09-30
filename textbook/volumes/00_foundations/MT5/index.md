@@ -947,9 +947,9 @@ $$
 
 $f\in C_c(X)$, $f\ge0$ なら
 
-$
+$$
 \boxed{L(f)=\int_X f\,d\mu.}
-$
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
