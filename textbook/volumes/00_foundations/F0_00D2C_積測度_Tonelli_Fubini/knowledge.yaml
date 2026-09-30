@@ -18,9 +18,9 @@ concepts:
   # MT3 に同じ数学概念の canonical ID があるが、D2C は MT3 を prerequisite にしない。
   # 積測度の仮定をこの補講内で自己完結に再掲する局所概念として扱う。
   - id: measure.sigma-finite-measure-d2c-recap
-    name: 積測度で使うσ有限測度の再掲
+    name: D2Cで再掲するσ有限測度
     kind: definition
-    aliases: [積測度で使うσ有限測度の再掲]
+    aliases: [D2Cで再掲するσ有限測度]
     introduction_aliases: [σ有限測度]
     requires:
       - measure.measure-space
