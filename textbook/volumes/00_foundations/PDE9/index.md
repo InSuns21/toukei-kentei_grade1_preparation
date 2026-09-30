@@ -109,13 +109,32 @@ $$
 \int_{|y-x|<r}\Delta h(y)\,dy.
 $$
 
-ここで両辺を $r$ で微分します。右辺は半径 $r$ の球を少し広げたときに増える薄い球殻の積分なので、
+ここで両辺を $r$ で微分します。右辺の微分を飛ばさないため、中心 $x$ の球座標で書くと
 
 $$
-\frac d{dr}
 \int_{|y-x|<r}\Delta h(y)\,dy
 =
+\int_0^r
+\rho^2
+\left[
+\int_{S^2}
+\Delta h(x+\rho\omega)\,dS_\omega
+\right]d\rho.
+$$
+
+角括弧内は $\rho$ の連続関数なので、微積分学の基本定理を上端 $r$ に適用して
+
+$$
+\begin{aligned}
+\frac d{dr}
+\int_{|y-x|<r}\Delta h(y)\,dy
+&=
+r^2
+\int_{S^2}
+\Delta h(x+r\omega)\,dS_\omega\\
+&=
 \int_{|y-x|=r}\Delta h(y)\,dS_y.
+\end{aligned}
 $$
 
 球面平均の定義を使えば
