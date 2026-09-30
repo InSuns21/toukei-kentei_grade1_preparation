@@ -588,7 +588,7 @@ f1_E
 \sum_{k=1}^{\infty}f_k1_{E\cap C_k}
 $$
 
-は非負関数の互いに素な和です。有限部分和に MCT を適用すれば
+は非負関数の互いに素な和です。最初の $m$ 項までを足した関数に MCT を適用し、$m\to\infty$ とすれば
 
 $$
 \int_Ef\,d\mu
@@ -1548,7 +1548,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-mt3-b02"></a>
-#### MT3-B02 chain rule
+#### MT3-B02 Radon–Nikodym 微分の連鎖律
 - Level: B
 
 $\lambda\ll\nu\ll\mu$ とし
