@@ -23,7 +23,7 @@ theorems:
   - { id: F0P3B-THM-02, name: 条件付き期待値のL2縮小性 }
   - { id: F0P3B-THM-03, name: 条件付き期待値の直交性 }
   - { id: F0P3B-THM-04, name: 条件付き期待値は最小二乗最良予測 }
-canonical_examples: [有限標本空間のL2(G), 最良予測, 線形回帰との比較, jointly Gaussianのアフィン予測]
+canonical_examples: [有限標本空間のL2(G), 最良予測, 線形回帰との比較, 同時Gaussian分布のアフィン予測]
 problem_patterns: [COND-PROJECTION-1, L2-CONTRACTION-1, BEST-PREDICTOR-1, NESTED-PROJECTION-1]
 past_exam_alignment: []
 integrated_exam_problems: []

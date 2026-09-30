@@ -1,4 +1,4 @@
-# F0-00P3A 条件付き期待値：部分σ代数上のRadon–Nikodym構成
+# F0-00P3A 条件付き期待値：情報を表すσ代数上のRadon–Nikodym構成
 
 <!-- definition-example-audit: strict -->
 
@@ -21,6 +21,10 @@ E[X|Y] の意味
 ---
 
 ## 1. 条件付き期待値の定義
+
+一つの事象 $A$ が起きたと分かった場合なら、$P(A)>0$ のもとで「$A$ の中での平均」を一つの数として計算できます。しかし部分 $\sigma$ 代数 $\mathcal G$ が表す情報は、どの事象が実現したかによって異なる値を返す必要があります。したがって欲しいものは一つの定数ではなく、**$\mathcal G$ だけから読み取れる確率変数**です。
+
+その確率変数には二つの役割があります。現在の情報より細かい区別をしてはいけないこと、そして $\mathcal G$ で観測できるどの事象 $A$ の上でも元の $X$ と同じ積分を持つことです。さらに平均として有限に扱うため可積分性も要求します。この三条件を次でまとめます。
 
 <a id="def-f0-00p3a-conditional-expectation"></a>
 
@@ -117,6 +121,10 @@ $$
 
 ## 3. 存在：符号付き測度へ直接RNを使わない
 
+有限分割ではセル平均を明示的に書けましたが、一般の部分 $\sigma$ 代数には有限個のセルがあるとは限りません。定義の3条件を満たす確率変数が本当に作れるかは別問題です。
+
+積分一致条件を見ると、$A\in\mathcal G$ に対して $A\mapsto\int_A X\,dP$ という集合関数を、$P$ に対する密度で表せればよさそうです。ただし $X$ が正負の値を取るとこの集合関数は非負測度ではありません。そこで正部分と負部分へ分け、それぞれに [Radon--Nikodym定理](../F0_00P2_密度_期待値_Radon_Nikodym/index.md#thm-f0-00p2-radon-nikodym)を適用してから差を取ります。
+
 <a id="thm-f0-00p3a-existence-uniqueness"></a>
 
 <!-- formal-statement-start -->
@@ -159,13 +167,24 @@ $$
 =\sum_{k=1}^\infty\nu_+(A_k).
 $$
 
-$\nu_-$ も同様です。また $\nu_\pm(\Omega)=E[X^\pm]<\infty$ なので有限測度です。さらに $P(A)=0$ なら測度0集合上の積分は0なので
+$X^-$ についても、互いに素な $A_1,A_2,\ldots\in\mathcal G$ に対し
+
+$$
+X^-\mathbf1_{\cup_{k=1}^nA_k}
+=\sum_{k=1}^nX^-\mathbf1_{A_k}
+\uparrow
+X^-\mathbf1_{\cup_{k=1}^\infty A_k}
+$$
+
+なので、同じ[単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)の適用から $\nu_-$ の可算加法性が従います。また $\nu_\pm(\Omega)=E[X^\pm]<\infty$ なので有限測度です。さらに $P(A)=0$ なら測度0集合上の積分は0なので
 
 $$
 \nu_+\ll P|_{\mathcal G},
 \qquad
 \nu_-\ll P|_{\mathcal G}.
 $$
+
+ここで $P|_{\mathcal G}$ は確率測度なので有限、$\nu_\pm$ も上で有限と確認しました。従って三つの測度は $\sigma$ 有限であり、上で参照した定理の適用条件がそろっています。
 
 [P2のRadon--Nikodym定理](../F0_00P2_密度_期待値_Radon_Nikodym/index.md#thm-f0-00p2-radon-nikodym)をそれぞれに適用すると、非負 $\mathcal G$-可測関数 $f_+,f_-$ が存在して
 
@@ -223,6 +242,10 @@ $$
 ---
 
 ## 4. 基本性質
+
+存在だけでは計算には使いにくいので、通常の期待値と同じように線形性や単調性が保たれることを確認します。また、情報 $\mathcal G$ だけで既に分かっている有界量は条件付けの外へ出せることも示します。
+
+ここでの証明方針は、新しい公式を暗記することではありません。候補が $\mathcal G$-可測・可積分であることを確認し、各 $A\in\mathcal G$ 上で積分一致を示した後、前節の a.s. 一意性で同定します。
 
 <a id="thm-f0-00p3a-basic-properties"></a>
 
@@ -286,7 +309,25 @@ $$
 -|X|\le X\le|X|
 $$
 
-に単調性を適用すると
+に単調性を適用します。線形性から
+
+$$
+E[-|X|\mid\mathcal G]
+=
+-E[|X|\mid\mathcal G]
+$$
+
+なので
+
+$$
+-E[|X|\mid\mathcal G]
+\le
+E[X\mid\mathcal G]
+\le
+E[|X|\mid\mathcal G].
+$$
+
+また正値性から $E[|X|\mid\mathcal G]\ge0$ a.s. です。従って実数の不等式 $-u\le v\le u$、$u\ge0$ を $u=E[|X|\mid\mathcal G]$、$v=E[X\mid\mathcal G]$ に適用して
 
 $$
 |E[X\mid\mathcal G]|
@@ -369,6 +410,10 @@ $$
 
 ## 5. tower property
 
+情報を $\mathcal G$ まで見た後、さらに粗い情報 $\mathcal H\subseteq\mathcal G$ だけを残したいとします。このとき「まず $\mathcal G$ で平均し、その結果を $\mathcal H$ で平均する」操作と、「最初から $\mathcal H$ だけで平均する」操作が一致してほしいところです。
+
+定義から見ると、$A\in\mathcal H$ は自動的に $A\in\mathcal G$ でもあるため、二段階の条件付けでも $A$ 上の積分は元の $X$ の積分に戻ります。この観察を次で定式化します。
+
 <a id="thm-f0-00p3a-tower"></a>
 
 <!-- formal-statement-start -->
@@ -436,7 +481,7 @@ $$
 \frac{E[X\mathbf1_{\{Y=y\}}]}{P(Y=y)}
 $$
 
-を $E[X\mid Y=y]$ の定義として使うことはできません。$m(Y)$ 表示が得られた後も、$m$ は $P_Y$-a.e. にしか決まらないため、零確率の点 $y$ での値にはversionの自由度があります。この点もP3Dで整理します。
+を $E[X\mid Y=y]$ の定義として使うことはできません。$m(Y)$ 表示が得られた後も、$m$ は $P_Y$-a.e. にしか決まらないため、零確率の点 $y$ での値には**版（version）**の自由度があります。この点もP3Dで整理します。
 
 ---
 
@@ -548,7 +593,7 @@ $$
 - Level: B
 - 目安時間: 15分
 
-$X\in L^1$ が正負の値を取るとする。$A\mapsto\int_AX\,dP$ にP2の非負測度版Radon--Nikodym定理を直接適用できない理由を述べ、$X^+,X^-$ を使って存在証明を完成させよ。
+$X\in L^1$ が正負の値を取るとする。$A\mapsto\int_AX\,dP$ にP2の非負測度版[Radon--Nikodym定理](../F0_00P2_密度_期待値_Radon_Nikodym/index.md#thm-f0-00p2-radon-nikodym)を直接適用できない理由を述べ、$X^+,X^-$ を使って存在証明を完成させよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -624,16 +669,22 @@ P(Y=0)=\frac12,
 P(Y=1)=\frac12.
 $$
 
-従って
+有限分割公式では、$\{Y=0\}$ 上の値は
 
 $$
-E[X\mid Y=0]
-=0\cdot\frac{1/4}{1/2}+2\cdot\frac{1/4}{1/2}=1,
+\frac{E[X\mathbf1_{\{Y=0\}}]}{P(Y=0)}
+=
+\frac{0\cdot(1/4)+2\cdot(1/4)}{1/2}
+=1,
 $$
 
+$\{Y=1\}$ 上の値は
+
 $$
-E[X\mid Y=1]
-=0\cdot\frac{1/8}{1/2}+2\cdot\frac{3/8}{1/2}=\frac32.
+\frac{E[X\mathbf1_{\{Y=1\}}]}{P(Y=1)}
+=
+\frac{0\cdot(1/8)+2\cdot(3/8)}{1/2}
+=\frac32.
 $$
 
 したがって
@@ -669,19 +720,43 @@ $$
 
 <!-- solution-start -->
 #### 詳細解答
-1. 各セル平均を取れば
+1. $\mathcal G$ が区別するセルは $\{1,2\}$ と $\{3,4\}$ です。それぞれの条件付き平均は
+
+$$
+\frac{0+2}{2}=1,
+\qquad
+\frac{4+10}{2}=7.
+$$
+
+従って
 
 $$
 E[X\mid\mathcal G]=(1,1,7,7).
 $$
 
-2. その全体平均は
+2. $\mathcal H$ は自明な情報なので、$\mathcal H$ への条件付き期待値は全体平均という定数です。まず $E[X\mid\mathcal G]$ の全体平均は
 
 $$
 \frac{1+1+7+7}{4}=4.
 $$
 
-一方 $E[X]=(0+2+4+10)/4=4$ なので、両方とも定数4でありtower propertyを具体的に確認できる。
+一方
+
+$$
+E[X]=\frac{0+2+4+10}{4}=4.
+$$
+
+従って
+
+$$
+E[E[X\mid\mathcal G]\mid\mathcal H]
+=
+4
+=
+E[X\mid\mathcal H]
+$$
+
+であり、tower property を具体的に確認できます。
 
 3.
 

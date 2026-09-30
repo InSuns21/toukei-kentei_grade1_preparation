@@ -14,11 +14,15 @@ $$
 
 ## 1. 情報 $\mathcal G$ だけで作れる $L^2$ 確率変数
 
+P3A では、条件付き期待値 $E[X\mid\mathcal G]$ が $\mathcal G$-可測になることを要求しました。$X\in L^2$ のとき、この条件を幾何学的に読むには、「$\mathcal G$ だけから作れて、しかも二乗可積分な確率変数」を射影先として一つの集合にまとめる必要があります。
+
+ただし $L^2$ の元は a.s. 等しい関数を同一視しているため、ある代表関数が $\mathcal G$-可測であれば十分です。この射影先を次の記号で表します。
+
 <a id="def-f0-00p3b-l2g"></a>
 
 <!-- formal-statement-start -->
-> **定義（$L^2(\mathcal G)$）**  
-> 確率空間 $(\Omega,\mathcal F,P)$ と部分 $\sigma$ 代数 $\mathcal G\subseteq\mathcal F$ に対して次で定めます。
+> **定義（L2(G)）**  
+> 確率空間 $(\Omega,\mathcal F,P)$ と $\mathcal G\subseteq\mathcal F$ を満たす $\sigma$ 代数 $\mathcal G$ に対して次で定めます。
 
 $$
 L^2(\mathcal G)=\{Z\in L^2(\mathcal F):Z\text{ は }\mathcal G\text{-可測な代表元を持つ}\}.
@@ -63,13 +67,23 @@ $$
 
 ---
 
-## 2. $L^2(\mathcal G)$ は閉部分空間
+## 2. $L^2(\mathcal G)$ は $L^2$ 極限で閉じている
+
+[Hilbert射影定理](../F0_02C1A_Hilbert射影定理_直交分解/index.md#thm-hilbert-projection)を使うには、射影先が線形結合に閉じているだけでなく、$L^2$ ノルムで極限を取っても射影先から出ないことが必要です。線形性は可測関数の線形結合からすぐ分かりますが、$L^2$ 極限を取ったときにも $\mathcal G$-可測な代表元を保てるかは別に確認が必要です。
+
+$L^2$ 収束そのものは全ての $\omega$ での収束を意味しないので、まず十分速く収束する部分列を取り、[Markovの不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-markov)と確率評価から a.s. 収束する部分列を作ります。その極限を $\mathcal G$-可測な代表元として採用するのが核心です。
 
 <a id="thm-f0-00p3b-l2g-closed"></a>
 
 <!-- formal-statement-start -->
-> **定理（$L^2(\mathcal G)$ の閉部分空間性）**  
-> $L^2(\mathcal G)$ はHilbert空間 $L^2(\mathcal F)$ の閉線形部分空間です。
+> **定理（L2(G)の閉部分空間性）**  
+> $L^2(\mathcal G)$ は $L^2(\mathcal F)$ の線形部分空間です。さらに、$Z_n\in L^2(\mathcal G)$、$Z\in L^2(\mathcal F)$ が
+
+$$
+\|Z_n-Z\|_2\to0
+$$
+
+> を満たすなら $Z\in L^2(\mathcal G)$ です。
 <!-- formal-statement-end -->
 
 線形部分空間であることは、$\mathcal G$-可測関数の線形結合が再び $\mathcal G$-可測であることから分かります。問題は閉性です。
@@ -99,14 +113,30 @@ P(|Z_{n_k}-Z|>2^{-k})
 \le2^{-k}.
 $$
 
-$E_k=\{|Z_{n_k}-Z|>2^{-k}\}$ と置くと、[union bound](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-union-bound)より
+$E_k=\{|Z_{n_k}-Z|>2^{-k}\}$ と置くと、[可算劣加法性](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-union-bound)より
 
 $$
 P\left(\bigcup_{k\ge m}E_k\right)
-\le\sum_{k\ge m}2^{-k}\to0.
+\le\sum_{k\ge m}2^{-k}
+=2^{1-m}.
 $$
 
-従って
+ここで
+
+$$
+F_m:=\bigcup_{k\ge m}E_k
+$$
+
+と置くと $F_1\supseteq F_2\supseteq\cdots$ で、上の評価から $P(F_m)\to0$ です。[確率測度の減少列連続性](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-continuity-from-above)をこの減少列 $(F_m)$ に適用すると
+
+$$
+P\left(\bigcap_{m=1}^\infty F_m\right)
+=
+\lim_{m\to\infty}P(F_m)
+=0.
+$$
+
+すなわち
 
 $$
 P\left(\bigcap_{m=1}^\infty\bigcup_{k\ge m}E_k\right)=0.
@@ -120,13 +150,22 @@ $$
 
 よって $Z_{n_k}\to Z$ です。
 
-そこで
+そこで、まず収束する点の集合が $\mathcal G$ で見えることを確認します。実数列が収束することは Cauchy 条件と同値なので
 
 $$
-C=\{\omega: Z_{n_k}(\omega)\text{ が有限実数へ収束する}\}
+C
+=
+\bigcap_{r=1}^{\infty}
+\bigcup_{N=1}^{\infty}
+\bigcap_{k,\ell\ge N}
+\left\{
+|Z_{n_k}-Z_{n_\ell}|<\frac1r
+\right\}.
 $$
 
-とし、
+各 $Z_{n_k}$ は $\mathcal G$-可測な代表元として選んでいるので、右辺に現れる集合は全て $\mathcal G$ に属し、従って $C\in\mathcal G$ です。
+
+次に
 
 $$
 W(\omega)=
@@ -136,19 +175,29 @@ W(\omega)=
 \end{cases}
 $$
 
-と置きます。$C$ は $\mathcal G$-可測で、可測関数列の極限から $W$ も $\mathcal G$-可測です。上の議論から $P(C)=1$ かつ $W=Z$ a.s. なので、$Z$ は $\mathcal G$-可測な代表元 $W$ を持ちます。従って $Z\in L^2(\mathcal G)$、よって閉です。
+と置きます。$W_k:=\mathbf1_CZ_{n_k}$ とすれば各 $W_k$ は $\mathcal G$-可測で、$C$ 上では $Z_{n_k}$ の極限へ、$C^c$ 上では常に0へ収束します。従って $W_k\to W$ が全点で成り立ち、可測関数列の点ごとの極限として $W$ も $\mathcal G$-可測です。
+
+上の確率評価から $E_k$ が無限回起こる点を除けば $Z_{n_k}\to Z$ なので、その集合の補集合は $C$ に含まれます。従って $P(C)=1$ かつ $W=Z$ a.s. です。よって $Z$ は $\mathcal G$-可測な代表元 $W$ を持ち、$Z\in L^2(\mathcal G)$。これで閉性が示されました。
 <!-- proof-end -->
 
 ---
 
 ## 3. 条件付き期待値の $L^2$ 縮小性
 
-$X\in L^2(\mathcal F)$ とし $M=E[X\mid\mathcal G]$ と置きます。確率測度ではCauchy--Schwarzから $E|X|\le\|X\|_2$ なので、$X\in L^1$ でもありP3Aの条件付き期待値が定義できます。
+$X\in L^2(\mathcal F)$ とし $M=E[X\mid\mathcal G]$ と置きます。確率測度では [Cauchy--Schwarzの不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)を $|X|$ と $1$ に適用して
+
+$$
+E|X|\le\{E[X^2]\}^{1/2}=\|X\|_2
+$$
+
+なので、$X\in L^1$ でもあり P3A の条件付き期待値が定義できます。
+
+ただし、定義から直ちに $M\in L^2$ と言うことはできません。そこで $M$ を有界な範囲へ切断し、その切断を「既知量」として条件付けの外へ出します。各切断の二乗平均を一様に押さえ、最後に単調収束で切断を外します。
 
 <a id="lem-f0-00p3b-l2-contraction"></a>
 
 <!-- formal-statement-start -->
-> **補題（条件付き期待値の$L^2$縮小性）**  
+> **補題（条件付き期待値のL2縮小性）**  
 > $X\in L^2$ なら $E[X\mid\mathcal G]\in L^2$ であり、次が成り立ちます。
 
 $$
@@ -205,6 +254,10 @@ $$
 
 ## 4. 残差は既知情報と直交する
 
+条件付き期待値を本当に Hilbert 空間の射影と呼ぶには、$M=E[X\mid\mathcal G]$ が射影先に属するだけでは足りません。残差 $X-M$ が、$\mathcal G$ で表せる全ての $L^2$ 方向と直交することが必要です。
+
+まず有界な $\mathcal G$-可測変数なら P3A の「既知量を外へ出す」性質を直接使えます。一般の $L^2$ 変数は有界な切断で近似し、Cauchy--Schwarz で極限を渡します。
+
 <a id="thm-f0-00p3b-orthogonality"></a>
 
 <!-- formal-statement-start -->
@@ -259,6 +312,16 @@ $$
 ---
 
 ## 5. 直交射影・最良予測
+
+ここまでで $M=E[X\mid\mathcal G]$ は閉部分空間 $L^2(\mathcal G)$ に属し、残差 $X-M$ はその部分空間全体と直交することが分かりました。これは Hilbert 射影の特徴付けそのものです。
+
+任意の候補 $Z\in L^2(\mathcal G)$ に対して
+
+$$
+X-Z=(X-M)+(M-Z)
+$$
+
+と分けると、二つの項は直交します。従って二乗誤差は Pythagoras 型に分解され、$M$ 以外の候補へ動いた分だけ誤差が増えることが分かります。
 
 <a id="thm-f0-00p3b-best-predictor"></a>
 
@@ -395,9 +458,9 @@ $$
 
 は、$Y$ の任意の二乗可積分な可測関数からなる $L^2(\sigma(Y))$ への射影です。従って一般には非線形です。
 
-### 7.1 jointly Gaussian は補足例
+### 7.1 同時 Gaussian 分布は補足例
 
-以下のGaussian公式は、この章で証明してきた「条件付き期待値＝直交射影」の一般論からだけでは出ません。**多変量正規分布に固有の事実**、すなわち jointly Gaussian なベクトルでは無相関な線形結合が独立になることを追加で使う補足例です。この事実自体はここでの証明依存にはせず、Gaussian分布の既知結果として使います。
+以下の Gaussian 公式は、この章で証明してきた「条件付き期待値＝直交射影」の一般論からだけでは出ません。**多変量正規分布に固有の事実**、すなわち同時 Gaussian なベクトルでは無相関な線形結合が独立になることを追加で使う補足例です。この事実自体はここでの証明依存にはせず、Gaussian 分布の既知結果として使います。
 
 スカラー $(X,Y)$ が jointly Gaussian で $\operatorname{Var}(Y)>0$ とし、
 
@@ -414,7 +477,7 @@ $$
 =\operatorname{Cov}(X,Y)-\beta\operatorname{Var}(Y)=0.
 $$
 
-$(R,Y)$ も jointly Gaussian なので、上のGaussian固有事実から $R$ と $Y$ は独立です。従ってP3Aの独立性の性質より
+$(R,Y)$ も同時 Gaussian なので、上のGaussian固有事実から $R$ と $Y$ は独立です。従ってP3Aの独立性の性質より
 
 $$
 E[R\mid Y]=E[R]=0.
@@ -431,7 +494,7 @@ E[X\mid Y]
 }
 $$
 
-を得ます。つまり $Y$ のアフィン関数です。中心化して $E[X]=E[Y]=0$ とした場合に限れば線形関数になります。このためjointly Gaussianでは、切片を含む最小二乗線形回帰と条件付き期待値が一致します。「Gaussianなら何でも線形」ではなく、**同時分布がGaussianであること**が条件です。
+を得ます。つまり $Y$ のアフィン関数です。中心化して $E[X]=E[Y]=0$ とした場合に限れば線形関数になります。このため同時 Gaussian 分布では、切片を含む最小二乗線形回帰と条件付き期待値が一致します。「Gaussianなら何でも線形」ではなく、**同時分布がGaussianであること**が条件です。
 
 ---
 
@@ -459,7 +522,19 @@ E[(X-Z)^2]
 =E[(X-M)^2]+2E[(X-M)(M-Z)]+E[(M-Z)^2].
 $$
 
-$M-Z\in L^2(\mathcal G)$ なので直交性から中央項は0。従って結論を得る。
+$M-Z\in L^2(\mathcal G)$ なので、[条件付き期待値の直交性](#thm-f0-00p3b-orthogonality)を $Z'=M-Z$ に適用すると
+
+$$
+E[(X-M)(M-Z)]=0.
+$$
+
+従って
+
+$$
+E[(X-Z)^2]
+=
+E[(X-M)^2]+E[(M-Z)^2].
+$$
 <!-- solution-end -->
 
 ### F0-00P3B-A02 有限分割で射影を計算する
@@ -577,24 +652,69 @@ $$
 - Level: B
 - 目安時間: 20分
 
-$Z_n\in L^2(\mathcal G)$、$Z_n\to Z$ in $L^2$ とする。適当な部分列がa.s.収束することをMarkovの不等式とunion boundだけから示し、$Z$ が $\mathcal G$-可測な代表元を持つことを証明せよ。
+$Z_n\in L^2(\mathcal G)$、$Z_n\to Z$ が $L^2$ で成り立つとする。[Markovの不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-markov)、[可算劣加法性](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-union-bound)、[確率測度の減少列連続性](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-continuity-from-above)を使って適当な部分列がa.s.収束することを示し、$Z$ が $\mathcal G$-可測な代表元を持つことを証明せよ。
 
 <!-- solution-start -->
 #### 詳細解答
-$E|Z_{n_k}-Z|^2\le2^{-3k}$ となる部分列を取る。$E_k=\{|Z_{n_k}-Z|>2^{-k}\}$ とすれば[Markovの不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-markov)から
+$Z_n\to Z$ in $L^2$ なので、各 $k$ について十分大きい $n_k$ を順に選び
 
 $$
-P(E_k)\le2^{-k}.
+E|Z_{n_k}-Z|^2\le2^{-3k}
 $$
 
-従って[union bound](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-union-bound)より
+とできます。$E_k=\{|Z_{n_k}-Z|>2^{-k}\}$ と置きます。[Markovの不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-markov)を非負確率変数 $|Z_{n_k}-Z|^2$ と閾値 $2^{-2k}$ に適用すると
 
 $$
-P\left(\bigcup_{k\ge m}E_k\right)
-\le\sum_{k\ge m}2^{-k}\to0.
+\begin{aligned}
+P(E_k)
+&=P(|Z_{n_k}-Z|^2>2^{-2k})\\
+&\le 2^{2k}E|Z_{n_k}-Z|^2\\
+&\le2^{-k}.
+\end{aligned}
 $$
 
-よって $E_k$ が無限回起こる集合は確率0。その外では $|Z_{n_k}-Z|\le2^{-k}$ が最終的に成り立つので $Z_{n_k}\to Z$。収束する集合上で極限を取り、それ以外で0とした関数 $W$ は $\mathcal G$-可測で $W=Z$ a.s.。ゆえに $Z\in L^2(\mathcal G)$。
+$$
+F_m:=\bigcup_{k\ge m}E_k
+$$
+
+と置くと、[可算劣加法性](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-union-bound)から
+
+$$
+P(F_m)
+\le\sum_{k\ge m}2^{-k}
+=2^{1-m}\to0.
+$$
+
+$F_m$ は $m$ とともに減少するので、[確率測度の減少列連続性](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-continuity-from-above)を適用して
+
+$$
+P\left(\bigcap_{m=1}^\infty F_m\right)
+=
+\lim_{m\to\infty}P(F_m)
+=0.
+$$
+
+従って $E_k$ が無限回起こる集合は確率0です。その外では、ある $m_0$ 以後
+
+$$
+|Z_{n_k}-Z|\le2^{-k}
+$$
+
+が全ての $k\ge m_0$ で成り立つので $Z_{n_k}\to Z$ です。
+
+次に収束集合の可測性を確認します。実数列の Cauchy 条件を使えば
+
+$$
+C
+=
+\bigcap_{r=1}^{\infty}
+\bigcup_{N=1}^{\infty}
+\bigcap_{k,\ell\ge N}
+\left\{|Z_{n_k}-Z_{n_\ell}|<1/r\right\}
+\in\mathcal G.
+$$
+
+$W_k=\mathbf1_CZ_{n_k}$ と置けば各 $W_k$ は $\mathcal G$-可測で、全ての点である有限値 $W$ へ収束します。従って $W$ は $\mathcal G$-可測です。上の a.s. 収束から $P(C)=1$ かつ $W=Z$ a.s. なので、$Z$ は $\mathcal G$-可測な代表元を持ちます。ゆえに $Z\in L^2(\mathcal G)$ です。
 <!-- solution-end -->
 
 ### F0-00P3B-B03 条件付き期待値と線形予測は一般には違う
@@ -685,22 +805,100 @@ $$
 
 <!-- solution-start -->
 #### 詳細解答
-1. $M_G-M_H$ は $\mathcal G$-可測かつ $L^2$ なので $L^2(\mathcal G)$ に属する。$X-M_G$ はその空間全体と直交するから結論。
-2. [tower property](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md#thm-f0-00p3a-tower)から $E[M_G\mid\mathcal H]=M_H$。従ってP3Bの直交性を $M_G$ に適用すると $M_G-M_H\perp L^2(\mathcal H)$。
-3.
+
+**1. $X-M_G$ と $M_G-M_H$ の直交性。**  
+$M_G\in L^2(\mathcal G)$ です。また $\mathcal H\subseteq\mathcal G$ なので、$M_H$ は $\mathcal H$-可測であると同時に $\mathcal G$-可測でもあります。従って
+
+$$
+M_G-M_H\in L^2(\mathcal G).
+$$
+
+一方、[条件付き期待値の直交性](#thm-f0-00p3b-orthogonality)から
+
+$$
+X-M_G\perp L^2(\mathcal G).
+$$
+
+ここで $Z=M_G-M_H$ を代入すれば
+
+$$
+E[(X-M_G)(M_G-M_H)]=0.
+$$
+
+**2. $M_G-M_H$ と $L^2(\mathcal H)$ の直交性。**  
+[tower property](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md#thm-f0-00p3a-tower)を $\mathcal H\subseteq\mathcal G$ に適用すると
+
+$$
+E[M_G\mid\mathcal H]
+=
+E[E[X\mid\mathcal G]\mid\mathcal H]
+=
+E[X\mid\mathcal H]
+=
+M_H.
+$$
+
+従って、直交性の定理を確率変数 $M_G$ と部分 $\sigma$ 代数 $\mathcal H$ に適用すると、任意の $Z\in L^2(\mathcal H)$ に対して
+
+$$
+E[(M_G-M_H)Z]=0.
+$$
+
+よって
+
+$$
+M_G-M_H\perp L^2(\mathcal H).
+$$
+
+**3. 誤差の直交分解。**  
+恒等式
 
 $$
 X-M_H=(X-M_G)+(M_G-M_H)
 $$
 
-を1の直交性とともにPythagorasへ入れる。
-4. 3より等号は $\|M_G-M_H\|_2^2=0$ と同値。従って
+を二乗して期待値を取ると
+
+$$
+\begin{aligned}
+\|X-M_H\|_2^2
+&=\|X-M_G\|_2^2
++2E[(X-M_G)(M_G-M_H)]\\
+&\quad+\|M_G-M_H\|_2^2.
+\end{aligned}
+$$
+
+1で中央項が0と分かったので
+
+$$
+\boxed{
+\|X-M_H\|_2^2
+=
+\|X-M_G\|_2^2+
+\|M_G-M_H\|_2^2
+}.
+$$
+
+**4. 等号条件。**  
+3の右端の項は非負なので
+
+$$
+\|X-M_H\|_2=\|X-M_G\|_2
+$$
+
+であることと
+
+$$
+\|M_G-M_H\|_2^2=0
+$$
+
+であることは同値です。$L^2$ ノルムが0であることは a.s. 等しいことと同値なので
 
 $$
 \boxed{M_G=M_H\quad\text{a.s.}}
 $$
 
-が必要十分である。つまり追加情報 $\mathcal G$ が二乗平均予測を実際には改善しない場合に限る。
+が必要十分です。つまり、追加情報 $\mathcal G$ を使っても二乗平均予測が実際には変わらない場合に限ります。
 <!-- solution-end -->
 
 ---
