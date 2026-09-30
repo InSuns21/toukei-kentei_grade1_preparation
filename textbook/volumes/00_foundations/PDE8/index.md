@@ -666,11 +666,46 @@ $u_t-\kappa u_{xx}=1$, $u(0,x)=0$ の Duhamel 解を求めよ。
 
 <!-- solution-start -->
 ##### 詳細解答
-$S(t-s)1=1$ なので
+
+初期値は0なので、[非斉次熱方程式の Duhamel 公式](#thm-pde8-heat-duhamel)では自由発展項 $S(t)u_0$ は消えます。非斉次項は空間定数 $f(s,x)=1$ です。
+
+熱核は全質量1なので
+
 $$
-u(t,x)=\int_0^t1ds=t.
+(S(t-s)1)(x)
+=
+\int_{\mathbb R}G_{t-s}(x-y)\,dy
+=
+1.
 $$
-直接代入して $u_t=1,u_{xx}=0$ も確認できます。
+
+従って
+
+$$
+u(t,x)
+=
+\int_0^t(S(t-s)1)(x)\,ds
+=
+\int_0^t1\,ds
+=
+\boxed{t}.
+$$
+
+最後に方程式へ戻して確認します。
+
+$$
+u_t=1,
+\qquad
+u_{xx}=0,
+$$
+
+したがって
+
+$$
+u_t-\kappa u_{xx}=1.
+$$
+
+また $u(0,x)=0$ なので、初期条件も満たします。
 <!-- solution-end -->
 
 #### PDE8-A02 時間だけの非斉次項
@@ -680,10 +715,51 @@ $f(t,x)=e^{-t}$, $u_0=0$ の熱方程式を解け。
 
 <!-- solution-start -->
 ##### 詳細解答
-空間定数は自由発展で不変なので
+
+非斉次項は
+
 $$
-u(t)=\int_0^te^{-s}ds=1-e^{-t}.
+f(s,x)=e^{-s}
 $$
+
+で、$x$ に依存しません。熱核の全質量が1なので、任意の $r\ge0$ について
+
+$$
+S(r)f(s,\cdot)
+=
+e^{-s}S(r)1
+=
+e^{-s}.
+$$
+
+初期値 $u_0=0$ を Duhamel 公式へ代入すると
+
+$$
+\begin{aligned}
+u(t,x)
+&=
+\int_0^t
+S(t-s)f(s)\,ds\\
+&=
+\int_0^te^{-s}\,ds\\
+&=
+\boxed{1-e^{-t}}.
+\end{aligned}
+$$
+
+この解は空間に依存しないため $u_{xx}=0$ です。また
+
+$$
+u_t=e^{-t},
+$$
+
+よって
+
+$$
+u_t-\kappa u_{xx}=e^{-t}=f(t,x).
+$$
+
+$t=0$ では $u=0$ となり、初期条件も確認できます。
 <!-- solution-end -->
 
 #### PDE8-A03 波動への一定入力
@@ -693,10 +769,52 @@ $u_{tt}-c^2u_{xx}=1$、零初期データの解を求めよ。
 
 <!-- solution-start -->
 ##### 詳細解答
-公式へ入れると内側積分の長さは $2c(t-s)$ なので
+
+[非斉次一次元波動方程式の Duhamel 公式](#thm-pde8-wave-duhamel)へ $F(s,y)=1$ を代入します。
+
 $$
-u=\frac1{2c}\int_0^t2c(t-s)ds=\frac{t^2}{2}.
+u(t,x)
+=
+\frac1{2c}
+\int_0^t
+\int_{x-c(t-s)}^{x+c(t-s)}
+1\,dy\,ds.
 $$
+
+固定した $s$ で内側の積分区間の長さは
+
+$$
+{x+c(t-s)}-{x-c(t-s)}
+=
+2c(t-s)
+$$
+
+なので
+
+$$
+\begin{aligned}
+u(t,x)
+&=
+\frac1{2c}
+\int_0^t2c(t-s)\,ds\\
+&=
+\int_0^t(t-s)\,ds\\
+&=
+\left[ts-\frac{s^2}{2}\right]_0^t\\
+&=
+\boxed{\frac{t^2}{2}}.
+\end{aligned}
+$$
+
+検算すると
+
+$$
+u_{tt}=1,
+\qquad
+u_{xx}=0,
+$$
+
+したがって $u_{tt}-c^2u_{xx}=1$ です。また $u(0,x)=0$、$u_t(0,x)=0$ も満たします。
 <!-- solution-end -->
 
 #### PDE8-A04 自由発展との重ね合わせ
@@ -706,7 +824,74 @@ $$
 
 <!-- solution-start -->
 ##### 詳細解答
-線形性により、初期データだけを持つ斉次解と、零初期データで非斉次項だけを持つ解の和は、両方のデータを持つ方程式を満たします。
+
+線形作用素を $L$ と書き、
+
+$$
+Lu=f,
+\qquad
+u(0)=u_0
+$$
+
+という問題を考えます。
+
+まず $u_{\mathrm{free}}$ を
+
+$$
+Lu_{\mathrm{free}}=0,
+\qquad
+u_{\mathrm{free}}(0)=u_0
+$$
+
+を満たす自由発展とします。次に $u_{\mathrm{forced}}$ を
+
+$$
+Lu_{\mathrm{forced}}=f,
+\qquad
+u_{\mathrm{forced}}(0)=0
+$$
+
+を満たす非斉次応答とします。
+
+線形性から
+
+$$
+L(u_{\mathrm{free}}+u_{\mathrm{forced}})
+=
+Lu_{\mathrm{free}}
++
+Lu_{\mathrm{forced}}
+=
+0+f
+=
+f.
+$$
+
+初期値も
+
+$$
+(u_{\mathrm{free}}+u_{\mathrm{forced}})(0)
+=
+u_0+0
+=
+u_0
+$$
+
+です。
+
+従って
+
+$$
+\boxed{
+u
+=
+u_{\mathrm{free}}
++
+u_{\mathrm{forced}}
+}
+$$
+
+と分けてよいことが分かります。Duhamel 項は、このうち零初期データの $u_{\mathrm{forced}}$ を構成する部分です。
 <!-- solution-end -->
 
 ### Level B
@@ -723,7 +908,85 @@ $$
 
 <!-- solution-start -->
 ##### 詳細解答
-$u=a(t)\sin x$ と置くと $a'+a=e^{-t}$, $a(0)=0$。積分因子 $e^t$ から $(e^ta)'=1$、従って $a=te^{-t}$。これはモード版 Duhamel そのものです。
+
+右辺が $\sin x$ だけを含むので、同じ空間モード
+
+$$
+u(t,x)=a(t)\sin x
+$$
+
+を仮定します。すると
+
+$$
+u_t=a'(t)\sin x,
+\qquad
+u_{xx}=-a(t)\sin x.
+$$
+
+方程式へ代入すると
+
+$$
+{a'(t)+a(t)}\sin x
+=
+e^{-t}\sin x.
+$$
+
+$0<x<\pi$ で $\sin x$ は恒等的に0ではないので、係数を比較して
+
+$$
+a'+a=e^{-t}.
+$$
+
+初期条件 $u(0,x)=0$ から
+
+$$
+a(0)=0.
+$$
+
+積分因子 $e^t$ を掛けると
+
+$$
+e^ta'+e^ta
+=
+(e^ta)'
+=
+1.
+$$
+
+$0$ から $t$ まで積分して
+
+$$
+e^ta(t)-a(0)
+=
+t.
+$$
+
+従って
+
+$$
+a(t)=te^{-t}.
+$$
+
+よって
+
+$$
+\boxed{
+u(t,x)=te^{-t}\sin x
+}.
+$$
+
+これは係数 ODE に対する Duhamel 公式
+
+$$
+a(t)
+=
+\int_0^t
+e^{-(t-s)}e^{-s}\,ds
+=
+te^{-t}
+$$
+
+とも一致します。
 <!-- solution-end -->
 
 #### PDE8-B02 波動の依存領域
@@ -733,7 +996,51 @@ $u=a(t)\sin x$ と置くと $a'+a=e^{-t}$, $a(0)=0$。積分因子 $e^t$ から 
 
 <!-- solution-start -->
 ##### 詳細解答
-積分は $0\le s\le t$ と $|y-x|\le c(t-s)$ の範囲だけを使います。従って後方特性領域だけが $(t,x)$ に影響します。
+
+Duhamel 公式は
+
+$$
+u(t,x)
+=
+\frac1{2c}
+\int_0^t
+\int_{x-c(t-s)}^{x+c(t-s)}
+F(s,y)\,dy\,ds.
+$$
+
+です。したがって、固定した過去時刻 $s$ で参照する空間点 $y$ は
+
+$$
+x-c(t-s)
+\le
+y
+\le
+x+c(t-s),
+$$
+
+すなわち
+
+$$
+|y-x|
+\le
+c(t-s)
+$$
+
+を満たす点だけです。
+
+よって $(t,x)$ に影響できる非斉次項の時空間領域は
+
+$$
+\boxed{
+0\le s\le t,
+\qquad
+|y-x|\le c(t-s)
+}
+$$
+
+です。これは頂点を $(t,x)$ とし、過去へ向かって傾き $\pm c$ で広がる後方特性領域です。
+
+この領域の外で $F$ を変更しても積分値は変わらないため、$u(t,x)$ には影響しません。
 <!-- solution-end -->
 
 #### PDE8-B03 Picard 差評価
@@ -791,15 +1098,98 @@ $$
 
 <!-- solution-start -->
 ##### 詳細解答
-$u=\sum a_n(t)\phi_n$, $f=\sum f_n(t)\phi_n$ と置くと
+
+有限個の固有モードだけを使い、
+
 $$
-a_n'+\lambda_na_n=f_n.
+u(t)
+=
+\sum_{n=1}^N a_n(t)\phi_n,
+\qquad
+f(t)
+=
+\sum_{n=1}^N f_n(t)\phi_n
 $$
-[非斉次線形系の定数変化公式](../ODE3/index.md#thm-ode3-variation-of-constants)より
+
+と置きます。固有値方程式
+
 $$
-a_n(t)=e^{-\lambda_nt}a_n(0)+\int_0^te^{-\lambda_n(t-s)}f_n(s)ds.
+A\phi_n=\lambda_n\phi_n
 $$
-全モードを戻すと、自由発展と非斉次項の自由発展の時間積分という Duhamel 構造が得られます。
+
+から
+
+$$
+Au
+=
+\sum_{n=1}^N
+\lambda_na_n(t)\phi_n.
+$$
+
+また有限和なので時間微分は項別に行えて
+
+$$
+u_t
+=
+\sum_{n=1}^N
+a_n'(t)\phi_n.
+$$
+
+したがって
+
+$$
+u_t+Au-f
+=
+\sum_{n=1}^N
+{a_n'+\lambda_na_n-f_n}\phi_n.
+$$
+
+固有関数が一次独立なので、各 $n$ について
+
+$$
+a_n'+\lambda_na_n=f_n
+$$
+
+です。
+
+この一変数非斉次線形方程式へ [非斉次線形系の定数変化公式](../ODE3/index.md#thm-ode3-variation-of-constants)を、係数 $-\lambda_n$、入力 $f_n(t)$ として適用すると
+
+$$
+a_n(t)
+=
+e^{-\lambda_nt}a_n(0)
++
+\int_0^t
+e^{-\lambda_n(t-s)}f_n(s)\,ds.
+$$
+
+全モードを戻せば
+
+$$
+\begin{aligned}
+u(t)
+&=
+\sum_{n=1}^N
+e^{-\lambda_nt}a_n(0)\phi_n\\
+&\quad+
+\int_0^t
+\sum_{n=1}^N
+e^{-\lambda_n(t-s)}f_n(s)\phi_n
+\,ds.
+\end{aligned}
+$$
+
+第一項は初期値の自由発展、積分内の和は「時刻 $s$ の入力を残り時間 $t-s$ だけ自由発展させたもの」です。従って有限モードでも
+
+$$
+\boxed{
+\text{自由発展}
++
+\text{過去の入力の自由発展を時間積分}
+}
+$$
+
+という Duhamel 構造がそのまま得られます。
 <!-- solution-end -->
 
 ## 6. 章末チェック
