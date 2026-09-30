@@ -119,7 +119,7 @@ $$
 
 $$
 \begin{aligned}
-[T^*(ay_1^*+by_2^*)](x)
+\bigl(T^*(ay_1^*+by_2^*)\bigr)(x)
 &=(ay_1^*+by_2^*)(Tx)\\
 &=a(T^*y_1^*)(x)+b(T^*y_2^*)(x)
 \end{aligned}
@@ -646,7 +646,7 @@ $$
 
 $$
 \begin{aligned}
-[T^*(ay_1^*+by_2^*)](x)
+\bigl(T^*(ay_1^*+by_2^*)\bigr)(x)
 &=(ay_1^*+by_2^*)(Tx)\\
 &=a(T^*y_1^*)(x)+b(T^*y_2^*)(x).
 \end{aligned}
@@ -816,10 +816,10 @@ $z^*\in Z^*$ と $x\in X$ に対して
 
 $$
 \begin{aligned}
-[(T^*\circ S^*)z^*](x)
-&=[S^*z^*](Tx)\\
+\bigl((T^*\circ S^*)z^*\bigr)(x)
+&=(S^*z^*)(Tx)\\
 &=z^*(S(Tx))\\
-&=[(S\circ T)^*z^*](x).
+&=\bigl((S\circ T)^*z^*\bigr)(x).
 \end{aligned}
 $$
 
