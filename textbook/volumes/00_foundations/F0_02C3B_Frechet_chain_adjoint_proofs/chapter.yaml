@@ -8,19 +8,18 @@ prerequisites:
   - F0-02C3A
 official_scope: []
 learning_objectives:
-  - F0-02C3で正本化したFréchet連鎖律の残差証明を再構成できる
-  - 合成写像の残差が o(||h||) になる理由を説明できる
-  - Riesz表現定理からHilbert随伴の存在一意性を導ける
-  - 随伴の有界性と作用素ノルム評価を示せる
-definitions:
-  - { id: F0C3B-DEF-01, name: Fréchet微分の残差表示 }
-  - { id: F0C3B-DEF-02, name: Hilbert随伴 }
+  - F0-02C3で正本化したFréchet連鎖律を残差評価から再構成できる
+  - 合成写像の中間増分がO(||h||)になることを示し、二つの残差がo(||h||)になる理由を説明できる
+  - Riesz表現定理を適用する前にx↦<Tx,y>が連続線形汎関数であることを確認できる
+  - Riesz表現定理からHilbert随伴の存在・線形性・有界性・一意性を導ける
+  - Hilbert随伴について||T†||=||T||を証明できる
+  - 連鎖律と随伴を組み合わせて最小二乗汎関数を微分できる
+definitions: []
 theorems:
-  - { id: F0C3B-THM-02, name: Hilbert随伴の存在一意性 }
-canonical_examples: [二乗ノルムの合成, 行列の転置随伴]
+  - { id: F0C3B-THM-02, name: Hilbert随伴の存在・一意性 }
+canonical_examples: [二乗ノルムの合成, 行列の転置随伴, 非線形最小二乗の微分]
 problem_patterns: [FRECHET-CHAIN-1, HILBERT-ADJOINT-RIESZ-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 2, level_b: 2, level_c: 0, level_d: 0 }
-dream_theater_exercise_count_exception: "F0-02C3本体でRA6演習A4/B3/C1を満たしており、本章は連鎖律の再証明とHilbert随伴への接続だけを扱う補講のため。"
-estimated_hours: { reading: 0.75, exercises: 0.75, review: 0.25 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 1.5, exercises: 2.0, review: 0.5 }
