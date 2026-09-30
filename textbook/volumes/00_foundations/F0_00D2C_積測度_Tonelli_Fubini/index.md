@@ -135,6 +135,8 @@ $$
 <!-- definition-example-start: def-f0-00d2c-03 -->
 ### 例：Lebesgue 測度は σ有限
 
+**定義の確認**
+
 $\mathbb R$ 上の Lebesgue 測度 $m$ では
 
 $$
