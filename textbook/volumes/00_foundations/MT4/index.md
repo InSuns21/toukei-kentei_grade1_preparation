@@ -74,7 +74,7 @@ Lebesgue 微分定理は、$f$ が全空間で $L^1$ であることまでは要
 
 <a id="thm-mt4-cc-dense-l1"></a>
 <!-- formal-statement-start -->
-### 補題（有界区間外で 0 となる連続関数の $L^1$ 稠密性）
+### 補題（有界区間外で 0 となる連続関数の L1 稠密性）
 
 任意の $f\in L^1(\mathbb R)$ と $\varepsilon>0$ に対して、ある連続関数 $g:\mathbb R\to\mathbb R$ と $R>0$ が存在して
 
