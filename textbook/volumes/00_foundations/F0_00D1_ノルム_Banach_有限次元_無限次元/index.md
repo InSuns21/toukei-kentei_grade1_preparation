@@ -873,6 +873,134 @@ $$
 
 <!-- solution-end -->
 
+### F0-00D1-A02 $\|\cdot\|_\infty$ がノルムであることを確認する
+
+- Level: A
+- 目安時間: 10分
+
+$\mathbb R^p$ 上で
+
+$$
+\|x\|_\infty=\max_{1\le j\le p}|x_j|
+$$
+
+とする。正定値性・絶対斉次性・三角不等式を一つずつ確認し、これがノルムであることを示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+まず $\|x\|_\infty\ge0$ です。また $\|x\|_\infty=0$ なら全ての $j$ で $|x_j|=0$ なので $x=0$、逆に $x=0$ ならノルムは0です。
+
+次に任意の $a\in\mathbb R$ について
+
+$$
+\|ax\|_\infty
+=
+\max_j |ax_j|
+=
+|a|\max_j|x_j|
+=
+|a|\,\|x\|_\infty.
+$$
+
+最後に各 $j$ で
+
+$$
+|x_j+y_j|
+\le
+|x_j|+|y_j|
+\le
+\|x\|_\infty+\|y\|_\infty.
+$$
+
+左辺について最大を取ると
+
+$$
+\|x+y\|_\infty
+\le
+\|x\|_\infty+\|y\|_\infty.
+$$
+
+三条件を満たすので $\|\cdot\|_\infty$ はノルムです。
+<!-- solution-end -->
+
+### F0-00D1-A03 同値なノルムは収束を変えない
+
+- Level: A
+- 目安時間: 10分
+
+$V$ 上の二つのノルムが
+
+$$
+c\|x\|_a\le\|x\|_b\le C\|x\|_a
+\qquad(\forall x\in V)
+$$
+
+を満たすとする。$x_n\to x$ が $\|\cdot\|_a$ について成り立つなら、$\|\cdot\|_b$ についても成り立つことを示せ。逆向きも示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+$\|\cdot\|_a$ で $x_n\to x$ なら
+
+$$
+\|x_n-x\|_a\to0.
+$$
+
+上側評価を $x_n-x$ に適用すると
+
+$$
+0\le\|x_n-x\|_b
+\le
+C\|x_n-x\|_a
+\to0,
+$$
+
+従って $\|\cdot\|_b$ でも $x_n\to x$ です。
+
+逆に $\|\cdot\|_b$ で収束するなら、下側評価を
+
+$$
+\|x\|_a\le \frac1c\|x\|_b
+$$
+
+と書き直し、$x_n-x$ に適用して
+
+$$
+\|x_n-x\|_a
+\le
+\frac1c\|x_n-x\|_b
+\to0
+$$
+
+を得ます。従って二つのノルムは同じ収束列を与えます。
+<!-- solution-end -->
+
+### F0-00D1-A04 有限次元性からBanach性を示す
+
+- Level: A
+- 目安時間: 8分
+
+$$
+\mathcal P_m
+=
+\{a_0+a_1t+\cdots+a_mt^m:a_0,\dots,a_m\in\mathbb R\}
+$$
+
+にsupノルム $\|f\|_\infty=\max_{0\le t\le1}|f(t)|$ を入れる。$\mathcal P_m$ がBanach空間であることを、この章の[有限次元ノルム空間の完備性](#thm-f0-00d1-02)から説明せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+$1,t,\dots,t^m$ は $\mathcal P_m$ の基底なので
+
+$$
+\dim \mathcal P_m=m+1<\infty.
+$$
+
+supノルムは $\mathcal P_m$ 上のノルムです。従って[有限次元ノルム空間の完備性](#thm-f0-00d1-02)を $V=\mathcal P_m$、$\|\cdot\|=\|\cdot\|_\infty$ に適用でき、$\mathcal P_m$ は完備です。従ってBanach空間です。
+<!-- solution-end -->
+
 ### F0-00D1-B01 $\ell^1,\ell^2,\ell^\infty$ 型ノルムの比較
 
 - Level: B
@@ -1033,134 +1161,6 @@ $$
 
 <!-- solution-end -->
 
-### F0-00D1-A02 $\|\cdot\|_\infty$ がノルムであることを確認する
-
-- Level: A
-- 目安時間: 10分
-
-$\mathbb R^p$ 上で
-
-$$
-\|x\|_\infty=\max_{1\le j\le p}|x_j|
-$$
-
-とする。正定値性・絶対斉次性・三角不等式を一つずつ確認し、これがノルムであることを示せ。
-
-<!-- solution-start -->
-#### 詳細解答
-
-まず $\|x\|_\infty\ge0$ です。また $\|x\|_\infty=0$ なら全ての $j$ で $|x_j|=0$ なので $x=0$、逆に $x=0$ ならノルムは0です。
-
-次に任意の $a\in\mathbb R$ について
-
-$$
-\|ax\|_\infty
-=
-\max_j |ax_j|
-=
-|a|\max_j|x_j|
-=
-|a|\,\|x\|_\infty.
-$$
-
-最後に各 $j$ で
-
-$$
-|x_j+y_j|
-\le
-|x_j|+|y_j|
-\le
-\|x\|_\infty+\|y\|_\infty.
-$$
-
-左辺について最大を取ると
-
-$$
-\|x+y\|_\infty
-\le
-\|x\|_\infty+\|y\|_\infty.
-$$
-
-三条件を満たすので $\|\cdot\|_\infty$ はノルムです。
-<!-- solution-end -->
-
-### F0-00D1-A03 同値なノルムは収束を変えない
-
-- Level: A
-- 目安時間: 10分
-
-$V$ 上の二つのノルムが
-
-$$
-c\|x\|_a\le\|x\|_b\le C\|x\|_a
-\qquad(\forall x\in V)
-$$
-
-を満たすとする。$x_n\to x$ が $\|\cdot\|_a$ について成り立つなら、$\|\cdot\|_b$ についても成り立つことを示せ。逆向きも示せ。
-
-<!-- solution-start -->
-#### 詳細解答
-
-$\|\cdot\|_a$ で $x_n\to x$ なら
-
-$$
-\|x_n-x\|_a\to0.
-$$
-
-上側評価を $x_n-x$ に適用すると
-
-$$
-0\le\|x_n-x\|_b
-\le
-C\|x_n-x\|_a
-\to0,
-$$
-
-従って $\|\cdot\|_b$ でも $x_n\to x$ です。
-
-逆に $\|\cdot\|_b$ で収束するなら、下側評価を
-
-$$
-\|x\|_a\le \frac1c\|x\|_b
-$$
-
-と書き直し、$x_n-x$ に適用して
-
-$$
-\|x_n-x\|_a
-\le
-\frac1c\|x_n-x\|_b
-\to0
-$$
-
-を得ます。従って二つのノルムは同じ収束列を与えます。
-<!-- solution-end -->
-
-### F0-00D1-A04 有限次元性からBanach性を示す
-
-- Level: A
-- 目安時間: 8分
-
-$$
-\mathcal P_m
-=
-\{a_0+a_1t+\cdots+a_mt^m:a_0,\dots,a_m\in\mathbb R\}
-$$
-
-にsupノルム $\|f\|_\infty=\max_{0\le t\le1}|f(t)|$ を入れる。$\mathcal P_m$ がBanach空間であることを、この章の[有限次元ノルム空間の完備性](#thm-f0-00d1-02)から説明せよ。
-
-<!-- solution-start -->
-#### 詳細解答
-
-$1,t,\dots,t^m$ は $\mathcal P_m$ の基底なので
-
-$$
-\dim \mathcal P_m=m+1<\infty.
-$$
-
-supノルムは $\mathcal P_m$ 上のノルムです。従って[有限次元ノルム空間の完備性](#thm-f0-00d1-02)を $V=\mathcal P_m$、$\|\cdot\|=\|\cdot\|_\infty$ に適用でき、$\mathcal P_m$ は完備です。従ってBanach空間です。
-<!-- solution-end -->
-
 ### F0-00D1-B03 多項式全体はsupノルムで完備ではない
 
 - Level: B
@@ -1290,6 +1290,7 @@ $$
 
 有限次元ノルム同値定理では $\dim V<\infty$ が必要でした。$c_{00}$ は $e_1,e_2,\dots$ を含む無限次元空間なので、ここではまさに有限次元性を外しています。本文の証明では、その有限次元性は座標単位球面のコンパクト性を得る箇所で使われていました。
 <!-- solution-end -->
+
 
 ---
 
