@@ -24,7 +24,7 @@ $$
 
 押し出し測度そのものの正本は [P1 の定義](../F0_00P1_確率空間_確率変数_分布/index.md#def-f0-00p1-pushforward) です。ここではLOTUSの証明に使う記号だけ再掲します。
 
-可測写像 $Y:(\Omega,\mathcal F)\to(S,\mathcal S)$ と $\Omega$ 上の確率測度 $P$ に対し、$Y$ による押し出し測度 $P_Y=P\circ Y^{-1}$ は
+可測関数 $Y:(\Omega,\mathcal F)\to(S,\mathcal S)$ と $\Omega$ 上の確率測度 $P$ に対し、$Y$ による押し出し測度 $P_Y=P\circ Y^{-1}$ は
 
 $$
 \boxed{P_Y(B):=P(Y^{-1}(B)),\qquad B\in\mathcal S}
@@ -78,7 +78,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（押し出し積分公式）**  
-> $Y:(\Omega,\mathcal F,P)\to(S,\mathcal S)$ を可測写像、$P_Y=P\circ Y^{-1}$ とする。非負可測関数 $g:S\to[0,\infty]$ に対して次が成り立つ。
+> $Y:(\Omega,\mathcal F,P)\to(S,\mathcal S)$ を可測関数、$P_Y=P\circ Y^{-1}$ とする。非負可測関数 $g:S\to[0,\infty]$ に対して次が成り立つ。
 
 $$
 \boxed{
@@ -275,7 +275,7 @@ $$
 
 ### 証明の見取り図
 
-単関数なら、各レベル集合 $A_k\in\sigma(Y)$ を $A_k=Y^{-1}(B_k)$ と表し、指示関数 $\mathbf1_{B_k}$ を組み合わせれば $m$ を作れます。非負可測関数では単関数近似 $W_n\uparrow W$ を使いますが、値域 $Y(\Omega)$ の外では構成した $m_n$ が単調とは限らないため、全実数上では $\limsup m_n$ と置いて可測性を保ちます。最後に正部分・負部分を別々に因子化し、像の外で $\infty-\infty$ が起きないよう値を補います。
+単関数なら、単関数を構成する各集合 $A_k\in\sigma(Y)$ を $A_k=Y^{-1}(B_k)$ と表し、指示関数 $\mathbf1_{B_k}$ を組み合わせれば $m$ を作れます。非負可測関数では単関数近似 $W_n\uparrow W$ を使いますが、値域 $Y(\Omega)$ の外では構成した $m_n$ が単調とは限らないため、全実数上では $\limsup m_n$ と置いて可測性を保ちます。最後に正部分・負部分を別々に因子化し、像の外で $\infty-\infty$ が起きないよう値を補います。
 
 <!-- proof-start -->
 ### 証明
