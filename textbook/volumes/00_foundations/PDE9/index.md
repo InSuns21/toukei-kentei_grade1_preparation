@@ -1025,7 +1025,7 @@ $$
 三次元の Kirchhoff 公式では、時刻 $(t,x)$ の値は半径 $ct$ の球面上の
 
 $$
-f,qquad
+f,\qquad
 \partial_nf,qquad
 g
 $$
@@ -1088,7 +1088,7 @@ $$
 です。初期変位 $f$ は二点
 
 $$
-x-ct,qquad x+ct
+x-ct,\qquad x+ct
 $$
 
 だけを参照しますが、初速度 $g$ は区間全体
