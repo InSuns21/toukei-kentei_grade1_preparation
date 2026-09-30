@@ -239,7 +239,7 @@ D_\eta:=\{x\in[a,b]:\omega_f(x)\ge\eta\}
 $$
 と置きます。
 
-任意の $\varepsilon>0$ に対し、Darboux 可積分性判定から分割
+任意の $\varepsilon>0$ に対し、[Darboux 可積分性判定](../RA4/index.md#thm-ra4-darboux-criterion)から分割
 $$
 P:a=x_0<\cdots<x_n=b
 $$
@@ -323,7 +323,7 @@ U(f,P)-L(f,P)
 \varepsilon.
 \end{aligned}
 $$
-任意の $\varepsilon>0$ でこのような分割を作れるので、Darboux 可積分性判定より $f$ は Riemann 可積分です。$\square$
+任意の $\varepsilon>0$ でこのような分割を作れるので、[Darboux 可積分性判定](../RA4/index.md#thm-ra4-darboux-criterion)より $f$ は Riemann 可積分です。$\square$
 <!-- proof-end -->
 
 この判定は「不連続点があるとRiemann積分できない」という誤解を壊します。許されないのは不連続点の**個数**ではなく、その集合のLebesgue測度です。
@@ -421,7 +421,7 @@ $$
 $$
 f_n=f1_{[a,b_n]}
 $$
-と置けば $0\le f_n\uparrow f$ なので、単調収束定理から
+と置けば $0\le f_n\uparrow f$ なので、[単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)から
 $$
 \int_{[a,\infty)}f\,dm
 =
