@@ -17,9 +17,11 @@ $$
 
 という次元依存を理解することです。
 
-球座標の微分公式は [VC6](../VC6/index.md#prop-vc6-spherical) を正本として使います。
+球座標での Laplacian の公式は [VC6](../VC6/index.md#prop-vc6-spherical) で学んだ結果を使います。
 
 ## 1. 球面上で値を平均する
+
+一次元では、点 $x$ から距離 $ct$ だけ離れた左右の点を d'Alembert 公式で参照しました。三次元では同じ距離だけ離れた点が一つの球面を作ります。そこで、半径 $r$ の球面上にある値を一つの量へまとめ、半径方向の変化として追えるようにします。
 
 <a id="def-pde9-spherical-mean"></a>
 <!-- formal-statement-start -->
@@ -51,6 +53,8 @@ $$
 <!-- definition-example-end -->
 
 ## 2. 球面平均は半径方向の波動方程式を満たす
+
+球面平均を導入しただけでは、元の Laplacian と半径 $r$ の微分がどう結び付くかはまだ分かりません。三次元の PDE を一次元の半径方向へ落とすには、$x$ に関する Laplacian を「球面平均の $r$ 微分」へ変える関係式が必要です。発散定理を使うと、その関係が $rM_rh$ という組合せに現れます。
 
 <a id="lem-pde9-epd"></a>
 <!-- formal-statement-start -->
@@ -97,13 +101,40 @@ $$
 \int_{|y-x|=r}\partial_n h(y)dS_y.
 $$
 
-[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)より右辺は
+[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)より
 
 $$
-\int_{|y-x|<r}\Delta h(y)dy.
+4\pi r^2m_r
+=
+\int_{|y-x|<r}\Delta h(y)\,dy.
 $$
 
-従って
+ここで両辺を $r$ で微分します。右辺は半径 $r$ の球を少し広げたときに増える薄い球殻の積分なので、
+
+$$
+\frac d{dr}
+\int_{|y-x|<r}\Delta h(y)\,dy
+=
+\int_{|y-x|=r}\Delta h(y)\,dS_y.
+$$
+
+球面平均の定義を使えば
+
+$$
+\int_{|y-x|=r}\Delta h(y)\,dS_y
+=
+4\pi r^2M_r(\Delta h)(x).
+$$
+
+したがって
+
+$$
+4\pi\,\partial_r(r^2m_r)
+=
+4\pi r^2M_r(\Delta h),
+$$
+
+すなわち
 
 $$
 \partial_r(r^2m_r)
@@ -131,6 +162,8 @@ $$
 <!-- proof-end -->
 
 ## 3. 三次元の明示解公式
+
+前節で $q(r,x):=rM_rh(x)$ と置けば、半径 $r$ に関する二階微分が $x$ に関する Laplacian と同じ形になることが分かりました。そこで $r=ct$ と選べば、球面平均から三次元波動方程式の解を組み立てられるはずです。初期変位 $f$ と初速度 $g$ の二つをどの組合せで入れればよいかを、初期条件まで含めて確かめます。
 
 <a id="thm-pde9-kirchhoff"></a>
 <!-- formal-statement-start -->
@@ -200,31 +233,102 @@ F(t,x)=tM_{ct}f(x),
 G(t,x)=tM_{ct}g(x)
 $$
 
-と置きます。$q_f(r,x)=rM_rf(x)$ と書けば、Euler--Poisson--Darboux 関係と $x$ 微分の積分交換から
+と置きます。まず $f$ 側を詳しく見ます。$q_f(r,x)=rM_rf(x)$ と書くと、前節の関係式から
+
+$$
+\partial_{rr}q_f(r,x)
+=
+rM_r(\Delta f)(x).
+$$
+
+一方、球面平均を単位球面上で書けば
+
+$$
+q_f(r,x)
+=
+\frac r{4\pi}
+\int_{S^2}
+f(x+r\omega)\,dS_\omega.
+$$
+
+$x$ について Laplacian を取り、積分と微分を交換すると
+
+$$
+\begin{aligned}
+\Delta_xq_f(r,x)
+&=
+\frac r{4\pi}
+\int_{S^2}
+\Delta f(x+r\omega)\,dS_\omega\\
+&=
+rM_r(\Delta f)(x).
+\end{aligned}
+$$
+
+従って
 
 $$
 \partial_{rr}q_f
 =
-rM_r(\Delta f)
-=
 \Delta_xq_f.
 $$
 
-$F(t,x)=c^{-1}q_f(ct,x)$ なので連鎖律より
+ここで
+
+$$
+F(t,x)
+=
+\frac1c q_f(ct,x)
+$$
+
+です。$t$ 微分を一回ずつ行うと
+
+$$
+F_t(t,x)
+=
+\partial_rq_f(ct,x),
+$$
+
+$$
+F_{tt}(t,x)
+=
+c\,\partial_{rr}q_f(ct,x).
+$$
+
+また
+
+$$
+\Delta_xF(t,x)
+=
+\frac1c\Delta_xq_f(ct,x)
+$$
+
+なので
 
 $$
 F_{tt}
 =
+c\,\partial_{rr}q_f
+=
+c\,\Delta_xq_f
+=
 c^2\Delta_xF.
 $$
 
-同じ計算で
+$g$ についても $q_g(r,x)=rM_rg(x)$ と置けば同じ関係
+$\partial_{rr}q_g=\Delta_xq_g$ が成り立ち、
 
 $$
-G_{tt}
-=
-c^2\Delta_xG.
+G(t,x)=\frac1c q_g(ct,x)
 $$
+
+から
+
+$$
+G_{tt}=c^2\Delta_xG
+$$
+
+を得ます。
 
 さらに波動作用素
 
@@ -272,17 +376,27 @@ $$
 u(0,x)=f(x).
 $$
 
-さらに
+さらに $F_t=M_{ct}f+ct\,\partial_rM_rf|_{r=ct}$ をもう一度微分すると
 
 $$
 F_{tt}(0,x)
 =
 2c\,\partial_rM_rf(x)\big|_{r=0}
 =
-0,
+0.
 $$
 
-一方
+一方、
+
+$$
+G_t(t,x)
+=
+M_{ct}g(x)
++
+ct\,\partial_rM_rg(x)\big|_{r=ct},
+$$
+
+なので
 
 $$
 G_t(0,x)=g(x).
@@ -318,6 +432,8 @@ $$
 
 ## 4. 三次元の有限伝播と Huygens 原理
 
+Kirchhoff 公式は、時刻 $t$ の点 $x$ が初期時刻のどこを参照するかもそのまま示しています。積分領域が球面 $|y-x|=ct$ に限られているので、まず「半径 $ct$ より外からは情報が届かない」という有限伝播が見えます。さらに三次元では、球の内部さえ直接は参照しないという、より強い性質が現れます。
+
 <a id="cor-pde9-huygens"></a>
 <!-- formal-statement-start -->
 > **系（三次元 Huygens 原理）**  
@@ -330,7 +446,30 @@ $$
 > 上のデータだけで決まり、球の内部の初期データは直接寄与しない。
 <!-- formal-statement-end -->
 
-ここで第1項には $t$ 微分が付いていますが、微分後に現れるのも半径 $ct$ の球面上の $f$ とその法線方向微分です。球内部の値を積分する項は生じません。したがって「球面だけが効く」という主張は $f$ 項にも $g$ 項にも成り立ちます。
+第1項には $t$ 微分が付いているので、そこも確認します。単位球面表示を使うと
+
+$$
+tM_{ct}f(x)
+=
+\frac t{4\pi}
+\int_{S^2}f(x+ct\omega)\,dS_\omega.
+$$
+
+$t$ で微分すれば
+
+$$
+\frac{\partial}{\partial t}
+[tM_{ct}f(x)]
+=
+\frac1{4\pi}
+\int_{S^2}f(x+ct\omega)\,dS_\omega
++
+\frac{ct}{4\pi}
+\int_{S^2}
+\nabla f(x+ct\omega)\cdot\omega\,dS_\omega.
+$$
+
+右辺に現れる点は全て $x+ct\omega$、すなわち半径 $ct$ の球面上です。$g$ 項も $tM_{ct}g$ なので同じ球面しか参照しません。球内部の値を積分する項は生じないため、「球面だけが効く」という主張が両方の初期データについて成り立ちます。
 
 これは一次元の d'Alembert 公式とも二次元公式とも異なる、三次元波動の鋭い伝播です。
 
@@ -384,13 +523,40 @@ $$
 z=\pm\sqrt{R^2-|y-x|^2}
 $$
 
-と書きます。グラフ面の面素は
+と書きます。上半球で
 
 $$
-dS
+z(y)
 =
-\frac{R}{\sqrt{R^2-|y-x|^2}}dy.
+\sqrt{R^2-|y-x|^2}
 $$
+
+と置くと
+
+$$
+\nabla_y z
+=
+-\frac{y-x}{\sqrt{R^2-|y-x|^2}}.
+$$
+
+したがってグラフ面の面素は
+
+$$
+\begin{aligned}
+dS
+&=
+\sqrt{1+|\nabla_yz|^2}\,dy\\
+&=
+\sqrt{
+1+
+\frac{|y-x|^2}{R^2-|y-x|^2}
+}\,dy\\
+&=
+\frac{R}{\sqrt{R^2-|y-x|^2}}\,dy.
+\end{aligned}
+$$
+
+下半球でも同じ面素になります。
 
 上半球・下半球で二倍されるため、$x_3$ に依存しない関数 $h(y)$ に対し
 
