@@ -9,7 +9,7 @@ D2Bまでは一つの測度空間上の積分でした。この講義では2つ�
  ↓
 積測度
  ↓
-section測度公式
+切断測度公式
  ↓
 Tonelli（非負）
  ↓
@@ -104,6 +104,48 @@ $$
 
 ## 2. 積測度
 
+長方形 $A\times B$ なら「横の大きさ × 縦の大きさ」で
+
+$$
+\mu(A)\nu(B)
+$$
+
+と測るのが自然です。問題は、この長方形の規則を **積σ代数上の任意の可測集合へ矛盾なく延長できるか**です。
+
+ここで D4 の Carathéodory 拡張定理を使います。ただし一意性まで得るには、空間を有限測度の部分へ可算分割して議論できることが重要です。その条件が σ有限性です。
+
+<a id="def-f0-00d2c-03"></a>
+
+<!-- formal-statement-start -->
+### 定義（σ有限測度）
+
+測度空間 $(X,\mathcal A,\mu)$ が **σ有限** であるとは、可測集合 $X_1,X_2,\ldots$ が存在して
+
+$$
+X=\bigcup_{n=1}^{\infty}X_n,
+\qquad
+\mu(X_n)<\infty
+$$
+
+を満たすことをいう。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00d2c-03 -->
+### 例：Lebesgue 測度は σ有限
+
+$\mathbb R$ 上の Lebesgue 測度 $m$ では
+
+$$
+\mathbb R=\bigcup_{n=1}^{\infty}[-n,n],
+\qquad
+m([-n,n])=2n<\infty.
+$$
+
+したがって $(\mathbb R,\mathcal B(\mathbb R),m)$ は σ有限です。全空間の測度が無限大でも、有限測度の領域を可算個つないで全体を覆えればよい点が重要です。
+<!-- definition-example-end -->
+
+この条件の下で、長方形の規則から積測度を構成できます。
+
 <a id="thm-f0-00d2c-01"></a>
 
 <!-- formal-statement-start -->
@@ -120,10 +162,17 @@ $$
 を全ての $A\in\mathcal A,B\in\mathcal B$ について満たす。
 <!-- formal-statement-end -->
 
+### 証明の見取り図
+
+1. 可測長方形の有限互いに素和からなる集合代数を作る。
+2. 長方形へ $\mu(A)\nu(B)$ を与え、分割しても値が変わらないことと可算加法性を確認して前測度にする。
+3. D4 の Carathéodory 拡張定理で積σ代数へ延長する。
+4. σ有限性を使い、拡張の一意性を得る。
+
 <!-- proof-start -->
 ### 証明
 
-#### Step 1：長方形上の積が premeasure になる
+#### Step 1：長方形上の積が前測度になる
 
 可測長方形の有限互いに素和からなる algebra を $\mathcal R$ とします。長方形について
 
@@ -133,7 +182,9 @@ $$
 
 と置き、互いに素な有限和には加法的に延長します。
 
-例えば
+同じ集合が異なる有限長方形分割で表されても、二つの分割を共通細分して各小長方形上で比較すれば、有限加法性により総和は一致します。したがってこの延長は分割の選び方に依存しません。
+
+前測度性で非自明なのは、長方形が可算個の互いに素な長方形へ分解された場合の可算加法性です。例えば
 
 $$
 A\times B=\bigsqcup_{n=1}^\infty(A_n\times B_n)
@@ -163,7 +214,7 @@ $$
 \sum_{n=1}^\infty\mu(A_n)\nu(B_n).
 $$
 
-有限互いに素和に分解した一般の $R\in\mathcal R$ でも同じ議論を各成分へ適用できるため、$\pi$ は $\mathcal R$ 上の premeasure です。
+有限互いに素和に分解した一般の $R\in\mathcal R$ でも、各成分と可算分割を共通細分して同じ計算を有限個足し合わせれば可算加法性が従います。したがって $\pi$ は $\mathcal R$ 上の前測度です。
 
 #### Step 2：Carathéodory 拡張定理を適用する
 
@@ -182,12 +233,14 @@ $\mu,\nu$ がσ有限なら、有限測度の長方形で $X\times Y$ を可算�
 
 ---
 
-## 3. section
+## 3. 切断（section）
+
+積測度が作れても、まだ二重積分を一変数ずつ計算する公式はありません。そのためには、まず積集合を「$x$ を固定して縦に切る」と何が残るかを記述する必要があります。これが切断です。
 
 <a id="def-f0-00d2c-02"></a>
 
 <!-- formal-statement-start -->
-### 定義（集合の section）
+### 定義（集合の切断）
 
 $E\subset X\times Y$ と $x\in X,y\in Y$ に対して
 
@@ -197,7 +250,7 @@ E_x:=\{y\in Y:(x,y)\in E\},
 E^y:=\{x\in X:(x,y)\in E\}
 $$
 
-をそれぞれ $x$-section、$y$-sectionという。
+をそれぞれ **$x$-切断**、**$y$-切断**という。英語では section と呼びます。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-f0-00d2c-02 -->
@@ -229,13 +282,13 @@ $$
 \nu(E_x)=2\,1_{[0,1]}(x).
 $$
 
-section は「二次元集合を一方向に切り、その断面の大きさをもう一方で積分する」操作です。
+切断は「二次元集合を一方向に切り、その断面の大きさをもう一方で積分する」操作です。
 <!-- definition-example-end -->
 
 <a id="prop-f0-00d2c-01"></a>
 
 <!-- formal-statement-start -->
-### 命題（可測集合の section は可測）
+### 命題（可測集合の切断は可測）
 
 $E\in\mathcal A\otimes\mathcal B$ なら、任意の $x,y$ について
 
@@ -278,14 +331,14 @@ $E^y$ も同様です。$\square$
 
 ---
 
-## 4. section 測度公式
+## 4. 切断測度公式
 
-Tonelli の証明で本当に必要なのは、単に section が可測集合になることだけではありません。
+Tonelli の証明で本当に必要なのは、単に 切断が可測集合になることだけではありません。
 
 <a id="lem-section-measure"></a>
 
 <!-- formal-statement-start -->
-### 補題（section 測度公式）
+### 補題（切断測度公式）
 
 $(X,\mathcal A,\mu),(Y,\mathcal B,\nu)$ をσ有限測度空間とし、$E\in\mathcal A\otimes\mathcal B$ とする。このとき
 
@@ -389,18 +442,23 @@ $$
 
 #### Step 2：σ有限の場合へ局所化する
 
-σ有限性から
+σ有限性から、有限測度集合による被覆 $X=\bigcup_n A_n$、$Y=\bigcup_n B_n$ を取れます。ここで
+
+$$
+X_n:=\bigcup_{k=1}^n A_k,
+\qquad
+Y_n:=\bigcup_{k=1}^n B_k
+$$
+
+と置けば、有限和の劣加法性から $\mu(X_n)<\infty$、$\nu(Y_n)<\infty$ であり、
 
 $$
 X_n\uparrow X,
-\qquad Y_n\uparrow Y,
 \qquad
-\mu(X_n)<\infty,
-\quad
-\nu(Y_n)<\infty
+Y_n\uparrow Y
 $$
 
-となる可測集合列を取れます。
+も成り立ちます。以後この増大列を使います。
 
 $$
 E_n:=E\cap(X_n\times Y_n)
@@ -487,7 +545,7 @@ $$
 
 ```text
 可測集合の指示関数
- ↓ section測度公式
+ ↓ 切断測度公式
 非負単関数
  ↓ 有限線形性
 一般の非負可測関数
@@ -500,7 +558,7 @@ Tonelli
 
 #### Step 1：指示関数
 
-$f=1_E$、$E\in\mathcal A\otimes\mathcal B$ とします。[section 測度公式](#lem-section-measure)から
+$f=1_E$、$E\in\mathcal A\otimes\mathcal B$ とします。[切断測度公式](#lem-section-measure)から
 
 $$
 \int_Y1_E(x,y)d\nu(y)=\nu(E_x)
@@ -566,12 +624,16 @@ $$
 
 ## 6. Fubini の定理
 
+Tonelli は非負関数なら $+\infty$ を許したまま反復積分へ移せました。符号がある関数では、正部分と負部分が別々に無限大になると $+\infty-\infty$ が現れ、差を取れません。
+
+そこで「正部分・負部分の両方が有限になる」という条件、すなわち絶対可積分性を課します。これが Fubini の定理です。
+
 <a id="thm-f0-00d2c-02"></a>
 
 <!-- formal-statement-start -->
 ### 定理（Fubini）
 
-$(\mathcal A\otimes\mathcal B)$-可測関数 $f:X\times Y\to\mathbb R$ が
+σ有限測度空間 $(X,\mathcal A,\mu)$ と $(Y,\mathcal B,\nu)$ をとる。$(\mathcal A\otimes\mathcal B)$-可測関数 $f:X\times Y\to\mathbb R$ が
 
 $$
 \boxed{
@@ -621,15 +683,47 @@ f=f^+-f^-,
 |f|=f^++f^-.
 $$
 
-絶対可積分性から $f^+,f^-$ はともに積分有限です。Tonelli をそれぞれへ適用して差を取れば
+絶対可積分性から
 
 $$
-\int_{X\times Y}f
+\int f^+\,d(\mu\times\nu)<\infty,
+\qquad
+\int f^-\,d(\mu\times\nu)<\infty
+$$
+
+です。Tonelli を $f^+$ と $f^-$ に別々に適用すると、a.e. $x$ で
+
+$$
+\int_Y f^+(x,y)d\nu(y)<\infty,
+\qquad
+\int_Y f^-(x,y)d\nu(y)<\infty
+$$
+
+となり、その点では
+
+$$
+\int_Y f(x,y)d\nu(y)
 =
-\int_X\left(\int_Yf(x,y)d\nu(y)\right)d\mu(x).
+\int_Y f^+(x,y)d\nu(y)
+-
+\int_Y f^-(x,y)d\nu(y)
 $$
 
-逆順も同様です。$\square$
+と差を正当に定義できます。さらに Tonelli の二つの等式を引き算して
+
+$$
+\begin{aligned}
+\int_X\left(\int_Y f(x,y)d\nu(y)\right)d\mu(x)
+&=
+\int_{X\times Y}f^+\,d(\mu\times\nu)
+-
+\int_{X\times Y}f^-\,d(\mu\times\nu)\\
+&=
+\int_{X\times Y}f\,d(\mu\times\nu).
+\end{aligned}
+$$
+
+を得ます。$x,y$ を交換して同じ議論を行えば逆順の反復積分も同じ値になります。$\square$
 <!-- proof-end -->
 
 ---
@@ -714,20 +808,9 @@ $$
 =m([0,2])m([1,4])=2\cdot3=6.
 $$
 
-### 本番答案
-
-$$
-(m\times m)([0,2]\times[1,4])=2\times3=6.
-$$
-
-### 採点基準（20点）
-
-- [積測度の長方形公式](#thm-f0-00d2c-01)を用いる：8点
-- 各区間の測度を $2,3$ と評価：6点
-- 結論 $6$：6点
 <!-- solution-end -->
 
-## F0-00D2C-A02 section を求める
+## F0-00D2C-A02 切断を求める
 
 - Level: A
 - 目安時間: 10分
@@ -736,7 +819,7 @@ $$
 E=\{(x,y)\in[0,1]^2:y\le x\}
 $$
 
-について $E_x$ と $m(E_x)$ を求め、$m_2(E)$ [を section 測度公式](#lem-section-measure)から計算せよ。
+について $E_x$ と $m(E_x)$ を求め、$m_2(E)$ [を切断測度公式](#lem-section-measure)から計算せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -748,26 +831,12 @@ E_x=[0,x],
 \qquad m(E_x)=x.
 $$
 
-従って [section 測度公式](#lem-section-measure)から
+従って [切断測度公式](#lem-section-measure)から
 
 $$
 m_2(E)=\int_0^1m(E_x)dx=\int_0^1x\,dx=\frac12.
 $$
 
-### 本番答案
-
-$x\in[0,1]$ で $E_x=[0,x]$ より $m(E_x)=x$。したがって
-
-$$
-m_2(E)=\int_0^1x\,dx=\frac12.
-$$
-
-### 採点基準（20点）
-
-- section $E_x=[0,x]$：7点
-- $m(E_x)=x$：5点
-- section 測度公式を使用：4点
-- 結論 $1/2$：4点
 <!-- solution-end -->
 
 ## F0-00D2C-A03 Tonelli か Fubini か
@@ -782,23 +851,14 @@ $$
 
 Tonelli。非負可測性だけで使え、積分値が $+\infty$ でもよい。Fubini は絶対可積分性を要求する。
 
-### 本番答案
-
-$f\ge0$ なので [Tonelli](#thm-tonelli) の定理を用いる。Tonelli は積分値の有限性を仮定せず、$+\infty$ も許す。
-
-### 採点基準（20点）
-
-- Tonelli を選択：8点
-- 非負可測性が仮定であること：6点
-- $+\infty$ を許す点または Fubini との違い：6点
 <!-- solution-end -->
 
-## F0-00D2C-B01 section 測度補題の有限測度版
+## F0-00D2C-B01 切断測度補題の有限測度版
 
 - Level: B
 - 目安時間: 20分
 
-有限測度空間で、section 測度公式を満たす集合族 $\mathcal D$ が Dynkin 族になることを示し、π–λ 定理で全ての積可測集合へ拡張せよ。
+有限測度空間で、切断測度公式を満たす集合族 $\mathcal D$ が Dynkin 族になることを示し、π–λ 定理で全ての積可測集合へ拡張せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -817,7 +877,7 @@ $$
 \nu((E^c)_x)=\nu(Y)-\nu(E_x)
 $$
 
-を使え、補集合でも公式を保つ。互いに素な $E_n\in\mathcal D$ については section も互いに素なので、可算加法性と [MCT](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange) により $\bigcup_nE_n\in\mathcal D$。よって $\mathcal D$ は Dynkin 族である。
+を使え、補集合でも公式を保つ。互いに素な $E_n\in\mathcal D$ については 切断も互いに素なので、可算加法性と [MCT](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange) により $\bigcup_nE_n\in\mathcal D$。よって $\mathcal D$ は Dynkin 族である。
 
 可測長方形全体は π-system で $\mathcal D$ に含まれるため、[π–λ 定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda)から
 
@@ -825,27 +885,6 @@ $$
 \mathcal A\otimes\mathcal B\subset\mathcal D.
 $$
 
-### 本番答案
-
-長方形では公式は直接成立する。有限測度性により補集合で
-
-$$
-\nu((E^c)_x)=\nu(Y)-\nu(E_x)
-$$
-
-が使え、互いに素な可算和では section の可算加法性と MCT で公式が保存される。従って $\mathcal D$ は長方形 π-system を含む Dynkin 族。[π–λ 定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda)より
-
-$$
-\mathcal D=\mathcal A\otimes\mathcal B.
-$$
-
-### 採点基準（20点）
-
-- 長方形で成立：4点
-- 補集合で閉じること：5点
-- 互いに素な可算和で閉じること：5点
-- Dynkin 族と判定：2点
-- π–λ 定理で積σ代数へ拡張：4点
 <!-- solution-end -->
 
 ## F0-00D2C-B02 Tonelli の証明を再構成する
@@ -853,7 +892,7 @@ $$
 - Level: B
 - 目安時間: 20分
 
-section 測度公式を既知として、Tonelli を
+切断測度公式を既知として、Tonelli を
 
 $$
 1_E\to\text{非負単関数}\to\text{一般非負可測関数}
@@ -864,7 +903,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$f=1_E$ では [section 測度公式](#lem-section-measure)により
+$f=1_E$ では [切断測度公式](#lem-section-measure)により
 
 $$
 \int_{X\times Y}1_Ed(\mu\times\nu)
@@ -876,17 +915,6 @@ $$
 
 一般の $f\ge0$ には非負単関数列 $\phi_n\uparrow f$ を取り、各 $x$ の $Y$ 積分、外側の $X$ 積分、積空間積分に MCT を順に適用して極限を通す。逆順も同様。
 
-### 本番答案
-
-指示関数では section 測度公式。非負単関数では有限線形性。一般の $f\ge0$ には $\phi_n\uparrow f$ となる非負単関数近似を取り、内側・外側・積空間の各積分に [MCT](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange) を適用する。これで Tonelli の等式を得る。
-
-### 採点基準（20点）
-
-- 指示関数段階：5点
-- 単関数への有限線形拡張：4点
-- 単関数近似 $\phi_n\uparrow f$：4点
-- [MCT](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange) を用いた極限操作：5点
-- 逆順も同様と結論：2点
 <!-- solution-end -->
 
 ## F0-00D2C-B03 Fubini の section 可積分性
@@ -923,24 +951,6 @@ $$
 
 もし $h=+\infty$ となる集合が正の測度を持てば $\int h=+\infty$ となるので矛盾する。従って $h(x)<\infty$ a.e.
 
-### 本番答案
-
-[Tonelli](#thm-tonelli) より
-
-$$
-\int_X\left(\int_Y|f(x,y)|d\nu(y)\right)d\mu
-=
-\int_{X\times Y}|f|d(\mu\times\nu)<\infty.
-$$
-
-内側積分は非負可測関数なので、有限積分を持つ以上 a.e. で有限である。
-
-### 採点基準（20点）
-
-- $h(x)$ の定義：4点
-- Tonelli 適用：7点
-- $\int h<\infty$ の確認：4点
-- 非負関数の有限積分から $h<\infty$ a.e.：5点
 <!-- solution-end -->
 
 ## F0-00D2C-B04 なぜ絶対可積分性が必要か
@@ -977,17 +987,142 @@ $$
 
 で、正負両部分へ Tonelli を安全に適用して差を取れる。これが Fubini の順序交換を保証する仕組みである。
 
-### 本番答案
+<!-- solution-end -->
 
-$\int|f|<\infty$ は $f^+,f^-$ の両方を有限積分にし、$+\infty-\infty$ を排除する。したがって両者へ [Tonelli](#thm-tonelli) を適用して差を取る操作が正当化され、反復積分の順序交換が安全になる。
+## F0-00D2C-A04 σ有限性を確認する
 
-### 採点基準（20点）
+- Level: A
+- 目安時間: 8分
 
-- 絶対可積分性なしの危険を指摘：5点
-- $+\infty-\infty$ または条件収束との対応：5点
-- $f=f^+-f^-$ の分解：4点
-- $f^+,f^-$ が有限積分になること：3点
-- [Tonelli](#thm-tonelli) から Fubini へつながる説明：3点
+Lebesgue 測度 $m$ を備えた $\mathbb R$ が σ有限であることを、定義から確認せよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+σ有限性では、全空間を有限測度の可測集合の可算和で覆えばよい。そこで
+
+$$
+X_n=[-n,n]
+$$
+
+と置く。各 $X_n$ は Borel 集合で、
+
+$$
+m(X_n)=2n<\infty.
+$$
+
+また任意の $x\in\mathbb R$ に対し $n>|x|$ を取れば $x\in[-n,n]$ なので
+
+$$
+\mathbb R=\bigcup_{n=1}^{\infty}[-n,n].
+$$
+
+したがって $\mathbb R$ 上の Lebesgue 測度は σ有限である。
+<!-- solution-end -->
+
+## F0-00D2C-C01 絶対可積分性を Tonelli で確認してから Fubini を使う
+
+- Level: C
+- 目安時間: 25分
+
+$[0,\infty)^2$ 上で
+
+$$
+f(x,y)=e^{-(x+y)}(x-y)
+$$
+
+とする。
+
+1. $f$ が絶対可積分であることを Tonelli の定理を使って示せ。
+2. Fubini の定理を適用して $\int_0^\infty\int_0^\infty f(x,y)\,dy\,dx$ を求めよ。
+3. 積分順序を逆にしても同じ値になることを確認せよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+まず
+
+$$
+|x-y|\le x+y
+$$
+
+なので
+
+$$
+|f(x,y)|
+\le
+e^{-(x+y)}(x+y)
+=
+xe^{-x}e^{-y}+e^{-x}ye^{-y}.
+$$
+
+右辺は非負である。Tonelli を各項へ適用すると
+
+$$
+\begin{aligned}
+\int_0^\infty\int_0^\infty xe^{-x}e^{-y}\,dy\,dx
+&=
+\left(\int_0^\infty xe^{-x}dx\right)
+\left(\int_0^\infty e^{-y}dy\right)=1,\\
+\int_0^\infty\int_0^\infty e^{-x}ye^{-y}\,dy\,dx
+&=
+\left(\int_0^\infty e^{-x}dx\right)
+\left(\int_0^\infty ye^{-y}dy\right)=1.
+\end{aligned}
+$$
+
+したがって
+
+$$
+\int_{[0,\infty)^2}|f|\,d(m\times m)\le2<\infty.
+$$
+
+よって Fubini を適用できる。
+
+$y$ を先に積分すると
+
+$$
+\begin{aligned}
+\int_0^\infty e^{-(x+y)}(x-y)\,dy
+&=
+e^{-x}
+\left(
+x\int_0^\infty e^{-y}dy
+-
+\int_0^\infty ye^{-y}dy
+\right)\\
+&=
+e^{-x}(x-1).
+\end{aligned}
+$$
+
+したがって
+
+$$
+\int_0^\infty e^{-x}(x-1)dx
+=
+\int_0^\infty xe^{-x}dx
+-
+\int_0^\infty e^{-x}dx
+=
+1-1=0.
+$$
+
+逆に $x$ を先に積分すると
+
+$$
+\int_0^\infty e^{-(x+y)}(x-y)dx
+=
+e^{-y}(1-y),
+$$
+
+ゆえに
+
+$$
+\int_0^\infty e^{-y}(1-y)dy=1-1=0.
+$$
+
+絶対可積分性を先に確認したため、この二つの反復積分を Fubini によって同じ積空間積分として扱える。
 <!-- solution-end -->
 
 ---
@@ -996,8 +1131,8 @@ $\int|f|<\infty$ は $f^+,f^-$ の両方を有限積分にし、$+\infty-\infty$
 
 - 積σ代数と積測度を定義できる。
 - 積測度が Carathéodory 拡張から存在する論理を説明できる。
-- section の可測性を証明できる。
-- section 測度公式を有限測度→σ有限局所化で証明できる。
+- 切断の可測性を証明できる。
+- 切断測度公式を有限測度→σ有限局所化で証明できる。
 - Tonelli を指示関数→単関数→MCTで証明できる。
 - Fubini を $|f|$ への Tonelli と正負分解から証明できる。
 - Tonelli と Fubini の仮定を使い分けられる。
