@@ -23,7 +23,6 @@ concepts:
     name: L^p空間
     kind: definition
     aliases: [L^p空間]
-    introduction_aliases: ["空間、"]
     requires:
       - measure.ae-equivalence
       - measure.measurable-function
@@ -35,6 +34,15 @@ concepts:
     aliases: [本質的上限, essential supremum]
     requires:
       - measure.ae-equivalence
+
+  - id: measure.linfty-space
+    name: L^∞空間
+    kind: definition
+    aliases: [L^∞空間, L∞空間]
+    requires:
+      - measure.essential-supremum
+      - measure.ae-equivalence
+      - measure.measurable-function
 
   - id: measure.young-inequality
     name: Youngの不等式
@@ -55,7 +63,7 @@ concepts:
   - id: measure.cauchy-schwarz-l2
     name: L2におけるCauchy--Schwarz
     kind: corollary
-    aliases: [L2におけるCauchy--Schwarz, "系（Cauchy--Schwarz）"]
+    aliases: [L2におけるCauchy--Schwarz, Cauchy--Schwarzの不等式]
     introduction_aliases: [Cauchy--Schwarz, Cauchy-Schwarz]
     requires:
       - measure.holder-inequality
@@ -72,7 +80,6 @@ concepts:
     name: L^pノルム
     kind: theorem
     aliases: [L^pノルム]
-    introduction_aliases: ["ノルム）"]
     requires:
       - measure.lp-space
       - measure.minkowski-inequality
