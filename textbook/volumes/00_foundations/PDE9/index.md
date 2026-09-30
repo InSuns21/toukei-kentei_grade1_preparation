@@ -17,9 +17,11 @@ $$
 
 という次元依存を理解することです。
 
-球座標の微分公式は [VC6](../VC6/index.md#prop-vc6-spherical) を正本として使います。
+球座標での Laplacian の公式は [VC6](../VC6/index.md#prop-vc6-spherical) で学んだ結果を使います。
 
 ## 1. 球面上で値を平均する
+
+一次元では、点 $x$ から距離 $ct$ だけ離れた左右の点を d'Alembert 公式で参照しました。三次元では同じ距離だけ離れた点が一つの球面を作ります。そこで、半径 $r$ の球面上にある値を一つの量へまとめ、半径方向の変化として追えるようにします。
 
 <a id="def-pde9-spherical-mean"></a>
 <!-- formal-statement-start -->
@@ -51,6 +53,8 @@ $$
 <!-- definition-example-end -->
 
 ## 2. 球面平均は半径方向の波動方程式を満たす
+
+球面平均を導入しただけでは、元の Laplacian と半径 $r$ の微分がどう結び付くかはまだ分かりません。三次元の PDE を一次元の半径方向へ落とすには、$x$ に関する Laplacian を「球面平均の $r$ 微分」へ変える関係式が必要です。[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)を使うと、その関係が $rM_rh$ という組合せに現れます。
 
 <a id="lem-pde9-epd"></a>
 <!-- formal-statement-start -->
@@ -97,13 +101,59 @@ $$
 \int_{|y-x|=r}\partial_n h(y)dS_y.
 $$
 
-[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)より右辺は
+[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)より
 
 $$
-\int_{|y-x|<r}\Delta h(y)dy.
+4\pi r^2m_r
+=
+\int_{|y-x|<r}\Delta h(y)\,dy.
 $$
 
-従って
+ここで両辺を $r$ で微分します。右辺の微分を飛ばさないため、中心 $x$ の球座標で書くと
+
+$$
+\int_{|y-x|<r}\Delta h(y)\,dy
+=
+\int_0^r
+\rho^2
+\left[
+\int_{S^2}
+\Delta h(x+\rho\omega)\,dS_\omega
+\right]d\rho.
+$$
+
+角括弧内は $\rho$ の連続関数なので、微積分学の基本定理を上端 $r$ に適用して
+
+$$
+\begin{aligned}
+\frac d{dr}
+\int_{|y-x|<r}\Delta h(y)\,dy
+&=
+r^2
+\int_{S^2}
+\Delta h(x+r\omega)\,dS_\omega\\
+&=
+\int_{|y-x|=r}\Delta h(y)\,dS_y.
+\end{aligned}
+$$
+
+球面平均の定義を使えば
+
+$$
+\int_{|y-x|=r}\Delta h(y)\,dS_y
+=
+4\pi r^2M_r(\Delta h)(x).
+$$
+
+したがって
+
+$$
+4\pi\,\partial_r(r^2m_r)
+=
+4\pi r^2M_r(\Delta h),
+$$
+
+すなわち
 
 $$
 \partial_r(r^2m_r)
@@ -131,6 +181,8 @@ $$
 <!-- proof-end -->
 
 ## 3. 三次元の明示解公式
+
+前節で $q(r,x):=rM_rh(x)$ と置けば、半径 $r$ に関する二階微分が $x$ に関する Laplacian と同じ形になることが分かりました。そこで $r=ct$ と選べば、球面平均から三次元波動方程式の解を組み立てられるはずです。初期変位 $f$ と初速度 $g$ の二つをどの組合せで入れればよいかを、初期条件まで含めて確かめます。
 
 <a id="thm-pde9-kirchhoff"></a>
 <!-- formal-statement-start -->
@@ -200,31 +252,102 @@ F(t,x)=tM_{ct}f(x),
 G(t,x)=tM_{ct}g(x)
 $$
 
-と置きます。$q_f(r,x)=rM_rf(x)$ と書けば、Euler--Poisson--Darboux 関係と $x$ 微分の積分交換から
+と置きます。まず $f$ 側を詳しく見ます。$q_f(r,x)=rM_rf(x)$ と書くと、前節の関係式から
+
+$$
+\partial_{rr}q_f(r,x)
+=
+rM_r(\Delta f)(x).
+$$
+
+一方、球面平均を単位球面上で書けば
+
+$$
+q_f(r,x)
+=
+\frac r{4\pi}
+\int_{S^2}
+f(x+r\omega)\,dS_\omega.
+$$
+
+$x$ について Laplacian を取り、積分と微分を交換すると
+
+$$
+\begin{aligned}
+\Delta_xq_f(r,x)
+&=
+\frac r{4\pi}
+\int_{S^2}
+\Delta f(x+r\omega)\,dS_\omega\\
+&=
+rM_r(\Delta f)(x).
+\end{aligned}
+$$
+
+従って
 
 $$
 \partial_{rr}q_f
 =
-rM_r(\Delta f)
-=
 \Delta_xq_f.
 $$
 
-$F(t,x)=c^{-1}q_f(ct,x)$ なので連鎖律より
+ここで
+
+$$
+F(t,x)
+=
+\frac1c q_f(ct,x)
+$$
+
+です。$t$ 微分を一回ずつ行うと
+
+$$
+F_t(t,x)
+=
+\partial_rq_f(ct,x),
+$$
+
+$$
+F_{tt}(t,x)
+=
+c\,\partial_{rr}q_f(ct,x).
+$$
+
+また
+
+$$
+\Delta_xF(t,x)
+=
+\frac1c\Delta_xq_f(ct,x)
+$$
+
+なので
 
 $$
 F_{tt}
 =
+c\,\partial_{rr}q_f
+=
+c\,\Delta_xq_f
+=
 c^2\Delta_xF.
 $$
 
-同じ計算で
+$g$ についても $q_g(r,x)=rM_rg(x)$ と置けば同じ関係
+$\partial_{rr}q_g=\Delta_xq_g$ が成り立ち、
 
 $$
-G_{tt}
-=
-c^2\Delta_xG.
+G(t,x)=\frac1c q_g(ct,x)
 $$
+
+から
+
+$$
+G_{tt}=c^2\Delta_xG
+$$
+
+を得ます。
 
 さらに波動作用素
 
@@ -272,17 +395,27 @@ $$
 u(0,x)=f(x).
 $$
 
-さらに
+さらに $F_t=M_{ct}f+ct\,\partial_rM_rf|_{r=ct}$ をもう一度微分すると
 
 $$
 F_{tt}(0,x)
 =
 2c\,\partial_rM_rf(x)\big|_{r=0}
 =
-0,
+0.
 $$
 
-一方
+一方、
+
+$$
+G_t(t,x)
+=
+M_{ct}g(x)
++
+ct\,\partial_rM_rg(x)\big|_{r=ct},
+$$
+
+なので
 
 $$
 G_t(0,x)=g(x).
@@ -318,6 +451,8 @@ $$
 
 ## 4. 三次元の有限伝播と Huygens 原理
 
+Kirchhoff 公式は、時刻 $t$ の点 $x$ が初期時刻のどこを参照するかもそのまま示しています。積分領域が球面 $|y-x|=ct$ に限られているので、まず「半径 $ct$ より外からは情報が届かない」という有限伝播が見えます。さらに三次元では、球の内部さえ直接は参照しないという、より強い性質が現れます。
+
 <a id="cor-pde9-huygens"></a>
 <!-- formal-statement-start -->
 > **系（三次元 Huygens 原理）**  
@@ -327,10 +462,39 @@ $$
 |y-x|=ct
 $$
 
-> 上のデータだけで決まり、球の内部の初期データは直接寄与しない。
+> 上にある $f$ とその外向き法線方向微分 $\partial_n f$、および $g$ によって決まる。特に $f,g$ がこの球面のある近傍で 0 なら
+
+$$
+u(t,x)=0
+$$
+
+> であり、球面から正の距離だけ離れた球内部の初期擾乱は時刻 $t$ の $(t,x)$ へ直接寄与しない。
 <!-- formal-statement-end -->
 
-ここで第1項には $t$ 微分が付いていますが、微分後に現れるのも半径 $ct$ の球面上の $f$ とその法線方向微分です。球内部の値を積分する項は生じません。したがって「球面だけが効く」という主張は $f$ 項にも $g$ 項にも成り立ちます。
+第1項には $t$ 微分が付いているので、そこも確認します。単位球面表示を使うと
+
+$$
+tM_{ct}f(x)
+=
+\frac t{4\pi}
+\int_{S^2}f(x+ct\omega)\,dS_\omega.
+$$
+
+$t$ で微分すれば
+
+$$
+\frac{\partial}{\partial t}
+[tM_{ct}f(x)]
+=
+\frac1{4\pi}
+\int_{S^2}f(x+ct\omega)\,dS_\omega
++
+\frac{ct}{4\pi}
+\int_{S^2}
+\nabla f(x+ct\omega)\cdot\omega\,dS_\omega.
+$$
+
+右辺に現れる点は全て $x+ct\omega$、すなわち半径 $ct$ の球面上です。第2積分の $\nabla f\cdot\omega$ は、その球面の外向き法線方向微分です。$g$ 項も $tM_{ct}g$ なので同じ球面しか参照しません。したがって球面近傍で $f,g$ が消えていれば、$f$ の法線微分も含めて全項が0になります。
 
 これは一次元の d'Alembert 公式とも二次元公式とも異なる、三次元波動の鋭い伝播です。
 
@@ -384,13 +548,40 @@ $$
 z=\pm\sqrt{R^2-|y-x|^2}
 $$
 
-と書きます。グラフ面の面素は
+と書きます。上半球で
 
 $$
-dS
+z(y)
 =
-\frac{R}{\sqrt{R^2-|y-x|^2}}dy.
+\sqrt{R^2-|y-x|^2}
 $$
+
+と置くと
+
+$$
+\nabla_y z
+=
+-\frac{y-x}{\sqrt{R^2-|y-x|^2}}.
+$$
+
+したがってグラフ面の面素は
+
+$$
+\begin{aligned}
+dS
+&=
+\sqrt{1+|\nabla_yz|^2}\,dy\\
+&=
+\sqrt{
+1+
+\frac{|y-x|^2}{R^2-|y-x|^2}
+}\,dy\\
+&=
+\frac{R}{\sqrt{R^2-|y-x|^2}}\,dy.
+\end{aligned}
+$$
+
+下半球でも同じ面素になります。
 
 上半球・下半球で二倍されるため、$x_3$ に依存しない関数 $h(y)$ に対し
 
@@ -449,7 +640,47 @@ $h(y)=|y|^2$ の中心0、半径 $r$ の球面平均を求めよ。
 
 <!-- solution-start -->
 ##### 詳細解答
-球面上では $|y|^2=r^2$ が一定なので $M_rh(0)=r^2$ です。
+
+中心0、半径 $r$ の球面は
+
+$$
+|y|=r
+$$
+
+で与えられます。この球面上では
+
+$$
+h(y)=|y|^2=r^2
+$$
+
+が点 $y$ によらず一定です。
+
+球面平均の定義から
+
+$$
+\begin{aligned}
+M_rh(0)
+&=
+\frac1{4\pi r^2}
+\int_{|y|=r}|y|^2\,dS_y\\
+&=
+\frac1{4\pi r^2}
+\int_{|y|=r}r^2\,dS_y.
+\end{aligned}
+$$
+
+半径 $r$ の球面積は $4\pi r^2$ なので
+
+$$
+M_rh(0)
+=
+\frac{r^2}{4\pi r^2}
+(4\pi r^2)
+=
+\boxed{r^2}.
+$$
+
+「定数関数の平均はその定数」という最も基本的な平均計算になっています。
 <!-- solution-end -->
 
 #### PDE9-A02 定数初速度
@@ -459,17 +690,103 @@ $f=0$, $g=1$ を Kirchhoff 公式へ入れよ。
 
 <!-- solution-start -->
 ##### 詳細解答
-$M_{ct}1=1$ なので $u=t$。実際 $u_{tt}=0=\Delta u$, $u_t(0)=1$ です。
+
+Kirchhoff 公式は
+
+$$
+u(t,x)
+=
+\frac{\partial}{\partial t}
+[tM_{ct}f(x)]
++
+tM_{ct}g(x)
+$$
+
+です。ここで $f=0$ なので第一項は0です。
+
+また $g\equiv1$ は定数関数なので、どの球面でも平均は
+
+$$
+M_{ct}g(x)=1.
+$$
+
+従って
+
+$$
+\boxed{u(t,x)=t}.
+$$
+
+PDE を直接確認すると
+
+$$
+u_{tt}=0,
+\qquad
+\Delta u=0,
+$$
+
+なので $u_{tt}-c^2\Delta u=0$ です。初期条件も
+
+$$
+u(0,x)=0,
+\qquad
+u_t(0,x)=1=g(x)
+$$
+
+となります。
 <!-- solution-end -->
 
-#### PDE9-A03 球面だけを見る
+#### PDE9-A03 球面近傍から離れた初期擾乱
 - Level: A
 
-三次元で初期データが球 $|y-x|<ct$ の内部だけにあり、球面上では0なら、その初期データが時刻 $t$ の $u(t,x)$ に直接寄与しない理由を述べよ。
+三次元で初期変位 $f$ と初速度 $g$ が、球面 $|y-x|=ct$ のある近傍でともに0とする。このとき時刻 $t$ の $u(t,x)$ にそれらが寄与しない理由を [Kirchhoff 公式](#thm-pde9-kirchhoff)から説明せよ。
 
 <!-- solution-start -->
 ##### 詳細解答
-Kirchhoff 公式の積分領域は $|y-x|=ct$ の球面だけだからです。
+
+Kirchhoff 公式は
+
+$$
+u(t,x)
+=
+\frac{\partial}{\partial t}[tM_{ct}f(x)]
++
+tM_{ct}g(x)
+$$
+
+です。$g$ 項は半径 $ct$ の球面上の $g$ の平均なので、仮定から
+
+$$
+M_{ct}g(x)=0.
+$$
+
+$f$ 項は本文で計算したように
+
+$$
+\frac{\partial}{\partial t}[tM_{ct}f(x)]
+=
+\frac1{4\pi}
+\int_{S^2}f(x+ct\omega)\,dS_\omega
++
+\frac{ct}{4\pi}
+\int_{S^2}
+\nabla f(x+ct\omega)\cdot\omega\,dS_\omega.
+$$
+
+$f$ が球面の**近傍**で0なら、球面上で $f=0$ であるだけでなく
+
+$$
+\nabla f=0
+$$
+
+でもあります。したがって上の二つの積分も0です。
+
+よって
+
+$$
+\boxed{u(t,x)=0}.
+$$
+
+「球面上で $f=0$」だけでは法線微分まで0とは限らないため、近傍で0という仮定が必要です。
 <!-- solution-end -->
 
 #### PDE9-A04 二次元の定数初速度
@@ -479,15 +796,80 @@ Poisson 公式で $f=0,g=1$ とし $u=t$ を確認せよ。
 
 <!-- solution-start -->
 ##### 詳細解答
-極座標で
+
+$f=0$ なので Poisson 公式の初期変位項は消えます。$g=1$ を代入すると
+
 $$
-\int_{|y-x|<ct}\frac{dy}{\sqrt{c^2t^2-|y-x|^2}}
+u(t,x)
 =
-2\pi\int_0^{ct}\frac{rdr}{\sqrt{c^2t^2-r^2}}
-=
-2\pi ct.
+\frac1{2\pi c}
+\int_{|y-x|<ct}
+\frac{1}
+{\sqrt{c^2t^2-|y-x|^2}}
+\,dy.
 $$
-係数 $1/(2\pi c)$ を掛けて $u=t$ です。
+
+中心を $x$ に取った極座標
+
+$$
+y-x=(r\cos\theta,r\sin\theta),
+\qquad
+dy=r\,dr\,d\theta
+$$
+
+を使うと
+
+$$
+\begin{aligned}
+u(t,x)
+&=
+\frac1{2\pi c}
+\int_0^{2\pi}
+\int_0^{ct}
+\frac{r}
+{\sqrt{c^2t^2-r^2}}
+\,dr\,d\theta.
+\end{aligned}
+$$
+
+内側では
+
+$$
+q=c^2t^2-r^2,
+\qquad
+dq=-2r\,dr
+$$
+
+と置けば
+
+$$
+\int_0^{ct}
+\frac{r\,dr}{\sqrt{c^2t^2-r^2}}
+=
+\left[
+-\sqrt{c^2t^2-r^2}
+\right]_{0}^{ct}
+=
+ct.
+$$
+
+したがって二重積分は
+
+$$
+2\pi ct
+$$
+
+となり、
+
+$$
+u(t,x)
+=
+\frac{1}{2\pi c}(2\pi ct)
+=
+\boxed{t}.
+$$
+
+三次元の定数初速度の場合と同じ解になりますが、二次元では円板内部全体を積分して同じ結果が出ている点が異なります。
 <!-- solution-end -->
 
 ### Level B
@@ -499,11 +881,88 @@ $$
 
 <!-- solution-start -->
 ##### 詳細解答
-VC6 の球座標 Laplacian から
+
+放射対称なので [VC6 の球座標 Laplacian](../VC6/index.md#prop-vc6-spherical)から、$r>0$ で
+
 $$
-\Delta U=U_{rr}+\frac2rU_r.
+\Delta U
+=
+U_{rr}
++
+\frac2rU_r.
 $$
-$v=rU$ とすると $v_{rr}=2U_r+rU_{rr}=r\Delta U$、$v_{tt}=rU_{tt}$。従って $U_{tt}=c^2\Delta U$ は $v_{tt}=c^2v_{rr}$ になります。
+
+ここで
+
+$$
+v(t,r)=rU(t,r)
+$$
+
+と置きます。$r$ 微分を一回行うと
+
+$$
+v_r
+=
+U+rU_r,
+$$
+
+さらにもう一回微分して
+
+$$
+v_{rr}
+=
+U_r+U_r+rU_{rr}
+=
+2U_r+rU_{rr}.
+$$
+
+一方、
+
+$$
+r\Delta U
+=
+rU_{rr}+2U_r,
+$$
+
+なので
+
+$$
+v_{rr}
+=
+r\Delta U.
+$$
+
+時間については $r$ は定数なので
+
+$$
+v_{tt}
+=
+rU_{tt}.
+$$
+
+三次元波動方程式
+
+$$
+U_{tt}=c^2\Delta U
+$$
+
+の両辺に $r$ を掛けると
+
+$$
+rU_{tt}
+=
+c^2r\Delta U.
+$$
+
+上の二つの恒等式を代入して
+
+$$
+\boxed{
+v_{tt}=c^2v_{rr}
+}.
+$$
+
+したがって三次元の放射対称波は、$v=rU$ という重みを付けることで一次元波動方程式へ帰着します。
 <!-- solution-end -->
 
 #### PDE9-B02 有限伝播
@@ -513,7 +972,24 @@ $v=rU$ とすると $v_{rr}=2U_r+rU_{rr}=r\Delta U$、$v_{tt}=rU_{tt}$。従っ�
 
 <!-- solution-start -->
 ##### 詳細解答
-球面 $S_{ct}(x)$ が $B_R(0)$ と交わらなければ積分は0です。特に $|x|>R+ct$ なら、$|y-x|=ct$ を満たす全ての $y$ について
+
+初期データの台が $B_R(0)$ に含まれるとは、$|y|>R$ の領域で $f$ と $g$ が0であることを意味します。Kirchhoff 公式が参照する球面
+
+$$
+S_{ct}(x)
+=
+\{y:|y-x|=ct\}
+$$
+
+がこの台と交わらなければ、$g$ の球面平均は0です。また $f$ も球面の近傍で0になるので、$f$ とその法線方向微分の寄与も0になります。
+
+十分条件として
+
+$$
+|x|>R+ct
+$$
+
+を示します。$|y-x|=ct$ を満たす任意の $y$ に対し、[逆三角不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-reverse-triangle-inequality)から
 
 $$
 |y|
@@ -522,10 +998,20 @@ $$
 =
 |x|-ct
 >
-R
+R.
 $$
 
-なので、球面上の初期データは0です。従って $u(t,x)=0$ です。
+従って球面 $S_{ct}(x)$ 全体が $B_R(0)$ の外にあります。よって Kirchhoff 公式の全ての項が0となり、
+
+$$
+\boxed{
+|x|>R+ct
+\quad\Longrightarrow\quad
+u(t,x)=0
+}.
+$$
+
+これは初期擾乱が速度 $c$ より速く外側へ伝わらないことを表します。
 <!-- solution-end -->
 
 #### PDE9-B03 Huygens と尾
@@ -535,7 +1021,45 @@ $$
 
 <!-- solution-start -->
 ##### 詳細解答
-三次元は球面積分なので半径 $ct$ の殻だけを見る。二次元は円板内部全体を重み付き積分するため、波面より内側の過去データも寄与し続け、尾が残ります。
+
+三次元の Kirchhoff 公式では、時刻 $(t,x)$ の値は半径 $ct$ の球面上の
+
+$$
+f,\qquad
+\partial_nf,\qquad
+g
+$$
+
+から作られます。したがって、初期擾乱の台がこの球面から離れれば、その擾乱はその時刻の $(t,x)$ へ直接寄与しません。これが三次元の鋭い Huygens 型の伝播です。
+
+一方、二次元の Poisson 公式には
+
+$$
+\int_{|y-x|<ct}
+\frac{g(y)}
+{\sqrt{c^2t^2-|y-x|^2}}
+\,dy
+$$
+
+のように、円板
+
+$$
+|y-x|<ct
+$$
+
+の**内部全体**が現れます。したがって波面 $|y-x|=ct$ が初期擾乱の位置を通過した後でも、その擾乱が円板内部に残っている間は積分へ入り続けます。
+
+つまり
+
+$$
+\boxed{
+\text{三次元：球面上の寄与}
+\qquad
+\text{二次元：円板内部全体の寄与}
+}
+$$
+
+という積分領域の違いが、尾の有無を生みます。
 <!-- solution-end -->
 
 ### Level C
@@ -547,7 +1071,67 @@ $$
 
 <!-- solution-start -->
 ##### 詳細解答
-一次元 d'Alembert では初期変位は二端点 $x\pm ct$、初速度は区間 $[x-ct,x+ct]$ に現れます。二次元 Poisson では円板 $|y-x|<ct$ 全体が寄与します。三次元 Kirchhoff では球面 $|y-x|=ct$ のみです。どの場合も半径 $ct$ より外側は影響しないため有限伝播速度を持ちますが、初期データが波面内部に残って直接寄与しないという鋭い Huygens 原理は三次元公式に現れます。
+
+まず各公式が参照する初期時刻の集合を分けます。
+
+**一次元**の d'Alembert 公式は
+
+$$
+u(t,x)
+=
+\frac{f(x-ct)+f(x+ct)}2
++
+\frac1{2c}
+\int_{x-ct}^{x+ct}g(s)\,ds
+$$
+
+です。初期変位 $f$ は二点
+
+$$
+x-ct,\qquad x+ct
+$$
+
+だけを参照しますが、初速度 $g$ は区間全体
+
+$$
+[x-ct,x+ct]
+$$
+
+を参照します。
+
+**二次元**の Poisson 公式では、$f$ 項・$g$ 項とも基本的に円板
+
+$$
+|y-x|<ct
+$$
+
+上の重み付き積分から作られます。したがって波面より内側のデータも寄与します。
+
+**三次元**の Kirchhoff 公式では、$g$ は球面
+
+$$
+|y-x|=ct
+$$
+
+上で平均され、$f$ 項を微分した後も球面上の $f$ と法線方向微分 $\partial_nf$ だけが現れます。
+
+以上から、三つの次元すべてで参照領域は距離 $ct$ を超えません。したがって
+
+$$
+\boxed{
+\text{情報の伝播速度は }c\text{ を超えない}
+}
+$$
+
+という有限伝播速度は共通です。
+
+一方、波面が通過した後の振る舞いは異なります。
+
+- 一次元では初速度項が区間積分なので内部の寄与が残る。
+- 二次元では円板内部全体を積分するので尾が残る。
+- 三次元では球面上の $f,\partial_nf,g$ だけを参照するため、球面から離れた内部擾乱は直接寄与しない。
+
+従って、この章でいう鋭い Huygens 原理は三次元 Kirchhoff 公式に現れます。
 <!-- solution-end -->
 
 ## 7. 章末チェック

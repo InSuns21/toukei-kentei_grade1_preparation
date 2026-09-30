@@ -8,6 +8,9 @@ prerequisites:
 # 一般の自己共役作用素のスペクトル定理、弱微分、Sobolev空間、弱解はEncore III以降へ送る。
 forward_references:
   - functional.resolvent-spectrum
+  - distribution.schwartz-distribution
+  - distribution.weak-derivative
+  - sobolev.wkp
 
 concepts:
   - id: pde.pde7-modal-diagonalization
@@ -42,11 +45,11 @@ concepts:
       - fourier.fou3-fourier-transform
 
   - id: pde.pde7-green-spectral-kernel
-    name: 有限モードGreen kernel
+    name: 有限モードGreen 核
     kind: proposition
     aliases: [spectral Green kernel, Green kernelの固有関数展開]
     introduction: formal
-    introduction_aliases: ["命題（有限モード Green kernel）"]
+    introduction_aliases: ["命題（有限モード Green 核）"]
     requires:
       - pde.pde7-modal-diagonalization
       - pde.pde6-green-representation
