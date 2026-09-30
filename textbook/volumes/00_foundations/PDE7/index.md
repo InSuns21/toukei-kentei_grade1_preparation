@@ -231,7 +231,28 @@ a_n'+\kappa\lambda_n a_n
 \right)\phi_n.
 $$
 
-これが恒等的に0なので、各 $n$ について
+左辺が0なので、この有限和も0です。固定した $k$ について $\phi_k$ との内積を取ると、直交性から $n\ne k$ の項が消えて
+
+$$
+0
+=
+\left\langle
+\sum_{n=1}^N
+(a_n'+\kappa\lambda_na_n)\phi_n,
+\phi_k
+\right\rangle
+=
+(a_k'+\kappa\lambda_ka_k)
+\|\phi_k\|^2.
+$$
+
+$\phi_k\ne0$ なので $\|\phi_k\|^2>0$ です。従って
+
+$$
+a_k'+\kappa\lambda_ka_k=0.
+$$
+
+$k$ は任意だったので、全ての $n$ について
 
 $$
 a_n'+\kappa\lambda_n a_n=0.
@@ -245,14 +266,31 @@ u_{tt}+c^2Au
 \sum_{n=1}^N
 \left(
 a_n''+c^2\lambda_n a_n
-\right)\phi_n,
+\right)\phi_n.
 $$
 
-したがって
+固定した $k$ について $\phi_k$ との内積を取れば
 
 $$
-a_n''+c^2\lambda_n a_n=0.
+0
+=
+(a_k''+c^2\lambda_ka_k)
+\|\phi_k\|^2,
 $$
+
+従って
+
+$$
+a_k''+c^2\lambda_ka_k=0.
+$$
+
+これも $k$ が任意なので、各 $n$ で
+
+$$
+a_n''+c^2\lambda_n a_n=0
+$$
+
+です。
 
 定常問題では
 
@@ -263,7 +301,22 @@ Au-f
 (\lambda_na_n-f_n)\phi_n.
 $$
 
-よって各係数について
+固定した $k$ について $\phi_k$ との内積を取ると
+
+$$
+0
+=
+(\lambda_ka_k-f_k)
+\|\phi_k\|^2.
+$$
+
+従って
+
+$$
+\lambda_ka_k=f_k.
+$$
+
+よって全ての $n$ について
 
 $$
 \lambda_na_n=f_n
