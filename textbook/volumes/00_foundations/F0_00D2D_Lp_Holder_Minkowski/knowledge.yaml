@@ -2,9 +2,11 @@ chapter: F0-00D2D
 scope: dream-theater
 coverage: complete
 prerequisites:
+  - F0-00D1
   - F0-00D2A
 
 forward_references:
+  - linear.inner-product
   - functional.hilbert-space
   - functional.l2-inner-product
   - functional.l2-completeness
@@ -63,8 +65,7 @@ concepts:
   - id: measure.cauchy-schwarz-l2
     name: L2におけるCauchy--Schwarz
     kind: corollary
-    aliases: [L2におけるCauchy--Schwarz, Cauchy--Schwarzの不等式]
-    introduction_aliases: [Cauchy--Schwarz, Cauchy-Schwarz]
+    aliases: [L2におけるCauchy--Schwarz]
     requires:
       - measure.holder-inequality
 
