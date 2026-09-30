@@ -42,11 +42,11 @@ concepts:
       - fourier.fou3-fourier-transform
 
   - id: pde.pde7-green-spectral-kernel
-    name: 有限モードGreen kernel
+    name: 有限モードGreen 核
     kind: proposition
     aliases: [spectral Green kernel, Green kernelの固有関数展開]
     introduction: formal
-    introduction_aliases: ["命題（有限モード Green kernel）"]
+    introduction_aliases: ["命題（有限モード Green 核）"]
     requires:
       - pde.pde7-modal-diagonalization
       - pde.pde6-green-representation
