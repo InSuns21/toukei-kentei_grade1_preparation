@@ -19,7 +19,7 @@ Fubini（絶対可積分）
 です。
 
 > **証明依存**  
-> 積測度の存在・一意性には [Carathéodory 拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)を使います。標準ルートではこの定理を受け入れて先へ進んで構いません。DREAM THEATER ルートでは [D3](../F0_00D3_外測度_Caratheodory可測性/index.md) → [D4](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension) で拡張定理そのものを証明します。本章では、それ以外の section → Tonelli → Fubini の論理を黒箱なしで閉じます。
+> 積測度の存在・一意性には [Carathéodory 拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)を使います。標準ルートではこの定理を受け入れて先へ進んで構いません。DREAM THEATER ルートでは [D3](../F0_00D3_外測度_Caratheodory可測性/index.md) → [D4](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension) で拡張定理そのものを証明します。本章では、それ以外の 切断 → Tonelli → Fubini の論理を黒箱なしで閉じます。
 
 ---
 
@@ -308,7 +308,7 @@ $$
 \mathcal C_x:=\{E\subset X\times Y:E_x\in\mathcal B\}
 $$
 
-と置きます。section は補集合と可算和に可換するので $\mathcal C_x$ はσ代数です。
+と置きます。切断は補集合と可算和に可換するので $\mathcal C_x$ はσ代数です。
 
 長方形について
 
@@ -917,7 +917,7 @@ $$
 
 <!-- solution-end -->
 
-## F0-00D2C-B03 Fubini の section 可積分性
+## F0-00D2C-B03 Fubini の切断可積分性
 
 - Level: B
 - 目安時間: 15分
