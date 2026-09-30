@@ -418,56 +418,56 @@ $$
 <!-- proof-end -->
 
 無限区間でも使う定理は同じですが、何を単調増加させるかを明示しておきます。たとえば $f:[a,\infty)\to[0,\infty)$ なら $b_n\uparrow\infty$ として
-$
+$$
 f_n=f1_{[a,b_n]}
-$
+$$
 と置けば $0\le f_n\uparrow f$ なので、単調収束定理から
-$
+$$
 \int_{[a,\infty)}f\,dm
 =
 \lim_{n\to\infty}\int_a^{b_n}f(x)\,dx.
-$
+$$
 両側無限区間では $a_n\downarrow-\infty$, $b_n\uparrow\infty$ として $f1_{[a_n,b_n]}\uparrow f$ とすれば同じ議論になります。
 
 符号を持つ関数では注意が必要です。絶対値の広義積分まで有限ならLebesgue可積分で値も一致しますが、**条件収束する広義積分**はLebesgue可積分とは限りません。
 
 典型例は
-$
+$$
 \int_1^\infty\frac{\sin x}{x}\,dx
-$
+$$
 です。まず $1\le A<B$ に対して部分積分すると
-$
+$$
 \int_A^B\frac{\sin x}{x}\,dx
 =
 \left[-\frac{\cos x}{x}\right]_A^B
 -
 \int_A^B\frac{\cos x}{x^2}\,dx.
-$
+$$
 $B\to\infty$ で $\cos B/B\to0$ であり、
-$
+$$
 \int_A^\infty\frac{|\cos x|}{x^2}\,dx
 \le
 \int_A^\infty\frac{dx}{x^2}
 <\infty
-$
+$$
 なので、広義 Riemann 積分は収束します。
 
 一方、各整数 $k\ge1$ について
-$
+$$
 I_k=[k\pi+\pi/6,\ k\pi+5\pi/6]
-$
+$$
 では $|\sin x|\ge1/2$ です。従って
-$
+$$
 \int_{I_k}\frac{|\sin x|}{x}\,dx
 \ge
 \frac12\frac{|I_k|}{k\pi+5\pi/6}
 =
 \frac{\pi/3}{k\pi+5\pi/6}.
-$
+$$
 右辺を $k$ について足すと調和級数型に発散するので
-$
+$$
 \int_1^\infty\frac{|\sin x|}{x}\,dx=\infty.
-$
+$$
 したがって $\sin x/x$ は Lebesgue 可積分ではありません。
 
 したがって無限区間まで含めると、単純に「Lebesgue積分がRiemann積分を全部包含する」と言うのは不正確です。正しくは、**通常のRiemann積分はLebesgue積分に含まれ、非負・絶対収束の広義積分も自然に接続するが、条件収束は別物**です。
