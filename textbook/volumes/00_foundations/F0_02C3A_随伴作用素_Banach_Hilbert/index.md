@@ -1,81 +1,141 @@
 # F0-02C3A 関数解析III-A：随伴作用素・Banach双対・Hilbert随伴
 
-有界線形作用素を出力側の汎関数から入力側へ引き戻す操作が随伴です。この章で随伴を表す記号とその型を定義し、最後にKKTの停留条件へどう現れるかを確認します。
+[F0-02C3](../F0_02C3_Frechet微分_線形作用素_随伴/index.md) では、実数値関数の微分を
+$X^*$ の元として扱い、Hilbert 空間では Riesz 表現によってベクトルへ戻せることを見ました。
 
-## 1. Banach空間での随伴作用素
+ここで制約写像や線形作用素
+$T:X\to Y$
+が入ると、出力側 $Y$ の汎関数を入力側 $X$ の汎関数へ戻したくなります。有限次元で
+$A^{\mathsf T}\lambda$
+と書いていた操作の正体が **随伴作用素** です。
 
-有界線形作用素
+この章では
+
+~~~text
+出力側の汎関数 y*
+  ↓ T と合成する
+入力側の汎関数 y*∘T
+  ↓
+Banach 空間の随伴 T*:Y*→X*
+  ↓ Riesz 表現
+Hilbert 随伴 T†:H2→H1
+~~~
+
+という順に、型と計算を一つずつ確認します。
+
+---
+
+## 1. 出力側の測定を入力側へ引き戻す
+
+$X,Y$ をノルム空間、$T:X\to Y$ を有界線形写像とします。
+
+$y^*\in Y^*$ は、$Y$ のベクトルを実数へ測る連続線形汎関数です。$x\in X$ を同じ測定器で測りたければ、
 
 $$
-T:X\to Y
+x\xmapsto{T}Tx\xmapsto{y^*}y^*(Tx)
 $$
 
-を考えます。
+と合成すればよいことになります。
+
+この合成は $X$ 上の汎関数なので、出力側の測定器を入力側へ「引き戻す」操作と考えられます。
 
 <a id="def-f0-02c3a-banach-adjoint"></a>
 
 <!-- formal-statement-start -->
 > **定義（Banach空間での随伴作用素）**  
-> 有界線形作用素 $T:X\to Y$ に対し、$T^*:Y^*\to X^*$ を
-
-$$
-(T^*y^*)[x]=y^*[Tx]
-$$
-
-> で定めます。この $T^*$ を $T$ の **随伴作用素** といいます。
+> 有界線形写像 $T:X\to Y$ に対し、$T^*:Y^*\to X^*$ を
+>
+> $$
+> (T^*y^*)[x]=y^*[Tx]
+> $$
+>
+> で定める。この $T^*$ を $T$ の **随伴作用素** という。
 <!-- formal-statement-end -->
 
-型を確認すると
+つまり
+
+$$
+\boxed{T^*y^*=y^*\circ T}
+$$
+
+です。$T$ は $X\to Y$ へ進みますが、随伴は双対空間の上を
+
+$$
+\boxed{Y^*\to X^*}
+$$
+
+と逆向きに進みます。
+
+<!-- definition-example-start: def-f0-02c3a-banach-adjoint -->
+### 定義の確認：具体的な汎関数を引き戻す
+
+$T:\mathbb R^2\to\mathbb R$ を
+
+$$
+T(x_1,x_2)=2x_1-x_2
+$$
+
+とし、$y_a^*:\mathbb R\to\mathbb R$ を $y_a^*(r)=ar$ とします。このとき
+
+$$
+(T^*y_a^*)(x_1,x_2)
+=
+a(2x_1-x_2).
+$$
+
+確かに、実数側の汎関数 $y_a^*$ を $T$ と合成すると、$\mathbb R^2$ 上の線形汎関数へ戻っています。
+<!-- definition-example-end -->
+
+### 1.1 本当に $T^*y^*\in X^*$ になるのか
+
+定義式を書くだけでは、$y^*\circ T$ が連続であることまでは確認できていません。ここを評価します。
+
+$y^*\in Y^*$ と $x\in X$ に対して、双対ノルムの基本評価と作用素ノルムの基本評価を順に使うと
+
+$$
+\begin{aligned}
+|(T^*y^*)[x]|
+&=|y^*(Tx)|\\
+&\le \|y^*\|_{Y^*}\,\|Tx\|_Y\\
+&\le \|y^*\|_{Y^*}\,\|T\|\,\|x\|_X.
+\end{aligned}
+$$
+
+したがって $T^*y^*$ は有界線形汎関数で、
 
 $$
 \boxed{
-T^*:Y^*\to X^*
+\|T^*y^*\|_{X^*}
+\le
+\|T\|\,\|y^*\|_{Y^*}
 }
 $$
 
 です。
 
-つまり $T$ が $X$ から $Y$ へ進むのに対し、随伴は双対空間の上を逆向きに進みます。
+さらに $a,b\in\mathbb R$、$y_1^*,y_2^*\in Y^*$ に対し、任意の $x\in X$ について
+
+$$
+\begin{aligned}
+[T^*(ay_1^*+by_2^*)](x)
+&=(ay_1^*+by_2^*)(Tx)\\
+&=a(T^*y_1^*)(x)+b(T^*y_2^*)(x)
+\end{aligned}
+$$
+
+なので、$T^*:Y^*\to X^*$ 自身も線形です。上の評価から有界でもあり、
+
+$$
+\|T^*\|\le\|T\|
+$$
+
+が従います。
+
+ここで重要なのは、**随伴を定義した後に、型 $Y^*\to X^*$ が本当に成立することを有界性評価で確かめた**点です。
 
 ---
 
-## 2. なぜ逆向きになるのか
-
-$y^*$ は $Y$ のベクトルを実数へ測る装置です。
-
-$x\in X$ を測りたいとき、まず
-
-$$
-x\xmapsto{T}Tx\in Y
-$$
-
-と送り、その後
-
-$$
-Tx\xmapsto{y^*}y^*(Tx)
-$$
-
-と測れます。
-
-この合成
-
-$$
-y^*\circ T
-$$
-
-が $X$ 上の汎関数です。
-
-したがって
-
-$$
-T^*y^*=y^*\circ T.
-$$
-
-「出力側の測定器を、入力側へ引き戻す」と考えると分かりやすくなります。
-
----
-
-## 3. 有限次元では転置行列になる
+## 2. 有限次元では転置行列になる
 
 $T:\mathbb R^p\to\mathbb R^m$ を
 
@@ -83,9 +143,8 @@ $$
 T(x)=Ax
 $$
 
-とします。
-
-$y^*\in(\mathbb R^m)^*$ をベクトル $\lambda\in\mathbb R^m$ で
+とします。Euclid 内積を使って $y^*\in(\mathbb R^m)^*$ を係数ベクトル
+$\lambda\in\mathbb R^m$ により
 
 $$
 y^*(y)=\lambda^{\mathsf T}y
@@ -96,24 +155,33 @@ $$
 すると
 
 $$
+\begin{aligned}
 (T^*y^*)(x)
-=\lambda^{\mathsf T}Ax
-=(A^{\mathsf T}\lambda)^{\mathsf T}x.
+&=y^*(Ax)\\
+&=\lambda^{\mathsf T}Ax\\
+&=(A^{\mathsf T}\lambda)^{\mathsf T}x.
+\end{aligned}
 $$
 
-したがって
+従って、$T^*y^*$ を表す係数ベクトルは $A^{\mathsf T}\lambda$ です。
 
 $$
-\boxed{T^*\lambda=A^{\mathsf T}\lambda}.
+\boxed{
+\text{有限次元の随伴}
+\longleftrightarrow
+\text{転置行列}
+}
 $$
 
-KKTに
+となります。
+
+有限次元の KKT 条件に
 
 $$
 J_G(x)^{\mathsf T}\lambda
 $$
 
-が出るのは、制約写像の微分
+が現れるのは、制約写像の微分
 
 $$
 DG(x):X\to Y
@@ -125,86 +193,194 @@ $$
 DG(x)^*:Y^*\to X^*
 $$
 
-が本体だからです。
+を座標で書いているからです。
 
 ---
 
-## 4. Hilbert空間での随伴
+## 3. Hilbert空間では双対空間を元の空間へ戻せる
 
-$H_1,H_2$ をHilbert空間、$T:H_1\to H_2$ を有界線形作用素とします。
-
-Banach空間としての随伴は
+Banach 空間の随伴は
 
 $$
 T^*:H_2^*\to H_1^*
 $$
 
-ですが、Riesz表現により各双対空間を元のHilbert空間と対応付けられます。
+という双対空間の間の作用素です。
+
+一方、Hilbert 空間では [Riesz表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation) により、連続線形汎関数を一意なベクトルで表せます。そこで随伴も、双対空間を経由した後で元の Hilbert 空間へ戻せます。
+
+$H_1,H_2$ を実 Hilbert 空間、$T:H_1\to H_2$ を有界線形写像とします。$y\in H_2$ を固定し、
+
+$$
+\phi_y(x):=\langle Tx,y\rangle_{H_2}
+$$
+
+と置きます。
+
+Cauchy--Schwarz の不等式と $T$ の有界性から
+
+$$
+\begin{aligned}
+|\phi_y(x)|
+&\le \|Tx\|_{H_2}\,\|y\|_{H_2}\\
+&\le \|T\|\,\|x\|_{H_1}\,\|y\|_{H_2}.
+\end{aligned}
+$$
+
+したがって $\phi_y\in H_1^*$ です。Riesz 表現定理を $\phi_y$ に適用すると、一意な $z_y\in H_1$ が存在して
+
+$$
+\phi_y(x)
+=
+\langle z_y,x\rangle_{H_1}
+=
+\langle x,z_y\rangle_{H_1}
+$$
+
+となります。最後の等号では実 Hilbert 空間の内積の対称性を使いました。
+
+そこで $T^\dagger y:=z_y$ と置きます。
 
 <a id="def-f0-02c3a-hilbert-adjoint"></a>
 
 <!-- formal-statement-start -->
 > **定義（Hilbert随伴）**  
-> Hilbert空間 $H_1,H_2$ の間の有界線形作用素 $T:H_1\to H_2$ に対し、Riesz表現を通じて一意に定まる作用素 $T^\dagger:H_2\to H_1$ で
-
-$$
-\langle Tx,y\rangle_{H_2}=\langle x,T^\dagger y\rangle_{H_1}
-$$
-
-> を満たすものを $T$ の **Hilbert随伴** といいます。
+> 実 Hilbert 空間 $H_1,H_2$ の間の有界線形写像 $T:H_1\to H_2$ に対し、
+>
+> $$
+> \langle Tx,y\rangle_{H_2}
+> =
+> \langle x,T^\dagger y\rangle_{H_1}
+> $$
+>
+> をすべての $x\in H_1$, $y\in H_2$ について満たす作用素
+> $T^\dagger:H_2\to H_1$ を $T$ の **Hilbert随伴** という。
 <!-- formal-statement-end -->
 
-文献によってはこのHilbert随伴も $T^*$ と書きます。本教材では型を明確にしたい場面では $T^\dagger$ と書き分けます。
+<!-- definition-example-start: def-f0-02c3a-hilbert-adjoint -->
+### 定義の確認：行列の場合
 
-有限次元の実内積空間では
+$T(x)=Ax$ なら
 
 $$
-T^\dagger=A^{\mathsf T}.
+\langle Ax,y\rangle
+=
+x^{\mathsf T}A^{\mathsf T}y
+=
+\langle x,A^{\mathsf T}y\rangle.
 $$
+
+従って
+
+$$
+\boxed{T^\dagger y=A^{\mathsf T}y}.
+$$
+
+Hilbert 随伴も有限次元では転置行列になります。
+<!-- definition-example-end -->
+
+上の Riesz 表現による構成で各 $y$ に対応する $T^\dagger y$ が存在し、一意であることまでは分かりました。$y\mapsto T^\dagger y$ の線形性・有界性まで含めた完全な証明は、次の
+[F0-02C3B「Fréchet連鎖律とHilbert随伴の証明」](../F0_02C3B_Frechet_chain_adjoint_proofs/index.md#thm-f0-02c3b-hilbert-adjoint)
+で閉じます。
+
+文献では Banach 随伴と Hilbert 随伴の両方を $T^*$ と書くことがあります。本教材では型を見失わないため、必要な場面では
+
+$$
+T^*:Y^*\to X^*,
+\qquad
+T^\dagger:H_2\to H_1
+$$
+
+と書き分けます。
 
 ---
 
-## 5. 例：積分作用素の随伴
+## 4. 例：積分作用素の随伴
 
-$H=L^2([0,1])$ とし
+ここでは「積分順序を交換できると仮定する」だけで済ませず、そのための十分条件を一つ固定します。
+
+$$
+K\in L^2([0,1]^2)
+$$
+
+とし、$H=L^2([0,1])$ 上で
 
 $$
 (Tf)(s)
-=\int_0^1K(s,t)f(t)\,dt
+=
+\int_0^1K(s,t)f(t)\,dt
 $$
 
-とします。
+と定めます。
 
-適切な可積分性を仮定して積分順序を交換すると
+まず、固定した $s$ について Cauchy--Schwarz の不等式を使うと
+
+$$
+|Tf(s)|^2
+\le
+\left(\int_0^1|K(s,t)|^2dt\right)
+\left(\int_0^1|f(t)|^2dt\right).
+$$
+
+$s$ について積分すれば
+
+$$
+\|Tf\|_2^2
+\le
+\|K\|_{L^2([0,1]^2)}^2\,\|f\|_2^2.
+$$
+
+従って $T$ は有界線形作用素です。
+
+次に $f,g\in L^2([0,1])$ とします。二変数関数
+
+$$
+K(s,t)f(t)g(s)
+$$
+
+について、$[0,1]^2$ 上の Cauchy--Schwarz の不等式から
+
+$$
+\int_0^1\!\int_0^1
+|K(s,t)f(t)g(s)|\,dt\,ds
+\le
+\|K\|_2\,\|f\|_2\,\|g\|_2<\infty.
+$$
+
+従って Fubini の定理で積分順序を交換でき、
 
 $$
 \begin{aligned}
 \langle Tf,g\rangle
-&=\int_0^1\int_0^1
+&=
+\int_0^1\int_0^1
 K(s,t)f(t)g(s)\,dt\,ds\\
-&=\int_0^1f(t)
+&=
+\int_0^1
+f(t)
 \left(
 \int_0^1K(s,t)g(s)\,ds
 \right)dt.
 \end{aligned}
 $$
 
-したがって
+よって
 
 $$
 \boxed{
 (T^\dagger g)(t)
-=\int_0^1K(s,t)g(s)\,ds
+=
+\int_0^1K(s,t)g(s)\,ds
 }
 $$
 
 です。
 
-実数値ならkernelの二変数を入れ替えた形が現れます。
+実数値の積分核では、随伴を取ると二変数の役割が入れ替わります。
 
 ---
 
-## 6. KKTへ向けた型チェック
+## 5. KKTの停留条件を型から読む
 
 制約写像
 
@@ -212,9 +388,7 @@ $$
 G:X\to Y
 $$
 
-があるとします。
-
-その微分は
+が Fréchet 微分可能だとします。その微分は
 
 $$
 DG(x):X\to Y.
@@ -226,19 +400,19 @@ $$
 \lambda\in Y^*.
 $$
 
-したがって
+Banach 随伴を取ると
 
 $$
 DG(x)^*\lambda\in X^*.
 $$
 
-目的関数 $f:X\to\mathbb R$ の微分も
+一方、目的関数 $f:X\to\mathbb R$ の微分も
 
 $$
 Df(x)\in X^*.
 $$
 
-だから
+したがって
 
 $$
 \boxed{
@@ -246,58 +420,547 @@ Df(x)+DG(x)^*\lambda=0
 }
 $$
 
-という足し算が型として正しくなります。
+という和は、どちらも $X^*$ の元なので型として意味を持ちます。
 
-有限次元の
+有限次元で Euclid 内積を使って双対空間をベクトル表示すると、
+
+$$
+Df(x)\leftrightarrow\nabla f(x),
+\qquad
+DG(x)^*\lambda
+\leftrightarrow
+J_G(x)^{\mathsf T}\lambda,
+$$
+
+となり、通常の
 
 $$
 \nabla f(x)+J_G(x)^{\mathsf T}\lambda=0
 $$
 
-は、この式をEuclid内積でベクトル表示したものです。
+が戻ります。
 
 ---
 
 ## 演習
 
-### F0-02C3A-A01 行列の随伴
+### F0-02C3A-A01 行列のHilbert随伴
 
 - Level: A
-- 目安時間: 10分
 
-$T(x)=Ax$ をEuclid空間間の線形写像とする。随伴が $A^{\mathsf T}$ で表されることを示せ。
+$A\in\mathbb R^{m\times p}$ とし、$T(x)=Ax$ を Euclid 空間間の線形写像とする。
+$T^\dagger=A^{\mathsf T}$ であることを定義から示せ。
 
 <!-- solution-start -->
-#### 詳細解答
-$\langle Ax,y\rangle=x^{\mathsf T}A^{\mathsf T}y=\langle x,A^{\mathsf T}y\rangle$ なのでHilbert随伴は $A^{\mathsf T}$。
-#### 本番答案
-$\langle Ax,y\rangle=x^{\mathsf T}A^{\mathsf T}y=\langle x,A^{\mathsf T}y\rangle$ なのでHilbert随伴は $A^{\mathsf T}$。
-#### 採点基準（20点）
-- 定義・設定: 6点
-- 推論・計算: 10点
-- 結論: 4点
+### 詳細解答
+
+任意の $x\in\mathbb R^p$、$y\in\mathbb R^m$ に対して
+
+$$
+\begin{aligned}
+\langle Tx,y\rangle
+&=(Ax)^{\mathsf T}y\\
+&=x^{\mathsf T}A^{\mathsf T}y\\
+&=\langle x,A^{\mathsf T}y\rangle.
+\end{aligned}
+$$
+
+Hilbert 随伴はこの内積恒等式を満たす作用素なので、
+
+$$
+\boxed{T^\dagger=A^{\mathsf T}}.
+$$
 <!-- solution-end -->
 
-### F0-02C3A-B01 積分作用素の随伴
+### F0-02C3A-A02 具体的なBanach随伴
+
+- Level: A
+
+$T:\mathbb R^2\to\mathbb R$ を
+
+$$
+T(x_1,x_2)=2x_1-x_2
+$$
+
+とする。$y_a^*(r)=ar$ とおくとき、$T^*y_a^*$ を求めよ。さらに Euclid ノルムに関する
+$\|T^*y_a^*\|$ を求めよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+定義から
+
+$$
+(T^*y_a^*)(x_1,x_2)
+=
+y_a^*(T(x_1,x_2))
+=
+a(2x_1-x_2).
+$$
+
+従って係数ベクトルは
+
+$$
+a(2,-1)
+$$
+
+です。Euclid ノルムに対する双対ノルムは係数ベクトルの Euclid ノルムに等しいので、
+
+$$
+\boxed{
+\|T^*y_a^*\|
+=
+|a|\sqrt5
+}.
+$$
+
+また $\|T\|=\sqrt5$、$\|y_a^*\|=|a|$ なので、この例では
+
+$$
+\|T^*y_a^*\|
+=
+\|T\|\,\|y_a^*\|
+$$
+
+と上界が達成されています。
+<!-- solution-end -->
+
+### F0-02C3A-A03 恒等作用素と零作用素の随伴
+
+- Level: A
+
+ノルム空間 $X$ 上の恒等作用素 $I:X\to X$ と零作用素 $0:X\to X$ について、
+
+$$
+I^*=I_{X^*},
+\qquad
+0^*=0
+$$
+
+を示せ。
+
+<!-- solution-start -->
+### 詳細解答
+
+任意の $x^*\in X^*$ と $x\in X$ に対して
+
+$$
+(I^*x^*)(x)
+=
+x^*(Ix)
+=
+x^*(x).
+$$
+
+従って $I^*x^*=x^*$ であり、
+
+$$
+\boxed{I^*=I_{X^*}}.
+$$
+
+同様に
+
+$$
+(0^*x^*)(x)
+=
+x^*(0x)
+=
+x^*(0)
+=
+0
+$$
+
+なので
+
+$$
+\boxed{0^*=0}.
+$$
+<!-- solution-end -->
+
+### F0-02C3A-A04 直交射影は自己随伴
+
+- Level: A
+
+$H$ を実 Hilbert 空間、$M\subset H$ を閉線形部分空間とし、$P_M$ を $M$ への直交射影とする。
+$P_M^\dagger=P_M$ を示せ。
+
+<!-- solution-start -->
+### 詳細解答
+
+任意の $x,y\in H$ を直交分解して
+
+$$
+x=P_Mx+x_\perp,
+\qquad
+y=P_My+y_\perp,
+$$
+
+と書きます。ここで $x_\perp,y_\perp\in M^\perp$ です。
+
+$P_Mx,P_My\in M$ なので
+
+$$
+\langle P_Mx,y_\perp\rangle=0,
+\qquad
+\langle x_\perp,P_My\rangle=0.
+$$
+
+従って
+
+$$
+\begin{aligned}
+\langle P_Mx,y\rangle
+&=\langle P_Mx,P_My\rangle\\
+&=\langle x,P_My\rangle.
+\end{aligned}
+$$
+
+Hilbert 随伴の定義から
+
+$$
+\boxed{P_M^\dagger=P_M}.
+$$
+<!-- solution-end -->
+
+### F0-02C3A-B01 Banach随伴が有界作用素になることを証明する
 
 - Level: B
-- 目安時間: 15分
 
-$(Tf)(s)=\int K(s,t)f(t)dt$ のHilbert随伴を、積分順序を交換できると仮定して求めよ。
+$T:X\to Y$ を有界線形写像とする。定義
+
+$$
+(T^*y^*)(x)=y^*(Tx)
+$$
+
+から、$T^*:Y^*\to X^*$ が有界線形写像であり
+
+$$
+\|T^*\|\le\|T\|
+$$
+
+を満たすことを示せ。
 
 <!-- solution-start -->
-#### 詳細解答
-$\langle Tf,g\rangle=\int f(t)[\int K(s,t)g(s)ds]dt$ より $(T^\dagger g)(t)=\int K(s,t)g(s)ds$。
-#### 本番答案
-$\langle Tf,g\rangle=\int f(t)[\int K(s,t)g(s)ds]dt$ より $(T^\dagger g)(t)=\int K(s,t)g(s)ds$。
-#### 採点基準（20点）
-- 方針: 5点
-- 中心となる導出: 11点
-- 結論: 4点
+### 詳細解答
+
+まず $y^*\in Y^*$ を固定します。任意の $x\in X$ に対し
+
+$$
+\begin{aligned}
+|(T^*y^*)(x)|
+&=|y^*(Tx)|\\
+&\le\|y^*\|\,\|Tx\|\\
+&\le\|y^*\|\,\|T\|\,\|x\|.
+\end{aligned}
+$$
+
+従って $T^*y^*$ は有界線形汎関数で、
+
+$$
+\|T^*y^*\|
+\le
+\|T\|\,\|y^*\|.
+$$
+
+よって $T^*$ は確かに $Y^*$ から $X^*$ への写像です。
+
+次に $a,b\in\mathbb R$ と $y_1^*,y_2^*\in Y^*$ に対して、任意の $x$ で
+
+$$
+\begin{aligned}
+[T^*(ay_1^*+by_2^*)](x)
+&=(ay_1^*+by_2^*)(Tx)\\
+&=a(T^*y_1^*)(x)+b(T^*y_2^*)(x).
+\end{aligned}
+$$
+
+従って $T^*$ は線形です。
+
+最後に $\|y^*\|\le1$ として上の評価の上限を取れば
+
+$$
+\|T^*\|
+=
+\sup_{\|y^*\|\le1}\|T^*y^*\|
+\le
+\|T\|.
+$$
+
+従って
+
+$$
+\boxed{\|T^*\|\le\|T\|}.
+$$
 <!-- solution-end -->
+
+### F0-02C3A-B02 $L^2$積分作用素の随伴
+
+- Level: B
+
+$K\in L^2([0,1]^2)$ とし、
+
+$$
+(Tf)(s)=\int_0^1K(s,t)f(t)\,dt
+$$
+
+で $T:L^2([0,1])\to L^2([0,1])$ を定める。
+
+1. $\|Tf\|_2\le\|K\|_2\|f\|_2$ を示せ。
+2. $K(s,t)f(t)g(s)$ が $[0,1]^2$ 上で可積分であることを示せ。
+3. Fubini の定理を使って $T^\dagger$ を求めよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+1. 固定した $s$ について Cauchy--Schwarz の不等式から
+
+$$
+|Tf(s)|^2
+\le
+\left(\int_0^1|K(s,t)|^2dt\right)\|f\|_2^2.
+$$
+
+$s$ について積分すると
+
+$$
+\|Tf\|_2^2
+\le
+\left(\int_0^1\int_0^1|K(s,t)|^2dt\,ds\right)\|f\|_2^2
+=
+\|K\|_2^2\|f\|_2^2.
+$$
+
+従って
+
+$$
+\|Tf\|_2\le\|K\|_2\|f\|_2.
+$$
+
+2. $[0,1]^2$ 上で Cauchy--Schwarz の不等式を使うと
+
+$$
+\begin{aligned}
+&\int_0^1\int_0^1
+|K(s,t)f(t)g(s)|\,dt\,ds\\
+&\quad\le
+\|K\|_2
+\left(
+\int_0^1\int_0^1|f(t)|^2|g(s)|^2dt\,ds
+\right)^{1/2}\\
+&\quad=
+\|K\|_2\|f\|_2\|g\|_2<\infty.
+\end{aligned}
+$$
+
+従って Fubini の定理を適用できます。
+
+3. 積分順序を交換すると
+
+$$
+\begin{aligned}
+\langle Tf,g\rangle
+&=
+\int_0^1\int_0^1K(s,t)f(t)g(s)dt\,ds\\
+&=
+\int_0^1
+f(t)
+\left(
+\int_0^1K(s,t)g(s)ds
+\right)dt.
+\end{aligned}
+$$
+
+従って
+
+$$
+\boxed{
+(T^\dagger g)(t)
+=
+\int_0^1K(s,t)g(s)\,ds
+}.
+$$
+<!-- solution-end -->
+
+### F0-02C3A-B03 合成を取ると随伴の順序が逆になる
+
+- Level: B
+
+$T:X\to Y$、$S:Y\to Z$ を有界線形写像とする。
+
+$$
+(S\circ T)^*
+=
+T^*\circ S^*
+$$
+
+を、両辺の型を確認した上で示せ。
+
+<!-- solution-start -->
+### 詳細解答
+
+まず
+
+$$
+S^*:Z^*\to Y^*,
+\qquad
+T^*:Y^*\to X^*
+$$
+
+なので
+
+$$
+T^*\circ S^*:Z^*\to X^*
+$$
+
+です。一方
+
+$$
+S\circ T:X\to Z
+$$
+
+なので
+
+$$
+(S\circ T)^*:Z^*\to X^*.
+$$
+
+従って両辺の型は一致しています。
+
+$z^*\in Z^*$ と $x\in X$ に対して
+
+$$
+\begin{aligned}
+[(T^*\circ S^*)z^*](x)
+&=[S^*z^*](Tx)\\
+&=z^*(S(Tx))\\
+&=[(S\circ T)^*z^*](x).
+\end{aligned}
+$$
+
+任意の $z^*$ と $x$ について一致するので
+
+$$
+\boxed{
+(S\circ T)^*=T^*\circ S^*
+}.
+$$
+<!-- solution-end -->
+
+### F0-02C3A-C01 最小二乗と正規方程式
+
+- Level: C
+
+$H_1,H_2$ を実 Hilbert 空間、$T:H_1\to H_2$ を有界線形写像、$y\in H_2$ とし、
+
+$$
+J(x)=\frac12\|Tx-y\|_{H_2}^2
+$$
+
+とする。
+
+1. $J$ の Fréchet 微分を求めよ。
+2. $x$ が停留点であるための条件を $T^\dagger$ を使って書け。
+3. この条件が、残差 $r=y-Tx$ が $\operatorname{ran}T$ に直交することと同値であることを示せ。
+4. 有限次元で $T(x)=Ax$ とすると、どの方程式になるか。
+
+<!-- solution-start -->
+### 詳細解答
+
+1. $h\in H_1$ に対して
+
+$$
+\begin{aligned}
+J(x+h)-J(x)
+&=
+\frac12\|Tx-y+Th\|^2
+-
+\frac12\|Tx-y\|^2\\
+&=
+\langle Tx-y,Th\rangle
++
+\frac12\|Th\|^2.
+\end{aligned}
+$$
+
+最後の項は
+
+$$
+0\le
+\frac{\frac12\|Th\|^2}{\|h\|}
+\le
+\frac12\|T\|^2\|h\|
+\to0
+$$
+
+なので、Fréchet 微分は
+
+$$
+DJ(x)[h]
+=
+\langle Tx-y,Th\rangle.
+$$
+
+Hilbert 随伴の定義を使うと
+
+$$
+DJ(x)[h]
+=
+\langle T^\dagger(Tx-y),h\rangle.
+$$
+
+2. 停留点では $DJ(x)=0$ です。Riesz 表現の一意性から
+
+$$
+\boxed{
+T^\dagger(Tx-y)=0
+}.
+$$
+
+3. $r=y-Tx$ と置きます。上の条件は、任意の $h\in H_1$ に対して
+
+$$
+0
+=
+\langle Tx-y,Th\rangle
+=
+-\langle r,Th\rangle
+$$
+
+となることと同値です。
+
+$\operatorname{ran}T$ の任意の元は $Th$ と書けるので、
+
+$$
+\boxed{
+r\perp\operatorname{ran}T
+}.
+$$
+
+4. 有限次元では $T^\dagger=A^{\mathsf T}$ なので、
+
+$$
+\boxed{
+A^{\mathsf T}(Ax-y)=0
+}
+$$
+
+となります。これは最小二乗法の正規方程式です。
+<!-- solution-end -->
+
+---
+
+## 章末チェック
+
+- Banach 随伴 $T^*:Y^*\to X^*$ を「汎関数と作用素の合成」として説明できる。
+- $T^*y^*\in X^*$ を有界性評価から確認し、$\|T^*\|\le\|T\|$ を示せる。
+- 有限次元で随伴が転置行列になることを導ける。
+- Riesz 表現から Hilbert 随伴が現れる理由を説明できる。
+- $K\in L^2([0,1]^2)$ の積分作用素で、有界性と Fubini の適用条件を確認して随伴を求められる。
+- 合成の随伴で作用素の順序が逆になることを型付きで示せる。
+- 最小二乗の停留条件を $T^\dagger(Tx-y)=0$ と書き、残差の直交性へ読み替えられる。
 
 ---
 
 ## 次に進む
 
-**次：[F0-02C4 凸解析・劣勾配・normal cone](../F0_02C4_凸解析_劣勾配_normal_cone_双対錐/index.md)**
+次は [F0-02C3B Fréchet連鎖律とHilbert随伴の証明](../F0_02C3B_Frechet_chain_adjoint_proofs/index.md) です。ここで Riesz 表現から $T^\dagger$ の線形性・有界性・一意性を最後まで証明し、Fréchet 連鎖律の残差評価も再構成します。
