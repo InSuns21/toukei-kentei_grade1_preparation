@@ -69,7 +69,11 @@ $$
 \operatorname{supp}f\cup\operatorname{supp}g,
 $$
 
-右辺は compact 集合の有限合併なので compact です。従って $C_c(X)$ は実ベクトル空間です。
+右辺はコンパクト集合の有限合併なのでコンパクトです。従って $C_c(X)$ は実ベクトル空間です。
+
+ここからの目的は、関数にしか値を与えない $L$ から「集合の大きさ」$mu$ を逆算することです。そのためには、連続関数が見える局所情報と Borel 集合上の測度を結び付ける正則性が必要です。具体的には、コンパクト集合では質量が有限で、開集合は内側のコンパクト集合で近似でき、Borel 集合は外側の開集合で近似できる、という三つを一組にします。これが本章で採用する Radon 測度です。
+
+最小例として、点 $x_0\in X$ に集中する Dirac 測度 $\delta_{x_0}$ を考えると、コンパクト集合上では値は $0$ または $1$、開集合 $U$ は $x_0\in U$ ならコンパクト集合 $\{x_0\}\subset U$ が質量1を実現し、$x_0\notin U$ なら質量0です。さらに任意の Borel 集合 $A$ について、$x_0\notin A$ なら開集合 $X\setminus\{x_0\}$ が $A$ を覆うので外正則性も直接確認できます。
 
 <a id="def-mt5-radon"></a>
 <!-- formal-statement-start -->
@@ -104,6 +108,8 @@ $X$ の Borel $\sigma$-代数上の測度 $\mu$ が **Radon 測度**であると
 ---
 
 ## 2. 正線形汎関数と局所的な有界性
+
+測度 $\mu$ があれば、非負関数 $f\ge0$ に対して $\int f\,d\mu\ge0$ です。逆向きに測度を復元したいなら、少なくとも $L$ もこの「非負のものを負にしない」性質を持つ必要があります。たとえば点評価 $L(f)=f(x_0)$ はこの性質を持ち、最終的には $\delta_{x_0}$ を復元します。
 
 <a id="def-mt5-positive-functional"></a>
 <!-- formal-statement-start -->
@@ -206,6 +212,8 @@ f\in C_c(X),
 $$
 
 の略記とします。
+
+ここで最初の障害があります。$L$ は関数には値を与えますが、開集合 $U$ そのものには値を与えません。そこで $U$ の内部に台を持つ $0\le f\le1$ を全部試し、その中で $L(f)$ がどこまで大きくできるかを $U$ の候補質量とします。点評価 $L(f)=f(x_0)$ なら、$x_0\notin U$ では全候補が $0$ を返し、$x_0\in U$ では cutoff を使って値1を達成できるので、この構成は Dirac 測度の $U$ 上の質量をそのまま再現します。
 
 <a id="def-mt5-open-content"></a>
 <!-- formal-statement-start -->
@@ -407,6 +415,8 @@ $$
 $f\prec U$ について上限を取れば結論を得ます。$\square$
 <!-- proof-end -->
 
+外測度を作るだけなら可算劣加法性で足りますが、Borel 可測性を示す段階では、開集合を二つの互いに素な部分へ分けたとき質量が正確に足し算できることも必要になります。そこで次に、互いに素な開集合に限った有限加法性を確定します。
+
 <a id="lem-mt5-open-additivity"></a>
 <!-- formal-statement-start -->
 ### 補題（互いに素な open sets 上の有限加法性）
@@ -499,7 +509,7 @@ $h\prec U\cup V$ について上限を取れば逆向きが得られます。$\s
 
 ## 6. compact 集合の content と open-inner regularity
 
-compact $K\subseteq X$ に対し
+$m$ はまだ開集合にしか定義されていません。しかし Radon 測度で欲しいのは、開集合を内側のコンパクト集合で近似する構造です。そこでコンパクト集合 $K$ の候補質量は、$K$ を含む開集合の候補質量を外側から絞り込んで定めます。つまり「開集合から始めた情報を、いったんコンパクト集合へ戻す」段階です。
 
 <a id="def-mt5-compact-content"></a>
 <!-- formal-statement-start -->
@@ -626,6 +636,8 @@ $$
 
 ## 7. outer measure を作る
 
+ここまでの $m$ は開集合にしか値を持ちません。このままでは Borel 集合、まして任意の部分集合を扱えないので、任意の $A\subseteq X$ を開集合で外側から覆い、その候補質量の下限を取ります。MT0 で学んだ Carathéodory の方法へ接続するための外測度化です。
+
 <a id="def-mt5-outer-measure"></a>
 <!-- formal-statement-start -->
 ### 定義（$m$ から作る outer measure）
@@ -652,6 +664,10 @@ $\mu^*$ は
 
 を満たす。
 <!-- formal-statement-end -->
+
+### 証明の見取り図
+
+空集合と単調性は定義から読み取れます。可算劣加法性だけが本質で、各 $A_n$ を開集合 $U_n$ で $\varepsilon2^{-n}$ の誤差まで覆い、すでに証明した $m$ の可算劣加法性を $\bigcup_nU_n$ に適用します。最後に $\varepsilon\downarrow0$ とします。
 
 <!-- proof-start -->
 ### 証明
@@ -723,6 +739,10 @@ $$
 
 従って全ての open set は Caratheodory 可測であり、全 Borel 集合も $\mu^*$-可測である。
 <!-- formal-statement-end -->
+
+### 証明の見取り図
+
+外測度の劣加法性から「$\le$」は自動的です。逆向きでは、任意の開被覆 $U\supseteq A$ の中で $U\cap G$ のコンパクト部分 $K$ を一つ固定し、その少し外側に $K\subset W\subset\overline W\subset U\cap G$ を挟みます。すると $W$ と $U\setminus\overline W$ は互いに素な開集合なので、直前の有限加法性を使えます。最後に $K$ について上限、$U$ について下限を取ります。
 
 <!-- proof-start -->
 ### 証明
@@ -927,10 +947,14 @@ $$
 
 $f\in C_c(X)$, $f\ge0$ なら
 
-$$
+$
 \boxed{L(f)=\int_X f\,d\mu.}
-$$
+$
 <!-- formal-statement-end -->
+
+### 証明の見取り図
+
+$f$ の値域 $[0,M]$ を幅 $\delta=M/n$ に刻み、超水準集合 $U_k=\{f>(k-1)\delta\}$ ごとに $m(U_k)$ をほぼ達成する cutoff を作ります。それらを足した連続関数 $s_n$ は $f$ を一様誤差 $\delta$ で近似するので、局所 order bound により $L(s_n)\to L(f)$ です。一方 $L(s_n)$ は $\delta\sum_k\mu(U_k)$ に近く、この和を上下の有限単関数で挟むと $\int f\,d\mu$ に収束します。したがって両方の極限が同じ量へ合流します。
 
 <!-- proof-start -->
 ### 証明
