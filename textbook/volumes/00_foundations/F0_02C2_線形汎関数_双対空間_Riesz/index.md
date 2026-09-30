@@ -439,9 +439,9 @@ $$
 
 $x=0$ では、線形性から $\ell(0)=0$ なので
 
-$
+$$
 |\ell(0)|=0=\|\ell\|_{X^*}\,\|0\|.
-$
+$$
 
 $x\ne0$ とします。このとき
 
@@ -517,13 +517,13 @@ $$
 
 $a,b\in\mathbb R$ と $f,g\in C([0,1])$ に対して
 
-$
+$$
 \begin{aligned}
 \ell(af+bg)
 &=\int_0^1(af(t)+bg(t))\,dt\\
 &=a\ell(f)+b\ell(g),
 \end{aligned}
-$
+$$
 
 なので $\ell$ は線形です。
 
