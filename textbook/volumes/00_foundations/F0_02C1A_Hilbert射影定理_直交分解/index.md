@@ -20,6 +20,8 @@ $$
 
 ### 1.1 凸集合：中間点が集合から出ない
 
+最近点候補を二つ $x,y$ 取ったとき、前章の[平行四辺形恒等式](../F0_02C1_ノルム空間_Banach_Hilbert/index.md#ref-parallelogram-identity)で二候補の差を評価するには、その中点 $(x+y)/2$ も「許された候補」であってほしいところです。任意の部分集合では中点が外へ出るので、この議論は使えません。そこで、線分上の点がすべて集合内に残るという条件を先に切り出します。これが凸性です。
+
 <a id="def-f0-02c1a-convex-set"></a>
 
 <!-- formal-statement-start -->
@@ -60,9 +62,13 @@ $$
 
 ここでは一般論の証明を繰り返さず、射影定理の論証の中でどこに適用するかを追います。
 
-<a id="thm-hilbert-projection"></a>
-
 ### 1.3 Hilbert空間の射影定理と射影の定義
+
+有限次元では、閉有界集合をコンパクトにして「連続関数が最小値を取る」ことから最近点を作れました。しかし無限次元では閉有界集合がコンパクトとは限らないため、その証明はそのまま使えません。
+
+ここで欲しいのは、**コンパクト性なしでも距離のinfimumを実際に達成する点を作る方法**です。Hilbert空間では、凸性で最小化候補どうしを比較し、前節で確認した恒等式でCauchy性を作り、完備性で極限を得ます。
+
+<a id="thm-hilbert-projection"></a>
 
 <!-- formal-statement-start -->
 > **定理（Hilbert空間の射影定理）**  
@@ -128,13 +134,19 @@ $$
 \delta=\inf_{x\in C}\|z-x\|
 $$
 
-と置きます。infimumの定義から、各 $n\ge1$ に対して
+と置きます。距離値の集合
+
+$$
+S=\{\|z-x\|:x\in C\}
+$$
+
+を考えると、$\delta=\inf S$ です。各 $n\ge1$ について $\delta+1/n$ が $S$ の下界なら $\delta$ より大きい下界が存在してしまうので、$\delta+1/n$ は下界ではありません。従って、ある $x_n\in C$ が存在して
 
 $$
 \delta\le\|z-x_n\|<\delta+\frac1n
 $$
 
-を満たす $x_n\in C$ を取れます。したがって
+となります。したがって
 
 $$
 \|z-x_n\|\to\delta.
@@ -191,7 +203,19 @@ $$
 2\delta^2+2\delta^2-4\delta^2=0
 $$
 
-へ行きます。よって任意の $\varepsilon>0$ に対して十分大きい $n,m$ では $\|x_n-x_m\|<\varepsilon$ となり、$(x_n)$ はCauchy列です。
+へ行きます。ここで任意の $\varepsilon>0$ を固定します。十分大きい $n,m$ を取れば上の右辺を $\varepsilon^2$ より小さくできるので
+
+$$
+0\le\|x_n-x_m\|^2<\varepsilon^2.
+$$
+
+両辺の平方根を取って
+
+$$
+\|x_n-x_m\|<\varepsilon
+$$
+
+を得ます。従って $(x_n)$ はCauchy列です。
 
 $H$ は完備なので、ある $p\in H$ が存在して
 
@@ -243,7 +267,46 @@ $$
 
 とします。
 
-凸性から中点 $(p+q)/2$ も $C$ に入ります。ここでも前章の[平行四辺形恒等式](../F0_02C1_ノルム空間_Banach_Hilbert/index.md#ref-parallelogram-identity)を使うと
+凸性から中点 $(p+q)/2$ も $C$ に入ります。ここでも前章の[平行四辺形恒等式](../F0_02C1_ノルム空間_Banach_Hilbert/index.md#ref-parallelogram-identity)を使います。適用する二つのベクトルを
+
+$$
+u=z-p,
+\qquad
+v=z-q
+$$
+
+と置くと
+
+$$
+u+v
+=
+2z-p-q
+=
+2\left(z-\frac{p+q}{2}\right),
+$$
+
+$$
+u-v=q-p
+$$
+
+です。従って平行四辺形恒等式
+
+$$
+\|u+v\|^2+\|u-v\|^2
+=
+2\|u\|^2+2\|v\|^2
+$$
+
+へ代入すると
+
+$$
+4\left\|z-\frac{p+q}{2}\right\|^2
++\|p-q\|^2
+=
+2\|z-p\|^2+2\|z-q\|^2.
+$$
+
+両辺を4で割り、$\|z-p\|=\|z-q\|=\delta$ を代入して
 
 $$
 \left\|z-\frac{p+q}{2}\right\|^2
@@ -271,6 +334,8 @@ $$
 ## 5. 射影の特徴付け
 
 ここで $P_C(z)$ は、[1.3で定義した $z$ の $C$ への射影](#def-f0-02c1a-projection)です。
+
+「$p$ が最近点である」という条件は距離の最小化そのものですが、実際の計算では全ての候補との距離を比較するより、$p$ から許された方向へ少し動いたとき距離が減らないことを内積で判定できる方が便利です。そこで最近点条件を、$z-p$ と各方向 $x-p$ の内積不等式へ読み替えます。
 
 <!-- formal-statement-start -->
 > **定理（Hilbert射影の変分不等式特徴付け）**  
@@ -322,7 +387,29 @@ $$
 \le t\|x-p\|^2.
 $$
 
-左辺が正だと仮定すれば、十分小さい $t>0$ を選ぶことでこの不等式に反します。よって
+ここで
+
+$$
+A:=\langle z-p,x-p\rangle
+$$
+
+と置きます。$x=p$ なら $A=0$ なので結論は成り立ちます。$x\ne p$ として $A>0$ を仮定すると $\|x-p\|^2>0$ なので、
+
+$$
+0<t<
+\min\left\{
+1,
+\frac{2A}{\|x-p\|^2}
+\right\}
+$$
+
+を選べます。このとき
+
+$$
+t\|x-p\|^2<2A
+$$
+
+となり、直前の不等式 $2A\le t\|x-p\|^2$ に反します。従って $A\le0$、すなわち
 
 $$
 \langle z-p,x-p\rangle\le0.
@@ -364,6 +451,8 @@ $$
 <a id="thm-f0-02c1a-orthogonal-decomposition"></a>
 
 ## 6. 閉線形部分空間への射影と直交分解
+
+一般の凸集合では、射影条件は不等式でした。ところが線形部分空間 $M$ では、ある方向 $m$ に動けるなら反対方向 $-m$ にも動けます。そのため二つの不等式を同時に課すと等号になり、残差 $z-P_Mz$ が $M$ の全ての方向と直交します。ここから有限次元で見慣れた「部分空間の成分と、それに直交する成分へ分ける」という構造が無限次元Hilbert空間にも戻ってきます。
 
 <!-- formal-statement-start -->
 > **定理（閉部分空間への射影と直交分解）**  
@@ -507,14 +596,7 @@ $$
 
 だから $z-p\in M^\perp$。[閉部分空間への射影と直交分解](#thm-f0-02c1a-orthogonal-decomposition)の一意性より $p=P_Mz$ である。
 
-#### 本番答案
-$P_Mz=(0,z_2,z_3,\dots)$、$z-P_Mz=(z_1,0,0,\dots)\in M^\perp$。
 
-#### 採点基準（20点）
-- 射影候補: 7点
-- 残差: 5点
-- 直交性: 6点
-- 結論: 2点
 <!-- solution-end -->
 
 ### F0-02C1A-A02 平行四辺形恒等式から最小化列の二項評価を出す
@@ -574,14 +656,7 @@ $$
 
 右辺は $n,m\to\infty$ で0へ行く。従って任意の $\varepsilon>0$ に対して十分大きい $n,m$ では $\|x_n-x_m\|<\varepsilon$ となり、$(x_n)$ はCauchy列である。
 
-#### 本番答案
-中点が $C$ に入るのでその距離は $\delta$ 以上。平行四辺形恒等式で $\|x_n-x_m\|^2$ を二つの距離と中点距離に書き換え、仮定で上下評価する。右辺が0へ収束するのでCauchy。
 
-#### 採点基準（20点）
-- 凸性による中点: 4点
-- 平行四辺形恒等式の適用: 7点
-- 距離の評価: 5点
-- Cauchy性: 4点
 <!-- solution-end -->
 
 ### F0-02C1A-A03 infimumから最小化列を作る
@@ -613,14 +688,40 @@ $$
 
 の最大下界である。もしある $n$ について $s\ge\delta+1/n$ がすべての $s\in S$ に対して成り立つなら、$\delta+1/n$ も $S$ の下界になり、$\delta$ が最大下界であることに反する。従ってある $s_n\in S$ が存在して $s_n<\delta+1/n$。$s_n=\|z-x_n\|$ となる $x_n\in C$ を取ればよい。また $\delta$ は下界なので $\delta\le\|z-x_n\|$ である。
 
-#### 本番答案
-$\delta+1/n$ は $S$ の下界ではないので、ある $x_n\in C$ が存在して $\|z-x_n\|<\delta+1/n$。一方 $\delta$ は下界だから $\delta\le\|z-x_n\|$。
 
-#### 採点基準（20点）
-- 距離値集合の設定: 4点
-- 最大下界の使用: 8点
-- $x_n$ の存在: 5点
-- 両側評価: 3点
+<!-- solution-end -->
+
+### F0-02C1A-A04 閉性を失うと最近点が存在しない
+
+- Level: A
+- 目安時間: 8分
+
+$H=\mathbb R$、$C=(0,1)$、$z=0$ とする。
+
+1. $\inf_{x\in C}|z-x|$ を求めよ。
+2. そのinfimumを達成する $p\in C$ が存在しないことを示せ。
+3. 射影定理のどの仮定を失っているか答えよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+$z=0$ なので距離は $|x|=x$ です。$x\in(0,1)$ では常に $x>0$ ですが、$x_n=1/n$ と取れば
+
+$$
+x_n\in(0,1),
+\qquad
+|z-x_n|=\frac1n\to0.
+$$
+
+従って
+
+$$
+\inf_{x\in C}|z-x|=0.
+$$
+
+しかし $|z-p|=0$ となるには $p=0$ が必要で、$0\notin C$ です。従ってinfimumを達成する点は存在しません。
+
+この例では $C$ は凸ですが閉ではありません。射影定理の「$C$ が閉」という仮定を失うと、最小化列の極限が集合の外へ落ち、最近点の存在が壊れることが分かります。
 <!-- solution-end -->
 
 ### F0-02C1A-B01 線形部分空間では射影条件が等号になる
@@ -652,14 +753,7 @@ $$
 
 従って $\langle z-p,m\rangle=0$。$m$ は任意なので $z-p\in M^\perp$。
 
-#### 本番答案
-$x=p\pm m$ を代入すると $\pm\langle z-p,m\rangle\le0$。従って内積は0で、$z-p\perp M$。
 
-#### 採点基準（20点）
-- 線形部分空間の利用: 5点
-- $p\pm m$ の代入: 7点
-- 等号の導出: 5点
-- 直交補への結論: 3点
 <!-- solution-end -->
 
 ### F0-02C1A-B02 閉球への射影を特徴付けから求める
@@ -673,17 +767,28 @@ $$
 C=\{x\in H:\|x\|\le r\}
 $$
 
-とする。$\|z\|>r$ のとき
+とする。$C$ が閉かつ凸であることを確認したうえで、$\|z\|>r$ のとき
 
 $$
 P_C(z)=r\frac{z}{\|z\|}
 $$
 
-であることを、[Hilbert射影の変分不等式特徴付け](#thm-f0-02c1a-projection-characterization)を使って示せ。なお $C$ が凸であることも確認せよ。
+であることを、[Hilbert射影の変分不等式特徴付け](#thm-f0-02c1a-projection-characterization)を使って示せ。
 
 <!-- solution-start -->
 #### 詳細解答
-まず $x,y\in C$、$0\le t\le1$ なら三角不等式より
+まず閉性を確認します。$x_n\in C$ かつ $x_n\to x$ とすると、前章の[ノルム写像の連続性](../F0_02C1_ノルム空間_Banach_Hilbert/index.md#lem-f0-02c1-norm-continuity)より
+
+$$
+\|x\|
+=
+\lim_{n\to\infty}\|x_n\|
+\le r.
+$$
+
+従って $x\in C$ なので、[閉集合の点列特徴付け](../F0_00B_距離空間_開集合_閉集合_収束/index.md#thm-f0-00b-01)から $C$ は閉です。
+
+次に $x,y\in C$、$0\le t\le1$ なら三角不等式より
 
 $$
 \|(1-t)x+ty\|
@@ -724,16 +829,177 @@ $$
 
 [Hilbert射影の変分不等式特徴付け](#thm-f0-02c1a-projection-characterization)より $p=P_C(z)$。
 
-#### 本番答案
-$C$ の凸性は三角不等式で確認できる。$u=z/\|z\|$, $p=ru$ と置くと $p\in C$ かつ $z-p=(\|z\|-r)u$。任意の $x\in C$ について $\langle u,x\rangle\le\|x\|\le r$ なので $\langle z-p,x-p\rangle\le0$。よって $p=P_C(z)$。
 
-#### 採点基準（20点）
-- 凸性: 4点
-- 射影候補の設定: 4点
-- Cauchy--Schwarz評価: 5点
-- 特徴付け条件: 5点
-- 結論: 2点
 <!-- solution-end -->
+
+### F0-02C1A-B03 凸性を失うと射影の一意性が壊れる
+
+- Level: B
+- 目安時間: 12分
+
+$H=\mathbb R$、$C=\{-1,1\}$、$z=0$ とする。
+
+1. $C$ が閉だが凸でないことを確認せよ。
+2. $z$ から $C$ への最近点が二つあることを示せ。
+3. 射影定理の一意性証明で、凸性を失うとどの手順が使えなくなるか説明せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+有限集合 $C=\{-1,1\}$ は $\mathbb R$ で閉です。一方、$-1,1\in C$ ですがその中点
+
+$$
+\frac{-1+1}{2}=0
+$$
+
+は $C$ に入らないので、$C$ は凸ではありません。
+
+距離は
+
+$$
+|0-(-1)|=1,
+\qquad
+|0-1|=1
+$$
+
+で、$C$ の元はこの二つしかないため $-1$ と $1$ はどちらも最近点です。従って射影は一意ではありません。
+
+一意性証明では、二つの最近点 $p,q$ の中点 $(p+q)/2$ も $C$ に入ることを使っていました。ここではその中点0が $C$ の外に出るため、[平行四辺形恒等式](../F0_02C1_ノルム空間_Banach_Hilbert/index.md#ref-parallelogram-identity)から「もっと近い候補」を作って矛盾する手順が使えません。壊れた機構はまさに凸性による中点の保持です。
+<!-- solution-end -->
+
+### F0-02C1A-C01 集合 $C$ への射影を求める
+
+- Level: C
+- 目安時間: 25分
+
+実Hilbert空間 $H$、$a\in H\setminus\{0\}$、$b\in\mathbb R$ に対して
+
+$$
+C=\{x\in H:\langle x,a\rangle=b\}
+$$
+
+とする。任意の $z\in H$ に対して
+
+$$
+\boxed{
+P_Cz
+=
+z-
+\frac{\langle z,a\rangle-b}{\|a\|^2}a
+}
+$$
+
+を示せ。$C$ が閉凸集合であることと、得られた点が第5節の特徴付けの不等式を満たすことを確認せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+まず $C$ が閉であることを点列で確認します。$x_n\in C$ かつ $x_n\to x$ とします。[Cauchy--Schwarzの不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)を $x_n-x$ と $a$ に適用すると
+
+$$
+|\langle x_n,a\rangle-\langle x,a\rangle|
+=
+|\langle x_n-x,a\rangle|
+\le
+\|x_n-x\|\,\|a\|
+\to0.
+$$
+
+各 $x_n\in C$ なので $\langle x_n,a\rangle=b$ です。従って
+
+$$
+\langle x,a\rangle
+=
+\lim_{n\to\infty}\langle x_n,a\rangle
+=
+b,
+$$
+
+よって $x\in C$ です。[閉集合の点列特徴付け](../F0_00B_距離空間_開集合_閉集合_収束/index.md#thm-f0-00b-01)から $C$ は閉です。
+
+また $x,y\in C$、$0\le t\le1$ なら
+
+$$
+\begin{aligned}
+\langle (1-t)x+ty,a\rangle
+&=
+(1-t)\langle x,a\rangle
++t\langle y,a\rangle\\
+&=
+(1-t)b+tb=b,
+\end{aligned}
+$$
+
+なので $C$ は凸です。
+
+次に
+
+$$
+\lambda
+=
+\frac{\langle z,a\rangle-b}{\|a\|^2},
+\qquad
+p=z-\lambda a
+$$
+
+と置きます。すると
+
+$$
+\begin{aligned}
+\langle p,a\rangle
+&=
+\langle z,a\rangle
+-\lambda\|a\|^2\\
+&=
+\langle z,a\rangle
+-(\langle z,a\rangle-b)
+=b,
+\end{aligned}
+$$
+
+なので $p\in C$ です。
+
+さらに
+
+$$
+z-p=\lambda a.
+$$
+
+任意の $x\in C$ に対して $\langle x,a\rangle=\langle p,a\rangle=b$ なので
+
+$$
+\langle x-p,a\rangle=0.
+$$
+
+従って
+
+$$
+\langle z-p,x-p\rangle
+=
+\lambda\langle a,x-p\rangle
+=
+0
+\le0.
+$$
+
+[第5節の射影の特徴付け](#thm-f0-02c1a-projection-characterization)を、閉凸集合 $C$ と候補点 $p\in C$ に適用できるため
+
+$$
+p=P_Cz.
+$$
+
+以上から
+
+$$
+P_Cz
+=
+z-
+\frac{\langle z,a\rangle-b}{\|a\|^2}a
+$$
+
+を得ます。
+<!-- solution-end -->
+
 
 ---
 
