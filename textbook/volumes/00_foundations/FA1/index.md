@@ -2,28 +2,28 @@
 
 <!-- definition-example-audit: strict -->
 
-関数解析で最初に現れる「有限次元では気にしなくてよかったが、無限次元では完備性が結論を支配する」定理が **一様有界性原理（Banach–Steinhaus）** です。
+有限次元では、作用素を一つずつ見れば済む場面が多くあります。無限次元では、**各入力 $x$ ごとには作用素族の値が抑えられている**という情報から、**全作用素に共通する作用素ノルムの上界**を取り出せるかが問題になります。
 
-本章では、その定理だけを孤立して置きません。次章 FA2 の開写像定理へ必要になる Banach 空間の商も先に整え、
+その量化順序の反転には完備性が必要です。本章では、その仕組みだけを孤立して置かず、次章で全射作用素の像を調べるときにも使う Banach 空間の商を先に整え、
 
 ```text
 LA2 の線形商空間
   ↓
 閉部分空間で割る商ノルム
   ↓
-商写像は 1-Lipschitz かつ開写像
+商写像は 1-Lipschitz で、開球を開球へ移す
   ↓
-Banach / closed subspace の商も Banach
+Banach 空間を閉部分空間で割っても Banach
 
 TOP6 の Baire カテゴリー定理
   ↓
-pointwise bounded と uniformly bounded の量化順序を分離
+点ごとの有界性と一様有界性の量化順序を分離
   ↓
-一様有界性原理
+各入力ごとの評価から共通の作用素ノルム評価を得る
   ↓
-pointwise limit / 発散点の稠密性
+各入力での収束 / 発散点の稠密性
   ↓
-FA2 開写像定理・閉グラフ定理
+FA2 で全射作用素・逆作用素・閉じたグラフを調べる
 ```
 
 という二本の流れを合流させます。
@@ -92,7 +92,7 @@ $$
 
 <a id="thm-fa1-quotient-norm"></a>
 <!-- formal-statement-start -->
-### 定理（商ノルムの well-defined 性とノルム性）
+### 定理（商ノルムの代表元によらない定まり方とノルム性）
 
 $X$ をノルム空間、$M\subset X$ を閉線形部分空間とする。このとき
 
@@ -124,7 +124,7 @@ $$
 
 #### 1.2 正定値性で閉性を使う
 
-明らかに $\|x+M\|_{X/M}\ge0$ です。また $x\in M$ なら $m=x$ を取って
+ノルムは非負なので、各 $m\in M$ に対して $\|x-m\|\ge0$ です。従ってその infimum も $\|x+M\|_{X/M}\ge0$ です。また $x\in M$ なら $m=x$ を取って
 
 $$
 \|x+M\|_{X/M}=0.
@@ -154,7 +154,7 @@ $$
 
 #### 1.3 斉次性
 
-$\alpha=0$ は自明です。$\alpha\ne0$ なら $M$ は線形部分空間なので
+$\alpha=0$ では左辺も右辺も 0 です。$\alpha\ne0$ なら $M$ は線形部分空間なので
 
 $$
 \begin{aligned}
@@ -347,14 +347,28 @@ $$
 
 となる部分列 $(\xi_{n_k})$ を取れます。
 
-商ノルムは infimum なので、各 $k$ について差の剰余類を表す $z_k\in X$ を
+差の剰余類
+$$
+\xi_{n_{k+1}}-\xi_{n_k}
+$$
+の商ノルムは $2^{-k-2}$ より小さいので、infimum の定義から、その剰余類の代表元 $z_k\in X$ を
 
 $$
-q(z_k)=\xi_{n_{k+1}}-\xi_{n_k},
+q(z_k)=\xi_{n_{k+1}}-\xi_{n_k}
 $$
 
+かつ
+
 $$
-\|z_k\|_X<2^{-k-1}
+\begin{aligned}
+\|z_k\|_X
+&<
+\|\xi_{n_{k+1}}-\xi_{n_k}\|_{X/M}
++
+2^{-k-2}\\
+&<
+2^{-k-1}
+\end{aligned}
 $$
 
 となるように選べます。ここでも最良代表元の存在は仮定していません。
@@ -531,7 +545,22 @@ $$
 
 後者では **同じ $M$ が全ての $x$ と全ての $T$ に同時に効きます**。
 
-一様有界なら点ごとに有界なのは作用素ノルムの定義から直ちに従います。驚くべき方向は、その逆です。
+一様有界性を仮定し
+
+$$
+M:=\sup_{T\in\mathcal T}\|T\|<\infty
+$$
+
+と置けば、任意の $x\in X$ について
+
+$$
+\sup_{T\in\mathcal T}\|Tx\|
+\le
+M\|x\|
+<\infty.
+$$
+
+従って一様有界なら点ごとに有界です。驚くべき方向は、その逆です。
 
 ---
 
@@ -711,13 +740,13 @@ $$
 証明の役割分担を縮めると
 
 ```text
-pointwise bounded
+各点で有界
   ↓
-X = countable union of closed E_m
-  ↓ Baire（domain の完備性）
-one E_N contains a ball
-  ↓ linearity（対称な二点の差）
-one local bound becomes a global operator-norm bound
+X = 閉集合 E_m の可算和
+  ↓ Baire（定義域の完備性）
+ある E_N が球を含む
+  ↓ 線形性（対称な二点の差）
+局所的な評価が全作用素の共通ノルム評価になる
 ```
 
 です。
@@ -897,11 +926,11 @@ $$
 
 ---
 
-## 7. pointwise limit は自動的に有界になる
+## 7. 各入力で収束する作用素列の極限は自動的に有界になる
 
 <a id="cor-fa1-pointwise-limit"></a>
 <!-- formal-statement-start -->
-### 系（pointwise 収束する作用素列の一様有界性）
+### 系（各入力で収束する作用素列の一様有界性）
 
 $X$ を Banach 空間、$Y$ をノルム空間とし、$T_n\in\mathcal L(X,Y)$ とする。各 $x\in X$ について
 
@@ -962,7 +991,7 @@ $$
 従って $T$ は有界です。$\square$
 <!-- proof-end -->
 
-例えば座標汎関数 $p_n:\ell^2\to\mathbb R$ は各 $x\in\ell^2$ に対して $x_n\to0$ だから pointwise に 0 汎関数へ収束し、実際 $\sup_n\|p_n\|=1$ です。
+例えば座標汎関数 $p_n:\ell^2\to\mathbb R$ は各 $x\in\ell^2$ に対して $x_n\to0$ なので、各点で 0 汎関数へ収束し、実際 $\sup_n\|p_n\|=1$ です。
 
 ---
 
@@ -1004,10 +1033,73 @@ $$
 
 と置きます。各 $E_m$ は閉です。
 
-もしある $E_m$ が非空な内部を持てば、Section 5.4 と全く同じ対称二点の差の議論により
+もしある $E_m$ が非空な内部を持つとします。すると、ある $x_0\in X$ と $r>0$ が存在して
 
 $$
-\sup_{T\in\mathcal T}\|T\|<\infty
+B(x_0,r)\subset E_m
+$$
+
+となります。$\|x\|\le1$ と $T\in\mathcal T$ を任意に取ると、
+
+$$
+x_0+\frac r2x,
+\qquad
+x_0-\frac r2x
+$$
+
+はいずれも $E_m$ に入ります。従って
+
+$$
+\left\|T\left(x_0+\frac r2x\right)\right\|\le m,
+\qquad
+\left\|T\left(x_0-\frac r2x\right)\right\|\le m.
+$$
+
+二つの像の差を取ると、$T$ の線形性から
+
+$$
+T\left(x_0+\frac r2x\right)
+-
+T\left(x_0-\frac r2x\right)
+=
+rTx.
+$$
+
+従ってノルムの公理を使って
+
+$$
+\begin{aligned}
+r\|Tx\|
+&=
+\left\|
+T\left(x_0+\frac r2x\right)
+-
+T\left(x_0-\frac r2x\right)
+\right\|\\
+&\le
+\left\|T\left(x_0+\frac r2x\right)\right\|
++
+\left\|T\left(x_0-\frac r2x\right)\right\|\\
+&\le
+2m.
+\end{aligned}
+$$
+
+すなわち
+
+$$
+\|Tx\|
+\le\frac{2m}{r}
+\qquad(\|x\|\le1)
+$$
+
+です。単位球上で上限を取れば
+
+$$
+\sup_{T\in\mathcal T}\|T\|
+\le
+\frac{2m}{r}
+<\infty,
 $$
 
 となり仮定に反します。従って全ての $E_m$ は内部が空です。
@@ -1091,7 +1183,7 @@ $$
 \Phi((a,b)+M)=b
 $$
 
-が well-defined な線形等長同型であることを示せ。
+が代表元によらず定まる線形等長同型であることを示せ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -1102,9 +1194,23 @@ $$
 (a-a',b-b')\in M,
 $$
 
-従って第2成分は $b-b'=0$ であり $b=b'$。よって $\Phi$ は well-defined。
+従って第2成分は $b-b'=0$ であり $b=b'$。よって $\Phi$ は代表元によらず定まります。
 
-線形性は剰余類の加法・スカラー倍から直ちに従う。さらに本文の計算より
+$\alpha,\beta\in\mathbb R$ と $u=(a,b)+M$, $v=(c,d)+M$ に対して
+
+$$
+\begin{aligned}
+\Phi(\alpha u+\beta v)
+&=
+\Phi((\alpha a+\beta c,\alpha b+\beta d)+M)\\
+&=
+\alpha b+\beta d\\
+&=
+\alpha\Phi(u)+\beta\Phi(v),
+\end{aligned}
+$$
+
+なので $\Phi$ は線形です。さらに本文の計算より
 
 $$
 \|(a,b)+M\|_{X/M}=|b|=|\Phi((a,b)+M)|,
@@ -1112,20 +1218,6 @@ $$
 
 だから等長。任意の $c\in\mathbb R$ は $\Phi((0,c)+M)=c$ なので全射であり、等長性から核は 0 だから単射でもある。
 
-#### 本番答案
-
-剰余類が等しければ差は $M=\operatorname{span}(e_1)$ に入り、第2成分が等しいので $\Phi$ は well-defined。線形で、
-
-$$
-\|(a,b)+M\|=\inf_t\sqrt{(a-t)^2+b^2}=|b|=|\Phi((a,b)+M)|.
-$$
-
-また $c=\Phi((0,c)+M)$ なので全射。従って線形等長同型。
-
-#### 採点基準（20点）
-- well-defined性: 6点
-- 商ノルム計算: 7点
-- 線形性・全単射: 7点
 <!-- solution-end -->
 
 ### FA1-A02 標準商写像の作用素ノルム
@@ -1164,20 +1256,6 @@ $$
 
 よって $\|q\|>1/(1+\varepsilon)$。$\varepsilon\downarrow0$ より $\|q\|\ge1$。従って $\|q\|=1$。
 
-#### 本番答案
-
-$\|q(x)\|\le\|x\|$ から $\|q\|\le1$。$\|\xi\|=1$ の非零剰余類を取り、任意の $\varepsilon>0$ に対し $q(x)=\xi$, $\|x\|<1+\varepsilon$ となる代表元を取ると
-
-$$
-1=\|q(x)\|<\|q\|(1+\varepsilon).
-$$
-
-$\varepsilon\to0$ で $\|q\|\ge1$。よって $\|q\|=1$。
-
-#### 採点基準（20点）
-- 上側評価: 6点
-- infimumを使った近似代表元: 8点
-- 極限による下側評価: 6点
 <!-- solution-end -->
 
 ### FA1-A03 座標汎関数族
@@ -1194,17 +1272,9 @@ $|x_n|\le\|x\|_2$ より $\|p_n\|\le1$。標準基底 $e_n$ に対して $\|e_n\
 
 また $x\in\ell^2$ なら $\sum_n|x_n|^2<\infty$。もし $x_n\not\to0$ なら、ある $\varepsilon>0$ と無限個の $n$ について $|x_n|\ge\varepsilon$ となり、二乗和は無限大になって矛盾。従って $p_n(x)=x_n\to0$。
 
-#### 本番答案
-
-$|p_n(x)|=|x_n|\le\|x\|_2$ と $p_n(e_n)=1$ より $\|p_n\|=1$。また $x\in\ell^2$ では $\sum|x_n|^2<\infty$ だから必ず $x_n\to0$。従って $p_n(x)\to0$。
-
-#### 採点基準（20点）
-- $\|p_n\|\le1$: 6点
-- $\|p_n\|\ge1$: 5点
-- $x_n\to0$ の論証: 9点
 <!-- solution-end -->
 
-### FA1-A04 pointwise 収束から極限作用素へ
+### FA1-A04 各入力での収束から極限作用素へ
 
 - Level: A
 - 目安時間: 12分
@@ -1234,19 +1304,11 @@ $$
 
 従って $T$ は有界線形作用素。
 
-#### 本番答案
-
-$T_nx\to Tx$ より各 $x$ で $\sup_n\|T_nx\|<\infty$。[Banach–Steinhaus](#thm-fa1-uniform-boundedness)から $M:=\sup_n\|T_n\|<\infty$。極限で線形性が保たれ、$\|Tx\|\le M\|x\|$ だから $T\in\mathcal L(X,Y)$。
-
-#### 採点基準（20点）
-- pointwise bounded性: 5点
-- [一様有界性原理](#thm-fa1-uniform-boundedness)の適用: 7点
-- 線形性・有界性: 8点
 <!-- solution-end -->
 
 ## B問題
 
-### FA1-B01 kernel で割った作用素
+### FA1-B01 核で割った作用素
 
 - Level: B
 - 目安時間: 18分
@@ -1259,7 +1321,7 @@ $$
 \widetilde T(x+\ker T)=Tx
 $$
 
-が well-defined な単射有界線形作用素で、
+が代表元によらず定まる単射有界線形作用素で、
 
 $$
 \|\widetilde T\|\le\|T\|
@@ -1278,7 +1340,18 @@ $$
 
 従って $x\in\ker T$。よって $\ker T$ は閉。
 
-$x+\ker T=x'+\ker T$ なら $x-x'\in\ker T$ なので $Tx=Tx'$。よって $\widetilde T$ は well-defined。線形性は明らか。
+$x+\ker T=x'+\ker T$ なら $x-x'\in\ker T$ なので $Tx=Tx'$。よって $\widetilde T$ は代表元によらず定まります。また $a,b\in\mathbb K$ と $x,y\in X$ に対して
+
+$$
+\begin{aligned}
+\widetilde T\bigl(a(x+\ker T)+b(y+\ker T)\bigr)
+&=T(ax+by)\\
+&=aTx+bTy\\
+&=a\widetilde T(x+\ker T)+b\widetilde T(y+\ker T),
+\end{aligned}
+$$
+
+なので線形です。
 
 $\widetilde T(x+\ker T)=0$ なら $Tx=0$、従って $x\in\ker T$ で剰余類は 0。よって単射。
 
@@ -1304,20 +1377,6 @@ $$
 
 従って $\|\widetilde T\|\le\|T\|$。
 
-#### 本番答案
-
-$T$ の連続性から $\ker T=T^{-1}(\{0\})$ は閉。剰余類の代表元の差が kernel に入れば像は同じなので $\widetilde T$ は well-defined。核が 0 なので単射。任意の $k\in\ker T$ に対し
-
-$$
-\|Tx\|=\|T(x-k)\|\le\|T\|\|x-k\|,
-$$
-
-よって infimum を取り $\|\widetilde T\|\le\|T\|$。
-
-#### 採点基準（20点）
-- kernel の閉性: 5点
-- well-defined性・単射性: 7点
-- 商ノルムによる作用素評価: 8点
 <!-- solution-end -->
 
 ### FA1-B02 非完備空間での反例
@@ -1340,15 +1399,6 @@ $c_{00}$ に sup ノルムを入れ、$T_n(x)=n x_n$ とする。次を全て示
 3. $s^{(m)}=(1,1/2,\dots,1/m,0,\dots)$ は sup ノルム Cauchy だが極限 $(1/n)$ は有限支でなく $c_{00}$ 外。
 4. 定義域が Banach でない。従って Baire のカテゴリー定理を定義域に適用できず、「閉集合 $E_m$ のどれかが内部を持つ」という核心段階が失われる。
 
-#### 本番答案
-
-$|n x_n|\le n\|x\|_\infty$ と $e_n$ より $\|T_n\|=n$。各 $x$ は有限支なので $\sup_n|T_nx|<\infty$。一方 $s^{(m)}=(1,1/2,\dots,1/m,0,\dots)$ は Cauchy だが極限 $(1/n)\notin c_{00}$。従って $c_{00}$ は非完備で、Banach–Steinhaus の定義域 Banach 仮定が欠ける。
-
-#### 採点基準（20点）
-- 作用素ノルム: 5点
-- pointwise bounded性: 4点
-- 非完備性: 6点
-- Baire機構との対応: 5点
 <!-- solution-end -->
 
 ### FA1-B03 稠密集合上の収束を全空間へ延長
@@ -1367,13 +1417,25 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-$x\in X$ と $\varepsilon>0$ を固定する。$D$ は稠密なので
+$x\in X$ と $\varepsilon>0$ を固定します。
+
+まず $M=0$ なら、全ての $n$ で
+
+$$
+0\le\|T_n\|\le M=0,
+$$
+
+従って $T_n=0$ です。この場合 $(T_nx)$ は恒等的に 0 なので収束します。
+
+以下 $M>0$ とします。$D$ は稠密なので
 
 $$
 \|x-d\|<\frac{\varepsilon}{6M}
 $$
 
-となる $d\in D$ を取れる（$M=0$ なら自明）。$(T_nd)$ は収束するので Cauchy。従って十分大きい $m,n$ で
+となる $d\in D$ を取れます。
+
+$(T_nd)$ は収束するので Cauchy です。従って十分大きい $m,n$ で
 
 $$
 \|T_nd-T_md\|<\frac\varepsilon3.
@@ -1395,21 +1457,6 @@ $$
 
 この問題では $X$ の完備性は不要で、代わりに **あらかじめ得た一様作用素ノルム評価** と **値域 $Y$ の完備性** が働く。
 
-#### 本番答案
-
-$x$ に近い $d\in D$ を取り、
-
-$$
-\|T_nx-T_mx\|
-\le2M\|x-d\|+\|T_nd-T_md\|
-$$
-
-と評価する。第1項は稠密性で、第2項は $D$ 上の収束で任意に小さくできる。よって $(T_nx)$ は Cauchy。$Y$ の完備性から収束する。
-
-#### 採点基準（20点）
-- 稠密点の選択: 5点
-- 三項評価: 8点
-- Cauchy性と値域完備性: 7点
 <!-- solution-end -->
 
 ## C問題
@@ -1471,13 +1518,4 @@ $$
 \sup_n\|T_nx\|=\infty.
 $$
 
-#### 本番答案
-
-$E_m=\{x:\sup_n\|T_nx\|\le m\}$ は閉。もし $E_m$ が球 $B(x_0,r)$ を含めば、対称二点 $x_0\pm(r/2)x$ の差から $\sup_n\|T_n\|\le2m/r$ となり矛盾。従って $G_m=X\setminus E_m$ は開稠密。Baire より $\cap_mG_m$ は稠密なので任意の非空開 $U$ と交わり、その交点 $x$ では全 $m$ に対しある $n$ が $\|T_nx\|>m$ を満たす。よって $\sup_n\|T_nx\|=\infty$。
-
-#### 採点基準（20点）
-- $E_m$ の閉性: 4点
-- 内部を持てば一様有界になる論証: 7点
-- Baire適用: 5点
-- 任意の開集合での結論: 4点
 <!-- solution-end -->
