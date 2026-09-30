@@ -2,6 +2,7 @@ chapter: F0-00D2E
 scope: dream-theater
 coverage: complete
 prerequisites:
+  - RA1
   - F0-00D1
   - F0-00D2B
   - F0-00D2D
@@ -16,6 +17,7 @@ forward_references:
   - functional.banach-space-recap-c1
   - functional.hilbert-space-recap-c1
   - rkhs.rkhs
+  - functional.resolvent-spectrum
 
 concepts:
   - id: functional.normed-cauchy-sequence
