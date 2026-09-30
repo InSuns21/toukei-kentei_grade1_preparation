@@ -67,7 +67,9 @@ $$
 と逆向きに進みます。
 
 <!-- definition-example-start: def-f0-02c3a-banach-adjoint -->
-### 定義の確認：具体的な汎関数を引き戻す
+### 例：具体的な汎関数を引き戻す
+
+**定義の確認**：$T^*y^*=y^*\circ T$ を具体的に計算し、出力側の汎関数が入力側へ戻ることを確かめます。
 
 $T:\mathbb R^2\to\mathbb R$ を
 
@@ -258,7 +260,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-f0-02c3a-hilbert-adjoint -->
-### 定義の確認：行列の場合
+### 例：行列の場合
+
+**定義の確認**：内積恒等式を直接計算し、Hilbert 随伴が転置行列で表されることを確かめます。
 
 $T(x)=Ax$ なら
 
