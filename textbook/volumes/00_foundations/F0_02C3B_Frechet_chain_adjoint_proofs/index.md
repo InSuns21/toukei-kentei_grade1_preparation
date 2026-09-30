@@ -500,7 +500,7 @@ $$
 
 #### 6.3 有界性と (|T^\dagger|\le\|T\|)
 
-Riesz 表現定理のノルム一致から
+[Riesz表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)のノルム一致から
 
 $$
 \|T^\dagger y\|
@@ -841,7 +841,7 @@ x^{\mathsf T}A^{\mathsf T}y\\
 \end{aligned}
 $$
 
-Hilbert 随伴の一意性から
+[Hilbert随伴の存在・一意性](#thm-f0-02c3b-hilbert-adjoint)から
 
 $$
 \boxed{
@@ -963,7 +963,7 @@ $$
 DF(x)[h]=Th.
 $$
 
-従って Fréchet 連鎖律から
+従って [Fréchet 連鎖律](../F0_02C3_Frechet微分_線形作用素_随伴/index.md#thm-f0-02c3-frechet-composition)から
 
 $$
 \begin{aligned}
@@ -1053,7 +1053,7 @@ $$
 \langle x,(T^\dagger\circ S^\dagger)z\rangle.
 $$
 
-Hilbert 随伴の一意性から
+[Hilbert随伴の存在・一意性](#thm-f0-02c3b-hilbert-adjoint)から
 
 $$
 \boxed{
@@ -1116,7 +1116,7 @@ $$
 
 と分けます。
 
-まず $G:=T\circ F$ と置くと、Fréchet 連鎖律から
+まず $G:=T\circ F$ と置くと、[Fréchet 連鎖律](../F0_02C3_Frechet微分_線形作用素_随伴/index.md#thm-f0-02c3-frechet-composition)から
 
 $$
 DG(x)[h]
@@ -1183,7 +1183,19 @@ T^\dagger(TF(x)-y)
 \right\rangle_H.
 $$
 
-従って $DJ(x)$ の Riesz 代表は
+実 Hilbert 空間では内積が対称なので、これは
+
+$$
+DJ(x)[h]
+=
+\left\langle
+DF(x)^\dagger
+T^\dagger(TF(x)-y),
+h
+\right\rangle_H
+$$
+
+とも書けます。従って $DJ(x)$ の Riesz 代表は
 
 $$
 \boxed{
