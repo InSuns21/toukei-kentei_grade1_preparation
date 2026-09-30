@@ -1055,11 +1055,34 @@ $$
 \left\|T\left(x_0-\frac r2x\right)\right\|\le m.
 $$
 
-二式の差と三角不等式から
+二つの像の差を取ると、$T$ の線形性から
 
 $$
+T\left(x_0+\frac r2x\right)
+-
+T\left(x_0-\frac r2x\right)
+=
+rTx.
+$$
+
+従ってノルムの公理を使って
+
+$$
+\begin{aligned}
 r\|Tx\|
-\le2m,
+&=
+\left\|
+T\left(x_0+\frac r2x\right)
+-
+T\left(x_0-\frac r2x\right)
+\right\|\\
+&\le
+\left\|T\left(x_0+\frac r2x\right)\right\|
++
+\left\|T\left(x_0-\frac r2x\right)\right\|\\
+&\le
+2m.
+\end{aligned}
 $$
 
 すなわち
