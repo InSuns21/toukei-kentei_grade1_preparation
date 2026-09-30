@@ -18,10 +18,10 @@ concepts:
     requires: []
 
   - id: measure.mt4-cc-dense-l1
-    name: C_c(R)のL1稠密性
+    name: 有界区間外で0となる連続関数のL1稠密性
     kind: theorem
-    aliases: ["### 補題（Cc(R) の L1 稠密性）"]
-    introduction_aliases: ["### 補題（Cc(R) の L1 稠密性）"]
+    aliases: ["### 補題（有界区間外で 0 となる連続関数の $L^1$ 稠密性）", "Cc(R) の L1 稠密性"]
+    introduction_aliases: ["### 補題（有界区間外で 0 となる連続関数の $L^1$ 稠密性）"]
     requires: []
 
   - id: measure.mt4-interval-selection
@@ -32,17 +32,17 @@ concepts:
     requires: []
 
   - id: measure.mt4-maximal-function
-    name: 非中心Hardy–Littlewood maximal function
+    name: 非中心Hardy–Littlewood最大関数
     kind: definition
-    aliases: ["### 定義（非中心 Hardy–Littlewood maximal function）"]
-    introduction_aliases: ["### 定義（非中心 Hardy–Littlewood maximal function）"]
+    aliases: ["### 定義（非中心 Hardy–Littlewood 最大関数）", "非中心 Hardy–Littlewood maximal function"]
+    introduction_aliases: ["### 定義（非中心 Hardy–Littlewood 最大関数）"]
     requires: []
 
   - id: measure.mt4-maximal-weak11
-    name: Hardy–Littlewood maximal弱(1,1)評価
+    name: Hardy–Littlewood最大関数の弱(1,1)評価
     kind: theorem
-    aliases: ["### 定理（Hardy–Littlewood maximal の弱 (1,1) 評価）"]
-    introduction_aliases: ["### 定理（Hardy–Littlewood maximal の弱 (1,1) 評価）"]
+    aliases: ["### 定理（Hardy–Littlewood 最大関数の弱 (1,1) 評価）", "Hardy–Littlewood maximal の弱 (1,1) 評価"]
+    introduction_aliases: ["### 定理（Hardy–Littlewood 最大関数の弱 (1,1) 評価）"]
     requires:
       - measure.mt4-maximal-function
       - measure.mt4-interval-selection
@@ -98,10 +98,10 @@ concepts:
       - measure.mt4-lebesgue-differentiation-l1
 
   - id: analysis.mt4-bounded-variation
-    name: bounded variationと全変動
+    name: 有界変動と全変動
     kind: definition
-    aliases: ["### 定義（全変動・bounded variation）"]
-    introduction_aliases: ["### 定義（全変動・bounded variation）"]
+    aliases: ["### 定義（全変動・有界変動）", "bounded variationと全変動"]
+    introduction_aliases: ["### 定義（全変動・有界変動）"]
     requires: []
 
   - id: analysis.mt4-ac-implies-bv
