@@ -711,13 +711,13 @@ $$
 証明の役割分担を縮めると
 
 ```text
-pointwise bounded
+各点で有界
   ↓
-X = countable union of closed E_m
-  ↓ Baire（domain の完備性）
-one E_N contains a ball
-  ↓ linearity（対称な二点の差）
-one local bound becomes a global operator-norm bound
+X = 閉集合 E_m の可算和
+  ↓ Baire（定義域の完備性）
+ある E_N が球を含む
+  ↓ 線形性（対称な二点の差）
+局所的な評価が全作用素の共通ノルム評価になる
 ```
 
 です。
@@ -1255,7 +1255,7 @@ $$
 \widetilde T(x+\ker T)=Tx
 $$
 
-が well-defined な単射有界線形作用素で、
+が代表元によらず定まる単射有界線形作用素で、
 
 $$
 \|\widetilde T\|\le\|T\|
