@@ -14,10 +14,13 @@ forward_references:
   - prob.independent-random-variables
 
 concepts:
-  - id: measure.sigma-finite-measure
-    name: σ有限測度
+  # MT3 に同じ数学概念の canonical ID があるが、D2C は MT3 を prerequisite にしない。
+  # 積測度の仮定をこの補講内で自己完結に再掲する局所概念として扱う。
+  - id: measure.sigma-finite-measure-d2c-recap
+    name: 積測度で使うσ有限測度の再掲
     kind: definition
-    aliases: [σ有限測度, sigma-finite measure]
+    aliases: [積測度で使うσ有限測度の再掲]
+    introduction_aliases: [σ有限測度]
     requires:
       - measure.measure-space
 
@@ -37,7 +40,7 @@ concepts:
       - measure.measure-space
       - measure.monotone-convergence-theorem
       - measure.caratheodory-extension-theorem
-      - measure.sigma-finite-measure
+      - measure.sigma-finite-measure-d2c-recap
 
   - id: measure.section
     name: 集合の切断
