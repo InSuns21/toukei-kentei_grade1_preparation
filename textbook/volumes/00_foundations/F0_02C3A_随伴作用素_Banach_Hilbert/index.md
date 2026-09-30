@@ -1,6 +1,6 @@
 # F0-02C3A 関数解析III-A：随伴作用素・Banach双対・Hilbert随伴
 
-[F0-02C3](../F0_02C3_Frechet微分_線形作用素_随伴/index.md) では、実数値関数の微分を
+[F0-02C3](../F0_02C3_Frechet微分_線形作用素_随伴/index.md) では、実数値写像の Fréchet 微分を
 $X^*$ の元として扱い、Hilbert 空間では Riesz 表現によってベクトルへ戻せることを見ました。
 
 ここで制約写像や線形作用素
@@ -181,7 +181,7 @@ $$
 J_G(x)^{\mathsf T}\lambda
 $$
 
-が現れるのは、制約写像の微分
+が現れるのは、制約写像の Fréchet 微分
 
 $$
 DG(x):X\to Y
@@ -295,88 +295,62 @@ $$
 
 ---
 
-## 4. 例：積分作用素の随伴
+## 4. 例：階数1作用素の随伴
 
-ここでは「積分順序を交換できると仮定する」だけで済ませず、そのための十分条件を一つ固定します。
+積分順序交換のような追加の測度論を使わず、無限次元でもそのまま使える例を考えます。
 
-$$
-K\in L^2([0,1]^2)
-$$
-
-とし、$H=L^2([0,1])$ 上で
+実 Hilbert 空間 $H_1,H_2$ で $a\in H_1$、$b\in H_2$ を固定し、
 
 $$
-(Tf)(s)
+Tx
 =
-\int_0^1K(s,t)f(t)\,dt
+\langle x,a\rangle_{H_1} b
 $$
 
-と定めます。
+と定めます。入力 $x$ から $a$ 方向の成分を一つの実数として取り出し、その大きさだけ $b$ を出力する作用素です。
 
-まず、固定した $s$ について Cauchy--Schwarz の不等式を使うと
-
-$$
-|Tf(s)|^2
-\le
-\left(\int_0^1|K(s,t)|^2dt\right)
-\left(\int_0^1|f(t)|^2dt\right).
-$$
-
-$s$ について積分すれば
-
-$$
-\|Tf\|_2^2
-\le
-\|K\|_{L^2([0,1]^2)}^2\,\|f\|_2^2.
-$$
-
-従って $T$ は有界線形作用素です。
-
-次に $f,g\in L^2([0,1])$ とします。二変数関数
-
-$$
-K(s,t)f(t)g(s)
-$$
-
-について、$[0,1]^2$ 上の Cauchy--Schwarz の不等式から
-
-$$
-\int_0^1\!\int_0^1
-|K(s,t)f(t)g(s)|\,dt\,ds
-\le
-\|K\|_2\,\|f\|_2\,\|g\|_2<\infty.
-$$
-
-従って Fubini の定理で積分順序を交換でき、
+まず Cauchy--Schwarz の不等式から
 
 $$
 \begin{aligned}
-\langle Tf,g\rangle
+\|Tx\|_{H_2}
 &=
-\int_0^1\int_0^1
-K(s,t)f(t)g(s)\,dt\,ds\\
-&=
-\int_0^1
-f(t)
-\left(
-\int_0^1K(s,t)g(s)\,ds
-\right)dt.
+|\langle x,a\rangle|\,\|b\|\\
+&\le
+\|a\|\,\|b\|\,\|x\|
 \end{aligned}
 $$
 
-よって
+なので、$T$ は有界線形作用素です。
+
+次に $y\in H_2$ に対して
+
+$$
+\begin{aligned}
+\langle Tx,y\rangle_{H_2}
+&=
+\langle x,a\rangle_{H_1}\langle b,y\rangle_{H_2}\\
+&=
+\left\langle
+x,
+\langle b,y\rangle_{H_2}a
+\right\rangle_{H_1}.
+\end{aligned}
+$$
+
+従って Hilbert 随伴は
 
 $$
 \boxed{
-(T^\dagger g)(t)
+T^\dagger y
 =
-\int_0^1K(s,t)g(s)\,ds
+\langle b,y\rangle_{H_2}a
 }
 $$
 
 です。
 
-実数値の積分核では、随伴を取ると二変数の役割が入れ替わります。
+元の作用素が「$a$ で測って $b$ を出す」のに対し、随伴は「$b$ で測って $a$ を出す」ので、入力側と出力側の役割が入れ替わる様子が見えます。
 
 ---
 
@@ -693,91 +667,99 @@ $$
 $$
 <!-- solution-end -->
 
-### F0-02C3A-B02 $L^2$積分作用素の随伴
+### F0-02C3A-B02 階数1作用素の随伴と作用素ノルム
 
 - Level: B
 
-$K\in L^2([0,1]^2)$ とし、
+実 Hilbert 空間 $H_1,H_2$ で $0\ne a\in H_1$、$0\ne b\in H_2$ とし、
 
 $$
-(Tf)(s)=\int_0^1K(s,t)f(t)\,dt
+Tx=\langle x,a\rangle b
 $$
 
-で $T:L^2([0,1])\to L^2([0,1])$ を定める。
+と定める。
 
-1. $\|Tf\|_2\le\|K\|_2\|f\|_2$ を示せ。
-2. $K(s,t)f(t)g(s)$ が $[0,1]^2$ 上で可積分であることを示せ。
-3. Fubini の定理を使って $T^\dagger$ を求めよ。
+1. $T^\dagger y=\langle b,y\rangle a$ を示せ。
+2. $\|T\|=\|a\|\,\|b\|$ を示せ。
+3. $\|T^\dagger\|=\|T\|$ をこの例で確認せよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-1. 固定した $s$ について Cauchy--Schwarz の不等式から
-
-$$
-|Tf(s)|^2
-\le
-\left(\int_0^1|K(s,t)|^2dt\right)\|f\|_2^2.
-$$
-
-$s$ について積分すると
-
-$$
-\|Tf\|_2^2
-\le
-\left(\int_0^1\int_0^1|K(s,t)|^2dt\,ds\right)\|f\|_2^2
-=
-\|K\|_2^2\|f\|_2^2.
-$$
-
-従って
-
-$$
-\|Tf\|_2\le\|K\|_2\|f\|_2.
-$$
-
-2. $[0,1]^2$ 上で Cauchy--Schwarz の不等式を使うと
+1. 任意の $x\in H_1$、$y\in H_2$ に対して
 
 $$
 \begin{aligned}
-&\int_0^1\int_0^1
-|K(s,t)f(t)g(s)|\,dt\,ds\\
-&\quad\le
-\|K\|_2
-\left(
-\int_0^1\int_0^1|f(t)|^2|g(s)|^2dt\,ds
-\right)^{1/2}\\
-&\quad=
-\|K\|_2\|f\|_2\|g\|_2<\infty.
+\langle Tx,y\rangle
+&=
+\langle x,a\rangle\langle b,y\rangle\\
+&=
+\langle x,\langle b,y\rangle a\rangle.
 \end{aligned}
 $$
 
-従って Fubini の定理を適用できます。
-
-3. 積分順序を交換すると
-
-$$
-\begin{aligned}
-\langle Tf,g\rangle
-&=
-\int_0^1\int_0^1K(s,t)f(t)g(s)dt\,ds\\
-&=
-\int_0^1
-f(t)
-\left(
-\int_0^1K(s,t)g(s)ds
-\right)dt.
-\end{aligned}
-$$
-
-従って
+従って随伴の定義から
 
 $$
 \boxed{
-(T^\dagger g)(t)
+T^\dagger y
 =
-\int_0^1K(s,t)g(s)\,ds
+\langle b,y\rangle a
 }.
+$$
+
+2. Cauchy--Schwarz の不等式から
+
+$$
+\|Tx\|
+=
+|\langle x,a\rangle|\,\|b\|
+\le
+\|a\|\,\|b\|\,\|x\|,
+$$
+
+したがって
+
+$$
+\|T\|\le\|a\|\,\|b\|.
+$$
+
+一方、
+
+$$
+x=\frac{a}{\|a\|}
+$$
+
+と取れば $\|x\|=1$ で
+
+$$
+\|Tx\|
+=
+\left|
+\left\langle
+\frac{a}{\|a\|},a
+\right\rangle
+\right|\|b\|
+=
+\|a\|\,\|b\|.
+$$
+
+よって
+
+$$
+\boxed{
+\|T\|=\|a\|\,\|b\|
+}.
+$$
+
+3. $T^\dagger$ は $a$ と $b$ の役割を交換した同じ形の作用素なので、同じ計算から
+
+$$
+\|T^\dagger\|
+=
+\|b\|\,\|a\|
+=
+\boxed{\|T\|}.
 $$
 <!-- solution-end -->
 
@@ -955,7 +937,7 @@ $$
 - $T^*y^*\in X^*$ を有界性評価から確認し、$\|T^*\|\le\|T\|$ を示せる。
 - 有限次元で随伴が転置行列になることを導ける。
 - Riesz 表現から Hilbert 随伴が現れる理由を説明できる。
-- $K\in L^2([0,1]^2)$ の積分作用素で、有界性と Fubini の適用条件を確認して随伴を求められる。
+- 階数1作用素で、有界性を確認して Hilbert 随伴と作用素ノルムを求められる。
 - 合成の随伴で作用素の順序が逆になることを型付きで示せる。
 - 最小二乗の停留条件を $T^\dagger(Tx-y)=0$ と書き、残差の直交性へ読み替えられる。
 
