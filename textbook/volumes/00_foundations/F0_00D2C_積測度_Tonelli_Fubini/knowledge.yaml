@@ -2,7 +2,9 @@ chapter: F0-00D2C
 scope: dream-theater
 coverage: complete
 prerequisites:
+  - RA1
   - F0-00D2B
+  - F0-00D3A
   - F0-00D4
 
 # 末尾・応用節で後続の Lp / 確率論概念を予告する。
@@ -13,6 +15,16 @@ forward_references:
   - prob.independent-random-variables
 
 concepts:
+  # MT3 に同じ数学概念の canonical ID があるが、D2C は MT3 を prerequisite にしない。
+  # 積測度の仮定をこの補講内で自己完結に再掲する局所概念として扱う。
+  - id: measure.sigma-finite-measure-d2c-recap
+    name: D2Cで再掲するσ有限測度
+    kind: definition
+    aliases: [D2Cで再掲するσ有限測度]
+    introduction_aliases: [σ有限測度]
+    requires:
+      - measure.measure-space
+
   - id: measure.product-sigma-algebra
     name: 積σ代数
     kind: definition
@@ -23,32 +35,33 @@ concepts:
   - id: measure.product-measure
     name: σ有限測度の積測度
     kind: theorem
-    aliases: [σ有限測度の積測度, 積測度, product measure, 積測度の長方形公式]
+    aliases: [σ有限測度の積測度, 積測度, product measure]
     requires:
       - measure.product-sigma-algebra
       - measure.measure-space
       - measure.monotone-convergence-theorem
       - measure.caratheodory-extension-theorem
+      - measure.sigma-finite-measure-d2c-recap
 
   - id: measure.section
-    name: 集合の section
+    name: 集合の切断
     kind: definition
-    aliases: [集合の section]
+    aliases: [集合の切断, 集合の section]
     requires:
       - measure.product-sigma-algebra
 
   - id: measure.measurable-section
-    name: 可測集合の section は可測
+    name: 可測集合の切断は可測
     kind: proposition
-    aliases: [可測集合の section は可測]
+    aliases: [可測集合の切断は可測, 可測集合の section は可測]
     requires:
       - measure.section
       - measure.product-sigma-algebra
 
   - id: measure.section-measure-formula
-    name: section 測度公式
+    name: 切断測度公式
     kind: lemma
-    aliases: [section 測度公式]
+    aliases: [切断測度公式, section 測度公式]
     requires:
       - measure.product-measure
       - measure.measurable-section

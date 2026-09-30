@@ -52,6 +52,10 @@ $$
 
 ## 1. Cauchy列と完備性の復習
 
+$L^2$ の極限を最初から点ごとに当てるのではなく、「列の後ろ同士が互いに近い」ことだけから極限の存在を引き出したい。そのために使うのが Cauchy 列と完備性です。
+
+まず一般のノルム空間で、この二つの言葉を固定します。
+
 <a id="def-f0-00d2e-01"></a>
  
 <!-- formal-statement-start -->
@@ -65,6 +69,8 @@ $$
 
 となることをいう。
 <!-- formal-statement-end -->
+
+Cauchy 列であることは「極限候補をまだ知らなくても、列内部の距離だけで収束らしさを判定できる」という条件です。これを実際の収束へ変換できる空間を完備と呼びます。
 
 <a id="def-f0-00d2e-02"></a>
  
@@ -80,10 +86,14 @@ D2Eでは $V=L^2(\mu)$ についてこれを証明します。
 
 ## 2. $L^2$の内積
 
+D2D で $L^2$ ノルムは得ました。しかし $p=2$ には、長さだけでなく「二つの関数がどれだけ同じ方向を向くか」を測る内積まで入ります。
+
+有限次元で $x\cdot y$ が成分積の和だったのに対し、$L^2$ ではその和を積分へ置き換えます。Hölder の $p=q=2$ が、この積分を有限に保つ役割を担います。
+
 <a id="def-f0-00d2e-03"></a>
  
 <!-- formal-statement-start -->
-### 定義（$L^2$内積）
+### 定義（L2内積）
 
 測度空間 $(\Omega,\mathcal F,\mu)$ 上の実数値 $L^2$ 関数 $f,g$ に対して
 
@@ -134,6 +144,10 @@ $$
 
 ## 3. Hilbert空間
 
+内積があれば直交や射影を語れますが、Cauchy 列の極限が空間の外へ逃げるなら、近似列から射影や極限を作る議論が途中で壊れます。
+
+そこで「内積による幾何」と「完備性」を同時に持つ空間を Hilbert 空間と呼びます。
+
 <a id="def-f0-00d2e-04"></a>
  
 <!-- formal-statement-start -->
@@ -172,7 +186,7 @@ $$
 
 そこで、元のCauchy列から **非常に速く近づく部分列** を選び、差分の絶対値和がa.e.で有限になることを示します。
 
-この「速い部分列 → a.e.収束 → $L^2$収束」が証明の核心です。
+この「速い部分列 → ほとんど至る所での収束 → $L^2$収束」が証明の核心です。
 
 ---
 
@@ -181,7 +195,7 @@ $$
 <a id="thm-f0-00d2e-01"></a>
  
 <!-- formal-statement-start -->
-### 定理（$L^2$の完備性）
+### 定理（L2の完備性）
 
 任意の測度空間 $(\Omega,\mathcal F,\mu)$ に対して、$L^2(\mu)$ はノルム $\|\cdot\|_2$ について完備である。
 <!-- formal-statement-end -->
@@ -215,7 +229,29 @@ $(f_n)$ を $L^2(\mu)$ のCauchy列とします。
 
 #### Step 1：速く近づく部分列を取る
 
-Cauchy性から、帰納的に部分列 $(f_{n_k})$ を選んで
+各 $k\ge1$ について、Cauchy 性を $\varepsilon=2^{-k}$ に適用し、
+
+$$
+m,n\ge N_k
+\quad\Longrightarrow\quad
+\|f_m-f_n\|_2\le2^{-k}
+$$
+
+となる $N_k$ を取ります。必要なら
+
+$$
+N_k\leftarrow\max\{N_1,\ldots,N_k\}
+$$
+
+と置き換えて、$N_1\le N_2\le\cdots$ としてよいです。
+
+$n_1\ge N_1$ を選び、$k\ge1$ について帰納的に
+
+$$
+n_{k+1}\ge\max\{N_{k+1},n_k+1\}
+$$
+
+となるように選びます。すると $n_k\ge N_k$ かつ $n_{k+1}\ge N_k$ なので
 
 $$
 \boxed{
@@ -225,7 +261,7 @@ $$
 }
 $$
 
-とできます。
+が従います。
 
 差分の絶対値を
 
@@ -237,7 +273,7 @@ $$
 
 と置きます。
 
-#### Step 2：差分級数の部分和を評価する
+#### Step 2：差分級数の有限和を評価する
 
 $$
 G_N
@@ -296,29 +332,80 @@ $$
 <\infty.
 $$
 
-したがって数列 $(f_{n_k}(\omega))$ は絶対収束する差分級数を持つのでCauchy、よって実数の完備性からある値 $f(\omega)$ へ収束します。
+$m>k$ に対して
 
-零集合上では例えば $f(\omega)=0$ と定めます。すると $f$ は可測関数です。
+$$
+f_{n_m}(\omega)-f_{n_k}(\omega)
+=
+\sum_{j=k}^{m-1}
+\bigl(f_{n_{j+1}}(\omega)-f_{n_j}(\omega)\bigr),
+$$
+
+したがって
+
+$$
+|f_{n_m}(\omega)-f_{n_k}(\omega)|
+\le
+\sum_{j=k}^{m-1}g_j(\omega).
+$$
+
+右辺は収束級数の尾なので $k\to\infty$ で0へ行きます。よって $(f_{n_k}(\omega))$ は Cauchy 列であり、実数の完備性からある値へ収束します。
+
+可測集合
+
+$$
+A:=\{\omega:G(\omega)<\infty\}
+$$
+
+ではこの極限を
+
+$$
+f(\omega):=\lim_{k\to\infty}f_{n_k}(\omega)
+$$
+
+と定め、$A^c$ では $f(\omega)=0$ と置きます。各 $f_{n_k}$ は可測なので $\limsup_k f_{n_k}$ も可測です。$A$ は可測で、$A$ 上では極限が存在して $\limsup_k f_{n_k}$ に一致します。したがって「$A$ 上ではこの可測関数、$A^c$ 上では定数0」という可測集合による貼り合わせとして $f$ は可測です。なお $\mu(A^c)=0$ です。
 
 #### Step 4：部分列は$L^2$でも$f$へ収束する
 
-尾部を
+まず有限尾部
+
+$$
+H_{k,M}
+:=
+\sum_{j=k}^{M}g_j
+$$
+
+を考えます。Minkowski の不等式をこの有限和へ繰り返し適用すると
+
+$$
+\|H_{k,M}\|_2
+\le
+\sum_{j=k}^{M}\|g_j\|_2
+\le
+\sum_{j=k}^{M}2^{-j}.
+$$
+
+$M\to\infty$ とすると $H_{k,M}\uparrow H_k$ ただし
 
 $$
 H_k
 :=
-\sum_{j=k}^{\infty}g_j
+\sum_{j=k}^{\infty}g_j.
 $$
 
-と置きます。a.e.で
+したがって $H_{k,M}^2\uparrow H_k^2$ であり、[単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)により
 
 $$
-|f_{n_k}-f|
-\le
-H_k.
+\|H_k\|_2^2
+=
+\int H_k^2d\mu
+=
+\lim_{M\to\infty}\int H_{k,M}^2d\mu
+=
+\lim_{M\to\infty}\|H_{k,M}\|_2^2.
 $$
 
-有限部分和に[Minkowski](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-02)を使って極限を取れば
+上の有限和評価を極限へ移すと
 
 $$
 \|H_k\|_2
@@ -328,6 +415,18 @@ $$
 \sum_{j=k}^{\infty}2^{-j}
 =2^{1-k}.
 $$
+
+また $A$ 上で $f_{n_m}\to f$ なので、$m>k$ に対する 望遠和 表示から $m\to\infty$ として
+
+$$
+|f_{n_k}-f|
+\le
+\sum_{j=k}^{\infty}g_j
+=
+H_k
+$$
+
+が a.e. で従います。
 
 したがって
 
@@ -387,14 +486,12 @@ $$
 
 ---
 
+## 6. $L^2$はHilbert空間
+
 <a id="cor-f0-00d2e-01"></a>
- 
-<!-- formal-statement-start -->
-## 6. 系：$L^2$はHilbert空間
-<!-- formal-statement-end -->
 
 <!-- formal-statement-start -->
-### 系（$L^2$のHilbert性）
+### 系（L2のHilbert性）
 
 任意の測度空間 $(\Omega,\mathcal F,\mu)$ に対して、内積
 
@@ -521,15 +618,6 @@ $$
 
 よって $\|f\|_2^2=1/3=\langle f,f\rangle$。
 
-### 本番答案
-
-$\langle f,f\rangle=1/3$、$\|f\|_2=1/\sqrt3$。
-
-### 採点基準（20点）
-
-- 内積: 8点
-- ノルム: 8点
-- 恒等式: 4点
 <!-- solution-end -->
 
 ## F0-00D2E-A02 速い部分列
@@ -548,17 +636,16 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-Cauchy性より、各 $k$ に対してある $N_k$ が存在し、$m,n\ge N_k$ なら距離が $2^{-k}$ 以下になります。$n_{k+1}>n_k$ かつ $n_k,n_{k+1}\ge N_k$ となるよう帰納的に選べばよい。
+Cauchy性より、各 $k$ に対してある $N_k$ が存在し、$m,n\ge N_k$ なら距離が $2^{-k}$ 以下になります。$N_k$ は累積最大値で置き換えて単調増加としてよいです。
 
-### 本番答案
+そこで $n_k\ge N_k$ を満たすよう帰納的に選び、さらに $n_{k+1}>n_k$ とします。すると $n_k,n_{k+1}\ge N_k$ なので
 
-Cauchy性を $\varepsilon=2^{-k}$ に適用し、各段階で十分後ろの添字を帰納的に選ぶ。
+$$
+\|f_{n_{k+1}}-f_{n_k}\|_2\le2^{-k}
+$$
 
-### 採点基準（20点）
+が成り立ちます。
 
-- Cauchy性利用: 8点
-- $\varepsilon=2^{-k}$: 5点
-- 帰納的選択: 7点
 <!-- solution-end -->
 
 ## F0-00D2E-B01 差分級数の意味
@@ -594,18 +681,8 @@ $$
 \sum_{j=k}^{m-1}g_j(\omega).
 $$
 
-収束級数のtailは0へ行くから点wise Cauchy。実数の完備性により収束する。
+収束級数の尾部は0へ行くから点wise Cauchy。実数の完備性により収束する。
 
-### 本番答案
-
-差分級数が絶対収束する点では、そのtailが $|f_{n_m}-f_{n_k}|$ を支配するので点wise Cauchy。$\mathbb R$ の完備性から収束。
-
-### 採点基準（20点）
-
-- telescoping: 6点
-- tail評価: 7点
-- Cauchy: 4点
-- 実数完備性: 3点
 <!-- solution-end -->
 
 ## F0-00D2E-B02 部分列から全列へ
@@ -628,16 +705,6 @@ $$
 <\varepsilon.
 $$
 
-### 本番答案
-
-Cauchy性と収束部分列を三角不等式で接続すれば全列も同じ極限へ収束する。
-
-### 採点基準（20点）
-
-- Cauchy評価: 6点
-- 部分列収束: 5点
-- 三角不等式: 6点
-- 結論: 3点
 <!-- solution-end -->
 
 ## F0-00D2E-B03 確率変数の$L^2$
@@ -673,16 +740,229 @@ $$
 =\|X\|_2^2.
 $$
 
-### 本番答案
+<!-- solution-end -->
 
-Cauchy--Schwarzで $E|XY|\le\|X\|_2\|Y\|_2<\infty$。平均0なら $\operatorname{Var}(X)=E[X^2]=\|X\|_2^2$。
+## F0-00D2E-A03 内積が有限になることを Hölder で確認する
 
-### 採点基準（20点）
+- Level: A
+- 目安時間: 10分
 
-- Cauchy--Schwarz: 8点
-- 内積有限: 4点
-- 分散式: 6点
-- 結論: 2点
+$[0,1]$ 上で $f(x)=x$、$g(x)=1-x$ とする。$f,g\in L^2$ を確認し、[Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)を使って $fg\in L^1$ であることを示せ。その上で $\langle f,g\rangle$ を計算せよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+まず
+
+$$
+\int_0^1|f|^2dx
+=
+\int_0^1x^2dx
+=
+\frac13<\infty,
+$$
+
+また
+
+$$
+\int_0^1|g|^2dx
+=
+\int_0^1(1-x)^2dx
+=
+\frac13<\infty,
+$$
+
+なので $f,g\in L^2$ である。
+
+Hölder を $p=q=2$ で適用すると
+
+$$
+\int_0^1|fg|dx
+\le
+\|f\|_2\|g\|_2
+=
+\frac1{\sqrt3}\frac1{\sqrt3}
+=
+\frac13<\infty.
+$$
+
+したがって内積は有限に定義できる。実際、
+
+$$
+\langle f,g\rangle
+=
+\int_0^1x(1-x)dx
+=
+\frac12-\frac13
+=
+\frac16.
+$$
+<!-- solution-end -->
+
+## F0-00D2E-A04 $L^2$収束からCauchy性を確認する
+
+- Level: A
+- 目安時間: 10分
+
+$[0,1]$ 上で $f_n=1_{[0,1/n]}$ とする。$f_n\to0$ in $L^2$ を確認し、そこから $(f_n)$ が $L^2$-Cauchy であることを示せ。
+
+<!-- solution-start -->
+### 詳細解答
+
+まず
+
+$$
+\|f_n\|_2^2
+=
+\int_0^1 1_{[0,1/n]}dx
+=
+\frac1n,
+$$
+
+したがって
+
+$$
+\|f_n-0\|_2=\frac1{\sqrt n}\to0.
+$$
+
+よって $f_n\to0$ in $L^2$ である。
+
+任意の $m,n$ に対して [Minkowski の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-02)から
+
+$$
+\|f_n-f_m\|_2
+\le
+\|f_n\|_2+\|f_m\|_2.
+$$
+
+任意の $\varepsilon>0$ に対し、$n,m\ge N$ なら $1/\sqrt n<\varepsilon/2$、$1/\sqrt m<\varepsilon/2$ となるよう $N$ を取れば
+
+$$
+\|f_n-f_m\|_2<\varepsilon.
+$$
+
+したがって $(f_n)$ は $L^2$-Cauchy である。
+<!-- solution-end -->
+
+## F0-00D2E-C01 証明を最初から組み立てる
+
+- Level: C
+- 目安時間: 30分
+
+$L^2(\mu)$ の Cauchy 列 $(f_n)$ から、次の順序で $L^2$ 極限 $f$ を構成せよ。
+
+1. $\|f_{n_{k+1}}-f_{n_k}\|_2\le2^{-k}$ となる部分列を選ぶ。
+2. $g_k=|f_{n_{k+1}}-f_{n_k}|$、$G_N=\sum_{k=1}^N g_k$ と置き、$G:=\sum_{k\ge1}g_k\in L^2$ を示す。
+3. $f_{n_k}$ が a.e. で収束する可測関数 $f$ を作る。
+4. $\|f_{n_k}-f\|_2\to0$ を示す。
+5. 元の列全体 $f_n$ も $f$ へ $L^2$ 収束することを示す。
+
+<!-- solution-start -->
+### 詳細解答
+
+Cauchy 性を $\varepsilon=2^{-k}$ に適用し、単調増加な閾値 $N_k$ を取る。$n_k\ge N_k$ かつ $n_{k+1}>n_k$ となるよう部分列を選べば
+
+$$
+\|f_{n_{k+1}}-f_{n_k}\|_2\le2^{-k}.
+$$
+
+$$
+g_k:=|f_{n_{k+1}}-f_{n_k}|,
+\qquad
+G_N:=\sum_{k=1}^N g_k
+$$
+
+と置く。[Minkowski の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-02)により
+
+$$
+\|G_N\|_2
+\le
+\sum_{k=1}^N\|g_k\|_2
+\le
+\sum_{k=1}^N2^{-k}
+<1.
+$$
+
+$G_N\uparrow G:=\sum_{k\ge1}g_k$ なので $G_N^2\uparrow G^2$。[単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)から
+
+$$
+\int G^2d\mu
+=
+\lim_N\int G_N^2d\mu
+\le1.
+$$
+
+したがって $G\in L^2$ であり、$G<\infty$ a.e. である。
+
+その点では、$m>k$ に対して
+
+$$
+|f_{n_m}-f_{n_k}|
+\le
+\sum_{j=k}^{m-1}g_j,
+$$
+
+右辺は収束級数の尾だから0へ行く。よって $(f_{n_k})$ は各点で Cauchy となり、実数の完備性から a.e. で極限を持つ。$A=\{G<\infty\}$ 上でその極限を $f$ とし、$A^c$ で0と置く。$A$ は可測であり、$A$ 上の極限は可測関数列の $\limsup$ に一致する。したがって $A$ と $A^c$ 上で可測関数を貼り合わせた $f$ は可測である。
+
+次に
+
+$$
+H_k:=\sum_{j=k}^{\infty}g_j
+$$
+
+と置く。有限尾部 $H_{k,M}=\sum_{j=k}^M g_j$ へ Minkowski を適用し、MCT で $M\to\infty$ とすれば
+
+$$
+\|H_k\|_2
+\le
+\sum_{j=k}^{\infty}\|g_j\|_2
+\le
+2^{1-k}.
+$$
+
+また a.e. で
+
+$$
+|f_{n_k}-f|\le H_k,
+$$
+
+したがって
+
+$$
+\|f_{n_k}-f\|_2
+\le
+\|H_k\|_2
+\le
+2^{1-k}\to0.
+$$
+
+この評価と $f_{n_k}\in L^2$ から三角不等式で $f\in L^2$ も従う。
+
+最後に任意の $\varepsilon>0$ を取る。Cauchy 性から、$m,n\ge N$ なら
+
+$$
+\|f_n-f_m\|_2<\varepsilon/2
+$$
+
+となる $N$ がある。十分大きい $k$ を選び、$n_k\ge N$ かつ
+
+$$
+\|f_{n_k}-f\|_2<\varepsilon/2
+$$
+
+とする。すると $n\ge N$ に対して
+
+$$
+\|f_n-f\|_2
+\le
+\|f_n-f_{n_k}\|_2
++
+\|f_{n_k}-f\|_2
+<
+\varepsilon.
+$$
+
+よって元の列全体も $f$ へ $L^2$ 収束する。これで $L^2$ の完備性が示された。
 <!-- solution-end -->
 
 ---

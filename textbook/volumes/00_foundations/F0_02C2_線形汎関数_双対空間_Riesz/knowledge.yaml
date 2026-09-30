@@ -4,6 +4,10 @@ coverage: complete
 prerequisites:
   - F0-02C1A
 
+# 末尾の次講案内で Fréchet 微分を明示的に予告する。
+forward_references:
+  - functional.frechet-derivative
+
 concepts:
   - id: functional.linear-functional
     name: 線形汎関数

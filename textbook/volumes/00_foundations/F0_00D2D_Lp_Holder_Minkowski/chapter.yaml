@@ -3,7 +3,9 @@ title: "補講：Lp空間・Hölderの不等式・Minkowskiの不等式"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - F0-00D2C
+  - TOP2
+  - F0-00D1
+  - F0-00D2A
 official_scope: []
 learning_objectives:
   - a.e.同値類としてLp空間を定義できる
@@ -17,8 +19,8 @@ learning_objectives:
 definitions:
   - { id: F000D2D-DEF-01, name: a.e.同値関係 }
   - { id: F000D2D-DEF-02, name: Lp空間 }
-  - { id: F000D2D-DEF-03, name: L∞空間 }
-  - { id: F000D2D-DEF-04, name: 本質的上限 }
+  - { id: F000D2D-DEF-03, name: 本質的上限 }
+  - { id: F000D2D-DEF-04, name: L∞空間 }
 theorems:
   - { id: F000D2D-THM-01, name: Youngの不等式 }
   - { id: F000D2D-THM-02, name: Hölderの不等式 }
@@ -32,5 +34,5 @@ canonical_examples:
 problem_patterns: [LP-MEMBERSHIP-1, HOLDER-1, MINKOWSKI-1, LP-INCLUSION-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 2, level_b: 3, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 4, exercises: 1.5, review: 0.5 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 2.5, review: 0.5 }

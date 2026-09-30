@@ -2,9 +2,12 @@ chapter: F0-00D2D
 scope: dream-theater
 coverage: complete
 prerequisites:
+  - TOP2
+  - F0-00D1
   - F0-00D2A
 
 forward_references:
+  - linear.inner-product
   - functional.hilbert-space
   - functional.l2-inner-product
   - functional.l2-completeness
@@ -22,8 +25,7 @@ concepts:
   - id: measure.lp-space
     name: L^p空間
     kind: definition
-    aliases: [L^p空間]
-    introduction_aliases: ["空間、"]
+    aliases: [L^p空間, Lp空間]
     requires:
       - measure.ae-equivalence
       - measure.measurable-function
@@ -35,6 +37,15 @@ concepts:
     aliases: [本質的上限, essential supremum]
     requires:
       - measure.ae-equivalence
+
+  - id: measure.linfty-space
+    name: L^∞空間
+    kind: definition
+    aliases: [L^∞空間, L∞空間]
+    requires:
+      - measure.essential-supremum
+      - measure.ae-equivalence
+      - measure.measurable-function
 
   - id: measure.young-inequality
     name: Youngの不等式
@@ -55,8 +66,7 @@ concepts:
   - id: measure.cauchy-schwarz-l2
     name: L2におけるCauchy--Schwarz
     kind: corollary
-    aliases: [L2におけるCauchy--Schwarz, "系（Cauchy--Schwarz）"]
-    introduction_aliases: [Cauchy--Schwarz, Cauchy-Schwarz]
+    aliases: [L2におけるCauchy--Schwarz]
     requires:
       - measure.holder-inequality
 
@@ -71,8 +81,7 @@ concepts:
   - id: measure.lp-norm
     name: L^pノルム
     kind: theorem
-    aliases: [L^pノルム]
-    introduction_aliases: ["ノルム）"]
+    aliases: [L^pノルム, Lpノルム]
     requires:
       - measure.lp-space
       - measure.minkowski-inequality

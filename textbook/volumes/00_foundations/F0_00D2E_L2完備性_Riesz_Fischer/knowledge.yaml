@@ -2,9 +2,10 @@ chapter: F0-00D2E
 scope: dream-theater
 coverage: complete
 prerequisites:
+  - RA1
   - F0-00D1
-  - F0-00D2D
   - F0-00D2B
+  - F0-00D2D
 
 # 後半の確率論への応用節では、後続章の確率概念を先取りして接続を示す。
 forward_references:
@@ -16,6 +17,7 @@ forward_references:
   - functional.banach-space-recap-c1
   - functional.hilbert-space-recap-c1
   - rkhs.rkhs
+  - functional.resolvent-spectrum
 
 concepts:
   - id: functional.normed-cauchy-sequence
@@ -38,7 +40,7 @@ concepts:
   - id: functional.l2-inner-product
     name: L2内積
     kind: definition
-    aliases: [L2内積, "内積）"]
+    aliases: [L2内積, L^2内積]
     requires:
       - measure.holder-inequality
       - measure.lebesgue-integral
@@ -61,7 +63,7 @@ concepts:
   - id: functional.l2-completeness
     name: L2の完備性
     kind: theorem
-    aliases: [L2の完備性, L^2の完備性, L²の完備性, "定理（     の完備性）"]
+    aliases: [L2の完備性, L^2の完備性, L²の完備性]
     requires:
       - functional.normed-cauchy-sequence
       - measure.minkowski-inequality
