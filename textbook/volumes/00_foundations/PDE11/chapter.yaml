@@ -17,6 +17,8 @@ learning_objectives:
 definitions:
   - { id: PDE11-DEF-01, name: "円板の Bessel モード" }
   - { id: PDE11-DEF-02, name: "球面調和関数" }
+  - { id: PDE11-DEF-03, name: "整数次数 Bessel 関数" }
+  - { id: PDE11-DEF-04, name: "Legendre 陪関数" }
 theorems:
   - { id: PDE11-PROP-01, name: "円板の変数分離と Bessel 方程式" }
   - { id: PDE11-LEM-01, name: "整数次数 Bessel 関数の正零点" }
