@@ -44,11 +44,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（Banach空間での随伴作用素）**  
 > 有界線形写像 $T:X\to Y$ に対し、$T^*:Y^*\to X^*$ を
->
-> $$
-> (T^*y^*)[x]=y^*[Tx]
-> $$
->
+
+$$
+(T^*y^*)[x]=y^*[Tx]
+$$
+
 > で定める。この $T^*$ を $T$ の **随伴作用素** という。
 <!-- formal-statement-end -->
 
@@ -246,13 +246,13 @@ $$
 <!-- formal-statement-start -->
 > **定義（Hilbert随伴）**  
 > 実 Hilbert 空間 $H_1,H_2$ の間の有界線形写像 $T:H_1\to H_2$ に対し、
->
-> $$
-> \langle Tx,y\rangle_{H_2}
-> =
-> \langle x,T^\dagger y\rangle_{H_1}
-> $$
->
+
+$$
+\langle Tx,y\rangle_{H_2}
+=
+\langle x,T^\dagger y\rangle_{H_1}
+$$
+
 > をすべての $x\in H_1$, $y\in H_2$ について満たす作用素
 > $T^\dagger:H_2\to H_1$ を $T$ の **Hilbert随伴** という。
 <!-- formal-statement-end -->
@@ -309,7 +309,7 @@ $$
 
 と定めます。入力 $x$ から $a$ 方向の成分を一つの実数として取り出し、その大きさだけ $b$ を出力する作用素です。
 
-まず Cauchy--Schwarz の不等式から
+まず [Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 \begin{aligned}
@@ -708,7 +708,7 @@ T^\dagger y
 }.
 $$
 
-2. Cauchy--Schwarz の不等式から
+2. [Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 \|Tx\|
