@@ -24,6 +24,10 @@
 
 ## 1. 独立な事象
 
+二つの事象 $A,B$ について $P(A)$ と $P(B)$ が分かっても、通常は $P(A\cap B)$ までは決まりません。例えば、片方が起きたことを知るともう片方の起こりやすさが変わる場合、二つの事象には依存があります。
+
+逆に「片方が起きたという情報が、もう片方の確率を変えない」状況を、条件付き確率の分母に頼らず $P(A)=0$ の場合も含めて書きたいところです。そのために、同時に起こる確率が周辺確率の積へ分解することを条件として採用します。
+
 <a id="def-f0-00p3-independent-events"></a>
 
 <!-- formal-statement-start -->
@@ -83,11 +87,15 @@ $$
 
 ## 2. 独立なσ代数
 
+事象を一組だけ比べるだけでは、二つの「情報源」が互いに影響しないとは言えません。ある情報源から判定できる事象を全部まとめるには、$\mathcal G\subseteq\mathcal F$ を満たす $\sigma$ 代数 $\mathcal G$ を使えます。
+
+そこで、二つの $\sigma$ 代数 $\mathcal G_1,\mathcal G_2\subseteq\mathcal F$ からそれぞれ一つずつ事象を選んでも、常に[独立な事象の定義](#def-f0-00p3-independent-events)と同じ等式 $P(A\cap B)=P(A)P(B)$ が成り立つことを要求します。これにより、個々の事象ではなく**情報のかたまり同士**の関係を表せます。
+
 <a id="def-f0-00p3-independent-sigma-algebras"></a>
 
 <!-- formal-statement-start -->
 > **定義（独立なσ代数）**  
-> 確率空間 $(\Omega,\mathcal F,P)$ の部分σ代数 $\mathcal G_1,\mathcal G_2\subseteq\mathcal F$ が、任意の
+> 確率空間 $(\Omega,\mathcal F,P)$ に対し、$\mathcal G_1,\mathcal G_2\subseteq\mathcal F$ を満たす二つの $\sigma$ 代数が、任意の
 
 $$
 A\in\mathcal G_1,
@@ -110,7 +118,7 @@ $$
 \Omega=\{(0,0),(0,1),(1,0),(1,1)\}
 $$
 
-の各点に確率 $1/4$ を与え、座標写像
+の各点に確率 $1/4$ を与え、各成分を取り出す関数
 
 $$
 U(u,v)=u,
@@ -164,6 +172,10 @@ $$
 
 ## 3. 独立な確率変数
 
+確率変数 $X$ を観測すると、「$X\le a$」「$X\in B$」のような多くの事象を判定できます。したがって、二つの確率変数の関係を一つの事象だけで判定するのでは不十分です。
+
+$X$ から読み取れる全ての事象を $\sigma(X)$、$Y$ から読み取れる全ての事象を $\sigma(Y)$ にまとめ、その二つの情報源が前節の意味で影響しないことを要求します。
+
 <a id="def-f0-00p3-independent-random-variables"></a>
 
 <!-- formal-statement-start -->
@@ -197,15 +209,17 @@ $$
 
 ---
 
-## 4. pairwise independence と mutual independence
+## 4. 二つずつの独立と相互独立
+
+確率変数が3個以上になると、「どの2個を選んでも独立」という条件だけでは、3個以上を同時に見たときの積公式までは保証されません。二変数までの確認と、全変数を同時に扱う条件を区別する必要があります。
 
 <a id="def-f0-00p3-pairwise-mutual-independence"></a>
 
 <!-- formal-statement-start -->
-> **定義（pairwise independence と mutual independence）**  
-> 確率変数 $X_1,\ldots,X_n$ が **pairwise independent** であるとは、任意の $i\ne j$ について $X_i,X_j$ が独立であることをいいます。
+> **定義（二つずつ独立と相互独立）**  
+> 確率変数 $X_1,\ldots,X_n$ が**二つずつ独立（pairwise independent）**であるとは、任意の $i\ne j$ について $X_i,X_j$ が独立であることをいいます。
 >
-> 一方、$X_1,\ldots,X_n$ が **mutually independent** であるとは、任意の Borel 集合 $A_1,\ldots,A_n$ に対して
+> 一方、$X_1,\ldots,X_n$ が**相互独立（mutually independent）**であるとは、任意の Borel 集合 $A_1,\ldots,A_n$ に対して
 
 $$
 P(X_1\in A_1,\ldots,X_n\in A_n)
@@ -216,9 +230,9 @@ $$
 > が成り立つことをいいます。
 <!-- formal-statement-end -->
 
-pairwise independence は二つずつしか見ません。mutual independence は三つ以上の同時事象まで要求します。
+二つずつ独立では2変数ずつしか見ません。相互独立では3個以上の同時事象まで積公式を要求します。
 
-### 4.1 例：XOR は pairwise だが mutual ではない
+### 4.1 例：XOR は二つずつ独立だが相互独立ではない
 
 $U,V$ を独立な Bernoulli$(1/2)$ とし
 
@@ -240,7 +254,7 @@ P(U=1,W=1)
 =P(U=1)P(W=1).
 $$
 
-他の値の組も同様なので、三変数は pairwise independent です。
+$(U,W)$ についても残りの3組 $(i,j)$ を同じように調べると、いずれも確率 $1/4$ です。また $(V,W)$ では $V=0$ のとき $W=U$、$V=1$ のとき $W=1-U$ なので、やはり4通りの値がそれぞれ確率 $1/4$ で現れます。従って三変数は二つずつ独立です。
 
 しかし
 
@@ -254,12 +268,16 @@ $$
 P(U=0)P(V=0)P(W=0)=\frac18.
 $$
 
-したがって mutually independent ではありません。
+したがって相互独立ではありません。
 <!-- definition-example-end -->
 
 ---
 
 ## 5. 独立性と同時分布の積測度表示
+
+定義は $\sigma(X)$ と $\sigma(Y)$ の中の全ての事象を調べる形でした。しかし実際の計算では、$(X,Y)$ の同時分布を一つの測度として扱う方が便利です。
+
+もし二つの情報が完全に分離しているなら、長方形 $A\times B$ の確率は $P_X(A)P_Y(B)$ になるはずです。積測度は、各長方形 $A\times B$ に $P_X(A)P_Y(B)$ を割り当てるように構成される測度でした。そこで、定義上の条件と「同時分布が積測度になること」が本当に同じ内容かを確認します。
 
 <a id="thm-f0-00p3-independence-product-law"></a>
 
@@ -380,12 +398,19 @@ $$
 
 ## 6. 密度の積分解は積測度表示の特殊形
 
-$X,Y$ が独立で、周辺分布が Lebesgue 測度に関する確率密度関数 $f_X,f_Y$ を持つとします。任意の Borel 集合 $C\subset\mathbb R^2$ に対して、[Tonelliの定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli)から
+$X,Y$ が独立で、周辺分布が Lebesgue 測度に関する確率密度関数 $f_X,f_Y$ を持つとします。積測度の等式を密度の式へ直すには、任意の Borel 集合 $C\subset\mathbb R^2$ に対してその指示関数 $\mathbf1_C(x,y)$ を積分します。
+
+まず $P_X(dx)=f_X(x)\,dx$、$P_Y(dy)=f_Y(y)\,dy$ を代入し、非負関数 $\mathbf1_C(x,y)f_X(x)f_Y(y)$ に [Tonelliの定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli)を適用すると
 
 $$
+\begin{aligned}
 (P_X\otimes P_Y)(C)
-=
-\int_C f_X(x)f_Y(y)\,dx\,dy.
+&=\int_{\mathbb R}\int_{\mathbb R}
+\mathbf1_C(x,y)\,dP_Y(y)\,dP_X(x)\\
+&=\int_{\mathbb R}\int_{\mathbb R}
+\mathbf1_C(x,y)f_Y(y)f_X(x)\,dy\,dx\\
+&=\int_C f_X(x)f_Y(y)\,dx\,dy.
+\end{aligned}
 $$
 
 一方、独立性から
@@ -424,6 +449,10 @@ $$
 ---
 
 ## 7. 独立なら期待値も因数分解する
+
+前節までで、独立性は同時分布を積測度へ分解できることだと分かりました。すると、$X$ だけの関数 $g(X)$ と $Y$ だけの関数 $h(Y)$ の積を平均するときも、二重積分が一変数ずつに分離すると期待できます。
+
+ただし [Fubiniの定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02)を使う前に、積 $g(X)h(Y)$ が本当に可積分であることを確認する必要があります。そこで、まず絶対値に [Tonelliの定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli)を適用して可積分性を確保し、その後で符号付きの積分を分解します。
 
 <a id="thm-f0-00p3-expectation-factorization"></a>
 
@@ -497,19 +526,52 @@ $$
 最後の等号にも LOTUS を使いました。
 <!-- proof-end -->
 
-特に $X,Y\in L^2$ なら Cauchy--Schwarz から $X,Y\in L^1$ なので
+独立性と「線形な関係が見えないこと」は同じではありません。比較のために、次の量と性質をここで定めます。
+
+<a id="def-f0-00p3-covariance-uncorrelated"></a>
+
+<!-- formal-statement-start -->
+> **定義（共分散と無相関）**  
+> $X,Y\in L^2$ とします。**共分散**を
 
 $$
-E[XY]=E[X]E[Y]
+\operatorname{Cov}(X,Y)
+:=
+E[(X-E[X])(Y-E[Y])]
 $$
 
-となり
+> と定めます。さらに
 
 $$
-\operatorname{Cov}(X,Y)=0.
+\operatorname{Cov}(X,Y)=0
 $$
 
-ただし逆は一般に成り立ちません。
+> のとき、$X,Y$ は**無相関**であるといいます。
+<!-- formal-statement-end -->
+
+$X,Y\in L^2$ なら [Cauchy--Schwarzの不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から $XY\in L^1$ です。また確率測度では $1\in L^2$ なので、同じ不等式を $|X|$ と $1$、$|Y|$ と $1$ に適用して $X,Y\in L^1$ も分かります。従って積を展開して
+
+$$
+\begin{aligned}
+\operatorname{Cov}(X,Y)
+&=E[XY]-E[X]E[Y]-E[X]E[Y]+E[X]E[Y]\\
+&=E[XY]-E[X]E[Y].
+\end{aligned}
+$$
+
+上の期待値因数分解の定理を $g(x)=x$、$h(y)=y$ に適用すると、独立な $X,Y\in L^2$ では
+
+$$
+E[XY]=E[X]E[Y].
+$$
+
+従って
+
+$$
+\operatorname{Cov}(X,Y)=0,
+$$
+
+すなわち独立なら無相関です。ただし逆は一般に成り立ちません。
 
 ### 7.1 無相関でも独立とは限らない
 
@@ -519,15 +581,22 @@ $$
 Y=X^2
 $$
 
-とします。対称性から
+とします。$X,Y$ はともに有界なので $L^2$ に属します。
+
+<!-- definition-example-start: def-f0-00p3-covariance-uncorrelated -->
+**定義の確認**
+
+対称性から
 
 $$
 E[X]=0,
 \qquad
-E[XY]=E[X^3]=0,
+E[Y]=E[X^2]=\frac23,
+\qquad
+E[XY]=E[X^3]=0.
 $$
 
-したがって
+従って共分散の表示へ代入すると
 
 $$
 \operatorname{Cov}(X,Y)=0.
@@ -546,6 +615,7 @@ P(X=0)P(Y=0)=\frac13\cdot\frac13=\frac19.
 $$
 
 よって $X,Y$ は独立ではありません。
+<!-- definition-example-end -->
 
 ---
 
@@ -696,7 +766,15 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-$1+X$ は $X$ の関数、$2-Y$ は $Y$ の関数です。独立な確率変数の可測関数も独立なので、期待値因数分解を使えます。
+期待値因数分解の定理で
+
+$$
+g(x)=1+x,
+\qquad
+h(y)=2-y
+$$
+
+と取ります。Bernoulli変数では $g(X),h(Y)$ は有界なので、定理の可積分性条件を満たします。
 
 $$
 E[1+X]=1+p,
@@ -714,12 +792,12 @@ E[(1+X)(2-Y)]
 $$
 <!-- solution-end -->
 
-### F0-00P3-B01 pairwise independent だが mutual independent ではない例
+### F0-00P3-B01 二つずつ独立だが相互独立ではない例
 
 - Level: B
 - 目安時間: 15分
 
-$U,V$ を独立な Bernoulli$(1/2)$、$W=U\oplus V$ とする。$U,V,W$ が pairwise independent だが mutually independent でないことを示せ。
+$U,V$ を独立な Bernoulli$(1/2)$、$W=U\oplus V$ とする。$U,V,W$ が二つずつ独立だが相互独立でないことを示せ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -739,7 +817,13 @@ P(U=i,W=j)=\frac14
 =P(U=i)P(W=j)
 $$
 
-です。$(V,W)$ も同様なので pairwise independent です。
+です。$(V,W)$ については、$V=0$ のとき $W=U$、$V=1$ のとき $W=1-U$ です。従って $(V,W)$ の4通りの値もそれぞれ確率 $1/4$ で現れ、
+
+$$
+P(V=i,W=j)=P(V=i)P(W=j)
+$$
+
+が全ての $i,j\in\{0,1\}$ で成り立ちます。よって三変数は二つずつ独立です。
 
 一方、$U=V=0$ なら必ず $W=0$ なので
 
@@ -753,7 +837,7 @@ $$
 P(U=0)P(V=0)P(W=0)=\frac18.
 $$
 
-したがって mutual independence の定義を満たしません。
+したがって相互独立の定義を満たしません。
 <!-- solution-end -->
 
 ### F0-00P3-B02 積測度同値の逆向き
@@ -823,7 +907,18 @@ f_X(x)
 \end{aligned}
 $$
 
-区間外では $f_X(x)=0$ です。同様に
+区間外では $f_X(x)=0$ です。一方、$0<y<1$ では
+
+$$
+\begin{aligned}
+f_Y(y)
+&=\int_0^1 4xy\,dx\\
+&=4y\left[\frac{x^2}{2}\right]_0^1\\
+&=2y,
+\end{aligned}
+$$
+
+区間外では $f_Y(y)=0$ です。従って
 
 $$
 f_Y(y)=2y\boldsymbol{1}_{(0,1)}(y).
@@ -958,4 +1053,4 @@ $$
 
 ## 次に進む
 
-独立性を積測度として理解したら、次は [F0-00P3A 条件付き期待値](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md) で、情報を表す部分σ代数に対して期待値を射影する考え方へ進みます。
+独立性を積測度として理解したら、次は [F0-00P3A 条件付き期待値](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md) で、情報を表す $\sigma$ 代数 $\mathcal G\subseteq\mathcal F$ に対して期待値を射影する考え方へ進みます。

@@ -37,20 +37,36 @@ concepts:
       - prob.random-variable
 
   - id: prob.pairwise-independence
-    name: pairwise independence
+    name: 二つずつ独立
     kind: definition
-    aliases: [pairwise independence, pairwise independent]
-    introduction_aliases: ["定義（pairwise independence と mutual independence）"]
+    aliases: [二つずつ独立, pairwise independence, pairwise independent]
+    introduction_aliases: ["定義（二つずつ独立と相互独立）"]
     requires:
       - prob.independent-random-variables
 
   - id: prob.mutual-independence
-    name: mutual independence
+    name: 相互独立
     kind: definition
-    aliases: [mutual independence, mutually independent]
-    introduction_aliases: ["定義（pairwise independence と mutual independence）"]
+    aliases: [相互独立, mutual independence, mutually independent]
+    introduction_aliases: ["定義（二つずつ独立と相互独立）"]
     requires:
       - prob.independent-random-variables
+
+  - id: prob.covariance
+    name: 共分散
+    kind: definition
+    aliases: [共分散, "Cov(X,Y)"]
+    introduction_aliases: ["定義（共分散と無相関）"]
+    requires:
+      - prob.expectation
+
+  - id: prob.uncorrelated
+    name: 無相関
+    kind: definition
+    aliases: [無相関]
+    introduction_aliases: ["定義（共分散と無相関）"]
+    requires:
+      - prob.covariance
 
   - id: prob.independence-joint-factorization
     name: 独立性と積測度の同値
