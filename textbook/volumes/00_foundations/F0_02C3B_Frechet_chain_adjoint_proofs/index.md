@@ -561,7 +561,7 @@ Tx,
 \end{aligned}
 $$
 
-ここでも Cauchy--Schwarz の不等式を使いました。従って任意の $x$ に対して
+ここでも [Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)を使いました。従って任意の $x$ に対して
 
 $$
 \|Tx\|
@@ -734,7 +734,7 @@ $$
 L_z(k):=\langle z,k\rangle
 $$
 
-と置きます。Cauchy--Schwarz の不等式から
+と置きます。[Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 |L_z(k)|
@@ -787,7 +787,7 @@ $$
 
 $T$ と内積の第1変数についての線形性から、$\phi_y$ は $x$ に関して線形です。
 
-また Cauchy--Schwarz の不等式と作用素ノルムの評価から
+また [Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)と作用素ノルムの評価から
 
 $$
 \begin{aligned}
