@@ -432,18 +432,43 @@ $
 符号を持つ関数では注意が必要です。絶対値の広義積分まで有限ならLebesgue可積分で値も一致しますが、**条件収束する広義積分**はLebesgue可積分とは限りません。
 
 典型例は
+$
+\int_1^\infty\frac{\sin x}{x}\,dx
+$
+です。まず $1\le A<B$ に対して部分積分すると
+$
+\int_A^B\frac{\sin x}{x}\,dx
+=
+\left[-\frac{\cos x}{x}\right]_A^B
+-
+\int_A^B\frac{\cos x}{x^2}\,dx.
+$
+$B\to\infty$ で $\cos B/B\to0$ であり、
+$
+\int_A^\infty\frac{|\cos x|}{x^2}\,dx
+\le
+\int_A^\infty\frac{dx}{x^2}
+<\infty
+$
+なので、広義 Riemann 積分は収束します。
 
-$$
-\int_1^\infty\frac{\sin x}{x}\,dx.
-$$
-
-これは広義Riemann積分としては収束しますが、
-
-$$
-\int_1^\infty\frac{|\sin x|}{x}\,dx=\infty
-$$
-
-なのでLebesgue可積分関数ではありません。
+一方、各整数 $k\ge1$ について
+$
+I_k=[k\pi+\pi/6,\ k\pi+5\pi/6]
+$
+では $|\sin x|\ge1/2$ です。従って
+$
+\int_{I_k}\frac{|\sin x|}{x}\,dx
+\ge
+\frac12\frac{|I_k|}{k\pi+5\pi/6}
+=
+\frac{\pi/3}{k\pi+5\pi/6}.
+$
+右辺を $k$ について足すと調和級数型に発散するので
+$
+\int_1^\infty\frac{|\sin x|}{x}\,dx=\infty.
+$
+したがって $\sin x/x$ は Lebesgue 可積分ではありません。
 
 したがって無限区間まで含めると、単純に「Lebesgue積分がRiemann積分を全部包含する」と言うのは不正確です。正しくは、**通常のRiemann積分はLebesgue積分に含まれ、非負・絶対収束の広義積分も自然に接続するが、条件収束は別物**です。
 
@@ -460,7 +485,34 @@ $$
 $f=1_{\mathbb Q\cap[0,1]}$ について、Riemann可積分性とLebesgue可積分性をそれぞれ判定し、Lebesgue積分値を求めよ。
 
 <!-- solution-start -->
-**解答**：任意の小区間で上限1・下限0なのでRiemann非可積分。有理数集合は測度0なので $f=0$ a.e. で、Lebesgue可積分かつ積分値0。
+**解答**：
+任意の非退化区間 $I\subset[0,1]$ には有理数と無理数がともに存在します。従って
+$$
+\inf_I f=0,
+\qquad
+\sup_I f=1.
+$$
+どの分割 $P$ に対しても
+$$
+L(f,P)=0,
+\qquad
+U(f,P)=1,
+$$
+なので Darboux 上和と下和の差を 0 にできず、$f$ は Riemann 非可積分です。
+
+一方、$\mathbb Q\cap[0,1]$ は可算集合なので Lebesgue 測度 0 です。従って $f=0$ ほとんど至る所であり
+$$
+\int_{[0,1]}|f|\,dm
+=
+m(\mathbb Q\cap[0,1])
+=
+0<\infty.
+$$
+よって $f$ は Lebesgue 可積分で、積分値は
+$$
+\int_{[0,1]}f\,dm=0
+$$
+です。
 <!-- solution-end -->
 
 <a id="ex-mt-rl-a02"></a>
@@ -470,7 +522,22 @@ $f=1_{\mathbb Q\cap[0,1]}$ について、Riemann可積分性とLebesgue可積�
 本文のThomae関数 $t$ の不連続点集合を答え、Riemann積分値を求めよ。
 
 <!-- solution-start -->
-**解答**：不連続点は $\mathbb Q\cap[0,1]$ で測度0。[LebesgueのRiemann可積分性判定](#thm-mt-rl-lebesgue-criterion) よりRiemann可積分。$t=0$ a.e. なので [Riemann積分とLebesgue積分の一致](#thm-mt-rl-agreement) から積分値0。
+**解答**：
+まず無理数 $x$ を固定します。任意の $\varepsilon>0$ に対し、$1/q\ge\varepsilon$ を満たす既約分数の分母は
+$$
+q\le1/\varepsilon
+$$
+に限られます。$[0,1]$ 内でそのような既約分数は有限個しかないので、無理数 $x$ の十分小さい近傍からそれらを除けます。その近傍では $t(y)<\varepsilon$ であり $t(x)=0$ なので、$t$ は $x$ で連続です。
+
+次に有理数 $x=p/q$ を既約表示すると $t(x)=1/q>0$ です。無理数列 $x_n\to x$ を取れば $t(x_n)=0$ だから $t(x_n)\not\to t(x)$ で、$x$ は不連続点です。従って不連続点集合はちょうど
+$$
+\mathbb Q\cap[0,1].
+$$
+これは可算で Lebesgue 測度 0 なので、[Lebesgue の Riemann 可積分性判定](#thm-mt-rl-lebesgue-criterion)から $t$ は Riemann 可積分です。また $t=0$ ほとんど至る所なので Lebesgue 積分は 0、[Riemann 積分と Lebesgue 積分の一致](#thm-mt-rl-agreement)から Riemann 積分も
+$$
+\int_0^1t(x)\,dx=0
+$$
+です。
 <!-- solution-end -->
 
 <a id="ex-mt-rl-a03"></a>
@@ -480,7 +547,16 @@ $f=1_{\mathbb Q\cap[0,1]}$ について、Riemann可積分性とLebesgue可積�
 標準Cantor集合 $C$ の指示関数 $1_C$ がRiemann可積分であることを示し、積分値を求めよ。
 
 <!-- solution-start -->
-**解答**：$C$ は閉集合で内部を持たないため、$1_C$ は $C$ 上で不連続、$C^c$ 上で連続。$m(C)=0$ なので可積分性判定からRiemann可積分。$1_C=0$ a.e. なので積分値0。
+**解答**：
+$C$ は閉集合なので $C^c$ は開です。$x\in C^c$ なら、ある近傍が $C^c$ に完全に含まれ、その近傍で $1_C=0$ だから $1_C$ は $x$ で連続です。
+
+一方 $x\in C$ とします。標準 Cantor 集合は内部を持たないため、任意の近傍に $C^c$ の点 $y$ が存在します。$1_C(x)=1$ なのにそのような $y$ では $1_C(y)=0$ なので、$1_C$ は $x$ で不連続です。従って不連続点集合はちょうど $C$ です。
+
+標準 Cantor 集合は Lebesgue 測度 0 なので、[Lebesgue の Riemann 可積分性判定](#thm-mt-rl-lebesgue-criterion)より $1_C$ は Riemann 可積分です。また
+$$
+\int_{[0,1]}1_C\,dm=m(C)=0.
+$$
+[Riemann 積分と Lebesgue 積分の一致](#thm-mt-rl-agreement)から Riemann 積分値も 0 です。
 <!-- solution-end -->
 
 <a id="ex-mt-rl-a04"></a>
@@ -491,15 +567,26 @@ $p>0$ とする。$(0,1]$ 上の $f(x)=x^{-p}$ について、広義Riemann積�
 
 <!-- solution-start -->
 **解答**：
+$0<\varepsilon<1$ で切断すると
 $$
-\int_\varepsilon^1x^{-p}dx
+\int_\varepsilon^1x^{-p}\,dx
 =
 \begin{cases}
 \dfrac{1-\varepsilon^{1-p}}{1-p},&p\ne1,\\
 -\log\varepsilon,&p=1.
 \end{cases}
 $$
-よって有限なのは $0<p<1$。非負なので [非負広義Riemann積分とLebesgue積分の一致](#thm-mt-rl-improper-nonnegative) によりLebesgue積分も同じ範囲で有限。
+$p<1$ なら $1-p>0$ なので $\varepsilon^{1-p}\to0$、従って極限は
+$$
+\frac1{1-p}<\infty.
+$$
+$p=1$ なら $-\log\varepsilon\to\infty$、$p>1$ なら $\varepsilon^{1-p}\to\infty$ なので、いずれも発散します。問題では $p>0$ だから、広義 Riemann 積分が有限なのは
+$$
+0<p<1
+$$
+です。
+
+$f(x)=x^{-p}$ は非負連続関数なので、[非負広義 Riemann 積分と Lebesgue 積分の一致](#thm-mt-rl-improper-nonnegative)を適用できます。従って Lebesgue 積分が有限となる範囲も同じく $0<p<1$ です。
 <!-- solution-end -->
 
 ### Level B
@@ -517,7 +604,33 @@ $$
 となることを示せ。
 
 <!-- solution-start -->
-**解答**：小区間を細かくすると、その上での下限は元の大区間の下限以上になり、上限は元の大区間の上限以下になる。各点でこの関係を適用すればよい。分割点では全て $f$ の値に合わせているので同じ不等式が成り立つ。
+**解答**：
+$Q$ が $P$ の細分であるとは、$P$ の各小区間 $I$ が $Q$ のいくつかの小区間 $J$ に分割されることです。$J\subset I$ なら、下限を取る集合が小さくなるので
+$$
+\inf_I f\le\inf_J f,
+$$
+上限は逆に
+$$
+\sup_J f\le\sup_I f
+$$
+です。
+
+従って $J$ の内部の任意の点 $x$ では
+$$
+\ell_P(x)=\inf_I f
+\le
+\inf_J f=\ell_Q(x)
+\le
+f(x)
+\le
+\sup_J f=u_Q(x)
+\le
+\sup_I f=u_P(x).
+$$
+分割点では定義により対応する階段関数の値を $f(x)$ に合わせているので、同じ不等式が成り立ちます。したがって全点で
+$$
+\ell_P\le\ell_Q\le f\le u_Q\le u_P.
+$$
 <!-- solution-end -->
 
 <a id="ex-mt-rl-b02"></a>
@@ -527,7 +640,24 @@ $$
 $f(x)=0$ と $g(x)=1_{\mathbb Q\cap[0,1]}(x)$ はa.e.で等しい。それでもRiemann可積分性が一致しない理由を、局所振動で説明せよ。
 
 <!-- solution-start -->
-**解答**：$f$ は全点で局所振動0。一方 $g$ はどの近傍にも有理数と無理数があるため全点で局所振動1。したがって $g$ の不連続点集合は $[0,1]$ 全体で正の測度を持ち、Riemann非可積分。Lebesgue積分は零集合上の変更を無視するが、Riemann積分は各小区間の振動を無視しない。
+**解答**：
+$f\equiv0$ では任意の $x$ と任意の近傍で値の振れ幅が 0 なので
+$$
+\omega_f(x)=0
+$$
+です。従って全点で連続です。
+
+一方
+$$
+g=1_{\mathbb Q\cap[0,1]}
+$$
+では、任意の点 $x$ と任意の $\delta>0$ に対し、$[0,1]\cap(x-\delta,x+\delta)$ に有理数と無理数がともに存在します。したがってその近傍での値の振れ幅は常に $1$、よって
+$$
+\omega_g(x)=1
+$$
+です。従って $g$ の不連続点集合は $[0,1]$ 全体で、Lebesgue 測度 1 を持つため Riemann 非可積分です。
+
+それでも $f=g$ ほとんど至る所なのは、両者が異なる集合 $\mathbb Q\cap[0,1]$ の測度が 0 だからです。Lebesgue 積分はこの零集合上の変更を無視しますが、Riemann 積分は各小区間の上限・下限を見るため、稠密な零集合上の変更を無視できません。
 <!-- solution-end -->
 
 <a id="ex-mt-rl-b03"></a>
@@ -537,7 +667,39 @@ $f(x)=0$ と $g(x)=1_{\mathbb Q\cap[0,1]}(x)$ はa.e.で等しい。それでも
 $\int_1^\infty \sin x/x\,dx$ が広義積分として収束しても、$\sin x/x$ がLebesgue可積分ではない理由を説明せよ。
 
 <!-- solution-start -->
-**解答**：広義積分の収束は正負の打ち消しを許す。一方Lebesgue可積分には $\int|f|<\infty$ が必要。各 $k$ について $[k\pi+\pi/6,k\pi+5\pi/6]$ では $|\sin x|\ge1/2$ なので、これらの区間で $|\sin x|/x$ を積分すると調和級数型の下界が得られ、絶対積分は発散する。
+**解答**：
+まず広義積分の収束を確認します。$1\le A<B$ に対して部分積分すると
+$$
+\int_A^B\frac{\sin x}{x}\,dx
+=
+\left[-\frac{\cos x}{x}\right]_A^B
+-
+\int_A^B\frac{\cos x}{x^2}\,dx.
+$$
+$B\to\infty$ で $\cos B/B\to0$ であり、
+$$
+\int_A^\infty\frac{|\cos x|}{x^2}\,dx
+\le
+\int_A^\infty\frac{dx}{x^2}
+<\infty
+$$
+なので、$\int_1^\infty \sin x/x\,dx$ は広義 Riemann 積分として収束します。
+
+しかし Lebesgue 可積分性には絶対積分の有限性が必要です。区間
+$$
+I_k=[k\pi+\pi/6,k\pi+5\pi/6]
+$$
+では $|\sin x|\ge1/2$ なので
+$$
+\int_{I_k}\frac{|\sin x|}{x}\,dx
+\ge
+\frac{\pi/3}{k\pi+5\pi/6}.
+$$
+右辺を $k$ について足すと調和級数型に発散します。従って
+$$
+\int_1^\infty\frac{|\sin x|}{x}\,dx=\infty,
+$$
+したがって $\sin x/x$ は Lebesgue 可積分ではありません。広義積分の正負の打ち消しと、Lebesgue 可積分性が要求する絶対可積分性の違いが原因です。
 <!-- solution-end -->
 
 ### Level C
@@ -549,11 +711,42 @@ $\int_1^\infty \sin x/x\,dx$ が広義積分として収束しても、$\sin x/x
 有界関数 $f:[a,b]\to\mathbb R$ がRiemann可積分とする。$D_\eta=\{x:\omega_f(x)\ge\eta\}$ と置き、各 $\eta>0$ で $m(D_\eta)=0$ をDarboux和から示せ。
 
 <!-- solution-start -->
-**解答**：任意の $\varepsilon>0$ に対し $U(f,P)-L(f,P)<\eta\varepsilon$ となる分割 $P$ を取る。$D_\eta$ を含む小区間（分割点は有限なので別扱い）では振動幅が少なくとも $\eta$ だから、該当区間の総延長を $S$ とすると
+**解答**：
+任意の $\varepsilon>0$ を固定します。Riemann 可積分性から、分割
 $$
-\eta S\le U(f,P)-L(f,P)<\eta\varepsilon.
+P:a=x_0<\cdots<x_n=b
 $$
-よって $S<\varepsilon$。任意の $\varepsilon$ で覆えるので $m(D_\eta)=0$。最後に $D(f)=\bigcup_{m\ge1}D_{1/m}$ だから不連続点集合も測度0。
+を
+$$
+U(f,P)-L(f,P)<\eta\varepsilon/2
+$$
+となるように取れます。
+
+内部が $D_\eta$ と交わる小区間 $I_i=[x_{i-1},x_i]$ を考え、$x\in D_\eta\cap(x_{i-1},x_i)$ を取ります。$x$ の十分小さい近傍は $I_i$ に含まれます。$\omega_f(x)\ge\eta$ なので、その近傍、従って $I_i$ 上の振動幅は少なくとも $\eta$ です。該当区間の添字集合を $J$ とすると
+$$
+\eta\sum_{i\in J}(x_i-x_{i-1})
+\le
+\sum_{i\in J}(M_i-m_i)(x_i-x_{i-1})
+\le
+U(f,P)-L(f,P)
+<
+\eta\varepsilon/2.
+$$
+従ってそれらの区間の総延長は $<\varepsilon/2$ です。
+
+$D_\eta$ の点で、これらの小区間の内部に入らないものは分割点 $x_0,\ldots,x_n$ の一部だけです。有限個の点は、総延長 $<\varepsilon/2$ の有限開区間族で覆えます。両方の被覆を合わせると $D_\eta$ は総延長 $<\varepsilon$ の有限開区間族で覆えます。$\varepsilon>0$ は任意だから
+$$
+m(D_\eta)=0.
+$$
+
+最後に、不連続点では $\omega_f(x)>0$ なので
+$$
+D(f)=\bigcup_{m=1}^\infty D_{1/m}.
+$$
+各 $D_{1/m}$ は零集合であり、零集合の可算合併も零集合です。従って
+$$
+m(D(f))=0.
+$$
 <!-- solution-end -->
 
 ---
