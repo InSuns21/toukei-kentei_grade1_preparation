@@ -12,7 +12,7 @@ concepts:
     name: 増加する部分σ代数列
     kind: definition
     aliases: ["増加する部分$\\sigma$代数列"]
-    introduction_aliases: ["定義（増加する部分$\\sigma$代数列）", "定義（増加する部分 代数列）"]
+    introduction_aliases: ["定義（増加する情報列）"]
     requires:
       - prob.probability-space
       - measure.sigma-algebra
