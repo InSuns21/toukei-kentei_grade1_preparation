@@ -8,9 +8,13 @@ ODE6 で Bessel 方程式と Legendre 方程式を級数解として学びまし
 - 球の極角方向 $\longrightarrow$ Legendre 方程式
 - 球面上の固有関数 $\longrightarrow$ 角度固有モード
 
-という対応が中心です。座標公式は [VC6 の円柱・球座標](../VC6/index.md#prop-vc6-spherical)を正本として使います。
+という対応が中心です。座標公式には [VC6 の円柱・球座標](../VC6/index.md#prop-vc6-spherical)で導いた結果を使います。
 
 ## 1. 円板の Helmholtz 固有値問題
+
+PDE7 では長方形の境界条件に合う正弦関数を使うと、Laplacian がモードごとに固有値を掛けるだけになることを見ました。円板では境界が $r=1$ という曲線なので、直交座標の正弦関数より極座標に適合した固有関数を探す方が自然です。
+
+そこでまず円板上の Laplacian 固有値問題を変数分離し、「角方向の周期性」と「半径方向の境界条件」がそれぞれ何を要求するかを分けます。その半径方程式として Bessel 方程式が現れます。
 
 単位円板で
 
@@ -156,6 +160,10 @@ $$
 
 ## 2. 原点の正則性が $J_m$ を選ぶ
 
+Bessel 方程式には独立な解が二本ありますが、円板の固有関数として使うには $r=0$ まで滑らかに延びなければなりません。したがって「Bessel 方程式を解ける」だけでは足りず、原点で許される枝を選ぶ必要があります。
+
+ODE6 の Frobenius 法をここでは **原点の境界条件を選別する道具**として使います。さらに外側の Dirichlet 条件 $R(1)=0$ が、許される固有値を Bessel 関数の零点へ量子化します。
+
 半径方程式を $\rho=\sqrt\lambda\,r$ で書けば
 
 $$
@@ -178,17 +186,55 @@ $$
 s=\pm |m|.
 $$
 
-原点で有限な枝は $s=|m|$ の方です。標準正規化を施したものを Bessel 関数 $J_{|m|}$ と呼びます。整数 $m\ge0$ なら
+原点で有限な枝は $s=|m|$ の方です。ただし線形 ODE の解は定数倍だけ不定なので、固有モードとして共通に使うには正規化も固定する必要があります。先頭項を
+
+$$
+\frac1{m!}\left(\frac{\rho}{2}\right)^m
+$$
+
+とする標準正規化を採用します。
+
+<a id="def-pde11-bessel-function"></a>
+<!-- formal-statement-start -->
+> **定義（整数次数 Bessel 関数）**  
+> 非負整数 $m$ に対し
 
 $$
 J_m(\rho)
 =
 \sum_{k=0}^{\infty}
 \frac{(-1)^k}{k!(m+k)!}
-\left(\frac{\rho}{2}\right)^{2k+m}.
+\left(\frac{\rho}{2}\right)^{2k+m}
 $$
 
-実際、$R=\rho^m\sum_{k\ge0}a_k\rho^{2k}$ を代入すると
+> で定まる関数を、整数次数 $m$ の Bessel 関数と呼ぶ。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-pde11-bessel-function -->
+**定義の確認**：$m=0$ では
+
+$$
+J_0(\rho)
+=
+1-\frac{\rho^2}{4}
++\frac{\rho^4}{64}
+-\cdots,
+$$
+
+$m=1$ では
+
+$$
+J_1(\rho)
+=
+\frac{\rho}{2}
+-\frac{\rho^3}{16}
++\cdots.
+$$
+
+したがって $J_0(0)=1$ で、$m\ge1$ では $J_m(\rho)$ は $\rho^m$ の次数から始まり、原点で有限です。
+<!-- definition-example-end -->
+
+この級数が半径方程式から出ることを係数漸化式で確認します。$R=\rho^m\sum_{k\ge0}a_k\rho^{2k}$ を代入すると
 
 $$
 a_{k+1}
@@ -393,6 +439,8 @@ $$
 です。
 <!-- proof-end -->
 
+正則な半径解 $J_{|m|}$ が得られたので、次は外周 $r=1$ の Dirichlet 条件を課します。境界値を0にするには $J_{|m|}(\sqrt\lambda)=0$ が必要であり、正零点 $j_{|m|,k}$ ごとに離散的な固有値が選ばれます。この「角モード + 正則な半径モード + 境界零点」を一つの固有モードとしてまとめます。
+
 <a id="def-pde11-bessel-mode"></a>
 <!-- formal-statement-start -->
 > **定義（円板の Bessel モード）**  
@@ -474,6 +522,10 @@ $$
 
 ## 4. 球座標では角方向が球面上の固有値問題になる
 
+円板では角度 $\theta$ が一つだけでしたが、三次元の球では方向そのものが二次元球面 $S^2$ を動きます。球座標 Laplacian を「半径方向」と「球面上の角方向」に分けると、角方向だけを受け持つ作用素が現れます。
+
+この角方向作用素の固有関数を先に名前付きでまとめておくと、後で球内部の Laplace 方程式を半径モードと角モードに分離できます。
+
 三次元球座標で
 
 $$
@@ -497,6 +549,8 @@ $$
 $$
 
 です。
+
+半径方向の変数分離を行うと、角方向には $-\Delta_{S^2}$ の固有値問題が残ります。球面上でこの固有値問題を解く関数を、次で一つの対象として定義します。
 
 <a id="def-pde11-spherical-harmonic"></a>
 <!-- formal-statement-start -->
@@ -530,6 +584,8 @@ $$
 
 ## 5. Legendre 方程式は軸対称な球面調和関数
 
+球面調和関数をいきなり二変数 $(\theta,\phi)$ のまま解く前に、まず方位角 $\phi$ に依存しない軸対称な場合を調べます。この場合は極角 $\theta$ だけの一変数方程式になり、$x=\cos\theta$ へ変数変換すると ODE6 で学んだ Legendre 方程式が現れます。
+
 $\phi$ に依存しない $Y(\theta)=\Theta(\theta)$ を考えると
 
 $$
@@ -542,7 +598,13 @@ $$
 \ell(\ell+1)\Theta.
 $$
 
-$x=\cos\theta$ と置きます。
+$x=\cos\theta$ と置きます。この変数変換は、球面座標に現れる $\sin\theta$ を
+
+$$
+\sin^2\theta=1-x^2
+$$
+
+へ変え、極 $\theta=0,\pi$ を区間端点 $x=\pm1$ として一変数 ODE に移すためのものです。
 
 <a id="prop-pde11-legendre"></a>
 <!-- formal-statement-start -->
@@ -646,6 +708,8 @@ $$
 
 ## 6. 方位角を入れると Legendre の陪微分方程式になる
 
+軸対称では $m=0$ の角モードしか扱えません。一般の球面上の関数では方位角 $\phi$ にも振動できるため、円板のときと同じ周期モード $e^{im\phi}$ を分離します。すると方位角の微分が $-m^2$ という定数へ変わり、その分だけ極角方程式に特異項が加わります。
+
 $Y(\theta,\phi)=\Theta(\theta)e^{im\phi}$ と置けば
 
 $$
@@ -669,7 +733,12 @@ $$
 
 これは Legendre の陪微分方程式（associated Legendre equation）です。
 
-ここで「正則解を選ぶ」とだけ言って済ませず、Legendre 多項式から実際に作ります。$0\le m\le\ell$ に対して
+ここで「正則解を選ぶ」とだけ言って済ませず、Legendre 多項式から実際に作ります。方位角モード $m$ が増えるほど極 $x=\pm1$ で特異項 $m^2/(1-x^2)$ が強くなるため、$P_\ell$ を $m$ 回微分した後に $(1-x^2)^{m/2}$ を掛け、極での振る舞いを補正します。
+
+<a id="def-pde11-associated-legendre"></a>
+<!-- formal-statement-start -->
+> **定義（Legendre 陪関数）**  
+> $\ell=0,1,2,\ldots$ と $0\le m\le\ell$ に対し
 
 $$
 P_\ell^m(x)
@@ -679,7 +748,31 @@ P_\ell^m(x)
 \frac{d^m}{dx^m}P_\ell(x)
 $$
 
-と定めます。
+> を Legendre 陪関数と呼ぶ。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-pde11-associated-legendre -->
+**定義の確認**：$P_1(x)=x$ なので
+
+$$
+P_1^1(x)
+=
+-(1-x^2)^{1/2}
+\frac d{dx}x
+=
+-\sqrt{1-x^2}.
+$$
+
+$x=\cos\theta$ なら
+
+$$
+P_1^1(\cos\theta)=-\sin\theta,
+$$
+
+となり、極 $\theta=0,\pi$ で0になることも直接確認できます。
+<!-- definition-example-end -->
+
+この定義が実際に Legendre の陪微分方程式を満たすことを次で確かめます。
 
 <a id="prop-pde11-spherical-eigenmode"></a>
 <!-- formal-statement-start -->
@@ -840,6 +933,10 @@ $$
 
 ## 7. 球内部の調和関数
 
+球面調和関数は角方向だけの情報です。球内部で実際の調和関数を作るには、それぞれの角モードに対応する半径依存 $R(r)$ を決めなければなりません。
+
+$Y_\ell^m$ の固有値が $\ell(\ell+1)$ なので、半径方程式は Euler 型 ODE になり、$r^\ell$ と $r^{-\ell-1}$ の二つの枝が現れます。球内部では原点まで滑らかな $r^\ell$ 側を選び、外部問題では特異な $r^{-\ell-1}$ 側も使えます。
+
 <a id="prop-pde11-solid-harmonic"></a>
 <!-- formal-statement-start -->
 > **命題（立体調和関数の構成）**  
@@ -985,11 +1082,74 @@ $u=R(r)e^{im\theta}$ を $-\Delta u=\lambda u$ へ代入し半径方程式を導
 
 <!-- solution-start -->
 ##### 詳細解答
-$u_{\theta\theta}=-m^2u$ を極座標 Laplacian へ代入すると
+
+極座標 Laplacian は
+
 $$
--R''-\frac1rR'+\frac{m^2}{r^2}R=\lambda R.
+\Delta u
+=
+u_{rr}
++
+\frac1r u_r
++
+\frac1{r^2}u_{\theta\theta}.
 $$
-$r^2$ を掛けて本文の Bessel 型方程式を得ます。
+
+$$
+u(r,\theta)=R(r)e^{im\theta}
+$$
+
+と置くと
+
+$$
+u_r=R'e^{im\theta},
+\qquad
+u_{rr}=R''e^{im\theta},
+$$
+
+また
+
+$$
+u_{\theta\theta}
+=
+-m^2R e^{im\theta}.
+$$
+
+従って
+
+$$
+\Delta u
+=
+\left(
+R''
++
+\frac1rR'
+-
+\frac{m^2}{r^2}R
+\right)e^{im\theta}.
+$$
+
+固有値方程式 $-\Delta u=\lambda u$ へ代入し、非零因子 $e^{im\theta}$ を消すと
+
+$$
+-R''
+-
+\frac1rR'
++
+\frac{m^2}{r^2}R
+=
+\lambda R.
+$$
+
+両辺に $r^2$ を掛けて整理すれば
+
+$$
+\boxed{
+r^2R''+rR'+(\lambda r^2-m^2)R=0
+},
+$$
+
+すなわち Bessel 型方程式を得ます。
 <!-- solution-end -->
 
 #### PDE11-A02 Dirichlet 境界
@@ -999,7 +1159,54 @@ $r^2$ を掛けて本文の Bessel 型方程式を得ます。
 
 <!-- solution-start -->
 ##### 詳細解答
-$r=a$ で0なので $J_m(ka)=0$。従って $ka=j_{m,k}$、すなわち $k=j_{m,k}/a$ です。
+
+候補モードを
+
+$$
+u(r,\theta)
+=
+J_m(kr)e^{im\theta}
+$$
+
+とします。半径 $a$ の円板の Dirichlet 条件は
+
+$$
+u(a,\theta)=0
+\qquad
+(0\le\theta<2\pi)
+$$
+
+です。
+
+$e^{im\theta}$ は0にならないので、この条件は
+
+$$
+J_m(ka)=0
+$$
+
+と同値です。
+
+$J_m$ の正零点を $j_{m,1},j_{m,2},\ldots$ とすれば
+
+$$
+ka=j_{m,q}
+$$
+
+となる必要があります。従って許される波数は
+
+$$
+\boxed{
+k=\frac{j_{m,q}}a
+}
+$$
+
+です。対応する Laplacian 固有値は $k^2$ なので
+
+$$
+\lambda_{m,q}
+=
+\left(\frac{j_{m,q}}a\right)^2.
+$$
 <!-- solution-end -->
 
 #### PDE11-A03 Legendre の最初の多項式
@@ -1009,7 +1216,54 @@ $P_0(x)=1$, $P_1(x)=x$ がそれぞれ $\ell=0,1$ の Legendre 方程式を満�
 
 <!-- solution-start -->
 ##### 詳細解答
-$P_0'=P_0''=0$ なので $\ell=0$ の式は0。$P_1'=1,P_1''=0$ なので $-2x+2x=0$ です。
+
+Legendre 方程式は
+
+$$
+(1-x^2)P''
+-
+2xP'
++
+\ell(\ell+1)P
+=
+0.
+$$
+
+まず $P_0(x)=1$ では
+
+$$
+P_0'=0,
+\qquad
+P_0''=0,
+\qquad
+\ell(\ell+1)=0
+$$
+
+なので左辺は0です。
+
+次に $P_1(x)=x$ では
+
+$$
+P_1'=1,
+\qquad
+P_1''=0,
+\qquad
+\ell(\ell+1)=2.
+$$
+
+従って左辺は
+
+$$
+(1-x^2)\cdot0
+-
+2x\cdot1
++
+2x
+=
+0.
+$$
+
+よって $P_0,P_1$ はそれぞれ $\ell=0,1$ の Legendre 方程式を満たします。
 <!-- solution-end -->
 
 #### PDE11-A04 立体調和関数
@@ -1019,7 +1273,46 @@ $\ell=1$ で $rY_1$ が一次調和多項式になることを $Y=x/r$ の例で
 
 <!-- solution-start -->
 ##### 詳細解答
-$r(x/r)=x$。$\Delta x=0$ なので確かに調和的です。
+
+次数 $\ell=1$ の球面調和関数の一例として
+
+$$
+Y(\omega)=\frac{x}{r}
+$$
+
+を取ります。立体調和関数の正則枝は $r^\ell Y$ なので
+
+$$
+rY
+=
+r\frac{x}{r}
+=
+x.
+$$
+
+直交座標で
+
+$$
+\partial_{xx}x=0,
+\qquad
+\partial_{yy}x=0,
+\qquad
+\partial_{zz}x=0
+$$
+
+だから
+
+$$
+\Delta x=0.
+$$
+
+従って
+
+$$
+\boxed{rY=x}
+$$
+
+は原点を含む全空間で滑らかな一次調和多項式です。
 <!-- solution-end -->
 
 ### Level B
@@ -1031,10 +1324,67 @@ $u(0,r,\theta)=J_0(j_{0,1}r)$、零 Dirichlet 境界の熱方程式を解け。
 
 <!-- solution-start -->
 ##### 詳細解答
-空間モードの固有値は $j_{0,1}^2$ なので
+
+初期値
+
 $$
-u(t,r)=e^{-\kappa j_{0,1}^2t}J_0(j_{0,1}r).
+\phi(r)=J_0(j_{0,1}r)
 $$
+
+は円板の Dirichlet 固有モードで、
+
+$$
+-\Delta\phi
+=
+j_{0,1}^2\phi.
+$$
+
+熱方程式に
+
+$$
+u(t,r)=a(t)\phi(r)
+$$
+
+を代入すると
+
+$$
+a'(t)\phi
+=
+\kappa a(t)\Delta\phi
+=
+-\kappa j_{0,1}^2a(t)\phi.
+$$
+
+従って係数は
+
+$$
+a'
++
+\kappa j_{0,1}^2a
+=
+0.
+$$
+
+初期条件 $a(0)=1$ から
+
+$$
+a(t)
+=
+e^{-\kappa j_{0,1}^2t}.
+$$
+
+よって
+
+$$
+\boxed{
+u(t,r)
+=
+e^{-\kappa j_{0,1}^2t}
+J_0(j_{0,1}r)
+}.
+$$
+
+$r=1$ では $J_0(j_{0,1})=0$ なので境界条件も全時刻で保たれます。
 <!-- solution-end -->
 
 #### PDE11-B02 軸対称球面モード
@@ -1044,10 +1394,48 @@ $P_2(x)=(3x^2-1)/2$ が $\ell=2$ の Legendre 方程式を満たすことを確�
 
 <!-- solution-start -->
 ##### 詳細解答
-$P_2'=3x$, $P_2''=3$。代入すると
+
+$\ell=2$ の Legendre 方程式は
+
 $$
-3(1-x^2)-6x^2+6\frac{3x^2-1}{2}=0.
+(1-x^2)P''
+-
+2xP'
++
+6P
+=
+0.
 $$
+
+$$
+P_2(x)=\frac{3x^2-1}{2}
+$$
+
+に対し
+
+$$
+P_2'=3x,
+\qquad
+P_2''=3.
+$$
+
+代入すると
+
+$$
+\begin{aligned}
+&(1-x^2)\cdot3
+-
+2x\cdot3x
++
+6\frac{3x^2-1}{2}\\
+&=
+3-3x^2-6x^2+9x^2-3\\
+&=
+0.
+\end{aligned}
+$$
+
+従って $P_2$ は確かに $\ell=2$ の軸対称球面固有モードです。
 <!-- solution-end -->
 
 #### PDE11-B03 球内部の境界延長
@@ -1057,11 +1445,46 @@ $$
 
 <!-- solution-start -->
 ##### 詳細解答
-次数2の球面調和モードなので
+
+境界データ
+
 $$
-u(r,\theta)=r^2P_2(\cos\theta)
+g(\theta)
+=
+P_2(\cos\theta)
 $$
-です。各項は立体調和関数で、$r=1$ で境界値に一致します。
+
+は $\ell=2,m=0$ の球面調和モードです。
+
+[立体調和関数の構成](#prop-pde11-solid-harmonic)によれば、球内部で原点まで滑らかな半径枝は $r^\ell$ なので
+
+$$
+u(r,\theta)
+=
+r^2P_2(\cos\theta)
+$$
+
+と取ります。
+
+この関数は $r<1$ で調和的です。また境界 $r=1$ では
+
+$$
+u(1,\theta)
+=
+P_2(\cos\theta)
+=
+g(\theta).
+$$
+
+従って求める調和延長は
+
+$$
+\boxed{
+u(r,\theta)
+=
+r^2P_2(\cos\theta)
+}.
+$$
 <!-- solution-end -->
 
 ### Level C
@@ -1073,7 +1496,70 @@ PDE7 の長方形の正弦固有モードと、本章の円板 Bessel モード�
 
 <!-- solution-start -->
 ##### 詳細解答
-直交座標では Laplacian が各座標の二階微分の和で、境界条件から正弦・余弦が固有関数になります。極座標では尺度因子 $1/r,1/r^2$ が入り、半径方程式が Bessel 方程式になります。球座標では角度部分が球面 Laplacian の固有値問題となり Legendre / Legendre 陪関数 が現れます。特殊関数は「変な公式」ではなく、座標幾何と境界条件に適合した Laplacian の固有関数です。
+
+三つの場合で共通している操作は
+
+$$
+\boxed{
+\text{Laplacian の固有値問題}
+\longrightarrow
+\text{座標ごとの変数分離}
+\longrightarrow
+\text{境界・正則性条件で許される固有モードを選ぶ}
+}
+$$
+
+という流れです。
+
+長方形の直交座標では
+
+$$
+\Delta
+=
+\partial_{xx}+\partial_{yy}
+$$
+
+のように係数が一定なので、分離後の各 ODE は
+
+$$
+X''+\lambda X=0
+$$
+
+型になります。端点の Dirichlet 条件から正弦関数が選ばれます。
+
+円板の極座標では
+
+$$
+\Delta
+=
+\partial_{rr}
++
+\frac1r\partial_r
++
+\frac1{r^2}\partial_{\theta\theta}
+$$
+
+となります。角方向の周期性から $e^{im\theta}$ が選ばれ、その固有値 $m^2$ を半径方程式へ入れると
+
+$$
+r^2R''+rR'+(\lambda r^2-m^2)R=0,
+$$
+
+すなわち Bessel 方程式になります。原点の正則性で $J_{|m|}$ を選び、外周の Dirichlet 条件で Bessel 零点が固有値を決めます。
+
+球座標では
+
+$$
+\Delta
+=
+\frac1{r^2}\partial_r(r^2\partial_r)
++
+\frac1{r^2}\Delta_{S^2}.
+$$
+
+角方向は球面 Laplacian の固有値問題となり、軸対称なら Legendre 多項式、一般の方位角依存を入れると Legendre 陪関数を含む球面調和モードが現れます。
+
+したがって Bessel 関数や Legendre 関数は、突然追加された特殊公式ではありません。**領域の幾何に適した座標で Laplacian を対角化し、境界条件・正則性を課した結果として自然に現れる固有関数**です。
 <!-- solution-end -->
 
 ## 9. 章末チェック

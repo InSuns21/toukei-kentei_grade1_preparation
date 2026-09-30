@@ -13,6 +13,16 @@ concepts:
     kind: proposition
     aliases: ["円板の変数分離と Bessel 方程式"]
     introduction: formal
+  - id: pde.pde11-bessel-function
+    name: 整数次数 Bessel 関数
+    kind: definition
+    aliases: ["整数次数 Bessel 関数", "Bessel 関数 J_m"]
+    introduction: formal
+    introduction_aliases: ["定義（整数次数 Bessel 関数）"]
+    requires:
+      - pde.pde11-bessel-separation
+      - ode.ode6-frobenius-recurrence
+
   - id: pde.pde11-bessel-zeros
     name: 整数次数 Bessel 関数の正零点
     kind: lemma
@@ -23,6 +33,9 @@ concepts:
     kind: definition
     aliases: ["円板の Bessel モード"]
     introduction: formal
+    requires:
+      - pde.pde11-bessel-function
+      - pde.pde11-bessel-zeros
   - id: pde.pde11-spherical-harmonic
     name: 球面調和関数
     kind: definition
@@ -33,11 +46,23 @@ concepts:
     kind: proposition
     aliases: ["球面固有値問題と Legendre 方程式"]
     introduction: formal
+  - id: pde.pde11-associated-legendre
+    name: Legendre 陪関数
+    kind: definition
+    aliases: ["Legendre 陪関数", "associated Legendre function"]
+    introduction: formal
+    introduction_aliases: ["定義（Legendre 陪関数）"]
+    requires:
+      - pde.pde11-legendre
+
   - id: pde.pde11-spherical-eigenmode
     name: 標準球面調和モード
     kind: proposition
     aliases: ["標準球面調和モード"]
     introduction: formal
+    requires:
+      - pde.pde11-associated-legendre
+      - pde.pde11-spherical-harmonic
   - id: pde.pde11-solid-harmonic
     name: 立体調和関数の構成
     kind: proposition
