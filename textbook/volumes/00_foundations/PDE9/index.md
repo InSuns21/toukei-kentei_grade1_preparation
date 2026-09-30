@@ -1026,7 +1026,7 @@ $$
 
 $$
 f,\qquad
-\partial_nf,qquad
+\partial_nf,\qquad
 g
 $$
 
