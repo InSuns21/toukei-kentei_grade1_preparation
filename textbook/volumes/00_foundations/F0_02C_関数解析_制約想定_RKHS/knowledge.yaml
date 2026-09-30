@@ -12,6 +12,11 @@ forward_references:
   - functional.hilbert-space
   - functional.hilbert-projection-theorem
   - functional.frechet-derivative
+  - functional.uniform-boundedness-principle
+  - functional.open-map
+  - functional.open-mapping-theorem
+  - functional.bounded-inverse-theorem
+  - functional.closed-graph-theorem
   - vector-calculus.gradient
   - convex.convex-function
   - convex.cone
