@@ -25,6 +25,5 @@ theorems:
   - { id: F002C1-THM-03, name: 平行四辺形恒等式 }
 canonical_examples: [C区間のsupノルム, L2空間, l2空間]
 problem_patterns: [FA-NORM-1]
-exercise_counts: { level_a: 2, level_b: 1, level_c: 0, level_d: 0 }
-dream_theater_exercise_count_exception: "関数解析への導入章として、後続で繰り返し使うノルムの基本操作と内積由来ノルムの判定に直結する A2/B1 に絞る。規定数への水増しは行わない。"
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 2.75, exercises: 1.0, review: 0.5 }
