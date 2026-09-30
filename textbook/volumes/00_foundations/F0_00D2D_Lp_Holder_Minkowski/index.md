@@ -457,7 +457,7 @@ $$
 <a id="cor-f0-00d2d-01"></a>
  
 <!-- formal-statement-start -->
-### 系（Cauchy--Schwarz）
+### 系（L2におけるCauchy--Schwarz）
 
 $p=q=2$ とすれば
 
