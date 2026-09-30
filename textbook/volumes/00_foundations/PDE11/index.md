@@ -598,7 +598,7 @@ $$
 \ell(\ell+1)\Theta.
 $$
 
-$x=\cos\theta$ と置きます。この置換は、球面座標に現れる $\sin\theta$ を
+$x=\cos\theta$ と置きます。この変数変換は、球面座標に現れる $\sin\theta$ を
 
 $$
 \sin^2\theta=1-x^2
