@@ -13,6 +13,7 @@ concepts:
     name: 押し出し積分公式
     kind: theorem
     aliases: [押し出し積分公式]
+    introduction_aliases: ["定理（押し出し積分公式）"]
     requires:
       - measure.pushforward-measure
       - measure.simple-function-approximation
@@ -20,9 +21,10 @@ concepts:
       - measure.positive-negative-parts
 
   - id: prob.doob-dynkin-lemma
-    name: Doob--Dynkin lemma
+    name: Doob--Dynkin の補題
     kind: theorem
-    aliases: [Doob--Dynkin lemma, Doob-Dynkin lemma]
+    aliases: [Doob--Dynkin の補題, Doob--Dynkin lemma, Doob-Dynkin lemma]
+    introduction_aliases: ["定理（Doob--Dynkin の補題：実数値版）"]
     requires:
       - prob.random-variable
       - measure.generated-sigma-algebra
@@ -32,17 +34,18 @@ concepts:
   - id: prob.conditional-expectation-as-function
     name: 条件付き期待値の可測関数表示
     kind: term
-    aliases: ["E[X\\mid Y]", "m(Y)", "Doob--Dynkin lemmaにより"]
+    aliases: [条件付き期待値の可測関数表示]
     introduction_aliases: ["条件付き期待値へ適用する"]
     requires:
       - prob.conditional-expectation
       - prob.doob-dynkin-lemma
 
   - id: prob.conditional-expectation-version-freedom
-    name: 条件付き期待値表示のversion自由度
+    name: 条件付き期待値表示の版の自由度
     kind: term
-    aliases: ["version の自由度", "P_Y-a.e."]
-    introduction_aliases: ["version の自由度は"]
+    aliases: [条件付き期待値表示の版の自由度, 条件付き期待値の版の自由度]
+    introduction_aliases: ["版（version）の自由度は"]
+
     requires:
       - prob.conditional-expectation-as-function
       - measure.pushforward-measure

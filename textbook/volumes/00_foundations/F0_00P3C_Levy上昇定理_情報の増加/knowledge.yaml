@@ -11,7 +11,8 @@ concepts:
   - id: prob.increasing-sigma-fields
     name: 増加する部分σ代数列
     kind: definition
-    aliases: ["増加する部分$\\sigma$代数列", "増加する部分"]
+    aliases: ["増加する部分$\\sigma$代数列"]
+    introduction_aliases: ["定義（増加する情報列）"]
     requires:
       - prob.probability-space
       - measure.sigma-algebra
@@ -39,13 +40,15 @@ concepts:
   - id: prob.upcrossing
     name: 上向き横断
     kind: definition
-    aliases: [上向き横断]
+    aliases: [上向き横断, 上向き横断回数]
+    introduction_aliases: ["定義（上向き横断）"]
     requires: []
 
   - id: prob.levy-upward-theorem
     name: Lévy上昇定理
     kind: theorem
     aliases: [Lévy上昇定理, Levy上昇定理]
+    introduction_aliases: ["定理（Lévy上昇定理）", "定理（Levy上昇定理）"]
     requires:
       - prob.increasing-sigma-fields
       - prob.increasing-algebra-approximation
