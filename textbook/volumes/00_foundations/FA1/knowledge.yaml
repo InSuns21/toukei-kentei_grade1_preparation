@@ -74,10 +74,10 @@ concepts:
       - topology.baire-category-theorem-complete-metric
 
   - id: functional.pointwise-limit-uniform-boundedness
-    name: 各点収束する作用素列の一様有界性
+    name: 各入力で収束する作用素列の一様有界性
     kind: corollary
-    aliases: [pointwise収束する作用素列の一様有界性, 各点収束する作用素列の一様有界性]
-    introduction_aliases: ["### 系（各点収束する作用素列の一様有界性）"]
+    aliases: [pointwise収束する作用素列の一様有界性, 各入力で収束する作用素列の一様有界性]
+    introduction_aliases: ["### 系（各入力で収束する作用素列の一様有界性）"]
     requires:
       - functional.uniform-boundedness-principle
 
