@@ -393,7 +393,7 @@ H_k
 \sum_{j=k}^{\infty}g_j.
 $$
 
-したがって $H_{k,M}^2\uparrow H_k^2$ であり、MCT により
+したがって $H_{k,M}^2\uparrow H_k^2$ であり、[単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)により
 
 $$
 \|H_k\|_2^2
@@ -747,7 +747,7 @@ $$
 - Level: A
 - 目安時間: 10分
 
-$[0,1]$ 上で $f(x)=x$、$g(x)=1-x$ とする。$f,g\in L^2$ を確認し、Hölder の不等式を使って $fg\in L^1$ であることを示せ。その上で $\langle f,g\rangle$ を計算せよ。
+$[0,1]$ 上で $f(x)=x$、$g(x)=1-x$ とする。$f,g\in L^2$ を確認し、[Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)を使って $fg\in L^1$ であることを示せ。その上で $\langle f,g\rangle$ を計算せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -844,7 +844,7 @@ $$
 したがって $(f_n)$ は $L^2$-Cauchy である。
 <!-- solution-end -->
 
-## F0-00D2E-C01 L2の完備性を再構成する
+## F0-00D2E-C01 証明を最初から組み立てる
 
 - Level: C
 - 目安時間: 30分
@@ -872,7 +872,7 @@ g_k:=|f_{n_{k+1}}-f_{n_k}|,
 G_N:=\sum_{k=1}^N g_k
 $$
 
-と置く。Minkowski により
+と置く。[Minkowski の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-02)により
 
 $$
 \|G_N\|_2
@@ -883,7 +883,7 @@ $$
 <1.
 $$
 
-$G_N\uparrow G:=\sum_{k\ge1}g_k$ なので $G_N^2\uparrow G^2$。MCT から
+$G_N\uparrow G:=\sum_{k\ge1}g_k$ なので $G_N^2\uparrow G^2$。[単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)から
 
 $$
 \int G^2d\mu
