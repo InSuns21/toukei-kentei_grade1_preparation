@@ -844,7 +844,7 @@ $$
 したがって $(f_n)$ は $L^2$-Cauchy である。
 <!-- solution-end -->
 
-## F0-00D2E-C01 Riesz--Fischer の完備性証明を再構成する
+## F0-00D2E-C01 L2の完備性を再構成する
 
 - Level: C
 - 目安時間: 30分
