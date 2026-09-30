@@ -18,6 +18,5 @@ theorems:
   - { id: F002C1A-THM-03, name: 閉線形部分空間の直交分解 }
 canonical_examples: [l2の座標部分空間への射影, 閉凸集合への最近点, 閉球への射影]
 problem_patterns: [FA-PROJECTION-1]
-exercise_counts: { level_a: 3, level_b: 2, level_c: 0, level_d: 0 }
-dream_theater_exercise_count_exception: "射影定理を自足的に読むための補助章であり、前提確認と射影の特徴付けに直結する A3/B2 に絞る。C問題を含む規定数への水増しは行わない。"
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 2.25, exercises: 1.25, review: 0.5 }
