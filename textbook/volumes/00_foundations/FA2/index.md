@@ -1233,7 +1233,25 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-$x+\ker T=x'+\ker T$ なら $x-x'\in\ker T$ なので $Tx=Tx'$、従って well-defined。線形性は商空間の演算から直ちに従う。$T$ が全射なので $\widetilde T$ も全射。$\widetilde T(x+\ker T)=0$ なら $x\in\ker T$ なので剰余類は 0、従って単射。
+$x+\ker T=x'+\ker T$ なら $x-x'\in\ker T$ なので $Tx=Tx'$ です。従って $\widetilde T$ は代表元によらず定まります。
+
+また $a,b\in\mathbb K$ と $x,y\in X$ に対して
+
+$$
+\begin{aligned}
+\widetilde T\bigl(a(x+\ker T)+b(y+\ker T)\bigr)
+&=
+T(ax+by)\\
+&=
+aTx+bTy\\
+&=
+a\widetilde T(x+\ker T)+b\widetilde T(y+\ker T),
+\end{aligned}
+$$
+
+なので線形です。
+
+$T$ が全射なので $\widetilde T$ も全射です。さらに $\widetilde T(x+\ker T)=0$ なら $x\in\ker T$ なので剰余類は 0 です。従って単射でもあります。
 
 任意の $k\in\ker T$ に対し
 
