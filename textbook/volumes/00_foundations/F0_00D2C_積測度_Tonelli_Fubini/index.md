@@ -52,6 +52,8 @@ $$
 
 ## 1. 積σ代数
 
+D2B までは一つの可測空間の中で集合や関数を扱いました。二つの空間 $X,Y$ を同時に扱うには、まず「どの $X\times Y$ の部分集合を可測とするか」を決める必要があります。長方形 $A\times B$ を可測にし、それらから生成される最小の σ代数を採用します。
+
 <a id="def-f0-00d2c-01"></a>
 
 <!-- formal-statement-start -->
@@ -198,7 +200,7 @@ $$
 \sum_{n=1}^\infty1_{A_n}(x)1_{B_n}(y).
 $$
 
-固定した $x$ で $y$ について積分し、非負級数に [MCT](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange) を使うと
+固定した $x$ で $y$ について積分し、右辺を最初の $N$ 項までで打ち切った非負の有限和に [MCT](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange) を使うと
 
 $$
 1_A(x)\nu(B)
