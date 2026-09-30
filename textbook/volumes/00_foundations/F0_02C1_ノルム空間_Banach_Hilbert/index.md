@@ -388,7 +388,17 @@ $$
 
 です。有限次元での証明と等号条件は [F0-00E2 のCauchy--Schwarz不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz) を正本とします。
 
-この不等式により、内積はノルムについて連続です。
+特に $y$ を固定すると
+
+$$
+|\langle x_n,y\rangle-\langle x,y\rangle|
+=
+|\langle x_n-x,y\rangle|
+\le
+\|x_n-x\|\,\|y\|.
+$$
+
+従って $x_n\to x$ なら右辺は0へ行き、$\langle x_n,y\rangle\to\langle x,y\rangle$ です。後で内積で定めた集合の閉性を確認するときも、この形で使えます。
 
 ---
 
@@ -436,7 +446,7 @@ $$
 =\sum_{j=1}^{\infty}x_jy_j
 $$
 
-を入れます。これは $\mathbb N$ 上の数え上げ測度に対する $L^2$ とみなせるので、前提章の $L^2$ 完備性定理を適用すると、この内積が誘導するノルムについて完備です。従って $\ell^2$ はHilbert空間です。
+を入れます。これは $\mathbb N$ 上の数え上げ測度に対する $L^2$ とみなせるので、前提章の[$L^2$ の完備性](../F0_00D2E_L2完備性_Riesz_Fischer/index.md#thm-f0-00d2e-01)を適用すると、この内積が誘導するノルムについて完備です。従って $\ell^2$ はHilbert空間です。
 
 ### 8.2 $L^2([0,1])$
 
@@ -445,7 +455,7 @@ $$
 =\int_0^1f(t)g(t)\,dt
 $$
 
-を入れると、内積が誘導するノルムは本文第4節の $L^2$ ノルムです。[F0-00D2E の完備性定理](../F0_00D2E_L2完備性_Riesz_Fischer/index.md#thm-f0-00d2e-01)によりこのノルムで完備なので、$L^2([0,1])$ はHilbert空間です。
+を入れると、内積が誘導するノルムは本文第4節の $L^2$ ノルムです。[$L^2$ の完備性](../F0_00D2E_L2完備性_Riesz_Fischer/index.md#thm-f0-00d2e-01)によりこのノルムで完備なので、$L^2([0,1])$ はHilbert空間です。
 
 ---
 
@@ -661,7 +671,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-内積から誘導されるノルムの定義を使うと
+$\|v\|^2=\langle v,v\rangle$ を $v=x+y$ に使うと
 
 $$
 \begin{aligned}
@@ -685,7 +695,7 @@ $$
 $$
 <!-- solution-end -->
 
-### F0-02C1-B02 supノルムCauchy列から一様極限を作る
+### F0-02C1-B02 supノルムCauchy列の極限を作る
 
 - Level: B
 - 目安時間: 18分
@@ -784,7 +794,7 @@ $$
 $X=(\mathbb R^2,\|\cdot\|_1)$ とする。
 
 1. $X$ がBanach空間であることを示せ。
-2. $X$ がHilbert空間ではないことを、平行四辺形恒等式を使って示せ。
+2. $X$ がHilbert空間ではないことを、[平行四辺形恒等式](#ref-parallelogram-identity)を使って示せ。
 3. 「Banach空間」と「Hilbert空間」の違いを、この例に即して説明せよ。
 
 <!-- solution-start -->
