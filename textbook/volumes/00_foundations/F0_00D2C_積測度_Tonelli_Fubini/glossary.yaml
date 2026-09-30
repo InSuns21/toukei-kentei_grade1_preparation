@@ -9,7 +9,7 @@ terms:
   - term: σ有限
     english: sigma-finite
     meaning: 空間全体を有限測度の可測集合の可算和で覆える性質。
-  - term: section
+  - term: 切断
     english: section
     meaning: 積集合や二変数関数について一方の変数を固定して得られる集合・関数。
   - term: Tonelliの定理
