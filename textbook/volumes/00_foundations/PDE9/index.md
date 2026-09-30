@@ -54,7 +54,7 @@ $$
 
 ## 2. 球面平均は半径方向の波動方程式を満たす
 
-球面平均を導入しただけでは、元の Laplacian と半径 $r$ の微分がどう結び付くかはまだ分かりません。三次元の PDE を一次元の半径方向へ落とすには、$x$ に関する Laplacian を「球面平均の $r$ 微分」へ変える関係式が必要です。発散定理を使うと、その関係が $rM_rh$ という組合せに現れます。
+球面平均を導入しただけでは、元の Laplacian と半径 $r$ の微分がどう結び付くかはまだ分かりません。三次元の PDE を一次元の半径方向へ落とすには、$x$ に関する Laplacian を「球面平均の $r$ 微分」へ変える関係式が必要です。[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)を使うと、その関係が $rM_rh$ という組合せに現れます。
 
 <a id="lem-pde9-epd"></a>
 <!-- formal-statement-start -->
@@ -738,7 +738,7 @@ $$
 #### PDE9-A03 球面近傍から離れた初期擾乱
 - Level: A
 
-三次元で初期変位 $f$ と初速度 $g$ が、球面 $|y-x|=ct$ のある近傍でともに0とする。このとき時刻 $t$ の $u(t,x)$ にそれらが寄与しない理由を Kirchhoff 公式から説明せよ。
+三次元で初期変位 $f$ と初速度 $g$ が、球面 $|y-x|=ct$ のある近傍でともに0とする。このとき時刻 $t$ の $u(t,x)$ にそれらが寄与しない理由を [Kirchhoff 公式](#thm-pde9-kirchhoff)から説明せよ。
 
 <!-- solution-start -->
 ##### 詳細解答
@@ -989,7 +989,7 @@ $$
 |x|>R+ct
 $$
 
-を示します。$|y-x|=ct$ を満たす任意の $y$ に対し、逆三角不等式から
+を示します。$|y-x|=ct$ を満たす任意の $y$ に対し、[逆三角不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-reverse-triangle-inequality)から
 
 $$
 |y|
