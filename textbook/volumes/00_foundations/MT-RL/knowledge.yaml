@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - RA4
+  - RA4A
   - F0-00D4
   - F0-00D2B
 forward_references: []
@@ -47,5 +48,6 @@ concepts:
     kind: theorem
     aliases: [非負広義Riemann積分とLebesgue積分の一致]
     requires:
+      - analysis.improper-riemann-integral
       - analysis.riemann-lebesgue-agreement
       - measure.monotone-convergence-theorem
