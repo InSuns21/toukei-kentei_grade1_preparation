@@ -4,7 +4,7 @@
 
 確率論では、各時点の確率だけでなく、**標本経路上で同じ種類の事象が無限回起こるのか、ある時点以降ずっと起こるのか**を区別する必要があります。
 
-この章では、事象列の上極限・下極限を対にして導入し、`i.o.`（infinitely often）と「最終的に（eventually）」の意味を固定します。そのうえで末尾事象と Kolmogorov の 0--1 則を証明し、Borel--Cantelli の2補題を「無限回起こる確率が 0 と 1 のどちらになるかを判定する道具」として位置付けます。最後に、この事象列の言葉を概収束・確率収束へ接続します。
+この章では、事象列の limsup と liminf を対にして導入し、`i.o.`（infinitely often）と「最終的に（eventually）」の意味を固定します。そのうえで末尾事象と Kolmogorov の 0--1 則を証明し、Borel--Cantelli の2補題を「無限回起こる確率が 0 と 1 のどちらになるかを判定する道具」として位置付けます。最後に、この事象列の言葉を概収束・確率収束へ接続します。
 
 ```text
 limsup / liminf
@@ -789,7 +789,7 @@ $$
 \bigcup_{n\ge m}A_n
 $$
 
-の中にあります。その確率を [可算劣加法性（union bound）](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-union-bound) で級数の末尾和に抑えます。
+の中にあります。その確率を [可算劣加法性（union bound）](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-union-bound) で確率和の末尾 $\sum_{n\ge m}P(A_n)$ に抑えます。
 
 <!-- proof-start -->
 ### 証明
