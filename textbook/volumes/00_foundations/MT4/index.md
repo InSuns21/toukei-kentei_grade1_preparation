@@ -761,7 +761,26 @@ $$
 \frac1h\int_x^{x+h}|f(t)-f(x)|dt\to0.
 $$
 
-$h<0$ でも区間 $[x+h,x]$ を使って同じ評価が成り立ちます。従って $F'(x)=f(x)$。Lebesgue 微分定理の例外集合は零集合なので a.e. で成立します。$\square$
+$h<0$ なら向きが逆になるので、まず
+
+$$
+\frac{F(x+h)-F(x)}h
+=
+\frac1{-h}\int_{x+h}^{x}f(t)\,dt.
+$$
+
+従って
+
+$$
+\left|
+\frac{F(x+h)-F(x)}h-f(x)
+\right|
+\le
+\frac1{-h}\int_{x+h}^{x}|f(t)-f(x)|\,dt
+\longrightarrow0.
+$$
+
+左右どちらからも差商が $f(x)$ へ収束するので $F'(x)=f(x)$ です。Lebesgue 微分定理の例外集合は零集合なので a.e. で成立します。$\square$
 <!-- proof-end -->
 
 ---
@@ -877,13 +896,7 @@ $$
 
 まず証明で使う変動の加法性を確認します。$a\le x<y\le b$ とします。$[a,y]$ の任意の分割へ点 $x$ を追加すると、変動和は
 
-$$
-\text{$[a,x]$ 上の変動和}
-+
-\text{$[x,y]$ 上の変動和}
-$$
-
-に分かれるので
+二つの部分区間 $[a,x]$ と $[x,y]$ に属する変動和の和へ分かれるので
 
 $$
 V_a^y(F)\le V_a^x(F)+V_x^y(F).
@@ -1008,7 +1021,7 @@ G(t)-G(s)
 \bigl(G(t_i)-G(t_{i-1})\bigr)
 $$
 
-という望遠和へ分かれます。一点集合の寄与は0なので、端点をどちらの隣接区間へ含めても値は変わりません。従って $\nu_0$ は well-defined で、同じ共通細分を使えば有限加法性も従います。
+という望遠和へ分かれます。一点集合の寄与は0なので、端点をどちらの隣接区間へ含めても値は変わりません。従って $\nu_0$ は表示の仕方によらず適切に定義され、同じ共通細分を使えば有限加法性も従います。
 
 次に前測度性を示します。[Hopf 型の前測度判定](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#lem-f0-00d4-hopf-premeasure)へ入力するため、
 
@@ -1240,10 +1253,26 @@ P(x)-P(a)
 \int_a^xp(t)dt.
 $$
 
-同様に $N$ に対して $n\in L^1$、$n\ge0$ が存在し
+$N$ に対応する Lebesgue–Stieltjes 測度についても[前補題](#thm-mt4-ac-stieltjes-absolute)から
 
 $$
-N(x)-N(a)=\int_a^xn(t)dt.
+\nu_N\ll\lambda
+$$
+
+です。そこで同じ MT3 の Radon–Nikodym 定理を、今度は $\nu_N$ と $\lambda$ に適用します。$n\in L^1([a,b])$、$n\ge0$ が存在して
+
+$$
+\nu_N(E)=\int_En\,d\lambda,
+$$
+
+特に
+
+$$
+N(x)-N(a)
+=
+\nu_N((a,x])
+=
+\int_a^xn(t)dt.
 $$
 
 $P(a)=N(a)=0$ なので
