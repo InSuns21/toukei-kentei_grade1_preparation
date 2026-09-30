@@ -835,7 +835,7 @@ $$
 
 で、$C$ の元はこの二つしかないため $-1$ と $1$ はどちらも最近点です。従って射影は一意ではありません。
 
-一意性証明では、二つの最近点 $p,q$ の中点 $(p+q)/2$ も $C$ に入ることを使っていました。ここではその中点0が $C$ の外に出るため、平行四辺形恒等式から「もっと近い候補」を作って矛盾する手順が使えません。壊れた機構はまさに凸性による中点の保持です。
+一意性証明では、二つの最近点 $p,q$ の中点 $(p+q)/2$ も $C$ に入ることを使っていました。ここではその中点0が $C$ の外に出るため、[平行四辺形恒等式](../F0_02C1_ノルム空間_Banach_Hilbert/index.md#ref-parallelogram-identity)から「もっと近い候補」を作って矛盾する手順が使えません。壊れた機構はまさに凸性による中点の保持です。
 <!-- solution-end -->
 
 ### F0-02C1A-C01 集合 $C$ への射影を求める
@@ -865,31 +865,28 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-まず写像
+まず $C$ が閉であることを点列で確認します。$x_n\in C$ かつ $x_n\to x$ とします。[Cauchy--Schwarzの不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)を $x_n-x$ と $a$ に適用すると
 
 $$
-L:H\to\mathbb R,
-\qquad
-L(x)=\langle x,a\rangle
-$$
-
-を考えます。Cauchy--Schwarz不等式より
-
-$$
-|L(x)-L(y)|
+|\langle x_n,a\rangle-\langle x,a\rangle|
 =
-|\langle x-y,a\rangle|
+|\langle x_n-x,a\rangle|
 \le
-\|x-y\|\,\|a\|,
+\|x_n-x\|\,\|a\|
+\to0.
 $$
 
-なので $L$ は連続です。従って
+各 $x_n\in C$ なので $\langle x_n,a\rangle=b$ です。従って
 
 $$
-C=L^{-1}(\{b\})
+\langle x,a\rangle
+=
+\lim_{n\to\infty}\langle x_n,a\rangle
+=
+b,
 $$
 
-は閉集合です。
+よって $x\in C$ です。閉集合の点列特徴付けから $C$ は閉です。
 
 また $x,y\in C$、$0\le t\le1$ なら
 
