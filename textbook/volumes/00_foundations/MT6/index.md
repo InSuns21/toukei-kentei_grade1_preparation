@@ -96,11 +96,11 @@ $$
 
 <!-- definition-example-start: def-mt6-c0 -->
 **定義の確認**：$X=\mathbb R$ では $f(x)=e^{-x^2}$ に対し、$0<\varepsilon\le1$ なら
-$
+$$
 \{x:e^{-x^2}\ge\varepsilon\}
 =
 [-\sqrt{-\log\varepsilon},\sqrt{-\log\varepsilon}]
-$
+$$
 でコンパクト、$\varepsilon>1$ なら空集合です。従って $e^{-x^2}\in C_0(\mathbb R)$ ですが、台は $\mathbb R$ 全体なので $C_c(\mathbb R)$ には入りません。一方、定数関数 $1$ は $\{|1|\ge1/2\}=\mathbb R$ がコンパクトでないため $C_0(\mathbb R)$ に入りません。
 <!-- definition-example-end -->
 
@@ -410,9 +410,9 @@ $$
 ### 証明の見取り図
 
 $T$ を $C_c(X)$ へ制限して MT5 を適用し、まず Radon 測度 $\mu$ を得ます。各コンパクト集合 $K$ 上で 1 になる cutoff $\chi$ を入れると
-$
+$$
 \mu(K)\le T(\chi)\le\|T\|
-$
+$$
 なので、開集合 $X$ の内正則性から $\mu(X)\le\|T\|$ が出ます。有限性が確定した後は、$g_n\in C_c(X)$ の一様近似に対して $T(g_n)$ と $\int g_n\,d\mu$ の両方が極限を取れ、$C_0(X)$ 全体へ表示が延びます。
 
 <!-- proof-start -->
@@ -644,29 +644,29 @@ T(g_1)+T(g_2)
 $$
 
 この不等式から supremum を取る手順を明示します。任意の $\varepsilon>0$ に対し、supremum の定義から
-$
+$$
 0\le g_1\le f,
 \qquad
 T(g_1)>T^+(f)-\varepsilon/2,
-$
-$
+$$
+$$
 0\le g_2\le h,
 \qquad
 T(g_2)>T^+(h)-\varepsilon/2
-$
+$$
 となる $g_1,g_2$ を取れます。すると
-$
+$$
 T^+(f+h)
 \ge T(g_1+g_2)
 >
 T^+(f)+T^+(h)-\varepsilon.
-$
+$$
 $\varepsilon\downarrow0$ として
 
-$
+$$
 T^+(f)+T^+(h)
 \le T^+(f+h).
-$
+$$
 
 逆向きが本質です。$0\le g\le f+h$ を任意に取ります。C0 の lattice 演算を使い
 
