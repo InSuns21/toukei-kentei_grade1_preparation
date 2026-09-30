@@ -6,9 +6,10 @@ prerequisites:
 
 concepts:
   - id: functional.hilbert-adjoint-existence-uniqueness
-    name: Hilbert随伴の存在一意性
+    name: Hilbert随伴の存在・一意性
     kind: theorem
-    aliases: [Hilbert随伴の存在一意性]
+    aliases: [Hilbert随伴の存在一意性, Hilbert随伴の存在・一意性]
+    introduction_aliases: ["### 定理（Hilbert随伴の存在・一意性）"]
     requires:
       - functional.hilbert-adjoint
       - functional.riesz-representation-theorem
