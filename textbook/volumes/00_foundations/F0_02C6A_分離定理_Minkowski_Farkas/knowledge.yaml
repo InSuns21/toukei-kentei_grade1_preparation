@@ -6,6 +6,7 @@ prerequisites:
   - F0-02C1A
 
 forward_references:
+  - convex.convex-set
   - convex.farkas-lemma
 
 concepts:
