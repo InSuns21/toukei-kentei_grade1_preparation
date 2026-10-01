@@ -258,7 +258,7 @@ $$
 
 <a id="thm-fa7-fredholm-alternative"></a>
 <!-- formal-statement-start -->
-### 定理（コンパクト作用素のFredholm の交代定理）
+### 定理（コンパクト作用素に対する Fredholm の交代定理）
 
 $X$ を Banach 空間、$K\in\mathcal B(X)$ をコンパクト作用素とする。$T:=I-K$ とおくと、次は同値である。
 
@@ -422,7 +422,7 @@ $$
 \lambda\left(I-\frac K\lambda\right).
 $$
 
-$K/\lambda$ はコンパクトです。[コンパクト作用素のFredholm の交代定理](#thm-fa7-fredholm-alternative)により $I-K/\lambda$ は単射であることと全射であることが同値です。もし単射なら全射でもあり、[有界逆定理](../FA2/index.md#thm-fa2-bounded-inverse)により可逆です。これは $\lambda\in\sigma(K)$ に矛盾します。従って単射ではなく
+$K/\lambda$ はコンパクトです。[コンパクト作用素に対する Fredholm の交代定理](#thm-fa7-fredholm-alternative)により $I-K/\lambda$ は単射であることと全射であることが同値です。もし単射なら全射でもあり、[有界逆定理](../FA2/index.md#thm-fa2-bounded-inverse)により可逆です。これは $\lambda\in\sigma(K)$ に矛盾します。従って単射ではなく
 
 $$
 \ker(\lambda I-K)\ne\{0\}.
@@ -734,14 +734,14 @@ $$
 
 $\lambda=-M$ の場合は
 
-$
+$$
 \begin{aligned}
 \|(T+MI)x_n\|^2
 &=\|Tx_n\|^2+2M\langle Tx_n,x_n\rangle+M^2\\
 &\le 2M\bigl(M+\langle Tx_n,x_n\rangle\bigr)
 \to0.
 \end{aligned}
-$
+$$
 
 ここでは $\|Tx_n\|\le M\|x_n\|=M$ と、$\langle Tx_n,x_n\rangle\to-M$ を使いました。
 
@@ -850,9 +850,9 @@ $$
 
 制限
 
-$
+$$
 S:=T|_{M^\perp}
-$
+$$
 
 は再びコンパクトかつ自己共役です。実際、$M^\perp$ の有界列は $H$ でも有界なので、$T$ のコンパクト性から像の収束部分列が取れます。しかも $M^\perp$ は閉で $T$ 不変だから、その極限も $M^\perp$ に残ります。自己共役性は $x,y\in M^\perp$ に対する同じ内積恒等式を制限すれば保たれます。もし $S\ne0$ なら、[コンパクト自己共役作用素のノルム固有値](#thm-fa7-norm-eigenvalue)により $M^\perp$ の中に非零固有値 $\mu$ に属する単位固有ベクトル $u$ が存在します。しかし $u\in E_\mu\subseteq M$ でもあるので
 
