@@ -67,6 +67,31 @@ $$
 > が成り立つことをいう。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-f0-02c6a-convex-set-recap -->
+### 例：区間 $[-1,1]$ で条件を確認する
+
+**定義の確認**：$x,y\in[-1,1]$ と $0\le t\le1$ を取ります。三角不等式から
+
+$$
+\begin{aligned}
+|(1-t)x+ty|
+&\le
+(1-t)|x|+t|y|\\
+&\le
+(1-t)+t\\
+&=1.
+\end{aligned}
+$$
+
+従って
+
+$$
+(1-t)x+ty\in[-1,1].
+$$
+
+よって $[-1,1]$ は凸です。
+<!-- definition-example-end -->
+
 この条件により、集合内の二点を係数 $1-t$ と $t$ で混ぜた点を使って、後で作る倍率関数の劣加法性を導けます。
 
 ---
