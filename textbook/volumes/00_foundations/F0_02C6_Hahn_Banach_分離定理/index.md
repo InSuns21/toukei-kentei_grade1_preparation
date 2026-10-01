@@ -694,7 +694,7 @@ $$
 $$
 f(x)
 :=
-u(x)-i,u(ix)
+u(x)-i\,u(ix)
 $$
 
 と定めます。実線形性から
@@ -703,11 +703,11 @@ $$
 \begin{aligned}
 f(ix)
 &=
-u(ix)-i,u(-x)\\
+u(ix)-i\,u(-x)\\
 &=
-u(ix)+i,u(x)\\
+u(ix)+i\,u(x)\\
 &=
-i\bigl(u(x)-i,u(ix)\bigr)\\
+i\bigl(u(x)-i\,u(ix)\bigr)\\
 &=
 if(x),
 \end{aligned}
