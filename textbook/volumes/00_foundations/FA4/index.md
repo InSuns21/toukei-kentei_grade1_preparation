@@ -28,7 +28,7 @@ Goldstine
 
 特に次の三点を混同しません。
 
-- **選択原理**は、フィルターをウルトラフィルター へ極大延長するときに使います。
+- **選択原理**は、フィルターをウルトラフィルターへ極大延長するときに使います。
 - **完備性**は Banach–Alaoglu 自体には不要です。定理は任意のノルム空間で成り立ちます。
 - **Hahn–Banach**は FA3 の標準埋め込みの等長性と、本章後半の「ノルム閉凸集合は弱閉」で使います。Goldstine の有限次元分離部分は直接計算します。
 
@@ -85,19 +85,19 @@ $$
 \{U\cap A:U\in\mathcal U\}
 $$
 
-は空集合を含まず有限交叉で閉じた フィルター基 です。そこから生成される proper フィルター は $\mathcal U$ と $A$ の両方を含み、$\mathcal U$ の極大性に反します。したがってある $U_0\in\mathcal U$ が
+は空集合を含まず有限交叉で閉じたフィルター基です。そこから生成される proper フィルターは $\mathcal U$ と $A$ の両方を含み、$\mathcal U$ の極大性に反します。したがってある $U_0\in\mathcal U$ が
 
 $$
 U_0\cap A=\varnothing
 $$
 
-を満たします。よって $U_0\subseteq S\setminus A$ であり、filter の上方閉性から $S\setminus A\in\mathcal U$ です。両方が入ればその交叉 $\varnothing$ も入ってしまうので、ちょうど一方です。
+を満たします。よって $U_0\subseteq S\setminus A$ であり、フィルターの上方閉性から $S\setminus A\in\mathcal U$ です。両方が入ればその交叉 $\varnothing$ も入ってしまうので、ちょうど一方です。
 
 <a id="lem-fa4-ultrafilter-extension"></a>
 <!-- formal-statement-start -->
 ### 補題（ウルトラフィルター拡張補題）
 
-集合 $S$ 上の任意の filter $\mathcal F$ は、ある ウルトラフィルター $\mathcal U$ に含まれる。
+集合 $S$ 上の任意のフィルター $\mathcal F$ は、ある ウルトラフィルター $\mathcal U$ に含まれる。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -119,9 +119,9 @@ $$
 
 と置きます。各 $\mathcal G$ は proper なので $\varnothing\notin\mathcal H$、また $S\in\mathcal H$ です。
 
-$A,B\in\mathcal H$ なら、ある $\mathcal G_1,\mathcal G_2\in\mathscr C$ があって $A\in\mathcal G_1$, $B\in\mathcal G_2$ です。chain なので一方が他方を含みます。大きい方には $A,B$ がともに属するため $A\cap B$ も属し、従って $A\cap B\in\mathcal H$ です。上方閉性も $A$ を含む一つの filter の中で従います。よって $\mathcal H$ はフィルターで、$\mathscr C$ の上界です。
+$A,B\in\mathcal H$ なら、ある $\mathcal G_1,\mathcal G_2\in\mathscr C$ があって $A\in\mathcal G_1$, $B\in\mathcal G_2$ です。chain なので一方が他方を含みます。大きい方には $A,B$ がともに属するため $A\cap B$ も属し、従って $A\cap B\in\mathcal H$ です。上方閉性も $A$ を含む一つのフィルターの中で従います。よって $\mathcal H$ はフィルターで、$\mathscr C$ の上界です。
 
-したがって [Zorn の補題](../F0_00A3_半順序_Zorn_極大延長/index.md#thm-zorn) により $\mathscr P$ は極大元 $\mathcal U$ を持ちます。これは定義どおりウルトラフィルター で、$\mathcal F\subseteq\mathcal U$ です。$\square$
+したがって [Zorn の補題](../F0_00A3_半順序_Zorn_極大延長/index.md#thm-zorn) により $\mathscr P$ は極大元 $\mathcal U$ を持ちます。これは定義どおりウルトラフィルターで、$\mathcal F\subseteq\mathcal U$ です。$\square$
 <!-- proof-end -->
 
 **選択原理を使ったのはこの Zorn 適用です。** 本教材では ZFC を採用するのでこの形で進めます。なお ウルトラフィルター拡張原理は完全な選択公理より弱い原理でも得られるため、「Banach–Alaogluで選択公理全体を丸ごと使う」とだけ言うより、極大延長が実際の入口だと見る方が正確です。
@@ -228,10 +228,10 @@ $$
 
 と書けます。$\mathcal U_{i_j}\to x_{i_j}$ だから $V_j\in\mathcal U_{i_j}$、従って $\pi_{i_j}^{-1}(V_j)\in\mathcal U$ です。filter は有限交叉で閉じるので $W\in\mathcal U$。任意の基本近傍が $\mathcal U$ に入るため $\mathcal U\to x$ です。
 
-任意のウルトラフィルター が収束したので、前節の特徴付けから $K$ はコンパクトです。$\square$
+任意のウルトラフィルターが収束したので、前節の特徴付けから $K$ はコンパクトです。$\square$
 <!-- proof-end -->
 
-TOP6 は net/filter の一般論で止め、ultrafilter を先取りしていません。本章では Banach–Alaoglu に必要になった地点で、Zorn まで遡って compact Hausdorff 版の積コンパクト性を閉じました。
+TOP6 はネット／フィルターの一般論で止め、ウルトラフィルターを先取りしていません。本章では Banach–Alaoglu に必要になった地点で、Zorn まで遡ってコンパクト Hausdorff 版の積コンパクト性を閉じました。
 
 ---
 
@@ -576,7 +576,7 @@ $$
 \overline{J(B_X)}^{\,w^*}=B_{X^{**}}.
 $$
 
-closed と dense を合わせれば $J(B_X)=B_{X^{**}}$ です。任意の $z^{**}\ne0$ に対し $z^{**}/\|z^{**}\|\in B_{X^{**}}$ なのである $x\in B_X$ が存在して
+閉性と稠密性を合わせれば $J(B_X)=B_{X^{**}}$ です。任意の $z^{**}\ne0$ に対し $z^{**}/\|z^{**}\|\in B_{X^{**}}$ なのである $x\in B_X$ が存在して
 
 $$
 Jx=\frac{z^{**}}{\|z^{**}\|}.
@@ -593,7 +593,7 @@ J(B_X)\text{ が 弱*コンパクト}
 J(B_X)\text{ が 弱*閉}
 $$
 
-だけでは $B_{X^{**}}$ の全点を覆えないからです。Goldstine が 弱*稠密 を与え、閉 + 稠密 で初めて等号になります。
+だけでは $B_{X^{**}}$ の全点を覆えないからです。Goldstine が弱*稠密性を与え、閉 + 稠密 で初めて等号になります。
 
 ---
 
@@ -673,15 +673,15 @@ $$
 
 | 結果 | 選択原理 | 完備性 | Hahn–Banach |
 |---|---|---|---|
-| ultrafilter拡張 | Zornを使用 | 不要 | 不要 |
-| compact Hausdorff積 | 上の拡張を使用 | 不要 | 不要 |
-| Banach–Alaoglu | 積compactness経由 | $X$には不要 | 不要 |
+| ウルトラフィルター拡張 | Zornを使用 | 不要 | 不要 |
+| コンパクト Hausdorff 積 | 上の拡張を使用 | 不要 | 不要 |
+| Banach–Alaoglu | 積のコンパクト性経由 | $X$には不要 | 不要 |
 | Goldstine | 新たな選択不要 | 不要 | $J$の等長性はFA3で使用 |
 | 反射的⇒弱コンパクト球 | Alaoglu経由 | 反射性をBanachで定義 | $J$の等長性経由 |
 | 弱コンパクト球⇒反射的 | 新たな選択不要 | Banachを仮定 | Goldstine側の既存$J$ |
 | 閉有界凸集合の弱コンパクトness | Alaoglu経由 | Banach | 分離で使用 |
 
-本章では Eberlein–Šmulian を使いません。「弱コンパクトだから任意の点列から弱収束部分列を取れる」という未証明の置換を避け、一般位相の compactness・filter・閉集合だけで反射性まで閉じています。
+本章では Eberlein–Šmulian を使いません。「弱コンパクトだから任意の点列から弱収束部分列を取れる」という未証明の置換を避け、一般位相のコンパクト性・フィルター・閉集合だけで反射性まで閉じています。
 
 ---
 
@@ -690,13 +690,13 @@ $$
 ### Level A
 
 <a id="ex-fa4-a01"></a>
-#### FA4-A01 ultrafilterの二者択一
+#### FA4-A01 ウルトラフィルターの二者択一
 - Level: A
 
 ウルトラフィルター $\mathcal U$ と $A\subseteq S$ に対し、$A\in\mathcal U$ または $S\setminus A\in\mathcal U$ のちょうど一方が成り立つことを証明せよ。
 
 <!-- solution-start -->
-**解答・解説**：$A\notin\mathcal U$ とする。全ての $U\in\mathcal U$ で $U\cap A\ne\varnothing$ なら、$\{U\cap A:U\in\mathcal U\}$ が生成する proper フィルター は $\mathcal U$ と $A$ を含み、極大性に反する。従ってある $U_0\in\mathcal U$ で $U_0\cap A=\varnothing$。よって $U_0\subseteq S\setminus A$ から $S\setminus A\in\mathcal U$。両方が属すれば $\varnothing$ が filter に入るので、ちょうど一方である。
+**解答・解説**：$A\notin\mathcal U$ とする。全ての $U\in\mathcal U$ で $U\cap A\ne\varnothing$ なら、$\{U\cap A:U\in\mathcal U\}$ が生成する proper フィルターは $\mathcal U$ と $A$ を含み、極大性に反する。従ってある $U_0\in\mathcal U$ で $U_0\cap A=\varnothing$。よって $U_0\subseteq S\setminus A$ から $S\setminus A\in\mathcal U$。両方が属すれば $\varnothing$ が filter に入るので、ちょうど一方である。
 <!-- solution-end -->
 
 <a id="ex-fa4-a02"></a>
