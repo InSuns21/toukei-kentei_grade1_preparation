@@ -1,10 +1,10 @@
 # MT8：直径被覆と集合のスケーリング指数
 
-Lebesgue 測度は直線上の長さ、平面上の面積、空間上の体積を測ります。しかし Cantor 集合のように Lebesgue 測度が 0 でも、有限集合とは明らかに異なる集合があります。
+Lebesgue 測度は直線上の長さ、平面上の面積、空間上の体積を測ります。しかし一点集合も Cantor 集合も Lebesgue 測度は 0 であり、「どのくらい細かい集合なのか」という違いを Lebesgue 測度だけでは区別できません。
 
-そこで「直径 $\delta$ 以下の小集合で覆ったとき、直径の $s$ 乗の総和をどこまで小さくできるか」を測ります。本章では HTML/LaTeX の互換性のため、数式は通常どおりドル区切りで記します。
+そこで、直径 $\delta$ 以下の小集合で覆ったとき、直径の $s$ 乗の総和をどこまで小さくできるかを測ります。指数 $s$ を変えながら被覆コストを調べると、集合固有の「スケールに対する細かさ」を臨界指数として取り出せます。
 
-[外測度・Carathéodory 可測性](../F0_00D3_外測度_Caratheodory可測性/index.md) の構成を、被覆の大きさに指数 $s$ を入れて幾何へ伸ばします。正規化定数は文献により異なるため、本章では直径による非正規化版を正本とします。後で定義する臨界指数はこの正規化に依存しません。
+[外測度・Carathéodory 可測性](../F0_00D3_外測度_Caratheodory可測性/index.md) の構成を、被覆の大きさに指数 $s$ を入れて幾何へ伸ばします。正規化定数は文献により異なるため、本章では直径による非正規化版を用います。後で定義する Hausdorff 次元はこの正規化に依存しません。
 
 ---
 
@@ -23,8 +23,8 @@ $$
 <a id="def-mt8-hausdorff-content"></a>
 
 <!-- formal-statement-start -->
-> **定義（delta-Hausdorff content）**  
-> $s\ge0$, $\delta>0$, $E\subset X$ とする。$E$ の $\delta$-Hausdorff content を
+> **定義（$\delta$-Hausdorff 内容量）**  
+> $s\ge0$, $\delta>0$, $E\subset X$ とする。$E$ の $\delta$-Hausdorff 内容量を
 >
 $$
 \mathcal H_\delta^s(E)
@@ -41,7 +41,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mt8-hausdorff-content -->
-### 直接例：一点集合の content
+### 直接例：一点集合の Hausdorff 内容量
 
 **定義の確認**
 
@@ -49,7 +49,7 @@ $s>0$ とし $E=\{x\}$ とします。任意の $\delta>0$ に対し、一集合
 $$
 \operatorname{diam}U_1=0\le\delta.
 $$
-従って定義の infimum は
+従って定義の 下限 は
 $$
 0\le\mathcal H_\delta^s(\{x\})\le0^s=0,
 $$
@@ -131,14 +131,14 @@ $$
 
 空集合と単調性は被覆の包含関係から直接出ます。
 
-可算劣加法性では、各 $E_j$ に対して infimum そのものを取る必要はありません。$\mathcal H_\delta^s(E_j)$ に $2^{-j}\varepsilon$ だけ近い $\delta$-cover を選び、それらを全て合わせます。
+可算劣加法性では、各 $E_j$ に対して 下限 そのものを取る必要はありません。$\mathcal H_\delta^s(E_j)$ に $2^{-j}\varepsilon$ だけ近い $\delta$-被覆 を選び、それらを全て合わせます。
 
 <!-- proof-start -->
 ### 証明
 
 $\varnothing$ は空の被覆で覆えるので $\mathcal H_\delta^s(\varnothing)=0$、従って $\mathcal H^s(\varnothing)=0$ です。
 
-$A\subset B$ なら、$B$ の任意の $\delta$-cover は $A$ の $\delta$-cover でもあります。従って
+$A\subset B$ なら、$B$ の任意の $\delta$-被覆 は $A$ の $\delta$-被覆 でもあります。従って
 
 $$
 \mathcal H_\delta^s(A)
@@ -152,7 +152,9 @@ $$
 \mathcal H^s(A)\le\mathcal H^s(B).
 $$
 
-可算劣加法性を示します。$\delta>0$ と $\varepsilon>0$ を固定します。各 $j$ について、$E_j$ の $\delta$-cover $(U_{j,k})_{k\ge1}$ を
+可算劣加法性を示します。右辺 $\sum_j\mathcal H^s(E_j)$ が無限大なら結論は自明なので、以下では有限とします。このとき各 $\mathcal H_\delta^s(E_j)$ も有限であり、近似する $\delta$-被覆を実際に選べます。
+
+$\delta>0$ と $\varepsilon>0$ を固定します。各 $j$ について、$E_j$ の $\delta$-被覆 $(U_{j,k})_{k\ge1}$ を
 
 $$
 \sum_{k=1}^{\infty}
@@ -252,7 +254,7 @@ $A$ と $B$ の距離を $r>0$ とします。$\delta<r$ なら、直径 $\delta
 
 $r=\operatorname{dist}(A,B)>0$ とし、$0<\delta<r$ を取ります。
 
-$(U_i)$ を $A\cup B$ の任意の $\delta$-cover とします。もし一つの $U_i$ が $A$ と $B$ の両方に交わるなら、$a\in A\cap U_i$ と $b\in B\cap U_i$ が取れて
+$(U_i)$ を $A\cup B$ の任意の $\delta$-被覆 とします。もし一つの $U_i$ が $A$ と $B$ の両方に交わるなら、$a\in A\cap U_i$ と $b\in B\cap U_i$ が取れて
 
 $$
 d(a,b)
@@ -276,7 +278,7 @@ $$
 \mathcal H_\delta^s(B).
 $$
 
-全ての $\delta$-cover について infimum を取り、
+全ての $\delta$-被覆 について 下限 を取り、
 
 $$
 \mathcal H_\delta^s(A\cup B)
@@ -308,7 +310,7 @@ $$
 
 [[Carathéodory 可測集合が $\sigma$-代数をなす定理](../F0_00D3_外測度_Caratheodory可測性/index.md#thm-f0-00d3-caratheodory)](../F0_00D3_外測度_Caratheodory可測性/index.md) を使うので、閉集合が可測であることを示せば十分です。
 
-閉集合 $F$ から距離 $1/n$ 以上離れた部分は $A\cap F$ と正距離で離れているため metric additivity が使えます。残る $F$ の近くの距離帯を偶数番・奇数番に分けると、各系列の異なる帯は正距離で離れるので、その tail の外測度を0へ送れます。
+閉集合 $F$ から距離 $1/n$ 以上離れた部分は $A\cap F$ と正距離で離れているため、距離外測度の加法性が使えます。残る $F$ の近くの距離帯を偶数番・奇数番に分けると、各系列の異なる帯は正距離で離れるので、その尾部の外測度を0へ送れます。
 
 <!-- proof-start -->
 ### 証明
@@ -329,7 +331,7 @@ $$
 A_n=\{x\in A:d(x,F)\ge1/n\}
 $$
 
-とおきます。$A\cap F$ と $A_n$ の距離は少なくとも $1/n$ なので metric additivity から
+とおきます。$A\cap F$ と $A_n$ の距離は少なくとも $1/n$ なので 距離加法性 から
 
 $$
 \mu^*(A)
@@ -350,7 +352,26 @@ $$
 
 とします。
 
-距離関数 $x\mapsto d(x,F)$ は 1-Lipschitz です。したがって同じ parity の $L_n,L_m$ で $|n-m|\ge2$ なら両集合の距離は正です。metric additivity を有限個ずつ繰り返すと
+距離関数 $x\mapsto d(x,F)$ は 1-Lipschitz です。例えば $m\ge n+2$ とし、$x\in L_n$, $y\in L_m$ を取ると
+
+$
+d(x,F)\ge\frac1{n+1},
+\qquad
+d(y,F)<\frac1m\le\frac1{n+2}.
+$
+
+1-Lipschitz 性から
+
+$
+d(x,y)
+\ge
+|d(x,F)-d(y,F)|
+>
+\frac1{n+1}-\frac1{n+2}
+>0.
+$
+
+従って同じ偶奇の添字を持つ異なる距離帯は正距離で離れています。距離外測度の加法性を有限個ずつ繰り返すと
 
 $$
 \sum_{k=1}^{N}\mu^*(L_{2k})\le\mu^*(A),
@@ -432,7 +453,7 @@ $$
 <a id="thm-mt8-threshold"></a>
 
 <!-- formal-statement-start -->
-> **定理（Hausdorff measure の threshold property）**  
+> **定理（Hausdorff 測度の臨界指数性）**  
 > $0\le s<t$ とする。
 >
 > - $\mathcal H^s(E)<\infty$ なら $\mathcal H^t(E)=0$。
@@ -498,11 +519,13 @@ $$
 
 ## 6. Lipschitz 写像は Hausdorff 次元を増やさない
 
+集合を座標変換したとき、次元が勝手に増えては幾何学的な量として使いにくくなります。Lipschitz 写像は距離を高々定数倍にしか広げないので、被覆集合の直径も同じ定数倍で制御できます。この対応を Hausdorff 測度へ移すと、次元が増えないことが分かります。
+
 <a id="thm-mt8-lipschitz"></a>
 
 <!-- formal-statement-start -->
-> **定理（Lipschitz 写像による Hausdorff measure の評価）**  
-> $f:(X,d_X)\to(Y,d_Y)$ が $L$-Lipschitz、すなわち
+> **定理（Lipschitz 写像による Hausdorff 測度の評価）**  
+> $f:(X,d_X)\to(Y,d_Y)$ がある $L>0$ について $L$-Lipschitz、すなわち
 >
 $$
 d_Y(f(x),f(y))\le Ld_X(x,y)
@@ -522,7 +545,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$(U_i)$ を $E$ の $\delta$-cover とします。$(f(U_i))$ は $f(E)$ を覆い、
+$(U_i)$ を $E$ の $\delta$-被覆 とします。$(f(U_i))$ は $f(E)$ を覆い、
 
 $$
 \operatorname{diam}f(U_i)
@@ -562,6 +585,8 @@ $s>\dim_HE$ なら $\mathcal H^s(E)=0$ だから $\mathcal H^s(f(E))=0$ です�
 ---
 
 ## 7. 区間を例に定義を計算する
+
+抽象的な定義が通常の「一次元」と一致することを、区間で確認します。上からは等分被覆を作り、下からはどんな被覆でも直径の総和が区間の長さを下回れないことを使います。
 
 <a id="thm-mt8-interval-dimension"></a>
 
@@ -603,7 +628,7 @@ $$
 
 したがって $\mathcal H^1([a,b])\le\ell$ です。
 
-逆に $(U_i)$ を $[a,b]$ の任意の $\delta$-cover とします。各非空 $U_i$ は直径 $\operatorname{diam}U_i$ と同じ長さの閉区間 $I_i$ に含められます。$(I_i)$ も $[a,b]$ を覆うため、Lebesgue 外測度の可算劣加法性から
+逆に $(U_i)$ を $[a,b]$ の任意の $\delta$-被覆 とします。各非空 $U_i$ は直径 $\operatorname{diam}U_i$ と同じ長さの閉区間 $I_i$ に含められます。$(I_i)$ も $[a,b]$ を覆うため、Lebesgue 外測度の可算劣加法性から
 
 $$
 \ell
@@ -631,26 +656,19 @@ $$
 
 よって $\mathcal H^s([a,b])=0$ です。
 
-$0\le s<1$ なら任意の $\delta$-cover について
+一方、すでに
 
-$$
-(\operatorname{diam}U_i)^s
-=
-\operatorname{diam}U_i\,
-(\operatorname{diam}U_i)^{s-1}
-\ge
-\delta^{s-1}\operatorname{diam}U_i,
-$$
+$
+\mathcal H^1([a,b])=\ell>0
+$
 
-なので
+を示しました。[Hausdorff 測度の臨界指数性](#thm-mt8-threshold)を $t=1$ に適用すると、全ての $0\le s<1$ について
 
-$$
-\sum_i(\operatorname{diam}U_i)^s
-\ge
-\delta^{s-1}\ell.
-$$
+$
+\mathcal H^s([a,b])=\infty
+$
 
-$\delta\downarrow0$ で右辺は $\infty$ へ行きます。従って $s<1$ では $\mathcal H^s([a,b])=\infty$ です。
+です。これなら $s=0$ も、直径0の被覆集合に負の冪を掛けることなく同じ論理で処理できます。
 
 以上から臨界指数は1です。
 <!-- proof-end -->
@@ -659,7 +677,7 @@ $\delta\downarrow0$ で右辺は $\infty$ へ行きます。従って $s<1$ で�
 
 ## 8. Hausdorff 次元の下界を測度から得る
 
-cover を全て調べる代わりに、集合 $E$ 上に「小集合へ質量を集中させすぎない」測度を作ります。
+被覆を全て調べる代わりに、集合 $E$ 上に「小集合へ質量を集中させすぎない」測度を作ります。
 
 <a id="thm-mt8-mass-principle"></a>
 
@@ -683,7 +701,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$0<\delta\le\delta_0$ とし、$(U_i)$ を $E$ の任意の $\delta$-cover とします。$\mu$ は $E$ に集中しているので、外測度の可算劣加法性から
+$0<\delta\le\delta_0$ とし、$(U_i)$ を $E$ の任意の $\delta$-被覆 とします。$\mu$ は $E$ に集中しているので、外測度の可算劣加法性から
 
 $$
 \mu(E)
@@ -703,7 +721,7 @@ $$
 \frac{\mu(E)}{C}.
 $$
 
-全ての $\delta$-cover について infimum を取り、
+全ての $\delta$-被覆 について 下限 を取り、
 
 $$
 \mathcal H_\delta^s(E)
@@ -719,14 +737,14 @@ $$
 \frac{\mu(E)}{C}>0.
 $$
 
-threshold property により $\dim_HE\ge s$ です。
+[Hausdorff 測度の臨界指数性](#thm-mt8-threshold)により $\dim_HE\ge s$ です。
 <!-- proof-end -->
 
 ---
 
 ## 9. Cantor 集合の Hausdorff 次元
 
-middle-thirds Cantor 集合を $C$ とし、
+中三分 Cantor 集合を $C$ とし、
 
 $$
 \alpha
@@ -745,8 +763,8 @@ $$
 <a id="thm-mt8-cantor-dimension"></a>
 
 <!-- formal-statement-start -->
-> **定理（middle-thirds Cantor 集合の Hausdorff 次元）**  
-> middle-thirds Cantor 集合 $C$ に対し
+> **定理（中三分 Cantor 集合の Hausdorff 次元）**  
+> 中三分 Cantor 集合 $C$ に対し
 >
 $$
 \dim_HC
@@ -754,14 +772,17 @@ $$
 \frac{\log2}{\log3}.
 $$
 >
-> さらに本章の非正規化 Hausdorff measure では、$\alpha=\log2/\log3$ に対して
+> さらに本章の非正規化 Hausdorff 測度 では、$\alpha=\log2/\log3$ に対して
 >
 $$
 0<\mathcal H^\alpha(C)<\infty.
 $$
 <!-- formal-statement-end -->
 
-### 上からの評価
+<!-- proof-start -->
+### 証明
+
+#### 上からの評価
 
 第 $n$ 段階の $2^n$ 個の基本区間で $C$ を覆うと
 
@@ -775,17 +796,17 @@ $$
 
 したがって $\mathcal H^\alpha(C)\le1$ です。
 
-### 下からの評価に使う Cantor 測度
+#### 下からの評価に使う Cantor 測度
 
-各 level-$n$ 基本集合、すなわち level-$n$ 基本区間と $C$ の共通部分に質量 $2^{-n}$ を割り当てます。親基本集合の質量は二つの子基本集合の質量の和
+各 第 $n$ 段階 基本集合、すなわち 第 $n$ 段階 基本区間と $C$ の共通部分に質量 $2^{-n}$ を割り当てます。親基本集合の質量は二つの子基本集合の質量の和
 
 $$
 2^{-n}=2^{-(n+1)}+2^{-(n+1)}
 $$
 
-なので、level を細分しても有限加法性は変わりません。有限個の基本集合の和からなる algebra を $\mathcal A$ とし、この割当てを $\nu_0$ と書きます。
+なので、level を細分しても有限加法性は変わりません。有限個の基本集合の和からなる 集合代数 を $\mathcal A$ とし、この割当てを $\nu_0$ と書きます。
 
-ここで premeasure 性を「明らか」で済ませません。[Hopf 型の premeasure 判定](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#lem-f0-00d4-hopf-premeasure) を使います。$A_m\in\mathcal A$ が
+ここで前測度性を「明らか」で済ませません。[Hopf 型の前測度判定](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#lem-f0-00d4-hopf-前測度) を使います。$A_m\in\mathcal A$ が
 
 $$
 A_1\supset A_2\supset\cdots,
@@ -793,7 +814,7 @@ A_1\supset A_2\supset\cdots,
 \bigcap_{m=1}^{\infty}A_m=\varnothing
 $$
 
-を満たすとします。各 $A_m$ は Cantor 集合の有限個の clopen cylinder の和なので $C$ の compact 部分集合です。もし全ての $A_m$ が非空なら、各 $m$ から $x_m\in A_m$ を取ります。$A_1$ は compact なので $(x_m)$ は収束部分列を持ちます。$A_m$ は閉かつ nested なので、その極限は任意の固定 $A_m$ に属します。従って
+を満たすとします。各 $A_m$ は Cantor 集合の有限個の基本集合の和であり、$C$ の開かつ閉な部分集合です。従って $C$ の閉部分集合としてコンパクトです。もし全ての $A_m$ が非空なら、各 $m$ から $x_m\in A_m$ を取ります。$A_1$ はコンパクトなので $(x_m)$ は収束部分列を持ちます。列 $(A_m)$ は減少列なので、任意の固定した $j$ に対し $m\ge j$ なら $x_m\in A_j$ です。$A_j$ は閉じているため、収束部分列の極限も $A_j$ に属します。従ってその極限は全ての $A_j$ に属し、
 
 $$
 \bigcap_{m=1}^{\infty}A_m\ne\varnothing
@@ -805,7 +826,7 @@ $$
 \nu_0(A_m)\downarrow0.
 $$
 
-従って Hopf 判定により $\nu_0$ は premeasure です。[Carathéodory 拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension) で、Cantor 集合上の Borel probability measure $\mu_C$ へ拡張できます。
+従って Hopf 判定により $\nu_0$ は前測度です。[Carathéodory 拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension) で、Cantor 集合上の Borel 確率測度 $\mu_C$ へ拡張できます。
 
 長さ $r\in(0,1]$ の区間 $I$ を取り、
 
@@ -813,7 +834,7 @@ $$
 3^{-(n+1)}<r\le3^{-n}
 $$
 
-となる $n$ を選びます。長さ $r$ の区間は level-$n$ 基本区間を高々2個しか横切れないので
+となる $n$ を選びます。長さ $r$ の区間は 第 $n$ 段階 基本区間を高々2個しか横切れないので
 
 $$
 \mu_C(I)\le2\cdot2^{-n}.
@@ -869,12 +890,7 @@ $$
 }.
 $$
 
-<!-- proof-start -->
-### 証明
-
-上の上界計算と Cantor 測度による下界計算を合わせれば証明は完了しています。
-
-上側では self-similar construction が自然な cover を与えます。下側では Cantor 測度が、どの小区間にも質量が集中しすぎないことを示します。上側だけでは「もっと効率のよい cover なら総コストを0へできる」可能性が残り、[質量分布原理](#thm-mt8-mass-principle) がそれを排除します。
+上側では Cantor 集合の自己相似構成から得られる基本区間が自然な被覆を与えました。下側では Cantor 測度が、どの小区間にも質量が集中しすぎないことを示しました。上側だけでは「もっと効率のよい被覆なら総コストを0へできる」可能性が残りますが、[質量分布原理](#thm-mt8-mass-principle) がそれを排除します。
 <!-- proof-end -->
 
 ---
@@ -883,7 +899,7 @@ $$
 
 未知の集合 $E$ については、次の役割分担を固定すると見通しがよくなります。
 
-**上界 $\dim_HE\le s$**：具体的な cover を作り、
+**上界 $\dim_HE\le s$**：具体的な 被覆 を作り、
 
 $$
 \sum_i(\operatorname{diam}U_i)^s
@@ -899,7 +915,7 @@ $$
 
 を示します。
 
-Cantor 集合では construction intervals が上界、Cantor measure が下界を担当しました。この「cover と measure」の二方向は [後続章](../STO4A/index.md) でも再登場します。
+Cantor 集合では構成に現れる基本区間が上界、Cantor 測度が下界を担当しました。この「被覆と測度」の二方向は [後続章](../STO4A/index.md) でも再登場します。
 
 ---
 
@@ -924,7 +940,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$\delta_1$-cover は各集合の直径が $\delta_1$ 以下なので、自動的に $\delta_2$-cover でもあります。従って infimum を取る候補集合は $\delta_1$ の方が狭く、
+$\delta_1$-cover は各集合の直径が $\delta_1$ 以下なので、自動的に $\delta_2$-cover でもあります。従って 下限 を取る候補集合は $\delta_1$ の方が狭く、
 
 $$
 \mathcal H_{\delta_1}^s(E)
@@ -958,7 +974,7 @@ $$
 \dim_H\{x\}=0.
 $$
 
-なお $s=0$ では非空集合一つの cover のコストは1であり、$\mathcal H^0(\{x\})=1$ です。
+なお $s=0$ では非空集合一つの 被覆 のコストは1であり、$\mathcal H^0(\{x\})=1$ です。
 <!-- solution-end -->
 
 <a id="ex-mt8-a03"></a>
@@ -1061,7 +1077,7 @@ $$
 
 - Level: B
 
-$[0,1]$ の任意の可算 cover $(U_i)$ に対し
+$[0,1]$ の任意の可算被覆 $(U_i)$ に対し
 
 $$
 1\le\sum_i\operatorname{diam}U_i
@@ -1109,7 +1125,7 @@ $$
 
 - Level: B
 
-$E$ 上の probability measure $\mu$ が、十分小さい全ての $U$ について
+$E$ 上の 確率測度 $\mu$ が、十分小さい全ての $U$ について
 
 $$
 \mu(U)\le10(\operatorname{diam}U)^{2/3}
@@ -1128,7 +1144,7 @@ $$
 \frac{1}{10}.
 $$
 
-特に正なので threshold property から
+特に正なので 臨界指数性 から
 
 $$
 \dim_HE\ge\frac23.
@@ -1139,7 +1155,7 @@ $$
 
 <a id="ex-mt8-b03"></a>
 
-## MT8-B03 self-similar cover の上界
+## MT8-B03 自己相似被覆 の上界
 
 - Level: B
 
@@ -1154,7 +1170,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$s>s_0$ を取ります。仮定の cover から
+$s>s_0$ を取ります。仮定の 被覆 から
 
 $$
 \mathcal H_{r^n}^s(E)
@@ -1191,7 +1207,7 @@ $$
 
 - Level: C
 
-middle-thirds Cantor 集合 $C$ と
+中三分 Cantor 集合 $C$ と
 
 $$
 \alpha=\frac{\log2}{\log3}
@@ -1199,8 +1215,8 @@ $$
 
 について次を示せ。
 
-1. level-$n$ の $2^n$ 個の基本区間により $\mathcal H^\alpha(C)\le1$。
-2. 各 level-$n$ 基本区間へ質量 $2^{-n}$ を与える Cantor measure $\mu_C$ を構成できる理由を説明せよ。
+1. 第 $n$ 段階 の $2^n$ 個の基本区間により $\mathcal H^\alpha(C)\le1$。
+2. 各 第 $n$ 段階 基本区間へ質量 $2^{-n}$ を与える Cantor measure $\mu_C$ を構成できる理由を説明せよ。
 3. 長さ $r$ の区間 $I$ に対し $\mu_C(I)\le4r^\alpha$ を示せ。
 4. [質量分布原理](#thm-mt8-mass-principle) を使い $\mathcal H^\alpha(C)\ge1/4$ を示せ。
 5. $\dim_HC=\alpha$ を結論せよ。
@@ -1208,7 +1224,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-1. level-$n$ では $C$ は長さ $3^{-n}$ の基本区間 $2^n$ 個で覆われるため
+1. 第 $n$ 段階 では $C$ は長さ $3^{-n}$ の基本区間 $2^n$ 個で覆われるため
 
    $$
    \mathcal H_{3^{-n}}^\alpha(C)
@@ -1218,15 +1234,15 @@ $$
 
    $3^\alpha=2$ だから右辺は1です。従って $\mathcal H^\alpha(C)\le1$。
 
-2. level-$n$ の各 cylinder に $2^{-n}$ を割り当てます。親 cylinder は二つの子 cylinder に分かれ、
+2. 第 $n$ 段階 の各 cylinder に $2^{-n}$ を割り当てます。親 cylinder は二つの子 cylinder に分かれ、
 
    $$
    2^{-n}=2^{-(n+1)}+2^{-(n+1)}
    $$
 
-   なので level 間で整合します。有限 cylinder union の algebra 上で premeasure が得られ、[Carathéodory 拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)により Borel probability measure $\mu_C$ へ拡張できます。
+   なので 段階間で整合します。有限 cylinder union の 集合代数 上で 前測度 が得られ、[Carathéodory 拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)により Borel 確率測度 $\mu_C$ へ拡張できます。
 
-3. $3^{-(n+1)}<r\le3^{-n}$ となる $n$ を取ります。長さ $r$ の区間は level-$n$ 基本区間を高々2個しか横切らないので
+3. $3^{-(n+1)}<r\le3^{-n}$ となる $n$ を取ります。長さ $r$ の区間は 第 $n$ 段階 基本区間を高々2個しか横切らないので
 
    $$
    \mu_C(I)\le2\cdot2^{-n}.
@@ -1266,7 +1282,7 @@ $$
    0<\mathcal H^\alpha(C)<\infty.
    $$
 
-   threshold property により $\alpha$ が臨界指数なので
+   臨界指数性 により $\alpha$ が臨界指数なので
 
    $$
    \boxed{
@@ -1282,14 +1298,14 @@ $$
 ## 14. 章末チェック
 
 - [ ] $\mathcal H_\delta^s$ と $\mathcal H^s$ の定義順序を説明できる。
-- [ ] Hausdorff construction の可算劣加法性を近似 cover から証明できる。
-- [ ] 正距離で離れた集合に metric additivity が出る理由を説明できる。
+- [ ] Hausdorff construction の可算劣加法性を近似 被覆 から証明できる。
+- [ ] 正距離で離れた集合に 距離加法性 が出る理由を説明できる。
 - [ ] 距離外測度 が Borel 集合を測れる機構を距離帯で追える。
-- [ ] threshold property を $\delta^{t-s}$ の評価から導ける。
+- [ ] 臨界指数性 を $\delta^{t-s}$ の評価から導ける。
 - [ ] Hausdorff dimension を臨界指数として定義できる。
-- [ ] Lipschitz map が dimension を増やさないことを証明できる。
+- [ ] Lipschitz 写像 が dimension を増やさないことを証明できる。
 - [ ] 区間の dimension が1であることを上下から示せる。
 - [ ] [質量分布原理](#thm-mt8-mass-principle) で Hausdorff 次元の下界を出せる。
-- [ ] Cantor 集合の dimension を cover と Cantor measure の両方から再構成できる。
+- [ ] Cantor 集合の dimension を 被覆 と Cantor measure の両方から再構成できる。
 
 次は確率論側へ戻り、二項分布の特殊形を越えた希少事象列の Poisson 極限を扱います。
