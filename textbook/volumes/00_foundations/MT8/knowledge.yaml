@@ -11,7 +11,7 @@ concepts:
   - id: measure.hausdorff-content
     name: δ-Hausdorff内容量
     kind: definition
-    aliases: [delta-Hausdorff content, Hausdorff content, δ-Hausdorff内容量]
+    aliases: [delta-Hausdorff content, Hausdorff content]
     introduction: formal
     introduction_aliases: ["定義（$\\delta$-Hausdorff 内容量）"]
     requires:
@@ -42,7 +42,7 @@ concepts:
     kind: proposition
     aliases: [Hausdorff外測度は距離外測度]
     introduction: formal
-    introduction_aliases: ["命題（Hausdorff 外測度 は 距離外測度）"]
+    introduction_aliases: ["命題（Hausdorff 外測度は距離外測度）"]
     requires:
       - measure.hausdorff-measure
       - measure.metric-outer-measure
@@ -50,9 +50,9 @@ concepts:
   - id: measure.metric-outer-borel
     name: 距離外測度のBorel可測性
     kind: theorem
-    aliases: [距離外測度のBorel可測性, 距離外測度 Borel measurability]
+    aliases: [metric outer measure Borel measurability]
     introduction: formal
-    introduction_aliases: ["定理（距離外測度 の Borel 可測性）"]
+    introduction_aliases: ["定理（距離外測度の Borel 可測性）"]
     requires:
       - measure.metric-outer-measure
       - measure.caratheodory-measurability
@@ -78,7 +78,6 @@ concepts:
   - id: measure.hausdorff-lipschitz
     name: Lipschitz写像によるHausdorff測度評価
     kind: theorem
-    aliases: [Lipschitz写像によるHausdorff測度評価]
     introduction: formal
     introduction_aliases: ["定理（Lipschitz 写像による Hausdorff 測度の評価）"]
     requires:
@@ -87,7 +86,7 @@ concepts:
   - id: measure.mass-distribution-principle
     name: 質量分布原理
     kind: theorem
-    aliases: [質量分布原理, mass distribution原理]
+    aliases: [mass distribution principle]
     introduction: formal
     introduction_aliases: ["定理（質量分布原理）"]
     requires:
@@ -109,7 +108,7 @@ concepts:
     kind: theorem
     aliases: [Hausdorff外測度の外測度性]
     introduction: formal
-    introduction_aliases: ["定理（Hausdorff 外測度 の外測度性）"]
+    introduction_aliases: ["定理（Hausdorff 外測度の外測度性）"]
     requires:
       - measure.hausdorff-measure
       - measure.outer-measure
