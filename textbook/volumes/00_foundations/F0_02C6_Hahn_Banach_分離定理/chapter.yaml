@@ -6,16 +6,19 @@ prerequisites:
   - F0-00A3
   - F0-02C2
 learning_objectives:
-  - Hahn--Banachの支配付き拡張定理を説明できる
-  - 一次元延長からZornで全空間へ延長する証明を説明できる
-  - ノルム保存拡張と双対空間による点分離を導ける
+  - 劣線形汎関数による支配付き延長の意味を説明できる
+  - 一次元延長で新しい値cの上下限をt>0とt<0から導ける
+  - 劣線形性により上下限の区間が空でないことを示せる
+  - 延長候補のchainの合併が上界になることを確認し、Zornの補題から全空間への延長を導ける
+  - Hahn--Banachからノルム保存拡張と双対空間による点分離を導ける
+  - ノルムを双対単位球上のsupremumとして再構成できる
 definitions:
-  - { id: F002C6-DEF-01, name: sublinear functional }
+  - { id: F002C6-DEF-01, name: 劣線形汎関数 }
 theorems:
   - { id: F002C6-THM-01, name: Hahn--Banachの定理 }
   - { id: F002C6-THM-02, name: ノルム保存拡張 }
   - { id: F002C6-THM-03, name: 双対空間による点分離 }
-canonical_examples: [一次元部分空間からの汎関数拡張, Zornによる極大延長]
+canonical_examples: [一次元部分空間からの汎関数拡張, Zornによる極大延長, 部分空間と外点を分ける汎関数]
 problem_patterns: [FA-HB-1]
-exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 3, exercises: 0.75, review: 0.5 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 2.5, review: 0.75 }
