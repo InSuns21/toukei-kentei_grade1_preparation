@@ -216,7 +216,7 @@
 14. [FA4 Banach–Alaoglu・Goldstine・反射性](textbook/volumes/00_foundations/FA4/index.md)
 15. [FA5 スペクトル・レゾルベント](textbook/volumes/00_foundations/FA5/index.md)
 16. [FA6 コンパクト作用素](textbook/volumes/00_foundations/FA6/index.md)
-17. [FA7 コンパクト自己共役作用素・Fredholm alternative](textbook/volumes/00_foundations/FA7/index.md)
+17. [FA7 コンパクト自己共役作用素・Fredholm の交代定理](textbook/volumes/00_foundations/FA7/index.md)
 
 <a id="dt-subject-pde-graduate"></a>
 ### 偏微分方程式（大学院レベル）
