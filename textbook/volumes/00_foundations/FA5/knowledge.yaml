@@ -12,63 +12,63 @@ forward_references: []
 
 concepts:
   - id: functional.resolvent-spectrum
-    name: resolvent集合・spectrum
+    name: レゾルベント集合・スペクトル
     kind: definition
-    aliases: [resolvent集合, resolvent set, spectrum, スペクトル, "### 定義（resolvent集合・spectrum）"]
-    introduction_aliases: ["### 定義（resolvent集合・spectrum）"]
+    aliases: [レゾルベント集合, resolvent set, スペクトル, spectrum]
+    introduction_aliases: ["### 定義（レゾルベント集合・スペクトル）"]
     requires:
       - functional.banach-space
       - functional.bounded-linear-operator
       - functional.bounded-inverse-theorem
 
   - id: functional.resolvent-operator
-    name: resolvent作用素
+    name: レゾルベント作用素
     kind: definition
-    aliases: [resolvent作用素, resolvent operator, "### 定義（resolvent作用素）"]
-    introduction_aliases: ["### 定義（resolvent作用素）"]
+    aliases: [レゾルベント作用素, resolvent operator]
+    introduction_aliases: ["### 定義（レゾルベント作用素）"]
     requires:
       - functional.resolvent-spectrum
 
   - id: functional.neumann-series
     name: Neumann級数
     kind: lemma
-    aliases: [Neumann級数, Neumann series, "### 補題（Neumann級数）"]
+    aliases: [Neumann級数, Neumann series]
     introduction_aliases: ["### 補題（Neumann級数）"]
     requires:
       - functional.banach-space
       - functional.bounded-linear-operator
 
   - id: functional.resolvent-local-series
-    name: resolvent集合の開性と局所級数表示
+    name: レゾルベント集合の開性と局所級数表示
     kind: theorem
-    aliases: [resolvent集合の開性, resolventの局所級数表示, "### 定理（resolvent集合の開性と局所級数表示）"]
-    introduction_aliases: ["### 定理（resolvent集合の開性と局所級数表示）"]
+    aliases: [レゾルベント集合の開性, レゾルベントの局所級数表示, resolvent set openness]
+    introduction_aliases: ["### 定理（レゾルベント集合の開性と局所級数表示）"]
     requires:
       - functional.resolvent-operator
       - functional.neumann-series
 
   - id: functional.resolvent-identity
-    name: resolvent恒等式
+    name: レゾルベント恒等式
     kind: theorem
-    aliases: [resolvent恒等式, resolvent identity, "### 定理（resolvent恒等式）"]
-    introduction_aliases: ["### 定理（resolvent恒等式）"]
+    aliases: [レゾルベント恒等式, resolvent identity]
+    introduction_aliases: ["### 定理（レゾルベント恒等式）"]
     requires:
       - functional.resolvent-operator
 
   - id: functional.spectrum-compact-norm-bound
-    name: spectrumのcompact性とノルム円板評価
+    name: スペクトルのコンパクト性とノルム円板評価
     kind: theorem
-    aliases: [spectrumのcompact性, スペクトルのコンパクト性, "### 定理（spectrumのcompact性とノルム円板評価）"]
-    introduction_aliases: ["### 定理（spectrumのcompact性とノルム円板評価）"]
+    aliases: [スペクトルのコンパクト性]
+    introduction_aliases: ["### 定理（スペクトルのコンパクト性とノルム円板評価）"]
     requires:
       - functional.resolvent-local-series
       - functional.neumann-series
 
   - id: functional.spectrum-nonempty
-    name: 複素Banach空間上のspectrum非空性
+    name: 複素Banach空間上のスペクトル非空性
     kind: theorem
-    aliases: [spectrum非空性, spectrum is nonempty, "### 定理（複素Banach空間上のspectrum非空性）"]
-    introduction_aliases: ["### 定理（複素Banach空間上のspectrum非空性）"]
+    aliases: [スペクトル非空性, spectrum is nonempty]
+    introduction_aliases: ["### 定理（複素Banach空間上のスペクトル非空性）"]
     requires:
       - functional.spectrum-compact-norm-bound
       - functional.resolvent-local-series
@@ -76,28 +76,28 @@ concepts:
       - complex-analysis.liouville-theorem
 
   - id: functional.polynomial-spectral-mapping
-    name: 多項式spectral mapping theorem
+    name: 多項式スペクトル写像定理
     kind: theorem
-    aliases: [多項式spectral mapping theorem, polynomial spectral mapping theorem, 多項式スペクトル写像定理, "### 定理（多項式spectral mapping theorem）"]
-    introduction_aliases: ["### 定理（多項式spectral mapping theorem）"]
+    aliases: [多項式スペクトル写像定理, polynomial spectral mapping theorem]
+    introduction_aliases: ["### 定理（多項式スペクトル写像定理）"]
     requires:
       - functional.resolvent-spectrum
       - complex-analysis.fundamental-theorem-of-algebra
 
   - id: functional.spectral-radius
-    name: spectral radius
+    name: スペクトル半径
     kind: definition
-    aliases: [spectral radius, スペクトル半径, "### 定義（spectral radius）"]
-    introduction_aliases: ["### 定義（spectral radius）"]
+    aliases: [スペクトル半径, spectral radius]
+    introduction_aliases: ["### 定義（スペクトル半径）"]
     requires:
       - functional.spectrum-nonempty
       - functional.spectrum-compact-norm-bound
 
   - id: functional.spectral-radius-formula
-    name: spectral radius formula
+    name: スペクトル半径公式
     kind: theorem
-    aliases: [spectral radius formula, Gelfand formula, スペクトル半径公式, "### 定理（spectral radius formula）"]
-    introduction_aliases: ["### 定理（spectral radius formula）"]
+    aliases: [スペクトル半径公式, spectral radius formula, Gelfand formula]
+    introduction_aliases: ["### 定理（スペクトル半径公式）"]
     requires:
       - functional.spectral-radius
       - functional.polynomial-spectral-mapping
