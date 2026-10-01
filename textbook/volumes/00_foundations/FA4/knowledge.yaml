@@ -13,37 +13,37 @@ forward_references: []
 
 concepts:
   - id: topology.ultrafilter
-    name: ultrafilter
+    name: ウルトラフィルター
     kind: definition
-    aliases: [ultrafilter, ウルトラフィルター, "### 定義（ultrafilter）"]
-    introduction_aliases: ["### 定義（ultrafilter）"]
+    aliases: [ウルトラフィルター, ultrafilter]
+    introduction_aliases: ["### 定義（ウルトラフィルター）"]
     requires:
       - topology.filter
 
   - id: topology.ultrafilter-extension
-    name: ultrafilter拡張補題
+    name: ウルトラフィルター拡張補題
     kind: lemma
-    aliases: [ultrafilter拡張補題, "### 補題（ultrafilter拡張補題）"]
-    introduction_aliases: ["### 補題（ultrafilter拡張補題）"]
+    aliases: [ウルトラフィルター拡張補題, ultrafilter extension lemma]
+    introduction_aliases: ["### 補題（ウルトラフィルター拡張補題）"]
     requires:
       - topology.ultrafilter
       - set.zorn-lemma
 
   - id: topology.compactness-ultrafilter-characterization
-    name: コンパクト性のultrafilter特徴付け
+    name: コンパクト性のウルトラフィルター特徴付け
     kind: theorem
-    aliases: [コンパクト性のultrafilter特徴付け, "### 定理（コンパクト性のultrafilter特徴付け）"]
-    introduction_aliases: ["### 定理（コンパクト性のultrafilter特徴付け）"]
+    aliases: [コンパクト性のウルトラフィルター特徴付け]
+    introduction_aliases: ["### 定理（コンパクト性のウルトラフィルター特徴付け）"]
     requires:
       - topology.ultrafilter-extension
       - topology.filter-convergence
       - topology.compact-fip-characterization
 
   - id: topology.compact-hausdorff-product-fa4
-    name: compact Hausdorff空間族の積コンパクト性
+    name: コンパクト Hausdorff 空間族の積コンパクト性
     kind: theorem
-    aliases: [compact Hausdorff空間族の積コンパクト性, "### 定理（compact Hausdorff空間族の積コンパクト性）"]
-    introduction_aliases: ["### 定理（compact Hausdorff空間族の積コンパクト性）"]
+    aliases: [コンパクト Hausdorff 空間族の積コンパクト性]
+    introduction_aliases: ["### 定理（コンパクト Hausdorff 空間族の積コンパクト性）"]
     requires:
       - topology.compactness-ultrafilter-characterization
       - topology.product-topology
@@ -52,7 +52,7 @@ concepts:
   - id: functional.banach-alaoglu
     name: Banach–Alaogluの定理
     kind: theorem
-    aliases: [Banach–Alaogluの定理, Banach-Alaoglu theorem, "### 定理（Banach–Alaoglu）"]
+    aliases: [Banach–Alaogluの定理, Banach-Alaoglu theorem]
     introduction_aliases: ["### 定理（Banach–Alaoglu）"]
     requires:
       - functional.weak-star-topology
@@ -62,7 +62,7 @@ concepts:
   - id: functional.goldstine-theorem
     name: Goldstineの定理
     kind: theorem
-    aliases: [Goldstineの定理, Goldstine theorem, "### 定理（Goldstine）"]
+    aliases: [Goldstineの定理, Goldstine theorem]
     introduction_aliases: ["### 定理（Goldstine）"]
     requires:
       - functional.canonical-bidual-embedding
@@ -72,7 +72,7 @@ concepts:
   - id: functional.reflexive-banach-space
     name: 反射的Banach空間
     kind: definition
-    aliases: [反射的Banach空間, 反射性, reflexive Banach space, reflexivity, "### 定義（反射的Banach空間）"]
+    aliases: [反射的Banach空間, 反射性, reflexive Banach space, reflexivity]
     introduction_aliases: ["### 定義（反射的Banach空間）"]
     requires:
       - functional.canonical-bidual-embedding
@@ -81,7 +81,7 @@ concepts:
   - id: functional.reflexivity-weak-compact-unit-ball
     name: 反射性と閉単位球の弱コンパクト性の同値
     kind: theorem
-    aliases: [反射性と閉単位球の弱コンパクト性の同値, "### 定理（反射性と閉単位球の弱コンパクト性）"]
+    aliases: [反射性と閉単位球の弱コンパクト性の同値]
     introduction_aliases: ["### 定理（反射性と閉単位球の弱コンパクト性）"]
     requires:
       - functional.reflexive-banach-space
@@ -93,9 +93,9 @@ concepts:
   - id: functional.reflexive-closed-bounded-convex-weak-compact
     name: 反射的Banach空間の閉有界凸集合は弱コンパクト
     kind: corollary
-    aliases: [反射的Banach空間の閉有界凸集合は弱コンパクト, "### 系（反射的Banach空間の閉有界凸集合は弱コンパクト）"]
+    aliases: [反射的Banach空間の閉有界凸集合は弱コンパクト]
     introduction_aliases: ["### 系（反射的Banach空間の閉有界凸集合は弱コンパクト）"]
     requires:
       - functional.reflexivity-weak-compact-unit-ball
-      - functional.norm-preserving-extension
+      - functional.hahn-banach-separation
       - topology.closed-subset-compact
