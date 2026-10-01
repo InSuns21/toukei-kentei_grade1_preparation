@@ -1081,7 +1081,7 @@ $$
 
 なので $\|f_0\|=1$ です。
 
-Hahn--Banach のノルム保存拡張により、$f_0$ をある $f\in X^*$ へ
+[ノルム保存拡張](#ref-hahn-banach-norm-preserving-extension)により、$f_0$ をある $f\in X^*$ へ
 
 $$
 \|f\|=\|f_0\|=1
@@ -1331,7 +1331,7 @@ $$
 \|g\|=1.
 $$
 
-Hahn--Banach のノルム保存拡張により $g$ を $f\in X^*$ へ $\|f\|=1$ のまま延長できます。
+[ノルム保存拡張](#ref-hahn-banach-norm-preserving-extension)により $g$ を $f\in X^*$ へ $\|f\|=1$ のまま延長できます。
 
 $m\in M$ なら
 
