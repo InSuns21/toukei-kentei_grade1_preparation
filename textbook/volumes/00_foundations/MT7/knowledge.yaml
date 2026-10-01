@@ -51,10 +51,10 @@ concepts:
       - measure.radon-nikodym-sigma-finite
 
   - id: measure.linfty-duality-rn-boundary
-    name: L^∞双対でRadon--Nikodym構成が破綻する機構
+    name: L^∞双対でRadon--Nikodym構成が閉じない理由
     kind: proposition
     aliases: [L-infinity双対でRadon--Nikodym構成が破綻する機構]
-    introduction_aliases: ["命題（$L^\\infty$双対でRadon--Nikodym構成が破綻する機構）"]
+    introduction_aliases: ["命題（$L^\\infty$ 双対で Radon--Nikodym 構成が閉じない理由）"]
     requires:
       - measure.essential-supremum
       - measure.lp-duality-sigma-finite
