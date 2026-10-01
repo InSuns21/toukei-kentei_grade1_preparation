@@ -34,10 +34,10 @@ concepts:
       - functional.dual-norm
 
   - id: functional.dual-separates-points
-    name: 双対空間は点を分離できる
+    name: 双対空間による点の識別
     kind: proposition
-    introduction: inline
-    aliases: [双対空間は点を分離できる, 双対空間による点分離]
+    aliases: [双対空間による点の識別]
+    introduction_aliases: ["**命題（双対空間による点の識別）**"]
     requires:
       - functional.hahn-banach-theorem
       - functional.dual-space
