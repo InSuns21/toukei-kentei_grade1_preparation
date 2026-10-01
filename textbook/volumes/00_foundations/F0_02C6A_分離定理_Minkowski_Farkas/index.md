@@ -154,31 +154,21 @@ $$
 
 $a=0$ では $p_U(0)=0$ なので正の斉次性が成り立ちます。
 
-次に劣加法性を示します。$\varepsilon>0$ を固定し、
-
-$$
-a<p_U(x)+\varepsilon,
-\qquad
-b<p_U(y)+\varepsilon
-$$
-
-ではなく、infimum の定義から
-
-$$
-p_U(x)<a<p_U(x)+\varepsilon,
-\qquad
-p_U(y)<b<p_U(y)+\varepsilon
-$$
-
-となる $a,b>0$ を取り、さらに
+次に劣加法性を示します。$\varepsilon>0$ を固定します。infimum の定義から、
 
 $$
 x\in aU,
 \qquad
-y\in bU
+a<p_U(x)+\varepsilon,
 $$
 
-となるように選びます。
+$$
+y\in bU,
+\qquad
+b<p_U(y)+\varepsilon
+$$
+
+となる $a,b>0$ を選べます。infimum が実際に達成されることは仮定していません。
 
 すると
 
