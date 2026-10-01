@@ -9,11 +9,11 @@ forward_references: []
 
 concepts:
   - id: measure.hausdorff-content
-    name: delta-Hausdorff content
+    name: δ-Hausdorff内容量
     kind: definition
-    aliases: [delta-Hausdorff content, Hausdorff content]
+    aliases: [delta-Hausdorff content, Hausdorff content, δ-Hausdorff内容量]
     introduction: formal
-    introduction_aliases: ["定義（delta-Hausdorff content）"]
+    introduction_aliases: ["定義（$\\delta$-Hausdorff 内容量）"]
     requires:
       - topology.metric-space
 
@@ -67,20 +67,20 @@ concepts:
       - measure.hausdorff-measure
 
   - id: measure.hausdorff-threshold
-    name: Hausdorff measureのthreshold property
+    name: Hausdorff測度の臨界指数性
     kind: theorem
-    aliases: [Hausdorff measureのthreshold property, Hausdorff measure threshold]
+    aliases: [Hausdorff measure threshold property]
     introduction: formal
-    introduction_aliases: ["定理（Hausdorff measure の threshold property）"]
+    introduction_aliases: ["定理（Hausdorff 測度の臨界指数性）"]
     requires:
       - measure.hausdorff-measure
 
   - id: measure.hausdorff-lipschitz
-    name: Lipschitz写像によるHausdorff measure評価
+    name: Lipschitz写像によるHausdorff測度評価
     kind: theorem
-    aliases: [Lipschitz写像によるHausdorff measure評価]
+    aliases: [Lipschitz写像によるHausdorff測度評価]
     introduction: formal
-    introduction_aliases: ["定理（Lipschitz 写像による Hausdorff measure の評価）"]
+    introduction_aliases: ["定理（Lipschitz 写像による Hausdorff 測度の評価）"]
     requires:
       - measure.hausdorff-measure
 
@@ -94,11 +94,11 @@ concepts:
       - measure.hausdorff-measure
 
   - id: measure.cantor-hausdorff-dimension
-    name: middle-thirds Cantor集合のHausdorff次元
+    name: 中三分Cantor集合のHausdorff次元
     kind: theorem
-    aliases: [middle-thirds Cantor集合のHausdorff次元, Cantor set Hausdorff dimension]
+    aliases: [middle-thirds Cantor set Hausdorff dimension]
     introduction: formal
-    introduction_aliases: ["定理（middle-thirds Cantor 集合の Hausdorff 次元）"]
+    introduction_aliases: ["定理（中三分 Cantor 集合の Hausdorff 次元）"]
     requires:
       - measure.hausdorff-dimension
       - measure.mass-distribution-principle
