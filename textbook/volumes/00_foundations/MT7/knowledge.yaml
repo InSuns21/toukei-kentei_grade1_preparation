@@ -13,8 +13,8 @@ concepts:
   - id: measure.lp-complete
     name: Lpの完備性
     kind: theorem
-    aliases: [Lpの完備性, "### 定理（Lpの完備性）"]
-    introduction_aliases: ["### 定理（Lpの完備性）"]
+    aliases: [L^pの完備性]
+    introduction_aliases: ["定理（Lpの完備性）"]
     requires:
       - measure.lp-space
       - measure.minkowski-inequality
@@ -23,8 +23,8 @@ concepts:
   - id: measure.lp-simple-dense
     name: 単関数のLp稠密性
     kind: theorem
-    aliases: [単関数のLp稠密性, "### 定理（単関数のLp稠密性）"]
-    introduction_aliases: ["### 定理（単関数のLp稠密性）"]
+    aliases: [単関数のL^p稠密性]
+    introduction_aliases: ["定理（単関数のLp稠密性）"]
     requires:
       - measure.lp-space
       - measure.dominated-convergence-theorem
@@ -32,18 +32,18 @@ concepts:
   - id: measure.cc-dense-in-lp
     name: CcのLp稠密性
     kind: theorem
-    aliases: [CcのLp稠密性, "### 定理（CcのLp稠密性）"]
-    introduction_aliases: ["### 定理（CcのLp稠密性）"]
+    aliases: [C_cのL^p稠密性]
+    introduction_aliases: ["定理（CcのLp稠密性）"]
     requires:
       - measure.lp-simple-dense
       - topology.compact-support-cc
       - measure.radon-measure
 
   - id: measure.lp-duality-sigma-finite
-    name: σ-finite Lp双対定理
+    name: σ有限Lp双対定理
     kind: theorem
-    aliases: [σ-finite Lp双対定理, "### 定理（σ-finite Lp双対定理）"]
-    introduction_aliases: ["### 定理（σ-finite Lp双対定理）"]
+    aliases: [σ有限L^p双対定理]
+    introduction_aliases: ["定理（σ有限Lp双対定理）"]
     requires:
       - measure.lp-space
       - measure.holder-inequality
@@ -51,10 +51,10 @@ concepts:
       - measure.radon-nikodym-sigma-finite
 
   - id: measure.linfty-duality-rn-boundary
-    name: L-infinity双対でRN構成が破綻する機構
+    name: L-infinity双対でRadon--Nikodym構成が閉じない理由
     kind: proposition
-    aliases: [L-infinity双対でRN構成が破綻する機構, "### 命題（L-infinity双対でRN構成が破綻する機構）"]
-    introduction_aliases: ["### 命題（L-infinity双対でRN構成が破綻する機構）"]
+    aliases: [L^∞双対でRadon--Nikodym構成が閉じない理由]
+    introduction_aliases: ["命題（L-infinity双対でRadon--Nikodym構成が閉じない理由）"]
     requires:
       - measure.essential-supremum
       - measure.lp-duality-sigma-finite
