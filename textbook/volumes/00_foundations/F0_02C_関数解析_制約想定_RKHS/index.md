@@ -21,7 +21,7 @@ A → A1 → A2 → A3 → B
 → FA1  Banach空間の商 / Baire / 一様有界性原理
 → FA2  開写像定理 / 有界逆定理 / 閉グラフ定理
 → C6   Hahn--Banach
-→ C6A  分離定理 / Minkowski functional / Farkas
+→ C6A  分離定理 / Minkowski 汎関数 / Farkas
 
 → G    凸集合 / 凸関数 / 凸最適化の基礎
 → G1   epigraph / 閉凸関数 / 支持超平面

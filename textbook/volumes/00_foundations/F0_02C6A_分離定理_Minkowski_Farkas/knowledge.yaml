@@ -3,26 +3,45 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - F0-02C6
-  - OPT1
-  - OPT2
+  - F0-02C1A
+
+forward_references:
+  - convex.convex-set
+  - convex.farkas-lemma
 
 concepts:
-  - id: functional.minkowski-functional
-    name: Minkowski functional
+  - id: functional.convex-set-basic-c6a
+    name: 分離定理で使う凸集合の再掲
     kind: definition
-    introduction: inline
-    aliases: [Minkowski functional]
+    aliases: [分離定理で使う凸集合の再掲]
+    introduction_aliases: [凸集合, "**定義（分離で使う凸集合）**"]
     requires:
-      - convex.convex-set
-      - functional.normed-space
+      - functional.convex-set-basic-c1a
+
+  - id: functional.absorbing-set-c6a
+    name: 吸収集合
+    kind: definition
+    aliases: [吸収集合, 吸収的集合, absorbing set]
+    introduction_aliases: ["**定義（吸収集合）**"]
+    requires:
+      - linear.vector-space
+
+  - id: functional.minkowski-functional
+    name: Minkowski汎関数
+    kind: definition
+    aliases: [Minkowski汎関数, Minkowski functional, gauge]
+    introduction_aliases: ["**定義（Minkowski 汎関数）**"]
+    requires:
+      - functional.absorbing-set-c6a
+      - functional.convex-set-basic-c6a
 
   - id: functional.hahn-banach-separation
     name: 点と閉凸集合の強分離
     kind: theorem
-    introduction: inline
     aliases: [点と閉凸集合の強分離, 強分離]
+    introduction_aliases: ["**定理（点と閉凸集合の強分離）**"]
     requires:
       - functional.hahn-banach-theorem
       - functional.minkowski-functional
-      - convex.separating-hyperplane
+      - functional.convex-set-basic-c6a
       - topology.closed-set

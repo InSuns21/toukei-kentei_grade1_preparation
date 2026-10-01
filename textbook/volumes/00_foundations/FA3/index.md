@@ -8,7 +8,7 @@ $$
 \|x_\alpha-x\|\to0
 $$
 
-によってベクトル全体の差を一度に測ります。これに対し弱収束では、各連続線形汎関数を「観測器」として
+によってベクトル全体の差を一度に測ります。これに対し、本章で導入するもう一つの収束概念では、各連続線形汎関数を「観測器」として
 
 $$
 f(x_\alpha)\to f(x)
@@ -29,16 +29,16 @@ $$
 
 X* 側では有限個の x∈X で値を観測する
   ↓
-弱*位相 σ(X*,X)
+X* 上の対応する位相
   ↓
-X → X** の標準埋め込み J
+各 x∈X を X** の評価汎関数へ送る写像 J
   ↓
-弱収束 in X ⇔ 弱*収束 of Jx in X**
+X 側の収束と Jx 側の評価収束を比較する
 ```
 
 と進みます。
 
-[双対空間](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#def-f0-02c2-dual-space)と [Hahn--Banach のノルム保存拡張](../F0_02C6_Hahn_Banach_分離定理/index.md#ref-hahn-banach-norm-preserving-extension)は既知とします。本章では Banach--Alaoglu のコンパクト性や反射性を先取りしません。それらは次章 FA4 で扱います。
+[双対空間](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#def-f0-02c2-dual-space)と [Hahn--Banach のノルム保存拡張](../F0_02C6_Hahn_Banach_分離定理/index.md#ref-hahn-banach-norm-preserving-extension)は既知とします。本章では、$X$ を $X^{**}$ へ送る自然な評価写像までを整え、その先のコンパクト性理論は [FA4](../FA4/index.md) に回します。
 
 スカラー体は $\mathbb K=\mathbb R$ または $\mathbb C$ とします。
 
@@ -96,13 +96,25 @@ $$
 
 ### 1.1 この族が本当に近傍基底になることを確認する
 
-各 $x_0$ は明らかに
+各 $j$ について
+
+$$
+f_j(x_0-x_0)=f_j(0)=0
+$$
+
+なので
+
+$$
+|f_j(x_0-x_0)|=0<\varepsilon.
+$$
+
+従って
 
 $$
 x_0\in U(x_0;f_1,\dots,f_m;\varepsilon)
 $$
 
-を満たします。
+です。
 
 次に
 
@@ -140,10 +152,18 @@ $$
 <\varepsilon,
 $$
 
-同様に
+また $x\in W$ なら $|g_k(x-z)|<\delta$ なので
 
 $$
-|g_k(x-y_0)|<\eta.
+\begin{aligned}
+|g_k(x-y_0)|
+&\le
+|g_k(x-z)|+|g_k(z-y_0)|\\
+&<
+\delta+|g_k(z-y_0)|\\
+&<
+\eta.
+\end{aligned}
 $$
 
 従って、この基本近傍族は位相の基底公理を満たします。
@@ -186,6 +206,8 @@ $$
 ---
 
 ## 2. 弱収束：全ての連続線形汎関数で見て収束する
+
+弱位相を作っただけでは、ネットがその位相でどのように収束するかをまだ名前付きで扱えません。ノルム収束より粗い「観測値だけの収束」を後で定理として使えるよう、弱位相に関する収束を定義します。
 
 <a id="def-fa3-weak-convergence"></a>
 <!-- formal-statement-start -->
@@ -414,7 +436,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $\dim X=n<\infty$ とします。[Hahn--Banach のノルム保存拡張](../F0_02C6_Hahn_Banach_分離定理/index.md#ref-hahn-banach-norm-preserving-extension)により $X^*$ は $X$ の点を分離します。
+まず $\dim X=n<\infty$ とします。[Hahn--Banach のノルム保存拡張](../F0_02C6_Hahn_Banach_分離定理/index.md#ref-hahn-banach-norm-preserving-extension)により $X^*$ は $X$ の異なる二点を連続線形汎関数の値で識別できます。
 
 $X^*$ を代数的双対 $X^\#$ の部分空間と見ます。もし $\dim X^*<n$ なら、有限次元線形代数から
 
@@ -565,7 +587,13 @@ $$
 \lambda(F(x)):=L(x)
 $$
 
-により $\operatorname{im}F$ 上の線形汎関数 $\lambda$ が well-defined に定まります。
+により $\operatorname{im}F$ 上で
+
+$$
+\lambda(F(x)):=L(x)
+$$
+
+と置いた値は、$F(x)$ の代表元 $x$ の選び方に依存しません。従って $\lambda$ は $\operatorname{im}F$ 上で一意に定まります。
 
 有限次元空間 $\operatorname{im}F\subset\mathbb K^m$ 上の線形汎関数は座標線形結合で書けるので、ある $a_1,\dots,a_m$ が存在して
 
@@ -660,6 +688,8 @@ $$
 
 ## 8. 弱*収束は点ごとの収束そのもの
 
+弱*位相では、近傍は有限個の点 $x\in X$ での評価値だけを見ます。そこで、この位相での収束を独立に名前付けし、直後に「各点での値の収束」と同値であることを確認します。
+
 <a id="def-fa3-weak-star-convergence"></a>
 <!-- formal-statement-start -->
 ### 定義（弱*収束）
@@ -747,6 +777,8 @@ $$
 ---
 
 ## 9. 双対の双対と標準埋め込み
+
+弱*位相は $X^*$ を元の空間 $X$ の点で観測する位相でした。逆に、各 $x\in X$ 自身を「$X^*$ の汎関数を評価するもの」と見れば、$X$ をもう一つの双対空間の中へ自然に送り込めます。この対応を定式化します。
 
 <a id="def-fa3-canonical-bidual-embedding"></a>
 <!-- formal-statement-start -->
@@ -987,7 +1019,7 @@ $$
 
 ---
 
-## 12. $X^*$ 上の weak と weak* を混同しない
+## 12. $X^*$ 上の弱位相と弱*位相を混同しない
 
 $X^*$ 自身もノルム空間なので、その弱位相は
 
@@ -1136,7 +1168,21 @@ $$
 <\varepsilon.
 $$
 
-$g_k$ についても同様に $|g_k(w-y)|<\eta$。従って所望の包含が成り立つ。
+$g_k$ については
+
+$$
+\begin{aligned}
+|g_k(w-y)|
+&\le
+|g_k(w-z)|+|g_k(z-y)|\\
+&<
+\delta+|g_k(z-y)|\\
+&<
+\eta.
+\end{aligned}
+$$
+
+従って所望の包含が成り立つ。
 <!-- solution-end -->
 
 ### FA3-A02 $\ell^2$ の標準基底は弱収束する
@@ -1326,7 +1372,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-有限次元なら Hahn--Banach の点分離性から連続双対 $X^*$ は代数的双対全体になる。$X^*$ の基底 $f_1,\dots,f_n$ と対応する $X$ の双対基底 $e_1,\dots,e_n$ を取ると
+有限次元なら Hahn--Banach から得た「非零ベクトルをある連続線形汎関数が検出する」という性質により、連続双対 $X^*$ は代数的双対全体になる。$X^*$ の基底 $f_1,\dots,f_n$ と対応する $X$ の双対基底 $e_1,\dots,e_n$ を取ると
 
 $$
 x=\sum_i f_i(x)e_i,
@@ -1351,7 +1397,7 @@ $$
 
 - 弱位相 $\sigma(X,X^*)$ は、有限個の連続線形汎関数の値だけを同時に制御する基本近傍から作る。
 - $x_\alpha\rightharpoonup x$ は、全ての $f\in X^*$ について $f(x_\alpha)\to f(x)$ と同値。
-- Hahn--Banach は $X^*$ が点を分離することを保証し、弱位相を Hausdorff にする。
+- Hahn--Banach は異なる点を連続線形汎関数の値で識別できることを保証し、弱位相を Hausdorff にする。
 - 有限次元では弱位相とノルム位相は一致し、無限次元では弱位相が真に粗い。
 - 弱位相に関する連続線形汎関数は新たに増えず、ちょうど $X^*$ である。
 - 弱*位相 $\sigma(X^*,X)$ は、有限個の $x\in X$ での評価だけを制御する。
