@@ -26,7 +26,7 @@ Neumann級数
 
 全章を通じて $X\ne\{0\}$ を **複素 Banach 空間**、$T\in\mathcal B(X)$ を有界線形作用素とします。複素数体を仮定する理由は スペクトル非空性で [Liouvilleの定理](../CA3/index.md#thm-ca3-liouville) と [代数学の基本定理](../CA3/index.md#cor-ca3-fta) を使うからです。実 Banach 空間上の作用素を実数だけで調べると スペクトルが空になる例があります。
 
-既知とする主な結果は [FA2 の有界逆定理](../FA2/index.md#thm-fa2-bounded-inverse)、[Hahn–Banach のノルム保存拡張](../F0_02C6_Hahn_Banach_分離定理/index.md#ref-hahn-banach-norm-preserving-extension)、[CA3 の Cauchy積分公式](../CA3/index.md#thm-ca3-cauchy-integral-formula)、[Liouvilleの定理](../CA3/index.md#thm-ca3-liouville)、[代数学の基本定理](../CA3/index.md#cor-ca3-fta) です。FA6 のコンパクト作用素、Fredholm 理論、FA7 のコンパクト自己共役作用素のスペクトル定理は使いません。
+既知とする主な結果は [FA2 の有界逆定理](../FA2/index.md#thm-fa2-bounded-inverse)、[Hahn–Banach のノルム保存拡張](../F0_02C6_Hahn_Banach_分離定理/index.md#ref-hahn-banach-norm-preserving-extension)、[CA3 の Cauchy積分公式](../CA3/index.md#thm-ca3-cauchy-integral-formula)、[Liouvilleの定理](../CA3/index.md#thm-ca3-liouville)、[代数学の基本定理](../CA3/index.md#cor-ca3-fta) です。後続章で扱う、作用素が有界集合を強く圧縮する性質や、自己共役の場合の固有ベクトル展開は使いません。
 
 ---
 
@@ -528,11 +528,13 @@ $$
 両方向の補集合が一致するため主張を得ます。$\square$
 <!-- proof-end -->
 
-「可換な因子の積が可逆なら各因子も可逆」という部分を省略しないことがポイントです。一般の非可換環では片側逆の扱いに注意が必要ですが、ここでは全てが同じ $T$ の多項式なので可換性を明示的に使えます。
+「可換な因子の積が可逆なら各因子も可逆」という部分を省略しないことがポイントです。一般には因子の順序を入れ替えられないので片側逆の扱いに注意が必要ですが、ここでは全てが同じ $T$ の多項式なので互いに可換であることを明示的に使えます。
 
 ---
 
 ## 7. スペクトル半径
+
+ここまででスペクトルは空でないコンパクト集合だと分かりました。そこで、スペクトル全体が原点からどこまで広がっているかを一つの数で測ります。その最大半径を次で定義します。
 
 <a id="def-fa5-spectral-radius"></a>
 <!-- formal-statement-start -->
@@ -546,7 +548,7 @@ r(T)
 \max\{|\lambda|:\lambda\in\sigma(T)\}
 $$
 
-を **スペクトル半径（スペクトル半径）** という。
+を **スペクトル半径（spectral radius）** という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fa5-spectral-radius -->
@@ -935,11 +937,17 @@ $$
 
 ### 例3：乗算作用素のスペクトルは値域そのもの
 
-$X=C([0,1])$ に一様ノルムを入れ、
+$X=C([0,1])$ とし、
 
-$$
+$
+\|f\|_\infty:=\max_{0\le t\le1}|f(t)|
+$
+
+と置きます。このノルムのもとで
+
+$
 (Mf)(t)=t f(t)
-$$
+$
 
 とします。
 
@@ -1408,7 +1416,7 @@ $$
 
 - Banach 性：$\mathcal B(X)$ で [Neumann級数](#lem-fa5-neumann-series)を収束させ、[有界逆定理](../FA2/index.md#thm-fa2-bounded-inverse)を使う。
 - 複素数体：Liouville、代数学の基本定理、Cauchy積分を使う。
-- Hahn–Banach：双対が点を分離すること、および $\|y\|=\sup_{\|f\|\le1}|f(y)|$ でスカラー評価をノルム評価へ戻すこと。
+- Hahn–Banach：異なるベクトルを連続線形汎関数の値で識別できること、および $\|y\|=\sup_{\|f\|\le1}|f(y)|$ でスカラー評価をノルム評価へ戻すこと。
 
 この三つを曖昧に「標準的議論」とまとめないことが本問の要点です。
 <!-- solution-end -->
