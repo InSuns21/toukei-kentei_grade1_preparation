@@ -17,7 +17,7 @@ D2Dでは $L^p$ 空間、Hölder の不等式、Minkowski の不等式を作り�
 
 <a id="thm-mt7-lp-complete"></a>
 <!-- formal-statement-start -->
-### 定理（$L^p$ の完備性）
+### 定理（Lpの完備性）
 
 任意の測度空間について、$1\le p\le\infty$ の $L^p$ はそれぞれの $\|\cdot\|_p$ に関して完備である。
 <!-- formal-statement-end -->
@@ -206,7 +206,7 @@ $L^p$ の抽象元を扱うとき、まず有限個の値しか取らない関�
 
 <a id="thm-mt7-simple-dense"></a>
 <!-- formal-statement-start -->
-### 定理（単関数の $L^p$ 稠密性）
+### 定理（単関数のLp稠密性）
 
 $1\le p<\infty$ とする。任意の $f\in L^p(\mu)$ と $\varepsilon>0$ に対し、$L^p$ に属する実数値単関数 $s$ が存在して $\|f-s\|_p<\varepsilon$ となる。
 <!-- formal-statement-end -->
@@ -285,7 +285,7 @@ $$
 
 <a id="thm-mt7-cc-dense"></a>
 <!-- formal-statement-start -->
-### 定理（$C_c$ の $L^p$ 稠密性）
+### 定理（CcのLp稠密性）
 
 $1\le p<\infty$ とする。局所コンパクト Hausdorff 空間 $X$ 上の Radon 測度 $\mu$ に対し、$C_c(X)$ は $L^p(\mu)$ に稠密である。
 <!-- formal-statement-end -->
@@ -484,7 +484,7 @@ $$
 
 <a id="thm-mt7-lp-duality"></a>
 <!-- formal-statement-start -->
-### 定理（σ有限 $L^p$ 双対定理）
+### 定理（σ有限Lp双対定理）
 
 $(X,\mathcal F,\mu)$ を σ有限測度空間、$1\le p<\infty$ とし、$q$ は
 
@@ -802,7 +802,7 @@ Radon--Nikodym 定理から直接得られるのは、指示関数とその有�
 
 <a id="prop-mt7-linfty-boundary"></a>
 <!-- formal-statement-start -->
-### 命題（$L^\infty$ 双対で Radon--Nikodym 構成が閉じない理由）
+### 命題（L-infinity双対でRadon--Nikodym構成が閉じない理由）
 
 $L^\infty$ の連続線形汎関数に対し $A\mapsto T(1_A)$ と置いても、有限 $p$ の証明で使った可算加法性は一般には連続性だけから従わない。
 <!-- formal-statement-end -->
