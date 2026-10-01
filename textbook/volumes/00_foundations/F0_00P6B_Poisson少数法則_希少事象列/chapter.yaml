@@ -6,14 +6,14 @@ prerequisites:
   - F0-00P6
 official_scope: []
 learning_objectives:
-  - 独立Bernoulli三角配列の希少性条件と総intensity条件を区別できる
+  - 独立 Bernoulli 三角配列の希少性条件と総強度条件を区別できる
   - Poisson分布の特性関数を確率質量関数から導出できる
-  - log(1+w)-wの二次剰余を局所Taylor評価で抑えられる
-  - max p_nkからsum p_nk^2が0へ行くことを導ける
-  - Bernoulli三角配列の一般Poisson少数法則を特性関数とLevy連続性定理から証明できる
+  - $\log(1+w)-w$ の二次剰余を積分表示から抑えられる
+  - 最大成功確率と成功確率の総和から二乗和が0へ行くことを導ける
+  - Bernoulli 三角配列の一般 Poisson 少数法則を特性関数と Lévy 連続性定理から証明できる
   - 二項分布のPoisson極限を一般定理の特殊例として回収できる
   - 最大確率が消えない場合にBernoulli成分が極限へ残る反例を説明できる
-  - 多カテゴリ希少事象から独立Poisson vectorへの極限をjoint characteristic functionで証明できる
+  - 多カテゴリ希少事象から独立 Poisson ベクトルへの極限を同時特性関数と確率ベクトルの特性関数収束定理で証明できる
 definitions:
   - { id: F0P6B-DEF-01, name: 希少Bernoulli三角配列 }
 theorems:
@@ -23,9 +23,9 @@ theorems:
   - { id: F0P6B-THM-02, name: 希少カテゴリの独立Poisson極限 }
 canonical_examples:
   - binomial Poisson limit
-  - non-identically distributed rare failures
-  - surviving Bernoulli component
-  - rare categorical events
+  - 非同分布の希少故障
+  - 極限に残る Bernoulli 成分
+  - 多カテゴリ希少事象
 problem_patterns:
   - P6B-TRIANGULAR-ARRAY-1
   - P6B-LOG-REMAINDER-1

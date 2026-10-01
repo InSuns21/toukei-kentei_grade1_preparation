@@ -56,3 +56,4 @@ concepts:
     requires:
       - prob.poisson-log-remainder
       - prob.characteristic-function-properties
+      - prob.levy-continuity-theorem-finite-dimensional

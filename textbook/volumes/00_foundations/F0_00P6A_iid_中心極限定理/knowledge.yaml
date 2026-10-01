@@ -4,32 +4,26 @@ coverage: complete
 prerequisites:
   - F0-00P6
 
-# stable極限やLindeberg--Fellerはこの章では入口の説明にとどめる。
-# 一様可積分性はLindeberg条件との類比としてのみ言及する。
-forward_references:
-  - prob.uniform-integrability
-
 concepts:
   - id: prob.standardized-iid-sum
-    name: iid標準化和
-    kind: term
-    aliases: [標準化和]
+    name: 独立同分布標準化和
+    kind: definition
+    aliases: [独立同分布標準化和, iid標準化和, 標準化和]
+    introduction_aliases: ["定義（独立同分布標準化和）"]
     requires:
       - prob.independent-random-variables
       - prob.expectation
       - prob.variance
 
-  # 現本文は導出全体を示すが、独立した formal-statement パネルはまだ置かれていない。
-  # 後続章は「中心極限定理」「P6Aの中心極限定理」と略記するため、その参照形も正規aliasとして持つ。
   - id: prob.iid-clt
-    name: iid有限分散中心極限定理
-    kind: term
+    name: 独立同分布・有限分散版の中心極限定理
+    kind: theorem
     aliases:
+      - 独立同分布・有限分散版の中心極限定理
       - 独立同分布有限分散版の中心極限定理
       - iid有限分散中心極限定理
-      - P6Aの中心極限定理
       - 中心極限定理
-    introduction_aliases: [これが独立同分布有限分散版の中心極限定理です]
+    introduction_aliases: ["定理（独立同分布・有限分散版の中心極限定理）"]
     requires:
       - prob.standardized-iid-sum
       - prob.characteristic-function-properties

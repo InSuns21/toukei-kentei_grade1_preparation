@@ -16,6 +16,7 @@ concepts:
     name: 特性関数
     kind: definition
     aliases: [特性関数]
+    introduction_aliases: ["定義（特性関数）"]
     requires:
       - prob.random-variable
       - prob.expectation
@@ -33,6 +34,7 @@ concepts:
     name: 分布収束
     kind: definition
     aliases: [分布収束]
+    introduction_aliases: ["定義（分布収束）"]
     requires:
       - prob.cdf
 
@@ -40,6 +42,7 @@ concepts:
     name: 有界Lipschitz関数
     kind: definition
     aliases: [有界Lipschitz関数]
+    introduction_aliases: ["定義（有界Lipschitz関数）"]
     requires: []
 
   - id: prob.bounded-lipschitz-characterization
@@ -52,16 +55,18 @@ concepts:
       - prob.bounded-lipschitz-function
 
   - id: prob.gaussian-fourier-identity
-    name: Gaussian Fourier identity
+    name: Gaussian Fourier 恒等式
     kind: lemma
-    aliases: [Gaussian Fourier identity]
+    aliases: [Gaussian Fourier 恒等式, Gaussian Fourier identity]
+    introduction_aliases: ["補題（Gaussian Fourier 恒等式）"]
     requires:
       - measure.lebesgue-integral
 
   - id: prob.gaussian-smoothing-density
-    name: Gaussian smoothingの密度公式
+    name: Gaussian 平滑化の密度公式
     kind: lemma
-    aliases: [Gaussian smoothingの密度公式]
+    aliases: [Gaussian 平滑化の密度公式, Gaussian smoothingの密度公式]
+    introduction_aliases: ["補題（Gaussian 平滑化の密度公式）"]
     requires:
       - prob.gaussian-fourier-identity
       - prob.characteristic-function
@@ -89,7 +94,7 @@ concepts:
   - id: prob.scheffe-lemma
     name: Schefféの補題
     kind: lemma
-    aliases: [Schefféの補題, Scheffé]
+    aliases: [Schefféの補題]
     requires:
       - measure.dominated-convergence-theorem
       - measure.integrable-function
@@ -98,10 +103,32 @@ concepts:
     name: Lévy連続性定理
     kind: theorem
     aliases: [Lévy連続性定理, Levy連続性定理]
+    introduction_aliases: ["定理（Lévy連続性定理：極限分布が既知の版）"]
     requires:
       - prob.characteristic-function
       - prob.distribution-convergence
       - prob.bounded-lipschitz-characterization
       - prob.gaussian-smoothing-density
       - prob.scheffe-lemma
+      - measure.dominated-convergence-theorem
+
+  - id: prob.vector-characteristic-function
+    name: 確率ベクトルの特性関数
+    kind: definition
+    aliases: [確率ベクトルの特性関数, 同時特性関数]
+    introduction_aliases: ["定義（確率ベクトルの特性関数）"]
+    requires:
+      - prob.characteristic-function
+
+  - id: prob.levy-continuity-theorem-finite-dimensional
+    name: 確率ベクトルの特性関数収束定理
+    kind: theorem
+    aliases: [確率ベクトルの特性関数収束定理]
+    introduction_aliases: ["定理（確率ベクトルの特性関数収束定理）"]
+    requires:
+      - prob.vector-characteristic-function
+      - prob.gaussian-fourier-identity
+      - prob.scheffe-lemma
+      - prob.bounded-lipschitz-function
+      - measure.fubini-theorem
       - measure.dominated-convergence-theorem

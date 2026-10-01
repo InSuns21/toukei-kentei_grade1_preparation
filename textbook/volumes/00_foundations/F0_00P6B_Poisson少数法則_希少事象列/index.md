@@ -31,6 +31,10 @@ $$
 
 ## 1. 行ごとに成功確率が変わる Bernoulli 配列
 
+二項分布の Poisson 極限では、同じ成功確率をもつ Bernoulli 変数を足しました。しかし装置ごとの故障率や契約ごとの事故率のように、現実には同じ行の中でも成功確率が異なることがあります。
+
+その場合でも「どの1件も十分まれ」で、全体の期待件数だけが有限値へ落ち着けば Poisson 極限が残るかを調べたいところです。そこで、行ごとに個数も成功確率も変わる配列を考え、各行の最大成功確率が0へ行くことを希少性の条件とします。
+
 <a id="def-p6b-rare-bernoulli-array"></a>
 
 <!-- formal-statement-start -->
@@ -80,6 +84,8 @@ $$
 
 ## 2. 極限分布を特性関数で準備する
 
+一般定理の証明では Bernoulli 因子の積を極限まで追います。最後にその極限を Poisson 分布だと同定するため、まず Poisson 分布自身の特性関数を確率質量関数から計算しておきます。
+
 $Y\sim\operatorname{Poisson}(\lambda)$ なら
 
 $$
@@ -123,6 +129,14 @@ $$
 
 ## 3. 対数を取ったときの誤差
 
+Bernoulli 因子の積
+
+$$
+\prod_k\{1+p_{n,k}(e^{it}-1)\}
+$$
+
+を直接扱うより、対数を取って和へ変える方が一次項と誤差を分離できます。各 $p_{n,k}$ は小さいので、$\log(1+w)$ を $w$ で近似したときの誤差が $|w|^2$ 程度で一様に抑えられれば十分です。
+
 固定した $t\in\mathbb R$ に対し
 
 $$
@@ -143,71 +157,105 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（対数の二次剰余評価）**  
-> 固定した $t\in\mathbb R$ と $z=e^{it}-1$ に対し、ある $c_t>0$ と $\eta_t>0$ が存在して、$0\le p\le\eta_t$ なら
+> 複素数 $w$ が $|w|\le1/2$ を満たすとする。$1$ の近傍で $\log1=0$ となる枝を取れば
 >
 $$
-\left|\log(1+pz)-pz\right|
-\le c_t p^2.
+\boxed{
+|\log(1+w)-w|
+\le
+|w|^2
+}.
 $$
 >
-> ここで $\log$ は $1$ の近傍で $\log 1=0$ となる連続な枝を固定して用いる。
+> 特に固定した $t\in\mathbb R$ と $z=e^{it}-1$ に対し、$p|z|\le1/2$ なら
+>
+$$
+|\log(1+pz)-pz|
+\le
+|z|^2p^2.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
 
-関数
+$|w|<1$ の範囲で、$s\in[0,1]$ に対して $1+sw$ は0になりません。$1$ の近傍で $\log1=0$ となる枝を取り、実変数 $s$ について微分すると
 
 $$
-g(w)=\log(1+w)-w
-$$
-
-を $w=0$ の近傍で考えます。$g(0)=0$, $g'(0)=0$ であり
-
-$$
-g''(w)
+\frac{d}{ds}\log(1+sw)
 =
--\frac{1}{(1+w)^2}.
+\frac{w}{1+sw}.
 $$
 
-$|w|\le1/2$ では $|1+w|\ge1/2$ なので
+この等式を $s=0$ から $s=1$ まで積分し、$\log1=0$ を使うと
 
 $$
-|g''(w)|\le4.
-$$
-
-複素変数の線分積分による Taylor の積分形から
-
-$$
-g(w)
+\log(1+w)
 =
-w^2\int_0^1(1-u)g''(uw)\,du
+\int_0^1\frac{w}{1+sw}\,ds.
 $$
 
-であり、
+従って
 
 $$
-|g(w)|
-\le
-|w|^2\int_0^1 4(1-u)\,du
-=
-2|w|^2.
+\begin{aligned}
+\log(1+w)-w
+&=
+\int_0^1
+\left(
+\frac{w}{1+sw}-w
+\right)ds\\
+&=
+-w^2
+\int_0^1
+\frac{s}{1+sw}\,ds.
+\end{aligned}
 $$
 
-$w=pz$ とし、$p|z|\le1/2$ となるよう $\eta_t$ を選べば
+$|w|\le1/2$ なら
+
+$$
+|1+sw|
+\ge
+1-s|w|
+\ge
+\frac12
+$$
+
+なので
+
+$$
+\begin{aligned}
+|\log(1+w)-w|
+&\le
+|w|^2
+\int_0^1
+\frac{s}{|1+sw|}\,ds\\
+&\le
+2|w|^2\int_0^1s\,ds\\
+&=
+|w|^2.
+\end{aligned}
+$$
+
+ここで $w=pz$、$z=e^{it}-1$ とします。$p|z|\le1/2$ となるよう $\eta_t>0$ を選べば
 
 $$
 |\log(1+pz)-pz|
 \le
-2|z|^2p^2.
+|z|^2p^2.
 $$
 
-従って $c_t=2|e^{it}-1|^2$ と取れます。
+従って $c_t=|e^{it}-1|^2$ と取れます。
 <!-- proof-end -->
 
 ---
 
 ## 4. 一般三角配列の Poisson 極限
+
+準備した二つの道具を組み合わせます。独立性で特性関数を積へ分け、対数を取って一次項と二次誤差へ分けます。一次項は成功確率の総和だけで決まり、二次誤差は「最大成功確率 × 成功確率の総和」で0へ押さえられます。
+
+この仕組みによって、各成功確率が同じである必要はなくなります。
 
 <a id="thm-p6b-law-small-numbers"></a>
 
@@ -271,12 +319,12 @@ $$
 \to0
 $$
 
-で消えます。最後に [[Lévy 連続性定理](../F0_00P6_特性関数_中心極限定理/index.md#thm-f0-00p6-levy-continuity)](../F0_00P6_特性関数_中心極限定理/index.md) を使います。
+で消えます。最後に [Lévy連続性定理](../F0_00P6_特性関数_中心極限定理/index.md#thm-f0-00p6-levy-continuity) を使います。
 
 <!-- proof-start -->
 ### 証明
 
-固定した $t\in\mathbb R$ を取ります。独立性と [特性関数の積の性質](../F0_00P6_特性関数_中心極限定理/index.md) から
+固定した $t\in\mathbb R$ を取ります。独立性と [特性関数の積の性質](../F0_00P6_特性関数_中心極限定理/index.md#prop-f0-00p6-basic-properties) から
 
 $$
 \begin{aligned}
@@ -354,7 +402,7 @@ $$
 \exp\{\lambda(e^{it}-1)\}.
 $$
 
-右辺は $\operatorname{Poisson}(\lambda)$ の特性関数です。[[Lévy 連続性定理](../F0_00P6_特性関数_中心極限定理/index.md#thm-f0-00p6-levy-continuity)](../F0_00P6_特性関数_中心極限定理/index.md) により
+右辺は $\operatorname{Poisson}(\lambda)$ の特性関数です。[Lévy連続性定理](../F0_00P6_特性関数_中心極限定理/index.md#thm-f0-00p6-levy-continuity) により
 
 $$
 S_n\xrightarrow{d}\operatorname{Poisson}(\lambda).
@@ -365,7 +413,7 @@ $$
 
 - **独立性**：特性関数を積へ分解した。
 - **$\max_kp_{n,k}\to0$**：全ての因子で同じ対数近似を使え、二次誤差を消した。
-- **$\sum_kp_{n,k}\to\lambda$**：一次項を Poisson intensity $\lambda$ に固定した。
+- **$\sum_kp_{n,k}\to\lambda$**：一次項を Poisson 強度 $\lambda$ に固定した。
 
 ---
 
@@ -409,7 +457,7 @@ $$
 
 ## 6. 非同分布の例
 
-$n$ 台の装置があり、装置 $k$ の故障確率を
+$\lambda>0$ とします。$n$ 台の装置があり、装置 $k$ の故障確率を
 
 $$
 p_{n,k}
@@ -424,7 +472,7 @@ $$
 \max_kp_{n,k}\to0.
 $$
 
-また補正項の総和は $O(1/n)$ なので
+また補正項の総和は実際には $O(n^{-2})$ なので
 
 $$
 \sum_{k=1}^{n}p_{n,k}\to\lambda.
@@ -438,15 +486,24 @@ $$
 
 ## 7. 一つだけ大きい確率が残ると何が壊れるか
 
-$X_{n,1}\sim\operatorname{Bernoulli}(1/2)$ とし、残りの Bernoulli 変数の成功確率を調整して
+$X_{n,1}\sim\operatorname{Bernoulli}(1/2)$ とします。残りの Bernoulli 変数は $X_{n,1}$ と独立で、その成功確率が
 
 $$
-\sum_kp_{n,k}\to\lambda
+\max_{k\ge2}p_{n,k}\to0,
+\qquad
+\sum_{k=2}^{m_n}p_{n,k}\to\mu
+\quad(\mu\ge0)
 $$
 
-としたとします。
+を満たすように選ぶとします。このとき全体の成功確率の総和は
 
-このとき
+$$
+\sum_{k=1}^{m_n}p_{n,k}
+\to
+\frac12+\mu
+$$
+
+と有限値へ収束しますが、
 
 $$
 \max_kp_{n,k}\ge\frac12
@@ -462,13 +519,15 @@ $$
 \frac{1+e^{it}}{2}
 $$
 
-という有限サイズの Bernoulli 因子が最後まで残ります。極限は一般に
+という有限サイズの Bernoulli 因子が最後まで残ります。残りの希少成分へ [Bernoulli 三角配列の Poisson 少数法則](#thm-p6b-law-small-numbers)を適用すると、極限は独立な
 
 $$
-\operatorname{Bernoulli}(1/2)+\operatorname{Poisson}(\lambda-1/2)
+B\sim\operatorname{Bernoulli}(1/2),
+\qquad
+Z\sim\operatorname{Poisson}(\mu)
 $$
 
-型になり、純粋な Poisson 分布ではありません。
+の和 $B+Z$ になります。従って、成功確率の総和が有限値へ収束するだけでは純粋な Poisson 極限は保証されません。
 
 「総平均だけ合わせればよい」のではなく、**最大の一件も希少になる**ことが必要です。
 
@@ -476,7 +535,9 @@ $$
 
 ## 8. 多カテゴリの希少事象
 
-次は Poisson random measure への最初の橋です。
+一つの試行が「故障した／しない」の二値ではなく、複数カテゴリのどれか一つを発生させる場合を考えます。有限 $n$ では、一つの試行が二カテゴリへ同時に入れないためカテゴリ件数には依存があります。それでも各試行の総発生確率が十分小さければ、その競合は極限で消えるかを調べます。
+
+この節ではカテゴリ別件数ベクトルの**同時特性関数**を計算し、P6 の確率ベクトルの特性関数収束定理で極限分布を同定します。
 
 各行 $n$ の各試行 $k$ は、カテゴリ $1,\ldots,r$ の高々一つを発生させるとします。
 
@@ -535,7 +596,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$t_1,\ldots,t_r\in\mathbb R$ を固定します。一試行 $k$ の joint characteristic factor は
+$t_1,\ldots,t_r\in\mathbb R$ を固定します。一試行 $k$ の同時特性関数の因子は
 
 $$
 1+
@@ -626,7 +687,7 @@ $$
 \exp\{\lambda_j(e^{it_j}-1)\}.
 $$
 
-これは独立な Poisson 変数 $(Z_1,\ldots,Z_r)$ の同時特性関数です。有限次元版 [Lévy 連続性定理](../F0_00P6_特性関数_中心極限定理/index.md#thm-f0-00p6-levy-continuity)により結論を得ます。
+これは独立な Poisson 変数 $(Z_1,\ldots,Z_r)$ の同時特性関数です。[確率ベクトルの特性関数収束定理](../F0_00P6_特性関数_中心極限定理/index.md#thm-f0-00p6-levy-continuity-vector)により結論を得ます。
 
 この結果は「互いに排他的な希少カテゴリ」が極限では独立 Poisson 件数へ分離することを表します。
 
@@ -634,7 +695,9 @@ $$
 
 ---
 
-## 9. Poisson random measure への橋
+## 9. 後続の Poisson ランダム測度への接続
+
+ここまでで証明したのは有限個のカテゴリに対する極限です。後続ではカテゴリを空間の互いに素な領域と読み替え、領域ごとの点の個数を数える対象へ進みます。
 
 有限個のカテゴリを、空間の互いに素な集合
 
@@ -658,7 +721,7 @@ $$
 
 が独立 Poisson になってほしい。
 
-これが Poisson random measure の有限分割における構造です。将来の STO13 ではこの有限カテゴリ極限を、空間上の random measure と compensated measure の言葉へ持ち上げます。
+これが Poisson ランダム測度の有限分割における構造です。後続の STO13 ではこの有限カテゴリ極限を、空間上のランダム測度と補償測度の言葉へ持ち上げます。
 
 ---
 
@@ -851,7 +914,7 @@ $$
 S_n\xrightarrow{d}\operatorname{Poisson}(2).
 $$
 
-各 Bernoulli の成功確率が異なっていても、最大確率が消え、総 intensity が2へ収束することが本質である。
+各 Bernoulli の成功確率が異なっていても、最大確率が消え、総強度が2へ収束することが本質である。
 <!-- solution-end -->
 
 <a id="ex-p6b-b02"></a>
@@ -916,7 +979,7 @@ $$
 
 <a id="ex-p6b-b03"></a>
 
-## P6B-B03 二カテゴリ rare events
+## P6B-B03 二カテゴリ 希少事象
 
 - Level: B
 
@@ -933,7 +996,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-各カテゴリの総 intensity は
+各カテゴリの総強度は
 
 $$
 \sum_{k=1}^{n}\frac an=a,
@@ -943,13 +1006,13 @@ $$
 
 一試行の総発生確率は $(a+b)/n\to0$ なので多カテゴリ定理の仮定を満たす。
 
-joint characteristic function の極限は
+同時特性関数は各固定した $(t_1,t_2)$ で
 
 $$
-\exp\{a(e^{it_1}-1)+b(e^{it_2}-1)\}.
+\exp\{a(e^{it_1}-1)+b(e^{it_2}-1)\}
 $$
 
-これは
+へ収束します。これは
 
 $$
 \exp\{a(e^{it_1}-1)\}
@@ -979,7 +1042,7 @@ $$
 
 <a id="ex-p6b-c01"></a>
 
-## P6B-C01 三角配列から Poisson vector まで再構成する
+## P6B-C01 三角配列から Poisson ベクトルまで再構成する
 
 - Level: C
 
@@ -1003,11 +1066,11 @@ $$
 
 カテゴリ別件数を $N_{n,j}$ とする。
 
-1. joint characteristic function を積で書け。
+1. 同時特性関数を積で書け。
 2. 対数の一次項を求めよ。
 3. 二次剰余が0へ行くことを示せ。
 4. 極限分布を同定せよ。
-5. この結果が Poisson random measure のどの性質を有限分割で表しているか説明せよ。
+5. 有限 $n$ ではカテゴリ件数が独立でないのに、極限では独立になる理由を説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1089,7 +1152,7 @@ $$
 
    対数剰余は定数倍のこの量で抑えられるため0へ行く。
 
-4. よって joint characteristic function は
+4. よって同時特性関数は
 
    $$
    \exp\left\{
@@ -1107,7 +1170,7 @@ $$
    Z_j\sim\operatorname{Poisson}(\lambda_j)
    $$
 
-   の joint characteristic function なので
+   の同時特性関数なので
 
    $$
    (N_{n,1},N_{n,2},N_{n,3})
@@ -1115,13 +1178,19 @@ $$
    (Z_1,Z_2,Z_3).
    $$
 
-5. Poisson random measure $N$ では、互いに素な集合 $A_1,A_2,A_3$ に対し
+5. 有限 $n$ では一つの試行 $k$ が複数カテゴリへ同時に入れないため、カテゴリ件数には競合があります。しかし一試行あたりの総発生確率は
 
    $$
-   N(A_j)\sim\operatorname{Poisson}(\nu(A_j))
+   \max_k\sum_{j=1}^3p_{n,k}^{(j)}\to0
    $$
 
-   となり、これらの件数が独立になる。本問はこの「互いに素な有限分割上の独立 Poisson count」を離散 rare-event model の極限として再現している。
+   です。同時特性関数が各固定した $(t_1,t_2,t_3)$ で収束する先が
+
+   $$
+   \prod_{j=1}^3\exp\{\lambda_j(e^{it_j}-1)\}
+   $$
+
+   とカテゴリごとの積へ分解することが、この競合が極限で消えて独立化することを表しています。
 <!-- solution-end -->
 
 ---
@@ -1130,8 +1199,8 @@ $$
 
 - [ ] 二項少数法則と一般 Bernoulli 三角配列の違いを説明できる。
 - [ ] $\max_kp_{n,k}\to0$ が必要な理由を反例で説明できる。
-- [ ] $\sum_kp_{n,k}^2\to0$ を最大確率と総 intensity から導ける。
-- [ ] 特性関数の積から Poisson exponent が出る計算を再現できる。
+- [ ] $\sum_kp_{n,k}^2\to0$ を最大確率と総強度から導ける。
+- [ ] 特性関数の積から Poisson 型の指数が出る計算を再現できる。
 - [ ] 非同分布 Bernoulli 和へ一般定理を適用できる。
-- [ ] 多カテゴリ rare events が独立 Poisson vector へ収束することを joint characteristic function で示せる。
-- [ ] Poisson random measure の有限分割構造との対応を説明できる。
+- [ ] 多カテゴリの希少事象が独立 Poisson ベクトルへ収束することを同時特性関数で示せる。
+- [ ] 有限 $n$ のカテゴリ間競合が希少性条件によって極限で消える理由を説明できる。
