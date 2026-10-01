@@ -20,7 +20,7 @@ theorems:
   - { id: MT7-THM-02, name: 単関数のL^p稠密性 }
   - { id: MT7-THM-03, name: C_cのL^p稠密性 }
   - { id: MT7-THM-04, name: σ有限L^p双対定理 }
-  - { id: MT7-PROP-01, name: L^∞双対でRadon--Nikodym構成が破綻する機構 }
+  - { id: MT7-PROP-01, name: L^∞双対でRadon--Nikodym構成が閉じない理由 }
 canonical_examples: [速いL^p-Cauchy部分列, 指示関数のC_c近似, L^p-L^q積分汎関数, L^∞双対の境界]
 problem_patterns: [MT7-LP-COMPLETE-1, MT7-SIMPLE-DENSE-1, MT7-CC-DENSE-1, MT7-LP-DUALITY-1]
 past_exam_alignment: []
