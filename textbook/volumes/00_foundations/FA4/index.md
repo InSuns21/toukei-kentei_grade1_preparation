@@ -200,7 +200,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$K=\varnothing$ なら自明です。以下 $K\ne\varnothing$ とし、$K$ 上の任意の ウルトラフィルター $\mathcal U$ を取ります。座標射影を $\pi_i:K\to K_i$ とし
+$K=\varnothing$ なら、任意の開被覆は空の有限部分族ですでに $K$ を覆うので $K$ はコンパクトです。以下 $K\ne\varnothing$ とし、$K$ 上の任意の ウルトラフィルター $\mathcal U$ を取ります。座標射影を $\pi_i:K\to K_i$ とし
 
 $$
 \mathcal U_i
@@ -686,7 +686,7 @@ $C\subseteq X$ をノルム閉凸集合、$x_0\notin C$ とします。
 - $C$ が凸であること、
 - $x_0\notin C$ であること、
 
-です。$C=\varnothing$ なら弱閉性は自明なので、以下 $C\ne\varnothing$ とします。
+です。$C=\varnothing$ なら空集合は任意の位相で閉なので弱閉です。以下 $C\ne\varnothing$ とします。
 
 実数体では、この定理からある $f\in X^*\setminus\{0\}$ と $\alpha\in\mathbb R$ が存在して
 
