@@ -402,7 +402,37 @@ $$
 
 を置きます。示すべきことは $a\in\overline{T(B_X)}$ です。
 
-$C=T(B_X)$ と置きます。$B_X$ は凸かつ balanced なので $C$ と $\overline C$ も凸かつ balanced です。また各座標が $|f_i(x)|\le\|f_i\|$ で抑えられるため $C$ は有界です。有限次元では $\overline C$ は閉有界、従ってコンパクトです。
+$C=T(B_X)$ と置きます。
+
+まず $B_X$ は凸です。さらにスカラー $\zeta$ が $|\zeta|\le1$ を満たし $x\in B_X$ なら
+
+$$
+\|\zeta x\|
+=
+|\zeta|\,\|x\|
+\le1,
+$$
+
+なので $\zeta x\in B_X$ です。線形性から、$c=T(x)\in C$ に対して
+
+$$
+\zeta c=T(\zeta x)\in C.
+$$
+
+従って $C$ は凸で、絶対値 1 以下のスカラー倍でも閉じています。この二つの性質は閉包 $\overline C$ にも保たれます。
+
+また各座標が
+
+$$
+|f_i(x)|
+\le
+\|f_i\|\,\|x\|
+\le
+\|f_i\|
+\qquad(x\in B_X)
+$$
+
+で抑えられるため $C$ は有界です。有限次元では $\overline C$ は閉有界、従ってコンパクトです。
 
 反対に $a\notin\overline C$ とします。$\mathbb K^n$ を実 Euclidean 空間とみなし、$a$ から $\overline C$ への距離を最小にする $c_0\in\overline C$ を取ります。$u=a-c_0\ne0$ と置きます。
 
@@ -441,7 +471,53 @@ $$
 L(z)=\operatorname{Re}\sum_{i=1}^n\lambda_i z_i
 $$
 
-と書き、$g=\sum_{i=1}^n\lambda_i f_i\in X^*$ と置きます。$C=T(B_X)$ は balanced なので、実数体では符号を、複素数体では絶対値1の位相因子を $x$ に掛けることで
+と書き、$g=\sum_{i=1}^n\lambda_i f_i\in X^*$ と置きます。ここで
+
+$$
+L(Tx)
+=
+\operatorname{Re}g(x).
+$$
+
+実数体では、$g(x)<0$ なら $-x\in B_X$ に取り替えることで
+
+$$
+\sup_{\|x\|\le1}\operatorname{Re}g(x)
+=
+\sup_{\|x\|\le1}|g(x)|
+$$
+
+となります。
+
+複素数体では $g(x)\ne0$ のとき
+
+$$
+\zeta
+=
+\frac{\overline{g(x)}}{|g(x)|},
+\qquad
+|\zeta|=1
+$$
+
+と取れば $\zeta x\in B_X$ で
+
+$$
+g(\zeta x)
+=
+\zeta g(x)
+=
+|g(x)|.
+$$
+
+従って複素数体でも
+
+$$
+\sup_{\|x\|\le1}\operatorname{Re}g(x)
+=
+\sup_{\|x\|\le1}|g(x)|.
+$$
+
+よって
 
 $$
 \sup_{c\in C}L(c)
