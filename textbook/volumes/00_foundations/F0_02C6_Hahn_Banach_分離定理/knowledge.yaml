@@ -7,17 +7,18 @@ prerequisites:
 
 concepts:
   - id: functional.sublinear-functional
-    name: sublinear functional
+    name: 劣線形汎関数
     kind: definition
-    aliases: [sublinear functional]
+    aliases: [劣線形汎関数, sublinear functional]
+    introduction_aliases: ["**定義（劣線形汎関数）**"]
     requires:
       - linear.vector-space
 
   - id: functional.hahn-banach-theorem
     name: Hahn--Banachの定理
     kind: theorem
-    introduction_aliases: [Hahn--Banach：実線形版]
     aliases: [Hahn--Banachの定理, Hahn--Banach：実線形版]
+    introduction_aliases: ["**定理（Hahn--Banach：実線形版）**"]
     requires:
       - functional.sublinear-functional
       - functional.linear-functional
@@ -36,7 +37,7 @@ concepts:
     name: 双対空間は点を分離できる
     kind: proposition
     introduction: inline
-    aliases: [双対空間は点を分離できる]
+    aliases: [双対空間は点を分離できる, 双対空間による点分離]
     requires:
       - functional.hahn-banach-theorem
       - functional.dual-space
