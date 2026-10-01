@@ -49,7 +49,7 @@ $s>0$ とし $E=\{x\}$ とします。任意の $\delta>0$ に対し、一集合
 $$
 \operatorname{diam}U_1=0\le\delta.
 $$
-従って定義の 下限 は
+従って定義の下限は
 $$
 0\le\mathcal H_\delta^s(\{x\})\le0^s=0,
 $$
@@ -111,7 +111,7 @@ $$
 <a id="thm-mt8-hausdorff-outer-measure"></a>
 
 <!-- formal-statement-start -->
-> **定理（Hausdorff 外測度 の外測度性）**  
+> **定理（Hausdorff 外測度の外測度性）**  
 > 任意の $s\ge0$ に対し、$\mathcal H^s$ は $X$ 上の外測度である。すなわち
 >
 > 1. $\mathcal H^s(\varnothing)=0$、
@@ -131,14 +131,14 @@ $$
 
 空集合と単調性は被覆の包含関係から直接出ます。
 
-可算劣加法性では、各 $E_j$ に対して 下限 そのものを取る必要はありません。$\mathcal H_\delta^s(E_j)$ に $2^{-j}\varepsilon$ だけ近い $\delta$-被覆 を選び、それらを全て合わせます。
+可算劣加法性では、各 $E_j$ に対して下限そのものを取る必要はありません。$\mathcal H_\delta^s(E_j)$ に $2^{-j}\varepsilon$ だけ近い $\delta$-被覆 を選び、それらを全て合わせます。
 
 <!-- proof-start -->
 ### 証明
 
 $\varnothing$ は空の被覆で覆えるので $\mathcal H_\delta^s(\varnothing)=0$、従って $\mathcal H^s(\varnothing)=0$ です。
 
-$A\subset B$ なら、$B$ の任意の $\delta$-被覆 は $A$ の $\delta$-被覆 でもあります。従って
+$A\subset B$ なら、$B$ の任意の $\delta$-被覆は $A$ の $\delta$-被覆でもあります。従って
 
 $$
 \mathcal H_\delta^s(A)
@@ -241,8 +241,8 @@ $$
 <a id="prop-mt8-hausdorff-metric-outer"></a>
 
 <!-- formal-statement-start -->
-> **命題（Hausdorff 外測度 は 距離外測度）**  
-> 任意の $s\ge0$ に対し、$\mathcal H^s$ は 距離外測度 である。
+> **命題（Hausdorff 外測度は距離外測度）**  
+> 任意の $s\ge0$ に対し、$\mathcal H^s$ は距離外測度である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -254,7 +254,7 @@ $A$ と $B$ の距離を $r>0$ とします。$\delta<r$ なら、直径 $\delta
 
 $r=\operatorname{dist}(A,B)>0$ とし、$0<\delta<r$ を取ります。
 
-$(U_i)$ を $A\cup B$ の任意の $\delta$-被覆 とします。もし一つの $U_i$ が $A$ と $B$ の両方に交わるなら、$a\in A\cap U_i$ と $b\in B\cap U_i$ が取れて
+$\mathcal H_\delta^s(A\cup B)=\infty$ なら求める下側評価は自明です。以下では有限とし、$A\cup B$ の任意の $\delta$-被覆 $(U_i)$ を取ります。もし一つの $U_i$ が $A$ と $B$ の両方に交わるなら、$a\in A\cap U_i$ と $b\in B\cap U_i$ が取れて
 
 $$
 d(a,b)
@@ -278,7 +278,7 @@ $$
 \mathcal H_\delta^s(B).
 $$
 
-全ての $\delta$-被覆 について 下限 を取り、
+全ての $\delta$-被覆について下限を取り、
 
 $$
 \mathcal H_\delta^s(A\cup B)
@@ -302,13 +302,13 @@ $$
 <a id="thm-mt8-metric-outer-borel"></a>
 
 <!-- formal-statement-start -->
-> **定理（距離外測度 の Borel 可測性）**  
-> 距離空間上の 距離外測度 $\mu^*$ に対し、全ての Borel 集合は Carathéodory 可測である。従って $\mathcal H^s$ を Borel $\sigma$-代数へ制限すると測度になる。
+> **定理（距離外測度の Borel 可測性）**  
+> 距離空間上の距離外測度 $\mu^*$ に対し、全ての Borel 集合は Carathéodory 可測である。従って $\mathcal H^s$ を Borel $\sigma$-代数へ制限すると測度になる。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-[[Carathéodory 可測集合が $\sigma$-代数をなす定理](../F0_00D3_外測度_Caratheodory可測性/index.md#thm-f0-00d3-caratheodory)](../F0_00D3_外測度_Caratheodory可測性/index.md) を使うので、閉集合が可測であることを示せば十分です。
+[Carathéodory 可測集合が $\sigma$-代数をなす定理](../F0_00D3_外測度_Caratheodory可測性/index.md#thm-f0-00d3-caratheodory)を使うので、閉集合が可測であることを示せば十分です。
 
 閉集合 $F$ から距離 $1/n$ 以上離れた部分は $A\cap F$ と正距離で離れているため、距離外測度の加法性が使えます。残る $F$ の近くの距離帯を偶数番・奇数番に分けると、各系列の異なる帯は正距離で離れるので、その尾部の外測度を0へ送れます。
 
@@ -354,22 +354,22 @@ $$
 
 距離関数 $x\mapsto d(x,F)$ は 1-Lipschitz です。例えば $m\ge n+2$ とし、$x\in L_n$, $y\in L_m$ を取ると
 
-$
+$$
 d(x,F)\ge\frac1{n+1},
 \qquad
 d(y,F)<\frac1m\le\frac1{n+2}.
-$
+$$
 
 1-Lipschitz 性から
 
-$
+$$
 d(x,y)
 \ge
 |d(x,F)-d(y,F)|
 >
 \frac1{n+1}-\frac1{n+2}
 >0.
-$
+$$
 
 従って同じ偶奇の添字を持つ異なる距離帯は正距離で離れています。距離外測度の加法性を有限個ずつ繰り返すと
 
@@ -658,15 +658,15 @@ $$
 
 一方、すでに
 
-$
+$$
 \mathcal H^1([a,b])=\ell>0
-$
+$$
 
 を示しました。[Hausdorff 測度の臨界指数性](#thm-mt8-threshold)を $t=1$ に適用すると、全ての $0\le s<1$ について
 
-$
+$$
 \mathcal H^s([a,b])=\infty
-$
+$$
 
 です。これなら $s=0$ も、直径0の被覆集合に負の冪を掛けることなく同じ論理で処理できます。
 
@@ -683,7 +683,7 @@ $
 
 <!-- formal-statement-start -->
 > **定理（質量分布原理）**  
-> $E\subset X$ とし、有限 Borel 測度 $\mu$ が $E$ に集中し、$\mu(E)>0$ とする。$\mu^*$ を $\mu$ から作る外測度とする。ある $C>0$, $\delta_0>0$, $s\ge0$ が存在して、$\operatorname{diam}U\le\delta_0$ の全ての部分集合 $U\subset X$ について
+> $E\subset X$ を Borel 集合とし、有限 Borel 測度 $\mu$ が $\mu(X\setminus E)=0$ と $\mu(E)>0$ を満たすとする。$\mu^*$ を $\mu$ から作る外測度とする。ある $C>0$, $\delta_0>0$, $s\ge0$ が存在して、$\operatorname{diam}U\le\delta_0$ の全ての部分集合 $U\subset X$ について
 >
 $$
 \mu^*(U)\le C(\operatorname{diam}U)^s
@@ -721,7 +721,7 @@ $$
 \frac{\mu(E)}{C}.
 $$
 
-全ての $\delta$-被覆 について 下限 を取り、
+全ての $\delta$-被覆について下限を取り、
 
 $$
 \mathcal H_\delta^s(E)
@@ -772,7 +772,7 @@ $$
 \frac{\log2}{\log3}.
 $$
 >
-> さらに本章の非正規化 Hausdorff 測度 では、$\alpha=\log2/\log3$ に対して
+> さらに本章の非正規化 Hausdorff 測度では、$\alpha=\log2/\log3$ に対して
 >
 $$
 0<\mathcal H^\alpha(C)<\infty.
@@ -798,15 +798,15 @@ $$
 
 #### 下からの評価に使う Cantor 測度
 
-各 第 $n$ 段階 基本集合、すなわち 第 $n$ 段階 基本区間と $C$ の共通部分に質量 $2^{-n}$ を割り当てます。親基本集合の質量は二つの子基本集合の質量の和
+各第 $n$ 段階の基本集合、すなわち第 $n$ 段階の基本区間と $C$ の共通部分に質量 $2^{-n}$ を割り当てます。親基本集合の質量は二つの子基本集合の質量の和
 
 $$
 2^{-n}=2^{-(n+1)}+2^{-(n+1)}
 $$
 
-なので、level を細分しても有限加法性は変わりません。有限個の基本集合の和からなる 集合代数 を $\mathcal A$ とし、この割当てを $\nu_0$ と書きます。
+なので、段階を細分しても有限加法性は変わりません。有限個の基本集合の和からなる集合代数を $\mathcal A$ とし、この割当てを $\nu_0$ と書きます。
 
-ここで前測度性を「明らか」で済ませません。[Hopf 型の前測度判定](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#lem-f0-00d4-hopf-前測度) を使います。$A_m\in\mathcal A$ が
+ここで前測度性を「明らか」で済ませません。[Hopf 型の前測度判定](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#lem-f0-00d4-hopf-premeasure) を使います。$A_m\in\mathcal A$ が
 
 $$
 A_1\supset A_2\supset\cdots,
@@ -834,7 +834,7 @@ $$
 3^{-(n+1)}<r\le3^{-n}
 $$
 
-となる $n$ を選びます。長さ $r$ の区間は 第 $n$ 段階 基本区間を高々2個しか横切れないので
+となる $n$ を選びます。長さ $r$ の区間は 第 $n$ 段階の基本区間を高々2個しか横切れないので
 
 $$
 \mu_C(I)\le2\cdot2^{-n}.
@@ -899,7 +899,7 @@ $$
 
 未知の集合 $E$ については、次の役割分担を固定すると見通しがよくなります。
 
-**上界 $\dim_HE\le s$**：具体的な 被覆 を作り、
+**上界 $\dim_HE\le s$**：具体的な被覆を作り、
 
 $$
 \sum_i(\operatorname{diam}U_i)^s
@@ -940,7 +940,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$\delta_1$-被覆 は各集合の直径が $\delta_1$ 以下なので、自動的に $\delta_2$-被覆 でもあります。従って 下限 を取る候補集合は $\delta_1$ の方が狭く、
+$\delta_1$-被覆 は各集合の直径が $\delta_1$ 以下なので、自動的に $\delta_2$-被覆 でもあります。従って下限を取る候補集合は $\delta_1$ の方が狭く、
 
 $$
 \mathcal H_{\delta_1}^s(E)
@@ -948,7 +948,7 @@ $$
 \mathcal H_{\delta_2}^s(E).
 $$
 
-この単調性により $\delta\downarrow0$ の極限を 上限 として定義できます。
+この単調性により $\delta\downarrow0$ の極限を上限として定義できます。
 <!-- solution-end -->
 
 <a id="ex-mt8-a02"></a>
@@ -1116,7 +1116,7 @@ $$
 \sum_i\operatorname{diam}U_i.
 $$
 
-これが 1次元 Hausdorff 測度 の下界です。
+これが 1次元 Hausdorff 測度の下界です。
 <!-- solution-end -->
 
 <a id="ex-mt8-b02"></a>
@@ -1127,9 +1127,9 @@ $$
 
 $E$ 上に集中する確率測度 $\mu$ があり、$\mu$ から作る外測度を $\mu^*$ とする。十分小さい全ての部分集合 $U$ について
 
-$
+$$
 \mu^*(U)\le10(\operatorname{diam}U)^{2/3}
-$
+$$
 
 を満たすとする。$\mathcal H^{2/3}(E)$ と $\dim_HE$ の下界を求めよ。
 
@@ -1144,7 +1144,7 @@ $$
 \frac{1}{10}.
 $$
 
-特に正なので 臨界指数性から
+特に正なので[Hausdorff 測度の臨界指数性](#thm-mt8-threshold)から
 
 $$
 \dim_HE\ge\frac23.
@@ -1170,7 +1170,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$s>s_0$ を取ります。仮定の被覆 から
+$s>s_0$ を取ります。仮定の被覆から
 
 $$
 \mathcal H_{r^n}^s(E)
@@ -1224,7 +1224,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-1. 第 $n$ 段階 では $C$ は長さ $3^{-n}$ の基本区間 $2^n$ 個で覆われるため
+1. 第 $n$ 段階では $C$ は長さ $3^{-n}$ の基本区間 $2^n$ 個で覆われるため
 
    $$
    \mathcal H_{3^{-n}}^\alpha(C)
@@ -1236,29 +1236,29 @@ $$
 
 2. 第 $n$ 段階の各基本集合、すなわち基本区間と $C$ の共通部分に質量 $2^{-n}$ を割り当てます。親基本集合は二つの子基本集合に分かれ、
 
-   $
+$$
    2^{-n}=2^{-(n+1)}+2^{-(n+1)}
-   $
+$$
 
    なので、細分の前後で有限加法性が整合します。有限個の基本集合の和からなる集合代数を $\mathcal A$ とし、この質量割当てを $\nu_0$ と書きます。
 
    前測度性を確認するため、[Hopf 型の前測度判定](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#lem-f0-00d4-hopf-premeasure)を使います。$A_m\in\mathcal A$ が
 
-   $
+$$
    A_1\supset A_2\supset\cdots,
    \qquad
    \bigcap_{m=1}^{\infty}A_m=\varnothing
-   $
+$$
 
    を満たすとします。各 $A_m$ は $C$ の有限個の基本集合の和なので $C$ の閉部分集合であり、コンパクトです。もし全ての $A_m$ が非空なら、減少する非空コンパクト集合列 $(A_m)$ は有限交差性を持つため共通部分が非空となり、仮定に反します。従ってある $m_0$ で $A_{m_0}=\varnothing$ となり、
 
-   $
+$$
    \nu_0(A_m)\downarrow0.
-   $
+$$
 
    よって Hopf 判定から $\nu_0$ は前測度です。[Carathéodory 拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)により、$C$ 上の Borel 確率測度 $\mu_C$ へ拡張できます。
 
-3. $3^{-(n+1)}<r\le3^{-n}$ となる $n$ を取ります。長さ $r$ の区間は 第 $n$ 段階 基本区間を高々2個しか横切らないので
+3. $3^{-(n+1)}<r\le3^{-n}$ となる $n$ を取ります。長さ $r$ の区間は 第 $n$ 段階の基本区間を高々2個しか横切らないので
 
    $$
    \mu_C(I)\le2\cdot2^{-n}.
@@ -1294,17 +1294,17 @@ $$
 
 5. 以上より
 
-   $
+$$
    0<\mathcal H^\alpha(C)<\infty.
-   $
+$$
 
    [Hausdorff 測度の臨界指数性](#thm-mt8-threshold)を使うと、$t>\alpha$ では $\mathcal H^t(C)=0$、$s<\alpha$ では $\mathcal H^s(C)=\infty$ です。従って $\alpha$ がちょうど臨界指数であり、
 
-   $
+$$
    \boxed{
    \dim_HC=\frac{\log2}{\log3}
    }.
-   $
+$$
 
 上界は被覆、下界は測度が担当しています。この二方向の分業が Hausdorff 次元評価の基本戦略です。
 <!-- solution-end -->
@@ -1314,14 +1314,14 @@ $$
 ## 14. 章末チェック
 
 - [ ] $\mathcal H_\delta^s$ と $\mathcal H^s$ の定義順序を説明できる。
-- [ ] Hausdorff 構成 の可算劣加法性を近似被覆 から証明できる。
-- [ ] 正距離で離れた集合に 距離加法性が出る理由を説明できる。
+- [ ] Hausdorff 構成の可算劣加法性を近似被覆から証明できる。
+- [ ] 正距離で離れた集合に距離加法性が出る理由を説明できる。
 - [ ] 距離外測度が Borel 集合を測れる機構を距離帯で追える。
 - [ ] 臨界指数性を $\delta^{t-s}$ の評価から導ける。
-- [ ] Hausdorff 次元 を臨界指数として定義できる。
-- [ ] Lipschitz 写像が 次元 を増やさないことを証明できる。
-- [ ] 区間の 次元 が1であることを上下から示せる。
+- [ ] Hausdorff 次元を臨界指数として定義できる。
+- [ ] Lipschitz 写像が次元を増やさないことを証明できる。
+- [ ] 区間の次元が1であることを上下から示せる。
 - [ ] [質量分布原理](#thm-mt8-mass-principle) で Hausdorff 次元の下界を出せる。
-- [ ] Cantor 集合の 次元 を 被覆 と Cantor 測度 の両方から再構成できる。
+- [ ] Cantor 集合の次元を被覆と Cantor 測度の両方から再構成できる。
 
-次は確率論側へ戻り、二項分布の特殊形を越えた希少事象列の Poisson 極限を扱います。
+ここで測度論系列は一巡します。後続の確率論では、ここまでの可測性・積分・収束定理・積測度・$L^p$ 空間を確率変数と確率分布へ適用します。
