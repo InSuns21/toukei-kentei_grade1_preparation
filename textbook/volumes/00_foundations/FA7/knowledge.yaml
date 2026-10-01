@@ -43,10 +43,10 @@ concepts:
       - functional.compact-quotient-lower-bound
 
   - id: functional.fredholm-alternative-compact
-    name: コンパクト作用素のFredholm の交代定理
+    name: コンパクト作用素に対する Fredholm の交代定理
     kind: theorem
-    aliases: [コンパクト作用素のFredholm の交代定理, Fredholm alternative for compact operators]
-    introduction_aliases: ["### 定理（コンパクト作用素のFredholm の交代定理）"]
+    aliases: [コンパクト作用素に対する Fredholm の交代定理, Fredholm alternative for compact operators]
+    introduction_aliases: ["### 定理（コンパクト作用素に対する Fredholm の交代定理）"]
     requires:
       - functional.compact-identity-closed-range
       - functional.riesz-lemma
