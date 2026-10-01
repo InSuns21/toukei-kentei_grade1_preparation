@@ -31,9 +31,9 @@ theorems:
   - { id: MT8-THM-06, name: 質量分布原理 }
   - { id: MT8-THM-07, name: 中三分Cantor集合のHausdorff次元 }
 canonical_examples:
-  - singleton
-  - countable set
-  - closed interval
+  - 一点集合
+  - 可算集合
+  - 閉区間
   - Lipschitz 像
   - 中三分 Cantor 集合
 problem_patterns:
