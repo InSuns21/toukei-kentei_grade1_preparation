@@ -96,13 +96,25 @@ $$
 
 ### 1.1 この族が本当に近傍基底になることを確認する
 
-各 $x_0$ は明らかに
+各 $j$ について
+
+$$
+f_j(x_0-x_0)=f_j(0)=0
+$$
+
+なので
+
+$$
+|f_j(x_0-x_0)|=0<\varepsilon.
+$$
+
+従って
 
 $$
 x_0\in U(x_0;f_1,\dots,f_m;\varepsilon)
 $$
 
-を満たします。
+です。
 
 次に
 
@@ -140,10 +152,18 @@ $$
 <\varepsilon,
 $$
 
-同様に
+また $x\in W$ なら $|g_k(x-z)|<\delta$ なので
 
 $$
-|g_k(x-y_0)|<\eta.
+\begin{aligned}
+|g_k(x-y_0)|
+&\le
+|g_k(x-z)|+|g_k(z-y_0)|\\
+&<
+\delta+|g_k(z-y_0)|\\
+&<
+\eta.
+\end{aligned}
 $$
 
 従って、この基本近傍族は位相の基底公理を満たします。
@@ -565,7 +585,13 @@ $$
 \lambda(F(x)):=L(x)
 $$
 
-により $\operatorname{im}F$ 上の線形汎関数 $\lambda$ が well-defined に定まります。
+により $\operatorname{im}F$ 上で
+
+$$
+\lambda(F(x)):=L(x)
+$$
+
+と置いた値は、$F(x)$ の代表元 $x$ の選び方に依存しません。従って $\lambda$ は $\operatorname{im}F$ 上で一意に定まります。
 
 有限次元空間 $\operatorname{im}F\subset\mathbb K^m$ 上の線形汎関数は座標線形結合で書けるので、ある $a_1,\dots,a_m$ が存在して
 
@@ -987,7 +1013,7 @@ $$
 
 ---
 
-## 12. $X^*$ 上の weak と weak* を混同しない
+## 12. $X^*$ 上の弱位相と弱*位相を混同しない
 
 $X^*$ 自身もノルム空間なので、その弱位相は
 
@@ -1136,7 +1162,21 @@ $$
 <\varepsilon.
 $$
 
-$g_k$ についても同様に $|g_k(w-y)|<\eta$。従って所望の包含が成り立つ。
+$g_k$ については
+
+$$
+\begin{aligned}
+|g_k(w-y)|
+&\le
+|g_k(w-z)|+|g_k(z-y)|\\
+&<
+\delta+|g_k(z-y)|\\
+&<
+\eta.
+\end{aligned}
+$$
+
+従って所望の包含が成り立つ。
 <!-- solution-end -->
 
 ### FA3-A02 $\ell^2$ の標準基底は弱収束する
