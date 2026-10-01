@@ -13,7 +13,7 @@ concepts:
     name: 分離定理で使う凸集合の再掲
     kind: definition
     aliases: [分離定理で使う凸集合の再掲]
-    introduction_aliases: [凸集合, "**再掲（分離で使う凸集合）**"]
+    introduction_aliases: [凸集合, "**定義（分離で使う凸集合）**"]
     requires:
       - functional.convex-set-basic-c1a
 
