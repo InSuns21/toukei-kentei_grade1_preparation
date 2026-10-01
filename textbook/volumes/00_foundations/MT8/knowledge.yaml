@@ -13,7 +13,7 @@ concepts:
     kind: definition
     aliases: [delta-Hausdorff content, Hausdorff content]
     introduction: formal
-    introduction_aliases: ["定義（$\\delta$-Hausdorff 内容量）"]
+    introduction_aliases: ["定義（δ-Hausdorff内容量）"]
     requires:
       - topology.metric-space
 
