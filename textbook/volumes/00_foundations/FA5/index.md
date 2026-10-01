@@ -1,4 +1,4 @@
-# FA5 標準関数解析 V：spectrum・resolvent
+# FA5 標準関数解析 V：スペクトル・レゾルベント
 
 <!-- definition-example-audit: strict -->
 
@@ -9,28 +9,28 @@ Neumann級数
   ↓
 可逆作用素の摂動安定性
   ↓
-resolvent集合は開・resolventは正則
+レゾルベント集合は開・レゾルベントは正則
   ↓
 大きな |λ| では λI-T が可逆
   ↓
-spectrum は有界閉集合
+スペクトルは有界閉集合
   ↓ Liouville + Hahn–Banach
-spectrum は空でない
+スペクトルは空でない
   ↓
-多項式 spectral mapping
+多項式スペクトル写像
   ↓ Cauchy積分評価
-spectral radius formula
+スペクトル半径公式
 ```
 
 を一続きに証明します。
 
-全章を通じて $X\ne\{0\}$ を **複素 Banach 空間**、$T\in\mathcal B(X)$ を有界線形作用素とします。複素数体を仮定する理由は spectrum 非空性で [Liouvilleの定理](../CA3/index.md#thm-ca3-liouville) と [代数学の基本定理](../CA3/index.md#cor-ca3-fta) を使うからです。実 Banach 空間上の作用素を実数だけで調べると spectrum が空になる例があります。
+全章を通じて $X\ne\{0\}$ を **複素 Banach 空間**、$T\in\mathcal B(X)$ を有界線形作用素とします。複素数体を仮定する理由は スペクトル非空性で [Liouvilleの定理](../CA3/index.md#thm-ca3-liouville) と [代数学の基本定理](../CA3/index.md#cor-ca3-fta) を使うからです。実 Banach 空間上の作用素を実数だけで調べると スペクトルが空になる例があります。
 
-既知とする主な結果は [FA2 の有界逆定理](../FA2/index.md#thm-fa2-bounded-inverse)、[Hahn–Banach のノルム保存拡張](../F0_02C6_Hahn_Banach_分離定理/index.md#ref-hahn-banach-norm-preserving-extension)、[CA3 の Cauchy積分公式](../CA3/index.md#thm-ca3-cauchy-integral-formula)、[Liouvilleの定理](../CA3/index.md#thm-ca3-liouville)、[代数学の基本定理](../CA3/index.md#cor-ca3-fta) です。FA6 の compact operator、Fredholm 理論、FA7 の自己共役 compact operator の spectral theorem は使いません。
+既知とする主な結果は [FA2 の有界逆定理](../FA2/index.md#thm-fa2-bounded-inverse)、[Hahn–Banach のノルム保存拡張](../F0_02C6_Hahn_Banach_分離定理/index.md#ref-hahn-banach-norm-preserving-extension)、[CA3 の Cauchy積分公式](../CA3/index.md#thm-ca3-cauchy-integral-formula)、[Liouvilleの定理](../CA3/index.md#thm-ca3-liouville)、[代数学の基本定理](../CA3/index.md#cor-ca3-fta) です。後続章で扱う、作用素が有界集合を強く圧縮する性質や、自己共役の場合の固有ベクトル展開は使いません。
 
 ---
 
-## 1. spectrum は「固有値集合」の無限次元版ではあるが、同じものではない
+## 1. スペクトルは「固有値集合」の無限次元版ではあるが、同じものではない
 
 有限次元では行列 $A$ に対して
 
@@ -44,7 +44,7 @@ $$
 
 <a id="def-fa5-resolvent-spectrum"></a>
 <!-- formal-statement-start -->
-### 定義（resolvent集合・spectrum）
+### 定義（レゾルベント集合・スペクトル）
 
 $T\in\mathcal B(X)$ に対して
 
@@ -54,13 +54,13 @@ $$
 \{\lambda\in\mathbb C:\lambda I-T\text{ が }\mathcal B(X)\text{ で可逆}\}
 $$
 
-を **resolvent集合** といい、
+を **レゾルベント集合** といい、
 
 $$
 \sigma(T):=\mathbb C\setminus\rho(T)
 $$
 
-を **spectrum（スペクトル）** という。
+を **スペクトル（spectrum）** という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fa5-resolvent-spectrum -->
@@ -72,14 +72,14 @@ $$
 \sigma(A)=\{\lambda:\exists x\ne0,\ Ax=\lambda x\}.
 $$
 
-ここだけを見ると spectrum は単なる固有値集合に見えますが、後で unilateral shift が **固有値を一つも持たないのに閉単位円板全体を spectrum に持つ**ことを示します。
+ここだけを見ると スペクトルは単なる固有値集合に見えますが、後で 片側シフトが **固有値を一つも持たないのに閉単位円板全体を スペクトルに持つ**ことを示します。
 <!-- definition-example-end -->
 
 Banach 性のおかげで、$\lambda I-T$ が有界線形写像として全単射なら [有界逆定理](../FA2/index.md#thm-fa2-bounded-inverse) により逆写像も自動的に有界です。従って本章では「$\lambda I-T$ が全単射」と「$\lambda\in\rho(T)$」を同値に扱えます。ただし、この同値に Banach 性が入っていることは忘れないでください。
 
 <a id="def-fa5-resolvent-operator"></a>
 <!-- formal-statement-start -->
-### 定義（resolvent作用素）
+### 定義（レゾルベント作用素）
 
 $\lambda\in\rho(T)$ に対して
 
@@ -87,7 +87,7 @@ $$
 R(\lambda,T):=(\lambda I-T)^{-1}\in\mathcal B(X)
 $$
 
-を **resolvent作用素** という。
+を **レゾルベント作用素** という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fa5-resolvent-operator -->
@@ -105,7 +105,7 @@ $$
 R(\lambda,T)=\frac1{\lambda-a}I.
 $$
 
-一般の resolvent は、このスカラー関数 $1/(\lambda-a)$ を作用素値へ持ち上げたものと考えられます。
+一般の レゾルベントは、このスカラー関数 $1/(\lambda-a)$ を作用素値へ持ち上げたものと考えられます。
 <!-- definition-example-end -->
 
 ---
@@ -183,13 +183,13 @@ $\square$
 
 ---
 
-## 3. resolvent集合は開いている
+## 3. レゾルベント集合は開いている
 
 $\lambda_0\in\rho(T)$ を一つ知っていると、その近くの $\lambda$ も可逆であることが [Neumann級数](#lem-fa5-neumann-series)から従います。
 
 <a id="thm-fa5-resolvent-open"></a>
 <!-- formal-statement-start -->
-### 定理（resolvent集合の開性と局所級数表示）
+### 定理（レゾルベント集合の開性と局所級数表示）
 
 $\lambda_0\in\rho(T)$ とする。もし
 
@@ -248,7 +248,7 @@ $$
 
 特に中心 $\lambda_0$、半径 $1/\|R_0\|$ の開円板は $\rho(T)$ に含まれるので $\rho(T)$ は開です。
 
-最後の級数は $|\lambda-\lambda_0|<1/\|R_0\|$ 上で作用素ノルム絶対収束する冪級数です。従って resolvent は局所的に作用素ノルム値冪級数で表され、正則です。さらに一次係数を読むと
+最後の級数は $|\lambda-\lambda_0|<1/\|R_0\|$ 上で作用素ノルム絶対収束する冪級数です。従って レゾルベントは局所的に作用素ノルム値冪級数で表され、正則です。さらに一次係数を読むと
 
 $$
 \frac{d}{d\lambda}R(\lambda,T)
@@ -262,7 +262,7 @@ $\square$
 
 <a id="thm-fa5-resolvent-identity"></a>
 <!-- formal-statement-start -->
-### 定理（resolvent恒等式）
+### 定理（レゾルベント恒等式）
 
 $\lambda,\mu\in\rho(T)$ に対して
 
@@ -296,7 +296,7 @@ R(\lambda,T)-R(\mu,T)
 =(\mu-\lambda)R(\lambda,T)R(\mu,T).
 $$
 
-また右辺を $\lambda,\mu$ を交換して比較すると resolvent 同士が可換であることも分かります。$\square$
+また右辺を $\lambda,\mu$ を交換して比較すると レゾルベント 同士が可換であることも分かります。$\square$
 <!-- proof-end -->
 
 ---
@@ -334,11 +334,11 @@ $$
 \end{aligned}
 $$
 
-この一行が spectrum の有界性と、後の Liouville 証明での無限遠評価を同時に与えます。
+この一行が スペクトルの有界性と、後の Liouville 証明での無限遠評価を同時に与えます。
 
 <a id="thm-fa5-spectrum-compact"></a>
 <!-- formal-statement-start -->
-### 定理（spectrumのcompact性とノルム円板評価）
+### 定理（スペクトルのコンパクト性とノルム円板評価）
 
 $T\in\mathcal B(X)$ に対して
 
@@ -360,18 +360,18 @@ $$
 \sigma(T)\subset\{|\lambda|\le\|T\|\}.
 $$
 
-一方、[resolvent集合の開性](#thm-fa5-resolvent-open)により $\rho(T)$ は開なので、その補集合 $\sigma(T)$ は閉です。複素平面で有界閉集合はコンパクトだから結論を得ます。$\square$
+一方、[レゾルベント集合の開性](#thm-fa5-resolvent-open)により $\rho(T)$ は開なので、その補集合 $\sigma(T)$ は閉です。複素平面で有界閉集合はコンパクトだから結論を得ます。$\square$
 <!-- proof-end -->
 
-ここまででは spectrum が **空である可能性** はまだ排除していません。空集合も有界閉集合だからです。非空性には複素解析が本質的に入ります。
+ここまででは スペクトルが **空である可能性** はまだ排除していません。空集合も有界閉集合だからです。非空性には複素解析が本質的に入ります。
 
 ---
 
-## 5. spectrum は空にならない
+## 5. スペクトルは空にならない
 
 <a id="thm-fa5-spectrum-nonempty"></a>
 <!-- formal-statement-start -->
-### 定理（複素Banach空間上のspectrum非空性）
+### 定理（複素Banach空間上のスペクトル非空性）
 
 $X\ne\{0\}$ を複素 Banach 空間、$T\in\mathcal B(X)$ とする。このとき
 
@@ -393,7 +393,7 @@ g_{x,f}(\lambda)
 f(R(\lambda,T)x)
 $$
 
-を考えます。[resolventの局所級数表示](#thm-fa5-resolvent-open)を有界線形汎関数 $f$ に通せば、$g_{x,f}$ は整関数です。
+を考えます。[レゾルベントの局所級数表示](#thm-fa5-resolvent-open)を有界線形汎関数 $f$ に通せば、$g_{x,f}$ は整関数です。
 
 $|\lambda|>\|T\|$ では
 
@@ -434,7 +434,7 @@ $$
 - **Banach 性**：全単射有界作用素の逆が有界であること、$\mathcal B(X)$ で Neumann級数を収束させることに使う。
 - **複素数体**：$g_{x,f}$ に Liouville を適用する。実数体のままでは同じ議論はできない。
 - **$X\ne\{0\}$**：矛盾に使う非零ベクトル $x$ を取るため。
-- **Hahn–Banach**：作用素値 resolvent が0かどうかを、全てのスカラー観測 $f(R(\lambda,T)x)$ から判定するため。
+- **Hahn–Banach**：作用素値 レゾルベント が0かどうかを、全てのスカラー観測 $f(R(\lambda,T)x)$ から判定するため。
 
 特に Hahn–Banach は飾りではありません。「全ての連続線形汎関数が $y$ を0と見るなら $y=0$」という点分離を使う場所が、証明末尾に一箇所あります。
 
@@ -456,15 +456,15 @@ $$
 \det(\lambda I-T)=\lambda^2+1>0
 $$
 
-なので全ての $\lambda\in\mathbb R$ で可逆です。したがって「実 spectrum」を同じ定義で作れば空になります。複素化すると $\pm i$ が現れ、複素 spectrum は非空になります。
+なので全ての $\lambda\in\mathbb R$ で可逆です。したがって「実 スペクトル」を同じ定義で作れば空になります。複素化すると $\pm i$ が現れ、複素 スペクトルは非空になります。
 
 ---
 
-## 6. 多項式は spectrum をそのまま写す
+## 6. 多項式はスペクトルをそのまま写す
 
 <a id="thm-fa5-polynomial-spectral-mapping"></a>
 <!-- formal-statement-start -->
-### 定理（多項式spectral mapping theorem）
+### 定理（多項式スペクトル写像定理）
 
 複素多項式 $p$ と $T\in\mathcal B(X)$ に対して
 
@@ -519,7 +519,7 @@ $$
 (Q_jP^{-1})(T-\alpha_jI)=I.
 $$
 
-従って $T-\alpha_jI$ は可逆です。全ての $j$ について $\alpha_j\notin\sigma(T)$ なので、$p(z)=\mu$ を満たす spectrum 上の点は存在せず
+従って $T-\alpha_jI$ は可逆です。全ての $j$ について $\alpha_j\notin\sigma(T)$ なので、$p(z)=\mu$ を満たす スペクトル上の点は存在せず
 
 $$
 \mu\notin p(\sigma(T)).
@@ -528,15 +528,17 @@ $$
 両方向の補集合が一致するため主張を得ます。$\square$
 <!-- proof-end -->
 
-「可換な因子の積が可逆なら各因子も可逆」という部分を省略しないことがポイントです。一般の非可換環では片側逆の扱いに注意が必要ですが、ここでは全てが同じ $T$ の多項式なので可換性を明示的に使えます。
+「可換な因子の積が可逆なら各因子も可逆」という部分を省略しないことがポイントです。一般には因子の順序を入れ替えられないので片側逆の扱いに注意が必要ですが、ここでは全てが同じ $T$ の多項式なので互いに可換であることを明示的に使えます。
 
 ---
 
-## 7. spectral radius
+## 7. スペクトル半径
+
+ここまででスペクトルは空でないコンパクト集合だと分かりました。そこで、スペクトル全体が原点からどこまで広がっているかを一つの数で測ります。その最大半径を次で定義します。
 
 <a id="def-fa5-spectral-radius"></a>
 <!-- formal-statement-start -->
-### 定義（spectral radius）
+### 定義（スペクトル半径）
 
 $T\in\mathcal B(X)$ に対し
 
@@ -546,13 +548,13 @@ r(T)
 \max\{|\lambda|:\lambda\in\sigma(T)\}
 $$
 
-を **spectral radius（スペクトル半径）** という。
+を **スペクトル半径（spectral radius）** という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fa5-spectral-radius -->
 **定義の確認**：冪零作用素。
 
-$T^m=0$ なら[多項式 spectral mapping theorem](#thm-fa5-polynomial-spectral-mapping)から
+$T^m=0$ なら[多項式スペクトル写像定理](#thm-fa5-polynomial-spectral-mapping)から
 
 $$
 \sigma(T)^m
@@ -564,16 +566,16 @@ $$
 \{0\}.
 $$
 
-従って $\sigma(T)=\{0\}$、$r(T)=0$ です。$T\ne0$ でも $r(T)=0$ は起こり得るので、spectral radius は作用素ノルムそのものではありません。
+従って $\sigma(T)=\{0\}$、$r(T)=0$ です。$T\ne0$ でも $r(T)=0$ は起こり得るので、スペクトル半径は作用素ノルムそのものではありません。
 <!-- definition-example-end -->
 
-[spectrum の非空性](#thm-fa5-spectrum-nonempty)と compact 性により最大値は実際に存在します。またノルム円板評価から
+[スペクトルの非空性](#thm-fa5-spectrum-nonempty)とコンパクト性により最大値は実際に存在します。またノルム円板評価から
 
 $$
 r(T)\le\|T\|.
 $$
 
-多項式 spectral mapping theorem を $p(z)=z^n$ に適用すると
+多項式スペクトル写像定理 を $p(z)=z^n$ に適用すると
 
 $$
 \sigma(T^n)=\{\lambda^n:\lambda\in\sigma(T)\},
@@ -594,11 +596,11 @@ r(T)
 \qquad(n\ge1).
 $$
 
-つまり作用素の高冪の成長率は spectrum の半径より小さくなれません。実はこの列は収束し、その値がちょうど一致します。
+つまり作用素の高冪の成長率は スペクトルの半径より小さくなれません。実はこの列は収束し、その値がちょうど一致します。
 
 <a id="thm-fa5-spectral-radius-formula"></a>
 <!-- formal-statement-start -->
-### 定理（spectral radius formula）
+### 定理（スペクトル半径公式）
 
 $T\in\mathcal B(X)$ に対して
 
@@ -622,7 +624,31 @@ $$
 a_{m+n}\le a_ma_n
 $$
 
-です。ある $m$ で $a_m=0$ なら $T^m=0$ なので以後 $a_n=0$ となり、主張は明らかです。以下 $a_n>0$ とします。
+です。
+
+ある $m$ で $a_m=0$ なら $T^m=0$ です。このとき前節の [多項式スペクトル写像定理](#thm-fa5-polynomial-spectral-mapping) から
+
+$$
+\sigma(T)^m
+=
+\sigma(T^m)
+=
+\{0\},
+$$
+
+従って
+
+$$
+r(T)=0.
+$$
+
+また $n\ge m$ では $T^n=0$ なので
+
+$$
+\|T^n\|^{1/n}=0.
+$$
+
+従ってスペクトル半径公式の全ての等式が成り立ちます。以下では $a_n>0$ が全ての $n$ で成り立つ場合を扱います。
 
 $$
 L:=\inf_{m\ge1}a_m^{1/m}
@@ -682,7 +708,7 @@ $$
 
 #### Step 3：Cauchy積分で $L\le r(T)$ を示す
 
-任意の $R>r(T)$ を固定します。円 $|\lambda|=R$ は spectrum と交わらないので resolvent 集合に含まれます。compact 円周上で resolvent は連続だから
+任意の $R>r(T)$ を固定します。円 $|\lambda|=R$ はスペクトルと交わらないのでレゾルベント集合に含まれます。コンパクトな円周上でレゾルベントは連続だから
 
 $$
 M_R
@@ -718,14 +744,24 @@ $$
 
 であり、円周積分が0でないのは $k=n$ のときだけだからです。
 
-$R<|\lambda|<R_0$ には spectrum がありません。従ってスカラー関数
+$R>r(T)$ なので、閉環状領域
+
+$$
+A_{R,R_0}
+=
+\{\lambda\in\mathbb C:R\le|\lambda|\le R_0\}
+$$
+
+はスペクトルと交わりません。従ってレゾルベントはこの閉環状領域を含む開集合で正則であり、スカラー関数
 
 $$
 \lambda\longmapsto
 \lambda^n f(R(\lambda,T)x)
 $$
 
-はこの閉環状領域を含む開集合で正則です。Cauchy–Goursat による境界積分の相殺で外円を内円へ移せるので
+もそこで正則です。
+
+Cauchy--Goursat を $A_{R,R_0}$ に適用すると、外周と内周の向きが逆になるため両円周の積分が等しくなります。したがって
 
 $$
 f(T^nx)
@@ -792,7 +828,7 @@ Step 2 と合わせて $L=r(T)$ です。Step 1 で $L=\inf_n\|T^n\|^{1/n}$ も�
 
 ## 8. 例：有限次元から無限次元へ
 
-### 例1：Jordan block は非対角化可能でも spectrum は一点
+### 例1：Jordan ブロックは非対角化可能でもスペクトルは一点
 
 $$
 T=
@@ -824,9 +860,9 @@ R(\lambda,T)
 \end{pmatrix}.
 $$
 
-従って $\sigma(T)=\{2\}$ です。非対角化可能性は resolvent の $(\lambda-2)^{-2}$ 項として見えますが、spectrum の集合そのものは固有値2だけです。
+従って $\sigma(T)=\{2\}$ です。非対角化可能性は レゾルベントの $(\lambda-2)^{-2}$ 項として見えますが、スペクトルの集合そのものは固有値2だけです。
 
-### 例2：unilateral shift は固有値なしで閉単位円板を spectrum に持つ
+### 例2：片側シフトは固有値なしで閉単位円板をスペクトルに持つ
 
 $X=\ell^2(\mathbb N)$ 上で
 
@@ -887,7 +923,7 @@ $$
 \|(S-\lambda I)^{-1}\|\,\|(S-\lambda I)x\|
 $$
 
-が全ての $x$ で成り立つので、この列は矛盾です。従って $|\lambda|=1$ も spectrum に入ります。
+が全ての $x$ で成り立つので、この列は矛盾です。従って $|\lambda|=1$ も スペクトルに入ります。
 
 以上から
 
@@ -897,11 +933,17 @@ $$
 
 一方 $Sx=\lambda x$ を解くと、$\lambda\ne0$ なら第1成分から $x_1=0$、帰納的に全成分0です。$\lambda=0$ でも $S$ は単射なので $x=0$。従って **$S$ は固有値を一つも持ちません**。
 
-ここが有限次元との決定的な違いです。spectrum は「固有ベクトルの集合」ではなく、「$\lambda I-T$ の有界可逆性が壊れる場所」です。
+ここが有限次元との決定的な違いです。スペクトルは「固有ベクトルの集合」ではなく、「$\lambda I-T$ の有界可逆性が壊れる場所」です。
 
-### 例3：乗算作用素の spectrum は値域そのもの
+### 例3：乗算作用素のスペクトルは値域そのもの
 
-$X=C([0,1])$ に一様ノルムを入れ、
+$X=C([0,1])$ とし、
+
+$$
+\|f\|_\infty:=\max_{0\le t\le1}|f(t)|
+$$
+
+と置きます。このノルムのもとで
 
 $$
 (Mf)(t)=t f(t)
@@ -937,7 +979,7 @@ $$
 \sigma(M)=[0,1].
 $$
 
-しかも $(M-\lambda I)f=0$ なら $t\ne\lambda$ で $f(t)=0$、連続性から $f(\lambda)=0$ でもあるため $f=0$ です。つまりこの例でも spectrum の各点は固有値ではありません。
+しかも $(M-\lambda I)f=0$ なら $t\ne\lambda$ で $f(t)=0$、連続性から $f(\lambda)=0$ でもあるため $f=0$ です。つまりこの例でも スペクトルの各点は固有値ではありません。
 
 ---
 
@@ -981,10 +1023,10 @@ $$
 <!-- solution-end -->
 
 <a id="ex-fa5-a02"></a>
-#### FA5-A02 resolvent恒等式から局所評価
+#### FA5-A02 レゾルベント恒等式から局所評価
 - Level: A
 
-$\lambda,\mu\in\rho(T)$ とする。[resolvent恒等式](#thm-fa5-resolvent-identity)から
+$\lambda,\mu\in\rho(T)$ とする。[レゾルベント恒等式](#thm-fa5-resolvent-identity)から
 
 $$
 \|R(\lambda,T)-R(\mu,T)\|
@@ -997,7 +1039,7 @@ $$
 <!-- solution-start -->
 **解答・解説**
 
-[resolvent恒等式](#thm-fa5-resolvent-identity)
+[レゾルベント恒等式](#thm-fa5-resolvent-identity)
 
 $$
 R(\lambda,T)-R(\mu,T)
@@ -1016,11 +1058,11 @@ $$
 \end{aligned}
 $$
 
-これにより resolvent の連続性も直接見えます。
+これにより レゾルベントの連続性も直接見えます。
 <!-- solution-end -->
 
 <a id="ex-fa5-a03"></a>
-#### FA5-A03 2次Jordan blockのresolvent
+#### FA5-A03 2次Jordan ブロックのレゾルベント
 - Level: A
 
 $$
@@ -1062,7 +1104,7 @@ $$
 \sigma(T)=\{a\}.
 $$
 
-固有値の集合は一点ですが、非自明な Jordan 部分が resolvent の $(\lambda-a)^{-2}$ に現れています。
+固有値の集合は一点ですが、非自明な Jordan 部分が レゾルベントの $(\lambda-a)^{-2}$ に現れています。
 <!-- solution-end -->
 
 <a id="ex-fa5-a04"></a>
@@ -1120,10 +1162,10 @@ $$
 ### Level B
 
 <a id="ex-fa5-b01"></a>
-#### FA5-B01 spectrumまでの距離とresolvent norm
+#### FA5-B01 スペクトルまでの距離とレゾルベントノルム
 - Level: B
 
-$\lambda\in\rho(T)$ とする。[resolvent の局所級数表示](#thm-fa5-resolvent-open)から
+$\lambda\in\rho(T)$ とする。[レゾルベントの局所級数表示](#thm-fa5-resolvent-open)から
 
 $$
 \operatorname{dist}(\lambda,\sigma(T))
@@ -1144,7 +1186,7 @@ $$
 <!-- solution-start -->
 **解答・解説**
 
-[resolvent集合の開性と局所級数表示](#thm-fa5-resolvent-open)によれば
+[レゾルベント集合の開性と局所級数表示](#thm-fa5-resolvent-open)によれば
 
 $$
 |\mu-\lambda|\,\|R(\lambda,T)\|<1
@@ -1156,7 +1198,7 @@ $$
 \frac1{\|R(\lambda,T)\|}
 $$
 
-の開円板は spectrum と交わりません。よって $\lambda$ から spectrum までの距離は少なくともこの半径で、
+の開円板はスペクトルと交わりません。よって $\lambda$ からスペクトルまでの距離は少なくともこの半径で、
 
 $$
 \operatorname{dist}(\lambda,\sigma(T))
@@ -1164,11 +1206,11 @@ $$
 \frac1{\|R(\lambda,T)\|}.
 $$
 
-両辺が正なので逆数を取れば第二式です。resolvent norm は spectrum に近づくと少なくとも距離の逆数ほど大きくなることが分かります。
+両辺が正なので逆数を取れば第二式です。レゾルベントノルム は スペクトルに近づくと少なくとも距離の逆数ほど大きくなることが分かります。
 <!-- solution-end -->
 
 <a id="ex-fa5-b02"></a>
-#### FA5-B02 unilateral shiftのspectrumを再構成する
+#### FA5-B02 片側シフトのスペクトルを再構成する
 - Level: B
 
 $S:\ell^2(\mathbb N)\to\ell^2(\mathbb N)$ を
@@ -1233,22 +1275,22 @@ $$
 
 可逆なら有界逆作用素により $\|(S-\lambda I)x\|$ は $\|x\|$ を下から正の定数倍で抑えるので矛盾です。
 
-最後に $Sx=\lambda x$ は $\lambda\ne0$ なら第1成分から順に全成分0、$\lambda=0$ でも $S$ の単射性から $x=0$。従って固有値はありません。以上から spectrum は閉単位円板全体です。
+最後に $Sx=\lambda x$ は $\lambda\ne0$ なら第1成分から順に全成分0、$\lambda=0$ でも $S$ の単射性から $x=0$。従って固有値はありません。以上から スペクトルは閉単位円板全体です。
 <!-- solution-end -->
 
 <a id="ex-fa5-b03"></a>
-#### FA5-B03 射影作用素のspectrum
+#### FA5-B03 射影作用素のスペクトル
 - Level: B
 
 $P\in\mathcal B(X)$ が $P^2=P$ を満たすとする。
 
-1. [多項式 spectral mapping theorem](#thm-fa5-polynomial-spectral-mapping)から $\sigma(P)\subset\{0,1\}$ を示せ。
+1. [多項式スペクトル写像定理](#thm-fa5-polynomial-spectral-mapping)から $\sigma(P)\subset\{0,1\}$ を示せ。
 2. $P=0$、$P=I$、$P\ne0,I$ の三場合で $\sigma(P)$ を決定せよ。
 
 <!-- solution-start -->
 **解答・解説**
 
-$p(z)=z^2-z$ とすると $p(P)=0$ です。[多項式 spectral mapping theorem](#thm-fa5-polynomial-spectral-mapping)から
+$p(z)=z^2-z$ とすると $p(P)=0$ です。[多項式スペクトル写像定理](#thm-fa5-polynomial-spectral-mapping)から
 
 $$
 p(\sigma(P))
@@ -1258,7 +1300,7 @@ p(\sigma(P))
 =\{0\}.
 $$
 
-従って spectrum の各 $\lambda$ は
+従ってスペクトルの各 $\lambda$ は
 
 $$
 \lambda^2-\lambda=0
@@ -1290,13 +1332,13 @@ $$
 ### Level C
 
 <a id="ex-fa5-c01"></a>
-#### FA5-C01 spectrum非空性とspectral radius formulaの依存を監査する
+#### FA5-C01 スペクトル非空性とスペクトル半径公式の依存を監査する
 - Level: C
 
 $X\ne\{0\}$ を複素 Banach 空間、$T\in\mathcal B(X)$ とする。次を一つの論証として再構成せよ。
 
 1. $|\lambda|>\|T\|$ での Neumann 展開。
-2. $\sigma(T)$ の compact 性。
+2. $\sigma(T)$ の コンパクト性。
 3. $\sigma(T)=\varnothing$ と仮定したとき $f(R(\lambda,T)x)$ に Liouville を適用して矛盾を得ること。
 4. $r(T)\le\|T^n\|^{1/n}$。
 5. 任意の $R>r(T)$ に対して Cauchy積分評価から $\|T^n\|\le M_RR^{n+1}$ を得ること。
@@ -1318,17 +1360,17 @@ R(\lambda,T)
 \frac1{|\lambda|-\|T\|}.
 $$
 
-よって spectrum は $\{|\lambda|\le\|T\|\}$ に含まれます。resolvent集合は Neumann 摂動で開なので spectrum は閉、従って compact です。
+よってスペクトルは $\{|\lambda|\le\|T\|\}$ に含まれます。レゾルベント集合は Neumann 摂動で開なのでスペクトルは閉、従ってコンパクトです。
 
-もし spectrum が空なら resolvent は全平面で正則です。固定した $0\ne x\in X$ と $f\in X^*$ に対して
+もし スペクトルが空なら レゾルベントは全平面で正則です。固定した $0\ne x\in X$ と $f\in X^*$ に対して
 
 $$
 g(\lambda)=f(R(\lambda,T)x)
 $$
 
-は整関数で、上の無限遠評価と閉円板上の連続性から全平面で有界です。Liouville により定数、しかも無限遠で0なので $g\equiv0$。全ての $f$ が $R(\lambda,T)x$ を0と見るので Hahn–Banach の点分離から $R(\lambda,T)x=0$ となり、可逆性に反します。従って spectrum は非空です。
+は整関数で、上の無限遠評価と閉円板上の連続性から全平面で有界です。Liouville により定数、しかも無限遠で0なので $g\equiv0$。全ての $f$ が $R(\lambda,T)x$ を0と見るので Hahn–Banach から得られる点の識別から $R(\lambda,T)x=0$ となり、可逆性に反します。従ってスペクトルは非空です。
 
-[多項式 spectral mapping theorem](#thm-fa5-polynomial-spectral-mapping)から
+[多項式スペクトル写像定理](#thm-fa5-polynomial-spectral-mapping)から
 
 $$
 r(T^n)=r(T)^n
@@ -1346,7 +1388,7 @@ $$
 M_R=\max_{|\lambda|=R}\|R(\lambda,T)\|
 $$
 
-とします。大円上の Neumann 展開から $f(T^nx)$ を resolvent の円周積分で取り出し、spectrum の外側で円周を半径 $R$ まで縮めると
+とします。大円上の Neumann 展開から $f(T^nx)$ を レゾルベントの円周積分で取り出し、スペクトルの外側で円周を半径 $R$ まで縮めると
 
 $$
 f(T^nx)
@@ -1374,7 +1416,7 @@ $$
 
 - Banach 性：$\mathcal B(X)$ で [Neumann級数](#lem-fa5-neumann-series)を収束させ、[有界逆定理](../FA2/index.md#thm-fa2-bounded-inverse)を使う。
 - 複素数体：Liouville、代数学の基本定理、Cauchy積分を使う。
-- Hahn–Banach：双対が点を分離すること、および $\|y\|=\sup_{\|f\|\le1}|f(y)|$ でスカラー評価をノルム評価へ戻すこと。
+- Hahn–Banach：異なるベクトルを連続線形汎関数の値で識別できること、および $\|y\|=\sup_{\|f\|\le1}|f(y)|$ でスカラー評価をノルム評価へ戻すこと。
 
 この三つを曖昧に「標準的議論」とまとめないことが本問の要点です。
 <!-- solution-end -->
@@ -1383,12 +1425,12 @@ $$
 
 ## 10. まとめと次章との境界
 
-- spectrum は $\lambda I-T$ の **有界可逆性が壊れる場所**であり、無限次元では固有値集合より広い。
-- Neumann級数は可逆性の局所安定性を直接与え、resolvent集合の開性と作用素値正則性を生む。
-- $|\lambda|>\|T\|$ の Neumann 展開から spectrum はノルム円板内の閉集合になる。
-- spectrum 非空性は Liouville だけでは完結せず、作用素値 resolvent をスカラー化し、最後に Hahn–Banach の点分離で戻す。
-- 多項式 spectral mapping theorem は複素多項式の因数分解と、$T$ の多項式同士の可換性から得られる。
-- spectral radius formula は高冪のノルム成長率と spectrum の幾何を結び、逆向き評価では resolvent の Cauchy積分が働く。
-- 本章では compact operator、Fredholm alternative、自己共役 compact operator の固有展開は使っていない。これらは FA6・FA7 で初めて扱う。
+- スペクトルは $\lambda I-T$ の **有界可逆性が壊れる場所**であり、無限次元では固有値集合より広い。
+- Neumann級数は可逆性の局所安定性を直接与え、レゾルベント集合の開性と作用素値正則性を生む。
+- $|\lambda|>\|T\|$ の Neumann 展開から スペクトルはノルム円板内の閉集合になる。
+- スペクトル非空性は Liouville だけでは完結せず、作用素値レゾルベントをスカラー化し、最後に Hahn–Banach から得られる点の識別で戻す。
+- 多項式スペクトル写像定理 は複素多項式の因数分解と、$T$ の多項式同士の可換性から得られる。
+- スペクトル半径公式 は高冪のノルム成長率と スペクトルの幾何を結び、逆向き評価では レゾルベントの Cauchy積分が働く。
+- 本章では、後続章で扱う「有界集合の像から収束部分列を取り出せる作用素」や、Fredholm 型の可解性・自己共役の場合の固有展開は使っていない。
 
-次章 FA6 では compact operator を定義し、有限ランク近似・Riesz lemma を経て、非零 spectrum の各点が固有値として現れ有限重複度を持つという Riesz–Fredholm 構造へ進みます。
+次章 FA6 では、有界列の像から収束部分列を取り出せる作用素を定義し、有限ランク近似・Riesz の補題を経て、その後のスペクトル構造へつなげます。

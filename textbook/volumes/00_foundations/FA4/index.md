@@ -7,46 +7,46 @@ FA3 では弱位相・弱*位相を「有限個の観測量で作る位相」と
 本章の流れは
 
 ```text
-filter
+フィルター
   ↓ Zornの補題
-ultrafilterへの極大延長
-  ↓ compactnessの有限交差性
-compact ⇔ 全ultrafilterが収束
+ウルトラフィルターへの極大延長
+  ↓ コンパクト性の有限交差性
+コンパクト ⇔ 全ウルトラフィルターが収束
   ↓ 座標ごとの収束
-compact Hausdorff空間族の積はcompact
+コンパクト Hausdorff 空間族の積はコンパクト
   ↓ 双対単位球を座標値で埋め込む
 Banach–Alaoglu
 
 有限個の f_1,...,f_n だけを見る
-  ↓ finite-dimensional separation
+  ↓ 有限次元での分離
 Goldstine
   ↓
-反射的 ⇔ 閉単位球が弱compact
+反射的 ⇔ 閉単位球が弱コンパクト
 ```
 
 です。
 
 特に次の三点を混同しません。
 
-- **選択原理**は、filter を ultrafilter へ極大延長するときに使います。
+- **Zorn の補題**は、フィルターをウルトラフィルターへ極大延長するときに使います。
 - **完備性**は Banach–Alaoglu 自体には不要です。定理は任意のノルム空間で成り立ちます。
-- **Hahn–Banach**は FA3 の標準埋め込みの等長性と、本章後半の「ノルム閉凸集合は弱閉」で使います。Goldstine の有限次元分離部分は直接計算します。
+- **Hahn–Banach**は FA3 の標準埋め込みの等長性と、本章後半で C6A の [点と閉凸集合の強分離](../F0_02C6A_分離定理_Minkowski_Farkas/index.md#thm-f0-02c6a-strong-separation) を使う場面に現れます。Goldstine の有限次元分離部分は直接計算します。
 
-既知とするのは [TOP5 のコンパクト性](../TOP5/index.md#def-top5-compact)、[TOP6 の filter](../TOP6/index.md#def-top6-filter)、[Zorn の補題](../F0_00A3_半順序_Zorn_極大延長/index.md#thm-zorn)、[FA3 の弱*位相](../FA3/index.md#def-fa3-weak-star-topology) と [標準埋め込み](../FA3/index.md#def-fa3-canonical-bidual-embedding) です。スカラー体は $\mathbb K=\mathbb R$ または $\mathbb C$ とします。
+既知とするのは [TOP5 のコンパクト性](../TOP5/index.md#def-top5-compact)、[TOP6 のフィルター](../TOP6/index.md#def-top6-filter)、[Zorn の補題](../F0_00A3_半順序_Zorn_極大延長/index.md#thm-zorn)、[FA3 の弱*位相](../FA3/index.md#def-fa3-weak-star-topology) と [標準埋め込み](../FA3/index.md#def-fa3-canonical-bidual-embedding) です。スカラー体は $\mathbb K=\mathbb R$ または $\mathbb C$ とします。
 
 ---
 
-## 1. ultrafilter：選択原理が入る場所
+## 1. ウルトラフィルター：選択原理が入る場所
 
 <a id="def-fa4-ultrafilter"></a>
 <!-- formal-statement-start -->
-### 定義（ultrafilter）
+### 定義（ウルトラフィルター）
 
-集合 $S$ 上の filter $\mathcal U$ が **ultrafilter（ウルトラフィルター）** であるとは、$\mathcal U$ を真に含む $S$ 上の proper filter が存在しないことをいう。
+集合 $S$ 上のフィルター $\mathcal U$ が **ウルトラフィルター（ultrafilter）** であるとは、$\mathcal U$ を真に含む $S$ 上の proper フィルターが存在しないことをいう。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fa4-ultrafilter -->
-**定義の確認**：一点 filter
+**定義の確認**：一点フィルター
 
 $s\in S$ に対して
 
@@ -54,12 +54,22 @@ $$
 \mathcal U_s=\{A\subseteq S:s\in A\}
 $$
 
-と置きます。任意の $A\subseteq S$ について $s\in A$ または $s\in S\setminus A$ のどちらか一方が成り立つので、$A$ またはその補集合のどちらか一方が $\mathcal U_s$ に入ります。この性質から $\mathcal U_s$ をさらに proper filter として大きくできず、ultrafilter です。
+と置きます。$\mathcal U_s$ がフィルターであることは包含関係から直接確認できます。
+
+さらに、$\mathcal U_s$ を含む proper フィルター $\mathcal G$ があるとします。もし $A\in\mathcal G$ で $s\notin A$ なら、$S\setminus A\in\mathcal U_s\subseteq\mathcal G$ です。すると
+
+$$
+A\cap(S\setminus A)=\varnothing
+$$
+
+も $\mathcal G$ に入ってしまい proper 性に反します。従って $\mathcal G$ の全ての集合は $s$ を含み、$\mathcal G\subseteq\mathcal U_s$ です。
+
+よって $\mathcal G=\mathcal U_s$ であり、$\mathcal U_s$ はウルトラフィルターです。
 <!-- definition-example-end -->
 
 ### 1.1 極大性から二者択一を出す
 
-ultrafilter $\mathcal U$ と任意の $A\subseteq S$ について
+ウルトラフィルター $\mathcal U$ と任意の $A\subseteq S$ について
 
 $$
 A\in\mathcal U
@@ -75,28 +85,28 @@ $$
 \{U\cap A:U\in\mathcal U\}
 $$
 
-は空集合を含まず有限交叉で閉じた filter base です。そこから生成される proper filter は $\mathcal U$ と $A$ の両方を含み、$\mathcal U$ の極大性に反します。したがってある $U_0\in\mathcal U$ が
+は空集合を含まず有限交叉で閉じたフィルター基です。そこから生成される proper フィルターは $\mathcal U$ と $A$ の両方を含み、$\mathcal U$ の極大性に反します。したがってある $U_0\in\mathcal U$ が
 
 $$
 U_0\cap A=\varnothing
 $$
 
-を満たします。よって $U_0\subseteq S\setminus A$ であり、filter の上方閉性から $S\setminus A\in\mathcal U$ です。両方が入ればその交叉 $\varnothing$ も入ってしまうので、ちょうど一方です。
+を満たします。よって $U_0\subseteq S\setminus A$ であり、フィルターの上方閉性から $S\setminus A\in\mathcal U$ です。両方が入ればその交叉 $\varnothing$ も入ってしまうので、ちょうど一方です。
 
 <a id="lem-fa4-ultrafilter-extension"></a>
 <!-- formal-statement-start -->
-### 補題（ultrafilter拡張補題）
+### 補題（ウルトラフィルター拡張補題）
 
-集合 $S$ 上の任意の filter $\mathcal F$ は、ある ultrafilter $\mathcal U$ に含まれる。
+集合 $S$ 上の任意のフィルター $\mathcal F$ は、ある ウルトラフィルター $\mathcal U$ に含まれる。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
 
-$\mathcal F$ を含む proper filter 全体を
+$\mathcal F$ を含む proper フィルター 全体を
 
 $$
-\mathscr P=\{\mathcal G:\mathcal G\text{ は }S\text{ 上の filter},\ \mathcal F\subseteq\mathcal G\}
+\mathscr P=\{\mathcal G:\mathcal G\text{ は }S\text{ 上のフィルター},\ \mathcal F\subseteq\mathcal G\}
 $$
 
 とし、包含関係で半順序を入れます。$\mathcal F\in\mathscr P$ なので非空です。
@@ -109,25 +119,25 @@ $$
 
 と置きます。各 $\mathcal G$ は proper なので $\varnothing\notin\mathcal H$、また $S\in\mathcal H$ です。
 
-$A,B\in\mathcal H$ なら、ある $\mathcal G_1,\mathcal G_2\in\mathscr C$ があって $A\in\mathcal G_1$, $B\in\mathcal G_2$ です。chain なので一方が他方を含みます。大きい方には $A,B$ がともに属するため $A\cap B$ も属し、従って $A\cap B\in\mathcal H$ です。上方閉性も $A$ を含む一つの filter の中で従います。よって $\mathcal H$ は filter で、$\mathscr C$ の上界です。
+$A,B\in\mathcal H$ なら、ある $\mathcal G_1,\mathcal G_2\in\mathscr C$ があって $A\in\mathcal G_1$, $B\in\mathcal G_2$ です。chain なので一方が他方を含みます。大きい方には $A,B$ がともに属するため $A\cap B$ も属し、従って $A\cap B\in\mathcal H$ です。上方閉性も $A$ を含む一つのフィルターの中で従います。よって $\mathcal H$ はフィルターで、$\mathscr C$ の上界です。
 
-したがって [Zorn の補題](../F0_00A3_半順序_Zorn_極大延長/index.md#thm-zorn) により $\mathscr P$ は極大元 $\mathcal U$ を持ちます。これは定義どおり ultrafilter で、$\mathcal F\subseteq\mathcal U$ です。$\square$
+したがって [Zorn の補題](../F0_00A3_半順序_Zorn_極大延長/index.md#thm-zorn) により $\mathscr P$ は極大元 $\mathcal U$ を持ちます。これは定義どおりウルトラフィルターで、$\mathcal F\subseteq\mathcal U$ です。$\square$
 <!-- proof-end -->
 
-**選択原理を使ったのはこの Zorn 適用です。** 本教材では ZFC を採用するのでこの形で進めます。なお ultrafilter 拡張原理は完全な選択公理より弱い原理でも得られるため、「Banach–Alaogluで選択公理全体を丸ごと使う」とだけ言うより、極大延長が実際の入口だと見る方が正確です。
+**選択原理を使ったのはこの Zorn 適用です。** 本教材では ZFC を採用するのでこの形で進めます。なお ウルトラフィルター拡張原理は完全な選択公理より弱い原理でも得られるため、「Banach–Alaogluで選択公理全体を丸ごと使う」とだけ言うより、極大延長が実際の入口だと見る方が正確です。
 
 ---
 
-## 2. compactness と ultrafilter の収束
+## 2. コンパクト性とウルトラフィルターの収束
 
 <a id="thm-fa4-compact-ultrafilter"></a>
 <!-- formal-statement-start -->
-### 定理（コンパクト性のultrafilter特徴付け）
+### 定理（コンパクト性のウルトラフィルター特徴付け）
 
 位相空間 $S$ について次は同値である。
 
 1. $S$ はコンパクトである。
-2. $S$ 上の任意の ultrafilter は少なくとも一つの点へ収束する。
+2. $S$ 上の任意のウルトラフィルター は少なくとも一つの点へ収束する。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -139,7 +149,7 @@ $$
 \{\overline A:A\in\mathcal U\}
 $$
 
-を考えます。有限個 $A_1,\dots,A_m\in\mathcal U$ を取ると $A_1\cap\cdots\cap A_m\in\mathcal U$ です。proper filter なのでこの交叉は非空で、
+を考えます。有限個 $A_1,\dots,A_m\in\mathcal U$ を取ると $A_1\cap\cdots\cap A_m\in\mathcal U$ です。proper フィルター なのでこの交叉は非空で、
 
 $$
 \overline{A_1\cap\cdots\cap A_m}
@@ -155,9 +165,9 @@ $$
 
 となる $x\in S$ が存在します。
 
-$V$ を $x$ の開近傍とします。もし $V\notin\mathcal U$ なら ultrafilter の二者択一から $S\setminus V\in\mathcal U$ です。すると $x\in\overline{S\setminus V}$ ですが、$V$ は $x$ を含み $S\setminus V$ と交わらない開集合なので閉包の定義に反します。従って全ての近傍 $V$ が $\mathcal U$ に入り、$\mathcal U\to x$ です。
+$V$ を $x$ の開近傍とします。もし $V\notin\mathcal U$ なら ウルトラフィルターの二者択一から $S\setminus V\in\mathcal U$ です。すると $x\in\overline{S\setminus V}$ ですが、$V$ は $x$ を含み $S\setminus V$ と交わらない開集合なので閉包の定義に反します。従って全ての近傍 $V$ が $\mathcal U$ に入り、$\mathcal U\to x$ です。
 
-逆に $S$ がコンパクトでないとします。有限部分被覆を持たない開被覆 $\{V_i\}_{i\in I}$ を取り、$F_i=S\setminus V_i$ と置きます。有限部分被覆がないことから $\{F_i\}$ は有限交差性を持ちます。その有限交叉全体を base とする proper filter $\mathcal F$ を作り、前節の補題で $\mathcal F\subseteq\mathcal U$ となる ultrafilter を取ります。
+逆に $S$ がコンパクトでないとします。有限部分被覆を持たない開被覆 $\{V_i\}_{i\in I}$ を取り、$F_i=S\setminus V_i$ と置きます。有限部分被覆がないことから $\{F_i\}$ は有限交差性を持ちます。その有限交叉全体を base とする proper フィルター $\mathcal F$ を作り、前節の補題で $\mathcal F\subseteq\mathcal U$ となる ウルトラフィルターを取ります。
 
 仮定2から $\mathcal U\to x$ となる $x$ が存在します。開被覆なので $x\in V_{i_0}$ となる $i_0$ があり、収束から $V_{i_0}\in\mathcal U$ です。一方 $F_{i_0}\in\mathcal F\subseteq\mathcal U$ なので
 
@@ -165,20 +175,20 @@ $$
 \varnothing=V_{i_0}\cap F_{i_0}\in\mathcal U,
 $$
 
-となり proper filter に反します。従って $S$ はコンパクトです。$\square$
+となり proper フィルター に反します。従って $S$ はコンパクトです。$\square$
 <!-- proof-end -->
 
 ここでは距離・完備性・Hausdorff 性を使っていません。
 
 ---
 
-## 3. FA4で必要な積コンパクト性
+## 3. FA4で必要な積のコンパクト性
 
 <a id="thm-fa4-compact-hausdorff-product"></a>
 <!-- formal-statement-start -->
-### 定理（compact Hausdorff空間族の積コンパクト性）
+### 定理（コンパクト Hausdorff 空間族の積コンパクト性）
 
-添字集合 $I$ と compact Hausdorff 空間族 $(K_i)_{i\in I}$ に対し、積位相を入れた
+添字集合 $I$ と コンパクト Hausdorff 空間族 $(K_i)_{i\in I}$ に対し、積位相を入れた
 
 $$
 K=\prod_{i\in I}K_i
@@ -190,7 +200,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$K=\varnothing$ なら自明です。以下 $K\ne\varnothing$ とし、$K$ 上の任意の ultrafilter $\mathcal U$ を取ります。座標射影を $\pi_i:K\to K_i$ とし
+$K=\varnothing$ なら、任意の開被覆は空の有限部分族ですでに $K$ を覆うので $K$ はコンパクトです。以下 $K\ne\varnothing$ とし、$K$ 上の任意の ウルトラフィルター $\mathcal U$ を取ります。座標射影を $\pi_i:K\to K_i$ とし
 
 $$
 \mathcal U_i
@@ -198,7 +208,7 @@ $$
 \{A\subseteq K_i:\pi_i^{-1}(A)\in\mathcal U\}
 $$
 
-と置きます。逆像は包含と有限交叉を保つので $\mathcal U_i$ は filter です。また
+と置きます。逆像は包含と有限交叉を保つので $\mathcal U_i$ はフィルターです。また
 
 $$
 \pi_i^{-1}(K_i\setminus A)=K\setminus\pi_i^{-1}(A)
@@ -218,10 +228,10 @@ $$
 
 と書けます。$\mathcal U_{i_j}\to x_{i_j}$ だから $V_j\in\mathcal U_{i_j}$、従って $\pi_{i_j}^{-1}(V_j)\in\mathcal U$ です。filter は有限交叉で閉じるので $W\in\mathcal U$。任意の基本近傍が $\mathcal U$ に入るため $\mathcal U\to x$ です。
 
-任意の ultrafilter が収束したので、前節の特徴付けから $K$ はコンパクトです。$\square$
+任意のウルトラフィルターが収束したので、前節の特徴付けから $K$ はコンパクトです。$\square$
 <!-- proof-end -->
 
-TOP6 は net/filter の一般論で止め、ultrafilter を先取りしていません。本章では Banach–Alaoglu に必要になった地点で、Zorn まで遡って compact Hausdorff 版の積コンパクト性を閉じました。
+TOP6 はネット／フィルターの一般論で止め、ウルトラフィルターを先取りしていません。本章では Banach–Alaoglu に必要になった地点で、Zorn まで遡ってコンパクト Hausdorff 版の積コンパクト性を閉じました。
 
 ---
 
@@ -239,7 +249,7 @@ $$
 D_x=\{z\in\mathbb K:|z|\le\|x\|\}
 $$
 
-と置きます。$D_x$ は有限次元 Euclidean 空間の閉有界集合なので compact Hausdorff です。従って前節から
+と置きます。$D_x$ は有限次元 Euclid 空間の閉有界集合なのでコンパクト Hausdorff です。従って前節から
 
 $$
 K=\prod_{x\in X}D_x
@@ -255,7 +265,15 @@ $$
 \Phi(f)=(f(x))_{x\in X}
 $$
 
-を定めます。$\|f\|\le1$ なら $|f(x)|\le\|x\|$ なので well-defined です。
+を定めます。$\|f\|\le1$ なら全ての $x\in X$ で $|f(x)|\le\|x\|$ なので、確かに $\Phi(f)\in K$ です。
+
+また
+
+$$
+\Phi(f)=\Phi(g)
+$$
+
+なら全ての $x\in X$ で $f(x)=g(x)$ なので $f=g$ です。従って $\Phi$ は単射です。
 
 ### 4.1 弱*位相は積の部分空間位相
 
@@ -324,10 +342,10 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$B_{X^*}$ は compact 空間 $K$ の閉部分集合 $\Phi(B_{X^*})$ と同相です。コンパクト空間の閉部分集合はコンパクトなので $B_{X^*}$ は弱*コンパクトです。$\square$
+$B_{X^*}$ はコンパクト空間 $K$ の閉部分集合 $\Phi(B_{X^*})$ と同相です。コンパクト空間の閉部分集合はコンパクトなので $B_{X^*}$ は弱*コンパクトです。$\square$
 <!-- proof-end -->
 
-証明で使ったのは、各 $D_x$ の有限次元 compactness、ultrafilter 経由の積 compactness、弱*位相と有限座標位相の一致、そして線形性が閉条件であることです。$X$ 内の Cauchy 列や極限は一度も取りません。**Banach 性は不要です。**
+証明で使ったのは、各 $D_x$ の有限次元コンパクト性、ウルトラフィルター経由の積のコンパクト性、弱*位相と有限座標位相の一致、そして線形性が閉条件であることです。$X$ 内の Cauchy 列や極限は一度も取りません。**Banach 性は不要です。**
 
 ---
 
@@ -384,7 +402,37 @@ $$
 
 を置きます。示すべきことは $a\in\overline{T(B_X)}$ です。
 
-$C=T(B_X)$ と置きます。$B_X$ は凸かつ balanced なので $C$ と $\overline C$ も凸かつ balanced です。また各座標が $|f_i(x)|\le\|f_i\|$ で抑えられるため $C$ は有界です。有限次元では $\overline C$ は閉有界、従ってコンパクトです。
+$C=T(B_X)$ と置きます。
+
+まず $B_X$ は凸です。さらにスカラー $\zeta$ が $|\zeta|\le1$ を満たし $x\in B_X$ なら
+
+$$
+\|\zeta x\|
+=
+|\zeta|\,\|x\|
+\le1,
+$$
+
+なので $\zeta x\in B_X$ です。線形性から、$c=T(x)\in C$ に対して
+
+$$
+\zeta c=T(\zeta x)\in C.
+$$
+
+従って $C$ は凸で、絶対値 1 以下のスカラー倍でも閉じています。この二つの性質は閉包 $\overline C$ にも保たれます。
+
+また各座標が
+
+$$
+|f_i(x)|
+\le
+\|f_i\|\,\|x\|
+\le
+\|f_i\|
+\qquad(x\in B_X)
+$$
+
+で抑えられるため $C$ は有界です。有限次元では $\overline C$ は閉有界、従ってコンパクトです。
 
 反対に $a\notin\overline C$ とします。$\mathbb K^n$ を実 Euclidean 空間とみなし、$a$ から $\overline C$ への距離を最小にする $c_0\in\overline C$ を取ります。$u=a-c_0\ne0$ と置きます。
 
@@ -423,7 +471,53 @@ $$
 L(z)=\operatorname{Re}\sum_{i=1}^n\lambda_i z_i
 $$
 
-と書き、$g=\sum_{i=1}^n\lambda_i f_i\in X^*$ と置きます。$C=T(B_X)$ は balanced なので、実数体では符号を、複素数体では絶対値1の位相因子を $x$ に掛けることで
+と書き、$g=\sum_{i=1}^n\lambda_i f_i\in X^*$ と置きます。ここで
+
+$$
+L(Tx)
+=
+\operatorname{Re}g(x).
+$$
+
+実数体では、$g(x)<0$ なら $-x\in B_X$ に取り替えることで
+
+$$
+\sup_{\|x\|\le1}\operatorname{Re}g(x)
+=
+\sup_{\|x\|\le1}|g(x)|
+$$
+
+となります。
+
+複素数体では $g(x)\ne0$ のとき
+
+$$
+\zeta
+=
+\frac{\overline{g(x)}}{|g(x)|},
+\qquad
+|\zeta|=1
+$$
+
+と取れば $\zeta x\in B_X$ で
+
+$$
+g(\zeta x)
+=
+\zeta g(x)
+=
+|g(x)|.
+$$
+
+従って複素数体でも
+
+$$
+\sup_{\|x\|\le1}\operatorname{Re}g(x)
+=
+\sup_{\|x\|\le1}|g(x)|.
+$$
+
+よって
 
 $$
 \sup_{c\in C}L(c)
@@ -483,6 +577,8 @@ $$
 ---
 
 ## 6. 反射性
+
+Goldstine により $J(B_X)$ は $B_{X^{**}}$ に弱*稠密であることが分かりました。しかし「どこまでも近づける」ことと「実際に $X$ の点から来ている」ことは別です。そこで、標準埋め込み $J:X\to X^{**}$ が双対の双対全体を本当に覆う場合を区別して名前を付けます。
 
 <a id="def-fa4-reflexive"></a>
 <!-- formal-statement-start -->
@@ -558,7 +654,7 @@ $$
 \overline{J(B_X)}^{\,w^*}=B_{X^{**}}.
 $$
 
-closed と dense を合わせれば $J(B_X)=B_{X^{**}}$ です。任意の $z^{**}\ne0$ に対し $z^{**}/\|z^{**}\|\in B_{X^{**}}$ なのである $x\in B_X$ が存在して
+閉性と稠密性を合わせれば $J(B_X)=B_{X^{**}}$ です。任意の $z^{**}\ne0$ に対し $z^{**}/\|z^{**}\|\in B_{X^{**}}$ なのである $x\in B_X$ が存在して
 
 $$
 Jx=\frac{z^{**}}{\|z^{**}\|}.
@@ -570,71 +666,67 @@ $$
 逆向きで Goldstine が必要なのは
 
 $$
-J(B_X)\text{ が weak* compact}
+J(B_X)\text{ が 弱*コンパクト}
 \Longrightarrow
-J(B_X)\text{ が weak* closed}
+J(B_X)\text{ が 弱*閉}
 $$
 
-だけでは $B_{X^{**}}$ の全点を覆えないからです。Goldstine が weak* dense を与え、closed + dense で初めて等号になります。
+だけでは $B_{X^{**}}$ の全点を覆えないからです。Goldstine が弱*稠密性を与え、閉 + 稠密 で初めて等号になります。
 
 ---
 
-## 7. Hahn–Banachが再び働く：閉凸集合は弱閉
+## 7. 強分離からノルム閉集合の弱閉性を得る
 
-$C\subseteq X$ をノルム閉凸集合、$x_0\notin C$ とします。閉性からある $r>0$ が存在して
+$C\subseteq X$ を、ノルム閉で、任意の二点を結ぶ線分を含む集合とし、$x_0\notin C$ とします。
 
-$$
-(x_0+rB_X)\cap C=\varnothing.
-$$
+ここでは前章 C6A で証明した [点と閉凸集合の強分離](../F0_02C6A_分離定理_Minkowski_Farkas/index.md#thm-f0-02c6a-strong-separation) を使います。適用条件は
 
-そこで $G=C+rB_X$ と置けば、$G$ は開凸集合で $x_0\notin G$ です。
+- $C$ が空でないこと、
+- $C$ がノルム閉であること、
+- $C$ が凸であること、
+- $x_0\notin C$ であること、
 
-この状況で Hahn–Banach による開凸集合と外点の分離を使います。その生成機構を一段戻すと、$c_1\in G$ を固定して $V=G-c_1$ と置き、原点を含む開凸集合 $V$ の Minkowski functional
+です。$C=\varnothing$ なら空集合は任意の位相で閉なので弱閉です。以下 $C\ne\varnothing$ とします。
 
-$$
-p_V(x)=\inf\{t>0:x\in tV\}
-$$
-
-を作ります。$y=x_0-c_1\notin V$ だから $p_V(y)\ge1$。$\operatorname{span}\{y\}$ 上の線形汎関数を $f_0(ty)=t$ と置くと $f_0\le p_V$ です。Hahn–Banach で $f_0$ を $p_V$ に支配される線形汎関数へ延長すると、$V$ と $y$ を実部で分離する連続線形汎関数が得られます。
-
-従ってある $f\in X^*\setminus\{0\}$ が存在し、適切な向きに取り直せば
+実数体では、この定理からある $f\in X^*\setminus\{0\}$ と $\alpha\in\mathbb R$ が存在して
 
 $$
-\sup_{y\in G}\operatorname{Re}f(y)
-\le
+\sup_{c\in C}f(c)
+<
+\alpha
+<
+f(x_0)
+$$
+
+となります。複素数体では C6A の複素版により実部で
+
+$$
+\sup_{c\in C}\operatorname{Re}f(c)
+<
+\alpha
+<
 \operatorname{Re}f(x_0)
 $$
 
-となります。$c\in C$ と $\|h\|<r$ に対して $c+h\in G$ なので
+となる $f\in X^*\setminus\{0\}$ を取れます。
+
+従って
 
 $$
-\operatorname{Re}f(c+h)
-\le
-\operatorname{Re}f(x_0).
+U
+=
+\{x\in X:\operatorname{Re}f(x)>\alpha\}
 $$
 
-$h$ を $f$ のノルムをほぼ達成する方向へ動かすと
+は $x_0$ を含み $C$ と交わりません。$f$ は弱位相を定める連続線形汎関数の一つなので、$U$ は弱開集合です。
+
+任意の $x_0\in X\setminus C$ に対してこのような弱開近傍が取れるため、$X\setminus C$ は弱開、従って
 
 $$
-\operatorname{Re}f(c)+r\|f\|
-\le
-\operatorname{Re}f(x_0).
+\boxed{C\text{ は弱閉}}
 $$
 
-そこで
-
-$$
-\alpha=\operatorname{Re}f(x_0)-\frac{r\|f\|}{2}
-$$
-
-と置けば
-
-$$
-\operatorname{Re}f(c)<\alpha<\operatorname{Re}f(x_0)
-\qquad(c\in C).
-$$
-
-集合 $\{x:\operatorname{Re}f(x)>\alpha\}$ は $x_0$ を含み $C$ と交わらない弱開集合です。従って $X\setminus C$ は弱開、つまり $C$ は弱閉です。
+です。
 
 <a id="cor-fa4-reflexive-closed-bounded-convex"></a>
 <!-- formal-statement-start -->
@@ -659,15 +751,15 @@ $$
 
 | 結果 | 選択原理 | 完備性 | Hahn–Banach |
 |---|---|---|---|
-| ultrafilter拡張 | Zornを使用 | 不要 | 不要 |
-| compact Hausdorff積 | 上の拡張を使用 | 不要 | 不要 |
-| Banach–Alaoglu | 積compactness経由 | $X$には不要 | 不要 |
+| ウルトラフィルター拡張 | Zornを使用 | 不要 | 不要 |
+| コンパクト Hausdorff 積 | 上の拡張を使用 | 不要 | 不要 |
+| Banach–Alaoglu | 積のコンパクト性経由 | $X$には不要 | 不要 |
 | Goldstine | 新たな選択不要 | 不要 | $J$の等長性はFA3で使用 |
-| 反射的⇒弱compact球 | Alaoglu経由 | 反射性をBanachで定義 | $J$の等長性経由 |
-| 弱compact球⇒反射的 | 新たな選択不要 | Banachを仮定 | Goldstine側の既存$J$ |
-| 閉有界凸集合の弱compactness | Alaoglu経由 | Banach | 分離で使用 |
+| 反射的⇒弱コンパクト球 | Alaoglu経由 | 反射性をBanachで定義 | $J$の等長性経由 |
+| 弱コンパクト球⇒反射的 | 新たな選択不要 | Banachを仮定 | Goldstine側の既存$J$ |
+| 閉有界凸集合の弱コンパクトness | Alaoglu経由 | Banach | 分離で使用 |
 
-本章では Eberlein–Šmulian を使いません。「弱コンパクトだから任意の点列から弱収束部分列を取れる」という未証明の置換を避け、一般位相の compactness・filter・閉集合だけで反射性まで閉じています。
+本章では Eberlein–Šmulian を使いません。「弱コンパクトだから任意の点列から弱収束部分列を取れる」という未証明の推論を避け、一般位相のコンパクト性・フィルター・閉集合だけで反射性まで閉じています。
 
 ---
 
@@ -676,13 +768,13 @@ $$
 ### Level A
 
 <a id="ex-fa4-a01"></a>
-#### FA4-A01 ultrafilterの二者択一
+#### FA4-A01 ウルトラフィルターの二者択一
 - Level: A
 
-ultrafilter $\mathcal U$ と $A\subseteq S$ に対し、$A\in\mathcal U$ または $S\setminus A\in\mathcal U$ のちょうど一方が成り立つことを証明せよ。
+ウルトラフィルター $\mathcal U$ と $A\subseteq S$ に対し、$A\in\mathcal U$ または $S\setminus A\in\mathcal U$ のちょうど一方が成り立つことを証明せよ。
 
 <!-- solution-start -->
-**解答・解説**：$A\notin\mathcal U$ とする。全ての $U\in\mathcal U$ で $U\cap A\ne\varnothing$ なら、$\{U\cap A:U\in\mathcal U\}$ が生成する proper filter は $\mathcal U$ と $A$ を含み、極大性に反する。従ってある $U_0\in\mathcal U$ で $U_0\cap A=\varnothing$。よって $U_0\subseteq S\setminus A$ から $S\setminus A\in\mathcal U$。両方が属すれば $\varnothing$ が filter に入るので、ちょうど一方である。
+**解答・解説**：$A\notin\mathcal U$ とする。全ての $U\in\mathcal U$ で $U\cap A\ne\varnothing$ なら、$\{U\cap A:U\in\mathcal U\}$ が生成する proper フィルターは $\mathcal U$ と $A$ を含み、極大性に反する。従ってある $U_0\in\mathcal U$ で $U_0\cap A=\varnothing$。よって $U_0\subseteq S\setminus A$ から $S\setminus A\in\mathcal U$。両方が属すれば $\varnothing$ が filter に入るので、ちょうど一方である。
 <!-- solution-end -->
 
 <a id="ex-fa4-a02"></a>
@@ -702,7 +794,7 @@ $K=\prod_{x\in X}D_x$ の点 $a=(a_x)$ が双対単位球の像に属する条�
 Banach–Alaoglu の証明を監査し、$X$ の完備性を使っていないことを説明せよ。
 
 <!-- solution-start -->
-**解答・解説**：使ったのは各 $D_x$ の有限次元 compactness、ultrafilter による積 compactness、弱*位相と座標位相の一致、線形方程式で像が閉になることだけである。$X$ 内の Cauchy 列やその極限を取る操作はない。従って定理は任意のノルム空間で成り立つ。
+**解答・解説**：使ったのは各 $D_x$ の有限次元コンパクト性、ultrafilter による積のコンパクト性、弱*位相と座標位相の一致、線形方程式で像が閉になることだけである。$X$ 内の Cauchy 列やその極限を取る操作はない。従って定理は任意のノルム空間で成り立つ。
 <!-- solution-end -->
 
 <a id="ex-fa4-a04"></a>
@@ -730,7 +822,7 @@ $$
 を全ての $i$ で満たす理由を説明せよ。
 
 <!-- solution-start -->
-**解答・解説**：$T(x)=(f_1(x),\dots,f_n(x))$、$a=(x^{**}(f_1),\dots,x^{**}(f_n))$ と置く。Goldstine の証明で $a\in\overline{T(B_X)}$ を示した。従って $a$ の座標近傍 $\{z:|z_i-a_i|<\varepsilon\ \forall i\}$ は $T(B_X)$ と交わる。その交点を $T(x)$ と書けば一つの $x\in B_X$ が全不等式を同時に満たす。各 $f_i$ ごとに別の点を取るのではないことが核心である。
+**解答・解説**：$T(x)=(f_1(x),\dots,f_n(x))$、$a=(x^{**}(f_1),\dots,x^{**}(f_n))$ と置く。Goldstine の証明で $a\in\overline{T(B_X)}$ を示した。従って、各成分を $a_i$ から $\varepsilon$ 未満に制限する集合 $\{z:|z_i-a_i|<\varepsilon\ \forall i\}$ は $T(B_X)$ と交わる。その交点を $T(x)$ と書けば一つの $x\in B_X$ が全不等式を同時に満たす。各 $f_i$ ごとに別の点を取るのではないことが核心である。
 <!-- solution-end -->
 
 <a id="ex-fa4-b02"></a>
@@ -762,9 +854,24 @@ Goldstine を使う位置が分かるように証明せよ。
 $X$ を反射的 Banach 空間、$C\subset X$ をノルム閉・有界・凸とする。Hahn–Banach を使う箇所と反射性を使う箇所を分けて、$C$ が弱コンパクトであることを証明せよ。
 
 <!-- solution-start -->
-**解答・解説**：まず $x_0\notin C$ を取る。閉性から $x_0+rB_X$ と $C$ が交わらない $r>0$ を取り、開凸集合 $C+rB_X$ と $x_0$ を Minkowski functional と Hahn–Banach で分離する。すると $f\in X^*$ と $\alpha$ があり $\operatorname{Re}f(c)<\alpha<\operatorname{Re}f(x_0)$ $(c\in C)$。従って $\{x:\operatorname{Re}f(x)>\alpha\}$ は $x_0$ を含み $C$ と交わらない弱開集合で、$C$ は弱閉。
+**解答・解説**：まず $x_0\notin C$ を任意に取ります。$C$ は空でないノルム閉凸集合なので、[点と閉凸集合の強分離](../F0_02C6A_分離定理_Minkowski_Farkas/index.md#thm-f0-02c6a-strong-separation)を適用できます。従ってある $f\in X^*\setminus\{0\}$ と $\alpha$ があり
 
-次に有界性から $C\subset RB_X$。反射性から $RB_X$ は弱コンパクト。$C$ はその弱閉部分集合だから弱コンパクトである。Hahn–Banach は「norm closed convex ⇒ weak closed」、反射性は「ball ⇒ weak compact」に使われる。
+$$
+\operatorname{Re}f(c)<\alpha<\operatorname{Re}f(x_0)
+\qquad(c\in C)
+$$
+
+となります。したがって
+
+$$
+\{x:\operatorname{Re}f(x)>\alpha\}
+$$
+
+は $x_0$ を含み $C$ と交わらない弱開集合です。$x_0$ は任意なので $C$ は弱閉です。
+
+次に有界性からある $R>0$ が存在して $C\subset RB_X$ です。反射性と [閉単位球の弱コンパクト性](#thm-fa4-reflexive-weak-compact-ball)から $RB_X$ は弱コンパクトです。$C$ はその弱閉部分集合なので弱コンパクトです。
+
+ここで強分離は「ノルム閉凸 $\Rightarrow$ 弱閉」に、反射性は「閉球 $\Rightarrow$ 弱コンパクト」に使われています。
 <!-- solution-end -->
 
 ---
@@ -776,8 +883,8 @@ $X$ を反射的 Banach 空間、$C\subset X$ をノルム閉・有界・凸と�
 - 任意積の compactness を使う直前まで遡り、Zorn による ultrafilter 拡張を実装した。
 - Banach–Alaoglu では双対球を座標積の中の閉じた線形方程式の解集合として実現した。
 - Goldstine では弱*近傍を有限個の汎関数による $\mathbb K^n$ の同時近似へ落とし、有限次元分離を最近点から直接証明した。
-- 反射性の逆向きでは weak* compact ⇒ closed と Goldstine ⇒ dense が噛み合う地点を明示した。
+- 反射性の逆向きでは 弱*コンパクト ⇒ closed と Goldstine ⇒ dense が噛み合う地点を明示した。
 - Hahn–Banach は標準埋め込みの等長性と閉凸集合の弱閉性に局所化した。
 - Eberlein–Šmulian は使わず、一般位相の compactness で閉じた。
 
-次の FA5 では bounded operator の spectrum・resolvent へ進みます。
+次の FA5 では、有界作用素について「どのスカラーを引くと可逆性が壊れるか」を調べる理論へ進みます。
