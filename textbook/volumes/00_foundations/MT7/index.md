@@ -5,21 +5,7 @@ D2Dでは $L^p$ 空間、Hölder の不等式、Minkowski の不等式を作り�
 
 ここで知りたいのは、単に「$L^p$ が完備である」という抽象的な事実だけではありません。$L^p$ の元を扱うとき、有限個の値しか取らない単関数や連続関数で近似できれば計算へ戻れます。また連続線形汎関数を積分として表せれば、抽象的な双対空間を具体的な関数として扱えます。本章はこの二つを、前章までの収束定理・Radon--Nikodym 定理と結びます。
 
-```text
-D2D：Lp・Hölder・Minkowski
-          ↓
-一般 1<=p<=infinity の完備性
-          ↓
-単関数の Lp 稠密性
-          ↓
-Radon 測度なら C_c(X) の Lp 稠密性
-          ↓
-σ有限 + Radon–Nikodym
-          ↓
-(Lp)* = Lq   (1<=p<infinity)
-          ↓
-p=infinity では何が壊れるか
-```
+本章の流れは、D2D の $L^p$ 空間・Hölder の不等式・Minkowski の不等式から出発し、一般の $1\le p\le\infty$ に対する完備性、単関数と $C_c(X)$ による近似、σ有限測度空間での $(L^p)^*=L^q$ という双対表示へ進みます。最後に $p=\infty$ だけ同じ Radon--Nikodym 構成が閉じない理由を確認します。
 
 本章は既存の [$L^p$ 定義](../F0_00D2D_Lp_Holder_Minkowski/index.md#def-f0-00d2d-02)、[Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)、[Minkowski の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-02)を正本として再利用します。$L^2$ の完備性は [D2E](../F0_00D2E_L2完備性_Riesz_Fischer/index.md#thm-f0-00d2e-01) の特殊例として回収されます。
 
@@ -76,30 +62,40 @@ $$
 \le1.
 $$
 
-従って $G\in L^p$ であり、とくに $G<\infty$ ほとんど至る所 です。その点では
+従って $G\in L^p$ であり、とくに $G<\infty$ はほとんど至る所で成り立ちます。可測集合
+
+$$
+A:=\{x:G(x)<\infty\}
+$$
+
+を取ると、$x\in A$ では
 
 $$
 \sum_{k=1}^{\infty}
-|f_{n_{k+1}}-f_{n_k}|<\infty,
+|f_{n_{k+1}}(x)-f_{n_k}(x)|<\infty,
 $$
 
-ゆえに $(f_{n_k}(x))$ は実数の Cauchy 列です。零集合上では 0 と置くことで可測関数 $f$ を
+なので $(f_{n_k}(x))$ は実数の Cauchy 列です。そこで
 
 $$
-f(x):=\lim_{k\to\infty}f_{n_k}(x)
+f(x):=
+\begin{cases}
+\displaystyle\lim_{k\to\infty}f_{n_k}(x),&x\in A,\\
+0,&x\notin A
+\end{cases}
 $$
 
-と定めます。
+と定めます。各 $f_{n_k}$ は可測であり、$A$ も可測なので、この $f$ も可測です。
 
 尾部を直接無限和で扱う前に、有限尾部
 
-$
+$$
 H_{k,N}:=\sum_{j=k}^{N}g_j
-$
+$$
 
 を考えます。[Minkowski の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-02)を $g_k,\ldots,g_N$ に適用すると
 
-$
+$$
 \|H_{k,N}\|_p
 \le
 \sum_{j=k}^{N}\|g_j\|_p
@@ -107,31 +103,36 @@ $
 \sum_{j=k}^{N}2^{-j}
 \le
 2^{1-k}.
-$
+$$
 
 $N\to\infty$ で $H_{k,N}\uparrow H_k:=\sum_{j=k}^{\infty}g_j$ です。従って $H_{k,N}^p\uparrow H_k^p$ なので、[単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)から
 
-$
+$$
 \|H_k\|_p^p
 =
 \lim_{N\to\infty}\|H_{k,N}\|_p^p
 \le
 2^{p(1-k)}.
-$
+$$
 
 よって
 
-$
+$$
 \|H_k\|_p\le2^{1-k}.
-$
+$$
 
-また、$G<\infty$ となる可測集合上では $(f_{n_k})$ は各点で Cauchy 列なので極限を持ちます。その集合上で点wise極限を取り、補集合では0と定めれば可測関数 $f$ が得られます。ほとんど至る所で
+この $f$ に対し、$x\in A$ では望遠和から
 
-$
-|f_{n_k}-f|\le H_k
-$
+$$
+|f_{n_k}(x)-f(x)|
+\le
+\sum_{j=k}^{\infty}
+|f_{n_{j+1}}(x)-f_{n_j}(x)|
+=
+H_k(x)
+$$
 
-が成り立ちます。
+です。$mu(X\setminus A)=0$ なので、これはほとんど至る所で成り立ちます。
 
 したがって
 
@@ -195,7 +196,7 @@ $$
 従って $f\in L^\infty$ かつ部分列は $f$ へ収束します。元の列全体の収束は有限 $p$ の最後と同じ Cauchy 評価で従います。よって $L^\infty$ も完備です。$\square$
 <!-- proof-end -->
 
-ここで有限 $p$ では [単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange) が「差分の絶対値和が ほとんど至る所 で有限」を作り、$p=\infty$ では本質的一様評価そのものが差分の和を支えています。
+ここで有限 $p$ では [単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange) が「差分の絶対値和が ほとんど至る所で有限」を作り、$p=\infty$ では本質的一様評価そのものが差分の和を支えています。
 
 ---
 
@@ -205,7 +206,7 @@ $L^p$ の抽象元を扱うとき、まず有限個の値しか取らない関�
 
 <a id="thm-mt7-simple-dense"></a>
 <!-- formal-statement-start -->
-### 定理（単関数の $L^p$稠密性）
+### 定理（単関数の $L^p$ 稠密性）
 
 $1\le p<\infty$ とする。任意の $f\in L^p(\mu)$ と $\varepsilon>0$ に対し、$L^p$ に属する実数値単関数 $s$ が存在して $\|f-s\|_p<\varepsilon$ となる。
 <!-- formal-statement-end -->
@@ -227,7 +228,7 @@ $$
 0\le|f-s_n|^p\le f^p,
 $$
 
-かつ $|f-s_n|^p\to0$ ほとんど至る所 です。$f\in L^p$ だから $f^p\in L^1$。[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)より
+かつ $|f-s_n|^p\to0$ ほとんど至る所です。$f\in L^p$ だから $f^p\in L^1$。[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)より
 
 $$
 \|f-s_n\|_p^p
@@ -252,7 +253,7 @@ $$
 十分大きい $n$ を選べば結論です。$\square$
 <!-- proof-end -->
 
-### 有限測度の台 を持つ近似も取れる
+### 有限測度の台を持つ近似も取れる
 
 後で $C_c$ 近似へ進むため、単関数の各非零レベル集合を有限測度にできます。$f\in L^p$ に対して
 
@@ -274,7 +275,7 @@ $$
 =|f|^p1_{E_m^c}\to0
 $$
 
-a.e. で、右辺は $|f|^p$ に支配されるからです。従って上の単関数近似を $f1_{E_m}$ に適用すれば、有限測度集合上に 台 を持つ単関数で近似できます。
+a.e. で、右辺は $|f|^p$ に支配されるからです。従って上の単関数近似を $f1_{E_m}$ に適用すれば、有限測度集合上に台を持つ単関数で近似できます。
 
 ---
 
@@ -284,7 +285,7 @@ a.e. で、右辺は $|f|^p$ に支配されるからです。従って上の単
 
 <a id="thm-mt7-cc-dense"></a>
 <!-- formal-statement-start -->
-### 定理（$C_c$ の $L^p$稠密性）
+### 定理（$C_c$ の $L^p$ 稠密性）
 
 $1\le p<\infty$ とする。局所コンパクト Hausdorff 空間 $X$ 上の Radon 測度 $\mu$ に対し、$C_c(X)$ は $L^p(\mu)$ に稠密である。
 <!-- formal-statement-end -->
@@ -292,7 +293,7 @@ $1\le p<\infty$ とする。局所コンパクト Hausdorff 空間 $X$ 上の Ra
 <!-- proof-start -->
 ### 証明
 
-[単関数の $L^p$ 稠密性](#thm-mt7-simple-dense)により、有限測度の台 を持つ単関数
+[単関数の $L^p$ 稠密性](#thm-mt7-simple-dense)により、有限測度の台を持つ単関数
 
 $$
 s=\sum_{j=1}^m a_j1_{E_j}
@@ -300,7 +301,7 @@ $$
 
 を近似できれば十分です。各 $E_j$ は Borel 可測かつ $\mu(E_j)<\infty$ とします。
 
-まず一つの指示関数 $1_E$ を近似します。任意の $\eta>0$ を取ります。Radon 測度の内外正則性から コンパクト集合 $K\subset E$ と 開集合 $U\supset E$ を
+まず一つの指示関数 $1_E$ を近似します。任意の $\eta>0$ を取ります。Radon 測度の内外正則性からコンパクト集合 $K\subset E$ と開集合 $U\supset E$ を
 
 $$
 \mu(E\setminus K)<\eta/2,
@@ -366,7 +367,7 @@ $$
 
 ### $p=\infty$ では一般に稠密ではない
 
-$X=\mathbb R$、Lebesgue 測度を考えます。定数関数 $1\in L^\infty$ に対し、任意の $g\in C_c(\mathbb R)$ はある コンパクト集合の外で 0 です。従ってその外で $|1-g|=1$ なので
+$X=\mathbb R$、Lebesgue 測度を考えます。定数関数 $1\in L^\infty$ に対し、任意の $g\in C_c(\mathbb R)$ はあるコンパクト集合の外で 0 です。従ってその外で $|1-g|=1$ なので
 
 $$
 \|1-g\|_\infty=1.
@@ -450,7 +451,7 @@ $$
 E_\varepsilon:=\{|g|>M-\varepsilon\}
 $$
 
-は正測度です。σ有限 性から、この中から $0<\mu(F)<\infty$ となる可測集合 $F\subset E_\varepsilon$ を取れます。
+は正測度です。σ有限性から、この中から $0<\mu(F)<\infty$ となる可測集合 $F\subset E_\varepsilon$ を取れます。
 
 $$
 f
@@ -483,9 +484,9 @@ $$
 
 <a id="thm-mt7-lp-duality"></a>
 <!-- formal-statement-start -->
-### 定理（σ有限 $L^p$双対定理）
+### 定理（σ有限 $L^p$ 双対定理）
 
-$(X,\mathcal F,\mu)$ を σ有限 測度空間、$1\le p<\infty$ とし、$q$ は
+$(X,\mathcal F,\mu)$ を σ有限測度空間、$1\le p<\infty$ とし、$q$ は
 
 $$
 \frac1p+\frac1q=1
@@ -511,7 +512,7 @@ $$
 
 #### Step 1：有限測度集合上で符号付き測度を作る
 
-σ有限 性から
+σ有限性から
 
 $$
 X_1\subset X_2\subset\cdots,
@@ -550,7 +551,21 @@ $$
 \sum_{j=1}^{\infty}\nu_n(A_j).
 $$
 
-よって $\nu_n$ は有限符号付き測度です。また $\mu(A)=0$ なら $1_A=0$（$L^p$ の元として） なので $\nu_n(A)=0$。従って
+さらに任意の可測 $A\subset X_n$ に対し
+
+$$
+|\nu_n(A)|
+=
+|T(1_A)|
+\le
+\|T\|\,\|1_A\|_p
+=
+\|T\|\,\mu(A)^{1/p}
+\le
+\|T\|\,\mu(X_n)^{1/p},
+$$
+
+なので $\nu_n$ は有限符号付き測度です。また $\mu(A)=0$ なら $1_A=0$（$L^p$ の元として）なので $\nu_n(A)=0$。従って
 
 $$
 \nu_n\ll\mu|_{X_n}.
@@ -568,68 +583,68 @@ $$
 
 まず $1<p<\infty$ とします。$m\ge1$ に対し
 
-$
+$$
 h_m
 :=
 \operatorname{sgn}(g_n)|g_n|^{q-1}1_{\{|g_n|\le m\}}.
-$
+$$
 
 $X_n$ は有限測度で $h_m$ は有界なので $h_m\in L^p(X_n)$。さらに $(q-1)p=q$ だから
 
-$
+$$
 \|h_m\|_p^p
 =
 \int_{X_n}|g_n|^q1_{\{|g_n|\le m\}}\,d\mu.
-$
+$$
 
 この積分を $A_m$ と書きます。
 
 ここで $T(h_m)=\int h_mg_n\,d\mu$ を使いますが、まだ $g_n\in L^q$ は証明していないので Hölder の不等式を使ってはいけません。代わりに、有限測度集合 $X_n$ 上の有界可測関数 $h_m$ を単関数 $s_r$ で
 
-$
+$$
 \|s_r-h_m\|_\infty\to0
-$
+$$
 
 となるよう一様近似します。単関数については Radon--Nikodym 表示から
 
-$
+$$
 T(s_r)=\int_{X_n}s_rg_n\,d\mu
-$
+$$
 
 です。一方、
 
-$
+$$
 \|s_r-h_m\|_p
 \le
 \mu(X_n)^{1/p}\|s_r-h_m\|_\infty\to0
-$
+$$
 
 なので $T(s_r)\to T(h_m)$ です。また $g_n\in L^1(X_n)$ は Radon--Nikodym 定理から既に分かっているため
 
-$
+$$
 \left|
 \int_{X_n}(s_r-h_m)g_n\,d\mu
 \right|
 \le
 \|s_r-h_m\|_\infty\|g_n\|_1
 \to0.
-$
+$$
 
 従ってここでは循環せずに
 
-$
+$$
 T(h_m)=\int_{X_n}h_mg_n\,d\mu=A_m
-$
+$$
 
 を得ます。したがって
 
-$
+$$
 A_m
 =|T(h_m)|
 \le\|T\|\,\|h_m\|_p
 =
 \|T\|A_m^{1/p}.
-$
+$$
 
 $A_m>0$ なら割って
 
@@ -649,13 +664,13 @@ $$
 E=\{|g_n|>\|T\|+\varepsilon\}
 $$
 
-が正測度なら、$X_n$ 内なので有限測度です。
+が正測度なら、$E\subset X_n$ なので有限測度です。
 
 $$
 f=\operatorname{sgn}(g_n)1_E
 $$
 
-と置くと
+と置きます。この $f$ は有限個の値しか取らない単関数なので、Step 1 の Radon--Nikodym 表示をそのまま適用でき、
 
 $$
 |T(f)|
@@ -691,8 +706,9 @@ $$
 
 $$
 g_n=g_m
-\qquad\text{a.e. on }X_m.
 $$
+
+が $X_m$ 上でほとんど至る所で成り立ちます。
 
 各段階で零集合を修正して、$X_m$ 上で実際に整合する代表元を取り、
 
@@ -716,7 +732,7 @@ $$
 \|g\|_q\le\|T\|.
 $$
 
-$p=1$ なら各 $X_n$ 上で $|g|\le\|T\|$ ほとんど至る所 なので、可算和の零集合を除けば $X$ 全体で同じ評価が成り立ち、
+$p=1$ なら各 $X_n$ 上で $|g|\le\|T\|$ ほとんど至る所なので、可算和の零集合を除けば $X$ 全体で同じ評価が成り立ち、
 
 $$
 \|g\|_\infty\le\|T\|.
@@ -724,7 +740,7 @@ $$
 
 #### Step 4：全ての $f\in L^p$ へ延長する
 
-まず任意の $L^p$ 単関数 $s$ を取ります。各 $n$ で $s1_{X_n}$ は $X_n$ に 台 を持つので、Radon--Nikodym 表示の線形性から
+まず任意の $L^p$ 単関数 $s$ を取ります。各 $n$ で $s1_{X_n}$ は $X_n$ に台を持つので、Radon--Nikodym 表示の線形性から
 
 $$
 T(s1_{X_n})=\int s1_{X_n}g\,d\mu
@@ -786,7 +802,7 @@ Radon--Nikodym 定理から直接得られるのは、指示関数とその有�
 
 <a id="prop-mt7-linfty-boundary"></a>
 <!-- formal-statement-start -->
-### 命題（$L^\infty$双対でRN構成が破綻する機構）
+### 命題（$L^\infty$ 双対で Radon--Nikodym 構成が破綻する機構）
 
 $L^\infty$ の連続線形汎関数に対し $A\mapsto T(1_A)$ と置いても、有限 $p$ の証明で使った可算加法性は一般には連続性だけから従わない。
 <!-- formal-statement-end -->
@@ -841,7 +857,7 @@ $$
 ### A01 $L^3$ 完備性の核心
 - Level: A
 
-$L^3$-Cauchy 列から部分列 $(f_{n_k})$ を $\|f_{n_{k+1}}-f_{n_k}\|_3\le2^{-k}$ と取った。$G_N=\sum_{k=1}^N|f_{n_{k+1}}-f_{n_k}|$ とするとき、$\|G_N\|_3<1$ を示し、$G=\lim G_N<\infty$ ほとんど至る所 を導け。
+$L^3$-Cauchy 列から部分列 $(f_{n_k})$ を $\|f_{n_{k+1}}-f_{n_k}\|_3\le2^{-k}$ と取った。$G_N=\sum_{k=1}^N|f_{n_{k+1}}-f_{n_k}|$ とするとき、$\|G_N\|_3<1$ を示し、$G=\lim G_N<\infty$ほとんど至る所を導け。
 
 <!-- solution-start -->
 [Minkowski の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-02)から
@@ -860,13 +876,13 @@ $$
 $f\ge0$、$f\in L^p$ とし、$0\le s_n\uparrow f$ を単関数近似とする。なぜ $\|f-s_n\|_p\to0$ か。
 
 <!-- solution-start -->
-$|f-s_n|^p\to0$ ほとんど至る所 かつ $0\le|f-s_n|^p\le f^p$。$f^p\in L^1$ なので [優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01) により $\int|f-s_n|^p\to0$。従って $\|f-s_n\|_p\to0$。
+$|f-s_n|^p\to0$ほとんど至る所かつ $0\le|f-s_n|^p\le f^p$。$f^p\in L^1$ なので [優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01) により $\int|f-s_n|^p\to0$。従って $\|f-s_n\|_p\to0$。
 <!-- solution-end -->
 
-### A03 コンパクト集合と開集合を分離する局所化関数 の $L^p$ 誤差
+### A03 コンパクト集合と開集合を分離する局所化関数の $L^p$ 誤差
 - Level: A
 
-$\mu(U\setminus K)<\eta$、$0\le\varphi\le1$、$\varphi=1$ on $K$、$\operatorname{supp}\varphi\subset U$、$K\subset E\subset U$ とする。$\|\varphi-1_E\|_p$ を評価せよ。
+$\mu(U\setminus K)<\eta$、$0\le\varphi\le1$、$K$ 上で $\varphi=1$、$\operatorname{supp}\varphi\subset U$、$K\subset E\subset U$ とする。$\|\varphi-1_E\|_p$ を評価せよ。
 
 <!-- solution-start -->
 差は $U\setminus K$ の外で0で、全点で絶対値1以下。従って
@@ -918,13 +934,13 @@ $L^\infty$-Cauchy 列から差分の $\|\cdot\|_\infty$ が $2^{-k}$ 以下の�
 $\mathbb R$ 上の Lebesgue 測度で、定数関数1が $C_c(\mathbb R)$ の $L^\infty$-閉包に入らないことを示せ。
 
 <!-- solution-start -->
-任意の $g\in C_c(\mathbb R)$ は compact 台 の外で0。そこでは $|1-g|=1$ なので $\|1-g\|_\infty=1$。従って距離を1未満にできず、1は閉包に入らない。
+任意の $g\in C_c(\mathbb R)$ は コンパクトな台 の外で0。そこでは $|1-g|=1$ なので $\|1-g\|_\infty=1$。従って距離を1未満にできず、1は閉包に入らない。
 <!-- solution-end -->
 
 ### B03 Radon--Nikodym 構成で有限 $p$ が効く場所
 - Level: B
 
-互いに素な $A_j\subset X_n$、$\mu(X_n)<\infty$ に対し、$1\le p<\infty$ では $1_{\cup_{j=1}^NA_j}\to1_{\cup_jA_j}$（$L^p$ の元として） だが、$p=\infty$ では一般に成り立たないことを説明せよ。
+互いに素な $A_j\subset X_n$、$\mu(X_n)<\infty$ に対し、$1\le p<\infty$ では $1_{\cup_{j=1}^NA_j}\to1_{\cup_jA_j}$は $L^p$ で収束するが、$p=\infty$ では一般に成り立たないことを説明せよ。
 
 <!-- solution-start -->
 有限 $p$ では差について
@@ -945,19 +961,67 @@ $$
 ### C01 σ有限 $L^p$ 双対の局所化
 - Level: C
 
-$T\in(L^p)^*$、$1\le p<\infty$、$X_n\uparrow X$、$\mu(X_n)<\infty$ とする。本文の構成で得た Radon--Nikodym 密度 $g_n$ が $g_{n+1}=g_n$ ほとんど至る所 on $X_n$ を満たし、一つの $g\in L^q$ に貼り合わさることを証明せよ。
+$T\in(L^p)^*$、$1\le p<\infty$、$X_n\uparrow X$、$\mu(X_n)<\infty$ とする。本文の構成で得た Radon--Nikodym 密度 $g_n$ が $X_n$ 上でほとんど至る所 $g_{n+1}=g_n$ を満たし、一つの $g\in L^q$ に貼り合わさることを証明せよ。
 
 <!-- solution-start -->
-任意の可測 $A\subset X_n$ に対して
+まず任意の可測集合 $A\subset X_n$ に対して
 
 $$
 \int_Ag_{n+1}\,d\mu
-=T(1_A)
+=
+T(1_A)
 =
 \int_Ag_n\,d\mu.
 $$
 
-従って $g_{n+1}$ と $g_n$ は $X_n$ 上で同じ符号付き測度の Radon--Nikodym 密度であり、一意性から ほとんど至る所 一致する。可算個の零集合を同時に除いて代表元を整合させれば $g|_{X_n}=g_n$ と定義できる。$1<p<\infty$ では各 $n$ で $\int_{X_n}|g|^q\le\|T\|^q$ なので [単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange) により $\int_X|g|^q\le\|T\|^q$。$p=1$ では各 $X_n$ 上で $|g|\le\|T\|$ ほとんど至る所 なので全体でも同じ本質的上限評価が成り立つ。
+従って $g_{n+1}$ と $g_n$ は $X_n$ 上で同じ符号付き測度の Radon--Nikodym 密度です。密度の一意性から
+
+$$
+g_{n+1}=g_n
+$$
+
+が $X_n$ 上でほとんど至る所で成り立ちます。
+
+各 $n$ についてこの等式が壊れる零集合を $N_n\subset X_n$ とします。$N:=\bigcup_nN_n$ も零集合です。$X\setminus N$ では局所密度が重なり上で一致するので、
+
+$$
+g(x):=g_n(x)
+\qquad
+(x\in X_n\setminus N)
+$$
+
+と定めても $n$ の選び方に依存しません。$N$ 上では $g=0$ と置けば、各 $X_n$ 上で $g=g_n$ がほとんど至る所成り立つ可測関数 $g$ が得られます。
+
+$1<p<\infty$ では本文で得た評価
+
+$$
+\int_{X_n}|g|^q\,d\mu
+=
+\int_{X_n}|g_n|^q\,d\mu
+\le
+\|T\|^q
+$$
+
+を使います。$X_n\uparrow X$ なので $|g|^q1_{X_n}\uparrow|g|^q$ です。[単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)から
+
+$$
+\int_X|g|^q\,d\mu
+=
+\lim_{n\to\infty}
+\int_{X_n}|g|^q\,d\mu
+\le
+\|T\|^q,
+$$
+
+従って $g\in L^q$ です。
+
+$p=1$ では各 $X_n$ 上で $|g_n|\le\|T\|$ がほとんど至る所成り立ちます。可算個の例外零集合を除けば $X=\bigcup_nX_n$ 全体で $|g|\le\|T\|$ となるため、$g\in L^\infty$ かつ
+
+$$
+\|g\|_\infty\le\|T\|
+$$
+
+です。
 <!-- solution-end -->
 
 ---
@@ -967,6 +1031,6 @@ $$
 - $1\le p<\infty$ の完備性を「速い部分列 → 差分の和 → ほとんど至る所での収束 → 尾部 $L^p$ 評価 → 元の列」の順で再構成できる。
 - $p=\infty$ では可算個の零集合を除き、本質的一様評価から完備性を直接示せる。
 - 単関数稠密性で [優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01) をどこに使うか説明できる。
-- Radon 正則性と コンパクト集合と開集合を分離する局所化関数 から指示関数を $C_c$ で $L^p$ 近似できる。
+- Radon 正則性とコンパクト集合と開集合を分離する局所化関数 から指示関数を $C_c$ で $L^p$ 近似できる。
 - σ有限 $L^p$ 双対で、有限測度局所化が指示関数の可算加法性を保証する箇所を説明できる。
 - $p=\infty$ で同じ Radon--Nikodym 構成が壊れる理由を、尾部指示関数の $\|\cdot\|_\infty$ が1のままになることから説明できる。
