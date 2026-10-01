@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-FA5 では、無限次元では spectrum が固有値集合だけでは捉えられないことを見ました。本章では、その無限次元性をある意味で「有限次元へ圧縮する」作用素として **コンパクト作用素** を導入します。
+FA5 では、無限次元では スペクトル が固有値集合だけでは捉えられないことを見ました。本章では、その無限次元性をある意味で「有限次元へ圧縮する」作用素として **コンパクト作用素** を導入します。
 
 本章の流れは次です。
 
@@ -19,12 +19,12 @@ Rieszの補題 → 無限次元の恒等作用素は非コンパクト
   ↓
 作用素ノルム収束でも保存（値域Banach）
   ↓
-ell2対角作用素・連続核積分作用素
+$\ell^2$ 対角作用素・連続核積分作用素
 ```
 
-全章を通じて $X,Y,Z$ は実または複素 Banach 空間とします。コンパクト作用素そのものには複素数体は不要です。最後の演習で spectrum を調べるときだけ [FA5 の定義](../FA5/index.md#def-fa5-resolvent-spectrum) を使います。
+全章を通じて $X,Y,Z$ は実または複素 Banach 空間とします。コンパクト作用素そのものには複素数体は不要です。最後の演習で スペクトル を調べるときだけ [FA5 の定義](../FA5/index.md#def-fa5-resolvent-spectrum) を使います。
 
-また、FA7 の Fredholm alternative や compact self-adjoint operator の spectral theorem は本章では使いません。「compact だから非零 spectrum は固有値になる」といった一般定理も、ここではまだ仮定しません。
+また、FA7 の Fredholm alternative や コンパクト自己共役作用素 の スペクトル定理 は本章では使いません。「コンパクト だから非零 スペクトル は固有値になる」といった一般定理も、ここではまだ仮定しません。
 
 ---
 
@@ -244,7 +244,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fa6-finite-rank -->
-**定義の確認**：rank-one operator。
+**定義の確認**：階数1作用素（rank-one operator）。
 
 $f\in X^*$、$y_0\in Y$ に対して
 
@@ -364,7 +364,7 @@ $$
 よって $AK$ もコンパクトです。$\square$
 <!-- proof-end -->
 
-特に $X=Y=Z$ なら、$\mathcal B(X)$ の中でコンパクト作用素全体は左右から有界作用素を掛けても閉じています。この意味で operator ideal と呼ばれます。
+特に $X=Y=Z$ なら、$\mathcal B(X)$ の中でコンパクト作用素全体は左右から有界作用素を掛けても閉じています。この意味で 作用素イデアルと呼ばれます。
 
 ---
 
@@ -465,11 +465,11 @@ $$
 
 [有限ランク作用素のコンパクト性](#thm-fa6-finite-rank-compact)と[作用素ノルム閉性](#thm-fa6-norm-closed)を順に適用するだけです。
 
-ただし **逆向きを一般の Banach 空間で無条件に使ってはいけません**。任意のコンパクト作用素が有限ランク作用素で作用素ノルム近似できるかは、空間の approximation property と関係する別問題です。本章で必要なのは「有限ランク近似が作れたなら compact」とする一方向だけです。
+ただし **逆向きを一般の Banach 空間で無条件に使ってはいけません**。任意のコンパクト作用素が有限ランク作用素で作用素ノルム近似できるかは、空間の 近似性質（approximation property） と関係する別問題です。本章で必要なのは「有限ランク近似が作れたなら コンパクト」とする一方向だけです。
 
 ---
 
-## 7. ell2 の対角作用素：compact だが有限ランクとは限らない
+## 7. $\ell^2$ の対角作用素：コンパクト だが有限ランクとは限らない
 
 $a=(a_n)$ を有界スカラー列とし、$\ell^2$ 上で
 
@@ -482,7 +482,7 @@ $$
 
 <a id="thm-fa6-diagonal-criterion"></a>
 <!-- formal-statement-start -->
-### 定理（ell2対角作用素のコンパクト性判定）
+### 定理（$\ell^2$ 対角作用素のコンパクト性判定）
 
 有界列 $a=(a_n)$ に対する対角作用素 $D_a$ は、
 
@@ -535,11 +535,11 @@ $$
 従って像列の任意の二点は距離 $\sqrt2\varepsilon$ 以上離れ、Cauchy 部分列を持ちません。よって収束部分列も持たず、$D_a$ はコンパクトではありません。$\square$
 <!-- proof-end -->
 
-たとえば $a_n=1/n$ なら $D_a$ はコンパクトですが全ての座標で $a_n\ne0$ なので値域は無限次元です。従って compact と finite rank は同義ではありません。
+たとえば $a_n=1/n$ なら $D_a$ はコンパクトですが全ての座標で $a_n\ne0$ なので値域は無限次元です。従って コンパクト と 有限ランク は同義ではありません。
 
 ---
 
-## 8. 連続核積分作用素：Arzela-Ascoliを使わず有限ランク近似する
+## 8. 連続核積分作用素：Arzelà--Ascoli の定理を使わず有限ランク近似する
 
 $K:[0,1]^2\to\mathbb F$ を連続関数とし、$C([0,1])$ に一様ノルムを入れます。
 
@@ -584,7 +584,7 @@ s_j^{(m)}:=\frac jm
 \qquad(j=0,1,\dots,m)
 $$
 
-という等分割を取ります。mesh は $1/m\to0$ です。
+という等分割を取ります。分割幅 は $1/m\to0$ です。
 
 区間 $[s_j^{(m)},s_{j+1}^{(m)}]$ で
 
@@ -657,7 +657,7 @@ $$
 とします。$T_mf$ は節点 $s_j^{(m)}$ で
 
 $$
-c_j(f):=\int_0^1K(s_j^{(m)},t)f(t)\,dt
+c_j^{(m)}(f):=\int_0^1K(s_j^{(m)},t)f(t)\,dt
 $$
 
 という値を持つ区分線形関数です。従って $T_mf$ は、固定した分割に関する連続区分線形関数全体の有限次元空間に入ります。よって $T_m$ は有限ランクです。
@@ -686,7 +686,7 @@ $$
 各 $T_m$ は有限ランクなのでコンパクトであり、[作用素ノルム閉性](#thm-fa6-norm-closed)から $T$ もコンパクトです。$\square$
 <!-- proof-end -->
 
-この証明では関数族の compactness theorem を先取りしていません。連続核を **明示的な有限ランク核へ一様近似する**ことで閉じています。RA8 の関数族のコンパクト性・近似は後で独立に扱えます。
+この証明では関数族の コンパクト性定理 を先取りしていません。連続核を **明示的な有限ランク核へ一様近似する**ことで閉じています。RA8 の関数族のコンパクト性・近似は後で独立に扱えます。
 
 ---
 
@@ -694,21 +694,21 @@ $$
 
 本章で得たのは、コンパクト作用素の「作り方」と「壊れにくさ」です。
 
-- 有限ランクなら compact。
-- compact の作用素ノルムでの収束は compact。
-- compact の前後に有界作用素を合成しても compact。
-- 無限次元恒等作用素は compact ではない。
-- 対角係数が0へ行く対角作用素は compact。
+- 有限ランクなら コンパクト。
+- コンパクト の作用素ノルムでの収束は コンパクト。
+- コンパクト の前後に有界作用素を合成しても コンパクト。
+- 無限次元恒等作用素は コンパクト ではない。
+- 対角係数が0へ行く対角作用素は コンパクト。
 
 一方、次は **まだ使ってはいけません**。
 
-- compact operator の非零 spectrum が必ず固有値になる。
+- コンパクト作用素 の非零 スペクトル が必ず固有値になる。
 - 非零固有値の固有空間が有限次元になる。
-- 非零 spectrum の集積点が0だけになる。
-- compact self-adjoint operator が固有ベクトルの正規直交基底で対角化できる。
+- 非零 スペクトル の集積点が0だけになる。
+- コンパクト自己共役作用素 が固有ベクトルの正規直交基底で対角化できる。
 - Fredholm alternative。
 
-これらは FA7 で証明する内容です。FA6 では、具体例の spectrum を必要なら [FA5 の定義](../FA5/index.md#def-fa5-resolvent-spectrum)へ戻って直接計算します。
+これらは FA7 で証明する内容です。FA6 では、具体例の スペクトル を必要なら [FA5 の定義](../FA5/index.md#def-fa5-resolvent-spectrum)へ戻って直接計算します。
 
 ---
 
@@ -759,7 +759,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-fa6-a02"></a>
-#### FA6-A02 rank-one operator
+#### FA6-A02 階数1作用素（rank-one operator）
 - Level: A
 
 $f\in X^*$、$y_0\in Y$ とし
@@ -803,7 +803,7 @@ $\eta\downarrow0$ として等号を得ます。$y_0=0$ の場合も両辺0で�
 <!-- solution-end -->
 
 <a id="ex-fa6-a03"></a>
-#### FA6-A03 compact operator の合成
+#### FA6-A03 コンパクト作用素 の合成
 - Level: A
 
 $K:X\to Y$ がコンパクト、$B:W\to X$ が有界とする。$(w_n)$ が $W$ の有界列なら $(KBw_n)$ が収束部分列を持つことを、定義から直接示せ。
@@ -827,7 +827,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-fa6-a04"></a>
-#### FA6-A04 compact でない対角作用素
+#### FA6-A04 コンパクト でない対角作用素
 - Level: A
 
 $\ell^2$ 上で
@@ -888,7 +888,7 @@ $M$ は閉部分空間なので Banach 空間であり、無限次元です。[�
 <!-- solution-end -->
 
 <a id="ex-fa6-b02"></a>
-#### FA6-B02 compact operator の作用素ノルム閉性で完備性を追う
+#### FA6-B02 コンパクト作用素 の作用素ノルム閉性で完備性を追う
 - Level: B
 
 [作用素ノルム閉性の証明](#thm-fa6-norm-closed)で、$Y$ の完備性を使う直前までに何が分かっているかを書き、その仮定を外すと論証のどこが止まるか説明せよ。
@@ -904,7 +904,7 @@ $$
 
 が示せます。つまり $(Ky_j)$ が **Cauchy 列である**ところまでは、値域の完備性なしで到達できます。
 
-しかし compact operator の定義には「像部分列が $Y$ の点へ収束する」ことが必要です。$Y$ が完備でなければ Cauchy 列の収束先が completion の中には存在しても $Y$ 自身に存在するとは限りません。したがって最後の
+しかし コンパクト作用素 の定義には「像部分列が $Y$ の点へ収束する」ことが必要です。$Y$ が完備でなければ Cauchy 列の収束先が completion の中には存在しても $Y$ 自身に存在するとは限りません。したがって最後の
 
 $$
 (Ky_j)\text{ Cauchy}\Longrightarrow(Ky_j)\text{ convergent in }Y
@@ -982,7 +982,7 @@ $$
 ### Level C
 
 <a id="ex-fa6-c01"></a>
-#### FA6-C01 compact 対角作用素の spectrum を定義から求める
+#### FA6-C01 コンパクト 対角作用素の スペクトル を定義から求める
 - Level: C
 
 複素 Hilbert 空間 $\ell^2$ 上で
@@ -995,14 +995,14 @@ $$
 とする。
 
 1. $D$ がコンパクトであることを示せ。
-2. [FA5 の spectrum の定義](../FA5/index.md#def-fa5-resolvent-spectrum)だけを使って
+2. [FA5 の スペクトル の定義](../FA5/index.md#def-fa5-resolvent-spectrum)だけを使って
 
 $$
 \sigma(D)=\{0\}\cup\left\{\frac1n:n\in\mathbb N\right\}
 $$
 
 を示せ。
-3. $0$ は $D$ の固有値ではないが spectrum に属することを確認せよ。
+3. $0$ は $D$ の固有値ではないが スペクトル に属することを確認せよ。
 
 <!-- solution-start -->
 **解答・解説**
@@ -1097,7 +1097,7 @@ $$
 \sigma(D)=\{0\}\cup\{1/n:n\in\mathbb N\}.
 $$
 
-ここでは compact operator の一般 spectral theorem を使っていません。各 $\lambda$ について $\lambda I-D$ の可逆性を直接判定しただけです。この具体例が FA7 の一般論の予告になります。
+ここでは コンパクト作用素 の一般 スペクトル定理 を使っていません。各 $\lambda$ について $\lambda I-D$ の可逆性を直接判定しただけです。この具体例が FA7 の一般論の予告になります。
 <!-- solution-end -->
 
 ---
@@ -1109,9 +1109,9 @@ $$
 特に覚えるべき論証の鎖は
 
 $$
-\text{finite rank}
+\text{有限ランク}
 \Longrightarrow
-\text{compact}
+\text{コンパクト}
 \Longrightarrow
 \text{bounded},
 $$
@@ -1119,13 +1119,13 @@ $$
 および
 
 $$
-K_m\text{ compact},\quad
+K_m\text{ コンパクト},\quad
 \|K_m-K\|\to0,\quad
 Y\text{ Banach}
 \Longrightarrow
-K\text{ compact}
+K\text{ コンパクト}
 $$
 
 です。後者では、対角部分列で各近似作用素を同時に制御し、最後に値域の完備性で Cauchy 列を収束させました。
 
-次の FA7 では、この compactness が $\lambda I-K$ の可逆性と固有空間にどう強い制約を与えるかを証明し、Fredholm alternative と compact self-adjoint spectral theorem へ進みます。
+次の FA7 では、この コンパクト性 が $\lambda I-K$ の可逆性と固有空間にどう強い制約を与えるかを証明し、Fredholm alternative と コンパクト self-adjoint スペクトル定理 へ進みます。
