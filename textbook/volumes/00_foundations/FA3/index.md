@@ -38,7 +38,7 @@ X → X** の標準埋め込み J
 
 と進みます。
 
-[双対空間](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#def-f0-02c2-dual-space)と [Hahn--Banach のノルム保存拡張](../F0_02C6_Hahn_Banach_分離定理/index.md#ref-hahn-banach-norm-preserving-extension)は既知とします。本章では Banach--Alaoglu のコンパクト性や反射性を先取りしません。それらは次章 FA4 で扱います。
+[双対空間](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#def-f0-02c2-dual-space)と [Hahn--Banach のノルム保存拡張](../F0_02C6_Hahn_Banach_分離定理/index.md#ref-hahn-banach-norm-preserving-extension)は既知とします。本章では、標準埋め込みまでを整え、その先のコンパクト性理論は [FA4](../FA4/index.md) に回します。
 
 スカラー体は $\mathbb K=\mathbb R$ または $\mathbb C$ とします。
 
@@ -206,6 +206,8 @@ $$
 ---
 
 ## 2. 弱収束：全ての連続線形汎関数で見て収束する
+
+弱位相を作っただけでは、ネットがその位相でどのように収束するかをまだ名前付きで扱えません。ノルム収束より粗い「観測値だけの収束」を後で定理として使えるよう、弱位相に関する収束を定義します。
 
 <a id="def-fa3-weak-convergence"></a>
 <!-- formal-statement-start -->
@@ -686,6 +688,8 @@ $$
 
 ## 8. 弱*収束は点ごとの収束そのもの
 
+弱*位相では、近傍は有限個の点 $x\in X$ での評価値だけを見ます。そこで、この位相での収束を独立に名前付けし、直後に「各点での値の収束」と同値であることを確認します。
+
 <a id="def-fa3-weak-star-convergence"></a>
 <!-- formal-statement-start -->
 ### 定義（弱*収束）
@@ -773,6 +777,8 @@ $$
 ---
 
 ## 9. 双対の双対と標準埋め込み
+
+弱*位相は $X^*$ を元の空間 $X$ の点で観測する位相でした。逆に、各 $x\in X$ 自身を「$X^*$ の汎関数を評価するもの」と見れば、$X$ をもう一つの双対空間の中へ自然に送り込めます。この対応を定式化します。
 
 <a id="def-fa3-canonical-bidual-embedding"></a>
 <!-- formal-statement-start -->
@@ -1366,7 +1372,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-有限次元なら Hahn--Banach の点分離性から連続双対 $X^*$ は代数的双対全体になる。$X^*$ の基底 $f_1,\dots,f_n$ と対応する $X$ の双対基底 $e_1,\dots,e_n$ を取ると
+有限次元なら Hahn--Banach から得た「非零ベクトルをある連続線形汎関数が検出する」という性質により、連続双対 $X^*$ は代数的双対全体になる。$X^*$ の基底 $f_1,\dots,f_n$ と対応する $X$ の双対基底 $e_1,\dots,e_n$ を取ると
 
 $$
 x=\sum_i f_i(x)e_i,
@@ -1391,7 +1397,7 @@ $$
 
 - 弱位相 $\sigma(X,X^*)$ は、有限個の連続線形汎関数の値だけを同時に制御する基本近傍から作る。
 - $x_\alpha\rightharpoonup x$ は、全ての $f\in X^*$ について $f(x_\alpha)\to f(x)$ と同値。
-- Hahn--Banach は $X^*$ が点を分離することを保証し、弱位相を Hausdorff にする。
+- Hahn--Banach は異なる点を連続線形汎関数の値で識別できることを保証し、弱位相を Hausdorff にする。
 - 有限次元では弱位相とノルム位相は一致し、無限次元では弱位相が真に粗い。
 - 弱位相に関する連続線形汎関数は新たに増えず、ちょうど $X^*$ である。
 - 弱*位相 $\sigma(X^*,X)$ は、有限個の $x\in X$ での評価だけを制御する。
