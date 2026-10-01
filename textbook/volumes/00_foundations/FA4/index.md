@@ -885,4 +885,4 @@ $$
 - Hahn–Banach は標準埋め込みの等長性と閉凸集合の弱閉性に局所化した。
 - Eberlein–Šmulian は使わず、一般位相の compactness で閉じた。
 
-次の FA5 では bounded operator の spectrum・resolvent へ進みます。
+次の FA5 では有界作用素のスペクトル・レゾルベントへ進みます。
