@@ -38,7 +38,7 @@ X 側の収束と Jx 側の評価収束を比較する
 
 と進みます。
 
-[双対空間](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#def-f0-02c2-dual-space)と [Hahn--Banach のノルム保存拡張](../F0_02C6_Hahn_Banach_分離定理/index.md#ref-hahn-banach-norm-preserving-extension)は既知とします。本章では、標準埋め込みまでを整え、その先のコンパクト性理論は [FA4](../FA4/index.md) に回します。
+[双対空間](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#def-f0-02c2-dual-space)と [Hahn--Banach のノルム保存拡張](../F0_02C6_Hahn_Banach_分離定理/index.md#ref-hahn-banach-norm-preserving-extension)は既知とします。本章では、$X$ を $X^{**}$ へ送る自然な評価写像までを整え、その先のコンパクト性理論は [FA4](../FA4/index.md) に回します。
 
 スカラー体は $\mathbb K=\mathbb R$ または $\mathbb C$ とします。
 
