@@ -1,24 +1,24 @@
 id: "F0-02C6A"
-title: "関数解析VI-A：分離定理・Minkowski functional・Farkas"
+title: "関数解析VI-A：分離定理・Minkowski汎関数・Farkas"
 volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-02C6
-  - OPT1
-  - OPT2
+  - F0-02C1A
 learning_objectives:
-  - 超平面を連続線形汎関数で定義できる
-  - 点と閉凸集合の強分離定理を説明できる
-  - Minkowski functionalが凸集合とHahn--Banachをつなぐ役割を説明できる
-  - Farkasの補題を有限次元分離の帰結として説明できる
+  - 吸収集合とMinkowski汎関数を定義し、原点を含む開凸集合から有限値の汎関数を構成できる
+  - 開凸集合のMinkowski汎関数が劣線形になることをinfimumの達成を仮定せず証明できる
+  - Hahn--BanachをMinkowski汎関数へ適用し、点と閉凸集合の強分離を導ける
+  - 分離汎関数が連続になる評価と、閉性が正の分離幅を作る箇所を説明できる
+  - Hilbert空間では射影定理から分離汎関数をベクトル表示できる
+  - 有限個の生成元の非負結合集合が閉であることを確認し、Farkas型代替定理を有限次元分離から導ける
 definitions:
-  - { id: F002C6A-DEF-01, name: separating functional }
-  - { id: F002C6A-DEF-02, name: absorbing set }
-  - { id: F002C6A-DEF-03, name: Minkowski functional }
+  - { id: F002C6A-DEF-00, name: 分離定理で使う凸集合の再掲 }
+  - { id: F002C6A-DEF-01, name: 吸収集合 }
+  - { id: F002C6A-DEF-02, name: Minkowski汎関数 }
 theorems:
   - { id: F002C6A-THM-01, name: 点と閉凸集合の強分離 }
-canonical_examples: [Hilbert空間の射影によるseparator, Farkas certificate]
+canonical_examples: [単位球のMinkowski汎関数, Hilbert空間の射影による分離, Farkas型実行不能性証明]
 problem_patterns: [FA-SEPARATION-1]
-exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
-dream_theater_exercise_count_exception: "本PRでは凸集合・分離超平面の canonical owner 移管に伴う prerequisite 張り替えのみを行う保守対象。本文・演習内容は変更しないため、このPRで旧補講へ A4/B3/C1 を水増ししない。"
-estimated_hours: { reading: 2, exercises: 0.75, review: 0.5 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 2.5, review: 0.75 }

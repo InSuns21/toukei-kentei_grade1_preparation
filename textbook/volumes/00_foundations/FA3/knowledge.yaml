@@ -13,7 +13,7 @@ concepts:
   - id: functional.weak-topology
     name: 弱位相
     kind: definition
-    aliases: [弱位相, weak topology, "### 定義（弱位相）"]
+    aliases: [弱位相, weak topology]
     introduction_aliases: ["### 定義（弱位相）"]
     requires:
       - functional.dual-space
@@ -22,7 +22,7 @@ concepts:
   - id: functional.weak-convergence-banach
     name: Banach空間の弱収束
     kind: definition
-    aliases: [Banach空間の弱収束, "### 定義（Banach空間の弱収束）"]
+    aliases: [Banach空間の弱収束, 弱収束, weak convergence]
     introduction_aliases: ["### 定義（Banach空間の弱収束）"]
     requires:
       - functional.weak-topology
@@ -31,7 +31,7 @@ concepts:
   - id: functional.weak-convergence-functional-criterion
     name: 弱収束の汎関数判定
     kind: theorem
-    aliases: [弱収束の汎関数判定, "### 定理（弱収束の汎関数判定）"]
+    aliases: [弱収束の汎関数判定]
     introduction_aliases: ["### 定理（弱収束の汎関数判定）"]
     requires:
       - functional.weak-convergence-banach
@@ -41,7 +41,7 @@ concepts:
   - id: functional.norm-convergence-implies-weak
     name: ノルム収束なら弱収束
     kind: proposition
-    aliases: [ノルム収束なら弱収束, "### 命題（ノルム収束なら弱収束）"]
+    aliases: [ノルム収束なら弱収束]
     introduction_aliases: ["### 命題（ノルム収束なら弱収束）"]
     requires:
       - functional.weak-convergence-functional-criterion
@@ -50,7 +50,7 @@ concepts:
   - id: functional.weak-topology-hausdorff
     name: 弱位相はHausdorff
     kind: theorem
-    aliases: [弱位相はHausdorff, "### 定理（弱位相は Hausdorff）"]
+    aliases: [弱位相はHausdorff]
     introduction_aliases: ["### 定理（弱位相は Hausdorff）"]
     requires:
       - functional.weak-topology
@@ -60,7 +60,7 @@ concepts:
   - id: functional.weak-norm-topology-finite-dimensional
     name: 弱位相とノルム位相の有限次元一致
     kind: theorem
-    aliases: [弱位相とノルム位相の有限次元一致, "### 定理（弱位相とノルム位相が一致するのは有限次元の場合）"]
+    aliases: [弱位相とノルム位相の有限次元一致]
     introduction_aliases: ["### 定理（弱位相とノルム位相が一致するのは有限次元の場合）"]
     requires:
       - functional.weak-topology
@@ -70,7 +70,7 @@ concepts:
   - id: functional.weak-continuous-dual-recovery
     name: 弱位相の連続双対の同定
     kind: theorem
-    aliases: [弱位相の連続双対の同定, "### 定理（弱位相の連続双対の同定）"]
+    aliases: [弱位相の連続双対の同定]
     introduction_aliases: ["### 定理（弱位相の連続双対の同定）"]
     requires:
       - functional.weak-topology
@@ -80,7 +80,7 @@ concepts:
   - id: functional.weak-star-topology
     name: 弱*位相
     kind: definition
-    aliases: [弱*位相, weak-star topology, weak* topology, "### 定義（弱*位相）"]
+    aliases: [弱*位相, weak-star topology, weak* topology]
     introduction_aliases: ["### 定義（弱*位相）"]
     requires:
       - functional.dual-space
@@ -89,7 +89,7 @@ concepts:
   - id: functional.weak-star-convergence
     name: 弱*収束
     kind: definition
-    aliases: [弱*収束, weak-star convergence, weak* convergence, "### 定義（弱*収束）"]
+    aliases: [弱*収束, weak-star convergence, weak* convergence]
     introduction_aliases: ["### 定義（弱*収束）"]
     requires:
       - functional.weak-star-topology
@@ -98,7 +98,7 @@ concepts:
   - id: functional.weak-star-convergence-evaluation-criterion
     name: 弱*収束の評価判定
     kind: theorem
-    aliases: [弱*収束の評価判定, "### 定理（弱*収束の評価判定）"]
+    aliases: [弱*収束の評価判定]
     introduction_aliases: ["### 定理（弱*収束の評価判定）"]
     requires:
       - functional.weak-star-convergence
@@ -107,7 +107,7 @@ concepts:
   - id: functional.canonical-bidual-embedding
     name: 双対の双対と標準埋め込み
     kind: definition
-    aliases: [双対の双対, 第二双対, 標準埋め込み, canonical bidual embedding, "### 定義（双対の双対と標準埋め込み）"]
+    aliases: [双対の双対, 第二双対, 標準埋め込み, canonical bidual embedding]
     introduction_aliases: ["### 定義（双対の双対と標準埋め込み）"]
     requires:
       - functional.dual-space
@@ -115,7 +115,7 @@ concepts:
   - id: functional.canonical-bidual-embedding-isometry
     name: 標準埋め込みは等長
     kind: theorem
-    aliases: [標準埋め込みは等長, "### 定理（標準埋め込みは等長）"]
+    aliases: [標準埋め込みは等長]
     introduction_aliases: ["### 定理（標準埋め込みは等長）"]
     requires:
       - functional.canonical-bidual-embedding
@@ -125,7 +125,7 @@ concepts:
   - id: functional.weak-via-bidual-weak-star
     name: 弱収束と標準埋め込み後の弱*収束
     kind: proposition
-    aliases: [弱収束と標準埋め込み後の弱*収束, "### 命題（弱収束と標準埋め込み後の弱*収束）"]
+    aliases: [弱収束と標準埋め込み後の弱*収束]
     introduction_aliases: ["### 命題（弱収束と標準埋め込み後の弱*収束）"]
     requires:
       - functional.canonical-bidual-embedding
@@ -135,7 +135,7 @@ concepts:
   - id: functional.weak-star-continuous-dual-recovery
     name: 弱*連続線形汎関数は標準埋め込みの像
     kind: theorem
-    aliases: [弱*連続線形汎関数は標準埋め込みの像, "### 定理（弱*連続線形汎関数は標準埋め込みの像）"]
+    aliases: [弱*連続線形汎関数は標準埋め込みの像]
     introduction_aliases: ["### 定理（弱*連続線形汎関数は標準埋め込みの像）"]
     requires:
       - functional.weak-star-topology
@@ -145,7 +145,7 @@ concepts:
   - id: functional.bounded-map-weak-continuous
     name: 有界線形作用素の弱連続性
     kind: proposition
-    aliases: [有界線形作用素の弱連続性, "### 命題（有界線形作用素の弱連続性）"]
+    aliases: [有界線形作用素の弱連続性]
     introduction_aliases: ["### 命題（有界線形作用素の弱連続性）"]
     requires:
       - functional.bounded-linear-operator
