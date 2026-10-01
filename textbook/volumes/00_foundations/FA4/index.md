@@ -28,7 +28,7 @@ Goldstine
 
 特に次の三点を混同しません。
 
-- **選択原理**は、フィルターをウルトラフィルターへ極大延長するときに使います。
+- **Zorn の補題**は、フィルターをウルトラフィルターへ極大延長するときに使います。
 - **完備性**は Banach–Alaoglu 自体には不要です。定理は任意のノルム空間で成り立ちます。
 - **Hahn–Banach**は FA3 の標準埋め込みの等長性と、本章後半で C6A の [点と閉凸集合の強分離](../F0_02C6A_分離定理_Minkowski_Farkas/index.md#thm-f0-02c6a-strong-separation) を使う場面に現れます。Goldstine の有限次元分離部分は直接計算します。
 
@@ -675,9 +675,9 @@ $$
 
 ---
 
-## 7. 強分離から閉凸集合の弱閉性を得る
+## 7. 強分離からノルム閉集合の弱閉性を得る
 
-$C\subseteq X$ をノルム閉凸集合、$x_0\notin C$ とします。
+$C\subseteq X$ を、ノルム閉で、任意の二点を結ぶ線分を含む集合とし、$x_0\notin C$ とします。
 
 ここでは前章 C6A で証明した [点と閉凸集合の強分離](../F0_02C6A_分離定理_Minkowski_Farkas/index.md#thm-f0-02c6a-strong-separation) を使います。適用条件は
 
@@ -822,7 +822,7 @@ $$
 を全ての $i$ で満たす理由を説明せよ。
 
 <!-- solution-start -->
-**解答・解説**：$T(x)=(f_1(x),\dots,f_n(x))$、$a=(x^{**}(f_1),\dots,x^{**}(f_n))$ と置く。Goldstine の証明で $a\in\overline{T(B_X)}$ を示した。従って $a$ の座標近傍 $\{z:|z_i-a_i|<\varepsilon\ \forall i\}$ は $T(B_X)$ と交わる。その交点を $T(x)$ と書けば一つの $x\in B_X$ が全不等式を同時に満たす。各 $f_i$ ごとに別の点を取るのではないことが核心である。
+**解答・解説**：$T(x)=(f_1(x),\dots,f_n(x))$、$a=(x^{**}(f_1),\dots,x^{**}(f_n))$ と置く。Goldstine の証明で $a\in\overline{T(B_X)}$ を示した。従って、各成分を $a_i$ から $\varepsilon$ 未満に制限する集合 $\{z:|z_i-a_i|<\varepsilon\ \forall i\}$ は $T(B_X)$ と交わる。その交点を $T(x)$ と書けば一つの $x\in B_X$ が全不等式を同時に満たす。各 $f_i$ ごとに別の点を取るのではないことが核心である。
 <!-- solution-end -->
 
 <a id="ex-fa4-b02"></a>
