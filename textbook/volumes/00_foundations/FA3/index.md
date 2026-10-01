@@ -436,7 +436,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $\dim X=n<\infty$ とします。[Hahn--Banach のノルム保存拡張](../F0_02C6_Hahn_Banach_分離定理/index.md#ref-hahn-banach-norm-preserving-extension)により $X^*$ は $X$ の点を分離します。
+まず $\dim X=n<\infty$ とします。[Hahn--Banach のノルム保存拡張](../F0_02C6_Hahn_Banach_分離定理/index.md#ref-hahn-banach-norm-preserving-extension)により $X^*$ は $X$ の異なる二点を連続線形汎関数の値で識別できます。
 
 $X^*$ を代数的双対 $X^\#$ の部分空間と見ます。もし $\dim X^*<n$ なら、有限次元線形代数から
 
