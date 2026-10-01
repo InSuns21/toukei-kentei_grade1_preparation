@@ -952,7 +952,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-Hilbert 射影の変分不等式から
+Hilbert 射影の特徴付けから
 
 $$
 \langle z-p,x-p\rangle\le0
@@ -1176,9 +1176,9 @@ A^{\mathsf T}y\le0,
 b^{\mathsf T}y>0.
 $$
 
-有限生成錐
+有限個の生成元の非負結合集合
 
-$$
+$
 K=\{Ax:x\ge0\}
 $$
 
