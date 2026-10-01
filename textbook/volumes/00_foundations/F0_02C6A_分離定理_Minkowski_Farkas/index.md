@@ -727,7 +727,21 @@ L:\mathbb R^{I}\to\operatorname{span}\{a_j:j\in I\},
 L(x)=\sum_{j\in I}x_ja_j
 $$
 
-は有限次元空間間の線形同型なので逆写像は連続です。従って
+を考えます。$(a_j)_{j\in I}$ は線形独立なので、$L$ はその像への線形同型です。
+
+また
+
+$$
+\operatorname{span}\{a_j:j\in I\}
+$$
+
+は有限次元部分空間なので $\mathbb R^m$ の閉部分空間です。各 $k_\nu$ はこの部分空間に属し、$k_\nu\to k$ だから
+
+$$
+k\in\operatorname{span}\{a_j:j\in I\}.
+$$
+
+従って $L^{-1}(k)$ が定義でき、有限次元空間間の線形同型の逆写像は連続なので
 
 $$
 (x_j^{(\nu)})_{j\in I}
