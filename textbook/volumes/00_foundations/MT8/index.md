@@ -56,7 +56,7 @@ $$
 すなわち $\mathcal H_\delta^s(\{x\})=0$ です。
 <!-- definition-example-end -->
 
-$0<\delta_1<\delta_2$ なら、$\delta_1$-cover は $\delta_2$-cover より制約が強いので
+$0<\delta_1<\delta_2$ なら、$\delta_1$-被覆 は $\delta_2$-被覆 より制約が強いので
 
 $$
 \mathcal H_{\delta_1}^s(E)
@@ -940,7 +940,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$\delta_1$-cover は各集合の直径が $\delta_1$ 以下なので、自動的に $\delta_2$-cover でもあります。従って 下限 を取る候補集合は $\delta_1$ の方が狭く、
+$\delta_1$-被覆 は各集合の直径が $\delta_1$ 以下なので、自動的に $\delta_2$-被覆 でもあります。従って 下限 を取る候補集合は $\delta_1$ の方が狭く、
 
 $$
 \mathcal H_{\delta_1}^s(E)
@@ -948,7 +948,7 @@ $$
 \mathcal H_{\delta_2}^s(E).
 $$
 
-この単調性により $\delta\downarrow0$ の極限を supremum として定義できます。
+この単調性により $\delta\downarrow0$ の極限を 上限 として定義できます。
 <!-- solution-end -->
 
 <a id="ex-mt8-a02"></a>
@@ -1002,7 +1002,7 @@ $$
 |f(x)-f(y)|=3|x-y|.
 $$
 
-従って $f$ は 3-Lipschitz です。Lipschitz theorem から
+従って $f$ は 3-Lipschitz です。[Lipschitz 写像による Hausdorff 測度の評価](#thm-mt8-lipschitz)から
 
 $$
 \mathcal H^s(f(E))
@@ -1116,7 +1116,7 @@ $$
 \sum_i\operatorname{diam}U_i.
 $$
 
-これが Hausdorff 1-measure の下界です。
+これが 1次元 Hausdorff 測度 の下界です。
 <!-- solution-end -->
 
 <a id="ex-mt8-b02"></a>
@@ -1125,11 +1125,11 @@ $$
 
 - Level: B
 
-$E$ 上の 確率測度 $\mu$ が、十分小さい全ての $U$ について
+$E$ 上に集中する確率測度 $\mu$ があり、$\mu$ から作る外測度を $\mu^*$ とする。十分小さい全ての部分集合 $U$ について
 
-$$
-\mu(U)\le10(\operatorname{diam}U)^{2/3}
-$$
+$
+\mu^*(U)\le10(\operatorname{diam}U)^{2/3}
+$
 
 を満たすとする。$\mathcal H^{2/3}(E)$ と $\dim_HE$ の下界を求めよ。
 
@@ -1144,7 +1144,7 @@ $$
 \frac{1}{10}.
 $$
 
-特に正なので 臨界指数性 から
+特に正なので 臨界指数性から
 
 $$
 \dim_HE\ge\frac23.
@@ -1155,11 +1155,11 @@ $$
 
 <a id="ex-mt8-b03"></a>
 
-## MT8-B03 自己相似被覆 の上界
+## MT8-B03 自己相似被覆の上界
 
 - Level: B
 
-ある compact 集合 $E$ が各 $n$ について、直径 $r^n$ の集合 $N^n$ 個で覆えるとする。ただし $N\ge2$, $0<r<1$ とする。
+ある集合 $E$ が各 $n$ について、直径 $r^n$ の集合 $N^n$ 個で覆えるとする。ただし $N\ge2$, $0<r<1$ とする。
 
 $$
 s_0=\frac{\log N}{-\log r}
@@ -1170,7 +1170,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$s>s_0$ を取ります。仮定の 被覆 から
+$s>s_0$ を取ります。仮定の被覆 から
 
 $$
 \mathcal H_{r^n}^s(E)
@@ -1215,8 +1215,8 @@ $$
 
 について次を示せ。
 
-1. 第 $n$ 段階 の $2^n$ 個の基本区間により $\mathcal H^\alpha(C)\le1$。
-2. 各 第 $n$ 段階 基本区間へ質量 $2^{-n}$ を与える Cantor measure $\mu_C$ を構成できる理由を説明せよ。
+1. 第 $n$ 段階の $2^n$ 個の基本区間により $\mathcal H^\alpha(C)\le1$。
+2. 各第 $n$ 段階の基本区間へ質量 $2^{-n}$ を与える Cantor 測度 $\mu_C$ を構成できる理由を説明せよ。
 3. 長さ $r$ の区間 $I$ に対し $\mu_C(I)\le4r^\alpha$ を示せ。
 4. [質量分布原理](#thm-mt8-mass-principle) を使い $\mathcal H^\alpha(C)\ge1/4$ を示せ。
 5. $\dim_HC=\alpha$ を結論せよ。
@@ -1234,13 +1234,29 @@ $$
 
    $3^\alpha=2$ だから右辺は1です。従って $\mathcal H^\alpha(C)\le1$。
 
-2. 第 $n$ 段階 の各 cylinder に $2^{-n}$ を割り当てます。親 cylinder は二つの子 cylinder に分かれ、
+2. 第 $n$ 段階の各基本集合、すなわち基本区間と $C$ の共通部分に質量 $2^{-n}$ を割り当てます。親基本集合は二つの子基本集合に分かれ、
 
-   $$
+   $
    2^{-n}=2^{-(n+1)}+2^{-(n+1)}
-   $$
+   $
 
-   なので 段階間で整合します。有限 cylinder union の 集合代数 上で 前測度 が得られ、[Carathéodory 拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)により Borel 確率測度 $\mu_C$ へ拡張できます。
+   なので、細分の前後で有限加法性が整合します。有限個の基本集合の和からなる集合代数を $\mathcal A$ とし、この質量割当てを $\nu_0$ と書きます。
+
+   前測度性を確認するため、[Hopf 型の前測度判定](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#lem-f0-00d4-hopf-premeasure)を使います。$A_m\in\mathcal A$ が
+
+   $
+   A_1\supset A_2\supset\cdots,
+   \qquad
+   \bigcap_{m=1}^{\infty}A_m=\varnothing
+   $
+
+   を満たすとします。各 $A_m$ は $C$ の有限個の基本集合の和なので $C$ の閉部分集合であり、コンパクトです。もし全ての $A_m$ が非空なら、減少する非空コンパクト集合列 $(A_m)$ は有限交差性を持つため共通部分が非空となり、仮定に反します。従ってある $m_0$ で $A_{m_0}=\varnothing$ となり、
+
+   $
+   \nu_0(A_m)\downarrow0.
+   $
+
+   よって Hopf 判定から $\nu_0$ は前測度です。[Carathéodory 拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)により、$C$ 上の Borel 確率測度 $\mu_C$ へ拡張できます。
 
 3. $3^{-(n+1)}<r\le3^{-n}$ となる $n$ を取ります。長さ $r$ の区間は 第 $n$ 段階 基本区間を高々2個しか横切らないので
 
@@ -1278,19 +1294,19 @@ $$
 
 5. 以上より
 
-   $$
+   $
    0<\mathcal H^\alpha(C)<\infty.
-   $$
+   $
 
-   臨界指数性 により $\alpha$ が臨界指数なので
+   [Hausdorff 測度の臨界指数性](#thm-mt8-threshold)を使うと、$t>\alpha$ では $\mathcal H^t(C)=0$、$s<\alpha$ では $\mathcal H^s(C)=\infty$ です。従って $\alpha$ がちょうど臨界指数であり、
 
-   $$
+   $
    \boxed{
    \dim_HC=\frac{\log2}{\log3}
    }.
-   $$
+   $
 
-上界は cover、下界は measure が担当しています。この二方向の分業が Hausdorff dimension の基本戦略です。
+上界は被覆、下界は測度が担当しています。この二方向の分業が Hausdorff 次元評価の基本戦略です。
 <!-- solution-end -->
 
 ---
@@ -1298,14 +1314,14 @@ $$
 ## 14. 章末チェック
 
 - [ ] $\mathcal H_\delta^s$ と $\mathcal H^s$ の定義順序を説明できる。
-- [ ] Hausdorff construction の可算劣加法性を近似 被覆 から証明できる。
-- [ ] 正距離で離れた集合に 距離加法性 が出る理由を説明できる。
-- [ ] 距離外測度 が Borel 集合を測れる機構を距離帯で追える。
-- [ ] 臨界指数性 を $\delta^{t-s}$ の評価から導ける。
-- [ ] Hausdorff dimension を臨界指数として定義できる。
-- [ ] Lipschitz 写像 が dimension を増やさないことを証明できる。
-- [ ] 区間の dimension が1であることを上下から示せる。
+- [ ] Hausdorff 構成 の可算劣加法性を近似被覆 から証明できる。
+- [ ] 正距離で離れた集合に 距離加法性が出る理由を説明できる。
+- [ ] 距離外測度が Borel 集合を測れる機構を距離帯で追える。
+- [ ] 臨界指数性を $\delta^{t-s}$ の評価から導ける。
+- [ ] Hausdorff 次元 を臨界指数として定義できる。
+- [ ] Lipschitz 写像が 次元 を増やさないことを証明できる。
+- [ ] 区間の 次元 が1であることを上下から示せる。
 - [ ] [質量分布原理](#thm-mt8-mass-principle) で Hausdorff 次元の下界を出せる。
-- [ ] Cantor 集合の dimension を 被覆 と Cantor measure の両方から再構成できる。
+- [ ] Cantor 集合の 次元 を 被覆 と Cantor 測度 の両方から再構成できる。
 
 次は確率論側へ戻り、二項分布の特殊形を越えた希少事象列の Poisson 極限を扱います。
