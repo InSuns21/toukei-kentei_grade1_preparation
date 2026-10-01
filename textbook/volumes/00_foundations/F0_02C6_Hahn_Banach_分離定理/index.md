@@ -621,6 +621,170 @@ $$
 }.
 $$
 
+### 6.1 複素ノルム空間でもノルムを保って延長できる
+
+ここまでの Hahn--Banach 本体は実線形版でした。FA3 以降では複素ノルム空間も扱うため、複素版を実線形版から導きます。
+
+$X$ を複素ノルム空間、$M\subset X$ を複素線形部分空間、$f_0:M\to\mathbb C$ を連続複素線形汎関数とします。
+
+$$
+u_0(x):=\operatorname{Re}f_0(x)
+$$
+
+と置き、$X,M$ を実ベクトル空間とみなします。$u_0$ は実線形で、
+
+$$
+|u_0(x)|
+\le
+|f_0(x)|
+\le
+\|f_0\|\,\|x\|
+$$
+
+だから
+
+$$
+\|u_0\|
+\le
+\|f_0\|.
+$$
+
+逆向きを示します。$x\in M$ とし、$f_0(x)\ne0$ なら、絶対値 1 の複素数 $\lambda$ を
+
+$$
+\lambda f_0(x)=|f_0(x)|
+$$
+
+となるように取れます。$M$ は複素線形部分空間なので $\lambda x\in M$ で、
+
+$$
+u_0(\lambda x)
+=
+\operatorname{Re}(\lambda f_0(x))
+=
+|f_0(x)|.
+$$
+
+また $\|\lambda x\|=\|x\|$ です。従って supremum を取ると
+
+$$
+\|u_0\|
+\ge
+\|f_0\|.
+$$
+
+よって
+
+$$
+\|u_0\|=\|f_0\|.
+$$
+
+実線形版のノルム保存拡張を $u_0$ に適用し、実線形汎関数 $u:X\to\mathbb R$ で
+
+$$
+u|_M=u_0,
+\qquad
+\|u\|=\|f_0\|
+$$
+
+となるものを取ります。
+
+そこで
+
+$$
+f(x)
+:=
+u(x)-i,u(ix)
+$$
+
+と定めます。実線形性から
+
+$$
+\begin{aligned}
+f(ix)
+&=
+u(ix)-i,u(-x)\\
+&=
+u(ix)+i,u(x)\\
+&=
+i\bigl(u(x)-i,u(ix)\bigr)\\
+&=
+if(x),
+\end{aligned}
+$$
+
+なので $f$ は複素線形です。
+
+$x\in M$ では
+
+$$
+u(ix)
+=
+\operatorname{Re}f_0(ix)
+=
+-\operatorname{Im}f_0(x),
+$$
+
+従って
+
+$$
+f(x)
+=
+\operatorname{Re}f_0(x)
++i\operatorname{Im}f_0(x)
+=
+f_0(x).
+$$
+
+よって $f$ は $f_0$ の複素線形延長です。
+
+最後にノルムを確認します。任意の $x\in X$ について
+
+$$
+|f(x)|
+=
+\sup_{|\lambda|=1}
+\operatorname{Re}\bigl(\lambda f(x)\bigr).
+$$
+
+$f$ の複素線形性と $u=\operatorname{Re}f$ から
+
+$$
+\operatorname{Re}(\lambda f(x))
+=
+u(\lambda x)
+\le
+\|u\|\,\|x\|.
+$$
+
+従って
+
+$$
+\|f\|
+\le
+\|u\|.
+$$
+
+一方 $u=\operatorname{Re}f$ なので $|u(x)|\le|f(x)|$ から
+
+$$
+\|u\|\le\|f\|.
+$$
+
+したがって
+
+$$
+\boxed{
+\|f\|
+=
+\|u\|
+=
+\|f_0\|
+}.
+$$
+
+これで実数体・複素数体のどちらでもノルム保存拡張を使えます。
+
 ---
 
 ## 7. 双対空間は点を分離する
