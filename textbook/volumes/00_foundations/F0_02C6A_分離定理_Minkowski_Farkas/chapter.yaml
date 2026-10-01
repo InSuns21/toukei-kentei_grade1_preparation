@@ -11,8 +11,9 @@ learning_objectives:
   - Hahn--BanachをMinkowski汎関数へ適用し、点と閉凸集合の強分離を導ける
   - 分離汎関数が連続になる評価と、閉性が正の分離幅を作る箇所を説明できる
   - Hilbert空間では射影定理から分離汎関数をベクトル表示できる
-  - 有限生成錐の閉性を確認し、Farkas型代替定理を有限次元分離から導ける
+  - 有限個の生成元の非負結合集合が閉であることを確認し、Farkas型代替定理を有限次元分離から導ける
 definitions:
+  - { id: F002C6A-DEF-00, name: 分離定理で使う凸集合の再掲 }
   - { id: F002C6A-DEF-01, name: 吸収集合 }
   - { id: F002C6A-DEF-02, name: Minkowski汎関数 }
 theorems:
