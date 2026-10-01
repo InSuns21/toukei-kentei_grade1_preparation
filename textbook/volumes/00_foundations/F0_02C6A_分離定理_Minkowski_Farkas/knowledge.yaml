@@ -5,9 +5,18 @@ prerequisites:
   - F0-02C6
   - F0-02C1A
 
-forward_references: []
+forward_references:
+  - convex.farkas-lemma
 
 concepts:
+  - id: functional.convex-set-basic-c6a
+    name: 分離定理で使う凸集合の再掲
+    kind: definition
+    aliases: [分離定理で使う凸集合の再掲]
+    introduction_aliases: [凸集合, "**再掲（分離で使う凸集合）**"]
+    requires:
+      - functional.convex-set-basic-c1a
+
   - id: functional.absorbing-set-c6a
     name: 吸収集合
     kind: definition
@@ -23,7 +32,7 @@ concepts:
     introduction_aliases: ["**定義（Minkowski 汎関数）**"]
     requires:
       - functional.absorbing-set-c6a
-      - functional.convex-set-basic-c1a
+      - functional.convex-set-basic-c6a
 
   - id: functional.hahn-banach-separation
     name: 点と閉凸集合の強分離
@@ -33,5 +42,5 @@ concepts:
     requires:
       - functional.hahn-banach-theorem
       - functional.minkowski-functional
-      - functional.convex-set-basic-c1a
+      - functional.convex-set-basic-c6a
       - topology.closed-set
