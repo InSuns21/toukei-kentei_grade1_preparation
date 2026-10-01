@@ -30,7 +30,7 @@ Goldstine
 
 - **選択原理**は、フィルターをウルトラフィルターへ極大延長するときに使います。
 - **完備性**は Banach–Alaoglu 自体には不要です。定理は任意のノルム空間で成り立ちます。
-- **Hahn–Banach**は FA3 の標準埋め込みの等長性と、本章後半で C6A の強分離を使う場面に現れます。Goldstine の有限次元分離部分は直接計算します。
+- **Hahn–Banach**は FA3 の標準埋め込みの等長性と、本章後半で C6A の [点と閉凸集合の強分離](../F0_02C6A_分離定理_Minkowski_Farkas/index.md#thm-f0-02c6a-strong-separation) を使う場面に現れます。Goldstine の有限次元分離部分は直接計算します。
 
 既知とするのは [TOP5 のコンパクト性](../TOP5/index.md#def-top5-compact)、[TOP6 のフィルター](../TOP6/index.md#def-top6-filter)、[Zorn の補題](../F0_00A3_半順序_Zorn_極大延長/index.md#thm-zorn)、[FA3 の弱*位相](../FA3/index.md#def-fa3-weak-star-topology) と [標準埋め込み](../FA3/index.md#def-fa3-canonical-bidual-embedding) です。スカラー体は $\mathbb K=\mathbb R$ または $\mathbb C$ とします。
 
