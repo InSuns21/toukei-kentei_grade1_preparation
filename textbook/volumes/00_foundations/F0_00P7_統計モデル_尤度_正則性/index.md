@@ -124,20 +124,20 @@ $X_1,\ldots,X_n$ が $P_\theta$ から独立同分布であるとします。各
 > **命題（独立標本の尤度因数分解）**  
 > $X_1,\ldots,X_n$ が $P_\theta$ から独立同分布で、$p_\theta=dP_\theta/d\mu$ とします。このとき $P_\theta^{\otimes n}$ の $\mu^{\otimes n}$ に関する密度は
 
-$
+$$
 \frac{dP_\theta^{\otimes n}}{d\mu^{\otimes n}}
 (x_1,\ldots,x_n)
 =
 \prod_{i=1}^{n}p_\theta(x_i),
-$
+$$
 
 > したがって標本全体の尤度は
 
-$
+$$
 L_n(\theta)
 =
 \prod_{i=1}^{n}p_\theta(X_i)
-$
+$$
 
 > です。
 <!-- formal-statement-end -->
@@ -147,7 +147,7 @@ $
 
 可測長方形 $A_1\times\cdots\times A_n$ に対して
 
-$
+$$
 \begin{aligned}
 P_\theta^{\otimes n}(A_1\times\cdots\times A_n)
 &=
@@ -156,17 +156,17 @@ P_\theta^{\otimes n}(A_1\times\cdots\times A_n)
 \prod_{i=1}^{n}
 \int_{A_i}p_\theta(x_i)\,d\mu(x_i).
 \end{aligned}
-$
+$$
 
 Tonelli の定理で積分をまとめると
 
-$
+$$
 P_\theta^{\otimes n}(A_1\times\cdots\times A_n)
 =
 \int_{A_1\times\cdots\times A_n}
 \prod_{i=1}^{n}p_\theta(x_i)
 \,d\mu^{\otimes n}.
-$
+$$
 
 長方形集合が積 $\sigma$-加法族を生成するので、この密度表示は全ての可測集合へ拡張されます。観測値を固定して $\theta$ の関数として読めば、尤度の積表示が得られます。
 <!-- proof-end -->
@@ -634,7 +634,7 @@ $$
 |\partial_\theta p_\theta(x)|\le g(x)
 $$
 
-と一様に支配されれば、微分を定義する商へ優収束定理を使って交換を正当化できます。その上で
+と一様に支配されれば、微分を定義する商へ [Lebesgue の優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01) を使って交換を正当化できます。その上で
 
 $$
 \partial_\theta p_\theta=p_\theta s_\theta
