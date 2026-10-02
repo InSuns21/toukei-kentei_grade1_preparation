@@ -4,26 +4,29 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - RA1
-  - F0-00C
-  - F0-00C1
-  - F0-00C2
 official_scope: []
 learning_objectives:
-  - 関数極限と連続性をepsilon-deltaで扱える
-  - 点ごとの連続と一様連続を区別できる
-  - 中間値定理とHeine–Cantor定理の証明を説明できる
+  - 関数極限と実数部分集合上の連続性をepsilon-deltaで扱える
+  - 実数の完備性からBolzano--Weierstrassの定理を証明できる
+  - 閉区間の開区間被覆から有限部分被覆を取り出せる
+  - 中間値定理と閉区間版Weierstrass最大最小定理を証明できる
+  - 点ごとの連続と一様連続を区別し、閉区間版Heine--Cantorの定理を証明できる
   - Lipschitz連続が一様連続を含意することを示せる
 definitions:
   - { id: RA2-DEF-01, name: 関数の極限 }
   - { id: RA2-DEF-02, name: 一様連続 }
   - { id: RA2-DEF-03, name: Lipschitz連続 }
+  - { id: RA2-DEF-04, name: 連続性（実数版） }
 theorems:
   - { id: RA2-THM-01, name: 関数極限の点列判定 }
   - { id: RA2-THM-02, name: 中間値定理 }
-  - { id: RA2-THM-03, name: Heine–Cantorの定理 }
-canonical_examples: [x^2の一様連続性, 1/xの非一様連続性, 中間値定理]
+  - { id: RA2-THM-03, name: Heine--Cantorの定理（閉区間版） }
+  - { id: RA2-THM-04, name: Bolzano--Weierstrassの定理（実数版） }
+  - { id: RA2-THM-05, name: 閉区間の有限部分被覆定理 }
+  - { id: RA2-THM-06, name: Weierstrassの最大最小定理（閉区間版） }
+canonical_examples: [x^2の連続性, 1/xの非一様連続性, 中間値定理, 有界列の収束部分列]
 problem_patterns: [RA-CONTINUITY-1, RA-UNIFORM-CONTINUITY-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
-estimated_hours: { reading: 2.0, exercises: 1.5, review: 0.5 }
+exercise_counts: { level_a: 6, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 2.0, review: 0.5 }
