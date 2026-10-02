@@ -3,6 +3,10 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - GPDE8
+forward_references:
+  - evolution.gelfand-triple
+  - evolution.galerkin-approximation
+  - evolution.energy-weak-solution
 
 concepts:
   - id: sobolev.difference-quotient
