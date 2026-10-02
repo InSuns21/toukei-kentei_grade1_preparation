@@ -485,27 +485,27 @@ $$
 
 同様に $s<b$ を示します。
 
-$
+$$
 \varepsilon_b=\frac{f(b)-c}{2}>0
-$
+$$
 
 と置きます。$f$ は $b$ で連続なので、ある $\delta_b>0$ が存在して
 
-$
+$$
 x\in[a,b],
 \quad
 |x-b|<\delta_b
 \Longrightarrow
 |f(x)-f(b)|<\varepsilon_b.
-$
+$$
 
-$
+$$
 0<h<\min\{\delta_b,b-a\}
-$
+$$
 
 を取ると、$x\in(b-h,b]$ なら
 
-$
+$$
 f(x)
 >
 f(b)-\varepsilon_b
@@ -513,7 +513,7 @@ f(b)-\varepsilon_b
 \frac{f(b)+c}{2}
 >
 c.
-$
+$$
 
 従って $A$ の点は $b-h$ より右にはなく、
 
