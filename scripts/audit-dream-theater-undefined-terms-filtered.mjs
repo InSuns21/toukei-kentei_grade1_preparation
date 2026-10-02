@@ -128,6 +128,11 @@ function hasHighConfidenceTechnicalContext(rawLine, candidate) {
 
   const heading = /^#{1,6}\s+(.+)$/u.exec(line.trim())?.[1] ?? null;
   if (heading != null) {
+    // Exercise/problem headings such as "F0-00F-A04 ..." identify a task, not a new
+    // concept declaration. Treat the whole heading as low-confidence; technical
+    // terms used inside the exercise body are still audited normally.
+    if (/^[A-Z0-9]+(?:-[A-Z0-9]+)+\s+/iu.test(heading.trim())) return false;
+
     const normalizedHeading = normalizeText(heading);
     if (normalizedHeading === needle) return true;
 
@@ -158,6 +163,8 @@ function runFilterSelfTest() {
     ['## 弱収束', '弱収束'],
   ];
   const suppressCases = [
+    ['### F0-00F-A04 固有空間', 'F0-00F-A04 固有空間'],
+    ['### LA4-B03 微分作用素', 'LA4-B03 微分作用素'],
     ['ここで使う関数は積分可能である。', '使う関数'],
     ['一般の滑らかな関数を取る。', '滑らかな関数'],
     ['この証明で必要な条件を確認する。', '必要な条件'],
