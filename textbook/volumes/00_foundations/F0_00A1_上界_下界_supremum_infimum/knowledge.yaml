@@ -1,38 +1,53 @@
 chapter: F0-00A1
 scope: dream-theater
-coverage: partial
+coverage: complete
 prerequisites:
-  - F0-00A
+  - F0-00A1D
+
+forward_references:
+  - analysis.least-upper-bound-property
+  - analysis.archimedean-property
+  - analysis.real-sequence-convergence
+  - analysis.monotone-convergence-sequence
 
 concepts:
-  - id: order.upper-bound
-    name: 上界
+  - id: order.bounded-above
+    name: 上に有界
     kind: definition
-    introduction: inline
-    aliases: [上界]
+    aliases: [上に有界, bounded above]
+    introduction_aliases: [上に有界・下に有界]
     requires:
-      - set.set
+      - order.upper-bound
 
-  - id: order.lower-bound
-    name: 下界
+  - id: order.bounded-below
+    name: 下に有界
     kind: definition
-    introduction: inline
-    aliases: [下界]
+    aliases: [下に有界, bounded below]
+    introduction_aliases: [上に有界・下に有界]
     requires:
-      - set.set
+      - order.lower-bound
 
   - id: order.supremum
     name: 上限
     kind: definition
-    introduction: inline
     aliases: [上限, supremum]
     requires:
       - order.upper-bound
+      - order.minimum-element
 
   - id: order.infimum
     name: 下限
     kind: definition
-    introduction: inline
     aliases: [下限, infimum]
     requires:
       - order.lower-bound
+      - order.maximum-element
+
+  - id: analysis.supremum-epsilon-characterization
+    name: 上限の ε 特徴付け
+    kind: proposition
+    introduction: inline
+    aliases: [上限のepsilon特徴付け, 上限の ε 特徴付け]
+    introduction_aliases: [上限の ε 特徴付け]
+    requires:
+      - order.supremum

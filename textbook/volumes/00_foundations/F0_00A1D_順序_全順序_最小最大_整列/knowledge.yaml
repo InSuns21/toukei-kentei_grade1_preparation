@@ -3,36 +3,127 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - SET-U1
+  - SET-U3
 
 forward_references:
+  - order.supremum
+  - order.infimum
   - set.choice-function
   - set.choice-axiom
   - set.zorn-lemma
-  - set.maximum-maximal-element
   - set.well-ordering-theorem
-  - set.choice-equivalence-summary
 
 concepts:
   - id: order.partial-order-relation
     name: 順序関係・半順序
     kind: definition
-    aliases: [順序関係, 半順序, partial order]
+    aliases: [順序関係・半順序, partial order]
+    introduction_aliases: [順序関係, 半順序]
     requires:
       - order.binary-relation
+
+  - id: set.partial-order
+    name: 半順序集合
+    kind: definition
+    aliases: [半順序集合, poset]
+    requires:
+      - order.partial-order-relation
 
   - id: order.total-order
     name: 全順序
     kind: definition
     aliases: [全順序, 線形順序, total order, linear order]
     requires:
-      - order.partial-order-relation
+      - set.partial-order
+
+  - id: set.chain
+    name: 鎖
+    kind: definition
+    aliases: [鎖, chain]
+    requires:
+      - set.partial-order
+      - order.total-order
+
+  - id: order.minimum-element
+    name: 最小元
+    kind: definition
+    aliases: [最小元, minimum element]
+    introduction_aliases: [最小元・最大元]
+    requires:
+      - set.partial-order
+
+  - id: order.maximum-element
+    name: 最大元
+    kind: definition
+    aliases: [最大元, maximum element]
+    introduction_aliases: [最小元・最大元]
+    requires:
+      - set.partial-order
 
   - id: order.minimum-maximum-element
     name: 最小元・最大元
     kind: definition
-    aliases: [最小元, 最大元, 最小元・最大元]
+    aliases: [最小元・最大元]
+    introduction_aliases: [最小元・最大元]
     requires:
-      - order.partial-order-relation
+      - order.minimum-element
+      - order.maximum-element
+
+  - id: order.minimal-element
+    name: 極小元
+    kind: definition
+    aliases: [極小元, minimal element]
+    introduction_aliases: [極小元・極大元]
+    requires:
+      - set.partial-order
+
+  - id: order.maximal-element
+    name: 極大元
+    kind: definition
+    aliases: [極大元, maximal element]
+    introduction_aliases: [極小元・極大元]
+    requires:
+      - set.partial-order
+
+  - id: set.maximum-maximal-element
+    name: 最大元と極大元の区別
+    kind: term
+    aliases: [最大元と極大元の区別]
+    requires:
+      - order.maximum-element
+      - order.maximal-element
+
+  - id: order.upper-bound
+    name: 上界
+    kind: definition
+    aliases: [上界, upper bound]
+    introduction_aliases: [上界・下界]
+    requires:
+      - set.partial-order
+
+  - id: order.lower-bound
+    name: 下界
+    kind: definition
+    aliases: [下界, lower bound]
+    introduction_aliases: [上界・下界]
+    requires:
+      - set.partial-order
+
+  - id: order.order-preserving-map
+    name: 順序保存写像
+    kind: definition
+    aliases: [順序保存写像, order-preserving map]
+    requires:
+      - set.partial-order
+      - set.function
+
+  - id: order.order-isomorphism
+    name: 順序同型
+    kind: definition
+    aliases: [順序同型, order isomorphism]
+    requires:
+      - order.order-preserving-map
+      - set.bijection
 
   - id: order.well-order
     name: 整列
@@ -40,7 +131,7 @@ concepts:
     aliases: [整列, well-order]
     requires:
       - order.total-order
-      - order.minimum-maximum-element
+      - order.minimum-element
 
   - id: order.well-orderable
     name: 整列可能

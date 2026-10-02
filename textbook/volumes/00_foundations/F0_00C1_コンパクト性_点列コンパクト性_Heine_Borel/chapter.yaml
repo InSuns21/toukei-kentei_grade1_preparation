@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00C
+  - F0-00A1B
 official_scope: []
 learning_objectives:
   - 位相空間で開被覆によるコンパクト性を定義できる

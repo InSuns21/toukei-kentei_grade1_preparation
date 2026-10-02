@@ -1,25 +1,47 @@
 id: "F0-00A1D"
-title: "補講：順序・全順序・最小最大・整列"
+title: "順序集合：半順序・全順序・極値・整列"
 volume: "foundations"
 status: supplementary
 prerequisites:
   - SET-U1
+  - SET-U3
 official_scope: []
 learning_objectives:
-  - 順序関係と全順序を区別できる
-  - 最小元と最大元を定義できる
-  - 整列と全順序を区別できる
-  - 整列可能の意味を説明できる
+  - 半順序と全順序を定義し、比較不能な元を持つ具体例を判定できる
+  - 鎖を半順序集合の部分集合として定義し、全順序との関係を説明できる
+  - 最小元・最大元と極小元・極大元を有限半順序集合で区別できる
+  - 半順序集合の部分集合に対する上界・下界を定義し、具体例で求められる
+  - 順序保存写像と順序同型を定義し、具体的な写像が順序同型か判定できる
+  - 整列と全順序、整列可能性を区別できる
+  - 辞書式順序の整列性を二段階の最小元選択から証明できる
 definitions:
   - { id: F000A1D-DEF-02, name: 順序関係・半順序 }
+  - { id: F000A1D-DEF-07, name: 半順序集合 }
   - { id: F000A1D-DEF-03, name: 全順序 }
+  - { id: F000A1D-DEF-08, name: 鎖 }
   - { id: F000A1D-DEF-04, name: 最小元・最大元 }
+  - { id: F000A1D-DEF-09, name: 極小元・極大元 }
+  - { id: F000A1D-DEF-10, name: 上界・下界 }
+  - { id: F000A1D-DEF-11, name: 順序保存写像 }
+  - { id: F000A1D-DEF-12, name: 順序同型 }
   - { id: F000A1D-DEF-05, name: 整列 }
   - { id: F000A1D-DEF-06, name: 整列可能 }
-theorems: []
-canonical_examples: [包含関係の半順序, 実数の全順序, 自然数の整列, 整数の整列可能性]
-problem_patterns: [ORDER-RELATION-1, WELL-ORDER-1]
+theorems:
+  - { id: F000A1D-PROP-01, name: 最小元・最大元の一意性 }
+canonical_examples:
+  - べき集合の包含半順序
+  - 極大元はあるが最大元がない有限半順序集合
+  - 包含関係における上界・下界
+  - 自然数と偶数の順序同型
+  - 自然数の整列と整数の整列可能性
+  - 自然数対の辞書式整列
+problem_patterns:
+  - PARTIAL-TOTAL-ORDER-1
+  - MAXIMAL-VS-MAXIMUM-1
+  - POSET-BOUND-1
+  - ORDER-ISOMORPHISM-1
+  - WELL-ORDER-1
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 1, level_b: 0, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 1.2, exercises: 0.3, review: 0.2 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2.4, exercises: 2.0, review: 0.6 }

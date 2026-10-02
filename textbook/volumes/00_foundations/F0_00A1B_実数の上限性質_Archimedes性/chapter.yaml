@@ -1,5 +1,5 @@
 id: "F0-00A1B"
-title: "補講：実数の上限性質・Archimedes性"
+title: "実解析基礎：実数の上限性質・Archimedes 性"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -18,5 +18,5 @@ canonical_examples: [1/Nをepsilonより小さく取る]
 problem_patterns: [ARCHIMEDEAN-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 1, level_b: 0, level_c: 0, level_d: 0 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 0.75, exercises: 0.2, review: 0.15 }

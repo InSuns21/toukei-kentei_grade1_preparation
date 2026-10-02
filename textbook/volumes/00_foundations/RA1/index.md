@@ -1,6 +1,120 @@
 # RA1 標準実解析 I：数列・級数
 
-この章は、既存の [実数の上限性質](../F0_00A1B_実数の上限性質_Archimedes性/index.md#thm-f0-00a1b-lub)、[点列・部分列](../F0_00B0_点列_部分列_十分大きい添字/index.md)、[Cauchy列と完備性](../F0_00D_Cauchy列_完備性_無限次元/index.md) を土台に、実解析の最初の定理列を組み立てます。
+実解析では、まず「実数列がある値へ近づく」とは何かを $\varepsilon$-$N$ で固定する必要があります。点列・部分列という集合論的な器は [F0-00B0](../F0_00B0_点列_部分列_十分大きい添字/index.md) で準備済みですが、この章では**この「近づく」を実解析の言葉として改めて定義し、そこから定理を組み立てます**。
+
+また、[実数の上限性質・Archimedes 性](../F0_00A1B_実数の上限性質_Archimedes性/index.md) と [Cauchy 列・完備性](../F0_00D_Cauchy列_完備性_無限次元/index.md) を必要な箇所で使います。
+
+## 0. 実数列の収束
+
+数列 $(a_n)$ が $L$ に近づく、と言うだけでは「どの程度近づけばよいか」が曖昧です。実解析では、先に誤差幅 $\varepsilon>0$ を相手に指定してもらい、その幅の中へ十分後ろの項を全部入れられることを要求します。
+
+<a id="def-ra1-sequence-convergence"></a>
+
+<!-- formal-statement-start -->
+> **定義（実数列の収束）**  
+> 実数列 $(a_n)$ と $L\in\mathbb R$ に対し、任意の $\varepsilon>0$ について、ある $N\in\mathbb N$ が存在して
+>
+$$
+n\ge N
+\Longrightarrow
+|a_n-L|<\varepsilon
+$$
+>
+> となるとき、$(a_n)$ は $L$ に **収束する** といい
+>
+$$
+a_n\to L
+$$
+>
+> と書く。
+<!-- formal-statement-end -->
+
+量化記号を順番どおり読むと
+
+$$
+\forall\varepsilon>0\ 
+\exists N\in\mathbb N\ 
+\forall n\ge N
+$$
+
+です。$N$ は $\varepsilon$ に応じて選んでよい一方、一度 $N$ を決めたら、その先の**全ての** $n$ で誤差条件を満たす必要があります。
+
+<!-- definition-example-start: def-ra1-sequence-convergence -->
+### 0.1 定義の確認：$1/n\to0$
+
+**定義の確認**
+
+任意の $\varepsilon>0$ を取ります。[Archimedes 性](../F0_00A1B_実数の上限性質_Archimedes性/index.md#thm-f0-00a1b-archimedean) から
+
+$$
+N>\frac1\varepsilon
+$$
+
+となる自然数 $N$ を取れます。$n\ge N$ なら
+
+$$
+\left|\frac1n-0\right|
+=
+\frac1n
+\le
+\frac1N
+<
+\varepsilon.
+$$
+
+従って定義そのものから
+
+$$
+\frac1n\to0.
+$$
+<!-- definition-example-end -->
+
+<a id="prop-ra1-limit-uniqueness"></a>
+
+<!-- formal-statement-start -->
+> **命題（実数列の極限の一意性）**  
+> 実数列 $(a_n)$ が $L$ と $M$ の両方に収束するなら $L=M$ である。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+背理法で $L\ne M$ とし、
+
+$$
+\varepsilon=\frac{|L-M|}{3}>0
+$$
+
+と置きます。
+
+$a_n\to L$ なので、ある $N_1$ が存在して $n\ge N_1$ なら
+
+$$
+|a_n-L|<\varepsilon.
+$$
+
+同様に $a_n\to M$ なので、ある $N_2$ が存在して $n\ge N_2$ なら
+
+$$
+|a_n-M|<\varepsilon.
+$$
+
+$n\ge\max\{N_1,N_2\}$ を取ると、三角不等式から
+
+$$
+|L-M|
+\le
+|L-a_n|+|a_n-M|
+<
+2\varepsilon
+=
+\frac{2}{3}|L-M|.
+$$
+
+これは矛盾です。従って $L=M$ です。$\square$
+<!-- proof-end -->
+
+距離空間での点列収束をすでに学んでいる場合、この定義は通常の距離 $d(x,y)=|x-y|$ を入れた $\mathbb R$ における距離空間版の特殊化です。ただし実解析では、この $\varepsilon$-$N$ の形を自分で展開して使えることが重要なので、ここで明示してから先へ進みます。
 
 ---
 
@@ -51,6 +165,8 @@ $$
 ---
 
 ## 2. 上極限と下極限
+
+収束する列には一つの極限がありますが、収束しない列でも「十分後ろで上側はどこまで残るか」「下側はどこまで残るか」を記録したい場面があります。各 tail の上限・下限を並べることで、振動する列にも二つの境界的な量を割り当てます。
 
 <a id="def-ra1-limsup"></a>
 <!-- formal-statement-start -->
@@ -108,6 +224,8 @@ $$
 ---
 
 ## 3. 級数は部分和列
+
+無限個の数を一度に足す操作を直接定義するのではなく、まず最初の $N$ 項までを有限回だけ足し、その値が $N\to\infty$ で落ち着くかを調べます。つまり無限和の問題を、すでに定義した実数列の収束へ戻します。
 
 <a id="def-ra1-series"></a>
 <!-- formal-statement-start -->
@@ -230,6 +348,8 @@ $$
 ---
 
 ## 5. 冪級数
+
+係数だけでなく変数 $x$ を含む級数では、同じ式でも $x$ の位置によって収束したり発散したりします。どの範囲の $x$ で絶対収束するかを一つの半径で表したいので、この形の級数とその半径を次に定義します。
 
 <a id="def-ra1-power-series"></a>
 <!-- formal-statement-start -->

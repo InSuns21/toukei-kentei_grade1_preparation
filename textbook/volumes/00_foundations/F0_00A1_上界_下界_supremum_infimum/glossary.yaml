@@ -1,11 +1,14 @@
 chapter: "F0-00A1"
 terms:
-  - term: supremum
-    english: supremum
-    meaning: 上界全体の中で最小のもの。集合の要素とは限らない。
-  - term: infimum
-    english: infimum
-    meaning: 下界全体の中で最大のもの。集合の要素とは限らない。
-  - term: maximum
+  - term: 上限
+    english: supremum / least upper bound
+    meaning: 実数集合の上界全体の中で最小のもの。集合の要素とは限らない。
+  - term: 下限
+    english: infimum / greatest lower bound
+    meaning: 実数集合の下界全体の中で最大のもの。集合の要素とは限らない。
+  - term: 最大値
     english: maximum
-    meaning: 集合に実際に属する最大の要素。
+    meaning: 集合に実際に属し、全要素以上にある値。
+  - term: 最小値
+    english: minimum
+    meaning: 集合に実際に属し、全要素以下にある値。

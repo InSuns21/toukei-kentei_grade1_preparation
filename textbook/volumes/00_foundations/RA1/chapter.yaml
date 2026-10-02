@@ -8,17 +8,21 @@ prerequisites:
   - F0-00D
 official_scope: []
 learning_objectives:
+  - 実数列の収束をepsilon-Nで定義し、具体的な列について定義から収束を証明できる
+  - 実数列の極限の一意性をepsilon-Nと三角不等式から証明できる
   - 実数の完備性から単調収束定理を導ける
   - limsup・liminfをtailの上限下限として扱える
   - 級数を部分和列として定義し、Cauchy判定と絶対収束の意味を説明できる
   - 冪級数の収束半径と端点判定を区別できる
   - 数値級数の詳細な収束判定はRA1Aへ接続できる
 definitions:
+  - { id: RA1-DEF-00, name: 実数列の収束 }
   - { id: RA1-DEF-01, name: 上極限・下極限 }
   - { id: RA1-DEF-02, name: 級数の収束 }
   - { id: RA1-DEF-03, name: 絶対収束・条件収束 }
   - { id: RA1-DEF-04, name: 冪級数・収束半径 }
 theorems:
+  - { id: RA1-PROP-00, name: 実数列の極限の一意性 }
   - { id: RA1-THM-01, name: 単調収束定理 }
   - { id: RA1-THM-02, name: limsup・liminfによる収束判定 }
   - { id: RA1-THM-03, name: 級数のCauchy判定 }
