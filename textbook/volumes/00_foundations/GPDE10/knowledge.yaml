@@ -5,6 +5,8 @@ prerequisites:
   - GPDE9
   - PDE3
   - PDE4
+forward_references:
+  - numerical.finite-element
 
 concepts:
   - id: evolution.time-dependent-l2
