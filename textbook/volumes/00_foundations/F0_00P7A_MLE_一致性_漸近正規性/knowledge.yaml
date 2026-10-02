@@ -14,57 +14,62 @@ concepts:
   - id: stat.slutsky-theorem
     name: Slutskyの定理
     kind: theorem
-    aliases: [Slutskyの定理]
+    aliases: [Slutsky theorem]
+    introduction_aliases: ["定理（Slutsky の定理）"]
     requires:
       - prob.distribution-convergence
       - prob.probability-convergence
+      - prob.bounded-lipschitz-characterization
 
   - id: stat.uniform-lln
     name: 一様大数の法則
-    kind: term
-    aliases: [一様大数の法則]
+    kind: definition
+    aliases: [uniform law of large numbers]
+    introduction_aliases: ["定義（一様大数の法則）"]
     requires:
-      - prob.almost-sure-convergence
+      - prob.probability-convergence
 
   - id: stat.mle
     name: 最尤推定量
-    kind: term
-    aliases: [最尤推定量]
+    kind: definition
+    aliases: [maximum likelihood estimator]
+    introduction_aliases: ["定義（最尤推定量）"]
     requires:
       - stat.likelihood
 
-  - id: stat.mle-consistency
-    name: MLE一致性
-    kind: term
-    aliases: [MLE consistency, 最尤推定量一致性]
-    introduction_aliases: [argmaxを押し込みます]
-    requires:
-      - stat.mle
-      - stat.uniform-lln
-      - prob.probability-convergence
-
   - id: stat.kl-divergence
-    name: Kullback--Leibler divergence
-    kind: term
+    name: カルバック・ライブラー情報量
+    kind: definition
     aliases: [Kullback--Leibler divergence, KL divergence]
+    introduction_aliases: ["定義（カルバック・ライブラー情報量）"]
     requires:
       - stat.dominated-model
       - prob.expectation
 
   - id: stat.argmax-consistency
-    name: argmax consistency
-    kind: term
+    name: 最大化点の一致性
+    kind: theorem
     aliases: [argmax consistency]
+    introduction_aliases: ["定理（最大化点による最尤推定量の一致性）"]
     requires:
       - stat.uniform-lln
       - stat.kl-divergence
-      - stat.mle-consistency
+
+  - id: stat.mle-consistency
+    name: 最尤推定量の一致性
+    kind: theorem
+    aliases: [MLE consistency, 最尤推定量一致性]
+    introduction_aliases: ["定理（最大化点による最尤推定量の一致性）"]
+    requires:
+      - stat.mle
+      - stat.argmax-consistency
+      - prob.probability-convergence
 
   - id: stat.mle-asymptotic-normality
-    name: MLEの漸近正規性
-    kind: term
-    introduction_aliases: [最尤推定量の漸近正規性は大数の法則と中心極限定理の合体]
-    aliases: [最尤推定量の漸近正規性]
+    name: 最尤推定量の漸近正規性
+    kind: theorem
+    aliases: [MLE asymptotic normality]
+    introduction_aliases: ["定理（1次元正則モデルにおける最尤推定量の漸近正規性）"]
     requires:
       - stat.mle-consistency
       - stat.score-function

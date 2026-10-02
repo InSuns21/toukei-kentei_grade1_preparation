@@ -1,29 +1,31 @@
 id: "F0-00P7B"
-title: "QMD・LAN"
+title: "二次平均微分可能性・局所漸近正規性"
 volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00P7
   - F0-00P6A
+  - F0-00P4
   - F0-00D2E
 official_scope: []
 learning_objectives:
-  - 平方根密度をL2幾何として解釈できる
-  - QMDをL2微分として定義できる
-  - Fisher情報を接ベクトルのGram行列として説明できる
-  - 1/sqrt(n)局所parameter化の理由を説明できる
-  - LAN展開とcentral sequenceを記述できる
+  - Hellinger距離と平方根密度のL2幾何の関係を説明できる
+  - 二次平均微分可能性をL2微分として定義し、正規位置モデルで直接確認できる
+  - QMDの正規化からスコア平均0とフィッシャー情報行列を導ける
+  - 1/sqrt(n)局所パラメータ化が情報量を有限に保つ尺度であることを説明できる
+  - 中心列の多変量中心極限定理をCramér--Woldの判定法から導ける
+  - QMD展開から対数尤度比の二次補正と剰余評価を追い、局所漸近正規性を証明できる
 definitions:
-  - { id: F0P7B-DEF-01, name: QMD }
-  - { id: F0P7B-DEF-02, name: central sequence }
-  - { id: F0P7B-DEF-03, name: LAN }
-  - { id: F0P7B-DEF-04, name: Hellinger距離 }
+  - { id: F0P7B-DEF-01, name: Hellinger距離 }
+  - { id: F0P7B-DEF-02, name: 二次平均微分可能性 }
+  - { id: F0P7B-DEF-03, name: 中心列 }
 theorems:
-  - { id: F0P7B-THM-01, name: QMDからLAN }
-  - { id: F0P7B-THM-02, name: central sequence CLT }
-canonical_examples: [iid local alternatives]
+  - { id: F0P7B-THM-01, name: Cramér--Woldの判定法 }
+  - { id: F0P7B-THM-02, name: 中心列の中心極限定理 }
+  - { id: F0P7B-THM-03, name: QMDから局所漸近正規性 }
+canonical_examples: [正規位置モデル, 独立同分布局所代替]
 problem_patterns: [QMD-1, LAN-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 4, exercises: 0.75, review: 0.5 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.5, exercises: 4.0, review: 1.0 }

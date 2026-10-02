@@ -6,24 +6,28 @@ prerequisites:
   - F0-00P2A
   - F0-00P3
 
-# 冒頭・末尾で次章以降の推定量/QMD/LANを予告する。
 forward_references:
   - stat.mle
+  - stat.mle-consistency
+  - stat.uniform-lln
+  - prob.iid-clt
   - stat.qmd
   - stat.lan
 
 concepts:
   - id: stat.statistical-model
     name: 統計モデル
-    kind: term
-    aliases: [統計モデルは確率測度の族]
+    kind: definition
+    aliases: [統計モデル]
+    introduction_aliases: ["定義（統計モデル）"]
     requires:
       - prob.probability-space
 
   - id: stat.dominated-model
-    name: dominated model
-    kind: term
+    name: 共通の支配測度をもつ統計モデル
+    kind: definition
     aliases: [dominated model]
+    introduction_aliases: ["定義（共通の支配測度をもつ統計モデル）"]
     requires:
       - stat.statistical-model
       - stat.dominating-measure
@@ -31,18 +35,19 @@ concepts:
       - measure.radon-nikodym-theorem
 
   - id: stat.likelihood
-    name: 尤度
-    kind: term
-    introduction_aliases: [尤度の正体]
-    aliases: [尤度の正体]
+    name: 尤度関数
+    kind: definition
+    aliases: [尤度]
+    introduction_aliases: ["定義（尤度関数）"]
     requires:
       - stat.dominated-model
       - measure.radon-nikodym-derivative
 
   - id: stat.iid-likelihood-factorization
-    name: iid標本の尤度因数分解
-    kind: term
-    aliases: [独立標本の尤度が積になる理由]
+    name: 独立標本の尤度因数分解
+    kind: proposition
+    aliases: [独立標本の尤度因数分解]
+    introduction_aliases: ["命題（独立標本の尤度因数分解）"]
     requires:
       - stat.likelihood
       - prob.independent-random-variables
@@ -50,24 +55,25 @@ concepts:
       - measure.radon-nikodym-derivative
 
   - id: stat.log-likelihood
-    name: 対数尤度
+    name: 対数尤度関数
     kind: term
     aliases: [対数尤度]
     requires:
       - stat.likelihood
 
   - id: stat.score-function
-    name: score
-    kind: term
-    aliases: [スコア, score]
-    introduction_aliases: [1標本のスコア]
+    name: スコア関数
+    kind: definition
+    aliases: [スコア, score, score function]
+    introduction_aliases: ["定義（スコア関数）"]
     requires:
       - stat.log-likelihood
 
   - id: stat.score-identity
-    name: score identity
-    kind: term
-    aliases: [スコアの期待値は0]
+    name: スコア恒等式
+    kind: theorem
+    aliases: [score identity]
+    introduction_aliases: ["定理（スコア恒等式）"]
     requires:
       - stat.score-function
       - prob.expectation
@@ -75,26 +81,28 @@ concepts:
 
   - id: stat.regularity-conditions
     name: 正則性条件
-    kind: term
+    kind: definition
     aliases: [正則性条件]
+    introduction_aliases: ["定義（この系列で用いる正則性条件）"]
     requires:
       - stat.dominated-model
       - measure.dominated-convergence-theorem
 
   - id: stat.fisher-information
-    name: Fisher情報
-    kind: term
-    introduction_aliases: [フィッシャー情報量の二つの表現]
-    aliases: [フィッシャー情報量, Fisher情報]
+    name: フィッシャー情報量
+    kind: definition
+    aliases: [Fisher information]
+    introduction_aliases: ["定義（フィッシャー情報量）"]
     requires:
       - stat.score-function
       - prob.expectation
       - prob.variance
 
   - id: stat.information-identity
-    name: information identity
-    kind: term
-    aliases: [二つのフィッシャー情報量公式が一致]
+    name: 情報恒等式
+    kind: theorem
+    aliases: [information identity]
+    introduction_aliases: ["定理（情報恒等式）"]
     requires:
       - stat.fisher-information
       - stat.score-identity

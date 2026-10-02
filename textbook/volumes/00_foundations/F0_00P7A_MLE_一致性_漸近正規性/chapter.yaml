@@ -1,5 +1,5 @@
 id: "F0-00P7A"
-title: "MLE一致性・漸近正規性"
+title: "最尤推定量の一致性・漸近正規性"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -8,21 +8,23 @@ prerequisites:
   - F0-00P6A
 official_scope: []
 learning_objectives:
-  - KL divergenceからpopulation criterionの最大点を説明できる
-  - pointwise LLNとuniform LLNを区別できる
-  - MLE consistencyがTaylor展開に必要な理由を説明できる
-  - score CLTとHessian LLNをSlutskyで合成できる
-  - MLEの漸近正規性を導出できる
+  - 最尤推定量を定義し、点ごとの大数の法則と一様大数の法則の違いを説明できる
+  - カルバック・ライブラー情報量から期待対数尤度が真値で最大になる理由を導ける
+  - パラメータ全体での sup 型の収束と一意最大性から最尤推定量の一致性を証明できる
+  - 一致性がTaylor展開の中間点を真値近傍へ閉じ込める役割を説明できる
+  - スコア和の中心極限定理と2階微分の大数の法則をSlutskyの定理で合成できる
+  - 1次元正則モデルの最尤推定量の漸近正規性を途中式から再構成できる
 definitions:
-  - { id: F0P7A-DEF-01, name: MLE }
-  - { id: F0P7A-DEF-02, name: 一様LLN }
+  - { id: F0P7A-DEF-01, name: 最尤推定量 }
+  - { id: F0P7A-DEF-02, name: 一様大数の法則 }
+  - { id: F0P7A-DEF-03, name: カルバック・ライブラー情報量 }
 theorems:
   - { id: F0P7A-THM-00, name: Slutskyの定理 }
-  - { id: F0P7A-THM-01, name: MLE consistency sufficient theorem }
-  - { id: F0P7A-THM-02, name: MLE asymptotic normality }
-canonical_examples: [regular one-dimensional MLE]
+  - { id: F0P7A-THM-01, name: 最大化点による最尤推定量の一致性 }
+  - { id: F0P7A-THM-02, name: 1次元正則モデルにおける最尤推定量の漸近正規性 }
+canonical_examples: [ベルヌーイ標本, ポアソン標本]
 problem_patterns: [MLE-CONSISTENCY-1, MLE-AN-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 4, exercises: 0.75, review: 0.5 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 3.5, review: 0.75 }
