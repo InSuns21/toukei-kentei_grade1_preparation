@@ -14,7 +14,7 @@ learning_objectives:
   - 区間上のH^1 トレースを端点値として構成し、その連続性評価を証明できる
   - 区間上でH_0^1が零トレースのH^1関数と一致することを証明できる
   - 有界 Lipschitz 領域の定義と、一般trace定理に領域仮定が必要な理由を説明できる
-  - 有界 Lipschitz 領域上のトレース作用素とH_0^1=\ker\operatorname{Tr}を正確な仮定付きで使用できる
+  - 有界 Lipschitz 領域上のトレース作用素と、H_0^1 がその核に一致することを正確な仮定付きで使用できる
   - 零トレース、点ごと zero、平均zeroの違いを区別し、Poincaré不等式の適用条件を確認できる
 definitions:
   - { id: GPDE4-DEF-01, name: "H_0^1(Omega)" }
