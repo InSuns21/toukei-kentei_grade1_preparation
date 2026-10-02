@@ -178,7 +178,7 @@ $$
 \end{aligned}
 $$
 
-右辺は $k\to\infty$ で0へ行くので $(x_k)$ はCauchy列です。ここで一般の完備距離空間の定理は使わず、$\mathbb R^n$ の場合を座標ごとに閉じます。
+右辺は $k\to\infty$ で0へ行くので、任意の $\varepsilon>0$ に対して十分大きい $k,\ell$ では $\|x_k-x_\ell\|<\varepsilon$ となります。ここでは一般の完備性定理を使わず、$\mathbb R^n$ の場合を座標ごとに閉じます。
 
 $$
 x_k=(x_k^{(1)},\ldots,x_k^{(n)})
@@ -192,7 +192,7 @@ $$
 \|x_k-x_\ell\|
 $$
 
-なので $(x_k^{(j)})$ は実数の Cauchy 列です。[実数の完備性／実数列の Cauchy 判定](../RA1/index.md#thm-ra1-real-completeness)により、ある $x_*^{(j)}\in\mathbb R$ が存在して
+なので $(x_k^{(j)})$ は [実数列の Cauchy 条件](../RA1/index.md#def-ra1-cauchy)を満たします。[実数の完備性／実数列の Cauchy 判定](../RA1/index.md#thm-ra1-real-completeness)により、ある $x_*^{(j)}\in\mathbb R$ が存在して
 
 $$
 x_k^{(j)}\to x_*^{(j)}
