@@ -36,13 +36,13 @@ $$
 }
 \quad\Longleftrightarrow\quad
 \boxed{
-\text{trace が 0}
+\text{トレースが 0}
 }
 $$
 
-左側が $H_0^1(\Omega)$、右側が trace による境界値です。
+左側が $H_0^1(\Omega)$、右側が トレース による境界値です。
 
-さらに、この零境界条件を入れると、関数自身の $L^2$ norm を勾配で制御する評価
+さらに、この零境界条件を入れると、関数自身の $L^2$ ノルム を勾配で制御する評価
 
 $$
 \|u\|_{L^2(\Omega)}
@@ -65,9 +65,9 @@ H_0^1
 \longrightarrow
 \text{$L^2$ と勾配の制御}
 \longrightarrow
-\text{勾配 norm}
+\text{勾配ノルム}
 \longrightarrow
-\text{trace}
+\text{トレース}
 $$
 
 を閉じます。
@@ -106,9 +106,9 @@ $$
 
 必要なのは、内部の $H^1$ 情報から連続的に境界データを回収する仕組みです。
 
-その仕組みが trace です。
+その仕組みが トレース です。
 
-ただし trace へ行く前に、零境界条件だけならもっと直接的に定義できます。
+ただし トレース へ行く前に、零境界条件だけならもっと直接的に定義できます。
 
 ---
 
@@ -120,7 +120,7 @@ $$
 > **定義（H_0^1）**  
 > $\Omega\subset\mathbb R^d$ を開集合とする。
 >
-> $C_c^\infty(\Omega)$ の $H^1(\Omega)$ norm による閉包を
+> $C_c^\infty(\Omega)$ の $H^1(\Omega)$ ノルム による閉包を
 
 $$
 \boxed{
@@ -151,7 +151,7 @@ $$
 <!-- definition-example-start: def-gpde4-h01 -->
 **定義の確認**
 
-$\Omega=(0,1)$ とし、$(1/4,3/4)$ に台を持つ滑らかな bump 関数 $\varphi$ を取ります。
+$\Omega=(0,1)$ とし、$(1/4,3/4)$ に台を持つ滑らかな 滑らかなコンパクト台関数 $\varphi$ を取ります。
 
 このとき
 
@@ -607,7 +607,7 @@ $$
 
 ## 5. 勾配だけで $H_0^1$ の大きさを測れる
 
-$H^1$ norm は
+$H^1$ ノルム は
 
 $$
 \|u\|_{H^1}^2
@@ -625,14 +625,14 @@ $$
 \|\nabla u\|_2
 $$
 
-は seminorm にすぎません。定数関数の勾配が 0 だからです。
+は 半ノルム にすぎません。定数関数の勾配が 0 だからです。
 
 しかし $H_0^1$ では Poincaré 不等式が定数方向を消します。
 
 <a id="cor-gpde4-gradient-norm"></a>
 
 <!-- formal-statement-start -->
-> **系（勾配 norm と H^1 norm の同値性）**  
+> **系（勾配ノルム と $H^1$ ノルム の同値性）**  
 > $\Omega\subset\mathbb R^d$ を有界開集合とする。
 >
 > $u\in H_0^1(\Omega)$ に対して
@@ -643,7 +643,7 @@ $$
 \|\nabla u\|_{L^2(\Omega)}
 $$
 
-> と定めると、$\|\cdot\|_{\nabla}$ は $H_0^1(\Omega)$ 上の norm であり、通常の $H^1$ norm と同値である。
+> と定めると、$\|\cdot\|_{\nabla}$ は $H_0^1(\Omega)$ 上の ノルム であり、通常の $H^1$ ノルム と同値である。
 >
 > 具体的に Poincaré 定数を $C_P$ とすると
 
@@ -659,7 +659,7 @@ $$
 
 ### 証明の見取り図
 
-左の不等式は $H^1$ norm の定義から直ちに分かります。
+左の不等式は $H^1$ ノルム の定義から直ちに分かります。
 
 右の不等式は
 
@@ -669,7 +669,7 @@ $$
 C_P\|\nabla u\|_2
 $$
 
-を $H^1$ norm へ代入するだけです。
+を $H^1$ ノルム へ代入するだけです。
 
 そして
 
@@ -683,7 +683,7 @@ $$
 \|u\|_2=0
 $$
 
-なので、勾配 seminorm は $H_0^1$ 上では本当の norm になります。
+なので、勾配 半ノルム は $H_0^1$ 上では本当の ノルム になります。
 
 <!-- proof-start -->
 ### 証明
@@ -752,7 +752,7 @@ $$
 
 したがって $u=0$ in $L^2$、すなわち $H_0^1$ の元として $u=0$ です。
 
-よって $\|\nabla u\|_2$ は norm です。
+よって $\|\nabla u\|_2$ は ノルム です。
 <!-- proof-end -->
 
 GPDE6 以降では
@@ -771,9 +771,9 @@ Poincaré 不等式があるからこそ、この量だけで $H_0^1$ の位相�
 
 ---
 
-## 6. trace を理解する前に、一変数では何が起きるか
+## 6. トレースを理解する前に、一変数では何が起きるか
 
-高次元の一般 trace 定理は、境界の幾何を扱う必要があります。
+高次元の一般 トレース定理は、境界の幾何を扱う必要があります。
 
 その前に一変数を完全に閉じます。
 
@@ -853,9 +853,9 @@ $$
 
 です。
 
-これは GPDE2 の mollifier を使うと直接示せます。
+これは GPDE2 の 平滑化核 を使うと直接示せます。
 
-$v$ を局所的に平滑化すると、平滑化後の導関数も 0 なので定数になります。mollifier を 0 へ戻せば、元の $v$ も a.e. 定数です。
+$v$ を局所的に平滑化すると、平滑化後の導関数も 0 なので定数になります。平滑化核 を 0 へ戻せば、元の $v$ も a.e. 定数です。
 
 <!-- proof-start -->
 ### 証明
@@ -920,7 +920,7 @@ $$
 
 を任意に取ります。
 
-$\operatorname{dist}(J,\partial I)>0$ なので、十分小さい $\varepsilon>0$ に対して局所 mollification
+$\operatorname{dist}(J,\partial I)>0$ なので、十分小さい $\varepsilon>0$ に対して局所 平滑化
 
 $$
 v_\varepsilon
@@ -930,7 +930,7 @@ $$
 
 が $J$ 上で定義できます。
 
-GPDE2 で示した弱微分と mollification の交換から
+GPDE2 で示した弱微分と 平滑化 の交換から
 
 $$
 (v_\varepsilon)'
@@ -952,7 +952,7 @@ v_\varepsilon(x)=c_\varepsilon
 x\in J.
 $$
 
-一方 mollifier 近似により
+一方 平滑化核 近似により
 
 $$
 v_\varepsilon\to v
@@ -1043,18 +1043,18 @@ $$
 
 ---
 
-## 8. 区間上の trace は端点値そのものになる
+## 8. 区間上の トレース は端点値そのものになる
 
 一変数では、絶対連続代表元を使って端点値を定義できます。
 
-ただし「端点値が存在する」だけでは trace として不十分です。
+ただし「端点値が存在する」だけでは トレース として不十分です。
 
-必要なのは、端点値が $H^1$ norm に関して連続に変化することです。
+必要なのは、端点値が $H^1$ ノルム に関して連続に変化することです。
 
 <a id="thm-gpde4-trace-interval"></a>
 
 <!-- formal-statement-start -->
-> **定理（区間上の trace 定理）**  
+> **定理（区間上の トレース定理）**  
 > $L>0$ とし、$u\in H^1(0,L)$ の絶対連続代表元を $\widetilde u$ とする。
 >
 > 写像
@@ -1127,7 +1127,7 @@ $$
 
 と Cauchy--Schwarz を使います。
 
-その後 $x$ について平均を取ると、一点の値が $L^2$ norm と導関数の $L^2$ norm で評価できます。
+その後 $x$ について平均を取ると、一点の値が $L^2$ ノルム と導関数の $L^2$ ノルム で評価できます。
 
 <!-- proof-start -->
 ### 証明
@@ -1299,7 +1299,7 @@ $$
 従って $\operatorname{Tr}$ は有界です。
 <!-- proof-end -->
 
-### 直接例：affine 関数
+### 直接例：アフィン 関数
 
 $$
 u(x)=2x-1
@@ -1329,18 +1329,18 @@ $$
 u\notin H_0^1(0,1)
 $$
 
-であることが後の kernel 特徴付けから分かります。
+であることが後の 核 特徴付けから分かります。
 
 ---
 
-## 9. 区間では $H_0^1$ と zero trace が完全に一致する
+## 9. 区間では $H_0^1$ と 零トレースが完全に一致する
 
 高次元へ進む前に、区間ではこの同一視を完全証明します。
 
 <a id="thm-gpde4-h01-trace-kernel-interval"></a>
 
 <!-- formal-statement-start -->
-> **定理（区間上の H_0^1 と zero trace）**  
+> **定理（区間上の H_0^1 と 零トレース）**  
 > $L>0$ とする。
 >
 > このとき
@@ -1369,13 +1369,13 @@ H_0^1
 \ker\operatorname{Tr}
 $$
 
-は trace の連続性だけで出ます。
+は トレース の連続性だけで出ます。
 
-$C_c^\infty(0,L)$ の関数は端点付近で 0 なので trace は 0 です。それを $H^1$ 極限へ移します。
+$C_c^\infty(0,L)$ の関数は端点付近で 0 なので トレース は 0 です。それを $H^1$ 極限へ移します。
 
 逆向きは少し重要です。
 
-zero trace を持つ $u$ は端点近くで
+零トレースを持つ $u$ は端点近くで
 
 $$
 u(x)
@@ -1387,7 +1387,7 @@ $$
 
 この積分表示により、端点近くを cutoff しても $H^1$ 誤差が小さくなることを示せます。
 
-cutoff 後は台が境界から離れるので、GPDE3 の mollifier で $C_c^\infty$ に近似できます。
+cutoff 後は台が境界から離れるので、GPDE3 の 平滑化核 で $C_c^\infty$ に近似できます。
 
 <!-- proof-start -->
 ### 証明
@@ -1421,7 +1421,7 @@ $$
 \operatorname{Tr}\varphi_n=(0,0).
 $$
 
-区間 trace の連続性から
+区間 トレース の連続性から
 
 $$
 \operatorname{Tr}\varphi_n
@@ -1584,7 +1584,7 @@ $$
 \to0.
 $$
 
-右端も
+右端では $u(L)=0$ を使い、
 
 $$
 u(x)
@@ -1593,9 +1593,47 @@ u(x)
 u'(s)\,ds
 $$
 
-を使えば同様です。
+と書きます。Cauchy--Schwarz により
 
-従って
+$$
+|u(x)|^2
+\le
+(L-x)
+\int_x^L
+|u'(s)|^2\,ds.
+$$
+
+$x\ge L-2\varepsilon$ なら
+
+$$
+|u(x)|^2
+\le
+(L-x)
+\int_{L-2\varepsilon}^{L}
+|u'(s)|^2\,ds.
+$$
+
+したがって、右端の切断関数の微分も $|\chi_\varepsilon'|\le C/\varepsilon$ を満たすことから
+
+$$
+\begin{aligned}
+\int_{L-2\varepsilon}^{L}
+|\chi_\varepsilon'(x)u(x)|^2\,dx
+&\le
+\frac{C^2}{\varepsilon^2}
+\int_{L-2\varepsilon}^{L}
+(L-x)\,dx
+\int_{L-2\varepsilon}^{L}
+|u'(s)|^2\,ds\\
+&=
+2C^2
+\int_{L-2\varepsilon}^{L}
+|u'(s)|^2\,ds
+\to0.
+\end{aligned}
+$$
+
+左端・右端の両方で境界層の誤差が消えるので
 
 $$
 \|\chi_\varepsilon u-u\|_{H^1(0,L)}
@@ -1616,9 +1654,9 @@ $$
 \delta<\frac{\varepsilon}{2}
 $$
 
-の mollifier で平滑化します。
+の 平滑化核 で平滑化します。
 
-GPDE3 の局所 mollification から、$\delta\to0$ で
+GPDE3 の局所 平滑化 から、$\delta\to0$ で
 
 $$
 \rho_\delta*(\chi_\varepsilon u)
@@ -1658,7 +1696,7 @@ H_0^1(0,L)
 $$
 <!-- proof-end -->
 
-この証明は、zero trace が単なる記号ではなく
+この証明は、零トレースが単なる記号ではなく
 
 $$
 \text{境界層を切り落としても }H^1\text{ 誤差が消える}
@@ -1694,7 +1732,7 @@ $$
 (0,0).
 $$
 
-前節の[区間版 kernel 特徴付け](#thm-gpde4-h01-trace-kernel-interval)から
+前節の[区間版 核 特徴付け](#thm-gpde4-h01-trace-kernel-interval)から
 
 $$
 \boxed{
@@ -1732,9 +1770,9 @@ $$
 
 一変数では境界は二点だけでした。
 
-高次元では $\partial\Omega$ は $(d-1)$ 次元の集合であり、局所的な形が trace の構成に影響します。
+高次元では $\partial\Omega$ は $(d-1)$ 次元の集合であり、局所的な形が トレース の構成に影響します。
 
-境界を局所的に一様な Lipschitz graph として表せると、境界近くを
+境界を局所的に一様な Lipschitz グラフ として表せると、境界近くを
 
 $$
 \text{横方向 }x'
@@ -1749,8 +1787,8 @@ $$
 <a id="def-gpde4-lipschitz-domain"></a>
 
 <!-- formal-statement-start -->
-> **定義（bounded Lipschitz domain）**  
-> 有界開集合 $\Omega\subset\mathbb R^d$ が bounded Lipschitz domain であるとは、各境界点 $x_0\in\partial\Omega$ に対して近傍 $U$ と剛体変換後の座標
+> **定義（有界 Lipschitz 領域）**  
+> 有界開集合 $\Omega\subset\mathbb R^d$ が 有界 Lipschitz 領域 であるとは、各境界点 $x_0\in\partial\Omega$ に対して近傍 $U$ と剛体変換後の座標
 
 $$
 x=(x',x_d)
@@ -1793,11 +1831,11 @@ $$
 
 のような定数関数のグラフです。
 
-角の近くでも座標を適切に回転すれば、領域は有限個の Lipschitz graph patch で表せます。
+角の近くでも座標を適切に回転すれば、領域は有限個の Lipschitz グラフ 局所近傍 で表せます。
 
-したがって立方体・直方体は bounded Lipschitz domain です。
+したがって立方体・直方体は 有界 Lipschitz 領域 です。
 
-一方、極端な cusp を持つ領域では、境界を一様な Lipschitz graph として表せないことがあります。その場合、以下の trace 定理を同じ形で無条件に使ってはいけません。
+一方、極端な cusp を持つ領域では、境界を一様な Lipschitz グラフ として表せないことがあります。その場合、以下の トレース定理を同じ形で無条件に使ってはいけません。
 <!-- definition-example-end -->
 
 Lipschitz とは「微分可能」を要求していません。
@@ -1806,13 +1844,13 @@ Lipschitz とは「微分可能」を要求していません。
 
 ---
 
-## 12. 高次元の trace を構成する
+## 12. 高次元の トレースを構成する
 
 <a id="thm-gpde4-trace-lipschitz"></a>
 
 <!-- formal-statement-start -->
-> **定理（bounded Lipschitz domain 上の trace）**  
-> $\Omega\subset\mathbb R^d$ を bounded Lipschitz domain とする。
+> **定理（有界 Lipschitz 領域上の トレース）**  
+> $\Omega\subset\mathbb R^d$ を 有界 Lipschitz 領域 とする。
 >
 > このとき一意な有界線形作用素
 
@@ -1860,9 +1898,9 @@ H^1(\Omega)
 L^2(\partial\Omega)
 $$
 
-と書けるからといって、任意の $L^2(\partial\Omega)$ データが trace として実現できるわけではありません。
+と書けるからといって、任意の $L^2(\partial\Omega)$ データが トレース として実現できるわけではありません。
 
-実際の range はより正則な境界空間で記述され、標準的には $H^{1/2}(\partial\Omega)$ が現れます。本系列では分数階 Sobolev 空間をまだ導入していないので、ここでは必要な
+実際の 値域 はより正則な境界空間で記述され、標準的には $H^{1/2}(\partial\Omega)$ が現れます。本系列では分数階 Sobolev 空間をまだ導入していないので、ここでは必要な
 
 $$
 H^1(\Omega)\to L^2(\partial\Omega)
@@ -1872,7 +1910,7 @@ $$
 
 ### 証明の核心：局所的には一変数評価
 
-境界 patch を
+境界 局所近傍 を
 
 $$
 x_d=\gamma(x')
@@ -1895,7 +1933,7 @@ $$
 
 を一変数関数として見ます。
 
-高さ $h>0$ の細い cylinder が patch 内に入るように取れば、一変数の trace 評価から
+高さ $h>0$ の細い cylinder が 局所近傍 内に入るように取れば、一変数の トレース 評価から
 
 $$
 |u(x',\gamma(x'))|^2
@@ -1911,7 +1949,7 @@ $$
 
 これを $x'$ で積分します。
 
-ここで Lipschitz graph の parametrization に対する標準的な表面測度表示を black-box package の一部として使い、graph 上では
+ここで Lipschitz グラフ の parametrization に対する標準的な表面測度表示を 黒箱として扱う補助理論 の一部として使い、graph 上では
 
 $$
 dS
@@ -1936,20 +1974,20 @@ $$
 
 が得られます。
 
-有限個の境界 patch を足せば全境界の評価になります。
+有限個の境界 局所近傍 を足せば全境界の評価になります。
 
 ### この章での意図的黒箱
 
-一般 Lipschitz domain について chart の貼り合わせまで完全に構成するには、次の補助理論が必要です。
+一般 Lipschitz 領域 について 座標近傍 の貼り合わせまで完全に構成するには、次の補助理論が必要です。
 
-- compact な境界を有限個の Lipschitz graph chart で覆い、smooth partition of unity で局所化すること。
-- Lipschitz graph 上の表面測度を chart 座標で積分し、その Jacobian を Lipschitz 定数で制御する面積公式。
-- bounded Lipschitz domain に対する $H^1$ extension と、それを用いた「境界まで滑らかな関数」の $H^1$ density。
-- zero trace の関数を境界層 cutoff / inward shift で内部支持関数へ近似できること。
+- compact な境界を有限個の Lipschitz グラフ 座標近傍 で覆い、滑らかな1の分割 で局所化すること。
+- Lipschitz グラフ 上の表面測度を 座標近傍 座標で積分し、その Jacobian を Lipschitz 定数で制御する面積公式。
+- 有界 Lipschitz 領域 に対する $H^1$ extension と、それを用いた「境界まで滑らかな関数」の $H^1$ density。
+- 零トレース の関数を境界層 cutoff / inward shift で内部支持関数へ近似できること。
 
 これらを本章では **Lipschitz boundary package** と呼び、幾何測度論と extension operator の構成部分だけを意図的黒箱とします。
 
-黒箱にしているのは「どの局所 chart をどう貼るか」という技術部分です。trace estimate の解析核心である
+黒箱にしているのは「どの局所 座標近傍 をどう貼るか」という技術部分です。トレース estimate の解析核心である
 
 $$
 \text{一変数の端点評価}
@@ -1957,14 +1995,14 @@ $$
 \text{境界 graph に沿った積分}
 $$
 
-は本文で計算し、区間上の zero-trace characterization は完全証明しています。
+は本文で計算し、区間上の zero-トレース characterization は完全証明しています。
 
 <!-- proof-start -->
 ### 証明
 
 まず $\overline\Omega$ の近傍で滑らかな $u$ に対して評価を示します。
 
-$\partial\Omega$ は compact なので、有限個の Lipschitz graph patch
+$\partial\Omega$ は compact なので、有限個の Lipschitz グラフ 局所近傍
 
 $$
 U_1,\ldots,U_N
@@ -1972,7 +2010,7 @@ $$
 
 で覆えます。
 
-各 patch では剛体変換後、
+各 局所近傍 では剛体変換後、
 
 $$
 \partial\Omega\cap U_j
@@ -1990,7 +2028,7 @@ $$
 
 と書けます。
 
-patch を少し小さく取り、ある $h_j>0$ に対して
+局所近傍 を少し小さく取り、ある $h_j>0$ に対して
 
 $$
 (x',\gamma_j(x')+s)
@@ -2072,7 +2110,7 @@ $$
 
 を得ます。
 
-有限個の patch の和を取り、境界から離れた部分は trace に寄与しないので、
+有限個の 局所近傍 の和を取り、境界から離れた部分は トレース に寄与しないので、
 
 $$
 \|u|_{\partial\Omega}\|_{L^2(\partial\Omega)}
@@ -2122,7 +2160,7 @@ $$
 
 と定めます。
 
-別の近似列を使っても、二つの近似列の差へ同じ trace estimate を適用すれば極限は同じです。
+別の近似列を使っても、二つの近似列の差へ同じ トレース estimate を適用すれば極限は同じです。
 
 したがって $\operatorname{Tr}$ は well-defined です。
 
@@ -2145,17 +2183,17 @@ Lipschitz 仮定が働いた場所は二つです。
 1. 境界を graph として表し、一変数の断面評価を使えること。
 2. 滑らかな近似を境界まで運ぶ extension / density machinery を使えること。
 
-「十分良い領域なら trace がある」とだけ覚えるのではなく、どの機構に領域仮定が必要なのかを押さえてください。
+「十分良い領域なら トレースがある」とだけ覚えるのではなく、どの機構に領域仮定が必要なのかを押さえてください。
 
 ---
 
-## 13. 一般領域で零境界条件を trace で特徴付ける
+## 13. 一般領域で零境界条件を トレース で特徴付ける
 
 <a id="thm-gpde4-h01-trace-kernel"></a>
 
 <!-- formal-statement-start -->
-> **定理（H_0^1 と zero trace の同一視）**  
-> $\Omega\subset\mathbb R^d$ を bounded Lipschitz domain とする。
+> **定理（H_0^1 と 零トレース の同一視）**  
+> $\Omega\subset\mathbb R^d$ を 有界 Lipschitz 領域 とする。
 >
 > このとき
 
@@ -2193,7 +2231,7 @@ $$
 \operatorname{Tr}\varphi_n=0.
 $$
 
-trace の連続性から
+トレース の連続性から
 
 $$
 \operatorname{Tr}u=0.
@@ -2211,18 +2249,18 @@ $$
 
 逆向きは区間の場合と同じ発想です。
 
-zero trace を持つ関数を境界 chart ごとに局所化し、
+零トレースを持つ関数を境界 座標近傍 ごとに局所化し、
 
 - 境界 graph に沿う方向と内向き方向へ分ける。
 - 内向きに少し押し込む、または境界層 cutoff を掛ける。
-- zero trace により、その操作の $H^1$ 誤差が 0 へ行く。
+- 零トレース により、その操作の $H^1$ 誤差が 0 へ行く。
 - 境界から正の距離を持つようになった後で mollify する。
 
 という手順で $C_c^\infty(\Omega)$ へ近似します。
 
 区間で完全証明した cutoff estimate が、この高次元構成の法線方向の核心です。
 
-一般 Lipschitz chart を貼り合わせる technical step は前節と同じ Lipschitz extension / density package に含めます。
+一般 Lipschitz 座標近傍 を貼り合わせる technical step は前節と同じ Lipschitz extension / density package に含めます。
 
 <!-- proof-start -->
 ### 証明
@@ -2250,7 +2288,7 @@ $$
 \operatorname{Tr}\varphi_n=0.
 $$
 
-trace の有界性から
+トレース の有界性から
 
 $$
 \|\operatorname{Tr}u\|_{L^2(\partial\Omega)}
@@ -2288,11 +2326,11 @@ $$
 
 とします。
 
-bounded Lipschitz domain の有限 chart と partition of unity を取り、$u$ を境界 patch ごとの局所成分と内部成分へ分解します。
+有界 Lipschitz 領域 の有限 座標近傍 と partition of unity を取り、$u$ を境界 局所近傍 ごとの局所成分と内部成分へ分解します。
 
-内部成分はすでに境界から正の距離を持つため、GPDE3 の mollification で $C_c^\infty(\Omega)$ 近似できます。
+内部成分はすでに境界から正の距離を持つため、GPDE3 の 平滑化 で $C_c^\infty(\Omega)$ 近似できます。
 
-境界成分については各 chart を
+境界成分については各 座標近傍 を
 
 $$
 \Omega
@@ -2359,7 +2397,7 @@ H_0^1(\Omega)
 \ker\operatorname{Tr}.
 $$
 
-逆包含の chart の貼り合わせと境界層近似の一般形は、本章で明示した Lipschitz boundary package の範囲とします。とくに「zero trace なら境界層 cutoff の $H^1$ 誤差が消える」という高次元化を黒箱補題として使っています。区間での完全な cutoff 計算がその解析核心です。
+逆包含の 座標近傍 の貼り合わせと境界層近似の一般形は、本章で明示した Lipschitz boundary package の範囲とします。とくに「零トレース なら境界層 cutoff の $H^1$ 誤差が消える」という高次元化を黒箱補題として使っています。区間での完全な cutoff 計算がその解析核心です。
 <!-- proof-end -->
 
 これで
@@ -2370,7 +2408,7 @@ $$
 
 を Sobolev 空間で正確に読む準備ができました。
 
-bounded Lipschitz domain では
+有界 Lipschitz 領域 では
 
 $$
 \boxed{
@@ -2386,11 +2424,11 @@ $$
 
 ---
 
-## 14. pointwise zero・zero trace・平均 zero は別物
+## 14. 点ごと zero・零トレース・平均 zero は別物
 
 境界条件と Poincaré を使うとき、三つを混同しないことが重要です。
 
-### 14.1 pointwise zero
+### 14.1 点ごと zero
 
 古典的な連続関数なら
 
@@ -2404,9 +2442,9 @@ $$
 
 しかし一般の $H^1$ 元には、この点wise表現をそのまま使えません。
 
-### 14.2 zero trace
+### 14.2 零トレース
 
-bounded Lipschitz domain では
+有界 Lipschitz 領域 では
 
 $$
 \operatorname{Tr}u=0
@@ -2466,7 +2504,7 @@ $$
 
 ---
 
-## 15. 非零 Dirichlet 条件は affine space として読む
+## 15. 非零 Dirichlet 条件は アフィン space として読む
 
 境界データが 0 でない場合
 
@@ -2561,7 +2599,7 @@ $$
 
 となります。
 
-一方、一変数の弱微分を積分し直すことで trace の原型を完全に構成し、bounded Lipschitz domain では
+一方、一変数の弱微分を積分し直すことで トレース の原型を完全に構成し、有界 Lipschitz 領域 では
 
 $$
 H_0^1(\Omega)
@@ -2577,7 +2615,7 @@ $$
 \boxed{
 \text{零 Dirichlet 条件}
 =
-\text{trace zero}
+\text{トレース zero}
 =
 H_0^1
 }
@@ -2857,7 +2895,7 @@ $$
 $H_0^1$ では零境界条件が非零定数を排除するため、Poincaré 不等式が成立します。
 <!-- solution-end -->
 
-## GPDE4-A04 affine 関数の trace
+## GPDE4-A04 アフィン 関数の トレース
 
 - Level: A
 - 目安時間: 8分
@@ -2874,7 +2912,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-affine 関数は滑らかなので
+アフィン 関数は滑らかなので
 
 $$
 u\in H^1(0,L).
@@ -2932,7 +2970,7 @@ $$
 a=0.
 $$
 
-よって affine 関数のうち $H_0^1(0,L)$ に入るのは
+よって アフィン 関数のうち $H_0^1(0,L)$ に入るのは
 
 $$
 \boxed{
@@ -2943,7 +2981,7 @@ $$
 だけです。
 <!-- solution-end -->
 
-## GPDE4-B01 $H_0^1$ の完備性を勾配 norm で読み直す
+## GPDE4-B01 $H_0^1$ の完備性を勾配ノルム で読み直す
 
 - Level: B
 - 目安時間: 15分
@@ -2960,7 +2998,7 @@ $$
 
 に関して $H_0^1(\Omega)$ の Cauchy 列であるとする。
 
-$(u_n)$ が通常の $H^1$ norm でも Cauchy であり、ある $u\in H_0^1(\Omega)$ へ勾配 norm で収束することを示せ。
+$(u_n)$ が通常の $H^1$ ノルム でも Cauchy であり、ある $u\in H_0^1(\Omega)$ へ勾配ノルム で収束することを示せ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -2985,7 +3023,7 @@ $$
 
 仮定から右辺は $n,m\to\infty$ で 0 へ収束します。
 
-従って $(u_n)$ は $H^1$ norm でも Cauchy です。
+従って $(u_n)$ は $H^1$ ノルム でも Cauchy です。
 
 $H_0^1(\Omega)$ は $H^1(\Omega)$ の閉部分空間で完備なので、ある
 
@@ -3016,12 +3054,12 @@ $$
 \to0.
 $$
 
-つまり勾配 norm でも $H_0^1$ は完備です。
+つまり勾配ノルム でも $H_0^1$ は完備です。
 
 ここで Poincaré 不等式が、勾配 Cauchy から関数自身の $L^2$ Cauchy まで回収する役割を果たしています。
 <!-- solution-end -->
 
-## GPDE4-B02 区間で zero trace から境界層 cutoff を正当化する
+## GPDE4-B02 区間で 零トレース から境界層 cutoff を正当化する
 
 - Level: B
 - 目安時間: 20分
@@ -3072,7 +3110,7 @@ $$
 
 絶対連続代表元を同じ記号 $u$ で表します。
 
-trace が 0 なので
+トレースが 0 なので
 
 $$
 u(0)=u(1)=0.
@@ -3189,7 +3227,7 @@ $$
 \to0.
 $$
 
-zero trace が cutoff の微分
+零トレースが cutoff の微分
 
 $$
 \chi_\varepsilon'
@@ -3200,7 +3238,7 @@ $$
 による発散を、端点近くの $u$ の小ささで打ち消しています。
 <!-- solution-end -->
 
-## GPDE4-B03 長方形で trace estimate を作る
+## GPDE4-B03 長方形で トレース estimate を作る
 
 - Level: B
 - 目安時間: 20分
@@ -3342,7 +3380,7 @@ $$
 
 です。
 
-一般 Lipschitz domain の trace estimate は、この一変数評価を boundary graph chart ごとに実行したものです。
+一般 Lipschitz 領域 の トレース estimate は、この一変数評価を boundary graph 座標近傍 ごとに実行したものです。
 <!-- solution-end -->
 
 ## GPDE4-C01 同じ非零境界データを持つ関数の差を制御する
@@ -3350,7 +3388,7 @@ $$
 - Level: C
 - 目安時間: 25分
 
-$\Omega$ を bounded Lipschitz domain とし、
+$\Omega$ を 有界 Lipschitz 領域 とし、
 
 $$
 w\in H^1(\Omega),
@@ -3407,7 +3445,7 @@ $$
 \operatorname{Tr}w=g.
 $$
 
-trace の線形性により
+トレース の線形性により
 
 $$
 \operatorname{Tr}(u-w)
@@ -3419,7 +3457,7 @@ g-g
 0.
 $$
 
-bounded Lipschitz domain 上の特徴付け
+有界 Lipschitz 領域上の特徴付け
 
 $$
 H_0^1(\Omega)
@@ -3499,7 +3537,7 @@ $$
 
 とします。
 
-両者は同じ trace を持つので
+両者は同じ トレースを持つので
 
 $$
 \operatorname{Tr}(u-v)=0.
@@ -3511,7 +3549,7 @@ $$
 u-v\in H_0^1(\Omega).
 $$
 
-Poincaré から導いた norm 同値性を $u-v$ に適用すると
+Poincaré から導いた ノルム 同値性を $u-v$ に適用すると
 
 $$
 \|u-v\|_{H^1}
@@ -3541,7 +3579,7 @@ $$
 u-v
 $$
 
-は zero trace です。
+は 零トレース です。
 
 したがって差は $H_0^1$ に入り、Poincaré 不等式を使えます。
 
@@ -3570,17 +3608,17 @@ $$
 - $H_0^1$ が $H^1$ の閉部分空間として完備になる理由を説明できる。
 - 任意の有界開集合で $H_0^1$ 版 Poincaré 不等式を断面積分から証明できる。
 - 定数関数が全 $H^1$ 版 Poincaré を壊す理由を説明できる。
-- $H_0^1$ 上では $\|\nabla u\|_2$ が norm になり、$H^1$ norm と同値になることを証明できる。
-- 一変数 $W^{1,1}$ 関数が絶対連続代表元を持つことを弱微分と mollifier から証明できる。
-- 区間上の trace を端点値として構成し、その $H^1$ 連続性を証明できる。
-- 区間上で $H_0^1=\ker\operatorname{Tr}$ を境界層 cutoff と mollification から証明できる。
-- bounded Lipschitz domain の仮定が trace のどこで働くか説明できる。
-- 一般 trace 定理で $H^1(\Omega)\to L^2(\partial\Omega)$ の連続性を正確に使える。
-- bounded Lipschitz domain で zero trace による零境界条件の特徴付けを使える。
-- pointwise zero、zero trace、平均 zero を区別できる。
-- 非零 Dirichlet 条件を零境界 Sobolev 空間の affine translate として読める。
+- $H_0^1$ 上では $\|\nabla u\|_2$ が ノルム になり、$H^1$ ノルム と同値になることを証明できる。
+- 一変数 $W^{1,1}$ 関数が絶対連続代表元を持つことを弱微分と 平滑化核 から証明できる。
+- 区間上の トレースを端点値として構成し、その $H^1$ 連続性を証明できる。
+- 区間上で $H_0^1=\ker\operatorname{Tr}$ を境界層 cutoff と 平滑化 から証明できる。
+- 有界 Lipschitz 領域 の仮定が トレース のどこで働くか説明できる。
+- 一般 トレース定理で $H^1(\Omega)\to L^2(\partial\Omega)$ の連続性を正確に使える。
+- 有界 Lipschitz 領域 で 零トレース による零境界条件の特徴付けを使える。
+- 点ごと zero、零トレース、平均 zero を区別できる。
+- 非零 Dirichlet 条件を零境界 Sobolev 空間の アフィン translate として読める。
 
-次の GPDE5 では、Sobolev norm の制御から
+次の GPDE5 では、Sobolev ノルム の制御から
 
 $$
 L^q
