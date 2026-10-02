@@ -76,9 +76,9 @@ concepts:
       - topology.bounded-set
 
   - id: topology.heine-cantor-compact-metric
-    name: コンパクト距離空間上のHeine--Cantor
+    name: コンパクト距離空間上の Heine--Cantor
     kind: theorem
-    aliases: [コンパクト距離空間上のHeine--Cantor, Heine--Cantor theorem on compact metric spaces]
+    aliases: [コンパクト距離空間上の Heine--Cantor, コンパクト距離空間上のHeine--Cantor, Heine--Cantor theorem on compact metric spaces]
     requires:
       - topology.compact-set
       - topology.continuous-map
