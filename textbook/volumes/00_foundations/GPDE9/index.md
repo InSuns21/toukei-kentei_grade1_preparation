@@ -2418,7 +2418,7 @@ $$
 A\in L^\infty
 $$
 
-は weak formulation には十分でも、
+は弱形式には十分でも、
 
 $$
 D_hA
@@ -2429,16 +2429,16 @@ $$
 この差が
 
 $$
-\text{existence theory}
+\text{存在理論}
 \quad\text{と}\quad
-\text{正則性 theory}
+\text{正則性理論}
 $$
 
 の仮定の差として現れます。
 
 ---
 
-## 14. GPDE10 への橋：空間正則性 から 時間発展 へ
+## 14. GPDE10 への橋：空間正則性から時間発展へ
 
 GPDE6--GPDE9 では
 
@@ -2452,7 +2452,7 @@ $$
 \text{正則性}
 $$
 
-という elliptic PDE の基本線を閉じました。
+という楕円型 PDE の基本線を閉じました。
 
 次の GPDE10 では時間変数を導入し、
 
@@ -2464,18 +2464,18 @@ L^2(\Omega)
 H^{-1}(\Omega)
 $$
 
-という Gelfand triple の上で
+という Gelfand 三つ組の上で
 
-- Galerkin approximation
+- Galerkin 近似
 - エネルギー評価
-- weak compactness
-- limit passage
+- 弱コンパクト性
+- 極限通過
 
-を使って evolution PDE の 弱解 を構成します。
+を使って 時間発展 PDE の弱解 を構成します。
 
-楕円型では 差分商 が「空間方向の追加 正則性」を回収しました。
+楕円型では差分商が「空間方向の追加正則性」を回収しました。
 
-時間発展問題では エネルギー評価 が
+時間発展問題ではエネルギー評価が
 
 $$
 u,\quad
@@ -3616,4 +3616,4 @@ $$
 
 まで閉じました。
 
-次は GPDE10 で Galerkin・エネルギー method・weak compactness を使い、時間発展 PDE の弱解構成へ進みます。
+次は GPDE10 で Galerkin 法・エネルギー法・弱コンパクト性を使い、時間発展 PDE の弱解構成へ進みます。
