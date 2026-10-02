@@ -3,9 +3,24 @@ terms:
   - term: 関数の極限
     english: limit of a function
     meaning: xが点aへ近づくときf(x)を一定値へ任意精度で近づけられること。
+  - term: 連続性
+    english: continuity
+    meaning: 定義域内でxをaへ十分近づければf(x)をf(a)へ任意精度で近づけられる性質。
+  - term: Bolzano--Weierstrassの定理
+    english: Bolzano--Weierstrass theorem
+    meaning: 有界な実数列から収束部分列を必ず取り出せること。
+  - term: 閉区間の有限部分被覆定理
+    english: finite subcover theorem for closed intervals
+    meaning: 閉区間を覆う開区間族から有限個だけを選んでも閉区間全体を覆えること。
+  - term: Weierstrassの最大最小定理
+    english: extreme value theorem
+    meaning: 閉区間上の連続実関数が最大値と最小値を実際に達成すること。
   - term: 一様連続
     english: uniform continuity
-    meaning: 入力差を制御するdeltaを点xに依存させず領域全体で共通に選べる連続性。
+    meaning: 入力差を制御するdeltaを基準点に依存させず定義域全体で共通に選べる連続性。
   - term: Lipschitz連続
     english: Lipschitz continuity
     meaning: |f(x)-f(y)|を定数倍の|x-y|で一様に上から抑えられる性質。
+  - term: Heine--Cantorの定理
+    english: Heine--Cantor theorem
+    meaning: 閉区間上の連続実関数は一様連続になること。
