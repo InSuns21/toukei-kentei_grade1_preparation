@@ -377,13 +377,13 @@ $$
 
 PDE では滑らかでなくても積分可能な関数を扱いたいので、まず [局所可積分関数](../MT4/index.md#def-mt4-l1loc) $L^1_{\mathrm{loc}}$ を 超関数に入れます。
 
-MT4 では $\mathbb R$ 上で局所可積分を定義しました。ここではその $d$ 次元版として、開集合 $\Omega\subset\mathbb R^d$ 上の可測関数 $f$ が任意のコンパクト集合 $K\subset\Omega$ に対して
+ここで $L^1_{\mathrm{loc}}(\Omega)$ は、[MT4 の局所可積分の定義](../MT4/index.md#def-mt4-l1loc)そのものです。すなわち任意のコンパクト集合 $K\subset\Omega$ に対して
 
 $$
 \int_K |f(x)|\,dx<\infty
 $$
 
-を満たすとき $f\in L^1_{\mathrm{loc}}(\Omega)$ と書きます。
+となることを要求します。[局所可積分性の基本性質](../MT4/index.md#prop-mt4-l1loc-basic)により、コンパクト台を持つテスト関数を掛ければ積分可能になります。
 
 <a id="def-gpde1-regular-distribution"></a>
 <!-- formal-statement-start -->
