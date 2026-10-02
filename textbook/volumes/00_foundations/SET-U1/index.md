@@ -47,7 +47,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-setu1-binary-relation -->
-### 1.1 定義の確認：有限集合で関係を列挙する
+**定義の確認**：有限集合で関係を列挙する
 
 $X=\{1,2,3\}$ とし、
 
@@ -95,7 +95,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-setu1-equivalence-relation -->
-### 2.1 定義の確認：3を法とする合同
+**定義の確認**：3を法とする合同
 
 整数 $a,b$ に対し
 
@@ -167,7 +167,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-setu1-equivalence-class -->
-### 3.1 定義の確認：整数は三つの同値類に分かれる
+**定義の確認**：整数は三つの同値類に分かれる
 
 3を法とする合同では
 
@@ -305,7 +305,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-setu1-quotient-set -->
-### 4.1 定義の確認：$\mathbb Z/3\mathbb Z$
+**定義の確認**：$\mathbb Z/3\mathbb Z$
 
 3を法とする合同に対する商集合は
 
@@ -369,7 +369,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-setu1-partition -->
-### 5.1 定義の確認：符号で実数を三つに分ける
+**定義の確認**：符号で実数を三つに分ける
 
 $$
 \mathcal P
