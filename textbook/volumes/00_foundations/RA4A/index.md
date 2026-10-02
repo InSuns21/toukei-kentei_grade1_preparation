@@ -140,7 +140,7 @@ $$
 |F(m)-F(n)|
 =\left|\int_n^m f\right|<\varepsilon
 $$
-となるためCauchy列です。実数の完備性により、ある $L\in\mathbb R$ が存在して $F(n)\to L$ です。
+となるためCauchy列です。[実数の完備性／実数列の Cauchy 判定](../RA1/index.md#thm-ra1-real-completeness)により、ある $L\in\mathbb R$ が存在して $F(n)\to L$ です。
 
 ここで整数点だけでなく任意の実数 $R\to\infty$ を処理します。tail条件を $\varepsilon/2$ に対して満たす $A$ を取り、さらに $n>A$ で $|F(n)-L|<\varepsilon/2$ となるようにします。$R>A$ に対し $n>R$ となる十分大きい整数を取れば
 $$
