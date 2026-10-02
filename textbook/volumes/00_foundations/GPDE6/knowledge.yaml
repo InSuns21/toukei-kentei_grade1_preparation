@@ -11,22 +11,22 @@ concepts:
     kind: definition
     aliases: ["Hminus1", "Hminus1 空間", "H minus one space", "dual of H_0^1"]
     introduction: formal
-    introduction_aliases: ["定義（Hminus1 空間）"]
+    introduction_aliases: ["定義（H^{-1} 空間）"]
     requires:
       - sobolev.h01
 
   - id: pde.l2-data-hminus1
-    name: L2データがH^{-1} functionalを定める
+    name: 二乗可積分データがH^{-1}の汎関数を定める
     kind: proposition
-    aliases: ["L2 forcing defines Hminus1 functional", "L2 to Hminus1"]
+    aliases: ["L2データがH^{-1} functionalを定める", "L2 forcing defines Hminus1 functional", "L2 to Hminus1"]
     introduction: formal
-    introduction_aliases: ["命題（L2 data は Hminus1 functional を定める）"]
+    introduction_aliases: ["命題（二乗可積分データは H^{-1} の汎関数を定める）"]
     requires:
       - sobolev.hminus1
       - sobolev.poincare-h01
 
   - id: pde.poisson-variational-weak-solution
-    name: Poissonのvariational weak solution
+    name: Poissonの変分弱解
     kind: definition
     aliases: ["Poisson variational weak solution", "Poisson変分弱解"]
     introduction: formal
@@ -45,36 +45,36 @@ concepts:
       - pde.poisson-variational-weak-solution
 
   - id: pde.distributional-variational-equivalence
-    name: distributional solutionと変分弱解の同値
+    name: 超関数解と変分弱解の同値
     kind: theorem
-    aliases: ["distributional variational equivalence", "distributional and variational weak solution equivalence"]
+    aliases: ["distributional solutionと変分弱解の同値", "distributional variational equivalence", "distributional and variational weak solution equivalence"]
     introduction: formal
-    introduction_aliases: ["定理（distributional solution と変分弱解の同値）"]
+    introduction_aliases: ["定理（超関数解と変分弱解の同値）"]
     requires:
       - pde.poisson-variational-weak-solution
       - distribution.distributional-solution
       - distribution.weak-derivative
 
   - id: variational.bounded-bilinear-form
-    name: bounded bilinear form
+    name: 有界双線形形式
     kind: definition
-    aliases: ["有界双線形形式", "continuous bilinear form"]
+    aliases: ["bounded bilinear form", "continuous bilinear form"]
     introduction: formal
-    introduction_aliases: ["定義（bounded bilinear form）"]
+    introduction_aliases: ["定義（有界双線形形式）"]
 
   - id: variational.coercive-bilinear-form
-    name: coercive bilinear form
+    name: 強圧的双線形形式
     kind: definition
-    aliases: ["coercivity", "強圧的双線形形式", "V-elliptic form"]
+    aliases: ["coercive bilinear form", "coercivity", "強圧性", "V-elliptic form"]
     introduction: formal
-    introduction_aliases: ["定義（coercive bilinear form）"]
+    introduction_aliases: ["定義（強圧的双線形形式）"]
 
   - id: pde.poisson-form-bounded-coercive
-    name: Poisson formのboundednessとcoercivity
+    name: Poisson双線形形式の有界性と強圧性
     kind: proposition
-    aliases: ["Poisson bilinear form", "Poisson form bounded coercive"]
+    aliases: ["Poisson formのboundednessとcoercivity", "Poisson bilinear form", "Poisson form bounded coercive"]
     introduction: formal
-    introduction_aliases: ["命題（Poisson form の boundedness と coercivity）"]
+    introduction_aliases: ["命題（Poisson 双線形形式の有界性と強圧性）"]
     requires:
       - variational.bounded-bilinear-form
       - variational.coercive-bilinear-form
@@ -82,30 +82,30 @@ concepts:
       - sobolev.gradient-norm-equivalence
 
   - id: variational.energy-functional
-    name: energy functional
+    name: エネルギー汎関数
     kind: definition
-    aliases: ["エネルギー汎関数", "quadratic energy functional"]
+    aliases: ["energy functional", "quadratic energy functional"]
     introduction: formal
-    introduction_aliases: ["定義（energy functional）"]
+    introduction_aliases: ["定義（エネルギー汎関数）"]
     requires:
       - variational.bounded-bilinear-form
 
   - id: variational.symmetric-coercive-principle
-    name: 対称coercive問題の変分原理
+    name: 対称強圧問題の変分原理
     kind: theorem
-    aliases: ["symmetric coercive variational principle", "energy minimization principle"]
+    aliases: ["対称coercive問題の変分原理", "symmetric coercive variational principle", "energy minimization principle"]
     introduction: formal
-    introduction_aliases: ["定理（対称 coercive 問題の変分原理）"]
+    introduction_aliases: ["定理（対称強圧問題の変分原理）"]
     requires:
       - variational.energy-functional
       - variational.coercive-bilinear-form
 
   - id: functional.weak-lsc-hilbert-norm
-    name: Hilbert normの弱収束時評価
+    name: Hilbert空間のノルムの弱下半連続性
     kind: lemma
-    aliases: ["weak-limit norm estimate"]
+    aliases: ["Hilbert normの弱収束時評価", "weak-limit norm estimate", "weak lower semicontinuity of Hilbert norm"]
     introduction: formal
-    introduction_aliases: ["補題（Hilbert norm の弱収束時の norm 評価）"]
+    introduction_aliases: ["補題（Hilbert 空間のノルムの弱下半連続性）"]
 
   - id: pde.poisson-direct-method
     name: Poisson変分問題の直接法による存在一意性
