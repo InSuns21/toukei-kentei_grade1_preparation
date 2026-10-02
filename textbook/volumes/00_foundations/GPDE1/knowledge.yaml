@@ -53,6 +53,7 @@ concepts:
     introduction_aliases: ["定義（正則超関数）"]
     requires:
       - distribution.schwartz-distribution
+      - measure.mt4-l1-local
 
   - id: distribution.locally-integrable-gives-distribution
     name: 局所可積分関数が定める超関数
