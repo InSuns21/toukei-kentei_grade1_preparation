@@ -156,7 +156,7 @@ $$
 <!-- definition-example-start: def-gpde1-test-function-convergence -->
 **定義の確認**
 
-共通コンパクト台の条件が必要な理由を、平行移動する バンプ関数で確認します。
+共通コンパクト台の条件が必要な理由を、平行移動する滑らかなコンパクト台関数で確認します。
 
 非零の $\eta\in\mathcal D(\mathbb R)$ を一つ固定し、
 
