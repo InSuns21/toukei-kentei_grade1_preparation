@@ -1,5 +1,5 @@
 id: "F0-00A2"
-title: "選択公理・Zorn"
+title: "選択公理"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -22,5 +22,5 @@ canonical_examples: [明示的選択関数]
 problem_patterns: [CHOICE-FUNCTION-1, COUNTABLE-CHOICE-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 1.5, exercises: 0.6, review: 0.3 }
