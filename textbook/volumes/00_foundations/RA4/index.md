@@ -1,4 +1,4 @@
-# RA4 Riemann/Darboux積分・FTC
+# RA4 標準実解析 IV：Riemann/Darboux積分・FTC
 
 Lebesgue積分へ進む前に、古典的なRiemann積分を一度きちんと閉じます。核心は「面積らしい極限」ではなく、**上からの近似と下からの近似が一致すること**です。
 
