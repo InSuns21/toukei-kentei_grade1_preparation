@@ -131,6 +131,7 @@ const discovered = fs.readdirSync(foundationsDir, { withFileTypes: true })
 const expectedSet = new Set(expected);
 const discoveredSet = new Set(discovered);
 
+const diagnosticTitles = [];
 for (const p of expected) {
   const absolutePath = path.join(repoRoot, p);
   if (!fs.existsSync(absolutePath)) {
@@ -138,6 +139,7 @@ for (const p of expected) {
   } else {
     const title = extractMarkdownH1(fs.readFileSync(absolutePath, 'utf8'), p);
     if (!title) errors.push(`manifest target has no readable H1 title: ${p}`);
+    else diagnosticTitles.push([p, title]);
   }
   if (archivedPaths.has(p)) errors.push(`archived page must not appear in manifest: ${p}`);
 }
@@ -178,5 +180,10 @@ if (actual.length === expected.length) {
 }
 
 if (errors.length) fail(errors);
+
+const suspiciousTitlePattern = /(?:補講|標準|(?:^|\s)(?:I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX)(?:-[A-Z])?)：/;
+for (const [p, title] of diagnosticTitles) {
+  if (suspiciousTitlePattern.test(title)) console.log(`TITLE_AUDIT\t${p}\t${title}`);
+}
 
 console.log(`DREAM THEATER index OK: ${expected.length} chapters/roadmaps, ${archivedPaths.size} archived compatibility pages excluded, all indexed pages expose readable H1 titles, and there are no omissions, extras, duplicates, broken targets, or order drift.`);
