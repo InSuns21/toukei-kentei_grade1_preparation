@@ -11,6 +11,22 @@ forward_references:
   - analysis.monotone-convergence-sequence
 
 concepts:
+  - id: order.bounded-above
+    name: 上に有界
+    kind: definition
+    aliases: [上に有界, bounded above]
+    introduction_aliases: [上に有界・下に有界]
+    requires:
+      - order.upper-bound
+
+  - id: order.bounded-below
+    name: 下に有界
+    kind: definition
+    aliases: [下に有界, bounded below]
+    introduction_aliases: [上に有界・下に有界]
+    requires:
+      - order.lower-bound
+
   - id: order.supremum
     name: 上限
     kind: definition
@@ -28,8 +44,9 @@ concepts:
       - order.maximum-element
 
   - id: analysis.supremum-epsilon-characterization
-    name: 上限のepsilon特徴付け
+    name: 上限の ε 特徴付け
     kind: proposition
-    aliases: [上限のepsilon特徴付け]
+    aliases: [上限のepsilon特徴付け, 上限の ε 特徴付け]
+    introduction_aliases: [上限の ε 特徴付け]
     requires:
       - order.supremum
