@@ -40,17 +40,17 @@ $$
 <!-- formal-statement-start -->
 > **定義（同じ濃度）**  
 > 集合 $A,B$ の間に全単射
->
-> $$
-> f:A\to B
-> $$
->
+
+$$
+f:A\to B
+$$
+
 > が存在するとき、$A$ と $B$ は **同じ濃度**を持つという。このことを
->
-> $$
-> |A|=|B|
-> $$
->
+
+$$
+|A|=|B|
+$$
+
 > と書く。
 <!-- formal-statement-end -->
 
@@ -90,11 +90,11 @@ $E$ は $\mathbb N$ の真部分集合ですが、無限集合では「真部分
 <!-- formal-statement-start -->
 > **定義（濃度の比較）**  
 > 集合 $A$ から集合 $B$ への単射が存在するとき
->
-> $$
-> |A|\le |B|
-> $$
->
+
+$$
+|A|\le |B|
+$$
+
 > と書く。
 <!-- formal-statement-end -->
 
@@ -123,23 +123,23 @@ $$
 <a id="def-setu3-strict-cardinality"></a>
 <!-- formal-statement-start -->
 > **定義（真に小さい濃度）**  
-> 
-> $$
-> |A|\le |B|
-> $$
->
+
+$$
+|A|\le |B|
+$$
+
 > であり、かつ
->
-> $$
-> |A|\ne |B|
-> $$
->
+
+$$
+|A|\ne |B|
+$$
+
 > であるとき
->
-> $$
-> |A|<|B|
-> $$
->
+
+$$
+|A|<|B|
+$$
+
 > と書く。
 <!-- formal-statement-end -->
 
@@ -189,18 +189,18 @@ $$
 <!-- formal-statement-start -->
 > **定理（Cantor--Bernstein の定理）**  
 > 集合 $A,B$ に対し単射
->
-> $$
-> f:A\to B,
-> \qquad
-> g:B\to A
-> $$
->
+
+$$
+f:A\to B,
+\qquad
+g:B\to A
+$$
+
 > が存在するなら、$A$ と $B$ の間に全単射が存在する。従って
->
-> $$
-> |A|=|B|.
-> $$
+
+$$
+|A|=|B|.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の考え方
@@ -452,7 +452,7 @@ $$
 |[0,1]|\le|(0,1)|.
 $$
 
-Cantor--Bernstein の定理から
+[Cantor--Bernstein の定理](#thm-setu3-cantor-bernstein)から
 
 $$
 |[0,1]|=|(0,1)|.
@@ -466,7 +466,7 @@ $$
 
 SET-U2 では、実数を自然数順に並べたと仮定すると対角線上の桁を変えて「列にない実数」を作りました。
 
-Cantor の定理では、この発想を任意の集合 $X$ に対して行います。桁の代わりに
+[Cantor の定理](#thm-setu3-cantor)では、この発想を任意の集合 $X$ に対して行います。桁の代わりに
 
 $$
 x\in S
@@ -478,24 +478,24 @@ $$
 <!-- formal-statement-start -->
 > **定理（Cantor の定理）**  
 > 任意の集合 $X$ に対して、全射
->
-> $$
-> F:X\to\mathcal P(X)
-> $$
->
+
+$$
+F:X\to\mathcal P(X)
+$$
+
 > は存在しない。
->
+
 > 一方、
->
-> $$
-> x\mapsto\{x\}
-> $$
->
+
+$$
+x\mapsto\{x\}
+$$
+
 > は $X$ から $\mathcal P(X)$ への単射である。従って
->
-> $$
-> |X|<|\mathcal P(X)|.
-> $$
+
+$$
+|X|<|\mathcal P(X)|.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -600,7 +600,7 @@ $$
 
 ## 6. 可算無限の次に、もっと大きい無限がある
 
-Cantor の定理へ
+[Cantor の定理](#thm-setu3-cantor)へ
 
 $$
 X=\mathbb N
@@ -627,10 +627,10 @@ $$
 <a id="prop-setu3-interval-powerset"></a>
 <!-- formal-statement-start -->
 > **命題（区間と自然数のべき集合は同じ濃度）**  
->
-> $$
-> |[0,1]|=|\mathcal P(\mathbb N)|.
-> $$
+
+$$
+|[0,1]|=|\mathcal P(\mathbb N)|.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -676,7 +676,7 @@ $$
 \sum_{n=k+1}^{\infty}\frac{2}{3^n}.
 $$
 
-等比級数を計算すると
+右辺を計算すると
 
 $$
 \sum_{n=k+1}^{\infty}\frac{2}{3^n}
@@ -779,7 +779,7 @@ $$
 \Psi:[0,1]\to\mathcal P(\mathbb N)
 $$
 
-が得られたので、Cantor--Bernstein の定理から
+が得られたので、[Cantor--Bernstein の定理](#thm-setu3-cantor-bernstein)から
 
 $$
 |[0,1]|=|\mathcal P(\mathbb N)|.
@@ -829,7 +829,7 @@ $$
 \le|[0,1]|.
 $$
 
-Cantor--Bernstein の定理から
+[Cantor--Bernstein の定理](#thm-setu3-cantor-bernstein)から
 
 $$
 |\mathbb R|=|[0,1]|.
@@ -840,12 +840,12 @@ $$
 <a id="thm-setu3-real-powerset-natural"></a>
 <!-- formal-statement-start -->
 > **定理（実数と自然数のべき集合は同じ濃度）**  
->
-> $$
-> |\mathbb R|
-> =
-> |\mathcal P(\mathbb N)|.
-> $$
+
+$$
+|\mathbb R|
+=
+|\mathcal P(\mathbb N)|.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -872,7 +872,7 @@ $$
 $$
 <!-- proof-end -->
 
-Cantor の定理から
+[Cantor の定理](#thm-setu3-cantor)から
 
 $$
 |\mathbb N|
@@ -900,17 +900,17 @@ $$
 <!-- formal-statement-start -->
 > **定義（連続体濃度）**  
 > 実数全体の濃度
->
-> $$
-> |\mathbb R|
-> $$
->
+
+$$
+|\mathbb R|
+$$
+
 > を **連続体濃度**といい、
->
-> $$
-> \mathfrak c
-> $$
->
+
+$$
+\mathfrak c
+$$
+
 > と書く。
 <!-- formal-statement-end -->
 
@@ -970,7 +970,7 @@ $\aleph_0$ や一般の基数演算、初期順序数、連続体仮説は、本
    $$
    |A|=|B|.
    $$
-4. 任意の集合 $X$ について Cantor の定理から
+4. 任意の集合 $X$ について [Cantor の定理](#thm-setu3-cantor)から
    $$
    |X|<|\mathcal P(X)|.
    $$
@@ -985,7 +985,7 @@ $\aleph_0$ や一般の基数演算、初期順序数、連続体仮説は、本
    \mathfrak c.
    $$
 
-「無限」は一種類ではありません。しかも Cantor の定理を繰り返せば
+「無限」は一種類ではありません。しかも [Cantor の定理](#thm-setu3-cantor)を繰り返せば
 
 $$
 |X|
@@ -1129,7 +1129,7 @@ $$
 #### SET-U3-A03 開区間と閉区間
 - Level: A
 
-Cantor--Bernstein の定理を用いて
+[Cantor--Bernstein の定理](#thm-setu3-cantor-bernstein)を用いて
 
 $$
 |(0,1)|=|[0,1]|
@@ -1198,7 +1198,7 @@ $$
 |[0,1]|\le|(0,1)|.
 $$
 
-両向きの単射が得られたので Cantor--Bernstein の定理から
+両向きの単射が得られたので [Cantor--Bernstein の定理](#thm-setu3-cantor-bernstein)から
 
 $$
 |(0,1)|=|[0,1]|.
@@ -1217,7 +1217,7 @@ $$
 
 1. $\mathcal P(X)$ を全て書け。
 2. $x\mapsto\{x\}$ が $X\to\mathcal P(X)$ の単射であることを確認せよ。
-3. Cantor の定理と整合する形で濃度を比較せよ。
+3. [Cantor の定理](#thm-setu3-cantor)と整合する形で濃度を比較せよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -1263,7 +1263,7 @@ $$
 |X|<|\mathcal P(X)|.
 $$
 
-これは任意の集合について同じ結論を与える Cantor の定理の有限集合での具体例です。
+これは任意の集合について同じ結論を与える [Cantor の定理](#thm-setu3-cantor)の有限集合での具体例です。
 <!-- solution-end -->
 
 ### Level B
@@ -1395,7 +1395,7 @@ $$
    $$
    を求めよ。
 2. $D$ が $F(1),F(2),F(3)$ のどれとも一致しないことを確認せよ。
-3. これが Cantor の定理の証明のどの部分に対応するか説明せよ。
+3. これが [Cantor の定理](#thm-setu3-cantor)の証明のどの部分に対応するか説明せよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -1448,7 +1448,7 @@ $$
 
 はどれとも一致しません。
 
-3. Cantor の定理では、任意の候補写像 $F:X\to\mathcal P(X)$ に対して
+3. [Cantor の定理](#thm-setu3-cantor)では、任意の候補写像 $F:X\to\mathcal P(X)$ に対して
 
 $$
 D=\{x:x\notin F(x)\}
@@ -1463,7 +1463,7 @@ $$
 #### SET-U3-B03 自然数の全ての部分集合は列挙できない
 - Level: B
 
-Cantor の定理を使って、$\mathcal P(\mathbb N)$ が可算でないことを示せ。さらに「自然数の部分集合を全部
+[Cantor の定理](#thm-setu3-cantor)を使って、$\mathcal P(\mathbb N)$ が可算でないことを示せ。さらに「自然数の部分集合を全部
 
 $$
 S_1,S_2,S_3,\dots
@@ -1474,7 +1474,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-Cantor の定理に
+[Cantor の定理](#thm-setu3-cantor)に
 
 $$
 X=\mathbb N
@@ -1561,7 +1561,7 @@ $$
    x=0.a_1a_2\dots
    $$
    を、SET-U2 の全単射 $\pi:\mathbb N^2\to\mathbb N$ を使って自然数の部分集合へ符号化し、$[0,1]\to\mathcal P(\mathbb N)$ の単射を作る。
-3. Cantor--Bernstein の定理で
+3. [Cantor--Bernstein の定理](#thm-setu3-cantor-bernstein)で
    $$
    |[0,1]|=|\mathcal P(\mathbb N)|
    $$
@@ -1623,7 +1623,7 @@ $$
 \sum_{n=k+1}^{\infty}\frac{2}{3^n}.
 $$
 
-右辺の級数は
+右辺は
 
 $$
 \sum_{n=k+1}^{\infty}\frac{2}{3^n}
@@ -1796,7 +1796,7 @@ $$
 |\mathbb R|\le|(0,1)|\le|[0,1]|.
 $$
 
-Cantor--Bernstein の定理から
+[Cantor--Bernstein の定理](#thm-setu3-cantor-bernstein)から
 
 $$
 |\mathbb R|=|[0,1]|.
@@ -1832,12 +1832,12 @@ $$
    $$
    を作る理由を説明できる。
 5. Cantor--Bernstein の区分的写像が、なぜ $A\setminus C$ 上で $g^{-1}$ を使えるか説明できる。
-6. Cantor の定理で
+6. [Cantor の定理](#thm-setu3-cantor)で
    $$
    D=\{x:x\notin F(x)\}
    $$
    と置くと、なぜ $D$ が全ての $F(x)$ と食い違うか説明できる。
-7. $|\mathbb N|<|\mathcal P(\mathbb N)|$ を Cantor の定理から導ける。
+7. $|\mathbb N|<|\mathcal P(\mathbb N)|$ を [Cantor の定理](#thm-setu3-cantor)から導ける。
 8. $\mathcal P(\mathbb N)\to[0,1]$ の3進符号化が単射になる理由を、最初に異なる桁と残りの尾の評価から示せる。
 9. $[0,1]\to\mathcal P(\mathbb N)$ の符号化で、10進表示の二重性を避ける必要を説明できる。
 10. 
