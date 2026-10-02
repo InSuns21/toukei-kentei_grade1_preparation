@@ -546,7 +546,7 @@ $$
 
 既約表示は一意なので $\iota$ は単射です。
 
-$\mathbb Z$ は可算無限であり、$\mathbb N$ も可算無限です。従って前節の有限直積の命題から
+$\mathbb Z$ は可算無限であり、$\mathbb N$ も可算無限です。従って[可算集合の有限直積は可算](#prop-setu2-countable-product)ことから
 
 $$
 \mathbb Z\times\mathbb N
