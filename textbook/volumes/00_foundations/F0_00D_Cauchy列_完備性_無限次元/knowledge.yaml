@@ -6,6 +6,12 @@ prerequisites:
   - F0-00B
   - F0-00C1
 
+forward_references:
+  - linear.vector-space
+  - functional.normed-space
+  - functional.banach-space
+  - functional.finite-dimensional-normed-space-complete
+
 concepts:
   - id: topology.cauchy-sequence
     name: Cauchy列
