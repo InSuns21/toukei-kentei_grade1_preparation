@@ -48,6 +48,7 @@ concepts:
   - id: linear.left-singular-vector
     name: 左特異ベクトル
     kind: definition
+    introduction_aliases: [左特異ベクトル]
     aliases: [左特異ベクトル]
     requires:
       - linear.singular-value
