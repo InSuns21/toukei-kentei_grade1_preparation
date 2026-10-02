@@ -11,249 +11,38 @@
 
 ## 0. 有限次元で局所情報を一様化する
 
-RA2 では閉区間 $[a,b]$ に対して、[実数列の Bolzano--Weierstrass](../RA2/index.md#thm-ra2-bolzano-weierstrass)、有限部分被覆、[Heine--Cantor の定理](../RA2/index.md#thm-ra2-heine-cantor)を実数だけで証明しました。多重積分では閉矩形や有界閉集合を扱うので、ここでその議論を $\mathbb R^n$ へ有限次元の範囲だけ拡張します。
-
-この節では一般の距離空間・位相空間のコンパクト性は使いません。「閉集合」は、$K$ 内の収束列が $\mathbb R^n$ で収束したとき、その極限も $K$ に残るという有限次元の列による判定だけを使います。
+RA2 では閉区間上の [Bolzano--Weierstrass](../RA2/index.md#thm-ra2-bolzano-weierstrass) と [Heine--Cantor](../RA2/index.md#thm-ra2-heine-cantor) を実数だけで証明しました。多重積分では $\mathbb R^n$ の閉矩形・閉有界集合を使うため、次の有限次元版を**結果として先に使います**。一般位相のコンパクト性は RA7 の prerequisite にはしません。
 
 <a id="thm-ra7-finite-dimensional-heine-borel"></a>
 <!-- formal-statement-start -->
-> **定理（有限次元 Heine--Borel 型定理）**  
-> $K\subset\mathbb R^n$ が閉かつ有界であるとする。このとき次が成り立つ。
+> **定理（有限次元 Heine--Borel 型結果）**  
+> $K\subset\mathbb R^n$ が閉かつ有界であるとする。このとき、
 >
-> 1. $K$ 内の任意の点列は、$K$ 内の点へ収束する部分列を持つ。
+> 1. $K$ 内の任意の点列は $K$ 内の点へ収束する部分列を持つ。
 > 2. $K$ を覆う任意の Euclid 開集合族から有限部分被覆を取り出せる。
 <!-- formal-statement-end -->
 
-<!-- proof-start -->
-### 証明
-
-まず有界な点列
-
-$$
-x_k=(x_k^{(1)},\ldots,x_k^{(n)})\in\mathbb R^n
-$$
-
-を考えます。第1座標 $(x_k^{(1)})$ は有界な実数列なので、RA2 の [Bolzano--Weierstrass の定理](../RA2/index.md#thm-ra2-bolzano-weierstrass) により収束部分列を持ちます。その部分列の第2座標だけを見て、もう一度収束部分列を取ります。これを第 $n$ 座標まで有限回繰り返すと、一つの部分列 $(x_{k_j})$ が得られ、その全ての座標が収束します。
-
-各座標の極限を $x^{(i)}$ と書けば、
-
-$$
-x=(x^{(1)},\ldots,x^{(n)})
-$$
-
-に対して
-
-$$
-\|x_{k_j}-x\|_2^2
-=
-\sum_{i=1}^n
-|x_{k_j}^{(i)}-x^{(i)}|^2
-\longrightarrow0.
-$$
-
-従って有界な $\mathbb R^n$ 点列は収束部分列を持ちます。もとの列が $K$ 内にあり、$K$ が閉なら、その極限 $x$ も $K$ に属します。これで 1 が示されました。
-
-次に $K$ の開被覆 $\mathcal U$ を取ります。まず、ある $\delta>0$ が存在して、任意の $x\in K$ に対し
-
-$$
-K\cap B(x,\delta)\subset U_x
-$$
-
-となる $U_x\in\mathcal U$ を選べることを示します。
-
-そのような共通の $\delta$ が存在しないと仮定します。各 $m$ について $x_m\in K$ を、どの $U\in\mathcal U$ も $K\cap B(x_m,1/m)$ 全体を含まないように取れます。1 により、ある部分列が
-
-$$
-x_{m_j}\to x\in K
-$$
-
-と収束します。$\mathcal U$ は $K$ を覆うので、$x\in U$ となる $U\in\mathcal U$ が一つあります。$U$ は Euclid 開集合だから、ある $r>0$ について
-
-$$
-B(x,r)\subset U.
-$$
-
-十分大きい $j$ では
-
-$$
-\|x_{m_j}-x\|_2<\frac r2,
-\qquad
-\frac1{m_j}<\frac r2.
-$$
-
-従って
-
-$$
-B(x_{m_j},1/m_j)\subset B(x,r)\subset U,
-$$
-
-となり、$x_{m_j}$ の選び方に反します。よって共通の $\delta>0$ が存在します。
-
-$K$ は有界なので、ある大きな閉立方体 $[-M,M]^n$ に含まれます。この立方体を、各小立方体の直径が $\delta$ 未満になる有限個の格子へ分割します。$K$ と交わる各小立方体 $Q$ から点 $x_Q\in K\cap Q$ を一つ選びます。$y\in K\cap Q$ なら
-
-$$
-\|y-x_Q\|_2<\delta
-$$
-
-なので、先ほど選んだ $U_{x_Q}\in\mathcal U$ が $K\cap Q$ 全体を含みます。小立方体は有限個しかないため、これらの $U_{x_Q}$ も有限個です。従って有限部分被覆が得られます。$\square$
-<!-- proof-end -->
+この定理の証明は、後段の位相空間論で [実数版 Bolzano--Weierstrass を座標ごとに適用する $\mathbb R^p$ 版](../F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md#lem-f0-00c1-02) と [Heine--Borel の定理](../F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md#thm-f0-00c1-02) として回収します。
 
 <a id="thm-ra7-finite-dimensional-heine-cantor"></a>
 <!-- formal-statement-start -->
-> **定理（有限次元 Heine--Cantor 型定理）**  
-> $K\subset\mathbb R^n$ を閉有界集合とし、$f:K\to\mathbb R^m$ を連続とする。このとき $f$ は $K$ 上有界かつ一様連続である。さらに $m=1$ なら、$f$ は $K$ 上で最大値・最小値を実際に取る。
+> **定理（有限次元 Heine--Cantor 型結果）**  
+> 空でない閉有界集合 $K\subset\mathbb R^n$ と連続写像 $f:K\to\mathbb R^m$ に対して、$f$ は $K$ 上有界かつ一様連続である。さらに $m=1$ なら $f$ は $K$ 上で最大値・最小値を実際に取る。
 <!-- formal-statement-end -->
 
-<!-- proof-start -->
-### 証明
-
-まず有界性を示します。各 $x\in K$ について連続性から、ある $r_x>0$ が存在して
-
-$$
-y\in K,\quad \|y-x\|_2<r_x
-\Longrightarrow
-\|f(y)-f(x)\|_2<1
-$$
-
-となります。$B(x,r_x/2)$ は $K$ を覆うので、[有限次元 Heine--Borel 型定理](#thm-ra7-finite-dimensional-heine-borel)から有限個
-
-$$
-B(x_1,r_{x_1}/2),\ldots,B(x_N,r_{x_N}/2)
-$$
-
-で十分です。従って任意の $y\in K$ について、ある $i$ が存在して
-
-$$
-\|f(y)\|_2
-\le
-\|f(x_i)\|_2+1
-\le
-\max_{1\le i\le N}\|f(x_i)\|_2+1.
-$$
-
-よって $f$ は有界です。
-
-次に任意の $\varepsilon>0$ を固定します。各 $x\in K$ に対し、連続性から $r_x>0$ を
-
-$$
-y\in K,\quad \|y-x\|_2<r_x
-\Longrightarrow
-\|f(y)-f(x)\|_2<\frac\varepsilon2
-$$
-
-となるように選びます。再び有限部分被覆を取り、
-
-$$
-K\subset
-\bigcup_{i=1}^N B(x_i,r_{x_i}/2)
-$$
-
-とします。そして
-
-$$
-\delta
-=
-\min_{1\le i\le N}\frac{r_{x_i}}2
->0
-$$
-
-と置きます。
-
-$u,v\in K$ が $\|u-v\|_2<\delta$ を満たすとします。$u\in B(x_i,r_{x_i}/2)$ となる $i$ を取れば、
-
-$$
-\|v-x_i\|_2
-\le
-\|v-u\|_2+\|u-x_i\|_2
-<
-\delta+\frac{r_{x_i}}2
-\le
-r_{x_i}.
-$$
-
-従って
-
-$$
-\|f(u)-f(v)\|_2
-\le
-\|f(u)-f(x_i)\|_2
-+
-\|f(v)-f(x_i)\|_2
-<
-\varepsilon.
-$$
-
-この $\delta$ は $u,v$ に依存しないので、$f$ は一様連続です。
-
-最後に $m=1$ とします。有界性から
-
-$$
-M=\sup_{x\in K}f(x)
-$$
-
-が存在します。各 $j$ に対し
-
-$$
-M-\frac1j<f(x_j)\le M
-$$
-
-となる $x_j\in K$ を選びます。[有限次元 Heine--Borel 型定理](#thm-ra7-finite-dimensional-heine-borel)から、ある部分列が $x_{j_k}\to x_*\in K$ と収束します。連続性により
-
-$$
-f(x_{j_k})\to f(x_*),
-$$
-
-一方で $f(x_{j_k})\to M$ なので $f(x_*)=M$ です。最小値も $-f$ に同じ議論を適用すれば得られます。$\square$
-<!-- proof-end -->
+有界性・一様連続性の証明は後段の [コンパクト距離空間上の Heine--Cantor](../F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md#thm-f0-00c1-heine-cantor) で、最大最小の達成は [Weierstrass の最大最小定理](../F0_00C2_コンパクト性の応用_最大最小_最近点/index.md#thm-f0-00c2-01) で回収します。
 
 <a id="lem-ra7-uniform-buffer"></a>
 <!-- formal-statement-start -->
-> **補題（閉有界集合と開集合の一様な内側余裕）**  
-> $K\subset\mathbb R^n$ が閉有界で、$K\subset U$、$U\subset\mathbb R^n$ が開であるとする。このとき、ある $\rho>0$ が存在して、全ての $x\in K$ について
->
-> $$
-> B(x,\rho)\subset U
-> $$
->
+> **系（閉有界集合と開集合の一様な内側余裕）**  
+> $K\subset\mathbb R^n$ が閉有界で、$K\subset U$、$U\subset\mathbb R^n$ が開なら、ある $\rho>0$ が存在して
+> $$B(x,\rho)\subset U\qquad(x\in K)$$
 > となる。
 <!-- formal-statement-end -->
 
-<!-- proof-start -->
-### 証明
+これは各 $x\in K$ で $B(x,r_x)\subset U$ を取り、上の有限部分被覆性で有限個に絞って $\rho=\min r_{x_i}/2$ とすれば従います。
 
-各 $x\in K$ に対し、$U$ が開なので $B(x,r_x)\subset U$ となる $r_x>0$ を取れます。$B(x,r_x/2)$ は $K$ の開被覆なので、有限次元 Heine--Borel 型定理により
-
-$$
-K\subset
-\bigcup_{i=1}^N B(x_i,r_{x_i}/2)
-$$
-
-となる有限部分被覆を取れます。
-
-$$
-\rho
-=
-\min_{1\le i\le N}\frac{r_{x_i}}2
->0
-$$
-
-と置きます。任意の $y\in K$ に対し、$y\in B(x_i,r_{x_i}/2)$ となる $i$ を選びます。$z\in B(y,\rho)$ なら
-
-$$
-\|z-x_i\|_2
-\le
-\|z-y\|_2+\|y-x_i\|_2
-<
-\rho+\frac{r_{x_i}}2
-\le
-r_{x_i},
-$$
-
-従って $z\in B(x_i,r_{x_i})\subset U$ です。よって $B(y,\rho)\subset U$ が全ての $y\in K$ で成り立ちます。$\square$
-<!-- proof-end -->
-
-後の位相空間論では、ここで直接証明した有限部分被覆性を「コンパクト性」として抽象化し、閉有界性との同値を Heine--Borel の定理として整理します。RA7 ではその一般論を先取りせず、上の有限次元版だけを使います。
-
+RA7 では以上を有限次元の道具として使い、多重積分と変数変換の議論へ進みます。
 ---
 
 ## 1. 矩形上の多次元Darboux和
