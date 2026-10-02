@@ -113,7 +113,7 @@ concepts:
   - id: order.order-preserving-map
     name: 順序保存写像
     kind: definition
-    aliases: [順序保存写像, 単調写像, order-preserving map]
+    aliases: [順序保存写像, order-preserving map]
     requires:
       - set.partial-order
       - set.function
