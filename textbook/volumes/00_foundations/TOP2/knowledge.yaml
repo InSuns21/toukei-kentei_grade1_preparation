@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - TOP1
   - F0-00C1
+  - SET-U1
 
 forward_references: []
 
@@ -23,12 +24,6 @@ concepts:
     introduction_aliases: ["定義（被覆写像）"]
     requires:
       - topology.homeomorphism
-
-  - id: set.equivalence-relation-class
-    name: 同値関係・同値類
-    kind: definition
-    aliases: [同値関係, 同値類, equivalence relation, equivalence class]
-    requires: []
 
   - id: topology.identification-space
     name: 同値関係による同一視空間
