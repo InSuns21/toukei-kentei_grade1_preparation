@@ -300,14 +300,25 @@ Baire・net / フィルタ
 - TOP4 / TOP6 の prerequisite に SET-U2 を追加し、TOP4 の可算性公理導入から SET-U2 の canonical result へ戻れるリンクを置いた。
 - SET-U2 の実本文に Level A 4題・Level B 3題・Level C 1題を置き、全問に詳細解答を付けた。
 
+
+### SET-U3 実装記録（2026-10-02）
+
+- 既存章・knowledge DAG を再確認し、一般の濃度比較、Cantor--Bernstein の定理、Cantor の定理を canonical に受け持つ章がないため SET-U3 新設を確定した。
+- 基数を順序数として構成せず、全単射による同じ濃度、単射による濃度比較、真の濃度差を学部「集合と位相」の範囲で定義した。
+- Cantor--Bernstein の定理は、$A_0=A\setminus g(B)$、$A_{n+1}=g(f(A_n))$ から区分的全単射を構成し、well-defined 性・単射性・全射性を核心証明まで展開した。
+- Cantor の定理は対角集合 $D=\{x\in X:x\notin F(x)\}$ を用いて、任意の $X$ から $\mathcal P(X)$ への全射が存在しないことを証明した。
+- $\mathcal P(\mathbb N)$ と $[0,1]$ の両向き単射を、3進符号化と10進桁列の自然数部分集合への符号化で構成し、Cantor--Bernstein から $|\mathbb R|=|\mathcal P(\mathbb N)|$ まで閉じた。
+- $\aleph$ 記法、初期順序数、連続体仮説は本章へ持ち込まず、独立「集合論・数学基礎論」側の責務として維持した。
+- SET-U3 の実本文に Level A 4題・Level B 3題・Level C 1題を置き、全問に詳細解答を付けた。
+
 ## 9. 実装順
 
 1. ✅ F0-00A / A1C / A1D / A2 / A3 / A3A の本文・chapter.yaml・knowledge.yaml を監査（2026-10-02 初回監査）
 2. ✅ TOP1--TOP7 から集合論 prerequisite の実需要を逆引き（2026-10-02 初回監査）
 3. ✅ SET-U1「関係・同値関係・商集合」の要否確定・実装（2026-10-02）
 4. ✅ SET-U2「可算集合・非可算集合」の要否確定・実装（2026-10-02）
-5. ▶ SET-U3「濃度・Cantor--Bernstein・Cantor の定理」の要否確定・実装
-6. F0-00A1D を学部標準の順序論章へ改稿
+5. ✅ SET-U3「濃度・Cantor--Bernstein・Cantor の定理」の要否確定・実装（2026-10-02）
+6. ▶ F0-00A1D を学部標準の順序論章へ改稿
 7. F0-00A2 / A3 を学部数学の選択原理・Zorn 適用章として監査
 8. F0-00A3A の公開所属・prerequisite を独立科目計画と整合させる
 9. dream-theater.md の科目名を「集合・位相空間論」として整理

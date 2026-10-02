@@ -1,0 +1,17 @@
+chapter: "SET-U3"
+terms:
+  - term: 濃度
+    english: cardinality
+    meaning: 集合の大きさを全単射の存在で比較するための概念。本章では基数を順序数として構成せず、|A|=|B| や |A|<=|B| という比較関係として扱う。
+  - term: 同じ濃度
+    english: same cardinality
+    meaning: 二つの集合の間に全単射が存在すること。
+  - term: Cantor--Bernstein の定理
+    english: Cantor--Bernstein theorem
+    meaning: A から B への単射と B から A への単射が両方存在すれば、A と B の間に全単射が存在するという定理。
+  - term: Cantor の定理
+    english: Cantor's theorem
+    meaning: 任意の集合 X について X から P(X) への全射は存在せず、P(X) は X より真に大きい濃度を持つという定理。
+  - term: 連続体濃度
+    english: cardinality of the continuum
+    meaning: 実数全体 R の濃度。通常は c と書く。

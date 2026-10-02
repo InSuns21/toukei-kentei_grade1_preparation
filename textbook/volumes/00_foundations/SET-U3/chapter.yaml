@@ -1,0 +1,39 @@
+id: "SET-U3"
+title: "濃度・Cantor--Bernstein・Cantor の定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SET-U2
+official_scope: []
+learning_objectives:
+  - 全単射の存在で「同じ濃度」を定義し、具体的な全単射から濃度の等号を証明できる
+  - 単射の存在で濃度の大小を比較し、真の大小と区別できる
+  - Cantor--Bernstein の定理の構成を追い、二本の単射から全単射を作れる
+  - Cantor の定理を対角集合から証明し、任意の集合よりそのべき集合が真に大きいことを説明できる
+  - 実数全体と自然数のべき集合が同じ濃度であることを具体的な相互単射から証明できる
+  - 可算無限と連続体濃度の違いを、Cantor の定理と SET-U2 の可算性から説明できる
+definitions:
+  - { id: SETU3-DEF-01, name: 同じ濃度 }
+  - { id: SETU3-DEF-02, name: 濃度の比較 }
+  - { id: SETU3-DEF-03, name: 真に小さい濃度 }
+  - { id: SETU3-DEF-04, name: 連続体濃度 }
+theorems:
+  - { id: SETU3-THM-01, name: Cantor--Bernstein の定理 }
+  - { id: SETU3-THM-02, name: Cantor の定理 }
+  - { id: SETU3-PROP-01, name: 区間と自然数のべき集合は同じ濃度 }
+  - { id: SETU3-THM-03, name: 実数と自然数のべき集合は同じ濃度 }
+canonical_examples:
+  - 自然数と正の偶数の濃度
+  - 閉区間と開区間の Cantor--Bernstein による比較
+  - 対角集合によるべき集合への全射不存在
+  - 3進符号化と10進符号化による区間とべき集合の比較
+problem_patterns:
+  - CARDINALITY-BIJECTION-1
+  - CARDINALITY-INJECTION-1
+  - CANTOR-BERNSTEIN-1
+  - CANTOR-THEOREM-1
+  - CONTINUUM-POWERSET-N-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 2.5, review: 0.8 }
