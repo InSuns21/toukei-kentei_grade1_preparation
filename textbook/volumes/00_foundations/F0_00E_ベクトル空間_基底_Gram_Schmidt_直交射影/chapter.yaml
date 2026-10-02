@@ -1,11 +1,10 @@
 id: "F0-00E"
-title: "ベクトル空間・部分空間・span・一次独立・基底・次元"
+title: "ベクトル空間・基底"
 volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00
   - F0-00A
-  - F0-00B
 official_scope: []
 learning_objectives:
   - ベクトル空間と線形部分空間を定義から説明できる
