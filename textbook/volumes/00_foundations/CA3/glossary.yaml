@@ -20,7 +20,7 @@ terms:
     meaning: 有界な整関数は定数であるという定理。
   - term: 代数学の基本定理
     english: fundamental theorem of algebra
-    meaning: 非定数複素多項式は少なくとも一つ複素零点を持つという定理。
+    meaning: 本章では、第1定理として非定数複素多項式の複素零点の存在、第2定理として次数と同じ本数の一次因子への完全分解を扱う。
   - term: 零点の孤立性
     english: isolated zeros
     meaning: 恒等的に0でない正則関数の零点は領域内部で互いに孤立する性質。
