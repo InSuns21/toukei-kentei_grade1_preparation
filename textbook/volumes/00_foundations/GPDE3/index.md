@@ -943,9 +943,9 @@ m+1
 k
 $$
 
-なので $D^{\alpha-\beta}u\in W^{1,p}(\Omega)$ です。また $D^\beta\chi$ は滑らかです。したがって、右辺の各積に先ほど証明した一階公式を適用でき
+なので $D^{\alpha-\beta}u\in W^{1,p}(\Omega)$ です。また $D^\beta\chi$ は滑らかです。したがって、右辺の各積に先ほど証明した一階公式を適用できます。すると
 
-$$
+$
 \begin{aligned}
 D_jD^\alpha(\chi u)
 &=
@@ -968,7 +968,7 @@ D^{\alpha-\beta+e_j}u
 \end{aligned}
 $$
 
-第一の和では添字を $\gamma=\beta+e_j$ と置き直し、第二の和では $\gamma=\beta$ と置きます。同じ $\gamma$ に掛かる係数は
+第一の和では添字を $\gamma=\beta+e_j$ と置き直し、第二の和では $\gamma=\beta$ と置きます。範囲外の多重二項係数を 0 と約束すると、同じ $\gamma$ に掛かる係数は
 
 $$
 {\alpha\choose\gamma-e_j}
