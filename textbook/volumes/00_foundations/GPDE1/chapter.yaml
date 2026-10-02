@@ -27,7 +27,7 @@ theorems:
   - { id: GPDE1-PROP-01, name: 超関数の局所有限階評価 }
   - { id: GPDE1-PROP-02, name: 局所可積分関数は超関数を定める }
   - { id: GPDE1-PROP-03, name: 古典 Poisson 解は超関数解である }
-canonical_examples: [標準バンプ関数, 局所可積分特異関数, Dirac のデルタ超関数, Gauss 核からデルタ超関数への収束, 一次元基本解]
+canonical_examples: [標準的な滑らかなコンパクト台関数, 局所可積分特異関数, Dirac のデルタ超関数, Gauss 核からデルタ超関数への収束, 一次元基本解]
 problem_patterns: [GPDE1-TEST-CONVERGENCE-1, GPDE1-REGULAR-DISTRIBUTION-1, GPDE1-DIRAC-1, GPDE1-DISTRIBUTIONAL-POISSON-1, GPDE1-GAUSSIAN-DELTA-1, GPDE1-FUNDAMENTAL-SOLUTION-1]
 past_exam_alignment: []
 integrated_exam_problems: []
