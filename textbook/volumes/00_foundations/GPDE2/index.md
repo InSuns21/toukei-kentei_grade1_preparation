@@ -120,7 +120,7 @@ $$
 <a id="def-gpde2-distributional-derivative"></a>
 <!-- formal-statement-start -->
 > **定義（超関数の微分）**  
-> 開集合 $\Omega\subset\mathbb R^d$、$T\in\mathcal D'(\Omega)$、多重指数 $\alpha$ に対して、$T$ の $\alpha$ 階 超関数 微分 $\partial^\alpha T$ を
+> 開集合 $\Omega\subset\mathbb R^d$、$T\in\mathcal D'(\Omega)$、多重指数 $\alpha$ に対して、$T$ の $\alpha$ 階超関数微分 $\partial^\alpha T$ を
 
 $$
 \boxed{
@@ -153,7 +153,7 @@ $$
 \langle T,\partial_i\partial_j\varphi\rangle.
 $$
 
-GPDE1 の Poisson の distributional identity で
+GPDE1 の Poisson 方程式の超関数恒等式 で
 
 $$
 \langle-\Delta T_u,\varphi\rangle
@@ -166,7 +166,7 @@ $$
 
 <a id="prop-gpde2-derivative-is-distribution"></a>
 <!-- formal-statement-start -->
-> **命題（超関数は何回微分しても 超関数である）**  
+> **命題（超関数は何回微分しても超関数である）**  
 > $T\in\mathcal D'(\Omega)$ と多重指数 $\alpha$ に対し、$\partial^\alpha T$ は $\mathcal D'(\Omega)$ の元である。さらに多重指数 $\alpha,\beta$ に対し
 
 $$
@@ -180,9 +180,9 @@ $$
 
 ### 証明の見取り図
 
-[GPDE1 の 超関数の局所有限階評価](../GPDE1/index.md#prop-gpde1-local-finite-order)を使います。$T$ が固定コンパクト集合 $K$ 上で $m$ 階までのテスト関数微分で抑えられるなら、$\partial^\alpha T$ は $m+|\alpha|$ 階まで見れば抑えられます。
+[GPDE1 の超関数の局所有限階評価](../GPDE1/index.md#prop-gpde1-local-finite-order)を使います。$T$ が固定コンパクト集合 $K$ 上で $m$ 階までのテスト関数微分で抑えられるなら、$\partial^\alpha T$ は $m+|\alpha|$ 階まで見れば抑えられます。
 
-したがって 超関数の微分では「元の対象が滑らかか」を確認する必要はありません。必要な微分は全てテスト関数へ移せます。
+したがって超関数の微分では「元の対象が滑らかか」を確認する必要はありません。必要な微分は全てテスト関数へ移せます。
 
 <!-- proof-start -->
 ### 証明
@@ -223,7 +223,7 @@ $$
 C\,p_{K,m+|\alpha|}(\varphi).
 $$
 
-再び [GPDE1 の 超関数の局所有限階評価](../GPDE1/index.md#prop-gpde1-local-finite-order)を使えば、$\partial^\alpha T$ は 超関数です。
+再び [GPDE1 の超関数の局所有限階評価](../GPDE1/index.md#prop-gpde1-local-finite-order)を使えば、$\partial^\alpha T$ は 超関数です。
 
 次に任意の $\varphi\in\mathcal D(\Omega)$ に対し、
 
@@ -432,7 +432,7 @@ $
 
 <a id="prop-gpde2-derivative-continuous"></a>
 <!-- formal-statement-start -->
-> **命題（超関数 微分作用素の連続性）**  
+> **命題（超関数微分作用素の連続性）**  
 > $T_n,T\in\mathcal D'(\Omega)$ とし、
 
 $$
@@ -461,7 +461,7 @@ $$
 \langle T_n,\partial^\alpha\varphi\rangle.
 $$
 
-$\partial^\alpha\varphi$ も固定されたテスト関数なので、[GPDE1 の 超関数の収束](../GPDE1/index.md#def-gpde1-distribution-convergence)の定義から
+$\partial^\alpha\varphi$ も固定されたテスト関数なので、[GPDE1 の超関数の収束](../GPDE1/index.md#def-gpde1-distribution-convergence)の定義から
 
 $$
 \langle T_n,\partial^\alpha\varphi\rangle
@@ -500,7 +500,7 @@ $$
 
 <a id="prop-gpde2-heaviside"></a>
 <!-- formal-statement-start -->
-> **命題（Heaviside の 超関数 微分）**  
+> **命題（Heaviside の超関数微分）**  
 > $\mathbb R$ 上で
 
 $$
@@ -566,7 +566,7 @@ $$
 
 ---
 
-## 6. 一般の 跳躍では「跳躍の大きさ × デルタ超関数」が出る
+## 6. 一般の跳躍では「跳躍の大きさ × デルタ超関数」が出る
 
 Heaviside は 跳躍が 1 の最小例でした。区分的に滑らかな関数でも同じ機構が働きます。
 
@@ -582,7 +582,7 @@ $$
 
 <a id="prop-gpde2-jump-formula"></a>
 <!-- formal-statement-start -->
-> **命題（有限個の 跳躍を持つ関数の 超関数 微分）**  
+> **命題（有限個の跳躍を持つ関数の超関数微分）**  
 > $f\in L^1_{\mathrm{loc}}(\mathbb R)$ とする。有限個の点
 
 $$
@@ -965,7 +965,7 @@ $$
 
 <a id="def-gpde2-local-mollification"></a>
 <!-- formal-statement-start -->
-> **定義（局所 平滑化）**  
+> **定義（局所平滑化）**  
 > $u\in L^1_{\mathrm{loc}}(\Omega)$ とする。$x\in\Omega_\varepsilon$ に対して
 
 $$
@@ -979,7 +979,7 @@ u_\varepsilon(x)
 }
 $$
 
-> と定める。これを $u$ の局所 平滑化という。
+> と定める。これを $u$ の局所平滑化という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gpde2-local-mollification -->
@@ -1002,7 +1002,7 @@ $$
 
 <a id="thm-gpde2-mollification-smooth"></a>
 <!-- formal-statement-start -->
-> **定理（平滑化の平滑化）**  
+> **定理（局所平滑化の滑らかさ）**  
 > $u\in L^1_{\mathrm{loc}}(\Omega)$ とする。各 $\varepsilon>0$ に対し
 
 $$
@@ -1178,7 +1178,7 @@ $$
 
 <a id="lem-gpde2-l1-translation-rd"></a>
 <!-- formal-statement-start -->
-> **補題（Rd の平行移動補題）**  
+> **補題（$\mathbb R^d$ の平行移動補題）**  
 > $w\in L^1(\mathbb R^d)$ とし、$(\tau_h w)(x)=w(x-h)$（$h\in\mathbb R^d$）と置く。このとき
 >
 $$
@@ -1256,7 +1256,7 @@ $$
 
 <a id="thm-gpde2-mollifier-l1loc"></a>
 <!-- formal-statement-start -->
-> **定理（平滑化核の局所 L1 近似）**  
+> **定理（平滑化核の局所 $L^1$ 近似）**  
 > $u\in L^1_{\mathrm{loc}}(\Omega)$ とする。任意のコンパクト集合 $K\subset\Omega$ に対して、十分小さい $\varepsilon>0$ では $K\subset\Omega_\varepsilon$ であり、
 
 $$
@@ -1374,7 +1374,7 @@ $$
 
 以下です。
 
-$\int\rho=1$ であり、[Rd の平行移動補題](#lem-gpde2-l1-translation-rd)から
+$\int\rho=1$ であり、[$\mathbb R^d$ の平行移動補題](#lem-gpde2-l1-translation-rd)から
 
 $$
 \sup_{|h|\le\varepsilon}
@@ -1396,7 +1396,7 @@ GPDE3 では $1\le p<\infty$ に対する $L^p_{\mathrm{loc}}$ 近似へ拡張�
 
 ---
 
-## 12. 正則 超関数への埋め込みは一対一である
+## 12. 正則超関数への埋め込みは一対一である
 
 GPDE1 では
 
@@ -1410,7 +1410,7 @@ $$
 
 <a id="prop-gpde2-regular-injective"></a>
 <!-- formal-statement-start -->
-> **命題（正則 超関数 埋め込みの単射性）**  
+> **命題（正則超関数埋め込みの単射性）**  
 > $f,g\in L^1_{\mathrm{loc}}(\Omega)$ とする。もし
 
 $$
@@ -1521,11 +1521,11 @@ $$
 
 ---
 
-## 13. 弱微分 は a.e. の意味で一意である
+## 13. 弱微分は a.e. の意味で一意である
 
 <a id="prop-gpde2-weak-unique"></a>
 <!-- formal-statement-start -->
-> **命題（弱微分 の一意性）**  
+> **命題（弱微分の一意性）**  
 > $u\in L^1_{\mathrm{loc}}(\Omega)$ とする。$v,w\in L^1_{\mathrm{loc}}(\Omega)$ がともに $u$ の $x_j$ に関する弱微分なら
 
 $$
@@ -1575,7 +1575,7 @@ $$
 
 ---
 
-## 14. 弱微分と 平滑化は交換する
+## 14. 弱微分と平滑化は交換する
 
 ここまでの準備で、本章の中心技法を閉じます。
 
@@ -1583,7 +1583,7 @@ $$
 
 <a id="thm-gpde2-weak-mollifier-commute"></a>
 <!-- formal-statement-start -->
-> **定理（弱微分と 平滑化の交換）**  
+> **定理（弱微分と平滑化の交換）**  
 > $u,v\in L^1_{\mathrm{loc}}(\Omega)$ とし、$v$ が $u$ の $x_j$ に関する弱微分であるとする。このとき $x\in\Omega_\varepsilon$ で
 
 $$
@@ -2178,7 +2178,7 @@ $$
 $$
 <!-- solution-end -->
 
-## GPDE2-B01 区間の指示関数の 超関数 微分
+## GPDE2-B01 区間の指示関数の超関数微分
 
 - Level: B
 - 目安時間: 18分
@@ -2284,7 +2284,7 @@ $$
 $$
 
 を示せ。
-3. [本章の Rd の平行移動補題](#lem-gpde2-l1-translation-rd)から局所 $L^1$ 収束を導け。
+3. [本章の $\mathbb R^d$ の平行移動補題](#lem-gpde2-l1-translation-rd)から局所 $L^1$ 収束を導け。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -2348,7 +2348,7 @@ $$
 \|w(\cdot-\varepsilon z)-w\|_1\,dz.
 $$
 
-3. [本章の Rd の平行移動補題](#lem-gpde2-l1-translation-rd)を $w$ に適用すると、
+3. [本章の $\mathbb R^d$ の平行移動補題](#lem-gpde2-l1-translation-rd)を $w$ に適用すると、
 
 $$
 \|w(\cdot-h)-w\|_1\to0
@@ -2385,7 +2385,7 @@ u_\varepsilon\to u
 $$
 <!-- solution-end -->
 
-## GPDE2-B03 弱微分と 平滑化の交換を証明する
+## GPDE2-B03 弱微分と平滑化の交換を証明する
 
 - Level: B
 - 目安時間: 22分
@@ -2505,7 +2505,7 @@ v_\varepsilon(x)
 $$
 <!-- solution-end -->
 
-## GPDE2-C01 テント関数（tent function）の一階弱微分と二階 超関数 微分
+## GPDE2-C01 テント関数（tent function）の一階弱微分と二階超関数微分
 
 - Level: C
 - 目安時間: 35分
@@ -2582,7 +2582,7 @@ v(x)
 \end{cases}
 $$
 
-$u$ 自身は $x=-1,0,1$ で連続なので、一階 超関数 微分には デルタ超関数 項が出ません。従って
+$u$ 自身は $x=-1,0,1$ で連続なので、一階超関数微分には デルタ超関数 項が出ません。従って
 
 $$
 Du=T_v.
@@ -2610,7 +2610,7 @@ $$
 [v]_1=0-(-1)=1.
 $$
 
-各区間で $v$ は定数なので $v'_{\mathrm{pw}}=0$ です。[有限個の 跳躍を持つ関数の 超関数 微分](#prop-gpde2-jump-formula)から
+各区間で $v$ は定数なので $v'_{\mathrm{pw}}=0$ です。[有限個の跳躍を持つ関数の超関数微分](#prop-gpde2-jump-formula)から
 
 $$
 Dv
@@ -2638,7 +2638,7 @@ D^2u
 }.
 $$
 
-3. $v$ は $u$ の弱微分なので、[弱微分と 平滑化の交換](#thm-gpde2-weak-mollifier-commute)から
+3. $v$ は $u$ の弱微分なので、[弱微分と平滑化の交換](#thm-gpde2-weak-mollifier-commute)から
 
 $$
 \boxed{
@@ -2768,9 +2768,9 @@ $$
 - 平滑化核の質量・台・微分の尺度を計算できる。
 - $u_\varepsilon$ が $C^\infty$ になる理由を、微分を 核 へ移すことから証明できる。
 - $L^1$ 平行移動連続性から $u_\varepsilon\to u$ in $L^1_{\mathrm{loc}}$ を証明できる。
-- 正則 超関数 埋め込みの単射性を 平滑化核で証明できる。
+- 正則超関数埋め込みの単射性を 平滑化核で証明できる。
 - 弱微分 が a.e. の意味で一意であることを説明できる。
 - 弱微分 と 平滑化の交換をテスト関数 $y\mapsto\rho_\varepsilon(x-y)$ から証明できる。
-- テント関数を通して、一階弱微分・二階 超関数 微分・平滑化の三者を接続できる。
+- テント関数を通して、一階弱微分・二階超関数微分・平滑化の三者を接続できる。
 
 次は **GPDE3「Sobolev 空間」** です。
