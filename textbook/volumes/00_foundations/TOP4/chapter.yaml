@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - TOP3
   - F0-00B1
+  - SET-U2
 official_scope: []
 learning_objectives:
   - T0・T1・Hausdorff(T2)・T3・T4を「何を互いに分離できるか」で比較し、各含意でどの仮定を使うか説明できる
