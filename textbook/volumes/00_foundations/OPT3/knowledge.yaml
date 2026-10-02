@@ -101,9 +101,9 @@ concepts:
       - convex.effective-domain
 
   - id: convex.coercivity
-    name: 凸関数の強圧性
+    name: 強圧性
     kind: definition
-    aliases: [凸関数の強圧性, coercivity of a convex function]
+    aliases: [強圧性]
     introduction: formal
     introduction_aliases: ["定義（強圧性）"]
     requires: []
