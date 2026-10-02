@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00C1
+  - F0-00F1
 official_scope: []
 learning_objectives:
   - Weierstrassの最大最小定理を証明できる
