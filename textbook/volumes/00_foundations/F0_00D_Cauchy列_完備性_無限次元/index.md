@@ -251,7 +251,7 @@ $$
 
 したがって $m,n\ge N$ なら
 
-$
+$$
 \begin{aligned}
 d(x_m,x_n)
 &\le d(x_m,x)+d(x,x_n)\\
