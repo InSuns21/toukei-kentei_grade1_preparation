@@ -1,5 +1,5 @@
 id: "RA6"
-title: "標準実解析 VI：多変数微分・Jacobian 行列・連鎖律"
+title: "多変数微分・Jacobian 行列・連鎖律"
 volume: "foundations"
 status: supplementary
 prerequisites:
