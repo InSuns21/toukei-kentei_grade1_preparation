@@ -64,13 +64,13 @@ $$
 
 存在証明の主役は **Galerkin 法**です。
 
-これは 有限要素法（FEM） 専用の数値計算法ではありません。
+これは有限要素法（FEM）専用の数値計算法ではありません。
 
 $$
 \boxed{
 \text{有限次元で解く}
 \to
-\text{次元に依らない エネルギー評価}
+\text{次元に依らないエネルギー評価}
 \to
 \text{弱収束部分列}
 \to
@@ -80,7 +80,7 @@ $$
 
 という、PDE の存在証明そのものです。
 
-Encore V の 有限要素法（FEM） はこの考えを「計算可能な有限次元空間」に具体化します。本章では、その前段にある理論的な骨格を閉じます。
+Encore V の有限要素法（FEM）はこの考えを「計算可能な有限次元空間」に具体化します。本章では、その前段にある理論的な骨格を閉じます。
 
 以下、**ほとんど至る所（almost everywhere; a.e.）**を a.e. と略記します。
 
@@ -156,7 +156,7 @@ $$
 
 と書きます。
 
-$V$ の norm は [Poincaré 不等式](../GPDE4/index.md#thm-gpde4-poincare)を使って
+$V$ のノルムは [Poincaré 不等式](../GPDE4/index.md#thm-gpde4-poincare)を使って
 
 $$
 \|v\|_V:=\|\nabla v\|_{L^2(\Omega)}
@@ -260,7 +260,7 @@ $$
 
 も連続です。
 
-残る「稠密性」も確認しておきます。$g\in L^2(\Omega)$ を $\mathbb R^d$ へ 0 延長し、compact exhaustion
+残る「稠密性」も確認しておきます。$g\in L^2(\Omega)$ を $\mathbb R^d$ へ 0 延長し、コンパクト集合による増大列
 
 $$
 K_1\subset K_2\subset\cdots\Subset\Omega,
@@ -271,11 +271,11 @@ $$
 を取ります。まず
 
 $$
-g1_{K_n}\to g
+g\mathbf{1}_{K_n}\to g
 \quad\text{in }L^2(\Omega)
 $$
 
-であり、各 $n$ について十分小さい 平滑化核 で $g1_{K_n}$ を平滑化すれば、support を $\Omega$ 内に保った
+であり、各 $n$ について十分小さい 平滑化核 で $g\mathbf{1}_{K_n}$ を平滑化すれば、台を $\Omega$ 内に保った
 
 $$
 \varphi_{n,\varepsilon}\in C_c^\infty(\Omega)
@@ -289,7 +289,7 @@ $$
 C_c^\infty(\Omega)\subset H_0^1(\Omega),
 $$
 
-なので $H_0^1(\Omega)$ も $L^2(\Omega)$ に稠密です。これで Gelfand 三つ組 の「連続かつ稠密な埋め込み」まで実際に確認できました。
+なので $H_0^1(\Omega)$ も $L^2(\Omega)$ に稠密です。これで Gelfand 三つ組の「連続かつ稠密な埋め込み」まで実際に確認できました。
 
 この埋め込みでは $h\in L^2$ を「関数」から「$H_0^1$ 上の線形汎関数」へ読み替えています。
 <!-- definition-example-end -->
@@ -422,7 +422,7 @@ u_t=-e^{-t}\sin x,
 u_x=e^{-t}\cos x.
 $$
 
-任意の $v\in H_0^1(0,\pi)$ に対し、まず 滑らかな な $v$ で部分積分すると
+任意の $v\in H_0^1(0,\pi)$ に対し、まず 滑らかな $v$ で部分積分すると
 
 $$
 \int_0^\pi
@@ -484,7 +484,7 @@ $$
 
 しか分かりません。
 
-それでも Gelfand 三つ組 の組合せなら
+それでも Gelfand 三つ組の組合せなら
 
 $$
 \langle u_t,u\rangle_{V^*,V}
@@ -495,7 +495,7 @@ $$
 <a id="lem-gpde10-energy-identity"></a>
 
 <!-- formal-statement-start -->
-> **補題（Gelfand 三つ組 の エネルギー恒等式）**  
+> **補題（Gelfand 三つ組のエネルギー恒等式）**  
 > $V\hookrightarrow H\hookrightarrow V^*$ を Gelfand 三つ組 とし、
 >
 $$
@@ -550,7 +550,7 @@ $$
 t\longmapsto (u(t),v)_H
 $$
 
-の弱い連続性と norm の連続性を組み合わせて、$H$ での強連続性を得ます。
+の弱い連続性とノルムの連続性を組み合わせて、$H$ での強連続性を得ます。
 
 <!-- proof-start -->
 ### 証明
@@ -959,7 +959,7 @@ $$
 
 したがって PDE は有限次元では普通の連立 ODE になります。
 
-Galerkin 法の本質は、この ODE を明示的に解くことではなく、$m$ に依らない estimate を作ることです。
+Galerkin 法の本質は、この ODE を明示的に解くことではなく、$m$ に依らない評価 を作ることです。
 <!-- definition-example-end -->
 
 一般の有限次元基底 $w_1,\dots,w_m$ に対し
@@ -1013,7 +1013,7 @@ $$
 <a id="prop-gpde10-galerkin-energy"></a>
 
 <!-- formal-statement-start -->
-> **命題（Galerkin 解の一様 エネルギー評価）**  
+> **命題（Galerkin 解の一様エネルギー評価）**  
 > $a$ が
 >
 $$
@@ -1062,7 +1062,7 @@ $$
 \frac12\frac{d}{dt}\|u_m\|_H^2.
 $$
 
-強圧条件 で空間 エネルギー を下から支え、右辺は [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)で半分を吸収します。
+強圧条件で空間 エネルギー を下から支え、右辺は [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)で半分を吸収します。
 
 重要なのは、右辺の定数に
 
@@ -1087,7 +1087,7 @@ a(u_m,u_m)
 \langle f,u_m\rangle.
 $$
 
-強圧条件 から
+強圧条件から
 
 $$
 a(u_m,u_m)
@@ -1095,7 +1095,7 @@ a(u_m,u_m)
 \alpha\|u_m\|_V^2.
 $$
 
-また[双対ノルム の基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
+また[双対ノルムの基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
 
 $$
 |\langle f,u_m\rangle|
@@ -1175,7 +1175,7 @@ $$
 これで示されました。
 <!-- proof-end -->
 
-この estimate が Galerkin 法の心臓部です。
+この評価が Galerkin 法の心臓部です。
 
 もし右辺に $m$ が出て
 
@@ -1238,7 +1238,7 @@ Galerkin 法では、まず **時間積分した弱形式**へ移してから極
 <a id="thm-gpde10-galerkin-existence"></a>
 
 <!-- formal-statement-start -->
-> **定理（Galerkin 法による 強圧的 時間発展問題 の存在一意性）**  
+> **定理（Galerkin 法による強圧的時間発展問題の存在一意性）**  
 > $V\hookrightarrow H\hookrightarrow V^*$ を Gelfand 三つ組 とする。$a:V\times V\to\mathbb R$ は、ある $M,\alpha>0$ に対して
 >
 $$
@@ -1417,9 +1417,9 @@ $f\in L^2(0,T;V^*)$ なので各 $F_i(t)=\langle f(t),w_i\rangle$ は $L^2(0,T)$
 
 有限次元線形 ODE の理論から、絶対連続な $d^{(m)}$、従って $u_m$ が存在します。
 
-#### Step 2：次元に依らない bound
+#### Step 2：次元に依らない評価
 
-[Galerkin 解の一様 エネルギー評価](#prop-gpde10-galerkin-energy)から
+[Galerkin 解の一様エネルギー評価](#prop-gpde10-galerkin-energy)から
 
 $$
 \sup_t\|u_m(t)\|_H^2
@@ -1595,7 +1595,7 @@ $$
 
 を得ます。
 
-今は $v$ を $\bigcup_mV_m$ から取っていますが、この union は $V$ で稠密です。
+今は $v$ を $\bigcup_mV_m$ から取っていますが、この和集合は $V$ で稠密です。
 
 各項は $v$ に関して連続なので、任意の $v\in V$ へ延長できます。
 
@@ -1713,7 +1713,7 @@ a(u,u)
 \langle f,u\rangle.
 $$
 
-Galerkin 解と同じ 強圧条件 と [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)から
+Galerkin 解と同じ 強圧条件と [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)から
 
 $$
 \frac12
@@ -1773,7 +1773,7 @@ a(w,w)
 0.
 $$
 
-強圧条件 により
+強圧条件により
 
 $$
 \frac12
@@ -1806,7 +1806,7 @@ $$
 従って解は一意です。
 <!-- proof-end -->
 
-ここで使った「コンパクト性」は強収束を作る compact embedding ではなく、完備内積空間の有界列から **弱収束部分列を取り出す弱 コンパクト性** です。
+ここで使った「コンパクト性」は強収束を作る コンパクト埋め込み ではなく、完備内積空間の有界列から **弱収束部分列を取り出す弱 コンパクト性** です。
 
 線形問題ではこれで極限通過できます。
 
@@ -1817,7 +1817,7 @@ $$
 <a id="cor-gpde10-heat-existence"></a>
 
 <!-- formal-statement-start -->
-> **系（零 Dirichlet 熱方程式の エネルギー弱解）**  
+> **系（零 Dirichlet 熱方程式のエネルギー弱解）**  
 > $\Omega\subset\mathbb R^d$ を Poincaré 不等式が成り立つ有界領域とし、
 >
 $$
@@ -1848,7 +1848,7 @@ $$
 u_t\in L^2(0,T;H^{-1}(\Omega))
 $$
 >
-> の エネルギー弱解 が存在する。
+> の エネルギー弱解が存在する。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -1909,7 +1909,7 @@ a(v,v)
 \|v\|_V^2.
 $$
 
-従って 有界性 定数 $M=1$、強圧条件 定数 $\alpha=1$ と取れます。
+従って 有界性定数 $M=1$、強圧定数 $\alpha=1$ と取れます。
 
 前節の主定理を適用すれば結論を得ます。
 <!-- proof-end -->
@@ -1942,7 +1942,7 @@ $$
 (f_2,u_{02})
 $$
 >
-> に対応する エネルギー弱解 とする。このとき
+> に対応する エネルギー弱解とする。このとき
 >
 $$
 \boxed{
@@ -1995,7 +1995,7 @@ a(w,w)
 \langle g,w\rangle.
 $$
 
-強圧条件 と [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)から
+強圧条件と [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)から
 
 $$
 \frac12
@@ -2158,7 +2158,7 @@ $$
 <a id="def-gpde10-wave-energy-space"></a>
 
 <!-- formal-statement-start -->
-> **定義（波動方程式の エネルギー空間）**  
+> **定義（波動方程式のエネルギー空間）**  
 > 零 Dirichlet 波動方程式の自然な エネルギー空間 を
 >
 $$
@@ -2238,7 +2238,7 @@ $$
 <a id="prop-gpde10-wave-energy"></a>
 
 <!-- formal-statement-start -->
-> **命題（滑らかな零 Dirichlet 波動解の エネルギー 保存）**  
+> **命題（滑らかな零 Dirichlet 波動解の エネルギー保存）**  
 > 十分滑らかな $u$ が
 >
 $$
@@ -2505,15 +2505,15 @@ $q=0$ なら前に確認した熱方程式の単一モードへ戻ります。
 
 | 仮定・道具 | 使う場所 | 役割 |
 |---|---|---|
-| $V\hookrightarrow H$ 連続 | Gelfand 三つ組 / 極限通過 | $V$ の bound から $H$ の時間積分を制御する |
+| $V\hookrightarrow H$ 連続 | Gelfand 三つ組 / 極限通過 | $V$ の評価から $H$ の時間積分を制御する |
 | $V$ dense in $H$ | 初期値の同定 / 強連続性 | $V$ テスト で得た情報を $H$ 全体へ広げる |
 | $H\hookrightarrow V^*$ | 時間微分 | $H$ 内積を $V^*$-$V$ duality として読む |
 | $a$ 有界 | 極限通過 / $Au\in V^*$ | $u_m\rightharpoonup u$ から $a(u_m,v)\to a(u,v)$ |
 | $a$ 強圧的 | エネルギー評価 | $\|u_m\|_{L^2(0,T;V)}$ を次元一様に支える |
 | $f\in L^2(0,T;V^*)$ | エネルギー評価 | $\langle f,u_m\rangle$ を Cauchy--Schwarz / Young で評価する |
-| Galerkin 近似空間族 の $V$-稠密性 | 極限通過 | 有限次元 テスト から任意の $v\in V$ へ延長する |
-| 弱コンパクト性 | 部分列抽出 | 一様 bound から無限次元候補 $u$ を取り出す |
-| 線形性 | weak 極限通過 | 弱収束 だけで $a(u_m,v)$ を通す |
+| Galerkin 近似空間族の $V$-稠密性 | 極限通過 | 有限次元テスト関数から任意の $v\in V$ へ延長する |
+| 弱コンパクト性 | 部分列抽出 | 一様評価 から無限次元候補 $u$ を取り出す |
+| 線形性 | 弱収束での極限通過 | 弱収束だけで $a(u_m,v)$ を通す |
 | エネルギー恒等式 | 初期値・一意性・安定性 | $u_t\in V^*$ でも $\|u(t)\|_H^2$ を微分する |
 
 特に
@@ -2662,7 +2662,7 @@ $$
 
 よって $F_h$ は $V$ 上の連続線形汎関数です。
 
-[双対ノルム の基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
+[双対ノルムの基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
 
 $$
 \begin{aligned}
@@ -2788,7 +2788,7 @@ $$
 
 エネルギー は指数率 $8$ で減衰します。
 
-最後に 滑らかな な $v$ に対し部分積分すると
+最後に 滑らかな $v$ に対し部分積分すると
 
 $$
 \int_0^\pi
@@ -3109,7 +3109,7 @@ $$
 \|u_m\|_H^2.
 $$
 
-強圧条件 から
+強圧条件から
 
 $$
 a(u_m,u_m)
@@ -3129,7 +3129,7 @@ $$
 |\langle f,u_m\rangle|.
 $$
 
-[双対ノルム の基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
+[双対ノルムの基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
 
 $$
 |\langle f,u_m\rangle|
@@ -3435,7 +3435,7 @@ $$
 -a(w,w)+\langle g,w\rangle.
 $$
 
-強圧条件 から
+強圧条件から
 
 $$
 -a(w,w)
@@ -3991,7 +3991,7 @@ V^*
 }
 $$
 
-という Gelfand 三つ組 の上で
+という Gelfand 三つ組の上で
 
 $$
 u\in L^2(0,T;V),
@@ -4007,7 +4007,7 @@ $$
 \boxed{
 \text{Galerkin}
 \to
-\text{アプリオリ エネルギー評価}
+\text{アプリオリエネルギー評価}
 \to
 \text{弱コンパクト性}
 \to
@@ -4019,7 +4019,7 @@ $$
 
 です。
 
-線形 熱方程式 では弱収束だけで極限を通せました。
+線形熱方程式 では弱収束だけで極限を通せました。
 
 一方、非線形項では弱収束だけでは足りないことを
 
@@ -4037,7 +4037,7 @@ $$
 H_0^1\times L^2
 $$
 
-が natural エネルギー空間 となり、熱方程式の dissipative エネルギー と対照的に エネルギー 保存が現れます。
+が 自然なエネルギー空間 となり、熱方程式の 散逸エネルギー と対照的に エネルギー保存が現れます。
 
 mild 解 / 半群 は
 
@@ -4053,21 +4053,21 @@ $$
 \boxed{
 \text{超関数}
 \to
-\text{weak derivative}
+\text{弱微分}
 \to
 \text{Sobolev}
 \to
 \text{コンパクト性}
 \to
-\text{variational solution}
+\text{変分弱解}
 \to
 \text{Lax--Milgram}
 \to
-\text{elliptic PDE}
+\text{楕円型 PDE}
 \to
 \text{正則性}
 \to
-\text{evolution 弱解}
+\text{時間発展の弱解}
 }
 $$
 
