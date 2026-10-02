@@ -1,4 +1,4 @@
-# TOP2 標準位相 II：同値関係による商空間・貼り合わせ
+# TOP2 同値関係による商空間・貼り合わせ
 
 <!-- definition-example-audit: strict -->
 

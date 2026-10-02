@@ -1,4 +1,4 @@
-# FA7 標準関数解析 VII：コンパクト自己共役作用素・Fredholm の交代定理
+# FA7 コンパクト自己共役作用素・Fredholm の交代定理
 
 <!-- definition-example-audit: strict -->
 

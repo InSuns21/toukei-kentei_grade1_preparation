@@ -1,4 +1,4 @@
-# F0-00P2 密度・Radon–Nikodym：確率質量関数と確率密度関数を同じ式で読む
+# P2 密度・期待値・Radon–Nikodym
 
 <!-- definition-example-audit: strict -->
 

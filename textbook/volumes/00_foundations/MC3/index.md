@@ -1,4 +1,4 @@
-# MC3 Monte Carlo III：期待値を保ってばらつきを減らす
+# MC3 分散減少法
 
 MC1 では、独立同分布な標本から作る Monte Carlo 推定量の分散が
 

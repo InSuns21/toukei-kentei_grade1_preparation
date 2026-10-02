@@ -1,4 +1,4 @@
-# FEM1 有限要素法 I：Poisson 方程式・変分形式・Galerkin 法
+# FEM1 Poisson 方程式・変分形式・Galerkin 法
 
 差分法では、微分方程式の微分を格子上の差分へ直接置き換えました。
 

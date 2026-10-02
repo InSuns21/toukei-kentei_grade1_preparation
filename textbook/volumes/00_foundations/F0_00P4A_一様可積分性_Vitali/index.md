@@ -1,4 +1,4 @@
-# F0-00P4A 一様可積分性・Vitali：確率収束から $L^1$ 収束へ
+# P4A 一様可積分性・Vitali
 
 <!-- definition-example-audit: strict -->
 

@@ -1,4 +1,4 @@
-# FLD5 抽象代数 XV：Galois 理論の応用――作図可能性と方程式の根号解法
+# FLD5 Galois 理論の応用：作図可能性・根号による可解性
 
 <!-- definition-example-audit: strict -->
 

@@ -1,4 +1,4 @@
-# F0-02C3A 関数解析III-A：随伴作用素・Banach双対・Hilbert随伴
+# F0-02C3A Banach双対・Hilbert随伴
 
 [F0-02C3](../F0_02C3_Frechet微分_線形作用素_随伴/index.md) では、実数値写像の Fréchet 微分を
 $X^*$ の元として扱い、Hilbert 空間では Riesz 表現によってベクトルへ戻せることを見ました。

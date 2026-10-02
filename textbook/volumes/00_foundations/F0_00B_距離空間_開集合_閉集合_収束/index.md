@@ -1,4 +1,4 @@
-# F0-00B 補講：距離空間・開集合・閉集合・収束
+# F0-00B 距離空間・収束
 
 <!-- definition-example-audit: strict -->
 

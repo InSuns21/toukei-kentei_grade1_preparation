@@ -1,4 +1,4 @@
-# RNG3 抽象代数 VII：整除・Euclid 整域・単項イデアル整域・一意分解整域
+# RNG3 整除・Euclid 整域・単項イデアル整域・一意分解整域
 
 <!-- definition-example-audit: strict -->
 

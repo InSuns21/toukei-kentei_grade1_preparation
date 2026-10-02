@@ -1,4 +1,4 @@
-# FA5 標準関数解析 V：スペクトル・レゾルベント
+# FA5 スペクトル・レゾルベント
 
 <!-- definition-example-audit: strict -->
 

@@ -1,4 +1,4 @@
-# F0-00A1C 補講：集合族・添字集合・べき集合
+# F0-00A1C 集合族・添字集合・べき集合
 
 <!-- definition-example-audit: strict -->
 

@@ -1,4 +1,4 @@
-# FLD4 抽象代数 XIV：有限 Galois 理論
+# FLD4 有限 Galois 理論
 
 <!-- definition-example-audit: strict -->
 

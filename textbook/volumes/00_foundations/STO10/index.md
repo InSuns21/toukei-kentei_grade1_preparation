@@ -1,4 +1,4 @@
-# STO10：SDE の法則と Girsanov — 雑音を固定せず解の法則を作る
+# STO10 弱解・Girsanov
 
 <!-- definition-example-audit: strict -->
 

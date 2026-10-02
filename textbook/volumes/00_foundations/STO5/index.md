@@ -1,4 +1,4 @@
-# STO5：連続時間確率解析の局所化・二次変分・分解
+# STO5 連続局所マルチンゲール・二次変分・セミマルチンゲール
 
 <!-- definition-example-audit: strict -->
 

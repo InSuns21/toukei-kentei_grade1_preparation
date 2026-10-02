@@ -1,4 +1,4 @@
-# GPDE6：二階微分を捨てて、エネルギーで解を作る
+# GPDE6 弱形式・変分形式
 
 <!-- definition-example-audit: strict -->
 

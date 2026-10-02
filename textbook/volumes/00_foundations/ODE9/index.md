@@ -1,4 +1,4 @@
-# ODE9 非線形安定性・不変集合・単調量
+# ODE9 Lyapunov 関数・不変集合・LaSalle
 
 <!-- definition-example-audit: strict -->
 

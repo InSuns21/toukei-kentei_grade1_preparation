@@ -1,5 +1,5 @@
 id: "ODE3"
-title: "標準常微分方程式 III：線形連立系・行列指数・安定性"
+title: "線形連立系・行列指数・安定性"
 volume: "foundations"
 status: supplementary
 prerequisites:

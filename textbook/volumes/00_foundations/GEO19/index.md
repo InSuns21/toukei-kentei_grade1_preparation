@@ -1,4 +1,4 @@
-# GEO19 局所的な曲率がなぜ位相を決めるのか：Gauss--Bonnet と二次元大域幾何
+# GEO19 Gauss--Bonnet と二次元大域幾何
 
 <!-- definition-example-audit: strict -->
 

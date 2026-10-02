@@ -1,4 +1,4 @@
-# F0-00D2E 補講：$L^2$完備性・Riesz--Fischer・Hilbert空間への橋
+# F0-00D2E L2完備性・Riesz–Fischer
 
 D2Dで $L^2$ にノルム
 

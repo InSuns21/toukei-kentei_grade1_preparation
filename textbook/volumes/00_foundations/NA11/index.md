@@ -1,4 +1,4 @@
-# NA11 数値解析 XI：Perron--Frobenius 理論と PageRank
+# NA11 Perron–Frobenius 理論と PageRank
 
 NA10 では、一般の固有値問題に対して冪乗法・逆反復法・Rayleigh 商反復・QR 法を扱いました。そこでは「支配固有値がほかの固有値から分離しているなら、冪乗反復で対応する固有ベクトルを取り出せる」という立場でした。
 

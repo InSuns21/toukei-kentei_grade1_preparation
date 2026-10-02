@@ -1,4 +1,4 @@
-# STO7：多次元 Itô 解析・Stratonovich 積分
+# STO7 多次元 Itô 解析・Stratonovich
 
 <!-- definition-example-audit: strict -->
 

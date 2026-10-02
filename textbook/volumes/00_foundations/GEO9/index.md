@@ -1,4 +1,4 @@
-# GEO9 Poincaré の補題と de Rham コホモロジー
+# GEO9 Poincaré の補題・de Rham コホモロジー入門
 
 [GEO7](../GEO7/index.md) では微分形式と外微分を構成し、[外微分の二乗は0](../GEO7/index.md#thm-geo7-d-square-zero) を証明しました。[GEO8](../GEO8/index.md) では微分形式を積分し、[一般 Stokes の定理](../GEO8/index.md#thm-geo8-general-stokes) まで進みました。
 

@@ -1,5 +1,5 @@
 id: "GEO17"
-title: "近い測地線はどう離れ、いつ最短性を失うか：変分・Jacobi 場・共役点"
+title: "変分公式・Jacobi 場・共役点"
 volume: "foundations"
 status: supplementary
 prerequisites:

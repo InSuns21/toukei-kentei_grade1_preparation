@@ -1,5 +1,5 @@
 id: "LA6"
-title: "標準線形代数 VI：スペクトル・二次形式・polar decomposition・SVD"
+title: "スペクトル・二次形式・polar decomposition・複素SVD"
 volume: "foundations"
 status: supplementary
 prerequisites:

@@ -1,4 +1,4 @@
-# TSA1 Encore IV 時系列解析 I：定常過程・Hilbert 予測
+# TSA1 定常過程・Hilbert 予測
 
 <!-- definition-example-audit: strict -->
 

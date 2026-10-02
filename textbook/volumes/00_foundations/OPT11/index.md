@@ -1,4 +1,4 @@
-# OPT11 線形計画 II：単体法・内点法・感度解析
+# OPT11 単体法・内点法・感度解析
 
 <!-- definition-example-audit: strict -->
 

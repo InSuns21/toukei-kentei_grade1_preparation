@@ -1,4 +1,4 @@
-# TOP5 標準位相 V：コンパクト性の一般論
+# TOP5 コンパクト性の一般論
 
 <!-- definition-example-audit: strict -->
 

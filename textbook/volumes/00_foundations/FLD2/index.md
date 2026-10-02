@@ -1,4 +1,4 @@
-# FLD2 抽象代数 XII：多項式の全ての根を一つの体で見る
+# FLD2 分解体・分離性・正規性
 
 <!-- definition-example-audit: strict -->
 

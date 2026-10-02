@@ -1,4 +1,4 @@
-# MT0 標準測度論：Lebesgue測度の正則性と有限単関数近似
+# MT0 Lebesgue測度の正則性・有限単関数近似
 
 [F0-00D2A](../F0_00D2A_単関数_Lebesgue積分_構成/index.md) では一般の非負可測関数を単関数で**下から単調に**近似しました。[F0-00D4](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md) では実数直線上の Lebesgue 測度を構成しました。
 

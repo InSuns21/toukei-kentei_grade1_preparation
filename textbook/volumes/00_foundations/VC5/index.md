@@ -1,4 +1,4 @@
-# VC5 境界循環と曲面上の回転
+# VC5 Kelvin--Stokes の定理・回転・位相
 
 VC4 までで、平面領域では Green の定理、立体領域では [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence) を使い、**内部の微分量と境界の積分量**を結べるようになりました。
 

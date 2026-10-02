@@ -1,4 +1,4 @@
-# F0-00B0 補講：点列・部分列・「十分大きい添字」
+# F0-00B0 点列・部分列・十分大きい添字
 
 <!-- definition-example-audit: strict -->
 

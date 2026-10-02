@@ -1,4 +1,4 @@
-# FA2 標準関数解析 II：開写像定理・有界逆定理・閉グラフ定理
+# FA2 開写像定理・有界逆定理・閉グラフ定理
 
 <!-- definition-example-audit: strict -->
 

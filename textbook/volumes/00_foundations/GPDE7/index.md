@@ -1,4 +1,4 @@
-# GPDE7：Lax--Milgram — 強圧条件を「逆作用素」に変える
+# GPDE7 Lax--Milgram 定理
 
 <!-- definition-example-audit: strict -->
 

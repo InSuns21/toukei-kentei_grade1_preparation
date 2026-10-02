@@ -1,4 +1,4 @@
-# F0-00P3B 条件付き期待値のL2射影・最良予測
+# P3B L2射影・最良予測
 
 <!-- definition-example-audit: strict -->
 

@@ -1,4 +1,4 @@
-# QMC7 準 Monte Carlo VII：ランダム化準 Monte Carlo 法
+# QMC7 ランダム化準 Monte Carlo 法
 
 QMC1 から QMC6 までは、点集合を決めたら求積値も決まる **決定論的な準 Monte Carlo 法**を扱ってきました。
 

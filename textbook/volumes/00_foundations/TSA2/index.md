@@ -1,4 +1,4 @@
-# TSA2 Encore IV 時系列解析 II：イノベーションから無限移動平均表示へ
+# TSA2 Wold 分解
 
 <!-- definition-example-audit: strict -->
 

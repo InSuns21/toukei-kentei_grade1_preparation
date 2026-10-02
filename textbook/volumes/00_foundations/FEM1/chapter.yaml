@@ -1,5 +1,5 @@
 id: "FEM1"
-title: "有限要素法 I：Poisson 方程式・変分形式・Galerkin 法"
+title: "Poisson 方程式・変分形式・Galerkin 法"
 volume: "foundations"
 status: supplementary
 prerequisites:

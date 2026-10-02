@@ -1,4 +1,4 @@
-# LIE3 部分群の微分構造・古典群
+# LIE3 Lie 部分群・古典群
 
 <!-- definition-example-audit: strict -->
 

@@ -279,10 +279,10 @@
 4. [NA3 非線形連立方程式](textbook/volumes/00_foundations/NA3/index.md)
 5. [NA4 多項式補間](textbook/volumes/00_foundations/NA4/index.md)
 6. [NA5 数値積分・直交多項式・Gauss 型積分](textbook/volumes/00_foundations/NA5/index.md)
-7. [NA6 ODE 数値解法 I：一段法と収束](textbook/volumes/00_foundations/NA6/index.md)
-8. [NA7 ODE 数値解法 II：Runge–Kutta・絶対安定性](textbook/volumes/00_foundations/NA7/index.md)
-9. [NA8 数値線形代数 I：直接法](textbook/volumes/00_foundations/NA8/index.md)
-10. [NA9 数値線形代数 II：反復法・Krylov 法](textbook/volumes/00_foundations/NA9/index.md)
+7. [NA6 常微分方程式の一段法と収束](textbook/volumes/00_foundations/NA6/index.md)
+8. [NA7 Runge–Kutta 法・絶対安定性](textbook/volumes/00_foundations/NA7/index.md)
+9. [NA8 数値線形代数の直接法](textbook/volumes/00_foundations/NA8/index.md)
+10. [NA9 数値線形代数の反復法・Krylov 法](textbook/volumes/00_foundations/NA9/index.md)
 11. [NA10 固有値数値計算](textbook/volumes/00_foundations/NA10/index.md)
 12. [NA11 Perron–Frobenius 理論と PageRank](textbook/volumes/00_foundations/NA11/index.md)
 13. [NA12 無制約最適化と共役勾配法](textbook/volumes/00_foundations/NA12/index.md)
@@ -376,8 +376,8 @@
 <a id="dt-subject-differential-geometry-ii"></a>
 ### 微分幾何 II
 
-1. [GEO10 Euclid 空間の曲線・超曲面 I：基本形式と形作用素](textbook/volumes/00_foundations/GEO10/index.md)
-2. [GEO11 Euclid 空間の超曲面 II：構造方程式・Gauss--Codazzi・基本定理](textbook/volumes/00_foundations/GEO11/index.md)
+1. [GEO10 Euclid 空間の曲線・超曲面：基本形式と形作用素](textbook/volumes/00_foundations/GEO10/index.md)
+2. [GEO11 Euclid 空間の超曲面：構造方程式・Gauss--Codazzi・基本定理](textbook/volumes/00_foundations/GEO11/index.md)
 3. [GEO12 Riemann 計量・長さ・距離・体積](textbook/volumes/00_foundations/GEO12/index.md)
 4. [GEO13 アフィン接続・Levi-Civita 接続・平行移動](textbook/volumes/00_foundations/GEO13/index.md)
 5. [GEO14 測地線・指数写像・正規座標](textbook/volumes/00_foundations/GEO14/index.md)
@@ -431,8 +431,8 @@
 8. [OPT7 滑らかな凸最適化](textbook/volumes/00_foundations/OPT7/index.md)
 9. [OPT8 非滑らか・近接最適化](textbook/volumes/00_foundations/OPT8/index.md)
 10. [OPT9 制約付き数値最適化](textbook/volumes/00_foundations/OPT9/index.md)
-11. [OPT10 線形計画 I：多面体・極点・双対](textbook/volumes/00_foundations/OPT10/index.md)
-12. [OPT11 線形計画 II：単体法・内点法・感度解析](textbook/volumes/00_foundations/OPT11/index.md)
+11. [OPT10 多面体・極点・線形計画双対](textbook/volumes/00_foundations/OPT10/index.md)
+12. [OPT11 単体法・内点法・感度解析](textbook/volumes/00_foundations/OPT11/index.md)
 13. [OPT12 二次計画・錐計画入門](textbook/volumes/00_foundations/OPT12/index.md)
 
 <a id="dt-subject-fixed-point"></a>

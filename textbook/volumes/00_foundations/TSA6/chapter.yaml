@@ -1,5 +1,5 @@
 id: "TSA6"
-title: "Encore IV 時系列解析 VI：状態空間・Kalman フィルタ・イノベーション"
+title: "状態空間・Kalman フィルタ・イノベーション"
 volume: "foundations"
 status: supplementary
 prerequisites:

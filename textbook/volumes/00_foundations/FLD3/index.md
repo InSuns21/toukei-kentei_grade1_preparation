@@ -1,4 +1,4 @@
-# FLD3 抽象代数 XIII：素数冪位数の体
+# FLD3 有限体
 
 <!-- definition-example-audit: strict -->
 

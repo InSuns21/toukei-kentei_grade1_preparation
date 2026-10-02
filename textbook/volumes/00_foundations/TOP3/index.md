@@ -1,4 +1,4 @@
-# TOP3 標準位相 III：連結性・弧状連結性・連結成分
+# TOP3 連結性・弧状連結性・連結成分
 
 <!-- definition-example-audit: strict -->
 

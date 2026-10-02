@@ -1,4 +1,4 @@
-# RNG1 抽象代数 V：環・イデアル・商環
+# RNG1 環・環準同型・イデアル・商環
 
 <!-- definition-example-audit: strict -->
 

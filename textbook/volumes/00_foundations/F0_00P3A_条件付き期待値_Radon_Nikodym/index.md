@@ -1,4 +1,4 @@
-# F0-00P3A 条件付き期待値：情報を表すσ代数上のRadon–Nikodym構成
+# P3A 条件付き期待値・Radon–Nikodym
 
 <!-- definition-example-audit: strict -->
 

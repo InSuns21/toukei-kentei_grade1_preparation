@@ -1,4 +1,4 @@
-# MOD2 抽象代数 X：PID 上の行列標準形と有限生成加群
+# MOD2 Smith 標準形・PID 上有限生成加群
 
 <!-- definition-example-audit: strict -->
 

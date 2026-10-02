@@ -1,5 +1,5 @@
 id: "STO2A"
-title: "離散時間Markov連鎖：再帰・Green核・不変測度"
+title: "離散時間Markov連鎖・再帰・Green核・不変測度"
 volume: "foundations"
 status: supplementary
 prerequisites:

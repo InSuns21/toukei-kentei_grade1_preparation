@@ -1,4 +1,4 @@
-# GRP4 抽象代数 IV：素数から有限群の構造を読む
+# GRP4 Cauchy の定理・Sylow の定理・有限群への応用
 
 <!-- definition-example-audit: strict -->
 

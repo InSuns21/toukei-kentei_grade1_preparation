@@ -1,4 +1,4 @@
-# GEO18 曲率の符号は大域幾何をどう縛るか：比較定理・Bonnet--Myers・Cartan--Hadamard
+# GEO18 比較幾何入門
 
 <!-- definition-example-audit: strict -->
 

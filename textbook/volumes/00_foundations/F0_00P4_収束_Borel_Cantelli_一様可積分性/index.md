@@ -1,4 +1,4 @@
-# F0-00P4 limsup・liminf・末尾事象・Borel--Cantelli・確率収束
+# P4 収束・Borel–Cantelli・UI
 
 <!-- definition-example-audit: strict -->
 

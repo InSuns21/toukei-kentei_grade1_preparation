@@ -1,4 +1,4 @@
-# QMC4 準 Monte Carlo IV：$(t,m,s)$-net・$(t,s)$-sequence
+# QMC4 $(t,m,s)$-net・$(t,s)$-sequence
 
 QMC1 では、点集合の一様性をスター・ディスクレパンシーで測りました。
 

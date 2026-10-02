@@ -1,5 +1,5 @@
 id: "FDM2"
-title: "差分法 II：差分スキームの安定性"
+title: "差分スキームの安定性"
 volume: "foundations"
 status: supplementary
 prerequisites:

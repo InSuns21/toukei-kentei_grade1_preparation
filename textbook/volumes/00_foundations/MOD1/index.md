@@ -1,4 +1,4 @@
-# MOD1 抽象代数 IX：加群論の基礎
+# MOD1 加群・部分加群・商加群・自由加群
 
 <!-- definition-example-audit: strict -->
 

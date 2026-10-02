@@ -1,4 +1,4 @@
-# F0-02C1A 関数解析I-A：Hilbert射影定理・直交分解
+# F0-02C1A Hilbert射影定理
 
 F0-02C1でBanach/Hilbert空間の型を分けました。この講義ではHilbert空間の**閉凸集合への最近点**を、有限次元のcompactnessに頼らず、内積構造と完備性から構成します。
 

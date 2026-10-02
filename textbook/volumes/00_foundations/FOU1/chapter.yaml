@@ -1,5 +1,5 @@
 id: "FOU1"
-title: "標準Fourier解析 I：Fourier級数・直交性・係数計算"
+title: "Fourier級数・直交性・係数計算"
 volume: "foundations"
 status: supplementary
 prerequisites:

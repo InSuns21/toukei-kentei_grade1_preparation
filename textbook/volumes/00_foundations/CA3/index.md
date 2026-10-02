@@ -1,4 +1,4 @@
-# CA3 標準複素解析 III：Cauchy積分公式・Taylor展開・Liouville・最大値原理
+# CA3 Cauchy積分公式・Taylor展開・Liouville・最大値原理
 
 <!-- definition-example-audit: strict -->
 

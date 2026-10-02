@@ -1,4 +1,4 @@
-# GRP2 抽象代数 II：構造を保つ写像と商構造
+# GRP2 準同型・剰余類・正規部分群・商群
 
 <!-- definition-example-audit: strict -->
 

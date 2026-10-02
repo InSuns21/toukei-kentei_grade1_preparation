@@ -1,4 +1,4 @@
-# QMC3 準 Monte Carlo III：格子則
+# QMC3 格子則
 
 QMC2 では、関数空間を固定したときの最悪誤差を
 

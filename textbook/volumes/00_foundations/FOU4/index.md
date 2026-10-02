@@ -1,4 +1,4 @@
-# FOU4 Plancherel：$L^2$ へ Fourier 変換を延長する
+# FOU4 Plancherel・L2 Fourier解析
 
 FOU3 では
 

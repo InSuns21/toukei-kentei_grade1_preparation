@@ -1,4 +1,4 @@
-# VC9 保存則から流体・電磁気へ
+# VC9 保存則・流体・Maxwell 方程式
 
 VC1--VC8 では、勾配・発散・回転から始め、線積分・曲面積分、Green・Gauss--Ostrogradsky・Kelvin--Stokes の各定理、デカルトテンソル、Helmholtz 分解までを組み立てました。
 

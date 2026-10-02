@@ -1,4 +1,4 @@
-# F0-00P3D：押し出し積分・LOTUS・Doob--Dynkin の補題
+# P3D pushforward・LOTUS・Doob–Dynkinの証明
 
 P2Aでは LOTUS を使い、P3Aでは
 

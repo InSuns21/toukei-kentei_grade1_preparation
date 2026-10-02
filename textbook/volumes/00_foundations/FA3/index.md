@@ -1,4 +1,4 @@
-# FA3 標準関数解析 III：弱位相・弱*位相・標準埋め込み
+# FA3 弱位相・弱*位相・標準埋め込み
 
 <!-- definition-example-audit: strict -->
 

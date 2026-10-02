@@ -1,4 +1,4 @@
-# F0-00E2 Cauchy--Schwarz・三角不等式・Bessel・Parseval
+# F0-00E2 Cauchy–Schwarz・Bessel・Parseval
 
 [F0-00E1](../F0_00E1_内積_Gram_Schmidt_射影_QR/index.md) では、内積から正規直交基底・Gram--Schmidt・射影・QRまでを構成しました。
 

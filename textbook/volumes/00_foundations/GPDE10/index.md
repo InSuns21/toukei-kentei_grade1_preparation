@@ -1,4 +1,4 @@
-# GPDE10：Galerkin・時間発展 PDE の弱解 — 有限次元近似から解を作る
+# GPDE10 Galerkin・時間発展 PDE の弱解
 
 <!-- definition-example-audit: strict -->
 
