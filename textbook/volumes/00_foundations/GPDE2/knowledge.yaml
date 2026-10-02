@@ -119,7 +119,7 @@ concepts:
     kind: lemma
     aliases: [Rd translation lemma]
     introduction: formal
-    introduction_aliases: ["補題（$\mathbb R^d$ の平行移動補題）"]
+    introduction_aliases: ['補題（$\mathbb R^d$ の平行移動補題）']
     requires:
       - measure.cc-dense-in-lp
 
