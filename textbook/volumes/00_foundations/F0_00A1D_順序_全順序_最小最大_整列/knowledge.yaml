@@ -89,7 +89,6 @@ concepts:
     name: 最大元と極大元の区別
     kind: term
     aliases: [最大元と極大元の区別]
-    introduction_aliases: [最小元・最大元と極小元・極大元]
     requires:
       - order.maximum-element
       - order.maximal-element
