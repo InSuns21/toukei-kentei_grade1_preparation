@@ -2,29 +2,12 @@
 
 <!-- definition-example-audit: strict -->
 
-<a id="def-gpde9-difference-quotient"></a>
-
-<!-- formal-statement-start -->
-> **定義（difference quotient）**  
-> $u$ を $x$ と $x+he_k$ で定義された関数、$h\ne0$ とする。第 $k$ 方向の前進 difference quotient を
->
-$$
-\boxed{
-D_h^k u(x)
-:=
-\frac{u(x+he_k)-u(x)}{h}
-}
-$$
->
-> と定める。
-<!-- formal-statement-end -->
-
 GPDE8 では、二階線形楕円型 PDE を弱形式へ落とし、
 
 $$
-\text{uniform ellipticity}
-+\text{boundedness}
-+\text{coercivity}
+\text{一様楕円性}
++\text{有界性}
++\text{強圧条件}
 \Longrightarrow
 u\in H_0^1(\Omega)
 $$
@@ -49,7 +32,26 @@ $$
 
 まで正則性を回復できる場合があります。
 
-本章の主役は **difference quotient（差分商）** です。
+しかし、この段階では二階微分そのものの存在をまだ仮定できません。そこで、関数を少し平行移動した差を刻み幅で割り、微分の代わりになる量を先に作ります。この量なら $H^1$ 関数に対しても定義でき、刻み幅を 0 へ近づけることで二階弱微分の存在を調べられます。
+
+<a id="def-gpde9-difference-quotient"></a>
+
+<!-- formal-statement-start -->
+> **定義（差分商）**  
+> $u$ を $x$ と $x+he_k$ で定義された関数、$h\ne0$ とする。第 $k$ 方向の前進差分商を
+>
+$$
+\boxed{
+D_h^k u(x)
+:=
+\frac{u(x+he_k)-u(x)}{h}
+}
+$$
+>
+> と定める。
+<!-- formal-statement-end -->
+
+本章の主役はこの **差分商** です。
 
 以下、ほとんど至る所（almost everywhere; a.e.）を a.e. と略記します。
 
@@ -67,13 +69,13 @@ $$
 
 $$
 \boxed{
-\text{cutoff}
+\text{局所化関数}
 \to
-\text{difference quotient}
+\text{差分商}
 \to
-\text{energy estimate}
+\text{エネルギー評価}
 \to
-\text{一様 }L^2\text{ bound}
+\text{一様 }L^2\text{ 評価}
 \to
 \text{弱微分の存在}
 }
@@ -97,8 +99,8 @@ $$
 
 一方で、
 
-- 係数が jump する
-- 境界に reentrant corner がある
+- 係数が 跳躍 する
+- 境界に 再入角 がある
 
 といった場合には $H^2$ 正則性が壊れ得ます。
 
@@ -116,7 +118,7 @@ $$
 
 ---
 
-## 1. interior regularity と boundary regularity を分ける
+## 1. 内部正則性 と 境界正則性 を分ける
 
 まず記号を固定します。
 
@@ -126,7 +128,7 @@ $$
 U\Subset V
 $$
 
-とは、$\overline U$ が $V$ の compact subset であることを表します。
+とは、$\overline U$ が $V$ の コンパクト部分集合 であることを表します。
 
 したがって
 
@@ -144,7 +146,7 @@ $$
 
 を保証できます。
 
-本章の主定理は **interior $H^2$ regularity** です。
+本章の主定理は **内部 $H^2$ 正則性** です。
 
 つまり
 
@@ -152,9 +154,9 @@ $$
 U\Subset V\Subset\Omega
 $$
 
-を固定し、境界 $\partial\Omega$ から離れた $U$ 上で $H^2$ regularity を示します。
+を固定し、境界 $\partial\Omega$ から離れた $U$ 上で $H^2$ 正則性 を示します。
 
-これは global $H^2(\Omega)$ regularity とは別問題です。
+これは global $H^2(\Omega)$ 正則性 とは別問題です。
 
 境界まで $H^2$ を伸ばすには
 
@@ -168,7 +170,7 @@ $$
 
 ---
 
-## 2. difference quotient を微分の代理にする
+## 2. 差分商を微分の代理にする
 
 $e_k$ を第 $k$ 座標方向の単位ベクトルとします。
 
@@ -197,7 +199,7 @@ D_hu(x)\to2x=u'(x)
 (h\to0).
 $$
 
-difference quotient は「微分できると仮定して微分する」のではなく、平行移動だけで作れる量です。
+差分商 は「微分できると仮定して微分する」のではなく、平行移動だけで作れる量です。
 <!-- definition-example-end -->
 
 Sobolev 関数でも平行移動は意味を持つため、二階微分の存在をまだ知らない段階で
@@ -210,9 +212,9 @@ $$
 
 ---
 
-## 3. $H^1$ 関数の difference quotient は一階微分で抑えられる
+## 3. $H^1$ 関数の差分商は一階微分で抑えられる
 
-まず smooth function について基本評価を作ります。
+まず 滑らかな関数 について基本評価を作ります。
 
 $U\Subset V$ とし、
 
@@ -260,7 +262,7 @@ $$
 <a id="lem-gpde9-dq-bound"></a>
 
 <!-- formal-statement-start -->
-> **補題（H1 difference quotient estimate）**  
+> **補題（H1 差分商評価）**  
 > $U\Subset V\subset\mathbb R^d$ とし、$u\in H^1(V)$ とする。十分小さい $|h|>0$ に対して
 >
 $$
@@ -291,7 +293,7 @@ $$
 
 とします。
 
-GPDE3 の局所 mollification により、$u_\varepsilon\in C^\infty(W)$ で
+GPDE3 の局所 平滑化 により、$u_\varepsilon\in C^\infty(W)$ で
 
 $$
 u_\varepsilon\to u
@@ -300,7 +302,7 @@ $$
 
 となる列を取れます。
 
-smooth case から
+滑らかな場合 から
 
 $$
 \|D_h^k u_\varepsilon\|_{L^2(U)}
@@ -351,7 +353,7 @@ $$
 
 ---
 
-## 4. difference quotient 版の部分積分
+## 4. 差分商版の部分積分
 
 通常の部分積分では
 
@@ -366,13 +368,13 @@ $$
 
 でした。
 
-difference quotient にも完全に対応する恒等式があります。
+差分商 にも完全に対応する恒等式があります。
 
 <a id="lem-gpde9-discrete-ibp"></a>
 
 <!-- formal-statement-start -->
-> **補題（difference quotient の部分積分）**  
-> $u,v\in L^2(\mathbb R^d)$ とし、少なくとも一方が compact support を持つとする。$h\ne0$ に対して
+> **補題（差分商 の部分積分）**  
+> $u,v\in L^2(\mathbb R^d)$ とし、少なくとも一方が コンパクト台 を持つとする。$h\ne0$ に対して
 >
 $$
 \boxed{
@@ -446,18 +448,18 @@ $$
 これで示されました。
 <!-- proof-end -->
 
-この恒等式により、微分を test function 側へ移すのと同様に、difference quotient も反対向きの difference quotient として移せます。
+この恒等式により、微分を テスト関数 側へ移すのと同様に、差分商 も反対向きの 差分商 として移せます。
 
 ---
 
-## 5. difference quotient の一様 bound から弱微分を作る
+## 5. 差分商の一様評価から弱微分を作る
 
 次が正則性証明の出口です。
 
 <a id="lem-gpde9-dq-criterion"></a>
 
 <!-- formal-statement-start -->
-> **補題（difference quotient criterion）**  
+> **補題（差分商判定法）**  
 > $U\Subset V\subset\mathbb R^d$、$u\in L^2(V)$ とする。ある $M<\infty$、$h_0>0$ が存在して
 >
 $$
@@ -497,7 +499,7 @@ $$
 
 を $L^2(U)$ の有界列として扱います。
 
-GPDE5 の [完備内積空間の有界列から弱収束部分列](../GPDE5/index.md#thm-gpde5-hilbert-weak-subsequence)を使って弱収束部分列を取り、その弱極限が distributional derivative $\partial_k u$ であることを [difference quotient の部分積分](#lem-gpde9-discrete-ibp)から確認します。
+GPDE5 の [完備内積空間の有界列から弱収束部分列](../GPDE5/index.md#thm-gpde5-hilbert-weak-subsequence)を使って弱収束部分列を取り、その弱極限が 超関数微分 $\partial_k u$ であることを [差分商 の部分積分](#lem-gpde9-discrete-ibp)から確認します。
 
 <!-- proof-start -->
 ### 証明
@@ -523,16 +525,16 @@ $$
 D_{h_n}^k u
 \rightharpoonup
 g
-\quad\text{weakly in }L^2(U)
+\quad\text{弱い意味で in }L^2(U)
 $$
 
 とできます。
 
 $\varphi\in C_c^\infty(U')$ を取ります。
 
-$n$ が十分大きければ $\varphi(\cdot-he_k)$ の support も $U$ に入ります。
+$n$ が十分大きければ $\varphi(\cdot-he_k)$ の 台 も $U$ に入ります。
 
-[difference quotient の部分積分](#lem-gpde9-discrete-ibp)から
+[差分商 の部分積分](#lem-gpde9-discrete-ibp)から
 
 $$
 \int_U
@@ -551,7 +553,7 @@ $$
 
 へ収束します。
 
-一方、$\varphi$ は smooth なので
+一方、$\varphi$ は 滑らかな なので
 
 $$
 D_{-h_n}^k\varphi
@@ -591,7 +593,7 @@ $$
 \quad\text{a.e. on }U'.
 $$
 
-さらに [Hilbert norm の弱収束時の norm 評価](../GPDE6/index.md#lem-gpde6-weak-lsc)から
+さらに [Hilbert 空間の弱収束時ノルム評価](../GPDE6/index.md#lem-gpde6-weak-lsc)から
 
 $$
 \|\partial_k u\|_{L^2(U')}
@@ -618,7 +620,7 @@ $$
 
 ---
 
-## 6. cutoff を掛ける理由
+## 6. 局所化関数 を掛ける理由
 
 内部正則性では
 
@@ -639,10 +641,10 @@ $$
 
 となるように取ります。
 
-cutoff の役割は二つです。
+局所化関数 の役割は二つです。
 
-1. test function の support を $V$ の内部に閉じ込める。
-2. $U$ 上では $\eta=1$ なので、得られた weighted estimate をそのまま $U$ 上の estimate に戻す。
+1. テスト関数 の 台 を $V$ の内部に閉じ込める。
+2. $U$ 上では $\eta=1$ なので、得られた 重み付き評価 をそのまま $U$ 上の 評価 に戻す。
 
 代償として
 
@@ -652,7 +654,7 @@ $$
 
 を含む誤差項が出ます。
 
-したがって elliptic regularity では繰り返し
+したがって 楕円型正則性 では繰り返し
 
 $$
 \text{主項}
@@ -660,11 +662,11 @@ $$
 \nabla\eta\text{ を含む誤差項}
 $$
 
-という形の energy estimate が現れます。
+という形の エネルギー評価 が現れます。
 
 ---
 
-## 7. Caccioppoli 型 estimate：まず一階 energy を局所化する
+## 7. Caccioppoli 型評価：まず一階エネルギーを局所化する
 
 $u\in H^1(V)$ が
 
@@ -693,9 +695,9 @@ $$
 \varphi=\eta^2u
 $$
 
-を test します。
+を テスト します。
 
-smooth multiplier の積の弱微分則から
+滑らかな乗数 の積の弱微分則から
 
 $$
 \nabla(\eta^2u)
@@ -721,12 +723,12 @@ $$
 <a id="prop-gpde9-caccioppoli-poisson"></a>
 
 <!-- formal-statement-start -->
-> **命題（Poisson 方程式の Caccioppoli 型 estimate）**  
+> **命題（Poisson 方程式の Caccioppoli 型評価）**  
 > $u\in H^1(V)$、$f\in L^2(V)$ が
 >
 $$
 -\Delta u=f
-\quad\text{weakly in }V
+\quad\text{弱い意味で in }V
 $$
 >
 > を満たすとする。任意の $\eta\in C_c^\infty(V)$、$0\le\eta\le1$ に対して
@@ -827,7 +829,7 @@ $$
 これで示されました。
 <!-- proof-end -->
 
-特に $U\Subset V$ に対し cutoff を
+特に $U\Subset V$ に対し 局所化関数 を
 
 $$
 \eta=1\text{ on }U,
@@ -854,11 +856,11 @@ $$
 
 が得られます。
 
-これが二階 estimate の下地です。
+これが二階 評価 の下地です。
 
 ---
 
-## 8. Poisson 方程式の内部 $H^2$ regularity
+## 8. Poisson 方程式の内部 $H^2$ 正則性
 
 いよいよ
 
@@ -878,7 +880,7 @@ $$
 
 とします。
 
-第 $k$ 方向の difference quotient を
+第 $k$ 方向の 差分商 を
 
 $$
 w_h=D_h^k u
@@ -888,7 +890,7 @@ $$
 
 固定した $h\ne0$ では、平行移動により $w_h\in H^1$ です。
 
-test function として
+テスト関数 として
 
 $$
 \boxed{
@@ -903,7 +905,7 @@ $$
 
 この選び方が核心です。
 
-[difference quotient の部分積分](#lem-gpde9-discrete-ibp)により、左辺の $\nabla u$ へ $D_h^k$ を移すと
+[差分商 の部分積分](#lem-gpde9-discrete-ibp)により、左辺の $\nabla u$ へ $D_h^k$ を移すと
 
 $$
 D_h^k\nabla u
@@ -915,12 +917,12 @@ $$
 
 が現れます。
 
-つまり二階微分の近似が energy の主項になります。
+つまり二階微分の近似が エネルギー の主項になります。
 
 <a id="thm-gpde9-poisson-interior-h2"></a>
 
 <!-- formal-statement-start -->
-> **定理（Poisson 方程式の interior H2 regularity）**  
+> **定理（Poisson 方程式の 内部 H2 正則性）**  
 > $\Omega\subset\mathbb R^d$ を開集合とし、
 >
 $$
@@ -974,15 +976,15 @@ $$
 
 ### 証明の見取り図
 
-1. cutoff $\eta$ を取る。
+1. 局所化関数 $\eta$ を取る。
 2. $w_h=D_h^k u$ と置く。
-3. $-D_{-h}^k(\eta^2w_h)$ を test する。
+3. $-D_{-h}^k(\eta^2w_h)$ を テスト する。
 4. 左辺から $\eta^2|\nabla w_h|^2$ を得る。
-5. 右辺は difference quotient estimate で $\nabla(\eta^2w_h)$ に戻す。
+5. 右辺は 差分商 評価 で $\nabla(\eta^2w_h)$ に戻す。
 6. [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)で $\|\eta\nabla w_h\|_2$ を吸収する。
 7. $\|w_h\|_2$ は一階微分 $\|\partial_k u\|_2$ で一様に抑える。
-8. [difference quotient criterion](#lem-gpde9-dq-criterion) で $\partial_k\partial_j u\in L^2$ を得る。
-9. Caccioppoli estimate で $\|\nabla u\|_2$ を $\|u\|_2+\|f\|_2$ に戻す。
+8. [差分商判定法](#lem-gpde9-dq-criterion) で $\partial_k\partial_j u\in L^2$ を得る。
+9. Caccioppoli 評価 で $\|\nabla u\|_2$ を $\|u\|_2+\|f\|_2$ に戻す。
 
 <!-- proof-start -->
 ### 証明
@@ -1007,7 +1009,7 @@ $$
 
 と置きます。
 
-まず distributional equation は $C_c^\infty(V)$ 上で
+まず 超関数としての方程式 は $C_c^\infty(V)$ 上で
 
 $$
 \int_V \nabla u\cdot\nabla\psi\,dx
@@ -1039,9 +1041,9 @@ $$
 \|\psi\|_{L^2(V)}
 $$
 
-と評価できます。$H_0^1(V)$ は $C_c^\infty(V)$ の $H^1$-closure なので、この等式は密度と両辺の連続性により $H_0^1(V)$ の test function へ一意に拡張されます。
+と評価できます。$H_0^1(V)$ は $C_c^\infty(V)$ の $H^1$-closure なので、この等式は密度と両辺の連続性により $H_0^1(V)$ の テスト関数 へ一意に拡張されます。
 
-さらに $|h|$ を上で選んだ範囲に取れば $\eta^2w_h$ と必要な平行移動の support は $V$ 内にあり、
+さらに $|h|$ を上で選んだ範囲に取れば $\eta^2w_h$ と必要な平行移動の 台 は $V$ 内にあり、
 
 $$
 \varphi
@@ -1051,7 +1053,7 @@ D_{-h}^k(\eta^2w_h)
 \in H_0^1(V)
 $$
 
-です。したがってこの $\varphi$ を test できます。
+です。したがってこの $\varphi$ を テスト できます。
 
 弱形式は
 
@@ -1064,7 +1066,7 @@ $$
 f\bigl(-D_{-h}^k(\eta^2w_h)\bigr)\,dx.
 $$
 
-[difference quotient の部分積分](#lem-gpde9-discrete-ibp)を左辺へ使うと
+[差分商 の部分積分](#lem-gpde9-discrete-ibp)を左辺へ使うと
 
 $$
 \int_V
@@ -1126,7 +1128,7 @@ $$
 
 と置きます。
 
-cutoff の cross term は
+局所化関数 の cross term は
 
 $$
 \left|
@@ -1137,7 +1139,7 @@ $$
 2XY.
 $$
 
-右辺について、difference quotient estimate を $\eta^2w_h$ に適用すると
+右辺について、差分商 評価 を $\eta^2w_h$ に適用すると
 
 $$
 \|D_{-h}^k(\eta^2w_h)\|_2
@@ -1224,7 +1226,7 @@ Y
 \|w_h\|_{L^2(W)}.
 $$
 
-第3節の difference quotient estimate から
+第3節の 差分商 評価 から
 
 $$
 \|w_h\|_{L^2(W)}
@@ -1266,7 +1268,7 @@ $$
 
 右辺は $h$ に依りません。
 
-[difference quotient criterion](#lem-gpde9-dq-criterion) を $\partial_j u$ へ適用すると
+[差分商判定法](#lem-gpde9-dq-criterion) を $\partial_j u$ へ適用すると
 
 $$
 \partial_k\partial_j u
@@ -1295,7 +1297,7 @@ C
 \right).
 $$
 
-最後に $U\Subset W\Subset V$ として Caccioppoli estimate を $W$ に適用すれば
+最後に $U\Subset W\Subset V$ として Caccioppoli 評価 を $W$ に適用すれば
 
 $$
 \|\nabla u\|_{L^2(W)}
@@ -1330,7 +1332,7 @@ $$
 証明完了です。
 <!-- proof-end -->
 
-ここで重要なのは、$f$ を difference quotient していないことです。
+ここで重要なのは、$f$ を 差分商 していないことです。
 
 右辺
 
@@ -1339,7 +1341,7 @@ $$
 fD_{-h}^k(\eta^2w_h)
 $$
 
-をそのまま $L^2$-$L^2$ で評価し、difference quotient を test function 側の一階微分で抑えています。
+をそのまま $L^2$-$L^2$ で評価し、差分商 を テスト関数 側の一階微分で抑えています。
 
 したがって
 
@@ -1351,7 +1353,7 @@ $$
 
 ---
 
-## 9. 一般の divergence form：係数の regularity が追加で必要になる
+## 9. 一般の発散形：係数の正則性が追加で必要になる
 
 次に
 
@@ -1368,12 +1370,12 @@ GPDE8 では
 $$
 A\in L^\infty,
 \qquad
-A\text{ uniformly elliptic}
+A\text{ 一様楕円的}
 $$
 
 で弱解の存在まで進めました。
 
-しかし difference quotient を掛けると
+しかし 差分商 を掛けると
 
 $$
 D_h^k(A\nabla u)
@@ -1403,14 +1405,14 @@ $$
 D_h^kA
 $$
 
-を $h$ に依らず抑えるには、係数 $A$ に追加 regularity が必要です。
+を $h$ に依らず抑えるには、係数 $A$ に追加 正則性 が必要です。
 
 本章では最も見通しのよい十分条件として、$A$ が局所 Lipschitz である場合を扱います。
 
 <a id="prop-gpde9-variable-caccioppoli"></a>
 
 <!-- formal-statement-start -->
-> **命題（一般係数の Caccioppoli 型 estimate）**  
+> **命題（一般係数の Caccioppoli 型評価）**  
 > $V\Subset\Omega$ とし、$A$ が
 >
 $$
@@ -1455,7 +1457,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\varphi=\eta^2u$ を test すると
+$\varphi=\eta^2u$ を テスト すると
 
 $$
 \int
@@ -1535,7 +1537,7 @@ $$
 <a id="thm-gpde9-lipschitz-coefficient-h2"></a>
 
 <!-- formal-statement-start -->
-> **定理（局所 Lipschitz 係数の interior H2 regularity）**  
+> **定理（局所 Lipschitz 係数の 内部 H2 正則性）**  
 > $\Omega\subset\mathbb R^d$ を開集合とする。
 >
 > $A:\Omega\to\mathbb R^{d\times d}$ とする。任意の $V\Subset\Omega$ に対し、ある定数
@@ -1570,7 +1572,7 @@ $$
 >
 $$
 -\operatorname{div}(A\nabla u)=f
-\quad\text{weakly in }\Omega
+\quad\text{弱い意味で in }\Omega
 $$
 >
 > を満たすとする。
@@ -1603,7 +1605,7 @@ $$
 
 ### 証明の見取り図
 
-Poisson の証明と同じ test function
+Poisson の証明と同じ テスト関数
 
 $$
 -D_{-h}^k(\eta^2D_h^ku)
@@ -1631,7 +1633,7 @@ $$
 L
 $$
 
-が $h$ に依らず成り立つため、その項は lower-order error として [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)で吸収できます。
+が $h$ に依らず成り立つため、その項は 下位誤差項 として [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)で吸収できます。
 
 <!-- proof-start -->
 ### 証明
@@ -1671,9 +1673,9 @@ $$
 D_{-h}^k(\eta^2w_h)
 $$
 
-を test します。
+を テスト します。
 
-[difference quotient の部分積分](#lem-gpde9-discrete-ibp)から
+[差分商 の部分積分](#lem-gpde9-discrete-ibp)から
 
 $$
 \int
@@ -1686,7 +1688,7 @@ D_h^k(A\nabla u)
 fD_{-h}^k(\eta^2w_h).
 $$
 
-積の difference quotient を展開すると
+積の 差分商 を展開すると
 
 $$
 D_h^k(A\nabla u)
@@ -1739,7 +1741,7 @@ A_h\nabla w_h\cdot\nabla w_h
 \|\eta\nabla w_h\|_2^2.
 $$
 
-$X=\|\eta\nabla w_h\|_2$、$Y=\|w_h\nabla\eta\|_2$ と置くと cutoff error は
+$X=\|\eta\nabla w_h\|_2$、$Y=\|w_h\nabla\eta\|_2$ と置くと 局所化関数 error は
 
 $$
 \le
@@ -1783,7 +1785,7 @@ fD_{-h}^k(\eta^2w_h)
 \|D_{-h}^k(\eta^2w_h)\|_2.
 $$
 
-さらに [H1 difference quotient estimate](#lem-gpde9-dq-bound) と積の弱微分則から
+さらに [H1 差分商評価](#lem-gpde9-dq-bound) と積の弱微分則から
 
 $$
 \begin{aligned}
@@ -1868,7 +1870,7 @@ $$
 
 を $h$ に一様に得ます。
 
-Poisson の場合と同じく [difference quotient criterion](#lem-gpde9-dq-criterion) を各 $\partial_ju$ に適用して
+Poisson の場合と同じく [差分商判定法](#lem-gpde9-dq-criterion) を各 $\partial_ju$ に適用して
 
 $$
 D^2u\in L^2(U)
@@ -1876,7 +1878,7 @@ $$
 
 を得ます。
 
-最後に一般係数版 Caccioppoli estimate を使って
+最後に一般係数版 Caccioppoli 評価 を使って
 
 $$
 \|\nabla u\|_{L^2(W)}
@@ -1985,7 +1987,7 @@ $$
 -(a u')'=0.
 $$
 
-しかし $u'$ は $x=0$ で jump しています。
+しかし $u'$ は $x=0$ で 跳躍 しています。
 
 distributional second derivative は
 
@@ -2016,16 +2018,16 @@ $$
 つまり
 
 $$
-\text{uniform ellipticity}+L^\infty\text{ coefficients}
+\text{一様楕円性}+L^\infty\text{ coefficients}
 $$
 
-は弱解の存在には十分でも、$H^2$ regularity には十分ではありません。
+は弱解の存在には十分でも、$H^2$ 正則性 には十分ではありません。
 
 ---
 
-## 11. 境界反例：interior $H^2$ があっても boundary $H^2$ は自動ではない
+## 11. 境界反例：内部 $H^2$ があっても境界 $H^2$ は自動ではない
 
-境界の角でも regularity は壊れます。
+境界の角でも 正則性 は壊れます。
 
 角度
 
@@ -2110,7 +2112,7 @@ $$
 
 です。
 
-従って $u\in H^1$ near the corner です。
+従って $u\in H^1$ 再入角の近く です。
 
 一方
 
@@ -2140,44 +2142,102 @@ $$
 
 が必要ですが、$\alpha<1$ です。
 
-従って
+従って、原点近くでは
 
 $$
-u\notin H^2
+u\notin H^2.
 $$
 
-near the reentrant corner です。
+ここまでの $u$ は円弧 $r=1$ 上では 0 とは限りません。零 Dirichlet 問題として反例を閉じるため、半径方向の局所化関数
 
-これは本章の interior theorem と矛盾しません。
+$$
+\chi\in C_c^\infty([0,1)),
+\qquad
+\chi(r)=1\ (0\le r\le1/3),
+\qquad
+\chi(r)=0\ (r\ge2/3)
+$$
 
-原点は domain の interior ではなく boundary point だからです。
+を取り、
 
-さらに、interior difference quotient 法の証明機構そのものが角で壊れます。本章の主証明では
+$$
+\widetilde u(r,\theta)
+=
+\chi(r)r^\alpha\sin(\alpha\theta)
+$$
+
+と置きます。
+
+二本の辺 $\theta=0,\omega$ では正弦因子が 0、外側の円弧では $\chi=0$ なので、$\widetilde u$ は境界全体で零トレースを持ち
+
+$$
+\widetilde u\in H_0^1(S_\omega)
+$$
+
+です。一方、$r\le1/3$ では $\widetilde u=u$ だから、上の二階微分の発散はそのまま残り
+
+$$
+\widetilde u\notin H^2(S_\omega).
+$$
+
+さらに
+
+$$
+f:=-\Delta\widetilde u
+$$
+
+と置きます。$r<1/3$ では $\chi=1$ かつ $\Delta u=0$ なので $f=0$ です。$\nabla\chi$ や $\Delta\chi$ が現れるのは $1/3<r<2/3$ の環状領域だけで、そこでは $u$ は滑らかです。したがって
+
+$$
+f\in C_c^\infty(S_\omega)\subset L^2(S_\omega).
+$$
+
+よって
+
+$$
+-\Delta\widetilde u=f,
+\qquad
+\widetilde u\in H_0^1(S_\omega),
+\qquad
+f\in L^2(S_\omega),
+$$
+
+なのに
+
+$$
+\widetilde u\notin H^2(S_\omega)
+$$
+
+です。これで、再入角では零 Dirichlet Poisson 問題でも大域 $H^2$ 正則性が壊れ得ることが分かります。
+
+これは本章の内部正則性定理と矛盾しません。原点は領域の内部ではなく境界点だからです。
+
+さらに、内部差分商法の証明機構そのものが角で壊れます。本章の主証明では
 
 $$
 U\Subset V
 $$
 
-を取り、cutoff の support とその $\pm he_k$ 平行移動がすべて $V$ の内部に残るように $h$ を選びました。ところが boundary point を含む近傍では、任意方向の平行移動が領域外へ出る可能性があり、この interior 用 test function をそのまま使えません。
+を取り、局所化関数 の 台 とその $\pm he_k$ 平行移動がすべて $V$ の内部に残るように $h$ を選びました。ところが 境界点 を含む近傍では、任意方向の平行移動が領域外へ出る可能性があり、この interior 用 テスト関数 をそのまま使えません。
 
-滑らかな境界なら局所座標で境界を平坦化し、接線方向の difference quotient と方程式から法線方向の二階微分を回収する、という別の機構を使えます。しかし reentrant corner では頂点近傍を一枚の滑らかな graph として平坦化できません。したがって、ここで失われているのは単なる「境界からの距離」だけでなく、**boundary regularity を支える局所座標機構**です。
+滑らかな境界なら局所座標で境界を平坦化し、接線方向の 差分商 と方程式から法線方向の二階微分を回収する、という別の機構を使えます。しかし 再入角 では頂点近傍を一枚の滑らかな graph として平坦化できません。したがって、ここで失われているのは単なる「境界からの距離」だけでなく、**境界正則性 を支える局所座標機構**です。
 
 $$
 \boxed{
-\text{interior regularity}
+\text{内部正則性}
 \text{ と }
-\text{boundary regularity}
+\text{境界正則性}
 \text{ は別問題}
 }
 $$
 
 です。
 
-### boundary regularity の正側はどこまで言えるか
+### 境界正則性 の正側はどこまで言えるか
 
 失敗例だけで終わらせず、正側の標準形も位置付けます。
 
-Poisson の零 Dirichlet 問題では、例えば $\Omega$ が bounded $C^{1,1}$ domain で
+Poisson の零 Dirichlet 問題では、例えば $\Omega$ が bounded $C^{1,1}$ 領域 で
 
 $$
 f\in L^2(\Omega),
@@ -2187,7 +2247,7 @@ u\in H_0^1(\Omega),
 -\Delta u=f
 $$
 
-を弱く満たすなら、標準的な global elliptic regularity theorem により
+を弱く満たすなら、標準的な global 楕円型正則性 theorem により
 
 $$
 u\in H^2(\Omega)
@@ -2201,19 +2261,19 @@ $$
 C\|f\|_{L^2(\Omega)}
 $$
 
-という global estimate が成立します。
+という 大域評価 が成立します。
 
-ただし、この global theorem の完全証明には boundary flattening、局所座標変換、境界近傍での tangential difference quotient、法線方向の回収を組み合わせる必要があります。本章の中心技法である **interior difference quotient 法だけでは閉じない**ため、ここでは intentional black box とします。
+ただし、この大域定理の完全証明には境界の平坦化、局所座標変換、境界近傍での接線方向の差分商、法線方向の二階微分の回収を組み合わせる必要があります。本章の中心である内部差分商法だけでは証明が閉じないため、ここでは定理の位置付けまでに留めます。
 
 本章で確定する境界は次です。
 
 - interior $H^2$: 本章で完全証明する。
-- reentrant corner での failure: 本章で直接検証する。
-- $C^{1,1}$ boundary での global $H^2$: 標準結果として位置付けるが、証明は boundary regularity の後続拡張へ送る。
+- 再入角 での 破綻: 本章で直接検証する。
+- $C^{1,1}$ boundary での global $H^2$: 標準結果として位置付けるが、証明は 境界正則性 の後続拡張へ送る。
 
 ---
 
-## 12. regularity の bootstrap と classical solution への戻り道
+## 12. 正則性の反復と古典解への戻り道
 
 Poisson 方程式では
 
@@ -2231,9 +2291,9 @@ f\in L^2_{\mathrm{loc}}
 u\in H^2_{\mathrm{loc}}
 $$
 
-までです。ここで重要なのは、**$H^2$ になっただけでは一般次元で直ちに classical solution とは言えない**ことです。
+までです。ここで重要なのは、**$H^2$ になっただけでは一般次元で直ちに 古典解 とは言えない**ことです。
 
-さらに $f$ がより滑らかなら、difference quotient を高階微分へ反復する higher-order regularity により
+さらに $f$ がより滑らかなら、差分商 を高階微分へ反復する higher-order 正則性 により
 
 $$
 f\in H^m_{\mathrm{loc}}
@@ -2241,9 +2301,9 @@ f\in H^m_{\mathrm{loc}}
 u\in H^{m+2}_{\mathrm{loc}}
 $$
 
-へ進めます。この反復の完全証明は multi-index bookkeeping を伴い、本章の主目的を越えるため intentional black box とします。追加前提は $f$ の高階 Sobolev regularity であり、証明機構は本章で行った差分商 estimate の反復です。
+へ進めます。この反復の完全証明には多重指数の添字整理が必要になるため、本章では証明せず、必要な追加仮定と証明の仕組みだけを確認します。追加前提は $f$ の高階 Sobolev 正則性であり、証明機構は本章で行った差分商評価の反復です。
 
-では、どの段階で classical solution に戻れるのでしょうか。
+では、どの段階で 古典解 に戻れるのでしょうか。
 
 十分条件として、整数 $m$ が
 
@@ -2257,7 +2317,7 @@ $$
 f\in H^m_{\mathrm{loc}}(\Omega)
 $$
 
-とします。higher-order regularity により
+とします。higher-order 正則性 により
 
 $$
 u\in H^{m+2}_{\mathrm{loc}}(\Omega)
@@ -2265,7 +2325,7 @@ $$
 
 まで上がったと仮定します。
 
-このとき higher-order Sobolev embedding
+このとき 高階 Sobolev 埋め込み
 
 $$
 H^m_{\mathrm{loc}}
@@ -2291,23 +2351,23 @@ $$
 -\Delta u=f
 $$
 
-だった等式の両辺は連続関数になったので、等式は各点で成り立ちます。したがって $u$ は classical solution です。
+だった等式の両辺は連続関数になったので、等式は各点で成り立ちます。したがって $u$ は 古典解 です。
 
-ここで使った higher-order Sobolev embedding は GPDE5 で扱った一次の embedding より先の一般形であり、本系列ではまだ完全証明を正本化していません。そのため、この段落は **weak solution から classical solution へ戻るために何が追加で必要かを示す bridge** であり、GPDE9 の証明依存にはしません。
+ここで使った高階 Sobolev 埋め込みは、GPDE5 で扱った一次の埋め込みをさらに高階へ進めた結果です。本章ではその定理自体の証明には進まず、**弱解から古典解へ戻るにはどの追加正則性が必要か**という学習上の接続だけを確認します。
 
 流れをまとめると
 
 $$
 \boxed{
-\text{weak solution}
+\text{弱解}
 \to
 H^2_{\mathrm{loc}}
 \to
-\text{higher Sobolev regularity}
+\text{higher Sobolev 正則性}
 \to
 C^2_{\mathrm{loc}}
 \to
-\text{classical solution}
+\text{古典解}
 }
 $$
 
@@ -2317,9 +2377,9 @@ $$
 
 $$
 \boxed{
-\text{PDE を difference quotient した近似 energy estimate}
+\text{PDE を 差分商 した近似 エネルギー評価}
 \Longrightarrow
-\text{一段高い Sobolev regularity}
+\text{一段高い Sobolev 正則性}
 }
 $$
 
@@ -2333,15 +2393,15 @@ $$
 
 | 仮定・道具 | 使う場所 | 役割 |
 |---|---|---|
-| $u\in H^1$ | difference quotient | $D_hu$ を一階微分で一様評価する |
-| $f\in L^2$ | Poisson $H^2$ estimate | 右辺を $L^2$-$L^2$ で評価する |
-| $U\Subset V$ | cutoff / translation | 平行移動を境界に当てない |
-| cutoff $\eta$ | local energy | test function を内部へ閉じ込める |
-| uniform ellipticity | variable coefficient case | $\|\eta\nabla D_hu\|_2^2$ を下から支える |
-| $A$ bounded | cutoff error | $A\nabla w\cdot\nabla\eta$ を評価する |
-| $A$ locally Lipschitz | coefficient difference | $D_hA$ を $h$ に一様に抑える |
-| difference quotient criterion | 最後の極限 | 一様差分 bound を弱微分の存在へ変える |
-| 境界 regularity | global $H^2$ | interior theorem だけでは境界での特異性を除けない |
+| $u\in H^1$ | 差分商 | $D_hu$ を一階微分で一様評価する |
+| $f\in L^2$ | Poisson $H^2$ 評価 | 右辺を $L^2$-$L^2$ で評価する |
+| $U\Subset V$ | 局所化関数 / translation | 平行移動を境界に当てない |
+| 局所化関数 $\eta$ | local エネルギー | テスト関数 を内部へ閉じ込める |
+| 一様楕円性 | 変数係数 case | $\|\eta\nabla D_hu\|_2^2$ を下から支える |
+| $A$ bounded | 局所化関数 error | $A\nabla w\cdot\nabla\eta$ を評価する |
+| $A$ 局所 Lipschitz | 係数差分 | $D_hA$ を $h$ に一様に抑える |
+| 差分商判定法 | 最後の極限 | 一様差分 評価 を弱微分の存在へ変える |
+| 境界 正則性 | global $H^2$ | 内部正則性定理 だけでは境界での特異性を除けない |
 
 特に
 
@@ -2362,14 +2422,14 @@ $$
 $$
 \text{existence theory}
 \quad\text{と}\quad
-\text{regularity theory}
+\text{正則性 theory}
 $$
 
 の仮定の差として現れます。
 
 ---
 
-## 14. GPDE10 への橋：space regularity から time evolution へ
+## 14. GPDE10 への橋：空間正則性 から 時間発展 へ
 
 GPDE6--GPDE9 では
 
@@ -2398,15 +2458,15 @@ $$
 という Gelfand triple の上で
 
 - Galerkin approximation
-- energy estimate
+- エネルギー評価
 - weak compactness
 - limit passage
 
-を使って evolution PDE の weak solution を構成します。
+を使って evolution PDE の 弱解 を構成します。
 
-楕円型では difference quotient が「空間方向の追加 regularity」を回収しました。
+楕円型では 差分商 が「空間方向の追加 正則性」を回収しました。
 
-時間発展問題では energy estimate が
+時間発展問題では エネルギー評価 が
 
 $$
 u,\quad
@@ -2422,7 +2482,7 @@ $$
 ### Level A
 
 <a id="ex-gpde9-a01"></a>
-#### GPDE9-A01 difference quotient の極限
+#### GPDE9-A01 差分商 の極限
 - Level: A
 
 一変数で
@@ -2490,7 +2550,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-gpde9-a02"></a>
-#### GPDE9-A02 difference quotient の部分積分
+#### GPDE9-A02 差分商 の部分積分
 - Level: A
 
 $u,v\in C_c^\infty(\mathbb R^d)$ とする。
@@ -2569,7 +2629,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-gpde9-a03"></a>
-#### GPDE9-A03 Laplace 方程式の Caccioppoli estimate
+#### GPDE9-A03 Laplace 方程式の Caccioppoli 評価
 - Level: A
 
 $u\in H^1(V)$ が
@@ -2600,7 +2660,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-$\varphi=\eta^2u$ を test すると
+$\varphi=\eta^2u$ を テスト すると
 
 $$
 \int
@@ -2664,7 +2724,7 @@ $$
 
 これは問題文の不等式より強い評価です。
 
-一般の $f\ne0$ の Caccioppoli estimate では
+一般の $f\ne0$ の Caccioppoli 評価 では
 
 $$
 \int f\eta^2u
@@ -2674,7 +2734,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-gpde9-a04"></a>
-#### GPDE9-A04 jump coefficient が $H^2$ を壊す
+#### GPDE9-A04 跳躍係数 が $H^2$ を壊す
 - Level: A
 
 $$
@@ -2767,9 +2827,9 @@ $$
 \frac12
 $$
 
-と jump します。
+と 跳躍 します。
 
-jump の distribution derivative は jump size を係数とする Dirac delta なので
+跳躍 の distribution derivative は 跳躍 size を係数とする Dirac delta なので
 
 $$
 u''
@@ -2789,13 +2849,13 @@ $$
 u\notin H^2(-1,1).
 $$
 
-一様楕円性だけでは $H^2$ regularity を保証できないことが分かります。
+一様楕円性だけでは $H^2$ 正則性 を保証できないことが分かります。
 <!-- solution-end -->
 
 ### Level B
 
 <a id="ex-gpde9-b01"></a>
-#### GPDE9-B01 difference quotient criterion
+#### GPDE9-B01 差分商判定法
 - Level: B
 
 $U\Subset V$、$u\in L^2(V)$ とする。
@@ -2815,7 +2875,7 @@ $$
 \partial_ku\in L^2(U')
 $$
 
-を、弱コンパクト性と test function を用いて証明せよ。
+を、弱コンパクト性と テスト関数 を用いて証明せよ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -2839,9 +2899,9 @@ $$
 
 $\varphi\in C_c^\infty(U')$ を取ります。
 
-十分大きい $n$ では $\varphi(\cdot-he_k)$ の support は $U$ に入ります。
+十分大きい $n$ では $\varphi(\cdot-he_k)$ の 台 は $U$ に入ります。
 
-[difference quotient の部分積分](#lem-gpde9-discrete-ibp)から
+[差分商 の部分積分](#lem-gpde9-discrete-ibp)から
 
 $$
 \int
@@ -2897,7 +2957,7 @@ $$
 
 が $U'$ 上の弱微分であることを示します。
 
-さらに [Hilbert norm の弱収束時の norm 評価](../GPDE6/index.md#lem-gpde6-weak-lsc)から
+さらに [Hilbert 空間の弱収束時ノルム評価](../GPDE6/index.md#lem-gpde6-weak-lsc)から
 
 $$
 \|\partial_ku\|_{L^2(U')}
@@ -2908,7 +2968,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-gpde9-b02"></a>
-#### GPDE9-B02 Poisson の二階 difference quotient estimate
+#### GPDE9-B02 Poisson の二階 差分商 評価
 - Level: B
 
 $u\in H^1(V)$、$f\in L^2(V)$ が
@@ -2931,7 +2991,7 @@ $$
 \varphi=-D_{-h}^k(\eta^2w_h)
 $$
 
-を test して
+を テスト して
 
 $$
 \|\eta\nabla w_h\|_2
@@ -2955,7 +3015,7 @@ $$
 
 を入れます。
 
-[difference quotient の部分積分](#lem-gpde9-discrete-ibp)から
+[差分商 の部分積分](#lem-gpde9-discrete-ibp)から
 
 $$
 \int
@@ -2995,7 +3055,7 @@ F
 \|D_{-h}^k(\eta^2w_h)\|_2.
 $$
 
-difference quotient estimate より
+差分商 評価 より
 
 $$
 \|D_{-h}^k(\eta^2w_h)\|_2
@@ -3060,11 +3120,11 @@ $$
 
 しかも $C$ は $h$ に依存しません。
 
-これが二階弱微分を作る一様 estimate です。
+これが二階弱微分を作る一様 評価 です。
 <!-- solution-end -->
 
 <a id="ex-gpde9-b03"></a>
-#### GPDE9-B03 variable coefficient の積の difference quotient
+#### GPDE9-B03 変数係数 の積の 差分商
 - Level: B
 
 行列係数 $A$ と vector field $q$ に対して
@@ -3086,7 +3146,7 @@ $$
 \le L
 $$
 
-を示し、なぜこの評価が $H^2$ regularity に必要か説明せよ。
+を示し、なぜこの評価が $H^2$ 正則性 に必要か説明せよ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -3146,9 +3206,9 @@ $$
 \le L.
 $$
 
-この bound は $h$ に依存しません。
+この 評価 は $h$ に依存しません。
 
-elliptic equation を difference quotient すると
+elliptic equation を 差分商 すると
 
 $$
 (D_h^kA)\nabla u
@@ -3156,7 +3216,7 @@ $$
 
 という誤差項が現れます。
 
-これを $L^2$ energy estimate の中で一様に抑えるため、
+これを $L^2$ エネルギー評価 の中で一様に抑えるため、
 
 $$
 \|D_h^kA\|_\infty
@@ -3165,7 +3225,7 @@ $$
 
 が必要です。
 
-$A\in L^\infty$ だけではこの量は $h\to0$ で発散し得るため、GPDE8 の存在仮定だけでは $H^2$ regularity を導けません。
+$A\in L^\infty$ だけではこの量は $h\to0$ で発散し得るため、GPDE8 の存在仮定だけでは $H^2$ 正則性 を導けません。
 <!-- solution-end -->
 
 ### Level C
@@ -3196,7 +3256,7 @@ $$
 
 を弱く満たすとする。
 
-difference quotient 法により
+差分商 法により
 
 $$
 u\in H^2(U)
@@ -3245,7 +3305,7 @@ $$
 
 を弱形式へ入れます。
 
-[difference quotient の部分積分](#lem-gpde9-discrete-ibp)により
+[差分商 の部分積分](#lem-gpde9-discrete-ibp)により
 
 $$
 \int
@@ -3306,7 +3366,7 @@ $$
 \lambda X^2.
 $$
 
-cutoff error は
+局所化関数 error は
 
 $$
 \left|
@@ -3412,7 +3472,7 @@ C
 \right).
 $$
 
-[difference quotient criterion](#lem-gpde9-dq-criterion) により
+[差分商判定法](#lem-gpde9-dq-criterion) により
 
 $$
 \partial_k\partial_ju\in L^2(U).
@@ -3424,7 +3484,7 @@ $$
 u\in H^2(U).
 $$
 
-最後に一般係数版 Caccioppoli estimate から
+最後に一般係数版 Caccioppoli 評価 から
 
 $$
 \|\nabla u\|_{L^2(W)}
@@ -3479,26 +3539,26 @@ GPDE8 では
 $$
 \text{ellipticity}
 \to
-\text{coercivity}
+\text{強圧条件}
 \to
 \text{weak existence}
 $$
 
 を扱いました。
 
-GPDE9 では、その弱解へ difference quotient を入れて
+GPDE9 では、その弱解へ 差分商 を入れて
 
 $$
-\text{weak solution}
+\text{弱解}
 \to
-\text{difference quotient energy estimate}
+\text{差分商 エネルギー評価}
 \to
-\text{uniform }L^2\text{ bound}
+\text{uniform }L^2\text{ 評価}
 \to
-\text{higher weak derivative}
+\text{higher 弱微分}
 $$
 
-という regularity mechanism を作りました。
+という 正則性 mechanism を作りました。
 
 Poisson 方程式では
 
@@ -3512,7 +3572,7 @@ $$
 
 が成り立ちます。
 
-一般 divergence form では、さらに係数の difference quotient を抑える必要があり、本章では局所 Lipschitz 係数の下で
+一般 発散形 では、さらに係数の 差分商 を抑える必要があり、本章では局所 Lipschitz 係数の下で
 
 $$
 \boxed{
@@ -3526,10 +3586,10 @@ $$
 
 同時に
 
-- jump coefficient
-- reentrant corner
+- 跳躍係数
+- 再入角
 
-という二つの例から、regularity は自動ではないことも確認しました。
+という二つの例から、正則性 は自動ではないことも確認しました。
 
 これで Encore III の elliptic branch は
 
@@ -3541,10 +3601,10 @@ $$
 \to
 \text{linear elliptic PDE}
 \to
-\text{elliptic regularity}
+\text{楕円型正則性}
 }
 $$
 
 まで閉じました。
 
-次は GPDE10 で Galerkin・energy method・weak compactness を使い、時間発展 PDE の弱解構成へ進みます。
+次は GPDE10 で Galerkin・エネルギー method・weak compactness を使い、時間発展 PDE の弱解構成へ進みます。
