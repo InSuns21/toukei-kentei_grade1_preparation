@@ -4,7 +4,6 @@ coverage: complete
 prerequisites:
   - F0-00A1B
   - F0-00B0
-  - F0-00D
 
 forward_references:
   - analysis.uniform-continuity
@@ -25,11 +24,27 @@ concepts:
     requires:
       - analysis.real-sequence-convergence
 
+  - id: analysis.real-cauchy-sequence
+    name: 実数列の Cauchy 条件
+    kind: definition
+    aliases: [実数列の Cauchy 条件, 実数 Cauchy 列]
+    requires:
+      - topology.sequence
+
   - id: analysis.monotone-convergence-sequence
     name: 有界単調数列の収束定理
     kind: theorem
     aliases: [有界単調数列の収束定理, bounded monotone sequence convergence theorem, monotone convergence theorem for sequences]
     requires: [analysis.least-upper-bound-property, analysis.real-sequence-convergence]
+  - id: analysis.real-completeness
+    name: 実数の完備性
+    kind: theorem
+    aliases: [実数の完備性, 実数列の Cauchy 判定]
+    requires:
+      - analysis.least-upper-bound-property
+      - analysis.real-sequence-convergence
+      - analysis.real-cauchy-sequence
+      - analysis.monotone-convergence-sequence
   - id: analysis.limsup-liminf
     name: 上極限・下極限
     kind: definition
@@ -49,7 +64,7 @@ concepts:
     name: 級数のCauchy判定
     kind: theorem
     aliases: [級数のCauchy判定]
-    requires: [analysis.series]
+    requires: [analysis.series, analysis.real-completeness]
   - id: analysis.absolute-convergence
     name: 絶対収束
     kind: definition
