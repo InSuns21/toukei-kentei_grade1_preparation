@@ -47,7 +47,7 @@ $$
 本章の流れは次です。
 
 ~~~text
-classical Poisson problem
+古典 Poisson 問題
   ↓ テスト関数 を掛ける
 座標ごとの部分積分
   ↓
@@ -64,10 +64,10 @@ a(u,v)=F(v)
 最小化列
   ↓ 弱コンパクト性
 弱極限
-  ↓ control the quadratic term under weak convergence
+  ↓ 弱収束の下で二次項を制御
 minimizer
   ↓
-Poisson weak solution
+Poisson 弱解
 ~~~
 
 GPDE7 では、この特殊な Poisson 構造を一般の双線形形式へ抽象化し、必要な下からの評価を定式化して Lax--Milgram 定理として閉じます。
@@ -198,7 +198,7 @@ $$
 
 $\Omega\subset\mathbb R^d$ を有界開集合とします。
 
-GPDE4 の [勾配 ノルム と H1 ノルム の同値性](../GPDE4/index.md#cor-gpde4-gradient-norm)から
+GPDE4 の [勾配ノルムと H1 ノルムの同値性](../GPDE4/index.md#cor-gpde4-gradient-norm)から
 
 $$
 \|v\|_V
@@ -223,7 +223,7 @@ $$
 <a id="def-gpde6-hminus1"></a>
 
 <!-- formal-statement-start -->
-> **定義（Hminus1 空間）**  
+> **定義（H^{-1} 空間）**  
 > $\Omega\subset\mathbb R^d$ を有界開集合とし
 
 $$
@@ -325,7 +325,7 @@ $H^{-1}$ は「負の一階微分を持つ関数」という点wise定義では�
 <a id="prop-gpde6-l2-hminus1"></a>
 
 <!-- formal-statement-start -->
-> **命題（L2 データは Hminus1 の汎関数を定める）**  
+> **命題（二乗可積分データは H^{-1} の汎関数を定める）**  
 > $\Omega\subset\mathbb R^d$ を有界開集合とし、$f\in L^2(\Omega)$ とする。
 >
 > このとき
@@ -721,7 +721,7 @@ $$
 \operatorname{Tr}u=0.
 $$
 
-GPDE4 の [H_0^1 と 零トレース の同一視](../GPDE4/index.md#thm-gpde4-h01-trace-kernel)から
+GPDE4 の [H_0^1 と零トレースの同一視](../GPDE4/index.md#thm-gpde4-h01-trace-kernel)から
 
 $$
 u\in H_0^1(\Omega).
@@ -733,7 +733,7 @@ $$
 
 ## 6. 超関数解 と変分弱解はどこが違うか
 
-GPDE1 では [Poisson 方程式の 超関数解](../GPDE1/index.md#def-gpde1-distributional-poisson)を定義しました。
+GPDE1 では [Poisson 方程式の超関数解](../GPDE1/index.md#def-gpde1-distributional-poisson)を定義しました。
 
 そこでは テスト関数 は
 
@@ -778,7 +778,7 @@ $$
 <a id="thm-gpde6-distributional-variational"></a>
 
 <!-- formal-statement-start -->
-> **定理（超関数解 と変分弱解の同値）**  
+> **定理（超関数解と変分弱解の同値）**  
 > $\Omega\subset\mathbb R^d$ を有界開集合とし
 
 $$
@@ -845,9 +845,9 @@ $$
 f\varphi\,dx.
 $$
 
-$u\in H^1$ なので各 $\partial_i u$ は weak derivative です。
+$u\in H^1$ なので各 $\partial_i u$ は 弱微分 です。
 
-[weak derivative の定義](../GPDE2/index.md#def-gpde2-weak-derivative)から
+[弱微分 の定義](../GPDE2/index.md#def-gpde2-weak-derivative)から
 
 $$
 \int_\Omega
@@ -890,7 +890,7 @@ $$
 
 逆に 1 を仮定します。
 
-超関数としての方程式 と [weak derivative の定義](../GPDE2/index.md#def-gpde2-weak-derivative)から、任意の $\varphi\in C_c^\infty(\Omega)$ に対して
+超関数としての方程式 と [弱微分 の定義](../GPDE2/index.md#def-gpde2-weak-derivative)から、任意の $\varphi\in C_c^\infty(\Omega)$ に対して
 
 $$
 \int_\Omega
@@ -1095,7 +1095,7 @@ $$
 
 を入れます。
 
-Poisson form を
+Poisson 双線形形式 を
 
 $$
 a(u,v)
@@ -1120,7 +1120,7 @@ $$
 
 > とする。
 >
-> Poisson form
+> Poisson 双線形形式
 
 $$
 a(u,v)
@@ -1129,7 +1129,7 @@ a(u,v)
 \nabla u\cdot\nabla v\,dx
 $$
 
-> は 有界 かつ 強圧的 であり
+> は 有界かつ強圧的 であり
 
 $$
 \boxed{
@@ -1258,7 +1258,7 @@ $$
 
 ### 具体例：境界条件を外すと 強圧性 が壊れる
 
-同じ form を $H^1(\Omega)$ 全体で考えます。
+同じ双線形形式 を $H^1(\Omega)$ 全体で考えます。
 
 非零定数関数
 
@@ -1290,13 +1290,13 @@ $$
 
 を正の $\alpha$ で満たせません。
 
-$H_0^1$ を選ぶことは境界条件を表すだけでなく、定数方向を消して 強圧性 を回復する役割も持っています。
+$H_0^1$ を選ぶことは境界条件を表すだけでなく、定数方向を消して 強圧性を回復する役割も持っています。
 
 ---
 
 ## 9. 対称問題では エネルギー を最小化すればよい
 
-Poisson form は対称です。
+Poisson 双線形形式 は対称です。
 
 $$
 a(u,v)=a(v,u).
@@ -1752,7 +1752,7 @@ $$
 
 と置きます。
 
-GPDE4 の [勾配 ノルム と H1 ノルム の同値性](../GPDE4/index.md#cor-gpde4-gradient-norm)と [H_0^1 の完備内積構造](../GPDE4/index.md#prop-gpde4-h01-closed)から、$V$ は内積
+GPDE4 の [勾配ノルムと H1 ノルムの同値性](../GPDE4/index.md#cor-gpde4-gradient-norm)と [H_0^1 の完備内積構造](../GPDE4/index.md#prop-gpde4-h01-closed)から、$V$ は内積
 
 $$
 (u,v)_V
@@ -1773,7 +1773,7 @@ $$
 
 とします。
 
-[双対ノルム の基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
+[双対ノルムの基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
 
 $$
 |F(v)|
@@ -1881,7 +1881,7 @@ $$
 F(v_n)\to F(u).
 $$
 
-また [Hilbert ノルム の弱収束時の ノルム 評価](#lem-gpde6-weak-lsc)から
+また [Hilbert 空間のノルムの弱下半連続性](#lem-gpde6-weak-lsc)から
 
 $$
 \|u\|_V^2
@@ -1919,7 +1919,7 @@ $$
 
 つまり $u$ は 大域的最小点 です。
 
-[対称 強圧的 問題の変分原理](#thm-gpde6-variational-principle)から
+[対称強圧問題の変分原理](#thm-gpde6-variational-principle)から
 
 $$
 \int_\Omega
@@ -1942,7 +1942,7 @@ $$
 F(u).
 $$
 
-[双対ノルム の基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
+[双対ノルムの基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
 
 $$
 F(u)
@@ -2058,7 +2058,7 @@ $$
 (F_1-F_2)(w).
 $$
 
-[双対ノルム の基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
+[双対ノルムの基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
 
 $$
 \|\nabla w\|_2^2
@@ -2193,7 +2193,7 @@ $$
 
 と分解します。
 
-Poisson form では
+Poisson 双線形形式 では
 
 $$
 a(w,v)
@@ -2215,7 +2215,7 @@ $$
 \nabla v=0
 $$
 
-なので Poisson form は定数方向を制御できません。
+なので Poisson 双線形形式 は定数方向を制御できません。
 
 したがって
 
@@ -2235,13 +2235,13 @@ $$
 
 という事実の変分版です。
 
-平均 0 空間や compatibility condition を用いてこの定数 kernel を処理する一般論は GPDE8 で扱います。
+平均ゼロ空間や 適合条件 を用いてこの定数からなる核 を処理する一般論は GPDE8 で扱います。
 
 ---
 
 ## 15. GPDE7 へ何を残したか
 
-本章では Poisson の対称 form
+本章では Poisson の対称双線形形式
 
 $$
 a(u,v)
@@ -2544,7 +2544,7 @@ $$
 u(0)=u(1)=0.
 $$
 
-[区間上の H_0^1 と 零トレース](../GPDE4/index.md#thm-gpde4-h01-trace-kernel-interval)から
+[区間上の H_0^1 と零トレース](../GPDE4/index.md#thm-gpde4-h01-trace-kernel-interval)から
 
 $$
 u\in H_0^1(0,1).
@@ -2605,7 +2605,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-gpde6-a04"></a>
-#### GPDE6-A04 Poisson form の二つの ノルム での 強圧性
+#### GPDE6-A04 Poisson 双線形形式 の二つのノルムでの 強圧性
 - Level: A
 
 $$
@@ -2755,7 +2755,7 @@ $$
 
 が成り立ちます。
 
-$u\in H^1$ なので、[weak derivative の定義](../GPDE2/index.md#def-gpde2-weak-derivative)から
+$u\in H^1$ なので、[弱微分 の定義](../GPDE2/index.md#def-gpde2-weak-derivative)から
 
 $$
 -\int_\Omega
@@ -2967,7 +2967,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-gpde6-b03"></a>
-#### GPDE6-B03 データ収束から解の strong convergence を得る
+#### GPDE6-B03 データ収束から解の 強収束 を得る
 - Level: B
 
 $F_n,F\in H^{-1}(\Omega)$ とし
@@ -3112,7 +3112,7 @@ $c=\|F\|_{H^{-1}}$ と置きます。
 
 ### 1. 下からの評価
 
-[双対ノルム の基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
+[双対ノルムの基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
 
 $$
 |F(v)|
@@ -3233,7 +3233,7 @@ $$
 F(v_n)\to F(u).
 $$
 
-また [Hilbert ノルム の弱収束時の ノルム 評価](#lem-gpde6-weak-lsc)から
+また [Hilbert 空間のノルムの弱下半連続性](#lem-gpde6-weak-lsc)から
 
 $$
 \|u\|_V^2
@@ -3396,8 +3396,8 @@ $$
 - 外力は $H^{-1}=(H_0^1)^*$ で受けられる。
 - $L^2$ 外力は Poincaré により $H^{-1}$ データになる。
 - 超関数としての方程式 と 変分方程式 は $u\in H_0^1$, $f\in L^2$ の下で同値になる。
-- Poisson form は 有界 かつ 強圧的 である。
-- 対称性により weak equation は エネルギー最小化 と同値になる。
+- Poisson 双線形形式 は 有界かつ強圧的 である。
+- 対称性により 弱形式 は エネルギー最小化と同値になる。
 - GPDE5 の弱コンパクト性と ノルム の弱収束時の ノルム 評価から minimizer を構成できる。
 - 強圧性 から一意性と stability estimate が得られる。
 
