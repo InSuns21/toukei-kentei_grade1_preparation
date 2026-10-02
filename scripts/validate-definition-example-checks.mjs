@@ -4,7 +4,8 @@ import { spawnSync } from 'node:child_process';
 
 const ROOT = path.resolve('textbook/volumes');
 // main immediately before the default-strict policy was introduced.
-// Files identical to this snapshot are transitional legacy only; any edit makes them strict.
+// Files whose reader content is identical to this snapshot are transitional legacy only.
+// H1 title-only edits do not promote a page to strict; substantive reader-content edits do.
 const LEGACY_CUTOFF = 'a82f4d95d966c62853e37e932000178c93da12ed';
 const STRICT_MARKER = '<!-- definition-example-audit: strict -->';
 const LOOSE_MARKER = '<!-- definition-example-audit: loose -->';
@@ -46,7 +47,29 @@ function existedAtCutoff(rel) {
 
 function unchangedSinceCutoff(rel) {
   if (!cutoffAvailable || !existedAtCutoff(rel)) return false;
-  return git(['diff', '--quiet', LEGACY_CUTOFF, '--', rel]).status === 0;
+  const before = git(['show', `${LEGACY_CUTOFF}:${rel}`]);
+  if (before.status !== 0) return false;
+  let after = '';
+  try {
+    after = fs.readFileSync(path.join(process.cwd(), rel), 'utf8');
+  } catch {
+    return false;
+  }
+  return normalizeH1ForDiff(before.stdout ?? '') === normalizeH1ForDiff(after);
+}
+
+function normalizeH1ForDiff(source) {
+  let replaced = false;
+  return String(source)
+    .split(/\r?\n/u)
+    .map((line) => {
+      if (!replaced && /^#\s+\S/u.test(line)) {
+        replaced = true;
+        return '# <PAGE_TITLE>';
+      }
+      return line;
+    })
+    .join('\n');
 }
 
 const errors = [];
@@ -80,8 +103,8 @@ for (const file of walk(ROOT)) {
     // exercises the default-strict rule below.
     legacyLoosePages += 1;
   } else if (unchangedSinceCutoff(rel)) {
-    // Transitional grandfathering only for files that have not changed at all since
-    // the default-strict rule was introduced. Any edit makes the page strict unless it opts out.
+    // Transitional grandfathering only for files whose reader content has not changed
+    // since the default-strict rule was introduced. H1-only title edits are ignored here.
     legacyLoosePages += 1;
   } else {
     strict = true;
