@@ -2484,7 +2484,7 @@ $$
 S(t)w=e^{-\lambda t}w
 $$
 
-なので半群表示は
+なので作用素族表示は
 
 $$
 \begin{aligned}
@@ -4095,7 +4095,7 @@ $$
 
 次の発展では、
 
-- 半群 / 最大正則性
+- 強連続作用素族 / 最大正則性
 - nonlinear evolution PDE
 - Aubin--Lions コンパクト性
 - conservation law / entropy solution
