@@ -48,6 +48,7 @@ $$
 を最大化しても最大化点は同じです。
 
 <!-- definition-example-start: def-f0-00p7a-mle -->
+**定義の確認**  
 **直接例：ベルヌーイ標本**  
 $X_1,\ldots,X_n\overset{\mathrm{iid}}{\sim}\operatorname{Bernoulli}(p_0)$ とします。$S_n=\sum_iX_i$ とすると
 
