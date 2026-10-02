@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - F0-00P7
   - F0-00P6A
+  - F0-00P4
   - F0-00D2E
 official_scope: []
 learning_objectives:

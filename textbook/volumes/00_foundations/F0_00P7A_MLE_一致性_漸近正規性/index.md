@@ -30,11 +30,11 @@ $$
 > **定義（最尤推定量）**  
 > パラメータ空間を $\Theta$ とします。標本ごとに尤度を最大化する推定量
 >
-> $$
-> \widehat\theta_n
-> \in
-> \operatorname*{arg\,max}_{\theta\in\Theta}L_n(\theta)
-> $$
+$$
+\widehat\theta_n
+\in
+\operatorname*{arg\,max}_{\theta\in\Theta}L_n(\theta)
+$$
 >
 > を最尤推定量といいます。最大値が存在しない場合や数値最適化で厳密な最大値を取らない場合には、後の一致性定理で「正規化対数尤度を $o_P(1)$ の誤差まで最大化する」近似最大化点を扱います。
 <!-- formal-statement-end -->
@@ -80,7 +80,7 @@ $$
 
 ---
 
-## 2. 最後に極限を合成するための Slutsky の定理
+## 2. 最後に二つの極限を合成する
 
 漸近正規性の最後では、正規分布へ収束するスコア側と、定数へ確率収束する2階微分側を掛け合わせます。そのために次の定理を使います。
 
@@ -90,20 +90,21 @@ $$
 > **定理（Slutsky の定理）**  
 > $Y_n\xrightarrow{d}Y$、$Z_n\xrightarrow{p}c$ とし、$c$ は定数とします。このとき
 >
-> $$
-> Y_n+Z_n\xrightarrow{d}Y+c,
-> \qquad
-> Y_nZ_n\xrightarrow{d}cY.
-> $$
+$$
+Y_n+Z_n\xrightarrow{d}Y+c,
+\qquad
+Y_nZ_n\xrightarrow{d}cY.
+$$
 >
 > さらに $c\ne0$ なら
 >
-> $$
-> \frac{Y_n}{Z_n}\xrightarrow{d}\frac{Y}{c}.
-> $$
+$$
+\frac{Y_n}{Z_n}\xrightarrow{d}\frac{Y}{c}.
+$$
 <!-- formal-statement-end -->
 
-### なぜ「片方が定数へ確率収束」で十分なのか
+<!-- proof-start -->
+### 証明：定数へ確率収束する因子は $o_P(1)$ の摂動だけを作る
 
 $Y_n\Rightarrow Y$ なら、$Y_n$ は確率的に無限遠へ逃げません。実際、任意の $\varepsilon>0$ に対して十分大きい $R$ を取れば
 
@@ -133,7 +134,28 @@ $$
 R|Z_n-c|,
 $$
 
-であり、$|Y_n|>R$ の確率を先に小さくできます。したがって「$Y_n$ に $o_P(1)$ の摂動を加えても分布極限は変わらない」ことが分かります。これを [有界 Lipschitz 関数による分布収束の特徴付け](../F0_00P6_特性関数_中心極限定理/index.md#thm-f0-00p6-bl-characterization) に適用すれば、上の結論が得られます。
+であり、$|Y_n|>R$ の確率を先に小さくできます。したがって
+
+$
+Y_n(Z_n-c)\xrightarrow{p}0.
+$
+
+よって
+
+$
+Y_nZ_n-cY_n\xrightarrow{p}0.
+$
+
+和についても $(Y_n+Z_n)-(Y_n+c)=Z_n-c\to0$ in probability です。[有界 Lipschitz 関数による分布収束の特徴付け](../F0_00P6_特性関数_中心極限定理/index.md#thm-f0-00p6-bl-characterization)を使えば、「分布収束する列へ $o_P(1)$ を加えても極限分布は変わらない」ことが従います。したがって和と積の結論を得ます。
+
+$c\ne0$ のとき、$Z_n\to c$ in probability から $1/Z_n\to1/c$ in probability です。積の結論を $Y_n$ と $1/Z_n$ に適用すれば
+
+$
+\frac{Y_n}{Z_n}\Rightarrow\frac{Y}{c}
+$
+
+も得られます。
+<!-- proof-end -->
 
 ---
 
@@ -161,19 +183,19 @@ $$
 > **定義（一様大数の法則）**  
 > 関数 $m_\theta(x)$ と
 >
-> $$
-> M(\theta)=E[m_\theta(X)]
-> $$
+$$
+M(\theta)=E[m_\theta(X)]
+$$
 >
 > に対し
 >
-> $$
-> \sup_{\theta\in\Theta}
-> \left|
-> \frac1n\sum_{i=1}^{n}m_\theta(X_i)-M(\theta)
-> \right|
-> \xrightarrow{p}0
-> $$
+$$
+\sup_{\theta\in\Theta}
+\left|
+\frac1n\sum_{i=1}^{n}m_\theta(X_i)-M(\theta)
+\right|
+\xrightarrow{p}0
+$$
 >
 > が成り立つとき、この関数族について一様大数の法則が成り立つといいます。
 <!-- formal-statement-end -->
@@ -184,7 +206,7 @@ $$
 
 ## 4. 真値が期待対数尤度を最大化する理由
 
-一様収束の行き先 $M(\theta)$ が、真値 $\theta_0$ で一意に最大にならなければ、標本側の最大化点を真値へ押し込めません。その一意最大性を説明する量がカルバック・ライブラー情報量です。
+パラメータ全体での収束先 $M(\theta)$ が、真値 $\theta_0$ で一意に最大にならなければ、標本側の最大化点を真値へ押し込めません。その一意最大性を説明する量がカルバック・ライブラー情報量です。
 
 <a id="def-f0-00p7a-kl"></a>
 
@@ -192,13 +214,13 @@ $$
 > **定義（カルバック・ライブラー情報量）**  
 > $P$ と $Q$ が共通の支配測度 $\mu$ に関する密度 $p,q$ をもち、$P\ll Q$ とします。積分が定義できるとき
 >
-> $$
-> D_{\mathrm{KL}}(P\|Q)
-> :=
-> \int
-> p(x)\log\frac{p(x)}{q(x)}
-> \,d\mu(x)
-> $$
+$$
+D_{\mathrm{KL}}(P\|Q)
+:=
+\int
+p(x)\log\frac{p(x)}{q(x)}
+\,d\mu(x)
+$$
 >
 > と定義します。
 <!-- formal-statement-end -->
@@ -267,7 +289,7 @@ $$
 
 ---
 
-## 5. 一様収束から最大化点を真値へ押し込む
+## 5. パラメータ全体での収束から最大化点を真値へ押し込む
 
 ここで一様大数の法則が「なぜ一致性に効くのか」を定理として閉じます。
 
@@ -277,24 +299,24 @@ $$
 > **定理（最大化点による最尤推定量の一致性）**  
 > $\Theta\subset\mathbb R$ をコンパクト集合、$\theta_0\in\Theta$ とします。確率関数 $M_n(\theta)$ と連続関数 $M(\theta)$ が
 >
-> $$
-> \sup_{\theta\in\Theta}|M_n(\theta)-M(\theta)|
-> \xrightarrow{p}0
-> $$
+$$
+\sup_{\theta\in\Theta}|M_n(\theta)-M(\theta)|
+\xrightarrow{p}0
+$$
 >
 > を満たすとします。また $M$ は $\theta_0$ で一意に最大になり、$\widehat\theta_n$ は
 >
-> $$
-> M_n(\widehat\theta_n)
-> \ge
-> \sup_{\theta\in\Theta}M_n(\theta)-o_P(1)
-> $$
+$$
+M_n(\widehat\theta_n)
+\ge
+\sup_{\theta\in\Theta}M_n(\theta)-o_P(1)
+$$
 >
 > を満たすとします。このとき
 >
-> $$
-> \widehat\theta_n\xrightarrow{p}\theta_0.
-> $$
+$$
+\widehat\theta_n\xrightarrow{p}\theta_0.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -420,7 +442,7 @@ $$
 
 ---
 
-## 7. 分子はスコア和の中心極限定理
+## 7. 分子はスコア和の正規極限
 
 P7 のスコア恒等式から
 
@@ -507,21 +529,21 @@ $$
 > 5. $U_n(\theta_0)/\sqrt n\Rightarrow N(0,I(\theta_0))$。
 > 6. ある $\delta>0$ について
 >
-> $$
-> \sup_{|\theta-\theta_0|\le\delta}
-> \left|
-> -\frac1nU_n'(\theta)-I(\theta_0)
-> \right|
-> \xrightarrow{p}0.
-> $$
+$$
+\sup_{|\theta-\theta_0|\le\delta}
+\left|
+-\frac1nU_n'(\theta)-I(\theta_0)
+\right|
+\xrightarrow{p}0.
+$$
 >
 > このとき
 >
-> $$
-> \sqrt n(\widehat\theta_n-\theta_0)
-> \xrightarrow{d}
-> N\!\left(0,I(\theta_0)^{-1}\right).
-> $$
+$$
+\sqrt n(\widehat\theta_n-\theta_0)
+\xrightarrow{d}
+N\!\left(0,I(\theta_0)^{-1}\right).
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -703,7 +725,7 @@ $$
 さらに識別可能性と等号条件から、等号が $\theta=\theta_0$ のときに限られれば、$\theta_0$ は一意最大点です。
 <!-- solution-end -->
 
-### F0-00P7A-A03 一様収束が最大化点を守る理由
+### F0-00P7A-A03 sup 型の収束が最大化点を守る理由
 
 - Level: A
 
@@ -789,16 +811,16 @@ $$
 
 - Level: B
 
-「各固定した $\theta$ で $M_n(\theta)\to M(\theta)$」だけでは最大化点の一致性を保証しにくい理由を説明し、一様収束なら何が防げるか述べよ。
+「各固定した $\theta$ で $M_n(\theta)\to M(\theta)$」だけでは最大化点の一致性を保証しにくい理由を説明し、sup 型で同時に抑えられるなら何が防げるか述べよ。
 
 <!-- solution-start -->
 #### 詳細解答
 
 最大化点 $\widehat\theta_n$ は $n$ と標本に依存して動くので、固定した $\theta$ に対する収束だけでは $\theta=\widehat\theta_n$ での誤差を制御できません。各 $n$ で場所を変える細い大きな誤差が存在すると、各固定点では誤差が最終的に消えても、最大化点がその誤差を追う可能性があります。
 
-一様収束
+sup 型の収束
 
-$$
+$
 \sup_{\theta\in\Theta}|M_n(\theta)-M(\theta)|\to0
 $$
 
@@ -967,7 +989,7 @@ $$
 M(\theta_0)-3\eta.
 $$
 
-一様収束により高確率で
+sup 型の収束により高確率で
 
 $$
 \sup_\theta|M_n(\theta)-M(\theta)|<\eta.
@@ -1014,7 +1036,7 @@ $$
 \frac{U_n(\theta_0)}{\sqrt n}.
 $$
 
-一致性により $\theta_n^*\to\theta_0$ in probability です。真値近傍の一様収束から
+一致性により $\theta_n^*\to\theta_0$ in probability です。真値近傍での sup 型の収束から
 
 $$
 -\frac1nU_n'(\theta_n^*)

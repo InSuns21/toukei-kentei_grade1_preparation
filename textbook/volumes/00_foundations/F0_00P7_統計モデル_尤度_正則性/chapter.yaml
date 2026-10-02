@@ -21,6 +21,7 @@ definitions:
   - { id: F0P7-DEF-05, name: フィッシャー情報量 }
   - { id: F0P7-DEF-06, name: 正則性条件 }
 theorems:
+  - { id: F0P7-PROP-01, name: 独立標本の尤度因数分解 }
   - { id: F0P7-THM-01, name: スコア恒等式 }
   - { id: F0P7-THM-02, name: 情報恒等式 }
 canonical_examples: [ベルヌーイモデル, 一様分布の非正則例, 正規位置モデル]

@@ -8,6 +8,9 @@ prerequisites:
 
 forward_references:
   - stat.mle
+  - stat.mle-consistency
+  - stat.uniform-lln
+  - prob.iid-clt
   - stat.qmd
   - stat.lan
 
@@ -44,6 +47,7 @@ concepts:
     name: 独立標本の尤度因数分解
     kind: proposition
     aliases: [独立標本の尤度因数分解]
+    introduction_aliases: ["命題（独立標本の尤度因数分解）"]
     requires:
       - stat.likelihood
       - prob.independent-random-variables

@@ -38,9 +38,9 @@ $$
 > **定義（統計モデル）**  
 > パラメータ集合 $\Theta$ と、各 $\theta\in\Theta$ に対応する確率測度 $P_\theta$ の族
 >
-> $$
-> \mathcal P=\{P_\theta:\theta\in\Theta\}
-> $$
+$$
+\mathcal P=\{P_\theta:\theta\in\Theta\}
+$$
 >
 > を統計モデルといいます。
 <!-- formal-statement-end -->
@@ -72,9 +72,9 @@ $$
 > **定義（共通の支配測度をもつ統計モデル）**  
 > $\sigma$-有限測度 $\mu$ が存在して、全ての $\theta\in\Theta$ について
 >
-> $$
-> P_\theta\ll\mu
-> $$
+$$
+P_\theta\ll\mu
+$$
 >
 > が成り立つとき、この統計モデルは共通の支配測度をもつといいます。
 <!-- formal-statement-end -->
@@ -101,9 +101,9 @@ $$
 > **定義（尤度関数）**  
 > 共通の支配測度 $\mu$ に関する密度 $p_\theta=dP_\theta/d\mu$ があるとします。観測値 $x$ を固定したとき
 >
-> $$
-> L(\theta;x):=p_\theta(x)
-> $$
+$$
+L(\theta;x):=p_\theta(x)
+$$
 >
 > を $\theta$ の関数とみなしたものを尤度関数といいます。
 <!-- formal-statement-end -->
@@ -116,26 +116,60 @@ $$
 
 ## 4. 独立標本では、なぜ尤度が積になるのか
 
-$X_1,\ldots,X_n$ が $P_\theta$ から独立同分布であるとします。各1標本の密度が $p_\theta$ なら、同時分布は $P_\theta^{\otimes n}$、支配測度は $\mu^{\otimes n}$ です。
+$X_1,\ldots,X_n$ が $P_\theta$ から独立同分布であるとします。各1標本の密度が $p_\theta$ なら、同時分布は $P_\theta^{\otimes n}$、支配測度は $\mu^{\otimes n}$ です。したがって「1標本の密度を $n$ 個掛ける」という形は、単なる計算規則ではなく積測度の密度から出ます。
 
-積測度の密度を各座標で書けば
+<a id="prop-f0-00p7-iid-likelihood-factorization"></a>
 
-$$
+<!-- formal-statement-start -->
+> **命題（独立標本の尤度因数分解）**  
+> $X_1,\ldots,X_n$ が $P_\theta$ から独立同分布で、$p_\theta=dP_\theta/d\mu$ とします。このとき $P_\theta^{\otimes n}$ の $\mu^{\otimes n}$ に関する密度は
+
+$
 \frac{dP_\theta^{\otimes n}}{d\mu^{\otimes n}}
 (x_1,\ldots,x_n)
 =
-\prod_{i=1}^{n}p_\theta(x_i).
-$$
+\prod_{i=1}^{n}p_\theta(x_i),
+$
 
-したがって標本全体の尤度は
+> したがって標本全体の尤度は
 
-$$
+$
 L_n(\theta)
 =
 \prod_{i=1}^{n}p_\theta(X_i)
-$$
+$
 
-です。
+> です。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明：長方形集合で積を確認する
+
+可測長方形 $A_1\times\cdots\times A_n$ に対して
+
+$
+\begin{aligned}
+P_\theta^{\otimes n}(A_1\times\cdots\times A_n)
+&=
+\prod_{i=1}^{n}P_\theta(A_i)\\
+&=
+\prod_{i=1}^{n}
+\int_{A_i}p_\theta(x_i)\,d\mu(x_i).
+\end{aligned}
+$
+
+Tonelli の定理で積分をまとめると
+
+$
+P_\theta^{\otimes n}(A_1\times\cdots\times A_n)
+=
+\int_{A_1\times\cdots\times A_n}
+\prod_{i=1}^{n}p_\theta(x_i)
+\,d\mu^{\otimes n}.
+$
+
+長方形集合が積 $\sigma$-加法族を生成するので、この密度表示は全ての可測集合へ拡張されます。観測値を固定して $\theta$ の関数として読めば、尤度の積表示が得られます。
+<!-- proof-end -->
 
 「独立だから尤度を掛ける」という規則は、独立標本の同時分布が積測度になり、その Radon--Nikodym 密度が積になることの結果です。
 
@@ -163,11 +197,11 @@ $$
 > **定義（スコア関数）**  
 > 1次元パラメータ $\theta$ について $\log p_\theta(x)$ が微分可能であるとき
 >
-> $$
-> s_\theta(x)
-> :=
-> \frac{\partial}{\partial\theta}\log p_\theta(x)
-> $$
+$$
+s_\theta(x)
+:=
+\frac{\partial}{\partial\theta}\log p_\theta(x)
+$$
 >
 > を1標本のスコア関数といいます。
 <!-- formal-statement-end -->
@@ -227,27 +261,27 @@ $$
 > **定理（スコア恒等式）**  
 > $\theta_0$ の近傍で $p_\theta(x)$ がほとんど至る所 $\theta$ 微分可能であり、ある可積分関数 $g$ が存在して
 >
-> $$
-> \left|\partial_\theta p_\theta(x)\right|
-> \le g(x)
-> $$
+$$
+\left|\partial_\theta p_\theta(x)\right|
+\le g(x)
+$$
 >
 > がその近傍の全ての $\theta$ で成り立つとします。さらに、スコア関数が $P_{\theta_0}$-可積分であるとします。このとき
 >
-> $$
-> E_{\theta_0}[s_{\theta_0}(X)]=0.
-> $$
+$$
+E_{\theta_0}[s_{\theta_0}(X)]=0.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明：どこで微分と積分を交換するか
 
-差分商
+微分を定義する商
 $$
 \frac{p_{\theta_0+h}(x)-p_{\theta_0}(x)}{h}
 $$
 
-は $h\to0$ で $\partial_\theta p_{\theta_0}(x)$ へ収束します。仮定した支配条件により優収束定理を差分商へ適用できるので
+は $h\to0$ で $\partial_\theta p_{\theta_0}(x)$ へ収束します。仮定した支配条件により優収束定理を微分を定義する商へ適用できるので
 
 $$
 \frac{d}{d\theta}
@@ -294,11 +328,11 @@ $$
 > **定義（フィッシャー情報量）**  
 > スコア関数 $s_\theta$ が二乗可積分であるとき
 >
-> $$
-> I(\theta)
-> :=
-> E_\theta[s_\theta(X)^2]
-> $$
+$$
+I(\theta)
+:=
+E_\theta[s_\theta(X)^2]
+$$
 >
 > を1標本あたりのフィッシャー情報量といいます。
 <!-- formal-statement-end -->
@@ -337,14 +371,14 @@ $$
 > **定理（情報恒等式）**  
 > スコア恒等式の仮定に加え、$p_\theta$ が2回微分可能で、2階微分についても積分との交換を正当化できるとします。このとき
 >
-> $$
-> I(\theta)
-> =
-> -E_\theta\!\left[
-> \frac{\partial^2}{\partial\theta^2}
-> \log p_\theta(X)
-> \right].
-> $$
+$$
+I(\theta)
+=
+-E_\theta\!\left[
+\frac{\partial^2}{\partial\theta^2}
+\log p_\theta(X)
+\right].
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -600,7 +634,7 @@ $$
 |\partial_\theta p_\theta(x)|\le g(x)
 $$
 
-と一様に支配されれば、差分商へ優収束定理を使って交換を正当化できます。その上で
+と一様に支配されれば、微分を定義する商へ優収束定理を使って交換を正当化できます。その上で
 
 $$
 \partial_\theta p_\theta=p_\theta s_\theta
@@ -769,7 +803,7 @@ $$
 
 1. 内点性は、真値の両側へ局所的にパラメータを動かし、通常の微分や Taylor 展開を使うために必要です。
 2. 二乗可積分性によりフィッシャー情報量 $E[s_\theta^2]$ が有限になり、後続ではスコア和へ中心極限定理を適用できます。
-3. 局所一様な可積分支配は、差分商や導関数に優収束定理を適用し、微分と積分・期待値を交換するために使います。
+3. 局所一様な可積分支配は、微分を定義する商や密度の微分に優収束定理を適用し、微分と積分・期待値を交換するために使います。
 4. 支持集合が固定されれば、積分領域の移動による境界項を避けられます。一様分布の例は、この条件を失うとスコア恒等式の通常の証明が壊れることを示します。
 <!-- solution-end -->
 
