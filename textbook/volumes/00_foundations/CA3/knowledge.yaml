@@ -59,10 +59,24 @@ concepts:
     requires: [complex-analysis.cauchy-estimate, complex-analysis.zero-derivative-constant]
 
   - id: complex-analysis.fundamental-theorem-of-algebra
-    name: 代数学の基本定理
-    kind: corollary
-    aliases: [代数学の基本定理, fundamental theorem of algebra]
+    name: 代数学の基本定理（第1定理：複素零点の存在）
+    kind: theorem
+    aliases: [代数学の基本定理, 代数学の基本定理第1定理, fundamental theorem of algebra]
+    introduction_aliases: [代数学の基本定理・第1定理：複素零点の存在]
     requires: [complex-analysis.liouville-theorem]
+
+  - id: complex-analysis.fundamental-theorem-of-algebra-factorization
+    name: 代数学の基本定理（第2定理：完全一次因子分解）
+    kind: theorem
+    aliases: [代数学の基本定理第2定理, 複素多項式の完全一次因子分解, complete linear factorization of complex polynomials]
+    introduction_aliases: [代数学の基本定理・第2定理：完全一次因子分解]
+    requires: [complex-analysis.fundamental-theorem-of-algebra]
+
+  - id: complex-analysis.real-polynomial-linear-quadratic-factorization
+    name: 実係数多項式の実一次・実二次因子分解
+    kind: corollary
+    aliases: [実係数多項式の実一次・実二次因子分解, real linear and quadratic factorization]
+    requires: [complex-analysis.fundamental-theorem-of-algebra-factorization]
 
   - id: complex-analysis.isolated-zeros-identity-theorem
     name: 零点の孤立性・恒等定理
