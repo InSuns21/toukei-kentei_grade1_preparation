@@ -283,7 +283,7 @@ $$
 2\int g-\int h
 $$
 
-のような積分の代数を使います。これを暗黙の既知事項にせず、いま得た MCT から導いておきます。
+のような積分の代数を使います。これを暗黙の既知事項にせず、いま得た [単調収束定理（MCT）](#ref-limit-integral-exchange) から導いておきます。
 
 <a id="prop-f0-00d2b-nonnegative-additivity"></a>
 
@@ -1375,7 +1375,7 @@ $$
 \int v\,d\mu=3
 $$
 
-を満たすとする。本文で MCT から導いた加法性を使って
+を満たすとする。本文で [単調収束定理（MCT）](#ref-limit-integral-exchange) から導いた加法性を使って
 
 $$
 \int(4u+2v)\,d\mu
