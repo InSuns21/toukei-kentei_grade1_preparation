@@ -83,9 +83,9 @@ $$
 >
 > を満たすとき、$s$ を $A$ の **上限（supremum）** といい
 >
-> $$
-> s=\sup A
-> $$
+$$
+s=\sup A
+$$
 >
 > と書く。
 <!-- formal-statement-end -->
@@ -103,9 +103,9 @@ $$
 >
 > を満たすとき、$t$ を $A$ の **下限（infimum）** といい
 >
-> $$
-> t=\inf A
-> $$
+$$
+t=\inf A
+$$
 >
 > と書く。
 <!-- formal-statement-end -->
@@ -185,9 +185,9 @@ $$
 > 1. $a\le s$ が全ての $a\in A$ で成り立つ。
 > 2. 任意の $\varepsilon>0$ に対し、ある $a\in A$ が存在して
 >
-> $$
-> s-\varepsilon<a
-> $$
+$$
+s-\varepsilon<a
+$$
 >
 > となる。
 >
