@@ -346,7 +346,7 @@ decision gate の結論を実ファイルへ反映した。
 
 #### RA2 閉区間コンパクト性の実解析内再構成（2026-10-03）
 
-- RA2 の \`chapter.yaml\` / \`knowledge.yaml\` から \`F0-00C / F0-00C1 / F0-00C2\` prerequisite を除去し、直接 prerequisite を RA1 のみにした。
+- RA2 の `chapter.yaml` / `knowledge.yaml` から `F0-00C / F0-00C1 / F0-00C2` prerequisite を除去し、直接 prerequisite を RA1 のみにした。
 - 実数版 Bolzano--Weierstrass を RA2 へ移し、入れ子閉区間から部分列を選んで Cauchy 性を直接示し、RA1 の実数完備性で収束を得る証明へ置き換えた。
 - 閉区間の開区間被覆から有限部分被覆を取り出す定理を、上限性質を使って RA2 内で証明した。一般位相の compactness は使用していない。
 - 中間値定理を実数版連続性と上限性質だけで閉じ、閉区間版 Weierstrass 最大最小定理を Bolzano--Weierstrass と連続性から証明した。
