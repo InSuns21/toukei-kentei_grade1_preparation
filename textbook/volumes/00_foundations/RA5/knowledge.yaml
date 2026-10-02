@@ -24,6 +24,11 @@ concepts:
     kind: definition
     aliases: [一様Cauchy条件]
     requires: [analysis.uniform-convergence]
+  - id: analysis.uniform-cauchy-criterion
+    name: 一様Cauchy判定
+    kind: theorem
+    aliases: [一様Cauchy判定]
+    requires: [analysis.uniform-cauchy, analysis.real-completeness]
   - id: analysis.uniform-limit-continuity
     name: 一様極限の連続性
     kind: theorem
