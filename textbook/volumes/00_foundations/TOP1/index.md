@@ -784,13 +784,13 @@ h: Y -> Z は、全ての h∘q_i を調べる。
 
 ## 7. 商位相は全射が作る final topology
 
-集合 $X$ 上の同値関係 $\sim$ を考え、同値類全体の集合を
+[SET-U1](../SET-U1/index.md) で、集合 $X$ 上の同値関係 $\sim$ から商集合
 
 $$
 X/{\sim}
 $$
 
-とします。自然な全射を
+と標準射影
 
 $$
 q:X\to X/{\sim},
@@ -798,7 +798,7 @@ q:X\to X/{\sim},
 q(x)=[x]
 $$
 
-とします。
+を構成しました。ここではその集合構成を繰り返さず、**商集合にどの位相を入れるか**だけを新しく考えます。
 
 <a id="def-top1-quotient-topology"></a>
 <!-- formal-statement-start -->
