@@ -920,9 +920,9 @@ $$
 
 高階微分は $m=|\alpha|$ に関する帰納法で示します。$m=1$ は今示した一階公式です。
 
-$|\alpha|=m$ まで
+$m<k$ とし、$|\alpha|=m$ まで
 
-$$
+$
 D^\alpha(\chi u)
 =
 \sum_{\beta\le\alpha}
@@ -931,7 +931,19 @@ D^\beta\chi
 D^{\alpha-\beta}u
 $$
 
-が成り立つと仮定します。$j$ を一つ固定し、$\alpha+e_j$ 階へ進みます。右辺の各項へ一階公式を適用すると
+が成り立つと仮定します。$j$ を一つ固定し、$\alpha+e_j$ 階へ進みます。
+
+各 $\beta\le\alpha$ について
+
+$
+|\alpha-\beta|+1
+\le
+m+1
+\le
+k
+$
+
+なので $D^{\alpha-\beta}u\in W^{1,p}(\Omega)$ です。また $D^\beta\chi$ は滑らかです。したがって、右辺の各積に先ほど証明した一階公式を適用でき
 
 $$
 \begin{aligned}
