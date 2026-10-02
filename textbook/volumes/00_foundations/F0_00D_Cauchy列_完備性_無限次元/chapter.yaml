@@ -24,7 +24,7 @@ theorems:
   - { id: F000D-THM-03, name: 完備な部分空間は閉集合 }
   - { id: F000D-THM-04, name: コンパクト距離空間は完備 }
   - { id: F000D-THM-05, name: Euclid 空間の完備性 }
-canonical_examples: [実数と有理数の完備性, Euclid空間の完備性]
+canonical_examples: [実数と有理数の完備性, Euclid 空間の完備性]
 problem_patterns: [実数版から一般距離空間への抽象化, 非完備性の反例, 閉部分集合の完備性, 完備性とコンパクト性の判定]
 past_exam_alignment: []
 integrated_exam_problems: []
