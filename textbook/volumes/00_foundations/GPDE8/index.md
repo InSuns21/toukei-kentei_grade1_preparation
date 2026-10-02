@@ -2397,9 +2397,9 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-まず行列積を計算すると
+行列積は
 
-$$
+$
 A\xi
 =
 \begin{pmatrix}
