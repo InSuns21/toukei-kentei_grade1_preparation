@@ -344,6 +344,16 @@ decision gate の結論を実ファイルへ反映した。
 - RA4A の広義積分 Cauchy 判定は RA1 の実数列版へ直接接続し、RA6A の閉球上収縮写像は $\mathbb R^n$ の Cauchy 性を座標ごとの実数 Cauchy 性へ落として完備性を証明した。一般完備距離空間への逆依存は残していない。
 - F0-00D0A の完備化構成では、点間距離列 $(d(x_n,y_n))$ の極限存在に実数の完備性を実際に使っていたため、RA1 を prerequisite として明示し、対応する lemma の `requires` に `analysis.real-completeness` を追加した。
 
+#### RA2 閉区間コンパクト性の実解析内再構成（2026-10-03）
+
+- RA2 の \`chapter.yaml\` / \`knowledge.yaml\` から \`F0-00C / F0-00C1 / F0-00C2\` prerequisite を除去し、直接 prerequisite を RA1 のみにした。
+- 実数版 Bolzano--Weierstrass を RA2 へ移し、入れ子閉区間から部分列を選んで Cauchy 性を直接示し、RA1 の実数完備性で収束を得る証明へ置き換えた。
+- 閉区間の開区間被覆から有限部分被覆を取り出す定理を、上限性質を使って RA2 内で証明した。一般位相の compactness は使用していない。
+- 中間値定理を実数版連続性と上限性質だけで閉じ、閉区間版 Weierstrass 最大最小定理を Bolzano--Weierstrass と連続性から証明した。
+- Heine--Cantor は閉区間版として、非一様連続性から作った点対列に Bolzano--Weierstrass を適用する点列証明で閉じた。有限部分被覆からの別証明は Level C 演習で再構成させる。
+- RA3 の Rolle の定理は F0-00C2 の一般コンパクト版最大最小定理ではなく、RA2 の閉区間版最大最小定理を参照する形へ付け替えた。
+- F0-00C1 は実数版 Bolzano--Weierstrass を再証明せず RA2 から受け取り、座標ごとに適用して $\mathbb R^p$ 版へ拡張する責務へ整理した。既存の演習数 metadata も実本文 A4 / B3 / C1 に同期した。
+
 ### 6.3 実解析
 
 実解析は、実数・実数列・実関数に必要な完全性とコンパクト性を**実解析内部で具体的に証明**し、一般距離空間・一般位相空間を prerequisite にしない。
@@ -602,7 +612,7 @@ F0-00A1D の改稿着手時に、既存の F0-00A1 / A1B / RA1 との責務境�
 8. ✅ F0-00F1 のスペクトル定理 proof path を決定（2026-10-02）。固有対存在補題だけを後段 F0-00C2 で証明回収し、直交補空間の不変性と次元帰納法によるスペクトル定理本体は F0-00F1 で閉じる。
 9. ✅ 線形代数系列の stale dependency を整理（2026-10-03）。F0-00E→F0-00B、F0-00F→F0-00E1、LA4→F0-00F1 を除去し、F0-00F1 は固有対存在だけを後段 F0-00C2 で証明回収する構成へ同期、F0-00F2 の次章導線を LA6 へ戻した。
 10. ✅ RA1 に実数列の Cauchy 条件・実数の完備性を統合し、F0-00D prerequisite を除去する。級数の Cauchy 判定もこの実数版から閉じる。（2026-10-03）
-11. RA2 を一般位相から独立させ、実数・閉区間に必要な Bolzano--Weierstrass、最大最小、Heine--Cantor 等を実解析側の canonical result として閉じる。RA3 の Rolle 証明もこの実解析側結果へ付け替える。
+11. ✅ RA2 を一般位相から独立させ、実数・閉区間に必要な Bolzano--Weierstrass、最大最小、Heine--Cantor 等を実解析側の canonical result として閉じる。RA3 の Rolle 証明もこの実解析側結果へ付け替える。（2026-10-03）
 12. RA4A の Cauchy 判定と RA6A の収縮写像・逆関数定理を、RA1 の実数 Cauchy 完備性と $\mathbb R^n$ の座標ごとの具体的完備性だけで閉じる。RA6A の球面極値演習から一般コンパクト性依存も除去する。
 13. RA7 の閉矩形・閉有界集合上の一様連続性、有界性、有限個への一様化を、実解析内部の有限次元 Heine--Borel / Heine--Cantor 型結果へ接続し、TOP* の暗黙 prerequisite を残さない。
 14. RA8 を「位相空間論後の実解析発展」へ移し、TOP5 の一般位相 prerequisite を正面から保持する。実需要のない F0-00D1 prerequisite は除去する。
