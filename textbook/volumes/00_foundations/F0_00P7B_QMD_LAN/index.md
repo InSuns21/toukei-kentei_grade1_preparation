@@ -39,6 +39,20 @@ $$
 > を Hellinger 距離といいます。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-f0-00p7b-hellinger -->
+**定義の確認**  
+
+$P=\operatorname{Bernoulli}(p)$、$Q=\operatorname{Bernoulli}(q)$ とし、$\{0,1\}$ 上の数え上げ測度を使います。定義へ二点の密度を代入すると
+$$
+H^2(P,Q)
+=
+(\sqrt p-\sqrt q)^2
++
+(\sqrt{1-p}-\sqrt{1-q})^2.
+$$
+特に $p=q$ なら右辺は0で、同じ分布の距離が0になることを直接確認できます。
+<!-- definition-example-end -->
+
 本章では係数 $1/\sqrt2$ を付けない規約を使います。文献によっては $H^2=(1/2)\int(\sqrt p-\sqrt q)^2d\mu$ と正規化するため、定数因子だけ確認してください。
 
 平方根密度はどちらも $L^2$ ノルム1なので、これは単位球面上の2点間距離です。分布を局所的に比較するとき、「平方根密度が $L^2$ でどの方向へ動くか」を見る理由がここにあります。
@@ -315,6 +329,20 @@ $$
 >
 > を中心列といいます。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00p7b-central-sequence -->
+**定義の確認**  
+
+正規位置モデル $X_i\sim N(\theta_0,1)$ ではスコアは $s_{\theta_0}(X_i)=X_i-\theta_0$ です。したがって
+$$
+\Delta_n
+=
+\frac1{\sqrt n}\sum_{i=1}^n(X_i-\theta_0)
+=
+\sqrt n\,(\overline X_n-\theta_0).
+$$
+つまり中心列は、標本平均の誤差をその自然な $n^{-1/2}$ 尺度で正規化した量そのものです。
+<!-- definition-example-end -->
 
 QMD から $E_{\theta_0}[s_{\theta_0}]=0$ です。また、上で置いた $I(\theta)=E_\theta[s_\theta s_\theta^T]$ の表示から
 
