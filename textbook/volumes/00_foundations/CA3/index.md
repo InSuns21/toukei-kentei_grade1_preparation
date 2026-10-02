@@ -1101,17 +1101,47 @@ $p\in\mathbb R[z]$ を非定数多項式とする。このとき $p$ は $\mathb
 
 第2定理により $p$ は $\mathbb C[z]$ 上で一次因子へ完全分解します。
 
-まず $\alpha\in\mathbb C$ が $p$ の零点なら
+まず実係数であることから、任意の $z\in\mathbb C$ について
+
+$$
+p(z)=\overline{p(\overline z)}
+$$
+
+が成り立ちます。従って $\alpha\in\mathbb C$ が $p$ の零点なら
 
 $$
 p(\overline\alpha)
 =
 \overline{p(\alpha)}
 =
-0
+0.
 $$
 
-です。最初の等号では係数がすべて実数であることを使いました。従って非実零点は $\alpha,\overline\alpha$ の共役対で現れます。
+さらに、因子が現れる回数も共役で一致することを確認します。完全分解の中で $\alpha$ に対応する因子をすべてまとめて
+
+$$
+p(z)=(z-\alpha)^r q(z),
+\qquad q(\alpha)\ne0
+$$
+
+と書きます。上の共役恒等式へこの表示を入れると
+
+$$
+\begin{aligned}
+p(z)
+&=\overline{p(\overline z)}\\
+&=\overline{(\overline z-\alpha)^r q(\overline z)}\\
+&=(z-\overline\alpha)^r\,\overline{q(\overline z)}.
+\end{aligned}
+$$
+
+しかも $z=\overline\alpha$ で最後の因子は
+
+$$
+\overline{q(\alpha)}\ne0
+$$
+
+です。従って $\overline\alpha$ に対応する因子も正確に $r$ 回現れます。したがって非実零点は、因子の本数まで含めて $\alpha,\overline\alpha$ の共役対にまとめられます。
 
 共役対に対応する二つの一次因子を掛けると
 
