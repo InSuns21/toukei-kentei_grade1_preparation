@@ -1,39 +1,39 @@
 id: "GPDE9"
-title: "Encore III Graduate PDE IX：楕円型正則性"
+title: "大学院偏微分方程式 IX：楕円型正則性"
 volume: "foundations"
 status: supplementary
 prerequisites:
   - GPDE8
 official_scope: []
 learning_objectives:
-  - difference quotientを定義し、H^1関数に対するL^2一様評価を導出できる
-  - difference quotient版の部分積分公式を変数変換から証明できる
-  - difference quotientの一様L^2 boundから弱微分の存在を導くcriterionを証明できる
-  - cutoffを用いてPoisson方程式のCaccioppoli型局所energy estimateを導出できる
-  - test function -D_{-h}^k(eta^2 D_h^k u) を用いてPoisson弱解のinterior H^2 regularityを証明できる
+  - 差分商を定義し、H^1関数に対するL^2一様評価を導出できる
+  - 差分商版の部分積分公式を変数変換から証明できる
+  - 差分商の一様L^2評価から弱微分の存在を導く判定法を証明できる
+  - 局所化関数を用いてPoisson方程式のCaccioppoli型局所エネルギー評価を導出できる
+  - テスト関数 -D_{-h}^k(eta^2 D_h^k u) を用いてPoisson弱解の内部H^2正則性を証明できる
   - f∈L^2_locからu∈H^2_locを得る際にfの微分を要求しない理由を説明できる
-  - 一般divergence formでD_h(A∇u)=A_h D_h∇u+(D_hA)∇uと展開し、係数regularityの役割を説明できる
-  - 局所Lipschitz係数の一様楕円型方程式に対してinterior H^2 estimateを導出できる
-  - jump coefficientが弱解のH^2 regularityを壊す一次元反例を検証できる
-  - reentrant cornerでboundary H^2 regularityが失敗する尺度計算と、interior difference quotient法が境界でそのまま使えない理由を説明できる
-  - bounded C^{1,1} domain上のPoisson零Dirichlet問題ではglobal H^2 regularityが期待できることと、その証明がboundary flatteningを要する別理論であることを説明できる
-  - H^2 regularityだけでは一般次元でclassical solutionとは限らず、高階regularityとSobolev embeddingを経てC^2へ戻る十分条件を説明できる
-  - interior regularityとboundary regularityの違いを区別できる
+  - 一般発散形でD_h(A∇u)=A_h D_h∇u+(D_hA)∇uと展開し、係数正則性の役割を説明できる
+  - 局所Lipschitz係数の一様楕円型方程式に対して内部H^2評価を導出できる
+  - 跳躍係数が弱解のH^2正則性を壊す一次元反例を検証できる
+  - 再入角でboundary H^2正則性が失敗する尺度計算と、内部差分商法が境界でそのまま使えない理由を説明できる
+  - 有界C^{1,1}領域上のPoisson零Dirichlet問題ではglobal H^2正則性が期待できることと、その証明が境界の平坦化を要する別理論であることを説明できる
+  - H^2正則性だけでは一般次元で古典解とは限らず、高階regularityとSobolev埋め込みを経てC^2へ戻る十分条件を説明できる
+  - 内部正則性と境界正則性の違いを区別できる
 definitions:
-  - { id: GPDE9-DEF-01, name: "difference quotient" }
+  - { id: GPDE9-DEF-01, name: "差分商" }
 theorems:
-  - { id: GPDE9-LEM-01, name: "H^1 difference quotient estimate" }
-  - { id: GPDE9-LEM-02, name: "difference quotientの部分積分" }
-  - { id: GPDE9-LEM-03, name: "difference quotient criterion" }
-  - { id: GPDE9-PROP-01, name: "Poisson方程式のCaccioppoli型estimate" }
-  - { id: GPDE9-THM-01, name: "Poisson方程式のinterior H^2 regularity" }
-  - { id: GPDE9-PROP-02, name: "一般係数のCaccioppoli型estimate" }
-  - { id: GPDE9-THM-02, name: "局所Lipschitz係数のinterior H^2 regularity" }
+  - { id: GPDE9-LEM-01, name: "H^1関数の差分商評価" }
+  - { id: GPDE9-LEM-02, name: "差分商の部分積分" }
+  - { id: GPDE9-LEM-03, name: "差分商判定法" }
+  - { id: GPDE9-PROP-01, name: "Poisson方程式のCaccioppoli型評価" }
+  - { id: GPDE9-THM-01, name: "Poisson方程式のinterior H^2正則性" }
+  - { id: GPDE9-PROP-02, name: "一般係数のCaccioppoli型評価" }
+  - { id: GPDE9-THM-02, name: "局所Lipschitz係数のinterior H^2正則性" }
 canonical_examples:
-  - "多項式x^2,x^3のdifference quotient"
-  - "Poisson方程式の局所H^2 regularity"
-  - "piecewise constant jump coefficientによるH^2 failure"
-  - "reentrant cornerのharmonic singularity"
+  - "多項式x^2,x^3の差分商"
+  - "Poisson方程式の局所H^2正則性"
+  - "piecewise constant 跳躍係数によるH^2 failure"
+  - "再入角のharmonic singularity"
 problem_patterns: [GPDE9-DQ-1, GPDE9-DISCRETE-IBP-1, GPDE9-DQ-CRITERION-1, GPDE9-CACCIOPPOLI-1, GPDE9-POISSON-H2-1, GPDE9-COEFFICIENT-DQ-1, GPDE9-REGULARITY-FAILURE-1, GPDE9-VARIABLE-H2-1]
 past_exam_alignment: []
 integrated_exam_problems: []

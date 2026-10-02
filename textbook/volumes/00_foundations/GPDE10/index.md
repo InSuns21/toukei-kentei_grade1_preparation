@@ -7,7 +7,7 @@ GPDE6--GPDE9 では、時間に依存しない楕円型 PDE に対して
 $$
 \text{弱形式}
 \to
-\text{energy estimate}
+\text{エネルギー評価}
 \to
 \text{存在・一意性}
 \to
@@ -64,13 +64,13 @@ $$
 
 存在証明の主役は **Galerkin 法**です。
 
-これは FEM 専用の数値計算法ではありません。
+これは有限要素法（FEM）専用の数値計算法ではありません。
 
 $$
 \boxed{
 \text{有限次元で解く}
 \to
-\text{次元に依らない energy estimate}
+\text{次元に依らないエネルギー評価}
 \to
 \text{弱収束部分列}
 \to
@@ -80,7 +80,7 @@ $$
 
 という、PDE の存在証明そのものです。
 
-Encore V の FEM はこの考えを「計算可能な有限次元空間」に具体化します。本章では、その前段にある理論的な骨格を閉じます。
+Encore V の有限要素法（FEM）はこの考えを「計算可能な有限次元空間」に具体化します。本章では、その前段にある理論的な骨格を閉じます。
 
 以下、**ほとんど至る所（almost everywhere; a.e.）**を a.e. と略記します。
 
@@ -156,7 +156,7 @@ $$
 
 と書きます。
 
-$V$ の norm は [Poincaré 不等式](../GPDE4/index.md#thm-gpde4-poincare)を使って
+$V$ のノルムは [Poincaré 不等式](../GPDE4/index.md#thm-gpde4-poincare)を使って
 
 $$
 \|v\|_V:=\|\nabla v\|_{L^2(\Omega)}
@@ -170,7 +170,7 @@ $$
 
 時間微分を $L^2$ に要求すると、弱解の存在範囲を不必要に狭めます。
 
-一方で $u_t$ を任意の distribution にすると、energy estimate と結び付けにくくなります。
+一方で $u_t$ を任意の 超関数 にすると、エネルギー評価 と結び付けにくくなります。
 
 そこで
 
@@ -183,7 +183,7 @@ $$
 <a id="def-gpde10-gelfand-triple"></a>
 
 <!-- formal-statement-start -->
-> **定義（Gelfand triple）**  
+> **定義（Gelfand 三つ組）**  
 > 実完備内積空間 $V,H$ について、$V$ が $H$ に連続かつ稠密に埋め込まれているとする。Riesz 同型で $H$ と $H^*$ を同一視し、
 >
 $$
@@ -204,7 +204,7 @@ V\hookrightarrow H\hookrightarrow V^*
 }
 $$
 >
-> を本章では Gelfand triple と呼ぶ。
+> を本章では Gelfand 三つ組 と呼ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gpde10-gelfand-triple -->
@@ -212,7 +212,7 @@ $$
 
 **定義の確認**
 
-$\Omega$ を GPDE4 の [Poincare 不等式](../GPDE4/index.md#thm-gpde4-poincare)が成り立つ有界領域とします。
+$\Omega$ を GPDE4 の [Poincaré 不等式](../GPDE4/index.md#thm-gpde4-poincare)が成り立つ有界領域とします。
 
 $v\in H_0^1(\Omega)$ に対して
 
@@ -234,7 +234,7 @@ F_h(v)
 \int_\Omega hv\,dx
 $$
 
-と置くと、Cauchy--Schwarz と Poincare により
+と置くと、Cauchy--Schwarz と Poincaré により
 
 $$
 |F_h(v)|
@@ -260,7 +260,7 @@ $$
 
 も連続です。
 
-残る「稠密性」も確認しておきます。$g\in L^2(\Omega)$ を $\mathbb R^d$ へ 0 延長し、compact exhaustion
+残る「稠密性」も確認しておきます。$g\in L^2(\Omega)$ を $\mathbb R^d$ へ 0 延長し、コンパクト集合による増大列
 
 $$
 K_1\subset K_2\subset\cdots\Subset\Omega,
@@ -271,11 +271,11 @@ $$
 を取ります。まず
 
 $$
-g1_{K_n}\to g
+g\mathbf{1}_{K_n}\to g
 \quad\text{in }L^2(\Omega)
 $$
 
-であり、各 $n$ について十分小さい mollifier で $g1_{K_n}$ を平滑化すれば、support を $\Omega$ 内に保った
+であり、各 $n$ について十分小さい 平滑化核 で $g\mathbf{1}_{K_n}$ を平滑化すれば、台を $\Omega$ 内に保った
 
 $$
 \varphi_{n,\varepsilon}\in C_c^\infty(\Omega)
@@ -289,7 +289,7 @@ $$
 C_c^\infty(\Omega)\subset H_0^1(\Omega),
 $$
 
-なので $H_0^1(\Omega)$ も $L^2(\Omega)$ に稠密です。これで Gelfand triple の「連続かつ稠密な埋め込み」まで実際に確認できました。
+なので $H_0^1(\Omega)$ も $L^2(\Omega)$ に稠密です。これで Gelfand 三つ組の「連続かつ稠密な埋め込み」まで実際に確認できました。
 
 この埋め込みでは $h\in L^2$ を「関数」から「$H_0^1$ 上の線形汎関数」へ読み替えています。
 <!-- definition-example-end -->
@@ -307,9 +307,9 @@ $$
 は
 
 $$
-\text{左ほど強い regularity},
+\text{左ほど強い 正則性},
 \qquad
-\text{右ほど弱い regularity}
+\text{右ほど弱い 正則性}
 $$
 
 です。
@@ -330,7 +330,7 @@ $$
 
 ---
 
-## 3. 熱方程式の energy weak solution
+## 3. 熱方程式で使う弱解のクラス
 
 時間発展問題を抽象形
 
@@ -358,11 +358,13 @@ $$
 
 です。
 
+古典解のように $u_t$ と $Au$ をともに $H$ の元として扱う必要はありません。$u$ は空間方向には $V$ に置き、時間微分は $V^*$ まで弱めれば、方程式全体を $V^*$ の等式として読めます。さらに初期値は中間空間 $H$ で与えます。この三つを一つの解概念にまとめます。
+
 <a id="def-gpde10-energy-solution"></a>
 
 <!-- formal-statement-start -->
-> **定義（coercive evolution problem の energy weak solution）**  
-> $V\hookrightarrow H\hookrightarrow V^*$ を Gelfand triple、$a:V\times V\to\mathbb R$ を bounded bilinear form、$f\in L^2(0,T;V^*)$、$u_0\in H$ とする。  
+> **定義（時間発展問題のエネルギー弱解）**  
+> $V\hookrightarrow H\hookrightarrow V^*$ を Gelfand 三つ組、$a:V\times V\to\mathbb R$ を有界双線形形式、$f\in L^2(0,T;V^*)$、$u_0\in H$ とする。  
 > $u$ が
 >
 $$
@@ -392,7 +394,7 @@ u(0)=u_0
 \quad\text{in }H
 $$
 >
-> を満たすとき、$u$ をこの evolution problem の energy weak solution と呼ぶ。
+> を満たすとき、$u$ をこの時間発展問題の **エネルギー弱解** と呼ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gpde10-energy-solution -->
@@ -420,7 +422,7 @@ u_t=-e^{-t}\sin x,
 u_x=e^{-t}\cos x.
 $$
 
-任意の $v\in H_0^1(0,\pi)$ に対し、まず smooth な $v$ で部分積分すると
+任意の $v\in H_0^1(0,\pi)$ に対し、まず 滑らかな $v$ で部分積分すると
 
 $$
 \int_0^\pi
@@ -448,7 +450,7 @@ $$
 u_t-u_{xx}=0
 $$
 
-の energy weak formulation を満たします。
+の エネルギー弱形式 を満たします。
 
 さらに
 
@@ -461,7 +463,7 @@ $$
 
 ---
 
-## 4. 時間微分が $V^*$ にしかなくても energy を微分できる
+## 4. 時間微分が $V^*$ にしかなくてもエネルギーを微分できる
 
 有限次元 Galerkin 解なら
 
@@ -482,19 +484,19 @@ $$
 
 しか分かりません。
 
-それでも Gelfand triple の組合せなら
+それでも Gelfand 三つ組の組合せなら
 
 $$
 \langle u_t,u\rangle_{V^*,V}
 $$
 
-が意味を持ち、energy identity を回収できます。
+が意味を持ち、エネルギー恒等式 を回収できます。
 
 <a id="lem-gpde10-energy-identity"></a>
 
 <!-- formal-statement-start -->
-> **補題（Gelfand triple の energy identity）**  
-> $V\hookrightarrow H\hookrightarrow V^*$ を Gelfand triple とし、
+> **補題（Gelfand 三つ組のエネルギー恒等式）**  
+> $V\hookrightarrow H\hookrightarrow V^*$ を Gelfand 三つ組 とし、
 >
 $$
 u\in L^2(0,T;V),
@@ -502,7 +504,7 @@ u\in L^2(0,T;V),
 u_t\in L^2(0,T;V^*)
 $$
 >
-> とする。ここで $u_t$ は時間について distribution の意味の微分とする。  
+> とする。ここで $u_t$ は時間について 超関数 の意味の微分とする。  
 > このとき $u$ は $H$ 値の連続代表元を持ち、任意の $0\le s\le t\le T$ に対して
 >
 $$
@@ -524,7 +526,7 @@ $$
 
 時間方向だけ mollify します。
 
-smoothened function $u_\varepsilon$ なら通常の chain rule が使えます。
+平滑化した関数 $u_\varepsilon$ なら通常の chain rule が使えます。
 
 その identity を
 
@@ -540,7 +542,7 @@ $$
 
 で極限へ戻します。
 
-これにより energy の絶対連続性が得られます。
+これにより エネルギー の絶対連続性が得られます。
 
 さらに各 $v\in V$ に対する
 
@@ -548,7 +550,7 @@ $$
 t\longmapsto (u(t),v)_H
 $$
 
-の弱い連続性と norm の連続性を組み合わせて、$H$ での強連続性を得ます。
+の弱い連続性とノルムの連続性を組み合わせて、$H$ での強連続性を得ます。
 
 <!-- proof-start -->
 ### 証明
@@ -561,9 +563,9 @@ $$
 [\delta,T-\delta]
 $$
 
-の内部で時間 mollification を行います。
+の内部で時間 平滑化 を行います。
 
-時間の標準 mollifier $\rho_\varepsilon$ を使って
+時間の標準 平滑化核 $\rho_\varepsilon$ を使って
 
 $$
 u_\varepsilon
@@ -579,7 +581,7 @@ $$
 
 $\varepsilon<\delta/2$ とすれば端点の影響を受けません。
 
-distribution derivative と convolution の交換から
+超関数微分と畳み込みの交換から
 
 $$
 \frac{d}{dt}u_\varepsilon
@@ -589,7 +591,16 @@ $$
 
 が $V^*$ の意味で成り立ちます。
 
-一方、$u_\varepsilon$ は時間について smooth で $V$ 値なので
+ここで $u_\varepsilon=\rho_\varepsilon*u$ は $V$ 値関数の時間畳み込みでもあるので、通常の微分として
+
+$$
+\frac{d}{dt}u_\varepsilon
+=
+\rho_\varepsilon' * u
+\in V
+$$
+
+です。この $V$ 値微分を $V^*$ へ埋め込んだものと、上の $g_\varepsilon$ は同じ時間超関数を表すので一致します。従って $u_\varepsilon$ は時間について滑らかな $V$ 値関数であり、
 
 $$
 \frac{d}{dt}
@@ -598,10 +609,10 @@ $$
 \left(
 \frac{d}{dt}u_\varepsilon(t),
 u_\varepsilon(t)
-\right)_H.
+\right)_H
 $$
 
-$H\hookrightarrow V^*$ の同一視を使えば右辺は
+と通常の連鎖律を使えます。$H\hookrightarrow V^*$ の同一視を使えば右辺は
 
 $$
 \langle
@@ -625,7 +636,7 @@ u_\varepsilon(\tau)
 \,d\tau.
 $$
 
-mollification の近似性から
+平滑化 の近似性から
 
 $$
 u_\varepsilon\to u
@@ -681,7 +692,7 @@ $$
 E(t):=\frac12\|u(t)\|_H^2
 $$
 
-は a.e. 同値な絶対連続代表元を持ち、その distribution derivative は
+は a.e. 同値な絶対連続代表元を持ち、その 超関数微分 は
 
 $$
 E'(t)
@@ -702,7 +713,7 @@ $$
 
 次に $v\in V$ を固定します。
 
-distribution の定義から
+超関数 の定義から
 
 $$
 \frac{d}{dt}
@@ -721,7 +732,39 @@ $$
 
 $V$ は $H$ に稠密であり、上で得た $E(t)$ の連続代表元から $\|u(t)\|_H$ は局所有界です。
 
-したがって $V$ 上で得た scalar product の連続性を稠密性で $H$ の全ベクトルへ延長でき、$u(t)$ の代表元を $H$ で弱連続に取れます。
+任意の $h\in H$ を取り、$v_j\in V$ を
+
+$$
+v_j\to h
+\quad\text{in }H
+$$
+
+となるように選びます。ある時間区間で $\|u(t)\|_H\le K$ とすれば
+
+$$
+\begin{aligned}
+|(u(t)-u(s),h)_H|
+&\le
+|(u(t)-u(s),v_j)_H|
+\\
+&\qquad
++
+\|u(t)-u(s)\|_H\,\|h-v_j\|_H
+\\
+&\le
+|(u(t)-u(s),v_j)_H|
++
+2K\|h-v_j\|_H.
+\end{aligned}
+$$
+
+固定した $j$ では第一項は $t\to s$ で 0 へ行き、その後 $j\to\infty$ とすれば第二項も 0 になります。従って
+
+$$
+t\longmapsto (u(t),h)_H
+$$
+
+はすべての $h\in H$ に対して連続で、$u$ は $H$ で弱連続な代表元を持ちます。
 
 さらに
 
@@ -729,26 +772,32 @@ $$
 t\longmapsto \|u(t)\|_H
 $$
 
-は $E(t)$ の連続性から連続です。
-
-完備内積空間では
+は $E(t)$ の連続性から連続です。$t_n\to t$ とすると弱連続性から
 
 $$
 u(t_n)\rightharpoonup u(t)
-\quad\text{and}\quad
-\|u(t_n)\|_H\to\|u(t)\|_H
 $$
 
-なら
+であり、ノルムも収束します。そこで内積空間の恒等式
+
+$$
+\|u(t_n)-u(t)\|_H^2
+=
+\|u(t_n)\|_H^2
++
+\|u(t)\|_H^2
+-
+2(u(t_n),u(t))_H
+$$
+
+を使うと右辺は 0 へ収束します。従って
 
 $$
 u(t_n)\to u(t)
-\quad\text{in }H
+\quad\text{in }H,
 $$
 
-です。
-
-従ってこの代表元は
+すなわち
 
 $$
 u\in C([0,T];H)
@@ -756,7 +805,7 @@ $$
 
 です。
 
-最後に、a.e. で得た energy identity の両辺はこの連続代表元ではすべての $s,t$ へ連続に延長できるので、任意の $0\le s\le t\le T$ で
+最後に、a.e. で得た エネルギー恒等式 の両辺はこの連続代表元ではすべての $s,t$ へ連続に延長できるので、任意の $0\le s\le t\le T$ で
 
 $$
 \frac12\|u(t)\|_H^2
@@ -776,7 +825,7 @@ $$
 u_t\in V^*
 $$
 
-でも「解自身を掛ける energy method」を厳密に使えます。
+でも「解自身を掛ける エネルギー法」を厳密に使えます。
 
 ---
 
@@ -793,7 +842,7 @@ $$
 <a id="def-gpde10-galerkin"></a>
 
 <!-- formal-statement-start -->
-> **定義（Galerkin approximation）**  
+> **定義（Galerkin 近似）**  
 > $V\hookrightarrow H$ とし、有限次元部分空間
 >
 $$
@@ -834,7 +883,7 @@ $$
 u_m(0)=u_{0m}
 $$
 >
-> を満たすとき、$u_m$ を第 $m$ Galerkin approximation と呼ぶ。
+> を満たすとき、$u_m$ を第 $m$ Galerkin 近似 と呼ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gpde10-galerkin -->
@@ -910,7 +959,7 @@ $$
 
 したがって PDE は有限次元では普通の連立 ODE になります。
 
-Galerkin 法の本質は、この ODE を明示的に解くことではなく、$m$ に依らない estimate を作ることです。
+Galerkin 法の本質は、この ODE を明示的に解くことではなく、$m$ に依らない評価 を作ることです。
 <!-- definition-example-end -->
 
 一般の有限次元基底 $w_1,\dots,w_m$ に対し
@@ -941,7 +990,7 @@ $M$ は Gram 行列なので正定値で可逆です。
 
 ---
 
-## 6. 次元に依らない a priori energy estimate
+## 6. 次元に依らないアプリオリエネルギー評価
 
 Galerkin 解の方程式で
 
@@ -964,7 +1013,7 @@ $$
 <a id="prop-gpde10-galerkin-energy"></a>
 
 <!-- formal-statement-start -->
-> **命題（Galerkin 解の一様 energy estimate）**  
+> **命題（Galerkin 解の一様エネルギー評価）**  
 > $a$ が
 >
 $$
@@ -1013,7 +1062,7 @@ $$
 \frac12\frac{d}{dt}\|u_m\|_H^2.
 $$
 
-coercivity で空間 energy を下から支え、右辺は [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)で半分を吸収します。
+強圧条件で空間 エネルギー を下から支え、右辺は [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)で半分を吸収します。
 
 重要なのは、右辺の定数に
 
@@ -1038,7 +1087,7 @@ a(u_m,u_m)
 \langle f,u_m\rangle.
 $$
 
-coercivity から
+強圧条件から
 
 $$
 a(u_m,u_m)
@@ -1046,7 +1095,7 @@ a(u_m,u_m)
 \alpha\|u_m\|_V^2.
 $$
 
-また[dual norm の基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
+また [双対ノルムの基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
 
 $$
 |\langle f,u_m\rangle|
@@ -1126,7 +1175,7 @@ $$
 これで示されました。
 <!-- proof-end -->
 
-この estimate が Galerkin 法の心臓部です。
+この評価が Galerkin 法の心臓部です。
 
 もし右辺に $m$ が出て
 
@@ -1138,7 +1187,7 @@ $$
 
 ---
 
-## 7. 弱 compactness で有限次元から抜ける
+## 7. 弱コンパクト性で有限次元から抜ける
 
 初期値近似を
 
@@ -1167,7 +1216,7 @@ $$
 u_m
 \rightharpoonup
 u
-\quad\text{weakly in }L^2(0,T;V)
+\quad\text{弱く in }L^2(0,T;V)
 $$
 
 とできます。
@@ -1184,13 +1233,13 @@ Galerkin 法では、まず **時間積分した弱形式**へ移してから極
 
 ---
 
-## 8. coercive evolution problem を Galerkin で解く
+## 8. 強圧的時間発展問題を Galerkin 法で解く
 
 <a id="thm-gpde10-galerkin-existence"></a>
 
 <!-- formal-statement-start -->
-> **定理（Galerkin 法による coercive evolution problem の存在一意性）**  
-> $V\hookrightarrow H\hookrightarrow V^*$ を Gelfand triple とする。$a:V\times V\to\mathbb R$ は、ある $M,\alpha>0$ に対して
+> **定理（Galerkin 法による強圧的時間発展問題の存在一意性）**  
+> $V\hookrightarrow H\hookrightarrow V^*$ を Gelfand 三つ組 とする。$a:V\times V\to\mathbb R$ は、ある $M,\alpha>0$ に対して
 >
 $$
 |a(u,v)|
@@ -1222,7 +1271,7 @@ V_1\subset V_2\subset\cdots,
 \overline{\bigcup_mV_m}^{\,V}=V
 $$
 >
-> となる Galerkin family があると仮定する。  
+> となる Galerkin 近似空間族 があると仮定する。  
 > このとき一意な
 >
 $$
@@ -1283,7 +1332,7 @@ $$
 \\
 \downarrow
 \\
-\text{一様 energy estimate}
+\text{一様 エネルギー評価}
 \\
 \downarrow
 \\
@@ -1292,7 +1341,7 @@ u_m\rightharpoonup u
 \\
 \downarrow
 \\
-\text{時間積分した weak form で極限通過}
+\text{時間積分した弱形式で極限通過}
 \\
 \downarrow
 \\
@@ -1300,7 +1349,7 @@ u_t=f-Au\in L^2(0,T;V^*)
 \\
 \downarrow
 \\
-\text{energy identity で初期値・一意性を閉じる}
+\text{エネルギー恒等式 で初期値・一意性を閉じる}
 \end{array}
 }
 $$
@@ -1368,9 +1417,9 @@ $f\in L^2(0,T;V^*)$ なので各 $F_i(t)=\langle f(t),w_i\rangle$ は $L^2(0,T)$
 
 有限次元線形 ODE の理論から、絶対連続な $d^{(m)}$、従って $u_m$ が存在します。
 
-#### Step 2：次元に依らない bound
+#### Step 2：次元に依らない評価
 
-[Galerkin 解の一様 energy estimate](#prop-gpde10-galerkin-energy)から
+[Galerkin 解の一様エネルギー評価](#prop-gpde10-galerkin-energy)から
 
 $$
 \sup_t\|u_m(t)\|_H^2
@@ -1404,7 +1453,7 @@ $$
 u_m
 \rightharpoonup
 u
-\quad\text{weakly in }L^2(0,T;V)
+\quad\text{弱く in }L^2(0,T;V)
 $$
 
 とできます。
@@ -1415,7 +1464,7 @@ $$
 u_m
 \rightharpoonup
 u
-\quad\text{weakly in }L^2(0,T;H)
+\quad\text{弱く in }L^2(0,T;H)
 $$
 
 も成り立ちます。
@@ -1546,7 +1595,7 @@ $$
 
 を得ます。
 
-今は $v$ を $\bigcup_mV_m$ から取っていますが、この union は $V$ で稠密です。
+今は $v$ を $\bigcup_mV_m$ から取っていますが、この和集合は $V$ で稠密です。
 
 各項は $v$ に関して連続なので、任意の $v\in V$ へ延長できます。
 
@@ -1562,7 +1611,7 @@ $$
 
 で定めます。
 
-boundedness から
+有界性 から
 
 $$
 \|Au\|_{V^*}
@@ -1584,7 +1633,7 @@ g:=f-Au
 L^2(0,T;V^*).
 $$
 
-$\eta(0)=\eta(T)=0$ の test function に限定すれば上の積分恒等式は
+$\eta(0)=\eta(T)=0$ の テスト関数 に限定すれば上の積分恒等式は
 
 $$
 -\int_0^T
@@ -1596,14 +1645,14 @@ $$
 
 です。
 
-従って時間 distribution derivative は
+従って時間 超関数微分 は
 
 $$
 u_t=g=f-Au
 \in L^2(0,T;V^*).
 $$
 
-[energy identity](#lem-gpde10-energy-identity)から
+[Gelfand 三つ組のエネルギー恒等式](#lem-gpde10-energy-identity)から
 
 $$
 u\in C([0,T];H).
@@ -1650,9 +1699,9 @@ $$
 
 これで存在が示されました。
 
-#### Step 7：極限解の energy estimate
+#### Step 7：極限解の エネルギー評価
 
-方程式へ $v=u(t)$ を入れることは、[energy identity](#lem-gpde10-energy-identity)により正当化できます。
+方程式へ $v=u(t)$ を入れることは、[Gelfand 三つ組のエネルギー恒等式](#lem-gpde10-energy-identity)により正当化できます。
 
 $$
 \frac12
@@ -1664,7 +1713,7 @@ a(u,u)
 \langle f,u\rangle.
 $$
 
-Galerkin 解と同じ coercivity と [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)から
+Galerkin 解と同じ 強圧条件と [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)から
 
 $$
 \frac12
@@ -1712,7 +1761,7 @@ w_t+Aw=0,
 w(0)=0.
 $$
 
-energy identity から
+[Gelfand 三つ組のエネルギー恒等式](#lem-gpde10-energy-identity)から
 
 $$
 \frac12
@@ -1724,7 +1773,7 @@ a(w,w)
 0.
 $$
 
-coercivity により
+強圧条件により
 
 $$
 \frac12
@@ -1757,7 +1806,7 @@ $$
 従って解は一意です。
 <!-- proof-end -->
 
-ここで使った「compactness」は強収束を作る compact embedding ではなく、完備内積空間の有界列から **弱収束部分列を取り出す弱 compactness** です。
+ここで使った「コンパクト性」は強収束を作る コンパクト埋め込み ではなく、完備内積空間の有界列から **弱収束部分列を取り出す弱 コンパクト性** です。
 
 線形問題ではこれで極限通過できます。
 
@@ -1768,8 +1817,8 @@ $$
 <a id="cor-gpde10-heat-existence"></a>
 
 <!-- formal-statement-start -->
-> **系（零 Dirichlet 熱方程式の energy weak solution）**  
-> $\Omega\subset\mathbb R^d$ を Poincare 不等式が成り立つ有界領域とし、
+> **系（零 Dirichlet 熱方程式のエネルギー弱解）**  
+> $\Omega\subset\mathbb R^d$ を Poincaré 不等式が成り立つ有界領域とし、
 >
 $$
 f\in L^2(0,T;H^{-1}(\Omega)),
@@ -1799,7 +1848,7 @@ $$
 u_t\in L^2(0,T;H^{-1}(\Omega))
 $$
 >
-> の energy weak solution が存在する。
+> の エネルギー弱解が存在する。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -1822,6 +1871,46 @@ $$
 
 と置きます。
 
+さらに、主定理で必要な可算個の Galerkin 近似空間も用意できます。その理由を確認します。
+
+Lebesgue 測度を入れた $\Omega\subset\mathbb R^d$ では、係数を有理数に取り、端点が有理数の直方体の有限和の指示関数を使えば、$L^2(\Omega)$ に可算稠密集合を作れます。したがって
+
+$$
+L^2(\Omega)^{d+1}
+$$
+
+も可分です。
+
+$H^1(\Omega)$ の元 $v$ を
+
+$$
+v
+\longmapsto
+(v,\partial_1v,\ldots,\partial_dv)
+$$
+
+で $L^2(\Omega)^{d+1}$ の部分空間とみなすと、$H^1$ ノルムはこの積空間のノルムです。よって $H^1(\Omega)$ は可分で、その部分空間 $H_0^1(\Omega)$ も可分です。
+
+そこで $H_0^1(\Omega)$ に稠密な列 $(w_j)_{j\ge1}$ を取り、
+
+$$
+V_m
+=
+\operatorname{span}\{w_1,\ldots,w_m\}
+$$
+
+と置けば
+
+$$
+V_1\subset V_2\subset\cdots,
+\qquad
+\overline{\bigcup_mV_m}^{\,H_0^1}
+=
+H_0^1(\Omega)
+$$
+
+となります。これで主定理の Galerkin 近似空間族の仮定も確認できました。
+
 Cauchy--Schwarz から
 
 $$
@@ -1840,7 +1929,7 @@ a(v,v)
 \|v\|_V^2.
 $$
 
-従って boundedness 定数 $M=1$、coercivity 定数 $\alpha=1$ と取れます。
+従って 有界性定数 $M=1$、強圧定数 $\alpha=1$ と取れます。
 
 前節の主定理を適用すれば結論を得ます。
 <!-- proof-end -->
@@ -1853,13 +1942,13 @@ $$
 
 でも意味を持ちます。
 
-明示解を書けなくても、energy estimate と弱 compactness だけで解を構成できる点が重要です。
+明示解を書けなくても、エネルギー評価 と弱 コンパクト性 だけで解を構成できる点が重要です。
 
 ---
 
 ## 10. 初期値・外力に対する連続依存
 
-存在だけでなく、データを少し変えたとき解が少しだけ変わることも energy estimate から出ます。
+存在だけでなく、データを少し変えたとき解が少しだけ変わることも エネルギー評価 から出ます。
 
 <a id="prop-gpde10-stability"></a>
 
@@ -1873,7 +1962,7 @@ $$
 (f_2,u_{02})
 $$
 >
-> に対応する energy weak solution とする。このとき
+> に対応する エネルギー弱解とする。このとき
 >
 $$
 \boxed{
@@ -1914,7 +2003,7 @@ w_t+Aw=g,
 w(0)=u_{01}-u_{02}.
 $$
 
-energy identity から
+[Gelfand 三つ組のエネルギー恒等式](#lem-gpde10-energy-identity)から
 
 $$
 \frac12
@@ -1926,7 +2015,7 @@ a(w,w)
 \langle g,w\rangle.
 $$
 
-coercivity と [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)から
+強圧条件と [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)から
 
 $$
 \frac12
@@ -2002,7 +2091,7 @@ $$
 
 $$
 z_n\rightharpoonup0
-\quad\text{weakly in }L^2(0,2\pi).
+\quad\text{弱く in }L^2(0,2\pi).
 $$
 
 しかし
@@ -2019,7 +2108,7 @@ $$
 
 $$
 \cos(2nx)\rightharpoonup0
-\quad\text{weakly in }L^2(0,2\pi).
+\quad\text{弱く in }L^2(0,2\pi).
 $$
 
 従って
@@ -2033,7 +2122,7 @@ $$
 であり、
 
 $$
-(\text{weak limit of }z_n)^2
+(\text{弱極限 of }z_n)^2
 =
 0
 $$
@@ -2054,13 +2143,13 @@ $$
 
 この失敗で壊れているのは、Galerkin 主証明の Step 5 の **線形汎関数に対する弱収束の極限通過**です。
 
-後続の非線形時間発展 PDE では、Aubin--Lions 型 compactness や monotonicity など、より強い機構が必要になります。
+後続の非線形時間発展 PDE では、Aubin--Lions 型 コンパクト性 や monotonicity など、より強い機構が必要になります。
 
 本章ではそこへ進みません。
 
 ---
 
-## 12. 波動方程式では energy space が変わる
+## 12. 波動方程式では状態の持ち方が変わる
 
 PDE4 の波動方程式
 
@@ -2070,7 +2159,7 @@ $$
 
 では時間微分が二階です。
 
-熱方程式では energy が
+熱方程式では エネルギー が
 
 $$
 \|u(t)\|_{L^2}^2
@@ -2089,8 +2178,8 @@ $$
 <a id="def-gpde10-wave-energy-space"></a>
 
 <!-- formal-statement-start -->
-> **定義（波動方程式の energy space）**  
-> 零 Dirichlet 波動方程式の自然な energy space を
+> **定義（波動方程式のエネルギー空間）**  
+> 零 Dirichlet 波動方程式の自然な エネルギー空間 を
 >
 $$
 \boxed{
@@ -2100,7 +2189,7 @@ H_0^1(\Omega)\times L^2(\Omega)
 }
 $$
 >
-> とし、状態 $(u,v)$ の energy を
+> とし、状態 $(u,v)$ の エネルギー を
 >
 $$
 E(u,v)
@@ -2163,13 +2252,13 @@ E(t)
 \end{aligned}
 $$
 
-熱方程式の単一モードでは energy が指数的に減衰しましたが、波動方程式では保存されます。
+熱方程式の単一モードでは エネルギー が指数的に減衰しましたが、波動方程式では保存されます。
 <!-- definition-example-end -->
 
 <a id="prop-gpde10-wave-energy"></a>
 
 <!-- formal-statement-start -->
-> **命題（滑らかな零 Dirichlet 波動解の energy 保存）**  
+> **命題（滑らかな零 Dirichlet 波動解のエネルギー保存）**  
 > 十分滑らかな $u$ が
 >
 $$
@@ -2241,7 +2330,7 @@ $$
 よって $E(t)$ は一定です。
 <!-- proof-end -->
 
-弱い energy solution では典型的に
+弱い エネルギー solution では典型的に
 
 $$
 u\in L^\infty(0,T;H_0^1),
@@ -2260,39 +2349,101 @@ $$
 $$
 \text{有限次元化}
 \to
-\text{energy estimate}
+\text{エネルギー評価}
 \to
 \text{弱極限}
 $$
 
-を使いますが、本章の主定理を二階時間系へ機械的に重複させず、energy space の位置付けまでを正本とします。
+を使いますが、本章の主定理を二階時間系へ機械的に重複させず、エネルギー空間がなぜこの形になるかを確認するところまで扱います。
 
 ---
 
-## 13. semigroup から時間発展を見る
+## 13. 時間発展作用素族から解を見る
 
-時間発展問題には、弱形式以外にも semigroup を使う入口があります。
+時間発展問題には、弱形式とは別に「初期状態を時刻 $t$ まで運ぶ作用素族」を先に作る入口があります。有限次元の同次方程式
 
-<a id="def-gpde10-mild-solution"></a>
+$$
+u_t+Au=0
+$$
+
+なら
+
+$$
+u(t)=e^{-tA}u_0
+$$
+
+と書けます。無限次元でも、時間 $s$ 進めてから $t$ 進める操作が最初から $s+t$ 進める操作と一致し、時刻 0 では恒等写像へ連続につながる作用素族を考えます。
+
+<a id="def-gpde10-c0-semigroup"></a>
 
 <!-- formal-statement-start -->
-> **定義（mild solution：semigroup bridge）**  
-> 完備内積空間 $H$ 上の bounded linear operator の族 $(S(t))_{t\ge0}$ が
+> **定義（強連続作用素族）**  
+> 完備内積空間 $H$ 上の有界線形作用素の族 $(S(t))_{t\ge0}$ が
 >
 $$
 S(0)=I,
 \qquad
 S(t+s)=S(t)S(s)
+\qquad
+(s,t\ge0)
 $$
 >
-> を満たし、さらに任意の $x\in H$ について
+> を満たし、さらに任意の $x\in H$ に対して
 >
 $$
+\boxed{
 \|S(t)x-x\|_H\to0
 \qquad(t\downarrow0)
+}
 $$
 >
-> を満たすとする。このような族が与えられ、形式的に $S(t)=e^{-tA}$ と書ける状況を考える。$u_0\in H$、$f\in L^1(0,T;H)$ とし、以下の Bochner integral が意味を持つとする。形式的な evolution equation
+> を満たすとき、$(S(t))_{t\ge0}$ を $H$ 上の **強連続作用素族** と呼ぶ。これは通常 $C_0$-semigroup と呼ばれる対象です。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-gpde10-c0-semigroup -->
+**定義の確認**
+
+一つの固有モードが張る一次元空間 $H=\operatorname{span}\{w\}$ で、$\lambda\ge0$ とし
+
+$$
+S(t)(cw)
+=
+ce^{-\lambda t}w
+$$
+
+と置きます。このとき
+
+$$
+S(0)(cw)=cw,
+$$
+
+$$
+S(t)S(s)(cw)
+=
+ce^{-\lambda s}e^{-\lambda t}w
+=
+S(t+s)(cw),
+$$
+
+さらに
+
+$$
+\|S(t)(cw)-cw\|_H
+=
+|c|\,|e^{-\lambda t}-1|\,\|w\|_H
+\to0.
+$$
+
+従ってこれは強連続作用素族です。
+<!-- definition-example-end -->
+
+同次問題では $S(t)u_0$ が初期値の時間発展を表します。外力があると、時刻 $s$ に加わった $f(s)$ の寄与を残り時間 $t-s$ だけ $S(t-s)$ で運び、それを $s$ について足し合わせるのが自然です。これが Duhamel の原理に対応する積分表示です。
+
+<a id="def-gpde10-mild-solution"></a>
+
+<!-- formal-statement-start -->
+> **定義（mild 解：作用素族表示）**  
+> $H$ 上の強連続作用素族 $(S(t))_{t\ge0}$ が与えられ、形式的に $S(t)=e^{-tA}$ と書ける状況を考える。$u_0\in H$、$f\in L^1(0,T;H)$ とし、次の Bochner 積分が存在するとする。形式的な時間発展方程式
 >
 $$
 u_t+Au=f,
@@ -2313,55 +2464,60 @@ S(t-s)f(s)\,ds
 }
 $$
 >
-> を満たす $u\in C([0,T];H)$ を mild solution と呼ぶ。
+> を満たす $u\in C([0,T];H)$ を mild 解と呼ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gpde10-mild-solution -->
-### 直接例：固有モード上の semigroup
+### 直接例：一つの固有モードに外力を加える
 
 **定義の確認**
 
-この表示は Duhamel principle の無限次元版です。
-
-熱方程式の一つの固有モード
+$Aw=\lambda w$、$u_0=cw$ とし、外力を
 
 $$
-Aw=\lambda w
+f(s)=q(s)w
 $$
 
-では
+とします。固有モード上では
 
 $$
 S(t)w=e^{-\lambda t}w
 $$
 
-なので、
+なので作用素族表示は
 
 $$
-u_0=cw,
-\qquad
-f=0
+\begin{aligned}
+u(t)
+&=
+ce^{-\lambda t}w
++
+\int_0^t
+e^{-\lambda(t-s)}q(s)w\,ds
+\\
+&=
+\left[
+ce^{-\lambda t}
++
+\int_0^t
+e^{-\lambda(t-s)}q(s)\,ds
+\right]w.
+\end{aligned}
 $$
 
-なら
-
-$$
-u(t)=ce^{-\lambda t}w.
-$$
-
-これは前に確認した熱方程式の単一モードと一致します。
+$q=0$ なら前に確認した熱方程式の単一モードへ戻ります。
 <!-- definition-example-end -->
 
 ただし、
 
-- どの作用素が強連続 semigroup を生成するか
+- どの作用素がこの強連続作用素族を生成するか
 - Hille--Yosida 型生成定理
-- semigroup のより強い正則化理論
-- maximal regularity
+- 作用素族によるより強い正則化理論
+- 最大正則性
 
-は本章の射程外です。
+は本章では扱いません。
 
-したがってここでは **mild solution の定義と energy weak solution との接続位置だけ**を示し、semigroup 生成理論は後続拡張へ送ります。
+ここでは **強連続作用素族と mild 解の定義、およびエネルギー弱解との接続位置**までを確認し、作用素族の生成理論は後続の発展事項とします。
 
 ---
 
@@ -2369,16 +2525,16 @@ $$
 
 | 仮定・道具 | 使う場所 | 役割 |
 |---|---|---|
-| $V\hookrightarrow H$ continuous | Gelfand triple / limit passage | $V$ の bound から $H$ の時間積分を制御する |
-| $V$ dense in $H$ | 初期値の同定 / strong continuity | $V$ test で得た情報を $H$ 全体へ広げる |
+| $V\hookrightarrow H$ 連続 | Gelfand 三つ組 / 極限通過 | $V$ の評価から $H$ の時間積分を制御する |
+| $V$ dense in $H$ | 初期値の同定 / 強連続性 | $V$ テスト で得た情報を $H$ 全体へ広げる |
 | $H\hookrightarrow V^*$ | 時間微分 | $H$ 内積を $V^*$-$V$ duality として読む |
-| $a$ bounded | limit passage / $Au\in V^*$ | $u_m\rightharpoonup u$ から $a(u_m,v)\to a(u,v)$ |
-| $a$ coercive | energy estimate | $\|u_m\|_{L^2(0,T;V)}$ を次元一様に支える |
-| $f\in L^2(0,T;V^*)$ | energy estimate | $\langle f,u_m\rangle$ を Cauchy--Schwarz / Young で評価する |
-| Galerkin family の $V$-density | limit passage | finite-dimensional test から任意の $v\in V$ へ延長する |
-| weak compactness | subsequence extraction | 一様 bound から無限次元候補 $u$ を取り出す |
-| 線形性 | weak limit passage | weak convergence だけで $a(u_m,v)$ を通す |
-| energy identity | 初期値・一意性・安定性 | $u_t\in V^*$ でも $\|u(t)\|_H^2$ を微分する |
+| $a$ 有界 | 極限通過 / $Au\in V^*$ | $u_m\rightharpoonup u$ から $a(u_m,v)\to a(u,v)$ |
+| $a$ 強圧的 | エネルギー評価 | $\|u_m\|_{L^2(0,T;V)}$ を次元一様に支える |
+| $f\in L^2(0,T;V^*)$ | エネルギー評価 | $\langle f,u_m\rangle$ を Cauchy--Schwarz / Young で評価する |
+| Galerkin 近似空間族の $V$-稠密性 | 極限通過 | 有限次元テスト関数から任意の $v\in V$ へ延長する |
+| 弱コンパクト性 | 部分列抽出 | 一様評価 から無限次元候補 $u$ を取り出す |
+| 線形性 | 弱収束での極限通過 | 弱収束だけで $a(u_m,v)$ を通す |
+| エネルギー恒等式 | 初期値・一意性・安定性 | $u_t\in V^*$ でも $\|u(t)\|_H^2$ を微分する |
 
 特に
 
@@ -2388,7 +2544,7 @@ $$
 =
 \text{有限次元解そのもの}
 \text{ではなく}
-\text{次元一様の a priori estimate}
+\text{次元一様の アプリオリ評価}
 }
 $$
 
@@ -2398,12 +2554,12 @@ $$
 
 ## 15. Encore V への橋
 
-Encore V の FEM では、Galerkin 空間 $V_m$ を
+Encore V の 有限要素法（FEM） では、Galerkin 空間 $V_m$ を
 
-- mesh
-- piecewise polynomial basis
-- element matrix
-- assembly
+- メッシュ
+- 区分的多項式基底
+- 要素行列
+- 組立て
 
 によって具体的に構成します。
 
@@ -2435,7 +2591,7 @@ $$
 }
 $$
 
-を正本化し、mesh や solver は Encore V に残します。
+という見方を身につけ、メッシュやソルバーを使った具体的な離散化は Encore V で扱います。
 
 ---
 
@@ -2447,7 +2603,7 @@ $$
 #### GPDE10-A01 $L^2$ から $H^{-1}$ への埋め込み
 - Level: A
 
-$\Omega$ を Poincare 定数 $C_P$ を持つ有界領域とする。
+$\Omega$ を Poincaré 定数 $C_P$ を持つ有界領域とする。
 
 $h\in L^2(\Omega)$ に対し
 
@@ -2516,7 +2672,7 @@ $$
 \|h\|_2\|v\|_2.
 $$
 
-Poincare を代入して
+Poincaré を代入して
 
 $$
 |F_h(v)|
@@ -2526,7 +2682,7 @@ $$
 
 よって $F_h$ は $V$ 上の連続線形汎関数です。
 
-[dual norm の基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
+[双対ノルムの基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
 
 $$
 \begin{aligned}
@@ -2562,7 +2718,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-gpde10-a02"></a>
-#### GPDE10-A02 熱方程式の単一モードと energy decay
+#### GPDE10-A02 熱方程式の単一モードと エネルギー減衰
 - Level: A
 
 $\Omega=(0,\pi)$ で
@@ -2575,7 +2731,7 @@ $$
 
 1. $u_t-u_{xx}=0$ を確認せよ。
 2. 零 Dirichlet 条件を確認せよ。
-3. $L^2$ energy
+3. $L^2$ エネルギー
    $$
    E(t)=\frac12\|u(t)\|_2^2
    $$
@@ -2650,9 +2806,9 @@ E(t)
 \frac\pi4e^{-8t}.
 $$
 
-energy は指数率 $8$ で減衰します。
+エネルギー は指数率 $8$ で減衰します。
 
-最後に smooth な $v$ に対し部分積分すると
+最後に 滑らかな $v$ に対し部分積分すると
 
 $$
 \int_0^\pi
@@ -2681,7 +2837,7 @@ $H_0^1$ への密度で一般の $v$ にも成立します。
 <!-- solution-end -->
 
 <a id="ex-gpde10-a03"></a>
-#### GPDE10-A03 二次元 Galerkin system を書く
+#### GPDE10-A03 二次元 Galerkin 系 を書く
 - Level: A
 
 $\Omega=(0,\pi)$、
@@ -2720,7 +2876,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-test function としてまず $\sin x$ を使います。
+テスト関数 としてまず $\sin x$ を使います。
 
 $$
 (u_2',\sin x)
@@ -2759,7 +2915,7 @@ d_1'+d_1
 f_1(t).
 $$
 
-次に $\sin2x$ を test すると
+次に $\sin2x$ を テスト すると
 
 $$
 (u_2',\sin2x)
@@ -2812,7 +2968,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-gpde10-a04"></a>
-#### GPDE10-A04 波動単一モードの energy
+#### GPDE10-A04 波動単一モードの エネルギー
 - Level: A
 
 $$
@@ -2916,10 +3072,10 @@ $$
 ### Level B
 
 <a id="ex-gpde10-b01"></a>
-#### GPDE10-B01 forcing 付き Galerkin energy estimate
+#### GPDE10-B01 外力 付き Galerkin エネルギー評価
 - Level: B
 
-$a$ は bounded かつ coercive で
+$a$ は 有界 かつ 強圧的 で
 
 $$
 a(v,v)\ge\alpha\|v\|_V^2.
@@ -2973,7 +3129,7 @@ $$
 \|u_m\|_H^2.
 $$
 
-coercivity から
+強圧条件から
 
 $$
 a(u_m,u_m)
@@ -2993,7 +3149,7 @@ $$
 |\langle f,u_m\rangle|.
 $$
 
-[dual norm の基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
+[双対ノルムの基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
 
 $$
 |\langle f,u_m\rangle|
@@ -3068,11 +3224,11 @@ $$
 \|f\|_{V^*}^2.
 $$
 
-ここで dimension $m$ に依存する定数は一度も使っていません。
+ここで 次元 $m$ に依存する定数は一度も使っていません。
 <!-- solution-end -->
 
 <a id="ex-gpde10-b02"></a>
-#### GPDE10-B02 time-integrated weak form で極限を通す
+#### GPDE10-B02 時間積分した弱形式 で極限を通す
 - Level: B
 
 $u_m\rightharpoonup u$ in $L^2(0,T;V)$ とする。
@@ -3089,7 +3245,7 @@ $\eta\in C^\infty([0,T])$、$\eta(T)=0$ に対し、
 
 1. 時間部分積分した式を書け。
 2. 各項が $m\to\infty$ でどの収束を使って極限へ行くか説明せよ。
-3. union $\bigcup_mV_m$ の $V$-density により任意の $v\in V$ へ延長できることを示せ。
+3. 和集合 $\bigcup_mV_m$ の $V$-稠密性 により任意の $v\in V$ へ延長できることを示せ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -3158,7 +3314,7 @@ $$
 w\mapsto a(w,v)
 $$
 
-は boundedness により $V$ 上の連続線形汎関数なので
+は 有界性 により $V$ 上の連続線形汎関数なので
 
 $$
 \int
@@ -3206,7 +3362,7 @@ $$
 
 ここまで $v\in\bigcup_mV_m$ でした。
 
-任意の $v\in V$ に対し、density から
+任意の $v\in V$ に対し、稠密性 から
 
 $$
 v^{(k)}
@@ -3219,13 +3375,13 @@ $$
 
 を取れます。
 
-第一項は $V\hookrightarrow H$、第二項は $a$ の boundedness、右辺は $f\in V^*$、初期値項は $V\hookrightarrow H$ により、それぞれ $v$ に関して連続です。
+第一項は $V\hookrightarrow H$、第二項は $a$ の 有界性、右辺は $f\in V^*$、初期値項は $V\hookrightarrow H$ により、それぞれ $v$ に関して連続です。
 
 したがって $k\to\infty$ として任意の $v\in V$ へ式を延長できます。
 <!-- solution-end -->
 
 <a id="ex-gpde10-b03"></a>
-#### GPDE10-B03 一意性と連続依存を energy だけで示す
+#### GPDE10-B03 一意性と連続依存を エネルギー だけで示す
 - Level: B
 
 $u_1,u_2$ が
@@ -3234,13 +3390,13 @@ $$
 u_t+Au=f
 $$
 
-の二つの energy weak solution で、初期値 $u_{01},u_{02}$、外力 $f_1,f_2$ を持つとする。
+の二つの エネルギー弱解 で、初期値 $u_{01},u_{02}$、外力 $f_1,f_2$ を持つとする。
 
 $$
 w=u_1-u_2
 $$
 
-に energy identity を適用し、
+に エネルギー恒等式 を適用し、
 
 $$
 \sup_t\|w(t)\|_H^2
@@ -3281,7 +3437,7 @@ $$
 w(0)=u_{01}-u_{02}.
 $$
 
-energy identity から
+[Gelfand 三つ組のエネルギー恒等式](#lem-gpde10-energy-identity)から
 
 $$
 \frac12
@@ -3299,7 +3455,7 @@ $$
 -a(w,w)+\langle g,w\rangle.
 $$
 
-coercivity から
+強圧条件から
 
 $$
 -a(w,w)
@@ -3388,7 +3544,7 @@ $$
 #### GPDE10-C01 熱方程式の Galerkin 存在証明を最初から閉じる
 - Level: C
 
-$\Omega$ を Poincare 不等式が成り立つ有界領域とし、
+$\Omega$ を Poincaré 不等式が成り立つ有界領域とし、
 
 $$
 u_t-\Delta u=f,
@@ -3408,7 +3564,7 @@ $$
 
 とする。
 
-nested finite-dimensional spaces
+nested 有限次元 spaces
 
 $$
 V_m\subset H_0^1(\Omega),
@@ -3420,13 +3576,13 @@ $$
 
 を使い、次を順に示せ。
 
-1. Galerkin system が有限次元 ODE になる。
-2. $m$ に依らない energy estimate を導く。
+1. Galerkin 系 が有限次元 ODE になる。
+2. $m$ に依らない エネルギー評価 を導く。
 3. $u_m\rightharpoonup u$ in $L^2(0,T;H_0^1)$ となる部分列を取る。
-4. time-integrated weak form で極限を通す。
+4. 時間積分した弱形式 で極限を通す。
 5. $u_t\in L^2(0,T;H^{-1})$ を同定する。
 6. $u(0)=u_0$ を示す。
-7. energy estimate から一意性を示す。
+7. エネルギー評価 から一意性を示す。
 
 <!-- solution-start -->
 **詳細解答**
@@ -3462,7 +3618,7 @@ $$
 a(v,v)=\|v\|_V^2.
 $$
 
-従って boundedness と coercivity はどちらも定数 1 で成り立ちます。
+従って 有界性 と 強圧条件 はどちらも定数 1 で成り立ちます。
 
 #### 1. 有限次元 ODE
 
@@ -3527,7 +3683,7 @@ $$
 
 という有限次元線形 ODE です。
 
-#### 2. 一様 energy estimate
+#### 2. 一様 エネルギー評価
 
 Galerkin 方程式で $v_m=u_m$ を選ぶと
 
@@ -3591,7 +3747,7 @@ $$
 
 したがって $(u_m)$ は $L^2(0,T;V)$ で有界です。
 
-完備内積空間の弱 compactness から部分列を取り
+完備内積空間の弱 コンパクト性 から部分列を取り
 
 $$
 u_m\rightharpoonup u
@@ -3609,7 +3765,7 @@ $$
 
 も成り立ちます。
 
-#### 4. time-integrated weak form
+#### 4. 時間積分した弱形式
 
 $v\in V_N$ を固定します。
 
@@ -3638,7 +3794,7 @@ a(u_m,v)\eta\,dt
 \end{aligned}
 $$
 
-第一項は weak convergence in $L^2(H)$、第二項は $a(\cdot,v)$ の連続線形性、初期項は $u_{0m}\to u_0$ in $H$ により極限を通せます。
+第一項は 弱収束 in $L^2(H)$、第二項は $a(\cdot,v)$ の連続線形性、初期項は $u_{0m}\to u_0$ in $H$ により極限を通せます。
 
 従って
 
@@ -3659,7 +3815,7 @@ a(u,v)\eta\,dt
 \end{aligned}
 $$
 
-union $\bigcup_mV_m$ は $V$ に稠密で、各項は $v$ に連続なので任意の $v\in V$ へ延長できます。
+和集合 $\bigcup_mV_m$ は $V$ に稠密で、各項は $v$ に連続なので任意の $v\in V$ へ延長できます。
 
 #### 5. $u_t$ の同定
 
@@ -3708,7 +3864,7 @@ $$
 u_t=g=f-Au
 $$
 
-が時間 distribution derivative であることを意味します。
+が時間 超関数微分 であることを意味します。
 
 従って
 
@@ -3718,7 +3874,7 @@ $$
 
 #### 6. 初期値
 
-energy identity により
+[Gelfand 三つ組のエネルギー恒等式](#lem-gpde10-energy-identity)により
 
 $$
 u\in C([0,T];H).
@@ -3776,7 +3932,7 @@ $$
 
 を弱く満たします。
 
-energy identity から
+[Gelfand 三つ組のエネルギー恒等式](#lem-gpde10-energy-identity)から
 
 $$
 \frac12
@@ -3806,39 +3962,39 @@ $$
 w=0.
 $$
 
-したがって energy weak solution は一意です。
+したがって エネルギー弱解 は一意です。
 
 以上で、
 
 $$
 \boxed{
-\text{finite-dimensional ODE}
+\text{有限次元 ODE}
 \to
-\text{uniform energy estimate}
+\text{uniform エネルギー評価}
 \to
-\text{weak compactness}
+\text{弱コンパクト性}
 \to
-\text{limit passage}
+\text{極限通過}
 \to
-\text{energy weak solution}
+\text{エネルギー弱解}
 }
 $$
 
-という Galerkin existence proof を閉じました。
+という Galerkin 存在 proof を閉じました。
 <!-- solution-end -->
 
 ---
 
 ## 17. この章のまとめ
 
-GPDE6--GPDE9 の elliptic branch では
+GPDE6--GPDE9 の 楕円型の流れ では
 
 $$
-\text{space weak formulation}
+\text{空間方向の弱形式}
 \to
-\text{existence}
+\text{存在}
 \to
-\text{regularity}
+\text{正則性}
 $$
 
 を扱いました。
@@ -3855,7 +4011,7 @@ V^*
 }
 $$
 
-という Gelfand triple の上で
+という Gelfand 三つ組の上で
 
 $$
 u\in L^2(0,T;V),
@@ -3871,19 +4027,19 @@ $$
 \boxed{
 \text{Galerkin}
 \to
-\text{a priori energy estimate}
+\text{アプリオリエネルギー評価}
 \to
-\text{weak compactness}
+\text{弱コンパクト性}
 \to
-\text{time-integrated weak form}
+\text{時間積分した弱形式}
 \to
-\text{limit passage}
+\text{極限通過}
 }
 $$
 
 です。
 
-線形 heat equation では弱収束だけで極限を通せました。
+線形熱方程式 では弱収束だけで極限を通せました。
 
 一方、非線形項では弱収束だけでは足りないことを
 
@@ -3901,9 +4057,9 @@ $$
 H_0^1\times L^2
 $$
 
-が natural energy space となり、熱方程式の dissipative energy と対照的に energy 保存が現れます。
+が 自然なエネルギー空間 となり、熱方程式の 散逸エネルギー と対照的に エネルギー保存が現れます。
 
-mild solution / semigroup は
+mild 解 / 強連続作用素族は
 
 $$
 u(t)=S(t)u_0+\int_0^tS(t-s)f(s)\,ds
@@ -3915,23 +4071,23 @@ $$
 
 $$
 \boxed{
-\text{distribution}
+\text{超関数}
 \to
-\text{weak derivative}
+\text{弱微分}
 \to
 \text{Sobolev}
 \to
-\text{compactness}
+\text{コンパクト性}
 \to
-\text{variational solution}
+\text{変分弱解}
 \to
 \text{Lax--Milgram}
 \to
-\text{elliptic PDE}
+\text{楕円型 PDE}
 \to
-\text{regularity}
+\text{正則性}
 \to
-\text{evolution weak solution}
+\text{時間発展の弱解}
 }
 $$
 
@@ -3939,11 +4095,11 @@ $$
 
 次の発展では、
 
-- semigroup / maximal regularity
+- 強連続作用素族 / 最大正則性
 - nonlinear evolution PDE
-- Aubin--Lions compactness
+- Aubin--Lions コンパクト性
 - conservation law / entropy solution
 - Hamilton--Jacobi / viscosity solution
-- Navier--Stokes 型 energy weak solution
+- Navier--Stokes 型 エネルギー弱解
 
 などへ進めますが、それらは Encore III 本線の外です。

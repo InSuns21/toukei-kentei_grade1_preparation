@@ -5,6 +5,8 @@ prerequisites:
   - GPDE9
   - PDE3
   - PDE4
+forward_references:
+  - numerical.finite-element
 
 concepts:
   - id: evolution.time-dependent-l2
@@ -17,63 +19,63 @@ concepts:
       - functional.hilbert-space
 
   - id: evolution.gelfand-triple
-    name: Gelfand triple
+    name: Gelfand三つ組
     kind: definition
-    aliases: ["Hilbert triple", "V subset H subset V star"]
+    aliases: ["Gelfand triple", "Hilbert triple", "V subset H subset V star"]
     introduction: formal
-    introduction_aliases: ["定義（Gelfand triple）"]
+    introduction_aliases: ["定義（Gelfand 三つ組）"]
     requires:
       - functional.hilbert-space
       - sobolev.h01
       - sobolev.hminus1
 
   - id: evolution.energy-weak-solution
-    name: coercive evolution problemのenergy weak solution
+    name: 時間発展問題のエネルギー弱解
     kind: definition
-    aliases: ["energy solution", "evolution weak solution"]
+    aliases: ["coercive evolution problemのenergy weak solution", "energy solution", "evolution weak solution"]
     introduction: formal
-    introduction_aliases: ["定義（coercive evolution problem の energy weak solution）"]
+    introduction_aliases: ["定義（時間発展問題のエネルギー弱解）"]
     requires:
       - evolution.time-dependent-l2
       - evolution.gelfand-triple
       - variational.bounded-bilinear-form
 
   - id: evolution.gelfand-energy-identity
-    name: Gelfand tripleのenergy identity
+    name: Gelfand三つ組のエネルギー恒等式
     kind: lemma
-    aliases: ["Lions energy identity", "Hilbert triple energy identity"]
+    aliases: ["Gelfand tripleのenergy identity", "Lions energy identity", "Hilbert triple energy identity"]
     introduction: formal
-    introduction_aliases: ["補題（Gelfand triple の energy identity）"]
+    introduction_aliases: ["補題（Gelfand 三つ組のエネルギー恒等式）"]
     requires:
       - evolution.time-dependent-l2
       - evolution.gelfand-triple
 
   - id: evolution.galerkin-approximation
-    name: 時間発展PDEのGalerkin approximation
+    name: 時間発展PDEのGalerkin近似
     kind: definition
-    aliases: ["Galerkin approximation", "finite-dimensional Galerkin method"]
+    aliases: ["時間発展PDEのGalerkin approximation", "Galerkin approximation", "finite-dimensional Galerkin method"]
     introduction: formal
-    introduction_aliases: ["定義（Galerkin approximation）"]
+    introduction_aliases: ["定義（Galerkin 近似）"]
     requires:
       - evolution.gelfand-triple
       - variational.bounded-bilinear-form
 
   - id: evolution.galerkin-uniform-energy
-    name: Galerkin解の一様energy estimate
+    name: Galerkin解の一様エネルギー評価
     kind: proposition
-    aliases: ["uniform Galerkin energy estimate", "Galerkin a priori estimate"]
+    aliases: ["Galerkin解の一様energy estimate", "uniform Galerkin energy estimate", "Galerkin a priori estimate"]
     introduction: formal
-    introduction_aliases: ["命題（Galerkin 解の一様 energy estimate）"]
+    introduction_aliases: ["命題（Galerkin 解の一様エネルギー評価）"]
     requires:
       - evolution.galerkin-approximation
       - variational.coercive-bilinear-form
 
   - id: evolution.coercive-galerkin-existence
-    name: coercive evolution problemのGalerkin存在一意性
+    name: 強圧的時間発展問題のGalerkin存在一意性
     kind: theorem
-    aliases: ["Galerkin existence theorem for coercive evolution equations", "linear parabolic Galerkin existence"]
+    aliases: ["coercive evolution problemのGalerkin存在一意性", "Galerkin existence theorem for coercive evolution equations", "linear parabolic Galerkin existence"]
     introduction: formal
-    introduction_aliases: ["定理（Galerkin 法による coercive evolution problem の存在一意性）"]
+    introduction_aliases: ["定理（Galerkin 法による強圧的時間発展問題の存在一意性）"]
     requires:
       - evolution.galerkin-uniform-energy
       - evolution.gelfand-energy-identity
@@ -82,11 +84,11 @@ concepts:
       - variational.coercive-bilinear-form
 
   - id: evolution.dirichlet-heat-energy-solution
-    name: 零Dirichlet熱方程式のenergy weak solution
+    name: 零Dirichlet熱方程式のエネルギー弱解
     kind: corollary
-    aliases: ["Dirichlet heat equation energy solution", "weak heat equation existence"]
+    aliases: ["零Dirichlet熱方程式のenergy weak solution", "Dirichlet heat equation energy solution", "weak heat equation existence"]
     introduction: formal
-    introduction_aliases: ["系（零 Dirichlet 熱方程式の energy weak solution）"]
+    introduction_aliases: ["系（零 Dirichlet 熱方程式のエネルギー弱解）"]
     requires:
       - evolution.coercive-galerkin-existence
       - pde.pde3-heat-equation
@@ -105,30 +107,39 @@ concepts:
       - variational.coercive-bilinear-form
 
   - id: evolution.wave-energy-space
-    name: 波動方程式のenergy space
+    name: 波動方程式のエネルギー空間
     kind: definition
-    aliases: ["wave energy space", "H01 x L2 energy space"]
+    aliases: ["波動方程式のenergy space", "wave energy space", "H01 x L2 energy space"]
     introduction: formal
-    introduction_aliases: ["定義（波動方程式の energy space）"]
+    introduction_aliases: ["定義（波動方程式のエネルギー空間）"]
     requires:
       - pde.pde4-wave-equation
       - sobolev.h01
 
   - id: evolution.wave-energy-conservation
-    name: 滑らかな零Dirichlet波動解のenergy保存
+    name: 滑らかな零Dirichlet波動解のエネルギー保存
     kind: proposition
-    aliases: ["wave energy conservation in energy space"]
+    aliases: ["滑らかな零Dirichlet波動解のenergy保存", "wave energy conservation in energy space"]
     introduction: formal
-    introduction_aliases: ["命題（滑らかな零 Dirichlet 波動解の energy 保存）"]
+    introduction_aliases: ["命題（滑らかな零 Dirichlet 波動解のエネルギー保存）"]
     requires:
       - evolution.wave-energy-space
       - pde.pde4-wave-equation
 
-  - id: evolution.mild-solution
-    name: mild solution
+  - id: evolution.strongly-continuous-semigroup
+    name: 強連続作用素族
     kind: definition
-    aliases: ["semigroup mild solution", "Duhamel semigroup solution"]
+    aliases: ["C0 semigroup", "C_0 semigroup", "strongly continuous semigroup", "strongly continuous operator family"]
     introduction: formal
-    introduction_aliases: ["定義（mild solution：semigroup bridge）"]
+    introduction_aliases: ["定義（強連続作用素族）"]
     requires:
       - functional.hilbert-space
+
+  - id: evolution.mild-solution
+    name: mild解
+    kind: definition
+    aliases: ["mild solution", "semigroup mild solution", "Duhamel semigroup solution"]
+    introduction: formal
+    introduction_aliases: ["定義（mild 解：作用素族表示）"]
+    requires:
+      - evolution.strongly-continuous-semigroup

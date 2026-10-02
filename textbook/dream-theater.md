@@ -231,7 +231,7 @@
 8. [GPDE7 Lax--Milgram 定理](textbook/volumes/00_foundations/GPDE7/index.md)
 9. [GPDE8 二階線形楕円型 PDE](textbook/volumes/00_foundations/GPDE8/index.md)
 10. [GPDE9 楕円型正則性](textbook/volumes/00_foundations/GPDE9/index.md)
-11. [GPDE10 Galerkin・時間発展PDEの弱解](textbook/volumes/00_foundations/GPDE10/index.md)
+11. [GPDE10 Galerkin・時間発展 PDE の弱解](textbook/volumes/00_foundations/GPDE10/index.md)
 
 <a id="dt-subject-stochastic-analysis"></a>
 ### 確率解析
