@@ -1,4 +1,4 @@
-# TOP6 標準位相 VI：全有界性・Baire・net/filter
+# TOP6 全有界性・Baire・net/フィルタ
 
 <!-- definition-example-audit: strict -->
 

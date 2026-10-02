@@ -1,4 +1,4 @@
-# QMC1 準 Monte Carlo I：一様分布・ディスクレパンシー・Koksma--Hlawka
+# QMC1 一様分布・ディスクレパンシー・Koksma--Hlawka
 
 MC1 では、単位立方体上の積分
 

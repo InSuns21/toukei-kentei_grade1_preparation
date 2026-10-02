@@ -1,4 +1,4 @@
-# STO6：確率積分 — 単純予測可能過程から局所マルチンゲールまで
+# STO6 確率積分
 
 <!-- definition-example-audit: strict -->
 

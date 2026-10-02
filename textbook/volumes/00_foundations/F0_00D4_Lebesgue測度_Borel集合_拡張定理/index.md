@@ -1,4 +1,4 @@
-# F0-00D4 補講：Lebesgue測度・Borel集合・Carathéodory拡張定理
+# F0-00D4 Lebesgue測度・Borel・拡張定理
 
 D3では、任意の外測度 $\mu^*$ から Carathéodory 可測集合を選ぶと完全測度が得られることを証明しました。
 

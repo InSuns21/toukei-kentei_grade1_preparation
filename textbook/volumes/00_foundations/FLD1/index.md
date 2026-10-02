@@ -1,4 +1,4 @@
-# FLD1 抽象代数 XI：多項式の根を含む体を作る
+# FLD1 体拡大・代数的元・最小多項式
 
 <!-- definition-example-audit: strict -->
 

@@ -1,5 +1,5 @@
 id: "NA7"
-title: "数値解析 VII：ODE 数値解法 II—高次一段法と減衰安定性"
+title: "Runge–Kutta 法・絶対安定性"
 volume: "foundations"
 status: supplementary
 prerequisites:

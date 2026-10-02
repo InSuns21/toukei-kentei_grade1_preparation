@@ -1,4 +1,4 @@
-# GRP1 抽象代数 I：可逆な演算と対称性
+# GRP1 群・部分群・巡回群・置換群
 
 <!-- definition-example-audit: strict -->
 

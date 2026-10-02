@@ -1,5 +1,5 @@
 id: "NA6"
-title: "数値解析 VI：ODE 数値解法 I—一段法と収束"
+title: "常微分方程式の一段法と収束"
 volume: "foundations"
 status: supplementary
 prerequisites:

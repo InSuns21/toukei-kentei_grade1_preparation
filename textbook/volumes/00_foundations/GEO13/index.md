@@ -1,4 +1,4 @@
-# GEO13 異なる接空間のベクトルをどう比べるか：接続・平行移動・Levi-Civita 接続
+# GEO13 アフィン接続・Levi-Civita 接続・平行移動
 
 <!-- definition-example-audit: strict -->
 

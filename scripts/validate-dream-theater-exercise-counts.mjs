@@ -100,14 +100,58 @@ function collectChangedPaths() {
       encoding: 'utf8',
       maxBuffer: 20 * 1024 * 1024,
     });
-    return output
+    const diffBase = validBase ?? 'HEAD^';
+    const changed = output
       .split(/\r?\n/)
       .map((value) => normalizePath(value.trim()))
       .filter(Boolean);
+
+    const filtered = [];
+    let titleOnlyCount = 0;
+    for (const relPath of changed) {
+      if (relPath.endsWith('/index.md') && markdownChangeIsH1Only(diffBase, relPath)) {
+        titleOnlyCount += 1;
+        continue;
+      }
+      filtered.push(relPath);
+    }
+    if (titleOnlyCount > 0) {
+      console.log(`DREAM THEATER 演習量チェック: H1タイトルのみの変更 ${titleOnlyCount} 件を本文変更対象から除外しました。`);
+    }
+    return filtered;
   } catch (error) {
     console.error(`DREAM THEATER の変更ファイル取得に失敗しました: ${error.message}`);
     process.exit(1);
   }
+}
+
+function markdownChangeIsH1Only(baseRef, relPath) {
+  try {
+    const before = execFileSync('git', ['show', `${baseRef}:${relPath}`], {
+      cwd: root,
+      encoding: 'utf8',
+      maxBuffer: 20 * 1024 * 1024,
+    });
+    const after = fs.readFileSync(path.join(root, relPath), 'utf8');
+    if (before === after) return false;
+    return normalizeH1ForDiff(before) === normalizeH1ForDiff(after);
+  } catch {
+    return false;
+  }
+}
+
+function normalizeH1ForDiff(source) {
+  let replaced = false;
+  return String(source)
+    .split(/\r?\n/u)
+    .map((line) => {
+      if (!replaced && /^#\s+\S/u.test(line)) {
+        replaced = true;
+        return '# <PAGE_TITLE>';
+      }
+      return line;
+    })
+    .join('\n');
 }
 
 function countExercises(source) {

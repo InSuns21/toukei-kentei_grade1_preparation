@@ -1,4 +1,4 @@
-# F0-00P1 確率空間・確率変数・分布：分布はどこから来た？
+# P1 確率空間・確率変数・分布
 
 <!-- definition-example-audit: strict -->
 

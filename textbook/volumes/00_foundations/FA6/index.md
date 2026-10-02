@@ -1,4 +1,4 @@
-# FA6 標準関数解析 VI：コンパクト作用素
+# FA6 コンパクト作用素
 
 <!-- definition-example-audit: strict -->
 

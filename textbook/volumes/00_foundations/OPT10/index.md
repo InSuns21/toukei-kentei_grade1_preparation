@@ -1,4 +1,4 @@
-# OPT10 線形計画 I：多面体・極点・双対
+# OPT10 多面体・極点・線形計画双対
 
 <!-- definition-example-audit: strict -->
 

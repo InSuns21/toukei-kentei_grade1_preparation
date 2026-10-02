@@ -1,4 +1,4 @@
-# F0-00P2A 期待値・LOTUS：確率空間から分布上の積分へ
+# P2A 期待値・LOTUS
 
 <!-- definition-example-audit: strict -->
 

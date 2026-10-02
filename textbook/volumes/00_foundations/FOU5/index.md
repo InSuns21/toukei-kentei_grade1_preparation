@@ -1,4 +1,4 @@
-# FOU5 Fourier解析の橋：確率・離散信号・サンプリング
+# FOU5 確率・離散Fourier変換・サンプリング
 
 FOU1～FOU4 では、周期関数の Fourier 級数から始めて、実数直線上の Fourier 変換、反転、Plancherel、$L^2$ Fourier 解析まで進みました。本章では、その構造を確率分布と有限離散信号へ接続します。
 

@@ -1,5 +1,5 @@
 id: "NA2"
-title: "数値解析 II：非線形方程式・不動点反復・Newton 法"
+title: "非線形方程式・不動点反復・Newton 法"
 volume: "foundations"
 status: supplementary
 prerequisites:

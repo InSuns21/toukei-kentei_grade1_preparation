@@ -1,5 +1,5 @@
 id: "FOU2"
-title: "標準Fourier解析 II：Fourier級数の収束・Fejér・Parseval"
+title: "Fourier級数の収束・Fejér・Parseval"
 volume: "foundations"
 status: supplementary
 prerequisites:

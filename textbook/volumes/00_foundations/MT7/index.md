@@ -1,5 +1,5 @@
 <!-- definition-example-audit: strict -->
-# MT7 標準測度論 VIII：$L^p$ 完備性・稠密性・双対
+# MT7 Lp完備性・稠密性・双対
 
 D2Dでは $L^p$ 空間、Hölder の不等式、Minkowski の不等式を作り、D2Eでは $L^2$ の完備性を証明しました。本章では、その証明を一般の $L^p$ へ広げ、近似と双対という二つの標準的な使い道まで閉じます。
 

@@ -1,4 +1,4 @@
-# F0-00B1 補講：位相空間・近傍・部分空間・収束
+# F0-00B1 位相空間・近傍・部分空間・収束
 
 <!-- definition-example-audit: strict -->
 

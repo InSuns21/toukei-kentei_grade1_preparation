@@ -1,4 +1,4 @@
-# QMC8 準 Monte Carlo VIII：高次準 Monte Carlo 法
+# QMC8 高次準 Monte Carlo 法
 
 QMC5 では、デジタル点集合の積分誤差を
 

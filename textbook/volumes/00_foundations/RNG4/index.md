@@ -1,4 +1,4 @@
-# RNG4 抽象代数 VIII：多項式環・Gauss の補題・既約多項式
+# RNG4 多項式環・Gauss の補題・既約多項式
 
 <!-- definition-example-audit: strict -->
 

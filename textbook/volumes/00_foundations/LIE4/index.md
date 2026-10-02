@@ -1,4 +1,4 @@
-# LIE4 群が多様体を動かすとき
+# LIE4 Lie 群作用・軌道・等質空間・Maurer--Cartan
 
 <!-- definition-example-audit: strict -->
 

@@ -1,4 +1,4 @@
-# PDE9 多次元波動方程式の明示公式と伝播
+# PDE9 多次元波動方程式・Kirchhoff 公式・Huygens 原理
 
 <!-- definition-example-audit: strict -->
 

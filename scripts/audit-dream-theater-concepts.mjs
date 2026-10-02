@@ -357,11 +357,51 @@ function collectChangedFiles() {
       encoding: 'utf8',
       maxBuffer: 20 * 1024 * 1024,
     });
-    return new Set(output.split('\n').map((value) => value.trim()).filter(Boolean));
+    const changed = new Set(output.split('\n').map((value) => value.trim()).filter(Boolean));
+    let titleOnlyCount = 0;
+    for (const relPath of [...changed]) {
+      if (!relPath.endsWith('/index.md')) continue;
+      if (!markdownChangeIsH1Only(base, relPath)) continue;
+      changed.delete(relPath);
+      titleOnlyCount += 1;
+    }
+    if (titleOnlyCount > 0) {
+      console.log(`changed-only concept audit: H1 title-only changes excluded from pedagogy scope: ${titleOnlyCount}`);
+    }
+    return changed;
   } catch (error) {
     console.warn(`git diff に失敗したため changed-only 検査対象は0件です: ${error.message}`);
     return new Set();
   }
+}
+
+function markdownChangeIsH1Only(baseSha, relPath) {
+  try {
+    const before = execFileSync('git', ['show', `${baseSha}:${relPath}`], {
+      cwd: root,
+      encoding: 'utf8',
+      maxBuffer: 20 * 1024 * 1024,
+    });
+    const after = fs.readFileSync(path.join(root, relPath), 'utf8');
+    if (before === after) return false;
+    return normalizeH1ForDiff(before) === normalizeH1ForDiff(after);
+  } catch {
+    return false;
+  }
+}
+
+function normalizeH1ForDiff(source) {
+  let replaced = false;
+  return String(source)
+    .split(/\r?\n/u)
+    .map((line) => {
+      if (!replaced && /^#\s+\S/u.test(line)) {
+        replaced = true;
+        return '# <PAGE_TITLE>';
+      }
+      return line;
+    })
+    .join('\n');
 }
 
 function resolveDiffBase() {

@@ -1,4 +1,4 @@
-# FA4 標準関数解析 IV：Banach–Alaoglu・Goldstine・反射性
+# FA4 Banach–Alaoglu・Goldstine・反射性
 
 <!-- definition-example-audit: strict -->
 

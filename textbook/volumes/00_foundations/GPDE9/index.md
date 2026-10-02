@@ -1,4 +1,4 @@
-# GPDE9：楕円型正則性 — 弱解から二階微分を回収する
+# GPDE9 楕円型正則性
 
 <!-- definition-example-audit: strict -->
 

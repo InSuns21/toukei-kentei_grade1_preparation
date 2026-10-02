@@ -1,4 +1,4 @@
-# GRP3 抽象代数 III：群を集合上の変換として使う
+# GRP3 群作用・軌道・安定化群・共役
 
 <!-- definition-example-audit: strict -->
 

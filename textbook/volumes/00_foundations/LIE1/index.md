@@ -1,4 +1,4 @@
-# LIE1 滑らかな群と単位元の接空間
+# LIE1 Lie 群・Lie 環・不変ベクトル場
 
 <!-- definition-example-audit: strict -->
 

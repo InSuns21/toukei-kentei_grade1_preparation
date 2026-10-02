@@ -1,4 +1,4 @@
-# MT-RL 標準測度論ブリッジ：Riemann積分とLebesgue積分
+# MT-RL Riemann積分とLebesgue積分の橋
 
 [RA4](../RA4/index.md) ではDarboux上和・下和からRiemann積分を作り、[Lebesgue積分の構成](../F0_00D2A_単関数_Lebesgue積分_構成/index.md) では単関数からLebesgue積分を作りました。
 

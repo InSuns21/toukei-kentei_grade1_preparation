@@ -1,4 +1,4 @@
-# QMC2 準 Monte Carlo II：RKHS・単位球上の求積誤差・重み付き空間
+# QMC2 RKHS・最悪誤差・重み付き空間
 
 QMC1 では、Hardy--Krause 変動とスター・ディスクレパンシーを使って
 

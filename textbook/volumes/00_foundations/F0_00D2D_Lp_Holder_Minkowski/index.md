@@ -1,4 +1,4 @@
-# F0-00D2D 補講：$L^p$空間・Hölderの不等式・Minkowskiの不等式
+# F0-00D2D Lp・Hölder・Minkowski
 
 Lebesgue積分を使うと、関数の「大きさ」を積分で測れます。この講義では、その大きさをノルムにして関数空間を作ります。
 

@@ -1,4 +1,4 @@
-# GEO14 多様体の「直線」はどう決まるか：測地線・指数写像・正規座標
+# GEO14 測地線・指数写像・正規座標
 
 <!-- definition-example-audit: strict -->
 

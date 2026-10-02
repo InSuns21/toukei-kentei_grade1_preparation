@@ -1,4 +1,4 @@
-# CA2 標準複素解析 II：複素線積分・原始関数・Cauchy–Goursat
+# CA2 複素線積分・原始関数・Cauchy–Goursat
 
 <!-- definition-example-audit: strict -->
 

@@ -1,4 +1,4 @@
-# ODE11 パラメータ付き力学系と周期軌道の局所解析
+# ODE11 局所分岐・Poincaré 写像・周期軌道の安定性
 
 <!-- definition-example-audit: strict -->
 

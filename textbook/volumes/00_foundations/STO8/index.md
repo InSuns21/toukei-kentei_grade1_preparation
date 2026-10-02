@@ -1,4 +1,4 @@
-# STO8：ブラウン運動の接触密度 — 折れ点から反射へ
+# STO8 局所時間・Tanaka 公式
 
 <!-- definition-example-audit: strict -->
 

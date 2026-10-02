@@ -1,4 +1,4 @@
-# GEO15 局所的な測地線はどこまで大域化できるか：完備性・Hopf--Rinow
+# GEO15 完備性・Hopf--Rinow
 
 <!-- definition-example-audit: strict -->
 

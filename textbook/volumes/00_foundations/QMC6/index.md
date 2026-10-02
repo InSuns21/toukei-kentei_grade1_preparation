@@ -1,4 +1,4 @@
-# QMC6 準 Monte Carlo VI：多項式格子
+# QMC6 多項式格子
 
 QMC5 では、デジタル点集合を Walsh 周波数側から読み、
 

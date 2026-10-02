@@ -1,5 +1,5 @@
 id: "NA9"
-title: "数値解析 IX：数値線形代数 II—反復法・Krylov 法"
+title: "数値線形代数の反復法・Krylov 法"
 volume: "foundations"
 status: supplementary
 prerequisites:

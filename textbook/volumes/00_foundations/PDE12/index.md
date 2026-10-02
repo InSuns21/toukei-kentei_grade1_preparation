@@ -1,4 +1,4 @@
-# PDE12 一般一階 PDE と特性法
+# PDE12 一般一階 PDE・Hamilton--Jacobi 方程式
 
 <!-- definition-example-audit: strict -->
 

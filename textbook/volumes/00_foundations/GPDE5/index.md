@@ -1,4 +1,4 @@
-# GPDE5：微分の制御を「収束する部分列」へ変える
+# GPDE5 Sobolev 埋め込み・コンパクト性
 
 <!-- definition-example-audit: strict -->
 

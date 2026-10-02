@@ -1,4 +1,4 @@
-# FA1 標準関数解析 I：Banach 空間の商・Baire・一様有界性原理
+# FA1 Banach空間の商・Baire・一様有界性原理
 
 <!-- definition-example-audit: strict -->
 

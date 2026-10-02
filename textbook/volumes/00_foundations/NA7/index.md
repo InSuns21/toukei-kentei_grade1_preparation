@@ -1,4 +1,4 @@
-# NA7 数値解析 VII：ODE 数値解法 II—高次一段法と減衰安定性
+# NA7 Runge–Kutta 法・絶対安定性
 
 NA6 では、一段法
 

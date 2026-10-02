@@ -1,4 +1,4 @@
-# RNG2 抽象代数 VI：素イデアル・極大イデアル・中国剰余定理
+# RNG2 素イデアル・極大イデアル・中国剰余定理
 
 <!-- definition-example-audit: strict -->
 

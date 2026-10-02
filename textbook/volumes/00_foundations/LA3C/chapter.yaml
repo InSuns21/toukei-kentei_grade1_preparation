@@ -1,5 +1,5 @@
 id: "LA3C"
-title: "標準線形代数 III-C：行列式の計算・可逆性・乗法性"
+title: "行列式の計算・Laplace展開・可逆性・乗法性"
 volume: "foundations"
 status: supplementary
 prerequisites:

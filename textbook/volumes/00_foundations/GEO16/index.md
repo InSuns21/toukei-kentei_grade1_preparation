@@ -1,4 +1,4 @@
-# GEO16 曲率は何を測っているのか：Riemann 曲率・断面曲率・Ricci 曲率
+# GEO16 Riemann 曲率
 
 <!-- definition-example-audit: strict -->
 

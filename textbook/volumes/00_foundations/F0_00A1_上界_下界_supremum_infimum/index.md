@@ -1,4 +1,4 @@
-# F0-00A1 実解析基礎：上限・下限・supremum・infimum
+# F0-00A1 上限・下限・supremum・infimum
 
 <!-- definition-example-audit: strict -->
 

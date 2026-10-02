@@ -1,4 +1,4 @@
-# GEO6 線形分布はいつ部分多様体に積分できるか
+# GEO6 線形分布・積分多様体・Frobenius の定理
 
 <!-- definition-example-audit: strict -->
 

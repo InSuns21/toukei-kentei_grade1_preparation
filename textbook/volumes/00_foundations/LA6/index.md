@@ -1,4 +1,4 @@
-# LA6 標準線形代数 VI：スペクトル・二次形式・polar decomposition・特異値分解
+# LA6 スペクトル・二次形式・極分解・複素特異値分解
 
 ここまでで、一般作用素のJordan構造とnormal operatorのunitary対角化を標準コア内で構成しました。本章ではそれらを正本として、**Hermitian二次形式・慣性・PSD平方根・polar decomposition・複素特異値分解・最大特異値による伸縮評価** を一つの依存鎖にまとめます。
 

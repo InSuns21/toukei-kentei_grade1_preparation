@@ -1,4 +1,4 @@
-# TOP4 標準位相 IV：分離公理・可算性公理
+# TOP4 分離公理・可算性公理
 
 <!-- definition-example-audit: strict -->
 

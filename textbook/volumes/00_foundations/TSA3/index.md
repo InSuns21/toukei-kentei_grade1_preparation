@@ -1,4 +1,4 @@
-# TSA3 Encore IV 時系列解析 III：二次定常過程の周波数領域表現
+# TSA3 Herglotz の定理・スペクトル表現
 
 <!-- definition-example-audit: strict -->
 

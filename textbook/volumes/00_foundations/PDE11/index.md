@@ -1,4 +1,4 @@
-# PDE11 曲線座標での変数分離と特殊関数
+# PDE11 変数分離・Bessel・Legendre・球面調和関数
 
 <!-- definition-example-audit: strict -->
 

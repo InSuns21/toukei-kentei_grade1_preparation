@@ -1,4 +1,4 @@
-# MT3 標準測度論：Radon–Nikodym 定理・Lebesgue 分解
+# MT3 Radon–Nikodym定理・Lebesgue分解
 
 この章では、測度の絶対連続性を「零集合を共有する」という定性的条件から、
 

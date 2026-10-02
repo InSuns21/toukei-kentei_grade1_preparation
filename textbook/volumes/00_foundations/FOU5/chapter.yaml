@@ -1,5 +1,5 @@
 id: "FOU5"
-title: "標準Fourier解析 V：確率・離散Fourier変換・サンプリング"
+title: "確率・離散Fourier変換・サンプリング"
 volume: "foundations"
 status: supplementary
 prerequisites:

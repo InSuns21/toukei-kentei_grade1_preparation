@@ -1,4 +1,4 @@
-# F0-00P3C Lévy上昇定理：情報が増えると条件付き期待値はどこへ行くか
+# P3C Lévy上昇定理
 
 <!-- definition-example-audit: strict -->
 

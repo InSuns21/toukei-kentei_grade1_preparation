@@ -1,4 +1,4 @@
-# TSA4 Encore IV 時系列解析 IV：線形フィルタ・ARMA / ARIMA・周波数領域
+# TSA4 線形フィルタ・ARMA / ARIMA・周波数領域
 
 <!-- definition-example-audit: strict -->
 

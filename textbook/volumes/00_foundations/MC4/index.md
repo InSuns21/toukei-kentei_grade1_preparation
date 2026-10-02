@@ -1,4 +1,4 @@
-# MC4 Monte Carlo IV：粗い近似を再利用する Multilevel Monte Carlo
+# MC4 Multilevel Monte Carlo
 
 MC1 では Monte Carlo 推定量の標本分散が標本数に反比例すること、さらに離散近似 $Q_h$ を使うと
 

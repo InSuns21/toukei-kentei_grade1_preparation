@@ -1,4 +1,4 @@
-# MT5 標準測度論 VI：Radon 測度・Riesz–Markov
+# MT5 Radon測度・Riesz–Markov
 
 この章では、局所コンパクト Hausdorff 空間 $X$ 上で
 

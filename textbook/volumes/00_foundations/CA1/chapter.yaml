@@ -1,5 +1,5 @@
 id: "CA1"
-title: "標準複素解析 I：複素微分・Cauchy–Riemann・初等正則関数"
+title: "複素微分・Cauchy–Riemann・初等正則関数"
 volume: "foundations"
 status: supplementary
 prerequisites:

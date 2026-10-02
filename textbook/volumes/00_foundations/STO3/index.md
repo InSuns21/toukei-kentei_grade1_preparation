@@ -1,4 +1,4 @@
-# STO3：確率過程を構成し、連続な標本路を得る
+# STO3 確率過程の構成・Kolmogorov continuity
 
 <!-- definition-example-audit: strict -->
 

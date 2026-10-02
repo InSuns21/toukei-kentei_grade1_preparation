@@ -1,4 +1,4 @@
-# F0-00P5 強大数則への二段階：4次モーメント法とKolmogorov最大不等式
+# P5 大数の強法則
 
 <!-- definition-example-audit: strict -->
 

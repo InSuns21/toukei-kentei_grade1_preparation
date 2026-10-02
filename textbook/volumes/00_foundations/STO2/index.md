@@ -1,4 +1,4 @@
-# STO2：公平性・停止・経路収束
+# STO2 離散時間マルチンゲール・不等式・収束
 
 <!-- definition-example-audit: strict -->
 

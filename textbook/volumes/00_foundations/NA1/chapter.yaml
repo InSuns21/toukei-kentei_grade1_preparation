@@ -1,5 +1,5 @@
 id: "NA1"
-title: "数値解析 I：浮動小数点・誤差・条件数・安定性"
+title: "浮動小数点・誤差・条件数・安定性"
 volume: "foundations"
 status: supplementary
 prerequisites:

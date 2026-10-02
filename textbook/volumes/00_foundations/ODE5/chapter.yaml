@@ -1,5 +1,5 @@
 id: "ODE5"
-title: "標準 ODE V：Laplace変換と初期データ"
+title: "Laplace変換と初期値問題"
 volume: "foundations"
 status: supplementary
 prerequisites:

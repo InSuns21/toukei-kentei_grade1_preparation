@@ -1,4 +1,4 @@
-# TSA6 Encore IV 時系列解析 VI：状態空間・Kalman フィルタ・イノベーション
+# TSA6 状態空間・Kalman フィルタ・イノベーション
 
 <!-- definition-example-audit: strict -->
 

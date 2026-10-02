@@ -1,4 +1,4 @@
-# CA1 標準複素解析 I：複素微分・Cauchy–Riemann・初等正則関数
+# CA1 複素微分・Cauchy–Riemann・初等正則関数
 
 <!-- definition-example-audit: strict -->
 

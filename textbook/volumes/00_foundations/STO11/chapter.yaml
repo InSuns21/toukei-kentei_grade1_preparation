@@ -1,5 +1,5 @@
 id: "STO11"
-title: "Encore IV 確率解析 XI：Markov process・semigroup・生成作用素・マルチンゲール問題"
+title: "マルコフ過程・半群・生成作用素・マルチンゲール問題"
 volume: "foundations"
 status: supplementary
 prerequisites:

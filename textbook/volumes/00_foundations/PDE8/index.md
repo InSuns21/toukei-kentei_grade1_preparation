@@ -1,4 +1,4 @@
-# PDE8 非斉次熱・波動方程式と時間方向の重ね合わせ
+# PDE8 Duhamel 原理・非斉次問題
 
 <!-- definition-example-audit: strict -->
 

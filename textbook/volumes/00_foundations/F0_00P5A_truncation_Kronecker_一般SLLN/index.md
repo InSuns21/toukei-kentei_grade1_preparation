@@ -1,4 +1,4 @@
-# F0-00P5A 切断・Kolmogorov収束定理・Kronecker補題：一般独立同分布強大数則
+# P5A truncation・Kronecker・一般SLLN
 
 <!-- definition-example-audit: strict -->
 

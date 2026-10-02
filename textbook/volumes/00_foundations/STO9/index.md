@@ -1,4 +1,4 @@
-# STO9：確率微分方程式 — 存在一意性と局所化
+# STO9 SDE・強解・存在一意性・局所化
 
 <!-- definition-example-audit: strict -->
 

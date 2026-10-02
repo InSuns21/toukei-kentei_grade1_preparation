@@ -1,4 +1,4 @@
-# STO1：時間と情報 — ランダムな時間発展を数学にする
+# STO1 確率過程・フィルトレーション・停止時刻
 
 <!-- definition-example-audit: strict -->
 

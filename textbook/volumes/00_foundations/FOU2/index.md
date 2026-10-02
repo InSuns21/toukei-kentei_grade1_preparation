@@ -1,4 +1,4 @@
-# FOU2 Fourier級数 II：収束論と平均化
+# FOU2 Fourier級数の収束・Fejér・Parseval
 
 FOU1 では、周期関数から Fourier 係数を取り出し、有限次数の Fourier 和 $S_Nf$ が固定次数の三角多項式の中で二乗誤差を最小にするところまでを、有限和と Riemann 積分だけで閉じました。
 

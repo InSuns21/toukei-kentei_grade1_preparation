@@ -1,4 +1,4 @@
-# GPDE8：二階線形楕円型 PDE — 係数の仮定をエネルギー評価へ翻訳する
+# GPDE8 二階線形楕円型 PDE
 
 <!-- definition-example-audit: strict -->
 

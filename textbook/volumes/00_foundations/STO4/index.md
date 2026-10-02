@@ -1,4 +1,4 @@
-# STO4：ブラウン運動・到達時刻・強マルコフ性
+# STO4 ブラウン運動・到達時刻・強マルコフ性
 
 <!-- definition-example-audit: strict -->
 

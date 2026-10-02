@@ -1,4 +1,4 @@
-# PDE6 Laplace・Poisson 方程式の境界積分法
+# PDE6 Greenの恒等式・基本解・Green関数
 
 PDE5 では、Laplace・Poisson 方程式を平均値性質、[強最大原理](../PDE5/index.md#thm-pde5-maximum-principle)、変数分離、Poisson 核から調べました。本章では同じ楕円型方程式を、**領域内部の微分を境界積分へ移す**という別の視点から見直します。
 

@@ -1,4 +1,4 @@
-# STO14：独立定常増分と跳躍型確率解析 — 無限個の小跳躍を補償して積分する
+# STO14 Lévy 過程・跳躍型確率解析
 
 <!-- definition-example-audit: strict -->
 

@@ -1,4 +1,4 @@
-# STO4A：Brown 運動の標本路幾何
+# STO4A Brown運動の標本路幾何
 
 STO4 で Brown 運動を構成し、STO5 で quadratic variation、STO8 で local time を得ました。
 

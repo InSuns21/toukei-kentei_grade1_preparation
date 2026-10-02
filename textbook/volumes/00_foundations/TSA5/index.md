@@ -1,4 +1,4 @@
-# TSA5 Encore IV 時系列解析 V：時間平均・依存減衰・従属極限定理
+# TSA5 エルゴード性・混合性・従属極限定理
 
 <!-- definition-example-audit: strict -->
 

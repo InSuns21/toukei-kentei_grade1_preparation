@@ -1,5 +1,5 @@
 id: "F0-00P5A"
-title: "切断・Kolmogorov収束定理・Kronecker補題・一般独立同分布強大数則"
+title: "truncation・Kronecker・一般SLLN"
 volume: "foundations"
 status: supplementary
 prerequisites:

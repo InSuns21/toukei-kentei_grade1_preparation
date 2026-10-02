@@ -1,4 +1,4 @@
-# TOP1 標準位相 I：位相の生成・initial/final topology・積・商
+# TOP1 位相の生成・initial/final topology・積・商
 
 <!-- definition-example-audit: strict -->
 

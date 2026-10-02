@@ -1,4 +1,4 @@
-# MT6 標準測度論 VII：C0 版 Riesz–Markov
+# MT6 C0版Riesz–Markov・有限符号付きRadon測度
 
 MT5 では局所コンパクト Hausdorff 空間 $X$ 上の正線形汎関数
 

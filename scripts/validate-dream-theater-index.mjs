@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import YAML from 'yaml';
 
 const repoRoot = process.cwd();
 const facadePath = path.join(repoRoot, 'textbook', 'dream-theater.md');
@@ -131,13 +132,37 @@ const discovered = fs.readdirSync(foundationsDir, { withFileTypes: true })
 const expectedSet = new Set(expected);
 const discoveredSet = new Set(discovered);
 
+const pageTitles = new Map();
 for (const p of expected) {
   const absolutePath = path.join(repoRoot, p);
   if (!fs.existsSync(absolutePath)) {
     errors.push(`manifest target does not exist: ${p}`);
   } else {
     const title = extractMarkdownH1(fs.readFileSync(absolutePath, 'utf8'), p);
-    if (!title) errors.push(`manifest target has no readable H1 title: ${p}`);
+    if (!title) {
+      errors.push(`manifest target has no readable H1 title: ${p}`);
+    } else {
+      pageTitles.set(p, title);
+      const chapterYamlPath = path.join(path.dirname(absolutePath), 'chapter.yaml');
+      if (fs.existsSync(chapterYamlPath)) {
+        try {
+          const metadata = YAML.parse(fs.readFileSync(chapterYamlPath, 'utf8')) ?? {};
+          const id = String(metadata.id ?? '').trim();
+          const metadataTitle = String(metadata.title ?? '').trim();
+          if (!id) {
+            errors.push(`chapter.yaml has no id: ${toPosix(path.relative(repoRoot, chapterYamlPath))}`);
+          } else {
+            const displayIdMatch = /^([A-Z][A-Z0-9]*(?:-[A-Z0-9]+)?)\s+(.+)$/u.exec(title);
+            const expectedMetadataTitle = displayIdMatch ? displayIdMatch[2].trim() : title;
+            if (metadataTitle !== expectedMetadataTitle) {
+              errors.push(`chapter title drift: ${p} H1="${title}" but chapter.yaml.title="${metadataTitle}" (expected "${expectedMetadataTitle}")`);
+            }
+          }
+        } catch (error) {
+          errors.push(`chapter.yaml parse failed for ${p}: ${error.message}`);
+        }
+      }
+    }
   }
   if (archivedPaths.has(p)) errors.push(`archived page must not appear in manifest: ${p}`);
 }
@@ -149,10 +174,19 @@ for (const p of expected) {
 }
 
 const facade = fs.readFileSync(facadePath, 'utf8');
-const chapterLinkPattern = /\]\((textbook\/volumes\/00_foundations\/[^)]+\/index\.md)\)/g;
-const actual = [...facade.matchAll(chapterLinkPattern)]
-  .map((m) => m[1])
-  .filter((p) => !p.includes(calculationReaderSupportMarker));
+const chapterLinkPattern = /\[([^\]]+)\]\((textbook\/volumes\/00_foundations\/[^)]+\/index\.md)\)/g;
+const actualLinks = [...facade.matchAll(chapterLinkPattern)]
+  .map((m) => ({ label: m[1], path: m[2] }))
+  .filter(({ path: p }) => !p.includes(calculationReaderSupportMarker));
+const actual = actualLinks.map(({ path: p }) => p);
+
+for (const { label, path: p } of actualLinks) {
+  if (!expectedSet.has(p)) continue;
+  const expectedTitle = pageTitles.get(p);
+  if (expectedTitle && label !== expectedTitle) {
+    errors.push(`facade title drift: ${p} label="${label}" but H1="${expectedTitle}"`);
+  }
+}
 const counts = new Map();
 for (const p of actual) counts.set(p, (counts.get(p) ?? 0) + 1);
 
@@ -179,4 +213,4 @@ if (actual.length === expected.length) {
 
 if (errors.length) fail(errors);
 
-console.log(`DREAM THEATER index OK: ${expected.length} chapters/roadmaps, ${archivedPaths.size} archived compatibility pages excluded, all indexed pages expose readable H1 titles, and there are no omissions, extras, duplicates, broken targets, or order drift.`);
+console.log(`DREAM THEATER index OK: ${expected.length} chapters/roadmaps, ${archivedPaths.size} archived compatibility pages excluded, all indexed pages expose readable H1 titles, chapter.yaml titles and source facade labels match those H1s, and there are no omissions, extras, duplicates, broken targets, or order drift.`);

@@ -1,4 +1,4 @@
-# F0-00P3 独立・積測度：同時分布が積になるとは何か
+# P3 独立・積測度・条件付き期待値
 
 <!-- definition-example-audit: strict -->
 

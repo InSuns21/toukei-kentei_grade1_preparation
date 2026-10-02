@@ -1,5 +1,5 @@
 id: "FDM3"
-title: "差分法 III：整合性・安定性・収束性"
+title: "整合性・安定性・収束性"
 volume: "foundations"
 status: supplementary
 prerequisites:

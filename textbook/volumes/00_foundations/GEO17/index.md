@@ -1,4 +1,4 @@
-# GEO17 近い測地線はどう離れ、いつ最短性を失うか：変分・Jacobi 場・共役点
+# GEO17 変分公式・Jacobi 場・共役点
 
 <!-- definition-example-audit: strict -->
 
