@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00B1
+  - SET-U1
 official_scope: []
 learning_objectives:
   - 基底と部分基底から位相を生成し、位相公理と最小性を証明できる

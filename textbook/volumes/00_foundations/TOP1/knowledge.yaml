@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - F0-00B1
+  - SET-U1
 
 forward_references: []
 
@@ -111,6 +112,8 @@ concepts:
     aliases: [商位相, 商写像, 商位相・商写像, quotient topology, quotient map]
     requires:
       - topology.final-topology
+      - set.quotient-set
+      - set.canonical-projection
 
   - id: topology.quotient-universal-property
     name: 商写像の普遍性

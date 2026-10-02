@@ -281,12 +281,21 @@ Baire・net / フィルタ
 
 したがって、次の実装単位は **SET-U1「関係・同値関係・商集合」** とする。SET-U1 完成後に TOP1 / TOP2 の重複定義を canonical reference へ寄せる。
 
+### SET-U1 実装記録（2026-10-02）
+
+- SET-U1 を新設し、二項関係・同値関係・同値類・商集合・標準射影・集合の分割・商集合への写像の降下を集合論側の canonical treatment とした。
+- 既存 stable concept ID \`order.binary-relation\` と \`set.equivalence-relation-class\` は ID を変更せず、SET-U1 へ canonical ownership を移した。
+- F0-00A1D は二項関係を再定義せず SET-U1 から受け取り、順序関係の公理から開始する形へ接続した。
+- TOP1 は商集合・標準射影を SET-U1 から受け取り、商位相という追加構造を担当する形へ接続した。
+- TOP2 は同値関係・同値類の formal definition を重複させず、SET-U1 の集合論上の商を使って位相的同一視へ進む構成へ整理した。
+- SET-U1 の実本文に Level A 4題・Level B 3題・Level C 1題を置き、全問に詳細解答を付けた。
+
 ## 9. 実装順
 
 1. ✅ F0-00A / A1C / A1D / A2 / A3 / A3A の本文・chapter.yaml・knowledge.yaml を監査（2026-10-02 初回監査）
 2. ✅ TOP1--TOP7 から集合論 prerequisite の実需要を逆引き（2026-10-02 初回監査）
-3. ▶ SET-U1「関係・同値関係・商集合」の要否確定・実装
-4. SET-U2「可算集合・非可算集合」の要否確定・実装
+3. ✅ SET-U1「関係・同値関係・商集合」の要否確定・実装（2026-10-02）
+4. ▶ SET-U2「可算集合・非可算集合」の要否確定・実装
 5. SET-U3「濃度・Cantor--Bernstein・Cantor の定理」の要否確定・実装
 6. F0-00A1D を学部標準の順序論章へ改稿
 7. F0-00A2 / A3 を学部数学の選択原理・Zorn 適用章として監査

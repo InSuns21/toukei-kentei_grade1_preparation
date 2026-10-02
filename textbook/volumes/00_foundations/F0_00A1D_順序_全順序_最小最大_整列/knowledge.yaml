@@ -2,7 +2,7 @@ chapter: F0-00A1D
 scope: dream-theater
 coverage: complete
 prerequisites:
-  - F0-00A1C
+  - SET-U1
 
 forward_references:
   - set.choice-function
@@ -13,14 +13,6 @@ forward_references:
   - set.choice-equivalence-summary
 
 concepts:
-  - id: order.binary-relation
-    name: 二項関係
-    kind: definition
-    aliases: [二項関係]
-    requires:
-      - set.cartesian-product
-      - set.subset
-
   - id: order.partial-order-relation
     name: 順序関係・半順序
     kind: definition

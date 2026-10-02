@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - TOP1
   - F0-00C1
+  - SET-U1
 official_scope: []
 learning_objectives:
   - 同相写像の定義を使い、二つの空間が位相的に同じであることを証明できる
@@ -17,7 +18,6 @@ learning_objectives:
 definitions:
   - { id: TOP2-DEF-01, name: 同相写像・同相 }
   - { id: TOP2-DEF-06, name: 被覆写像 }
-  - { id: TOP2-DEF-02, name: 同値関係・同値類 }
   - { id: TOP2-DEF-03, name: 同値関係による同一視空間 }
   - { id: TOP2-DEF-04, name: 位相的直和 }
   - { id: TOP2-DEF-05, name: 貼り合わせ空間 }

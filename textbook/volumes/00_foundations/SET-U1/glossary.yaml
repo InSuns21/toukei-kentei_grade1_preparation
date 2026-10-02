@@ -1,0 +1,23 @@
+chapter: "SET-U1"
+terms:
+  - term: 二項関係
+    english: binary relation
+    meaning: 集合 X 上では X×X の部分集合として表される、二つの元の間の関係。
+  - term: 同値関係
+    english: equivalence relation
+    meaning: 反射律・対称律・推移律を満たし、元を「同じグループ」にまとめる二項関係。
+  - term: 同値類
+    english: equivalence class
+    meaning: x と同値な元をすべて集めた集合 [x]。
+  - term: 商集合
+    english: quotient set
+    meaning: 同値関係の同値類を要素として集めた集合 X/~。
+  - term: 標準射影
+    english: canonical projection
+    meaning: 各 x をその同値類 [x] へ送る全射 q:X→X/~。
+  - term: 集合の分割
+    english: partition of a set
+    meaning: 空でない部分集合を互いに交わらないように並べ、その和集合が元の集合全体になる集合族。
+  - term: 降下
+    english: quotient factorization
+    meaning: 各同値類上で一定な写像を、商集合上の写像として一意に書き直すこと。
