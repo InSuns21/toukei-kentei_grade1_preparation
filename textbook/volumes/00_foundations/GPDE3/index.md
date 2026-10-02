@@ -1116,14 +1116,14 @@ $$
 
 とし、$K\subset\subset\Omega$ を compact とします。
 
-境界から離れていれば、GPDE2 の局所 平滑化 を各弱微分に適用できます。
+境界から離れていれば、GPDE2 の局所平滑化 を各弱微分に適用できます。
 
 <a id="thm-gpde3-local-mollification"></a>
 <!-- formal-statement-start -->
 > **定理（Sobolev 関数の局所平滑化）**  
 > $1\le p<\infty$、$u\in W^{k,p}(\Omega)$、$K\subset\subset\Omega$ とする。
 >
-> 十分小さい $\varepsilon>0$ に対し局所 平滑化
+> 十分小さい $\varepsilon>0$ に対し局所平滑化
 >
 $$
 u_\varepsilon=\rho_\varepsilon*u
@@ -1179,7 +1179,7 @@ $$
 
 $\varepsilon<r/2$ とします。
 
-GPDE2 の弱微分と 平滑化 の交換から、$|\alpha|\le k$ に対して
+[GPDE2 の弱微分と平滑化の交換](../GPDE2/index.md#thm-gpde2-weak-mollifier-commute)から、$|\alpha|\le k$ に対して
 
 $$
 D^\alpha u_\varepsilon
@@ -2500,7 +2500,7 @@ u_n\to u
 $$
 <!-- solution-end -->
 
-## GPDE3-B02 局所 平滑化 を $W^{1,p}$ で示す
+## GPDE3-B02 局所平滑化 を $W^{1,p}$ で示す
 
 - Level: B
 - 目安時間: 28分
