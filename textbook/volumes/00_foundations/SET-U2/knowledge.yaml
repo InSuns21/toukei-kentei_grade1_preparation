@@ -5,9 +5,6 @@ prerequisites:
   - F0-00A1C
 
 forward_references:
-  - set.cardinality-comparison
-  - set.cantor-bernstein
-  - set.cantor-theorem
   - topology.local-base-first-countable
   - topology.second-countable
   - topology.separable-space
