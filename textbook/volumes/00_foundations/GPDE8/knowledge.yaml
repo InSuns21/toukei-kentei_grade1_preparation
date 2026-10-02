@@ -48,11 +48,11 @@ concepts:
       - variational.bounded-bilinear-form
 
   - id: pde.linear-elliptic-small-lower-order-coercivity
-    name: 下位項の小ささによる楕円型双線形形式の強圧性
+    name: 下位項の小ささによる楕円型双線形形式の強圧条件
     kind: proposition
     aliases: ["下位項の小ささによる楕円型formのcoercivity", "small lower-order coercivity criterion"]
     introduction: formal
-    introduction_aliases: ["命題（下位項の小ささによる強圧性）"]
+    introduction_aliases: ["命題（下位項の小ささによる強圧条件）"]
     requires:
       - pde.uniform-ellipticity
       - pde.linear-elliptic-form-bounded
@@ -70,11 +70,11 @@ concepts:
       - sobolev.smooth-multiplier-product
 
   - id: pde.linear-elliptic-structural-coercivity
-    name: div b構造による楕円型双線形形式の強圧性
+    name: div b構造による楕円型双線形形式の強圧条件
     kind: corollary
     aliases: ["div b構造による楕円型formのcoercivity", "structural coercivity criterion"]
     introduction: formal
-    introduction_aliases: ["系（一次項の構造を使う強圧性）"]
+    introduction_aliases: ["系（一次項の構造を使う強圧条件）"]
     requires:
       - pde.uniform-ellipticity
       - pde.drift-diagonal-identity
