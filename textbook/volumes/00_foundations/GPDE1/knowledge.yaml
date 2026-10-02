@@ -30,7 +30,7 @@ concepts:
   - id: distribution.schwartz-distribution
     name: Schwartz 超関数
     kind: definition
-    aliases: [超関数, distribution, Schwartz distribution]
+    aliases: [超関数, Schwartz超関数, distribution, Schwartz distribution]
     introduction: formal
     introduction_aliases: ["定義（超関数）"]
     requires:
@@ -39,7 +39,7 @@ concepts:
   - id: distribution.local-finite-order-estimate
     name: 超関数の局所有限階評価
     kind: proposition
-    aliases: [局所有限階評価, local finite-order estimate]
+    aliases: [局所有限階評価, distributionの局所有限階評価, local finite-order estimate]
     introduction: formal
     introduction_aliases: ["命題（超関数の局所有限階評価）"]
     requires:
@@ -48,7 +48,7 @@ concepts:
   - id: distribution.regular-distribution
     name: 正則超関数
     kind: definition
-    aliases: [regular distribution]
+    aliases: [正則distribution, regular distribution]
     introduction: formal
     introduction_aliases: ["定義（正則超関数）"]
     requires:
@@ -57,7 +57,7 @@ concepts:
   - id: distribution.locally-integrable-gives-distribution
     name: 局所可積分関数が定める超関数
     kind: proposition
-    aliases: [regular distribution construction]
+    aliases: [局所可積分関数が定めるdistribution, regular distribution construction]
     introduction: formal
     introduction_aliases: ["命題（局所可積分関数は超関数を定める）"]
     requires:
@@ -76,7 +76,7 @@ concepts:
   - id: distribution.distributional-convergence
     name: 超関数の収束
     kind: definition
-    aliases: [distributional convergence]
+    aliases: [distributionの収束, 超関数収束, distributional convergence]
     introduction: formal
     introduction_aliases: ["定義（超関数の収束）"]
     requires:
@@ -95,7 +95,7 @@ concepts:
   - id: distribution.classical-poisson-implies-distributional
     name: 古典 Poisson 解は超関数解
     kind: proposition
-    aliases: [classical implies distributional]
+    aliases: [古典Poisson解はdistributional solution, classical implies distributional]
     introduction: formal
     introduction_aliases: ["命題（古典 Poisson 解は超関数解である）"]
     requires:
