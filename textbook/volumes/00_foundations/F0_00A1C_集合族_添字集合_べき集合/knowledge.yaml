@@ -5,6 +5,9 @@ prerequisites:
   - F0-00A
 
 forward_references:
+  - order.binary-relation
+  - set.equivalence-relation-class
+  - set.quotient-set
   - topology.sequence
   - topology.subsequence
   - topology.open-set
