@@ -38,7 +38,7 @@ concepts:
     kind: corollary
     aliases: ["gradient norm equivalence", "equivalent gradient norm on H_0^1"]
     introduction: formal
-    introduction_aliases: ["系（勾配ノルムと $H^1$ ノルムの同値性）"]
+    introduction_aliases: ["系（勾配ノルムと H1 ノルムの同値性）"]
     requires:
       - sobolev.poincare-h01
 
