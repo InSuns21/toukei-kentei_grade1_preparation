@@ -46,7 +46,8 @@ concepts:
   - id: analysis.supremum-epsilon-characterization
     name: 上限の ε 特徴付け
     kind: proposition
+    introduction: inline
     aliases: [上限のepsilon特徴付け, 上限の ε 特徴付け]
-    introduction_aliases: ["上限の $\\varepsilon$ 特徴付け"]
+    introduction_aliases: [上限の ε 特徴付け]
     requires:
       - order.supremum
