@@ -5,13 +5,9 @@ prerequisites:
   - F0-00A1
 
 forward_references:
-  - topology.bolzano-weierstrass-real
-  - topology.topology
-  - set.power-set
-  - set.family
-  - set.indexed-family
-  - set.indexed-union-intersection
-  - set.choice-axiom
+  - analysis.real-sequence-convergence
+  - analysis.monotone-convergence-sequence
+  - analysis.limsup-liminf
 
 concepts:
   - id: analysis.least-upper-bound-property

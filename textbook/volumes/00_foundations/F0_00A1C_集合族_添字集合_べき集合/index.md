@@ -158,19 +158,19 @@ $$
 **定義の確認**
 
 $$
-A_n=(0,1/n)
+A_n=\{k\in\mathbb N:k\ge n\}
 \qquad(n\in\mathbb N)
 $$
 
 とすると
 
 $$
-\bigcup_{n\in\mathbb N}A_n=(0,1),
+\bigcup_{n\in\mathbb N}A_n=\mathbb N,
 \qquad
 \bigcap_{n\in\mathbb N}A_n=\varnothing.
 $$
 
-後者では、どんな正の実数も十分大きい $n$ に対して $1/n$ より大きくなり、すべての $A_n$ に同時には入りません。
+任意和については $A_1=\mathbb N$ です。任意交差については、固定した $k\in\mathbb N$ に対し $n=k+1$ とすれば $k\notin A_{k+1}$ なので、すべての $A_n$ に同時に入る自然数はありません。
 <!-- definition-example-end -->
 
 位相の公理に出る「任意個の開集合の和集合」はこの任意和です。一方、有限個の共通部分だけを要求する、という違いが重要になります。
@@ -363,24 +363,37 @@ $$
 
 <!-- exercise-density-standard-supplement-20260912 -->
 
-### F0-00A1C-A04 縮小する区間族の和と交差
+### F0-00A1C-A04 増大する有限集合族の和と交差
 
 - Level: A
 - 目安時間: 8分
 
-$A_n=(-1/n,1/n)$ $(n\in\mathbb N)$ とする。次を求めよ。
 $$
-\bigcup_{n\in\mathbb N}A_n,\qquad
+A_n=\{1,2,\ldots,n\}
+\qquad(n\in\mathbb N)
+$$
+
+とする。次を求めよ。
+
+$$
+\bigcup_{n\in\mathbb N}A_n,
+\qquad
 \bigcap_{n\in\mathbb N}A_n.
 $$
 
 <!-- solution-start -->
 #### 詳細解答
-$A_1=(-1,1)$ が全ての $A_n$ を含むので任意和は $(-1,1)$。0は全ての $A_n$ に入る。一方 $x\ne0$ なら十分大きい $n$ で $1/n<|x|$ となり $x\notin A_n$。従って任意交差は $\{0\}$。
 
-#### 本番答案
+任意の $k\in\mathbb N$ は $A_k$ に属するので
+
 $$
-\boxed{\bigcup_nA_n=(-1,1),\qquad \bigcap_nA_n=\{0\}}.
+\bigcup_{n\in\mathbb N}A_n=\mathbb N.
+$$
+
+一方、$1$ は全ての $A_n$ に属します。$k\ge2$ なら $A_1=\{1\}$ に属さないので、全ての $A_n$ に共通して入るのは1だけです。従って
+
+$$
+\bigcap_{n\in\mathbb N}A_n=\{1\}.
 $$
 <!-- solution-end -->
 
@@ -458,7 +471,6 @@ $$
 
 ## 7. 次に進む
 
-標準ルートでは、実数の基礎と集合族の記法を持って点列へ進みます。選択公理まで追う場合は、その前に順序・全順序・整列可能性を整備します。
+集合族の記法がそろったので、次は一般の二項関係から同値関係・同値類・商集合を作ります。
 
-- **標準：[F0-00B0 点列・部分列・十分大きい添字](../F0_00B0_点列_部分列_十分大きい添字/index.md)**
-- **集合論の補講：[F0-00A1D 順序・全順序・最小最大・整列](../F0_00A1D_順序_全順序_最小最大_整列/index.md)**
+**次：[SET-U1 関係・同値関係・商集合](../SET-U1/index.md)**

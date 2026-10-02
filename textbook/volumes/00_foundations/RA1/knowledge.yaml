@@ -10,11 +10,26 @@ forward_references:
   - analysis.uniform-continuity
 
 concepts:
+  - id: analysis.real-sequence-convergence
+    name: 実数列の収束
+    kind: definition
+    aliases: [実数列の収束, epsilon-N convergence]
+    requires:
+      - topology.sequence
+      - logic.eventually
+
+  - id: analysis.real-sequence-limit-uniqueness
+    name: 実数列の極限の一意性
+    kind: proposition
+    aliases: [実数列の極限の一意性]
+    requires:
+      - analysis.real-sequence-convergence
+
   - id: analysis.monotone-convergence-sequence
     name: 有界単調数列の収束定理
     kind: theorem
     aliases: [有界単調数列の収束定理, bounded monotone sequence convergence theorem, monotone convergence theorem for sequences]
-    requires: [analysis.least-upper-bound-property, topology.sequence]
+    requires: [analysis.least-upper-bound-property, analysis.real-sequence-convergence]
   - id: analysis.limsup-liminf
     name: 上極限・下極限
     kind: definition
@@ -24,12 +39,12 @@ concepts:
     name: limsup・liminfによる収束判定
     kind: theorem
     aliases: [limsup・liminfによる収束判定]
-    requires: [analysis.limsup-liminf]
+    requires: [analysis.limsup-liminf, analysis.real-sequence-convergence]
   - id: analysis.series
     name: 級数
     kind: definition
     aliases: [級数, series]
-    requires: [topology.sequence]
+    requires: [analysis.real-sequence-convergence]
   - id: analysis.series-cauchy-criterion
     name: 級数のCauchy判定
     kind: theorem

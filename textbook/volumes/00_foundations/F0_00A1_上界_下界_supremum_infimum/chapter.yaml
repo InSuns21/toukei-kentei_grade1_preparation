@@ -1,23 +1,30 @@
 id: "F0-00A1"
-title: "補講：上界・下界・supremum・infimum"
+title: "実解析基礎：上限・下限・supremum・infimum"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - F0-00A
+  - F0-00A1D
 official_scope: []
 learning_objectives:
-  - 上界・下界・supremum・infimumを定義できる
+  - 一般の上界・下界を実数の通常順序へ適用できる
+  - supremum/infimumを最小上界・最大下界として定義できる
   - supremum/infimumとmaximum/minimumを区別できる
+  - 上限のepsilon特徴付けを証明して使える
   - 最適化でinfimumから始める理由を説明できる
 definitions:
-  - { id: F000A1-DEF-01, name: 上界 }
-  - { id: F000A1-DEF-02, name: 下界 }
-  - { id: F000A1-DEF-03, name: supremum }
-  - { id: F000A1-DEF-04, name: infimum }
-theorems: []
-canonical_examples: [開区間のsupremumとinfimum, infimumが達成されない最適化]
-problem_patterns: [SUP-INF-1, ATTAINMENT-1]
+  - { id: F000A1-DEF-03, name: 上限 }
+  - { id: F000A1-DEF-04, name: 下限 }
+theorems:
+  - { id: F000A1-PROP-01, name: 上限のepsilon特徴付け }
+canonical_examples:
+  - 開区間の上限と下限
+  - 上限はあるが最大元がない集合
+  - infimumが達成されない最適化
+problem_patterns:
+  - SUP-INF-1
+  - SUP-EPSILON-1
+  - ATTAINMENT-1
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 1.0, exercises: 0.6, review: 0.25 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 1.6, exercises: 1.5, review: 0.4 }

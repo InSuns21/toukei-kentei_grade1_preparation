@@ -1,20 +1,35 @@
 chapter: "F0-00A1D"
 terms:
-  - term: 二項関係
-    english: binary relation
-    meaning: 集合 X 上で X×X の部分集合として表される関係。
-  - term: 順序関係
-    english: partial order
-    meaning: 反射律・反対称律・推移律を満たす二項関係。
+  - term: 半順序集合
+    english: partially ordered set / poset
+    meaning: 反射律・反対称律・推移律を満たす順序関係を備えた集合。
   - term: 全順序
     english: total order / linear order
-    meaning: 任意の二元が比較可能である順序関係。
+    meaning: 任意の二元が比較可能である半順序。
+  - term: 鎖
+    english: chain
+    meaning: 半順序集合の部分集合で、任意の二要素が比較可能なもの。
   - term: 最小元
     english: minimum element
     meaning: 順序集合のすべての元以下にある元。
   - term: 最大元
     english: maximum element
     meaning: 順序集合のすべての元以上にある元。
+  - term: 極小元
+    english: minimal element
+    meaning: 自分より真に小さい元が同じ半順序集合内に存在しない元。
+  - term: 極大元
+    english: maximal element
+    meaning: 自分より真に大きい元が同じ半順序集合内に存在しない元。
+  - term: 上界
+    english: upper bound
+    meaning: 部分集合のすべての元以上にある、周囲の半順序集合の元。
+  - term: 下界
+    english: lower bound
+    meaning: 部分集合のすべての元以下にある、周囲の半順序集合の元。
+  - term: 順序同型
+    english: order isomorphism
+    meaning: 順序関係を両方向に保存する全単射。
   - term: 整列
     english: well-order
     meaning: 任意の非空部分集合が最小元を持つ全順序。
