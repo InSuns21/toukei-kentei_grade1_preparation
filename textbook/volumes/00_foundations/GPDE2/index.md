@@ -1037,7 +1037,7 @@ u_\varepsilon
 (\partial^\alpha\rho_\varepsilon)*u.
 $$
 
-$x$ を少し動かしても 核 の台は同じコンパクト近傍に収まり、核 の全階微分は有界です。したがって差分商を $|u|$ の局所積分で支配でき、積分と微分を交換できます。
+$x$ を少し動かしても核の台は同じコンパクト近傍に収まり、核 の全階微分は有界です。したがって増分比を $|u|$ の局所積分で支配でき、積分と微分を交換できます。
 
 <!-- proof-start -->
 ### 証明
@@ -1061,7 +1061,7 @@ $$
 
 に限られます。
 
-$j$ を固定し、$h\to0$ とします。差分商は
+$j$ を固定し、$h\to0$ とします。増分比は
 
 $$
 \frac{
@@ -1076,7 +1076,7 @@ u(y)
 \,dy.
 $$
 
-平均値の定理により、十分小さい $h$ では 核 の差分商の絶対値は
+平均値の定理により、十分小さい $h$ では核の増分比の絶対値は
 
 $$
 \sup_z|\partial_j\rho_\varepsilon(z)|
@@ -1100,7 +1100,7 @@ $$
 
 に支配されます。$u\in L^1_{\mathrm{loc}}(\Omega)$ なのでこれは可積分です。
 
-各固定 $y$ について差分商は
+各固定 $y$ について増分比は
 
 $$
 \partial_j\rho_\varepsilon(x-y)
@@ -1132,7 +1132,7 @@ $$
 |\partial_j\partial^\beta\rho_\varepsilon(z)|
 $$
 
-を支配関数にできます。したがって $x_j$ 方向の差分商へ優収束定理をもう一度適用でき、
+を支配関数にできます。したがって $x_j$ 方向の増分比へ優収束定理をもう一度適用でき、
 
 $$
 \partial_j\partial^\beta u_\varepsilon(x)
@@ -1174,11 +1174,11 @@ $$
 
 を局所 $L^1$ で示します。
 
-その前に、後の証明で必要になる多次元の 平行移動評価 を確認します。一変数での対応する結果は [FOU3](../FOU3/index.md#lem-fou3-l1-translation) にありますが、ここでは PDE で使う $\mathbb R^d$ 版を閉じます。
+その前に、後の証明で必要になる多次元の平行移動評価を確認します。一変数での対応する結果は [FOU3](../FOU3/index.md#lem-fou3-l1-translation) にありますが、ここでは PDE で使う $\mathbb R^d$ 版を閉じます。
 
 <a id="lem-gpde2-l1-translation-rd"></a>
 <!-- formal-statement-start -->
-> **補題（$\mathbb R^d$ の平行移動補題）**  
+> **補題（多次元の平行移動補題）**  
 > $w\in L^1(\mathbb R^d)$ とし、$(\tau_h w)(x)=w(x-h)$（$h\in\mathbb R^d$）と置く。このとき
 >
 $$
@@ -1256,7 +1256,7 @@ $$
 
 <a id="thm-gpde2-mollifier-l1loc"></a>
 <!-- formal-statement-start -->
-> **定理（平滑化核の局所 $L^1$ 近似）**  
+> **定理（平滑化核の局所 L1 近似）**  
 > $u\in L^1_{\mathrm{loc}}(\Omega)$ とする。任意のコンパクト集合 $K\subset\Omega$ に対して、十分小さい $\varepsilon>0$ では $K\subset\Omega_\varepsilon$ であり、
 
 $$
@@ -1374,7 +1374,7 @@ $$
 
 以下です。
 
-$\int\rho=1$ であり、[$\mathbb R^d$ の平行移動補題](#lem-gpde2-l1-translation-rd)から
+$\int\rho=1$ であり、[多次元の平行移動補題](#lem-gpde2-l1-translation-rd)から
 
 $$
 \sup_{|h|\le\varepsilon}
@@ -2716,7 +2716,7 @@ u_\varepsilon''(x)
 }.
 $$
 
-$\varepsilon$ が小さいと、三つの 核 はそれぞれ
+$\varepsilon$ が小さいと、三つの核 はそれぞれ
 
 - $x=-1$ 付近に質量 $+1$
 - $x=0$ 付近に質量 $-2$
