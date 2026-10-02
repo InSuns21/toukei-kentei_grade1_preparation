@@ -924,7 +924,7 @@ $$
 
 を任意に取ります。
 
-$\operatorname{dist}(J,\partial I)>0$ なので、十分小さい $\varepsilon>0$ に対して局所 平滑化
+$\operatorname{dist}(J,\partial I)>0$ なので、十分小さい $\varepsilon>0$ に対して局所平滑化
 
 $$
 v_\varepsilon
@@ -934,7 +934,7 @@ $$
 
 が $J$ 上で定義できます。
 
-GPDE2 で示した弱微分と 平滑化 の交換から
+[GPDE2 の弱微分と平滑化の交換](../GPDE2/index.md#thm-gpde2-weak-mollifier-commute)から
 
 $$
 (v_\varepsilon)'
@@ -1660,7 +1660,7 @@ $$
 
 の 平滑化核 で平滑化します。
 
-GPDE3 の局所 平滑化 から、$\delta\to0$ で
+GPDE3 の局所平滑化 から、$\delta\to0$ で
 
 $$
 \rho_\delta*(\chi_\varepsilon u)
