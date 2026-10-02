@@ -79,6 +79,8 @@ $$
 <!-- definition-example-start: def-f0-00a1d-partial-order, def-f0-00a1d-poset -->
 ### 1.1 定義の確認：包含関係
 
+**定義の確認**
+
 $X=\{1,2,3\}$ とし、$\mathcal P(X)$ に包含関係 $\subseteq$ を入れます。
 
 - $A\subseteq A$ なので反射律。
@@ -114,6 +116,8 @@ $$
 <!-- definition-example-start: def-f0-00a1d-total-order -->
 ### 2.1 定義の確認
 
+**定義の確認**
+
 $(\mathbb R,\le)$ は全順序です。任意の二実数は必ず比較できます。
 
 一方 $(\mathcal P(\{1,2\}),\subseteq)$ は半順序ですが、$\{1\}$ と $\{2\}$ が比較不能なので全順序ではありません。
@@ -138,6 +142,8 @@ $$
 
 <!-- definition-example-start: def-f0-00a1d-chain -->
 ### 2.2 定義の確認
+
+**定義の確認**
 
 $P=\mathcal P(\{1,2,3\})$ を包含関係で順序付けます。
 
@@ -213,6 +219,8 @@ $$
 <!-- definition-example-start: def-f0-00a1d-minimum-maximum, def-f0-00a1d-minimal-maximal -->
 ### 3.1 定義の確認：極大だが最大ではない
 
+**定義の確認**
+
 $$
 P=\{\{1\},\{2\}\}
 $$
@@ -280,6 +288,8 @@ $$
 <!-- definition-example-start: def-f0-00a1d-upper-lower-bound -->
 ### 4.1 定義の確認：包含関係で上から抑える
 
+**定義の確認**
+
 $P=\mathcal P(\{1,2,3\})$、順序を包含関係とし、
 
 $$
@@ -344,6 +354,8 @@ $$
 <!-- definition-example-start: def-f0-00a1d-order-preserving, def-f0-00a1d-order-isomorphism -->
 ### 5.1 定義の確認：自然数と偶数
 
+**定義の確認**
+
 $\mathbb N$ と正の偶数全体
 
 $$
@@ -391,6 +403,8 @@ $$
 <!-- definition-example-start: def-f0-00a1d-well-order -->
 ### 6.1 定義の確認
 
+**定義の確認**
+
 $\mathbb N$ の通常の順序は整列です。自然数の任意の非空部分集合には最小元があります。
 
 一方、$\mathbb Z$ の通常の順序は全順序ですが整列ではありません。非空部分集合 $\mathbb Z$ 自身に最小元がないからです。
@@ -417,6 +431,8 @@ $$
 
 <!-- definition-example-start: def-f0-00a1d-well-orderable -->
 ### 6.2 定義の確認：通常順序が整列でなくてもよい
+
+**定義の確認**
 
 $\mathbb Z$ は通常の順序では整列されていません。しかし
 
