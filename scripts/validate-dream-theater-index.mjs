@@ -40,6 +40,31 @@ const deprecatedCompatibilityDirs = new Set([
 ]);
 
 const toPosix = (p) => p.split(path.sep).join('/');
+
+const extractMarkdownH1 = (markdown, sourcePath) => {
+  let fence = null;
+  const lines = String(markdown).split(/\r?\n/);
+
+  for (const rawLine of lines) {
+    const fenceMatch = rawLine.match(/^\s*([`~]{3,})/);
+    if (fenceMatch) {
+      const marker = fenceMatch[1][0];
+      if (fence === null) fence = marker;
+      else if (fence === marker) fence = null;
+      continue;
+    }
+    if (fence !== null) continue;
+
+    const heading = rawLine.match(/^#\s+(.+?)\s*$/);
+    if (!heading) continue;
+
+    const title = heading[1].replace(/`/g, '').trim();
+    if (title) return title;
+    break;
+  }
+
+  return null;
+};
 const fail = (messages) => {
   console.error('DREAM THEATER index validation failed:');
   for (const message of messages) console.error(`- ${message}`);
@@ -107,7 +132,13 @@ const expectedSet = new Set(expected);
 const discoveredSet = new Set(discovered);
 
 for (const p of expected) {
-  if (!fs.existsSync(path.join(repoRoot, p))) errors.push(`manifest target does not exist: ${p}`);
+  const absolutePath = path.join(repoRoot, p);
+  if (!fs.existsSync(absolutePath)) {
+    errors.push(`manifest target does not exist: ${p}`);
+  } else {
+    const title = extractMarkdownH1(fs.readFileSync(absolutePath, 'utf8'), p);
+    if (!title) errors.push(`manifest target has no readable H1 title: ${p}`);
+  }
   if (archivedPaths.has(p)) errors.push(`archived page must not appear in manifest: ${p}`);
 }
 for (const p of discovered) {
@@ -148,4 +179,4 @@ if (actual.length === expected.length) {
 
 if (errors.length) fail(errors);
 
-console.log(`DREAM THEATER index OK: ${expected.length} chapters/roadmaps, ${archivedPaths.size} archived compatibility pages excluded, no omissions, extras, duplicates, broken targets, or order drift.`);
+console.log(`DREAM THEATER index OK: ${expected.length} chapters/roadmaps, ${archivedPaths.size} archived compatibility pages excluded, all indexed pages expose readable H1 titles, and there are no omissions, extras, duplicates, broken targets, or order drift.`);
