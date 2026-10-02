@@ -208,6 +208,8 @@ $$
 > が任意の $x\in P$ に対して成り立つことをいう。
 <!-- formal-statement-end -->
 
+ここまでで「全要素以上にある」と「これ以上上へ進めない」が別条件だと定義できました。この **最大元と極大元の区別** は、後で Zorn の補題を読むときに中心になります。
+
 <!-- definition-example-start: def-f0-00a1d-minimum-maximum, def-f0-00a1d-minimal-maximal -->
 ### 3.1 定義の確認：極大だが最大ではない
 
