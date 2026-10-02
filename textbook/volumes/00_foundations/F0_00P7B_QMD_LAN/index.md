@@ -1296,7 +1296,7 @@ nE[\rho_n^2]
 o(1).
 $$
 
-[Chebyshev の不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-chebyshev) から、任意の $\varepsilon>0$ について
+[チェビシェフの不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-chebyshev) から、任意の $\varepsilon>0$ について
 
 $$
 P\left(
