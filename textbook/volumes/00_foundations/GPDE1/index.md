@@ -16,7 +16,7 @@ $$
 
 - 滑らかで局所化された補助関数とその収束を定める。
 - 補助関数への連続線形作用を定め、連続性を手で検証する。
-- 局所可積分関数からそのような作用を構成する。
+- [局所可積分関数](../MT4/index.md#def-mt4-l1loc)からそのような作用を構成する。
 - 一点だけを読む作用が普通の局所可積分関数では表せないことを示す。
 - 作用どうしの収束を定める。
 - PDE を補助関数に対する積分恒等式として読む。
@@ -375,7 +375,15 @@ $$
 
 ## 5. 普通の関数は 超関数として読める
 
-PDE では滑らかでなくても積分可能な関数を扱いたいので、まず $L^1_{\mathrm{loc}}$ を 超関数に入れます。
+PDE では滑らかでなくても積分可能な関数を扱いたいので、まず [局所可積分関数](../MT4/index.md#def-mt4-l1loc) $L^1_{\mathrm{loc}}$ を 超関数に入れます。
+
+ここで $L^1_{\mathrm{loc}}(\Omega)$ は、[MT4 の局所可積分の定義](../MT4/index.md#def-mt4-l1loc)そのものです。すなわち任意のコンパクト集合 $K\subset\Omega$ に対して
+
+$$
+\int_K |f(x)|\,dx<\infty
+$$
+
+となることを要求します。[局所可積分性の基本性質](../MT4/index.md#prop-mt4-l1loc-basic)により、コンパクト台を持つテスト関数を掛ければ積分可能になります。
 
 <a id="def-gpde1-regular-distribution"></a>
 <!-- formal-statement-start -->
@@ -596,7 +604,35 @@ $$
 \int_{B(a,\varepsilon)}|f(x)|\,dx.
 $$
 
-$f$ は $a$ の近くで可積分なので、[Lebesgue 積分の絶対連続性](../MT4/index.md#thm-mt4-integral-absolute-continuity)から右辺は $\varepsilon\downarrow0$ で 0 へ行きます。左辺は常に 1 なので矛盾です。
+ここで $\varepsilon_0>0$ を
+$$
+\overline{B(a,\varepsilon_0)}\subset\Omega
+$$
+となるよう一つ固定します。局所可積分性から
+$$
+\int_{\overline{B(a,\varepsilon_0)}}|f(x)|\,dx<\infty
+$$
+なので、
+$$
+g(x)
+=
+|f(x)|1_{\overline{B(a,\varepsilon_0)}}(x)
+$$
+は $L^1(\Omega)$ に属します。
+
+$0<\varepsilon<\varepsilon_0$ では
+$$
+\int_{B(a,\varepsilon)}|f(x)|\,dx
+=
+\int_{B(a,\varepsilon)}g(x)\,dx.
+$$
+一方、$\lambda(B(a,\varepsilon))\to0$ です。[Lebesgue 積分の絶対連続性](../MT4/index.md#thm-mt4-integral-absolute-continuity)を $g$ と $E=B(a,\varepsilon)$ に適用すると、
+$$
+\int_{B(a,\varepsilon)}|f(x)|\,dx
+\to0.
+$$
+
+したがって右辺は $\varepsilon\downarrow0$ で 0 へ行きます。左辺は常に 1 なので矛盾です。
 
 したがって Dirac のデルタ超関数は正則超関数ではありません。
 
