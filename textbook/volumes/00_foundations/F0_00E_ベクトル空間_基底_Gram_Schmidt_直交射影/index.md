@@ -193,11 +193,6 @@ $$
 > ベクトル空間 $V$ の部分集合 $S\subseteq V$ に対し、$S$ から有限個のベクトル $v_1,\dots,v_k$ と係数 $a_1,\dots,a_k\in\mathbb R$ を選んで作る $a_1v_1+\cdots+a_kv_k$ を **線形結合** という。$S$ の有限線形結合すべてと零ベクトルを集めた集合を $\operatorname{span}(S)$ と書き、$S$ の **線形包** という。
 <!-- formal-statement-end -->
 
-したがって
-
-$$
-\operatorname{span}(S)
-
 <!-- definition-example-start: def-f0-00e-linear-combination-span -->
 **定義の確認**
 
