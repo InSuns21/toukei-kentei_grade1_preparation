@@ -633,6 +633,7 @@ $$
 > $$
 <!-- formal-statement-end -->
 
+<!-- proof-start -->
 ### 6.1 $\mathcal P(\mathbb N)$ から $[0,1]$ への単射
 
 各 $S\subseteq\mathbb N$ に対して
@@ -783,6 +784,7 @@ $$
 $$
 |[0,1]|=|\mathcal P(\mathbb N)|.
 $$
+<!-- proof-end -->
 
 ---
 
@@ -845,6 +847,30 @@ $$
 > |\mathcal P(\mathbb N)|.
 > $$
 <!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+前節で
+
+$$
+|[0,1]|=|\mathcal P(\mathbb N)|
+$$
+
+を示しました。またこの節で、包含写像と $\theta$ による逆向きの単射から
+
+$$
+|\mathbb R|=|[0,1]|
+$$
+
+を示しました。従って等号の推移性から
+
+$$
+|\mathbb R|
+=
+|\mathcal P(\mathbb N)|.
+$$
+<!-- proof-end -->
 
 Cantor の定理から
 
