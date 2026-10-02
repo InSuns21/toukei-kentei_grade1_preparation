@@ -1803,10 +1803,12 @@ $$
 > を用いて $U$ 内で
 
 $$
-\Omega
+\boxed{
+\Omega\cap U
 =
 \{(x',x_d)\in U:
 x_d>\gamma(x')\}
+}
 $$
 
 > の形に表せることをいう。
