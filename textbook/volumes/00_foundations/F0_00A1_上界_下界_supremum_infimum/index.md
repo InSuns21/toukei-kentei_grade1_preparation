@@ -82,6 +82,8 @@ $$
 > と書く。
 <!-- formal-statement-end -->
 
+上側の境界だけでなく下側の境界も同じ発想で取り出せます。上界の「最小」を考えたのと上下を反転し、下界の中で最も大きいものを定義します。
+
 <a id="def-f0-00a1-infimum"></a>
 
 <!-- formal-statement-start -->
