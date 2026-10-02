@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - F0-00C1
   - F0-00A1
+  - F0-00F1
 
 forward_references:
   - topology.complete-metric-space
