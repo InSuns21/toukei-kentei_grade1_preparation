@@ -97,9 +97,9 @@ concepts:
       - sobolev.h01
 
   - id: analysis.l2-translation-compactness
-    name: L2平行移動コンパクト性補題
+    name: L2 平行移動コンパクト性
     kind: lemma
-    aliases: ["L2 translation compactness lemma", "L2 translation compactness", "L2 Kolmogorov--Riesz criterion", "translation compactness criterion"]
+    aliases: ["L2平行移動コンパクト性補題", "L2 translation compactness lemma", "L2 translation compactness", "L2 Kolmogorov--Riesz criterion", "translation compactness criterion"]
     introduction: formal
     introduction_aliases: ["補題（L2 平行移動コンパクト性）"]
     requires:
