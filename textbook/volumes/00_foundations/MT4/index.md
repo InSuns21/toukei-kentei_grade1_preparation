@@ -45,7 +45,7 @@ $$
 
 Lebesgue 微分定理で見るのは点の近くの平均なので、全空間で積分可能である必要はありません。例えば定数関数 $f(x)=1$ は $L^1(\mathbb R)$ には属しませんが、どの有界区間上でも積分は有限で、局所平均は問題なく定義できます。
 
-局所可積分性そのものは1次元に固有ではありません。後続の偏微分方程式でも同じ概念を使えるよう、ここでは開集合 $\Omega\subset\mathbb R^d$ 上で定義します。本章で証明する Lebesgue 微分定理は、その後 $d=1$、$\Omega=\mathbb R$ に戻って扱います。
+局所可積分性そのものは1次元に固有ではありません。後続章でも同じ概念を使えるよう、ここでは開集合 $\Omega\subset\mathbb R^d$ 上で定義します。本章で証明する Lebesgue 微分定理は、その後 $d=1$、$\Omega=\mathbb R$ に戻って扱います。
 
 <a id="def-mt4-l1loc"></a>
 <!-- formal-statement-start -->
@@ -111,7 +111,7 @@ $$
 開集合 $\Omega\subset\mathbb R^d$ とする。
 
 1. $f\in L^1_{\mathrm{loc}}(\Omega)$、開集合 $V\subset\Omega$ なら、制限 $f|_V$ は $L^1_{\mathrm{loc}}(V)$ に属する。
-2. $f\in L^1_{\mathrm{loc}}(\Omega)$、有界可測関数 $\psi$ の台 $K=\operatorname{supp}\psi$ が $\Omega$ 内でコンパクトなら、$f\psi\in L^1(\Omega)$ であり、
+2. $f\in L^1_{\mathrm{loc}}(\Omega)$ とする。有界可測関数 $\psi$ が、あるコンパクト集合 $K\subset\Omega$ の外で 0 なら、$f\psi\in L^1(\Omega)$ であり、
    $$
    \int_\Omega |f\psi|
    \le
@@ -136,7 +136,7 @@ $$
    $$
    です。したがって $f|_V\in L^1_{\mathrm{loc}}(V)$ です。
 
-2. $\psi$ は $K$ の外で 0 なので、
+2. 仮定より $\psi$ は $K$ の外で 0 なので、
    $$
    \int_\Omega|f\psi|
    =
@@ -176,7 +176,7 @@ $$
    よって $L^p(\Omega)\subset L^1_{\mathrm{loc}}(\Omega)$ です。局所有界関数にも同じ $p=\infty$ の評価を各コンパクト集合上で使えます。連続関数は各コンパクト集合上で有界なので、局所可積分です。$\square$
 <!-- proof-end -->
 
-後で超関数を作るときに必要になるのは特に 2. です。テスト関数は有界かつコンパクト台を持つため、$f\in L^1_{\mathrm{loc}}$ なら $f\varphi$ の積分が必ず有限になります。Sobolev 空間へ進むときには 3. が、$L^p$ 関数を弱微分の枠組みに入れる橋になります。
+後続章で、あるコンパクト集合の外で 0 になる補助関数を $f$ に掛けて積分するときに必要になるのが 2. です。また 3. により、$L^p$ 関数は自動的に局所可積分なので、局所的な積分恒等式を使う議論へそのまま入れます。
 
 ---
 
