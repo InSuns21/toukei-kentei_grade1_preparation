@@ -1871,7 +1871,27 @@ $$
 
 と置きます。
 
-さらに $H_0^1(\Omega)$ は $C_c^\infty(\Omega)$ の $H^1$ 閉包です。$C_c^\infty(\Omega)$ から $H_0^1$ に稠密な可算列 $(w_j)_{j\ge1}$ を一つ取り、
+さらに、主定理で必要な可算個の Galerkin 近似空間も用意できます。その理由を確認します。
+
+Lebesgue 測度を入れた $\Omega\subset\mathbb R^d$ では、係数を有理数に取り、端点が有理数の直方体の有限和の指示関数を使えば、$L^2(\Omega)$ に可算稠密集合を作れます。したがって
+
+$$
+L^2(\Omega)^{d+1}
+$$
+
+も可分です。
+
+$H^1(\Omega)$ の元 $v$ を
+
+$$
+v
+\longmapsto
+(v,\partial_1v,\ldots,\partial_dv)
+$$
+
+で $L^2(\Omega)^{d+1}$ の部分空間とみなすと、$H^1$ ノルムはこの積空間のノルムです。よって $H^1(\Omega)$ は可分で、その部分空間 $H_0^1(\Omega)$ も可分です。
+
+そこで $H_0^1(\Omega)$ に稠密な列 $(w_j)_{j\ge1}$ を取り、
 
 $$
 V_m
@@ -1889,7 +1909,7 @@ V_1\subset V_2\subset\cdots,
 H_0^1(\Omega)
 $$
 
-となるので、主定理で必要な Galerkin 近似空間族も用意できます。
+となります。これで主定理の Galerkin 近似空間族の仮定も確認できました。
 
 Cauchy--Schwarz から
 
