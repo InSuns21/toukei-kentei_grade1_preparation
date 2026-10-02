@@ -16,7 +16,7 @@ $$
 \int_a^\infty f(x)\,dx
 :=\lim_{R\to\infty}\int_a^R f(x)\,dx
 $$
-> と定め、右辺が有限値として存在するとき **収束**、存在しないとき **発散** という。
+> と定め、右辺が有限値として存在するとき収束、存在しないとき発散という。
 >
 > 同様に、$f$ が各 $r<b$ について $[a,r]$ 上Riemann可積分で、$b$ で非有界になり得るとき
 $$
@@ -140,7 +140,7 @@ $$
 |F(m)-F(n)|
 =\left|\int_n^m f\right|<\varepsilon
 $$
-となるためCauchy列です。[実数の完備性／実数列の Cauchy 判定](../RA1/index.md#thm-ra1-real-completeness)により、ある $L\in\mathbb R$ が存在して $F(n)\to L$ です。
+となるため [実数列の Cauchy 条件](../RA1/index.md#def-ra1-cauchy)を満たします。[実数の完備性／実数列の Cauchy 判定](../RA1/index.md#thm-ra1-real-completeness)により、ある $L\in\mathbb R$ が存在して $F(n)\to L$ です。
 
 ここで整数点だけでなく任意の実数 $R\to\infty$ を処理します。tail条件を $\varepsilon/2$ に対して満たす $A$ を取り、さらに $n>A$ で $|F(n)-L|<\varepsilon/2$ となるようにします。$R>A$ に対し $n>R$ となる十分大きい整数を取れば
 $$
@@ -654,6 +654,8 @@ Dirichlet判定では「振動側の原始積分が有界」で十分でした�
 ---
 
 ## 10. Cauchy主値は通常の広義積分ではない
+
+通常の広義積分では、特異点の左右や $-\infty,+\infty$ 側を**別々に収束させる**必要がありました。しかし対称な取り方をすると、左右の大きな寄与が相殺して有限値が残る場合があります。その値は通常の広義積分とは別物なので、相殺の取り方を固定した極限として Cauchy 主値を定義します。
 
 <a id="def-ra4a-pv"></a>
 <!-- formal-statement-start -->
