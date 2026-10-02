@@ -148,6 +148,8 @@ $$
 では、固定した候補 $x$ との距離 $d(x_n,x)$ を見ます。Cauchy 条件では極限候補を式に出さず、列の後半同士だけを比較します。
 
 <!-- definition-example-start: def-f0-00d-01 -->
+**定義の確認**
+
 ### 1.1 定義の確認：$\mathbb R^2$ の列
 
 先ほどの
@@ -303,6 +305,8 @@ $$
 を空間全体として保証する性質です。
 
 <!-- definition-example-start: def-f0-00d-02 -->
+**定義の確認**
+
 ### 3.1 定義の確認：$\mathbb R$ は完備、$\mathbb Q$ は完備でない
 
 通常の距離 $d(x,y)=|x-y|$ を入れた $\mathbb R$ については、[RA1 の実数の完備性](../RA1/index.md#thm-ra1-real-completeness)が
