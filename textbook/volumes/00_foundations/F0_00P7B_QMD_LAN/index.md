@@ -93,6 +93,7 @@ $$
 これは平方根密度写像 $\theta\mapsto\sqrt{p_\theta}$ の $L^2$ における Fréchet 微分です。
 
 <!-- definition-example-start: def-f0-00p7b-qmd -->
+**定義の確認**  
 **直接例：正規位置モデル**  
 $P_\theta=N(\theta,1)$ とします。
 
