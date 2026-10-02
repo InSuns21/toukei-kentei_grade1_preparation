@@ -315,7 +315,7 @@ $$
 > を中心列といいます。
 <!-- formal-statement-end -->
 
-QMD から $E_{\theta_0}[s_{\theta_0}]=0$、フィッシャー情報行列の定義から
+QMD から $E_{\theta_0}[s_{\theta_0}]=0$ です。また、上で置いた $I(\theta)=E_\theta[s_\theta s_\theta^T]$ の表示から
 
 $$
 E_{\theta_0}[s_{\theta_0}s_{\theta_0}^T]
@@ -1002,7 +1002,7 @@ $$
 
 [Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz) から
 
-$
+$$
 |\langle q_\theta,r_h\rangle|
 \le
 \|q_\theta\|_2\|r_h\|_2
@@ -1593,4 +1593,4 @@ $$
 
 ## 次に進む
 
-これで、確率測度・密度・特性関数・大数の法則・中心極限定理から出発し、正則統計モデルの局所対数尤度比が正規シフト型へ近づくところまで接続できました。ここから先は、[局所漸近正規性（LAN）](#thm-f0-00p7b-lan) を使って効率性・局所検定・Le Cam 理論を統一的に扱う発展層へ進めます。
+これで、確率測度・密度・特性関数・大数の法則・[独立同分布・有限分散版の中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt) から出発し、正則統計モデルの局所対数尤度比が正規シフト型へ近づくところまで接続できました。ここから先は、[局所漸近正規性（LAN）](#thm-f0-00p7b-lan) を使って効率性・局所検定・Le Cam 理論を統一的に扱う発展層へ進めます。
