@@ -14,6 +14,7 @@ concepts:
     introduction_aliases: ["定義（Sobolev 空間）"]
     requires:
       - distribution.weak-derivative
+      - measure.mt4-l1-local-basic
 
   - id: sobolev.norm
     name: Sobolev ノルム
