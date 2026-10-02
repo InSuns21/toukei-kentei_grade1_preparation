@@ -1258,7 +1258,7 @@ $$
 
    なので $\rho$ の距離位相は通常位相と一致する。
 
-2. $(\mathbb R,d)$ の Cauchy 列は実数の完備性により実数へ収束する。従って完備である。
+2. $(\mathbb R,d)$ の Cauchy 列は[実数の完備性](../RA1/index.md#thm-ra1-real-completeness)により実数へ収束する。従って完備である。
 
 3. 実数列 $\arctan n$ は $\pi/2$ へ収束するので Cauchy である。従って任意の $\varepsilon>0$ に対し、十分大きい $m,n$ で
 
