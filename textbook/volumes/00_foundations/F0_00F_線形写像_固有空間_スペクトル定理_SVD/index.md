@@ -145,6 +145,31 @@ $$
 > を満たすとき、$T$ を **線形写像** といいます。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-f0-00f-linear-map -->
+### 1.1 例：$mathbb R^2$ 上の線形写像を定義から確認する
+
+$$
+T(x_1,x_2)=(2x_1+x_2, x_1+2x_2)
+$$
+
+とします。$x=(x_1,x_2)$、$y=(y_1,y_2)$、$a,b\in\mathbb R$ に対して
+
+$$
+\begin{aligned}
+T(ax+by)
+&=
+T(ax_1+by_1, ax_2+by_2)\\
+&=
+\bigl(2(ax_1+by_1)+(ax_2+by_2),\
+(ax_1+by_1)+2(ax_2+by_2)\bigr)\\
+&=
+aT(x)+bT(y).
+\end{aligned}
+$$
+
+任意の $x,y,a,b$ で定義式が成り立つので、$T$ は線形写像です。
+<!-- definition-example-end -->
+
 加法とスカラー倍を保存する写像です。
 
 特に
@@ -179,6 +204,38 @@ $$
 
 > をそれぞれ **核（kernel）**、**像（image）** といいます。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00f-kernel-image -->
+### 2.1 例：核と像を集合として直接求める
+
+$$
+T:\mathbb R^2\to\mathbb R^2,
+\qquad
+T(u,v)=(u,0)
+$$
+
+を考えます。$T(u,v)=0$ となるのは $u=0$ のときなので
+
+$$
+\ker T
+=
+\{(0,v):v\in\mathbb R\}
+=
+\operatorname{span}\{(0,1)\}.
+$$
+
+一方、出力は常に $(u,0)$ の形で、任意の $(u,0)$ は実際に $T(u,0)$ として得られるため
+
+$$
+\operatorname{Im}T
+=
+\{(u,0):u\in\mathbb R\}
+=
+\operatorname{span}\{(1,0)\}.
+$$
+
+これは核と像の定義をそのまま集合として確認しています。
+<!-- definition-example-end -->
 
 どちらも線形部分空間です。
 
@@ -389,6 +446,50 @@ $$
 
 > を、基底 $\mathcal B,\mathcal C$ に関する $T$ の **表現行列** といいます。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00f-representation-matrix -->
+### 4.1 例：標準基底で表現行列を列から作る
+
+冒頭の
+
+$$
+T(x,y)=(2x+y, x+2y)
+$$
+
+に対して、入力・出力の基底をともに標準基底
+$mathcal E=(e_1,e_2)$ とします。このとき
+
+$$
+T(e_1)=(2,1)^T,
+\qquad
+T(e_2)=(1,2)^T.
+$$
+
+したがって定義どおり、この二つの座標ベクトルを列に並べれば
+
+$$
+[T]_{\mathcal E\leftarrow\mathcal E}
+=
+\begin{pmatrix}
+2&1\\
+1&2
+\end{pmatrix}.
+$$
+
+実際、$[x]_{\mathcal E}=(x,y)^T$ に掛けると
+
+$$
+\begin{pmatrix}
+2&1\\
+1&2
+\end{pmatrix}
+\begin{pmatrix}x\\y\end{pmatrix}
+=
+\begin{pmatrix}2x+y\\x+2y\end{pmatrix}
+=
+[T(x,y)]_{\mathcal E}.
+$$
+<!-- definition-example-end -->
 
 重要な式は
 
@@ -634,6 +735,47 @@ $$
 > と書けるとき、$A$ と $A'$ は **相似** であるといいます。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-f0-00f-similarity -->
+### 8.1 例：同じ写像の二つの表現行列が相似であることを確認する
+
+冒頭の
+
+$$
+A=
+\begin{pmatrix}2&1\\1&2\end{pmatrix},
+\qquad
+P=
+\begin{pmatrix}1&1\\1&-1\end{pmatrix}
+$$
+
+では
+
+$$
+P^{-1}
+=
+\frac12
+\begin{pmatrix}1&1\\1&-1\end{pmatrix}.
+$$
+
+したがって
+
+$$
+\begin{aligned}
+P^{-1}AP
+&=
+\frac12
+\begin{pmatrix}1&1\\1&-1\end{pmatrix}
+\begin{pmatrix}2&1\\1&2\end{pmatrix}
+\begin{pmatrix}1&1\\1&-1\end{pmatrix}\\
+&=
+\begin{pmatrix}3&0\\0&1\end{pmatrix}
+=:D.
+\end{aligned}
+$$
+
+正則行列 $P$ が存在して $D=P^{-1}AP$ と書けたので、定義より $A$ と $D$ は相似です。
+<!-- definition-example-end -->
+
 相似な行列は違う行列に見えても、同じ線形写像を別の基底で見ているだけです。
 
 ---
@@ -660,6 +802,50 @@ $$
 
 > を固有値 $\lambda$ に対応する **固有空間** といいます。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00f-eigen-data -->
+### 9.1 例：固有値・固有ベクトル・固有空間を同時に確認する
+
+$$
+A=
+\begin{pmatrix}2&1\\1&2\end{pmatrix},
+\qquad
+v=
+\begin{pmatrix}1\\1\end{pmatrix}
+$$
+
+とすると
+
+$$
+Av=
+\begin{pmatrix}3\\3\end{pmatrix}
+=
+3v.
+$$
+
+$v\ne0$ なので、定義より $3$ は固有値、$v$ は固有値 $3$ に属する固有ベクトルです。また
+
+$$
+A-3I
+=
+\begin{pmatrix}-1&1\\1&-1\end{pmatrix}
+$$
+
+だから
+
+$$
+E_3
+=
+\ker(A-3I)
+=
+\operatorname{span}
+\left\{
+\begin{pmatrix}1\\1\end{pmatrix}
+\right\}.
+$$
+
+これで固有空間の定義 $E_\lambda=\ker(A-\lambda I)$ まで直接確認できました。
+<!-- definition-example-end -->
 
 固有ベクトルは「写像を掛けても向きが変わらず、倍率だけが $\lambda$ になる方向」です。
 
@@ -757,6 +943,40 @@ $$
 > となることです。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-f0-00f-diagonalizable -->
+### 11.1 例：固有ベクトル基底で対角化可能性を定義から確認する
+
+冒頭の
+
+$$
+v_1=(1,1)^T,
+\qquad
+v_2=(1,-1)^T
+$$
+
+は一次独立で $mathbb R^2$ の基底をなし、
+
+$$
+T(v_1)=3v_1,
+\qquad
+T(v_2)=v_2
+$$
+
+を満たします。したがって基底
+$mathcal B'=(v_1,v_2)$ に関する表現行列は
+
+$$
+[T]_{\mathcal B'\leftarrow\mathcal B'}
+=
+\begin{pmatrix}
+3&0\\
+0&1
+\end{pmatrix}.
+$$
+
+ある基底で表現行列が対角行列になったので、定義より $T$ は対角化可能です。
+<!-- definition-example-end -->
+
 対角行列の第 $i$ 列は
 
 $$
@@ -843,7 +1063,8 @@ $$
 
 対角化可能であるためには、各固有値について十分な本数の固有ベクトルが必要です。
 
-たとえば
+<!-- definition-example-start: def-f0-00f-multiplicities -->
+### 13.1 例：代数的重複度2、幾何学的重複度1
 
 $$
 A=
@@ -853,16 +1074,54 @@ A=
 \end{pmatrix}
 $$
 
-では固有値1の代数的重複度は2ですが
+とします。特性多項式は
 
 $$
+\chi_A(t)
+=
+\det(tI-A)
+=
+\det
+\begin{pmatrix}
+t-1&-1\\
+0&t-1
+\end{pmatrix}
+=
+(t-1)^2.
+$$
+
+したがって固有値 $1$ の代数的重複度は $2$ です。一方
+
+$$
+A-I
+=
+\begin{pmatrix}
+0&1\\
+0&0
+\end{pmatrix}
+$$
+
+なので
+
+$$
+E_1
+=
 \ker(A-I)
 =
 \operatorname{span}
+\left\{
 \begin{pmatrix}1\\0\end{pmatrix}
+\right\}.
 $$
 
-なので幾何学的重複度は1です。
+従って
+
+$$
+\dim E_1=1,
+$$
+
+すなわち幾何学的重複度は $1$ です。同じ固有値でも二つの重複度が一致しない例になっています。
+<!-- definition-example-end -->
 
 したがって固有ベクトルを2本取れず、対角化できません。
 
