@@ -146,7 +146,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-f0-00f-linear-map -->
-### 1.1 例：$mathbb R^2$ 上の線形写像を定義から確認する
+### 1.1 例：$\mathbb R^2$ 上の線形写像を定義から確認する
+
+**定義の確認**
 
 $$
 T(x_1,x_2)=(2x_1+x_2, x_1+2x_2)
@@ -207,6 +209,8 @@ $$
 
 <!-- definition-example-start: def-f0-00f-kernel-image -->
 ### 2.1 例：核と像を集合として直接求める
+
+**定義の確認**
 
 $$
 T:\mathbb R^2\to\mathbb R^2,
@@ -449,6 +453,8 @@ $$
 
 <!-- definition-example-start: def-f0-00f-representation-matrix -->
 ### 4.1 例：標準基底で表現行列を列から作る
+
+**定義の確認**
 
 冒頭の
 
@@ -738,6 +744,8 @@ $$
 <!-- definition-example-start: def-f0-00f-similarity -->
 ### 8.1 例：同じ写像の二つの表現行列が相似であることを確認する
 
+**定義の確認**
+
 冒頭の
 
 $$
@@ -805,6 +813,8 @@ $$
 
 <!-- definition-example-start: def-f0-00f-eigen-data -->
 ### 9.1 例：固有値・固有ベクトル・固有空間を同時に確認する
+
+**定義の確認**
 
 $$
 A=
@@ -946,6 +956,8 @@ $$
 <!-- definition-example-start: def-f0-00f-diagonalizable -->
 ### 11.1 例：固有ベクトル基底で対角化可能性を定義から確認する
 
+**定義の確認**
+
 冒頭の
 
 $$
@@ -1065,6 +1077,8 @@ $$
 
 <!-- definition-example-start: def-f0-00f-multiplicities -->
 ### 13.1 例：代数的重複度2、幾何学的重複度1
+
+**定義の確認**
 
 $$
 A=
