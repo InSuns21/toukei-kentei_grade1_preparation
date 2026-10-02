@@ -1652,7 +1652,7 @@ u_t=g=f-Au
 \in L^2(0,T;V^*).
 $$
 
-[エネルギー恒等式](#lem-gpde10-energy-identity)から
+[Gelfand 三つ組のエネルギー恒等式](#lem-gpde10-energy-identity)から
 
 $$
 u\in C([0,T];H).
@@ -1701,7 +1701,7 @@ $$
 
 #### Step 7：極限解の エネルギー評価
 
-方程式へ $v=u(t)$ を入れることは、[エネルギー恒等式](#lem-gpde10-energy-identity)により正当化できます。
+方程式へ $v=u(t)$ を入れることは、[Gelfand 三つ組のエネルギー恒等式](#lem-gpde10-energy-identity)により正当化できます。
 
 $$
 \frac12
@@ -1761,7 +1761,7 @@ w_t+Aw=0,
 w(0)=0.
 $$
 
-エネルギー恒等式 から
+[Gelfand 三つ組のエネルギー恒等式](#lem-gpde10-energy-identity)から
 
 $$
 \frac12
@@ -2003,7 +2003,7 @@ w_t+Aw=g,
 w(0)=u_{01}-u_{02}.
 $$
 
-エネルギー恒等式 から
+[Gelfand 三つ組のエネルギー恒等式](#lem-gpde10-energy-identity)から
 
 $$
 \frac12
@@ -3437,7 +3437,7 @@ $$
 w(0)=u_{01}-u_{02}.
 $$
 
-エネルギー恒等式 から
+[Gelfand 三つ組のエネルギー恒等式](#lem-gpde10-energy-identity)から
 
 $$
 \frac12
@@ -3874,7 +3874,7 @@ $$
 
 #### 6. 初期値
 
-エネルギー恒等式 により
+[Gelfand 三つ組のエネルギー恒等式](#lem-gpde10-energy-identity)により
 
 $$
 u\in C([0,T];H).
@@ -3932,7 +3932,7 @@ $$
 
 を弱く満たします。
 
-エネルギー恒等式 から
+[Gelfand 三つ組のエネルギー恒等式](#lem-gpde10-energy-identity)から
 
 $$
 \frac12
