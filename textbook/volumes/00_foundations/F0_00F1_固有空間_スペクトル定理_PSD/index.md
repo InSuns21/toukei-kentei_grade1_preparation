@@ -288,11 +288,11 @@ $$
 > **補題（実対称行列の実固有対の存在）**  
 > 実対称行列 $A\in\mathbb R^{n\times n}$ に対して、ある実数 $\lambda\in\mathbb R$ と単位ベクトル $q\in\mathbb R^n$ が存在し
 
-$
+$$
 Aq=\lambda q,
 \qquad
 \|q\|=1
-$
+$$
 
 > が成り立つ。
 <!-- formal-statement-end -->
