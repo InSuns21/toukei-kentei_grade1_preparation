@@ -179,7 +179,7 @@ $$
 <a id="prop-f0-00a1-sup-epsilon"></a>
 
 <!-- formal-statement-start -->
-> **命題（上限の $\varepsilon$ 特徴付け）**  
+> **命題（上限の ε 特徴付け）**  
 > 空でなく上に有界な $A\subseteq\mathbb R$ と $s\in\mathbb R$ について、$s=\sup A$ であることは
 >
 > 1. $a\le s$ が全ての $a\in A$ で成り立つ。
