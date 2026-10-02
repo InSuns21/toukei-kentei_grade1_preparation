@@ -168,7 +168,7 @@ $$
 
 ではありません。数学では必要な選択原理の強さを区別することが重要です。
 
-後続では、一般のベクトル空間に [Hamel 基底が存在すること](../F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md#thm-f0-00e-hamel-basis-existence)を Zorn の補題から証明します。そのため本教材では標準的な ZFC の立場を採ります。
+後続では、一般のベクトル空間に [Hamel 基底が存在すること](../F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md#thm-f0-00e-hamel-basis-existence)を [Zorn の補題](../F0_00A3_半順序_Zorn_極大延長/index.md#thm-zorn)から証明します。そのため本教材では標準的な ZFC の立場を採ります。
 
 ---
 
