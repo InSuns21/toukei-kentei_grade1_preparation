@@ -1,11 +1,10 @@
 id: "LA4"
-title: "標準線形代数 IV：作用素多項式・最小多項式・Jordan構造"
+title: "作用素多項式・最小多項式・Jordan構造"
 volume: "foundations"
 status: supplementary
 prerequisites:
   - LA3C
   - F0-00F
-  - F0-00F1
 official_scope: []
 learning_objectives:
   - 線形自己写像に多項式を代入する p(T) を扱える
