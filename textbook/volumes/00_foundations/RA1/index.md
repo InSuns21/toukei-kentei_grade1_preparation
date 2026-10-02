@@ -42,6 +42,8 @@ $$
 <!-- definition-example-start: def-ra1-sequence-convergence -->
 ### 0.1 定義の確認：$1/n\to0$
 
+**定義の確認**
+
 任意の $\varepsilon>0$ を取ります。[Archimedes 性](../F0_00A1B_実数の上限性質_Archimedes性/index.md#thm-f0-00a1b-archimedean) から
 
 $$
