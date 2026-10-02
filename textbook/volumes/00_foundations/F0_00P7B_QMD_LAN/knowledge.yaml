@@ -9,50 +9,54 @@ prerequisites:
 concepts:
   - id: stat.hellinger-distance
     name: Hellinger距離
-    kind: term
-    aliases: [Hellinger距離]
+    kind: definition
+    aliases: [Hellinger distance]
+    introduction_aliases: ["定義（Hellinger 距離）"]
     requires:
       - measure.lp-space
 
   - id: stat.qmd
-    name: Quadratic Mean Differentiability
+    name: 二次平均微分可能性
     kind: definition
     aliases: [Quadratic Mean Differentiability, QMD]
-    introduction_aliases: ["定義（Quadratic Mean Differentiability; QMD）"]
+    introduction_aliases: ["定義（二次平均微分可能性（quadratic mean differentiability; QMD））"]
     requires:
       - stat.dominated-model
       - stat.score-function
       - measure.lp-space
 
   - id: stat.fisher-information-geometry
-    name: Fisher情報の局所Hilbert幾何
+    name: フィッシャー情報の局所Hilbert幾何
     kind: term
-    aliases: [接ベクトルのGram行列]
+    aliases: [Fisher information geometry]
     requires:
       - stat.qmd
       - stat.fisher-information
       - functional.l2-inner-product
 
   - id: stat.central-sequence
-    name: central sequence
-    kind: term
+    name: 中心列
+    kind: definition
     aliases: [central sequence]
+    introduction_aliases: ["定義（中心列）"]
     requires:
       - stat.score-function
       - prob.iid-clt
 
   - id: stat.cramer-wold-device
-    name: Cramér--Wold device
-    kind: term
-    aliases: [Cramér--Wold device, Cramér--Wold]
+    name: Cramér--Woldの判定法
+    kind: theorem
+    aliases: [Cramér--Wold device, Cramér--Wold theorem]
+    introduction_aliases: ["定理（Cramér--Wold の判定法）"]
     requires:
       - prob.distribution-convergence
-      - prob.levy-continuity-theorem
+      - prob.levy-continuity-theorem-finite-dimensional
 
   - id: stat.central-sequence-clt
-    name: central sequence CLT
-    kind: term
-    aliases: [central sequenceの中心極限定理]
+    name: 中心列の中心極限定理
+    kind: theorem
+    aliases: [central sequence CLT]
+    introduction_aliases: ["定理（中心列の中心極限定理）"]
     requires:
       - stat.central-sequence
       - stat.cramer-wold-device
@@ -60,10 +64,10 @@ concepts:
       - stat.fisher-information
 
   - id: stat.lan
-    name: local asymptotic normality
-    kind: term
+    name: 局所漸近正規性
+    kind: theorem
     aliases: [local asymptotic normality, LAN]
-    introduction_aliases: ["これが **local asymptotic normality (LAN)** です"]
+    introduction_aliases: ["定理（QMD から局所漸近正規性）"]
     requires:
       - stat.qmd
       - stat.central-sequence-clt

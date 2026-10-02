@@ -1,5 +1,5 @@
 id: "F0-00P7"
-title: "正則統計モデル・score・Fisher情報"
+title: "正則統計モデル・尤度・スコア・フィッシャー情報量"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -8,23 +8,24 @@ prerequisites:
   - F0-00P3
 official_scope: []
 learning_objectives:
-  - 統計モデルを確率測度族として定義できる
-  - dominated modelの尤度をRN密度で書ける
-  - score平均0の導出に微分積分交換が必要と説明できる
-  - Fisher情報の二表現を導ける
-  - support依存モデルが非正則になる理由を説明できる
+  - 統計モデルを確率測度族として定義し、共通の支配測度を置く意味を説明できる
+  - 尤度をRadon--Nikodym密度から定義し、独立標本の尤度が積になる理由を説明できる
+  - スコア恒等式で微分と積分の交換が必要な箇所を示せる
+  - フィッシャー情報量の二つの表現を仮定とともに導ける
+  - 支持集合が動くモデルで境界項が現れ、通常の正則証明が壊れる理由を説明できる
 definitions:
   - { id: F0P7-DEF-01, name: 統計モデル }
-  - { id: F0P7-DEF-02, name: 尤度 }
-  - { id: F0P7-DEF-03, name: score }
-  - { id: F0P7-DEF-04, name: Fisher情報 }
-  - { id: F0P7-DEF-05, name: 正則モデル }
+  - { id: F0P7-DEF-02, name: 共通の支配測度をもつ統計モデル }
+  - { id: F0P7-DEF-03, name: 尤度関数 }
+  - { id: F0P7-DEF-04, name: スコア関数 }
+  - { id: F0P7-DEF-05, name: フィッシャー情報量 }
+  - { id: F0P7-DEF-06, name: 正則性条件 }
 theorems:
-  - { id: F0P7-THM-01, name: score identity }
-  - { id: F0P7-THM-02, name: information identity }
-canonical_examples: [Bernoulli model, Uniform irregular model]
+  - { id: F0P7-THM-01, name: スコア恒等式 }
+  - { id: F0P7-THM-02, name: 情報恒等式 }
+canonical_examples: [ベルヌーイモデル, 一様分布の非正則例, 正規位置モデル]
 problem_patterns: [SCORE-1, FISHER-1, REGULARITY-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 3.5, exercises: 0.75, review: 0.5 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 3.0, review: 0.75 }

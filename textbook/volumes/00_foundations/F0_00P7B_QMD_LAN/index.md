@@ -1,230 +1,1485 @@
-# F0-00P7B QMD・LAN：統計モデルの局所Hilbert幾何
+# F0-00P7B 二次平均微分可能性・局所漸近正規性
 
-古典的な「密度を二回微分できる」という正則性は座標依存で、supportが動く問題にも弱いことがあります。そこで密度そのものではなく **平方根密度を $L^2(\mu)$ の点として微分**します。
+P7 と P7A では、対数密度を通常の意味で微分し、その微分を積分の中へ入れられる正則モデルを使いました。しかし「密度を点ごとに2回微分できる」といった条件は、座標や密度の表示に依存しやすく、統計的な局所比較に必要な強さより過剰な場合もあります。
+
+ここでは視点を変えます。密度 $p_\theta$ そのものではなく、その平方根
+
+$$
+q_\theta:=\sqrt{p_\theta}
+$$
+
+を $L^2(\mu)$ の点として見ます。確率密度は $\int p_\theta\,d\mu=1$ なので
+
+$$
+\|q_\theta\|_2^2=1.
+$$
+
+したがって統計モデルは $L^2(\mu)$ の単位球面上を動く曲線・曲面として見えます。この幾何を一次近似するとスコアとフィッシャー情報量が現れ、その一次近似を独立標本 $n$ 個へ積み上げると局所対数尤度比の正規形が現れます。
 
 ---
 
-## 1. 平方根密度は単位球面上にある
+## 1. 平方根密度の距離で分布を比べる
 
-$p_\theta=dP_\theta/d\mu$ とすると
+二つの密度 $p,q$ が似ているかを、平方根密度の $L^2$ 距離で測ります。
 
-$$\|\sqrt{p_\theta}\|_{L^2(\mu)}^2=\int p_\theta d\mu=1.$$
+<a id="def-f0-00p7b-hellinger"></a>
 
-従ってparameterized modelは $L^2(\mu)$ の単位球面上の曲面として見られます。Hellinger距離も平方根密度の $L^2$ 距離から定まります。
+<!-- formal-statement-start -->
+> **定義（Hellinger 距離）**  
+> 共通の支配測度 $\mu$ に関する密度 $p,q$ に対して
+>
+> $$
+> H(P,Q)
+> :=
+> \left(
+> \int(\sqrt p-\sqrt q)^2\,d\mu
+> \right)^{1/2}
+> $$
+>
+> を Hellinger 距離といいます。
+<!-- formal-statement-end -->
+
+本章では係数 $1/\sqrt2$ を付けない規約を使います。文献によっては $H^2=(1/2)\int(\sqrt p-\sqrt q)^2d\mu$ と正規化するため、定数因子だけ確認してください。
+
+平方根密度はどちらも $L^2$ ノルム1なので、これは単位球面上の2点間距離です。分布を局所的に比較するとき、「平方根密度が $L^2$ でどの方向へ動くか」を見る理由がここにあります。
 
 ---
 
-## 2. Quadratic Mean Differentiability
+## 2. 点ごとの Taylor 展開ではなく、$L^2$ 全体で一次近似する
+
+パラメータを $\theta$ から $\theta+h$ へ動かしたとき、平方根密度の差が「$h$ に線形な部分 + それより小さい剰余」に分かれれば、局所幾何を一次近似できます。
 
 <a id="def-f0-00p7b-qmd"></a>
 
 <!-- formal-statement-start -->
-> **定義（Quadratic Mean Differentiability; QMD）**  
-> $\theta\in\mathbb R^d$ で、あるscoreベクトル $s_\theta\in L^2(P_\theta)^d$ が存在して
-
-$$
-\int\left(\sqrt{p_{\theta+h}}-\sqrt{p_\theta}-\frac12h^Ts_\theta\sqrt{p_\theta}\right)^2d\mu
-=o(\|h\|^2)
-$$
-
-> が成り立つとき、統計モデルは $\theta$ で **Quadratic Mean Differentiable（QMD）** であるといいます。
+> **定義（二次平均微分可能性（quadratic mean differentiability; QMD））**  
+> $\theta\in\mathbb R^d$ とします。あるベクトル値関数 $s_\theta\in L^2(P_\theta)^d$ が存在し
+>
+> $$
+> \int
+> \left(
+> \sqrt{p_{\theta+h}}
+> -
+> \sqrt{p_\theta}
+> -
+> \frac12 h^Ts_\theta\sqrt{p_\theta}
+> \right)^2
+> d\mu
+> =
+> o(\|h\|^2)
+> $$
+>
+> が $h\to0$ で成り立つとき、モデルは $\theta$ で二次平均微分可能であるといいます。
 <!-- formal-statement-end -->
 
-これは
+剰余を $r_h$ と書けば
 
-$$\sqrt{p_{\theta+h}}=\sqrt{p_\theta}+\text{linear tangent}+o(\|h\|)_{L^2}$$
+$$
+\sqrt{p_{\theta+h}}
+=
+\sqrt{p_\theta}
++
+\frac12 h^Ts_\theta\sqrt{p_\theta}
++
+r_h,
+$$
 
-というFréchet微分型の条件です。
+$$
+\|r_h\|_{L^2(\mu)}
+=
+o(\|h\|).
+$$
+
+これは平方根密度写像 $\theta\mapsto\sqrt{p_\theta}$ の $L^2$ における Fréchet 微分です。
+
+<!-- definition-example-start: def-f0-00p7b-qmd -->
+**直接例：正規位置モデル**  
+$P_\theta=N(\theta,1)$ とします。
+
+$$
+\sqrt{p_\theta(x)}
+=
+(2\pi)^{-1/4}
+\exp\left(-\frac{(x-\theta)^2}{4}\right).
+$$
+
+$\theta$ で微分すると
+
+$$
+\partial_\theta\sqrt{p_\theta(x)}
+=
+\frac12(x-\theta)\sqrt{p_\theta(x)}.
+$$
+
+したがって候補となるスコアは
+
+$$
+s_\theta(x)=x-\theta.
+$$
+
+このモデルでは平方根密度の2階微分も $L^2$ で局所的に支配できるので、Taylor の剰余は $L^2$ で $o(|h|)$ です。よって QMD 条件を満たします。
+<!-- definition-example-end -->
 
 ---
 
-## 3. scoreとFisher情報が幾何から戻る
+## 3. QMD からスコア平均0を取り出す
 
-確率密度の正規化を一次展開すると
+P7 では、密度を微分してから積分と交換することでスコア平均0を示しました。QMD では、平方根密度の正規化だけから同じ性質が出ます。
 
-$$E_\theta[s_\theta]=0.$$
+$q_\theta=\sqrt{p_\theta}$ とし
 
-また接ベクトルのGram行列が
+$$
+q_{\theta+h}
+=
+q_\theta
++
+\frac12h^Ts_\theta q_\theta
++
+r_h.
+$$
 
-$$\boxed{I(\theta)=E_\theta[s_\theta s_\theta^T]}$$
+両辺の $L^2$ ノルムは1なので
 
-です。つまりFisher情報は、局所parameter方向が平方根密度空間でどれだけ離れるかを測る計量として現れます。
+$$
+1
+=
+\|q_{\theta+h}\|_2^2.
+$$
+
+右辺を展開すると
+
+$$
+\begin{aligned}
+1
+&=
+\|q_\theta\|_2^2
++
+h^T\int s_\theta q_\theta^2\,d\mu\\
+&\quad
++
+2\langle q_\theta,r_h\rangle
++
+\frac14\int(h^Ts_\theta)^2q_\theta^2\,d\mu\\
+&\quad
++
+\left\langle h^Ts_\theta q_\theta,r_h\right\rangle
++
+\|r_h\|_2^2.
+\end{aligned}
+$$
+
+$\|q_\theta\|_2^2=1$ です。さらに Cauchy--Schwarz の不等式から
+
+$$
+|\langle q_\theta,r_h\rangle|
+\le
+\|r_h\|_2
+=
+o(\|h\|),
+$$
+
+他の二次以上の項は $O(\|h\|^2)$ または $o(\|h\|^2)$ です。従って一次項だけを取り出すと
+
+$$
+h^TE_\theta[s_\theta(X)]
+=
+o(\|h\|).
+$$
+
+任意の方向 $h$ について成り立つため
+
+$$
+\boxed{
+E_\theta[s_\theta(X)]=0
+}
+$$
+
+です。
+
+ここでは「密度の微分と積分を交換する」という P7 の証明を使っていません。平方根密度の $L^2$ 微分可能性そのものが平均0を保証しています。
 
 ---
 
-## 4. なぜ $1/\sqrt n$ スケールなのか
+## 4. フィッシャー情報量は接ベクトルの Gram 行列になる
 
-n個の独立同分布観測では情報がn倍になります。parameter差を固定すると2モデルは急速に識別可能になるため、非自明な局所比較には
+QMD の一次項は
 
-$$\theta_n=\theta_0+\frac{h}{\sqrt n}$$
+$$
+\frac12h^Ts_\theta\sqrt{p_\theta}.
+$$
 
-と縮めます。このスケールではscore和
+方向 $a,b\in\mathbb R^d$ に対応する接ベクトルの $L^2$ 内積は
 
-$$\Delta_n=\frac1{\sqrt n}\sum_{i=1}^ns_{\theta_0}(X_i)$$
+$$
+\begin{aligned}
+\left\langle
+\frac12a^Ts_\theta\sqrt{p_\theta},
+\frac12b^Ts_\theta\sqrt{p_\theta}
+\right\rangle
+&=
+\frac14
+E_\theta[
+(a^Ts_\theta)(b^Ts_\theta)
+]\\
+&=
+\frac14
+a^T
+E_\theta[s_\theta s_\theta^T]
+b.
+\end{aligned}
+$$
 
-が有限な揺らぎを持ちます。
+そこで
+
+$$
+\boxed{
+I(\theta)
+:=
+E_\theta[s_\theta s_\theta^T]
+}
+$$
+
+が局所幾何の Gram 行列として現れます。
+
+また Hellinger 距離を QMD 展開へ代入すると
+
+$$
+H^2(P_{\theta+h},P_\theta)
+=
+\frac14 h^TI(\theta)h
++
+o(\|h\|^2).
+$$
+
+つまりフィッシャー情報行列は、パラメータを $h$ だけ動かしたとき分布が Hellinger 距離でどれだけ離れるかを2次近似する量です。
 
 ---
 
-## 5. central sequenceの中心極限定理とCramér--Wold
+## 5. なぜ局所差は $1/\sqrt n$ なのか
 
-scoreがベクトルなので、P6Aの1変量中心極限定理をそのまま一言で「多変量版」と呼ばず、**Cramér--Wold device** で橋を架けます。
-
-### Cramér--Wold device
-
-$Y_n,Y$ が $\mathbb R^d$ 値確率ベクトルのとき
+1標本でパラメータ差 $h$ による二乗 Hellinger 距離が
 
 $$
-Y_n\Rightarrow Y
-\quad\Longleftrightarrow\quad
- a^TY_n\Rightarrow a^TY
-\qquad(\forall a\in\mathbb R^d)
+\frac14h^TI(\theta_0)h
++
+o(\|h\|^2)
 $$
 
-です。直感的には、すべての1次元射影の分布が分かれば多変量分布が決まるという定理です。特性関数で見れば
+なら、独立標本を $n$ 個重ねると局所的な識別能力はおおよそ $n$ 倍になります。
+
+そこでパラメータ差を
 
 $$
-\varphi_{Y_n}(t)=E[e^{it^TY_n}]
+h_n=\frac{h}{\sqrt n}
 $$
 
-は $t^TY_n$ の1変量特性関数を点 $1$ で評価したものなので、P6のLévy連続性定理の多変量版と対応します。
+と取ると
+
+$$
+n\,h_n^TI(\theta_0)h_n
+=
+h^TI(\theta_0)h,
+$$
+
+となり、情報量が0にも無限大にもならない有限の尺度に残ります。
+
+このため局所代替を
+
+$$
+\theta_n
+=
+\theta_0+\frac{h}{\sqrt n}
+$$
+
+と置きます。
+
+---
+
+## 6. スコア和を有限な揺らぎへ正規化する
+
+局所対数尤度比の一次項には、スコアベクトルの和が現れます。$n$ 個の和は標準偏差が $\sqrt n$ の大きさなので
+
+<a id="def-f0-00p7b-central-sequence"></a>
+
+<!-- formal-statement-start -->
+> **定義（中心列）**  
+> 真値 $\theta_0$ におけるスコアベクトルを $s_{\theta_0}$ とするとき
+>
+> $$
+> \Delta_n
+> :=
+> \frac1{\sqrt n}
+> \sum_{i=1}^{n}s_{\theta_0}(X_i)
+> $$
+>
+> を中心列といいます。
+<!-- formal-statement-end -->
+
+QMD から $E_{\theta_0}[s_{\theta_0}]=0$、フィッシャー情報行列の定義から
+
+$$
+E_{\theta_0}[s_{\theta_0}s_{\theta_0}^T]
+=
+I(\theta_0).
+$$
+
+ベクトルの分布収束は、任意の1次元射影へ落として確認できます。
+
+<a id="thm-f0-00p7b-cramer-wold"></a>
+
+<!-- formal-statement-start -->
+> **定理（Cramér--Wold の判定法）**  
+> $\mathbb R^d$ 値確率ベクトル $Y_n,Y$ について
+>
+> $$
+> Y_n\Rightarrow Y
+> $$
+>
+> であることと、全ての $a\in\mathbb R^d$ に対して
+>
+> $$
+> a^TY_n\Rightarrow a^TY
+> $$
+>
+> であることは同値です。
+<!-- formal-statement-end -->
 
 任意の $a\in\mathbb R^d$ について
 
 $$
 a^T\Delta_n
-=\frac1{\sqrt n}\sum_{i=1}^n a^Ts_{\theta_0}(X_i).
+=
+\frac1{\sqrt n}
+\sum_{i=1}^{n}
+a^Ts_{\theta_0}(X_i).
 $$
 
-これは平均0、分散 $a^TI(\theta_0)a$ の独立同分布スカラー和なので[P6Aの中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt)から
+各項の平均は0、分散は
 
 $$
-a^T\Delta_n\Rightarrow N(0,a^TI(\theta_0)a).
+\operatorname{Var}(a^Ts_{\theta_0}(X))
+=
+a^TI(\theta_0)a.
 $$
 
-Cramér--Woldにより
+したがって P6A の1次元中心極限定理から
 
-$$\boxed{\Delta_n\Rightarrow N(0,I(\theta_0))}.$$
+$$
+a^T\Delta_n
+\Rightarrow
+N(0,a^TI(\theta_0)a).
+$$
 
-ここでGaussianが出るのは「最尤推定量だから」ではなく、局所log likelihoodの一次項が独立同分布 scoreの和だからです。
+Cramér--Wold の判定法により
+
+<a id="thm-f0-00p7b-central-sequence-clt"></a>
+
+<!-- formal-statement-start -->
+> **定理（中心列の中心極限定理）**  
+> 独立同分布標本について $E_{\theta_0}\|s_{\theta_0}(X)\|^2<\infty$ なら
+>
+> $$
+> \Delta_n
+> \Rightarrow
+> N_d(0,I(\theta_0)).
+> $$
+<!-- formal-statement-end -->
 
 ---
 
-## 6. LAN展開
+## 7. QMD を1標本の尤度比へ変換する
 
-独立同分布 QMDモデルでは標準条件の下で
+LAN の核心は、QMD の平方根密度展開を、$n$ 個の対数尤度比の和へ変えることです。ここを「標準結果」として飛ばさず、主要中間式を追います。
+
+$t_n=h/\sqrt n$ と置きます。$P_{\theta_0}$ の下では $p_{\theta_0}(X)>0$ がほとんど確実に成り立つので、その集合上で QMD 展開を $q_{\theta_0}=\sqrt{p_{\theta_0}}$ で割ると
+
+$$
+\sqrt{
+\frac{p_{\theta_0+t_n}}{p_{\theta_0}}
+}
+=
+1
++
+\frac12t_n^Ts_{\theta_0}
++
+\rho_n
+$$
+
+と書けます。ここで
+
+$$
+E_{\theta_0}[\rho_n^2]
+=
+o(\|t_n\|^2)
+=
+o(n^{-1})
+$$
+
+です。
+
+なお $\{p_{\theta_0}=0\}$ 上では QMD の一次項も $p_{\theta_0}^{1/2}$ も0なので、QMD 条件そのものから
+
+$$
+\alpha_n
+:=
+\int_{\{p_{\theta_0}=0\}}
+p_{\theta_0+t_n}\,d\mu
+=
+o(n^{-1})
+$$
+
+が従います。つまり局所代替が真値の支持の外へ置く確率質量は、1標本あたり $o(n^{-1})$ しかありません。
+
+ここで
+
+$$
+q_{n}
+:=
+\frac12t_n^Ts_{\theta_0}
++
+\rho_n
+$$
+
+と置くと、$P_{\theta_0}$-ほとんど確実に
+
+$$
+\sqrt{
+\frac{p_{\theta_0+t_n}}{p_{\theta_0}}
+}
+=
+1+q_n.
+$$
+
+平方して
+
+$$
+\frac{p_{\theta_0+t_n}}{p_{\theta_0}}
+=
+(1+q_n)^2
+$$
+
+なので、真値の下で観測される点では1標本の対数密度比は
+
+$$
+\log
+\frac{p_{\theta_0+t_n}}{p_{\theta_0}}
+=
+2\log(1+q_n).
+$$
+
+これで QMD の $L^2$ 展開が、対数尤度比の Taylor 展開へ接続されました。
+
+---
+
+## 8. 正規化条件が二次の平均補正を作る
+
+局所漸近正規性の二次項 $-\frac12h^TIh$ は、単に「2階微分したから」現れるのではありません。密度比の平均が1であることから、QMD の剰余の平均に二次補正が入ります。
+
+$X\sim P_{\theta_0}$ とすると
+
+$$
+E_{\theta_0}[(1+q_n)^2]
+=
+\int_{\{p_{\theta_0}>0\}}
+p_{\theta_0+t_n}\,d\mu
+=
+1-\alpha_n,
+$$
+
+ここで前節の $\alpha_n=o(n^{-1})$ です。従って
+
+$$
+2E[q_n]+E[q_n^2]
+=
+-\alpha_n
+=
+o(n^{-1}).
+$$
+
+一方
+
+$$
+q_n
+=
+\frac1{2\sqrt n}h^Ts_{\theta_0}
++
+\rho_n.
+$$
+
+QMD の剰余条件と Cauchy--Schwarz の不等式から
+
+$$
+E[q_n^2]
+=
+\frac1{4n}
+h^TI(\theta_0)h
++
+o(n^{-1}).
+$$
+
+したがって
+
+$$
+E[q_n]
+=
+-\frac1{8n}
+h^TI(\theta_0)h
++
+o(n^{-1}).
+$$
+
+この平均補正が、後で $n$ 個足したとき有限な二次項になります。
+
+---
+
+## 9. 対数の剰余を $n$ 個足しても消えることを確認する
+
+$|u|$ が十分小さいとき
+
+$$
+2\log(1+u)
+=
+2u-u^2+R(u),
+$$
+
+かつある定数 $C$ に対して
+
+$$
+|R(u)|
+\le
+C|u|^3
+$$
+
+です。
+
+各観測 $X_i$ に対応する $q_{n,i}$ を考えます。必要なのは
+
+$$
+\max_{1\le i\le n}|q_{n,i}|
+\xrightarrow{p}0
+$$
+
+と
+
+$$
+\sum_{i=1}^{n}q_{n,i}^2
+=
+O_P(1)
+$$
+
+です。
+
+まずスコア部分について、二乗可積分性から
+
+$$
+x^2P(\|s_{\theta_0}(X)\|>x)\to0
+$$
+
+なので
+
+$$
+nP\left(
+\|s_{\theta_0}(X)\|>\varepsilon\sqrt n
+\right)
+\to0.
+$$
+
+和事象評価により
+
+$$
+\max_{i\le n}
+\frac{\|s_{\theta_0}(X_i)\|}{\sqrt n}
+\xrightarrow{p}0.
+$$
+
+剰余についても
+
+$$
+nP(|\rho_{n,i}|>\varepsilon)
+\le
+\frac{nE[\rho_n^2]}{\varepsilon^2}
+\to0.
+$$
+
+従って最大 $|q_{n,i}|$ は0へ確率収束します。
+
+また
+
+$$
+\sum_{i=1}^{n}q_{n,i}^2
+=
+\frac1{4n}
+\sum_{i=1}^{n}
+(h^Ts_{\theta_0}(X_i))^2
++
+o_P(1)
+$$
+
+であり、大数の法則から
+
+$$
+\sum_{i=1}^{n}q_{n,i}^2
+\xrightarrow{p}
+\frac14h^TI(\theta_0)h.
+$$
+
+よって
+
+$$
+\sum_{i=1}^{n}|R(q_{n,i})|
+\le
+C
+\left(\max_{i\le n}|q_{n,i}|\right)
+\sum_{i=1}^{n}q_{n,i}^2
+\xrightarrow{p}0.
+$$
+
+これで対数 Taylor の3次以上の剰余を、$n$ 個足しても無視できることが確認できました。
+
+---
+
+## 10. 局所対数尤度比を組み立てる
+
+独立標本の対数尤度比は
+
+$$
+\Lambda_n(h)
+:=
+\log
+\frac{
+dP_{\theta_0+h/\sqrt n}^{\otimes n}
+}{
+dP_{\theta_0}^{\otimes n}
+}.
+$$
+
+前節の展開から
+
+$$
+\Lambda_n(h)
+=
+2\sum_{i=1}^{n}q_{n,i}
+-
+\sum_{i=1}^{n}q_{n,i}^2
++
+o_P(1).
+$$
+
+第1項を平均と中心化部分に分けます。
+
+$$
+2\sum_{i=1}^{n}q_{n,i}
+=
+2\sum_{i=1}^{n}(q_{n,i}-E[q_n])
++
+2nE[q_n].
+$$
+
+$q_n=\frac1{2\sqrt n}h^Ts_{\theta_0}+\rho_n$ なので
+
+$$
+2\sum_{i=1}^{n}(q_{n,i}-E[q_n])
+=
+h^T\Delta_n
++
+2\sum_{i=1}^{n}
+(\rho_{n,i}-E[\rho_n]).
+$$
+
+剰余の中心化和は
+
+$$
+E\left[
+\left\{
+\sum_{i=1}^{n}
+(\rho_{n,i}-E[\rho_n])
+\right\}^2
+\right]
+\le
+nE[\rho_n^2]
+=
+o(1)
+$$
+
+なので $o_P(1)$ です。従って
+
+$$
+2\sum_{i=1}^{n}(q_{n,i}-E[q_n])
+=
+h^T\Delta_n+o_P(1).
+$$
+
+また
+
+$$
+2nE[q_n]
+=
+-\frac14h^TI(\theta_0)h+o(1),
+$$
+
+かつ
+
+$$
+\sum_{i=1}^{n}q_{n,i}^2
+=
+\frac14h^TI(\theta_0)h+o_P(1).
+$$
+
+以上を合わせると
 
 $$
 \boxed{
-\log\frac{dP_{\theta_0+h/\sqrt n}^{\otimes n}}{dP_{\theta_0}^{\otimes n}}
-=h^T\Delta_n-\frac12h^TI(\theta_0)h+o_{P_{\theta_0}}(1)
+\Lambda_n(h)
+=
+h^T\Delta_n
+-
+\frac12h^TI(\theta_0)h
++
+o_{P_{\theta_0}}(1)
 }
 $$
 
-が成り立ちます。これが **local asymptotic normality (LAN)** です。
-
-重要なのは、元の観測分布が正規分布である必要はないことです。局所的な統計実験そのものがGaussian shift experimentへ近づきます。
+を得ます。
 
 ---
 
-## 7. 古典Taylor展開との対応
+## 11. 局所漸近正規性
 
-古典的な滑らかなモデルなら
+<a id="thm-f0-00p7b-lan"></a>
 
-$$\ell_{\theta+h}(x)-\ell_\theta(x)\approx h^Ts_\theta(x)-\frac12h^TI(\theta)h$$
+<!-- formal-statement-start -->
+> **定理（QMD から局所漸近正規性）**  
+> 統計モデルが $\theta_0\in\mathbb R^d$ で QMD であり、独立同分布標本 $X_1,\ldots,X_n\sim P_{\theta_0}$ を考えます。フィッシャー情報行列
+>
+> $$
+> I(\theta_0)
+> =
+> E_{\theta_0}[s_{\theta_0}s_{\theta_0}^T]
+> $$
+>
+> が有限であるとします。固定した $h\in\mathbb R^d$ に対して
+>
+> $$
+> \log
+> \frac{
+> dP_{\theta_0+h/\sqrt n}^{\otimes n}
+> }{
+> dP_{\theta_0}^{\otimes n}
+> }
+> =
+> h^T\Delta_n
+> -
+> \frac12h^TI(\theta_0)h
+> +
+> o_{P_{\theta_0}}(1),
+> $$
+>
+> かつ
+>
+> $$
+> \Delta_n
+> \Rightarrow
+> N_d(0,I(\theta_0)).
+> $$
+>
+> この性質を局所漸近正規性（local asymptotic normality; LAN）といいます。
+<!-- formal-statement-end -->
 
-を観測ごとに足すイメージです。しかしQMDは平方根密度の $L^2$ 微分で remainder を制御するため、単なる点wise Taylorより統計的に安定した定式化です。
+ここで「正規」という語は、元の観測分布が正規分布であるという意味ではありません。局所的な対数尤度比が
+
+$$
+h^TZ-\frac12h^TIh,
+\qquad
+Z\sim N_d(0,I)
+$$
+
+という正規シフト型の形へ近づくことを意味します。
 
 ---
 
-## 8. LANで何が嬉しいか
+## 12. P7A の Taylor 展開と何が違うか
 
-LANは
+P7A では、最尤推定量のスコア方程式
 
-- 最尤推定量や効率推定量の漸近正規性
-- Cramér--Rao型下限の漸近版
-- Wald / score / likelihood-ratio検定の局所比較
-- Le Cam理論の局所実験
+$$
+U_n(\widehat\theta_n)=0
+$$
 
-を同じGaussian limitへまとめる入口です。
+を真値まわりで Taylor 展開しました。そこで必要だったのは、対数密度の通常微分や2階微分の一様大数の法則です。
 
-ここではLAN展開の意味と導出構造までを扱い、Le Camの第三補題・convolution theorem・local asymptotic minimax theoremは次の発展層とします。
+ここでは推定量を先に選びません。局所パラメータ
+
+$$
+\theta_0+\frac{h}{\sqrt n}
+$$
+
+の間の**実験そのものの尤度比**を展開しています。QMD は平方根密度の $L^2$ 一次近似だけを仮定し、その近似を積み上げて LAN を得ます。
+
+したがって LAN は「特定の推定量が正規になる」より一段上で、局所統計問題全体が正規シフト型へ近づくことを記述しています。
+
+---
+
+## 13. LAN が後続理論の入口になる理由
+
+LAN が得られると、局所的な推定・検定問題を
+
+$$
+Z\sim N_d(Ih,I)
+$$
+
+に対応する正規シフト実験と比較できるようになります。ここから
+
+- 効率的推定量の漸近分散
+- Wald 型・スコア型・尤度比型検定の局所比較
+- Le Cam の第三補題
+- convolution theorem
+- local asymptotic minimax theorem
+
+へ進みます。
+
+この章では QMD から LAN が出る証明機構までを閉じ、これらの発展結果は後続で扱います。
+
+---
 
 ## 演習
 
-### F0-00P7B-A01 QMDからscore平均0を読む
+### F0-00P7B-A01 正規位置モデルで QMD の一次項を確認する
 
 - Level: A
-- 目安時間: 15分
 
-QMD展開 $\sqrt{p_{\theta+h}}=\sqrt{p_\theta}+\frac12h^Ts_\theta\sqrt{p_\theta}+r_h$ と $\int p_{\theta+h}d\mu=1$ を使い、一次項から $E_\theta[s_\theta]=0$ が現れる理由を説明せよ。
+$P_\theta=N(\theta,1)$ とする。平方根密度を $\theta$ で微分し、QMD のスコアが $s_\theta(x)=x-\theta$ になることを確認せよ。
 
 <!-- solution-start -->
 #### 詳細解答
-両辺を二乗して積分し、$\|r_h\|_2=o(\|h\|)$ を使う。確率密度の積分は常に1なのでhの一次項 $h^T\int s_\theta p_\theta d\mu$ は0でなければならない。従ってscore平均0。
 
-#### 本番答案
-正規化 $\int p_{\theta+h}=1$ の一次変分が $h^TE_\theta s_\theta$。QMD remainderは高次なので $E_\theta s_\theta=0$。
+平方根密度は
 
-#### 採点基準（20点）
-- QMD展開: 5点
-- 正規化: 6点
-- 一次項抽出: 6点
-- 結論: 3点
+$$
+q_\theta(x)
+=
+(2\pi)^{-1/4}
+\exp\left(
+-\frac{(x-\theta)^2}{4}
+\right).
+$$
+
+微分すると
+
+$$
+\partial_\theta q_\theta(x)
+=
+\frac{x-\theta}{2}q_\theta(x).
+$$
+
+QMD の一次項は
+
+$$
+\frac12h\,s_\theta(x)q_\theta(x)
+$$
+
+なので
+
+$$
+s_\theta(x)=x-\theta
+$$
+
+と読めます。これは通常の対数密度
+
+$$
+\log p_\theta(x)
+=
+-\frac12(x-\theta)^2+\text{定数}
+$$
+
+を微分して得るスコアとも一致します。
 <!-- solution-end -->
 
-### F0-00P7B-B01 LANの中心列を同定する
+### F0-00P7B-A02 QMD からスコア平均0を取り出す
 
-- Level: B
-- 目安時間: 18分
+- Level: A
 
-独立同分布 QMDモデルで $\theta_n=\theta_0+h/\sqrt n$ とする。LAN展開に現れるcentral sequence $\Delta_n$ とその極限分布を書き、二次項の意味を説明せよ。
+$$
+q_{\theta+h}
+=
+q_\theta
++
+\frac12h^Ts_\theta q_\theta
++
+r_h,
+\qquad
+\|r_h\|_2=o(\|h\|)
+$$
+
+と $\|q_{\theta+h}\|_2=\|q_\theta\|_2=1$ を使い、$E_\theta[s_\theta]=0$ を示せ。
 
 <!-- solution-start -->
 #### 詳細解答
-$\Delta_n=n^{-1/2}\sum_i s_{\theta_0}(X_i)$。score平均0・共分散$I(\theta_0)$なので多変量[中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt)から $\Delta_n\Rightarrow N(0,I)$。log likelihood ratioは $h^T\Delta_n-\frac12h^TIh+o_P(1)$。二次項は局所的なlog likelihood curvature/情報量を表す。
 
-#### 本番答案
-$\Delta_n=n^{-1/2}\sum s_{\theta_0}(X_i)\Rightarrow N(0,I)$、$\log(dP_{\theta_0+h/\sqrt n}^n/dP_{\theta_0}^n)=h^T\Delta_n-\frac12h^TIh+o_P(1)$。
+両辺の二乗ノルムを展開すると
 
-#### 採点基準（20点）
-- central sequence: 6点
-- 中心極限定理極限: 5点
-- LAN式: 6点
-- 二次項解釈: 3点
+$$
+0
+=
+h^TE_\theta[s_\theta]
++
+2\langle q_\theta,r_h\rangle
++
+O(\|h\|^2)
++
+o(\|h\|^2).
+$$
+
+Cauchy--Schwarz の不等式から
+
+$$
+|\langle q_\theta,r_h\rangle|
+\le
+\|q_\theta\|_2\|r_h\|_2
+=
+o(\|h\|).
+$$
+
+従って
+
+$$
+h^TE_\theta[s_\theta]
+=
+o(\|h\|).
+$$
+
+$h=ta$ として $t\downarrow0$ とすれば
+
+$$
+a^TE_\theta[s_\theta]=0
+$$
+
+が任意の $a$ で成り立つので
+
+$$
+E_\theta[s_\theta]=0.
+$$
+<!-- solution-end -->
+
+### F0-00P7B-A03 $1/\sqrt n$ 尺度を情報量から導く
+
+- Level: A
+
+1標本の局所 Hellinger 距離が
+
+$$
+H^2(P_{\theta+h},P_\theta)
+=
+\frac14h^TI(\theta)h+o(\|h\|^2)
+$$
+
+であるとする。独立標本 $n$ 個で局所差を $h_n=c_nh$ としたとき、二次の総情報量 $n c_n^2h^TIh$ を有限の非零量に保つために $c_n$ が何次であるべきか求めよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+独立標本を $n$ 個重ねると、局所的な二次情報量の尺度は $n$ 倍になります。従って
+
+$$
+nc_n^2h^TIh
+$$
+
+を $n$ に依存しない有限の大きさへ保つには
+
+$$
+nc_n^2\asymp1
+$$
+
+が必要です。よって
+
+$$
+c_n\asymp n^{-1/2}.
+$$
+
+標準的には
+
+$$
+c_n=\frac1{\sqrt n}
+$$
+
+と取り
+
+$$
+\theta_n=\theta+\frac{h}{\sqrt n}
+$$
+
+とします。
+<!-- solution-end -->
+
+### F0-00P7B-A04 中心列の1次元射影
+
+- Level: A
+
+$$
+\Delta_n
+=
+\frac1{\sqrt n}
+\sum_{i=1}^{n}s_{\theta_0}(X_i)
+$$
+
+とする。任意の $a\in\mathbb R^d$ について $a^T\Delta_n$ の平均と分散を求め、1次元中心極限定理を適用した極限を書け。
+
+<!-- solution-start -->
+#### 詳細解答
+
+$$
+a^T\Delta_n
+=
+\frac1{\sqrt n}
+\sum_{i=1}^{n}
+a^Ts_{\theta_0}(X_i).
+$$
+
+QMD から $E[s_{\theta_0}]=0$ なので各項の平均は0です。また
+
+$$
+\operatorname{Var}(a^Ts_{\theta_0}(X))
+=
+a^T
+E[s_{\theta_0}s_{\theta_0}^T]
+a
+=
+a^TI(\theta_0)a.
+$$
+
+従って1次元中心極限定理から
+
+$$
+a^T\Delta_n
+\Rightarrow
+N(0,a^TI(\theta_0)a).
+$$
+<!-- solution-end -->
+
+### F0-00P7B-B01 正規化から $E[q_n]$ の二次補正を求める
+
+- Level: B
+
+$$
+\sqrt{
+\frac{p_{\theta_0+h/\sqrt n}}{p_{\theta_0}}
+}
+=
+1+q_n
+$$
+
+とし
+
+$$
+E[q_n^2]
+=
+\frac1{4n}h^TI(\theta_0)h+o(n^{-1})
+$$
+
+が分かっているとする。密度比の平均が1であることから $E[q_n]$ の主要項を求めよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+密度比は $(1+q_n)^2$ なので
+
+$$
+1
+=
+E[(1+q_n)^2]
+=
+1+2E[q_n]+E[q_n^2].
+$$
+
+従って
+
+$$
+2E[q_n]
+=
+-E[q_n^2].
+$$
+
+仮定を代入すると
+
+$$
+2E[q_n]
+=
+-\frac1{4n}h^TI(\theta_0)h
++
+o(n^{-1}),
+$$
+
+よって
+
+$$
+E[q_n]
+=
+-\frac1{8n}h^TI(\theta_0)h
++
+o(n^{-1}).
+$$
+
+$n$ 個の観測で $2nE[q_n]$ とすると $-\frac14h^TIh$ が残ります。
+<!-- solution-end -->
+
+### F0-00P7B-B02 対数 Taylor の剰余をまとめて消す
+
+- Level: B
+
+$|R(u)|\le C|u|^3$、$\max_{i\le n}|q_{n,i}|\to0$ in probability、$\sum_iq_{n,i}^2=O_P(1)$ とする。
+
+$$
+\sum_{i=1}^{n}R(q_{n,i})
+\xrightarrow{p}0
+$$
+
+を示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+各項について
+
+$$
+|R(q_{n,i})|
+\le
+C|q_{n,i}|^3
+=
+C|q_{n,i}|\,q_{n,i}^2.
+$$
+
+従って
+
+$$
+\sum_{i=1}^{n}|R(q_{n,i})|
+\le
+C
+\left(
+\max_{i\le n}|q_{n,i}|
+\right)
+\sum_{i=1}^{n}q_{n,i}^2.
+$$
+
+第1因子は $o_P(1)$、第2因子は $O_P(1)$ なので積は $o_P(1)$ です。従って絶対値で抑えた和も0へ確率収束し
+
+$$
+\sum_iR(q_{n,i})
+\xrightarrow{p}0.
+$$
+<!-- solution-end -->
+
+### F0-00P7B-B03 QMD の剰余和が消える理由
+
+- Level: B
+
+$E[\rho_n^2]=o(n^{-1})$ とし、$\rho_{n,1},\ldots,\rho_{n,n}$ は各行で独立同分布とする。
+
+$$
+\sum_{i=1}^{n}
+(\rho_{n,i}-E[\rho_n])
+\xrightarrow{p}0
+$$
+
+を示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+中心化和の分散は独立性から
+
+$$
+\operatorname{Var}\left(
+\sum_{i=1}^{n}
+(\rho_{n,i}-E[\rho_n])
+\right)
+=
+n\operatorname{Var}(\rho_n).
+$$
+
+分散は二乗平均以下なので
+
+$$
+n\operatorname{Var}(\rho_n)
+\le
+nE[\rho_n^2]
+=
+o(1).
+$$
+
+Chebyshev の不等式から、任意の $\varepsilon>0$ について
+
+$$
+P\left(
+\left|
+\sum_{i=1}^{n}
+(\rho_{n,i}-E[\rho_n])
+\right|>\varepsilon
+\right)
+\le
+\frac{o(1)}{\varepsilon^2}
+\to0.
+$$
+
+従って中心化剰余和は0へ確率収束します。
+<!-- solution-end -->
+
+### F0-00P7B-C01 QMD から LAN を紙上で再構成する
+
+- Level: C
+
+固定した $h\in\mathbb R^d$ に対して $t_n=h/\sqrt n$ とする。QMD から
+
+$$
+\sqrt{
+\frac{p_{\theta_0+t_n}}{p_{\theta_0}}
+}
+=
+1+q_n,
+\qquad
+q_n
+=
+\frac1{2\sqrt n}h^Ts_{\theta_0}
++
+\rho_n,
+$$
+
+$$
+E[\rho_n^2]=o(n^{-1})
+$$
+
+が得られているとする。次を順に示し
+
+$$
+\log
+\frac{
+dP_{\theta_0+h/\sqrt n}^{\otimes n}
+}{
+dP_{\theta_0}^{\otimes n}
+}
+=
+h^T\Delta_n
+-\frac12h^TI(\theta_0)h
++o_P(1)
+$$
+
+を導け。
+
+1. $E[q_n^2]=\frac1{4n}h^TIh+o(n^{-1})$。
+2. $E[q_n]=-\frac1{8n}h^TIh+o(n^{-1})$。
+3. $\sum_iq_{n,i}^2\to\frac14h^TIh$ in probability。
+4. $2\sum_i(q_{n,i}-E[q_n])=h^T\Delta_n+o_P(1)$。
+5. 対数 Taylor の剰余和が $o_P(1)$。
+
+<!-- solution-start -->
+#### 詳細解答
+
+まず
+
+$$
+q_n
+=
+\frac1{2\sqrt n}h^Ts_{\theta_0}
++
+\rho_n.
+$$
+
+二乗すると
+
+$$
+q_n^2
+=
+\frac1{4n}(h^Ts_{\theta_0})^2
++
+\frac1{\sqrt n}
+(h^Ts_{\theta_0})\rho_n
++
+\rho_n^2.
+$$
+
+第1項の期待値は
+
+$$
+\frac1{4n}
+h^TI(\theta_0)h.
+$$
+
+交差項は Cauchy--Schwarz の不等式から
+
+$$
+\left|
+E[(h^Ts_{\theta_0})\rho_n]
+\right|
+\le
+\{E[(h^Ts_{\theta_0})^2]\}^{1/2}
+\{E[\rho_n^2]\}^{1/2}
+=
+o(n^{-1/2}).
+$$
+
+従って前の係数 $n^{-1/2}$ と合わせて $o(n^{-1})$ です。最後の項も $o(n^{-1})$ なので
+
+$$
+E[q_n^2]
+=
+\frac1{4n}h^TI(\theta_0)h
++
+o(n^{-1}).
+$$
+
+次に密度比の平均が1であることから
+
+$$
+1
+=
+E[(1+q_n)^2]
+=
+1+2E[q_n]+E[q_n^2].
+$$
+
+よって
+
+$$
+E[q_n]
+=
+-\frac12E[q_n^2]
+=
+-\frac1{8n}h^TI(\theta_0)h
++
+o(n^{-1}).
+$$
+
+各観測に対応する $q_{n,i}$ を取ります。QMD 剰余の二乗平均が $o(n^{-1})$ なので、二乗和の主項だけが残り
+
+$$
+\sum_{i=1}^{n}q_{n,i}^2
+=
+\frac1{4n}
+\sum_{i=1}^{n}
+(h^Ts_{\theta_0}(X_i))^2
++
+o_P(1).
+$$
+
+大数の法則から
+
+$$
+\frac1n
+\sum_{i=1}^{n}
+(h^Ts_{\theta_0}(X_i))^2
+\xrightarrow{p}
+h^TI(\theta_0)h.
+$$
+
+従って
+
+$$
+\sum_iq_{n,i}^2
+\xrightarrow{p}
+\frac14h^TI(\theta_0)h.
+$$
+
+また
+
+$$
+2\sum_i(q_{n,i}-E[q_n])
+=
+\frac1{\sqrt n}
+\sum_i h^Ts_{\theta_0}(X_i)
++
+2\sum_i(\rho_{n,i}-E[\rho_n]).
+$$
+
+第1項は $h^T\Delta_n$ です。第2項の分散は
+
+$$
+4n\operatorname{Var}(\rho_n)
+\le
+4nE[\rho_n^2]
+=o(1)
+$$
+
+なので $o_P(1)$ です。従って
+
+$$
+2\sum_i(q_{n,i}-E[q_n])
+=
+h^T\Delta_n+o_P(1).
+$$
+
+対数について
+
+$$
+2\log(1+q)
+=
+2q-q^2+R(q),
+$$
+
+$|R(q)|\le C|q|^3$ を使います。有限二次モーメントと QMD 剰余から
+
+$$
+\max_i|q_{n,i}|\xrightarrow{p}0
+$$
+
+であり、二乗和は $O_P(1)$ なので
+
+$$
+\sum_i|R(q_{n,i})|
+\le
+C
+\max_i|q_{n,i}|
+\sum_iq_{n,i}^2
+=
+o_P(1).
+$$
+
+従って独立標本の対数尤度比は
+
+$$
+\begin{aligned}
+\Lambda_n(h)
+&=
+2\sum_iq_{n,i}
+-
+\sum_iq_{n,i}^2
++
+o_P(1)\\
+&=
+2\sum_i(q_{n,i}-E[q_n])
++
+2nE[q_n]
+-
+\sum_iq_{n,i}^2
++
+o_P(1)\\
+&=
+h^T\Delta_n
+-
+\frac14h^TIh
+-
+\frac14h^TIh
++
+o_P(1)\\
+&=
+h^T\Delta_n
+-
+\frac12h^TIh
++
+o_P(1).
+\end{aligned}
+$$
+
+さらに中心列の中心極限定理から
+
+$$
+\Delta_n
+\Rightarrow
+N_d(0,I(\theta_0)).
+$$
+
+これが局所漸近正規性です。
 <!-- solution-end -->
 
 ---
 
 ## 次に進む
 
-これで「測度としての分布」から「局所Gaussian実験」まで一本で接続しました。統計理論本編へ戻るか、Fourier・確率過程・数値計算のEncoreへ分岐できます。
-
----
-
-## 定義の確認：正規位置モデルはQMD
-
-<!-- definition-example-start: def-f0-00p7b-qmd -->
-**定義の確認**
-
-$P_\theta=N(\theta,1)$ とし、Lebesgue測度に関する密度を $p_\theta$ とします。このとき
-
-$$
-\sqrt{p_\theta(x)}=(2\pi)^{-1/4}\exp\left(-\frac{(x-\theta)^2}{4}\right)
-$$
-
-なので
-
-$$
-\frac{\partial}{\partial\theta}\sqrt{p_\theta(x)}
-=\frac12(x-\theta)\sqrt{p_\theta(x)}.
-$$
-
-従ってscore $s_\theta(x)=x-\theta$ に対し、平方根密度の一次項はQMD定義の
-
-$$
-\frac12h\,s_\theta\sqrt{p_\theta}
-$$
-
-と一致します。正規密度は十分滑らかで導関数も二乗可積分なのでTaylor剰余は $L^2$ で $o(|h|)$、従って定義式の二乗積分は $o(h^2)$ です。これは正規位置モデルがQMDである代表例です。
-<!-- definition-example-end -->
+これで、確率測度・密度・特性関数・大数の法則・中心極限定理から出発し、正則統計モデルの局所対数尤度比が正規シフト型へ近づくところまで接続できました。ここから先は、LAN を使って効率性・局所検定・Le Cam 理論を統一的に扱う発展層へ進めます。
