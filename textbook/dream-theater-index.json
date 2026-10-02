@@ -4,8 +4,6 @@
       "name": "基礎科目",
       "paths": [
         "textbook/volumes/00_foundations/F0_00A_集合_写像_上限下限/index.md",
-        "textbook/volumes/00_foundations/F0_00A1_上界_下界_supremum_infimum/index.md",
-        "textbook/volumes/00_foundations/F0_00A1B_実数の上限性質_Archimedes性/index.md",
         "textbook/volumes/00_foundations/F0_00A1C_集合族_添字集合_べき集合/index.md",
         "textbook/volumes/00_foundations/SET-U1/index.md",
         "textbook/volumes/00_foundations/SET-U2/index.md",
@@ -49,6 +47,8 @@
         "textbook/volumes/00_foundations/LA6/index.md",
         "textbook/volumes/00_foundations/LA3D/index.md",
         "textbook/volumes/00_foundations/LA3E/index.md",
+        "textbook/volumes/00_foundations/F0_00A1_上界_下界_supremum_infimum/index.md",
+        "textbook/volumes/00_foundations/F0_00A1B_実数の上限性質_Archimedes性/index.md",
         "textbook/volumes/00_foundations/RA1/index.md",
         "textbook/volumes/00_foundations/RA1A/index.md",
         "textbook/volumes/00_foundations/RA2/index.md",
