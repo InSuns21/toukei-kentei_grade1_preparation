@@ -2,6 +2,8 @@
 
 統計検定1級「統計数理」「統計応用（理工学）」向けの独習教材・問題集・Ankiカードを作成、検証、配信するためのリポジトリです。
 
+**GitHub Pages:** https://insuns21.github.io/toukei-kentei_grade1_preparation/
+
 - 通常教材の構成・進捗の正本：`textbook/curriculum.yaml`
 - 通常教材本文の正本：`textbook/volumes/**`
 - 統計数理の本番型大問コーパス：`statistical-mathematics/`
