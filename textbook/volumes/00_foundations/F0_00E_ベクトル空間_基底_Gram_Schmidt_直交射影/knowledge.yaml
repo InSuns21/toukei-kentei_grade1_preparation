@@ -43,9 +43,9 @@ concepts:
       - linear.linear-subspace
 
   - id: linear.linear-combination-span
-    name: 線形結合とspan
+    name: 線形結合と線形包
     kind: definition
-    aliases: [線形結合とspan]
+    aliases: [線形結合とspan, 線形結合と線形包]
     requires:
       - linear.linear-subspace
 
