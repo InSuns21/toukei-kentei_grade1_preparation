@@ -16,16 +16,16 @@ forward_references:
 
 concepts:
   - id: analysis.finite-dimensional-heine-borel
-    name: 有限次元Heine--Borel型結果
+    name: 有限次元 Heine--Borel 型結果
     kind: theorem
-    aliases: [有限次元Heine--Borel型結果, R^nの閉有界集合の有限化]
+    aliases: [有限次元 Heine--Borel 型結果, 有限次元Heine--Borel型結果, R^nの閉有界集合の有限化]
     requires:
       - topology.bolzano-weierstrass-real
 
   - id: analysis.finite-dimensional-heine-cantor
-    name: 有限次元Heine--Cantor型結果
+    name: 有限次元 Heine--Cantor 型結果
     kind: theorem
-    aliases: [有限次元Heine--Cantor型結果, R^nの閉有界集合上の一様連続性]
+    aliases: [有限次元 Heine--Cantor 型結果, 有限次元Heine--Cantor型結果, R^nの閉有界集合上の一様連続性]
     requires:
       - analysis.finite-dimensional-heine-borel
 
