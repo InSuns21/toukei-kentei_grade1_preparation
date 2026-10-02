@@ -66,6 +66,18 @@ $$
 > 集合 $A\subseteq\mathbb R$ に下界が少なくとも一つ存在するとき、$A$ は **下に有界** であるという。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-f0-00a1-boundedness -->
+### 1.1 定義の確認
+
+**定義の確認**
+
+$
+A=(0,1)
+$
+
+では $1$ が上界、$0$ が下界なので、$A$ は上にも下にも有界です。一方、$\mathbb R$ 全体には上界も下界も存在しないので、上にも下にも有界ではありません。
+<!-- definition-example-end -->
+
 ---
 
 ## 2. 上限と下限
@@ -112,6 +124,8 @@ $$
 
 <!-- definition-example-start: def-f0-00a1-supremum, def-f0-00a1-infimum -->
 ### 2.1 定義の確認：開区間
+
+**定義の確認**
 
 $$
 A=(0,1)
