@@ -201,6 +201,21 @@ $$
 > が成り立つとき、この関数族について一様大数の法則が成り立つといいます。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-f0-00p7a-uniform-lln -->
+**定義の確認**  
+
+$E|X|<\infty$ とし、$\Theta=[0,1]$、$m_\theta(x)=\theta x$ とします。このとき $M(\theta)=\theta E[X]$ で、
+$$
+\sup_{0\le\theta\le1}
+\left|
+\frac1n\sum_{i=1}^n\theta X_i-	heta E[X]
+\right|
+=
+\left|\overline X_n-E[X]\right|.
+$$
+右辺は大数の法則で確率収束して0になるので、この関数族では定義どおり一様大数の法則が成り立ちます。
+<!-- definition-example-end -->
+
 最尤法では $m_\theta(x)=\log p_\theta(x)$ を使います。
 
 ---
@@ -225,6 +240,20 @@ $$
 >
 > と定義します。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00p7a-kl -->
+**定義の確認**  
+
+$P=\operatorname{Bernoulli}(p)$、$Q=\operatorname{Bernoulli}(q)$、$0<p,q<1$ とします。数え上げ測度を共通支配測度に取ると $P\ll Q$ で、
+$$
+D_{\mathrm{KL}}(P\|Q)
+=
+p\log\frac pq
++
+(1-p)\log\frac{1-p}{1-q}.
+$$
+例えば $p=q$ なら二つの対数比はいずれも0になり、$D_{\mathrm{KL}}(P\|P)=0$ を定義から直接確認できます。
+<!-- definition-example-end -->
 
 ### 非負性
 
