@@ -26,16 +26,6 @@ concepts:
       - stat.score-function
       - measure.lp-space
 
-  - id: stat.fisher-information-geometry
-    name: フィッシャー情報の局所Hilbert幾何
-    kind: term
-    aliases: [Fisher information geometry]
-    introduction_aliases: ["フィッシャー情報の局所Hilbert幾何"]
-    requires:
-      - stat.qmd
-      - stat.fisher-information
-      - functional.l2-inner-product
-
   - id: stat.central-sequence
     name: 中心列
     kind: definition
