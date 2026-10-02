@@ -3,7 +3,6 @@ title: "Cauchy列・完備性"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - RA1
   - F0-00C1
 official_scope: []
 learning_objectives:
