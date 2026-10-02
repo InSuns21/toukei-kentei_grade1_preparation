@@ -632,7 +632,7 @@ $$
 <a id="cor-gpde4-gradient-norm"></a>
 
 <!-- formal-statement-start -->
-> **系（勾配ノルムと $H^1$ ノルム の同値性）**  
+> **系（勾配ノルムと $H^1$ ノルムの同値性）**  
 > $\Omega\subset\mathbb R^d$ を有界開集合とする。
 >
 > $u\in H_0^1(\Omega)$ に対して
