@@ -1,28 +1,32 @@
 id: "F0-00D"
-title: "Cauchy列・完備性"
+title: "Cauchy列・完備距離空間"
 volume: "foundations"
 status: supplementary
 prerequisites:
+  - RA1
+  - F0-00B
   - F0-00C1
 official_scope: []
 learning_objectives:
-  - コーシー列を定義し、収束列との関係を証明できる
-  - 完備距離空間を定義できる
-  - 実数と有理数を完備性の観点から比較できる
+  - RA1の実数列のCauchy条件を一般距離空間のCauchy列へ拡張できる
+  - Cauchy列を定義し、収束列がCauchy列であることを証明できる
+  - 完備距離空間を定義し、実数と有理数を完備性の観点から比較できる
+  - RA1の実数の完備性からEuclid空間の完備性を座標ごとに証明できる
   - 完備空間の閉部分集合が完備であることを証明できる
   - 完備な部分空間が閉集合であることを証明できる
   - コンパクト距離空間が完備であることを証明できる
 definitions:
-  - { id: F000D-DEF-01, name: コーシー列 }
+  - { id: F000D-DEF-01, name: Cauchy列 }
   - { id: F000D-DEF-02, name: 完備距離空間 }
 theorems:
-  - { id: F000D-THM-01, name: 収束列はコーシー列 }
+  - { id: F000D-THM-01, name: 収束列はCauchy列 }
   - { id: F000D-THM-02, name: 完備空間の閉部分集合は完備 }
   - { id: F000D-THM-03, name: 完備な部分空間は閉集合 }
   - { id: F000D-THM-04, name: コンパクト距離空間は完備 }
-canonical_examples: [有理数の非完備性]
-problem_patterns: [非完備性の反例, compactとcompleteの判定, 閉部分集合の完備性]
+  - { id: F000D-THM-05, name: Euclid空間の完備性 }
+canonical_examples: [実数と有理数の完備性, Euclid空間の完備性]
+problem_patterns: [実数版から一般距離空間への抽象化, 非完備性の反例, 閉部分集合の完備性, 完備性とコンパクト性の判定]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 2, level_b: 1, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 2.25, exercises: 1.0, review: 0.35 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2.5, exercises: 1.5, review: 0.4 }
