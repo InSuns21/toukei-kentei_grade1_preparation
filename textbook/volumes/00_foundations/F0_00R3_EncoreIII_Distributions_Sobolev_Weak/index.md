@@ -1,279 +1,204 @@
-# F0-00R3 Encore III：Graduate PDE
+# F0-00R3 Encore III：大学院レベル偏微分方程式への入口
 
-Encore II では、ODE・Fourier解析・古典 PDE を一巡し、PDE7 で固有関数展開・Green 表現・熱／波動／Laplace--Poisson の三類型を統合しました。
+学部レベルの偏微分方程式では、十分滑らかな解を仮定し、微分方程式を各点で満たす形から出発しました。ところが、衝撃波・点源・境界値問題・近似解の極限では、二階微分まで古典的に存在するとは限りません。
 
-Encore III では、古典解の十分な滑らかさを仮定できない問題へ進みます。中心は **distribution・Sobolev 空間・compactness・変分法・弱解** です。
-
-再編前の F0-00DS1、F0-00DS2、F0-00SOB1、F0-00SOB2、F0-00WK1、F0-00WK2、F0-00WK3 は移植元・履歴確認用としてリポジトリに残しますが、**現行の読者向け主線には載せません**。新しい正本は GPDE 系列へ一本化します。
-
----
-
-## 1. 標準通読ルート
-
-~~~text
-Encore II：PDE1 → … → PDE7
-             │
-             ↓
-GPDE1  テスト関数・distribution
-             ↓
-GPDE2  distribution微分・mollifier・弱微分
-             ↓
-GPDE3  Sobolev空間
-             ↓
-GPDE4  H0^1・Poincare・trace
-             ↓
-GPDE5  Sobolev embedding・compactness
-             ↓
-GPDE6  弱形式・変分形式
-             ↓
-GPDE7  Lax--Milgram
-             ↓
-GPDE8  二階線形楕円型PDE
-             ↓
-GPDE9  楕円型正則性
-             ↓
-GPDE10 Galerkin・時間発展PDEの弱解
-~~~
-
-未完成章を reader-facing index に先行登録しません。各章は本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答・依存検証まで完了した時点で、このロードマップからリンク化します。
-
-現在は [GPDE10「Galerkin・時間発展 PDE の弱解」](../GPDE10/index.md) まで公開済みで、Encore III の GPDE1--GPDE10 主線は完結しています。
-
----
-
-## 2. Encore II と何が変わるか
-
-Encore II では、十分滑らかな解に対し
-
-- Fourier 級数・Fourier 変換
-- Sturm--Liouville 固有関数
-- Green 関数
-- 最大原理
-- エネルギー法
-
-を使って古典解を構成・解析しました。
-
-Encore III では
+そこでこの系列では、問いを
 
 $$
 \boxed{
-\text{古典解を明示的に作る}
+\text{各点で微分できる解を探す}
 \quad\longrightarrow\quad
-\text{適切な関数空間で解の存在を示す}
+\text{積分恒等式と関数空間で解を捉える}
 }
 $$
 
-へ重心を移します。
+へ移します。
+
+中心となる道具は、**Schwartz 超関数、弱微分、Sobolev 空間、コンパクト性、変分法、弱解**です。目標は用語を覚えることではなく、なぜ古典解だけでは足りないのかを理解し、仮定から解の存在・一意性・正則性までを追えるようになることです。
+
+---
+
+## 1. 何ができなくなり、何を作り直すのか
 
 たとえば Poisson 方程式
 
 $$
--\Delta u=f,\qquad u|_{\partial\Omega}=0
+-\Delta u=f
 $$
 
-を二階微分を直接要求する式としてではなく、
+を考えます。古典解なら $u$ を二回微分して左辺を各点で計算できます。しかし $u$ が局所可積分であることしか分からない段階では、$\Delta u$ を古典的に書けないことがあります。
+
+そこで、滑らかでコンパクト台を持つテスト関数 $\varphi$ を使い、微分を $u$ から $\varphi$ へ移した
 
 $$
-\int_\Omega \nabla u\cdot\nabla v
+\int_\Omega u(-\Delta\varphi)
 =
-\langle f,v\rangle
-\qquad
-(\forall v\in H_0^1(\Omega))
+\int_\Omega f\varphi
 $$
 
-として読みます。
+を先に意味のある式として採用します。
+
+この発想を出発点にすると、
+
+- 点値を持たない対象もテスト関数への作用として扱える。
+- 古典微分できない関数にも微分を拡張できる。
+- 微分後も $L^p$ 関数として残る対象を Sobolev 空間として整理できる。
+- 境界条件を関数空間の条件として組み込める。
+- 近似解から極限を取り、弱解の存在を示せる。
+
+ようになります。
 
 ---
 
-## 3. 弱解概念の主線
+## 2. 標準通読ルート
 
-Encore III 本線では次を正本化します。
+~~~text
+GPDE1   テスト関数・Schwartz 超関数
+  ↓
+GPDE2   超関数の微分・平滑化核・弱微分
+  ↓
+GPDE3   Sobolev 空間
+  ↓
+GPDE4   H_0^1・Poincaré 不等式・トレース
+  ↓
+GPDE5   Sobolev 埋め込み・コンパクト性
+  ↓
+GPDE6   弱形式・変分形式
+  ↓
+GPDE7   Lax--Milgram の定理
+  ↓
+GPDE8   二階線形楕円型偏微分方程式
+  ↓
+GPDE9   楕円型正則性
+  ↓
+GPDE10  Galerkin 法・時間発展偏微分方程式の弱解
+~~~
 
-1. **distributional solution** — PDE を $\mathcal D'(\Omega)$ の等式として読む。
-2. **Sobolev / variational weak solution** — 楕円型 PDE と Lax--Milgram の主役。
-3. **energy solution** — 熱・波動など時間発展 PDE の主役。
-4. **mild solution** — GPDE10 の bridge として位置付ける。
-
-次は Encore III 本線へ入れません。
-
-- entropy solution
-- viscosity solution
-- renormalized solution
-- measure-valued solution
-- Leray--Hopf weak solution の本格理論
-
-これらは後続 PDE 拡張として別系列で扱います。
+前半では「微分できない対象をどう読むか」を作り直し、中盤では「弱解をどの空間で探すか」を整え、後半では「その空間で本当に解が存在するか」を証明します。
 
 ---
 
-## 4. GPDE1--GPDE6：解析基盤から変分法へ
+## 3. GPDE1--GPDE2：微分できない対象にも微分を持たせる
 
-### [GPDE1 テスト関数・distribution](../GPDE1/index.md)
+### [GPDE1 テスト関数・Schwartz 超関数](../GPDE1/index.md)
 
-$\mathcal D(\Omega)=C_c^\infty(\Omega)$、テスト関数列の収束、distribution の連続性、正則 distribution、Dirac delta、distribution の収束、distributional solution を導入します。
+まず、領域内部だけを滑らかに調べるテスト関数を導入します。次に、テスト関数へ数を返す連続線形作用として Schwartz 超関数を定義します。
 
-### [GPDE2 distribution 微分・mollifier・弱微分](../GPDE2/index.md)
+局所可積分関数は超関数として読めますが、Dirac のデルタ超関数のように通常の関数では表せない対象も同じ枠組みに入ります。最後に Poisson 方程式をテスト関数恒等式として読み、古典解がこの新しい解概念に含まれることを確認します。
 
-部分積分の双対化として distribution 微分を定義し、Heaviside と jump の delta 項、weak derivative、mollifier の尺度変換、局所 $L^1$ 近似、弱微分と mollification の交換までを証明します。
+### [GPDE2 超関数の微分・平滑化核・弱微分](../GPDE2/index.md)
+
+部分積分
+
+$$
+\int f'\varphi
+=
+-\int f\varphi'
+$$
+
+の右辺には $f'$ が現れません。この形を微分の定義にすると、Heaviside 関数の跳躍は Dirac のデルタ超関数として記録されます。
+
+さらに、超関数としての微分が再び局所可積分関数で表せる場合を**弱微分**として区別します。平滑化核を使えば、粗い関数をいったん滑らかにして計算し、局所 $L^1$ 極限で元へ戻すこともできます。
+
+---
+
+## 4. GPDE3--GPDE5：微分可能性を関数空間へ組み込む
 
 ### [GPDE3 Sobolev 空間](../GPDE3/index.md)
 
-$W^{k,p}$、$H^k$、弱微分作用素の閉性、完備性、Hilbert 構造、Sobolev membership / non-membership、局所 mollification、全空間での smooth density までを証明します。
+「何階までの弱微分が $L^p$ に属するか」を関数空間の条件としてまとめます。完備性と Hilbert 空間構造を確認し、区分線形関数や特異関数の所属・非所属を具体的に判定します。
 
-### [GPDE4 $H_0^1$・Poincare・trace](../GPDE4/index.md)
+### [GPDE4 $H_0^1$・Poincaré 不等式・トレース](../GPDE4/index.md)
 
-零 Dirichlet 境界条件を $H_0^1$ と zero trace で定式化し、任意の有界開集合での Poincare 不等式、区間上の trace の完全構成、bounded Lipschitz domain 上の trace と $H_0^1=\ker\operatorname{Tr}$ までを整理します。
+弱解では境界値を点ごとに代入できるとは限りません。零 Dirichlet 境界条件を $H_0^1$ とトレースで表し、Poincaré 不等式が勾配だけで関数を制御できる理由を学びます。
 
-### [GPDE5 Sobolev embedding・compactness](../GPDE5/index.md)
+### [GPDE5 Sobolev 埋め込み・コンパクト性](../GPDE5/index.md)
 
-Sobolev 共役指数を scaling から導き、$\mathbb R^d$ 上の Sobolev 不等式を $W^{1,1}$ の座標積分・Loomis--Whitney 型評価・power trick から証明します。さらに $H_0^1$ の零延長に対する translation estimate と有限次元近似から
-
-$$
-H_0^1(\Omega)
-\hookrightarrow\!\hookrightarrow
-L^2(\Omega)
-$$
-
-を bounded open set 上で完全証明し、
+弱解の存在証明では、近似列から収束部分列を取り出すことが中心になります。Sobolev 埋め込みとコンパクト性を使い、
 
 $$
-\text{boundedness}
+\text{一様評価}
 \to
-\text{weak }H_0^1\text{ subsequence}
+\text{弱収束部分列}
 \to
-\text{strong }L^2\text{ subsequence}
+\text{より強い収束}
 $$
 
-という大学院 PDE の基本技法を正本化します。critical exponent では concentration により compactness が壊れることも尺度計算から確認します。
+という極限操作の基本形を作ります。
 
 ---
 
-## 5. GPDE7--GPDE8：Lax--Milgram と楕円型 PDE
+## 5. GPDE6--GPDE8：偏微分方程式を変分問題へ移す
 
 ### [GPDE6 弱形式・変分形式](../GPDE6/index.md)
 
-PDE5 の Poisson 問題を $H_0^1$ 上の
+Poisson 方程式を双線形形式と線形汎関数の等式へ移し、弱解を「関数空間上の方程式」として定式化します。ここで $H^{-1}$、連続双線形形式、強圧性、エネルギー最小化がつながります。
 
-$$
-a(u,v)=F(v)
-$$
+### [GPDE7 Lax--Milgram の定理](../GPDE7/index.md)
 
-へ移し、$H^{-1}$、bounded / coercive bilinear form、distributional solution と variational weak solution の関係、energy minimization を正本化します。さらに minimizing sequence と GPDE5 の弱コンパクト性、Hilbert norm の弱収束時の norm 評価を用いて、Lax--Milgram を先取りせず Poisson 弱解の存在一意性と安定性まで直接法で閉じます。
+強圧性から作用素の下からの評価を得て、単射性・閉値域・稠密性・全射性へ進みます。結論だけを使うのではなく、どの仮定が存在・一意性・安定性のどこに効くかを追います。
 
-### [GPDE7 Lax--Milgram](../GPDE7/index.md)
+### [GPDE8 二階線形楕円型偏微分方程式](../GPDE8/index.md)
 
-Riesz 表現から bounded bilinear form を作用素 $A$ に変換し、coercivity から
-
-~~~text
-下からの評価
-  ↓
-単射 + closed range
-  ↓
-dense range
-  ↓
-全射
-  ↓
-存在一意性 + stability
-~~~
-
-までを核心証明として閉じます。対称性を仮定しないことを非対称 coercive form で直接確認し、coercivity を失うと kernel と到達不能方向が残る反例も置きます。Poisson と reaction--diffusion では、定理名を当てるだけでなく boundedness・coercivity・右辺の連続性を局所的に確認して適用します。
-
-### [GPDE8 二階線形楕円型 PDE](../GPDE8/index.md)
-
-divergence form の一般係数作用素に対し、一様楕円性と係数の $L^\infty$ 条件を boundedness / coercivity へ翻訳します。lower-order term は粗い小ささ条件と $c-\frac12\operatorname{div}b$ の構造条件の両方から評価し、Lax--Milgram による零 Dirichlet 弱解の存在一意性・energy estimate・係数摂動安定性まで閉じます。さらに純 Neumann 問題では定数 kernel、compatibility condition $F(1)=0$、Poincare--Wirtinger、平均ゼロ部分空間による存在と定数を除いた一意性を証明します。
+一般係数の二階楕円型方程式に対し、一様楕円性と係数条件を双線形形式の連続性・強圧性へ翻訳します。Dirichlet 問題と Neumann 問題の違いも、核と適合条件から整理します。
 
 ---
 
-## 6. GPDE9--GPDE10：正則性と時間発展
+## 6. GPDE9--GPDE10：弱解から正則性と時間発展へ
 
 ### [GPDE9 楕円型正則性](../GPDE9/index.md)
 
-difference quotient の (H^1) estimate・discrete integration by parts・一様差分 bound から弱微分を作る criterion を整備し、cutoff と Caccioppoli 型評価を組み合わせて Poisson 弱解の interior (H^2) regularity を完全証明します。さらに一般 divergence form では局所 Lipschitz 係数の下で同じ差分商法を閉じ、jump coefficient と reentrant corner により coefficient regularity / boundary regularity が本当に必要であることを確認します。
+弱解が得られた後、追加の仮定からどこまで滑らかさを回復できるかを調べます。差分商と局所評価を使って内部 $H^2$ 正則性へ進み、係数や領域の正則性が失われたとき何が壊れるかも確認します。
 
-### [GPDE10 Galerkin・時間発展 PDE の弱解](../GPDE10/index.md)
+### [GPDE10 Galerkin 法・時間発展偏微分方程式の弱解](../GPDE10/index.md)
 
-Galerkin 法を有限要素法専用の計算法ではなく、有限次元近似から無限次元解を構成する方法として扱います。Gelfand triple の energy identity を時間 mollification で証明し、有限次元 ODE・次元一様 energy estimate・弱 compactness・time-integrated weak form の極限通過から coercive evolution problem の存在一意性まで閉じます。
-
-$$
-H_0^1\subset L^2\subset H^{-1}
-$$
-
-という Gelfand triple を導入し、Encore II の熱方程式を energy weak solution の立場から再構成します。波動方程式は $H_0^1\times L^2$ の energy space と保存則を確認し、mild / semigroup formulation は bridge に留めます。
-
-数値 FEM の mesh・basis・assembly・solver は Encore V へ送ります。
+有限次元近似で解を作り、次元に依存しないエネルギー評価を得て、弱コンパクト性から無限次元の解へ極限を取ります。熱方程式・波動方程式を、エネルギー空間における弱解として読み直します。
 
 ---
 
-## 7. 旧 Encore III 7章の扱い
+## 7. 解概念は「弱いほどよい」のではない
 
-旧7章は削除しません。
+この系列では、問題の構造に応じて複数の解概念を使い分けます。
 
-- 移植元・履歴確認用として保持する。
-- reader-facing index から外す。
-- 新 GPDE 章の prerequisite / concept owner / proof dependency にしない。
-- 必要な証明・例だけを新正本へ移植する。
-- 新旧本文を並行保守しない。
+- **超関数解**：方程式をテスト関数への作用の等式として読む。
+- **変分弱解**：Sobolev 空間上の双線形形式・線形汎関数の等式として読む。
+- **エネルギー解**：時間発展問題で、有限エネルギーと時間方向の弱い正則性を使う。
+- **mild 解**：半群を使う時間発展問題への橋渡しとして GPDE10 で触れる。
 
-つまり、Encore II 再編時と同じく **削除ではなく隔離** です。
+解概念を弱くすると対象は広がりますが、一意性や物理的選択が自動的に付いてくるわけではありません。たとえば保存則では、超関数解だけでは一意性が足りず、さらにエントロピー条件が必要になります。
 
 ---
 
-## 8. Encore III の停止線
+## 8. この系列で身につける証明の型
 
-Encore III は次までで閉じます。
-
-- distribution
-- weak derivative
-- Sobolev spaces
-- trace / embedding / compactness
-- variational weak solution
-- Lax--Milgram
-- linear elliptic PDE
-- basic elliptic regularity
-- evolution energy solution
-- Galerkin existence method
-
-以下は別系列です。
+大学院レベルの偏微分方程式では、明示公式を得るより次の流れが重要になります。
 
 ~~~text
-semigroup / mild solution の本格理論
-conservation law / entropy solution
-Hamilton--Jacobi / viscosity solution
-nonlinear monotone PDE
-Navier--Stokes
-renormalized / measure-valued solution
-geometric analysis
+適切な関数空間を選ぶ
+  ↓
+近似問題を作る
+  ↓
+アプリオリ評価を得る
+  ↓
+有界性から弱収束部分列を取る
+  ↓
+必要ならコンパクト性で強収束を得る
+  ↓
+極限を方程式へ通す
+  ↓
+弱解を得る
+  ↓
+追加仮定から一意性・正則性を調べる
 ~~~
+
+各章では、単に定理名を当てるのではなく、**どの仮定がどの段階を可能にしたか**を局所的に確認します。
 
 ---
 
-## 9. 最終的な景色
+## 9. この系列の範囲と次の学習
 
-~~~text
-Encore II
-古典解 / Fourier / eigenfunction / Green
-        ↓
-Encore III
-distribution
-        ↓
-weak derivative / mollifier
-        ↓
-Sobolev / trace / embedding / compactness
-        ↓
-weak formulation
-        ↓
-Lax--Milgram
-        ↓
-linear elliptic PDE
-        ↓
-regularity
-        ↓
-Galerkin / evolution weak solution
-        ↓
- ┌──────┼───────────────┐
- ↓      ↓               ↓
-Encore V  nonlinear PDE  geometric analysis
-FEM       等の別系列     （幾何学完成後）
-~~~
+本系列では、Schwartz 超関数、弱微分、Sobolev 空間、トレース、埋め込み、コンパクト性、変分法、Lax--Milgram の定理、線形楕円型方程式、基本的な正則性、Galerkin 法による時間発展問題の弱解までを一続きに扱います。
 
-Encore III の到達目標は、弱解の名前を列挙することではありません。**PDE の構造に応じて関数空間と解概念を選び、a priori estimate・compactness・変分法から存在・一意性・正則性を追えること**です。
+保存則のエントロピー解、Hamilton--Jacobi 方程式の粘性解、非線形単調作用素、Navier--Stokes 方程式などは、この基盤を使う後続テーマです。
+
+到達目標は、**偏微分方程式の形から適切な関数空間と解概念を選び、評価・コンパクト性・変分法を使って存在、一意性、正則性の論証を再構成できること**です。
