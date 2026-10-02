@@ -1,5 +1,11 @@
 chapter: "RA1"
 terms:
+  - term: Cauchy列
+    english: Cauchy sequence
+    meaning: 任意の正の誤差に対し、十分後ろの任意の2項の差をその誤差未満にできる実数列。
+  - term: 実数の完備性
+    english: completeness of the real numbers
+    meaning: 実数の任意のCauchy列が実数内の極限へ収束する性質。
   - term: 上極限
     english: limit superior
     meaning: tail集合の上限を並べた単調列の極限として定義される、部分列極限の最大側を表す量。

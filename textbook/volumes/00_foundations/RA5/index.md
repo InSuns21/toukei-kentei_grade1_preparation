@@ -60,7 +60,7 @@ $$
 $$
 なので一様Cauchy条件を満たします。
 
-逆に $(f_n)$ が一様Cauchyだとします。各 $x$ を固定すれば $(f_n(x))$ は実数のCauchy列なので、実数の完備性からある $f(x)\in\mathbb R$ に収束します。これで候補の極限関数 $f$ が各点ごとに定まります。
+逆に $(f_n)$ が一様Cauchyだとします。各 $x$ を固定すれば $(f_n(x))$ は [実数列の Cauchy 条件](../RA1/index.md#def-ra1-cauchy)を満たすので、[実数の完備性](../RA1/index.md#thm-ra1-real-completeness)からある $f(x)\in\mathbb R$ に収束します。これで候補の極限関数 $f$ が各点ごとに定まります。
 
 任意の $\varepsilon>0$ に対し、一様Cauchy条件を $\varepsilon/2$ で使って $N$ を取ります。$n\ge N$ を固定すると、全ての $m\ge N$ と全ての $x$ について
 $$

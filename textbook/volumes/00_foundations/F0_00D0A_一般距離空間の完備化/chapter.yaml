@@ -3,6 +3,7 @@ title: "一般距離空間の完備化"
 volume: "foundations"
 status: supplementary
 prerequisites:
+  - RA1
   - F0-00D0
   - F0-00B
 official_scope: []

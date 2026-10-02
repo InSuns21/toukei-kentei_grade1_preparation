@@ -2,6 +2,7 @@ chapter: F0-00D0A
 scope: dream-theater
 coverage: complete
 prerequisites:
+  - RA1
   - F0-00D0
   - F0-00B
 
@@ -23,7 +24,7 @@ concepts:
     name: 点間距離列はCauchy
     kind: lemma
     aliases: [点間距離列はCauchy]
-    requires: [completion.metric-cauchy-equivalence]
+    requires: [completion.metric-cauchy-equivalence, analysis.real-completeness]
 
   - id: completion.metric-distance-well-defined
     name: 完備化距離のwell-defined性

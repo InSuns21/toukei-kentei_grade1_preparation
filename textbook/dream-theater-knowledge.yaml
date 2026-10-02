@@ -69,6 +69,10 @@ alias_matching:
     - 境界条件
     - 常点
     - 発散
+    - 特異点
+    - 切断
+    - truncation
+    - Cauchy列
     - 回転
     - スペクトル
     - spectrum

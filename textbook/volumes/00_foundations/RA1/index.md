@@ -2,7 +2,7 @@
 
 実解析では、まず「実数列がある値へ近づく」とは何かを $\varepsilon$-$N$ で固定する必要があります。点列・部分列という集合論的な器は [F0-00B0](../F0_00B0_点列_部分列_十分大きい添字/index.md) で準備済みですが、この章では**この「近づく」を実解析の言葉として改めて定義し、そこから定理を組み立てます**。
 
-また、[実数の上限性質・Archimedes 性](../F0_00A1B_実数の上限性質_Archimedes性/index.md) と [Cauchy 列・完備性](../F0_00D_Cauchy列_完備性_無限次元/index.md) を必要な箇所で使います。
+また、[実数の上限性質](../F0_00A1B_実数の上限性質_Archimedes性/index.md#thm-f0-00a1b-lub)と [Archimedes 性](../F0_00A1B_実数の上限性質_Archimedes性/index.md#thm-f0-00a1b-archimedean)を使います。一般の完備性を前提にはせず、まず実数列について Cauchy 条件を定義し、実数の上限性質から「Cauchy 列なら収束する」ことをこの章で導きます。
 
 ## 0. 実数列の収束
 
@@ -114,7 +114,7 @@ $$
 これは矛盾です。従って $L=M$ です。$\square$
 <!-- proof-end -->
 
-距離空間での点列収束をすでに学んでいる場合、この定義は通常の距離 $d(x,y)=|x-y|$ を入れた $\mathbb R$ における距離空間版の特殊化です。ただし実解析では、この $\varepsilon$-$N$ の形を自分で展開して使えることが重要なので、ここで明示してから先へ進みます。
+ここでは二つの実数の隔たりを絶対値 $|x-y|$ で測っています。後で収束をより一般の空間へ拡張するときも、この「十分後ろでは目標へ任意に近づく」という量化の形が土台になります。実解析ではまず、この $\varepsilon$-$N$ の形を実数列について自分で展開して使えるようにしてから先へ進みます。
 
 ---
 
@@ -161,6 +161,168 @@ $$
 <!-- proof-end -->
 
 「有界だから収束」ではなく、**上限・下限が実数として存在すること**が効いています。
+
+### 1.1 極限を知らずに収束を保証する：Cauchy 条件
+
+収束の定義は極限候補 $L$ を先に置きます。しかし解析では、近似計算や反復法のように「極限が存在するはずだが、その値はまだ分からない」という場面がよくあります。そこで、列の後半同士だけを比較して収束可能性を判定する条件を導入します。
+
+<a id="def-ra1-cauchy"></a>
+<!-- formal-statement-start -->
+> **定義（実数列の Cauchy 条件）**  
+> 実数列 $(a_n)$ が **Cauchy 列**であるとは、任意の $\varepsilon>0$ に対して、ある $N\in\mathbb N$ が存在し
+>
+$$
+m,n\ge N
+\Longrightarrow
+|a_m-a_n|<\varepsilon
+$$
+>
+> が成り立つことをいう。
+<!-- formal-statement-end -->
+
+収束では「$a_n$ と固定点 $L$ の距離」を見ました。Cauchy 条件では「$a_m$ と $a_n$ の距離」だけを見ます。極限候補そのものを式に出さなくてよいのが違いです。
+
+<!-- definition-example-start: def-ra1-cauchy -->
+**定義の確認**：$a_n=1/n$ を、極限 $0$ を使わず Cauchy だと示します。任意の $\varepsilon>0$ に対し、[Archimedes 性](../F0_00A1B_実数の上限性質_Archimedes性/index.md#thm-f0-00a1b-archimedean)から $N>2/\varepsilon$ となる自然数 $N$ を取れます。$m,n\ge N$ なら
+$$
+\left|\frac1m-\frac1n\right|
+\le
+\frac1m+\frac1n
+\le
+\frac2N
+<
+\varepsilon.
+$$
+したがって $(1/n)$ は Cauchy 列です。
+<!-- definition-example-end -->
+
+<a id="thm-ra1-real-completeness"></a>
+<!-- formal-statement-start -->
+> **定理（実数の完備性／実数列の Cauchy 判定）**  
+> 実数列 $(a_n)$ が収束することと、$(a_n)$ が Cauchy 列であることは同値である。
+<!-- formal-statement-end -->
+
+逆向き
+$$
+\text{Cauchy 列}\Longrightarrow\text{実数内で収束}
+$$
+が、ここでいう**実数の完備性**です。証明では、先ほど示した有界単調数列の結果を tail の上限・下限へ適用します。
+
+<!-- proof-start -->
+### 証明
+
+まず $a_n\to L$ とします。任意の $\varepsilon>0$ を取ります。収束の定義から、ある $N$ が存在して $n\ge N$ なら
+$$
+|a_n-L|<\frac{\varepsilon}{2}
+$$
+です。したがって $m,n\ge N$ なら三角不等式より
+$$
+|a_m-a_n|
+\le
+|a_m-L|+|a_n-L|
+<
+\frac{\varepsilon}{2}+\frac{\varepsilon}{2}
+=
+\varepsilon.
+$$
+よって収束列は Cauchy 列です。
+
+逆に $(a_n)$ が Cauchy 列だとします。まずこの列が有界であることを確認します。Cauchy 条件に $\varepsilon=1$ を入れると、ある $N_0$ が存在して $n\ge N_0$ なら
+$$
+|a_n-a_{N_0}|<1.
+$$
+したがって
+$$
+|a_n|
+\le
+|a_{N_0}|+1
+\qquad(n\ge N_0).
+$$
+最初の有限個の項もまとめて
+$$
+M=\max\{|a_1|,\ldots,|a_{N_0}|,|a_{N_0}|+1\}
+$$
+と置けば、全ての $n$ で $|a_n|\le M$ です。
+
+各 $n$ に対し tail
+$$
+A_n=\{a_k:k\ge n\}
+$$
+を考えます。$A_n$ は空でなく有界なので、[実数の上限性質](../F0_00A1B_実数の上限性質_Archimedes性/index.md#thm-f0-00a1b-lub)から
+$$
+s_n=\sup A_n,\qquad i_n=\inf A_n
+$$
+が実数として存在します。tail は $A_{n+1}\subset A_n$ と縮むため
+$$
+s_{n+1}\le s_n,\qquad i_{n+1}\ge i_n.
+$$
+従って $(s_n)$ は下に有界な単調減少列、$(i_n)$ は上に有界な単調増加列です。[有界単調数列の収束定理](#thm-ra1-monotone) により
+$$
+s_n\to S=\inf_n s_n,\qquad
+i_n\to I=\sup_n i_n
+$$
+となる実数 $S,I$ が存在します。
+
+次に Cauchy 条件が tail の幅を 0 へ縮めることを使います。任意の $\varepsilon>0$ に対し、ある $N$ が存在して $m,n\ge N$ なら
+$$
+|a_m-a_n|<\frac{\varepsilon}{2}.
+$$
+$n\ge N$ を固定すると、全ての $k\ge n$ について
+$$
+a_n-\frac{\varepsilon}{2}
+<
+a_k
+<
+a_n+\frac{\varepsilon}{2}.
+$$
+従って
+$$
+i_n\ge a_n-\frac{\varepsilon}{2},
+\qquad
+s_n\le a_n+\frac{\varepsilon}{2},
+$$
+ゆえに
+$$
+0\le s_n-i_n\le\varepsilon.
+$$
+
+また任意の $n,m$ に対し、$r=\max\{n,m\}$ と置けば
+$$
+i_n\le i_r\le s_r\le s_m.
+$$
+従って
+$$
+I=\sup_n i_n\le \inf_m s_m=S.
+$$
+一方、上の幅評価から $n\ge N$ なら
+$$
+S\le s_n\le i_n+\varepsilon\le I+\varepsilon.
+$$
+$\varepsilon>0$ は任意なので $S\le I$ です。よって
+$$
+S=I=:L.
+$$
+
+最後に常に
+$$
+i_n\le a_n\le s_n
+$$
+です。$i_n\to L$ かつ $s_n\to L$ なので、任意の $\varepsilon>0$ に対し十分大きい $n$ では
+$$
+L-\varepsilon
+<
+i_n
+\le
+a_n
+\le
+s_n
+<
+L+\varepsilon.
+$$
+従って $|a_n-L|<\varepsilon$ であり、$a_n\to L$ です。$\square$
+<!-- proof-end -->
+
+この定理によって、以後は「極限値を先に当てる」代わりに「列が Cauchy である」と評価し、そこから極限の存在を確保できます。級数の収束判定でも、この使い方がそのまま現れます。
 
 ---
 
@@ -258,7 +420,7 @@ $$
 $$
 |S_m-S_n|<\varepsilon
 $$
-という部分和列 $(S_n)$ のCauchy条件そのものです。実数では「収束列ならCauchy列」であり、逆にCauchy列は完備性により収束します。ゆえに級数の収束とtail条件は同値です。$\square$
+という部分和列 $(S_n)$ の Cauchy 条件そのものです。[実数の完備性／実数列の Cauchy 判定](#thm-ra1-real-completeness) により、実数列は「収束すること」と「Cauchy であること」が同値です。従って級数の収束と tail 条件は同値です。$\square$
 <!-- proof-end -->
 
 <a id="def-ra1-absolute"></a>
@@ -506,6 +668,48 @@ $$
 S_{2m+1}-S_{2m}=-\frac1{2m+1}\to0
 $$
 だから奇数部分和も同じ極限へ行き、級数全体が収束します。
+<!-- solution-end -->
+
+<a id="ex-ra1-a05"></a>
+#### RA1-A05 Cauchy 条件から収束を確保する
+- Level: A
+
+$$
+x_n=\sum_{k=1}^{n}2^{-k}
+$$
+と置く。$(x_n)$ が Cauchy 列であることを極限値を使わずに示し、[実数の完備性／実数列の Cauchy 判定](#thm-ra1-real-completeness)から収束を結論せよ。その後で極限値も求めよ。
+
+<!-- solution-start -->
+**解答**：$m>n$ とします。有限等比和を使うと
+$$
+|x_m-x_n|
+=
+\sum_{k=n+1}^{m}2^{-k}
+=
+2^{-n}\left(1-2^{-(m-n)}\right)
+<
+2^{-n}.
+$$
+ここで $2^N\ge N+1$ は帰納法で分かります。従って任意の $\varepsilon>0$ に対し、[Archimedes 性](../F0_00A1B_実数の上限性質_Archimedes性/index.md#thm-f0-00a1b-archimedean)から
+$$
+N+1>\frac1\varepsilon
+$$
+となる $N$ を取れば
+$$
+2^{-N}\le\frac1{N+1}<\varepsilon.
+$$
+よって $m,n\ge N$ なら $|x_m-x_n|<\varepsilon$ であり、$(x_n)$ は Cauchy 列です。[実数の完備性／実数列の Cauchy 判定](#thm-ra1-real-completeness)により $(x_n)$ は実数内で収束します。
+
+さらに有限等比和から
+$$
+x_n
+=
+1-2^{-n}.
+$$
+上と同じ評価で $2^{-n}\to0$ なので
+$$
+x_n\to1.
+$$
 <!-- solution-end -->
 
 ### Level B

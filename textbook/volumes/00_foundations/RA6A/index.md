@@ -178,7 +178,69 @@ $$
 \end{aligned}
 $$
 
-右辺は $k\to\infty$ で0へ行くので $(x_k)$ はCauchy列です。$\mathbb R^n$ は完備で、閉球 $B$ は閉集合なので、ある $x_*\in B$ へ収束します。
+右辺は $k\to\infty$ で0へ行くので、任意の $\varepsilon>0$ に対して十分大きい $k,\ell$ では $\|x_k-x_\ell\|<\varepsilon$ となります。ここでは一般の完備性定理を使わず、$\mathbb R^n$ の場合を座標ごとに閉じます。
+
+$$
+x_k=(x_k^{(1)},\ldots,x_k^{(n)})
+$$
+
+と書きます。各座標 $j$ について
+
+$$
+|x_k^{(j)}-x_\ell^{(j)}|
+\le
+\|x_k-x_\ell\|
+$$
+
+なので $(x_k^{(j)})$ は [実数列の Cauchy 条件](../RA1/index.md#def-ra1-cauchy)を満たします。[実数の完備性／実数列の Cauchy 判定](../RA1/index.md#thm-ra1-real-completeness)により、ある $x_*^{(j)}\in\mathbb R$ が存在して
+
+$$
+x_k^{(j)}\to x_*^{(j)}
+$$
+
+となります。$x_*=(x_*^{(1)},\ldots,x_*^{(n)})$ と置きます。任意の $\varepsilon>0$ に対し、各 $j$ で十分大きい $k$ なら
+
+$$
+|x_k^{(j)}-x_*^{(j)}|<\frac{\varepsilon}{\sqrt n}
+$$
+
+です。座標は有限個なので、それらの添字を一つの $K$ にそろえられます。$k\ge K$ なら
+
+$$
+\|x_k-x_*\|^2
+=
+\sum_{j=1}^n|x_k^{(j)}-x_*^{(j)}|^2
+<
+n\frac{\varepsilon^2}{n}
+=
+\varepsilon^2,
+$$
+
+従って $x_k\to x_*$ です。
+
+最後に $x_*\in B$ を確認します。$B=\overline{B_r(c)}$ と書けば、全ての $k$ で $\|x_k-c\|\le r$ です。三角不等式から
+
+$$
+\|x_*-c\|
+\le
+\|x_*-x_k\|+\|x_k-c\|
+\le
+\|x_*-x_k\|+r.
+$$
+
+もし $\|x_*-c\|>r$ なら、$\delta=(\|x_*-c\|-r)/2>0$ として十分大きい $k$ で $\|x_*-x_k\|<\delta$ を取ると
+
+$$
+\|x_*-c\|
+<
+r+\delta
+=
+\frac{r+\|x_*-c\|}{2}
+<
+\|x_*-c\|,
+$$
+
+となり矛盾です。従って $\|x_*-c\|\le r$、すなわち $x_*\in B$ です。
 
 収縮写像はLipschitz連続なので
 
