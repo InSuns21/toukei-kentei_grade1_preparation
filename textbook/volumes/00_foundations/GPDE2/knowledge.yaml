@@ -4,6 +4,8 @@ coverage: complete
 prerequisites:
   - GPDE1
   - MT7
+forward_references:
+  - sobolev.wkp
 
 concepts:
   - id: distribution.multi-index
@@ -115,20 +117,20 @@ concepts:
       - distribution.local-mollification
 
   - id: analysis.l1-translation-continuity-rd
-    name: $\mathbb R^d$ の平行移動補題
+    name: 多次元の平行移動補題
     kind: lemma
     aliases: [Rd translation lemma]
     introduction: formal
-    introduction_aliases: ['補題（$\mathbb R^d$ の平行移動補題）']
+    introduction_aliases: ["補題（多次元の平行移動補題）"]
     requires:
       - measure.cc-dense-in-lp
 
   - id: distribution.mollifier-l1loc-approximation
-    name: 平滑化核の局所 $L^1$ 近似
+    name: 平滑化核の局所 L1 近似
     kind: theorem
     aliases: [local L1 mollifier approximation, approximate identity in L1loc]
     introduction: formal
-    introduction_aliases: ["定理（平滑化核の局所 $L^1$ 近似）"]
+    introduction_aliases: ["定理（平滑化核の局所 L1 近似）"]
     requires:
       - distribution.local-mollification
       - analysis.l1-translation-continuity-rd
