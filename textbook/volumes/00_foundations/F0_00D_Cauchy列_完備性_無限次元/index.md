@@ -249,9 +249,9 @@ n\ge N
 d(x_n,x)<\frac\varepsilon2.
 $$
 
-したがって $m,n\ge N$ なら、距離の定義で要求される不等式から
+したがって $m,n\ge N$ なら
 
-$$
+$
 \begin{aligned}
 d(x_m,x_n)
 &\le d(x_m,x)+d(x,x_n)\\
