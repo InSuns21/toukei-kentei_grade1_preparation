@@ -370,7 +370,7 @@ $$
 
 <a id="prop-setu2-explicit-countable-union"></a>
 <!-- formal-statement-start -->
-> **命題（明示的に符号化された可算集合族の和集合）**  
+> **命題（明示的に符号化された可算集合族の和集合は可算）**  
 > 集合列 $A_1,A_2,\dots$ があり、各 $n$ について単射
 >
 > $$
