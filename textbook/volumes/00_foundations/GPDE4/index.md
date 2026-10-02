@@ -1500,7 +1500,7 @@ $$
 
 は端点から距離 $2\varepsilon$ 以内でしか非零になりません。
 
-$u\in L^2$ なので積分の絶対連続性から
+$u\in L^2$ なので [Lebesgue 積分の絶対連続性](../MT4/index.md#thm-mt4-integral-absolute-continuity) から
 
 $$
 \|(1-\chi_\varepsilon)u\|_2
@@ -1517,7 +1517,7 @@ D\bigl((1-\chi_\varepsilon)u\bigr)
 \chi_\varepsilon'u.
 $$
 
-第一項は $u'\in L^2$ と積分の絶対連続性から
+第一項は $u'\in L^2$ と [Lebesgue 積分の絶対連続性](../MT4/index.md#thm-mt4-integral-absolute-continuity) から
 
 $$
 \|(1-\chi_\varepsilon)u'\|_2
