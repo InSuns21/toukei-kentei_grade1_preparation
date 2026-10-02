@@ -46,11 +46,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（有限集合）**  
 > 集合 $X$ が **有限集合** であるとは、ある非負整数 $n$ が存在して
->
-> $$
-> X\longleftrightarrow \{1,\dots,n\}
-> $$
->
+
+$$
+X\longleftrightarrow \{1,\dots,n\}
+$$
+
 > の間に全単射が存在することをいう。$n=0$ のときは $\{1,\dots,0\}=\varnothing$ と約束する。
 <!-- formal-statement-end -->
 
@@ -76,11 +76,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（可算無限集合）**  
 > 集合 $X$ が **可算無限集合** であるとは、全単射
->
-> $$
-> e:\mathbb N\to X
-> $$
->
+
+$$
+e:\mathbb N\to X
+$$
+
 > が存在することをいう。
 <!-- formal-statement-end -->
 
@@ -372,19 +372,19 @@ $$
 <!-- formal-statement-start -->
 > **命題（明示的に符号化された可算集合族の和集合は可算）**  
 > 集合列 $A_1,A_2,\dots$ があり、各 $n$ について単射
->
-> $$
-> i_n:A_n\to\mathbb N
-> $$
->
+
+$$
+i_n:A_n\to\mathbb N
+$$
+
 > が具体的に与えられているとする。
 >
 > このとき
->
-> $$
-> \bigcup_{n=1}^{\infty}A_n
-> $$
->
+
+$$
+\bigcup_{n=1}^{\infty}A_n
+$$
+
 > は高々可算である。
 <!-- formal-statement-end -->
 
@@ -573,11 +573,11 @@ $$
 <!-- formal-statement-start -->
 > **命題（区間は自然数列で尽くせない）**  
 > 任意の実数列
->
-> $$
-> x_1,x_2,x_3,\dots\in[0,1]
-> $$
->
+
+$$
+x_1,x_2,x_3,\dots\in[0,1]
+$$
+
 > に対し、この列のどの項とも異なる $y\in[0,1]$ が存在する。
 <!-- formal-statement-end -->
 
