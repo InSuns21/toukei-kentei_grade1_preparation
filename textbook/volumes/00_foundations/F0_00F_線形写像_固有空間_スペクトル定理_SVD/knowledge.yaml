@@ -5,8 +5,13 @@ prerequisites:
   - F0-00E
 
 forward_references:
+  - linear.inner-product
+  - linear.orthogonality
+  - linear.gram-schmidt
+  - linear.orthogonal-projection
   - linear.spectral-theorem
   - linear.singular-value-decomposition
+  - stochastic.stochastic-process
 
 concepts:
   - id: linear.linear-map
