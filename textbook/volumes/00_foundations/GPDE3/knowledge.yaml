@@ -16,11 +16,11 @@ concepts:
       - distribution.weak-derivative
 
   - id: sobolev.norm
-    name: Sobolev norm
+    name: Sobolev ノルム
     kind: definition
-    aliases: [Sobolevノルム, Wkp norm]
+    aliases: [Sobolevノルム, "Sobolev norm", Wkp norm]
     introduction: formal
-    introduction_aliases: ["定義（Sobolev norm）"]
+    introduction_aliases: ["定義（Sobolev ノルム）"]
     requires:
       - sobolev.wkp
 
@@ -64,11 +64,11 @@ concepts:
       - sobolev.wkp-complete
 
   - id: sobolev.smooth-multiplier-product
-    name: smooth multiplierとの積の弱微分
+    name: 滑らかな乗数との積の弱微分
     kind: proposition
-    aliases: ["smooth multiplier の積公式", "Sobolev Leibniz rule", "smooth multiplier product rule"]
+    aliases: ["smooth multiplierとの積の弱微分", "smooth multiplier の積公式", "Sobolev Leibniz rule", "smooth multiplier product rule"]
     introduction: formal
-    introduction_aliases: ["命題（smooth multiplier との積の弱微分）"]
+    introduction_aliases: ["命題（滑らかな乗数との積の弱微分）"]
     requires:
       - distribution.weak-derivative
       - sobolev.wkp
@@ -83,11 +83,11 @@ concepts:
       - measure.cc-dense-in-lp
 
   - id: sobolev.local-mollification
-    name: Sobolev関数の局所mollification
+    name: Sobolev 関数の局所平滑化
     kind: theorem
-    aliases: [local Sobolev mollification, local smooth approximation in Sobolev spaces]
+    aliases: ["Sobolev関数の局所mollification", local Sobolev mollification, local smooth approximation in Sobolev spaces]
     introduction: formal
-    introduction_aliases: ["定理（Sobolev 関数の局所 mollification）"]
+    introduction_aliases: ["定理（Sobolev 関数の局所平滑化）"]
     requires:
       - distribution.local-mollification
       - distribution.weak-derivative-mollifier-commutation

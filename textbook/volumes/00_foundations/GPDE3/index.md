@@ -1,6 +1,6 @@
 # GPDE3：弱微分を $L^p$ と組み合わせ、極限に耐える関数空間を作る
 
-GPDE2 では、古典微分できない関数にも distribution 微分を定義し、その微分が局所可積分関数で表せる場合を weak derivative と呼びました。
+GPDE2 では、古典微分できない関数にも 超関数 微分を定義し、その微分が局所可積分関数で表せる場合を 弱微分 と呼びました。
 
 本章では、その考えを一つの関数空間へまとめます。
 
@@ -19,12 +19,12 @@ $$
 
 - 関数そのものが $L^p$ で制御される。
 - 必要な階数までの弱微分も $L^p$ で制御される。
-- その制御を一つの norm で測る。
+- その制御を一つの ノルム で測る。
 - Cauchy 列の極限を取っても、弱微分の情報が失われない。
 
 という形で、極限操作に耐える解析の舞台を作れます。
 
-GPDE4 では、この舞台に境界条件を組み込み、$H_0^1$、Poincare 不等式、trace へ進みます。
+GPDE4 では、この舞台に境界条件を組み込み、$H_0^1$、Poincaré 不等式、トレース へ進みます。
 
 ---
 
@@ -60,7 +60,7 @@ $$
 
 のような一点の値は、この種の a.e. 同値類だけからは一般に定まりません。
 
-この点は GPDE4 で境界値を考えるときに重要になります。境界値は単純な「点ごとの代入」ではなく、trace という別の仕組みで回収する必要があります。
+この点は GPDE4 で境界値を考えるときに重要になります。境界値は単純な「点ごとの代入」ではなく、トレース という別の仕組みで回収する必要があります。
 
 ---
 
@@ -83,7 +83,7 @@ $$
 u\in W^{k,p}(\Omega)
 $$
 >
-> と書く。ここで $D^\alpha u$ は distribution の意味での微分が $L^p$ 関数として表された弱微分を表す。
+> と書く。ここで $D^\alpha u$ は 超関数 の意味での微分が $L^p$ 関数として表された弱微分を表す。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gpde3-sobolev-space -->
@@ -124,11 +124,11 @@ $$
 
 ## 3. 関数と弱微分を一つの大きさで測る
 
-弱微分の情報を全部まとめて測る norm を入れます。
+弱微分の情報を全部まとめて測る ノルム を入れます。
 
 <a id="def-gpde3-sobolev-norm"></a>
 <!-- formal-statement-start -->
-> **定義（Sobolev norm）**  
+> **定義（Sobolev ノルム）**  
 > $1\le p<\infty$ に対し、
 >
 $$
@@ -172,7 +172,7 @@ $$
 関数の大きさだけでなく、その弱微分の大きさも同時に測っています。
 <!-- definition-example-end -->
 
-Sobolev norm は「関数値の誤差」と「微分の誤差」を一緒に小さくする norm です。
+Sobolev ノルム は「関数値の誤差」と「微分の誤差」を一緒に小さくする ノルム です。
 
 ---
 
@@ -234,7 +234,7 @@ $$
 
 です。
 
-しかし二階 distribution 微分は
+しかし二階 超関数 微分は
 
 $$
 D^2|x|=2\delta_0
@@ -256,7 +256,7 @@ $$
 
 ---
 
-## 5. jump は一階 Sobolev に入らない
+## 5. 跳躍 は一階 Sobolev に入らない
 
 $$
 u(x)=1_{(0,1)}(x)
@@ -264,7 +264,7 @@ $$
 
 を $(-1,1)$ 上で考えます。
 
-$x=0$ に jump があるため、[GPDE2 の jump を持つ関数の distribution 微分](../GPDE2/index.md#prop-gpde2-jump-formula)から
+$x=0$ に跳躍があるため、[GPDE2 の跳躍を持つ関数の超関数微分](../GPDE2/index.md#prop-gpde2-jump-formula)から
 
 $$
 Du=\delta_0
@@ -288,11 +288,11 @@ $$
 
 です。
 
-$|x|$ には cusp はありますが関数自体は連続で、一階 distribution 微分は普通の関数として残りました。
+$|x|$ には 尖点 はありますが関数自体は連続で、一階 超関数 微分は普通の関数として残りました。
 
-一方 jump は一階微分の時点で delta を生みます。
+一方 跳躍 は一階微分の時点で delta を生みます。
 
-この違いは Sobolev membership を判定するときの最初の重要な見分け方です。
+この違いは Sobolev 所属 を判定するときの最初の重要な見分け方です。
 
 ---
 
@@ -314,7 +314,7 @@ $$
 u'(x)=\beta x^{\beta-1}.
 $$
 
-原点は区間の境界であり、内部 jump はありません。したがって distribution 微分もこの関数で表されます。
+原点は区間の境界であり、内部 跳躍 はありません。したがって 超関数 微分もこの関数で表されます。
 
 まず
 
@@ -387,7 +387,7 @@ $$
 
 です。
 
-同じ関数でも $p$ を変えると Sobolev membership が変わります。
+同じ関数でも $p$ を変えると Sobolev 所属 が変わります。
 
 ---
 
@@ -450,7 +450,7 @@ $$
 
 任意の $\varphi\in C_c^\infty(\Omega)$ を取ります。
 
-$u_n\to u$ in $L^p$ なので、
+$u_n\to u$ $L^p$ で なので、
 
 $$
 \int_\Omega
@@ -473,22 +473,37 @@ $$
 
 $p=1$ では $D^\alpha\varphi\in L^\infty$ を使い、$p=\infty$ では $D^\alpha\varphi\in L^1$ を使えば同じです。
 
-同様に
+もう一方の極限も同じ型ですが、適用する関数を明示します。
 
 $$
-D^\alpha u_n\to v
+D^\alpha u_n-v\to0
 \quad\text{in }L^p
 $$
 
-より
+であり、テスト関数 $\varphi$ 自身を Hölder 不等式の相手に取ります。$1<p<\infty$ では
+
+$$
+\left|
+\int_\Omega
+(D^\alpha u_n-v)\varphi
+\right|
+\le
+\|D^\alpha u_n-v\|_p
+\|\varphi\|_q
+\to0.
+$$
+
+$p=1$ では $\varphi\in L^\infty$、$p=\infty$ では $\varphi\in L^1$ を使うので、いずれの場合も
 
 $$
 \int_\Omega
 D^\alpha u_n\,\varphi
 \to
 \int_\Omega
-v\varphi.
+v\varphi
 $$
+
+が従います。
 
 各 $n$ について
 
@@ -550,13 +565,13 @@ $$
 > **定理（Sobolev 空間の完備性）**  
 > $\Omega\subset\mathbb R^d$ を開集合、$k\in\mathbb N_0$、$1\le p\le\infty$ とする。
 >
-> Sobolev norm を入れた
+> Sobolev ノルム を入れた
 >
 $$
 W^{k,p}(\Omega)
 $$
 >
-> は上の Sobolev norm に関して完備である。
+> は上の Sobolev ノルム に関して完備である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -567,7 +582,7 @@ $$
 D^\alpha u_n
 $$
 
-も $L^p$-Cauchy です。
+も $L^p$ Cauchy です。
 
 $L^p$ の完備性から、それぞれに極限 $f_\alpha$ が存在します。
 
@@ -682,7 +697,9 @@ $$
 
 ## 9. $H^k=W^{k,2}$
 
-$p=2$ は特別です。
+$p=2$ は特別です。$L^2$ のノルムは内積から生じるので、関数とその弱微分を $L^2$ で測る Sobolev 空間にも自然な内積を入れられます。
+
+PDE のエネルギー法では、単に「完備なノルム空間」であるだけでなく、内積・直交性・射影を使えることが重要です。そこで $p=2$ の Sobolev 空間に専用の記号を与えます。
 
 <a id="def-gpde3-hk"></a>
 <!-- formal-statement-start -->
@@ -746,7 +763,7 @@ $$
 
 内積の線形性・対称性・正値性は $L^2$ 内積の性質から従います。
 
-この内積から得られる norm は
+この内積から得られる ノルム は
 
 $$
 \|u\|_{H^k}^2
@@ -755,7 +772,7 @@ $$
 \|D^\alpha u\|_2^2,
 $$
 
-すなわち $p=2$ の Sobolev norm そのものです。
+すなわち $p=2$ の Sobolev ノルム そのものです。
 
 前節で
 
@@ -763,7 +780,7 @@ $$
 W^{k,2}(\Omega)
 $$
 
-がこの norm について完備であることを示しました。
+がこの ノルム について完備であることを示しました。
 
 従って
 
@@ -780,15 +797,15 @@ PDE の変分法で $H^1$ が頻出するのは偶然ではありません。
 
 ---
 
-## 10. smooth multiplier で局所化する
+## 10. 滑らかな乗数で局所化する
 
 PDE では、関数全体ではなくある領域の内部だけを調べたいことが頻繁にあります。
 
-そのとき smooth cutoff $\chi$ を掛けます。
+そのとき 滑らかな局所化関数 $\chi$ を掛けます。
 
 <a id="prop-gpde3-smooth-multiplier"></a>
 <!-- formal-statement-start -->
-> **命題（smooth multiplier との積の弱微分）**  
+> **命題（滑らかな乗数との積の弱微分）**  
 > $u\in W^{k,p}(\Omega)$、$\chi\in C^\infty(\Omega)$ とし、$\chi$ と必要な階数までの微分が有界であるとする。
 >
 > このとき
@@ -835,7 +852,7 @@ $$
 
 を使えば Leibniz 則が出ます。
 
-高階は一階公式を繰り返します。
+高階では「一階公式を繰り返す」で済ませず、$|\alpha|$ に関する帰納法で係数まで追います。
 
 <!-- proof-start -->
 ### 証明
@@ -877,7 +894,7 @@ u\chi D_j\varphi
 \chi D_ju\,\varphi.
 $$
 
-整理すると
+第一項を右辺へ移すと
 
 $$
 \int_\Omega
@@ -903,9 +920,9 @@ $$
 
 右辺は、$\chi,D_j\chi$ が有界で $u,D_ju\in L^p$ なので $L^p$ に属します。
 
-高階微分については、この一階公式を繰り返します。
+高階微分は $m=|\alpha|$ に関する帰納法で示します。$m=1$ は今示した一階公式です。
 
-各段階で $\chi$ の微分と $u$ の弱微分の積が現れ、組合せ係数をまとめると
+$m<k$ とし、$|\alpha|=m$ まで
 
 $$
 D^\alpha(\chi u)
@@ -913,10 +930,70 @@ D^\alpha(\chi u)
 \sum_{\beta\le\alpha}
 {\alpha\choose\beta}
 D^\beta\chi
-D^{\alpha-\beta}u.
+D^{\alpha-\beta}u
 $$
 
-各項は $L^p$ に属するので
+が成り立つと仮定します。$j$ を一つ固定し、$\alpha+e_j$ 階へ進みます。
+
+各 $\beta\le\alpha$ について
+
+$$
+|\alpha-\beta|+1
+\le
+m+1
+\le
+k
+$$
+
+なので $D^{\alpha-\beta}u\in W^{1,p}(\Omega)$ です。また $D^\beta\chi$ は滑らかです。したがって、右辺の各積に先ほど証明した一階公式を適用できます。すると
+
+$$
+\begin{aligned}
+D_jD^\alpha(\chi u)
+&=
+\sum_{\beta\le\alpha}
+{\alpha\choose\beta}
+D_j\!\left(
+D^\beta\chi\,
+D^{\alpha-\beta}u
+\right)\\
+&=
+\sum_{\beta\le\alpha}
+{\alpha\choose\beta}
+\left(
+D^{\beta+e_j}\chi\,
+D^{\alpha-\beta}u
++
+D^\beta\chi\,
+D^{\alpha-\beta+e_j}u
+\right).
+\end{aligned}
+$$
+
+第一の和では添字を $\gamma=\beta+e_j$ と置き直し、第二の和では $\gamma=\beta$ と置きます。範囲外の多重二項係数を 0 と約束すると、同じ $\gamma$ に掛かる係数は
+
+$$
+{\alpha\choose\gamma-e_j}
++
+{\alpha\choose\gamma}
+=
+{\alpha+e_j\choose\gamma},
+$$
+
+という Pascal 型の恒等式で一つにまとまります。したがって
+
+$$
+D^{\alpha+e_j}(\chi u)
+=
+\sum_{\gamma\le\alpha+e_j}
+{\alpha+e_j\choose\gamma}
+D^\gamma\chi
+D^{\alpha+e_j-\gamma}u.
+$$
+
+これで帰納法が閉じます。
+
+$|\alpha|\le k$ なら、各項に現れる $D^{\alpha-\beta}u$ は $L^p$ に属し、$D^\beta\chi$ はコンパクト台を持つ滑らかな関数なので有界です。よって各項は $L^p$ に属し、
 
 $$
 \chi u\in W^{k,p}(\Omega).
@@ -937,7 +1014,7 @@ $$
 
 ## 11. $L^p$ 平行移動は $p<\infty$ で連続
 
-mollifier による近似を Sobolev norm へ持ち上げるため、GPDE2 で使った平行移動の議論を $L^p$ へ拡張します。
+平滑化核 による近似を Sobolev ノルム へ持ち上げるため、GPDE2 で使った平行移動の議論を $L^p$ へ拡張します。
 
 <a id="lem-gpde3-lp-translation"></a>
 <!-- formal-statement-start -->
@@ -998,7 +1075,7 @@ $$
 2\|f-g\|_p<2\varepsilon.
 $$
 
-$g$ は compact support を持つ連続関数なので一様連続です。
+$g$ は コンパクト台 を持つ連続関数なので一様連続です。
 
 $h\to0$ のとき
 
@@ -1025,7 +1102,7 @@ $\varepsilon$ は任意なので結論が従います。
 
 ここで $p=\infty$ を除いていることに注意してください。
 
-$L^\infty$ では一般の関数について平行移動が norm 連続とは限りません。
+$L^\infty$ では一般の関数について平行移動が ノルム 連続とは限りません。
 
 この差が、後で smooth density の $p<\infty$ 制限として現れます。
 
@@ -1039,14 +1116,14 @@ $$
 
 とし、$K\subset\subset\Omega$ を compact とします。
 
-境界から離れていれば、GPDE2 の局所 mollification を各弱微分に適用できます。
+境界から離れていれば、GPDE2 の局所平滑化 を各弱微分に適用できます。
 
 <a id="thm-gpde3-local-mollification"></a>
 <!-- formal-statement-start -->
-> **定理（Sobolev 関数の局所 mollification）**  
+> **定理（Sobolev 関数の局所平滑化）**  
 > $1\le p<\infty$、$u\in W^{k,p}(\Omega)$、$K\subset\subset\Omega$ とする。
 >
-> 十分小さい $\varepsilon>0$ に対し局所 mollification
+> 十分小さい $\varepsilon>0$ に対し局所平滑化
 >
 $$
 u_\varepsilon=\rho_\varepsilon*u
@@ -1076,7 +1153,7 @@ $$
 
 ### 証明の見取り図
 
-GPDE2 ですでに[弱微分と mollification の交換](../GPDE2/index.md#thm-gpde2-weak-mollifier-commute)を示しました。
+GPDE2 ですでに[弱微分と平滑化の交換](../GPDE2/index.md#thm-gpde2-weak-mollifier-commute)を示しました。
 
 残るのは各
 
@@ -1084,7 +1161,7 @@ $$
 D^\alpha u
 $$
 
-について mollifier が $L^p$ 近似になることです。
+について 平滑化核 が $L^p$ 近似になることです。
 
 そのために[Lp 平行移動連続性](#lem-gpde3-lp-translation)を使います。
 
@@ -1102,7 +1179,7 @@ $$
 
 $\varepsilon<r/2$ とします。
 
-GPDE2 の弱微分と mollification の交換から、$|\alpha|\le k$ に対して
+[GPDE2 の弱微分と平滑化の交換](../GPDE2/index.md#thm-gpde2-weak-mollifier-commute)から、$|\alpha|\le k$ に対して
 
 $$
 D^\alpha u_\varepsilon
@@ -1240,19 +1317,19 @@ $$
 
 ### 証明の見取り図
 
-いきなり mollify すると滑らかにはなりますが、compact support は得られません。
+いきなり mollify すると滑らかにはなりますが、コンパクト台 は得られません。
 
 そこで二段階にします。
 
 $$
 u
-\overset{\text{cutoff}}{\longrightarrow}
+\overset{\text{局所化関数}}{\longrightarrow}
 u_R
 \overset{\text{mollify}}{\longrightarrow}
 \varphi_{R,\varepsilon}.
 $$
 
-まず遠方の tail を cutoff で切り、その後 mollifier で滑らかにします。
+まず遠方の tail を 局所化関数 で切り、その後 平滑化核 で滑らかにします。
 
 <!-- proof-start -->
 ### 証明
@@ -1298,7 +1375,7 @@ $$
 
 を示します。
 
-[smooth multiplier の積公式](#prop-gpde3-smooth-multiplier)から
+[滑らかな乗数との積の弱微分](#prop-gpde3-smooth-multiplier)から
 
 $$
 D^\alpha u_R
@@ -1384,11 +1461,11 @@ u_R\to u
 \quad\text{in }W^{k,p}.
 $$
 
-ここまでで compact support を持つ Sobolev 関数へ近似できました。
+ここまでで コンパクト台 を持つ Sobolev 関数へ近似できました。
 
 次に $R$ を固定します。
 
-$u_R$ は compact support を持つので、全空間上で mollify して
+$u_R$ は コンパクト台 を持つので、全空間上で mollify して
 
 $$
 \varphi_{R,\varepsilon}
@@ -1398,7 +1475,7 @@ $$
 
 と置きます。
 
-mollifier も compact support を持つため
+平滑化核 も コンパクト台 を持つため
 
 $$
 \varphi_{R,\varepsilon}
@@ -1406,7 +1483,7 @@ $$
 C_c^\infty(\mathbb R^d).
 $$
 
-また[GPDE2 の弱微分と mollification の交換](../GPDE2/index.md#thm-gpde2-weak-mollifier-commute)から
+また[GPDE2 の弱微分と 平滑化 の交換](../GPDE2/index.md#thm-gpde2-weak-mollifier-commute)から
 
 $$
 D^\alpha\varphi_{R,\varepsilon}
@@ -1482,15 +1559,15 @@ $$
 
 $$
 \boxed{
-\text{cutoff で局所化}
+\text{局所化関数 で局所化}
 \quad\to\quad
-\text{mollifier で平滑化}
+\text{平滑化核 で平滑化}
 \quad\to\quad
 \text{極限へ戻す}
 }
 $$
 
-GPDE2 で導入した mollifier が、ここで Sobolev norm の近似装置になります。
+GPDE2 で導入した 平滑化核 が、ここで Sobolev ノルム の近似装置になります。
 
 ---
 
@@ -1512,7 +1589,7 @@ $$
 
 が $W^{1,p}(\Omega)$ 全体に稠密だと無条件に言ってはいけません。
 
-この closure は GPDE4 で
+この 閉包 は GPDE4 で
 
 $$
 W_0^{1,p}(\Omega)
@@ -1534,7 +1611,7 @@ $$
 u(x)=1.
 $$
 
-これは明らかに
+定数関数なので
 
 $$
 u\in H^1(0,1)
@@ -1609,9 +1686,9 @@ $$
 \overline{C_c^\infty(0,1)}^{\,H^1}.
 $$
 
-境界近くで関数を 0 に落とす操作は、勾配 norm に代償を払います。
+境界近くで関数を 0 に落とす操作は、勾配 ノルム に代償を払います。
 
-この代償を正しく整理するのが GPDE4 の $H_0^1$、Poincare、trace です。
+この代償を正しく整理するのが GPDE4 の $H_0^1$、Poincaré、トレース です。
 
 ---
 
@@ -1640,7 +1717,7 @@ $$
 
 と求めました。
 
-$u$ も $Du$ も有界で compact support を持つので、
+$u$ も $Du$ も有界で コンパクト台 を持つので、
 
 $$
 \boxed{
@@ -1676,13 +1753,13 @@ $$
 
 です。
 
-区分線形関数は「一階弱微分は関数として残るが、その一階弱微分自身に jump があるため二階で delta が出る」という典型例です。
+区分線形関数は「一階弱微分は関数として残るが、その一階弱微分自身に 跳躍 があるため二階で delta が出る」という典型例です。
 
 ---
 
-## 16. $p=\infty$ では smooth approximation に注意する
+## 16. $p=\infty$ では 滑らかな近似 に注意する
 
-前節の tent 関数を標準の偶対称 mollifier で平滑化します。
+前節の tent 関数を標準の偶対称 平滑化核 で平滑化します。
 
 $$
 u_\varepsilon=\rho_\varepsilon*u.
@@ -1713,9 +1790,9 @@ $$
 
 しかし $W^{1,\infty}$ では事情が違います。
 
-$Du$ は 0 で $1$ から $-1$ へ jump します。
+$Du$ は 0 で $1$ から $-1$ へ 跳躍 します。
 
-偶対称 mollifier なら対称性から
+偶対称 平滑化核 なら対称性から
 
 $$
 u_\varepsilon'(0)=0.
@@ -1819,7 +1896,7 @@ $$
 
 # 演習
 
-## GPDE3-A01 $H^1$ norm を直接計算する
+## GPDE3-A01 $H^1$ ノルム を直接計算する
 
 - Level: A
 - 目安時間: 12分
@@ -2021,7 +2098,7 @@ $$
 }.
 $$
 
-一方、一階弱微分 $\operatorname{sgn}x$ は原点で jump $2$ を持つので、
+一方、一階弱微分 $\operatorname{sgn}x$ は原点で 跳躍 $2$ を持つので、
 
 $$
 D^2u
@@ -2042,7 +2119,7 @@ u\notin H^2(-1,1)
 $$
 <!-- solution-end -->
 
-## GPDE3-A03 jump 関数が $W^{1,p}$ に入らないことを示す
+## GPDE3-A03 跳躍 関数が $W^{1,p}$ に入らないことを示す
 
 - Level: A
 - 目安時間: 12分
@@ -2072,7 +2149,7 @@ $$
 
 for every $1\le p\le\infty$.
 
-しかし $x=0$ に jump があります。
+しかし $x=0$ に 跳躍 があります。
 
 任意の $\varphi\in C_c^\infty(-1,1)$ に対して
 
@@ -2121,7 +2198,7 @@ u\notin W^{1,p}(-1,1)
 $$
 <!-- solution-end -->
 
-## GPDE3-A04 $x^\beta$ の membership threshold
+## GPDE3-A04 $x^\beta$ の 所属 threshold
 
 - Level: A
 - 目安時間: 18分
@@ -2175,7 +2252,7 @@ u'(x)
 \beta x^{\beta-1}.
 $$
 
-この関数は局所可積分であり、内部 jump もないので弱微分と一致します。
+この関数は局所可積分であり、内部 跳躍 もないので弱微分と一致します。
 
 $u'\in L^p(0,1)$ であるための条件は
 
@@ -2207,7 +2284,19 @@ $$
 p(\beta-1)>-1.
 $$
 
-整理すると
+左辺を展開すると
+
+$$
+p\beta-p>-1,
+$$
+
+したがって
+
+$$
+p\beta>p-1.
+$$
+
+$p>0$ で両辺を割れば
 
 $$
 \boxed{
@@ -2286,14 +2375,14 @@ u_n\to u,
 \qquad
 D_ju_n\to v_j
 $$
-in $L^p$ となることを示せ。
+$L^p$ で となることを示せ。
 2. $v_j=D_ju$ を弱微分の定義から示せ。
-3. $u_n\to u$ in $W^{1,p}$ を結論せよ。
+3. $u_n\to u$ $W^{1,p}$ で を結論せよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-$W^{1,p}$ norm では
+$W^{1,p}$ ノルム では
 
 $$
 \|u_n-u_m\|_{L^p}
@@ -2303,9 +2392,9 @@ $$
 
 です。
 
-従って $(u_n)$ は $L^p$-Cauchy です。
+従って $(u_n)$ は $L^p$ Cauchy です。
 
-同様に各 $j$ について
+各 $j$ についても Sobolev ノルムの定義から
 
 $$
 \|D_ju_n-D_ju_m\|_{L^p}
@@ -2319,7 +2408,7 @@ $$
 (D_ju_n)_n
 $$
 
-も $L^p$-Cauchy です。
+も $L^p$ Cauchy です。
 
 $L^p$ の完備性から、ある
 
@@ -2353,7 +2442,7 @@ u_nD_j\varphi
 D_ju_n\,\varphi.
 $$
 
-左辺では $u_n\to u$ in $L^p$、右辺では $D_ju_n\to v_j$ in $L^p$ です。
+左辺では $u_n\to u$ $L^p$ で、右辺では $D_ju_n\to v_j$ $L^p$ で です。
 
 [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)により極限を取れて、
 
@@ -2411,7 +2500,7 @@ u_n\to u
 $$
 <!-- solution-end -->
 
-## GPDE3-B02 局所 mollification を $W^{1,p}$ で示す
+## GPDE3-B02 局所平滑化 を $W^{1,p}$ で示す
 
 - Level: B
 - 目安時間: 28分
@@ -2456,7 +2545,7 @@ $$
 
 1. $u\in W^{1,p}$ なので $D_ju\in L^p\subset L^1_{\mathrm{loc}}$ です。
 
-GPDE2 の「弱微分と mollification の交換」を適用でき、
+GPDE2 の「弱微分と 平滑化 の交換」を適用でき、
 
 $$
 \boxed{
@@ -2558,7 +2647,7 @@ u_\varepsilon\to u
 $$
 <!-- solution-end -->
 
-## GPDE3-B03 smooth cutoff の積公式を直接証明する
+## GPDE3-B03 滑らかな局所化関数 の積公式を直接証明する
 
 - Level: B
 - 目安時間: 22分
@@ -2717,7 +2806,7 @@ $$
 
 1. $u\in W^{1,p}(\mathbb R)$ for every $1\le p\le\infty$ を示せ。
 2. $u\notin W^{2,p}(\mathbb R)$ for every $1\le p\le\infty$ を示せ。
-3. 偶対称 mollifier に対し
+3. 偶対称 平滑化核 に対し
 $$
 u_\varepsilon=\rho_\varepsilon*u
 $$
@@ -2737,7 +2826,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-1. $u$ は compact support を持つ有界関数です。
+1. $u$ は コンパクト台 を持つ有界関数です。
 
 従って
 
@@ -2762,7 +2851,7 @@ $$
 
 と求めました。
 
-$v$ も compact support を持つ有界関数なので
+$v$ も コンパクト台 を持つ有界関数なので
 
 $$
 v\in L^p(\mathbb R)
@@ -2780,9 +2869,9 @@ u\in W^{1,p}(\mathbb R)
 }.
 $$
 
-2. $v$ は $-1,0,1$ で jump を持ちます。
+2. $v$ は $-1,0,1$ で 跳躍 を持ちます。
 
-jump の大きさはそれぞれ
+跳躍 の大きさはそれぞれ
 
 $$
 1,\quad -2,\quad 1.
@@ -2816,7 +2905,7 @@ $$
 
 3. $u\in W^{1,p}(\mathbb R)$ かつ $p<\infty$ です。
 
-弱微分と mollification は交換するので
+弱微分と 平滑化 は交換するので
 
 $$
 u_\varepsilon'
@@ -2853,7 +2942,7 @@ u_\varepsilon\to u
 }.
 $$
 
-4. 偶対称 mollifier を使います。
+4. 偶対称 平滑化核 を使います。
 
 $v=Du$ は 0 の左で $1$、右で $-1$ です。
 
@@ -2927,9 +3016,9 @@ u
 }.
 $$
 
-$p<\infty$ では、jump の近くの「遷移層」の幅が $\varepsilon$ とともに縮むため、その誤差は $L^p$ 積分では消えます。
+$p<\infty$ では、跳躍 の近くの「遷移層」の幅が $\varepsilon$ とともに縮むため、その誤差は $L^p$ 積分では消えます。
 
-しかし $L^\infty$ norm は集合の幅を見ず、最大誤差だけを見るため、遷移層がどれほど細くなっても誤差が残ります。
+しかし $L^\infty$ ノルム は集合の幅を見ず、最大誤差だけを見るため、遷移層がどれほど細くなっても誤差が残ります。
 
 これが smooth density 定理を
 
@@ -2946,18 +3035,18 @@ $$
 
 - Sobolev 空間が a.e. 同値類を扱うことを説明できる。
 - $W^{k,p}(\Omega)$ を弱微分と $L^p$ 条件から定義できる。
-- $p<\infty$ と $p=\infty$ の Sobolev norm を書ける。
+- $p<\infty$ と $p=\infty$ の Sobolev ノルム を書ける。
 - $|x|\in W^{1,p}(-1,1)$ だが $|x|\notin W^{2,p}(-1,1)$ を説明できる。
-- jump 関数が一階 Sobolev に入らない理由を delta から説明できる。
+- 跳躍 関数が一階 Sobolev に入らない理由を delta から説明できる。
 - $x^\beta\in W^{1,p}(0,1)$ の threshold を積分可能性から導ける。
 - 弱微分作用素の閉性をテスト関数と Hölder 不等式から証明できる。
 - $L^p$ の完備性と弱微分の閉性から $W^{k,p}$ の完備性を証明できる。
 - $H^k=W^{k,2}$ の内積を書き、完備な内積空間であることを説明できる。
-- smooth multiplier との積の弱微分公式を証明できる。
+- 滑らかな乗数 との積の弱微分公式を証明できる。
 - $1\le p<\infty$ で $L^p$ 平行移動連続性を証明できる。
-- mollification が局所的に $W^{k,p}$ 近似を与えることを証明できる。
-- $\mathbb R^d$ 上の $C_c^\infty$ 密度を cutoff と mollifier の二段階で再構成できる。
-- 一般領域では $C_c^\infty(\Omega)$ の closure が $W^{1,p}(\Omega)$ 全体とは限らない理由を説明できる。
-- tent 関数を使って $p<\infty$ と $p=\infty$ の smooth approximation の違いを説明できる。
+- 平滑化 が局所的に $W^{k,p}$ 近似を与えることを証明できる。
+- $\mathbb R^d$ 上の $C_c^\infty$ 密度を 局所化関数 と 平滑化核 の二段階で再構成できる。
+- 一般領域では $C_c^\infty(\Omega)$ の 閉包 が $W^{1,p}(\Omega)$ 全体とは限らない理由を説明できる。
+- tent 関数を使って $p<\infty$ と $p=\infty$ の 滑らかな近似 の違いを説明できる。
 
-次は **GPDE4「$H_0^1$・境界値・Poincare・trace」** です。
+次は **GPDE4「$H_0^1$・境界値・Poincaré・トレース」** です。

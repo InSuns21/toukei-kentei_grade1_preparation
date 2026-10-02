@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-GPDE3 では Sobolev 空間を作り、GPDE4 では $H_0^1$・Poincaré 不等式・trace によって境界条件を関数空間へ組み込みました。
+GPDE3 では Sobolev 空間を作り、GPDE4 では $H_0^1$・Poincaré 不等式・トレース によって境界条件を関数空間へ組み込みました。
 
 ここから PDE の存在証明で何度も現れる、もう一つの壁へ進みます。
 
@@ -13,14 +13,14 @@ $$
 \le C
 $$
 
-という a priori estimate が得られても、それだけで
+というアプリオリ評価が得られても、それだけで
 
 $$
 u_n\to u
 \quad\text{in }H_0^1
 $$
 
-とは限りません。無限次元の閉有界集合は、一般に norm compact ではないからです。
+とは限りません。無限次元の閉有界集合は、一般にノルム位相でコンパクトではないからです。
 
 それでも PDE では
 
@@ -30,7 +30,7 @@ $$
 \Longrightarrow
 \text{弱収束部分列}
 \Longrightarrow
-\text{より弱い norm で強収束部分列}
+\text{より弱いノルムで強収束部分列}
 }
 $$
 
@@ -47,24 +47,24 @@ $$
 本章では次の流れを完全に追います。
 
 ~~~text
-微分を Lp で制御する
+微分を $L^p$ で制御する
   ↓
-微分制御から高い Lq integrability へ
+微分制御から高い $L^q$ 可積分性へ
   ↓
 より高い積分可能性
   ↓
-translation を小さくする
+平行移動を小さくする
   ↓
 有限次元近似が可能になる
   ↓
-compactness
+コンパクト性
   ↓
-bounded H_0^1 sequence
+有界な $H_0^1$ 列
   ↓
-weak H_0^1 + strong L2 subsequence
+$H_0^1$ で弱収束 + $L^2$ で強収束する部分列
 ~~~
 
-そして最後に、critical exponent では concentration によって compactness が壊れることまで確認します。
+そして最後に、臨界指数では集中によってコンパクト性が壊れることまで確認します。
 
 以下、**ほとんど至る所（almost everywhere; a.e.）** と略記します。
 
@@ -190,7 +190,7 @@ $$
 
 まで積分可能性を上げられます。
 
-一方 $d=2$、$p=2$ では分母 $d-p$ が 0 です。これは「$p^*=\infty$ と機械的に代入すればよい」という意味ではありません。$p=d$ は critical case で、別の現象が起きます。
+一方 $d=2$、$p=2$ では分母 $d-p$ が 0 です。これは「$p^*=\infty$ と機械的に代入すればよい」という意味ではありません。$p=d$ は臨界の場合 で、別の現象が起きます。
 <!-- definition-example-end -->
 
 尺度変換は定理の証明ではありません。
@@ -207,11 +207,15 @@ $$
 
 ## 2. 二種類の埋め込みを区別する
 
+Sobolev 空間で微分を制御すると、別のノルムでも関数の大きさを制御できることがあります。ただし、ここには二つの異なる問いがあります。
+
+一つは「$X$ で小さければ $Y$ でも小さいか」という**評価の保存**です。もう一つは「$X$ で有界な列から $Y$ で収束する部分列を取り出せるか」という**収束性の回収**です。まず前者の性質に名前を付けます。
+
 <a id="def-gpde5-continuous-embedding"></a>
 
 <!-- formal-statement-start -->
 > **定義（連続埋め込み）**  
-> norm 空間 $X,Y$ が同じ対象の関数空間で $X\subseteq Y$ とする。
+> ノルム空間 $X,Y$ が同じ対象の関数空間で $X\subseteq Y$ とする。
 >
 > 定数 $C>0$ が存在して任意の $u\in X$ に対し
 
@@ -268,15 +272,15 @@ $$
 
 しかし「$X$ で有界」というだけの列から、$Y$ で収束する部分列が取れるとはまだ言っていません。
 
-そこで compactness を加えます。
+そこで コンパクト性 を加えます。
 
 <a id="def-gpde5-compact-embedding"></a>
 
 <!-- formal-statement-start -->
-> **定義（compact embedding）**  
-> norm 空間 $X\subseteq Y$ とする。
+> **定義（コンパクト埋め込み）**  
+> ノルム空間 $X\subseteq Y$ とする。
 >
-> $X$ の任意の有界列 $(u_n)$ から、$Y$ の norm で収束する部分列を取り出せるとき、包含写像 $X\to Y$ は compact であるといい
+> $X$ の任意の有界列 $(u_n)$ から、$Y$ のノルムで収束する部分列を取り出せるとき、包含写像 $X\to Y$ はコンパクトであるといい
 
 $$
 \boxed{
@@ -302,12 +306,12 @@ $$
 \mathbb R^m\to\mathbb R^m
 $$
 
-は compact です。
+はコンパクトです。
 
-無限次元ではこの性質が自動ではなくなります。本章の Rellich--Kondrachov は、Sobolev norm での微分制御が「低い norm では有限次元に近い」ことを作る定理です。
+無限次元ではこの性質が自動ではなくなります。本章の Rellich--Kondrachov は、Sobolev ノルムでの微分制御が「低いノルムでは有限次元に近い」ことを作る定理です。
 <!-- definition-example-end -->
 
-compact embedding なら連続埋め込みも成り立つのが標準ですが、本章では必要な埋め込みごとに評価を明示します。
+コンパクト埋め込みなら連続埋め込みも成り立つのが標準ですが、本章では必要な埋め込みごとに評価を明示します。
 
 ---
 
@@ -317,7 +321,7 @@ compact embedding なら連続埋め込みも成り立つのが標準ですが�
 
 $u\in C_c^\infty(\mathbb R^d)$ とし、$x=(x_1,\dots,x_d)$ と書きます。
 
-$i$ 番目の座標だけを動かすと、compact support により十分遠くでは $u=0$ なので
+$i$ 番目の座標だけを動かすと、コンパクト台 により十分遠くでは $u=0$ なので
 
 $$
 |u(x)|
@@ -564,7 +568,7 @@ $$
 
 を作り、全部を掛けます。
 
-Loomis--Whitney によって $d$ 本の一次元積分を一つの $L^{d/(d-1)}$ norm へまとめます。
+Loomis--Whitney によって $d$ 本の一次元積分を一つの $L^{d/(d-1)}$ ノルム へまとめます。
 
 <!-- proof-start -->
 ### 証明
@@ -695,7 +699,7 @@ $$
 
 その極限を $v$ とします。
 
-一方 $u_n\to u$ in $L^1$ なので、部分列を取れば a.e. で $u_n\to u$ です。
+一方 $u_n\to u$ $L^1$ なので、部分列を取れば a.e. で $u_n\to u$ です。
 
 同じ部分列からさらに部分列を取り、$L^{d/(d-1)}$ 収束から a.e. で $u_n\to v$ とできます。
 
@@ -714,7 +718,7 @@ $$
 
 ---
 
-## 4. power trick で一般の $1<p<d$ へ上げる
+## 4. べき変換 で一般の $1<p<d$ へ上げる
 
 <a id="thm-gpde5-sobolev-rd"></a>
 
@@ -910,7 +914,7 @@ $$
 
 従って $(u_n)$ は $L^{p^*}$ Cauchy で、ある $v\in L^{p^*}$ へ収束します。
 
-一方 $u_n\to u$ in $L^p$ なので部分列を取れば a.e. で $u_n\to u$ です。
+一方 $u_n\to u$ $L^p$ なので部分列を取れば a.e. で $u_n\to u$ です。
 
 同じ部分列は $L^{p^*}$ 収束からさらに部分列を取れば a.e. で $v$ へ収束します。
 
@@ -932,7 +936,7 @@ $$
 \boxed{
 \text{W}^{1,1}\text{ の幾何}
 +
-\text{power trick}
+\text{べき変換}
 +
 \text{Hölder}
 }
@@ -942,19 +946,19 @@ $$
 
 ---
 
-## 5. 領域上では extension が境界を処理する
+## 5. 領域上では拡張が境界を処理する
 
 $\Omega\subset\mathbb R^d$ 上の $W^{1,p}$ 関数を、[R^d 上の Sobolev 不等式](#thm-gpde5-sobolev-rd)へそのまま入れることはできません。
 
-一般の $u\in W^{1,p}(\Omega)$ を 0 で延長すると、境界に jump が生じて弱微分へ境界 measure が現れることがあるからです。
+一般の $u\in W^{1,p}(\Omega)$ を 0 で延長すると、境界に跳躍が生じて弱微分へ境界に集中した測度項が現れることがあるからです。
 
-$H_0^1$ では零延長が使えますが、一般の $W^{1,p}(\Omega)$ では境界形状を使った extension operator が必要です。
+$H_0^1$ では零延長が使えますが、一般の $W^{1,p}(\Omega)$ では境界形状を使った 拡張作用素 が必要です。
 
 <a id="thm-gpde5-extension-lipschitz"></a>
 
 <!-- formal-statement-start -->
-> **定理（bounded Lipschitz domain の Sobolev extension）**  
-> $\Omega\subset\mathbb R^d$ を bounded Lipschitz domain とし、$1\le p\le\infty$ とする。
+> **定理（有界 Lipschitz 領域の Sobolev 拡張）**  
+> $\Omega\subset\mathbb R^d$ を 有界 Lipschitz 領域 とし、$1\le p\le\infty$ とする。
 >
 > このとき有界線形作用素
 
@@ -969,7 +973,7 @@ $$
 
 $$
 Eu=u
-\quad\text{a.e. on }\Omega
+\quad\text{a.e. }\Omega
 $$
 
 > かつ
@@ -986,28 +990,28 @@ $$
 
 ### この定理で境界仮定を使う場所
 
-この extension theorem の一般証明は、GPDE4 の trace theorem と同じく境界 chart の幾何が主役です。
+この拡張定理の一般証明は、GPDE4 のトレース定理 と同じく境界の局所表示の幾何が主役です。
 
-bounded Lipschitz boundary を有限個の chart で平坦化し、各 chart でグラフ境界を越えて反射し、partition of unity で貼り合わせます。
+有界 Lipschitz 境界 を有限個の 局所表示 で平坦化し、各 局所表示 でグラフ境界を越えて反射し、1の分割 で貼り合わせます。
 
 その際
 
-- chart と逆写像が Lipschitz であること。
+- 局所表示 と逆写像が Lipschitz であること。
 - Jacobian が上下から制御されること。
 - 反射後の一次弱微分が $L^p$ に残ること。
-- 有限個の chart だけで境界全体を覆えること。
+- 有限個の 局所表示 だけで境界全体を覆えること。
 
 が必要です。
 
-本章ではこの幾何的 extension construction を **意図的黒箱** とします。証明を使う後続箇所では、必ず「bounded Lipschitz domain だから有界 extension operator がある」と仮定確認を行います。
+本章ではこの幾何的な拡張構成 を **意図的黒箱** とします。証明を使う後続箇所では、必ず「有界 Lipschitz 領域だから有界拡張作用素 がある」と仮定確認を行います。
 
-一方 $H_0^1$ の compactness はこの black box に依存させません。後半で任意の bounded open set に対し零延長から直接証明します。
+一方 $H_0^1$ の コンパクト性 はこの黒箱 に依存させません。後半で任意の 有界開集合 に対し零延長から直接証明します。
 
 <a id="cor-gpde5-lipschitz-embedding"></a>
 
 <!-- formal-statement-start -->
-> **系（bounded Lipschitz domain 上の Sobolev embedding）**  
-> $\Omega\subset\mathbb R^d$ を bounded Lipschitz domain、$1\le p<d$ とする。
+> **系（有界 Lipschitz 領域上の Sobolev 埋め込み）**  
+> $\Omega\subset\mathbb R^d$ を 有界 Lipschitz 領域、$1\le p<d$ とする。
 >
 > $p^*=dp/(d-p)$ とすると
 
@@ -1036,7 +1040,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-extension theorem により
+拡張定理 により
 
 $$
 Eu\in W^{1,p}(\mathbb R^d)
@@ -1062,7 +1066,7 @@ C_{d,p}C_E
 \|u\|_{W^{1,p}(\Omega)}.
 $$
 
-$Eu=u$ a.e. on $\Omega$ なので
+$Eu=u$ a.e. $\Omega$ なので
 
 $$
 \|u\|_{L^{p^*}(\Omega)}
@@ -1075,7 +1079,7 @@ $$
 
 ### $H_0^1$ なら境界正則性なしで使える
 
-$d\ge3$、$\Omega$ を任意の open set とし、$u\in H_0^1(\Omega)$ とします。
+$d\ge3$、$\Omega$ を任意の 開集合 とし、$u\in H_0^1(\Omega)$ とします。
 
 $C_c^\infty(\Omega)$ 近似を 0 延長すれば、零延長 $\widetilde u$ は $H^1(\mathbb R^d)$ に属し
 
@@ -1105,13 +1109,13 @@ $$
 
 ## 6. 次元と指数で何が変わるか
 
-Sobolev embedding は一つの公式ではなく、$p$ と $d$ の比較で性格が変わります。
+Sobolev 埋め込み は一つの公式ではなく、$p$ と $d$ の比較で性格が変わります。
 
-| regime | 典型的な結論 | 何を得るか |
+| 場合 | 典型的な結論 | 何を得るか |
 |---|---|---|
-| $p<d$ | $W^{1,p}\to L^{p^*}$ | integrability が上がる |
-| $p=d$ | bounded domain では各有限 $q$ への埋め込み | critical、一般には $L^\infty$ までは行かない |
-| $p>d$ | Hölder 連続代表元 | pointwise regularity が得られる |
+| $p<d$ | $W^{1,p}\to L^{p^*}$ | 可積分性 が上がる |
+| $p=d$ | 有界 domain では各有限 $q$ への埋め込み | 臨界、一般には $L^\infty$ までは行かない |
+| $p>d$ | Hölder 連続代表元 | 点ごとの正則性 が得られる |
 
 $p>d$ では代表的に
 
@@ -1135,7 +1139,7 @@ $$
 
 この一般 Morrey theorem の完全証明は、ball 上の Poincaré 評価・平均値の dyadic 比較・Lebesgue differentiation を組み合わせる別の証明パッケージを必要とします。
 
-本章では **Morrey 側は入口に留めます**。GPDE6--GPDE10 の主線で必要なのは、$H_0^1$ の integrability と compactness だからです。
+本章では **Morrey 側は入口に留めます**。GPDE6--GPDE10 の主線で必要なのは、$H_0^1$ の 可積分性 と コンパクト性 だからです。
 
 ただし意味は重要です。
 
@@ -1250,7 +1254,53 @@ $M_0$ を $\{u_n:n\ge1\}$ の線形包の閉包とします。
 
 $M_0$ は可算集合から生成された可分な完備内積空間です。
 
-$M_0$ が有限次元なら Bolzano--Weierstrass を各座標に使えば結論は直ちに従うので、以下では $M_0$ が無限次元の場合を書きます。
+$M_0$ が有限次元の場合を先に閉じます。正規直交基底を $e_1,\ldots,e_m$ とすると、
+
+$$
+u_n
+=
+\sum_{j=1}^m
+\langle u_n,e_j\rangle e_j.
+$$
+
+各座標は
+
+$$
+|\langle u_n,e_j\rangle|
+\le M
+$$
+
+で有界なので、座標ベクトル
+
+$$
+\bigl(
+\langle u_n,e_1\rangle,\ldots,
+\langle u_n,e_m\rangle
+\bigr)
+\in\mathbb F^m
+$$
+
+も有界です。ここで $\mathbb F$ は $\mathbb R$ または $\mathbb C$ です。[Bolzano--Weierstrass の定理](../F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md#lem-f0-00c1-01)を有限次元の座標ベクトルへ適用すると、全ての座標が同時に収束する部分列を取れます。
+
+座標極限を $a_1,\ldots,a_m$ とし
+
+$$
+u=\sum_{j=1}^m a_je_j
+$$
+
+と置けば、
+
+$$
+\|u_{n_k}-u\|^2
+=
+\sum_{j=1}^m
+|\langle u_{n_k},e_j\rangle-a_j|^2
+\to0.
+$$
+
+したがって有限次元では強収束、従って弱収束する部分列が得られます。
+
+以下では $M_0$ が無限次元の場合を書きます。
 
 $M_0$ の可算正規直交基底を
 
@@ -1418,7 +1468,7 @@ $$
 
 完備内積空間で必要な点列版を直接閉じました。
 
-### 弱収束 + norm 収束なら強収束
+### 弱収束 + ノルム 収束なら強収束
 
 完備内積空間では
 
@@ -1446,13 +1496,13 @@ $$
 \to0.
 $$
 
-弱収束で不足しているのは、ちょうど norm の情報だと読めます。
+弱収束で不足しているのは、ちょうど ノルムの情報だと読めます。
 
 ---
 
-## 8. $H_0^1$ の零延長は translation に強い
+## 8. $H_0^1$ の零延長は 平行移動 に強い
 
-compactness の核心は
+コンパクト性の核心は
 
 $$
 u(\cdot+h)-u
@@ -1463,8 +1513,8 @@ $$
 <a id="lem-gpde5-h01-translation"></a>
 
 <!-- formal-statement-start -->
-> **補題（H01 零延長の translation estimate）**  
-> $\Omega\subset\mathbb R^d$ を open set とし、$u\in H_0^1(\Omega)$ とする。
+> **補題（H01 零延長の平行移動評価）**  
+> $\Omega\subset\mathbb R^d$ を 開集合 とし、$u\in H_0^1(\Omega)$ とする。
 >
 > $u$ を $\mathbb R^d$ へ 0 延長したものを $\widetilde u$ とする。
 >
@@ -1597,25 +1647,25 @@ $$
 $$
 <!-- proof-end -->
 
-この一行評価が、無限次元の有界集合を低い norm で compact にする核心です。
+この一行評価が、無限次元の有界集合を低いノルムでコンパクトにする核心です。
 
 ---
 
-## 9. translation が一様に小さければ有限次元近似できる
+## 9. 平行移動が一様に小さければ有限次元近似できる
 
-次の補題は Kolmogorov--Riesz compactness criterion の $L^2$ で必要な部分を、直接証明したものです。
+次の補題は Kolmogorov--Riesz コンパクト性判定の $L^2$ で必要な部分を、直接証明したものです。
 
 <a id="lem-gpde5-l2-translation-compactness"></a>
 
 <!-- formal-statement-start -->
-> **補題（L2 translation compactness）**  
+> **補題（L2 平行移動コンパクト性）**  
 > $\mathcal F\subset L^2(\mathbb R^d)$ とする。
 >
 > 次を仮定する。
 >
 > 1. $\mathcal F$ は $L^2$ で有界である。
-> 2. ある bounded set $K\subset\mathbb R^d$ が存在し、全ての $u\in\mathcal F$ が a.e. に $K$ の外で 0 である。
-> 3. translation が一様に連続である。すなわち
+> 2. ある有界集合 $K\subset\mathbb R^d$ が存在し、全ての $u\in\mathcal F$ が a.e. に $K$ の外で 0 である。
+> 3. 平行移動が一様に連続である。すなわち
 
 $$
 \lim_{h\to0}
@@ -1625,18 +1675,18 @@ $$
 0.
 $$
 
-> このとき $\mathcal F$ は $L^2(\mathbb R^d)$ で相対 compact である。
+> このとき $\mathcal F$ は $L^2(\mathbb R^d)$ でその閉包がコンパクトである。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
 空間を小さい立方体に区切り、各立方体上で関数を平均値へ置き換えます。
 
-同じ立方体内の二点の差は小さい translation です。
+同じ立方体内の二点の差は小さい平行移動です。
 
-従って細かい grid では、全ての $u\in\mathcal F$ を一様に piecewise constant 関数へ近似できます。
+従って細かい格子では、全ての $u\in\mathcal F$ を一様に区分定数関数へ近似できます。
 
-support が固定 bounded set に入るので、使う立方体は有限個です。
+台が固定有界集合に入るので、使う立方体は有限個です。
 
 つまり像は有限次元になります。
 
@@ -1645,7 +1695,7 @@ support が固定 bounded set に入るので、使う立方体は有限個で�
 
 一辺 $\delta>0$ の半開立方体で $\mathbb R^d$ を分割します。
 
-各 cube を $Q$ と書き、$|Q|=\delta^d$ とします。
+各立方体を $Q$ と書き、$|Q|=\delta^d$ とします。
 
 $u\in L^2$ に対し
 
@@ -1667,7 +1717,7 @@ $$
 
 と定めます。
 
-各 cube で平均からの二乗偏差恒等式
+各 立方体 で平均からの二乗偏差恒等式
 
 $$
 \int_Q|u-u_Q|^2
@@ -1686,7 +1736,7 @@ $$
 |h|_\infty\le\delta.
 $$
 
-全 cube について和を取ると
+全 立方体 について和を取ると
 
 $$
 \|u-P_\delta u\|_2^2
@@ -1716,9 +1766,9 @@ $$
 \frac{\varepsilon}{3}.
 $$
 
-一方、全ての $u\in\mathcal F$ は固定 bounded set $K$ の外で 0 です。
+一方、全ての $u\in\mathcal F$ は固定 有界集合 $K$ の外で 0 です。
 
-従って $P_\delta u$ が非零になり得る cube は、$K$ と交わる有限個の cube だけです。
+従って $P_\delta u$ が非零になり得る 立方体 は、$K$ と交わる有限個の 立方体 だけです。
 
 ゆえに
 
@@ -1726,7 +1776,7 @@ $$
 P_\delta\mathcal F
 $$
 
-は有限次元の piecewise constant 空間に含まれます。
+は有限次元の 区分定数 空間に含まれます。
 
 また Jensen により
 
@@ -1738,7 +1788,7 @@ $$
 
 なので、$\mathcal F$ の有界性から $P_\delta\mathcal F$ も有限次元空間で有界です。
 
-有限次元の有界集合は totally bounded なので、有限個の点
+有限次元の有界集合は totally 有界 なので、有限個の点
 
 $$
 v_1,\dots,v_N
@@ -1764,16 +1814,16 @@ $$
 \frac{2\varepsilon}{3}.
 $$
 
-よって $\mathcal F$ 自身が totally bounded です。
+よって $\mathcal F$ 自身が totally 有界 です。
 
-$L^2(\mathbb R^d)$ は完備なので、その閉包は compact です。
+$L^2(\mathbb R^d)$ は完備なので、その閉包はコンパクトです。
 
-従って $\mathcal F$ は相対 compact です。
+従って $\mathcal F$ の閉包はコンパクトです。
 <!-- proof-end -->
 
-この証明では「compactness criterion」という名前だけを使っていません。
+この証明では「コンパクト性判定」という名前だけを使っていません。
 
-translation 制御が有限次元近似を作るところまで展開しました。
+平行移動制御が有限次元近似を作るところまで展開しました。
 
 ---
 
@@ -1783,7 +1833,7 @@ translation 制御が有限次元近似を作るところまで展開しまし�
 
 <!-- formal-statement-start -->
 > **定理（Rellich--Kondrachov：H01 から L2）**  
-> $\Omega\subset\mathbb R^d$ を bounded open set とする。
+> $\Omega\subset\mathbb R^d$ を 有界開集合とする。
 >
 > このとき
 
@@ -1809,12 +1859,12 @@ $$
 
 ### 仮定を確認する
 
-ここでは boundary が Lipschitz である必要はありません。
+ここでは 境界 が Lipschitz である必要はありません。
 
 使うのは
 
-- $\Omega$ bounded なので零延長の support が固定 bounded set に入ること。
-- $u_n\in H_0^1$ なので零延長が $H^1(\mathbb R^d)$ に入り、translation estimate が使えること。
+- $\Omega$ が有界なので零延長の台が固定有界集合に入ること。
+- $u_n\in H_0^1$ なので零延長が $H^1(\mathbb R^d)$ に入り、平行移動評価が使えること。
 
 だけです。
 
@@ -1830,7 +1880,7 @@ $$
 \sup_n\|\nabla u_n\|_2<\infty.
 $$
 
-translation estimate により
+平行移動評価 により
 
 $$
 \sup_n
@@ -1839,7 +1889,7 @@ $$
 C|h|\to0.
 $$
 
-前節の compactness lemma の三条件が揃います。
+前節の コンパクト性補題 の三条件が揃います。
 
 <!-- proof-start -->
 ### 証明
@@ -1868,7 +1918,7 @@ $$
 
 従って $L^2$ で一様有界です。
 
-次に $\Omega$ は bounded なので、ある bounded set $K$ が存在して
+次に $\Omega$ は 有界 なので、ある有界集合 $K$ が存在して
 
 $$
 \overline\Omega\subset K.
@@ -1876,7 +1926,7 @@ $$
 
 全ての $\widetilde u_n$ は a.e. に $K$ の外で 0 です。
 
-最後に [translation estimate](#lem-gpde5-h01-translation)から
+最後に [平行移動評価](#lem-gpde5-h01-translation)から
 
 $$
 \|\widetilde u_n(\cdot+h)-\widetilde u_n\|_2
@@ -1897,7 +1947,7 @@ M|h|
 \qquad(h\to0).
 $$
 
-[L2 translation compactness](#lem-gpde5-l2-translation-compactness)の三仮定が全て満たされます。
+[$L^2$ 平行移動コンパクト性](#lem-gpde5-l2-translation-compactness)の三仮定が全て満たされます。
 
 従って $(\widetilde u_n)$ から $L^2(\mathbb R^d)$ で強収束する部分列 $(\widetilde u_{n_k})$ を取れます。
 
@@ -1916,7 +1966,7 @@ $$
 \to0.
 $$
 
-従って $\widetilde u=0$ a.e. on $\mathbb R^d\setminus\Omega$ です。
+従って $\widetilde u=0$ a.e. $\mathbb R^d\setminus\Omega$ です。
 
 $u=\widetilde u|_\Omega$ と置けば
 
@@ -1934,11 +1984,11 @@ L^2(\Omega).
 $$
 <!-- proof-end -->
 
-これが Encore III で繰り返し使う compactness の最小正本です。
+これが Encore III で繰り返し使う コンパクト性の最小正本です。
 
 ---
 
-## 11. subcritical exponent ではさらに $L^q$ 強収束まで上げられる
+## 11. 劣臨界指数ではさらに $L^q$ 強収束まで上げられる
 
 $d\ge3$ では
 
@@ -1950,13 +2000,13 @@ $$
 
 $H_0^1$ 有界列は [R^d 上の Sobolev 不等式](#thm-gpde5-sobolev-rd)により $L^{2^*}$ でも一様有界です。
 
-Rellich により部分列が $L^2$ で強収束すれば、$2<q<2^*$ に対して interpolation で $L^q$ 強収束へ上げられます。
+Rellich により部分列が $L^2$ で強収束すれば、$2<q<2^*$ に対して 補間で $L^q$ 強収束へ上げられます。
 
 <a id="cor-gpde5-subcritical-compact"></a>
 
 <!-- formal-statement-start -->
-> **系（H01 の subcritical compact embedding）**  
-> $\Omega\subset\mathbb R^d$ を bounded open set とする。
+> **系（H01 の劣臨界コンパクト埋め込み）**  
+> $\Omega\subset\mathbb R^d$ を 有界開集合とする。
 >
 > $d\ge3$ なら任意の
 
@@ -1976,7 +2026,7 @@ $$
 
 > である。
 >
-> $d=2$ なら任意の有限 $1\le q<\infty$ に対して同じ compact embedding が成り立つ。
+> $d=2$ なら任意の有限 $1\le q<\infty$ に対して同じコンパクト埋め込みが成り立つ。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -1995,7 +2045,7 @@ $$
 
 [R^d 上の Sobolev 不等式](#thm-gpde5-sobolev-rd)により $(u_{n_k})$ は $L^{2^*}$ で一様有界です。
 
-さらに $L^2$ 強収束から部分列を取り、a.e. に $u_{n_k}\to u$ としてよいです。$L^{2^*}$ norm の一様有界性と [Fatou の補題](../F0_00D2B_単調収束_Fatou_優収束/index.md#lem-f0-00d2b-01)から
+さらに $L^2$ 強収束から部分列を取り、a.e. に $u_{n_k}\to u$ としてよいです。$L^{2^*}$ ノルムの一様有界性と [Fatou の補題](../F0_00D2B_単調収束_Fatou_優収束/index.md#lem-f0-00d2b-01)から
 
 $$
 \int_\Omega |u|^{2^*}
@@ -2027,7 +2077,7 @@ $$
 
 となる $\theta$ を取ります。
 
-[Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)から得られる interpolation により
+[Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)から得られる 補間 により
 
 $$
 \|w_k\|_q
@@ -2052,7 +2102,7 @@ $$
 \to0.
 $$
 
-従って全ての $1\le q<2^*$ で compact です。
+従って全ての $1\le q<2^*$ でコンパクトです。
 
 次に $d=2$ とします。
 
@@ -2085,7 +2135,7 @@ $$
 
 $r<d=2$ なので零延長と[R^d 上の Sobolev 不等式](#thm-gpde5-sobolev-rd)から $L^{r^*}$、従って $L^s$ で一様有界です。
 
-Rellich の $L^2$ 強収束と $L^s$ 有界性を interpolation すれば $L^q$ 強収束を得ます。
+Rellich の $L^2$ 強収束と $L^s$ 有界性を 補間すれば $L^q$ 強収束を得ます。
 
 $q\le2$ は先ほどと同じ有限測度評価で従います。
 <!-- proof-end -->
@@ -2144,7 +2194,7 @@ $$
 u=v.
 $$
 
-従って bounded sequence から部分列を取り直して
+従って有界列から部分列を取り直して
 
 $$
 \boxed{
@@ -2158,7 +2208,7 @@ $$
 
 と同じ $u$ へ収束させられます。
 
-これが GPDE10 の Galerkin limit passage の基本形です。
+これが GPDE10 の Galerkin 極限移行の基本形です。
 
 ### なぜ強収束が欲しいのか
 
@@ -2189,13 +2239,13 @@ $$
 \to0.
 $$
 
-弱収束だけでは norm や積は一般に連続ではありません。
+弱収束だけでは ノルムや積は一般に連続ではありません。
 
-compactness は、非線形項や積の極限へ進むための「強収束回収装置」です。
+コンパクト性は、非線形項や積の極限へ進むための「強収束回収装置」です。
 
 ---
 
-## 13. critical exponent で compactness が壊れる
+## 13. 臨界指数でコンパクト性が壊れる
 
 ここでは $H_0^1$ の一般 $p$ 版を一度だけ使います。
 
@@ -2203,9 +2253,9 @@ compactness は、非線形項や積の極限へ進むための「強収束回�
 
 <!-- formal-statement-start -->
 > **定義（W01p）**  
-> $\Omega\subset\mathbb R^d$ を open set、$1\le p<\infty$ とする。
+> $\Omega\subset\mathbb R^d$ を開集合、$1\le p<\infty$ とする。
 >
-> $C_c^\infty(\Omega)$ の $W^{1,p}(\Omega)$ norm による閉包を
+> $C_c^\infty(\Omega)$ の $W^{1,p}(\Omega)$ ノルムによる閉包を
 
 $$
 \boxed{
@@ -2236,17 +2286,17 @@ $$
 です。
 <!-- definition-example-end -->
 
-Sobolev inequality は critical exponent $p^*$ まで連続埋め込みを与えます。
+Sobolev inequality は 臨界指数 $p^*$ まで連続埋め込みを与えます。
 
-しかし critical exponent では一般に compact ではありません。
+しかし 臨界指数 では一般に コンパクト ではありません。
 
-原因は **concentration** です。
+原因は **集中** です。
 
 <a id="prop-gpde5-critical-noncompactness"></a>
 
 <!-- formal-statement-start -->
-> **命題（critical exponent では compactness が壊れる）**  
-> $1\le p<d$ とし、$\Omega\subset\mathbb R^d$ を非空 open set とする。
+> **命題（臨界指数ではコンパクト性が壊れる）**  
+> $1\le p<d$ とし、$\Omega\subset\mathbb R^d$ を非空 開集合 とする。
 >
 > $p^*=dp/(d-p)$ とする。
 >
@@ -2258,16 +2308,16 @@ W_0^{1,p}(\Omega)
 L^{p^*}(\Omega)
 $$
 
-> は compact ではない。
+> は コンパクト ではない。
 >
-> 実際、$W_0^{1,p}$ で有界だが $L^{p^*}$ で強収束部分列を持たない concentration sequence を構成できる。
+> 実際、$W_0^{1,p}$ で有界だが $L^{p^*}$ で強収束部分列を持たない 集中列 を構成できる。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-一点 $x_0\in\Omega$ の近くへ bump function を縮めます。
+一点 $x_0\in\Omega$ の近くへ 滑らかなコンパクト台関数 を縮めます。
 
-support は縮みますが、振幅をちょうど
+台 は縮みますが、振幅をちょうど
 
 $$
 n^{(d-p)/p}
@@ -2283,7 +2333,7 @@ $$
 
 が尺度不変になります。
 
-これが criticality そのものです。
+これが臨界性そのものです。
 
 <!-- proof-start -->
 ### 証明
@@ -2315,7 +2365,7 @@ $$
 
 と置きます。
 
-support は
+台 は
 
 $$
 \operatorname{supp}u_n
@@ -2333,7 +2383,7 @@ u_n\in C_c^\infty(\Omega)
 W_0^{1,p}(\Omega).
 $$
 
-まず $L^p$ norm は、$y=n(x-x_0)$ と変数変換して
+まず $L^p$ ノルム は、$y=n(x-x_0)$ と変数変換して
 
 $$
 \|u_n\|_p^p
@@ -2451,7 +2501,7 @@ $$
 
 しかし a.e. 極限は 0 なので、強極限は 0 です。
 
-すると norm も
+すると ノルム も
 
 $$
 \|u_{n_k}\|_{p^*}\to0
@@ -2473,17 +2523,17 @@ $$
 従って $L^{p^*}$ 強収束部分列は存在しません。
 <!-- proof-end -->
 
-subcritical $q<p^*$ では縮小 support が norm を 0 へ押し下げます。
+劣臨界$q<p^*$ では縮小 台 が ノルム を 0 へ押し下げます。
 
-critical $q=p^*$ ではちょうど尺度が釣り合って norm が残ります。
+臨界$q=p^*$ ではちょうど尺度が釣り合って ノルム が残ります。
 
 これが
 
 $$
 \boxed{
-\text{continuous at critical}
+\text{continuous at 臨界}
 \quad\text{but}\quad
-\text{compact only below critical}
+\text{コンパクト only below 臨界}
 }
 $$
 
@@ -2491,7 +2541,7 @@ $$
 
 ---
 
-## 14. PDE で使う compactness パッケージ
+## 14. PDE で使う コンパクト性 パッケージ
 
 GPDE6 以降では、次の形を一つの定型手順として使います。
 
@@ -2515,7 +2565,7 @@ $$
 
 ### Step 2：Rellich で強収束
 
-$\Omega$ bounded なら
+$\Omega$ 有界 なら
 
 $$
 u_{n_k}\to u
@@ -2524,24 +2574,24 @@ $$
 
 となるよう、必要ならさらに部分列を取れます。
 
-### Step 3：subcritical $L^q$ へ上げる
+### Step 3：劣臨界$L^q$ へ上げる
 
-次元に応じた Sobolev bound と interpolation により
+次元に応じた Sobolev 評価 と 補間 により
 
 $$
 u_{n_k}\to u
 \quad\text{in }L^q
 $$
 
-を subcritical range で得られます。
+を 劣臨界range で得られます。
 
 ### Step 4：極限式へ戻す
 
-線形項は弱収束で処理し、積・非線形項など強収束が必要な箇所だけ compactness で得た強収束を使います。
+線形項は弱収束で処理し、積・非線形項など強収束が必要な箇所だけ コンパクト性 で得た強収束を使います。
 
 この使い分けが重要です。
 
-弱収束を無理に強収束へ置き換えるのでも、全てを weak limit だけで押し切るのでもありません。
+弱収束を無理に強収束へ置き換えるのでも、全てを 弱極限 だけで押し切るのでもありません。
 
 ---
 
@@ -2550,7 +2600,7 @@ $$
 ### Level A
 
 <a id="ex-gpde5-a01"></a>
-#### GPDE5-A01 scaling から $p^*$ を出す
+#### GPDE5-A01 尺度変換 から $p^*$ を出す
 - Level: A
 
 $u_\lambda(x)=u(\lambda x)$ とする。
@@ -2621,7 +2671,7 @@ $d=3,p=2$ なら $q=6$ です。
 <!-- solution-end -->
 
 <a id="ex-gpde5-a02"></a>
-#### GPDE5-A02 weak と strong を区別する
+#### GPDE5-A02 弱 と 強 を区別する
 - Level: A
 
 $\ell^2$ の標準基底 $(e_n)$ について
@@ -2630,7 +2680,7 @@ $$
 e_n\rightharpoonup0
 $$
 
-だが strong convergence しないことを確認せよ。
+だが 強収束 しないことを確認せよ。
 
 <!-- solution-start -->
 **解答・解説**
@@ -2669,13 +2719,13 @@ $$
 \|e_n\|_2\not\to0.
 $$
 
-従って strong convergence はしません。
+従って 強収束 はしません。
 
-弱収束だけでは norm が保存され得ることが分かります。
+弱収束だけでは ノルム が保存され得ることが分かります。
 <!-- solution-end -->
 
 <a id="ex-gpde5-a03"></a>
-#### GPDE5-A03 translation estimate を再現する
+#### GPDE5-A03 平行移動評価 を再現する
 - Level: A
 
 $\varphi\in C_c^\infty(\mathbb R^d)$ に対し
@@ -2756,7 +2806,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-gpde5-a04"></a>
-#### GPDE5-A04 高周波列で compactness を見る
+#### GPDE5-A04 高周波列で コンパクト性 を見る
 - Level: A
 
 $\Omega=(0,1)$ とし
@@ -2770,8 +2820,8 @@ $$
 とする。
 
 1. $(u_n)$ が $H_0^1(0,1)$ で有界であることを示せ。
-2. $u_n\to0$ in $L^2(0,1)$ を示せ。
-3. $u_n\to0$ in $H_0^1$ ではないことを示せ。
+2. $u_n\to0$ $L^2(0,1)$ を示せ。
+3. $u_n\to0$ $H_0^1$ ではないことを示せ。
 
 <!-- solution-start -->
 **解答・解説**
@@ -2782,7 +2832,7 @@ $$
 u_n(0)=u_n(1)=0
 $$
 
-なので、一変数の zero-trace characterization から $u_n\in H_0^1(0,1)$ です。
+なので、一変数の 零トレースによる特徴付け から $u_n\in H_0^1(0,1)$ です。
 
 まず
 
@@ -2831,7 +2881,7 @@ $$
 \to0.
 $$
 
-よって $L^2$ では strong convergence します。
+よって $L^2$ では 強収束 します。
 
 しかし
 
@@ -2849,18 +2899,18 @@ $$
 \|u_n\|_{H^1}\not\to0.
 $$
 
-つまり $H_0^1$ では strong convergence しません。
+つまり $H_0^1$ では 強収束 しません。
 
-Rellich compactness が「高い norm での強収束」ではなく「低い $L^2$ norm での強収束」を回収することが見えます。
+Rellich コンパクト性 が「高い ノルム での強収束」ではなく「低い $L^2$ ノルム での強収束」を回収することが見えます。
 <!-- solution-end -->
 
 ### Level B
 
 <a id="ex-gpde5-b01"></a>
-#### GPDE5-B01 $H_0^1$ の critical Sobolev bound
+#### GPDE5-B01 $H_0^1$ の 臨界Sobolev 評価
 - Level: B
 
-$d\ge3$、$\Omega\subset\mathbb R^d$ を open set とする。
+$d\ge3$、$\Omega\subset\mathbb R^d$ を 開集合 とする。
 
 任意の $u\in H_0^1(\Omega)$ に対し
 
@@ -2891,7 +2941,7 @@ $$
 
 各 $\varphi_n$ を $\mathbb R^d$ へ 0 延長します。
 
-compact support が $\Omega$ 内部にあるため、延長後も
+コンパクト台 が $\Omega$ 内部にあるため、延長後も
 
 $$
 \widetilde\varphi_n\in C_c^\infty(\mathbb R^d).
@@ -2944,7 +2994,7 @@ C_d\|\nabla u\|_2
 }.
 $$
 
-一般の $H^1(\Omega)$ 関数を 0 延長すると境界 jump が出る可能性があります。
+一般の $H^1(\Omega)$ 関数を 0 延長すると境界の跳躍 が出る可能性があります。
 
 しかし $H_0^1$ は $C_c^\infty(\Omega)$ の $H^1$ 閉包として定義されるため、零延長を近似列から構成できます。
 
@@ -2952,7 +3002,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-gpde5-b02"></a>
-#### GPDE5-B02 weak + norm convergence から strong convergence
+#### GPDE5-B02 弱 + ノルム convergence から 強収束
 - Level: B
 
 完備な内積空間 $H$ で
@@ -2969,12 +3019,12 @@ $$
 u_n\to u
 $$
 
-in norm であることを証明せよ。
+in ノルム であることを証明せよ。
 
 <!-- solution-start -->
 **解答・解説**
 
-Hilbert norm を内積で展開します。
+Hilbert ノルム を内積で展開します。
 
 $$
 \|u_n-u\|^2
@@ -3026,10 +3076,10 @@ strongly in $H$ です。
 <!-- solution-end -->
 
 <a id="ex-gpde5-b03"></a>
-#### GPDE5-B03 weak $H_0^1$ と strong $L^2$ の極限を同定する
+#### GPDE5-B03 弱 $H_0^1$ と 強 $L^2$ の極限を同定する
 - Level: B
 
-$\Omega$ を bounded open set とし、$(u_n)$ を $H_0^1(\Omega)$ の有界列とする。
+$\Omega$ を 有界開集合 とし、$(u_n)$ を $H_0^1(\Omega)$ の有界列とする。
 
 ある部分列について
 
@@ -3048,7 +3098,7 @@ $$
 が得られたとする。
 
 1. $u=v$ a.e. を示せ。
-2. さらに $u_n^2\to u^2$ in $L^1$ を示せ。
+2. さらに $u_n^2\to u^2$ $L^1$ を示せ。
 
 <!-- solution-start -->
 **解答・解説**
@@ -3077,7 +3127,7 @@ u_n\to v
 \quad\text{in }L^2
 $$
 
-なら strong convergence は weak convergence を含意するので
+なら 強収束 は 弱収束 を含意するので
 
 $$
 u_n\rightharpoonup v
@@ -3110,7 +3160,7 @@ $$
 \|u_n+u\|_2.
 $$
 
-第一因子は strong $L^2$ convergence により 0 へ収束します。
+第一因子は 強 $L^2$ convergence により 0 へ収束します。
 
 第二因子は
 
@@ -3120,7 +3170,7 @@ $$
 \|u_n\|_2+\|u\|_2
 $$
 
-であり、strong convergence する列は有界なので一様に有界です。
+であり、強収束 する列は有界なので一様に有界です。
 
 従って
 
@@ -3130,16 +3180,16 @@ $$
 }.
 $$
 
-compactness による $L^2$ strong convergence が二次非線形項の極限を可能にしています。
+コンパクト性 による $L^2$ 強収束 が二次非線形項の極限を可能にしています。
 <!-- solution-end -->
 
 ### Level C
 
 <a id="ex-gpde5-c01"></a>
-#### GPDE5-C01 critical concentration と非compact性
+#### GPDE5-C01 臨界集中 と非コンパクト性
 - Level: C
 
-$1\le p<d$、$\Omega\subset\mathbb R^d$ を非空 open set とする。
+$1\le p<d$、$\Omega\subset\mathbb R^d$ を非空 開集合 とする。
 
 $x_0\in\Omega$ と非零
 
@@ -3161,8 +3211,8 @@ $$
 1. $\|\nabla u_n\|_p$ が $n$ に依存しないよう $\alpha$ を決めよ。
 2. その $\alpha$ で $\|u_n\|_{p^*}$ も一定になることを示せ。
 3. $\|u_n\|_p\to0$ を示せ。
-4. $(u_n)$ が $L^{p^*}$ で strong convergent subsequence を持たないことを示せ。
-5. なぜ $q<p^*$ なら同じ concentration が compactness を壊さないか、norm scaling から説明せよ。
+4. $(u_n)$ が $L^{p^*}$ で 強 convergent 部分列 を持たないことを示せ。
+5. なぜ $q<p^*$ なら同じ 集中 が コンパクト性 を壊さないか、ノルム 尺度変換 から説明せよ。
 
 <!-- solution-start -->
 **解答・解説**
@@ -3231,7 +3281,7 @@ n^{q\alpha-d}
 \|\varphi\|_q^q.
 $$
 
-critical exponent
+臨界指数
 
 $$
 p^*
@@ -3296,7 +3346,7 @@ n^{-1}\|\varphi\|_p
 }.
 $$
 
-support は
+台 は
 
 $$
 \operatorname{supp}u_n
@@ -3315,11 +3365,11 @@ $$
 
 です。
 
-もし $L^{p^*}$ strong convergent subsequence $u_{n_k}\to v$ があれば、さらに部分列を取って a.e. convergence も得られます。
+もし $L^{p^*}$ 強 convergent 部分列 $u_{n_k}\to v$ があれば、さらに部分列を取って a.e. convergence も得られます。
 
 a.e. 極限は 0 なので $v=0$ a.e. です。
 
-strong convergence なら norm も収束するため
+強収束 なら ノルム も収束するため
 
 $$
 \|u_{n_k}\|_{p^*}
@@ -3342,7 +3392,7 @@ $$
 
 矛盾です。
 
-従って critical embedding は compact ではありません。
+従って 臨界embedding は コンパクト ではありません。
 
 最後に $q<p^*$ とします。
 
@@ -3366,9 +3416,9 @@ n^{q\alpha-d}
 \to0.
 $$
 
-つまり subcritical norm では concentration しても mass が消えます。
+つまり 劣臨界ノルム では 集中 しても mass が消えます。
 
-critical exponent だけが尺度変換に対して norm を保存するため、compactness loss が残ります。
+臨界指数 だけが尺度変換に対して ノルム を保存するため、コンパクト性 loss が残ります。
 <!-- solution-end -->
 
 ---
@@ -3389,13 +3439,13 @@ p^*=\frac{dp}{d-p}
 }
 $$
 
-Sobolev exponent は尺度変換から必然に現れ、$W^{1,1}$ の座標積分と Loomis--Whitney、power trick によって一般 $p$ の不等式を証明しました。
+Sobolev exponent は尺度変換から必然に現れ、$W^{1,1}$ の座標積分と Loomis--Whitney、べき変換 によって一般 $p$ の不等式を証明しました。
 
-bounded Lipschitz domain では extension theorem が全空間の不等式を領域へ運びます。
+有界 Lipschitz 領域 では 拡張定理 が全空間の不等式を領域へ運びます。
 
-一方 $H_0^1$ では零延長が使えるため、境界正則性なしで Sobolev inequality と compactness を扱えます。
+一方 $H_0^1$ では零延長が使えるため、境界正則性なしで Sobolev inequality と コンパクト性 を扱えます。
 
-compactness の核心は
+コンパクト性の核心は
 
 $$
 \|\widetilde u(\cdot+h)-\widetilde u\|_2
@@ -3403,7 +3453,7 @@ $$
 |h|\|\nabla u\|_2
 $$
 
-という translation estimate です。
+という 平行移動評価 です。
 
 これにより
 
@@ -3413,7 +3463,7 @@ H_0^1(\Omega)
 L^2(\Omega)
 $$
 
-を任意の bounded open set で完全証明しました。
+を任意の 有界開集合 で完全証明しました。
 
 したがって有界列から
 
@@ -3431,9 +3481,9 @@ $$
 
 を得られます。
 
-ただし critical exponent では concentration sequence が norm を保つため、連続埋め込みは残っても compactness は一般に失われます。
+ただし 臨界指数 では 集中列 が ノルム を保つため、連続埋め込みは残っても コンパクト性 は一般に失われます。
 
-次の GPDE6 では、この関数空間と compactness の準備を使って Poisson 方程式
+次の GPDE6 では、この関数空間と コンパクト性の準備を使って Poisson 方程式
 
 $$
 -\Delta u=f
@@ -3448,4 +3498,4 @@ $$
 \langle f,v\rangle
 $$
 
-という weak / variational formulation へ移します。
+という 弱 / variational formulation へ移します。
