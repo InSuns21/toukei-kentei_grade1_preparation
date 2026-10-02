@@ -786,7 +786,7 @@ $$
 
 一回目は
 
-$
+$$
 \int_0^1u(-\varphi'')\,dx
 =
 -\left[u\varphi'\right]_0^1
@@ -794,11 +794,11 @@ $
 \int_0^1u'\varphi'\,dx
 =
 \int_0^1u'\varphi'\,dx.
-$
+$$
 
 二回目は
 
-$
+$$
 \int_0^1u'\varphi'\,dx
 =
 \left[u'\varphi\right]_0^1
@@ -806,15 +806,15 @@ $
 \int_0^1u''\varphi\,dx
 =
 \int_0^1(-u'')\varphi\,dx.
-$
+$$
 
 ここで $-u''=2$ を代入すると
 
-$
+$$
 \int_0^1u(x)\{-\varphi''(x)\}\,dx
 =
 \int_0^1 2\varphi(x)\,dx.
-$
+$$
 
 この計算では、古典方程式からテスト関数恒等式へ移る際の二回の部分積分と、最後の $-u''=2$ の代入を順に確認しています。
 <!-- definition-example-end -->
@@ -846,60 +846,60 @@ $\varphi$ の台は $\Omega$ の内部にコンパクトに収まるので、そ
 
 $\varphi\in\mathcal D(\Omega)$ を任意に取り、
 
-$
+$$
 K=\operatorname{supp}\varphi
-$
+$$
 
 と置きます。$K$ は $\Omega$ の内部にあるコンパクト集合なので、$\varphi$ とその全ての偏微分は $\Omega\setminus K$ で 0 です。したがって各座標方向の部分積分は、境界 $\partial\Omega$ の形を仮定せず、コンパクト台を持つ積分として行えます。
 
 $j$ を一つ固定します。一回目の部分積分で
 
-$
+$$
 \int_\Omega u(-\partial_{jj}\varphi)
 =
 \int_\Omega
 (\partial_j u)(\partial_j\varphi)
-$
+$$
 
 を得ます。ここでは $\partial_j\varphi$ も $K$ に台を持つため境界項がありません。さらに二回目の部分積分で
 
-$
+$$
 \int_\Omega
 (\partial_j u)(\partial_j\varphi)
 =
 \int_\Omega
 (-\partial_{jj}u)\varphi.
-$
+$$
 
 従って
 
-$
+$$
 \int_\Omega
 u(-\partial_{jj}\varphi)
 =
 \int_\Omega
 (-\partial_{jj}u)\varphi.
-$
+$$
 
 これを $j=1,\ldots,d$ で足すと、
 
-$
+$$
 \int_\Omega
 u(-\Delta\varphi)
 =
 \int_\Omega
 (-\Delta u)\varphi.
-$
+$$
 
 最後に古典方程式 $-\Delta u=f$ を被積分関数へ代入して
 
-$
+$$
 \int_\Omega
 u(-\Delta\varphi)
 =
 \int_\Omega
 f\varphi.
-$
+$$
 
 これは [超関数解 の定義](#def-gpde1-distributional-poisson)そのものです。
 <!-- proof-end -->
@@ -951,7 +951,7 @@ $$
 
 正の側では、$\varphi$ と $\varphi'$ が十分大きい $x$ で 0 になることを使って
 
-$
+$$
 \begin{aligned}
 \int_0^\infty x\varphi''(x)\,dx
 &=
@@ -965,11 +965,11 @@ $
 &=
 \varphi(0).
 \end{aligned}
-$
+$$
 
 負の側でも同じく
 
-$
+$$
 \begin{aligned}
 \int_{-\infty}^0 (-x)\varphi''(x)\,dx
 &=
@@ -983,7 +983,7 @@ $
 &=
 \varphi(0).
 \end{aligned}
-$
+$$
 
 従って
 
@@ -1727,7 +1727,7 @@ $$
 
 第一項は、$x=0$ では $(-x)\varphi'(x)=0$、十分小さい $x$ ではコンパクト台により $\varphi'(x)=0$ なので 0 です。第二項は
 
-$
+$$
 \int_{-\infty}^0\varphi'(x)\,dx
 =
 \left[\varphi(x)\right]_{-\infty}^0
@@ -1735,7 +1735,7 @@ $
 \varphi(0)-0
 =
 \varphi(0).
-$
+$$
 
 従って
 
