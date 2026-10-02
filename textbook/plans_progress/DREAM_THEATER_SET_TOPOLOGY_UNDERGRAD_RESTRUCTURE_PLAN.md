@@ -297,7 +297,7 @@ Baire・net / フィルタ
 - SET-U2 では有限集合・可算無限集合・高々可算集合・非可算集合を定義し、$\mathbb N\times\mathbb N$、$\mathbb Z$、$\mathbb Q$ の可算性と Cantor の対角線論法による $\mathbb R$ の非可算性までを扱う。
 - 一般の濃度比較、Cantor--Bernstein の定理、Cantor の定理は SET-U3 の責務として残し、SET-U2 へ先取りしない。
 - 「可算個の可算集合の和は可算」は選択原理との境界があるため、SET-U2 では各集合の自然数への単射が具体的に与えられている場合を証明し、任意の可算集合族に対する一般形は F0-00A2 の可算選択へ接続した。
-- TOP4 / TOP6 の prerequisite に SET-U2 を追加し、本文から canonical result へ戻れるリンクを置いた。
+- TOP4 / TOP6 の prerequisite に SET-U2 を追加し、TOP4 の可算性公理導入から SET-U2 の canonical result へ戻れるリンクを置いた。
 - SET-U2 の実本文に Level A 4題・Level B 3題・Level C 1題を置き、全問に詳細解答を付けた。
 
 ## 9. 実装順
