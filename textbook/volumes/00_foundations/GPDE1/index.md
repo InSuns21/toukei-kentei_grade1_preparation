@@ -1725,13 +1725,17 @@ $$
 \int_{-\infty}^0\varphi'(x)\,dx.
 $$
 
-第一項は同様に 0 です。第二項は
+第一項は、$x=0$ では $(-x)\varphi'(x)=0$、十分小さい $x$ ではコンパクト台により $\varphi'(x)=0$ なので 0 です。第二項は
 
-$$
+$
 \int_{-\infty}^0\varphi'(x)\,dx
 =
+\left[\varphi(x)\right]_{-\infty}^0
+=
+\varphi(0)-0
+=
 \varphi(0).
-$$
+$
 
 従って
 
