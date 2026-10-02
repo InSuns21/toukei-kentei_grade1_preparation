@@ -21,15 +21,6 @@ concepts:
     requires:
       - set.set
 
-  - id: topology.metric-triangle-inequality
-    name: 距離の三角不等式
-    kind: proposition
-    aliases: [距離の三角不等式]
-    introduction: inline
-    introduction_aliases: [三角不等式]
-    requires:
-      - topology.metric-space
-
   - id: topology.discrete-metric
     name: 離散距離
     kind: definition
