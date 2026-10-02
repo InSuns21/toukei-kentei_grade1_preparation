@@ -327,7 +327,7 @@ Bolzano--Weierstrassが保証するのは、**有界列そのものの収束で�
 
 <a id="lem-f0-00c1-01"></a>
 
-実数列についての Bolzano--Weierstrass の定理は、すでに [RA2](../RA2/index.md#thm-ra2-bolzano-weierstrass) で実数の完備性から証明しました。ここでは同じ定理を再証明せず、その結果を各座標へ順に適用して $\mathbb R^p$ 版を作ります。
+実数列についての Bolzano--Weierstrass の定理は、すでに [RA2](../RA2/index.md#thm-ra2-bolzano-weierstrass) で [実数の完備性](../RA1/index.md#thm-ra1-real-completeness) から証明しました。ここでは同じ定理を再証明せず、その結果を各座標へ順に適用して $\mathbb R^p$ 版を作ります。
 
 <a id="lem-f0-00c1-02"></a>
  
