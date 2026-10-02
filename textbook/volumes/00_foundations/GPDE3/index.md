@@ -264,7 +264,7 @@ $$
 
 を $(-1,1)$ 上で考えます。
 
-$x=0$ に 跳躍 があるため、[GPDE2 の 跳躍 を持つ関数の 超関数 微分](../GPDE2/index.md#prop-gpde2-jump-formula)から
+$x=0$ に跳躍があるため、[GPDE2 の跳躍を持つ関数の超関数微分](../GPDE2/index.md#prop-gpde2-jump-formula)から
 
 $$
 Du=\delta_0
@@ -803,7 +803,7 @@ PDE では、関数全体ではなくある領域の内部だけを調べたい�
 
 <a id="prop-gpde3-smooth-multiplier"></a>
 <!-- formal-statement-start -->
-> **命題（滑らかな乗数 との積の弱微分）**  
+> **命題（滑らかな乗数との積の弱微分）**  
 > $u\in W^{k,p}(\Omega)$、$\chi\in C^\infty(\Omega)$ とし、$\chi$ と必要な階数までの微分が有界であるとする。
 >
 > このとき
@@ -892,7 +892,7 @@ u\chi D_j\varphi
 \chi D_ju\,\varphi.
 $$
 
-整理すると
+第一項を右辺へ移すと
 
 $$
 \int_\Omega
@@ -951,7 +951,7 @@ D^{\beta+e_j}\chi\,
 D^{\alpha-\beta}u
 +
 D^\beta\chi\,
-D^{\alpha-β+e_j}u
+D^{\alpha-\beta+e_j}u
 \right).
 \end{aligned}
 $$
@@ -1106,7 +1106,7 @@ $$
 
 <a id="thm-gpde3-local-mollification"></a>
 <!-- formal-statement-start -->
-> **定理（Sobolev 関数の局所 平滑化）**  
+> **定理（Sobolev 関数の局所平滑化）**  
 > $1\le p<\infty$、$u\in W^{k,p}(\Omega)$、$K\subset\subset\Omega$ とする。
 >
 > 十分小さい $\varepsilon>0$ に対し局所 平滑化
@@ -1139,7 +1139,7 @@ $$
 
 ### 証明の見取り図
 
-GPDE2 ですでに[弱微分と 平滑化 の交換](../GPDE2/index.md#thm-gpde2-weak-mollifier-commute)を示しました。
+GPDE2 ですでに[弱微分と平滑化の交換](../GPDE2/index.md#thm-gpde2-weak-mollifier-commute)を示しました。
 
 残るのは各
 
@@ -1597,7 +1597,7 @@ $$
 u(x)=1.
 $$
 
-これは明らかに
+定数関数なので
 
 $$
 u\in H^1(0,1)
@@ -2368,7 +2368,7 @@ $$
 
 従って $(u_n)$ は $$L^p$ Cauchy です。
 
-同様に各 $j$ について
+各 $j$ についても Sobolev ノルムの定義から
 
 $$
 \|D_ju_n-D_ju_m\|_{L^p}
