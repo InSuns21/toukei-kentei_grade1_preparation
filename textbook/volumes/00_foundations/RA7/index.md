@@ -494,6 +494,16 @@ $\square$
 <!-- proof-start -->
 ### 証明
 
+$A=\varnothing$ なら両辺は0で自明です。以下 $A\ne\varnothing$ とします。
+
+$\Phi^{-1}\circ\Phi=\operatorname{id}_U$ に連鎖律を適用すると
+
+$
+D\Phi^{-1}(\Phi(x))D\Phi(x)=I,
+$
+
+なので $D\Phi(x)$ は全ての $x\in U$ で可逆です。
+
 まず $A$ はJordan可測なので有界であり、$\overline A$ は閉有界です。[一様な内側余裕の補題](#lem-ra7-uniform-buffer)を $\overline A\subset U$ に適用し、ある $\rho_U>0$ を
 
 $$
@@ -516,7 +526,7 @@ M_U\|x-y\|_2
 \qquad(x,y\in Q)
 $$
 
-となる共通定数 $M_U$ を使えます。[局所体積倍率補題](#lem-ra7-local-volume)の証明で使った立方体被覆と同じ評価により、$\Phi$ は $\overline A$ 内のJordan内容0集合をJordan内容0集合へ送ります。
+となる共通定数 $M_U$ を使えます。Jordan内容0集合を覆う小矩形は、固定した有限格子との共通細分を取ることで各格子立方体の内部に収まるよう細分できます。その各部分では上の同じ Lipschitz 定数 $M_U$ が使えるため、像を覆う矩形の総体積も元の総体積の定数倍で抑えられます。従って $\Phi$ は $\overline A$ 内のJordan内容0集合をJordan内容0集合へ送ります。
 
 次に $\Phi(\overline A)$ が閉有界であることを確認します。有界性は $\Phi$ の連続性と[有限次元 Heine--Cantor 型定理](#thm-ra7-finite-dimensional-heine-cantor)から従います。閉性について、$y_j=\Phi(x_j)\in\Phi(\overline A)$ が $y_j\to y$ と収束するとします。[有限次元 Heine--Borel 型定理](#thm-ra7-finite-dimensional-heine-borel)により、ある部分列が $x_{j_k}\to x\in\overline A$ と収束します。$\Phi$ の連続性から
 
