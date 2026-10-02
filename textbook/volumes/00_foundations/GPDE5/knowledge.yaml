@@ -23,11 +23,11 @@ concepts:
     introduction_aliases: ["定義（連続埋め込み）"]
 
   - id: analysis.compact-embedding
-    name: compact embedding
+    name: コンパクト埋め込み
     kind: definition
     aliases: ["compact embedding", "compact inclusion"]
     introduction: formal
-    introduction_aliases: ["定義（compact embedding）"]
+    introduction_aliases: ["定義（コンパクト埋め込み）"]
     requires:
       - analysis.continuous-embedding
 
@@ -59,21 +59,21 @@ concepts:
       - sobolev.ccinf-dense-rd
 
   - id: sobolev.extension-lipschitz
-    name: bounded Lipschitz domainのextension theorem
+    name: 有界 Lipschitz 領域の拡張定理
     kind: theorem
-    aliases: ["Sobolev extension theorem", "Lipschitz extension theorem"]
+    aliases: ["bounded Lipschitz domainのextension theorem", "Sobolev extension theorem", "Lipschitz extension theorem"]
     introduction: formal
-    introduction_aliases: ["定理（bounded Lipschitz domain の Sobolev extension）"]
+    introduction_aliases: ["定理（有界 Lipschitz 領域の Sobolev 拡張）"]
     requires:
       - sobolev.lipschitz-domain
       - sobolev.wkp
 
   - id: sobolev.embedding-lipschitz
-    name: bounded Lipschitz domain上のSobolev embedding
+    name: 有界 Lipschitz 領域上の Sobolev 埋め込み
     kind: corollary
-    aliases: ["Sobolev embedding on bounded Lipschitz domains"]
+    aliases: ["bounded Lipschitz domain上のSobolev embedding", "Sobolev embedding on bounded Lipschitz domains"]
     introduction: formal
-    introduction_aliases: ["系（bounded Lipschitz domain 上の Sobolev embedding）"]
+    introduction_aliases: ["系（有界 Lipschitz 領域上の Sobolev 埋め込み）"]
     requires:
       - sobolev.inequality-rd
       - sobolev.extension-lipschitz
@@ -88,20 +88,20 @@ concepts:
       - sobolev.h01-closed-hilbert
 
   - id: sobolev.h01-translation-estimate
-    name: H_0^1零延長のtranslation estimate
+    name: H_0^1零延長の平行移動評価
     kind: lemma
-    aliases: ["H01 translation estimate", "H01 零延長の translation estimate", "translation estimate for zero extension"]
+    aliases: ["H_0^1零延長のtranslation estimate", "H01 translation estimate", "H01 零延長の translation estimate", "translation estimate for zero extension"]
     introduction: formal
-    introduction_aliases: ["補題（H01 零延長の translation estimate）"]
+    introduction_aliases: ["補題（$H_0^1$ 零延長の平行移動評価）"]
     requires:
       - sobolev.h01
 
   - id: analysis.l2-translation-compactness
-    name: L2 translation compactness lemma
+    name: L2平行移動コンパクト性補題
     kind: lemma
-    aliases: ["L2 translation compactness", "L2 Kolmogorov--Riesz criterion", "translation compactness criterion"]
+    aliases: ["L2 translation compactness lemma", "L2 translation compactness", "L2 Kolmogorov--Riesz criterion", "translation compactness criterion"]
     introduction: formal
-    introduction_aliases: ["補題（L2 translation compactness）"]
+    introduction_aliases: ["補題（$L^2$ 平行移動コンパクト性）"]
     requires:
       - sobolev.h01-translation-estimate
 
@@ -117,11 +117,11 @@ concepts:
       - sobolev.h01-translation-estimate
 
   - id: sobolev.subcritical-compact-embedding-h01
-    name: H_0^1のsubcritical compact embedding
+    name: H_0^1の劣臨界コンパクト埋め込み
     kind: corollary
-    aliases: ["subcritical Rellich compactness", "H01 subcritical compact embedding", "H01 の subcritical compact embedding"]
+    aliases: ["H_0^1のsubcritical compact embedding", "subcritical Rellich compactness", "H01 subcritical compact embedding", "H01 の subcritical compact embedding"]
     introduction: formal
-    introduction_aliases: ["系（H01 の subcritical compact embedding）"]
+    introduction_aliases: ["系（$H_0^1$ の劣臨界コンパクト埋め込み）"]
     requires:
       - sobolev.rellich-h01-l2
       - sobolev.inequality-rd
@@ -131,16 +131,16 @@ concepts:
     kind: definition
     aliases: ["W01p", "zero-boundary W1p"]
     introduction: formal
-    introduction_aliases: ["定義（W01p）"]
+    introduction_aliases: ["定義（$W_0^{1,p}$）"]
     requires:
       - sobolev.wkp
 
   - id: sobolev.critical-noncompactness
-    name: critical Sobolev embeddingの非compact性
+    name: 臨界 Sobolev 埋め込みの非コンパクト性
     kind: proposition
-    aliases: ["critical Sobolev noncompactness", "critical exponent では compactness が壊れる", "concentration sequence"]
+    aliases: ["critical Sobolev embeddingの非compact性", "critical Sobolev noncompactness", "critical exponent では compactness が壊れる", "concentration sequence"]
     introduction: formal
-    introduction_aliases: ["命題（critical exponent では compactness が壊れる）"]
+    introduction_aliases: ["命題（臨界指数ではコンパクト性が壊れる）"]
     requires:
       - sobolev.conjugate-exponent
       - sobolev.inequality-rd
