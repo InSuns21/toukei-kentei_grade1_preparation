@@ -5,6 +5,10 @@ prerequisites:
   - PDE7
   - MT4
   - F0-02C2
+forward_references:
+  - distribution.distributional-derivative
+  - distribution.weak-derivative
+  - distribution.mollifier
 
 concepts:
   - id: distribution.test-function
