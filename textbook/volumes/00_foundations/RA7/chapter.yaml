@@ -8,6 +8,7 @@ prerequisites:
   - LA3C
 official_scope: []
 learning_objectives:
+  - R^n の閉有界集合で必要な有限部分被覆・有界性・一様連続性の結果を、一般位相を前提にせず正確に使える
   - 矩形上の多次元Darboux和から多重Riemann積分を定義できる
   - Jordan可測集合上の積分を矩形上の積分へ帰着できる
   - 連続関数について重積分と反復積分の一致をRiemann和から証明できる
@@ -20,6 +21,9 @@ definitions:
   - { id: RA7-DEF-03, name: Jordan可測集合 }
   - { id: RA7-DEF-04, name: Jordan領域上のRiemann積分 }
 theorems:
+  - { id: RA7-THM-06, name: 有限次元Heine--Borel型結果 }
+  - { id: RA7-THM-07, name: 有限次元Heine--Cantor型結果 }
+  - { id: RA7-COR-01, name: 閉有界集合と開集合の一様な内側余裕 }
   - { id: RA7-THM-01, name: 連続関数の多重Riemann可積分性 }
   - { id: RA7-THM-02, name: 矩形上の反復積分定理 }
   - { id: RA7-THM-03, name: 線形写像の体積倍率 }
