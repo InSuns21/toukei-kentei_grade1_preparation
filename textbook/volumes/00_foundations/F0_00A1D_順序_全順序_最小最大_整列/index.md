@@ -13,35 +13,25 @@
 
 ---
 
-## 1. 二項関係
+## 1. 二項関係から順序関係へ
 
 <a id="def-f0-00a1d-binary-relation"></a>
 
-<!-- formal-statement-start -->
-> **定義（二項関係）**  
-> 集合 $X$ に対して、直積 $X\times X$ の部分集合 $R\subseteq X\times X$ を $X$ 上の **二項関係** という。$(x,y)\in R$ の代わりに
+[SET-U1](../SET-U1/index.md#def-setu1-binary-relation) で、二項関係を
 
 $$
-xRy
+R\subseteq X\times X
 $$
 
-> と書くことが多い。
-<!-- formal-statement-end -->
+として定義しました。この章では二項関係そのものを再定義せず、そこへ「反射律・反対称律・推移律」を課して順序構造へ進みます。
 
-<!-- definition-example-start: def-f0-00a1d-binary-relation -->
-### 1.1 定義の確認
-
-**定義の確認**
-
-実数上の $\le$ は二項関係です。
+同値関係では対称律
 
 $$
-x\le y
+x\sim y\Rightarrow y\sim x
 $$
 
-である実数の組 $(x,y)$ 全体を集めれば、$\mathbb R\times\mathbb R$ の部分集合になります。
-<!-- definition-example-end -->
-
+を要求しました。一方、順序関係では対称律ではなく反対称律を要求します。この違いによって、「同じグループにまとめる関係」と「大小・包含の向きを持つ関係」が分かれます。
 ---
 
 ## 2. 順序関係（半順序）
