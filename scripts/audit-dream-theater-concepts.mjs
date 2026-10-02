@@ -700,7 +700,7 @@ function runAliasMatcherSelfTest() {
     throw new Error('HTML属性が reader source に残っています。');
   }
 
-  for (const expected of ['net', 'unit', 'torus', 'トーラス', '単体', 'simplex']) {
+  for (const expected of ['net', 'unit', 'torus', 'トーラス', '単体', 'simplex', '群', '刻み幅']) {
     if (!isContextualAlias(expected)) throw new Error(`contextual alias policy missing: ${expected}`);
   }
 
@@ -713,6 +713,8 @@ function runAliasMatcherSelfTest() {
     ['単体法を使う。', '単体'],
     ['simplex method を使う。', 'simplex'],
     ['### 定義（標準単体）', '単体'],
+    ['強連続半群を使う。', '群'],
+    ['差分商の刻み幅を小さくする。', '刻み幅'],
   ];
   for (const [line, alias] of lowConfidenceCases) {
     if (hasHighConfidenceAliasReference(line, alias)) {
@@ -727,6 +729,8 @@ function runAliasMatcherSelfTest() {
     ['ここでは **単体** を扱う。', '単体'],
     ['### 定義（単体）', '単体'],
     ['ここでは **simplex** を扱う。', 'simplex'],
+    ['ここでは **群** を扱う。', '群'],
+    ['ここでは **刻み幅** を扱う。', '刻み幅'],
   ];
   for (const [line, alias] of highConfidenceCases) {
     if (!hasHighConfidenceAliasReference(line, alias)) {
