@@ -46,6 +46,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-f0-00p7-statistical-model -->
+**定義の確認**  
 **直接例：ベルヌーイモデル**  
 $\mathcal X=\{0,1\}$、$\Theta=(0,1)$ とし
 
@@ -219,6 +220,7 @@ $$
 です。ここで、再び「独立同分布変数の和」という確率論の形が現れます。
 
 <!-- definition-example-start: def-f0-00p7-score -->
+**定義の確認**  
 **直接例：ベルヌーイモデル**  
 $X\sim\operatorname{Bernoulli}(p)$ とすると
 
