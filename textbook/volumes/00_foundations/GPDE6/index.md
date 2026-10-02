@@ -16,7 +16,7 @@ GPDE3--GPDE5 では、その後に必要となる関数空間を準備しまし�
 - 零 Dirichlet 条件を担う $H_0^1$
 - Poincaré 不等式
 - 弱収束部分列
-- compactness
+- コンパクト性
 
 本章では、これらを初めて PDE の存在問題へまとめて投入します。
 
@@ -24,7 +24,7 @@ GPDE3--GPDE5 では、その後に必要となる関数空間を準備しまし�
 
 $$
 \boxed{
-\text{二階微分を解に要求する代わりに、test function 側へ微分を移す}
+\text{二階微分を解に要求する代わりに、テスト関数 側へ微分を移す}
 }
 $$
 
@@ -39,7 +39,7 @@ $$
 さらに、その積分方程式が
 
 $$
-\text{quadratic energy の最小化}
+\text{quadratic エネルギー の最小化}
 $$
 
 と同じ問題であることを示し、GPDE5 の弱コンパクト性を使って最小点を実際に構成します。
@@ -48,7 +48,7 @@ $$
 
 ~~~text
 classical Poisson problem
-  ↓ test function を掛ける
+  ↓ テスト関数 を掛ける
 座標ごとの部分積分
   ↓
 一階微分だけの積分恒等式
@@ -59,11 +59,11 @@ a(u,v)=F(v)
   ↓
 対称性
   ↓
-energy minimization
+エネルギー最小化
   ↓
-minimizing sequence
-  ↓ weak compactness
-weak limit
+最小化列
+  ↓ 弱コンパクト性
+弱極限
   ↓ control the quadratic term under weak convergence
 minimizer
   ↓
@@ -121,7 +121,7 @@ $$
 (-\partial_{ii}u)\varphi\,dx.
 $$
 
-$\varphi$ は $\Omega$ の内部に compact support を持つため、各座標方向で端の境界項は 0 です。
+$\varphi$ は $\Omega$ の内部に コンパクト 台 を持つため、各座標方向で端の境界項は 0 です。
 
 一変数の [微積分学の基本定理II](../RA4/index.md#thm-ra4-ftc2) を各切片へ適用すると
 
@@ -165,23 +165,23 @@ $$
 
 で式を読む余地が生まれました。
 
-### なぜ test function を $H_0^1$ まで広げたいのか
+### なぜ テスト関数 を $H_0^1$ まで広げたいのか
 
-$C_c^\infty(\Omega)$ だけでも distributional equation は読めます。
+$C_c^\infty(\Omega)$ だけでも 超関数としての方程式 は読めます。
 
 しかし零 Dirichlet 問題では、解自身が住む空間として [H_0^1](../GPDE4/index.md#def-gpde4-h01) を使います。
 
-そこで test function も同じ空間へ広げると
+そこで テスト関数 も同じ空間へ広げると
 
 $$
-\text{trial space}
+\text{試行空間}
 =
-\text{test space}
+\text{テスト空間}
 =
 H_0^1(\Omega)
 $$
 
-となり、PDE が 完備内積空間上の方程式として見えるようになります。
+となり、PDE が 完備な内積空間上の方程式として見えるようになります。
 
 そのためには右辺
 
@@ -198,7 +198,7 @@ $$
 
 $\Omega\subset\mathbb R^d$ を有界開集合とします。
 
-GPDE4 の [勾配 norm と H1 norm の同値性](../GPDE4/index.md#cor-gpde4-gradient-norm)から
+GPDE4 の [勾配 ノルム と H1 ノルム の同値性](../GPDE4/index.md#cor-gpde4-gradient-norm)から
 
 $$
 \|v\|_V
@@ -206,7 +206,7 @@ $$
 \|\nabla v\|_{L^2(\Omega)}
 $$
 
-は $H_0^1(\Omega)$ 上の norm です。
+は $H_0^1(\Omega)$ 上の ノルム です。
 
 以後
 
@@ -214,7 +214,11 @@ $$
 V:=H_0^1(\Omega)
 $$
 
-と書き、この勾配 norm を使います。
+と書き、この勾配ノルムを使います。
+
+変分方程式で右辺に必要なのは、各 $v\in V$ に対して数 $F(v)$ を返し、$v$ を少し変えたとき値も連続的に変わることです。したがって外力を必ず $L^2$ 関数として表す必要はありません。
+
+むしろ「$V$ 上の連続線形汎関数すべて」を右辺として許す方が、弱形式そのものに合っています。そのデータ空間を $H^{-1}(\Omega)$ と書きます。
 
 <a id="def-gpde6-hminus1"></a>
 
@@ -244,7 +248,7 @@ $$
 
 > を $H^{-1}(\Omega)$ と書く。
 >
-> $F\in H^{-1}(\Omega)$ の norm は
+> $F\in H^{-1}(\Omega)$ の ノルム は
 
 $$
 \boxed{
@@ -260,9 +264,9 @@ $$
 
 [双対空間](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#def-f0-02c2-dual-space)は既に定義済みです。
 
-GPDE4 の norm 同値性により、通常の $H^1$ norm を使って連続な線形汎関数と、勾配 norm を使って連続な線形汎関数は同じ集合です。
+GPDE4 の ノルム 同値性により、通常の $H^1$ ノルム を使って連続な線形汎関数と、勾配 ノルム を使って連続な線形汎関数は同じ集合です。
 
-ただし dual norm の数値は norm の選び方に応じて同値な範囲で変わります。
+ただし 双対ノルム の数値は ノルム の選び方に応じて同値な範囲で変わります。
 
 <!-- definition-example-start: def-gpde6-hminus1 -->
 **定義の確認**
@@ -321,7 +325,7 @@ $H^{-1}$ は「負の一階微分を持つ関数」という点wise定義では�
 <a id="prop-gpde6-l2-hminus1"></a>
 
 <!-- formal-statement-start -->
-> **命題（L2 data は Hminus1 functional を定める）**  
+> **命題（L2 データは Hminus1 の汎関数を定める）**  
 > $\Omega\subset\mathbb R^d$ を有界開集合とし、$f\in L^2(\Omega)$ とする。
 >
 > このとき
@@ -463,7 +467,7 @@ u=0
 \quad\text{on }\partial\Omega
 $$
 
-も pointwise に書いていません。
+も 点ごと に書いていません。
 
 境界条件は
 
@@ -579,7 +583,7 @@ $$
 \quad\text{in }\Omega
 $$
 
-> を pointwise に満たすとする。
+> を 点ごと に満たすとする。
 >
 > このとき任意の $v\in H_0^1(\Omega)$ に対して
 
@@ -608,14 +612,14 @@ $$
 
 の $H^1$ 閉包です。
 
-したがって、まず内部支持の滑らかな test function で恒等式を示し、その後連続性で閉包へ延ばせば十分です。
+したがって、まず内部支持の滑らかな テスト関数 で恒等式を示し、その後連続性で閉包へ延ばせば十分です。
 
 <!-- proof-start -->
 ### 証明
 
 まず $\varphi\in C_c^\infty(\Omega)$ を取ります。
 
-$\varphi$ の support は $\Omega$ の内部に compact に含まれるため、各座標方向の部分積分で境界項は生じません。
+$\varphi$ の 台 は $\Omega$ の内部に コンパクト に含まれるため、各座標方向の部分積分で境界項は生じません。
 
 従って
 
@@ -698,9 +702,9 @@ fv\,dx.
 $$
 <!-- proof-end -->
 
-### bounded Lipschitz domain なら通常の零境界値から $H_0^1$ が出る
+### 有界 Lipschitz domain なら通常の零境界値から $H_0^1$ が出る
 
-$\Omega$ が bounded Lipschitz domain で
+$\Omega$ が 有界 Lipschitz domain で
 
 $$
 u\in C^2(\overline\Omega),
@@ -717,7 +721,7 @@ $$
 \operatorname{Tr}u=0.
 $$
 
-GPDE4 の [H_0^1 と zero trace の同一視](../GPDE4/index.md#thm-gpde4-h01-trace-kernel)から
+GPDE4 の [H_0^1 と 零トレース の同一視](../GPDE4/index.md#thm-gpde4-h01-trace-kernel)から
 
 $$
 u\in H_0^1(\Omega).
@@ -727,11 +731,11 @@ $$
 
 ---
 
-## 6. distributional solution と変分弱解はどこが違うか
+## 6. 超関数解 と変分弱解はどこが違うか
 
-GPDE1 では [Poisson 方程式の distributional solution](../GPDE1/index.md#def-gpde1-distributional-poisson)を定義しました。
+GPDE1 では [Poisson 方程式の 超関数解](../GPDE1/index.md#def-gpde1-distributional-poisson)を定義しました。
 
-そこでは test function は
+そこでは テスト関数 は
 
 $$
 \varphi\in C_c^\infty(\Omega)
@@ -745,7 +749,7 @@ $$
 v\in H_0^1(\Omega)
 $$
 
-まで test space を広げています。
+まで テスト空間 を広げています。
 
 さらに
 
@@ -758,13 +762,13 @@ $$
 したがって
 
 $$
-\text{distributional equation}
+\text{超関数としての方程式}
 $$
 
 と
 
 $$
-\text{variational boundary-value problem}
+\text{変分境界値問題}
 $$
 
 は同じ言葉ではありません。
@@ -774,7 +778,7 @@ $$
 <a id="thm-gpde6-distributional-variational"></a>
 
 <!-- formal-statement-start -->
-> **定理（distributional solution と変分弱解の同値）**  
+> **定理（超関数解 と変分弱解の同値）**  
 > $\Omega\subset\mathbb R^d$ を有界開集合とし
 
 $$
@@ -793,7 +797,7 @@ $$
 -\Delta u=f
 $$
 
-> の distributional solution である。
+> の 超関数解 である。
 >
 > 2. 任意の $v\in H_0^1(\Omega)$ に対して
 
@@ -810,7 +814,7 @@ $$
 
 ### 証明の見取り図
 
-distributional equation は $C_c^\infty$ 上の等式です。
+超関数としての方程式 は $C_c^\infty$ 上の等式です。
 
 一方、$H_0^1$ は $C_c^\infty$ の閉包です。
 
@@ -824,7 +828,7 @@ $$
 }
 $$
 
-だけで test space を広げられます。
+だけで テスト空間 を広げられます。
 
 <!-- proof-start -->
 ### 証明
@@ -882,11 +886,11 @@ $$
 -\Delta u=f
 $$
 
-の distributional equation です。
+の 超関数としての方程式 です。
 
 逆に 1 を仮定します。
 
-distributional equation と [weak derivative の定義](../GPDE2/index.md#def-gpde2-weak-derivative)から、任意の $\varphi\in C_c^\infty(\Omega)$ に対して
+超関数としての方程式 と [weak derivative の定義](../GPDE2/index.md#def-gpde2-weak-derivative)から、任意の $\varphi\in C_c^\infty(\Omega)$ に対して
 
 $$
 \int_\Omega
@@ -947,7 +951,7 @@ fv\,dx.
 $$
 <!-- proof-end -->
 
-この定理で重要なのは、distributional equation だけから零境界条件が出たわけではないことです。
+この定理で重要なのは、超関数としての方程式 だけから零境界条件が出たわけではないことです。
 
 $$
 u\in H_0^1(\Omega)
@@ -961,7 +965,7 @@ $$
 
 ここから実数値関数を考えます。
 
-実 norm 空間 $V$ 上の双線形写像
+実ノルム空間 $V$ 上の双線形写像
 
 $$
 a:V\times V\to\mathbb R
@@ -969,11 +973,15 @@ $$
 
 を考えます。
 
+変分方程式を解くには、双線形形式に二種類の制御が必要です。まず入力 $u,v$ のノルムから $|a(u,v)|$ を上から抑えられなければ、極限を取るたびに左辺が不安定になります。これが**有界性**です。
+
+一方、対角値 $a(v,v)$ が正の量として $\|v\|_V^2$ を下から抑えなければ、非零方向が左辺から見えなくなり、一意性や逆作用素の評価が失われます。これが**強圧性**です。まず二つを別々に定義します。
+
 <a id="def-gpde6-bounded-bilinear"></a>
 
 <!-- formal-statement-start -->
-> **定義（bounded bilinear form）**  
-> norm 空間 $V$ 上の双線形形式
+> **定義（有界双線形形式）**  
+> ノルム 空間 $V$ 上の双線形形式
 
 $$
 a:V\times V\to\mathbb R
@@ -989,7 +997,7 @@ M\|u\|_V\|v\|_V
 }
 $$
 
-> が成り立つとき、$a$ を bounded bilinear form と呼ぶ。
+> が成り立つとき、$a$ を 有界双線形形式 と呼ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gpde6-bounded-bilinear -->
@@ -1013,14 +1021,14 @@ $$
 \|u\|_V\|v\|_V.
 $$
 
-従って $M=1$ で bounded です。
+従って $M=1$ で 有界 です。
 <!-- definition-example-end -->
 
 <a id="def-gpde6-coercive"></a>
 
 <!-- formal-statement-start -->
-> **定義（coercive bilinear form）**  
-> norm 空間 $V$ 上の双線形形式 $a$ に対し、ある定数 $\alpha>0$ が存在して任意の $v\in V$ について
+> **定義（強圧的双線形形式）**  
+> ノルム 空間 $V$ 上の双線形形式 $a$ に対し、ある定数 $\alpha>0$ が存在して任意の $v\in V$ について
 
 $$
 \boxed{
@@ -1030,7 +1038,7 @@ a(v,v)
 }
 $$
 
-> が成り立つとき、$a$ を coercive であるという。
+> が成り立つとき、$a$ を 強圧的 であるという。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gpde6-coercive -->
@@ -1046,7 +1054,7 @@ v^2
 \|v\|_V^2.
 $$
 
-従って $\alpha=1$ で coercive です。
+従って $\alpha=1$ で 強圧的 です。
 
 一方
 
@@ -1057,7 +1065,7 @@ $$
 なら $a(v,v)=0$ なので、非零 $v$ に対して正の $\alpha$ を選べません。
 <!-- definition-example-end -->
 
-boundedness は
+有界性 は
 
 $$
 \text{入力が少し変われば値も少ししか変わらない}
@@ -1065,10 +1073,10 @@ $$
 
 ことを表します。
 
-coercivity は
+強圧性 は
 
 $$
-\text{energy が norm を下から押さえる}
+\text{エネルギー が ノルム を下から押さえる}
 $$
 
 ことを表します。
@@ -1079,7 +1087,7 @@ $$
 
 ## 8. Poisson の双線形形式は最もきれいな例である
 
-$V=H_0^1(\Omega)$ に勾配 norm
+$V=H_0^1(\Omega)$ に勾配 ノルム
 
 $$
 \|v\|_V=\|\nabla v\|_2
@@ -1101,7 +1109,7 @@ $$
 <a id="prop-gpde6-poisson-form"></a>
 
 <!-- formal-statement-start -->
-> **命題（Poisson form の boundedness と coercivity）**  
+> **命題（Poisson 双線形形式の有界性と強圧性）**  
 > $\Omega\subset\mathbb R^d$ を有界開集合とし
 
 $$
@@ -1121,7 +1129,7 @@ a(u,v)
 \nabla u\cdot\nabla v\,dx
 $$
 
-> は bounded かつ coercive であり
+> は 有界 かつ 強圧的 であり
 
 $$
 \boxed{
@@ -1143,7 +1151,7 @@ $$
 
 > が成り立つ。
 >
-> 通常の $H^1$ norm を使う場合も
+> 通常の $H^1$ ノルム を使う場合も
 
 $$
 a(v,v)
@@ -1157,11 +1165,11 @@ $$
 
 ### 証明の見取り図
 
-boundedness は [Cauchy--Schwarz 不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)そのものです。
+有界性 は [Cauchy--Schwarz 不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)そのものです。
 
-coercivity は勾配 norm なら等号です。
+強圧性 は勾配 ノルム なら等号です。
 
-通常の $H^1$ norm を使う場合だけ [Poincaré 不等式](../GPDE4/index.md#thm-gpde4-poincare)が必要になります。
+通常の $H^1$ ノルム を使う場合だけ [Poincaré 不等式](../GPDE4/index.md#thm-gpde4-poincare)が必要になります。
 
 <!-- proof-start -->
 ### 証明
@@ -1199,7 +1207,7 @@ a(v,v)
 \|v\|_V^2.
 $$
 
-よって勾配 norm に対して coercivity 定数は
+よって勾配 ノルム に対して 強圧性 定数は
 
 $$
 \alpha=1
@@ -1207,7 +1215,7 @@ $$
 
 です。
 
-通常の $H^1$ norm では [Poincaré 不等式](../GPDE4/index.md#thm-gpde4-poincare)から
+通常の $H^1$ ノルム では [Poincaré 不等式](../GPDE4/index.md#thm-gpde4-poincare)から
 
 $$
 \|v\|_2^2
@@ -1229,19 +1237,26 @@ $$
 \|\nabla v\|_2^2.
 $$
 
-整理すると
+$1+C_P^2>0$ なので両辺をこの定数で割ると
+
+$$
+\|\nabla v\|_2^2
+\ge
+\frac{1}{1+C_P^2}
+\|v\|_{H^1}^2.
+$$
+
+ここで $a(v,v)=\|\nabla v\|_2^2$ だから
 
 $$
 a(v,v)
-=
-\|\nabla v\|_2^2
 \ge
 \frac{1}{1+C_P^2}
 \|v\|_{H^1}^2.
 $$
 <!-- proof-end -->
 
-### 具体例：境界条件を外すと coercivity が壊れる
+### 具体例：境界条件を外すと 強圧性 が壊れる
 
 同じ form を $H^1(\Omega)$ 全体で考えます。
 
@@ -1275,11 +1290,11 @@ $$
 
 を正の $\alpha$ で満たせません。
 
-$H_0^1$ を選ぶことは境界条件を表すだけでなく、定数方向を消して coercivity を回復する役割も持っています。
+$H_0^1$ を選ぶことは境界条件を表すだけでなく、定数方向を消して 強圧性 を回復する役割も持っています。
 
 ---
 
-## 9. 対称問題では energy を最小化すればよい
+## 9. 対称問題では エネルギー を最小化すればよい
 
 Poisson form は対称です。
 
@@ -1300,8 +1315,8 @@ $$
 <a id="def-gpde6-energy"></a>
 
 <!-- formal-statement-start -->
-> **定義（energy functional）**  
-> 実 norm 空間 $V$、対称双線形形式 $a:V\times V\to\mathbb R$、線形汎関数 $F:V\to\mathbb R$ に対し
+> **定義（エネルギー汎関数）**  
+> 実ノルム空間 $V$、対称双線形形式 $a:V\times V\to\mathbb R$、線形汎関数 $F:V\to\mathbb R$ に対し
 
 $$
 \boxed{
@@ -1311,7 +1326,7 @@ J(v)
 }
 $$
 
-> を対応する energy functional と呼ぶ。
+> を対応する エネルギー汎関数 と呼ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gpde6-energy -->
@@ -1378,15 +1393,15 @@ $$
 
 です。
 
-第一項は Dirichlet energy、第二項は外力が行う仕事に対応します。
+第一項は Dirichlet エネルギー、第二項は外力が行う仕事に対応します。
 
 <a id="thm-gpde6-variational-principle"></a>
 
 <!-- formal-statement-start -->
-> **定理（対称 coercive 問題の変分原理）**  
-> $V$ を実 norm 空間とする。
+> **定理（対称強圧問題の変分原理）**  
+> $V$ を実ノルム空間とする。
 >
-> $a:V\times V\to\mathbb R$ を対称かつ coercive な双線形形式、$F\in V^*$ とし
+> $a:V\times V\to\mathbb R$ を対称かつ 強圧的 な双線形形式、$F\in V^*$ とし
 
 $$
 J(v)=\frac12a(v,v)-F(v)
@@ -1402,14 +1417,14 @@ $$
 a(u,v)=F(v).
 $$
 
-> 2. $u$ は $J$ の global minimizer である。
+> 2. $u$ は $J$ の 大域的最小点 である。
 >
 > さらに、この minimizer は存在するなら一意である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-核心は energy 差を完全平方の代わりに
+核心は エネルギー 差を完全平方の代わりに
 
 $$
 J(u+w)-J(u)
@@ -1417,7 +1432,7 @@ $$
 
 として展開することです。
 
-variational equation が一次項を消し、coercivity が残った二次項を正にします。
+変分方程式 が一次項を消し、強圧性 が残った二次項を正にします。
 
 逆向きは
 
@@ -1474,7 +1489,7 @@ J(u+w)-J(u)
 \frac12a(w,w).
 $$
 
-coercivity 定数を $\alpha>0$ とすると
+強圧性 定数を $\alpha>0$ とすると
 
 $$
 J(u+w)-J(u)
@@ -1489,7 +1504,7 @@ $$
 J(u+w)>J(u).
 $$
 
-よって $u$ は一意な global minimizer です。
+よって $u$ は一意な 大域的最小点 です。
 
 逆に 2 を仮定します。
 
@@ -1546,19 +1561,19 @@ $w$ は任意だったので 1 が成立します。
 
 まだ最小点の存在は示していません。
 
-次節で GPDE5 の弱コンパクト性を使い、Poisson energy の最小点を実際に作ります。
+次節で GPDE5 の弱コンパクト性を使い、Poisson エネルギー の最小点を実際に作ります。
 
 ---
 
-## 10. 弱極限で norm は突然小さくなっても、大きくはならない
+## 10. 弱極限でノルムは突然小さくなっても、大きくはならない
 
 直接法には一つ補題が必要です。
 
 <a id="lem-gpde6-weak-lsc"></a>
 
 <!-- formal-statement-start -->
-> **補題（Hilbert norm の弱収束時の norm 評価）**  
-> 実 完備内積空間 $H$ で
+> **補題（Hilbert 空間のノルムの弱下半連続性）**  
+> 実 完備な内積空間 $H$ で
 
 $$
 x_n\rightharpoonup x
@@ -1582,9 +1597,9 @@ $$
 
 ### なぜこの向きなのか
 
-弱収束では norm convergence は保証されません。
+弱収束では ノルム収束 は保証されません。
 
-たとえば $\ell^2$ の標準基底は 0 へ弱収束しますが norm は 1 のままです。
+たとえば $\ell^2$ の標準基底は 0 へ弱収束しますが ノルム は 1 のままです。
 
 したがって
 
@@ -1594,9 +1609,9 @@ $$
 
 までは言えません。
 
-しかし弱極限の norm が右辺の $\liminf$ を上回ることはありません。
+しかし弱極限の ノルム が右辺の $\liminf$ を上回ることはありません。
 
-energy の二次項に必要なのは、この片方向だけです。
+エネルギー の二次項に必要なのは、この片方向だけです。
 
 <!-- proof-start -->
 ### 証明
@@ -1652,7 +1667,7 @@ $$
 $$
 <!-- proof-end -->
 
-この補題により、弱極限へ移ったとき quadratic energy は上へ跳びません。
+この補題により、弱極限へ移ったとき quadratic エネルギー は上へ跳びません。
 
 ---
 
@@ -1704,7 +1719,7 @@ $$
 
 ### 証明の見取り図
 
-$V=H_0^1(\Omega)$ に勾配 norm を入れ
+$V=H_0^1(\Omega)$ に勾配 ノルム を入れ
 
 $$
 J(v)
@@ -1718,13 +1733,13 @@ $$
 
 ~~~text
 1. J は下に有界
-2. minimizing sequence は V で有界
+2. 最小化列 は V で有界
 3. GPDE5 から弱収束部分列を取る
-4. norm の弱収束時の norm 評価と F の弱連続性で極限が最小点
+4. ノルム の弱収束時の ノルム 評価と F の弱連続性で極限が最小点
 5. 変分原理から最小点が弱解
 ~~~
 
-存在後の a priori estimate は test function に解自身を入れるだけです。
+存在後の アプリオリ評価 は テスト関数 に解自身を入れるだけです。
 
 <!-- proof-start -->
 ### 証明
@@ -1737,7 +1752,7 @@ $$
 
 と置きます。
 
-GPDE4 の [勾配 norm と H1 norm の同値性](../GPDE4/index.md#cor-gpde4-gradient-norm)と [H_0^1 の完備内積構造](../GPDE4/index.md#prop-gpde4-h01-closed)から、$V$ は内積
+GPDE4 の [勾配 ノルム と H1 ノルム の同値性](../GPDE4/index.md#cor-gpde4-gradient-norm)と [H_0^1 の完備内積構造](../GPDE4/index.md#prop-gpde4-h01-closed)から、$V$ は内積
 
 $$
 (u,v)_V
@@ -1746,9 +1761,9 @@ $$
 \nabla u\cdot\nabla v\,dx
 $$
 
-に関する 完備内積空間です。
+に関する 完備な内積空間です。
 
-energy を
+エネルギー を
 
 $$
 J(v)
@@ -1758,7 +1773,7 @@ $$
 
 とします。
 
-[dual norm の基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
+[双対ノルム の基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
 
 $$
 |F(v)|
@@ -1799,7 +1814,7 @@ $$
 
 は有限です。
 
-minimizing sequence $(v_n)$ を
+最小化列 $(v_n)$ を
 
 $$
 J(v_n)\to m
@@ -1866,7 +1881,7 @@ $$
 F(v_n)\to F(u).
 $$
 
-また [Hilbert norm の弱収束時の norm 評価](#lem-gpde6-weak-lsc)から
+また [Hilbert ノルム の弱収束時の ノルム 評価](#lem-gpde6-weak-lsc)から
 
 $$
 \|u\|_V^2
@@ -1902,9 +1917,9 @@ $$
 J(u)=m.
 $$
 
-つまり $u$ は global minimizer です。
+つまり $u$ は 大域的最小点 です。
 
-[対称 coercive 問題の変分原理](#thm-gpde6-variational-principle)から
+[対称 強圧的 問題の変分原理](#thm-gpde6-variational-principle)から
 
 $$
 \int_\Omega
@@ -1917,7 +1932,7 @@ $$
 
 同じ定理から minimizer は一意なので、弱解も一意です。
 
-最後に test function として $v=u$ を選びます。
+最後に テスト関数 として $v=u$ を選びます。
 
 すると
 
@@ -1927,7 +1942,7 @@ $$
 F(u).
 $$
 
-[dual norm の基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
+[双対ノルム の基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
 
 $$
 F(u)
@@ -1961,7 +1976,7 @@ $$
 
 $$
 \boxed{
-\text{minimizing sequence が有界}
+\text{最小化列 が有界}
 \Longrightarrow
 \text{弱収束部分列が取れる}
 }
@@ -1971,9 +1986,9 @@ $$
 
 強収束は使っていません。
 
-Poisson energy は凸な quadratic functional なので、弱収束と弱収束時の norm 評価だけで最小点を作れます。
+Poisson エネルギー は凸な quadratic 汎関数 なので、弱収束と弱収束時の ノルム 評価だけで最小点を作れます。
 
-非線形 PDE では、この先さらに compactness による強収束が必要になる場合があります。
+非線形 PDE では、この先さらに コンパクト性 による強収束が必要になる場合があります。
 
 ---
 
@@ -2043,7 +2058,7 @@ $$
 (F_1-F_2)(w).
 $$
 
-[dual norm の基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
+[双対ノルム の基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
 
 $$
 \|\nabla w\|_2^2
@@ -2062,7 +2077,7 @@ $$
 \|F_1-F_2\|_{H^{-1}}.
 $$
 
-$f_i\in L^2$ の場合は [L2 data は Hminus1 functional を定める命題](#prop-gpde6-l2-hminus1)を差 $f_1-f_2$ に適用すれば
+$f_i\in L^2$ の場合は [L2 data は Hminus1 汎関数 を定める命題](#prop-gpde6-l2-hminus1)を差 $f_1-f_2$ に適用すれば
 
 $$
 \|F_1-F_2\|_{H^{-1}}
@@ -2123,7 +2138,7 @@ $$
 u\mapsto\Delta u
 $$
 
-を pointwise に読む必要がありました。
+を 点ごと に読む必要がありました。
 
 変分形では
 
@@ -2136,7 +2151,7 @@ $$
 その代わり、方程式を
 
 $$
-\text{全ての test function との積分恒等式}
+\text{全ての テスト関数 との積分恒等式}
 $$
 
 として読みます。
@@ -2192,7 +2207,7 @@ $$
 
 ### 14.2 Neumann 条件
 
-Neumann 問題では trial space を $H^1(\Omega)$ に取るのが自然です。
+Neumann 問題では 試行空間 を $H^1(\Omega)$ に取るのが自然です。
 
 しかし定数関数に対して
 
@@ -2210,7 +2225,7 @@ a(v,v)
 \|\nabla v\|_2^2
 $$
 
-は $H^1$ norm に対して coercive ではありません。
+は $H^1$ ノルム に対して 強圧的 ではありません。
 
 これは PDE6 以前の古典論で見た
 
@@ -2259,9 +2274,9 @@ GPDE7 では対称性を捨て、
 
 $$
 \boxed{
-\text{bounded}
+\text{有界}
 +
-\text{coercive}
+\text{強圧的}
 }
 $$
 
@@ -2276,10 +2291,10 @@ $$
 本章の直接法は特殊ケースの別証明ではなく、
 
 $$
-\text{なぜ coercivity が必要なのか}
+\text{なぜ 強圧性 が必要なのか}
 $$
 
-を energy の形で先に可視化する役割を持っています。
+を エネルギー の形で先に可視化する役割を持っています。
 
 ---
 
@@ -2473,7 +2488,7 @@ $$
 \|\nabla v\|_2
 $$
 
-を $H_0^1$ の norm として使っているので
+を $H_0^1$ の ノルム として使っているので
 
 $$
 |F(v)|
@@ -2529,7 +2544,7 @@ $$
 u(0)=u(1)=0.
 $$
 
-[区間上の H_0^1 と zero trace](../GPDE4/index.md#thm-gpde4-h01-trace-kernel-interval)から
+[区間上の H_0^1 と 零トレース](../GPDE4/index.md#thm-gpde4-h01-trace-kernel-interval)から
 
 $$
 u\in H_0^1(0,1).
@@ -2590,7 +2605,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-gpde6-a04"></a>
-#### GPDE6-A04 Poisson form の二つの norm での coercivity
+#### GPDE6-A04 Poisson form の二つの ノルム での 強圧性
 - Level: A
 
 $$
@@ -2602,8 +2617,8 @@ $$
 
 を $H_0^1(\Omega)$ 上で考える。
 
-1. 勾配 norm $\|v\|_V=\|\nabla v\|_2$ に対する boundedness 定数と coercivity 定数を求めよ。
-2. 通常の $H^1$ norm に対し
+1. 勾配 ノルム $\|v\|_V=\|\nabla v\|_2$ に対する 有界性 定数と 強圧性 定数を求めよ。
+2. 通常の $H^1$ ノルム に対し
 
 $$
 a(v,v)
@@ -2628,7 +2643,7 @@ $$
 \|u\|_V\|v\|_V.
 $$
 
-従って boundedness 定数は
+従って 有界性 定数は
 
 $$
 M=1
@@ -2646,7 +2661,7 @@ a(v,v)
 \|v\|_V^2.
 $$
 
-従って coercivity 定数も
+従って 強圧性 定数も
 
 $$
 \alpha=1
@@ -2654,7 +2669,7 @@ $$
 
 と取れます。
 
-通常の $H^1$ norm については [Poincaré 不等式](../GPDE4/index.md#thm-gpde4-poincare)から
+通常の $H^1$ ノルム については [Poincaré 不等式](../GPDE4/index.md#thm-gpde4-poincare)から
 
 $$
 \|v\|_2^2
@@ -2692,7 +2707,7 @@ $$
 ### Level B
 
 <a id="ex-gpde6-b01"></a>
-#### GPDE6-B01 distributional equation から変分弱形式へ
+#### GPDE6-B01 超関数としての方程式 から変分弱形式へ
 - Level: B
 
 $\Omega$ を有界開集合とし
@@ -2728,7 +2743,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-distributional equation から、任意の $\varphi\in C_c^\infty(\Omega)$ に対し
+超関数としての方程式 から、任意の $\varphi\in C_c^\infty(\Omega)$ に対し
 
 $$
 -\int_\Omega
@@ -2827,10 +2842,10 @@ $$
 <!-- solution-end -->
 
 <a id="ex-gpde6-b02"></a>
-#### GPDE6-B02 variational equation と energy minimization
+#### GPDE6-B02 変分方程式 と エネルギー最小化
 - Level: B
 
-$V$ を実 norm 空間、$a$ を対称 coercive bilinear form、$F\in V^*$ とする。
+$V$ を実ノルム空間、$a$ を対称 強圧的双線形形式、$F\in V^*$ とする。
 
 $$
 J(v)
@@ -2856,7 +2871,7 @@ J(u+w)-J(u)
 \frac12a(w,w)
 $$
 
-を示し、$u$ が $J$ の一意な global minimizer であることを導け。
+を示し、$u$ が $J$ の一意な 大域的最小点 であることを導け。
 
 <!-- solution-start -->
 **詳細解答**
@@ -2907,7 +2922,7 @@ a(u,w)-F(w)
 \frac12a(w,w).
 $$
 
-variational equation により
+変分方程式 により
 
 $$
 a(u,w)=F(w)
@@ -2923,7 +2938,7 @@ J(u+w)-J(u)
 }.
 $$
 
-coercivity 定数を $\alpha>0$ とすると
+強圧性 定数を $\alpha>0$ とすると
 
 $$
 a(w,w)
@@ -2948,7 +2963,7 @@ $$
 J(u+w)>J(u)
 $$
 
-が全ての非零 $w$ で成り立ち、$u$ は一意な global minimizer です。
+が全ての非零 $w$ で成り立ち、$u$ は一意な 大域的最小点 です。
 <!-- solution-end -->
 
 <a id="ex-gpde6-b03"></a>
@@ -2970,7 +2985,7 @@ u_n\to u
 \quad\text{in }H_0^1(\Omega)
 $$
 
-を勾配 norm で示せ。
+を勾配 ノルム で示せ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -3018,7 +3033,7 @@ $$
 (F_n-F)(u_n-u).
 $$
 
-$H^{-1}$ norm の supremum 表示から
+$H^{-1}$ ノルム の supremum 表示から
 
 $$
 |(F_n-F)(u_n-u)|
@@ -3027,7 +3042,7 @@ $$
 \|\nabla(u_n-u)\|_2.
 $$
 
-左の norm が 0 なら結論は成立します。
+左の ノルム が 0 なら結論は成立します。
 
 正なら割って
 
@@ -3045,7 +3060,7 @@ $$
 }.
 $$
 
-GPDE4 の norm 同値性から、これは通常の $H^1$ norm での収束とも同値です。
+GPDE4 の ノルム 同値性から、これは通常の $H^1$ ノルム での収束とも同値です。
 
 したがって
 
@@ -3084,10 +3099,10 @@ $$
 次を順に示し、Poisson 変分問題の解の存在一意性を導け。
 
 1. $J$ は下に有界である。
-2. minimizing sequence は $V$ で有界である。
+2. 最小化列 は $V$ で有界である。
 3. 弱収束部分列 $v_{n_k}\rightharpoonup u$ を取れる。
 4. $u$ が $J$ の minimizer である。
-5. $u$ が variational equation を満たす。
+5. $u$ が 変分方程式 を満たす。
 6. 解は一意である。
 
 <!-- solution-start -->
@@ -3097,7 +3112,7 @@ $c=\|F\|_{H^{-1}}$ と置きます。
 
 ### 1. 下からの評価
 
-[dual norm の基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
+[双対ノルム の基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
 
 $$
 |F(v)|
@@ -3139,13 +3154,13 @@ $$
 
 は有限です。
 
-### 2. minimizing sequence の有界性
+### 2. 最小化列 の有界性
 
 $$
 J(v_n)\to m
 $$
 
-となる minimizing sequence を取ります。
+となる 最小化列 を取ります。
 
 十分大きい $n$ で
 
@@ -3197,7 +3212,7 @@ $$
 \int_\Omega\nabla u\cdot\nabla v\,dx
 $$
 
-について 完備内積空間です。
+について 完備な内積空間です。
 
 [完備内積空間の有界列から弱収束部分列](../GPDE5/index.md#thm-gpde5-hilbert-weak-subsequence)を使い、部分列を取り直して
 
@@ -3218,7 +3233,7 @@ $$
 F(v_n)\to F(u).
 $$
 
-また [Hilbert norm の弱収束時の norm 評価](#lem-gpde6-weak-lsc)から
+また [Hilbert ノルム の弱収束時の ノルム 評価](#lem-gpde6-weak-lsc)から
 
 $$
 \|u\|_V^2
@@ -3254,7 +3269,7 @@ $$
 
 したがって $u$ は minimizer です。
 
-### 5. minimizer から variational equation
+### 5. minimizer から 変分方程式
 
 任意の $w\in V$ と $t>0$ に対し
 
@@ -3332,7 +3347,7 @@ $$
 \|z\|_V=0.
 $$
 
-これは $V$ 上の norm なので
+これは $V$ 上の ノルム なので
 
 $$
 z=0.
@@ -3359,7 +3374,7 @@ $$
 -\Delta u=f
 $$
 
-という pointwise equation から
+という 点ごと equation から
 
 $$
 \boxed{
@@ -3380,11 +3395,11 @@ $$
 - 零 Dirichlet 条件は $H_0^1$ という空間選択へ入る。
 - 外力は $H^{-1}=(H_0^1)^*$ で受けられる。
 - $L^2$ 外力は Poincaré により $H^{-1}$ データになる。
-- distributional equation と variational equation は $u\in H_0^1$, $f\in L^2$ の下で同値になる。
-- Poisson form は bounded かつ coercive である。
-- 対称性により weak equation は energy minimization と同値になる。
-- GPDE5 の弱コンパクト性と norm の弱収束時の norm 評価から minimizer を構成できる。
-- coercivity から一意性と stability estimate が得られる。
+- 超関数としての方程式 と 変分方程式 は $u\in H_0^1$, $f\in L^2$ の下で同値になる。
+- Poisson form は 有界 かつ 強圧的 である。
+- 対称性により weak equation は エネルギー最小化 と同値になる。
+- GPDE5 の弱コンパクト性と ノルム の弱収束時の ノルム 評価から minimizer を構成できる。
+- 強圧性 から一意性と stability estimate が得られる。
 
 という一本の構造が得られました。
 
@@ -3396,4 +3411,4 @@ a(u,v)
 F(v)
 $$
 
-を Poisson 固有の inner product から切り離し、一般の bounded coercive bilinear form に対して解の存在一意性を保証する Lax--Milgram 定理を証明します。
+を Poisson 固有の inner product から切り離し、一般の 有界 強圧的双線形形式 に対して解の存在一意性を保証する Lax--Milgram 定理を証明します。
