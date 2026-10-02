@@ -894,7 +894,41 @@ $$
 
 逆に 1 を仮定します。
 
-超関数としての方程式 と [弱微分 の定義](../GPDE2/index.md#def-gpde2-weak-derivative)から、任意の $\varphi\in C_c^\infty(\Omega)$ に対して
+[Poisson 方程式の超関数解の定義](../GPDE1/index.md#def-gpde1-distributional-poisson)から、任意の $\varphi\in C_c^\infty(\Omega)$ に対して
+
+$$
+-\int_\Omega u\,\Delta\varphi\,dx
+=
+\int_\Omega f\varphi\,dx
+$$
+
+です。
+
+次に [弱微分の定義](../GPDE2/index.md#def-gpde2-weak-derivative)を各座標方向へ適用します。固定した $j$ について、テスト関数として $\partial_j\varphi\in C_c^\infty(\Omega)$ を選ぶと
+
+$$
+\int_\Omega
+u\,\partial_{jj}\varphi\,dx
+=
+-\int_\Omega
+D_j u\,\partial_j\varphi\,dx.
+$$
+
+したがって両辺にマイナスを付け、$j=1,\ldots,d$ で和を取れば
+
+$$
+-\int_\Omega
+u\,\Delta\varphi\,dx
+=
+\sum_{j=1}^d
+\int_\Omega
+D_j u\,\partial_j\varphi\,dx
+=
+\int_\Omega
+\nabla u\cdot\nabla\varphi\,dx.
+$$
+
+これを超関数解の等式へ代入して
 
 $$
 \int_\Omega
@@ -904,7 +938,7 @@ $$
 f\varphi\,dx
 $$
 
-が成り立ちます。
+を得ます。
 
 任意の $v\in H_0^1(\Omega)$ を取り
 
