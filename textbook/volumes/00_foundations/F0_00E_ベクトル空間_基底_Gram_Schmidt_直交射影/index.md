@@ -28,6 +28,46 @@ F0-00では「行列式や固有値を計算できる」ことを優先しまし
 > 8. $1x=x$
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-f0-00e-vector-space -->
+**定義の確認**
+
+### 1.1 多項式全体でベクトル空間の条件を確かめる
+
+2次以下の多項式全体
+
+$
+P_2=\{a+bx+cx^2:a,b,c\in\mathbb R\}
+$
+
+に、通常の多項式の加法と実数倍を入れます。$p,q,r\in P_2$、$\alpha,\beta\in\mathbb R$ とします。
+
+$p+q$ と $\alpha p$ は再び2次以下なので、演算は $P_2$ の中で閉じています。また多項式の係数を比較すれば
+
+$
+p+q=q+p,
+\qquad
+(p+q)+r=p+(q+r)
+$
+
+が成り立ち、零多項式が零ベクトル、$-p$ が加法逆元です。さらに
+
+$
+\alpha(p+q)=\alpha p+\alpha q,
+\qquad
+(\alpha+\beta)p=\alpha p+\beta p,
+$
+
+$
+(\alpha\beta)p=\alpha(\beta p),
+\qquad
+1p=p
+$
+
+も係数ごとに成り立ちます。
+
+したがって定義の8条件をすべて満たし、$P_2$ は実ベクトル空間です。
+<!-- definition-example-end -->
+
 この定義で重要なのは、**ベクトルが数の縦並びである必要はない**ことです。
 
 典型例は
@@ -60,6 +100,34 @@ $$
 > **定義（線形部分空間）**  
 > ベクトル空間 $V$ の部分集合 $W\subset V$ が、$V$ と同じ加法とスカラー倍についてベクトル空間になるとき、$W$ を $V$ の **線形部分空間** といいます。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00e-linear-subspace -->
+**定義の確認**
+
+### 2.1 平面 $x+y+z=0$ は線形部分空間
+
+$
+W=\{(x,y,z)\in\mathbb R^3:x+y+z=0\}
+$
+
+とします。$0=(0,0,0)\in W$ なので $W$ は空ではありません。
+
+$u=(x_1,y_1,z_1),v=(x_2,y_2,z_2)\in W$ と $a,b\in\mathbb R$ に対し、
+
+$
+x_1+y_1+z_1=0,
+\qquad
+x_2+y_2+z_2=0.
+$
+
+したがって $au+bv$ の成分の和は
+
+$
+a(x_1+y_1+z_1)+b(x_2+y_2+z_2)=0.
+$
+
+よって $au+bv\in W$ です。加法とスカラー倍に閉じているので、$W$ は $\mathbb R^3$ の線形部分空間です。
+<!-- definition-example-end -->
 
 実際の判定では、次の条件で十分です。
 
@@ -127,7 +195,48 @@ $$
 
 したがって
 
-$$
+$
+\operatorname{span}(S)
+
+<!-- definition-example-start: def-f0-00e-linear-combination-span -->
+**定義の確認**
+
+### 3.1 二つのベクトルの線形包を直接求める
+
+$
+v_1=(1,0,1),
+\qquad
+v_2=(0,1,1)
+$
+
+とします。有限線形結合は
+
+$
+av_1+bv_2=(a,b,a+b)
+$
+
+なので、得られるベクトルは必ず $z=x+y$ を満たします。
+
+逆に $(x,y,z)$ が $z=x+y$ を満たせば、
+
+$
+(x,y,z)=xv_1+yv_2.
+$
+
+したがって
+
+$
+\operatorname{span}\{v_1,v_2\}
+=
+\{(x,y,z)\in\mathbb R^3:z=x+y\}.
+$
+
+これは「$v_1,v_2$ の有限線形結合をすべて集める」という定義を直接使った計算です。
+<!-- definition-example-end -->
+
+したがって
+
+$
 \operatorname{span}(S)
 =
 \{0\}
@@ -223,6 +332,34 @@ $$
 > が成り立つことをいう。一次独立でない集合を **一次従属** という。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-f0-00e-linear-independence -->
+**定義の確認**
+
+### 4.1 標準基底の二本は一次独立
+
+$\mathbb R^2$ で
+
+$
+e_1=(1,0),
+\qquad
+e_2=(0,1)
+$
+
+とします。
+
+$
+ae_1+be_2=0
+$
+
+なら左辺は $(a,b)$ なので、
+
+$
+(a,b)=(0,0).
+$
+
+従って $a=b=0$ です。非自明な有限線形関係が存在しないため、$\{e_1,e_2\}$ は定義どおり一次独立です。
+<!-- definition-example-end -->
+
 この定義から、$S$ が一次独立であることと、$S$ の任意の有限部分集合が一次独立であることは同じです。
 
 有限集合 $S=\{v_1,\dots,v_k\}$ では、以前の「$a_1v_1+\cdots+a_kv_k=0$ なら全係数が0」という判定に戻ります。
@@ -243,6 +380,32 @@ $$
 > **定義（基底）**  
 > ベクトル空間 $V$ の部分集合 $B\subseteq V$ が $\operatorname{span}(B)=V$ を満たし、かつ一次独立であるとき、$B$ を $V$ の **基底** という。この代数的な基底を **Hamel 基底** とも呼ぶ。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00e-basis -->
+**定義の確認**
+
+### 5.1 $\mathbb R^2$ の標準基底
+
+$
+B=\{e_1,e_2\}
+=
+\{(1,0),(0,1)\}
+$
+
+とします。任意の $(x,y)\in\mathbb R^2$ は
+
+$
+(x,y)=xe_1+ye_2
+$
+
+と書けるので
+
+$
+\operatorname{span}(B)=\mathbb R^2.
+$
+
+また前節で確認したように $B$ は一次独立です。したがって「空間全体を張る」と「一次独立」の二条件を満たし、$B$ は $\mathbb R^2$ の基底です。
+<!-- definition-example-end -->
 
 基底 $B$ を固定すると、任意の $x\in V$ は **有限個の基底ベクトル**を使って一意に表せます。
 
@@ -276,6 +439,39 @@ $$
 
 > を $\mathcal B$ に関する $x$ の **座標ベクトル** という。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00e-coordinate-vector -->
+**定義の確認**
+
+### 5.2 順序付き基底に対する座標
+
+$\mathbb R^2$ の順序付き基底
+
+$
+\mathcal B=((1,0),(1,1))
+$
+
+と $x=(3,2)$ を考えます。
+
+$
+(3,2)
+=
+1(1,0)+2(1,1)
+$
+
+なので、定義に従って係数を順に並べれば
+
+$
+[x]_{\mathcal B}
+=
+\begin{pmatrix}
+1\\
+2
+\end{pmatrix}.
+$
+
+基底の順序を入れ替えれば係数を並べる順序も変わるため、座標ベクトルは「どの順序付き基底を選んだか」に依存します。
+<!-- definition-example-end -->
 
 この「基底を選ぶと抽象ベクトルを係数で記述できる」という事実が、後続の表現行列の土台です。
 
@@ -356,6 +552,28 @@ $$
 
 > と書きます。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00e-dimension -->
+**定義の確認**
+
+### 7.1 $\mathbb R^2$ の次元
+
+標準基底
+
+$
+\{(1,0),(0,1)\}
+$
+
+は2本のベクトルからなります。前節の交換補題により、有限次元空間ではどの基底を選んでも本数は同じです。
+
+したがって定義から
+
+$
+\dim\mathbb R^2=2.
+$
+
+「基底の本数」が基底の選び方に依存しないことを先に示したので、この数を空間そのものの次元として定義できます。
+<!-- definition-example-end -->
 
 ---
 
@@ -566,6 +784,50 @@ $$
 
 > を **部分空間の和** といいます。さらに $U\cap W=\{0\}$ のとき、各元の表示 $u+w$ は一意になり、この和を **直和** といい $U\oplus W$ と書きます。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00e-sum-direct-sum -->
+**定義の確認**
+
+### 11.1 座標軸の直和
+
+$\mathbb R^2$ で
+
+$
+U=\{(x,0):x\in\mathbb R\},
+\qquad
+W=\{(0,y):y\in\mathbb R\}
+$
+
+とします。
+
+任意の $(x,y)\in\mathbb R^2$ は
+
+$
+(x,y)=(x,0)+(0,y)
+$
+
+と書けるので $U+W=\mathbb R^2$ です。
+
+また
+
+$
+U\cap W=\{(0,0)\}.
+$
+
+もし
+
+$
+u_1+w_1=u_2+w_2
+$
+
+なら $u_1-u_2=w_2-w_1$ は $U\cap W$ に属するので両辺は $0$ です。従って $u_1=u_2$, $w_1=w_2$ で、表示は一意です。
+
+したがって定義より
+
+$
+\mathbb R^2=U\oplus W.
+$
+<!-- definition-example-end -->
 
 有限次元では
 
