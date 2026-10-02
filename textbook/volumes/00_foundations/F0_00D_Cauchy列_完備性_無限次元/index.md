@@ -337,19 +337,19 @@ $$
 
 一方、
 
-$
+$$
 q_n=\frac{\lfloor 10^n\sqrt2\rfloor}{10^n}\in\mathbb Q
-$
+$$
 
 と置くと
 
-$
+$$
 0\le \sqrt2-q_n<10^{-n}.
-$
+$$
 
 したがって \(m,n\ge N\) なら
 
-$
+$$
 |q_m-q_n|
 \le
 |q_m-\sqrt2|+|\sqrt2-q_n|
@@ -357,13 +357,15 @@ $
 10^{-m}+10^{-n}
 \le
 2\cdot10^{-N}.
-$
+$$
 
-任意の \(\varepsilon>0\) に対して \(2\cdot10^{-N}<\varepsilon\) となる \(N\) を取れるので、\((q_n)\) は \(\mathbb Q\) の Cauchy 列です。しかし実数としての極限 \(\sqrt2\) は \(\mathbb Q\) に属しません。したがって
+任意の \(\varepsilon>0\) に対して \(2\cdot10^{-N}<\varepsilon\) となる \(N\) を取れるので、\((q_n)\) は \(\mathbb Q\) の Cauchy 列です。しかし実数としての極限 \(\sqrt2\) は \(\mathbb Q\) に属しません。
 
-$
+もし \(\mathbb Q\) 内のある \(q\) に収束するなら、同じ列を \(\mathbb R\) の列として見ても \(q_n\to q\) です。[極限の一意性](../F0_00B_距離空間_開集合_閉集合_収束/index.md#prop-f0-00b-01)から \(q=\sqrt2\) となり、\(q\in\mathbb Q\) に矛盾します。したがって
+
+$$
 \boxed{(\mathbb Q,|\cdot|)\text{ は完備でない}}.
-$
+$$
 
 同じ Cauchy 条件でも、空間が極限を収容できるかどうかが違います。
 <!-- definition-example-end -->
@@ -927,10 +929,10 @@ $$
 R
 =
 1+
-\max_{1\le k<N}d(x_k,x_N)
+\max\bigl(\{0\}\cup\{d(x_k,x_N):1\le k<N\}\bigr)
 $$
 
-と取れば、すべての \(n\) について
+と取れば、\(N=1\) の場合も含めて、すべての \(n\) について
 
 $$
 d(x_n,x_N)\le R.
