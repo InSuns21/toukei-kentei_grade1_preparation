@@ -97,6 +97,7 @@ concepts:
     requires:
       - analysis.linear-volume-scaling
       - analysis.multivariable-differentiability
+      - analysis.ftc-2
       - analysis.finite-dimensional-heine-cantor
       - linear.determinant-invertibility-criterion
 
@@ -108,6 +109,7 @@ concepts:
       - analysis.jordan-domain-riemann-integral
       - analysis.local-volume-scaling
       - analysis.multivariable-differentiability
+      - analysis.multivariable-chain-rule
       - analysis.finite-dimensional-heine-cantor
       - analysis.closed-bounded-open-buffer
       - linear.matrix-determinant
