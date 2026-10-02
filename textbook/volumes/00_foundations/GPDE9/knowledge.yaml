@@ -61,7 +61,7 @@ concepts:
   - id: pde.poisson-interior-h2
     name: Poisson方程式の内部H^2正則性
     kind: theorem
-    aliases: ["Poisson方程式のinterior H^2 regularity", "interior H2 regularity for Poisson equation"]
+    aliases: ["Poisson 方程式の内部 H2 正則性", "Poisson方程式のinterior H^2 regularity", "interior H2 regularity for Poisson equation"]
     introduction: formal
     introduction_aliases: ["定理（Poisson 方程式の内部 H2 正則性）"]
     requires:
@@ -84,7 +84,7 @@ concepts:
   - id: pde.lipschitz-coefficient-interior-h2
     name: 局所Lipschitz係数の内部H^2正則性
     kind: theorem
-    aliases: ["局所Lipschitz係数のinterior H^2 regularity", "interior H2 regularity with Lipschitz coefficients"]
+    aliases: ["局所 Lipschitz 係数の内部 H2 正則性", "局所Lipschitz係数のinterior H^2 regularity", "interior H2 regularity with Lipschitz coefficients"]
     introduction: formal
     introduction_aliases: ["定理（局所 Lipschitz 係数の内部 H2 正則性）"]
     requires:
