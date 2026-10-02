@@ -6,6 +6,7 @@ const siteDir = path.join(root, '_site');
 const facadePath = path.join(root, 'textbook', 'dream-theater.md');
 const manifestPath = path.join(root, 'textbook', 'dream-theater-index.json');
 const outputPath = path.join(siteDir, 'dream-theater-navigation.js');
+const publishedFacadePath = path.join(siteDir, 'textbook', 'dream-theater.md');
 
 await access(siteDir);
 
@@ -16,6 +17,12 @@ const [facade, manifestText] = await Promise.all([
 const manifest = JSON.parse(manifestText);
 const expectedPaths = manifest.sections.flatMap((section) => section.paths);
 const expectedSet = new Set(expectedPaths);
+const pageTitles = new Map(await Promise.all(
+  expectedPaths.map(async (target) => {
+    const markdown = await readFile(path.join(root, target), 'utf8');
+    return [target, extractMarkdownH1(markdown, target)];
+  }),
+));
 
 const sections = [];
 let currentSection = null;
@@ -51,7 +58,7 @@ for (const rawLine of facade.split(/\r?\n/)) {
     const target = match[2];
     if (!expectedSet.has(target)) continue;
 
-    const item = { title: match[1].replace(/`/g, '').trim(), target };
+    const item = { title: pageTitles.get(target), target };
     if (currentSubsection) currentSubsection.links.push(item);
     else if (currentSection) currentSection.links.push(item);
     else throw new Error(`DREAM THEATER link appears before a section heading: ${target}`);
@@ -78,6 +85,16 @@ for (let i = 0; i < expectedPaths.length; i += 1) {
     );
   }
 }
+
+const publishedFacade = await readFile(publishedFacadePath, 'utf8');
+const synchronizedFacade = publishedFacade.replace(
+  /\[([^\]]+)\]\((textbook\/volumes\/00_foundations\/[^)]+\/index\.md)\)/g,
+  (match, _label, target) => {
+    if (!expectedSet.has(target)) return match;
+    return `[${pageTitles.get(target)}](${target})`;
+  },
+);
+await writeFile(publishedFacadePath, synchronizedFacade, 'utf8');
 
 const routePaths = [
   'textbook/dream-theater.md',
@@ -158,4 +175,30 @@ function renderSidebar(navSections) {
   }
 
   return out.join('');
+}
+
+
+function extractMarkdownH1(markdown, sourcePath) {
+  let fence = null;
+  const lines = String(markdown).split(/\r?\n/);
+
+  for (const rawLine of lines) {
+    const fenceMatch = rawLine.match(/^\s*([`~]{3,})/);
+    if (fenceMatch) {
+      const marker = fenceMatch[1][0];
+      if (fence === null) fence = marker;
+      else if (fence === marker) fence = null;
+      continue;
+    }
+    if (fence !== null) continue;
+
+    const heading = rawLine.match(/^#\s+(.+?)\s*$/);
+    if (!heading) continue;
+
+    const title = heading[1].replace(/`/g, '').trim();
+    if (!title) break;
+    return title;
+  }
+
+  throw new Error(`DREAM THEATER page has no readable H1 title: ${sourcePath}`);
 }
