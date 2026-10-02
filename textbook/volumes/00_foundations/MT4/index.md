@@ -45,26 +45,108 @@ $$
 
 Lebesgue 微分定理で見るのは点の近くの平均なので、全空間で積分可能である必要はありません。例えば定数関数 $f(x)=1$ は $L^1(\mathbb R)$ には属しませんが、どの有界区間上でも積分は有限で、局所平均は問題なく定義できます。
 
+局所可積分性そのものは1次元に固有ではありません。後続の偏微分方程式でも同じ概念を使えるよう、ここでは開集合 $\Omega\subset\mathbb R^d$ 上で定義します。本章で証明する Lebesgue 微分定理は、その後 $d=1$、$\Omega=\mathbb R$ に戻って扱います。
+
 <a id="def-mt4-l1loc"></a>
 <!-- formal-statement-start -->
 ### 定義（局所可積分）
 
-可測関数 $f:\mathbb R\to\mathbb R$ が
+開集合 $\Omega\subset\mathbb R^d$ 上の可測関数 $f$ が
 
 $$
-\boxed{f\in L^1_{\mathrm{loc}}(\mathbb R)}
+\boxed{f\in L^1_{\mathrm{loc}}(\Omega)}
 $$
 
-であるとは、任意の有界区間 $I$ に対して
+であるとは、任意のコンパクト集合 $K\subset\Omega$ に対して
 
 $$
-\int_I|f|\,d\lambda<\infty
+\int_K|f(x)|\,dx<\infty
 $$
 
 となることをいう。
 <!-- formal-statement-end -->
 
-Lebesgue 微分定理は、$f$ が全空間で $L^1$ であることまでは要求しません。点の近くで積分可能なら十分です。
+$\Omega=\mathbb R$ では、これは任意の有界区間 $I$ に対して
+
+$$
+\int_I|f|\,d\lambda<\infty
+$$
+
+となることと同値です。したがって、以下の1次元 Lebesgue 微分定理で使う $L^1_{\mathrm{loc}}(\mathbb R)$ はこの一般定義の特殊例です。
+
+<a id="prop-mt4-l1loc-basic"></a>
+<!-- formal-statement-start -->
+### 命題（局所可積分性の基本性質）
+
+開集合 $\Omega\subset\mathbb R^d$ とする。
+
+1. $f\in L^1_{\mathrm{loc}}(\Omega)$、開集合 $V\subset\Omega$ なら、制限 $f|_V$ は $L^1_{\mathrm{loc}}(V)$ に属する。
+2. $f\in L^1_{\mathrm{loc}}(\Omega)$、有界可測関数 $\psi$ の台 $K=\operatorname{supp}\psi$ が $\Omega$ 内でコンパクトなら、$f\psi\in L^1(\Omega)$ であり、
+   $$
+   \int_\Omega |f\psi|
+   \le
+   \|\psi\|_\infty\int_K|f|
+   <\infty.
+   $$
+3. $1\le p\le\infty$ なら
+   $$
+   \boxed{
+   L^p(\Omega)\subset L^1_{\mathrm{loc}}(\Omega)
+   }.
+   $$
+   特に、局所有界関数と連続関数は局所可積分である。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+1. コンパクト集合 $K\subset V$ は $\Omega$ のコンパクト部分集合でもあるので、
+   $$
+   \int_K|f|<\infty
+   $$
+   です。したがって $f|_V\in L^1_{\mathrm{loc}}(V)$ です。
+
+2. $\psi$ は $K$ の外で 0 なので、
+   $$
+   \int_\Omega|f\psi|
+   =
+   \int_K|f\psi|
+   \le
+   \|\psi\|_\infty\int_K|f|
+   <\infty.
+   $$
+
+3. まず $p=1$ は定義から直ちに従います。$1<p<\infty$ とし、コンパクト集合 $K\subset\Omega$ を固定します。$K$ は有界なので Lebesgue 測度 $\lambda(K)$ は有限です。$K$ を
+   $$
+   K_0=K\cap\{|f|\le1\},
+   \qquad
+   K_1=K\cap\{|f|>1\}
+   $$
+   に分けると、
+   $$
+   \int_K|f|
+   =
+   \int_{K_0}|f|
+   +
+   \int_{K_1}|f|
+   \le
+   \lambda(K)
+   +
+   \int_K|f|^p
+   <\infty.
+   $$
+   $p=\infty$ では
+   $$
+   \int_K|f|
+   \le
+   \lambda(K)\|f\|_\infty
+   <\infty.
+   $$
+
+   よって $L^p(\Omega)\subset L^1_{\mathrm{loc}}(\Omega)$ です。局所有界関数にも同じ $p=\infty$ の評価を各コンパクト集合上で使えます。連続関数は各コンパクト集合上で有界なので、局所可積分です。$\square$
+<!-- proof-end -->
+
+後で超関数を作るときに必要になるのは特に 2. です。テスト関数は有界かつコンパクト台を持つため、$f\in L^1_{\mathrm{loc}}$ なら $f\varphi$ の積分が必ず有限になります。Sobolev 空間へ進むときには 3. が、$L^p$ 関数を弱微分の枠組みに入れる橋になります。
 
 ---
 
@@ -630,19 +712,20 @@ $$
 
 <a id="thm-mt4-integral-absolute-continuity"></a>
 <!-- formal-statement-start -->
-### 補題（積分の絶対連続性）
+### 補題（Lebesgue 積分の絶対連続性）
 
-$f\in L^1([a,b])$ とする。任意の $\varepsilon>0$ に対してある $\delta>0$ が存在し、可測集合 $E\subset[a,b]$ が
+測度空間 $(X,\mathcal F,\mu)$ 上で $f\in L^1(\mu)$ とする。任意の $\varepsilon>0$ に対してある $\delta>0$ が存在し、可測集合 $E\in\mathcal F$ が
 
 $$
-\lambda(E)<\delta
+\mu(E)<\delta
 $$
 
 を満たせば
 
 $$
 \boxed{
-\int_E|f|d\lambda<\varepsilon}
+\int_E|f|\,d\mu<\varepsilon
+}
 $$
 
 となる。
@@ -679,7 +762,7 @@ $$
 +
 \int_{E\cap\{|f|>M\}}|f|\\
 &\le
-M\lambda(E)
+M\mu(E)
 +
 \int_{\{|f|>M\}}|f|\\
 &<\frac\varepsilon2+\frac\varepsilon2
