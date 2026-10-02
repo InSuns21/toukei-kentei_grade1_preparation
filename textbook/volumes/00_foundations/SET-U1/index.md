@@ -33,15 +33,15 @@ $$
 > **定義（二項関係）**  
 > 集合 $X$ に対し、直積 $X\times X$ の部分集合
 >
-> $$
-> R\subseteq X\times X
-> $$
+$$
+R\subseteq X\times X
+$$
 >
 > を $X$ 上の **二項関係** という。$(x,y)\in R$ の代わりに
 >
-> $$
-> xRy
-> $$
+$$
+xRy
+$$
 >
 > と書くことがある。
 <!-- formal-statement-end -->
@@ -157,11 +157,11 @@ $$
 > **定義（同値類）**  
 > 集合 $X$ 上の同値関係 $\sim$ と $x\in X$ に対し
 >
-> $$
-> [x]
-> =
-> \{y\in X:y\sim x\}
-> $$
+$$
+[x]
+=
+\{y\in X:y\sim x\}
+$$
 >
 > を $x$ の **同値類** という。
 <!-- formal-statement-end -->
@@ -199,15 +199,15 @@ $$
 > **補題（同値類は一致するか交わらない）**  
 > $X$ 上の同値関係 $\sim$ に対し、任意の $x,y\in X$ について
 >
-> $$
-> [x]\cap[y]\ne\varnothing
-> $$
+$$
+[x]\cap[y]\ne\varnothing
+$$
 >
 > なら
 >
-> $$
-> [x]=[y].
-> $$
+$$
+[x]=[y].
+$$
 >
 > 従って二つの同値類は、一致するか互いに素である。
 <!-- formal-statement-end -->
@@ -285,21 +285,21 @@ $$
 > **定義（商集合・標準射影）**  
 > 集合 $X$ 上の同値関係 $\sim$ に対し、同値類全体の集合
 >
-> $$
-> X/{\sim}
-> =
-> \{[x]:x\in X\}
-> $$
+$$
+X/{\sim}
+=
+\{[x]:x\in X\}
+$$
 >
 > を **商集合** という。
 >
 > また
 >
-> $$
-> q:X\to X/{\sim},
-> \qquad
-> q(x)=[x]
-> $$
+$$
+q:X\to X/{\sim},
+\qquad
+q(x)=[x]
+$$
 >
 > を **標準射影** という。
 <!-- formal-statement-end -->
@@ -389,19 +389,19 @@ $$
 > **定理（同値関係と集合の分割の対応）**  
 > 集合 $X$ 上の同値関係 $\sim$ に対し、同値類全体
 >
-> $$
-> \{[x]:x\in X\}
-> $$
+$$
+\{[x]:x\in X\}
+$$
 >
 > は $X$ の分割である。
 >
 > 逆に、$X$ の分割 $\mathcal P$ が与えられたとき
 >
-> $$
-> x\sim_{\mathcal P}y
-> \quad\Longleftrightarrow\quad
-> x,y\text{ が同じ }A\in\mathcal P\text{ に属する}
-> $$
+$$
+x\sim_{\mathcal P}y
+\quad\Longleftrightarrow\quad
+x,y\text{ が同じ }A\in\mathcal P\text{ に属する}
+$$
 >
 > と定めると、$\sim_{\mathcal P}$ は同値関係であり、その同値類はちょうど $\mathcal P$ の各部分集合である。
 <!-- formal-statement-end -->
@@ -493,31 +493,31 @@ $$
 > **定理（商集合への写像の降下）**  
 > 集合 $X$ 上の同値関係 $\sim$ と標準射影
 >
-> $$
-> q:X\to X/{\sim}
-> $$
+$$
+q:X\to X/{\sim}
+$$
 >
 > を考える。写像 $f:X\to Y$ が
 >
-> $$
-> x\sim x'
-> \Longrightarrow
-> f(x)=f(x')
-> $$
+$$
+x\sim x'
+\Longrightarrow
+f(x)=f(x')
+$$
 >
 > を満たすとする。
 >
 > このとき一意な写像
 >
-> $$
-> \bar f:X/{\sim}\to Y
-> $$
+$$
+\bar f:X/{\sim}\to Y
+$$
 >
 > が存在して
 >
-> $$
-> f=\bar f\circ q
-> $$
+$$
+f=\bar f\circ q
+$$
 >
 > となる。
 <!-- formal-statement-end -->
@@ -626,7 +626,7 @@ $$
 
 です。商集合 $X/{\sim_f}$ は「$f$ が区別できない点を全部まとめた集合」になります。
 
-さらに前節の定理から
+さらに[商集合への写像の降下](#thm-setu1-quotient-factorization)から
 
 $$
 f=\bar f\circ q
@@ -1082,7 +1082,7 @@ $$
 とする。
 
 1. 写像 $F:\mathbb R^2\to\mathbb R$, $F(x,y)=x+y$ が各同値類上で一定であることを示せ。
-2. 商集合への降下定理を使って
+2. [商集合への写像の降下](#thm-setu1-quotient-factorization)を使って
    $$
    \bar F:\mathbb R^2/{\sim}\to\mathbb R
    $$
