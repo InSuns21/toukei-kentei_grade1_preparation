@@ -30,9 +30,9 @@ concepts:
       - analysis.finite-dimensional-heine-borel
 
   - id: analysis.closed-bounded-open-buffer
-    name: 閉有界集合と開集合の一様な内側余裕
+    name: 一様な内側余裕
     kind: corollary
-    aliases: [閉有界集合と開集合の一様な内側余裕, 一様な内側余裕]
+    aliases: [一様な内側余裕]
     requires:
       - analysis.finite-dimensional-heine-borel
 
