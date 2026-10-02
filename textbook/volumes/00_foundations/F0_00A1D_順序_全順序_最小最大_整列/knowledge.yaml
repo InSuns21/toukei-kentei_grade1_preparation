@@ -48,6 +48,7 @@ concepts:
     name: 最小元
     kind: definition
     aliases: [最小元, minimum element]
+    introduction_aliases: [最小元・最大元]
     requires:
       - set.partial-order
 
@@ -55,6 +56,7 @@ concepts:
     name: 最大元
     kind: definition
     aliases: [最大元, maximum element]
+    introduction_aliases: [最小元・最大元]
     requires:
       - set.partial-order
 
@@ -71,6 +73,7 @@ concepts:
     name: 極小元
     kind: definition
     aliases: [極小元, minimal element]
+    introduction_aliases: [極小元・極大元]
     requires:
       - set.partial-order
 
@@ -78,6 +81,7 @@ concepts:
     name: 極大元
     kind: definition
     aliases: [極大元, maximal element]
+    introduction_aliases: [極小元・極大元]
     requires:
       - set.partial-order
 
@@ -94,6 +98,7 @@ concepts:
     name: 上界
     kind: definition
     aliases: [上界, upper bound]
+    introduction_aliases: [上界・下界]
     requires:
       - set.partial-order
 
@@ -101,6 +106,7 @@ concepts:
     name: 下界
     kind: definition
     aliases: [下界, lower bound]
+    introduction_aliases: [上界・下界]
     requires:
       - set.partial-order
 
