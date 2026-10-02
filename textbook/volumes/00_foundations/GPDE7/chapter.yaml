@@ -9,18 +9,18 @@ official_scope: []
 learning_objectives:
   - 実Hilbert空間上の有界かつ強圧的な双線形形式と連続線形汎関数に対するLax--Milgram定理を仮定込みで述べられる
   - Riesz表現定理を用いてv↦a(u,v)から有界線形作用素A:V→Vを構成し、a(u,v)=<Au,v>を示せる
-  - 強圧性から||Au||>=alpha||u||を導き、Aの単射性と逆写像の下側評価を説明できる
+  - 強圧条件から||Au||>=alpha||u||を導き、Aの単射性と逆写像の下側評価を説明できる
   - 下からの評価とHilbert空間の完備性からRan Aが閉集合であることをCauchy列を用いて証明できる
-  - (Ran A)^perp={0}を強圧性から示し、Ran Aの稠密性を導ける
+  - (Ran A)^perp={0}を強圧条件から示し、Ran Aの稠密性を導ける
   - 閉値域と稠密性を組み合わせてAの全射性を証明し、Lax--Milgramの存在一意性を閉じられる
   - 解uに対する||u||<=alpha^{-1}||F||の安定性評価を導出できる
   - Lax--Milgramに対称性が不要であることを非対称な強圧的双線形形式の具体例で確認できる
   - 有界性だけでは存在一意性が保証されないことを退化双線形形式の反例から説明できる
-  - Poisson問題と反応拡散問題で有界性・強圧性・Fの連続性を局所的に確認して定理を適用できる
+  - Poisson問題と反応拡散問題で有界性・強圧条件・Fの連続性を局所的に確認して定理を適用できる
 definitions: []
 theorems:
   - { id: GPDE7-PROP-01, name: "双線形形式のRiesz作用素表示" }
-  - { id: GPDE7-LEM-01, name: "強圧性による作用素の下からの評価" }
+  - { id: GPDE7-LEM-01, name: "強圧条件による作用素の下からの評価" }
   - { id: GPDE7-LEM-02, name: "下から有界な作用素の値域閉性" }
   - { id: GPDE7-LEM-03, name: "Lax--Milgram作用素の値域稠密性" }
   - { id: GPDE7-THM-01, name: "Lax--Milgram定理" }
@@ -29,7 +29,7 @@ theorems:
   - { id: GPDE7-COR-03, name: "反応拡散問題への適用" }
 canonical_examples:
   - "R^2上の非対称かつ強圧的な行列"
-  - "強圧性を失った退化双線形形式"
+  - "強圧条件を失った退化双線形形式"
   - "Poisson零Dirichlet問題"
   - "非負反応項を持つ反応拡散問題"
 problem_patterns: [GPDE7-RIESZ-OPERATOR-1, GPDE7-LOWER-BOUND-1, GPDE7-CLOSED-RANGE-1, GPDE7-DENSE-RANGE-1, GPDE7-NONSYMMETRIC-1, GPDE7-POISSON-1, GPDE7-REACTION-DIFFUSION-1, GPDE7-FULL-PROOF-1]
