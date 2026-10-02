@@ -2,8 +2,15 @@ chapter: F0-00D
 scope: dream-theater
 coverage: complete
 prerequisites:
+  - RA1
   - F0-00B
   - F0-00C1
+
+forward_references:
+  - linear.vector-space
+  - functional.normed-space
+  - functional.banach-space
+  - functional.finite-dimensional-normed-space-complete
 
 concepts:
   - id: topology.cauchy-sequence
@@ -11,6 +18,7 @@ concepts:
     kind: definition
     aliases: [Cauchy列]
     requires:
+      - analysis.real-cauchy-sequence
       - topology.metric-space
       - topology.sequence-convergence
 
@@ -28,6 +36,14 @@ concepts:
     aliases: [完備距離空間]
     requires:
       - topology.cauchy-sequence
+
+  - id: topology.euclidean-space-complete
+    name: Euclid 空間の完備性
+    kind: theorem
+    aliases: [Euclid空間の完備性, R^pの完備性]
+    requires:
+      - topology.cauchy-sequence
+      - analysis.real-completeness
 
   - id: topology.closed-subset-complete
     name: 完備空間の閉部分集合は完備

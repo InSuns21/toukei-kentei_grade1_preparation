@@ -39,7 +39,7 @@
 19. [TOP5 コンパクト性の一般論](textbook/volumes/00_foundations/TOP5/index.md)
 20. [TOP5A Urysohn の補題・局所コンパクト性・cutoff](textbook/volumes/00_foundations/TOP5A/index.md)
 21. [F0-00C2 最大最小・最近点](textbook/volumes/00_foundations/F0_00C2_コンパクト性の応用_最大最小_最近点/index.md)
-22. [F0-00D Cauchy列・完備性](textbook/volumes/00_foundations/F0_00D_Cauchy列_完備性_無限次元/index.md)
+22. [F0-00D Cauchy列・完備距離空間](textbook/volumes/00_foundations/F0_00D_Cauchy列_完備性_無限次元/index.md)
 23. [F0-00D0 Cauchy完備化：有理数から実数](textbook/volumes/00_foundations/F0_00D0_Cauchy完備化_有理数から実数/index.md)
 24. [F0-00D0A 一般距離空間の完備化](textbook/volumes/00_foundations/F0_00D0A_一般距離空間の完備化/index.md)
 25. [F0-00D0B Dedekind切断：順序の穴から実数](textbook/volumes/00_foundations/F0_00D0B_Dedekind切断_実数の構成/index.md)

@@ -23,6 +23,7 @@ alias_matching:
     - torus
     - トーラス
     - 正規性
+    - 正定値
     - normality
     - 埋め込み
     - embedding
