@@ -159,7 +159,7 @@ $$
 \le d(x_n,x_m)+d(y_n,y_m).
 $$
 
-両列は Cauchy なので右辺は十分大きい $m,n$ で任意に小さくなります。従って $(d(x_n,y_n))$ は実数 Cauchy 列であり、実数の完備性から収束します。$\square$
+両列は Cauchy なので右辺は十分大きい $m,n$ で任意に小さくなります。従って $(d(x_n,y_n))$ は実数 Cauchy 列であり、[実数の完備性](../RA1/index.md#thm-ra1-real-completeness)から収束します。$\square$
 <!-- proof-end -->
 
 <a id="thm-f0-00d0a-metric-well-defined"></a>
