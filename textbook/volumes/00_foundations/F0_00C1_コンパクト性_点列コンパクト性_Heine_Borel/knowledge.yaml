@@ -75,6 +75,14 @@ concepts:
       - topology.closed-set
       - topology.bounded-set
 
+  - id: topology.heine-cantor-compact-metric
+    name: コンパクト距離空間上のHeine--Cantor
+    kind: theorem
+    aliases: [コンパクト距離空間上のHeine--Cantor, Heine--Cantor theorem on compact metric spaces]
+    requires:
+      - topology.compact-set
+      - topology.continuous-map
+
   - id: topology.continuous-image-compact
     name: コンパクト集合の連続像
     kind: theorem
