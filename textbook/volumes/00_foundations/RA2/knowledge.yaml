@@ -5,9 +5,12 @@ prerequisites:
   - RA1
 
 forward_references:
+  - topology.metric-space
+  - topology.topological-space
   - topology.compact-set
   - topology.heine-borel
   - topology.extreme-value-theorem
+  - analysis.mean-value-theorem
 
 concepts:
   - id: analysis.function-limit
