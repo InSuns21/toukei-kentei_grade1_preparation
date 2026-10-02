@@ -5,6 +5,8 @@ prerequisites:
   - F0-00A1C
 
 forward_references:
+  - set.choice-axiom
+  - topology.sequence
   - topology.local-base-first-countable
   - topology.second-countable
   - topology.separable-space
@@ -68,9 +70,9 @@ concepts:
       - set.natural-product-countable
 
   - id: set.explicit-countable-union
-    name: 明示的に列挙された可算集合族の和集合は可算
+    name: 明示的に符号化された可算集合族の和集合は可算
     kind: proposition
-    aliases: [明示的に列挙された可算集合族の和集合は可算, explicitly enumerated countable union is countable]
+    aliases: [明示的に符号化された可算集合族の和集合は可算, explicitly encoded countable union is countable]
     requires:
       - set.at-most-countable-set
       - set.natural-product-countable
@@ -91,6 +93,13 @@ concepts:
       - set.at-most-countable-set
       - set.countable-finite-product
       - set.integer-countable
+
+  - id: set.interval-not-enumerable
+    name: 区間は自然数列で尽くせない
+    kind: proposition
+    aliases: [区間は自然数列で尽くせない, interval is not enumerable by natural numbers]
+    requires:
+      - set.countably-infinite-set
 
   - id: set.real-uncountable
     name: 実数は非可算
