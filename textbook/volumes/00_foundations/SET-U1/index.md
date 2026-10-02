@@ -1106,7 +1106,7 @@ $$
 
 よって $F$ は各同値類上で一定です。
 
-2. 商集合への写像の降下定理から、一意な写像
+2. [商集合への写像の降下](#thm-setu1-quotient-factorization)から、一意な写像
 
 $$
 \bar F:\mathbb R^2/{\sim}\to\mathbb R
