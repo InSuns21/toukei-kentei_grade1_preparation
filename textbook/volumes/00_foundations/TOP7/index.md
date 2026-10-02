@@ -204,9 +204,9 @@ $$
 
 $U\subset X\times X$ と $x\in X$ に対し
 
-$
+$$
 U[x]={y\in X:(x,y)\in U}
-$
+$$
 
 と書きます。
 
