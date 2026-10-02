@@ -66,6 +66,36 @@ $$
 となることをいう。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-mt4-l1loc -->
+**定義の確認**
+
+$\Omega=\mathbb R^d$ で定数関数 $f(x)=1$ を考えます。任意のコンパクト集合 $K\subset\mathbb R^d$ は有界なので Lebesgue 測度が有限で、
+
+$$
+\int_K|f(x)|\,dx
+=
+\lambda(K)
+<
+\infty.
+$$
+
+したがって
+
+$$
+1\in L^1_{\mathrm{loc}}(\mathbb R^d).
+$$
+
+一方、
+
+$$
+\int_{\mathbb R^d}1\,dx
+=
+\infty
+$$
+
+なので $1\notin L^1(\mathbb R^d)$ です。「全空間では積分できないが、任意の有限な場所では積分できる」という局所可積分性の意味がこの例に現れています。
+<!-- definition-example-end -->
+
 $\Omega=\mathbb R$ では、これは任意の有界区間 $I$ に対して
 
 $$
@@ -752,7 +782,7 @@ $$
 \delta=\frac\varepsilon{2M}
 $$
 
-とします（$M=0$ なら結論は自明）。$\lambda(E)<\delta$ なら
+とします（$M=0$ なら結論は自明）。$\mu(E)<\delta$ なら
 
 $$
 \begin{aligned}
