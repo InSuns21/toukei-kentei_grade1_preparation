@@ -1,4 +1,4 @@
-# GPDE8：二階線形楕円型 PDE — 係数の仮定を energy estimate へ翻訳する
+# GPDE8：二階線形楕円型 PDE — 係数の仮定をエネルギー評価へ翻訳する
 
 <!-- definition-example-audit: strict -->
 
@@ -13,7 +13,7 @@ $$
 について、
 
 $$
-\text{boundedness}+\text{coercivity}
+\text{有界性}+\text{強圧条件}
 \Longrightarrow
 \text{存在・一意性・安定性}
 $$
@@ -51,18 +51,18 @@ $$
 
 特に役割は次のように分かれます。
 
-- $A$ の有界性：二階主要項の boundedness を与える。
-- $A$ が全方向で共通の正の下限を持つこと：二階主要項の正の energy を与える。
-- $b,c$ の有界性：下位項を $H_0^1$ norm で評価できるようにする。
-- $b,c$ の符号・大きさ・微分構造：coercivity が残るかを決める。
-- Poincare 不等式：$L^2$ norm を勾配 norm へ戻す。
-- Lax--Milgram：得られた boundedness と coercivity を存在・一意性へ変える。
+- $A$ の有界性：二階主要項の 有界性 を与える。
+- $A$ が全方向で共通の正の下限を持つこと：二階主要項の正の エネルギー を与える。
+- $b,c$ の有界性：下位項を $H_0^1$ ノルム で評価できるようにする。
+- $b,c$ の符号・大きさ・微分構造：強圧条件が残るかを決める。
+- Poincaré 不等式：$L^2$ ノルム を勾配 ノルム へ戻す。
+- Lax--Milgram：得られた 有界性 と 強圧条件を存在・一意性へ変える。
 
 さらに後半では Neumann 問題を扱い、
 
 $$
 \boxed{
-\text{coercivity が失われた}
+\text{強圧条件が失われた}
 \neq
 \text{問題が解けない}
 }
@@ -70,7 +70,7 @@ $$
 
 ことも確認します。
 
-純 Neumann 問題では定数関数が kernel に残るため、適切なのは
+純 Neumann 問題では定数関数が 核 に残るため、適切なのは
 
 - 互換条件
 - 平均ゼロ部分空間
@@ -80,7 +80,7 @@ $$
 
 ---
 
-## 1. divergence form を主役にする理由
+## 1. 発散形 を主役にする理由
 
 二階線形作用素には、たとえば
 
@@ -88,13 +88,13 @@ $$
 -\sum_{i,j=1}^d a_{ij}(x)\partial_{ij}u
 $$
 
-という non-divergence form と、
+という non-発散形 と、
 
 $$
 -\operatorname{div}(A(x)\nabla u)
 $$
 
-という divergence form があります。
+という 発散形 があります。
 
 本章では後者を主役にします。
 
@@ -127,7 +127,7 @@ $$
 <a id="def-gpde8-divergence-operator"></a>
 
 <!-- formal-statement-start -->
-> **定義（本章で扱う divergence form 二階線形作用素）**  
+> **定義（本章で扱う発散形二階線形作用素）**  
 > $\Omega\subset\mathbb R^d$ を開集合とする。行列値係数
 >
 $$
@@ -456,7 +456,7 @@ $$
 
 ---
 
-## 4. まず boundedness を係数から作る
+## 4. まず 有界性 を係数から作る
 
 以後 $\Omega$ を有界開集合とし、
 
@@ -497,8 +497,8 @@ $$
 <a id="prop-gpde8-boundedness"></a>
 
 <!-- formal-statement-start -->
-> **命題（係数有界性から双線形形式の boundedness）**  
-> $\Omega\subset\mathbb R^d$ を有界開集合とし、Poincare 定数を $C_P$ とする。ほとんどすべての $x\in\Omega$ で
+> **命題（係数有界性から双線形形式の有界性）**  
+> $\Omega\subset\mathbb R^d$ を有界開集合とし、Poincaré 定数を $C_P$ とする。ほとんどすべての $x\in\Omega$ で
 >
 $$
 |A(x)\xi|
@@ -528,7 +528,7 @@ a(u,v)
 \int_\Omega cuv
 $$
 >
-> は $V=H_0^1(\Omega)$ 上の bounded bilinear form であり、
+> は $V=H_0^1(\Omega)$ 上の 有界双線形形式 であり、
 >
 $$
 \boxed{
@@ -555,11 +555,11 @@ $$
 
 ### 証明の見取り図
 
-三つの項をそれぞれ Cauchy--Schwarz と Poincare で評価します。
+三つの項をそれぞれ Cauchy--Schwarz と Poincaré で評価します。
 
-二階主要項は勾配同士なので Poincare は不要です。
+二階主要項は勾配同士なので Poincaré は不要です。
 
-一次項では $v$ の $L^2$ norm を一回、零次項では $u,v$ の $L^2$ norm を二回 Poincare で勾配へ戻します。
+一次項では $v$ の $L^2$ ノルム を一回、零次項では $u,v$ の $L^2$ ノルム を二回 Poincaré で勾配へ戻します。
 
 <!-- proof-start -->
 ### 証明
@@ -654,7 +654,7 @@ $L^\infty$ 程度の粗い係数でも弱形式は意味を持ちます。
 
 ---
 
-## 5. 一様楕円性だけでは lower-order term を抑え切れない
+## 5. 一様楕円性だけでは 下位項 を抑え切れない
 
 $a(v,v)$ を直接計算します。
 
@@ -720,7 +720,7 @@ $$
 \|v\|_2.
 $$
 
-Poincare を使うと
+Poincaré を使うと
 
 $$
 \left|
@@ -760,8 +760,8 @@ $$
 <a id="prop-gpde8-small-lower-coercivity"></a>
 
 <!-- formal-statement-start -->
-> **命題（下位項の小ささによる coercivity）**  
-> 上の boundedness の仮定に加え、$A$ が一様楕円的で
+> **命題（下位項の小ささによる強圧条件）**  
+> 上の 有界性 の仮定に加え、$A$ が一様楕円的で
 >
 $$
 \xi^{\mathsf T}A(x)\xi
@@ -930,7 +930,7 @@ a(v,v)
 \int_0^1|v'|^2\,dx.
 $$
 
-$\beta$ がどれほど大きくても coercivity 定数は 1 です。
+$\beta$ がどれほど大きくても 強圧定数は 1 です。
 
 つまり前節の
 
@@ -944,7 +944,7 @@ $$
 
 ---
 
-## 7. $\operatorname{div}b$ を使う coercivity criterion
+## 7. $\operatorname{div}b$ を使う 強圧条件 criterion
 
 多次元でも同じ機構があります。
 
@@ -1028,7 +1028,7 @@ $$
 b\cdot\nabla(v^2)\,dx.
 $$
 
-$v^2$ は compact support を持つので部分積分から
+$v^2$ は コンパクト 台 を持つので部分積分から
 
 $$
 \int_\Omega
@@ -1114,7 +1114,7 @@ $$
 <a id="cor-gpde8-structural-coercivity"></a>
 
 <!-- formal-statement-start -->
-> **系（一次項の構造を使う coercivity）**  
+> **系（一次項の構造を使う強圧条件）**  
 > $A$ が楕円定数 $\lambda>0$ で一様楕円的、$b\in W^{1,\infty}(\Omega;\mathbb R^d)$、$c\in L^\infty(\Omega)$ とする。さらに
 >
 $$
@@ -1258,7 +1258,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-命題「係数の $L^\infty$ 有界性から双線形形式の boundedness」により
+命題「係数の $L^\infty$ 有界性から双線形形式の有界性」により
 
 $$
 |a(u,v)|
@@ -1303,7 +1303,7 @@ $V^*=H^{-1}(\Omega)$ なので主張が得られます。
 
 ---
 
-## 9. energy estimate は存在定理の副産物ではない
+## 9. エネルギー評価 は存在定理の副産物ではない
 
 弱解 $u$ の式に $v=u$ を入れます。
 
@@ -1313,7 +1313,7 @@ a(u,u)
 F(u).
 $$
 
-[coercivity](../GPDE6/index.md#def-gpde6-coercive) と [Hminus1 の双対 norm](../GPDE6/index.md#def-gpde6-hminus1) から
+[強圧条件](../GPDE6/index.md#def-gpde6-coercive) と [H^{-1} の双対ノルム](../GPDE6/index.md#def-gpde6-hminus1) から
 
 $$
 \alpha\|u\|_V^2
@@ -1334,7 +1334,7 @@ $$
 
 これは Lax--Milgram の安定性と同じ評価です。
 
-PDE の言葉では a priori energy estimate と呼ばれます。
+PDE の言葉では a priori エネルギー評価 と呼ばれます。
 
 重要なのは順序です。
 
@@ -1358,7 +1358,7 @@ $$
 
 ---
 
-## 10. 負の零次項は本当に coercivity を壊す
+## 10. 負の零次項は本当に 強圧条件を壊す
 
 $\Omega=(0,\pi)$ で
 
@@ -1421,19 +1421,19 @@ $$
 -\sin''x-\sin x=0
 $$
 
-なので非零 kernel が現れます。
+なので非零の核 が現れます。
 
 これは
 
 $$
 \boxed{
-\text{負の reaction term が二階主要項の energy を食い潰す}
+\text{負の 反応項 が二階主要項の エネルギー を食い潰す}
 }
 $$
 
 という具体例です。
 
-一様楕円性だけでは full operator の coercivity は保証されません。
+一様楕円性だけでは full 作用素 の 強圧条件は保証されません。
 
 ---
 
@@ -1451,7 +1451,7 @@ $$
 
 とします。
 
-$a_1$ が coercivity 定数 $\alpha_1>0$ を持つとします。
+$a_1$ が 強圧定数 $\alpha_1>0$ を持つとします。
 
 差 $w=u_1-u_2$ に対して
 
@@ -1491,7 +1491,7 @@ $$
 
 <!-- formal-statement-start -->
 > **系（外力・係数摂動に対する安定性）**  
-> $a_1,a_2$ を $V$ 上の bounded bilinear form とし、$a_1$ は coercivity 定数 $\alpha_1>0$ を持つとする。差形式の作用素 norm を
+> $a_1,a_2$ を $V$ 上の 有界双線形形式 とし、$a_1$ は 強圧定数 $\alpha_1>0$ を持つとする。差形式の作用素ノルム を
 >
 $$
 \|a_2-a_1\|_{\mathrm{op}}
@@ -1557,7 +1557,7 @@ a_1(w,v)
 (a_2-a_1)(u_2,v).
 $$
 
-$v=w$ とします。$a_1$ の [coercivity](../GPDE6/index.md#def-gpde6-coercive) と
+$v=w$ とします。$a_1$ の [強圧条件](../GPDE6/index.md#def-gpde6-coercive) と
 
 $$
 |(a_2-a_1)(u_2,w)|
@@ -1592,7 +1592,7 @@ $$
 \delta c=c_2-c_1
 $$
 
-なら、boundedness の証明と同じ計算から
+なら、有界性 の証明と同じ計算から
 
 $$
 \|a_2-a_1\|_{\mathrm{op}}
@@ -1653,7 +1653,7 @@ $$
 
 です。
 
-従って $H^1$ 上では coercive ではありません。
+従って $H^1$ 上では 強圧的 ではありません。
 
 これは事故ではありません。
 
@@ -1667,7 +1667,7 @@ $$
 
 で不変だからです。
 
-### kernel があるなら右辺にも条件が必要
+### 核 があるなら右辺にも条件が必要
 
 弱形式
 
@@ -1695,7 +1695,7 @@ $$
 
 です。
 
-これが Neumann 問題の compatibility condition です。
+これが Neumann 問題の 適合条件 です。
 
 滑らかなデータで
 
@@ -1729,9 +1729,9 @@ $$
 
 ---
 
-## 13. 平均ゼロ部分空間で coercivity を回復する
+## 13. 平均ゼロ部分空間で 強圧条件を回復する
 
-$\Omega$ を bounded connected Lipschitz domain とします。
+$\Omega$ を 有界 connected Lipschitz 領域 とします。
 
 $$
 V_0
@@ -1744,17 +1744,17 @@ $$
 
 と置きます。
 
-この空間では定数方向を除いているので、勾配 norm が再び norm になります。
+この空間では定数方向を除いているので、勾配 ノルム が再び ノルム になります。
 
 そのために二つの事実を確認します。
 
-### 弱勾配が 0 なら connected domain 上で定数
+### 弱勾配が 0 なら 連結領域 上で定数
 
 <a id="lem-gpde8-zero-gradient-constant"></a>
 
 <!-- formal-statement-start -->
 > **補題（弱勾配 0 の関数は定数）**  
-> $\Omega\subset\mathbb R^d$ を connected open set とする。$v\in H^1(\Omega)$ が
+> $\Omega\subset\mathbb R^d$ を 連結開集合 とする。$v\in H^1(\Omega)$ が
 >
 $$
 \nabla v=0
@@ -1773,13 +1773,13 @@ $$
 
 ### 証明の見取り図
 
-GPDE2 の局所 mollification を使います。
+GPDE2 の局所 平滑化 を使います。
 
 $\Omega$ の内部で $v$ を mollify すると、弱微分との交換から mollified function の古典勾配も 0 になります。
 
 従って各小球では定数です。
 
-重なり合う小球では定数値が一致し、connected open set は重なり合う小球の鎖で結べるので、領域全体で同じ定数になります。
+重なり合う小球では定数値が一致し、連結開集合 は重なり合う小球の鎖で結べるので、領域全体で同じ定数になります。
 
 <!-- proof-start -->
 ### 証明
@@ -1795,7 +1795,7 @@ $$
 
 $0<\varepsilon<r$ とし、$v_\varepsilon=\rho_\varepsilon*v$ を $B_r(x_0)$ 上で考えます。
 
-GPDE2 の「mollification と弱微分の交換」により
+GPDE2 の「平滑化 と弱微分の交換」により
 
 $$
 \nabla v_\varepsilon
@@ -1827,13 +1827,13 @@ $\Omega$ は open かつ connected なので、任意の二点を有限個の重
 鎖に沿って定数値が一致し、領域全体で一つの定数 $C$ が得られます。
 <!-- proof-end -->
 
-### Poincare--Wirtinger
+### Poincaré--Wirtinger
 
 <a id="lem-gpde8-poincare-wirtinger"></a>
 
 <!-- formal-statement-start -->
-> **補題（Poincare--Wirtinger）**  
-> $\Omega\subset\mathbb R^d$ を bounded connected Lipschitz domain とする。このときある $C_W>0$ が存在して
+> **補題（Poincaré--Wirtinger）**  
+> $\Omega\subset\mathbb R^d$ を 有界 connected Lipschitz 領域 とする。このときある $C_W>0$ が存在して
 >
 $$
 \boxed{
@@ -1870,21 +1870,21 @@ $$
 
 問題は $v_n\in H^1(\Omega)$ であって $H_0^1(\Omega)$ ではないことです。
 
-そこで GPDE5 の bounded Lipschitz extension theorem で $\mathbb R^d$ へ延長し、$\overline\Omega$ の近くで 1 になる cutoff を掛けます。
+そこで GPDE5 の 有界 Lipschitz 領域の拡張定理 で $\mathbb R^d$ へ延長し、$\overline\Omega$ の近くで 1 になる 局所化関数 を掛けます。
 
 すると
 
 - $L^2$ で一様有界
-- support が固定 bounded set に入る
-- translation が一様に小さい
+- 台 が固定 有界 set に入る
+- 平行移動 が一様に小さい
 
-という GPDE5 の $L^2$ translation compactness の三条件が揃います。
+という GPDE5 の $L^2$ 平行移動コンパクト性 の三条件が揃います。
 
 よって $\Omega$ 上で $L^2$ 強収束する部分列を得ます。
 
 極限の弱勾配は 0、平均も 0 なので前補題から極限は 0。
 
-しかし norm は 1 のままで矛盾します。
+しかし ノルム は 1 のままで矛盾します。
 
 <!-- proof-start -->
 ### 証明
@@ -1913,7 +1913,7 @@ $$
 
 従って $(w_n)$ は $H^1(\Omega)$ で有界です。
 
-GPDE5 の [bounded Lipschitz domainのextension theorem](../GPDE5/index.md#thm-gpde5-extension-lipschitz) により、有界線形作用素
+GPDE5 の [有界 Lipschitz 領域の拡張定理](../GPDE5/index.md#thm-gpde5-extension-lipschitz) により、有界線形作用素
 
 $$
 E:H^1(\Omega)\to H^1(\mathbb R^d)
@@ -1930,7 +1930,7 @@ $$
 
 です。
 
-$\Omega$ は bounded なので、ある $\chi\in C_c^\infty(\mathbb R^d)$ を
+$\Omega$ は 有界なので、ある $\chi\in C_c^\infty(\mathbb R^d)$ を
 
 $$
 \chi=1
@@ -1945,7 +1945,7 @@ $$
 
 と置きます。
 
-smooth multiplier の積の弱微分則から
+滑らかな乗数 の積の弱微分則から
 
 $$
 \nabla z_n
@@ -1955,9 +1955,37 @@ $$
 \chi\nabla(Ew_n).
 $$
 
-よって $(z_n)$ は $H^1(\mathbb R^d)$ で一様有界であり、support は固定集合 $\operatorname{supp}\chi$ に含まれます。
+よって $(z_n)$ は $H^1(\mathbb R^d)$ で一様有界であり、台は固定集合 $\operatorname{supp}\chi$ に含まれます。
 
-さらに GPDE5 の translation estimate と同じ計算から
+さらに各 $n$ について $z_n\in H^1(\mathbb R^d)$ です。[全空間上の滑らかなコンパクト台関数の密度](../GPDE3/index.md#thm-gpde3-ccinf-density-rd)から
+
+$$
+\psi_m\in C_c^\infty(\mathbb R^d),
+\qquad
+\psi_m\to z_n
+\quad\text{in }H^1(\mathbb R^d)
+$$
+
+となる列を取れます。
+
+滑らかな $\psi_m$ には微積分学の基本定理を直線 $x+th$ に適用して
+
+$$
+\psi_m(x+h)-\psi_m(x)
+=
+\int_0^1
+h\cdot\nabla\psi_m(x+th)\,dt
+$$
+
+と書けます。Cauchy--Schwarz、Fubini、平行移動不変性から
+
+$$
+\|\psi_m(\cdot+h)-\psi_m\|_2
+\le
+|h|\|\nabla\psi_m\|_2.
+$$
+
+$m\to\infty$ とすると、平行移動は $L^2$ ノルムを保つので左辺も極限へ移せます。したがって
 
 $$
 \|z_n(\cdot+h)-z_n\|_2
@@ -1969,11 +1997,11 @@ $$
 
 です。
 
-従って GPDE5 の $L^2$ translation compactness 補題を適用でき、部分列を取り直して
+従って GPDE5 の $L^2$ 平行移動コンパクト性 補題を適用でき、部分列を取り直して
 
 $$
 z_n\to z
-\quad\text{strongly in }L^2(\mathbb R^d)
+\quad\text{強く }L^2(\mathbb R^d)
 $$
 
 とできます。
@@ -1989,14 +2017,14 @@ $$
 
 $$
 w_n\to w:=z|_\Omega
-\quad\text{strongly in }L^2(\Omega).
+\quad\text{強く }L^2(\Omega).
 $$
 
 一方
 
 $$
 \nabla w_n\to0
-\quad\text{strongly in }L^2(\Omega).
+\quad\text{強く }L^2(\Omega).
 $$
 
 [弱微分作用素の閉性](../GPDE3/index.md#prop-gpde3-weak-derivative-closed)から
@@ -2007,7 +2035,7 @@ $$
 
 前補題により $w$ は a.e. 定数です。
 
-また $L^2$ 強収束は bounded domain 上で $L^1$ 収束を与えるので
+また $L^2$ 強収束は 有界 domain 上で $L^1$ 収束を与えるので
 
 $$
 \int_\Omega w\,dx
@@ -2032,12 +2060,12 @@ $$
 
 であり矛盾です。
 
-従って Poincare--Wirtinger 不等式が成り立ちます。
+従って Poincaré--Wirtinger 不等式が成り立ちます。
 <!-- proof-end -->
 
 ## 14. Neumann 問題の存在と「定数を除いた一意性」
 
-簡単のため lower-order term は入れず、
+簡単のため 下位項 は入れず、
 
 $$
 a(u,v)
@@ -2048,7 +2076,7 @@ $$
 
 を考えます。
 
-$a$ は $V_0$ 上で bounded です。
+$a$ は $V_0$ 上で 有界 です。
 
 一様楕円性から
 
@@ -2058,13 +2086,13 @@ a(v,v)
 \lambda\|\nabla v\|_2^2.
 $$
 
-Poincare--Wirtinger により $\|\nabla v\|_2$ は $V_0$ 上で $H^1$ norm と同値なので、Lax--Milgram を使えます。
+Poincaré--Wirtinger により $\|\nabla v\|_2$ は $V_0$ 上で $H^1$ ノルム と同値なので、Lax--Milgram を使えます。
 
 <a id="thm-gpde8-neumann"></a>
 
 <!-- formal-statement-start -->
 > **定理（純 Neumann 問題の弱解）**  
-> $\Omega\subset\mathbb R^d$ を bounded connected Lipschitz domain とし、$A$ は
+> $\Omega\subset\mathbb R^d$ を 有界 connected Lipschitz 領域 とし、$A$ は
 >
 $$
 |A(x)\xi|\le\Lambda|\xi|,
@@ -2074,7 +2102,7 @@ $$
 >
 > を満たすとする。
 >
-> $F\in(H^1(\Omega))^*$ が compatibility condition
+> $F\in(H^1(\Omega))^*$ が 適合条件
 >
 $$
 \boxed{
@@ -2113,7 +2141,7 @@ $$
 1. 平均ゼロ空間 $V_0$ で Lax--Milgram を適用する。
 2. 任意の $v\in H^1$ を「平均ゼロ部分＋定数」に分解する。
 3. 定数部分は左辺では勾配が 0、右辺では $F(1)=0$ により消える。
-4. 二つの解の差は energy 0 なので定数になる。
+4. 二つの解の差は エネルギー 0 なので定数になる。
 
 <!-- proof-start -->
 ### 証明
@@ -2133,7 +2161,7 @@ $$
 
 従って $V_0$ は 完備な内積空間です。
 
-Poincare--Wirtinger により
+Poincaré--Wirtinger により
 
 $$
 \|v\|_{V_0}
@@ -2141,9 +2169,9 @@ $$
 \|\nabla v\|_2
 $$
 
-は $V_0$ 上で $H^1$ norm と同値です。
+は $V_0$ 上で $H^1$ ノルム と同値です。
 
-二階主要項の boundedness から
+二階主要項の 有界性 から
 
 $$
 |a(u,v)|
@@ -2162,7 +2190,25 @@ a(v,v)
 \|v\|_{V_0}^2.
 $$
 
-また $F$ の $V_0$ への制限は連続です。
+また $F\in(H^1(\Omega))^*$ なので、ある $C_F>0$ が存在して
+
+$$
+|F(v)|
+\le
+C_F\|v\|_{H^1(\Omega)}
+$$
+
+です。Poincaré--Wirtinger により $V_0$ 上では
+
+$$
+\|v\|_{H^1}
+\le
+\sqrt{1+C_W^2}\,\|\nabla v\|_2
+=
+\sqrt{1+C_W^2}\,\|v\|_{V_0}.
+$$
+
+したがって $F$ の $V_0$ への制限は勾配ノルムについても連続です。
 
 従って Lax--Milgram により、一意な $u\in V_0$ が存在して
 
@@ -2250,7 +2296,7 @@ H_0^1
 \text{ では定数方向が消えている}
 \quad\text{対して}\quad
 H^1
-\text{ では定数 kernel が残る}
+\text{ では定数からなる核 が残る}
 }
 $$
 
@@ -2264,30 +2310,30 @@ $$
 
 | 仮定 | 使う場所 | 失うと何が起きるか |
 |---|---|---|
-| $A$ の有界性 | 二階主要項の boundedness | $a(u,v)$ を $H^1$ norm で制御できない |
-| 一様楕円性 | 二階主要項の正の energy | 勾配方向の kernel が残り得る |
-| $b,c\in L^\infty$ | lower-order term の boundedness | 弱形式自体の連続性が壊れ得る |
-| lower-order term の小ささ・符号・構造 | coercivity | 一意性・Lax--Milgram が壊れ得る |
-| $\Omega$ 有界 | Poincare | $L^2$ 項を勾配で制御できない |
-| connectedness | Neumann の kernel が定数だけ | 成分ごとに独立な定数 kernel が残る |
-| $F(1)=0$ | Neumann compatibility | test $v=1$ ですでに矛盾する |
-| Lipschitz domain | trace と Rellich / Poincare--Wirtinger の標準形 | 境界値・compactness の扱いに追加議論が必要 |
+| $A$ の有界性 | 二階主要項の 有界性 | $a(u,v)$ を $H^1$ ノルム で制御できない |
+| 一様楕円性 | 二階主要項の正の エネルギー | 勾配方向の 核 が残り得る |
+| $b,c\in L^\infty$ | 下位項の 有界性 | 弱形式自体の連続性が壊れ得る |
+| 下位項の小ささ・符号・構造 | 強圧条件 | 一意性・Lax--Milgram が壊れ得る |
+| $\Omega$ 有界 | Poincaré | $L^2$ 項を勾配で制御できない |
+| 連結性 | Neumann の 核 が定数だけ | 成分ごとに独立な定数からなる核 が残る |
+| $F(1)=0$ | Neumann 適合条件 | テスト $v=1$ ですでに矛盾する |
+| Lipschitz 領域 | trace と Rellich / Poincaré--Wirtinger の標準形 | 境界値・コンパクト性 の扱いに追加議論が必要 |
 
 特に
 
 $$
 \text{uniform ellipticity}
 \Longrightarrow
-\text{full coercivity}
+\text{full 強圧条件}
 $$
 
 ではありません。
 
-lower-order term を含むなら、その寄与を必ず調べます。
+下位項 を含むなら、その寄与を必ず調べます。
 
 ---
 
-## 16. GPDE9 への橋：存在の次は regularity
+## 16. GPDE9 への橋：存在の次は 正則性
 
 GPDE8 で得た弱解は
 
@@ -2315,14 +2361,14 @@ $$
 
 GPDE9 では
 
-- cutoff function
-- difference quotient
-- Caccioppoli 型 energy estimate
-- interior $H^2$ regularity
+- 局所化関数
+- 差分商
+- Caccioppoli 型 エネルギー評価
+- interior $H^2$ 正則性
 
 を通じて、弱解から正則性を回収します。
 
-GPDE8 の energy estimate は、その入口になります。
+GPDE8 の エネルギー評価 は、その入口になります。
 
 ---
 
@@ -2351,7 +2397,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-直接計算すると
+行列積は
 
 $$
 A\xi
@@ -2431,10 +2477,10 @@ $$
 <!-- solution-end -->
 
 <a id="ex-gpde8-a02"></a>
-#### GPDE8-A02 双線形形式の boundedness 定数
+#### GPDE8-A02 双線形形式の有界性定数
 - Level: A
 
-$V=H_0^1(\Omega)$、$\|v\|_V=\|\nabla v\|_2$ とし、Poincare 定数を $C_P$ とする。
+$V=H_0^1(\Omega)$、$\|v\|_V=\|\nabla v\|_2$ とし、Poincaré 定数を $C_P$ とする。
 
 $$
 |A(x)\xi|\le\Lambda|\xi|,
@@ -2535,14 +2581,14 @@ $$
 \|u\|_V\|v\|_V.
 $$
 
-二階主要項では Poincare を使わず、一次項で一回、零次項で二回使っていることが係数の形に反映されています。
+二階主要項では Poincaré を使わず、一次項で一回、零次項で二回使っていることが係数の形に反映されています。
 <!-- solution-end -->
 
 <a id="ex-gpde8-a03"></a>
-#### GPDE8-A03 lower-order term の小ささ
+#### GPDE8-A03 下位項の小ささ
 - Level: A
 
-一様楕円性定数を $\lambda$、Poincare 定数を $C_P$ とする。
+一様楕円性定数を $\lambda$、Poincaré 定数を $C_P$ とする。
 
 $$
 \|b\|_\infty=B,
@@ -2636,9 +2682,9 @@ $$
 a(v,v)\ge\alpha\|v\|_V^2.
 $$
 
-したがって $a$ は coercive です。
+したがって $a$ は 強圧的 です。
 
-boundedness も満たしていれば、Lax--Milgram により任意の $F\in H^{-1}$ に対する弱解の存在一意性と
+有界性 も満たしていれば、Lax--Milgram により任意の $F\in H^{-1}$ に対する弱解の存在一意性と
 
 $$
 \|u\|_V
@@ -2650,7 +2696,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-gpde8-a04"></a>
-#### GPDE8-A04 負の reaction term の閾値
+#### GPDE8-A04 負の 反応項 の閾値
 - Level: A
 
 $\Omega=(0,\pi)$ で
@@ -2667,7 +2713,7 @@ $$
 
 $v(x)=\sin x$ に対して $a_\mu(v,v)$ を計算し、
 
-1. $\mu=1$ で coercivity が成り立たないこと、
+1. $\mu=1$ で 強圧条件が成り立たないこと、
 2. $\mu>1$ では $a_\mu(v,v)<0$ となること
 
 を示せ。
@@ -2717,7 +2763,7 @@ $$
 
 ですが $v\ne0$ です。
 
-もし coercivity が成り立つなら、ある $\alpha>0$ に対して
+もし 強圧条件が成り立つなら、ある $\alpha>0$ に対して
 
 $$
 0
@@ -2730,7 +2776,7 @@ $$
 
 となり矛盾します。
 
-従って coercive ではありません。
+従って 強圧的 ではありません。
 
 $\mu>1$ なら
 
@@ -2744,13 +2790,13 @@ $$
 a_\mu(v,v)<0.
 $$
 
-二階主要項 $-\partial_{xx}$ 自体は楕円的でも、負の零次項が十分大きいと full form の正値性が壊れることが分かります。
+二階主要項 $-\partial_{xx}$ 自体は楕円的でも、負の零次項が十分大きいと 双線形形式全体 の正値性が壊れることが分かります。
 <!-- solution-end -->
 
 ### Level B
 
 <a id="ex-gpde8-b01"></a>
-#### GPDE8-B01 $\operatorname{div}b$ を使って coercivity を示す
+#### GPDE8-B01 $\operatorname{div}b$ を使って 強圧条件を示す
 - Level: B
 
 $\Omega$ を有界開集合とし、
@@ -2877,7 +2923,7 @@ $$
 
 とする。
 
-$a_1$ は coercivity 定数 $\alpha_1>0$ を持つとする。
+$a_1$ は 強圧定数 $\alpha_1>0$ を持つとする。
 
 $$
 \|u_1-u_2\|_V
@@ -2892,7 +2938,7 @@ $$
 
 を導け。
 
-さらに $a_2$ の coercivity 定数が $\alpha_2>0$ なら、右辺から $\|u_2\|_V$ を消去せよ。
+さらに $a_2$ の 強圧定数が $\alpha_2>0$ なら、右辺から $\|u_2\|_V$ を消去せよ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -2935,7 +2981,7 @@ a_1(w,w)
 (a_2-a_1)(u_2,w).
 $$
 
-coercivity から
+強圧条件から
 
 $$
 a_1(w,w)
@@ -2988,7 +3034,7 @@ $$
 
 $w=0$ なら自明です。
 
-さらに $a_2$ が coercivity 定数 $\alpha_2$ を持つなら Lax--Milgram の energy estimate から
+さらに $a_2$ が 強圧定数 $\alpha_2$ を持つなら Lax--Milgram の エネルギー評価 から
 
 $$
 \|u_2\|_V
@@ -3014,10 +3060,10 @@ $$
 <!-- solution-end -->
 
 <a id="ex-gpde8-b03"></a>
-#### GPDE8-B03 Neumann compatibility と平均ゼロ解
+#### GPDE8-B03 Neumann 適合条件 と平均ゼロ解
 - Level: B
 
-$\Omega$ を bounded connected Lipschitz domain とし、
+$\Omega$ を 有界 connected Lipschitz 領域 とし、
 
 $$
 a(u,v)
@@ -3026,14 +3072,14 @@ a(u,v)
 A\nabla u\cdot\nabla v\,dx
 $$
 
-とする。$A$ は bounded かつ一様楕円的とする。
+とする。$A$ は 有界 かつ一様楕円的とする。
 
 1. 弱解が $H^1(\Omega)$ 上で存在するなら $F(1)=0$ が必要であることを示せ。
 2. 平均ゼロ空間
    $$
    V_0=\left\{v\in H^1(\Omega):\int_\Omega v=0\right\}
    $$
-   上で $a$ が coercive になる理由を説明せよ。
+   上で $a$ が 強圧的 になる理由を説明せよ。
 3. $F(1)=0$ の下で得た $V_0$ 上の解が、実はすべての $v\in H^1$ に対する弱形式を満たすことを示せ。
 4. 解が定数加算を除いて一意であることを示せ。
 
@@ -3069,7 +3115,7 @@ $$
 
 が必要です。
 
-2. $V_0$ 上では Poincare--Wirtinger により
+2. $V_0$ 上では Poincaré--Wirtinger により
 
 $$
 \|v\|_2
@@ -3077,7 +3123,7 @@ $$
 C_W\|\nabla v\|_2.
 $$
 
-従って $\|\nabla v\|_2$ は $V_0$ 上の norm になります。
+従って $\|\nabla v\|_2$ は $V_0$ 上の ノルム になります。
 
 一様楕円性から
 
@@ -3087,7 +3133,7 @@ a(v,v)
 \lambda\|\nabla v\|_2^2.
 $$
 
-したがって $V_0$ 上で coercive です。
+したがって $V_0$ 上で 強圧的 です。
 
 3. Lax--Milgram で $u\in V_0$ が
 
@@ -3155,7 +3201,7 @@ $$
 
 従って $\nabla w=0$。
 
-connected domain 上では $w$ は a.e. 定数です。
+連結領域 上では $w$ は a.e. 定数です。
 
 よって二解は定数だけ異なります。
 
@@ -3168,7 +3214,7 @@ connected domain 上では $w$ は a.e. 定数です。
 #### GPDE8-C01 一般係数 Dirichlet 問題を仮定確認から閉じる
 - Level: C
 
-$\Omega\subset\mathbb R^2$ を bounded Lipschitz domain とし、
+$\Omega\subset\mathbb R^2$ を 有界 Lipschitz 領域 とし、
 
 $$
 A(x)
@@ -3198,10 +3244,10 @@ $$
 に零 Dirichlet 条件を課す。
 
 1. $A$ が一様楕円的であることを示せ。
-2. $A$ が bounded であることを確認し、双線形形式が bounded であることを示せ。
-3. $b$ は定数ベクトルなので $\operatorname{div}b=0$ であることを使い、$K$ の大きさに依存せず coercivity を示せ。
+2. $A$ が 有界 であることを確認し、双線形形式が 有界 であることを示せ。
+3. $b$ は定数ベクトルなので $\operatorname{div}b=0$ であることを使い、$K$ の大きさに依存せず 強圧条件を示せ。
 4. 任意の $F\in H^{-1}(\Omega)$ に対して弱解が一意に存在することを示せ。
-5. 解に対する energy estimate を与えよ。
+5. 解に対する エネルギー評価 を与えよ。
 6. この問題で「$\|b\|_\infty$ が小さい」という十分条件だけを使うと何を見落とすか説明せよ。
 
 <!-- solution-start -->
@@ -3256,9 +3302,9 @@ $$
 
 よって $\lambda=1$ と取れます。
 
-#### 2. boundedness
+#### 2. 有界性
 
-$\Omega$ は bounded なので $x_1,x_2$ は $\Omega$ 上で有界です。
+$\Omega$ は 有界なので $x_1,x_2$ は $\Omega$ 上で有界です。
 
 従って $A$ の各成分は $L^\infty(\Omega)$ に属し、ある $\Lambda<\infty$ が存在して
 
@@ -3278,7 +3324,7 @@ $$
 \|c\|_\infty=1.
 $$
 
-従って [係数有界性から双線形形式の boundedness](#prop-gpde8-boundedness) から
+従って [係数有界性から双線形形式の有界性](#prop-gpde8-boundedness) から
 
 $$
 |a(u,v)|
@@ -3293,7 +3339,7 @@ C_P^2
 \|u\|_V\|v\|_V.
 $$
 
-#### 3. coercivity
+#### 3. 強圧条件
 
 $b=(K,0)$ は定数ベクトルなので
 
@@ -3310,7 +3356,7 @@ c-\frac12\operatorname{div}b
 \ge0.
 $$
 
-従って構造的 coercivity の系から
+従って構造的強圧条件の系から
 
 $$
 a(v,v)
@@ -3335,7 +3381,7 @@ $$
 
 です。
 
-従って coercivity 定数は $\alpha=1$ と取れます。
+従って 強圧定数は $\alpha=1$ と取れます。
 
 ここで $K$ の大きさは関係しません。
 
@@ -3343,7 +3389,7 @@ $$
 
 $V=H_0^1(\Omega)$ は 完備な内積空間です。
 
-$a$ は bounded かつ coercive、$F\in V^*$ です。
+$a$ は 有界 かつ 強圧的、$F\in V^*$ です。
 
 従って Lax--Milgram により、一意な $u\in H_0^1(\Omega)$ が存在して
 
@@ -3355,9 +3401,9 @@ $$
 
 を満たします。
 
-#### 5. energy estimate
+#### 5. エネルギー評価
 
-coercivity 定数を $\alpha=1$ と取れるので
+強圧定数を $\alpha=1$ と取れるので
 
 $$
 \boxed{
@@ -3377,7 +3423,7 @@ $$
 
 のような制約を要求してしまいます。
 
-しかし実際には一次項は対角上で完全に消えるため、任意の $K\in\mathbb R$ で coercivity が成立します。
+しかし実際には一次項は対角上で完全に消えるため、任意の $K\in\mathbb R$ で 強圧条件が成立します。
 
 つまり
 
@@ -3424,7 +3470,7 @@ b,c\in L^\infty
 \end{array}
 }
 \Longrightarrow
-\text{boundedness}
+\text{有界性}
 $$
 
 と
@@ -3433,10 +3479,10 @@ $$
 \boxed{
 \xi^{\mathsf T}A\xi\ge\lambda|\xi|^2
 +
-\text{lower-order control}
+\text{下位項の制御}
 }
 \Longrightarrow
-\text{coercivity}
+\text{強圧条件}
 $$
 
 を確認して、
@@ -3445,7 +3491,7 @@ $$
 \boxed{
 \text{Lax--Milgram}
 \Longrightarrow
-\text{weak existence + uniqueness + energy estimate}
+\text{弱解の存在 + 一意性 + エネルギー評価}
 }
 $$
 
@@ -3467,11 +3513,11 @@ Neumann 問題では
 
 $$
 \boxed{
-\text{定数 kernel}
+\text{定数からなる核}
 \Longrightarrow
 F(1)=0
 \Longrightarrow
-\text{平均ゼロ空間で coercivity}
+\text{平均ゼロ空間で 強圧条件}
 }
 $$
 
@@ -3481,10 +3527,10 @@ $$
 
 $$
 \boxed{
-\text{どの仮定が、どの energy estimate を可能にしているか}
+\text{どの仮定が、どの エネルギー評価 を可能にしているか}
 }
 $$
 
 です。
 
-次の GPDE9 では、この energy estimate を局所化して、弱解から追加の微分可能性を回収します。
+次の GPDE9 では、この エネルギー評価 を局所化して、弱解から追加の微分可能性を回収します。

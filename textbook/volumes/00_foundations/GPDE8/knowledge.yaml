@@ -3,14 +3,18 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - GPDE7
+forward_references:
+  - sobolev.difference-quotient
+  - pde.elliptic-variable-caccioppoli
+  - pde.lipschitz-coefficient-interior-h2
 
 concepts:
   - id: pde.divergence-form-linear-elliptic-operator
-    name: divergence form二階線形作用素
+    name: 発散形二階線形作用素
     kind: definition
-    aliases: ["divergence form elliptic operator", "divergence form二階線形PDE"]
+    aliases: ["divergence form二階線形作用素", "divergence form elliptic operator", "divergence form二階線形PDE"]
     introduction: formal
-    introduction_aliases: ["定義（本章で扱う divergence form 二階線形作用素）"]
+    introduction_aliases: ["定義（本章で扱う発散形二階線形作用素）"]
     requires:
       - distribution.weak-derivative
 
@@ -33,22 +37,22 @@ concepts:
       - sobolev.hminus1
 
   - id: pde.linear-elliptic-form-bounded
-    name: 係数有界性からの楕円型formのboundedness
+    name: 係数有界性からの楕円型双線形形式の有界性
     kind: proposition
-    aliases: ["boundedness of elliptic bilinear form"]
+    aliases: ["係数有界性からの楕円型formのboundedness", "boundedness of elliptic bilinear form"]
     introduction: formal
-    introduction_aliases: ["命題（係数有界性から双線形形式の boundedness）"]
+    introduction_aliases: ["命題（係数有界性から双線形形式の有界性）"]
     requires:
       - pde.linear-elliptic-dirichlet-weak-solution
       - sobolev.poincare-h01
       - variational.bounded-bilinear-form
 
   - id: pde.linear-elliptic-small-lower-order-coercivity
-    name: 下位項の小ささによる楕円型formのcoercivity
+    name: 下位項の小ささによる楕円型双線形形式の強圧条件
     kind: proposition
-    aliases: ["small lower-order coercivity criterion"]
+    aliases: ["下位項の小ささによる楕円型formのcoercivity", "small lower-order coercivity criterion"]
     introduction: formal
-    introduction_aliases: ["命題（下位項の小ささによる coercivity）"]
+    introduction_aliases: ["命題（下位項の小ささによる強圧条件）"]
     requires:
       - pde.uniform-ellipticity
       - pde.linear-elliptic-form-bounded
@@ -66,11 +70,11 @@ concepts:
       - sobolev.smooth-multiplier-product
 
   - id: pde.linear-elliptic-structural-coercivity
-    name: div b構造による楕円型formのcoercivity
+    name: div b構造による楕円型双線形形式の強圧条件
     kind: corollary
-    aliases: ["structural coercivity criterion"]
+    aliases: ["div b構造による楕円型formのcoercivity", "structural coercivity criterion"]
     introduction: formal
-    introduction_aliases: ["系（一次項の構造を使う coercivity）"]
+    introduction_aliases: ["系（一次項の構造を使う強圧条件）"]
     requires:
       - pde.uniform-ellipticity
       - pde.drift-diagonal-identity
@@ -99,20 +103,20 @@ concepts:
       - functional-analysis.lax-milgram-stability
 
   - id: sobolev.zero-gradient-constant
-    name: connected domain上の弱勾配0関数の定数性
+    name: 連結領域上の弱勾配0関数の定数性
     kind: lemma
-    aliases: ["zero weak gradient implies constant"]
+    aliases: ["connected domain上の弱勾配0関数の定数性", "zero weak gradient implies constant"]
     introduction: formal
     introduction_aliases: ["補題（弱勾配 0 の関数は定数）"]
     requires:
       - sobolev.local-mollification
 
   - id: sobolev.poincare-wirtinger
-    name: Poincare--Wirtinger不等式
+    name: Poincaré--Wirtinger不等式
     kind: lemma
-    aliases: ["Poincare-Wirtinger inequality", "mean-zero Poincare inequality"]
+    aliases: ["Poincare--Wirtinger不等式", "Poincare-Wirtinger inequality", "mean-zero Poincare inequality"]
     introduction: formal
-    introduction_aliases: ["補題（Poincare--Wirtinger）"]
+    introduction_aliases: ["補題（Poincaré--Wirtinger）"]
     requires:
       - sobolev.zero-gradient-constant
       - sobolev.extension-lipschitz
@@ -120,9 +124,9 @@ concepts:
       - sobolev.weak-derivative-closed
 
   - id: pde.neumann-compatibility-weak-existence
-    name: 純Neumann問題のcompatibilityと弱解
+    name: 純Neumann問題の適合条件と弱解
     kind: theorem
-    aliases: ["Neumann compatibility condition", "weak Neumann existence modulo constants"]
+    aliases: ["純Neumann問題のcompatibilityと弱解", "Neumann compatibility condition", "weak Neumann existence modulo constants"]
     introduction: formal
     introduction_aliases: ["定理（純 Neumann 問題の弱解）"]
     requires:

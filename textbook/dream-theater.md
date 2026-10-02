@@ -228,8 +228,8 @@
 5. [GPDE4 H0^1・Poincaré 不等式・トレース](textbook/volumes/00_foundations/GPDE4/index.md)
 6. [GPDE5 Sobolev 埋め込み・コンパクト性](textbook/volumes/00_foundations/GPDE5/index.md)
 7. [GPDE6 弱形式・変分形式](textbook/volumes/00_foundations/GPDE6/index.md)
-8. [GPDE7 Lax--Milgram](textbook/volumes/00_foundations/GPDE7/index.md)
-9. [GPDE8 二階線形楕円型PDE](textbook/volumes/00_foundations/GPDE8/index.md)
+8. [GPDE7 Lax--Milgram 定理](textbook/volumes/00_foundations/GPDE7/index.md)
+9. [GPDE8 二階線形楕円型 PDE](textbook/volumes/00_foundations/GPDE8/index.md)
 10. [GPDE9 楕円型正則性](textbook/volumes/00_foundations/GPDE9/index.md)
 11. [GPDE10 Galerkin・時間発展PDEの弱解](textbook/volumes/00_foundations/GPDE10/index.md)
 

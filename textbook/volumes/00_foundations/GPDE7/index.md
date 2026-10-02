@@ -1,4 +1,4 @@
-# GPDE7：Lax--Milgram — coercivity を「逆作用素」に変える
+# GPDE7：Lax--Milgram — 強圧条件を「逆作用素」に変える
 
 <!-- definition-example-audit: strict -->
 
@@ -10,24 +10,24 @@ a(u,v)=F(v)
 (\forall v\in V)
 $$
 
-という変分方程式へ移し、対称な Poisson form に対しては energy の直接法で解を構成しました。
+という変分方程式へ移し、対称な Poisson 双線形形式 に対しては エネルギー の直接法で解を構成しました。
 
-しかし、大学院 PDE では毎回 minimizing sequence を作り直したいわけではありません。
+しかし、大学院 PDE では毎回 最小化列 を作り直したいわけではありません。
 
 さらに後続の GPDE8 では、双線形形式が一般に対称とは限りません。
 
 そこで本章では、GPDE6 で導入した
 
-- [bounded bilinear form](../GPDE6/index.md#def-gpde6-bounded-bilinear)
-- [coercive bilinear form](../GPDE6/index.md#def-gpde6-coercive)
+- [有界双線形形式](../GPDE6/index.md#def-gpde6-bounded-bilinear)
+- [強圧的双線形形式](../GPDE6/index.md#def-gpde6-coercive)
 
 だけを抽出し、
 
 $$
 \boxed{
-\text{bounded}
+\text{有界}
 +
-\text{coercive}
+\text{強圧的}
 \Longrightarrow
 \text{存在・一意性・安定性}
 }
@@ -43,33 +43,33 @@ $$
 
 ~~~text
 a(u,v)
-  ↓ Riesz representation
+  ↓ Riesz 表現
 <Au,v>
-  ↓ coercivity
+  ↓ 強圧条件
 ||Au|| >= alpha ||u||
   ↓
-injective + closed range
+単射 + 閉値域
   ↓
 (Ran A)^perp = {0}
   ↓
-dense range
+稠密な値域
   ↓
-closed + dense = all of V
+閉 + 稠密 = V 全体
   ↓
-A is bijective
+A is 全単射
 ~~~
 
 という作用素論の一本の鎖として再構成できることが目標です。
 
 この証明では、どの仮定がどこで働くかも明確です。
 
-- boundedness：$A$ を有界作用素として作る。
-- coercivity：$A$ を下から評価する。
+- 有界性：$A$ を有界作用素として作る。
+- 強圧条件：$A$ を下から評価する。
 - Hilbert 構造：Riesz 表現と直交補空間を使う。
-- 完備性：range が閉であることを示す。
+- 完備性：値域が閉であることを示す。
 - 対称性：**使わない**。
 
-最後の点が GPDE6 の energy minimization との重要な違いです。
+最後の点が GPDE6 の エネルギー最小化 との重要な違いです。
 
 ---
 
@@ -125,9 +125,9 @@ $$
 \boxed{
 \text{単射}
 \to
-\text{range が閉}
+\text{値域が閉}
 \to
-\text{range が稠密}
+\text{値域が稠密}
 \to
 \text{全射}
 }
@@ -143,11 +143,11 @@ $$
 
 本章で最終的に示したいのは、次の三点です。
 
-- boundedness と coercivity があれば、任意の $F\in V^*$ に対して変分方程式 $a(u,v)=F(v)$ の解が存在する。
+- 有界性と強圧条件があれば、任意の $F\in V^*$ に対して変分方程式 $a(u,v)=F(v)$ の解が存在する。
 - その解は一意である。
-- coercivity 定数 $\alpha$ が解の安定性 $\|u\|_V\le \alpha^{-1}\|F\|_{V^*}$ を支配する。
+- 強圧定数 $\alpha$ が解の安定性 $\|u\|_V\le \alpha^{-1}\|F\|_{V^*}$ を支配する。
 
-正式な定理文は、closed range と dense range の補題を準備した後に置きます。
+正式な定理文は、閉値域 と 稠密な値域の補題を準備した後に置きます。
 
 定理の形だけ見ると、GPDE6 の Poisson 問題とほとんど同じです。
 
@@ -329,7 +329,7 @@ $$
 
 $a$ は第2変数について線形なので、$\ell_u$ は線形汎関数です。
 
-また boundedness から
+また 有界性 から
 
 $$
 |\ell_u(v)|
@@ -433,7 +433,7 @@ $$
 a(u,Au).
 $$
 
-boundedness から
+有界性 から
 
 $$
 \|Au\|_V^2
@@ -547,13 +547,13 @@ $$
 
 ---
 
-## 5. 第2段階：coercivity から作用素を下から評価する
+## 5. 第2段階：強圧条件から作用素を下から評価する
 
 <a id="lem-gpde7-lower-bound"></a>
 
 <!-- formal-statement-start -->
-> **補題（coercivity から作用素を下から評価する）**  
-> $V$ を実数体上の完備な内積空間とし、$a$ を bounded bilinear form とする。
+> **補題（強圧条件から作用素を下から評価する）**  
+> $V$ を実数体上の完備な内積空間とし、$a$ を 有界双線形形式 とする。
 >
 > [双線形形式の Riesz 作用素表示](#prop-gpde7-riesz-operator)で得た $A:V\to V$ に対し、さらにある $\alpha>0$ が存在して
 
@@ -580,7 +580,7 @@ $$
 
 ### 証明の核心
 
-coercivity は
+強圧条件は
 
 $$
 a(u,u)
@@ -609,7 +609,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-coercivity から
+強圧条件から
 
 $$
 \alpha\|u\|_V^2
@@ -680,7 +680,7 @@ $$
 \frac1\alpha\|Au\|_V
 $$
 
-なので、もし $A^{-1}$ が range 上で定義されれば
+なので、もし $A^{-1}$ が 値域 上で定義されれば
 
 $$
 \|A^{-1}y\|_V
@@ -692,7 +692,7 @@ $$
 
 ---
 
-## 6. 第3段階：下からの評価から range が閉じる
+## 6. 第3段階：下からの評価から 値域が閉じる
 
 無限次元では、単射だけでは全射になりません。
 
@@ -709,7 +709,7 @@ $$
 <a id="lem-gpde7-closed-range"></a>
 
 <!-- formal-statement-start -->
-> **補題（下から有界なら range は閉）**  
+> **補題（下から有界なら値域は閉）**  
 > $V$ を 完備な内積空間とし、$A:V\to V$ を有界線形作用素とする。
 >
 > ある $\alpha>0$ が存在して
@@ -736,7 +736,7 @@ $$
 
 ### どこで完備性を使うのか
 
-range の点列
+値域の点列
 
 $$
 Au_n
@@ -869,9 +869,9 @@ $$
 $$
 <!-- proof-end -->
 
-この証明では coercivity 自体を直接使っていません。
+この証明では 強圧条件 自体を直接使っていません。
 
-使っているのは、coercivity から既に導いた
+使っているのは、強圧条件から既に導いた
 
 $$
 \|Au\|\ge\alpha\|u\|
@@ -879,13 +879,13 @@ $$
 
 です。
 
-この分離をしておくと、後の作用素論でも同じ closed range 論法を再利用できます。
+この分離をしておくと、後の作用素論でも同じ 閉値域 論法を再利用できます。
 
 ---
 
-## 7. 第4段階：range が稠密であることを示す
+## 7. 第4段階：値域が稠密であることを示す
 
-range が閉じているだけでは
+値域が閉じているだけでは
 
 $$
 \operatorname{Ran}A
@@ -917,13 +917,13 @@ $$
 M=\operatorname{Ran}A
 $$
 
-に対して直交補空間が 0 であることを coercivity から示せます。
+に対して直交補空間が 0 であることを 強圧条件から示せます。
 
 <a id="lem-gpde7-dense-range"></a>
 
 <!-- formal-statement-start -->
-> **補題（Lax--Milgram 作用素の range は稠密）**  
-> $V$ を実数体上の完備な内積空間、$a:V\times V\to\mathbb R$ を bounded かつ coercive な双線形形式とする。
+> **補題（Lax--Milgram 作用素の値域は稠密）**  
+> $V$ を実数体上の完備な内積空間、$a:V\times V\to\mathbb R$ を 有界かつ強圧的な双線形形式とする。
 >
 > [双線形形式の Riesz 作用素表示](#prop-gpde7-riesz-operator)で定まる $A:V\to V$ に対し
 
@@ -940,7 +940,7 @@ $$
 
 ### 証明の核心
 
-$y$ が range の全てに直交すると仮定します。
+$y$ が 値域の全てに直交すると仮定します。
 
 すると全ての $u\in V$ に対して
 
@@ -974,7 +974,7 @@ $$
 a(y,y)=0.
 $$
 
-coercivity が
+強圧条件が
 
 $$
 \alpha\|y\|^2\le0
@@ -1023,7 +1023,7 @@ $$
 a(y,y)=0.
 $$
 
-coercivity から
+強圧条件から
 
 $$
 \alpha\|y\|_V^2
@@ -1070,7 +1070,7 @@ $$
 \text{直交補空間が 0}
 $$
 
-という幾何学的条件で range の不足を排除しています。
+という幾何学的条件で 値域の不足を排除しています。
 
 ---
 
@@ -1117,7 +1117,7 @@ $$
 
 つまり $A$ は全射です。
 
-一方、coercivity から既に $A$ は単射でした。
+一方、強圧条件から既に $A$ は単射でした。
 
 したがって
 
@@ -1191,38 +1191,38 @@ $$
 証明全体を一度つなぎ直します。
 
 ~~~text
-1. fixed u:
-   v -> a(u,v) belongs to V*
-2. Riesz:
+1. $u$ を固定:
+   $v\mapsto a(u,v)$ は $V^*$ の元
+2. Riesz 表現:
    a(u,v)=<Au,v>
-3. boundedness:
-   A is bounded
-4. coercivity:
+3. 有界性:
+   $A$ は有界
+4. 強圧条件:
    ||Au|| >= alpha ||u||
-5. therefore:
-   A is injective
-6. lower bound + completeness:
-   Ran A is closed
-7. y perpendicular to Ran A:
-   a(u,y)=0 for all u
-   choose u=y
-   coercivity gives y=0
-8. therefore:
-   Ran A is dense
-9. closed + dense:
-   Ran A=V
-10. Riesz on F:
-   F(v)=<f,v>
-11. solve:
-   Au=f
-12. coercivity:
+5. したがって:
+   $A$ は単射
+6. 下からの評価 + 完備性:
+   $\operatorname{Ran}A$ は閉
+7. $y\perp\operatorname{Ran}A$:
+   すべての $u$ で $a(u,y)=0$
+   $u=y$ と選ぶ
+   強圧条件から $y=0$
+8. したがって:
+   $\operatorname{Ran}A$ は稠密
+9. 閉 + 稠密:
+   $\operatorname{Ran}A=V$
+10. $F$ に Riesz 表現を適用:
+   $F(v)=\langle f,v\rangle$
+11. 解く:
+   $Au=f$
+12. 強圧条件:
    ||u|| <= alpha^{-1}||F||
 ~~~
 
 <!-- proof-start -->
 ### 証明
 
-$a$ の boundedness と [双線形形式の Riesz 作用素表示](#prop-gpde7-riesz-operator)から、一意な有界線形作用素
+$a$ の 有界性と [双線形形式の Riesz 作用素表示](#prop-gpde7-riesz-operator)から、一意な有界線形作用素
 
 $$
 A:V\to V
@@ -1238,7 +1238,7 @@ $$
 
 が成り立ちます。
 
-[coercivity から作用素を下から評価する補題](#lem-gpde7-lower-bound)により
+[強圧条件から作用素を下から評価する補題](#lem-gpde7-lower-bound)により
 
 $$
 \|Au\|_V
@@ -1248,7 +1248,7 @@ $$
 
 従って $Au=0$ なら $u=0$ なので $A$ は単射です。
 
-また [下から有界なら range は閉](#lem-gpde7-closed-range)より
+また [下から有界なら値域は閉](#lem-gpde7-closed-range)より
 
 $$
 \operatorname{Ran}A
@@ -1256,7 +1256,7 @@ $$
 
 は閉です。
 
-さらに [Lax--Milgram 作用素の range は稠密](#lem-gpde7-dense-range)より
+さらに [Lax--Milgram 作用素の値域は稠密](#lem-gpde7-dense-range)より
 
 $$
 \overline{\operatorname{Ran}A}
@@ -1264,7 +1264,7 @@ $$
 V.
 $$
 
-range は閉なので
+値域は閉なので
 
 $$
 \operatorname{Ran}A
@@ -1312,7 +1312,7 @@ $$
 
 一意性は $A$ の単射性から従います。
 
-最後に解 $u$ に対して coercivity と [既習の双対評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)を用いると
+最後に解 $u$ に対して 強圧条件と [既習の双対評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)を用いると
 
 $$
 \alpha\|u\|_V^2
@@ -1357,7 +1357,7 @@ $$
 
 は付録ではありません。
 
-PDE では existence と同じくらい重要です。
+PDE では 存在 と同じくらい重要です。
 
 外力を少し変えたとき、解も少ししか変わらないことを保証するからです。
 
@@ -1463,7 +1463,7 @@ $$
 
 ## 11. 対称性は必要ない
 
-GPDE6 の energy minimization では
+GPDE6 の エネルギー最小化 では
 
 $$
 a(u,v)=a(v,u)
@@ -1473,15 +1473,15 @@ $$
 
 しかし Lax--Milgram の証明を振り返ると、使ったのは
 
-- boundedness
-- coercivity
+- 有界性
+- 強圧条件
 - Hilbert 構造
 
 だけです。
 
 対称性は使っていません。
 
-### 具体例：非対称だが coercive
+### 具体例：非対称だが 強圧的
 
 $V=\mathbb R^2$ に Euclid 内積を入れ
 
@@ -1555,7 +1555,7 @@ $$
 \alpha=1
 $$
 
-で coercive です。
+で 強圧的です。
 
 また
 
@@ -1587,11 +1587,11 @@ $$
 \sqrt2\|u\|_2\|v\|_2.
 $$
 
-つまり $M=\sqrt2$ で bounded です。
+つまり $M=\sqrt2$ で 有界です。
 
 したがって Lax--Milgram が適用できます。
 
-この例で skew-symmetric part
+この例で 反対称部分
 
 $$
 \frac{B-B^{\mathsf T}}2
@@ -1599,13 +1599,13 @@ $$
 
 は $a(v,v)$ に寄与しません。
 
-coercivity は「対角方向 $a(v,v)$」の正の部分で決まり、非対称成分が存在してもよいことが分かります。
+強圧条件は「対角方向 $a(v,v)$」の正の部分で決まり、非対称成分が存在してもよいことが分かります。
 
 ---
 
-## 12. 反例：coercivity を失うと何が壊れるか
+## 12. 反例：強圧条件を失うと何が壊れるか
 
-boundedness だけでは存在一意性は出ません。
+有界性 だけでは存在一意性は出ません。
 
 $V=\mathbb R^2$ とし
 
@@ -1627,7 +1627,7 @@ $$
 \|u\|_2\|v\|_2
 $$
 
-なので bounded です。
+なので 有界です。
 
 しかし
 
@@ -1651,7 +1651,7 @@ $$
 \|w\|_2=1.
 $$
 
-従って coercive ではありません。
+従って 強圧的 ではありません。
 
 対応する作用素は
 
@@ -1719,7 +1719,7 @@ $$
 
 だけ決まり、$u_2$ は任意なので一意性が壊れます。
 
-つまり coercivity を失うと
+つまり 強圧条件を失うと
 
 $$
 \boxed{
@@ -1727,7 +1727,7 @@ $$
 \to
 \text{単射}
 \to
-\text{closed range / full range}
+\text{閉値域 / full 値域}
 }
 $$
 
@@ -1737,7 +1737,7 @@ $$
 
 ## 13. 具体例：Poisson 問題へ適用する
 
-GPDE6 で Poisson form の boundedness と coercivity は既に証明しました。
+GPDE6 で Poisson 双線形形式 の 有界性と強圧条件は既に証明しました。
 
 ここでは Lax--Milgram の仮定へ一つずつ差し込みます。
 
@@ -1762,7 +1762,7 @@ $$
 
 と置きます。
 
-[Poisson form の boundedness と coercivity](../GPDE6/index.md#prop-gpde6-poisson-form)から
+[Poisson 双線形形式 の 有界性と強圧条件](../GPDE6/index.md#prop-gpde6-poisson-form)から
 
 $$
 |a(u,v)|
@@ -1840,16 +1840,16 @@ $$
 
 二つの証明は競合しません。
 
-- GPDE6 の直接法：energy minimization と weak compactness の使い方を学ぶ。
-- GPDE7 の Lax--Milgram：一般の bounded coercive bilinear form を一気に解く。
+- GPDE6 の直接法：エネルギー最小化 と 弱コンパクト性 の使い方を学ぶ。
+- GPDE7 の Lax--Milgram：一般の 有界かつ強圧的な双線形形式 を統一的に解く。
 
 という役割分担です。
 
 ---
 
-## 14. 具体例：reaction--diffusion へ一歩広げる
+## 14. 具体例：反応拡散 へ一歩広げる
 
-Poisson form に 0 次項を加えます。
+Poisson 双線形形式 に 0 次項を加えます。
 
 $\Omega\subset\mathbb R^d$ を有界開集合、
 
@@ -1882,7 +1882,7 @@ $$
 
 を考えます。
 
-### boundedness の確認
+### 有界性 の確認
 
 第一項は
 
@@ -1945,7 +1945,7 @@ $$
 }.
 $$
 
-### coercivity の確認
+### 強圧条件の確認
 
 $c\ge0$ がほとんど至る所（almost everywhere; a.e.）で成り立つので
 
@@ -1983,7 +1983,7 @@ $$
 <a id="cor-gpde7-reaction-diffusion"></a>
 
 <!-- formal-statement-start -->
-> **系（reaction--diffusion 問題への適用）**  
+> **系（反応拡散問題への適用）**  
 > $\Omega\subset\mathbb R^d$ を有界開集合、
 >
 > $c\in L^\infty(\Omega)$ が
@@ -1995,7 +1995,7 @@ $$
 
 > を満たすとする。
 >
-> $V=H_0^1(\Omega)$ に勾配 norm を入れ
+> $V=H_0^1(\Omega)$ に勾配 ノルム を入れ
 
 $$
 a(u,v)
@@ -2034,7 +2034,7 @@ $$
 > が成り立つ。
 <!-- formal-statement-end -->
 
-この weak equation は形式的には
+この 弱形式 は形式的には
 
 $$
 -\Delta u+cu=f,
@@ -2064,9 +2064,9 @@ $$
 \boxed{
 \text{各項を評価}
 \to
-\text{boundedness}
+\text{有界性}
 \to
-\text{coercivity}
+\text{強圧条件}
 \to
 \text{Lax--Milgram}
 }
@@ -2107,7 +2107,7 @@ $$
 a(u,v)\ne a(v,u).
 $$
 
-### boundedness
+### 有界性
 
 Cauchy--Schwarz と Poincaré から
 
@@ -2136,7 +2136,7 @@ $$
 \|u\|_V\|v\|_V.
 $$
 
-### coercivity
+### 強圧条件
 
 $v\in H_0^1(0,1)$ に対して
 
@@ -2178,7 +2178,7 @@ $$
 
 非対称項は存在しますが、対角値 $a(v,v)$ では境界項として消えます。
 
-これが「非対称でも coercive」という PDE 側の最小例です。
+これが「非対称でも 強圧的」という PDE 側の最小例です。
 
 ---
 
@@ -2191,12 +2191,12 @@ Lax--Milgram を使うとき、仮定をセット暗記すると応用で迷い�
 | 仮定 | 使う場所 | 失うと何が壊れるか |
 |---|---|---|
 | $V$ が実数体上の完備な内積空間 | Riesz 表現、直交補空間、完備性 | $a(u,\cdot)$ を同じ空間のベクトル $Au$ に戻す証明が使えない |
-| boundedness | $A$ の構成と連続性 | $v\mapsto a(u,v)$ が $V^*$ に入る保証がない |
-| coercivity | $\|Au\|\ge\alpha\|u\|$、単射、dense range、安定性 | kernel や到達不能方向が残り得る |
-| $\alpha>0$ | 下からの一様評価 | $\alpha=0$ では norm を制御できない |
+| 有界性 | $A$ の構成と連続性 | $v\mapsto a(u,v)$ が $V^*$ に入る保証がない |
+| 強圧条件 | $\|Au\|\ge\alpha\|u\|$、単射、稠密な値域、安定性 | 核 や到達不能方向が残り得る |
+| $\alpha>0$ | 下からの一様評価 | $\alpha=0$ では ノルム を制御できない |
 | 対称性 | **不要** | Lax--Milgram 自体には影響しない |
 
-GPDE6 の energy minimization では対称性が
+GPDE6 の エネルギー最小化 では対称性が
 
 $$
 J(v)=\frac12a(v,v)-F(v)
@@ -2213,10 +2213,10 @@ Lax--Milgram はその制約を外しています。
 ### Level A
 
 <a id="ex-gpde7-a01"></a>
-#### GPDE7-A01 coercivity から下からの評価
+#### GPDE7-A01 強圧条件から下からの評価
 - Level: A
 
-$V$ を実数体上の完備な内積空間、$a$ を bounded bilinear form とし
+$V$ を実数体上の完備な内積空間、$a$ を 有界双線形形式 とし
 
 $$
 a(u,v)
@@ -2251,7 +2251,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-coercivity と Riesz 作用素表示から
+強圧条件と Riesz 作用素表示から
 
 $$
 \alpha\|u\|_V^2
@@ -2431,7 +2431,7 @@ $$
 a(u,Au).
 $$
 
-boundedness から
+有界性 から
 
 $$
 \|Au\|_V^2
@@ -2455,7 +2455,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-gpde7-a03"></a>
-#### GPDE7-A03 非対称 coercive 行列
+#### GPDE7-A03 非対称 強圧的 行列
 - Level: A
 
 $$
@@ -2547,7 +2547,7 @@ x^2+y^2
 \end{aligned}
 $$
 
-よって coercivity 定数は
+よって 強圧定数は
 
 $$
 \alpha=1
@@ -2601,7 +2601,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-gpde7-a04"></a>
-#### GPDE7-A04 reaction--diffusion form の仮定確認
+#### GPDE7-A04 反応拡散双線形形式 の仮定確認
 - Level: A
 
 $\Omega\subset\mathbb R^d$ を有界開集合とし
@@ -2633,8 +2633,8 @@ $$
 
 について
 
-1. $a$ が bounded であることを示せ。
-2. $\alpha=1$ で coercive であることを示せ。
+1. $a$ が 有界 であることを示せ。
+2. $\alpha=1$ で 強圧的 であることを示せ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -2701,7 +2701,7 @@ $$
 \|u\|_V\|v\|_V.
 $$
 
-よって bounded です。
+よって 有界です。
 
 次に
 
@@ -2734,13 +2734,13 @@ $$
 }
 $$
 
-で coercive です。
+で 強圧的です。
 <!-- solution-end -->
 
 ### Level B
 
 <a id="ex-gpde7-b01"></a>
-#### GPDE7-B01 下からの評価から closed range を証明する
+#### GPDE7-B01 下からの評価から 閉値域 を証明する
 - Level: B
 
 $V$ を 完備な内積空間、$A:V\to V$ を有界線形作用素とし
@@ -2826,7 +2826,7 @@ $$
 
 従って $y\in\operatorname{Ran}A$ です。
 
-任意の range 内収束列の極限が再び range に属したので
+任意の 値域 内収束列の極限が再び 値域 に属したので
 
 $$
 \boxed{
@@ -2847,10 +2847,10 @@ $$
 <!-- solution-end -->
 
 <a id="ex-gpde7-b02"></a>
-#### GPDE7-B02 dense range の証明と対称性不要の確認
+#### GPDE7-B02 稠密な値域の証明と対称性不要の確認
 - Level: B
 
-$V$ を実数体上の完備な内積空間、$a$ を bounded かつ coercive な双線形形式とし
+$V$ を実数体上の完備な内積空間、$a$ を 有界かつ強圧的な双線形形式とし
 
 $$
 a(u,v)=\langle Au,v\rangle
@@ -2901,7 +2901,7 @@ $$
 a(y,y)=0.
 $$
 
-coercivity より
+強圧条件 より
 
 $$
 \alpha\|y\|_V^2
@@ -2957,7 +2957,7 @@ $a(u,y)$ を $a(y,u)$ に入れ替える箇所はありません。
 <!-- solution-end -->
 
 <a id="ex-gpde7-b03"></a>
-#### GPDE7-B03 右辺の摂動に対する strong stability
+#### GPDE7-B03 右辺の摂動に対する 強安定性
 - Level: B
 
 Lax--Milgram の仮定を満たす $a$ を固定する。
@@ -3084,7 +3084,7 @@ v v'\,dx
 $$
 
 を示せ。
-4. $a(v,v)=\|v\|_V^2$ を導き、coercivity 定数を求めよ。
+4. $a(v,v)=\|v\|_V^2$ を導き、強圧定数を求めよ。
 5. Lax--Milgram により
 
 $$
@@ -3127,7 +3127,7 @@ $$
 
 従って和 $a$ は双線形です。
 
-### 2. boundedness
+### 2. 有界性
 
 第一項は Cauchy--Schwarz から
 
@@ -3190,7 +3190,7 @@ $$
 }.
 $$
 
-従って $a$ は bounded です。
+従って $a$ は 有界です。
 
 ### 3. 対角上の一次項
 
@@ -3235,7 +3235,7 @@ vv'\,dx
 }.
 $$
 
-### 4. coercivity
+### 4. 強圧条件
 
 上の結果を使うと
 
@@ -3266,7 +3266,7 @@ $$
 }
 $$
 
-で coercive です。
+で 強圧的です。
 
 ### 5. 存在一意性
 
@@ -3275,8 +3275,8 @@ $V=H_0^1(0,1)$ は 完備な内積空間です。
 ここまでで
 
 - $a$ は双線形
-- $a$ は bounded
-- $a$ は $\alpha=1$ で coercive
+- $a$ は 有界
+- $a$ は $\alpha=1$ で 強圧的
 - $F\in V^*$
 
 を確認しました。
@@ -3295,7 +3295,7 @@ $$
 
 ### 6. 安定性
 
-coercivity 定数は $\alpha=1$ なので
+強圧定数は $\alpha=1$ なので
 
 $$
 \|u\|_V
@@ -3415,13 +3415,13 @@ a(u,v)\ne a(v,u)
 }.
 $$
 
-それでも boundedness と coercivity は成立しているため、Lax--Milgram は問題なく適用できます。
+それでも 有界性と強圧条件は成立しているため、Lax--Milgram は問題なく適用できます。
 
 この例は
 
 $$
 \boxed{
-\text{対称性は energy minimization には重要だが、Lax--Milgram には不要}
+\text{対称性は エネルギー最小化 には重要だが、Lax--Milgram には不要}
 }
 $$
 
@@ -3452,9 +3452,9 @@ $$
 
 と作用素を作るところから始まります。
 
-boundedness により $A$ は有界です。
+有界性 により $A$ は有界です。
 
-coercivity により
+強圧条件 により
 
 $$
 \boxed{
@@ -3469,13 +3469,13 @@ $$
 そこから
 
 $$
-\text{injective}
+\text{単射}
 $$
 
 と
 
 $$
-\text{closed range}
+\text{閉値域}
 $$
 
 を得ます。
@@ -3489,13 +3489,13 @@ a(u,y)=0
 \quad(\forall u)
 $$
 
-で $u=y$ と置くと coercivity から $y=0$ なので
+で $u=y$ と置くと 強圧条件から $y=0$ なので
 
 $$
 \overline{\operatorname{Ran}A}=V.
 $$
 
-range は閉でもあるため
+値域は閉でもあるため
 
 $$
 \operatorname{Ran}A=V.
@@ -3543,9 +3543,9 @@ $$
 また、
 
 - 対称性は Lax--Milgram に不要。
-- coercivity を失うと kernel や到達不能方向が残る。
+- 強圧条件を失うと 核 や到達不能方向が残る。
 - Poisson は $\alpha=1$ の最も基本的な例。
-- reaction--diffusion でも各項を評価すれば同じ定理が使える。
+- 反応拡散 でも各項を評価すれば同じ定理が使える。
 - 非対称な一次項を含む最小例でも Lax--Milgram は働く。
 
 ことを確認しました。
@@ -3570,7 +3570,7 @@ $$
 \boxed{
 \text{係数仮定}
 \Longrightarrow
-\text{boundedness / coercivity}
+\text{有界性 / 強圧条件}
 }
 $$
 

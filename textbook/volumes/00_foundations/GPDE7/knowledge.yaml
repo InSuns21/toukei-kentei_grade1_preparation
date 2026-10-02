@@ -17,31 +17,31 @@ concepts:
       - functional.riesz-representation-theorem
 
   - id: functional-analysis.coercive-operator-lower-bound
-    name: coercivityによる作用素の下からの評価
+    name: 強圧条件による作用素の下からの評価
     kind: lemma
-    aliases: ["coercive operator lower bound", "bounded below estimate"]
+    aliases: ["coercivityによる作用素の下からの評価", "coercive operator lower bound", "bounded below estimate"]
     introduction: formal
-    introduction_aliases: ["補題（coercivity から作用素を下から評価する）"]
+    introduction_aliases: ["補題（強圧条件から作用素を下から評価する）"]
     requires:
       - functional-analysis.bilinear-riesz-operator
       - variational.coercive-bilinear-form
 
   - id: functional-analysis.bounded-below-closed-range
-    name: 下から有界な作用素のrange閉性
+    name: 下から有界な作用素の値域閉性
     kind: lemma
-    aliases: ["bounded below implies closed range"]
+    aliases: ["下から有界な作用素のrange閉性", "bounded below implies closed range"]
     introduction: formal
-    introduction_aliases: ["補題（下から有界なら range は閉）"]
+    introduction_aliases: ["補題（下から有界なら値域は閉）"]
     requires:
       - functional-analysis.coercive-operator-lower-bound
       - functional.hilbert-space
 
   - id: functional-analysis.lax-milgram-dense-range
-    name: Lax--Milgram作用素のrange稠密性
+    name: Lax--Milgram作用素の値域稠密性
     kind: lemma
-    aliases: ["dense range in Lax--Milgram proof"]
+    aliases: ["Lax--Milgram作用素のrange稠密性", "dense range in Lax--Milgram proof"]
     introduction: formal
-    introduction_aliases: ["補題（Lax--Milgram 作用素の range は稠密）"]
+    introduction_aliases: ["補題（Lax--Milgram 作用素の値域は稠密）"]
     requires:
       - functional-analysis.bilinear-riesz-operator
       - variational.coercive-bilinear-form
@@ -79,11 +79,11 @@ concepts:
       - pde.poisson-variational-weak-solution
 
   - id: pde.reaction-diffusion-lax-milgram
-    name: reaction-diffusion問題へのLax--Milgram適用
+    name: 反応拡散問題へのLax--Milgram適用
     kind: corollary
-    aliases: ["reaction diffusion by Lax--Milgram"]
+    aliases: ["reaction-diffusion問題へのLax--Milgram適用", "reaction diffusion by Lax--Milgram"]
     introduction: formal
-    introduction_aliases: ["系（reaction--diffusion 問題への適用）"]
+    introduction_aliases: ["系（反応拡散問題への適用）"]
     requires:
       - functional-analysis.lax-milgram
       - sobolev.poincare-h01
