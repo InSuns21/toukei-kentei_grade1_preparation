@@ -152,9 +152,8 @@ for (const p of expected) {
           if (!id) {
             errors.push(`chapter.yaml has no id: ${toPosix(path.relative(repoRoot, chapterYamlPath))}`);
           } else {
-            const expectedMetadataTitle = title.startsWith(`${id} `)
-              ? title.slice(id.length + 1).trim()
-              : title;
+            const displayIdMatch = /^([A-Z][A-Z0-9]*(?:-[A-Z0-9]+)?)\s+(.+)$/u.exec(title);
+            const expectedMetadataTitle = displayIdMatch ? displayIdMatch[2].trim() : title;
             if (metadataTitle !== expectedMetadataTitle) {
               errors.push(`chapter title drift: ${p} H1="${title}" but chapter.yaml.title="${metadataTitle}" (expected "${expectedMetadataTitle}")`);
             }

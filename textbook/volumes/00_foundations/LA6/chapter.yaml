@@ -1,5 +1,5 @@
 id: "LA6"
-title: "スペクトル・二次形式・polar decomposition・複素SVD"
+title: "スペクトル・二次形式・極分解・複素特異値分解"
 volume: "foundations"
 status: supplementary
 prerequisites:

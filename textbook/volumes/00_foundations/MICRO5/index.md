@@ -1,4 +1,4 @@
-# MICRO5 Pareto 効率・社会計画問題・厚生定理
+# MICRO5 パレート効率・社会計画問題・厚生定理
 
 <!-- definition-example-audit: strict -->
 
