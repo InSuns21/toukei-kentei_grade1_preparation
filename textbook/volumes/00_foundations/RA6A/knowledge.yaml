@@ -34,9 +34,7 @@ concepts:
     kind: lemma
     aliases: [閉球上の収縮写像, 収縮写像補題]
     requires:
-      - topology.cauchy-sequence
-      - topology.complete-metric-space
-      - topology.closed-subset-complete
+      - analysis.real-completeness
 
   - id: analysis.inverse-function-theorem
     name: 逆関数定理
