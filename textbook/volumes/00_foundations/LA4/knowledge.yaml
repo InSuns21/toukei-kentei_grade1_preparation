@@ -4,7 +4,6 @@ coverage: complete
 prerequisites:
   - LA3C
   - F0-00F
-  - F0-00F1
 forward_references:
   - linear.complex-inner-product
   - linear.normal-operator
