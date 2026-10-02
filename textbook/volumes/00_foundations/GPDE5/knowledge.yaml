@@ -110,7 +110,7 @@ concepts:
     kind: theorem
     aliases: ["Rellich compactness", "Rellich--Kondrachov theorem", "Rellich--Kondrachov：H01 から L2", "H01 compactly embeds into L2"]
     introduction: formal
-    introduction_aliases: ["定理（Rellich--Kondrachov：H01 から L2）"]
+    introduction_aliases: ["定理（Rellich--Kondrachov：$H_0^1$ から $L^2$）"]
     requires:
       - analysis.compact-embedding
       - analysis.l2-translation-compactness
