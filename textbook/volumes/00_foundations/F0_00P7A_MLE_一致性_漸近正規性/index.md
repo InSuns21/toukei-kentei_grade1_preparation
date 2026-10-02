@@ -208,7 +208,7 @@ $E|X|<\infty$ とし、$\Theta=[0,1]$、$m_\theta(x)=\theta x$ とします。�
 $$
 \sup_{0\le\theta\le1}
 \left|
-\frac1n\sum_{i=1}^n\theta X_i-	heta E[X]
+\frac1n\sum_{i=1}^n\theta X_i-\theta E[X]
 \right|
 =
 \left|\overline X_n-E[X]\right|.
