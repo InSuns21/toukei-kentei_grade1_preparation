@@ -44,8 +44,8 @@ $$
 
 | 実数列 | 距離空間の点列 |
 |---|---|
-| $|a_m-a_n|$ | $d(x_m,x_n)$ |
-| $|a_n-L|$ | $d(x_n,x)$ |
+| $\lvert a_m-a_n\rvert$ | $d(x_m,x_n)$ |
+| $\lvert a_n-L\rvert$ | $d(x_n,x)$ |
 | 実数の Cauchy 条件 | 距離空間の Cauchy 条件 |
 | 実数の完備性 | 一般距離空間では追加条件 |
 
