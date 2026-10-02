@@ -12,10 +12,11 @@ learning_objectives:
   - 上限のepsilon特徴付けを証明して使える
   - 最適化でinfimumから始める理由を説明できる
 definitions:
+  - { id: F000A1-DEF-01, name: 上に有界・下に有界 }
   - { id: F000A1-DEF-03, name: 上限 }
   - { id: F000A1-DEF-04, name: 下限 }
 theorems:
-  - { id: F000A1-PROP-01, name: 上限のepsilon特徴付け }
+  - { id: F000A1-PROP-01, name: 上限の ε 特徴付け }
 canonical_examples:
   - 開区間の上限と下限
   - 上限はあるが最大元がない集合
