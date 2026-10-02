@@ -922,7 +922,7 @@ $$
 
 $m<k$ とし、$|\alpha|=m$ まで
 
-$
+$$
 D^\alpha(\chi u)
 =
 \sum_{\beta\le\alpha}
@@ -935,13 +935,13 @@ $$
 
 各 $\beta\le\alpha$ について
 
-$
+$$
 |\alpha-\beta|+1
 \le
 m+1
 \le
 k
-$
+$$
 
 なので $D^{\alpha-\beta}u\in W^{1,p}(\Omega)$ です。また $D^\beta\chi$ は滑らかです。したがって、右辺の各積に先ほど証明した一階公式を適用でき
 
@@ -951,7 +951,7 @@ D_jD^\alpha(\chi u)
 &=
 \sum_{\beta\le\alpha}
 {\alpha\choose\beta}
-D_j\!left(
+D_j\!\left(
 D^\beta\chi\,
 D^{\alpha-\beta}u
 \right)\\
