@@ -3,16 +3,14 @@ title: "補講：順序・全順序・最小最大・整列"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - F0-00A1C
+  - SET-U1
 official_scope: []
 learning_objectives:
-  - 二項関係を直積の部分集合として説明できる
   - 順序関係と全順序を区別できる
   - 最小元と最大元を定義できる
   - 整列と全順序を区別できる
   - 整列可能の意味を説明できる
 definitions:
-  - { id: F000A1D-DEF-01, name: 二項関係 }
   - { id: F000A1D-DEF-02, name: 順序関係・半順序 }
   - { id: F000A1D-DEF-03, name: 全順序 }
   - { id: F000A1D-DEF-04, name: 最小元・最大元 }
