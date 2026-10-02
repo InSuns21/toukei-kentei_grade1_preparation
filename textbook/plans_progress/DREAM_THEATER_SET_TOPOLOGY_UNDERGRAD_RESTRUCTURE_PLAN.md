@@ -290,13 +290,23 @@ Baire・net / フィルタ
 - TOP2 は同値関係・同値類の formal definition を重複させず、SET-U1 の集合論上の商を使って位相的同一視へ進む構成へ整理した。
 - SET-U1 の実本文に Level A 4題・Level B 3題・Level C 1題を置き、全問に詳細解答を付けた。
 
+
+### SET-U2 実装記録（2026-10-02）
+
+- TOP4 / TOP6 の実需要を再確認し、集合そのものの可算性・非可算性を受け持つ canonical owner が必要であるため SET-U2 新設を確定した。
+- SET-U2 では有限集合・可算無限集合・高々可算集合・非可算集合を定義し、$\mathbb N\times\mathbb N$、$\mathbb Z$、$\mathbb Q$ の可算性と Cantor の対角線論法による $\mathbb R$ の非可算性までを扱う。
+- 一般の濃度比較、Cantor--Bernstein の定理、Cantor の定理は SET-U3 の責務として残し、SET-U2 へ先取りしない。
+- 「可算個の可算集合の和は可算」は選択原理との境界があるため、SET-U2 では各集合の自然数への単射が具体的に与えられている場合を証明し、任意の可算集合族に対する一般形は F0-00A2 の可算選択へ接続した。
+- TOP4 / TOP6 の prerequisite に SET-U2 を追加し、TOP4 の可算性公理導入から SET-U2 の canonical result へ戻れるリンクを置いた。
+- SET-U2 の実本文に Level A 4題・Level B 3題・Level C 1題を置き、全問に詳細解答を付けた。
+
 ## 9. 実装順
 
 1. ✅ F0-00A / A1C / A1D / A2 / A3 / A3A の本文・chapter.yaml・knowledge.yaml を監査（2026-10-02 初回監査）
 2. ✅ TOP1--TOP7 から集合論 prerequisite の実需要を逆引き（2026-10-02 初回監査）
 3. ✅ SET-U1「関係・同値関係・商集合」の要否確定・実装（2026-10-02）
-4. ▶ SET-U2「可算集合・非可算集合」の要否確定・実装
-5. SET-U3「濃度・Cantor--Bernstein・Cantor の定理」の要否確定・実装
+4. ✅ SET-U2「可算集合・非可算集合」の要否確定・実装（2026-10-02）
+5. ▶ SET-U3「濃度・Cantor--Bernstein・Cantor の定理」の要否確定・実装
 6. F0-00A1D を学部標準の順序論章へ改稿
 7. F0-00A2 / A3 を学部数学の選択原理・Zorn 適用章として監査
 8. F0-00A3A の公開所属・prerequisite を独立科目計画と整合させる

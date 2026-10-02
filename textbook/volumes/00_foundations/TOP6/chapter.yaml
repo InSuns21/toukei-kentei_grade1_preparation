@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - TOP5
   - F0-00D
+  - SET-U2
 official_scope: []
 learning_objectives:
   - 全有界性を既存正本から再利用し、任意の点列がCauchy部分列を持つこととの同値を両方向に証明できる

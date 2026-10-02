@@ -1,0 +1,110 @@
+chapter: SET-U2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00A1C
+
+forward_references:
+  - set.choice-axiom
+  - topology.sequence
+  - topology.local-base-first-countable
+  - topology.second-countable
+  - topology.separable-space
+
+concepts:
+  - id: set.finite-set
+    name: 有限集合
+    kind: definition
+    aliases: [有限集合, finite set]
+    introduction_aliases: [有限集合]
+    requires:
+      - set.bijection
+
+  - id: set.countably-infinite-set
+    name: 可算無限集合
+    kind: definition
+    aliases: [可算無限集合, countably infinite set]
+    introduction_aliases: [可算無限集合]
+    requires:
+      - set.bijection
+
+  - id: set.at-most-countable-set
+    name: 高々可算集合
+    kind: definition
+    aliases: [高々可算集合, 可算集合, at most countable set, countable set]
+    introduction_aliases: [高々可算集合, 可算集合]
+    requires:
+      - set.finite-set
+      - set.countably-infinite-set
+
+  - id: set.uncountable-set
+    name: 非可算集合
+    kind: definition
+    aliases: [非可算集合, uncountable set]
+    introduction_aliases: [非可算集合]
+    requires:
+      - set.at-most-countable-set
+
+  - id: set.natural-product-countable
+    name: 自然数の直積は可算無限
+    kind: theorem
+    aliases: [自然数の直積は可算無限, natural number product is countable]
+    requires:
+      - set.countably-infinite-set
+      - set.cartesian-product
+
+  - id: set.countable-subset
+    name: 可算集合の部分集合は可算
+    kind: proposition
+    aliases: [可算集合の部分集合は可算, subset of a countable set is countable]
+    requires:
+      - set.at-most-countable-set
+      - set.injection
+
+  - id: set.countable-finite-product
+    name: 可算集合の有限直積は可算
+    kind: proposition
+    aliases: [可算集合の有限直積は可算, finite product of countable sets is countable]
+    requires:
+      - set.at-most-countable-set
+      - set.natural-product-countable
+
+  - id: set.explicit-countable-union
+    name: 明示的に符号化された可算集合族の和集合は可算
+    kind: proposition
+    aliases: [明示的に符号化された可算集合族の和集合は可算, explicitly encoded countable union is countable]
+    requires:
+      - set.at-most-countable-set
+      - set.natural-product-countable
+      - set.indexed-union-intersection
+
+  - id: set.integer-countable
+    name: 整数は可算無限
+    kind: proposition
+    aliases: [整数は可算無限, integers are countably infinite]
+    requires:
+      - set.countably-infinite-set
+
+  - id: set.rational-countable
+    name: 有理数は可算
+    kind: proposition
+    aliases: [有理数は可算, rationals are countable]
+    requires:
+      - set.at-most-countable-set
+      - set.countable-finite-product
+      - set.integer-countable
+
+  - id: set.interval-not-enumerable
+    name: 区間は自然数列で尽くせない
+    kind: proposition
+    aliases: [区間は自然数列で尽くせない, interval is not enumerable by natural numbers]
+    requires:
+      - set.countably-infinite-set
+
+  - id: set.real-uncountable
+    name: 実数は非可算
+    kind: theorem
+    aliases: [実数は非可算, real numbers are uncountable]
+    requires:
+      - set.uncountable-set
+      - set.countable-subset
