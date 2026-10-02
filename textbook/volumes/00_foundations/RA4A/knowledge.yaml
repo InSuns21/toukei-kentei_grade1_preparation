@@ -24,7 +24,7 @@ concepts:
     aliases: [広義積分のCauchy判定]
     requires:
       - analysis.improper-riemann-integral
-      - topology.cauchy-sequence
+      - analysis.real-completeness
 
   - id: analysis.nonnegative-improper-integral-boundedness
     name: 非負広義積分の有界性判定
