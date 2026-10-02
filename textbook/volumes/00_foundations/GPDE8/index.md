@@ -1957,7 +1957,7 @@ $$
 
 よって $(z_n)$ は $H^1(\mathbb R^d)$ で一様有界であり、台は固定集合 $\operatorname{supp}\chi$ に含まれます。
 
-さらに各 $n$ について $z_n\in H^1(\mathbb R^d)$ です。[全空間上の滑らかなコンパクト台関数の密度](../GPDE3/index.md#thm-gpde3-cc-density-rd)から
+さらに各 $n$ について $z_n\in H^1(\mathbb R^d)$ です。[全空間上の滑らかなコンパクト台関数の密度](../GPDE3/index.md#thm-gpde3-ccinf-density-rd)から
 
 $$
 \psi_m\in C_c^\infty(\mathbb R^d),
