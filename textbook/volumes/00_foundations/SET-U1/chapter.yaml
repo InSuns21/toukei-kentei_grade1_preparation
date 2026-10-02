@@ -1,0 +1,38 @@
+id: "SET-U1"
+title: "関係・同値関係・商集合"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00A1C
+official_scope: []
+learning_objectives:
+  - 二項関係を直積の部分集合として読み、具体的な関係を集合として書ける
+  - 同値関係の反射律・対称律・推移律を個別に検証できる
+  - 同値類を計算し、同値類が一致する条件と交わらない条件を説明できる
+  - 商集合と標準射影を定義し、標準射影のファイバーが同値類であることを説明できる
+  - 同値関係と集合の分割の対応を両方向に構成できる
+  - 同値類上で一定な写像を商集合上へ一意に降ろせる
+definitions:
+  - { id: SETU1-DEF-01, name: 二項関係 }
+  - { id: SETU1-DEF-02, name: 同値関係 }
+  - { id: SETU1-DEF-03, name: 同値類 }
+  - { id: SETU1-DEF-04, name: 商集合・標準射影 }
+  - { id: SETU1-DEF-05, name: 集合の分割 }
+theorems:
+  - { id: SETU1-LEM-01, name: 同値類は一致するか交わらない }
+  - { id: SETU1-THM-01, name: 同値関係と集合の分割の対応 }
+  - { id: SETU1-THM-02, name: 商集合への写像の降下 }
+canonical_examples:
+  - 3を法とする整数の合同
+  - 絶対値が等しい実数の同値関係
+  - 写像のファイバーが作る同値関係
+problem_patterns:
+  - EQUIVALENCE-RELATION-VERIFY-1
+  - EQUIVALENCE-CLASS-1
+  - QUOTIENT-SET-1
+  - PARTITION-EQUIVALENCE-1
+  - QUOTIENT-FACTORIZATION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2.2, exercises: 2.0, review: 0.6 }
