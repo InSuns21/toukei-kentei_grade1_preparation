@@ -5,6 +5,7 @@ prerequisites:
   - SET-U2
 
 forward_references:
+  - set.ordinal
   - order.partial-order-relation
   - set.choice-axiom
 
