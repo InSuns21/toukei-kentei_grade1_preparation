@@ -225,7 +225,7 @@
 2. [GPDE1 テスト関数・Schwartz 超関数](textbook/volumes/00_foundations/GPDE1/index.md)
 3. [GPDE2 超関数の微分・平滑化核・弱微分](textbook/volumes/00_foundations/GPDE2/index.md)
 4. [GPDE3 Sobolev 空間](textbook/volumes/00_foundations/GPDE3/index.md)
-5. [GPDE4 $H_0^1$・Poincaré 不等式・トレース](textbook/volumes/00_foundations/GPDE4/index.md)
+5. [GPDE4 H0^1・Poincaré 不等式・トレース](textbook/volumes/00_foundations/GPDE4/index.md)
 6. [GPDE5 Sobolev 埋め込み・コンパクト性](textbook/volumes/00_foundations/GPDE5/index.md)
 7. [GPDE6 弱形式・変分形式](textbook/volumes/00_foundations/GPDE6/index.md)
 8. [GPDE7 Lax--Milgram](textbook/volumes/00_foundations/GPDE7/index.md)
