@@ -17,11 +17,11 @@ concepts:
       - functional.riesz-representation-theorem
 
   - id: functional-analysis.coercive-operator-lower-bound
-    name: 強圧性による作用素の下からの評価
+    name: 強圧条件による作用素の下からの評価
     kind: lemma
     aliases: ["coercivityによる作用素の下からの評価", "coercive operator lower bound", "bounded below estimate"]
     introduction: formal
-    introduction_aliases: ["補題（強圧性から作用素を下から評価する）"]
+    introduction_aliases: ["補題（強圧条件から作用素を下から評価する）"]
     requires:
       - functional-analysis.bilinear-riesz-operator
       - variational.coercive-bilinear-form
