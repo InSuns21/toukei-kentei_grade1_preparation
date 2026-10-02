@@ -1280,7 +1280,7 @@ $$
 \in\mathbb F^m
 $$
 
-も有界です。ここで $\mathbb F$ は $\mathbb R$ または $\mathbb C$ です。有限次元の Bolzano--Weierstrass の定理により、全ての座標が同時に収束する部分列を取れます。
+も有界です。ここで $\mathbb F$ は $\mathbb R$ または $\mathbb C$ です。[Bolzano--Weierstrass の定理](../F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md#lem-f0-00c1-01)を有限次元の座標ベクトルへ適用すると、全ての座標が同時に収束する部分列を取れます。
 
 座標極限を $a_1,\ldots,a_m$ とし
 
