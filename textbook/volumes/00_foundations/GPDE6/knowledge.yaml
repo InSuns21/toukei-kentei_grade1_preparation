@@ -65,16 +65,16 @@ concepts:
   - id: variational.coercive-bilinear-form
     name: 強圧的双線形形式
     kind: definition
-    aliases: ["coercive bilinear form", "coercivity", "強圧性", "V-elliptic form"]
+    aliases: ["coercive bilinear form", "coercivity", "強圧条件", "V-elliptic form"]
     introduction: formal
     introduction_aliases: ["定義（強圧的双線形形式）"]
 
   - id: pde.poisson-form-bounded-coercive
-    name: Poisson双線形形式の有界性と強圧性
+    name: Poisson双線形形式の有界性と強圧条件
     kind: proposition
     aliases: ["Poisson formのboundednessとcoercivity", "Poisson bilinear form", "Poisson form bounded coercive"]
     introduction: formal
-    introduction_aliases: ["命題（Poisson 双線形形式の有界性と強圧性）"]
+    introduction_aliases: ["命題（Poisson 双線形形式の有界性と強圧条件）"]
     requires:
       - variational.bounded-bilinear-form
       - variational.coercive-bilinear-form
