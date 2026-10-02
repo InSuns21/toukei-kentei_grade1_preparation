@@ -1,6 +1,6 @@
 # GPDE2：部分積分で微分を拡張し、滑らかな近似へ戻す
 
-GPDE1 では、関数の点値ではなくテスト関数への作用で対象を読む distribution を導入しました。そこで Poisson 方程式を
+GPDE1 では、関数の点値ではなくテスト関数への作用で対象を読む 超関数を導入しました。そこで Poisson 方程式を
 
 $$
 \int_\Omega u(-\Delta\varphi)
@@ -22,8 +22,8 @@ $$
 
 この一行から、
 
-- Heaviside 関数の微分が Dirac delta になる。
-- jump の大きさが delta の係数として残る。
+- Heaviside 関数の微分が Dirac のデルタ超関数になる。
+- 跳躍の大きさが デルタ超関数の係数として残る。
 - 古典微分できない関数にも、この新しい意味では何回でも微分を定義できる。
 - その微分が局所可積分関数で表せる場合を区別する。
 - 狭い範囲だけを平均する滑らかな核で粗い関数を滑らかにし、その微分を計算してから極限へ戻せる。
@@ -119,8 +119,8 @@ $$
 
 <a id="def-gpde2-distributional-derivative"></a>
 <!-- formal-statement-start -->
-> **定義（distributional derivative）**  
-> 開集合 $\Omega\subset\mathbb R^d$、$T\in\mathcal D'(\Omega)$、多重指数 $\alpha$ に対して、$T$ の $\alpha$ 階 distribution 微分 $\partial^\alpha T$ を
+> **定義（超関数の微分）**  
+> 開集合 $\Omega\subset\mathbb R^d$、$T\in\mathcal D'(\Omega)$、多重指数 $\alpha$ に対して、$T$ の $\alpha$ 階超関数微分 $\partial^\alpha T$ を
 
 $$
 \boxed{
@@ -153,7 +153,7 @@ $$
 \langle T,\partial_i\partial_j\varphi\rangle.
 $$
 
-GPDE1 の Poisson の distributional identity で
+GPDE1 の Poisson 方程式の超関数恒等式 で
 
 $$
 \langle-\Delta T_u,\varphi\rangle
@@ -166,7 +166,7 @@ $$
 
 <a id="prop-gpde2-derivative-is-distribution"></a>
 <!-- formal-statement-start -->
-> **命題（distribution は何回微分しても distribution である）**  
+> **命題（超関数は何回微分しても超関数である）**  
 > $T\in\mathcal D'(\Omega)$ と多重指数 $\alpha$ に対し、$\partial^\alpha T$ は $\mathcal D'(\Omega)$ の元である。さらに多重指数 $\alpha,\beta$ に対し
 
 $$
@@ -180,9 +180,9 @@ $$
 
 ### 証明の見取り図
 
-[GPDE1 の distribution の局所有限階評価](../GPDE1/index.md#prop-gpde1-local-finite-order)を使います。$T$ が固定コンパクト集合 $K$ 上で $m$ 階までのテスト関数微分で抑えられるなら、$\partial^\alpha T$ は $m+|\alpha|$ 階まで見れば抑えられます。
+[GPDE1 の超関数の局所有限階評価](../GPDE1/index.md#prop-gpde1-local-finite-order)を使います。$T$ が固定コンパクト集合 $K$ 上で $m$ 階までのテスト関数微分で抑えられるなら、$\partial^\alpha T$ は $m+|\alpha|$ 階まで見れば抑えられます。
 
-したがって distribution の微分では「元の対象が滑らかか」を確認する必要はありません。必要な微分は全てテスト関数へ移せます。
+したがって超関数の微分では「元の対象が滑らかか」を確認する必要はありません。必要な微分は全てテスト関数へ移せます。
 
 <!-- proof-start -->
 ### 証明
@@ -223,7 +223,7 @@ $$
 C\,p_{K,m+|\alpha|}(\varphi).
 $$
 
-再び [GPDE1 の distribution の局所有限階評価](../GPDE1/index.md#prop-gpde1-local-finite-order)を使えば、$\partial^\alpha T$ は distribution です。
+再び [GPDE1 の超関数の局所有限階評価](../GPDE1/index.md#prop-gpde1-local-finite-order)を使えば、$\partial^\alpha T$ は 超関数です。
 
 次に任意の $\varphi\in\mathcal D(\Omega)$ に対し、
 
@@ -280,7 +280,7 @@ $$
 $$
 <!-- proof-end -->
 
-この命題により distribution の世界では、微分操作そのものは失敗しません。後で問題になるのは「微分後も普通の関数として表せるか」です。
+この命題により 超関数の世界では、微分操作そのものは失敗しません。後で問題になるのは「微分後も普通の関数として表せるか」です。
 
 ---
 
@@ -291,7 +291,7 @@ $$
 <a id="prop-gpde2-classical-compatible"></a>
 <!-- formal-statement-start -->
 > **命題（古典微分との整合性）**  
-> $f\in C^{|\alpha|}(\Omega)$ とする。$f$ と $\partial^\alpha f$ を正則 distribution とみなすと
+> $f\in C^{|\alpha|}(\Omega)$ とする。$f$ と $\partial^\alpha f$ を正則 超関数とみなすと
 
 $$
 \boxed{
@@ -369,28 +369,70 @@ $$
 \partial_jT_f=T_{\partial_jf}.
 $$
 
-一般の多重指数 $\alpha$ については、この一階の等式を $|\alpha|$ 回繰り返せば
+一般の多重指数
+
+$$
+\alpha=(\alpha_1,\ldots,\alpha_d),
+\qquad
+|\alpha|=m
+$$
+
+を取ります。$\alpha$ に含まれる微分を一つずつ並べた座標列 $j_1,\ldots,j_m$ を選ぶと、
+
+$$
+\partial^\alpha
+=
+\partial_{j_m}\cdots\partial_{j_1}.
+$$
+
+$f\in C^m(\Omega)$ なので、途中で現れる
+
+$$
+f,\quad
+\partial_{j_1}f,\quad
+\partial_{j_2}\partial_{j_1}f,\quad\ldots
+$$
+
+は、次の一階の整合性を適用するのに十分な連続微分を持ちます。そこで
+
+$$
+\partial_{j_1}T_f
+=
+T_{\partial_{j_1}f},
+$$
+
+さらに
+
+$$
+\partial_{j_2}\partial_{j_1}T_f
+=
+\partial_{j_2}T_{\partial_{j_1}f}
+=
+T_{\partial_{j_2}\partial_{j_1}f},
+$$
+
+と一段ずつ進めます。$m$ 段後に
 
 $$
 \partial^\alpha T_f
 =
-T_{\partial^\alpha f}
+T_{\partial^alpha f}
 $$
 
-を得ます。
+を得ます。混合偏微分の順序が最終結果に影響しないのは、$f\in C^m$ で古典的な混合偏微分が交換するからです。
 <!-- proof-end -->
 
-distribution 微分は古典微分を捨てたのではなく、古典微分を含むように拡張したものです。
+超関数 微分は古典微分を捨てたのではなく、古典微分を含むように拡張したものです。
 
 ---
 
-## 4. 極限と微分は distribution の意味では自動的に交換する
+## 4. 極限と微分は 超関数の意味では自動的に交換する
 
-古典関数の極限では、関数が収束しても導関数が収束するとは限りません。distribution の収束では、微分はテスト関数側に固定されるため事情が非常に単純です。
+古典関数の極限では、関数が収束しても導関数が収束するとは限りません。超関数の収束では、微分はテスト関数側に固定されるため事情が非常に単純です。
 
 <a id="prop-gpde2-derivative-continuous"></a>
 <!-- formal-statement-start -->
-> **命題（distribution 微分作用素の連続性）**  
+> **命題（超関数微分作用素の連続性）**  
 > $T_n,T\in\mathcal D'(\Omega)$ とし、
 
 $$
@@ -419,7 +461,7 @@ $$
 \langle T_n,\partial^\alpha\varphi\rangle.
 $$
 
-$\partial^\alpha\varphi$ も固定されたテスト関数なので、[GPDE1 の distribution の収束](../GPDE1/index.md#def-gpde1-distribution-convergence)の定義から
+$\partial^\alpha\varphi$ も固定されたテスト関数なので、[GPDE1 の超関数の収束](../GPDE1/index.md#def-gpde1-distribution-convergence)の定義から
 
 $$
 \langle T_n,\partial^\alpha\varphi\rangle
@@ -433,7 +475,7 @@ $$
 
 ---
 
-## 5. Heaviside の微分は Dirac delta になる
+## 5. Heaviside の微分は Dirac のデルタ超関数になる
 
 一変数で Heaviside 関数を
 
@@ -454,11 +496,11 @@ $$
 H'(x)=0
 $$
 
-ですが、原点で jump しています。distribution 微分はこの jump を失いません。
+ですが、原点で 跳躍 しています。超関数 微分はこの 跳躍を失いません。
 
 <a id="prop-gpde2-heaviside"></a>
 <!-- formal-statement-start -->
-> **命題（Heaviside の distribution 微分）**  
+> **命題（Heaviside の超関数微分）**  
 > $\mathbb R$ 上で
 
 $$
@@ -467,7 +509,7 @@ H'=\delta_0
 }
 $$
 
-> が distribution の意味で成り立つ。
+> が 超関数の意味で成り立つ。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -505,7 +547,7 @@ $$
 \varphi(0).
 $$
 
-Dirac delta の定義から
+Dirac のデルタ超関数の定義から
 
 $$
 \varphi(0)
@@ -520,13 +562,13 @@ H'=\delta_0.
 $$
 <!-- proof-end -->
 
-点ごとに $H'=0$ とだけ記録すると jump は消えてしまいます。distribution 微分は「微分できない一点」を、delta という集中項に変換して保持します。
+点ごとに $H'=0$ とだけ記録すると 跳躍は消えてしまいます。超関数 微分は「微分できない一点」を、デルタ超関数という集中項に変換して保持します。
 
 ---
 
-## 6. 一般の jump では「jump の大きさ × delta」が出る
+## 6. 一般の跳躍では「跳躍の大きさ × デルタ超関数」が出る
 
-Heaviside は jump が 1 の最小例でした。区分的に滑らかな関数でも同じ機構が働きます。
+Heaviside は 跳躍が 1 の最小例でした。区分的に滑らかな関数でも同じ機構が働きます。
 
 一変数の点 $a$ で左右極限が存在するとき、
 
@@ -536,11 +578,11 @@ $$
 f(a+)-f(a-)
 $$
 
-を jump と書きます。
+を 跳躍と書きます。
 
 <a id="prop-gpde2-jump-formula"></a>
 <!-- formal-statement-start -->
-> **命題（有限個の jump を持つ関数の distribution 微分）**  
+> **命題（有限個の跳躍を持つ関数の超関数微分）**  
 > $f\in L^1_{\mathrm{loc}}(\mathbb R)$ とする。有限個の点
 
 $$
@@ -559,12 +601,12 @@ T_{f'_{\mathrm{pw}}}
 }
 $$
 
-> が distribution の意味で成り立つ。
+> が 超関数の意味で成り立つ。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-テスト関数の台を含む有限区間を取り、jump 点で積分区間を分割します。各区間では普通の部分積分ができ、内部端点から出る境界項を集めると
+テスト関数の台を含む有限区間を取り、跳躍 点で積分区間を分割します。各区間では普通の部分積分ができ、内部端点から出る境界項を集めると
 
 $$
 f(a_k+)-f(a_k-)
@@ -577,7 +619,7 @@ $$
 
 任意の $\varphi\in\mathcal D(\mathbb R)$ を取ります。台を含む $A<B$ を、$A<a_1$、$a_N<B$ となるように取ります。さらに $\varphi$ は $A,B$ の近くで 0 とします。
 
-distribution 微分の定義から
+超関数 微分の定義から
 
 $$
 \langle Df,\varphi\rangle
@@ -657,7 +699,7 @@ $$
 u=1_{(a,b)}
 $$
 
-では $a$ で $0\to1$、$b$ で $1\to0$ と jump するので、
+では $a$ で $0\to1$、$b$ で $1\to0$ と 跳躍 するので、
 
 $$
 [u]_a=1,
@@ -677,17 +719,17 @@ $$
 
 です。
 
-「関数が一定だから微分は 0」ではなく、**どこで値が跳んだか** まで distribution 微分が記録しています。
+「関数が一定だから微分は 0」ではなく、**どこで値が跳んだか** まで 超関数 微分が記録しています。
 
 ---
 
 ## 7. 微分後も局所可積分関数で表せる場合
 
-distribution はいつでも微分できます。しかし Sobolev 空間で欲しいのは、微分した結果が delta のような一般 distribution ではなく、再び局所可積分関数として表せる場合です。
+超関数はいつでも微分できます。しかし Sobolev 空間で欲しいのは、微分した結果が デルタ超関数のような一般 超関数ではなく、再び局所可積分関数として表せる場合です。
 
 <a id="def-gpde2-weak-derivative"></a>
 <!-- formal-statement-start -->
-> **定義（weak derivative）**  
+> **定義（弱微分）**  
 > $u,v\in L^1_{\mathrm{loc}}(\Omega)$ とする。$v$ が $u$ の $x_j$ に関する **弱微分**であるとは、任意の $\varphi\in\mathcal D(\Omega)$ に対して
 
 $$
@@ -764,7 +806,7 @@ D|x|
 T_{\operatorname{sgn}x}
 $$
 
-は正則 distribution なので弱微分があります。一方、
+は正則 超関数 なので弱微分があります。一方、
 
 $$
 DH
@@ -772,13 +814,13 @@ DH
 \delta_0
 $$
 
-であり、GPDE1 で $\delta_0$ は正則 distribution ではないことを示しました。従って Heaviside 関数には $L^1_{\mathrm{loc}}$ 関数としての弱微分は存在しません。
+であり、GPDE1 で $\delta_0$ は正則 超関数ではないことを示しました。従って Heaviside 関数には $L^1_{\mathrm{loc}}$ 関数としての弱微分は存在しません。
 
 つまり
 
 $$
 \boxed{
-\text{distribution 微分は常に存在}
+\text{超関数 微分は常に存在}
 \quad\text{だが}\quad
 \text{弱微分は常には存在しない}
 }
@@ -826,7 +868,7 @@ $$
 
 <a id="def-gpde2-mollifier"></a>
 <!-- formal-statement-start -->
-> **定義（mollifier）**  
+> **定義（平滑化核）**  
 > 非負関数
 
 $$
@@ -841,7 +883,7 @@ $$
 \operatorname{supp}\rho\subset\overline{B(0,1)}
 $$
 
-> を満たすとき、$\rho$ を mollifier と呼ぶ。$\varepsilon>0$ に対し
+> を満たすとき、$\rho$ を 平滑化核と呼ぶ。$\varepsilon>0$ に対し
 
 $$
 \boxed{
@@ -908,7 +950,7 @@ $$
 
 ## 9. 境界から離れた場所で平滑化する
 
-$\Omega$ の境界近くで convolution を取ると、kernel が $\Omega$ の外へはみ出すことがあります。そこでまず内部だけで定義します。
+$\Omega$ の境界近くで convolution を取ると、核 が $\Omega$ の外へはみ出すことがあります。そこでまず内部だけで定義します。
 
 $\varepsilon>0$ に対して
 
@@ -923,7 +965,7 @@ $$
 
 <a id="def-gpde2-local-mollification"></a>
 <!-- formal-statement-start -->
-> **定義（局所 mollification）**  
+> **定義（局所平滑化）**  
 > $u\in L^1_{\mathrm{loc}}(\Omega)$ とする。$x\in\Omega_\varepsilon$ に対して
 
 $$
@@ -937,7 +979,7 @@ u_\varepsilon(x)
 }
 $$
 
-> と定める。これを $u$ の局所 mollification という。
+> と定める。これを $u$ の局所平滑化という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gpde2-local-mollification -->
@@ -956,11 +998,11 @@ $$
 
 ---
 
-## 10. mollification は粗い関数を $C^\infty$ にする
+## 10. 平滑化は粗い関数を $C^\infty$ にする
 
 <a id="thm-gpde2-mollification-smooth"></a>
 <!-- formal-statement-start -->
-> **定理（mollification の平滑化）**  
+> **定理（局所平滑化の滑らかさ）**  
 > $u\in L^1_{\mathrm{loc}}(\Omega)$ とする。各 $\varepsilon>0$ に対し
 
 $$
@@ -983,7 +1025,7 @@ $$
 
 ### 証明の見取り図
 
-微分するのは $u$ ではなく kernel の $\rho_\varepsilon$ です。
+微分するのは $u$ ではなく 核 の $\rho_\varepsilon$ です。
 
 $$
 u_\varepsilon
@@ -995,7 +1037,7 @@ u_\varepsilon
 (\partial^\alpha\rho_\varepsilon)*u.
 $$
 
-$x$ を少し動かしても kernel の台は同じコンパクト近傍に収まり、kernel の全階微分は有界です。したがって差分商を $|u|$ の局所積分で支配でき、積分と微分を交換できます。
+$x$ を少し動かしても核の台は同じコンパクト近傍に収まり、核 の全階微分は有界です。したがって増分比を $|u|$ の局所積分で支配でき、積分と微分を交換できます。
 
 <!-- proof-start -->
 ### 証明
@@ -1019,7 +1061,7 @@ $$
 
 に限られます。
 
-$j$ を固定し、$h\to0$ とします。差分商は
+$j$ を固定し、$h\to0$ とします。増分比は
 
 $$
 \frac{
@@ -1034,7 +1076,7 @@ u(y)
 \,dy.
 $$
 
-平均値の定理により、十分小さい $h$ では kernel の差分商の絶対値は
+平均値の定理により、十分小さい $h$ では核の増分比の絶対値は
 
 $$
 \sup_z|\partial_j\rho_\varepsilon(z)|
@@ -1058,7 +1100,7 @@ $$
 
 に支配されます。$u\in L^1_{\mathrm{loc}}(\Omega)$ なのでこれは可積分です。
 
-各固定 $y$ について差分商は
+各固定 $y$ について増分比は
 
 $$
 \partial_j\rho_\varepsilon(x-y)
@@ -1073,7 +1115,34 @@ $$
 u(y)\partial_j\rho_\varepsilon(x-y)\,dy.
 $$
 
-同じ議論を kernel の高階微分へ繰り返せるため、任意の多重指数 $\alpha$ に対して
+ここで一階だけで止めず、高階微分へ進む手順も確認します。ある多重指数 $\beta$ について
+
+$$
+\partial^\beta u_\varepsilon(x)
+=
+\int_\Omega
+u(y)\partial^\beta\rho_\varepsilon(x-y)\,dy
+$$
+
+まで得られたとします。$\partial^\beta\rho_\varepsilon$ も滑らかでコンパクト台を持つので、上と同じ固定コンパクト集合上で
+
+$$
+|u(y)|
+\sup_z
+|\partial_j\partial^\beta\rho_\varepsilon(z)|
+$$
+
+を支配関数にできます。したがって $x_j$ 方向の増分比へ優収束定理をもう一度適用でき、
+
+$$
+\partial_j\partial^\beta u_\varepsilon(x)
+=
+\int_\Omega
+u(y)
+\partial_j\partial^\beta\rho_\varepsilon(x-y)\,dy.
+$$
+
+$\beta=0$ から始めてこの操作を帰納的に繰り返すと、任意の多重指数 $\alpha$ に対して
 
 $$
 \partial^\alpha u_\varepsilon(x)
@@ -1082,14 +1151,20 @@ $$
 u(y)\partial^\alpha\rho_\varepsilon(x-y)\,dy.
 $$
 
-従って $u_\varepsilon\in C^\infty(\Omega_\varepsilon)$ です。
+よって $u_\varepsilon$ は全階で連続微分可能であり、
+
+$$
+u_\varepsilon\in C^\infty(\Omega_\varepsilon)
+$$
+
+です。
 <!-- proof-end -->
 
-ここで重要なのは、$u$ の微分を一度も要求していないことです。滑らかさは kernel 側から供給されます。
+ここで重要なのは、$u$ の微分を一度も要求していないことです。滑らかさは 核 側から供給されます。
 
 ---
 
-## 11. mollifier は元の関数へ局所 $L^1$ で戻る
+## 11. 平滑化核は元の関数へ局所 $L^1$ で戻る
 
 平滑化しても、元の関数から離れてしまえば意味がありません。次は
 
@@ -1099,11 +1174,11 @@ $$
 
 を局所 $L^1$ で示します。
 
-その前に、後の証明で必要になる多次元の translation estimate を確認します。一変数での対応する結果は [FOU3](../FOU3/index.md#lem-fou3-l1-translation) にありますが、ここでは PDE で使う $\mathbb R^d$ 版を閉じます。
+その前に、後の証明で必要になる多次元の平行移動評価を確認します。一変数での対応する結果は [FOU3](../FOU3/index.md#lem-fou3-l1-translation) にありますが、ここでは PDE で使う $\mathbb R^d$ 版を閉じます。
 
 <a id="lem-gpde2-l1-translation-rd"></a>
 <!-- formal-statement-start -->
-> **補題（Rd の平行移動補題）**  
+> **補題（多次元の平行移動補題）**  
 > $w\in L^1(\mathbb R^d)$ とし、$(\tau_h w)(x)=w(x-h)$（$h\in\mathbb R^d$）と置く。このとき
 >
 $$
@@ -1115,7 +1190,7 @@ $$
 
 ### 証明の見取り図
 
-[MT7 の $C_c$ の $L^1$ 稠密性](../MT7/index.md#thm-mt7-cc-dense)で $w$ を連続コンパクト台関数へ近似します。その関数では一様連続性が点ごとの差を一様に小さくし、平行移動が $L^1$ norm を保つことが近似誤差を元の $w$ へ戻します。
+[MT7 の $C_c$ の $L^1$ 稠密性](../MT7/index.md#thm-mt7-cc-dense)で $w$ を連続コンパクト台関数へ近似します。その関数では一様連続性が点ごとの差を一様に小さくし、平行移動が $L^1$ ノルム を保つことが近似誤差を元の $w$ へ戻します。
 
 <!-- proof-start -->
 ### 証明
@@ -1146,7 +1221,7 @@ $$
 \|\tau_h g-g\|_1.
 $$
 
-$\operatorname{supp}g$ は compact です。$|h|\le1$ の範囲では $\tau_hg-g$ の台はある固定 compact 集合 $K$ に含まれます。また $g$ は一様連続なので
+$\operatorname{supp}g$ は コンパクト です。$|h|\le1$ の範囲では $\tau_hg-g$ の台はある固定 コンパクト 集合 $K$ に含まれます。また $g$ は一様連続なので
 
 $$
 \sup_x|g(x-h)-g(x)|
@@ -1181,7 +1256,7 @@ $$
 
 <a id="thm-gpde2-mollifier-l1loc"></a>
 <!-- formal-statement-start -->
-> **定理（mollifier の局所 L1 近似）**  
+> **定理（平滑化核の局所 L1 近似）**  
 > $u\in L^1_{\mathrm{loc}}(\Omega)$ とする。任意のコンパクト集合 $K\subset\Omega$ に対して、十分小さい $\varepsilon>0$ では $K\subset\Omega_\varepsilon$ であり、
 
 $$
@@ -1198,7 +1273,7 @@ $$
 
 ### 証明の見取り図
 
-mollification を
+平滑化を
 
 $$
 u_\varepsilon(x)
@@ -1299,7 +1374,7 @@ $$
 
 以下です。
 
-$\int\rho=1$ であり、[Rd の平行移動補題](#lem-gpde2-l1-translation-rd)から
+$\int\rho=1$ であり、[多次元の平行移動補題](#lem-gpde2-l1-translation-rd)から
 
 $$
 \sup_{|h|\le\varepsilon}
@@ -1315,13 +1390,13 @@ $$
 $$
 <!-- proof-end -->
 
-この定理は「mollifier で滑らかにしても、局所的には元の関数へ戻れる」ことを保証します。
+この定理は「平滑化核で滑らかにしても、局所的には元の関数へ戻れる」ことを保証します。
 
-GPDE3 では $1\le p<\infty$ に対する $L^p_{\mathrm{loc}}$ 近似へ拡張し、Sobolev norm での smooth approximation へ進みます。
+GPDE3 では $1\le p<\infty$ に対する $L^p_{\mathrm{loc}}$ 近似へ拡張し、Sobolev ノルム での 滑らかな近似 へ進みます。
 
 ---
 
-## 12. 正則 distribution への埋め込みは一対一である
+## 12. 正則超関数への埋め込みは一対一である
 
 GPDE1 では
 
@@ -1335,7 +1410,7 @@ $$
 
 <a id="prop-gpde2-regular-injective"></a>
 <!-- formal-statement-start -->
-> **命題（正則 distribution 埋め込みの単射性）**  
+> **命題（正則超関数埋め込みの単射性）**  
 > $f,g\in L^1_{\mathrm{loc}}(\Omega)$ とする。もし
 
 $$
@@ -1346,7 +1421,7 @@ $$
 
 $$
 f=g
-\quad\text{a.e. on }\Omega.
+\quad\text{a.e. }\Omega.
 $$
 
 > 特に $T_f=0$ なら $f=0$ a.e. である。
@@ -1354,7 +1429,7 @@ $$
 
 ### 証明の見取り図
 
-$T_f=0$ とします。内部点 $x$ で kernel
+$T_f=0$ とします。内部点 $x$ で 核
 
 $$
 y\mapsto\rho_\varepsilon(x-y)
@@ -1366,7 +1441,7 @@ $$
 f_\varepsilon(x)=0.
 $$
 
-一方 mollifier の局所 $L^1$ 近似で
+一方 平滑化核の局所 $L^1$ 近似で
 
 $$
 f_\varepsilon\to f.
@@ -1410,7 +1485,7 @@ $$
 
 従って $f_\varepsilon$ は $K$ 上で恒等的に 0 です。
 
-mollifier の局所 $L^1$ 近似から
+平滑化核の局所 $L^1$ 近似から
 
 $$
 \|f-f_\varepsilon\|_{L^1(K)}
@@ -1423,9 +1498,9 @@ $$
 \|f\|_{L^1(K)}=0.
 $$
 
-よって $f=0$ a.e. on $K$ です。
+よって $f=0$ $K$ 上で a.e. です。
 
-$\Omega$ は可算個の内部コンパクト集合、例えば閉球で被覆できるので、
+$\Omega$ は、中心と半径が有理数で閉包が $\Omega$ に含まれる開球の可算族で被覆できます。それぞれの閉球は $\Omega$ の内部にコンパクトに含まれるので、上の結論を可算個の閉球へ適用すると、
 
 $$
 f=0
@@ -1442,15 +1517,15 @@ $$
 を得ます。
 <!-- proof-end -->
 
-これで「正則 distribution として等しい」と「関数が a.e. で等しい」を往復できるようになりました。
+これで「正則 超関数として等しい」と「関数が a.e. で等しい」を往復できるようになりました。
 
 ---
 
-## 13. weak derivative は a.e. の意味で一意である
+## 13. 弱微分は a.e. の意味で一意である
 
 <a id="prop-gpde2-weak-unique"></a>
 <!-- formal-statement-start -->
-> **命題（weak derivative の一意性）**  
+> **命題（弱微分の一意性）**  
 > $u\in L^1_{\mathrm{loc}}(\Omega)$ とする。$v,w\in L^1_{\mathrm{loc}}(\Omega)$ がともに $u$ の $x_j$ に関する弱微分なら
 
 $$
@@ -1500,15 +1575,15 @@ $$
 
 ---
 
-## 14. 弱微分と mollification は交換する
+## 14. 弱微分と平滑化は交換する
 
 ここまでの準備で、本章の中心技法を閉じます。
 
-粗い $u$ に弱微分 $v$ があるとします。一度 mollify して古典微分すると、その結果は $v$ 自身を mollify したものになります。
+粗い $u$ に弱微分 $v$ があるとします。一度 平滑化 して古典微分すると、その結果は $v$ 自身を 平滑化 したものになります。
 
 <a id="thm-gpde2-weak-mollifier-commute"></a>
 <!-- formal-statement-start -->
-> **定理（弱微分と mollification の交換）**  
+> **定理（弱微分と平滑化の交換）**  
 > $u,v\in L^1_{\mathrm{loc}}(\Omega)$ とし、$v$ が $u$ の $x_j$ に関する弱微分であるとする。このとき $x\in\Omega_\varepsilon$ で
 
 $$
@@ -1532,7 +1607,7 @@ $$
 \int u(y)\partial_{x_j}\rho_\varepsilon(x-y)\,dy.
 $$
 
-kernel の変数 $x-y$ に注意すると
+核 の変数 $x-y$ に注意すると
 
 $$
 \partial_{x_j}\rho_\varepsilon(x-y)
@@ -1546,7 +1621,7 @@ $$
 y\mapsto\rho_\varepsilon(x-y)
 $$
 
-を weak derivative の定義に入れると、微分が $u$ から $v$ へ移ります。
+を 弱微分 の定義に入れると、微分が $u$ から $v$ へ移ります。
 
 <!-- proof-start -->
 ### 証明
@@ -1655,7 +1730,7 @@ $$
 
 ---
 
-## 15. 二つの粗さを比較する：cusp と jump
+## 15. 二つの粗さを比較する：尖点と跳躍
 
 本章の内容を $|x|$ と $H$ で比較します。
 
@@ -1671,7 +1746,7 @@ $$
 
 右辺は局所可積分関数で表せるので、一階弱微分があります。
 
-さらに $\operatorname{sgn}x$ は原点で $-1\to1$ と jump するので、
+さらに $\operatorname{sgn}x$ は原点で $-1\to1$ と 跳躍 するので、
 
 $$
 D(\operatorname{sgn}x)
@@ -1693,18 +1768,18 @@ $$
 
 ### $u(x)=H(x)$
 
-関数自体が原点で jump し、
+関数自体が原点で 跳躍 し、
 
 $$
 DH=\delta_0.
 $$
 
-一階微分の時点で正則 distribution から外れます。従って $H$ は一階弱微分を持ちません。
+一階微分の時点で正則 超関数 から外れます。従って $H$ は一階弱微分を持ちません。
 
 この比較は GPDE3 で非常に重要です。
 
-- cusp は一階 Sobolev regularity を許すことがある。
-- jump は一階 Sobolev regularity を壊すことがある。
+- 尖点 は一階 Sobolev regularity を許すことがある。
+- 跳躍は一階 Sobolev regularity を壊すことがある。
 
 ただし Sobolev 空間そのものの定義と membership 判定は次章で行います。
 
@@ -1726,7 +1801,7 @@ $$
 
 次に問うべきことは、
 
-> どの階数まで、どの $L^p$ class に属する弱微分が存在するか。
+> どの階数まで、どの $L^p$ 級 に属する弱微分が存在するか。
 
 です。
 
@@ -1747,9 +1822,9 @@ $$
 そこで初めて
 
 - $|x|$ や区分線形関数がどの Sobolev 空間に入るか。
-- jump 関数がなぜ $W^{1,p}$ から外れるか。
+- 跳躍 関数がなぜ $W^{1,p}$ から外れるか。
 - 弱微分を持つ関数列の極限をどう閉じるか。
-- mollifier による smooth approximation を $W^{k,p}$ norm でどう扱うか。
+- 平滑化核による 滑らかな近似 を $W^{k,p}$ ノルム でどう扱うか。
 - $W^{k,p}$ が完備である理由。
 
 を体系化します。
@@ -1807,7 +1882,7 @@ $$
 
 です。
 
-2. distribution 微分の定義から
+2. 超関数 微分の定義から
 
 $$
 \langle DT_f,\varphi\rangle
@@ -1860,7 +1935,7 @@ $$
 DH=\delta_0
 $$
 
-を distribution 微分の定義から証明せよ。また、なぜ $H$ に $L^1_{\mathrm{loc}}$ 関数としての弱微分が存在しないか説明せよ。
+を 超関数 微分の定義から証明せよ。また、なぜ $H$ に $L^1_{\mathrm{loc}}$ 関数としての弱微分が存在しないか説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1891,7 +1966,7 @@ $$
 \varphi(0).
 $$
 
-Dirac delta の定義より
+Dirac のデルタ超関数の定義より
 
 $$
 \varphi(0)
@@ -1911,7 +1986,7 @@ $$
 DH=T_v
 $$
 
-でなければなりません。しかし GPDE1 で $\delta_0$ は正則 distribution ではないことを証明しました。
+でなければなりません。しかし GPDE1 で $\delta_0$ は正則 超関数ではないことを証明しました。
 
 $$
 DH=\delta_0
@@ -1920,12 +1995,12 @@ $$
 なので、そのような $v$ は存在しません。
 <!-- solution-end -->
 
-## GPDE2-A03 mollifier の尺度を確認する
+## GPDE2-A03 平滑化核の尺度を確認する
 
 - Level: A
 - 目安時間: 12分
 
-$\rho$ を本章の mollifier とし、
+$\rho$ を本章の 平滑化核とし、
 
 $$
 \rho_\varepsilon(x)
@@ -2098,12 +2173,12 @@ $$
 $$
 \boxed{
 \partial u=v=\operatorname{sgn}x
-\quad\text{weakly}
+\quad\text{弱ly}
 }.
 $$
 <!-- solution-end -->
 
-## GPDE2-B01 区間の指示関数の distribution 微分
+## GPDE2-B01 区間の指示関数の超関数微分
 
 - Level: B
 - 目安時間: 18分
@@ -2129,7 +2204,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-1. distribution 微分の定義から
+1. 超関数 微分の定義から
 
 $$
 \langle Du,\varphi\rangle
@@ -2155,7 +2230,7 @@ $$
 \varphi(a)-\varphi(b).
 $$
 
-2. Dirac delta の作用を使えば
+2. Dirac のデルタ超関数の作用を使えば
 
 $$
 \varphi(a)-\varphi(b)
@@ -2177,17 +2252,17 @@ $$
 T_v=\delta_a-\delta_b.
 $$
 
-しかし右辺は jump 位置に集中した非正則 distribution です。実際、$a$ の近くで $b$ を避ける shrinking bump を入れれば $\delta_a$ の非正則性と同じ矛盾が出ます。
+しかし右辺は 跳躍 位置に集中した非正則 超関数です。実際、$a$ の近くで $b$ を避ける shrinking bump を入れれば $\delta_a$ の非正則性と同じ矛盾が出ます。
 
 従って $u$ は $L^1_{\mathrm{loc}}$ 関数としての弱微分を持ちません。
 <!-- solution-end -->
 
-## GPDE2-B02 mollifier の局所 $L^1$ 近似を再構成する
+## GPDE2-B02 平滑化核の局所 $L^1$ 近似を再構成する
 
 - Level: B
 - 目安時間: 25分
 
-$u\in L^1_{\mathrm{loc}}(\Omega)$、$K\subset\Omega$ compact とする。
+$u\in L^1_{\mathrm{loc}}(\Omega)$、$K\subset\Omega$ コンパクト とする。
 
 1. ある $r>0$ を取り
 
@@ -2209,12 +2284,12 @@ $$
 $$
 
 を示せ。
-3. [本章の Rd の平行移動補題](#lem-gpde2-l1-translation-rd)から局所 $L^1$ 収束を導け。
+3. [本章の $\mathbb R^d$ の平行移動補題](#lem-gpde2-l1-translation-rd)から局所 $L^1$ 収束を導け。
 
 <!-- solution-start -->
 ### 詳細解答
 
-1. $K$ は compact、$\Omega^c$ は closed で互いに交わりません。$K\subset\Omega$ なので
+1. $K$ は コンパクト、$\Omega^c$ は closed で互いに交わりません。$K\subset\Omega$ なので
 
 $$
 \operatorname{dist}(K,\Omega^c)>0.
@@ -2264,7 +2339,7 @@ $$
 \,dx\,dz.
 $$
 
-内側の積分は全空間の $L^1$ norm 以下なので、
+内側の積分は全空間の $L^1$ ノルム 以下なので、
 
 $$
 \|u_\varepsilon-u\|_{L^1(K)}
@@ -2273,7 +2348,7 @@ $$
 \|w(\cdot-\varepsilon z)-w\|_1\,dz.
 $$
 
-3. [本章の Rd の平行移動補題](#lem-gpde2-l1-translation-rd)を $w$ に適用すると、
+3. [本章の $\mathbb R^d$ の平行移動補題](#lem-gpde2-l1-translation-rd)を $w$ に適用すると、
 
 $$
 \|w(\cdot-h)-w\|_1\to0
@@ -2310,7 +2385,7 @@ u_\varepsilon\to u
 $$
 <!-- solution-end -->
 
-## GPDE2-B03 弱微分と mollification の交換を証明する
+## GPDE2-B03 弱微分と平滑化の交換を証明する
 
 - Level: B
 - 目安時間: 22分
@@ -2326,7 +2401,7 @@ $$
 と置く。
 
 1. $\psi_x\in\mathcal D(\Omega)$ を示せ。
-2. 平滑化定理と weak derivative の定義を使って
+2. 平滑化定理と 弱微分 の定義を使って
 
 $$
 \partial_j u_\varepsilon(x)
@@ -2430,7 +2505,7 @@ v_\varepsilon(x)
 $$
 <!-- solution-end -->
 
-## GPDE2-C01 tent 関数の一階弱微分と二階 distribution 微分
+## GPDE2-C01 テント関数（tent function）の一階弱微分と二階超関数微分
 
 - Level: C
 - 目安時間: 35分
@@ -2444,7 +2519,7 @@ $$
 とする。
 
 1. $u$ の一階弱微分 $v$ を区分的に求めよ。
-2. $v$ の jump を調べ、
+2. $v$ の 跳躍を調べ、
 
 $$
 D^2u
@@ -2453,7 +2528,7 @@ D^2u
 $$
 
 を示せ。
-3. mollifier $\rho_\varepsilon$ による $u_\varepsilon$ について
+3. 平滑化核 $\rho_\varepsilon$ による $u_\varepsilon$ について
 
 $$
 u_\varepsilon'
@@ -2507,7 +2582,7 @@ v(x)
 \end{cases}
 $$
 
-$u$ 自身は $x=-1,0,1$ で連続なので、一階 distribution 微分には delta 項が出ません。従って
+$u$ 自身は $x=-1,0,1$ で連続なので、一階超関数微分には デルタ超関数 項が出ません。従って
 
 $$
 Du=T_v.
@@ -2515,7 +2590,7 @@ $$
 
 つまり $v$ は $u$ の一階弱微分です。
 
-2. 今度は $v$ の jump を調べます。
+2. 今度は $v$ の 跳躍を調べます。
 
 $x=-1$ では
 
@@ -2535,7 +2610,7 @@ $$
 [v]_1=0-(-1)=1.
 $$
 
-各区間で $v$ は定数なので $v'_{\mathrm{pw}}=0$ です。[有限個の jump を持つ関数の distribution 微分](#prop-gpde2-jump-formula)から
+各区間で $v$ は定数なので $v'_{\mathrm{pw}}=0$ です。[有限個の跳躍を持つ関数の超関数微分](#prop-gpde2-jump-formula)から
 
 $$
 Dv
@@ -2563,7 +2638,7 @@ D^2u
 }.
 $$
 
-3. $v$ は $u$ の弱微分なので、[弱微分と mollification の交換](#thm-gpde2-weak-mollifier-commute)から
+3. $v$ は $u$ の弱微分なので、[弱微分と平滑化の交換](#thm-gpde2-weak-mollifier-commute)から
 
 $$
 \boxed{
@@ -2575,7 +2650,7 @@ $$
 
 です。
 
-4. $v$ は jump を持つ区分定数関数です。直接 convolution を書くと
+4. $v$ は 跳躍を持つ区分定数関数です。直接 convolution を書くと
 
 $$
 v_\varepsilon(x)
@@ -2641,7 +2716,7 @@ u_\varepsilon''(x)
 }.
 $$
 
-$\varepsilon$ が小さいと、三つの kernel はそれぞれ
+$\varepsilon$ が小さいと、三つの核 はそれぞれ
 
 - $x=-1$ 付近に質量 $+1$
 - $x=0$ 付近に質量 $-2$
@@ -2649,7 +2724,7 @@ $\varepsilon$ が小さいと、三つの kernel はそれぞれ
 
 を持つ狭い bump になります。
 
-$\varepsilon\downarrow0$ では distribution の意味で
+$\varepsilon\downarrow0$ では 超関数の意味で
 
 $$
 \rho_\varepsilon(\cdot+1)
@@ -2674,7 +2749,7 @@ $$
 
 へ集中します。
 
-これは「粗い関数を mollify して古典計算し、極限で distribution の情報を回収する」という本章全体の技法を一つの例で再現しています。
+これは「粗い関数を 平滑化 して古典計算し、極限で 超関数の情報を回収する」という本章全体の技法を一つの例で再現しています。
 <!-- solution-end -->
 
 ---
@@ -2682,20 +2757,20 @@ $$
 ## 章末チェック
 
 - 多重指数 $\alpha$ と $\partial^\alpha$ の意味を説明できる。
-- distribution 微分を部分積分の双対化として定義できる。
-- $\partial^\alpha T$ が再び distribution であることを [GPDE1 の局所有限階評価](../GPDE1/index.md#prop-gpde1-local-finite-order)から証明できる。
-- 古典微分できる関数では distribution 微分が古典微分と一致することを示せる。
-- distribution 収束と微分が交換することを定義から証明できる。
+- 超関数 微分を部分積分の双対化として定義できる。
+- $\partial^\alpha T$ が再び 超関数であることを [GPDE1 の局所有限階評価](../GPDE1/index.md#prop-gpde1-local-finite-order)から証明できる。
+- 古典微分できる関数では 超関数 微分が古典微分と一致することを示せる。
+- 超関数 収束と微分が交換することを定義から証明できる。
 - $DH=\delta_0$ を直接計算できる。
-- 区分 $C^1$ 関数の jump が $[f]_a\delta_a$ を生む理由を部分積分から導ける。
-- weak derivative を「distribution 微分が正則 distribution で表せる場合」として説明できる。
+- 区分 $C^1$ 関数の 跳躍が $[f]_a\delta_a$ を生む理由を部分積分から導ける。
+- 弱微分 を「超関数 微分が正則 超関数で表せる場合」として説明できる。
 - $|x|$ は一階弱微分を持つが Heaviside は持たない理由を説明できる。
-- mollifier の質量・台・微分の尺度を計算できる。
-- $u_\varepsilon$ が $C^\infty$ になる理由を、微分を kernel へ移すことから証明できる。
+- 平滑化核の質量・台・微分の尺度を計算できる。
+- $u_\varepsilon$ が $C^\infty$ になる理由を、微分を 核 へ移すことから証明できる。
 - $L^1$ 平行移動連続性から $u_\varepsilon\to u$ in $L^1_{\mathrm{loc}}$ を証明できる。
-- 正則 distribution 埋め込みの単射性を mollifier で証明できる。
-- weak derivative が a.e. の意味で一意であることを説明できる。
-- weak derivative と mollification の交換をテスト関数 $y\mapsto\rho_\varepsilon(x-y)$ から証明できる。
-- tent 関数を通して、一階弱微分・二階 distribution 微分・mollification の三者を接続できる。
+- 正則超関数埋め込みの単射性を 平滑化核で証明できる。
+- 弱微分 が a.e. の意味で一意であることを説明できる。
+- 弱微分 と 平滑化の交換をテスト関数 $y\mapsto\rho_\varepsilon(x-y)$ から証明できる。
+- テント関数を通して、一階弱微分・二階超関数微分・平滑化の三者を接続できる。
 
 次は **GPDE3「Sobolev 空間」** です。

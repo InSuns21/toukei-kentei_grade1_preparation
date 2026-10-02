@@ -5,6 +5,10 @@ prerequisites:
   - PDE7
   - MT4
   - F0-02C2
+forward_references:
+  - distribution.distributional-derivative
+  - distribution.weak-derivative
+  - distribution.mollifier
 
 concepts:
   - id: distribution.test-function
@@ -24,75 +28,75 @@ concepts:
       - distribution.test-function
 
   - id: distribution.schwartz-distribution
-    name: distribution
+    name: Schwartz 超関数
     kind: definition
-    aliases: [Schwartz超関数, 超関数, Schwartz distribution]
+    aliases: [超関数, Schwartz超関数, distribution, Schwartz distribution]
     introduction: formal
-    introduction_aliases: ["定義（distribution）"]
+    introduction_aliases: ["定義（超関数）"]
     requires:
       - distribution.test-function-convergence
 
   - id: distribution.local-finite-order-estimate
-    name: distributionの局所有限階評価
+    name: 超関数の局所有限階評価
     kind: proposition
-    aliases: [局所有限階評価, local finite-order estimate]
+    aliases: [局所有限階評価, distributionの局所有限階評価, local finite-order estimate]
     introduction: formal
-    introduction_aliases: ["命題（distribution の局所有限階評価）"]
+    introduction_aliases: ["命題（超関数の局所有限階評価）"]
     requires:
       - distribution.schwartz-distribution
 
   - id: distribution.regular-distribution
-    name: 正則distribution
+    name: 正則超関数
     kind: definition
-    aliases: [正則超関数, regular distribution]
+    aliases: [正則distribution, regular distribution]
     introduction: formal
-    introduction_aliases: ["定義（正則 distribution）"]
+    introduction_aliases: ["定義（正則超関数）"]
     requires:
       - distribution.schwartz-distribution
 
   - id: distribution.locally-integrable-gives-distribution
-    name: 局所可積分関数が定めるdistribution
+    name: 局所可積分関数が定める超関数
     kind: proposition
-    aliases: [L1locからdistribution, regular distribution construction]
+    aliases: [局所可積分関数が定めるdistribution, regular distribution construction]
     introduction: formal
-    introduction_aliases: ["命題（局所可積分関数は distribution を定める）"]
+    introduction_aliases: ["命題（局所可積分関数は超関数を定める）"]
     requires:
       - distribution.regular-distribution
       - distribution.local-finite-order-estimate
 
   - id: distribution.dirac-delta
-    name: Dirac delta
+    name: Dirac のデルタ超関数
     kind: definition
-    aliases: [delta distribution, Dirac delta distribution]
+    aliases: [Dirac delta, delta distribution, Dirac delta distribution]
     introduction: formal
-    introduction_aliases: ["定義（Dirac delta）"]
+    introduction_aliases: ["定義（Dirac のデルタ超関数）"]
     requires:
       - distribution.schwartz-distribution
 
   - id: distribution.distributional-convergence
-    name: distributionの収束
+    name: 超関数の収束
     kind: definition
-    aliases: [超関数収束, distributional convergence]
+    aliases: [distributionの収束, 超関数収束, distributional convergence]
     introduction: formal
-    introduction_aliases: ["定義（distribution の収束）"]
+    introduction_aliases: ["定義（超関数の収束）"]
     requires:
       - distribution.schwartz-distribution
 
   - id: distribution.distributional-solution
-    name: distributional solution
+    name: 超関数解
     kind: definition
-    aliases: [超関数解, distribution solution]
+    aliases: [distributional solution, distribution solution]
     introduction: formal
-    introduction_aliases: ["定義（Poisson 方程式の distributional solution）"]
+    introduction_aliases: ["定義（Poisson 方程式の超関数解）"]
     requires:
       - distribution.regular-distribution
       - distribution.test-function
 
   - id: distribution.classical-poisson-implies-distributional
-    name: 古典Poisson解はdistributional solution
+    name: 古典 Poisson 解は超関数解
     kind: proposition
-    aliases: [classical implies distributional]
+    aliases: [古典Poisson解はdistributional solution, classical implies distributional]
     introduction: formal
-    introduction_aliases: ["命題（古典 Poisson 解は distributional solution である）"]
+    introduction_aliases: ["命題（古典 Poisson 解は超関数解である）"]
     requires:
       - distribution.distributional-solution

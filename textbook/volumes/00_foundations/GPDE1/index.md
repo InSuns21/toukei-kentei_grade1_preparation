@@ -1,35 +1,35 @@
-# GPDE1：粗い対象を滑らかな probe で読む
+# GPDE1：粗い対象を滑らかな関数への作用で読む
 
-Encore II では、PDE を十分滑らかな関数の等式として読みました。ところが、PDE1 の Burgers 方程式では特性線が交差して古典微分が壊れ、PDE6 の基本解では一点に集中した source を扱う必要がありました。
+Encore II では、PDE を十分滑らかな関数の等式として読みました。ところが、PDE1 の Burgers 方程式では特性線が交差して古典微分が壊れ、PDE6 の基本解では一点に集中した点源を扱う必要がありました。
 
 ここで発想を変えます。
 
 $$
 \text{各点で微分できるか}
 \quad\longrightarrow\quad
-\text{滑らかな probe に作用させたとき何が起こるか}
+\text{滑らかで局所化された関数に作用させたとき何が起こるか}
 $$
 
-本章では、まず「どの probe を許すか」と「probe がどう近づくか」を定義し、その後で probe への連続線形作用を新しい対象として定義します。
+本章では、まず「何回でも微分でき、しかも領域内部だけに台を持つ補助関数」を選び、その関数列の収束を定めます。その後で、これらの補助関数へ連続線形に作用する対象を導入します。
 
 その順序で、
 
-- 滑らかで局所化された probe とその収束を定める。
-- probe への連続線形作用を定め、連続性を手で検証する。
+- 滑らかで局所化された補助関数とその収束を定める。
+- 補助関数への連続線形作用を定め、連続性を手で検証する。
 - 局所可積分関数からそのような作用を構成する。
 - 一点だけを読む作用が普通の局所可積分関数では表せないことを示す。
 - 作用どうしの収束を定める。
-- PDE を probe に対する積分恒等式として読む。
+- PDE を補助関数に対する積分恒等式として読む。
 
-ところまでを閉じます。作用自身の微分、mollifier、弱微分は GPDE2 へ送ります。
+ところまでを閉じます。作用自身の微分、平滑化核、弱微分は GPDE2 で扱います。
 
 ---
 
-## 1. なぜ滑らかでコンパクトな probe を使うのか
+## 1. なぜ滑らかでコンパクトな補助関数を使うのか
 
-PDE では部分積分を繰り返します。そこで probe 自身には何回でも微分できる滑らかさが欲しくなります。
+PDE では部分積分を繰り返します。そのため、補助関数には何回でも微分できる滑らかさが必要です。
 
-同時に、境界項を消して領域内部だけを調べたいので、probe は領域の内部にコンパクトに収まっていてほしい。この二つを同時に満たすのが $C_c^\infty$ です。
+同時に、境界項を消して領域内部だけを調べるには、その台が領域の内部にコンパクトに収まっていてほしい。この二つを同時に満たす関数に、ここで名前を付けます。
 
 開集合 $\Omega\subset\mathbb R^d$ を固定します。関数 $\varphi$ の台を
 
@@ -55,7 +55,7 @@ $$
 > と書く。
 <!-- formal-statement-end -->
 
-### 最小の具体例：bump 関数
+### 最小の具体例：滑らかなコンパクト台関数
 
 一変数で
 
@@ -106,13 +106,13 @@ $$
 一方 $e^{-|x|^2}$ は $C^\infty$ ですが全空間で非零なので台がコンパクトではありません。したがってテスト関数ではありません。
 <!-- definition-example-end -->
 
-この bump 関数を平行移動・縮小すれば、領域内部の任意の小さな場所だけを probe できます。
+この滑らかなコンパクト台関数を平行移動・縮小すれば、領域内部の任意の小さな場所だけを テスト関数できます。
 
 ---
 
 ## 2. テスト関数の「収束」は点ごとの収束より強くする
 
-probe が近づいたとき作用値も安定して近づく、と後で要求します。そのため、まずテスト関数がどの意味で近づくかを決めます。
+テスト関数が近づいたとき作用値も安定して近づく、と後で要求します。そのため、まずテスト関数がどの意味で近づくかを決めます。
 
 コンパクト集合 $K\subset\Omega$ と整数 $m\ge0$ に対し、$\operatorname{supp}\varphi\subset K$ のとき
 
@@ -156,7 +156,7 @@ $$
 <!-- definition-example-start: def-gpde1-test-function-convergence -->
 **定義の確認**
 
-共通コンパクト台の条件が必要な理由を、平行移動する bump 関数で確認します。
+共通コンパクト台の条件が必要な理由を、平行移動する滑らかなコンパクト台関数で確認します。
 
 非零の $\eta\in\mathcal D(\mathbb R)$ を一つ固定し、
 
@@ -182,25 +182,25 @@ $$
 
 は一定で 0 へ行きません。
 
-「各点では消えた」だけでは、積分で観測した量が消えるとは限りません。後で導入する連続線形作用が局所的な probe の極限を安定に読むために、固定コンパクト台が必要です。
+「各点では消えた」だけでは、積分で観測した量が消えるとは限りません。後で導入する連続線形作用が局所的な テスト関数の極限を安定に読むために、固定コンパクト台が必要です。
 <!-- definition-example-end -->
 
 ---
 
-## 3. probe への作用を連続線形汎関数として定める
+## 3. テスト関数への作用を連続線形汎関数として定める
 
 F0-02C2 では、関数を入力して数を返す線形汎関数を扱いました。ここでは入力空間が $\mathcal D(\Omega)$ です。
 
 <a id="def-gpde1-distribution"></a>
 <!-- formal-statement-start -->
-> **定義（distribution）**  
+> **定義（超関数）**  
 > 写像
 
 $$
 T:\mathcal D(\Omega)\to\mathbb R
 $$
 
-> または複素数値の写像が **distribution** であるとは、次の二条件を満たすことをいう。
+> または複素数値の写像が **超関数** であるとは、次の二条件を満たすことをいう。
 >
 > 1. 線形性：
 >
@@ -210,7 +210,7 @@ $$
 >
 > $$T(\varphi_n)\to T(\varphi).$$
 >
-> distribution 全体を $\mathcal D'(\Omega)$ と書き、作用を
+> 超関数 全体を $\mathcal D'(\Omega)$ と書き、作用を
 
 $$
 \langle T,\varphi\rangle
@@ -219,11 +219,11 @@ $$
 > と表す。
 <!-- formal-statement-end -->
 
-英語の distribution は確率論でも別の意味で使われます。本系列では、文脈が明らかなとき Schwartz distribution（超関数）の意味で使います。
+英語の distribution は確率論でも別の意味で使われます。本系列では **Schwartz 超関数（distribution）** の意味で使い、その後は「超関数」と書きます。
 
 この系列では一般の局所凸位相空間論を前提にしません。上の「列を使った連続性」を直接使い、必要な評価へ落とします。
 
-二つの distribution $S,T$ が等しいとは、全ての $\varphi\in\mathcal D(\Omega)$ に対して
+二つの 超関数 $S,T$ が等しいとは、全ての $\varphi\in\mathcal D(\Omega)$ に対して
 
 $$
 \langle S,\varphi\rangle
@@ -231,7 +231,7 @@ $$
 \langle T,\varphi\rangle
 $$
 
-となることです。distribution の世界では、各点の値ではなく **全ての probe に対する応答** が対象を決めます。
+となることです。超関数の世界では、各点の値ではなく **全ての テスト関数に対する応答** が対象を決めます。
 
 <!-- definition-example-start: def-gpde1-distribution -->
 **定義の確認**
@@ -255,7 +255,7 @@ $$
 \to0.
 $$
 
-ここで $|K|$ は $K$ の Lebesgue 測度です。従って $T_1$ はテスト関数列に対して連続であり、distribution です。
+ここで $|K|$ は $K$ の Lebesgue 測度です。従って $T_1$ はテスト関数列に対して連続であり、超関数です。
 
 この例では作用は普通の積分ですが、後では積分可能関数では表せない点評価も同じ定義に入ることを確認します。
 <!-- definition-example-end -->
@@ -268,8 +268,8 @@ $$
 
 <a id="prop-gpde1-local-finite-order"></a>
 <!-- formal-statement-start -->
-> **命題（distribution の局所有限階評価）**  
-> 線形写像 $T:\mathcal D(\Omega)\to\mathbb R$ または $\mathbb C$ を考える。$T$ が上の意味で distribution であることと、任意のコンパクト集合 $K\subset\Omega$ に対して、ある整数 $m\ge0$ と定数 $C>0$ が存在し、
+> **命題（超関数の局所有限階評価）**  
+> 線形写像 $T:\mathcal D(\Omega)\to\mathbb R$ または $\mathbb C$ を考える。$T$ が上の意味で 超関数であることと、任意のコンパクト集合 $K\subset\Omega$ に対して、ある整数 $m\ge0$ と定数 $C>0$ が存在し、
 
 $$
 |\langle T,\varphi\rangle|
@@ -284,7 +284,7 @@ $$
 
 評価があれば、$\varphi_n\to0$ のとき $p_{K,m}(\varphi_n)\to0$ なので直ちに $T\varphi_n\to0$ です。
 
-逆向きは背理法です。ある $K$ 上でどの有限階評価も存在しないなら、$n$ 階までの微分は非常に小さいのに $T$ の値だけ 1 のまま、という列を作れます。それは distribution の連続性に反します。
+逆向きは背理法です。ある $K$ 上でどの有限階評価も存在しないなら、$n$ 階までの微分は非常に小さいのに $T$ の値だけ 1 のまま、という列を作れます。それは 超関数の連続性に反します。
 
 <!-- proof-start -->
 ### 証明
@@ -307,7 +307,7 @@ $$
 
 線形性から一般の $\varphi_n\to\varphi$ も $\varphi_n-\varphi\to0$ を使えば連続性が従います。
 
-逆に $T$ が distribution であるとし、あるコンパクト集合 $K$ について有限階評価が存在しないと仮定します。
+逆に $T$ が 超関数であるとし、あるコンパクト集合 $K$ について有限階評価が存在しないと仮定します。
 
 すると各 $n\ge1$ に対して、$\operatorname{supp}\psi_n\subset K$ を満たし、
 
@@ -364,22 +364,22 @@ $$
 |\langle T,\varphi_n\rangle|=1
 $$
 
-であり $T(\varphi_n)\to0$ ではありません。これは distribution の連続性に反します。
+であり $T(\varphi_n)\to0$ ではありません。これは 超関数の連続性に反します。
 
 よって各 $K$ 上で有限階評価が存在します。
 <!-- proof-end -->
 
-この命題は後続で何度も使います。新しい候補 $T$ が distribution か確認したいとき、収束列を一つずつ追う代わりに **固定コンパクト台上で何階微分まで見れば作用を抑えられるか** を探せばよいわけです。
+この命題は後続で何度も使います。新しい候補 $T$ が 超関数 か確認したいとき、収束列を一つずつ追う代わりに **固定コンパクト台上で何階微分まで見れば作用を抑えられるか** を探せばよいわけです。
 
 ---
 
-## 5. 普通の関数は distribution として読める
+## 5. 普通の関数は 超関数として読める
 
-PDE では滑らかでなくても積分可能な関数を扱いたいので、まず $L^1_{\mathrm{loc}}$ を distribution に入れます。
+PDE では滑らかでなくても積分可能な関数を扱いたいので、まず $L^1_{\mathrm{loc}}$ を 超関数に入れます。
 
 <a id="def-gpde1-regular-distribution"></a>
 <!-- formal-statement-start -->
-> **定義（正則 distribution）**  
+> **定義（正則超関数）**  
 > $f\in L^1_{\mathrm{loc}}(\Omega)$ に対して
 
 $$
@@ -388,7 +388,7 @@ $$
 \int_\Omega f(x)\varphi(x)\,dx
 $$
 
-> と定める。この作用が定める distribution を $f$ による **正則 distribution** という。
+> と定める。この作用が定める 超関数を $f$ による **正則超関数** という。
 <!-- formal-statement-end -->
 
 式が有限であることは、$\varphi$ の台がコンパクトであることから従います。実際、$\operatorname{supp}\varphi\subset K\subset\Omega$ なら
@@ -403,7 +403,7 @@ $$
 
 <a id="prop-gpde1-l1loc-distribution"></a>
 <!-- formal-statement-start -->
-> **命題（局所可積分関数は distribution を定める）**  
+> **命題（局所可積分関数は超関数を定める）**  
 > $f\in L^1_{\mathrm{loc}}(\Omega)$ とする。このとき
 
 $$
@@ -412,7 +412,7 @@ $$
 \int_\Omega f\varphi
 $$
 
-> は $\mathcal D(\Omega)$ 上の distribution である。
+> は $\mathcal D(\Omega)$ 上の 超関数である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -461,7 +461,7 @@ $$
 p_{K,0}(\varphi).
 $$
 
-$f\in L^1_{\mathrm{loc}}(\Omega)$ より括弧内は有限です。従って [局所有限階評価](#prop-gpde1-local-finite-order)を $m=0$ で満たし、$T_f$ は distribution です。
+$f\in L^1_{\mathrm{loc}}(\Omega)$ より括弧内は有限です。従って [局所有限階評価](#prop-gpde1-local-finite-order)を $m=0$ で満たし、$T_f$ は超関数です。
 <!-- proof-end -->
 
 <!-- definition-example-start: def-gpde1-regular-distribution -->
@@ -495,18 +495,22 @@ $$
 \int_{-1}^{1}|x|^{-1/2}\varphi(x)\,dx
 $$
 
-は正則 distribution を定めます。distribution は「滑らかな関数だけを含む拡張」ではなく、まず局所可積分な粗い関数を全て受け入れます。
+は正則超関数を定めます。超関数は「滑らかな関数だけを含む拡張」ではなく、まず局所可積分な粗い関数を全て受け入れます。
 <!-- definition-example-end -->
 
-Lebesgue 積分では、測度 0 の集合上でだけ異なる関数を同じものとして扱います。この通常の約束のもとで、$f\mapsto T_f$ が異なる $L^1_{\mathrm{loc}}$ の元を異なる distribution へ送ることまでは本章で証明しません。GPDE2 の mollifier を使うと、$T_f=0$ なら $f=0$ がほとんど至る所で成り立つことまで自然に閉じられます。
+Lebesgue 積分では、測度 0 の集合上でだけ異なる関数を同じものとして扱います。この通常の約束のもとで、$f\mapsto T_f$ が異なる $L^1_{\mathrm{loc}}$ の元を異なる超関数へ送ることまでは本章で証明しません。GPDE2 の平滑化核 を使うと、$T_f=0$ なら $f=0$ がほとんど至る所で成り立つことまで自然に閉じられます。
 
 ---
 
 ## 6. 一点だけを読む作用を作る
 
+ここまでの正則超関数は、局所可積分関数 $f$ をテスト関数と掛けて積分することで作りました。しかし PDE6 の点源のように、「領域全体に広がる量」ではなく **一点に集中した作用** も同じ枠組みで扱いたくなります。
+
+テスト関数は各点で値を持つので、点 $a$ だけを調べる最も単純な作用は「入力されたテスト関数の $a$ での値を返すこと」です。この作用が連続線形汎関数になれば、通常の関数では表しにくい一点集中を超関数として表現できます。
+
 <a id="def-gpde1-dirac"></a>
 <!-- formal-statement-start -->
-> **定義（Dirac delta）**  
+> **定義（Dirac のデルタ超関数）**  
 > $a\in\Omega$ とする。$\delta_a\in\mathcal D'(\Omega)$ を
 
 $$
@@ -515,13 +519,13 @@ $$
 \varphi(a)
 $$
 
-> により定める。これを点 $a$ における **Dirac delta** という。
+> により定める。これを点 $a$ における **Dirac のデルタ超関数** という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gpde1-dirac -->
 **定義の確認**
 
-点評価が distribution の二条件を満たすことを直接確認します。
+点評価が超関数の二条件を満たすことを直接確認します。
 
 線形性は
 
@@ -545,12 +549,12 @@ $$
 
 $a\notin K$ なら $\varphi(a)=0$ です。
 
-従って局所有限階評価を $m=0$ で満たし、$\delta_a$ は distribution です。
+従って局所有限階評価を $m=0$ で満たし、$\delta_a$ は超関数です。
 <!-- definition-example-end -->
 
-### delta は普通の局所可積分関数では表せない
+### デルタ超関数は普通の局所可積分関数では表せない
 
-$a\in\Omega$ とし、十分小さい $\varepsilon>0$ で $\overline{B(a,\varepsilon)}\subset\Omega$ とします。第1節の bump 関数 $\eta$ を使って
+$a\in\Omega$ とし、十分小さい $\varepsilon>0$ で $\overline{B(a,\varepsilon)}\subset\Omega$ とします。第1節で構成した滑らかなコンパクト台関数 $\eta$ を使って
 
 $$
 \eta_\varepsilon(x)
@@ -594,7 +598,7 @@ $$
 
 $f$ は $a$ の近くで可積分なので、[Lebesgue 積分の絶対連続性](../MT4/index.md#thm-mt4-integral-absolute-continuity)から右辺は $\varepsilon\downarrow0$ で 0 へ行きます。左辺は常に 1 なので矛盾です。
 
-したがって Dirac delta は正則 distribution ではありません。
+したがって Dirac のデルタ超関数は正則超関数ではありません。
 
 ここで初めて
 
@@ -608,12 +612,16 @@ $$
 
 ---
 
-## 7. 作用どうしの収束を「全ての probe への応答」で測る
+## 7. 作用どうしの収束を「全てのテスト関数への応答」で測る
+
+近似解や集中する核を扱うには、超関数そのものの列 $T_n$ が何に近づくかを定める必要があります。ところが Dirac のデルタ超関数のような対象には、通常の関数のような点ごとの値がありません。
+
+超関数は「全てのテスト関数にどう応答するか」で決まります。そこで収束も、**一つ一つのテスト関数に対する応答が収束すること**として定めます。
 
 <a id="def-gpde1-distribution-convergence"></a>
 <!-- formal-statement-start -->
-> **定義（distribution の収束）**  
-> $T_n,T\in\mathcal D'(\Omega)$ とする。$T_n$ が $T$ に distribution の意味で収束するとは、任意の $\varphi\in\mathcal D(\Omega)$ に対して
+> **定義（超関数の収束）**  
+> $T_n,T\in\mathcal D'(\Omega)$ とする。$T_n$ が $T$ に 超関数の意味で収束するとは、任意の $\varphi\in\mathcal D(\Omega)$ に対して
 
 $$
 \langle T_n,\varphi\rangle
@@ -627,9 +635,9 @@ $$
 <!-- definition-example-start: def-gpde1-distribution-convergence -->
 **定義の確認**
 
-点 $a_n$ が $a$ へ近づくときの Dirac delta の収束を確認します。
+点 $a_n$ が $a$ へ近づくときの Dirac のデルタ超関数の収束を確認します。
 
-$a_n\to a$ in $\Omega$ とします。任意のテスト関数 $\varphi$ は連続なので
+$a_n\to a$ とします（各 $a_n,a\in\Omega$）。任意のテスト関数 $\varphi$ は連続なので
 
 $$
 \langle\delta_{a_n},\varphi\rangle
@@ -647,14 +655,14 @@ $$
 \delta_{a_n}\to\delta_a
 $$
 
-in $\mathcal D'(\Omega)$ です。
+$\mathcal D'(\Omega)$ における収束です。
 <!-- definition-example-end -->
 
-点ごとの値を持たない delta に対しても、収束を直接定義できることが重要です。
+点ごとの値を持たない デルタ超関数に対しても、収束を直接定義できることが重要です。
 
 ---
 
-## 8. Gaussian は distribution の意味で delta へ集中する
+## 8. Gauss 核は 超関数の意味で デルタ超関数へ集中する
 
 $\Omega=\mathbb R^d$ とし、
 
@@ -665,7 +673,7 @@ $$
 \exp\left(-\frac{|x|^2}{2\varepsilon^2}\right)
 $$
 
-と置きます。各 $\rho_\varepsilon$ は $L^1$ 関数なので正則 distribution $T_{\rho_\varepsilon}$ を定めます。
+と置きます。各 $\rho_\varepsilon$ は $L^1$ 関数なので正則超関数 $T_{\rho_\varepsilon}$ を定めます。
 
 任意の $\varphi\in\mathcal D(\mathbb R^d)$ に対し、変数変換 $x=\varepsilon y$ から
 
@@ -721,9 +729,9 @@ $$
 
 です。
 
-これは「Gaussian の高さが無限大になる」という点ごとの話ではありません。全てのテスト関数に対する積分が点評価へ収束する、という statement です。
+これは「Gauss 核の高さが無限大になる」という点ごとの話ではありません。全てのテスト関数に対する積分が点評価へ収束する、という 主張 です。
 
-GPDE2 では compact support を持つ mollifier に切り替え、粗い関数を平滑化する道具として系統化します。
+GPDE2 では コンパクト台 を持つ 平滑化核 に切り替え、粗い関数を平滑化する道具として系統化します。
 
 ---
 
@@ -743,14 +751,14 @@ $u$ が $C^2$ なら各点で $\Delta u$ を計算できます。しかし $u\in
 
 <a id="def-gpde1-distributional-poisson"></a>
 <!-- formal-statement-start -->
-> **定義（Poisson 方程式の distributional solution）**  
+> **定義（Poisson 方程式の超関数解）**  
 > 開集合 $\Omega\subset\mathbb R^d$ 上で $u,f\in L^1_{\mathrm{loc}}(\Omega)$ とする。$u$ が
 
 $$
 -\Delta u=f
 $$
 
-> の **distributional solution** であるとは、任意の $\varphi\in\mathcal D(\Omega)$ に対して
+> の **超関数解** であるとは、任意の $\varphi\in\mathcal D(\Omega)$ に対して
 
 $$
 \int_\Omega
@@ -782,7 +790,33 @@ $$
 -u''(x)=2.
 $$
 
-任意の $\varphi\in\mathcal D((0,1))$ に対して二回部分積分すれば、
+任意の $\varphi\in\mathcal D((0,1))$ を取ります。$\varphi$ は $(0,1)$ の内部にコンパクトな台を持つので、端点近くでは $\varphi=\varphi'=0$ となり、以下の二回の部分積分で境界項はどちらも消えます。
+
+一回目は
+
+$$
+\int_0^1u(-\varphi'')\,dx
+=
+-\left[u\varphi'\right]_0^1
++
+\int_0^1u'\varphi'\,dx
+=
+\int_0^1u'\varphi'\,dx.
+$$
+
+二回目は
+
+$$
+\int_0^1u'\varphi'\,dx
+=
+\left[u'\varphi\right]_0^1
+-
+\int_0^1u''\varphi\,dx
+=
+\int_0^1(-u'')\varphi\,dx.
+$$
+
+ここで $-u''=2$ を代入すると
 
 $$
 \int_0^1u(x)\{-\varphi''(x)\}\,dx
@@ -790,25 +824,25 @@ $$
 \int_0^1 2\varphi(x)\,dx.
 $$
 
-$\varphi$ は $(0,1)$ の内部にコンパクトな台を持つので、端点近くでは $\varphi=\varphi'=0$ となり、境界項は消えます。
+この計算では、古典方程式からテスト関数恒等式へ移る際の二回の部分積分と、最後の $-u''=2$ の代入を順に確認しています。
 <!-- definition-example-end -->
 
 ---
 
-## 10. 古典解は distributional solution に含まれる
+## 10. 古典解は超関数解に含まれる
 
 新しい解概念を導入したら、従来の解を壊していないか確認する必要があります。
 
 <a id="prop-gpde1-classical-implies-distributional"></a>
 <!-- formal-statement-start -->
-> **命題（古典 Poisson 解は distributional solution である）**  
+> **命題（古典 Poisson 解は超関数解である）**  
 > 開集合 $\Omega\subset\mathbb R^d$ 上で $u\in C^2(\Omega)$、$f\in C(\Omega)$ とし、
 
 $$
 -\Delta u=f
 $$
 
-> が各点で成り立つとする。このとき $u$ は同じ方程式の distributional solution である。
+> が各点で成り立つとする。このとき $u$ は同じ方程式の超関数解である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -818,35 +852,54 @@ $\varphi$ の台は $\Omega$ の内部にコンパクトに収まるので、そ
 <!-- proof-start -->
 ### 証明
 
-$\varphi\in\mathcal D(\Omega)$ を任意に取ります。$\operatorname{supp}\varphi$ を内部に含む長方形 $Q$ で
+$\varphi\in\mathcal D(\Omega)$ を任意に取り、
 
 $$
-\overline Q\subset\Omega
+K=\operatorname{supp}\varphi
 $$
 
-となるものを取れます。$\varphi$ は $Q$ の境界近くで 0 なので、各座標 $x_j$ について部分積分の境界項は消えます。
+と置きます。$K$ は $\Omega$ の内部にあるコンパクト集合なので、$\varphi$ とその全ての偏微分は $\Omega\setminus K$ で 0 です。したがって各座標方向の部分積分は、境界 $\partial\Omega$ の形を仮定せず、コンパクト台を持つ積分として行えます。
+
+$j$ を一つ固定します。一回目の部分積分で
+
+$$
+\int_\Omega u(-\partial_{jj}\varphi)
+=
+\int_\Omega
+(\partial_j u)(\partial_j\varphi)
+$$
+
+を得ます。ここでは $\partial_j\varphi$ も $K$ に台を持つため境界項がありません。さらに二回目の部分積分で
+
+$$
+\int_\Omega
+(\partial_j u)(\partial_j\varphi)
+=
+\int_\Omega
+(-\partial_{jj}u)\varphi.
+$$
 
 従って
 
 $$
-\int_Q
+\int_\Omega
 u(-\partial_{jj}\varphi)
 =
-\int_Q
+\int_\Omega
 (-\partial_{jj}u)\varphi.
 $$
 
 これを $j=1,\ldots,d$ で足すと、
 
 $$
-\int_Q
+\int_\Omega
 u(-\Delta\varphi)
 =
-\int_Q
+\int_\Omega
 (-\Delta u)\varphi.
 $$
 
-$\varphi$ は $Q$ の外で 0 なので積分範囲を $\Omega$ に戻せます。また古典方程式 $-\Delta u=f$ から
+最後に古典方程式 $-\Delta u=f$ を被積分関数へ代入して
 
 $$
 \int_\Omega
@@ -856,30 +909,30 @@ u(-\Delta\varphi)
 f\varphi.
 $$
 
-これは [distributional solution の定義](#def-gpde1-distributional-poisson)そのものです。
+これは [超関数解 の定義](#def-gpde1-distributional-poisson)そのものです。
 <!-- proof-end -->
 
 新しい解概念は古典解を捨てるのではなく、
 
 $$
 \boxed{
-\text{classical solution}
+\text{古典解}
 \Longrightarrow
-\text{distributional solution}
+\text{超関数解}
 }
 $$
 
 と解のクラスを広げます。
 
-逆向きは一般には成り立ちません。distributional solution は古典微分を持たないことがあります。どの追加仮定で滑らかさが回復するかは GPDE9 の elliptic regularity で扱います。
+逆向きは一般には成り立ちません。超関数解 は古典微分を持たないことがあります。どの追加仮定で滑らかさが回復するかは GPDE9 の 楕円型正則性 で扱います。
 
 ---
 
-## 11. PDE6 の基本解を distribution の等式として読み直す
+## 11. PDE6 の基本解を 超関数の等式として読み直す
 
 PDE6 では基本解を「原点を除いて調和的で、原点を囲む flux が 1」という古典的な形で扱いました。
 
-distribution を使うと、その意味を一つの式にまとめられます。
+超関数を使うと、その意味を一つの式にまとめられます。
 
 たとえば一次元で
 
@@ -904,20 +957,40 @@ $$
 
 積分を $(-\infty,0)$ と $(0,\infty)$ に分けます。
 
-正の側では
+正の側では、$\varphi$ と $\varphi'$ が十分大きい $x$ で 0 になることを使って
 
 $$
+\begin{aligned}
 \int_0^\infty x\varphi''(x)\,dx
-=
+&=
+\left[x\varphi'(x)\right]_0^\infty
+-
+\int_0^\infty\varphi'(x)\,dx\\
+&=
+0
+-
+\left[\varphi(x)\right]_0^\infty\\
+&=
 \varphi(0).
+\end{aligned}
 $$
 
-負の側では
+負の側でも同じく
 
 $$
+\begin{aligned}
 \int_{-\infty}^0 (-x)\varphi''(x)\,dx
-=
+&=
+\left[(-x)\varphi'(x)\right]_{-\infty}^0
++
+\int_{-\infty}^0\varphi'(x)\,dx\\
+&=
+0
++
+\left[\varphi(x)\right]_{-\infty}^0\\
+&=
 \varphi(0).
+\end{aligned}
 $$
 
 従って
@@ -939,9 +1012,9 @@ $$
 }
 $$
 
-を distribution の意味で満たします。
+を 超関数の意味で満たします。
 
-PDE6 の「一点 source」は、distribution では literal な等式として書けるようになりました。二次元・高次元の基本解も同じ思想で
+PDE6 の「一点源」は、超関数では そのまま な等式として書けるようになりました。二次元・高次元の基本解も同じ思想で
 
 $$
 -\Delta\Phi=\delta_0
@@ -951,7 +1024,7 @@ $$
 
 ---
 
-## 12. PDE1 の Burgers shock では何が起きるか
+## 12. PDE1 の Burgers の衝撃波では何が起きるか
 
 PDE1 の Burgers 方程式を保存則の形で書くと
 
@@ -961,7 +1034,7 @@ $$
 
 です。
 
-$u$ が jump を持つと $u_t$ や $u_x$ は古典的には存在しません。しかし $u$ が局所有界なら $u$ と $u^2$ は局所可積分なので、任意の時空テスト関数 $\varphi$ に対し
+$u$ が 跳躍 を持つと $u_t$ や $u_x$ は古典的には存在しません。しかし $u$ が局所有界なら $u$ と $u^2$ は局所可積分なので、任意の時空テスト関数 $\varphi$ に対し
 
 $$
 \iint
@@ -977,13 +1050,13 @@ $$
 
 という積分恒等式は意味を持ちます。
 
-これが conservation law を distributional に読む入口です。
+これが 保存則 を 超関数の意味での に読む入口です。
 
-ただし、ここには重要な停止線があります。Burgers 方程式では distributional solution だけでは一意性が足りません。物理的な shock を選ぶ entropy condition は Encore III 本線には入れず、後続 PDE 拡張で扱います。
+ただし、ここには重要な区別があります。Burgers 方程式では超関数解 だけでは一意性が足りません。物理的な 衝撃波 を選ぶ エントロピー条件 は Encore III 本線には入れず、後続 PDE 拡張で扱います。
 
 ---
 
-## 13. GPDE2 へ：微分を distribution 自身へ移す
+## 13. GPDE2 へ：微分を 超関数 自身へ移す
 
 本章では Poisson 方程式について
 
@@ -1003,15 +1076,15 @@ $$
 -\langle T,\partial_j\varphi\rangle
 $$
 
-によって distribution 自身の微分を定義します。
+によって 超関数 自身の微分を定義します。
 
 すると
 
-- Heaviside の微分が Dirac delta になる。
-- jump が delta 項を生む。
+- Heaviside の微分が Dirac のデルタ超関数になる。
+- 跳躍 が デルタ超関数 項を生む。
 - 普通には微分できない関数にも微分を持たせられる。
-- distribution 微分が再び $L^p$ 関数で表せるとき weak derivative が得られる。
-- mollifier で粗い対象を平滑化し、極限へ戻せる。
+- 超関数 微分が再び $L^p$ 関数で表せるとき 弱微分 が得られる。
+- 平滑化核 で粗い対象を平滑化し、極限へ戻せる。
 
 という大学院 PDE の基本機構へ進めます。
 
@@ -1028,7 +1101,7 @@ $\mathbb R$ 上の次の関数について、$\mathcal D(\mathbb R)$ の元か�
 
 1. $e^{-x^2}$
 2. $\max(1-|x|,0)$
-3. 第1節の bump 関数 $\eta(x)=e\,h(1-x^2)$
+3. 第1節で構成した滑らかなコンパクト台関数 $\eta(x)=e\,h(1-x^2)$
 4. $\eta(x-3)$
 
 <!-- solution-start -->
@@ -1069,7 +1142,7 @@ $$
 従って $\eta(x-3)\in\mathcal D(\mathbb R)$ です。
 <!-- solution-end -->
 
-## GPDE1-A02 値が発散する局所可積分関数が distribution を定める
+## GPDE1-A02 値が発散する局所可積分関数が 超関数を定める
 
 - Level: A
 - 目安時間: 12分
@@ -1092,7 +1165,7 @@ $$
 $$
 
 を示せ。
-3. これが $T_f$ の distribution 連続性をどう保証するか説明せよ。
+3. これが $T_f$ の 超関数 連続性をどう保証するか説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1152,10 +1225,10 @@ p_{[-r,r],0}(\varphi)
 4\sqrt r\,p_{[-r,r],0}(\varphi).
 $$
 
-3. これは [局所有限階評価](#prop-gpde1-local-finite-order)を $m=0$ で満たす評価です。従って $T_f$ はテスト関数収束に対して連続であり、distribution です。
+3. これは [局所有限階評価](#prop-gpde1-local-finite-order)を $m=0$ で満たす評価です。従って $T_f$ はテスト関数収束に対して連続であり、超関数です。
 <!-- solution-end -->
 
-## GPDE1-A03 移動する Dirac delta
+## GPDE1-A03 移動する Dirac のデルタ超関数
 
 - Level: A
 - 目安時間: 10分
@@ -1165,9 +1238,9 @@ $a_n\to a$ in $\Omega$ とする。$\delta_{a_n}\to\delta_a$ in $\mathcal D'(\Om
 <!-- solution-start -->
 ### 詳細解答
 
-distribution の収束を示すには、任意の固定した $\varphi\in\mathcal D(\Omega)$ に対して作用の収束を示せばよいです。
+超関数の収束を示すには、任意の固定した $\varphi\in\mathcal D(\Omega)$ に対して作用の収束を示せばよいです。
 
-Dirac delta の定義から
+Dirac のデルタ超関数の定義から
 
 $$
 \langle\delta_{a_n},\varphi\rangle
@@ -1181,7 +1254,7 @@ $$
 \varphi(a_n)\to\varphi(a).
 $$
 
-再び Dirac delta の定義を使うと
+再び Dirac のデルタ超関数の定義を使うと
 
 $$
 \varphi(a)
@@ -1308,7 +1381,7 @@ $$
 
 1. 任意の固定した $x$ と整数 $k\ge0$ に対して $\varphi_n^{(k)}(x)\to0$ を示せ。
 2. $\varphi_n\not\to0$ in $\mathcal D(\mathbb R)$ であることを示せ。
-3. 正則 distribution $T_1$ に対して $\langle T_1,\varphi_n\rangle$ を計算し、固定コンパクト台条件の必要性を説明せよ。
+3. 正則超関数 $T_1$ に対して $\langle T_1,\varphi_n\rangle$ を計算し、固定コンパクト台条件の必要性を説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1350,10 +1423,10 @@ $$
 
 $\eta$ を非負かつ非零に取れば、この値は正の定数であり 0 へ行きません。
 
-したがって、点ごとの全階微分収束だけを「テスト関数収束」としてしまうと、正則 distribution $T_1$ すら連続でなくなります。共通コンパクト台条件は装飾ではなく、distribution の作用を安定にするために必要です。
+したがって、点ごとの全階微分収束だけを「テスト関数収束」としてしまうと、正則超関数 $T_1$ すら連続でなくなります。共通コンパクト台条件は装飾ではなく、超関数の作用を安定にするために必要です。
 <!-- solution-end -->
 
-## GPDE1-B02 Gaussian から Dirac delta への収束
+## GPDE1-B02 Gauss 核から Dirac のデルタ超関数への収束
 
 - Level: B
 - 目安時間: 20分
@@ -1441,7 +1514,7 @@ $$
 e^{-|y|^2/2}\,dy.
 $$
 
-標準 Gaussian の全質量は 1 なので
+標準 Gauss 核の全質量は 1 なので
 
 $$
 \int\rho_\varepsilon\varphi
@@ -1449,7 +1522,7 @@ $$
 \varphi(0).
 $$
 
-Dirac delta の定義から右辺は $\langle\delta_0,\varphi\rangle$ です。従って
+Dirac のデルタ超関数の定義から右辺は $\langle\delta_0,\varphi\rangle$ です。従って
 
 $$
 \boxed{
@@ -1457,15 +1530,15 @@ T_{\rho_\varepsilon}\to\delta_0
 }
 $$
 
-in $\mathcal D'(\mathbb R^d)$ です。
+$\mathcal D'(\mathbb R^d)$ において です。
 <!-- solution-end -->
 
-## GPDE1-B03 Dirac delta が正則 distribution でないことを証明する
+## GPDE1-B03 Dirac のデルタ超関数が正則超関数でないことを証明する
 
 - Level: B
 - 目安時間: 20分
 
-$a\in\Omega$ とする。ある $f\in L^1_{\mathrm{loc}}(\Omega)$ が $T_f=\delta_a$ を満たすと仮定し、第1節の bump 関数を縮小して矛盾を導け。
+$a\in\Omega$ とする。ある $f\in L^1_{\mathrm{loc}}(\Omega)$ が $T_f=\delta_a$ を満たすと仮定し、第1節で構成した滑らかなコンパクト台関数を縮小して矛盾を導け。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1478,7 +1551,7 @@ $$
 
 となります。
 
-第1節の bump 関数 $\eta$ は
+第1節で構成した滑らかなコンパクト台関数 $\eta$ は
 
 $$
 0\le\eta\le1,
@@ -1542,14 +1615,14 @@ $$
 $$
 \boxed{
 \delta_a
-\text{ は正則 distribution ではない}
+\text{ は正則超関数ではない}
 }
 $$
 
 ことが分かります。
 <!-- solution-end -->
 
-## GPDE1-C01 一次元基本解を distribution として検証する
+## GPDE1-C01 一次元基本解を 超関数として検証する
 
 - Level: C
 - 目安時間: 30分
@@ -1581,8 +1654,8 @@ $$
 -\Phi''=\delta_0
 $$
 
-を distribution の意味で表す理由を説明せよ。
-4. 「原点以外では右辺 0」だけでは delta source を見落とす理由を説明せよ。
+を 超関数の意味で表す理由を説明せよ。
+4. 「原点以外では右辺 0」だけでは デルタ超関数 点源 を見落とす理由を説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1660,10 +1733,14 @@ $$
 \int_{-\infty}^0\varphi'(x)\,dx.
 $$
 
-第一項は同様に 0 です。第二項は
+第一項は、$x=0$ では $(-x)\varphi'(x)=0$、十分小さい $x$ ではコンパクト台により $\varphi'(x)=0$ なので 0 です。第二項は
 
 $$
 \int_{-\infty}^0\varphi'(x)\,dx
+=
+\left[\varphi(x)\right]_{-\infty}^0
+=
+\varphi(0)-0
 =
 \varphi(0).
 $$
@@ -1687,7 +1764,7 @@ $$
 \varphi(0).
 $$
 
-3. Dirac delta の定義は
+3. Dirac のデルタ超関数の定義は
 
 $$
 \langle\delta_0,\varphi\rangle
@@ -1695,7 +1772,7 @@ $$
 \varphi(0).
 $$
 
-一方、Poisson 型の distributional identity では $-\Phi''$ の作用を
+一方、Poisson 型の超関数としての恒等式 では $-\Phi''$ の作用を
 
 $$
 \varphi
@@ -1721,11 +1798,11 @@ $$
 \Phi'(0+)=-\frac12
 $$
 
-と jump します。
+と 跳躍 します。
 
-古典微分はこの一点で壊れるため、「$x\ne0$ で $-\Phi''=0$」という情報だけでは source を記録できません。テスト関数を通じて原点をまたぐ部分積分を行うと、その jump が $\varphi(0)$ という集中項として残ります。
+古典微分はこの一点で壊れるため、「$x\ne0$ で $-\Phi''=0$」という情報だけでは 点源 を記録できません。テスト関数を通じて原点をまたぐ部分積分を行うと、その 跳躍 が $\varphi(0)$ という集中項として残ります。
 
-これが PDE6 の fundamental solution を distribution の等式へ昇格させる仕組みです。GPDE2 ではこの現象を distributional derivative の一般公式として整理します。
+これが PDE6 の基本解 を 超関数の等式へ昇格させる仕組みです。GPDE2 ではこの現象を 超関数の微分 の一般公式として整理します。
 <!-- solution-end -->
 
 ---
@@ -1734,15 +1811,15 @@ $$
 
 - $\mathcal D(\Omega)=C_c^\infty(\Omega)$ の二条件を説明できる。
 - テスト関数列の収束で「共通コンパクト台」と「各 $p_{K,m}$ が 0 へ収束すること」が必要な理由を説明できる。
-- distribution をテスト関数空間上の連続線形汎関数として定義できる。
+- 超関数をテスト関数空間上の連続線形汎関数として定義できる。
 - 局所有限階評価とテスト関数列に対する連続性の同値性を証明できる。
 - $f\in L^1_{\mathrm{loc}}$ から $T_f$ を作り、その連続性を $m=0$ の評価で検証できる。
-- Dirac delta の作用を計算し、正則 distribution ではないことを shrinking bump で証明できる。
+- Dirac のデルタ超関数の作用を計算し、正則超関数ではないことを shrinking bump で証明できる。
 - $T_n\to T$ in $\mathcal D'$ を全テスト関数への作用の収束として扱える。
-- Gaussian から Dirac delta への distribution 収束を優収束定理で証明できる。
-- Poisson 方程式の distributional solution をテスト関数恒等式で定義できる。
-- 古典 Poisson 解が distributional solution になることを二回の部分積分で証明できる。
-- 一次元基本解 $-|x|/2$ が $-\Phi''=\delta_0$ を distribution の意味で満たすことを直接検証できる。
-- Burgers shock では distributional solution だけでは一意性が足りず、entropy solution は後続系列へ送ることを説明できる。
+- Gauss 核 から Dirac のデルタ超関数への 超関数 収束を優収束定理で証明できる。
+- Poisson 方程式の超関数解 をテスト関数恒等式で定義できる。
+- 古典 Poisson 解が 超関数解 になることを二回の部分積分で証明できる。
+- 一次元基本解 $-|x|/2$ が $-\Phi''=\delta_0$ を 超関数の意味で満たすことを直接検証できる。
+- Burgers 衝撃波 では超関数解 だけでは一意性が足りず、entropy solution は後続系列へ送ることを説明できる。
 
-次は **GPDE2「distribution 微分・mollifier・弱微分」** です。
+次は **GPDE2「超関数 微分・平滑化核・弱微分」** です。
