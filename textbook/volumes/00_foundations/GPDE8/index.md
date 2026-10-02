@@ -555,11 +555,11 @@ $$
 
 ### 証明の見取り図
 
-三つの項をそれぞれ Cauchy--Schwarz と Poincare で評価します。
+三つの項をそれぞれ Cauchy--Schwarz と Poincaré で評価します。
 
-二階主要項は勾配同士なので Poincare は不要です。
+二階主要項は勾配同士なので Poincaré は不要です。
 
-一次項では $v$ の $L^2$ ノルム を一回、零次項では $u,v$ の $L^2$ ノルム を二回 Poincare で勾配へ戻します。
+一次項では $v$ の $L^2$ ノルム を一回、零次項では $u,v$ の $L^2$ ノルム を二回 Poincaré で勾配へ戻します。
 
 <!-- proof-start -->
 ### 証明
@@ -720,7 +720,7 @@ $$
 \|v\|_2.
 $$
 
-Poincare を使うと
+Poincaré を使うと
 
 $$
 \left|
@@ -1258,7 +1258,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-命題「係数の $L^\infty$ 有界性から双線形形式の 有界性」により
+命題「係数の $L^\infty$ 有界性から双線形形式の有界性」により
 
 $$
 |a(u,v)|
@@ -1313,7 +1313,7 @@ a(u,u)
 F(u).
 $$
 
-[強圧性](../GPDE6/index.md#def-gpde6-coercive) と [Hminus1 の双対 ノルム](../GPDE6/index.md#def-gpde6-hminus1) から
+[強圧性](../GPDE6/index.md#def-gpde6-coercive) と [H^{-1} の双対ノルム](../GPDE6/index.md#def-gpde6-hminus1) から
 
 $$
 \alpha\|u\|_V^2
@@ -1870,7 +1870,7 @@ $$
 
 問題は $v_n\in H^1(\Omega)$ であって $H_0^1(\Omega)$ ではないことです。
 
-そこで GPDE5 の 有界 Lipschitz 拡張定理 で $\mathbb R^d$ へ延長し、$\overline\Omega$ の近くで 1 になる cutoff を掛けます。
+そこで GPDE5 の 有界 Lipschitz 領域の拡張定理 で $\mathbb R^d$ へ延長し、$\overline\Omega$ の近くで 1 になる 局所化関数 を掛けます。
 
 すると
 
@@ -2314,9 +2314,9 @@ $$
 | 一様楕円性 | 二階主要項の正の エネルギー | 勾配方向の 核 が残り得る |
 | $b,c\in L^\infty$ | 下位項の 有界性 | 弱形式自体の連続性が壊れ得る |
 | 下位項の小ささ・符号・構造 | 強圧性 | 一意性・Lax--Milgram が壊れ得る |
-| $\Omega$ 有界 | Poincare | $L^2$ 項を勾配で制御できない |
+| $\Omega$ 有界 | Poincaré | $L^2$ 項を勾配で制御できない |
 | 連結性 | Neumann の 核 が定数だけ | 成分ごとに独立な定数からなる核 が残る |
-| $F(1)=0$ | Neumann compatibility | テスト $v=1$ ですでに矛盾する |
+| $F(1)=0$ | Neumann 適合条件 | テスト $v=1$ ですでに矛盾する |
 | Lipschitz 領域 | trace と Rellich / Poincaré--Wirtinger の標準形 | 境界値・コンパクト性 の扱いに追加議論が必要 |
 
 特に
@@ -2477,7 +2477,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-gpde8-a02"></a>
-#### GPDE8-A02 双線形形式の 有界性定数
+#### GPDE8-A02 双線形形式の有界性定数
 - Level: A
 
 $V=H_0^1(\Omega)$、$\|v\|_V=\|\nabla v\|_2$ とし、Poincaré 定数を $C_P$ とする。
@@ -2581,7 +2581,7 @@ $$
 \|u\|_V\|v\|_V.
 $$
 
-二階主要項では Poincare を使わず、一次項で一回、零次項で二回使っていることが係数の形に反映されています。
+二階主要項では Poincaré を使わず、一次項で一回、零次項で二回使っていることが係数の形に反映されています。
 <!-- solution-end -->
 
 <a id="ex-gpde8-a03"></a>
@@ -2790,7 +2790,7 @@ $$
 a_\mu(v,v)<0.
 $$
 
-二階主要項 $-\partial_{xx}$ 自体は楕円的でも、負の零次項が十分大きいと full form の正値性が壊れることが分かります。
+二階主要項 $-\partial_{xx}$ 自体は楕円的でも、負の零次項が十分大きいと 双線形形式全体 の正値性が壊れることが分かります。
 <!-- solution-end -->
 
 ### Level B
@@ -3060,7 +3060,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-gpde8-b03"></a>
-#### GPDE8-B03 Neumann compatibility と平均ゼロ解
+#### GPDE8-B03 Neumann 適合条件 と平均ゼロ解
 - Level: B
 
 $\Omega$ を 有界 connected Lipschitz 領域 とし、
@@ -3324,7 +3324,7 @@ $$
 \|c\|_\infty=1.
 $$
 
-従って [係数有界性から双線形形式の 有界性](#prop-gpde8-boundedness) から
+従って [係数有界性から双線形形式の有界性](#prop-gpde8-boundedness) から
 
 $$
 |a(u,v)|
@@ -3479,7 +3479,7 @@ $$
 \boxed{
 \xi^{\mathsf T}A\xi\ge\lambda|\xi|^2
 +
-\text{lower-order control}
+\text{下位項の制御}
 }
 \Longrightarrow
 \text{強圧性}
@@ -3491,7 +3491,7 @@ $$
 \boxed{
 \text{Lax--Milgram}
 \Longrightarrow
-\text{weak existence + uniqueness + エネルギー評価}
+\text{弱解の存在 + 一意性 + エネルギー評価}
 }
 $$
 
