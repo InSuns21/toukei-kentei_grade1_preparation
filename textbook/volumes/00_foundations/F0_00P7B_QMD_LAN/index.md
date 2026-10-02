@@ -168,7 +168,7 @@ h^T\int s_\theta q_\theta^2\,d\mu\\
 \end{aligned}
 $$
 
-$\|q_\theta\|_2^2=1$ です。さらに Cauchy--Schwarz の不等式から
+$\|q_\theta\|_2^2=1$ です。さらに [Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz) から
 
 $$
 |\langle q_\theta,r_h\rangle|
@@ -369,9 +369,9 @@ E[e^{iu a^TY_n}]
 \varphi_{a^TY}(u).
 $$
 
-1次元の Lévy 連続性定理より $a^TY_n\Rightarrow a^TY$ です。
+1次元の [Lévy 連続性定理](../F0_00P6_特性関数_中心極限定理/index.md#thm-f0-00p6-levy-continuity) より $a^TY_n\Rightarrow a^TY$ です。
 
-逆に、全ての $a$ で $a^TY_n\Rightarrow a^TY$ とします。任意の $t\in\mathbb R^d$ を固定し、射影方向として $a=t$ を選びます。1次元の Lévy 連続性定理の逆向きから
+逆に、全ての $a$ で $a^TY_n\Rightarrow a^TY$ とします。任意の $t\in\mathbb R^d$ を固定し、射影方向として $a=t$ を選びます。1次元の [Lévy 連続性定理](../F0_00P6_特性関数_中心極限定理/index.md#thm-f0-00p6-levy-continuity) の逆向きから
 
 $$
 \varphi_{Y_n}(t)
@@ -436,7 +436,7 @@ a^T\Delta_n
 N(0,a^TI(\theta_0)a).
 $$
 
-これは $Z\sim N_d(0,I(\theta_0))$ に対する射影 $a^TZ$ の分布です。Cramér--Wold の判定法より
+これは $Z\sim N_d(0,I(\theta_0))$ に対する射影 $a^TZ$ の分布です。[Cramér--Wold の判定法](#thm-f0-00p7b-cramer-wold) より
 
 $$
 \Delta_n\Rightarrow N_d(0,I(\theta_0)).
@@ -455,15 +455,15 @@ $$
 > **定理（QMD から局所漸近正規性）**  
 > 統計モデルが $\theta_0\in\mathbb R^d$ で QMD であり、独立同分布標本 $X_1,\ldots,X_n\sim P_{\theta_0}$ を考えます。フィッシャー情報行列
 >
-$
+$$
 I(\theta_0)
 =
 E_{\theta_0}[s_{\theta_0}s_{\theta_0}^T]
-$
+$$
 >
 > が有限であるとします。固定した $h\in\mathbb R^d$ に対して
 >
-$
+$$
 \log
 \frac{
 dP_{\theta_0+h/\sqrt n}^{\otimes n}
@@ -476,15 +476,15 @@ h^T\Delta_n
 \frac12h^TI(\theta_0)h
 +
 o_{P_{\theta_0}}(1),
-$
+$$
 >
 > かつ
 >
-$
+$$
 \Delta_n
 \Rightarrow
 N_d(0,I(\theta_0)).
-$
+$$
 >
 > この性質を局所漸近正規性（local asymptotic normality; LAN）といいます。
 <!-- formal-statement-end -->
@@ -618,7 +618,7 @@ q_n
 \rho_n.
 $$
 
-QMD の剰余条件と Cauchy--Schwarz の不等式から
+QMD の剰余条件と [Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz) から
 
 $$
 E[q_n^2]
@@ -1000,9 +1000,9 @@ O(\|h\|^2)
 o(\|h\|^2).
 $$
 
-Cauchy--Schwarz の不等式から
+[Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz) から
 
-$$
+$
 |\langle q_\theta,r_h\rangle|
 \le
 \|q_\theta\|_2\|r_h\|_2
@@ -1117,7 +1117,7 @@ a
 a^TI(\theta_0)a.
 $$
 
-従って1次元中心極限定理から
+従って [独立同分布・有限分散版の中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt) から
 
 $$
 a^T\Delta_n
@@ -1148,14 +1148,14 @@ $$
 
 が分かっているとする。さらに真値の支持の外へ出る局所代替の確率質量を
 
-$
+$$
 \alpha_n
 :=
 \int_{\{p_{\theta_0}=0\}}
 p_{\theta_0+h/\sqrt n}\,d\mu
 =
 o(n^{-1})
-$
+$$
 
 とする。正規化条件から $E[q_n]$ の主要項を求めよ。
 
@@ -1164,32 +1164,32 @@ $
 
 $P_{\theta_0}$ の下で見える密度比は $(1+q_n)^2$ です。ただし局所代替が真値の支持の外へ置く確率質量 $\alpha_n$ はこの期待値に含まれないので
 
-$
+$$
 E[(1+q_n)^2]
 =
 1-\alpha_n.
-$
+$$
 
 従って
 
-$
+$$
 2E[q_n]+E[q_n^2]
 =
 -\alpha_n,
-$
+$$
 
 すなわち
 
-$
+$$
 E[q_n]
 =
 -\frac12E[q_n^2]
 -\frac12\alpha_n.
-$
+$$
 
 仮定を代入すると
 
-$
+$$
 E[q_n]
 =
 -\frac12
@@ -1197,17 +1197,17 @@ E[q_n]
 \frac1{4n}h^TI(\theta_0)h+o(n^{-1})
 \right\}
 -\frac12o(n^{-1}),
-$
+$$
 
 よって
 
-$
+$$
 E[q_n]
 =
 -\frac1{8n}h^TI(\theta_0)h
 +
 o(n^{-1}).
-$
+$$
 
 $n$ 個の観測で $2nE[q_n]$ とすると $-\frac14h^TIh$ が残ります。
 <!-- solution-end -->
@@ -1296,7 +1296,7 @@ nE[\rho_n^2]
 o(1).
 $$
 
-チェビシェフの不等式から、任意の $\varepsilon>0$ について
+[Chebyshev の不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-chebyshev) から、任意の $\varepsilon>0$ について
 
 $$
 P\left(
@@ -1333,20 +1333,20 @@ q_n
 \rho_n,
 $$
 
-$
+$$
 E[\rho_n^2]=o(n^{-1})
-$
+$$
 
 が得られているとする。また
 
-$
+$$
 \alpha_n
 :=
 \int_{\{p_{\theta_0}=0\}}
 p_{\theta_0+t_n}\,d\mu
 =
 o(n^{-1})
-$
+$$
 
 とする。次を順に示し
 
@@ -1404,7 +1404,7 @@ $$
 h^TI(\theta_0)h.
 $$
 
-交差項は Cauchy--Schwarz の不等式から
+交差項は [Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz) から
 
 $$
 \left|
@@ -1429,23 +1429,23 @@ $$
 
 次に、$P_{\theta_0}$ の下で見える密度比の期待値は、真値の支持の外へ出る質量 $\alpha_n$ を除いて
 
-$
+$$
 E[(1+q_n)^2]
 =
 1-\alpha_n.
-$
+$$
 
 従って
 
-$
+$$
 2E[q_n]+E[q_n^2]
 =
 -\alpha_n,
-$
+$$
 
 よって
 
-$
+$$
 \begin{aligned}
 E[q_n]
 &=
@@ -1456,7 +1456,7 @@ E[q_n]
 +
 o(n^{-1}).
 \end{aligned}
-$
+$$
 
 各観測に対応する $q_{n,i}$ を取ります。QMD 剰余の二乗平均が $o(n^{-1})$ なので、二乗和の主項だけが残り
 
@@ -1578,7 +1578,7 @@ o_P(1).
 \end{aligned}
 $$
 
-さらに中心列の中心極限定理から
+さらに [中心列の中心極限定理](#thm-f0-00p7b-central-sequence-clt) から
 
 $$
 \Delta_n
@@ -1593,4 +1593,4 @@ $$
 
 ## 次に進む
 
-これで、確率測度・密度・特性関数・大数の法則・中心極限定理から出発し、正則統計モデルの局所対数尤度比が正規シフト型へ近づくところまで接続できました。ここから先は、LAN を使って効率性・局所検定・Le Cam 理論を統一的に扱う発展層へ進めます。
+これで、確率測度・密度・特性関数・大数の法則・中心極限定理から出発し、正則統計モデルの局所対数尤度比が正規シフト型へ近づくところまで接続できました。ここから先は、[局所漸近正規性（LAN）](#thm-f0-00p7b-lan) を使って効率性・局所検定・Le Cam 理論を統一的に扱う発展層へ進めます。
