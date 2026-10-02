@@ -5,6 +5,8 @@ prerequisites:
   - LA3C
   - F0-00F
 forward_references:
+  - complex-analysis.fundamental-theorem-of-algebra
+  - linear.inner-product
   - linear.complex-inner-product
   - linear.normal-operator
 
