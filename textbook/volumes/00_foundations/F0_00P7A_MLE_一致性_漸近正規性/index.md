@@ -236,12 +236,12 @@ E_P[R]
 \le1.
 $$
 
-$\log$ は凹関数なので Jensen の不等式から
+任意の $r>0$ について $\log r\le r-1$ なので、$R=q(X)/p(X)$ に適用して
 
-$$
+$
 E_P[\log R]
 \le
-\log E_P[R]
+E_P[R]-1
 \le0.
 $$
 
@@ -620,7 +620,7 @@ $$
 
 [独立同分布・有限分散版の中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt) から
 
-$
+$$
 \sqrt n(\widehat p_n-p_0)
 \Rightarrow
 N(0,p_0(1-p_0)).
@@ -890,7 +890,7 @@ $$
 
 また [独立同分布・有限分散版の中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt) から
 
-$
+$$
 \sqrt n(\overline X_n-\lambda_0)
 \Rightarrow
 N(0,\lambda_0).
