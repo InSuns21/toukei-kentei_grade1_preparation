@@ -119,7 +119,8 @@ DREAM THEATER では各演習に詳細解答を必須とし、本番答案・20�
 - 日本語と英語を不必要に混在させた「正則 level surface」「gradient の方向」のような表記は避け、日本語だけで自然に書ける箇所は日本語にする。
 - 数式中の演算子・記号、コード、ファイル名、stable ID、anchor、URL、引用した原題は機械的に日本語化しない。たとえば本文では「回転」と書いても、数式の `\operatorname{curl}` や既存 anchor は必要なら保持する。
 - stable ID・anchor と alias を混同しない。後方互換性は stable ID・anchor で担保し、意味的に誤った alias を「互換性のため」という理由だけで残さない。
-- 短い一般語の alias が別分野の概念名まで捕捉する場合は、本文の標準用語を不自然に改名するのではなく、機械 alias 側を「Markov連鎖の可逆性」「関数列の下極限」のように文脈付きで限定する。
+- **CI・監査の誤検出を避けるために、日本語として定着した標準数学・統計用語を別表現へ不自然に改名しない。** 短い `aliases` だけでなく、canonical `name` や matcher key の部分一致・多義性が原因なら、学習者向け本文ではなく `aliases` / `contextual_aliases` / resolver / 監査ロジック側を修正する。
+- 短い一般語の alias や canonical name が別分野の概念名まで捕捉する場合は、機械側を「Markov連鎖の可逆性」「関数列の下極限」のように文脈付きで限定するか、明示的な完全一致参照だけを高信頼使用として扱う。
 - 数学的意味を持つ記号を alias 正規化で落とさない。特に「弱*位相」と「弱位相」、`weak* topology` と `weak topology` は別概念として保持する。Markdown の強調記号 `**` とは区別する。
 - **人名・人名由来の定理名・補題名は、原則として人名部分の英字表記を保持し、一般名詞側を日本語にする。** たとえば `Green theorem` は「Green の定理」、`Gauss--Ostrogradsky divergence theorem` は「Gauss--Ostrogradsky の発散定理」、`Kelvin--Stokes theorem` は「Kelvin--Stokes の定理」、`Poincaré lemma` は「Poincaré の補題」、`Cauchy--Schwarz inequality` は「Cauchy--Schwarz の不等式」、`Fréchet derivative` は「Fréchet 微分」とする。人名を機械的にカタカナ化しない。
 - 固有名詞・人名由来の名称・日本語訳が定着していない語を、不自然な直訳へ置き換えない。日本語化は読みやすさのために行い、専門的な識別可能性を失わせない。
