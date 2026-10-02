@@ -75,5 +75,4 @@ concepts:
     aliases: [実数と自然数のべき集合は同じ濃度]
     requires:
       - set.interval-powerset-natural-cardinality
-      - set.continuum-cardinality
       - set.cantor-bernstein
