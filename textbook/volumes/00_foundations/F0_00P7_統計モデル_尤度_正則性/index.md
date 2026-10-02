@@ -80,6 +80,12 @@ $$
 > が成り立つとき、この統計モデルは共通の支配測度をもつといいます。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-f0-00p7-dominated-model -->
+**定義の確認**  
+
+ベルヌーイ族 $\{P_p:0<p<1\}$ では、$\{0,1\}$ 上の数え上げ測度 $\mu$ を取れば、$\mu(A)=0$ となるのは $A=\varnothing$ だけです。したがって全ての $p$ について $P_p\ll\mu$ であり、この族は共通の支配測度をもちます。
+<!-- definition-example-end -->
+
 [Radon--Nikodym の定理](../F0_00P2_密度_期待値_Radon_Nikodym/index.md#thm-f0-00p2-radon-nikodym)から
 
 $$
@@ -108,6 +114,16 @@ $$
 >
 > を $\theta$ の関数とみなしたものを尤度関数といいます。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00p7-likelihood -->
+**定義の確認**  
+
+ベルヌーイモデルで観測値を $x=1$ に固定すると密度は $p_p(1)=p$ なので、
+$$
+L(p;1)=p,qquad 0<p<1.
+$$
+ここでは $x$ を動かさず、候補パラメータ $p$ を動かして比較しているので、定義どおり尤度はパラメータの関数になっています。
+<!-- definition-example-end -->
 
 尤度は「観測値 $x$ が起こる確率」ではありません。連続分布では $P_\theta(X=x)=0$ でも $p_\theta(x)$ は正になりえます。
 
@@ -339,6 +355,25 @@ $$
 > を1標本あたりのフィッシャー情報量といいます。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-f0-00p7-fisher-information -->
+**定義の確認**  
+
+ベルヌーイモデルでは
+$$
+s_p(X)=\frac{X-p}{p(1-p)}
+$$
+で、$0<p<1$ なら二乗可積分です。したがって定義を直接使うと
+$$
+I(p)
+=
+E_p[s_p(X)^2]
+=
+\frac{p(1-p)}{p^2(1-p)^2}
+=
+\frac1{p(1-p)}.
+$$
+<!-- definition-example-end -->
+
 ベルヌーイモデルでは
 
 $$
@@ -374,6 +409,16 @@ $$
 >
 > 一致性や漸近正規性では、これに加えて識別可能性、一様大数の法則、スコアへの中心極限定理など、その定理固有の条件を確認します。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00p7-regularity -->
+**定義の確認**  
+
+ベルヌーイモデルで真値 $p_0\in(0,1)$ を固定します。$p_0$ の十分小さい閉近傍を $(0,1)$ の内部に取れば、支持は常に $\{0,1\}$ で動かず、数え上げ測度が共通支配測度になります。対数密度はその近傍で必要な次数まで微分でき、標本空間が有限なので微分と有限和の交換も正当化できます。また
+$$
+I(p_0)=\frac1{p_0(1-p_0)}\in(0,\infty).
+$$
+したがって、この章で列挙した正則性条件をこのモデルでは局所的に一つずつ確認できます。
+<!-- definition-example-end -->
 
 ---
 
