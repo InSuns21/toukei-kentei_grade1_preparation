@@ -16,7 +16,7 @@ learning_objectives:
   - 滑らかな乗数との積の弱微分公式を証明し、切断関数で Sobolev 関数を局所化できる
   - 1<=p<infinityでLp平行移動連続性と平滑化核による近似を使い、局所 W^{k,p} 近似を証明できる
   - R^d上でC_c^infinityがW^{k,p}に稠密である標準形を切断関数と平滑化から証明できる
-  - p=\inftyや境界付き領域では同じ密度主張を無条件に使えない理由を具体例から説明できる
+  - p=∞ や境界付き領域では同じ密度主張を無条件に使えない理由を具体例から説明できる
 definitions:
   - { id: GPDE3-DEF-01, name: "Sobolev空間 W^{k,p}" }
   - { id: GPDE3-DEF-02, name: "Sobolev ノルム" }
