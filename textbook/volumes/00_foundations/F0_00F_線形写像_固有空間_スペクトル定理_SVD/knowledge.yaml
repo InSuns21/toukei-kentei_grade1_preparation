@@ -3,7 +3,6 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - F0-00E
-  - F0-00E1
 
 forward_references:
   - linear.spectral-theorem
