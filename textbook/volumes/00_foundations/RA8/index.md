@@ -80,7 +80,7 @@ $$
 |f_n(x)-f_m(x)|\le\|f_n-f_m\|_\infty
 $$
 
-なので、$(f_n(x))$ は実数のCauchy列です。実数の完備性から
+なので、$(f_n(x))$ は実数のCauchy列です。[実数の完備性](../RA1/index.md#thm-ra1-real-completeness)から
 
 $$
 f(x)=\lim_{n\to\infty}f_n(x)
