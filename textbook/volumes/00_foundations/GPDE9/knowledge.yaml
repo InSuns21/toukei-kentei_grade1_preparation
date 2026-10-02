@@ -6,60 +6,60 @@ prerequisites:
 
 concepts:
   - id: sobolev.difference-quotient
-    name: difference quotient
+    name: 差分商
     kind: definition
-    aliases: ["差分商", "finite difference quotient"]
+    aliases: ["difference quotient", "finite difference quotient"]
     introduction: formal
-    introduction_aliases: ["定義（difference quotient）"]
+    introduction_aliases: ["定義（差分商）"]
     requires:
       - distribution.weak-derivative
 
   - id: sobolev.difference-quotient-h1-bound
-    name: H^1関数のdifference quotient estimate
+    name: H^1関数の差分商評価
     kind: lemma
-    aliases: ["H1 difference quotient estimate"]
+    aliases: ["H1 difference quotient estimate", "H^1 difference quotient estimate"]
     introduction: formal
-    introduction_aliases: ["補題（H1 difference quotient estimate）"]
+    introduction_aliases: ["補題（H1 差分商評価）"]
     requires:
       - sobolev.difference-quotient
       - sobolev.local-mollification
 
   - id: sobolev.discrete-integration-by-parts
-    name: difference quotientの部分積分
+    name: 差分商の部分積分
     kind: lemma
-    aliases: ["discrete integration by parts"]
+    aliases: ["difference quotientの部分積分", "discrete integration by parts"]
     introduction: formal
-    introduction_aliases: ["補題（difference quotient の部分積分）"]
+    introduction_aliases: ["補題（差分商の部分積分）"]
     requires:
       - sobolev.difference-quotient
 
   - id: sobolev.difference-quotient-criterion
-    name: difference quotient criterion
+    name: 差分商判定法
     kind: lemma
-    aliases: ["difference quotient characterization of weak derivative"]
+    aliases: ["difference quotient criterion", "difference quotient characterization of weak derivative"]
     introduction: formal
-    introduction_aliases: ["補題（difference quotient criterion）"]
+    introduction_aliases: ["補題（差分商判定法）"]
     requires:
       - sobolev.discrete-integration-by-parts
       - functional-analysis.bounded-hilbert-sequence-weak-subsequence
       - distribution.weak-derivative
 
   - id: pde.poisson-caccioppoli
-    name: Poisson方程式のCaccioppoli型estimate
+    name: Poisson方程式のCaccioppoli型評価
     kind: proposition
-    aliases: ["Caccioppoli estimate for Poisson equation", "local energy estimate"]
+    aliases: ["Poisson方程式のCaccioppoli型estimate", "Caccioppoli estimate for Poisson equation", "local energy estimate"]
     introduction: formal
-    introduction_aliases: ["命題（Poisson 方程式の Caccioppoli 型 estimate）"]
+    introduction_aliases: ["命題（Poisson 方程式の Caccioppoli 型評価）"]
     requires:
       - pde.poisson-variational-weak-solution
       - sobolev.smooth-multiplier-product
 
   - id: pde.poisson-interior-h2
-    name: Poisson方程式のinterior H^2 regularity
+    name: Poisson方程式の内部H^2正則性
     kind: theorem
-    aliases: ["interior H2 regularity for Poisson equation"]
+    aliases: ["Poisson方程式のinterior H^2 regularity", "interior H2 regularity for Poisson equation"]
     introduction: formal
-    introduction_aliases: ["定理（Poisson 方程式の interior H2 regularity）"]
+    introduction_aliases: ["定理（Poisson 方程式の内部 H2 正則性）"]
     requires:
       - sobolev.difference-quotient-h1-bound
       - sobolev.discrete-integration-by-parts
@@ -67,22 +67,22 @@ concepts:
       - pde.poisson-caccioppoli
 
   - id: pde.elliptic-variable-caccioppoli
-    name: 一般係数楕円型方程式のCaccioppoli型estimate
+    name: 一般係数楕円型方程式のCaccioppoli型評価
     kind: proposition
-    aliases: ["Caccioppoli estimate for divergence form elliptic equation"]
+    aliases: ["一般係数楕円型方程式のCaccioppoli型estimate", "Caccioppoli estimate for divergence form elliptic equation"]
     introduction: formal
-    introduction_aliases: ["命題（一般係数の Caccioppoli 型 estimate）"]
+    introduction_aliases: ["命題（一般係数の Caccioppoli 型評価）"]
     requires:
       - pde.uniform-ellipticity
       - pde.linear-elliptic-dirichlet-weak-solution
       - sobolev.smooth-multiplier-product
 
   - id: pde.lipschitz-coefficient-interior-h2
-    name: 局所Lipschitz係数のinterior H^2 regularity
+    name: 局所Lipschitz係数の内部H^2正則性
     kind: theorem
-    aliases: ["interior H2 regularity with Lipschitz coefficients"]
+    aliases: ["局所Lipschitz係数のinterior H^2 regularity", "interior H2 regularity with Lipschitz coefficients"]
     introduction: formal
-    introduction_aliases: ["定理（局所 Lipschitz 係数の interior H2 regularity）"]
+    introduction_aliases: ["定理（局所 Lipschitz 係数の内部 H2 正則性）"]
     requires:
       - pde.uniform-ellipticity
       - sobolev.difference-quotient-h1-bound
