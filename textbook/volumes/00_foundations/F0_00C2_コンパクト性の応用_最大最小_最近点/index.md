@@ -175,6 +175,13 @@ $$
 
 <a id="proof-f0-00f1-real-symmetric-eigenpair"></a>
 
+### 証明の見取り図
+
+単位球面上で二次形式 $x^{\mathsf T}Ax$ を最大にする点 $q$ を取ります。$q$ に直交する方向 $v$ へ少し動いても最大値を超えられないので、その不等式の一次項は0でなければなりません。そこから $Aq$ が $q^\perp$ の全方向に直交し、結局 $Aq$ は $q$ と平行だと分かります。
+
+<!-- proof-start -->
+### 証明
+
 実対称行列 $A\in\mathbb R^{n\times n}$ と単位球面
 
 $$
@@ -197,10 +204,10 @@ $$
 
 となります。
 
-あとは、この最大点 $q$ が固有ベクトルであることを示します。任意の $v\in q^\perp$ を取り、
+任意の $v\in q^\perp$ を取り、実数 $t$ に対して
 
 $$
-\gamma(t)
+x_t
 =
 \frac{q+tv}{\|q+tv\|}
 $$
@@ -210,47 +217,69 @@ $$
 $$
 \|q+tv\|^2
 =
-1+t^2\|v\|^2.
+1+t^2\|v\|^2,
 $$
 
-従って
+従って $x_t\in S^{n-1}$ です。$q$ は最大点なので
 
 $$
-h(t)
-:=
-f(\gamma(t))
-=
-\frac{(q+tv)^{\mathsf T}A(q+tv)}
-{1+t^2\|v\|^2}.
+x_t^{\mathsf T}Ax_t
+\le
+q^{\mathsf T}Aq
 $$
 
-分子を展開すると、$A^{\mathsf T}=A$ より
+が全ての $t$ で成り立ちます。分母を払うと
 
 $$
 (q+tv)^{\mathsf T}A(q+tv)
-=
+\le
+(1+t^2\|v\|^2)q^{\mathsf T}Aq.
+$$
+
+$A^{\mathsf T}=A$ を使って左辺を展開すると
+
+$$
 q^{\mathsf T}Aq
 +
 2t\,v^{\mathsf T}Aq
 +
-t^2v^{\mathsf T}Av.
+t^2v^{\mathsf T}Av
+\le
+q^{\mathsf T}Aq
++
+t^2\|v\|^2q^{\mathsf T}Aq.
 $$
 
-$q$ は球面上の最大点で、$\gamma(t)$ は常に球面上にあるため、$t=0$ は $h$ の局所最大点です。よって
+共通項を消して
 
 $$
-h'(0)=0.
+2t\,v^{\mathsf T}Aq
++
+t^2
+\left(
+v^{\mathsf T}Av
+-
+\|v\|^2q^{\mathsf T}Aq
+\right)
+\le0.
 $$
 
-上の表示を $t=0$ で微分すると、分母の一次項は0なので
+ここで
 
 $$
-h'(0)
-=
-2v^{\mathsf T}Aq.
+b=v^{\mathsf T}Aq,
+\qquad
+c=v^{\mathsf T}Av-\|v\|^2q^{\mathsf T}Aq
 $$
 
-従って
+と書けば
+
+$$
+2tb+t^2c\le0
+\qquad(\forall t\in\mathbb R)
+$$
+
+です。もし $b\ne0$ なら、$b$ と同符号で絶対値の十分小さい $t$ を取れば、一次項 $2tb>0$ が二次項 $t^2c$ より支配的になり左辺は正になります。これは矛盾です。従って
 
 $$
 v^{\mathsf T}Aq=0
@@ -258,7 +287,7 @@ v^{\mathsf T}Aq=0
 (\forall v\in q^\perp).
 $$
 
-ここで $Aq$ を
+次に $Aq$ を $q$ 方向とその直交成分へ分けて
 
 $$
 Aq=\alpha q+w,
@@ -266,7 +295,7 @@ Aq=\alpha q+w,
 w\in q^\perp
 $$
 
-と直交分解します。上式で $v=w$ と取ると
+と書きます。上の結論で $v=w$ と取ると
 
 $$
 0
@@ -287,13 +316,13 @@ $$
 つまり $q$ は実固有ベクトルです。さらに $\|q\|=1$ なので
 
 $$
-\alpha
-=
-q^{\mathsf T}Aq
-\in\mathbb R.
+\alpha=q^{\mathsf T}Aq\in\mathbb R.
 $$
 
-これで F0-00F1 で使った「実対称行列には少なくとも1本の実単位固有ベクトルが存在する」という補題の証明が閉じました。
+これで実対称行列には少なくとも1本の実単位固有ベクトルが存在することが示されました。
+<!-- proof-end -->
+
+F0-00F1 では、この1本を出発点に $q^\perp$ の不変性と次元帰納法を使ってスペクトル定理を完成させています。
 
 ---
 
