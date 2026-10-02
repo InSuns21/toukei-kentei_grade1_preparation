@@ -18,7 +18,7 @@ concepts:
   - id: distribution.distributional-derivative
     name: 超関数の微分
     kind: definition
-    aliases: [distributional derivative, distribution derivative, 超関数微分]
+    aliases: [distribution微分, distributional derivative, distribution derivative, 超関数微分]
     introduction: formal
     introduction_aliases: ["定義（超関数の微分）"]
     requires:
@@ -29,7 +29,7 @@ concepts:
   - id: distribution.derivative-stability
     name: 超関数微分の安定性
     kind: proposition
-    aliases: [distribution derivative stability]
+    aliases: [distribution微分の安定性, distributionは何回微分してもdistribution, distribution derivative stability]
     introduction: formal
     introduction_aliases: ["命題（超関数は何回微分しても超関数である）"]
     requires:
@@ -49,7 +49,7 @@ concepts:
   - id: distribution.derivative-continuity
     name: 超関数微分作用素の連続性
     kind: proposition
-    aliases: [continuity of distributional differentiation]
+    aliases: [distribution微分作用素の連続性, continuity of distributional differentiation]
     introduction: formal
     introduction_aliases: ["命題（超関数微分作用素の連続性）"]
     requires:
@@ -59,7 +59,7 @@ concepts:
   - id: distribution.heaviside-derivative
     name: Heaviside の超関数微分
     kind: proposition
-    aliases: [Heaviside derivative, H'=delta]
+    aliases: [Heavisideのdistribution微分, Heaviside derivative, H'=delta]
     introduction: formal
     introduction_aliases: ["命題（Heaviside の超関数微分）"]
     requires:
@@ -70,7 +70,7 @@ concepts:
   - id: distribution.jump-derivative
     name: 跳躍を持つ関数の超関数微分
     kind: proposition
-    aliases: [jump formula, jump derivative]
+    aliases: [jumpを持つ関数のdistribution微分, jump formula, jump derivative]
     introduction: formal
     introduction_aliases: ["命題（有限個の跳躍を持つ関数の超関数微分）"]
     requires:
@@ -100,7 +100,7 @@ concepts:
   - id: distribution.local-mollification
     name: 局所平滑化
     kind: definition
-    aliases: [local mollification, convolution smoothing]
+    aliases: [局所mollification, local mollification, convolution smoothing]
     introduction: formal
     introduction_aliases: ["定義（局所平滑化）"]
     requires:
@@ -110,7 +110,7 @@ concepts:
   - id: distribution.mollification-smoothing
     name: 局所平滑化の滑らかさ
     kind: theorem
-    aliases: [mollifier smoothing, smoothing by convolution]
+    aliases: [mollificationの平滑化, mollifier smoothing, smoothing by convolution]
     introduction: formal
     introduction_aliases: ["定理（局所平滑化の滑らかさ）"]
     requires:
@@ -119,7 +119,7 @@ concepts:
   - id: analysis.l1-translation-continuity-rd
     name: 多次元の平行移動補題
     kind: lemma
-    aliases: [Rd translation lemma]
+    aliases: [Rdの平行移動補題, Rd translation lemma]
     introduction: formal
     introduction_aliases: ["補題（多次元の平行移動補題）"]
     requires:
@@ -128,7 +128,7 @@ concepts:
   - id: distribution.mollifier-l1loc-approximation
     name: 平滑化核の局所 L1 近似
     kind: theorem
-    aliases: [local L1 mollifier approximation, approximate identity in L1loc]
+    aliases: [mollifierの局所L1近似, local L1 mollifier approximation, approximate identity in L1loc]
     introduction: formal
     introduction_aliases: ["定理（平滑化核の局所 L1 近似）"]
     requires:
@@ -138,7 +138,7 @@ concepts:
   - id: distribution.regular-embedding-injective
     name: 正則超関数埋め込みの単射性
     kind: proposition
-    aliases: [regular distribution embedding injectivity]
+    aliases: [正則distribution埋め込みの単射性, regular distribution embedding injectivity]
     introduction: formal
     introduction_aliases: ["命題（正則超関数埋め込みの単射性）"]
     requires:
@@ -148,7 +148,7 @@ concepts:
   - id: distribution.weak-derivative-uniqueness
     name: 弱微分の一意性
     kind: proposition
-    aliases: [weak derivative uniqueness]
+    aliases: [weak derivativeの一意性, weak derivative uniqueness]
     introduction: formal
     introduction_aliases: ["命題（弱微分の一意性）"]
     requires:
@@ -158,7 +158,7 @@ concepts:
   - id: distribution.weak-derivative-mollifier-commutation
     name: 弱微分と平滑化の交換
     kind: theorem
-    aliases: [weak derivative mollifier commutation, derivative commutes with mollification]
+    aliases: [weak derivativeとmollificationの交換, weak derivative mollifier commutation, derivative commutes with mollification]
     introduction: formal
     introduction_aliases: ["定理（弱微分と平滑化の交換）"]
     requires:
