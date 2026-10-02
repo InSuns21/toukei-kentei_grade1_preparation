@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - TOP3
   - F0-00B1
+  - SET-U2
 
 forward_references: []
 
