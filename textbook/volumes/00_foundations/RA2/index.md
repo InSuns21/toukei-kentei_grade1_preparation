@@ -1,6 +1,6 @@
 # RA2 極限・連続・一様連続
 
-RA1 では、実数列について「収束する」「Cauchy 条件を満たす」を定義し、実数の完備性まで実数の上限性質から導きました。ここではその道具を実関数へ進めます。
+RA1 では、実数列について「収束する」「Cauchy 条件を満たす」を定義し、[実数の完備性](../RA1/index.md#thm-ra1-real-completeness)まで[実数の上限性質](../F0_00A1B_実数の上限性質_Archimedes性/index.md#thm-f0-00a1b-lub)から導きました。ここではその道具を実関数へ進めます。
 
 この章では一般の距離空間や位相空間をまだ使いません。実数と閉区間だけを舞台に、
 
@@ -29,11 +29,11 @@ $$
 > **定義（関数の極限）**  
 > $f$ が $a$ の近くで定義されているとする。$\lim_{x\to a}f(x)=L$ とは、任意の $\varepsilon>0$ に対してある $\delta>0$ が存在し、
 >
-> $$
-> 0<|x-a|<\delta
-> \quad\Longrightarrow\quad
-> |f(x)-L|<\varepsilon
-> $$
+$$
+0<|x-a|<\delta
+\quad\Longrightarrow\quad
+|f(x)-L|<\varepsilon
+$$
 >
 > が成り立つことをいう。
 <!-- formal-statement-end -->
@@ -79,11 +79,11 @@ $$
 > **定義（実数部分集合上の連続性）**  
 > $E\subset\mathbb R$、$f:E\to\mathbb R$、$a\in E$ とする。$f$ が $a$ で連続であるとは、任意の $\varepsilon>0$ に対してある $\delta>0$ が存在し、任意の $x\in E$ について
 >
-> $$
-> |x-a|<\delta
-> \quad\Longrightarrow\quad
-> |f(x)-f(a)|<\varepsilon
-> $$
+$$
+|x-a|<\delta
+\quad\Longrightarrow\quad
+|f(x)-f(a)|<\varepsilon
+$$
 >
 > が成り立つことをいう。$E$ のすべての点で連続なら、$f$ は $E$ 上で連続であるという。
 <!-- formal-statement-end -->
@@ -299,22 +299,22 @@ RA1 で証明した [実数の完備性](../RA1/index.md#thm-ra1-real-completene
 
 連続性は点ごとの局所的な情報です。後で区間全体に共通する誤差制御を作るには、無限にある点ごとの情報から有限個だけを残したくなります。
 
-その有限化を、閉区間について実数の上限性質から直接証明します。
+その有限化を、閉区間について[実数の上限性質](../F0_00A1B_実数の上限性質_Archimedes性/index.md#thm-f0-00a1b-lub)から直接証明します。
 
 <a id="thm-ra2-closed-interval-finite-subcover"></a>
 <!-- formal-statement-start -->
 > **定理（閉区間の有限部分被覆定理）**  
 > $a\le b$ とし、開区間の族 $\mathcal U$ が
 >
-> $$
-> [a,b]\subset\bigcup_{U\in\mathcal U}U
-> $$
+$$
+[a,b]\subset\bigcup_{U\in\mathcal U}U
+$$
 >
 > を満たすとする。このとき、有限個の $U_1,\ldots,U_m\in\mathcal U$ が存在して
 >
-> $$
-> [a,b]\subset U_1\cup\cdots\cup U_m
-> $$
+$$
+[a,b]\subset U_1\cup\cdots\cup U_m
+$$
 >
 > となる。
 <!-- formal-statement-end -->
@@ -355,7 +355,7 @@ $$
 
 したがって $x_0\in S$ です。
 
-また $S\subset[a,b]$ なので $S$ は上に有界です。実数の上限性質から
+また $S\subset[a,b]$ なので $S$ は上に有界です。[実数の上限性質](../F0_00A1B_実数の上限性質_Archimedes性/index.md#thm-f0-00a1b-lub)から
 
 $$
 s=\sup S
@@ -420,16 +420,16 @@ $$
 
 ### 4.1 中間値定理
 
-連続関数のグラフが端点で値 $c$ の上下にあるなら、その途中で $c$ を通るはずです。「グラフを描けば明らか」で済ませず、実数の上限性質から交点を作ります。
+連続関数のグラフが端点で値 $c$ の上下にあるなら、その途中で $c$ を通るはずです。「グラフを描けば明らか」で済ませず、[実数の上限性質](../F0_00A1B_実数の上限性質_Archimedes性/index.md#thm-f0-00a1b-lub)から交点を作ります。
 
 <a id="thm-ra2-ivt"></a>
 <!-- formal-statement-start -->
 > **定理（中間値定理）**  
 > $a<b$ とし、$f:[a,b]\to\mathbb R$ が連続で
 >
-> $$
-> f(a)<c<f(b)
-> $$
+$$
+f(a)<c<f(b)
+$$
 >
 > とする。このとき、ある $x\in(a,b)$ が存在して $f(x)=c$ となる。
 <!-- formal-statement-end -->
@@ -593,15 +593,15 @@ $$
 > **定理（Weierstrassの最大最小定理（閉区間版））**  
 > $a\le b$ とし、$f:[a,b]\to\mathbb R$ が連続であるとする。このとき、ある $x_{\min},x_{\max}\in[a,b]$ が存在して
 >
-> $$
-> f(x_{\min})
-> =
-> \min_{x\in[a,b]}f(x),
-> \qquad
-> f(x_{\max})
-> =
-> \max_{x\in[a,b]}f(x)
-> $$
+$$
+f(x_{\min})
+=
+\min_{x\in[a,b]}f(x),
+\qquad
+f(x_{\max})
+=
+\max_{x\in[a,b]}f(x)
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -737,11 +737,11 @@ $$
 > **定義（一様連続）**  
 > $f:E\to\mathbb R$ が一様連続であるとは、任意の $\varepsilon>0$ に対してある $\delta>0$ が存在し、任意の $x,y\in E$ について
 >
-> $$
-> |x-y|<\delta
-> \quad\Longrightarrow\quad
-> |f(x)-f(y)|<\varepsilon
-> $$
+$$
+|x-y|<\delta
+\quad\Longrightarrow\quad
+|f(x)-f(y)|<\varepsilon
+$$
 >
 > が成り立つことをいう。
 <!-- formal-statement-end -->
@@ -755,11 +755,11 @@ $$
 > **定義（Lipschitz連続）**  
 > ある $K\ge0$ が存在して、すべての $x,y\in E$ に対して
 >
-> $$
-> |f(x)-f(y)|
-> \le
-> K|x-y|
-> $$
+$$
+|f(x)-f(y)|
+\le
+K|x-y|
+$$
 >
 > が成り立つとき、$f$ はLipschitz連続であるという。
 <!-- formal-statement-end -->
@@ -1258,7 +1258,7 @@ A03 で零点の存在を示したので、零点はちょうど一つです。
 #### RA2-B04 閉区間上の連続関数は有界
 - Level: B
 
-$f:[a,b]\to\mathbb R$ が連続なら $f$ は有界であることを、Bolzano--Weierstrass の定理を使って再証明せよ。
+$f:[a,b]\to\mathbb R$ が連続なら $f$ は有界であることを、[実数列のBolzano--Weierstrass](#thm-ra2-bolzano-weierstrass) を使って再証明せよ。
 
 <!-- solution-start -->
 **解答**：$f$ が有界でないと仮定します。各 $n$ について
@@ -1269,7 +1269,7 @@ $$
 
 となる $x_n\in[a,b]$ を取れます。
 
-$(x_n)$ は有界な実数列なので、Bolzano--Weierstrass により、ある部分列が
+$(x_n)$ は有界な実数列なので、[実数列のBolzano--Weierstrass](#thm-ra2-bolzano-weierstrass) により、ある部分列が
 
 $$
 x_{n_k}\to x_*
@@ -1335,7 +1335,7 @@ $$
 
 は $[a,b]$ を覆います。
 
-閉区間の有限部分被覆定理により、有限個の点
+[閉区間の有限部分被覆定理](#thm-ra2-closed-interval-finite-subcover) により、有限個の点
 
 $$
 x_1,\ldots,x_m\in[a,b]
