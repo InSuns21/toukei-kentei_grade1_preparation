@@ -1,5 +1,5 @@
 id: "F0-00C2"
-title: "補講：コンパクト性の応用・最大最小・最近点"
+title: "最大最小・最近点"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -7,6 +7,7 @@ prerequisites:
 official_scope: []
 learning_objectives:
   - Weierstrassの最大最小定理を証明できる
+  - Weierstrassの最大最小定理から実対称行列の実固有対の存在を証明できる
   - 有限直積のコンパクト性を証明できる
   - 互いに素な非空コンパクト集合間の距離が正で達成されることを証明できる
   - 閉集合への最近点存在証明を再構成できる
@@ -19,5 +20,5 @@ canonical_examples: [二つの円板の距離, 閉集合への最近点の存在
 problem_patterns: [最大最小, コンパクト集合間距離, 最近点存在証明]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 0, level_b: 2, level_c: 1, level_d: 0 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 2.25, exercises: 1.25, review: 0.35 }
