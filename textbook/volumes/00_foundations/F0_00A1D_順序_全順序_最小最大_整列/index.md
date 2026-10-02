@@ -102,11 +102,11 @@ $X=\{1,2,3\}$ とし、$\mathcal P(X)$ に包含関係 $\subseteq$ を入れま�
 > **定義（全順序）**  
 > 半順序集合 $(P,\preceq)$ が、任意の $x,y\in P$ に対して
 >
-> $$
-> x\preceq y
-> \quad\text{または}\quad
-> y\preceq x
-> $$
+$$
+x\preceq y
+\quad\text{または}\quad
+y\preceq x
+$$
 >
 > を満たすとき、$\preceq$ を **全順序** または **線形順序** という。
 <!-- formal-statement-end -->
@@ -127,11 +127,11 @@ $(\mathbb R,\le)$ は全順序です。任意の二実数は必ず比較でき�
 > **定義（鎖）**  
 > 半順序集合 $(P,\preceq)$ の部分集合 $C\subseteq P$ が、任意の $x,y\in C$ に対して
 >
-> $$
-> x\preceq y
-> \quad\text{または}\quad
-> y\preceq x
-> $$
+$$
+x\preceq y
+\quad\text{または}\quad
+y\preceq x
+$$
 >
 > を満たすとき、$C$ を **鎖（chain）** という。
 <!-- formal-statement-end -->
@@ -170,18 +170,18 @@ $$
 > **定義（最小元・最大元）**  
 > 半順序集合 $(P,\preceq)$ の元 $m\in P$ が
 >
-> $$
-> m\preceq x
-> \qquad(\forall x\in P)
-> $$
+$$
+m\preceq x
+\qquad(\forall x\in P)
+$$
 >
 > を満たすとき $m$ を $P$ の **最小元** という。  
 > また $M\in P$ が
 >
-> $$
-> x\preceq M
-> \qquad(\forall x\in P)
-> $$
+$$
+x\preceq M
+\qquad(\forall x\in P)
+$$
 >
 > を満たすとき $M$ を $P$ の **最大元** という。
 <!-- formal-statement-end -->
@@ -194,16 +194,16 @@ $$
 > **定義（極小元・極大元）**  
 > 半順序集合 $(P,\preceq)$ の元 $m\in P$ が **極小元** であるとは
 >
-> $$
-> x\preceq m\Longrightarrow x=m
-> $$
+$$
+x\preceq m\Longrightarrow x=m
+$$
 >
 > が任意の $x\in P$ に対して成り立つことをいう。  
 > 元 $M\in P$ が **極大元** であるとは
 >
-> $$
-> M\preceq x\Longrightarrow x=M
-> $$
+$$
+M\preceq x\Longrightarrow x=M
+$$
 >
 > が任意の $x\in P$ に対して成り立つことをいう。
 <!-- formal-statement-end -->
@@ -257,18 +257,18 @@ Zorn の補題や上限・下限では、順序集合全体の最大元ではな
 > 半順序集合 $(P,\preceq)$ と部分集合 $A\subseteq P$ を考える。  
 > $u\in P$ が
 >
-> $$
-> a\preceq u
-> \qquad(\forall a\in A)
-> $$
+$$
+a\preceq u
+\qquad(\forall a\in A)
+$$
 >
 > を満たすとき、$u$ を $A$ の **上界** という。  
 > $l\in P$ が
 >
-> $$
-> l\preceq a
-> \qquad(\forall a\in A)
-> $$
+$$
+l\preceq a
+\qquad(\forall a\in A)
+$$
 >
 > を満たすとき、$l$ を $A$ の **下界** という。
 <!-- formal-statement-end -->
@@ -313,11 +313,11 @@ F0-00A1 では $(\mathbb R,\le)$ にこの定義を適用し、「上界全体�
 > **定義（順序保存写像）**  
 > 半順序集合 $(P,\preceq_P)$、$(Q,\preceq_Q)$ の間の写像 $f:P\to Q$ が
 >
-> $$
-> x\preceq_P y
-> \Longrightarrow
-> f(x)\preceq_Q f(y)
-> $$
+$$
+x\preceq_P y
+\Longrightarrow
+f(x)\preceq_Q f(y)
+$$
 >
 > を満たすとき、$f$ を **順序保存写像** という。
 <!-- formal-statement-end -->
@@ -330,11 +330,11 @@ F0-00A1 では $(\mathbb R,\le)$ にこの定義を適用し、「上界全体�
 > **定義（順序同型）**  
 > 全単射 $f:P\to Q$ が
 >
-> $$
-> x\preceq_P y
-> \iff
-> f(x)\preceq_Q f(y)
-> $$
+$$
+x\preceq_P y
+\iff
+f(x)\preceq_Q f(y)
+$$
 >
 > を任意の $x,y\in P$ に対して満たすとき、$f$ を **順序同型** という。
 <!-- formal-statement-end -->
