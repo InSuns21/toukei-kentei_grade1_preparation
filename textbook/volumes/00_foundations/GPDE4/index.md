@@ -1788,7 +1788,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（有界 Lipschitz 領域）**  
-> 有界開集合 $\Omega\subset\mathbb R^d$ が 有界 Lipschitz 領域 であるとは、各境界点 $x_0\in\partial\Omega$ に対して近傍 $U$ と剛体変換後の座標
+> 有界開集合 $\Omega\subset\mathbb R^d$ が有界 Lipschitz 領域であるとは、各境界点 $x_0\in\partial\Omega$ に対して近傍 $U$ と剛体変換後の座標
 
 $$
 x=(x',x_d)
@@ -1833,11 +1833,11 @@ $$
 
 のような定数関数のグラフです。
 
-角の近くでも座標を適切に回転すれば、領域は有限個の Lipschitz グラフ 局所近傍 で表せます。
+角の近くでも座標を適切に回転すれば、領域は有限個の Lipschitz グラフの局所近傍 で表せます。
 
-したがって立方体・直方体は 有界 Lipschitz 領域 です。
+したがって立方体・直方体は有界 Lipschitz 領域です。
 
-一方、極端な尖点 を持つ領域では、境界を一様な Lipschitz グラフとして表せないことがあります。その場合、以下のトレース定理を同じ形で無条件に使ってはいけません。
+一方、極端な尖点を持つ領域では、境界を一様な Lipschitz グラフとして表せないことがあります。その場合、以下のトレース定理を同じ形で無条件に使ってはいけません。
 <!-- definition-example-end -->
 
 Lipschitz とは「微分可能」を要求していません。
@@ -1846,13 +1846,13 @@ Lipschitz とは「微分可能」を要求していません。
 
 ---
 
-## 12. 高次元の トレースを構成する
+## 12. 高次元のトレースを構成する
 
 <a id="thm-gpde4-trace-lipschitz"></a>
 
 <!-- formal-statement-start -->
 > **定理（有界 Lipschitz 領域上のトレース）**  
-> $\Omega\subset\mathbb R^d$ を 有界 Lipschitz 領域 とする。
+> $\Omega\subset\mathbb R^d$ を有界 Lipschitz 領域とする。
 >
 > このとき一意な有界線形作用素
 
@@ -2004,7 +2004,7 @@ $$
 
 まず $\overline\Omega$ の近傍で滑らかな $u$ に対して評価を示します。
 
-$\partial\Omega$ は compact なので、有限個の Lipschitz グラフ 局所近傍
+$\partial\Omega$ は compact なので、有限個の Lipschitz グラフの局所近傍
 
 $$
 U_1,\ldots,U_N
@@ -2195,7 +2195,7 @@ Lipschitz 仮定が働いた場所は二つです。
 
 <!-- formal-statement-start -->
 > **定理（H_0^1 と零トレースの同一視）**  
-> $\Omega\subset\mathbb R^d$ を 有界 Lipschitz 領域 とする。
+> $\Omega\subset\mathbb R^d$ を有界 Lipschitz 領域とする。
 >
 > このとき
 
