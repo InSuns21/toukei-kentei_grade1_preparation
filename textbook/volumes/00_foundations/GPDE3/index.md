@@ -697,7 +697,9 @@ $$
 
 ## 9. $H^k=W^{k,2}$
 
-$p=2$ は特別です。
+$p=2$ は特別です。$L^2$ のノルムは内積から生じるので、関数とその弱微分を $L^2$ で測る Sobolev 空間にも自然な内積を入れられます。
+
+PDE のエネルギー法では、単に「完備なノルム空間」であるだけでなく、内積・直交性・射影を使えることが重要です。そこで $p=2$ の Sobolev 空間に専用の記号を与えます。
 
 <a id="def-gpde3-hk"></a>
 <!-- formal-statement-start -->
@@ -799,7 +801,7 @@ PDE の変分法で $H^1$ が頻出するのは偶然ではありません。
 
 PDE では、関数全体ではなくある領域の内部だけを調べたいことが頻繁にあります。
 
-そのとき smooth 切断関数 $\chi$ を掛けます。
+そのとき 滑らかな局所化関数 $\chi$ を掛けます。
 
 <a id="prop-gpde3-smooth-multiplier"></a>
 <!-- formal-statement-start -->
@@ -1321,13 +1323,13 @@ $$
 
 $$
 u
-\overset{\text{切断関数}}{\longrightarrow}
+\overset{\text{局所化関数}}{\longrightarrow}
 u_R
 \overset{\text{mollify}}{\longrightarrow}
 \varphi_{R,\varepsilon}.
 $$
 
-まず遠方の tail を 切断関数 で切り、その後 平滑化核 で滑らかにします。
+まず遠方の tail を 局所化関数 で切り、その後 平滑化核 で滑らかにします。
 
 <!-- proof-start -->
 ### 証明
@@ -1557,7 +1559,7 @@ $$
 
 $$
 \boxed{
-\text{切断関数 で局所化}
+\text{局所化関数 で局所化}
 \quad\to\quad
 \text{平滑化核 で平滑化}
 \quad\to\quad
@@ -2645,7 +2647,7 @@ u_\varepsilon\to u
 $$
 <!-- solution-end -->
 
-## GPDE3-B03 smooth 切断関数 の積公式を直接証明する
+## GPDE3-B03 滑らかな局所化関数 の積公式を直接証明する
 
 - Level: B
 - 目安時間: 22分
@@ -3043,7 +3045,7 @@ $$
 - 滑らかな乗数 との積の弱微分公式を証明できる。
 - $1\le p<\infty$ で $L^p$ 平行移動連続性を証明できる。
 - 平滑化 が局所的に $W^{k,p}$ 近似を与えることを証明できる。
-- $\mathbb R^d$ 上の $C_c^\infty$ 密度を 切断関数 と 平滑化核 の二段階で再構成できる。
+- $\mathbb R^d$ 上の $C_c^\infty$ 密度を 局所化関数 と 平滑化核 の二段階で再構成できる。
 - 一般領域では $C_c^\infty(\Omega)$ の 閉包 が $W^{1,p}(\Omega)$ 全体とは限らない理由を説明できる。
 - tent 関数を使って $p<\infty$ と $p=\infty$ の 滑らかな近似 の違いを説明できる。
 
