@@ -27,14 +27,14 @@ RA2 では閉区間上の [Bolzano--Weierstrass](../RA2/index.md#thm-ra2-bolzano
 <a id="thm-ra7-finite-dimensional-heine-cantor"></a>
 <!-- formal-statement-start -->
 > **定理（有限次元 Heine--Cantor 型結果）**  
-> 空でない閉有界集合 $K\subset\mathbb R^n$ と連続写像 $f:K\to\mathbb R^m$ に対して、$f$ は $K$ 上有界かつ一様連続である。さらに $m=1$ なら $f$ は $K$ 上で最大値・最小値を実際に取る。
+> 空でなく、閉かつ有界な $K\subset\mathbb R^n$ と連続写像 $f:K\to\mathbb R^m$ に対して、$f$ は $K$ 上有界かつ一様連続である。さらに $m=1$ なら $f$ は $K$ 上で最大値・最小値を実際に取る。
 <!-- formal-statement-end -->
 
 有界性・一様連続性の証明は後段の [Heine--Cantor の完全証明](../F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md#thm-f0-00c1-heine-cantor) で、最大最小の達成は [Weierstrass の最大最小定理](../F0_00C2_コンパクト性の応用_最大最小_最近点/index.md#thm-f0-00c2-01) で回収します。
 
 <a id="lem-ra7-uniform-buffer"></a>
 <!-- formal-statement-start -->
-> **系（閉有界集合と開集合の一様な内側余裕）**  
+> **系（一様な内側余裕）**  
 > $K\subset\mathbb R^n$ が閉有界で、$K\subset U$、$U\subset\mathbb R^n$ が開なら、ある $\rho>0$ が存在して
 > $$B(x,\rho)\subset U\qquad(x\in K)$$
 > となる。
