@@ -604,7 +604,35 @@ $$
 \int_{B(a,\varepsilon)}|f(x)|\,dx.
 $$
 
-$f$ は $a$ の近くで可積分なので、[Lebesgue 積分の絶対連続性](../MT4/index.md#thm-mt4-integral-absolute-continuity)から右辺は $\varepsilon\downarrow0$ で 0 へ行きます。左辺は常に 1 なので矛盾です。
+ここで $\varepsilon_0>0$ を
+$$
+\overline{B(a,\varepsilon_0)}\subset\Omega
+$$
+となるよう一つ固定します。局所可積分性から
+$$
+\int_{\overline{B(a,\varepsilon_0)}}|f(x)|\,dx<\infty
+$$
+なので、
+$$
+g(x)
+=
+|f(x)|1_{\overline{B(a,\varepsilon_0)}}(x)
+$$
+は $L^1(\Omega)$ に属します。
+
+$0<\varepsilon<\varepsilon_0$ では
+$$
+\int_{B(a,\varepsilon)}|f(x)|\,dx
+=
+\int_{B(a,\varepsilon)}g(x)\,dx.
+$$
+一方、$\lambda(B(a,\varepsilon))\to0$ です。[Lebesgue 積分の絶対連続性](../MT4/index.md#thm-mt4-integral-absolute-continuity)を $g$ と $E=B(a,\varepsilon)$ に適用すると、
+$$
+\int_{B(a,\varepsilon)}|f(x)|\,dx
+\to0.
+$$
+
+したがって右辺は $\varepsilon\downarrow0$ で 0 へ行きます。左辺は常に 1 なので矛盾です。
 
 したがって Dirac のデルタ超関数は正則超関数ではありません。
 
