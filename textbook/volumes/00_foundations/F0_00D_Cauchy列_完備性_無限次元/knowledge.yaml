@@ -32,7 +32,7 @@ concepts:
       - topology.cauchy-sequence
 
   - id: topology.euclidean-space-complete
-    name: Euclid空間の完備性
+    name: Euclid 空間の完備性
     kind: theorem
     aliases: [Euclid空間の完備性, R^pの完備性]
     requires:
