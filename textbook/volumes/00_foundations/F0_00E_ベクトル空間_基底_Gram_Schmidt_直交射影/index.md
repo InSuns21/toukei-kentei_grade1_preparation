@@ -210,7 +210,15 @@ $S$ は無限集合ですが、一つの多項式を表すのに無限和は必�
 
 <!-- formal-statement-start -->
 > **定義（一次独立・一次従属）**  
-> 部分集合 $S\subseteq V$ が **一次独立** であるとは、$S$ から相異なる有限個 $v_1,\dots,v_k$ を取り、$a_1v_1+\cdots+a_kv_k=0$ が成り立つなら必ず $a_1=\cdots=a_k=0$ となることをいう。一次独立でない集合を **一次従属** という。
+> 部分集合 $S\subseteq V$ が **一次独立** であるとは、$S$ から相異なる有限個 $v_1,\dots,v_k$ と係数 $a_1,\dots,a_k\in\mathbb R$ を任意に取ったとき、
+
+$$
+a_1v_1+\cdots+a_kv_k=0
+\quad\Longrightarrow\quad
+a_1=\cdots=a_k=0
+$$
+
+> が成り立つことをいう。一次独立でない集合を **一次従属** という。
 <!-- formal-statement-end -->
 
 この定義から、$S$ が一次独立であることと、$S$ の任意の有限部分集合が一次独立であることは同じです。
@@ -250,7 +258,21 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（座標ベクトル）**  
-> 有限次元ベクトル空間の順序付き基底 $\mathcal B=(v_1,\dots,v_n)$ に対し、$x=c_1v_1+\cdots+c_nv_n$ と表したとき、$[x]_{\mathcal B}=(c_1,\dots,c_n)^T$ を $\mathcal B$ に関する $x$ の **座標ベクトル** という。
+> 有限次元ベクトル空間の順序付き基底 $\mathcal B=(v_1,\dots,v_n)$ に対し、$x\in V$ を一意に
+
+$$
+x=c_1v_1+\cdots+c_nv_n
+$$
+
+> と表す。このとき
+
+$$
+[x]_{\mathcal B}
+=
+(c_1,\dots,c_n)^T
+$$
+
+> を $\mathcal B$ に関する $x$ の **座標ベクトル** という。
 <!-- formal-statement-end -->
 
 この「基底を選ぶと抽象ベクトルを係数で記述できる」という事実が、後続の表現行列の土台です。
