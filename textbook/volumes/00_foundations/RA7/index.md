@@ -498,9 +498,9 @@ $A=\varnothing$ なら両辺は0で自明です。以下 $A\ne\varnothing$ と�
 
 $\Phi^{-1}\circ\Phi=\operatorname{id}_U$ に連鎖律を適用すると
 
-$
+$$
 D\Phi^{-1}(\Phi(x))D\Phi(x)=I,
-$
+$$
 
 なので $D\Phi(x)$ は全ての $x\in U$ で可逆です。
 
