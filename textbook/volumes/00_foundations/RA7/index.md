@@ -11,7 +11,7 @@
 
 ## 0. 有限次元で局所情報を一様化する
 
-RA2 では閉区間上の [Bolzano--Weierstrass](../RA2/index.md#thm-ra2-bolzano-weierstrass) と [Heine--Cantor](../RA2/index.md#thm-ra2-heine-cantor) を実数だけで証明しました。多重積分では $\mathbb R^n$ の閉矩形・閉有界集合を使うため、次の有限次元版を**結果として先に使います**。一般位相のコンパクト性は RA7 の prerequisite にはしません。
+RA2 では閉区間上の [Bolzano--Weierstrass](../RA2/index.md#thm-ra2-bolzano-weierstrass) と [Heine--Cantor](../RA2/index.md#thm-ra2-heine-cantor) を実数だけで証明しました。多重積分では $\mathbb R^n$ の閉矩形や、閉かつ有界な集合を使うため、次の有限次元版を**結果として先に使います**。一般化されたコンパクト性は RA7 の prerequisite にはしません。
 
 <a id="thm-ra7-finite-dimensional-heine-borel"></a>
 <!-- formal-statement-start -->
@@ -22,7 +22,7 @@ RA2 では閉区間上の [Bolzano--Weierstrass](../RA2/index.md#thm-ra2-bolzano
 > 2. $K$ を覆う任意の Euclid 開集合族から有限部分被覆を取り出せる。
 <!-- formal-statement-end -->
 
-この定理の証明は、後段の位相空間論で [実数版 Bolzano--Weierstrass を座標ごとに適用する $\mathbb R^p$ 版](../F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md#lem-f0-00c1-02) と [Heine--Borel の定理](../F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md#thm-f0-00c1-02) として回収します。
+この定理の証明は、後段の [実数版 Bolzano--Weierstrass を座標ごとに適用する $\mathbb R^p$ 版](../F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md#lem-f0-00c1-02) と [Heine--Borel の定理](../F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md#thm-f0-00c1-02) として回収します。
 
 <a id="thm-ra7-finite-dimensional-heine-cantor"></a>
 <!-- formal-statement-start -->
@@ -30,7 +30,7 @@ RA2 では閉区間上の [Bolzano--Weierstrass](../RA2/index.md#thm-ra2-bolzano
 > 空でない閉有界集合 $K\subset\mathbb R^n$ と連続写像 $f:K\to\mathbb R^m$ に対して、$f$ は $K$ 上有界かつ一様連続である。さらに $m=1$ なら $f$ は $K$ 上で最大値・最小値を実際に取る。
 <!-- formal-statement-end -->
 
-有界性・一様連続性の証明は後段の [コンパクト距離空間上の Heine--Cantor](../F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md#thm-f0-00c1-heine-cantor) で、最大最小の達成は [Weierstrass の最大最小定理](../F0_00C2_コンパクト性の応用_最大最小_最近点/index.md#thm-f0-00c2-01) で回収します。
+有界性・一様連続性の証明は後段の [Heine--Cantor の完全証明](../F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md#thm-f0-00c1-heine-cantor) で、最大最小の達成は [Weierstrass の最大最小定理](../F0_00C2_コンパクト性の応用_最大最小_最近点/index.md#thm-f0-00c2-01) で回収します。
 
 <a id="lem-ra7-uniform-buffer"></a>
 <!-- formal-statement-start -->
@@ -182,7 +182,7 @@ $$
 > と定める。
 <!-- formal-statement-end -->
 
-$f$ が $\overline A$ の近傍で連続なら、この延長は境界で不連続になり得ます。しかし $A$ は有界なので $\overline A$ も閉有界であり、[有限次元 Heine--Cantor 型定理](#thm-ra7-finite-dimensional-heine-cantor)から $f$ は $\overline A$ 上有界です。境界を覆う小矩形の総体積は任意に小さくできるため、その小矩形が作る上和・下和の差も任意に小さくできます。従って連続関数はJordan可測領域上で積分できます。
+$f$ が $\overline A$ を含む範囲で連続なら、この延長は境界で不連続になり得ます。しかし $A$ は有界なので $\overline A$ も閉有界であり、[有限次元 Heine--Cantor 型定理](#thm-ra7-finite-dimensional-heine-cantor)から $f$ は $\overline A$ 上有界です。境界を覆う小矩形の総体積は任意に小さくできるため、その小矩形が作る上和・下和の差も任意に小さくできます。従って連続関数はJordan可測領域上で積分できます。
 
 <!-- definition-example-start: def-ra7-domain-integral -->
 **定義の確認**：$T=\{(x,y):0\le x\le1,\ 0\le y\le x\}$ はJordan可測で、$f(x,y)=x+y$ は連続です。したがって $\int_Tf$ は、$T$ 外で0とした関数の $[0,1]^2$ 上のRiemann積分として定まります。
@@ -517,7 +517,7 @@ $$
 \overline A\subset K_U\subset U,
 $$
 
-かつ $K_U$ は有限個の閉立方体の和なので閉有界です。[有限次元 Heine--Cantor 型定理](#thm-ra7-finite-dimensional-heine-cantor)から $D\Phi$ は $K_U$ 上有界です。従って、十分細かい格子立方体 $Q\subset K_U$ の中では、線分上の微分の積分表示から
+かつ $K_U$ は有限個の閉立方体の和なので閉有界です。[有限次元 Heine--Cantor 型定理](#thm-ra7-finite-dimensional-heine-cantor)から $D\Phi$ は $K_U$ 上有界です。従って、十分細かい格子立方体 $Q\subset K_U$ の中では、$g(t)=\Phi(y+t(x-y))$ に RA6 の連鎖律と RA4 の微積分学の基本定理を適用して
 
 $$
 \|\Phi(x)-\Phi(y)\|_2
