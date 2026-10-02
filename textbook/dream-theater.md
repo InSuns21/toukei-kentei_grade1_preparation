@@ -221,9 +221,9 @@
 <a id="dt-subject-pde-graduate"></a>
 ### 偏微分方程式（大学院レベル）
 
-1. [弱解・Sobolev空間・PDEロードマップ](textbook/volumes/00_foundations/F0_00R3_EncoreIII_Distributions_Sobolev_Weak/index.md)
-2. [GPDE1 テスト関数・distribution](textbook/volumes/00_foundations/GPDE1/index.md)
-3. [GPDE2 distribution 微分・mollifier・弱微分](textbook/volumes/00_foundations/GPDE2/index.md)
+1. [大学院レベル偏微分方程式への入口](textbook/volumes/00_foundations/F0_00R3_EncoreIII_Distributions_Sobolev_Weak/index.md)
+2. [GPDE1 テスト関数・Schwartz 超関数](textbook/volumes/00_foundations/GPDE1/index.md)
+3. [GPDE2 超関数の微分・平滑化核・弱微分](textbook/volumes/00_foundations/GPDE2/index.md)
 4. [GPDE3 Sobolev空間](textbook/volumes/00_foundations/GPDE3/index.md)
 5. [GPDE4 H0^1・Poincare・trace](textbook/volumes/00_foundations/GPDE4/index.md)
 6. [GPDE5 Sobolev embedding・compactness](textbook/volumes/00_foundations/GPDE5/index.md)
