@@ -5,7 +5,7 @@ prerequisites:
   - SET-U2
 
 forward_references:
-  - order.partial-order
+  - order.partial-order-relation
   - set.choice-axiom
 
 concepts:
