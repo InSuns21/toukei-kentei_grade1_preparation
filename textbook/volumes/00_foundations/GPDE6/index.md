@@ -432,6 +432,10 @@ $$
 
 ## 4. Poisson の変分弱解を定義する
 
+ここまでで、左辺は一階弱微分だけを使う積分へ落とせ、右辺は $H^{-1}(\Omega)$ のデータとして読めるようになりました。したがって、二階微分 $\Delta u$ を関数として持つことを解の条件にする必要はありません。
+
+そこで解そのものを $H_0^1(\Omega)$ に置き、すべての $v\in H_0^1(\Omega)$ に対して積分恒等式が成り立つことを要求します。これなら零境界条件も $H_0^1$ という空間の選択に組み込めます。
+
 <a id="def-gpde6-poisson-variational"></a>
 
 <!-- formal-statement-start -->
@@ -1572,7 +1576,7 @@ $w$ は任意だったので 1 が成立します。
 <a id="lem-gpde6-weak-lsc"></a>
 
 <!-- formal-statement-start -->
-> **補題（Hilbert 空間のノルムの弱下半連続性）**  
+> **補題（Hilbert 空間の弱収束時ノルム評価）**  
 > 実 完備な内積空間 $H$ で
 
 $$
@@ -1881,7 +1885,7 @@ $$
 F(v_n)\to F(u).
 $$
 
-また [Hilbert 空間のノルムの弱下半連続性](#lem-gpde6-weak-lsc)から
+また [Hilbert 空間の弱収束時ノルム評価](#lem-gpde6-weak-lsc)から
 
 $$
 \|u\|_V^2
@@ -3233,7 +3237,7 @@ $$
 F(v_n)\to F(u).
 $$
 
-また [Hilbert 空間のノルムの弱下半連続性](#lem-gpde6-weak-lsc)から
+また [Hilbert 空間の弱収束時ノルム評価](#lem-gpde6-weak-lsc)から
 
 $$
 \|u\|_V^2
