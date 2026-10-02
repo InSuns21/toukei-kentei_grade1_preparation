@@ -2,7 +2,7 @@
 
 実解析では、まず「実数列がある値へ近づく」とは何かを $\varepsilon$-$N$ で固定する必要があります。点列・部分列という集合論的な器は [F0-00B0](../F0_00B0_点列_部分列_十分大きい添字/index.md) で準備済みですが、この章では**この「近づく」を実解析の言葉として改めて定義し、そこから定理を組み立てます**。
 
-また、[実数の上限性質・Archimedes 性](../F0_00A1B_実数の上限性質_Archimedes性/index.md) を使います。一般距離空間の完備性を前提にはせず、まず実数列について Cauchy 条件を定義し、実数の上限性質から「Cauchy 列なら収束する」ことをこの章で導きます。
+また、[実数の上限性質](../F0_00A1B_実数の上限性質_Archimedes性/index.md#thm-f0-00a1b-lub)と [Archimedes 性](../F0_00A1B_実数の上限性質_Archimedes性/index.md#thm-f0-00a1b-archimedean)を使います。一般の完備性を前提にはせず、まず実数列について Cauchy 条件を定義し、実数の上限性質から「Cauchy 列なら収束する」ことをこの章で導きます。
 
 ## 0. 実数列の収束
 
@@ -183,7 +183,7 @@ $$
 収束では「$a_n$ と固定点 $L$ の距離」を見ました。Cauchy 条件では「$a_m$ と $a_n$ の距離」だけを見ます。極限候補そのものを式に出さなくてよいのが違いです。
 
 <!-- definition-example-start: def-ra1-cauchy -->
-**定義の確認**：$a_n=1/n$ を、極限 $0$ を使わず Cauchy だと示します。任意の $\varepsilon>0$ に対し、Archimedes 性から $N>2/\varepsilon$ となる自然数 $N$ を取れます。$m,n\ge N$ なら
+**定義の確認**：$a_n=1/n$ を、極限 $0$ を使わず Cauchy だと示します。任意の $\varepsilon>0$ に対し、[Archimedes 性](../F0_00A1B_実数の上限性質_Archimedes性/index.md#thm-f0-00a1b-archimedean)から $N>2/\varepsilon$ となる自然数 $N$ を取れます。$m,n\ge N$ なら
 $$
 \left|\frac1m-\frac1n\right|
 \le
@@ -206,7 +206,7 @@ $$
 $$
 \text{Cauchy 列}\Longrightarrow\text{実数内で収束}
 $$
-が、ここでいう**実数の完備性**です。証明では、先ほど示した単調収束定理を tail の上限・下限へ適用します。
+が、ここでいう**実数の完備性**です。証明では、先ほど示した有界単調数列の結果を tail の上限・下限へ適用します。
 
 <!-- proof-start -->
 ### 証明
@@ -248,7 +248,7 @@ $$
 $$
 A_n=\{a_k:k\ge n\}
 $$
-を考えます。$A_n$ は空でなく有界なので、実数の上限性質から
+を考えます。$A_n$ は空でなく有界なので、[実数の上限性質](../F0_00A1B_実数の上限性質_Archimedes性/index.md#thm-f0-00a1b-lub)から
 $$
 s_n=\sup A_n,\qquad i_n=\inf A_n
 $$
@@ -690,7 +690,7 @@ $$
 <
 2^{-n}.
 $$
-ここで $2^N\ge N+1$ は帰納法で分かります。従って任意の $\varepsilon>0$ に対し、Archimedes 性から
+ここで $2^N\ge N+1$ は帰納法で分かります。従って任意の $\varepsilon>0$ に対し、[Archimedes 性](../F0_00A1B_実数の上限性質_Archimedes性/index.md#thm-f0-00a1b-archimedean)から
 $$
 N+1>\frac1\varepsilon
 $$
@@ -698,7 +698,7 @@ $$
 $$
 2^{-N}\le\frac1{N+1}<\varepsilon.
 $$
-よって $m,n\ge N$ なら $|x_m-x_n|<\varepsilon$ であり、$(x_n)$ は Cauchy 列です。[実数の完備性／実数列の Cauchy 判定](#thm-ra1-real-completeness) により $(x_n)$ は実数内で収束します。
+よって $m,n\ge N$ なら $|x_m-x_n|<\varepsilon$ であり、$(x_n)$ は Cauchy 列です。[実数の完備性／実数列の Cauchy 判定](#thm-ra1-real-completeness)により $(x_n)$ は実数内で収束します。
 
 さらに有限等比和から
 $$
