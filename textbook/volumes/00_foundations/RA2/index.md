@@ -72,11 +72,11 @@ $$
 です。
 <!-- definition-example-end -->
 
-極限値と実際の関数値を一致させたものが連続性です。区間の端点も同じ式で扱えるよう、定義域 $E$ の中から $x$ を近づけます。
+極限値と実際の関数値を一致させたものが連続性です。ここで扱う **実数部分集合上の連続性** では、区間の端点も同じ式で扱えるよう、定義域 $E$ の中から $x$ を近づけます。
 
 <a id="def-ra2-continuity"></a>
 <!-- formal-statement-start -->
-> **定義（連続性：実数版）**  
+> **定義（実数部分集合上の連続性）**  
 > $E\subset\mathbb R$、$f:E\to\mathbb R$、$a\in E$ とする。$f$ が $a$ で連続であるとは、任意の $\varepsilon>0$ に対してある $\delta>0$ が存在し、任意の $x\in E$ について
 >
 > $$
@@ -416,7 +416,7 @@ $$
 
 ---
 
-## 4. 連続関数の存在定理
+## 4. 連続関数から存在を引き出す
 
 ### 4.1 中間値定理
 
@@ -586,11 +586,11 @@ $$
 
 ### 4.2 最大値・最小値は実際に達成される
 
-閉区間上で連続な関数は、値が無限大へ逃げることも、上限へ近づくだけで達成点が消えることもありません。この二つを Bolzano--Weierstrass で止めます。
+閉区間上で連続な関数は、値が無限大へ逃げることも、上限へ近づくだけで達成点が消えることもありません。**Weierstrassの最大最小定理（閉区間版）** は、この二つの逃げ方を Bolzano--Weierstrass で止める定理です。
 
 <a id="thm-ra2-extreme-value"></a>
 <!-- formal-statement-start -->
-> **定理（Weierstrassの最大最小定理：閉区間版）**  
+> **定理（Weierstrassの最大最小定理（閉区間版））**  
 > $a\le b$ とし、$f:[a,b]\to\mathbb R$ が連続であるとする。このとき、ある $x_{\min},x_{\max}\in[a,b]$ が存在して
 >
 > $$
@@ -816,7 +816,7 @@ $$
 
 <a id="thm-ra2-heine-cantor"></a>
 <!-- formal-statement-start -->
-> **定理（Heine--Cantorの定理：閉区間版）**  
+> **定理（Heine--Cantorの定理（閉区間版））**  
 > $a\le b$ とし、連続関数 $f:[a,b]\to\mathbb R$ は $[a,b]$ 上で一様連続である。
 <!-- formal-statement-end -->
 
@@ -1140,7 +1140,7 @@ $$
 ### Level B
 
 <a id="ex-ra2-b01"></a>
-#### RA2-B01 一様連続写像はCauchy列を保つ
+#### RA2-B01 一様連続性はCauchy列を保つ
 - Level: B
 
 $f:E\to\mathbb R$ が一様連続なら、$E$ 内の Cauchy 列 $(x_n)$ に対して $(f(x_n))$ も Cauchy 列であることを示せ。
