@@ -406,11 +406,11 @@ $$
 
 $V$ の一次独立部分集合全体を
 
-$
+$$
 P
 =
 \{S\subseteq V:S\text{ は一次独立}\}
-$
+$$
 
 とし、包含関係 $\subseteq$ で順序付けます。空集合は一次独立なので $P$ は空ではありません。
 
@@ -418,37 +418,37 @@ $
 
 $\Gamma\subseteq P$ を包含関係についての鎖とし、
 
-$
+$$
 U=\bigcup_{S\in\Gamma}S
-$
+$$
 
 と置きます。
 
 $U$ から相異なる有限個
 
-$
+$$
 v_1,\dots,v_k
-$
+$$
 
 を取り、
 
-$
+$$
 a_1v_1+\cdots+a_kv_k=0
-$
+$$
 
 とします。
 
 各 $v_i$ はある $S_i\in\Gamma$ に属します。$\Gamma$ は包含関係について鎖で、$S_1,\dots,S_k$ は有限個なので、この中に全てを含む集合 $S_*\in\Gamma$ があります。したがって
 
-$
+$$
 v_1,\dots,v_k\in S_*.
-$
+$$
 
 $S_*$ は一次独立なので
 
-$
+$$
 a_1=\cdots=a_k=0.
-$
+$$
 
 よって $U$ は一次独立であり $U\in P$ です。さらに各 $S\in\Gamma$ について $S\subseteq U$ なので、$U$ は $\Gamma$ の上界です。
 
@@ -458,29 +458,29 @@ $
 
 もし
 
-$
+$$
 \operatorname{span}(B)\ne V
-$
+$$
 
 なら
 
-$
+$$
 x\in V\setminus\operatorname{span}(B)
-$
+$$
 
 を一つ取れます。
 
 $B\cup\{x\}$ が一次独立であることを確認します。有限個 $b_1,\dots,b_m\in B$ と係数について
 
-$
+$$
 a x+a_1b_1+\cdots+a_mb_m=0
-$
+$$
 
 とします。
 
 もし $a\ne0$ なら
 
-$
+$$
 x
 =
 -\frac1a
@@ -489,28 +489,28 @@ a_1b_1+\cdots+a_mb_m
 \right)
 \in
 \operatorname{span}(B),
-$
+$$
 
 となり $x$ の選び方に矛盾します。したがって $a=0$ です。残りは $B$ の一次独立性から
 
-$
+$$
 a_1=\cdots=a_m=0.
-$
+$$
 
 よって $B\cup\{x\}$ は一次独立です。これは $B$ の極大性に反します。
 
 したがって
 
-$
+$$
 \operatorname{span}(B)=V.
-$
+$$
 
 $B$ は一次独立かつ $V$ を張るので、定義より Hamel 基底です。$\square$
 <!-- proof-end -->
 
 この証明で Zorn を使う場所は、F0-00A3 の4段階そのものです。
 
-$
+$$
 \boxed{
 \text{一次独立集合}
 \to
@@ -522,7 +522,7 @@ $
 \to
 \text{Hamel 基底}
 }
-$
+$$
 
 ---
 
