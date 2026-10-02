@@ -10,7 +10,7 @@ a(u,v)=F(v)
 (\forall v\in V)
 $$
 
-という変分方程式へ移し、対称な Poisson form に対しては エネルギー の直接法で解を構成しました。
+という変分方程式へ移し、対称な Poisson 双線形形式 に対しては エネルギー の直接法で解を構成しました。
 
 しかし、大学院 PDE では毎回 最小化列 を作り直したいわけではありません。
 
@@ -19,7 +19,7 @@ $$
 そこで本章では、GPDE6 で導入した
 
 - [有界双線形形式](../GPDE6/index.md#def-gpde6-bounded-bilinear)
-- [強圧的 bilinear form](../GPDE6/index.md#def-gpde6-coercive)
+- [強圧的双線形形式](../GPDE6/index.md#def-gpde6-coercive)
 
 だけを抽出し、
 
@@ -43,7 +43,7 @@ $$
 
 ~~~text
 a(u,v)
-  ↓ Riesz representation
+  ↓ Riesz 表現
 <Au,v>
   ↓ 強圧性
 ||Au|| >= alpha ||u||
@@ -54,7 +54,7 @@ a(u,v)
   ↓
 稠密な値域
   ↓
-closed + dense = all of V
+閉 + 稠密 = V 全体
   ↓
 A is 全単射
 ~~~
@@ -1191,30 +1191,30 @@ $$
 証明全体を一度つなぎ直します。
 
 ~~~text
-1. fixed u:
-   v -> a(u,v) belongs to V*
-2. Riesz:
+1. $u$ を固定:
+   $v\mapsto a(u,v)$ は $V^*$ の元
+2. Riesz 表現:
    a(u,v)=<Au,v>
 3. 有界性:
-   A is 有界
+   $A$ は有界
 4. 強圧性:
    ||Au|| >= alpha ||u||
-5. therefore:
-   A is 単射
-6. lower bound + completeness:
-   Ran A is closed
-7. y perpendicular to Ran A:
-   a(u,y)=0 for all u
-   choose u=y
-   強圧性 gives y=0
-8. therefore:
-   Ran A is dense
-9. closed + dense:
-   Ran A=V
-10. Riesz on F:
-   F(v)=<f,v>
-11. solve:
-   Au=f
+5. したがって:
+   $A$ は単射
+6. 下からの評価 + 完備性:
+   $\operatorname{Ran}A$ は閉
+7. $y\perp\operatorname{Ran}A$:
+   すべての $u$ で $a(u,y)=0$
+   $u=y$ と選ぶ
+   強圧性から $y=0$
+8. したがって:
+   $\operatorname{Ran}A$ は稠密
+9. 閉 + 稠密:
+   $\operatorname{Ran}A=V$
+10. $F$ に Riesz 表現を適用:
+   $F(v)=\langle f,v\rangle$
+11. 解く:
+   $Au=f$
 12. 強圧性:
    ||u|| <= alpha^{-1}||F||
 ~~~
@@ -1222,7 +1222,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$a$ の 有界性 と [双線形形式の Riesz 作用素表示](#prop-gpde7-riesz-operator)から、一意な有界線形作用素
+$a$ の 有界性と [双線形形式の Riesz 作用素表示](#prop-gpde7-riesz-operator)から、一意な有界線形作用素
 
 $$
 A:V\to V
@@ -1248,7 +1248,7 @@ $$
 
 従って $Au=0$ なら $u=0$ なので $A$ は単射です。
 
-また [下から有界なら 値域は閉](#lem-gpde7-closed-range)より
+また [下から有界なら値域は閉](#lem-gpde7-closed-range)より
 
 $$
 \operatorname{Ran}A
@@ -1256,7 +1256,7 @@ $$
 
 は閉です。
 
-さらに [Lax--Milgram 作用素の 値域は稠密](#lem-gpde7-dense-range)より
+さらに [Lax--Milgram 作用素の値域は稠密](#lem-gpde7-dense-range)より
 
 $$
 \overline{\operatorname{Ran}A}
@@ -1312,7 +1312,7 @@ $$
 
 一意性は $A$ の単射性から従います。
 
-最後に解 $u$ に対して 強圧性 と [既習の双対評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)を用いると
+最後に解 $u$ に対して 強圧性と [既習の双対評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)を用いると
 
 $$
 \alpha\|u\|_V^2
@@ -1737,7 +1737,7 @@ $$
 
 ## 13. 具体例：Poisson 問題へ適用する
 
-GPDE6 で Poisson form の 有界性と強圧性 は既に証明しました。
+GPDE6 で Poisson 双線形形式 の 有界性と強圧性 は既に証明しました。
 
 ここでは Lax--Milgram の仮定へ一つずつ差し込みます。
 
@@ -1762,7 +1762,7 @@ $$
 
 と置きます。
 
-[Poisson form の 有界性と強圧性](../GPDE6/index.md#prop-gpde6-poisson-form)から
+[Poisson 双線形形式 の 有界性と強圧性](../GPDE6/index.md#prop-gpde6-poisson-form)から
 
 $$
 |a(u,v)|
@@ -1849,7 +1849,7 @@ $$
 
 ## 14. 具体例：反応拡散 へ一歩広げる
 
-Poisson form に 0 次項を加えます。
+Poisson 双線形形式 に 0 次項を加えます。
 
 $\Omega\subset\mathbb R^d$ を有界開集合、
 
@@ -2034,7 +2034,7 @@ $$
 > が成り立つ。
 <!-- formal-statement-end -->
 
-この weak equation は形式的には
+この 弱形式 は形式的には
 
 $$
 -\Delta u+cu=f,
@@ -2192,7 +2192,7 @@ Lax--Milgram を使うとき、仮定をセット暗記すると応用で迷い�
 |---|---|---|
 | $V$ が実数体上の完備な内積空間 | Riesz 表現、直交補空間、完備性 | $a(u,\cdot)$ を同じ空間のベクトル $Au$ に戻す証明が使えない |
 | 有界性 | $A$ の構成と連続性 | $v\mapsto a(u,v)$ が $V^*$ に入る保証がない |
-| 強圧性 | $\|Au\|\ge\alpha\|u\|$、単射、稠密な値域、安定性 | kernel や到達不能方向が残り得る |
+| 強圧性 | $\|Au\|\ge\alpha\|u\|$、単射、稠密な値域、安定性 | 核 や到達不能方向が残り得る |
 | $\alpha>0$ | 下からの一様評価 | $\alpha=0$ では ノルム を制御できない |
 | 対称性 | **不要** | Lax--Milgram 自体には影響しない |
 
@@ -2251,7 +2251,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-強圧性 と Riesz 作用素表示から
+強圧性と Riesz 作用素表示から
 
 $$
 \alpha\|u\|_V^2
@@ -2601,7 +2601,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-gpde7-a04"></a>
-#### GPDE7-A04 反応拡散 form の仮定確認
+#### GPDE7-A04 反応拡散双線形形式 の仮定確認
 - Level: A
 
 $\Omega\subset\mathbb R^d$ を有界開集合とし
@@ -2957,7 +2957,7 @@ $a(u,y)$ を $a(y,u)$ に入れ替える箇所はありません。
 <!-- solution-end -->
 
 <a id="ex-gpde7-b03"></a>
-#### GPDE7-B03 右辺の摂動に対する strong 安定性
+#### GPDE7-B03 右辺の摂動に対する 強安定性
 - Level: B
 
 Lax--Milgram の仮定を満たす $a$ を固定する。
@@ -3543,7 +3543,7 @@ $$
 また、
 
 - 対称性は Lax--Milgram に不要。
-- 強圧性 を失うと kernel や到達不能方向が残る。
+- 強圧性 を失うと 核 や到達不能方向が残る。
 - Poisson は $\alpha=1$ の最も基本的な例。
 - 反応拡散 でも各項を評価すれば同じ定理が使える。
 - 非対称な一次項を含む最小例でも Lax--Milgram は働く。
