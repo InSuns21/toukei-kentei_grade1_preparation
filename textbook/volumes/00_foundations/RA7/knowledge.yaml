@@ -6,7 +6,36 @@ prerequisites:
   - RA6
   - LA3C
 
+# RA7 では有限次元版を結果として先に使い、完全証明は後段の位相空間論で回収する。
+# これらは prerequisite edge ではなく proof ownership / forward reference である。
+forward_references:
+  - topology.bolzano-weierstrass-rp
+  - topology.heine-borel
+  - topology.heine-cantor-compact-metric
+  - topology.extreme-value-theorem
+
 concepts:
+  - id: analysis.finite-dimensional-heine-borel
+    name: 有限次元 Heine--Borel 型結果
+    kind: theorem
+    aliases: [有限次元 Heine--Borel 型結果, 有限次元Heine--Borel型結果, R^nの閉有界集合の有限化]
+    requires:
+      - topology.bolzano-weierstrass-real
+
+  - id: analysis.finite-dimensional-heine-cantor
+    name: 有限次元 Heine--Cantor 型結果
+    kind: theorem
+    aliases: [有限次元 Heine--Cantor 型結果, 有限次元Heine--Cantor型結果, R^nの閉有界集合上の一様連続性]
+    requires:
+      - analysis.finite-dimensional-heine-borel
+
+  - id: analysis.closed-bounded-open-buffer
+    name: 一様な内側余裕
+    kind: corollary
+    aliases: [一様な内側余裕]
+    requires:
+      - analysis.finite-dimensional-heine-borel
+
   - id: analysis.multidimensional-darboux-sums
     name: 多次元Darboux上和・下和
     kind: definition
@@ -42,7 +71,7 @@ concepts:
     aliases: [連続関数の多重Riemann可積分性]
     requires:
       - analysis.multiple-riemann-integral
-      - analysis.heine-cantor
+      - analysis.finite-dimensional-heine-cantor
 
   - id: analysis.iterated-riemann-integral-rectangle
     name: 矩形上の反復積分定理
@@ -68,6 +97,8 @@ concepts:
     requires:
       - analysis.linear-volume-scaling
       - analysis.multivariable-differentiability
+      - analysis.ftc-2
+      - analysis.finite-dimensional-heine-cantor
       - linear.determinant-invertibility-criterion
 
   - id: analysis.multivariable-riemann-change-of-variables
@@ -78,6 +109,9 @@ concepts:
       - analysis.jordan-domain-riemann-integral
       - analysis.local-volume-scaling
       - analysis.multivariable-differentiability
+      - analysis.multivariable-chain-rule
+      - analysis.finite-dimensional-heine-cantor
+      - analysis.closed-bounded-open-buffer
       - linear.matrix-determinant
 
   - id: analysis.polar-spherical-riemann-change-of-variables
