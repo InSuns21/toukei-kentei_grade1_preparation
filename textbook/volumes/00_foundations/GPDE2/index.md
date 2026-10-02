@@ -371,53 +371,53 @@ $$
 
 一般の多重指数
 
-$
+$$
 \alpha=(\alpha_1,\ldots,\alpha_d),
 \qquad
 |\alpha|=m
-$
+$$
 
 を取ります。$\alpha$ に含まれる微分を一つずつ並べた座標列 $j_1,\ldots,j_m$ を選ぶと、
 
-$
+$$
 \partial^\alpha
 =
 \partial_{j_m}\cdots\partial_{j_1}.
-$
+$$
 
 $f\in C^m(\Omega)$ なので、途中で現れる
 
-$
+$$
 f,\quad
 \partial_{j_1}f,\quad
 \partial_{j_2}\partial_{j_1}f,\quad\ldots
-$
+$$
 
 は、次の一階の整合性を適用するのに十分な連続微分を持ちます。そこで
 
-$
+$$
 \partial_{j_1}T_f
 =
 T_{\partial_{j_1}f},
-$
+$$
 
 さらに
 
-$
+$$
 \partial_{j_2}\partial_{j_1}T_f
 =
 \partial_{j_2}T_{\partial_{j_1}f}
 =
 T_{\partial_{j_2}\partial_{j_1}f},
-$
+$$
 
 と一段ずつ進めます。$m$ 段後に
 
-$
+$$
 \partial^\alpha T_f
 =
 T_{\partial^alpha f}
-$
+$$
 
 を得ます。混合偏微分の順序が最終結果に影響しないのは、$f\in C^m$ で古典的な混合偏微分が交換するからです。
 <!-- proof-end -->
@@ -1117,45 +1117,45 @@ $$
 
 ここで一階だけで止めず、高階微分へ進む手順も確認します。ある多重指数 $\beta$ について
 
-$
+$$
 \partial^\beta u_\varepsilon(x)
 =
 \int_\Omega
 u(y)\partial^\beta\rho_\varepsilon(x-y)\,dy
-$
+$$
 
 まで得られたとします。$\partial^\beta\rho_\varepsilon$ も滑らかでコンパクト台を持つので、上と同じ固定コンパクト集合上で
 
-$
+$$
 |u(y)|
 \sup_z
 |\partial_j\partial^\beta\rho_\varepsilon(z)|
-$
+$$
 
 を支配関数にできます。したがって $x_j$ 方向の差分商へ優収束定理をもう一度適用でき、
 
-$
+$$
 \partial_j\partial^\beta u_\varepsilon(x)
 =
 \int_\Omega
 u(y)
 \partial_j\partial^\beta\rho_\varepsilon(x-y)\,dy.
-$
+$$
 
 $\beta=0$ から始めてこの操作を帰納的に繰り返すと、任意の多重指数 $\alpha$ に対して
 
-$
+$$
 \partial^\alpha u_\varepsilon(x)
 =
 \int_\Omega
 u(y)\partial^\alpha\rho_\varepsilon(x-y)\,dy.
-$
+$$
 
 よって $u_\varepsilon$ は全階で連続微分可能であり、
 
-$
+$$
 u_\varepsilon\in C^\infty(\Omega_\varepsilon)
-$
+$$
 
 です。
 <!-- proof-end -->
@@ -1502,10 +1502,10 @@ $$
 
 $\Omega$ は、中心と半径が有理数で閉包が $\Omega$ に含まれる開球の可算族で被覆できます。それぞれの閉球は $\Omega$ の内部にコンパクトに含まれるので、上の結論を可算個の閉球へ適用すると、
 
-$
+$$
 f=0
 \quad\text{a.e. on }\Omega.
-$
+$$
 
 一般に $T_f=T_g$ なら $T_{f-g}=0$ へ適用して
 
