@@ -1,0 +1,66 @@
+chapter: SET-U1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00A1C
+
+forward_references:
+  - order.partial-order-relation
+  - topology.quotient-topology-map
+  - topology.identification-space
+
+concepts:
+  - id: order.binary-relation
+    name: 二項関係
+    kind: definition
+    aliases: [二項関係, binary relation]
+    requires:
+      - set.cartesian-product
+      - set.subset
+
+  - id: set.equivalence-relation-class
+    name: 同値関係・同値類
+    kind: definition
+    aliases: [同値関係, 同値類, equivalence relation, equivalence class]
+    introduction_aliases: [同値関係, 同値類]
+    requires:
+      - order.binary-relation
+
+  - id: set.quotient-set
+    name: 商集合
+    kind: definition
+    aliases: [商集合, quotient set]
+    requires:
+      - set.equivalence-relation-class
+      - set.power-set
+
+  - id: set.canonical-projection
+    name: 標準射影
+    kind: definition
+    aliases: [標準射影, canonical projection]
+    requires:
+      - set.quotient-set
+      - set.function
+
+  - id: set.partition
+    name: 集合の分割
+    kind: definition
+    aliases: [集合の分割, partition of a set]
+    requires:
+      - set.family
+
+  - id: set.equivalence-partition-correspondence
+    name: 同値関係と集合の分割の対応
+    kind: theorem
+    aliases: [同値関係と集合の分割の対応, equivalence relation partition correspondence]
+    requires:
+      - set.equivalence-relation-class
+      - set.partition
+
+  - id: set.quotient-factorization
+    name: 商集合への写像の降下
+    kind: theorem
+    aliases: [商集合への写像の降下, quotient factorization]
+    requires:
+      - set.canonical-projection
+      - set.equivalence-relation-class
