@@ -1,0 +1,78 @@
+chapter: SET-U3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SET-U2
+
+forward_references:
+  - order.partial-order
+  - set.choice-axiom
+
+concepts:
+  - id: set.same-cardinality
+    name: 同じ濃度
+    kind: definition
+    aliases: [同じ濃度, 等濃, same cardinality, equipotent]
+    introduction_aliases: [同じ濃度, 濃度]
+    requires:
+      - set.bijection
+
+  - id: set.cardinality-comparison
+    name: 濃度の比較
+    kind: definition
+    aliases: [濃度の比較, cardinality comparison]
+    introduction_aliases: [濃度の比較]
+    requires:
+      - set.same-cardinality
+      - set.injection
+
+  - id: set.strict-cardinality-comparison
+    name: 真に小さい濃度
+    kind: definition
+    aliases: [真に小さい濃度, strict cardinality comparison]
+    introduction_aliases: [真に小さい濃度]
+    requires:
+      - set.cardinality-comparison
+
+  - id: set.cantor-bernstein
+    name: Cantor--Bernstein の定理
+    kind: theorem
+    aliases: [Cantor--Bernstein の定理, Cantor-Bernstein theorem, Schroeder--Bernstein theorem]
+    requires:
+      - set.cardinality-comparison
+      - set.bijection
+
+  - id: set.cantor-theorem
+    name: Cantor の定理
+    kind: theorem
+    aliases: [Cantor の定理, Cantor's theorem]
+    requires:
+      - set.power-set
+      - set.strict-cardinality-comparison
+
+  - id: set.interval-powerset-natural-cardinality
+    name: 区間と自然数のべき集合は同じ濃度
+    kind: proposition
+    aliases: [区間と自然数のべき集合は同じ濃度]
+    requires:
+      - set.cantor-bernstein
+      - set.natural-product-countable
+      - set.power-set
+
+  - id: set.continuum-cardinality
+    name: 連続体濃度
+    kind: definition
+    aliases: [連続体濃度, cardinality of the continuum]
+    introduction_aliases: [連続体濃度]
+    requires:
+      - set.same-cardinality
+      - set.real-uncountable
+
+  - id: set.real-powerset-natural-cardinality
+    name: 実数と自然数のべき集合は同じ濃度
+    kind: theorem
+    aliases: [実数と自然数のべき集合は同じ濃度]
+    requires:
+      - set.interval-powerset-natural-cardinality
+      - set.continuum-cardinality
+      - set.cantor-bernstein
