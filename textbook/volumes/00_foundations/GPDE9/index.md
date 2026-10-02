@@ -373,7 +373,7 @@ $$
 <a id="lem-gpde9-discrete-ibp"></a>
 
 <!-- formal-statement-start -->
-> **補題（差分商 の部分積分）**  
+> **補題（差分商の部分積分）**  
 > $u,v\in L^2(\mathbb R^d)$ とし、少なくとも一方が コンパクト台 を持つとする。$h\ne0$ に対して
 >
 $$
@@ -922,7 +922,7 @@ $$
 <a id="thm-gpde9-poisson-interior-h2"></a>
 
 <!-- formal-statement-start -->
-> **定理（Poisson 方程式の 内部 H2 正則性）**  
+> **定理（Poisson 方程式の内部 H2 正則性）**  
 > $\Omega\subset\mathbb R^d$ を開集合とし、
 >
 $$
@@ -1537,7 +1537,7 @@ $$
 <a id="thm-gpde9-lipschitz-coefficient-h2"></a>
 
 <!-- formal-statement-start -->
-> **定理（局所 Lipschitz 係数の 内部 H2 正則性）**  
+> **定理（局所 Lipschitz 係数の内部 H2 正則性）**  
 > $\Omega\subset\mathbb R^d$ を開集合とする。
 >
 > $A:\Omega\to\mathbb R^{d\times d}$ とする。任意の $V\Subset\Omega$ に対し、ある定数
@@ -2256,7 +2256,7 @@ u\in H_0^1(\Omega),
 -\Delta u=f
 $$
 
-を弱く満たすなら、標準的な global 楕円型正則性 theorem により
+を弱く満たすなら、標準的な大域楕円型正則性定理 により
 
 $$
 u\in H^2(\Omega)
@@ -2410,7 +2410,7 @@ $$
 | $A$ bounded | 局所化関数 error | $A\nabla w\cdot\nabla\eta$ を評価する |
 | $A$ 局所 Lipschitz | 係数差分 | $D_hA$ を $h$ に一様に抑える |
 | 差分商判定法 | 最後の極限 | 一様差分 評価 を弱微分の存在へ変える |
-| 境界 正則性 | global $H^2$ | 内部正則性定理 だけでは境界での特異性を除けない |
+| 境界正則性 | 大域 $H^2$ | 内部正則性定理だけでは境界での特異性を除けない |
 
 特に
 
