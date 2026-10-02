@@ -317,6 +317,21 @@ F0-00C2（後段）:
 
 と責務を分離する。F0-00F1 から F0-00C2 への prerequisite edge は置かず、forward proof reference として追跡する。
 
+#### 線形代数系列の stale dependency 整理（2026-10-03）
+
+decision gate の結論を実ファイルへ反映した。
+
+- F0-00E の `chapter.yaml` から実需要のない `F0-00B` prerequisite を削除した。
+- F0-00F の `knowledge.yaml` から実需要のない `F0-00E1` prerequisite を削除した。
+- LA4 の `chapter.yaml` / `knowledge.yaml` から、本文・concept requires が使用していない `F0-00F1` prerequisite を削除した。
+- F0-00F1 から `F0-00C2` prerequisite と球面制約の Lagrange 必要条件を除去し、「実対称行列の実固有対の存在」だけを結果として受け取る構成へ変更した。直交補空間の不変性・制限作用素の対称性・次元帰納法によるスペクトル定理本体は F0-00F1 内で閉じる。
+- F0-00F1 の `knowledge.yaml` では `linear.real-symmetric-eigenpair-existence` を登録し、後段の `topology.extreme-value-theorem` を forward reference として追跡する。本文からは F0-00C2 の実在する証明 anchor へ接続する。
+- F0-00C2 で、単位球面の compactness と Weierstrass の最大最小定理から最大点を取り、微分・gradient・Lagrange を使わず、正規化摂動に対する最大性の不等式の一次項を消すことで固有対存在を完全証明した。
+- F0-00F2 の次章導線を F0-00D1 から LA6 へ戻し、有限次元線形代数系列内で接続した。
+- 変更対象は current main の学習者向けタイトルを土台にし、#659 のタイトル統一を巻き戻していない。
+
+これにより、線形代数系列の blocking な後段 prerequisite は解消され、F0-00F1 のみ「存在補題の証明を後段で回収する」という decision gate どおりの責務分離になった。
+
 ### 6.3 実解析
 
 実解析は、実数・実数列・実関数に必要な完全性とコンパクト性を**実解析内部で具体的に証明**し、一般距離空間・一般位相空間を prerequisite にしない。
@@ -573,7 +588,7 @@ F0-00A1D の改稿着手時に、既存の F0-00A1 / A1B / RA1 との責務境�
 6. ✅ F0-00A1D を学部標準の順序論章へ改稿し、F0-00A1 / A1B / A1C / A3 / RA1 の責務境界を整理（2026-10-02）
 7. ✅ 共通基礎4科目の依存逆転を全件監査し、blocking 修正対象を確定（2026-10-02）。対象は F0-00E/E1/E2/F/F1/F2、LA1--LA6・LA3A--LA3E、RA1--RA8、F0-00B/B1/C/C1/C2/D/D0 系、TOP1--TOP7、および集合論側の F0-00A3。
 8. ✅ F0-00F1 のスペクトル定理 proof path を決定（2026-10-02）。固有対存在補題だけを後段 F0-00C2 で証明回収し、直交補空間の不変性と次元帰納法によるスペクトル定理本体は F0-00F1 で閉じる。
-9. ▶ 線形代数系列の stale dependency を整理する。F0-00E→F0-00B、F0-00F→F0-00E1、LA4→F0-00F1 を実需要に従って除去し、F0-00F1 の決定済み経路へ同期する。F0-00F2 の次章ナビゲーションも線形代数系列内へ戻す。
+9. ✅ 線形代数系列の stale dependency を整理（2026-10-03）。F0-00E→F0-00B、F0-00F→F0-00E1、LA4→F0-00F1 を除去し、F0-00F1 は固有対存在だけを後段 F0-00C2 で証明回収する構成へ同期、F0-00F2 の次章導線を LA6 へ戻した。
 10. RA1 に実数列の Cauchy 条件・実数の完備性を統合し、F0-00D prerequisite を除去する。級数の Cauchy 判定もこの実数版から閉じる。
 11. RA2 を一般位相から独立させ、実数・閉区間に必要な Bolzano--Weierstrass、最大最小、Heine--Cantor 等を実解析側の canonical result として閉じる。RA3 の Rolle 証明もこの実解析側結果へ付け替える。
 12. RA4A の Cauchy 判定と RA6A の収縮写像・逆関数定理を、RA1 の実数 Cauchy 完備性と $\mathbb R^n$ の座標ごとの具体的完備性だけで閉じる。RA6A の球面極値演習から一般コンパクト性依存も除去する。
