@@ -19,7 +19,7 @@ learning_objectives:
   - 零 Dirichlet 熱方程式へ抽象定理を適用し、エネルギー弱解の存在一意性を導ける
   - 弱収束だけでは一般の非線形項の極限を通せない反例を検証できる
   - 波動方程式の自然なエネルギー空間 H_0^1 x L^2 とエネルギー保存を説明できる
-  - 強連続半群と mild 解の半群表示を定義し、固有モードで Duhamel 型表示を確認できる
+  - 強連続作用素族と mild 解の積分表示を定義し、固有モードで Duhamel 型表示を確認できる
 definitions:
   - { id: GPDE10-DEF-01, name: "時間依存L2空間" }
   - { id: GPDE10-DEF-02, name: "Gelfand三つ組" }
@@ -27,7 +27,7 @@ definitions:
   - { id: GPDE10-DEF-04, name: "Galerkin近似" }
   - { id: GPDE10-DEF-05, name: "波動方程式のエネルギー空間" }
   - { id: GPDE10-DEF-06, name: "mild解" }
-  - { id: GPDE10-DEF-07, name: "強連続半群" }
+  - { id: GPDE10-DEF-07, name: "強連続作用素族" }
 theorems:
   - { id: GPDE10-LEM-01, name: "Gelfand三つ組のエネルギー恒等式" }
   - { id: GPDE10-PROP-01, name: "Galerkin解の一様エネルギー評価" }
@@ -41,7 +41,7 @@ canonical_examples:
   - "二つの正弦モードによる Galerkin 系"
   - "sin(nx) の弱収束と二乗の極限破綻"
   - "単一波動モードのエネルギー保存"
-  - "固有モード上の強連続半群と Duhamel 型表示"
+  - "固有モード上の強連続作用素族と Duhamel 型表示"
 problem_patterns:
   - GPDE10-GELFAND-1
   - GPDE10-HEAT-MODE-1
