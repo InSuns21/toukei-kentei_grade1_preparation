@@ -23,7 +23,7 @@ definitions:
 theorems:
   - { id: RA7-THM-06, name: 有限次元 Heine--Borel 型結果 }
   - { id: RA7-THM-07, name: 有限次元 Heine--Cantor 型結果 }
-  - { id: RA7-COR-01, name: 閉有界集合と開集合の一様な内側余裕 }
+  - { id: RA7-COR-01, name: 一様な内側余裕 }
   - { id: RA7-THM-01, name: 連続関数の多重Riemann可積分性 }
   - { id: RA7-THM-02, name: 矩形上の反復積分定理 }
   - { id: RA7-THM-03, name: 線形写像の体積倍率 }
