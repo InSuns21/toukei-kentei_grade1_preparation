@@ -127,11 +127,11 @@ concepts:
       - pde.pde4-wave-equation
 
   - id: evolution.strongly-continuous-semigroup
-    name: 強連続作用素族
+    name: 強連続半群
     kind: definition
-    aliases: ["C0 semigroup", "C_0 semigroup", "strongly continuous semigroup", "strongly continuous operator family"]
+    aliases: ["C0 semigroup", "C_0 semigroup", "strongly continuous semigroup"]
     introduction: formal
-    introduction_aliases: ["定義（強連続作用素族）"]
+    introduction_aliases: ["定義（強連続半群）"]
     requires:
       - functional.hilbert-space
 
@@ -140,6 +140,6 @@ concepts:
     kind: definition
     aliases: ["mild solution", "semigroup mild solution", "Duhamel semigroup solution"]
     introduction: formal
-    introduction_aliases: ["定義（mild 解：作用素族表示）"]
+    introduction_aliases: ["定義（mild 解：半群表示）"]
     requires:
       - evolution.strongly-continuous-semigroup

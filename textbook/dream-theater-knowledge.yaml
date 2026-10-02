@@ -52,6 +52,10 @@ alias_matching:
     - commutator
     - 対応
     - correspondence
+    # canonical name 自体が短く、別の専門語や一般的な説明句の一部へ部分一致しやすいものも含む。
+    # 例: 「群」は「半群」の末尾、「刻み幅」は数値 ODE 以外の差分・近似でも一般語として現れる。
+    - 群
+    - 刻み幅
     # 分野横断で多義的、または別の専門語の一部として現れやすい語。
     # 自由文の部分一致ではなく、formal label・完全一致リンク等だけを高信頼参照とする。
     - differential
@@ -81,6 +85,7 @@ formal_kinds:
 # 高信頼の未定義専門語候補、local concept の first-use、曖昧 alias 使用も検査する。
 # HTMLタグ・属性、コード、数式、URLなど読者本文ではない文字列は概念使用として扱わない。
 # contextual_aliases は自由文の部分一致だけでは blocking にせず、明示的な高信頼参照だけを使用判定する。
+# concept の name も matcher 上は aliases と同列に扱われるため、短い canonical name にもこの指定を使える。
 # aliases は同一概念の真の別称だけに使い、関連語・検索語・構成要素を入れない。
 # 複合見出し・formal label は introduction_aliases、再掲は一意な再掲名 + canonical concept への requires で表す。
 # stable ID / anchor は後方互換性を担うが、alias は担わない。意味的に誤った alias を互換目的で残さない。
