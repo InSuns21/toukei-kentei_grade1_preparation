@@ -116,7 +116,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$R$ は閉かつ有界なので、[有限次元 Heine--Cantor 型定理](#thm-ra7-finite-dimensional-heine-cantor)により $f$ は一様連続です。任意の $\varepsilon>0$ を取ります。$|R|>0$ とし、一様連続性からある $\delta>0$ が存在して
+$R$ は閉かつ有界なので、[有限次元 Heine--Cantor 型結果](#thm-ra7-finite-dimensional-heine-cantor)により $f$ は一様連続です。任意の $\varepsilon>0$ を取ります。$|R|>0$ とし、一様連続性からある $\delta>0$ が存在して
 
 $$
 \|x-y\|<\delta
@@ -182,7 +182,7 @@ $$
 > と定める。
 <!-- formal-statement-end -->
 
-$f$ が $\overline A$ を含む範囲で連続なら、この延長は境界で不連続になり得ます。しかし $A$ は有界なので $\overline A$ も閉有界であり、[有限次元 Heine--Cantor 型定理](#thm-ra7-finite-dimensional-heine-cantor)から $f$ は $\overline A$ 上有界です。境界を覆う小矩形の総体積は任意に小さくできるため、その小矩形が作る上和・下和の差も任意に小さくできます。従って連続関数はJordan可測領域上で積分できます。
+$f$ が $\overline A$ を含む範囲で連続なら、この延長は境界で不連続になり得ます。しかし $A$ は有界なので $\overline A$ も閉有界であり、[有限次元 Heine--Cantor 型結果](#thm-ra7-finite-dimensional-heine-cantor)から $f$ は $\overline A$ 上有界です。境界を覆う小矩形の総体積は任意に小さくできるため、その小矩形が作る上和・下和の差も任意に小さくできます。従って連続関数はJordan可測領域上で積分できます。
 
 <!-- definition-example-start: def-ra7-domain-integral -->
 **定義の確認**：$T=\{(x,y):0\le x\le1,\ 0\le y\le x\}$ はJordan可測で、$f(x,y)=x+y$ は連続です。したがって $\int_Tf$ は、$T$ 外で0とした関数の $[0,1]^2$ 上のRiemann積分として定まります。
@@ -369,7 +369,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$K$ は閉矩形なので閉有界です。[有限次元 Heine--Cantor 型定理](#thm-ra7-finite-dimensional-heine-cantor)を行列成分へ適用すると、$D\Phi$ は $K$ 上一様連続です。また各 $D\Phi(x)$ は可逆で、$A\mapsto A^{-1}=\operatorname{adj}(A)/\det A$ は可逆行列上で連続です。従って $x\mapsto D\Phi(x)^{-1}$ も $K$ 上連続であり、同じ定理から有界です。よってある $C<\infty$ が存在して
+$K$ は閉矩形なので閉有界です。[有限次元 Heine--Cantor 型結果](#thm-ra7-finite-dimensional-heine-cantor)を行列成分へ適用すると、$D\Phi$ は $K$ 上一様連続です。また各 $D\Phi(x)$ は可逆で、$A\mapsto A^{-1}=\operatorname{adj}(A)/\det A$ は可逆行列上で連続です。従って $x\mapsto D\Phi(x)^{-1}$ も $K$ 上連続であり、同じ定理から有界です。よってある $C<\infty$ が存在して
 
 $$
 \|D\Phi(x)^{-1}\|\le C
@@ -517,7 +517,7 @@ $$
 \overline A\subset K_U\subset U,
 $$
 
-かつ $K_U$ は有限個の閉立方体の和なので閉有界です。[有限次元 Heine--Cantor 型定理](#thm-ra7-finite-dimensional-heine-cantor)から $D\Phi$ は $K_U$ 上有界です。従って、十分細かい格子立方体 $Q\subset K_U$ の中では、$g(t)=\Phi(y+t(x-y))$ に RA6 の連鎖律と RA4 の微積分学の基本定理を適用して
+かつ $K_U$ は有限個の閉立方体の和なので閉有界です。[有限次元 Heine--Cantor 型結果](#thm-ra7-finite-dimensional-heine-cantor)から $D\Phi$ は $K_U$ 上有界です。従って、十分細かい格子立方体 $Q\subset K_U$ の中では、$g(t)=\Phi(y+t(x-y))$ に [多変数の連鎖律](../RA6/index.md#thm-ra6-chain-rule) を適用し、さらに各成分へ [微積分学の基本定理II](../RA4/index.md#thm-ra4-ftc2) を使って
 
 $$
 \|\Phi(x)-\Phi(y)\|_2
@@ -528,7 +528,7 @@ $$
 
 となる共通定数 $M_U$ を使えます。Jordan内容0集合を覆う小矩形は、固定した有限格子との共通細分を取ることで各格子立方体の内部に収まるよう細分できます。その各部分では上の同じ Lipschitz 定数 $M_U$ が使えるため、像を覆う矩形の総体積も元の総体積の定数倍で抑えられます。従って $\Phi$ は $\overline A$ 内のJordan内容0集合をJordan内容0集合へ送ります。
 
-次に $\Phi(\overline A)$ が閉有界であることを確認します。有界性は $\Phi$ の連続性と[有限次元 Heine--Cantor 型定理](#thm-ra7-finite-dimensional-heine-cantor)から従います。閉性について、$y_j=\Phi(x_j)\in\Phi(\overline A)$ が $y_j\to y$ と収束するとします。[有限次元 Heine--Borel 型定理](#thm-ra7-finite-dimensional-heine-borel)により、ある部分列が $x_{j_k}\to x\in\overline A$ と収束します。$\Phi$ の連続性から
+次に $\Phi(\overline A)$ が閉有界であることを確認します。有界性は $\Phi$ の連続性と[有限次元 Heine--Cantor 型結果](#thm-ra7-finite-dimensional-heine-cantor)から従います。閉性について、$y_j=\Phi(x_j)\in\Phi(\overline A)$ が $y_j\to y$ と収束するとします。[有限次元 Heine--Borel 型結果](#thm-ra7-finite-dimensional-heine-borel)により、ある部分列が $x_{j_k}\to x\in\overline A$ と収束します。$\Phi$ の連続性から
 
 $$
 y
@@ -548,7 +548,7 @@ $$
 
 $\partial A$ はJordan内容0だから $\partial\Phi(A)$ もJordan内容0であり、$\Phi(A)$ はJordan可測です。
 
-次に $A$ を含む矩形を格子分割し、境界に触れない内部小矩形 $Q_i\subset A$ と境界に触れる小矩形へ分けます。境界小矩形の総体積は分割を細かく選べば任意に小さくできます。また $f\circ\Phi$ と $|\det D\Phi|$ は $\overline A$ 上連続なので、[有限次元 Heine--Cantor 型定理](#thm-ra7-finite-dimensional-heine-cantor)により有界です。従って境界小矩形の寄与も任意に小さくできます。
+次に $A$ を含む矩形を格子分割し、境界に触れない内部小矩形 $Q_i\subset A$ と境界に触れる小矩形へ分けます。境界小矩形の総体積は分割を細かく選べば任意に小さくできます。また $f\circ\Phi$ と $|\det D\Phi|$ は $\overline A$ 上連続なので、[有限次元 Heine--Cantor 型結果](#thm-ra7-finite-dimensional-heine-cantor)により有界です。従って境界小矩形の寄与も任意に小さくできます。
 
 各内部小矩形 $Q_i$ に標本点 $\xi_i$ を取ります。[局所体積倍率補題](#lem-ra7-local-volume) により、メッシュを $\delta\to0$ とすると一様に
 
@@ -559,7 +559,7 @@ $$
 J(x)=|\det D\Phi(x)|.
 $$
 
-また $\Phi(\overline A)$ は閉有界で $f$ はその上で連続なので、[有限次元 Heine--Cantor 型定理](#thm-ra7-finite-dimensional-heine-cantor)から $f$ は一様連続です。従って $Q_i$ が十分小さく、上の共通Lipschitz評価で $\Phi(Q_i)$ の直径も一様に小さくなれば、$\Phi(Q_i)$ 上の $f$ の振幅も一様に小さくなります。よって像側の積分はRiemann和として
+また $\Phi(\overline A)$ は閉有界で $f$ はその上で連続なので、[有限次元 Heine--Cantor 型結果](#thm-ra7-finite-dimensional-heine-cantor)から $f$ は一様連続です。従って $Q_i$ が十分小さく、上の共通Lipschitz評価で $\Phi(Q_i)$ の直径も一様に小さくなれば、$\Phi(Q_i)$ 上の $f$ の振幅も一様に小さくなります。よって像側の積分はRiemann和として
 
 $$
 \int_{\Phi(A)}f(y)\,dy
