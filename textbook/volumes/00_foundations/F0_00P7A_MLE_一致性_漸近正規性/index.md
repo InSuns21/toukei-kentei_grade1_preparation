@@ -136,23 +136,23 @@ $$
 
 であり、$|Y_n|>R$ の確率を先に小さくできます。したがって
 
-$
+$$
 Y_n(Z_n-c)\xrightarrow{p}0.
-$
+$$
 
 よって
 
-$
+$$
 Y_nZ_n-cY_n\xrightarrow{p}0.
-$
+$$
 
 和についても $(Y_n+Z_n)-(Y_n+c)=Z_n-c\to0$ in probability です。[有界 Lipschitz 関数による分布収束の特徴付け](../F0_00P6_特性関数_中心極限定理/index.md#thm-f0-00p6-bl-characterization)を使えば、「分布収束する列へ $o_P(1)$ を加えても極限分布は変わらない」ことが従います。したがって和と積の結論を得ます。
 
 $c\ne0$ のとき、$Z_n\to c$ in probability から $1/Z_n\to1/c$ in probability です。積の結論を $Y_n$ と $1/Z_n$ に適用すれば
 
-$
+$$
 \frac{Y_n}{Z_n}\Rightarrow\frac{Y}{c}
-$
+$$
 
 も得られます。
 <!-- proof-end -->
@@ -444,7 +444,7 @@ $$
 
 ## 7. 分子はスコア和の正規極限
 
-P7 のスコア恒等式から
+P7 の [スコア恒等式](../F0_00P7_統計モデル_尤度_正則性/index.md#thm-f0-00p7-score-identity) から
 
 $$
 E_{\theta_0}[s_{\theta_0}(X)]=0,
@@ -581,7 +581,7 @@ $$
 B_n\xrightarrow{d}N(0,I(\theta_0)).
 $$
 
-$I(\theta_0)>0$ なので、Slutsky の定理により
+$I(\theta_0)>0$ なので、[Slutsky の定理](#thm-f0-00p7a-slutsky) により
 
 $$
 A_n^{-1}B_n
@@ -618,9 +618,9 @@ $$
 \widehat p_n\xrightarrow{p}p_0,
 $$
 
-中心極限定理から
+[独立同分布・有限分散版の中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt) から
 
-$$
+$
 \sqrt n(\widehat p_n-p_0)
 \Rightarrow
 N(0,p_0(1-p_0)).
@@ -770,7 +770,7 @@ M_n(\theta_0)
 \eta>0.
 $$
 
-したがって最大化点は真値から $\varepsilon$ 以上離れた集合には入れません。これが一様大数の法則から一致性が出る中心機構です。
+したがって最大化点は真値から $\varepsilon$ 以上離れた集合には入れません。これが [一様大数の法則](#def-f0-00p7a-uniform-lln) から一致性が出る中心機構です。
 <!-- solution-end -->
 
 ### F0-00P7A-A04 スコア和へ中心極限定理を適用する
@@ -790,7 +790,7 @@ U_n(\theta_0)
 \sum_{i=1}^{n}s_{\theta_0}(X_i).
 $$
 
-各項は独立同分布で、平均0、分散 $I(\theta_0)$ です。したがって P6A の中心極限定理から
+各項は独立同分布で、平均0、分散 $I(\theta_0)$ です。したがって [P6A の中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt) から
 
 $$
 \frac{1}{\sqrt{nI(\theta_0)}}
@@ -820,9 +820,9 @@ $$
 
 一様な収束評価
 
-$
+$$
 \sup_{\theta\in\Theta}|M_n(\theta)-M(\theta)|\to0
-$
+$$
 
 なら、どの $\theta$ を選んでも誤差が同時に小さくなります。したがって $M$ が真値から離れた場所にもつ「最大値の隙間」を、$M_n$ でも保つことができます。
 <!-- solution-end -->
@@ -835,7 +835,7 @@ $X_1,\ldots,X_n\overset{\mathrm{iid}}{\sim}\operatorname{Poisson}(\lambda_0)$、
 
 1. 最尤推定量を求めよ。
 2. 1標本あたりのフィッシャー情報量を求めよ。
-3. 中心極限定理から $\sqrt n(\widehat\lambda_n-\lambda_0)$ の極限分布を求め、分散が逆情報量と一致することを確認せよ。
+3. [中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt) から $\sqrt n(\widehat\lambda_n-\lambda_0)$ の極限分布を求め、分散が逆情報量と一致することを確認せよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -888,9 +888,9 @@ I(\lambda)
 \frac1\lambda.
 $$
 
-また中心極限定理から
+また [独立同分布・有限分散版の中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt) から
 
-$$
+$
 \sqrt n(\overline X_n-\lambda_0)
 \Rightarrow
 N(0,\lambda_0).
@@ -1052,7 +1052,7 @@ $$
 N(0,I(\theta_0)).
 $$
 
-よって Slutsky の定理から
+よって [Slutsky の定理](#thm-f0-00p7a-slutsky) から
 
 $$
 \sqrt n(\widehat\theta_n-\theta_0)
