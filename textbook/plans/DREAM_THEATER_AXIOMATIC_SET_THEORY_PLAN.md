@@ -1,6 +1,7 @@
 # DREAM THEATER 集合論・数学基礎論コース計画
 
 作成日: 2026-09-29  
+更新日: 2026-10-02  
 状態: planned
 
 ## 0. 位置づけ
@@ -255,10 +256,31 @@ ID は実装前に既存 ID / dream-theater-index / knowledge DAG を確認し�
 - 可算選択
 - 有限集合族に対する選択
 - 従属選択公理 DC
-- ultrafilter lemma
+- proper filter
+- 主超フィルターと自由超フィルター
+- $\mathbb N$ 上の余有限フィルター
+- ultrafilter lemma：任意の proper filter は超フィルターへ延長できること
+- 余有限フィルターを延長して $\mathbb N$ 上の自由超フィルターを得ること
 - Boolean prime ideal theorem の位置付け
+- ultrafilter lemma / Boolean prime ideal theorem と完全な選択公理の強さを同一視しないこと
 - ZF / ZF+DC / ZFC の違い
 - どの含意を証明し、どれを位置付けだけに留めるかの明示
+
+filter 自体の canonical treatment は TOP6 にあるため、SET9 で重複定義を作らない。実装時には TOP6 の filter concept を必要箇所だけ prerequisite / requires として接続し、位相空間論後半全体を本科目の前提へ逆輸入しない。
+
+特に後続の超準解析では、$\mathbb R^{\mathbb N}$ の商を作る前に $\mathbb N$ 上の自由超フィルターが必要になる。SET9 はその存在を「選択公理があるから」で済ませず、
+
+~~~text
+余有限フィルター
+  ↓
+ultrafilter lemma による延長
+  ↓
+有限集合を含まないことの確認
+  ↓
+自由超フィルター
+~~~
+
+までを、どの選択原理を使ったか追跡できる形で閉じる。
 
 集合論の独立性理論を未習の段階では、証明できない非含意を「明らか」と書かない。
 
@@ -274,6 +296,7 @@ ID は実装前に既存 ID / dream-theater-index / knowledge DAG を確認し�
 - ultrafilter
 - Tychonoff の定理
 - Vitali 型非可測集合
+- 超準解析における $\mathbb N$ 上の自由超フィルターの利用
 - 選択原理を使わず明示的に選べる場合との比較
 
 各例について、
@@ -284,6 +307,8 @@ ID は実装前に既存 ID / dream-theater-index / knowledge DAG を確認し�
 4. 失うとどの構成が止まるか
 
 を局所的に説明する。
+
+超準解析との接続では、SET9 で得た自由超フィルターが後続科目の入力になることまでを説明する。$\mathbb R^{\mathbb N}/\mathcal U$ の ultrapower 構成、Łoś の定理、移送原理そのものは SET10 で重複実装せず、超準解析側の canonical treatment に委ねる。
 
 ## 4. 現行 F0-00A2 / A3 / A3A との責務分担
 
@@ -349,6 +374,7 @@ dream-theater-standard-math-core.md の共通基礎には、本科目を必修�
 - 測度論で Vitali 集合を扱う → 必要な AC の位置付けを局所説明し、本科目 SET10 は発展参照にできる。
 - 位相で Tychonoff を扱う → その証明が強い選択原理を使うなら、定理の依存を明示する。
 - 順序数そのものを使う理論 → 本科目を prerequisite にしてよい。
+- 超準解析で自由超フィルターを使う → SET9 を prerequisite にし、超準解析側で ultrafilter lemma や自由超フィルターの存在証明を重複させない。
 
 ## 6. 演習設計
 
@@ -398,6 +424,10 @@ dream-theater-standard-math-core.md の共通基礎には、本科目を必修�
 本科目は「数学基礎論」という名を含むが、初回実装で次を全面展開しない。
 
 - 一階述語論理の完全な形式化
+- 構造・充足関係の一般理論
+- ultraproduct / ultrapower の一般理論
+- Łoś の定理
+- 超準解析の移送原理
 - Gödel の完全性定理
 - Löwenheim--Skolem の定理
 - Gödel の不完全性定理
@@ -407,6 +437,22 @@ dream-theater-standard-math-core.md の共通基礎には、本科目を必修�
 - large cardinal 理論
 
 これらは将来、需要があれば別系列「数理論理・公理的集合論 II」として計画する。
+
+超準解析との責務境界は次のように置く。
+
+~~~text
+集合論・数学基礎論 SET9
+  自由超フィルターの存在
+          ↓
+超準解析
+  ultrapower
+  ↓
+  Łoś の定理
+  ↓
+  移送原理
+~~~
+
+超準解析側では、Łoś の定理を読者が再構成するのに必要な範囲で、項・論理式・構造・充足関係を局所導入してよい。ただし完全性定理や Löwenheim--Skolem の定理まで prerequisite に要求しない。将来「数理論理」系列にこれらの canonical treatment ができた場合は、重複を避けて参照へ切り替える。
 
 本科目では、
 
@@ -442,6 +488,8 @@ dream-theater-standard-math-core.md の共通基礎には、本科目を必修�
 - 基数と順序数を混同しない。
 - Hartogs 補題を AC に依存せず証明できる。
 - AC $\Leftrightarrow$ 整列可能定理 $\Leftrightarrow$ Zorn の証明を、未習概念なしで追える。
-- 可算選択・DC・完全な AC が同一ではないことを説明できる。
+- 可算選択・DC・ultrafilter lemma・完全な AC を無条件に同一視せず、それぞれの位置付けを説明できる。
+- $\mathbb N$ 上の余有限フィルターから自由超フィルターの存在を導き、その証明で使った選択原理を指摘できる。
 - 選択公理が Hamel 基底、Hahn--Banach、Vitali 集合などでどこに現れるかを局所的に説明できる。
+- 後続の超準解析が自由超フィルターを prerequisite として再利用でき、ultrapower・Łoś の定理・移送原理との責務境界が明確である。
 - 本科目を DREAM THEATER の共通基礎の必修にしていない。
