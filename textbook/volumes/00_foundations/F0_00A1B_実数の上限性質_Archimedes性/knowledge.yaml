@@ -8,6 +8,7 @@ forward_references:
   - analysis.real-sequence-convergence
   - analysis.monotone-convergence-sequence
   - analysis.limsup-liminf
+  - analysis.series
 
 concepts:
   - id: analysis.least-upper-bound-property
