@@ -516,7 +516,7 @@ $$
 \end{aligned}
 $$
 
-従って $(S_n(\omega))$ は Cauchy 列です。実数の完備性より $S_n(\omega)$ は収束します。これは確率1の事象上で成り立つので、$\sum_n Z_n$ は概収束します。
+従って $(S_n(\omega))$ は Cauchy 列です。[実数の完備性](../RA1/index.md#thm-ra1-real-completeness)より $S_n(\omega)$ は収束します。これは確率1の事象上で成り立つので、$\sum_n Z_n$ は概収束します。
 <!-- proof-end -->
 
 本章では
@@ -1279,7 +1279,7 @@ $$
 \end{aligned}
 $$
 
-従って部分和列は確率1で Cauchy 列です。実数の完備性により部分和は収束し、$\sum_nZ_n$ は概収束します。
+従って部分和列は確率1で Cauchy 列です。[実数の完備性](../RA1/index.md#thm-ra1-real-completeness)により部分和は収束し、$\sum_nZ_n$ は概収束します。
 <!-- solution-end -->
 
 ### F0-00P5A-B02 有限平均・無限分散の具体例を検証する
