@@ -92,7 +92,7 @@ concepts:
     kind: lemma
     aliases: ["H_0^1零延長のtranslation estimate", "H01 translation estimate", "H01 零延長の translation estimate", "translation estimate for zero extension"]
     introduction: formal
-    introduction_aliases: ["補題（$H_0^1$ 零延長の平行移動評価）"]
+    introduction_aliases: ["補題（H01 零延長の平行移動評価）"]
     requires:
       - sobolev.h01
 
@@ -101,7 +101,7 @@ concepts:
     kind: lemma
     aliases: ["L2 translation compactness lemma", "L2 translation compactness", "L2 Kolmogorov--Riesz criterion", "translation compactness criterion"]
     introduction: formal
-    introduction_aliases: ["補題（$L^2$ 平行移動コンパクト性）"]
+    introduction_aliases: ["補題（L2 平行移動コンパクト性）"]
     requires:
       - sobolev.h01-translation-estimate
 
@@ -110,7 +110,7 @@ concepts:
     kind: theorem
     aliases: ["Rellich compactness", "Rellich--Kondrachov theorem", "Rellich--Kondrachov：H01 から L2", "H01 compactly embeds into L2"]
     introduction: formal
-    introduction_aliases: ["定理（Rellich--Kondrachov：$H_0^1$ から $L^2$）"]
+    introduction_aliases: ["定理（Rellich--Kondrachov：H01 から L2）"]
     requires:
       - analysis.compact-embedding
       - analysis.l2-translation-compactness
@@ -121,7 +121,7 @@ concepts:
     kind: corollary
     aliases: ["H_0^1のsubcritical compact embedding", "subcritical Rellich compactness", "H01 subcritical compact embedding", "H01 の subcritical compact embedding"]
     introduction: formal
-    introduction_aliases: ["系（$H_0^1$ の劣臨界コンパクト埋め込み）"]
+    introduction_aliases: ["系（H01 の劣臨界コンパクト埋め込み）"]
     requires:
       - sobolev.rellich-h01-l2
       - sobolev.inequality-rd
@@ -131,7 +131,7 @@ concepts:
     kind: definition
     aliases: ["W01p", "zero-boundary W1p"]
     introduction: formal
-    introduction_aliases: ["定義（$W_0^{1,p}$）"]
+    introduction_aliases: ["定義（W01p）"]
     requires:
       - sobolev.wkp
 
