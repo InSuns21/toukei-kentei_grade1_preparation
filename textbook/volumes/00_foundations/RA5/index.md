@@ -44,7 +44,27 @@ $$
 
 ### 一様Cauchy条件から一様極限を作る
 
-実数値関数列では、一様Cauchy条件は一様収束と同値です。
+一様収束を定義どおり確かめるには、先に極限関数 $f$ を知っている必要があります。ところが実際には、極限関数の形がまだ分からない段階で「この関数列は収束するはずだ」と判定したいことがよくあります。一様Cauchy条件は、項どうしの差だけを使ってその判定を行うための道具です。
+
+実数値関数列では、各点 $x$ で実数の完備性を使って極限値 $f(x)$ を作れます。さらに一様Cauchy条件の $N$ は $x$ に依存しないため、各点ごとに作った極限が実は一様極限になる、というのが次の定理です。
+
+<a id="thm-ra5-uniform-cauchy-criterion"></a>
+<!-- formal-statement-start -->
+> **定理（一様Cauchy判定）**  
+> 実数値関数列 $f_n:E\to\mathbb R$ について、次は同値である。
+>
+> 1. $(f_n)$ は $E$ 上で一様収束する。
+> 2. $(f_n)$ は $E$ 上で一様Cauchy条件を満たす。
+>
+> 特に一様Cauchy条件を満たすなら、ある関数 $f:E\to\mathbb R$ が存在して $f_n\to f$ が一様収束する。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+一様収束から一様Cauchy条件を得る向きは、$f_n-f_m$ を極限関数 $f$ を経由して三角不等式で評価します。逆向きでは、まず各 $x$ を固定して $(f_n(x))$ を実数のCauchy列とみなし、実数の完備性から $f(x)=\lim_n f_n(x)$ を定めます。その後、一様Cauchy条件の不等式で $m\to\infty$ とすれば、同じ $N$ が全ての $x$ に効いたまま $|f_n(x)-f(x)|$ を抑えられます。
+
+<!-- proof-start -->
+### 証明
 
 まず $f_n\to f$ が一様収束するとします。任意の $\varepsilon>0$ に対し、十分大きい $m,n$ では全ての $x$ について
 $$
@@ -60,17 +80,20 @@ $$
 $$
 なので一様Cauchy条件を満たします。
 
-逆に $(f_n)$ が一様Cauchyだとします。各 $x$ を固定すれば $(f_n(x))$ は [実数列の Cauchy 条件](../RA1/index.md#def-ra1-cauchy)を満たすので、[実数の完備性](../RA1/index.md#thm-ra1-real-completeness)からある $f(x)\in\mathbb R$ に収束します。これで候補の極限関数 $f$ が各点ごとに定まります。
+逆に $(f_n)$ が一様Cauchyだとします。各 $x$ を固定すれば $(f_n(x))$ は [実数列の Cauchy 条件](../RA1/index.md#def-ra1-cauchy)を満たすので、[実数の完備性](../RA1/index.md#thm-ra1-real-completeness)からある $f(x)\in\mathbb R$ に収束します。これで候補の極限関数 $f:E\to\mathbb R$ が各点ごとに定まります。
 
 任意の $\varepsilon>0$ に対し、一様Cauchy条件を $\varepsilon/2$ で使って $N$ を取ります。$n\ge N$ を固定すると、全ての $m\ge N$ と全ての $x$ について
 $$
 |f_n(x)-f_m(x)|<\frac\varepsilon2.
 $$
-ここで $m\to\infty$ とすると $f_m(x)\to f(x)$ なので
+ここで各 $x$ を固定したまま $m\to\infty$ とすると $f_m(x)\to f(x)$ なので
 $$
 |f_n(x)-f(x)|\le\frac\varepsilon2<\varepsilon.
 $$
-この $N$ は $x$ に依存しません。したがって $f_n\to f$ は一様収束です。
+ここで選んだ $N$ は最初から $x$ に依存していません。したがって、すべての $n\ge N$ とすべての $x\in E$ について $|f_n(x)-f(x)|<\varepsilon$ が成り立ち、$f_n\to f$ は一様収束です。$\square$
+<!-- proof-end -->
+
+この定理により、極限関数を先に推測できない場合でも、関数列どうしの差を一様に小さくできることを示せば一様収束を結論できます。第5節の Weierstrass M-test では、部分和列が一様Cauchyであることを示して、この判定をそのまま使います。
 
 <!-- definition-example-start: def-ra5-pointwise, def-ra5-uniform, def-ra5-uniform-cauchy -->
 **定義の確認**：$E=[0,1]$, $f_n(x)=x/n$, $f(x)=0$ とします。各 $x$ を固定すれば $x/n\to0$ なので各点収束します。さらに
