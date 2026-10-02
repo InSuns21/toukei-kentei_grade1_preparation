@@ -1828,7 +1828,7 @@ $L^2(\mathbb R^d)$ は完備なので、その閉包はコンパクトです。
 <a id="thm-gpde5-rellich-h01-l2"></a>
 
 <!-- formal-statement-start -->
-> **定理（Rellich--Kondrachov：H01 から L2）**  
+> **定理（Rellich--Kondrachov：$H_0^1$ から $L^2$）**  
 > $\Omega\subset\mathbb R^d$ を 有界開集合 とする。
 >
 > このとき
@@ -2329,7 +2329,7 @@ $$
 
 が尺度不変になります。
 
-これが criticality そのものです。
+これが臨界性そのものです。
 
 <!-- proof-start -->
 ### 証明
