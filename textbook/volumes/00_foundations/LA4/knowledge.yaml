@@ -4,8 +4,9 @@ coverage: complete
 prerequisites:
   - LA3C
   - F0-00F
-  - F0-00F1
 forward_references:
+  - complex-analysis.fundamental-theorem-of-algebra
+  - linear.inner-product
   - linear.complex-inner-product
   - linear.normal-operator
 

@@ -70,6 +70,16 @@ alias_matching:
     - 常点
     - 発散
     - 回転
+    - スペクトル
+    - spectrum
+    - 鎖
+    - chain
+    - 置換
+    - permutation
+    - 互換
+    - transposition
+    - 三角多項式
+    - trigonometric polynomial
 
 rollout:
   # 既存ページは段階移行する。未移行ページそのものは audit では報告するが、

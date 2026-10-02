@@ -130,6 +130,8 @@ D は対角なので作用が「方向ごとの倍率」に分解される
 
 ## 1. 線形写像
 
+ベクトル空間を用意しただけでは、空間から空間への写像のうち、線形構造を保つものを区別できません。加法とスカラー倍を保つ写像に絞ると、基底ベクトルへの作用から任意のベクトルへの作用を復元できます。
+
 <a id="def-f0-00f-linear-map"></a>
 
 <!-- formal-statement-start -->
@@ -142,6 +144,33 @@ $$
 
 > を満たすとき、$T$ を **線形写像** といいます。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00f-linear-map -->
+### 1.1 例：$\mathbb R^2$ 上の線形写像を定義から確認する
+
+**定義の確認**
+
+$$
+T(x_1,x_2)=(2x_1+x_2, x_1+2x_2)
+$$
+
+とします。$x=(x_1,x_2)$、$y=(y_1,y_2)$、$a,b\in\mathbb R$ に対して
+
+$$
+\begin{aligned}
+T(ax+by)
+&=
+T(ax_1+by_1, ax_2+by_2)\\
+&=
+\bigl(2(ax_1+by_1)+(ax_2+by_2),\
+(ax_1+by_1)+2(ax_2+by_2)\bigr)\\
+&=
+aT(x)+bT(y).
+\end{aligned}
+$$
+
+任意の $x,y,a,b$ で定義式が成り立つので、$T$ は線形写像です。
+<!-- definition-example-end -->
 
 加法とスカラー倍を保存する写像です。
 
@@ -156,6 +185,8 @@ $$
 ---
 
 ## 2. kernel と image
+
+線形写像を一つ得たら、次に知りたいのは「どの入力が0へ潰れるか」と「出力側のどこまで到達できるか」です。この二つを部分空間として記録すると、方程式の解の自由度と写像の到達範囲を同じ枠組みで扱えます。
 
 <a id="def-f0-00f-kernel-image"></a>
 
@@ -175,6 +206,40 @@ $$
 
 > をそれぞれ **核（kernel）**、**像（image）** といいます。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00f-kernel-image -->
+### 2.1 例：核と像を集合として直接求める
+
+**定義の確認**
+
+$$
+T:\mathbb R^2\to\mathbb R^2,
+\qquad
+T(u,v)=(u,0)
+$$
+
+を考えます。$T(u,v)=0$ となるのは $u=0$ のときなので
+
+$$
+\ker T
+=
+\{(0,v):v\in\mathbb R\}
+=
+\operatorname{span}\{(0,1)\}.
+$$
+
+一方、出力は常に $(u,0)$ の形で、任意の $(u,0)$ は実際に $T(u,0)$ として得られるため
+
+$$
+\operatorname{Im}T
+=
+\{(u,0):u\in\mathbb R\}
+=
+\operatorname{span}\{(1,0)\}.
+$$
+
+これは核と像の定義をそのまま集合として確認しています。
+<!-- definition-example-end -->
 
 どちらも線形部分空間です。
 
@@ -385,6 +450,52 @@ $$
 
 > を、基底 $\mathcal B,\mathcal C$ に関する $T$ の **表現行列** といいます。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00f-representation-matrix -->
+### 4.1 例：標準基底で表現行列を列から作る
+
+**定義の確認**
+
+冒頭の
+
+$$
+T(x,y)=(2x+y, x+2y)
+$$
+
+に対して、入力・出力の基底をともに標準基底
+$mathcal E=(e_1,e_2)$ とします。このとき
+
+$$
+T(e_1)=(2,1)^T,
+\qquad
+T(e_2)=(1,2)^T.
+$$
+
+したがって定義どおり、この二つの座標ベクトルを列に並べれば
+
+$$
+[T]_{\mathcal E\leftarrow\mathcal E}
+=
+\begin{pmatrix}
+2&1\\
+1&2
+\end{pmatrix}.
+$$
+
+実際、$[x]_{\mathcal E}=(x,y)^T$ に掛けると
+
+$$
+\begin{pmatrix}
+2&1\\
+1&2
+\end{pmatrix}
+\begin{pmatrix}x\\y\end{pmatrix}
+=
+\begin{pmatrix}2x+y\\x+2y\end{pmatrix}
+=
+[T(x,y)]_{\mathcal E}.
+$$
+<!-- definition-example-end -->
 
 重要な式は
 
@@ -630,11 +741,56 @@ $$
 > と書けるとき、$A$ と $A'$ は **相似** であるといいます。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-f0-00f-similarity -->
+### 8.1 例：同じ写像の二つの表現行列が相似であることを確認する
+
+**定義の確認**
+
+冒頭の
+
+$$
+A=
+\begin{pmatrix}2&1\\1&2\end{pmatrix},
+\qquad
+P=
+\begin{pmatrix}1&1\\1&-1\end{pmatrix}
+$$
+
+では
+
+$$
+P^{-1}
+=
+\frac12
+\begin{pmatrix}1&1\\1&-1\end{pmatrix}.
+$$
+
+したがって
+
+$$
+\begin{aligned}
+P^{-1}AP
+&=
+\frac12
+\begin{pmatrix}1&1\\1&-1\end{pmatrix}
+\begin{pmatrix}2&1\\1&2\end{pmatrix}
+\begin{pmatrix}1&1\\1&-1\end{pmatrix}\\
+&=
+\begin{pmatrix}3&0\\0&1\end{pmatrix}
+=:D.
+\end{aligned}
+$$
+
+正則行列 $P$ が存在して $D=P^{-1}AP$ と書けたので、定義より $A$ と $D$ は相似です。
+<!-- definition-example-end -->
+
 相似な行列は違う行列に見えても、同じ線形写像を別の基底で見ているだけです。
 
 ---
 
 ## 9. 固有値・固有ベクトル・固有空間
+
+表現行列を作れても、そのままでは作用の本質的な方向が見えにくいことがあります。そこで、作用させても向きが変わらず、倍率だけが変わる非零ベクトルを探し、その倍率と対応する方向を記録します。
 
 <a id="def-f0-00f-eigen-data"></a>
 
@@ -654,6 +810,52 @@ $$
 
 > を固有値 $\lambda$ に対応する **固有空間** といいます。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00f-eigen-data -->
+### 9.1 例：固有値・固有ベクトル・固有空間を同時に確認する
+
+**定義の確認**
+
+$$
+A=
+\begin{pmatrix}2&1\\1&2\end{pmatrix},
+\qquad
+v=
+\begin{pmatrix}1\\1\end{pmatrix}
+$$
+
+とすると
+
+$$
+Av=
+\begin{pmatrix}3\\3\end{pmatrix}
+=
+3v.
+$$
+
+$v\ne0$ なので、定義より $3$ は固有値、$v$ は固有値 $3$ に属する固有ベクトルです。また
+
+$$
+A-3I
+=
+\begin{pmatrix}-1&1\\1&-1\end{pmatrix}
+$$
+
+だから
+
+$$
+E_3
+=
+\ker(A-3I)
+=
+\operatorname{span}
+\left\{
+\begin{pmatrix}1\\1\end{pmatrix}
+\right\}.
+$$
+
+これで固有空間の定義 $E_\lambda=\ker(A-\lambda I)$ まで直接確認できました。
+<!-- definition-example-end -->
 
 固有ベクトルは「写像を掛けても向きが変わらず、倍率だけが $\lambda$ になる方向」です。
 
@@ -734,6 +936,8 @@ $$
 
 ## 11. 対角化とは何か
 
+固有ベクトルが少数見つかるだけでは、写像全体を簡単な形にはできません。もし固有ベクトルだけで空間の基底を作れれば、その基底では各基底ベクトルが独立に倍率を受けるだけになり、表現行列は対角行列になります。
+
 <a id="def-f0-00f-diagonalizable"></a>
 
 <!-- formal-statement-start -->
@@ -748,6 +952,42 @@ $$
 
 > となることです。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00f-diagonalizable -->
+### 11.1 例：固有ベクトル基底で対角化可能性を定義から確認する
+
+**定義の確認**
+
+冒頭の
+
+$$
+v_1=(1,1)^T,
+\qquad
+v_2=(1,-1)^T
+$$
+
+は一次独立で $mathbb R^2$ の基底をなし、
+
+$$
+T(v_1)=3v_1,
+\qquad
+T(v_2)=v_2
+$$
+
+を満たします。したがって基底
+$mathcal B'=(v_1,v_2)$ に関する表現行列は
+
+$$
+[T]_{\mathcal B'\leftarrow\mathcal B'}
+=
+\begin{pmatrix}
+3&0\\
+0&1
+\end{pmatrix}.
+$$
+
+ある基底で表現行列が対角行列になったので、定義より $T$ は対角化可能です。
+<!-- definition-example-end -->
 
 対角行列の第 $i$ 列は
 
@@ -806,6 +1046,8 @@ $$
 
 ## 13. 代数的重複度と幾何学的重複度
 
+固有値が特性多項式の根として何回現れるかと、その固有値に属する独立な固有方向が何本あるかは同じとは限りません。対角化できるかを判断するには、この二種類の「重なり方」を別々に数える必要があります。
+
 <a id="def-f0-00f-multiplicities"></a>
 
 <!-- formal-statement-start -->
@@ -833,7 +1075,10 @@ $$
 
 対角化可能であるためには、各固有値について十分な本数の固有ベクトルが必要です。
 
-たとえば
+<!-- definition-example-start: def-f0-00f-multiplicities -->
+### 13.1 例：代数的重複度2、幾何学的重複度1
+
+**定義の確認**
 
 $$
 A=
@@ -843,16 +1088,54 @@ A=
 \end{pmatrix}
 $$
 
-では固有値1の代数的重複度は2ですが
+とします。特性多項式は
 
 $$
+\chi_A(t)
+=
+\det(tI-A)
+=
+\det
+\begin{pmatrix}
+t-1&-1\\
+0&t-1
+\end{pmatrix}
+=
+(t-1)^2.
+$$
+
+したがって固有値 $1$ の代数的重複度は $2$ です。一方
+
+$$
+A-I
+=
+\begin{pmatrix}
+0&1\\
+0&0
+\end{pmatrix}
+$$
+
+なので
+
+$$
+E_1
+=
 \ker(A-I)
 =
 \operatorname{span}
+\left\{
 \begin{pmatrix}1\\0\end{pmatrix}
+\right\}.
 $$
 
-なので幾何学的重複度は1です。
+従って
+
+$$
+\dim E_1=1,
+$$
+
+すなわち幾何学的重複度は $1$ です。同じ固有値でも二つの重複度が一致しない例になっています。
+<!-- definition-example-end -->
 
 したがって固有ベクトルを2本取れず、対角化できません。
 
@@ -1051,6 +1334,558 @@ $$
 - 固有空間: 7点
 - 幾何学的重複度: 4点
 - 対角化判定: 4点
+<!-- solution-end -->
+
+
+### F0-00F-A02 核・像・階数
+
+- Level: A
+- 目安時間: 12分
+
+線形写像
+
+$$
+T:\mathbb R^3\to\mathbb R^2,
+\qquad
+T(x,y,z)=(x+y,y+z)
+$$
+
+について、$\ker T$、$\operatorname{Im}T$、rank、nullity を求め、rank-nullity theorem を確認せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+$T(x,y,z)=0$ は
+
+$$
+x+y=0,
+\qquad
+y+z=0
+$$
+
+と同値です。$y=t$ と置けば
+
+$$
+(x,y,z)=t(-1,1,-1),
+$$
+
+したがって
+
+$$
+\ker T
+=
+\operatorname{span}\{(-1,1,-1)^{\mathsf T}\},
+\qquad
+\dim\ker T=1.
+$$
+
+標準基底の像は
+
+$$
+T(e_1)=(1,0)^{\mathsf T},
+\quad
+T(e_2)=(1,1)^{\mathsf T},
+\quad
+T(e_3)=(0,1)^{\mathsf T}.
+$$
+
+$T(e_1),T(e_3)$ が $\mathbb R^2$ の基底なので
+
+$$
+\operatorname{Im}T=\mathbb R^2,
+\qquad
+\operatorname{rank}T=2.
+$$
+
+従って
+
+$$
+\dim\mathbb R^3
+=
+3
+=
+1+2
+=
+\dim\ker T+\dim\operatorname{Im}T,
+$$
+
+となり rank-nullity theorem を直接確認できます。
+<!-- solution-end -->
+
+### F0-00F-A03 固有基底での表現行列
+
+- Level: A
+- 目安時間: 12分
+
+$$
+T(x,y)=(2x+y,x+2y)
+$$
+
+とし、
+
+$$
+v_1=(1,1)^{\mathsf T},
+\qquad
+v_2=(1,-1)^{\mathsf T}
+$$
+
+とする。$\mathcal B=(v_1,v_2)$ が基底であることを確認し、$[T]_{\mathcal B\leftarrow\mathcal B}$ を求めよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+$v_1,v_2$ を列に並べた行列は
+
+$$
+P=
+\begin{pmatrix}
+1&1\\
+1&-1
+\end{pmatrix},
+\qquad
+\det P=-2\ne0.
+$$
+
+従って $v_1,v_2$ は一次独立で、$\mathbb R^2$ の基底です。
+
+さらに
+
+$$
+T(v_1)
+=
+T(1,1)
+=
+(3,3)
+=
+3v_1,
+$$
+
+$$
+T(v_2)
+=
+T(1,-1)
+=
+(1,-1)
+=
+v_2.
+$$
+
+したがって $\mathcal B$ 座標では
+
+$$
+[T]_{\mathcal B\leftarrow\mathcal B}
+=
+\begin{pmatrix}
+3&0\\
+0&1
+\end{pmatrix}.
+$$
+
+基底ベクトルがそれぞれ固有ベクトルなので、表現行列が対角行列になっています。
+<!-- solution-end -->
+
+### F0-00F-A04 固有空間と対角化
+
+- Level: A
+- 目安時間: 12分
+
+$$
+A=
+\begin{pmatrix}
+1&1\\
+1&1
+\end{pmatrix}
+$$
+
+の固有値と各固有空間を求め、対角化可能であることを示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+固有値方程式は
+
+$$
+\det(A-\lambda I)
+=
+\begin{vmatrix}
+1-\lambda&1\\
+1&1-\lambda
+\end{vmatrix}
+=
+(1-\lambda)^2-1
+=
+\lambda(\lambda-2).
+$$
+
+従って固有値は $0,2$ です。
+
+$\lambda=2$ では
+
+$$
+A-2I=
+\begin{pmatrix}
+-1&1\\
+1&-1
+\end{pmatrix},
+$$
+
+なので
+
+$$
+E_2
+=
+\operatorname{span}\{(1,1)^{\mathsf T}\}.
+$$
+
+$\lambda=0$ では
+
+$$
+Ax=0
+$$
+
+より $x_1+x_2=0$ だから
+
+$$
+E_0
+=
+\operatorname{span}\{(1,-1)^{\mathsf T}\}.
+$$
+
+異なる固有値に属する二つの固有ベクトルは一次独立なので、これらは $\mathbb R^2$ の基底を作ります。従って $A$ は対角化可能です。
+<!-- solution-end -->
+
+### F0-00F-B02 相異なる固有値から対角化を導く
+
+- Level: B
+- 目安時間: 15分
+
+$n$ 次元ベクトル空間 $V$ の線形自己写像 $T$ が、互いに異なる $n$ 個の固有値
+
+$$
+\lambda_1,\dots,\lambda_n
+$$
+
+を持つとする。$T$ が対角化可能であることを示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+各 $\lambda_i$ に対応する非零固有ベクトル $v_i$ を一つずつ取ります。
+
+この章で証明した「異なる固有値に属する固有ベクトルは一次独立」より、
+
+$$
+v_1,\dots,v_n
+$$
+
+は一次独立です。
+
+$V$ は $n$ 次元で、一次独立なベクトルが $n$ 本あるので、これらは $V$ の基底です。この基底を
+
+$$
+\mathcal B=(v_1,\dots,v_n)
+$$
+
+とすると
+
+$$
+T(v_i)=\lambda_i v_i
+$$
+
+だから、表現行列の第 $i$ 列は $\lambda_i e_i$ です。従って
+
+$$
+[T]_{\mathcal B\leftarrow\mathcal B}
+=
+\operatorname{diag}(\lambda_1,\dots,\lambda_n).
+$$
+
+よって $T$ は対角化可能です。
+<!-- solution-end -->
+
+### F0-00F-B03 微分作用素の核・像・対角化
+
+- Level: B
+- 目安時間: 18分
+
+$P_2$ を次数2以下の実多項式全体とし、
+
+$$
+D:P_2\to P_2,
+\qquad
+D(f)=f'
+$$
+
+とする。
+
+1. $\ker D$ と $\operatorname{Im}D$ を求めよ。
+2. rank-nullity theorem を確認せよ。
+3. $D$ の固有値を求め、対角化可能か判定せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+一般の元を
+
+$$
+f(x)=a+bx+cx^2
+$$
+
+と書くと
+
+$$
+D(f)=b+2cx.
+$$
+
+従って $D(f)=0$ となるのは $b=c=0$ のときで、
+
+$$
+\ker D
+=
+\operatorname{span}\{1\},
+\qquad
+\dim\ker D=1.
+$$
+
+また任意の一次以下の多項式 $u+vx$ は
+
+$$
+D\left(ux+\frac v2x^2\right)=u+vx
+$$
+
+と書けるので
+
+$$
+\operatorname{Im}D
+=
+P_1
+=
+\operatorname{span}\{1,x\},
+\qquad
+\dim\operatorname{Im}D=2.
+$$
+
+従って
+
+$$
+3
+=
+\dim P_2
+=
+1+2
+=
+\dim\ker D+\dim\operatorname{Im}D.
+$$
+
+次に $Df=\lambda f$ とします。基底 $(1,x,x^2)$ での表現行列は
+
+$$
+[D]
+=
+\begin{pmatrix}
+0&1&0\\
+0&0&2\\
+0&0&0
+\end{pmatrix},
+$$
+
+なので特性多項式は
+
+$$
+(-\lambda)^3.
+$$
+
+固有値は $0$ だけです。その固有空間は
+
+$$
+E_0=\ker D=\operatorname{span}\{1\}
+$$
+
+で1次元です。
+
+$P_2$ は3次元ですが固有ベクトルから得られる独立な方向は1本しかないため、$D$ は対角化できません。
+<!-- solution-end -->
+
+### F0-00F-C01 重複固有値・rank-nullity・行列累乗
+
+- Level: C
+- 目安時間: 30分
+
+実数 $a$ に対して
+
+$$
+A_a=
+\begin{pmatrix}
+1&a&0\\
+0&1&0\\
+0&0&2
+\end{pmatrix}
+$$
+
+とする。
+
+1. 固有値とその代数的重複度を求めよ。
+2. 各固有空間を求め、$A_a$ が対角化可能となる $a$ の条件を求めよ。
+3. $a\ne0$ のとき $A_a-I$ の核・像・rank・nullity を求め、rank-nullity theorem を確認せよ。
+4. $a\ne0$ のとき $A_a^k$ を求めよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+$A_a$ は上三角行列なので
+
+$$
+\det(A_a-\lambda I)
+=
+(1-\lambda)^2(2-\lambda).
+$$
+
+従って固有値は $1,2$ で、代数的重複度はそれぞれ $2,1$ です。
+
+$\lambda=2$ では
+
+$$
+A_a-2I
+=
+\begin{pmatrix}
+-1&a&0\\
+0&-1&0\\
+0&0&0
+\end{pmatrix}.
+$$
+
+第2行から $y=0$、第1行から $x=0$ なので
+
+$$
+E_2
+=
+\operatorname{span}\{e_3\}.
+$$
+
+$\lambda=1$ では
+
+$$
+A_a-I
+=
+\begin{pmatrix}
+0&a&0\\
+0&0&0\\
+0&0&1
+\end{pmatrix}.
+$$
+
+$a=0$ なら条件は $z=0$ だけなので
+
+$$
+E_1
+=
+\operatorname{span}\{e_1,e_2\},
+\qquad
+\dim E_1=2.
+$$
+
+このとき $E_1$ の基底2本と $e_3$ を合わせて固有基底を作れるため、$A_0$ は対角化可能です。
+
+一方 $a\ne0$ なら
+
+$$
+ay=0,
+\qquad
+z=0
+$$
+
+より $y=z=0$ で、
+
+$$
+E_1
+=
+\operatorname{span}\{e_1\},
+\qquad
+\dim E_1=1.
+$$
+
+独立な固有ベクトルは $E_1$ から1本、$E_2$ から1本の合計2本しか得られないため、3次元空間の固有基底を作れません。従って
+
+$$
+\boxed{A_a\text{ が対角化可能 }\Longleftrightarrow a=0}.
+$$
+
+$a\ne0$ のとき
+
+$$
+(A_a-I)(x,y,z)
+=
+(ay,0,z).
+$$
+
+従って
+
+$$
+\ker(A_a-I)
+=
+\operatorname{span}\{e_1\},
+$$
+
+$$
+\operatorname{Im}(A_a-I)
+=
+\operatorname{span}\{e_1,e_3\}.
+$$
+
+よって nullity は1、rankは2で、
+
+$$
+3=1+2
+$$
+
+と rank-nullity theorem が成り立ちます。
+
+最後に左上 $2\times2$ ブロックを
+
+$$
+B=
+\begin{pmatrix}
+1&a\\
+0&1
+\end{pmatrix}
+=
+I+N,
+\qquad
+N=
+\begin{pmatrix}
+0&a\\
+0&0
+\end{pmatrix}
+$$
+
+と置きます。$N^2=0$ なので二項展開で
+
+$$
+B^k
+=
+(I+N)^k
+=
+I+kN
+=
+\begin{pmatrix}
+1&ka\\
+0&1
+\end{pmatrix}.
+$$
+
+第3成分は $2^k$ 倍されるので
+
+$$
+\boxed{
+A_a^k
+=
+\begin{pmatrix}
+1&ka&0\\
+0&1&0\\
+0&0&2^k
+\end{pmatrix}
+}.
+$$
 <!-- solution-end -->
 
 ---

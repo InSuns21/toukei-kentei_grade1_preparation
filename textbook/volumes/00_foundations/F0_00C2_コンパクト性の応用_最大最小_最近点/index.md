@@ -168,6 +168,191 @@ $$
 
 ですが、Weierstrassの役割は値を計算することではなく「探索しても最適点が消えない」と保証することです。
 
+
+### 1.3 実対称行列の実固有対の存在を証明する
+
+線形代数の [F0-00F1](../F0_00F1_固有空間_スペクトル定理_PSD/index.md#lem-f0-00f1-real-symmetric-eigenpair) では、実対称行列が少なくとも1本の実固有ベクトルを持つことを結果として使いました。ここではコンパクト性が準備できたので、その存在を証明します。
+
+<a id="proof-f0-00f1-real-symmetric-eigenpair"></a>
+
+### 証明の見取り図
+
+単位球面上で二次形式 $x^{\mathsf T}Ax$ を最大にする点 $q$ を取ります。$q$ に直交する方向 $v$ へ少し動いても最大値を超えられないので、その不等式の一次項は0でなければなりません。そこから $Aq$ が $q^\perp$ の全方向に直交し、結局 $Aq$ は $q$ と平行だと分かります。
+
+<!-- proof-start -->
+### 証明
+
+実対称行列 $A\in\mathbb R^{n\times n}$ と単位球面
+
+$$
+S^{n-1}
+=
+\{x\in\mathbb R^n:\|x\|=1\}
+$$
+
+を考えます。$S^{n-1}$ は閉かつ有界なので [Heine--Borel](../F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md#thm-f0-00c1-02) によりコンパクトです。また
+
+$$
+f(x)=x^{\mathsf T}Ax
+$$
+
+は連続です。従って [Weierstrassの最大最小定理](#thm-f0-00c2-01) により、ある $q\in S^{n-1}$ で
+
+$$
+f(q)=\max_{x\in S^{n-1}}f(x)
+$$
+
+となります。
+
+任意の $v\in q^\perp$ を取り、実数 $t$ に対して
+
+$$
+x_t
+=
+\frac{q+tv}{\|q+tv\|}
+$$
+
+と置きます。$q^{\mathsf T}v=0$ なので
+
+$$
+\|q+tv\|^2
+=
+1+t^2\|v\|^2,
+$$
+
+従って $x_t\in S^{n-1}$ です。$q$ は最大点なので
+
+$$
+x_t^{\mathsf T}Ax_t
+\le
+q^{\mathsf T}Aq
+$$
+
+が全ての $t$ で成り立ちます。分母を払うと
+
+$$
+(q+tv)^{\mathsf T}A(q+tv)
+\le
+(1+t^2\|v\|^2)q^{\mathsf T}Aq.
+$$
+
+$A^{\mathsf T}=A$ を使って左辺を展開すると
+
+$$
+q^{\mathsf T}Aq
++
+2t\,v^{\mathsf T}Aq
++
+t^2v^{\mathsf T}Av
+\le
+q^{\mathsf T}Aq
++
+t^2\|v\|^2q^{\mathsf T}Aq.
+$$
+
+共通項を消して
+
+$$
+2t\,v^{\mathsf T}Aq
++
+t^2
+\left(
+v^{\mathsf T}Av
+-
+\|v\|^2q^{\mathsf T}Aq
+\right)
+\le0.
+$$
+
+ここで
+
+$$
+b=v^{\mathsf T}Aq,
+\qquad
+c=v^{\mathsf T}Av-\|v\|^2q^{\mathsf T}Aq
+$$
+
+と書けば
+
+$$
+2tb+t^2c\le0
+\qquad(\forall t\in\mathbb R)
+$$
+
+です。もし $b\ne0$ なら、$b$ と同符号の $t$ を
+
+$$
+0<|t|<\frac{2|b|}{|c|+1}
+$$
+
+となるように取ります。このとき $tb=|t||b|$ であり、
+
+$$
+\begin{aligned}
+2tb+t^2c
+&\ge
+2|t||b|-|t|^2|c|\\
+&=
+|t|\bigl(2|b|-|t||c|\bigr)
+>0.
+\end{aligned}
+$$
+
+最後の不等号は
+
+$$
+|t||c|
+<
+\frac{2|b||c|}{|c|+1}
+<
+2|b|
+$$
+
+によります。しかし最大性から左辺は $\le0$ でなければならず、矛盾です。従って
+
+$$
+v^{\mathsf T}Aq=0
+\qquad
+(\forall v\in q^\perp).
+$$
+
+次に $Aq$ を $q$ 方向とその直交成分へ分けて
+
+$$
+Aq=\alpha q+w,
+\qquad
+w\in q^\perp
+$$
+
+と書きます。上の結論で $v=w$ と取ると
+
+$$
+0
+=
+w^{\mathsf T}Aq
+=
+w^{\mathsf T}(\alpha q+w)
+=
+\|w\|^2.
+$$
+
+従って $w=0$ であり、
+
+$$
+Aq=\alpha q.
+$$
+
+つまり $q$ は実固有ベクトルです。さらに $\|q\|=1$ なので
+
+$$
+\alpha=q^{\mathsf T}Aq\in\mathbb R.
+$$
+
+これで実対称行列には少なくとも1本の実単位固有ベクトルが存在することが示されました。
+<!-- proof-end -->
+
+F0-00F1 では、この1本を出発点に $q^\perp$ の不変性と次元帰納法を使ってスペクトル定理を完成させています。
+
 ---
 
 ## 2. 有限直積もコンパクト

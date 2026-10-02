@@ -4,10 +4,9 @@ coverage: complete
 prerequisites:
   - F0-00F
   - F0-00E2
-  - F0-00C2
 
 forward_references:
-  - vector-calculus.gradient
+  - topology.extreme-value-theorem
 
 concepts:
   - id: linear.eigen-data-recap-f1
@@ -36,13 +35,13 @@ concepts:
       - linear.inner-product
       - linear.eigenvalue
 
-  - id: linear.sphere-lagrange-necessary-condition
-    name: 球面制約に対するLagrange必要条件
-    kind: theorem
-    aliases: [球面制約に対するLagrange必要条件]
+  - id: linear.real-symmetric-eigenpair-existence
+    name: 実対称行列の実固有対の存在
+    kind: lemma
+    aliases: [実対称行列の実固有対の存在, 実対称行列の固有対存在]
     requires:
+      - linear.eigen-data-recap-f1
       - linear.inner-product
-      - topology.extreme-value-theorem
 
   - id: linear.symmetric-distinct-eigenspaces-orthogonal
     name: 実対称行列の異なる固有空間は直交する
@@ -59,8 +58,7 @@ concepts:
     aliases: [実対称行列のスペクトル定理, スペクトル定理, 実対称行列の直交対角化定理]
     requires:
       - linear.invariant-subspace
-      - linear.rayleigh-quotient
-      - linear.sphere-lagrange-necessary-condition
+      - linear.real-symmetric-eigenpair-existence
       - linear.orthonormal-system
       - linear.gram-schmidt
 

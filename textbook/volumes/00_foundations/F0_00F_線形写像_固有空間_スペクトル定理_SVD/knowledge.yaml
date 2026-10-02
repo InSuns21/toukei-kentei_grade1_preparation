@@ -3,11 +3,15 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - F0-00E
-  - F0-00E1
 
 forward_references:
+  - linear.inner-product
+  - linear.orthogonality
+  - linear.gram-schmidt
+  - linear.orthogonal-projection
   - linear.spectral-theorem
   - linear.singular-value-decomposition
+  - stochastic.stochastic-process
 
 concepts:
   - id: linear.linear-map

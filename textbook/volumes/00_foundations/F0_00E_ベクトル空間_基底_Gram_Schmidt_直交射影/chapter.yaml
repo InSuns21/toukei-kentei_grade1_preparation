@@ -5,7 +5,6 @@ status: supplementary
 prerequisites:
   - F0-00
   - F0-00A
-  - F0-00B
 official_scope: []
 learning_objectives:
   - ベクトル空間と線形部分空間を定義から説明できる

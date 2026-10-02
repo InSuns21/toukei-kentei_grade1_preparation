@@ -7,6 +7,12 @@ prerequisites:
 
 # §9 と §11 は、有限次元で得た式が後続の関数解析でどう一般化されるかを明示する予告。
 forward_references:
+  - linear.complex-inner-product
+  - linear.finite-dimensional-adjoint
+  - linear.hermitian-operator
+  - linear.hermitian-quadratic-form
+  - linear.polar-decomposition
+  - linear.complex-singular-value-decomposition
   - functional.norm
   - functional.operator-norm
   - functional.normed-space
@@ -42,6 +48,7 @@ concepts:
   - id: linear.left-singular-vector
     name: 左特異ベクトル
     kind: definition
+    introduction_aliases: [左特異ベクトル]
     aliases: [左特異ベクトル]
     requires:
       - linear.singular-value
