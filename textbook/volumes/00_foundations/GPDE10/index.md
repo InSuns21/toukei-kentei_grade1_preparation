@@ -1095,7 +1095,7 @@ a(u_m,u_m)
 \alpha\|u_m\|_V^2.
 $$
 
-また[双対ノルムの基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
+また [双対ノルムの基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
 
 $$
 |\langle f,u_m\rangle|
@@ -1341,7 +1341,7 @@ u_m\rightharpoonup u
 \\
 \downarrow
 \\
-\text{時間積分した weak form で極限通過}
+\text{時間積分した弱形式で極限通過}
 \\
 \downarrow
 \\
@@ -2238,7 +2238,7 @@ $$
 <a id="prop-gpde10-wave-energy"></a>
 
 <!-- formal-statement-start -->
-> **命題（滑らかな零 Dirichlet 波動解の エネルギー保存）**  
+> **命題（滑らかな零 Dirichlet 波動解のエネルギー保存）**  
 > 十分滑らかな $u$ が
 >
 $$
