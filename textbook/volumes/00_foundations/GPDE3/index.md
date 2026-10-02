@@ -945,7 +945,7 @@ $$
 
 なので $D^{\alpha-\beta}u\in W^{1,p}(\Omega)$ です。また $D^\beta\chi$ は滑らかです。したがって、右辺の各積に先ほど証明した一階公式を適用できます。すると
 
-$
+$$
 \begin{aligned}
 D_jD^\alpha(\chi u)
 &=
