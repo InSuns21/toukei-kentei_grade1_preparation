@@ -61,7 +61,7 @@ concepts:
     kind: theorem
     aliases: [行列式による可逆性判定, determinant invertibility criterion]
     requires:
-      - linear.adjugate
+      - linear.adjugate-identity
       - linear.determinant-multiplicativity
 
   - id: linear.determinant-similarity-invariance
