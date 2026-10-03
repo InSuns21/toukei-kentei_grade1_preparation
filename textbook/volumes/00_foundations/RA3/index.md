@@ -50,7 +50,7 @@ $$
 > で定まる関数 $f'$ を $f$ の **導関数** という。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-ra3-derivative -->
+<!-- definition-example-start: def-ra3-differential-coefficient, def-ra3-derivative -->
 **定義の確認**：$f(x)=x^2$ を考えます。任意の $a\in\mathbb R$ に対して
 
 $$
