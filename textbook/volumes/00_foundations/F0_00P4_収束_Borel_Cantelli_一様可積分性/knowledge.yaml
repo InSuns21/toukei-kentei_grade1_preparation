@@ -13,7 +13,7 @@ concepts:
   - id: prob.event-limsup
     name: 事象列の上極限
     kind: definition
-    aliases: [事象列の上極限, limsup event]
+    aliases: [事象列の上極限, limsup event, i.o.]
     introduction_aliases: ["定義（事象列の上極限）"]
     requires:
       - prob.probability-space
