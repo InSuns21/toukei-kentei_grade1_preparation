@@ -823,13 +823,15 @@ $$
 \{(W_{t_1},\ldots,W_{t_m})\in C\}
 $$
 
-は全て $\mathcal F_\tau^B$ と独立です。これらの cylinder event は $\sigma(W_t:t\ge0)$ を生成する $\pi$-system なので、再び $\pi$-$\lambda$ 定理を使えば
+は全て $\mathcal F_\tau^B$ と独立です。これらの cylinder event は $\sigma(W_t:t\ge0)$ を生成します。
+
+ここで「$\mathcal F_\tau^B$ と独立である $W$ 側の事象全体」を集めると、補集合と互いに素な可算和で閉じています。また上の有限次元 cylinder event を全て含みます。したがって cylinder event から生成される
 
 $$
 \sigma(W_t:t\ge0)
 $$
 
-全体が $\mathcal F_\tau^B$ と独立です。
+の全事象まで独立性が拡張され、$\sigma(W_t:t\ge0)$ 全体が $\mathcal F_\tau^B$ と独立です。
 <!-- proof-end -->
 
 全体の確率空間の $P$-零集合に含まれる集合を全て加えた完備化を
