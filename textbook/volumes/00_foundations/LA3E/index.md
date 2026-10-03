@@ -429,6 +429,32 @@ $$
 > という多重線形写像として評価できる。
 <!-- formal-statement-end -->
 
+「自然な同一視」の中身を具体的に書いておきます。単純テンソル
+$$
+v_1\otimes\cdots\otimes v_r
+\otimes
+\alpha_1\otimes\cdots\otimes\alpha_s
+$$
+に対して、$\lambda_1,\dots,\lambda_r\in V^*$ と $w_1,\dots,w_s\in V$ を入れた値を
+$$
+\prod_{a=1}^r\lambda_a(v_a)
+\prod_{b=1}^s\alpha_b(w_b)
+$$
+と定めます。各変数について線形なので、テンソル積の普遍性により一般のテンソルへ線形に延長できます。
+
+逆に基底 $e_i$ と双対基底 $\varepsilon^i$ を選ぶと、多重線形写像は
+$$
+(\varepsilon^{i_1},\dots,\varepsilon^{i_r},
+e_{j_1},\dots,e_{j_s})
+$$
+上の $n^{r+s}$ 個の値で一意に決まります。一方、
+$$
+e_{i_1}\otimes\cdots\otimes e_{i_r}
+\otimes
+\varepsilon^{j_1}\otimes\cdots\otimes\varepsilon^{j_s}
+$$
+も $n^{r+s}$ 個の基底をなします。したがって有限次元では、この評価対応によってテンソルと多重線形写像を一対一に読み替えられます。
+
 <!-- definition-example-start: def-la3e-rs-tensor -->
 ### 例：$v\otimes\alpha$ は $(1,1)$ 型テンソル
 
@@ -757,6 +783,40 @@ $$
 $$
 > で定める。
 <!-- formal-statement-end -->
+
+この式が本当に $\Lambda^{p+q}V^*$ の元、すなわち交代形式になることを確認します。まず
+$$
+A(v_1,\dots,v_{p+q})
+=
+\alpha(v_1,\dots,v_p)
+\beta(v_{p+1},\dots,v_{p+q})
+$$
+と置きます。全ての置換は、
+
+1. $\alpha$ に渡す $p$ 個と $\beta$ に渡す $q$ 個を選ぶシャッフル、
+2. $\alpha$ 側の $p$ 個の内部置換、
+3. $\beta$ 側の $q$ 個の内部置換
+
+に一意に分解できます。
+
+$\alpha,\beta$ 自身が交代的なので、内部置換の符号は形式の値の符号反転と打ち消し合います。そのため交代化の定義をまとめ直すと
+$$
+\operatorname{Alt}A
+=
+\frac{p!q!}{(p+q)!}
+(\alpha\wedge\beta).
+$$
+従って
+$$
+\alpha\wedge\beta
+=
+\frac{(p+q)!}{p!q!}\operatorname{Alt}A.
+$$
+右辺は交代化された形式のスカラー倍なので、確かに
+$$
+\alpha\wedge\beta\in\Lambda^{p+q}V^*
+$$
+です。
 
 <!-- definition-example-start: def-la3e-wedge-product -->
 ### 例：平面の面積形式
@@ -2012,7 +2072,7 @@ $$
 
 ### LA3E-C01 最高次形式への線形写像の作用
 
-$V$ を $n$ 次元ベクトル空間、$T:V\to V$ を線形写像とする。$\omega\in\Lambda^kV^*$ に対して
+$V$ を $n$ 次元ベクトル空間、$T:V\to V$ を線形写像とする。ここでの $T^*$ は LA5 で学んだ随伴ではなく、形式を $T$ に沿って引き戻すための記号である。$\omega\in\Lambda^kV^*$ に対して
 
 $$
 (T^*\omega)(v_1,\dots,v_k)
