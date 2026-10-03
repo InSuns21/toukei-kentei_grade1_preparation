@@ -42,26 +42,26 @@ concepts:
       - linear.dimension
 
   - id: linear.annihilator
-    name: annihilator
+    name: 零化空間
     kind: definition
-    aliases: [annihilator, 零化空間, "annihilator / 零化空間"]
+    aliases: [零化空間, annihilator]
     requires:
       - linear.algebraic-dual-space
       - linear.linear-subspace
 
   - id: linear.annihilator-dimension-formula
-    name: annihilator の次元公式
+    name: 零化空間の次元公式
     kind: theorem
-    aliases: [annihilatorの次元公式, "annihilator の次元公式"]
+    aliases: [零化空間の次元公式, "annihilator の次元公式"]
     requires:
       - linear.annihilator
       - linear.quotient-dimension-formula
       - linear.dual-basis-theorem
 
   - id: linear.quotient-dual-annihilator-isomorphism
-    name: 商空間の双対と annihilator
+    name: 商空間の双対と零化空間
     kind: theorem
-    aliases: ["商空間の双対と annihilator", 商空間の双対とannihilator, quotient dual annihilator isomorphism]
+    aliases: [商空間の双対と零化空間, "商空間の双対と annihilator", quotient dual annihilator isomorphism]
     requires:
       - linear.annihilator
       - linear.quotient-space
@@ -73,6 +73,15 @@ concepts:
     requires:
       - linear.algebraic-dual-space
       - linear.linear-map
+
+  - id: linear.dual-map-kernel-image-annihilator
+    name: 双対写像の核・像と零化空間
+    kind: theorem
+    aliases: [双対写像の核・像と零化空間]
+    requires:
+      - linear.dual-map
+      - linear.annihilator-dimension-formula
+      - linear.kernel-image
 
   - id: linear.finite-dimensional-double-dual-isomorphism
     name: 有限次元二重双対同型
