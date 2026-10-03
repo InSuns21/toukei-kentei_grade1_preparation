@@ -284,6 +284,30 @@ $$
 > と書く。
 <!-- formal-statement-end -->
 
+終端時刻 $T$ の密度 $Z_T=dQ/dP$ だけでも $Q$ は定まりますが、確率過程を扱うには「時刻 $t$ までに見えている情報だけで、測度変換の重みをどう表すか」が必要です。
+
+実際、$A\in\mathcal F_t$ なら Radon--Nikodym 表示と条件付き期待値から
+
+$$
+\begin{aligned}
+Q(A)
+&=
+E_P[Z_T\mathbf1_A]\\
+&=
+E_P\left[
+E_P[Z_T\mid\mathcal F_t]\mathbf1_A
+\right].
+\end{aligned}
+$$
+
+したがって、時刻 $t$ までの事象へ $Q$ の重みを付ける役は
+
+$$
+E_P[Z_T\mid\mathcal F_t]
+$$
+
+が担います。この「終端密度を、その時点の情報へ投影したもの」を一つの過程として持つのが次の密度過程です。
+
 <a id="def-sto10-density-process"></a>
 
 <!-- formal-statement-start -->
@@ -1075,6 +1099,16 @@ $$
 dZ_t=Z_t\,dM_t.
 $$
 
+また $Z$ は真のマルチンゲールで $Z_T=dQ/dP$ です。したがって [密度過程の定義](#def-sto10-density-process) に対して
+
+$$
+E_P[Z_T\mid\mathcal F_t]
+=
+Z_t
+$$
+
+となり、各時刻 $t$ での $Q$ に対する密度は $Z_t$ そのものです。
+
 また
 
 $$
@@ -1123,11 +1157,25 @@ Z_t\,dN_t.
 \end{aligned}
 $$
 
-最後の二項は局所マルチンゲール項です。
+最後の二項は、それぞれ局所化すれば定義できる確率積分です。例えば $Z$、$\widetilde N$、$M$、$N$ を同時に有界化し、必要な二次変分も有界になる停止時刻列 $(\tau_k)$ を取れば、
 
-したがって $Z\widetilde N$ は $P$-局所マルチンゲールです。
+$$
+\int_0^{t\wedge\tau_k}
+\widetilde N_sZ_s\,dM_s,
+\qquad
+\int_0^{t\wedge\tau_k}
+Z_s\,dN_s
+$$
 
-localizing sequence をさらに止め、$Z\widetilde N$ と $\widetilde N$ が必要な可積分性を持つ区間を取ります。その停止区間では $0\le s\le t$ と有界 $\mathcal F_s$-可測 $H$ に対して
+は真のマルチンゲールとして扱えます。したがって
+
+$$
+(Z\widetilde N)^{\tau_k}
+$$
+
+も真の $P$-マルチンゲールです。
+
+この停止区間で $0\le s\le t$ と有界 $\mathcal F_s$-可測 $H$ に対して
 
 $$
 E_P[Z_tH\widetilde N_t]
@@ -1313,7 +1361,36 @@ $$
 \delta_{ij}t.
 $$
 
-[STO5 の Lévy characterization](../STO5/index.md#thm-sto5-levy-characterization) がブラウン運動を同定します。
+ただし STO5 の [Lévy の特徴付け定理](../STO5/index.md#thm-sto5-levy-characterization) は 1 次元版なので、多次元結論へ一段橋を掛けます。任意の $u\in\mathbb R^m$ に対し
+
+$$
+L_t^u=u^\top W_t^Q
+$$
+
+と置くと、共変分の双線形性から
+
+$$
+[L^u]_t
+=
+u^\top[W^Q]_tu
+=
+|u|^2t.
+$$
+
+$u\ne0$ なら $L^u/|u|$ は連続 $Q$-局所マルチンゲールで二次変分が $t$ なので、1 次元 Lévy の特徴付け定理から $Q$-ブラウン運動です。したがって全ての $0\le s<t$ について
+
+$$
+E_Q\left[
+e^{iu^\top(W_t^Q-W_s^Q)}
+\mid\mathcal F_s
+\right]
+=
+\exp\left(
+-\frac12|u|^2(t-s)
+\right).
+$$
+
+右辺は決定論的な $N_m(0,(t-s)I_m)$ の特性関数です。よって各増分は $\mathcal F_s$ と独立で、その分布は $N_m(0,(t-s)I_m)$ です。これで多次元ブラウン運動の定義へ戻せます。
 
 <!-- proof-start -->
 ### 証明
@@ -1404,7 +1481,44 @@ $$
 \end{aligned}
 $$
 
-Lévy characterization を $Q$ の下で適用すると、$W^Q$ は $m$ 次元 standard ブラウン運動です。
+ここで多次元性を省略しません。任意の $u\in\mathbb R^m$ に対して
+
+$$
+L_t^u=u^\top W_t^Q
+$$
+
+と置くと
+
+$$
+[L^u]_t
+=
+\sum_{i,j=1}^m
+u_i u_j
+[W^{Q,i},W^{Q,j}]_t
+=
+|u|^2t.
+$$
+
+$u\ne0$ なら $L^u/|u|$ に [STO5 の 1 次元 Lévy の特徴付け定理](../STO5/index.md#thm-sto5-levy-characterization) を適用でき、これは $Q$-ブラウン運動です。したがって
+
+$$
+E_Q\left[
+e^{iu^\top(W_t^Q-W_s^Q)}
+\mid\mathcal F_s
+\right]
+=
+e^{-|u|^2(t-s)/2}.
+$$
+
+全ての $u$ についてこの条件付き特性関数が決定論的であるため、$W_t^Q-W_s^Q$ は $\mathcal F_s$ と独立で
+
+$$
+W_t^Q-W_s^Q
+\sim
+N_m(0,(t-s)I_m).
+$$
+
+連続性と $W_0^Q=0$ は既に確認済みなので、$W^Q$ は $m$ 次元 standard ブラウン運動です。
 <!-- proof-end -->
 
 ここで重要なのは、同じ coordinate map
@@ -2065,7 +2179,15 @@ $$
 
 の分布はブラウン運動のガウス法則だけで決まります。
 
-さらに標本路は continuous なので、連続関数空間上の法則もこのブラウン image として一意です。
+さらに標本路は continuous です。連続関数空間 $C([0,T],\mathbb R^d)$ の Borel $\sigma$-field は、有理時刻の評価写像
+
+$$
+\omega\mapsto\omega(q),
+\qquad
+q\in\mathbb Q\cap[0,T]
+$$
+
+で生成されます。したがって全ての有限次元分布、特に有理時刻の有限次元分布が一致すれば、連続関数空間上の確率法則も一致します。
 
 ここでは確率空間が違っても $X$ の法則は変わりません。
 <!-- definition-example-end -->
