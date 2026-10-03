@@ -21,8 +21,9 @@ definitions:
   - { id: FLD0-DEF-04, name: F-線形写像 }
 theorems:
   - { id: FLD0-PROP-01, name: 体上の部分空間判定法 }
-  - { id: FLD0-THM-01, name: 一般の体上の階数・退化次数の定理 }
-  - { id: FLD0-THM-02, name: 一般の体上の座標写像 }
+  - { id: FLD0-THM-01, name: 一般の体上の Steinitz の交換補題と基底延長 }
+  - { id: FLD0-THM-02, name: 一般の体上の階数・退化次数の定理 }
+  - { id: FLD0-THM-03, name: 一般の体上の座標写像 }
 canonical_examples:
   - F_2^2 の基底と一次従属
   - F_3 上の逆元と行列計算
