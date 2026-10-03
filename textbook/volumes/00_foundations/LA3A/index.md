@@ -1,5 +1,4 @@
-<!-- definition-example-audit: loose -->
-# LA3A 代数的双対・双対基底・annihilator
+# LA3A 代数的双対・双対基底・零化空間
 
 線形代数では、ベクトルそのものを見るだけでなく、**ベクトルから1個の数を読み取る線形な測定器**を見ると構造が急に見やすくなることがあります。
 
@@ -15,7 +14,7 @@ $$
 
 この章では、まず具体的な測定器を触り、そこから
 
-> 線形形式 → 双対空間 → 双対基底 → annihilator → 双対写像 → 二重双対
+> 線形形式 → 代数的双対 → 双対基底 → 零化空間 → 双対写像 → 二重双対
 
 を組み立てます。定義を覚えることではなく、**「何を測っているのか」「なぜ反対向きの写像が出るのか」**を追うのが目的です。
 
@@ -45,6 +44,26 @@ $$
 > を **線形形式** という。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-la3a-linear-form -->
+**定義の確認**：章頭の
+
+$
+\varphi(x,y,z)=x+2y-z
+$
+
+について、$u=(u_1,u_2,u_3)$、$v=(v_1,v_2,v_3)$ とすると
+
+$
+\begin{aligned}
+\varphi(au+bv)
+&=a(u_1+2u_2-u_3)+b(v_1+2v_2-v_3)\\
+&=a\varphi(u)+b\varphi(v).
+\end{aligned}
+$
+
+従って $\varphi:\mathbb R^3\to\mathbb R$ は線形形式です。
+<!-- definition-example-end -->
+
 線形形式は足し算とスカラー倍ができます。そこで全部まとめます。
 
 <a id="def-la3a-dual-space"></a>
@@ -56,6 +75,28 @@ V^*=\{\varphi:V\to\mathbb F:\varphi\text{ は線形}\}
 $$
 > を $V$ の **代数的双対** という。加法とスカラー倍は点ごとに定める。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-la3a-dual-space -->
+**定義の確認**：$\varphi,\psi\in V^*$ と $a,b\in\mathbb F$ に対して
+
+$
+(a\varphi+b\psi)(x):=a\varphi(x)+b\psi(x)
+$
+
+と定めます。$x,y\in V$ と $\alpha,\beta\in\mathbb F$ に対し
+
+$
+\begin{aligned}
+(a\varphi+b\psi)(\alpha x+\beta y)
+&=a\varphi(\alpha x+\beta y)+b\psi(\alpha x+\beta y)\\
+&=\alpha\{a\varphi(x)+b\psi(x)\}
+ +\beta\{a\varphi(y)+b\psi(y)\}\\
+&=\alpha(a\varphi+b\psi)(x)+\beta(a\varphi+b\psi)(y).
+\end{aligned}
+$
+
+従って $a\varphi+b\psi$ も線形形式です。零写像が零元、$-\varphi$ が加法逆元となり、残りのベクトル空間公理も各 $x\in V$ での $\mathbb F$ の等式に帰着します。よって $V^*$ 自身がベクトル空間になります。
+<!-- definition-example-end -->
 
 ### 座標では何に見えるか
 
