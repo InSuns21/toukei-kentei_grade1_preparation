@@ -1,14 +1,18 @@
 # F0-00E1 内積・Gram–Schmidt・QR
 
-F0-00Eで基底まで準備しました。この講義では内積から直交構造を入れ、正規直交基底・射影・最小二乗・QRまでを一つの幾何としてつなぎます。
+F0-00Eでは、ベクトルを基底で展開し、その座標を一意に読むところまで進みました。ただし、基底だけでは「2本のベクトルがどれだけ同じ向きを向くか」「ある部分空間に最も近い点はどこか」を測れません。座標の数値そのものは基底の選び方で変わるため、長さや直交を語るには別の構造が必要です。
 
-$$\boxed{\text{内積}\to\text{Gram--Schmidt}\to\text{射影}\to\text{最小二乗}\to\text{QR}}$$
+そこで、この講義では **内積** を入れて長さと直交を扱えるようにします。さらに、互いに直交する単位ベクトルを基底に選べば、座標は連立方程式を解かず内積だけで読めます。この利点を、正規直交基底の構成、射影、最小二乗、行列分解へ順に広げます。
+
+$$\boxed{\text{内積}\to\text{正規直交基底の構成}\to\text{射影}\to\text{最小二乗}\to\text{行列分解}}$$
 
 ---
 
 ## 1. 内積と直交
 
-まず、長さや角度を作る元になる内積そのものを明示します。
+基底と座標だけでもベクトルの加法・スカラー倍は扱えます。しかし、「この2本は直角か」「このベクトルの長さはいくつか」という問いには、ベクトル空間の公理だけでは答えられません。
+
+そこで、2本のベクトルから実数を返す規則を一つ追加し、その値から長さと直交を作ります。これが内積です。
 
 <a id="def-f0-00e1-inner-product"></a>
 
@@ -110,6 +114,10 @@ $$
 
 ## 2. 正規直交系が便利な理由
 
+一般の基底で $x=\sum_i c_i v_i$ と書いたとき、係数 $c_i$ を取り出すには通常、連立方程式を解く必要があります。基底ベクトル同士が互いに影響し合うからです。
+
+もし基底ベクトルが互いに直交し、しかも長さが1なら、$q_j$ との内積を取るだけで $j$ 番目の係数だけを残せます。まず、この「座標を一つずつ直接読める」性質を備えたベクトルの組を定義します。
+
 <a id="def-f0-00e1-orthonormal-system"></a>
 
 <!-- formal-statement-start -->
@@ -172,7 +180,11 @@ $$
 
 ---
 
-## 3. Gram--Schmidt直交化：正規直交基底を実際に作る
+## 3. 正規直交基底を実際に作る
+
+正規直交基底が便利でも、最初からそのような基底が与えられるとは限りません。そこで、一次独立なベクトルを一つずつ処理し、すでに作った方向成分を引いてから長さ1へ正規化します。
+
+次の定理は、この操作で元の各段階の線形包を変えずに正規直交系へ作り替えられることを保証します。
 
 <a id="thm-f0-00e1-gram-schmidt"></a>
 
@@ -354,6 +366,10 @@ $$
 
 ## 5. 直交する方向を集める
 
+1本のベクトルに直交するかどうかは内積1回で判定できます。次に必要なのは、**部分空間 $V$ のどの方向にも直交するベクトルをまとめて扱うこと**です。射影では、元のベクトルから $V$ 成分を引いた残差を、この「$V$ 全体に直交する側」へ入れます。
+
+そこで、$V$ の全ベクトルに直交するベクトルを集めた空間を定義します。
+
 <a id="def-f0-00e1-orthogonal-complement"></a>
 
 <!-- formal-statement-start -->
@@ -408,18 +424,39 @@ $$
 
 ## 6. 正規直交基底から射影公式を導く
 
-$V$ の正規直交基底を $q_1,\dots,q_k$ とします。$x$ の $V$ 成分を
+ここまでで、$V$ の中の方向と $V^\perp$ の方向を区別できるようになりました。次に、任意の $x$ を
+
+$$
+x=\text{$V$ の成分}+\text{$V^\perp$ の成分}
+$$
+
+と分けたいと考えます。
+
+$V$ の正規直交基底を $q_1,\dots,q_k$ とします。$V$ の成分を $p=\sum_i c_iq_i$ と仮定し、残差 $x-p$ が各 $q_j$ に直交するように係数を選びます。条件
+
+$$
+0=\langle x-p,q_j\rangle
+=\langle x,q_j\rangle-c_j
+$$
+
+から
+
+$$
+c_j=\langle x,q_j\rangle
+$$
+
+なので、候補は
 
 $$
 \boxed{
-P_Vx
+p
 =
 \sum_{i=1}^k
 \langle x,q_i\rangle q_i
 }
 $$
 
-と置きます。
+です。以下、この $p$ を $P_Vx$ と書きます。
 
 列ベクトルを並べて
 
@@ -463,26 +500,73 @@ $$
 > と表せる。$p=P_Vx$ である。
 <!-- formal-statement-end -->
 
-存在は上の $p=P_Vx$ と $r=x-p$ で示せます。実際、各 $q_j$ に対して
+### 証明の見取り図
+
+存在は、上で係数を決めた $p=P_Vx$ を使えば示せます。一意性は、2通りの分解の差が $V$ と $V^\perp$ の両方に入ることから示します。
+
+<!-- proof-start -->
+### 証明
+
+まず
 
 $$
-\langle r,q_j\rangle
+p=P_Vx
 =
+\sum_{i=1}^k\langle x,q_i\rangle q_i,
+\qquad
+r=x-p
+$$
+
+と置きます。各 $q_j$ に対して
+
+$$
+\begin{aligned}
+\langle r,q_j\rangle
+&=
 \langle x,q_j\rangle
 -
-\sum_i\langle x,q_i\rangle\langle q_i,q_j\rangle
-=0,
+\sum_i\langle x,q_i\rangle\langle q_i,q_j\rangle\\
+&=
+\langle x,q_j\rangle-\langle x,q_j\rangle\\
+&=0
+\end{aligned}
 $$
 
-なので $r\in V^\perp$ です。
+なので、$r$ は $V$ の基底 $q_1,\dots,q_k$ の全てに直交します。従って $r\in V^\perp$ であり、存在が示されました。
 
-一意性について、$x=p_1+r_1=p_2+r_2$ なら
+一意性について、$x=p_1+r_1=p_2+r_2$ と2通りに書けたとします。このとき
 
 $$
-p_1-p_2=r_2-r_1\in V\cap V^\perp.
+p_1-p_2=r_2-r_1.
 $$
 
-$w\in V\cap V^\perp$ なら $\langle w,w\rangle=0$ だから $w=0$ です。従って $p_1=p_2$, $r_1=r_2$ です。
+左辺は $V$ に、右辺は $V^\perp$ に属するので、共通のベクトル $w=p_1-p_2$ は $V\cap V^\perp$ に属します。$w\in V$ かつ $w\in V^\perp$ なら $w$ は自分自身にも直交するため
+
+$$
+\langle w,w\rangle=0.
+$$
+
+内積の正定値性から $w=0$ です。従って $p_1=p_2$、さらに $r_1=r_2$ です。
+<!-- proof-end -->
+
+<a id="def-f0-00e1-orthogonal-projection"></a>
+
+<!-- formal-statement-start -->
+> **定義（直交射影）**  
+> 部分空間 $V\subset\mathbb R^n$ と $x\in\mathbb R^n$ に対し、上の一意な分解
+
+$$
+x=p+r,
+\qquad
+p\in V,
+\quad
+r\in V^\perp
+$$
+
+> に現れる $p$ を、$x$ の $V$ への **直交射影** といい、$P_Vx$ と書きます。
+<!-- formal-statement-end -->
+
+これで、先ほど正規直交基底から作った式が「残差を $V^\perp$ に入れる唯一の $V$ 成分」であることが確定しました。
 
 ---
 
@@ -531,7 +615,10 @@ $$
 
 ---
 
+<!-- definition-example-start: def-f0-00e1-orthogonal-projection -->
 ## 8. 具体例：先ほどの平面へ射影する
+
+**定義の確認**：射影候補が $V$ に属し、残差が $V^\perp$ に属することを数値で確認します。
 
 先ほどの
 
@@ -584,7 +671,8 @@ r^{\mathsf T}v_1=0,
 r^{\mathsf T}v_2=0
 $$
 
-であり、残差が部分空間全体に直交しています。
+であり、残差が部分空間全体に直交しています。したがって、定義どおり $P_Vx\in V$ かつ $x-P_Vx\in V^\perp$ です。
+<!-- definition-example-end -->
 
 ---
 
@@ -602,15 +690,19 @@ $$
 
 を考えます。
 
-列が一次独立なら
+列が一次独立なら $X^{\mathsf T}X$ は正則です。ここは後の公式で逆行列を使うため、理由を確認しておきます。任意の $z\in\mathbb R^k$ に対して
 
 $$
-X^{\mathsf T}X
+z^{\mathsf T}X^{\mathsf T}Xz
+=
+(Xz)^{\mathsf T}(Xz)
+=
+\|Xz\|^2.
 $$
 
-は正則です。
+もし $X^{\mathsf T}Xz=0$ なら左辺は0なので $\|Xz\|^2=0$、従って $Xz=0$ です。列一次独立性から $z=0$ となるため、$X^{\mathsf T}X$ の核は $\{0\}$ です。$X^{\mathsf T}X$ は $k\times k$ 正方行列なので可逆です。
 
-射影点を
+統計での最小二乗につなぐため、ここから射影したいベクトルを $y$ と書きます。射影点を
 
 $$
 p=X\beta
@@ -702,37 +794,77 @@ $$
 > で与えられる。
 <!-- formal-statement-end -->
 
-これは「$y$ に最も近い $\operatorname{Col}(X)$ 上の点を探す」射影問題です。最適残差
+### 証明の見取り図
+
+[直交射影の最短距離性](#thm-f0-00e1-nearest-point)を、部分空間 $V=\operatorname{Col}(X)$、射影したいベクトル $x=y$ に適用します。最近点 $p$ を $X\hat\beta$ と表せば、残差が列空間に直交することから正規方程式が出ます。
+
+<!-- proof-start -->
+### 証明
+
+$X$ の列が一次独立なので、$\operatorname{Col}(X)$ の各点は $X\beta$ と一意に表せます。[直交射影の最短距離性](#thm-f0-00e1-nearest-point)を
+
+- 部分空間：$V=\operatorname{Col}(X)$
+- 射影したいベクトル：$x=y$
+
+として適用すると、最小二乗点は $y$ の $\operatorname{Col}(X)$ への直交射影です。従って、ある一意な $\hat\beta$ により
 
 $$
-e=y-X\hat\beta
+p=X\hat\beta
 $$
 
-は列空間に直交するので
+と書け、残差
+
+$$
+e=y-p=y-X\hat\beta
+$$
+
+は $\operatorname{Col}(X)$ に直交します。
+
+$X$ の各列との内積が0であることをまとめて書くと
 
 $$
 X^{\mathsf T}e=0.
 $$
 
-従って
+ここへ $e=y-X\hat\beta$ を代入すると
 
 $$
-X^{\mathsf T}(y-X\hat\beta)=0
+X^{\mathsf T}(y-X\hat\beta)=0,
 $$
 
-から正規方程式が得られます。
-
-さらに列一次独立なら、$z\ne0$ に対して
+すなわち
 
 $$
-z^{\mathsf T}X^{\mathsf T}Xz=\|Xz\|^2>0,
+X^{\mathsf T}X\hat\beta=X^{\mathsf T}y
 $$
 
-です。もし $X^{\mathsf T}Xz=0$ なら左辺は0になり、上式と矛盾するので $z=0$ です。従って $X^{\mathsf T}X$ の核は $\{0\}$ であり、正方行列なので可逆です。よって解の公式が従います。
+です。
+
+さらに $z\ne0$ なら、列一次独立性から $Xz\ne0$ なので
+
+$$
+z^{\mathsf T}X^{\mathsf T}Xz
+=
+\|Xz\|^2
+>0.
+$$
+
+従って $X^{\mathsf T}X$ の核は $\{0\}$ で、$k\times k$ 正方行列だから可逆です。正規方程式の両辺に $(X^{\mathsf T}X)^{-1}$ を左から掛けて
+
+$$
+\hat\beta=(X^{\mathsf T}X)^{-1}X^{\mathsf T}y
+$$
+
+を得ます。
+<!-- proof-end -->
 
 ---
 
 ## 11. Gram--Schmidtを行列分解として読む
+
+Gram--Schmidtで $A$ の列を正規直交化すると、扱いやすい $q_1,\dots,q_k$ が得られます。ただし、$Q=(q_1,\dots,q_k)$ だけでは「元の各列 $a_j$ がこの新しい基底でどの係数を持っていたか」が見えません。
+
+そこで、各 $a_j$ を $q_1,\dots,q_j$ で表した係数を別の行列 $R$ に保存します。すると元の行列全体を $A=QR$ と復元でき、Gram--Schmidt の手順を一つの行列分解として扱えるようになります。
 
 <a id="def-f0-00e1-thin-qr"></a>
 
@@ -790,6 +922,8 @@ $$
 従って $A=QR$ は定義どおりの薄いQR分解です。
 <!-- definition-example-end -->
 
+Gram--Schmidtでは各列 $a_j$ から、それ以前の $q_i$ 方向を順に引きました。逆に見ると、元の $a_j$ は $q_1,\dots,q_j$ の線形結合として復元できます。その係数を列ごとに並べれば、上三角行列が自然に現れます。
+
 <a id="thm-f0-00e1-qr-existence"></a>
 
 <!-- formal-statement-start -->
@@ -797,25 +931,60 @@ $$
 > 列一次独立な $A\in\mathbb R^{n\times k}$ にGram--Schmidt直交化を適用すると、薄いQR分解 $A=QR$ を構成できる。
 <!-- formal-statement-end -->
 
-列を $a_1,\dots,a_k$ とし、Gram--Schmidtで $q_1,\dots,q_k$ を作ります。各段階で
+### 証明の見取り図
+
+$j$ 番目の列 $a_j$ は、Gram--Schmidt の第 $j$ 段階までに得た $q_1,\dots,q_j$ だけで表せます。したがって、$q_i$ の係数を行列に並べると対角より下が0になります。
+
+<!-- proof-start -->
+### 証明
+
+$A$ の列を $a_1,\dots,a_k$ とし、Gram--Schmidtで $q_1,\dots,q_k$ を作ります。第 $j$ 段階では
 
 $$
-a_j=\sum_{i=1}^j r_{ij}q_i,
+u_j
+=
+a_j-
+\sum_{i=1}^{j-1}\langle a_j,q_i\rangle q_i,
 \qquad
-r_{ij}=\langle a_j,q_i\rangle\ (i<j),
-\qquad
-r_{jj}=\|u_j\|>0
+q_j=\frac{u_j}{\|u_j\|}.
 $$
 
-です。$q_i$ を列に持つ $Q$ と係数 $r_{ij}$ を並べた $R$ を使えば
+2本目の式から $u_j=\|u_j\|q_j$ なので、1本目へ戻すと
 
 $$
-A=QR,
-\qquad
-Q^{\mathsf T}Q=I,
+a_j
+=
+\sum_{i=1}^{j-1}\langle a_j,q_i\rangle q_i
++
+\|u_j\|q_j.
 $$
 
-で、$R$ は上三角かつ対角成分正です。Gram--Schmidtは行列分解そのものを構成しています。
+そこで
+
+$$
+r_{ij}
+=
+\begin{cases}
+\langle a_j,q_i\rangle,&i<j,\\
+\|u_j\|,&i=j,\\
+0,&i>j
+\end{cases}
+$$
+
+と置きます。各 $a_j$ は
+
+$$
+a_j=\sum_{i=1}^k r_{ij}q_i
+$$
+
+と書けるので、$q_i$ を列に持つ $Q$ と $r_{ij}$ を成分に持つ $R$ について
+
+$$
+A=QR.
+$$
+
+$q_i$ は正規直交系だから $Q^{\mathsf T}Q=I_k$ です。また $i>j$ では $r_{ij}=0$ なので $R$ は上三角で、対角成分は $r_{jj}=\|u_j\|>0$ です。従って $A=QR$ は薄いQR分解です。
+<!-- proof-end -->
 
 ---
 
@@ -833,25 +1002,68 @@ $$
 
 を考えます。
 
-$Q$ の列空間への射影は
+$Q$ の列空間への射影を
 
 $$
-QQ^{\mathsf T}y
+p=QQ^{\mathsf T}y
 $$
 
-なので、最適点では
+とし、射影残差を
 
 $$
-QR\hat\beta=QQ^{\mathsf T}y.
+r=y-p
 $$
 
-左から $Q^{\mathsf T}$ を掛けると
+と置きます。$r\perp\operatorname{Col}(Q)$ です。
+
+任意の $\beta$ に対して
+
+$$
+\begin{aligned}
+y-QR\beta
+&=(y-p)+(p-QR\beta)\\
+&=r+QQ^{\mathsf T}y-QR\beta\\
+&=r+Q(Q^{\mathsf T}y-R\beta).
+\end{aligned}
+$$
+
+第1項 $r$ は $\operatorname{Col}(Q)^\perp$ に、第2項は $\operatorname{Col}(Q)$ に属するので直交します。従って Pythagoras により
+
+$$
+\|y-QR\beta\|^2
+=
+\|r\|^2
++
+\|Q(Q^{\mathsf T}y-R\beta)\|^2.
+$$
+
+さらに任意の $z\in\mathbb R^k$ について
+
+$$
+\|Qz\|^2
+=
+z^{\mathsf T}Q^{\mathsf T}Qz
+=
+\|z\|^2
+$$
+
+なので
+
+$$
+\|y-QR\beta\|^2
+=
+\|r\|^2
++
+\|Q^{\mathsf T}y-R\beta\|^2.
+$$
+
+第1項は $\beta$ に依存しません。$R$ は可逆なので、第2項を0にできる唯一の $\beta$ が最小解であり、
 
 $$
 R\hat\beta=Q^{\mathsf T}y.
 $$
 
-よって
+従って
 
 $$
 \boxed{
@@ -903,9 +1115,7 @@ $$
 
 という無限次元での対応する分解へ一般化されます。
 
-有限次元では「部分空間は自動的に閉」であるため、閉性をほぼ意識しません。
-
-無限次元ではこの「自動的に」が消えるため、閉部分空間という条件が重要になります。
+ただし無限次元では、有限次元のように任意の部分空間へ同じ射影分解をそのまま適用できません。「どの部分空間なら最近点としての射影が存在するか」を保証する追加条件が必要になります。その条件と一般化は、後続の関数解析で扱います。
 
 ---
 
@@ -928,9 +1138,26 @@ $$
 次に
 
 $$
-u_2=v_2-\langle v_2,q_1\rangle q_1
-=(1,0)^{\mathsf T}-\frac12(1,1)^{\mathsf T}
-=\left(\frac12,-\frac12\right)^{\mathsf T}.
+\langle v_2,q_1\rangle
+=
+(1,0)
+\cdot
+\frac1{\sqrt2}(1,1)
+=
+\frac1{\sqrt2}.
+$$
+
+したがって
+
+$$
+\begin{aligned}
+u_2
+&=v_2-\langle v_2,q_1\rangle q_1\\
+&=(1,0)^{\mathsf T}
+-\frac1{\sqrt2}\frac1{\sqrt2}(1,1)^{\mathsf T}\\
+&=(1,0)^{\mathsf T}-\frac12(1,1)^{\mathsf T}\\
+&=\left(\frac12,-\frac12\right)^{\mathsf T}.
+\end{aligned}
 $$
 
 $\|u_2\|=1/\sqrt2$ なので
@@ -1027,7 +1254,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-列 $a_1=(1,1,0)^{\mathsf T}$、$a_2=(1,-1,0)^{\mathsf T}$ は直交し、どちらも長さ $\sqrt2$ です。従って
+列 $a_1=(1,1,0)^{\mathsf T}$、$a_2=(1,-1,0)^{\mathsf T}$ は直交し、どちらも長さ $\sqrt2$ です。従って正規化した列を並べると
 
 $$
 Q=\frac1{\sqrt2}
@@ -1035,8 +1262,22 @@ Q=\frac1{\sqrt2}
 1&1\\
 1&-1\\
 0&0
-\end{pmatrix},
-\qquad
+\end{pmatrix}.
+$$
+
+$A=QR$ なら左から $Q^{\mathsf T}$ を掛けて
+
+$$
+Q^{\mathsf T}A
+=
+Q^{\mathsf T}QR
+=
+R
+$$
+
+となるので、
+
+$$
 R=Q^{\mathsf T}A=
 \begin{pmatrix}
 \sqrt2&0\\
@@ -1126,13 +1367,13 @@ $$
 X^{\mathsf T}X\hat\beta=X^{\mathsf T}y.
 $$
 
-列一次独立性から、$z\ne0$ に対し
+列一次独立性から、$z\ne0$ に対し $Xz\ne0$ なので
 
 $$
-z^{\mathsf T}X^{\mathsf T}Xz=\|Xz\|^2>0,
+z^{\mathsf T}X^{\mathsf T}Xz=\|Xz\|^2>0.
 $$
 
-なので $X^{\mathsf T}X$ は可逆です。よって
+もし $X^{\mathsf T}Xz=0$ なら左辺は0になって矛盾するため、核は $\{0\}$ です。$X^{\mathsf T}X$ は $k\times k$ 正方行列なので可逆です。よって
 
 $$
 \hat\beta=(X^{\mathsf T}X)^{-1}X^{\mathsf T}y.
@@ -1291,14 +1532,46 @@ $$
 最後に
 
 $$
-R\hat\beta=
+\begin{pmatrix}
+\sqrt2&1/\sqrt2\\
+0&\sqrt{3/2}
+\end{pmatrix}
+\begin{pmatrix}
+\hat\beta_1\\
+\hat\beta_2
+\end{pmatrix}
+=
 \begin{pmatrix}
 3/\sqrt2\\
 1/\sqrt6
-\end{pmatrix}
+\end{pmatrix}.
 $$
 
-を下段から解くと $\hat\beta_2=1/3$、上段から $\hat\beta_1=4/3$ です。従って
+下段は
+
+$$
+\sqrt{\frac32}\,\hat\beta_2
+=
+\frac1{\sqrt6}
+$$
+
+なので $\hat\beta_2=1/3$ です。これを上段へ代入すると
+
+$$
+\sqrt2\,\hat\beta_1
++
+\frac1{\sqrt2}\cdot\frac13
+=
+\frac3{\sqrt2}.
+$$
+
+両辺に $\sqrt2$ を掛けて
+
+$$
+2\hat\beta_1+\frac13=3
+$$
+
+だから $\hat\beta_1=4/3$ です。従って
 
 $$
 \boxed{
