@@ -2602,16 +2602,44 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-1. integrating factor $e^{\alpha t}$ を使います。
+1. 積分因子 $e^{\alpha t}$ を使います。
 
-有限変動過程との 積の公式 により
+$$
+U_t=e^{\alpha t}
+$$
+
+と置きます。$U$ は有限変動過程なので
+
+$$
+[U,X]_t=0.
+$$
+
+連続セミマルチンゲールの積について
+
+$$
+d(U_tX_t)
+=
+U_t\,dX_t
++
+X_t\,dU_t
++
+d[U,X]_t
+$$
+
+であり、
+
+$$
+dU_t=\alpha e^{\alpha t}dt
+$$
+
+だから
 
 $$
 d(e^{\alpha t}X_t)
 =
-\alpha e^{\alpha t}X_tdt
+e^{\alpha t}dX_t
 +
-e^{\alpha t}dX_t.
+\alpha e^{\alpha t}X_tdt.
 $$
 
 SDE を代入するとドリフトが相殺され、
