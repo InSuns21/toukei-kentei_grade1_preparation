@@ -631,6 +631,16 @@ $$
 
 とします。
 
+中心極限定理が直接扱うのは格子時刻 $k/n$ での部分和です。しかし経路空間 $C([0,1])$ の元として扱うには、格子点の間にも値を持つ連続関数へ変換する必要があります。
+
+そこで点
+
+$$
+\left(\frac{k}{n},\frac{S_k}{\sigma\sqrt n}\right)
+$$
+
+を直線で結びます。時間を $n$ 倍、空間を $\sqrt n$ で規格化することで、各時間区間の分散がブラウン運動と同じ次数になるようにします。
+
 <a id="def-sto3a-polygonal-walk"></a>
 
 <!-- formal-statement-start -->
@@ -689,6 +699,10 @@ $$
 ---
 
 ## 6. 有限次元分布は Brown 運動へ収束する
+
+一時刻 $t$ だけなら中心極限定理から正規極限が得られます。しかし Brown 運動を特徴付けるには、複数時刻の値の **同時分布**と、互いに素な時間区間の増分が独立であることまで確認する必要があります。
+
+値ベクトルを直接扱うより、各区間の増分へ分解すれば、それぞれが互いに重ならない独立同分布変数の和になります。各増分へ中心極限定理を適用し、最後に累積和の線形写像で値ベクトルへ戻します。
 
 <a id="prop-sto3a-fdd-convergence"></a>
 
@@ -775,7 +789,7 @@ S_{\lfloor nt_{j-1}\rfloor}
 \xrightarrow{d}N(0,1)
 $$
 
-が [独立同分布 [中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt)](../F0_00P6A_iid_中心極限定理/index.md) から従います。
+が [独立同分布中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt)から従います。
 
 したがって
 
@@ -785,9 +799,47 @@ $$
 N(0,t_j-t_{j-1}).
 $$
 
-独立性が有限 $n$ で成り立つため joint characteristic function は積に分かれ、極限でも増分は互いに独立です。
+独立性が有限 $n$ で成り立つため、増分ベクトルの特性関数は任意の $u_1,\ldots,u_m\in\mathbb R$ に対して
 
-よって増分ベクトルは Brown 運動の増分ベクトルへ収束します。累積和の線形写像を適用すれば値ベクトルの収束が従います。
+$$
+\begin{aligned}
+E\exp\left(
+i\sum_{j=1}^m
+u_j[
+\widetilde W_n(t_j)-\widetilde W_n(t_{j-1})
+]
+\right)
+&=
+\prod_{j=1}^m
+E\exp\left(
+iu_j[
+\widetilde W_n(t_j)-\widetilde W_n(t_{j-1})
+]
+\right).
+\end{aligned}
+$$
+
+各因子は上の一変量収束により
+
+$$
+\exp\left(
+-\frac12u_j^2(t_j-t_{j-1})
+\right)
+$$
+
+へ収束するので、積全体は独立な正規増分ベクトルの特性関数へ収束します。従って増分ベクトルは Brown 運動の増分ベクトルへ収束します。
+
+最後に
+
+$$
+(x_1,\ldots,x_m)
+\longmapsto
+(x_1,x_1+x_2,\ldots,x_1+\cdots+x_m)
+$$
+
+という連続な線形写像を適用すれば、増分ベクトルから値ベクトル
+$(\widetilde W_n(t_1),\ldots,\widetilde W_n(t_m))$
+の収束が従います。
 
 最後に補間誤差を処理します。固定 $t$ に対し
 
@@ -819,7 +871,9 @@ $$
 
 ## 7. bounded increments なら四次モーメントで tightness
 
-まず $|X_1|\le M$ a.s. の場合を扱います。
+前節で有限個の時刻の極限は得ました。残るのは、経路が格子の間で激しく振動しないことを一様に示す仕事です。第4節の判定条件に入れるため、まず増分の四次モーメントを $|t-s|^2$ で抑えます。
+
+一般の有限分散変数では四次モーメントが存在するとは限らないため、最初は $|X_1|\le M$ という有界な場合だけを扱います。後で有界化と Doob 最大不等式を使って、この制限を外します。
 
 <a id="lem-sto3a-bounded-fourth-increment"></a>
 
@@ -875,7 +929,17 @@ $$
 
 を満たします。
 
-平均0の独立変数の四次モーメント展開から
+四次式を展開すると
+
+$$
+\left(\sum_j a_jY_j\right)^4
+=
+\sum_{i_1,i_2,i_3,i_4}
+a_{i_1}a_{i_2}a_{i_3}a_{i_4}
+Y_{i_1}Y_{i_2}Y_{i_3}Y_{i_4}.
+$$
+
+独立性と $E[Y_j]=0$ により、ある添字が1回だけ現れる項の期待値は 0 です。従って期待値が残るのは、同じ添字が4回現れる項と、二つの添字が2回ずつ現れる項だけです。後者には4個の位置から2個を選ぶ $\binom42=6$ 通りがあるため
 
 $$
 E\left(\sum_ja_jY_j\right)^4
@@ -940,7 +1004,25 @@ $$
 > 上の補題の仮定のもとで $\{V_n\}$ は $C([0,1])$ 上で tight である。
 <!-- formal-statement-end -->
 
-四次増分評価に [Kolmogorov 型 tightness criterion](#thm-sto3a-kolmogorov-tightness) を $\beta=1$ で適用すれば直ちに従います。
+補題から
+
+$$
+E|V_n(t)-V_n(s)|^4
+\le
+C_{M,c}|t-s|^2
+=
+C_{M,c}|t-s|^{1+1}
+$$
+
+です。また定義から $V_n(0)=0$ です。したがって [Kolmogorov 型 tightness criterion](#thm-sto3a-kolmogorov-tightness) の仮定で
+
+$$
+C=C_{M,c},
+\qquad
+\beta=1
+$$
+
+と取れます。よって $\{V_n\}$ は $C([0,1])$ 上で tight です。
 
 ---
 
@@ -969,6 +1051,8 @@ $$
 と置きます。
 
 これは bounded で平均0です。
+
+有界化した過程だけで Donsker を証明しても、元の過程へ戻せなければ有限分散版にはなりません。そこでまず、有界化で捨てた tail の二次モーメントが $M\to\infty$ で消えることを確認します。
 
 差を
 
@@ -1065,21 +1149,51 @@ $$
 \max_{0\le k\le n}|Q_k^{(M)}|.
 $$
 
-[Doob 最大不等式](../STO2/index.md#thm-sto2-doob-maximal) を二乗 martingale に適用すると、ある普遍定数 $C$ に対し
+$(Q_k^{(M)})$ は平均 0 の martingale なので、条件付き Jensen の不等式から
 
 $$
+E[(Q_{k+1}^{(M)})^2\mid\mathcal F_k]
+\ge
+\left(
+E[Q_{k+1}^{(M)}\mid\mathcal F_k]
+\right)^2
+=
+(Q_k^{(M)})^2.
+$$
+
+従って $((Q_k^{(M)})^2)$ は非負劣マルチンゲールです。[Doob 最大不等式](../STO2/index.md#thm-sto2-doob-maximal)をこの過程へ、閾値
+
+$$
+\lambda
+=
+\varepsilon^2\sigma^2 n
+$$
+
+で適用すると
+
+$$
+\begin{aligned}
 P\left(
 \max_{k\le n}|Q_k^{(M)}|
 >
 \varepsilon\sigma\sqrt n
 \right)
-\le
+&=
+P\left(
+\max_{k\le n}(Q_k^{(M)})^2
+>
+\varepsilon^2\sigma^2 n
+\right)\\
+&\le
 \frac{
-C E[(Q_n^{(M)})^2]
+E[(Q_n^{(M)})^2]
 }{
 \varepsilon^2\sigma^2 n
 }.
+\end{aligned}
 $$
+
+したがって以下では普遍定数を余分に置く必要はありません。
 
 独立性と平均0から
 
@@ -1105,6 +1219,10 @@ $$
 ---
 
 ## 10. 一般有限分散版の tightness
+
+固定した $M$ では有界化過程 $W_n^{(M)}$ の tightness が分かっています。また前節で、$M$ を大きくすれば元の $W_n$ と $W_n^{(M)}$ を $n$ に一様に近づけられることも分かりました。
+
+そこで「まず $M$ を選んで近似誤差を小さくし、その $M$ を固定したまま $\delta$ を選んで modulus を小さくする」という二段階で、元の過程へ tightness を戻します。$M$ と $\delta$ を同時に動かさないことが量化順序の要点です。
 
 <a id="thm-sto3a-finite-variance-tightness"></a>
 
@@ -1174,6 +1292,10 @@ $W_n(0)=0$ なので初期値の tightness は自明です。modulus criterion �
 ---
 
 ## 11. 確率変数の極限を経路全体へ持ち上げる
+
+ここまでで、候補極限が Brown 運動であることを有限個の時刻では確認し、経路の確率法則が compact 集合の外へ逃げないことも示しました。残るのは、この二つを一つの弱収束へ結び付けることです。
+
+tightness から任意の部分列に弱収束部分列を取り、その部分列極限の有限次元分布が Brown 運動と一致することを示します。最後に「連続経路上の確率測度は有限次元分布で一意に決まる」ことを使えば、どの部分列極限も同じ Brownian law になるため列全体の収束が従います。
 
 <a id="thm-sto3a-donsker"></a>
 
