@@ -34,7 +34,7 @@
 ### 線形代数
 
 1. [F0-00E ベクトル空間・基底](textbook/volumes/00_foundations/F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md)
-2. [F0-00F 線形写像・固有空間・SVD](textbook/volumes/00_foundations/F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md)
+2. [F0-00F 線形写像・表現行列・基底変換・対角化](textbook/volumes/00_foundations/F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md)
 3. [LA1 実・複素線形空間](textbook/volumes/00_foundations/LA1/index.md)
 4. [LA2 直和・補空間・商空間](textbook/volumes/00_foundations/LA2/index.md)
 5. [LA3A 代数的双対・双対基底・annihilator](textbook/volumes/00_foundations/LA3A/index.md)
