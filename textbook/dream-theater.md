@@ -28,7 +28,7 @@
 7. [F0-00A2 選択公理](textbook/volumes/00_foundations/F0_00A2_選択公理_Zorn_極大原理/index.md)
 8. [F0-00A3 Zorn の補題・極大延長](textbook/volumes/00_foundations/F0_00A3_半順序_Zorn_極大延長/index.md)
 
-順序数・超限帰納法・超限再帰・Hartogs の補題から選択公理の同値性を完全に追う内容は、共通基礎の必修列には含めません。発展分岐として [F0-00A3A 選択公理と Zorn の補題の同値性](textbook/volumes/00_foundations/F0_00A3A_AC_Zorn_equivalence_proof/index.md) があり、将来の独立「集合論・数学基礎論」ではこの stable page を SET8 相当として再利用します。
+順序数・超限帰納法・超限再帰・Hartogs の補題を使って選択公理の同値性を完全に追う内容は、共通基礎の必修列には含めません。証明まで追いたい場合は、発展分岐の [F0-00A3A 選択公理と Zorn の補題の同値性](textbook/volumes/00_foundations/F0_00A3A_AC_Zorn_equivalence_proof/index.md) へ進めます。
 
 <a id="dt-subject-linear-algebra"></a>
 ### 線形代数
