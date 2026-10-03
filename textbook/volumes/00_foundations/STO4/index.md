@@ -556,7 +556,7 @@ $$
 e_q\circ\mathbf B=B_q
 $$
 
-は $\mathcal F$-可測です。直前の補題から $\mathcal B(C_0([0,T]))$ は $(e_q)_{q\in D}$ で生成されるので、$\mathbf B$ 自身が可測です。
+は $\mathcal F$-可測です。[原点始点経路の Borel 代数は座標評価で生成される](#lem-sto4-path-borel-coordinates)から $\mathcal B(C_0([0,T]))$ は $(e_q)_{q\in D}$ で生成されるので、$\mathbf B$ 自身が可測です。
 
 <a id="def-sto4-wiener-measure"></a>
 
@@ -725,7 +725,7 @@ $$
 
 $W_T$ も同じ有限次元分布を持つので、$\mu$ と $W_T$ は全ての円筒事象上で一致します。
 
-円筒事象は $\pi$-system をなし、前の補題から
+円筒事象は $\pi$-system をなし、[原点始点経路の Borel 代数は座標評価で生成される](#lem-sto4-path-borel-coordinates)から
 
 $$
 \sigma(e_t:0\le t\le T)
@@ -735,7 +735,7 @@ $$
 
 を生成します。
 
-従って $\pi$-$\lambda$ 定理により
+従って [π--λ 定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda)により
 
 $$
 \mu=W_T
@@ -956,7 +956,7 @@ $$
 
 は $\mathcal F_s^B$ の cylinder event であり、上の有限次元独立性から $A$ と $B_{s+t}-B_s$ は独立です。これらの cylinder event は $\pi$-system をなし、$\mathcal F_s^B$ を生成します。
 
-したがって、$B_{s+t}-B_s$ と独立な事象全体が $\lambda$-system をなすことと $\pi$-$\lambda$ 定理から、未来増分は $\mathcal F_s^B$ 全体と独立です。
+したがって、$B_{s+t}-B_s$ と独立な事象全体が $\lambda$-system をなすことと [π--λ 定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda)から、未来増分は $\mathcal F_s^B$ 全体と独立です。
 
 あとは $Y=B_{s+t}-B_s\sim N(0,t)$ と置けば、$Y$ は $\mathcal F_s^B$ と独立なので
 
@@ -2648,7 +2648,7 @@ $$
 
 $\mu,\nu$ はともに確率測度なので $\mathcal L$ は全体集合を含み、補集合と互いに素な可算和について閉じる $\lambda$-system です。また $\mathcal C\subset\mathcal L$ です。
 
-従って $\pi$-$\lambda$ 定理から
+従って [π--λ 定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda)から
 
 $$
 \mathcal B(C_0([0,T]))
