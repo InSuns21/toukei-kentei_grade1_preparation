@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念への参照**：[ブラウン運動のマルコフ性](../STO4/index.md#thm-sto4-brownian-markov)、[SDE の大域的存在一意性](../STO9/index.md#thm-sto9-global-existence-uniqueness)、[時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula)、[Lévy の特徴付け定理](../STO5/index.md#thm-sto5-levy-characterization) を再利用します。
+> **既出概念への参照**：[ブラウン運動のマルコフ性](../STO4/index.md#thm-sto4-brownian-markov)、[SDE の大域的存在一意性](../STO9/index.md#thm-sto9-global-existence-uniqueness)、[時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula)、[Levy characterization](../STO5/index.md#thm-sto5-levy-characterization) を再利用します。
 
 STO4 ではブラウン運動についてマルコフ性と強マルコフ性を標本路側から学び、STO9 では
 
@@ -1787,7 +1787,7 @@ W_t
 \int_0^t\sigma(X_s)^{-1}dM_s
 $$
 
-と置き、[STO5 の Lévy の特徴付け定理](../STO5/index.md#thm-sto5-levy-characterization) を使います。
+と置き、STO5 の [Levy characterization](../STO5/index.md#thm-sto5-levy-characterization) を使います。
 
 <!-- proof-start -->
 ### 証明
@@ -1945,7 +1945,7 @@ $$
 
 また $W_0=0$ で $W$ は continuous 局所マルチンゲールです。
 
-STO5 の [Lévy の特徴付け定理](../STO5/index.md#thm-sto5-levy-characterization) は 1 次元版なので、多次元結論を線形結合で確認します。任意の $u\in\mathbb R^d$ に対して
+STO5 の [Levy characterization](../STO5/index.md#thm-sto5-levy-characterization) は 1 次元版なので、多次元結論を線形結合で確認します。任意の $u\in\mathbb R^d$ に対して
 
 $$
 L_t^u=u^\top W_t
@@ -2074,7 +2074,7 @@ $$
 
 を得ます。
 
-ここでも [STO5 の Lévy の特徴付け定理](../STO5/index.md#thm-sto5-levy-characterization) は各 1 次元線形結合へ適用します。任意の $u\in\mathbb R^d$ に対し
+ここでも STO5 の [Levy characterization](../STO5/index.md#thm-sto5-levy-characterization) は各 1 次元線形結合へ適用します。任意の $u\in\mathbb R^d$ に対し
 
 $$
 L_t^u
@@ -2999,7 +2999,7 @@ W_t=\int_0^t\frac1{\sigma(X_s)}dM_s
 $$
 
 を定め、$[W]_t$ を計算せよ。
-2. [STO5 の Lévy の特徴付け定理](../STO5/index.md#thm-sto5-levy-characterization) から何が言えるか。
+2. STO5 の [Levy characterization](../STO5/index.md#thm-sto5-levy-characterization) から何が言えるか。
 3. マルチンゲール問題からブラウン運動を構成し、$X$ の SDE 表現を復元せよ。
 
 <!-- solution-start -->
@@ -3025,7 +3025,7 @@ $$
 
 $W$ は continuous 局所マルチンゲールで $W_0=0$ です。
 
-2. [STO5 の Lévy characterization](../STO5/index.md#thm-sto5-levy-characterization) の仮定
+2. STO5 の [Levy characterization](../STO5/index.md#thm-sto5-levy-characterization) の仮定
 
 $$
 W_0=0,
@@ -3369,7 +3369,7 @@ $$
 [W]_t=t.
 $$
 
-[STO5 の Lévy の特徴付け定理](../STO5/index.md#thm-sto5-levy-characterization) により $W$ はブラウン運動で、
+STO5 の [Levy characterization](../STO5/index.md#thm-sto5-levy-characterization) により $W$ はブラウン運動で、
 
 $$
 dX_t=-\theta X_tdt+\sigma dW_t
