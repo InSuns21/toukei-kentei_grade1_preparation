@@ -28,7 +28,7 @@ $$
 
 $$
 \boxed{
-\text{有限次元分布}
+\text{有限個の時刻の同時分布}
 \to
 \text{consistency}
 \to
