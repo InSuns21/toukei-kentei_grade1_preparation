@@ -24,7 +24,7 @@
 4. [SET-U2 可算集合・非可算集合](textbook/volumes/00_foundations/SET-U2/index.md)
 5. [SET-U3 濃度・Cantor--Bernstein・Cantor の定理](textbook/volumes/00_foundations/SET-U3/index.md)
 6. [F0-00A1D 順序集合：半順序・全順序・極値・整列](textbook/volumes/00_foundations/F0_00A1D_順序_全順序_最小最大_整列/index.md)
-7. [F0-00A2 選択公理・Zorn](textbook/volumes/00_foundations/F0_00A2_選択公理_Zorn_極大原理/index.md)
+7. [F0-00A2 選択公理](textbook/volumes/00_foundations/F0_00A2_選択公理_Zorn_極大原理/index.md)
 8. [F0-00A3 Zorn の補題・極大延長](textbook/volumes/00_foundations/F0_00A3_半順序_Zorn_極大延長/index.md)
 9. [F0-00A3A 選択公理とZornの補題の同値性](textbook/volumes/00_foundations/F0_00A3A_AC_Zorn_equivalence_proof/index.md)
 10. [F0-00B0 点列・部分列・十分大きい添字](textbook/volumes/00_foundations/F0_00B0_点列_部分列_十分大きい添字/index.md)

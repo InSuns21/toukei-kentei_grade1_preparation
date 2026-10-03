@@ -12,6 +12,7 @@ forward_references:
   - set.chain
   - linear.vector-space
   - linear.basis
+  - linear.hamel-basis-existence
 
 concepts:
   - id: set.choice-function

@@ -5,14 +5,16 @@ status: supplementary
 prerequisites:
   - F0-00
   - F0-00A
+  - F0-00A3
 official_scope: []
 learning_objectives:
   - ベクトル空間と線形部分空間を定義から説明できる
-  - 線形包・一次独立・基底を相互に結び付けて説明できる
+  - 任意の部分集合に対する有限線形結合・線形包・一次独立・基底を定義できる
   - Steinitzの交換補題から有限次元で基底の本数が一定であることを説明できる
-  - 基底延長定理を説明しrank-nullity theoremの準備ができる
+  - 有限次元の基底延長定理を説明しrank-nullity theoremの準備ができる
+  - Zornの補題を一次独立集合へ適用し、任意のベクトル空間にHamel基底が存在することを証明できる
   - 部分空間の和・直和と次元公式を説明できる
-  - 基底に対する座標写像が線形同型であることを説明できる
+  - 有限次元で基底に対する座標写像が線形同型であることを説明できる
 definitions:
   - { id: F000E-DEF-01, name: ベクトル空間 }
   - { id: F000E-DEF-02, name: 線形部分空間 }
@@ -24,9 +26,10 @@ theorems:
   - { id: F000E-THM-01, name: Steinitzの交換補題 }
   - { id: F000E-THM-02, name: 有限次元で基底の本数は一定 }
   - { id: F000E-THM-03, name: 基底延長定理 }
-canonical_examples: [R3の部分空間, spanの具体計算, 基底座標, 基底延長]
-problem_patterns: [LA-BASIS-1, LA-DIM-1]
+  - { id: F000E-THM-04, name: Hamel基底の存在 }
+canonical_examples: [R3の部分空間, spanの具体計算, 多項式空間の無限生成集合, 基底延長, Hamel基底の存在]
+problem_patterns: [LA-BASIS-1, LA-DIM-1, ZORN-HAMEL-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 3.5, exercises: 1.0, review: 0.75 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 2.0, review: 0.75 }

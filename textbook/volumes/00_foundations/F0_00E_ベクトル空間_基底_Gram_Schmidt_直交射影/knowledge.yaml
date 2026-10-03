@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - F0-00A
+  - F0-00A3
 
 forward_references:
   - linear.inner-product
@@ -42,9 +43,9 @@ concepts:
       - linear.linear-subspace
 
   - id: linear.linear-combination-span
-    name: 線形結合とspan
+    name: 線形結合と線形包
     kind: definition
-    aliases: [線形結合とspan]
+    aliases: [線形結合とspan, 線形結合と線形包]
     requires:
       - linear.linear-subspace
 
@@ -59,7 +60,7 @@ concepts:
     name: 線形代数の基底
     kind: definition
     introduction_aliases: [基底]
-    aliases: [線形代数の基底, linear basis]
+    aliases: [線形代数の基底, Hamel基底, Hamel 基底, linear basis]
     requires:
       - linear.linear-combination-span
       - linear.linear-independence
@@ -95,6 +96,15 @@ concepts:
     requires:
       - linear.dimension
       - linear.linear-independence
+
+  - id: linear.hamel-basis-existence
+    name: Hamel基底の存在
+    kind: theorem
+    aliases: [Hamel基底の存在, Hamel 基底の存在]
+    requires:
+      - linear.basis
+      - linear.linear-independence
+      - set.zorn-lemma
 
   - id: linear.sum-direct-sum
     name: 線形部分空間の和・直和

@@ -8,19 +8,19 @@ official_scope: []
 learning_objectives:
   - F0-00A1D の半順序・鎖・上界・極大元を用いて Zorn の補題を正確に述べられる
   - Zorn を候補集合・順序・鎖の上界・極大元の4段階で適用できる
-  - 鎖になった延長候補の合併が上界になるための well-defined 性を確認できる
-  - Hamel 基底と Hahn--Banach の極大延長に Zorn が使われる理由を説明できる
+  - 鎖になった部分写像の合併が上界になるための 矛盾なく一意に定まることを確認できる
+  - 鎖全体を包含関係で順序付け、任意の半順序集合に極大鎖が存在することを証明できる
 definitions: []
 theorems:
   - { id: F000A3-THM-01, name: Zorn の補題 }
+  - { id: F000A3-THM-02, name: 極大鎖の存在 }
 canonical_examples:
-  - 一次独立集合の鎖の合併
+  - 鎖の鎖の合併
   - 部分写像の鎖の合併
-  - Hahn--Banach の延長候補族
 problem_patterns:
   - ZORN-TEMPLATE-1
   - CHAIN-UPPER-BOUND-1
 past_exam_alignment: []
 integrated_exam_problems: []
 exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
-estimated_hours: { reading: 1.8, exercises: 1.5, review: 0.4 }
+estimated_hours: { reading: 2.0, exercises: 1.5, review: 0.4 }
