@@ -126,17 +126,17 @@ $$
 <!-- definition-example-start: def-la3b-permutation-sign -->
 **定義の確認**：$\sigma=(2,3,1)$ なら、位置の組 $(1,3),(2,3)$ について
 
-$
+$$
 \sigma(1)=2>1=\sigma(3),\qquad
 \sigma(2)=3>1=\sigma(3)
-$
+$$
 
 となるので転倒は2個です。従って
 
-$
+$$
 \operatorname{inv}(\sigma)=2,\qquad
 \operatorname{sgn}(\sigma)=(-1)^2=1.
-$
+$$
 <!-- definition-example-end -->
 
 Leibniz 公式では、列を交換したときに置換の符号も正確に1回反転してほしいので、符号が置換の合成に対して積になることが必要です。そのために、まず「隣り合う2箇所の交換では転倒数の偶奇が必ず反転する」ことを確認し、一般の置換を隣接交換へ分解します。
@@ -279,16 +279,16 @@ $$
 
 各項は「各列から1成分ずつ、各行も重複なく選んだ積」です。例えば $\sigma=(2,3,1)$ なら
 
-$
+$$
 \prod_{j=1}^3 a_{\sigma(j),j}
 =a_{21}a_{32}a_{13}
-$
+$$
 
 を選びます。この置換の符号は $+1$ なので、この積は正符号で入ります。
 
 $S_3$ の6個の置換を全て並べると
 
-$
+$$
 \begin{aligned}
 \det A
 ={}&a_{11}a_{22}a_{33}
@@ -298,7 +298,7 @@ $
 +a_{31}a_{12}a_{23}
 -a_{31}a_{22}a_{13}.
 \end{aligned}
-$
+$$
 
 この6項を暗記する必要はありません。重要なのは、各項が「各列から1個・各行から1個」を選び、その並べ替えの向きを符号で補正していることです。そして次に、この和が狙った性質を本当に満たすかを確認します。
 
@@ -340,36 +340,36 @@ $$
 
 次に第 $p$ 列と第 $q$ 列を交換した行列を $A'$ とし、$\tau=(p\ q)$ とします。交換後の成分は
 
-$
+$$
 a'_{ij}=a_{i,\tau(j)}
-$
+$$
 
 です。従って $A'$ の Leibniz 展開で $\sigma$ に対応する成分積は
 
-$
+$$
 \begin{aligned}
 \prod_{j=1}^n a'_{\sigma(j),j}
 &=\prod_{j=1}^n a_{\sigma(j),\tau(j)}\\
 &=\prod_{k=1}^n a_{\sigma(\tau(k)),k}\\
 &=\prod_{k=1}^n a_{(\sigma\circ\tau)(k),k}.
 \end{aligned}
-$
+$$
 
 2行目では $k=\tau(j)$ と置き直し、互換なので $\tau^{-1}=\tau$ を使いました。つまり $A'$ の $\sigma$ 項は、元の $A$ の $\sigma\circ\tau$ 項と同じ成分積です。
 
 一方、[置換の符号の積](#lem-la3b-permutation-sign-product)より
 
-$
+$$
 \operatorname{sgn}(\sigma\circ\tau)
 =\operatorname{sgn}(\sigma)\operatorname{sgn}(\tau)
 =-\operatorname{sgn}(\sigma).
-$
+$$
 
 従って項は1対1に対応しながら符号だけ反転し、
 
-$
+$$
 \det A'=-\det A.
-$
+$$
 
 2列が同じなら交換しても行列は変わらないので
 $$
