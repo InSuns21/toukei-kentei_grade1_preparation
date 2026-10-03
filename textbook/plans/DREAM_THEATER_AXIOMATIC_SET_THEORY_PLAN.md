@@ -1,7 +1,7 @@
 # DREAM THEATER 集合論・数学基礎論コース計画
 
 作成日: 2026-09-29  
-更新日: 2026-10-02  
+更新日: 2026-10-03  
 状態: planned
 
 ## 0. 位置づけ
@@ -343,14 +343,30 @@ ultrafilter lemma による延長
 
 高度な完全証明を含むため、本科目側へ責務を寄せる。
 
-実装時に、
+2026-10-03 の decision gate で、**stable ID / URL を維持したまま F0-00A3A 自体を SET8 相当の canonical asset とする第一候補**を採用した。
 
-- stable ID を維持したまま本科目へ所属変更するか
-- SET8 を新設し A3A をその canonical proof appendix とするか
+ただし、現行 A3A が使用する
 
-を knowledge DAG と公開目次の整合性から決定する。
+- 順序数
+- Replacement
+- 超限再帰
+- Hartogs 補題
 
-重複する AC $\Leftrightarrow$ Zorn 証明は作らない。
+の canonical owner となる SET2 / SET4 / SET7 はまだ未実装である。したがって、それらが存在しない段階で架空の chapter ID を prerequisite に追加しない。
+
+移行順は次の通りとする。
+
+~~~text
+SET1--SET7 を実装
+  ↓
+順序数・超限再帰・Hartogs の stable ID / anchor を確定
+  ↓
+F0-00A3A の chapter.yaml / knowledge.yaml prerequisite を実在章へ付け替える
+  ↓
+公開所属を「集合論・数学基礎論」の SET8 として確定
+~~~
+
+SET1--SET7 が揃うまで、F0-00A3A は stable asset として保持するが、共通基礎の必修通読には置かない。重複する AC $\Leftrightarrow$ Zorn 証明は作らない。
 
 ## 5. 共通基礎にしないことの明文化
 
@@ -471,7 +487,7 @@ dream-theater-standard-math-core.md の共通基礎には、本科目を必修�
 7. SET5 累積階層・rank
 8. SET6 基数
 9. SET7 Hartogs
-10. F0-00A3A を SET8 相当へ再配置・再監査
+10. F0-00A3A の stable ID / URL を維持して SET8 相当へ再配置・再監査し、SET2 / SET4 / SET7 の実在 chapter ID を prerequisite に設定
 11. SET9 弱い選択原理
 12. SET10 数学各分野への接続
 13. dream-theater.md に独立科目として追加
