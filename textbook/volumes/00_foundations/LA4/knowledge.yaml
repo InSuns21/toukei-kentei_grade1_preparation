@@ -48,9 +48,9 @@ concepts:
       - linear.polynomial-matrix-determinant
 
   - id: linear.polynomial-laplace-expansion
-    name: 多項式行列のLaplace展開
+    name: 多項式行列のLaplace 展開
     kind: lemma
-    aliases: [多項式行列のLaplace展開, polynomial Laplace expansion]
+    aliases: [多項式行列のLaplace 展開, polynomial Laplace expansion]
     requires:
       - linear.polynomial-matrix-determinant
 
