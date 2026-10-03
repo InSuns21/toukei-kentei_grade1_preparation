@@ -6,6 +6,7 @@ prerequisites:
   - F0-00E
   - F0-00F
   - RNG1
+  - LA1
 official_scope: []
 learning_objectives:
   - 任意の体 F 上のベクトル空間を定義し、実・複素ベクトル空間を特殊例として位置付けられる
@@ -16,9 +17,9 @@ learning_objectives:
   - 体拡大 K/F が自然に F-ベクトル空間を与えることを説明し、拡大次数への準備ができる
 definitions:
   - { id: FLD0-DEF-01, name: 体上のベクトル空間 }
-  - { id: FLD0-DEF-02, name: F-線形結合とF-線形包 }
-  - { id: FLD0-DEF-03, name: F上の一次独立・基底・次元 }
-  - { id: FLD0-DEF-04, name: F-線形写像 }
+  - { id: FLD0-DEF-02, name: 体上の線形結合・線形包 }
+  - { id: FLD0-DEF-03, name: 体上の一次独立・基底・次元 }
+  - { id: FLD0-DEF-04, name: 体上の線形写像 }
 theorems:
   - { id: FLD0-PROP-01, name: 体上の部分空間判定法 }
   - { id: FLD0-THM-01, name: 一般の体上の Steinitz の交換補題と基底延長 }
