@@ -133,7 +133,7 @@ concepts:
   - id: ode.ode2-green-kernel
     name: 零初期値Green核
     kind: definition
-    aliases: [零初期値Green核, 線形ODEのGreen核, 零初期値Green関数]
+    aliases: [零初期値Green核, Green核, Green関数, グリーン関数]
     introduction: formal
     introduction_aliases: [零初期値 Green 核]
     requires:
