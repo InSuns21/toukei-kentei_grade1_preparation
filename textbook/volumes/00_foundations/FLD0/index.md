@@ -497,7 +497,7 @@ $$
 \dim_FV
 $$
 >
-> と書く。直前に証明した[一般体版の交換定理](#thm-fld0-steinitz-basis-extension-over-field)により、この本数は選んだ基底によらない。
+> と書く。直前の[交換と基底延長の結果](#thm-fld0-steinitz-basis-extension-over-field)により、この本数は選んだ基底によらない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fld0-dimension-over-field -->
@@ -563,7 +563,7 @@ $$
 T(x)=Ax
 $$
 
-とします。$u,v\in\mathbb F_3^2$、$a,b\in\mathbb F_3$ なら行列積の分配法則から
+とします。$u,v\in\mathbb F_3^2$、$a,b\in\mathbb F_3$ なら行列積を成分ごとに展開すると
 
 $$
 \begin{aligned}
@@ -850,7 +850,7 @@ $$
 
 と $K$ の乗法でスカラー倍を定めます。
 
-$F$ は $K$ の部分体なので $a\in F$ は $K$ の元でもあります。従って積 $ax$ は $K$ の中で定義されています。さらに体 $K$ の分配法則・結合法則から
+$F$ は $K$ の部分体なので $a\in F$ は $K$ の元でもあります。従って積 $ax$ は $K$ の中で定義されています。さらに $K$ の加法と乗法の演算規則から
 
 $$
 a(x+y)=ax+ay,
