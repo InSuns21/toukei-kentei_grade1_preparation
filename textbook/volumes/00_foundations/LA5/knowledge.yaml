@@ -68,16 +68,16 @@ concepts:
       - linear.finite-dimensional-adjoint
 
   - id: linear.unitary-operator
-    name: unitary作用素
+    name: ユニタリ作用素
     kind: definition
-    aliases: [unitary作用素, unitary operator]
+    aliases: [ユニタリ作用素, unitary作用素, unitary operator]
     requires:
       - linear.finite-dimensional-adjoint
 
   - id: linear.normal-operator
-    name: normal operator
+    name: 正規作用素
     kind: definition
-    aliases: [normal operator, 正規作用素]
+    aliases: [正規作用素, normal operator]
     requires:
       - linear.finite-dimensional-adjoint
 
@@ -91,9 +91,9 @@ concepts:
       - linear.characteristic-polynomial
 
   - id: linear.complex-normal-spectral-theorem
-    name: 複素normal operatorのスペクトル定理
+    name: 複素正規作用素のスペクトル定理
     kind: theorem
-    aliases: [複素normal operatorのスペクトル定理]
+    aliases: [複素正規作用素のスペクトル定理, 複素normal operatorのスペクトル定理]
     requires:
       - linear.normal-operator
       - linear.schur-unitary-triangularization
@@ -107,9 +107,9 @@ concepts:
       - linear.eigenvalue
 
   - id: linear.unitary-modulus-one-eigenvalues
-    name: unitary作用素の固有値は絶対値1
+    name: ユニタリ作用素の固有値は絶対値1
     kind: theorem
-    aliases: [unitary作用素の固有値は絶対値1]
+    aliases: [ユニタリ作用素の固有値は絶対値1, unitary作用素の固有値は絶対値1]
     requires:
       - linear.unitary-operator
       - linear.eigenvalue
