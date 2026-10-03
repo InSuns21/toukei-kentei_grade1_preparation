@@ -114,7 +114,7 @@ concepts:
       - stochastic.poisson-random-measure
 
   - id: stochastic.compensated-prm-simple-isometry
-    name: 補償ポアソンランダム測度の単関数 $L^2$ 等長性
+    name: 補償ポアソンランダム測度の単関数 L2 等長性
     kind: theorem
     aliases: ["simple compensated PRM isometry", "Poisson random measure L2 isometry"]
     introduction: formal
