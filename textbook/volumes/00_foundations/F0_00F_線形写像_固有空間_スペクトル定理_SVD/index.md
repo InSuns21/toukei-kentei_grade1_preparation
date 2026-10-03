@@ -1019,15 +1019,15 @@ $$
 > **定理（異なる固有値に属する固有ベクトルは一次独立）**  
 > ベクトル空間 $V$ の線形自己写像 $T:V\to V$ が互いに異なる固有値
 >
-> $$
-> \lambda_1,\dots,\lambda_k
-> $$
+$$
+\lambda_1,\dots,\lambda_k
+$$
 >
 > を持ち、それぞれに対応する固有ベクトルを $v_1,\dots,v_k$ とする。このとき
 >
-> $$
-> v_1,\dots,v_k
-> $$
+$$
+v_1,\dots,v_k
+$$
 >
 > は一次独立である。
 <!-- formal-statement-end -->
@@ -1197,15 +1197,15 @@ $P$ の列は固有ベクトル、$D$ の対角成分は対応する固有値で
 >
 > 1. $T$ は対角化可能である。
 > 2. $V$ は固有空間の直和
->    $$
->    V=\bigoplus_\lambda E_\lambda
->    $$
+$$
+   V=\bigoplus_\lambda E_\lambda
+$$
 >    と書ける。
 > 3. 固有ベクトルからなる $V$ の基底が存在する。
 > 4. 固有空間の次元の和が
->    $$
->    \sum_\lambda \dim E_\lambda=n
->    $$
+$$
+   \sum_\lambda \dim E_\lambda=n
+$$
 >    となる。
 <!-- formal-statement-end -->
 
@@ -1403,9 +1403,9 @@ $$
 >
 > 代数的重複度を $m_{\mathrm{alg}}(\lambda)$ と書く。このとき
 >
-> $$
-> 1\le \dim E_\lambda\le m_{\mathrm{alg}}(\lambda)
-> $$
+$$
+1\le \dim E_\lambda\le m_{\mathrm{alg}}(\lambda)
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
