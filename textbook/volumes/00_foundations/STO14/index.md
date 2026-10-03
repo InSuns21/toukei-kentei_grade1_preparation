@@ -2,9 +2,9 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念への参照**：[予測可能過程](../STO1/index.md#def-sto1-predictable)、[Doob 最大不等式](../STO2/index.md#thm-sto2-doob-maximal)、[多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)、[ポアソンランダム測度](../STO13/index.md#def-sto13-poisson-random-measure)、[補償ポアソンランダム測度](../STO13/index.md#def-sto13-compensated-prm)、[単関数 L2 等長性](../STO13/index.md#thm-sto13-prm-simple-isometry)、[$L^2$ の完備性](../F0_00D2E_L2完備性_Riesz_Fischer/index.md#thm-f0-00d2e-01)、[特性関数](../F0_00P6_特性関数_中心極限定理/index.md#def-f0-00p6-characteristic-function) を直接使います。
+> **既出概念への参照**：[予測可能過程](../STO1/index.md#def-sto1-predictable)、[Doob 最大不等式](../STO2/index.md#thm-sto2-doob-maximal)、[多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)、[Poisson ランダム測度](../STO13/index.md#def-sto13-poisson-random-measure)、[補償 Poisson ランダム測度](../STO13/index.md#def-sto13-compensated-prm)、[単関数 L2 等長性](../STO13/index.md#thm-sto13-prm-simple-isometry)、[$L^2$ の完備性](../F0_00D2E_L2完備性_Riesz_Fischer/index.md#thm-f0-00d2e-01)、[特性関数](../F0_00P6_特性関数_中心極限定理/index.md#def-f0-00p6-characteristic-function) を直接使います。
 
-STO13 では、跳躍の「時刻」と「印」をポアソンランダム測度
+STO13 では、跳躍の「時刻」と「印」をPoisson ランダム測度
 
 $$
 N(ds,dz)
@@ -70,7 +70,7 @@ $$
 
 ## 1. 最初の模型：Poisson 個数に跳躍幅を付ける
 
-率 $\lambda>0$ のポアソン過程 $N$ と、実確率変数列
+率 $\lambda>0$ のPoisson 過程 $N$ と、実確率変数列
 
 $$
 Y_1,Y_2,\ldots
@@ -82,7 +82,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（複合 Poisson 過程）**  
-> $N$ を率 $\lambda$ のポアソン過程、$(Y_k)_{k\ge1}$ を共通分布 $\mu$ を持つ独立同分布列とし、$N$ と $(Y_k)$ は独立とする。
+> 確率空間 $(\Omega,\mathcal F,P)$ 上で、$N$ を率 $\lambda>0$ のPoisson 過程、$(Y_k)_{k\ge1}$ を共通分布 $\mu$ を持つ実数値の独立同分布列とし、$N$ と $(Y_k)$ は独立とする。
 >
 > $X_0=0$ とし、
 >
@@ -259,11 +259,15 @@ $$
 
 ## 2. 独立定常増分を持つ過程
 
+複合 Poisson 過程では「有限個の跳躍」、ドリフト付きブラウン運動では「連続な揺らぎ」を扱えました。次に欲しいのは、この二つを別々の模型として覚えるのではなく、**時間区間ごとの増分だけで法則が決まり、互いに素な時間区間では増分が独立になる**という共通構造です。
+
+ただし独立定常増分だけでは、時刻を少し動かしたときに過程が不連続に暴れる可能性を排除できません。そこで「短い時間の増分は確率的に小さくなる」という確率連続性も加えます。独立性・定常性・確率連続性を一つの定義にまとめます。
+
 <a id="def-sto14-levy-process"></a>
 
 <!-- formal-statement-start -->
 > **定義（Lévy 過程）**  
-> 実数値過程 $X=(X_t)_{t\ge0}$ が **Lévy 過程**であるとは、次を満たすことをいう。
+> 確率空間 $(\Omega,\mathcal F,P)$ 上の実数値過程 $X=(X_t)_{t\ge0}$ が **Lévy 過程**であるとは、次を満たすことをいう。
 >
 > 1. $X_0=0$ a.s.
 > 2. 任意の $0\le t_0<t_1<\cdots<t_n$ に対し、
@@ -345,6 +349,10 @@ $$
 ---
 
 ## 3. なぜ「無限分解可能」が現れるのか
+
+Lévy 過程では、時間区間 $[0,t]$ を $n$ 等分すると、$X_t$ は長さ $t/n$ の独立同分布な増分 $n$ 個の和になります。つまり「どれだけ細かく時間を分けても、その時刻の分布を、同じ分布に従う独立な確率変数の和へ分解できる」という性質が自動的に現れます。
+
+そこで、まず過程を離れて「任意の $n$ 個の独立同分布な和へ分解できる」という分布側の性質そのものを定義します。
 
 <a id="def-sto14-infinitely-divisible"></a>
 
@@ -504,7 +512,7 @@ $$
 >
 > であり、$t\mapsto\varphi_t(u)$ は連続である。
 >
-> さらに $\varphi_t(u)\neq0$ であり、ただ一つの連続関数 $\psi:\mathbb R\to\mathbb C$ が存在して
+> さらに $\varphi_t(u)\neq0$ である。各 $u\in\mathbb R$ に対し、ただ一つの複素数 $\psi(u)$ が存在して
 >
 $$
 \boxed{
@@ -550,7 +558,33 @@ E[e^{iuX_h}]
 \to1.
 $$
 
-半群性から一般の $t$ でも連続性が従います。
+一般の $t$ での連続性も半群性から式で確認できます。$h>0$ なら
+
+$$
+\varphi_{t+h}(u)-\varphi_t(u)
+=
+\varphi_t(u)\bigl(\varphi_h(u)-1\bigr)
+\to0.
+$$
+
+$0<h<t$ なら
+
+$$
+\varphi_t(u)
+=
+\varphi_{t-h}(u)\varphi_h(u),
+$$
+
+したがって
+
+$$
+\varphi_{t-h}(u)-\varphi_t(u)
+=
+\varphi_{t-h}(u)\bigl(1-\varphi_h(u)\bigr)
+\to0.
+$$
+
+よって $t\mapsto\varphi_t(u)$ は連続です。
 
 次に $t>0$ で $\varphi_t(u)=0$ と仮定します。
 
@@ -578,43 +612,152 @@ $$
 
 従って $\varphi_t(u)\neq0$ です。
 
-固定した $u$ について、連続な乗法半群
+固定した $u$ について指数表示を作ります。$\varphi_t(u)\to1$ なので、ある $\delta>0$ を十分小さく取れば
 
 $$
-t\mapsto\varphi_t(u)
+|\varphi_t(u)-1|<\frac12
+\qquad
+(0\le t\le\delta)
 $$
 
-は 0 を通らず $\varphi_0(u)=1$ から出発します。したがって原点から連続に選んだ対数を用いて
+です。この円板は負の実軸や 0 を含まないので、その上では主値対数 $\operatorname{Log}$ を連続に使えます。
 
 $$
-g_u(t)=\log\varphi_t(u)
+g(t)
+:=
+\operatorname{Log}\varphi_t(u),
+\qquad
+0\le t\le\delta,
 $$
 
-と書けます。
-
-半群性から
+と置きます。$\operatorname{Log}1=0$ であり、必要なら $\delta$ をさらに小さくして
 
 $$
-g_u(s+t)=g_u(s)+g_u(t).
+|g(t)|<\frac{\pi}{4}
+\qquad
+(0\le t\le\delta)
 $$
 
-連続な Cauchy 方程式の解は線形なので
+としておきます。
+
+$s,t,s+t\le\delta$ なら半群性から
 
 $$
-g_u(t)=t g_u(1).
+e^{g(s+t)}
+=
+\varphi_{s+t}(u)
+=
+\varphi_s(u)\varphi_t(u)
+=
+e^{g(s)+g(t)}.
 $$
 
-よって
+従って
 
 $$
-\psi(u):=g_u(1)
+g(s+t)-g(s)-g(t)
+\in
+2\pi i\mathbb Z.
+$$
+
+一方
+
+$$
+|g(s+t)-g(s)-g(t)|
+<
+\frac{3\pi}{4}
+<
+2\pi,
+$$
+
+なので取り得る整数は 0 だけです。よって
+
+$$
+g(s+t)=g(s)+g(t)
+\qquad
+(s,t,s+t\le\delta).
+$$
+
+特に $n\ge1$ に対して
+
+$$
+g(\delta)
+=
+n\,g(\delta/n),
+$$
+
+したがって
+
+$$
+g(\delta/n)
+=
+\frac1n g(\delta).
+$$
+
+さらに $0\le m\le n$ なら局所加法性を $m$ 回使って
+
+$$
+g(m\delta/n)
+=
+\frac mn g(\delta).
+$$
+
+有理数 $m/n$ は $[0,1]$ で稠密で、$g$ は連続なので
+
+$$
+g(t)=ct
+\qquad
+(0\le t\le\delta),
+$$
+
+ただし
+
+$$
+c:=\frac{g(\delta)}{\delta}.
+$$
+
+任意の $t>0$ に対し、$t/n\le\delta$ となる $n$ を取れば
+
+$$
+\varphi_t(u)
+=
+\varphi_{t/n}(u)^n
+=
+e^{n g(t/n)}
+=
+e^{ct}.
+$$
+
+従って
+
+$$
+\psi(u):=c
 $$
 
 と置けば
 
 $$
-\varphi_t(u)=e^{t\psi(u)}.
+\varphi_t(u)=e^{t\psi(u)}
 $$
+
+が全ての $t\ge0$ で成り立ちます。
+
+一意性も確認します。もし $c,d\in\mathbb C$ が全ての $t\ge0$ で
+
+$$
+e^{tc}=e^{td}
+$$
+
+を満たすなら、$t=1/n$ として
+
+$$
+e^{(c-d)/n}=1
+\qquad(\forall n).
+$$
+
+従って $(c-d)/n\in2\pi i\mathbb Z$ ですが、$n\to\infty$ で左辺は 0 へ行くため、十分大きい $n$ では整数は 0 しか取れず、$c=d$ です。
+
+なお $u\mapsto\psi(u)$ の連続性は、この後の Lévy--Khintchine 表示から従います。本節では時間半群から各 $u$ ごとの指数を取り出すところまでを閉じます。
 <!-- proof-end -->
 
 複合 Poisson 過程では
@@ -644,6 +787,10 @@ $$
 ---
 
 ## 5. 原点近くで無限になり得る跳躍強度
+
+複合 Poisson 過程では、跳躍の総強度は有限でした。しかし一般の Lévy 過程では、原点に近い小さな跳躍が有限時間内に無限個現れてもよいようにしたい一方、大きな跳躍まで無限個あると有限時間の標本路を制御できません。
+
+必要なのは「大跳躍の個数は有限に抑え、小跳躍は個数ではなく二乗の総量で制御する」条件です。次に、この条件を満たす跳躍強度の測度を定義します。
 
 <a id="def-sto14-levy-measure"></a>
 
@@ -753,6 +900,8 @@ $$
 という典型例です。
 <!-- definition-example-end -->
 
+Lévy 測度条件だけでは、原点近くの跳躍総数が有限か無限かは決まりません。そこで、跳躍測度の**全質量**が有限かどうかで標本路の活動度を分けます。全質量が有限なら有限時間内の跳躍数は有限、全質量が無限なら小跳躍が無限個現れ得ます。
+
 <a id="def-sto14-activity"></a>
 
 <!-- formal-statement-start -->
@@ -840,6 +989,18 @@ $$
 
 ## 6. 独立定常増分の特性指数を分類する
 
+ここまでで、Lévy 過程の特性関数は
+
+$$
+E[e^{iuX_t}]
+=
+e^{t\psi(u)}
+$$
+
+と書けること、跳躍強度は Lévy 測度で記述すべきことが分かりました。次の問いは、**どのような関数 $\psi$ が Lévy 過程の指数として現れ得るのか**です。
+
+連続なガウス揺らぎは二次式、大跳躍は有限強度の Poisson 項、小跳躍は一次項を差し引いた二次剰余で制御されます。この三種類とドリフトを一つの特性指数表示へまとめる定理を次に述べます。
+
 <a id="thm-sto14-levy-khintchine"></a>
 
 <!-- formal-statement-start -->
@@ -870,7 +1031,7 @@ e^{iuz}
 }
 $$
 >
-> 逆に、任意の三つ組 $(b,\sigma,\nu)$ から右辺で定まる特性関数
+> 逆に、任意の Lévy--Khintchine 三つ組 $(b,\sigma,\nu)$ から右辺で定まる特性関数
 >
 $$
 e^{t\psi(u)}
@@ -935,7 +1096,7 @@ $$
 \boxed{
 \text{任意の Lévy 過程}
 \Longrightarrow
-\text{一意な三つ組 }(b,\sigma,\nu)
+\text{一意な三つ組}(b,\sigma,\nu)
 }
 $$
 
@@ -943,7 +1104,7 @@ $$
 
 理由は、一般 Lévy 過程の微小時間分布から
 
-- Gaussian 成分
+- ガウス成分
 - 原点から離れた跳躍強度
 - 補償された小跳躍
 - ドリフト
@@ -966,7 +1127,7 @@ $$
 
 ---
 
-## 7. ランダムな予測可能係数を Poisson 積分へ入れる
+## 7. ランダムな予測可能係数を Poisson ランダム測度積分へ入れる
 
 STO13 では決定論的単関数
 
@@ -990,9 +1151,9 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（単純予測可能 Poisson 被積分過程）**  
-> $N(ds,dz)$ を強度 $ds\,\nu(dz)$ のポアソンランダム測度とし、$(\mathcal F_t)$ は $N$ の自然なフィルトレーションの通常拡大とする。したがって、時刻 $t$ より後の互いに素な時間領域上の Poisson 増分は $\mathcal F_t$ と独立である。
+> $T>0$ とし、$(E,\mathcal E,\nu)$ を $\sigma$-有限測度空間、$N(ds,dz)$ を $(0,T]\times E$ 上の強度 $ds\,\nu(dz)$ のPoisson ランダム測度とする。$(\mathcal F_t)_{0\le t\le T}$ は $N$ の自然なフィルトレーションの通常拡大とする。
 >
-> $0=t_0<\cdots<t_m=T$、$\nu(A_j)<\infty$ を満たす可測集合 $A_j$、および有界な $\mathcal F_{t_k}$-可測確率変数 $\xi_{kj}$ を用いて
+> $0=t_0<\cdots<t_m=T$、$A_1,\ldots,A_r\in\mathcal E$ で $\nu(A_j)<\infty$、および有界な $\mathcal F_{t_k}$-可測確率変数 $\xi_{kj}$ を用いて
 >
 $$
 H(s,z)
@@ -1013,7 +1174,7 @@ $$
 
 時刻 $a<b$、$\nu(A)<\infty$ とし、$\xi$ を有界な $\mathcal F_a$-可測確率変数とします。
 
-たとえば
+たとえば $X=(X_t)$ を $(\mathcal F_t)$-適合な実数値過程として
 
 $$
 \xi=1_{\{X_a\ge0\}}
@@ -1029,7 +1190,7 @@ $$
 
 です。
 
-区間 $(a,b]$ に入る前の時刻 $a$ で $\xi$ はすでに決まっています。したがって未来の Poisson 増分を見て係数を変えておらず、予測可能な単純被積分過程です。
+区間 $(a,b]$ に入る前の時刻 $a$ で $\xi$ はすでに決まっています。したがって未来の Poisson増分を見て係数を変えておらず、予測可能な単純被積分過程です。
 <!-- definition-example-end -->
 
 単一ブロックでは
@@ -1048,9 +1209,9 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（補償 Poisson ランダム測度の L2 等長性と拡張）**  
-> $H$ を単純予測可能 Poisson 被積分過程とする。
+> $T>0$ とし、$(E,\mathcal E,\nu)$ を $\sigma$-有限測度空間、$N(ds,dz)$ を強度 $ds\,\nu(dz)$ のPoisson ランダム測度、$\widetilde N$ をその補償 Poisson ランダム測度とする。$(\mathcal F_t)_{0\le t\le T}$ を $N$ の自然なフィルトレーションの通常拡大とする。
 >
-> このとき
+> $H$ を $[0,T]\times E\times\Omega$ 上の単純予測可能 Poisson 被積分過程とする。このとき
 >
 $$
 M_t
@@ -1070,14 +1231,36 @@ H(s,z)^2\,\nu(dz)\,ds.
 }
 $$
 >
-> さらに、右辺が有限である予測可能過程全体へ、$L^2$ 完備化により積分は一意に拡張される。
+> さらに、任意の予測可能過程 $H$ で
+>
+$$
+E\int_0^T\int_E H(s,z)^2\,\nu(dz)\,ds<\infty
+$$
+>
+> を満たすものへ $L^2$ 完備化により積分は一意に拡張される。拡張後も
+>
+$$
+M_t
+=
+\int_{(0,t]\times E}H(s,z)\widetilde N(ds,dz)
+$$
+>
+> は二乗可積分マルチンゲールで、全ての $0\le t\le T$ について
+>
+$$
+E[M_t^2]
+=
+E\int_0^t\int_EH(s,z)^2\,\nu(dz)\,ds
+$$
+>
+> が成り立つ。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
 決定論的係数なら STO13 の等長性でした。
 
-ランダム係数 $\xi$ が入っても、$\xi$ は区間開始時刻の情報で決まり、その後の Poisson 増分と独立です。
+ランダム係数 $\xi$ が入っても、$\xi$ は区間開始時刻の情報で決まり、その後の Poisson増分と独立です。
 
 したがって条件付き二乗平均を取れば、同じ等長性が残ります。
 
@@ -1176,7 +1359,17 @@ $$
 
 と置きます。
 
-ここで単純予測可能過程が、二乗可積分な予測可能過程全体に稠密であることを確認します。予測可能 $\sigma$-fieldは
+ここで単純予測可能過程が、二乗可積分な予測可能過程全体に稠密であることを確認します。$[0,T]\times\Omega$ 上の予測可能 $\sigma$-fieldを $\mathcal P$ と書き、
+
+$$
+\mu_T(d\omega,ds,dz)
+=
+P(d\omega)\,ds\,\nu(dz)
+$$
+
+と置きます。
+
+予測可能 $\sigma$-field $\mathcal P$ は
 
 $$
 A\times(s,t],
@@ -1184,13 +1377,7 @@ A\times(s,t],
 A\in\mathcal F_s,
 $$
 
-型の集合と $A\times\{0\}$ 型の集合から生成されます。印空間を掛けた予測可能 $\sigma$-fieldは、さらに有限 $\nu$-測度の $B\in\mathcal E$ を用いる
-
-$$
-A\times(s,t]\times B
-$$
-
-型の集合で生成できます。
+型の集合と、時刻 0 の集合から生成されます。時刻 0 は $ds$-測度 0 なので、$L^2(\mu_T)$ 近似では無視できます。
 
 $\nu$ は $\sigma$-有限なので
 
@@ -1202,18 +1389,70 @@ E_1\subset E_2\subset\cdots,
 \bigcup_nE_n=E
 $$
 
-と取れます。任意の二乗可積分な予測可能 $H$ は、まず
+と取れます。任意の二乗可積分な予測可能 $H$ に対し
 
 $$
 H^{[n]}
 =
-(-n)\vee(H\wedge n)
-\,1_{E_n}(z)
+\bigl((-n)\vee(H\wedge n)\bigr)1_{E_n}(z)
 $$
 
-で値を有界化し、印空間を有限測度部分へ制限すれば $L^2$ で近似できます。
+と置きます。点ごとに $H^{[n]}\to H$ で、
 
-各近似後は有限測度空間上の可測関数なので、生成集合の有限和からなる単関数で $L^2$ 近似できます。係数付き指示関数
+$$
+|H^{[n]}-H|^2
+\le
+4|H|^2.
+$$
+
+従って [Lebesgue の優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)から
+
+$$
+\|H^{[n]}-H\|_{L^2(\mu_T)}
+\to0.
+$$
+
+固定した $n$ では
+
+$$
+\mu_T\bigl(\Omega\times(0,T]\times E_n\bigr)
+=
+T\nu(E_n)
+<
+\infty.
+$$
+
+この有限測度空間上では、可測関数は通常の単関数で $L^2$ 近似できます。残るのは、その単関数に現れる可測集合を予測可能な矩形の有限和で近似することです。
+
+矩形
+
+$$
+A\times(s,t]\times B,
+\qquad
+A\in\mathcal F_s,\quad
+B\in\mathcal E,\quad
+\nu(B)<\infty,
+$$
+
+の有限和全体を $\mathcal R$ とします。$\mathcal R$ は $\mathcal P\otimes\mathcal E$ を生成する環です。$\mathcal R$ の元で対称差の $\mu_T$-測度を任意に小さくできる可測集合全体を $\mathcal C$ と置くと、有限測度性により $\mathcal C$ は補集合と可算和で閉じ、$\mathcal R\subset\mathcal C$ です。したがって $\mathcal C$ は $\mathcal R$ を含む $\sigma$-fieldです。$\mathcal P\otimes\mathcal E$ は $\mathcal R$ を含む最小の $\sigma$-fieldなので
+
+$$
+\mathcal C
+=
+\mathcal P\otimes\mathcal E.
+$$
+
+指示関数については
+
+$$
+\|1_C-1_R\|_{L^2(\mu_T)}^2
+=
+\mu_T(C\triangle R),
+$$
+
+なので、集合の測度近似がそのまま $L^2$ 近似になります。
+
+各環単関数は
 
 $$
 \xi\,1_{(s,t]}1_B,
@@ -1221,9 +1460,7 @@ $$
 \xi\in L^\infty(\mathcal F_s),
 $$
 
-の有限和へ書き直せるため、これは本章の単純予測可能 Poisson 被積分過程です。
-
-従って単純予測可能過程は二乗可積分な予測可能過程全体に $\mathcal H_T$-ノルムで稠密です。
+の有限和へ書けます。従って本章の単純予測可能 Poisson 被積分過程で任意の二乗可積分な予測可能 $H$ を近似でき、稠密性が示されました。
 
 [$L^2$ の完備性](../F0_00D2E_L2完備性_Riesz_Fischer/index.md#thm-f0-00d2e-01)と等長性から
 
@@ -1246,13 +1483,64 @@ $$
 $$
 
 と定義すれば、近似列に依存せず、等長性も極限へ保たれます。
+
+各 $0\le t\le T$ では $H^{(n)}1_{(0,t]}$ が $H1_{(0,t]}$ へ同じノルムで収束するので、
+
+$$
+M_t
+=
+L^2\text{-}\lim_{n\to\infty}
+\int_{(0,t]\times E}
+H^{(n)}(s,z)\widetilde N(ds,dz)
+$$
+
+と定められます。等長性を $H1_{(0,t]}$ に適用すれば
+
+$$
+E[M_t^2]
+=
+E\int_0^t\int_EH(s,z)^2\nu(dz)ds.
+$$
+
+最後にマルチンゲール性を極限へ送ります。$0\le s\le t\le T$ とし、単純積分を $M^{(n)}$ と書くと
+
+$$
+E[M_t^{(n)}\mid\mathcal F_s]
+=
+M_s^{(n)}.
+$$
+
+$L^2$ 収束は $L^1$ 収束も与えます。また[条件付き期待値の基本性質](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md#thm-f0-00p3a-basic-properties)の $L^1$ 縮小性から
+
+$$
+E\left|
+E[M_t^{(n)}-M_t\mid\mathcal F_s]
+\right|
+\le
+E|M_t^{(n)}-M_t|
+\to0.
+$$
+
+従って左辺の条件付き期待値は $E[M_t\mid\mathcal F_s]$ へ $L^1$ 収束し、右辺 $M_s^{(n)}$ は $M_s$ へ $L^1$ 収束します。よって
+
+$$
+E[M_t\mid\mathcal F_s]
+=
+M_s
+$$
+
+a.s. であり、拡張後も二乗可積分マルチンゲールです。
 <!-- proof-end -->
 
 <a id="def-sto14-prm-l2-integral"></a>
 
+定理で「単純予測可能過程に対する積分」と「二乗可積分な一般の予測可能過程への一意な拡張」ができました。ここで、その拡張後の対象を正式に名前付けします。
+
 <!-- formal-statement-start -->
 > **定義（補償 Poisson ランダム測度に関する L2 確率積分）**  
-> 予測可能過程 $H$ が
+> $T>0$ とし、$(E,\mathcal E,\nu)$ を $\sigma$-有限測度空間、$N(ds,dz)$ を強度 $ds\,\nu(dz)$ のPoisson ランダム測度、$\widetilde N$ をその補償 Poisson ランダム測度とする。$(\mathcal F_t)_{0\le t\le T}$ を $N$ の自然なフィルトレーションの通常拡大とする。
+>
+> $(\mathcal F_t)$-予測可能過程 $H$ が
 >
 $$
 E\int_0^T\int_E
@@ -1453,7 +1741,7 @@ $$
 
 ## 9. 無限個の小跳躍を閾値極限で作る
 
-$\nu$ を Lévy 測度、$N(ds,dz)$ を強度 $ds\,\nu(dz)$ のポアソンランダム測度とします。
+$\nu$ を Lévy 測度、$N(ds,dz)$ を強度 $ds\,\nu(dz)$ のPoisson ランダム測度とします。
 
 $\varepsilon\in(0,1)$ に対して
 
@@ -1472,6 +1760,8 @@ $\nu(|z|>\varepsilon)<\infty$ なので、各 $\varepsilon>0$ では有限個の
 
 <!-- formal-statement-start -->
 > **定理（補償小跳躍積分の閾値極限）**  
+> $\nu$ を $\mathbb R\setminus\{0\}$ 上の Lévy 測度、$N(ds,dz)$ を強度 $ds\,\nu(dz)$ のPoisson ランダム測度、$\widetilde N$ をその補償 Poisson ランダム測度とする。
+>
 > 任意の $T<\infty$ に対し、
 >
 $$
@@ -1481,18 +1771,33 @@ M^{(\varepsilon)}_t
 z\,\widetilde N(ds,dz)
 $$
 >
-> は $\varepsilon\downarrow0$ で
+> は $\varepsilon\downarrow0$ で一様ノルムの二乗平均について Cauchy、すなわち
 >
 $$
-L^2\left(
-\Omega;
-\sup_{0\le t\le T}|\cdot|
-\right)
+E\left[
+\sup_{0\le t\le T}
+|M_t^{(\delta)}-M_t^{(\varepsilon)}|^2
+\right]
+\to0
+\qquad
+(\delta,\varepsilon\downarrow0)
 $$
 >
-> の意味で Cauchy である。
+> を満たす。
 >
-> 従って càdlàg 二乗可積分マルチンゲール $M$ が存在して
+> 従って càdlàg 二乗可積分マルチンゲール $M$ が存在し、
+>
+$$
+E\left[
+\sup_{0\le t\le T}
+|M_t^{(\varepsilon)}-M_t|^2
+\right]
+\to0
+\qquad
+(\varepsilon\downarrow0)
+$$
+>
+> かつ
 >
 $$
 \boxed{
@@ -1564,37 +1869,129 @@ $$
 
 よって $M^{(\varepsilon)}$ は sup ノルムの二乗平均で Cauchy です。
 
-ここで過程空間の極限も明示しておきます。$\varepsilon_n\downarrow0$ を十分速く取り、
+ここで過程空間の極限も明示しておきます。上で得た二乗平均の差の評価から、$\varepsilon_n\downarrow0$ を帰納的に十分速く選び、
 
 $$
-\sum_n
 E\left[
 \sup_{t\le T}
 |M_t^{(\varepsilon_{n+1})}
 -
 M_t^{(\varepsilon_n)}|^2
 \right]
-<
-\infty.
+\le
+2^{-4n}
 $$
 
-Markov の不等式と [Borel--Cantelli 第1補題](../F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md#thm-f0-00p4-borel-cantelli-1)により、この部分列は $[0,T]$ 上一様にほとんど確実収束するように取れます。
+とできます。
+
+[Markov の不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-markov)を
+
+$$
+Y_n
+=
+\sup_{t\le T}
+|M_t^{(\varepsilon_{n+1})}
+-
+M_t^{(\varepsilon_n)}|^2
+$$
+
+と閾値 $2^{-2n}$ に適用すると
+
+$$
+\begin{aligned}
+P\left(
+\sup_{t\le T}
+|M_t^{(\varepsilon_{n+1})}
+-
+M_t^{(\varepsilon_n)}|
+>
+2^{-n}
+\right)
+&=
+P(Y_n>2^{-2n})\\
+&\le
+2^{2n}E[Y_n]\\
+&\le
+2^{-2n}.
+\end{aligned}
+$$
+
+右辺は $n$ について可算和が有限です。[Borel--Cantelli 第1補題](../F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md#thm-f0-00p4-borel-cantelli-1)より、ほとんど確実に十分大きい $n$ で
+
+$$
+\sup_{t\le T}
+|M_t^{(\varepsilon_{n+1})}
+-
+M_t^{(\varepsilon_n)}|
+\le
+2^{-n}.
+$$
+
+従ってその標本点では
+
+$$
+\sum_n
+\sup_{t\le T}
+|M_t^{(\varepsilon_{n+1})}
+-
+M_t^{(\varepsilon_n)}|
+<
+\infty,
+$$
+
+つまり $(M^{(\varepsilon_n)})$ は $[0,T]$ 上一様 Cauchy です。
 
 各 $M^{(\varepsilon_n)}$ は càdlàg で、càdlàg 関数の一様極限も càdlàg です。従ってある càdlàg 過程 $M$ へ一様にほとんど確実収束します。
 
-さらに任意の $\varepsilon>0$ に対し、上で得た Cauchy 評価と [Fatou の補題](../F0_00D2B_単調収束_Fatou_優収束/index.md#lem-f0-00d2b-01)を使えば
+さらに任意の $\varepsilon>0$ を固定します。ほとんど確実な一様収束から
 
 $$
+\sup_{t\le T}
+|M_t^{(\varepsilon)}-M_t|^2
+=
+\lim_{n\to\infty}
+\sup_{t\le T}
+|M_t^{(\varepsilon)}-M_t^{(\varepsilon_n)}|^2.
+$$
+
+[Fatou の補題](../F0_00D2B_単調収束_Fatou_優収束/index.md#lem-f0-00d2b-01)と 上で得た二乗平均の差の評価より
+
+$$
+\begin{aligned}
 E\left[
 \sup_{t\le T}
 |M_t^{(\varepsilon)}-M_t|^2
 \right]
-\to0.
+&\le
+\liminf_{n\to\infty}
+E\left[
+\sup_{t\le T}
+|M_t^{(\varepsilon)}-M_t^{(\varepsilon_n)}|^2
+\right]\\
+&\le
+4T
+\int_{0<|z|\le\varepsilon}
+z^2\nu(dz).
+\end{aligned}
 $$
 
-したがって閾値付き近似族全体が sup ノルムの二乗平均で $M$ へ収束します。
+右辺は $\varepsilon\downarrow0$ で 0 へ収束します。従って閾値付き近似族全体が sup ノルムの二乗平均で $M$ へ収束します。
 
-各固定 $t$ でも $L^2$ 収束するため、条件付き期待値へ極限を通せば $M$ は二乗可積分マルチンゲールです。
+各固定 $t$ でも $L^2$ 収束します。$0\le s\le t\le T$ とすると、$L^2$ 収束は $L^1$ 収束も与え、[条件付き期待値の基本性質](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md#thm-f0-00p3a-basic-properties)の $L^1$ 縮小性から
+
+$$
+E[M_t\mid\mathcal F_s]
+=
+\lim_{\varepsilon\downarrow0}
+E[M_t^{(\varepsilon)}\mid\mathcal F_s]
+=
+\lim_{\varepsilon\downarrow0}
+M_s^{(\varepsilon)}
+=
+M_s
+$$
+
+が $L^1$ の意味で成り立ちます。従って $M$ は二乗可積分マルチンゲールです。
 <!-- proof-end -->
 
 ここで「無限個の小跳躍」を一個ずつ足していません。
@@ -1640,9 +2037,9 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Lévy--Itô 分解）**  
-> 実数値 Lévy 過程 $X$ の Lévy--Khintchine 三つ組 を $(b,\sigma,\nu)$ とする。
+> 実数値 Lévy 過程 $X$ の Lévy--Khintchine 三つ組を $(b,\sigma,\nu)$ とする。
 >
-> 適切な確率空間上でブラウン運動 $B$ と、強度 $ds\,\nu(dz)$ のポアソンランダム測度 $N$ を取り、
+> 必要なら確率空間を拡張して、標準ブラウン運動 $B$ と、$(0,\infty)\times(\mathbb R\setminus\{0\})$ 上の強度 $ds\,\nu(dz)$ のPoisson ランダム測度 $N$ を取り、$B$ と $N$ は独立となるようにできる。$\widetilde N(ds,dz)=N(ds,dz)-ds\,\nu(dz)$ とすると、
 >
 $$
 \boxed{
@@ -1663,7 +2060,7 @@ $$
 >
 > と表せる。
 >
-> 逆に、右辺は Lévy 過程で、その Lévy 指数は
+> 逆に、独立な $B$ と $N$ から右辺を定義すれば Lévy 過程となり、その Lévy 指数は
 >
 $$
 ibu-\frac12\sigma^2u^2
@@ -1708,7 +2105,13 @@ $$
 
 なので、Poisson 部分は有限活動度です。
 
-ブラウン運動、$(\varepsilon,1]$ の補償跳躍、$|z|>1$ の跳躍 を独立に取れば、各成分は独立定常増分を持ちます。従って $X^{(\varepsilon)}$ も独立定常増分を持ちます。
+$B$ と $N$ は独立で、さらにPoisson ランダム測度は互いに素な印領域上で独立散布です。従って
+
+- ブラウン増分、
+- $\varepsilon<|z|\le1$ の補償跳躍増分、
+- $|z|>1$ の大跳躍増分
+
+は互いに独立で、それぞれ独立定常増分を持ちます。よって $X^{(\varepsilon)}$ も独立定常増分を持ちます。
 
 前節から、小跳躍マルチンゲールは $[0,T]$ 上 sup ノルムの二乗平均で収束します。したがって
 
@@ -1717,9 +2120,64 @@ X^{(\varepsilon)}
 \to X
 $$
 
-が各有限時間区間で一様確率収束し、$X$ は càdlàg 版を持ちます。
+が各有限時間区間で一様確率収束し、前節で構成した càdlàg 版を $X$ として選べます。
 
-独立定常増分性は有限個の時点の同時特性関数へ移せるため極限へ保たれます。
+極限で独立定常増分性が残ることも式で確認します。$0=t_0<t_1<\cdots<t_m$ を固定し、
+
+$$
+\Delta_k^{(\varepsilon)}
+=
+X_{t_k}^{(\varepsilon)}
+-
+X_{t_{k-1}}^{(\varepsilon)},
+\qquad
+\Delta_k
+=
+X_{t_k}-X_{t_{k-1}}
+$$
+
+と置きます。一様確率収束から各 $k$ で
+
+$$
+\Delta_k^{(\varepsilon)}
+\to
+\Delta_k
+\qquad\text{確率収束で}.
+$$
+
+従って任意の $u_1,\ldots,u_m\in\mathbb R$ に対し、絶対値 1 の指数関数を使った部分列論法から
+
+$$
+E\exp\left(
+i\sum_{k=1}^m u_k\Delta_k^{(\varepsilon)}
+\right)
+\to
+E\exp\left(
+i\sum_{k=1}^m u_k\Delta_k
+\right).
+$$
+
+各 $\varepsilon$ では増分が独立なので左辺は
+
+$$
+\prod_{k=1}^m
+E[e^{iu_k\Delta_k^{(\varepsilon)}}.
+$$
+
+各因子も極限へ送れるため
+
+$$
+E\exp\left(
+i\sum_{k=1}^m u_k\Delta_k
+\right)
+=
+\prod_{k=1}^m
+E[e^{iu_k\Delta_k}],
+$$
+
+となり、特性関数の因数分解から $\Delta_1,\ldots,\Delta_m$ は独立です。
+
+また $\Delta_k^{(\varepsilon)}$ の分布は区間長 $t_k-t_{k-1}$ のみに依存します。同じ区間長を持つ二つの増分について特性関数を極限へ送れば、極限の増分も同分布です。従って定常増分性も保たれます。
 
 確率連続性も直接確認できます。$h\downarrow0$ に対して、ドリフトは $|b|h\to0$、ブラウン部分は二乗平均で 0 へ収束します。補償小跳躍部分は等長性から
 
@@ -1754,7 +2212,7 @@ E[e^{iu\sigma B_t}]
 e^{-\frac12\sigma^2u^2t}.
 $$
 
-大跳躍部分は複合 Poisson の計算から
+大跳躍部分は複合Poisson の計算から
 
 $$
 \exp\left\{
@@ -1839,7 +2297,7 @@ E[e^{iuX_t}]
 e^{t\psi(u)}
 $$
 
-であり、$X$ は指定された三つ組 を持つ Lévy 過程です。
+であり、$X$ は指定された三つ組を持つ Lévy 過程です。
 <!-- proof-end -->
 
 ### 4 つの成分を読み分ける
@@ -1850,7 +2308,7 @@ $$
 \boxed{
 \text{ドリフト}
 +
-\text{Gaussian}
+\text{ガウス}
 +
 \text{補償小跳躍}
 +
@@ -1865,7 +2323,7 @@ $$
 - $\int_{|z|\le1}z\,d\widetilde N$：無限個でもよい小跳躍の中心化された揺らぎ。
 - $\int_{|z|>1}z\,dN$：有限個の大跳躍。
 
-ブラウン運動と跳躍 を同じセミマルチンゲール計算へ入れる準備が整いました。
+ブラウン運動と跳躍を同じセミマルチンゲール計算へ入れる準備が整いました。
 
 ---
 
@@ -1911,7 +2369,7 @@ $$
 
 有限活動度なら、これは跳躍時刻ごとに普通に足せます。
 
-無限活動度では、小跳躍に対して Taylor の二次 剰余項 が
+無限活動度では、小跳躍に対して Taylor の二次剰余項 が
 
 $$
 O((\Delta X_s)^2)
@@ -1933,7 +2391,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Lévy 過程に対する跳躍 Itô 公式）**  
-> $X$ を 三つ組 $(b,\sigma,\nu)$ を持つ実数値 Lévy 過程とし、Lévy--Itô 分解
+> $X$ を Lévy--Khintchine 三つ組 $(b,\sigma,\nu)$ を持つ実数値 Lévy 過程とする。標準ブラウン運動 $B$ と強度 $ds\,\nu(dz)$ のPoisson ランダム測度 $N$ は独立で、$\widetilde N(ds,dz)=N(ds,dz)-ds\,\nu(dz)$ とし、Lévy--Itô 分解
 >
 $$
 \begin{aligned}
@@ -2008,7 +2466,7 @@ $$
 
 最後に $\varepsilon\downarrow0$ とし、
 
-- 一次跳躍部分は補償 Poisson 積分の $L^2$ 等長性、
+- 一次跳躍部分は補償 Poisson ランダム測度積分の $L^2$ 等長性、
 - 剰余項 は $C^2$ Taylor 評価と $\int z^2\nu(dz)<\infty$
 
 で極限へ送ります。
@@ -2034,7 +2492,7 @@ $$
 
 とします。
 
-$\nu(|z|>\varepsilon)<\infty$ なので $X^{(\varepsilon)}$ は有限活動度の跳躍 を持ちます。
+$\nu(|z|>\varepsilon)<\infty$ なので $X^{(\varepsilon)}$ は有限活動度の跳躍を持ちます。
 
 跳躍時刻の間では
 
@@ -2140,48 +2598,232 @@ $$
 
 これで閾値付き版の公式が得られます。
 
-次に $\varepsilon\downarrow0$ とします。
+次に $\varepsilon\downarrow0$ とします。有限な $T>0$ を固定します。
 
 前節の小跳躍収束から
 
 $$
-X^{(\varepsilon)}
-\to X
+E\left[
+\sup_{0\le s\le T}
+|X_s^{(\varepsilon)}-X_s|^2
+\right]
+\to0.
 $$
 
-は $[0,T]$ 上一様に probability で収束します。
+従って任意の列 $\varepsilon_n\downarrow0$ から、さらに部分列を取って
 
-したがって部分列を取れば一様にほとんど確実収束させられます。$f',f''$ は有界かつ連続なので、時間積分の被積分関数は有界収束で極限へ送れます。また
+$$
+\sup_{0\le s\le T}
+|X_s^{(\varepsilon_n)}-X_s|
+\to0
+\qquad\text{a.s.}
+$$
+
+とできます。一様収束なら左極限も
+
+$$
+\sup_{0<s\le T}
+|X_{s-}^{(\varepsilon_n)}-X_{s-}|
+\le
+\sup_{0\le s\le T}
+|X_s^{(\varepsilon_n)}-X_s|
+\to0
+$$
+
+です。
+
+まず有限変動の時間積分を処理します。$f',f''$ は有界かつ連続なので、上の部分列上で
+
+$$
+f'(X_{s-}^{(\varepsilon_n)})
+\to
+f'(X_{s-}),
+\qquad
+f''(X_{s-}^{(\varepsilon_n)})
+\to
+f''(X_{s-})
+$$
+
+が各 $s$ で成り立ちます。被積分関数はそれぞれ $\|f'\|_\infty$、$\|f''\|_\infty$ で支配されるので、有界収束により $ds$ 積分を極限へ送れます。
+
+次にブラウン確率積分です。任意の $\eta>0$ に対し
+
+$$
+\begin{aligned}
+&\int_0^T
+P\left(
+|X_{s-}^{(\varepsilon)}-X_{s-}|>\eta
+\right)ds\\
+&\le
+T\,
+P\left(
+\sup_{0\le r\le T}
+|X_r^{(\varepsilon)}-X_r|>\eta
+\right)
+\to0.
+\end{aligned}
+$$
+
+従って $f'$ の連続性から
+
+$$
+f'(X_{s-}^{(\varepsilon)})
+\to
+f'(X_{s-})
+$$
+
+も $P(d\omega)\,ds$ に関して同じ意味で近づきます。ここで
+
+$$
+D_\varepsilon(s,\omega)
+=
+f'(X_{s-}^{(\varepsilon)})
+-
+f'(X_{s-})
+$$
+
+と置くと $|D_\varepsilon|\le2\|f'\|_\infty$ です。任意の $\rho>0$ について
+
+$$
+\begin{aligned}
+E\int_0^T|D_\varepsilon(s)|^2ds
+&\le
+\rho^2T\\
+&\quad+
+4\|f'\|_\infty^2
+\int_0^T
+P(|D_\varepsilon(s)|>\rho)ds.
+\end{aligned}
+$$
+
+まず $\varepsilon\downarrow0$ とし、その後 $\rho\downarrow0$ とすれば
+
+$$
+E\int_0^T|D_\varepsilon(s)|^2ds
+\to0.
+$$
+
+従って
+
 $$
 f'(X_{s-}^{(\varepsilon)})\sigma
 \to
 f'(X_{s-})\sigma
 $$
-は $ds\times P$ に関する $L^2$ でも収束するため、ブラウン確率積分は Itô 等長性によって極限へ送れます。
 
-小跳躍の補償ランダム測度項について、平均値の定理から
+は $L^2(P(d\omega)\,ds)$ で収束します。[Itô 等長性](../STO6/index.md#thm-sto6-ito-isometry-simple)からブラウン確率積分も $L^2(P)$ で極限へ送れます。
+
+小跳躍の補償ランダム測度項では
 
 $$
-|f(x+z)-f(x)|
+G_\varepsilon(s,z)
+=
+1_{\{\varepsilon<|z|\le1\}}
+\left[
+f(X_{s-}^{(\varepsilon)}+z)
+-
+f(X_{s-}^{(\varepsilon)})
+\right]
+$$
+
+と置き、極限候補を
+
+$$
+G(s,z)
+=
+1_{\{|z|\le1\}}
+\left[
+f(X_{s-}+z)-f(X_{s-})
+\right]
+$$
+
+とします。平均値の定理より
+
+$$
+|G_\varepsilon(s,z)|,
+|G(s,z)|
 \le
 \|f'\|_\infty|z|.
 $$
 
-従って差の integrand は $L^2(ds\,\nu)$ で支配され、補償 Poisson 積分の等長性により極限へ送れます。
-
-補償ドリフト剰余項には [Taylor の定理](../RA3/index.md#thm-ra3-taylor)から
+任意の $\varepsilon_n\downarrow0$ から取った上の a.s. 一様収束部分列では、$z\ne0$ に対し
 
 $$
-|f(x+z)-f(x)-f'(x)z|
+G_{\varepsilon_n}(s,z)\to G(s,z)
+$$
+
+が $P(d\omega)\,ds\,\nu(dz)$ に関してほとんど至る所で成り立ちます。差の二乗は
+
+$$
+|G_{\varepsilon_n}-G|^2
+\le
+4\|f'\|_\infty^2z^2
+$$
+
+で支配され、$z^2$ は $|z|\le1$ で $\nu$-可積分です。[Lebesgue の優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)により
+
+$$
+E\int_0^T\int_{|z|\le1}
+|G_{\varepsilon_n}(s,z)-G(s,z)|^2
+\nu(dz)ds
+\to0.
+$$
+
+[補償 Poisson ランダム測度の L2 等長性と拡張](#thm-sto14-prm-l2-integral)から、対応する補償積分も $L^2(P)$ で収束します。任意の列からこの性質を持つ部分列が取れるので、元の族全体も同じ極限へ収束します。
+
+補償ドリフト剰余項には [Taylor の定理](../RA3/index.md#thm-ra3-taylor)を、点 $x$、増分 $z$、2 次までの剰余評価として適用します。すなわち
+
+$$
+R_f(x,z)
+:=
+f(x+z)-f(x)-f'(x)z
+$$
+
+と置くと
+
+$$
+|R_f(x,z)|
 \le
 \frac12\|f''\|_\infty z^2.
 $$
 
-右辺は $|z|\le1$ で $\nu$-可積分です。
+上の a.s. 一様収束部分列では
 
-したがって [Lebesgue の優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)によりドリフト剰余項も極限へ送れます。
+$$
+R_f(X_{s-}^{(\varepsilon_n)},z)
+\to
+R_f(X_{s-},z).
+$$
 
-$|z|>1$ は有限活動度なので、有限個の跳躍に対する項は閾値の影響を受けません。
+差は $\|f''\|_\infty z^2$ で支配され、Lévy 測度条件から
+
+$$
+\int_{|z|\le1}z^2\nu(dz)<\infty.
+$$
+
+従って [Lebesgue の優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)により補償ドリフト剰余項も極限へ送れます。
+
+最後に大跳躍項です。$\nu(|z|>1)<\infty$ なので、$[0,T]$ に現れる $|z|>1$ のPoisson点は a.s. 有限個です。その時刻を $S_1,\ldots,S_K$、印を $Z_1,\ldots,Z_K$ とします。同じ a.s. 一様収束部分列上で各 $j$ について
+
+$$
+X_{S_j-}^{(\varepsilon_n)}
+\to
+X_{S_j-}.
+$$
+
+$f$ の連続性から
+
+$$
+f(X_{S_j-}^{(\varepsilon_n)}+Z_j)
+-
+f(X_{S_j-}^{(\varepsilon_n)})
+\to
+f(X_{S_j-}+Z_j)
+-
+f(X_{S_j-}).
+$$
+
+項数 $K$ は有限なので有限和として極限を取れます。従って大跳躍項も極限へ送れます。
 
 以上で $C_b^2$ 関数について公式が得られます。
 
@@ -2201,7 +2843,7 @@ $$
 
 を普通の有限和として直接書けます。
 
-無限活動度では、この補正項 の二次 剰余項 が Lévy 測度条件によって可積分になることが本質です。
+無限活動度では、この補正項の二次剰余項 が Lévy 測度条件によって可積分になることが本質です。
 
 ---
 
@@ -2224,7 +2866,7 @@ Lévy 過程では [跳躍 Itô 公式](#thm-sto14-jump-ito)から生成作用�
 
 <!-- formal-statement-start -->
 > **系（Lévy 過程の生成作用素マルチンゲール）**  
-> $X$ を 三つ組 $(b,\sigma,\nu)$ を持つ Lévy 過程とする。
+> $X$ を Lévy--Khintchine 三つ組 $(b,\sigma,\nu)$ を持つ実数値 Lévy 過程とする。
 >
 > $f\in C_c^2(\mathbb R)$ に対して
 >
@@ -2278,7 +2920,41 @@ $$
 
 も補償 Poisson ランダム測度に関する局所マルチンゲールです。
 
-$f\in C_c^2$ なら必要な係数は有界で、大跳躍強度も有限なので局所化後の期待値評価から真のマルチンゲールとして扱えます。
+ここでは局所化だけに頼らず、二乗可積分性を直接確認します。$f\in C_c^2$ なら $f'$ は有界で、
+
+$$
+E\int_0^T
+|f'(X_{s-})\sigma|^2ds
+\le
+T\sigma^2\|f'\|_\infty^2
+<
+\infty.
+$$
+
+従ってブラウン確率積分は二乗可積分マルチンゲールです。
+
+小跳躍について平均値の定理から
+
+$$
+|f(X_{s-}+z)-f(X_{s-})|
+\le
+\|f'\|_\infty|z|,
+$$
+
+なので
+
+$$
+E\int_0^T\int_{|z|\le1}
+|f(X_{s-}+z)-f(X_{s-})|^2
+\nu(dz)ds
+\le
+T\|f'\|_\infty^2
+\int_{|z|\le1}z^2\nu(dz)
+<
+\infty.
+$$
+
+従って小跳躍の補償積分も二乗可積分マルチンゲールです。
 
 大跳躍項は $\nu(|z|>1)<\infty$ なので
 $$
@@ -2286,7 +2962,19 @@ N(ds,dz)
 =
 \widetilde N(ds,dz)+ds\,\nu(dz)
 $$
-と分けられます。補償後の大跳躍積分はマルチンゲールであり、残る補償項
+と分けられます。大跳躍の被積分関数は絶対値が $2\|f\|_\infty$ 以下なので
+
+$$
+E\int_0^T\int_{|z|>1}
+|f(X_{s-}+z)-f(X_{s-})|^2
+\nu(dz)ds
+\le
+4T\|f\|_\infty^2\nu(|z|>1)
+<
+\infty.
+$$
+
+従って補償後の大跳躍積分も二乗可積分マルチンゲールです。残る補償項
 $$
 \int_0^t\int_{|z|>1}
 \left(
@@ -2376,13 +3064,35 @@ $$
 
 時刻 $t$ の跳躍 $\Delta X_t$ を積分係数が先に見てしまうと、予測可能性が壊れます。
 
-càdlàg 過程の左極限
+より正確には、$X$ が適合 càdlàg 過程なら左極限過程 $X_-$ は予測可能です。これを単純過程から確認できます。二進格子
 
 $$
-X_{t-}
+t_k^{(n)}=k2^{-n}
 $$
 
-は、標準条件の下で予測可能な過程になります。
+に対し
+
+$$
+X_t^{(n,-)}
+=
+X_{t_k^{(n)}}
+\qquad
+\left(
+t_k^{(n)}<t\le t_{k+1}^{(n)}
+\right)
+$$
+
+と置き、$t=0$ では $X_0^{(n,-)}=X_0$ とします。各係数 $X_{t_k^{(n)}}$ は $\mathcal F_{t_k^{(n)}}$-可測なので $X^{(n,-)}$ は単純予測可能過程です。
+
+固定した $t>0$ では、その区間の左端 $t_k^{(n)}$ が $t$ の左から近づくため、càdlàg 性から
+
+$$
+X_t^{(n,-)}
+\to
+X_{t-}.
+$$
+
+予測可能 $\sigma$-field上の可測関数の点ごとの極限も予測可能なので、$X_-$ は予測可能です。
 
 したがって
 
@@ -2395,7 +3105,7 @@ $$
 存在一意性や数値解法は別章の課題ですが、本章で
 
 - ブラウン確率積分
-- 補償 Poisson 確率積分
+- 補償Poisson 確率積分
 - 大跳躍の有限和
 - [跳躍 Itô 公式](#thm-sto14-jump-ito)
 
@@ -2437,7 +3147,7 @@ $$
 
 跳躍時刻 $t$ で $X_t$ は 跳躍後の値です。
 
-それを同じ時刻の $N(dt,dz)$ の係数に使うと、現在の跳躍 を係数が見た形になり得ます。
+それを同じ時刻の $N(dt,dz)$ の係数に使うと、現在の跳躍を係数が見た形になり得ます。
 
 確率積分では左極限 $X_{t-}$ を使い、予測可能性を守ります。
 
@@ -2485,7 +3195,7 @@ $$
 - Level: A
 - 目安時間: 20分
 
-率 $\lambda$ のポアソン過程 $N$ と、$N$ と独立な独立同分布列 $(Y_k)$ を用いて
+率 $\lambda$ のPoisson 過程 $N$ と、$N$ と独立な独立同分布列 $(Y_k)$ を用いて
 
 $$
 X_t=\sum_{k=1}^{N_t}Y_k
@@ -2673,7 +3383,7 @@ $$
 ただし二乗重み付き積分は有限なので、補償小跳躍積分は $L^2$ で構成できます。
 <!-- solution-end -->
 
-#### STO14-A03 予測可能なランダム係数を持つ補償 Poisson 積分
+#### STO14-A03 予測可能なランダム係数を持つ補償 Poisson ランダム測度積分
 - Level: A
 - 目安時間: 20分
 
@@ -2832,7 +3542,7 @@ $$
 
 4. 連続 Itô 公式の二次項は連続マルチンゲール部分の二次変分から生じます。
 
-jump では一回の有限差分そのものが二次以上の寄与を持つため、連続部分だけの二次変分項では
+跳躍では一回の有限差分そのものが二次以上の寄与を持つため、連続部分だけの二次変分項では
 
 $$
 (\Delta X_s)^2
@@ -2898,41 +3608,85 @@ $$
 \varphi_{t/n}(u)=0.
 $$
 
-しかし確率連続性から $X_{t/n}\to0$ 確率収束で であり、$e^{iuX_{t/n}}\to1$ 確率収束で です。絶対値は 1 なので期待値も 1 へ収束し、
+しかし確率連続性から
 
 $$
-\varphi_{t/n}(u)\to1.
+X_{t/n}\to0
+\qquad\text{確率収束で}
 $$
 
-矛盾です。
-
-3. $t\mapsto\varphi_t(u)$ は 0 を通らない連続曲線で、$\varphi_0(u)=1$ です。原点から連続に対数を選び
+です。従って
 
 $$
-g(t)=\log\varphi_t(u)
+e^{iuX_{t/n}}\to1
+\qquad\text{確率収束で}.
 $$
 
-とします。
+この確率変数列は絶対値が 1 以下です。任意の部分列からほとんど確実収束する部分列を取り、その部分列へ有界収束定理を適用すると期待値は 1 へ収束します。従って元の列全体について
 
-半群性から
+$$
+\varphi_{t/n}(u)\to1,
+$$
+
+となり矛盾です。
+
+3. まず $\varphi_h(u)\to1$ なので、ある $\delta>0$ を十分小さく取れば $0\le h\le\delta$ で
+
+$$
+|\varphi_h(u)-1|<\frac12.
+$$
+
+この範囲では主値対数を使って
+
+$$
+g(h)=\operatorname{Log}\varphi_h(u)
+$$
+
+と置けます。さらに $\delta$ を小さくして $|g(h)|<\pi/4$ とします。
+
+$s,t,s+t\le\delta$ なら
+
+$$
+e^{g(s+t)}
+=
+\varphi_{s+t}(u)
+=
+\varphi_s(u)\varphi_t(u)
+=
+e^{g(s)+g(t)}.
+$$
+
+よって差は $2\pi i\mathbb Z$ に属しますが、その絶対値は $3\pi/4<2\pi$ なので
 
 $$
 g(s+t)=g(s)+g(t).
 $$
 
-連続 Cauchy 方程式より
+連続性と有理数近似から
 
 $$
-g(t)=t g(1).
+g(h)=ch
+\qquad
+(0\le h\le\delta)
 $$
 
-したがって
+となる定数 $c\in\mathbb C$ が存在します。任意の $t>0$ に対し $t/n\le\delta$ となる $n$ を取れば
+
+$$
+\varphi_t(u)
+=
+\varphi_{t/n}(u)^n
+=
+e^{ct}.
+$$
+
+従って
 
 $$
 \boxed{
 \varphi_t(u)=e^{t\psi(u)},
 \qquad
-\psi(u)=g(1).
+\psi(u)=c.
 }
 $$
 
@@ -3063,7 +3817,7 @@ $$
 - Level: B
 - 目安時間: 35分
 
-Lévy 三つ組 が $(b,\sigma,\nu)$ で、$\nu$ は有限測度とする。
+Lévy 三つ組が $(b,\sigma,\nu)$ で、$\nu$ は有限測度とする。
 
 $$
 Lf(x)
@@ -3194,7 +3948,7 @@ $$
 - Level: C
 - 目安時間: 55分
 
-$X$ を 三つ組 $(b,\sigma,\nu)$ を持つ Lévy 過程とする。
+$X$ を Lévy--Khintchine 三つ組 $(b,\sigma,\nu)$ を持つ Lévy 過程とする。
 
 $$
 f_u(x)=e^{iux}
@@ -3202,7 +3956,7 @@ $$
 
 を考える。
 
-必要なら局所化して [跳躍 Itô 公式](#thm-sto14-jump-ito)を使ってよい。
+[跳躍 Itô 公式](#thm-sto14-jump-ito)を使ってよい。$|f_u|=1$ なので、各マルチンゲール項の二乗可積分性も確認すること。
 
 1. $f_u'(x)$、$f_u''(x)$ を求めよ。
 2. [跳躍 Itô 公式](#thm-sto14-jump-ito)へ代入し、有限変動部分をまとめよ。
@@ -3266,7 +4020,7 @@ ibu-\frac12\sigma^2u^2
 \right)ds.
 $$
 
-小 jump の補償ドリフト は
+小跳躍の補償ドリフトは
 
 $$
 \begin{aligned}
@@ -3283,7 +4037,7 @@ e^{iuX_{s-}}
 \end{aligned}
 $$
 
-大跳躍項を補償部分とマルチンゲール部分へ分けると、その drift は
+大跳躍項を補償部分とマルチンゲール部分へ分けると、そのドリフトは
 
 $$
 e^{iuX_{s-}}
@@ -3312,7 +4066,70 @@ e^{iuz}-1-iuz1_{\{|z|\le1\}}
 }
 $$
 
-4. 残る ブラウン確率積分、小 jump の補償 Poisson 積分、大 jump を補償した有限強度 Poisson 積分は、局所化後にすべてマルチンゲールです。
+4. 残る確率積分が真のマルチンゲールであることを二乗平均から確認します。
+
+ブラウン項の被積分関数は
+
+$$
+f_u'(X_{s-})\sigma
+=
+iu\sigma e^{iuX_{s-}}
+$$
+
+なので絶対値は $|u\sigma|$ です。従って任意の $T<\infty$ で
+
+$$
+E\int_0^T
+|f_u'(X_{s-})\sigma|^2ds
+=
+Tu^2\sigma^2
+<
+\infty.
+$$
+
+小跳躍では平均値の定理から
+
+$$
+|e^{iu(X_{s-}+z)}-e^{iuX_{s-}}|
+=
+|e^{iuz}-1|
+\le
+|u||z|.
+$$
+
+従って
+
+$$
+E\int_0^T\int_{|z|\le1}
+|e^{iu(X_{s-}+z)}-e^{iuX_{s-}}|^2
+\nu(dz)ds
+\le
+Tu^2
+\int_{|z|\le1}z^2\nu(dz)
+<
+\infty.
+$$
+
+大跳躍の補償項では
+
+$$
+|e^{iu(X_{s-}+z)}-e^{iuX_{s-}}|
+\le2
+$$
+
+かつ $\nu(|z|>1)<\infty$ なので
+
+$$
+E\int_0^T\int_{|z|>1}
+|e^{iu(X_{s-}+z)}-e^{iuX_{s-}}|^2
+\nu(dz)ds
+\le
+4T\nu(|z|>1)
+<
+\infty.
+$$
+
+従ってブラウン確率積分、小跳躍の補償 Poisson ランダム測度積分、大跳躍を補償した Poisson ランダム測度積分はいずれも二乗可積分マルチンゲールです。
 
 したがって
 
@@ -3375,8 +4192,6 @@ P(\Delta X_s\neq0)=0.
 $$
 
 従って
-
-よって
 
 $$
 E[e^{iuX_{s-}}]
