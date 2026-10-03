@@ -18,11 +18,12 @@ theorems:
   - { id: LA3C-THM-01, name: 基本変形と行列式 }
   - { id: LA3C-THM-02, name: 三角行列の行列式 }
   - { id: LA3C-THM-03, name: Laplace 展開 }
+  - { id: LA3C-THM-03A, name: 余因子行列の基本恒等式 }
   - { id: LA3C-THM-07, name: 余因子行列の基本恒等式 }
   - { id: LA3C-THM-04, name: 行列式の乗法性 }
   - { id: LA3C-THM-05, name: 行列式による可逆性判定 }
   - { id: LA3C-THM-06, name: 行列式の相似不変性 }
-canonical_examples: [Gauss 消去法での行列式追跡, 0の多い行のLaplace 展開, 2x2余因子行列, 特性多項式の基底不変性]
+canonical_examples: [行基本変形による消去計算での行列式の変化, 0の多い行のLaplace 展開, 2x2余因子行列, 特性多項式の基底不変性]
 problem_patterns: [LA3C-ROW-REDUCTION-1, LA3C-LAPLACE-1, LA3C-INVERTIBLE-1, LA3C-SIMILARITY-1]
 past_exam_alignment: []
 integrated_exam_problems: []
