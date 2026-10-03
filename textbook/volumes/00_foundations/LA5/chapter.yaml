@@ -21,6 +21,7 @@ definitions:
   - { id: LA5-DEF-05, name: 正規作用素 }
 theorems:
   - { id: LA5-THM-01, name: 有限次元随伴の存在一意性 }
+  - { id: LA5-LEM-01, name: 複素有限次元自己写像の固有値の存在 }
   - { id: LA5-THM-02, name: Schurのユニタリ三角化定理 }
   - { id: LA5-THM-03, name: 複素正規作用素のスペクトル定理 }
   - { id: LA5-THM-04, name: Hermitian作用素の固有値は実数 }
