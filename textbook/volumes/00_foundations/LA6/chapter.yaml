@@ -13,16 +13,19 @@ learning_objectives:
   - Sylvesterの慣性法則を理解し正負零の個数が座標に依らないことを説明できる
   - Hermitian半正定値作用素の一意な半正定値平方根を構成できる
   - 極分解 A=UP をスペクトル定理から導ける
-  - 実SVDを複素行列へ拡張できる
+  - 実特異値分解を複素行列へ拡張できる
+  - 複素行列の作用素ノルムを特異値分解から評価できる
 definitions:
   - { id: LA6-DEF-01, name: Hermitian二次形式 }
   - { id: LA6-DEF-02, name: 合同変換 }
+  - { id: LA6-DEF-03, name: Hermitian半正定値作用素 }
+  - { id: LA6-DEF-04, name: Euclidノルムから誘導される作用素ノルム }
 theorems:
   - { id: LA6-THM-01, name: Sylvesterの慣性法則 }
   - { id: LA6-THM-02, name: Hermitian半正定値平方根定理 }
   - { id: LA6-THM-03, name: 極分解 }
   - { id: LA6-THM-04, name: 複素特異値分解 }
-canonical_examples: [Hermitian二次形式の対角化, 不定値形式, 行列の絶対値, 回転と伸縮の極分解]
+canonical_examples: [Hermitian二次形式の対角化, 不定値形式, 半正定値平方根, 回転と伸縮の極分解]
 problem_patterns: [LA6-INERTIA-1, LA6-POLAR-1, LA6-COMPLEX-SVD-1]
 past_exam_alignment: []
 integrated_exam_problems: []
