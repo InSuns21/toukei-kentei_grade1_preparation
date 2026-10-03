@@ -6,7 +6,7 @@
 
 STO7 までの Itô 公式は、空間変数について二階微分できる関数を扱いました。
 
-ところが最も基本的な凸関数
+ところが最も基本的な折れ点をもつ関数
 
 $$
 x\longmapsto |x-a|
@@ -165,6 +165,16 @@ $$
 
 ## 2. 局所時間を滞在核の極限として捉える
 
+前節で $|x|$ を滑らかにすると、二階微分 $2\rho_\varepsilon$ が折れ点の近くへ集中することが分かりました。これを $B_s-a$ へ代入すると
+
+$$
+\rho_\varepsilon(B_s-a)
+$$
+
+はブラウン運動が水準 $a$ の幅 $O(\varepsilon)$ の近傍にいるときだけ寄与します。
+
+ただし近傍の幅を小さくすると通常の滞在時間そのものは 0 へ縮みます。そこで $\rho_\varepsilon$ の高さを $1/\varepsilon$ の尺度で上げ、**近傍の幅で正規化した滞在量**に有限な極限があるかを調べます。その極限過程を局所時間として定義します。
+
 <a id="def-sto8-brownian-local-time"></a>
 
 <!-- formal-statement-start -->
@@ -268,7 +278,25 @@ $$
 
 固定した $T<\infty$ を取ります。
 
-[Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito) を $F_\varepsilon(B_t-a)$ に適用すると
+[Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito) を、1 変数関数
+
+$$
+f_\varepsilon(x):=F_\varepsilon(x-a)
+$$
+
+と過程 $X=B$ に適用します。ここで
+
+$$
+f_\varepsilon'(x)
+=
+F_\varepsilon'(x-a),
+\qquad
+f_\varepsilon''(x)
+=
+F_\varepsilon''(x-a).
+$$
+
+また $[B]_s=s$ なので、Itô 公式の一次項・二次項へそれぞれこれらを代入すると
 
 $$
 \begin{aligned}
@@ -362,7 +390,32 @@ $$
 P(|B_s-a|\le\varepsilon)\to0.
 $$
 
-$0\le4P(|B_s-a|\le\varepsilon)\le4$ なので dominated convergence により
+この評価を期待値へ入れます。非負関数なので [Tonelli の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli) により
+
+$$
+\begin{aligned}
+&E\int_0^T
+\left|
+F_\varepsilon'(B_s-a)
+-
+\operatorname{sgn}(B_s-a)
+\right|^2ds\\
+&\qquad=
+\int_0^T
+E\left[
+\left|
+F_\varepsilon'(B_s-a)
+-
+\operatorname{sgn}(B_s-a)
+\right|^2
+\right]ds\\
+&\qquad\le
+4\int_0^T
+P(|B_s-a|\le\varepsilon)\,ds.
+\end{aligned}
+$$
+
+各 $s>0$ で integrand は 0 へ収束し、常に $0$ 以上 $1$ 以下です。$s=0$ の一点は時間積分へ寄与しないので、時間変数について [優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01) を使って
 
 $$
 E\int_0^T
@@ -421,7 +474,31 @@ in $L^2$-supremum on $[0,T]$ です。
 
 右辺は continuous 適合過程です。
 
-さらに $L^2$-supremum convergence から subsequence $\varepsilon_n\downarrow0$ を選び
+さらに $L^2$-supremum convergence から、例えば $\varepsilon_n\downarrow0$ を
+
+$$
+E\left[
+\sup_{t\le T}
+|A_t^{a,\varepsilon_n}-L_t^a|^2
+\right]
+\le
+2^{-3n}
+$$
+
+となるよう選べます。[Markov の不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-markov) より
+
+$$
+P\left(
+\sup_{t\le T}
+|A_t^{a,\varepsilon_n}-L_t^a|
+>
+2^{-n}
+\right)
+\le
+2^{-n}.
+$$
+
+右辺は可算和可能なので [Borel--Cantelli 第1補題](../F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md#thm-f0-00p4-borel-cantelli-1) から
 
 $$
 \sup_{t\le T}
@@ -430,7 +507,7 @@ $$
 \qquad\text{ほとんど確実に}
 $$
 
-とできます。
+です。
 
 各 $A^{a,\varepsilon_n}$ は increasing なので、その一様極限 $L^a$ も increasing です。
 
@@ -937,9 +1014,24 @@ $$
 \prod_{j=1}^m u_j^{-1/2}.
 $$
 
-各指数 $-1/2>-1$ なので、この simplex integral は有限です。
+この有限性は積分を実際に上から抑えると明確です。simplex は box $(0,T)^m$ に含まれるので
 
-その値を $C_{m,T}$ へ吸収すれば主張を得ます。
+$$
+\begin{aligned}
+&\int_{\substack{u_j>0\\u_1+\cdots+u_m<T}}
+\prod_{j=1}^m u_j^{-1/2}\,du_1\cdots du_m\\
+&\qquad\le
+\int_{(0,T)^m}
+\prod_{j=1}^m u_j^{-1/2}\,du_1\cdots du_m\\
+&\qquad=
+\prod_{j=1}^m
+\int_0^T u^{-1/2}\,du\\
+&\qquad=
+(2\sqrt T)^m<\infty.
+\end{aligned}
+$$
+
+この値を $C_{m,T}$ へ吸収すれば主張を得ます。
 <!-- proof-end -->
 
 <a id="thm-sto8-spatial-continuity"></a>
@@ -1096,7 +1188,15 @@ $R=1,2,\ldots$ について rational levels 上で一致する version を選び
 
 ## 7. 滞在時間を空間密度へ変換する
 
-局所時間の名称を正当化する中心定理です。
+ここまでで、水準 $a$ ごとに局所時間を作り、$a$ に関して連続な version も選べました。しかし「局所時間」という名前を正当化するには、各水準の量を並べるだけでは足りません。
+
+時間区間 $[0,t]$ のうち $B_s$ が集合 $A$ に入っている長さ
+
+$$
+\int_0^t1_{\{B_s\in A\}}\,ds
+$$
+
+を、空間側で $L_t^a$ を密度として積分した量へ変換できれば、局所時間が滞在量の空間密度であることが分かります。これを全ての非負 Borel 可測関数まで拡張するのが次の中心定理です。
 
 <a id="thm-sto8-occupation-time"></a>
 
@@ -1391,6 +1491,10 @@ $$
 
 ## 8. 細い区間の滞在時間から局所時間を回収する
 
+滞在時間公式が得られたので、定義で使った滑らかな kernel はもう不要です。水準 $a$ の左右 $\varepsilon$ だけを見る単純な区間指示関数を使っても、幅 $2\varepsilon$ で割れば局所時間を回収できます。
+
+右辺では $a\mapsto L_t^a$ の局所平均が現れ、前節で確保した空間連続性がその平均を点値 $L_t^a$ へ戻します。
+
 <a id="cor-sto8-interval-approximation"></a>
 
 <!-- formal-statement-start -->
@@ -1590,13 +1694,23 @@ $$
 0.
 $$
 
-一方 $k$ は continuous nondecreasing なので、左辺は $k$ が水準 $c$ を越えた後に増えた総量、すなわち
+一方 $k$ は continuous nondecreasing です。$k(t)\le c$ なら積分は 0 です。$k(t)>c$ なら、連続性から $k$ が水準 $c$ に達した後の Stieltjes 増分だけが数えられます。したがって
 
 $$
-(k(t)-c)^+
+\int_0^t
+1_{\{k(s)>c\}}\,dk(s)
+=
+k(t)-c.
 $$
 
-に等しいです。
+二つの場合をまとめると
+
+$$
+\int_0^t
+1_{\{k(s)>c\}}\,dk(s)
+=
+(k(t)-c)^+.
+$$
 
 従って
 
@@ -1644,7 +1758,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\beta$ は有界予測可能被積分過程によるブラウン確率積分なので continuous 局所マルチンゲールです。
+$B$ は continuous 適合過程なので予測可能です。$\operatorname{sgn}:\mathbb R\to\{-1,0,1\}$ は Borel 可測だから、その合成
+
+$$
+s\longmapsto\operatorname{sgn}(B_s)
+$$
+
+も予測可能です。さらに絶対値は $1$ 以下なので、$\beta$ は STO6 の局所確率積分として定義でき、continuous 局所マルチンゲールです。
 
 STO6 の確率積分 [確率積分の二次変分](../STO6/index.md#thm-sto6-integral-bracket) から
 
@@ -2089,7 +2209,23 @@ $$
 \int_0^t1_{\{B_s=a\}}\,ds=0
 $$
 
-a.s. なので、[Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) によりその差の確率積分は $0$ です。
+a.s. です。二つの被積分過程の差を $D_s$ と書くと $|D_s|\le1$ かつ
+
+$$
+E\int_0^tD_s^2\,ds=0.
+$$
+
+したがって STO6 の [確率積分の $L^2$ 構成](../STO6/index.md#thm-sto6-l2-construction) の等長性から
+
+$$
+E\left|
+\int_0^tD_s\,dB_s
+\right|^2
+=
+0,
+$$
+
+ゆえにその差の確率積分は $0$ です。
 
 従って
 
@@ -2608,7 +2744,7 @@ $$
 
 を使います。
 
-[Tanaka 公式](#thm-sto8-tanaka) から
+[Tanaka 公式](#thm-sto8-tanaka) は、両辺が continuous 過程として一つの probability-one event 上で全時刻に同時に成り立ちます。したがってその event 上で bounded stopping time $\tau_b\wedge n$ を時刻変数へ代入でき、
 
 $$
 |B_{\tau_b\wedge n}-a|
@@ -2618,10 +2754,10 @@ $$
 \int_0^{\tau_b\wedge n}
 \operatorname{sgn}(B_s-a)\,dB_s
 +
-L_{\tau_b\wedge n}^a,
+L_{\tau_b\wedge n}^a
 $$
 
-ここでは $B_0=0$ なので $|B_0-a|=|a|$ です。
+を得ます。ここでは $B_0=0$ なので $|B_0-a|=|a|$ です。
 
 確率積分の被積分過程は絶対値 $1$ 以下で、停止時間も $n$ 以下なので square-integrable martingale です。従って期待値は $0$ です。
 
