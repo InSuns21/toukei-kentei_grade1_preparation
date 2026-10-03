@@ -1801,7 +1801,7 @@ $$
 <a id="thm-sto13-prm-simple-isometry"></a>
 
 <!-- formal-statement-start -->
-> **定理（補償ポアソンランダム測度の単関数 $L^2$ 等長性）**  
+> **定理（補償ポアソンランダム測度の単関数 L2 等長性）**  
 > $(E,\mathcal E,\nu)$ を $\sigma$-有限測度空間とし、$N(ds,dz)$ を $(0,\infty)\times E$ 上の強度測度 $ds\,\nu(dz)$ のポアソンランダム測度、$\widetilde N$ をその補償ポアソンランダム測度とする。
 >
 > 互いに素な有限強度の可測集合
