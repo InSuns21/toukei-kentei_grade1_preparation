@@ -997,6 +997,8 @@ C_{M,c}(t-s)^2.
 $$
 <!-- proof-end -->
 
+この四次増分評価を作った目的は、直前の Kolmogorov 型判定へ具体的なパラメータを代入することです。ここでは初期値と時間差の指数を一つずつ照合してから結論を出します。
+
 <a id="cor-sto3a-bounded-tightness"></a>
 
 <!-- formal-statement-start -->
@@ -1402,7 +1404,7 @@ E_{t_1,\ldots,t_m}(f)
 (f(t_1),\ldots,f(t_m))
 $$
 
-について、Euclid norm を $|\cdot|_2$ とすると
+について、$\mathbb R^m$ の通常のノルムを $|\cdot|_2$ とすると
 
 $$
 \begin{aligned}
