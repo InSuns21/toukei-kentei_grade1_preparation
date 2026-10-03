@@ -82,7 +82,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（複合 Poisson 過程）**  
-> $N$ を率 $\lambda$ のポアソン過程、$(Y_k)_{k\ge1}$ を共通分布 $\mu$ を持つ独立同分布列とし、$N$ と $(Y_k)$ は独立とする。
+> 確率空間 $(\Omega,\mathcal F,P)$ 上で、$N$ を率 $\lambda>0$ のポアソン過程、$(Y_k)_{k\ge1}$ を共通分布 $\mu$ を持つ実数値の独立同分布列とし、$N$ と $(Y_k)$ は独立とする。
 >
 > $X_0=0$ とし、
 >
@@ -267,7 +267,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（Lévy 過程）**  
-> 実数値過程 $X=(X_t)_{t\ge0}$ が **Lévy 過程**であるとは、次を満たすことをいう。
+> 確率空間 $(\Omega,\mathcal F,P)$ 上の実数値過程 $X=(X_t)_{t\ge0}$ が **Lévy 過程**であるとは、次を満たすことをいう。
 >
 > 1. $X_0=0$ a.s.
 > 2. 任意の $0\le t_0<t_1<\cdots<t_n$ に対し、
@@ -558,7 +558,33 @@ E[e^{iuX_h}]
 \to1.
 $$
 
-半群性から一般の $t$ でも連続性が従います。
+一般の $t$ での連続性も半群性から式で確認できます。$h>0$ なら
+
+$$
+\varphi_{t+h}(u)-\varphi_t(u)
+=
+\varphi_t(u)\bigl(\varphi_h(u)-1\bigr)
+\to0.
+$$
+
+$0<h<t$ なら
+
+$$
+\varphi_t(u)
+=
+\varphi_{t-h}(u)\varphi_h(u),
+$$
+
+したがって
+
+$$
+\varphi_{t-h}(u)-\varphi_t(u)
+=
+\varphi_{t-h}(u)\bigl(1-\varphi_h(u)\bigr)
+\to0.
+$$
+
+よって $t\mapsto\varphi_t(u)$ は連続です。
 
 次に $t>0$ で $\varphi_t(u)=0$ と仮定します。
 
@@ -1063,9 +1089,9 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（単純予測可能 Poisson 被積分過程）**  
-> $N(ds,dz)$ を強度 $ds\,\nu(dz)$ のポアソンランダム測度とし、$(\mathcal F_t)$ は $N$ の自然なフィルトレーションの通常拡大とする。したがって、時刻 $t$ より後の互いに素な時間領域上の Poisson 増分は $\mathcal F_t$ と独立である。
+> $T>0$ とし、$(E,\mathcal E,\nu)$ を $\sigma$-有限測度空間、$N(ds,dz)$ を $(0,T]\times E$ 上の強度 $ds\,\nu(dz)$ のポアソンランダム測度とする。$(\mathcal F_t)_{0\le t\le T}$ は $N$ の自然なフィルトレーションの通常拡大とする。
 >
-> $0=t_0<\cdots<t_m=T$、$\nu(A_j)<\infty$ を満たす可測集合 $A_j$、および有界な $\mathcal F_{t_k}$-可測確率変数 $\xi_{kj}$ を用いて
+> $0=t_0<\cdots<t_m=T$、$A_1,\ldots,A_r\in\mathcal E$ で $\nu(A_j)<\infty$、および有界な $\mathcal F_{t_k}$-可測確率変数 $\xi_{kj}$ を用いて
 >
 $$
 H(s,z)
@@ -1086,7 +1112,7 @@ $$
 
 時刻 $a<b$、$\nu(A)<\infty$ とし、$\xi$ を有界な $\mathcal F_a$-可測確率変数とします。
 
-たとえば
+たとえば $X=(X_t)$ を $(\mathcal F_t)$-適合な実数値過程として
 
 $$
 \xi=1_{\{X_a\ge0\}}
@@ -1324,7 +1350,7 @@ B\in\mathcal E,\quad
 \nu(B)<\infty,
 $$
 
-の有限和全体を $\mathcal R$ とします。$\mathcal R$ は $\mathcal P\otimes\mathcal E$ を生成する環です。$\mathcal R$ の元で対称差の $\mu_T$-測度を任意に小さくできる可測集合全体を $\mathcal C$ と置くと、有限測度性により $\mathcal C$ は補集合と可算和で閉じ、$\mathcal R\subset\mathcal C$ です。従って単調類定理から
+の有限和全体を $\mathcal R$ とします。$\mathcal R$ は $\mathcal P\otimes\mathcal E$ を生成する環です。$\mathcal R$ の元で対称差の $\mu_T$-測度を任意に小さくできる可測集合全体を $\mathcal C$ と置くと、有限測度性により $\mathcal C$ は補集合と可算和で閉じ、$\mathcal R\subset\mathcal C$ です。したがって $\mathcal C$ は $\mathcal R$ を含む $\sigma$-fieldです。$\mathcal P\otimes\mathcal E$ は $\mathcal R$ を含む最小の $\sigma$-fieldなので
 
 $$
 \mathcal C
@@ -1614,18 +1640,33 @@ M^{(\varepsilon)}_t
 z\,\widetilde N(ds,dz)
 $$
 >
-> は $\varepsilon\downarrow0$ で
+> は $\varepsilon\downarrow0$ で一様ノルムの二乗平均について Cauchy、すなわち
 >
 $$
-L^2\left(
-\Omega;
-\sup_{0\le t\le T}|\cdot|
-\right)
+E\left[
+\sup_{0\le t\le T}
+|M_t^{(\delta)}-M_t^{(\varepsilon)}|^2
+\right]
+\to0
+\qquad
+(\delta,\varepsilon\downarrow0)
 $$
 >
-> の意味で Cauchy である。
+> を満たす。
 >
-> 従って càdlàg 二乗可積分マルチンゲール $M$ が存在して
+> 従って càdlàg 二乗可積分マルチンゲール $M$ が存在し、
+>
+$$
+E\left[
+\sup_{0\le t\le T}
+|M_t^{(\varepsilon)}-M_t|^2
+\right]
+\to0
+\qquad
+(\varepsilon\downarrow0)
+$$
+>
+> かつ
 >
 $$
 \boxed{
