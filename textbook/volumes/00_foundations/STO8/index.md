@@ -6,7 +6,7 @@
 
 STO7 までの Itô 公式は、空間変数について二階微分できる関数を扱いました。
 
-ところが最も基本的な凸関数
+ところが最も基本的な折れ点をもつ関数
 
 $$
 x\longmapsto |x-a|
@@ -390,7 +390,7 @@ $$
 P(|B_s-a|\le\varepsilon)\to0.
 $$
 
-この評価を期待値へ入れます。非負関数なので Tonelli の定理により
+この評価を期待値へ入れます。非負関数なので [Tonelli の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli) により
 
 $$
 \begin{aligned}
@@ -415,7 +415,7 @@ P(|B_s-a|\le\varepsilon)\,ds.
 \end{aligned}
 $$
 
-各 $s>0$ で integrand は 0 へ収束し、常に $0$ 以上 $1$ 以下です。$s=0$ の一点は時間積分へ寄与しないので、時間変数について優収束定理を使って
+各 $s>0$ で integrand は 0 へ収束し、常に $0$ 以上 $1$ 以下です。$s=0$ の一点は時間積分へ寄与しないので、時間変数について [優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01) を使って
 
 $$
 E\int_0^T
@@ -485,7 +485,7 @@ E\left[
 2^{-3n}
 $$
 
-となるよう選べます。Markov の不等式より
+となるよう選べます。[Markov の不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-markov) より
 
 $$
 P\left(
@@ -498,7 +498,7 @@ P\left(
 2^{-n}.
 $$
 
-右辺は可算和可能なので Borel--Cantelli の補題から
+右辺は可算和可能なので [Borel--Cantelli 第1補題](../F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md#thm-f0-00p4-borel-cantelli-1) から
 
 $$
 \sup_{t\le T}
