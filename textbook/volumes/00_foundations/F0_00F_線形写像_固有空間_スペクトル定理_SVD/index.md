@@ -367,57 +367,57 @@ $$
 
 もし
 
-$
+$$
 \sum_{j=1}^{n-r} c_jT(v_j)=0
-$
+$$
 
 なら、線形性から
 
-$
+$$
 T\left(\sum_{j=1}^{n-r}c_jv_j\right)
 =
 \sum_{j=1}^{n-r} c_jT(v_j)
 =
 0.
-$
+$$
 
 したがって
 
-$
+$$
 \sum_{j=1}^{n-r}c_jv_j\in\ker T.
-$
+$$
 
 $u_1,\dots,u_r$ は $\ker T$ の基底なので、ある係数 $d_1,\dots,d_r$ が存在して
 
-$
+$$
 \sum_{j=1}^{n-r}c_jv_j
 =
 \sum_{i=1}^{r}d_i u_i.
-$
+$$
 
 両辺を移項すると
 
-$
+$$
 \sum_{i=1}^{r}(-d_i)u_i
 +
 \sum_{j=1}^{n-r}c_jv_j
 =
 0.
-$
+$$
 
 ところが
 
-$
+$$
 u_1,\dots,u_r,v_1,\dots,v_{n-r}
-$
+$$
 
 は $V$ の基底なので一次独立です。よって
 
-$
+$$
 d_1=\cdots=d_r=0,
 \qquad
 c_1=\cdots=c_{n-r}=0.
-$
+$$
 
 したがって $T(v_1),\dots,T(v_{n-r})$ は一次独立です。
 
@@ -537,13 +537,13 @@ $$
 
 この定義が任意のベクトルにどう作用するかを確認します。$x\in V$ を
 
-$
+$$
 x=c_1v_1+\cdots+c_nv_n
-$
+$$
 
 と書くと、
 
-$
+$$
 [x]_{\mathcal B}
 =
 \begin{pmatrix}
@@ -551,17 +551,17 @@ c_1\\
 \vdots\\
 c_n
 \end{pmatrix}.
-$
+$$
 
 線形性と
 
-$
+$$
 T(v_j)=\sum_{i=1}^m a_{ij}w_i
-$
+$$
 
 を順に使えば
 
-$
+$$
 \begin{aligned}
 T(x)
 &=
@@ -575,11 +575,11 @@ T\left(\sum_{j=1}^n c_jv_j\right)\\
 \sum_{i=1}^m
 \left(\sum_{j=1}^n a_{ij}c_j\right)w_i.
 \end{aligned}
-$
+$$
 
 したがって $\mathcal C$ 座標は
 
-$
+$$
 [T(x)]_{\mathcal C}
 =
 \begin{pmatrix}
@@ -590,18 +590,18 @@ $
 =
 [T]_{\mathcal C\leftarrow\mathcal B}
 [x]_{\mathcal B}.
-$
+$$
 
 つまり
 
-$
+$$
 \boxed{
 [T(x)]_{\mathcal C}
 =
 [T]_{\mathcal C\leftarrow\mathcal B}
 [x]_{\mathcal B}
 }
-$
+$$
 
 であり、行列は抽象的な線形写像そのものではなく
 
@@ -681,14 +681,14 @@ $$
 
 右辺は任意の $x\in V$ の $\mathcal B$ 座標を、まず $T$ によって $\mathcal C$ 座標へ、次に $S$ によって $\mathcal D$ 座標へ送っています。したがって合成写像 $S\circ T$ の表現行列は
 
-$
+$$
 \boxed{
 [S\circ T]_{\mathcal D\leftarrow\mathcal B}
 =
 [S]_{\mathcal D\leftarrow\mathcal C}
 [T]_{\mathcal C\leftarrow\mathcal B}
 }
-$
+$$
 
 です。
 
@@ -739,30 +739,30 @@ $$
 
 逆向きの恒等写像の表現行列を
 
-$
+$$
 R=[I]_{\mathcal B'\leftarrow\mathcal B}
-$
+$$
 
 と置きます。恒等写像を往復させると $I\circ I=I$ なので、合成と行列積の対応から
 
-$
+$$
 RP=I,
 \qquad
 PR=I.
-$
+$$
 
 したがって $P$ は正則で
 
-$
+$$
 R=P^{-1}.
-$
+$$
 
 よって逆向きの座標変換は
 
-$
+$$
 [x]_{\mathcal B'}
 =P^{-1}[x]_{\mathcal B}
-$
+$$
 
 です。
 
@@ -972,40 +972,40 @@ $$
 
 行列 $A$ で固有値を求めるときは、定義
 
-$
+$$
 Av=\lambda v
-$
+$$
 
 をまず
 
-$
+$$
 (A-\lambda I)v=0
-$
+$$
 
 へ移します。固有ベクトルは $v\ne0$ なので、この同次方程式には非零解が必要です。正方行列 $A-\lambda I$ について
 
-$
+$$
 (A-\lambda I)v=0
 \text{ が非零解を持つ}
 \iff
 A-\lambda I\text{ が正則でない}
-$
+$$
 
 です。ここで F0-00 で使った正方行列の判定 $M\text{ が正則}\iff\det M\ne0$ を $M=A-\lambda I$ に適用すると
 
-$
+$$
 A-\lambda I\text{ が正則でない}
 \iff
 \det(A-\lambda I)=0.
-$
+$$
 
 したがって
 
-$
+$$
 \boxed{
 \det(A-\lambda I)=0
 }
-$
+$$
 
 を解けば固有値の候補を得られます。
 
@@ -1019,15 +1019,15 @@ $
 > **定理（異なる固有値に属する固有ベクトルは一次独立）**  
 > ベクトル空間 $V$ の線形自己写像 $T:V\to V$ が互いに異なる固有値
 >
-> $
+> $$
 > \lambda_1,\dots,\lambda_k
-> $
+> $$
 >
 > を持ち、それぞれに対応する固有ベクトルを $v_1,\dots,v_k$ とする。このとき
 >
-> $
+> $$
 > v_1,\dots,v_k
-> $
+> $$
 >
 > は一次独立である。
 <!-- formal-statement-end -->
@@ -1053,13 +1053,13 @@ $k$ に関する帰納法で示します。
 
 次に $k-1$ 個までの場合に主張が成り立つと仮定し、
 
-$
+$$
 a_1v_1+\cdots+a_kv_k=0
-$
+$$
 
 とします。両辺に $T-\lambda_kI$ を作用させます。各 $i$ について $T(v_i)=\lambda_i v_i$ だから
 
-$
+$$
 \begin{aligned}
 0
 &=
@@ -1077,25 +1077,25 @@ a_i(\lambda_i-\lambda_k)v_i\\
 \sum_{i=1}^{k-1}
 a_i(\lambda_i-\lambda_k)v_i.
 \end{aligned}
-$
+$$
 
 $v_1,\dots,v_{k-1}$ は互いに異なる固有値に属するので、帰納法の仮定より一次独立です。したがって各 $i=1,\dots,k-1$ について
 
-$
+$$
 a_i(\lambda_i-\lambda_k)=0.
-$
+$$
 
 さらに $\lambda_i\ne\lambda_k$ なので
 
-$
+$$
 a_1=\cdots=a_{k-1}=0.
-$
+$$
 
 これを元の関係式へ戻すと
 
-$
+$$
 a_kv_k=0.
-$
+$$
 
 $v_k\ne0$ だから $a_k=0$ です。よって全ての係数が0であり、$v_1,\dots,v_k$ は一次独立です。
 
@@ -1271,101 +1271,101 @@ $$
 
 固有値 $\lambda$ に属する基底ベクトルたちの線形包を $F_\lambda$ とします。各ベクトルは $E_\lambda$ に属するので
 
-$
+$$
 F_\lambda\subseteq E_\lambda.
-$
+$$
 
 逆に $x\in E_\lambda$ を基底展開して
 
-$
+$$
 x=\sum_{i=1}^n c_iv_i
-$
+$$
 
 と書きます。$T(x)=\lambda x$ だから
 
-$
+$$
 0
 =
 (T-\lambda I)x
 =
 \sum_{i=1}^n c_i(\mu_i-\lambda)v_i.
-$
+$$
 
 $v_1,\dots,v_n$ は基底なので一次独立です。したがって各 $i$ について
 
-$
+$$
 c_i(\mu_i-\lambda)=0.
-$
+$$
 
 $\mu_i\ne\lambda$ なら $c_i=0$ なので、$x$ に残るのは固有値 $\lambda$ に属する基底ベクトルだけです。よって
 
-$
+$$
 E_\lambda\subseteq F_\lambda,
-$
+$$
 
 したがって $E_\lambda=F_\lambda$ です。
 
 もとの固有ベクトル基底は、これらの $E_\lambda$ の基底を固有値ごとにまとめたものです。基底展開の一意性から異なる $E_\lambda$ の成分の和も一意なので
 
-$
+$$
 V=\bigoplus_\lambda E_\lambda.
-$
+$$
 
 **2 $\Rightarrow$ 4.**  
 直和の次元公式を繰り返し使うと
 
-$
+$$
 \dim V
 =
 \sum_\lambda \dim E_\lambda.
-$
+$$
 
 $\dim V=n$ なので 4 が従います。
 
 **4 $\Rightarrow$ 3.**  
 各固有空間 $E_\lambda$ から基底
 
-$
+$$
 B_\lambda
 =
 \{v_{\lambda,1},\dots,v_{\lambda,d_\lambda}\},
 \qquad
 d_\lambda=\dim E_\lambda
-$
+$$
 
 を取ります。これらを全て合わせた集合が一次独立であることを確認します。
 
 有限個の固有値について
 
-$
+$$
 \sum_\lambda x_\lambda=0,
 \qquad
 x_\lambda\in E_\lambda
-$
+$$
 
 とします。$x_\lambda\ne0$ である項だけを残すと、それぞれは互いに異なる固有値に属する固有ベクトルです。前節の定理よりそれらは一次独立なので、全て
 
-$
+$$
 x_\lambda=0
-$
+$$
 
 です。
 
 各 $x_\lambda$ は $B_\lambda$ の線形結合であり、$B_\lambda$ 自身も一次独立なので、元の全係数が0になります。したがって
 
-$
+$$
 \bigcup_\lambda B_\lambda
-$
+$$
 
 は一次独立です。その本数は
 
-$
+$$
 \sum_\lambda d_\lambda
 =
 \sum_\lambda \dim E_\lambda
 =
 n.
-$
+$$
 
 $n$ 次元空間の一次独立な $n$ 本のベクトルは基底なので、固有ベクトルからなる基底が得られます。以上で4条件は同値です。$\square$
 <!-- proof-end -->
@@ -1401,11 +1401,11 @@ $$
 > **命題（幾何学的重複度は代数的重複度以下）**  
 > $A$ を $n\times n$ 実行列、$\lambda$ を $A$ の固有値とする。$\lambda$ の固有空間を $E_\lambda$ とすると
 >
-> $
-> 1\le \dim E_\lambda
-> \le
-> \text{$\lambda$ の代数的重複度}
-> $
+> 代数的重複度を $m_{\mathrm{alg}}(\lambda)$ と書く。このとき
+>
+> $$
+> 1\le \dim E_\lambda\le m_{\mathrm{alg}}(\lambda)
+> $$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -1417,55 +1417,55 @@ $E_\lambda$ の基底を空間全体の基底へ延長します。その基底�
 <!-- proof-start -->
 ### 証明
 
-$
+$$
 r=\dim E_\lambda
-$
+$$
 
 とし、$E_\lambda$ の基底を
 
-$
+$$
 v_1,\dots,v_r
-$
+$$
 
 とします。基底延長定理により、これを空間全体の基底
 
-$
+$$
 \mathcal B=(v_1,\dots,v_r,v_{r+1},\dots,v_n)
-$
+$$
 
 へ延長します。
 
 各 $i=1,\dots,r$ について
 
-$
+$$
 Av_i=\lambda v_i
-$
+$$
 
 なので、この基底での $A$ の表現行列は左下ブロックが0になり、
 
-$
+$$
 [A]_{\mathcal B}
 =
 \begin{pmatrix}
 \lambda I_r & *\\
 0 & C
 \end{pmatrix}
-$
+$$
 
 という形です。したがって
 
-$
+$$
 tI-[A]_{\mathcal B}
 =
 \begin{pmatrix}
 (t-\lambda)I_r & *\\
 0 & tI-C
 \end{pmatrix}.
-$
+$$
 
 この行列の最初の $r$ 列では、第 $j$ 列の非零成分は第 $j$ 行の $t-\lambda$ だけです。したがって最初の $r$ 列を順に展開すると、そのたびに $t-\lambda$ が1個ずつ外へ出て
 
-$
+$$
 \begin{aligned}
 \chi_A(t)
 &=
@@ -1473,7 +1473,7 @@ $
 &=
 (t-\lambda)^r\det(tI-C).
 \end{aligned}
-$
+$$
 
 よって $\lambda$ は特性多項式の根として少なくとも $r$ 重に現れます。したがって幾何学的重複度 $r$ は代数的重複度以下です。$\lambda$ が固有値なら $E_\lambda$ は非零なので $r\ge1$ です。$\square$
 <!-- proof-end -->
@@ -1571,13 +1571,13 @@ $$
 
 さらに多項式
 
-$
+$$
 p(t)=a_0+a_1t+\cdots+a_mt^m
-$
+$$
 
 なら
 
-$
+$$
 \begin{aligned}
 p(A)
 &=
@@ -1587,7 +1587,7 @@ P\bigl(a_0I+a_1D+\cdots+a_mD^m\bigr)P^{-1}\\
 &=
 Pp(D)P^{-1}.
 \end{aligned}
-$
+$$
 
 対角行列 $D$ では $p(D)$ は各対角成分へ $p$ を適用するだけです。この考え方は後に、線形微分方程式で $e^{tA}$ を計算するときの土台になります。
 
@@ -1703,51 +1703,51 @@ $$
 
 まず固有値方程式を作ります。
 
-$
+$$
 A-\lambda I
 =
 \begin{pmatrix}
 2-\lambda&1\\
 0&2-\lambda
 \end{pmatrix},
-$
+$$
 
 したがって
 
-$
+$$
 \det(A-\lambda I)
 =
 (2-\lambda)^2.
-$
+$$
 
 よって固有値は $\lambda=2$ のみで、特性多項式の根として2重に現れるため代数的重複度は2です。
 
 次に固有空間を求めます。
 
-$
+$$
 A-2I
 =
 \begin{pmatrix}
 0&1\\
 0&0
 \end{pmatrix}.
-$
+$$
 
 $v=(x,y)^T$ とすると
 
-$
+$$
 (A-2I)v=0
-$
+$$
 
 は
 
-$
+$$
 y=0
-$
+$$
 
 と同値なので
 
-$
+$$
 E_2
 =
 \left\{
@@ -1759,13 +1759,13 @@ E_2
 \left\{
 \begin{pmatrix}1\\0\end{pmatrix}
 \right\}.
-$
+$$
 
 したがって
 
-$
+$$
 \dim E_2=1.
-$
+$$
 
 $\mathbb R^2$ を対角化するには固有ベクトルからなる2本の基底が必要ですが、固有値2の固有空間から得られる独立な方向は1本だけです。よって $A$ は対角化できません。
 
