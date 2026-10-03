@@ -395,7 +395,7 @@ $$
 =
 \operatorname{span}(q_1)\oplus M.
 $$
-$q_1\ne0$ なので $\dim\operatorname{span}(q_1)=1$ です。直和の次元公式から
+$q_1\ne0$ なので $\dim\operatorname{span}(q_1)=1$ です。[部分空間の和の次元公式](../F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md#thm-f0-00e-dimension-sum)をこの直和に適用すると
 $$
 n=1+\dim M,
 $$
