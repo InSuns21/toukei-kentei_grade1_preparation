@@ -6,6 +6,7 @@ prerequisites:
   - STO2
   - STO4
   - RA3
+  - F0-00P6
 official_scope: []
 learning_objectives:
   - continuous-time マルチンゲールと連続局所マルチンゲールを定義し、localizing sequenceが何を有限化するかを説明できる
