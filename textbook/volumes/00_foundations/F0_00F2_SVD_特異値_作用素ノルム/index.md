@@ -1,4 +1,4 @@
-# F0-00F2 SVD・作用素ノルム
+# F0-00F2 特異値分解・作用素ノルム
 
 F0-00F1で得た実対称行列の直交対角化を $A^{\mathsf T}A$ に適用し、任意の長方形行列を方向別の伸縮へ分解します。
 
@@ -9,7 +9,7 @@ A^T A
  ↓
 SVD
  ↓
-rank・kernel・image
+階数・核・像
  ↓
 最大伸長率
  ↓
@@ -193,6 +193,8 @@ $$
 
 ## 4. SVDを構成する
 
+右特異ベクトルは入力側の正規直交基底を与え、正の特異値に対応するものは $A$ によって左特異ベクトルへ送られます。一方、特異値0の方向は $A$ で0へ潰れます。したがって、入力を右特異ベクトル基底へ分解すれば、$A$ の作用全体を「各方向を $\sigma_i$ 倍して左特異ベクトル方向へ送る」という形で再構成できそうです。
+
 正の特異値を
 
 $$
@@ -215,13 +217,23 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（特異値分解）**  
-> 任意の実行列 $A\in\mathbb R^{m\times n}$ は、正の特異値の個数を $r$ とすると
-
+> 任意の実行列 $A\in\mathbb R^{m\times n}$ について、正の特異値を
+$$
+\sigma_1\ge\cdots\ge\sigma_r>0
+$$
+> とし、対応する正規直交な右特異ベクトルを $v_1,\dots,v_r$、左特異ベクトルを $u_1,\dots,u_r$ とする。このとき
+$$
+V_r=(v_1\ \cdots\ v_r),
+\qquad
+U_r=(u_1\ \cdots\ u_r),
+\qquad
+\Sigma_r=\operatorname{diag}(\sigma_1,\dots,\sigma_r)
+$$
+> と置けば
 $$
 A=U_r\Sigma_rV_r^{\mathsf T}
 $$
-
-> と表せる。$U_r,V_r$ の列はそれぞれ正規直交し、$\Sigma_r$ は正の特異値を並べた対角行列である。
+> が成り立つ。$r=0$、すなわち $A=0$ の場合は右辺を零写像と解釈する。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -278,7 +290,13 @@ A=U_r\Sigma_rV_r^{\mathsf T}.
 $$
 <!-- proof-end -->
 
-必要なら $U_r,V_r$ を正規直交基底へ補って完全形 $A=U\Sigma V^{\mathsf T}$ を得ます。
+薄い形では、像に実際に寄与する $r$ 本だけを残しています。完全形が必要なら、まず [基底延長定理](../F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md#thm-basis-extension)で $U_r,V_r$ の列をそれぞれ $\mathbb R^m,\mathbb R^n$ の基底へ延長します。その基底に [Gram--Schmidt 直交化法](../F0_00E1_内積_Gram_Schmidt_射影_QR/index.md#thm-f0-00e1-gram-schmidt)を先頭から適用します。最初の $r$ 本は既に正規直交しているため、その段階では前の方向への射影係数が0で、ノルムも1なので、元の列は変化しません。
+
+こうして $U_r,V_r$ の列を保ったまま正規直交基底へ補えます。残りの対角成分を0とした矩形対角行列 $\Sigma$ を置けば
+$$
+A=U\Sigma V^{\mathsf T}
+$$
+という完全形を得ます。
 
 ---
 
@@ -336,36 +354,49 @@ $$
 
 ---
 
-## 7. rank と特異値
+## 7. 階数と特異値
+
+SVDでは、正の特異値に対応する方向だけが $A$ によって非零方向へ送られ、特異値0の方向は核へ入ります。したがって、正の特異値の本数は像の次元、すなわち階数を数えているはずです。
 
 <a id="prop-f0-00f2-rank-singular-values"></a>
 
 <!-- formal-statement-start -->
-> **命題（rank と非零特異値）**  
-> $A\in\mathbb R^{m\times n}$ の正の特異値の個数を $r$ とする。このとき
-
+> **命題（階数と非零特異値）**  
+> $A\in\mathbb R^{m\times n}$ について、$A^{\mathsf T}A$ の正規直交固有基底を $v_1,\dots,v_n$ とし、対応する特異値を
+$$
+\sigma_1\ge\cdots\ge\sigma_r>0,
+\qquad
+\sigma_{r+1}=\cdots=\sigma_n=0
+$$
+> と並べる。$i\le r$ では
+$$
+u_i=\frac{Av_i}{\sigma_i}
+$$
+> とする。このとき
 $$
 \operatorname{rank}(A)=r,
 $$
-
-> また
-
 $$
 \operatorname{Im}A
 =
 \operatorname{span}(u_1,\dots,u_r),
 $$
-
 $$
 \ker A
 =
 \operatorname{span}(v_{r+1},\dots,v_n)
 $$
-
-> である。
+> が成り立つ。
 <!-- formal-statement-end -->
 
-[SVD](#thm-f0-00f2-svd)から
+### 証明の見取り図
+
+像については、SVD の展開式から全ての出力が $u_1,\dots,u_r$ の張る空間へ入ることを示し、逆に各 $u_i$ が実際に像へ入ることを示します。核については、右特異ベクトル基底で係数比較します。
+
+<!-- proof-start -->
+### 証明
+
+[SVD](#thm-f0-00f2-svd)から、任意の $x$ に対して
 
 $$
 Ax
@@ -374,23 +405,61 @@ Ax
 \sigma_i\langle x,v_i\rangle u_i
 $$
 
-なので像は $u_1,\dots,u_r$ の span に含まれます。逆に
-
+です。したがって
 $$
-Av_i=\sigma_i u_i
+\operatorname{Im}A
+\subset
+\operatorname{span}(u_1,\dots,u_r).
+$$
+逆に $i\le r$ では
+$$
+Av_i=\sigma_i u_i,
+\qquad
+\sigma_i>0
+$$
+なので
+$$
+u_i=A\left(\frac1{\sigma_i}v_i\right)
+\in\operatorname{Im}A.
+$$
+よって逆包含も成り立ち、
+$$
+\operatorname{Im}A
+=
+\operatorname{span}(u_1,\dots,u_r).
+$$
+$u_1,\dots,u_r$ は正規直交系なので一次独立です。従って
+$$
+\operatorname{rank}(A)
+=
+\dim\operatorname{Im}A
+=
+r.
 $$
 
-かつ $\sigma_i>0$ なので各 $u_i$ は像に入り、像はちょうどその span です。従って次元は $r$ です。
-
-また $x=\sum_i c_iv_i$ とすると
-
+次に任意の $x$ を右特異ベクトル基底で
+$$
+x=\sum_{i=1}^n c_i v_i
+$$
+と書きます。すると
+$$
+Ax
+=
+\sum_{i=1}^r c_i\sigma_i u_i.
+$$
+$u_1,\dots,u_r$ は一次独立で各 $\sigma_i>0$ だから
 $$
 Ax=0
-\Longleftrightarrow
-c_i=0\quad(i=1,\dots,r),
+\iff
+c_1=\cdots=c_r=0.
 $$
-
-なのでkernelは特異値0に対応する右特異ベクトルで張られます。
+したがって
+$$
+\ker A
+=
+\operatorname{span}(v_{r+1},\dots,v_n).
+$$
+<!-- proof-end -->
 
 ---
 
@@ -414,6 +483,20 @@ $$
 
 > と定めます。
 <!-- formal-statement-end -->
+
+ここで $\sup$ は「取りうる伸長率を上から抑える値のうち最小のもの」を表す記号です。この章では実数の順序論に関する一般存在定理を証明には使わず、直後の特異値分解の計算から、この $\sup$ が実際に最大値として達成されることまで示します。
+
+二つの $\sup$ 表示が同じ量を表すことも確認しておきます。$x\ne0$ に対して
+$$
+y=\frac{x}{\|x\|}
+$$
+と置けば $\|y\|=1$ で
+$$
+\frac{\|Ax\|}{\|x\|}
+=
+\|Ay\|.
+$$
+逆に単位ベクトル $y$ は $x=y$ と取れば左側の集合にも現れるので、二つの $\sup$ は同じ値になります。
 
 <!-- definition-example-start: def-f0-00f2-operator-norm -->
 ### 8.1 例：対角行列の最大伸長
@@ -446,37 +529,88 @@ $$
 $$
 <!-- formal-statement-end -->
 
-任意の $x$ を右特異ベクトル基底で
+### 証明の見取り図
 
+任意の入力を右特異ベクトル基底へ展開すると、出力の各成分は $\sigma_i$ 倍されます。全ての $\sigma_i$ を最大値 $\sigma_1$ で上から押さえて上界を出し、最後に $v_1$ を入力してその上界が実現することを示します。
+
+<!-- proof-start -->
+### 証明
+
+まず $A=0$ なら全ての特異値が0で
 $$
-x=\sum_i c_iv_i
+\|A\|_{\mathrm{op}}=0,
+$$
+なので結論は成り立ちます。
+
+以下 $A\ne0$ とし、正の特異値を
+$$
+\sigma_1\ge\cdots\ge\sigma_r>0
+$$
+とします。任意の $x$ を右特異ベクトル基底で
+$$
+x=\sum_{i=1}^n c_iv_i
+$$
+と書きます。$i>r$ では $Av_i=0$ なので
+$$
+Ax
+=
+\sum_{i=1}^r c_i\sigma_i u_i.
 $$
 
-と書くと
-
-$$
-Ax=\sum_i c_i\sigma_i u_i.
-$$
-
-正規直交性から
-
+$u_1,\dots,u_r$ の正規直交性から
 $$
 \|Ax\|^2
 =
-\sum_i\sigma_i^2|c_i|^2
+\sum_{i=1}^r\sigma_i^2|c_i|^2.
+$$
+各 $i\le r$ で $\sigma_i\le\sigma_1$ だから
+$$
+\sum_{i=1}^r\sigma_i^2|c_i|^2
 \le
-\sigma_1^2\sum_i|c_i|^2
-=
+\sigma_1^2\sum_{i=1}^r|c_i|^2
+\le
+\sigma_1^2\sum_{i=1}^n|c_i|^2.
+$$
+また $v_1,\dots,v_n$ は正規直交基底なので
+$$
+\sum_{i=1}^n|c_i|^2=\|x\|^2.
+$$
+したがって
+$$
+\|Ax\|^2
+\le
 \sigma_1^2\|x\|^2.
 $$
-
-従って $\|A\|_{\mathrm{op}}\le\sigma_1$ です。一方 $x=v_1$ なら
-
+両辺は非負なので平方根を取り、
 $$
-\|Av_1\|=\sigma_1\|v_1\|=\sigma_1,
+\|Ax\|
+\le
+\sigma_1\|x\|.
 $$
+$x\ne0$ について比を取れば
+$$
+\frac{\|Ax\|}{\|x\|}
+\le\sigma_1,
+$$
+従って $\|A\|_{\mathrm{op}}\le\sigma_1$ です。
 
-なので、定義中の $\sup$ は実際に $x=v_1$ で値 $\sigma_1$ を取り、等号が従います。
+一方、単位右特異ベクトル $v_1$ を入れると
+$$
+Av_1=\sigma_1u_1,
+$$
+したがって
+$$
+\|Av_1\|
+=
+\sigma_1\|u_1\|
+=
+\sigma_1.
+$$
+よって定義中の $\sup$ は $x=v_1$ で実際に達成され、
+$$
+\|A\|_{\mathrm{op}}=\sigma_1.
+$$
+<!-- proof-end -->
 
 ---
 
@@ -523,7 +657,7 @@ $$
 
 ---
 
-## 10. 低rank近似への入口
+## 10. 低ランク近似への入口
 
 SVDを
 
@@ -545,18 +679,18 @@ A_k
 \sigma_i u_iv_i^{\mathsf T}
 $$
 
-という低rank近似が得られます。
+という低ランク近似が得られます。
 
 統計では
 
 - PCA
 - 次元削減
-- 低rank回帰
+- 低ランク回帰
 - 数値安定性
 
 などへつながります。
 
-ここでは最良近似定理そのものは後続へ譲り、SVDがrankを方向別に分解していることだけ押さえます。
+ここでは最良近似定理そのものは後続へ譲り、SVD が階数を方向別に分解していることだけ押さえます。
 
 ---
 
@@ -565,7 +699,7 @@ $$
 ここまでで有限次元線形代数について
 
 - ベクトル空間・基底・次元
-- 線形写像・kernel・image
+- 線形写像・核・像
 - 表現行列・基底変換
 - 相似・一般の対角化
 - 内積・正規直交基底
@@ -686,7 +820,7 @@ $$
 どちらも単位ベクトルで互いに直交します。
 <!-- solution-end -->
 
-### F0-00F2-A03 kernel・image と特異値
+### F0-00F2-A03 核・像と特異値
 
 - Level: A
 - 目安時間: 10分
@@ -705,7 +839,7 @@ Ax
 \sigma_i\langle x,v_i\rangle u_i
 $$
 
-なので、像は $u_1,\dots,u_r$ の span に含まれます。
+なので、像は $u_1,\dots,u_r$ の張る空間に含まれます。
 
 逆に各 $i\le r$ について
 
@@ -763,7 +897,7 @@ $$
 従って等号です。$a=0$ の場合も両辺0です。
 <!-- solution-end -->
 
-### F0-00F2-B01 SVDとrank
+### F0-00F2-B01 特異値分解と階数
 
 - Level: B
 - 目安時間: 12分
@@ -797,7 +931,7 @@ $$
 $$
 <!-- solution-end -->
 
-### F0-00F2-B02 薄いSVDを構成する
+### F0-00F2-B02 薄い特異値分解を構成する
 
 - Level: B
 - 目安時間: 18分
@@ -811,7 +945,7 @@ A=
 \end{pmatrix}
 $$
 
-の薄いSVD $A=U\Sigma V^{\mathsf T}$ を明示し、行列積で確認せよ。
+の薄い特異値分解 $A=U\Sigma V^{\mathsf T}$ を明示し、行列積で確認せよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -859,12 +993,12 @@ U\Sigma V^{\mathsf T}
 $$
 <!-- solution-end -->
 
-### F0-00F2-B03
+### F0-00F2-B03 作用素ノルムと最大特異値
 
 - Level: B
 - 目安時間: 15分
 
-[SVD](#thm-f0-00f2-svd)を用いて
+[特異値分解](#thm-f0-00f2-svd)を用いて
 
 $$
 \|A\|_{\mathrm{op}}=\sigma_1
@@ -956,7 +1090,20 @@ A^{\mathsf T}A
 \end{pmatrix}.
 $$
 
-この行列の固有値は $4,2$ で、対応する正規直交固有ベクトルを
+特性方程式は
+$$
+\det
+\begin{pmatrix}
+3-\lambda&1\\
+1&3-\lambda
+\end{pmatrix}
+=
+(3-\lambda)^2-1
+=
+(\lambda-4)(\lambda-2)
+=0
+$$
+なので、固有値は $4,2$ です。対応する正規直交固有ベクトルを
 
 $$
 v_1=\frac1{\sqrt2}(1,1)^{\mathsf T},

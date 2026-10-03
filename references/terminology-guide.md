@@ -102,6 +102,8 @@
 | 零化空間 | annihilator | 線形形式が部分空間上で全て0になるもの全体。初出で英語併記可。以後は日本語主表記 |
 | ユニタリ作用素 | unitary operator | $T^*T=TT^*=I$ を満たす作用素。本文では unitary作用素 を主表記にしない |
 | 正規作用素 | normal operator | $T^*T=TT^*$ を満たす作用素。本文では normal operator を主表記にしない |
+| 合同変換 | congruence | Hermitian 行列・二次形式で $A\mapsto S^*AS$ と変換する操作。本文では congruence を主表記にしない |
+| 極分解 | polar decomposition | 正方行列をユニタリ部分と半正定値部分に分ける分解。本文では polar decomposition を主表記にしない |
 | 交代多重線形形式 | alternating multilinear form | 各引数について線形で、同じベクトルが異なる2位置に入ると0になるスカラー値写像 |
 | テンソル積 | tensor product | 初出で英語併記可。以後は日本語主表記 |
 | 反変テンソル | contravariant tensor | 型の説明では「反変次数」も使用 |

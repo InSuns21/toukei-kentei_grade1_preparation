@@ -74,10 +74,10 @@ concepts:
       - linear.singular-value-decomposition
 
   - id: linear.rank-nonzero-singular-values
-    name: rank と非零特異値
+    name: 階数と非零特異値
     kind: proposition
-    introduction_aliases: [rank と非零特異値]
-    aliases: [rank と非零特異値, rank と非零特異値の個数の一致]
+    introduction_aliases: [階数と非零特異値]
+    aliases: [階数と非零特異値, 階数と非零特異値の個数の一致, rank と非零特異値]
     requires:
       - linear.singular-value-decomposition
 
