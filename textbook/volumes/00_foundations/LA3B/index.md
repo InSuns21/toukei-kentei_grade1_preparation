@@ -392,6 +392,8 @@ $\square$
 
 存在だけでなく一意性も重要です。これにより、後で別の方法から同じ3性質を持つ量が出てきたとき「それは行列式だ」と認定できます。
 
+存在だけでなく一意性も重要です。任意の交代多重線形形式 $D$ に列ベクトルの基底展開を代入すると、交代性によって「同じ基底ベクトルを2回選んだ項」が全て消え、置換に対応する項だけが残ります。これが Leibniz 公式そのものになることを確認します。
+
 <a id="thm-la3b-det-characterization"></a>
 <!-- formal-statement-start -->
 > **定理（行列式の特徴付け）**  
@@ -404,6 +406,10 @@ $$
 D(c_1,\dots,c_n)=\det[c_1\ \cdots\ c_n].
 $$
 <!-- formal-statement-end -->
+
+### 証明の見取り図
+
+各列 $c_j$ を標準基底で展開し、多重線形性で全ての組合せを展開します。交代性により添字が重複する項は0なので、残る添字列は置換 $\sigma$ だけです。さらに置換された基底を標準順序へ戻す隣接交換の回数の偶奇が $\operatorname{sgn}(\sigma)$ を与えるため、残った和は Leibniz 公式に一致します。
 
 <!-- proof-start -->
 ### 証明
@@ -426,12 +432,15 @@ $$
 $$
 と置換で書ける項だけです。
 
-$e_{\sigma(1)},\dots,e_{\sigma(n)}$ を標準順序へ戻すたびに交換1回につき符号が反転するので
+置換 $\sigma$ の一列表記を標準順序へ戻すには、隣り合う転倒を1つずつ解消できます。各隣接交換で交代性から符号が1回反転し、必要な交換回数の偶奇は $\operatorname{inv}(\sigma)$ と一致します。従って
+
 $$
+\begin{aligned}
 D(e_{\sigma(1)},\dots,e_{\sigma(n)})
-=\operatorname{sgn}(\sigma)D(e_1,
-\dots,e_n)
-=\operatorname{sgn}(\sigma).
+&=(-1)^{\operatorname{inv}(\sigma)}
+  D(e_1,\dots,e_n)\\
+&=\operatorname{sgn}(\sigma).
+\end{aligned}
 $$
 したがって
 $$
@@ -456,6 +465,8 @@ $$
 ## 6. 行と列は本当に対称か
 
 これまでは列について議論しました。行について対応する性質を得るには、転置で値が変わらないことを確認すれば十分です。
+
+列について作った理論を行にも移すには、転置しても行列式が変わらないことを示せば十分です。Leibniz 公式で行と列を交換した後、置換 $\sigma$ を逆置換 $\sigma^{-1}$ へ付け替えるのが核心です。
 
 <a id="thm-la3b-det-transpose"></a>
 <!-- formal-statement-start -->
@@ -525,6 +536,7 @@ $\square$
 ## 8. 演習
 
 ### LA3B-A01 置換の符号
+- Level: A
 
 $\sigma=(3,1,4,2)$ の転倒数と符号を求めよ。
 
@@ -542,6 +554,7 @@ $$
 <!-- solution-end -->
 
 ### LA3B-A02 Leibniz 公式
+- Level: A
 
 $$
 A=\begin{pmatrix}a&b\\c&d\end{pmatrix}
@@ -556,6 +569,7 @@ $$
 <!-- solution-end -->
 
 ### LA3B-B01 同じ列があると0
+- Level: B
 
 多重線形性と「2列交換で符号反転」だけを使って、同じ列を2本持つ行列の行列式が0になることを示せ。
 
@@ -568,6 +582,7 @@ $\mathbb R,\mathbb C$ 上では $2\det A=0$ から $\det A=0$ です。
 <!-- solution-end -->
 
 ### LA3B-B02 一般の正規化
+- Level: B
 
 $D$ が交代多重線形で $D(e_1,\dots,e_n)=c$ を満たすとき
 $$
@@ -586,6 +601,7 @@ $$
 
 
 ### LA3B-A03 置換行列の行列式
+- Level: A
 
 $4\times4$ 行列 $P$ の列が順に
 $$
@@ -614,6 +630,7 @@ $$
 <!-- solution-end -->
 
 ### LA3B-A04 交代多重線形性だけで値を追う
+- Level: A
 
 $n=3$ とし
 $$
@@ -640,6 +657,7 @@ $$
 <!-- solution-end -->
 
 ### LA3B-B03 列が一次従属なら行列式は0
+- Level: B
 
 $n\times n$ 行列 $A=[c_1\ \cdots\ c_n]$ の列ベクトルが一次従属なら
 $$
@@ -666,6 +684,7 @@ $$
 <!-- solution-end -->
 
 ### LA3B-C01 行列式0と一次従属を構成論から結ぶ
+- Level: C
 
 $A=[c_1\ \cdots\ c_n]$ とする。LA3C の乗法性・余因子・可逆性判定を使わず、LA3B までの結果だけから
 $$
@@ -674,32 +693,80 @@ $$
 を示せ。
 
 <!-- solution-start -->
-**解答**：一次従属なら0である向きは B03 で示しました。逆向きの対偶を示します。
+**解答**：一次従属なら $\det A=0$ である向きは B03 で示しました。逆向きは対偶
 
-$c_1,\dots,c_n$ が一次独立なら、$\mathbb F^n$ の基底です。仮に
+$$
+c_1,\dots,c_n\text{ が一次独立}
+\Longrightarrow
+\det A\ne0
+$$
+
+を示します。
+
+$c_1,\dots,c_n$ が一次独立なら、$n$ 本あるので $\mathbb F^n$ の基底です。仮に
+
 $$
 \det(c_1,\dots,c_n)=0
 $$
+
 とします。標準基底の各 $e_j$ をこの基底で
+
 $$
-e_j=\sum_i a_{ij}c_i
+e_j=\sum_{i=1}^n a_{ij}c_i
 $$
-と展開します。多重線形性により
+
+と展開します。各列について順に多重線形性を使うと
+
 $$
 \det(e_1,\dots,e_n)
+=
+\sum_{i_1,\dots,i_n}
+\left(\prod_{j=1}^n a_{i_jj}\right)
+\det(c_{i_1},\dots,c_{i_n}).
 $$
-を展開すると、同じ $c_i$ を2回含む項は0で、残る項は $c_1,\dots,c_n$ の置換だけです。各残存項は交換による符号反転から
-$$
-\pm\det(c_1,
-\dots,c_n)=0
-$$
-です。従って $\det I_n=0$ となりますが、LA3B で $\det I_n=1$ を示しているので矛盾です。
 
-よって一次独立なら $\det A\ne0$。対偶を取れば
+添字 $i_1,\dots,i_n$ に重複があれば、同じ列ベクトル $c_i$ が2回現れるので交代性からその項は0です。従って残るのは
+
 $$
-\det A=0\Longrightarrow c_1,\dots,c_n\text{ は一次従属}
+(i_1,\dots,i_n)
+=(\sigma(1),\dots,\sigma(n))
+\qquad(\sigma\in S_n)
 $$
-も得られ、両方向が閉じます。
+
+という置換項だけです。
+
+各残存項は列交換で
+
+$$
+\det(c_{\sigma(1)},\dots,c_{\sigma(n)})
+=
+\operatorname{sgn}(\sigma)\det(c_1,\dots,c_n)
+=0.
+$$
+
+したがって展開の全ての項が0となり
+
+$$
+\det(e_1,\dots,e_n)=0.
+$$
+
+しかし左辺は $\det I_n=1$ なので矛盾です。よって一次独立なら $\det A\ne0$ です。対偶を取れば
+
+$$
+\det A=0
+\Longrightarrow
+c_1,\dots,c_n\text{ は一次従属}
+$$
+
+を得ます。B03 と合わせて
+
+$$
+\det A=0
+\iff
+c_1,\dots,c_n\text{ は一次従属}
+$$
+
+です。
 <!-- solution-end -->
 
 ---
