@@ -369,7 +369,7 @@ $$
 $$
 \det[T]_{\mathcal B}=\det T=0.
 $$
-[行列式による可逆性判定](../LA3C/index.md#thm-la3c-det-invertibility)により $[T]_{\mathcal B}$ は可逆でなく、従って $T$ も可逆ではありません。$\square$
+[行列式による可逆性判定](../LA3C/index.md#thm-la3c-det-invertible)により $[T]_{\mathcal B}$ は可逆でなく、従って $T$ も可逆ではありません。$\square$
 <!-- proof-end -->
 
 
