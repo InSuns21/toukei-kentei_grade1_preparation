@@ -37,7 +37,7 @@ $$
 >
 > 1. $\langle x,\alpha y+\beta z\rangle=\alpha\langle x,y\rangle+\beta\langle x,z\rangle$
 > 2. $\langle x,y\rangle=\overline{\langle y,x\rangle}$
-> 3. $\langle x,x\rangle\ge0$ かつ $\langle x,x\rangle=0\iff x=0$
+> 3. $\langle x,x\rangle\in\mathbb R_{\ge0}$ かつ $\langle x,x\rangle=0\iff x=0$
 >
 > を満たすとき、これを複素内積という。
 <!-- formal-statement-end -->
@@ -88,7 +88,7 @@ $$
 \langle x,x\rangle
 =\sum_j|x_j|^2\ge0.
 $$
-和が0なら各 $|x_j|^2=0$ なので $x=0$。逆向きは明らかです。従って標準式は複素内積です。
+和が0なら各 $|x_j|^2=0$ なので $x=0$ です。逆に $x=0$ なら各成分が0だから和も0です。従って標準式は複素内積です。
 <!-- definition-example-end -->
 
 ノルムを
@@ -106,6 +106,63 @@ $$
 $$
 \|\alpha x\|=|\alpha|\|x\|.
 $$
+
+この量が三角不等式も満たすことを、実数版をそのまま引用せず確認しておきます。$y\ne0$ とし、
+$$
+c=\frac{\langle y,x\rangle}{\|y\|^2}
+$$
+と置きます。本章の規約では第1変数が共役線形、第2変数が線形なので
+$$
+\begin{aligned}
+\|x-cy\|^2
+&=
+\langle x-cy,x-cy\rangle\\
+&=
+\|x\|^2
+-c\langle x,y\rangle
+-\overline c\langle y,x\rangle
++|c|^2\|y\|^2\\
+&=
+\|x\|^2
+-\frac{|\langle x,y\rangle|^2}{\|y\|^2}.
+\end{aligned}
+$$
+左辺は非負なので
+$$
+|\langle x,y\rangle|
+\le
+\|x\|\,\|y\|.
+$$
+$y=0$ の場合も両辺が0なので同じ不等式が成り立ちます。
+
+これを使うと
+$$
+\begin{aligned}
+\|x+y\|^2
+&=
+\|x\|^2
++\langle x,y\rangle
++\langle y,x\rangle
++\|y\|^2\\
+&=
+\|x\|^2
++2\operatorname{Re}\langle x,y\rangle
++\|y\|^2\\
+&\le
+\|x\|^2
++2|\langle x,y\rangle|
++\|y\|^2\\
+&\le
+(\|x\|+\|y\|)^2.
+\end{aligned}
+$$
+両辺は非負なので平方根を取り、
+$$
+\|x+y\|
+\le
+\|x\|+\|y\|.
+$$
+従って $\|x\|=\sqrt{\langle x,x\rangle}$ は複素数上でも確かにノルムです。
 
 実数版では、既に作った正規直交方向への射影成分を引けば直交化できました。複素数上でも同じ構成を使えますが、本章の規約では射影係数の順序を
 $$
