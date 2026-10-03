@@ -1,4 +1,4 @@
-# STO2A 離散時間Markov連鎖・再帰・Markov連鎖のGreen核・不変測度
+# STO2A 離散時間Markov連鎖・再帰・Green核・不変測度
 
 通常教材 [E2-01](../../05_engineering/E2_01_markov連鎖/index.md) では、有限状態 Markov 連鎖について遷移行列、定常分布、周期、吸収確率を計算しました。
 
