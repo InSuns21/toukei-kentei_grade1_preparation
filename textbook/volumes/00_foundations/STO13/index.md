@@ -2525,7 +2525,7 @@ $$
 の 強度 が $(\lambda_a+\lambda_b)t$ と読むこともできます。
 <!-- solution-end -->
 
-#### STO13-B01 Q-行列から 跳躍 construction
+#### STO13-B01 Q-行列から跳躍過程を構成する
 - Level: B
 - 目安時間: 30分
 
