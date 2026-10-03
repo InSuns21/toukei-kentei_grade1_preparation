@@ -112,7 +112,7 @@ $$
 
 ### 証明の見取り図
 
-$\dot z$ は連鎖律から出ます。$\dot p$ は PDE を $x$ で微分して Hessian と $F_p$ の積を取り出します。最後に $dF/ds$ へ特性式を代入すると全項が打ち消されます。
+$\dot z$ は[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から出ます。$\dot p$ は PDE を $x$ で微分して Hessian と $F_p$ の積を取り出します。最後に $dF/ds$ へ特性式を代入すると全項が打ち消されます。
 
 <!-- proof-start -->
 ### 証明
@@ -867,7 +867,7 @@ $$
 \dot p=-F_x-pF_z.
 $$
 
-特性に沿った $F(x(s),z(s),p(s))$ の全微分は、連鎖律から
+特性に沿った $F(x(s),z(s),p(s))$ の全微分は、[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 \frac d{ds}F
@@ -1003,7 +1003,7 @@ $$
 \partial_xu_t=u_{tx}.
 $$
 
-第二項には一変数の連鎖律を使い、
+第二項には一変数の[連鎖律](../RA3/index.md#prop-ra3-chain-rule)を使い、
 
 $$
 \partial_x\left(\frac12u_x^2\right)

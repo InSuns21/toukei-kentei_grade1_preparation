@@ -1114,7 +1114,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$x=Q^Tx'$ なので連鎖律から
+$x=Q^Tx'$ なので[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 \partial'_j

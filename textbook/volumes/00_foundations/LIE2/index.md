@@ -752,7 +752,7 @@ $$
 
 また滑らかな写像の合成なので $\eta$ は滑らかです。従って $\eta$ は $H$ の1パラメータ部分群です。
 
-初速度は連鎖律から
+初速度は[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 $$
 \eta'(0)
 =
@@ -1109,7 +1109,7 @@ $$
 C_{gh}=C_g\circ C_h.
 $$
 
-単位元で微分し、連鎖律を使うと
+単位元で微分し、[連鎖律](../RA3/index.md#prop-ra3-chain-rule)を使うと
 $$
 \operatorname{Ad}_{gh}
 =
@@ -2037,7 +2037,7 @@ d(\log)_e
 \operatorname{id}_{\mathfrak g}.
 $$
 
-従って連鎖律から
+従って[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 $$
 \left.
 \frac{\partial\kappa}{\partial t}
@@ -2056,7 +2056,7 @@ g(0)=e,
 \qquad
 g'(0)=X.
 $$
-したがって連鎖律により
+したがって[連鎖律](../RA3/index.md#prop-ra3-chain-rule)により
 $$
 \left.
 \frac d{ds}
@@ -2950,7 +2950,7 @@ $$
 $$
 d(\log)_e=\operatorname{id}_{\mathfrak g}
 $$
-なので連鎖律により
+なので[連鎖律](../RA3/index.md#prop-ra3-chain-rule)により
 $$
 \boxed{
 \left.

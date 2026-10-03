@@ -135,7 +135,7 @@ $$
 したがって $0\le t\le2\pi$ の弧長は $2\pi$ で、$T$ は各点で長さ 1 の接方向です。
 <!-- definition-example-end -->
 
-向きを保つ再パラメータ表示 $\widetilde\gamma=\gamma\circ\varphi$ で弧長が変わらないことを、変数を対応させて確認します。連鎖律から
+向きを保つ再パラメータ表示 $\widetilde\gamma=\gamma\circ\varphi$ で弧長が変わらないことを、変数を対応させて確認します。[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 \widetilde\gamma'(s)
@@ -219,7 +219,7 @@ $$
 
 これは曲線に沿った「密度 × 長さ」の総和です。
 
-向きを保つ再パラメータ表示では、先ほどと同じ連鎖律から
+向きを保つ再パラメータ表示では、先ほどと同じ[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 |\widetilde\gamma'(s)|
@@ -316,7 +316,7 @@ $$
 回転場に沿って一周すると正の循環が現れます。
 <!-- definition-example-end -->
 
-向きを保つ再パラメータ表示では、連鎖律により
+向きを保つ再パラメータ表示では、[連鎖律](../RA3/index.md#prop-ra3-chain-rule)により
 
 $$
 \widetilde\gamma'(s)
@@ -388,7 +388,7 @@ $\phi(\gamma(t))$ を 1 変数関数として微分すれば、連鎖律で被�
 <!-- proof-start -->
 ### 証明
 
-連鎖律から
+[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 \frac{d}{dt}\phi(\gamma(t))
@@ -757,7 +757,7 @@ t\sum_j
 \right)dt.
 $$
 
-一方、$tF_i(tx)$ を $t$ で微分すると、積の微分則と連鎖律により
+一方、$tF_i(tx)$ を $t$ で微分すると、積の微分則と[連鎖律](../RA3/index.md#prop-ra3-chain-rule)により
 
 $$
 \begin{aligned}

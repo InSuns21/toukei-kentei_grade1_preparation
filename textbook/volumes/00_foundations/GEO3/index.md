@@ -256,7 +256,7 @@ $$
 x=\Phi^{-1}(s,t)
 $$
 
-と置きます。$G=F\circ\Phi^{-1}$ なので、連鎖律から
+と置きます。$G=F\circ\Phi^{-1}$ なので、[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 DG_{(s,t)}
@@ -927,7 +927,7 @@ $$
 f\circ i
 $$
 
-の微分は0です。連鎖律から $df_p\circ di_p=0$ となり、まず $T_pS\subseteq\ker df_p$ が分かります。あとは両者の次元が $m-n$ で一致することを使います。
+の微分は0です。[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から $df_p\circ di_p=0$ となり、まず $T_pS\subseteq\ker df_p$ が分かります。あとは両者の次元が $m-n$ で一致することを使います。
 
 <!-- proof-start -->
 ### 証明

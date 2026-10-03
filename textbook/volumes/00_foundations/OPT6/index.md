@@ -914,7 +914,7 @@ $$
 \phi''(0)\ge0.
 $$
 
-連鎖律より
+[連鎖律](../RA3/index.md#prop-ra3-chain-rule)より
 
 $$
 \phi''(0)

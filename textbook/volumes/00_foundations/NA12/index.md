@@ -145,7 +145,7 @@ $$
 \phi'(0)=0.
 $$
 
-連鎖律から
+[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 \phi'(0)
@@ -230,7 +230,7 @@ $$
 \phi''(0)\ge0.
 $$
 
-連鎖律から
+[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 \phi''(0)

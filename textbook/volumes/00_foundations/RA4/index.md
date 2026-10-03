@@ -523,7 +523,7 @@ $$
 $$
 H'(u)=f(u).
 $$
-RA3で確認した連鎖律から
+RA3で確認した[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 $$
 \frac d{dt}H(\phi(t))
 =H'(\phi(t))\phi'(t)
@@ -544,7 +544,7 @@ $$
 
 ### 部分積分
 
-$u,v$ が $C^1$ 級なら、積の微分公式から
+$u,v$ が $C^1$ 級なら、[積の微分公式](../RA3/index.md#prop-ra3-product-rule)から
 $$
 (uv)'=u'v+uv'.
 $$

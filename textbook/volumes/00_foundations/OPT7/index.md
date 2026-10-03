@@ -128,7 +128,7 @@ $$
 \qquad(0\le t\le1)
 $$
 
-と定めます。連鎖律から
+と定めます。[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 \phi'(t)

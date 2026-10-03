@@ -1411,7 +1411,7 @@ $$
 L=f+\langle\lambda,G\rangle+\langle\nu,H\rangle
 $$
 
-なので連鎖律から
+なので[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 \boxed{

@@ -936,7 +936,7 @@ h_i
 \right].
 $$
 
-各 $\partial_i f$ にもう一度連鎖律を使うと、
+各 $\partial_i f$ にもう一度[連鎖律](../RA3/index.md#prop-ra3-chain-rule)を使うと、
 
 $$
 \frac{d}{dt}

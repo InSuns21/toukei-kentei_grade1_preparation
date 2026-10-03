@@ -5,11 +5,42 @@ prerequisites:
   - RA2
 
 concepts:
+  - id: analysis.differential-coefficient
+    name: 微分係数
+    kind: definition
+    aliases: [微分係数]
+    introduction_aliases: [微分係数・微分可能性]
+    requires: [analysis.function-limit]
+
   - id: analysis.derivative
     name: 導関数
     kind: definition
     aliases: [導関数, derivative]
-    requires: [analysis.function-limit]
+    requires: [analysis.differential-coefficient]
+
+  - id: analysis.differentiable-implies-continuous
+    name: 微分可能なら連続
+    kind: proposition
+    aliases: [微分可能なら連続]
+    requires:
+      - analysis.differential-coefficient
+      - analysis.real-function-continuity
+
+  - id: analysis.product-rule
+    name: 積の微分公式
+    kind: proposition
+    aliases: [積の微分公式]
+    requires:
+      - analysis.derivative
+      - analysis.differentiable-implies-continuous
+
+  - id: analysis.chain-rule
+    name: 連鎖律
+    kind: proposition
+    aliases: [連鎖律, chain rule]
+    requires:
+      - analysis.derivative
+      - analysis.differentiable-implies-continuous
   - id: analysis.higher-derivative
     name: 高階導関数
     kind: definition

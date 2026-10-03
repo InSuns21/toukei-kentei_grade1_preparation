@@ -59,7 +59,7 @@ $$
 u(t,x)=F(x-ct)
 $$
 
-と置きます。連鎖律から
+と置きます。[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 u_t=-cF'(x-ct),\qquad
@@ -171,7 +171,7 @@ $$
 
 です。
 
-連鎖律により
+[連鎖律](../RA3/index.md#prop-ra3-chain-rule)により
 
 $$
 \partial_x=\partial_\xi+\partial_\eta,
@@ -363,7 +363,7 @@ I(t,x)
 \int_{x-ct}^{x+ct}g(s)\,ds
 $$
 
-と置きます。微積分学の基本定理と連鎖律から
+と置きます。微積分学の基本定理と[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 I_t

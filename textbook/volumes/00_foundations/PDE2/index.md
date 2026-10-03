@@ -1041,7 +1041,7 @@ $$
 \beta=\xi-\eta
 $$
 
-と置き、$U(\xi,\eta)=V(\alpha,\beta)$ とします。連鎖律から
+と置き、$U(\xi,\eta)=V(\alpha,\beta)$ とします。[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 \partial_\xi
@@ -1682,7 +1682,7 @@ $$
 <!-- solution-start -->
 **解答**：
 
-連鎖律から
+[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 \partial_x=\partial_\xi+\partial_\eta,

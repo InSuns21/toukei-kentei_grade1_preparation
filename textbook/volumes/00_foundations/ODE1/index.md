@@ -226,7 +226,7 @@ $$
 \mu(t)=\exp\left(\int_{t_0}^t p(s)\,ds\right)
 $$
 
-と置けば、RA4 の [微積分学の基本定理I](../RA4/index.md#thm-ra4-ftc1) と連鎖律から
+と置けば、RA4 の [微積分学の基本定理I](../RA4/index.md#thm-ra4-ftc1) と[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 \mu'(t)=p(t)\mu(t)
@@ -344,7 +344,7 @@ $$
 > を満たすとき、完全微分方程式という。
 <!-- formal-statement-end -->
 
-解 $y(t)$ に沿って連鎖律を使うと
+解 $y(t)$ に沿って[連鎖律](../RA3/index.md#prop-ra3-chain-rule)を使うと
 
 $$
 \frac{d}{dt}\Phi(t,y(t))

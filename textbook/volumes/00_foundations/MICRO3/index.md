@@ -1555,7 +1555,7 @@ $$
 v(p,m)=u(x(p,m))
 $$
 
-だから連鎖律より
+だから[連鎖律](../RA3/index.md#prop-ra3-chain-rule)より
 
 $$
 \frac{\partial v}{\partial m}
@@ -1599,7 +1599,7 @@ $$
 
 次に価格成分 $p_i$ で微分します。
 
-連鎖律より
+[連鎖律](../RA3/index.md#prop-ra3-chain-rule)より
 
 $$
 \frac{\partial v}{\partial p_i}
@@ -1786,7 +1786,7 @@ $$
 
 これを $p_j$ で微分します。
 
-右辺は価格が直接変わる効果と、必要支出 $e$ が変わる効果を持つので、連鎖律より
+右辺は価格が直接変わる効果と、必要支出 $e$ が変わる効果を持つので、[連鎖律](../RA3/index.md#prop-ra3-chain-rule)より
 
 $$
 \frac{\partial h_i}{\partial p_j}

@@ -632,7 +632,7 @@ $$
 
 と置きます。
 
-RA3 の [Taylor の定理](../RA3/index.md#thm-ra3-taylor) を、1 変数関数 $g$ に **展開点 $u=0$、次数 2** で適用します。まず連鎖律から
+RA3 の [Taylor の定理](../RA3/index.md#thm-ra3-taylor) を、1 変数関数 $g$ に **展開点 $u=0$、次数 2** で適用します。まず[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 g'(u)
@@ -2301,7 +2301,7 @@ $$
 [h_i(X),X^i].
 $$
 
-共変分連鎖律により
+共変分[連鎖律](../RA3/index.md#prop-ra3-chain-rule)により
 
 $$
 d[h_i(X),X^i]_s
@@ -3077,7 +3077,7 @@ V_\alpha^i(X_s)\,dB_s^\alpha
 [V_\alpha^i(X),B^\alpha]_t.
 $$
 
-共変分連鎖律を使うと
+共変分[連鎖律](../RA3/index.md#prop-ra3-chain-rule)を使うと
 
 $$
 [V_\alpha^i(X),B^\alpha]_t

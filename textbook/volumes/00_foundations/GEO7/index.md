@@ -1247,7 +1247,7 @@ d(a_I\circ F)
 d(y^{i_1}\circ F)\wedge\cdots\wedge d(y^{i_k}\circ F).
 $$
 
-0形式に対する外微分は通常の微分なので、GEO2 の連鎖律から
+0形式に対する外微分は通常の微分なので、GEO2 の[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 d(a_I\circ F)

@@ -101,7 +101,7 @@ $$
 \gamma(t)=z+t(x-z),\qquad 0\le t\le1
 $$
 
-と置き、$h(t)=g(\gamma(t))$ とします。連鎖律により
+と置き、$h(t)=g(\gamma(t))$ とします。[連鎖律](../RA3/index.md#prop-ra3-chain-rule)により
 
 $$
 h'(t)=Dg(\gamma(t))(x-z).
@@ -727,7 +727,7 @@ $$
 F(x,\varphi(x))=0
 $$
 
-を $x$ で微分します。連鎖律により
+を $x$ で微分します。[連鎖律](../RA3/index.md#prop-ra3-chain-rule)により
 
 $$
 D_xF(x,\varphi(x))
