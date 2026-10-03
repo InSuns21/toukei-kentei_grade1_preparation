@@ -3,6 +3,7 @@ import { access, cp, readFile, readdir, writeFile } from 'node:fs/promises';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import path from 'node:path';
+import { isOfflineCacheCandidate } from './pages-offline-policy.mjs';
 
 const execFileAsync = promisify(execFile);
 const root = process.cwd();
@@ -121,11 +122,11 @@ await writeFile(
 // Generate both the legacy path-only manifest used by the live smoke test and
 // a content-addressed manifest used by the browser for differential offline
 // updates. The manifests themselves are excluded to avoid recursive hashing.
-const publishedFiles = (await recursivePublishedFiles(outDir))
-  .filter((relative) => relative !== '.nojekyll'
-    && relative !== textManifestFile
-    && relative !== hashManifestFile)
+const generatedFiles = await recursivePublishedFiles(outDir);
+const publishedFiles = generatedFiles
+  .filter(isOfflineCacheCandidate)
   .sort((a, b) => a.localeCompare(b, 'en'));
+const excludedOfflineFiles = generatedFiles.length - publishedFiles.length;
 
 await writeFile(
   path.join(outDir, textManifestFile),
@@ -156,4 +157,4 @@ console.log(
 );
 console.log(`Service Worker cache revision stamped: ${revision}`);
 console.log(`Site metadata published: ${revision.slice(0, 8)} @ ${updatedAt}`);
-console.log(`Offline manifests published: ${publishedFiles.length} files with SHA-256 hashes`);
+console.log(`Offline manifests published: ${publishedFiles.length} learner-facing files with SHA-256 hashes (${excludedOfflineFiles} maintenance files excluded)`);
