@@ -442,7 +442,7 @@ $$
 <a id="lem-sto4-path-borel-coordinates"></a>
 
 <!-- formal-statement-start -->
-> **補題（$C_0([0,T])$ の Borel $\sigma$ 代数は座標評価で生成される）**  
+> **補題（原点始点経路の Borel 代数は座標評価で生成される）**  
 > $D=\mathbb Q\cap[0,T]$ とする。このとき
 >
 > $$
@@ -2628,7 +2628,7 @@ $$
 
 二つの円筒集合の共通部分は、使っている時刻を全部まとめれば再び有限次元円筒集合になるので、$\mathcal C$ は $\pi$-system です。
 
-また [$C_0([0,T])$ の Borel $\sigma$ 代数は座標評価で生成される](#lem-sto4-path-borel-coordinates) から
+また [原点始点経路の Borel 代数は座標評価で生成される](#lem-sto4-path-borel-coordinates) から
 
 $$
 \sigma(\mathcal C)
