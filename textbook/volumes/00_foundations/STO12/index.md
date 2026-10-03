@@ -84,7 +84,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（ブラウン運動に対する二乗可積分被積分過程空間）**  
-> $T>0$ とし、$B=(B^1,\ldots,B^d)$ を $d$ 次元標準ブラウン運動、$(\mathcal F_t^B)_{0\le t\le T}$ をその完備化した自然なフィルトレーションとする。
+> $T>0$ とし、確率空間 $(\Omega,\mathcal F,P)$ 上の $d$ 次元標準ブラウン運動 $B=(B^1,\ldots,B^d)$ を考える。$(\mathcal F_t^B)_{0\le t\le T}$ を $B$ の完備化した自然なフィルトレーションとする。
 >
 > $[0,T]\times\Omega$ 上の $\mathbb R^d$-値 $(\mathcal F_t^B)$-予測可能過程 $H$ で
 >
@@ -218,9 +218,9 @@ M_0
 0\le t\le T
 $$
 >
-> が indistinguishability の意味で成り立つことをいう。
+> が区別不能の意味で成り立つことをいう。
 >
-> 被積分過程は $dt\otimes dP$-a.e. の意味で一意であることも要求する。
+> 被積分過程は $dt\otimes dP$-ほとんど至る所の意味で一意であることも要求する。
 <!-- formal-statement-end -->
 
 以下では予測可能表現性を **PRP** と略記します。
@@ -277,7 +277,7 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（ブラウン運動の終端確率積分の値域は閉じている）**  
-> $B$ を $d$ 次元標準ブラウン運動、$(\mathcal F_t^B)_{0\le t\le T}$ をその 完備化した自然なフィルトレーションとし、
+> $T>0$ とし、確率空間 $(\Omega,\mathcal F,P)$ 上の $d$ 次元標準ブラウン運動 $B$ を考える。$(\mathcal F_t^B)_{0\le t\le T}$ を $B$ の完備化した自然なフィルトレーションとし、
 >
 $$
 \mathcal K_T
@@ -429,7 +429,7 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（決定論的被積分過程の指数型マルチンゲール）**  
-> $B$ を $d$ 次元標準ブラウン運動とし、決定論的
+> $T>0$ とし、確率空間 $(\Omega,\mathcal F,P)$ 上の $d$ 次元標準ブラウン運動 $B$ を考える。$(\mathcal F_t^B)_{0\le t\le T}$ を $B$ の完備化した自然なフィルトレーションとする。決定論的
 >
 $$
 h\in L^2([0,T];\mathbb R^d)
@@ -874,16 +874,18 @@ $$
 <a id="lem-sto12-exponential-totality"></a>
 
 <!-- formal-statement-start -->
-> **補題（ガウス指数族 vectors の全体性）**  
-> $B$ を $d$ 次元ブラウン運動とし、
+> **補題（ガウス指数族の全体性）**  
+> $T>0$ とし、確率空間 $(\Omega,\mathcal F,P)$ 上の $d$ 次元標準ブラウン運動 $B$ を考える。$\mathcal N$ を $P$-零集合の全部分集合からなる族とし、
 >
 $$
 \mathcal F_t^B
 =
-\sigma(B_s:0\le s\le t)\vee\mathcal N
+\sigma(B_s:0\le s\le t)\vee\mathcal N,
+\qquad
+0\le t\le T,
 $$
 >
-> をその 完備化した自然なフィルトレーションとする。
+> とする。
 >
 > 決定論的
 >
@@ -902,7 +904,7 @@ Z_T^h
 \right)
 $$
 >
-> の線形 span は
+> の線形包は
 >
 $$
 L^2(\mathcal F_T^B)
@@ -1091,7 +1093,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（ブラウン運動のマルチンゲール表現定理）**  
-> $B$ を $d$ 次元標準ブラウン運動、$(\mathcal F_t^B)_{0\le t\le T}$ をその 完備化した自然なフィルトレーションとする。
+> $T>0$ とし、確率空間 $(\Omega,\mathcal F,P)$ 上の $d$ 次元標準ブラウン運動 $B$ を考える。$(\mathcal F_t^B)_{0\le t\le T}$ を $B$ の完備化した自然なフィルトレーションとする。
 >
 > 任意の
 >
@@ -1147,7 +1149,7 @@ $$
 
 と置きます。
 
-[ガウス指数族 vectors の全体性](#lem-sto12-exponential-totality) により、各 $n$ について有限個の決定論的被積分関数 $h_{n,1},\ldots,h_{n,m_n}$ と実数係数 $a_{n,1},\ldots,a_{n,m_n}$ を選んで
+[ガウス指数族 の全体性](#lem-sto12-exponential-totality) により、各 $n$ について有限個の決定論的被積分関数 $h_{n,1},\ldots,h_{n,m_n}$ と実数係数 $a_{n,1},\ldots,a_{n,m_n}$ を選んで
 
 $$
 Y_n
@@ -1303,7 +1305,7 @@ $$
 
 <!-- formal-statement-start -->
 > **系（条件付き期待値過程の表現）**  
-> $B$ を $d$ 次元標準ブラウン運動、$(\mathcal F_t^B)_{0\le t\le T}$ をその 完備化した自然なフィルトレーションとする。
+> $T>0$ とし、確率空間 $(\Omega,\mathcal F,P)$ 上の $d$ 次元標準ブラウン運動 $B$ を考える。$(\mathcal F_t^B)_{0\le t\le T}$ を $B$ の完備化した自然なフィルトレーションとする。
 >
 > $\xi\in L^2(\mathcal F_T^B)$ とし、[ブラウン運動のマルチンゲール表現定理](#thm-sto12-martingale-representation) により一意に定まる $H\in\mathcal H_B^2([0,T])$、すなわち
 >
@@ -1396,7 +1398,9 @@ $$
 
 <!-- formal-statement-start -->
 > **系（ブラウン運動のフィルトレーションの予測可能表現性）**  
-> $B$ の 完備化した自然なフィルトレーション $(\mathcal F_t^B)$ は、$B$ に関する予測可能表現性を持つ。
+> $T>0$ とし、確率空間 $(\Omega,\mathcal F,P)$ 上の $d$ 次元標準ブラウン運動 $B$ を考える。$(\mathcal F_t^B)_{0\le t\le T}$ を $B$ の完備化した自然なフィルトレーションとする。
+>
+> このとき $(\mathcal F_t^B)$ は、$B$ に関する予測可能表現性を持つ。
 >
 > すなわち任意の二乗可積分 $(\mathcal F_t^B)$-マルチンゲール $M$ に対し、一意な $H\in\mathcal H_B^2([0,T])$ が存在して
 >
