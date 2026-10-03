@@ -772,7 +772,25 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Dynkin 公式）**  
-> 前節の拡散 $X$ と生成作用素 $L$ を考える。
+> $b:\mathbb R^d\to\mathbb R^d$、$\sigma:\mathbb R^d\to\mathbb R^{d\times m}$ を大域 Lipschitz とし、初期点 $x$ から
+>
+$$
+dX_t=b(X_t)dt+\sigma(X_t)dW_t,
+\qquad
+X_0=x
+$$
+>
+> の強解を取る。$a=\sigma\sigma^\top$ とし、
+>
+$$
+Lf
+=
+b\cdot\nabla f
++
+\frac12\operatorname{tr}(aD^2f)
+$$
+>
+> と置く。
 >
 > $f\in C_c^2(\mathbb R^d)$ とし、$\tau$ を有界 stopping time とする。
 >
@@ -1035,16 +1053,24 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Kolmogorov 前進方程式の弱形式と Fokker--Planck）**  
-> 前節までの大域 Lipschitz 拡散 $X$ と、その時刻 $t$ の法則 $\mu_t$ を考える。生成作用素を
-
+> $b:\mathbb R^d\to\mathbb R^d$、$\sigma:\mathbb R^d\to\mathbb R^{d\times m}$ を大域 Lipschitz とし、
+>
 $$
+dX_t=b(X_t)dt+\sigma(X_t)dW_t
+$$
+>
+> の強解を考える。$\mu_t$ を $X_t$ の法則、
+>
+$$
+a=\sigma\sigma^\top,
+\qquad
 Lf
 =
 \sum_i b_i\partial_if
 +
 \frac12\sum_{i,j}a_{ij}\partial_{ij}f
 $$
-
+>
 > とする。
 >
 > 任意の $f\in C_c^2(\mathbb R^d)$ に対し
@@ -1058,7 +1084,7 @@ $$
 }
 $$
 
-> さらに $\mu_t(dx)=p(t,x)dx$ で、$p,b,a$ が部分積分を正当化するだけ十分滑らかかつ境界項が消えるなら
+> さらに $\mu_t(dx)=p(t,x)dx$ と書け、$p$ が時刻について $C^1$、各積 $b_ip$ が空間について $C^1$、各積 $a_{ij}p$ が空間について $C^2$ で、以下の微分と積分交換・部分積分が正当化できるとする。このとき
 
 $$
 \boxed{
@@ -1219,7 +1245,23 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Feynman--Kac 検証公式）**  
-> $L$ を前節の拡散生成作用素とする。
+> $b:\mathbb R^d\to\mathbb R^d$、$\sigma:\mathbb R^d\to\mathbb R^{d\times m}$ を大域 Lipschitz とし、$X^{t,x}$ を時刻 $t$ に $x$ から出発する
+>
+$$
+dX_s=b(X_s)ds+\sigma(X_s)dW_s
+$$
+>
+> の強解とする。$a=\sigma\sigma^\top$ とし、
+>
+$$
+L
+=
+b\cdot\nabla
++
+\frac12\operatorname{tr}(aD^2)
+$$
+>
+> と置く。
 >
 > 有界 continuous な $V:[0,T]\times\mathbb R^d\to[0,\infty)$、$g:[0,T]\times\mathbb R^d\to\mathbb R$、$h:\mathbb R^d\to\mathbb R$ を考える。
 >
@@ -1601,37 +1643,57 @@ P\circ
 \bigl(X_\cdot\bigr)^{-1}
 $$
 
-とします。$0\le s<t$ を固定し、canonical $\mathcal F_s$-可測な有界 cylinder function $G$ を取ります。元の空間へ引き戻した
+とします。
+
+局所化も標本路だけから読める形に取ります。例えば
 
 $$
-G(X_\cdot)
+\tau_n
+=
+\inf\left\{
+r\ge0:
+|X_r|\ge n
+\text{ or }
+\int_0^r
+|\nabla f(X_q)^\top\sigma(X_q)|^2dq
+\ge n
+\right\}
+\wedge n
 $$
 
-は元の $\mathcal F_s$-可測です。
+とすれば、$\tau_n$ は $X$ の標本路の可測汎関数で、$M^{f,\tau_n}$ は二乗可積分マルチンゲールです。
 
-局所化後のマルチンゲール増分に対して
+$0\le s<t$ を固定し、canonical $\mathcal F_s$-可測な有界 cylinder function $G$ を取ります。元の空間へ引き戻した $G(X_\cdot)$ は元の $\mathcal F_s$-可測なので
 
 $$
 E_P\left[
 G(X_\cdot)
-\{M_{t}^{f}-M_s^{f}\}
-\right]
-=
-0
-$$
-
-が成り立ちます。標本路法則の定義で同じ期待値を書き直すと
-
-$$
-E_{P^X}\left[
-G
-\{M_t^{f}-M_s^{f}\}
+\left\{
+M_{t\wedge\tau_n}^{f}
+-
+M_{s\wedge\tau_n}^{f}
+\right\}
 \right]
 =
 0.
 $$
 
-cylinder functions から monotone class で bounded canonical $\mathcal F_s$-可測関数へ広げれば、$M^f$ は $P^X$ の下でも局所マルチンゲールです。初期分布も押し出しで
+$\tau_n$ も $M^f$ も canonical path の式で書けるため、標本路法則の定義で同じ期待値を書き直すと
+
+$$
+E_{P^X}\left[
+G
+\left\{
+M_{t\wedge\tau_n}^{f}
+-
+M_{s\wedge\tau_n}^{f}
+\right\}
+\right]
+=
+0.
+$$
+
+cylinder functions から monotone class で bounded canonical $\mathcal F_s$-可測関数へ広げれば、各 $M^{f,\tau_n}$ は $P^X$-マルチンゲールです。$\tau_n\uparrow\infty$ なので $M^f$ は $P^X$ の下で局所マルチンゲールです。初期分布も押し出しで
 
 $$
 P^X\circ X_0^{-1}
@@ -1725,7 +1787,7 @@ W_t
 \int_0^t\sigma(X_s)^{-1}dM_s
 $$
 
-と置き、Lévy characterization を使います。
+と置き、[STO5 の Lévy の特徴付け定理](../STO5/index.md#thm-sto5-levy-characterization) を使います。
 
 <!-- proof-start -->
 ### 証明
@@ -2933,7 +2995,7 @@ W_t=\int_0^t\frac1{\sigma(X_s)}dM_s
 $$
 
 を定め、$[W]_t$ を計算せよ。
-2. Lévy characterization から何が言えるか。
+2. [STO5 の Lévy の特徴付け定理](../STO5/index.md#thm-sto5-levy-characterization) から何が言えるか。
 3. マルチンゲール問題からブラウン運動を構成し、$X$ の SDE 表現を復元せよ。
 
 <!-- solution-start -->
@@ -2978,17 +3040,42 @@ $$
 3. 定義から
 
 $$
-dW_t
+W_t
 =
-\frac1{\sigma(X_t)}dM_t.
+\int_0^t
+\frac1{\sigma(X_s)}dM_s.
 $$
 
-$\sigma(X_t)\ne0$ なので
+ここで「両辺へ $\sigma$ を掛ける」を微分記号だけで済ませません。局所化して $\sigma(X)$ と $1/\sigma(X)$ が有界な区間では、単純予測可能過程の増分和で直接確認できる確率積分の結合則を STO6 の $L^2$ completion で延長して
 
 $$
-dM_t
+\begin{aligned}
+\int_0^t\sigma(X_s)dW_s
+&=
+\int_0^t
+\sigma(X_s)
+d\left(
+\int_0^s
+\frac1{\sigma(X_r)}dM_r
+\right)\\
+&=
+\int_0^t
+\sigma(X_s)
+\frac1{\sigma(X_s)}
+dM_s\\
+&=
+M_t-M_0\\
+&=
+M_t.
+\end{aligned}
+$$
+
+したがって
+
+$$
+M_t
 =
-\sigma(X_t)dW_t.
+\int_0^t\sigma(X_s)dW_s.
 $$
 
 また $M$ の定義より
@@ -3278,7 +3365,7 @@ $$
 [W]_t=t.
 $$
 
-Lévy characterization により $W$ はブラウン運動で、
+[STO5 の Lévy の特徴付け定理](../STO5/index.md#thm-sto5-levy-characterization) により $W$ はブラウン運動で、
 
 $$
 dX_t=-\theta X_tdt+\sigma dW_t
