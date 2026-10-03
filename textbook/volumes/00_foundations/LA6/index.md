@@ -112,12 +112,44 @@ $$
 
 合同変換で固有値の大きさ自体は変わるため、「二次形式の本質的な符号情報として何が残るか」を切り出したくなります。Hermitian 行列では、正の方向・負の方向・零方向の本数がその答えになります。
 
-Hermitian行列 $A$ をユニタリ対角化し、正の固有値を $\lambda_1,\dots,\lambda_p$、負の固有値を $\lambda_{p+1},\dots,\lambda_{p+q}$ とします。零固有値の個数を
-$$
-r=n-p-q
-$$
-と置きます。
+スペクトル定理で固有方向へ分けた後、各正の固有値を $+1$、各負の固有値を $-1$ へ大きさだけ正規化すれば、二次形式の符号構造だけを残した標準形が得られそうです。Sylvester の慣性法則は、その標準形が必ず存在し、正・負・零方向の本数が座標変換の選び方に依らないことを述べます。
 
+<a id="thm-la6-inertia"></a>
+<!-- formal-statement-start -->
+> **定理（Sylvesterの慣性法則）**  
+> 任意の Hermitian 行列 $A\in\mathbb C^{n\times n}$ に対して、非負整数 $p,q,r$ と可逆行列 $S$ が存在し
+$$
+p+q+r=n,
+\qquad
+S^*AS=\operatorname{diag}(I_p,-I_q,0_r)
+$$
+> と書ける。さらに、この三つ組 $(p,q,r)$ は、そのような可逆行列 $S$ の選び方によらず一意である。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+存在は、Hermitian 行列をユニタリ対角化し、各非零固有値の絶対値を1へ正規化して構成します。一意性では、零方向の本数 $r$ を核の次元として読み、正方向の本数 $p$ を「二次形式が正定値になる部分空間の最大次元」として特徴付けます。合同変換は部分空間の次元と正定値性を同時に保つので $p$ は不変です。負方向 $q$ は $-q_A$ に同じ議論を適用します。
+
+<!-- proof-start -->
+### 証明
+
+まず存在を示します。[複素正規作用素のスペクトル定理](../LA5/index.md#thm-la5-normal-spectral)と[Hermitian作用素の固有値は実数](../LA5/index.md#thm-la5-hermitian-real-eigenvalues)から
+$$
+A=Q\Lambda Q^*,
+\qquad
+\Lambda=\operatorname{diag}(\lambda_1,\dots,\lambda_n),
+\qquad
+\lambda_i\in\mathbb R
+$$
+と書けます。固有値を並べ替え、
+$$
+\lambda_1,\dots,\lambda_p>0,
+\qquad
+\lambda_{p+1},\dots,\lambda_{p+q}<0,
+$$
+残り $r=n-p-q$ 個を0とします。
+
+ここで
 $$
 D=
 \operatorname{diag}
@@ -127,39 +159,18 @@ D=
 1,\dots,1
 \right)
 $$
-とし、
-$$
-A=Q\operatorname{diag}(\lambda_i)Q^*
-$$
-に対して $S=QD$ と置きます。$D$ は実対角行列なので $D^*=D$ であり、
+とし、$S=QD$ と置きます。$D$ は実対角行列なので $D^*=D$ です。従って
 $$
 \begin{aligned}
 S^*AS
-&=DQ^*\,Q\operatorname{diag}(\lambda_i)Q^*\,QD\\
-&=D\operatorname{diag}(\lambda_i)D\\
+&=DQ^*\,Q\Lambda Q^*\,QD\\
+&=D\Lambda D\\
 &=\operatorname{diag}(I_p,-I_q,0_r).
 \end{aligned}
 $$
-従ってこの標準形は必ず存在します。
+これで標準形の存在が示されました。
 
-<a id="thm-la6-inertia"></a>
-<!-- formal-statement-start -->
-> **定理（Sylvesterの慣性法則）**  
-> Hermitian二次形式を合同変換で
-$$
-\operatorname{diag}(I_p,-I_q,0_r)
-$$
-> へ変形したとき、三つ組 $(p,q,r)$ は変換の選び方によらず一意である。
-<!-- formal-statement-end -->
-
-### 証明の見取り図
-
-零方向の本数 $r$ は核の次元として読み、可逆な線形写像で核の次元が変わらないことから示します。正方向の本数 $p$ は「二次形式が正定値になる部分空間の最大次元」として特徴付け、合同変換が部分空間の次元と正定値性を同時に保つことを使います。負方向 $q$ は $-q_A$ に同じ議論を適用します。
-
-<!-- proof-start -->
-### 証明
-
-まず $r$ を示します。$B=S^*AS$、$S$ 可逆なら $S^*$ も可逆なので
+次に一意性を示します。まず $r$ を考えます。$B=S^*AS$、$S$ 可逆なら $S^*$ も可逆なので
 $$
 Bx=0
 \iff S^*ASx=0
