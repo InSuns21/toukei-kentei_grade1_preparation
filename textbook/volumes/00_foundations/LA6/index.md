@@ -217,7 +217,7 @@ $$
 
 ---
 
-## 4. Hermitian 半正定値作用素と平方根
+## 4. Hermitian半正定値作用素と平方根
 
 極分解や複素特異値分解では $A^*A$ が中心になります。この作用素は常に Hermitian で、さらに
 $$
@@ -227,13 +227,13 @@ $$
 
 <a id="def-la6-psd"></a>
 <!-- formal-statement-start -->
-> **定義（Hermitian 半正定値作用素）**  
+> **定義（Hermitian半正定値作用素）**  
 > Hermitian作用素 $A$ が
 $$
 \langle x,Ax\rangle\ge0
 \qquad(x\in V)
 $$
-> を満たすとき、$A$ を **Hermitian 半正定値作用素** という。以後、必要に応じて PSD と略記する。
+> を満たすとき、$A$ を **Hermitian半正定値作用素** という。以後、必要に応じて PSD と略記する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-la6-psd -->
@@ -245,7 +245,7 @@ $$
 $$
 \langle x,Ax\rangle=4|x_1|^2+2|x_3|^2\ge0
 $$
-なので Hermitian 半正定値です。
+なので Hermitian半正定値です。
 <!-- definition-example-end -->
 
 Hermitian作用素を正規直交固有基底で対角化すると
@@ -278,8 +278,8 @@ $$
 
 <a id="thm-la6-psd-square-root"></a>
 <!-- formal-statement-start -->
-> **定理（Hermitian 半正定値平方根定理）**  
-> Hermitian 半正定値作用素 $A$ に対し、Hermitian 半正定値作用素 $B$ で
+> **定理（Hermitian半正定値平方根定理）**  
+> Hermitian半正定値作用素 $A$ に対し、Hermitian半正定値作用素 $B$ で
 $$
 B^2=A
 $$
@@ -305,9 +305,9 @@ $$
 $$
 B=Q\operatorname{diag}(\sqrt{\lambda_1},\dots,\sqrt{\lambda_n})Q^*
 $$
-と置けば $B$ は Hermitian 半正定値で $B^2=A$ です。
+と置けば $B$ は Hermitian半正定値で $B^2=A$ です。
 
-一意性を示します。Hermitian 半正定値作用素 $C$ が $C^2=A$ を満たすとします。
+一意性を示します。Hermitian半正定値作用素 $C$ が $C^2=A$ を満たすとします。
 $$
 CA=C^3=AC
 $$
@@ -321,7 +321,7 @@ $E_\lambda$ 上では
 $$
 C^2=\lambda I.
 $$
-$C|_{E_\lambda}$ も Hermitian 半正定値なので正規直交対角化でき、その固有値 $\mu$ は
+$C|_{E_\lambda}$ も Hermitian半正定値なので正規直交対角化でき、その固有値 $\mu$ は
 $$
 \mu\ge0,
 \qquad
@@ -334,7 +334,7 @@ $$
 $A$ の固有空間は全空間を直交直和に分解するので、$C$ は全空間で一意に決まり、上で構成した $B$ と一致します。$\square$
 <!-- proof-end -->
 
-### 矩形行列でも $A^*A$ は Hermitian 半正定値
+### 矩形行列でも $A^*A$ は Hermitian半正定値
 
 $A\in\mathbb C^{m\times n}$ に対し
 $$
@@ -367,7 +367,7 @@ $$
 =(Ax)^*(Ax)
 =\|Ax\|^2\ge0.
 $$
-よって $A^*A$ は Hermitian 半正定値です。
+よって $A^*A$ は Hermitian半正定値です。
 
 ---
 
@@ -375,7 +375,7 @@ $$
 
 特異値分解では、行列を「入力側の基底変更 → 非負の伸縮 → 出力側の基底変更」と分けました。正方行列では、このうち回転・位相変化に相当する部分と、非負の伸縮に相当する部分を二つの作用素へ直接まとめられます。
 
-$A^*A$ は Hermitian 半正定値なので、その平方根
+$A^*A$ は Hermitian半正定値なので、その平方根
 $$
 P=(A^*A)^{1/2}
 $$
@@ -384,7 +384,7 @@ $$
 <a id="thm-la6-polar"></a>
 <!-- formal-statement-start -->
 > **定理（極分解 / polar decomposition）**  
-> 任意の複素正方行列 $A\in\mathbb C^{n\times n}$ に対し、ユニタリ行列 $U$ と Hermitian 半正定値行列
+> 任意の複素正方行列 $A\in\mathbb C^{n\times n}$ に対し、ユニタリ行列 $U$ と Hermitian半正定値行列
 $$
 P=(A^*A)^{1/2}
 $$
@@ -509,7 +509,7 @@ F0-00F2 では実行列に対して $A^{\mathsf T}A$ を使いました。複素
 $$
 A^*A
 $$
-が必ず Hermitian 半正定値になります。そこで実数版と同じ構成を、[LA5 の複素正規作用素のスペクトル定理](../LA5/index.md#thm-la5-normal-spectral)を使って一段ずつ組み直します。
+が必ず Hermitian半正定値になります。そこで実数版と同じ構成を、[LA5 の複素正規作用素のスペクトル定理](../LA5/index.md#thm-la5-normal-spectral)を使って一段ずつ組み直します。
 
 <a id="thm-la6-complex-svd"></a>
 <!-- formal-statement-start -->
@@ -528,7 +528,7 @@ $A^*A$ を正規直交固有基底で対角化し、正の固有値 $\lambda_i$ 
 <!-- proof-start -->
 ### 証明
 
-$A^*A$ は直前に示した通り Hermitian 半正定値です。[複素正規作用素のスペクトル定理](../LA5/index.md#thm-la5-normal-spectral)により、$\mathbb C^n$ の正規直交基底
+$A^*A$ は直前に示した通り Hermitian半正定値です。[複素正規作用素のスペクトル定理](../LA5/index.md#thm-la5-normal-spectral)により、$\mathbb C^n$ の正規直交基底
 $$
 v_1,\dots,v_n
 $$
@@ -626,7 +626,7 @@ $$
 なので、$\Sigma$ の正の対角成分は $A^*A$ の正の固有値の平方根を大きい順に並べたものです。$\square$
 <!-- proof-end -->
 
-特異値分解は正規でない行列や長方形行列にも使えます。$A$ 自身ではなく、必ず Hermitian 半正定値になる $A^*A$ を対角化するからです。
+特異値分解は正規でない行列や長方形行列にも使えます。$A$ 自身ではなく、必ず Hermitian半正定値になる $A^*A$ を対角化するからです。
 
 ---
 
@@ -913,7 +913,7 @@ $$
 $$
 W^*W=VU^*UV^*=I,
 $$
-従って $W$ はユニタリです。$A$ は可逆なので $\Sigma$ の対角成分は全て正で、$P$ は Hermitian 半正定値です。
+従って $W$ はユニタリです。$A$ は可逆なので $\Sigma$ の対角成分は全て正で、$P$ は Hermitian半正定値です。
 
 また
 $$
