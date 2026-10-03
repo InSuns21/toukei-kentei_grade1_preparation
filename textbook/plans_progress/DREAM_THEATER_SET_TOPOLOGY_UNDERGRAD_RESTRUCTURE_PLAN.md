@@ -660,6 +660,16 @@ F0-00A1D の改稿着手時に、既存の F0-00A1 / A1B / RA1 との責務境�
 - 位相空間論は F0-00B から始め、実解析で既知の収束・連続性・コンパクト性・Cauchy 条件・完備性を一般化する導入へ変更した。
 - `dream-theater-index.json` の基礎科目 path 順と `dream-theater-standard-math-core.md` の通読順を同じ構造へ同期した。
 - 既存外部リンクを壊さないため旧 `dt-subject-set-topology` anchor は集合論見出しの互換 anchor として残した。
+### 共通基礎 prerequisite / knowledge / stable-link 最終監査（2026-10-03）
+
+- `dream-theater-index.json` の基礎科目 57 pages を対象に、各 `chapter.yaml` の直接 `prerequisites` を全件照合した。
+- 集合論必修 8 pages、A3A 発展分岐 1 page、線形代数 16 pages、実解析 13 pages、位相空間論 18 pages、RA8 発展分岐 1 page について、前段科目から後段科目へ逆向きに依存する edge は 0 件だった。
+- 線形代数は実解析・位相空間論を prerequisite にせず、実解析は一般位相空間論を prerequisite にしない。位相空間論が RA2 / RA1 / F0-00F1 / RA5 など前段の実解析・線形代数を利用する edge は順方向として保持した。
+- RA8 の `RA5 + TOP5` は「位相空間論後の実解析発展」という意図した分岐であり、逆依存ではない。
+- F0-00A3A は stable asset / concept owner として DREAM THEATER index に残すが、共通基礎の必修番号列には含めない。SET1--SET7 実装前の現時点では phantom prerequisite を追加しない。
+- #672 は index の削除・移動・並べ替えを含むため full strict concept audit が実行され、成功した。これにより `knowledge.yaml` の概念到達性・chapter prerequisite drift・未解決 concept dependency を全体で再確認した。
+- #672 の Pages assembly も成功し、公開目次・index・stable anchor / link の整合性を確認した。
+- `textbook/dependency-graph.md` に残っていた旧「集合・位相 → 線形代数」通読図と `EはBを前提` の stale 記述を削除し、「集合論 → 線形代数 → 実解析 → 位相空間論」と RA8 / A3A の発展分岐へ更新した。
 ## 9. 実装順
 
 1. ✅ F0-00A / A1C / A1D / A2 / A3 / A3A の本文・chapter.yaml・knowledge.yaml を監査（2026-10-02 初回監査）
@@ -681,7 +691,7 @@ F0-00A1D の改稿着手時に、既存の F0-00A1 / A1B / RA1 との責務境�
 17. ✅ F0-00A3A は stable ID / URL を維持したまま独立「集合論・数学基礎論」の SET8 相当を canonical owner とする方針へ確定。SET2「順序数」・SET4「超限再帰」・SET7「Hartogs」が未実装の現時点で架空 prerequisite を追加せず、実際の公開所属変更・prerequisite 付替えは SET1--SET7 実装後に行う。item 18 以降の共通基礎目次では A3A を必修系列として扱わない。（2026-10-03）
 18. ✅ \`dream-theater.md\` の公開科目を「集合論」「線形代数」「実解析」「位相空間論」に分離し、この順へ並べ替える。F0-00B0 は実解析へ移し、F0-00A3A は集合論の必修番号列から外して発展分岐リンクにした。（2026-10-03）
 19. ✅ \`dream-theater-index.json\` と \`dream-theater-standard-math-core.md\` を同じ順へ同期し、RA8 を位相空間論後の実解析発展として明示した。旧 \`dt-subject-set-topology\` anchor は互換用に保持した。（2026-10-03）
-20. knowledge DAG / chapter prerequisites / stable links を全体更新し、後続科目から前段科目への逆依存がないことを検証する。
+20. ✅ knowledge DAG / chapter prerequisites / stable links を全体監査し、後続科目から前段科目への逆依存がないことを確認した。57 indexed pages の `chapter.yaml` prerequisite を全件照合し逆依存 0 件、#672 の full strict concept audit / Pages で knowledge DAG・stable links も green。stale だった `textbook/dependency-graph.md` を現行4科目順へ更新した。（2026-10-03）
 21. 専用 validation / Pages / exercise-count / proof-pedagogy / formalism-pedagogy / strict concept audit と、人手の通読依存監査を実施する。
 
 ## 10. 完成条件
