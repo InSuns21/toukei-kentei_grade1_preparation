@@ -75,7 +75,7 @@ concepts:
   - id: ode.ode5-inverse-method
     name: 逆Laplace変換の候補構成と検証
     kind: method
-    aliases: [逆Laplace変換, inverse Laplace transform, 部分分数による逆Laplace変換]
+    aliases: [逆Laplace変換, 逆変換, inverse Laplace transform, 部分分数による逆変換]
     introduction: inline
     requires:
       - ode.ode5-laplace-transform
