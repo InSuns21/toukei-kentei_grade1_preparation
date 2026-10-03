@@ -17,9 +17,9 @@ concepts:
       - linear.complex-inner-product
 
   - id: linear.congruence
-    name: congruence
+    name: 合同変換
     kind: definition
-    aliases: [congruence, 合同変換]
+    aliases: [合同変換, congruence]
     requires:
       - linear.hermitian-quadratic-form
       - linear.representation-matrix
@@ -33,24 +33,24 @@ concepts:
       - linear.complex-normal-spectral-theorem
 
   - id: linear.hermitian-psd-operator
-    name: Hermitian PSD作用素
+    name: Hermitian半正定値作用素
     kind: definition
-    aliases: [Hermitian PSD作用素, Hermitian positive semidefinite operator, PSD作用素]
+    aliases: [Hermitian半正定値作用素, Hermitian PSD作用素, Hermitian positive semidefinite operator, PSD作用素]
     requires:
       - linear.hermitian-operator
 
   - id: linear.psd-square-root
-    name: Hermitian PSD平方根定理
+    name: Hermitian半正定値平方根定理
     kind: theorem
-    aliases: [Hermitian PSD平方根定理, PSD平方根]
+    aliases: [Hermitian半正定値平方根定理, Hermitian PSD平方根定理, PSD平方根]
     requires:
       - linear.hermitian-psd-operator
       - linear.complex-normal-spectral-theorem
 
   - id: linear.polar-decomposition
-    name: polar decomposition
+    name: 極分解
     kind: theorem
-    aliases: [polar decomposition, 極分解]
+    aliases: [極分解, polar decomposition]
     requires:
       - linear.psd-square-root
       - linear.unitary-operator
@@ -73,17 +73,17 @@ concepts:
       - linear.complex-inner-product
 
   - id: linear.unitary-operator-norm-invariance
-    name: 作用素ノルムのunitary不変性
+    name: 作用素ノルムのユニタリ不変性
     kind: lemma
-    aliases: [作用素ノルムのunitary不変性, unitary invariance of operator norm]
+    aliases: [作用素ノルムのユニタリ不変性, 作用素ノルムのunitary不変性, unitary invariance of operator norm]
     requires:
       - linear.euclidean-operator-norm
       - linear.unitary-operator
 
   - id: linear.rank-invertible-invariance
-    name: 可逆な左右乗算はrankを変えない
+    name: 可逆な左右乗算は階数を変えない
     kind: lemma
-    aliases: [可逆な左右乗算はrankを変えない, rank invariance under invertible multiplication]
+    aliases: [可逆な左右乗算は階数を変えない, 可逆な左右乗算はrankを変えない, rank invariance under invertible multiplication]
     requires:
       - linear.kernel-image
 
