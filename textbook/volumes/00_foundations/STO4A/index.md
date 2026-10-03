@@ -30,21 +30,33 @@ $$
 
 ## 1. Brown 増分のモーメントを計算する
 
-standard Brown motion $B$ について
+standard Brown motion $B$ について、$s<t$ なら
 
 $$
 B_t-B_s\sim N(0,t-s).
 $$
 
-従って $p>0$ に対し
+したがって標準正規変数 $Z\sim N(0,1)$ を使えば、分布の意味で
 
 $$
-E|B_t-B_s|^p
-=
-E|Z|^p\,|t-s|^{p/2},
-\qquad
-Z\sim N(0,1).
+B_t-B_s
+\overset d=
+\sqrt{t-s}\,Z
 $$
+
+と書けます。ここで絶対値の $p$ 乗を取り、期待値を取ると
+
+$$
+\begin{aligned}
+E|B_t-B_s|^p
+&=
+E\left|\sqrt{t-s}\,Z\right|^p\\
+&=
+|t-s|^{p/2}E|Z|^p.
+\end{aligned}
+$$
+
+正規分布は任意の正の次数のモーメントを持つので、$p>0$ に対し $E|Z|^p<\infty$ です。
 
 <a id="prop-sto4a-gaussian-moment"></a>
 
@@ -73,35 +85,47 @@ $$
 
 ## 2. 任意の $\alpha<1/2$ で Hölder
 
-[Kolmogorov--Chentsov continuity theorem](../STO3/index.md#thm-sto3-kolmogorov-chentsov) に
+前節の式は「平均的な増分の大きさ」を与えました。ここから知りたいのは、一本の標本路について全ての近い時刻を同時に比べたとき、どの程度の Hölder 評価が成り立つかです。
+
+[Kolmogorov--Chentsov 連続定理](../STO3/index.md#thm-sto3-kolmogorov-chentsov) は
 
 $$
-E|B_t-B_s|^p
-=
-c_p|t-s|^{p/2}
+E|X_t-X_s|^q
+\le
+C|t-s|^{1+\beta}
 $$
 
-を入れます。
-
-$p>2$ なら
+という形を入力に取ります。Brown 運動では $X=B$、$q=p$ と対応させ、
 
 $$
-\frac p2
-=
-1+\left(\frac p2-1\right).
+1+\beta=\frac p2
 $$
 
-従って同定理から得られる Hölder exponent は
+と読めばよいので
+
+$$
+\beta=\frac p2-1.
+$$
+
+したがって $p>2$ を選べば $\beta>0$ となり、同定理から得られる Hölder exponent は
 
 $$
 \gamma
 <
+\frac{\beta}{p}
+=
 \frac{p/2-1}{p}
 =
 \frac12-\frac1p.
 $$
 
-$p$ をいくらでも大きくできるので $1/2$ 未満の任意の指数まで近づけます。
+いま目標の指数を $0<\alpha<1/2$ と固定すると、
+
+$$
+\alpha<\frac12-\frac1p
+$$
+
+となるよう十分大きい $p$ を選べます。つまり「$p$ を大きくする」という操作が、欲しい $\alpha$ に対して必要なモーメント次数を選ぶ操作になっています。
 
 <a id="thm-sto4a-holder-below-half"></a>
 
@@ -135,11 +159,69 @@ $$
 \alpha<\frac12-\frac1p
 $$
 
-となる $p>2$ を選べます。前節の moment formula と Kolmogorov--Chentsov theorem から、Brown motion のある continuous modification は $\alpha$-Hölder です。
+となる $p>2$ を選びます。Kolmogorov--Chentsov 連続定理では
 
-STO4 で採用している Brownian version はすでに continuous です。[continuous modifications are indistinguishable](../STO3/index.md#prop-sto3-continuous-modifications-indistinguishable) なので、この Hölder 性は既存の continuous Brown 標本路 に移せます。
+$$
+q=p,
+\qquad
+1+\beta=\frac p2,
+\qquad
+\beta=\frac p2-1
+$$
 
-最後に rational な $T>0$ と rational な $\alpha<1/2$ について可算交差を取り、任意の $T,\alpha$ へ単調性で拡張します。
+と対応させるので、
+
+$$
+\alpha<\frac{\beta}{q}
+$$
+
+がちょうど満たされます。したがって Brown 運動には $[0,T]$ 上 $\alpha$-Hölder な連続修正があります。
+
+STO4 で採用している Brownian version はすでに continuous です。[連続な修正は識別不能](../STO3/index.md#prop-sto3-continuous-modifications-indistinguishable) なので、この Hölder 性は既存の連続 Brown 標本路へ移せます。
+
+ここまででは固定した $T,\alpha$ ごとに確率 1 の事象を得ただけなので、「全ての $T,\alpha$」を同時に満たす事象を作ります。整数 $N\ge1$ と有理数
+
+$$
+0<\gamma<\frac12
+$$
+
+の全てについて上の結論を取り、その可算共通部分を $\Omega_0$ とすれば $P(\Omega_0)=1$ です。
+
+任意の実数 $T<\infty$ と $0<\alpha<1/2$ に対し、
+
+$$
+N\ge T,
+\qquad
+\alpha<\gamma<\frac12
+$$
+
+となる整数 $N$ と有理数 $\gamma$ を選びます。$\omega\in\Omega_0$ では $[0,N]$ 上
+
+$$
+|B_t-B_s|
+\le
+C_{\gamma,N}(\omega)|t-s|^\gamma.
+$$
+
+さらに $s,t\in[0,T]$ なら
+
+$$
+|t-s|^\gamma
+=
+|t-s|^\alpha |t-s|^{\gamma-\alpha}
+\le
+N^{\gamma-\alpha}|t-s|^\alpha.
+$$
+
+よって
+
+$$
+C_{\alpha,T}(\omega)
+=
+C_{\gamma,N}(\omega)N^{\gamma-\alpha}
+$$
+
+と置けば、任意の $T,\alpha$ に対する主張が同じ確率 1 の事象上で成り立ちます。
 
 <!-- proof-end -->
 
@@ -178,13 +260,26 @@ $$
 
 $\alpha>1/2$ なので右辺は0へ行きます。
 
-一方 Brown motion では [quadratic variation](../STO5/index.md#thm-sto5-brownian-qv) が
+一方 Brown 運動では、区間 $[a,b]$ の増分だけを見るため
 
 $$
-[B]_b-[B]_a=b-a
+\widetilde B_u
+=
+B_{a+u}-B_a,
+\qquad
+0\le u\le b-a
 $$
 
-です。
+と置くと、定常独立増分性から $\widetilde B$ も standard Brown motion です。上の等分点は $\widetilde B$ に対する $[0,b-a]$ の等分 partition に対応するので、[ブラウン運動の二次変分定理](../STO5/index.md#thm-sto5-brownian-qv) をこの $\widetilde B$ に適用すると
+
+$$
+\sum_{k=0}^{n-1}
+|B_{t_{k+1}}-B_{t_k}|^2
+\longrightarrow
+b-a
+$$
+
+が $L^2$、したがって確率収束で成り立ちます。
 
 <a id="thm-sto4a-no-holder-above-half"></a>
 
@@ -200,18 +295,28 @@ $$
 
 $A$ を「$B$ が $[a,b]$ 上で $\alpha$-Hölder」である事象とします。
 
-上の deterministic estimate から $A$ 上では、等分 partition に沿う quadratic sum $Q_n$ は
+等分点 $t_k=a+k(b-a)/n$ に対し
 
 $$
-Q_n\to0
+Q_n
+=
+\sum_{k=0}^{n-1}
+|B_{t_{k+1}}-B_{t_k}|^2
 $$
 
-です。
-
-一方 STO5 の Brownian [quadratic variation theorem](../STO5/index.md#thm-sto5-local-martingale-qv) から
+と置きます。上の deterministic estimate から、事象 $A$ 上では
 
 $$
-Q_n\to b-a
+Q_n
+\le
+C^2(b-a)^{2\alpha}n^{1-2\alpha}
+\longrightarrow0.
+$$
+
+一方、直前に $\widetilde B_u=B_{a+u}-B_a$ へ [ブラウン運動の二次変分定理](../STO5/index.md#thm-sto5-brownian-qv) を適用したので
+
+$$
+Q_n\longrightarrow b-a
 $$
 
 in probability です。
@@ -281,7 +386,28 @@ Hölder exponent の議論だけでは「一点だけで微分可能」という
 
 ### 証明の見取り図
 
-時刻 $t$ で微分可能なら、その近くでは
+時刻 $t$ で有限な微分係数 $B'_t$ が存在するとします。微分係数の定義から、十分小さい $\delta>0$ では
+
+$$
+\left|
+\frac{B_s-B_t}{s-t}
+-
+B'_t
+\right|
+\le1
+\qquad
+(0<|s-t|<\delta).
+$$
+
+したがって
+
+$$
+|B_s-B_t|
+\le
+(|B'_t|+1)|s-t|.
+$$
+
+$M>|B'_t|+1$ となる整数を一つ取れば、その近くでは
 
 $$
 |B_s-B_t|\le M|s-t|
@@ -507,9 +633,21 @@ $\tau_a<1$ の上で [Brownian strong Markov property](../STO4/index.md#thm-sto4
 
 もし孤立零点 $t\in(0,1)$ があれば、その左側で十分近い rational $a<t$ を取り、$(a,t)$ に零点がないようにできます。そのとき $\tau_a=t$ ですが、$\tau_a$ の直後には零点があるため矛盾します。
 
-0も上の「直後に零点がある」性質で孤立せず、1が零点なら左側について time reversal または同じ argument を逆向きに適用できます。
+0も上の「直後に零点がある」性質で孤立しません。
 
-従って $Z$ は孤立点を持ちません。
+端点 $1$ については、そもそも
+
+$$
+B_1\sim N(0,1)
+$$
+
+が連続分布なので
+
+$$
+P(B_1=0)=0.
+$$
+
+したがって確率 1 で $1\notin Z$ です。以上を合わせると、確率 1 で $Z$ は孤立点を持ちません。
 
 ---
 
@@ -547,9 +685,14 @@ $$
 
 $k\ge1$ とします。
 
-時刻 $kh$ で $B_{kh}=x$ と条件付けると、その後長さ $h$ の間に0へ到達する確率は STO4 の hitting-time law / [reflection principle](../STO4/index.md#thm-sto4-reflection-principle) から
+時刻 $kh$ で $B_{kh}=x$ と条件付けます。Markov 性により、区間 $I_{k,n}$ の中で零点を持つ条件付き確率は「位置 $x$ から時間 $h$ 以内に0へ到達する確率」です。STO4 の hitting-time law / [reflection principle](../STO4/index.md#thm-sto4-reflection-principle) から
 
 $$
+P\!\left(
+I_{k,n}\cap Z\ne\varnothing
+\mid B_{kh}=x
+\right)
+=
 P_x(T_0\le h)
 =
 2\left(
@@ -598,19 +741,50 @@ $$
 
 ---
 
-$B_{kh}/\sqrt h\sim N(0,k)$ なので
+全確率の公式で条件付けを外し、Gaussian tail bound を代入すると
 
 $$
 \begin{aligned}
 P(I_{k,n}\cap Z\ne\varnothing)
+&=
+E\!\left[
+P\!\left(
+I_{k,n}\cap Z\ne\varnothing
+\mid B_{kh}
+\right)
+\right]\\
 &\le
 E\left[
 \exp\left(
 -\frac{B_{kh}^2}{2h}
 \right)
-\right]\\
+\right].
+\end{aligned}
+$$
+
+さらに $B_{kh}/\sqrt h\sim N(0,k)$ なので、標準正規変数 $Z_0$ を使って
+
+$$
+\frac{B_{kh}}{\sqrt h}
+\overset d=
+\sqrt{k}\,Z_0.
+$$
+
+したがって
+
+$$
+\begin{aligned}
+E\left[
+\exp\left(
+-\frac{B_{kh}^2}{2h}
+\right)
+\right]
 &=
 E[e^{-kZ_0^2/2}]\\
+&=
+\frac1{\sqrt{2\pi}}
+\int_{\mathbb R}
+e^{-(k+1)x^2/2}\,dx\\
 &=
 \frac1{\sqrt{1+k}}.
 \end{aligned}
@@ -674,7 +848,19 @@ C
 \infty.
 $$
 
-非負変数なので [Tonelli](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli) により
+全ての $Y_{2^m}$ は非負なので [Tonelli の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli) を級数へ適用でき、
+
+$$
+E\left[
+\sum_{m=1}^{\infty}Y_{2^m}
+\right]
+=
+\sum_{m=1}^{\infty}E[Y_{2^m}]
+<
+\infty.
+$$
+
+非負確率変数が有限な期待値を持てば有限値を取るので
 
 $$
 \sum_{m=1}^{\infty}Y_{2^m}
@@ -683,20 +869,31 @@ $$
 \qquad\text{a.s.}
 $$
 
-従って
+です。従って
 
 $$
 Y_{2^m}\to0
 \qquad\text{a.s.}
 $$
 
-各 $m$ で $Y_{2^m}$ は実際の dyadic cover の $s$-cost なので
+一方、$Z$ と交わる dyadic intervals は直径 $2^{-m}$ の具体的な被覆なので
 
 $$
-\mathcal H^s(Z)=0
+\mathcal H_{2^{-m}}^s(Z)
+\le
+Y_{2^m}.
 $$
 
-です。
+よって右辺を $m\to\infty$ とすれば
+
+$$
+\mathcal H^s(Z)
+=
+\lim_{m\to\infty}
+\mathcal H_{2^{-m}}^s(Z)
+=
+0.
+$$
 
 任意の rational $s>1/2$ について可算交差を取れば
 
@@ -837,21 +1034,41 @@ E|L_t^0-L_s^0|^p
 C'_p|t-s|^{p/2}.
 $$
 
-$p>2$ なら Kolmogorov--Chentsov theorem から任意の
+ここで [Kolmogorov--Chentsov 連続定理](../STO3/index.md#thm-sto3-kolmogorov-chentsov) に入力する量を対応させます。定理のモーメント次数を $q=p$ とし、
+
+$$
+1+\beta=\frac p2
+$$
+
+と置くので
+
+$$
+\beta=\frac p2-1.
+$$
+
+$p>2$ なら $\beta>0$ で、得られる Hölder exponent は
 
 $$
 \alpha
 <
+\frac{\beta}{q}
+=
 \frac{p/2-1}{p}
 =
-\frac12-\frac1p
+\frac12-\frac1p.
 $$
 
-で Hölder continuous version を取れます。
+STO8 の local time はすでに continuous version として構成されているため、[連続な修正は識別不能](../STO3/index.md#prop-sto3-continuous-modifications-indistinguishable) を使って、この Hölder 性を同じ local-time version へ移せます。
 
-STO8 の local time はすでに continuous version として構成されているため continuous-modification uniqueness により同じ version にこの regularity を移せます。
+最後に有理数 $0<\gamma<1/2$ について可算共通部分を取り、任意の実数 $0<\alpha<1/2$ に対して $\alpha<\gamma<1/2$ となる有理数 $\gamma$ を選びます。$[0,1]$ では
 
-$p$ を大きくすれば任意の $\alpha<1/2$ を得ます。
+$$
+|t-s|^\gamma
+\le
+|t-s|^\alpha
+$$
+
+なので、$\gamma$-Hölder 評価はそのまま $\alpha$-Hölder 評価を与えます。これで全ての $\alpha<1/2$ を同じ確率 1 の事象上で扱えます。
 <!-- proof-end -->
 
 ---
@@ -909,13 +1126,39 @@ L_t^0-L_s^0
 C_\alpha|t-s|^\alpha.
 $$
 
-任意の集合 $U\subset[0,1]$ は長さ $\operatorname{diam}U$ の区間に含まれるため、$\mu_L^*$ を Stieltjes measure $\mu_L$ から作る外測度とすると
+任意の非空集合 $U\subset[0,1]$ を取り、
 
 $$
-\mu_L^*(U)
-\le
-C_\alpha(\operatorname{diam}U)^\alpha.
+a=\inf U,
+\qquad
+b=\sup U
 $$
+
+と置きます。すると
+
+$$
+U\subset[a,b],
+\qquad
+b-a=\operatorname{diam}U.
+$$
+
+$\mu_L^*$ を Stieltjes measure $\mu_L$ から作る外測度とすると、外測度の単調性と $L^0$ の連続性から
+
+$$
+\begin{aligned}
+\mu_L^*(U)
+&\le
+\mu_L([a,b])\\
+&=
+L_b^0-L_a^0\\
+&\le
+C_\alpha|b-a|^\alpha\\
+&=
+C_\alpha(\operatorname{diam}U)^\alpha.
+\end{aligned}
+$$
+
+$U=\varnothing$ では左辺が0なので同じ評価は自明です。
 
 <a id="thm-sto4a-zero-dim-lower"></a>
 
@@ -933,9 +1176,11 @@ $$
 
 固定した rational $\alpha<1/2$ を取ります。
 
-$\mu_L$ は $Z$ に集中し、
+前節で $Z$ は閉集合と示したので Borel 集合です。$\mu_L$ は有限 Borel 測度で、
 
 $$
+\mu_L([0,1]\setminus Z)=0,
+\qquad
 \mu_L(Z)
 =
 L_1^0
@@ -945,7 +1190,7 @@ $$
 
 a.s. です。
 
-また temporal Hölder estimate から
+また temporal Hölder estimate から、全ての $U\subset[0,1]$ について
 
 $$
 \mu_L^*(U)
@@ -953,9 +1198,21 @@ $$
 C_\alpha(\operatorname{diam}U)^\alpha
 $$
 
-が全ての $U\subset[0,1]$ について成り立ちます。
+が成り立ちます。したがって MT8 の [質量分布原理](../MT8/index.md#thm-mt8-mass-principle) で
 
-従って MT8 の [質量分布原理](../MT8/index.md#thm-mt8-mass-principle) を適用して
+$$
+E=Z,
+\qquad
+\mu=\mu_L,
+\qquad
+s=\alpha,
+\qquad
+C=C_\alpha,
+\qquad
+\delta_0=1
+$$
+
+と対応させられます。よって
 
 $$
 \mathcal H^\alpha(Z)
