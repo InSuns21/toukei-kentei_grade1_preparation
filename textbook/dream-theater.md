@@ -56,7 +56,7 @@
 
 1. [F0-00A1 上限・下限・supremum・infimum](textbook/volumes/00_foundations/F0_00A1_上界_下界_supremum_infimum/index.md)
 2. [F0-00A1B 実数の上限性質・Archimedes 性](textbook/volumes/00_foundations/F0_00A1B_実数の上限性質_Archimedes性/index.md)
-3. [F0-00B0 点列・部分列・十分大きい添字](textbook/volumes/00_foundations/F0_00B0_点列_部分列_十分大きい添字/index.md)
+3. [F0-00B0 数列・点列・部分列・十分大きい添字](textbook/volumes/00_foundations/F0_00B0_点列_部分列_十分大きい添字/index.md)
 4. [RA1 数列・級数](textbook/volumes/00_foundations/RA1/index.md)
 5. [RA1A 数値級数の収束論](textbook/volumes/00_foundations/RA1A/index.md)
 6. [RA2 極限・連続・一様連続](textbook/volumes/00_foundations/RA2/index.md)

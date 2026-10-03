@@ -14,7 +14,7 @@ concepts:
     kind: definition
     aliases: [実数列の収束, epsilon-N convergence]
     requires:
-      - topology.sequence
+      - analysis.real-sequence
       - logic.eventually
 
   - id: analysis.real-sequence-limit-uniqueness
@@ -29,7 +29,7 @@ concepts:
     kind: definition
     aliases: [実数列の Cauchy 条件, 実数 Cauchy 列]
     requires:
-      - topology.sequence
+      - analysis.real-sequence
 
   - id: analysis.monotone-convergence-sequence
     name: 有界単調数列の収束定理
@@ -49,7 +49,7 @@ concepts:
     name: 上極限・下極限
     kind: definition
     aliases: [上極限, 下極限, limsup, liminf]
-    requires: [order.supremum, order.infimum, topology.sequence]
+    requires: [order.supremum, order.infimum, analysis.real-sequence]
   - id: analysis.limsup-convergence-criterion
     name: limsup・liminfによる収束判定
     kind: theorem
