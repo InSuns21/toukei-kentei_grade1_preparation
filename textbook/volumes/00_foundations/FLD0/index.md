@@ -497,7 +497,7 @@ $$
 \dim_FV
 $$
 >
-> と書く。一般の体上の Steinitz の交換補題により、この本数は選んだ基底によらない。
+> と書く。直前に証明した[一般体版の交換定理](#thm-fld0-steinitz-basis-extension-over-field)により、この本数は選んだ基底によらない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fld0-dimension-over-field -->
