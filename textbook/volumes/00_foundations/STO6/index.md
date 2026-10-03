@@ -1002,7 +1002,7 @@ $$
 
 ゆえに subsequence はほとんど確実に sup 距離で Cauchy で、continuous limit $I$ を持ちます。
 
-元の列全体も同じ $I$ へ収束することを確認します。固定した $n$ について、subsequence のほとんど確実な sup 収束と Fatou の補題から
+元の列全体も同じ $I$ へ収束することを確認します。固定した $n$ について、subsequence のほとんど確実な sup 収束と [Fatou の補題](../F0_00D2B_単調収束_Fatou_優収束/index.md#lem-f0-00d2b-01)から
 
 $$
 E\sup_{t\le T}|I_t^{(n)}-I_t|^2
@@ -1267,7 +1267,7 @@ E\sup_{t\le T}|A_t^{(n)}-A_t|
 \to0.
 $$
 
-各固定時刻で $I_t^{(n)}\to I_t$ in $L^2$ なので、Cauchy--Schwarz の不等式から
+各固定時刻で $I_t^{(n)}\to I_t$ in $L^2$ なので、[Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)を指数 $2,2$ で使うと
 
 $$
 \begin{aligned}
@@ -2445,7 +2445,7 @@ $$
 
 ゆえにほとんど確実にこの級数は有限で、subsequence は sup 距離で収束します。各 $I^{(n_j)}$ は continuous なので極限 $I$ も continuous です。
 
-元の列全体も $I$ へ収束します。固定した $n$ について Fatou の補題を使うと
+元の列全体も $I$ へ収束します。固定した $n$ について [Fatou の補題](../F0_00D2B_単調収束_Fatou_優収束/index.md#lem-f0-00d2b-01)を使うと
 
 $$
 E\sup_{t\le T}|I_t^{(n)}-I_t|^2
