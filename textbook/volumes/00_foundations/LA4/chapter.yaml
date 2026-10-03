@@ -24,7 +24,7 @@ theorems:
   - { id: LA4-THM-02, name: 最小多項式による対角化判定 }
   - { id: LA4-THM-03, name: 一般化固有空間分解 }
   - { id: LA4-THM-04, name: Jordan 標準形定理 }
-canonical_examples: [2x2 Jordan block, 冪零作用素, 対角化不能行列, 重複固有値を持つ行列]
+canonical_examples: [2x2 Jordan ブロック, 冪零作用素, 対角化不能行列, 重複固有値を持つ行列]
 problem_patterns: [LA4-MINPOLY-1, LA4-GENERALIZED-EIGEN-1, LA4-JORDAN-1]
 past_exam_alignment: []
 integrated_exam_problems: []
