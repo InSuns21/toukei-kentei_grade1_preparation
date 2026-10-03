@@ -49,6 +49,14 @@ concepts:
     requires:
       - linear.linear-subspace
 
+  - id: linear.span-minimality
+    name: 線形包の最小性
+    kind: proposition
+    aliases: [線形包の最小性]
+    requires:
+      - linear.linear-combination-span
+      - linear.linear-subspace
+
   - id: linear.linear-independence
     name: 一次独立・一次従属
     kind: definition
@@ -72,6 +80,14 @@ concepts:
     requires:
       - linear.basis
 
+  - id: linear.basis-expansion-uniqueness
+    name: 基底展開の存在と一意性
+    kind: proposition
+    aliases: [基底展開の存在と一意性]
+    requires:
+      - linear.basis
+      - linear.linear-independence
+
   - id: linear.steinitz-exchange-lemma
     name: Steinitzの交換補題
     kind: lemma
@@ -80,6 +96,23 @@ concepts:
       - linear.linear-combination-span
       - linear.linear-independence
 
+  - id: linear.finite-spanning-basis
+    name: 有限生成空間から基底を取り出せる
+    kind: proposition
+    aliases: [有限生成空間から基底を取り出せる]
+    requires:
+      - linear.linear-combination-span
+      - linear.linear-independence
+
+  - id: linear.basis-cardinality-invariance
+    name: 有限次元で基底の本数は一定
+    kind: theorem
+    aliases: [有限次元で基底の本数は一定]
+    requires:
+      - linear.basis
+      - linear.steinitz-exchange-lemma
+      - linear.finite-spanning-basis
+
   - id: linear.dimension
     name: 線形空間の次元
     kind: definition
@@ -87,6 +120,15 @@ concepts:
     introduction_aliases: [定義（次元）]
     requires:
       - linear.basis
+      - linear.steinitz-exchange-lemma
+
+  - id: linear.subspace-finite-dimensional
+    name: 有限次元空間の部分空間も有限次元
+    kind: proposition
+    aliases: [有限次元空間の部分空間も有限次元]
+    requires:
+      - linear.dimension
+      - linear.linear-subspace
       - linear.steinitz-exchange-lemma
 
   - id: linear.basis-extension-theorem
@@ -113,3 +155,21 @@ concepts:
     aliases: [線形部分空間の和・直和, linear direct sum]
     requires:
       - linear.linear-subspace
+
+  - id: linear.dimension-sum-theorem
+    name: 部分空間の和の次元公式
+    kind: theorem
+    aliases: [部分空間の和の次元公式]
+    requires:
+      - linear.sum-direct-sum
+      - linear.dimension
+      - linear.basis-extension-theorem
+      - linear.subspace-finite-dimensional
+
+  - id: linear.coordinate-isomorphism
+    name: 座標写像は線形同型
+    kind: theorem
+    aliases: [座標写像は線形同型]
+    requires:
+      - linear.coordinate-vector
+      - linear.basis-expansion-uniqueness
