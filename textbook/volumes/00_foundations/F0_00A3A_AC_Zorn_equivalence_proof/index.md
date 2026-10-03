@@ -1,4 +1,4 @@
-# F0-00A3A 選択公理と Zorn の補題の同値性
+# F0-00A3A 選択公理とZornの補題の同値性
 
 [F0-00A2](../F0_00A2_選択公理_Zorn_極大原理/index.md) では、非空集合族から一斉に元を選ぶ選択公理を学びました。[F0-00A3](../F0_00A3_半順序_Zorn_極大延長/index.md#thm-zorn) では、鎖ごとに上界を作れる半順序集合から極大元を得る Zorn の補題を学びました。
 
@@ -307,7 +307,7 @@ $$
 
 も集合です。
 
-各 $\beta\in\mathcal O$ の後者 $\beta+1$ を取り、その上限を
+各 $\beta\in\mathcal O$ の後者 $\beta+1$ を取り、それらを全て含む順序数を和集合で
 
 $$
 \alpha
@@ -673,7 +673,7 @@ $$
 <a id="thm-f0-00a3a-ac-zorn-equivalence"></a>
 
 <!-- formal-statement-start -->
-> **定理（選択公理と Zorn の補題の同値性）**  
+> **定理（選択公理とZornの補題の同値性）**  
 > ZF を仮定する。このとき、選択公理と Zorn の補題は同値である。
 <!-- formal-statement-end -->
 
