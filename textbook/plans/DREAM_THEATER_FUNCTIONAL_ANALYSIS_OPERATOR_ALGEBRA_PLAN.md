@@ -12,18 +12,18 @@
 3. 作用素環論 I
 4. 作用素環論 II
 
-へ整理し、既存の関数解析系列を保ったまま \(C^*\)-環・Gelfand 理論・GNS 構成・von Neumann 環へ自然に接続するための設計台帳である。
+へ整理し、既存の関数解析系列を保ったまま $C^*$-環・Gelfand 理論・GNS 構成・von Neumann 環へ自然に接続するための設計台帳である。
 
 中心となる通読像は次とする。
 
-\[
+$$
 \begin{array}{ll}
 \text{関数解析 I} & \text{ノルム空間・Banach/Hilbert 空間・Hahn--Banach・Banach 空間の基本定理}\\
 \text{関数解析 II} & \text{弱位相・双対性・スペクトル・コンパクト作用素・Fredholm 理論}\\
 \text{作用素環論 I} & \text{Banach 環・}C^*\text{-環・Gelfand 理論・関数計算・GNS}\\
 \text{作用素環論 II} & \text{von Neumann 環・二重可換子・predual・正規汎関数・factor}
 \end{array}
-\]
+$$
 
 「I / II」は難易度の格付けではなく、**同一分野を内容上の自然な切れ目で分ける名称**とする。
 
@@ -141,7 +141,7 @@ F0-02C6A の分離定理・Minkowski 汎関数・Farkas は、関数解析 I の
 
 科目名案:
 
-> **作用素環論 I：Banach 環・\(C^*\)-環・Gelfand 理論**
+> **作用素環論 I：Banach 環・$C^*$-環・Gelfand 理論**
 
 #### 中心問い
 
@@ -164,12 +164,12 @@ F0-02C6A の分離定理・Minkowski 汎関数・Farkas は、関数解析 I の
 - 可逆元
 - 可逆元全体の開性
 - Neumann 級数
-- 元 \(a\) のスペクトル \(\sigma(a)\)
+- 元 $a$ のスペクトル $\sigma(a)$
 - スペクトル半径
 - 閉部分代数
 - イデアルと商 Banach 環の入口
 
-FA5 の作用素スペクトル論を「\(B(X)\) という Banach 環の一例」として抽象化する。
+FA5 の作用素スペクトル論を「$B(X)$ という Banach 環の一例」として抽象化する。
 
 FA5 と同じ証明を重複実装せず、既存 result を一般 Banach 環へ持ち上げる箇所と、新たに必要な証明を区別する。
 
@@ -183,32 +183,32 @@ FA5 と同じ証明を重複実装せず、既存 result を一般 Banach 環へ
 - Gelfand 位相
 - Gelfand 変換
 - 可換 Banach 環のスペクトルと character
-- 基本例 \(C(K)\)
+- 基本例 $C(K)$
 
 ここでは「固有値を持たない作用素でもスペクトルがある」という FA5 の問題意識から、
 
-\[
+$$
 a \longmapsto \widehat a(\varphi)=\varphi(a)
-\]
+$$
 
 へ進む動機を通常文と具体例で先に示す。
 
-##### OA3 \(C^*\)-環の基本構造
+##### OA3 $C^*$-環の基本構造
 
 扱う内容:
 
 - *-代数
-- \(C^*\)-環
-- \(C^*\)-恒等式
+- $C^*$-環
+- $C^*$-恒等式
 - 自己共役元
 - 正元
 - unitary / projection
 - *-準同型
 - *-準同型の基本的ノルム性
 - 正元の平方根
-- \(a^*a\) とノルム
+- $a^*a$ とノルム
 
-行列環 \(M_n(\mathbb C)\)、\(B(H)\)、\(C(K)\) を最小例として並行して使う。
+行列環 $M_n(\mathbb C)$、$B(H)$、$C(K)$ を最小例として並行して使う。
 
 ##### OA4 連続関数計算と可換 Gelfand--Naimark
 
@@ -216,15 +216,15 @@ a \longmapsto \widehat a(\varphi)=\varphi(a)
 
 - 自己共役元・正規元の連続関数計算
 - スペクトル写像
-- \(C^*(a,1)\)
-- 可換 \(C^*\)-環の Gelfand--Naimark 定理
-- \(C(K)\) との同型
+- $C^*(a,1)$
+- 可換 $C^*$-環の Gelfand--Naimark 定理
+- $C(K)$ との同型
 
-抽象的な「関数計算」を、まず多項式 \(p(a)\) から始め、
+抽象的な「関数計算」を、まず多項式 $p(a)$ から始め、
 
-\[
+$$
 p \to f\in C(\sigma(a))
-\]
+$$
 
 へ近似で拡張する流れを追えるようにする。
 
@@ -243,9 +243,9 @@ p \to f\in C(\sigma(a))
 
 GNS は公式だけで済ませず、
 
-\[
+$$
 \langle a,b\rangle_\varphi=\varphi(b^*a)
-\]
+$$
 
 が一般には半内積でしかない理由、null space を割る理由、左乗法が商へ降りる理由、有界作用素になる理由を段階的に証明する。
 
@@ -253,7 +253,7 @@ GNS は公式だけで済ませず、
 
 扱う内容:
 
-- \(C^*(T,I)\) と連続関数計算
+- $C^*(T,I)$ と連続関数計算
 - Riesz--Markov 表現との接続
 - spectral measure
 - projection-valued measure
@@ -263,9 +263,9 @@ GNS は公式だけで済ませず、
 
 目標は
 
-\[
+$$
 T=\int_{\sigma(T)}\lambda\,dE(\lambda)
-\]
+$$
 
 を記号として置くだけでなく、有限次元の対角化および FA7 のコンパクト自己共役作用素の固有値展開から、なぜ「固有値の和」を「射影値測度による積分」へ置き換えるのかを読者が理解できるようにすること。
 
@@ -295,13 +295,13 @@ T=\int_{\sigma(T)}\lambda\,dE(\lambda)
 
 #### 中心問い
 
-> \(C^*\)-環を Hilbert 空間上に表現したとき、ノルム閉性ではなく「作用素がベクトルにどう作用するか」という弱い収束で閉じると、どのような新しい構造が現れるか。
+> $C^*$-環を Hilbert 空間上に表現したとき、ノルム閉性ではなく「作用素がベクトルにどう作用するか」という弱い収束で閉じると、どのような新しい構造が現れるか。
 
 #### 新規章案
 
 以下では仮に VN1 以降を用いる。
 
-##### VN1 \(B(H)\) の作用素位相
+##### VN1 $B(H)$ の作用素位相
 
 扱う内容:
 
@@ -313,14 +313,14 @@ T=\int_{\sigma(T)}\lambda\,dE(\lambda)
 - adjoint と各位相
 - 具体的な射影列・shift の例
 
-FA3 の Banach 空間上の弱位相と、\(B(H)\) 上の WOT を混同しないように、評価対象を明示する。
+FA3 の Banach 空間上の弱位相と、$B(H)$ 上の WOT を混同しないように、評価対象を明示する。
 
 ##### VN2 可換子・二重可換子・von Neumann 環
 
 扱う内容:
 
-- commutant \(S'\)
-- bicommutant \(S''\)
+- commutant $S'$
+- bicommutant $S''$
 - von Neumann 環
 - *-部分代数
 - WOT / SOT 閉包
@@ -328,19 +328,19 @@ FA3 の Banach 空間上の弱位相と、\(B(H)\) 上の WOT を混同しない
 
 中心定理:
 
-\[
+$$
 M=M''
-\]
+$$
 
 と、単位を含む *-部分代数について
 
-\[
+$$
 \overline M^{\mathrm{SOT}}
 =
 \overline M^{\mathrm{WOT}}
 =
 M''
-\]
+$$
 
 を結ぶ。
 
@@ -366,10 +366,10 @@ M''
 - 有限ランク作用素
 - trace class
 - trace
-- \(B(H)_*\)
-- \(B(H)\) と trace class の双対関係
-- ultraweak / \(\sigma\)-weak 位相
-- predual を持つ \(C^*\)-環としての von Neumann 環
+- $B(H)_*$
+- $B(H)$ と trace class の双対関係
+- ultraweak / $\sigma$-weak 位相
+- predual を持つ $C^*$-環としての von Neumann 環
 
 必要なら Schatten class のうち trace class と Hilbert--Schmidt class をこの章のために局所導入する。ただし独立した Schatten class 系列を将来作る場合は canonical owner を移す。
 
@@ -382,28 +382,28 @@ M''
 - ultraweak 連続性
 - 単調増加する射影族との関係
 - faithful / semifinite trace の入口
-- \(B(H)\) 上の密度作用素による normal state
+- $B(H)$ 上の密度作用素による normal state
 
 量子力学的な「密度行列」は動機例には使えるが、本科目を量子力学教材にはしない。
 
-##### VN6 可換 von Neumann 環と \(L^\infty\)
+##### VN6 可換 von Neumann 環と $L^\infty$
 
 扱う内容:
 
 - multiplication operator
-- \(L^\infty(X,\mu)\)
+- $L^\infty(X,\mu)$
 - 可換 von Neumann 環
 - measure algebra との対応への入口
-- \(C(K)\) と \(L^\infty\) の違い
-- \(C^*\)-環と von Neumann 環の「閉包の違い」の具体化
+- $C(K)$ と $L^\infty$ の違い
+- $C^*$-環と von Neumann 環の「閉包の違い」の具体化
 
 ここで
 
-\[
+$$
 C(K)
 \quad\text{と}\quad
 L^\infty(X,\mu)
-\]
+$$
 
 を比較し、作用素環論 I / II の違いを具体的に見せる。
 
@@ -413,11 +413,11 @@ L^\infty(X,\mu)
 
 - center
 - factor
-- \(B(H)\) が factor になること
+- $B(H)$ が factor になること
 - Murray--von Neumann equivalence of projections
 - finite / infinite projection
 - type I / II / III の定義へ至る基本構造
-- type \(I_n\), \(I_\infty\) の具体例
+- type $I_n$, $I_\infty$ の具体例
 - II / III 型が必要になる理由の概観
 
 この章では分類理論を「I / II / III という名前を紹介して終わり」にしない一方、Tomita--Takesaki 理論まで逆輸入しない。
@@ -426,12 +426,12 @@ L^\infty(X,\mu)
 
 読者が少なくとも次を説明できることを完成条件とする。
 
-- \(C^*\)-環と von Neumann 環の違い
+- $C^*$-環と von Neumann 環の違い
 - WOT / SOT / ultraweak 位相の役割
 - 二重可換子定理
 - predual を持つことの意味
 - normal state の意味
-- \(B(H)\) と \(L^\infty\) が代表的 von Neumann 環であること
+- $B(H)$ と $L^\infty$ が代表的 von Neumann 環であること
 - factor の定義と center の役割
 - type I / II / III 分類で何を分類しようとしているか
 
@@ -443,11 +443,11 @@ L^\infty(X,\mu)
 
 - 非有界自己共役作用素の完全なスペクトル理論
 - Stone の定理
-- \(C_0\)-半群と Hille--Yosida 理論
+- $C_0$-半群と Hille--Yosida 理論
 - closed / closable operator の体系
 - unbounded operator の functional calculus
 - affiliated operator
-- noncommutative \(L^p\) 空間
+- noncommutative $L^p$ 空間
 - weights
 - modular automorphism group
 - Tomita--Takesaki 理論
@@ -455,7 +455,7 @@ L^\infty(X,\mu)
 - Connes の III 型 factor 分類
 - K-theory
 - KK-theory
-- \(C^*\)-環の nuclearity / exactness
+- $C^*$-環の nuclearity / exactness
 - subfactor theory
 
 これらは将来、必要に応じて
@@ -541,7 +541,7 @@ GNS 構成は作用素環論 I の canonical owner とする。
 ### 4.3 測度論との境界
 
 - Radon 測度・Riesz--Markov は既存測度論を参照する。
-- \(L^\infty\) は既存 \(L^p\) 系列との整合を取る。
+- $L^\infty$ は既存 $L^p$ 系列との整合を取る。
 - 「本質的上限」「a.e. 同値類」を未定義で使わない。
 - spectral measure は通常のスカラー測度と何が同じで何が違うかを説明する。
 
@@ -562,27 +562,27 @@ GNS 構成は作用素環論 I の canonical owner とする。
 
 ことを確認し、
 
-> FA5 では一つの作用素 \(T\) のスペクトルを調べた。  
-> しかし実際には \(T\), \(T^2\), \(p(T)\), \((\lambda I-T)^{-1}\) を同じ空間の中で何度も扱っている。  
+> FA5 では一つの作用素 $T$ のスペクトルを調べた。  
+> しかし実際には $T$, $T^2$, $p(T)$, $(\lambda I-T)^{-1}$ を同じ空間の中で何度も扱っている。  
 > これらをまとめて扱う器が Banach 環である。
 
 という導線を置く。
 
-### 5.2 \(C^*\)-環
+### 5.2 $C^*$-環
 
 「Banach 環に星印を付けたもの」と定義して終わらせない。
 
 行列で
 
-\[
+$$
 A^*A
-\]
+$$
 
 が正定値性・ノルム・特異値と関係していたことを思い出し、Hilbert 空間上の随伴を使うと
 
-\[
+$$
 \|T^*T\|=\|T\|^2
-\]
+$$
 
 が成り立つことから抽象化する。
 
@@ -590,9 +590,9 @@ A^*A
 
 いきなり
 
-\[
+$$
 M=M''
-\]
+$$
 
 を定義として置かない。
 
@@ -618,32 +618,32 @@ M=M''
 
 ### 行列環
 
-\[
+$$
 M_n(\mathbb C)
-\]
+$$
 
-- 最初の \(C^*\)-環
+- 最初の $C^*$-環
 - 有限次元 von Neumann 環
 - projection / unitary / positive element / state の数値例
 - factor の最初の例
 
 ### 連続関数
 
-\[
+$$
 C(K)
-\]
+$$
 
-- 可換 \(C^*\)-環
+- 可換 $C^*$-環
 - Gelfand 理論の基準例
 - spectrum と関数の値域
 
 ### 有界作用素
 
-\[
+$$
 B(H)
-\]
+$$
 
-- 非可換 \(C^*\)-環
+- 非可換 $C^*$-環
 - von Neumann 環
 - commutant
 - predual
@@ -651,19 +651,19 @@ B(H)
 
 ### 本質的有界関数
 
-\[
+$$
 L^\infty(X,\mu)
-\]
+$$
 
 - 可換 von Neumann 環
 - multiplication operator
-- \(C(K)\) との比較
+- $C(K)$ との比較
 
 ### 対角作用素
 
-\[
+$$
 T(x_n)=(\lambda_nx_n)
-\]
+$$
 
 - FA6 / FA7 のコンパクト作用素
 - 非コンパクトな有界正規作用素
@@ -690,8 +690,8 @@ T(x_n)=(\lambda_nx_n)
 
 例:
 
-- \(M_2(\mathbb C)\) で正元を判定する
-- \(C([0,1])\) の元のスペクトルを求める
+- $M_2(\mathbb C)$ で正元を判定する
+- $C([0,1])$ の元のスペクトルを求める
 - 与えた作用素列の SOT / WOT 収束を確認する
 - commutant を小さな行列例で計算する
 
@@ -704,7 +704,7 @@ T(x_n)=(\lambda_nx_n)
 - Gelfand 変換の具体計算
 - 正汎関数から GNS 空間を有限次元例で構成
 - multiplication operator の spectral projection を求める
-- \(B(H)\) の rank-one operators の commutant から二重可換子を考える
+- $B(H)$ の rank-one operators の commutant から二重可換子を考える
 
 ### Level C
 
@@ -712,7 +712,7 @@ T(x_n)=(\lambda_nx_n)
 
 例:
 
-- 可換 \(C^*\)-環の関数計算を一連の導出で使う
+- 可換 $C^*$-環の関数計算を一連の導出で使う
 - GNS 構成の well-defined 性を証明する
 - 二重可換子定理の核心補題を再証明する
 - trace class と normal functional の対応を導く
@@ -794,7 +794,7 @@ plan 段階では未実装パスを index に入れない。
 
 - OA1 Banach 環
 - OA2 Gelfand 理論
-- OA3 \(C^*\)-環
+- OA3 $C^*$-環
 - OA4 連続関数計算・可換 Gelfand--Naimark
 - OA5 状態・GNS
 - OA6 一般スペクトル定理
@@ -830,7 +830,7 @@ OA1--OA6 の詳細IDは開始時に確定する。
 
 を横断確認する。
 
-「\(C^*\)-環」「von Neumann 環」「弱作用素位相」「弱*位相」などの matcher / alias が互いを誤認しないことも監査する。
+「$C^*$-環」「von Neumann 環」「弱作用素位相」「弱*位相」などの matcher / alias が互いを誤認しないことも監査する。
 
 ---
 
@@ -867,14 +867,14 @@ knowledge.yaml、全体 concept registry、依存監査ロジックを変更し�
 少なくとも次を満たしたときに完成とする。
 
 1. 関数解析 I / II の責務が明確で、既存 FA1--FA7 の内容が自然に配置されている。
-2. Banach 環から \(C^*\)-環への導入が具体例から追える。
-3. Gelfand 理論を使って可換 \(C^*\)-環を関数環として理解できる。
+2. Banach 環から $C^*$-環への導入が具体例から追える。
+3. Gelfand 理論を使って可換 $C^*$-環を関数環として理解できる。
 4. GNS 構成を商空間・完備化・表現まで自力で追える。
 5. FA7 のコンパクト自己共役スペクトル定理から、一般有界自己共役・正規作用素の spectral measure 版へ橋が架かっている。
 6. SOT / WOT が FA3 の弱位相・弱*位相と明確に区別されている。
 7. 二重可換子定理の意味と核心証明を追える。
 8. predual と normal functional の関係を説明できる。
-9. \(M_n(\mathbb C)\)、\(C(K)\)、\(B(H)\)、\(L^\infty(X,\mu)\) の4例を通して各概念を検証できる。
+9. $M_n(\mathbb C)$、$C(K)$、$B(H)$、$L^\infty(X,\mu)$ の4例を通して各概念を検証できる。
 10. factor と type I / II / III 分類が「名前だけの紹介」にならず、center・projection の構造から動機を説明できる。
 11. 既存 PDE・確率解析等へ不要な prerequisite を追加していない。
 12. 全変更章が DREAM THEATER の導入・証明・例・演習・詳細解答の規約を満たす。
