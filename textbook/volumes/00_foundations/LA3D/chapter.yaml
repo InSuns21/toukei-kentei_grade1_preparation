@@ -1,5 +1,5 @@
 id: "LA3D"
-title: "交代多重線形形式・抽象行列式（発展分岐）"
+title: "交代多重線形形式・抽象行列式"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -22,6 +22,5 @@ canonical_examples: [平面の面積形式, 最高次交代形式の座標展開
 problem_patterns: [LA3D-TOP-FORM-1, LA3D-ABSTRACT-DET-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 2, level_b: 2, level_c: 0, level_d: 0 }
-dream_theater_exercise_count_exception: "旧LA3の過密解消を目的に分割した小章のため。本文理解を確認する代表演習に絞り、通常のA/B/C最低数を機械的に水増ししない。"
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 1.25, exercises: 0.75, review: 0.25 }
