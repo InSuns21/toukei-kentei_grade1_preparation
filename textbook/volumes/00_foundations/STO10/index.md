@@ -1401,7 +1401,7 @@ u^\top[W^Q]_tu
 |u|^2t.
 $$
 
-$u\ne0$ なら $L^u/|u|$ は連続 $Q$-局所マルチンゲールで二次変分が $t$ なので、[STO5 の 1 次元 Lévy の特徴付け定理](../STO5/index.md#thm-sto5-levy-characterization)から $Q$-ブラウン運動です。したがって全ての $0\le s<t$ について
+$u\ne0$ なら $L^u/|u|$ は連続 $Q$-局所マルチンゲールで二次変分が $t$ なので、[Levy characterization](../STO5/index.md#thm-sto5-levy-characterization)から $Q$-ブラウン運動です。したがって全ての $0\le s<t$ について
 
 $$
 E_Q\left[
@@ -1523,7 +1523,7 @@ u_i u_j
 |u|^2t.
 $$
 
-$u\ne0$ なら $L^u/|u|$ に [STO5 の 1 次元 Lévy の特徴付け定理](../STO5/index.md#thm-sto5-levy-characterization) を適用でき、これは $Q$-ブラウン運動です。したがって
+$u\ne0$ なら $L^u/|u|$ に [Levy characterization](../STO5/index.md#thm-sto5-levy-characterization) を適用でき、これは $Q$-ブラウン運動です。したがって
 
 $$
 E_Q\left[
