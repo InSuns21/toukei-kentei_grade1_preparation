@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00A1C
+  - SET-U2
 official_scope: []
 learning_objectives:
   - 実数列を自然数から実数への写像として定義し、実解析では数列が主役になることを説明できる
