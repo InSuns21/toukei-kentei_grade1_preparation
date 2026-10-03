@@ -1037,7 +1037,7 @@ a\sum_k\Delta_kM\,\Delta_kL
 b\sum_k\Delta_kN\,\Delta_kL.
 $$
 
-三つの cross sum はそれぞれ ucp 収束するので、極限の一意性から
+三つの cross sum はそれぞれ ucp 収束するので、[距離空間における極限の一意性](../F0_00B_距離空間_開集合_閉集合_収束/index.md#prop-f0-00b-01)から
 
 $$
 [aM+bN,L]
