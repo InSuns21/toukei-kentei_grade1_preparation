@@ -255,7 +255,7 @@ W=\{(x,y,z):x+2y-z=0\}
 $$
 を考えます。$W$ の全てのベクトルに対して0を返す線形形式は、$W$ を「方程式側」から記述しています。
 
-<a id="def-la3a-零化空間"></a>
+<a id="def-la3a-annihilator"></a>
 <!-- formal-statement-start -->
 > **定義（零化空間）**  
 > 部分空間 $W\subset V$ に対して
@@ -265,7 +265,7 @@ $$
 > を $W$ の **零化空間（annihilator）** という。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-la3a-零化空間 -->
+<!-- definition-example-start: def-la3a-annihilator -->
 **定義の確認**：$W=\operatorname{span}(e_1,e_2)\subset\mathbb R^3$ とします。標準双対基底 $e^1,e^2,e^3$ を使うと、一般の線形形式は
 
 $
@@ -288,7 +288,7 @@ $
 
 $W$ を消す線形形式が何個独立にあるかは、「$W$ の基底を $V$ の基底まで延長したとき、追加した方向が何個あるか」で数えられます。双対基底を使うと、その対応がそのまま式になります。
 
-<a id="thm-la3a-零化空間-dimension"></a>
+<a id="thm-la3a-annihilator-dimension"></a>
 <!-- formal-statement-start -->
 > **定理（零化空間の次元公式）**  
 > $V$ を有限次元、$W\subset V$ を部分空間とすると
@@ -335,7 +335,7 @@ $$
 
 商空間 $V/W$ では $v$ と $v+w$（$w\in W$）を同じ点とみなします。したがって $V/W$ 上の線形形式を $V$ へ戻すと、$W$ の方向は必ず0にならなければなりません。
 
-<a id="thm-la3a-quotient-dual-零化空間"></a>
+<a id="thm-la3a-quotient-dual-annihilator"></a>
 <!-- formal-statement-start -->
 > **定理（商空間の双対と零化空間）**  
 > $V$ をベクトル空間、$W\subset V$ を部分空間とし、$q:V\to V/W$, $q(v)=v+W$ を標準射影とする。このとき
@@ -563,6 +563,8 @@ $$
 
 $v\in V$ を固定すると、任意の線形形式 $\varphi\in V^*$ に対して値 $\varphi(v)$ を返すことができます。つまり $v$ 自身が $V^*$ 上の線形形式を作ります。
 
+ここで作る写像は、基底を選んで $V$ と $V^{**}$ を対応させるものではありません。各ベクトル $v$ に、「線形形式 $\varphi$ を入力すると $\varphi(v)$ を返す線形形式」を対応させます。証明では、この評価写像が線形であること、非零ベクトルを必ず見分けられること、有限次元では次元が一致することを順に確認します。
+
 <a id="thm-la3a-double-dual"></a>
 <!-- formal-statement-start -->
 > **定理（有限次元二重双対同型）**  
@@ -572,6 +574,10 @@ J:V\to V^{**},\qquad J(v)(\varphi)=\varphi(v)
 $$
 > は基底の選択によらない線形同型である。
 <!-- formal-statement-end -->
+
+### 証明の見取り図
+
+まず $J(v)$ が $V^*$ 上の線形形式であり、$v\mapsto J(v)$ 自体も線形であることを確認します。次に $v\ne0$ を含む基底を作り、その双対基底の第1要素で $v$ を測れば値1が得られるため、$J(v)\ne0$ となります。これで単射性を得て、最後に $\dim V^{**}=\dim V$ から全射性を結論します。
 
 <!-- proof-start -->
 ### 証明
@@ -587,11 +593,13 @@ J(av+bw)(\varphi)=\varphi(av+bw)
 $$
 なので $J$ は線形です。
 
-単射性を示します。$v\ne0$ とし、$v$ を含む基底
-$$
+単射性を示します。$v\ne0$ とします。$\{v\}$ は一次独立なので、[基底延長定理](../F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md#thm-basis-extension)により
+
+$
 v,v_2,\dots,v_n
-$$
-を取ります。その双対基底の第1要素を $v^1$ とすれば
+$
+
+という $V$ の基底まで延長できます。その双対基底の第1要素を $v^1$ とすれば
 $$
 J(v)(v^1)=v^1(v)=1\ne0.
 $$
@@ -614,7 +622,7 @@ $$
 $$
 J(v)(\varphi)=\varphi(v)
 $$
-で定まる $V\to V^{**}$ は、式そのものに基底の選択がなく自然です。この違いは、後で「双対」と「随伴」を混同しないためにも重要です。
+で定まる $V\to V^{**}$ は、式そのものに基底の選択がなく自然です。この違いは、**基底を選んで作る同型**と、**式そのものが基底に依存しない標準的な同型**を区別するために重要です。
 
 ---
 
@@ -624,7 +632,7 @@ $$
 
 - $V^*$：$V$ をスカラーで測る線形な測定器全体。
 - 双対基底：選んだ基底の各座標を1個ずつ読む測定器。
-- $W^\circ$：部分空間 $W$ を全部0と判定する測定器。
+- $W^\circ$：部分空間 $W$ を全部0と判定する測定器、すなわち零化空間。
 - $T^*$：写像 $T$ の先にある測定器を手前へ引き戻す操作。
 - $V^{**}$：測定器そのものを入力とする測定器。有限次元では $V$ が自然に戻ってくる。
 
@@ -635,6 +643,7 @@ $$
 ## 7. 演習
 
 ### LA3A-A01 双対基底
+- Level: A
 
 $V=\mathbb R^2$ の基底
 $$
@@ -664,6 +673,7 @@ $$
 <!-- solution-end -->
 
 ### LA3A-A02 零化空間
+- Level: A
 
 $$
 W=\{(x,y,z):x+y+z=0\}\subset\mathbb R^3
@@ -675,22 +685,35 @@ $$
 $$
 \operatorname{span}(\varphi)\subset W^\circ.
 $$
-[零化空間の次元公式](#thm-la3a-零化空間-dimension)より $\dim W=2$ なら $\dim W^\circ=1$。従って
+まず方程式 $x+y+z=0$ から $z=-x-y$ なので
+
+$
+(x,y,z)=x(1,0,-1)+y(0,1,-1).
+$
+
+右辺の2本は一次独立だから $\dim W=2$ です。[零化空間の次元公式](#thm-la3a-annihilator-dimension)より
+
+$
+\dim W^\circ=3-2=1.
+$
+
+従って
 $$
 W^\circ=\operatorname{span}(\varphi).
 $$
 <!-- solution-end -->
 
 ### LA3A-B01 商空間の双対
+- Level: B
 
 $\varphi\in V^*$ が $V/W$ 上の線形形式へ降りる、すなわち
 $$
 \widetilde\varphi(v+W)=\varphi(v)
 $$
-が 良定義 になるための必要十分条件が $\varphi\in W^\circ$ であることを示せ。
+が良定義になるための必要十分条件が $\varphi\in W^\circ$ であることを示せ。
 
 <!-- solution-start -->
-**解答**：十分性は本文で示した通りです。逆に $\widetilde\varphi$ が 良定義 なら、任意の $w\in W$ について
+**解答**：十分性は本文で示した通りです。逆に $\widetilde\varphi$ が良定義なら、任意の $w\in W$ について
 $$
 0+W=w+W
 $$
@@ -702,6 +725,7 @@ $$
 <!-- solution-end -->
 
 ### LA3A-B02 二重双対の自然性
+- Level: B
 
 $T:V\to W$ に対して
 $$
@@ -725,6 +749,7 @@ $$
 
 
 ### LA3A-A03 3次元の双対基底
+- Level: A
 
 $V=\mathbb R^3$ の基底
 $$
@@ -758,6 +783,7 @@ $$
 <!-- solution-end -->
 
 ### LA3A-A04 双対写像を具体的に計算する
+- Level: A
 
 $$
 T:\mathbb R^2\to\mathbb R^3,\qquad
@@ -805,6 +831,7 @@ $$
 <!-- solution-end -->
 
 ### LA3A-B03 $\operatorname{im}T^*$ と $(\ker T)^\circ$ を手で照合する
+- Level: B
 
 $$
 T:\mathbb R^3\to\mathbb R^2,\qquad
@@ -842,12 +869,13 @@ $$
 すなわち同じく $b=a+c$。従って両者は一致します。
 <!-- solution-end -->
 
-### LA3A-C01 二重 零化空間
+### LA3A-C01 二重零化空間
+- Level: C
 
-$V$ を有限次元ベクトル空間、$W\subset V$ を部分空間とする。$W^\circ\subset V^*$ の 零化空間を
+$V$ を有限次元ベクトル空間、$W\subset V$ を部分空間とする。$W^\circ\subset V^*$ の零化空間を
 $$
 (W^\circ)^\circ
-=\{F\in V^{**}:F(\varphi)=0\ \text{for all }\varphi\in W^\circ\}
+=\{F\in V^{**}:F(\varphi)=0\ \forall\varphi\in W^\circ\}
 $$
 と定める。上で定義した写像 $J:V\to V^{**}$ に対して
 $$
@@ -868,7 +896,7 @@ $$
 $$
 \dim J(W)=\dim W.
 $$
-また $\dim V^*=\dim V=n$ と [零化空間の次元公式](#thm-la3a-零化空間-dimension)から
+また $\dim V^*=\dim V=n$ と [零化空間の次元公式](#thm-la3a-annihilator-dimension)から
 $$
 \dim W^\circ=n-\dim W.
 $$
