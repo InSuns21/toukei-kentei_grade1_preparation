@@ -217,13 +217,23 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（特異値分解）**  
-> 任意の実行列 $A\in\mathbb R^{m\times n}$ は、正の特異値の個数を $r$ とすると
-
+> 任意の実行列 $A\in\mathbb R^{m\times n}$ について、正の特異値を
+$$
+\sigma_1\ge\cdots\ge\sigma_r>0
+$$
+> とし、対応する正規直交な右特異ベクトルを $v_1,\dots,v_r$、左特異ベクトルを $u_1,\dots,u_r$ とする。このとき
+$$
+V_r=(v_1\ \cdots\ v_r),
+\qquad
+U_r=(u_1\ \cdots\ u_r),
+\qquad
+\Sigma_r=\operatorname{diag}(\sigma_1,\dots,\sigma_r)
+$$
+> と置けば
 $$
 A=U_r\Sigma_rV_r^{\mathsf T}
 $$
-
-> と表せる。$U_r,V_r$ の列はそれぞれ正規直交し、$\Sigma_r$ は正の特異値を並べた対角行列である。
+> が成り立つ。$r=0$、すなわち $A=0$ の場合は右辺を零写像と解釈する。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -352,27 +362,31 @@ SVDでは、正の特異値に対応する方向だけが $A$ によって非零
 
 <!-- formal-statement-start -->
 > **命題（階数と非零特異値）**  
-> $A\in\mathbb R^{m\times n}$ の正の特異値の個数を $r$ とする。このとき
-
+> $A\in\mathbb R^{m\times n}$ について、$A^{\mathsf T}A$ の正規直交固有基底を $v_1,\dots,v_n$ とし、対応する特異値を
+$$
+\sigma_1\ge\cdots\ge\sigma_r>0,
+\qquad
+\sigma_{r+1}=\cdots=\sigma_n=0
+$$
+> と並べる。$i\le r$ では
+$$
+u_i=\frac{Av_i}{\sigma_i}
+$$
+> とする。このとき
 $$
 \operatorname{rank}(A)=r,
 $$
-
-> また
-
 $$
 \operatorname{Im}A
 =
 \operatorname{span}(u_1,\dots,u_r),
 $$
-
 $$
 \ker A
 =
 \operatorname{span}(v_{r+1},\dots,v_n)
 $$
-
-> である。
+> が成り立つ。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -469,6 +483,8 @@ $$
 
 > と定めます。
 <!-- formal-statement-end -->
+
+ここで $\sup$ は「取りうる伸長率を上から抑える値のうち最小のもの」を表す記号です。この章では実数の一般的な上限定理を証明には使わず、直後の特異値分解の計算から、この $\sup$ が実際に最大値として達成されることまで示します。
 
 二つの $\sup$ 表示が同じ量を表すことも確認しておきます。$x\ne0$ に対して
 $$
