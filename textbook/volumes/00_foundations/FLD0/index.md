@@ -32,7 +32,7 @@ F\text{-線形写像}
 \text{体拡大 }K/F
 $$
 
-という橋を作ります。これにより次の [FLD1](../FLD1/index.md) で、体 $K$ を別の体 $F$ 上のベクトル空間として見て
+という橋を作ります。これにより次の [FLD1](../FLD1/index.md) で、体 $K$ の元を $F$ の元でスカラー倍する見方を使って
 
 $$
 [K:F]=\dim_F K
@@ -81,7 +81,7 @@ $$
 $F=\mathbb R$ とすれば F0-00E の実ベクトル空間、$F=\mathbb C$ とすれば LA1 の複素ベクトル空間です。つまり新しい公理を増やしたのではなく、係数を供給する体だけを一般化しています。
 
 <!-- definition-example-start: def-fld0-vector-space-over-field -->
-**定義の確認：$\mathbb F_2^2$**
+**定義の確認**：$\mathbb F_2^2$
 
 $\mathbb F_2=\{0,1\}$ では非零元は $1$ だけで、その逆元も $1$ です。従って $\mathbb F_2$ は体です。
 
@@ -165,7 +165,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fld0-span-over-field, def-fld0-basis-over-field -->
-**定義の確認：$\mathbb F_2^2$ の標準基底**
+**定義の確認**：$\mathbb F_2^2$ の標準基底
 
 $$
 e_1=(1,0),
@@ -546,7 +546,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fld0-linear-map-over-field -->
-**定義の確認：$\mathbb F_3$ 上の行列**
+**定義の確認**：$\mathbb F_3$ 上の行列
 
 $$
 A=
