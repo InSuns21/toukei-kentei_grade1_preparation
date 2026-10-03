@@ -52,6 +52,8 @@ $$
 <!-- definition-example-start: def-f0-00b0-real-sequence -->
 #### 定義の確認
 
+**定義の確認**
+
 例えば
 
 $$
@@ -88,6 +90,8 @@ $$
 
 <!-- definition-example-start: def-f0-00b0-sequence -->
 #### 定義の確認
+
+**定義の確認**
 
 $X=\{p,q\}$ とし、
 
