@@ -25,7 +25,6 @@ const textbookMaintenanceRootFiles = new Set([
 
 export function isOfflineCacheCandidate(relativePath) {
   const relative = String(relativePath || '')
-    .replaceAll('\\\\', '/')
     .replace(/^\.\/+/, '');
 
   if (!relative) return false;
@@ -52,7 +51,7 @@ export function isOfflineCacheCandidate(relativePath) {
 }
 
 export function explainOfflineExclusion(relativePath) {
-  const relative = String(relativePath || '').replaceAll('\\\\', '/');
+  const relative = String(relativePath || '');
   if (/\.ya?ml$/i.test(relative)) return 'authoring-metadata';
 
   const segments = relative.split('/');
