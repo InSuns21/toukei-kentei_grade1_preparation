@@ -1,4 +1,4 @@
-# F0-00F2 SVD・作用素ノルム
+# F0-00F2 特異値分解・作用素ノルム
 
 F0-00F1で得た実対称行列の直交対角化を $A^{\mathsf T}A$ に適用し、任意の長方形行列を方向別の伸縮へ分解します。
 
@@ -280,7 +280,9 @@ A=U_r\Sigma_rV_r^{\mathsf T}.
 $$
 <!-- proof-end -->
 
-薄い形では、像に実際に寄与する $r$ 本だけを残しています。完全形が必要なら、[F0-00E1 の正規直交基底への延長](../F0_00E1_内積_Gram_Schmidt_射影_QR/index.md#thm-f0-00e1-orthonormal-extension)を使って $U_r,V_r$ の列をそれぞれ $\mathbb R^m,\mathbb R^n$ の正規直交基底へ補います。残りの対角成分を0とした矩形対角行列 $\Sigma$ を置けば
+薄い形では、像に実際に寄与する $r$ 本だけを残しています。完全形が必要なら、まず [基底延長定理](../F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md#thm-basis-extension)で $U_r,V_r$ の列をそれぞれ $\mathbb R^m,\mathbb R^n$ の基底へ延長します。その基底に [Gram--Schmidt 直交化法](../F0_00E1_内積_Gram_Schmidt_射影_QR/index.md#thm-f0-00e1-gram-schmidt)を先頭から適用します。最初の $r$ 本は既に正規直交しているため、その段階では前の方向への射影係数が0で、ノルムも1なので、元の列は変化しません。
+
+こうして $U_r,V_r$ の列を保ったまま正規直交基底へ補えます。残りの対角成分を0とした矩形対角行列 $\Sigma$ を置けば
 $$
 A=U\Sigma V^{\mathsf T}
 $$
@@ -865,7 +867,7 @@ $$
 従って等号です。$a=0$ の場合も両辺0です。
 <!-- solution-end -->
 
-### F0-00F2-B01 SVDと階数
+### F0-00F2-B01 特異値分解と階数
 
 - Level: B
 - 目安時間: 12分
@@ -899,7 +901,7 @@ $$
 $$
 <!-- solution-end -->
 
-### F0-00F2-B02 薄いSVDを構成する
+### F0-00F2-B02 薄い特異値分解を構成する
 
 - Level: B
 - 目安時間: 18分
@@ -913,7 +915,7 @@ A=
 \end{pmatrix}
 $$
 
-の薄いSVD $A=U\Sigma V^{\mathsf T}$ を明示し、行列積で確認せよ。
+の薄い特異値分解 $A=U\Sigma V^{\mathsf T}$ を明示し、行列積で確認せよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -961,12 +963,12 @@ U\Sigma V^{\mathsf T}
 $$
 <!-- solution-end -->
 
-### F0-00F2-B03
+### F0-00F2-B03 作用素ノルムと最大特異値
 
 - Level: B
 - 目安時間: 15分
 
-[SVD](#thm-f0-00f2-svd)を用いて
+[特異値分解](#thm-f0-00f2-svd)を用いて
 
 $$
 \|A\|_{\mathrm{op}}=\sigma_1
