@@ -10,6 +10,9 @@ forward_references:
   - set.zorn-lemma
   - set.maximum-maximal-element
   - set.chain
+  - set.ordinal
+  - set.hartogs-lemma
+  - set.transfinite-recursion
   - linear.vector-space
   - linear.basis
   - linear.hamel-basis-existence
