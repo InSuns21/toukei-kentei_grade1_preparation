@@ -14,10 +14,10 @@ concepts:
     requires: []
 
   - id: set.replacement-schema
-    name: Replacement
+    name: 置換公理図式
     kind: term
     introduction: inline
-    aliases: [Replacement]
+    aliases: [置換公理図式, Replacement schema]
     requires: []
 
   - id: set.transfinite-recursion
@@ -29,9 +29,9 @@ concepts:
       - set.ordinal
 
   - id: set.hartogs-lemma
-    name: Hartogs
+    name: Hartogs の補題
     kind: lemma
-    aliases: [Hartogs, Hartogs補題]
+    aliases: [Hartogs の補題, Hartogs補題]
     requires:
       - set.ordinal
       - set.replacement-schema
