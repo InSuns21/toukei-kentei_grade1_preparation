@@ -812,14 +812,78 @@ E|\xi|^2
 \infty.
 $$
 
-$X^{(n)}$ が有限 second モーメントを持つとすると、定義式、Cauchy--Schwarz、Doob $L^2$ inequality から
+$X^{(n)}$ について
 
 $$
-E\sup_{t\le T}|X_t^{(n+1)}|^2
-<\infty.
+M_n(T)
+=
+E\sup_{t\le T}|X_t^{(n)}|^2
+<
+\infty
 $$
 
-従って帰納法で全ての Picard iterate が well-defined です。
+と仮定します。Picard の定義式に $(a+b+c)^2\le3(a^2+b^2+c^2)$ を使うと
+
+$$
+\begin{aligned}
+M_{n+1}(T)
+&\le
+3E|\xi|^2\\
+&\quad+
+3E\sup_{t\le T}
+\left|
+\int_0^t b(X_s^{(n)})\,ds
+\right|^2\\
+&\quad+
+3E\sup_{t\le T}
+\left|
+\int_0^t \sigma(X_s^{(n)})\,dW_s
+\right|^2.
+\end{aligned}
+$$
+
+ドリフト項は Cauchy--Schwarz と線形成長から
+
+$$
+\begin{aligned}
+E\sup_{t\le T}
+\left|
+\int_0^t b(X_s^{(n)})\,ds
+\right|^2
+&\le
+T E\int_0^T|b(X_s^{(n)})|^2\,ds\\
+&\le
+TK\int_0^T
+\left(
+1+E|X_s^{(n)}|^2
+\right)ds\\
+&\le
+TK\int_0^T
+\left(
+1+M_n(T)
+\right)ds\\
+&=
+T^2K\{1+M_n(T)\}.
+\end{aligned}
+$$
+
+確率積分項は Doob $L^2$ inequality と Itô isometry から
+
+$$
+\begin{aligned}
+E\sup_{t\le T}
+\left|
+\int_0^t \sigma(X_s^{(n)})\,dW_s
+\right|^2
+&\le
+4E\int_0^T
+\|\sigma(X_s^{(n)})\|_{\mathrm F}^2\,ds\\
+&\le
+4KT\{1+M_n(T)\}.
+\end{aligned}
+$$
+
+したがって $M_n(T)<\infty$ なら $M_{n+1}(T)<\infty$ です。$M_0(T)=E|\xi|^2<\infty$ から帰納法で全ての Picard iterate が well-defined です。
 
 #### Step 2：差の可算和が収束する
 
@@ -910,7 +974,7 @@ $$
 
 従って $X^{(n)}\to X$ は $L^2$ supremum の意味でも収束します。
 
-Lipschitz estimate より
+Lipschitz estimate より、まず被積分関数について
 
 $$
 E\int_0^T
@@ -921,17 +985,45 @@ E\sup_{s\le T}|X_s^{(n)}-X_s|^2
 \to0.
 $$
 
-従ってドリフト integrals は $L^2$ supremum で収束します。
-
-同様に Itô isometry と Doob inequality から
+さらに Cauchy--Schwarz を時間積分へ使うと
 
 $$
-E\sup_{t\le T}
+\begin{aligned}
+&E\sup_{t\le T}
+\left|
+\int_0^t
+\{b(X_s^{(n)})-b(X_s)\}\,ds
+\right|^2\\
+&\qquad\le
+T
+E\int_0^T
+|b(X_s^{(n)})-b(X_s)|^2\,ds\\
+&\qquad\le
+L^2T^2
+E\sup_{s\le T}|X_s^{(n)}-X_s|^2
+\to0.
+\end{aligned}
+$$
+
+したがってドリフト積分は $L^2$ supremum の意味で収束します。
+
+確率積分については Doob $L^2$ inequality と Itô isometry をこの差へ適用して
+
+$$
+\begin{aligned}
+&E\sup_{t\le T}
 \left|
 \int_0^t
 \{\sigma(X_s^{(n)})-\sigma(X_s)\}\,dW_s
-\right|^2
-\to0.
+\right|^2\\
+&\qquad\le
+4E\int_0^T
+\|\sigma(X_s^{(n)})-\sigma(X_s)\|_{\mathrm F}^2\,ds\\
+&\qquad\le
+4L^2T
+E\sup_{s\le T}|X_s^{(n)}-X_s|^2\\
+&\qquad\to0.
+\end{aligned}
 $$
 
 Picard equation
@@ -946,7 +1038,27 @@ X_t^{(n+1)}
 \int_0^t \sigma(X_s^{(n)})\,dW_s
 $$
 
-で $n\to\infty$ とすると
+で $n\to\infty$ とします。左辺 $X^{(n+1)}$ も $X$ へ $L^2$ supremum で収束し、右辺の二つの積分も上で同じ意味の収束を示しました。したがって残差
+
+$$
+R_t
+=
+X_t
+-
+\xi
+-
+\int_0^t b(X_s)\,ds
+-
+\int_0^t \sigma(X_s)\,dW_s
+$$
+
+について
+
+$$
+E\sup_{t\le T}|R_t|^2=0.
+$$
+
+よって確率 1 で全ての $t\in[0,T]$ に対し
 
 $$
 X_t
@@ -958,7 +1070,7 @@ X_t
 \int_0^t \sigma(X_s)\,dW_s.
 $$
 
-従って $X$ は強解です。
+$T=1,2,\ldots$ の可算共通部分を取れば全時刻で積分表示が成り立ちます。従って $X$ は強解です。
 
 #### Step 4：経路ごとの一意性
 
@@ -974,14 +1086,50 @@ X_t-Y_t
 \{\sigma(X_s)-\sigma(Y_s)\}\,dW_s.
 $$
 
-Picard estimate と同じ計算から
-
 $$
 f(t)
 :=
 E\sup_{u\le t}|X_u-Y_u|^2
+$$
+
+と置きます。差のドリフト項を $A(t)$、確率積分項を $M(t)$ とすると
+
+$$
+f(t)\le2A(t)+2M(t).
+$$
+
+Cauchy--Schwarz と Lipschitz 条件から
+
+$$
+\begin{aligned}
+A(t)
+&\le
+tE\int_0^t|b(X_s)-b(Y_s)|^2\,ds\\
+&\le
+TL^2\int_0^t f(s)\,ds.
+\end{aligned}
+$$
+
+また Doob $L^2$ inequality と Itô isometry から
+
+$$
+\begin{aligned}
+M(t)
+&\le
+4E\int_0^t
+\|\sigma(X_s)-\sigma(Y_s)\|_{\mathrm F}^2\,ds\\
+&\le
+4L^2\int_0^t f(s)\,ds.
+\end{aligned}
+$$
+
+したがって
+
+$$
+f(t)
 \le
-C_T\int_0^t f(s)\,ds.
+(2TL^2+8L^2)
+\int_0^t f(s)\,ds.
 $$
 
 [積分形 Gronwall lemma](#lem-sto9-gronwall) の $a=0$ の場合から
@@ -1289,30 +1437,124 @@ $$
 L|Z_s|+\delta.
 $$
 
-前節と同じ Cauchy--Schwarz + Doob $L^2$ estimate から
-
 $$
 F(t)
 :=
 E\sup_{u\le t}|Z_u|^2
 $$
 
-は
+と置きます。$(a+b+c)^2\le3(a^2+b^2+c^2)$ から
 
 $$
 F(t)
 \le
-C
-E|\xi-\eta|^2
+3E|\xi-\eta|^2
 +
-C_T\delta^2
+3A(t)
 +
-C_T\int_0^tF(s)\,ds
+3M(t),
 $$
 
-を満たします。
+ただし
 
-[積分形 Gronwall lemma](#lem-sto9-gronwall) から
+$$
+A(t)
+=
+E\sup_{u\le t}
+\left|
+\int_0^u
+\{b(X_s)-\widetilde b(Y_s)\}\,ds
+\right|^2
+$$
+
+および
+
+$$
+M(t)
+=
+E\sup_{u\le t}
+\left|
+\int_0^u
+\{\sigma(X_s)-\widetilde\sigma(Y_s)\}\,dW_s
+\right|^2.
+$$
+
+上で得た
+
+$$
+|b(X_s)-\widetilde b(Y_s)|
+\le
+L|Z_s|+\delta
+$$
+
+を二乗すると
+
+$$
+|b(X_s)-\widetilde b(Y_s)|^2
+\le
+2L^2|Z_s|^2+2\delta^2.
+$$
+
+したがって Cauchy--Schwarz から
+
+$$
+\begin{aligned}
+A(t)
+&\le
+tE\int_0^t
+|b(X_s)-\widetilde b(Y_s)|^2\,ds\\
+&\le
+2TL^2\int_0^tF(s)\,ds
++
+2Tt\,\delta^2\\
+&\le
+2TL^2\int_0^tF(s)\,ds
++
+2T^2\delta^2.
+\end{aligned}
+$$
+
+拡散係数についても
+
+$$
+\|\sigma(X_s)-\widetilde\sigma(Y_s)\|_{\mathrm F}^2
+\le
+2L^2|Z_s|^2+2\delta^2.
+$$
+
+Doob $L^2$ inequality と Itô isometry から
+
+$$
+\begin{aligned}
+M(t)
+&\le
+4E\int_0^t
+\|\sigma(X_s)-\widetilde\sigma(Y_s)\|_{\mathrm F}^2\,ds\\
+&\le
+8L^2\int_0^tF(s)\,ds
++
+8t\delta^2\\
+&\le
+8L^2\int_0^tF(s)\,ds
++
+8T\delta^2.
+\end{aligned}
+$$
+
+以上をまとめると
+
+$$
+F(t)
+\le
+3E|\xi-\eta|^2
++
+(6T^2+24T)\delta^2
++
+(6TL^2+24L^2)
+\int_0^tF(s)\,ds.
+$$
+
+[積分形 Gronwall lemma](#lem-sto9-gronwall) を適用し、$T,L$ に依存する定数を $C_T'$ にまとめれば
 
 $$
 F(T)
@@ -1363,6 +1605,10 @@ $$
 ---
 
 ## 11. 局所解をどこまで延長できるか
+
+局所 Lipschitz 条件で分かるのは、「解がある有界な球の中にいる限り」は大域 Lipschitz の議論を使える、ということです。したがって最初から全時刻の解を要求するのではなく、まず **どの時刻まで有限な値を持つ解を一意に延長できるか** を記録する必要があります。
+
+その寿命を $\tau_{\mathrm e}$、半径 $n$ の球から出る時刻を $\tau_n$ とし、$\tau_n$ が寿命へ近づくようにしたものが次の極大強解です。有限な寿命で延長が止まるなら、経路が無限遠へ逃げることも定義の中へ組み込みます。
 
 <a id="def-sto9-maximal-solution"></a>
 
@@ -1633,7 +1879,51 @@ $$
 
 まで両方を止めます。
 
-$[0,\rho]$ 上では同じ initial value、同じブラウン運動、同じ coefficients の SDE なので、大域 Lipschitz theorem の一意性 estimate を停止した equation へ適用して
+$[0,\rho]$ 上では両過程とも ball $n$ の中にいるので
+
+$$
+b_n=b_m=b,
+\qquad
+\sigma_n=\sigma_m=\sigma
+$$
+
+です。差を
+
+$$
+Z_t
+=
+X_{t\wedge\rho}^{(n)}
+-
+X_{t\wedge\rho}^{(m)}
+$$
+
+と置くと、停止した積分表示から
+
+$$
+\begin{aligned}
+Z_t
+&=
+\int_0^t
+1_{\{s\le\rho\}}
+\{b(X_s^{(n)})-b(X_s^{(m)})\}\,ds\\
+&\quad+
+\int_0^t
+1_{\{s\le\rho\}}
+\{\sigma(X_s^{(n)})-\sigma(X_s^{(m)})\}\,dW_s.
+\end{aligned}
+$$
+
+ball $n$ 上では局所 Lipschitz 定数 $L_n$ が使えるので、大域的一意性で展開した Cauchy--Schwarz + Doob $L^2$ estimate をこの式へ適用すると
+
+$$
+E\sup_{u\le t}|Z_u|^2
+\le
+C_{T,n}
+\int_0^t
+E\sup_{r\le s}|Z_r|^2\,ds.
+$$
+
+Gronwall lemma から左辺は0です。したがって
 
 $$
 X_{t\wedge\rho}^{(n)}
@@ -1641,7 +1931,7 @@ X_{t\wedge\rho}^{(n)}
 X_{t\wedge\rho}^{(m)}
 $$
 
-ほとんど確実にです。
+がほとんど確実に成り立ちます。
 
 従って両者の ball $n$ からの exit time は一致します。
 
@@ -1697,17 +1987,59 @@ $$
 \infty
 $$
 
-なら、ある $R<\infty$ が存在して爆発直前まで $|X_t|\le R$ です。
-
-$n>R+1$ を取れば $\tau_n>\tau_{\mathrm e}$ となってしまい
+なら、ある $\delta>0$ と $R_1<\infty$ が存在して
 
 $$
-\tau_{\mathrm e}
+|X_t|\le R_1
+\qquad
+(\tau_{\mathrm e}-\delta<t<\tau_{\mathrm e})
+$$
+
+とできます。
+
+一方、$X$ は compact interval $[0,\tau_{\mathrm e}-\delta]$ 上 continuous なので
+
+$$
+R_0
 =
-\sup_n\tau_n
+\sup_{0\le t\le\tau_{\mathrm e}-\delta}|X_t|
+<
+\infty.
 $$
 
-に反します。
+したがって
+
+$$
+R=\max(R_0,R_1)
+$$
+
+と置けば
+
+$$
+|X_t|\le R
+\qquad
+(0\le t<\tau_{\mathrm e})
+$$
+
+です。
+
+$n>R+1$ を取ります。もし $\tau_n<\tau_{\mathrm e}$ なら、continuity により $|X_{\tau_n}|=n$ となり上の bound に反します。もし $\tau_n=\tau_{\mathrm e}$ なら、$X^{(n)}$ は大域的に continuous で $t<\tau_n$ では $X^{(n)}_t=X_t$ なので
+
+$$
+|X^{(n)}_{\tau_n}|
+=
+\lim_{t\uparrow\tau_n}|X_t|
+\le
+R<n,
+$$
+
+となり、やはり exit time の定義に反します。従って
+
+$$
+\tau_n>\tau_{\mathrm e}.
+$$
+
+しかし $\tau_{\mathrm e}=\sup_k\tau_k$ なら各 $\tau_n\le\tau_{\mathrm e}$ でなければならないので矛盾です。
 
 従って有限爆発時刻では
 
@@ -1828,18 +2160,106 @@ x
 \int_0^{t\wedge\tau_n}\sigma(X_s)\,dW_s.
 $$
 
-前のモーメント評価と全く同じ計算をすると、線形成長定数が $n$ に依存しないため
+$$
+F_n(t)
+=
+E\left[
+\sup_{0\le u\le t}
+|X_{u\wedge\tau_n}|^2
+\right]
+$$
+
+と置きます。$(a+b+c)^2\le3(a^2+b^2+c^2)$ を停止した積分表示へ使うと
 
 $$
+\begin{aligned}
+F_n(t)
+&\le
+3|x|^2\\
+&\quad+
+3E\sup_{u\le t}
+\left|
+\int_0^{u\wedge\tau_n}b(X_s)\,ds
+\right|^2\\
+&\quad+
+3E\sup_{u\le t}
+\left|
+\int_0^{u\wedge\tau_n}\sigma(X_s)\,dW_s
+\right|^2.
+\end{aligned}
+$$
+
+ドリフト項は Cauchy--Schwarz と線形成長から
+
+$$
+\begin{aligned}
+&E\sup_{u\le t}
+\left|
+\int_0^{u\wedge\tau_n}b(X_s)\,ds
+\right|^2\\
+&\qquad\le
+T
+E\int_0^t
+1_{\{s\le\tau_n\}}
+|b(X_s)|^2\,ds\\
+&\qquad\le
+TK
+\int_0^t
+\left(
+1+
+E|X_{s\wedge\tau_n}|^2
+\right)ds\\
+&\qquad\le
+TK
+\int_0^t
+\{1+F_n(s)\}\,ds.
+\end{aligned}
+$$
+
+確率積分項は Doob $L^2$ inequality と Itô isometry から
+
+$$
+\begin{aligned}
+&E\sup_{u\le t}
+\left|
+\int_0^{u\wedge\tau_n}\sigma(X_s)\,dW_s
+\right|^2\\
+&\qquad\le
+4E\int_0^t
+1_{\{s\le\tau_n\}}
+\|\sigma(X_s)\|_{\mathrm F}^2\,ds\\
+&\qquad\le
+4K
+\int_0^t
+\{1+F_n(s)\}\,ds.
+\end{aligned}
+$$
+
+したがって $0\le t\le T$ で
+
+$$
+F_n(t)
+\le
+3|x|^2
++
+C_T
+\int_0^t
+\{1+F_n(s)\}\,ds,
+$$
+
+ここで $C_T$ は $n$ に依存しません。$G_n(t)=1+F_n(t)$ と置いて Gronwall lemma を適用すると
+
+$$
+\sup_n
 E\left[
 \sup_{0\le t\le T}
 |X_{t\wedge\tau_n}|^2
 \right]
 \le
-C_T(1+|x|^2)
+C_T'(1+|x|^2).
 $$
 
-を得ます。
+以下では $C_T'$ を再び $C_T$ と書きます。
 
 $\tau_n\le T$ なら continuity から
 
@@ -1990,8 +2410,23 @@ $$
 
 とします。
 
-[Itô 過程版の時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula)
-を時間に依存しない $V$ へ適用すると
+[Itô 過程版の時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula) に入れる関数を
+
+$$
+F(t,x)=V(x)
+$$
+
+と取ります。このとき
+
+$$
+\partial_tF=0,
+\qquad
+\nabla_xF=\nabla V,
+\qquad
+D_x^2F=D^2V.
+$$
+
+さらに適用対象を stopped process $X_{t\wedge\tau_n}$ とするので、Itô 公式は
 
 $$
 \begin{aligned}
@@ -2409,7 +2844,35 @@ $$
 
 #### Step 3：期待値を取る
 
-大域 Lipschitz solution は finite-horizon second モーメント評価を持つので、確率積分は localization を外した後も mean zero です。
+確率積分の被積分関数は
+
+$$
+H_s
+=
+\phi_\varepsilon'(Z_s)
+\{\sigma(X_s)-\sigma(Y_s)\}
+$$
+
+です。$0\le\phi_\varepsilon'\le1$ と $\sigma$ の Lipschitz 条件から
+
+$$
+|H_s|
+\le
+L|Z_s|.
+$$
+
+大域 Lipschitz solution の有限時間二乗モーメント評価により
+
+$$
+E\int_0^T|H_s|^2\,ds
+\le
+L^2
+E\int_0^T|Z_s|^2\,ds
+<
+\infty.
+$$
+
+したがってこの確率積分は $[0,T]$ 上 square-integrable martingale で、期待値は0です。
 
 従って
 
