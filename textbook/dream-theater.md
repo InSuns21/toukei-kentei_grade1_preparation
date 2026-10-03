@@ -47,7 +47,7 @@
 12. [F0-00F1 スペクトル定理・PSD](textbook/volumes/00_foundations/F0_00F1_固有空間_スペクトル定理_PSD/index.md)
 13. [F0-00F2 特異値分解・作用素ノルム](textbook/volumes/00_foundations/F0_00F2_SVD_特異値_作用素ノルム/index.md)
 14. [LA6 スペクトル・二次形式・極分解・複素特異値分解](textbook/volumes/00_foundations/LA6/index.md)
-15. [LA3D 交代多重線形形式・抽象行列式（発展分岐）](textbook/volumes/00_foundations/LA3D/index.md)
+15. [LA3D 交代多重線形形式・抽象行列式](textbook/volumes/00_foundations/LA3D/index.md)
 16. [LA3E テンソル積・外積代数（幾何学への発展分岐）](textbook/volumes/00_foundations/LA3E/index.md)
 17. [線形代数・院試／編入計算演習（A8・B10・C4、計22題）](textbook/volumes/00_foundations/F0_00CALC_線形代数_院試編入計算演習/index.md)
 
