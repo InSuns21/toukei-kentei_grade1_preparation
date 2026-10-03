@@ -47,6 +47,14 @@ concepts:
       - linear.vector-space-over-field
       - linear.linear-subspace
 
+  - id: linear.steinitz-basis-extension-over-field
+    name: 一般の体上の Steinitz の交換補題と基底延長
+    kind: theorem
+    aliases: []
+    requires:
+      - linear.basis-dimension-over-field
+      - linear.vector-space-over-field
+
   - id: linear.linear-map-over-field
     name: 体上の線形写像
     kind: definition
@@ -63,7 +71,7 @@ concepts:
     requires:
       - linear.basis-dimension-over-field
       - linear.linear-map-over-field
-      - linear.basis-extension-theorem
+      - linear.steinitz-basis-extension-over-field
 
   - id: linear.coordinate-isomorphism-over-field
     name: 一般の体上の座標写像
