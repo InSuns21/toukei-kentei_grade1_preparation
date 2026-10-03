@@ -1,5 +1,5 @@
 id: "LA3E"
-title: "テンソル積・外積代数（幾何学への発展分岐）"
+title: "テンソル積・外積代数"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -27,6 +27,7 @@ theorems:
   - { id: LA3E-THM-01, name: 有限次元テンソル積の存在と基底 }
   - { id: LA3E-THM-02, name: テンソル積の一意性 }
   - { id: LA3E-PROP-01, name: 交代化は射影 }
+  - { id: LA3E-PROP-02, name: 1次形式の外積の行列式表示 }
   - { id: LA3E-THM-03, name: 外冪の標準基底と次元 }
   - { id: LA3E-THM-04, name: 外積の結合性と次数付き交換則 }
   - { id: LA3E-THM-05, name: 最高次外積と基底変換 }
