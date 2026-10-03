@@ -2,21 +2,21 @@
 
 [F0-00F](../F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md) では固有値・固有空間・対角化を扱いました。しかし、例えば
 
-$
+$$
 A=
 \begin{pmatrix}
 1&1\\
 0&1
 \end{pmatrix}
-$
+$$
 
 は固有値1しか持たず、固有ベクトルだけでは基底を作れません。それでも
 
-$
+$$
 A-I\ne0,
 \qquad
 (A-I)^2=0
-$
+$$
 
 という関係には、対角化不能の「ずれ」が記録されています。そこで固有ベクトルだけを見る代わりに、**作用素がどんな多項式関係を満たすか**を調べます。そこから、固有空間を少し厚くした部分空間と鎖状の基底を作り、一般の複素線形自己写像の標準形まで進みます。
 
@@ -244,7 +244,7 @@ $$
 
 <a id="lem-la4-polynomial-laplace"></a>
 <!-- formal-statement-start -->
-> **補題（多項式行列のLaplace展開）**  
+> **補題（多項式行列のLaplace 展開）**  
 > $M(t)\in\mathbb F[t]^{n\times n}$ とする。行 $i$ と列 $j$ を除いた小行列を $M_{ij}(t)$、余因子を
 $$
 C_{ij}(t)=(-1)^{i+j}\det M_{ij}(t)
@@ -313,13 +313,13 @@ $$
 \bigl(M\operatorname{adj}(M)\bigr)_{ij}
 =\sum_{k=1}^n m_{ik}(t)C_{jk}(t).
 $$
-$i=j$ なら[多項式行列のLaplace展開](#lem-la4-polynomial-laplace)から
+$i=j$ なら[多項式行列のLaplace 展開](#lem-la4-polynomial-laplace)から
 $$
 \sum_{k=1}^n m_{jk}(t)C_{jk}(t)
 =\det M(t).
 $$
 
-$i\ne j$ とします。$M(t)$ の第 $j$ 行を第 $i$ 行で置き換えた行列を $N(t)$ とします。第 $j$ 行を削除した小行列は元の $M(t)$ と同じなので、第 $j$ 行の余因子は $C_{jk}(t)$ のままです。従って[多項式行列のLaplace展開](#lem-la4-polynomial-laplace)を第 $j$ 行へ適用すると
+$i\ne j$ とします。$M(t)$ の第 $j$ 行を第 $i$ 行で置き換えた行列を $N(t)$ とします。第 $j$ 行を削除した小行列は元の $M(t)$ と同じなので、第 $j$ 行の余因子は $C_{jk}(t)$ のままです。従って[多項式行列のLaplace 展開](#lem-la4-polynomial-laplace)を第 $j$ 行へ適用すると
 $$
 \det N(t)
 =\sum_{k=1}^n m_{ik}(t)C_{jk}(t).
@@ -475,27 +475,27 @@ $$
 
 $\dim V=n$ とし、基底を一つ固定します。線形自己写像は基底ベクトル $n$ 本の像を指定すれば決まり、各像には $n$ 個の座標があるので
 
-$
+$$
 \dim\operatorname{End}(V)=n^2.
-$
+$$
 
 したがって $n^2+1$ 個の自己写像
 
-$
+$$
 I,T,T^2,\dots,T^{n^2}
-$
+$$
 
 は一次従属です。よって、全てが0ではない係数 $a_0,\dots,a_{n^2}$ が存在して
 
-$
+$$
 a_0I+a_1T+\cdots+a_{n^2}T^{n^2}=0.
-$
+$$
 
 そこで
 
-$
+$$
 p(t)=a_0+a_1t+\cdots+a_{n^2}t^{n^2}
-$
+$$
 
 と置けば $p(T)=0$ です。最高次係数で割れば首一にできるので、「$T$ を0にする0でない首一多項式」の集合は空ではありません。その中で最小次数のものを選べます。
 
@@ -503,9 +503,9 @@ $
 <!-- formal-statement-start -->
 > **定義（最小多項式）**  
 > 有限次元ベクトル空間 $V$ 上の線形自己写像 $T:V\to V$ に対して
-$
+$$
 p(T)=0
-$
+$$
 > を満たす0でない多項式のうち、次数最小の首一多項式を $T$ の最小多項式といい $m_T(t)$ と書く。
 <!-- formal-statement-end -->
 
@@ -805,7 +805,7 @@ $$
 
 ---
 
-## 6. 一般化固有空間とBézout分解
+## 6. 一般化固有空間とBézout 分解
 
 対角化できない作用素では、通常の固有空間だけでは空間全体を分解できません。しかし $(T-\lambda I)v$ が0でなくても、何度か作用させた後に0になるベクトルまで含めれば、固有値 $\lambda$ に対応する「少し厚い」部分空間を作れます。
 
@@ -813,18 +813,18 @@ $$
 <!-- formal-statement-start -->
 > **定義（一般化固有空間）**  
 > 有限次元ベクトル空間 $V$ 上の線形自己写像 $T:V\to V$ と固有値 $\lambda$ に対し
-$
+$$
 G_\lambda
 =
 \{v\in V:\text{ある }N\ge1\text{ について }(T-\lambda I)^Nv=0\}
-$
+$$
 > を固有値 $\lambda$ に対する一般化固有空間という。
 <!-- formal-statement-end -->
 
 この集合が一つの核 $\ker(T-\lambda I)^N$ として書けることを確認します。$S=T-\lambda I$、
-$
+$$
 K_j=\ker S^j
-$
+$$
 と置くと
 $$
 K_1\subset K_2\subset\cdots.
@@ -845,15 +845,15 @@ $$
 
 したがって、ある $j_0\le n$ 以降は
 
-$
+$$
 K_{j_0}=K_{j_0+1}=\cdots,
-$
+$$
 
 しかも定義中の任意の $v$ はどこかの $K_N$ に入るので
 
-$
+$$
 G_\lambda=K_{j_0}=\ker(T-\lambda I)^{j_0}.
-$
+$$
 
 この意味で、以後は必要に応じて「十分大きい $N$ に対する核」と書けます。
 
@@ -1179,7 +1179,7 @@ $$
 全ての $i$ について成り立つので和は直和です。$\square$
 <!-- proof-end -->
 
-複素数上では[代数学の基本定理という証明境界](#ref-la4-fta-boundary)により特性多項式が一次因子へ分解します。Cayley--Hamiltonから $m_T\mid\chi_T$ なので最小多項式も一次因子の冪へ分解し、全ての有限次元複素作用素にこの定理を適用できます。
+複素数上では[代数学の基本定理](#ref-la4-fta-boundary)により特性多項式が一次因子へ分解します。Cayley--Hamilton の定理から $m_T\mid\chi_T$ なので最小多項式も一次因子の冪へ分解し、全ての有限次元複素作用素にこの定理を適用できます。
 
 ---
 
@@ -1199,15 +1199,15 @@ $$
 <!-- formal-statement-start -->
 > **定義（Jordan 鎖）**  
 > 線形自己写像 $T:V\to V$、固有値 $\lambda$、正整数 $k$ に対し、ベクトル列 $v_1,\dots,v_k$ が
-$
+$$
 v_1\ne0,
 \qquad
 (T-\lambda I)v_1=0,
-$
-$
+$$
+$$
 (T-\lambda I)v_j=v_{j-1}
 \qquad(j=2,\dots,k)
-$
+$$
 > を満たすとき、これを固有値 $\lambda$ に対する Jordan 鎖という。
 <!-- formal-statement-end -->
 
@@ -1222,26 +1222,26 @@ $$
 \qquad
 (A-2I)v_2=v_1.
 $$
-従って $(e_1,e_2)$ は長さ2のJordan 鎖です。
+従って $(e_1,e_2)$ は長さ2の Jordan 鎖です。
 <!-- definition-example-end -->
 
 Jordan 鎖は自動的に一次独立です。$N=T-\lambda I$ と置き、
 
-$
+$$
 c_1v_1+\cdots+c_kv_k=0
-$
+$$
 
 とします。両辺へ $N^{k-1}$ を作用させると
 
-$
+$$
 c_kv_1=0
-$
+$$
 
 なので $v_1\ne0$ から $c_k=0$ です。残った関係へ $N^{k-2}$ を作用させると $c_{k-1}v_1=0$ となり、同じ手順を下へ繰り返して
 
-$
+$$
 c_k=c_{k-1}=\cdots=c_1=0
-$
+$$
 
 を得ます。したがって Jordan 鎖は、そのまま基底の一部として使える候補です。
 
@@ -1258,11 +1258,11 @@ J_k(\lambda)=
 0&&&\lambda
 \end{pmatrix}
 $$
-> を $k$ 次Jordan ブロックという。
+> を $k$ 次 Jordan ブロックという。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-la4-jordan-block -->
-**定義の確認**：長さ2のJordan 鎖 $v_1,v_2$ では
+**定義の確認**：長さ2の Jordan 鎖 $v_1,v_2$ では
 $$
 Tv_1=\lambda v_1,
 \qquad
@@ -1287,13 +1287,13 @@ $$
 $$
 J_{k_1}(\lambda_1)\oplus\cdots\oplus J_{k_m}(\lambda_m)
 $$
-> というJordan ブロックの直和になる。ブロックの順序を除けば、各固有値に対するブロックサイズの多重集合は一意である。
+> という Jordan ブロックの直和になる。ブロックの順序を除けば、各固有値に対するブロックサイズの多重集合は一意である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
 
-[代数学の基本定理という証明境界](#ref-la4-fta-boundary)により複素数上では特性多項式が一次因子へ分解し、Cayley--Hamiltonから最小多項式も一次因子の冪へ分解します。[一般化固有空間分解](#thm-la4-generalized-decomposition)により
+[代数学の基本定理](#ref-la4-fta-boundary)により複素数上では特性多項式が一次因子へ分解し、Cayley--Hamilton の定理から最小多項式も一次因子の冪へ分解します。[一般化固有空間分解](#thm-la4-generalized-decomposition)により
 $$
 V=\bigoplus_\lambda G_\lambda.
 $$
@@ -1301,11 +1301,11 @@ $$
 $$
 N=T-\lambda I
 $$
-についてJordan 鎖基底を作れば十分です。
+について Jordan 鎖基底を作れば十分です。
 
 ### 冪零作用素にはJordan 鎖基底がある
 
-$\dim V$ に関する帰納法で示します。$N=0$ なら任意の基底が全て長さ1のJordan 鎖なので終了です。
+$\dim V$ に関する帰納法で示します。$N=0$ なら任意の基底が全て長さ1の Jordan 鎖なので終了です。
 
 $N\ne0$ とし
 $$
@@ -1321,7 +1321,7 @@ $$
 $$
 帰納法の仮定を $N|_W$ に使えます。
 
-$W$ のJordan 鎖基底を鎖ごとに
+$W$ の Jordan 鎖基底を鎖ごとに
 $$
 w_{i,1},\dots,w_{i,k_i}
 \qquad(i=1,\dots,c)
@@ -1373,7 +1373,7 @@ $$
 $$
 w_{1,1},\dots,w_{c,1},z_1,\dots,z_r
 $$
-を取ります。各 $z_\ell$ は $Nz_\ell=0$ なので長さ1のJordan 鎖です。
+を取ります。各 $z_\ell$ は $Nz_\ell=0$ なので長さ1の Jordan 鎖です。
 
 候補族
 $$
@@ -1430,7 +1430,7 @@ $W=\operatorname{Im}N$ なので[階数・退化次数の定理](../F0_00F_線�
 $$
 \dim W+\dim\ker N=\dim V.
 $$
-一次独立な $\dim V$ 本のベクトルなので $\mathcal B$ は基底です。構成上、全てJordan 鎖からなります。
+一次独立な $\dim V$ 本のベクトルなので $\mathcal B$ は基底です。構成上、全て Jordan 鎖からなります。
 
 各鎖 $v_1,\dots,v_k$ では
 $$
@@ -1495,9 +1495,9 @@ $$
 $\dim\ker N^j$ は作用素そのものから決まり基底に依存しないため、全てのブロックサイズも一意に決まります。自由なのはブロックの並べ順だけです。$\square$
 <!-- proof-end -->
 
-### 最小多項式の指数と最大Jordan ブロック
+### 最小多項式の指数と最大 Jordan ブロック
 
-1個のJordan ブロック $J_k(\lambda)$ を考え
+1個の Jordan ブロック $J_k(\lambda)$ を考え
 $$
 N=J_k(\lambda)-\lambda I
 $$
@@ -1552,7 +1552,7 @@ $$
 \boxed{
 \text{最小多項式中の }(t-\lambda)\text{ の指数}
 =
-\text{最大Jordan ブロックサイズ}
+\text{最大 Jordan ブロックサイズ}
 }.
 $$
 
@@ -1571,7 +1571,7 @@ $$
 =(t-\lambda)^k.
 $$
 
-さらにJordan形がブロック対角行列
+さらにJordan 形がブロック対角行列
 $$
 J=J_{k_1}(\lambda_1)\oplus\cdots\oplus J_{k_m}(\lambda_m)
 $$
@@ -1592,7 +1592,7 @@ $$
 - ブロックサイズ総和 = $G_\lambda$ の次元 = 特性多項式中の代数的重複度
 - $\dim\ker(T-\lambda I)^j-\dim\ker(T-\lambda I)^{j-1}$ = サイズ $j$ 以上のブロック数
 
-です。対角化可能とは、全てのJordan ブロックが $1\times1$ であることに他なりません。
+です。対角化可能とは、全ての Jordan ブロックが $1\times1$ であることに他なりません。
 
 ---
 
@@ -1713,24 +1713,24 @@ $$
 #### LA4-B01 最小多項式からJordan ブロックを読む
 - Level: B
 
-4次元複素空間上の作用素 $T$ が特性多項式 $(t-2)^4$、最小多項式 $(t-2)^3$ を持つとする。可能なJordan ブロックサイズを求めよ。
+4次元複素空間上の作用素 $T$ が特性多項式 $(t-2)^4$、最小多項式 $(t-2)^3$ を持つとする。可能な Jordan ブロックサイズを求めよ。
 
 <!-- solution-start -->
 **解答**：特性多項式中の $(t-2)$ の指数4は、固有値2に属するブロックサイズ総和が4であることを意味します。最小多項式中の指数3は最大ブロックサイズが3であることを意味します。従ってサイズ3のブロックが少なくとも一つあり、残りは1次元です。
 $$
 4=3+1.
 $$
-よってJordan形は
+よってJordan 形は
 $$
 J_3(2)\oplus J_1(2).
 $$
 <!-- solution-end -->
 
 <a id="ex-la4-b02"></a>
-#### LA4-B02 核の次元からJordan形を読む
+#### LA4-B02 核の次元からJordan 形を読む
 - Level: B
 
-冪零作用素 $N$ on $\mathbb C^5$ が
+$\mathbb C^5$ 上の冪零作用素 $N$ が
 $$
 \dim\ker N=2,
 \quad
@@ -1757,7 +1757,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-la4-b03"></a>
-#### LA4-B03 Cayley--Hamiltonで高冪を落とす
+#### LA4-B03 Cayley--Hamilton の定理で高冪を落とす
 - Level: B
 
 $2\times2$ 行列 $A$ の特性多項式が $t^2-3t+2$ であるとする。$A^4$ を $I,A$ の線形結合へ簡約せよ。
@@ -1782,7 +1782,7 @@ A^4=A(7A-6I)
 =7A^2-6A
 =15A-14I.
 $$
-ここで使ったのはCayley--Hamiltonによる二次以上の冪の還元です。
+ここで使ったのはCayley--Hamilton の定理による二次以上の冪の還元です。
 <!-- solution-end -->
 
 ### Level C
@@ -1804,11 +1804,14 @@ $$
 が $V=G_\lambda\oplus G_\mu$ の射影になることを示せ。
 
 <!-- solution-start -->
-**解答**：Bézout式に $T$ を代入すると
+**解答**：Bézout 等式に $T$ を代入すると
+
 $$
 P_\mu+P_\lambda=I.
 $$
-また作用素多項式同士は可換なので
+
+まず $P_\lambda$ の像を確認します。作用素多項式同士は可換なので
+
 $$
 \begin{aligned}
 (T-\lambda I)^rP_\lambda
@@ -1817,31 +1820,77 @@ $$
 &=0.
 \end{aligned}
 $$
+
 従って
+
 $$
 \operatorname{Im}P_\lambda\subset G_\lambda.
 $$
-同様に
+
+同じ計算を $P_\mu$ について実際に書くと
+
+$$
+\begin{aligned}
+(T-\mu I)^sP_\mu
+&=a(T)(T-\mu I)^s(T-\lambda I)^r\\
+&=a(T)m_T(T)\\
+&=0,
+\end{aligned}
+$$
+
+なので
+
 $$
 \operatorname{Im}P_\mu\subset G_\mu.
 $$
-$v\in G_\lambda$ なら一般化固有空間分解の証明で示した
+
+次に各一般化固有空間上での作用を確認します。$v\in G_\lambda$ なら、[一般化固有空間分解](#thm-la4-generalized-decomposition)の証明で示した
+
 $$
 G_\lambda=\ker(T-\lambda I)^r
 $$
+
 から
+
 $$
-P_\mu v=0.
+P_\mu v
+=a(T)(T-\lambda I)^rv
+=0.
 $$
-さらに $P_\lambda+P_\mu=I$ なので
+
+したがって $P_\lambda+P_\mu=I$ より
+
 $$
 P_\lambda v=v.
 $$
-同様に $v\in G_\mu$ では $P_\lambda v=0$, $P_\mu v=v$。従って各 $P$ は対応する直和成分への射影です。
+
+一方 $v\in G_\mu$ なら
+
+$$
+P_\lambda v
+=b(T)(T-\mu I)^sv
+=0,
+$$
+
+従って
+
+$$
+P_\mu v
+=(I-P_\lambda)v
+=v.
+$$
+
+よって $P_\lambda$ は $G_\lambda$ 成分を残して $G_\mu$ 成分を消し、$P_\mu$ はその逆を行います。したがって両者は
+
+$$
+V=G_\lambda\oplus G_\mu
+$$
+
+の各直和成分への射影です。
 <!-- solution-end -->
 
 ---
 
 ## 10. 次に進む
 
-一般の作用素の代数的構造をJordan形まで記述できました。次は複素ベクトル空間に幾何を入れ、**複素内積・共役転置・随伴・Hermitian・unitary・normal operator** を統一します。
+一般の作用素の代数的構造をJordan 形まで記述できました。次は複素ベクトル空間に幾何を入れ、**複素内積・共役転置・随伴・Hermitian・unitary・normal operator** を統一します。
