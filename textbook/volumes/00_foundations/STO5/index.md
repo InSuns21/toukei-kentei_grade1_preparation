@@ -38,14 +38,18 @@ STO6 では確率積分を単純過程から構成します。その前に、積
 
 ## 1. 連続時間マルチンゲールと局所化
 
-離散時間マルチンゲールの条件
+離散時間では、各時刻で可積分性を持ち、未来の条件付き平均が現在値に戻る過程をマルチンゲールと呼びました。連続時間でもまず同じ条件
 
 $$
-E[M_n\mid\mathcal F_m]=M_m
-\qquad(m\le n)
+E[M_t\mid\mathcal F_s]=M_s
+\qquad(0\le s\le t)
 $$
 
-を、連続時間へそのまま延ばします。
+を使えます。
+
+ただし、後で確率積分や停止操作を組み合わせると、過程全体では期待値を直接制御しにくくても、**ある水準へ達する前まで止めれば**通常のマルチンゲールとして扱える状況が現れます。そこで「全時間で真のマルチンゲールであること」と「停止した各段階では真のマルチンゲールになること」を分けます。
+
+これまでの道具でできるのは真のマルチンゲールに対する条件付き期待値計算です。これを、停止によって有限化できる過程まで広げるために連続局所マルチンゲールを導入します。
 
 <a id="def-sto5-continuous-local-martingale"></a>
 
@@ -295,7 +299,15 @@ $$
 
 ## 2. 過程の極限を「有限時間区間上で一様に」見る
 
-二乗増分の極限は各固定時刻だけでなく、過程全体として収束させます。
+固定した時刻 $t$ ごとに $X_t^{(n)}\to X_t$ が分かっても、$0\le s\le T$ の途中で大きく外れる時刻が残るかもしれません。後で停止時刻や積分過程を扱うときは、有限時間区間全体でずれが小さいことを確率的に制御したいところです。
+
+そこで、各 compact interval 上の最大誤差
+
+$$
+\sup_{0\le t\le T}|X_t^{(n)}-X_t|
+$$
+
+そのものが確率的に 0 へ近づく収束を使います。これが ucp 収束です。
 
 <a id="def-sto5-ucp"></a>
 
@@ -338,6 +350,10 @@ $$
 ---
 
 ## 3. 有限変動は「一次変分」で測る
+
+滑らかな drift では、細かく分割しても増分の絶対値の総和は有限に保たれます。一方、ブラウン運動では後で見るように、この一次の総和は発散し得ます。
+
+二次変分へ進む前に、まず「通常の微積分で扱う動き」を切り分ける尺度が必要です。増分の絶対値を足し、その上限が有限であるという条件を **有限変動** と呼びます。これを導入すると、drift 型の成分は二次変分へ寄与しないことを次節で証明できます。
 
 <a id="def-sto5-finite-variation"></a>
 
@@ -429,6 +445,10 @@ X_{t_k}-X_{t_{k-1}}
 $$
 
 とします。$t$ が分割点の間にあるとき最後の未完成区間は足しません。この定義なら $Q^\pi(X)$ は $t$ について増加します。continuous $X$ では、最後の未完成増分を含める流儀との差は mesh $\to0$ で一様に消えます。
+
+有限変動だけを見るなら、この二乗和は 0 へ消えます。しかしブラウン運動では増分が典型的に $\sqrt{\Delta t}$ の大きさなので、二乗すると $\Delta t$ と同じ次数が残ります。そこで欲しいのは、特定の分割だけに依存する数ではなく、**どの十分細かい決定論的分割でも同じ過程へ近づく**という分割非依存の極限です。
+
+その極限を、前節の ucp 収束で定義します。
 
 <a id="def-sto5-quadratic-variation"></a>
 
@@ -545,6 +565,16 @@ $$
 
 ## 5. ブラウン運動の二乗増分和は時間へ収束する
 
+$C^1$ 関数では二乗増分和が 0 へ消えました。ブラウン運動では一つの増分について
+
+$$
+E[(B_{t+\Delta t}-B_t)^2]=\Delta t
+$$
+
+なので、区間全体で足せば時間長 $T$ が残るはずです。問題は、ランダムな揺らぎも同時に消えて、本当に分割によらない極限になるかです。
+
+次の定理では平均が $T$、分散が mesh とともに 0 へ行くことを直接計算し、そのあと固定時刻の収束を ucp へ持ち上げます。
+
 <a id="thm-sto5-brownian-qv"></a>
 
 <!-- formal-statement-start -->
@@ -655,14 +685,81 @@ E|Q_T^\pi(B)-T|^2
 \to0.
 $$
 
-任意の固定 $t\le T$ に対して同じ計算が使えます。さらに $Q_t^\pi(B)$ は $t$ について増加し、極限候補 $t$ は連続です。有限個の時間格子で固定時刻収束を取り、格子間の差を単調性と $t$ の一様連続性で挟むと
+任意の固定 $r\le T$ に対しても同じ計算が使えます。$r$ が partition point でない場合は、$r$ より前の最後の partition point を $u_\pi(r)$ とすると
+
+$$
+0\le r-u_\pi(r)\le|\pi|,
+$$
+
+かつ $Q_r^\pi(B)=Q_{u_\pi(r)}^\pi(B)$ です。従って
+
+$$
+E\left|Q_r^\pi(B)-r\right|^2
+\le
+2E\left|Q_{u_\pi(r)}^\pi(B)-u_\pi(r)\right|^2
++
+2|\pi|^2
+\to0.
+$$
+
+ここから過程全体の収束へ移します。まず $\delta>0$ を固定し、
+
+$$
+0=r_0<r_1<\cdots<r_N=T,
+\qquad
+\max_j(r_j-r_{j-1})\le\delta
+$$
+
+となる有限格子を取ります。各 $r_j$ では上の $L^2$ 収束が成り立つため、有限個の和を取れば
+
+$$
+\max_{0\le j\le N}
+|Q_{r_j}^\pi(B)-r_j|
+\to0
+$$
+
+in probability です。
+
+次に $r_{j-1}\le t\le r_j$ とします。$Q^\pi(B)$ は増加過程なので
+
+$$
+Q_{r_{j-1}}^\pi(B)
+\le
+Q_t^\pi(B)
+\le
+Q_{r_j}^\pi(B).
+$$
+
+従って上側と下側をそれぞれ比較すると
+
+$$
+|Q_t^\pi(B)-t|
+\le
+\max_{0\le \ell\le N}
+|Q_{r_\ell}^\pi(B)-r_\ell|
++
+\delta.
+$$
+
+よって
+
+$$
+\sup_{0\le t\le T}|Q_t^\pi(B)-t|
+\le
+\max_{0\le j\le N}
+|Q_{r_j}^\pi(B)-r_j|
++
+\delta.
+$$
+
+まず $|\pi|\to0$ として右辺第一項を確率的に 0 へ送り、その後 $\delta\downarrow0$ とすれば
 
 $$
 \sup_{0\le t\le T}|Q_t^\pi(B)-t|
 \to0
 $$
 
-in probability を得ます。従って $[B]_t=t$ です。
+in probability です。従って $[B]_t=t$ です。
 <!-- proof-end -->
 
 ここで初めて
@@ -821,6 +918,16 @@ $$
 
 ## 8. 偏極恒等式で交差変分を作る
 
+二次変分 $[M]$ は一つの雑音過程の「二乗の大きさ」を測ります。しかし積 $MN$ や多次元 Itô 公式では、二つの過程の増分が同時にどう動くかを表す
+
+$$
+\sum_k \Delta_kM\,\Delta_kN
+$$
+
+の極限が必要です。
+
+この cross term を新しく一から構成する代わりに、恒等式 $4xy=(x+y)^2-(x-y)^2$ を使えば、すでに存在する $[M+N]$ と $[M-N]$ から復元できます。これが共変分です。
+
 <a id="def-sto5-covariation"></a>
 
 <!-- formal-statement-start -->
@@ -919,7 +1026,40 @@ $$
 
 へ収束するため、cross sum は $[M,N]$ へ収束します。
 
-対称性・双線形性は偏極恒等式と二次変分の二次性から従います。
+対称性は cross 増分和の式から直ちに分かります。双線形性も極限を一段ずつ取れば確認できます。実際、任意の定数 $a,b$ と連続局所マルチンゲール $L$ に対し、各 partition で
+
+$$
+\sum_k
+\Delta_k(aM+bN)\,\Delta_kL
+=
+a\sum_k\Delta_kM\,\Delta_kL
++
+b\sum_k\Delta_kN\,\Delta_kL.
+$$
+
+三つの cross sum はそれぞれ ucp 収束するので、極限の一意性から
+
+$$
+[aM+bN,L]
+=
+a[M,L]+b[N,L].
+$$
+
+また
+
+$$
+Q^\pi(M+N)
+=
+Q^\pi(M)+Q^\pi(N)
++
+2\sum_k\Delta_kM\Delta_kN
+$$
+
+へ ucp 極限を入れると
+
+$$
+[M+N]=[M]+[N]+2[M,N].
+$$
 
 最後に
 
@@ -937,15 +1077,7 @@ $$
 2MN-\{[M+N]-[M]-[N]\}
 $$
 
-が局所マルチンゲールです。
-
-$$
-[M+N]-[M]-[N]
-=
-2[M,N]
-$$
-
-なので
+が局所マルチンゲールです。上で得た恒等式から括弧内は $2[M,N]$ なので
 
 $$
 MN-[M,N]
@@ -957,6 +1089,16 @@ $$
 ---
 
 ## 9. 局所マルチンゲールと有限変動の和
+
+ここまでで、有限変動成分は二次変分を持たず、連続局所マルチンゲールは二次変分で雑音の強さを持つことが分かりました。実際の確率モデルでは、この二つは別々に現れるより
+
+$$
+\text{雑音} + \text{drift}
+$$
+
+として同じ過程に入ります。
+
+そこで「連続局所マルチンゲール + 連続有限変動過程」に分解できる過程を一つのクラスとして扱います。後で Itô 公式を適用するとき、二次変分には雑音成分だけが残ることがこの分解の利点です。
 
 <a id="def-sto5-continuous-semimartingale"></a>
 
@@ -1056,15 +1198,51 @@ $$
 
 $M$ は連続なので mesh が 0 へ行けば最大増分はほとんど確実に 0 へ行きます。$V_T(A)<\infty$ なので cross term もほとんど確実に 0 へ行きます。
 
-従って
+この評価は終端時刻だけでなく全ての $t\le T$ に同時に使えます。実際、
 
 $$
-Q^\pi(X)-Q^\pi(M)\to0
+\begin{aligned}
+\sup_{0\le t\le T}
+|Q_t^\pi(X)-Q_t^\pi(M)|
+&\le
+2\left(\max_k|\Delta_kM|\right)V_T(A)\\
+&\quad+
+\left(\max_k|\Delta_kA|\right)V_T(A).
+\end{aligned}
 $$
 
-ucp で、$[X]=[M]$ です。
+$M,A$ はともに連続なので、mesh が 0 へ行けば二つの最大増分はほとんど確実に 0 へ行きます。従って
 
-$[X,N]$ も cross 増分 sum を展開し、$\sum\Delta A\Delta N$ を同じ評価で消せば $[M,N]$ が残ります。
+$$
+\sup_{0\le t\le T}
+|Q_t^\pi(X)-Q_t^\pi(M)|
+\to0
+$$
+
+ほとんど確実に、したがって ucp で収束します。よって $[X]=[M]$ です。
+
+$[X,N]$ についても
+
+$$
+\sum_k\Delta_kX\Delta_kN
+=
+\sum_k\Delta_kM\Delta_kN
++
+\sum_k\Delta_kA\Delta_kN
+$$
+
+と展開し、
+
+$$
+\left|
+\sum_k\Delta_kA\Delta_kN
+\right|
+\le
+\left(\max_k|\Delta_kN|\right)V_T(A)
+\to0
+$$
+
+を使えば $[X,N]=[M,N]$ が得られます。
 <!-- proof-end -->
 
 <a id="thm-sto5-semimartingale-uniqueness"></a>
@@ -1117,6 +1295,8 @@ $$
 ---
 
 ## 10. ブラウン標本路は有限変動ではない
+
+有限変動なら二次変分は 0、ブラウン運動なら二次変分は $t$ でした。この二つを同時に満たすことはできません。したがって「ブラウン標本路は通常の有限変動曲線ではない」という章頭の主張を、ここで二次変分だけから証明できます。
 
 <a id="cor-sto5-brownian-infinite-variation"></a>
 
@@ -1331,11 +1511,24 @@ F_a=\frac12\theta^2F,
 F_{xx}=-\theta^2F,
 $$
 
-したがって
+なので
 
 $$
-F_a+\frac12F_{xx}=0.
+F_a=-\frac12F_{xx}.
 $$
+
+従って各区間の $A$ による一次項と $X$ による二次項は
+
+$$
+F_a\Delta_kA
++
+\frac12F_{xx}(\Delta_kX)^2
+=
+\frac12F_{xx}
+\left\{(\Delta_kX)^2-\Delta_kA\right\}
+$$
+
+と一つにまとめられます。ここで $F_a,F_{xx}$ は同じ左端点 $(A_{t_{k-1}}^{(n)},X_{t_{k-1}}^{(n)})$ で評価しています。
 
 全区間を足すと
 
@@ -1503,15 +1696,29 @@ e^{i\theta M_t+\theta^2t/2}
 e^{i\theta M_s+\theta^2s/2}.
 $$
 
-整理すると
+左辺の決定論的因子 $e^{\theta^2t/2}$ を外へ出すと
 
 $$
+E[e^{i\theta M_t}\mid\mathcal F_s]
+=
+e^{i\theta M_s}
+e^{-\theta^2(t-s)/2}.
+$$
+
+さらに $e^{-i\theta M_s}$ は $\mathcal F_s$-measurable なので両辺へ掛けて
+
+$$
+\begin{aligned}
 E\left[
 e^{i\theta(M_t-M_s)}
 \mid\mathcal F_s
 \right]
-=
+&=
+e^{-i\theta M_s}
+E[e^{i\theta M_t}\mid\mathcal F_s]\\
+&=
 e^{-\theta^2(t-s)/2}.
+\end{aligned}
 $$
 
 右辺は決定論的で、$N(0,t-s)$ の characteristic function です。全ての $\theta$ についてこの恒等式が成り立つので、characteristic function の一意性と monotone class argument により
@@ -2081,12 +2288,25 @@ e^{i\theta M_t+\theta^2t/2}
 e^{i\theta M_s+\theta^2s/2}.
 $$
 
-整理して
+決定論的因子を外へ出すと
 
 $$
-E[e^{i\theta(M_t-M_s)}\mid\mathcal F_s]
+E[e^{i\theta M_t}\mid\mathcal F_s]
 =
+e^{i\theta M_s}e^{-\theta^2(t-s)/2}.
+$$
+
+ここで $e^{-i\theta M_s}$ は $\mathcal F_s$-measurable なので
+
+$$
+\begin{aligned}
+E[e^{i\theta(M_t-M_s)}\mid\mathcal F_s]
+&=
+e^{-i\theta M_s}
+E[e^{i\theta M_t}\mid\mathcal F_s]\\
+&=
 e^{-\theta^2(t-s)/2}.
+\end{aligned}
 $$
 
 右辺は $N(0,t-s)$ の characteristic function で、$\mathcal F_s$ に依存しません。従って $M_t-M_s$ は $N(0,t-s)$ に従い、$\mathcal F_s$ と独立です。
