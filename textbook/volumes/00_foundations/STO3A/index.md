@@ -1142,7 +1142,7 @@ $$
 
 とします。平均0独立増分なので $(Q_k^{(M)})_{k\le n}$ は離散時間 martingale です。
 
-polygonal interpolation の各区間では値は二端点の凸結合なので
+polygonal interpolation の各区間では、値は二つの端点を係数 $1-\theta,\theta\in[0,1]$ で線形補間したものなので
 
 $$
 \|W_n-W_n^{(M)}\|_\infty
@@ -1151,17 +1151,32 @@ $$
 \max_{0\le k\le n}|Q_k^{(M)}|.
 $$
 
-$(Q_k^{(M)})$ は平均 0 の martingale なので、条件付き Jensen の不等式から
-
-$$
-E[(Q_{k+1}^{(M)})^2\mid\mathcal F_k]
-\ge
-\left(
-E[Q_{k+1}^{(M)}\mid\mathcal F_k]
-\right)^2
-=
-(Q_k^{(M)})^2.
-$$
+$(Q_k^{(M)})$ は martingale なので、増分
+  $$
+  D_{k+1}^{(M)}
+  :=
+  Q_{k+1}^{(M)}-Q_k^{(M)}
+  $$
+  は
+  $$
+  E[D_{k+1}^{(M)}\mid\mathcal F_k]=0
+  $$
+  を満たします。そこで
+  $$
+  \begin{aligned}
+  E[(Q_{k+1}^{(M)})^2\mid\mathcal F_k]
+  &=
+  E[(Q_k^{(M)}+D_{k+1}^{(M)})^2\mid\mathcal F_k]\\
+  &=
+  (Q_k^{(M)})^2
+  +2Q_k^{(M)}
+  E[D_{k+1}^{(M)}\mid\mathcal F_k]\\
+  &\quad+
+  E[(D_{k+1}^{(M)})^2\mid\mathcal F_k]\\
+  &\ge
+  (Q_k^{(M)})^2.
+  \end{aligned}
+  $$
 
 従って $((Q_k^{(M)})^2)$ は非負劣マルチンゲールです。[Doob 最大不等式](../STO2/index.md#thm-sto2-doob-maximal)をこの過程へ、閾値
 
@@ -1468,7 +1483,7 @@ $$
 \operatorname{Law}(B).
 $$
 
-最後に列全体の収束を確認します。もし $W_n\Rightarrow B$ でなければ、弱収束の定義からある有界連続汎関数 $F$、$\varepsilon>0$ と部分列 $(W_{n_\ell})$ が存在して
+最後に列全体の収束を確認します。もし $W_n\Rightarrow B$ でなければ、[経路空間上の弱収束](#def-sto3a-function-weak-convergence)の定義から、ある有界連続汎関数 $F$、$\varepsilon>0$ と部分列 $(W_{n_\ell})$ が存在して
 
 $$
 \left|
