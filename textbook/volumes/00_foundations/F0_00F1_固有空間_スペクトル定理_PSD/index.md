@@ -1,12 +1,16 @@
 # F0-00F1 スペクトル定理・PSD
 
-F0-00Fで線形写像のkernelとimageを準備しました。この講義では自己写像の固有方向から、実対称行列の正規直交固有基底とPSDまでを組み立てます。
+F0-00Fでは、線形自己写像の固有値・固有ベクトルと、固有ベクトルを基底に選べると対角化できることを学びました。ただし一般の行列では、固有ベクトルが十分な本数そろわないこともあれば、そろっても互いに直交するとは限りません。
+
+ここでは **実対称行列** に絞ります。対称性を内積の式へ移すと、異なる固有方向が直交し、1本の固有ベクトルに直交する部分空間の中で同じ問題を繰り返せます。その結果、正規直交固有基底による直交対角化が得られ、二次形式の符号や行列平方根まで固有値ごとの1次元問題として読めるようになります。
 
 $\boxed{\text{固有空間}\to\text{対称性}\to\text{実固有対の存在}\to\text{直交補空間}\to\text{直交対角化}\to\text{PSD}}$
 
 ---
 
 ## 1. 固有値と固有空間
+
+固有値・固有ベクトル・固有空間そのものは F0-00F で導入済みです。ここでは、対称行列の議論で使う記号を一か所に固定し、固有空間が「1本の方向」ではなく部分空間であることを確認します。
 
 <a id="def-eigenvalue-eigenvector-eigenspace"></a>
 
@@ -160,11 +164,13 @@ $$
 =x^{\mathsf T}Ay.
 $$
 
-この性質が、関数解析における **自己共役作用素** の有限次元版です。
+この等式が、対称性を「内積の左右で $A$ を移しても値が変わらない」という形で使うための入口です。
 
 ---
 
 ## 4. 対称性が異なる固有方向を直交させる
+
+一般の行列では、異なる固有値に属する固有ベクトルは一次独立でも直交するとは限りません。実対称行列では、第3節の内積恒等式に2本の固有ベクトルを代入すると、異なる固有値の差が内積に掛かる形になり、直交性まで引き出せます。
 
 <a id="thm-f0-00f1-distinct-eigenspaces-orthogonal"></a>
 
@@ -183,6 +189,17 @@ $$
 > を満たすなら、$\langle u,v\rangle=0$ である。
 <!-- formal-statement-end -->
 
+### 証明の見取り図
+
+対称性の式
+$$
+\langle Au,v\rangle=\langle u,Av\rangle
+$$
+の左辺へ $Au=\lambda u$、右辺へ $Av=\mu v$ をそれぞれ代入します。
+
+<!-- proof-start -->
+### 証明
+
 対称性から
 
 $$
@@ -191,14 +208,18 @@ $$
 \langle u,Av\rangle.
 $$
 
-固有方程式を代入すると
-
+左辺では $Au=\lambda u$ を使うので
 $$
-\lambda\langle u,v\rangle
+\langle Au,v\rangle
 =
-\mu\langle u,v\rangle,
+\lambda\langle u,v\rangle.
 $$
-
+右辺では $Av=\mu v$ を使うので
+$$
+\langle u,Av\rangle
+=
+\mu\langle u,v\rangle.
+$$
 従って
 
 $$
@@ -206,6 +227,7 @@ $$
 $$
 
 $\lambda\ne\mu$ なので $\langle u,v\rangle=0$ です。
+<!-- proof-end -->
 
 同じ固有値の固有空間の中では、F0-00E1の[Gram--Schmidtの直交化](../F0_00E1_内積_Gram_Schmidt_射影_QR/index.md#thm-f0-00e1-gram-schmidt)を使えば正規直交基底を作れます。
 
@@ -257,15 +279,24 @@ $$
 <!-- definition-example-end -->
 
 $x$ が固有ベクトルで
-
 $$
 Ax=\lambda x
 $$
-
-なら
-
+なら、定義の分子は
 $$
-R_A(x)=\lambda.
+x^{\mathsf T}Ax
+=
+x^{\mathsf T}(\lambda x)
+=
+\lambda x^{\mathsf T}x.
+$$
+$x\ne0$ なので $x^{\mathsf T}x>0$ であり、
+$$
+R_A(x)
+=
+\frac{\lambda x^{\mathsf T}x}{x^{\mathsf T}x}
+=
+\lambda.
 $$
 
 Rayleigh商は、「方向 $x$ に沿って二次形式がどれだけ伸びるか」を表します。
