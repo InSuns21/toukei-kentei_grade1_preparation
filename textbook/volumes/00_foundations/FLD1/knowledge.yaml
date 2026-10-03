@@ -29,7 +29,7 @@ concepts:
     aliases: [degree of a field extension]
     introduction: formal
     introduction_aliases: ["定義（体拡大・中間体・拡大次数）"]
-    requires: [algebra.field-extension, linear.vector-space-over-field, linear.basis-dimension-over-field]
+    requires: [algebra.field-extension, linear.vector-space-over-field, linear.dimension-over-field]
 
   - id: algebra.tower-law
     name: 拡大次数の塔の公式
