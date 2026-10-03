@@ -371,12 +371,20 @@ $$
 
 ---
 
-## 5. polar decomposition
+## 5. 極分解
+
+特異値分解では、行列を「入力側の基底変更 → 非負の伸縮 → 出力側の基底変更」と分けました。正方行列では、このうち回転・位相変化に相当する部分と、非負の伸縮に相当する部分を二つの作用素へ直接まとめられます。
+
+$A^*A$ は Hermitian 半正定値なので、その平方根
+$$
+P=(A^*A)^{1/2}
+$$
+を「伸縮部分」とみなします。残りを内積を保つユニタリ作用素として補えることを示すのが極分解です。
 
 <a id="thm-la6-polar"></a>
 <!-- formal-statement-start -->
-> **定理（polar decomposition）**  
-> 任意の複素正方行列 $A\in\mathbb C^{n\times n}$ に対し、unitary行列 $U$ とHermitian PSD行列
+> **定理（極分解 / polar decomposition）**  
+> 任意の複素正方行列 $A\in\mathbb C^{n\times n}$ に対し、ユニタリ行列 $U$ と Hermitian 半正定値行列
 $$
 P=(A^*A)^{1/2}
 $$
@@ -389,6 +397,14 @@ $$
 U=AP^{-1}.
 $$
 <!-- formal-statement-end -->
+
+### 証明の見取り図
+
+まず $P=(A^*A)^{1/2}$ と置くと、$P$ と $A$ は全てのベクトルを同じ長さへ送ることが分かります。そのため、$Px$ を $Ax$ へ送る写像
+$$
+U_0(Px)=Ax
+$$
+は $\operatorname{Im}P$ 上で内積を保つように定まります。これを正規直交基底の延長で全空間のユニタリ作用素 $U$ へ拡張し、$A=UP$ を得ます。
 
 <!-- proof-start -->
 ### 証明
@@ -414,7 +430,7 @@ $\operatorname{Im}P$ 上で
 $$
 U_0(Px)=Ax
 $$
-と定めます。$Px=Py$ なら $P(x-y)=0$、従って $A(x-y)=0$ なのでwell-definedです。
+と定めます。$Px=Py$ なら $P(x-y)=0$、従って $A(x-y)=0$ です。よって $Ax=Ay$ となり、$U_0(Px)$ は代表元 $x$ の選び方に依らず良定義です。
 
 線形性も、$a,b\in\mathbb C$ に対して
 $$
@@ -470,7 +486,7 @@ Up_i=U_0p_i\quad(i\le r),
 \qquad
 Up_i=a_i\quad(i>r)
 $$
-と定めれば、$U$ は正規直交基底を正規直交基底へ送るのでunitaryです。任意の $x$ について $Px\in\operatorname{Im}P$ であり、その部分空間上では $U=U_0$ なので
+と定めれば、$U$ は正規直交基底を正規直交基底へ送るのでユニタリです。任意の $x$ について $Px\in\operatorname{Im}P$ であり、その部分空間上では $U=U_0$ なので
 $$
 UPx=U_0(Px)=Ax.
 $$
@@ -489,22 +505,30 @@ $A$ が特異なら、$\operatorname{Im}P$ の直交補上での $U$ の選び�
 
 ## 6. 複素特異値分解
 
-速習章の実特異値分解を前提に「転置を共役転置へ替える」とはしません。矩形行列からHermitian PSD作用素 $A^*A$ を作り、[LA5の複素normal operatorのスペクトル定理](../LA5/index.md#thm-la5-normal-spectral)から直接構成します。
+F0-00F2 では実行列に対して $A^{\mathsf T}A$ を使いました。複素行列では転置の代わりに共役転置を使うと
+$$
+A^*A
+$$
+が必ず Hermitian 半正定値になります。そこで実数版と同じ構成を、[LA5 の複素正規作用素のスペクトル定理](../LA5/index.md#thm-la5-normal-spectral)を使って一段ずつ組み直します。
 
 <a id="thm-la6-complex-svd"></a>
 <!-- formal-statement-start -->
 > **定理（複素特異値分解）**  
-> 任意の $A\in\mathbb C^{m\times n}$ に対し、unitary行列 $U\in\mathbb C^{m\times m}$、$V\in\mathbb C^{n\times n}$ と、非負実数を対角に持つ $m\times n$ 行列 $\Sigma$ が存在して
+> 任意の $A\in\mathbb C^{m\times n}$ に対し、ユニタリ行列 $U\in\mathbb C^{m\times m}$、$V\in\mathbb C^{n\times n}$ と、非負実数を対角に持つ $m\times n$ 行列 $\Sigma$ が存在して
 $$
 A=U\Sigma V^*
 $$
 > と書ける。$\Sigma$ の正の対角成分は $A^*A$ の正の固有値の平方根である。
 <!-- formal-statement-end -->
 
+### 証明の見取り図
+
+$A^*A$ を正規直交固有基底で対角化し、正の固有値 $\lambda_i$ から $\sigma_i=\sqrt{\lambda_i}$ を作ります。対応する入力方向 $v_i$ を $A$ で送って $\sigma_i$ で割ると出力側の正規直交系 $u_i$ が得られます。零固有値の方向は $A$ で0へ送られるので、最後に両側の基底を行列へ並べれば分解式になります。
+
 <!-- proof-start -->
 ### 証明
 
-$A^*A$ は直前に示した通りHermitian PSDです。[複素normal operatorのスペクトル定理](../LA5/index.md#thm-la5-normal-spectral)により、$\mathbb C^n$ の正規直交基底
+$A^*A$ は直前に示した通り Hermitian 半正定値です。[複素正規作用素のスペクトル定理](../LA5/index.md#thm-la5-normal-spectral)により、$\mathbb C^n$ の正規直交基底
 $$
 v_1,\dots,v_n
 $$
@@ -560,7 +584,7 @@ LA5の[正規直交系の延長](../LA5/index.md#thm-la5-orthonormal-extension)�
 $$
 u_1,\dots,u_r,u_{r+1},\dots,u_m
 $$
-を $\mathbb C^m$ の正規直交基底へ延長します。$U$ を $u_i$ を列に持つunitary行列、$V$ を $v_i$ を列に持つunitary行列とします。
+を $\mathbb C^m$ の正規直交基底へ延長します。$U$ を $u_i$ を列に持つユニタリ行列、$V$ を $v_i$ を列に持つユニタリ行列とします。
 
 $i\le r$ では定義から
 $$
@@ -602,7 +626,7 @@ $$
 なので、$\Sigma$ の正の対角成分は $A^*A$ の正の固有値の平方根を大きい順に並べたものです。$\square$
 <!-- proof-end -->
 
-特異値分解はnormalでない行列や長方形行列にも使えます。$A$ 自身ではなく、必ずHermitian PSDになる $A^*A$ を対角化するからです。
+特異値分解は正規でない行列や長方形行列にも使えます。$A$ 自身ではなく、必ず Hermitian 半正定値になる $A^*A$ を対角化するからです。
 
 ---
 
