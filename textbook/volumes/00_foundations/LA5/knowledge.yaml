@@ -6,6 +6,8 @@ prerequisites:
   - F0-00E1
   - F0-00E2
 forward_references:
+  - complex-analysis.fundamental-theorem-of-algebra
+  - linear.spectral-theorem
   - linear.singular-value
   - linear.singular-value-decomposition
   - linear.hermitian-quadratic-form
@@ -68,18 +70,26 @@ concepts:
       - linear.finite-dimensional-adjoint
 
   - id: linear.unitary-operator
-    name: unitary作用素
+    name: ユニタリ作用素
     kind: definition
-    aliases: [unitary作用素, unitary operator]
+    aliases: [ユニタリ作用素, unitary作用素, unitary operator]
     requires:
       - linear.finite-dimensional-adjoint
 
   - id: linear.normal-operator
-    name: normal operator
+    name: 正規作用素
     kind: definition
-    aliases: [normal operator, 正規作用素]
+    aliases: [正規作用素, normal operator]
     requires:
       - linear.finite-dimensional-adjoint
+
+  - id: linear.complex-eigenvalue-existence
+    name: 複素有限次元自己写像の固有値の存在
+    kind: lemma
+    aliases: [複素有限次元自己写像の固有値の存在, 複素自己写像の固有値存在]
+    requires:
+      - linear.characteristic-polynomial
+      - linear.eigenvalue
 
   - id: linear.schur-unitary-triangularization
     name: Schurのユニタリ三角化定理
@@ -88,12 +98,12 @@ concepts:
     requires:
       - linear.complex-inner-product
       - linear.orthonormal-extension
-      - linear.characteristic-polynomial
+      - linear.complex-eigenvalue-existence
 
   - id: linear.complex-normal-spectral-theorem
-    name: 複素normal operatorのスペクトル定理
+    name: 複素正規作用素のスペクトル定理
     kind: theorem
-    aliases: [複素normal operatorのスペクトル定理]
+    aliases: [複素正規作用素のスペクトル定理, 複素normal operatorのスペクトル定理]
     requires:
       - linear.normal-operator
       - linear.schur-unitary-triangularization
@@ -107,9 +117,9 @@ concepts:
       - linear.eigenvalue
 
   - id: linear.unitary-modulus-one-eigenvalues
-    name: unitary作用素の固有値は絶対値1
+    name: ユニタリ作用素の固有値は絶対値1
     kind: theorem
-    aliases: [unitary作用素の固有値は絶対値1]
+    aliases: [ユニタリ作用素の固有値は絶対値1, unitary作用素の固有値は絶対値1]
     requires:
       - linear.unitary-operator
       - linear.eigenvalue

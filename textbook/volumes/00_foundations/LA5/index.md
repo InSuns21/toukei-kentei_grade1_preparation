@@ -1,18 +1,30 @@
-# LA5 複素内積・有限次元随伴・normal operator
+# LA5 複素内積・有限次元随伴・正規作用素
 
-[F0-00E1](../F0_00E1_内積_Gram_Schmidt_射影_QR/index.md) では実内積空間を扱いました。複素数上では単なる転置では長さや直交性を正しく扱えず、**複素共役を伴う内積と共役転置**が必要です。
+[F0-00E1](../F0_00E1_内積_Gram_Schmidt_射影_QR/index.md) では実内積空間を扱い、直交・射影・QRまで構成しました。複素数上でも同じ幾何を使いたいのですが、実数版の積をそのまま
+$$
+x^{\mathsf T}y
+$$
+と置くとうまくいきません。例えば
+$$
+x=(1,i)^{\mathsf T}\ne0
+$$
+に対して
+$$
+x^{\mathsf T}x=1+i^2=0
+$$
+となり、非零ベクトルの「長さの平方」が0になってしまいます。
 
-この章では内積の規約を
+この失敗を避けるため、片方の成分に複素共役を入れます。本章では標準座標で
 $$
 \langle x,y\rangle=x^*y
 $$
-に合わせ、**第1変数で共役線形、第2変数で線形** と固定します。
+となる規約を採用し、**第1変数で共役線形、第2変数で線形** と固定します。この向きを最初に確定しておくと、直交化の係数、随伴の定義、共役転置の位置を一貫して追えます。
 
-実数版のGram–Schmidtを「共役を入れれば同じ」と既習扱いすると、随伴の存在証明で未構成の正規直交基底を先取りしてしまいます。そこで複素Gram–Schmidtを随伴より前に構成し、その後のSchur・スペクトル定理まで依存順序を閉じます。
+実数版の直交化を「共役を入れれば同じ」と済ませず、まず複素数上で正規直交基底を構成できることを確認します。その基底を使って線形写像を内積の反対側へ移す操作を定義し、最後に正規直交基底を保った上三角化を経て正規直交固有基底へ進みます。
 
 ---
 
-## 1. 複素内積と複素Gram–Schmidt
+## 1. 複素数上の内積と直交化
 
 <a id="def-la5-complex-inner-product"></a>
 <!-- formal-statement-start -->
@@ -25,7 +37,7 @@ $$
 >
 > 1. $\langle x,\alpha y+\beta z\rangle=\alpha\langle x,y\rangle+\beta\langle x,z\rangle$
 > 2. $\langle x,y\rangle=\overline{\langle y,x\rangle}$
-> 3. $\langle x,x\rangle\ge0$ かつ $\langle x,x\rangle=0\iff x=0$
+> 3. $\langle x,x\rangle\in\mathbb R_{\ge0}$ かつ $\langle x,x\rangle=0\iff x=0$
 >
 > を満たすとき、これを複素内積という。
 <!-- formal-statement-end -->
@@ -76,7 +88,7 @@ $$
 \langle x,x\rangle
 =\sum_j|x_j|^2\ge0.
 $$
-和が0なら各 $|x_j|^2=0$ なので $x=0$。逆向きは明らかです。従って標準式は複素内積です。
+和が0なら各 $|x_j|^2=0$ なので $x=0$ です。逆に $x=0$ なら各成分が0だから和も0です。従って標準式は複素内積です。
 <!-- definition-example-end -->
 
 ノルムを
@@ -95,6 +107,69 @@ $$
 \|\alpha x\|=|\alpha|\|x\|.
 $$
 
+この量が三角不等式も満たすことを、実数版をそのまま引用せず確認しておきます。$y\ne0$ とし、
+$$
+c=\frac{\langle y,x\rangle}{\|y\|^2}
+$$
+と置きます。本章の規約では第1変数が共役線形、第2変数が線形なので
+$$
+\begin{aligned}
+\|x-cy\|^2
+&=
+\langle x-cy,x-cy\rangle\\
+&=
+\|x\|^2
+-c\langle x,y\rangle
+-\overline c\langle y,x\rangle
++|c|^2\|y\|^2\\
+&=
+\|x\|^2
+-\frac{|\langle x,y\rangle|^2}{\|y\|^2}.
+\end{aligned}
+$$
+左辺は非負なので
+$$
+|\langle x,y\rangle|
+\le
+\|x\|\,\|y\|.
+$$
+$y=0$ の場合も両辺が0なので同じ不等式が成り立ちます。
+
+これを使うと
+$$
+\begin{aligned}
+\|x+y\|^2
+&=
+\|x\|^2
++\langle x,y\rangle
++\langle y,x\rangle
++\|y\|^2\\
+&=
+\|x\|^2
++2\operatorname{Re}\langle x,y\rangle
++\|y\|^2\\
+&\le
+\|x\|^2
++2|\langle x,y\rangle|
++\|y\|^2\\
+&\le
+(\|x\|+\|y\|)^2.
+\end{aligned}
+$$
+両辺は非負なので平方根を取り、
+$$
+\|x+y\|
+\le
+\|x\|+\|y\|.
+$$
+従って $\|x\|=\sqrt{\langle x,x\rangle}$ は複素数上でも確かにノルムです。
+
+実数版では、既に作った正規直交方向への射影成分を引けば直交化できました。複素数上でも同じ構成を使えますが、本章の規約では射影係数の順序を
+$$
+\langle q_j,v_m\rangle
+$$
+としなければなりません。ここを曖昧にせず、構成が本当に閉じることを確認します。
+
 <a id="thm-la5-complex-gram-schmidt"></a>
 <!-- formal-statement-start -->
 > **定理（複素Gram–Schmidt直交化）**  
@@ -106,6 +181,10 @@ $$
 $$
 > が成り立つ。
 <!-- formal-statement-end -->
+
+### 証明の見取り図
+
+各 $v_m$ から、すでに得た $q_1,\dots,q_{m-1}$ 方向の成分を引きます。一次独立性が残差 $z_m\ne0$ を保証し、正規直交性が $z_m\perp q_i$ を保証します。実数版との違いは、係数を本章の「第2変数が線形」という規約に合わせる点です。
 
 <!-- proof-start -->
 ### 証明
@@ -173,6 +252,10 @@ $$
 > 有限次元複素内積空間は正規直交基底を持つ。また任意の有限正規直交系は空間全体の正規直交基底へ延長できる。
 <!-- formal-statement-end -->
 
+### 証明の核心
+
+前半は任意の基底を直交化するだけです。後半は、既に正規直交な先頭 $r$ 本から Gram–Schmidt を始めると、その $r$ 本が変化しないことを確認します。
+
 <!-- proof-start -->
 ### 証明
 
@@ -188,6 +271,16 @@ $$
 ---
 
 ## 2. 有限次元随伴
+
+標準内積では
+$$
+\langle Ax,y\rangle
+=
+x^*A^*y
+$$
+となるので、$A$ を第1変数側から第2変数側へ移すと共役転置 $A^*$ が現れます。しかし、基底を変えるたびに行列を書き直すのではなく、線形写像そのものに対してこの「反対側へ移す写像」を定めたいところです。
+
+そこで、全ての $x,y$ に対する内積の等式を満たす写像を定義します。
 
 <a id="def-la5-adjoint"></a>
 <!-- formal-statement-start -->
@@ -238,6 +331,10 @@ $$
 > である。
 <!-- formal-statement-end -->
 
+### 証明の見取り図
+
+存在は、正規直交基底を一つ選び、その座標で共役転置 $A^*$ を使って候補を構成します。一意性は、2つの候補の差が全ての $x$ と内積0になるなら、その差自身も0でなければならないことから示します。
+
 <!-- proof-start -->
 ### 証明
 
@@ -285,6 +382,8 @@ $$
 $$
 正定値性から $(S_1-S_2)y=0$。全ての $y$ で成り立つので $S_1=S_2$ です。$\square$
 <!-- proof-end -->
+
+随伴を計算に使うには、和・スカラー倍・合成を取ったときに随伴がどう動くかが必要です。次の規則を一度証明しておけば、後の正規性やスペクトル分解で $A^*$ を機械的に扱えます。
 
 <a id="thm-la5-adjoint-rules"></a>
 <!-- formal-statement-start -->
@@ -360,7 +459,11 @@ LA3の代数的双対写像とは区別します。
 
 ---
 
-## 3. Hermitian・unitary・normal
+## 3. Hermitian・ユニタリ・正規
+
+随伴が使えると、作用素とその随伴の関係によって重要な3種類を切り分けられます。ある条件は「自分自身が随伴」、別の条件は「長さを保つ」、さらにその両方を含む弱い条件は「作用素と随伴が可換」です。
+
+この3条件を分けておくと、後で「固有値が実数になる理由」「固有値の絶対値が1になる理由」「正規直交固有基底を持てる理由」を、それぞれ対応する仮定から追えます。
 
 <a id="def-la5-hermitian"></a>
 <!-- formal-statement-start -->
@@ -374,51 +477,61 @@ $$
 
 <a id="def-la5-unitary"></a>
 <!-- formal-statement-start -->
-> **定義（unitary作用素）**  
+> **定義（ユニタリ作用素 / unitary operator）**  
 > 有限次元随伴について
 $$
 T^*T=TT^*=I
 $$
-> を満たす作用素をunitary作用素という。
+> を満たす作用素を **ユニタリ作用素** という。
 <!-- formal-statement-end -->
 
 <a id="def-la5-normal"></a>
 <!-- formal-statement-start -->
-> **定義（normal operator）**  
+> **定義（正規作用素 / normal operator）**  
 > 有限次元随伴について
 $$
 T^*T=TT^*
 $$
-> を満たす作用素をnormal operatorという。
+> を満たす作用素を **正規作用素** という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-la5-hermitian, def-la5-unitary, def-la5-normal -->
-**定義の確認**：
+**定義の確認**：まず
 $$
-D=\operatorname{diag}(1,i)
+H=\operatorname{diag}(2,3)
 $$
-を考えます。
+なら $H^*=H$ なので、$H$ は Hermitian 作用素です。
+
+次に
 $$
-D^*=\operatorname{diag}(1,-i),
+U=\operatorname{diag}(1,i)
+$$
+とすると
+$$
+U^*=\operatorname{diag}(1,-i),
 $$
 従って
 $$
-D^*D=DD^*=I.
+U^*U=UU^*=I.
 $$
-よって $D$ はunitaryで、特にnormalです。一方 $D^*\ne D$ なのでHermitianではありません。
+よって $U$ はユニタリ作用素です。また
+$$
+U^*U=UU^*
+$$
+も満たすので正規作用素です。一方 $U^*\ne U$ なので Hermitian 作用素ではありません。
 
-Hermitianなら
+一般に Hermitian 作用素なら
 $$
 T^*T=T^2=TT^*,
 $$
-unitaryなら
+ユニタリ作用素なら
 $$
 T^*T=I=TT^*,
 $$
-なので、いずれもnormalの特別な場合です。
+なので、いずれも正規作用素の特別な場合です。
 <!-- definition-example-end -->
 
-unitary作用素は内積を保存します。実際
+ユニタリ作用素は内積を保存します。実際
 $$
 \langle Tx,Ty\rangle
 =\langle x,T^*Ty\rangle
@@ -430,11 +543,17 @@ $$
 
 ## 4. Hermitian作用素の固有値は実数
 
+Hermitian 条件 $T^*=T$ は、内積の左右を入れ替えても同じ作用素が現れることを意味します。固有方程式 $Tv=\lambda v$ をこの等式の両側へ代入すると、一方では $\overline\lambda$、他方では $\lambda$ が現れます。この食い違いが消えるため、固有値は実数に制約されます。
+
 <a id="thm-la5-hermitian-real-eigenvalues"></a>
 <!-- formal-statement-start -->
 > **定理（Hermitian作用素の固有値は実数）**  
 > Hermitian作用素 $T$ の固有値は全て実数である。
 <!-- formal-statement-end -->
+
+### 証明の核心
+
+同じ量 $\langle Tv,v\rangle$ を、Hermitian 性で右側へ移した式と固有方程式で直接計算した式の2通りで比較します。
 
 <!-- proof-start -->
 ### 証明
@@ -467,12 +586,14 @@ $$
 
 ---
 
-## 5. unitary作用素の固有値は単位円上にある
+## 5. ユニタリ作用素の固有値は単位円上にある
+
+ユニタリ作用素はノルムを保存します。一方、固有方向では $Tv=\lambda v$ なので、ノルムは $|\lambda|$ 倍になります。同じベクトルの長さが変わらないためには $|\lambda|=1$ でなければなりません。
 
 <a id="thm-la5-unitary-eigenvalues"></a>
 <!-- formal-statement-start -->
-> **定理（unitary作用素の固有値は絶対値1）**  
-> unitary作用素 $T$ の固有値 $\lambda$ は
+> **定理（ユニタリ作用素の固有値は絶対値1）**  
+> ユニタリ作用素 $T$ の固有値 $\lambda$ は
 $$
 |\lambda|=1
 $$
@@ -482,7 +603,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$Tv=\lambda v$, $v\ne0$ とします。unitary作用素はノルムを保存するので
+$Tv=\lambda v$, $v\ne0$ とします。ユニタリ作用素はノルムを保存するので
 $$
 \|Tv\|=\|v\|.
 $$
@@ -503,24 +624,51 @@ $\square$
 
 ## 6. Schurのユニタリ三角化
 
-一般の複素行列はunitary対角化できるとは限りません。しかしunitary**三角化**なら常に可能です。
+一般の複素行列は対角化できるとは限りません。Jordan ブロックが残る場合、固有ベクトルだけでは基底を作れないからです。それでも「対角」まで要求せず「上三角」まで緩めれば、正規直交基底を保ったまま整理できます。
+
+Schur の定理では、まず固有値を1つ確保し、その単位固有ベクトルを正規直交基底へ延長します。そこで先に、帰納法を始めるために必要な存在事実だけを切り出します。
+
+<a id="lem-la5-complex-eigenvalue-existence"></a>
+<!-- formal-statement-start -->
+> **補題（複素有限次元自己写像の固有値の存在）**  
+> $V$ を $1$ 次元以上の有限次元複素ベクトル空間、$T:V\to V$ を線形自己写像とする。このとき、ある $\lambda\in\mathbb C$ と $v\in V\setminus\{0\}$ が存在して
+$$
+Tv=\lambda v
+$$
+> を満たす。
+<!-- formal-statement-end -->
+
+この補題の**主張**はここで使いますが、零点存在そのものの証明は後続の複素解析で回収します。線形代数側では LA4 までの特性多項式と固有値の対応を準備済みであり、後で [CA3 の対応する証明](../CA3/index.md#cor-ca3-fta) を学んだ時点で、この補題の証明責務が閉じます。
+
+この1本の固有ベクトルを正規直交基底へ延長すると第1列の下側が0になり、残った $(n-1)\times(n-1)$ ブロックへ同じ操作を繰り返せます。
 
 <a id="thm-la5-schur"></a>
 <!-- formal-statement-start -->
 > **定理（Schurのユニタリ三角化定理）**  
-> 有限次元複素内積空間上の任意の線形自己写像 $T$ に対し、ある正規直交基底が存在して、その基底での表現行列は上三角になる。行列表現では任意の $A\in\mathbb C^{n\times n}$ に対しunitary行列 $Q$ と上三角行列 $R$ が存在して
+> 有限次元複素内積空間上の任意の線形自己写像 $T$ に対し、ある正規直交基底が存在して、その基底での表現行列は上三角になる。行列表現では任意の $A\in\mathbb C^{n\times n}$ に対しユニタリ行列 $Q$ と上三角行列 $R$ が存在して
 $$
 A=QRQ^*
 $$
 > と書ける。
 <!-- formal-statement-end -->
 
+### 証明の見取り図
+
+[複素有限次元自己写像の固有値の存在](#lem-la5-complex-eigenvalue-existence)から固有値を1つ確保し、その固有ベクトルを正規直交基底の第1ベクトルにします。この基底では行列が
+$$
+\begin{pmatrix}
+\lambda&*\\
+0&B
+\end{pmatrix}
+$$
+となるので、$B$ に帰納法を適用します。
+
 <!-- proof-start -->
 ### 証明
 
-次元 $n$ に関する帰納法で示します。$n=1$ なら自明です。
+次元 $n$ に関する帰納法で示します。$n=1$ では任意の $1\times1$ 行列がすでに上三角です。
 
-$n\ge2$ とします。LA4で明示した[代数学の基本定理という証明境界](../LA4/index.md#ref-la4-fta-boundary)により、$n$ 次の特性多項式 $\chi_T$ は複素数の根 $\lambda$ を持ちます。LA4の[固有値と特性多項式の根](../LA4/index.md#thm-la4-eigenvalue-characteristic-root)から $\lambda$ は $T$ の固有値です。従って非零固有ベクトル $v$ が存在し
+$n\ge2$ とします。[複素有限次元自己写像の固有値の存在](#lem-la5-complex-eigenvalue-existence)を $T$ に適用すると、固有値 $\lambda\in\mathbb C$ と非零固有ベクトル $v$ が存在します。そこで
 $$
 q_1=\frac{v}{\|v\|}
 $$
@@ -550,7 +698,7 @@ M=
 $$
 と書けます。$B$ は $(n-1)\times(n-1)$ 複素行列です。
 
-帰納法の仮定を $B$ に適用するとunitary行列 $Q_1$ と上三角行列 $R_1$ が存在して
+帰納法の仮定を $(n-1)\times(n-1)$ 複素行列 $B$ に適用すると、ユニタリ行列 $Q_1$ と上三角行列 $R_1$ が存在して
 $$
 B=Q_1R_1Q_1^*.
 $$
@@ -561,7 +709,7 @@ $$
 0&Q_1
 \end{pmatrix}
 $$
-と置けば $\widetilde Q$ はunitaryで
+と置けば $\widetilde Q$ はユニタリで
 $$
 \begin{aligned}
 \widetilde Q^*M\widetilde Q
@@ -577,7 +725,7 @@ $$
 \end{pmatrix},
 \end{aligned}
 $$
-右辺は上三角です。最初の正規直交基底への基底変換もunitaryなので、二つを合成すれば元の行列に対してunitary行列 $Q$ と上三角行列 $R$ が得られ
+右辺は上三角です。最初の正規直交基底への基底変換もユニタリなので、二つを合成すれば元の行列に対してユニタリ行列 $Q$ と上三角行列 $R$ が得られ
 $$
 A=QRQ^*.
 $$
@@ -588,26 +736,36 @@ Schur三角化はJordan標準形より弱い分解ですが、正規直交基底
 
 ---
 
-## 7. normal operatorのスペクトル定理
+## 7. 正規作用素のスペクトル定理
+
+Schur 三角化だけでは上三角成分が残り、まだ正規直交固有基底とは限りません。ここで
+$$
+T^*T=TT^*
+$$
+という可換条件を加えると、上三角行列の非対角成分が全て0になることを示せます。つまり「Schur で三角化する → 正規性で三角部分を消す」という二段階で対角化へ進みます。
 
 <a id="thm-la5-normal-spectral"></a>
 <!-- formal-statement-start -->
-> **定理（複素normal operatorのスペクトル定理）**  
+> **定理（複素正規作用素のスペクトル定理）**  
 > 有限次元複素内積空間上の線形自己写像 $T$ について、次は同値である。
 >
-> 1. $T$ はnormal operatorである。
+> 1. $T$ は正規作用素である。
 > 2. $T$ は正規直交基底で対角化できる。
 >
 > 行列で言えば
 $$
 A^*A=AA^*
 $$
-> と、あるunitary行列 $Q$ と対角行列 $D$ が存在して
+> と、あるユニタリ行列 $Q$ と対角行列 $D$ が存在して
 $$
 A=QDQ^*
 $$
 > と書けることは同値である。
 <!-- formal-statement-end -->
+
+### 証明の見取り図
+
+「ユニタリ対角化できるなら正規」は、対角行列 $D$ と $D^*$ が可換であることから出ます。逆向きは Schur 三角化で $A=QRQ^*$ とし、正規性が $R$ に移ることを確認した後、上三角正規行列 $R$ の第1行の非対角成分が0になることを繰り返します。
 
 <!-- proof-start -->
 ### 証明
@@ -616,7 +774,7 @@ $$
 $$
 A=QDQ^*
 $$
-とunitary対角化できるとします。[随伴の計算規則](#thm-la5-adjoint-rules)から
+とユニタリ対角化できるとします。[随伴の計算規則](#thm-la5-adjoint-rules)から
 $$
 A^*=QD^*Q^*.
 $$
@@ -630,9 +788,9 @@ $D,D^*$ は対角行列で可換なので
 $$
 D^*D=DD^*,
 $$
-よって $A$ はnormalです。
+よって $A$ は正規です。
 
-逆に $A$ をnormalとします。[Schur三角化](#thm-la5-schur)により
+逆に $A$ を正規とします。[Schur三角化](#thm-la5-schur)により
 $$
 A=QRQ^*
 $$
@@ -648,15 +806,15 @@ R^*R=Q^*A^*AQ,
 \qquad
 RR^*=Q^*AA^*Q.
 $$
-$A$ がnormalなので
+$A$ が正規なので
 $$
 R^*R=RR^*.
 $$
-従って $R$ もnormalです。
+従って $R$ も正規です。
 
-あとは「上三角normal行列は対角行列」を示します。サイズについて帰納法を使います。$1\times1$ は自明です。
+あとは「上三角正規行列は対角行列」を示します。サイズについて帰納法を使います。$1\times1$ は自明です。
 
-$n\times n$ の上三角normal行列 $R=(R_{ij})$ について $(1,1)$ 成分を比較します。
+$n\times n$ の上三角正規行列 $R=(R_{ij})$ について $(1,1)$ 成分を比較します。
 $$
 (R^*R)_{11}
 =\sum_{k=1}^n|R_{k1}|^2.
@@ -671,7 +829,7 @@ $$
 =\sum_{k=1}^n|R_{1k}|^2
 =|R_{11}|^2+\sum_{k=2}^n|R_{1k}|^2.
 $$
-normal性から両者は等しいので
+正規性から両者は等しいので
 $$
 \sum_{k=2}^n|R_{1k}|^2=0.
 $$
@@ -688,32 +846,32 @@ r_{11}&0\\
 0&B
 \end{pmatrix}.
 $$
-normal性を代入すると
+正規性をブロック行列へ代入すると
 $$
 B^*B=BB^*,
 $$
-従って $B$ も上三角normalです。帰納法の仮定から $B$ は対角行列なので $R$ 全体も対角行列です。
+従って $B$ も上三角正規です。帰納法の仮定から $B$ は対角行列なので $R$ 全体も対角行列です。
 
 従ってSchur分解
 $$
 A=QRQ^*
 $$
-は実はunitary対角化であり、normal operatorは正規直交固有基底を持ちます。$\square$
+は実はユニタリ対角化であり、正規作用素は正規直交固有基底を持ちます。$\square$
 <!-- proof-end -->
 
 これが実対称行列のスペクトル定理を包む複素版です。
 
-- Hermitian作用素：normal、かつ固有値は実数
-- unitary作用素：normal、かつ固有値は単位円上
-- 一般のnormal operator：正規直交固有基底を持ち、固有値は任意の複素数
+- Hermitian 作用素：正規、かつ固有値は実数
+- ユニタリ作用素：正規、かつ固有値は単位円上
+- 一般の正規作用素：正規直交固有基底を持ち、固有値は任意の複素数
 
 ---
 
-## 8. normalならJordanブロックは育たない
+## 8. 正規作用素ではJordanブロックは育たない
 
-[複素normal operatorのスペクトル定理](#thm-la5-normal-spectral)からnormal operatorは対角化可能です。LA4の[最小多項式による対角化判定](../LA4/index.md#thm-la4-diagonalizable-criterion)では最小多項式に重複一次因子がないことと同値であり、Jordan標準形では全てのブロックが $1\times1$ であることと同値です。
+[複素正規作用素のスペクトル定理](#thm-la5-normal-spectral)から正規作用素は対角化可能です。LA4の[最小多項式による対角化判定](../LA4/index.md#thm-la4-diagonalizable-criterion)では最小多項式に重複一次因子がないことと同値であり、Jordan標準形では全てのブロックが $1\times1$ であることと同値です。
 
-normal性
+正規性
 $$
 T^*T=TT^*
 $$
@@ -778,10 +936,10 @@ $$
 <!-- solution-end -->
 
 <a id="ex-la5-a03"></a>
-#### LA5-A03 unitary判定
+#### LA5-A03 ユニタリ判定
 - Level: A
 
-$U=\operatorname{diag}(1,i,-1)$ がunitaryであることを示せ。
+$U=\operatorname{diag}(1,i,-1)$ がユニタリであることを示せ。
 
 <!-- solution-start -->
 **解答**：
@@ -792,14 +950,14 @@ $$
 $$
 U^*U=UU^*=I.
 $$
-よってunitaryです。
+よってユニタリです。
 <!-- solution-end -->
 
 <a id="ex-la5-a04"></a>
-#### LA5-A04 normal判定
+#### LA5-A04 正規性の判定
 - Level: A
 
-任意の対角複素行列がnormalであることを示せ。
+任意の対角複素行列が正規であることを示せ。
 
 <!-- solution-start -->
 **解答**：
@@ -812,7 +970,7 @@ D^*D
 =\operatorname{diag}(|d_1|^2,\dots,|d_n|^2)
 =DD^*.
 $$
-従ってnormalです。
+従って正規です。
 <!-- solution-end -->
 
 <a id="ex-la5-a05"></a>
@@ -864,13 +1022,13 @@ $$
 ### Level B
 
 <a id="ex-la5-b01"></a>
-#### LA5-B01 unitaryと内積保存
+#### LA5-B01 ユニタリ作用素と内積保存
 - Level: B
 
-$T$ がunitaryなら $\langle Tx,Ty\rangle=\langle x,y\rangle$ を示し、逆に内積を保存する線形自己写像もunitaryであることを示せ。
+$T$ がユニタリ作用素なら $\langle Tx,Ty\rangle=\langle x,y\rangle$ を示し、逆に内積を保存する線形自己写像もユニタリ作用素であることを示せ。
 
 <!-- solution-start -->
-**解答**：unitaryなら
+**解答**：ユニタリ作用素なら
 $$
 \langle Tx,Ty\rangle
 =\langle x,T^*Ty\rangle
@@ -906,7 +1064,7 @@ $$
 $$
 TT^*=I.
 $$
-よってunitaryです。
+よってユニタリです。
 <!-- solution-end -->
 
 <a id="ex-la5-b02"></a>
@@ -935,13 +1093,13 @@ $\lambda\ne\mu$ なので $\langle u,v\rangle=0$ です。
 <!-- solution-end -->
 
 <a id="ex-la5-b03"></a>
-#### LA5-B03 normalだがHermitianでない例
+#### LA5-B03 正規だがHermitianでない例
 - Level: B
 
 $$
 A=\begin{pmatrix}0&-1\\1&0\end{pmatrix}
 $$
-を複素行列とみなす。normalであるがHermitianでないことを示し、固有値を求めよ。
+を複素行列とみなす。正規であるが Hermitian でないことを示し、固有値を求めよ。
 
 <!-- solution-start -->
 **解答**：
@@ -955,7 +1113,7 @@ $$
 $$
 AA^*=A(-A)=-A^2=I,
 $$
-従ってunitary、特にnormalです。
+従ってユニタリ、特に正規です。
 
 LA4の[固有値と特性多項式の根](../LA4/index.md#thm-la4-eigenvalue-characteristic-root)を使うと
 $$
@@ -967,17 +1125,17 @@ $$
 ### Level C
 
 <a id="ex-la5-c01"></a>
-#### LA5-C01 normalと固有ベクトルの随伴
+#### LA5-C01 正規作用素と固有ベクトルの随伴
 - Level: C
 
-normal operator $T$ と固有ベクトル $Tv=\lambda v$ に対して
+正規作用素 $T$ と固有ベクトル $Tv=\lambda v$ に対して
 $$
 T^*v=\overline\lambda v
 $$
 を示せ。
 
 <!-- solution-start -->
-**解答**：まずnormal作用素 $S$ では
+**解答**：まず正規作用素 $S$ では
 $$
 \|Sx\|^2
 =\langle x,S^*Sx\rangle,
@@ -986,7 +1144,11 @@ $$
 \|S^*x\|^2
 =\langle x,SS^*x\rangle.
 $$
-従って $S^*S=SS^*$ なら
+従って $S$ が正規、すなわち $S^*S=SS^*$ なら、上の2式の右辺が等しいので
+$$
+\|Sx\|^2=\|S^*x\|^2.
+$$
+両辺は非負だから平方根を取り、
 $$
 \|Sx\|=\|S^*x\|.
 $$
@@ -1008,7 +1170,7 @@ SS^*
 &=TT^*-\overline\lambda T-\lambda T^*+|\lambda|^2I.
 \end{aligned}
 $$
-$T$ がnormalなので $S$ もnormalです。
+$T$ が正規なので $S$ も正規です。
 
 $Tv=\lambda v$ から $Sv=0$。従って
 $$
@@ -1028,4 +1190,4 @@ $$
 
 ## 10. 次に進む
 
-複素有限次元作用素のスペクトル理論が閉じました。最後にHermitian二次形式・慣性・polar decomposition・複素特異値分解を一つの橋にまとめます。
+複素有限次元作用素のスペクトル理論が閉じました。最後に Hermitian 二次形式・慣性・極分解・複素特異値分解を一つの橋にまとめます。

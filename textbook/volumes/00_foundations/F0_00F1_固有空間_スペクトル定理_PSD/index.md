@@ -1,12 +1,16 @@
 # F0-00F1 スペクトル定理・PSD
 
-F0-00Fで線形写像のkernelとimageを準備しました。この講義では自己写像の固有方向から、実対称行列の正規直交固有基底とPSDまでを組み立てます。
+F0-00Fでは、線形自己写像の固有値・固有ベクトルと、固有ベクトルを基底に選べると対角化できることを学びました。ただし一般の行列では、固有ベクトルが十分な本数そろわないこともあれば、そろっても互いに直交するとは限りません。
+
+ここでは **実対称行列** に絞ります。対称性を内積の式へ移すと、異なる固有方向が直交し、1本の固有ベクトルに直交する部分空間の中で同じ問題を繰り返せます。その結果、正規直交固有基底による直交対角化が得られ、二次形式の符号や行列平方根まで固有値ごとの1次元問題として読めるようになります。
 
 $\boxed{\text{固有空間}\to\text{対称性}\to\text{実固有対の存在}\to\text{直交補空間}\to\text{直交対角化}\to\text{PSD}}$
 
 ---
 
 ## 1. 固有値と固有空間
+
+固有値・固有ベクトル・固有空間そのものは F0-00F で導入済みです。ここでは、対称行列の議論で使う記号を一か所に固定し、固有空間が「1本の方向」ではなく部分空間であることを確認します。
 
 <a id="def-eigenvalue-eigenvector-eigenspace"></a>
 
@@ -160,11 +164,13 @@ $$
 =x^{\mathsf T}Ay.
 $$
 
-この性質が、関数解析における **自己共役作用素** の有限次元版です。
+この等式が、対称性を「内積の左右で $A$ を移しても値が変わらない」という形で使うための入口です。
 
 ---
 
 ## 4. 対称性が異なる固有方向を直交させる
+
+一般の行列では、異なる固有値に属する固有ベクトルは一次独立でも直交するとは限りません。実対称行列では、第3節の内積恒等式に2本の固有ベクトルを代入すると、異なる固有値の差が内積に掛かる形になり、直交性まで引き出せます。
 
 <a id="thm-f0-00f1-distinct-eigenspaces-orthogonal"></a>
 
@@ -183,6 +189,17 @@ $$
 > を満たすなら、$\langle u,v\rangle=0$ である。
 <!-- formal-statement-end -->
 
+### 証明の見取り図
+
+対称性の式
+$$
+\langle Au,v\rangle=\langle u,Av\rangle
+$$
+の左辺へ $Au=\lambda u$、右辺へ $Av=\mu v$ をそれぞれ代入します。
+
+<!-- proof-start -->
+### 証明
+
 対称性から
 
 $$
@@ -191,14 +208,18 @@ $$
 \langle u,Av\rangle.
 $$
 
-固有方程式を代入すると
-
+左辺では $Au=\lambda u$ を使うので
 $$
-\lambda\langle u,v\rangle
+\langle Au,v\rangle
 =
-\mu\langle u,v\rangle,
+\lambda\langle u,v\rangle.
 $$
-
+右辺では $Av=\mu v$ を使うので
+$$
+\langle u,Av\rangle
+=
+\mu\langle u,v\rangle.
+$$
 従って
 
 $$
@@ -206,6 +227,7 @@ $$
 $$
 
 $\lambda\ne\mu$ なので $\langle u,v\rangle=0$ です。
+<!-- proof-end -->
 
 同じ固有値の固有空間の中では、F0-00E1の[Gram--Schmidtの直交化](../F0_00E1_内積_Gram_Schmidt_射影_QR/index.md#thm-f0-00e1-gram-schmidt)を使えば正規直交基底を作れます。
 
@@ -257,15 +279,24 @@ $$
 <!-- definition-example-end -->
 
 $x$ が固有ベクトルで
-
 $$
 Ax=\lambda x
 $$
-
-なら
-
+なら、定義の分子は
 $$
-R_A(x)=\lambda.
+x^{\mathsf T}Ax
+=
+x^{\mathsf T}(\lambda x)
+=
+\lambda x^{\mathsf T}x.
+$$
+$x\ne0$ なので $x^{\mathsf T}x>0$ であり、
+$$
+R_A(x)
+=
+\frac{\lambda x^{\mathsf T}x}{x^{\mathsf T}x}
+=
+\lambda.
 $$
 
 Rayleigh商は、「方向 $x$ に沿って二次形式がどれだけ伸びるか」を表します。
@@ -352,7 +383,28 @@ $$
 
 よって $M$ は $A$ の不変部分空間です。
 
-ここが直交対角化を帰納的に構成する鍵です。
+さらに [F0-00E1 の射影による有限次元分解](../F0_00E1_内積_Gram_Schmidt_射影_QR/index.md#thm-f0-00e1-orthogonal-decomposition) を
+$$
+V=\operatorname{span}(q_1)
+$$
+に適用すると
+$$
+\mathbb R^n
+=
+\operatorname{span}(q_1)\oplus q_1^\perp
+=
+\operatorname{span}(q_1)\oplus M.
+$$
+$q_1\ne0$ なので $\dim\operatorname{span}(q_1)=1$ です。[部分空間の和の次元公式](../F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md#thm-f0-00e-dimension-sum)をこの直和に適用すると
+$$
+n=1+\dim M,
+$$
+したがって
+$$
+\dim M=n-1.
+$$
+
+ここまでで「$A$ の作用で外へ出ない、しかも次元が1つ小さい空間」が得られました。これが直交対角化を帰納的に構成する鍵です。
 
 ---
 
@@ -361,7 +413,7 @@ $$
 <a id="thm-real-symmetric-spectral"></a>
 
 <!-- formal-statement-start -->
-> **定理（実対称行列の直交対角化定理 / spectral theorem）**  
+> **定理（実対称行列の直交対角化定理（スペクトル定理））**  
 > 実対称行列 $A\in\mathbb R^{n\times n}$ に対して、$\mathbb R^n$ には $A$ の固有ベクトルからなる正規直交基底が存在する。従って、ある直交行列 $Q$ と実対角行列 $\Lambda$ が存在して
 
 $$
@@ -378,7 +430,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$n=1$ では明らかです。$n\ge2$ とし、次元 $n-1$ まで定理が成り立つと仮定します。
+$n=1$ では $A=(a)$ と書け、$e_1=(1)$ は単位固有ベクトルで $Ae_1=ae_1$ なので結論が成り立ちます。以下 $n\ge2$ とし、次元 $n-1$ まで定理が成り立つと仮定します。
 
 [実対称行列の実固有対の存在](#lem-f0-00f1-real-symmetric-eigenpair)により、$A$ には単位固有ベクトル $q_1$ が存在し、
 
@@ -406,7 +458,29 @@ $$
 \langle x,A|_M y\rangle.
 $$
 
-$\dim M=n-1$ なので帰納法の仮定を $A|_M$ に適用でき、$M$ には $A|_M$ の固有ベクトルからなる正規直交基底
+第7節で $\dim M=n-1$ を確認しました。ここで、$M$ の正規直交基底
+$$
+e_2,\dots,e_n
+$$
+を一つ取ります。$A|_M$ のこの基底に関する表現行列を $B=(b_{ij})$ とすると、正規直交基底なので
+$$
+b_{ij}
+=
+\langle e_i,Ae_j\rangle.
+$$
+上の対称性から
+$$
+b_{ij}
+=
+\langle e_i,Ae_j\rangle
+=
+\langle Ae_i,e_j\rangle
+=
+b_{ji},
+$$
+したがって $B$ は $(n-1)\times(n-1)$ の実対称行列です。
+
+これで帰納法の仮定を **行列 $B$** に適用できます。従って $M$ には $A|_M$ の固有ベクトルからなる正規直交基底
 
 $$
 q_2,\dots,q_n
@@ -476,7 +550,27 @@ x^{\mathsf T}Ax
 \end{aligned}
 $$
 
-したがって
+ここで
+$$
+\|z\|^2
+=
+\sum_i z_i^2
+=
+\|x\|^2
+$$
+です。各 $i$ で
+$$
+\lambda_{\min}\le\lambda_i\le\lambda_{\max}
+$$
+なので、$z_i^2\ge0$ を掛けて和を取ると
+$$
+\lambda_{\min}\sum_i z_i^2
+\le
+\sum_i\lambda_i z_i^2
+\le
+\lambda_{\max}\sum_i z_i^2.
+$$
+従って
 
 $$
 \lambda_{\min}\|x\|^2
@@ -548,6 +642,8 @@ $$
 なので半正定値です。一方 $x=(0,1)^{\mathsf T}\ne0$ では $x^{\mathsf T}Ax=0$ なので正定値ではありません。
 <!-- definition-example-end -->
 
+定義だけでは、全ての $x$ に対して二次形式の符号を調べる必要があります。直交対角化を使えば、符号判定を有限個の固有値の符号判定へ落とせます。
+
 <a id="thm-f0-00f1-psd-eigenvalue-characterization"></a>
 
 <!-- formal-statement-start -->
@@ -567,6 +663,17 @@ A\succeq0
 $$
 <!-- formal-statement-end -->
 
+### 証明の見取り図
+
+直交固有分解で $x$ を固有基底座標 $z=Q^{\mathsf T}x$ に移すと、
+$$
+x^{\mathsf T}Ax=\sum_i\lambda_i z_i^2
+$$
+です。十分性は各項の符号から、必要性は1本の固有ベクトルを $x$ に選ぶことで示します。
+
+<!-- proof-start -->
+### 証明
+
 直交固有分解 $A=Q\Lambda Q^{\mathsf T}$ と $z=Q^{\mathsf T}x$ を使うと
 
 $$
@@ -575,17 +682,48 @@ x^{\mathsf T}Ax
 \sum_i\lambda_i z_i^2.
 $$
 
-全固有値が正または非負なら定義条件が従います。逆に $\lambda_j<0$ なら対応する単位固有ベクトル $q_j$ に対して
+まず全ての $\lambda_i\ge0$ なら、各 $z_i^2\ge0$ なので右辺は任意の $x$ に対して非負です。従って $A$ は半正定値です。
 
+全ての $\lambda_i>0$ とし、$x\ne0$ とします。$Q$ は可逆なので
 $$
-q_j^{\mathsf T}Aq_j=\lambda_j<0,
+z=Q^{\mathsf T}x\ne0.
 $$
+従って少なくとも1つの $z_i$ は0でなく、その項について $\lambda_i z_i^2>0$ です。他の項も非負なので
+$$
+x^{\mathsf T}Ax>0.
+$$
+よって $A$ は正定値です。
 
-となり半正定値性に反します。正定値の場合も、固有値0があれば同じ $q_j$ で二次形式が0になるため正定値ではありません。
+逆に $A$ が半正定値だとします。もしある $\lambda_j<0$ なら、対応する単位固有ベクトル $q_j$ を選ぶと
+$$
+q_j^{\mathsf T}Aq_j
+=
+q_j^{\mathsf T}(\lambda_j q_j)
+=
+\lambda_j\|q_j\|^2
+=
+\lambda_j
+<0,
+$$
+となり半正定値性に反します。従って全固有値は非負です。
+
+最後に $A$ が正定値なら、同じ計算で各固有ベクトル $q_j\ne0$ に対して
+$$
+\lambda_j
+=
+q_j^{\mathsf T}Aq_j
+>0.
+$$
+従って全固有値は正です。
+<!-- proof-end -->
 
 ---
 
 ## 11. PSD行列の平方根を構成する
+
+正の実数 $a$ なら $\sqrt a$ を二乗して $a$ に戻せます。行列でも同じことをしたいのですが、成分ごとに平方根を取ることはできません。直交固有分解で固有方向ごとに分ければ、各固有値へ通常の平方根を適用できます。
+
+半正定値性は、全固有値が非負であることを保証するためにここで効きます。
 
 <a id="thm-f0-00f1-psd-square-root"></a>
 
@@ -616,8 +754,34 @@ $$
 > と取れる。
 <!-- formal-statement-end -->
 
-半正定値性から $\lambda_i\ge0$ なので平方根は実数として定義できます。また
+### 証明の見取り図
 
+$A=Q\Lambda Q^{\mathsf T}$ の対角成分 $\lambda_i$ を $\sqrt{\lambda_i}$ に置き換えます。$Q^{\mathsf T}Q=I$ により二乗すると元へ戻り、同じ固有値判定で構成した行列自身も半正定値だと分かります。
+
+<!-- proof-start -->
+### 証明
+
+半正定値性から
+$$
+\lambda_i\ge0
+$$
+なので各 $\sqrt{\lambda_i}$ は実数として定義できます。$\Lambda^{1/2}$ は実対角行列だから
+$$
+(\Lambda^{1/2})^{\mathsf T}=\Lambda^{1/2}.
+$$
+従って
+$$
+B^{\mathsf T}
+=
+(Q\Lambda^{1/2}Q^{\mathsf T})^{\mathsf T}
+=
+Q\Lambda^{1/2}Q^{\mathsf T}
+=
+B,
+$$
+なので $B$ は実対称です。
+
+また $Q^{\mathsf T}Q=I$ を使うと
 $$
 \begin{aligned}
 B^2
@@ -625,22 +789,24 @@ B^2
 Q\Lambda^{1/2}Q^{\mathsf T}
 Q\Lambda^{1/2}Q^{\mathsf T}\\
 &=
-Q\Lambda Q^{\mathsf T}
-=A.
+Q\Lambda^{1/2}(Q^{\mathsf T}Q)\Lambda^{1/2}Q^{\mathsf T}\\
+&=
+Q\Lambda Q^{\mathsf T}\\
+&=A.
 \end{aligned}
 $$
 
-さらに任意の $x$ に対して
-
+さらに任意の $x$ に対し $z=Q^{\mathsf T}x$ と置けば
 $$
 x^{\mathsf T}Bx
 =
-\sum_i\sqrt{\lambda_i}\,z_i^2\ge0,
-\qquad
-z=Q^{\mathsf T}x,
+z^{\mathsf T}\Lambda^{1/2}z
+=
+\sum_i\sqrt{\lambda_i}\,z_i^2
+\ge0.
 $$
-
-なので $B$ 自身も半正定値です。
+従って $B$ 自身も半正定値です。
+<!-- proof-end -->
 
 統計で行列平方根を使う場面でも、この構成がそのまま働きます。
 
@@ -751,8 +917,15 @@ R_A(x)
 1+3\sin^2\theta.
 $$
 
+$0\le\sin^2\theta\le1$ なので
+$$
+1
+\le
+1+3\sin^2\theta
+\le
+4.
+$$
 従って
-
 $$
 1\le R_A(x)\le4.
 $$
@@ -866,7 +1039,20 @@ $$
 
 従って $A|_M$ も対称です。
 
-さらに $\dim M=n-1$ です。したがって、次元 $n-1$ までスペクトル定理が成り立つと仮定すれば、$A|_M$ に帰納法の仮定を適用して $M$ の正規直交固有基底を得られます。そこへ $q$ を加えると、$\mathbb R^n$ 全体の正規直交固有基底になります。
+さらに [F0-00E1 の射影による有限次元分解](../F0_00E1_内積_Gram_Schmidt_射影_QR/index.md#thm-f0-00e1-orthogonal-decomposition)から
+$$
+\mathbb R^n
+=
+\operatorname{span}(q)\oplus q^\perp
+=
+\operatorname{span}(q)\oplus M.
+$$
+$q\ne0$ なので $\dim\operatorname{span}(q)=1$、従って
+$$
+\dim M=n-1.
+$$
+
+帰納法を厳密に適用するには、$M$ の正規直交基底を一つ選び、その基底で $A|_M$ の表現行列 $B$ を作ります。$A|_M$ の対称性から $B$ も実対称行列です。したがって次元 $n-1$ までスペクトル定理が成り立つと仮定すれば、$B$ に帰納法の仮定を適用して $M$ の正規直交固有基底を得られます。そこへ $q$ を加えると、$\mathbb R^n$ 全体の正規直交固有基底になります。
 <!-- solution-end -->
 
 ### F0-00F1-B03 直交固有分解の再構成
@@ -911,12 +1097,11 @@ Q=\frac1{\sqrt2}
 \end{pmatrix}.
 $$
 
-計算すると
-
+まず
 $$
-Q\Lambda Q^{\mathsf T}
+Q\Lambda
 =
-\frac12
+\frac1{\sqrt2}
 \begin{pmatrix}
 1&1\\
 1&-1
@@ -925,15 +1110,39 @@ Q\Lambda Q^{\mathsf T}
 3&0\\
 0&1
 \end{pmatrix}
+=
+\frac1{\sqrt2}
+\begin{pmatrix}
+3&1\\
+3&-1
+\end{pmatrix}.
+$$
+従って
+$$
+\begin{aligned}
+Q\Lambda Q^{\mathsf T}
+&=
+\frac12
+\begin{pmatrix}
+3&1\\
+3&-1
+\end{pmatrix}
 \begin{pmatrix}
 1&1\\
 1&-1
-\end{pmatrix}
-=
+\end{pmatrix}\\
+&=
+\frac12
+\begin{pmatrix}
+4&2\\
+2&4
+\end{pmatrix}\\
+&=
 \begin{pmatrix}
 2&1\\
 1&2
 \end{pmatrix}.
+\end{aligned}
 $$
 
 従って直交固有分解が元の行列を再構成します。
@@ -963,7 +1172,23 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-左上の $2\times2$ ブロックは固有値 $3,1$ を持ち、対応する単位固有ベクトルは
+左上の $2\times2$ ブロック
+$$
+C=
+\begin{pmatrix}
+2&1\\
+1&2
+\end{pmatrix}
+$$
+について
+$$
+\det(C-\lambda I)
+=
+(2-\lambda)^2-1
+=
+(\lambda-3)(\lambda-1)
+$$
+なので固有値は $3,1$ です。対応する固有ベクトルを正規化すると
 
 $$
 q_1=\frac1{\sqrt2}(1,1,0)^{\mathsf T},
@@ -1000,7 +1225,23 @@ $$
 R_A(x)=3z_1^2+z_2^2+4z_3^2.
 $$
 
-従って最小値は1、最大値は4です。
+ここで各 $z_i^2\ge0$ かつ
+$$
+z_1^2+z_2^2+z_3^2=1.
+$$
+したがって
+$$
+1
+=
+1(z_1^2+z_2^2+z_3^2)
+\le
+3z_1^2+z_2^2+4z_3^2
+\le
+4(z_1^2+z_2^2+z_3^2)
+=
+4.
+$$
+$q_2$ 方向で値1、$q_3$ 方向で値4を実際に取るので、最小値は1、最大値は4です。
 
 全固有値 $3,1,4$ が正なので $A$ は正定値です。
 
@@ -1012,7 +1253,29 @@ A^{1/2}
 Q\operatorname{diag}(\sqrt3,1,2)Q^{\mathsf T}.
 $$
 
-左上ブロックまで計算すると
+左上の $2\times2$ 部分は行列積を順に書くと
+$$
+\frac12
+\begin{pmatrix}
+1&1\\
+1&-1
+\end{pmatrix}
+\begin{pmatrix}
+\sqrt3&0\\
+0&1
+\end{pmatrix}
+\begin{pmatrix}
+1&1\\
+1&-1
+\end{pmatrix}
+=
+\frac12
+\begin{pmatrix}
+\sqrt3+1&\sqrt3-1\\
+\sqrt3-1&\sqrt3+1
+\end{pmatrix}.
+$$
+第3固有方向では平方根固有値は $\sqrt4=2$ なので
 
 $$
 \boxed{
