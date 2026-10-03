@@ -615,7 +615,10 @@ $$
 
 ---
 
+<!-- definition-example-start: def-f0-00e1-orthogonal-projection -->
 ## 8. 具体例：先ほどの平面へ射影する
+
+**定義の確認**：射影候補が $V$ に属し、残差が $V^\perp$ に属することを数値で確認します。
 
 先ほどの
 
@@ -668,7 +671,8 @@ r^{\mathsf T}v_1=0,
 r^{\mathsf T}v_2=0
 $$
 
-であり、残差が部分空間全体に直交しています。
+であり、残差が部分空間全体に直交しています。したがって、定義どおり $P_Vx\in V$ かつ $x-P_Vx\in V^\perp$ です。
+<!-- definition-example-end -->
 
 ---
 
