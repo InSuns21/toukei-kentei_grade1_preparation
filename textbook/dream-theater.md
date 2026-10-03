@@ -253,7 +253,7 @@
 3. [STO2 離散時間マルチンゲール・不等式・収束](textbook/volumes/00_foundations/STO2/index.md)
 4. [STO2A 離散時間Markov連鎖・再帰・Green核・不変測度](textbook/volumes/00_foundations/STO2A/index.md)
 5. [STO3 確率過程の構成・Kolmogorov continuity](textbook/volumes/00_foundations/STO3/index.md)
-6. [STO4 ブラウン運動・到達時刻・強マルコフ性](textbook/volumes/00_foundations/STO4/index.md)
+6. [STO4 ブラウン運動・Wiener 測度・到達時刻・強マルコフ性](textbook/volumes/00_foundations/STO4/index.md)
 7. [STO3A 経路空間の弱収束・tightness・Donsker](textbook/volumes/00_foundations/STO3A/index.md)
 8. [STO5 連続局所マルチンゲール・二次変分・セミマルチンゲール](textbook/volumes/00_foundations/STO5/index.md)
 9. [STO6 確率積分](textbook/volumes/00_foundations/STO6/index.md)
