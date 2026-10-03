@@ -118,7 +118,7 @@ concepts:
     kind: theorem
     aliases: ["simple compensated PRM isometry", "Poisson random measure L2 isometry"]
     introduction: formal
-    introduction_aliases: ["定理（補償ポアソンランダム測度の単関数 $L^2$ 等長性）"]
+    introduction_aliases: ["定理（補償ポアソンランダム測度の単関数 L2 等長性）"]
     requires:
       - stochastic.compensated-poisson-random-measure
       - measure.product-measure
