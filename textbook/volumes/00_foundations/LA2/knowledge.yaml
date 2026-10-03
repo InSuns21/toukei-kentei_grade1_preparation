@@ -5,6 +5,7 @@ prerequisites:
   - LA1
   - F0-00F
 forward_references:
+  - linear.matrix-determinant
   - linear.algebraic-dual-space
   - linear.dual-basis
   - linear.annihilator
@@ -15,6 +16,7 @@ concepts:
   - id: linear.complementary-subspace
     name: 補空間
     kind: definition
+    introduction_aliases: [補空間]
     aliases: [補空間, complementary subspace]
     requires:
       - linear.sum-direct-sum
