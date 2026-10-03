@@ -36,7 +36,7 @@ concepts:
     kind: theorem
     aliases: [tower law]
     introduction: formal
-    requires: [algebra.extension-degree, linear.basis, linear.linear-independence]
+    requires: [algebra.extension-degree, linear.basis-over-field, linear.dimension-over-field]
 
   - id: algebra.algebraic-element
     name: 代数的元
