@@ -745,7 +745,7 @@ E_i\left[
 \end{aligned}
 $$
 
-二つ目の等号では全項が非負なので Tonelli を使っています。
+二つ目の等号では全項が非負なので [Tonelli の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli)を使っています。
 
 ここで $\{n<\tau\}=\{\tau>n\}\in\mathcal F_n$ です。一段 Markov 性を $1_{\{n<\tau\}}$ と組み合わせると
 
@@ -767,7 +767,7 @@ E_i[
 \end{aligned}
 $$
 
-これを $n$ について足し、再び非負項に Tonelli を使うと
+これを $n$ について足し、再び非負項に [Tonelli の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli)を使うと
 
 $$
 \begin{aligned}
