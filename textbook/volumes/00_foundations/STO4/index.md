@@ -368,31 +368,31 @@ STO3 の Kolmogorov 拡張定理が最初に作った標準経路空間は $\mat
 <!-- formal-statement-start -->
 > **定義（原点始点連続経路空間）**  
 > 
-> $$
-> C_0([0,T])
-> =
-> \{x\in C([0,T]):x(0)=0\}
-> $$
+$$
+C_0([0,T])
+=
+\{x\in C([0,T]):x(0)=0\}
+$$
 >
 > と置き、sup 距離
 >
-> $$
-> d_\infty(x,y)
-> =
-> \|x-y\|_\infty
-> =
-> \sup_{0\le t\le T}|x(t)-y(t)|
-> $$
+$$
+d_\infty(x,y)
+=
+\|x-y\|_\infty
+=
+\sup_{0\le t\le T}|x(t)-y(t)|
+$$
 >
 > を入れる。
 >
 > 各 $t\in[0,T]$ に対し
 >
-> $$
-> e_t:C_0([0,T])\to\mathbb R,
-> \qquad
-> e_t(x)=x(t)
-> $$
+$$
+e_t:C_0([0,T])\to\mathbb R,
+\qquad
+e_t(x)=x(t)
+$$
 >
 > を **座標評価写像**という。
 <!-- formal-statement-end -->
@@ -442,18 +442,18 @@ $$
 <a id="lem-sto4-path-borel-coordinates"></a>
 
 <!-- formal-statement-start -->
-> **補題（原点始点経路の Borel 代数は座標評価で生成される）**  
+> **補題（原点始点経路の Borel σ 代数は座標評価で生成される）**  
 > $D=\mathbb Q\cap[0,T]$ とする。このとき
 >
-> $$
-> \boxed{
-> \mathcal B(C_0([0,T]))
-> =
-> \sigma(e_q:q\in D)
-> =
-> \sigma(e_t:0\le t\le T).
-> }
-> $$
+$$
+\boxed{
+\mathcal B(C_0([0,T]))
+=
+\sigma(e_q:q\in D)
+=
+\sigma(e_t:0\le t\le T).
+}
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -556,7 +556,7 @@ $$
 e_q\circ\mathbf B=B_q
 $$
 
-は $\mathcal F$-可測です。[原点始点経路の Borel 代数は座標評価で生成される](#lem-sto4-path-borel-coordinates)から $\mathcal B(C_0([0,T]))$ は $(e_q)_{q\in D}$ で生成されるので、$\mathbf B$ 自身が可測です。
+は $\mathcal F$-可測です。[原点始点経路の Borel σ 代数は座標評価で生成される](#lem-sto4-path-borel-coordinates)から $\mathcal B(C_0([0,T]))$ は $(e_q)_{q\in D}$ で生成されるので、$\mathbf B$ 自身が可測です。
 
 <a id="def-sto4-wiener-measure"></a>
 
@@ -564,31 +564,31 @@ $$
 > **定義（Wiener 測度と古典 Wiener 空間）**  
 > 標準 Brown 運動 $B$ の連続経路写像
 >
-> $$
-> \mathbf B:\Omega\to C_0([0,T])
-> $$
+$$
+\mathbf B:\Omega\to C_0([0,T])
+$$
 >
 > による押し出し測度
 >
-> $$
-> \boxed{
-> W_T
-> =
-> P\circ\mathbf B^{-1}
-> }
-> $$
+$$
+\boxed{
+W_T
+=
+P\circ\mathbf B^{-1}
+}
+$$
 >
 > を $[0,T]$ 上の **Wiener 測度（Wiener measure）**という。
 >
 > 三つ組
 >
-> $$
-> \bigl(
-> C_0([0,T]),
-> \mathcal B(C_0([0,T])),
-> W_T
-> \bigr)
-> $$
+$$
+\bigl(
+C_0([0,T]),
+\mathcal B(C_0([0,T])),
+W_T
+\bigr)
+$$
 >
 > を **古典 Wiener 空間（classical Wiener space）**という。
 <!-- formal-statement-end -->
@@ -653,19 +653,19 @@ $$
 > **定理（Wiener 測度の座標過程と一意性）**  
 > 古典 Wiener 空間上で
 >
-> $$
-> X_t(x)=e_t(x)=x(t),
-> \qquad 0\le t\le T
-> $$
+$$
+X_t(x)=e_t(x)=x(t),
+\qquad 0\le t\le T
+$$
 >
 > と置く。
 >
 > 1. $X=(X_t)_{0\le t\le T}$ は $W_T$ のもとで標準 Brown 運動である。
 > 2. $\mu$ が $C_0([0,T])$ 上の確率測度で、座標過程 $(e_t)$ が $\mu$ のもとで標準 Brown 運動なら
 >
-> $$
-> \mu=W_T.
-> $$
+$$
+\mu=W_T.
+$$
 >
 > 従って Wiener 測度は、元の Brown 運動を置いた確率空間の選び方によらず一意に定まる。
 <!-- formal-statement-end -->
@@ -725,7 +725,7 @@ $$
 
 $W_T$ も同じ有限次元分布を持つので、$\mu$ と $W_T$ は全ての円筒事象上で一致します。
 
-円筒事象は $\pi$-system をなし、[原点始点経路の Borel 代数は座標評価で生成される](#lem-sto4-path-borel-coordinates)から
+円筒事象は $\pi$-system をなし、[原点始点経路の Borel σ 代数は座標評価で生成される](#lem-sto4-path-borel-coordinates)から
 
 $$
 \sigma(e_t:0\le t\le T)
@@ -2628,7 +2628,7 @@ $$
 
 二つの円筒集合の共通部分は、使っている時刻を全部まとめれば再び有限次元円筒集合になるので、$\mathcal C$ は $\pi$-system です。
 
-また [原点始点経路の Borel 代数は座標評価で生成される](#lem-sto4-path-borel-coordinates) から
+また [原点始点経路の Borel σ 代数は座標評価で生成される](#lem-sto4-path-borel-coordinates) から
 
 $$
 \sigma(\mathcal C)
