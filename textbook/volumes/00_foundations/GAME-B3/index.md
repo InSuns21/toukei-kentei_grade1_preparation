@@ -1137,15 +1137,31 @@ V_N
 \{v:2^N\to\mathbb R\mid v(\varnothing)=0\}
 $$
 
-と置きます。これは、同じプレイヤー集合 $N$ 上の TU ゲーム全体がなす実ベクトル空間です。
+と置きます。和とスカラー倍を各提携 $S\subseteq N$ ごとに
+
+$$
+(v+w)(S)=v(S)+w(S),
+\qquad
+(\alpha v)(S)=\alpha v(S)
+$$
+
+と定めます。$v(\varnothing)=w(\varnothing)=0$ なら
+
+$$
+(v+w)(\varnothing)=0,
+\qquad
+(\alpha v)(\varnothing)=0
+$$
+
+なので、この演算で $V_N$ は閉じています。したがって $V_N$ は実ベクトル空間です。
 
 各 $v\in V_N$ は、非空な提携 $S\subseteq N$ に対する値 $v(S)$ を一つずつ指定すれば決まります。  
-非空な部分集合は $2^{|N|}-1$ 個あるので、
+非空な部分集合は $2^{|N|}-1$ 個あるので、それらの値を座標として並べることで
 
 $$
 V_N
 \cong
-\mathbb R^{,2^{|N|}-1},
+\mathbb R^{\,2^{|N|}-1},
 $$
 
 したがって、
