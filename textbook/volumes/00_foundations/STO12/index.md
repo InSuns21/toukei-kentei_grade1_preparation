@@ -46,7 +46,7 @@ $$
 
 $$
 \boxed{
-\text{Itô isometry}
+\text{Itô 等長性}
 \to
 \text{閉値域}
 \to
@@ -84,7 +84,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（ブラウン運動に対する二乗可積分被積分過程空間）**  
-> $T>0$ とし、$B=(B^1,\ldots,B^d)$ を $d$ 次元標準ブラウン運動、$(\mathcal F_t^B)_{0\le t\le T}$ をその 完備化した自然なフィルトレーションとする。
+> $T>0$ とし、$B=(B^1,\ldots,B^d)$ を $d$ 次元標準ブラウン運動、$(\mathcal F_t^B)_{0\le t\le T}$ をその完備化した自然なフィルトレーションとする。
 >
 > $[0,T]\times\Omega$ 上の $\mathbb R^d$-値 $(\mathcal F_t^B)$-予測可能過程 $H$ で
 >
@@ -301,7 +301,7 @@ $$
 
 ### 証明の見取り図
 
-[Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) が
+[Itô 等長性](../STO6/index.md#thm-sto6-ito-isometry-simple) が
 
 $$
 \|I_T(H)-I_T(K)\|_2
@@ -330,7 +330,7 @@ $$
 
 次に $Y_n=I_T(H^{(n)})\in\mathcal K_T$ が $L^2$ で Cauchy とします。
 
-[Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) より
+[Itô 等長性](../STO6/index.md#thm-sto6-ito-isometry-simple) より
 
 $$
 \begin{aligned}
@@ -353,7 +353,7 @@ H^{(n)}\to H
 \text{in }\mathcal H_B^2.
 $$
 
-再び [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) から
+再び [Itô 等長性](../STO6/index.md#thm-sto6-ito-isometry-simple) から
 
 $$
 I_T(H^{(n)})\to I_T(H)
@@ -799,7 +799,49 @@ $$
 
 です。
 
-ここで「$v$ ごとに零集合が違う」点を処理します。第二変数の指数型関数で parameter を有理数に制限した族を考えます。parameter $\theta\mapsto e_\theta$ は $L^2(\gamma_2)$ で連続なので、有理 parameter の指数型の線形包は、全ての実 parameter を使う線形包と同じ閉包を持ちます。前節の一次元全体性から、その閉包は $L^2(\gamma_2)$ 全体です。
+ここで「$v$ ごとに零集合が違う」点を処理します。第二変数の指数型関数で parameter を有理数に制限した族を考えます。
+
+$G_2\sim N(0,v_2)$ とし、
+
+$$
+e_\theta(G_2)
+=
+\exp\left(
+\theta G_2-\frac12v_2\theta^2
+\right)
+$$
+
+と書きます。$\theta,q\in\mathbb R$ に対してガウスのモーメント母関数を使うと
+
+$$
+E[e_\theta(G_2)^2]
+=
+e^{v_2\theta^2},
+$$
+
+$$
+E[e_\theta(G_2)e_q(G_2)]
+=
+e^{v_2\theta q}.
+$$
+
+従って
+
+$$
+\begin{aligned}
+\|e_\theta-e_q\|_{L^2(\gamma_2)}^2
+&=
+e^{v_2\theta^2}
++
+e^{v_2q^2}
+-
+2e^{v_2\theta q}.
+\end{aligned}
+$$
+
+$q\to\theta$ とすると右辺は 0 へ収束するので、$\theta\mapsto e_\theta$ は $L^2(\gamma_2)$ で連続です。
+
+よって有理 parameter の指数型関数の線形包は、全ての実 parameter を使う線形包と同じ閉包を持ちます。前節の一次元全体性から、その閉包は $L^2(\gamma_2)$ 全体です。
 
 従って指数型の線形包から可算な稠密部分族 $(v_r)_{r\ge1}$ を選べます。各 $r$ について $g_{v_r}(x_1)=0$ は $\gamma_1$-a.e. なので、その例外零集合を可算個合併しても零集合です。よって共通の full-measure set 上で
 
@@ -1090,7 +1132,7 @@ $$
    $$
 4. 平均0の確率変数を指数型族で近似し、各近似から平均を引けば $\mathcal K_T$ 内の近似になる。
 5. closedness で極限を $\mathcal K_T$ に戻す。
-6. 一意性は [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple)。
+6. 一意性は [Itô 等長性](../STO6/index.md#thm-sto6-ito-isometry-simple)。
 
 <!-- proof-start -->
 ### 証明
@@ -1189,7 +1231,7 @@ $$
 \end{aligned}
 $$
 
-[閉値域補題](#lem-sto12-closed-range) により $\mathcal K_T$ は closed なので
+[閉値域補題](#lem-sto12-closed-range) により $\mathcal K_T$ は閉なので
 
 $$
 \xi_0\in\mathcal K_T.
@@ -1216,7 +1258,7 @@ $$
 
 です。
 
-[Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) から
+[Itô 等長性](../STO6/index.md#thm-sto6-ito-isometry-simple) から
 
 $$
 E\int_0^T|H_t-K_t|^2dt
@@ -1251,7 +1293,7 @@ $$
 
 で存在を出しています。
 
-これは関数解析の考え方を使う議論ですが、必要な部分は [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) とガウス指数族の稠密性まで章内で展開しました。
+これは関数解析の考え方を使う議論ですが、必要な部分は [Itô 等長性](../STO6/index.md#thm-sto6-ito-isometry-simple) とガウス指数族の稠密性まで章内で展開しました。
 
 ---
 
@@ -1416,7 +1458,7 @@ M_t
 M_0+\int_0^tH_s\cdot dB_s.
 $$
 
-被積分過程の一意性は終端時刻 $T$ での [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) から従います。
+被積分過程の一意性は終端時刻 $T$ での [Itô 等長性](../STO6/index.md#thm-sto6-ito-isometry-simple) から従います。
 <!-- proof-end -->
 
 ---
@@ -1612,13 +1654,41 @@ M_0
 \right)dB_s.
 $$
 
-$t\uparrow T$ では
+$t\uparrow T$ での極限も確認します。$B_t\to B_T$ a.s. なので、$B_T>a$ なら
+
+$$
+\frac{B_t-a}{\sqrt{T-t}}
+\to+\infty,
+$$
+
+一方 $B_T<a$ なら
+
+$$
+\frac{B_t-a}{\sqrt{T-t}}
+\to-\infty.
+$$
+
+$P(B_T=a)=0$ だから
+
+$$
+M_t
+=
+\Phi\left(
+\frac{B_t-a}{\sqrt{T-t}}
+\right)
+\to
+1_{\{B_T>a\}}
+$$
+
+a.s. です。さらに $0\le M_t\le1$ なので、支配収束定理を $|M_t-1_{\{B_T>a\}}|^2\le1$ に適用して
 
 $$
 M_t\to1_{\{B_T>a\}}
+\qquad
+\text{in }L^2
 $$
 
-a.s. かつ $L^2$ です。$P(B_T=a)=0$ と $0\le M_t\le1$ を使えばよいです。
+も得られます。
 
 従って表現被積分過程は
 
@@ -1637,7 +1707,7 @@ $$
 
 です。
 
-$t=T$ 近傍で見かけ上 $(T-t)^{-1/2}$ が現れますが、[Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) と
+$t=T$ 近傍で見かけ上 $(T-t)^{-1/2}$ が現れますが、[Itô 等長性](../STO6/index.md#thm-sto6-ito-isometry-simple) と
 
 $$
 \xi-M_0=\int_0^T H_t\,dB_t
@@ -1799,17 +1869,17 @@ $$
 
 が現れます。
 
-このように追加正則性から被積分過程を同定する route は、本章の存在・一意性定理とは別の層です。STO12 の表現定理自体には後続・並行理論を逆輸入していません。
+このように追加正則性から被積分過程を同定する 経路は、本章の存在・一意性定理とは別の層です。STO12 の表現定理自体には後続・並行理論を逆輸入していません。
 
 ---
 
 ## 15. 確率制御 / 数理ファイナンスへの橋
 
-表現定理は「ブラウン雑音で生じる $L^2$ uncertainty はブラウン integral で全部生成できる」という completeness statement です。
+表現定理は「ブラウン雑音から生じる $L^2$ の不確実性は、すべてブラウン確率積分で生成できる」という完全性の主張です。
 
 ### 確率制御
 
-value 過程や adjoint 過程がブラウン運動のフィルトレーションのマルチンゲール part を持つとき、そのマルチンゲール part は
+価値過程や随伴過程がブラウン運動のフィルトレーションに関するマルチンゲール部分を持つとき、その部分は
 
 $$
 \int H_t\cdot dB_t
@@ -1817,11 +1887,11 @@ $$
 
 と書けます。
 
-後続の backward SDE や stochastic maximum principle では、この $H$ に相当する過程が unknown の一つになります。
+後続の後退型 SDE や確率最大原理では、この $H$ に相当する過程が未知過程の一つになります。
 
 ### 数理ファイナンス
 
-discounted 終端 claim $\xi$ がブラウン運動のフィルトレーションで $L^2$ なら
+割引後の終端請求権 $\xi$ がブラウン運動のフィルトレーションで $L^2$ なら
 
 $$
 E[\xi\mid\mathcal F_t^B]
@@ -1831,9 +1901,9 @@ E[\xi]
 \int_0^tH_s\cdot dB_s.
 $$
 
-市場価格過程のマルチンゲール part がブラウン雑音を十分な rank で張るなら、$H$ を portfolio exposure へ変換できます。
+市場価格過程のマルチンゲール部分 がブラウン雑音を十分な階数を持つ形で張るなら、$H$ をポートフォリオのエクスポージャーへ変換できます。
 
-逆に雑音の次元に対して traded risk factors が足りなければ、表現が存在しても portfolio で再現できるとは限りません。
+逆に雑音の次元に対して 取引可能なリスク要因 が足りなければ、表現が存在しても ポートフォリオで再現できるとは限りません。
 
 したがって
 
@@ -1841,11 +1911,11 @@ $$
 \boxed{
 \text{ブラウン PRP}
 \neq
-\text{任意の市場の complete market}
+\text{任意の市場の完備性}
 }
 $$
 
-です。後者には価格 dynamics の係数行列の rank 条件が別途必要です。
+です。後者には価格ダイナミクスの係数行列に対する階数条件が別途必要です。
 
 ---
 
@@ -1853,7 +1923,7 @@ $$
 
 ### 16.1 $L^2$ を外すと閉値域の証明をそのまま使えない
 
-本章では [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple)
+本章では [Itô 等長性](../STO6/index.md#thm-sto6-ito-isometry-simple)
 
 $$
 E\left|
@@ -1865,9 +1935,9 @@ $$
 
 が証明の骨格です。
 
-$\xi\in L^1$ だけなら同じ Hilbert 空間と等長性による議論 は使えません。
+$\xi\in L^1$ だけなら同じ Hilbert 空間と等長性による議論は使えません。
 
-局所マルチンゲール表現などへ拡張するには localization が必要です。
+局所マルチンゲール表現などへ拡張するには 局所化が必要です。
 
 ### 16.2 フィルトレーションを拡大すると隠れた雑音が残る
 
@@ -1875,13 +1945,13 @@ $\xi\in L^1$ だけなら同じ Hilbert 空間と等長性による議論 は使
 
 指数型族 $Z_T^h$ は $B$ の情報しか見ないので、$C_T$ のような追加情報を 稠密に近似できません。
 
-壊れる箇所は全体性 lemma です。
+壊れる箇所は全体性補題 です。
 
 ### 16.3 零集合による完備化は定理を壊さない
 
-零集合による完備化は $P$-零集合 とその部分集合を追加します。
+零集合による完備化は $P$-零集合とその部分集合を追加します。
 
-$L^2$ 確率変数 は ほとんど確実に同じもので扱うので、完備化前のブラウン運動のフィルトレーションと 完備化した自然なフィルトレーションの違いは表現の a.s. の主張 を変えません。
+$L^2$ 確率変数はほとんど確実に同じものを同一視するので、完備化前のブラウン運動のフィルトレーションと 完備化した自然なフィルトレーションの違いは表現の a.s. の主張を変えません。
 
 ### 16.4 Clark--Ocone は存在定理より強い
 
@@ -2156,7 +2226,7 @@ $$
 
 を満たすとする。
 
-[Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) を使って
+[Itô 等長性](../STO6/index.md#thm-sto6-ito-isometry-simple) を使って
 
 $$
 H=K
@@ -2178,7 +2248,7 @@ $$
 
 です。
 
-二乗して期待値を取り、[Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) を使うと
+二乗して期待値を取り、[Itô 等長性](../STO6/index.md#thm-sto6-ito-isometry-simple) を使うと
 
 $$
 \begin{aligned}
@@ -2331,7 +2401,7 @@ $$
 \int_0^T H_t\,dB_t
 $$
 
-in $L^2$ であり、[Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) から
+$L^2$ で収束しており、[Itô 等長性](../STO6/index.md#thm-sto6-ito-isometry-simple) から
 
 $$
 E\int_0^T H_t^2dt
@@ -2342,7 +2412,7 @@ E[(\xi-M_0)^2]
 <\infty.
 $$
 
-pointwise な $(T-t)^{-1/2}$ だけでは $L^2(dt\otimes dP)$ integrability は判定できません。
+点ごとの $(T-t)^{-1/2}$ という大きさだけでは、$L^2(dt\otimes dP)$ 可積分性は判定できません。
 <!-- solution-end -->
 
 #### STO12-B02 ガウス指数族全体性の有限次元核心
@@ -2591,7 +2661,7 @@ $$
    $$
    の $H$ を求めよ。
 4. $H\in\mathcal H_B^2([0,T])$ を確認せよ。
-5. [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) から
+5. [Itô 等長性](../STO6/index.md#thm-sto6-ito-isometry-simple) から
    $$
    \operatorname{Var}(X_T^2)
    =
@@ -2682,7 +2752,7 @@ $$
 
 後半は $\mathcal F_t^B$ と独立で平均 0 です。
 
-その 分散は [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) により
+その分散は [Itô 等長性](../STO6/index.md#thm-sto6-ito-isometry-simple) により
 
 $$
 \begin{aligned}
@@ -2818,7 +2888,7 @@ X_T^2-E[X_T^2]
 \int_0^T H_s\,dB_s.
 $$
 
-[Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) より
+[Itô 等長性](../STO6/index.md#thm-sto6-ito-isometry-simple) より
 
 $$
 \begin{aligned}
@@ -2864,7 +2934,7 @@ $$
 
 核心は
 
-1. [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) による確率積分の閉値域
+1. [Itô 等長性](../STO6/index.md#thm-sto6-ito-isometry-simple) による確率積分の閉値域
 2. 決定論的指数型マルチンゲール
 3. 一次元ガウス指数族の全体性
 4. 独立ガウスの積型族への拡張
