@@ -579,7 +579,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（有限状態 Q-行列と連続時間マルコフ連鎖）**  
-> 行列
+> 有限状態空間を
+>
+$$
+S=\{1,\ldots,m\}
+$$
+>
+> とする。行列
 >
 $$
 Q=(q_{ij})_{i,j\in S}
@@ -681,9 +687,11 @@ $$
 「同じ状態にとどまる確率」の一次項が対角成分、「別状態へ跳ぶ確率」の一次項が非対角成分に対応します。
 <!-- definition-example-end -->
 
+以下では連続時間マルコフ連鎖（continuous-time Markov chain）を **CTMC** と略記します。
+
 ---
 
-## 6. 跳躍連鎖 と 滞在時間
+## 6. 跳躍連鎖と滞在時間
 
 Q-行列から、離散時間の跳躍連鎖 と各状態での滞在時間を読み出せます。
 
@@ -712,7 +720,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（有限状態 CTMC の跳躍連鎖・滞在時間構成）**  
-> 有限状態 Q-行列$Q=(q_{ij})$ を与え、
+> 有限状態空間 $S=\{1,\ldots,m\}$ 上の Q-行列 $Q=(q_{ij})_{i,j\in S}$ を与え、
 >
 $$
 q_i=-q_{ii}=\sum_{j\ne i}q_{ij}
@@ -1008,7 +1016,15 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（有限状態 CTMC の Kolmogorov 方程式）**  
-> 有限状態 Q-行列$Q$ を持つ CTMC の 遷移行列 $(P_t)_{t\ge0}$ は
+> 有限状態空間 $S=\{1,\ldots,m\}$ 上の Q-行列 $Q$ を持つ CTMC $X$ を考える。各 $i,j\in S$ に対し
+>
+$$
+P_t(i,j)
+:=
+P_i(X_t=j)
+$$
+>
+> と置き、遷移行列を $P_t=(P_t(i,j))_{i,j\in S}$ とする。このとき $(P_t)_{t\ge0}$ は
 >
 $$
 P_0=I
@@ -1227,9 +1243,15 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（有限状態 CTMC の生成作用素マルチンゲール）**  
-> 有限状態 Q-行列$Q$ を持つ CTMC $X$ と関数 $f:S\to\mathbb R$ を考える。
+> 有限状態空間 $S$ 上の Q-行列 $Q$ を持つ CTMC $X$ と関数 $f:S\to\mathbb R$ を考える。自然なフィルトレーションを
 >
-> このとき
+$$
+\mathcal F_t^X
+=
+\sigma(X_u:0\le u\le t)
+$$
+>
+> とする。このとき
 >
 $$
 M_t^f
@@ -1239,7 +1261,7 @@ f(X_t)-f(X_0)
 \int_0^t(Qf)(X_s)\,ds
 $$
 >
-> は自然なフィルトレーションに関するマルチンゲールである。
+> は $(\mathcal F_t^X)$-マルチンゲールである。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1252,7 +1274,7 @@ $$
 $0\le s<t$ とします。マルコフ性 より
 
 $$
-E[f(X_t)\mid\mathcal F_s]
+E[f(X_t)\mid\mathcal F_s^X]
 =
 (P_{t-s}f)(X_s).
 $$
@@ -1260,7 +1282,7 @@ $$
 従って
 
 $$
-E[f(X_t)-f(X_s)\mid\mathcal F_s]
+E[f(X_t)-f(X_s)\mid\mathcal F_s^X]
 =
 (P_{t-s}f-f)(X_s).
 $$
@@ -1276,7 +1298,7 @@ E\left[
 \right]
 &=
 \int_s^t
-E[(Qf)(X_r)\mid\mathcal F_s]\,dr\\
+E[(Qf)(X_r)\mid\mathcal F_s^X]\,dr\\
 &=
 \int_0^{t-s}
 (P_uQf)(X_s)\,du.
@@ -1306,7 +1328,7 @@ $$
 したがって
 
 $$
-E[M_t^f-M_s^f\mid\mathcal F_s]=0.
+E[M_t^f-M_s^f\mid\mathcal F_s^X]=0.
 $$
 
 $f,Qf$ は 有界 なので $M_t^f$ は可積分です。従って $M^f$ はマルチンゲールです。
@@ -1664,7 +1686,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（補償ポアソンランダム測度）**  
-> $N(ds,dz)$ を 強度測度 $ds\,\nu(dz)$ のポアソンランダム測度とする。
+> $(E,\mathcal E,\nu)$ を $\sigma$-有限測度空間とし、$N(ds,dz)$ を $(0,\infty)\times E$ 上の強度測度 $ds\,\nu(dz)$ のポアソンランダム測度とする。
 >
 > 有限強度の可測集合 $B$ に対して
 >
@@ -1779,8 +1801,10 @@ $$
 <a id="thm-sto13-prm-simple-isometry"></a>
 
 <!-- formal-statement-start -->
-> **定理（補償ポアソンランダム測度の単関数 L2 等長性）**  
-> $N(ds,dz)$ を強度測度 $ds\,\nu(dz)$ のポアソンランダム測度とする。互いに素な有限強度の可測集合
+> **定理（補償ポアソンランダム測度の単関数 $L^2$ 等長性）**  
+> $(E,\mathcal E,\nu)$ を $\sigma$-有限測度空間とし、$N(ds,dz)$ を $(0,\infty)\times E$ 上の強度測度 $ds\,\nu(dz)$ のポアソンランダム測度、$\widetilde N$ をその補償ポアソンランダム測度とする。
+>
+> 互いに素な有限強度の可測集合
 >
 $$
 B_1,\ldots,B_r
@@ -1796,20 +1820,28 @@ f(s,z)
 \sum_{k=1}^r c_k1_{B_k}(s,z)
 $$
 >
-> とする。また
+> とする。補償積分を
+>
+$$
+\int_{(0,T]\times E}
+f(s,z)\widetilde N(ds,dz)
+:=
+\sum_{k=1}^r c_k\widetilde N(B_k)
+$$
+>
+> と定める。また自然なフィルトレーションを
 >
 $$
 \mathcal F_t^N
 =
 \sigma\left(
-N((0,u]\times A):
-0\le u\le t,\ 
-A\in\mathcal E,\ 
-\nu(A)<\infty
+N(C):
+C\in\mathcal B((0,t])\otimes\mathcal E,\
+(\operatorname{Leb}\times\nu)(C)<\infty
 \right)
 $$
 >
-> を自然なフィルトレーションとする。このとき
+> とする。このとき
 >
 $$
 E\left[
@@ -1838,12 +1870,16 @@ $$
 >
 $$
 M_t
-=
-\int_{(0,t]\times E}
-f(s,z)\widetilde N(ds,dz)
+:=
+\sum_{k=1}^r
+c_k\widetilde N\left(
+B_k\cap((0,t]\times E)
+\right),
+\qquad
+0\le t\le T,
 $$
 >
-> は $(\mathcal F_t^N)$ に関する二乗可積分マルチンゲールである。
+> と置くと、$M$ は $(\mathcal F_t^N)$ に関する二乗可積分マルチンゲールである。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
