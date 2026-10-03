@@ -156,7 +156,7 @@ $$
 という非自明な終端確率変数が確率積分の値域に入ります。
 <!-- definition-example-end -->
 
-[STO6 の $L^2$ construction](../STO6/index.md#thm-sto6-l2-construction) により、各 $H\in\mathcal H_B^2$ について
+[STO6 の $L^2$ 完備化による確率積分の構成](../STO6/index.md#thm-sto6-l2-construction) により、各 $H\in\mathcal H_B^2$ について
 
 $$
 I_T(H)
@@ -843,7 +843,7 @@ $q\to\theta$ とすると右辺は 0 へ収束するので、$\theta\mapsto e_\t
 
 よって有理 parameter の指数型関数の線形包は、全ての実 parameter を使う線形包と同じ閉包を持ちます。前節の一次元全体性から、その閉包は $L^2(\gamma_2)$ 全体です。
 
-従って指数型の線形包から可算な稠密部分族 $(v_r)_{r\ge1}$ を選べます。各 $r$ について $g_{v_r}(x_1)=0$ は $\gamma_1$-a.e. なので、その例外零集合を可算個合併しても零集合です。よって共通の full-measure set 上で
+従って指数型の線形包から可算な稠密部分族 $(v_r)_{r\ge1}$ を選べます。各 $r$ について $g_{v_r}(x_1)=0$ は $\gamma_1$-a.e. なので、その例外零集合を可算個合併しても零集合です。よって共通の全測度集合上で
 
 $$
 \int f(x_1,x_2)v_r(x_2)\gamma_2(dx_2)=0
@@ -1369,7 +1369,7 @@ $$
 N_u=\int_0^uH_s\cdot dB_s
 $$
 
-は [STO6 の $L^2$ construction](../STO6/index.md#thm-sto6-l2-construction) により二乗可積分マルチンゲールなので
+は [STO6 の $L^2$ 完備化による確率積分の構成](../STO6/index.md#thm-sto6-l2-construction) により二乗可積分マルチンゲールなので
 
 $$
 E[N_T-N_t\mid\mathcal F_t^B]=0.
@@ -2239,7 +2239,7 @@ $$
 E\int_0^T|H_s|^2ds<\infty.
 $$
 
-[STO6 の $L^2$ 確率積分 construction](../STO6/index.md#thm-sto6-l2-construction) により
+[STO6 の $L^2$ 完備化による確率積分の構成](../STO6/index.md#thm-sto6-l2-construction) により
 
 $$
 N_t=\int_0^tH_s\cdot dB_s
