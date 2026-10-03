@@ -17,6 +17,8 @@ forward_references:
   - linear.gram-schmidt
   - linear.complex-inner-product
   - algebra.algebraic-element
+  - algebra.minimal-polynomial
+  - algebra.left-module
   - algebra.finite-field
 
 concepts:
