@@ -1,7 +1,7 @@
 # DREAM THEATER 共通基礎再構成計画：集合論 → 線形代数 → 実解析 → 位相空間論
 
 作成日: 2026-09-29  
-状態: in_progress
+状態: completed
 
 ## 0. 目的
 
@@ -692,8 +692,18 @@ F0-00A1D の改稿着手時に、既存の F0-00A1 / A1B / RA1 との責務境�
 18. ✅ \`dream-theater.md\` の公開科目を「集合論」「線形代数」「実解析」「位相空間論」に分離し、この順へ並べ替える。F0-00B0 は実解析へ移し、F0-00A3A は集合論の必修番号列から外して発展分岐リンクにした。（2026-10-03）
 19. ✅ \`dream-theater-index.json\` と \`dream-theater-standard-math-core.md\` を同じ順へ同期し、RA8 を位相空間論後の実解析発展として明示した。旧 \`dt-subject-set-topology\` anchor は互換用に保持した。（2026-10-03）
 20. ✅ knowledge DAG / chapter prerequisites / stable links を全体監査し、後続科目から前段科目への逆依存がないことを確認した。57 indexed pages の `chapter.yaml` prerequisite を全件照合し逆依存 0 件、#672 の full strict concept audit / Pages で knowledge DAG・stable links も green。stale だった `textbook/dependency-graph.md` を現行4科目順へ更新した。（2026-10-03）
-21. 専用 validation / Pages / exercise-count / proof-pedagogy / formalism-pedagogy / strict concept audit と、人手の通読依存監査を実施する。
+21. ✅ 専用 validation / Pages / exercise-count / proof-pedagogy / formalism-pedagogy / strict concept audit と、人手の通読依存監査を実施した。#672 で full strict concept audit を含む全専用検証、#673 で dependency graph 更新後の textbook / Pages / terminology を再確認し、57 indexed pages の直接 prerequisite と科目境界を人手でも再監査した。（2026-10-03）
 
+### 最終 publication gate（2026-10-03）
+
+- PR #672 `Validate textbook` 成功。`Validate collapsible proof sections`、`Validate formal statement panels and anchors`、`Validate formal theorem and definition references`、`Validate definition examples against their definitions`、`Audit proof pedagogy`、`Audit formalism pedagogy` はすべて成功した。
+- PR #672 `Validate DREAM THEATER exercises` 成功。変更対象の演習数監査を通過した。
+- PR #672 `Validate DREAM THEATER concepts` 成功。index の既存 path 移動・並べ替えにより full audit が選択され、changed-only だけでなく `Audit full DREAM THEATER concept coverage` まで成功した。
+- PR #672 `Validate Pages assembly` と `Validate terminology` が成功し、公開目次・stable anchor / link・用語整合を確認した。
+- PR #673 では `textbook/dependency-graph.md` を現行4科目順へ更新した後、`Validate textbook`、`Validate Pages assembly`、`Validate terminology` が再度成功した。
+- 人手監査では DREAM THEATER 基礎科目 57 indexed pages の `chapter.yaml` 直接 prerequisite を全件照合し、共通基礎の順 `集合論 → 線形代数 → 実解析 → 位相空間論` に対する逆依存は 0 件だった。
+- 科目境界も再読し、F0-00A3 は A3A を任意の深掘りとして分岐させつつ線形代数への接続を示し、RA8 は章頭で `RA5 + TOP5` を前提とする「位相空間論後の実解析発展」であることを明記していることを確認した。
+- 完成条件を再照合し、共通基礎に順序数・超限再帰を必修として逆流させず、A3A の stable asset を独立「集合論・数学基礎論」の SET8 相当へ将来接続する decision も保持した。
 ## 10. 完成条件
 
 次を全て満たしたとき、本計画を完了扱いとする。
@@ -701,7 +711,7 @@ F0-00A1D の改稿着手時に、既存の F0-00A1 / A1B / RA1 との責務境�
 - 公開共通基礎が「集合論 → 線形代数 → 実解析 → 位相空間論」の順に並び、各科目が前段だけを prerequisite として通読できる。
 - 集合論として、集合・写像・関係・商・可算性・濃度・順序を一続きに学べる。
 - 線形代数に F0-00B/B1/C/C1/C2/D/TOP* や後続実解析の暗黙 prerequisite が残っていない。F0-00F1 で証明繰り下げ例外を採る場合は、定理の主張・用途を自足的に扱い、後段に実在する証明回収先と proof ownership が明示されている。
-- 実解析本体に一般距離空間・一般位相空間の暗黙 prerequisite が残っておらず、実数・$mathbb R^n$ で必要な完全性・コンパクト性を実解析内部で再構成できる。
+- 実解析本体に一般距離空間・一般位相空間の暗黙 prerequisite が残っておらず、実数・$\mathbb R^n$ で必要な完全性・コンパクト性を実解析内部で再構成できる。
 - F0-00D は実解析の実数版を一般距離空間へ拡張する章として読める。
 - RA8 のように一般位相を本質的に使う発展章は、位相空間論後の分岐として明示されている。
 - F0-00A1D が「選択公理のためだけの補講」ではなく、順序論の標準章として読める。
