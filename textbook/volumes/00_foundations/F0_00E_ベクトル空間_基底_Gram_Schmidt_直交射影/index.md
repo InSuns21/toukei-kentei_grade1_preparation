@@ -308,7 +308,7 @@ $$
 \sum_{j=1}^q (\beta b_j)w_j
 $$
 
-も $S$ の有限線形結合なので、$\alpha x+\beta y\in\operatorname{span}(S)$ です。部分空間判定法から $\operatorname{span}(S)$ は線形部分空間です。各 $s\in S$ は $s=1\cdot s$ と書けるので $S\subseteq\operatorname{span}(S)$ です。
+も $S$ の有限線形結合なので、$\alpha x+\beta y\in\operatorname{span}(S)$ です。[部分空間判定法](#prop-f0-00e-subspace-test)から $\operatorname{span}(S)$ は線形部分空間です。各 $s\in S$ は $s=1\cdot s$ と書けるので $S\subseteq\operatorname{span}(S)$ です。
 
 次に $W$ を $S\subseteq W$ を満たす線形部分空間とします。$W$ は加法とスカラー倍に閉じているので、$S$ の任意の有限線形結合は $W$ に属します。よって
 
@@ -1209,11 +1209,11 @@ $$
 
 $U\cap W$ の基底を
 
-$$
+$
 e_1,\dots,e_r
-$$
+$
 
-とします。基底延長定理により、これを $U$ の基底
+とします。[基底延長定理](#thm-basis-extension)により、これを $U$ の基底
 
 $$
 e_1,\dots,e_r,u_{r+1},\dots,u_p
