@@ -6,6 +6,17 @@ prerequisites:
   - LA3D
 forward_references:
   - vector-calculus.contraction
+  - geometry.smooth-structure
+  - geometry.smooth-manifold
+  - geometry.tangent-space
+  - geometry.cotangent-space
+  - geometry.tensor-field
+  - geometry.differential-form
+  - geometry.exterior-derivative
+  - geometry.form-lie-derivative
+  - geometry.cartan-formula
+  - geometry.manifold-orientation
+  - geometry.global-top-form-integral
 
 concepts:
   - id: linear.tensor-product
@@ -134,7 +145,7 @@ concepts:
   - id: linear.interior-product-identities
     name: 内部積の基本恒等式
     kind: theorem
-    aliases: [内部積の基本恒等式]
+    aliases: [内部積の基本恒等式, 内部積の符号付き積の法則]
     requires:
       - linear.interior-product
       - linear.wedge-product
