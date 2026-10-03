@@ -252,7 +252,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-la3b-matrix-determinant -->
-### 定義の確認：$2\times2$ の公式はどう戻るか
+**定義の確認**：$2\times2$ の公式はどう戻るか
 
 $S_2$ は恒等置換と互換 $(1\ 2)$ だけなので
 $$
