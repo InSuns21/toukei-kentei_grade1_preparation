@@ -1267,29 +1267,105 @@ $$
 したがって $T$ は対角化可能です。
 
 **3 $\Rightarrow$ 2.**  
-固有ベクトル基底を、同じ固有値に属するベクトルごとにまとめます。固有値 $\lambda$ に属する基底ベクトルたちは $E_\lambda$ を張ります。実際、$x\in E_\lambda$ を基底展開し、異なる固有値の成分が混ざっていれば $T(x)=\lambda x$ と両立しないため、その係数は0になります。したがって各 $E_\lambda$ の基底を合わせたものが $V$ の基底で、
+固有ベクトル基底を、同じ固有値に属するベクトルごとにまとめます。基底ベクトル $v_i$ の固有値を $\mu_i$ と書きます。
 
-$$
+固有値 $\lambda$ に属する基底ベクトルたちの線形包を $F_\lambda$ とします。各ベクトルは $E_\lambda$ に属するので
+
+$
+F_\lambda\subseteq E_\lambda.
+$
+
+逆に $x\in E_\lambda$ を基底展開して
+
+$
+x=\sum_{i=1}^n c_iv_i
+$
+
+と書きます。$T(x)=\lambda x$ だから
+
+$
+0
+=
+(T-\lambda I)x
+=
+\sum_{i=1}^n c_i(\mu_i-\lambda)v_i.
+$
+
+$v_1,\dots,v_n$ は基底なので一次独立です。したがって各 $i$ について
+
+$
+c_i(\mu_i-\lambda)=0.
+$
+
+$\mu_i\ne\lambda$ なら $c_i=0$ なので、$x$ に残るのは固有値 $\lambda$ に属する基底ベクトルだけです。よって
+
+$
+E_\lambda\subseteq F_\lambda,
+$
+
+したがって $E_\lambda=F_\lambda$ です。
+
+もとの固有ベクトル基底は、これらの $E_\lambda$ の基底を固有値ごとにまとめたものです。基底展開の一意性から異なる $E_\lambda$ の成分の和も一意なので
+
+$
 V=\bigoplus_\lambda E_\lambda.
-$$
+$
 
 **2 $\Rightarrow$ 4.**  
 直和の次元公式を繰り返し使うと
 
-$$
+$
 \dim V
 =
 \sum_\lambda \dim E_\lambda.
-$$
+$
 
 $\dim V=n$ なので 4 が従います。
 
 **4 $\Rightarrow$ 3.**  
-各固有空間 $E_\lambda$ から基底を一つずつ取ります。異なる固有値に属する固有ベクトルを合わせた集合は、前節の定理より一次独立です。その本数は
+各固有空間 $E_\lambda$ から基底
 
-$$
-\sum_\lambda \dim E_\lambda=n.
-$$
+$
+B_\lambda
+=
+\{v_{\lambda,1},\dots,v_{\lambda,d_\lambda}\},
+\qquad
+d_\lambda=\dim E_\lambda
+$
+
+を取ります。これらを全て合わせた集合が一次独立であることを確認します。
+
+有限個の固有値について
+
+$
+\sum_\lambda x_\lambda=0,
+\qquad
+x_\lambda\in E_\lambda
+$
+
+とします。$x_\lambda\ne0$ である項だけを残すと、それぞれは互いに異なる固有値に属する固有ベクトルです。前節の定理よりそれらは一次独立なので、全て
+
+$
+x_\lambda=0
+$
+
+です。
+
+各 $x_\lambda$ は $B_\lambda$ の線形結合であり、$B_\lambda$ 自身も一次独立なので、元の全係数が0になります。したがって
+
+$
+\bigcup_\lambda B_\lambda
+$
+
+は一次独立です。その本数は
+
+$
+\sum_\lambda d_\lambda
+=
+\sum_\lambda \dim E_\lambda
+=
+n.
+$
 
 $n$ 次元空間の一次独立な $n$ 本のベクトルは基底なので、固有ベクトルからなる基底が得られます。以上で4条件は同値です。$\square$
 <!-- proof-end -->
