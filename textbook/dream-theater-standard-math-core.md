@@ -39,7 +39,7 @@
 
 ## 代数系
 
-21. [**抽象代数**](textbook/dream-theater.md#dt-subject-abstract-algebra)：群・環・加群・体から有限 Galois 理論までを扱う。
+21. [**抽象代数**](textbook/dream-theater.md#dt-subject-abstract-algebra)：群・環・加群を学び、一般の体上の線形代数を橋として体拡大・有限 Galois 理論まで扱う。
 22. [**Lie 理論**](textbook/dream-theater.md#dt-subject-lie-theory)：Lie 群・Lie 環、指数写像、古典群、群作用、等質空間を扱う。
 
 ## 計算・最適化系
