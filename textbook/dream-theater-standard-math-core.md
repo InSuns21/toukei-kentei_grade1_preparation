@@ -30,11 +30,11 @@
 12. [**Fourier 解析**](textbook/dream-theater.md#dt-subject-fourier-analysis)：Fourier 級数・Fourier 変換、Plancherel 理論、確率分布との接続、離散 Fourier 変換、サンプリングまでを一続きで扱う。
 13. [**時系列解析（大学院レベル）**](textbook/dream-theater.md#dt-subject-time-series)：確率論・関数解析・Fourier 解析を土台に、定常過程、Hilbert 空間による線形予測、Wold 分解、スペクトル表現、ARMA、エルゴード性、状態空間モデル、Kalman フィルタまでを扱う。
 14. [**複素解析 II（CA8--CA12）**](textbook/dream-theater.md#dt-subject-complex-analysis-ii)：Riemann 面、楕円関数、無限積、Gamma 関数、Riemann ζ 関数と theta 変換までを扱う。
-15. [**偏微分方程式（学部レベル）**](textbook/dream-theater.md#dt-subject-pde-undergraduate)：特性曲線、熱・波動・Laplace / Poisson 方程式、Green 関数、固有関数展開、Hamilton--Jacobi 方程式までを扱う。
+15. [**偏微分方程式 I**](textbook/dream-theater.md#dt-subject-pde-i)：特性曲線、熱・波動・Laplace / Poisson 方程式、Green 関数、固有関数展開、Hamilton--Jacobi 方程式までを扱う。
 16. [**ベクトル解析 II（VC8--VC9）**](textbook/dream-theater.md#dt-subject-vector-calculus-ii)：Newton ポテンシャル、Helmholtz 分解、流体、Maxwell 方程式までを扱う。
 17. [**微分幾何 I（GEO1--GEO9）**](textbook/dream-theater.md#dt-subject-differential-geometry-i)：滑らかな多様体、接空間、部分多様体、ベクトル場、微分形式、一般 Stokes の定理、de Rham コホモロジー入門までを扱う。
 18. [**微分幾何 II（GEO10--GEO19）**](textbook/dream-theater.md#dt-subject-differential-geometry-ii)：曲線・超曲面、Riemann 計量、接続、測地線、曲率、比較幾何、Gauss--Bonnet の定理までを扱う。
-19. [**偏微分方程式（大学院レベル）**](textbook/dream-theater.md#dt-subject-pde-graduate)：超関数、Sobolev 空間、弱解、変分法、楕円型正則性、Galerkin 法までを扱う。
+19. [**偏微分方程式 II**](textbook/dream-theater.md#dt-subject-pde-ii)：超関数、Sobolev 空間、弱解、変分法、楕円型正則性、Galerkin 法までを扱う。
 20. [**確率解析**](textbook/dream-theater.md#dt-subject-stochastic-analysis)：マルチンゲール、Brown 運動と Wiener 測度、Itô 積分、SDE、生成作用素、Lévy 過程までを扱う。
 
 ## 代数系

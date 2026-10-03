@@ -1,6 +1,6 @@
 # 微分方程式・Fourier解析ロードマップ
 
-このページは、DREAM THEATER の **標準常微分方程式（ODE）・標準Fourier解析（FOU）・標準偏微分方程式（PDE）** の入口です。
+このページは、DREAM THEATER の **標準常微分方程式（ODE）・標準Fourier解析（FOU）・偏微分方程式 I（PDE）** の入口です。
 
 再編前の `F0_00H1`、`F0_00FA1`～`F0_00FA3`、`F0_00PDE1`～`F0_00PDE3` は URL 互換・移送元確認のためリポジトリ内に保持しますが、**現行教材としては隔離し、読者向け目次・通常導線には表示しません**。理論の正本は以下の新系列へ一本化します。
 
@@ -71,7 +71,7 @@ FOU3 は $L^1$ Fourier 変換、Riemann--Lebesgue、畳み込み、Gaussian、�
 
 ---
 
-## 4. 標準偏微分方程式コア
+## 4. 偏微分方程式 I：古典解と明示解法
 
 PDE 系列は次の順で実装します。
 
@@ -96,7 +96,7 @@ PDE3 では[一次元熱方程式](../PDE3/index.md#def-pde3-heat-equation)を�
 PDE4 では[一次元波動方程式](../PDE4/index.md#def-pde4-wave-equation)を双曲型の代表として扱い、特性座標から [d'Alembert 公式](../PDE4/index.md#thm-pde4-dalembert)を導いて有限伝播速度を示します。固定端ではエネルギー保存から一意性を証明し、変数分離・Fourier 正弦級数・全空間 Fourier 変換を通じて、進行波・固有モード・周波数ごとの調和振動子が同じ構造を表すことを確認します。
 PDE5 では[Laplace・Poisson 方程式](../PDE5/index.md#def-pde5-laplace-poisson)を楕円型の代表として扱い、[円周平均値性質](../PDE5/index.md#thm-pde5-circle-mean-value)から[強最大原理](../PDE5/index.md#thm-pde5-maximum-principle)と Dirichlet 一意性を導きます。さらに長方形の変数分離と[円板の境界積分核](../PDE5/index.md#def-pde5-poisson-kernel)による Dirichlet 解を構成し、Neumann 問題の定数不定性・整合条件まで古典解の範囲で確認します。
 PDE6 では[VC4 の Green theorem：flux form](../VC4/index.md#cor-vc4-green-flux)を前提に、[Green の第一恒等式](../PDE6/index.md#thm-pde6-green-first)・[第二恒等式](../PDE6/index.md#thm-pde6-green-second)、エネルギーによる Dirichlet 一意性、Neumann 問題の整合条件を一続きの境界積分法として扱います。さらに二次元の対数基本解、Green 表現公式、[Dirichlet Green 関数](../PDE6/index.md#def-pde6-green-function)、PDE5 と一致する Poisson kernel を収録します。弱微分・超関数・Sobolev 空間は Encore III へ送ります。
-PDE7 では、空間固有モードへ分ける見方を出発点に、熱・波動・Poisson の三類型をモードごとの ODE / 代数方程式として統合します。PDE8--PDE12 では Duhamel による非斉次問題、多次元波動、一般次元ポテンシャル論、Bessel / Legendre / 球面調和関数、一般一階 PDE と Hamilton--Jacobi まで拡張し、学部古典 PDE の発展線を閉じます。
+PDE7 では、空間固有モードへ分ける見方を出発点に、熱・波動・Poisson の三類型をモードごとの ODE / 代数方程式として統合します。PDE8--PDE12 では Duhamel による非斉次問題、多次元波動、一般次元ポテンシャル論、Bessel / Legendre / 球面調和関数、一般一階 PDE と Hamilton--Jacobi まで拡張し、偏微分方程式 I の古典解法の系列を閉じます。
 
 熱・波動・Laplace 方程式を単なる三つの計算例として並べず、parabolic / hyperbolic / elliptic の代表として位置付けます。最大原理・エネルギー法など、一意性を支える論証まで標準コアに含めます。
 
@@ -153,7 +153,7 @@ $$
 
 ## 7. Encore II の停止線
 
-Encore II の標準 PDE コアは PDE12 の Hamilton--Jacobi 古典特性論までで閉じます。特性交差後の viscosity solution は後続発展へ送り、弱解理論は Encore III の正本を使います。
+偏微分方程式 I は PDE12 の Hamilton--Jacobi 古典特性論までで閉じます。特性交差後の viscosity solution は後続発展へ送り、弱解理論は Encore III の正本を使います。
 
 - Schwartz超関数
 - 弱微分
