@@ -137,6 +137,8 @@ $
 $
 <!-- definition-example-end -->
 
+Leibniz 公式では、列を交換したときに置換の符号も正確に1回反転してほしいので、符号が置換の合成に対して積になることが必要です。そのために、まず「隣り合う2箇所の交換では転倒数の偶奇が必ず反転する」ことを確認し、一般の置換を隣接交換へ分解します。
+
 <a id="lem-la3b-permutation-sign-product"></a>
 <!-- formal-statement-start -->
 > **補題（置換の符号の積）**  
@@ -151,27 +153,93 @@ $$
 <!-- proof-start -->
 ### 証明
 
-隣り合う2箇所を交換する置換を $s_k=(k\ k+1)$ とします。並びの第 $k$ 項と第 $k+1$ 項を交換すると、この2項同士の大小関係だけが反転し、他の項との転倒数の合計は変わりません。従って
+隣り合う2箇所を交換する置換を
+
 $$
-\operatorname{inv}(\sigma\circ s_k)
-\equiv \operatorname{inv}(\sigma)+1\pmod2,
-$$
-つまり
-$$
-\operatorname{sgn}(\sigma\circ s_k)=-\operatorname{sgn}(\sigma).
+s_k=(k\ k+1)
 $$
 
-任意の置換 $\rho$ は隣接互換の積
+とします。$\sigma$ の一列表記で第 $k$ 項を $a=\sigma(k)$、第 $k+1$ 項を $b=\sigma(k+1)$ とします。この二項を交換すると、$a,b$ 同士の大小関係は必ず反転します。
+
+一方、位置 $r<k$ の項 $c=\sigma(r)$ から見れば、交換前後の
+
+$$
+[c>a]+[c>b]
+$$
+
+という2個分の転倒判定の合計は変わりません。位置 $r>k+1$ の項についても
+
+$$
+[a>c]+[b>c]
+$$
+
+の合計は変わりません。従って変わるのは $a,b$ 同士の1組だけで、
+
+$$
+\operatorname{inv}(\sigma\circ s_k)
+\equiv \operatorname{inv}(\sigma)+1\pmod2.
+$$
+
+よって
+
+$$
+\operatorname{sgn}(\sigma\circ s_k)
+=-\operatorname{sgn}(\sigma).
+$$
+
+次に、任意の置換 $\rho$ を隣接互換の積へ分解できることを確認します。$\rho$ の一列表記に転倒が残っているなら、どこかに隣り合う転倒があります。そこを隣接交換すると転倒数が1減ります。これを繰り返すと有限回で
+
+$$
+(1,2,\dots,n)
+$$
+
+へ到達するので、逆にたどれば
+
 $$
 \rho=s_{i_1}\cdots s_{i_m}
 $$
-と書けます。恒等置換から同じ交換を施せば $\operatorname{sgn}(\rho)=(-1)^m$、$\sigma$ から施せば
-$$
-\operatorname{sgn}(\sigma\circ\rho)=(-1)^m\operatorname{sgn}(\sigma)
-$$
-なので積の公式を得ます。
 
-一般の互換 $(p\ q)$ は $2(q-p)-1$ 回の隣接交換で表せるため奇置換で、符号は $-1$ です。$\square$
+と書けます。
+
+恒等置換からこの $m$ 回の交換を施せば
+
+$$
+\operatorname{sgn}(\rho)=(-1)^m.
+$$
+
+同じ交換を $\sigma$ の右から順に合成すると
+
+$$
+\begin{aligned}
+\operatorname{sgn}(\sigma\circ\rho)
+&=\operatorname{sgn}(\sigma\circ s_{i_1}\cdots s_{i_m})\\
+&=(-1)^m\operatorname{sgn}(\sigma)\\
+&=\operatorname{sgn}(\sigma)\operatorname{sgn}(\rho).
+\end{aligned}
+$$
+
+最後に $p<q$ とすると、一般の互換は
+
+$$
+(p\ q)
+=
+s_p s_{p+1}\cdots s_{q-2}s_{q-1}
+s_{q-2}\cdots s_{p+1}s_p
+$$
+
+と表せます。隣接互換の個数は
+
+$$
+(q-p)+(q-p-1)=2(q-p)-1
+$$
+
+で奇数なので
+
+$$
+\operatorname{sgn}(p\ q)=-1.
+$$
+
+$\square$
 <!-- proof-end -->
 
 ---
