@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - STO13
+  - STO11
   - STO7
   - STO2
   - F0-00D2E
