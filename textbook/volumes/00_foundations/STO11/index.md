@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念への参照**：[ブラウン運動のマルコフ性](../STO4/index.md#thm-sto4-brownian-markov)、[SDE の大域的存在一意性](../STO9/index.md#thm-sto9-global-existence-uniqueness)、[時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula)、[Lévy の特徴付け定理](../STO5/index.md#thm-sto5-levy-characterization) を再利用します。
+> **既出概念への参照**：[ブラウン運動のマルコフ性](../STO4/index.md#thm-sto4-brownian-markov)、[SDE の大域的存在一意性](../STO9/index.md#thm-sto9-global-existence-uniqueness)、[時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula)、[Levy characterization](../STO5/index.md#thm-sto5-levy-characterization) を再利用します。
 
 STO4 ではブラウン運動についてマルコフ性と強マルコフ性を標本路側から学び、STO9 では
 
@@ -132,6 +132,18 @@ $$
 
 ## 2. 時間一様マルコフ性
 
+前節の遷移核は「現在位置 $x$ から時間 $t$ 後にどこへ行くか」を記述する候補でした。しかし、核を一つ書いただけでは、実際の過程 $X$ が **過去の経路全体ではなく現在値だけで未来を決める**とはまだ言えません。
+
+そこで、条件付き期待値を使って
+
+$$
+\text{時刻 }s\text{ までの全情報}
+\quad\longrightarrow\quad
+\text{現在値 }X_s\text{ だけ}
+$$
+
+へ情報を圧縮できることを要求します。さらに絶対時刻 $s$ ではなく経過時間 $t$ だけで同じ核 $P_t$ を使える場合を、時間一様なマルコフ性として定義します。
+
 <a id="def-sto11-markov-process"></a>
 
 <!-- formal-statement-start -->
@@ -201,6 +213,24 @@ $$
 ---
 
 ## 3. 核を関数作用素として束ねる
+
+遷移核 $P_t(x,A)$ を集合 $A$ ごとに追えば未来分布は完全に記述できますが、期待値・微分方程式・生成作用素へ進むには集合ごとの記法は扱いにくいです。
+
+そこで有界関数 $f$ を「未来で観測したい量」と見て、
+
+$$
+P_tf(x)
+=
+E_x[f(X_t)]
+$$
+
+という作用素へ核をまとめます。時間を続けて進める操作が作用素の合成になるため、Markov 性の時間構造を
+
+$$
+P_{s+t}=P_sP_t
+$$
+
+という一つの式で表せるようになります。
 
 <a id="def-sto11-markov-semigroup"></a>
 
@@ -434,9 +464,41 @@ $$
 
 ブラウン運動の independent increments により $\widetilde W$ は $\mathcal F_s$ と独立なブラウン運動です。
 
-STO9 の Picard 構成は各反復を初期値とブラウン標本路の可測関数として作るため、極限 solution も可測な solution map で表せます。さらに[大域 Lipschitz SDE の強解の存在・経路ごとの一意性定理](../STO9/index.md#thm-sto9-global-existence-uniqueness)により、固定した初期値 $y$ とブラウン運動 $\widetilde W$ に対する solution は一意です。
+STO9 の Picard 構成を、時刻 $s$ 以後の方程式へそのまま当てはめます。第0反復を
 
-したがって $\mathcal F_s$ を条件にしたとき、未来の標本路 $(Y_r)_{r\ge0}$ の条件付き法則は現在値 $X_s^x$ と独立な future 雑音 $\widetilde W$ だけで決まり、初期点 $X_s^x$ から同じ係数で再始動した solution 法則に一致します。
+$$
+Y_r^{(0)}=X_s^x
+$$
+
+とし、
+
+$$
+Y_r^{(n+1)}
+=
+X_s^x
++
+\int_0^r b(Y_u^{(n)})du
++
+\int_0^r\sigma(Y_u^{(n)})d\widetilde W_u
+$$
+
+とします。各反復は「初期値 $X_s^x$」と「将来増分 $\widetilde W$ の標本路」から作られ、STO9 の factorial estimate により極限へ収束します。したがって各固定 $r$ で極限 $Y_r$ は、この二つを入力とする可測な solution map の値として読めます。
+
+ここで $X_s^x$ は $\mathcal F_s$-可測で、$\widetilde W$ は $\mathcal F_s$ と独立です。また [大域 Lipschitz SDE の強解の存在・経路ごとの一意性定理](../STO9/index.md#thm-sto9-global-existence-uniqueness) により、同じ初期値と同じ $\widetilde W$ を使う solution は一意です。
+
+したがって $\mathcal F_s$ を条件にすると、未来 $Y_t=X_{s+t}^x$ のランダム性として残るのは独立な $\widetilde W$ だけです。初期値を一旦 $y$ と固定したときの solution を $X^y$ と書けば、
+
+$$
+E[f(Y_t)\mid\mathcal F_s]
+=
+\left.
+E[f(X_t^y)]
+\right|_{y=X_s^x}
+=
+P_tf(X_s^x)
+$$
+
+という再始動公式が得られます。
 
 まず有界 continuous $f$ に対してこの条件付き期待値公式が得られます。公式を満たす有界 Borel 関数の族は有界 monotone pointwise limit で閉じ、有界 continuous functions は $\mathcal B(\mathbb R^d)$ を生成するので、monotone class argument により有界 Borel $f$ 全体へ拡張できます。
 
@@ -598,7 +660,29 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)から
+[STO7 の時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula) に入れる関数を
+
+$$
+F(r,y)=f(y)
+$$
+
+と取ります。この選択では
+
+$$
+\partial_rF=0,
+\qquad
+\nabla_yF=\nabla f,
+\qquad
+D_y^2F=D^2f.
+$$
+
+さらに $X$ のドリフトと拡散係数へ
+
+$$
+dX_r=b(X_r)dr+\sigma(X_r)dW_r
+$$
+
+を代入すると、
 
 $$
 \begin{aligned}
@@ -688,7 +772,25 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Dynkin 公式）**  
-> 前節の拡散 $X$ と生成作用素 $L$ を考える。
+> $b:\mathbb R^d\to\mathbb R^d$、$\sigma:\mathbb R^d\to\mathbb R^{d\times m}$ を大域 Lipschitz とし、初期点 $x$ から
+>
+$$
+dX_t=b(X_t)dt+\sigma(X_t)dW_t,
+\qquad
+X_0=x
+$$
+>
+> の強解を取る。$a=\sigma\sigma^\top$ とし、
+>
+$$
+Lf
+=
+b\cdot\nabla f
++
+\frac12\operatorname{tr}(aD^2f)
+$$
+>
+> と置く。
 >
 > $f\in C_c^2(\mathbb R^d)$ とし、$\tau$ を有界 stopping time とする。
 >
@@ -951,19 +1053,27 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Kolmogorov 前進方程式の弱形式と Fokker--Planck）**  
-> 拡散生成作用素
-
+> $b:\mathbb R^d\to\mathbb R^d$、$\sigma:\mathbb R^d\to\mathbb R^{d\times m}$ を大域 Lipschitz とし、
+>
 $$
+dX_t=b(X_t)dt+\sigma(X_t)dW_t
+$$
+>
+> の強解を考える。$\mu_t$ を $X_t$ の法則、
+>
+$$
+a=\sigma\sigma^\top,
+\qquad
 Lf
 =
 \sum_i b_i\partial_if
 +
 \frac12\sum_{i,j}a_{ij}\partial_{ij}f
 $$
-
-> を考える。
 >
-> $f\in C_c^2(\mathbb R^d)$ に対し必要な積分可能性が成り立つなら
+> とする。
+>
+> 任意の $f\in C_c^2(\mathbb R^d)$ に対し
 
 $$
 \boxed{
@@ -974,7 +1084,7 @@ $$
 }
 $$
 
-> さらに $\mu_t(dx)=p(t,x)dx$ で、$p,b,a$ が部分積分を正当化するだけ十分滑らかかつ境界項が消えるなら
+> さらに $\mu_t(dx)=p(t,x)dx$ と書け、$p$ が時刻について $C^1$、各積 $b_ip$ が空間について $C^1$、各積 $a_{ij}p$ が空間について $C^2$ で、以下の微分と積分交換・部分積分が正当化できるとする。このとき
 
 $$
 \boxed{
@@ -1027,7 +1137,31 @@ $$
 \right)ds.
 $$
 
-右辺の被積分過程が連続であると仮定すれば微分して
+ここで $f\in C_c^2$ なので $Lf$ は bounded continuous です。実際、$\nabla f$ と $D^2f$ はコンパクトな台を持ち、その台上で continuous な $b,a$ は有界です。
+
+また $X_s\to X_t$ almost surely as $s\to t$ なので
+
+$$
+Lf(X_s)\to Lf(X_t)
+\qquad\text{a.s.}
+$$
+
+です。$Lf$ は有界だから dominated convergence により
+
+$$
+E[Lf(X_s)]
+\to
+E[Lf(X_t)].
+$$
+
+したがって
+
+$$
+s\longmapsto
+\int Lf\,d\mu_s
+$$
+
+は連続です。よって上の積分恒等式を $t$ で微分して
 
 $$
 \frac{d}{dt}
@@ -1111,11 +1245,41 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Feynman--Kac 検証公式）**  
-> $L$ を前節の拡散生成作用素とする。
+> $b:\mathbb R^d\to\mathbb R^d$、$\sigma:\mathbb R^d\to\mathbb R^{d\times m}$ を大域 Lipschitz とし、$X^{t,x}$ を時刻 $t$ に $x$ から出発する
+>
+$$
+dX_s=b(X_s)ds+\sigma(X_s)dW_s
+$$
+>
+> の強解とする。$a=\sigma\sigma^\top$ とし、
+>
+$$
+L
+=
+b\cdot\nabla
++
+\frac12\operatorname{tr}(aD^2)
+$$
+>
+> と置く。
 >
 > 有界 continuous な $V:[0,T]\times\mathbb R^d\to[0,\infty)$、$g:[0,T]\times\mathbb R^d\to\mathbb R$、$h:\mathbb R^d\to\mathbb R$ を考える。
 >
-> $u\in C^{1,2}([0,T)\times\mathbb R^d)\cap C([0,T]\times\mathbb R^d)$ が有界で必要な導関数も確率積分を真のマルチンゲールにするだけ有界であり、
+> $u\in C^{1,2}([0,T)\times\mathbb R^d)\cap C([0,T]\times\mathbb R^d)$ が有界であり、各初期条件 $(t,x)$ について
+>
+$$
+E_{t,x}\left[
+\int_t^T
+e^{-2\int_t^sV(r,X_r)dr}
+\left|
+\sigma(X_s)^\top\nabla u(s,X_s)
+\right|^2ds
+\right]
+<
+\infty
+$$
+>
+> を満たし、
 
 $$
 \partial_tu+Lu-Vu+g=0,
@@ -1246,9 +1410,23 @@ D_su(s,X_s)
 D_s\nabla u^\top\sigma\,dW_s.
 $$
 
-仮定した boundedness / integrability により右辺は真のマルチンゲールです。
+右辺の確率積分の被積分過程は
 
-時刻 $t$ から $T$ まで期待値を取ると
+$$
+H_s
+=
+D_s\sigma(X_s)^\top\nabla u(s,X_s).
+$$
+
+formal statement の仮定はちょうど
+
+$$
+E_{t,x}\int_t^T|H_s|^2ds<\infty
+$$
+
+を意味します。したがって STO6 の $L^2$ 確率積分の構成により右辺は二乗可積分マルチンゲールで、時刻 $t$ から任意の $s\le T$ までの増分の期待値は0です。
+
+よって時刻 $t$ から $T$ まで期待値を取ると
 
 $$
 u(t,x)
@@ -1456,9 +1634,74 @@ $$
 
 局所化すれば右辺は continuous 局所マルチンゲールです。
 
-この性質は $(X_t)$ の標本路汎関数として canonical 標本路空間上へ押し出せます。
+ここから「元の確率空間上の性質」を「canonical 標本路空間上の法則の性質」へ移します。$P^{X}$ を $X$ の標本路法則
 
-したがって $X$ の法則はマルチンゲール問題を解きます。
+$$
+P^{X}
+=
+P\circ
+\bigl(X_\cdot\bigr)^{-1}
+$$
+
+とします。
+
+局所化も標本路だけから読める形に取ります。例えば
+
+$$
+\tau_n
+=
+\inf\left\{
+r\ge0:
+|X_r|\ge n
+\text{ or }
+\int_0^r
+|\nabla f(X_q)^\top\sigma(X_q)|^2dq
+\ge n
+\right\}
+\wedge n
+$$
+
+とすれば、$\tau_n$ は $X$ の標本路の可測汎関数で、$M^{f,\tau_n}$ は二乗可積分マルチンゲールです。
+
+$0\le s<t$ を固定し、canonical $\mathcal F_s$-可測な有界 cylinder function $G$ を取ります。元の空間へ引き戻した $G(X_\cdot)$ は元の $\mathcal F_s$-可測なので
+
+$$
+E_P\left[
+G(X_\cdot)
+\left\{
+M_{t\wedge\tau_n}^{f}
+-
+M_{s\wedge\tau_n}^{f}
+\right\}
+\right]
+=
+0.
+$$
+
+$\tau_n$ も $M^f$ も canonical path の式で書けるため、標本路法則の定義で同じ期待値を書き直すと
+
+$$
+E_{P^X}\left[
+G
+\left\{
+M_{t\wedge\tau_n}^{f}
+-
+M_{s\wedge\tau_n}^{f}
+\right\}
+\right]
+=
+0.
+$$
+
+cylinder functions から monotone class で bounded canonical $\mathcal F_s$-可測関数へ広げれば、各 $M^{f,\tau_n}$ は $P^X$-マルチンゲールです。$\tau_n\uparrow\infty$ なので $M^f$ は $P^X$ の下で局所マルチンゲールです。初期分布も押し出しで
+
+$$
+P^X\circ X_0^{-1}
+=
+\mathcal L_P(X_0)
+$$
+
+なので、$X$ の標本路法則はマルチンゲール問題を解きます。
 <!-- proof-end -->
 
 この方向ではブラウン運動を消すのは簡単です。
@@ -1544,7 +1787,7 @@ W_t
 \int_0^t\sigma(X_s)^{-1}dM_s
 $$
 
-と置き、Lévy characterization を使います。
+と置き、STO5 の [Levy characterization](../STO5/index.md#thm-sto5-levy-characterization) を使います。
 
 <!-- proof-start -->
 ### 証明
@@ -1702,30 +1945,89 @@ $$
 
 また $W_0=0$ で $W$ は continuous 局所マルチンゲールです。
 
-[STO5 の Lévy characterization](../STO5/index.md#thm-sto5-levy-characterization) により $W$ は $d$ 次元ブラウン運動です。
-
-定義から
+STO5 の [Levy characterization](../STO5/index.md#thm-sto5-levy-characterization) は 1 次元版なので、多次元結論を線形結合で確認します。任意の $u\in\mathbb R^d$ に対して
 
 $$
-dW_t=\sigma(X_t)^{-1}dM_t,
+L_t^u=u^\top W_t
 $$
 
-従って
+と置くと
 
 $$
-dM_t=\sigma(X_t)dW_t.
+[L^u]_t
+=
+u^\top[W]_tu
+=
+|u|^2t.
 $$
 
-さらに
+$u\ne0$ なら $L^u/|u|$ は 1 次元 standard ブラウン運動です。したがって $0\le s<t$ に対し
 
 $$
-dX_t=b(X_t)dt+dM_t
+E\left[
+e^{iu^\top(W_t-W_s)}
+\mid\mathcal F_s
+\right]
+=
+e^{-|u|^2(t-s)/2}.
 $$
 
-なので
+全ての $u$ について右辺が $N_d(0,(t-s)I_d)$ の特性関数で、しかも $\mathcal F_s$ に依存しないので、$W_t-W_s$ は $\mathcal F_s$ と独立な $N_d(0,(t-s)I_d)$ です。連続性と $W_0=0$ もあるため、$W$ は $d$ 次元ブラウン運動です。
+
+最後に確率積分の結合を確認します。局所化して $\sigma(X)$ と $\sigma(X)^{-1}$ が有界な区間では、単純予測可能過程について増分和から
 
 $$
-dX_t=b(X_t)dt+\sigma(X_t)dW_t.
+\int_0^t
+\sigma(X_s)\,
+d\left(
+\int_0^s
+\sigma(X_r)^{-1}dM_r
+\right)
+=
+\int_0^t
+\sigma(X_s)\sigma(X_s)^{-1}dM_s
+$$
+
+が直接成り立ちます。一般の場合は STO6 の $L^2$ completion と localization でこの恒等式を延長できます。したがって
+
+$$
+\int_0^t\sigma(X_s)dW_s
+=
+\int_0^t I_d\,dM_s
+=
+M_t-M_0.
+$$
+
+ここでは $M_0=0$ なので
+
+$$
+M_t
+=
+\int_0^t\sigma(X_s)dW_s.
+$$
+
+さらに $M$ の定義
+
+$$
+X_t
+=
+X_0
++
+\int_0^tb(X_s)ds
++
+M_t
+$$
+
+へ代入して
+
+$$
+X_t
+=
+X_0
++
+\int_0^tb(X_s)ds
++
+\int_0^t\sigma(X_s)dW_s.
 $$
 <!-- proof-end -->
 
@@ -1736,6 +2038,10 @@ $$
 ---
 
 ## 14. マルチンゲール問題の存在と法則の一意性
+
+前節までで、ある確率測度がマルチンゲール問題を解くかどうかは判定できるようになりました。しかし solution が一つ見つかっただけでは、同じ作用素 $L$ から別の標本路法則も作れる可能性が残ります。その場合、$L$ だけから未来分布や Markov 半群を一意に復元することはできません。
+
+生成作用素から確率過程の法則を決めたいなら、各初期点について **solution が存在すること**と **その法則が一意であること**の両方が必要です。この二条件をまとめて次の概念として固定します。
 
 <a id="def-sto11-mp-law-uniqueness"></a>
 
@@ -1768,7 +2074,32 @@ $$
 
 を得ます。
 
-[STO5 の Lévy characterization](../STO5/index.md#thm-sto5-levy-characterization) により $X-X_0$ は standard ブラウン運動です。
+ここでも STO5 の [Levy characterization](../STO5/index.md#thm-sto5-levy-characterization) は各 1 次元線形結合へ適用します。任意の $u\in\mathbb R^d$ に対し
+
+$$
+L_t^u
+=
+u^\top(X_t-X_0)
+$$
+
+と置けば
+
+$$
+[L^u]_t=|u|^2t.
+$$
+
+したがって $u\ne0$ では $L^u/|u|$ が standard ブラウン運動です。よって全ての $u$ について増分の条件付き特性関数が
+
+$$
+E\left[
+e^{iu^\top(X_t-X_s)}
+\mid\mathcal F_s
+\right]
+=
+e^{-|u|^2(t-s)/2}
+$$
+
+となり、$X-X_0$ は $d$ 次元 standard ブラウン運動です。
 
 したがって初期点 $x$ を固定すれば solution 法則はブラウン法則以外にありえません。存在と法則の一意性がともに確認できるので、定義の二条件を満たします。
 <!-- definition-example-end -->
@@ -1842,6 +2173,10 @@ STO4 ではブラウン運動について stopping-time approximation を用い�
 ---
 
 ## 15. $C_0$ 上の強連続性を加える
+
+ここまでの半群は有界 Borel 関数上で時間合成を表せれば十分でした。しかし生成作用素を関数解析の作用素として扱うには、「初期点を少し動かしたとき $P_tf$ が連続に動くか」「短時間極限 $P_tf\to f$ が一様ノルムで成り立つか」という追加の正則性が必要です。
+
+そこで状態空間の無限遠で消える連続関数 $C_0(\mathbb R^d)$ を舞台にし、半群がこの空間を保ち、$t\downarrow0$ で強連続になることを要求します。これが生成作用素の閉作用素論へ進む入口になります。
 
 <a id="def-sto11-feller-semigroup"></a>
 
@@ -2664,7 +2999,7 @@ W_t=\int_0^t\frac1{\sigma(X_s)}dM_s
 $$
 
 を定め、$[W]_t$ を計算せよ。
-2. Lévy characterization から何が言えるか。
+2. STO5 の [Levy characterization](../STO5/index.md#thm-sto5-levy-characterization) から何が言えるか。
 3. マルチンゲール問題からブラウン運動を構成し、$X$ の SDE 表現を復元せよ。
 
 <!-- solution-start -->
@@ -2690,7 +3025,7 @@ $$
 
 $W$ は continuous 局所マルチンゲールで $W_0=0$ です。
 
-2. [STO5 の Lévy characterization](../STO5/index.md#thm-sto5-levy-characterization) の仮定
+2. STO5 の [Levy characterization](../STO5/index.md#thm-sto5-levy-characterization) の仮定
 
 $$
 W_0=0,
@@ -2709,17 +3044,42 @@ $$
 3. 定義から
 
 $$
-dW_t
+W_t
 =
-\frac1{\sigma(X_t)}dM_t.
+\int_0^t
+\frac1{\sigma(X_s)}dM_s.
 $$
 
-$\sigma(X_t)\ne0$ なので
+ここで「両辺へ $\sigma$ を掛ける」を微分記号だけで済ませません。局所化して $\sigma(X)$ と $1/\sigma(X)$ が有界な区間では、単純予測可能過程の増分和で直接確認できる確率積分の結合則を STO6 の $L^2$ completion で延長して
 
 $$
-dM_t
+\begin{aligned}
+\int_0^t\sigma(X_s)dW_s
+&=
+\int_0^t
+\sigma(X_s)
+d\left(
+\int_0^s
+\frac1{\sigma(X_r)}dM_r
+\right)\\
+&=
+\int_0^t
+\sigma(X_s)
+\frac1{\sigma(X_s)}
+dM_s\\
+&=
+M_t-M_0\\
+&=
+M_t.
+\end{aligned}
+$$
+
+したがって
+
+$$
+M_t
 =
-\sigma(X_t)dW_t.
+\int_0^t\sigma(X_s)dW_s.
 $$
 
 また $M$ の定義より
@@ -3009,7 +3369,7 @@ $$
 [W]_t=t.
 $$
 
-Lévy characterization により $W$ はブラウン運動で、
+STO5 の [Levy characterization](../STO5/index.md#thm-sto5-levy-characterization) により $W$ はブラウン運動で、
 
 $$
 dX_t=-\theta X_tdt+\sigma dW_t
