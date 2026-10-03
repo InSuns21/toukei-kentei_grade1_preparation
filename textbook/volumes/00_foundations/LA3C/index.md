@@ -245,22 +245,22 @@ $$
 <!-- definition-example-start: def-la3c-adjugate -->
 **定義の確認**：$2\times2$ 行列
 
-$
+$$
 A=\begin{pmatrix}a&b\\c&d\end{pmatrix}
-$
+$$
 
 では余因子は
 
-$
+$$
 C_{11}=d,\qquad
 C_{12}=-c,\qquad
 C_{21}=-b,\qquad
 C_{22}=a.
-$
+$$
 
 定義では $\operatorname{adj}(A)_{ji}=C_{ij}$ と転置して並べるので
 
-$
+$$
 \operatorname{adj}(A)
 =
 \begin{pmatrix}
@@ -269,7 +269,7 @@ C_{12}&C_{22}
 \end{pmatrix}
 =
 \begin{pmatrix}d&-b\\-c&a\end{pmatrix}.
-$
+$$
 <!-- definition-example-end -->
 
 <a id="thm-la3c-adjugate-identity"></a>
@@ -300,24 +300,24 @@ $$
 
 次に $\operatorname{adj}(A)A$ の $(i,j)$ 成分を直接確認します。定義から
 
-$
+$$
 \bigl(\operatorname{adj}(A)A\bigr)_{ij}
 =
 \sum_{k=1}^n C_{ki}a_{kj}.
-$
+$$
 
 $i=j$ なら、これは第 $i$ 列に沿う Laplace 展開
 
-$
+$$
 \sum_{k=1}^n a_{ki}C_{ki}
 =\det A
-$
+$$
 
 です。$i\ne j$ なら、第 $i$ 列を第 $j$ 列で置き換えた行列を考えます。この行列を第 $i$ 列で Laplace 展開した値が上の和です。置き換え後は第 $i$ 列と第 $j$ 列が等しいので行列式は0です。従って
 
-$
+$$
 \operatorname{adj}(A)A=(\det A)I.
-$
+$$
 $\square$
 <!-- proof-end -->
 
@@ -546,13 +546,13 @@ $$
 <!-- solution-start -->
 **解答**：任意の位置 $j$ を固定し、第 $j$ 引数だけを $\alpha u+\beta v$ に置き換えます。線形写像 $A$ について
 
-$
+$$
 A(\alpha u+\beta v)=\alpha Au+\beta Av
-$
+$$
 
 なので、行列式の第 $j$ 列に関する線形性から
 
-$
+$$
 \begin{aligned}
 &D_A(b_1,\dots,\alpha u+\beta v,\dots,b_n)\\
 &\quad=
@@ -561,13 +561,13 @@ $
 \alpha D_A(b_1,\dots,u,\dots,b_n)
 +\beta D_A(b_1,\dots,v,\dots,b_n).
 \end{aligned}
-$
+$$
 
 $j$ は任意だったので各引数について線形、すなわち多重線形です。また $b_i=b_j$ なら $Ab_i=Ab_j$ となり、行列式に同じ列が2本現れるため
 
-$
+$$
 D_A(b_1,\dots,b_n)=0.
-$
+$$
 
 従って $D_A$ は交代的です。
 <!-- solution-end -->
@@ -647,28 +647,28 @@ $$
 <!-- solution-start -->
 **解答**：第1行で Laplace 展開すると
 
-$
+$$
 \begin{aligned}
 \det A
 &=1\det\begin{pmatrix}1&1\\0&1\end{pmatrix}
 -1\det\begin{pmatrix}0&1\\1&1\end{pmatrix}\\
 &=1-(-1)=2.
 \end{aligned}
-$
+$$
 
 9個の余因子を順に計算すると
 
-$
+$$
 \begin{aligned}
 &C_{11}=1,\qquad C_{12}=1,\qquad C_{13}=-1,\\
 &C_{21}=-1,\qquad C_{22}=1,\qquad C_{23}=1,\\
 &C_{31}=1,\qquad C_{32}=-1,\qquad C_{33}=1.
 \end{aligned}
-$
+$$
 
 したがって余因子行列は、余因子を転置して並べて
 
-$
+$$
 \operatorname{adj}(A)=
 \begin{pmatrix}
 C_{11}&C_{21}&C_{31}\\
@@ -681,7 +681,7 @@ C_{13}&C_{23}&C_{33}
 1&1&-1\\
 -1&1&1
 \end{pmatrix}.
-$
+$$
 
 従って
 $$
