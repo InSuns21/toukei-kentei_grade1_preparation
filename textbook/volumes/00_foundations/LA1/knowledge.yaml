@@ -5,6 +5,7 @@ prerequisites:
   - F0-00E
   - F0-00F
 forward_references:
+  - linear.inner-product
   - linear.complementary-subspace
   - linear.quotient-space
   - linear.canonical-quotient-map
