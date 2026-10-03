@@ -146,8 +146,9 @@
 4. [FOU4 Plancherel・L2 Fourier解析](textbook/volumes/00_foundations/FOU4/index.md)
 5. [FOU5 確率・離散Fourier変換・サンプリング](textbook/volumes/00_foundations/FOU5/index.md)
 
+<a id="dt-subject-pde-i"></a>
 <a id="dt-subject-pde-undergraduate"></a>
-### 偏微分方程式（学部レベル）
+### 偏微分方程式 I
 
 1. [PDE1 PDEの基本・一次方程式・特性曲線](textbook/volumes/00_foundations/PDE1/index.md)
 2. [PDE2 二階線形PDEの分類](textbook/volumes/00_foundations/PDE2/index.md)
@@ -230,10 +231,11 @@
 16. [FA6 コンパクト作用素](textbook/volumes/00_foundations/FA6/index.md)
 17. [FA7 コンパクト自己共役作用素・Fredholm の交代定理](textbook/volumes/00_foundations/FA7/index.md)
 
+<a id="dt-subject-pde-ii"></a>
 <a id="dt-subject-pde-graduate"></a>
-### 偏微分方程式（大学院レベル）
+### 偏微分方程式 II
 
-1. [大学院レベル偏微分方程式への入口](textbook/volumes/00_foundations/F0_00R3_EncoreIII_Distributions_Sobolev_Weak/index.md)
+1. [偏微分方程式 II への入口](textbook/volumes/00_foundations/F0_00R3_EncoreIII_Distributions_Sobolev_Weak/index.md)
 2. [GPDE1 テスト関数・Schwartz 超関数](textbook/volumes/00_foundations/GPDE1/index.md)
 3. [GPDE2 超関数の微分・平滑化核・弱微分](textbook/volumes/00_foundations/GPDE2/index.md)
 4. [GPDE3 Sobolev 空間](textbook/volumes/00_foundations/GPDE3/index.md)
