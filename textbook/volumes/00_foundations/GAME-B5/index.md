@@ -367,11 +367,11 @@ $$
 
 そこで本章では、非空な真部分提携 $S\subsetneq N$ 全体の集合を $\mathcal C$ と書きます。
 
-$
+$$
 \mathcal C
 =
 \{S\subsetneq N:S\ne\varnothing\}.
-$
+$$
 
 これらの超過要求を比較します。
 
