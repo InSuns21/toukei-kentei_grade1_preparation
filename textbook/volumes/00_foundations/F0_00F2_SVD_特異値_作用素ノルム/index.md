@@ -520,34 +520,44 @@ $$
 <!-- proof-start -->
 ### 証明
 
-任意の $x$ を右特異ベクトル基底で
-
+まず $A=0$ なら全ての特異値が0で
 $$
-x=\sum_i c_iv_i
+\|A\|_{\mathrm{op}}=0,
+$$
+なので結論は成り立ちます。
+
+以下 $A\ne0$ とし、正の特異値を
+$$
+\sigma_1\ge\cdots\ge\sigma_r>0
+$$
+とします。任意の $x$ を右特異ベクトル基底で
+$$
+x=\sum_{i=1}^n c_iv_i
+$$
+と書きます。$i>r$ では $Av_i=0$ なので
+$$
+Ax
+=
+\sum_{i=1}^r c_i\sigma_i u_i.
 $$
 
-と書くと
-
-$$
-Ax=\sum_i c_i\sigma_i u_i.
-$$
-
-$u_i$ の正規直交性から
-
+$u_1,\dots,u_r$ の正規直交性から
 $$
 \|Ax\|^2
 =
-\sum_i\sigma_i^2|c_i|^2.
+\sum_{i=1}^r\sigma_i^2|c_i|^2.
 $$
-各 $\sigma_i\le\sigma_1$ なので
+各 $i\le r$ で $\sigma_i\le\sigma_1$ だから
 $$
-\sum_i\sigma_i^2|c_i|^2
+\sum_{i=1}^r\sigma_i^2|c_i|^2
 \le
-\sigma_1^2\sum_i|c_i|^2.
+\sigma_1^2\sum_{i=1}^r|c_i|^2
+\le
+\sigma_1^2\sum_{i=1}^n|c_i|^2.
 $$
-また $v_i$ の正規直交性から
+また $v_1,\dots,v_n$ は正規直交基底なので
 $$
-\sum_i|c_i|^2=\|x\|^2.
+\sum_{i=1}^n|c_i|^2=\|x\|^2.
 $$
 したがって
 $$
@@ -570,9 +580,13 @@ $$
 
 一方、単位右特異ベクトル $v_1$ を入れると
 $$
+Av_1=\sigma_1u_1,
+$$
+したがって
+$$
 \|Av_1\|
 =
-\|\sigma_1u_1\|
+\sigma_1\|u_1\|
 =
 \sigma_1.
 $$
