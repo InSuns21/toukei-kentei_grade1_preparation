@@ -1,5 +1,5 @@
 id: "F0-00A3A"
-title: "選択公理とZornの補題の同値性"
+title: "選択公理と Zorn の補題の同値性"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -7,14 +7,14 @@ prerequisites:
   - F0-00A3
 official_scope: []
 learning_objectives:
-  - Zornの補題から選択関数を構成できる
-  - 選択公理から整列可能定理をHartogs補題と超限再帰を介して導ける
-  - 整列から極大鎖を超限再帰で構成し、Zornの補題を導ける
+  - Zorn の補題から選択関数を構成できる
+  - 選択公理から整列可能定理を Hartogs の補題と超限再帰を介して導ける
+  - 整列から極大鎖を超限再帰で構成し、Zorn の補題を導ける
   - Hartogs の補題の停止保証と、同値性証明で ZF の標準結果として使う道具を区別できる
 definitions: []
 theorems:
-  - { id: F0A3A-THM-01, name: Hartogs補題 }
-  - { id: F0A3A-THM-02, name: 選択公理とZornの補題の同値性 }
+  - { id: F0A3A-THM-01, name: Hartogs の補題 }
+  - { id: F0A3A-THM-02, name: 選択公理と Zorn の補題の同値性 }
 canonical_examples: [部分選択関数の極大化, 整列順の極大鎖構成]
 problem_patterns: [ZORN-TO-AC-1, AC-TO-ZORN-1, WELLORDER-TO-ZORN-1]
 past_exam_alignment: []
