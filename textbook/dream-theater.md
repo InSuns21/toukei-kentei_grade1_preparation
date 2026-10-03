@@ -411,11 +411,12 @@
 8. [RNG4 多項式環・Gauss の補題・既約多項式](textbook/volumes/00_foundations/RNG4/index.md)
 9. [MOD1 加群・部分加群・商加群・自由加群](textbook/volumes/00_foundations/MOD1/index.md)
 10. [MOD2 Smith 標準形・PID 上有限生成加群](textbook/volumes/00_foundations/MOD2/index.md)
-11. [FLD1 体拡大・代数的元・最小多項式](textbook/volumes/00_foundations/FLD1/index.md)
-12. [FLD2 分解体・分離性・正規性](textbook/volumes/00_foundations/FLD2/index.md)
-13. [FLD3 有限体](textbook/volumes/00_foundations/FLD3/index.md)
-14. [FLD4 有限 Galois 理論](textbook/volumes/00_foundations/FLD4/index.md)
-15. [FLD5 Galois 理論の応用：作図可能性・根号による可解性](textbook/volumes/00_foundations/FLD5/index.md)
+11. [FLD0 一般の体上のベクトル空間](textbook/volumes/00_foundations/FLD0/index.md)
+12. [FLD1 体拡大・代数的元・最小多項式](textbook/volumes/00_foundations/FLD1/index.md)
+13. [FLD2 分解体・分離性・正規性](textbook/volumes/00_foundations/FLD2/index.md)
+14. [FLD3 有限体](textbook/volumes/00_foundations/FLD3/index.md)
+15. [FLD4 有限 Galois 理論](textbook/volumes/00_foundations/FLD4/index.md)
+16. [FLD5 Galois 理論の応用：作図可能性・根号による可解性](textbook/volumes/00_foundations/FLD5/index.md)
 
 <a id="dt-subject-lie-theory"></a>
 ### Lie 理論

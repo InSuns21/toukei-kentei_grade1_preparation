@@ -1,0 +1,23 @@
+chapter: "FLD0"
+terms:
+  - term: スカラー体
+    english: scalar field
+    meaning: ベクトル空間でスカラーを供給する体 F。
+  - term: 体上のベクトル空間
+    english: vector space over a field
+    meaning: 体 F の元をスカラーとして加法とスカラー倍の公理を満たす集合 V。
+  - term: F-線形結合
+    english: F-linear combination
+    meaning: 係数を体 F から取る有限線形結合。
+  - term: F-基底
+    english: F-basis
+    meaning: F 上一次独立で V 全体を F-線形結合で張るベクトル族。
+  - term: F 上の次元
+    english: dimension over F
+    meaning: 有限次元 F-ベクトル空間の F-基底の本数。dim_F V と書く。
+  - term: F-線形写像
+    english: F-linear map
+    meaning: F のスカラー倍とベクトル加法を保つ写像。
+  - term: 一般の体上の階数・退化次数の定理
+    english: rank-nullity theorem over a field
+    meaning: 有限次元 F-ベクトル空間 V からの F-線形写像 T に対し dim_F V=dim_F ker T+dim_F Im T とする定理。

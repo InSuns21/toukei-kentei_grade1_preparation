@@ -1,0 +1,101 @@
+chapter: FLD0
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00E
+  - F0-00F
+  - RNG1
+  - LA1
+forward_references:
+  - algebra.field-extension
+  - algebra.extension-degree
+  - linear.matrix-determinant
+  - linear.operator-polynomial
+  - linear.minimal-polynomial
+  - linear.inner-product
+  - linear.orthogonality
+  - linear.gram-schmidt
+  - linear.complex-inner-product
+  - algebra.algebraic-element
+  - algebra.minimal-polynomial
+  - algebra.left-module
+  - algebra.finite-field
+
+concepts:
+  - id: linear.vector-space-over-field
+    name: 体上のベクトル空間
+    kind: definition
+    aliases: [F-ベクトル空間, vector space over a field]
+    introduction_aliases: [体上のベクトル空間]
+    requires:
+      - algebra.field
+      - linear.vector-space
+
+  - id: linear.span-over-field
+    name: 体上の線形結合・線形包
+    kind: definition
+    aliases: [F-線形結合, F-線形包]
+    introduction_aliases: [体上の線形結合・線形包]
+    requires:
+      - linear.vector-space-over-field
+
+  - id: linear.basis-over-field
+    name: 体上の一次独立・基底
+    kind: definition
+    aliases: [F上の一次独立, F-基底]
+    introduction_aliases: [体上の一次独立・基底]
+    requires:
+      - linear.span-over-field
+      - linear.linear-independence
+      - linear.basis
+
+  - id: linear.subspace-test-over-field
+    name: 体上の部分空間判定法
+    kind: proposition
+    aliases: []
+    requires:
+      - linear.vector-space-over-field
+      - linear.linear-subspace
+
+  - id: linear.steinitz-basis-extension-over-field
+    name: 一般の体上の Steinitz の交換補題と基底延長
+    kind: theorem
+    aliases: []
+    requires:
+      - linear.basis-over-field
+      - linear.vector-space-over-field
+
+  - id: linear.dimension-over-field
+    name: 体上の次元
+    kind: definition
+    aliases: [F上の次元, dimension over a field]
+    introduction_aliases: [体上の次元]
+    requires:
+      - linear.basis-over-field
+      - linear.steinitz-basis-extension-over-field
+
+  - id: linear.linear-map-over-field
+    name: 体上の線形写像
+    kind: definition
+    aliases: [F-線形写像, linear map over a field]
+    introduction_aliases: [体上の線形写像]
+    requires:
+      - linear.vector-space-over-field
+      - linear.linear-map
+
+  - id: linear.rank-nullity-over-field
+    name: 一般の体上の階数・退化次数の定理
+    kind: theorem
+    aliases: []
+    requires:
+      - linear.dimension-over-field
+      - linear.linear-map-over-field
+      - linear.steinitz-basis-extension-over-field
+
+  - id: linear.coordinate-isomorphism-over-field
+    name: 一般の体上の座標写像
+    kind: theorem
+    aliases: []
+    requires:
+      - linear.dimension-over-field
+      - linear.vector-space-over-field

@@ -5,6 +5,8 @@ prerequisites:
   - LA3C
   - F0-00F
 forward_references:
+  - algebra.field
+  - linear.vector-space-over-field
   - complex-analysis.fundamental-theorem-of-algebra
   - complex-analysis.fundamental-theorem-of-algebra-factorization
   - linear.inner-product

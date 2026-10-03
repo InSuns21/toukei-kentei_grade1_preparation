@@ -5,6 +5,8 @@ prerequisites:
   - F0-00E
   - F0-00F
 forward_references:
+  - algebra.field
+  - linear.vector-space-over-field
   - linear.inner-product
   - linear.complementary-subspace
   - linear.quotient-space
