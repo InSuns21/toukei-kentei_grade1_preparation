@@ -389,7 +389,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（有界任意抽出）**  
-> $X$ を劣マルチンゲールとし、$\sigma,\tau$ を停止操作 times とする。ある決定論的 $N<\infty$ が存在して
+> $X$ を劣マルチンゲールとし、$\sigma,\tau$ を停止時刻とする。ある決定論的 $N<\infty$ が存在して
 >
 $$
 0\le\sigma\le\tau\le N
@@ -560,10 +560,26 @@ $$
 
 ### 直接例：$S_n^2$ の補償項
 
-公平ランダムウォークでは
+公平ランダムウォークで $S_n=S_{n-1}+\xi_n$、$E[\xi_n\mid\mathcal F_{n-1}]=0$、$\xi_n^2=1$ とします。まず
 
 $$
-E[S_n^2-S_{n-1}^2\mid\mathcal F_{n-1}]=1.
+S_n^2-S_{n-1}^2
+=
+2S_{n-1}\xi_n+\xi_n^2
+$$
+
+なので、$S_{n-1}$ が $\mathcal F_{n-1}$ 可測であることを使うと
+
+$$
+\begin{aligned}
+E[S_n^2-S_{n-1}^2\mid\mathcal F_{n-1}]
+&=
+2S_{n-1}E[\xi_n\mid\mathcal F_{n-1}]
++
+E[\xi_n^2\mid\mathcal F_{n-1}]\\
+&=0+1
+=1.
+\end{aligned}
 $$
 
 したがって
@@ -960,6 +976,45 @@ $$
 
 と定めます。
 
+これらが停止時刻であることも確認します。まず
+
+$$
+\{S_1\le m\}
+=
+\bigcup_{k=0}^{m}\{Y_k=0\}
+\in\mathcal F_m,
+$$
+
+なので $S_1$ は停止時刻です。$S_j$ が停止時刻なら
+
+$$
+\{T_j\le m\}
+=
+\bigcup_{r=0}^{m-1}
+\left(
+\{S_j=r\}
+\cap
+\bigcup_{k=r+1}^{m}\{Y_k\ge c\}
+\right)
+\in\mathcal F_m,
+$$
+
+したがって $T_j$ も停止時刻です。同様に $T_j$ が停止時刻なら
+
+$$
+\{S_{j+1}\le m\}
+=
+\bigcup_{r=0}^{m-1}
+\left(
+\{T_j=r\}
+\cap
+\bigcup_{k=r+1}^{m}\{Y_k=0\}
+\right)
+\in\mathcal F_m.
+$$
+
+よって帰納的に全ての $S_j,T_j$ が停止時刻です。
+
 第 $k$ 増分を保有するかを
 
 $$
@@ -971,7 +1026,7 @@ $$
 
 で定めます。区間は互いに重ならないので $H_k\in\{0,1\}$ です。
 
-また
+また、上で停止時刻性を確認したので
 
 $$
 \{S_j<k\le T_j\}
