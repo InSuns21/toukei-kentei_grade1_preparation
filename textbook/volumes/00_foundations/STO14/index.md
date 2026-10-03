@@ -1121,9 +1121,9 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（補償 Poisson ランダム測度の L2 等長性と拡張）**  
-> $H$ を単純予測可能 Poisson 被積分過程とする。
+> $T>0$ とし、$(E,\mathcal E,\nu)$ を $\sigma$-有限測度空間、$N(ds,dz)$ を強度 $ds\,\nu(dz)$ のポアソンランダム測度、$\widetilde N$ をその補償ポアソンランダム測度とする。$(\mathcal F_t)_{0\le t\le T}$ を $N$ の自然なフィルトレーションの通常拡大とする。
 >
-> このとき
+> $H$ を $[0,T]\times E\times\Omega$ 上の単純予測可能 Poisson 被積分過程とする。このとき
 >
 $$
 M_t
@@ -1249,7 +1249,17 @@ $$
 
 と置きます。
 
-ここで単純予測可能過程が、二乗可積分な予測可能過程全体に稠密であることを確認します。予測可能 $\sigma$-fieldは
+ここで単純予測可能過程が、二乗可積分な予測可能過程全体に稠密であることを確認します。$[0,T]\times\Omega$ 上の予測可能 $\sigma$-fieldを $\mathcal P$ と書き、
+
+$$
+\mu_T(d\omega,ds,dz)
+=
+P(d\omega)\,ds\,\nu(dz)
+$$
+
+と置きます。
+
+予測可能 $\sigma$-field $\mathcal P$ は
 
 $$
 A\times(s,t],
@@ -1257,13 +1267,7 @@ A\times(s,t],
 A\in\mathcal F_s,
 $$
 
-型の集合と $A\times\{0\}$ 型の集合から生成されます。印空間を掛けた予測可能 $\sigma$-fieldは、さらに有限 $\nu$-測度の $B\in\mathcal E$ を用いる
-
-$$
-A\times(s,t]\times B
-$$
-
-型の集合で生成できます。
+型の集合と、時刻 0 の集合から生成されます。時刻 0 は $ds$-測度 0 なので、$L^2(\mu_T)$ 近似では無視できます。
 
 $\nu$ は $\sigma$-有限なので
 
@@ -1275,18 +1279,70 @@ E_1\subset E_2\subset\cdots,
 \bigcup_nE_n=E
 $$
 
-と取れます。任意の二乗可積分な予測可能 $H$ は、まず
+と取れます。任意の二乗可積分な予測可能 $H$ に対し
 
 $$
 H^{[n]}
 =
-(-n)\vee(H\wedge n)
-\,1_{E_n}(z)
+\bigl((-n)\vee(H\wedge n)\bigr)1_{E_n}(z)
 $$
 
-で値を有界化し、印空間を有限測度部分へ制限すれば $L^2$ で近似できます。
+と置きます。点ごとに $H^{[n]}\to H$ で、
 
-各近似後は有限測度空間上の可測関数なので、生成集合の有限和からなる単関数で $L^2$ 近似できます。係数付き指示関数
+$$
+|H^{[n]}-H|^2
+\le
+4|H|^2.
+$$
+
+従って [Lebesgue の優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)から
+
+$$
+\|H^{[n]}-H\|_{L^2(\mu_T)}
+\to0.
+$$
+
+固定した $n$ では
+
+$$
+\mu_T\bigl(\Omega\times(0,T]\times E_n\bigr)
+=
+T\nu(E_n)
+<
+\infty.
+$$
+
+この有限測度空間上では、可測関数は通常の単関数で $L^2$ 近似できます。残るのは、その単関数に現れる可測集合を予測可能な矩形の有限和で近似することです。
+
+矩形
+
+$$
+A\times(s,t]\times B,
+\qquad
+A\in\mathcal F_s,\quad
+B\in\mathcal E,\quad
+\nu(B)<\infty,
+$$
+
+の有限和全体を $\mathcal R$ とします。$\mathcal R$ は $\mathcal P\otimes\mathcal E$ を生成する環です。$\mathcal R$ の元で対称差の $\mu_T$-測度を任意に小さくできる可測集合全体を $\mathcal C$ と置くと、有限測度性により $\mathcal C$ は補集合と可算和で閉じ、$\mathcal R\subset\mathcal C$ です。従って単調類定理から
+
+$$
+\mathcal C
+=
+\mathcal P\otimes\mathcal E.
+$$
+
+指示関数については
+
+$$
+\|1_C-1_R\|_{L^2(\mu_T)}^2
+=
+\mu_T(C\triangle R),
+$$
+
+なので、集合の測度近似がそのまま $L^2$ 近似になります。
+
+各環単関数は
 
 $$
 \xi\,1_{(s,t]}1_B,
@@ -1294,9 +1350,7 @@ $$
 \xi\in L^\infty(\mathcal F_s),
 $$
 
-の有限和へ書き直せるため、これは本章の単純予測可能 Poisson 被積分過程です。
-
-従って単純予測可能過程は二乗可積分な予測可能過程全体に $\mathcal H_T$-ノルムで稠密です。
+の有限和へ書けます。従って本章の単純予測可能 Poisson 被積分過程で任意の二乗可積分な予測可能 $H$ を近似でき、稠密性が示されました。
 
 [$L^2$ の完備性](../F0_00D2E_L2完備性_Riesz_Fischer/index.md#thm-f0-00d2e-01)と等長性から
 
@@ -1323,9 +1377,13 @@ $$
 
 <a id="def-sto14-prm-l2-integral"></a>
 
+定理で「単純予測可能過程に対する積分」と「二乗可積分な一般の予測可能過程への一意な拡張」ができました。ここで、その拡張後の対象を正式に名前付けします。
+
 <!-- formal-statement-start -->
 > **定義（補償 Poisson ランダム測度に関する L2 確率積分）**  
-> 予測可能過程 $H$ が
+> $T>0$ とし、$(E,\mathcal E,\nu)$ を $\sigma$-有限測度空間、$N(ds,dz)$ を強度 $ds\,\nu(dz)$ のポアソンランダム測度、$\widetilde N$ をその補償ポアソンランダム測度とする。$(\mathcal F_t)_{0\le t\le T}$ を $N$ の自然なフィルトレーションの通常拡大とする。
+>
+> $(\mathcal F_t)$-予測可能過程 $H$ が
 >
 $$
 E\int_0^T\int_E
@@ -1545,6 +1603,8 @@ $\nu(|z|>\varepsilon)<\infty$ なので、各 $\varepsilon>0$ では有限個の
 
 <!-- formal-statement-start -->
 > **定理（補償小跳躍積分の閾値極限）**  
+> $\nu$ を $\mathbb R\setminus\{0\}$ 上の Lévy 測度、$N(ds,dz)$ を強度 $ds\,\nu(dz)$ のポアソンランダム測度、$\widetilde N$ をその補償ポアソンランダム測度とする。
+>
 > 任意の $T<\infty$ に対し、
 >
 $$
@@ -1637,35 +1697,113 @@ $$
 
 よって $M^{(\varepsilon)}$ は sup ノルムの二乗平均で Cauchy です。
 
-ここで過程空間の極限も明示しておきます。$\varepsilon_n\downarrow0$ を十分速く取り、
+ここで過程空間の極限も明示しておきます。Cauchy 評価から、$\varepsilon_n\downarrow0$ を帰納的に十分速く選び、
 
 $$
-\sum_n
 E\left[
 \sup_{t\le T}
 |M_t^{(\varepsilon_{n+1})}
 -
 M_t^{(\varepsilon_n)}|^2
 \right]
-<
-\infty.
+\le
+2^{-4n}
 $$
 
-Markov の不等式と [Borel--Cantelli 第1補題](../F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md#thm-f0-00p4-borel-cantelli-1)により、この部分列は $[0,T]$ 上一様にほとんど確実収束するように取れます。
+とできます。
+
+[Markov の不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-markov)を
+
+$$
+Y_n
+=
+\sup_{t\le T}
+|M_t^{(\varepsilon_{n+1})}
+-
+M_t^{(\varepsilon_n)}|^2
+$$
+
+と閾値 $2^{-2n}$ に適用すると
+
+$$
+\begin{aligned}
+P\left(
+\sup_{t\le T}
+|M_t^{(\varepsilon_{n+1})}
+-
+M_t^{(\varepsilon_n)}|
+>
+2^{-n}
+\right)
+&=
+P(Y_n>2^{-2n})\\
+&\le
+2^{2n}E[Y_n]\\
+&\le
+2^{-2n}.
+\end{aligned}
+$$
+
+右辺は $n$ について可算和が有限です。[Borel--Cantelli 第1補題](../F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md#thm-f0-00p4-borel-cantelli-1)より、ほとんど確実に十分大きい $n$ で
+
+$$
+\sup_{t\le T}
+|M_t^{(\varepsilon_{n+1})}
+-
+M_t^{(\varepsilon_n)}|
+\le
+2^{-n}.
+$$
+
+従ってその標本点では
+
+$$
+\sum_n
+\sup_{t\le T}
+|M_t^{(\varepsilon_{n+1})}
+-
+M_t^{(\varepsilon_n)}|
+<
+\infty,
+$$
+
+つまり $(M^{(\varepsilon_n)})$ は $[0,T]$ 上一様 Cauchy です。
 
 各 $M^{(\varepsilon_n)}$ は càdlàg で、càdlàg 関数の一様極限も càdlàg です。従ってある càdlàg 過程 $M$ へ一様にほとんど確実収束します。
 
-さらに任意の $\varepsilon>0$ に対し、上で得た Cauchy 評価と [Fatou の補題](../F0_00D2B_単調収束_Fatou_優収束/index.md#lem-f0-00d2b-01)を使えば
+さらに任意の $\varepsilon>0$ を固定します。ほとんど確実な一様収束から
 
 $$
+\sup_{t\le T}
+|M_t^{(\varepsilon)}-M_t|^2
+=
+\lim_{n\to\infty}
+\sup_{t\le T}
+|M_t^{(\varepsilon)}-M_t^{(\varepsilon_n)}|^2.
+$$
+
+[Fatou の補題](../F0_00D2B_単調収束_Fatou_優収束/index.md#lem-f0-00d2b-01)と Cauchy 評価より
+
+$$
+\begin{aligned}
 E\left[
 \sup_{t\le T}
 |M_t^{(\varepsilon)}-M_t|^2
 \right]
-\to0.
+&\le
+\liminf_{n\to\infty}
+E\left[
+\sup_{t\le T}
+|M_t^{(\varepsilon)}-M_t^{(\varepsilon_n)}|^2
+\right]\\
+&\le
+4T
+\int_{0<|z|\le\varepsilon}
+z^2\nu(dz).
+\end{aligned}
 $$
 
-したがって閾値付き近似族全体が sup ノルムの二乗平均で $M$ へ収束します。
+右辺は $\varepsilon\downarrow0$ で 0 へ収束します。従って閾値付き近似族全体が sup ノルムの二乗平均で $M$ へ収束します。
 
 各固定 $t$ でも $L^2$ 収束するため、条件付き期待値へ極限を通せば $M$ は二乗可積分マルチンゲールです。
 <!-- proof-end -->
