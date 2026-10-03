@@ -137,9 +137,9 @@ $$
 > と書き、$S$ の **$F$-線形包**という。
 <!-- formal-statement-end -->
 
-<a id="def-fld0-basis-dimension-over-field"></a>
+<a id="def-fld0-basis-over-field"></a>
 <!-- formal-statement-start -->
-> **定義（体上の一次独立・基底・次元）**
+> **定義（体上の一次独立・基底）**
 >
 > $S\subseteq V$ が **$F$ 上一次独立**であるとは、相異なる有限個 $v_1,\dots,v_k\in S$ と $a_1,\dots,a_k\in F$ に対して
 >
@@ -161,16 +161,10 @@ $$
 \operatorname{span}_F(B)=V
 $$
 >
-> を満たすとき、$B$ を $V$ の **$F$-基底**という。有限基底の本数を **$F$ 上の次元**といい
->
-$$
-\dim_FV
-$$
->
-> と書く。
+> を満たすとき、$B$ を $V$ の **$F$-基底**という。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-fld0-span-over-field, def-fld0-basis-dimension-over-field -->
+<!-- definition-example-start: def-fld0-span-over-field, def-fld0-basis-over-field -->
 **定義の確認：$\mathbb F_2^2$ の標準基底**
 
 $$
@@ -199,11 +193,7 @@ $$
 ae_1+be_2=(0,0)
 $$
 
-なら左辺は $(a,b)$ なので $a=b=0$ です。従って $e_1,e_2$ は $\mathbb F_2$ 上一次独立で、
-
-$$
-\boxed{\dim_{\mathbb F_2}\mathbb F_2^2=2}.
-$$
+なら左辺は $(a,b)$ なので $a=b=0$ です。従って $e_1,e_2$ は $\mathbb F_2$ 上一次独立で、$\mathbb F_2^2$ の $\mathbb F_2$-基底です。
 <!-- definition-example-end -->
 
 ### 2.1 同じ集合でもスカラー体が変わると一次独立性が変わる
@@ -494,6 +484,39 @@ $$
 <!-- proof-end -->
 
 ここでは交換式で $b_j^{-1}$ を使ったこと、基底延長で $b^{-1}$ を使ったことが、体の仮定が働く場所です。
+
+さらに第1部を二つの基底へ相互に適用すると、有限次元 $F$-ベクトル空間では **どの基底も同じ本数**を持つことが分かります。これで初めて基底の本数を空間固有の量として定義できます。
+
+<a id="def-fld0-dimension-over-field"></a>
+<!-- formal-statement-start -->
+> **定義（体上の次元）**
+>
+> $V$ が有限基底を持つ $F$-ベクトル空間であるとする。$V$ の $F$-基底の本数を **$F$ 上の次元**といい
+>
+$$
+\dim_FV
+$$
+>
+> と書く。一般の体上の Steinitz の交換補題により、この本数は選んだ基底によらない。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-fld0-dimension-over-field -->
+**定義の確認**：前節で $\mathbb F_2^2$ の
+
+$$
+e_1=(1,0),
+\qquad
+e_2=(0,1)
+$$
+
+が $\mathbb F_2$-基底であることを確認しました。基底は2本なので
+
+$$
+\boxed{\dim_{\mathbb F_2}\mathbb F_2^2=2}.
+$$
+
+別の基底を選んでも、交換補題から本数は必ず2本です。
+<!-- definition-example-end -->
 
 一方、係数を一般の環 $R$ にすると非零元が逆元を持つとは限りません。例えば $\mathbb Z$ では $2\ne0$ ですが $1/2\notin\mathbb Z$ です。このため「非零係数で割って一つの生成元を消す」という線形代数の標準操作がそのまま使えません。一般の環上ではベクトル空間ではなく **加群**を考え、[MOD1](../MOD1/index.md) で別の理論として扱います。
 
