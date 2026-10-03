@@ -642,6 +642,15 @@ F0-00A1D の改稿着手時に、既存の F0-00A1 / A1B / RA1 との責務境�
 - 移動した内容を演習へも反映し、F0-00E を A4 / B3 / C1 の詳細解答形式へ更新した。F0-00E の prerequisite に F0-00A3 を追加し、「集合論 → 線形代数」の向きで依存を確定した。
 - stable directory / stable anchor は維持し、F0-00A2 の公開目次ラベルだけを本文 H1 と同期した。
 
+### F0-00A3A の SET8 再配置 decision gate（2026-10-03）
+
+- 第一候補を採用し、F0-00A3A の stable ID / URL は維持する。
+- 完全証明の canonical owner は独立科目「集合論・数学基礎論」の SET8 相当とする。学部共通基礎側に重複する AC / 整列可能定理 / Zorn の同値性証明は新設しない。
+- 現在の A3A は順序数・Replacement・超限再帰・Hartogs を実際に使用する一方、独立科目の SET2 / SET4 / SET7 は未実装である。この段階で存在しない章IDを prerequisite に書くことは禁止する。
+- SET1--SET7 実装までは A3A の既存 stable asset を保持し、通常の共通基礎通読からは外す方向で item 18 / 19 の公開目次を構成する。
+- SET7 完了後、A3A の chapter.yaml / knowledge.yaml の prerequisite を実在する canonical chapters へ付け替え、独立科目の SET8 として公開所属を確定する。
+- この順序により、「未習の順序数・超限再帰を A3A が暗黙に使う」問題を、架空 dependency や重複定理で隠さず解消する。
+
 ## 9. 実装順
 
 1. ✅ F0-00A / A1C / A1D / A2 / A3 / A3A の本文・chapter.yaml・knowledge.yaml を監査（2026-10-02 初回監査）
@@ -660,7 +669,7 @@ F0-00A1D の改稿着手時に、既存の F0-00A1 / A1B / RA1 との責務境�
 14. ✅ RA8 を「位相空間論後の実解析発展」へ移し、TOP5 の一般位相 prerequisite を正面から保持する。実需要のない F0-00D1 prerequisite は除去した。（2026-10-03）
 15. ✅ F0-00D を「実数版から一般距離空間版への拡張」として改稿し、例・反例・A4/B3/C1 以上の演習・詳細解答・metadata を同期する。旧本番答案・採点基準を整理する。（2026-10-03）
 16. ✅ F0-00A2 / A3 を学部数学の選択原理・Zorn 適用章として監査・改稿し、A3 の Hamel 基底・一次独立・span を前提とする例題・演習は線形代数側へ移す。集合論コアは集合論だけで閉じる Zorn 適用で構成する。（2026-10-03）
-17. F0-00A3A の公開所属・prerequisite を独立「集合論・数学基礎論」計画と整合させる。
+17. ✅ F0-00A3A は stable ID / URL を維持したまま独立「集合論・数学基礎論」の SET8 相当を canonical owner とする方針へ確定。SET2「順序数」・SET4「超限再帰」・SET7「Hartogs」が未実装の現時点で架空 prerequisite を追加せず、実際の公開所属変更・prerequisite 付替えは SET1--SET7 実装後に行う。item 18 以降の共通基礎目次では A3A を必修系列として扱わない。（2026-10-03）
 18. \`dream-theater.md\` の公開科目を「集合論」「線形代数」「実解析」「位相空間論」に分離し、この順へ並べ替える。
 19. \`dream-theater-index.json\` と \`dream-theater-standard-math-core.md\` を同じ順へ同期し、RA8 など後段分岐の位置も明示する。
 20. knowledge DAG / chapter prerequisites / stable links を全体更新し、後続科目から前段科目への逆依存がないことを検証する。
