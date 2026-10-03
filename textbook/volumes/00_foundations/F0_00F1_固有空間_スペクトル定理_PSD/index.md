@@ -917,8 +917,15 @@ R_A(x)
 1+3\sin^2\theta.
 $$
 
+$0\le\sin^2\theta\le1$ なので
+$$
+1
+\le
+1+3\sin^2\theta
+\le
+4.
+$$
 従って
-
 $$
 1\le R_A(x)\le4.
 $$
@@ -1032,7 +1039,20 @@ $$
 
 従って $A|_M$ も対称です。
 
-さらに $\dim M=n-1$ です。したがって、次元 $n-1$ までスペクトル定理が成り立つと仮定すれば、$A|_M$ に帰納法の仮定を適用して $M$ の正規直交固有基底を得られます。そこへ $q$ を加えると、$\mathbb R^n$ 全体の正規直交固有基底になります。
+さらに F0-00E1 の直交分解から
+$$
+\mathbb R^n
+=
+\operatorname{span}(q)\oplus q^\perp
+=
+\operatorname{span}(q)\oplus M.
+$$
+$q\ne0$ なので $\dim\operatorname{span}(q)=1$、従って
+$$
+\dim M=n-1.
+$$
+
+帰納法を厳密に適用するには、$M$ の正規直交基底を一つ選び、その基底で $A|_M$ の表現行列 $B$ を作ります。$A|_M$ の対称性から $B$ も実対称行列です。したがって次元 $n-1$ までスペクトル定理が成り立つと仮定すれば、$B$ に帰納法の仮定を適用して $M$ の正規直交固有基底を得られます。そこへ $q$ を加えると、$\mathbb R^n$ 全体の正規直交固有基底になります。
 <!-- solution-end -->
 
 ### F0-00F1-B03 直交固有分解の再構成
@@ -1077,12 +1097,11 @@ Q=\frac1{\sqrt2}
 \end{pmatrix}.
 $$
 
-計算すると
-
+まず
 $$
-Q\Lambda Q^{\mathsf T}
+Q\Lambda
 =
-\frac12
+\frac1{\sqrt2}
 \begin{pmatrix}
 1&1\\
 1&-1
@@ -1091,15 +1110,39 @@ Q\Lambda Q^{\mathsf T}
 3&0\\
 0&1
 \end{pmatrix}
+=
+\frac1{\sqrt2}
+\begin{pmatrix}
+3&1\\
+3&-1
+\end{pmatrix}.
+$$
+従って
+$$
+\begin{aligned}
+Q\Lambda Q^{\mathsf T}
+&=
+\frac12
+\begin{pmatrix}
+3&1\\
+3&-1
+\end{pmatrix}
 \begin{pmatrix}
 1&1\\
 1&-1
-\end{pmatrix}
-=
+\end{pmatrix}\\
+&=
+\frac12
+\begin{pmatrix}
+4&2\\
+2&4
+\end{pmatrix}\\
+&=
 \begin{pmatrix}
 2&1\\
 1&2
 \end{pmatrix}.
+\end{aligned}
 $$
 
 従って直交固有分解が元の行列を再構成します。
@@ -1129,7 +1172,23 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-左上の $2\times2$ ブロックは固有値 $3,1$ を持ち、対応する単位固有ベクトルは
+左上の $2\times2$ ブロック
+$$
+C=
+\begin{pmatrix}
+2&1\\
+1&2
+\end{pmatrix}
+$$
+について
+$$
+\det(C-\lambda I)
+=
+(2-\lambda)^2-1
+=
+(\lambda-3)(\lambda-1)
+$$
+なので固有値は $3,1$ です。対応する固有ベクトルを正規化すると
 
 $$
 q_1=\frac1{\sqrt2}(1,1,0)^{\mathsf T},
@@ -1166,7 +1225,23 @@ $$
 R_A(x)=3z_1^2+z_2^2+4z_3^2.
 $$
 
-従って最小値は1、最大値は4です。
+ここで各 $z_i^2\ge0$ かつ
+$$
+z_1^2+z_2^2+z_3^2=1.
+$$
+したがって
+$$
+1
+=
+1(z_1^2+z_2^2+z_3^2)
+\le
+3z_1^2+z_2^2+4z_3^2
+\le
+4(z_1^2+z_2^2+z_3^2)
+=
+4.
+$$
+$q_2$ 方向で値1、$q_3$ 方向で値4を実際に取るので、最小値は1、最大値は4です。
 
 全固有値 $3,1,4$ が正なので $A$ は正定値です。
 
@@ -1178,7 +1253,29 @@ A^{1/2}
 Q\operatorname{diag}(\sqrt3,1,2)Q^{\mathsf T}.
 $$
 
-左上ブロックまで計算すると
+左上の $2\times2$ 部分だけ計算すると
+$$
+\frac12
+\begin{pmatrix}
+1&1\\
+1&-1
+\end{pmatrix}
+\begin{pmatrix}
+\sqrt3&0\\
+0&1
+\end{pmatrix}
+\begin{pmatrix}
+1&1\\
+1&-1
+\end{pmatrix}
+=
+\frac12
+\begin{pmatrix}
+\sqrt3+1&\sqrt3-1\\
+\sqrt3-1&\sqrt3+1
+\end{pmatrix}.
+$$
+第3固有方向では平方根固有値は $\sqrt4=2$ なので
 
 $$
 \boxed{
