@@ -482,7 +482,7 @@ X_s^x
 \int_0^r\sigma(Y_u^{(n)})d\widetilde W_u
 $$
 
-とします。各反復は「初期値 $X_s^x$」と「future increment path $\widetilde W$」から作られ、STO9 の factorial estimate により極限へ収束します。したがって各固定 $r$ で極限 $Y_r$ は、この二つを入力とする可測な solution map の値として読めます。
+とします。各反復は「初期値 $X_s^x$」と「将来増分 $\widetilde W$ の標本路」から作られ、STO9 の factorial estimate により極限へ収束します。したがって各固定 $r$ で極限 $Y_r$ は、この二つを入力とする可測な solution map の値として読めます。
 
 ここで $X_s^x$ は $\mathcal F_s$-可測で、$\widetilde W$ は $\mathcal F_s$ と独立です。また [大域 Lipschitz SDE の強解の存在・経路ごとの一意性定理](../STO9/index.md#thm-sto9-global-existence-uniqueness) により、同じ初期値と同じ $\widetilde W$ を使う solution は一意です。
 
@@ -2038,6 +2038,10 @@ $$
 ---
 
 ## 14. マルチンゲール問題の存在と法則の一意性
+
+前節までで、ある確率測度がマルチンゲール問題を解くかどうかは判定できるようになりました。しかし solution が一つ見つかっただけでは、同じ作用素 $L$ から別の標本路法則も作れる可能性が残ります。その場合、$L$ だけから未来分布や Markov 半群を一意に復元することはできません。
+
+生成作用素から確率過程の法則を決めたいなら、各初期点について **solution が存在すること**と **その法則が一意であること**の両方が必要です。この二条件をまとめて次の概念として固定します。
 
 <a id="def-sto11-mp-law-uniqueness"></a>
 
