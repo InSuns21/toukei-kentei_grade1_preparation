@@ -88,6 +88,16 @@ concepts:
       - linear.basis
       - linear.representation-matrix
 
+  - id: linear.diagonalization-equivalences
+    name: 対角化可能性と固有空間直和の同値
+    kind: theorem
+    aliases: [対角化可能性と固有空間直和の同値]
+    requires:
+      - linear.diagonalizable
+      - linear.eigenspace
+      - linear.dimension
+      - linear.sum-direct-sum
+
   - id: linear.eigenvalue-multiplicities
     name: 代数的重複度・幾何学的重複度
     kind: definition
