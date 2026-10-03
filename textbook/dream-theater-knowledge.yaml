@@ -92,6 +92,11 @@ alias_matching:
     - transposition
     - 三角多項式
     - trigonometric polynomial
+    # 複数分野で標準的に使う語。ODE1/ODE9 固有概念への自由文部分一致としては扱わない。
+    # formal label や明示的参照では従来どおり高信頼使用として検出する。
+    - Lipschitz条件
+    - Lipschitz 条件
+    - Lyapunov 関数
 
 rollout:
   # 既存ページは段階移行する。未移行ページそのものは audit では報告するが、
