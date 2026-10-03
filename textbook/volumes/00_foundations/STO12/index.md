@@ -1723,22 +1723,93 @@ E\int_0^{T-\varepsilon}H_t^2dt
 E[(M_{T-\varepsilon}-M_0)^2].
 $$
 
-ここで $M_t=E[\xi\mid\mathcal F_t^B]$、$M_0=E[\xi]$ です。条件付き Jensen の不等式より
+ここで $Y:=\xi-E[\xi]$ と置けば
+
+$$
+M_{T-\varepsilon}-M_0
+=
+E[Y\mid\mathcal F_{T-\varepsilon}^B].
+$$
+
+この条件付き期待値の二乗平均が $Y$ の二乗平均を超えないことを、既出の [条件付き期待値の基本性質](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md#thm-f0-00p3a-basic-properties) から確認します。
+
+$$
+R
+:=
+E[Y\mid\mathcal F_{T-\varepsilon}^B]
+$$
+
+と置き、$n\ge1$ に対して
+
+$$
+Z_n
+:=
+R1_{\{|R|\le n\}}
+$$
+
+とします。$Z_n$ は有界な $\mathcal F_{T-\varepsilon}^B$-可測確率変数です。既知量の取り出しと期待値保存を使うと
 
 $$
 \begin{aligned}
-E[(M_{T-\varepsilon}-M_0)^2]
+E\left[
+R^2 1_{\{|R|\le n\}}
+\right]
+&=
+E[Z_nR]\\
 &=
 E\left[
-\left(
-E[\xi-E[\xi]\mid\mathcal F_{T-\varepsilon}^B]
-\right)^2
+Z_nE[Y\mid\mathcal F_{T-\varepsilon}^B]
 \right]\\
-&\le
-E[(\xi-E[\xi])^2]\\
 &=
-\operatorname{Var}(\xi).
+E[Z_nY].
 \end{aligned}
+$$
+
+実数 $a,b$ に対する
+
+$$
+ab\le\frac12a^2+\frac12b^2
+$$
+
+を $a=Y$、$b=R1_{\{|R|\le n\}}$ に適用すると
+
+$$
+E[Z_nY]
+\le
+\frac12E[Y^2]
++
+\frac12
+E\left[
+R^2 1_{\{|R|\le n\}}
+\right].
+$$
+
+従って
+
+$$
+E\left[
+R^2 1_{\{|R|\le n\}}
+\right]
+\le
+E[Y^2].
+$$
+
+$n\to\infty$ とし、[単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)を左辺へ適用すると
+
+$$
+E[R^2]
+\le
+E[Y^2]
+=
+\operatorname{Var}(\xi).
+$$
+
+すなわち
+
+$$
+E[(M_{T-\varepsilon}-M_0)^2]
+\le
+\operatorname{Var}(\xi).
 $$
 
 左辺の積分領域は $\varepsilon\downarrow0$ とともに増加します。単調収束定理を適用して
@@ -2472,18 +2543,60 @@ M_{T-\varepsilon}-M_0
 \int_0^{T-\varepsilon}H_t\,dB_t.
 $$
 
-[Itô 等長性](../STO6/index.md#thm-sto6-ito-isometry-simple) と条件付き Jensen の不等式から
+[Itô 等長性](../STO6/index.md#thm-sto6-ito-isometry-simple) から
 
 $$
-\begin{aligned}
 E\int_0^{T-\varepsilon}H_t^2dt
-&=
-E[(M_{T-\varepsilon}-M_0)^2]\\
-&\le
-E[(\xi-E[\xi])^2]\\
-&=
+=
+E[(M_{T-\varepsilon}-M_0)^2].
+$$
+
+$Y:=\xi-E[\xi]$、$R:=E[Y\mid\mathcal F_{T-\varepsilon}^B]$ と置きます。$n\ge1$ に対し
+
+$$
+Z_n
+=
+R1_{\{|R|\le n\}}
+$$
+
+とすれば、$Z_n$ は有界な $\mathcal F_{T-\varepsilon}^B$-可測確率変数です。[条件付き期待値の基本性質](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md#thm-f0-00p3a-basic-properties) の既知量の取り出しから
+
+$$
+E\left[
+R^2 1_{\{|R|\le n\}}
+\right]
+=
+E[Z_nY].
+$$
+
+さらに $ab\le(a^2+b^2)/2$ を使うと
+
+$$
+E\left[
+R^2 1_{\{|R|\le n\}}
+\right]
+\le
+E[Y^2].
+$$
+
+$n\to\infty$ として [単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)を使えば
+
+$$
+E[(M_{T-\varepsilon}-M_0)^2]
+=
+E[R^2]
+\le
+E[Y^2]
+=
 \operatorname{Var}(\xi).
-\end{aligned}
+$$
+
+従って
+
+$$
+E\int_0^{T-\varepsilon}H_t^2dt
+\le
+\operatorname{Var}(\xi).
 $$
 
 $\varepsilon\downarrow0$ として単調収束定理を使えば
