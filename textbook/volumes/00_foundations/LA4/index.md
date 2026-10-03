@@ -1188,19 +1188,27 @@ $$
 ## 7. Jordan 鎖と Jordan ブロック
 
 一般化固有空間 $G_\lambda$ 上では
-$
+
+$$
 N=T-\lambda I
-$
+$$
+
 は冪零です。実際、上の証明により
-$
+
+$$
 G_\lambda=\ker(T-\lambda I)^s
-$
+$$
+
 で、$G_\lambda$ 上では $N^s=0$ です。
 
 ここで知りたいのは、$N$ がベクトルを何段かかけて0へ送る過程を基底に刻めるかです。$v_k$ から出発して
-$
-Nv_k=v_{k-1},quad Nv_{k-1}=v_{k-2},quaddots,quad Nv_1=0
-$
+
+$$
+Nv_k=v_{k-1},\quad
+Nv_{k-1}=v_{k-2},\quad\dots,\quad
+Nv_1=0
+$$
+
 という列が作れれば、$T=\lambda I+N$ の作用を一本の「鎖」として記録できます。
 
 <a id="def-la4-jordan-sequence"></a>
