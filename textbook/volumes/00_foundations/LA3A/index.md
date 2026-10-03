@@ -219,7 +219,7 @@ $\square$
 <!-- proof-end -->
 
 <!-- definition-example-start: def-la3a-dual-basis -->
-### 定義の確認：非標準基底の座標を読む
+**定義の確認**：非標準基底の座標を読む
 
 先ほどの
 $$
