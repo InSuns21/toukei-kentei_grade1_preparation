@@ -79,6 +79,15 @@ concepts:
       - linear.eigenvalue
       - linear.kernel-image
 
+  - id: linear.distinct-eigenvectors-independent
+    name: 異なる固有値に属する固有ベクトルは一次独立
+    kind: theorem
+    aliases: [異なる固有値に属する固有ベクトルは一次独立]
+    requires:
+      - linear.eigenvalue
+      - linear.eigenvector
+      - linear.linear-independence
+
   - id: linear.diagonalizable
     name: 対角化可能
     kind: definition
