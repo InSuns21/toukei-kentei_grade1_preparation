@@ -35,7 +35,7 @@
 17. [**微分幾何 I（GEO1--GEO9）**](textbook/dream-theater.md#dt-subject-differential-geometry-i)：滑らかな多様体、接空間、部分多様体、ベクトル場、微分形式、一般 Stokes の定理、de Rham コホモロジー入門までを扱う。
 18. [**微分幾何 II（GEO10--GEO19）**](textbook/dream-theater.md#dt-subject-differential-geometry-ii)：曲線・超曲面、Riemann 計量、接続、測地線、曲率、比較幾何、Gauss--Bonnet の定理までを扱う。
 19. [**偏微分方程式（大学院レベル）**](textbook/dream-theater.md#dt-subject-pde-graduate)：超関数、Sobolev 空間、弱解、変分法、楕円型正則性、Galerkin 法までを扱う。
-20. [**確率解析**](textbook/dream-theater.md#dt-subject-stochastic-analysis)：マルチンゲール、Brown 運動、Itô 積分、SDE、生成作用素、Lévy 過程までを扱う。
+20. [**確率解析**](textbook/dream-theater.md#dt-subject-stochastic-analysis)：マルチンゲール、Brown 運動と Wiener 測度、Itô 積分、SDE、生成作用素、Lévy 過程までを扱う。
 
 ## 代数系
 

@@ -1,4 +1,4 @@
-# STO4 ブラウン運動・到達時刻・強マルコフ性
+# STO4 ブラウン運動・Wiener 測度・到達時刻・強マルコフ性
 
 <!-- definition-example-audit: strict -->
 
@@ -328,7 +328,437 @@ $$
 
 ---
 
-## 3. スケーリングとブラウンフィルトレーション
+## 3. Brown 運動の法を経路空間上の測度として見る
+
+ここまでの Brown 運動は、ある確率空間 $(\Omega,\mathcal F,P)$ 上の確率過程
+
+$$
+B=(B_t)_{0\le t\le T}
+$$
+
+として作りました。しかし後続の経路空間の弱収束や Malliavin 解析では、個々の $B_t$ よりも
+
+$$
+\omega\longmapsto
+\bigl(t\longmapsto B_t(\omega)\bigr)
+$$
+
+という **一本の標本路全体**を一つの確率変数として扱います。
+
+そこで視点を
+
+$$
+\boxed{
+\text{確率空間上の Brown 運動}
+\longrightarrow
+\text{連続経路空間上の確率測度}
+}
+$$
+
+へ切り替えます。
+
+STO3 の Kolmogorov 拡張定理が最初に作った標準経路空間は $\mathbb R^{[0,T]}$ でした。そこには不連続な関数も大量に含まれます。Brown 運動では STO3 の連続定理により連続な修正を選べるので、今度は確率質量を連続経路だけからなる空間へ移せます。
+
+### 3.1 連続で原点から出発する経路を標本点にする
+
+有限時間 $T>0$ を固定します。
+
+<a id="def-sto4-zero-start-path-space"></a>
+
+<!-- formal-statement-start -->
+> **定義（原点始点連続経路空間）**  
+> 
+$$
+C_0([0,T])
+=
+\{x\in C([0,T]):x(0)=0\}
+$$
+>
+> と置き、sup 距離
+>
+$$
+d_\infty(x,y)
+=
+\|x-y\|_\infty
+=
+\sup_{0\le t\le T}|x(t)-y(t)|
+$$
+>
+> を入れる。
+>
+> 各 $t\in[0,T]$ に対し
+>
+$$
+e_t:C_0([0,T])\to\mathbb R,
+\qquad
+e_t(x)=x(t)
+$$
+>
+> を **座標評価写像**という。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-sto4-zero-start-path-space -->
+### 直接例：二つの経路の距離と座標評価
+
+**定義の確認**
+
+$T=1$ とし、
+
+$$
+x(t)=t,
+\qquad
+y(t)=t^2
+$$
+
+とします。どちらも $x(0)=y(0)=0$ を満たすので $C_0([0,1])$ の元です。
+
+また
+
+$$
+d_\infty(x,y)
+=
+\sup_{0\le t\le1}(t-t^2)
+=
+\frac14.
+$$
+
+一方、固定した $s\in[0,1]$ について
+
+$$
+|e_s(x)-e_s(y)|
+=
+|x(s)-y(s)|
+\le
+\|x-y\|_\infty.
+$$
+
+したがって $e_s$ は 1-Lipschitz、特に連続です。
+<!-- definition-example-end -->
+
+経路空間に確率測度を置くには、どの集合を可測とするかも必要です。sup 距離が作る Borel $\sigma$ 代数を $\mathcal B(C_0([0,T]))$ と書きます。
+
+ここで重要なのは、この Borel $\sigma$ 代数が「全ての時刻の座標を観測して得られる情報」と一致することです。これにより、経路全体の可測性を各時刻の確率変数の可測性へ還元できます。
+
+<a id="lem-sto4-path-borel-coordinates"></a>
+
+<!-- formal-statement-start -->
+> **補題（原点始点経路の Borel σ 代数は座標評価で生成される）**  
+> $D=\mathbb Q\cap[0,T]$ とする。このとき
+>
+$$
+\boxed{
+\mathcal B(C_0([0,T]))
+=
+\sigma(e_q:q\in D)
+=
+\sigma(e_t:0\le t\le T).
+}
+$$
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+まず各 $e_t$ は 1-Lipschitz なので連続です。従って
+
+$$
+\sigma(e_t:0\le t\le T)
+\subset
+\mathcal B(C_0([0,T])).
+$$
+
+特に
+
+$$
+\sigma(e_q:q\in D)
+\subset
+\sigma(e_t:0\le t\le T).
+$$
+
+逆向きを示します。
+
+$x,y\in C_0([0,T])$ なら $t\mapsto |x(t)-y(t)|$ は連続です。$D$ は $[0,T]$ に稠密なので、
+
+$$
+\|x-y\|_\infty
+=
+\sup_{q\in D}|x(q)-y(q)|.
+$$
+
+したがって固定した $x\in C_0([0,T])$ と $r>0$ に対する開球
+
+$$
+U(x,r)
+=
+\{y:\|x-y\|_\infty<r\}
+$$
+
+は
+
+$$
+U(x,r)
+=
+\bigcup_{\substack{n\ge1\\1/n<r}}
+\bigcap_{q\in D}
+\left\{
+y:
+|e_q(y)-x(q)|
+\le
+r-\frac1n
+\right\}
+$$
+
+と書けます。右辺は可算回の和・共通部分だけで作られているので
+
+$$
+U(x,r)\in\sigma(e_q:q\in D).
+$$
+
+残るのは「全ての開集合が可算個の開球の和で書ける」ことです。
+
+$C_0([0,T])$ では、区分線形関数で
+
+- 端点 $0,T$ と内部の有理分点からなる有限分割を使い、
+- 各分点での値が有理数（始点では 0）
+
+であるもの全体が可算です。任意の連続関数は一様連続なので、十分細かい、内部分点が有理数である分割を取り、その分点での値を有理数で近似して線形補間すれば sup 距離で任意に近似できます。
+
+従って $C_0([0,T])$ は可分です。
+
+可分距離空間では任意の開集合は可算基底に属する開球の可算和として書けるため、全ての開集合が $\sigma(e_q:q\in D)$ に属します。よって
+
+$$
+\mathcal B(C_0([0,T]))
+\subset
+\sigma(e_q:q\in D).
+$$
+
+以上から三つの $\sigma$ 代数は一致します。
+<!-- proof-end -->
+
+### 3.2 Brown 運動の経路法が Wiener 測度である
+
+いま、前節で構成した標準 Brown 運動 $B$ を $[0,T]$ に制限します。
+
+STO3 の連続修正の構成では、確率 1 の事象上で標本路を連続に選べます。例外零集合上では経路全体を恒等的に 0 と再定義しておけば、
+
+$$
+\mathbf B:\Omega\to C_0([0,T]),
+\qquad
+\mathbf B(\omega)(t)=B_t(\omega)
+$$
+
+を $C_0([0,T])$ 値確率変数として扱えます。
+
+実際、任意の $q\in D$ について
+
+$$
+e_q\circ\mathbf B=B_q
+$$
+
+は $\mathcal F$-可測です。[原点始点経路の Borel σ 代数は座標評価で生成される](#lem-sto4-path-borel-coordinates)から $\mathcal B(C_0([0,T]))$ は $(e_q)_{q\in D}$ で生成されるので、$\mathbf B$ 自身が可測です。
+
+<a id="def-sto4-wiener-measure"></a>
+
+<!-- formal-statement-start -->
+> **定義（Wiener 測度と古典 Wiener 空間）**  
+> 標準 Brown 運動 $B$ の連続経路写像
+>
+$$
+\mathbf B:\Omega\to C_0([0,T])
+$$
+>
+> による押し出し測度
+>
+$$
+\boxed{
+W_T
+=
+P\circ\mathbf B^{-1}
+}
+$$
+>
+> を $[0,T]$ 上の **Wiener 測度（Wiener measure）**という。
+>
+> 三つ組
+>
+$$
+\bigl(
+C_0([0,T]),
+\mathcal B(C_0([0,T])),
+W_T
+\bigr)
+$$
+>
+> を **古典 Wiener 空間（classical Wiener space）**という。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-sto4-wiener-measure -->
+### 直接例：円筒事象の Wiener 測度を有限次元正規分布へ戻す
+
+**定義の確認**
+
+$0<t_1<t_2\le T$ とし、
+
+$$
+A
+=
+\{x\in C_0([0,T]):x(t_1)\le a,\ x(t_2)\le b\}
+$$
+
+とします。
+
+これは
+
+$$
+A
+=
+(e_{t_1},e_{t_2})^{-1}
+\bigl((-\infty,a]\times(-\infty,b]\bigr)
+$$
+
+という円筒事象です。
+
+Wiener 測度の定義から
+
+$$
+\begin{aligned}
+W_T(A)
+&=
+P(\mathbf B\in A)\\
+&=
+P(B_{t_1}\le a,\ B_{t_2}\le b).
+\end{aligned}
+$$
+
+右辺は平均 0、分散共分散行列
+
+$$
+\Sigma
+=
+\begin{pmatrix}
+t_1 & t_1\\
+t_1 & t_2
+\end{pmatrix}
+$$
+
+を持つ二変量正規分布の確率です。
+
+この例が示しているのは、Wiener 測度が新しい有限次元分布を持ち込むのではなく、Brown 運動の全ての有限次元分布を **一つの経路空間上の測度へまとめたもの**だということです。
+<!-- definition-example-end -->
+
+<a id="thm-sto4-wiener-coordinate-brownian"></a>
+
+<!-- formal-statement-start -->
+> **定理（Wiener 測度の座標過程と一意性）**  
+> 古典 Wiener 空間上で
+>
+$$
+X_t(x)=e_t(x)=x(t),
+\qquad 0\le t\le T
+$$
+>
+> と置く。
+>
+> 1. $X=(X_t)_{0\le t\le T}$ は $W_T$ のもとで標準 Brown 運動である。
+> 2. $\mu$ が $C_0([0,T])$ 上の確率測度で、座標過程 $(e_t)$ が $\mu$ のもとで標準 Brown 運動なら
+>
+$$
+\mu=W_T.
+$$
+>
+> 従って Wiener 測度は、元の Brown 運動を置いた確率空間の選び方によらず一意に定まる。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+**1. 座標過程の有限次元分布を確認する。**
+
+任意の
+
+$$
+0\le t_1<\cdots<t_m\le T
+$$
+
+と Borel 集合 $A\subset\mathbb R^m$ に対し、
+
+$$
+\begin{aligned}
+&W_T\bigl(
+(X_{t_1},\ldots,X_{t_m})\in A
+\bigr)\\
+&=
+W_T\bigl(
+(e_{t_1},\ldots,e_{t_m})\in A
+\bigr)\\
+&=
+P\bigl(
+(B_{t_1},\ldots,B_{t_m})\in A
+\bigr).
+\end{aligned}
+$$
+
+したがって座標過程 $X$ の全ての有限次元分布は $B$ と同じです。
+
+特に $X_0=0$、独立定常ガウス増分を持ちます。また標本点 $x$ 自体が $C_0([0,T])$ の元なので
+
+$$
+t\mapsto X_t(x)=x(t)
+$$
+
+は **全ての標本点で**連続です。
+
+従って $X$ は $W_T$ のもとで標準 Brown 運動です。
+
+**2. 一意性を示す。**
+
+$\mu$ のもとで座標過程が標準 Brown 運動なら、任意の有限時刻 $t_1,\ldots,t_m$ と Borel 集合 $A\subset\mathbb R^m$ に対し
+
+$$
+\mu\left(
+(e_{t_1},\ldots,e_{t_m})^{-1}(A)
+\right)
+$$
+
+は Brown 運動の有限次元分布によって決まります。
+
+$W_T$ も同じ有限次元分布を持つので、$\mu$ と $W_T$ は全ての円筒事象上で一致します。
+
+円筒事象は $\pi$-system をなし、[原点始点経路の Borel σ 代数は座標評価で生成される](#lem-sto4-path-borel-coordinates)から
+
+$$
+\sigma(e_t:0\le t\le T)
+=
+\mathcal B(C_0([0,T]))
+$$
+
+を生成します。
+
+従って [π--λ 定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda)により
+
+$$
+\mu=W_T
+$$
+
+です。
+<!-- proof-end -->
+
+この定理により、
+
+$$
+\boxed{
+\text{Brown 運動}
+\quad\Longleftrightarrow\quad
+\text{Wiener 測度の座標過程}
+}
+$$
+
+という二つの見方を自由に往復できます。
+
+STO3A では $C([0,1])$ 上の確率測度の弱収束として Donsker 不変原理を扱います。その極限測度が、始点 0 に集中するこの Wiener 測度です。さらに確率解析 II の Malliavin 解析では、古典 Wiener 空間そのものを解析対象として使います。
+
+## 4. スケーリングとブラウンフィルトレーション
 
 ブラウン運動では時間 $t$ の分散が $t$ なので、時間を $c$ 倍すると典型的な大きさは $\sqrt c$ 倍になります。したがって時間だけを伸ばした $B_{ct}$ は同じブラウン運動の尺度にはなりません。
 
@@ -443,7 +873,7 @@ $$
 
 ---
 
-## 4. 決定論的時刻ではマルコフ性は独立増分そのもの
+## 5. 決定論的時刻ではマルコフ性は独立増分そのもの
 
 独立増分の定義が直接与えるのは、互いに交わらない有限個の時間区間に対応する増分の独立性です。しかし Markov 性で必要なのは、未来増分が時刻 $s$ までの **情報全体** $\mathcal F_s^B$ と独立であることです。
 
@@ -526,7 +956,7 @@ $$
 
 は $\mathcal F_s^B$ の cylinder event であり、上の有限次元独立性から $A$ と $B_{s+t}-B_s$ は独立です。これらの cylinder event は $\pi$-system をなし、$\mathcal F_s^B$ を生成します。
 
-したがって、$B_{s+t}-B_s$ と独立な事象全体が $\lambda$-system をなすことと $\pi$-$\lambda$ 定理から、未来増分は $\mathcal F_s^B$ 全体と独立です。
+したがって、$B_{s+t}-B_s$ と独立な事象全体が $\lambda$-system をなすことと [π--λ 定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda)から、未来増分は $\mathcal F_s^B$ 全体と独立です。
 
 あとは $Y=B_{s+t}-B_s\sim N(0,t)$ と置けば、$Y$ は $\mathcal F_s^B$ と独立なので
 
@@ -547,7 +977,7 @@ $$
 
 ---
 
-## 5. 停止時刻へ時刻を置き換える：強マルコフ性
+## 6. 停止時刻へ時刻を置き換える：強マルコフ性
 
 決定論的時刻 $s$ なら、未来増分は「$s$ より前」と disjoint だから独立でした。
 
@@ -852,7 +1282,7 @@ $$
 
 ---
 
-## 6. 到達時刻は停止時刻である
+## 7. 到達時刻は停止時刻である
 
 連続時間では「初めて水準 $a$ に着く」という時刻は非可算個の時刻から選ばれるため、定義しただけでは停止時刻性は自動ではありません。必要なのは、時刻 $t$ までに到達したかどうかを $t$ までの観測だけで判定できることです。
 
@@ -929,7 +1359,7 @@ $$
 
 ---
 
-## 7. 強マルコフから反射公式を得る
+## 8. 強マルコフから反射公式を得る
 
 最大値 $M_T$ の分布は経路全体に依存するため、終点 $B_T\sim N(0,T)$ の分布だけからは直接計算できません。そこで「水準 $a$ に到達した後だけ標本路を反射する」操作を使い、最大値を含む経路事象を終点だけの事象へ変換します。
 
@@ -1073,7 +1503,7 @@ $$
 
 ---
 
-## 8. 到達時刻の分布と無限平均
+## 9. 到達時刻の分布と無限平均
 
 到達時刻そのものは経路から定まる確率変数ですが、
 
@@ -1232,7 +1662,7 @@ $$
 
 ---
 
-## 9. 1 次元ブラウン運動は全ての水準へ到達し、0へ無限回戻る
+## 10. 1 次元ブラウン運動は全ての水準へ到達し、0へ無限回戻る
 
 前節で得たのは「固定した一つの水準 $a$ へ確率 1 で到達する」という主張です。しかし「全ての実数水準へ同時に到達する」ことは、非可算個の確率 1 の事象をそのまま交差しても導けません。
 
@@ -1333,7 +1763,7 @@ $$
 
 ---
 
-## 10. 短時間と長時間を入れ替える
+## 11. 短時間と長時間を入れ替える
 
 この時間反転は後続計算の direct prerequisite ではありませんが、ブラウン共分散の自己相似性がどれほど強いかを見る代表例です。
 
@@ -1490,7 +1920,7 @@ $$
 
 ---
 
-## 11. この章で何が閉じたか
+## 12. この章で何が閉じたか
 
 ブラウン運動について、次を同じ章の中で接続しました。
 
@@ -1500,6 +1930,8 @@ $$
 \text{existence}
 \to
 \text{連続な標本路}
+\to
+\text{Wiener 測度}
 \to
 \text{Markov}
 \to
@@ -1665,7 +2097,7 @@ $$
 
 とします。
 
-標本路の連続性を用いて $\tau_a$ が natural フィルトレーション $(\mathcal F_t^B)$ に関する停止時刻であることを示してください。
+標本路の連続性を用いて $\tau_a$ が完備化された natural フィルトレーション $(\mathcal F_t^{B,c})$ に関する停止時刻であることを示してください。
 
 - Level: A
 
@@ -1675,42 +2107,47 @@ $$
 停止時刻であることを示すには、任意の $t\ge0$ に対し
 
 $$
-\{\tau_a\le t\}\in\mathcal F_t^B
+\{\tau_a\le t\}\in\mathcal F_t^{B,c}
 $$
 
 を示せば十分です。
 
-連続な標本路では水準 $a$ に時刻 $t$ までに到達することと、時刻 $t$ までの最大値が $a$ 以上になることは同値なので
+標本路が連続である確率 1 の事象を $\Omega_c$ とします。$\omega\in\Omega_c$ では、水準 $a$ に時刻 $t$ までに到達することと最大値が $a$ 以上になることが同値です。
+
+連続関数の上限は稠密な有理時刻だけでも同じなので、raw なフィルトレーションで測れる事象
 
 $$
-\{\tau_a\le t\}
-=
-\left\{
-\sup_{0\le s\le t}B_s\ge a
-\right\}.
-$$
-
-continuous function の supremum は dense subset 上の supremum と同じです。従って
-
-$$
-\sup_{0\le s\le t}B_s
-=
-\sup_{q\in\mathbb Q\cap[0,t]}B_q.
-$$
-
-よって
-
-$$
-\{\tau_a\le t\}
+R_t
 =
 \bigcap_{n=1}^\infty
 \bigcup_{q\in\mathbb Q\cap[0,t]}
-\{B_q>a-1/n\}.
+\{B_q>a-1/n\}
+\in\mathcal F_t^B
 $$
 
-各 $q\le t$ について $B_q$ は $\mathcal F_t^B$ 可測なので、右辺は $\mathcal F_t^B$ に属します。
+を取ると
 
-従って $\tau_a$ は停止時刻です。
+$$
+\{\tau_a\le t\}\cap\Omega_c
+=
+R_t\cap\Omega_c.
+$$
+
+従って
+
+$$
+\{\tau_a\le t\}\triangle R_t
+\subseteq
+\Omega_c^c.
+$$
+
+右辺は $P$-零集合です。完備化 $\mathcal F_t^{B,c}$ は零集合の全部分集合を含むので
+
+$$
+\{\tau_a\le t\}\in\mathcal F_t^{B,c}.
+$$
+
+よって $\tau_a$ は完備化された natural フィルトレーションに関する停止時刻です。
 <!-- solution-end -->
 
 ### A4. 到達時刻の累積分布関数
@@ -1785,6 +2222,89 @@ P(\tau_a\le t)
 1-\Phi\left(\frac a{\sqrt t}\right)
 \right).
 $$
+<!-- solution-end -->
+
+### A5. Wiener 測度で円筒事象を計算する
+
+$0<s<t\le T$ とし、$W_T$ を $C_0([0,T])$ 上の Wiener 測度とします。
+
+$$
+A
+=
+\{x:x(s)>0,\ x(t)-x(s)\le a\}
+$$
+
+と置きます。$W_T(A)$ を標準正規分布の累積分布関数 $\Phi$ を使って求めてください。
+
+- Level: A
+
+<!-- solution-start -->
+### 詳細解答
+
+古典 Wiener 空間の座標過程
+
+$$
+X_u(x)=x(u)
+$$
+
+は [Wiener 測度の座標過程と一意性](#thm-sto4-wiener-coordinate-brownian) により標準 Brown 運動です。
+
+したがって
+
+$$
+X_s\sim N(0,s),
+\qquad
+X_t-X_s\sim N(0,t-s),
+$$
+
+であり、独立増分性から $X_s$ と $X_t-X_s$ は独立です。
+
+よって
+
+$$
+\begin{aligned}
+W_T(A)
+&=
+W_T(X_s>0,\ X_t-X_s\le a)\\
+&=
+W_T(X_s>0)\,
+W_T(X_t-X_s\le a).
+\end{aligned}
+$$
+
+対称性から
+
+$$
+W_T(X_s>0)=\frac12.
+$$
+
+また
+
+$$
+\frac{X_t-X_s}{\sqrt{t-s}}
+\sim N(0,1)
+$$
+
+なので
+
+$$
+W_T(X_t-X_s\le a)
+=
+\Phi\left(\frac{a}{\sqrt{t-s}}\right).
+$$
+
+従って
+
+$$
+\boxed{
+W_T(A)
+=
+\frac12
+\Phi\left(\frac{a}{\sqrt{t-s}}\right)
+}.
+$$
+
+経路空間上の事象でも、有限個の座標だけで決まる円筒事象なら Brown 運動の有限次元分布へ戻して計算できます。
 <!-- solution-end -->
 
 ## Level B
@@ -2061,6 +2581,92 @@ $$
 $$
 
 であり、その途中に水準 0 への return が無限個存在します。
+<!-- solution-end -->
+
+### B4. Wiener 測度の一意性を円筒事象から証明する
+
+$\mu$ と $\nu$ を $C_0([0,T])$ 上の二つの確率測度とします。
+
+任意の $m\ge1$、$0\le t_1<\cdots<t_m\le T$ について
+
+$$
+\mu\circ(e_{t_1},\ldots,e_{t_m})^{-1}
+=
+\nu\circ(e_{t_1},\ldots,e_{t_m})^{-1}
+$$
+
+が成り立つとします。
+
+$\mu=\nu$ を示してください。
+
+- Level: B
+
+<!-- solution-start -->
+### 詳細解答
+
+有限個の時刻 $t_1,\ldots,t_m$ と Borel 集合 $A\subset\mathbb R^m$ に対する円筒集合
+
+$$
+C
+=
+(e_{t_1},\ldots,e_{t_m})^{-1}(A)
+$$
+
+を考えます。
+
+仮定から
+
+$$
+\mu(C)
+=
+\nu(C).
+$$
+
+したがって $\mu$ と $\nu$ は全ての有限次元円筒集合上で一致します。
+
+この円筒集合族を $\mathcal C$ とします。
+
+二つの円筒集合の共通部分は、使っている時刻を全部まとめれば再び有限次元円筒集合になるので、$\mathcal C$ は $\pi$-system です。
+
+また [原点始点経路の Borel σ 代数は座標評価で生成される](#lem-sto4-path-borel-coordinates) から
+
+$$
+\sigma(\mathcal C)
+=
+\mathcal B(C_0([0,T])).
+$$
+
+ここで
+
+$$
+\mathcal L
+=
+\{A\in\mathcal B(C_0([0,T])):\mu(A)=\nu(A)\}
+$$
+
+と置きます。
+
+$\mu,\nu$ はともに確率測度なので $\mathcal L$ は全体集合を含み、補集合と互いに素な可算和について閉じる $\lambda$-system です。また $\mathcal C\subset\mathcal L$ です。
+
+従って [π--λ 定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda)から
+
+$$
+\mathcal B(C_0([0,T]))
+=
+\sigma(\mathcal C)
+\subset
+\mathcal L.
+$$
+
+よって全ての Borel 集合 $A$ について $\mu(A)=\nu(A)$、すなわち
+
+$$
+\boxed{\mu=\nu}
+$$
+
+です。
+
+Wiener 測度の一意性は、この一般原理へ Brown 運動の有限次元分布を代入したものです。
 <!-- solution-end -->
 
 ## Level C

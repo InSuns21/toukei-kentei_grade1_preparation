@@ -81,7 +81,7 @@ SGA は stochastic geometric analysis の管理上の ID であり、学習者�
 
 主要候補:
 
-- STO4: Brown 運動
+- STO4: Brown 運動・Wiener 測度・古典 Wiener 空間
 - STO5: 二次変分・連続局所マルチンゲール
 - STO6: Itô 積分
 - STO7: 多次元 Itô 公式・Stratonovich 積分・Itô--Stratonovich 変換
@@ -182,9 +182,9 @@ SGA10 多様体上の Wiener 空間
 扱う:
 
 - 多様体値半マルチンゲールの局所座標表示
-- ベクトル場 $V_0,V_1,ldots,V_m$ に対する Stratonovich SDE
+- ベクトル場 $V_0,V_1,\ldots,V_m$ に対する Stratonovich SDE
 - 局所座標での成分表示
-- 滑らかな写像 $F:M	o N$ に対する連鎖律
+- 滑らかな写像 $F:M\to N$ に対する連鎖律
 - 座標変換と Stratonovich 形式の両立
 - Itô 表示へ戻したときに二階補正が現れること
 - 停止時刻で局所座標を貼り合わせる考え方
@@ -216,7 +216,7 @@ SGA10 多様体上の Wiener 空間
 - 行列 Lie 群上の Stratonovich SDE
 - 確率指数・確率対数の基本的な考え方
 - 左移動による増分の見方
-- 生成作用素 $\frac12sum_i X_i^2+X_0$
+- 生成作用素 $\frac12\sum_i X_i^2+X_0$
 - Haar 測度と対称性
 - コンパクト Lie 群上の Brown 運動
 - 畳み込み半群との接続
@@ -233,7 +233,7 @@ SGA10 多様体上の Wiener 空間
 - $SO(2)$
 - $SO(3)$
 - Heisenberg 群
-- 可換群 $mathbb R^d$ が通常の Euclid SDE を回収すること
+- 可換群 $\mathbb R^d$ が通常の Euclid SDE を回収すること
 
 ### SGA3 Riemann 多様体上の Brown 運動と確率展開
 
@@ -244,7 +244,7 @@ SGA10 多様体上の Wiener 空間
 扱う:
 
 - Laplace--Beltrami 作用素
-- 生成作用素 $\frac12Delta$ としての Brown 運動
+- 生成作用素 $\frac12\Delta$ としての Brown 運動
 - 直交枠束
 - Levi-Civita 接続から水平部分空間を作る
 - 水平ベクトル場
@@ -257,7 +257,7 @@ SGA10 多様体上の Wiener 空間
 
 主要証明責務:
 
-- 水平 SDE の射影の生成作用素が $\frac12Delta$ になる計算を展開する。
+- 水平 SDE の射影の生成作用素が $\frac12\Delta$ になる計算を展開する。
 - 正規座標で一次 drift が消えることと二階作用素が残ることを確認する。
 
 直接例:
@@ -297,7 +297,7 @@ SGA10 多様体上の Wiener 空間
 
 扱う:
 
-- 水平分布 $Hsubset TM$
+- 水平分布 $H\subset TM$
 - 水平計量
 - 劣リーマン多様体（sub-Riemannian manifold）
 - bracket-generating condition
@@ -322,6 +322,14 @@ SGA10 多様体上の Wiener 空間
 
 > Brown 経路そのものを変数とみなして微分するとはどういうことか。
 
+この章では Wiener 測度を新しく構成しない。STO4 の [Wiener 測度](../volumes/00_foundations/STO4/index.md#def-sto4-wiener-measure) と古典 Wiener 空間
+
+$$
+\bigl(C_0([0,T]),\mathcal B(C_0([0,T])),W_T\bigr)
+$$
+
+を canonical dependency として受け取り、その上に Cameron--Martin 方向の微分構造を入れるところから始める。したがって「Brown 運動の法を経路空間上の測度として見る」という視点転換は確率解析 I で閉じ、確率解析 II ではその測度の微分解析を担う。
+
 扱う:
 
 - Wiener 空間
@@ -331,7 +339,7 @@ SGA10 多様体上の Wiener 空間
 - Malliavin 微分
 - gradient の $H$ 値表示
 - closability
-- $mathbb D^{1,2}$
+- $\mathbb D^{1,2}$
 - 発散作用素
 - Skorokhod 積分
 - adapted integrand では Itô 積分を回収すること
@@ -349,7 +357,7 @@ SGA10 多様体上の Wiener 空間
 - $F=B_T$
 - $F=B_T^2$
 - $F=exp(B_T-T/2)$
-- $F=f(B_{t_1},ldots,B_{t_n})$
+- $F=f(B_{t_1},\ldots,B_{t_n})$
 
 ### SGA7 Malliavin 解析 II：SDE の感度と Malliavin 共分散
 
@@ -416,7 +424,7 @@ SGA10 多様体上の Wiener 空間
 - Markov 半群の再確認
 - Riemann 多様体上の熱半群
 - transition density と heat kernel
-- $partial_tu=\frac12Delta u$
+- $\partial_t u=\frac12\Delta u$
 - Chapman--Kolmogorov と heat kernel
 - 対称性
 - 保存性と stochastic completeness
@@ -500,9 +508,9 @@ rough paths は独立した大規模理論なので、必要なら別 plan と�
 実際には、
 
 1. 局所座標 $x$ で成分表示を書く。
-2. 別座標 $y=Phi(x)$ を選ぶ。
-3. Euclid Stratonovich chain rule を $Phi$ に適用する。
-4. $DPhi,V_i$ が pushforward されたベクトル場の成分になることを確認する。
+2. 別座標 $y=\Phi(x)$ を選ぶ。
+3. Euclid Stratonovich chain rule を $\Phi$ に適用する。
+4. $D\Phi\,V_i$ が pushforward されたベクトル場の成分になることを確認する。
 5. Itô 形式では Hessian 補正が入ることと比較する。
 
 ところまで追う。
@@ -511,10 +519,10 @@ rough paths は独立した大規模理論なので、必要なら別 plan と�
 
 「水平持ち上げを取る」で終わらせない。
 
-- 枠 $u:mathbb R^d	o T_xM$ が何を表すか。
+- 枠 $u:\mathbb R^d\to T_xM$ が何を表すか。
 - Levi-Civita 接続が水平部分空間をどう決めるか。
 - 標準基底 $e_i$ を水平ベクトル場へどう持ち上げるか。
-- 枠束上の SDE を $pi$ で射影すると何が起こるか。
+- 枠束上の SDE を $\pi$ で射影すると何が起こるか。
 
 を低次元例と一般式の両方で示す。
 
@@ -537,7 +545,7 @@ $$
 円筒汎関数
 
 $$
-F=f(B_{t_1},ldots,B_{t_n})
+F=f(B_{t_1},\ldots,B_{t_n})
 $$
 
 に対し、Cameron--Martin 摂動 $B+\varepsilon h$ を入れ、
@@ -638,7 +646,7 @@ Dynkin 公式、semigroup derivative、test function への作用、transition d
 
 1. Itô 形式が「座標不変でない」ことと、Itô 過程自体が幾何学的に無意味であることを混同しない。
 2. Stratonovich 記号 $circ,dB_t$ を普通の Riemann--Stieltjes 積分とみなさない。
-3. 多様体値 SDE の係数は単なる $mathbb R^d$ 値関数ではなくベクトル場である。
+3. 多様体値 SDE の係数は単なる $\mathbb R^d$ 値関数ではなくベクトル場である。
 4. Riemann 多様体上の Brown 運動を「座標ごとに独立 Brown 運動」と定義しない。
 5. geodesic completeness と stochastic completeness を同一視しない。
 6. Lie 群上の Brown 運動と Lie 環上の Brown 運動を同じ空間の過程として扱わない。
@@ -655,6 +663,7 @@ Dynkin 公式、semigroup derivative、test function への作用、transition d
 
 ### STO
 
+- Brown 運動の経路法、Wiener 測度、古典 Wiener 空間は STO4 を canonical とする。SGA6 では Wiener 測度を再定義・再構成しない。
 - 確率積分、Itô 公式、Stratonovich 変換、Euclid SDE は STO を canonical とする。
 - SGA1 では必要な公式を再掲してよいが、証明 owner を取り直さない。
 - jump SDE は本科目の必須主線に入れない。
@@ -784,11 +793,12 @@ CI green は完成の十分条件にしない。
 - 多様体値 Stratonovich SDE の座標不変性を読者が局所座標計算から再現できる。
 - 多様体上の SDE の存在一意性を Euclid SDE と chart の貼り合わせへ接続できる。
 - Lie 群上の不変 SDE と生成作用素を計算できる。
-- Riemann Brown 運動を $\frac12Delta$ の拡散として説明し、枠束上の水平 SDE から構成できる。
+- Riemann Brown 運動を $\frac12\Delta$ の拡散として説明し、枠束上の水平 SDE から構成できる。
 - stochastic development / anti-development の対応を追える。
 - 確率平行移動・確率線積分を接続・微分形式と結び付けられる。
 - 劣リーマン分布と bracket-generating condition を Heisenberg 群で直接検証できる。
-- Cameron--Martin 空間、Malliavin 微分、発散作用素、$mathbb D^{1,2}$ を円筒汎関数から構成できる。
+- STO4 で正本化された Wiener 測度・古典 Wiener 空間から出発し、Brown 運動の経路法を再構成せず Malliavin 解析へ接続できる。
+- Cameron--Martin 空間、Malliavin 微分、発散作用素、$\mathbb D^{1,2}$ を円筒汎関数から構成できる。
 - SDE の Malliavin 微分と Malliavin 共分散の主要式を導ける。
 - Hörmander 条件が共分散の非退化へどう結び付くかを、Norris lemma を含む明示的 proof dependency から追える。
 - Hörmander 型滑らか密度定理の核心証明が本科目または canonical dependency で閉じている。

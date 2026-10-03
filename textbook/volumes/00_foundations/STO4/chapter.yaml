@@ -1,5 +1,5 @@
 id: "STO4"
-title: "ブラウン運動・到達時刻・強マルコフ性"
+title: "ブラウン運動・Wiener 測度・到達時刻・強マルコフ性"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -9,6 +9,8 @@ learning_objectives:
   - STO3で定義したガウス過程を用い、平均関数と共分散核が有限次元分布を決めることを説明できる
   - 共分散 min(s,t)の半正定値性を確認し、STO3のガウス過程構成定理を適用してブラウン運動の基礎過程を構成できる
   - Gaussian incrementの第4momentとKolmogorov--Chentsov continuity theoremからcontinuous ブラウン運動を構成できる
+  - 原点始点連続経路空間 C_0([0,T]) の Borel sigma-field が座標評価写像で生成されることを証明できる
+  - Brown 運動の経路法として Wiener 測度を定義し、canonical coordinate process が Brown 運動になることと有限次元分布からの一意性を証明できる
   - 共分散計算からstationary independent incrementsを導き、ブラウン scalingを証明できる
   - ブラウン自然なフィルトレーションに対するdeterministic-time マルコフ性を条件付き期待値の形で導ける
   - 停止時刻のdyadic approximationから強マルコフ性の核心証明を再構成できる
@@ -18,10 +20,14 @@ learning_objectives:
   - scalingと反射原理を使ってブラウン時間反転を確認できる
 definitions:
   - { id: STO4-DEF-02, name: "standard ブラウン運動" }
+  - { id: STO4-DEF-05, name: "原点始点連続経路空間" }
+  - { id: STO4-DEF-06, name: "Wiener 測度と古典 Wiener 空間" }
   - { id: STO4-DEF-03, name: "ブラウン自然なフィルトレーション" }
   - { id: STO4-DEF-04, name: "ブラウン到達時刻" }
 theorems:
   - { id: STO4-THM-01, name: "ブラウン運動の構成" }
+  - { id: STO4-LEM-01, name: "原点始点経路の Borel σ 代数は座標評価で生成される" }
+  - { id: STO4-THM-07, name: "Wiener 測度の座標過程と一意性" }
   - { id: STO4-PROP-01, name: "ブラウン scaling" }
   - { id: STO4-THM-02, name: "ブラウン運動のマルコフ性" }
   - { id: STO4-THM-03, name: "ブラウン運動の強マルコフ性" }
@@ -32,6 +38,8 @@ theorems:
 canonical_examples:
   - "degenerate ガウス過程 X_t=tZ"
   - "共分散 min(s,t) and disjoint Gaussian increments"
+  - "C_0([0,T]) の座標評価と sup 距離"
+  - "Wiener 測度による二時刻 cylinder event の計算"
   - "past event in ブラウン自然なフィルトレーション"
   - "level 到達時刻 as a 停止時刻"
   - "dyadic approximation of a 停止時刻"
@@ -40,6 +48,8 @@ problem_patterns:
   - STO4-BROWNIAN-CONSTRUCTION-1
   - STO4-GAUSSIAN-COVARIANCE-1
   - STO4-BROWNIAN-SCALING-1
+  - STO4-WIENER-CYLINDER-1
+  - STO4-WIENER-UNIQUENESS-1
   - STO4-STRONG-MARKOV-DYADIC-1
   - STO4-REFLECTION-PRINCIPLE-1
   - STO4-HITTING-TIME-1
@@ -47,5 +57,5 @@ problem_patterns:
   - STO4-TIME-INVERSION-1
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
-estimated_hours: { reading: 9.0, exercises: 5.5, review: 1.5 }
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10.5, exercises: 6.5, review: 1.5 }

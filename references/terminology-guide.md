@@ -474,6 +474,16 @@
 | Lagrange の分解式 | Lagrange resolvent | 巡回 Galois 拡大で自己同型の固有ベクトルを作る有限 Fourier 型の和。人名 Lagrange は英字表記を保持 |
 | Kummer 表示 | Kummer presentation | 必要な1の根を含む体上の巡回素数次数拡大を $K(\beta)$, $\beta^p\in K$ の形で表すこと。人名 Kummer は英字表記を保持 |
 
+## DREAM THEATER：確率解析の主表記
+
+| 主表記 | 補助的な英語表記 | 備考 |
+|---|---|---|
+| Brown 運動 | Brownian motion | 人名 Brown は英字表記を保持する。本文では「ブラウン運動」へ機械的に改名しない |
+| Wiener 測度 | Wiener measure | Brown 運動の連続経路法を原点始点連続経路空間上の確率測度として見たもの。人名 Wiener は英字表記を保持 |
+| 古典 Wiener 空間 | classical Wiener space | $C_0([0,T])$、その Borel $\sigma$ 代数、Wiener 測度からなる三つ組 |
+| 原点始点連続経路空間 | zero-start continuous path space | $C_0([0,T])=\{x\in C([0,T]):x(0)=0\}$。単に「Wiener 空間」と同一視せず、測度を含むか文脈を明示する |
+| 座標評価写像 | coordinate evaluation map | $e_t(x)=x(t)$。canonical coordinate process を構成する評価写像 |
+
 ## DREAM THEATER：数値解析の主表記
 
 | 主表記 | 補助的な英語表記 | 備考 |
