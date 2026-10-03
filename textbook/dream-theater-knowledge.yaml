@@ -103,6 +103,7 @@ alias_matching:
     - cancellation
     - compensator
     - 閉形式
+    - 積分方程式
 
 rollout:
   # 既存ページは段階移行する。未移行ページそのものは audit では報告するが、
