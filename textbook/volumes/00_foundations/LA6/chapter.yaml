@@ -8,21 +8,21 @@ prerequisites:
   - F0-00F2
 official_scope: []
 learning_objectives:
-  - Hermitian二次形式をunitary対角化して符号構造を読める
-  - congruenceとsimilarityの違いを説明できる
+  - Hermitian二次形式をユニタリ対角化して符号構造を読める
+  - 合同変換と相似変換の違いを説明できる
   - Sylvesterの慣性法則を理解し正負零の個数が座標に依らないことを説明できる
-  - Hermitian PSD作用素の一意なPSD平方根を構成できる
-  - polar decomposition A=UP をスペクトル定理から導ける
+  - Hermitian半正定値作用素の一意な半正定値平方根を構成できる
+  - 極分解 A=UP をスペクトル定理から導ける
   - 実SVDを複素行列へ拡張できる
 definitions:
   - { id: LA6-DEF-01, name: Hermitian二次形式 }
-  - { id: LA6-DEF-02, name: congruence }
+  - { id: LA6-DEF-02, name: 合同変換 }
 theorems:
   - { id: LA6-THM-01, name: Sylvesterの慣性法則 }
-  - { id: LA6-THM-02, name: Hermitian PSD平方根定理 }
-  - { id: LA6-THM-03, name: polar decomposition }
+  - { id: LA6-THM-02, name: Hermitian半正定値平方根定理 }
+  - { id: LA6-THM-03, name: 極分解 }
   - { id: LA6-THM-04, name: 複素特異値分解 }
-canonical_examples: [Hermitian二次形式の対角化, 不定値形式, 行列の絶対値, 回転と伸縮のpolar分解]
+canonical_examples: [Hermitian二次形式の対角化, 不定値形式, 行列の絶対値, 回転と伸縮の極分解]
 problem_patterns: [LA6-INERTIA-1, LA6-POLAR-1, LA6-COMPLEX-SVD-1]
 past_exam_alignment: []
 integrated_exam_problems: []
