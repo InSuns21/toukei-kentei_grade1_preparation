@@ -18,8 +18,9 @@ learning_objectives:
 definitions:
   - { id: FLD0-DEF-01, name: 体上のベクトル空間 }
   - { id: FLD0-DEF-02, name: 体上の線形結合・線形包 }
-  - { id: FLD0-DEF-03, name: 体上の一次独立・基底・次元 }
-  - { id: FLD0-DEF-04, name: 体上の線形写像 }
+  - { id: FLD0-DEF-03, name: 体上の一次独立・基底 }
+  - { id: FLD0-DEF-04, name: 体上の次元 }
+  - { id: FLD0-DEF-05, name: 体上の線形写像 }
 theorems:
   - { id: FLD0-PROP-01, name: 体上の部分空間判定法 }
   - { id: FLD0-THM-01, name: 一般の体上の Steinitz の交換補題と基底延長 }
