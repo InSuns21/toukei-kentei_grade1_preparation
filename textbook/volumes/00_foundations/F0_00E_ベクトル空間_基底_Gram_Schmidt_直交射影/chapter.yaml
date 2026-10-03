@@ -27,6 +27,8 @@ theorems:
   - { id: F000E-THM-02, name: 有限次元で基底の本数は一定 }
   - { id: F000E-THM-03, name: 基底延長定理 }
   - { id: F000E-THM-04, name: Hamel基底の存在 }
+  - { id: F000E-THM-05, name: 部分空間の和の次元公式 }
+  - { id: F000E-THM-06, name: 座標写像の線形同型性 }
 canonical_examples: [R3の部分空間, spanの具体計算, 多項式空間の無限生成集合, 基底延長, Hamel基底の存在]
 problem_patterns: [LA-BASIS-1, LA-DIM-1, ZORN-HAMEL-1]
 past_exam_alignment: []
