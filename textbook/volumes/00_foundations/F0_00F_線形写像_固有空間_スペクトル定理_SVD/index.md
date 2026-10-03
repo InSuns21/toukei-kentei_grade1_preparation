@@ -740,21 +740,21 @@ $$
 逆向きの恒等写像の表現行列を
 
 $
-Q=[I]_{\mathcal B'\leftarrow\mathcal B}
+R=[I]_{\mathcal B'\leftarrow\mathcal B}
 $
 
 と置きます。恒等写像を往復させると $I\circ I=I$ なので、合成と行列積の対応から
 
 $
-QP=I,
+RP=I,
 \qquad
-PQ=I.
+PR=I.
 $
 
 したがって $P$ は正則で
 
 $
-Q=P^{-1}.
+R=P^{-1}.
 $
 
 よって逆向きの座標変換は
@@ -991,7 +991,7 @@ $
 A-\lambda I\text{ が正則でない}
 $
 
-であり、行列式による正則性判定から
+です。ここで F0-00 で使った正方行列の判定 $M\text{ が正則}\iff\det M\ne0$ を $M=A-\lambda I$ に適用すると
 
 $
 A-\lambda I\text{ が正則でない}
@@ -1463,15 +1463,13 @@ tI-[A]_{\mathcal B}
 \end{pmatrix}.
 $
 
-ブロック上三角行列の行列式は対角ブロックの行列式の積なので
+この行列の最初の $r$ 列では、第 $j$ 列の非零成分は第 $j$ 行の $t-\lambda$ だけです。したがって最初の $r$ 列を順に展開すると、そのたびに $t-\lambda$ が1個ずつ外へ出て
 
 $
 \begin{aligned}
 \chi_A(t)
 &=
 \det\bigl(tI-[A]_{\mathcal B}\bigr)\\
-&=
-\det((t-\lambda)I_r)\det(tI-C)\\
 &=
 (t-\lambda)^r\det(tI-C).
 \end{aligned}
@@ -1591,7 +1589,7 @@ Pp(D)P^{-1}.
 \end{aligned}
 $
 
-対角行列 $D$ では $p(D)$ は各対角成分へ $p$ を適用するだけです。この考え方は後に、行列指数関数 $e^{tA}$ や線形微分方程式を扱う土台になります。
+対角行列 $D$ では $p(D)$ は各対角成分へ $p$ を適用するだけです。この考え方は後に、線形微分方程式で $e^{tA}$ を計算するときの土台になります。
 
 ---
 
