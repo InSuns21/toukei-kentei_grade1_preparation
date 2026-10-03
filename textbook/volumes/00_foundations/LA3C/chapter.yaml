@@ -13,6 +13,7 @@ learning_objectives:
   - 行列式の乗法性を特徴付け定理から示せる
   - det A≠0 と可逆性の同値および相似不変性を示せる
 definitions:
+  - { id: LA3C-DEF-02, name: 小行列・小行列式・余因子 }
   - { id: LA3C-DEF-01, name: 余因子行列 }
 theorems:
   - { id: LA3C-THM-01, name: 基本変形と行列式 }

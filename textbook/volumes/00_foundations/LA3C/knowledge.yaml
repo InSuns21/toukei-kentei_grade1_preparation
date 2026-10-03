@@ -25,12 +25,20 @@ concepts:
     requires:
       - linear.matrix-determinant
 
+  - id: linear.cofactor
+    name: 余因子
+    kind: definition
+    aliases: [余因子, cofactor]
+    introduction_aliases: [小行列・小行列式・余因子]
+    requires:
+      - linear.matrix-determinant
+
   - id: linear.laplace-expansion
     name: Laplace 展開
     kind: theorem
     aliases: ["Laplace 展開", Laplace展開, Laplace expansion, 余因子展開]
     requires:
-      - linear.matrix-determinant
+      - linear.cofactor
       - linear.permutation-sign-product
 
   - id: linear.adjugate
