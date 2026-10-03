@@ -1,12 +1,12 @@
 id: "F0-00F"
-title: "線形写像・固有空間・SVD"
+title: "線形写像・表現行列・基底変換・対角化"
 volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00E
 official_scope: []
 learning_objectives:
-  - 線形写像・核・像を定義しrank-nullity theoremを証明できる
+  - 線形写像・核・像を定義し階数・退化次数の定理を証明できる
   - 任意の入力基底・出力基底に関する表現行列を構成できる
   - 写像の合成と表現行列の積の対応を説明できる
   - 基底変換行列と相似変換の意味を説明できる
