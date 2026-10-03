@@ -575,15 +575,49 @@ $$
 
 固定 $T>0$ とします。
 
-#### Step 1：コンパクト集合へ localization する
+#### Step 1：コンパクト集合と変動量を同時に localization する
+
+各成分を
+
+$$
+X^i=X_0^i+M^i+A^i
+$$
+
+と、連続局所マルチンゲール part $M^i$ と連続有限変動 part $A^i$ に分けます。固定した標本路では、有限時間区間上で
+
+$$
+\sup_{u\le t}|X_u|,
+\qquad
+[M^i]_t,
+\qquad
+V_t(A^i)
+$$
+
+はいずれも有限です。
+
+そこで
+
+$$
+C_t
+=
+\sup_{0\le u\le t}|X_u|
++
+\sum_{i=1}^d[M^i]_t
++
+\sum_{i=1}^dV_t(A^i)
+$$
+
+と置き、
 
 $$
 \tau_R
 =
-\inf\{t\ge0:|X_t|\ge R\}\wedge R
+\inf\{t\ge0:C_t\ge R\}\wedge R
 $$
 
-で停止します。$X^{\tau_R}$ はコンパクト集合 ball 内にあり、$f$ の一階・二階偏導関数はそこで有界、Hessian は一様連続です。
+で停止します。$C$ は continuous increasing なので $\tau_R\uparrow\infty$ ほとんど確実にです。
+
+停止後は $X$ の値域が固定コンパクト集合に入り、各 $[M^i]$ と $V(A^i)$ も有限な定数で抑えられます。したがって $f$ の一階・二階偏導関数は値域上で有界、Hessian は一様連続であり、後で使う確率積分・Riemann--Stieltjes 積分の誤差も同じ停止の下で制御できます。
 
 以下停止後で示し、最後に $R\uparrow\infty$ とします。
 
