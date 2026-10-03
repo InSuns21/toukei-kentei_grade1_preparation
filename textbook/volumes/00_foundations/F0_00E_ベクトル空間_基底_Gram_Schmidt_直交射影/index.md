@@ -778,6 +778,68 @@ $\dim V=n$ とします。
 
 交換補題より、一次独立なベクトル族の本数は $n$ を超えません。
 
+<a id="prop-f0-00e-subspace-finite-dimensional"></a>
+
+<!-- formal-statement-start -->
+> **命題（有限次元空間の部分空間も有限次元）**  
+> $V$ が有限次元で $W\subseteq V$ が線形部分空間なら、$W$ は有限次元であり
+
+$
+\dim W\le\dim V
+$
+
+> が成り立つ。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+$W$ の中で一次独立なベクトルを、線形包が $W$ になるまで追加します。$V$ 内の一次独立系は $\dim V$ 本を超えられないので、この操作は有限回で必ず止まります。
+
+<!-- proof-start -->
+### 証明
+
+$\dim V=n$ とします。$W=\{0\}$ なら空集合が $W$ の基底で、$\dim W=0\le n$ です。
+
+$W\ne\{0\}$ なら $w_1\in W\setminus\{0\}$ を取ります。$\operatorname{span}(w_1)=W$ なら終了です。そうでなければ
+
+$
+w_2\in W\setminus\operatorname{span}(w_1)
+$
+
+を取ります。このとき $w_1,w_2$ は一次独立です。
+
+一般に $w_1,\dots,w_k$ を一次独立に選べていて、まだ
+
+$
+\operatorname{span}(w_1,\dots,w_k)\ne W
+$
+
+なら、その線形包の外から
+
+$
+w_{k+1}\in
+W\setminus\operatorname{span}(w_1,\dots,w_k)
+$
+
+を取れます。関係
+
+$
+a_1w_1+\cdots+a_kw_k+bw_{k+1}=0
+$
+
+で $b\ne0$ なら $w_{k+1}\in\operatorname{span}(w_1,\dots,w_k)$ となって選び方に矛盾するため $b=0$ です。その後は $w_1,\dots,w_k$ の一次独立性から $a_1=\cdots=a_k=0$ です。よって追加後も一次独立です。
+
+しかし $W\subseteq V$ なので、こうして得られるベクトルは全て $V$ の中の一次独立系です。交換補題から本数は高々 $n$ です。したがって追加操作は高々 $n$ 本で停止し、その停止時には $W$ 全体を張っています。
+
+よって停止時のベクトル族は $W$ の基底であり、その本数は高々 $n$ です。したがって
+
+$
+\dim W\le\dim V.
+$
+
+$\square$
+<!-- proof-end -->
+
 ### $n$ 本の一次独立なベクトルは自動的に基底
 
 $u_1,\dots,u_n$ が一次独立だが $V$ を張らないと仮定します。すると
@@ -1324,17 +1386,25 @@ $
 
 したがって $\Phi_{\mathcal B}$ は線形です。
 
-次に $\Phi_{\mathcal B}(x)=0$ とすると、$x$ の全ての基底係数が0なので
+次に
 
-$
-x=0.
-$
+$$
+\Phi_{\mathcal B}(x)
+=
+\Phi_{\mathcal B}(y)
+$$
 
-よって核は $\{0\}$ であり、$\Phi_{\mathcal B}$ は単射です。
+とします。これは $x$ と $y$ の $\mathcal B$ に関する座標係数が全て一致するということです。[基底展開の存在と一意性](#prop-f0-00e-basis-expansion-unique)から
+
+$$
+x=y.
+$$
+
+したがって $\Phi_{\mathcal B}$ は単射です。
 
 最後に任意の
 
-$
+$$
 c=
 \begin{pmatrix}
 c_1\\
@@ -1342,19 +1412,19 @@ c_1\\
 c_n
 \end{pmatrix}
 \in\mathbb R^n
-$
+$$
 
 を取ります。
 
-$
+$$
 x=c_1v_1+\cdots+c_nv_n
-$
+$$
 
 と置けば
 
-$
+$$
 \Phi_{\mathcal B}(x)=c.
-$
+$$
 
 したがって全射です。以上より $\Phi_{\mathcal B}$ は線形同型です。$\square$
 <!-- proof-end -->
