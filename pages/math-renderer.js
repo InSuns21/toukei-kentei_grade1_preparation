@@ -219,28 +219,52 @@
     return katexLoadPromise;
   }
 
-  function renderPlaceholder(node) {
-    if (!node || !root.katex) return;
-    const encoded = node.getAttribute('data-tex');
-    if (encoded === null) return;
-
-    try {
-      root.katex.render(decodeURIComponent(encoded), node, {
-        throwOnError: false,
-        displayMode: node.classList.contains(DISPLAY_CLASS),
-      });
-      node.removeAttribute('data-tex');
-    } catch (error) {
-      console.error('KaTeX rendering failed', error);
-    }
+  function escapeHtml(text) {
+    return String(text)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
-  function revealRawTex(node) {
-    if (!node) return;
-    const encoded = node.getAttribute('data-tex');
-    if (encoded === null) return;
-    const tex = decodeURIComponent(encoded);
-    node.textContent = node.classList.contains(DISPLAY_CLASS) ? `$$${tex}$$` : `$${tex}$`;
+  function rawTexHtml(kind, encoded) {
+    let tex;
+    try {
+      tex = decodeURIComponent(encoded);
+    } catch (error) {
+      console.error('TeX placeholder decoding failed', error);
+      tex = encoded;
+    }
+    const delimited = kind === DISPLAY_CLASS ? `$$${tex}$$` : `$${tex}$`;
+    return `<span class="toukei-math ${kind}">${escapeHtml(delimited)}</span>`;
+  }
+
+  function renderMathInHtml(html) {
+    const placeholderPattern = /<span class="toukei-math (toukei-math-(?:display|inline))" data-tex="([^"]*)"><\/span>/g;
+    if (!String(html || '').includes('data-tex=')) return Promise.resolve(html);
+
+    return ensureKatexRuntime()
+      .then((katex) => html.replace(placeholderPattern, (match, kind, encoded) => {
+        try {
+          const tex = decodeURIComponent(encoded);
+          const rendered = katex.renderToString(tex, {
+            throwOnError: false,
+            displayMode: kind === DISPLAY_CLASS,
+          });
+          return `<span class="toukei-math ${kind}">${rendered}</span>`;
+        } catch (error) {
+          console.error('KaTeX rendering failed', error);
+          return rawTexHtml(kind, encoded);
+        }
+      }))
+      .catch((error) => {
+        console.error('KaTeX runtime unavailable; showing raw TeX instead', error);
+        return html.replace(
+          placeholderPattern,
+          (match, kind, encoded) => rawTexHtml(kind, encoded)
+        );
+      });
   }
 
   function currentDocsifyAnchorId() {
@@ -269,31 +293,18 @@
     }
   }
 
-  function renderMath(container) {
-    if (!container) return Promise.resolve();
-    const nodes = [...container.querySelectorAll('.toukei-math[data-tex]')];
-    if (!nodes.length) return Promise.resolve();
-
-    return ensureKatexRuntime()
-      .then(() => nodes.forEach(renderPlaceholder))
-      .catch((error) => {
-        console.error('KaTeX runtime unavailable; showing raw TeX instead', error);
-        nodes.forEach(revealRawTex);
-      });
-  }
-
   function docsifyPlugin(hook) {
     hook.beforeEach(function (markdown) {
       return protectMath(markdown);
     });
 
-    hook.afterEach(function (html) {
-      return wrapFormalStatementBlocks(foldProofBlocks(html));
+    hook.afterEach(function (html, next) {
+      const preparedHtml = wrapFormalStatementBlocks(foldProofBlocks(html));
+      renderMathInHtml(preparedHtml).then(next);
     });
 
     hook.doneEach(function () {
-      renderMath(document.querySelector('.markdown-section'))
-        .then(restoreAnchorAfterMath);
+      restoreAnchorAfterMath();
     });
   }
 
@@ -301,6 +312,7 @@
     protectMath,
     foldProofBlocks,
     wrapFormalStatementBlocks,
+    renderMathInHtml,
     docsifyPlugin,
   };
 })(typeof window !== 'undefined' ? window : globalThis);
