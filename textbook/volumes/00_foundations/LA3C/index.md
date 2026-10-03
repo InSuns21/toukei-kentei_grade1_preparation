@@ -1,5 +1,4 @@
-<!-- definition-example-audit: loose -->
-# LA3C 行列式の計算・Laplace展開・可逆性・乗法性
+# LA3C 行列式の計算・Laplace 展開・可逆性・乗法性
 
 LA3B で行列式そのものは構成できました。しかし Leibniz 公式は $n!$ 個の項を持つので、計算道具として毎回そのまま使うのは現実的ではありません。
 
@@ -129,7 +128,7 @@ $$
 \det A=1\cdot1\cdot3=3.
 $$
 
-Gaussian elimination と行列式が自然につながりました。
+Gauss 消去法 と行列式が自然につながりました。
 
 ---
 
@@ -231,6 +230,8 @@ Leibniz 公式の6項を全部書く必要はありません。
 
 ## 4. 余因子を行列にまとめる
 
+Laplace 展開では、各成分に対応する余因子を1個ずつ使いました。これらを一つの行列にまとめると、逆行列を作る恒等式へ直接つながります。行と列を入れ替えて並べるのは、行列積の成分が Laplace 展開になるようにするためです。
+
 <a id="def-la3c-adjugate"></a>
 <!-- formal-statement-start -->
 > **定義（余因子行列）**  
@@ -241,13 +242,35 @@ $$
 > と定めた行列を $A$ の **余因子行列（adjugate）** という。
 <!-- formal-statement-end -->
 
-$2\times2$ なら
-$$
+<!-- definition-example-start: def-la3c-adjugate -->
+**定義の確認**：$2\times2$ 行列
+
+$
 A=\begin{pmatrix}a&b\\c&d\end{pmatrix}
-\quad\Longrightarrow\quad
-\operatorname{adj}(A)=
+$
+
+では余因子は
+
+$
+C_{11}=d,\qquad
+C_{12}=-c,\qquad
+C_{21}=-b,\qquad
+C_{22}=a.
+$
+
+定義では $\operatorname{adj}(A)_{ji}=C_{ij}$ と転置して並べるので
+
+$
+\operatorname{adj}(A)
+=
+\begin{pmatrix}
+C_{11}&C_{21}\\
+C_{12}&C_{22}
+\end{pmatrix}
+=
 \begin{pmatrix}d&-b\\-c&a\end{pmatrix}.
-$$
+$
+<!-- definition-example-end -->
 
 <a id="thm-la3c-adjugate-identity"></a>
 <!-- formal-statement-start -->
@@ -275,10 +298,26 @@ $$
 A\operatorname{adj}(A)=(\det A)I.
 $$
 
-同様に $\operatorname{adj}(A)A$ の $(i,j)$ 成分を列の Laplace 展開として読むと、$i=j$ で $\det A$、$i\ne j$ で同じ列を2本持つ行列の行列式0になるため
-$$
+次に $\operatorname{adj}(A)A$ の $(i,j)$ 成分を直接確認します。定義から
+
+$
+\bigl(\operatorname{adj}(A)A\bigr)_{ij}
+=
+\sum_{k=1}^n C_{ki}a_{kj}.
+$
+
+$i=j$ なら、これは第 $i$ 列に沿う Laplace 展開
+
+$
+\sum_{k=1}^n a_{ki}C_{ki}
+=\det A
+$
+
+です。$i\ne j$ なら、第 $i$ 列を第 $j$ 列で置き換えた行列を考えます。この行列を第 $i$ 列で Laplace 展開した値が上の和です。置き換え後は第 $i$ 列と第 $j$ 列が等しいので行列式は0です。従って
+
+$
 \operatorname{adj}(A)A=(\det A)I.
-$$
+$
 $\square$
 <!-- proof-end -->
 
@@ -434,6 +473,7 @@ $$
 ## 9. 演習
 
 ### LA3C-A01 基本変形
+- Level: A
 
 $$
 A=\begin{pmatrix}
@@ -474,6 +514,7 @@ $$
 <!-- solution-end -->
 
 ### LA3C-A02 Laplace 展開
+- Level: A
 
 $$
 A=\begin{pmatrix}
@@ -494,6 +535,7 @@ $$
 <!-- solution-end -->
 
 ### LA3C-B01 乗法性の核心
+- Level: B
 
 固定した $A$ に対して
 $$
@@ -502,14 +544,36 @@ $$
 が交代多重線形であることを、各性質を1つずつ確認して示せ。
 
 <!-- solution-start -->
-**解答**：第 $j$ 引数について
-$$
+**解答**：任意の位置 $j$ を固定し、第 $j$ 引数だけを $\alpha u+\beta v$ に置き換えます。線形写像 $A$ について
+
+$
 A(\alpha u+\beta v)=\alpha Au+\beta Av
-$$
-であり、その後の行列式が第 $j$ 列について線形なので $D_A$ も線形です。全ての引数で同様なので多重線形。$b_i=b_j$ なら $Ab_i=Ab_j$ となり行列式に同じ列が2本現れるため0です。従って交代的です。
+$
+
+なので、行列式の第 $j$ 列に関する線形性から
+
+$
+\begin{aligned}
+&D_A(b_1,\dots,\alpha u+\beta v,\dots,b_n)\\
+&\quad=
+\det(Ab_1,\dots,\alpha Au+\beta Av,\dots,Ab_n)\\
+&\quad=
+\alpha D_A(b_1,\dots,u,\dots,b_n)
++\beta D_A(b_1,\dots,v,\dots,b_n).
+\end{aligned}
+$
+
+$j$ は任意だったので各引数について線形、すなわち多重線形です。また $b_i=b_j$ なら $Ab_i=Ab_j$ となり、行列式に同じ列が2本現れるため
+
+$
+D_A(b_1,\dots,b_n)=0.
+$
+
+従って $D_A$ は交代的です。
 <!-- solution-end -->
 
 ### LA3C-B02 相似変換と特性多項式
+- Level: B
 
 $B=P^{-1}AP$ とする。任意の $t$ に対して
 $$
@@ -533,6 +597,7 @@ $$
 
 
 ### LA3C-A03 パラメータ付き行列の可逆性
+- Level: A
 
 $t\in\mathbb R$ とし
 $$
@@ -567,6 +632,7 @@ $$
 <!-- solution-end -->
 
 ### LA3C-A04 余因子行列から逆行列を作る
+- Level: A
 
 $$
 A=
@@ -579,19 +645,44 @@ $$
 について $\det A$ と $\operatorname{adj}(A)$ を求め、[上で示した余因子行列の等式](#thm-la3c-adjugate-identity)から $A^{-1}$ を求めよ。
 
 <!-- solution-start -->
-**解答**：計算すると
-$$
-\det A=2.
-$$
-各余因子を並べて転置すると
-$$
+**解答**：第1行で Laplace 展開すると
+
+$
+\begin{aligned}
+\det A
+&=1\det\begin{pmatrix}1&1\\0&1\end{pmatrix}
+-1\det\begin{pmatrix}0&1\\1&1\end{pmatrix}\\
+&=1-(-1)=2.
+\end{aligned}
+$
+
+9個の余因子を順に計算すると
+
+$
+\begin{aligned}
+&C_{11}=1,\qquad C_{12}=1,\qquad C_{13}=-1,\\
+&C_{21}=-1,\qquad C_{22}=1,\qquad C_{23}=1,\\
+&C_{31}=1,\qquad C_{32}=-1,\qquad C_{33}=1.
+\end{aligned}
+$
+
+したがって余因子行列は、余因子を転置して並べて
+
+$
 \operatorname{adj}(A)=
+\begin{pmatrix}
+C_{11}&C_{21}&C_{31}\\
+C_{12}&C_{22}&C_{32}\\
+C_{13}&C_{23}&C_{33}
+\end{pmatrix}
+=
 \begin{pmatrix}
 1&-1&1\\
 1&1&-1\\
 -1&1&1
 \end{pmatrix}.
-$$
+$
+
 従って
 $$
 A^{-1}
@@ -607,6 +698,7 @@ $$
 <!-- solution-end -->
 
 ### LA3C-B03 Cramer の公式を導く
+- Level: B
 
 $A=[a_1\ \cdots\ a_n]$ を可逆な $n\times n$ 行列とし、$Ax=b$ の解を
 $$
@@ -640,7 +732,8 @@ $$
 公式を暗記するより、「置換列 $b$ を解の線形結合で展開すると重複列が全部消える」と見るのが本質です。
 <!-- solution-end -->
 
-### LA3C-C01 corank 1 の行列と余因子行列
+### LA3C-C01 階数 $n-1$ の行列と余因子行列
+- Level: C
 
 $A\in\mathbb F^{n\times n}$ が
 $$
@@ -653,32 +746,102 @@ $$
 3. $\operatorname{rank}\operatorname{adj}(A)=1$。
 
 <!-- solution-start -->
-**解答**：$\operatorname{rank}A=n-1$ なので $\det A=0$ です。
+**解答**：$\operatorname{rank}A=n-1$ なので、$A$ を線形写像とみた像
 
-まず「rank が $r$ なら非零な $r\times r$ 小行列式が存在する」という事実を、この場合に必要な範囲で確認します。$\operatorname{rank}A=n-1$ なので $A$ には一次独立な $n-1$ 本の列があり、それらだけを取り出した $n\times(n-1)$ 行列を $B$ とします。$B$ の列階数は $n-1$ です。行階数と列階数は等しいので、$B$ の行のうち $n-1$ 本を選んで一次独立にできます。その行と先ほど選んだ列の交差部分は正則な $(n-1)\times(n-1)$ 行列であり、その行列式は非零です。したがって $A$ には少なくとも1つの非零な $(n-1)\times(n-1)$ 小行列式があります。
+$$
+W=\operatorname{Im}A
+$$
 
-その値は符号を除いて $A$ の余因子の1つなので
+は $n-1$ 次元です。また $A$ は可逆でないので、[行列式による可逆性判定](#thm-la3c-det-invertible)から
+
+$$
+\det A=0.
+$$
+
+まず $\operatorname{adj}(A)\ne0$ を示します。そのためには、$A$ に非零な $(n-1)\times(n-1)$ 小行列式が一つ存在することを示せば十分です。
+
+$\dim W=n-1$ なので、[零化空間の次元公式](../LA3A/index.md#thm-la3a-annihilator-dimension)から
+
+$$
+\dim W^\circ=n-(n-1)=1.
+$$
+
+従って $W$ を全て0に送る非零線形形式 $\varphi\in W^\circ$ を取れます。標準双対基底で
+
+$$
+\varphi=c_1e^1+\cdots+c_ne^n
+$$
+
+と書くと、$\varphi\ne0$ だからある $j$ で $c_j\ne0$ です。
+
+$\pi_j:\mathbb F^n\to\mathbb F^{n-1}$ を「第 $j$ 成分だけを削除する」線形写像とします。$\pi_j$ を $W$ に制限すると単射です。実際、$w\in W$ かつ $\pi_j(w)=0$ なら $w=\alpha e_j$ と書けます。$w\in W$ なので $\varphi(w)=0$ ですが、
+
+$$
+\varphi(w)=\alpha c_j.
+$$
+
+$c_j\ne0$ だから $\alpha=0$、従って $w=0$ です。
+
+次に $A$ の列から、$W$ の基底となる一次独立な $n-1$ 本
+
+$$
+a_{i_1},\dots,a_{i_{n-1}}
+$$
+
+を選びます。$\pi_j|_W$ は単射なので
+
+$$
+\pi_j(a_{i_1}),\dots,\pi_j(a_{i_{n-1}})
+$$
+
+も一次独立です。これらを列に並べた $(n-1)\times(n-1)$ 行列は可逆であり、[行列式による可逆性判定](#thm-la3c-det-invertible)から行列式は非零です。これは $A$ から第 $j$ 行と、選ばなかった1列を除いて得る小行列式です。
+
+したがって少なくとも一つの $(n-1)\times(n-1)$ 小行列式が非零であり、その値は符号を除いて余因子の一つです。よって
+
 $$
 \operatorname{adj}(A)\ne0.
 $$
 
-[上で示した余因子行列の等式](#thm-la3c-adjugate-identity)から
+次に[余因子行列の基本恒等式](#thm-la3c-adjugate-identity)から
+
 $$
 A\operatorname{adj}(A)=(\det A)I=0.
 $$
-従って $\operatorname{adj}(A)$ の各列 $u$ は $Au=0$ を満たし、$u\in\ker A$ です。rank-nullity より
+
+$\operatorname{adj}(A)$ の各列を $u$ とすれば $Au=0$ なので
+
 $$
-\dim\ker A=n-(n-1)=1.
+u\in\ker A.
 $$
-したがって $\operatorname{adj}(A)$ の全ての列は同じ1次元空間に入り
+
+さらに $A:\mathbb F^n\to\mathbb F^n$ に[階数・退化次数の定理](../F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md#thm-f0-00f-01)を適用すると
+
+$$
+\dim\ker A
+=n-\operatorname{rank}A
+=n-(n-1)
+=1.
+$$
+
+したがって $\operatorname{adj}(A)$ の全ての列は同じ1次元空間に入るため
+
 $$
 \operatorname{rank}\operatorname{adj}(A)\le1.
 $$
-しかし第1段階で $\operatorname{adj}(A)\ne0$ を示したので rank は0ではありません。従って
+
+一方、すでに $\operatorname{adj}(A)\ne0$ を示したので階数は0ではありません。従って
+
 $$
 \boxed{\operatorname{rank}\operatorname{adj}(A)=1}.
 $$
-なお $\operatorname{adj}(A)A=0$ から、行についても同様に左核へ入ることが分かります。
+
+さらに $\operatorname{adj}(A)A=0$ から、$\operatorname{adj}(A)$ の各行を行ベクトルとして $r$ と書けば
+
+$$
+rA=0
+$$
+
+となり、各行は左核に属します。
 <!-- solution-end -->
 
 ---
