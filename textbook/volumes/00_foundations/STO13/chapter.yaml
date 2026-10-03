@@ -29,7 +29,7 @@ theorems:
   - { id: STO13-THM-02, name: "有限状態 CTMC の跳躍連鎖・滞在時間構成" }
   - { id: STO13-THM-03, name: "有限状態 CTMC の Kolmogorov 後退・前進方程式" }
   - { id: STO13-PROP-02, name: "有限状態 CTMC の生成作用素マルチンゲール" }
-  - { id: STO13-THM-04, name: "補償ポアソンランダム測度の単関数 L2 等長性" }
+  - { id: STO13-THM-04, name: "補償ポアソンランダム測度の単関数 $L^2$ 等長性" }
 canonical_examples:
   - "率 lambda のポアソン過程と指数待ち時間"
   - "N_t-lambda t の補償ポアソンマルチンゲール"
