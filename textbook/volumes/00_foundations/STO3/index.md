@@ -173,7 +173,7 @@ $$
 >
 > と置く。$\omega\in\Omega^\ast$ は写像 $\omega:T\to\mathbb R$ であり、一つの候補標本路とみなす。
 >
-> 各 $t\in T$ について座標写像
+> 各 $t\in T$ について評価写像
 >
 $$
 X_t^\ast(\omega)=\omega(t)
