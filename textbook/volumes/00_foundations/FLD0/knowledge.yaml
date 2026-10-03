@@ -39,16 +39,15 @@ concepts:
     requires:
       - linear.vector-space-over-field
 
-  - id: linear.basis-dimension-over-field
-    name: 体上の一次独立・基底・次元
+  - id: linear.basis-over-field
+    name: 体上の一次独立・基底
     kind: definition
-    aliases: [F上の一次独立, F-基底, F上の次元]
-    introduction_aliases: [体上の一次独立・基底・次元]
+    aliases: [F上の一次独立, F-基底]
+    introduction_aliases: [体上の一次独立・基底]
     requires:
       - linear.span-over-field
       - linear.linear-independence
       - linear.basis
-      - linear.dimension
 
   - id: linear.subspace-test-over-field
     name: 体上の部分空間判定法
@@ -63,8 +62,17 @@ concepts:
     kind: theorem
     aliases: []
     requires:
-      - linear.basis-dimension-over-field
+      - linear.basis-over-field
       - linear.vector-space-over-field
+
+  - id: linear.dimension-over-field
+    name: 体上の次元
+    kind: definition
+    aliases: [F上の次元, dimension over a field]
+    introduction_aliases: [体上の次元]
+    requires:
+      - linear.basis-over-field
+      - linear.steinitz-basis-extension-over-field
 
   - id: linear.linear-map-over-field
     name: 体上の線形写像
@@ -80,7 +88,7 @@ concepts:
     kind: theorem
     aliases: []
     requires:
-      - linear.basis-dimension-over-field
+      - linear.dimension-over-field
       - linear.linear-map-over-field
       - linear.steinitz-basis-extension-over-field
 
@@ -89,5 +97,5 @@ concepts:
     kind: theorem
     aliases: []
     requires:
-      - linear.basis-dimension-over-field
+      - linear.dimension-over-field
       - linear.vector-space-over-field
