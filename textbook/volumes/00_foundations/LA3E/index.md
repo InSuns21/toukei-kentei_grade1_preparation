@@ -767,15 +767,84 @@ $$
 これは LA3D で使った符号付き面積そのものです。
 <!-- definition-example-end -->
 
-1次形式 $\alpha_1,\dots,\alpha_k$ については、外積を繰り返すと
+1次形式を何個も外積すると行列式が現れます。ただしこの時点では結合性をまだ証明していないので、以下では
+$$
+\alpha_1\wedge\cdots\wedge\alpha_k
+$$
+を左から括弧を付けた
+$$
+((\alpha_1\wedge\alpha_2)\wedge\cdots)\wedge\alpha_k
+$$
+の意味で使います。
 
+<a id="prop-la3e-wedge-determinant-formula"></a>
+<!-- formal-statement-start -->
+> **命題（1次形式の外積の行列式表示）**  
+> $\alpha_1,\dots,\alpha_k\in V^*$ と $v_1,\dots,v_k\in V$ に対して
 $$
 (\alpha_1\wedge\cdots\wedge\alpha_k)(v_1,\dots,v_k)
 =
-\det[\alpha_i(v_j)]_{i,j=1}^k
+\det[\alpha_i(v_j)]_{i,j=1}^k.
+$$
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+$k$ に関する帰納法で示します。最後の1次形式 $\alpha_k$ を外積するとき、$(k-1,1)$-シャッフルは「$\alpha_k$ にどの $v_j$ を渡すか」を選ぶ $k$ 通りです。その符号が、行列式を第 $k$ 行で Laplace 展開したときの余因子符号と一致します。
+
+<!-- proof-start -->
+### 証明
+
+$k=1$ では
+$$
+\alpha_1(v_1)
+=
+\det[\alpha_1(v_1)]
+$$
+なので成り立ちます。
+
+$k-1$ まで成り立つと仮定し、
+$$
+\eta
+=
+\alpha_1\wedge\cdots\wedge\alpha_{k-1}
+$$
+と置きます。外積の定義で $p=k-1,q=1$ とすると、$\alpha_k$ が受け取る入力を $v_j$ とするシャッフルの符号は、$v_j$ を末尾へ移す $k-j$ 回の交換から
+$$
+(-1)^{k-j}
+$$
+です。従って
+$$
+(\eta\wedge\alpha_k)(v_1,\dots,v_k)
+=
+\sum_{j=1}^k
+(-1)^{k-j}
+\eta(v_1,\dots,\widehat{v_j},\dots,v_k)
+\alpha_k(v_j).
 $$
 
-となります。これが行列式と外積代数の直接の接点です。
+帰納法の仮定を各 $\eta$ に適用すると
+$$
+\eta(v_1,\dots,\widehat{v_j},\dots,v_k)
+$$
+は、行列
+$$
+M=[\alpha_i(v_j)]_{i,j=1}^k
+$$
+から第 $k$ 行と第 $j$ 列を除いた小行列式です。ここで
+$$
+(-1)^{k-j}=(-1)^{k+j}
+$$
+なので、上の和は $M$ を第 $k$ 行で [Laplace 展開](../LA3C/index.md#thm-la3c-laplace-expansion)した式そのものです。したがって
+$$
+(\alpha_1\wedge\cdots\wedge\alpha_k)(v_1,\dots,v_k)
+=
+\det M.
+$$
+帰納法により全ての $k$ で成り立ちます。
+<!-- proof-end -->
+
+この式が、行列式と外積代数の直接の接点です。第8節で結合性を証明した後は、括弧の付け方を気にせず $\alpha_1\wedge\cdots\wedge\alpha_k$ と書けます。
 
 <a id="thm-la3e-exterior-basis-dimension"></a>
 <!-- formal-statement-start -->
@@ -1100,10 +1169,14 @@ $$
 $$
 <!-- formal-statement-end -->
 
+### 証明の見取り図
+
+最初の式は、直前に証明した外積の行列式表示へ基底変換の座標 $A_{ij}$ をそのまま代入します。双対基底側の変換則は、最高次交代形式全体が1次元であることを使い、比例係数を新しい基底上で評価して決めます。
+
 <!-- proof-start -->
 ### 証明
 
-外積の行列式表示から
+[1次形式の外積の行列式表示](#prop-la3e-wedge-determinant-formula)から
 
 $$
 \Omega(e'_1,\dots,e'_n)
