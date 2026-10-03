@@ -1049,9 +1049,29 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（Girsanov 局所マルチンゲール変換）**  
-> 上の設定で $N$ を continuous $P$-局所マルチンゲールとする。
+> $M$ を continuous $P$-局所マルチンゲールとし、
 >
-> このとき
+$$
+Z_t=\mathcal E(M)_t
+$$
+>
+> が正の真の $P$-マルチンゲールで
+>
+$$
+E_P[Z_T]=1
+$$
+>
+> を満たすとする。$Q$ を
+>
+$$
+Q(A)=E_P[Z_T\mathbf1_A],
+\qquad
+A\in\mathcal F_T
+$$
+>
+> で定める。
+>
+> $N$ を continuous $P$-局所マルチンゲールとする。このとき
 >
 $$
 \widetilde N_t
