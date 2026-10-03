@@ -612,87 +612,135 @@ $$
 
 従って $\varphi_t(u)\neq0$ です。
 
-固定した $u$ について、
+固定した $u$ について指数表示を作ります。$\varphi_t(u)\to1$ なので、ある $\delta>0$ を十分小さく取れば
 
 $$
-q_u(t)
+|\varphi_t(u)-1|<\frac12
+\qquad
+(0\le t\le\delta)
+$$
+
+です。この円板は負の実軸や 0 を含まないので、その上では主値対数 $\operatorname{Log}$ を連続に使えます。
+
+$$
+g(t)
 :=
-\frac{\varphi_t(u)}{|\varphi_t(u)|}
+\operatorname{Log}\varphi_t(u),
+\qquad
+0\le t\le\delta,
 $$
 
-と置きます。$q_u(t)$ は単位円上の連続曲線で、$q_u(0)=1$ です。区間 $[0,\infty)$ は単連結なので、連続な実関数 $\theta_u(t)$ を $\theta_u(0)=0$ となるように取り、
+と置きます。$\operatorname{Log}1=0$ であり、必要なら $\delta$ をさらに小さくして
 
 $$
-q_u(t)=e^{i\theta_u(t)}
+|g(t)|<\frac{\pi}{4}
+\qquad
+(0\le t\le\delta)
 $$
 
-と書けます。
+としておきます。
 
-まず絶対値について、半群性から
+$s,t,s+t\le\delta$ なら半群性から
 
 $$
-|\varphi_{s+t}(u)|
+e^{g(s+t)}
 =
-|\varphi_s(u)|\,|\varphi_t(u)|.
+\varphi_{s+t}(u)
+=
+\varphi_s(u)\varphi_t(u)
+=
+e^{g(s)+g(t)}.
 $$
 
 従って
 
 $$
-a_u(t):=\log|\varphi_t(u)|
-$$
-
-は連続な加法関数ですから
-
-$$
-a_u(t)=\alpha(u)t
-$$
-
-と書けます。
-
-位相部分では
-
-$$
-e^{i\theta_u(s+t)}
-=
-e^{i(\theta_u(s)+\theta_u(t))}
-$$
-
-なので
-
-$$
-\theta_u(s+t)-\theta_u(s)-\theta_u(t)
+g(s+t)-g(s)-g(t)
 \in
-2\pi\mathbb Z.
+2\pi i\mathbb Z.
 $$
 
-左辺は $(s,t)$ の連続関数で、$(0,0)$ では 0 です。連続関数が離散集合 $2\pi\mathbb Z$ に値を取るので、全域で 0 でなければなりません。従って $\theta_u$ も連続な加法関数であり、
+一方
 
 $$
-\theta_u(t)=\beta(u)t
+|g(s+t)-g(s)-g(t)|
+<
+\frac{3\pi}{4}
+<
+2\pi,
 $$
 
-です。
+なので取り得る整数は 0 だけです。よって
 
-以上から
+$$
+g(s+t)=g(s)+g(t)
+\qquad
+(s,t,s+t\le\delta).
+$$
+
+特に $n\ge1$ に対して
+
+$$
+g(\delta)
+=
+n\,g(\delta/n),
+$$
+
+したがって
+
+$$
+g(\delta/n)
+=
+\frac1n g(\delta).
+$$
+
+さらに $0\le m\le n$ なら局所加法性を $m$ 回使って
+
+$$
+g(m\delta/n)
+=
+\frac mn g(\delta).
+$$
+
+有理数 $m/n$ は $[0,1]$ で稠密で、$g$ は連続なので
+
+$$
+g(t)=ct
+\qquad
+(0\le t\le\delta),
+$$
+
+ただし
+
+$$
+c:=\frac{g(\delta)}{\delta}.
+$$
+
+任意の $t>0$ に対し、$t/n\le\delta$ となる $n$ を取れば
 
 $$
 \varphi_t(u)
 =
-\exp\{t(\alpha(u)+i\beta(u))\}.
+\varphi_{t/n}(u)^n
+=
+e^{n g(t/n)}
+=
+e^{ct}.
 $$
 
-そこで
+従って
 
 $$
-\psi(u):=\alpha(u)+i\beta(u)
+\psi(u):=c
 $$
 
 と置けば
 
 $$
-\varphi_t(u)=e^{t\psi(u)}.
+\varphi_t(u)=e^{t\psi(u)}
 $$
+
+が全ての $t\ge0$ で成り立ちます。
 
 一意性も確認します。もし $c,d\in\mathbb C$ が全ての $t\ge0$ で
 
