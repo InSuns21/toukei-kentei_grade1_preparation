@@ -1,0 +1,74 @@
+chapter: FLD0
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00E
+  - F0-00F
+  - RNG1
+forward_references:
+  - algebra.field-extension
+  - algebra.extension-degree
+  - module.module
+
+concepts:
+  - id: linear.vector-space-over-field
+    name: 体上のベクトル空間
+    kind: definition
+    aliases: [F-ベクトル空間, vector space over a field]
+    introduction_aliases: [体上のベクトル空間]
+    requires:
+      - algebra.field
+      - linear.vector-space
+
+  - id: linear.span-over-field
+    name: 体上の線形結合・線形包
+    kind: definition
+    aliases: [F-線形結合, F-線形包]
+    introduction_aliases: [F-線形結合とF-線形包]
+    requires:
+      - linear.vector-space-over-field
+
+  - id: linear.basis-dimension-over-field
+    name: 体上の一次独立・基底・次元
+    kind: definition
+    aliases: [F上の一次独立, F-基底, F上の次元]
+    introduction_aliases: [F上の一次独立・基底・次元]
+    requires:
+      - linear.span-over-field
+      - linear.linear-independence
+      - linear.basis
+      - linear.dimension
+
+  - id: linear.subspace-test-over-field
+    name: 体上の部分空間判定法
+    kind: proposition
+    aliases: []
+    requires:
+      - linear.vector-space-over-field
+      - linear.linear-subspace
+
+  - id: linear.linear-map-over-field
+    name: 体上の線形写像
+    kind: definition
+    aliases: [F-線形写像, linear map over a field]
+    introduction_aliases: [F-線形写像]
+    requires:
+      - linear.vector-space-over-field
+      - linear.linear-map
+
+  - id: linear.rank-nullity-over-field
+    name: 一般の体上の階数・退化次数の定理
+    kind: theorem
+    aliases: []
+    requires:
+      - linear.basis-dimension-over-field
+      - linear.linear-map-over-field
+      - linear.basis-extension-theorem
+
+  - id: linear.coordinate-isomorphism-over-field
+    name: 一般の体上の座標写像
+    kind: theorem
+    aliases: []
+    requires:
+      - linear.basis-dimension-over-field
+      - linear.vector-space-over-field
