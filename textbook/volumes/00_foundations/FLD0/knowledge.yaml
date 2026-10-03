@@ -5,10 +5,19 @@ prerequisites:
   - F0-00E
   - F0-00F
   - RNG1
+  - LA1
 forward_references:
   - algebra.field-extension
   - algebra.extension-degree
-  - module.module
+  - linear.matrix-determinant
+  - linear.operator-polynomial
+  - linear.minimal-polynomial
+  - linear.inner-product
+  - linear.orthogonality
+  - linear.gram-schmidt
+  - linear.complex-inner-product
+  - algebra.algebraic-element
+  - algebra.finite-field
 
 concepts:
   - id: linear.vector-space-over-field
@@ -24,7 +33,7 @@ concepts:
     name: 体上の線形結合・線形包
     kind: definition
     aliases: [F-線形結合, F-線形包]
-    introduction_aliases: [F-線形結合とF-線形包]
+    introduction_aliases: [体上の線形結合・線形包]
     requires:
       - linear.vector-space-over-field
 
@@ -32,7 +41,7 @@ concepts:
     name: 体上の一次独立・基底・次元
     kind: definition
     aliases: [F上の一次独立, F-基底, F上の次元]
-    introduction_aliases: [F上の一次独立・基底・次元]
+    introduction_aliases: [体上の一次独立・基底・次元]
     requires:
       - linear.span-over-field
       - linear.linear-independence
@@ -59,7 +68,7 @@ concepts:
     name: 体上の線形写像
     kind: definition
     aliases: [F-線形写像, linear map over a field]
-    introduction_aliases: [F-線形写像]
+    introduction_aliases: [体上の線形写像]
     requires:
       - linear.vector-space-over-field
       - linear.linear-map
