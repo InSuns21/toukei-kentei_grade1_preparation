@@ -19,7 +19,7 @@ theorems:
   - { id: LA2-THM-01, name: 有限次元補空間の存在 }
   - { id: LA2-THM-02, name: 商空間の次元公式 }
   - { id: LA2-THM-03, name: 第一同型定理 }
-canonical_examples: [R2を直線で割った商空間, kernelで割る線形写像, 直交補空間]
+canonical_examples: [R2を直線で割った商空間, 核で割る線形写像, 異なる補空間の選択]
 problem_patterns: [LA2-QUOTIENT-1, LA2-FIRST-ISO-1]
 past_exam_alignment: []
 integrated_exam_problems: []
