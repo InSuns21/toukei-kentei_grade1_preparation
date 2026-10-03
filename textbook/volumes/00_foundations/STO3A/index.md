@@ -23,6 +23,10 @@ $$
 
 ## 1. 経路そのものを確率変数とみなす
 
+一時刻の確率変数なら値は実数です。しかし Donsker の主張では、時刻 $t$ ごとの値を別々に見るのではなく、$0\le t\le1$ の **一本の連続な経路全体**を一つの値として扱います。
+
+そのためには、経路どうしがどれだけ近いかを測る空間が必要です。ここでは全時刻での最大誤差を測る sup 距離を入れ、経路全体が一様に近いことを距離の小ささとして表します。
+
 <a id="def-sto3a-function-space"></a>
 
 <!-- formal-statement-start -->
@@ -70,6 +74,10 @@ $$
 $$
 
 を $C([0,1])$ 値確率変数とみなせます。
+
+実数値確率変数の弱収束では、有界連続関数を通した期待値で分布の収束を捉えます。経路空間でも同じ考え方を使い、今度は実数関数ではなく **経路を入力に取る有界連続汎関数**で分布を試します。
+
+この定義にすると、固定時刻の値だけでなく最大値・積分値など、sup 距離に関して連続な経路汎関数へ極限を運べるようになります。
 
 <a id="def-sto3a-function-weak-convergence"></a>
 
@@ -136,6 +144,10 @@ $$
 
 ## 2. 確率質量を compact set に押し込める
 
+有限個の時刻で分布が収束しても、時刻の間で細かく激しく振動する経路が残っている可能性があります。したがって経路空間で弱収束を得るには、「確率質量が無限に荒い経路へ逃げない」ことを別に制御する必要があります。
+
+その役割を果たすのが、任意に小さい確率だけを外へ捨てれば、残りを一つの compact 集合へ一様に押し込められるという条件です。これにより列から弱収束部分列を取り出すための compactness が確率測度側に移ります。
+
 <a id="def-sto3a-tightness"></a>
 
 <!-- formal-statement-start -->
@@ -176,6 +188,10 @@ $$
 
 と定めます。
 
+経路集合が compact になるには、各経路が個別に連続なだけでは不十分です。経路ごとに連続性の尺度がばらばらなら、列を取ったとき振動が細かくなり続けることがあります。
+
+そこで、出発点 $f(0)$ を一様に抑え、さらに **全ての経路に共通する連続性の尺度**として $\omega_f(\delta)$ を一様に 0 へ近づけます。出発点と共通の増分制御があれば経路全体の値も一様に抑えられ、対角抽出から一様収束部分列を作れます。
+
 <a id="thm-sto3a-compact-modulus"></a>
 
 <!-- formal-statement-start -->
@@ -210,7 +226,28 @@ $$
 
 とします。
 
-条件1と条件2の共通 modulus 条件から、各固定 $r_j$ における値列 $(f_n(r_j))$ は有界です。Bolzano--Weierstrass と対角抽出により、部分列を取り直して
+まず各固定時刻で値が一様有界になることを確認します。条件2から、例えば
+
+$$
+\sup_{f\in K}\omega_f(\delta_0)\le1
+$$
+
+となる $\delta_0>0$ を一つ取れます。任意の $t\in[0,1]$ に対し、$0=t_0<t_1<\cdots<t_N=t$ を各差 $t_\ell-t_{\ell-1}\le\delta_0$ となるように選べば
+
+$$
+\begin{aligned}
+|f(t)|
+&\le
+|f(0)|
++
+\sum_{\ell=1}^{N}
+|f(t_\ell)-f(t_{\ell-1})|\\
+&\le
+R+N.
+\end{aligned}
+$$
+
+$N$ は $\delta_0$ だけで一様に選べるので、特に各固定 $r_j$ で $(f_n(r_j))$ は有界です。そこで Bolzano--Weierstrass と対角抽出により、部分列を取り直して
 
 $$
 f_n(r_j)
@@ -266,6 +303,10 @@ $K$ が閉なら極限も $K$ に属するため compact です。
 ---
 
 ## 3. tightness を modulus で判定する
+
+前節の compactness criterion を確率過程へ使うには、「ほとんどの標本路が同じ compact 集合へ入る」ように $f(0)$ と modulus の条件を確率的に同時達成させればよいことになります。
+
+初期値が大きく外れる確率を小さくし、各精度 $2^{-m}$ で modulus が悪い確率を総和可能に配分します。すると union bound で、全ての modulus 条件を同時に満たす確率を $1-\varepsilon$ 以上にできます。
 
 <a id="thm-sto3a-tightness-modulus"></a>
 
@@ -325,7 +366,36 @@ $$
 
 を考えます。
 
-条件の不等号を $\le$ で書いているので $K$ は閉です。また
+$K$ が閉であることも式から確認します。評価写像 $f\mapsto f(0)$ は 1-Lipschitz です。また任意の $f,g$ について
+
+$$
+\begin{aligned}
+\omega_f(\delta)
+&\le
+\omega_g(\delta)+2\|f-g\|_\infty,\\
+\omega_g(\delta)
+&\le
+\omega_f(\delta)+2\|f-g\|_\infty,
+\end{aligned}
+$$
+
+なので
+
+$$
+|\omega_f(\delta)-\omega_g(\delta)|
+\le
+2\|f-g\|_\infty.
+$$
+
+従って $f\mapsto\omega_f(\delta_m)$ も連続です。よって
+
+$$
+\{|f(0)|\le R\},
+\qquad
+\{\omega_f(\delta_m)\le2^{-m}\}
+$$
+
+はいずれも閉集合であり、その可算共通部分である $K$ も閉です。また
 
 $$
 \sup_{f\in K}\omega_f(\delta_m)\le2^{-m}\to0
@@ -359,6 +429,16 @@ $$
 ---
 
 ## 4. 四次モーメントから tightness を得る
+
+前節の判定条件は modulus の確率を直接評価できれば強力ですが、実際の確率過程では二時刻の増分モーメント
+
+$$
+E|X_n(t)-X_n(s)|^4
+$$
+
+の方が計算しやすいことが多いです。そこで二進格子上で [Markov の不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-markov)を使い、各細分レベルの「大きすぎる隣接増分」の確率を抑えます。
+
+一つの増分だけでなく、そのレベルにある約 $2^m$ 個を同時に抑えても確率和が収束するなら、格子間を chaining して modulus 制御へ変換できます。
 
 <a id="thm-sto3a-kolmogorov-tightness"></a>
 
@@ -437,29 +517,65 @@ $$
 
 $\beta-4\gamma>0$ なので、右辺は $m$ について可算和可能です。
 
-ある $m_0$ 以降の全レベルで $A_{n,m}$ が起きないとします。二進展開を使った chaining により、任意の二進点 $s,t$ で
+ある $m_0$ 以降の全レベルで $A_{n,m}$ が起きないとします。ここで chaining を具体的に書きます。
+
+二進点 $t$ に対し
 
 $$
-|t-s|\le2^{-m_0}
-$$
-
-なら
-
-$$
-|X_n(t)-X_n(s)|
-\le
-C_\gamma 2^{-\gamma m_0}
-$$
-
-と評価できます。実際、各点を一段細かい二進点へ順に移すと、レベル $m$ で必要な増分は高々定数個であり、
-
-$$
-\sum_{m=m_0}^{\infty}2^{-\gamma m}
+\pi_m(t)
 =
-\frac{2^{-\gamma m_0}}{1-2^{-\gamma}}
+2^{-m}\lfloor 2^m t\rfloor
 $$
 
-で抑えられます。
+と置きます。$m$ を細かくすると $\pi_m(t)$ は $t$ へ近づき、$\pi_{m+1}(t)$ は $\pi_m(t)$ と同じ点か、第 $m+1$ 段で右隣の点です。したがって $m\ge m_0$ では
+
+$$
+|X_n(\pi_{m+1}(t))-X_n(\pi_m(t))|
+\le
+2^{-\gamma(m+1)}.
+$$
+
+よって二進点 $t$ について
+
+$$
+|X_n(t)-X_n(\pi_{m_0}(t))|
+\le
+\sum_{m=m_0}^{\infty}
+2^{-\gamma(m+1)}.
+$$
+
+同様の評価が $s$ にも成り立ちます。さらに $|t-s|\le2^{-m_0}$ なら
+$\pi_{m_0}(s)$ と $\pi_{m_0}(t)$ は同一点か隣接する第 $m_0$ 段の点なので
+
+$$
+|X_n(\pi_{m_0}(t))-X_n(\pi_{m_0}(s))|
+\le
+2^{-\gamma m_0}.
+$$
+
+三つを三角不等式で合わせると
+
+$$
+\begin{aligned}
+|X_n(t)-X_n(s)|
+&\le
+2\sum_{m=m_0}^{\infty}2^{-\gamma(m+1)}
++
+2^{-\gamma m_0}\\
+&=
+C_\gamma 2^{-\gamma m_0},
+\end{aligned}
+$$
+
+ただし
+
+$$
+C_\gamma
+=
+1+\frac{2^{1-\gamma}}{1-2^{-\gamma}}
+$$
+
+のような $n,m_0$ に依存しない定数を取れます。
 
 標本路の連続性からこの評価は全ての $s,t$ へ延長できます。
 
@@ -514,6 +630,16 @@ S_0=0
 $$
 
 とします。
+
+中心極限定理が直接扱うのは格子時刻 $k/n$ での部分和です。しかし経路空間 $C([0,1])$ の元として扱うには、格子点の間にも値を持つ連続関数へ変換する必要があります。
+
+そこで点
+
+$$
+\left(\frac{k}{n},\frac{S_k}{\sigma\sqrt n}\right)
+$$
+
+を直線で結びます。時間を $n$ 倍、空間を $\sqrt n$ で規格化することで、各時間区間の分散がブラウン運動と同じ次数になるようにします。
 
 <a id="def-sto3a-polygonal-walk"></a>
 
@@ -573,6 +699,10 @@ $$
 ---
 
 ## 6. 有限次元分布は Brown 運動へ収束する
+
+一時刻 $t$ だけなら [独立同分布中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt)から正規極限が得られます。しかし Brown 運動を特徴付けるには、複数時刻の値の **同時分布**と、互いに素な時間区間の増分が独立であることまで確認する必要があります。
+
+値ベクトルを直接扱うより、各区間の増分へ分解すれば、それぞれが互いに重ならない独立同分布変数の和になります。各増分へ [独立同分布中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt)を適用し、最後に累積和の線形写像で値ベクトルへ戻します。
 
 <a id="prop-sto3a-fdd-convergence"></a>
 
@@ -659,7 +789,7 @@ S_{\lfloor nt_{j-1}\rfloor}
 \xrightarrow{d}N(0,1)
 $$
 
-が [独立同分布 [中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt)](../F0_00P6A_iid_中心極限定理/index.md) から従います。
+が [独立同分布中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt)から従います。
 
 したがって
 
@@ -669,9 +799,47 @@ $$
 N(0,t_j-t_{j-1}).
 $$
 
-独立性が有限 $n$ で成り立つため joint characteristic function は積に分かれ、極限でも増分は互いに独立です。
+独立性が有限 $n$ で成り立つため、増分ベクトルの特性関数は任意の $u_1,\ldots,u_m\in\mathbb R$ に対して
 
-よって増分ベクトルは Brown 運動の増分ベクトルへ収束します。累積和の線形写像を適用すれば値ベクトルの収束が従います。
+$$
+\begin{aligned}
+E\exp\left(
+i\sum_{j=1}^m
+u_j[
+\widetilde W_n(t_j)-\widetilde W_n(t_{j-1})
+]
+\right)
+&=
+\prod_{j=1}^m
+E\exp\left(
+iu_j[
+\widetilde W_n(t_j)-\widetilde W_n(t_{j-1})
+]
+\right).
+\end{aligned}
+$$
+
+各因子は上の一変量収束により
+
+$$
+\exp\left(
+-\frac12u_j^2(t_j-t_{j-1})
+\right)
+$$
+
+へ収束するので、積全体は独立な正規増分ベクトルの特性関数へ収束します。従って増分ベクトルは Brown 運動の増分ベクトルへ収束します。
+
+最後に
+
+$$
+(x_1,\ldots,x_m)
+\longmapsto
+(x_1,x_1+x_2,\ldots,x_1+\cdots+x_m)
+$$
+
+という連続な線形写像を適用すれば、増分ベクトルから値ベクトル
+$(\widetilde W_n(t_1),\ldots,\widetilde W_n(t_m))$
+の収束が従います。
 
 最後に補間誤差を処理します。固定 $t$ に対し
 
@@ -703,7 +871,9 @@ $$
 
 ## 7. bounded increments なら四次モーメントで tightness
 
-まず $|X_1|\le M$ a.s. の場合を扱います。
+前節で有限個の時刻の極限は得ました。残るのは、経路が格子の間で激しく振動しないことを一様に示す仕事です。第4節の判定条件に入れるため、まず増分の四次モーメントを $|t-s|^2$ で抑えます。
+
+一般の有限分散変数では四次モーメントが存在するとは限らないため、最初は $|X_1|\le M$ という有界な場合だけを扱います。後で有界化と [Doob 最大不等式](../STO2/index.md#thm-sto2-doob-maximal)を使って、この制限を外します。
 
 <a id="lem-sto3a-bounded-fourth-increment"></a>
 
@@ -759,7 +929,17 @@ $$
 
 を満たします。
 
-平均0の独立変数の四次モーメント展開から
+四次式を展開すると
+
+$$
+\left(\sum_j a_jY_j\right)^4
+=
+\sum_{i_1,i_2,i_3,i_4}
+a_{i_1}a_{i_2}a_{i_3}a_{i_4}
+Y_{i_1}Y_{i_2}Y_{i_3}Y_{i_4}.
+$$
+
+独立性と $E[Y_j]=0$ により、ある添字が1回だけ現れる項の期待値は 0 です。従って期待値が残るのは、同じ添字が4回現れる項と、二つの添字が2回ずつ現れる項だけです。後者には4個の位置から2個を選ぶ $\binom42=6$ 通りがあるため
 
 $$
 E\left(\sum_ja_jY_j\right)^4
@@ -817,6 +997,8 @@ C_{M,c}(t-s)^2.
 $$
 <!-- proof-end -->
 
+この四次増分評価を作った目的は、直前の Kolmogorov 型判定へ具体的なパラメータを代入することです。ここでは初期値と時間差の指数を一つずつ照合してから結論を出します。
+
 <a id="cor-sto3a-bounded-tightness"></a>
 
 <!-- formal-statement-start -->
@@ -824,7 +1006,25 @@ $$
 > 上の補題の仮定のもとで $\{V_n\}$ は $C([0,1])$ 上で tight である。
 <!-- formal-statement-end -->
 
-四次増分評価に [Kolmogorov 型 tightness criterion](#thm-sto3a-kolmogorov-tightness) を $\beta=1$ で適用すれば直ちに従います。
+補題から
+
+$$
+E|V_n(t)-V_n(s)|^4
+\le
+C_{M,c}|t-s|^2
+=
+C_{M,c}|t-s|^{1+1}
+$$
+
+です。また定義から $V_n(0)=0$ です。したがって [Kolmogorov 型 tightness criterion](#thm-sto3a-kolmogorov-tightness) の仮定で
+
+$$
+C=C_{M,c},
+\qquad
+\beta=1
+$$
+
+と取れます。よって $\{V_n\}$ は $C([0,1])$ 上で tight です。
 
 ---
 
@@ -853,6 +1053,8 @@ $$
 と置きます。
 
 これは bounded で平均0です。
+
+有界化した過程だけで Donsker を証明しても、元の過程へ戻せなければ有限分散版にはなりません。そこでまず、有界化で捨てた tail の二次モーメントが $M\to\infty$ で消えることを確認します。
 
 差を
 
@@ -940,7 +1142,7 @@ $$
 
 とします。平均0独立増分なので $(Q_k^{(M)})_{k\le n}$ は離散時間 martingale です。
 
-polygonal interpolation の各区間では値は二端点の凸結合なので
+polygonal interpolation の各区間では、値は二つの端点を係数 $1-\theta,\theta\in[0,1]$ で線形補間したものなので
 
 $$
 \|W_n-W_n^{(M)}\|_\infty
@@ -949,21 +1151,66 @@ $$
 \max_{0\le k\le n}|Q_k^{(M)}|.
 $$
 
-[Doob 最大不等式](../STO2/index.md#thm-sto2-doob-maximal) を二乗 martingale に適用すると、ある普遍定数 $C$ に対し
+$(Q_k^{(M)})$ は martingale なので、増分
+  $$
+  D_{k+1}^{(M)}
+  :=
+  Q_{k+1}^{(M)}-Q_k^{(M)}
+  $$
+  は
+  $$
+  E[D_{k+1}^{(M)}\mid\mathcal F_k]=0
+  $$
+  を満たします。そこで
+  $$
+  \begin{aligned}
+  E[(Q_{k+1}^{(M)})^2\mid\mathcal F_k]
+  &=
+  E[(Q_k^{(M)}+D_{k+1}^{(M)})^2\mid\mathcal F_k]\\
+  &=
+  (Q_k^{(M)})^2
+  +2Q_k^{(M)}
+  E[D_{k+1}^{(M)}\mid\mathcal F_k]\\
+  &\quad+
+  E[(D_{k+1}^{(M)})^2\mid\mathcal F_k]\\
+  &\ge
+  (Q_k^{(M)})^2.
+  \end{aligned}
+  $$
+
+従って $((Q_k^{(M)})^2)$ は非負劣マルチンゲールです。[Doob 最大不等式](../STO2/index.md#thm-sto2-doob-maximal)をこの過程へ、閾値
 
 $$
+\lambda
+=
+\varepsilon^2\sigma^2 n
+$$
+
+で適用すると
+
+$$
+\begin{aligned}
 P\left(
 \max_{k\le n}|Q_k^{(M)}|
 >
 \varepsilon\sigma\sqrt n
 \right)
-\le
+&=
+P\left(
+\max_{k\le n}(Q_k^{(M)})^2
+>
+\varepsilon^2\sigma^2 n
+\right)\\
+&\le
 \frac{
-C E[(Q_n^{(M)})^2]
+E[(Q_n^{(M)})^2]
 }{
 \varepsilon^2\sigma^2 n
 }.
+\end{aligned}
 $$
+
+したがって以下では普遍定数を余分に置く必要はありません。
 
 独立性と平均0から
 
@@ -980,7 +1227,7 @@ P\left(
 \|W_n-W_n^{(M)}\|_\infty>\varepsilon
 \right)
 \le
-\frac{Cv_M}{\varepsilon^2\sigma^2}.
+\frac{v_M}{\varepsilon^2\sigma^2}.
 $$
 
 右辺は $n$ に依存せず、$M\to\infty$ で0へ行きます。
@@ -989,6 +1236,10 @@ $$
 ---
 
 ## 10. 一般有限分散版の tightness
+
+固定した $M$ では有界化過程 $W_n^{(M)}$ の tightness が分かっています。また前節で、$M$ を大きくすれば元の $W_n$ と $W_n^{(M)}$ を $n$ に一様に近づけられることも分かりました。
+
+そこで「まず $M$ を選んで近似誤差を小さくし、その $M$ を固定したまま $\delta$ を選んで modulus を小さくする」という二段階で、元の過程へ tightness を戻します。$M$ と $\delta$ を同時に動かさないことが量化順序の要点です。
 
 <a id="thm-sto3a-finite-variance-tightness"></a>
 
@@ -1013,7 +1264,19 @@ P\left(
 \frac{\varepsilon}{2}.
 $$
 
-固定した $M$ では $X_i^{(M)}$ は bounded なので、前節の tightness からある $\delta>0$ を選び
+固定した $M$ では $X_i^{(M)}$ は bounded です。したがって第7節の四次増分評価を第4節の Kolmogorov 型判定の証明へ入れたときに得た
+
+$$
+\lim_{\delta\downarrow0}
+\sup_n
+P\left(
+\omega_{W_n^{(M)}}(\delta)>\frac{\eta}{3}
+\right)
+=
+0
+$$
+
+を使えます。ここで $M$ はすでに固定しているので、ある $\delta>0$ を選び
 
 $$
 \sup_n
@@ -1021,8 +1284,10 @@ P\left(
 \omega_{W_n^{(M)}}(\delta)>\frac{\eta}{3}
 \right)
 <
-\frac{\varepsilon}{2}.
+\frac{\varepsilon}{2}
 $$
+
+とできます。
 
 sup norm が $\eta/3$ 以下なら
 
@@ -1058,6 +1323,10 @@ $W_n(0)=0$ なので初期値の tightness は自明です。modulus criterion �
 ---
 
 ## 11. 確率変数の極限を経路全体へ持ち上げる
+
+ここまでで、候補極限が Brown 運動であることを有限個の時刻では確認し、経路の確率法則が compact 集合の外へ逃げないことも示しました。残るのは、この二つを一つの弱収束へ結び付けることです。
+
+tightness から任意の部分列に弱収束部分列を取り、その部分列極限の有限次元分布が Brown 運動と一致することを示します。最後に「連続経路上の確率測度は有限次元分布で一意に決まる」ことを使えば、どの部分列極限も同じ Brownian law になるため列全体の収束が従います。
 
 <a id="thm-sto3a-donsker"></a>
 
@@ -1145,10 +1414,24 @@ $$
 評価写像
 
 $$
-f\mapsto(f(t_1),\ldots,f(t_m))
+E_{t_1,\ldots,t_m}(f)
+=
+(f(t_1),\ldots,f(t_m))
 $$
 
-は sup norm に関して連続なので、continuous mapping theorem により $\mu$ の有限次元分布は $(W_{n_{\ell_r}})$ の有限次元分布の極限です。
+について、$\mathbb R^m$ の通常のノルムを $|\cdot|_2$ とすると
+
+$$
+\begin{aligned}
+|E_{t_1,\ldots,t_m}(f)-E_{t_1,\ldots,t_m}(g)|_2^2
+&=
+\sum_{j=1}^m|f(t_j)-g(t_j)|^2\\
+&\le
+m\|f-g\|_\infty^2.
+\end{aligned}
+$$
+
+従ってこの写像は $\sqrt m$-Lipschitz、特に連続です。continuous mapping theorem をこの写像へ適用すると、$\mu$ の有限次元分布は $(W_{n_{\ell_r}})$ の有限次元分布の極限です。
 
 一方、finite-dimensional convergence theorem によりその極限は
 
@@ -1160,9 +1443,56 @@ $$
 
 従って $\mu$ は Brown 運動と全ての有限次元分布が一致します。
 
-$C([0,1])$ の Borel $\sigma$-代数は評価写像による cylinder sets で生成されるため、連続経路上の確率測度は有限次元分布で一意に決まります。よって $\mu$ は standard Brownian law です。
+ここで「有限次元分布が一致すれば経路上の確率測度が一致する」ことも確認します。有理時刻集合を
 
-任意の部分列からさらに Brownian law へ収束する部分列を取れるので、元の列全体が Brownian law へ収束します。
+$$
+D=\mathbb Q\cap[0,1]
+$$
+
+とし、$\mathcal G=\sigma(e_q:q\in D)$ と置きます。連続関数 $f,g$ について
+
+$$
+\|f-g\|_\infty
+=
+\sup_{q\in D}|f(q)-g(q)|
+$$
+
+なので、固定した $g$ に対する $f\mapsto\|f-g\|_\infty$ は $\mathcal G$-可測です。従って全ての open ball は $\mathcal G$ に属します。
+
+上で $C([0,1])$ が separable であることを確認したので、任意の open set は可算個の open ball の和集合として書けます。よって
+
+$$
+\mathcal B(C([0,1]))
+\subseteq
+\mathcal G.
+$$
+
+逆に各評価写像 $e_q$ は連続なので $\mathcal G\subseteq\mathcal B(C([0,1]))$ です。従って
+
+$$
+\mathcal B(C([0,1]))
+=
+\sigma(e_q:q\in D).
+$$
+
+したがって有理時刻の有限次元 cylinder sets は Borel $\sigma$-代数を生成します。$\mu$ と Brownian law は全ての有限次元分布、特に全ての有理時刻 cylinder の確率が一致するので、$\pi$-$\lambda$ 定理による確率測度の一意性から
+
+$$
+\mu
+=
+\operatorname{Law}(B).
+$$
+
+最後に列全体の収束を確認します。もし $W_n\Rightarrow B$ でなければ、[経路空間上の弱収束](#def-sto3a-function-weak-convergence)の定義から、ある有界連続汎関数 $F$、$\varepsilon>0$ と部分列 $(W_{n_\ell})$ が存在して
+
+$$
+\left|
+E[F(W_{n_\ell})]-E[F(B)]
+\right|
+\ge\varepsilon
+$$
+
+が全ての $\ell$ で成り立ちます。しかしこの部分列からも、上の議論により Brownian law へ弱収束する部分列をさらに取れます。その部分列では左辺が 0 へ行き、矛盾です。従って元の列全体が Brownian law へ収束します。
 
 $$
 W_n\Rightarrow B.
@@ -1754,7 +2084,16 @@ $$
    C_M|t-s|^2.
    $$
 
-5. [Kolmogorov 型 tightness criterion](#thm-sto3a-kolmogorov-tightness) から固定 $M$ の $W_n^{(M)}$ は tight です。したがって任意の $\eta,\varepsilon>0$ に対し、まず $M$ を大きくして tail process を sup norm で $\eta/3$ 以下にし、次に $\delta$ を小さくして truncated process の modulus を $\eta/3$ 以下にします。
+5. 固定 $M$ について、第4節の [Kolmogorov 型 tightness criterion](#thm-sto3a-kolmogorov-tightness) の証明は tightness だけでなく
+   $$
+   \lim_{\delta\downarrow0}
+   \sup_n
+   P\left(
+   \omega_{W_n^{(M)}}(\delta)>\eta/3
+   \right)
+   =0
+   $$
+   を与えます。したがって任意の $\eta,\varepsilon>0$ に対し、まず $M$ を大きくして tail process を sup norm で $\eta/3$ 以下にし、その $M$ を固定した後で $\delta$ を小さくして truncated process の modulus を $\eta/3$ 以下にします。
    $$
    \omega_{W_n}(\delta)
    \le

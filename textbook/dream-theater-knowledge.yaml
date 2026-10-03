@@ -47,6 +47,8 @@ alias_matching:
     - 配分
     - 整合性
     - consistency
+    - 弱収束
+    - weak convergence
     - Green核
     - Green関数
     - グリーン関数
