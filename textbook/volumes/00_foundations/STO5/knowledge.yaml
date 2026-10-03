@@ -5,6 +5,7 @@ prerequisites:
   - STO2
   - STO4
   - RA3
+  - F0-00P6
 
 concepts:
   - id: stochastic.continuous-local-martingale
