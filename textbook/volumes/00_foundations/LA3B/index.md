@@ -1,5 +1,4 @@
-<!-- definition-example-audit: loose -->
-# LA3B 置換の符号・Leibniz公式・行列式の構成
+# LA3B 置換の符号・Leibniz 公式・行列式の構成
 
 $2\times2$ 行列なら
 $$
@@ -9,22 +8,97 @@ $$
 
 そこで順序を逆にします。まず **面積・体積倍率として欲しい性質** を考え、その性質を本当に満たす関数を Leibniz 公式で構成します。
 
+実数上では面積・体積の直感が使えますが、この章の構成は同じ式を複素数上でも使えるよう、最終的には **多重線形性・交代性・正規化** という代数的性質だけで記述します。
+
 ---
 
 ## 1. どんな量が欲しいのか
 
-行列 $A=[c_1\ \cdots\ c_n]$ の列を、$\mathbb F^n$ に置いた $n$ 本のベクトルとみなします。面積・体積の符号付き倍率を表す量 $D(c_1,\dots,c_n)$ には少なくとも次を期待します。
+行列 $A=[c_1\ \cdots\ c_n]$ の列を、$\mathbb F^n$ に置いた $n$ 本のベクトルとみなします。実数上で面積・体積の符号付き倍率を表す量 $D(c_1,\dots,c_n)$ を考えると、少なくとも次を期待します。
 
-1. 1本の列を2倍すれば体積も2倍になる。より一般に各列について線形である。
-2. 2本の列が同じなら体積はつぶれて0になる。
+1. 1本の列を $\alpha$ 倍したり、二つの列ベクトルを足したりしたとき、その列について線形に値が変わる。
+2. 2本の列が同じなら、張られる図形がつぶれるので値は0になる。
 3. 標準基底 $e_1,\dots,e_n$ が作る標準体積は1である。
 
-条件2と多重線形性から、2列を交換すると符号が反転します。実際、2つの位置に $u+v$ を入れた値は0なので展開すると
+条件1は「各引数について別々に線形」という意味で **多重線形**、条件2は **交代的** と呼びます。ここで用語を一度固定します。
+
+<a id="def-la3b-alternating-multilinear"></a>
+<!-- formal-statement-start -->
+> **定義（交代多重線形形式）**  
+> $V$ を $\mathbb F$ 上のベクトル空間とする。写像
 $$
-D(\dots,u,\dots,v,\dots)+D(\dots,v,\dots,u,\dots)=0.
+D:V^n\to\mathbb F
+$$
+> が各引数について線形であり、異なる位置 $p\ne q$ に同じベクトルを入れると
+$$
+D(v_1,\dots,v_p,\dots,v_q,\dots,v_n)=0
+\qquad(v_p=v_q)
+$$
+> となるとき、$D$ を交代多重線形形式という。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-la3b-alternating-multilinear -->
+**定義の確認**：$V=\mathbb R^2$ で
+
+$$
+D_2(u,v)=u_1v_2-u_2v_1
 $$
 
-問題は、これらを同時に満たす関数が一般の $n$ で本当に存在するかです。
+とします。$u,w,v\in\mathbb R^2$ と $\alpha,\beta\in\mathbb R$ に対して
+
+$$
+\begin{aligned}
+D_2(\alpha u+\beta w,v)
+&=(\alpha u_1+\beta w_1)v_2-(\alpha u_2+\beta w_2)v_1\\
+&=\alpha D_2(u,v)+\beta D_2(w,v),
+\end{aligned}
+$$
+
+同様に第2引数についても
+
+$$
+D_2(u,\alpha v+\beta w)
+=\alpha D_2(u,v)+\beta D_2(u,w)
+$$
+
+です。また
+
+$$
+D_2(u,u)=u_1u_2-u_2u_1=0.
+$$
+
+従って $D_2$ は交代2重線形形式です。
+<!-- definition-example-end -->
+
+交代性と多重線形性から、2つの引数を交換すると符号が反転します。位置 $p,q$ に $u+v$ を入れると交代性から値は0です。一方、多重線形性で二つの引数を順に展開すると
+
+$$
+\begin{aligned}
+0
+&=D(\dots,u+v,\dots,u+v,\dots)\\
+&=D(\dots,u,\dots,u,\dots)
+ +D(\dots,u,\dots,v,\dots)\\
+&\quad+D(\dots,v,\dots,u,\dots)
+ +D(\dots,v,\dots,v,\dots).
+\end{aligned}
+$$
+
+第1項と第4項は交代性で0なので
+
+$$
+D(\dots,u,\dots,v,\dots)
+=-D(\dots,v,\dots,u,\dots).
+$$
+
+したがって「2列交換で符号反転」は別の暗記事項ではなく、交代多重線形性から出てきます。
+
+問題は、これらを同時に満たし、さらに
+
+$$
+D(e_1,\dots,e_n)=1
+$$
+
+と正規化された関数が一般の $n$ で本当に存在するかです。
 
 ---
 
@@ -47,7 +121,21 @@ $$
 > を $\sigma$ の符号という。
 <!-- formal-statement-end -->
 
-たとえば $\sigma=(2,3,1)$ なら転倒は $(1,3),(2,3)$ の2個なので $\operatorname{sgn}(\sigma)=1$ です。
+<!-- definition-example-start: def-la3b-permutation-sign -->
+**定義の確認**：$\sigma=(2,3,1)$ なら、位置の組 $(1,3),(2,3)$ について
+
+$
+\sigma(1)=2>1=\sigma(3),\qquad
+\sigma(2)=3>1=\sigma(3)
+$
+
+となるので転倒は2個です。従って
+
+$
+\operatorname{inv}(\sigma)=2,\qquad
+\operatorname{sgn}(\sigma)=(-1)^2=1.
+$
+<!-- definition-example-end -->
 
 <a id="lem-la3b-permutation-sign-product"></a>
 <!-- formal-statement-start -->
