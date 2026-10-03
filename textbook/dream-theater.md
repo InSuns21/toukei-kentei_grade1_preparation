@@ -43,7 +43,7 @@
 8. [LA4 作用素多項式・最小多項式・Jordan 構造](textbook/volumes/00_foundations/LA4/index.md)
 9. [F0-00E1 内積・Gram–Schmidt・QR](textbook/volumes/00_foundations/F0_00E1_内積_Gram_Schmidt_射影_QR/index.md)
 10. [F0-00E2 Cauchy–Schwarz・Bessel・Parseval](textbook/volumes/00_foundations/F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md)
-11. [LA5 複素内積・有限次元随伴・normal operator](textbook/volumes/00_foundations/LA5/index.md)
+11. [LA5 複素内積・有限次元随伴・正規作用素](textbook/volumes/00_foundations/LA5/index.md)
 12. [F0-00F1 スペクトル定理・PSD](textbook/volumes/00_foundations/F0_00F1_固有空間_スペクトル定理_PSD/index.md)
 13. [F0-00F2 SVD・作用素ノルム](textbook/volumes/00_foundations/F0_00F2_SVD_特異値_作用素ノルム/index.md)
 14. [LA6 スペクトル・二次形式・極分解・複素特異値分解](textbook/volumes/00_foundations/LA6/index.md)
