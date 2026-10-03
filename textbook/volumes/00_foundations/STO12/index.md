@@ -84,7 +84,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（ブラウン運動に対する二乗可積分被積分過程空間）**  
-> $T>0$ とし、$B=(B^1,\ldots,B^d)$ を $d$ 次元 standard ブラウン運動、$(\mathcal F_t^B)_{0\le t\le T}$ をその completed natural フィルトレーションとする。
+> $T>0$ とし、$B=(B^1,\ldots,B^d)$ を $d$ 次元標準ブラウン運動、$(\mathcal F_t^B)_{0\le t\le T}$ をその 完備化した自然なフィルトレーションとする。
 >
 > $[0,T]\times\Omega$ 上の $\mathbb R^d$-値 $(\mathcal F_t^B)$-予測可能過程 $H$ で
 >
@@ -98,7 +98,7 @@ $$
 \mathcal H_B^2([0,T])
 $$
 >
-> と書く。norm は
+> と書く。ノルムは
 >
 $$
 \|H\|_{\mathcal H_B^2}^2
@@ -109,7 +109,7 @@ $$
 > とする。
 <!-- formal-statement-end -->
 
-ブラウン運動では $[B^i,B^j]_t=\delta_{ij}t$ なので、STO6 の一般の $L^2(M)$ norm が時間積分へ簡約されています。
+ブラウン運動では $[B^i,B^j]_t=\delta_{ij}t$ なので、STO6 の一般の $L^2(M)$ ノルム が時間積分へ簡約されています。
 
 <!-- definition-example-start: def-sto12-brownian-h2 -->
 ### 直接例：$H_t=B_t$ は $\mathcal H_B^2$ に入る
@@ -121,7 +121,7 @@ $B_t$ は continuous 適合過程なので予測可能です。
 さらに
 
 $$
-E|B_t|^2=dt
+E|B_t|^2=d\,t
 $$
 
 より
@@ -262,7 +262,7 @@ E\int_0^T|2B_s|^2ds
 2dT^2<\infty
 $$
 
-を確認できるため、$H_s=2B_s$ は admissible な被積分過程です。
+を確認できるため、$H_s=2B_s$ は 許容される被積分過程です。
 
 本章の定理は、このように [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)から目で見えるマルチンゲールだけでなく、**任意の** $L^2(\mathcal F_T^B)$ 終端確率変数について同じことができると主張します。
 <!-- definition-example-end -->
@@ -277,7 +277,7 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（ブラウン運動の終端確率積分の値域は閉じている）**  
-> $B$ を $d$ 次元 standard ブラウン運動、$(\mathcal F_t^B)_{0\le t\le T}$ をその completed natural フィルトレーションとし、
+> $B$ を $d$ 次元 standard ブラウン運動、$(\mathcal F_t^B)_{0\le t\le T}$ をその 完備化した自然なフィルトレーションとし、
 >
 $$
 \mathcal K_T
@@ -311,7 +311,7 @@ $$
 
 を与えます。
 
-したがって終端 integrals が $L^2$ で Cauchy なら、integrands 自体も $\mathcal H_B^2$ で Cauchy です。
+したがって終端確率積分が $L^2$ で Cauchy なら、被積分過程自体も $\mathcal H_B^2$ で Cauchy です。
 
 <!-- proof-start -->
 ### 証明
@@ -363,16 +363,16 @@ $$
 
 $Y_n$ の $L^2$ 極限は一意なので、その極限は $I_T(H)\in\mathcal K_T$ です。
 
-従って $\mathcal K_T$ は closed です。
+従って $\mathcal K_T$ は閉です。
 <!-- proof-end -->
 
-この補題により、あとは $\mathcal K_T$ の中に **稠密な test family** が入ることを示せば十分です。
+この補題により、あとは $\mathcal K_T$ の中に **稠密な試験族** が入ることを示せば十分です。
 
 ---
 
 ## 4. 決定論的被積分過程から指数ベクトルを作る
 
-deterministic
+決定論的
 
 $$
 h\in L^2([0,T];\mathbb R^d)
@@ -412,7 +412,7 @@ N\left(
 \right).
 $$
 
-ブラウン運動の成分 $B^1,\ldots,B^d$ は独立であり、それぞれの積分は対応する成分の標本路だけの可測関数なので、これらの確率積分も独立です。従って独立な centered Gaussian の和として
+ブラウン運動の成分 $B^1,\ldots,B^d$ は独立であり、それぞれの積分は対応する成分の標本路だけの可測関数なので、これらの確率積分も独立です。従って独立な平均0のガウス確率変数の和として
 
 $$
 M_t^h
@@ -429,7 +429,7 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（決定論的被積分過程の指数型マルチンゲール）**  
-> $B$ を $d$ 次元 standard ブラウン運動とし、deterministic
+> $B$ を $d$ 次元標準ブラウン運動とし、決定論的
 >
 $$
 h\in L^2([0,T];\mathbb R^d)
@@ -486,7 +486,7 @@ $$
 dZ_t^h=Z_t^h h_t\cdot dB_t.
 $$
 
-残る問題は局所マルチンゲールで終わらず、本当に $L^2$ マルチンゲールであることです。これは deterministic $h$ ならガウス計算で直接閉じます。
+残る問題は局所マルチンゲールで終わらず、本当に $L^2$ マルチンゲールであることです。これは決定論的 $h$ ならガウス計算で直接閉じます。
 
 <!-- proof-start -->
 ### 証明
@@ -612,7 +612,7 @@ Z_T^h-1
 $$
 <!-- proof-end -->
 
-以下では $Z_T^h$ を **ガウス指数族 vector** と略記します。これは新しい確率過程ではなく、稠密性証明で使う test family の記号です。
+以下では $Z_T^h$ を **ガウス指数族** と略記します。これは新しい確率過程ではなく、稠密性証明で使う試験族 の記号です。
 
 ---
 
@@ -755,17 +755,17 @@ $$
 
 ブラウン increments を有限個だけ観測すると、独立な一次元ガウスの直積になります。
 
-一次元で dense な family が分かれば、有限直積でも product family
+一次元で稠密な族 が分かれば、有限直積でも 積型の族
 
 $$
 \prod_{j=1}^m e_{\theta_j}(G_j)
 $$
 
-の線形 span は dense です。
+の線形包は稠密です。
 
 理由を $m=2$ で確認します。
 
-$f\in L^2(\gamma_1\otimes\gamma_2)$ が全ての product
+$f\in L^2(\gamma_1\otimes\gamma_2)$ が全ての積型関数
 
 $$
 u(x_1)v(x_2)
@@ -841,9 +841,9 @@ $$
 \sigma(B_s:0\le s\le t)\vee\mathcal N
 $$
 >
-> をその completed natural フィルトレーションとする。
+> をその 完備化した自然なフィルトレーションとする。
 >
-> deterministic
+> 決定論的
 >
 $$
 h\in L^2([0,T];\mathbb R^d)
@@ -866,7 +866,7 @@ $$
 L^2(\mathcal F_T^B)
 $$
 >
-> で dense である。
+> で稠密である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -887,7 +887,7 @@ $Z\in L^2(\mathcal F_T^B)$ が全ての $Z_T^h$ と直交すると仮定しま�
 $$
 E[ZZ_T^h]=0
 \qquad
-\text{for every deterministic }h\in L^2([0,T];\mathbb R^d).
+\text{全ての決定論的 }h\in L^2([0,T];\mathbb R^d).
 $$
 
 $n\ge1$ に対して dyadic times
@@ -931,9 +931,9 @@ $$
 N\left(0,\frac{T}{2^n}\right).
 $$
 
-従って $\mathcal G_n$ は有限個の独立ガウス variables が生成する $\sigma$ 代数です。
+従って $\mathcal G_n$ は有限個の独立ガウス確率変数 が生成する $\sigma$ 代数です。
 
-次に区間ごとに定数な deterministic $h$ を取ります。
+次に区間ごとに定数な決定論的 $h$ を取ります。
 
 $$
 h_t^j
@@ -962,7 +962,7 @@ $$
 \theta_{k,j}^2\frac{T}{2^n}.
 $$
 
-従って $Z_T^h$ は前節で扱った一次元ガウス指数族の有限 product そのものです。
+従って $Z_T^h$ は前節で扱った一次元ガウス指数族の有限積そのものです。
 
 条件付き期待値
 
@@ -974,7 +974,7 @@ $$
 
 を取ります。
 
-任意の $\mathcal G_n$-measurable 指数型 product $V$ は、上の形のある $Z_T^h$ と一致するので
+任意の $\mathcal G_n$-可測な指数型積 $V$ は、上の形のある $Z_T^h$ と一致するので
 
 $$
 \begin{aligned}
@@ -988,7 +988,7 @@ E[ZV]\\
 \end{aligned}
 $$
 
-有限独立ガウスにおける product 指数型 family の全体性から
+有限独立ガウスにおける 積型指数族 の全体性から
 
 $$
 Y_n=0
@@ -1032,7 +1032,7 @@ $$
 
 です。
 
-従って指数型 vectors の直交補は $\{0\}$ であり、その線形 span は $L^2(\mathcal F_T^B)$ で dense です。
+従って指数型族の直交補は $\{0\}$ であり、その線形包は $L^2(\mathcal F_T^B)$ で dense です。
 <!-- proof-end -->
 
 ここが本章で最も長い論証です。
@@ -1049,7 +1049,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（ブラウン運動のマルチンゲール表現定理）**  
-> $B$ を $d$ 次元 standard ブラウン運動、$(\mathcal F_t^B)_{0\le t\le T}$ をその completed natural フィルトレーションとする。
+> $B$ を $d$ 次元 standard ブラウン運動、$(\mathcal F_t^B)_{0\le t\le T}$ をその 完備化した自然なフィルトレーションとする。
 >
 > 任意の
 >
@@ -1082,13 +1082,13 @@ $$
 
 ### 証明の見取り図
 
-1. 終端 stochastic integrals の値域 $\mathcal K_T$ は closed。
-2. 指数型 vectors の span は $L^2$ で dense。
+1. 終端確率積分の値域 $\mathcal K_T$ は閉。
+2. 指数型族の線形包は $L^2$ で稠密。
 3. 各指数ベクトルについて
    $$
    Z_T^h-1\in\mathcal K_T.
    $$
-4. centered variable を指数型 vectors で近似し、各近似から平均を引けば $\mathcal K_T$ 内の近似になる。
+4. 平均0の確率変数を指数型族で近似し、各近似から平均を引けば $\mathcal K_T$ 内の近似になる。
 5. closedness で極限を $\mathcal K_T$ に戻す。
 6. 一意性は [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple)。
 
@@ -1105,7 +1105,7 @@ $$
 
 と置きます。
 
-[ガウス指数族 vectors の全体性](#lem-sto12-exponential-totality) により、各 $n$ について有限個の deterministic integrands $h_{n,1},\ldots,h_{n,m_n}$ と実数係数 $a_{n,1},\ldots,a_{n,m_n}$ を選んで
+[ガウス指数族 vectors の全体性](#lem-sto12-exponential-totality) により、各 $n$ について有限個の決定論的被積分関数 $h_{n,1},\ldots,h_{n,m_n}$ と実数係数 $a_{n,1},\ldots,a_{n,m_n}$ を選んで
 
 $$
 Y_n
@@ -1189,7 +1189,7 @@ $$
 \end{aligned}
 $$
 
-[閉値域 lemma](#lem-sto12-closed-range) により $\mathcal K_T$ は closed なので
+[閉値域補題](#lem-sto12-closed-range) により $\mathcal K_T$ は closed なので
 
 $$
 \xi_0\in\mathcal K_T.
@@ -1246,12 +1246,12 @@ $$
 $$
 \text{閉値域}
 +
-\text{explicit dense family}
+\text{明示的な稠密族}
 $$
 
 で存在を出しています。
 
-これは functional analysis 的ですが、必要な部分は [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) とガウス指数族の稠密性まで章内で展開しました。
+これは関数解析的な議論ですが、必要な部分は [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) とガウス指数族の稠密性まで章内で展開しました。
 
 ---
 
@@ -1261,7 +1261,7 @@ $$
 
 <!-- formal-statement-start -->
 > **系（条件付き期待値過程の表現）**  
-> $B$ を $d$ 次元 standard ブラウン運動、$(\mathcal F_t^B)_{0\le t\le T}$ をその completed natural フィルトレーションとする。
+> $B$ を $d$ 次元 standard ブラウン運動、$(\mathcal F_t^B)_{0\le t\le T}$ をその 完備化した自然なフィルトレーションとする。
 >
 > $\xi\in L^2(\mathcal F_T^B)$ とし、[ブラウン運動のマルチンゲール表現定理](#thm-sto12-martingale-representation) により一意に定まる $H\in\mathcal H_B^2([0,T])$、すなわち
 >
@@ -1285,7 +1285,7 @@ E[\xi]
 }
 $$
 >
-> a.s. である。右辺は continuous version を与える。
+> a.s. である。右辺は連続版を与える。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1341,7 +1341,7 @@ E[\xi]
 \int_0^tH_s\cdot dB_s.
 $$
 
-右辺は continuous 確率積分なので、条件付き期待値過程の continuous version になっています。
+右辺は連続な確率積分なので、条件付き期待値過程の連続版 になっています。
 <!-- proof-end -->
 
 ブラウン運動のフィルトレーション上では「終端ペイオフの条件付き期待値」という抽象的なマルチンゲールが、実際にブラウン雑音の逐次積分へ変換されます。
@@ -1354,7 +1354,7 @@ $$
 
 <!-- formal-statement-start -->
 > **系（ブラウン運動のフィルトレーションの予測可能表現性）**  
-> $B$ の completed natural フィルトレーション $(\mathcal F_t^B)$ は、$B$ に関する予測可能表現性を持つ。
+> $B$ の 完備化した自然なフィルトレーション $(\mathcal F_t^B)$ は、$B$ に関する予測可能表現性を持つ。
 >
 > すなわち任意の二乗可積分 $(\mathcal F_t^B)$-マルチンゲール $M$ に対し、一意な $H\in\mathcal H_B^2([0,T])$ が存在して
 >
@@ -1416,7 +1416,7 @@ M_t
 M_0+\int_0^tH_s\cdot dB_s.
 $$
 
-被積分過程の一意性は終端 time $T$ での [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) から従います。
+被積分過程の一意性は終端時刻 $T$ での [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) から従います。
 <!-- proof-end -->
 
 ---
@@ -1492,7 +1492,7 @@ $$
 
 を考えます。
 
-$0\le t<T$ では future increment が independent なので
+$0\le t<T$ では 将来増分が過去と独立なので
 
 $$
 \begin{aligned}
@@ -1652,7 +1652,7 @@ E\int_0^T H_t^2dt
 <\infty.
 $$
 
-したがって pointwise な係数が大きくなることだけを見て integrability を否定してはいけません。
+したがって 点ごとの係数が大きくなることだけを見て 可積分性を否定してはいけません。
 
 ---
 
@@ -1865,7 +1865,7 @@ $$
 
 が証明の骨格です。
 
-$\xi\in L^1$ だけなら同じ Hilbert / isometry argument は使えません。
+$\xi\in L^1$ だけなら同じ Hilbert 空間と等長性による議論 は使えません。
 
 局所マルチンゲール表現などへ拡張するには localization が必要です。
 
@@ -1873,7 +1873,7 @@ $\xi\in L^1$ だけなら同じ Hilbert / isometry argument は使えません�
 
 前節の独立ブラウン運動 $C$ が具体的な反例です。
 
-指数型 vectors $Z_T^h$ は $B$ の情報しか見ないので、$C_T$ のような追加情報を dense に近似できません。
+指数型族 $Z_T^h$ は $B$ の情報しか見ないので、$C_T$ のような追加情報を 稠密に近似できません。
 
 壊れる箇所は全体性 lemma です。
 
@@ -1881,7 +1881,7 @@ $\xi\in L^1$ だけなら同じ Hilbert / isometry argument は使えません�
 
 零集合による完備化は $P$-null sets とその部分集合を追加します。
 
-$L^2$ random variables は almost surely 同じもので扱うので、raw ブラウン運動のフィルトレーションと completed natural フィルトレーションの違いは表現の a.s. statement を変えません。
+$L^2$ 確率変数 は almost surely 同じもので扱うので、完備化前のブラウン運動のフィルトレーションと 完備化した自然なフィルトレーションの違いは表現の a.s. の主張 を変えません。
 
 ### 16.4 Clark--Ocone は存在定理より強い
 
@@ -2138,7 +2138,7 @@ $$
 
 は各 $t$ で a.s. 一意です。
 
-さらに右辺は continuous version なので、有理時刻上の a.s. 一致と標本路の連続性から全時刻で indistinguishable です。
+さらに右辺は 連続版 なので、有理時刻上の a.s. 一致と標本路の連続性から全時刻で 区別不能 です。
 <!-- solution-end -->
 
 #### STO12-A04 被積分過程の一意性
@@ -2369,7 +2369,7 @@ $$
 2. 全ての moment $\int x^k\nu(dx)$ が 0 であることを示せ。
 3. $\int e^{itx}\nu(dx)=0$ を示せ。
 4. [特性関数の一意性](../F0_00P6_特性関数_中心極限定理/index.md#thm-f0-00p6-uniqueness) から $g=0$ a.e. を導け。
-5. この結果から独立ガウス variables の有限直積でも product 指数型 family が total になる理由を説明せよ。
+5. この結果から独立ガウス確率変数 の有限直積でも 積型指数族 が total になる理由を説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -2456,7 +2456,7 @@ $$
 
 です。
 
-5. 二変数では、product family 全体に直交する $f(x_1,x_2)$ を仮定します。
+5. 二変数では、積型の族 全体に直交する $f(x_1,x_2)$ を仮定します。
 
 第二変数の指数型 $v(x_2)$ を一つ固定して
 
@@ -2470,7 +2470,7 @@ $$
 
 第一変数の全指数型と直交するので 4 から $g_v=0$ です。
 
-第二変数側で countable dense subset を取り、[Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02) を使えば、a.e. $x_1$ に対し $f(x_1,\cdot)$ が第二変数の dense family 全体に直交すると分かります。
+第二変数側で 可算な稠密部分集合 を取り、[Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02) を使えば、a.e. $x_1$ に対し $f(x_1,\cdot)$ が第二変数の 稠密族 全体に直交すると分かります。
 
 再び 4 により $f=0$ a.e.
 
@@ -2604,7 +2604,7 @@ $$
 
 1. integrating factor $e^{\alpha t}$ を使います。
 
-有限 variation 過程との product rule により
+有限変動過程との 積の公式 により
 
 $$
 d(e^{\alpha t}X_t)
@@ -2654,7 +2654,7 @@ $$
 
 後半は $\mathcal F_t^B$ と独立で平均 0 です。
 
-その variance は [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) により
+その 分散は [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) により
 
 $$
 \begin{aligned}
@@ -2837,9 +2837,9 @@ $$
 核心は
 
 1. [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) による確率積分の閉値域
-2. deterministic 指数型マルチンゲール
+2. 決定論的指数型マルチンゲール
 3. 一次元ガウス指数族の全体性
-4. 独立ガウス product への拡張
+4. 独立ガウスの積型族への拡張
 5. dyadic ブラウン information と Lévy 上昇定理
 6. closedness による極限回収
 
