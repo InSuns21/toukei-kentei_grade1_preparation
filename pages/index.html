@@ -709,8 +709,9 @@
   </script>
   <!--
     Protect TeX in raw Markdown before Docsify parses it, then render the
-    protected placeholders with KaTeX after each route is mounted. This avoids
-    Markdown consuming matrix row separators (\\) and other TeX backslashes.
+    protected placeholders with KaTeX before each route is mounted. This avoids
+    Markdown consuming matrix row separators (\\) and other TeX backslashes
+    without exposing an intermediate unrendered-math state.
   -->
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/docsify.min.js"></script>
