@@ -19,7 +19,7 @@ concepts:
   - id: geometry.coordinate-chart
     name: 座標近傍・座標写像
     kind: definition
-    aliases: [座標近傍, 多様体の座標写像, coordinate chart]
+    aliases: [座標近傍, 座標写像, coordinate chart]
     requires: [geometry.topological-manifold, topology.homeomorphism]
 
   - id: geometry.atlas
