@@ -120,7 +120,7 @@ $$
 
 <a id="def-fld0-span-over-field"></a>
 <!-- formal-statement-start -->
-> **定義（$F$-線形結合と $F$-線形包）**
+> **定義（体上の線形結合・線形包）**
 >
 > $V$ を $F$-ベクトル空間、$S\subseteq V$ とする。$S$ から有限個 $v_1,\dots,v_k$ を選び、$a_1,\dots,a_k\in F$ として作る
 >
@@ -139,7 +139,7 @@ $$
 
 <a id="def-fld0-basis-dimension-over-field"></a>
 <!-- formal-statement-start -->
-> **定義（$F$ 上の一次独立・基底・次元）**
+> **定義（体上の一次独立・基底・次元）**
 >
 > $S\subseteq V$ が **$F$ 上一次独立**であるとは、相異なる有限個 $v_1,\dots,v_k\in S$ と $a_1,\dots,a_k\in F$ に対して
 >
@@ -505,7 +505,7 @@ $$
 
 <a id="def-fld0-linear-map-over-field"></a>
 <!-- formal-statement-start -->
-> **定義（$F$-線形写像）**
+> **定義（体上の線形写像）**
 >
 > $V,W$ を $F$-ベクトル空間とする。写像
 >
@@ -1215,7 +1215,7 @@ $$
 x=2v_1-v_2+3v_3
 $$
 
-という記法を使える体 $F$ を考える。ただし標数によって $2,3,-1$ が同じ元になる可能性も含める。
+という記法を使える体 $F$ を考える。ただし体によっては $2,3,-1$ が同じ元を表す場合もある。
 
 1. $[x]_{\mathcal B}$ を書け。
 2. $F=\mathbb F_3$ の場合に座標を簡約せよ。
