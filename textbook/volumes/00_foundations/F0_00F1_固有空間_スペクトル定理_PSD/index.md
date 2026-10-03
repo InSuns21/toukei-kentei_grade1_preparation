@@ -1253,7 +1253,7 @@ A^{1/2}
 Q\operatorname{diag}(\sqrt3,1,2)Q^{\mathsf T}.
 $$
 
-左上の $2\times2$ 部分だけ計算すると
+左上の $2\times2$ 部分は行列積を順に書くと
 $$
 \frac12
 \begin{pmatrix}
