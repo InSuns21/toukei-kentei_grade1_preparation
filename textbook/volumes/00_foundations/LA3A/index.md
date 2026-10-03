@@ -14,7 +14,7 @@ $$
 
 この章では、まず具体的な測定器を触り、そこから
 
-> 線形形式 → 代数的双対 → 双対基底 → 零化空間 → 双対写像 → 二重双対
+> 線形形式 → 代数的双対 → 双対基底 → 零化空間→ 双対写像 → 二重双対
 
 を組み立てます。定義を覚えることではなく、**「何を測っているのか」「なぜ反対向きの写像が出るのか」**を追うのが目的です。
 
@@ -255,7 +255,7 @@ W=\{(x,y,z):x+2y-z=0\}
 $$
 を考えます。$W$ の全てのベクトルに対して0を返す線形形式は、$W$ を「方程式側」から記述しています。
 
-<a id="def-la3a-annihilator"></a>
+<a id="def-la3a-零化空間"></a>
 <!-- formal-statement-start -->
 > **定義（零化空間）**  
 > 部分空間 $W\subset V$ に対して
@@ -265,7 +265,7 @@ $$
 > を $W$ の **零化空間（annihilator）** という。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-la3a-annihilator -->
+<!-- definition-example-start: def-la3a-零化空間 -->
 **定義の確認**：$W=\operatorname{span}(e_1,e_2)\subset\mathbb R^3$ とします。標準双対基底 $e^1,e^2,e^3$ を使うと、一般の線形形式は
 
 $
@@ -288,7 +288,7 @@ $
 
 $W$ を消す線形形式が何個独立にあるかは、「$W$ の基底を $V$ の基底まで延長したとき、追加した方向が何個あるか」で数えられます。双対基底を使うと、その対応がそのまま式になります。
 
-<a id="thm-la3a-annihilator-dimension"></a>
+<a id="thm-la3a-零化空間-dimension"></a>
 <!-- formal-statement-start -->
 > **定理（零化空間の次元公式）**  
 > $V$ を有限次元、$W\subset V$ を部分空間とすると
@@ -335,7 +335,7 @@ $$
 
 商空間 $V/W$ では $v$ と $v+w$（$w\in W$）を同じ点とみなします。したがって $V/W$ 上の線形形式を $V$ へ戻すと、$W$ の方向は必ず0にならなければなりません。
 
-<a id="thm-la3a-quotient-dual-annihilator"></a>
+<a id="thm-la3a-quotient-dual-零化空間"></a>
 <!-- formal-statement-start -->
 > **定理（商空間の双対と零化空間）**  
 > $V$ をベクトル空間、$W\subset V$ を部分空間とし、$q:V\to V/W$, $q(v)=v+W$ を標準射影とする。このとき
@@ -416,6 +416,30 @@ $$
 > を双対写像という。
 <!-- formal-statement-end -->
 
+前節の $\Phi_q$ は、ここで $T=q$ としたときの双対写像 $q^*$ を、値域を $W^\circ$ に制限して見たものです。したがって商空間と零化空間の同型は、双対写像が「測定器を手前へ引き戻す」ことの最初の具体例でもあります。
+
+<!-- definition-example-start: def-la3a-dual-map -->
+**定義の確認**：$T:\mathbb R^2\to\mathbb R^2$ を
+
+$
+T(x,y)=(x+y,y)
+$
+
+とし、$\psi(u,v)=2u-v$ とします。このとき
+
+$
+\begin{aligned}
+(T^*\psi)(x,y)
+&=\psi(T(x,y))\\
+&=\psi(x+y,y)\\
+&=2(x+y)-y\\
+&=2x+y.
+\end{aligned}
+$
+
+つまり出力側の測定器 $\psi$ を $T$ の前へ合成すると、入力側の線形形式 $2x+y$ が得られます。
+<!-- definition-example-end -->
+
 ここで向きが
 $$
 V\xrightarrow{T}W
@@ -438,13 +462,15 @@ T^*f^i=\sum_jA_{ij}e^j.
 $$
 よって $T^*$ の表現行列は $A^{\mathsf T}$ です。
 
-### 核と像は annihilator でつながる
+### 核と像は零化空間でつながる
 
-双対写像と annihilator は別々の定義ではなく、核と像を通じて直接つながります。
+双対写像の核は「像を全部0と測る測定器」、双対写像の像は「核を全部0と測る測定器」になるはずです。前者は定義を直接ほどけば確認でき、後者はまず包含を示した後、有限次元性を使って両辺の次元が一致することから等号へ進めます。
+
+双対写像と 零化空間は別々の定義ではなく、核と像を通じて直接つながります。
 
 <a id="thm-la3a-dual-map-kernel-image"></a>
 <!-- formal-statement-start -->
-> **定理（双対写像の核・像と annihilator）**  
+> **定理（双対写像の核・像と 零化空間）**  
 > $V,W$ を有限次元ベクトル空間、$T:V\to W$ を線形写像とする。このとき
 
 $$
@@ -484,17 +510,39 @@ $$
 $$
 \operatorname{im}T^*\subset(\ker T)^\circ.
 $$
-ここで最初の等式と [annihilator の次元公式](#thm-la3a-annihilator-dimension)を使うと
+ここで $T^*:W^*\to V^*$ に [階数・退化次数の定理](../F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md#thm-f0-00f-01)を適用すると
+
+$$
+\dim\operatorname{im}T^*
+=\dim W^*-\dim\ker T^*.
+$$
+
+[双対基底定理](#thm-la3a-dual-basis)より $\dim W^*=\dim W$ です。また、すでに示した
+
+$$
+\ker T^*=(\operatorname{im}T)^\circ
+$$
+
+と [零化空間の次元公式](#thm-la3a-annihilator-dimension)から
+
+$$
+\dim(\operatorname{im}T)^\circ
+=\dim W-\dim\operatorname{im}T.
+$$
+
+従って
+
 $$
 \begin{aligned}
 \dim\operatorname{im}T^*
-&=\dim W^*-\dim\ker T^*\\
-&=\dim W-\dim(\operatorname{im}T)^\circ\\
-&=\dim\operatorname{im}T
-=\operatorname{rank}T.
+&=\dim W-\{\dim W-\dim\operatorname{im}T\}\\
+&=\dim\operatorname{im}T\\
+&=\operatorname{rank}T.
 \end{aligned}
 $$
-一方、rank-nullity と [annihilator の次元公式](#thm-la3a-annihilator-dimension)から
+
+一方、$T:V\to W$ に [階数・退化次数の定理](../F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md#thm-f0-00f-01)を適用し、さらに [零化空間の次元公式](#thm-la3a-annihilator-dimension)を使うと
+
 $$
 \dim(\ker T)^\circ
 =\dim V-\dim\ker T
@@ -507,7 +555,7 @@ $$
 同時に $\operatorname{rank}T^*=\operatorname{rank}T$ も得られました。$\square$
 <!-- proof-end -->
 
-ここでは内積を使っていません。したがって複素数上でも **共役転置ではなく単なる転置** が現れます。共役転置が出るのは LA5 の内積・随伴です。
+ここで使ったのは線形性と双対基底だけで、複素共役を伴う構造は導入していません。したがって複素数上でも、双対写像の表現行列に現れるのは **共役転置ではなく単なる転置** です。
 
 ---
 
@@ -615,7 +663,7 @@ $$
 実際に $v^i(v_j)=\delta_{ij}$ を確認できます。
 <!-- solution-end -->
 
-### LA3A-A02 annihilator
+### LA3A-A02 零化空間
 
 $$
 W=\{(x,y,z):x+y+z=0\}\subset\mathbb R^3
@@ -627,7 +675,7 @@ $$
 $$
 \operatorname{span}(\varphi)\subset W^\circ.
 $$
-[annihilator の次元公式](#thm-la3a-annihilator-dimension)より $\dim W=2$ なら $\dim W^\circ=1$。従って
+[零化空間の次元公式](#thm-la3a-零化空間-dimension)より $\dim W=2$ なら $\dim W^\circ=1$。従って
 $$
 W^\circ=\operatorname{span}(\varphi).
 $$
@@ -639,10 +687,10 @@ $\varphi\in V^*$ が $V/W$ 上の線形形式へ降りる、すなわち
 $$
 \widetilde\varphi(v+W)=\varphi(v)
 $$
-が well-defined になるための必要十分条件が $\varphi\in W^\circ$ であることを示せ。
+が 良定義 になるための必要十分条件が $\varphi\in W^\circ$ であることを示せ。
 
 <!-- solution-start -->
-**解答**：十分性は本文で示した通りです。逆に $\widetilde\varphi$ が well-defined なら、任意の $w\in W$ について
+**解答**：十分性は本文で示した通りです。逆に $\widetilde\varphi$ が 良定義 なら、任意の $w\in W$ について
 $$
 0+W=w+W
 $$
@@ -794,9 +842,9 @@ $$
 すなわち同じく $b=a+c$。従って両者は一致します。
 <!-- solution-end -->
 
-### LA3A-C01 二重 annihilator
+### LA3A-C01 二重 零化空間
 
-$V$ を有限次元ベクトル空間、$W\subset V$ を部分空間とする。$W^\circ\subset V^*$ の annihilator を
+$V$ を有限次元ベクトル空間、$W\subset V$ を部分空間とする。$W^\circ\subset V^*$ の 零化空間を
 $$
 (W^\circ)^\circ
 =\{F\in V^{**}:F(\varphi)=0\ \text{for all }\varphi\in W^\circ\}
@@ -820,7 +868,7 @@ $$
 $$
 \dim J(W)=\dim W.
 $$
-また $\dim V^*=\dim V=n$ と [annihilator の次元公式](#thm-la3a-annihilator-dimension)から
+また $\dim V^*=\dim V=n$ と [零化空間の次元公式](#thm-la3a-零化空間-dimension)から
 $$
 \dim W^\circ=n-\dim W.
 $$
