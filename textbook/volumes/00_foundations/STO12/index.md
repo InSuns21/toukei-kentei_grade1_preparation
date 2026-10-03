@@ -66,13 +66,27 @@ Clark--Ocone 公式は Malliavin 解析を必要とするため、本章には�
 
 ## 1. ブラウン運動に関する確率積分の入力空間
 
-STO6 の $L^2$ 確率積分をブラウン運動へ特殊化します。
+STO6 では、被積分過程 $H$ を与えればブラウン確率積分を作れました。ここで逆向きの「どの終端確率変数まで積分で表せるか」を問うには、まず **被積分過程をどの空間から選ぶか** を固定する必要があります。
+
+終端積分を $L^2$ で扱いたいので、Itô 等長性
+
+$$
+E\left|
+\int_0^T H_t\cdot dB_t
+\right|^2
+=
+E\int_0^T|H_t|^2dt
+$$
+
+の右辺が有限になる予測可能過程を入力空間にします。さらに後で Cauchy 列の極限を取るため、この二乗平均をそのままノルムとして使います。
 
 <a id="def-sto12-brownian-h2"></a>
 
 <!-- formal-statement-start -->
 > **定義（ブラウン運動に対する二乗可積分被積分過程空間）**  
-> $[0,T]\times\Omega$ 上の $\mathbb R^d$-値予測可能過程 $H$ で
+> $T>0$ とし、$B=(B^1,\ldots,B^d)$ を $d$ 次元 standard ブラウン運動、$(\mathcal F_t^B)_{0\le t\le T}$ をその completed natural フィルトレーションとする。
+>
+> $[0,T]\times\Omega$ 上の $\mathbb R^d$-値 $(\mathcal F_t^B)$-予測可能過程 $H$ で
 >
 $$
 E\int_0^T |H_t|^2dt<\infty
@@ -164,17 +178,29 @@ $$
 
 が成り立ちます。
 
-つまり $I_T$ は $\mathcal H_B^2$ から centered $L^2$ 空間への isometry です。
+つまり $I_T$ は $\mathcal H_B^2$ から平均 0 の $L^2$ 空間への等長写像です。
 
 ---
 
 ## 2. 表現とは何を要求するのか
 
+確率積分で作った過程がマルチンゲールになることは STO6 で分かっています。しかし逆向きに「全てのマルチンゲールがブラウン積分か」を言うには、**対象とするフィルトレーションの全ての二乗可積分マルチンゲール**を漏れなく表せることを要求しなければなりません。
+
+このとき被積分過程は、そのフィルトレーションで予測可能である必要があります。また同じマルチンゲールに二つの被積分過程が対応しては表現が一意に定まらないので、$dt\otimes dP$-a.e. の一意性も含めます。
+
 <a id="def-sto12-prp"></a>
 
 <!-- formal-statement-start -->
 > **定義（予測可能表現性）**  
-> フィルトレーション付き確率空間上の $d$ 次元ブラウン運動 $B$ がフィルトレーション $(\mathcal F_t)$ に関して **予測可能表現性** を持つとは、任意の二乗可積分 $(\mathcal F_t)$-マルチンゲール $M$ に対し、予測可能過程 $H$ が存在して
+> $T>0$ とし、フィルトレーション付き確率空間
+>
+$$
+(\Omega,\mathcal F,(\mathcal F_t)_{0\le t\le T},P)
+$$
+>
+> 上の $d$ 次元ブラウン運動 $B$ を考える。
+>
+> $B$ が $(\mathcal F_t)$ に関して **予測可能表現性** を持つとは、任意の二乗可積分 $(\mathcal F_t)$-マルチンゲール $M$ に対し、$(\mathcal F_t)$-予測可能な $\mathbb R^d$-値過程 $H$ が存在して
 >
 $$
 E\int_0^T|H_t|^2dt<\infty
@@ -200,7 +226,7 @@ $$
 以下では予測可能表現性を **PRP** と略記します。
 
 <!-- definition-example-start: def-sto12-prp -->
-### 直接例：$|B_t|^2-dt$ はすでに表現を持つ
+### 直接例：$|B_t|^2-d\,t$ はすでに表現を持つ
 
 **定義の確認**
 
@@ -215,7 +241,7 @@ $$
 従って
 
 $$
-M_t:=|B_t|^2-dt
+M_t:=|B_t|^2-d\,t
 $$
 
 は
@@ -245,8 +271,14 @@ $$
 
 ## 3. 最初の鍵：終端確率積分の値域は閉じている
 
-まず
+終端時刻 $T$ で確率積分として得られる確率変数全体を、次の補題の中で $\mathcal K_T$ と定めます。
 
+<a id="lem-sto12-closed-range"></a>
+
+<!-- formal-statement-start -->
+> **補題（ブラウン運動の終端確率積分の値域は閉じている）**  
+> $B$ を $d$ 次元 standard ブラウン運動、$(\mathcal F_t^B)_{0\le t\le T}$ をその completed natural フィルトレーションとし、
+>
 $$
 \mathcal K_T
 :=
@@ -255,14 +287,8 @@ $$
 H\in\mathcal H_B^2([0,T])
 \right\}
 $$
-
-と置きます。
-
-<a id="lem-sto12-closed-range"></a>
-
-<!-- formal-statement-start -->
-> **補題（ブラウン運動の終端確率積分の値域は閉じている）**  
-> $\mathcal K_T$ は centered space
+>
+> と置く。また
 >
 $$
 L_0^2(\mathcal F_T^B)
@@ -270,7 +296,7 @@ L_0^2(\mathcal F_T^B)
 \{Y\in L^2(\mathcal F_T^B):E[Y]=0\}
 $$
 >
-> の closed linear subspace である。
+> とする。このとき $\mathcal K_T$ は $L_0^2(\mathcal F_T^B)$ の閉線形部分空間である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -366,24 +392,65 @@ $$
 
 と置きます。
 
-STO6 の deterministic ブラウン integral のガウス性を各成分へ適用すると
+$h=(h^1,\ldots,h^d)$ と成分表示すると
 
 $$
-M_t^h\sim N(0,q_t).
+M_t^h
+=
+\sum_{i=1}^d
+\int_0^t h_s^i\,dB_s^i.
+$$
+
+各 $i$ について、[決定論的ブラウン積分のガウス性](../STO6/index.md#prop-sto6-deterministic-gaussian) を $h^i1_{[0,t]}$ に適用すると
+
+$$
+\int_0^t h_s^i\,dB_s^i
+\sim
+N\left(
+0,
+\int_0^t|h_s^i|^2ds
+\right).
+$$
+
+ブラウン運動の成分 $B^1,\ldots,B^d$ は独立であり、それぞれの積分は対応する成分の標本路だけの可測関数なので、これらの確率積分も独立です。従って独立な centered Gaussian の和として
+
+$$
+M_t^h
+\sim
+N\left(
+0,
+\sum_{i=1}^d\int_0^t|h_s^i|^2ds
+\right)
+=
+N(0,q_t).
 $$
 
 <a id="lem-sto12-exponential-vector"></a>
 
 <!-- formal-statement-start -->
 > **補題（決定論的被積分過程の指数型マルチンゲール）**  
-> deterministic $h\in L^2([0,T];\mathbb R^d)$ に対し
+> $B$ を $d$ 次元 standard ブラウン運動とし、deterministic
+>
+$$
+h\in L^2([0,T];\mathbb R^d)
+$$
+>
+> を取る。各 $0\le t\le T$ について
+>
+$$
+q_t
+:=
+\int_0^t|h_s|^2ds,
+$$
+>
+> および
 >
 $$
 Z_t^h
 :=
 \exp\left(
 \int_0^t h_s\cdot dB_s
--\frac12\int_0^t|h_s|^2ds
+-\frac12q_t
 \right)
 $$
 >
@@ -732,15 +799,19 @@ $$
 
 です。
 
-第二変数について countable dense subset を一つ選べば、共通の full-measure set 上で
+ここで「$v$ ごとに零集合が違う」点を処理します。第二変数の指数型関数で parameter を有理数に制限した族を考えます。parameter $\theta\mapsto e_\theta$ は $L^2(\gamma_2)$ で連続なので、有理 parameter の指数型の線形包は、全ての実 parameter を使う線形包と同じ閉包を持ちます。前節の一次元全体性から、その閉包は $L^2(\gamma_2)$ 全体です。
+
+従って指数型の線形包から可算な稠密部分族 $(v_r)_{r\ge1}$ を選べます。各 $r$ について $g_{v_r}(x_1)=0$ は $\gamma_1$-a.e. なので、その例外零集合を可算個合併しても零集合です。よって共通の full-measure set 上で
 
 $$
-\int f(x_1,x_2)v(x_2)\gamma_2(dx_2)=0
+\int f(x_1,x_2)v_r(x_2)\gamma_2(dx_2)=0
+\qquad
+(\forall r)
 $$
 
-が dense subset の全ての $v$ に対して成り立ちます。
+が成り立ちます。
 
-従って一次元全体性をもう一度使うと
+固定したそのような $x_1$ について、$f(x_1,\cdot)$ は $L^2(\gamma_2)$ の稠密部分族すべてと直交します。従って
 
 $$
 f(x_1,\cdot)=0
@@ -1190,9 +1261,19 @@ $$
 
 <!-- formal-statement-start -->
 > **系（条件付き期待値過程の表現）**  
-> $\xi\in L^2(\mathcal F_T^B)$ とし、[ブラウン運動のマルチンゲール表現定理](#thm-sto12-martingale-representation) の被積分過程を $H$ とする。
+> $B$ を $d$ 次元 standard ブラウン運動、$(\mathcal F_t^B)_{0\le t\le T}$ をその completed natural フィルトレーションとする。
 >
-> このとき全ての $0\le t\le T$ について
+> $\xi\in L^2(\mathcal F_T^B)$ とし、[ブラウン運動のマルチンゲール表現定理](#thm-sto12-martingale-representation) により一意に定まる $H\in\mathcal H_B^2([0,T])$、すなわち
+>
+$$
+\xi
+=
+E[\xi]
++
+\int_0^T H_s\cdot dB_s
+$$
+>
+> を満たす $H$ を取る。このとき全ての $0\le t\le T$ について
 >
 $$
 \boxed{
@@ -1437,26 +1518,87 @@ u(t,x)
 \right)
 $$
 
-と置くと $u$ は $t<T$ で次の cancellation identity
+と置きます。$\varphi=\Phi'$ を標準正規密度とし、
 
 $$
-\partial_tu+\frac12\partial_{xx}u=0
-$$
-
-を満たし、
-
-$$
-\partial_xu(t,x)
-=
-\frac{1}{\sqrt{T-t}}
-\varphi\left(
+z=z(t,x)
+:=
 \frac{x-a}{\sqrt{T-t}}
-\right)
 $$
 
-です。$\varphi$ は standard normal 密度です。
+と置いて偏微分を一つずつ計算します。
 
-任意の $\varepsilon>0$ に対し $[0,T-\varepsilon]$ 上で [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)を使うと
+まず
+
+$$
+\partial_x z
+=
+\frac1{\sqrt{T-t}},
+$$
+
+なので
+
+$$
+u_x(t,x)
+=
+\frac{\varphi(z)}{\sqrt{T-t}}.
+$$
+
+さらに $\varphi'(z)=-z\varphi(z)$ だから
+
+$$
+u_{xx}(t,x)
+=
+-\frac{z\varphi(z)}{T-t}.
+$$
+
+時間微分では
+
+$$
+\partial_t z
+=
+\frac{x-a}{2(T-t)^{3/2}}
+=
+\frac{z}{2(T-t)},
+$$
+
+従って
+
+$$
+u_t(t,x)
+=
+\frac{z\varphi(z)}{2(T-t)}.
+$$
+
+したがって
+
+$$
+\boxed{
+u_t+\frac12u_{xx}=0
+}
+$$
+
+を得ます。
+
+任意の $\varepsilon>0$ を固定し、$F(s,x)=u(s,x)$ として [時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula) を $0\le s\le T-\varepsilon$ の過程 $F(s,B_s)$ へ適用します。ここではブラウン運動の drift は 0、二次変分は $ds$ なので
+
+$$
+\begin{aligned}
+dM_s
+&=
+du(s,B_s)\\
+&=
+\left(
+u_s+\frac12u_{xx}
+\right)(s,B_s)ds
++
+u_x(s,B_s)dB_s\\
+&=
+u_x(s,B_s)dB_s.
+\end{aligned}
+$$
+
+従って $t\le T-\varepsilon$ で
 
 $$
 M_t
@@ -2084,7 +2226,7 @@ $$
 とする。
 
 1. $M_t=E[\xi\mid\mathcal F_t^B]$ を $t<T$ で求めよ。
-2. $M_t=u(t,B_t)$ と書き、$u$ が前節と同じ cancellation identity を満たすことを確認せよ。
+2. $M_t=u(t,B_t)$ と書き、$u$ が前節と同じ後退方程式を満たすことを確認せよ。
 3. [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)から表現被積分過程を求めよ。
 4. 被積分過程は $t\uparrow T$ で singular に見えるのに、$\mathcal H_B^2$ に属する理由を説明せよ。
 
