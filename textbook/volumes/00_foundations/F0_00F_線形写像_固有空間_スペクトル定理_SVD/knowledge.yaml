@@ -30,9 +30,9 @@ concepts:
       - linear.linear-subspace
 
   - id: linear.rank-nullity-theorem
-    name: rank-nullity theorem
+    name: 階数・退化次数の定理
     kind: theorem
-    aliases: [rank-nullity theorem]
+    aliases: [階数・退化次数の定理, rank-nullity theorem]
     requires:
       - linear.kernel-image
       - linear.dimension
@@ -79,6 +79,15 @@ concepts:
       - linear.eigenvalue
       - linear.kernel-image
 
+  - id: linear.distinct-eigenvectors-independent
+    name: 異なる固有値に属する固有ベクトルは一次独立
+    kind: theorem
+    aliases: [異なる固有値に属する固有ベクトルは一次独立]
+    requires:
+      - linear.eigenvalue
+      - linear.eigenvector
+      - linear.linear-independence
+
   - id: linear.diagonalizable
     name: 対角化可能
     kind: definition
@@ -87,6 +96,16 @@ concepts:
       - linear.eigenvector
       - linear.basis
       - linear.representation-matrix
+
+  - id: linear.diagonalization-equivalences
+    name: 対角化可能性と固有空間直和の同値
+    kind: theorem
+    aliases: [対角化可能性と固有空間直和の同値]
+    requires:
+      - linear.diagonalizable
+      - linear.eigenspace
+      - linear.dimension
+      - linear.sum-direct-sum
 
   - id: linear.eigenvalue-multiplicities
     name: 代数的重複度・幾何学的重複度
