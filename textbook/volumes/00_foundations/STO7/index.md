@@ -40,6 +40,22 @@ $$
 
 ## 1. ブラウン運動を複数成分へ広げる
 
+STO4 までのブラウン運動は 1 次元でした。しかし後で扱う状態変数は、位置・速度や複数資産のように複数成分を同時に持ちます。そのとき各成分を別々に見るだけでは、二つの方向の増分が同時にどれだけ残るかという共変分を一つの式で扱えません。
+
+そこで、各時間増分が平均 0、共分散行列 $(t-s)I_d$ の多変量ガウス分布を持つ過程を一つの対象として定義します。これにより 1 次元の
+
+$$
+[B]_t=t
+$$
+
+が、多次元では
+
+$$
+[B^i,B^j]_t=\delta_{ij}t
+$$
+
+へ拡張され、Itô 公式の二階項を行列で整理できるようになります。
+
 <a id="def-sto7-vector-brownian"></a>
 
 <!-- formal-statement-start -->
@@ -582,7 +598,29 @@ $$
 
 と置きます。
 
-RA3 の [Taylor の定理](../RA3/index.md#thm-ra3-taylor) を $g$ に適用すると
+RA3 の [Taylor の定理](../RA3/index.md#thm-ra3-taylor) を、1 変数関数 $g$ に **展開点 $u=0$、次数 2** で適用します。まず連鎖律から
+
+$$
+g'(u)
+=
+\nabla f(x+uh)^\top h,
+$$
+
+$$
+g''(u)
+=
+h^\top D^2f(x+uh)h.
+$$
+
+したがって $u=0$ では
+
+$$
+g'(0)=\nabla f(x)^\top h,
+\qquad
+g''(0)=h^\top D^2f(x)h.
+$$
+
+また $g(1)=f(x+h)$、$g(0)=f(x)$ なので、Taylor の定理へ $u=1$ を代入して
 
 $$
 f(x+h)-f(x)
@@ -592,10 +630,12 @@ f(x+h)-f(x)
 \frac12
 h^\top D^2f(x)h
 +
-r(x,h),
+r(x,h)
 $$
 
-かつコンパクト集合 set 上では Hessian の一様連続性から
+を得ます。
+
+剰余項も同じ 1 変数表示から追えます。$x$ と $x+h$ が停止後のコンパクト集合にあるとき、線分 $x+uh$ も少し大きい固定コンパクト集合に入ります。そこで Hessian の一様連続性の係数を $\omega_R$ とすれば
 
 $$
 |r(x,h)|
@@ -604,7 +644,14 @@ $$
 \omega_R(|h|)|h|^2,
 $$
 
-ここで $\omega_R(\delta)\to0$ as $\delta\downarrow0$ です。
+かつ
+
+$$
+\omega_R(\delta)\to0
+\qquad(\delta\downarrow0)
+$$
+
+です。
 
 #### Step 3：分割上で足す
 
@@ -637,20 +684,54 @@ $$
 
 $X^i=M^i+A^i$ と分解します。
 
-martingale part について、continuous 適合過程
+martingale part について
 
 $$
-\partial_i f(X_s)
+H_s:=\partial_i f(X_s)
 $$
 
-は予測可能で、停止後有界です。STO6 の局所確率積分 construction から左端 simple approximation は
+と置きます。$X$ は continuous 適合過程なので $H$ も continuous 適合、したがって予測可能です。停止後は $H$ も有界です。
+
+partition $\pi=\{t_k\}$ に対し、左端値で固定した単純過程
 
 $$
-\int_0^t
-\partial_i f(X_s)\,dM_s^i
+H_s^\pi
+=
+\sum_k
+H_{t_{k-1}}1_{(t_{k-1},t_k]}(s)
 $$
 
-へ ucp 収束します。
+を考えます。標本路の一様連続性から
+
+$$
+\sup_{s\le T}|H_s^\pi-H_s|
+\to0
+$$
+
+ほとんど確実にです。
+
+さらに $[M^i]_T$ も停止により有界にしているので
+
+$$
+\int_0^T
+|H_s^\pi-H_s|^2\,d[M^i]_s
+\le
+\left(
+\sup_{s\le T}|H_s^\pi-H_s|
+\right)^2
+[M^i]_T
+\to0
+$$
+
+ほとんど確実に、かつ支配収束により $L^1$ でも 0 へ行きます。STO6 の確率積分構成と Doob $L^2$ 評価から
+
+$$
+\int_0^\cdot H_s^\pi\,dM_s^i
+\to
+\int_0^\cdot H_s\,dM_s^i
+$$
+
+が ucp で成り立ちます。左辺はまさに partition の一次和の martingale part です。
 
 finite-variation part については標本路ごとの Riemann--Stieltjes convergence により
 
@@ -1233,6 +1314,16 @@ $$
 
 ## 7. 時間変数を含む Itô 展開：生成作用素の原型
 
+前節までは $f(X_t)$ のように、関数自身は時間に陽に依存しない場合を扱いました。ところが後続の SDE・偏微分方程式との接続では
+
+$$
+F(t,X_t)
+$$
+
+の形が基本になります。
+
+ここで時間 $t$ は有限変動で二次変分を持たない一方、$X$ の空間成分には二次変分が残ります。そのため時間方向には 1 階、空間方向には 2 階まで展開するのが必要十分になります。この非対称性を式として確定するのが次の時間依存 Itô 公式です。
+
 <a id="thm-sto7-ito-process-formula"></a>
 
 <!-- formal-statement-start -->
@@ -1311,13 +1402,45 @@ $$
 
 と分けます。
 
-第一括弧は時間方向の [平均値定理](../RA3/index.md#thm-ra3-mvt) により
+第一括弧では空間点 $X_{t_k}$ を固定し、1 変数関数
 
 $$
-\partial_tF(\xi_k,X_{t_k})\Delta t_k
+u\longmapsto F(u,X_{t_k})
 $$
 
-であり、continuity から和は
+へ [平均値定理](../RA3/index.md#thm-ra3-mvt) を区間 $[t_{k-1},t_k]$ で適用します。するとある
+
+$$
+\xi_k\in(t_{k-1},t_k)
+$$
+
+が存在して
+
+$$
+F(t_k,X_{t_k})-F(t_{k-1},X_{t_k})
+=
+\partial_tF(\xi_k,X_{t_k})\Delta t_k.
+$$
+
+mesh が 0 へ行けば
+
+$$
+|\xi_k-t_{k-1}|\le\Delta t_k\to0,
+$$
+
+かつ $X$ の一様連続性から $X_{t_k}-X_{t_{k-1}}\to0$ です。停止後のコンパクト集合上で $\partial_tF$ は一様連続なので
+
+$$
+\max_k
+\left|
+\partial_tF(\xi_k,X_{t_k})
+-
+\partial_tF(t_{k-1},X_{t_{k-1}})
+\right|
+\to0.
+$$
+
+したがって時間方向の和は通常の Riemann 和として
 
 $$
 \int_0^t
@@ -1326,7 +1449,13 @@ $$
 
 へ収束します。
 
-第二括弧へ [多次元 Itô 公式](#thm-sto7-multidimensional-ito) の証明と同じ空間 Taylor argument を使うと
+第二括弧では各 $k$ ごとに時刻 $t_{k-1}$ を固定し、
+
+$$
+f_k(x):=F(t_{k-1},x)
+$$
+
+へ [多次元 Itô 公式](#thm-sto7-multidimensional-ito) の証明で用いた空間 Taylor 展開を適用します。すると
 
 $$
 \sum_i
@@ -1405,6 +1534,16 @@ $$
 ---
 
 ## 8. 指数関数で Itô 補正を打ち消す
+
+通常の微分方程式では $dZ=Z\,dM$ の解は指数関数を期待します。しかし $M$ がマルチンゲールなら、$e^{M_t}$ へ Itô 公式を適用したとき
+
+$$
+\frac12 e^{M_t}\,d[M]_t
+$$
+
+という二階補正が余分に現れます。
+
+そこで指数の中からあらかじめ $\frac12[M]$ を引き、その補正を正確に相殺する形を作ります。これにより指数型の局所マルチンゲールを一つの標準形として扱えるようになります。
 
 <a id="def-sto7-stochastic-exponential"></a>
 
@@ -1773,7 +1912,29 @@ S_\pi^\circ(H,X)
 \sum_k\Delta_kH\Delta_kX.
 $$
 
-第一和はセミマルチンゲール integral の left endpoint approximation により
+第一和はセミマルチンゲール integral の左端近似です。$X=M+A$ と分けると、
+
+$$
+\sum_kH_{t_{k-1}}\Delta_kX
+=
+\sum_kH_{t_{k-1}}\Delta_kM
++
+\sum_kH_{t_{k-1}}\Delta_kA.
+$$
+
+martingale part は、多次元 Itô 公式の一次和で確認したのと同じく、左端単純近似の $L^2(d[M])$ 収束から
+
+$$
+\int_0^tH_s\,dM_s
+$$
+
+へ ucp 収束します。finite-variation part は標本路ごとの Riemann--Stieltjes 和として
+
+$$
+\int_0^tH_s\,dA_s
+$$
+
+へ収束します。したがって第一和全体は
 
 $$
 \int_0^tH_s\,dX_s
