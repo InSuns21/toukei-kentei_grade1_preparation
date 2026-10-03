@@ -1452,15 +1452,45 @@ $$
 \right\}.
 $$
 
-連続関数の infimum は dense subset 上でも同じなので、
+ここで「稠密だから同じ」とだけ済ませず、等号を確認します。任意の $s\in[0,t]$ に対し、有理数列 $q_r\in\mathbb Q\cap[0,t]$ を
 
-$$
+$
+q_r\to s
+$
+
+となるように取れます。$u\mapsto\rho(X_u(\omega))$ は連続なので
+
+$
+\rho(X_{q_r}(\omega))
+\to
+\rho(X_s(\omega)).
+$
+
+従って有理時刻上の下限は各 $s$ の値以下であり、
+
+$
+\inf_{q\in\mathbb Q\cap[0,t]}\rho(X_q)
+\le
+\inf_{0\le s\le t}\rho(X_s).
+$
+
+逆向きは $\mathbb Q\cap[0,t]\subset[0,t]$ から直ちに
+
+$
+\inf_{0\le s\le t}\rho(X_s)
+\le
+\inf_{q\in\mathbb Q\cap[0,t]}\rho(X_q)
+$
+
+です。よって
+
+$
 \inf_{0\le s\le t}
 \rho(X_s)
 =
 \inf_{q\in\mathbb Q\cap[0,t]}
 \rho(X_q).
-$$
+$
 
 よって
 
