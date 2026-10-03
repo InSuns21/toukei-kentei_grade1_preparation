@@ -8,6 +8,13 @@ prerequisites:
 forward_references:
   - stochastic.markov-generator
   - stochastic.dynkin-formula
+  - stochastic.compound-poisson-process
+  - stochastic.levy-process
+  - prob.infinitely-divisible-distribution
+  - stochastic.levy-khintchine-formula
+  - stochastic.levy-measure
+  - stochastic.levy-activity
+  - stochastic.levy-ito-decomposition
 
 concepts:
   - id: stochastic.poisson-process
