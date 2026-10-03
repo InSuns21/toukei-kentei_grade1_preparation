@@ -48,7 +48,7 @@ TSA1--TSA6
 2. [STO2：離散時間マルチンゲール・不等式・収束](../STO2/index.md) — 実装済み
 3. [STO2A：離散時間Markov連鎖・再帰・Green核・不変測度](../STO2A/index.md) — 実装済み add-on
 4. [STO3：確率過程の構成・Kolmogorov continuity](../STO3/index.md) — 実装済み
-5. [STO4：ブラウン運動・到達時刻・強マルコフ性](../STO4/index.md) — 実装済み
+5. [STO4：ブラウン運動・Wiener 測度・到達時刻・強マルコフ性](../STO4/index.md) — 実装済み
 6. [STO3A：経路空間の弱収束・tightness・Donsker](../STO3A/index.md) — 実装済み add-on
 7. [STO5：連続局所マルチンゲール・二次変分・セミマルチンゲール](../STO5/index.md) — 実装済み
 8. [STO6：確率積分](../STO6/index.md) — 実装済み
@@ -157,6 +157,8 @@ Phase 0 は完了し、旧個別章は archive / migration source として現�
 Phase 1 の [STO1「確率過程・フィルトレーション・停止時刻」](../STO1/index.md)、[STO2「離散時間マルチンゲール・不等式・収束」](../STO2/index.md#def-sto2-martingale)、[STO3「確率過程の構成・Kolmogorov continuity」](../STO3/index.md#thm-sto3-kolmogorov-extension)、[STO4「ブラウン運動・到達時刻・強マルコフ性」](../STO4/index.md#thm-sto4-brownian-strong-markov) は、本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで実装済みです。
 
 STO3 では整合的 finite-dimensional laws から canonical process を構成し、cylinder premeasure の可算加法性を compact 近似から閉じたうえで、Kolmogorov--Chentsov continuity theorem を dyadic chaining まで証明しました。
+
+STO4 では Brown 運動の連続経路法を $C_0([0,T])$ 上の Wiener 測度として正本化し、Borel $\sigma$ 代数の座標生成、canonical coordinate process が Brown 運動になること、有限次元分布からの Wiener 測度の一意性まで閉じました。
 
 STO4 では covariance $\min(s,t)$ からブラウン運動を構成し、停止時刻の dyadic approximation から強マルコフ性を証明したうえで、reflection principle、到達時刻 distribution、1 次元 recurrence、time inversion まで閉じました。
 
