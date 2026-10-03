@@ -16,7 +16,6 @@ concepts:
   - id: linear.complementary-subspace
     name: 補空間
     kind: definition
-    introduction_aliases: [補空間]
     aliases: [補空間, complementary subspace]
     requires:
       - linear.sum-direct-sum
