@@ -216,7 +216,7 @@ SGA10 多様体上の Wiener 空間
 - 行列 Lie 群上の Stratonovich SDE
 - 確率指数・確率対数の基本的な考え方
 - 左移動による増分の見方
-- 生成作用素 $rac12sum_i X_i^2+X_0$
+- 生成作用素 $\frac12sum_i X_i^2+X_0$
 - Haar 測度と対称性
 - コンパクト Lie 群上の Brown 運動
 - 畳み込み半群との接続
@@ -244,7 +244,7 @@ SGA10 多様体上の Wiener 空間
 扱う:
 
 - Laplace--Beltrami 作用素
-- 生成作用素 $rac12Delta$ としての Brown 運動
+- 生成作用素 $\frac12Delta$ としての Brown 運動
 - 直交枠束
 - Levi-Civita 接続から水平部分空間を作る
 - 水平ベクトル場
@@ -257,7 +257,7 @@ SGA10 多様体上の Wiener 空間
 
 主要証明責務:
 
-- 水平 SDE の射影の生成作用素が $rac12Delta$ になる計算を展開する。
+- 水平 SDE の射影の生成作用素が $\frac12Delta$ になる計算を展開する。
 - 正規座標で一次 drift が消えることと二階作用素が残ることを確認する。
 
 直接例:
@@ -416,7 +416,7 @@ SGA10 多様体上の Wiener 空間
 - Markov 半群の再確認
 - Riemann 多様体上の熱半群
 - transition density と heat kernel
-- $partial_tu=rac12Delta u$
+- $partial_tu=\frac12Delta u$
 - Chapman--Kolmogorov と heat kernel
 - 対称性
 - 保存性と stochastic completeness
@@ -540,10 +540,10 @@ $$
 F=f(B_{t_1},ldots,B_{t_n})
 $$
 
-に対し、Cameron--Martin 摂動 $B+arepsilon h$ を入れ、
+に対し、Cameron--Martin 摂動 $B+\varepsilon h$ を入れ、
 
 $$
-rac{d}{darepsilon}F(B+arepsilon h)igg|_{arepsilon=0}
+\frac{d}{d\varepsilon}F(B+\varepsilon h)\bigg|_{\varepsilon=0}
 $$
 
 を実計算してから $H$ 内積表示へ進む。
@@ -784,7 +784,7 @@ CI green は完成の十分条件にしない。
 - 多様体値 Stratonovich SDE の座標不変性を読者が局所座標計算から再現できる。
 - 多様体上の SDE の存在一意性を Euclid SDE と chart の貼り合わせへ接続できる。
 - Lie 群上の不変 SDE と生成作用素を計算できる。
-- Riemann Brown 運動を $rac12Delta$ の拡散として説明し、枠束上の水平 SDE から構成できる。
+- Riemann Brown 運動を $\frac12Delta$ の拡散として説明し、枠束上の水平 SDE から構成できる。
 - stochastic development / anti-development の対応を追える。
 - 確率平行移動・確率線積分を接続・微分形式と結び付けられる。
 - 劣リーマン分布と bracket-generating condition を Heisenberg 群で直接検証できる。
