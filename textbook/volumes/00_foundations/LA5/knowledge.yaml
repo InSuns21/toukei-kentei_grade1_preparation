@@ -6,6 +6,8 @@ prerequisites:
   - F0-00E1
   - F0-00E2
 forward_references:
+  - complex-analysis.fundamental-theorem-of-algebra
+  - linear.spectral-theorem
   - linear.singular-value
   - linear.singular-value-decomposition
   - linear.hermitian-quadratic-form
