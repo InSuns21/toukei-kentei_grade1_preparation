@@ -145,7 +145,7 @@ concepts:
   - id: linear.interior-product-identities
     name: 内部積の基本恒等式
     kind: theorem
-    aliases: [内部積の基本恒等式, 内部積の符号付き積の法則]
+    aliases: [内部積の基本恒等式]
     requires:
       - linear.interior-product
       - linear.wedge-product
