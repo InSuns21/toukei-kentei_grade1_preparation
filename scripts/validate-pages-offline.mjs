@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { createHash, webcrypto } from 'node:crypto';
 import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
+import { isOfflineCacheCandidate } from './pages-offline-policy.mjs';
 import vm from 'node:vm';
 
 const root = process.cwd();
@@ -42,27 +43,46 @@ assert(Array.isArray(hashManifest.files), 'hash manifest files must be an array'
 const hashEntries = new Map(hashManifest.files.map((entry) => [entry.path, entry.sha256]));
 
 const publishedFiles = await recursiveFiles(siteDir);
-const requiredPublishedFiles = publishedFiles.filter(
-  (relative) => relative !== '.nojekyll'
-    && relative !== 'pages-manifest.txt'
-    && relative !== 'pages-manifest.json',
-);
+const offlinePublishedFiles = publishedFiles.filter(isOfflineCacheCandidate);
+const excludedPublishedFiles = publishedFiles.filter((relative) => !isOfflineCacheCandidate(relative));
 
-const missingFromManifest = requiredPublishedFiles.filter((relative) => !manifest.has(relative));
+const missingFromManifest = offlinePublishedFiles.filter((relative) => !manifest.has(relative));
 assert.deepEqual(
   missingFromManifest,
   [],
   `pages-manifest.txt is missing published files: ${missingFromManifest.join(', ')}`,
 );
-const extraInManifest = manifestEntries.filter((relative) => !requiredPublishedFiles.includes(relative));
+const extraInManifest = manifestEntries.filter((relative) => !offlinePublishedFiles.includes(relative));
 assert.deepEqual(extraInManifest, [], `pages-manifest.txt has unexpected files: ${extraInManifest.join(', ')}`);
+
+assert(
+  excludedPublishedFiles.some((relative) => /\.ya?ml$/i.test(relative)),
+  'Pages build unexpectedly contains no authoring YAML to exclude from offline caching',
+);
+assert(
+  excludedPublishedFiles.some((relative) => relative.startsWith('textbook/archive/')),
+  'Pages build unexpectedly contains no textbook archive files to exclude',
+);
+for (const excluded of excludedPublishedFiles) {
+  assert(!manifest.has(excluded), `offline manifest must exclude maintenance file ${excluded}`);
+  assert(!hashEntries.has(excluded), `hash manifest must exclude maintenance file ${excluded}`);
+}
+for (const requiredExcluded of [
+  'textbook/curriculum.yaml',
+  'textbook/dream-theater-archive.json',
+]) {
+  assert(
+    excludedPublishedFiles.includes(requiredExcluded),
+    `offline exclusion policy must classify ${requiredExcluded} as maintenance-only`,
+  );
+}
 
 assert.equal(
   hashEntries.size,
-  requiredPublishedFiles.length,
+  offlinePublishedFiles.length,
   'pages-manifest.json must contain exactly one hash for every published file',
 );
-for (const relative of requiredPublishedFiles) {
+for (const relative of offlinePublishedFiles) {
   const expected = hashEntries.get(relative);
   assert.match(expected || '', /^[a-f0-9]{64}$/, `missing/invalid SHA-256 for ${relative}`);
   const actual = sha256(await readFile(path.join(siteDir, relative)));
@@ -83,7 +103,7 @@ for (const required of [
   assert(hashEntries.has(required), `hash manifest must include ${required}`);
 }
 
-const imageFiles = requiredPublishedFiles.filter((relative) =>
+const imageFiles = offlinePublishedFiles.filter((relative) =>
   /\.(?:avif|gif|jpe?g|png|svg|webp)$/i.test(relative),
 );
 assert(imageFiles.length > 0, 'Pages build unexpectedly contains no images to cache');
@@ -450,6 +470,6 @@ const secondCompletion = secondMessages.find((message) => message.type === 'CACH
 assert.equal(secondCompletion.updated, 0, 'identical manifest should require zero content downloads');
 assert.equal(secondCompletion.unchanged, 2, 'all content should be reused when hashes are unchanged');
 
-console.log(`Offline manifests validated: ${manifest.size} files (${imageFiles.length} images), all SHA-256 hashes match.`);
+console.log(`Offline manifests validated: ${manifest.size} learner-facing files (${imageFiles.length} images), ${excludedPublishedFiles.length} maintenance files excluded, all SHA-256 hashes match.`);
 console.log(`DREAM THEATER offline links validated: ${new Set(lectureLinks).size}.`);
 console.log('Service Worker runtime fallback, legacy migration, differential updates, query-string assets, and range tests passed.');
