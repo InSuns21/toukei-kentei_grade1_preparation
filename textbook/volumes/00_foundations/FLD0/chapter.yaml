@@ -1,0 +1,39 @@
+id: "FLD0"
+title: "一般の体上のベクトル空間"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00E
+  - F0-00F
+  - RNG1
+official_scope: []
+learning_objectives:
+  - 任意の体 F 上のベクトル空間を定義し、実・複素ベクトル空間を特殊例として位置付けられる
+  - F-線形結合・一次独立・基底・次元を定義し、スカラー体によって一次独立性が変わる例を説明できる
+  - 有限体 F_2・F_3 上で具体的な線形結合・基底・行列計算を実行できる
+  - Steinitz の交換補題などで体の非零元の逆元が使われる箇所を説明できる
+  - 任意の体上で階数・退化次数の定理と座標写像の線形同型性を証明できる
+  - 体拡大 K/F が自然に F-ベクトル空間を与えることを説明し、拡大次数への準備ができる
+definitions:
+  - { id: FLD0-DEF-01, name: 体上のベクトル空間 }
+  - { id: FLD0-DEF-02, name: F-線形結合とF-線形包 }
+  - { id: FLD0-DEF-03, name: F上の一次独立・基底・次元 }
+  - { id: FLD0-DEF-04, name: F-線形写像 }
+theorems:
+  - { id: FLD0-PROP-01, name: 体上の部分空間判定法 }
+  - { id: FLD0-THM-01, name: 一般の体上の階数・退化次数の定理 }
+  - { id: FLD0-THM-02, name: 一般の体上の座標写像 }
+canonical_examples:
+  - F_2^2 の基底と一次従属
+  - F_3 上の逆元と行列計算
+  - R を Q-ベクトル空間として見た 1 と sqrt(2) の一次独立性
+  - Q(sqrt(2)) 上の乗法を Q-線形写像として表す行列
+problem_patterns:
+  - FLD0-FINITE-FIELD-BASIS-1
+  - FLD0-SCALAR-FIELD-DEPENDENCE-1
+  - FLD0-RANK-NULLITY-1
+  - FLD0-FIELD-EXTENSION-BRIDGE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 2.0, review: 0.5 }
