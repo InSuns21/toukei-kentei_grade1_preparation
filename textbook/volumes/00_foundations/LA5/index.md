@@ -865,10 +865,10 @@ $$
 <!-- solution-end -->
 
 <a id="ex-la5-a03"></a>
-#### LA5-A03 unitary判定
+#### LA5-A03 ユニタリ判定
 - Level: A
 
-$U=\operatorname{diag}(1,i,-1)$ がunitaryであることを示せ。
+$U=\operatorname{diag}(1,i,-1)$ がユニタリであることを示せ。
 
 <!-- solution-start -->
 **解答**：
@@ -879,14 +879,14 @@ $$
 $$
 U^*U=UU^*=I.
 $$
-よってunitaryです。
+よってユニタリです。
 <!-- solution-end -->
 
 <a id="ex-la5-a04"></a>
-#### LA5-A04 normal判定
+#### LA5-A04 正規性の判定
 - Level: A
 
-任意の対角複素行列がnormalであることを示せ。
+任意の対角複素行列が正規であることを示せ。
 
 <!-- solution-start -->
 **解答**：
@@ -899,7 +899,7 @@ D^*D
 =\operatorname{diag}(|d_1|^2,\dots,|d_n|^2)
 =DD^*.
 $$
-従ってnormalです。
+従って正規です。
 <!-- solution-end -->
 
 <a id="ex-la5-a05"></a>
@@ -951,13 +951,13 @@ $$
 ### Level B
 
 <a id="ex-la5-b01"></a>
-#### LA5-B01 unitaryと内積保存
+#### LA5-B01 ユニタリ作用素と内積保存
 - Level: B
 
-$T$ がunitaryなら $\langle Tx,Ty\rangle=\langle x,y\rangle$ を示し、逆に内積を保存する線形自己写像もunitaryであることを示せ。
+$T$ がユニタリ作用素なら $\langle Tx,Ty\rangle=\langle x,y\rangle$ を示し、逆に内積を保存する線形自己写像もユニタリ作用素であることを示せ。
 
 <!-- solution-start -->
-**解答**：unitaryなら
+**解答**：ユニタリ作用素なら
 $$
 \langle Tx,Ty\rangle
 =\langle x,T^*Ty\rangle
@@ -993,7 +993,7 @@ $$
 $$
 TT^*=I.
 $$
-よってunitaryです。
+よってユニタリです。
 <!-- solution-end -->
 
 <a id="ex-la5-b02"></a>
@@ -1022,13 +1022,13 @@ $\lambda\ne\mu$ なので $\langle u,v\rangle=0$ です。
 <!-- solution-end -->
 
 <a id="ex-la5-b03"></a>
-#### LA5-B03 normalだがHermitianでない例
+#### LA5-B03 正規だがHermitianでない例
 - Level: B
 
 $$
 A=\begin{pmatrix}0&-1\\1&0\end{pmatrix}
 $$
-を複素行列とみなす。normalであるがHermitianでないことを示し、固有値を求めよ。
+を複素行列とみなす。正規であるが Hermitian でないことを示し、固有値を求めよ。
 
 <!-- solution-start -->
 **解答**：
@@ -1042,7 +1042,7 @@ $$
 $$
 AA^*=A(-A)=-A^2=I,
 $$
-従ってunitary、特にnormalです。
+従ってユニタリ、特に正規です。
 
 LA4の[固有値と特性多項式の根](../LA4/index.md#thm-la4-eigenvalue-characteristic-root)を使うと
 $$
@@ -1054,17 +1054,17 @@ $$
 ### Level C
 
 <a id="ex-la5-c01"></a>
-#### LA5-C01 normalと固有ベクトルの随伴
+#### LA5-C01 正規作用素と固有ベクトルの随伴
 - Level: C
 
-normal operator $T$ と固有ベクトル $Tv=\lambda v$ に対して
+正規作用素 $T$ と固有ベクトル $Tv=\lambda v$ に対して
 $$
 T^*v=\overline\lambda v
 $$
 を示せ。
 
 <!-- solution-start -->
-**解答**：まずnormal作用素 $S$ では
+**解答**：まず正規作用素 $S$ では
 $$
 \|Sx\|^2
 =\langle x,S^*Sx\rangle,
@@ -1073,7 +1073,11 @@ $$
 \|S^*x\|^2
 =\langle x,SS^*x\rangle.
 $$
-従って $S^*S=SS^*$ なら
+従って $S$ が正規、すなわち $S^*S=SS^*$ なら、上の2式の右辺が等しいので
+$$
+\|Sx\|^2=\|S^*x\|^2.
+$$
+両辺は非負だから平方根を取り、
 $$
 \|Sx\|=\|S^*x\|.
 $$
@@ -1095,7 +1099,7 @@ SS^*
 &=TT^*-\overline\lambda T-\lambda T^*+|\lambda|^2I.
 \end{aligned}
 $$
-$T$ がnormalなので $S$ もnormalです。
+$T$ が正規なので $S$ も正規です。
 
 $Tv=\lambda v$ から $Sv=0$。従って
 $$
@@ -1115,4 +1119,4 @@ $$
 
 ## 10. 次に進む
 
-複素有限次元作用素のスペクトル理論が閉じました。最後にHermitian二次形式・慣性・polar decomposition・複素特異値分解を一つの橋にまとめます。
+複素有限次元作用素のスペクトル理論が閉じました。最後に Hermitian 二次形式・慣性・極分解・複素特異値分解を一つの橋にまとめます。
