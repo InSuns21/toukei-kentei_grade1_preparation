@@ -18,6 +18,7 @@ theorems:
   - { id: LA3C-THM-01, name: 基本変形と行列式 }
   - { id: LA3C-THM-02, name: 三角行列の行列式 }
   - { id: LA3C-THM-03, name: Laplace 展開 }
+  - { id: LA3C-THM-07, name: 余因子行列の基本恒等式 }
   - { id: LA3C-THM-04, name: 行列式の乗法性 }
   - { id: LA3C-THM-05, name: 行列式による可逆性判定 }
   - { id: LA3C-THM-06, name: 行列式の相似不変性 }
