@@ -194,7 +194,7 @@ E[1_{\{B_s\ge0\}}(B_T-B_s)\mid\mathcal F_s]
 =0.
 $$
 
-predictability がマルチンゲール cancellation を保っていることが見えます。
+予測可能性がマルチンゲール増分の相殺を保っていることが見えます。
 <!-- definition-example-end -->
 
 ---
@@ -823,7 +823,7 @@ $$
 
 ### 証明の見取り図
 
-[STO2 の離散時間 Doob 最大不等式](../STO2/index.md#thm-sto2-doob-maximal)を dyadic time grid に適用し、grid を細かくします。連続性があるため grid 上最大値は標本路上の supremum へ増加します。
+[STO2 の離散時間 Doob 最大不等式](../STO2/index.md#thm-sto2-doob-maximal)を二進格子上の離散時刻列に適用し、その格子を細かくします。連続性があるため格子上の最大値は標本路上の supremum へ増加します。
 
 <!-- proof-start -->
 ### 証明
@@ -1026,7 +1026,13 @@ $$
 E[I_t^{(n)}\mid\mathcal F_s]=I_s^{(n)}.
 $$
 
-conditional expectation は $L^2$ contraction なので極限を移せて
+条件付き期待値は $L^2$ ノルムを増やさず、実際
+
+$$
+\|E[X\mid\mathcal F_s]\|_2\le\|X\|_2
+$$
+
+なので、$L^2$ 極限を条件付き期待値の内側へ移せて
 
 $$
 E[I_t\mid\mathcal F_s]=I_s.
@@ -1832,7 +1838,7 @@ $$
 
 はブラウン increments の有限線形結合なのでガウスです。
 
-$L^2$ 極限の characteristic function を取れば
+$L^2$ 極限の特性関数を取れば
 
 <a id="prop-sto6-deterministic-gaussian"></a>
 
@@ -1902,7 +1908,7 @@ $$
 \int h_n^2\to\int h^2
 $$
 
-なので、$X_n$ のガウス characteristic function
+なので、$X_n$ のガウス特性関数
 
 $$
 \exp\left(
@@ -1918,7 +1924,7 @@ $$
 \right).
 $$
 
-従って characteristic function の一意性から $X$ は主張した centered ガウス法則を持ちます。
+従って特性関数の一意性から $X$ は主張した centered ガウス法則を持ちます。
 <!-- proof-end -->
 
 random 被積分過程のとき、積分は一般にはガウスではありません。この区別は重要です。
