@@ -30,7 +30,7 @@ $$
 
 答えは yes です。ただし **フィルトレーションがブラウン運動自身の情報だけから作られていること**が本質です。
 
-有限時間 $T>0$ を固定し、$B=(B^1,\ldots,B^d)$ を $d$ 次元 standard ブラウン運動とします。$\mathcal N$ を $P$-null sets の全部分集合からなる族とし、本章では
+有限時間 $T>0$ を固定し、$B=(B^1,\ldots,B^d)$ を $d$ 次元標準ブラウン運動とします。$\mathcal N$ を $P$-零集合 の全部分集合からなる族とし、本章では
 
 $$
 \mathcal F_t^B
@@ -277,7 +277,7 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（ブラウン運動の終端確率積分の値域は閉じている）**  
-> $B$ を $d$ 次元 standard ブラウン運動、$(\mathcal F_t^B)_{0\le t\le T}$ をその 完備化した自然なフィルトレーションとし、
+> $B$ を $d$ 次元標準ブラウン運動、$(\mathcal F_t^B)_{0\le t\le T}$ をその 完備化した自然なフィルトレーションとし、
 >
 $$
 \mathcal K_T
@@ -743,7 +743,7 @@ $$
 $$
 \boxed{
 \operatorname{span}\{e_\theta:\theta\in\mathbb R\}
-\text{ は }L^2(N(0,v))\text{ で dense}
+\text{ は }L^2(N(0,v))\text{ で稠密}
 }
 $$
 
@@ -1007,7 +1007,7 @@ $$
 \sigma(B_t:0\le t\le T).
 $$
 
-零集合による完備化で追加されるのは null sets とその部分集合なので、$L^1$ random variables を almost surely 同じものとして扱う限り結果は変わりません。
+零集合による完備化で追加されるのは 零集合 とその部分集合なので、$L^1$ 確率変数 を ほとんど確実に同じものとして扱う限り結果は変わりません。
 
 $Z\in L^2$ なので $Z\in L^1$ でもあります。
 
@@ -1032,7 +1032,7 @@ $$
 
 です。
 
-従って指数型族の直交補は $\{0\}$ であり、その線形包は $L^2(\mathcal F_T^B)$ で dense です。
+従って指数型族の直交補は $\{0\}$ であり、その線形包は $L^2(\mathcal F_T^B)$ で稠密です。
 <!-- proof-end -->
 
 ここが本章で最も長い論証です。
@@ -1049,7 +1049,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（ブラウン運動のマルチンゲール表現定理）**  
-> $B$ を $d$ 次元 standard ブラウン運動、$(\mathcal F_t^B)_{0\le t\le T}$ をその 完備化した自然なフィルトレーションとする。
+> $B$ を $d$ 次元標準ブラウン運動、$(\mathcal F_t^B)_{0\le t\le T}$ をその 完備化した自然なフィルトレーションとする。
 >
 > 任意の
 >
@@ -1261,7 +1261,7 @@ $$
 
 <!-- formal-statement-start -->
 > **系（条件付き期待値過程の表現）**  
-> $B$ を $d$ 次元 standard ブラウン運動、$(\mathcal F_t^B)_{0\le t\le T}$ をその 完備化した自然なフィルトレーションとする。
+> $B$ を $d$ 次元標準ブラウン運動、$(\mathcal F_t^B)_{0\le t\le T}$ をその 完備化した自然なフィルトレーションとする。
 >
 > $\xi\in L^2(\mathcal F_T^B)$ とし、[ブラウン運動のマルチンゲール表現定理](#thm-sto12-martingale-representation) により一意に定まる $H\in\mathcal H_B^2([0,T])$、すなわち
 >
@@ -1376,7 +1376,7 @@ $$
 
 $\xi=M_T$ と置きます。
 
-マルチンゲール property と [tower property](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md#thm-f0-00p3a-tower) から
+マルチンゲール性 と [タワー性](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md#thm-f0-00p3a-tower) から
 
 $$
 M_t
@@ -1396,7 +1396,7 @@ E[\xi]
 \int_0^tH_s\cdot dB_s.
 $$
 
-completed ブラウン運動の自然なフィルトレーションの $\mathcal F_0^B$ は trivial modulo null sets なので $M_0$ は a.s. 定数です。
+完備化したブラウン運動の自然なフィルトレーションの $\mathcal F_0^B$ は 零集合を除いて自明 なので $M_0$ は a.s. 定数です。
 
 さらに
 
@@ -1580,7 +1580,7 @@ $$
 
 を得ます。
 
-任意の $\varepsilon>0$ を固定し、$F(s,x)=u(s,x)$ として [時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula) を $0\le s\le T-\varepsilon$ の過程 $F(s,B_s)$ へ適用します。ここではブラウン運動の drift は 0、二次変分は $ds$ なので
+任意の $\varepsilon>0$ を固定し、$F(s,x)=u(s,x)$ として [時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula) を $0\le s\le T-\varepsilon$ の過程 $F(s,B_s)$ へ適用します。ここではブラウン運動のドリフトは 0、二次変分は $ds$ なので
 
 $$
 \begin{aligned}
@@ -1879,9 +1879,9 @@ $\xi\in L^1$ だけなら同じ Hilbert 空間と等長性による議論 は使
 
 ### 16.3 零集合による完備化は定理を壊さない
 
-零集合による完備化は $P$-null sets とその部分集合を追加します。
+零集合による完備化は $P$-零集合 とその部分集合を追加します。
 
-$L^2$ 確率変数 は almost surely 同じもので扱うので、完備化前のブラウン運動のフィルトレーションと 完備化した自然なフィルトレーションの違いは表現の a.s. の主張 を変えません。
+$L^2$ 確率変数 は ほとんど確実に同じもので扱うので、完備化前のブラウン運動のフィルトレーションと 完備化した自然なフィルトレーションの違いは表現の a.s. の主張 を変えません。
 
 ### 16.4 Clark--Ocone は存在定理より強い
 
@@ -2114,7 +2114,7 @@ $$
 E[\xi]+N_t+(N_T-N_t).
 $$
 
-マルチンゲール property から
+マルチンゲール性 から
 
 $$
 E[N_T-N_t\mid\mathcal F_t^B]=0.
@@ -2228,7 +2228,7 @@ $$
 1. $M_t=E[\xi\mid\mathcal F_t^B]$ を $t<T$ で求めよ。
 2. $M_t=u(t,B_t)$ と書き、$u$ が前節と同じ後退方程式を満たすことを確認せよ。
 3. [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)から表現被積分過程を求めよ。
-4. 被積分過程は $t\uparrow T$ で singular に見えるのに、$\mathcal H_B^2$ に属する理由を説明せよ。
+4. 被積分過程は $t\uparrow T$ で 特異に見えるのに、$\mathcal H_B^2$ に属する理由を説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
