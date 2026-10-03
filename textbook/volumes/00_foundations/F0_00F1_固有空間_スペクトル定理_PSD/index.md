@@ -383,7 +383,7 @@ $$
 
 よって $M$ は $A$ の不変部分空間です。
 
-さらに [F0-00E1 の有限次元直交分解](../F0_00E1_内積_Gram_Schmidt_射影_QR/index.md#thm-f0-00e1-orthogonal-decomposition) を
+さらに [F0-00E1 の射影による有限次元分解](../F0_00E1_内積_Gram_Schmidt_射影_QR/index.md#thm-f0-00e1-orthogonal-decomposition) を
 $$
 V=\operatorname{span}(q_1)
 $$
@@ -1039,7 +1039,7 @@ $$
 
 従って $A|_M$ も対称です。
 
-さらに F0-00E1 の直交分解から
+さらに F0-00E1 の射影による有限次元分解から
 $$
 \mathbb R^n
 =
