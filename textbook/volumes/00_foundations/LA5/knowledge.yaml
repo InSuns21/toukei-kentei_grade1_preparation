@@ -83,6 +83,14 @@ concepts:
     requires:
       - linear.finite-dimensional-adjoint
 
+  - id: linear.complex-eigenvalue-existence
+    name: 複素有限次元自己写像の固有値の存在
+    kind: lemma
+    aliases: [複素有限次元自己写像の固有値の存在, 複素自己写像の固有値存在]
+    requires:
+      - linear.characteristic-polynomial
+      - linear.eigenvalue
+
   - id: linear.schur-unitary-triangularization
     name: Schurのユニタリ三角化定理
     kind: theorem
@@ -90,7 +98,7 @@ concepts:
     requires:
       - linear.complex-inner-product
       - linear.orthonormal-extension
-      - linear.characteristic-polynomial
+      - linear.complex-eigenvalue-existence
 
   - id: linear.complex-normal-spectral-theorem
     name: 複素正規作用素のスペクトル定理
