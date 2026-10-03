@@ -30,9 +30,9 @@ concepts:
       - linear.linear-subspace
 
   - id: linear.rank-nullity-theorem
-    name: rank-nullity theorem
+    name: 階数・退化次数の定理
     kind: theorem
-    aliases: [rank-nullity theorem]
+    aliases: [階数・退化次数の定理, rank-nullity theorem]
     requires:
       - linear.kernel-image
       - linear.dimension
