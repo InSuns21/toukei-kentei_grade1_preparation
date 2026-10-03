@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - F0-00A1C
+  - SET-U2
 
 forward_references:
   - topology.sequentially-compact
