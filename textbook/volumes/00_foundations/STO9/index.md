@@ -867,7 +867,7 @@ T^2K\{1+M_n(T)\}.
 \end{aligned}
 $$
 
-確率積分項は Doob $L^2$ inequality と Itô isometry から
+確率積分項は [Doob $L^2$ inequality](../STO6/index.md#thm-sto6-doob-l2) と [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) から
 
 $$
 \begin{aligned}
@@ -1110,7 +1110,7 @@ TL^2\int_0^t f(s)\,ds.
 \end{aligned}
 $$
 
-また Doob $L^2$ inequality と Itô isometry から
+また [Doob $L^2$ inequality](../STO6/index.md#thm-sto6-doob-l2) と [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) から
 
 $$
 \begin{aligned}
@@ -1522,7 +1522,7 @@ $$
 2L^2|Z_s|^2+2\delta^2.
 $$
 
-Doob $L^2$ inequality と Itô isometry から
+[Doob $L^2$ inequality](../STO6/index.md#thm-sto6-doob-l2) と [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) から
 
 $$
 \begin{aligned}
@@ -1923,7 +1923,7 @@ C_{T,n}
 E\sup_{r\le s}|Z_r|^2\,ds.
 $$
 
-Gronwall lemma から左辺は0です。したがって
+[積分形 Gronwall lemma](#lem-sto9-gronwall) から左辺は0です。したがって
 
 $$
 X_{t\wedge\rho}^{(n)}
@@ -2216,7 +2216,7 @@ TK
 \end{aligned}
 $$
 
-確率積分項は Doob $L^2$ inequality と Itô isometry から
+確率積分項は [Doob $L^2$ inequality](../STO6/index.md#thm-sto6-doob-l2) と [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) から
 
 $$
 \begin{aligned}
@@ -2247,7 +2247,7 @@ C_T
 \{1+F_n(s)\}\,ds,
 $$
 
-ここで $C_T$ は $n$ に依存しません。$G_n(t)=1+F_n(t)$ と置いて Gronwall lemma を適用すると
+ここで $C_T$ は $n$ に依存しません。$G_n(t)=1+F_n(t)$ と置いて [積分形 Gronwall lemma](#lem-sto9-gronwall) を適用すると
 
 $$
 \sup_n
