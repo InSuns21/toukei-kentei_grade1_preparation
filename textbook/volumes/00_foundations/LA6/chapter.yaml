@@ -9,7 +9,7 @@ prerequisites:
 official_scope: []
 learning_objectives:
   - Hermitian二次形式をユニタリ対角化して符号構造を読める
-  - 合同変換と相似変換の違いを説明できる
+  - 合同変換と相似の違いを説明できる
   - Sylvesterの慣性法則を理解し正負零の個数が座標に依らないことを説明できる
   - Hermitian半正定値作用素の一意な半正定値平方根を構成できる
   - 極分解 A=UP をスペクトル定理から導ける
