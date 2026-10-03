@@ -11,6 +11,13 @@ forward_references:
   - topology.closed-set
 
 concepts:
+  - id: analysis.real-sequence
+    name: 実数列
+    kind: definition
+    aliases: [実数列]
+    requires:
+      - set.function
+
   - id: topology.sequence
     name: 点列
     kind: definition
