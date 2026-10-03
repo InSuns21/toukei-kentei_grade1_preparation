@@ -809,7 +809,7 @@ Ax
 \sigma_i\langle x,v_i\rangle u_i
 $$
 
-なので、像は $u_1,\dots,u_r$ の span に含まれます。
+なので、像は $u_1,\dots,u_r$ の張る空間に含まれます。
 
 逆に各 $i\le r$ について
 
