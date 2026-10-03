@@ -1973,7 +1973,7 @@ $$
 $$
 <!-- solution-end -->
 
-### LA3E-B03 内部積の符号付き積の法則
+### LA3E-B03 内部積の基本恒等式を具体展開する
 
 $\alpha,\beta,\gamma\in V^*$、$v\in V$ とする。
 
