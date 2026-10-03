@@ -1,12 +1,18 @@
 # LA6 スペクトル・二次形式・極分解・複素特異値分解
 
-ここまでで、一般作用素のJordan構造とnormal operatorのunitary対角化を標準コア内で構成しました。本章ではそれらを正本として、**Hermitian二次形式・慣性・PSD平方根・polar decomposition・複素特異値分解・最大特異値による伸縮評価** を一つの依存鎖にまとめます。
+LA5 では複素内積・随伴・Hermitian 作用素・ユニタリ作用素・正規作用素を導入し、正規作用素を正規直交固有基底で対角化できることまで進みました。F0-00F2 では実行列の特異値分解を、入力方向と出力方向を分ける方法として学びました。
 
-[F0-00F1](../F0_00F1_固有空間_スペクトル定理_PSD/index.md) や [F0-00F2](../F0_00F2_SVD_特異値_作用素ノルム/index.md) は計算上の先行プレビューとして参照できますが、本章の証明では「速習章に公式があるから既知」とは扱いません。必要な構造はLA5の複素スペクトル定理と本章内の補題から導きます。
+ここでは、この2本の流れをつなぎます。まず Hermitian 作用素が定める二次形式の符号を座標変換に依らず読む方法を作り、その符号情報から半正定値平方根を構成します。次に任意の複素行列を **ユニタリ部分と非負の伸縮部分** に分ける極分解を導き、最後に複素特異値分解と作用素ノルムへ接続します。
 
 ---
 
 ## 1. Hermitian二次形式
+
+実対称行列では $x^{\mathsf T}Ax$ の符号を調べることで、正定値・半正定値を判定しました。複素数上では転置だけではなく共役転置が必要なので、同じ役割を持つ量として
+$$
+\langle x,Ax\rangle=x^*Ax
+$$
+を考えます。Hermitian 性を仮定すると、この値が常に実数になり、「正・負・零」という符号を意味のある形で議論できます。
 
 <a id="def-la6-hermitian-quadratic-form"></a>
 <!-- formal-statement-start -->
@@ -42,7 +48,7 @@ $$
 $x=e_1$ では正、$x=e_2$ では負なので不定値です。
 <!-- definition-example-end -->
 
-[複素normal operatorのスペクトル定理](../LA5/index.md#thm-la5-normal-spectral)と[Hermitian作用素の固有値は実数](../LA5/index.md#thm-la5-hermitian-real-eigenvalues)から、ある正規直交基底で
+[複素正規作用素のスペクトル定理](../LA5/index.md#thm-la5-normal-spectral)と[Hermitian作用素の固有値は実数](../LA5/index.md#thm-la5-hermitian-real-eigenvalues)から、ある正規直交基底で
 $$
 A=\operatorname{diag}(\lambda_1,\dots,\lambda_n),
 \qquad
@@ -56,26 +62,36 @@ $$
 
 ---
 
-## 2. similarity と congruence
+## 2. 相似変換と合同変換
 
-作用素の基底変換は
+作用素そのものを別の基底で表すときは
 $$
 A\mapsto S^{-1}AS
 $$
-というsimilarityです。一方、二次形式で $x=Sy$ と置くと
+という **相似変換** が現れます。これは「同じ線形写像の表現行列を変える」操作なので、固有値を保ちます。
+
+一方、二次形式では入力ベクトルの座標を $x=Sy$ と取り替えると
 $$
-q_A(Sy)=y^*S^*ASy
+\begin{aligned}
+q_A(Sy)
+&=(Sy)^*A(Sy)\\
+&=y^*S^*ASy.
+\end{aligned}
 $$
-なので、係数行列は $S^*AS$ と変わります。
+従って係数行列は
+$$
+A\mapsto S^*AS
+$$
+と変わります。こちらは固有値そのものではなく、二次形式の符号構造を保つ変換です。
 
 <a id="def-la6-congruence"></a>
 <!-- formal-statement-start -->
-> **定義（congruence）**  
+> **定義（合同変換 / congruence）**  
 > Hermitian行列 $A,B$ が、ある可逆行列 $S$ によって
 $$
 B=S^*AS
 $$
-> と表されるとき、$A$ と $B$ はcongruentであるという。
+> と表されるとき、$A$ と $B$ は **合同** であるという。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-la6-congruence -->
@@ -87,14 +103,16 @@ $$
 $$
 S^*AS=\operatorname{diag}(4,1).
 $$
-congruenceは固有値そのものを保存しませんが、どちらも正定値です。
+合同変換は固有値そのものを保存しませんが、この例では変換前後のどちらも正定値です。
 <!-- definition-example-end -->
 
 ---
 
 ## 3. Sylvesterの慣性法則
 
-Hermitian行列 $A$ をunitary対角化し、正の固有値を $\lambda_1,\dots,\lambda_p$、負の固有値を $\lambda_{p+1},\dots,\lambda_{p+q}$ とします。零固有値の個数を
+合同変換で固有値の大きさ自体は変わるため、「二次形式の本質的な符号情報として何が残るか」を切り出したくなります。Hermitian 行列では、正の方向・負の方向・零方向の本数がその答えになります。
+
+Hermitian行列 $A$ をユニタリ対角化し、正の固有値を $\lambda_1,\dots,\lambda_p$、負の固有値を $\lambda_{p+1},\dots,\lambda_{p+q}$ とします。零固有値の個数を
 $$
 r=n-p-q
 $$
@@ -109,21 +127,34 @@ D=
 1,\dots,1
 \right)
 $$
-とし、$A=Q\operatorname{diag}(\lambda_i)Q^*$ に対して $S=QD$ と置けば
+とし、
 $$
-S^*AS=\operatorname{diag}(I_p,-I_q,0_r).
+A=Q\operatorname{diag}(\lambda_i)Q^*
+$$
+に対して $S=QD$ と置きます。$D$ は実対角行列なので $D^*=D$ であり、
+$$
+\begin{aligned}
+S^*AS
+&=DQ^*\,Q\operatorname{diag}(\lambda_i)Q^*\,QD\\
+&=D\operatorname{diag}(\lambda_i)D\\
+&=\operatorname{diag}(I_p,-I_q,0_r).
+\end{aligned}
 $$
 従ってこの標準形は必ず存在します。
 
 <a id="thm-la6-inertia"></a>
 <!-- formal-statement-start -->
 > **定理（Sylvesterの慣性法則）**  
-> Hermitian二次形式をcongruenceで
+> Hermitian二次形式を合同変換で
 $$
 \operatorname{diag}(I_p,-I_q,0_r)
 $$
 > へ変形したとき、三つ組 $(p,q,r)$ は変換の選び方によらず一意である。
 <!-- formal-statement-end -->
+
+### 証明の見取り図
+
+零方向の本数 $r$ は核の次元として読み、可逆変換で核の次元が変わらないことから示します。正方向の本数 $p$ は「二次形式が正定値になる部分空間の最大次元」として特徴付け、合同変換が部分空間の次元と正定値性を同時に保つことを使います。負方向 $q$ は $-q_A$ に同じ議論を適用します。
 
 <!-- proof-start -->
 ### 証明
@@ -138,7 +169,7 @@ $$
 $$
 \dim\ker B=\dim\ker A.
 $$
-よって零方向の個数 $r$ はcongruenceで不変です。
+よって零方向の個数 $r$ は合同変換で不変です。
 
 次に標準形
 $$
@@ -165,7 +196,7 @@ $$
 p=\max\{\dim L:h|_L\text{ が正定値}\}.
 $$
 
-ここでcongruenceでこの最大次元が保存されることを確認します。$B=S^*AS$ なら、その二次形式は
+ここで合同変換でこの最大次元が保存されることを確認します。$B=S^*AS$ なら、その二次形式は
 $$
 q_B(x)=x^*Bx=(Sx)^*A(Sx)=q_A(Sx)
 $$
@@ -175,7 +206,7 @@ q_B|_L\text{ が正定値}
 \iff
 q_A|_{S(L)}\text{ が正定値}.
 $$
-従って正定値部分空間の最大次元はcongruenceで変わらず、標準形で求めた値 $p$ は変換の選び方によらず一意です。
+従って正定値部分空間の最大次元は合同変換で変わらず、標準形で求めた値 $p$ は変換の選び方によらず一意です。
 
 同じ議論を $-h$ に適用すると
 $$
@@ -186,17 +217,23 @@ $$
 
 ---
 
-## 4. Hermitian PSD作用素と平方根
+## 4. Hermitian 半正定値作用素と平方根
+
+極分解や複素特異値分解では $A^*A$ が中心になります。この作用素は常に Hermitian で、さらに
+$$
+\langle x,A^*Ax\rangle=\|Ax\|^2\ge0
+$$
+という非負性を持ちます。そこで、まず Hermitian 作用素のうち二次形式が常に非負になるものを名前付きで扱い、その平方根を固有値ごとに構成します。
 
 <a id="def-la6-psd"></a>
 <!-- formal-statement-start -->
-> **定義（Hermitian PSD作用素）**  
+> **定義（Hermitian 半正定値作用素）**  
 > Hermitian作用素 $A$ が
 $$
 \langle x,Ax\rangle\ge0
 \qquad(x\in V)
 $$
-> を満たすとき、$A$ をpositive semidefinite（PSD）という。
+> を満たすとき、$A$ を **Hermitian 半正定値作用素** という。以後、必要に応じて PSD と略記する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-la6-psd -->
@@ -208,7 +245,7 @@ $$
 $$
 \langle x,Ax\rangle=4|x_1|^2+2|x_3|^2\ge0
 $$
-なのでPSDです。
+なので Hermitian 半正定値です。
 <!-- definition-example-end -->
 
 Hermitian作用素を正規直交固有基底で対角化すると
@@ -217,25 +254,41 @@ $$
 $$
 従って
 $$
-A\text{ がPSD}
+A\text{ が半正定値}
 \iff
 \lambda_i\ge0\quad(i=1,\dots,n).
 $$
-必要性は単位固有ベクトル $v_i$ を代入して
+実際、半正定値なら各単位固有ベクトル $v_i$ に対して
 $$
-\lambda_i=\langle v_i,Av_i\rangle\ge0
+\lambda_i
+=
+\lambda_i\langle v_i,v_i\rangle
+=
+\langle v_i,Av_i\rangle
+\ge0.
 $$
-から、十分性は上の和から従います。
+逆に全ての $\lambda_i\ge0$ なら、任意の $x$ について
+$$
+\langle x,Ax\rangle
+=
+\sum_i\lambda_i|x_i|^2
+\ge0,
+$$
+なので $A$ は半正定値です。
 
 <a id="thm-la6-psd-square-root"></a>
 <!-- formal-statement-start -->
-> **定理（Hermitian PSD平方根定理）**  
-> Hermitian PSD作用素 $A$ に対し、Hermitian PSD作用素 $B$ で
+> **定理（Hermitian 半正定値平方根定理）**  
+> Hermitian 半正定値作用素 $A$ に対し、Hermitian 半正定値作用素 $B$ で
 $$
 B^2=A
 $$
 > を満たすものが一意に存在する。これを $A^{1/2}$ と書く。
 <!-- formal-statement-end -->
+
+### 証明の見取り図
+
+存在は、正規直交固有基底で各非負固有値 $\lambda_i$ を $\sqrt{\lambda_i}$ に置き換えて構成します。一意性は、別の半正定値平方根 $C$ があれば $C$ と $A=C^2$ が可換するため、$A$ の各固有空間上で $C$ を対角化でき、その固有値が非負の平方根 $\sqrt\lambda$ に強制されることから示します。
 
 <!-- proof-start -->
 ### 証明
@@ -252,9 +305,9 @@ $$
 $$
 B=Q\operatorname{diag}(\sqrt{\lambda_1},\dots,\sqrt{\lambda_n})Q^*
 $$
-と置けば $B$ はHermitian PSDで $B^2=A$ です。
+と置けば $B$ は Hermitian 半正定値で $B^2=A$ です。
 
-一意性を示します。Hermitian PSD作用素 $C$ が $C^2=A$ を満たすとします。
+一意性を示します。Hermitian 半正定値作用素 $C$ が $C^2=A$ を満たすとします。
 $$
 CA=C^3=AC
 $$
@@ -268,7 +321,7 @@ $E_\lambda$ 上では
 $$
 C^2=\lambda I.
 $$
-$C|_{E_\lambda}$ もHermitian PSDなので正規直交対角化でき、その固有値 $\mu$ は
+$C|_{E_\lambda}$ も Hermitian 半正定値なので正規直交対角化でき、その固有値 $\mu$ は
 $$
 \mu\ge0,
 \qquad
@@ -281,7 +334,7 @@ $$
 $A$ の固有空間は全空間を直交直和に分解するので、$C$ は全空間で一意に決まり、上で構成した $B$ と一致します。$\square$
 <!-- proof-end -->
 
-### 矩形行列でも $A^*A$ はHermitian PSD
+### 矩形行列でも $A^*A$ は Hermitian 半正定値
 
 $A\in\mathbb C^{m\times n}$ に対し
 $$
@@ -314,7 +367,7 @@ $$
 =(Ax)^*(Ax)
 =\|Ax\|^2\ge0.
 $$
-よって $A^*A$ はHermitian PSDです。
+よって $A^*A$ は Hermitian 半正定値です。
 
 ---
 
