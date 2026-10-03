@@ -3,14 +3,13 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - STO13
+  - STO11
   - STO7
   - STO2
   - F0-00D2E
   - F0-00P6
 
-forward_references:
-  - stochastic.markov-generator
-  - stochastic.dynkin-formula
+forward_references: []
 
 concepts:
   - id: stochastic.compound-poisson-process
