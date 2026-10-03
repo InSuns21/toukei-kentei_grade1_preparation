@@ -1812,7 +1812,7 @@ E[(M_{T-\varepsilon}-M_0)^2]
 \operatorname{Var}(\xi).
 $$
 
-左辺の積分領域は $\varepsilon\downarrow0$ とともに増加します。単調収束定理を適用して
+左辺の積分領域は $\varepsilon\downarrow0$ とともに増加します。[単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)を適用して
 
 $$
 E\int_0^T H_t^2dt
@@ -1846,7 +1846,7 @@ M_{T-\varepsilon}-M_0
 \text{in }L^2
 $$
 
-を示しました。$L^2$ 極限の一意性から
+を示しました。[距離空間における極限の一意性](../F0_00B_距離空間_開集合_閉集合_収束/index.md#prop-f0-00b-01)を $L^2$ 距離へ適用すると
 
 $$
 \boxed{
@@ -2599,7 +2599,7 @@ E\int_0^{T-\varepsilon}H_t^2dt
 \operatorname{Var}(\xi).
 $$
 
-$\varepsilon\downarrow0$ として単調収束定理を使えば
+$\varepsilon\downarrow0$ として [単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)を使えば
 
 $$
 E\int_0^T H_t^2dt
