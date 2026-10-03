@@ -153,17 +153,17 @@ $$
 
 必要性から確認します。$W$ が線形部分空間なら、$u,v\in W$ と $a,b\in\mathbb R$ に対して $au,bv\in W$ であり、さらに加法に閉じているので
 
-$
+$$
 au+bv\in W
-$
+$$
 
 です。
 
 逆に、$W$ は空でなく、任意の $u,v\in W$ と $a,b\in\mathbb R$ に対して $au+bv\in W$ と仮定します。まず $w\in W$ を一つ取ります。$a=b=0$ とすれば
 
-$
+$$
 0w+0w=0\in W.
-$
+$$
 
 次に $a=b=1$ とすれば $u+v\in W$、$b=0$ とすれば任意の $a\in\mathbb R$ に対して $au\in W$ です。特に $a=-1$ から $-u\in W$ です。
 
@@ -276,9 +276,9 @@ $$
 > **命題（線形包の最小性）**  
 > $\operatorname{span}(S)$ は $S$ を含む線形部分空間である。さらに、$S$ を含む任意の線形部分空間 $W$ に対して
 
-$
+$$
 \operatorname{span}(S)\subseteq W
-$
+$$
 
 > が成り立つ。したがって $\operatorname{span}(S)$ は $S$ を含む最小の線形部分空間である。
 <!-- formal-statement-end -->
@@ -292,29 +292,29 @@ $
 
 まず $0\in\operatorname{span}(S)$ です。$x,y\in\operatorname{span}(S)$ を
 
-$
+$$
 x=\sum_{i=1}^r a_i u_i,
 \qquad
 y=\sum_{j=1}^q b_j w_j
-$
+$$
 
 と有限線形結合で表します。任意の $\alpha,\beta\in\mathbb R$ に対して
 
-$
+$$
 \alpha x+\beta y
 =
 \sum_{i=1}^r (\alpha a_i)u_i
 +
 \sum_{j=1}^q (\beta b_j)w_j
-$
+$$
 
 も $S$ の有限線形結合なので、$\alpha x+\beta y\in\operatorname{span}(S)$ です。部分空間判定法から $\operatorname{span}(S)$ は線形部分空間です。各 $s\in S$ は $s=1\cdot s$ と書けるので $S\subseteq\operatorname{span}(S)$ です。
 
 次に $W$ を $S\subseteq W$ を満たす線形部分空間とします。$W$ は加法とスカラー倍に閉じているので、$S$ の任意の有限線形結合は $W$ に属します。よって
 
-$
+$$
 \operatorname{span}(S)\subseteq W.
-$
+$$
 
 以上から $\operatorname{span}(S)$ は $S$ を含む最小の線形部分空間です。$\square$
 <!-- proof-end -->
@@ -493,23 +493,23 @@ $\operatorname{span}(B)=V$ なので、任意の $x\in V$ は $B$ の有限個�
 
 二つの表示
 
-$
+$$
 x=\sum_{i=1}^r a_i u_i
 =
 \sum_{j=1}^q b_j w_j
-$
+$$
 
 があるとします。ここで $u_i,w_j\in B$ です。両辺を移項し、両方の表示に現れる基底ベクトルをまとめると、相異なる有限個の $z_1,\dots,z_m\in B$ と係数 $d_1,\dots,d_m$ に対して
 
-$
+$$
 d_1z_1+\cdots+d_mz_m=0
-$
+$$
 
 を得ます。$B$ は一次独立なので
 
-$
+$$
 d_1=\cdots=d_m=0.
-$
+$$
 
 したがって各基底ベクトルの係数は二つの表示で一致します。よって基底展開は一意です。$\square$
 <!-- proof-end -->
@@ -614,29 +614,29 @@ $V=\operatorname{span}(v_1,\dots,v_n)$ とします。$u_1,\dots,u_m$ が一次�
 
 帰納的に、$k=0,1,\dots$ について
 
-$
+$$
 V=
 \operatorname{span}
 (u_1,\dots,u_k,w_{k+1},\dots,w_n)
-$
+$$
 
 となるように、もとの $v_1,\dots,v_n$ のうち $n-k$ 本を残せることを示します。$k=0$ では $w_j=v_j$ とすれば成立します。
 
 $k-1$ までできたとします。すると $u_k\in V$ なので
 
-$
+$$
 u_k
 =
 a_1u_1+\cdots+a_{k-1}u_{k-1}
 +
 b_kw_k+\cdots+b_nw_n
-$
+$$
 
 と書けます。もし $b_k=\cdots=b_n=0$ なら、$u_k$ は $u_1,\dots,u_{k-1}$ の線形結合となり、$u_1,\dots,u_m$ の一次独立性に反します。したがって少なくとも一つ、たとえば $b_j\ne0$ となる $j$ があります。
 
 この等式を $w_j$ について解くと
 
-$
+$$
 w_j
 =
 \frac1{b_j}
@@ -647,15 +647,15 @@ u_k
 -
 \sum_{\substack{\ell=k\\ \ell\ne j}}^n b_\ell w_\ell
 \right).
-$
+$$
 
 よって $w_j$ を $u_k$ に交換しても、交換後のベクトル族は $w_j$ を再び生成できるため $V$ 全体を張ります。これで帰納段階が成立します。
 
 もし $m>n$ なら、この操作を $n$ 回行った時点で
 
-$
+$$
 V=\operatorname{span}(u_1,\dots,u_n)
-$
+$$
 
 となります。しかし $u_{n+1}\in V$ なので $u_{n+1}$ は $u_1,\dots,u_n$ の線形結合となり、一次独立性に反します。したがって $m\le n$ です。$\square$
 <!-- proof-end -->
@@ -678,18 +678,18 @@ $
 
 $v_1,\dots,v_N$ が一次独立なら、そのまま基底です。一次従属なら、ある $v_j$ は残りのベクトルの線形結合として書けます。実際、全て0ではない係数 $a_i$ に対して
 
-$
+$$
 a_1v_1+\cdots+a_Nv_N=0
-$
+$$
 
 があり、$a_j\ne0$ を一つ選べば
 
-$
+$$
 v_j
 =
 -\frac1{a_j}
 \sum_{i\ne j}a_iv_i.
-$
+$$
 
 したがって $v_j$ を捨てても線形包は変わりません。この削除を、残った族が一次独立になるまで繰り返します。もとの本数は有限なので有限回で停止し、最後に残ったベクトル族は一次独立かつ $V$ を張ります。ゆえに基底です。$\square$
 <!-- proof-end -->
@@ -700,11 +700,11 @@ $
 > **定理（有限次元で基底の本数は一定）**  
 > 有限本のベクトルで張られるベクトル空間 $V$ の二つの基底
 
-$
+$$
 \mathcal B=(v_1,\dots,v_n),
 \qquad
 \mathcal C=(w_1,\dots,w_m)
-$
+$$
 
 > に対して $n=m$ が成り立つ。
 <!-- formal-statement-end -->
@@ -718,15 +718,15 @@ $
 
 $\mathcal B$ は $V$ を張り、$\mathcal C$ は一次独立なので、[Steinitz の交換補題](#lem-steinitz-exchange)から
 
-$
+$$
 m\le n.
-$
+$$
 
 逆に $\mathcal C$ は $V$ を張り、$\mathcal B$ は一次独立なので、同じ補題を役割を入れ替えて適用すると
 
-$
+$$
 n\le m.
-$
+$$
 
 したがって $n=m$ です。$\square$
 <!-- proof-end -->
@@ -784,9 +784,9 @@ $\dim V=n$ とします。
 > **命題（有限次元空間の部分空間も有限次元）**  
 > $V$ が有限次元で $W\subseteq V$ が線形部分空間なら、$W$ は有限次元であり
 
-$
+$$
 \dim W\le\dim V
-$
+$$
 
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -802,30 +802,30 @@ $\dim V=n$ とします。$W=\{0\}$ なら空集合が $W$ の基底で、$\dim 
 
 $W\ne\{0\}$ なら $w_1\in W\setminus\{0\}$ を取ります。$\operatorname{span}(w_1)=W$ なら終了です。そうでなければ
 
-$
+$$
 w_2\in W\setminus\operatorname{span}(w_1)
-$
+$$
 
 を取ります。このとき $w_1,w_2$ は一次独立です。
 
 一般に $w_1,\dots,w_k$ を一次独立に選べていて、まだ
 
-$
+$$
 \operatorname{span}(w_1,\dots,w_k)\ne W
-$
+$$
 
 なら、その線形包の外から
 
-$
+$$
 w_{k+1}\in
 W\setminus\operatorname{span}(w_1,\dots,w_k)
-$
+$$
 
 を取れます。関係
 
-$
+$$
 a_1w_1+\cdots+a_kw_k+bw_{k+1}=0
-$
+$$
 
 で $b\ne0$ なら $w_{k+1}\in\operatorname{span}(w_1,\dots,w_k)$ となって選び方に矛盾するため $b=0$ です。その後は $w_1,\dots,w_k$ の一次独立性から $a_1=\cdots=a_k=0$ です。よって追加後も一次独立です。
 
@@ -833,9 +833,9 @@ $
 
 よって停止時のベクトル族は $W$ の基底であり、その本数は高々 $n$ です。したがって
 
-$
+$$
 \dim W\le\dim V.
-$
+$$
 
 $\square$
 <!-- proof-end -->
@@ -844,15 +844,15 @@ $\square$
 
 $u_1,\dots,u_n$ が一次独立だが $V$ を張らないと仮定します。すると
 
-$
+$$
 x\in V\setminus\operatorname{span}(u_1,\dots,u_n)
-$
+$$
 
 を取れます。関係
 
-$
+$$
 a_1u_1+\cdots+a_nu_n+bx=0
-$
+$$
 
 で $b\ne0$ なら $x$ が $u_1,\dots,u_n$ の線形結合になってしまうので、必ず $b=0$ です。その後は $u_1,\dots,u_n$ の一次独立性から $a_1=\cdots=a_n=0$ です。
 
@@ -862,26 +862,26 @@ $
 
 $v_1,\dots,v_n$ が $V$ を張るが一次従属だと仮定します。すると全て0ではない係数 $a_i$ が存在して
 
-$
+$$
 a_1v_1+\cdots+a_nv_n=0.
-$
+$$
 
 $a_j\ne0$ を一つ選ぶと
 
-$
+$$
 v_j
 =
 -\frac1{a_j}
 \sum_{i\ne j}a_iv_i
-$
+$$
 
 なので、$v_j$ を除いた $n-1$ 本でも $V$ を張ります。
 
 一方、$V$ には $n$ 本からなる基底があり、それは一次独立です。この基底を、いま得た $n-1$ 本の生成系に対して交換補題へ入れると
 
-$
+$$
 n\le n-1
-$
+$$
 
 となり矛盾です。したがって $v_1,\dots,v_n$ は一次独立であり、基底です。
 
@@ -919,33 +919,33 @@ $$
 
 $\dim V=n$ とします。最初の一次独立系を
 
-$
+$$
 S_r=\{u_1,\dots,u_r\}
-$
+$$
 
 とします。
 
 もし $\operatorname{span}(S_r)=V$ なら、すでに $S_r$ は基底です。そうでなければ
 
-$
+$$
 v_{r+1}\in V\setminus\operatorname{span}(S_r)
-$
+$$
 
 を一つ取ります。このとき $S_{r+1}=S_r\cup\{v_{r+1}\}$ は一次独立です。実際、
 
-$
+$$
 a_1u_1+\cdots+a_ru_r+bv_{r+1}=0
-$
+$$
 
 とし、もし $b\ne0$ なら
 
-$
+$$
 v_{r+1}
 =
 -\frac1b(a_1u_1+\cdots+a_ru_r)
 \in
 \operatorname{span}(S_r)
-$
+$$
 
 となって選び方に矛盾します。したがって $b=0$ であり、さらに $S_r$ の一次独立性から $a_1=\cdots=a_r=0$ です。
 
@@ -1159,25 +1159,25 @@ $$
 
 一般の場合にも、$U\cap W=\{0\}$ なら表示の一意性はすぐ確認できます。もし
 
-$
+$$
 u_1+w_1=u_2+w_2
-$
+$$
 
 なら
 
-$
+$$
 u_1-u_2=w_2-w_1.
-$
+$$
 
 左辺は $U$、右辺は $W$ に属するので、この共通ベクトルは $U\cap W=\{0\}$ に属します。したがって $u_1=u_2$ かつ $w_1=w_2$ です。
 
 また $U+W$ 自体が部分空間であることも確認できます。$u_i\in U$, $w_i\in W$ と $a,b\in\mathbb R$ に対して
 
-$
+$$
 a(u_1+w_1)+b(u_2+w_2)
 =
 (au_1+bu_2)+(aw_1+bw_2)\in U+W.
-$
+$$
 
 <a id="thm-f0-00e-dimension-sum"></a>
 
@@ -1185,19 +1185,19 @@ $
 > **定理（部分空間の和の次元公式）**  
 > $U,W$ を有限次元ベクトル空間 $V$ の部分空間とする。このとき
 
-$
+$$
 \dim(U+W)
 =
 \dim U+\dim W-\dim(U\cap W).
-$
+$$
 
 > 特に $U\cap W=\{0\}$ なら
 
-$
+$$
 \dim(U\oplus W)
 =
 \dim U+\dim W.
-$
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1209,55 +1209,55 @@ $
 
 $U\cap W$ の基底を
 
-$
+$$
 e_1,\dots,e_r
-$
+$$
 
 とします。基底延長定理により、これを $U$ の基底
 
-$
+$$
 e_1,\dots,e_r,u_{r+1},\dots,u_p
-$
+$$
 
 へ延長し、また $W$ の基底
 
-$
+$$
 e_1,\dots,e_r,w_{r+1},\dots,w_q
-$
+$$
 
 へ延長します。ここで
 
-$
+$$
 p=\dim U,
 \qquad
 q=\dim W,
 \qquad
 r=\dim(U\cap W).
-$
+$$
 
 まず
 
-$
+$$
 \mathcal S=
 \{e_1,\dots,e_r,u_{r+1},\dots,u_p,w_{r+1},\dots,w_q\}
-$
+$$
 
 が $U+W$ を張ることを示します。任意の $u+w\in U+W$ について、$u$ は $U$ の上の基底で、$w$ は $W$ の上の基底で展開できるので、$u+w$ は $\mathcal S$ の線形結合です。
 
 次に一次独立性を示します。係数について
 
-$
+$$
 \sum_{i=1}^r a_i e_i
 +
 \sum_{j=r+1}^p b_j u_j
 +
 \sum_{k=r+1}^q c_k w_k
 =0
-$
+$$
 
 とします。移項すると
 
-$
+$$
 \sum_{j=r+1}^p b_j u_j
 =
 -
@@ -1266,58 +1266,58 @@ $
 +
 \sum_{k=r+1}^q c_k w_k
 \right).
-$
+$$
 
 左辺は $U$ に属し、右辺は $W$ に属するので、このベクトルは $U\cap W$ に属します。したがってある $d_1,\dots,d_r$ を用いて
 
-$
+$$
 \sum_{j=r+1}^p b_j u_j
 =
 \sum_{i=1}^r d_i e_i
-$
+$$
 
 と書けます。ところが $e_1,\dots,e_r,u_{r+1},\dots,u_p$ は $U$ の基底なので一次独立です。よって
 
-$
+$$
 b_{r+1}=\cdots=b_p=0,
 \qquad
 d_1=\cdots=d_r=0.
-$
+$$
 
 元の関係は
 
-$
+$$
 \sum_{i=1}^r a_i e_i
 +
 \sum_{k=r+1}^q c_k w_k
 =0
-$
+$$
 
 となり、$W$ の基底の一次独立性から
 
-$
+$$
 a_1=\cdots=a_r=0,
 \qquad
 c_{r+1}=\cdots=c_q=0.
-$
+$$
 
 したがって $\mathcal S$ は一次独立で、$U+W$ の基底です。よって
 
-$
+$$
 \dim(U+W)
 =
 r+(p-r)+(q-r)
 =
 p+q-r.
-$
+$$
 
 すなわち
 
-$
+$$
 \dim(U+W)
 =
 \dim U+\dim W-\dim(U\cap W).
-$
+$$
 
 直和の場合は $U\cap W=\{0\}$ なので $r=0$ を代入すればよいです。$\square$
 <!-- proof-end -->
@@ -1336,17 +1336,17 @@ $
 > **定理（座標写像は線形同型）**  
 > $V$ を $n$ 次元実ベクトル空間とし、順序付き基底
 
-$
+$$
 \mathcal B=(v_1,\dots,v_n)
-$
+$$
 
 > を固定する。このとき座標写像
 
-$
+$$
 \Phi_{\mathcal B}:V\to\mathbb R^n,
 \qquad
 x\mapsto[x]_{\mathcal B}
-$
+$$
 
 > は線形同型である。したがって $V\cong\mathbb R^n$ である。
 <!-- formal-statement-end -->
@@ -1360,29 +1360,29 @@ $
 
 $x,y\in V$ を
 
-$
+$$
 x=\sum_{i=1}^n c_i v_i,
 \qquad
 y=\sum_{i=1}^n d_i v_i
-$
+$$
 
 と表します。任意の $\alpha,\beta\in\mathbb R$ に対して
 
-$
+$$
 \alpha x+\beta y
 =
 \sum_{i=1}^n(\alpha c_i+\beta d_i)v_i.
-$
+$$
 
 基底展開の一意性から
 
-$
+$$
 [\alpha x+\beta y]_{\mathcal B}
 =
 \alpha[x]_{\mathcal B}
 +
 \beta[y]_{\mathcal B}.
-$
+$$
 
 したがって $\Phi_{\mathcal B}$ は線形です。
 
