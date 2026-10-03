@@ -2,9 +2,9 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念への参照**：[予測可能過程](../STO1/index.md#def-sto1-predictable)、[Doob 最大不等式](../STO2/index.md#thm-sto2-doob-maximal)、[多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)、[Poissonランダム測度](../STO13/index.md#def-sto13-poisson-random-measure)、[補償Poissonランダム測度](../STO13/index.md#def-sto13-compensated-prm)、[単関数 L2 等長性](../STO13/index.md#thm-sto13-prm-simple-isometry)、[$L^2$ の完備性](../F0_00D2E_L2完備性_Riesz_Fischer/index.md#thm-f0-00d2e-01)、[特性関数](../F0_00P6_特性関数_中心極限定理/index.md#def-f0-00p6-characteristic-function) を直接使います。
+> **既出概念への参照**：[予測可能過程](../STO1/index.md#def-sto1-predictable)、[Doob 最大不等式](../STO2/index.md#thm-sto2-doob-maximal)、[多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)、[Poisson ランダム測度](../STO13/index.md#def-sto13-poisson-random-measure)、[補償 Poisson ランダム測度](../STO13/index.md#def-sto13-compensated-prm)、[単関数 L2 等長性](../STO13/index.md#thm-sto13-prm-simple-isometry)、[$L^2$ の完備性](../F0_00D2E_L2完備性_Riesz_Fischer/index.md#thm-f0-00d2e-01)、[特性関数](../F0_00P6_特性関数_中心極限定理/index.md#def-f0-00p6-characteristic-function) を直接使います。
 
-STO13 では、跳躍の「時刻」と「印」をPoissonランダム測度
+STO13 では、跳躍の「時刻」と「印」をPoisson ランダム測度
 
 $$
 N(ds,dz)
@@ -68,9 +68,9 @@ $$
 
 ---
 
-## 1. 最初の模型：Poisson個数に跳躍幅を付ける
+## 1. 最初の模型：Poisson 個数に跳躍幅を付ける
 
-率 $\lambda>0$ のPoisson過程 $N$ と、実確率変数列
+率 $\lambda>0$ のPoisson 過程 $N$ と、実確率変数列
 
 $$
 Y_1,Y_2,\ldots
@@ -81,8 +81,8 @@ $$
 <a id="def-sto14-compound-poisson"></a>
 
 <!-- formal-statement-start -->
-> **定義（複合Poisson 過程）**  
-> 確率空間 $(\Omega,\mathcal F,P)$ 上で、$N$ を率 $\lambda>0$ のPoisson過程、$(Y_k)_{k\ge1}$ を共通分布 $\mu$ を持つ実数値の独立同分布列とし、$N$ と $(Y_k)$ は独立とする。
+> **定義（複合 Poisson 過程）**  
+> 確率空間 $(\Omega,\mathcal F,P)$ 上で、$N$ を率 $\lambda>0$ のPoisson 過程、$(Y_k)_{k\ge1}$ を共通分布 $\mu$ を持つ実数値の独立同分布列とし、$N$ と $(Y_k)$ は独立とする。
 >
 > $X_0=0$ とし、
 >
@@ -92,7 +92,7 @@ X_t
 \sum_{k=1}^{N_t}Y_k
 $$
 >
-> と定める。この $X=(X_t)_{t\ge0}$ を、率 $\lambda$、跳躍幅分布 $\mu$ の **複合Poisson 過程**という。
+> と定める。この $X=(X_t)_{t\ge0}$ を、率 $\lambda$、跳躍幅分布 $\mu$ の **複合 Poisson 過程**という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sto14-compound-poisson -->
@@ -118,14 +118,14 @@ $$
 
 なので、増分の分布は区間長 $t-s$ だけで決まり、互いに素な時間区間上の増分は独立です。
 
-複合Poisson 過程は「Poisson計数に跳躍幅を付けたもの」という定義を、そのまま手で確認できる最小例です。
+複合 Poisson 過程は「Poisson 計数に跳躍幅を付けたもの」という定義を、そのまま手で確認できる最小例です。
 <!-- definition-example-end -->
 
 <a id="thm-sto14-compound-poisson-cf"></a>
 
 <!-- formal-statement-start -->
-> **定理（複合Poisson 過程の Lévy 性と特性関数）**  
-> $X$ を率 $\lambda$、跳躍幅分布 $\mu$ の複合Poisson 過程とする。
+> **定理（複合 Poisson 過程の Lévy 性と特性関数）**  
+> $X$ を率 $\lambda$、跳躍幅分布 $\mu$ の複合 Poisson 過程とする。
 >
 > このとき $X$ は独立定常増分を持ち、確率連続である。
 >
@@ -162,7 +162,7 @@ $$
 
 です。
 
-条件付き特性関数を Poisson個数について平均すると、指数関数が現れます。
+条件付き特性関数を Poisson 個数について平均すると、指数関数が現れます。
 
 <!-- proof-start -->
 ### 証明
@@ -259,7 +259,7 @@ $$
 
 ## 2. 独立定常増分を持つ過程
 
-複合Poisson 過程では「有限個の跳躍」、ドリフト付きブラウン運動では「連続な揺らぎ」を扱えました。次に欲しいのは、この二つを別々の模型として覚えるのではなく、**時間区間ごとの増分だけで法則が決まり、互いに素な時間区間では増分が独立になる**という共通構造です。
+複合 Poisson 過程では「有限個の跳躍」、ドリフト付きブラウン運動では「連続な揺らぎ」を扱えました。次に欲しいのは、この二つを別々の模型として覚えるのではなく、**時間区間ごとの増分だけで法則が決まり、互いに素な時間区間では増分が独立になる**という共通構造です。
 
 ただし独立定常増分だけでは、時刻を少し動かしたときに過程が不連続に暴れる可能性を排除できません。そこで「短い時間の増分は確率的に小さくなる」という確率連続性も加えます。この三つを一つにまとめたものが Lévy 過程です。
 
@@ -333,7 +333,7 @@ $$
 
 よってドリフト付きブラウン運動は Lévy 過程です。
 
-前節の複合Poisson 過程も同じ定義を満たします。Lévy 過程は
+前節の複合 Poisson 過程も同じ定義を満たします。Lévy 過程は
 
 $$
 \boxed{
@@ -350,7 +350,7 @@ $$
 
 ## 3. なぜ「無限分解可能」が現れるのか
 
-Lévy 過程では、時間区間 $[0,t]$ を $n$ 等分すると、$X_t$ は長さ $t/n$ の独立同分布な増分 $n$ 個の和になります。つまり「どれだけ細かく時間を分けても、その時刻の分布を同じ分布の畳み込みへ分解できる」という性質が自動的に現れます。
+Lévy 過程では、時間区間 $[0,t]$ を $n$ 等分すると、$X_t$ は長さ $t/n$ の独立同分布な増分 $n$ 個の和になります。つまり「どれだけ細かく時間を分けても、その時刻の分布を、同じ分布に従う独立な確率変数の和へ分解できる」という性質が自動的に現れます。
 
 そこで、まず過程を離れて「任意の $n$ 個の独立同分布な和へ分解できる分布」を定義します。この分布側の概念が無限分解可能性です。
 
@@ -760,7 +760,7 @@ $$
 なお $u\mapsto\psi(u)$ の連続性は、この後の Lévy--Khintchine 表示から従います。本節では時間半群から各 $u$ ごとの指数を取り出すところまでを閉じます。
 <!-- proof-end -->
 
-複合Poisson 過程では
+複合 Poisson 過程では
 
 $$
 \psi(u)
@@ -788,7 +788,7 @@ $$
 
 ## 5. 原点近くで無限になり得る跳躍強度
 
-複合Poisson 過程では、跳躍の総強度は有限でした。しかし一般の Lévy 過程では、原点に近い小さな跳躍が有限時間内に無限個現れてもよいようにしたい一方、大きな跳躍まで無限個あると有限時間の標本路を制御できません。
+複合 Poisson 過程では、跳躍の総強度は有限でした。しかし一般の Lévy 過程では、原点に近い小さな跳躍が有限時間内に無限個現れてもよいようにしたい一方、大きな跳躍まで無限個あると有限時間の標本路を制御できません。
 
 必要なのは「大跳躍の個数は有限に抑え、小跳躍は個数ではなく二乗の総量で制御する」条件です。その条件を測度として切り出したものが Lévy 測度です。
 
@@ -922,11 +922,11 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sto14-activity -->
-### 直接例：複合Poisson 過程は有限活動度
+### 直接例：複合 Poisson 過程は有限活動度
 
 **定義の確認**
 
-複合Poisson 過程の跳躍幅分布を $\mu$ とし、$\mu(\{0\})=0$ とします。
+複合 Poisson 過程の跳躍幅分布を $\mu$ とし、$\mu(\{0\})=0$ とします。
 
 Lévy 測度は
 
@@ -1127,7 +1127,7 @@ $$
 
 ---
 
-## 7. ランダムな予測可能係数を Poisson積分へ入れる
+## 7. ランダムな予測可能係数を Poisson ランダム測度積分へ入れる
 
 STO13 では決定論的単関数
 
@@ -1151,7 +1151,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（単純予測可能 Poisson 被積分過程）**  
-> $T>0$ とし、$(E,\mathcal E,\nu)$ を $\sigma$-有限測度空間、$N(ds,dz)$ を $(0,T]\times E$ 上の強度 $ds\,\nu(dz)$ のPoissonランダム測度とする。$(\mathcal F_t)_{0\le t\le T}$ は $N$ の自然なフィルトレーションの通常拡大とする。
+> $T>0$ とし、$(E,\mathcal E,\nu)$ を $\sigma$-有限測度空間、$N(ds,dz)$ を $(0,T]\times E$ 上の強度 $ds\,\nu(dz)$ のPoisson ランダム測度とする。$(\mathcal F_t)_{0\le t\le T}$ は $N$ の自然なフィルトレーションの通常拡大とする。
 >
 > $0=t_0<\cdots<t_m=T$、$A_1,\ldots,A_r\in\mathcal E$ で $\nu(A_j)<\infty$、および有界な $\mathcal F_{t_k}$-可測確率変数 $\xi_{kj}$ を用いて
 >
@@ -1208,8 +1208,8 @@ $$
 <a id="thm-sto14-prm-l2-integral"></a>
 
 <!-- formal-statement-start -->
-> **定理（補償Poisson ランダム測度の L2 等長性と拡張）**  
-> $T>0$ とし、$(E,\mathcal E,\nu)$ を $\sigma$-有限測度空間、$N(ds,dz)$ を強度 $ds\,\nu(dz)$ のPoissonランダム測度、$\widetilde N$ をその補償Poissonランダム測度とする。$(\mathcal F_t)_{0\le t\le T}$ を $N$ の自然なフィルトレーションの通常拡大とする。
+> **定理（補償 Poisson ランダム測度の L2 等長性と拡張）**  
+> $T>0$ とし、$(E,\mathcal E,\nu)$ を $\sigma$-有限測度空間、$N(ds,dz)$ を強度 $ds\,\nu(dz)$ のPoisson ランダム測度、$\widetilde N$ をその補償 Poisson ランダム測度とする。$(\mathcal F_t)_{0\le t\le T}$ を $N$ の自然なフィルトレーションの通常拡大とする。
 >
 > $H$ を $[0,T]\times E\times\Omega$ 上の単純予測可能 Poisson 被積分過程とする。このとき
 >
@@ -1537,8 +1537,8 @@ a.s. であり、拡張後も二乗可積分マルチンゲールです。
 定理で「単純予測可能過程に対する積分」と「二乗可積分な一般の予測可能過程への一意な拡張」ができました。ここで、その拡張後の対象を正式に名前付けします。
 
 <!-- formal-statement-start -->
-> **定義（補償Poisson ランダム測度に関する L2 確率積分）**  
-> $T>0$ とし、$(E,\mathcal E,\nu)$ を $\sigma$-有限測度空間、$N(ds,dz)$ を強度 $ds\,\nu(dz)$ のPoissonランダム測度、$\widetilde N$ をその補償Poissonランダム測度とする。$(\mathcal F_t)_{0\le t\le T}$ を $N$ の自然なフィルトレーションの通常拡大とする。
+> **定義（補償 Poisson ランダム測度に関する L2 確率積分）**  
+> $T>0$ とし、$(E,\mathcal E,\nu)$ を $\sigma$-有限測度空間、$N(ds,dz)$ を強度 $ds\,\nu(dz)$ のPoisson ランダム測度、$\widetilde N$ をその補償 Poisson ランダム測度とする。$(\mathcal F_t)_{0\le t\le T}$ を $N$ の自然なフィルトレーションの通常拡大とする。
 >
 > $(\mathcal F_t)$-予測可能過程 $H$ が
 >
@@ -1741,7 +1741,7 @@ $$
 
 ## 9. 無限個の小跳躍を閾値極限で作る
 
-$\nu$ を Lévy 測度、$N(ds,dz)$ を強度 $ds\,\nu(dz)$ のPoissonランダム測度とします。
+$\nu$ を Lévy 測度、$N(ds,dz)$ を強度 $ds\,\nu(dz)$ のPoisson ランダム測度とします。
 
 $\varepsilon\in(0,1)$ に対して
 
@@ -1760,7 +1760,7 @@ $\nu(|z|>\varepsilon)<\infty$ なので、各 $\varepsilon>0$ では有限個の
 
 <!-- formal-statement-start -->
 > **定理（補償小跳躍積分の閾値極限）**  
-> $\nu$ を $\mathbb R\setminus\{0\}$ 上の Lévy 測度、$N(ds,dz)$ を強度 $ds\,\nu(dz)$ のPoissonランダム測度、$\widetilde N$ をその補償Poissonランダム測度とする。
+> $\nu$ を $\mathbb R\setminus\{0\}$ 上の Lévy 測度、$N(ds,dz)$ を強度 $ds\,\nu(dz)$ のPoisson ランダム測度、$\widetilde N$ をその補償 Poisson ランダム測度とする。
 >
 > 任意の $T<\infty$ に対し、
 >
@@ -1830,7 +1830,7 @@ $$
 
 $\delta<\varepsilon<1$ とします。
 
-[補償Poisson ランダム測度の L2 確率積分](#thm-sto14-prm-l2-integral)の等長性から
+[補償 Poisson ランダム測度の L2 確率積分](#thm-sto14-prm-l2-integral)の等長性から
 
 $$
 E\left[
@@ -2039,7 +2039,7 @@ $$
 > **定理（Lévy--Itô 分解）**  
 > 実数値 Lévy 過程 $X$ の Lévy--Khintchine 三つ組を $(b,\sigma,\nu)$ とする。
 >
-> 必要なら確率空間を拡張して、標準ブラウン運動 $B$ と、$(0,\infty)\times(\mathbb R\setminus\{0\})$ 上の強度 $ds\,\nu(dz)$ のPoissonランダム測度 $N$ を取り、$B$ と $N$ は独立となるようにできる。$\widetilde N(ds,dz)=N(ds,dz)-ds\,\nu(dz)$ とすると、
+> 必要なら確率空間を拡張して、標準ブラウン運動 $B$ と、$(0,\infty)\times(\mathbb R\setminus\{0\})$ 上の強度 $ds\,\nu(dz)$ のPoisson ランダム測度 $N$ を取り、$B$ と $N$ は独立となるようにできる。$\widetilde N(ds,dz)=N(ds,dz)-ds\,\nu(dz)$ とすると、
 >
 $$
 \boxed{
@@ -2105,7 +2105,7 @@ $$
 
 なので、Poisson 部分は有限活動度です。
 
-$B$ と $N$ は独立で、さらにPoissonランダム測度は互いに素な印領域上で独立散布です。従って
+$B$ と $N$ は独立で、さらにPoisson ランダム測度は互いに素な印領域上で独立散布です。従って
 
 - ブラウン増分、
 - $\varepsilon<|z|\le1$ の補償跳躍増分、
@@ -2391,7 +2391,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Lévy 過程に対する跳躍 Itô 公式）**  
-> $X$ を Lévy--Khintchine 三つ組 $(b,\sigma,\nu)$ を持つ実数値 Lévy 過程とする。標準ブラウン運動 $B$ と強度 $ds\,\nu(dz)$ のPoissonランダム測度 $N$ は独立で、$\widetilde N(ds,dz)=N(ds,dz)-ds\,\nu(dz)$ とし、Lévy--Itô 分解
+> $X$ を Lévy--Khintchine 三つ組 $(b,\sigma,\nu)$ を持つ実数値 Lévy 過程とする。標準ブラウン運動 $B$ と強度 $ds\,\nu(dz)$ のPoisson ランダム測度 $N$ は独立で、$\widetilde N(ds,dz)=N(ds,dz)-ds\,\nu(dz)$ とし、Lévy--Itô 分解
 >
 $$
 \begin{aligned}
@@ -2466,7 +2466,7 @@ $$
 
 最後に $\varepsilon\downarrow0$ とし、
 
-- 一次跳躍部分は補償 Poisson積分の $L^2$ 等長性、
+- 一次跳躍部分は補償 Poisson ランダム測度積分の $L^2$ 等長性、
 - 剰余項 は $C^2$ Taylor 評価と $\int z^2\nu(dz)<\infty$
 
 で極限へ送ります。
@@ -2646,15 +2646,64 @@ $$
 
 が各 $s$ で成り立ちます。被積分関数はそれぞれ $\|f'\|_\infty$、$\|f''\|_\infty$ で支配されるので、有界収束により $ds$ 積分を極限へ送れます。
 
-次にブラウン確率積分です。一様確率収束から
+次にブラウン確率積分です。任意の $\eta>0$ に対し
 
 $$
-X_{s-}^{(\varepsilon)}
+\begin{aligned}
+&\int_0^T
+P\left(
+|X_{s-}^{(\varepsilon)}-X_{s-}|>\eta
+\right)ds\\
+&\le
+T\,
+P\left(
+\sup_{0\le r\le T}
+|X_r^{(\varepsilon)}-X_r|>\eta
+\right)
+\to0.
+\end{aligned}
+$$
+
+従って $f'$ の連続性から
+
+$$
+f'(X_{s-}^{(\varepsilon)})
 \to
-X_{s-}
+f'(X_{s-})
 $$
 
-は $ds\times P$ に関する測度収束でもあります。$f'$ は有界なので
+も $P(d\omega)\,ds$ に関して同じ意味で近づきます。ここで
+
+$$
+D_\varepsilon(s,\omega)
+=
+f'(X_{s-}^{(\varepsilon)})
+-
+f'(X_{s-})
+$$
+
+と置くと $|D_\varepsilon|\le2\|f'\|_\infty$ です。任意の $\rho>0$ について
+
+$$
+\begin{aligned}
+E\int_0^T|D_\varepsilon(s)|^2ds
+&\le
+\rho^2T\\
+&\quad+
+4\|f'\|_\infty^2
+\int_0^T
+P(|D_\varepsilon(s)|>\rho)ds.
+\end{aligned}
+$$
+
+まず $\varepsilon\downarrow0$ とし、その後 $\rho\downarrow0$ とすれば
+
+$$
+E\int_0^T|D_\varepsilon(s)|^2ds
+\to0.
+$$
+
+従って
 
 $$
 f'(X_{s-}^{(\varepsilon)})\sigma
@@ -2662,7 +2711,7 @@ f'(X_{s-}^{(\varepsilon)})\sigma
 f'(X_{s-})\sigma
 $$
 
-は $L^2(ds\times P)$ で収束します。従って [Itô 等長性](../STO6/index.md#thm-sto6-ito-isometry-simple)からブラウン確率積分も $L^2(P)$ で極限へ送れます。
+は $L^2(P(d\omega)\,ds)$ で収束します。[Itô 等長性](../STO6/index.md#thm-sto6-ito-isometry-simple)からブラウン確率積分も $L^2(P)$ で極限へ送れます。
 
 小跳躍の補償ランダム測度項では
 
@@ -2720,7 +2769,7 @@ E\int_0^T\int_{|z|\le1}
 \to0.
 $$
 
-[補償Poisson ランダム測度の L2 等長性と拡張](#thm-sto14-prm-l2-integral)から、対応する補償積分も $L^2(P)$ で収束します。任意の列からこの性質を持つ部分列が取れるので、元の族全体も同じ極限へ収束します。
+[補償 Poisson ランダム測度の L2 等長性と拡張](#thm-sto14-prm-l2-integral)から、対応する補償積分も $L^2(P)$ で収束します。任意の列からこの性質を持つ部分列が取れるので、元の族全体も同じ極限へ収束します。
 
 補償ドリフト剰余項には [Taylor の定理](../RA3/index.md#thm-ra3-taylor)を、点 $x$、増分 $z$、2 次までの剰余評価として適用します。すなわち
 
@@ -2783,7 +2832,7 @@ $$
 
 ### 有限活動度なら何が簡単になるか
 
-複合Poisson 過程では有限時間内の跳躍 が有限個なので、
+複合 Poisson 過程では有限時間内の跳躍 が有限個なので、
 
 $$
 \sum_{0<s\le t}
@@ -2869,7 +2918,7 @@ f(X_{s-}+z)-f(X_{s-})
 \right)\widetilde N(ds,dz)
 $$
 
-も補償Poisson ランダム測度に関する局所マルチンゲールです。
+も補償 Poisson ランダム測度に関する局所マルチンゲールです。
 
 ここでは局所化だけに頼らず、二乗可積分性を直接確認します。$f\in C_c^2$ なら $f'$ は有界で、
 
@@ -3142,11 +3191,11 @@ $$
 
 ## 16. 演習
 
-#### STO14-A01 複合Poisson 過程の特性関数と平均・分散
+#### STO14-A01 複合 Poisson 過程の特性関数と平均・分散
 - Level: A
 - 目安時間: 20分
 
-率 $\lambda$ のPoisson過程 $N$ と、$N$ と独立な独立同分布列 $(Y_k)$ を用いて
+率 $\lambda$ のPoisson 過程 $N$ と、$N$ と独立な独立同分布列 $(Y_k)$ を用いて
 
 $$
 X_t=\sum_{k=1}^{N_t}Y_k
@@ -3334,7 +3383,7 @@ $$
 ただし二乗重み付き積分は有限なので、補償小跳躍積分は $L^2$ で構成できます。
 <!-- solution-end -->
 
-#### STO14-A03 予測可能なランダム係数を持つ補償 Poisson積分
+#### STO14-A03 予測可能なランダム係数を持つ補償 Poisson ランダム測度積分
 - Level: A
 - 目安時間: 20分
 
@@ -4080,7 +4129,7 @@ E\int_0^T\int_{|z|>1}
 \infty.
 $$
 
-従ってブラウン確率積分、小跳躍の補償 Poisson積分、大跳躍を補償した Poisson積分はいずれも二乗可積分マルチンゲールです。
+従ってブラウン確率積分、小跳躍の補償 Poisson ランダム測度積分、大跳躍を補償した Poisson ランダム測度積分はいずれも二乗可積分マルチンゲールです。
 
 したがって
 
@@ -4191,7 +4240,7 @@ $$
 
 本章の核心は次の 6 本です。
 
-複合Poisson 過程では
+複合 Poisson 過程では
 
 $$
 \boxed{
