@@ -40,6 +40,14 @@ concepts:
     requires:
       - linear.laplace-expansion
 
+  - id: linear.adjugate-identity
+    name: 余因子行列の基本恒等式
+    kind: theorem
+    aliases: [余因子行列の基本恒等式]
+    requires:
+      - linear.adjugate
+      - linear.laplace-expansion
+
   - id: linear.determinant-multiplicativity
     name: 行列式の乗法性
     kind: theorem
@@ -53,7 +61,7 @@ concepts:
     kind: theorem
     aliases: [行列式による可逆性判定, determinant invertibility criterion]
     requires:
-      - linear.adjugate
+      - linear.adjugate-identity
       - linear.determinant-multiplicativity
 
   - id: linear.determinant-similarity-invariance
