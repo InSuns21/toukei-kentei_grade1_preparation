@@ -4,7 +4,7 @@ F0-00Eでは、ベクトルを基底で展開し、その座標を一意に読�
 
 そこで、この講義では **内積** を入れて長さと直交を扱えるようにします。さらに、互いに直交する単位ベクトルを基底に選べば、座標は連立方程式を解かず内積だけで読めます。この利点を Gram--Schmidt、射影、最小二乗、QR へ順に広げます。
 
-$\boxed{\text{内積}\to\text{Gram--Schmidt}\to\text{射影}\to\text{最小二乗}\to\text{QR}}$
+$$\boxed{\text{内積}\to\text{Gram--Schmidt}\to\text{射影}\to\text{最小二乗}\to\text{QR}}$$
 
 ---
 
@@ -426,35 +426,35 @@ $$
 
 ここまでで、$V$ の中の方向と $V^\perp$ の方向を区別できるようになりました。次に、任意の $x$ を
 
-$
+$$
 x=\text{$V$ の成分}+\text{$V^\perp$ の成分}
-$
+$$
 
 と分けたいと考えます。
 
 $V$ の正規直交基底を $q_1,\dots,q_k$ とします。$V$ の成分を $p=\sum_i c_iq_i$ と仮定し、残差 $x-p$ が各 $q_j$ に直交するように係数を選びます。条件
 
-$
+$$
 0=\langle x-p,q_j\rangle
 =\langle x,q_j\rangle-c_j
-$
+$$
 
 から
 
-$
+$$
 c_j=\langle x,q_j\rangle
-$
+$$
 
 なので、候補は
 
-$
+$$
 \boxed{
 p
 =
 \sum_{i=1}^k
 \langle x,q_i\rangle q_i
 }
-$
+$$
 
 です。以下、この $p$ を $P_Vx$ と書きます。
 
@@ -509,17 +509,17 @@ $$
 
 まず
 
-$
+$$
 p=P_Vx
 =
 \sum_{i=1}^k\langle x,q_i\rangle q_i,
 \qquad
 r=x-p
-$
+$$
 
 と置きます。各 $q_j$ に対して
 
-$
+$$
 \begin{aligned}
 \langle r,q_j\rangle
 &=
@@ -530,21 +530,21 @@ $
 \langle x,q_j\rangle-\langle x,q_j\rangle\\
 &=0
 \end{aligned}
-$
+$$
 
 なので、$r$ は $V$ の基底 $q_1,\dots,q_k$ の全てに直交します。従って $r\in V^\perp$ であり、存在が示されました。
 
 一意性について、$x=p_1+r_1=p_2+r_2$ と2通りに書けたとします。このとき
 
-$
+$$
 p_1-p_2=r_2-r_1.
-$
+$$
 
 左辺は $V$ に、右辺は $V^\perp$ に属するので、共通のベクトル $w=p_1-p_2$ は $V\cap V^\perp$ に属します。$w\in V$ かつ $w\in V^\perp$ なら $w$ は自分自身にも直交するため
 
-$
+$$
 \langle w,w\rangle=0.
-$
+$$
 
 内積の正定値性から $w=0$ です。従って $p_1=p_2$、さらに $r_1=r_2$ です。
 <!-- proof-end -->
@@ -554,15 +554,15 @@ $
 <!-- formal-statement-start -->
 > **定義（直交射影）**  
 > 部分空間 $V\subset\mathbb R^n$ と $x\in\mathbb R^n$ に対し、上の一意な分解
->
-> $
-> x=p+r,
-> \qquad
-> p\in V,
-> \quad
-> r\in V^\perp
-> $
->
+
+$$
+x=p+r,
+\qquad
+p\in V,
+\quad
+r\in V^\perp
+$$
+
 > に現れる $p$ を、$x$ の $V$ への **直交射影** といい、$P_Vx$ と書きます。
 <!-- formal-statement-end -->
 
@@ -688,13 +688,13 @@ $$
 
 列が一次独立なら $X^{\mathsf T}X$ は正則です。ここは後の公式で逆行列を使うため、理由を確認しておきます。任意の $z\in\mathbb R^k$ に対して
 
-$
+$$
 z^{\mathsf T}X^{\mathsf T}Xz
 =
 (Xz)^{\mathsf T}(Xz)
 =
 \|Xz\|^2.
-$
+$$
 
 もし $X^{\mathsf T}Xz=0$ なら左辺は0なので $\|Xz\|^2=0$、従って $Xz=0$ です。列一次独立性から $z=0$ となるため、$X^{\mathsf T}X$ の核は $\{0\}$ です。$X^{\mathsf T}X$ は $k\times k$ 正方行列なので可逆です。
 
@@ -804,52 +804,52 @@ $X$ の列が一次独立なので、$\operatorname{Col}(X)$ の各点は $X\bet
 
 として適用すると、最小二乗点は $y$ の $\operatorname{Col}(X)$ への直交射影です。従って、ある一意な $\hat\beta$ により
 
-$
+$$
 p=X\hat\beta
-$
+$$
 
 と書け、残差
 
-$
+$$
 e=y-p=y-X\hat\beta
-$
+$$
 
 は $\operatorname{Col}(X)$ に直交します。
 
 $X$ の各列との内積が0であることをまとめて書くと
 
-$
+$$
 X^{\mathsf T}e=0.
-$
+$$
 
 ここへ $e=y-X\hat\beta$ を代入すると
 
-$
+$$
 X^{\mathsf T}(y-X\hat\beta)=0,
-$
+$$
 
 すなわち
 
-$
+$$
 X^{\mathsf T}X\hat\beta=X^{\mathsf T}y
-$
+$$
 
 です。
 
 さらに $z\ne0$ なら、列一次独立性から $Xz\ne0$ なので
 
-$
+$$
 z^{\mathsf T}X^{\mathsf T}Xz
 =
 \|Xz\|^2
 >0.
-$
+$$
 
 従って $X^{\mathsf T}X$ の核は $\{0\}$ で、$k\times k$ 正方行列だから可逆です。正規方程式の両辺に $(X^{\mathsf T}X)^{-1}$ を左から掛けて
 
-$
+$$
 \hat\beta=(X^{\mathsf T}X)^{-1}X^{\mathsf T}y
-$
+$$
 
 を得ます。
 <!-- proof-end -->
@@ -932,28 +932,28 @@ $j$ 番目の列 $a_j$ は、Gram--Schmidt の第 $j$ 段階までに得た $q_1
 
 $A$ の列を $a_1,\dots,a_k$ とし、Gram--Schmidtで $q_1,\dots,q_k$ を作ります。第 $j$ 段階では
 
-$
+$$
 u_j
 =
 a_j-
 \sum_{i=1}^{j-1}\langle a_j,q_i\rangle q_i,
 \qquad
 q_j=\frac{u_j}{\|u_j\|}.
-$
+$$
 
 2本目の式から $u_j=\|u_j\|q_j$ なので、1本目へ戻すと
 
-$
+$$
 a_j
 =
 \sum_{i=1}^{j-1}\langle a_j,q_i\rangle q_i
 +
 \|u_j\|q_j.
-$
+$$
 
 そこで
 
-$
+$$
 r_{ij}
 =
 \begin{cases}
@@ -961,19 +961,19 @@ r_{ij}
 \|u_j\|,&i=j,\\
 0,&i>j
 \end{cases}
-$
+$$
 
 と置きます。各 $a_j$ は
 
-$
+$$
 a_j=\sum_{i=1}^k r_{ij}q_i
-$
+$$
 
 と書けるので、$q_i$ を列に持つ $Q$ と $r_{ij}$ を成分に持つ $R$ について
 
-$
+$$
 A=QR.
-$
+$$
 
 $q_i$ は正規直交系だから $Q^{\mathsf T}Q=I_k$ です。また $i>j$ では $r_{ij}=0$ なので $R$ は上三角で、対角成分は $r_{jj}=\|u_j\|>0$ です。従って $A=QR$ は薄いQR分解です。
 <!-- proof-end -->
@@ -996,72 +996,72 @@ $$
 
 $Q$ の列空間への射影を
 
-$
+$$
 p=QQ^{\mathsf T}y
-$
+$$
 
 とし、射影残差を
 
-$
+$$
 r=y-p
-$
+$$
 
 と置きます。$r\perp\operatorname{Col}(Q)$ です。
 
 任意の $\beta$ に対して
 
-$
+$$
 \begin{aligned}
 y-QR\beta
 &=(y-p)+(p-QR\beta)\\
 &=r+QQ^{\mathsf T}y-QR\beta\\
 &=r+Q(Q^{\mathsf T}y-R\beta).
 \end{aligned}
-$
+$$
 
 第1項 $r$ は $\operatorname{Col}(Q)^\perp$ に、第2項は $\operatorname{Col}(Q)$ に属するので直交します。従って Pythagoras により
 
-$
+$$
 \|y-QR\beta\|^2
 =
 \|r\|^2
 +
 \|Q(Q^{\mathsf T}y-R\beta)\|^2.
-$
+$$
 
 さらに任意の $z\in\mathbb R^k$ について
 
-$
+$$
 \|Qz\|^2
 =
 z^{\mathsf T}Q^{\mathsf T}Qz
 =
 \|z\|^2
-$
+$$
 
 なので
 
-$
+$$
 \|y-QR\beta\|^2
 =
 \|r\|^2
 +
 \|Q^{\mathsf T}y-R\beta\|^2.
-$
+$$
 
 第1項は $\beta$ に依存しません。$R$ は可逆なので、第2項を0にできる唯一の $\beta$ が最小解であり、
 
-$
+$$
 R\hat\beta=Q^{\mathsf T}y.
-$
+$$
 
 従って
 
-$
+$$
 \boxed{
 \hat\beta=R^{-1}Q^{\mathsf T}y
 }.
-$
+$$
 
 理論上
 
@@ -1099,11 +1099,11 @@ $$
 
 この事実は後で
 
-$
+$$
 \boxed{
 H=M\oplus M^\perp
 }
-$
+$$
 
 という無限次元での対応する分解へ一般化されます。
 
@@ -1129,7 +1129,7 @@ $$
 
 次に
 
-$
+$$
 \langle v_2,q_1\rangle
 =
 (1,0)
@@ -1137,11 +1137,11 @@ $
 \frac1{\sqrt2}(1,1)
 =
 \frac1{\sqrt2}.
-$
+$$
 
 したがって
 
-$
+$$
 \begin{aligned}
 u_2
 &=v_2-\langle v_2,q_1\rangle q_1\\
@@ -1150,7 +1150,7 @@ u_2
 &=(1,0)^{\mathsf T}-\frac12(1,1)^{\mathsf T}\\
 &=\left(\frac12,-\frac12\right)^{\mathsf T}.
 \end{aligned}
-$
+$$
 
 $\|u_2\|=1/\sqrt2$ なので
 
@@ -1248,34 +1248,34 @@ $$
 
 列 $a_1=(1,1,0)^{\mathsf T}$、$a_2=(1,-1,0)^{\mathsf T}$ は直交し、どちらも長さ $\sqrt2$ です。従って正規化した列を並べると
 
-$
+$$
 Q=\frac1{\sqrt2}
 \begin{pmatrix}
 1&1\\
 1&-1\\
 0&0
 \end{pmatrix}.
-$
+$$
 
 $A=QR$ なら左から $Q^{\mathsf T}$ を掛けて
 
-$
+$$
 Q^{\mathsf T}A
 =
 Q^{\mathsf T}QR
 =
 R
-$
+$$
 
 となるので、
 
-$
+$$
 R=Q^{\mathsf T}A=
 \begin{pmatrix}
 \sqrt2&0\\
 0&\sqrt2
 \end{pmatrix}.
-$
+$$
 
 $Q^{\mathsf T}Q=I_2$、$QR=A$、$R$ の対角成分が正であることも確認できます。
 <!-- solution-end -->
@@ -1361,9 +1361,9 @@ $$
 
 列一次独立性から、$z\ne0$ に対し $Xz\ne0$ なので
 
-$
+$$
 z^{\mathsf T}X^{\mathsf T}Xz=\|Xz\|^2>0.
-$
+$$
 
 もし $X^{\mathsf T}Xz=0$ なら左辺は0になって矛盾するため、核は $\{0\}$ です。$X^{\mathsf T}X$ は $k\times k$ 正方行列なので可逆です。よって
 
@@ -1523,7 +1523,7 @@ $$
 
 最後に
 
-$
+$$
 \begin{pmatrix}
 \sqrt2&1/\sqrt2\\
 0&\sqrt{3/2}
@@ -1537,31 +1537,31 @@ $
 3/\sqrt2\\
 1/\sqrt6
 \end{pmatrix}.
-$
+$$
 
 下段は
 
-$
+$$
 \sqrt{\frac32}\,\hat\beta_2
 =
 \frac1{\sqrt6}
-$
+$$
 
 なので $\hat\beta_2=1/3$ です。これを上段へ代入すると
 
-$
+$$
 \sqrt2\,\hat\beta_1
 +
 \frac1{\sqrt2}\cdot\frac13
 =
 \frac3{\sqrt2}.
-$
+$$
 
 両辺に $\sqrt2$ を掛けて
 
-$
+$$
 2\hat\beta_1+\frac13=3
-$
+$$
 
 だから $\hat\beta_1=4/3$ です。従って
 
