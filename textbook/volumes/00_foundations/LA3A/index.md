@@ -47,19 +47,19 @@ $$
 <!-- definition-example-start: def-la3a-linear-form -->
 **定義の確認**：章頭の
 
-$
+$$
 \varphi(x,y,z)=x+2y-z
-$
+$$
 
 について、$u=(u_1,u_2,u_3)$、$v=(v_1,v_2,v_3)$ とすると
 
-$
+$$
 \begin{aligned}
 \varphi(au+bv)
 &=a(u_1+2u_2-u_3)+b(v_1+2v_2-v_3)\\
 &=a\varphi(u)+b\varphi(v).
 \end{aligned}
-$
+$$
 
 従って $\varphi:\mathbb R^3\to\mathbb R$ は線形形式です。
 <!-- definition-example-end -->
@@ -79,13 +79,13 @@ $$
 <!-- definition-example-start: def-la3a-dual-space -->
 **定義の確認**：$\varphi,\psi\in V^*$ と $a,b\in\mathbb F$ に対して
 
-$
+$$
 (a\varphi+b\psi)(x):=a\varphi(x)+b\psi(x)
-$
+$$
 
 と定めます。$x,y\in V$ と $\alpha,\beta\in\mathbb F$ に対し
 
-$
+$$
 \begin{aligned}
 (a\varphi+b\psi)(\alpha x+\beta y)
 &=a\varphi(\alpha x+\beta y)+b\psi(\alpha x+\beta y)\\
@@ -93,7 +93,7 @@ $
  +\beta\{a\varphi(y)+b\psi(y)\}\\
 &=\alpha(a\varphi+b\psi)(x)+\beta(a\varphi+b\psi)(y).
 \end{aligned}
-$
+$$
 
 従って $a\varphi+b\psi$ も線形形式です。零写像が零元、$-\varphi$ が加法逆元となり、残りのベクトル空間公理も各 $x\in V$ での $\mathbb F$ の等式に帰着します。よって $V^*$ 自身がベクトル空間になります。
 <!-- definition-example-end -->
@@ -268,21 +268,21 @@ $$
 <!-- definition-example-start: def-la3a-annihilator -->
 **定義の確認**：$W=\operatorname{span}(e_1,e_2)\subset\mathbb R^3$ とします。標準双対基底 $e^1,e^2,e^3$ を使うと、一般の線形形式は
 
-$
+$$
 \varphi=a_1e^1+a_2e^2+a_3e^3
-$
+$$
 
 と書けます。$\varphi(e_1)=a_1$、$\varphi(e_2)=a_2$ なので、$W$ 上で常に0になるための必要十分条件は
 
-$
+$$
 a_1=a_2=0.
-$
+$$
 
 従って
 
-$
+$$
 W^\circ=\operatorname{span}(e^3).
-$
+$$
 <!-- definition-example-end -->
 平面が2次元なら、それを切り出す独立な線形方程式は1本です。この感覚は一般に次元公式になります。
 
@@ -421,13 +421,13 @@ $$
 <!-- definition-example-start: def-la3a-dual-map -->
 **定義の確認**：$T:\mathbb R^2\to\mathbb R^2$ を
 
-$
+$$
 T(x,y)=(x+y,y)
-$
+$$
 
 とし、$\psi(u,v)=2u-v$ とします。このとき
 
-$
+$$
 \begin{aligned}
 (T^*\psi)(x,y)
 &=\psi(T(x,y))\\
@@ -435,7 +435,7 @@ $
 &=2(x+y)-y\\
 &=2x+y.
 \end{aligned}
-$
+$$
 
 つまり出力側の測定器 $\psi$ を $T$ の前へ合成すると、入力側の線形形式 $2x+y$ が得られます。
 <!-- definition-example-end -->
@@ -595,9 +595,9 @@ $$
 
 単射性を示します。$v\ne0$ とします。$\{v\}$ は一次独立なので、[基底延長定理](../F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md#thm-basis-extension)により
 
-$
+$$
 v,v_2,\dots,v_n
-$
+$$
 
 という $V$ の基底まで延長できます。その双対基底の第1要素を $v^1$ とすれば
 $$
@@ -687,15 +687,15 @@ $$
 $$
 まず方程式 $x+y+z=0$ から $z=-x-y$ なので
 
-$
+$$
 (x,y,z)=x(1,0,-1)+y(0,1,-1).
-$
+$$
 
 右辺の2本は一次独立だから $\dim W=2$ です。[零化空間の次元公式](#thm-la3a-annihilator-dimension)より
 
-$
+$$
 \dim W^\circ=3-2=1.
-$
+$$
 
 従って
 $$
