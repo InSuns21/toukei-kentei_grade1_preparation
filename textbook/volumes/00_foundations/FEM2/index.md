@@ -924,7 +924,7 @@ F_K^{-1}(x)
 B_K^{-1}(x-z_1).
 $$
 
-各成分について連鎖律を使うと、
+各成分について[連鎖律](../RA3/index.md#prop-ra3-chain-rule)を使うと、
 
 $$
 \frac{\partial v}{\partial x_j}

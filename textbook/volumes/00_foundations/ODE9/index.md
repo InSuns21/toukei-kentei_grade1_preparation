@@ -184,7 +184,7 @@ $$
 <!-- definition-example-start: def-ode9-positive-invariant -->
 **定義の確認**：以下で定義の条件を直接確認します。
 
-$\dot V\le0$ とし、$x(0)$ が劣位集合 $\{V\le c\}$ に入っているとします。連鎖律から
+$\dot V\le0$ とし、$x(0)$ が劣位集合 $\{V\le c\}$ に入っているとします。[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 \frac d{dt}V(x(t))=\dot V(x(t))\le0
@@ -499,7 +499,7 @@ $x'=-x^3$ に対して $V=x^2/2$ の軌道微分を求めよ。
 <!-- solution-start -->
 ##### 詳細解答
 
-$V(x)=x^2/2$ なので $V'(x)=x$ です。軌道 $x(t)$ に連鎖律を使うと
+$V(x)=x^2/2$ なので $V'(x)=x$ です。軌道 $x(t)$ に[連鎖律](../RA3/index.md#prop-ra3-chain-rule)を使うと
 
 $$
 \dot V(x(t))
@@ -596,7 +596,7 @@ $x'=-\nabla U(x)$ に対して $U(x(t))$ の微分を求めよ。
 <!-- solution-start -->
 ##### 詳細解答
 
-$U$ が $C^1$ 級であるとします。軌道 $x(t)$ に連鎖律を適用すると
+$U$ が $C^1$ 級であるとします。軌道 $x(t)$ に[連鎖律](../RA3/index.md#prop-ra3-chain-rule)を適用すると
 
 $$
 \frac d{dt}U(x(t))

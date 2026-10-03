@@ -609,7 +609,7 @@ $$
 \phi_i(t)=F_i(x+th)
 $$
 
-と置きます。連鎖律より
+と置きます。[連鎖律](../RA3/index.md#prop-ra3-chain-rule)より
 
 $$
 \phi_i'(t)

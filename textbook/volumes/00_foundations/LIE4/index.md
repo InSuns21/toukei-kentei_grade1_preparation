@@ -225,7 +225,7 @@ $$
 \qquad
 \left.\frac d{dt}\right|_0\exp(tX)=X
 $$
-なので連鎖律から
+なので[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 $$
 \left.\frac d{dt}\right|_0
 \Phi_p(\exp(tX))
@@ -466,7 +466,7 @@ c(0)=e,
 \qquad
 c'(0)=-X.
 $$
-したがって $\operatorname{Ad}:G\to GL(\mathfrak g)$ へ連鎖律を適用すると
+したがって $\operatorname{Ad}:G\to GL(\mathfrak g)$ へ[連鎖律](../RA3/index.md#prop-ra3-chain-rule)を適用すると
 $$
 \left.
 \frac{d}{dt}
@@ -776,7 +776,7 @@ $$
 $$
 dm_{(e,e)}(U,V)=U+V
 $$
-です。$F=m\circ(\exp,\exp)$ なので連鎖律から
+です。$F=m\circ(\exp,\exp)$ なので[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 $$
 \begin{aligned}
 dF_{(0,0)}(X,Y)
@@ -1104,7 +1104,7 @@ $$
 
 §4 の座標で剰余類から代表元を局所的かつ滑らかに選べるので $\overline{\Phi}_x$ は滑らかです。
 
-単位剰余類での微分を考えます。連鎖律から
+単位剰余類での微分を考えます。[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 d(\Phi_x)_e
@@ -1502,7 +1502,7 @@ dL_{(hg)^{-1}}
 dL_{g^{-1}h^{-1}}.
 $$
 
-従って連鎖律より
+従って[連鎖律](../RA3/index.md#prop-ra3-chain-rule)より
 
 $$
 \theta_{hg}\circ dL_h

@@ -399,7 +399,7 @@ $$
 \phi''(0)\ge0.
 $$
 
-連鎖律により
+[連鎖律](../RA3/index.md#prop-ra3-chain-rule)により
 
 $$
 \phi''(0)

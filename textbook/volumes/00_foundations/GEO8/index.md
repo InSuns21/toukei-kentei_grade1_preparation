@@ -343,7 +343,7 @@ $$
 \widetilde F\circ\widetilde G=\operatorname{id}
 $$
 
-です。従って連鎖律から
+です。従って[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 D\widetilde F_p\,D\widetilde G_q=I,

@@ -804,7 +804,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-連鎖律から
+[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 \frac{d}{ds}
@@ -1581,7 +1581,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-連鎖律から
+[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 \frac{d}{dt}(F\circ\gamma)
@@ -2575,7 +2575,7 @@ $$
    2\pi R.
    $$
 
-   次に連鎖律から
+   次に[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
    $$
    \widetilde\gamma'(s)

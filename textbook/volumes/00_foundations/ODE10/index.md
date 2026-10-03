@@ -596,7 +596,7 @@ H_x=1-\frac1x,
 H_y=1-\frac1y.
 $$
 
-従って連鎖律から
+従って[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 \begin{aligned}
@@ -893,7 +893,7 @@ H_x=1-\frac1x,
 H_y=1-\frac1y.
 $$
 
-軌道に連鎖律を適用すると
+軌道に[連鎖律](../RA3/index.md#prop-ra3-chain-rule)を適用すると
 
 $$
 \begin{aligned}
@@ -957,7 +957,7 @@ g(x(t))<0,
 g(x(t_*))=0.
 $$
 
-従って $t_*$ で外側へ通過するには $g(x(t))$ は増加側へ向かわなければなりません。しかし連鎖律から
+従って $t_*$ で外側へ通過するには $g(x(t))$ は増加側へ向かわなければなりません。しかし[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 \frac d{dt}g(x(t_*))

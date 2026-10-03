@@ -465,7 +465,7 @@ F\bigl(x(t)+\theta y_h(t)\bigr),
 0\le\theta\le1
 $$
 
-を考えられます。連鎖律から
+を考えられます。[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 \psi_t'(\theta)

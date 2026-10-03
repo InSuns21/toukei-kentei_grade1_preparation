@@ -496,7 +496,7 @@ $\square$
 
 $A=\varnothing$ なら両辺は0で自明です。以下 $A\ne\varnothing$ とします。
 
-$\Phi^{-1}\circ\Phi=\operatorname{id}_U$ に連鎖律を適用すると
+$\Phi^{-1}\circ\Phi=\operatorname{id}_U$ に[連鎖律](../RA3/index.md#prop-ra3-chain-rule)を適用すると
 
 $$
 D\Phi^{-1}(\Phi(x))D\Phi(x)=I,

@@ -662,7 +662,7 @@ $$
 \qquad0\le t\le1
 $$
 
-は円板内にある。実一変数の連鎖律から
+は円板内にある。実一変数の[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 \frac d{dt}(U-u)(\gamma(t))=0,

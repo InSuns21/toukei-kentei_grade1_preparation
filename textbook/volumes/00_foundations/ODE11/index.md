@@ -288,7 +288,7 @@ $$
 z=re^{i\theta}
 $$
 
-と書きます。積の微分と連鎖律から
+と書きます。積の微分と[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 z'

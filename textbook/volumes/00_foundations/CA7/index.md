@@ -1426,7 +1426,7 @@ $$
 
 となる。
 
-一方、連鎖律から
+一方、[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 H'(0)=\frac{g'(a)}{f'(a)}.
@@ -1823,7 +1823,7 @@ $$
 H(w)=e^{i\theta}w.
 $$
 
-連鎖律により
+[連鎖律](../RA3/index.md#prop-ra3-chain-rule)により
 
 $$
 e^{i\theta}

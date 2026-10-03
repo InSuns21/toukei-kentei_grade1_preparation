@@ -408,7 +408,7 @@ $$
 \gamma(t)=x^{-1}(u(t))
 $$
 
-と置きます。連鎖律から
+と置きます。[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 dx_{\gamma(t)}(\gamma'(t))

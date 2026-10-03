@@ -393,7 +393,7 @@ $$
 
 です。
 
-一方 $u\in C^2$ なので $\nabla u$ は中心近くで有界です。連鎖律から
+一方 $u\in C^2$ なので $\nabla u$ は中心近くで有界です。[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 v_r

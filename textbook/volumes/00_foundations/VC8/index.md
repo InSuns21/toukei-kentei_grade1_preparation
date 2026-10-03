@@ -52,7 +52,7 @@ $$
 \frac{x_i}{r}
 $$
 
-なので、連鎖律から
+なので、[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 \partial_i h

@@ -766,7 +766,7 @@ $$
 F_i=x_i r^{-3}.
 $$
 
-$r>0$ では積の微分則と連鎖律から
+$r>0$ では積の微分則と[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 \frac{\partial F_i}{\partial x_i}

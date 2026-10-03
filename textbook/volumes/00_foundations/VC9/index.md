@@ -221,7 +221,7 @@ $$
 \dot X(t)=u(t,X(t))
 $$
 
-を満たすなら、連鎖律から
+を満たすなら、[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 \frac{d}{dt}f(t,X(t))

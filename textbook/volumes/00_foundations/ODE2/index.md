@@ -1024,7 +1024,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$k=1$ では連鎖律から
+$k=1$ では[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 EY=\frac{d}{dx}y(e^x)=e^xy'(e^x)=ty'(t)
