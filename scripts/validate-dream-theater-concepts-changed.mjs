@@ -26,8 +26,10 @@ const errors = output
 
 const blocking = [];
 const legacy = [];
+const readerEquivalent = [];
 const locallyShadowed = [];
 const baseSourceCache = new Map();
+const readerEquivalentCache = new Map();
 const currentSourceCache = new Map();
 const localAliasCache = new Map();
 
@@ -39,6 +41,17 @@ for (const line of errors) {
   }
 
   const { file, lineNumber, message, conceptId } = parsed;
+
+  // Stable-anchor のリンク付与など、読者に見える本文が base と同一の機械変更は、
+  // 既存ページの教育債務を changed-only blocker へ昇格させない。
+  if (
+    file.endsWith('.md') &&
+    readerVisibleTextUnchangedSinceBase(base, file, readerEquivalentCache)
+  ) {
+    readerEquivalent.push(line);
+    continue;
+  }
+
   const isUnreachable =
     file.endsWith('.md') &&
     conceptId &&
@@ -58,6 +71,12 @@ for (const line of errors) {
   const semanticLegacy = conceptWasAlreadyUsedInBase(base, file, conceptId, baseSourceCache);
   if (untouchedLegacy || semanticLegacy) legacy.push(line);
   else blocking.push(line);
+}
+
+if (readerEquivalent.length) {
+  console.log('');
+  console.log('読者可視テキストが変わらないリンク等の機械変更は、今回の changed-only 教育監査では既存扱いにします:');
+  for (const line of readerEquivalent) console.log(`  ${line.replace('- [ERROR] ', '')}`);
 }
 
 if (locallyShadowed.length) {
@@ -180,6 +199,35 @@ function conceptUseIsShadowedByLocalAlias(file, lineNumber, conceptId, sourceCac
     const introduced = entries.some((entry) => entry.line != null && entry.line <= lineNumber);
     return introduced && aliasAppears(sourceLine, alias);
   });
+}
+
+function readerVisibleTextUnchangedSinceBase(baseSha, file, cache) {
+  if (!baseSha || /^0+$/.test(baseSha)) return false;
+  if (cache.has(file)) return cache.get(file);
+
+  let unchanged = false;
+  try {
+    const before = execFileSync(
+      'git',
+      ['-c', 'core.quotepath=false', 'show', `${baseSha}:${file}`],
+      { encoding: 'utf8', maxBuffer: 20 * 1024 * 1024 }
+    );
+    const after = fs.readFileSync(path.join(process.cwd(), file), 'utf8');
+    unchanged = normalizeReaderVisibleText(before) === normalizeReaderVisibleText(after);
+  } catch {
+    unchanged = false;
+  }
+
+  cache.set(file, unchanged);
+  return unchanged;
+}
+
+function normalizeReaderVisibleText(source) {
+  // Markdown link の行き先やリンク記法自体は除き、読者に表示される label だけを残す。
+  // これにより「連鎖律」→「[連鎖律](...#prop-...)」のような canonical link 付与を
+  // 教育本文の改稿とは区別できる。
+  const withoutLinkTargets = String(source).replace(/\[([^\]]+)\]\([^\n)]*\)/gu, '$1');
+  return stripNonReaderContent(withoutLinkTargets);
 }
 
 function conceptWasAlreadyUsedInBase(baseSha, file, conceptId, cache) {
