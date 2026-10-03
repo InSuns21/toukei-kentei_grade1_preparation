@@ -100,6 +100,9 @@ alias_matching:
     # 真の別称だが一般語として別分野でも頻出するため、自由文の部分一致だけでは依存を確定しない。
     - path
     - 一様ノルム
+    - cancellation
+    - compensator
+    - 閉形式
 
 rollout:
   # 既存ページは段階移行する。未移行ページそのものは audit では報告するが、
