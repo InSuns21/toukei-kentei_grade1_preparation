@@ -651,6 +651,15 @@ F0-00A1D の改稿着手時に、既存の F0-00A1 / A1B / RA1 との責務境�
 - SET7 完了後、A3A の chapter.yaml / knowledge.yaml の prerequisite を実在する canonical chapters へ付け替え、独立科目の SET8 として公開所属を確定する。
 - この順序により、「未習の順序数・超限再帰を A3A が暗黙に使う」問題を、架空 dependency や重複定理で隠さず解消する。
 
+### 共通基礎4科目の公開目次分離（2026-10-03）
+
+- `dream-theater.md` の共通基礎を「集合論 → 線形代数 → 実解析 → 位相空間論」の4科目へ分離した。
+- 集合論の必修番号列は F0-00A から F0-00A3 までで閉じ、F0-00A3A は非番号の発展分岐として残した。stable URL と DREAM THEATER index 上の canonical concept 登録を維持し、独立「集合論・数学基礎論」の SET8 相当として後続計画で再配置する。
+- F0-00B0 は点列・部分列の具体的な実解析導入として実解析側へ移した。
+- 実解析本体は RA7 までとし、TOP5 を本質的に使う RA8 は位相空間論後に戻る発展分岐として案内した。
+- 位相空間論は F0-00B から始め、実解析で既知の収束・連続性・コンパクト性・Cauchy 条件・完備性を一般化する導入へ変更した。
+- `dream-theater-index.json` の基礎科目 path 順と `dream-theater-standard-math-core.md` の通読順を同じ構造へ同期した。
+- 既存外部リンクを壊さないため旧 `dt-subject-set-topology` anchor は集合論見出しの互換 anchor として残した。
 ## 9. 実装順
 
 1. ✅ F0-00A / A1C / A1D / A2 / A3 / A3A の本文・chapter.yaml・knowledge.yaml を監査（2026-10-02 初回監査）
@@ -670,8 +679,8 @@ F0-00A1D の改稿着手時に、既存の F0-00A1 / A1B / RA1 との責務境�
 15. ✅ F0-00D を「実数版から一般距離空間版への拡張」として改稿し、例・反例・A4/B3/C1 以上の演習・詳細解答・metadata を同期する。旧本番答案・採点基準を整理する。（2026-10-03）
 16. ✅ F0-00A2 / A3 を学部数学の選択原理・Zorn 適用章として監査・改稿し、A3 の Hamel 基底・一次独立・span を前提とする例題・演習は線形代数側へ移す。集合論コアは集合論だけで閉じる Zorn 適用で構成する。（2026-10-03）
 17. ✅ F0-00A3A は stable ID / URL を維持したまま独立「集合論・数学基礎論」の SET8 相当を canonical owner とする方針へ確定。SET2「順序数」・SET4「超限再帰」・SET7「Hartogs」が未実装の現時点で架空 prerequisite を追加せず、実際の公開所属変更・prerequisite 付替えは SET1--SET7 実装後に行う。item 18 以降の共通基礎目次では A3A を必修系列として扱わない。（2026-10-03）
-18. \`dream-theater.md\` の公開科目を「集合論」「線形代数」「実解析」「位相空間論」に分離し、この順へ並べ替える。
-19. \`dream-theater-index.json\` と \`dream-theater-standard-math-core.md\` を同じ順へ同期し、RA8 など後段分岐の位置も明示する。
+18. ✅ \`dream-theater.md\` の公開科目を「集合論」「線形代数」「実解析」「位相空間論」に分離し、この順へ並べ替える。F0-00B0 は実解析へ移し、F0-00A3A は集合論の必修番号列から外して発展分岐リンクにした。（2026-10-03）
+19. ✅ \`dream-theater-index.json\` と \`dream-theater-standard-math-core.md\` を同じ順へ同期し、RA8 を位相空間論後の実解析発展として明示した。旧 \`dt-subject-set-topology\` anchor は互換用に保持した。（2026-10-03）
 20. knowledge DAG / chapter prerequisites / stable links を全体更新し、後続科目から前段科目への逆依存がないことを検証する。
 21. 専用 validation / Pages / exercise-count / proof-pedagogy / formalism-pedagogy / strict concept audit と、人手の通読依存監査を実施する。
 
