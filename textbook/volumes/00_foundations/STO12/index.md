@@ -1251,7 +1251,7 @@ $$
 
 で存在を出しています。
 
-これは関数解析的な議論ですが、必要な部分は [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) とガウス指数族の稠密性まで章内で展開しました。
+これは関数解析の考え方を使う議論ですが、必要な部分は [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) とガウス指数族の稠密性まで章内で展開しました。
 
 ---
 
