@@ -84,12 +84,20 @@ concepts:
       - linear.exterior-power
       - linear.antisymmetrization
 
+  - id: linear.wedge-determinant-formula
+    name: 1次形式の外積の行列式表示
+    kind: proposition
+    aliases: [1次形式の外積の行列式表示, 外積の行列式表示]
+    requires:
+      - linear.wedge-product
+      - linear.laplace-expansion
+
   - id: linear.exterior-power-basis-dimension
     name: 外冪の標準基底と次元
     kind: theorem
     aliases: [外冪の標準基底と次元, 外冪の次元公式]
     requires:
-      - linear.wedge-product
+      - linear.wedge-determinant-formula
       - linear.dual-basis
 
   - id: linear.wedge-algebra-laws
