@@ -1,14 +1,32 @@
-# LA4 作用素多項式・最小多項式・Jordan構造
+# LA4 作用素多項式・最小多項式・Jordan 構造
 
-[F0-00F](../F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md) では固有値・固有空間・対角化を扱いました。しかし「対角化できない」で終わると、一般の線形自己写像の構造はまだ見えていません。
+[F0-00F](../F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md) では固有値・固有空間・対角化を扱いました。しかし、例えば
 
-この章では自己写像 $T$ に多項式を代入し、**最小多項式が作用素の構造を圧縮して記録する**ことから、一般化固有空間とJordan標準形まで進みます。スカラー体は特に断らない限り $\mathbb F=\mathbb R$ または $\mathbb C$ とします。
+$
+A=
+\begin{pmatrix}
+1&1\\
+0&1
+\end{pmatrix}
+$
 
-LA3B–LA3Cでは通常の $n\times n$ 行列式をスカラー行列について構成しました。本章では特性多項式の成分が $\mathbb F[t]$ に入るため、$\det(tI-A)$ を記号的に流用せず、**多項式行列の行列式をLeibniz公式から改めて構成してから** Cayley–Hamiltonへ進みます。
+は固有値1しか持たず、固有ベクトルだけでは基底を作れません。それでも
+
+$
+A-I\ne0,
+\qquad
+(A-I)^2=0
+$
+
+という関係には、対角化不能の「ずれ」が記録されています。そこで固有ベクトルだけを見る代わりに、**作用素がどんな多項式関係を満たすか**を調べます。そこから、固有空間を少し厚くした部分空間と鎖状の基底を作り、一般の複素線形自己写像の標準形まで進みます。
+
+スカラー体は特に断らない限り $\mathbb F=\mathbb R$ または $\mathbb C$ とします。LA3B–LA3C では通常の $n\times n$ 行列式をスカラー行列について構成しました。本章では $\det(tI-A)$ の成分が多項式になるため、通常の行列式記号を無言で流用せず、Leibniz 公式から多項式行列の行列式を作り直してから先へ進みます。
 
 ---
 
 ## 1. 多項式を作用素に代入する
+
+上の例では $(A-I)^2=0$ という式が効きました。一般にも、多項式 $p(t)$ の変数 $t$ を自己写像 $T$ に置き換えれば、「$T$ が満たす代数的な関係」を一つの式として扱えます。その代入規則を先に固定します。
 
 <a id="def-la4-operator-polynomial"></a>
 <!-- formal-statement-start -->
@@ -55,13 +73,15 @@ $$
 $$
 (pq)(T)=p(T)q(T)=q(T)p(T).
 $$
-同じ作用素 $T$ の多項式同士は可換です。後でBézout等式を $t=T$ に代入するとき、この可換性を使います。
+同じ作用素 $T$ の多項式同士は可換です。後でBézout 等式を $t=T$ に代入するとき、この可換性を使います。
 
 ---
 
 ## 2. 特性多項式を定義するための多項式代数
 
 ### 2.1 多項式の除法
+
+後で「作用素を0にする多項式の中で最小のもの」を他の多項式と比較するには、多項式を割った商と余りを追う必要があります。また、根を一つ見つけたときに $(t-a)$ を因子として取り出す操作も同じ道具で行えます。
 
 <a id="lem-la4-polynomial-division"></a>
 <!-- formal-statement-start -->
@@ -157,6 +177,8 @@ $b-a\ne0$ であり体では割れるので $q(b)=0$ です。従って $a$ 以�
 
 ### 2.2 多項式行列の行列式
 
+特性を記録する式では $tI-A$ を扱いますが、その成分は数ではなく多項式です。LA3B の行列式はスカラー行列について定義したので、ここで「多項式を成分に持つ行列」に同じ記号を使う意味を、Leibniz 公式から明示的に定めます。
+
 <a id="def-la4-polynomial-matrix-determinant"></a>
 <!-- formal-statement-start -->
 > **定義（多項式行列の行列式）**  
@@ -175,7 +197,7 @@ $$
 > と定める。
 <!-- formal-statement-end -->
 
-右辺は $\mathbb F[t]$ の元の有限和・有限積なので、確かに一つの多項式です。ここではLA3B–LA3Cのスカラー行列式の性質を「多項式でも同じ」と仮定していません。Leibniz公式そのものを $\mathbb F[t]$ 上で定義に採用しています。
+右辺は $\mathbb F[t]$ の元の有限和・有限積なので、確かに一つの多項式です。ここではLA3B–LA3Cのスカラー行列式の性質を「多項式でも同じ」と仮定していません。Leibniz 公式そのものを $\mathbb F[t]$ 上で定義に採用しています。
 
 <!-- definition-example-start: def-la4-polynomial-matrix-determinant -->
 **定義の確認**：
@@ -217,7 +239,7 @@ $$
 &=\det M(s).
 \end{aligned}
 $$
-最後の式はLA3Bで定義した通常の行列式のLeibniz公式です。$\square$
+最後の式はLA3Bで定義した通常の行列式のLeibniz 公式です。$\square$
 <!-- proof-end -->
 
 <a id="lem-la4-polynomial-laplace"></a>
@@ -382,7 +404,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-基底を選び $A=(a_{ij})$ とします。Leibniz公式で恒等置換に対応する項は
+基底を選び $A=(a_{ij})$ とします。Leibniz 公式で恒等置換に対応する項は
 $$
 \prod_{j=1}^n(t-a_{jj}),
 $$
@@ -416,7 +438,7 @@ $$
 \iff
 \ker(T-\lambda I)\ne\{0\}.
 $$
-有限次元の自己写像では[rank-nullity theorem](../F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md#thm-f0-00f-01)により、非単射であることと不可逆であることは同値です。従って
+有限次元の自己写像では[階数・退化次数の定理](../F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md#thm-f0-00f-01)により、非単射であることと不可逆であることは同値です。従って
 $$
 \lambda\text{ が固有値}
 \iff
@@ -445,9 +467,8 @@ $$
 <!-- proof-end -->
 
 <a id="ref-la4-fta-boundary"></a>
-### 外部証明境界：FTA
+### 代数学の基本定理はここでは結果を使う
 
-> **証明境界**  
 > 「複素係数の非定数多項式は複素数の根を持ち、従って一次因子の積へ分解できる」という事実は**代数学の基本定理**です。本章では、線形代数の流れを止めないため、この結果を先に定理として使います。証明は後続の複素解析で、[第1定理（複素零点の存在）](../CA3/index.md#cor-ca3-fta)と[第2定理（完全一次因子分解）](../CA3/index.md#cor-ca3-fta-factorization)として行います。以後「複素数上では特性多項式が一次因子へ分解する」と使う箇所は、この後送した結果を使用しています。分解が得られた後の一般化固有空間・Jordan構造は本章内の論証で閉じます。
 
 <a id="def-la4-minimal-polynomial"></a>
@@ -528,13 +549,13 @@ $$
 
 ---
 
-## 4. Cayley–Hamilton定理
+## 4. Cayley--Hamilton の定理
 
 証明の危険箇所は、$t$ を行列 $A$ に直接「代入」することです。$tI-A$ の成分は多項式であり、行列同士は一般に可換しません。そこで、まず $\mathbb F[t]$ 上の[多項式行列の余因子行列の恒等式](#lem-la4-adjugate-identity)から**係数ごとの定数行列等式**を取り出し、その後で $A$ の冪を掛けて相殺します。
 
 <a id="thm-la4-cayley-hamilton"></a>
 <!-- formal-statement-start -->
-> **定理（Cayley–Hamilton定理）**  
+> **定理（Cayley--Hamilton の定理）**  
 > 有限次元線形自己写像 $T$ は自分自身の特性多項式を満たす：
 $$
 \chi_T(T)=0.
@@ -839,7 +860,7 @@ $e_2$ 自身は固有ベクトルではありませんが、一回作用させ�
 
 <a id="lem-la4-polynomial-bezout"></a>
 <!-- formal-statement-start -->
-> **補題（多項式のBézout等式）**  
+> **補題（多項式のBézout 等式）**  
 > 多項式 $f,g$ が互いに素なら、ある多項式 $a,b$ が存在して
 $$
 af+bg=1
@@ -850,7 +871,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[多項式の除法](#lem-la4-polynomial-division)を繰り返してEuclidの互除法を行います。
+[多項式の除法](#lem-la4-polynomial-division)を繰り返してEuclid の互除法を行います。
 $$
 r_{-1}=f,
 \qquad
@@ -937,7 +958,7 @@ h=f_1c,
 \qquad
 f_2\mid h
 $$
-とします。Bézout等式
+とします。Bézout 等式
 $$
 af_1+bf_2=1
 $$
@@ -955,7 +976,7 @@ $$
 $$
 a_if_i+b_if_j=1
 $$
-というBézout等式を取ります。これらを全て掛け合わせます。展開した項のうち $f_j$ を一度も選ばない項は
+というBézout 等式を取ります。これらを全て掛け合わせます。展開した項のうち $f_j$ を一度も選ばない項は
 $$
 \left(\prod_{i<j}a_i\right)
 \left(\prod_{i<j}f_i\right)
@@ -1019,9 +1040,9 @@ $q_j$ は $k\ne j$ の
 $$
 (t-\lambda_k)^{s_k}
 $$
-の積です。[相異なる一次因子の冪は互いに素](#lem-la4-distinct-linear-powers-coprime)なので各因子は $(t-\lambda_j)^N$ と互いに素であり、[互いに素な因子の積による整除](#lem-la4-coprime-product-divisibility)の証明で使ったBézout等式の積構成から、積 $q_j$ も $(t-\lambda_j)^N$ と互いに素です。
+の積です。[相異なる一次因子の冪は互いに素](#lem-la4-distinct-linear-powers-coprime)なので各因子は $(t-\lambda_j)^N$ と互いに素であり、[互いに素な因子の積による整除](#lem-la4-coprime-product-divisibility)の証明で使ったBézout 等式の積構成から、積 $q_j$ も $(t-\lambda_j)^N$ と互いに素です。
 
-従ってBézout等式から多項式 $\alpha,\beta$ が存在して
+従ってBézout 等式から多項式 $\alpha,\beta$ が存在して
 $$
 \alpha(t)q_j(t)+\beta(t)(t-\lambda_j)^N=1.
 $$
@@ -1040,7 +1061,7 @@ p_j(T)x
 $$
 従って $x\in\ker p_j(T)$ で、等号が示されました。
 
-#### Bézout等式から成分射影を作る
+#### Bézout 等式から成分射影を作る
 
 $p_j$ と各 $p_k$（$k\ne j$）は互いに素です。上の積構成から $p_j$ と
 $$
@@ -1129,11 +1150,11 @@ $$
 全ての $i$ について成り立つので和は直和です。$\square$
 <!-- proof-end -->
 
-複素数上では[代数学の基本定理という証明境界](#ref-la4-fta-boundary)により特性多項式が一次因子へ分解します。Cayley–Hamiltonから $m_T\mid\chi_T$ なので最小多項式も一次因子の冪へ分解し、全ての有限次元複素作用素にこの定理を適用できます。
+複素数上では[代数学の基本定理という証明境界](#ref-la4-fta-boundary)により特性多項式が一次因子へ分解します。Cayley--Hamiltonから $m_T\mid\chi_T$ なので最小多項式も一次因子の冪へ分解し、全ての有限次元複素作用素にこの定理を適用できます。
 
 ---
 
-## 7. Jordan鎖とJordanブロック
+## 7. Jordan 鎖とJordan ブロック
 
 一般化固有空間 $G_\lambda$ 上では
 $$
@@ -1147,7 +1168,7 @@ $$
 
 <a id="def-la4-jordan-sequence"></a>
 <!-- formal-statement-start -->
-> **定義（Jordan鎖）**  
+> **定義（Jordan 鎖）**  
 > ベクトル列 $v_1,\dots,v_k$ が
 $$
 (T-\lambda I)v_1=0,
@@ -1156,7 +1177,7 @@ $$
 (T-\lambda I)v_j=v_{j-1}
 \qquad(j=2,\dots,k)
 $$
-> を満たすとき、これを固有値 $\lambda$ に対するJordan鎖という。
+> を満たすとき、これを固有値 $\lambda$ に対するJordan 鎖という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-la4-jordan-sequence -->
@@ -1170,12 +1191,12 @@ $$
 \qquad
 (A-2I)v_2=v_1.
 $$
-従って $(e_1,e_2)$ は長さ2のJordan鎖です。
+従って $(e_1,e_2)$ は長さ2のJordan 鎖です。
 <!-- definition-example-end -->
 
 <a id="def-la4-jordan-block"></a>
 <!-- formal-statement-start -->
-> **定義（Jordanブロック）**  
+> **定義（Jordan ブロック）**  
 > 固有値 $\lambda$ と正整数 $k$ に対し
 $$
 J_k(\lambda)=
@@ -1186,11 +1207,11 @@ J_k(\lambda)=
 0&&&\lambda
 \end{pmatrix}
 $$
-> を $k$ 次Jordanブロックという。
+> を $k$ 次Jordan ブロックという。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-la4-jordan-block -->
-**定義の確認**：長さ2のJordan鎖 $v_1,v_2$ では
+**定義の確認**：長さ2のJordan 鎖 $v_1,v_2$ では
 $$
 Tv_1=\lambda v_1,
 \qquad
@@ -1206,22 +1227,22 @@ $$
 
 ---
 
-## 8. Jordan標準形
+## 8. Jordan 標準形
 
 <a id="thm-la4-jordan-form"></a>
 <!-- formal-statement-start -->
-> **定理（Jordan標準形定理）**  
-> 有限次元複素ベクトル空間上の任意の線形自己写像 $T$ には、Jordan鎖を並べた基底が存在し、その基底での表現行列は
+> **定理（Jordan 標準形定理）**  
+> 有限次元複素ベクトル空間上の任意の線形自己写像 $T$ には、Jordan 鎖を並べた基底が存在し、その基底での表現行列は
 $$
 J_{k_1}(\lambda_1)\oplus\cdots\oplus J_{k_m}(\lambda_m)
 $$
-> というJordanブロックの直和になる。ブロックの順序を除けば、各固有値に対するブロックサイズの多重集合は一意である。
+> というJordan ブロックの直和になる。ブロックの順序を除けば、各固有値に対するブロックサイズの多重集合は一意である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
 
-[代数学の基本定理という証明境界](#ref-la4-fta-boundary)により複素数上では特性多項式が一次因子へ分解し、Cayley–Hamiltonから最小多項式も一次因子の冪へ分解します。[一般化固有空間分解](#thm-la4-generalized-decomposition)により
+[代数学の基本定理という証明境界](#ref-la4-fta-boundary)により複素数上では特性多項式が一次因子へ分解し、Cayley--Hamiltonから最小多項式も一次因子の冪へ分解します。[一般化固有空間分解](#thm-la4-generalized-decomposition)により
 $$
 V=\bigoplus_\lambda G_\lambda.
 $$
@@ -1229,11 +1250,11 @@ $$
 $$
 N=T-\lambda I
 $$
-についてJordan鎖基底を作れば十分です。
+についてJordan 鎖基底を作れば十分です。
 
-### 冪零作用素にはJordan鎖基底がある
+### 冪零作用素にはJordan 鎖基底がある
 
-$\dim V$ に関する帰納法で示します。$N=0$ なら任意の基底が全て長さ1のJordan鎖なので終了です。
+$\dim V$ に関する帰納法で示します。$N=0$ なら任意の基底が全て長さ1のJordan 鎖なので終了です。
 
 $N\ne0$ とし
 $$
@@ -1249,7 +1270,7 @@ $$
 $$
 帰納法の仮定を $N|_W$ に使えます。
 
-$W$ のJordan鎖基底を鎖ごとに
+$W$ のJordan 鎖基底を鎖ごとに
 $$
 w_{i,1},\dots,w_{i,k_i}
 \qquad(i=1,\dots,c)
@@ -1271,7 +1292,7 @@ $$
 $$
 w_{i,1},\dots,w_{i,k_i},v_i
 $$
-は一段長いJordan鎖です。
+は一段長いJordan 鎖です。
 
 これだけで $V$ 全体を埋めるとは限らないので、長さ1の鎖を追加します。まず
 $$
@@ -1301,7 +1322,7 @@ $$
 $$
 w_{1,1},\dots,w_{c,1},z_1,\dots,z_r
 $$
-を取ります。各 $z_\ell$ は $Nz_\ell=0$ なので長さ1のJordan鎖です。
+を取ります。各 $z_\ell$ は $Nz_\ell=0$ なので長さ1のJordan 鎖です。
 
 候補族
 $$
@@ -1354,11 +1375,11 @@ $$
 \dim W+c+r
 =\dim W+\dim\ker N.
 $$
-$W=\operatorname{Im}N$ なので[rank-nullity theorem](../F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md#thm-f0-00f-01)から
+$W=\operatorname{Im}N$ なので[階数・退化次数の定理](../F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md#thm-f0-00f-01)から
 $$
 \dim W+\dim\ker N=\dim V.
 $$
-一次独立な $\dim V$ 本のベクトルなので $\mathcal B$ は基底です。構成上、全てJordan鎖からなります。
+一次独立な $\dim V$ 本のベクトルなので $\mathcal B$ は基底です。構成上、全てJordan 鎖からなります。
 
 各鎖 $v_1,\dots,v_k$ では
 $$
@@ -1372,7 +1393,7 @@ Tv_1=\lambda v_1,
 \qquad
 Tv_j=v_{j-1}+\lambda v_j.
 $$
-よってその鎖の表現行列は $J_k(\lambda)$ です。各一般化固有空間の鎖基底を合わせれば、$T$ の表現行列はJordanブロックの直和になります。
+よってその鎖の表現行列は $J_k(\lambda)$ です。各一般化固有空間の鎖基底を合わせれば、$T$ の表現行列はJordan ブロックの直和になります。
 
 ### ブロックサイズの一意性
 
@@ -1380,7 +1401,7 @@ $$
 $$
 N=T-\lambda I
 $$
-とし、Jordanブロックサイズを $k_1,\dots,k_c$ とします。1個の冪零Jordanブロックの鎖基底 $v_1,\dots,v_{k_i}$ では
+とし、Jordan ブロックサイズを $k_1,\dots,k_c$ とします。1個の冪零Jordan ブロックの鎖基底 $v_1,\dots,v_{k_i}$ では
 $$
 N^jv_\ell
 =\begin{cases}
@@ -1423,9 +1444,9 @@ $$
 $\dim\ker N^j$ は作用素そのものから決まり基底に依存しないため、全てのブロックサイズも一意に決まります。自由なのはブロックの並べ順だけです。$\square$
 <!-- proof-end -->
 
-### 最小多項式の指数と最大Jordanブロック
+### 最小多項式の指数と最大Jordan ブロック
 
-1個のJordanブロック $J_k(\lambda)$ を考え
+1個のJordan ブロック $J_k(\lambda)$ を考え
 $$
 N=J_k(\lambda)-\lambda I
 $$
@@ -1465,7 +1486,7 @@ $$
 m_{J_k(\lambda)}(t)=(t-\lambda)^k.
 $$
 
-Jordanブロック直和では
+Jordan ブロック直和では
 $$
 p(T)=0
 $$
@@ -1480,7 +1501,7 @@ $$
 \boxed{
 \text{最小多項式中の }(t-\lambda)\text{ の指数}
 =
-\text{最大Jordanブロックサイズ}
+\text{最大Jordan ブロックサイズ}
 }.
 $$
 
@@ -1488,7 +1509,7 @@ $$
 $$
 tI-J_k(\lambda)
 $$
-は対角成分がすべて $t-\lambda$、その上の超対角成分が $-1$、対角より下が0の上三角多項式行列です。[多項式行列式のLeibniz公式](#def-la4-polynomial-matrix-determinant)を考えます。恒等置換の項は
+は対角成分がすべて $t-\lambda$、その上の超対角成分が $-1$、対角より下が0の上三角多項式行列です。[多項式行列式のLeibniz 公式](#def-la4-polynomial-matrix-determinant)を考えます。恒等置換の項は
 $$
 (t-\lambda)^k.
 $$
@@ -1515,12 +1536,12 @@ $$
 
 固有値 $\lambda$ に対し
 
-- Jordanブロックの個数 = $\dim\ker(T-\lambda I)$
+- Jordan ブロックの個数 = $\dim\ker(T-\lambda I)$
 - 最大ブロックサイズ = 最小多項式中の $(t-\lambda)$ の指数
 - ブロックサイズ総和 = $G_\lambda$ の次元 = 特性多項式中の代数的重複度
 - $\dim\ker(T-\lambda I)^j-\dim\ker(T-\lambda I)^{j-1}$ = サイズ $j$ 以上のブロック数
 
-です。対角化可能とは、全てのJordanブロックが $1\times1$ であることに他なりません。
+です。対角化可能とは、全てのJordan ブロックが $1\times1$ であることに他なりません。
 
 ---
 
@@ -1583,10 +1604,10 @@ $$
 <!-- solution-end -->
 
 <a id="ex-la4-a04"></a>
-#### LA4-A04 Jordan鎖
+#### LA4-A04 Jordan 鎖
 - Level: A
 
-$J_3(0)$ に対し標準基底 $e_1,e_2,e_3$ がJordan鎖になることを確認せよ。
+$J_3(0)$ に対し標準基底 $e_1,e_2,e_3$ がJordan 鎖になることを確認せよ。
 
 <!-- solution-start -->
 **解答**：
@@ -1606,7 +1627,7 @@ J_3(0)e_2=e_1,
 \qquad
 J_3(0)e_3=e_2.
 $$
-Jordan鎖の定義を全て満たします。
+Jordan 鎖の定義を全て満たします。
 <!-- solution-end -->
 
 <a id="ex-la4-a05"></a>
@@ -1638,10 +1659,10 @@ $$
 ### Level B
 
 <a id="ex-la4-b01"></a>
-#### LA4-B01 最小多項式からJordanブロックを読む
+#### LA4-B01 最小多項式からJordan ブロックを読む
 - Level: B
 
-4次元複素空間上の作用素 $T$ が特性多項式 $(t-2)^4$、最小多項式 $(t-2)^3$ を持つとする。可能なJordanブロックサイズを求めよ。
+4次元複素空間上の作用素 $T$ が特性多項式 $(t-2)^4$、最小多項式 $(t-2)^3$ を持つとする。可能なJordan ブロックサイズを求めよ。
 
 <!-- solution-start -->
 **解答**：特性多項式中の $(t-2)$ の指数4は、固有値2に属するブロックサイズ総和が4であることを意味します。最小多項式中の指数3は最大ブロックサイズが3であることを意味します。従ってサイズ3のブロックが少なくとも一つあり、残りは1次元です。
@@ -1666,7 +1687,7 @@ $$
 \quad
 \dim\ker N^3=5
 $$
-を満たす。Jordanブロックサイズを求めよ。
+を満たす。Jordan ブロックサイズを求めよ。
 
 <!-- solution-start -->
 **解答**：
@@ -1685,13 +1706,13 @@ $$
 <!-- solution-end -->
 
 <a id="ex-la4-b03"></a>
-#### LA4-B03 Cayley–Hamiltonで高冪を落とす
+#### LA4-B03 Cayley--Hamiltonで高冪を落とす
 - Level: B
 
 $2\times2$ 行列 $A$ の特性多項式が $t^2-3t+2$ であるとする。$A^4$ を $I,A$ の線形結合へ簡約せよ。
 
 <!-- solution-start -->
-**解答**：[Cayley–Hamilton定理](#thm-la4-cayley-hamilton)から
+**解答**：[Cayley--Hamilton の定理](#thm-la4-cayley-hamilton)から
 $$
 A^2-3A+2I=0,
 $$
@@ -1710,7 +1731,7 @@ A^4=A(7A-6I)
 =7A^2-6A
 =15A-14I.
 $$
-ここで使ったのはCayley–Hamiltonによる二次以上の冪の還元です。
+ここで使ったのはCayley--Hamiltonによる二次以上の冪の還元です。
 <!-- solution-end -->
 
 ### Level C
