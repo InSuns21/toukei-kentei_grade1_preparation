@@ -630,7 +630,13 @@ $$
 
 ---
 
-## 7. 作用素ノルムを標準コア内で構成する
+## 7. 複素行列の作用素ノルム
+
+F0-00F2 では実行列について「単位入力を最大で何倍に伸ばすか」を2-作用素ノルムとして定義しました。複素行列でも同じ問いを考え、複素 Euclid ノルム
+$$
+\|x\|^2=\sum_j|x_j|^2
+$$
+に対する最大伸長率を定義します。
 
 <a id="def-la6-operator-norm"></a>
 <!-- formal-statement-start -->
@@ -676,8 +682,8 @@ $$
 
 <a id="lem-la6-unitary-norm-invariance"></a>
 <!-- formal-statement-start -->
-> **補題（作用素ノルムのunitary不変性）**  
-> unitary行列 $U,V$ に対し
+> **補題（作用素ノルムのユニタリ不変性）**  
+> ユニタリ行列 $U,V$ に対し
 $$
 \|UMV\|_2=\|M\|_2.
 $$
@@ -686,7 +692,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-unitary行列はノルムを保存するので
+ユニタリ行列はノルムを保存するので
 $$
 \|UMVx\|=\|MVx\|.
 $$
@@ -704,7 +710,7 @@ $\square$
 
 <a id="lem-la6-rank-invertible-invariance"></a>
 <!-- formal-statement-start -->
-> **補題（可逆な左右乗算はrankを変えない）**  
+> **補題（可逆な左右乗算は階数を変えない）**  
 > 可逆行列 $P,Q$ に対し
 $$
 \operatorname{rank}(PMQ)=\operatorname{rank}M.
@@ -722,7 +728,7 @@ $$
 $$
 \operatorname{Im}(PMQ)=P(\operatorname{Im}M).
 $$
-$P$ は可逆なので $\operatorname{Im}M$ と $P(\operatorname{Im}M)$ は線形同型で、次元が等しいためrankも等しいです。$\square$
+$P$ は可逆なので $\operatorname{Im}M$ と $P(\operatorname{Im}M)$ は線形同型で、次元が等しいため階数も等しいです。$\square$
 <!-- proof-end -->
 
 <a id="lem-la6-diagonal-operator-norm"></a>
@@ -749,7 +755,7 @@ $$
 従って $\|D\|_2\le M$。$|d_j|=M$ となる $j$ で $x=e_j$ と取れば等号を達成するので $\|D\|_2=M$ です。$\square$
 <!-- proof-end -->
 
-特異値分解 $A=U\Sigma V^*$ に[作用素ノルムのunitary不変性](#lem-la6-unitary-norm-invariance)と[矩形対角行列の作用素ノルム](#lem-la6-diagonal-operator-norm)を使えば
+特異値分解 $A=U\Sigma V^*$ に[作用素ノルムのユニタリ不変性](#lem-la6-unitary-norm-invariance)と[矩形対角行列の作用素ノルム](#lem-la6-diagonal-operator-norm)を使えば
 $$
 \|A\|_2=\|\Sigma\|_2=\sigma_1.
 $$
@@ -762,10 +768,10 @@ $$
 | 対象 | 分解 | 基底 | 何が見えるか |
 |---|---|---|---|
 | 一般の複素自己写像 | Jordan標準形 | 一般基底 | 一般化固有構造・冪零部分 |
-| complex normal | unitary対角化 | 正規直交基底 | 固有方向が直交して完全分解 |
-| Hermitian | unitary対角化 | 正規直交基底 | 実固有値・二次形式の符号 |
+| 複素正規作用素 | ユニタリ対角化 | 正規直交基底 | 固有方向が直交して完全分解 |
+| Hermitian作用素 | ユニタリ対角化 | 正規直交基底 | 実固有値・二次形式の符号 |
 | 任意の長方形行列 | 特異値分解 | 入出力で別の正規直交基底 | 方向別の非負伸縮 |
-| 任意の正方行列 | polar decomposition | 基底不要な作用素分解 | unitary部分 × PSD伸縮 |
+| 任意の正方行列 | 極分解 | 基底に依らない作用素分解 | ユニタリ部分 × 半正定値伸縮 |
 
 ---
 
@@ -794,24 +800,24 @@ $$
 <!-- solution-end -->
 
 <a id="ex-la6-a02"></a>
-#### LA6-A02 PSD平方根
+#### LA6-A02 半正定値平方根
 - Level: A
 
 $$
 A=\operatorname{diag}(4,9,0)
 $$
-のPSD平方根を求めよ。
+の半正定値平方根を求めよ。
 
 <!-- solution-start -->
 **解答**：
 $$
 A^{1/2}=\operatorname{diag}(2,3,0).
 $$
-各固有値の非負平方根を取ったもので、[PSD平方根定理](#thm-la6-psd-square-root)の一意性からこれが唯一のPSD平方根です。
+各固有値の非負平方根を取ったもので、[半正定値平方根定理](#thm-la6-psd-square-root)の一意性から、これが唯一の半正定値平方根です。
 <!-- solution-end -->
 
 <a id="ex-la6-a03"></a>
-#### LA6-A03 polar decomposition
+#### LA6-A03 極分解
 - Level: A
 
 $$
@@ -859,7 +865,7 @@ $$
 ### Level B
 
 <a id="ex-la6-b01"></a>
-#### LA6-B01 similarityとcongruence
+#### LA6-B01 相似変換と合同変換
 - Level: B
 
 $A=I_2$, $S=\operatorname{diag}(2,1)$ とする。$S^{-1}AS$ と $S^*AS$ を計算し、両変換の違いを確認せよ。
@@ -871,11 +877,11 @@ S^{-1}AS=I_2,
 \qquad
 S^*AS=\operatorname{diag}(4,1).
 $$
-similarityでは固有値を保ちます。congruenceでは固有値の値は変わりますが、[Sylvesterの慣性法則](#thm-la6-inertia)により慣性 $(2,0,0)$ は保たれます。
+相似変換では固有値を保ちます。合同変換では固有値の値は変わりますが、[Sylvesterの慣性法則](#thm-la6-inertia)により慣性 $(2,0,0)$ は保たれます。
 <!-- solution-end -->
 
 <a id="ex-la6-b02"></a>
-#### LA6-B02 polar分解と特異値分解
+#### LA6-B02 極分解と特異値分解
 - Level: B
 
 正方可逆行列 $A$ の特異値分解
@@ -888,14 +894,14 @@ P=V\Sigma V^*,
 \qquad
 W=UV^*
 $$
-と置くと $A=WP$ がpolar decompositionになることを示せ。
+と置くと $A=WP$ が極分解になることを示せ。
 
 <!-- solution-start -->
-**解答**：$U,V$ はunitaryなので
+**解答**：$U,V$ はユニタリなので
 $$
 W^*W=VU^*UV^*=I,
 $$
-従って $W$ はunitaryです。$A$ は可逆なので $\Sigma$ の対角成分は全て正で、$P$ はHermitian PSDです。
+従って $W$ はユニタリです。$A$ は可逆なので $\Sigma$ の対角成分は全て正で、$P$ は Hermitian 半正定値です。
 
 また
 $$
@@ -905,7 +911,7 @@ $$
 $$
 A^*A=V\Sigma^2V^*.
 $$
-従って $P^2=A^*A$。PSD平方根の一意性から
+従って $P^2=A^*A$。半正定値平方根の一意性から
 $$
 P=(A^*A)^{1/2}.
 $$
@@ -932,28 +938,28 @@ $$
 ### Level C
 
 <a id="ex-la6-c01"></a>
-#### LA6-C01 特異値分解から最良rank-$k$近似を読む
+#### LA6-C01 特異値分解から最良階数 $k$ 近似を読む
 - Level: C
 
 $A=U\Sigma V^*$ の正の特異値を
 $$
 \sigma_1\ge\cdots\ge\sigma_r>0
 $$
-とし、$0\le k<r$ とする。rank $\le k$ の任意の行列 $B$ に対して
+とし、$0\le k<r$ とする。階数 $\le k$ の任意の行列 $B$ に対して
 $$
 \|A-B\|_2\ge\sigma_{k+1}
 $$
 を示し、上位 $k$ 個の特異値だけ残した打切り特異値分解で等号が達成されることを示せ。
 
 <!-- solution-start -->
-**解答**：[作用素ノルムのunitary不変性](#lem-la6-unitary-norm-invariance)から
+**解答**：[作用素ノルムのユニタリ不変性](#lem-la6-unitary-norm-invariance)から
 $$
 \|A-B\|_2
 =\|\Sigma-C\|_2,
 \qquad
 C=U^*BV.
 $$
-[可逆な左右乗算はrankを変えない](#lem-la6-rank-invertible-invariance)から
+[可逆な左右乗算は階数を変えない](#lem-la6-rank-invertible-invariance)から
 $$
 \operatorname{rank}C\le k.
 $$
@@ -1000,7 +1006,7 @@ $$
 $$
 A_k=U\Sigma_kV^*
 $$
-を取ります。$\operatorname{rank}A_k\le k$ で、[作用素ノルムのunitary不変性](#lem-la6-unitary-norm-invariance)から
+を取ります。$\operatorname{rank}A_k\le k$ で、[作用素ノルムのユニタリ不変性](#lem-la6-unitary-norm-invariance)から
 $$
 \|A-A_k\|_2
 =\|\Sigma-\Sigma_k\|_2.
@@ -1014,24 +1020,22 @@ $$
 
 ---
 
-## 10. Batch 3 の到達点
+## 10. この章でつながったこと
 
-標準線形代数は
+ここまでで、線形代数の主要な分解は次の役割分担として見通せるようになりました。
 
 ```text
-実・複素線形空間
-  ↓
-直和・商空間
-  ↓
-代数的双対・通常行列式・抽象行列式
-  ↓
-多項式行列式・特性多項式・Cayley–Hamilton・Jordan
-  ↓
-複素Gram–Schmidt・有限次元随伴・normal
-  ↓
-二次形式・PSD平方根・polar decomposition・複素特異値分解・作用素ノルム
+一般の複素自己写像
+  → Jordan 標準形：一般化固有構造を見る
+
+正規作用素・Hermitian作用素
+  → ユニタリ対角化：直交する固有方向へ分ける
+
+任意の長方形行列
+  → 特異値分解：入力方向ごとの非負伸縮へ分ける
+
+任意の複素正方行列
+  → 極分解：ユニタリ部分と半正定値伸縮へ分ける
 ```
 
-まで一巡しました。
-
-この並びでは、計算章に先に現れた公式を標準コアの無証明前提として使わず、後続理論が必要とする具体構成をその場で正本化しています。位相コアは別章で実装済みなので、本章は標準線形代数の依存鎖を閉じるところで完結します。
+どの分解を使うかは、「固有構造を見たいのか」「直交性を保ちたいのか」「長方形行列の伸縮を見たいのか」で決まります。ここまでの道具が、数値線形代数・最適化・多変量解析・関数解析で行列や作用素を扱う土台になります。
