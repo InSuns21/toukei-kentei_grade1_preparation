@@ -247,7 +247,7 @@ $$
 
 ---
 
-## 3. 部分空間を方程式側から見る：annihilator
+## 3. 部分空間を方程式側から見る：零化空間
 
 再び
 $$
@@ -257,23 +257,40 @@ $$
 
 <a id="def-la3a-annihilator"></a>
 <!-- formal-statement-start -->
-> **定義（annihilator / 零化空間）**  
+> **定義（零化空間）**  
 > 部分空間 $W\subset V$ に対して
 $$
-W^\circ=\{\varphi\in V^*: \varphi(w)=0\ \text{for all }w\in W\}
+W^\circ=\{\varphi\in V^*: \varphi(w)=0\ \forall w\in W\}
 $$
-> を $W$ の **annihilator（零化空間）** という。
+> を $W$ の **零化空間（annihilator）** という。
 <!-- formal-statement-end -->
 
-たとえば $W=\operatorname{span}(e_1,e_2)\subset\mathbb R^3$ なら
-$$
+<!-- definition-example-start: def-la3a-annihilator -->
+**定義の確認**：$W=\operatorname{span}(e_1,e_2)\subset\mathbb R^3$ とします。標準双対基底 $e^1,e^2,e^3$ を使うと、一般の線形形式は
+
+$
+\varphi=a_1e^1+a_2e^2+a_3e^3
+$
+
+と書けます。$\varphi(e_1)=a_1$、$\varphi(e_2)=a_2$ なので、$W$ 上で常に0になるための必要十分条件は
+
+$
+a_1=a_2=0.
+$
+
+従って
+
+$
 W^\circ=\operatorname{span}(e^3).
-$$
+$
+<!-- definition-example-end -->
 平面が2次元なら、それを切り出す独立な線形方程式は1本です。この感覚は一般に次元公式になります。
+
+$W$ を消す線形形式が何個独立にあるかは、「$W$ の基底を $V$ の基底まで延長したとき、追加した方向が何個あるか」で数えられます。双対基底を使うと、その対応がそのまま式になります。
 
 <a id="thm-la3a-annihilator-dimension"></a>
 <!-- formal-statement-start -->
-> **定理（annihilator の次元公式）**  
+> **定理（零化空間の次元公式）**  
 > $V$ を有限次元、$W\subset V$ を部分空間とすると
 $$
 \dim W^\circ=\dim V-\dim W=\dim(V/W).
@@ -320,10 +337,10 @@ $$
 
 <a id="thm-la3a-quotient-dual-annihilator"></a>
 <!-- formal-statement-start -->
-> **定理（商空間の双対と annihilator）**  
-> $q:V\to V/W$, $q(v)=v+W$ を標準射影とする。このとき
+> **定理（商空間の双対と零化空間）**  
+> $V$ をベクトル空間、$W\subset V$ を部分空間とし、$q:V\to V/W$, $q(v)=v+W$ を標準射影とする。このとき
 $$
-q^*:(V/W)^*\to W^\circ,\qquad q^*(\psi)=\psi\circ q
+\Phi_q:(V/W)^*\to W^\circ,\qquad \Phi_q(\psi)=\psi\circ q
 $$
 > は線形同型である。従って
 $$
@@ -331,14 +348,24 @@ $$
 $$
 <!-- formal-statement-end -->
 
+### 証明の見取り図
+
+商空間上の線形形式 $\psi$ を $q$ と合成すれば、$W$ は $q$ で0へ送られるため $W$ を消す線形形式が得られます。逆向きには、$\varphi\in W^\circ$ から
+
+$$
+v+W\longmapsto\varphi(v)
+$$
+
+を作ります。核心は、この値が剰余類の代表元によらないことです。
+
 <!-- proof-start -->
 ### 証明
 
 $\psi\in(V/W)^*$ と $w\in W$ に対して $q(w)=0$ なので
 $$
-(q^*\psi)(w)=\psi(q(w))=0.
+(\Phi_q(\psi))(w)=\psi(q(w))=0.
 $$
-従って $q^*\psi\in W^\circ$ です。
+従って $\Phi_q(\psi)\in W^\circ$ です。
 
 逆向きを具体的に作ります。$\varphi\in W^\circ$ に対して
 $$
@@ -348,7 +375,7 @@ $$
 $$
 \varphi(v)-\varphi(v')=\varphi(v-v')=0.
 $$
-よって代表元によらず well-defined です。また
+よって代表元によらず良定義です。また
 $$
 \widetilde\varphi(a(v+W)+b(u+W))
 =\varphi(av+bu)
@@ -358,16 +385,16 @@ $$
 
 $R(\varphi)=\widetilde\varphi$ と書けば
 $$
-(q^*R(\varphi))(v)=R(\varphi)(v+W)=\varphi(v),
+(\Phi_q R(\varphi))(v)=R(\varphi)(v+W)=\varphi(v),
 $$
 また
 $$
-(R(q^*\psi))(v+W)=(q^*\psi)(v)=\psi(v+W).
+(R(\Phi_q(\psi)))(v+W)=(\Phi_q(\psi))(v)=\psi(v+W).
 $$
-従って $q^*R=I$ かつ $Rq^*=I$ で、$q^*$ は同型です。$\square$
+従って $\Phi_q R=I$ かつ $R\Phi_q=I$ で、$\Phi_q$ は同型です。$\square$
 <!-- proof-end -->
 
-ここでは「次元が同じだから同型」と済ませず、**商空間の代表元から写像を作り、well-defined 性まで確認した**ことが核心です。
+ここでは「次元が同じだから同型」と済ませず、**商空間の代表元から写像を作り、良定義性まで確認した**ことが核心です。
 
 ---
 
