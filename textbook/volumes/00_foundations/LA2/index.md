@@ -207,7 +207,7 @@ $$
 <a id="def-la2-quotient"></a>
 <!-- formal-statement-start -->
 > **定義（商空間）**  
-> 部分空間 $W\subset V$ に対し、剰余類 $x+W$ 全体の集合
+> $V$ を体 $\mathbb F$ 上のベクトル空間、$W\subset V$ を線形部分空間とする。剰余類 $x+W$ 全体の集合
 $$
 V/W=\{x+W:x\in V\}
 $$
@@ -218,7 +218,7 @@ $$
 $$
 \alpha(x+W)=(\alpha x)+W
 $$
-> と演算を定める。これらの演算が代表元によらず良定義であり、ベクトル空間の公理を満たすとき、このベクトル空間を商空間という。
+> と演算を定める。ただし $\alpha\in\mathbb F$ とする。これらの演算が代表元によらず良定義であり、ベクトル空間の公理を満たすとき、このベクトル空間を商空間という。
 <!-- formal-statement-end -->
 
 ここで最初に確認すべきなのは、代表元を変えても演算結果が変わらないことです。
@@ -249,7 +249,7 @@ $$
 (x+y)+W=(x'+y')+W.
 $$
 
-スカラー倍も同様です。$x+W=x'+W$ なら
+次にスカラー倍が良定義であることを確認します。$x+W=x'+W$ なら
 $$
 x-x'\in W.
 $$
@@ -392,7 +392,7 @@ $$
 <a id="def-la2-canonical-projection"></a>
 <!-- formal-statement-start -->
 > **定義（標準射影）**  
-> 商空間 $V/W$ に対し
+> $V$ をベクトル空間、$W\subset V$ を線形部分空間とする。商空間 $V/W$ に対し
 $$
 \pi:V\to V/W,
 \qquad
@@ -562,7 +562,7 @@ $$
 <a id="thm-la2-first-isomorphism"></a>
 <!-- formal-statement-start -->
 > **定理（第一同型定理）**  
-> 線形写像 $T:V\to Z$ に対し
+> $V,Z$ を同じ体上のベクトル空間とし、線形写像 $T:V\to Z$ を取る。このとき
 $$
 \widetilde T:V/\ker T\to\operatorname{Im}T,
 \qquad
@@ -573,6 +573,10 @@ $$
 V/\ker T\cong\operatorname{Im}T.
 $$
 <!-- formal-statement-end -->
+
+### 証明の見取り図
+
+写像 $\widetilde T(x+\ker T)=T(x)$ について、最初に剰余類の代表元を変えても値が変わらないことを確認します。その後、元の $T$ の線形性から $\widetilde T$ の線形性を移し、像を値域に取ったことから全射性、核で割ったことから単射性を示します。
 
 <!-- proof-start -->
 ### 証明
