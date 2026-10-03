@@ -1,5 +1,5 @@
 id: "F0-00R3"
-title: "大学院レベル偏微分方程式への入口"
+title: "偏微分方程式 II への入口"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -8,13 +8,13 @@ prerequisites:
   - F0-02C2
 official_scope: []
 learning_objectives:
-  - 学部レベルの古典 PDE から弱解理論へ移る理由を説明できる
+  - 偏微分方程式 I の古典 PDE から弱解理論へ移る理由を説明できる
   - GPDE1--GPDE10 の標準通読順と各章の役割を説明できる
   - 超関数解・変分弱解・エネルギー解の役割を区別できる
   - 評価・コンパクト性・変分法から弱解を構成する基本的な証明の流れを説明できる
 definitions: []
 theorems: []
-canonical_examples: [大学院レベル偏微分方程式の通読ロードマップ]
+canonical_examples: [偏微分方程式 II の通読ロードマップ]
 problem_patterns: []
 past_exam_alignment: []
 integrated_exam_problems: []
