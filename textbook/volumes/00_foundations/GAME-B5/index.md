@@ -365,15 +365,15 @@ $$
 
 したがって $N$ を最大超過要求に含めると、最大値が少なくとも0に固定され、コア内部での余裕を比較しにくくなります。
 
-そこで本章では、
+そこで本章では、非空な真部分提携 $S\subsetneq N$ 全体の集合を $\mathcal C$ と書きます。
 
-$$
+$
 \mathcal C
 =
-\{S:\varnothing\ne S\subsetneq N\}
-$$
+\{S\subsetneq N:S\ne\varnothing\}.
+$
 
-を非空真部分提携の集合とし、これらの超過要求を比較します。
+これらの超過要求を比較します。
 
 <a id="def-game-b5-least-core"></a>
 
