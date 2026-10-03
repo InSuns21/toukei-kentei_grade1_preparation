@@ -771,7 +771,7 @@ $$
 u(x_1)v(x_2)
 $$
 
-に直交し、$u,v$ がそれぞれ一次元指数型 span に属するとします。
+に直交し、$u,v$ がそれぞれ一次元指数型族の線形包に属するとします。
 
 固定した $v$ に対し
 
@@ -1694,39 +1694,106 @@ $$
 
 も得られます。
 
-従って表現被積分過程は
+ここで $t<T$ に対して
 
 $$
-\boxed{
 H_t
-=
+:=
 \frac{1}{\sqrt{T-t}}
 \varphi\left(
 \frac{B_t-a}{\sqrt{T-t}}
-\right),
-\qquad
-t<T.
-}
+\right)
 $$
 
-です。
+と置きます。まだ $t=T$ 近傍での二乗可積分性は示していないので、いきなり $\int_0^T H_t\,dB_t$ とは書きません。
 
-$t=T$ 近傍で見かけ上 $(T-t)^{-1/2}$ が現れますが、[Itô 等長性](../STO6/index.md#thm-sto6-ito-isometry-simple) と
+任意の $\varepsilon>0$ について、上で得た停止時刻 $T-\varepsilon$ までの表現から
 
 $$
-\xi-M_0=\int_0^T H_t\,dB_t
+M_{T-\varepsilon}-M_0
+=
+\int_0^{T-\varepsilon}H_t\,dB_t.
 $$
 
-から
+従って [Itô 等長性](../STO6/index.md#thm-sto6-ito-isometry-simple) により
+
+$$
+E\int_0^{T-\varepsilon}H_t^2dt
+=
+E[(M_{T-\varepsilon}-M_0)^2].
+$$
+
+ここで $M_t=E[\xi\mid\mathcal F_t^B]$、$M_0=E[\xi]$ です。条件付き Jensen の不等式より
+
+$$
+\begin{aligned}
+E[(M_{T-\varepsilon}-M_0)^2]
+&=
+E\left[
+\left(
+E[\xi-E[\xi]\mid\mathcal F_{T-\varepsilon}^B]
+\right)^2
+\right]\\
+&\le
+E[(\xi-E[\xi])^2]\\
+&=
+\operatorname{Var}(\xi).
+\end{aligned}
+$$
+
+左辺の積分領域は $\varepsilon\downarrow0$ とともに増加します。単調収束定理を適用して
 
 $$
 E\int_0^T H_t^2dt
-=
+\le
 \operatorname{Var}(\xi)
 <\infty.
 $$
 
-したがって 点ごとの係数が大きくなることだけを見て 可積分性を否定してはいけません。
+従って $H\in\mathcal H_B^2([0,T])$ です。これで初めて終端までの確率積分が定義できます。
+
+さらに [Itô 等長性](../STO6/index.md#thm-sto6-ito-isometry-simple) から
+
+$$
+E\left|
+\int_0^T H_t\,dB_t
+-
+\int_0^{T-\varepsilon}H_t\,dB_t
+\right|^2
+=
+E\int_{T-\varepsilon}^T H_t^2dt
+\to0.
+$$
+
+一方、すでに
+
+$$
+M_{T-\varepsilon}-M_0
+\to
+\xi-M_0
+\qquad
+\text{in }L^2
+$$
+
+を示しました。$L^2$ 極限の一意性から
+
+$$
+\boxed{
+\xi-M_0
+=
+\int_0^T H_t\,dB_t
+}
+$$
+
+です。再び Itô 等長性を使えば
+
+$$
+E\int_0^T H_t^2dt
+=
+\operatorname{Var}(\xi).
+$$
+
+したがって、点ごとの係数が $(T-t)^{-1/2}$ の形で大きくなることだけを見て可積分性を否定してはいけません。
 
 ---
 
@@ -2395,25 +2462,53 @@ H_t
 }
 $$
 
-4. $M_t\to\xi$ a.s. かつ $L^2$ です。実際 $0\le M_t\le1$ で、$B_t\to B_T$、$P(B_T=a)=0$ です。
+4. まず $M_t\to\xi$ a.s. かつ $L^2$ です。実際 $B_t\to B_T$、$P(B_T=a)=0$ から $M_t\to\xi$ a.s. であり、$0\le M_t,\xi\le1$ なので支配収束定理により $L^2$ 収束も従います。
 
-従って
+次に任意の $\varepsilon>0$ について、3 の Itô 公式を $T-\varepsilon$ まで積分すると
+
+$$
+M_{T-\varepsilon}-M_0
+=
+\int_0^{T-\varepsilon}H_t\,dB_t.
+$$
+
+[Itô 等長性](../STO6/index.md#thm-sto6-ito-isometry-simple) と条件付き Jensen の不等式から
+
+$$
+\begin{aligned}
+E\int_0^{T-\varepsilon}H_t^2dt
+&=
+E[(M_{T-\varepsilon}-M_0)^2]\\
+&\le
+E[(\xi-E[\xi])^2]\\
+&=
+\operatorname{Var}(\xi).
+\end{aligned}
+$$
+
+$\varepsilon\downarrow0$ として単調収束定理を使えば
+
+$$
+E\int_0^T H_t^2dt
+\le
+\operatorname{Var}(\xi)
+<\infty.
+$$
+
+従って $H\in\mathcal H_B^2([0,T])$ です。この可積分性が得られたので、Itô 等長性により停止した積分は $L^2$ で $\int_0^T H_t\,dB_t$ へ収束します。一方左辺は $\xi-M_0$ へ $L^2$ 収束するので
 
 $$
 \xi-M_0
 =
-\int_0^T H_t\,dB_t
+\int_0^T H_t\,dB_t.
 $$
 
-$L^2$ で収束しており、[Itô 等長性](../STO6/index.md#thm-sto6-ito-isometry-simple) から
+最後に再び Itô 等長性から
 
 $$
 E\int_0^T H_t^2dt
 =
-E[(\xi-M_0)^2]
-=
-\operatorname{Var}(\xi)
-<\infty.
+\operatorname{Var}(\xi).
 $$
 
 点ごとの $(T-t)^{-1/2}$ という大きさだけでは、$L^2(dt\otimes dP)$ 可積分性は判定できません。
