@@ -351,6 +351,8 @@ $$
 
 ## 3. 提携の重み付き要求が大提携価値を超えないことを平衡性と呼ぶ
 
+前節の恒等式から、コア配分が存在するなら、平衡重みで提携価値を足した総要求は大提携の価値を超えられません。そこで、この必要条件をゲームそのものの性質として切り出します。
+
 <a id="def-game-b2-balanced-game"></a>
 
 <!-- formal-statement-start -->
@@ -360,7 +362,7 @@ $$
 > 任意の平衡重み $\lambda=(\lambda_S)$ に対して
 >
 $$
-\sum_{\varnothing\ne S\subseteq N}
+\sum_{\substack{S\subseteq N\\S\ne\varnothing}}
 \lambda_Sv(S)
 \le
 v(N)
@@ -547,12 +549,10 @@ $$
 
 ## 5. コアの等式をいったん外し、「全提携を満足させる最小総配分」を考える
 
-コアは、
+コアは、すべての非空な提携 $S\subseteq N$ に対する
 
 $$
 x(S)\ge v(S)
-\quad
-(\varnothing\ne S\subseteq N)
 $$
 
 という全提携制約と、
@@ -569,7 +569,7 @@ $$
 
 を考えます。
 
-次の線形計画を主問題 (P) と呼びます。
+次の線形計画を主問題 (P) と呼びます。制約は、すべての非空な提携 $S\subseteq N$ について課します。
 
 $$
 \begin{aligned}
@@ -579,9 +579,7 @@ $$
 \\
 \text{subject to}\quad
 &
-\sum_{i\in S}x_i\ge v(S)
-\qquad
-(\varnothing\ne S\subseteq N).
+\sum_{i\in S}x_i\ge v(S).
 \end{aligned}
 $$
 
@@ -596,7 +594,7 @@ M
 =
 \max\left(
 0,
-\max_{\varnothing\ne S\subseteq N}v(S)
+\max_{\substack{S\subseteq N\\S\ne\varnothing}}v(S)
 \right)
 $$
 
@@ -691,7 +689,7 @@ $$
 
 と書きます。
 
-この制約に非負の双対変数
+非空な各提携 $S\subseteq N$ のこの制約に、非負の双対変数
 
 $$
 \lambda_S\ge0
@@ -773,8 +771,7 @@ $$
 \qquad(i\in N),
 \\
 &
-\lambda_S\ge0
-\qquad(\varnothing\ne S\subseteq N).
+\lambda_S\ge0.
 \end{aligned}
 $$
 
@@ -786,7 +783,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（コア被覆線形計画の双対は平衡重み問題である）**  
-> 有限 TU ゲーム $(N,v)$ に対し、
+> 有限 TU ゲーム $(N,v)$ に対し、すべての非空な提携 $S\subseteq N$ に提携制約を課す主問題
 >
 $$
 \begin{aligned}
@@ -799,8 +796,6 @@ p^*
 \text{subject to}\quad
 &
 x(S)\ge v(S)
-\qquad
-(\varnothing\ne S\subseteq N)
 \end{aligned}
 $$
 >
@@ -863,7 +858,7 @@ M
 =
 \max\left(
 0,
-\max_{\varnothing\ne S\subseteq N}v(S)
+\max_{\substack{S\subseteq N\\S\ne\varnothing}}v(S)
 \right)
 $$
 
@@ -2374,7 +2369,7 @@ $$
 
 有限 TU ゲーム $(N,v)$ が平衡ゲームであるとする。
 
-主問題
+すべての非空な提携 $S\subseteq N$ に提携制約を課す主問題
 
 $$
 \begin{aligned}
@@ -2385,8 +2380,6 @@ $$
 \text{subject to}\quad
 &
 x(S)\ge v(S)
-\qquad
-(\varnothing\ne S\subseteq N)
 \end{aligned}
 $$
 
@@ -2410,7 +2403,7 @@ M
 =
 \max\left(
 0,
-\max_{\varnothing\ne S\subseteq N}v(S)
+\max_{\substack{S\subseteq N\\S\ne\varnothing}}v(S)
 \right)
 $$
 
@@ -2998,7 +2991,7 @@ $$
 したがって、
 
 $$
-\sum_{\varnothing\ne S\subseteq N}
+\sum_{\substack{S\subseteq N\\S\ne\varnothing}}
 |S|\lambda_S
 =
 4.
