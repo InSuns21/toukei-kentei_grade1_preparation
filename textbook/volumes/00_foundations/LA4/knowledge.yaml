@@ -77,9 +77,9 @@ concepts:
       - linear.polynomial-laplace-expansion
 
   - id: linear.polynomial-bezout-identity
-    name: 多項式のBézout等式
+    name: 多項式のBézout 等式
     kind: lemma
-    aliases: [多項式のBézout等式]
+    aliases: [多項式のBézout 等式]
     requires:
       - linear.polynomial-division
 
@@ -98,9 +98,9 @@ concepts:
       - linear.polynomial-bezout-identity
 
   - id: linear.cayley-hamilton-theorem
-    name: Cayley-Hamilton定理
+    name: Cayley--Hamilton の定理
     kind: theorem
-    aliases: [Cayley-Hamilton定理, Cayley–Hamilton定理]
+    aliases: [Cayley--Hamilton の定理, Cayley-Hamilton定理, Cayley–Hamilton定理]
     requires:
       - linear.characteristic-polynomial
       - linear.minimal-polynomial
@@ -137,24 +137,24 @@ concepts:
       - linear.coprime-product-divisibility
 
   - id: linear.jordan-chain
-    name: Jordan鎖
+    name: Jordan 鎖
     kind: definition
-    aliases: [Jordan鎖, Jordan chain]
+    aliases: [Jordan 鎖, Jordan鎖, Jordan chain]
     requires:
       - linear.generalized-eigenspace
 
   - id: linear.jordan-block
-    name: Jordanブロック
+    name: Jordan ブロック
     kind: definition
-    aliases: [Jordanブロック, Jordan block]
+    aliases: [Jordan ブロック, Jordanブロック, Jordan block]
     requires:
       - linear.jordan-chain
       - linear.representation-matrix
 
   - id: linear.jordan-canonical-form
-    name: Jordan標準形定理
+    name: Jordan 標準形定理
     kind: theorem
-    aliases: [Jordan標準形定理, Jordan標準形, Jordan canonical form]
+    aliases: [Jordan 標準形定理, Jordan標準形定理, Jordan 標準形, Jordan標準形, Jordan canonical form]
     requires:
       - linear.generalized-eigenspace-decomposition
       - linear.jordan-block
