@@ -7,7 +7,7 @@ prerequisites:
   - F0-00F
 official_scope: []
 learning_objectives:
-  - 交代多重線形形式を面積・体積倍率に必要な性質から説明できる
+  - 多重線形性・交代性を面積・体積倍率に必要な性質から説明できる
   - 置換の符号と Leibniz 公式から一般の n×n 行列式を構成できる
   - 行列式の交代多重線形性を Leibniz 公式から示せる
   - 行列式が交代多重線形性と正規化で一意に決まることを示せる
@@ -15,7 +15,6 @@ learning_objectives:
 definitions:
   - { id: LA3B-DEF-01, name: 置換の転倒数と符号 }
   - { id: LA3B-DEF-02, name: Leibniz 公式による行列式 }
-  - { id: LA3B-DEF-03, name: 交代多重線形形式 }
 theorems:
   - { id: LA3B-LEM-01, name: 置換の符号の積 }
   - { id: LA3B-THM-01, name: 行列式の交代多重線形性 }
