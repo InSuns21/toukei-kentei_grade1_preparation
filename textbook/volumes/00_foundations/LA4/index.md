@@ -1306,9 +1306,9 @@ $$
 <!-- formal-statement-start -->
 > **定理（Jordan 標準形定理）**  
 > $V$ を有限次元 $\mathbb F$ ベクトル空間、$T:V\to V$ を線形自己写像とし、最小多項式が $\mathbb F$ 上で一次因子の冪へ分解すると仮定する。このとき Jordan 鎖を並べた基底が存在し、その基底での表現行列は
-$
+$$
 J_{k_1}(\lambda_1)\oplus\cdots\oplus J_{k_m}(\lambda_m)
-$
+$$
 > という Jordan ブロックの直和になる。ブロックの順序を除けば、各固有値に対するブロックサイズの多重集合は一意である。
 <!-- formal-statement-end -->
 
@@ -1316,13 +1316,13 @@ $
 ### 証明
 
 仮定により最小多項式は
-$
+$$
 m_T(t)=\prod_{\lambda}(t-\lambda)^{s_\lambda}
-$
+$$
 と相異なる一次因子の冪へ分解します。そこで [一般化固有空間分解](#thm-la4-generalized-decomposition)をこの分解に適用すると
-$
+$$
 V=\bigoplus_\lambda G_\lambda.
-$
+$$
 従って各 $G_\lambda$ 上の冪零作用素
 $$
 N=T-\lambda I
