@@ -103,7 +103,7 @@ concepts:
   - id: ode.ode1-integral-equation-equivalence
     name: 初期値問題と積分方程式の同値性
     kind: proposition
-    aliases: [初期値問題と積分方程式の同値性]
+    aliases: [初期値問題と積分方程式の同値性, 積分方程式]
     introduction: formal
     requires:
       - ode.ode1-initial-boundary-value-problem
