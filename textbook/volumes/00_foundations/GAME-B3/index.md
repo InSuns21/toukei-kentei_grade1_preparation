@@ -978,7 +978,7 @@ $$
 $$
 v
 =
-\sum_{\varnothing\ne T\subseteq N}
+\sum_{\substack{T\subseteq N\\T\ne\varnothing}}
 a_Tu_T
 $$
 >
@@ -991,7 +991,7 @@ a_T
 =
 v(T)
 -
-\sum_{\varnothing\ne R\subsetneq T}
+\sum_{\substack{R\subsetneq T\\R\ne\varnothing}}
 a_R
 $$
 >
@@ -1005,7 +1005,7 @@ $u_T(S)$ は、$T\subseteq S$ のときだけ1です。
 したがって右辺を提携 $S$ で評価すると、
 
 $$
-\sum_{\varnothing\ne T\subseteq S}a_T
+\sum_{\substack{T\subseteq S\\T\ne\varnothing}}a_T
 $$
 
 になります。
@@ -1032,7 +1032,7 @@ a_T
 =
 v(T)
 -
-\sum_{\varnothing\ne R\subsetneq T}
+\sum_{\substack{R\subsetneq T\\R\ne\varnothing}}
 a_R
 $$
 
@@ -1042,11 +1042,11 @@ $$
 
 $$
 \begin{aligned}
-\sum_{\varnothing\ne R\subseteq T}a_R
+\sum_{\substack{R\subseteq T\\R\ne\varnothing}}a_R
 &=
 a_T
 +
-\sum_{\varnothing\ne R\subsetneq T}a_R
+\sum_{\substack{R\subsetneq T\\R\ne\varnothing}}a_R
 \\
 &=
 v(T).
@@ -1058,18 +1058,18 @@ $$
 $$
 v(S)
 =
-\sum_{\varnothing\ne T\subseteq S}a_T.
+\sum_{\substack{T\subseteq S\\T\ne\varnothing}}a_T.
 $$
 
 一方、
 
 $$
 \left(
-\sum_{\varnothing\ne T\subseteq N}
+\sum_{\substack{T\subseteq N\\T\ne\varnothing}}
 a_Tu_T
 \right)(S)
 =
-\sum_{\varnothing\ne T\subseteq N}
+\sum_{\substack{T\subseteq N\\T\ne\varnothing}}
 a_Tu_T(S).
 $$
 
@@ -1080,7 +1080,7 @@ $$
 \sum_Ta_Tu_T
 \right)(S)
 =
-\sum_{\varnothing\ne T\subseteq S}a_T
+\sum_{\substack{T\subseteq S\\T\ne\varnothing}}a_T
 =
 v(S).
 $$
@@ -1098,7 +1098,7 @@ $$
 $$
 v
 =
-\sum_{\varnothing\ne T\subseteq N}
+\sum_{\substack{T\subseteq N\\T\ne\varnothing}}
 a_Tu_T.
 $$
 
@@ -1113,7 +1113,7 @@ a_T
 =
 v(T)
 -
-\sum_{\varnothing\ne R\subsetneq T}
+\sum_{\substack{R\subsetneq T\\R\ne\varnothing}}
 a_R
 $$
 
@@ -1310,7 +1310,7 @@ $$
 $$
 v
 =
-\sum_{\varnothing\ne T\subseteq N}
+\sum_{\substack{T\subseteq N\\T\ne\varnothing}}
 a_Tu_T.
 $$
 
@@ -1321,7 +1321,7 @@ $$
 $$
 \Psi(v)
 =
-\sum_{\varnothing\ne T\subseteq N}
+\sum_{\substack{T\subseteq N\\T\ne\varnothing}}
 \Psi(a_Tu_T).
 $$
 
@@ -1826,7 +1826,7 @@ $$
 \boxed{
 v
 =
-\sum_{\varnothing\ne T\subseteq N}
+\sum_{\substack{T\subseteq N\\T\ne\varnothing}}
 a_Tu_T
 }
 $$
@@ -2672,7 +2672,7 @@ $$
    $$
    v
    =
-   \sum_{\varnothing\ne T\subseteq N}
+   \sum_{\substack{T\subseteq N\\T\ne\varnothing}}
    a_Tu_T
    $$
    の係数を求めよ。
@@ -2721,7 +2721,7 @@ a_N
 =
 v(N)
 -
-\sum_{\varnothing\ne R\subsetneq N}a_R.
+\sum_{\substack{R\subsetneq N\\R\ne\varnothing}}a_R.
 $$
 
 非零の真部分集合係数は三つの二人提携だけなので、
