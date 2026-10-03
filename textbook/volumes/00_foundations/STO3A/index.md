@@ -1210,7 +1210,7 @@ P\left(
 \|W_n-W_n^{(M)}\|_\infty>\varepsilon
 \right)
 \le
-\frac{Cv_M}{\varepsilon^2\sigma^2}.
+\frac{v_M}{\varepsilon^2\sigma^2}.
 $$
 
 右辺は $n$ に依存せず、$M\to\infty$ で0へ行きます。
@@ -1247,7 +1247,19 @@ P\left(
 \frac{\varepsilon}{2}.
 $$
 
-固定した $M$ では $X_i^{(M)}$ は bounded なので、前節の tightness からある $\delta>0$ を選び
+固定した $M$ では $X_i^{(M)}$ は bounded です。したがって第7節の四次増分評価を第4節の Kolmogorov 型判定の証明へ入れたときに得た
+
+$$
+\lim_{\delta\downarrow0}
+\sup_n
+P\left(
+\omega_{W_n^{(M)}}(\delta)>\frac{\eta}{3}
+\right)
+=
+0
+$$
+
+を使えます。ここで $M$ はすでに固定しているので、ある $\delta>0$ を選び
 
 $$
 \sup_n
@@ -1255,8 +1267,10 @@ P\left(
 \omega_{W_n^{(M)}}(\delta)>\frac{\eta}{3}
 \right)
 <
-\frac{\varepsilon}{2}.
+\frac{\varepsilon}{2}
 $$
+
+とできます。
 
 sup norm が $\eta/3$ 以下なら
 
@@ -1383,10 +1397,24 @@ $$
 評価写像
 
 $$
-f\mapsto(f(t_1),\ldots,f(t_m))
+E_{t_1,\ldots,t_m}(f)
+=
+(f(t_1),\ldots,f(t_m))
 $$
 
-は sup norm に関して連続なので、continuous mapping theorem により $\mu$ の有限次元分布は $(W_{n_{\ell_r}})$ の有限次元分布の極限です。
+について、Euclid norm を $|\cdot|_2$ とすると
+
+$$
+\begin{aligned}
+|E_{t_1,\ldots,t_m}(f)-E_{t_1,\ldots,t_m}(g)|_2^2
+&=
+\sum_{j=1}^m|f(t_j)-g(t_j)|^2\\
+&\le
+m\|f-g\|_\infty^2.
+\end{aligned}
+$$
+
+従ってこの写像は $\sqrt m$-Lipschitz、特に連続です。continuous mapping theorem をこの写像へ適用すると、$\mu$ の有限次元分布は $(W_{n_{\ell_r}})$ の有限次元分布の極限です。
 
 一方、finite-dimensional convergence theorem によりその極限は
 
@@ -1398,9 +1426,56 @@ $$
 
 従って $\mu$ は Brown 運動と全ての有限次元分布が一致します。
 
-$C([0,1])$ の Borel $\sigma$-代数は評価写像による cylinder sets で生成されるため、連続経路上の確率測度は有限次元分布で一意に決まります。よって $\mu$ は standard Brownian law です。
+ここで「有限次元分布が一致すれば経路上の確率測度が一致する」ことも確認します。有理時刻集合を
 
-任意の部分列からさらに Brownian law へ収束する部分列を取れるので、元の列全体が Brownian law へ収束します。
+$$
+D=\mathbb Q\cap[0,1]
+$$
+
+とし、$\mathcal G=\sigma(e_q:q\in D)$ と置きます。連続関数 $f,g$ について
+
+$$
+\|f-g\|_\infty
+=
+\sup_{q\in D}|f(q)-g(q)|
+$$
+
+なので、固定した $g$ に対する $f\mapsto\|f-g\|_\infty$ は $\mathcal G$-可測です。従って全ての open ball は $\mathcal G$ に属します。
+
+上で $C([0,1])$ が separable であることを確認したので、任意の open set は可算個の open ball の和集合として書けます。よって
+
+$$
+\mathcal B(C([0,1]))
+\subseteq
+\mathcal G.
+$$
+
+逆に各評価写像 $e_q$ は連続なので $\mathcal G\subseteq\mathcal B(C([0,1]))$ です。従って
+
+$$
+\mathcal B(C([0,1]))
+=
+\sigma(e_q:q\in D).
+$$
+
+したがって有理時刻の有限次元 cylinder sets は Borel $\sigma$-代数を生成します。$\mu$ と Brownian law は全ての有限次元分布、特に全ての有理時刻 cylinder の確率が一致するので、$\pi$-$\lambda$ 定理による確率測度の一意性から
+
+$$
+\mu
+=
+\operatorname{Law}(B).
+$$
+
+最後に列全体の収束を確認します。もし $W_n\Rightarrow B$ でなければ、弱収束の定義からある有界連続汎関数 $F$、$\varepsilon>0$ と部分列 $(W_{n_\ell})$ が存在して
+
+$$
+\left|
+E[F(W_{n_\ell})]-E[F(B)]
+\right|
+\ge\varepsilon
+$$
+
+が全ての $\ell$ で成り立ちます。しかしこの部分列からも、上の議論により Brownian law へ弱収束する部分列をさらに取れます。その部分列では左辺が 0 へ行き、矛盾です。従って元の列全体が Brownian law へ収束します。
 
 $$
 W_n\Rightarrow B.
@@ -1992,7 +2067,16 @@ $$
    C_M|t-s|^2.
    $$
 
-5. [Kolmogorov 型 tightness criterion](#thm-sto3a-kolmogorov-tightness) から固定 $M$ の $W_n^{(M)}$ は tight です。したがって任意の $\eta,\varepsilon>0$ に対し、まず $M$ を大きくして tail process を sup norm で $\eta/3$ 以下にし、次に $\delta$ を小さくして truncated process の modulus を $\eta/3$ 以下にします。
+5. 固定 $M$ について、第4節の [Kolmogorov 型 tightness criterion](#thm-sto3a-kolmogorov-tightness) の証明は tightness だけでなく
+   $$
+   \lim_{\delta\downarrow0}
+   \sup_n
+   P\left(
+   \omega_{W_n^{(M)}}(\delta)>\eta/3
+   \right)
+   =0
+   $$
+   を与えます。したがって任意の $\eta,\varepsilon>0$ に対し、まず $M$ を大きくして tail process を sup norm で $\eta/3$ 以下にし、その $M$ を固定した後で $\delta$ を小さくして truncated process の modulus を $\eta/3$ 以下にします。
    $$
    \omega_{W_n}(\delta)
    \le
