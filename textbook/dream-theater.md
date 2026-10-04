@@ -102,7 +102,7 @@
 共通基礎の集合論で集合・写像・濃度・順序・選択公理・Zorn の補題まで学んだあと、**数学の対象そのものを集合・順序数・公理系から調べたい読者のための独立した発展分岐**です。解析・線形代数・確率・幾何を読むための必修前提にはしません。
 
 1. [SET1 公理的集合論への入口：ZF と ZFC](textbook/volumes/00_foundations/SET1/index.md)
-2. [SET2 順序数：整列の位置を集合で表す](textbook/volumes/00_foundations/SET2/index.md)
+2. [SET2 順序型と順序数：整列の長さを集合で表す](textbook/volumes/00_foundations/SET2/index.md)
 3. [SET3 超限帰納法：極限段階を含む帰納法](textbook/volumes/00_foundations/SET3/index.md)
 4. [SET4 超限再帰：以前の全段階から次を定義する](textbook/volumes/00_foundations/SET4/index.md)
 5. [SET5 累積階層と rank](textbook/volumes/00_foundations/SET5/index.md)
