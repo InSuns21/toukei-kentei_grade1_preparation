@@ -403,7 +403,7 @@ $$
 \{n:x_n=0\}\notin\mathcal U.
 $$
 
-超フィルターの二者択一により、その補集合
+[超フィルターの二者択一](../SET9/index.md#thm-set9-ultrafilter-dichotomy)により、その補集合
 
 $$
 S=\{n:x_n\ne0\}
@@ -951,7 +951,7 @@ $$
 
 標準実数 $r>0$ を任意に取ります。
 
-[F0-00A1B の「逆数を任意に小さくできる」結果](../F0_00A1B_実数の上限性質_Archimedes性/index.md)から、ある $m\in\mathbb N_{>0}$ が存在して
+[F0-00A1B の「逆数を任意に小さくできる」結果](../F0_00A1B_実数の上限性質_[Archimedes 性](../F0_00A1B_実数の上限性質_Archimedes性/index.md#thm-f0-00a1b-archimedean)/index.md#cor-f0-00a1b-reciprocal)から、ある $m\in\mathbb N_{>0}$ が存在して
 
 $$
 \frac1m<r.
@@ -1049,7 +1049,7 @@ $$
 
 標準実数 $r>0$ を取ります。
 
-[Archimedes 性](../F0_00A1B_実数の上限性質_Archimedes性/index.md)から、ある $m\in\mathbb N$ が存在して
+[Archimedes 性](../F0_00A1B_実数の上限性質_Archimedes性/index.md#thm-f0-00a1b-archimedean)から、ある $m\in\mathbb N$ が存在して
 
 $$
 m>r.
@@ -1154,7 +1154,7 @@ $$
 O=\mathbb N\setminus E.
 $$
 
-超フィルターの二者択一により
+[超フィルターの二者択一](../SET9/index.md#thm-set9-ultrafilter-dichotomy)により
 
 $$
 E\in\mathcal U
@@ -1534,7 +1534,7 @@ $$
 
 と置く。
 
-超フィルターの二者択一を用いて
+[超フィルターの二者択一](../SET9/index.md#thm-set9-ultrafilter-dichotomy)を用いて
 
 $$
 x\le y
@@ -1547,7 +1547,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-超フィルターの二者択一から
+[超フィルターの二者択一](../SET9/index.md#thm-set9-ultrafilter-dichotomy)から
 
 $$
 A\in\mathcal U
@@ -1581,7 +1581,7 @@ $$
 
 通常のフィルターでは、一般の集合 $A$ に対して $A$ または補集合のどちらか一方を必ず含むとは限りません。その場合、二つの超実数に相当する同値類を比較できない可能性があります。
 
-全順序を得る核心は **超フィルターの二者択一**です。
+全順序を得る核心は **[超フィルターの二者択一](../SET9/index.md#thm-set9-ultrafilter-dichotomy)**です。
 <!-- solution-end -->
 
 ### Level C
@@ -1596,7 +1596,7 @@ $$
 2. 商集合として超実数を作る。
 3. 加法・乗法・順序を定義し、代表元によらないことを示す。
 4. 非零元の逆元を構成する。
-5. 超フィルターの二者択一から全順序性を示す。
+5. [超フィルターの二者択一](../SET9/index.md#thm-set9-ultrafilter-dichotomy)から全順序性を示す。
 6. $\mathbb R$ を定数列で埋め込む。
 7. $\varepsilon=[1/(n+1)]$ が正の非零無限小であることを示す。
 8. $H=[n+1]$ が無限大で $H\varepsilon=1$ であることを示す。
@@ -1740,7 +1740,7 @@ $$
 
 各成分が正で、0との一致集合は空なので $\varepsilon>0$ かつ $\varepsilon\ne0$ です。
 
-標準 $r>0$ を取ります。Archimedes 性から $1/m<r$ となる $m$ を取れます。$n\ge m$ なら
+標準 $r>0$ を取ります。[Archimedes 性](../F0_00A1B_実数の上限性質_Archimedes性/index.md#thm-f0-00a1b-archimedean)から $1/m<r$ となる $m$ を取れます。$n\ge m$ なら
 
 $$
 \frac1{n+1}<\frac1m<r.
@@ -1754,7 +1754,7 @@ $$
 H=[n+1].
 $$
 
-標準 $r>0$ に対して Archimedes 性から $m>r$ を取ります。$n\ge m$ なら $n+1>r$ です。尾集合は $\mathcal U$ に入るので $H>r$ です。
+標準 $r>0$ に対して [Archimedes 性](../F0_00A1B_実数の上限性質_Archimedes性/index.md#thm-f0-00a1b-archimedean)から $m>r$ を取ります。$n\ge m$ なら $n+1>r$ です。尾集合は $\mathcal U$ に入るので $H>r$ です。
 
 また全ての添字で
 
