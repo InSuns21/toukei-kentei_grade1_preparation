@@ -1,7 +1,7 @@
-# DREAM THEATER：Encore III 後続 PDE 拡張計画
+# DREAM THEATER：Encore III 後続 PDE・HJB・微分ゲーム拡張計画
 
 作成日: 2026-09-19  
-更新日: 2026-09-23
+更新日: 2026-10-04
 
 ## 0. 位置付け
 
@@ -16,6 +16,26 @@ Encore III は distributional / variational / energy solution を中心とする
 3. **得られた解が時間とともにどう振る舞うか**：尺度変換、自己相似、減衰、長時間漸近、blow-up など。
 
 特に第3の問いは Encore III 本体では体系化しない。後述の Track H で独立に扱う。
+
+### 0.1 canonical ownership と停止線
+
+この計画は、Post-GPDE のうち **Hamilton--Jacobi / HJB / viscosity solution / differential game / stochastic control / stochastic differential game** を Track C の正本として受け持つ。
+
+隣接計画との責務は次のように固定し、同じ理論を複数 PLAN で独立実装しない。
+
+| 領域 | canonical owner |
+|---|---|
+| 古典 Hamilton--Jacobi・特性曲線・焦散 | 既存 `PDE12` |
+| HJB・viscosity solution・微分ゲーム・HJI | 本計画 Track C |
+| SDE・Markov generator・Feynman--Kac | 完了済み Encore IV の `STO9` / `STO11` |
+| 確率制御・二階 HJB | 本計画 Track C（確率基盤は Encore IV を参照） |
+| 確率微分ゲーム・二階 Isaacs 方程式 | 本計画 Track C |
+| 数理ファイナンスの最適執行 | `DREAM_THEATER_UNDERGROUND_EMPIRE_PLAN.md`（Track C の応用） |
+| Navier--Stokes の固有理論 | `DREAM_THEATER_NAVIER_STOKES_MILLENNIUM_PLAN.md` |
+| 多様体上の確率解析 | `DREAM_THEATER_STOCHASTIC_ANALYSIS_II_GEOMETRIC_PLAN.md` |
+| 静学・反復・Bayesian game の既存正本 | 完了済み `DREAM_THEATER_OPTIMIZATION_ECON_GAME_PLAN.md` |
+
+Mean field game、非ゼロ和の一般微分ゲーム、部分観測制御、jump differential game、一般 H-infinity 制御理論は **本 Track の停止線の外**とする。必要になった時点で独立計画を立て、本 Track では橋だけを置く。
 
 ## 1. Track A：半群・mild solution・抽象発展方程式
 
@@ -89,33 +109,249 @@ entropy solution / uniqueness
 
 Track H でも Burgers 型方程式が尺度変換や漸近解析の例として現れうるが、shock 選択・entropy uniqueness の正本は Track B に置く。
 
-## 3. Track C：Hamilton--Jacobi・viscosity solution
+## 3. Track C：Hamilton--Jacobi・HJB・viscosity solution・微分ゲーム
 
-Sobolev の部分積分型弱形式では扱いにくい完全非線形・一階非線形 PDE の別文化として独立させる。
+### 目的
+
+`PDE12` が古典 Hamilton--Jacobi 方程式と特性曲線・焦散までを正本化している。その先で現れる
+
+- 値関数が一般には滑らかでない
+- 最適化により Hamiltonian 自体が `inf / sup` を含む
+- 相手の最適反応を入れると HJB が HJI / Isaacs 方程式へ変わる
+- 拡散を入れると一階 PDE が二階完全非線形 PDE へ変わる
+
+という四つの変化を、一つの連続した系列として扱う。
+
+中心の見取り図は次とする。
+
+```text
+PDE12 classical Hamilton--Jacobi
+        ↓
+C1 deterministic optimal control / DPP / formal HJB
+        ↓
+C2 viscosity solution / comparison / stability
+        ↓
+C3 HJB value characterization
+        ├──────────────→ C4 differential game / HJI
+        │
+STO9 + STO11 ────────→ C5 stochastic control / second-order HJB
+                               │
+                     C4 ───────┴──────→ C6 stochastic differential game
+                                              / second-order HJI
+```
+
+「HJB の章」「粘性解の章」「微分ゲームの章」を互いに無関係な外伝として作らず、**dynamic programming が PDE を生み、viscosity solution が値関数の低正則性を受け止め、minimax が HJB を Isaacs 方程式へ変える**という一本の論理で接続する。
+
+### C1：決定論的最適制御・動的計画原理・HJB の導出
+
+代表形
+
+$$
+\dot x(s)=f(x(s),u(s)),\qquad
+J_{t,x}(u)=g(x(T))+\int_t^T L(x(s),u(s))\,ds
+$$
+
+から始める。
 
 候補論点：
 
-- Hamilton--Jacobi equation
-- subsolution / supersolution
-- smooth test function による contact
-- viscosity solution
-- stability under uniform limits
+- admissible control / controlled ODE
+- running cost / terminal cost / value function
+- Bellman principle / dynamic programming principle
+- 短時間区間 $[t,t+h]$ での展開
+- Hamiltonian
+- HJB equation の形式導出
+- smooth value function を仮定した verification theorem
+- 最小の LQR / bang-bang 例
+- Pontryagin maximum principle との役割差は bridge として整理
+
+ここではまず **なぜ HJB が出るのか**を閉じる。値関数の微分可能性を暗黙に仮定し続けず、「この形式計算をどの解概念で正当化するか」を C2 への明示的な未解決点として残す。
+
+### C2：viscosity solution の数学的コア
+
+Sobolev の部分積分型弱形式とは別の文化として、comparison を保存する低正則解概念を構築する。
+
+候補論点：
+
+- viscosity subsolution / supersolution
+- smooth test function による上接触・下接触
+- classical solution との整合性
+- max / min principle の局所的な読み替え
+- uniform limit に対する stability
 - comparison principle
 - uniqueness
 - Perron method
-- Hamilton--Jacobi--Bellman への接続
+- boundary / terminal condition の扱い
+- semijet は必要になった段階で advanced として導入
+
+導入順は必ず
 
 ```text
-classical derivative を要求しない
-          +
-最大・最小原理 / comparison を保存したい
-          ↓
+classical solution が焦散・最適化で壊れる
+        ↓
+distributional weak solution では comparison の構造を直接表しにくい
+        ↓
+接触する smooth test function だけで不等式を読む
+        ↓
 viscosity solution
+        ↓
+comparison による uniqueness
 ```
 
-確率制御・HJB へ接続する場合は、新 Encore IV の STO9（SDE）と STO11（Markov process・generator・martingale problem）を主要な接続候補とし、実装時に direct prerequisite を確定する。旧 Encore IV の SP / TS 章へは依存しない。
+とする。
 
-PDE12 が古典 Hamilton--Jacobi と特性焦散までを正本化しているため、Track C は「古典解が壊れた後に comparison principle をどう保存するか」から始める。
+### C3：HJB を値関数の方程式として正本化
+
+C1 の形式導出と C2 の解概念を合流させる。
+
+候補論点：
+
+- value function の連続性・局所 regularity の必要最小条件
+- DPP から viscosity sub / supersolution を導く
+- comparison theorem による uniqueness
+- value function = unique viscosity solution
+- smooth case の verification theorem との整合
+- state constraint / exit-time problem は advanced
+- optimal stopping / obstacle problem は bridge とし、全面展開は別計画候補
+
+ここで初めて
+
+$$
+\text{dynamic programming}
+\Longleftrightarrow
+\text{HJB in viscosity sense}
+$$
+
+を標準ルートとして閉じる。
+
+### C4：決定論的微分ゲーム・Hamilton--Jacobi--Isaacs
+
+二人零和ゲームを標準モデルとする。
+
+$$
+\dot x=f(x,u,v),\qquad
+J_{t,x}(u,v)
+$$
+
+に対して、一方が最小化、他方が最大化する。
+
+候補論点：
+
+- pursuit--evasion を最小具体例にする
+- open-loop control と戦略の違い
+- nonanticipative strategy
+- lower value / upper value
+- game の dynamic programming principle
+- lower / upper Hamiltonian
+- lower / upper HJI equation
+- Isaacs condition
+- $\sup_v\inf_u H=\inf_u\sup_v H$ が成立するときの game value
+- viscosity solution による HJI の比較・一意性
+- Nash equilibrium を求める非ゼロ和微分ゲームとの違い
+
+「最適制御に相手を一人足しただけ」と済ませず、**control と strategy の違い、および `inf sup` の順序が情報構造を持つこと**を明示する。
+
+### C5：確率制御・二階 HJB
+
+Encore IV の確率基盤と合流する。
+
+代表形
+
+$$
+dX_s=b(X_s,u_s)\,ds+\sigma(X_s,u_s)\,dW_s
+$$
+
+から、
+
+- controlled diffusion
+- stochastic dynamic programming principle
+- Itô formula と generator
+- second-order HJB
+- smooth verification theorem
+- viscosity solution と値関数
+- degenerate elliptic / parabolic PDE
+- stopping time を含む DPP の必要条件
+- Feynman--Kac と「線形 PDE」の位置付けの違い
+
+を扱う。
+
+direct prerequisite 候補は少なくとも
+
+- `STO9`：SDE
+- `STO11`：Markov process / generator / Feynman--Kac
+- C1--C3：DPP / HJB / viscosity solution
+
+とする。
+
+`TSA6` の Kalman filter は部分観測制御へ進む場合の bridge であり、完全観測下の確率制御を学ぶための必須 prerequisite にはしない。Girsanov や martingale representation も、使う節でだけ direct dependency とする。
+
+### C6：確率微分ゲーム・二階 Isaacs 方程式
+
+C4 のゲーム構造と C5 の controlled diffusion を合流させる。
+
+$$
+dX_s=b(X_s,u_s,v_s)\,ds
++\sigma(X_s,u_s,v_s)\,dW_s
+$$
+
+を基準形として、
+
+- zero-sum stochastic differential game
+- lower / upper stochastic value
+- stochastic nonanticipative strategy
+- stochastic DPP
+- second-order lower / upper Isaacs equation
+- stochastic Isaacs condition
+- viscosity solution による value characterization
+- 最悪外乱を第二プレイヤーとみなす robust-control viewpoint
+
+を扱う。
+
+ここで
+
+```text
+deterministic control      → HJB
+deterministic game         → HJI
+stochastic control         → second-order HJB
+stochastic differential game → second-order HJI
+```
+
+という対応を明示的に完成させる。
+
+### Track C の停止線
+
+以下は重要だが、本 Track の完成条件には含めない。
+
+- nonzero-sum differential game の一般論
+- mean field game
+- mean field control
+- partially observed stochastic control
+- filtering + control の separation principle 一般論
+- jump / Lévy differential game
+- stochastic target problem
+- path-dependent HJB / functional Itô calculus
+- full H-infinity / risk-sensitive control theory
+
+金融・ロボティクス・工学応用側で必要になった場合も、まず本 Track の正本へリンクし、応用章の中で HJB / viscosity / Isaacs を再構築しない。
+
+### 実装候補 ID と順序
+
+現時点の設計上の仮 ID を `HJC1--HJC6` とする。
+
+```text
+HJC1 deterministic control / DPP / formal HJB
+  ↓
+HJC2 viscosity solution core
+  ↓
+HJC3 HJB value characterization
+  ├──→ HJC4 differential game / HJI
+  │
+  └──→ HJC5 stochastic control / second-order HJB
+             │
+HJC4 ────────┴──→ HJC6 stochastic differential game / second-order HJI
+```
+
+実装時には既存 ID 衝突と direct prerequisite を再確認する。読順のためだけに不要な全系列依存を置かない。
 
 ## 4. Track D：非線形変分 PDE・monotone operator
 
@@ -384,7 +620,7 @@ Track E や Track H を本格化すると、PDE 固有の議論だけでは閉�
 |---|---|
 | Duhamel / abstract evolution / mild solution | Track A |
 | shock・entropy selection | Track B |
-| Hamilton--Jacobi の comparison / viscosity solution | Track C |
+| Hamilton--Jacobi / HJB / viscosity / differential game / HJI / stochastic control | Track C |
 | monotone operator / $p$-Laplacian の存在論 | Track D |
 | incompressibility / Leray--Hopf / fluid-specific structure | Track E |
 | renormalized / measure-valued solution | Track F |
@@ -403,11 +639,29 @@ GPDE10
   ├── Track A semigroup / mild solution
   ├── Track D nonlinear variational PDE
   ├── Track B conservation laws / entropy
-  ├── Track C viscosity solution
+  ├── Track C HJB / viscosity / differential game / stochastic control
   └── Track H scaling / self-similarity / asymptotics
 ```
 
 Track H は独立性が高い一方、PDE3 / PDE8 / GPDE5 の既存資産を大きく再利用できるため、Track A / D の全完了を待たず、必要な prerequisite が閉じた単位から着手してよい。
+
+Track C 内の推奨実装順は次とする。
+
+```text
+PDE12
+  ↓
+HJC1 deterministic control / DPP / formal HJB
+  ↓
+HJC2 viscosity solution core
+  ↓
+HJC3 HJB value characterization
+  ├──→ HJC4 differential game / HJI
+  └──→ HJC5 stochastic control / second-order HJB
+              ↓
+        HJC6 stochastic differential game / second-order HJI
+```
+
+HJC5 以降だけが Encore IV の `STO9` / `STO11` を必須候補とする。決定論的 HJB・viscosity・微分ゲームまでを確率解析完了待ちにしない。
 
 推奨する Track H 内の実装順は次とする。
 
@@ -466,3 +720,9 @@ Track 間の順序は強制しない。それぞれ異なる PDE 構造を対象
 - 未解決問題と既知の existence theory を混同しない。
 - 調和解析の大定理を PDE の都合だけでブラックボックス乱用せず、必要なら独立系列を正本化する。
 - Encore III の証明へ後続理論を逆輸入しない。
+- DPP を使う場合、admissible control / strategy・情報構造・時間整合性を明示し、形式的な Bellman 展開だけで済ませない。
+- HJB / HJI では `inf` / `sup` の順序と制御者・対戦者の役割を明示する。
+- viscosity solution では「微分不能でも PDE を満たす」という説明だけで終わらせず、test function による接触不等式を具体例で判定させる。
+- stochastic control / game では Itô formula、generator、DPP、二階 PDE のどこで確率性が入るかを分離して説明する。
+- game value の存在と最適戦略の存在を同一視しない。Isaacs 条件が何を保証するための条件かを明示する。
+- 応用 PLAN は HJB / viscosity / Isaacs の理論を再実装せず、本 Track を canonical dependency として参照する。

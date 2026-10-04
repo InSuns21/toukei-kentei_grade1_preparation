@@ -236,7 +236,9 @@ $$
 
 へ接続する。
 
-optional basementとして部分観測下の filtering + control、order book、stochastic differential games を扱う。
+ただし、HJB・viscosity solution・stochastic control・stochastic differential game の**理論正本は** `DREAM_THEATER_POST_GPDE_PDE_EXTENSIONS_PLAN.md` Track C とする。U3 は最適執行という金融応用に必要な範囲を参照して使い、DPP / HJB / Isaacs 理論を独立に再構築しない。
+
+optional basement は、部分観測下の filtering + control、order book、Track C で理論整備済みの場合の stochastic differential game 応用とする。
 
 ### 最低到達点
 
@@ -440,7 +442,7 @@ Schrödinger方程式、量子力学の全体系、場の量子論を本系列�
 │
 ├─ 確率過程 / 条件付き期待値 / 時系列
 │   ├─ U3 数理ファイナンス
-│   │   └─ 確率制御・HJB
+│   │   └─ 最適執行（確率制御・HJB は POST_GPDE Track C を参照）
 │   └─ U4 裁定機会
 │       ├─ 無裁定理論・測度変換
 │       └─ 統計的裁定・共和分
@@ -505,7 +507,7 @@ $$
 6. U2-03 particle filterからSLAM入口
 7. U3-01 random walkからBrown運動・GBM
 8. U3-02 Monte Carlo pricing・Black–Scholes
-9. U3-03 最適執行・確率制御入口
+9. U3-03 最適執行・確率制御入口（HJB / viscosity の正本は POST_GPDE Track C）
 10. U4-01 静的裁定と凸最適化
 11. U4-02 無裁定とマルチンゲール測度
 12. U4-03 統計的裁定・共和分
@@ -523,6 +525,7 @@ $$
 
 - 現在進行中の既存記事強化を中断して新規記事を量産しない。
 - 6分野をそれぞれ独立した大学院教科書の完全版にしない。
+- HJB / viscosity / Isaacs の理論を U3 内で重複実装しない。金融固有の状態変数・目的関数・境界条件・解釈に集中する。
 - 応用上不要な抽象論を、体系上美しいという理由だけで必須化しない。
 - 量子統計を一般的な量子力学講義へ置換しない。
 - 数理ファイナンスを金融実務の売買推奨や収益保証の教材にしない。
