@@ -552,7 +552,7 @@ $$
 > 1. $Pu\in H$。
 > 2. $P^2u=Pu$。
 > 3. $\|Pu\|_2\le\|u\|_2$。
-> 4. ある平均零スカラー場 $\phi$ が存在して
+> 4. ある平均零の $\phi\in H^1(\mathbb T^3)$ が存在して
 
 $$
 u=Pu+\nabla\phi
@@ -634,15 +634,25 @@ $$
 
 次に勾配成分を作ります。$k\ne0$ に対して
 
-$$
+$
 \widehat\phi(k)
 =
 -i\frac{k\cdot\widehat u(k)}{|k|^2},
 \qquad
 \widehat\phi(0)=0
-$$
+$
 
-と置きます。
+と置きます。Cauchy--Schwarz により
+
+$
+|k|^2|\widehat\phi(k)|^2
+=
+\frac{|k\cdot\widehat u(k)|^2}{|k|^2}
+\le
+|\widehat u(k)|^2.
+$
+
+右辺は $u\in L^2$ により総和可能なので、Parseval 型等式から $\nabla\phi\in L^2$、すなわち $\phi\in H^1$ です。
 
 すると
 
@@ -949,7 +959,7 @@ $$
 
 とします。
 
-平均零速度を考え、$u$ が十分滑らかだとします。
+平均零速度と平均零外力を考え、$u,f$ が十分滑らかだとします。外力の平均が非零なら速度の平均自体が時間発展するため、その定数モードはここで扱う平均零部分とは別に分離します。
 
 両辺へ $P$ を作用させます。
 
@@ -982,7 +992,7 @@ $$
 <a id="prop-ns1-projected-equation"></a>
 <!-- formal-statement-start -->
 > **命題（Leray 射影後の Navier--Stokes 方程式）**  
-> 十分滑らかな平均零周期速度場 $u$ が
+> 十分滑らかな平均零周期速度場 $u$ と平均零周期外力 $f$ が
 
 $$
 \partial_tu+(u\cdot\nabla)u
@@ -1230,15 +1240,26 @@ $$
 
 という制約が同時に現れていました。
 
-本章で、
+平均零スカラー Sobolev 空間を
 
-$$
+$
+\dot H^1(\mathbb T^3)
+:=
+\left\{
+\phi\in H^1(\mathbb T^3):
+\int_{\mathbb T^3}\phi\,dx=0
+\right\}
+$
+
+と書けば、本章で
+
+$
 L^2_0(\mathbb T^3;\mathbb R^3)
 =
 H
 \oplus
-\nabla \dot H^1
-$$
+\nabla \dot H^1(\mathbb T^3)
+$
 
 という直交分解を Fourier モードごとに構成し、Leray 射影 $P$ によって速度空間 $H$ を取り出しました。
 
@@ -1695,14 +1716,15 @@ $$
 
 整数 $s\ge0$ とし、周期 Sobolev ノルムを Fourier 係数で
 
-$$
+$
 \|u\|_{H^s}^2
-\asymp
+:=
+(2\pi)^3
 \sum_{k\in\mathbb Z^3}
 (1+|k|^2)^s|\widehat u(k)|^2
-$$
+$
 
-と表す。
+と定める。
 
 $$
 \|Pu\|_{H^s}\le\|u\|_{H^s}
@@ -1772,7 +1794,7 @@ $$
 #### NS1-B03 射影形から圧力を回収する
 - Level: B
 
-滑らかな平均零発散零速度 $u$ が
+滑らかな平均零発散零速度 $u$ と平均零外力 $f$ が
 
 $$
 \partial_tu+\nu Au+B(u,u)=Pf
