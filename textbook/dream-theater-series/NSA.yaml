@@ -39,5 +39,5 @@ chapters:
     title: Riemann 積分と超有限和
   - id: NSA9
     path: textbook/volumes/00_foundations/NSA9
-    status: planned
-    title: 級数・関数列・一様収束を無限添奷で読む
+    status: completed
+    title: 級数・関数列・一様収束を無限添字で読む
