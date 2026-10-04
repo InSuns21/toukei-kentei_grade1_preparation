@@ -1,393 +1,48 @@
 # 統計検定1級 独習教材プロジェクト
 
-このリポジトリでは、統計検定1級「統計数理」と「統計応用（理工学）」のための独習教材・問題集・詳細解答集を日本語で作成する。
+このリポジトリでは、統計検定1級向け教材、DREAM THEATER 発展数学講座、Anki 解法定跡カードを管理する。
 
-通常教材は `textbook/`、解法定跡カード教材は `anki/` に分離する。通常教材の構成・進捗の正本は `textbook/curriculum.yaml`、Anki教材の編集規約の正本は `memo/anki.md` とする。
+## 最初に対象スコープを決める
 
-DREAM THEATER は `textbook/` 内の発展数学講座だが、通常の試験答案訓練章とは目的・演習形式・前提知識の扱いが異なる。DREAM THEATER の執筆・改稿・査読では `textbook/DREAM_THEATER_AUTHORING_STANDARD.md` を入口の正本とする。
+作業内容に応じて、root の規約を全部読み続けるのではなく、対象に最も近い正本へ移る。
 
-## DREAM THEATER 継続ルーティング
+- 通常教材・textbook 共通: `textbook/AGENTS.md`
+- DREAM THEATER / `textbook/volumes/00_foundations/**`: `textbook/volumes/00_foundations/AGENTS.md`
+- Anki / `anki/**`: `anki/AGENTS.md`
+- リポジトリ横断インフラ・CI: このファイルと変更対象の workflow / script
 
-DREAM THEATER の「続けて」「planを進めて」では、全リポジトリ探索より先に次の順で現在地を確定する。
+より深い `AGENTS.md` がある場合は、root の共通規則にそのスコープ固有規則を追加して適用する。
+
+## GitHub上の現在状態を正本とする
+
+教材・規約・進捗・依存関係を、過去チャットや記憶だけから推測しない。ファイル名・章ID・PR・branchが指定された場合は、GitHub上の現在の対象を確認してから編集する。
+
+古い監査スナップショットや完了済み plan を現行規約として復活させない。規約が競合する場合は、現行の scoped `AGENTS.md` とそこから参照される正本を優先する。
+
+## DREAM THEATER の継続作業は探索を最小化する
+
+「続けて」「planを進めて」の場合、`textbook/volumes/00_foundations/` 全体を先に探索しない。まず次を読む。
 
 1. `textbook/dream-theater-work.yaml`
 2. そこから参照される `textbook/dream-theater-series/<series>.yaml`
 3. `active_plan` の該当章
-4. 対象章と直接依存する正本だけ
+4. 対象章と直接依存する正本
 
-`textbook/dream-theater-work.yaml` は **継続作業のルーティング正本**であり、数学内容・依存関係の正本を置き換えない。章を完了して次へ進める作業では、対象成果物と同じ作業単位で `completed_through` / `next_work` / `after_next` と series manifest の status を更新する。
+数学内容・依存関係の正本は各教材ファイルと knowledge DAG であり、work-state manifest は現在地ルーティング専用である。
 
-global index、knowledge DAG、規約、validator、CI を変更する場合は通常どおり全体影響を確認する。一方、単一系列の通常執筆では、現在地確定のためだけに `textbook/volumes/00_foundations/` 全体を列挙しない。
+## 検証のスコープ
 
----
+通常の leaf教材変更では changed-only validation を優先する。workflow、validator、global index、knowledge DAG、共通規約など未変更ページへ波及しうる変更は full validation へ昇格する。
 
-## 作業前に読むファイル
+PRの軽量化を理由に品質ゲートを削除しない。full audit は main、nightly、manual、または global-impact change で維持する。
 
-### 通常教材
-
-1. `textbook/curriculum.yaml`
-2. `textbook/notation.md`
-3. `textbook/style-guide.md`
-4. `textbook/dependency-graph.md`
-5. 対象章の `chapter.yaml`
-6. `references/official-scope.md`
-7. `references/past-exam-trends.md`
-8. `references/past-exam-index.yaml`
-
-### DREAM THEATER
-
-対象 `index.md` が `textbook/dream-theater-index.json` に掲載される場合、上記の通常教材共通正本に加えて次を必ず読む。
-
-1. `textbook/DREAM_THEATER_AUTHORING_STANDARD.md`
-2. `textbook/DREAM_THEATER_EXERCISE_POLICY.md`
-3. `textbook/formal-statement-presentation-guide.md`
-4. `textbook/proof-presentation-guide.md`
-5. `textbook/knowledge-dag.yaml`
-6. 対象系列のカリキュラム・設計台帳
-
-旧 `textbook/f0-dream-theater-*-audit.md` は特定時点の監査スナップショットで、現行規約と競合していたため削除済みである。過去状態が必要なら Git 履歴を見る。旧監査を現行規約として復活させない。
-
-### Ankiカード教材
-
-1. `memo/anki.md`
-2. `anki/README.md`
-3. `anki/curation.yaml`
-4. `anki/reports/reduction_audit_2026-08-29.md` および最新の reduction audit
-5. `anki/syllabus/syllabus.yaml`
-6. `anki/syllabus/coverage.yaml`
-7. `anki/formulae.md`
-8. `anki/notation.md`
-9. `references/official-scope.md`
-10. `references/past-exam-index.yaml`
-
----
-
-# 通常教材の継続手順
-
-ユーザーが「続きを書いて」など対象を指定せず通常教材の継続を求めた場合は、次を質問せず実行する。
-
-1. `npm run progress` で進捗を確認する。
-2. 進行中の成果物を再開し、なければ `next_work` を開始する。
-3. `npm run progress -- start <ID>` で開始を記録する。
-4. ディレクトリがなければ `npm run new:chapter -- <ID>` で雛形を作る。
-5. メイン担当が対象種別の規約に従って本文・演習・解答等の必要成果物を完成させる。通常の試験向け章では問題集・詳細解答・30分ドリルまで、DREAM THEATER では `DREAM_THEATER_AUTHORING_STANDARD.md` の本文・証明・例・演習・詳細解答を完成させる。
-6. 完成稿に対し、独立数理査読と読者粒度・目的適合性査読を行う。
-7. 指摘を修正し、再査読で `fatal: 0 / major: 0 / minor: 0` を確認する。
-8. `npm run validate` を成功させる。DREAM THEATER は専用 validation / audit も実行する。概念依存監査は `DREAM_THEATER_AUTHORING_STANDARD.md` の scope 規則に従い、PR では changed-only を原則とし、全体波及する変更だけ full audit とする。
-9. `npm run progress -- complete <ID>` で完了を記録する。
-10. 対象成果物、査読記録、進捗更新を同じ作業単位でコミットする。
-11. コミット後に `git status --short` と `npm run progress` を確認する。
-12. ユーザーが複数章または継続執筆を求めている場合だけ次へ進む。
-
-進捗状態は `planned -> drafting -> self_review -> independent_review -> revision -> reviewed` を使う。外部判断が必要な場合だけ理由付きで `blocked` とする。
-
-DREAM THEATER では `implemented`、`existing-anchor`、formal statement の存在、proof block の存在、CI green だけを完成条件にしない。独習者が本文から主要概念・主要定理・核心論証を再構成できるかを人手で確認する。
-
----
-
-# Ankiカード教材の最重要方針
-
-## 1カード = 本番で1回想起すべき解法単位
-
-「1カード1論点」は、細かく切れるものを全部カードにするという意味ではない。
-
-同じ問題状況を見て同じ一手を発火するなら、分野・出典・具体例・`type` が違っても原則として1つの canonical card に統合する。
-
-次の違いだけを理由にカードを増殖させない。
-
-- formula / theorem / condition / recognition / reverse / pitfall の種別差
-- 一般形 / 数値例の差
-- 数理 / 応用 / 理工という名前空間の差
-- 同じ手法を別分布へ適用しただけの差
-
-カードでは単なる手法名当てで終わらず、短い具体例で本質的操作を最低1回実行する。
-
-公式・定義・定理の網羅は `anki/formulae.md` が担う。`anki/cards/` は、本番で能動的に再生する価値がある判断・計算・証明操作を中心にする。
-
-1枚のカードが複数の公式シラバス用語を cover してよい。`syllabus/coverage.yaml` は対応関係を追跡するために使い、「公式用語1個 = カード1枚」を要求しない。
-
----
-
-# Anki編集監査モード
-
-2026-08-29 時点でカード正本は1373枚まで増えているため、新規大量生成フェーズを終了し、**約600枚への編集・統合フェーズ**へ移行した。
-
-`anki/curation.yaml` の標準状態は次である。
-
-```yaml
-selection_mode: canonical_only
-audit_mode: true
-target_min_cards: 580
-target_max_cards: 620
-```
-
-## audit_mode: true の間の禁止事項
-
-- 1373枚を priority 順に上位600枚へ単純ランキング切りしない。
-- 自動 selector で見かけ上600枚にして監査完了扱いしない。
-- coverage を埋めるためだけに新規カードを増やさない。
-- `type` の違いだけを理由にカードを残さない。
-- タイトルだけを見て本文確認なしに大量削除しない。
-
-## audit_mode: true の間の優先作業
-
-1. 名前空間をまたぐ意味的重複を探す。
-2. 一般形 / 数値例ペアを統合する。
-3. definition / formula reference-only を `formulae.md` または archive へ寄せる。
-4. 分布・数値・工学設定だけを変えた同一手法を代表例へ統合する。
-5. priority を再査定する。
-6. `cards/**/*.md` 自体を580～620枚へ収束させる。
-7. 公式シラバスと過去問 coverage を再監査する。
-8. 欠落が確認された場合だけ archive 復帰または新規カード作成を行う。
-9. `npm run anki:validate` と `npm run validate` を成功させる。
-10. 最後に `audit_mode: false` へ変更する。
-
-削減判定は `keep / merge / archive / delete / review` を使う。
-
----
-
-# 「ankiの続きを書いて」の扱い
-
-## audit_mode: true
-
-ユーザーが「ankiの続きを書いて」と言った場合、新規サブカテゴリーを起票するのではなく、最新の `anki/reports/reduction_audit_*.md` を読み、**次の未処理削減クラスタを本文比較から進める**。
-
-原則順序：
-
-```text
-重複統合
-↓
-reference-only 分離
-↓
-too-specific 分離
-↓
-priority 再査定
-↓
-580～620枚へ収束
-↓
-coverage 再監査
-```
-
-削減対象は必要に応じて次へ移す。
-
-```text
-anki/archive/
-├─ duplicates/
-├─ low_priority/
-├─ too_specific/
-└─ reference_only/
-```
-
-archive は通常カード数・通常ビルド・通常 coverage に含めない。
-
-可能なら archive したカードに、
-
-```yaml
-archive_reason: duplicate
-canonical_card: <統合先ID>
-```
-
-を残す。
-
-完全重複で復元価値が低い場合はGit履歴があるため削除してよい。
-
-## audit_mode: false
-
-監査完了後の新規追加は、公式シラバスまたは過去問 coverage の明確な欠落があり、既存 canonical card と archive のどちらでも cover できない場合に限る。
-
-新規追加で620枚を超える場合は、既存カードの統合・置換・archive を同時に行う。
-
----
-
-# Anki priority の意味
-
-priority は「重要そうか」ではなく、約600枚に残す価値を表す。
-
-- **S**：異なる年度の過去問で反復、または本番答案で非常に高頻度のボトルネック
-- **A**：過去問で直接確認できる、または1級で極めて標準的な得点操作
-- **B**：シラバス・教科書上の標準重要論点。統合対象にはなり得る
-- **C**：特殊・低頻度・発展。余裕を見て採否判断
-- **D**：通常デッキには原則入れず archive 候補
-
-「他論点の前提」「重要そう」という理由だけで S にしない。
-
----
-
-# Ankiカード品質
-
-カード本文は30秒～数分程度で復習できる解法単位とする。
-
-原則として必要な範囲で、
-
-```text
-問題状況
-↓
-方針・公式
-↓
-なぜ
-↓
-具体例
-↓
-本質的操作
-↓
-結論
-↓
-条件・注意
-```
-
-を含める。
-
-具体例では、
-
-- 畳み込みなら support から積分区間を決める
-- 変数変換なら逆変換と Jacobian を計算する
-- MLEなら尤度または対数尤度を立てて微分する
-- CLTなら中心化・標準化する
-- CRLBなら Fisher 情報を代入する
-- Delta法なら $g'(\theta)$ を求める
-- OLSなら係数を実際に計算する
-
-など、そのカードの本質的操作を最低1回実行する。
-
-「使用する公式名だけ」「○○法を使うだけ」で終わらせない。
-
----
-
-# Anki査読
-
-新規カードを含む作業では、従来どおり数学的完全性と試験適合性を確認する。
-
-削減監査では、カードを増やす査読とは異なり、次を重点確認する。
-
-1. 統合後も本質的な数学操作が失われていないか
-2. 統合によって1枚が巨大な大問になっていないか
-3. archive したカードが別の独立技能を持っていなかったか
-4. 公式シラバスの「ねらい」の到達行動が残っているか
-5. 過去問頻出の canonical move を落としていないか
-6. 統合先カードに必要な条件・注意・具体例が吸収されているか
-
-カード本文・数式を変更した場合は数理検証を行う。インフラ・selector・レポートだけの変更は、変更領域に合うレビューと機械検証でよい。
-
----
-
-# Anki作業と通常章・模試の範囲境界
-
-Ankiは短時間で再生・計算・条件判定を反復するカード教材であり、通常章や模試の論述成果物ではない。
-
-Ankiカードの必須成果物にしないもの：
-
-- 同一設定の4～6小問をつなぐ連結演習
-- 20～30分で完答する論述演習
-- 詳細解答から本番答案への答案圧縮
-- 部分点構造・撤退基準
-- 90分・5問提示・3問選択の問題選択戦略
-
-これらは通常教材のLevel C/D、30分ドリル、模試が受け持つ。
-
----
-
-# 親優先度一覧からのAnki追加作業
-
-`pdfs/statistics_grade1_card_titles_by_parent_priority.md` 等を用いた新規カード作業の起票経路は、**audit_mode: false のときだけ**通常利用する。
-
-`audit_mode: true` の間は、親見出しに未カード化タイトルがあることだけを理由に追加作業を起票しない。まず既存 canonical card または archive で実質的に cover できるか確認する。
-
-監査完了後に追加が必要な場合、作業単位は意味的に関連する1～2サブカテゴリーとし、タイトルIDを1件1枚へ機械対応させない。
-
----
-
-# サブエージェント査読の実行契約
-
-章、分野横断問題、模試を `reviewed` にする前に、原則として次の2系統の独立査読を行う。
-
-1. **独立数理査読 — 数学的完全性監査**
-   - 定義、定理、証明、例題、演習、解答を独立に再計算する。
-   - 仮定漏れ、定義域、可逆性、正定値性、次元、導出欠落を検査する。
-2. **読者粒度・目的適合性査読**
-   - 前提章を確認し、未修概念の説明順・説明量を監査する。
-   - 通常章・模試では出題範囲、時間、部分点、問題選択を検証する。
-   - DREAM THEATER では `DREAM_THEATER_AUTHORING_STANDARD.md` に従い、証明粒度・定義例・本文導線・演習量・詳細解答・依存関係を監査する。
-   - Ankiでは本ファイルのAnki範囲境界と canonical-card 規約を適用する。
-
-修正後は可能なら同じ担当が再査読し、最終的に `fatal: 0 / major: 0 / minor: 0` を確認する。
-
----
-
-# コミット規則
-
-- 作業単位ごとに、対象成果物・直接必要な索引/規約/レポート・検証記録をまとめる。
-- 他の未完成変更や無関係な変更を混ぜない。
-- `dist/` は生成物なので原則コミットしない。
-- 検証失敗や未解消の重大指摘がある状態を完了扱いしない。
-- コミットメッセージは対象と内容が分かる形にする。
-- コミットが失敗した場合は成功したものとして扱わない。
-
-GitHub Contents API 等で複数ファイルが別コミットになる環境では、各コミットが同じ作業目的に属することを報告に明記する。
-
----
-
-# 教材の目的
-
-## 通常の試験向け教材
-
-90分で5問から3問を選び、各20～30分で論述答案を完成させる力を作る。
-
-Level C（本番標準）を中心にし、久保川『現代数理統計学の基礎』章末問題を難度上限の参考にする。
-
-詳細解答と本番答案を分離する。前者は行間を埋め、後者は採点に必要な式・根拠・結論へ圧縮する。
-
-公式出題範囲、過去問構造、頻度、他単元への依存、問題選択上の価値を総合して優先度を決める。
-
-## DREAM THEATER
-
-本番答案訓練ではなく、数学・確率・統計理論を大学数学の標準的な流れで理解し、後続理論を自力で読める状態を作る。
-
-通常章の試験時間・本番答案・20点採点基準を機械的に持ち込まない。標準数学コアでは、数学科標準教科書で中核となる定義・代表定理・証明・典型例/反例・演習を体系的に扱う。詳細は `textbook/DREAM_THEATER_AUTHORING_STANDARD.md` に従う。
-
-### 用語・knowledge alias
-
-- 用語の主表記は `references/terminology-guide.md` を正本とする。
-- DREAM THEATER の `knowledge.yaml` では、`aliases` を真の同義語だけに限定する。関連語・検索語・構成要素・複合見出しを alias として登録しない。
-- 複数 concept を同時導入する見出しは `introduction_aliases` で照合し、global alias にしない。
-- 再掲 concept は canonical concept を `requires` で参照し、canonical 名を alias として取り直さない。
-- stable ID / anchor と alias を分けて考える。後方互換性のために誤った alias を残さない。
-- 短い alias の監査 WARN は候補抽出であり、WARN をゼロにするためだけに自然な数学用語を改名しない。真の別称か、関連語の誤登録かを本文と依存関係から判定する。
-- `弱*位相` の `*` のような意味を持つ記号を正規化で落とさない。
-
----
-
-# 参照資料の扱い
-
-- `pdfs/grade1_hani_20150508_2.pdf` は公式出題範囲の根拠とする。
-- `pdfs/MathStat_Answers.pdf` と目次は難度・構成・解答粒度の校正に使う。
-- `references/past-exam-trends.md` と `references/past-exam-index.yaml` を過去問準拠の正本とする。
-- 既存問題や解答を転載・言い換えコピーしない。
-- 第三者解説サイトはテーマ索引と別解確認に限り、公式問題・公式略解と区別する。
-- 参考資料から直接確認できない事項を推測した場合は、推測であることと確度を記録する。
-
----
-
-# 過去問準拠の通常教材設計
-
-- Level C/Dと30分ドリルは、同一設定で4～6小問を連結し、前半結果を後半で再利用する。
-- 実過去問は転載せず、年度・科目・大問番号を示す参照課題として扱う。
-- `chapter.yaml` に過去問対応を記録する。
-- 査読では、時間だけでなく技能連鎖・部分点救済・過去問との構造的一致を確認する。
-
-この節の試験形式要件は DREAM THEATER には適用しない。
-
----
-
-# 数式と品質
+## 共通の破壊防止規則
 
 - Markdown + KaTeX。インラインは `$...$`、別行立ては `$$...$$`。
-- **GitHub Contents API、JavaScript、スクリプト等で Markdown を機械編集するとき、数式区切り `$$` を通常の replacement string に通さない。** JavaScript の `String.prototype.replace` では replacement string 内の `$$` がリテラル `$` として解釈されるため、`$$...$$` を `$...$` へ破壊し得る。数式を含む置換は callback replacer（例：`.replace(old, () => replacement)`）または同等に `$` を特殊解釈しない方法を使う。
-- Markdown を機械編集した後は、対象ファイルと差分について **空白を除いて `$` だけの行が存在しないこと**を確認する。単独行 `$` は表示数式 `$$` の破損候補として扱い、見つけたままコミット・PR・merge しない。この検査は `npm run validate` でも blocking とする。
 - `\(...\)`、`\[...\]`、`align`、`equation`、独自マクロ、`\label`、`\ref`、`\tag` は使わない。
-- 分布の台、パラメータ空間、正則性条件、標本の独立同分布性、極限定理の仮定を省略しない。
-- 名前付き分布を定理・問題で使うときは、必要な台・母数・確率質量関数/確率密度関数を読者が追える位置に置く。
-- PMF・PDF・CDF・PGF・MGFは本文の主表記にせず、日本語正式名を優先する。
-- 通常の試験向け章では、Borel集合・Lebesgue測度・a.e.・微分同相・Tonelliの定理等を prerequisite にないのに大学初年度読者の暗黙前提にしない。DREAM THEATER では `prerequisites` と knowledge DAG を基準に既知範囲を判定する。
-- 「行間を少なくする」とは文章を短くすることではなく、非自明な暗算・暗黙の定理・未記載の同値変形を減らすことである。
-- 密度の積分が1か、累積分布関数の端点、期待値の存在、行列の次元・正定値性を確認する。
-- 独立と無相関、確率収束と分布収束、$n$ と $n-1$、自由度、Jacobianの絶対値等の典型的誤りを重点検査する。
+- Markdown を機械編集するとき、`$$` を JavaScript の通常 replacement string に通さない。数式を含む置換は callback replacer 等を使う。
+- 機械編集後は空白を除いて `$` だけの行がないことを確認する。
+- `dist/` 等の生成物は、そのサブシステムの規約で明示されない限り原則コミットしない。
+- 検証失敗や未解消の重大指摘がある状態を完了扱いしない。
+- 作業単位ごとに、成果物と直接必要な索引・規約・進捗更新をまとめる。
+- ユーザーが merge まで依頼している場合は、可能な範囲で検証・PR・mergeまで同じ作業で完了する。
