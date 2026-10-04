@@ -57,7 +57,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-set4-recursion-rule -->
-**定義の確認。** 例えば
+**定義の確認**。 例えば
 
 $$
 G(h)=\bigcup\operatorname{ran}(h)
@@ -292,7 +292,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-set4-ordinal-addition -->
-**定義の確認。**
+**定義の確認**。
 
 有限段階では通常の加法と一致します。
 
@@ -366,7 +366,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-set4-ordinal-multiplication -->
-**定義の確認。**
+**定義の確認**。
 
 $$
 2\cdot\omega
@@ -432,7 +432,7 @@ $\alpha=0$ を別に扱うのは、極限段階の合併へ $\alpha^0=1$ をそ�
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-set4-ordinal-exponentiation -->
-**定義の確認。**
+**定義の確認**。
 
 $$
 \omega^0=1,
