@@ -115,7 +115,7 @@ $$
 
 を示します。
 
-$x\in V_\gamma$ とします。累積階層の各段階が推移的であることも同時に超限帰納法で示せます。
+$x\in V_\gamma$ とします。累積階層の各段階が推移的であることも同時に[超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)で示せます。
 
 $V_0$ は推移的です。$V_\gamma$ が推移的なら、$x\in V_\gamma$ から
 
@@ -137,7 +137,7 @@ $$
 V_\gamma\subseteq V_{\gamma+1}.
 $$
 
-$\alpha\le\beta$ の場合、$\beta$ に関する超限帰納法を使います。
+$\alpha\le\beta$ の場合、$\beta$ に関する[超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)を使います。
 
 - $\beta=\alpha$ なら自明。
 - 後続段階では包含の推移性を使う。
@@ -177,7 +177,7 @@ $\square$
 - $V_\gamma$ が推移的なら $V_{\gamma+1}=\mathcal P(V_\gamma)$ も推移的、
 - 極限段階では推移的な増大列の合併も推移的
 
-であることを超限帰納法で確認しました。従って全ての $\alpha$ で $V_\alpha$ は推移的です。$\square$
+であることを[超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)で確認しました。従って全ての $\alpha$ で $V_\alpha$ は推移的です。$\square$
 <!-- proof-end -->
 
 ---
@@ -529,7 +529,7 @@ $$
 
 ## 5. rank
 
-所属関係 $\in$ は $\operatorname{TC}(\{x\})$ 上で整礎的です。そこで整礎再帰を使って、各集合へ順序数を割り当てます。
+所属関係 $\in$ は $\operatorname{TC}(\{x\})$ 上で整礎的です。そこで[整礎再帰](../SET5/index.md#thm-set5-well-founded-recursion)を使って、各集合へ順序数を割り当てます。
 
 <a id="def-set5-rank"></a>
 <!-- formal-statement-start -->
@@ -547,7 +547,7 @@ y\in x
 \}
 $$
 
-という整礎再帰で定める。
+という[整礎再帰](../SET5/index.md#thm-set5-well-founded-recursion)で定める。
 
 空集合では右辺が空なので
 
@@ -638,7 +638,7 @@ y\in V_\alpha
 \operatorname{rank}(y)<\alpha
 $$
 
-を $\alpha$ に関する超限帰納法で示します。
+を $\alpha$ に関する[超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)で示します。
 
 $\alpha=0$ では $V_0=\varnothing$ なので主張は空虚です。
 
@@ -714,7 +714,7 @@ $$
 \operatorname{rank}(x).
 $$
 
-累積階層の単調性より
+[累積階層の単調性](../SET5/index.md#thm-set5-hierarchy-monotone)より
 
 $$
 V_{\operatorname{rank}(y)+1}
@@ -1041,7 +1041,7 @@ $V_\omega$ は新しい冪集合を一度取った段階ではなく、それま
 <!-- solution-start -->
 #### 詳細解答
 
-超限帰納法を使います。
+[超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)を使います。
 
 **初期段階。**
 
@@ -1154,7 +1154,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-rank と累積階層の定理から
+[rank と累積階層](../SET5/index.md#thm-set5-rank-stage)の定理から
 
 $$
 x\subseteq V_{\operatorname{rank}(x)}
@@ -1193,7 +1193,7 @@ $$
 
 1. $\operatorname{TC}(\{x\})$ が集合である。
 2. 正則性から $\in$ がその上で整礎的である。
-3. 整礎再帰で rank を定義する。
+3. [整礎再帰](../SET5/index.md#thm-set5-well-founded-recursion)で rank を定義する。
 4. $y\in x$ なら rank が下がる。
 5. $x\subseteq V_{\operatorname{rank}(x)}$ を示す。
 6. $x\in V_{\operatorname{rank}(x)+1}$ を結論する。
@@ -1231,7 +1231,7 @@ $$
 
 **3. rank。**
 
-整礎再帰で
+[整礎再帰](../SET5/index.md#thm-set5-well-founded-recursion)で
 
 $$
 \operatorname{rank}(z)
