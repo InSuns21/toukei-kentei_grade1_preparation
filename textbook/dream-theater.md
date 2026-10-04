@@ -122,6 +122,7 @@
 1. [NSA1 超実数はどこから来るか：自由超フィルターと商構成](textbook/volumes/00_foundations/NSA1/index.md)
 2. [NSA2 移送のための最小一階論理](textbook/volumes/00_foundations/NSA2/index.md)
 3. [NSA3 Łoś の定理と移送原理](textbook/volumes/00_foundations/NSA3/index.md)
+4. [NSA4 内部集合・外部集合・超自然数・超有限集合](textbook/volumes/00_foundations/NSA4/index.md)
 
 <a id="dt-subject-complex-analysis-i"></a>
 ### 複素解析 I
