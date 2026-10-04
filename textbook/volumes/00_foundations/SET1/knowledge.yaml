@@ -24,7 +24,7 @@ concepts:
     requires:
       - set.axiom-schema
 
-  - id: set.replacement-schema-zf
+  - id: set.replacement-schema
     name: 置換公理図式
     kind: axiom
     aliases: [置換公理図式, replacement schema]
@@ -43,5 +43,5 @@ concepts:
     aliases: [ZF, ZFC, ZF と ZFC]
     requires:
       - set.separation-schema
-      - set.replacement-schema-zf
+      - set.replacement-schema
       - set.foundation-axiom
