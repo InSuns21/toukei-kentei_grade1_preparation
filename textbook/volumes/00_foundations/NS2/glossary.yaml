@@ -1,0 +1,11 @@
+chapter: "NS2"
+terms:
+  - term: 三重線形形式
+    english: trilinear form
+    meaning: 三つの引数それぞれに線形な写像。本章では b(u,v,w)=int (u dot grad)v dot w dx を用い、移流項の反対称性とエネルギー相殺を表す。
+  - term: 粘性散逸
+    english: viscous dissipation
+    meaning: Navier--Stokes のエネルギー式に現れる nu ||grad u||_2^2 の非負項。運動エネルギーを減少させる粘性の効果を表す。
+  - term: エネルギー階級
+    english: energy class
+    meaning: 有限時間区間で u が L-infinity(0,T;H) と L2(0,T;V) の両方に属するという基本的な有限エネルギー正則性。NS3 の Leray--Hopf 弱解構成の出発点になる。
