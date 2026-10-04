@@ -1,0 +1,41 @@
+id: "NS3"
+title: "Leray--Hopf 弱解と大域存在"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NS2
+  - GPDE10
+official_scope: []
+learning_objectives:
+  - Fourier--Galerkin 近似を有限次元 ODE として構成し、エネルギー相殺から次元に依らない大域評価を導ける
+  - 弱収束だけでは二次非線形項の極限を決められない理由を具体例で説明できる
+  - 非線形項を V* で評価し、Galerkin 時間微分が L^(4/3)(0,T;V*) で一様有界になる指数計算を再現できる
+  - Fourier 低周波射影と高周波尾部評価から周期版 Aubin--Lions 型コンパクト性を証明できる
+  - L2_t H の強収束から u_m tensor u_m が L1 で強収束することを示し、対流項の極限を通せる
+  - 時間積分した弱形式から初期値を回収し、極限解が C_w([0,T];H) に属することを説明できる
+  - 弱収束に対するノルムの liminf 評価により Galerkin のエネルギー恒等式が極限でエネルギー不等式になる機構を説明できる
+  - 任意の有限時間区間の構成と対角部分列から三次元周期 Navier--Stokes の Leray--Hopf 大域弱解を構成できる
+  - 大域弱解の存在と三次元の弱解一意性・大域正則性を論理的に区別できる
+definitions:
+  - { id: NS3-DEF-01, name: "周期 Leray--Hopf 弱解" }
+theorems:
+  - { id: NS3-PROP-01, name: "Navier--Stokes Galerkin 解の一様エネルギー評価" }
+  - { id: NS3-PROP-02, name: "Galerkin 時間微分の双対空間評価" }
+  - { id: NS3-THM-01, name: "周期版 Aubin--Lions 型コンパクト性" }
+  - { id: NS3-PROP-03, name: "強収束による対流項の極限" }
+  - { id: NS3-THM-02, name: "三次元周期 Navier--Stokes の Leray--Hopf 大域弱解" }
+canonical_examples:
+  - "u(t,x)=exp(-nu t)(sin x_2,0,0) が Leray--Hopf 条件を等号で満たす例"
+  - "sin(nx) は弱く 0 に収束しても平方は弱く 1/2 に収束するため、弱収束だけでは二次項を通せない例"
+  - "Fourier 高周波尾部 ||(I-Q_K)u||_H <= K^(-1)||u||_V の直接計算"
+  - "u_m tensor u_m-u tensor u の二項分解から L1 強収束を得る計算"
+problem_patterns:
+  - NS-GALERKIN-ENERGY-1
+  - NS-TIME-DERIVATIVE-VSTAR-1
+  - NS-AUBIN-LIONS-PERIODIC-1
+  - NS-NONLINEAR-STRONG-LIMIT-1
+  - NS-LERAY-HOPF-EXISTENCE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.5, exercises: 5.0, review: 1.4 }

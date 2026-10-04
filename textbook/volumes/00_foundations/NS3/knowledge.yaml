@@ -1,0 +1,75 @@
+chapter: NS3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NS2
+  - GPDE10
+
+forward_references: []
+
+concepts:
+  - id: navier-stokes.leray-hopf-weak-solution
+    name: 周期 Leray--Hopf 弱解
+    kind: definition
+    aliases: ["Leray--Hopf weak solution"]
+    introduction: formal
+    introduction_aliases: ["定義（周期 Leray--Hopf 弱解）"]
+    requires:
+      - navier-stokes.energy-class
+      - evolution.gelfand-triple
+      - navier-stokes.trilinear-form
+
+  - id: navier-stokes.galerkin-uniform-energy
+    name: Navier--Stokes Galerkin 解の一様エネルギー評価
+    kind: proposition
+    aliases: ["Navier--Stokes Galerkin energy estimate"]
+    introduction: formal
+    introduction_aliases: ["命題（Navier--Stokes Galerkin 解の一様エネルギー評価）"]
+    requires:
+      - evolution.galerkin-approximation
+      - evolution.gelfand-triple
+      - navier-stokes.trilinear-skew
+
+  - id: navier-stokes.galerkin-time-derivative-vstar
+    name: Galerkin 時間微分の双対空間評価
+    kind: proposition
+    aliases: ["Galerkin time derivative V-star estimate", "Galerkin 時間微分の V* 評価"]
+    introduction: formal
+    introduction_aliases: ["命題（Galerkin 時間微分の双対空間評価）"]
+    requires:
+      - navier-stokes.galerkin-uniform-energy
+      - navier-stokes.periodic-l4-estimate
+      - navier-stokes.trilinear-skew
+
+  - id: navier-stokes.periodic-aubin-lions
+    name: 周期版 Aubin--Lions 型コンパクト性
+    kind: theorem
+    aliases: ["periodic Aubin--Lions compactness"]
+    introduction: formal
+    introduction_aliases: ["定理（周期版 Aubin--Lions 型コンパクト性）"]
+    requires:
+      - navier-stokes.energy-space-v
+      - evolution.gelfand-triple
+
+  - id: navier-stokes.nonlinear-strong-limit
+    name: 強収束による対流項の極限
+    kind: proposition
+    aliases: ["strong L2 convergence of the convection term", "強 L2 収束による対流項の極限"]
+    introduction: formal
+    introduction_aliases: ["命題（強収束による対流項の極限）"]
+    requires:
+      - navier-stokes.periodic-aubin-lions
+      - navier-stokes.trilinear-form
+
+  - id: navier-stokes.leray-hopf-existence
+    name: 三次元周期 Navier--Stokes の Leray--Hopf 大域弱解
+    kind: theorem
+    aliases: ["periodic Leray--Hopf global existence theorem"]
+    introduction: formal
+    introduction_aliases: ["定理（三次元周期 Navier--Stokes の Leray--Hopf 大域弱解）"]
+    requires:
+      - navier-stokes.leray-hopf-weak-solution
+      - navier-stokes.galerkin-uniform-energy
+      - navier-stokes.galerkin-time-derivative-vstar
+      - navier-stokes.periodic-aubin-lions
+      - navier-stokes.nonlinear-strong-limit
