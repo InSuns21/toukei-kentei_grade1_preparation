@@ -12,12 +12,6 @@ concepts:
     requires:
       - set.ordinal
 
-  - id: set.transfinite-induction-least-counterexample
-    name: 最小反例法との同値な読み方
-    kind: proposition
-    aliases: [最小反例法との同値な読み方]
-    requires:
-      - set.transfinite-induction
 
   - id: set.three-stage-transfinite-induction
     name: 三段階の超限帰納法
