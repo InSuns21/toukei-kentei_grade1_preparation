@@ -489,7 +489,7 @@ $$
 #### SET4-A02 $1+\omega$ を定義から計算する
 - Level: A
 
-順序数加法の極限段階の定義から
+[順序数の加法](#def-set4-ordinal-addition)で定めた極限段階の式から
 
 $$
 1+\omega=\omega
