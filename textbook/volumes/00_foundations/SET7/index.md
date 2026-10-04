@@ -195,6 +195,8 @@ $A$ 上の関係 $r$ を、
 $$
 j(\xi)\ r\ j(\eta)
 \quad\Longleftrightarrow\quad
+\xi=\eta
+\ \text{または}\ 
 \xi\in\eta
 $$
 
@@ -721,7 +723,7 @@ $$
 
 で関係 $r$ を入れます。
 
-$j$ は $(\gamma_X,\in)$ から $(A,r)$ への順序同型なので、
+$j$ は $(\gamma_X,\preceq_{\gamma_X})$ から $(A,r)$ への順序同型なので、
 
 $$
 \operatorname{otp}(A,r)=\gamma_X.
