@@ -1856,7 +1856,7 @@ f-(u\cdot\nabla)u
 Pg.
 $$
 
-[周期 Helmholtz 分解](#thm-ns1-periodic-helmholtz)により
+[本章の周期直交分解定理](#thm-ns1-periodic-helmholtz)により
 
 $$
 g=Pg+\nabla\phi.
