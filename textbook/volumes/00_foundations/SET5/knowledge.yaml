@@ -5,6 +5,9 @@ prerequisites:
   - SET4
   - SET1
 
+forward_references:
+  - set.cardinal
+
 concepts:
   - id: set.cumulative-hierarchy
     name: 累積階層
@@ -22,9 +25,9 @@ concepts:
       - set.transfinite-induction
 
   - id: set.cumulative-hierarchy-transitive
-    name: 各 V_alpha は推移的
+    name: 累積階層の各段階は推移的
     kind: corollary
-    aliases: [各 V_alpha は推移的]
+    aliases: [累積階層の各段階は推移的]
     requires:
       - set.cumulative-hierarchy-monotone
       - set.transitive-set
