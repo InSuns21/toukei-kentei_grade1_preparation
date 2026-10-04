@@ -165,7 +165,7 @@ $\lambda$ が大きいほど、同じ形が空間幅およそ $\lambda^{-1}$ に
 
 ## 3. 全項へ代入して尺度不変性を確認する
 
-「この scaling が自然です」と宣言するだけでは足りません。各項が本当に同じ係数で変わることを連鎖律から確認します。
+「この scaling が自然です」と宣言するだけでは足りません。各項が本当に同じ係数で変わることを[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から確認します。
 
 時間微分は
 
@@ -431,7 +431,7 @@ $$
 <a id="prop-ns6-lp-scaling"></a>
 
 <!-- formal-statement-start -->
-> **命題（$L^p$ ノルムの尺度則）**  
+> **命題（Lp ノルムの尺度則）**  
 > $1\le p\le\infty$ とする。Navier--Stokes の尺度変換に対し
 
 $$
@@ -516,12 +516,12 @@ $$
 
 $$
 \begin{array}{c|c|c}
-p & \alpha_p & 分類\\
+p & \alpha_p & \text{分類}\\
 \hline
-2 & -1/2 & 超臨界\\
-3 & 0 & 臨界\\
-6 & 1/2 & 劣臨界\\
-\infty & 1 & 劣臨界
+2 & -1/2 & \text{超臨界}\\
+3 & 0 & \text{臨界}\\
+6 & 1/2 & \text{劣臨界}\\
+\infty & 1 & \text{劣臨界}
 \end{array}
 $$
 
@@ -710,7 +710,7 @@ $$
 <a id="prop-ns6-mixed-scaling"></a>
 
 <!-- formal-statement-start -->
-> **命題（時空間 $L_t^qL_x^p$ ノルムの尺度則）**  
+> **命題（時空間 Lq_t Lp_x ノルムの尺度則）**  
 > $1\le p,q\le\infty$ とし、尺度変換後は時間区間を $[0,T/\lambda^2]$ とする。このとき
 
 $$
@@ -778,13 +778,13 @@ $$
 
 とします。
 
-本章で必要なのは $s=0,1/2,1$ です。まず急減少する滑らかなベクトル場から定義します。
+本章で必要なのは $s=0,1/2,1$ です。まず急減少する滑らかなベクトル値関数から定義します。
 
 <a id="def-ns6-homogeneous-sobolev"></a>
 
 <!-- formal-statement-start -->
 > **定義（斉次 Sobolev ノルム）**  
-> $0\le s<3/2$ とし、急減少する滑らかなベクトル場 $u$ に対して
+> $0\le s<3/2$ とし、急減少する滑らかなベクトル値関数 $u$ に対して
 
 $$
 \boxed{
@@ -1151,7 +1151,7 @@ $u_\lambda(x,t)=\lambda u(\lambda x,\lambda^2t)$、$p_\lambda(x,t)=\lambda^2p(\l
 <!-- solution-start -->
 ### 詳細解答
 
-時間微分では $t$ が $\lambda^2t$ に入っているので、連鎖律から
+時間微分では $t$ が $\lambda^2t$ に入っているので、[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 \partial_tu_\lambda
@@ -1684,7 +1684,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$u_\lambda$ 自体が振幅 $\lambda$ を持ち、空間微分を1回取るごとに連鎖律からさらに $\lambda$ が1個増えます。
+$u_\lambda$ 自体が振幅 $\lambda$ を持ち、空間微分を1回取るごとに[連鎖律](../RA3/index.md#prop-ra3-chain-rule)からさらに $\lambda$ が1個増えます。
 
 従って
 
