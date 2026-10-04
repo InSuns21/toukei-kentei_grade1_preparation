@@ -1,0 +1,148 @@
+chapter: NSA1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SET-U1
+  - SET9
+  - F0-00A1B
+
+forward_references:
+  - nonstandard.first-order-language
+  - nonstandard.los-theorem
+  - nonstandard.transfer-principle
+  - nonstandard.internal-set
+  - nonstandard.standard-part
+
+concepts:
+  - id: nonstandard.u-equivalence
+    name: U-同値
+    kind: definition
+    aliases: [U-同値, ultrafilter equivalence]
+    requires:
+      - set.equivalence-relation-class
+      - topology.free-ultrafilter
+
+  - id: nonstandard.u-equivalence-relation
+    name: U-同値は同値関係である
+    kind: proposition
+    aliases: []
+    requires:
+      - nonstandard.u-equivalence
+      - topology.filter
+
+  - id: nonstandard.hyperreal-number
+    name: 超実数
+    kind: definition
+    aliases: [超実数, hyperreal number]
+    requires:
+      - nonstandard.u-equivalence-relation
+      - set.quotient-set
+
+  - id: nonstandard.ultrapower-real
+    name: 実数列の超冪
+    kind: term
+    aliases: [実数列の超冪, ultrapower of the reals]
+    requires:
+      - nonstandard.hyperreal-number
+
+  - id: nonstandard.hyperreal-arithmetic
+    name: 超実数の加法・乗法・符号反転
+    kind: definition
+    aliases: []
+    requires:
+      - nonstandard.hyperreal-number
+
+  - id: nonstandard.hyperreal-arithmetic-well-defined
+    name: 加法・乗法は代表元によらない
+    kind: proposition
+    aliases: []
+    requires:
+      - nonstandard.hyperreal-arithmetic
+      - topology.filter
+
+  - id: nonstandard.hyperreal-inverse
+    name: 非零超実数の逆元
+    kind: proposition
+    aliases: []
+    requires:
+      - nonstandard.hyperreal-arithmetic-well-defined
+      - topology.ultrafilter-dichotomy
+
+  - id: nonstandard.hyperreal-order
+    name: 超実数の順序
+    kind: definition
+    aliases: [超実数の順序, hyperreal order]
+    requires:
+      - nonstandard.hyperreal-number
+      - topology.ultrafilter
+
+  - id: nonstandard.hyperreal-order-well-defined
+    name: 順序は代表元によらない
+    kind: proposition
+    aliases: []
+    requires:
+      - nonstandard.hyperreal-order
+      - topology.filter
+
+  - id: nonstandard.hyperreal-ordered-field
+    name: 超実数は全順序体をなす
+    kind: theorem
+    aliases: [超実数体, hyperreal field]
+    requires:
+      - nonstandard.hyperreal-arithmetic-well-defined
+      - nonstandard.hyperreal-inverse
+      - nonstandard.hyperreal-order-well-defined
+      - topology.ultrafilter-dichotomy
+
+  - id: nonstandard.standard-embedding
+    name: 標準埋め込み
+    kind: definition
+    aliases: [標準埋め込み, standard embedding]
+    requires:
+      - nonstandard.hyperreal-number
+
+  - id: nonstandard.standard-embedding-ordered-field
+    name: 標準埋め込みは順序体の埋め込みである
+    kind: proposition
+    aliases: []
+    requires:
+      - nonstandard.standard-embedding
+      - nonstandard.hyperreal-ordered-field
+
+  - id: nonstandard.infinitesimal
+    name: 無限小超実数
+    kind: definition
+    aliases: [無限小超実数, 無限小, infinitesimal]
+    requires:
+      - nonstandard.standard-embedding-ordered-field
+
+  - id: nonstandard.positive-infinitesimal-exists
+    name: 正の非零無限小が存在する
+    kind: theorem
+    aliases: []
+    requires:
+      - nonstandard.infinitesimal
+      - analysis.reciprocal-smallness
+
+  - id: nonstandard.infinite-hyperreal
+    name: 無限大超実数
+    kind: definition
+    aliases: [無限大超実数, infinite hyperreal]
+    requires:
+      - nonstandard.standard-embedding-ordered-field
+
+  - id: nonstandard.infinite-hyperreal-exists
+    name: 無限大超実数が存在する
+    kind: theorem
+    aliases: []
+    requires:
+      - nonstandard.infinite-hyperreal
+      - analysis.archimedean-property
+
+  - id: nonstandard.hyperreal-proper-extension
+    name: 超実数体は実数体の真の拡大である
+    kind: corollary
+    aliases: []
+    requires:
+      - nonstandard.positive-infinitesimal-exists
+      - nonstandard.standard-embedding-ordered-field
