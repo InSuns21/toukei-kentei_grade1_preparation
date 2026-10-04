@@ -1,7 +1,7 @@
 version: 1
 id: NSA
 title: 超準解析
-plan: textbook/plans_progress/DREAM_THEATER_NONSTANDARD_ANALYSIS_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_NONSTANDARD_ANALYSIS_PLAN.md
 chapter_root: textbook/volumes/00_foundations
 
 chapters:
