@@ -61,7 +61,7 @@ F0-00A1D
   ↓
 SET1 ZF / ZFC
   ↓
-SET2 順序数
+SET2 順序型・順序数
   ↓
 SET3 超限帰納法
   ↓
@@ -74,7 +74,7 @@ SET4 超限再帰 ─────→ SET5 累積階層・rank
 F0-00A2 + F0-00A3 ─→ F0-00A3A AC・整列可能定理・Zorn 同値性
 ```
 
-SET2 は順序数、SET4 は超限再帰、SET7 は Hartogs の補題の canonical owner である。F0-00A3A はこれらを再定義せず直接 prerequisite として使い、同値性証明そのものを所有する。SET1--SET7 と Hartogs の構成までは ZF で閉じ、選択公理は F0-00A2 / F0-00A3A で明示的に導入する。
+SET2 は順序型・順序数、SET4 は超限再帰、SET7 は Hartogs の補題の canonical owner である。F0-00A3A はこれらを再定義せず直接 prerequisite として使い、同値性証明そのものを所有する。SET1--SET7 と Hartogs の構成までは ZF で閉じ、選択公理は F0-00A2 / F0-00A3A で明示的に導入する。
 
 ### 線形代数
 
