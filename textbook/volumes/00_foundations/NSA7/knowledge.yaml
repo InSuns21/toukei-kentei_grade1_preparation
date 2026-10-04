@@ -1,0 +1,72 @@
+chapter: NSA7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NSA6
+  - RA3
+
+concepts:
+  - id: nonstandard.infinitesimal-difference-quotient
+    name: 無限小差分商
+    kind: definition
+    aliases: [infinitesimal difference quotient]
+    requires:
+      - nonstandard.infinitesimal
+      - nonstandard.standard-symbol-transfer
+      - analysis.differential-coefficient
+
+  - id: nonstandard.differentiability-characterization
+    name: 微分可能性の超準的特徴付け
+    kind: theorem
+    aliases: [nonstandard criterion for differentiability]
+    requires:
+      - nonstandard.infinitesimal-difference-quotient
+      - nonstandard.continuity-characterization
+      - analysis.differential-coefficient
+      - nonstandard.standard-symbol-transfer
+
+  - id: nonstandard.derivative-standard-part
+    name: 導関数の標準部表示
+    kind: corollary
+    aliases: []
+    requires:
+      - nonstandard.differentiability-characterization
+      - nonstandard.standard-part
+      - analysis.derivative
+
+  - id: nonstandard.differentiable-implies-continuous
+    name: 微分可能なら連続の超準的証明
+    kind: proposition
+    aliases: []
+    requires:
+      - nonstandard.differentiability-characterization
+      - nonstandard.infinitesimal-arithmetic
+      - analysis.differentiable-implies-continuous
+
+  - id: nonstandard.product-rule
+    name: 積の微分公式の超準的導出
+    kind: proposition
+    aliases: []
+    requires:
+      - nonstandard.differentiability-characterization
+      - nonstandard.differentiable-implies-continuous
+      - analysis.product-rule
+
+  - id: nonstandard.chain-rule
+    name: 連鎖律の超準的導出
+    kind: proposition
+    aliases: []
+    requires:
+      - nonstandard.differentiability-characterization
+      - nonstandard.differentiable-implies-continuous
+      - analysis.chain-rule
+
+  - id: nonstandard.taylor-infinitesimal
+    name: Taylor の定理の無限小表示
+    kind: theorem
+    aliases: [infinitesimal Taylor expansion]
+    requires:
+      - analysis.taylor-theorem
+      - analysis.ck-smoothness-class
+      - nonstandard.continuity-characterization
+      - nonstandard.standard-symbol-transfer
