@@ -1,0 +1,11 @@
+chapter: "NSA7"
+terms:
+  - term: 無限小差分商
+    english: infinitesimal difference quotient
+    meaning: 非零無限小 h に対する (*f(a+h)-f(a))/h。本章では微分可能性をこの値の無限小近接で特徴付ける。
+  - term: 導関数の標準部表示
+    english: standard-part formula for derivative
+    meaning: 微分可能な標準関数について、任意の非零無限小 h の差分商の標準部が f'(a) に等しいという表示。
+  - term: 無限小 Taylor 展開
+    english: infinitesimal Taylor expansion
+    meaning: Taylor の Lagrange 剰余を無限小増分 h に移送し、剰余の次数を無限小の大きさとして読む方法。
