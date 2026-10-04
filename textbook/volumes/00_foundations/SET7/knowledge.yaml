@@ -12,7 +12,7 @@ concepts:
     aliases: [Hartogs 数, Hartogs number]
     requires:
       - order.order-type
-      - set.replacement-schema-zf
+      - set.replacement-schema
 
   - id: set.hartogs-lemma
     name: Hartogs の補題
