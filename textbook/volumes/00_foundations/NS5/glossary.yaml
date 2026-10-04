@@ -1,0 +1,17 @@
+chapter: "NS5"
+terms:
+  - term: 強解
+    english: strong solution
+    meaning: 三次元周期 Navier--Stokes で速度が C_t V と L2_t D(A)、時間微分が L2_t H の正則性を持ち、方程式が H でほとんど至る所成立する解。
+  - term: 最大強解存在時間
+    english: maximal strong existence time
+    meaning: 与えた初期値から出発する一意な局所強解を強解として延長できる時間区間の上端。無限なら大域強解である。
+  - term: 延長判定
+    english: continuation criterion
+    meaning: 最大時刻の手前で特定のノルムが有限なら局所存在定理を再適用して解を先へ延長できる、という判定。本章では H1 ノルムを用いる。
+  - term: 有限時間発散選択肢
+    english: blow-up alternative
+    meaning: 最大存在時間が有限なら、強解を延長するために必要な制御量が必ず無界になるという二者択一。本章では ||grad u||_2 が対象。
+  - term: 弱--強一意性
+    english: weak-strong uniqueness
+    meaning: 同じ初期値と外力に対して強解が存在する時間区間では、任意の Leray--Hopf 弱解がその強解と一致する性質。
