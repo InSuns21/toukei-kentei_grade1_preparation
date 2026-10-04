@@ -27,11 +27,11 @@ chapters:
     title: 無限小・有限超実数・標準部
   - id: NSA6
     path: textbook/volumes/00_foundations/NSA6
-    status: planned
+    status: completed
     title: 極限・連続・一様連続・コンパクト性
   - id: NSA7
     path: textbook/volumes/00_foundations/NSA7
-    status: planned
+    status: completed
     title: 微分・Taylor 展開を無限小で読む
   - id: NSA8
     path: textbook/volumes/00_foundations/NSA8
