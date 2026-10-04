@@ -181,7 +181,7 @@ $$
 
 [微分可能性の超準的特徴付け](#thm-nsa7-differentiability)から
 
-$
+$$
 Q_f(a;h)\approx f'(a).
 $$
 
@@ -266,11 +266,11 @@ $$
 
 [RA3 の積の微分公式](../RA3/index.md#prop-ra3-product-rule)
 
-$
+$$
 (fg)'(a)
 =
 f'(a)g(a)+f(a)g'(a)
-$
+$$
 
 を、無限小増分比から再証明します。
 
@@ -360,11 +360,11 @@ $$
 
 [RA3 の連鎖律](../RA3/index.md#prop-ra3-chain-rule)
 
-$
+$$
 (g\circ f)'(a)
 =
 g'(f(a))f'(a)
-$
+$$
 
 を、無限小増分比から再証明します。標準開区間 $J,K\subseteq\mathbb R$、標準関数 $f:J\to K$、$g:K\to\mathbb R$、標準点 $a\in J$ を取り、$f$ は $a$ で、$g$ は $f(a)$ で微分可能とします。
 
