@@ -1,0 +1,47 @@
+chapter: SET1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00A1D
+
+concepts:
+  - id: set.proper-class
+    name: 真の類
+    kind: term
+    aliases: [真の類, proper class]
+    requires: []
+
+  - id: set.axiom-schema
+    name: 公理図式
+    kind: term
+    aliases: [公理図式, axiom schema]
+    requires: []
+
+  - id: set.separation-schema
+    name: 分出公理図式
+    kind: axiom
+    aliases: [分出公理図式, separation schema]
+    requires:
+      - set.axiom-schema
+
+  - id: set.replacement-schema-zf
+    name: 置換公理図式
+    kind: axiom
+    aliases: [置換公理図式, replacement schema]
+    requires:
+      - set.axiom-schema
+
+  - id: set.foundation-axiom
+    name: 正則性公理
+    kind: axiom
+    aliases: [正則性公理, foundation axiom]
+    requires: []
+
+  - id: set.zf-zfc
+    name: ZF と ZFC
+    kind: definition
+    aliases: [ZF, ZFC, ZF と ZFC]
+    requires:
+      - set.separation-schema
+      - set.replacement-schema-zf
+      - set.foundation-axiom
