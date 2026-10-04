@@ -385,7 +385,21 @@ Navier--Stokes でも同じ問題が $u_m\otimes u_m$ に起こります。そ�
 
 ## 6. 方程式から時間微分を $V^*$ で抑える
 
-任意の $v\in V$ に対し、NS2 の反対称性を使うと
+$u_m'(t)\in H_m$ なので、任意の $v\in V$ に対して
+
+$
+(u_m',v)_H=(u_m',P_mv)_H.
+$
+
+Fourier 射影は各モードを捨てるだけなので
+
+$
+\|P_mv\|_V\le\|v\|_V.
+$
+
+従って Galerkin 方程式へ $P_mv$ を入れれば、$u_m'$ を $V^*$ 上の汎関数として評価できます。
+
+NS2 の反対称性を使うと
 
 $$
 b(u_m,u_m,v)
@@ -499,15 +513,24 @@ $$
 T^{1/4}\|g\|_{L^2(0,T)}.
 $$
 
-方程式
+任意の $v\in V$ に対して Galerkin 方程式を $P_mv$ で試すと
 
-$$
-\partial_tu_m
-=
--\nu Au_m-B(u_m,u_m)+P_mf
-$$
+$
+\begin{aligned}
+|\langle\partial_tu_m,v\rangle|
+&=
+|(\partial_tu_m,P_mv)_H|
+\\
+&\le
+\nu\|u_m\|_V\|P_mv\|_V
++
+|b(u_m,u_m,P_mv)|
++
+\|f\|_{V^*}\|P_mv\|_V.
+\end{aligned}
+$
 
-を $V^*$ の等式として評価すれば結論です。
+ここで $\|P_mv\|_V\le\|v\|_V$ と、上で得た非線形項の評価を使います。$\|v\|_V=1$ 上で上限を取り、各項の時間ノルムを合わせれば結論です。
 <!-- proof-end -->
 
 空間方向の $L^2_tV$ 評価と、この時間方向の $L^{4/3}_tV^*$ 評価を組み合わせます。
@@ -855,11 +878,20 @@ $$
 \end{aligned}
 $$
 
-Fourier 射影なので $P_mv\to v$ strongly in $V$ です。
+まず $v$ を滑らかな平均零・発散零周期場とします。Fourier 射影なので $P_mv\to v$ strongly in $V$ であり、滑らかさから $\nabla v\in L^\infty$ です。
 
 - 時間項は $u_m\to u$ strongly in $L^2H$。
 - 粘性項は $u_m\rightharpoonup u$ weakly in $L^2V$。
-- 非線形項は第9節の強収束。
+- 非線形項では、まず第9節を $v$ に使い、さらに
+$
+\int_0^T
+|b(u_m,u_m,P_mv-v)|\,dt
+\le
+\|P_mv-v\|_V
+\int_0^T
+\|u_m\|_4^2\,dt
+$
+と評価します。NS2 の $L^4$ 評価と一様エネルギー評価により右辺第2因子は $m$ によらず有界なので、$P_mv\to v$ in $V$ からこの誤差は0へ収束します。
 - 外力項は $P_mv\to v$ in $V$。
 - 初期項は $P_mu_0\to u_0$ in $H$。
 
@@ -883,12 +915,12 @@ $$
 \end{aligned}
 $$
 
-この式から分布微分の意味で
+この式はまず滑らかな発散零 $v$ について得られます。これらは $V$ に稠密です。また NS2 の三重線形形式の連続評価により、固定した $u(t)\in V$ に対する各項は $v$ について連続です。従って密度で任意の $v\in V$ へ延長でき、分布微分の意味で
 
-$$
+$
 \partial_tu+\nu Au+B(u,u)=f
 \quad\text{in }V^*
-$$
+$
 
 と初期値 $u(0)=u_0$ を同時に読み取れます。
 
