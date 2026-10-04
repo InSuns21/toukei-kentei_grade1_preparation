@@ -1,0 +1,26 @@
+chapter: "NSA4"
+terms:
+  - term: 超自然数
+    english: hypernatural number
+    meaning: 自然数列の超冪 N^N/U の要素。標準自然数は定数列として埋め込まれる。
+  - term: 無限超自然数
+    english: infinite hypernatural
+    meaning: すべての標準自然数より大きい超自然数。
+  - term: 内部集合
+    english: internal set
+    meaning: 集合列 (A_n) の超冪要素から、[x_n]∈[A_n] iff {n:x_n∈A_n}∈U により得られる超準集合。
+  - term: 外部集合
+    english: external set
+    meaning: 超準世界の部分集合ではあるが、どの集合列の超冪要素としても表せない集合。
+  - term: 標準集合の超準拡張
+    english: standard set extension
+    meaning: 固定した標準集合 A の定数列 [A,A,...] から得る内部集合 *A。
+  - term: 内部写像
+    english: internal map
+    meaning: 写像列 (f_n) の超冪要素から座標ごとの評価で得られる写像。
+  - term: 超有限集合
+    english: hyperfinite set
+    meaning: 有限集合からなる列の超冪として表せる内部集合。外から見て無限でも有限集合と同じ内部的性質を移送できる。
+  - term: overspill
+    english: overspill
+    meaning: 内部集合がすべての標準自然数を含むなら、無限超自然数も少なくとも一つ含むという内部性の原理。
