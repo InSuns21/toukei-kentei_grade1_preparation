@@ -155,67 +155,67 @@ $\alpha>0$ とし、全ての $\beta<\alpha$ で長さ $\beta$ の近似が存�
 
 各 $\beta<\alpha$ を固定します。帰納法の仮定から長さ $\beta$ の近似 $f_\beta$ が存在します。これを一段だけ延長し、
 
-$
+$$
 f_\beta^+
 =
 f_\beta
 \cup
 \{(\beta,G(f_\beta))\}
-$
+$$
 
 と置きます。$f_\beta$ の定義域は $\beta$ なので新しい組の第一成分 $\beta$ は既存の定義域に入っておらず、$f_\beta^+$ は定義域 $\beta+1$ の関数です。さらに古い段階では $f_\beta$ が再帰式を満たし、新しい段階では定義そのものから
 
-$
+$$
 f_\beta^+(\beta)
 =
 G(f_\beta)
 =
 G(f_\beta^+|_\beta)
-$
+$$
 
 なので、$f_\beta^+$ は長さ $\beta+1$ の近似です。
 
 二つの長さ $\beta+1$ の近似は両立性により $\beta$ で同じ値を取ります。そこで
 
-$
+$$
 y_\beta
 =
 f_\beta^+(\beta)
-$
+$$
 
 と置けば、$y_\beta$ は近似の選び方に依らず一意です。
 
 したがって
 
-$
+$$
 \beta\longmapsto y_\beta
-$
+$$
 
 は $\alpha$ 上で一意な対応を定めます。SET1 の[置換公理図式](../SET1/index.md#axiom-set1-replacement)により、値の集合
 
-$
+$$
 \{y_\beta:\beta<\alpha\}
-$
+$$
 
 を一つの集合として集められます。従ってグラフ
 
-$
+$$
 h_\alpha
 =
 \{(\beta,y_\beta):\beta<\alpha\}
-$
+$$
 
 も集合として存在し、定義域 $\alpha$ の関数になります。
 
 固定した $\beta<\alpha$ について、$h_\alpha|_\beta$ と $f_\beta$ はどちらも長さ $\beta$ の近似なので、両立性から
 
-$
+$$
 h_\alpha|_\beta=f_\beta.
-$
+$$
 
 したがって
 
-$
+$$
 h_\alpha(\beta)
 =
 y_\beta
@@ -223,7 +223,7 @@ y_\beta
 G(f_\beta)
 =
 G(h_\alpha|_\beta).
-$
+$$
 
 よって $h_\alpha$ 自身が長さ $\alpha$ の近似です。
 
@@ -287,6 +287,7 @@ $$
 は順序同型である。
 <!-- formal-statement-end -->
 
+<!-- proof-start -->
 ### 証明
 
 まず二つの順序数が順序同型なら等しいことを確認します。
@@ -598,36 +599,36 @@ $$
 
 順序数 $\alpha,\beta$ に対し、まず
 
-$
+$$
 \alpha^0=1
-$
+$$
 
 と定める。
 
 $\beta>0$ については、$\alpha=0$ なら
 
-$
+$$
 0^\beta=0
-$
+$$
 
 と定める。
 
 $\alpha>0$ では $\beta$ に関する超限再帰で
 
-$
+$$
 \alpha^{\gamma+1}
 =
 \alpha^\gamma\cdot\alpha,
-$
+$$
 
 非零極限順序数 $\lambda$ に対して
 
-$
+$$
 \alpha^\lambda
 =
 \bigcup_{\gamma<\lambda}
 \alpha^\gamma
-$
+$$
 
 と定める。
 
