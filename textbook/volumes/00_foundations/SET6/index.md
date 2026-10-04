@@ -116,7 +116,7 @@ $$
 
 $X$ は整列可能なので、ある整列 $\prec$ を入れられます。
 
-SET4 の順序型定理から、ある順序数 $\alpha$ が存在して
+[SET2 の順序型定理](../SET2/index.md#thm-set2-order-type)から、ある順序数 $\alpha$ が存在して
 
 $$
 X\cong\alpha.
@@ -838,7 +838,7 @@ $$
 
 整列可能な集合 $X$ に対して、$X$ と全単射な一意な基数 $\kappa$ が存在することを次の順で証明せよ。
 
-1. SET4 の順序型定理で $X\cong\alpha$ となる順序数 $\alpha$ を得る。
+1. [SET2 の順序型定理](../SET2/index.md#thm-set2-order-type)で $X\cong\alpha$ となる順序数 $\alpha$ を得る。
 2. $\alpha+1$ の中で $\alpha$ と全単射な順序数の最小元 $\kappa$ を取る。
 3. $\kappa$ が初期順序数であることを示す。
 4. 基数代表の一意性を示す。
@@ -848,7 +848,7 @@ $$
 
 $X$ は整列可能なので、整列 $\prec$ を一つ選びます。
 
-SET4 の順序型定理から、ある順序数 $\alpha$ が存在して
+[SET2 の順序型定理](../SET2/index.md#thm-set2-order-type)から、ある順序数 $\alpha$ が存在して
 
 $$
 (X,\prec)\cong(\alpha,\in).
