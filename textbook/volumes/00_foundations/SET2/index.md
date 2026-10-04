@@ -66,7 +66,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-set2-transitive-set -->
-**定義の確認。**
+**定義の確認**。
 
 $$
 2=\{0,1\}
@@ -130,7 +130,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-set2-ordinal -->
-**定義の確認：$3$。**
+**定義の確認**：$3$。
 
 $$
 3=\{0,1,2\}
@@ -250,7 +250,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-set2-successor-ordinal -->
-**定義の確認。**
+**定義の確認**。
 
 $$
 S(2)
@@ -497,7 +497,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-set2-inductive-set -->
-**定義の確認。** 無限公理は、少なくとも一つ帰納的集合が存在することを保証します。帰納的集合 $I$ があれば、$0\in I$ から順に
+**定義の確認**。 無限公理は、少なくとも一つ帰納的集合が存在することを保証します。帰納的集合 $I$ があれば、$0\in I$ から順に
 
 $$
 1=S(0)\in I,\quad
@@ -631,7 +631,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-set2-limit-ordinal -->
-**定義の確認：$\omega$ は極限順序数。**
+**定義の確認**：$\omega$ は極限順序数。
 
 $\omega\ne0$ です。
 
@@ -866,7 +866,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-set2-order-type -->
-**定義の確認。**
+**定義の確認**。
 
 自然な順序を入れた
 
