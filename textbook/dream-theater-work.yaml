@@ -5,9 +5,9 @@ active_series: NS
 active_plan: textbook/plans_progress/DREAM_THEATER_NAVIER_STOKES_MILLENNIUM_PLAN.md
 series_manifest: textbook/dream-theater-series/NS.yaml
 
-completed_through: NS1
-next_work: NS2
-after_next: NS3
+completed_through: NS2
+next_work: NS3
+after_next: NS4
 
 routing:
   chapter_root: textbook/volumes/00_foundations
