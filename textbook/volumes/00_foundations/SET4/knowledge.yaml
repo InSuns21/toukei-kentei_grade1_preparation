@@ -6,23 +6,36 @@ prerequisites:
   - SET1
 
 concepts:
+  - id: set.transfinite-recursion-rule
+    name: 超限再帰規則
+    kind: definition
+    aliases: [超限再帰規則]
+    requires:
+      - set.ordinal
+
   - id: set.transfinite-recursion
-    name: 超限再帰
+    name: 超限再帰定理
     kind: theorem
     aliases: [超限再帰, 超限再帰定理, transfinite recursion]
     requires:
-      - set.ordinal
+      - set.transfinite-recursion-rule
       - set.transfinite-induction
       - set.replacement-schema
+
+  - id: order.wellorder-order-type
+    name: 整列集合の順序型
+    kind: theorem
+    aliases: [整列集合の順序型]
+    requires:
+      - set.transfinite-recursion
+      - order.well-order
 
   - id: order.order-type
     name: 順序型
     kind: definition
     aliases: [順序型, order type]
     requires:
-      - set.transfinite-recursion
-      - order.well-order
-      - set.ordinal
+      - order.wellorder-order-type
 
   - id: set.ordinal-addition
     name: 順序数の加法
