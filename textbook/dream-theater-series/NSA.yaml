@@ -19,7 +19,7 @@ chapters:
     title: Łoś の定理と移送原理
   - id: NSA4
     path: textbook/volumes/00_foundations/NSA4
-    status: planned
+    status: completed
     title: 内部集合・外部集合・超自然数・超有限集合
   - id: NSA5
     path: textbook/volumes/00_foundations/NSA5
