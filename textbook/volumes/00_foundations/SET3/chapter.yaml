@@ -1,0 +1,32 @@
+id: "SET3"
+title: "超限帰納法：極限段階を含む帰納法"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SET2
+official_scope: []
+learning_objectives:
+  - 超限帰納法を最小反例法から証明できる
+  - 自然数上の強い帰納法と超限帰納法の共通点と違いを説明できる
+  - 初期・後続・極限の三段階版を一般形から導ける
+  - 後続段階だけでは極限順序数を越えられない反例を説明できる
+  - 極限順序数を以前の段階の合併として表す公式を証明できる
+definitions:
+  - { id: SET3-DEF-01, name: 累進的な性質 }
+theorems:
+  - { id: SET3-THM-01, name: 超限帰納法 }
+  - { id: SET3-THM-02, name: 三段階の超限帰納法 }
+  - { id: SET3-PROP-01, name: 後続段階だけでは極限を越えられない }
+  - { id: SET3-PROP-02, name: 極限順序数は以前の段階の合併 }
+canonical_examples:
+  - 最小反例法
+  - alpha<omega という後続閉性だけでは omega を越えない例
+  - 極限順序数の合併表示
+problem_patterns:
+  - TRANSFINITE-INDUCTION-1
+  - LIMIT-STAGE-1
+  - LEAST-COUNTEREXAMPLE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2.2, exercises: 2.0, review: 0.5 }
