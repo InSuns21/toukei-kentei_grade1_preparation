@@ -79,15 +79,6 @@
     {
       "name": "解析系",
       "paths": [
-        "textbook/volumes/00_foundations/NSA1/index.md",
-        "textbook/volumes/00_foundations/NSA2/index.md",
-        "textbook/volumes/00_foundations/NSA3/index.md",
-        "textbook/volumes/00_foundations/NSA4/index.md",
-        "textbook/volumes/00_foundations/NSA5/index.md",
-        "textbook/volumes/00_foundations/NSA6/index.md",
-        "textbook/volumes/00_foundations/NSA7/index.md",
-        "textbook/volumes/00_foundations/NSA8/index.md",
-        "textbook/volumes/00_foundations/NSA9/index.md",
         "textbook/volumes/00_foundations/CA1/index.md",
         "textbook/volumes/00_foundations/CA2/index.md",
         "textbook/volumes/00_foundations/CA3/index.md",
@@ -219,7 +210,16 @@
         "textbook/volumes/00_foundations/TSA3/index.md",
         "textbook/volumes/00_foundations/TSA4/index.md",
         "textbook/volumes/00_foundations/TSA5/index.md",
-        "textbook/volumes/00_foundations/TSA6/index.md"
+        "textbook/volumes/00_foundations/TSA6/index.md",
+        "textbook/volumes/00_foundations/NSA1/index.md",
+        "textbook/volumes/00_foundations/NSA2/index.md",
+        "textbook/volumes/00_foundations/NSA3/index.md",
+        "textbook/volumes/00_foundations/NSA4/index.md",
+        "textbook/volumes/00_foundations/NSA5/index.md",
+        "textbook/volumes/00_foundations/NSA6/index.md",
+        "textbook/volumes/00_foundations/NSA7/index.md",
+        "textbook/volumes/00_foundations/NSA8/index.md",
+        "textbook/volumes/00_foundations/NSA9/index.md"
       ]
     },
     {
