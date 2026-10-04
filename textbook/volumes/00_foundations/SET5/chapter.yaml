@@ -20,6 +20,7 @@ definitions:
   - { id: SET5-DEF-04, name: 集合の rank }
 theorems:
   - { id: SET5-THM-01, name: 累積階層の単調性 }
+  - { id: SET5-COR-00, name: 各 V_alpha は推移的 }
   - { id: SET5-THM-02, name: 整礎再帰 }
   - { id: SET5-THM-03, name: rank と累積階層 }
   - { id: SET5-COR-01, name: 全ての集合は累積階層のどこかに現れる }
