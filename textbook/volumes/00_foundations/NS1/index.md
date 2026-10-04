@@ -421,7 +421,7 @@ $$
 <a id="def-ns1-leray-projection"></a>
 <!-- formal-statement-start -->
 > **定義（Leray 射影）**  
-> 平均零の $L^2$ 周期ベクトル場 $u$ に対して、Fourier 係数を
+> $L^2$ 周期ベクトル場 $u$ に対して、Fourier 係数を
 
 $$
 \widehat{Pu}(k)
@@ -438,7 +438,7 @@ $$
 \widehat{Pu}(0)=0
 $$
 
-> と定める。この作用素 $P$ を **Leray 射影**という。
+> と定める。この作用素 $P$ を、本章の平均零発散零空間 $H$ への **Leray 射影**という。零モードは0へ送るので、平均が非零の場に作用させた場合も像は平均零になる。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ns1-leray-projection -->
@@ -652,7 +652,15 @@ $$
 |\widehat u(k)|^2.
 $$
 
-右辺は $u\in L^2$ により総和可能なので、Parseval 型等式から $\nabla\phi\in L^2$、すなわち $\phi\in H^1$ です。
+右辺は $u\in L^2$ により総和可能なので、Parseval 型等式から $\nabla\phi\in L^2$ です。さらに $k\ne0$ では $|k|\ge1$ なので
+
+$
+|\widehat\phi(k)|^2
+\le
+|k|^2|\widehat\phi(k)|^2.
+$
+
+$\widehat\phi(0)=0$ と合わせると $\phi\in L^2$ でもあり、従って $\phi\in H^1$ です。
 
 すると
 
@@ -945,7 +953,7 @@ NS2 では、この $B$ から三重線形形式を作り、なぜエネルギ�
 
 ## 8. 圧力を消した Navier--Stokes 方程式
 
-VC9 で得た周期非圧縮 Navier--Stokes 方程式を
+VC9 で得た非圧縮 Navier--Stokes 方程式を、本章の周期領域へ置いて
 
 $$
 \partial_tu+(u\cdot\nabla)u
@@ -1603,11 +1611,13 @@ $$
 #### NS1-B01 周期 Helmholtz 分解を一つのモードで再構成する
 - Level: B
 
-$$
+$
 u(x)=ae^{ik\cdot x},
 \qquad
-k\ne0
-$$
+k\ne0,
+\qquad
+a\in\mathbb R^3
+$
 
 とする。
 
