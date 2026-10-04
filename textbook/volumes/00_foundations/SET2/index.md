@@ -685,7 +685,7 @@ SET3 では、この三分類が超限帰納法の「初期・後続・極限」
 
 順序数は整列の標準形として作りました。ここでは逆に、任意の整列集合が一意な順序数を標準形として持つことを、整列性・順序数の三分律・置換公理図式から証明します。
 
-<a id="thm-set4-order-type"></a>
+<a id="thm-set2-order-type"></a>
 <!-- formal-statement-start -->
 ### 定理（整列集合の順序型）
 
@@ -852,7 +852,7 @@ $$
 以上で存在と一意性が示されました。$\square$
 <!-- proof-end -->
 
-<a id="def-set4-order-type"></a>
+<a id="def-set2-order-type"></a>
 <!-- formal-statement-start -->
 ### 定義（順序型）
 
@@ -865,7 +865,7 @@ $$
 と書き、$(X,\prec)$ の **順序型** という。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-set4-order-type -->
+<!-- definition-example-start: def-set2-order-type -->
 **定義の確認。**
 
 自然な順序を入れた
@@ -1152,7 +1152,7 @@ $$
 \operatorname{otp}(X,\preceq)=4.
 $$
 
-一意性は本文の[整列集合の順序型](#thm-set4-order-type)の証明で示した「順序同型な二つの順序数は等しい」という事実から従います。もし別の順序数 $\beta$ も $(X,\preceq)$ と順序同型なら、
+一意性は本文の[整列集合の順序型](#thm-set2-order-type)の証明で示した「順序同型な二つの順序数は等しい」という事実から従います。もし別の順序数 $\beta$ も $(X,\preceq)$ と順序同型なら、
 
 $$
 4\cong\beta
