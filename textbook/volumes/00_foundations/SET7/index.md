@@ -1013,7 +1013,7 @@ $$
 $$
 \mathrm{AC}
 \Longleftrightarrow
-\text{[整列可能定理](../F0_00A2_選択公理_Zorn_極大原理/index.md#thm-well-ordering)}
+\text{整列可能性}
 \Longleftrightarrow
 \mathrm{Zorn}
 $$
