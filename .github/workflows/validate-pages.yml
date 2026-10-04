@@ -8,14 +8,51 @@ on:
       - 'statistical-mathematics/**'
       - 'applied-rikou-80/**'
       - 'anki/**'
+      - 'references/**'
+      - 'agents/**'
       - 'scripts/**'
+      - 'AGENTS.md'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/validate-pages.yml'
   workflow_dispatch:
 
+concurrency:
+  group: validate-pages-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
+  scope:
+    runs-on: ubuntu-latest
+    outputs:
+      full: ${{ steps.scope.outputs.full }}
+      reason: ${{ steps.scope.outputs.reason }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Detect Pages validation scope
+        id: scope
+        env:
+          TEXTBOOK_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            node scripts/detect-textbook-validation-scope.mjs --github-output
+          else
+            echo "full=true" >> "$GITHUB_OUTPUT"
+            echo "reason=manual dispatch" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Explain deferred content-only assembly
+        if: steps.scope.outputs.full != 'true'
+        run: |
+          echo "Content-only PR: full Pages assembly is deferred to the main-branch deployment."
+
   validate-pages:
+    needs: scope
+    if: needs.scope.outputs.full == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -24,7 +61,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: '22'
           cache: npm
 
       - name: Install dependencies
