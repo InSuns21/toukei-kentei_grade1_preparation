@@ -42,6 +42,15 @@ concepts:
       - nonstandard.internal-set
       - topology.filter
 
+  - id: nonstandard.internal-set-sort-injective
+    name: 集合ソートから内部集合への対応は単射
+    kind: proposition
+    aliases: []
+    requires:
+      - nonstandard.internal-membership-well-defined
+      - nonstandard.transfer-principle
+      - logic.many-sorted-first-order-language
+
   - id: nonstandard.standard-set-extension
     name: 標準集合の超準拡張
     kind: definition
@@ -81,6 +90,14 @@ concepts:
     requires:
       - nonstandard.internal-set
       - nonstandard.hypernatural-number
+
+  - id: nonstandard.hyperfinite-cardinality-well-defined
+    name: 超有限集合の内部的な大きさは表現によらない
+    kind: proposition
+    aliases: []
+    requires:
+      - nonstandard.hyperfinite-set
+      - nonstandard.internal-set-sort-injective
 
   - id: nonstandard.hyperfinite-initial-segment
     name: 超有限初期区間
