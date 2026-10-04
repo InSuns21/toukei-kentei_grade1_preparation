@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-超限帰納法は、既に定義された対象について
+[超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)は、既に定義された対象について
 
 $$
 \forall\beta<\alpha
@@ -98,7 +98,7 @@ $$
 存在証明では、いきなり完成した $F$ を仮定しません。
 
 1. ある初期区間まで再帰式を満たす関数を考える。
-2. 二つの近似は共通部分で一致することを超限帰納法で示す。
+2. 二つの近似は共通部分で一致することを[超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)で示す。
 3. 段階 $\alpha$ より前の値が一意に定まっているなら、置換公理図式でそれらを一つの関数 $h_\alpha$ に集める。
 4. $G(h_\alpha)$ を新しい値として一段延長する。
 5. 最後に置換で全段階の値を集め、関数 $F$ を作る。
@@ -121,7 +121,7 @@ $$
 
 まず、この条件を満たす二つの関数 $f,g$ は共通定義域で一致することを示します。
 
-共通定義域を $\delta$ とし、$\alpha<\delta$ に関する超限帰納法を使います。$\beta<\alpha$ で
+共通定義域を $\delta$ とし、$\alpha<\delta$ に関する[超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)を使います。$\beta<\alpha$ で
 
 $$
 f(\beta)=g(\beta)
@@ -145,9 +145,9 @@ G(g|_\alpha)
 g(\alpha).
 $$
 
-よって超限帰納法により、この条件を満たす二つの関数は共通部分で一致します。
+よって[超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)により、この条件を満たす二つの関数は共通部分で一致します。
 
-次に、各 $\alpha\le\theta$ について定義域 $\alpha$ で再帰式を満たす関数が存在することを超限帰納法で示します。
+次に、各 $\alpha\le\theta$ について定義域 $\alpha$ で再帰式を満たす関数が存在することを[超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)で示します。
 
 $\alpha=0$ では空関数が再帰式を満たします。
 
@@ -626,14 +626,14 @@ $$
 #### SET4-B01 二つの近似が一致する理由
 - Level: B
 
-同じ超限再帰規則 $G$ に従う二つの近似 $f,g$ があるとする。共通定義域上で $f=g$ となることを超限帰納法で示せ。
+同じ超限再帰規則 $G$ に従う二つの近似 $f,g$ があるとする。共通定義域上で $f=g$ となることを[超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)で示せ。
 
 <!-- solution-start -->
 #### 詳細解答
 
 共通定義域を順序数 $\delta$ とします。
 
-$\alpha<\delta$ に関する超限帰納法を使います。
+$\alpha<\delta$ に関する[超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)を使います。
 
 $\beta<\alpha$ で
 
@@ -667,7 +667,7 @@ $$
 f(\alpha)=g(\alpha).
 $$
 
-従って超限帰納法から全ての $\alpha<\delta$ で等しく、共通定義域上で $f=g$ です。
+従って[超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)から全ての $\alpha<\delta$ で等しく、共通定義域上で $f=g$ です。
 <!-- solution-end -->
 
 <a id="ex-set4-b02"></a>
@@ -818,7 +818,7 @@ $$
 
 **2. 両立性。**
 
-二つの近似 $f,g$ の共通定義域上で、$\alpha$ に関する超限帰納法を使います。$\beta<\alpha$ で値が一致すれば制限関数も一致し、
+二つの近似 $f,g$ の共通定義域上で、$\alpha$ に関する[超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)を使います。$\beta<\alpha$ で値が一致すれば制限関数も一致し、
 
 $$
 f(\alpha)
@@ -870,7 +870,7 @@ $$
 
 を新しい値として一段延長できます。
 
-この構成が各段階で可能であることを超限帰納法で示し、最終的に長さ $\theta$ の近似 $F$ を得ます。
+この構成が各段階で可能であることを[超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)で示し、最終的に長さ $\theta$ の近似 $F$ を得ます。
 
 **5. 一意性。**
 
