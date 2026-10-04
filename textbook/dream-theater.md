@@ -109,8 +109,10 @@
 6. [SET6 基数：順序の長さと集合の大きさを分ける](textbook/volumes/00_foundations/SET6/index.md)
 7. [SET7 Hartogs の補題：選択公理なしで大きすぎる順序数を作る](textbook/volumes/00_foundations/SET7/index.md)
 8. [F0-00A3A 選択公理と Zorn の補題の同値性](textbook/volumes/00_foundations/F0_00A3A_AC_Zorn_equivalence_proof/index.md)
+9. [SET9 弱い選択原理と超フィルター](textbook/volumes/00_foundations/SET9/index.md)
+10. [SET10 選択公理は普通の数学のどこに現れるか](textbook/volumes/00_foundations/SET10/index.md)
 
-ここまでで、ZF / ZFC → 順序数 → 超限帰納法 → 超限再帰 → 累積階層・rank → 基数 → Hartogs → 選択公理・整列可能定理・Zorn の同値性、という主線を追えます。弱い選択原理と数学各分野への接続は後続章で扱います。
+この系列では、ZF / ZFC → 順序型・順序数 → 超限帰納法 → 超限再帰 → 累積階層・rank → 基数 → Hartogs → 選択公理・整列可能定理・Zorn の同値性 → 弱い選択原理・超フィルター、という主線を追い、最後に Hamel 基底・Hahn--Banach・Vitali 集合など既存科目へ戻って選択原理の使われ方を監査します。
 
 ## 解析系
 
