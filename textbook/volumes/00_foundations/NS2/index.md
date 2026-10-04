@@ -1600,7 +1600,7 @@ NS3 では、有限次元 Galerkin 解に同じ評価を与え、次元に依ら
 
 ## 11. 無外力では平均零速度が指数的に減衰する
 
-$f=0$ ならエネルギー恒等式は
+$f=0$ なら[滑らかな Navier--Stokes 解のエネルギー恒等式](#thm-ns2-energy-identity)は
 
 $$
 \frac{d}{dt}\|u\|_2^2
@@ -2513,7 +2513,7 @@ $$
 
 $f=0$ とする。
 
-1. エネルギー恒等式と周期 Poincaré 評価から
+1. [滑らかな Navier--Stokes 解のエネルギー恒等式](#thm-ns2-energy-identity)と[周期平均零場の Poincaré 型評価](#prop-ns2-periodic-poincare)から
 
 $$
 \frac{d}{dt}\|u\|_2^2
