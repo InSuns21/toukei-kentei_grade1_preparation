@@ -1,11 +1,15 @@
 # 未着手の DREAM THEATER 計画
 
-このディレクトリには、設計は済んでいるが計画固有の実装へまだ着手していない DREAM THEATER 系計画書を置く。
+このディレクトリには、設計は済んでいるが計画固有の実装・検証・監査へまだ着手していない DREAM THEATER 系計画書を置く。
 
-- 着手したら `textbook/plans_progress/` へ移す。
-- 計画全体が完了したら `textbook/plan_done/` へ移す。
-- 既存章や既存理論への言及だけでは着手扱いにせず、計画固有の作業が始まったかで判定する。
+## 運用
 
+- 新規 PLAN は、設計だけを追加するならここに置く。同じ作業単位で PLAN 固有の実装まで開始する場合は、最初から `textbook/plans_progress/` に置いてよい。
+- 既存章・既存理論がすでに存在することや、それらへ PLAN が言及することだけでは着手扱いにしない。
+- PLAN 固有の成果物・検証・監査のいずれかを実際に開始したら、同じ PLAN を `textbook/plans_progress/` へ移す。
+- 状態遷移はコピーではなく移動で行い、同じ PLAN を3ディレクトリへ重複配置しない。
+- このディレクトリの並び順・ファイル名・更新日時から、次に進める PLAN の優先順位を推測しない。DREAM THEATER の継続作業では `textbook/dream-theater-work.yaml` と series manifest を先に確認する。
+- 詳細な状態判定・参照更新・再開規則は `textbook/AGENTS.md` の「PLAN のライフサイクル運用」を正本とする。
 
 ## 横断 PLAN の canonical ownership
 
@@ -26,6 +30,5 @@
 | 金融の最適執行・HJB 応用 | `DREAM_THEATER_UNDERGROUND_EMPIRE_PLAN.md` U3（理論は最適制御・HJB・微分ゲーム計画を参照） |
 
 新 PLAN を追加する際は、まず既存の canonical owner に吸収できないか確認する。応用側で同じ定義・定理・証明系列を再構築する必要がある場合だけ、新しい正本を作る。逆に、中心問い・前提・証明機構が独立した数学分野として成立する場合は、応用 umbrella に抱え込まず科目別 PLAN へ分離する。
-
 
 旧来の「GPDE 後続を一つの大PLANへまとめる」umbrella 型の運用は採らない。PDE の後続であっても、中心問い・前提・証明機構が異なる場合は上表の科目別 PLAN へ分離する。
