@@ -740,6 +740,134 @@ $$
 > が成り立つ。
 <!-- formal-statement-end -->
 
+### 証明の見取り図
+
+まず $\mathbb R^2$ 上のコンパクト台関数について、直前に導いた
+
+$
+\|g\|_4^4
+\le
+2\|g\|_2^2\|\nabla g\|_2^2
+$
+
+を使います。周期関数を周期延長し、固定カットオフを掛けてこの不等式へ入れます。カットオフの微分から生じる $L^2$ 項は、平均零の周期 Poincaré 評価で勾配へ吸収します。
+
+<!-- proof-start -->
+### 証明
+
+$v$ を $\mathbb R^2$ へ周期延長したものを $\widetilde v$ とします。滑らかな固定カットオフ
+
+$
+\chi\in C_c^\infty(\mathbb R^2)
+$
+
+を
+
+$
+\chi=1
+\quad\text{on }[-\pi,\pi]^2,
+$
+
+$
+\operatorname{supp}\chi
+\subset
+(-2\pi,2\pi)^2
+$
+
+となるように取ります。
+
+$
+g=\chi\widetilde v
+$
+
+と置くと、直前に $\mathbb R^2$ 上で導いた評価から
+
+$
+\|g\|_{L^4(\mathbb R^2)}^2
+\le
+C
+\|g\|_{L^2(\mathbb R^2)}
+\|\nabla g\|_{L^2(\mathbb R^2)}.
+$
+
+$\chi=1$ on $[-\pi,\pi]^2$ なので
+
+$
+\|v\|_{L^4(\mathbb T^2)}
+\le
+\|g\|_{L^4(\mathbb R^2)}.
+$
+
+また $\chi$ の台は有限個の周期セルに含まれるため、周期性から定数 $C_1,C_2>0$ が存在して
+
+$
+\|g\|_{L^2(\mathbb R^2)}
+\le
+C_1\|v\|_{L^2(\mathbb T^2)}
+$
+
+です。さらに積の微分
+
+$
+\nabla g
+=
+(\nabla\chi)\widetilde v
++
+\chi\nabla\widetilde v
+$
+
+より
+
+$
+\|\nabla g\|_{L^2(\mathbb R^2)}
+\le
+C_2
+\left(
+\|v\|_{L^2(\mathbb T^2)}
++
+\|\nabla v\|_{L^2(\mathbb T^2)}
+\right).
+$
+
+平均零の周期場には NS2 と同じ Fourier 議論で
+
+$
+\|v\|_2
+\le
+\|\nabla v\|_2
+$
+
+が成り立つので
+
+$
+\|\nabla g\|_2
+\le
+2C_2\|\nabla v\|_2.
+$
+
+以上を組み合わせると
+
+$
+\begin{aligned}
+\|v\|_4^2
+&\le
+\|g\|_4^2
+\\
+&\le
+C
+\|g\|_2
+\|\nabla g\|_2
+\\
+&\le
+C'
+\|v\|_2
+\|\nabla v\|_2.
+\end{aligned}
+$
+
+これが求める周期版評価です。
+<!-- proof-end -->
+
 ### なぜ三次元と違うのか
 
 二乗した形で比べると、
@@ -1195,6 +1323,59 @@ B(w,u)+B(v,w)
 $$
 
 と分解します。
+
+ここで Leray--Hopf 弱解に対して $w$ を試験関数に使う正当化も確認しておきます。二次元 Ladyzhenskaya 型評価から
+
+$
+\|u(t)\|_4^2
+\le
+C
+\|u(t)\|_2
+\|\nabla u(t)\|_2.
+$
+
+したがって
+
+$
+\|B(u,u)\|_{V_2^*}
+\le
+C\|u\|_4^2
+\le
+C\|u\|_2\|\nabla u\|_2.
+$
+
+Leray--Hopf 条件
+
+$
+u\in L^\infty(0,T;H_2)
+\cap
+L^2(0,T;V_2)
+$
+
+から右辺は $L^2(0,T)$ に属します。粘性項 $Au$ と外力も $L^2(0,T;V_2^*)$ に入るので
+
+$
+\partial_tu\in L^2(0,T;V_2^*).
+$
+
+同様に $v$ と差 $w=u-v$ についても
+
+$
+w\in L^2(0,T;V_2),
+\qquad
+\partial_tw\in L^2(0,T;V_2^*)
+$
+
+です。したがって時間方向を Steklov 平均
+
+$
+w_h(t)
+=
+\frac1h
+\int_t^{t+h}w(s)\,ds
+$
+
+で平滑化し、弱形式へ $w_h$ を入れて時間積分した後に $h\downarrow0$ とすれば、差のエネルギー等式を正当化できます。以下の「$w$ と内積を取る」は、この標準的な近似操作を省略せずに言えばこの極限を指します。
 
 $w$ と内積を取ると、NS2 の相殺から
 
