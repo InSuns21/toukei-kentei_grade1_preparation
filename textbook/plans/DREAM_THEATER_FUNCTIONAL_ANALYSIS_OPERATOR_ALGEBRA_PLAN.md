@@ -1002,14 +1002,14 @@ knowledge.yaml、全体 concept registry、依存監査ロジックを変更し�
         一般スペクトル定理
           ↓
         作用素環論 II
-  SOT / WOT
-  可換子・二重可換子
-  von Neumann 環
-  極分解・射影
-  predual
-  normal state / trace
-  可換 von Neumann 環
-  factor・型分類への入口
+          SOT / WOT
+          可換子・二重可換子
+          von Neumann 環
+          極分解・射影
+          predual
+          normal state / trace
+          可換 von Neumann 環
+          factor・型分類への入口
 ~~~
 
 この4科目構成を、今後の関数解析・作用素環系列の設計基準とする。
