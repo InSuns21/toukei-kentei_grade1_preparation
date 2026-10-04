@@ -510,8 +510,8 @@ $$
 
 $
 x<y
-\\quad\\Longleftrightarrow\\quad
-\\{n:x_n<y_n\\}\\in\\mathcal U
+\quad\Longleftrightarrow\quad
+\{n:x_n<y_n\}\in\mathcal U
 $
 
 と定める。
