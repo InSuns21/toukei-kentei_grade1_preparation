@@ -28,7 +28,7 @@ theorems:
   - { id: SET9-THM-03, name: DC は可算選択を導く }
   - { id: SET9-THM-04, name: 超フィルターの二者択一 }
   - { id: SET9-PROP-01, name: 余有限族はフィルターである }
-  - { id: SET9-THM-05, name: Zorn からの超フィルター拡張 }
+  - { id: SET9-THM-05, name: 超フィルター拡張補題 }
   - { id: SET9-THM-06, name: 自然数上の自由超フィルターの存在 }
 canonical_examples:
   - 有限選択
