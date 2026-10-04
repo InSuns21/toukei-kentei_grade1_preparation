@@ -19,7 +19,7 @@ concepts:
       - sobolev.hk
 
   - id: navier-stokes.periodic-poincare
-    name: 周期平均零場の Poincare 型評価
+    name: 周期平均零場の Poincaré 型評価
     kind: proposition
     aliases: [periodic Poincare inequality for mean-zero fields]
     introduction: formal
