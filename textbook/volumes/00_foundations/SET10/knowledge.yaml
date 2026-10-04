@@ -1,0 +1,19 @@
+chapter: SET10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SET9
+
+forward_references:
+  - linear.hamel-basis-existence
+  - functional.hahn-banach-theorem
+  - algebra.maximal-ideal
+  - measure.vitali-set
+
+concepts:
+  - id: set.explicit-selector-no-choice
+    name: 明示的な選択規則があれば追加の選択原理はいらない
+    kind: proposition
+    aliases: [明示的な選択規則があれば追加の選択原理はいらない]
+    requires:
+      - set.choice-function
