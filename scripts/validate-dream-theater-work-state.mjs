@@ -26,10 +26,13 @@ if (!fs.existsSync(workPath)) {
 
 const work = readYaml(workPath);
 if (work) {
-  for (const key of ['active_series', 'active_plan', 'series_manifest', 'completed_through', 'next_work']) {
+  for (const key of ['active_series', 'active_plan', 'series_manifest', 'completed_through']) {
     if (typeof work[key] !== 'string' || !work[key].trim()) {
       fail('dream-theater-work.yaml: ' + key + ' must be a non-empty string');
     }
+  }
+  if (work.next_work != null && (typeof work.next_work !== 'string' || !work.next_work.trim())) {
+    fail('dream-theater-work.yaml: next_work must be null or a non-empty string');
   }
 
   const planPath = path.join(root, work.active_plan || '');
@@ -69,16 +72,31 @@ if (work) {
       }
 
       const completed = ids.get(work.completed_through);
-      const next = ids.get(work.next_work);
       if (!completed) fail('completed_through is not present in series manifest: ' + work.completed_through);
       else if (completed.status !== 'completed') fail(work.completed_through + ': completed_through must have status completed');
-      if (!next) fail('next_work is not present in series manifest: ' + work.next_work);
-      else if (next.status !== 'planned') fail(work.next_work + ': next_work must have status planned');
 
-      if (work.after_next) {
-        const after = ids.get(work.after_next);
-        if (!after) fail('after_next is not present in series manifest: ' + work.after_next);
-        else if (after.status !== 'planned') fail(work.after_next + ': after_next must have status planned');
+      if (work.next_work) {
+        const next = ids.get(work.next_work);
+        if (!next) fail('next_work is not present in series manifest: ' + work.next_work);
+        else if (next.status !== 'planned') fail(work.next_work + ': next_work must have status planned');
+
+        if (work.after_next) {
+          const after = ids.get(work.after_next);
+          if (!after) fail('after_next is not present in series manifest: ' + work.after_next);
+          else if (after.status !== 'planned') fail(work.after_next + ': after_next must have status planned');
+        }
+      } else {
+        const planned = series.chapters.filter((chapter) => chapter && chapter.status === 'planned');
+        if (planned.length > 0) {
+          fail('next_work may be null only when the series has no planned chapters');
+        }
+        const last = series.chapters.at(-1);
+        if (last && last.id !== work.completed_through) {
+          fail('terminal series state must set completed_through to the final chapter: ' + last.id);
+        }
+        if (work.after_next) {
+          fail('after_next must be null when next_work is null');
+        }
       }
 
       if (fs.existsSync(planPath) && work.next_work) {
@@ -96,4 +114,5 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log('DREAM THEATER work-state router is consistent: ' + work.active_series + ' / completed through ' + work.completed_through + ' / next ' + work.next_work + '.');
+const nextLabel = work.next_work || '<series complete>';
+console.log('DREAM THEATER work-state router is consistent: ' + work.active_series + ' / completed through ' + work.completed_through + ' / next ' + nextLabel + '.');
