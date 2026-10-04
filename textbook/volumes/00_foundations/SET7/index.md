@@ -632,7 +632,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-[SET2 の順序型定理](../SET2/index.md#thm-set2-order-type)により、各 $(A,r)\in\mathcal W_X$ に対して
+[整列集合の順序型](../SET2/index.md#thm-set2-order-type)により、各 $(A,r)\in\mathcal W_X$ に対して
 
 $$
 \operatorname{otp}(A,r)
