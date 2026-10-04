@@ -1637,8 +1637,8 @@ NS8A 実装時にはリンク・日付・status を再確認し、解析論文�
 実装完了:
 
 - NS7「正則性判定・渦伸長・何が特異点を防ぐのか」を実装
-- 3<p<=infinity に対し r=2p/(p-2)、theta=3/p を指数計算から導き、Hölder と L2-L6 補間から Prodi--Serrin 型非線形項評価を構成
-- Young の共役指数 2/(1+theta)、2/(1-theta) を明示し、臨界時間指数 q_c=2p/(p-3) と H1 の線形 Gronwall 型評価を導出
+- 3<p<infinity に対し r=2p/(p-2)、theta=3/p を指数計算から導き、Hölder と L2-L6 補間から Prodi--Serrin 型非線形項評価を構成し、p=infinity は直接評価で処理
+- Young の共役指数 2/(1+theta)、2/(1-theta) を明示し、3<p<infinity では q_c=2p/(p-3)、p=infinity では q_c=2 として H1 の線形 Gronwall 型評価を導出
 - 2/q+3/p<=1 の Prodi--Serrin 条件から三次元周期最大強解の延長判定を証明し、有限最大時刻では対応する Lq_t Lp_x ノルムが発散することを確認
 - p=3, q=infinity の端点では同じ Young 吸収が退化し、単純 H1 エネルギー法だけでは一般の有限 L-infinity_t L3_x を扱えないことを分離
 - 三次元渦度を導入し、交代記号と Kronecker delta の成分恒等式から curl((u dot grad)u)=(u dot grad)omega-(omega dot grad)u を導出
