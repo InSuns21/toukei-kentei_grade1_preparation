@@ -313,7 +313,7 @@ $$
 \nabla p
 -
 \nu\Delta u
-\right](\lambda x,\lambda^2t)
+\left.\right]_{\;(\lambda x,\lambda^2t)}
 \\
 &=
 0.
