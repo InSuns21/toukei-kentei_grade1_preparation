@@ -1,0 +1,88 @@
+chapter: NS4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NS3
+
+forward_references: []
+
+concepts:
+  - id: navier-stokes.two-dimensional-vorticity
+    name: 二次元スカラー渦度
+    kind: definition
+    aliases: ["2D scalar vorticity"]
+    introduction: formal
+    introduction_aliases: ["定義（二次元スカラー渦度）"]
+    requires:
+      - navier-stokes.leray-hopf-weak-solution
+
+  - id: navier-stokes.two-dimensional-vorticity-equation
+    name: 二次元周期 Navier--Stokes の渦度方程式
+    kind: proposition
+    aliases: ["2D Navier--Stokes vorticity equation"]
+    introduction: formal
+    introduction_aliases: ["命題（二次元周期 Navier--Stokes の渦度方程式）"]
+    requires:
+      - navier-stokes.two-dimensional-vorticity
+      - navier-stokes.projected-equation
+
+  - id: navier-stokes.two-dimensional-velocity-vorticity-fourier
+    name: 二次元速度--渦度 Fourier 対応
+    kind: proposition
+    aliases: ["2D velocity-vorticity Fourier relation"]
+    introduction: formal
+    introduction_aliases: ["命題（二次元速度--渦度 Fourier 対応）"]
+    requires:
+      - navier-stokes.two-dimensional-vorticity
+      - navier-stokes.periodic-poincare
+
+  - id: navier-stokes.two-dimensional-ladyzhenskaya
+    name: 二次元周期 Ladyzhenskaya 型評価
+    kind: proposition
+    aliases: ["2D periodic Ladyzhenskaya inequality"]
+    introduction: formal
+    introduction_aliases: ["命題（二次元周期 Ladyzhenskaya 型評価）"]
+    requires:
+      - navier-stokes.periodic-poincare
+
+  - id: navier-stokes.two-dimensional-enstrophy
+    name: 二次元渦度エネルギーと大域 H1 評価
+    kind: theorem
+    aliases: ["2D enstrophy estimate", "2D global H1 estimate"]
+    introduction: formal
+    introduction_aliases: ["定理（二次元渦度エネルギーと大域 H1 評価）"]
+    requires:
+      - navier-stokes.two-dimensional-vorticity-equation
+      - navier-stokes.two-dimensional-velocity-vorticity-fourier
+      - navier-stokes.energy-identity
+
+  - id: navier-stokes.two-dimensional-weak-uniqueness
+    name: 二次元 Leray--Hopf 弱解の一意性
+    kind: theorem
+    aliases: ["uniqueness of 2D Leray--Hopf weak solutions"]
+    introduction: formal
+    introduction_aliases: ["定理（二次元 Leray--Hopf 弱解の一意性）"]
+    requires:
+      - navier-stokes.leray-hopf-existence
+      - navier-stokes.two-dimensional-ladyzhenskaya
+      - navier-stokes.trilinear-skew
+
+  - id: navier-stokes.two-dimensional-global-strong
+    name: 二次元周期 Navier--Stokes の大域強解
+    kind: theorem
+    aliases: ["global strong solution for 2D periodic Navier--Stokes"]
+    introduction: formal
+    introduction_aliases: ["定理（二次元周期 Navier--Stokes の大域強解）"]
+    requires:
+      - navier-stokes.two-dimensional-enstrophy
+      - navier-stokes.periodic-aubin-lions
+      - navier-stokes.two-dimensional-weak-uniqueness
+
+  - id: navier-stokes.two-dimensional-no-vortex-stretching
+    name: 二次元では渦伸長項が消える
+    kind: proposition
+    aliases: ["absence of vortex stretching in 2D"]
+    introduction: formal
+    introduction_aliases: ["命題（二次元では渦伸長項が消える）"]
+    requires:
+      - navier-stokes.two-dimensional-vorticity-equation
