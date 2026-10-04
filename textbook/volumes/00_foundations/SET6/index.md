@@ -56,7 +56,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-set6-cardinal -->
-**定義の確認。**
+**定義の確認**。
 
 有限順序数
 
@@ -176,7 +176,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-set6-cardinality-wellorderable -->
-**定義の確認。**
+**定義の確認**。
 
 $$
 |\omega|=\omega,
@@ -293,7 +293,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-set6-aleph-zero -->
-**定義の確認。**
+**定義の確認**。
 
 SET-U2 で整数 $\mathbb Z$ と有理数 $\mathbb Q$ は可算であることを示しました。従って
 
@@ -334,7 +334,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-set6-cardinal-addition -->
-**定義の確認。** 有限基数では通常の足し算と一致します。
+**定義の確認**。 有限基数では通常の足し算と一致します。
 
 例えば $2$ と $3$ の互いに素なコピーを合わせれば5点なので、基数として
 
@@ -357,7 +357,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-set6-cardinal-multiplication -->
-**定義の確認。**
+**定義の確認**。
 
 SET-U2 で $\omega\times\omega$ は可算であることを示したので、
 
