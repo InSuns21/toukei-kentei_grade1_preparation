@@ -99,12 +99,34 @@ $$
 <!-- formal-statement-start -->
 ### 定義（von Neumann 順序数）
 
-集合 $\alpha$ が **順序数** であるとは、
+集合 $\alpha$ に対し、$\alpha$ 上の関係 $\preceq_\alpha$ を
+
+$
+\beta\preceq_\alpha\gamma
+\quad\Longleftrightarrow\quad
+\beta=\gamma
+\ \text{または}\ 
+\beta\in\gamma
+$
+
+で定める。
+
+$\alpha$ が **順序数** であるとは、
 
 1. $\alpha$ が推移的であり、
-2. 所属関係 $\in$ が $\alpha$ 上の整列を与える
+2. $\preceq_\alpha$ が $\alpha$ 上の整列を与える
 
 ことをいう。
+
+このとき厳密な大小は
+
+$
+\beta<\gamma
+\quad\Longleftrightarrow\quad
+\beta\in\gamma
+$
+
+と書く。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-set2-ordinal -->
@@ -118,19 +140,19 @@ $$
 
 まず $0\subseteq3$, $1=\{0\}\subseteq3$, $2=\{0,1\}\subseteq3$ なので $3$ は推移的です。
 
-所属関係は
+厳密な大小は所属関係で
 
-$$
+$
 0\in1,\qquad
 0\in2,\qquad
 1\in2
-$$
+$
 
-となり、
+となります。したがって $\preceq_3$ は
 
-$$
-0<1<2
-$$
+$
+0\preceq_3 1\preceq_3 2
+$
 
 という全順序を与えます。非空部分集合
 $\{0,2\}$ の最小元は $0$、
@@ -171,7 +193,7 @@ $$
 \beta\subseteq\alpha.
 $$
 
-したがって $\in$ を $\beta$ に制限した関係は、$\alpha$ 上の整列の制限です。よって $\beta$ 上でも全順序で、任意の非空部分集合は $\alpha$ 上の整列によって最小元を持ちます。
+したがって $\preceq_\alpha$ を $\beta$ に制限した関係は、定義から $\preceq_\beta$ です。したがって $\beta$ 上でも全順序で、任意の非空部分集合は $\alpha$ 上の整列によって最小元を持ちます。
 
 次に $\beta$ が推移的であることを示します。
 
@@ -181,7 +203,7 @@ $$
 
 とします。$\beta\subseteq\alpha$ なので $y\in\alpha$、また $\beta\in\alpha$ です。
 
-$\in$ は $\alpha$ 上の順序関係なので推移的です。したがって
+$\preceq_\alpha$ は推移的です。ここで $x\in y$ と $y\in\beta$ はそれぞれ $x\prec_\alpha y$ と $y\prec_\alpha\beta$ を意味するので、
 
 $$
 x\in y,\qquad y\in\beta
@@ -273,7 +295,7 @@ $y=\alpha$ なら $x\in\alpha\subseteq S(\alpha)$ です。
 
 したがって $S(\alpha)$ は推移的です。
 
-次に $\in$ が $S(\alpha)$ を整列することを確認します。$\alpha$ 上では既に整列です。また全ての $\beta\in\alpha$ について
+次に $\preceq_{S(\alpha)}$ が $S(\alpha)$ を整列することを確認します。$\alpha$ 上への制限は $\preceq_\alpha$ なので既に整列です。また全ての $\beta\in\alpha$ について
 
 $$
 \beta\in\alpha,
@@ -285,177 +307,12 @@ $$
 
 $A\cap\alpha=\varnothing$ なら、$A$ の元は $\alpha$ しかないので $A=\{\alpha\}$ であり、最小元は $\alpha$ です。
 
-従って $\in$ は $S(\alpha)$ を整列し、$S(\alpha)$ は順序数です。$\square$
+従って $\preceq_{S(\alpha)}$ は $S(\alpha)$ を整列し、$S(\alpha)$ は順序数です。$\square$
 <!-- proof-end -->
 
 ---
 
-## 5. 無限公理から $\omega$ を取り出す
-
-SET1 の無限公理は「ある帰納的集合が存在する」とだけ言いました。その中には余分な元が入っている可能性があります。そこで、全ての帰納的部分集合に共通する部分だけを取ります。
-
-<a id="def-set2-inductive-set"></a>
-<!-- formal-statement-start -->
-### 定義（帰納的集合）
-
-集合 $I$ が **帰納的** であるとは、
-
-$$
-\varnothing\in I
-$$
-
-かつ
-
-$$
-x\in I
-\Longrightarrow
-S(x)\in I
-$$
-
-を満たすことをいう。
-<!-- formal-statement-end -->
-
-<!-- definition-example-start: def-set2-inductive-set -->
-**定義の確認。** 無限公理は、少なくとも一つ帰納的集合が存在することを保証します。帰納的集合 $I$ があれば、$0\in I$ から順に
-
-$$
-1=S(0)\in I,\quad
-2=S(1)\in I,\quad
-3=S(2)\in I,\ldots
-$$
-
-と全ての有限 von Neumann 順序数が $I$ に入ります。
-<!-- definition-example-end -->
-
-<a id="thm-set2-omega-exists"></a>
-<!-- formal-statement-start -->
-### 定理（最小の帰納的集合 $\omega$）
-
-ZF では、包含関係で最小の帰納的集合 $\omega$ が存在する。
-
-さらに $\omega$ は順序数である。
-<!-- formal-statement-end -->
-
-### 証明
-
-無限公理から帰納的集合 $I$ を一つ取ります。
-
-冪集合公理で $\mathcal P(I)$ を作り、分出公理図式により
-
-$$
-\mathcal C
-=
-\{J\in\mathcal P(I):J\text{ は帰納的}\}
-$$
-
-を作ります。$I\in\mathcal C$ なので $\mathcal C$ は非空です。
-
-$\mathcal C$ の共通部分を
-
-$$
-\omega
-=
-\{x\in I:\forall J\in\mathcal C,\ x\in J\}
-$$
-
-と分出で作ります。
-
-$0=\varnothing$ は全ての帰納的集合に入るので $0\in\omega$ です。また $x\in\omega$ なら、全ての $J\in\mathcal C$ で $x\in J$ だから $S(x)\in J$ です。従って $S(x)\in\omega$。よって $\omega$ は帰納的です。
-
-定義から任意の帰納的集合 $J\subseteq I$ に対して $\omega\subseteq J$ です。また任意の帰納的集合 $K$ について $I\cap K$ は帰納的なので $\omega\subseteq I\cap K\subseteq K$。従って $\omega$ は全ての帰納的集合に含まれる最小の帰納的集合です。
-
-次に $\omega$ の各元が有限 von Neumann 順序数であることを確認します。順序数である元全体を
-
-$$
-A=\{n\in\omega:n\text{ は順序数}\}
-$$
-
-とします。$0$ は順序数であり、順序数の後続も順序数なので、$A$ は帰納的です。$\omega$ の最小性から
-
-$$
-A=\omega.
-$$
-
-従って $\omega$ の全ての元は順序数です。
-
-さらに
-
-$$
-T=\{n\in\omega:n\subseteq\omega\}
-$$
-
-と置くと $0\in T$ であり、$n\in T$ なら
-
-$$
-S(n)=n\cup\{n\}\subseteq\omega
-$$
-
-なので $S(n)\in T$ です。よって $T$ も帰納的であり、最小性から $T=\omega$。したがって $\omega$ は推移的です。
-
-最後に $\in$ が $\omega$ を整列することは、有限順序数同士が $\in$ で全順序になることと、正則性公理から任意の非空部分集合が $\in$-最小元を持つことから従います。
-
-よって $\omega$ は順序数です。$\square$
-<!-- proof-end -->
-
----
-
-## 6. 極限順序数
-
-$\omega$ は、どれか一つの順序数の「すぐ次」ではありません。
-
-<a id="def-set2-limit-ordinal"></a>
-<!-- formal-statement-start -->
-### 定義（極限順序数）
-
-順序数 $\lambda$ が
-
-$$
-\lambda\ne0
-$$
-
-であり、どの順序数 $\alpha$ に対しても
-
-$$
-\lambda\ne S(\alpha)
-$$
-
-であるとき、$\lambda$ を **極限順序数** という。
-<!-- formal-statement-end -->
-
-<!-- definition-example-start: def-set2-limit-ordinal -->
-**定義の確認：$\omega$ は極限順序数。**
-
-$\omega\ne0$ です。
-
-もし $\omega=S(n)$ となる $n\in\omega$ があれば、$S(n)\in\omega$ なので
-
-$$
-\omega=S(n)\in\omega
-$$
-
-となります。しかし順序数は自分自身を元に持ちません。従ってそのような $n$ はありません。
-
-自然数段階を全て通過した最初の極限段階が $\omega$ です。
-<!-- definition-example-end -->
-
-<a id="prop-set2-zero-successor-limit"></a>
-<!-- formal-statement-start -->
-### 命題（順序数の三分類）
-
-任意の順序数 $\alpha$ は、
-
-1. $0$、
-2. 後続順序数、
-3. 極限順序数
-
-のいずれかちょうど一つである。
-<!-- formal-statement-end -->
-
-これは定義から直ちに従います。SET3 では、この三分類が超限帰納法の「初期・後続・極限」の三段階に対応します。
-
----
-
-## 7. 順序数どうしは必ず比較できる
+## 5. 順序数どうしは必ず比較できる
 
 順序数が本当に「位置の標準形」になるには、任意の二つが比較可能でなければなりません。
 
@@ -613,6 +470,198 @@ $$
 
 ---
 
+
+## 6. 無限公理から $\omega$ を取り出す
+
+SET1 の無限公理は「ある帰納的集合が存在する」とだけ言いました。その中には余分な元が入っている可能性があります。そこで、全ての帰納的部分集合に共通する部分だけを取ります。
+
+<a id="def-set2-inductive-set"></a>
+<!-- formal-statement-start -->
+### 定義（帰納的集合）
+
+集合 $I$ が **帰納的** であるとは、
+
+$$
+\varnothing\in I
+$$
+
+かつ
+
+$$
+x\in I
+\Longrightarrow
+S(x)\in I
+$$
+
+を満たすことをいう。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-set2-inductive-set -->
+**定義の確認。** 無限公理は、少なくとも一つ帰納的集合が存在することを保証します。帰納的集合 $I$ があれば、$0\in I$ から順に
+
+$$
+1=S(0)\in I,\quad
+2=S(1)\in I,\quad
+3=S(2)\in I,\ldots
+$$
+
+と全ての有限 von Neumann 順序数が $I$ に入ります。
+<!-- definition-example-end -->
+
+<a id="thm-set2-omega-exists"></a>
+<!-- formal-statement-start -->
+### 定理（最小の帰納的集合 $\omega$）
+
+ZF では、包含関係で最小の帰納的集合 $\omega$ が存在する。
+
+さらに $\omega$ は順序数である。
+<!-- formal-statement-end -->
+
+### 証明
+
+無限公理から帰納的集合 $I$ を一つ取ります。
+
+冪集合公理で $\mathcal P(I)$ を作り、分出公理図式により
+
+$$
+\mathcal C
+=
+\{J\in\mathcal P(I):J\text{ は帰納的}\}
+$$
+
+を作ります。$I\in\mathcal C$ なので $\mathcal C$ は非空です。
+
+$\mathcal C$ の共通部分を
+
+$$
+\omega
+=
+\{x\in I:\forall J\in\mathcal C,\ x\in J\}
+$$
+
+と分出で作ります。
+
+$0=\varnothing$ は全ての帰納的集合に入るので $0\in\omega$ です。また $x\in\omega$ なら、全ての $J\in\mathcal C$ で $x\in J$ だから $S(x)\in J$ です。従って $S(x)\in\omega$。よって $\omega$ は帰納的です。
+
+定義から任意の帰納的集合 $J\subseteq I$ に対して $\omega\subseteq J$ です。また任意の帰納的集合 $K$ について $I\cap K$ は帰納的なので $\omega\subseteq I\cap K\subseteq K$。従って $\omega$ は全ての帰納的集合に含まれる最小の帰納的集合です。
+
+次に $\omega$ の各元が有限 von Neumann 順序数であることを確認します。順序数である元全体を
+
+$$
+A=\{n\in\omega:n\text{ は順序数}\}
+$$
+
+とします。$0$ は順序数であり、順序数の後続も順序数なので、$A$ は帰納的です。$\omega$ の最小性から
+
+$$
+A=\omega.
+$$
+
+従って $\omega$ の全ての元は順序数です。
+
+さらに
+
+$$
+T=\{n\in\omega:n\subseteq\omega\}
+$$
+
+と置くと $0\in T$ であり、$n\in T$ なら
+
+$$
+S(n)=n\cup\{n\}\subseteq\omega
+$$
+
+なので $S(n)\in T$ です。よって $T$ も帰納的であり、最小性から $T=\omega$。したがって $\omega$ は推移的です。
+
+最後に $\preceq_\omega$ が整列であることを示します。$m,n\in\omega$ はともに順序数なので、前節の[順序数の三分律](#thm-set2-ordinal-trichotomy)から
+
+$
+m\in n,
+\qquad
+m=n,
+\qquad
+n\in m
+$
+
+のいずれか一つが成り立ちます。従って $\preceq_\omega$ は全順序です。
+
+非空部分集合 $A\subseteq\omega$ を取ります。正則性公理から、ある $m\in A$ が
+
+$
+m\cap A=\varnothing
+$
+
+を満たします。任意の $n\in A$ について三分律を使うと、もし $n\in m$ なら $n\in m\cap A$ となって矛盾するため、
+
+$
+m=n
+\quad\text{または}\quad
+m\in n.
+$
+
+したがって $m\preceq_\omega n$ であり、$m$ は $A$ の最小元です。
+
+よって $\preceq_\omega$ は整列で、$\omega$ は順序数です。$\square$
+<!-- proof-end -->
+
+---
+
+## 7. 極限順序数
+
+$\omega$ は、どれか一つの順序数の「すぐ次」ではありません。
+
+<a id="def-set2-limit-ordinal"></a>
+<!-- formal-statement-start -->
+### 定義（極限順序数）
+
+順序数 $\lambda$ が
+
+$$
+\lambda\ne0
+$$
+
+であり、どの順序数 $\alpha$ に対しても
+
+$$
+\lambda\ne S(\alpha)
+$$
+
+であるとき、$\lambda$ を **極限順序数** という。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-set2-limit-ordinal -->
+**定義の確認：$\omega$ は極限順序数。**
+
+$\omega\ne0$ です。
+
+もし $\omega=S(n)$ となる $n\in\omega$ があれば、$S(n)\in\omega$ なので
+
+$$
+\omega=S(n)\in\omega
+$$
+
+となります。しかし順序数は自分自身を元に持ちません。従ってそのような $n$ はありません。
+
+自然数段階を全て通過した最初の極限段階が $\omega$ です。
+<!-- definition-example-end -->
+
+<a id="prop-set2-zero-successor-limit"></a>
+<!-- formal-statement-start -->
+### 命題（順序数の三分類）
+
+任意の順序数 $\alpha$ は、
+
+1. $0$、
+2. 後続順序数、
+3. 極限順序数
+
+のいずれかちょうど一つである。
+<!-- formal-statement-end -->
+
+これは定義から直ちに従います。SET3 では、この三分類が超限帰納法の「初期・後続・極限」の三段階に対応します。
+
+---
+
 ## 8. 順序型との接続
 
 整列集合 $(X,\prec)$ に対し、「それと順序同型な唯一の順序数」を順序型と呼びたくなります。
@@ -628,7 +677,7 @@ $$
 
 までを閉じます。
 
-一般の整列集合が一意な順序数と順序同型になる定理は、SET4 の超限再帰を得た後に証明します。後続理論を現在章へ逆輸入しないための境界です。
+一般の整列集合が一意な順序数と順序同型になる定理は、SET4 で証明します。後続理論を現在章へ逆輸入しないための境界です。
 
 ---
 
