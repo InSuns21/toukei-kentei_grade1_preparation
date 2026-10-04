@@ -120,6 +120,8 @@
 | 無限小近接 | infinitesimal closeness | 二つの超実数の差が無限小である関係。記号は $x\approx y$ |
 | monad | monad / halo | 標準点に無限小近接する超実数全体。本文では monad を主表記とし halo を併記可 |
 | 標準部 | standard part | 有限超実数に無限小近接する唯一の標準実数。記号は $\operatorname{st}(x)$ |
+| nearstandard point | nearstandard point | 標準距離空間の超準点のうち、ある標準点に無限小距離で近接する点。本文では英語表記を用いる |
+| 無限小差分商 | infinitesimal difference quotient | 非零無限小 $h$ に対する $({}^*f(a+h)-f(a))/h$。微分可能性の超準的特徴付けに用いる |
 | overspill 原理 | overspill principle | 内部集合が全ての標準自然数を含むとき無限超自然数も含むという原理 |
 
 ## DREAM THEATER：一階論理の主表記
