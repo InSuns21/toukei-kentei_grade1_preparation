@@ -105,7 +105,7 @@
 2. [SET2 順序型と順序数：整列の長さを集合で表す](textbook/volumes/00_foundations/SET2/index.md)
 3. [SET3 超限帰納法：極限段階を含む帰納法](textbook/volumes/00_foundations/SET3/index.md)
 4. [SET4 超限再帰：以前の全段階から次を定義する](textbook/volumes/00_foundations/SET4/index.md)
-5. [SET5 累積階層と rank](textbook/volumes/00_foundations/SET5/index.md)
+5. [SET5 累積階層と rank：集合はどの段階で現れるか](textbook/volumes/00_foundations/SET5/index.md)
 6. [SET6 基数：順序の長さと集合の大きさを分ける](textbook/volumes/00_foundations/SET6/index.md)
 7. [SET7 Hartogs の補題：選択公理なしで大きすぎる順序数を作る](textbook/volumes/00_foundations/SET7/index.md)
 8. [F0-00A3A 選択公理と Zorn の補題の同値性](textbook/volumes/00_foundations/F0_00A3A_AC_Zorn_equivalence_proof/index.md)
