@@ -22,7 +22,7 @@
 ```text
 SET1 ZF / ZFC
   ↓
-SET2 順序数
+SET2 順序型・順序数
   ↓
 SET3 超限帰納法
   ↓
