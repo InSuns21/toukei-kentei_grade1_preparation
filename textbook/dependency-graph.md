@@ -851,9 +851,12 @@ DREAM THEATER の Navier--Stokes 系列は、VC9 の流体方程式、FOU4 の $
 
 ~~~text
 VC9 非圧縮 Navier--Stokes 方程式 ─┐
-FOU4 Plancherel・L2 Fourier解析 ───┼→ NS1 発散零空間・Leray 射影・Stokes 作用素
-GPDE3 Sobolev 空間 ────────────────┘
+FOU4 Plancherel・L2 Fourier解析 ───┼→ NS1 発散零空間・Leray 射影・Stokes 作用素 ─┐
+GPDE3 Sobolev 空間 ────────────────┘                                              ├→ NS2 非線形項・三重線形形式・エネルギー評価
+GPDE5 Sobolev 埋め込み・コンパクト性 ─────────────────────────────────────────────┘
 ~~~
 
-NS1 は周期発散零空間、Leray 射影、周期 Helmholtz 分解、Stokes 作用素、射影後の Navier--Stokes 方程式、圧力回収を担当する。直接 prerequisite の正本は NS1 の chapter.yaml / knowledge.yaml とする。
+NS1 は周期発散零空間、Leray 射影、周期 Helmholtz 分解、Stokes 作用素、射影後の Navier--Stokes 方程式、圧力回収を担当する。
+
+NS2 は NS1 と GPDE5 を直接 prerequisite とし、発散零エネルギー空間、周期平均零場の Poincaré 型評価、三次元の L6・L4 評価、三重線形形式の反対称性とエネルギー相殺、外力付き基本エネルギー評価を担当する。直接 prerequisite の正本は各章の chapter.yaml / knowledge.yaml とする。
 
