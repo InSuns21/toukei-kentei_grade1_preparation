@@ -348,9 +348,9 @@ ultrafilter lemma による延長
 2026-10-04 に SET1--SET7 を実装し、次を canonical owner として確定した。
 
 - SET1: ZF / ZFC・分出公理図式・置換公理図式・正則性公理
-- SET2: 順序数・後続順序数・極限順序数・$\omega$
+- SET2: 順序型・順序数・後続順序数・極限順序数・$\omega$
 - SET3: 超限帰納法
-- SET4: 超限再帰・順序型・順序数演算
+- SET4: 超限再帰・順序数演算
 - SET5: 累積階層・rank
 - SET6: 基数
 - SET7: Hartogs の補題・Hartogs 数・次の基数
@@ -472,7 +472,7 @@ dream-theater-standard-math-core.md の共通基礎には、本科目を必修�
 1. 共通基礎再構成計画の SET-U1--U3 と F0-00A1D 改稿を先に監査
 2. F0-00A3A が現在暗黙に使う順序数・Replacement・超限再帰を依存一覧化
 3. SET1 ZF / ZFC
-4. SET2 順序数
+4. SET2 順序型・順序数
 5. SET3 超限帰納法
 6. SET4 超限再帰
 7. SET5 累積階層・rank
