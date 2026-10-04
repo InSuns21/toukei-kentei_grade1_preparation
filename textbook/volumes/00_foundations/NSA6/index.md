@@ -220,29 +220,37 @@ $$
 
 ---
 
-## 3. 連続性は「無限小近接を保つ」
+## 3. 連続性は「入力距離の無限小を出力の無限小へ送る」
 
-標準関数 $f:E\to\mathbb R$ と標準点 $a\in E$ を考えます。点 $a$ での連続性は、入力を $a$ に十分近づければ出力を $f(a)$ に十分近づけられる、という性質でした。
+RA2 では実数部分集合上の連続性を絶対値で書きました。ここでは後のコンパクト距離空間へ接続するため、絶対値を距離へ置き換えた形で同じ量化を使います。
+
+標準距離空間 $(X,d)$、標準部分集合 $E\subseteq X$、標準関数 $f:E\to\mathbb R$、標準点 $a\in E$ を考えます。点 $a$ での連続性は、入力距離を十分小さくすれば出力差を十分小さくできる、という性質です。
 
 <a id="thm-nsa6-continuity"></a>
 <!-- formal-statement-start -->
 ### 定理（連続性の超準的特徴付け）
 
-標準集合 $E\subseteq\mathbb R$、標準写像 $f:E\to\mathbb R$、標準点 $a\in E$ に対し、次は同値である。
+標準距離空間 $(X,d)$、標準部分集合 $E\subseteq X$、標準写像 $f:E\to\mathbb R$、標準点 $a\in E$ に対し、次は同値である。
 
 1. $f$ は $a$ で連続である。
-2. 任意の $x\in{}^*E$ について
+2. 任意の $x\in{}^*E$ について、${}^*d(x,a)$ が無限小なら
 
 $$
-x\approx a
-\Longrightarrow
 {}^*f(x)\approx f(a).
 $$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-連続なら、標準 $\varepsilon$ に対して得た標準 $\delta$ を固定して連続性の含意を移送します。連続でないなら、その失敗命題を移送し、正の無限小 $\delta=1/H$ を代入して反例を作ります。
+連続なら、標準 $\varepsilon$ に対して得た標準 $\delta$ を固定して
+
+$$
+d(x,a)<\delta
+\Longrightarrow
+|f(x)-f(a)|<\varepsilon
+$$
+
+を移送します。連続でないなら、その失敗命題を移送し、正の無限小 $\delta=1/H$ を代入して反例を作ります。
 
 <!-- proof-start -->
 ### 証明
@@ -250,12 +258,20 @@ $$
 $f$ が $a$ で連続とします。標準 $\varepsilon>0$ に対し、ある標準 $\delta>0$ が存在し、
 
 $$
-x\in E,\quad |x-a|<\delta
+x\in E,\quad d(x,a)<\delta
 \Longrightarrow
 |f(x)-f(a)|<\varepsilon.
 $$
 
-移送すると、任意の $x\in{}^*E$ に対して同じ含意が成り立ちます。$x\approx a$ なら $|x-a|<\delta$ なので
+移送すると、任意の $x\in{}^*E$ に対して
+
+$$
+{}^*d(x,a)<\delta
+\Longrightarrow
+|{}^*f(x)-f(a)|<\varepsilon.
+$$
+
+${}^*d(x,a)$ が無限小なら、任意の標準 $\delta>0$ より小さいので
 
 $$
 |{}^*f(x)-f(a)|<\varepsilon.
@@ -266,21 +282,23 @@ $$
 逆に $f$ が $a$ で連続でないとします。ある標準 $\varepsilon_0>0$ が存在し、任意の標準 $\delta>0$ に対してある $x\in E$ が存在して
 
 $$
-|x-a|<\delta,\qquad |f(x)-f(a)|\ge\varepsilon_0.
+d(x,a)<\delta,\qquad |f(x)-f(a)|\ge\varepsilon_0
 $$
+
+となります。
 
 この命題を移送します。無限超自然数 $H$ を取り $\rho=1/H$ を代入すると、ある $x\in{}^*E$ が存在して
 
 $$
-|x-a|<\rho,\qquad |{}^*f(x)-f(a)|\ge\varepsilon_0.
+{}^*d(x,a)<\rho,\qquad |{}^*f(x)-f(a)|\ge\varepsilon_0.
 $$
 
-$\rho$ は無限小なので $x\approx a$ ですが、出力差は標準正実数 $\varepsilon_0$ 以上です。従って超準条件が破れます。
+$\rho$ は無限小なので ${}^*d(x,a)$ も無限小です。一方、出力差は標準正実数 $\varepsilon_0$ 以上なので無限小ではありません。従って超準条件が破れます。
 <!-- proof-end -->
 
 ### 具体例：$f(x)=x^2$
 
-$x=a+\eta$、$\eta\approx0$ とします。すると
+$X=E=\mathbb R$、$d(x,y)=|x-y|$ とします。$x=a+\eta$、$\eta\approx0$ なら
 
 $$
 {}^*f(x)-f(a)
@@ -290,26 +308,31 @@ $$
 2a\eta+\eta^2.
 $$
 
-標準実数 $a$ は有限超実数なので $2a\eta$ と $\eta^2$ は無限小です。従って $x\approx a$ なら $x^2\approx a^2$ です。
+標準実数 $a$ は有限超実数なので $2a\eta$ と $\eta^2$ は無限小です。従って $|x-a|$ が無限小なら ${}^*f(x)\approx f(a)$ です。
 
 ---
 
 ## 4. 一様連続性では基準点を標準点に固定しない
 
-点 $a$ での連続性では比較の片側が標準点 $a$ に固定されていました。一様連続性では定義域のどこでも同じ $\delta$ を使うため、比較する二点を両方とも動かします。
+点 $a$ での連続性では、許される入力距離 $\delta$ は $a$ に依存して構いません。一様連続性では、定義域全体で一つの $\delta$ を使います。距離空間上では、RA2 の絶対値 $|x-y|$ を距離 $d(x,y)$ に置き換えた同じ量化です。
 
 <a id="thm-nsa6-uniform-continuity"></a>
 <!-- formal-statement-start -->
 ### 定理（一様連続性の超準的特徴付け）
 
-標準集合 $E\subseteq\mathbb R$ と標準写像 $f:E\to\mathbb R$ に対し、次は同値である。
+標準距離空間 $(X,d)$、標準部分集合 $E\subseteq X$、標準写像 $f:E\to\mathbb R$ に対し、次は同値である。
 
-1. $f$ は $E$ 上一様連続である。
-2. 任意の $x,y\in{}^*E$ について
+1. 任意の標準 $\varepsilon>0$ に対し、ある標準 $\delta>0$ が存在して、任意の $x,y\in E$ について
 
 $$
-x\approx y
+d(x,y)<\delta
 \Longrightarrow
+|f(x)-f(y)|<\varepsilon.
+$$
+
+2. 任意の $x,y\in{}^*E$ について、${}^*d(x,y)$ が無限小なら
+
+$$
 {}^*f(x)\approx{}^*f(y).
 $$
 <!-- formal-statement-end -->
@@ -317,40 +340,54 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$f$ が一様連続とします。標準 $\varepsilon>0$ に対し、ある標準 $\delta>0$ が存在し、すべての標準 $x,y\in E$ について
+1 を仮定します。標準 $\varepsilon>0$ に対して得られる標準 $\delta>0$ を固定すると、
 
 $$
-|x-y|<\delta
+d(x,y)<\delta
 \Longrightarrow
-|f(x)-f(y)|<\varepsilon.
+|f(x)-f(y)|<\varepsilon
 $$
 
-移送すると任意の $x,y\in{}^*E$ について同じ含意が成り立ちます。$x\approx y$ なら $|x-y|<\delta$ なので ${}^*f(x)\approx{}^*f(y)$ です。
+がすべての標準 $x,y\in E$ で成り立ちます。
 
-逆に一様連続でないとします。ある標準 $\varepsilon_0>0$ が存在し、任意の標準 $\delta>0$ に対して標準 $x,y\in E$ を取れて
+移送すると任意の $x,y\in{}^*E$ について
 
 $$
-|x-y|<\delta,\qquad |f(x)-f(y)|\ge\varepsilon_0.
+{}^*d(x,y)<\delta
+\Longrightarrow
+|{}^*f(x)-{}^*f(y)|<\varepsilon
+$$
+
+です。${}^*d(x,y)$ が無限小なら任意の標準 $\delta>0$ より小さいので、標準 $\varepsilon>0$ は任意であることから
+
+$$
+{}^*f(x)\approx{}^*f(y).
+$$
+
+逆に 1 が成り立たないとします。するとある標準 $\varepsilon_0>0$ が存在し、任意の標準 $\delta>0$ に対して標準 $x,y\in E$ を取れて
+
+$$
+d(x,y)<\delta,\qquad |f(x)-f(y)|\ge\varepsilon_0.
 $$
 
 この命題を移送し、無限 $H$ に対する $\delta=1/H$ を代入すると、ある $x,y\in{}^*E$ が存在して
 
 $$
-|x-y|<\frac1H,\qquad |{}^*f(x)-{}^*f(y)|\ge\varepsilon_0.
+{}^*d(x,y)<\frac1H,\qquad |{}^*f(x)-{}^*f(y)|\ge\varepsilon_0.
 $$
 
-よって $x\approx y$ なのに出力は無限小近接しません。
+よって ${}^*d(x,y)$ は無限小なのに出力は無限小近接しません。
 <!-- proof-end -->
 
 ### 連続だが一様連続でない例：$x^2$ on $\mathbb R$
 
-無限超自然数 $H$ を取り、
+通常距離を入れた $\mathbb R$ で、無限超自然数 $H$ を取り、
 
 $$
 x=H,\qquad y=H+\frac1H
 $$
 
-と置きます。差 $y-x=1/H$ は無限小なので $x\approx y$ です。しかし
+と置きます。入力距離は $|x-y|=1/H$ で無限小です。しかし
 
 $$
 y^2-x^2
@@ -358,7 +395,7 @@ y^2-x^2
 2+\frac1{H^2}.
 $$
 
-右辺は $2$ に無限小近接し、0には無限小近接しません。従って $x^2\not\approx y^2$ です。
+右辺は $2$ に無限小近接し、0には無限小近接しません。従って一様連続性の超準条件が破れます。
 
 ---
 
@@ -501,15 +538,37 @@ $$
 <!-- formal-statement-start -->
 ### 系（Heine--Cantor の超準的証明）
 
-$K$ を標準コンパクト距離空間、$f:K\to\mathbb R$ を標準連続関数とする。このとき $f$ は一様連続である。
+$(K,d)$ を標準コンパクト距離空間、$f:K\to\mathbb R$ を標準連続関数とする。このとき $f$ は一様連続である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
 
-任意に $x,y\in{}^*K$ を取り $x\approx y$ とします。コンパクト性の nearstandard 特徴付けから、ある標準 $a\in K$ が存在して $x\approx a$ です。従って $y\approx a$ でもあります。
+一様連続性の超準的特徴付けを使います。任意に $x,y\in{}^*K$ を取り、
 
-$f$ は $a$ で連続なので
+$$
+{}^*d(x,y)
+$$
+
+が無限小だとします。
+
+コンパクト性の nearstandard 特徴付けから、ある標準点 $a\in K$ が存在して
+
+$$
+{}^*d(x,a)
+$$
+
+が無限小です。移送された三角不等式から
+
+$$
+{}^*d(y,a)
+\le
+{}^*d(y,x)+{}^*d(x,a).
+$$
+
+右辺は無限小二つの和なので、${}^*d(y,a)$ も無限小です。
+
+$f$ は標準点 $a$ で連続なので、連続性の超準的特徴付けから
 
 $$
 {}^*f(x)\approx f(a),
@@ -517,39 +576,46 @@ $$
 {}^*f(y)\approx f(a).
 $$
 
-よって ${}^*f(x)\approx{}^*f(y)$。任意の $x,y\in{}^*K$ で成り立つため、一様連続性の超準的特徴付けから $f$ は一様連続です。
+従って
+
+$$
+{}^*f(x)\approx{}^*f(y).
+$$
+
+任意の $x,y\in{}^*K$ で成り立つため、一様連続性の超準的特徴付けから $f$ は一様連続です。
 <!-- proof-end -->
 
 ---
 
 ## 7. 量化順序を見失わない
 
-点 $a$ での連続性は
+標準距離空間 $(X,d)$ では、点 $a$ での連続性は
 
-$$
-x\approx a
+$
+{}^*d(x,a)\text{ が無限小}
 \Longrightarrow
 {}^*f(x)\approx f(a).
-$$
+$
 
 一様連続性は
 
-$$
-x\approx y
+$
+{}^*d(x,y)\text{ が無限小}
 \Longrightarrow
 {}^*f(x)\approx{}^*f(y)
 \qquad(x,y\in{}^*E).
-$$
+$
 
 コンパクト性は
 
-$$
+$
 x\in{}^*K
 \Longrightarrow
-\exists a\in K\text{ standard},\quad x\approx a.
-$$
+\exists a\in K\text{ standard},\quad
+{}^*d(x,a)\text{ が無限小}.
+$
 
-点での連続性は標準基準点の monad だけを見ます。一様連続性は無限遠を含む ${}^*E$ 全体で互いに近い二点を見ます。コンパクト性は、その ${}^*K$ 全体が標準点の monad から逃げないことを保証します。
+点での連続性は標準基準点の無限小近傍だけを見ます。一様連続性は ${}^*E$ 全体で互いに無限小距離にある二点を見ます。コンパクト性は、その ${}^*K$ 全体が標準点の無限小近傍から逃げないことを保証します。
 
 ---
 
@@ -706,13 +772,19 @@ $$
 <!-- solution-end -->
 
 <a id="ex-nsa6-b04"></a>
-#### NSA6-B04 Heine--Cantor を三つの無限小近接で追う
+#### NSA6-B04 Heine--Cantor を三つの無限小距離で追う
 - Level: B
 
-$K$ をコンパクト、$f:K\to\mathbb R$ を連続とする。$x,y\in{}^*K$ かつ $x\approx y$ から ${}^*f(x)\approx{}^*f(y)$ を導け。
+$K$ をコンパクト距離空間、$f:K\to\mathbb R$ を連続とする。$x,y\in{}^*K$ かつ ${}^*d(x,y)$ が無限小であるとき、${}^*f(x)\approx{}^*f(y)$ を導け。
 
 <!-- solution-start -->
-**詳細解答**。nearstandard 特徴付けから標準 $a\in K$ が存在して $x\approx a$。$x\approx y$ なので $y\approx a$ でもあります。点 $a$ での連続性から
+**詳細解答**。nearstandard 特徴付けから標準 $a\in K$ が存在して ${}^*d(x,a)$ は無限小です。三角不等式より
+
+$
+{}^*d(y,a)\le{}^*d(y,x)+{}^*d(x,a)
+$
+
+も無限小です。点 $a$ での連続性から
 
 $$
 {}^*f(x)\approx f(a),
