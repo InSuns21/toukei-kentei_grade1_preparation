@@ -111,6 +111,7 @@ $$
 このとき $X$ と全単射になる基数 $\kappa$ が一意に存在する。
 <!-- formal-statement-end -->
 
+<!-- proof-start -->
 ### 証明
 
 $X$ は整列可能なので、ある整列 $\prec$ を入れられます。
@@ -226,6 +227,7 @@ $$
 という単射が存在することは同値である。
 <!-- formal-statement-end -->
 
+<!-- proof-start -->
 ### 証明
 
 $\kappa\le\lambda$ なら、順序数として
@@ -427,6 +429,7 @@ $$
 従って冪集合は $\kappa$ より真に大きい。
 <!-- formal-statement-end -->
 
+<!-- proof-start -->
 ### 証明
 
 単射
