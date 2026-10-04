@@ -1,0 +1,37 @@
+id: "SET5"
+title: "累積階層と rank"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SET4
+  - SET1
+official_scope: []
+learning_objectives:
+  - 累積階層 V_alpha を超限再帰で定義できる
+  - V_alpha の単調性と推移性を超限帰納法で証明できる
+  - 推移閉包を自然数上の再帰から構成できる
+  - 正則性公理と整礎関係の接続を説明できる
+  - rank を整礎再帰で定義し、有限例で計算できる
+  - 任意の集合がどこかの V_alpha に現れることを rank から証明できる
+definitions:
+  - { id: SET5-DEF-01, name: 累積階層 }
+  - { id: SET5-DEF-02, name: 推移閉包 }
+  - { id: SET5-DEF-03, name: 整礎関係 }
+  - { id: SET5-DEF-04, name: 集合の rank }
+theorems:
+  - { id: SET5-THM-01, name: 累積階層の単調性 }
+  - { id: SET5-THM-02, name: 整礎再帰 }
+  - { id: SET5-THM-03, name: rank と累積階層 }
+  - { id: SET5-COR-01, name: 全ての集合は累積階層のどこかに現れる }
+canonical_examples:
+  - V0 から V3
+  - 有限順序数の rank
+  - 推移閉包
+problem_patterns:
+  - CUMULATIVE-HIERARCHY-1
+  - SET-RANK-1
+  - WELL-FOUNDED-RECURSION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 2.5, review: 0.7 }
