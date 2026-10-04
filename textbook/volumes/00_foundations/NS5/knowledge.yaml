@@ -1,0 +1,72 @@
+chapter: NS5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NS4
+
+forward_references: []
+
+concepts:
+  - id: navier-stokes.three-dimensional-strong-solution
+    name: 三次元周期 Navier--Stokes の強解
+    kind: definition
+    aliases: ["3D periodic Navier--Stokes strong solution"]
+    introduction: formal
+    introduction_aliases: ["定義（三次元周期 Navier--Stokes の強解）"]
+    requires:
+      - navier-stokes.energy-space-v
+      - navier-stokes.stokes-operator
+
+  - id: navier-stokes.three-dimensional-h1-nonlinear
+    name: 三次元 H1 エネルギーでの非線形項評価
+    kind: proposition
+    aliases: ["3D H1 convection estimate"]
+    introduction: formal
+    introduction_aliases: ["命題（三次元 H1 エネルギーでの非線形項評価）"]
+    requires:
+      - navier-stokes.trilinear-form
+      - navier-stokes.periodic-l4-estimate
+      - navier-stokes.stokes-positive
+
+  - id: navier-stokes.three-dimensional-local-strong
+    name: 三次元周期 Navier--Stokes の局所強解と一意性
+    kind: theorem
+    aliases: ["local strong well-posedness for 3D periodic Navier--Stokes"]
+    introduction: formal
+    introduction_aliases: ["定理（三次元周期 Navier--Stokes の局所強解と一意性）"]
+    requires:
+      - navier-stokes.three-dimensional-strong-solution
+      - navier-stokes.three-dimensional-h1-nonlinear
+      - navier-stokes.galerkin-uniform-energy
+      - navier-stokes.trilinear-skew
+
+  - id: navier-stokes.maximal-strong-existence-time
+    name: 最大強解存在時間
+    kind: definition
+    aliases: ["maximal strong existence time"]
+    introduction: formal
+    introduction_aliases: ["定義（最大強解存在時間）"]
+    requires:
+      - navier-stokes.three-dimensional-local-strong
+
+  - id: navier-stokes.h1-blowup-alternative
+    name: 三次元局所強解の延長判定と有限時間発散選択肢
+    kind: theorem
+    aliases: ["H1 blow-up alternative for 3D Navier--Stokes", "H1 continuation criterion"]
+    introduction: formal
+    introduction_aliases: ["定理（三次元局所強解の延長判定と有限時間発散選択肢）"]
+    requires:
+      - navier-stokes.maximal-strong-existence-time
+      - navier-stokes.three-dimensional-h1-nonlinear
+
+  - id: navier-stokes.weak-strong-uniqueness
+    name: 三次元周期 Navier--Stokes の弱--強一意性
+    kind: theorem
+    aliases: ["weak-strong uniqueness for 3D periodic Navier--Stokes"]
+    introduction: formal
+    introduction_aliases: ["定理（三次元周期 Navier--Stokes の弱--強一意性）"]
+    requires:
+      - navier-stokes.leray-hopf-weak-solution
+      - navier-stokes.three-dimensional-strong-solution
+      - navier-stokes.trilinear-skew
+      - navier-stokes.periodic-l4-estimate
