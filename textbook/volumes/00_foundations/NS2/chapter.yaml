@@ -7,21 +7,21 @@ prerequisites:
   - GPDE5
 official_scope: []
 learning_objectives:
-  - 発散零 H1 空間 V を定め、周期平均零条件から Poincare 型評価を Fourier 表示で証明できる
+  - 発散零 H1 空間 V を定め、周期平均零条件から Poincaré 型評価を Fourier 表示で証明できる
   - 三次元周期領域で H1 制御から L6 評価を得て、Hölder により L4 補間評価を導ける
   - 三重線形形式 b(u,v,w) を定義し、Hölder と L4 評価から V 上で連続に定義できることを示せる
   - 発散零条件と周期部分積分から b(u,v,w)=-b(u,w,v) と b(u,v,v)=0 を証明できる
   - 発散零仮定を失うと非線形エネルギー相殺が壊れる具体例を計算できる
   - Leray 射影後の Navier--Stokes 方程式を u と内積し、基本 L2 エネルギー恒等式を一項ずつ導ける
   - 外力項を Cauchy--Schwarz と Young の不等式で処理し、L-infinity_t H と L2_t V の一様エネルギー評価を得られる
-  - 無外力では周期 Poincare 評価から L2 エネルギーの指数減衰を導ける
+  - 無外力では周期 Poincaré 評価から L2 エネルギーの指数減衰を導ける
   - 基本エネルギー評価が三次元大域弱解の構成には使える一方、強解の大域正則性を直接は与えない理由を説明できる
 definitions:
   - { id: NS2-DEF-01, name: "発散零エネルギー空間 V" }
   - { id: NS2-DEF-02, name: "Navier--Stokes 三重線形形式" }
   - { id: NS2-DEF-03, name: "有限時間エネルギー階級" }
 theorems:
-  - { id: NS2-PROP-01, name: "周期平均零場の Poincare 型評価" }
+  - { id: NS2-PROP-01, name: "周期平均零場の Poincaré 型評価" }
   - { id: NS2-PROP-02, name: "三次元周期場の L6・L4 評価" }
   - { id: NS2-THM-01, name: "三重線形形式の反対称性とエネルギー相殺" }
   - { id: NS2-PROP-03, name: "三重線形形式の連続評価" }
