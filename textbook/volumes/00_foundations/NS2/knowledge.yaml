@@ -1,0 +1,110 @@
+chapter: NS2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NS1
+  - GPDE5
+
+forward_references: []
+
+concepts:
+  - id: navier-stokes.energy-space-v
+    name: 発散零エネルギー空間 V
+    kind: definition
+    aliases: [divergence-free energy space V]
+    introduction: formal
+    introduction_aliases: ["定義（発散零エネルギー空間 V）"]
+    requires:
+      - navier-stokes.periodic-divergence-free-space
+      - sobolev.hk
+
+  - id: navier-stokes.periodic-poincare
+    name: 周期平均零場の Poincare 型評価
+    kind: proposition
+    aliases: [periodic Poincare inequality for mean-zero fields]
+    introduction: formal
+    introduction_aliases: ["命題（周期平均零場の Poincare 型評価）"]
+    requires:
+      - navier-stokes.energy-space-v
+      - fourier.fou4-parseval
+
+  - id: navier-stokes.periodic-l4-estimate
+    name: 三次元周期場の L6・L4 評価
+    kind: proposition
+    aliases: [periodic L4 interpolation estimate]
+    introduction: formal
+    introduction_aliases: ["命題（三次元周期場の L6・L4 評価）"]
+    requires:
+      - navier-stokes.periodic-poincare
+      - sobolev.inequality-rd
+
+  - id: navier-stokes.trilinear-form
+    name: Navier--Stokes 三重線形形式
+    kind: definition
+    aliases: [Navier-Stokes trilinear form, convection trilinear form]
+    introduction: formal
+    introduction_aliases: ["定義（Navier--Stokes 三重線形形式）"]
+    requires:
+      - navier-stokes.energy-space-v
+      - navier-stokes.periodic-l4-estimate
+      - navier-stokes.projected-convection
+
+  - id: navier-stokes.trilinear-skew
+    name: 三重線形形式の反対称性とエネルギー相殺
+    kind: theorem
+    aliases: [skew-symmetry of the Navier-Stokes trilinear form, convection energy cancellation]
+    introduction: formal
+    introduction_aliases: ["定理（三重線形形式の反対称性とエネルギー相殺）"]
+    requires:
+      - navier-stokes.trilinear-form
+
+  - id: navier-stokes.trilinear-continuity
+    name: 三重線形形式の連続評価
+    kind: proposition
+    aliases: [continuity estimate for the Navier-Stokes trilinear form]
+    introduction: formal
+    introduction_aliases: ["命題（三重線形形式の連続評価）"]
+    requires:
+      - navier-stokes.trilinear-form
+      - navier-stokes.periodic-l4-estimate
+
+  - id: navier-stokes.energy-identity
+    name: 滑らかな Navier--Stokes 解のエネルギー恒等式
+    kind: theorem
+    aliases: [Navier-Stokes energy identity]
+    introduction: formal
+    introduction_aliases: ["定理（滑らかな Navier--Stokes 解のエネルギー恒等式）"]
+    requires:
+      - navier-stokes.projected-equation
+      - navier-stokes.stokes-positive
+      - navier-stokes.trilinear-skew
+
+  - id: navier-stokes.forced-energy-estimate
+    name: 外力付きエネルギー評価
+    kind: proposition
+    aliases: [forced Navier-Stokes energy estimate]
+    introduction: formal
+    introduction_aliases: ["命題（外力付きエネルギー評価）"]
+    requires:
+      - navier-stokes.energy-identity
+      - navier-stokes.periodic-poincare
+
+  - id: navier-stokes.energy-class
+    name: 有限時間エネルギー階級
+    kind: definition
+    aliases: [finite-time Navier-Stokes energy class]
+    introduction: formal
+    introduction_aliases: ["定義（有限時間エネルギー階級）"]
+    requires:
+      - navier-stokes.energy-space-v
+      - navier-stokes.forced-energy-estimate
+
+  - id: navier-stokes.unforced-l2-decay
+    name: 無外力での指数減衰
+    kind: corollary
+    aliases: [unforced L2 exponential decay]
+    introduction: formal
+    introduction_aliases: ["系（無外力での指数減衰）"]
+    requires:
+      - navier-stokes.energy-identity
+      - navier-stokes.periodic-poincare
