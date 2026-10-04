@@ -1,0 +1,37 @@
+id: "SET6"
+title: "基数：順序の長さと集合の大きさを分ける"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SET4
+  - SET-U3
+official_scope: []
+learning_objectives:
+  - 基数を初期順序数として定義し、順序数との違いを説明できる
+  - 整列可能な集合に一意な基数代表が存在することを証明できる
+  - 基数間では単射による比較と順序数の大小が一致することを示せる
+  - aleph_0 を最小無限基数として説明できる
+  - 基数の加法・乗法を集合演算から定義できる
+  - ZF では冪集合が整列可能とは限らないため基数冪に選択原理上の注意が必要なことを説明できる
+definitions:
+  - { id: SET6-DEF-01, name: 基数・初期順序数 }
+  - { id: SET6-DEF-02, name: 整列可能な集合の基数 }
+  - { id: SET6-DEF-03, name: aleph_0 }
+  - { id: SET6-DEF-04, name: 基数の加法 }
+  - { id: SET6-DEF-05, name: 基数の乗法 }
+theorems:
+  - { id: SET6-THM-01, name: 整列可能な集合の基数代表 }
+  - { id: SET6-THM-02, name: 基数の順序と単射 }
+  - { id: SET6-PROP-01, name: Cantor の定理による冪集合の増大 }
+canonical_examples:
+  - omega と omega+1 の順序型と基数の違い
+  - aleph_0 times aleph_0
+  - 部分集合と0-1関数の対応
+problem_patterns:
+  - INITIAL-ORDINAL-1
+  - CARDINAL-REPRESENTATIVE-1
+  - CARDINAL-POWERSET-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2.8, exercises: 2.3, review: 0.6 }
