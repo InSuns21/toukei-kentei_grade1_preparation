@@ -323,7 +323,7 @@ $$
 V\hookrightarrow L^4.
 $$
 
-これを「Gagliardo--Nirenberg 不等式より」と一言で済ませず、$L^6$ Sobolev 評価と Hölder をつないで導きます。
+これを既知の補間評価として一言で済ませず、$L^6$ Sobolev 評価と Hölder をつないで導きます。
 
 <a id="prop-ns2-periodic-l4"></a>
 
@@ -1383,7 +1383,7 @@ $$
 
 ### 証明の見取り図
 
-エネルギー恒等式の右辺へ
+[滑らかな Navier--Stokes 解のエネルギー恒等式](#thm-ns2-energy-identity)の右辺へ
 
 $$
 (f,u)
@@ -1408,7 +1408,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-エネルギー恒等式から
+[滑らかな Navier--Stokes 解のエネルギー恒等式](#thm-ns2-energy-identity)から
 
 $$
 \frac12\frac{d}{dt}\|u\|_2^2
@@ -1470,7 +1470,7 @@ $$
 \frac\nu2\|\nabla u\|_2^2.
 $$
 
-エネルギー恒等式へ代入して
+[滑らかな Navier--Stokes 解のエネルギー恒等式](#thm-ns2-energy-identity)へ代入して
 
 $$
 \frac12\frac{d}{dt}\|u\|_2^2
@@ -1643,7 +1643,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$f=0$ のエネルギー恒等式から
+$f=0$ の[滑らかな Navier--Stokes 解のエネルギー恒等式](#thm-ns2-energy-identity)から
 
 $$
 \frac{d}{dt}\|u\|_2^2
