@@ -5,8 +5,7 @@ prerequisites:
   - NSA2
   - SET9
 
-forward_references:
-  - nonstandard.internal-set
+forward_references: []
 
 concepts:
   - id: model.ultrapower-structure
