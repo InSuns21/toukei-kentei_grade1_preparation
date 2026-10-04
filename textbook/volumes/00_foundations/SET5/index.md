@@ -288,27 +288,234 @@ $$
 <!-- formal-statement-start -->
 ### 定理（整礎再帰）
 
-集合 $A$ 上の整礎関係 $R$ を考える。
-
-各 $x\in A$ において、それ以前の値
+集合 $A$ 上の整礎関係 $R$ を考える。各 $x\in A$ に対し、
 
 $$
-F|_{\{y\in A:yRx\}}
+\operatorname{Pred}(x)
+=
+\{y\in A:yRx\}
 $$
 
-から一意な集合を作る規則が与えられているとする。
+と置く。
 
-このとき、その規則を満たす関数 $F$ が一意に存在する。
+各 $x\in A$ と、定義域が $\operatorname{Pred}(x)$ である任意の関数 $h$ に対して、一意な集合 $G(x,h)$ が定まる規則 $G$ があるとする。
+
+このとき一意な関数 $F:A\to V$ が存在して、全ての $x\in A$ で
+
+$$
+\boxed{
+F(x)
+=
+G\!\left(
+x,\,
+F|_{\operatorname{Pred}(x)}
+\right)
+}
+$$
+
+を満たす。ここで $V$ は「全ての集合」を表すメタ言語上の記号であり、集合として仮定しているわけではない。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
-### 証明の要点
+### 証明
 
-一意性は、二つの解が異なる点全体を集合として分出し、その中の $R$-極小元を取れば示せます。極小元より前では二つの解が一致するため、その点で規則に同じ入力を与え、値も一致して矛盾します。
+証明では、ある点 $x$ の値を決めるには $x$ より前の点の値が全部必要なので、$x$ から $R$ を下向きにたどって到達する部分を一つの集合として扱います。
 
-存在では「ある部分集合上で既に再帰式を満たす近似」を考えます。近似どうしは同じ極小反例法で両立します。ある点 $x$ より前の値が全て一意に定まれば、置換公理図式でその値を集合として集め、規則を一度適用して $x$ まで延長できます。
+まず
 
-もし未定義点が残れば、その集合から $R$-極小元を取り、前方は全て定義済みなので延長できて矛盾します。従って全 $A$ 上へ延長されます。$\square$
+$$
+D_0(x)=\{x\}
+$$
+
+とし、
+
+$$
+D_{n+1}(x)
+=
+D_n(x)
+\cup
+\{y\in A:\exists z\in D_n(x),\ yRz\}
+$$
+
+と自然数上の再帰で定めます。置換公理図式と和集合公理により
+
+$$
+D(x)
+=
+\bigcup_{n<\omega}D_n(x)
+$$
+
+は集合です。
+
+$D(x)$ は $x$ を含み、$R$ に関して下向きに閉じています。実際 $z\in D(x)$ かつ $yRz$ なら、ある $n$ で $z\in D_n(x)$ なので
+
+$$
+y\in D_{n+1}(x)\subseteq D(x).
+$$
+
+### 1. 下向き閉集合上の解は一意
+
+$D,E\subseteq A$ を $R$ に関して下向きに閉じた集合とし、$f$ が $D$ 上、$g$ が $E$ 上で再帰式を満たすとします。
+
+共通部分で値が違う点の集合
+
+$$
+B
+=
+\{x\in D\cap E:f(x)\ne g(x)\}
+$$
+
+が非空だと仮定します。
+
+$R$ は整礎的なので、$B$ に $R$-極小元 $x_0$ が存在します。
+
+$yRx_0$ なら $D,E$ の下向き閉性から $y\in D\cap E$ です。また $x_0$ の極小性から
+
+$$
+f(y)=g(y).
+$$
+
+従って
+
+$$
+f|_{\operatorname{Pred}(x_0)}
+=
+g|_{\operatorname{Pred}(x_0)}.
+$$
+
+両方が再帰式を満たすので、
+
+$$
+\begin{aligned}
+f(x_0)
+&=
+G\!\left(x_0,f|_{\operatorname{Pred}(x_0)}\right)\\
+&=
+G\!\left(x_0,g|_{\operatorname{Pred}(x_0)}\right)\\
+&=
+g(x_0),
+\end{aligned}
+$$
+
+となり $x_0\in B$ に矛盾します。
+
+従って二つの部分解は共通定義域で必ず一致します。
+
+### 2. 各点には局所解が存在する
+
+$x\in A$ に対し、$D(x)$ 上で再帰式を満たす関数が存在するとき、$x$ を **良い点** と呼びます。
+
+良くない点の集合
+
+$$
+C
+=
+\{x\in A:x\text{ は良くない}\}
+$$
+
+が非空だと仮定し、整礎性から $R$-極小元 $x_0\in C$ を取ります。
+
+$yRx_0$ なら $x_0$ の極小性から $y$ は良い点です。したがって $D(y)$ 上の局所解 $f_y$ が存在します。前段で示した一意性から、この $f_y$ は一意であり、異なる $y,zRx_0$ に対しても
+
+$$
+f_y=f_z
+$$
+
+が共通定義域上で成り立ちます。
+
+よって置換公理図式で局所解族
+
+$$
+\{f_y:yRx_0\}
+$$
+
+を集合として集め、その和集合
+
+$$
+h
+=
+\bigcup_{yRx_0}f_y
+$$
+
+を取れます。両立性から $h$ は関数です。
+
+その定義域は
+
+$$
+D(x_0)\setminus\{x_0\}
+$$
+
+です。実際、$x_0$ より下にある点は、最初の一歩である何らかの $yRx_0$ の下向き閉包 $D(y)$ に入ります。
+
+そこで
+
+$$
+v
+=
+G\!\left(
+x_0,\,
+h|_{\operatorname{Pred}(x_0)}
+\right)
+$$
+
+と置き、
+
+$$
+f_{x_0}
+=
+h\cup\{(x_0,v)\}
+$$
+
+とします。
+
+$h$ は $x_0$ より下の各点で再帰式を満たし、$x_0$ では $v$ の定義そのものから再帰式を満たします。従って $f_{x_0}$ は $D(x_0)$ 上の局所解です。
+
+これは $x_0$ が良くないという仮定に反します。
+
+よって全ての $x\in A$ が良い点です。
+
+### 3. 局所解を貼り合わせる
+
+各 $x\in A$ には一意な局所解 $f_x$ が存在します。
+
+置換公理図式で
+
+$$
+\{f_x:x\in A\}
+$$
+
+を集合として集め、
+
+$$
+F
+=
+\bigcup_{x\in A}f_x
+$$
+
+と置きます。
+
+局所解どうしは共通定義域で一致するので、$F$ は関数です。また $x\in D(x)$ だから定義域は $A$ 全体です。
+
+任意の $x\in A$ に対し、$F$ と $f_x$ は $D(x)$ 上で一致します。従って
+
+$$
+F(x)
+=
+G\!\left(
+x,\,
+F|_{\operatorname{Pred}(x)}
+\right).
+$$
+
+これで存在が示されました。
+
+最後に $F,F'$ がともに $A$ 上の解なら、第1段の一意性を $D=E=A$ に適用して
+
+$$
+F=F'.
+$$
+
+よって解は一意です。$\square$
 <!-- proof-end -->
 
 この定理は新しい選択原理ではありません。正則性による整礎性と、置換による値集合の形成を使っています。
@@ -418,15 +625,83 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$x$ の所属関係に沿う整礎帰納法で示します。
+まず補助事実として、任意の順序数 $\alpha$ について
 
-各 $y\in x$ について帰納法の仮定から
+$$
+y\in V_\alpha
+\Longrightarrow
+\operatorname{rank}(y)<\alpha
+$$
+
+を $\alpha$ に関する超限帰納法で示します。
+
+$\alpha=0$ では $V_0=\varnothing$ なので主張は空虚です。
+
+$\alpha=\beta+1$ とします。$y\in V_{\beta+1}$ なら
+
+$$
+y\subseteq V_\beta.
+$$
+
+各 $z\in y$ について、帰納法の仮定から
+
+$$
+\operatorname{rank}(z)<\beta
+$$
+
+です。従って
+
+$$
+\operatorname{rank}(z)+1\le\beta.
+$$
+
+上限を取れば
+
+$$
+\operatorname{rank}(y)
+=
+\sup_{z\in y}
+(\operatorname{rank}(z)+1)
+\le\beta
+<
+\beta+1.
+$$
+
+$\alpha=\lambda$ が極限順序数なら、$y\in V_\lambda$ からある $\beta<\lambda$ が存在して
+
+$$
+y\in V_\beta.
+$$
+
+帰納法の仮定より
+
+$$
+\operatorname{rank}(y)<\beta<\lambda.
+$$
+
+これで補助事実が示されました。
+
+次に、$x$ の所属関係に沿う整礎帰納法で
+
+$$
+x\subseteq V_{\operatorname{rank}(x)}
+$$
+
+を示します。
+
+$y\in x$ とします。帰納法の仮定から
+
+$$
+y\subseteq V_{\operatorname{rank}(y)},
+$$
+
+従って
 
 $$
 y\in V_{\operatorname{rank}(y)+1}.
 $$
 
-rank の定義より
+rank の定義から
 
 $$
 \operatorname{rank}(y)+1
@@ -434,7 +709,7 @@ $$
 \operatorname{rank}(x).
 $$
 
-累積階層の単調性から
+累積階層の単調性より
 
 $$
 V_{\operatorname{rank}(y)+1}
@@ -442,13 +717,13 @@ V_{\operatorname{rank}(y)+1}
 V_{\operatorname{rank}(x)}.
 $$
 
-したがって各 $y\in x$ が
+したがって
 
 $$
-y\in V_{\operatorname{rank}(x)}
+y\in V_{\operatorname{rank}(x)}.
 $$
 
-を満たします。よって
+これは全ての $y\in x$ について成り立つので、
 
 $$
 x\subseteq V_{\operatorname{rank}(x)}.
@@ -463,15 +738,15 @@ x\in
 V_{\operatorname{rank}(x)+1}.
 $$
 
-次に最小性を示します。$x\subseteq V_\alpha$ と仮定します。
+最後に最小性を示します。$x\subseteq V_\alpha$ と仮定します。
 
-任意の $y\in x$ について $y\in V_\alpha$ です。累積階層の定義と帰納法から
+任意の $y\in x$ について $y\in V_\alpha$ なので、最初に示した補助事実から
 
 $$
-\operatorname{rank}(y)<\alpha
+\operatorname{rank}(y)<\alpha.
 $$
 
-となるので、
+従って
 
 $$
 \operatorname{rank}(y)+1\le\alpha.
@@ -487,7 +762,15 @@ $$
 \le\alpha.
 $$
 
-従って $\operatorname{rank}(x)$ が最小です。$\square$
+一方、既に
+
+$$
+x\subseteq V_{\operatorname{rank}(x)}
+$$
+
+を示しています。
+
+従って $\operatorname{rank}(x)$ は条件を満たす最小の順序数です。$\square$
 <!-- proof-end -->
 
 <a id="cor-set5-every-set-in-hierarchy"></a>
