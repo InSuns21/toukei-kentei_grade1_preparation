@@ -674,6 +674,61 @@ $$
 特に $H=[n+1]$ なら各 $I_{n+1}$ は有限ですが、内部的な大きさ $H$ は無限超自然数です。
 <!-- definition-example-end -->
 
+<a id="prop-nsa4-hyperfinite-cardinality-well-defined"></a>
+<!-- formal-statement-start -->
+### 命題（超有限集合の内部的な大きさは表現によらない）
+
+同じ超有限集合 $X$ が有限集合列 $(F_n)$ と $(G_n)$ により
+
+$$
+X=[F_n]_{\mathrm{int}}=[G_n]_{\mathrm{int}}
+$$
+
+と表されるなら
+
+$$
+[|F_n|]=[|G_n|]
+$$
+
+が ${}^*\mathbb N$ で成り立つ。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+前節の単射性から、内部部分集合が等しければ集合ソートの超冪でも
+
+$$
+[F_n]=[G_n].
+$$
+
+従って
+
+$$
+E=\{n:F_n=G_n\}\in\mathcal U.
+$$
+
+$n\in E$ では
+
+$$
+|F_n|=|G_n|
+$$
+
+なので
+
+$$
+E\subseteq\{n:|F_n|=|G_n|\}.
+$$
+
+上方閉性により右辺も $\mathcal U$ に属します。よって
+
+$$
+[|F_n|]=[|G_n|].
+$$
+<!-- proof-end -->
+
+従って $|X|_{\mathrm{int}}$ は有限代表列の選び方によらず定まり、超有限集合に付随する超自然数として扱えます。
+
 <a id="prop-nsa4-hyperfinite-initial-segment"></a>
 <!-- formal-statement-start -->
 ### 命題（超有限初期区間の所属判定）
