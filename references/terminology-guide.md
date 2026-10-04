@@ -122,6 +122,8 @@
 | 標準部 | standard part | 有限超実数に無限小近接する唯一の標準実数。記号は $\operatorname{st}(x)$ |
 | nearstandard point | nearstandard point | 標準距離空間の超準点のうち、ある標準点に無限小距離で近接する点。本文では英語表記を用いる |
 | 無限小差分商 | infinitesimal difference quotient | 非零無限小 $h$ に対する $({}^*f(a+h)-f(a))/h$。微分可能性の超準的特徴付けに用いる |
+| 超有限等分割 | hyperfinite uniform partition | 無限超自然数 $H$ を用いて区間を $H$ 個へ等分する内部超有限分割。幅は $(b-a)/H$ |
+| 超有限 Riemann 和 | hyperfinite Riemann sum | 内部標本点族に対する有限 Riemann 和の移送。Riemann 可積分関数では標準部が積分値になる |
 | overspill 原理 | overspill principle | 内部集合が全ての標準自然数を含むとき無限超自然数も含むという原理 |
 
 ## DREAM THEATER：一階論理の主表記
