@@ -13,12 +13,19 @@ concepts:
     requires: []
 
   - id: set.ordinal
-    name: 順序数
+    name: von Neumann 順序数
     kind: definition
     aliases: [順序数, von Neumann 順序数, ordinal]
     requires:
       - set.transitive-set
       - order.well-order
+
+  - id: set.ordinal-element-is-ordinal
+    name: 順序数の元は順序数
+    kind: theorem
+    aliases: [順序数の元は順序数]
+    requires:
+      - set.ordinal
 
   - id: set.successor-ordinal
     name: 後続順序数
@@ -27,13 +34,28 @@ concepts:
     requires:
       - set.ordinal
 
+  - id: set.successor-is-ordinal
+    name: 順序数の後続は順序数
+    kind: theorem
+    aliases: [順序数の後続は順序数]
+    requires:
+      - set.successor-ordinal
+
+  - id: set.inductive-set
+    name: 帰納的集合
+    kind: definition
+    aliases: [帰納的集合, inductive set]
+    requires:
+      - set.successor-ordinal
+
   - id: set.omega
     name: 最小の帰納的集合 omega
     kind: theorem
-    aliases: [最小の帰納的集合, omega]
+    aliases: [最小の帰納的集合, 最小の帰納的集合 omega]
     requires:
-      - set.ordinal
+      - set.inductive-set
       - set.separation-schema
+      - set.ordinal
 
   - id: set.limit-ordinal
     name: 極限順序数
@@ -43,9 +65,24 @@ concepts:
       - set.ordinal
       - set.successor-ordinal
 
+  - id: set.ordinal-zero-successor-limit
+    name: 順序数の三分類
+    kind: proposition
+    aliases: [順序数の三分類]
+    requires:
+      - set.limit-ordinal
+
+  - id: set.transitive-subset-initial-segment
+    name: 順序数の推移的部分集合は初期部分
+    kind: lemma
+    aliases: [順序数の推移的部分集合は初期部分]
+    requires:
+      - set.ordinal
+      - set.transitive-set
+
   - id: set.ordinal-trichotomy
     name: 順序数の三分律
     kind: theorem
     aliases: [順序数の三分律, ordinal trichotomy]
     requires:
-      - set.ordinal
+      - set.transitive-subset-initial-segment
