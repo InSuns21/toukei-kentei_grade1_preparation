@@ -972,7 +972,7 @@ $$
 (\operatorname{rank}(z)+1).
 $$
 
-$y\in x$ なので、上限を取る集合の中に
+$y\in x$ なので、rank を定める順序数集合の中に
 
 $$
 \operatorname{rank}(y)+1
@@ -1241,7 +1241,7 @@ $$
 
 **4. rank の減少。**
 
-$y\in z$ なら上限の定義から
+$y\in z$ なら rank の定義から
 
 $$
 \operatorname{rank}(y)+1
