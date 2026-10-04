@@ -957,6 +957,7 @@ knowledge.yaml、全体 concept registry、依存監査ロジックを変更し�
 10. factor と type I / II / III 分類が「名前だけの紹介」にならず、center・projection の構造から動機を説明できる。
 11. 既存 PDE・確率解析等へ不要な prerequisite を追加していない。
 12. 全変更章が DREAM THEATER の導入・証明・例・演習・詳細解答の規約を満たす。
+13. FA8--FA10 で、閉作用素から $C_0$ 半群・生成作用素・Hille--Yosida・mild solution までが PDE から再利用できる stable result として閉じている。
 
 ---
 
@@ -992,17 +993,15 @@ knowledge.yaml、全体 concept registry、依存監査ロジックを変更し�
   │     抽象 Cauchy 問題・mild solution
   │
   └─→ 作用素環論 I
-  Banach 環
-  Gelfand 理論
-  C*-環
-  連続関数計算
-  Gelfand--Naimark
-  状態・GNS
-  一般スペクトル定理
-
-        ↓
-
-作用素環論 II
+        Banach 環
+        Gelfand 理論
+        C*-環
+        連続関数計算
+        Gelfand--Naimark
+        状態・GNS
+        一般スペクトル定理
+          ↓
+        作用素環論 II
   SOT / WOT
   可換子・二重可換子
   von Neumann 環
