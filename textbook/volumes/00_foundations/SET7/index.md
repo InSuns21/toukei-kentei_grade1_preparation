@@ -172,6 +172,7 @@ $$
 $$
 <!-- formal-statement-end -->
 
+<!-- proof-start -->
 ### 証明
 
 反対に単射
@@ -385,6 +386,7 @@ $$
 $$
 <!-- formal-statement-end -->
 
+<!-- proof-start -->
 ### 証明
 
 まず任意の $\beta\le\alpha$ について包含写像
@@ -451,6 +453,7 @@ $$
 と置くと、$\kappa^+$ は $\kappa$ より大きい最小の基数である。
 <!-- formal-statement-end -->
 
+<!-- proof-start -->
 ### 証明
 
 直前の定理から $\kappa^+$ は $\kappa$ より大きい基数です。
