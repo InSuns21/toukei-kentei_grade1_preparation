@@ -654,11 +654,11 @@ $$
 
 右辺は $u\in L^2$ により総和可能なので、Parseval 型等式から $\nabla\phi\in L^2$ です。さらに $k\ne0$ では $|k|\ge1$ なので
 
-$
+$$
 |\widehat\phi(k)|^2
 \le
 |k|^2|\widehat\phi(k)|^2.
-$
+$$
 
 $\widehat\phi(0)=0$ と合わせると $\phi\in L^2$ でもあり、従って $\phi\in H^1$ です。
 
@@ -1611,13 +1611,13 @@ $$
 #### NS1-B01 周期 Helmholtz 分解を一つのモードで再構成する
 - Level: B
 
-$
+$$
 u(x)=ae^{ik\cdot x},
 \qquad
 k\ne0,
 \qquad
 a\in\mathbb R^3
-$
+$$
 
 とする。
 
