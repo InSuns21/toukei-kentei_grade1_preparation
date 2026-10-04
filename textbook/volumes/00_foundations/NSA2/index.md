@@ -380,9 +380,9 @@ $$
 $s[y\mapsto5]$ では $y$ の値だけを5へ変更するので
 
 $$
-s[y\mapsto5](x)=2,
+s[y\mapsto5]\\,(x)=2,
 \qquad
-s[y\mapsto5](y)=5.
+s[y\mapsto5]\\,(y)=5.
 $$
 <!-- definition-example-end -->
 
@@ -829,19 +829,19 @@ $$
 $z\in\operatorname{FV}(\psi)$ を取ります。$z=x$ なら
 
 $$
-s[x\mapsto a](x)
+s[x\mapsto a]\\,(x)
 =
 a
 =
-r[x\mapsto a](x).
+r[x\mapsto a]\\,(x).
 $$
 
 $z\ne x$ なら $z\in\operatorname{FV}(\exists x\,\psi)$ なので $s(z)=r(z)$ です。したがって
 
 $$
-s[x\mapsto a](z)
+s[x\mapsto a]\\,(z)
 =
-r[x\mapsto a](z).
+r[x\mapsto a]\\,(z).
 $$
 
 よって二つの変更後割当ては $\operatorname{FV}(\psi)$ 上で一致します。帰納法の仮定から
@@ -1491,15 +1491,15 @@ $$
 $z\in\operatorname{FV}(\psi)$ を取ります。$z=x$ なら
 
 $$
-s[x\mapsto a](x)=a=r[x\mapsto a](x).
+s[x\mapsto a]\\,(x)=a=r[x\mapsto a]\\,(x).
 $$
 
 $z\ne x$ なら $z\in\operatorname{FV}(\exists x\,\psi)$ なので $s(z)=r(z)$ です。従って
 
 $$
-s[x\mapsto a](z)
+s[x\mapsto a]\\,(z)
 =
-r[x\mapsto a](z).
+r[x\mapsto a]\\,(z).
 $$
 
 二つの変更後割当ては $\operatorname{FV}(\psi)$ 上で一致するので、帰納法の仮定から
