@@ -6,12 +6,7 @@ prerequisites:
   - SET9
   - F0-00A1B
 
-forward_references:
-  - nonstandard.first-order-language
-  - nonstandard.los-theorem
-  - nonstandard.transfer-principle
-  - nonstandard.internal-set
-  - nonstandard.standard-part
+forward_references: []
 
 concepts:
   - id: nonstandard.u-equivalence
@@ -37,13 +32,6 @@ concepts:
     requires:
       - nonstandard.u-equivalence-relation
       - set.quotient-set
-
-  - id: nonstandard.ultrapower-real
-    name: 実数列の超冪
-    kind: term
-    aliases: [実数列の超冪, ultrapower of the reals]
-    requires:
-      - nonstandard.hyperreal-number
 
   - id: nonstandard.hyperreal-arithmetic
     name: 超実数の加法・乗法・符号反転
@@ -95,14 +83,14 @@ concepts:
       - topology.ultrafilter-dichotomy
 
   - id: nonstandard.standard-embedding
-    name: 標準埋め込み
+    name: 実数の標準埋め込み
     kind: definition
-    aliases: [標準埋め込み, standard embedding]
+    aliases: [hyperreal standard embedding]
     requires:
       - nonstandard.hyperreal-number
 
   - id: nonstandard.standard-embedding-ordered-field
-    name: 標準埋め込みは順序体の埋め込みである
+    name: 実数の標準埋め込みは順序体の埋め込みである
     kind: proposition
     aliases: []
     requires:
