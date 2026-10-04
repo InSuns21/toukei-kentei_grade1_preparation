@@ -5,10 +5,18 @@ prerequisites:
   - SET9
 
 forward_references:
+  - linear.linear-independence
+  - linear.basis
   - linear.hamel-basis-existence
+  - functional.linear-functional
+  - functional.sublinear-functional
   - functional.hahn-banach-theorem
+  - algebra.commutative-ring
+  - algebra.unital-ring
   - algebra.maximal-ideal
+  - algebra.prime-ideal
   - measure.vitali-set
+  - topology.compact-hausdorff-product-fa4
 
 concepts:
   - id: set.explicit-selector-no-choice
