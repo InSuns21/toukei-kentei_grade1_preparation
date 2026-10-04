@@ -9,9 +9,9 @@ FA3 では弱位相・弱*位相を「有限個の観測量で作る位相」と
 ```text
 フィルター
   ↓ Zornの補題
-ウルトラフィルターへの極大延長
+超フィルターへの極大延長
   ↓ コンパクト性の有限交差性
-コンパクト ⇔ 全ウルトラフィルターが収束
+コンパクト ⇔ 全超フィルターが収束
   ↓ 座標ごとの収束
 コンパクト Hausdorff 空間族の積はコンパクト
   ↓ 双対単位球を座標値で埋め込む
@@ -28,7 +28,7 @@ Goldstine
 
 特に次の三点を混同しません。
 
-- **Zorn の補題**は、フィルターをウルトラフィルターへ極大延長するときに使います。
+- **Zorn の補題**は、フィルターを超フィルターへ極大延長するときに使います。
 - **完備性**は Banach–Alaoglu 自体には不要です。定理は任意のノルム空間で成り立ちます。
 - **Hahn–Banach**は FA3 の標準埋め込みの等長性と、本章後半で C6A の [点と閉凸集合の強分離](../F0_02C6A_分離定理_Minkowski_Farkas/index.md#thm-f0-02c6a-strong-separation) を使う場面に現れます。Goldstine の有限次元分離部分は直接計算します。
 
@@ -36,120 +36,56 @@ Goldstine
 
 ---
 
-## 1. ウルトラフィルター：選択原理が入る場所
+## 1. 超フィルターは SET9 の正本を使う
 
-<a id="def-fa4-ultrafilter"></a>
+この章で必要な超フィルター（超フィルター）の定義・二者択一・拡張補題は、集合論・数学基礎論の [SET9 弱い選択原理と超フィルター](../SET9/index.md) で正本化しました。
+
+ここでは次の二点を既知として使います。
+
+- [超フィルターの二者択一](../SET9/index.md#thm-set9-超フィルター-dichotomy)：任意の $A\subseteq S$ について
+  $$
+  A\in\mathcal U
+  \quad\text{または}\quad
+  S\setminus A\in\mathcal U
+  $$
+  のちょうど一方が成り立つ。
+- [超フィルター拡張補題](../SET9/index.md#thm-set9-超フィルター-lemma-from-zorn)：任意のフィルター $\mathcal F$ は、それを含む超フィルター $\mathcal U$ へ延長できる。
+
+後者の SET9 での証明は、フィルター全体を包含で順序付け、鎖の合併を上界として Zorn の補題を適用するものです。したがって **選択原理が入る場所は超フィルターへの極大延長**であり、以後のコンパクト性の議論とは分けて追えます。
+
+一点 $s\in S$ から作る
+
+$$
+\mathcal U_s
+=
+\{A\subseteq S:s\in A\}
+$$
+
+は主超フィルターの最小例です。FA4 ではこの具体例も SET9 の定義に従って読みます。
+
+
+## 2. コンパクト性と超フィルターの収束
+
+<a id="thm-fa4-compact-超フィルター"></a>
 <!-- formal-statement-start -->
-### 定義（ウルトラフィルター）
-
-集合 $S$ 上のフィルター $\mathcal U$ が **ウルトラフィルター（ultrafilter）** であるとは、$\mathcal U$ を真に含む $S$ 上の proper フィルターが存在しないことをいう。
-<!-- formal-statement-end -->
-
-<!-- definition-example-start: def-fa4-ultrafilter -->
-**定義の確認**：一点フィルター
-
-$s\in S$ に対して
-
-$$
-\mathcal U_s=\{A\subseteq S:s\in A\}
-$$
-
-と置きます。$\mathcal U_s$ がフィルターであることは包含関係から直接確認できます。
-
-さらに、$\mathcal U_s$ を含む proper フィルター $\mathcal G$ があるとします。もし $A\in\mathcal G$ で $s\notin A$ なら、$S\setminus A\in\mathcal U_s\subseteq\mathcal G$ です。すると
-
-$$
-A\cap(S\setminus A)=\varnothing
-$$
-
-も $\mathcal G$ に入ってしまい proper 性に反します。従って $\mathcal G$ の全ての集合は $s$ を含み、$\mathcal G\subseteq\mathcal U_s$ です。
-
-よって $\mathcal G=\mathcal U_s$ であり、$\mathcal U_s$ はウルトラフィルターです。
-<!-- definition-example-end -->
-
-### 1.1 極大性から二者択一を出す
-
-ウルトラフィルター $\mathcal U$ と任意の $A\subseteq S$ について
-
-$$
-A\in\mathcal U
-\quad\text{または}\quad
-S\setminus A\in\mathcal U
-$$
-
-のちょうど一方が成り立ちます。
-
-$A\notin\mathcal U$ とします。もし全ての $U\in\mathcal U$ で $U\cap A\ne\varnothing$ なら、集合族
-
-$$
-\{U\cap A:U\in\mathcal U\}
-$$
-
-は空集合を含まず有限交叉で閉じたフィルター基です。そこから生成される proper フィルターは $\mathcal U$ と $A$ の両方を含み、$\mathcal U$ の極大性に反します。したがってある $U_0\in\mathcal U$ が
-
-$$
-U_0\cap A=\varnothing
-$$
-
-を満たします。よって $U_0\subseteq S\setminus A$ であり、フィルターの上方閉性から $S\setminus A\in\mathcal U$ です。両方が入ればその交叉 $\varnothing$ も入ってしまうので、ちょうど一方です。
-
-<a id="lem-fa4-ultrafilter-extension"></a>
-<!-- formal-statement-start -->
-### 補題（ウルトラフィルター拡張補題）
-
-集合 $S$ 上の任意のフィルター $\mathcal F$ は、ある ウルトラフィルター $\mathcal U$ に含まれる。
-<!-- formal-statement-end -->
-
-<!-- proof-start -->
-### 証明
-
-$\mathcal F$ を含む proper フィルター 全体を
-
-$$
-\mathscr P=\{\mathcal G:\mathcal G\text{ は }S\text{ 上のフィルター},\ \mathcal F\subseteq\mathcal G\}
-$$
-
-とし、包含関係で半順序を入れます。$\mathcal F\in\mathscr P$ なので非空です。
-
-$\mathscr C\subseteq\mathscr P$ を chain とし
-
-$$
-\mathcal H=\bigcup_{\mathcal G\in\mathscr C}\mathcal G
-$$
-
-と置きます。各 $\mathcal G$ は proper なので $\varnothing\notin\mathcal H$、また $S\in\mathcal H$ です。
-
-$A,B\in\mathcal H$ なら、ある $\mathcal G_1,\mathcal G_2\in\mathscr C$ があって $A\in\mathcal G_1$, $B\in\mathcal G_2$ です。chain なので一方が他方を含みます。大きい方には $A,B$ がともに属するため $A\cap B$ も属し、従って $A\cap B\in\mathcal H$ です。上方閉性も $A$ を含む一つのフィルターの中で従います。よって $\mathcal H$ はフィルターで、$\mathscr C$ の上界です。
-
-したがって [Zorn の補題](../F0_00A3_半順序_Zorn_極大延長/index.md#thm-zorn) により $\mathscr P$ は極大元 $\mathcal U$ を持ちます。これは定義どおりウルトラフィルターで、$\mathcal F\subseteq\mathcal U$ です。$\square$
-<!-- proof-end -->
-
-**選択原理を使ったのはこの Zorn 適用です。** 本教材では ZFC を採用するのでこの形で進めます。なお ウルトラフィルター拡張原理は完全な選択公理より弱い原理でも得られるため、「Banach–Alaogluで選択公理全体を丸ごと使う」とだけ言うより、極大延長が実際の入口だと見る方が正確です。
-
----
-
-## 2. コンパクト性とウルトラフィルターの収束
-
-<a id="thm-fa4-compact-ultrafilter"></a>
-<!-- formal-statement-start -->
-### 定理（コンパクト性のウルトラフィルター特徴付け）
+### 定理（コンパクト性の超フィルター特徴付け）
 
 位相空間 $S$ について次は同値である。
 
 1. $S$ はコンパクトである。
-2. $S$ 上の任意のウルトラフィルター は少なくとも一つの点へ収束する。
+2. $S$ 上の任意の超フィルター は少なくとも一つの点へ収束する。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
 
-まず $S$ をコンパクト、$\mathcal U$ を ultrafilter とします。閉集合族
+まず $S$ をコンパクト、$\mathcal U$ を 超フィルター とします。閉集合族
 
 $$
 \{\overline A:A\in\mathcal U\}
 $$
 
-を考えます。有限個 $A_1,\dots,A_m\in\mathcal U$ を取ると $A_1\cap\cdots\cap A_m\in\mathcal U$ です。proper フィルター なのでこの交叉は非空で、
+を考えます。有限個 $A_1,\dots,A_m\in\mathcal U$ を取ると $A_1\cap\cdots\cap A_m\in\mathcal U$ です。真のフィルター なのでこの交叉は非空で、
 
 $$
 \overline{A_1\cap\cdots\cap A_m}
@@ -165,9 +101,9 @@ $$
 
 となる $x\in S$ が存在します。
 
-$V$ を $x$ の開近傍とします。もし $V\notin\mathcal U$ なら ウルトラフィルターの二者択一から $S\setminus V\in\mathcal U$ です。すると $x\in\overline{S\setminus V}$ ですが、$V$ は $x$ を含み $S\setminus V$ と交わらない開集合なので閉包の定義に反します。従って全ての近傍 $V$ が $\mathcal U$ に入り、$\mathcal U\to x$ です。
+$V$ を $x$ の開近傍とします。もし $V\notin\mathcal U$ なら 超フィルターの二者択一から $S\setminus V\in\mathcal U$ です。すると $x\in\overline{S\setminus V}$ ですが、$V$ は $x$ を含み $S\setminus V$ と交わらない開集合なので閉包の定義に反します。従って全ての近傍 $V$ が $\mathcal U$ に入り、$\mathcal U\to x$ です。
 
-逆に $S$ がコンパクトでないとします。有限部分被覆を持たない開被覆 $\{V_i\}_{i\in I}$ を取り、$F_i=S\setminus V_i$ と置きます。有限部分被覆がないことから $\{F_i\}$ は有限交差性を持ちます。その有限交叉全体を base とする proper フィルター $\mathcal F$ を作り、前節の補題で $\mathcal F\subseteq\mathcal U$ となる ウルトラフィルターを取ります。
+逆に $S$ がコンパクトでないとします。有限部分被覆を持たない開被覆 $\{V_i\}_{i\in I}$ を取り、$F_i=S\setminus V_i$ と置きます。有限部分被覆がないことから $\{F_i\}$ は有限交差性を持ちます。その有限交叉全体を base とする 真のフィルター $\mathcal F$ を作り、前節の補題で $\mathcal F\subseteq\mathcal U$ となる 超フィルターを取ります。
 
 仮定2から $\mathcal U\to x$ となる $x$ が存在します。開被覆なので $x\in V_{i_0}$ となる $i_0$ があり、収束から $V_{i_0}\in\mathcal U$ です。一方 $F_{i_0}\in\mathcal F\subseteq\mathcal U$ なので
 
@@ -175,7 +111,7 @@ $$
 \varnothing=V_{i_0}\cap F_{i_0}\in\mathcal U,
 $$
 
-となり proper フィルター に反します。従って $S$ はコンパクトです。$\square$
+となり 真のフィルター に反します。従って $S$ はコンパクトです。$\square$
 <!-- proof-end -->
 
 ここでは距離・完備性・Hausdorff 性を使っていません。
@@ -200,7 +136,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$K=\varnothing$ なら、任意の開被覆は空の有限部分族ですでに $K$ を覆うので $K$ はコンパクトです。以下 $K\ne\varnothing$ とし、$K$ 上の任意の ウルトラフィルター $\mathcal U$ を取ります。座標射影を $\pi_i:K\to K_i$ とし
+$K=\varnothing$ なら、任意の開被覆は空の有限部分族ですでに $K$ を覆うので $K$ はコンパクトです。以下 $K\ne\varnothing$ とし、$K$ 上の任意の 超フィルター $\mathcal U$ を取ります。座標射影を $\pi_i:K\to K_i$ とし
 
 $$
 \mathcal U_i
@@ -214,9 +150,9 @@ $$
 \pi_i^{-1}(K_i\setminus A)=K\setminus\pi_i^{-1}(A)
 $$
 
-だから $\mathcal U$ の二者択一により $\mathcal U_i$ も ultrafilter です。
+だから $\mathcal U$ の二者択一により $\mathcal U_i$ も 超フィルター です。
 
-$K_i$ はコンパクトなので[前節の定理](#thm-fa4-compact-ultrafilter)から $\mathcal U_i$ はある点へ収束します。しかも $K_i$ は Hausdorff なので極限は一意です。実際 $x_i\ne y_i$ がともに極限なら、互いに素な近傍 $V\ni x_i$, $W\ni y_i$ があり、$V,W\in\mathcal U_i$ から $\varnothing=V\cap W\in\mathcal U_i$ となって矛盾します。
+$K_i$ はコンパクトなので[前節の定理](#thm-fa4-compact-超フィルター)から $\mathcal U_i$ はある点へ収束します。しかも $K_i$ は Hausdorff なので極限は一意です。実際 $x_i\ne y_i$ がともに極限なら、互いに素な近傍 $V\ni x_i$, $W\ni y_i$ があり、$V,W\in\mathcal U_i$ から $\varnothing=V\cap W\in\mathcal U_i$ となって矛盾します。
 
 よって各 $i$ に対する唯一の極限点 $x_i$ が定まり、$x=(x_i)_{i\in I}\in K$ が定まります。ここでは各座標で「どれか一つ」を新たに選んでいません。Hausdorff 性が極限を一意に指定しています。
 
@@ -228,10 +164,10 @@ $$
 
 と書けます。$\mathcal U_{i_j}\to x_{i_j}$ だから $V_j\in\mathcal U_{i_j}$、従って $\pi_{i_j}^{-1}(V_j)\in\mathcal U$ です。filter は有限交叉で閉じるので $W\in\mathcal U$。任意の基本近傍が $\mathcal U$ に入るため $\mathcal U\to x$ です。
 
-任意のウルトラフィルターが収束したので、前節の特徴付けから $K$ はコンパクトです。$\square$
+任意の超フィルターが収束したので、前節の特徴付けから $K$ はコンパクトです。$\square$
 <!-- proof-end -->
 
-TOP6 はネット／フィルターの一般論で止め、ウルトラフィルターを先取りしていません。本章では Banach–Alaoglu に必要になった地点で、Zorn まで遡ってコンパクト Hausdorff 版の積コンパクト性を閉じました。
+TOP6 はネット／フィルターの一般論で止め、超フィルターを先取りしていません。本章では Banach–Alaoglu に必要になった地点で、Zorn まで遡ってコンパクト Hausdorff 版の積コンパクト性を閉じました。
 
 ---
 
@@ -345,7 +281,7 @@ $$
 $B_{X^*}$ はコンパクト空間 $K$ の閉部分集合 $\Phi(B_{X^*})$ と同相です。コンパクト空間の閉部分集合はコンパクトなので $B_{X^*}$ は弱*コンパクトです。$\square$
 <!-- proof-end -->
 
-証明で使ったのは、各 $D_x$ の有限次元コンパクト性、ウルトラフィルター経由の積のコンパクト性、弱*位相と有限座標位相の一致、そして線形性が閉条件であることです。$X$ 内の Cauchy 列や極限は一度も取りません。**Banach 性は不要です。**
+証明で使ったのは、各 $D_x$ の有限次元コンパクト性、超フィルター経由の積のコンパクト性、弱*位相と有限座標位相の一致、そして線形性が閉条件であることです。$X$ 内の Cauchy 列や極限は一度も取りません。**Banach 性は不要です。**
 
 ---
 
@@ -751,7 +687,7 @@ $$
 
 | 結果 | 選択原理 | 完備性 | Hahn–Banach |
 |---|---|---|---|
-| ウルトラフィルター拡張 | Zornを使用 | 不要 | 不要 |
+| 超フィルター拡張 | Zornを使用 | 不要 | 不要 |
 | コンパクト Hausdorff 積 | 上の拡張を使用 | 不要 | 不要 |
 | Banach–Alaoglu | 積のコンパクト性経由 | $X$には不要 | 不要 |
 | Goldstine | 新たな選択不要 | 不要 | $J$の等長性はFA3で使用 |
@@ -768,13 +704,13 @@ $$
 ### Level A
 
 <a id="ex-fa4-a01"></a>
-#### FA4-A01 ウルトラフィルターの二者択一
+#### FA4-A01 超フィルターの二者択一
 - Level: A
 
-ウルトラフィルター $\mathcal U$ と $A\subseteq S$ に対し、$A\in\mathcal U$ または $S\setminus A\in\mathcal U$ のちょうど一方が成り立つことを証明せよ。
+超フィルター $\mathcal U$ と $A\subseteq S$ に対し、$A\in\mathcal U$ または $S\setminus A\in\mathcal U$ のちょうど一方が成り立つことを証明せよ。
 
 <!-- solution-start -->
-**解答・解説**：$A\notin\mathcal U$ とする。全ての $U\in\mathcal U$ で $U\cap A\ne\varnothing$ なら、$\{U\cap A:U\in\mathcal U\}$ が生成する proper フィルターは $\mathcal U$ と $A$ を含み、極大性に反する。従ってある $U_0\in\mathcal U$ で $U_0\cap A=\varnothing$。よって $U_0\subseteq S\setminus A$ から $S\setminus A\in\mathcal U$。両方が属すれば $\varnothing$ が filter に入るので、ちょうど一方である。
+**解答・解説**：$A\notin\mathcal U$ とする。全ての $U\in\mathcal U$ で $U\cap A\ne\varnothing$ なら、$\{U\cap A:U\in\mathcal U\}$ が生成する 真のフィルターは $\mathcal U$ と $A$ を含み、極大性に反する。従ってある $U_0\in\mathcal U$ で $U_0\cap A=\varnothing$。よって $U_0\subseteq S\setminus A$ から $S\setminus A\in\mathcal U$。両方が属すれば $\varnothing$ が filter に入るので、ちょうど一方である。
 <!-- solution-end -->
 
 <a id="ex-fa4-a02"></a>
@@ -794,7 +730,7 @@ $K=\prod_{x\in X}D_x$ の点 $a=(a_x)$ が双対単位球の像に属する条�
 Banach–Alaoglu の証明を監査し、$X$ の完備性を使っていないことを説明せよ。
 
 <!-- solution-start -->
-**解答・解説**：使ったのは各 $D_x$ の有限次元コンパクト性、ultrafilter による積のコンパクト性、弱*位相と座標位相の一致、線形方程式で像が閉になることだけである。$X$ 内の Cauchy 列やその極限を取る操作はない。従って定理は任意のノルム空間で成り立つ。
+**解答・解説**：使ったのは各 $D_x$ の有限次元コンパクト性、超フィルター による積のコンパクト性、弱*位相と座標位相の一致、線形方程式で像が閉になることだけである。$X$ 内の Cauchy 列やその極限を取る操作はない。従って定理は任意のノルム空間で成り立つ。
 <!-- solution-end -->
 
 <a id="ex-fa4-a04"></a>
@@ -880,7 +816,7 @@ $$
 
 本章で重要なのは定理名の列挙ではなく、次の接続です。
 
-- 任意積の compactness を使う直前まで遡り、Zorn による ultrafilter 拡張を実装した。
+- 任意積の compactness を使う直前まで遡り、Zorn による 超フィルター 拡張を実装した。
 - Banach–Alaoglu では双対球を座標積の中の閉じた線形方程式の解集合として実現した。
 - Goldstine では弱*近傍を有限個の汎関数による $\mathbb K^n$ の同時近似へ落とし、有限次元分離を最近点から直接証明した。
 - 反射性の逆向きでは 弱*コンパクト ⇒ closed と Goldstine ⇒ dense が噛み合う地点を明示した。
