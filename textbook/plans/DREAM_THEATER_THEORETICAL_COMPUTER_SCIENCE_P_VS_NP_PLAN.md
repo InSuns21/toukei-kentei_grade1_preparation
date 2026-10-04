@@ -397,11 +397,11 @@ P vs NP
 
 中心的な見方:
 
-$
+$$
 x_i(t+1)
 =
 F(x_{i-r}(t),\ldots,x_{i+r}(t)).
-$
+$$
 
 「次の状態は局所的に決まるが、長時間後の全体像は複雑になり得る」ことを具体例で見る。
 
@@ -493,9 +493,9 @@ $
 
 扱う内容:
 
-$
+$$
 A\le_p B.
-$
+$$
 
 - reduction algorithm
 - yes / no の保存
@@ -525,17 +525,17 @@ $
 
 tableau の各セルに対し、必要に応じて
 
-$
+$$
 X_{t,i,s}
 =
 \text{時刻 }t\text{、位置 }i\text{ が記号・状態 }s\text{ を持つ}
-$
+$$
 
 型の Boolean 変数を導入する。
 
 論理式を少なくとも次へ分解する。
 
-$
+$$
 \varphi
 =
 \varphi_{\mathrm{cell}}
@@ -545,7 +545,7 @@ $
 \varphi_{\mathrm{move}}
 \land
 \varphi_{\mathrm{accept}}.
-$
+$$
 
 証明責務:
 
@@ -559,17 +559,17 @@ $
 
 最終的に
 
-$
+$$
 M\text{ accepts }x
 \iff
 \varphi_{M,x}\in SAT
-$
+$$
 
 と
 
-$
+$$
 |\varphi_{M,x}|=\operatorname{poly}(|x|)
-$
+$$
 
 を閉じる。
 
@@ -649,11 +649,11 @@ CPLX11 を読んだ時点で、読者が問題文そのものを厳密に説明�
 
 主要結果:
 
-$
+$$
 NSPACE(s(n))
 \subseteq
 DSPACE(s(n)^2)
-$
+$$
 
 の標準形。
 
@@ -816,11 +816,11 @@ $
 
 代表的到達点:
 
-$
+$$
 NP
 =
 \text{existential second-order definability}.
-$
+$$
 
 ## 9.7 暗号理論
 
