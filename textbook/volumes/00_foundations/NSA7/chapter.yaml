@@ -1,0 +1,37 @@
+id: "NSA7"
+title: "微分・Taylor 展開を無限小で読む"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NSA6
+  - RA3
+official_scope: []
+learning_objectives:
+  - 非零無限小 h に対する差分商を定義し、標準微分係数との無限小近接を微分可能性と両方向に結べる
+  - 導関数を無限小差分商の標準部として再構成し、h の選び方に依存しない理由を説明できる
+  - RA3 の「微分可能なら連続」を、無限小増分比が有限であることと無限小 h の積から超準的に再証明できる
+  - RA3 の積の微分公式を無限小増分比の厳密な分解から再証明できる
+  - RA3 の連鎖律を、内側増分が 0 の場合と非零の場合に分けてゼロ除算なしで再証明できる
+  - Taylor の定理を無限小 h へ移送し、剰余項の係数・中間点・無限小次数を追える
+  - 「無限小を 0 として捨てる」のではなく、無限小近接と標準部によって標準値へ戻すことを説明できる
+definitions:
+  - { id: NSA7-DEF-01, name: 無限小差分商 }
+theorems:
+  - { id: NSA7-THM-01, name: 微分可能性の超準的特徴付け }
+  - { id: NSA7-COR-01, name: 導関数の標準部表示 }
+  - { id: NSA7-COR-02, name: 無限小増分における Taylor 剰余評価 }
+canonical_examples:
+  - "f(x)=x^2 で無限小増分比 2a+h の標準部が 2a"
+  - "|x| の 0 における正負の無限小差分商が一致しない"
+  - "連鎖律で *f(a+h)-f(a)=0 となる場合を別扱いする"
+  - "e^h=1+h+O(h^2) を Lagrange 剰余から読む"
+problem_patterns:
+  - INFINITESIMAL-DIFFERENCE-QUOTIENT-1
+  - NONSTANDARD-PRODUCT-RULE-1
+  - NONSTANDARD-CHAIN-RULE-1
+  - NONSTANDARD-TAYLOR-1
+  - LOCAL-LINEARIZATION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.2, review: 1.2 }

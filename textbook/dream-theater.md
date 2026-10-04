@@ -124,6 +124,8 @@
 3. [NSA3 Łoś の定理と移送原理](textbook/volumes/00_foundations/NSA3/index.md)
 4. [NSA4 内部集合・外部集合・超自然数・超有限集合](textbook/volumes/00_foundations/NSA4/index.md)
 5. [NSA5 無限小・有限超実数・標準部](textbook/volumes/00_foundations/NSA5/index.md)
+6. [NSA6 極限・連続・一様連続・コンパクト性](textbook/volumes/00_foundations/NSA6/index.md)
+7. [NSA7 微分・Taylor 展開を無限小で読む](textbook/volumes/00_foundations/NSA7/index.md)
 
 <a id="dt-subject-complex-analysis-i"></a>
 ### 複素解析 I

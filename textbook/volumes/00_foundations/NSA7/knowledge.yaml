@@ -1,0 +1,45 @@
+chapter: NSA7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NSA6
+  - RA3
+
+concepts:
+  - id: nonstandard.infinitesimal-difference-quotient
+    name: 無限小差分商
+    kind: definition
+    aliases: [infinitesimal difference quotient]
+    requires:
+      - nonstandard.infinitesimal
+      - nonstandard.standard-symbol-transfer
+      - analysis.differential-coefficient
+
+  - id: nonstandard.differentiability-characterization
+    name: 微分可能性の超準的特徴付け
+    kind: theorem
+    aliases: [nonstandard criterion for differentiability]
+    requires:
+      - nonstandard.infinitesimal-difference-quotient
+      - analysis.differential-coefficient
+      - nonstandard.standard-symbol-transfer
+
+  - id: nonstandard.derivative-standard-part
+    name: 導関数の標準部表示
+    kind: corollary
+    aliases: []
+    requires:
+      - nonstandard.differentiability-characterization
+      - nonstandard.standard-part
+      - analysis.derivative
+
+  - id: nonstandard.taylor-infinitesimal
+    name: 無限小増分における Taylor 剰余評価
+    kind: corollary
+    aliases: [infinitesimal Taylor remainder estimate]
+    introduction_aliases: ["系（無限小増分における Taylor 剰余評価）"]
+    requires:
+      - analysis.taylor-theorem
+      - analysis.ck-smoothness-class
+      - nonstandard.continuity-characterization
+      - nonstandard.standard-symbol-transfer

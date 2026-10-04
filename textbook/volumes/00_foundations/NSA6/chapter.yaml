@@ -1,0 +1,42 @@
+id: "NSA6"
+title: "極限・連続・一様連続・コンパクト性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NSA5
+  - RA2
+  - F0-00C1
+official_scope: []
+learning_objectives:
+  - 数列の収束を「任意の無限超自然数 H で *a_H が極限値に無限小近接する」という条件と両方向に結べる
+  - 実数列の Cauchy 条件を、任意の無限 H,K に対する *a_H≈*a_K と両方向に結べる
+  - 距離空間での点の連続性を、*d(x,a) が無限小なら *f(x)≈f(a) という条件と両方向に結べる
+  - 距離空間での一様連続性を、*d(x,y) が無限小なら *f(x)≈*f(y) という条件と両方向に結び、点ごとの連続性との量化順序の違いを説明できる
+  - nearstandard point を定義し、コンパクト距離空間 K について *K の全点が nearstandard であることとの同値性を証明できる
+  - コンパクト性の nearstandard 特徴付けから Heine--Cantor を超準的に導ける
+  - x^2 や 1/x の例で、非一様連続性を無限小入力差と非無限小出力差によって判定できる
+definitions:
+  - { id: NSA6-DEF-01, name: nearstandard point }
+theorems:
+  - { id: NSA6-THM-01, name: 数列極限の超準的特徴付け }
+  - { id: NSA6-THM-02, name: Cauchy 条件の超準的特徴付け }
+  - { id: NSA6-THM-03, name: 連続性の超準的特徴付け }
+  - { id: NSA6-THM-04, name: 一様連続性の超準的特徴付け }
+  - { id: NSA6-THM-05, name: コンパクト性の nearstandard 特徴付け }
+  - { id: NSA6-COR-01, name: Heine--Cantor の超準的証明 }
+canonical_examples:
+  - "a_n=1/n と無限超自然数 H に対する *a_H=1/H≈0"
+  - "f(x)=x^2 は各標準点で連続だが R 上では一様連続でない"
+  - "f(x)=1/x は (0,1) 上で一様連続でない"
+  - "コンパクト K の *K の各点は K の標準点に無限小近接する"
+problem_patterns:
+  - HYPERINDEX-LIMIT-1
+  - HYPERINDEX-CAUCHY-1
+  - MICROCONTINUITY-1
+  - UNIFORM-MICROCONTINUITY-1
+  - NEARSTANDARD-COMPACTNESS-1
+  - HEINE-CANTOR-NONSTANDARD-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.0, review: 1.2 }
