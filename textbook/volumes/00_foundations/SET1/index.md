@@ -121,7 +121,7 @@ $$
 
 <a id="def-set1-proper-class"></a>
 <!-- formal-statement-start -->
-### 用語（真の類）
+### 定義（真の類）
 
 この系列では、ある性質を満たす集合全体をメタ言語でまとめて呼びたいが、その集まり自体は集合ではない場合に **真の類** と呼ぶ。
 
@@ -304,7 +304,7 @@ Russell のパラドックスを避ける最も重要な違いは、「条件を
 
 <a id="axiom-set1-separation"></a>
 <!-- formal-statement-start -->
-### 公理図式（分出公理図式）
+### 公理（分出公理図式）
 
 集合 $A$ と集合論の論理式 $\varphi(x,\vec p)$ に対して、
 
@@ -325,7 +325,7 @@ $$
 
 <a id="def-set1-axiom-schema"></a>
 <!-- formal-statement-start -->
-### 用語（公理図式）
+### 定義（公理図式）
 
 一つの論理式の形だけでなく、許された各論理式を代入するたびに個別の公理を与える仕組みを **公理図式** という。
 <!-- formal-statement-end -->
@@ -387,7 +387,7 @@ $$
 
 <a id="axiom-set1-replacement"></a>
 <!-- formal-statement-start -->
-### 公理図式（置換公理図式）
+### 公理（置換公理図式）
 
 集合 $A$ と論理式 $\varphi(x,y,\vec p)$ があり、
 
@@ -770,7 +770,7 @@ $$
 ### Level C
 
 <a id="ex-set1-c01"></a>
-#### SET1-C01 有限集合構成で使った公理を追跡する
+#### SET1-C01 有限集合構成で使った公理を確認する
 - Level: C
 
 ZF の公理から
