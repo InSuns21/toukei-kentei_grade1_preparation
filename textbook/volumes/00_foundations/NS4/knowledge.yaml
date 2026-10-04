@@ -14,7 +14,7 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（二次元スカラー渦度）"]
     requires:
-      - navier-stokes.leray-hopf-weak-solution
+      - navier-stokes.periodic-divergence-free-space
 
   - id: navier-stokes.two-dimensional-vorticity-equation
     name: 二次元周期 Navier--Stokes の渦度方程式
