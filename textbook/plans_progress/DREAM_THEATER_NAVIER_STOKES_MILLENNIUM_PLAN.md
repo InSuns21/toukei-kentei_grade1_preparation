@@ -1628,3 +1628,27 @@ NS8A 実装時にはリンク・日付・status を再確認し、解析論文�
 次作業:
 
 - NS7「正則性判定・渦伸長・何が特異点を防ぐのか」
+
+
+---
+
+## 27. 2026-10-05 NS7 進捗
+
+実装完了:
+
+- NS7「正則性判定・渦伸長・何が特異点を防ぐのか」を実装
+- 3<p<infinity に対し r=2p/(p-2)、theta=3/p を指数計算から導き、Hölder と L2-L6 補間から Prodi--Serrin 型非線形項評価を構成し、p=infinity は直接評価で処理
+- Young の共役指数 2/(1+theta)、2/(1-theta) を明示し、3<p<infinity では q_c=2p/(p-3)、p=infinity では q_c=2 として H1 の線形 Gronwall 型評価を導出
+- 2/q+3/p<=1 の Prodi--Serrin 条件から三次元周期最大強解の延長判定を証明し、有限最大時刻では対応する Lq_t Lp_x ノルムが発散することを確認
+- p=3, q=infinity の端点では同じ Young 吸収が退化し、単純 H1 エネルギー法だけでは一般の有限 L-infinity_t L3_x を扱えないことを分離
+- 三次元渦度を導入し、交代記号と Kronecker delta の成分恒等式から curl((u dot grad)u)=(u dot grad)omega-(omega dot grad)u を導出
+- 三次元渦度方程式と渦度 L2 エネルギーを導き、二次元では消える渦伸長項が三次元で残る位置を明示
+- 速度勾配の対称部分だけが omega^T grad(u) omega に寄与することを示し、発散零 affine 場で伸長・圧縮を直接計算
+- int ||grad u||_infinity dt による尺度臨界延長判定を渦度エネルギーと H1 blow-up alternative から証明
+- Leray--Hopf 弱解、weak--strong uniqueness、Prodi--Serrin 型判定を接続し、追加積分可能性の下で弱解が強解として一意になることを証明
+- NS7 に Level A 5題 / B 4題 / C 1題と全問詳細解答を追加
+- DREAM THEATER 目次・標準数学コア・dependency graph・series routing を NS7 完了へ同期
+
+次作業:
+
+- NS8「ミレニアム問題の公式定式化を読む」

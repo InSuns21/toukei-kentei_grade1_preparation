@@ -1,0 +1,92 @@
+chapter: NS7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NS6
+
+forward_references: []
+
+concepts:
+  - id: navier-stokes.prodi-serrin-pair
+    name: Prodi--Serrin 指数対
+    kind: definition
+    aliases: ["Serrin admissible pair"]
+    introduction: formal
+    introduction_aliases: ["定義（本章の Prodi--Serrin 指数対）"]
+    requires:
+      - navier-stokes.mixed-lp-scaling
+
+  - id: navier-stokes.prodi-serrin-nonlinear
+    name: Prodi--Serrin 型非線形項評価
+    kind: proposition
+    aliases: ["Prodi--Serrin nonlinear estimate"]
+    introduction: formal
+    introduction_aliases: ["命題（Prodi--Serrin 型非線形項評価）"]
+    requires:
+      - navier-stokes.trilinear-form
+      - navier-stokes.three-dimensional-strong-solution
+      - measure.holder-inequality
+
+  - id: navier-stokes.prodi-serrin-continuation
+    name: 三次元周期 Navier--Stokes の Prodi--Serrin 型延長判定
+    kind: theorem
+    aliases: ["Prodi--Serrin continuation criterion"]
+    introduction: formal
+    introduction_aliases: ["定理（三次元周期 Navier--Stokes の Prodi--Serrin 型延長判定）"]
+    requires:
+      - navier-stokes.prodi-serrin-pair
+      - navier-stokes.prodi-serrin-nonlinear
+      - navier-stokes.h1-blowup-alternative
+      - measure.young-inequality
+      - ode.ode8-gronwall
+
+  - id: navier-stokes.three-dimensional-vorticity
+    name: 三次元渦度
+    kind: definition
+    aliases: ["3D vorticity", "vorticity in three dimensions"]
+    introduction: formal
+    introduction_aliases: ["定義（三次元渦度）"]
+    requires:
+      - vector-calculus.incompressible-navier-stokes-bridge
+
+  - id: navier-stokes.three-dimensional-vorticity-equation
+    name: 三次元 Navier--Stokes の渦度方程式
+    kind: proposition
+    aliases: ["3D Navier--Stokes vorticity equation"]
+    introduction: formal
+    introduction_aliases: ["命題（三次元 Navier--Stokes の渦度方程式）"]
+    requires:
+      - navier-stokes.three-dimensional-vorticity
+      - vector-calculus.incompressible-navier-stokes-bridge
+
+  - id: navier-stokes.vortex-stretching-energy
+    name: 三次元渦度エネルギーと渦伸長
+    kind: proposition
+    aliases: ["vortex stretching energy identity"]
+    introduction: formal
+    introduction_aliases: ["命題（三次元渦度エネルギーと渦伸長）"]
+    requires:
+      - navier-stokes.three-dimensional-vorticity-equation
+      - navier-stokes.trilinear-skew
+
+  - id: navier-stokes.velocity-gradient-continuation
+    name: 速度勾配による尺度臨界延長判定
+    kind: theorem
+    aliases: ["velocity-gradient continuation criterion"]
+    introduction: formal
+    introduction_aliases: ["定理（速度勾配による尺度臨界延長判定）"]
+    requires:
+      - navier-stokes.vortex-stretching-energy
+      - navier-stokes.h1-blowup-alternative
+      - ode.ode8-gronwall
+
+  - id: navier-stokes.prodi-serrin-weak-strong
+    name: Prodi--Serrin 条件下の弱--強一致
+    kind: corollary
+    aliases: ["weak-strong agreement under Prodi--Serrin condition"]
+    introduction: formal
+    introduction_aliases: ["系（Prodi--Serrin 条件下の弱--強一致）"]
+    requires:
+      - navier-stokes.prodi-serrin-continuation
+      - navier-stokes.weak-strong-uniqueness
+      - navier-stokes.leray-hopf-existence
