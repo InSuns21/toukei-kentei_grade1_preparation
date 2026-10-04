@@ -23,6 +23,7 @@ theorems:
   - { id: SET2-THM-01, name: 順序数の元は順序数 }
   - { id: SET2-THM-02, name: 順序数の後続は順序数 }
   - { id: SET2-THM-03, name: 最小の帰納的集合 omega }
+  - { id: SET2-PROP-01, name: 順序数の三分類 }
   - { id: SET2-LEM-01, name: 順序数の推移的部分集合は初期部分 }
   - { id: SET2-THM-04, name: 順序数の三分律 }
 canonical_examples:
