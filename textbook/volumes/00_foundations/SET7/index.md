@@ -517,7 +517,7 @@ $$
 
 という単射が作れてしまいます。
 
-しかし Hartogs の補題により、これは不可能です。
+しかし [Hartogs の補題](../SET7/index.md#thm-set7-hartogs)により、これは不可能です。
 
 従って $h(X)$ より前のどこかで未選択部分が空になり、その時点までに選んだ順番が $X$ の整列を与えます。
 
@@ -816,7 +816,7 @@ $$
 
 $\omega$ は順序数です。
 
-Hartogs の補題から
+[Hartogs の補題](../SET7/index.md#thm-set7-hartogs)から
 
 $$
 h(\omega)
@@ -824,7 +824,7 @@ $$
 
 が存在し、$\omega$ へ単射できません。
 
-また「順序数の Hartogs 数はより大きい基数」の定理から
+また「[順序数の Hartogs 数はより大きい基数](../SET7/index.md#thm-set7-hartogs-cardinal)」の定理から
 
 $$
 h(\omega)
@@ -832,7 +832,7 @@ $$
 
 は $\omega$ より大きい基数です。
 
-さらに「次の基数」の系から、$\omega$ と $h(\omega)$ の間に別の基数はありません。
+さらに「[次の基数](../SET7/index.md#cor-set7-successor-cardinal)」の系から、$\omega$ と $h(\omega)$ の間に別の基数はありません。
 
 したがって
 
@@ -985,7 +985,7 @@ $$
 
 「非空集合族から一斉に元を選ぶ」選択公理は使っていません。
 
-したがって Hartogs の補題は ZF で証明されています。
+したがって [Hartogs の補題](../SET7/index.md#thm-set7-hartogs)は ZF で証明されています。
 <!-- solution-end -->
 
 ---
@@ -996,24 +996,24 @@ $$
 
 - 順序数
 - 置換公理図式
-- 超限帰納法
+- [超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)
 - 超限再帰
-- Hartogs の補題
+- [Hartogs の補題](../SET7/index.md#thm-set7-hartogs)
 
 に canonical な前段章が揃いました。
 
 次の段階では既存の
 
 - F0-00A2 選択公理
-- F0-00A3 Zorn の補題
-- F0-00A3A 選択公理と Zorn の補題の同値性
+- F0-00A3 [Zorn の補題](../F0_00A3_半順序_Zorn_極大延長/index.md#thm-zorn)
+- F0-00A3A 選択公理と [Zorn の補題](../F0_00A3_半順序_Zorn_極大延長/index.md#thm-zorn)の同値性
 
 をこの系列へ接続し、
 
 $$
 \mathrm{AC}
 \Longleftrightarrow
-\text{整列可能定理}
+\text{[整列可能定理](../F0_00A2_選択公理_Zorn_極大原理/index.md#thm-well-ordering)}
 \Longleftrightarrow
 \mathrm{Zorn}
 $$
