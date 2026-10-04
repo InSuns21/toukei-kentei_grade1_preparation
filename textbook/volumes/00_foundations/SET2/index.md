@@ -101,13 +101,13 @@ $$
 
 集合 $\alpha$ に対し、$\alpha$ 上の関係 $\preceq_\alpha$ を
 
-$
+$$
 \beta\preceq_\alpha\gamma
 \quad\Longleftrightarrow\quad
 \beta=\gamma
 \ \text{または}\ 
 \beta\in\gamma
-$
+$$
 
 で定める。
 
@@ -120,11 +120,11 @@ $\alpha$ が **順序数** であるとは、
 
 このとき厳密な大小は
 
-$
+$$
 \beta<\gamma
 \quad\Longleftrightarrow\quad
 \beta\in\gamma
-$
+$$
 
 と書く。
 <!-- formal-statement-end -->
@@ -142,17 +142,17 @@ $$
 
 厳密な大小は所属関係で
 
-$
+$$
 0\in1,\qquad
 0\in2,\qquad
 1\in2
-$
+$$
 
 となります。したがって $\preceq_3$ は
 
-$
+$$
 0\preceq_3 1\preceq_3 2
-$
+$$
 
 という全順序を与えます。非空部分集合
 $\{0,2\}$ の最小元は $0$、
@@ -517,6 +517,7 @@ ZF では、包含関係で最小の帰納的集合 $\omega$ が存在する。
 さらに $\omega$ は順序数である。
 <!-- formal-statement-end -->
 
+<!-- proof-start -->
 ### 証明
 
 無限公理から帰納的集合 $I$ を一つ取ります。
@@ -575,29 +576,29 @@ $$
 
 最後に $\preceq_\omega$ が整列であることを示します。$m,n\in\omega$ はともに順序数なので、前節の[順序数の三分律](#thm-set2-ordinal-trichotomy)から
 
-$
+$$
 m\in n,
 \qquad
 m=n,
 \qquad
 n\in m
-$
+$$
 
 のいずれか一つが成り立ちます。従って $\preceq_\omega$ は全順序です。
 
 非空部分集合 $A\subseteq\omega$ を取ります。正則性公理から、ある $m\in A$ が
 
-$
+$$
 m\cap A=\varnothing
-$
+$$
 
 を満たします。任意の $n\in A$ について三分律を使うと、もし $n\in m$ なら $n\in m\cap A$ となって矛盾するため、
 
-$
+$$
 m=n
 \quad\text{または}\quad
 m\in n.
-$
+$$
 
 したがって $m\preceq_\omega n$ であり、$m$ は $A$ の最小元です。
 
