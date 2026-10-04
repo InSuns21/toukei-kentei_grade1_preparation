@@ -2,7 +2,7 @@
 
 作成日: 2026-09-29  
 更新日: 2026-10-04  
-状態: in_progress
+状態: implemented_pending_validation
 
 ## 0. 位置づけ
 
@@ -488,23 +488,30 @@ dream-theater-standard-math-core.md の共通基礎には、本科目を必修�
 
 ## 8A. 2026-10-04 進捗
 
-完了:
+実装完了:
 
 - SET-U1--SET-U3 / F0-00A1D の既存前提を確認
 - F0-00A3A の暗黙依存を特定
-- SET1--SET7 を実装
-- F0-00A3A を SET8 相当へ再配置し、SET2 / SET4 / SET7 を実 prerequisite に設定
-- dream-theater.md に独立「集合論・数学基礎論」を追加
-- dream-theater-index.json で A3A を共通基礎から基礎論系へ移動
+- SET1 公理的集合論への入口
+- SET2 順序型・順序数
+- SET3 超限帰納法
+- SET4 超限再帰・順序数演算
+- SET5 累積階層・rank
+- SET6 基数
+- SET7 Hartogs の補題
+- F0-00A3A を stable ID / URL のまま SET8 相当へ再配置
+- SET9 弱い選択原理・超フィルター
+- SET10 選択公理の数学各分野への接続
+- dream-theater.md / dream-theater-index.json に独立「集合論・数学基礎論」を追加
 - dream-theater-standard-math-core.md では共通基礎に入れず発展分岐として案内
 - dependency-graph.md に独立系列の主線を追加
-- 順序数・超限再帰・Hartogs・Replacement の重複 concept owner を解消
+- 順序型・順序数・超限再帰・Hartogs・Replacement の canonical owner を整理
 
 残作業:
 
-- SET9 弱い選択原理・超フィルター
-- SET10 数学各分野への接続
-- SET9 / SET10 を含む最終横断監査と plan_done への移動
+- DREAM THEATER 専用 validation / pedagogy audit
+- CI / Pages の確認
+- 検証完了後に plan_done へ移動
 
 ## 9. 完成条件
 
