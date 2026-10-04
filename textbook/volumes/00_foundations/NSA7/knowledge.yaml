@@ -37,6 +37,7 @@ concepts:
     name: 無限小増分における Taylor 剰余評価
     kind: corollary
     aliases: [infinitesimal Taylor remainder estimate]
+    introduction_aliases: ["系（無限小増分における Taylor 剰余評価）"]
     requires:
       - analysis.taylor-theorem
       - analysis.ck-smoothness-class
