@@ -149,7 +149,7 @@ $$
 \kappa\cong\lambda.
 $$
 
-順序数の三分律から $\kappa<\lambda$, $\kappa=\lambda$, $\lambda<\kappa$ のどれかです。
+[順序数の三分律](../SET2/index.md#thm-set2-ordinal-trichotomy)から $\kappa<\lambda$, $\kappa=\lambda$, $\lambda<\kappa$ のどれかです。
 
 もし $\kappa<\lambda$ なら、$\lambda$ は自分より小さい順序数 $\kappa$ と全単射になり、$\lambda$ が基数であることに反します。逆も同様です。
 
@@ -246,7 +246,7 @@ $$
 
 があるとします。
 
-順序数の三分律から、もし $\lambda<\kappa$ なら包含写像
+[順序数の三分律](../SET2/index.md#thm-set2-ordinal-trichotomy)から、もし $\lambda<\kappa$ なら包含写像
 
 $$
 \lambda\hookrightarrow\kappa
@@ -254,7 +254,7 @@ $$
 
 も存在します。
 
-二方向の単射があるので SET-U3 の Cantor--Bernstein の定理から
+二方向の単射があるので SET-U3 の [Cantor--Bernstein の定理](../SET-U3/index.md#thm-setu3-cantor-bernstein)から
 
 $$
 \kappa\cong\lambda.
@@ -310,7 +310,7 @@ $$
 
 $\aleph_1$ は「$\aleph_0$ より大きい最小の基数」として定義したくなります。
 
-ただし、そのような「次の基数」が存在することをこの時点で無条件に使いません。SET7 の Hartogs の補題が、選択公理なしで「任意の順序数より大きい基数」を作れることを保証します。そこで $\aleph_1$ 以降の存在を回収します。
+ただし、そのような「[次の基数](../SET7/index.md#cor-set7-successor-cardinal)」が存在することをこの時点で無条件に使いません。SET7 の [Hartogs の補題](../SET7/index.md#thm-set7-hartogs)が、選択公理なしで「任意の順序数より大きい基数」を作れることを保証します。そこで $\aleph_1$ 以降の存在を回収します。
 
 ---
 
@@ -458,7 +458,7 @@ $$
 
 となります。
 
-しかし SET-U3 の Cantor の定理は、どの集合もその冪集合と全単射にならないことを示しています。矛盾です。$\square$
+しかし SET-U3 の [Cantor の定理](../SET-U3/index.md#thm-setu3-cantor)は、どの集合もその冪集合と全単射にならないことを示しています。矛盾です。$\square$
 <!-- proof-end -->
 
 ### 重要な境界
@@ -747,7 +747,7 @@ $$
 #### SET6-B02 冪集合は真に大きい
 - Level: B
 
-Cantor の定理と一元集合写像を使って、
+[Cantor の定理](../SET-U3/index.md#thm-setu3-cantor)と一元集合写像を使って、
 
 $$
 \kappa<|\mathcal P(\kappa)|
@@ -772,7 +772,7 @@ $$
 
 という単射です。
 
-Cantor の定理から
+[Cantor の定理](../SET-U3/index.md#thm-setu3-cantor)から
 
 $$
 \kappa\not\cong\mathcal P(\kappa).
@@ -788,7 +788,7 @@ $$
 
 従って単射による比較の意味で $\mathcal P(\kappa)$ は $\kappa$ より真に大きいです。
 
-ただし ZF だけでは $\mathcal P(\kappa)$ が整列可能とは限らないので、その濃度を必ず一つの初期順序数で表せるとは限りません。ZFC なら整列可能定理により基数代表を取れます。
+ただし ZF だけでは $\mathcal P(\kappa)$ が整列可能とは限らないので、その濃度を必ず一つの初期順序数で表せるとは限りません。ZFC なら[整列可能定理](../F0_00A2_選択公理_Zorn_極大原理/index.md#thm-well-ordering)により基数代表を取れます。
 <!-- solution-end -->
 
 <a id="ex-set6-b03"></a>
@@ -893,7 +893,7 @@ $$
 \kappa\cong X\cong\lambda.
 $$
 
-順序数の三分律で $\kappa<\lambda$ なら、$\lambda$ が自分より小さい順序数 $\kappa$ と全単射になり、$\lambda$ の初期性に反します。$\lambda<\kappa$ も同様です。
+[順序数の三分律](../SET2/index.md#thm-set2-ordinal-trichotomy)で $\kappa<\lambda$ なら、$\lambda$ が自分より小さい順序数 $\kappa$ と全単射になり、$\lambda$ の初期性に反します。$\lambda<\kappa$ も同様です。
 
 従って
 
@@ -924,4 +924,4 @@ X\text{ へ単射できない順序数}
 }
 $$
 
-を ZF だけで構成します。これが Hartogs の補題です。
+を ZF だけで構成します。これが [Hartogs の補題](../SET7/index.md#thm-set7-hartogs)です。
