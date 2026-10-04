@@ -5,9 +5,6 @@ prerequisites:
   - NSA3
   - SET9
 
-forward_references:
-  - NSA5
-
 concepts:
   - id: nonstandard.hypernatural-number
     name: 超自然数
@@ -132,7 +129,7 @@ concepts:
       - nonstandard.internal-overspill
 
   - id: nonstandard.hyperfinite-maximum
-    name: 非空内部部分集合の超有限最大値原理
+    name: 非空内部部分集合の最大元定理
     kind: theorem
     aliases: []
     requires:
