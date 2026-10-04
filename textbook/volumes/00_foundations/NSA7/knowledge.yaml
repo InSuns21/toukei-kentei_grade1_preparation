@@ -33,37 +33,10 @@ concepts:
       - nonstandard.standard-part
       - analysis.derivative
 
-  - id: nonstandard.differentiable-implies-continuous
-    name: 微分可能なら連続の超準的証明
-    kind: proposition
-    aliases: []
-    requires:
-      - nonstandard.differentiability-characterization
-      - nonstandard.infinitesimal-arithmetic
-      - analysis.differentiable-implies-continuous
-
-  - id: nonstandard.product-rule
-    name: 積の微分公式の超準的導出
-    kind: proposition
-    aliases: []
-    requires:
-      - nonstandard.differentiability-characterization
-      - nonstandard.differentiable-implies-continuous
-      - analysis.product-rule
-
-  - id: nonstandard.chain-rule
-    name: 連鎖律の超準的導出
-    kind: proposition
-    aliases: []
-    requires:
-      - nonstandard.differentiability-characterization
-      - nonstandard.differentiable-implies-continuous
-      - analysis.chain-rule
-
   - id: nonstandard.taylor-infinitesimal
-    name: Taylor の定理の無限小表示
-    kind: theorem
-    aliases: [infinitesimal Taylor expansion]
+    name: 無限小増分における Taylor 剰余評価
+    kind: corollary
+    aliases: [infinitesimal Taylor remainder estimate]
     requires:
       - analysis.taylor-theorem
       - analysis.ck-smoothness-class
