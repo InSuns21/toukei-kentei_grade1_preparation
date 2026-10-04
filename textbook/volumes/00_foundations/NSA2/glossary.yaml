@@ -1,0 +1,32 @@
+chapter: "NSA2"
+terms:
+  - term: 一階言語
+    english: first-order language
+    meaning: 定数記号・関数記号・関係記号と論理記号から項・論理式を組み立てるための記号体系。
+  - term: 項
+    english: term
+    meaning: 変数・定数記号から始め、関数記号を有限回適用して作る、構造の要素を表す式。
+  - term: 原子論理式
+    english: atomic formula
+    meaning: 二つの項の等式、または関係記号を項へ適用した、論理結合子や量化を含まない最小の論理式。
+  - term: 自由変数
+    english: free variable
+    meaning: 論理式中で量化記号に捕捉されず、外部の変数割当てから値を受け取る変数。
+  - term: 文
+    english: sentence
+    meaning: 自由変数を一つも持たない一階論理式。
+  - term: 構造
+    english: structure
+    meaning: 一階言語の各定数・関数・関係記号へ、台集合上の実際の元・写像・関係を対応させたもの。
+  - term: 変数割当て
+    english: variable assignment
+    meaning: 各変数へ構造の台集合の要素を対応させる写像。
+  - term: 充足
+    english: satisfaction
+    meaning: 構造と変数割当ての下で論理式が真になることを、項・論理結合子・量化に沿って再帰的に定める関係。
+  - term: 構文帰納法
+    english: structural induction
+    meaning: 原子論理式から論理結合子・量化で論理式を作る構成規則に沿って、全ての論理式について性質を証明する帰納法。
+  - term: 多ソート一階言語
+    english: many-sorted first-order language
+    meaning: 変数・定数・関数・関係に対象の種類を表すソートを付け、型を保って項と論理式を作る一階言語。
