@@ -28,7 +28,7 @@ Goldstine
 
 特に次の三点を混同しません。
 
-- **Zorn の補題**は、フィルターを超フィルターへ極大延長するときに使います。
+- **[Zorn の補題](../F0_00A3_半順序_Zorn_極大延長/index.md#thm-zorn)**は、フィルターを超フィルターへ極大延長するときに使います。
 - **完備性**は Banach–Alaoglu 自体には不要です。定理は任意のノルム空間で成り立ちます。
 - **Hahn–Banach**は FA3 の標準埋め込みの等長性と、本章後半で C6A の [点と閉凸集合の強分離](../F0_02C6A_分離定理_Minkowski_Farkas/index.md#thm-f0-02c6a-strong-separation) を使う場面に現れます。Goldstine の有限次元分離部分は直接計算します。
 
@@ -51,7 +51,7 @@ Goldstine
   のちょうど一方が成り立つ。
 - [超フィルター拡張補題](../SET9/index.md#thm-set9-ultrafilter-lemma-from-zorn)：任意のフィルター $\mathcal F$ は、それを含む超フィルター $\mathcal U$ へ延長できる。
 
-後者の SET9 での証明は、フィルター全体を包含で順序付け、鎖の合併を上界として Zorn の補題を適用するものです。したがって **選択原理が入る場所は超フィルターへの極大延長**であり、以後のコンパクト性の議論とは分けて追えます。
+後者の SET9 での証明は、フィルター全体を包含で順序付け、鎖の合併を上界として [Zorn の補題](../F0_00A3_半順序_Zorn_極大延長/index.md#thm-zorn)を適用するものです。したがって **選択原理が入る場所は超フィルターへの極大延長**であり、以後のコンパクト性の議論とは分けて追えます。
 
 一点 $s\in S$ から作る
 
@@ -101,7 +101,7 @@ $$
 
 となる $x\in S$ が存在します。
 
-$V$ を $x$ の開近傍とします。もし $V\notin\mathcal U$ なら 超フィルターの二者択一から $S\setminus V\in\mathcal U$ です。すると $x\in\overline{S\setminus V}$ ですが、$V$ は $x$ を含み $S\setminus V$ と交わらない開集合なので閉包の定義に反します。従って全ての近傍 $V$ が $\mathcal U$ に入り、$\mathcal U\to x$ です。
+$V$ を $x$ の開近傍とします。もし $V\notin\mathcal U$ なら [超フィルターの二者択一](../SET9/index.md#thm-set9-ultrafilter-dichotomy)から $S\setminus V\in\mathcal U$ です。すると $x\in\overline{S\setminus V}$ ですが、$V$ は $x$ を含み $S\setminus V$ と交わらない開集合なので閉包の定義に反します。従って全ての近傍 $V$ が $\mathcal U$ に入り、$\mathcal U\to x$ です。
 
 逆に $S$ がコンパクトでないとします。有限部分被覆を持たない開被覆 $\{V_i\}_{i\in I}$ を取り、$F_i=S\setminus V_i$ と置きます。有限部分被覆がないことから $\{F_i\}$ は有限交差性を持ちます。その有限交叉全体を base とする 真のフィルター $\mathcal F$ を作り、前節の補題で $\mathcal F\subseteq\mathcal U$ となる 超フィルターを取ります。
 
