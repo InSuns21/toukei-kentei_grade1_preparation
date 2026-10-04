@@ -10,6 +10,8 @@ DREAM THEATER 本編で整備している測度論・線形代数・Fourier解�
 
 ことを体験できる応用課題群を整備する。
 
+逆問題と情報幾何は、応用系列の一部ではなく独立した数学分野として整備する方針へ変更した。理論正本はそれぞれ `DREAM_THEATER_INVERSE_PROBLEMS_PLAN.md`、`DREAM_THEATER_INFORMATION_GEOMETRY_PLAN.md` とし、本計画では必要に応じて応用先から参照するだけにする。
+
 この計画は **現在進行中の既存記事の粒度・構成強化を優先し、その完了後に着手する後続ロードマップ** とする。現時点では各分野の本編追加を行わず、依存関係・実装順・到達点を定義する。
 
 ---
@@ -20,11 +22,9 @@ DREAM THEATER 本編で整備している測度論・線形代数・Fourier解�
 
 | やりたいこと | 最初の統計・数理 | 地下で必要になるもの |
 | --- | --- | --- |
-| 体の内部を見たい | 線形モデル・積分・ノイズ | 逆問題・Radon変換・Fourier解析・関数解析・正則化 |
 | ロボットを迷子にしたくない | Bayes・正規分布・状態空間モデル | Kalman filter・EKF・particle filter・SLAM |
 | 不確実な市場を価格付けしたい | 確率過程・期待値・Monte Carlo | Brown運動・Itô解析・SDE・リスク中立評価 |
 | 市場の価格矛盾を見つけたい | 回帰・最適化・時系列 | 凸最適化・マルチンゲール・測度変換・共和分 |
-| Fisher情報量の正体をもっと知りたい | 尤度・score・Fisher情報量 | 情報幾何・Fisher–Rao計量・指数型分布族・自然勾配 |
 | 量子状態を観測から推定したい | 二項分布・MLE・Fisher情報量 | 密度作用素・POVM・量子状態推定・量子Fisher情報量 |
 
 共通テンプレートは次の順序とする。
@@ -53,78 +53,9 @@ DREAM THEATER 本編で整備している測度論・線形代数・Fourier解�
 
 ---
 
-# Phase 1：逆問題・確率ロボティクス
+# Phase 1：確率ロボティクス
 
-既存教材との接続が最も強く、応用上の目的も視覚化しやすい2系列を最初に実装する。
-
-## U1 逆問題：体の中を見たい
-
-### Mission
-
-X線CTのように、対象を切り開かずに内部構造を復元したい。
-
-### 最小モデル
-
-未知画像を $f(x,y)$ とし、方向 $\theta$、位置 $s$ の投影を
-
-$$
-Rf(\theta,s)
-=
-\int_{x\cos\theta+y\sin\theta=s} f(x,y)\,d\ell
-$$
-
-とする。観測された $Rf$ から $f$ を復元する。
-
-離散化すると
-
-$$
-Ax=b
-$$
-
-だが、実測では
-
-$$
-Ax+\varepsilon=b_{\mathrm{obs}}
-$$
-
-となる。
-
-### 地下へ降りる順序
-
-1. 小さな画素画像を用いた線形方程式としてのCT
-2. Radon変換
-3. Fourier slice theorem
-4. filtered back projection
-5. SVDと小さい特異値によるノイズ増幅
-6. ill-posedness と Hadamard の well-posedness
-7. Tikhonov正則化
-
-$$
-\hat f
-=
-\arg\min_f
-\left\{
-\|Af-g\|^2+\lambda\|Lf\|^2
-\right\}
-$$
-
-8. Hilbert空間・有界作用素・コンパクト作用素・随伴作用素への接続
-9. optional basement：TV正則化・compressed sensing・Bayesian inverse problem
-10. optional basement：地震探査、波動方程式、Full Waveform Inversion、adjoint-state method
-
-### 既存教材との接続
-
-- 線形代数・SVD・作用素ノルム
-- Fourier解析
-- Hilbert空間・随伴作用素
-- 凸最適化・正則化
-- Bayes推論
-
-### 最低到達点
-
-「逆行列を掛ければよい」がノイズ下で破綻する理由を、特異値と正則化の両方から説明できる。
-
----
+既存教材との接続が強く、応用上の目的を視覚化しやすい系列として先に実装する。
 
 ## U2 確率ロボティクス：ロボットを迷子にしたくない
 
@@ -306,63 +237,7 @@ optional basement：martingale optimal transport。
 
 ---
 
-# Phase 3：情報幾何
-
-## U5 情報幾何：Fisher情報量、お前ここにもいたのか
-
-### Mission
-
-MLEやCramér–Raoで使ってきたFisher情報量を、単なる公式ではなく「確率分布の空間の幾何」として理解したい。
-
-### 最小モデル
-
-パラメトリック分布族
-
-$$
-\{p(x;\theta):\theta\in\Theta\}
-$$
-
-を点の集合とみなし、Fisher情報行列
-
-$$
-g_{ij}(\theta)
-=
-E_\theta\left[
-\frac{\partial}{\partial\theta_i}\log p(X;\theta)
-\frac{\partial}{\partial\theta_j}\log p(X;\theta)
-\right]
-$$
-
-を局所的な計量として読む。
-
-### 地下へ降りる順序
-
-1. 1次元正規分布でFisher情報量を距離感として読む
-2. Fisher information matrix
-3. reparameterization に対する変換
-4. Fisher–Rao metric
-5. exponential family
-6. KL divergence の局所2次近似
-7. natural gradient
-8. optional basement：dual connections、Bregman divergence、Amariの情報幾何
-
-### 既存教材との接続
-
-- score
-- Fisher情報量
-- Cramér–Rao
-- MLE
-- 指数型分布族
-- KL divergence
-- 多変量微分
-
-### 最低到達点
-
-Fisher情報行列が推定精度の指標であるだけでなく、パラメータ化に依存しない局所幾何を与える理由を具体例で説明できる。
-
----
-
-# Phase 4：量子統計
+# Phase 3：量子統計
 
 ## U6 量子統計：量子状態を観測から推定したい
 
@@ -427,14 +302,23 @@ Schrödinger方程式、量子力学の全体系、場の量子論を本系列�
 
 ---
 
+# 独立数学 PLAN との関係
+
+本計画から分離した数学系列:
+
+- **逆問題**: \`DREAM_THEATER_INVERSE_PROBLEMS_PLAN.md\`
+  - Hadamard well-posedness、コンパクト作用素、特異系、正則化理論、非線形逆問題、tomography、Bayes 逆問題、PDE 制約逆問題を数学として整備する。
+- **情報幾何**: \`DREAM_THEATER_INFORMATION_GEOMETRY_PLAN.md\`
+  - statistical manifold、Fisher--Rao 計量、divergence、双対接続、$\alpha$-connection、双対平坦性、情報射影、自然勾配を数学として整備する。
+
+CT、機械学習、推定などの応用が地下帝国側の記事で必要になっても、上記の理論を本計画内で再構築しない。
+
+---
+
 # 依存関係
 
-```text
+\`\`\`text
 既存の通常教材・DREAM THEATER
-│
-├─ 線形代数 / SVD / Fourier / 関数解析
-│   └─ U1 逆問題
-│       └─ Bayesian inverse problem / seismic imaging（optional）
 │
 ├─ Bayes / 多変量正規 / 状態空間 / Monte Carlo
 │   └─ U2 確率ロボティクス
@@ -447,30 +331,24 @@ Schrödinger方程式、量子力学の全体系、場の量子論を本系列�
 │       ├─ 無裁定理論・測度変換
 │       └─ 統計的裁定・共和分
 │
-├─ likelihood / score / Fisher / 指数型分布族
-│   └─ U5 情報幾何
-│       └─ natural gradient
-│
 └─ 線形代数 + likelihood / Fisher
     └─ U6 量子統計
         └─ quantum Fisher / tomography
-```
+\`\`\`
 
-実装順は依存関係だけでなく、既存教材の再利用率を重視して
+実装順は
 
 $$
 \boxed{
-\text{逆問題・確率ロボティクス}
+\text{確率ロボティクス}
 \rightarrow
 \text{数理ファイナンス・裁定}
-\rightarrow
-\text{情報幾何}
 \rightarrow
 \text{量子統計}
 }
 $$
 
-を標準とする。
+を標準とする。逆問題・情報幾何の実装順は、それぞれの独立 PLAN を正本とする。
 
 ---
 
@@ -499,23 +377,20 @@ $$
 
 推奨単位：
 
-1. U1-01 CTと離散逆問題
-2. U1-02 Radon変換とFourier slice theorem
-3. U1-03 ill-posedness・SVD・正則化
-4. U2-01 Bayes localization
-5. U2-02 Kalman filter
-6. U2-03 particle filterからSLAM入口
-7. U3-01 random walkからBrown運動・GBM
-8. U3-02 Monte Carlo pricing・Black–Scholes
-9. U3-03 最適執行・確率制御入口（HJB / viscosity の正本は 最適制御・HJB・微分ゲーム計画）
-10. U4-01 静的裁定と凸最適化
-11. U4-02 無裁定とマルチンゲール測度
-12. U4-03 統計的裁定・共和分
-13. U5-01 Fisher情報行列からFisher–Rao計量
-14. U5-02 指数型分布族・KL・natural gradient
-15. U6-01 qubit測定を二項推定として読む
-16. U6-02 density matrix・tomography
-17. U6-03 quantum Fisher information
+1. U2-01 Bayes localization
+2. U2-02 Kalman filter
+3. U2-03 particle filterからSLAM入口
+4. U3-01 random walkからBrown運動・GBM
+5. U3-02 Monte Carlo pricing・Black–Scholes
+6. U3-03 最適執行・確率制御入口（HJB / viscosity の正本は 最適制御・HJB・微分ゲーム計画）
+7. U4-01 静的裁定と凸最適化
+8. U4-02 無裁定とマルチンゲール測度
+9. U4-03 統計的裁定・共和分
+10. U6-01 qubit測定を二項推定として読む
+11. U6-02 density matrix・tomography
+12. U6-03 quantum Fisher information
+
+逆問題・情報幾何の実装単位は独立 PLAN 側で管理する。
 
 各PRは、既存記事の品質強化と同じく「読者が途中を自力で再現できる粒度」を満たしてから次へ進む。
 
@@ -524,7 +399,7 @@ $$
 # この計画でやらないこと
 
 - 現在進行中の既存記事強化を中断して新規記事を量産しない。
-- 6分野をそれぞれ独立した大学院教科書の完全版にしない。
+- 本計画の各応用系列を、それぞれ独立した大学院教科書の完全版にしない。
 - HJB / viscosity / Isaacs の理論を U3 内で重複実装しない。金融固有の状態変数・目的関数・境界条件・解釈に集中する。
 - 応用上不要な抽象論を、体系上美しいという理由だけで必須化しない。
 - 量子統計を一般的な量子力学講義へ置換しない。
