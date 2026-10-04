@@ -14,9 +14,10 @@ concepts:
     requires: []
 
   - id: logic.term
-    name: 項
+    name: 一階論理の項
     kind: definition
     aliases: [logical term]
+    introduction_aliases: [項]
     requires:
       - logic.first-order-language
 
@@ -42,9 +43,10 @@ concepts:
       - logic.first-order-formula
 
   - id: logic.sentence
-    name: 文
+    name: 一階論理の文
     kind: definition
     aliases: [sentence]
+    introduction_aliases: [文]
     requires:
       - logic.free-variables
 
