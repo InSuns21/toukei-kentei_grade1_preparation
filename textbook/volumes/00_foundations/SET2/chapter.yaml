@@ -33,10 +33,12 @@ canonical_examples:
   - 有限 von Neumann 順序数
   - omega と omega+1
   - 共通部分による順序数比較
+  - 有限整列集合の順序型
 problem_patterns:
   - ORDINAL-VERIFY-1
   - SUCCESSOR-ORDINAL-1
   - ORDINAL-COMPARISON-1
+  - ORDER-TYPE-1
 past_exam_alignment: []
 integrated_exam_problems: []
 exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
