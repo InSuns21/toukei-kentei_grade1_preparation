@@ -1,0 +1,40 @@
+id: "NSA3"
+title: "Łoś の定理と移送原理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NSA2
+  - SET9
+official_scope: []
+learning_objectives:
+  - 一階構造の超冪を定義し、定数・関数・関係の解釈が代表元によらず定まることを確認できる
+  - 項の評価が超冪で座標ごとの評価と可換することを項の構成に関する帰納法で証明できる
+  - Łoś の定理を正確に述べ、原子論理式・否定・論理積・論理和・存在量化・全称量化の各段を構文帰納法で証明できる
+  - 存在量化の witness 列の構成で可算選択を使う箇所を、自由超フィルターの存在とは別の論点として説明できる
+  - Łoś の定理から標準埋め込みに沿う移送原理を導き、多項式・順序・固定した標準関数の命題へ適用できる
+  - standard・無限小・有限超実数・外部部分集合などへ移送原理を誤用できない理由を一階言語と多ソート超冪の量化範囲から説明できる
+definitions:
+  - { id: NSA3-DEF-01, name: 一階構造の超冪 }
+theorems:
+  - { id: NSA3-PROP-01, name: 超冪の記号解釈は代表元によらない }
+  - { id: NSA3-LEM-01, name: 超冪における項評価補題 }
+  - { id: NSA3-THM-01, name: Łoś の定理 }
+  - { id: NSA3-COR-01, name: 移送原理 }
+  - { id: NSA3-COR-02, name: 固定した標準関数・標準関係の移送 }
+canonical_examples:
+  - 順序体構造の超冪としての超実数
+  - 多項式恒等式と順序命題の移送
+  - 正の超実数に平方根が存在することの移送
+  - 固定関数を言語へ追加したときの標準拡張
+  - standard 述語を基礎構造へ追加しても標準元集合を定義できないこと
+  - 集合ソートの超冪が任意の外部部分集合ではなく内部集合を走ること
+problem_patterns:
+  - ULTRAPOWER-INTERPRETATION-1
+  - LOS-ATOMIC-1
+  - LOS-QUANTIFIER-1
+  - TRANSFER-APPLICATION-1
+  - TRANSFER-SCOPE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 4.0, review: 1.2 }
