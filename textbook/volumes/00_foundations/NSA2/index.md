@@ -365,7 +365,7 @@ $$
 
 を**変数割当て**という。
 
-変数 $x$ だけを $a\in M$ へ変更した割当てを $s[x\mapsto a]$ と書く。
+変数 $x$ だけを $a\in M$ へ変更した割当てを $s_{x\mapsto a}$ と書く。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-nsa2-assignment -->
@@ -377,12 +377,12 @@ $$
 
 とします。他の変数にも実数を割り当てれば変数割当てになります。
 
-$s[y\mapsto5]$ では $y$ の値だけを5へ変更するので
+$s_{y\mapsto5}$ では $y$ の値だけを5へ変更するので
 
 $$
-s[y\mapsto5]\\,(x)=2,
+s_{y\mapsto5}\\,(x)=2,
 \qquad
-s[y\mapsto5]\\,(y)=5.
+s_{y\mapsto5}\\,(y)=5.
 $$
 <!-- definition-example-end -->
 
@@ -600,7 +600,7 @@ $$
 であることを、ある $a\in M$ が存在して
 
 $$
-\mathcal M,s[x\mapsto a]\models\varphi
+\mathcal M,s_{x\mapsto a}\models\varphi
 $$
 
 となることと定める。
@@ -614,7 +614,7 @@ $$
 であることを、全ての $a\in M$ について
 
 $$
-\mathcal M,s[x\mapsto a]\models\varphi
+\mathcal M,s_{x\mapsto a}\models\varphi
 $$
 
 となることと定める。
@@ -632,7 +632,7 @@ $$
 存在量化の定義により、ある $a\in\mathbb R$ を選んで
 
 $$
-\mathbb R_{\mathrm{of}},s[y\mapsto a]
+\mathbb R_{\mathrm{of}},s_{y\mapsto a}
 \models
 x+y=0
 $$
@@ -772,9 +772,9 @@ $$
 核心は量化です。$\exists x\,\psi$ で $s$ 側の witness $a$ を選んだら、$r$ 側でも同じ $a$ を使います。そのために
 
 $$
-s[x\mapsto a],
+s_{x\mapsto a},
 \qquad
-r[x\mapsto a]
+r_{x\mapsto a}
 $$
 
 が $\psi$ の自由変数上で一致することを確認します。
@@ -815,7 +815,7 @@ $$
 を仮定します。充足の定義から、ある $a\in M$ が存在して
 
 $$
-\mathcal M,s[x\mapsto a]\models\psi.
+\mathcal M,s_{x\mapsto a}\models\psi.
 $$
 
 ここで
@@ -829,25 +829,25 @@ $$
 $z\in\operatorname{FV}(\psi)$ を取ります。$z=x$ なら
 
 $$
-s[x\mapsto a]\\,(x)
+s_{x\mapsto a}\\,(x)
 =
 a
 =
-r[x\mapsto a]\\,(x).
+r_{x\mapsto a}\\,(x).
 $$
 
 $z\ne x$ なら $z\in\operatorname{FV}(\exists x\,\psi)$ なので $s(z)=r(z)$ です。したがって
 
 $$
-s[x\mapsto a]\\,(z)
+s_{x\mapsto a}\\,(z)
 =
-r[x\mapsto a]\\,(z).
+r_{x\mapsto a}\\,(z).
 $$
 
 よって二つの変更後割当ては $\operatorname{FV}(\psi)$ 上で一致します。帰納法の仮定から
 
 $$
-\mathcal M,r[x\mapsto a]\models\psi.
+\mathcal M,r_{x\mapsto a}\models\psi.
 $$
 
 同じ $a$ を witness として
@@ -867,13 +867,13 @@ $$
 を仮定します。任意の $a\in M$ について
 
 $$
-\mathcal M,s[x\mapsto a]\models\psi.
+\mathcal M,s_{x\mapsto a}\models\psi.
 $$
 
 存在量化の場合と同じ確認で、二つの変更後割当ては $\operatorname{FV}(\psi)$ 上で一致します。帰納法の仮定から
 
 $$
-\mathcal M,r[x\mapsto a]\models\psi.
+\mathcal M,r_{x\mapsto a}\models\psi.
 $$
 
 $a$ は任意なので
@@ -1249,7 +1249,7 @@ $$
 なので
 
 $$
-\mathbb R_{\mathrm{of}},s[y\mapsto1/4]
+\mathbb R_{\mathrm{of}},s_{y\mapsto1/4}
 \models
 x\cdot y=1.
 $$
@@ -1312,7 +1312,7 @@ $$
 なので
 
 $$
-\mathbb R_{\mathrm{of}},s[y\mapsto3]
+\mathbb R_{\mathrm{of}},s_{y\mapsto3}
 \models
 0<y\land y\cdot y=x.
 $$
@@ -1477,7 +1477,7 @@ $$
 を仮定します。ある $a\in M$ が存在して
 
 $$
-\mathcal M,s[x\mapsto a]\models\psi.
+\mathcal M,s_{x\mapsto a}\models\psi.
 $$
 
 また
@@ -1491,21 +1491,21 @@ $$
 $z\in\operatorname{FV}(\psi)$ を取ります。$z=x$ なら
 
 $$
-s[x\mapsto a]\\,(x)=a=r[x\mapsto a]\\,(x).
+s_{x\mapsto a}\\,(x)=a=r_{x\mapsto a}\\,(x).
 $$
 
 $z\ne x$ なら $z\in\operatorname{FV}(\exists x\,\psi)$ なので $s(z)=r(z)$ です。従って
 
 $$
-s[x\mapsto a]\\,(z)
+s_{x\mapsto a}\\,(z)
 =
-r[x\mapsto a]\\,(z).
+r_{x\mapsto a}\\,(z).
 $$
 
 二つの変更後割当ては $\operatorname{FV}(\psi)$ 上で一致するので、帰納法の仮定から
 
 $$
-\mathcal M,r[x\mapsto a]\models\psi.
+\mathcal M,r_{x\mapsto a}\models\psi.
 $$
 
 同じ $a$ が $r$ 側でも witness になるため
@@ -1519,13 +1519,13 @@ $$
 **全称量化。** $\varphi=\forall x\,\psi$ とします。$\mathcal M,s\models\forall x\,\psi$ なら任意の $a\in M$ について
 
 $$
-\mathcal M,s[x\mapsto a]\models\psi.
+\mathcal M,s_{x\mapsto a}\models\psi.
 $$
 
 存在量化の場合と同じ理由で変更後割当ては $\operatorname{FV}(\psi)$ 上で一致するため
 
 $$
-\mathcal M,r[x\mapsto a]\models\psi.
+\mathcal M,r_{x\mapsto a}\models\psi.
 $$
 
 $a$ は任意なので
