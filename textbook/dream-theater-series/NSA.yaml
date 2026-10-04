@@ -15,7 +15,7 @@ chapters:
     title: 移送のための最小一階論理
   - id: NSA3
     path: textbook/volumes/00_foundations/NSA3
-    status: planned
+    status: completed
     title: Łoś の定理と移送原理
   - id: NSA4
     path: textbook/volumes/00_foundations/NSA4
