@@ -493,7 +493,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-set3-progressive-property -->
-**定義の確認。** [超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)は、「$\theta$ 上で累進的な性質は $\theta$ の全段階で成り立つ」と言い換えられます。
+**定義の確認**。 [超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)は、「$\theta$ 上で累進的な性質は $\theta$ の全段階で成り立つ」と言い換えられます。
 <!-- definition-example-end -->
 
 ---
