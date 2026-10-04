@@ -37,7 +37,7 @@ concepts:
       - set.dependent-choice
       - set.countable-choice
 
-  - id: set.ultraフィルター
+  - id: set.ultrafilter
     name: 超フィルター
     kind: definition
     aliases: [超フィルター, ultrafilter]
@@ -49,42 +49,42 @@ concepts:
     kind: theorem
     aliases: [超フィルターの二者択一]
     requires:
-      - set.ultraフィルター
+      - set.ultrafilter
 
-  - id: set.principal-ultraフィルター
+  - id: set.principal-ultrafilter
     name: 主超フィルター
     kind: definition
     aliases: [主超フィルター, principal ultrafilter]
     requires:
-      - set.ultraフィルター
+      - set.ultrafilter
 
-  - id: set.free-ultraフィルター
+  - id: set.free-ultrafilter
     name: 自由超フィルター
     kind: definition
     aliases: [自由超フィルター, free ultrafilter]
     requires:
-      - set.principal-ultraフィルター
+      - set.principal-ultrafilter
 
-  - id: set.cofinite-フィルター
-    name: 余有限 フィルター
+  - id: set.cofinite-filter
+    name: 余有限フィルター
     kind: definition
-    aliases: [余有限 フィルター, 余有限フィルター, 余有限フィルター（cofinite フィルター）]
+    aliases: [余有限フィルター, 余有限フィルター, 余有限フィルター（cofinite filter）]
     requires:
       - topology.filter
 
-  - id: set.cofinite-is-フィルター
-    name: 余有限族は フィルター である
+  - id: set.cofinite-is-filter
+    name: 余有限族はフィルター である
     kind: proposition
-    aliases: [余有限族は フィルター である]
+    aliases: [余有限族はフィルター である]
     requires:
-      - set.cofinite-フィルター
+      - set.cofinite-filter
 
   - id: set.ultrafilter-lemma
     name: Zorn からの超フィルター拡張
     kind: theorem
-    aliases: [Zorn からの超フィルター拡張, 超フィルター補題, ultraフィルター lemma]
+    aliases: [Zorn からの超フィルター拡張, 超フィルター補題, ultrafilter lemma]
     requires:
-      - set.ultraフィルター
+      - set.ultrafilter
       - set.zorn-lemma
 
   - id: set.free-ultrafilter-on-natural
@@ -92,6 +92,6 @@ concepts:
     kind: theorem
     aliases: [自然数上の自由超フィルターの存在]
     requires:
-      - set.cofinite-is-フィルター
+      - set.cofinite-is-filter
       - set.ultrafilter-lemma
-      - set.free-ultraフィルター
+      - set.free-ultrafilter
