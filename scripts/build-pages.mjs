@@ -246,7 +246,9 @@ await cp(textbookSourceDir, textbookTargetDir, {
   recursive: true,
   filter: (source) => {
     const relative = path.relative(textbookSourceDir, source);
-    return relative === '' || relative.split(path.sep)[0] !== 'templates';
+    if (relative === '') return true;
+    if (path.basename(relative) === 'AGENTS.md') return false;
+    return relative.split(path.sep)[0] !== 'templates';
   },
 });
 await orientPublishedMarkdownTree(textbookTargetDir, 'textbook');

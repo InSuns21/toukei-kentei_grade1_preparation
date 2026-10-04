@@ -67,5 +67,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Validate live smoke script syntax
+        run: python3 -m py_compile scripts/smoke-pages-live.py
+
       - name: Assemble and validate Pages site
         run: npm run validate:pages

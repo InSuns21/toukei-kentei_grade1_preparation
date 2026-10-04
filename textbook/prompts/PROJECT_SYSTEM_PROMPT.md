@@ -18,13 +18,16 @@
 
 ファイル名・章ID・PR・branchが指定された場合は、まず実在する対象を特定してから編集する。似た名前から推測して別ファイルを直さない。
 
-規約が散在して見える場合も、古い監査・過去チャットを勝手に規約化せず、現在の正本とその適用範囲を確認する。
+規約は対象スコープに最も近い `AGENTS.md` を読む。root `AGENTS.md` は共通ルータと破壊防止規則であり、通常教材は `textbook/AGENTS.md`、DREAM THEATER は `textbook/volumes/00_foundations/AGENTS.md`、Anki は `anki/AGENTS.md` を追加で適用する。対象外スコープの長い規約を毎回読み込まない。
+
+規約が散在して見える場合も、古い監査・過去チャットを勝手に規約化せず、現在の scoped AGENTS とそこから参照される正本を確認する。
 
 ### 2. 通常教材の基本正本
 
 通常教材を編集・査読するときは、少なくとも次を確認する。
 
 - `AGENTS.md`
+- `textbook/AGENTS.md`
 - `CONTENT_GUIDELINES.md`
 - `EXERCISE_GUIDELINES.md`
 - `textbook/style-guide.md`
@@ -37,14 +40,19 @@
 
 ### 3. DREAM THEATER は専用規約へ切り替える
 
-対象 `index.md` が `textbook/dream-theater-index.json` に掲載される DREAM THEATER ページなら、通常教材の共通正本に加えて必ず次を読む。
+対象 `index.md` が `textbook/dream-theater-index.json` に掲載される DREAM THEATER ページなら、通常教材の共通正本に加えて `textbook/volumes/00_foundations/AGENTS.md` を適用し、必要な範囲で次を読む。
 
-1. `textbook/DREAM_THEATER_AUTHORING_STANDARD.md`
-2. `textbook/DREAM_THEATER_EXERCISE_POLICY.md`
-3. `textbook/formal-statement-presentation-guide.md`
-4. `textbook/proof-presentation-guide.md`
-5. `textbook/knowledge-dag.yaml`
-6. 対象系列のカリキュラム・設計台帳
+1. `textbook/dream-theater-work.yaml`
+2. そこから参照される `textbook/dream-theater-series/<series>.yaml`
+3. `active_plan`
+4. `textbook/DREAM_THEATER_AUTHORING_STANDARD.md`
+5. `textbook/DREAM_THEATER_EXERCISE_POLICY.md`
+6. `textbook/formal-statement-presentation-guide.md`
+7. `textbook/proof-presentation-guide.md`
+8. `textbook/knowledge-dag.yaml`
+9. 対象章の `chapter.yaml` / `knowledge.yaml` と直接必要な canonical dependency
+
+「続けて」「planを進めて」では `textbook/volumes/00_foundations/` 全体を先に列挙しない。work-state → series manifest → active plan の順で現在地を確定する。章を完了して次へ進む作業では、成果物と同じ作業単位で work-state と series manifest を更新する。
 
 DREAM THEATER の本文品質、証明粒度、定義例、演習量、詳細解答、依存関係、完成条件は `DREAM_THEATER_AUTHORING_STANDARD.md` を入口の正本として判定する。
 
@@ -135,17 +143,20 @@ DREAM THEATER では各演習に詳細解答を必須とし、本番答案・20�
 
 人手査読では、「式を見れば分かるだろう」という前提で複数段を圧縮していないかも確認する。特に「〜より」「したがって」「同様に」「計算すると」の直後に完成式が出る箇所は、読者が引用元の定理からその式を紙上で再現できるかを点検する。
 
-機械検証は必要だが、CI greenを完成の十分条件にしない。DREAM THEATER では変更内容に応じて少なくとも
+機械検証は必要だが、CI greenを完成の十分条件にしない。検証は変更スコープに合わせる。
 
-- `npm run validate`
-- `npm run validate:pages`
+通常の leaf chapter PR では、まず changed-only fast path を使う。代表的には
+
+- `npm run validate:textbook:changed`
+- `npm run validate:textbook-knowledge:changed`
+- `npm run validate:dream-theater-concepts:changed`
 - `npm run validate:dream-theater-exercise-counts`
-- `npm run audit:proof-pedagogy`
-- `npm run audit:formalism-pedagogy`
 
-を使い、`knowledge.yaml`・全体概念レジストリ・依存監査ロジックを変更した場合は対応する strict validation も実行する。`dream-theater-standard-math-core.md` だけを変更した場合は Pages / リンク検証と prerequisite の人手照合を行う。
+を変更内容に応じて使う。Pages の全サイト assembly や全教材 audit を leaf変更ごとに重複実行することを前提にしない。
 
-DREAM THEATER の概念依存検証は、PR では変更ページに対する changed-only strict validation を原則とする。新規章を index へ追加するだけの pure-add と、その新規章の `knowledge.yaml` 追加を理由に全体概念監査を強制しない。既存章の `knowledge.yaml` 変更、index の削除・移動・並べ替え、全体レジストリ・推論規則・監査エンジンの変更など、未変更ページへ波及しうる変更では full audit を実行する。main への push では全体監査を行う。具体的な scope 判定は `DREAM_THEATER_AUTHORING_STANDARD.md` と CI の scope detector を正本とする。
+一方、workflow、validator、共通規約、global index、knowledge DAG、全体概念レジストリ、推論規則など未変更ページへ波及しうる変更は full validation へ昇格する。full audit は main への push、nightly、manual dispatch でも維持する。Pages は content-only PR では full assembly を main deploy に委ね、公開後 smoke は通常差分、nightly は全manifestを確認する。
+
+DREAM THEATER の概念依存検証は、PR では変更ページに対する changed-only strict validation を原則とする。新規章を index へ追加するだけの pure-add と、その新規章の `knowledge.yaml` 追加を理由に全体概念監査を強制しない。既存章の `knowledge.yaml` 変更、index の削除・移動・並べ替え、全体レジストリ・推論規則・監査エンジンの変更など、未変更ページへ波及しうる変更では full audit を実行する。具体的な scope 判定は scoped AGENTS、`DREAM_THEATER_AUTHORING_STANDARD.md`、CI の scope detector を正本とする。
 
 監査警告を見出し・marker・metadata追加だけで消さず、本文を読んで実際の欠陥を直す。
 
