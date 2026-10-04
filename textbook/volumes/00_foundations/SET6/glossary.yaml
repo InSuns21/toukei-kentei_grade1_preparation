@@ -1,0 +1,14 @@
+chapter: "SET6"
+terms:
+  - term: 基数
+    english: cardinal
+    meaning: 同じ濃度を持つ順序数の中で最小の順序数で、集合の大きさの標準代表として使う。
+  - term: 初期順序数
+    english: initial ordinal
+    meaning: 自分より小さいどの順序数とも全単射にならない順序数。基数の別名。
+  - term: 最小の無限基数
+    english: aleph-zero
+    meaning: 最小の無限基数で、通常 aleph_0 と書く。
+  - term: 基数算術
+    english: cardinal arithmetic
+    meaning: 互いに素な和や直積などの濃度から定める基数の加法・乗法などの演算。
