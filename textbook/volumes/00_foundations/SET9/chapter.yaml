@@ -1,0 +1,46 @@
+id: "SET9"
+title: "弱い選択原理と超フィルター"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00A2
+  - F0-00A3A
+  - TOP6
+official_scope: []
+learning_objectives:
+  - 有限選択・可算選択・従属選択・完全な選択公理を区別できる
+  - AC から DC、DC から可算選択を導ける
+  - TOP6 の filter を再利用して超フィルターを定義できる
+  - 超フィルターの二者択一を極大性から証明できる
+  - 余有限 filter が filter であることを直接確認できる
+  - Zorn の補題から超フィルター拡張を証明できる
+  - 余有限 filter の延長から自然数上の自由超フィルターを構成できる
+  - 超フィルター補題を完全な選択公理と無条件に同一視しない
+definitions:
+  - { id: SET9-AX-01, name: 従属選択公理 }
+  - { id: SET9-DEF-01, name: 超フィルター }
+  - { id: SET9-DEF-02, name: 主超フィルター }
+  - { id: SET9-DEF-03, name: 自由超フィルター }
+  - { id: SET9-DEF-04, name: 余有限 filter }
+theorems:
+  - { id: SET9-THM-01, name: 有限選択 }
+  - { id: SET9-THM-02, name: AC は DC を導く }
+  - { id: SET9-THM-03, name: DC は可算選択を導く }
+  - { id: SET9-THM-04, name: 超フィルターの二者択一 }
+  - { id: SET9-PROP-01, name: 余有限族は filter である }
+  - { id: SET9-THM-05, name: Zorn からの超フィルター拡張 }
+  - { id: SET9-THM-06, name: 自然数上の自由超フィルターの存在 }
+canonical_examples:
+  - 有限選択
+  - 自然数上の余有限 filter
+  - 主超フィルター
+  - 余有限 filter から自由超フィルターへの延長
+problem_patterns:
+  - DEPENDENT-CHOICE-1
+  - ULTRAFILTER-DICHOTOMY-1
+  - ULTRAFILTER-ZORN-1
+  - FREE-ULTRAFILTER-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 2.5, review: 0.8 }
