@@ -680,7 +680,7 @@ $$
 u=Pu+\nabla\phi.
 $$
 
-各 $k$ で $P_k\widehat u(k)$ は $k$ に直交し、$\widehat{\nabla\phi}(k)$ は $k$ に平行です。よって各モードで内積が0です。Parseval 内積等式から
+各 $k$ で $P_k\widehat u(k)$ は $k$ に直交し、$\widehat{\nabla\phi}(k)$ は $k$ に平行です。よって各モードで内積が0です。[Parseval 内積等式](../FOU4/index.md#thm-fou4-parseval)から
 
 $$
 (Pu,\nabla\phi)_{L^2}=0.
@@ -859,7 +859,7 @@ $$
 |k|^2\widehat u(k).
 $$
 
-Parseval 内積等式から
+[Parseval 内積等式](../FOU4/index.md#thm-fou4-parseval)から
 
 $$
 (Au,u)_{L^2}
@@ -1856,7 +1856,7 @@ f-(u\cdot\nabla)u
 Pg.
 $$
 
-Helmholtz 分解により
+[周期 Helmholtz 分解](#thm-ns1-periodic-helmholtz)により
 
 $$
 g=Pg+\nabla\phi.
