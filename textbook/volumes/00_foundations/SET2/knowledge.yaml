@@ -5,6 +5,9 @@ prerequisites:
   - SET1
   - F0-00A1D
 
+forward_references:
+  - set.transfinite-induction
+
 concepts:
   - id: set.transitive-set
     name: 推移的集合
