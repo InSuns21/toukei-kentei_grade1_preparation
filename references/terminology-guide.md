@@ -124,6 +124,10 @@
 | 無限小差分商 | infinitesimal difference quotient | 非零無限小 $h$ に対する $({}^*f(a+h)-f(a))/h$。微分可能性の超準的特徴付けに用いる |
 | 超有限等分割 | hyperfinite uniform partition | 無限超自然数 $H$ を用いて区間を $H$ 個へ等分する内部超有限分割。幅は $(b-a)/H$ |
 | 超有限 Riemann 和 | hyperfinite Riemann sum | 内部標本点族に対する有限 Riemann 和の移送。Riemann 可積分関数では標準部が積分値になる |
+| 級数の超準的 Cauchy 判定 | nonstandard Cauchy criterion for series | 級数の収束を、任意の無限超自然数 H<K に対する超有限尾和の無限小性で表す判定 |
+| 各点収束の超準的特徴付け | nonstandard characterization of pointwise convergence | 標準点 x を固定し、無限添字 H で *f_H(x) が極限値に無限小近接することとして各点収束を表す |
+| 一様収束の超準的特徴付け | nonstandard characterization of uniform convergence | 全ての超準点 X と無限添字 H で *f_H(X) が *f(X) に無限小近接することとして一様収束を表す |
+| 一様 Cauchy 条件の超準的特徴付け | nonstandard characterization of uniform Cauchy condition | 全ての超準点 X と無限添字 H,K で *f_H(X) と *f_K(X) が無限小近接することとして一様 Cauchy 条件を表す |
 | overspill 原理 | overspill principle | 内部集合が全ての標準自然数を含むとき無限超自然数も含むという原理 |
 
 ## DREAM THEATER：一階論理の主表記
