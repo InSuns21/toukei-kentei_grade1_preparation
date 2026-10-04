@@ -351,7 +351,7 @@ $$
 
 ---
 
-## 5.フィルターの正本を再利用する
+## 5. フィルターの正本を再利用する
 
 [TOP6](../TOP6/index.md#def-top6-filter) では、集合 $X$ 上のフィルターを
 
@@ -367,19 +367,19 @@ $$
 
 を満たすものとして定義しました。
 
-この定義は既に空集合を含まないので、本章でいうフィルターは文献で **真のフィルター（properフィルター）** と呼ばれるものに対応します。ここでは重複定義を作りません。
+この定義は既に空集合を含まないので、本章でいうフィルターは文献で **真のフィルター（proper filter）** と呼ばれるものに対応します。ここでは重複定義を作りません。
 
 ---
 
 ## 6. 超フィルター：これ以上大きくできないフィルター
 
-フィルターを包含関係で大きくしていくと、「proper なままこれ以上集合を追加できない」ところまで進めることがあります。
+フィルターを包含関係で大きくしていくと、「真のフィルターのままこれ以上集合を追加できない」ところまで進めることがあります。
 
 <a id="def-set9-ultrafilter"></a>
 <!-- formal-statement-start -->
 ### 定義（超フィルター）
 
-集合 $X$ 上のフィルター$\mathcal U$ が **超フィルター**（ultrafilter）であるとは、$\mathcal U$ を真に含む $X$ 上のフィルターが存在しないことをいう。
+集合 $X$ 上のフィルター $\mathcal U$ が **超フィルター**（ultrafilter）であるとは、$\mathcal U$ を真に含む $X$ 上のフィルターが存在しないことをいう。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-set9-ultrafilter -->
@@ -460,7 +460,7 @@ $$
 
 よって二者択一が成り立ちます。
 
-逆に二者択一を仮定し、$\mathcal U\subsetneq\mathcal F$ となるフィルター$\mathcal F$ があるとします。
+逆に二者択一を仮定し、$\mathcal U\subsetneq\mathcal F$ となるフィルター $\mathcal F$ があるとします。
 
 $$
 A\in\mathcal F\setminus\mathcal U
@@ -516,7 +516,7 @@ $$
 
 が入ります。
 
-逆に超フィルター$\mathcal U$ が $\{x\}$ を含むなら、上方閉性から $x$ を含む全ての集合が $\mathcal U$ に入り、$x$ を含まない集合はその補集合が $x$ を含むので $\mathcal U$ に入れません。従って
+逆に超フィルター $\mathcal U$ が $\{x\}$ を含むなら、上方閉性から $x$ を含む全ての集合が $\mathcal U$ に入り、$x$ を含まない集合はその補集合が $x$ を含むので $\mathcal U$ に入れません。従って
 
 $$
 \mathcal U=\mathcal U_x.
@@ -646,7 +646,7 @@ $$
 <!-- formal-statement-start -->
 ### 定理（Zorn からの超フィルター拡張）
 
-集合 $X$ 上のフィルター$\mathcal F_0$ に対して、$\mathcal F_0$ を含む超フィルター$\mathcal U$ が存在する。
+集合 $X$ 上のフィルター $\mathcal F_0$ に対して、$\mathcal F_0$ を含む超フィルター $\mathcal U$ が存在する。
 <!-- formal-statement-end -->
 
 この主張そのものを **超フィルター補題**（ultrafilter lemma）と呼びます。ここでは [Zorn の補題](../F0_00A3_半順序_Zorn_極大延長/index.md#thm-zorn)から導くため、ZFC では成立することが分かります。
@@ -771,7 +771,7 @@ $$
 \mathcal U
 $$
 
-となる超フィルター$\mathcal U$ が存在します。
+となる超フィルター $\mathcal U$ が存在します。
 
 $\mathcal U$ が主超フィルターだと仮定します。するとある $n\in\mathbb N$ が存在して
 
@@ -1115,7 +1115,7 @@ $$
 
 または逆向きです。前者としてよいです。
 
-すると $A,B$ は同じフィルター$\mathcal F_2$ に入り、
+すると $A,B$ は同じフィルター $\mathcal F_2$ に入り、
 
 $$
 A\cap B\in\mathcal F_2\subseteq\mathcal F_C.
