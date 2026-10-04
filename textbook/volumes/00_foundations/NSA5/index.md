@@ -1228,3 +1228,301 @@ $$
 
 は無限大なので標準部を持ちません。
 
+
+---
+
+## 9. 標準部は内部写像ではない
+
+NSA4 では内部集合・内部写像を、集合列・写像列から作られる対象として定義しました。標準部はその種類の写像ではありません。
+
+まず標準部の定義域そのものが
+
+$$
+\operatorname{Fin}({}^*\mathbb R)
+$$
+
+という外部集合です。NSA4 で、有限超実数全体は内部集合ではないことを既に示しました。
+
+より正確には、標準部のグラフを考えると外部性がはっきりします。
+
+<a id="prop-nsa5-standard-part-external"></a>
+<!-- formal-statement-start -->
+### 命題（標準部のグラフは外部集合である）
+
+標準部のグラフ
+
+$$
+G_{\operatorname{st}}
+=
+\left\{
+(x,r)\in{}^*\mathbb R\times{}^*\mathbb R:
+x\text{ は有限},
+\ r\in\mathbb R,
+\ r=\operatorname{st}(x)
+\right\}
+$$
+
+は内部集合ではない。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+内部関係の定義域は、存在量化で射影しても内部です。もし標準部のグラフが内部なら、その第一座標への射影は有限超実数全体になります。しかし有限超実数全体は NSA4 で外部だと分かっています。
+
+<!-- proof-start -->
+### 証明
+
+反対に $G_{\operatorname{st}}$ が内部集合だと仮定します。
+
+内部集合の第一座標への射影
+
+$$
+D
+=
+\left\{
+x\in{}^*\mathbb R:
+\exists y\in{}^*\mathbb R,\ (x,y)\in G_{\operatorname{st}}
+\right\}
+$$
+
+を考えます。
+
+内部集合は集合ソートの超冪の元であり、「ある $y$ が存在して $(x,y)$ がその内部集合に属する」という存在量化は NSA3 の Łoś の定理で座標ごとに扱えます。従って $D$ も内部集合です。
+
+一方、$G_{\operatorname{st}}$ は標準部のグラフなので、その第一座標への射影はちょうど
+
+$$
+D=\operatorname{Fin}({}^*\mathbb R)
+$$
+
+です。
+
+しかし NSA4 の [有限超実数全体は外部集合である](../NSA4/index.md#prop-nsa4-limited-hyperreals-external) に反します。
+
+従って $G_{\operatorname{st}}$ は内部集合ではありません。
+<!-- proof-end -->
+
+この外部性は欠陥ではありません。むしろ
+
+$$
+\text{内部対象を使って超準世界で計算する}
+\quad\longrightarrow\quad
+\text{最後に外部操作 }\operatorname{st}\text{ で標準世界へ戻る}
+$$
+
+という超準解析の典型的な使い方を表しています。
+
+---
+
+## 10. 典型的な誤り：$\approx$ は等号ではない
+
+無限小近接は等号のように見えますが、全ての演算で無条件に置き換えられるわけではありません。
+
+### 10.1 有限量との四則演算は安全
+
+$x\approx y$ で $z$ が有限なら
+
+$$
+x+z\approx y+z,
+$$
+
+$$
+xz\approx yz.
+$$
+
+実際、差はそれぞれ
+
+$$
+(x+z)-(y+z)=x-y,
+$$
+
+$$
+xz-yz=z(x-y)
+$$
+
+であり、後者は有限量と無限小の積です。
+
+### 10.2 無限大を掛けると壊れることがある
+
+$\varepsilon$ を正の非零無限小、$H=1/\varepsilon$ とします。
+
+$$
+\varepsilon\approx0
+$$
+
+ですが
+
+$$
+H\varepsilon=1,
+\qquad
+H\cdot0=0.
+$$
+
+従って
+
+$$
+H\varepsilon\not\approx H\cdot0.
+$$
+
+「両辺に同じものを掛けたから $\approx$ が保たれる」とは限りません。掛ける量が有限であることが重要です。
+
+### 10.3 無限小どうしで割ると比は標準的に変わり得る
+
+$$
+\varepsilon\approx2\varepsilon
+$$
+
+ですが
+
+$$
+\frac{\varepsilon}{2\varepsilon}
+=
+\frac12.
+$$
+
+一方、
+
+$$
+\frac{\varepsilon}{\varepsilon}=1.
+$$
+
+分母が無限小のとき、無限小近接だけから商の標準部を決めることはできません。NSA7 の微分では、差分商そのものが有限で、どの非零無限小を選んでも同じ標準部になることを別に証明します。
+
+---
+
+## 11. 有界な実数列を超実数として見る
+
+標準部は「収束列の極限を取り直すだけ」の道具ではありません。通常の意味では収束しない有界列から作った超実数にも標準部があります。
+
+実数列 $(a_n)$ が標準実数 $M>0$ により
+
+$$
+|a_n|\le M
+\qquad
+(\forall n)
+$$
+
+と抑えられているなら
+
+$$
+x=[a_n]
+$$
+
+は
+
+$$
+|x|\le M
+$$
+
+を満たすので有限超実数です。従って
+
+$$
+\operatorname{st}([a_n])
+$$
+
+は必ず存在します。
+
+この標準実数は固定した自由超フィルター $\mathcal U$ に依存する場合があります。例えば
+
+$$
+a_n=(-1)^n
+$$
+
+なら NSA1 で見た通り
+
+$$
+[(-1)^n]=1
+$$
+
+または
+
+$$
+[(-1)^n]=-1
+$$
+
+のどちらかで、どちらになるかは偶数集合・奇数集合のどちらを $\mathcal U$ が選ぶかに依存します。
+
+一方、通常の意味で
+
+$$
+a_n\to L
+$$
+
+なら事情は違います。任意の標準 $\varepsilon>0$ に対し十分大きい $n$ で
+
+$$
+|a_n-L|<\varepsilon
+$$
+
+なので、その添字集合は余有限です。従って
+
+$$
+[a_n]\approx L,
+$$
+
+よって
+
+$$
+\operatorname{st}([a_n])=L.
+$$
+
+これは次章で数列極限の超準的特徴付けを証明する入口になります。
+
+---
+
+## 12. この章で得た道具
+
+有限超実数 $x$ には唯一の標準実数
+
+$$
+\operatorname{st}(x)
+$$
+
+が対応し、
+
+$$
+x\approx\operatorname{st}(x)
+$$
+
+となります。
+
+また有限超実数 $x,y$ について
+
+$$
+\operatorname{st}(x+y)
+=
+\operatorname{st}(x)+\operatorname{st}(y),
+$$
+
+$$
+\operatorname{st}(xy)
+=
+\operatorname{st}(x)\operatorname{st}(y)
+$$
+
+が成り立ち、分母の標準部が 0 でなければ商についても同じです。
+
+重要なのは、標準部が**内部操作ではない**ことです。
+
+$$
+\text{内部対象を使って超準世界で計算}
+\quad\longrightarrow\quad
+\operatorname{st}
+\quad\longrightarrow\quad
+\text{標準実数へ戻る}
+$$
+
+という役割分担を保ちます。
+
+次の NSA6 では、この道具を使って
+
+$$
+a_n\to L,
+\qquad
+f\text{ が連続},
+\qquad
+f\text{ が一様連続}
+$$
+
+という $\varepsilon$-$\delta$ / $\varepsilon$-$N$ の量化を、無限超自然数と無限小近接で読み替えます。
+
