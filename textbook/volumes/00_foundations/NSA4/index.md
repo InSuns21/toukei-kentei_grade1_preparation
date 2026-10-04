@@ -1166,6 +1166,26 @@ $$
 従って
 
 $$
+E_1
+\subseteq
+\left\{
+n:
+\frac1{q_n}\notin A_n
+\right\}.
+$$
+
+右辺は $\mathcal U$ に属します。その補集合
+
+$$
+\left\{
+n:
+\frac1{q_n}\in A_n
+\right\}
+$$
+
+は $\mathcal U$ に属せません。よって
+
+$$
 X=\left[\frac1{q_n}\right]
 \notin[A_n]_{\mathrm{int}}.
 $$
@@ -1227,6 +1247,15 @@ $$
 ---
 
 ## 10. 有限超実数全体も外部集合である
+
+以下では自然数の包含 $\mathbb N\subset\mathbb R$ を座標ごとに超冪へ延ばして得る埋め込み
+
+$
+{}^*\mathbb N\hookrightarrow{}^*\mathbb R
+$
+
+を通じて、超自然数を超実数としても同じ記号で見ます。この対応は順序を保存します。
+
 
 NSA5 で標準部を作るため、有限超実数を詳しく扱います。ここでは外部性だけ先に確認します。
 
@@ -1728,7 +1757,15 @@ $$
 
 とし、非空なら $q_n=\max Q_n$、空なら $q_n=1$ とします。
 
-$E_1$ 上では $1/q_n\notin A_n$ なので
+$E_1$ 上では $1/q_n\notin A_n$ です。従って
+
+$$
+E_1
+\subseteq
+\{n:1/q_n\notin A_n\}.
+$$
+
+右辺は $\mathcal U$ に属するので、その補集合 $\{n:1/q_n\in A_n\}$ は $\mathcal U$ に属しません。よって
 
 $$
 X=[1/q_n]\notin[A_n]_{\mathrm{int}}.
