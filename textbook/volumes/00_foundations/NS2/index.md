@@ -315,7 +315,7 @@ $$
 \frac14+\frac12+\frac14=1
 $$
 
-なので Hölder の不等式がちょうど使えます。
+なので [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)がちょうど使えます。
 
 したがって欲しいのは
 
@@ -364,7 +364,7 @@ $$
 \int |u|\,|u|^3
 $$
 
-へ Hölder の不等式を使うと、$L^2$ と $L^6$ がちょうど現れます。
+へ [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)を使うと、$L^2$ と $L^6$ がちょうど現れます。
 
 <!-- proof-start -->
 ### 証明
@@ -578,7 +578,7 @@ $$
 
 $u,w\in V$ なら前節から $u,w\in L^4$、また $\nabla v\in L^2$ です。
 
-したがって Hölder の不等式により
+したがって [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)により
 
 $$
 \int
@@ -858,7 +858,7 @@ $$
 
 $v,w$ についても同様に $v_N,w_N$ を取れます。
 
-前節の $L^4$ 評価と Hölder の不等式から $b$ は $V^3$ 上で連続です。したがって
+[三次元周期場の $L^4$ 評価](#prop-ns2-periodic-l4)と [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)から $b$ は $V^3$ 上で連続です。したがって
 
 $$
 b(u_N,v_N,w_N)\to b(u,v,w),
@@ -1024,7 +1024,7 @@ $$
 |u|\,|\nabla v|\,|w|\,dx.
 $$
 
-Hölder の不等式を指数 $4,2,4$ で使うと
+[Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)を指数 $4,2,4$ で使うと
 
 $$
 |b(u,v,w)|
@@ -1346,7 +1346,7 @@ $$
 
 は0にはなりません。
 
-しかし Cauchy--Schwarz、周期 Poincaré、Young の不等式を順に使うと、粘性散逸の半分へ吸収できます。
+しかし Cauchy--Schwarz、周期 Poincaré、[Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)を順に使うと、粘性散逸の半分へ吸収できます。
 
 <a id="prop-ns2-forced-energy"></a>
 
@@ -1395,7 +1395,7 @@ $$
 
 を入れます。
 
-そこへ Young の不等式を
+そこへ [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)を
 
 $$
 a=\|f\|_2,
@@ -1853,7 +1853,7 @@ $$
 
 $u,w\in V$ なら本章の $L^4$ 評価から $u,w\in L^4$、$v\in V$ なら $\nabla v\in L^2$ です。
 
-したがって Hölder の不等式から
+したがって [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)から
 
 $$
 |b(u,v,w)|
@@ -2221,7 +2221,7 @@ $$
 
 を使ってよいとする。
 
-Hölder の不等式だけから
+[Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)だけから
 
 $$
 \|u\|_4
@@ -2258,7 +2258,7 @@ $$
 \int|u|\,|u|^3.
 $$
 
-Hölder の不等式を指数 $2,2$ で使うと
+[Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)を指数 $2,2$ で使うと
 
 $$
 \int|u|\,|u|^3
@@ -2329,7 +2329,7 @@ $$
 |u|\,|\nabla v|\,|w|\,dx.
 $$
 
-Hölder の不等式を指数
+[Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)を指数
 
 $$
 4,\quad2,\quad4
@@ -2403,7 +2403,7 @@ $$
 
 が成り立つとする。
 
-Cauchy--Schwarz、周期 Poincaré、Young の不等式を使い、
+Cauchy--Schwarz、周期 Poincaré、[Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)を使い、
 
 $$
 \|u(t)\|_2^2
@@ -2445,7 +2445,7 @@ $$
 \|f\|_2\|\nabla u\|_2.
 $$
 
-Young の不等式
+[Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)
 
 $$
 ab
@@ -2710,7 +2710,7 @@ $$
 \|f\|_2\|\nabla u_m\|_2.
 $$
 
-Young の不等式より
+[Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)より
 
 $$
 (f,u_m)
