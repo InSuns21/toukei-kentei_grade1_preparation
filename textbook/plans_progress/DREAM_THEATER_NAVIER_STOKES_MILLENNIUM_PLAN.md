@@ -1581,3 +1581,27 @@ NS8A 実装時にはリンク・日付・status を再確認し、解析論文�
 次作業:
 
 - NS5「三次元局所強解・一意性・有限時間発散判定」
+
+
+---
+
+## 25. 2026-10-05 NS5 進捗
+
+実装完了:
+
+- NS5「三次元局所強解・一意性・有限時間発散判定」を実装
+- 強解を C([0,T];V)・L2_t D(A)・時間微分 L2_t H で定義し、滑らかなせん断流で条件を直接確認
+- Au で試した H1 エネルギー式を導き、L6-L3-L2 の Hölder、L3 補間、周期 Sobolev、Fourier 表示をつないで |b(u,u,Au)| <= C||grad u||_2^(3/2)||Au||_2^(3/2) を証明
+- Young の共役指数 4/3 と 4 を明示し、y=||grad u||_2^2 に対する y' <= C_nu y^3 + forcing を導出
+- Galerkin 近似を first-hitting-time bootstrap で短時間 L-infinity_t V / L2_t D(A) に一様制御
+- 非線形項の L2_t H 評価から時間微分 L2_t H を得て、Fourier 高低周波分解で L2_t V 強収束を構成し局所強解を得る流れを実装
+- 二つの強解の差に三次元 L4 評価を適用し、Gronwall の不等式で強解一意性を証明
+- 最大強解存在時間を定義し、有限最大時刻で H1 ノルムが有界なら一様局所存在時間で再出発できることから blow-up alternative を証明
+- int ||grad u||_2^4 dt が有限なら延長できる積分型 H1 continuation criterion を導出
+- 強解のエネルギー等号、Leray--Hopf 弱解のエネルギー不等式、交差項の式から相対エネルギーを作り、weak--strong uniqueness を証明
+- NS5 に Level A 5題 / B 4題 / C 1題と全問詳細解答を追加
+- DREAM THEATER 目次・標準数学コア・dependency graph・series routing を NS5 完了へ同期
+
+次作業:
+
+- NS6「スケーリング・臨界性・どのノルムを見るべきか」
