@@ -32,7 +32,8 @@ concepts:
     kind: theorem
     aliases: [microcontinuity criterion]
     requires:
-      - analysis.real-function-continuity
+      - topology.continuity-at-point
+      - topology.metric-space
       - nonstandard.infinitesimal-closeness
       - nonstandard.standard-set-extension
       - nonstandard.standard-symbol-transfer
@@ -43,6 +44,7 @@ concepts:
     aliases: [uniform microcontinuity criterion]
     requires:
       - analysis.uniform-continuity
+      - topology.metric-space
       - nonstandard.continuity-characterization
       - nonstandard.standard-symbol-transfer
 
