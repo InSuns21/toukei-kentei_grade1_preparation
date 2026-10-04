@@ -4,6 +4,16 @@ coverage: complete
 prerequisites:
   - F0-00A1D
 
+forward_references:
+  - set.choice-axiom
+  - set.ordinal
+  - set.inductive-set
+  - set.transfinite-induction
+  - set.transfinite-recursion
+  - set.cumulative-hierarchy
+  - set.cardinal
+  - set.hartogs-lemma
+
 concepts:
   - id: set.unrestricted-comprehension-contradiction
     name: 無制限内包は矛盾を生む
