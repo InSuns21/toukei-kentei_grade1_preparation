@@ -223,7 +223,7 @@ VC8、PDE10、GPDE5 と重複しないよう、
 - Poisson 方程式の二階微分評価
 - Navier--Stokes の圧力表示への接続
 
-Track E Navier--Stokes で Riesz transform の有界性を暗黙使用しないための canonical series とする。
+DREAM_THEATER_NAVIER_STOKES_MILLENNIUM_PLAN.md で Riesz transform の有界性を暗黙使用しないための canonical series とする。
 
 ### HA4：発展候補
 
@@ -263,9 +263,9 @@ RAX1 は理論章の標準 A4/B3/C1 を増量する代わりではなく、既�
 
 無限積、Riemann--Stieltjes 積分、特殊関数の体系化は、後続章から需要が生じた場合だけ追加する。
 
-## 6. Encore III 後続 PDE との接続
+## 6. 後続 PDE 計画との接続
 
-textbook/plans/DREAM_THEATER_POST_GPDE_PDE_EXTENSIONS_PLAN.md の Track H / Track E とは次のようにつなぐ。
+HA 系列は、一般非線形 PDE と Navier--Stokes の双方から再利用する共通解析基盤とする。
 
 ~~~text
 RA / MT / FOU
@@ -275,11 +275,13 @@ HA1 maximal operator
 HA2 Riesz potential / HLS
    ↓
 HA3 singular integral / Riesz transform
-   ├── Track H scaling / nonlinear diffusion / asymptotics
-   └── Track E Navier--Stokes
+   ├── DREAM_THEATER_NONLINEAR_PDE_PLAN.md
+   └── DREAM_THEATER_NAVIER_STOKES_MILLENNIUM_PLAN.md
 ~~~
 
-ただし Track H の H1--H4 は、HA 系列全体を待たなくても既存 RA / MT / FOU で閉じる可能性が高い。
+ただし非線形 PDE 計画の scaling・熱核平滑化・自己相似の初期章は、HA 系列全体を待たなくても既存 RA / MT / FOU で閉じる可能性が高い。
+
+Navier--Stokes 側でも、圧力表示や高度な臨界空間で実際に Riesz transform / singular integral が必要になった章だけ HA3 を direct prerequisite にする。
 
 「PDE を始めるために調和解析を全部先に終える」という過剰 prerequisite は避ける。
 
