@@ -139,7 +139,7 @@ $$
 
 という強い帰納法があります。
 
-超限帰納法の形式はこれと同じですが、順序数では $\alpha$ より前の段階が有限個とは限りません。特に極限順序数 $\lambda$ では、
+[超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)の形式はこれと同じですが、順序数では $\alpha$ より前の段階が有限個とは限りません。特に極限順序数 $\lambda$ では、
 
 $$
 \forall\beta<\lambda,\ P(\beta)
@@ -153,13 +153,13 @@ $$
 
 > 反例があると仮定し、その最小反例を取って矛盾する
 
-という証明法になっています。超限帰納法を使うときは、この最小反例法を裏側の仕組みとして読むと、なぜ「それ以前の全段階」を仮定してよいのかが見えやすくなります。
+という証明法になっています。[超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)を使うときは、この最小反例法を裏側の仕組みとして読むと、なぜ「それ以前の全段階」を仮定してよいのかが見えやすくなります。
 
 ---
 
 ## 3. 初期・後続・極限の三段階に分ける
 
-実際の証明では、前段階全部を一つの式で扱うより、順序数の三分類
+実際の証明では、前段階全部を一つの式で扱うより、[順序数の三分類](../SET2/index.md#prop-set2-zero-successor-limit)
 
 1. $0$
 2. 後続順序数
@@ -191,7 +191,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-超限帰納法の仮定
+[超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)の仮定
 
 $$
 \forall\beta<\alpha,\ P(\beta)
@@ -221,7 +221,7 @@ $$
 
 を得ます。
 
-SET2 の順序数の三分類により全ての場合を尽くしています。従って一般形の超限帰納法から結論が従います。$\square$
+SET2 の[順序数の三分類](../SET2/index.md#prop-set2-zero-successor-limit)により全ての場合を尽くしています。従って一般形の[超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)から結論が従います。$\square$
 <!-- proof-end -->
 
 ---
@@ -299,7 +299,7 @@ $$
 
 ## 5. 具体例：順序数の全ての元は真の部分集合
 
-この事実は SET2 から直接も分かりますが、超限帰納法の使い方を練習するため、あえて帰納法で再構成します。
+この事実は SET2 から直接も分かりますが、[超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)の使い方を練習するため、あえて帰納法で再構成します。
 
 <a id="prop-set3-ordinal-elements-proper-subsets"></a>
 <!-- formal-statement-start -->
@@ -315,11 +315,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-順序数 $\alpha$ に関する超限帰納法で示します。
+順序数 $\alpha$ に関する[超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)で示します。
 
 ある $\alpha$ より前の全ての順序数で命題が成り立つと仮定します。$\beta\in\alpha$ を取ります。
 
-SET2 の「順序数の元は順序数」から $\beta$ は順序数です。また $\alpha$ は推移的なので
+SET2 の「[順序数の元は順序数](../SET2/index.md#thm-set2-element-is-ordinal)」から $\beta$ は順序数です。また $\alpha$ は推移的なので
 
 $$
 \beta\subseteq\alpha.
@@ -333,10 +333,10 @@ $$
 \beta\subsetneq\alpha.
 $$
 
-これで各段階の主張が示されたので、超限帰納法から結論が従います。$\square$
+これで各段階の主張が示されたので、[超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)から結論が従います。$\square$
 <!-- proof-end -->
 
-この例では帰納法の仮定を実際には使っていません。これは問題ではありません。超限帰納法の枠組みは使えるが、局所的な定義だけでも証明できた、ということです。
+この例では帰納法の仮定を実際には使っていません。これは問題ではありません。[超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)の枠組みは使えるが、局所的な定義だけでも証明できた、ということです。
 
 ---
 
@@ -447,7 +447,7 @@ $\square$
 
 ## 7. 超限帰納法で何を仮定してよいか
 
-超限帰納法の証明でよく起きる誤りは、
+[超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)の証明でよく起きる誤りは、
 
 > 「$\alpha$ で示したいので $P(\alpha)$ を仮定する」
 
@@ -493,7 +493,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-set3-progressive-property -->
-**定義の確認。** 超限帰納法は、「$\theta$ 上で累進的な性質は $\theta$ の全段階で成り立つ」と言い換えられます。
+**定義の確認。** [超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)は、「$\theta$ 上で累進的な性質は $\theta$ の全段階で成り立つ」と言い換えられます。
 <!-- definition-example-end -->
 
 ---
@@ -506,7 +506,7 @@ $$
 #### SET3-A01 最小反例法の前提を言葉で読む
 - Level: A
 
-超限帰納法の証明で最小反例 $\alpha_0$ を取ったとき、
+[超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)の証明で最小反例 $\alpha_0$ を取ったとき、
 
 $$
 \forall\beta<\alpha_0,\ P(\beta)
@@ -540,7 +540,7 @@ $$
 #### SET3-A02 後続段階で取り出せる仮定
 - Level: A
 
-$\alpha=\gamma+1$ とする。超限帰納法の仮定
+$\alpha=\gamma+1$ とする。[超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)の仮定
 
 $$
 \forall\beta<\alpha,\ P(\beta)
@@ -707,7 +707,7 @@ $$
 
 は、そのまま極限段階の条件の前提です。従って $P(\alpha)$。
 
-以上で一般形の超限帰納法の仮定が得られます。
+以上で一般形の[超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)の仮定が得られます。
 <!-- solution-end -->
 
 <a id="ex-set3-b02"></a>
@@ -799,7 +799,7 @@ $$
 
 です。
 
-従って超限帰納法から
+従って[超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)から
 
 $$
 \forall\alpha<\theta,\ \alpha\in A.
@@ -826,7 +826,7 @@ $$
 #### SET3-C01 超限帰納法そのものを再証明する
 - Level: C
 
-SET1 の分出公理図式と、SET2 の「順序数は $\in$ で整列される」という事実だけを使って、超限帰納法を最小反例法から証明せよ。
+SET1 の分出公理図式と、SET2 の「順序数は $\in$ で整列される」という事実だけを使って、[超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)を最小反例法から証明せよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -864,7 +864,7 @@ $$
 \forall\beta<\alpha_0,\ P(\beta).
 $$
 
-超限帰納法の段階仮定を $\alpha_0$ に適用すると
+[超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)の段階仮定を $\alpha_0$ に適用すると
 
 $$
 P(\alpha_0)
@@ -889,7 +889,7 @@ $$
 
 ## 9. 次章への接続
 
-超限帰納法は、
+[超限帰納法](../SET3/index.md#thm-set3-transfinite-induction)は、
 
 > 既に定義された対象について、全段階で性質を証明する
 
