@@ -270,6 +270,7 @@ $$
 は偽である。
 <!-- formal-statement-end -->
 
+<!-- proof-start -->
 ### 確認
 
 $0<\omega$ なので $P(0)$ は真です。
@@ -315,6 +316,7 @@ $$
 $$
 <!-- formal-statement-end -->
 
+<!-- proof-start -->
 ### 証明
 
 順序数 $\alpha$ に関する超限帰納法で示します。
