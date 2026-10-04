@@ -23,7 +23,7 @@ concepts:
     aliases: [infinite hypernatural]
     requires:
       - nonstandard.hypernatural-number
-      - nonstandard.infinite-hyperreal
+      - topology.free-ultrafilter
 
   - id: nonstandard.internal-set
     name: 内部集合
@@ -90,6 +90,13 @@ concepts:
       - nonstandard.hyperfinite-set
       - nonstandard.hypernatural-number
 
+  - id: nonstandard.external-set
+    name: 外部集合
+    kind: definition
+    aliases: [external set]
+    requires:
+      - nonstandard.internal-set
+
   - id: nonstandard.internal-overspill
     name: 内部集合の overspill
     kind: theorem
@@ -104,6 +111,7 @@ concepts:
     kind: corollary
     aliases: []
     requires:
+      - nonstandard.external-set
       - nonstandard.internal-overspill
 
   - id: nonstandard.hyperfinite-maximum
@@ -121,7 +129,7 @@ concepts:
     aliases: []
     requires:
       - nonstandard.infinitesimal
-      - nonstandard.internal-set
+      - nonstandard.external-set
       - topology.free-ultrafilter
 
   - id: nonstandard.limited-hyperreals-external
@@ -129,5 +137,6 @@ concepts:
     kind: proposition
     aliases: []
     requires:
+      - nonstandard.external-set
       - nonstandard.internal-overspill
       - nonstandard.infinite-hyperreal
