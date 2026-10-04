@@ -1,6 +1,8 @@
 # DREAM THEATER：複素解析 II（CA7--CA12）実装計画
 
-作成日: 2026-09-22
+作成日: 2026-09-22  
+完了日: 2026-10-04  
+状態: completed
 
 ## 0. この計画の目的
 
@@ -18,7 +20,7 @@
 
 は現行主線に canonical owner がない。
 
-そこで CA1--CA6 を **複素解析 I：局所理論・Cauchy 理論・留数・解析接続・調和解析**、CA7--CA12 を **複素解析 II：大域正則関数論・Riemann 面・楕円関数・特殊関数** と位置付け、学部数学科の標準的な後半複素解析を独習で再構成できる系列として実装する。
+本計画の起票時には CA1--CA6 / CA7--CA12 の境界を想定していたが、実装後の横断監査で公開科目境界を **複素解析 I = CA1--CA7、複素解析 II = CA8--CA12** と確定した。CA7 は正則関数族・Montel / Hurwitz・Riemann 写像定理によって平面領域上の理論を締めくくる章として複素解析 I に置き、CA8 から Riemann 面・楕円関数・関数構成・特殊関数へ進む。CA7--CA12 の実装内容と章間 DAG 自体は本計画どおり維持する。
 
 新系列の主線は
 
@@ -812,17 +814,20 @@ Riemann ζ 関数を Dirichlet 級数の局所一様絶対収束から構成し�
 
 **現在地（2026-09-22）**：CA12 の本文・演習 A4/B3/C1・詳細解答・stable anchor・knowledge/glossary・reader-facing index・standard math core の同期を完了した。PR #372 で Pages / textbook / terminology / DREAM THEATER concepts / exercises / standard math core の6 workflow が green、textbook workflow 内の proof pedagogy / formalism pedagogy も通過した。Phase 6 完了。次は Phase 7：CA7--CA12 の横断監査へ進む。
 
-### Phase 7：横断監査
+### Phase 7：横断監査 ✅
 
-- CA7--CA12 の読順
-- CA1--CA6 からの forward link
-- FOU2/FOU3 との cross-link
-- TOP 系との prerequisite
-- 日本語用語
-- stable anchors
-- chapter.yaml / index / DAG の同期
+2026-10-04 に current main を基準として横断監査を完了した。
 
-をまとめて監査する。
+- **読順**：公開科目境界は複素解析 I = CA1--CA7、複素解析 II = CA8--CA12 とする。CA7 は Riemann 写像定理までを閉じる橋、CA8 は Riemann 面から始まる複素解析 II の入口として整合している。
+- **forward link**：CA6 末尾から CA7 の Riemann 写像定理への接続を確認した。
+- **Fourier との cross-link**：CA12 から FOU2 / FOU3 を prerequisite として参照し、FOU2 / FOU3 側にも CA12 の theta 変換への逆向き接続があることを確認した。
+- **TOP 系 prerequisite**：CA7 は TOP5、CA8 は TOP1 / TOP2 / TOP4 / TOP5 を直接 prerequisite とし、本文で商位相・Hausdorff 性・第二可算性・コンパクト性の stable anchor を参照している。
+- **日本語用語**：一般概念は日本語主表記、人名由来は Riemann / Montel / Hurwitz / Weierstrass / Mittag--Leffler 等の英字を保持する現行規約と整合している。
+- **formal introduction / stable anchor**：CA7--CA12 の `knowledge.yaml` にある introduction alias は全件本文に存在し、各章の stable anchor 群も維持されている。単独 `$` 行は0件。
+- **演習**：CA7--CA12 は全章 Level A 4題 / Level B 3題 / Level C 1題を維持している。
+- **同期**：`dream-theater.md` と `dream-theater-standard-math-core.md` はすでに CA1--CA7 / CA8--CA12 の公開境界で一致していた。一方 `dependency-graph.md` に起票時の CA1--CA6 / CA7--CA12 表記が残っていたため、現行公開境界へ修正した。
+
+以上により Phase 7 を完了し、本計画を completed とする。
 
 ---
 
