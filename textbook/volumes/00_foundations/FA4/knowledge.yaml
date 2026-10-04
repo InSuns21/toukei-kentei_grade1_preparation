@@ -8,26 +8,12 @@ prerequisites:
   - F0-00A3
   - F0-02C6
   - F0-02C6A
+  - SET9
 
 forward_references: []
 
 concepts:
-  - id: topology.ultrafilter
-    name: ウルトラフィルター
-    kind: definition
-    aliases: [ウルトラフィルター, ultrafilter]
-    introduction_aliases: ["### 定義（ウルトラフィルター）"]
-    requires:
-      - topology.filter
 
-  - id: topology.ultrafilter-extension
-    name: ウルトラフィルター拡張補題
-    kind: lemma
-    aliases: [ウルトラフィルター拡張補題, ultrafilter extension lemma]
-    introduction_aliases: ["### 補題（ウルトラフィルター拡張補題）"]
-    requires:
-      - topology.ultrafilter
-      - set.zorn-lemma
 
   - id: topology.compactness-ultrafilter-characterization
     name: コンパクト性のウルトラフィルター特徴付け
