@@ -14,11 +14,11 @@ learning_objectives:
   - 順序数 alpha の h(alpha) が alpha より大きい基数になることを証明できる
   - Hartogs の補題で選択公理を使っていないことを公理使用箇所から確認できる
 definitions:
-  - { id: SET7-DEF-01, name: X の部分集合上の整列の集合 }
-  - { id: SET7-DEF-02, name: X 内で実現される順序型の集合 }
+  - { id: SET7-DEF-01, name: 部分集合上の整列の集合 }
+  - { id: SET7-DEF-02, name: 実現される順序型の集合 }
   - { id: SET7-DEF-03, name: Hartogs 数 }
 theorems:
-  - { id: SET7-LEM-01, name: gamma_X は X へ単射できない }
+  - { id: SET7-LEM-01, name: 構成した順序数は元の集合へ単射できない }
   - { id: SET7-THM-01, name: Hartogs の補題 }
   - { id: SET7-THM-02, name: 順序数の Hartogs 数はより大きい基数 }
   - { id: SET7-COR-01, name: 次の基数 }
