@@ -23,14 +23,14 @@ concepts:
 
   - id: set.proper-class
     name: 真の類
-    kind: term
+    kind: definition
     aliases: [真の類, proper class]
     introduction: inline
     requires: []
 
   - id: set.axiom-schema
     name: 公理図式
-    kind: term
+    kind: definition
     aliases: [公理図式, axiom schema]
     introduction: inline
     requires: []
