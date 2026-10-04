@@ -1,0 +1,76 @@
+chapter: NS6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NS5
+  - VC9
+  - FOU4
+
+forward_references:
+  - navier-stokes.prodi-serrin-criterion
+
+concepts:
+  - id: navier-stokes.scaling
+    name: Navier--Stokes の尺度変換
+    kind: definition
+    aliases: ["Navier-Stokes scaling", "Navier--Stokes scaling"]
+    introduction: formal
+    introduction_aliases: ["定義（Navier--Stokes の尺度変換）"]
+    requires:
+      - vector-calculus.incompressible-navier-stokes-bridge
+
+  - id: navier-stokes.scaling-invariance
+    name: 三次元 Navier--Stokes の尺度不変性
+    kind: proposition
+    aliases: ["scaling invariance of 3D Navier--Stokes"]
+    introduction: formal
+    introduction_aliases: ["命題（三次元 Navier--Stokes の尺度不変性）"]
+    requires:
+      - navier-stokes.scaling
+
+  - id: navier-stokes.scaling-criticality
+    name: 尺度に関する劣臨界・臨界・超臨界
+    kind: definition
+    aliases: ["scaling criticality", "subcritical critical supercritical scaling"]
+    introduction: formal
+    introduction_aliases: ["定義（尺度に関する劣臨界・臨界・超臨界）"]
+    requires:
+      - navier-stokes.scaling
+
+  - id: navier-stokes.lp-scaling
+    name: Lp ノルムの尺度則
+    kind: proposition
+    aliases: ["Lp scaling for Navier--Stokes"]
+    introduction: formal
+    introduction_aliases: ["命題（Lp ノルムの尺度則）"]
+    requires:
+      - navier-stokes.scaling
+      - navier-stokes.scaling-criticality
+
+  - id: navier-stokes.mixed-lp-scaling
+    name: 時空間 Lq_t Lp_x ノルムの尺度則
+    kind: proposition
+    aliases: ["mixed space-time scaling for Navier--Stokes"]
+    introduction: formal
+    introduction_aliases: ["命題（時空間 Lq_t Lp_x ノルムの尺度則）"]
+    requires:
+      - navier-stokes.lp-scaling
+
+  - id: navier-stokes.homogeneous-sobolev-norm
+    name: 斉次 Sobolev ノルム
+    kind: definition
+    aliases: ["homogeneous Sobolev norm", "dot H^s"]
+    introduction: formal
+    introduction_aliases: ["定義（斉次 Sobolev ノルム）"]
+    requires:
+      - fourier.fou4-l2-transform
+
+  - id: navier-stokes.homogeneous-sobolev-scaling
+    name: 斉次 Sobolev ノルムの尺度則
+    kind: proposition
+    aliases: ["homogeneous Sobolev scaling for Navier--Stokes"]
+    introduction: formal
+    introduction_aliases: ["命題（斉次 Sobolev ノルムの尺度則）"]
+    requires:
+      - navier-stokes.scaling
+      - navier-stokes.homogeneous-sobolev-norm
