@@ -779,9 +779,9 @@ $$
 
 任意の集合 $x$ に対して、ある順序数 $\alpha$ が存在し
 
-$
+$$
 x\in V_\alpha.
-$
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -789,15 +789,15 @@ $
 
 直前の定理から
 
-$
+$$
 x\in V_{\operatorname{rank}(x)+1}.
-$
+$$
 
 従って
 
-$
+$$
 \alpha=\operatorname{rank}(x)+1
-$
+$$
 
 と取ればよいです。$\square$
 <!-- proof-end -->
