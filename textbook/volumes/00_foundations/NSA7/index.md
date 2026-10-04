@@ -28,7 +28,7 @@ $$
 
 標準開区間 $J\subseteq\mathbb R$、標準関数 $f:J\to\mathbb R$、標準点 $a\in J$ を考えます。
 
-[RA3 の微分係数](../RA3/index.md#def-ra3-differential-coefficient)では $h$ を0へ近づけます。超準世界では、非零無限小 $h$ で $a+h\in{}^*J$ となるものを直接取り、差分商を一つの超実数として見ます。
+[RA3 の微分係数](../RA3/index.md#def-ra3-differential-coefficient)では $h$ を0へ近づけます。超準世界では、非零無限小 $h$ で $a+h\in{}^*J$ となるものを直接取り、この増分比を一つの超実数として見ます。
 
 <a id="def-nsa7-infinitesimal-difference-quotient"></a>
 <!-- formal-statement-start -->
