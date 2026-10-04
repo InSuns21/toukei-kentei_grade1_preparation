@@ -27,8 +27,8 @@ concepts:
     introduction_aliases: ["命題（Navier--Stokes Galerkin 解の一様エネルギー評価）"]
     requires:
       - evolution.galerkin-approximation
+      - evolution.gelfand-triple
       - navier-stokes.trilinear-skew
-      - navier-stokes.forced-energy-estimate
 
   - id: navier-stokes.galerkin-time-derivative-vstar
     name: Galerkin 時間微分の V* 評価
