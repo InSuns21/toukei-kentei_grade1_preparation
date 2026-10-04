@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - NS4
+  - ODE8
 
 forward_references: []
 
@@ -27,6 +28,7 @@ concepts:
       - navier-stokes.trilinear-form
       - navier-stokes.periodic-l4-estimate
       - navier-stokes.stokes-positive
+      - measure.holder-inequality
 
   - id: navier-stokes.three-dimensional-local-strong
     name: 三次元周期 Navier--Stokes の局所強解と一意性
@@ -39,6 +41,9 @@ concepts:
       - navier-stokes.three-dimensional-h1-nonlinear
       - navier-stokes.galerkin-uniform-energy
       - navier-stokes.trilinear-skew
+      - measure.young-inequality
+      - measure.mt4-integral-absolute-continuity
+      - ode.ode8-gronwall
 
   - id: navier-stokes.maximal-strong-existence-time
     name: 最大強解存在時間
@@ -58,6 +63,7 @@ concepts:
     requires:
       - navier-stokes.maximal-strong-existence-time
       - navier-stokes.three-dimensional-h1-nonlinear
+      - measure.mt4-integral-absolute-continuity
 
   - id: navier-stokes.weak-strong-uniqueness
     name: 三次元周期 Navier--Stokes の弱--強一意性
@@ -70,3 +76,4 @@ concepts:
       - navier-stokes.three-dimensional-strong-solution
       - navier-stokes.trilinear-skew
       - navier-stokes.periodic-l4-estimate
+      - ode.ode8-gronwall
