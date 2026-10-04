@@ -1,0 +1,14 @@
+chapter: "SET4"
+terms:
+  - term: 超限再帰
+    english: transfinite recursion
+    meaning: 各順序数段階の値を、それより前の全段階で定まった関数から定義する再帰原理。
+  - term: 順序数の加法
+    english: ordinal addition
+    meaning: 後続段階と極限段階を超限再帰で定める、一般には可換でない順序数演算。
+  - term: 順序数の乗法
+    english: ordinal multiplication
+    meaning: 順序数加法を反復する形で超限再帰により定める順序数演算。
+  - term: 順序数の冪
+    english: ordinal exponentiation
+    meaning: 順序数乗法を反復する形で超限再帰により定める順序数演算。
