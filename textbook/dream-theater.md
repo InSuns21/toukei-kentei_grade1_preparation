@@ -275,6 +275,7 @@
 3. [NS3 Leray--Hopf 弱解と大域存在](textbook/volumes/00_foundations/NS3/index.md)
 4. [NS4 二次元 Navier--Stokes はなぜ大域的に制御できるか](textbook/volumes/00_foundations/NS4/index.md)
 5. [NS5 三次元局所強解・一意性・有限時間発散判定](textbook/volumes/00_foundations/NS5/index.md)
+6. [NS6 スケーリング・臨界性・どのノルムを見るべきか](textbook/volumes/00_foundations/NS6/index.md)
 
 <a id="dt-subject-stochastic-analysis"></a>
 ### 確率解析
