@@ -1,0 +1,129 @@
+chapter: NSA5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NSA4
+  - F0-00A1B
+
+concepts:
+  - id: nonstandard.limited-hyperreal
+    name: 有限超実数
+    kind: definition
+    aliases: [finite hyperreal, limited hyperreal]
+    requires:
+      - nonstandard.hyperreal-number
+      - nonstandard.standard-embedding-ordered-field
+
+  - id: nonstandard.limited-vs-infinite
+    name: 有限でない超実数は無限大である
+    kind: proposition
+    aliases: []
+    requires:
+      - nonstandard.limited-hyperreal
+      - nonstandard.infinite-hyperreal
+
+  - id: nonstandard.infinitesimal-closeness
+    name: 無限小近接
+    kind: definition
+    aliases: [infinitesimal closeness, infinitely close]
+    requires:
+      - nonstandard.infinitesimal
+
+  - id: nonstandard.infinitesimal-arithmetic
+    name: 無限小の基本演算
+    kind: lemma
+    aliases: []
+    requires:
+      - nonstandard.infinitesimal
+      - nonstandard.limited-hyperreal
+
+  - id: nonstandard.infinitesimal-closeness-equivalence
+    name: 無限小近接は同値関係である
+    kind: proposition
+    aliases: []
+    requires:
+      - nonstandard.infinitesimal-closeness
+      - nonstandard.infinitesimal-arithmetic
+
+  - id: nonstandard.monad
+    name: monad
+    kind: definition
+    aliases: [halo]
+    requires:
+      - nonstandard.infinitesimal-closeness
+      - nonstandard.standard-embedding
+
+  - id: nonstandard.standard-part-existence-uniqueness
+    name: 標準部の存在と一意性
+    kind: theorem
+    aliases: [standard part theorem]
+    requires:
+      - nonstandard.limited-hyperreal
+      - nonstandard.infinitesimal-closeness
+      - analysis.least-upper-bound-property
+
+  - id: nonstandard.standard-part
+    name: 標準部
+    kind: definition
+    aliases: [standard part]
+    requires:
+      - nonstandard.standard-part-existence-uniqueness
+
+  - id: nonstandard.standard-part-zero
+    name: 標準部が 0 であることと無限小であること
+    kind: proposition
+    aliases: []
+    requires:
+      - nonstandard.standard-part
+      - nonstandard.infinitesimal
+
+  - id: nonstandard.limited-arithmetic
+    name: 有限超実数は加法・乗法で閉じる
+    kind: lemma
+    aliases: []
+    requires:
+      - nonstandard.limited-hyperreal
+      - nonstandard.hyperreal-ordered-field
+
+  - id: nonstandard.standard-part-arithmetic
+    name: 標準部は加法・乗法を保つ
+    kind: theorem
+    aliases: []
+    requires:
+      - nonstandard.standard-part
+      - nonstandard.infinitesimal-arithmetic
+      - nonstandard.limited-arithmetic
+
+  - id: nonstandard.standard-part-polynomial
+    name: 標準係数多項式と標準部
+    kind: corollary
+    aliases: []
+    requires:
+      - nonstandard.standard-part-arithmetic
+      - nonstandard.many-sorted-transfer
+
+  - id: nonstandard.standard-part-monotone
+    name: 標準部の単調性
+    kind: proposition
+    aliases: []
+    requires:
+      - nonstandard.standard-part
+      - nonstandard.infinitesimal-closeness
+
+  - id: nonstandard.standard-part-quotient
+    name: 標準部と商
+    kind: proposition
+    aliases: []
+    requires:
+      - nonstandard.standard-part-arithmetic
+      - nonstandard.infinitesimal-arithmetic
+
+  - id: nonstandard.standard-part-external
+    name: 標準部のグラフは外部集合である
+    kind: proposition
+    aliases: []
+    requires:
+      - nonstandard.standard-part
+      - nonstandard.limited-hyperreals-external
+      - nonstandard.internal-set
+      - nonstandard.many-sorted-transfer

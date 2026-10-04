@@ -1,0 +1,17 @@
+chapter: "NSA5"
+terms:
+  - term: 有限超実数
+    english: finite / limited hyperreal
+    meaning: ある標準正実数 M により |x|<M と上から抑えられる超実数。
+  - term: 無限小近接
+    english: infinitesimal closeness
+    meaning: 二つの超実数の差が無限小である関係。x≈y と書く。
+  - term: monad
+    english: monad / halo
+    meaning: 標準実数 a に無限小近接する全ての超実数からなる外部集合 μ(a)。
+  - term: 標準部
+    english: standard part
+    meaning: 有限超実数 x に無限小近接する唯一の標準実数。st(x) と書く。
+  - term: 標準部写像
+    english: standard part map
+    meaning: 有限超実数からその標準部を取り出す外部的な操作。グラフは内部集合ではない。

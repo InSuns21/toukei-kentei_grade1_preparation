@@ -1,0 +1,52 @@
+id: "NSA5"
+title: "無限小・有限超実数・標準部"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NSA4
+  - F0-00A1B
+official_scope: []
+learning_objectives:
+  - 有限超実数を標準実数による有界性で定義し、有限でない超実数が無限大超実数であることを示せる
+  - 無限小近接 x≈y を定義し、無限小の基本演算から同値関係であることを証明できる
+  - monad / halo を無限小近接の同値類として理解し、内部集合との違いを説明できる
+  - 有限超実数 x に対して標準実数集合 A_x={r∈R:r≤x} を作り、実数の上限性質から標準部の存在を証明できる
+  - 標準部の一意性を、無限小である標準実数は 0 だけであることから証明できる
+  - 標準部が加法・乗法・符号反転を保ち、分母の標準部が 0 でなければ商も保つことを証明できる
+  - 標準部の単調性と、狭義不等号が保存されない反例を説明できる
+  - 標準部のグラフが外部集合であることを、有限超実数全体の外部性から示せる
+  - 有界実数列から得る有限超実数の標準部を理解し、通常収束する場合は通常極限と一致することを示せる
+definitions:
+  - { id: NSA5-DEF-01, name: 有限超実数 }
+  - { id: NSA5-DEF-02, name: 無限小近接 }
+  - { id: NSA5-DEF-03, name: monad / halo }
+  - { id: NSA5-DEF-04, name: 標準部 }
+theorems:
+  - { id: NSA5-PROP-01, name: 有限でない超実数は無限大である }
+  - { id: NSA5-LEM-01, name: 無限小の基本演算 }
+  - { id: NSA5-PROP-02, name: 無限小近接は同値関係である }
+  - { id: NSA5-THM-01, name: 標準部の存在と一意性 }
+  - { id: NSA5-PROP-03, name: 標準部が 0 であることと無限小であること }
+  - { id: NSA5-LEM-02, name: 有限超実数は加法・乗法で閉じる }
+  - { id: NSA5-THM-02, name: 標準部は加法・乗法を保つ }
+  - { id: NSA5-COR-01, name: 標準係数多項式と標準部 }
+  - { id: NSA5-PROP-04, name: 標準部の単調性 }
+  - { id: NSA5-PROP-05, name: 標準部と商 }
+  - { id: NSA5-PROP-06, name: 標準部のグラフは外部集合である }
+canonical_examples:
+  - "正の無限小 ε に対する st(3+ε)=3"
+  - "有限超実数 x の下側にある標準実数集合 A_x と sup A_x"
+  - "正の無限小 ε は ε>0 だが st(ε)=0"
+  - "ε≈2ε でも ε/ε と ε/(2ε) は無限小近接しない"
+  - "有界列 (a_n) から得る有限超実数 [a_n] の標準部"
+problem_patterns:
+  - LIMITED-HYPERREAL-CLASSIFY-1
+  - INFINITESIMAL-CLOSENESS-1
+  - STANDARD-PART-CONSTRUCTION-1
+  - STANDARD-PART-ARITHMETIC-1
+  - STANDARD-PART-EXTERNAL-1
+  - BOUNDED-SEQUENCE-STANDARD-PART-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.0, review: 1.2 }
