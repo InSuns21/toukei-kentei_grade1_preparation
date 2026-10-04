@@ -13,16 +13,16 @@ learning_objectives:
   - Fourier 低周波射影と高周波尾部評価から周期版 Aubin--Lions 型コンパクト性を証明できる
   - L2_t H の強収束から u_m tensor u_m が L1 で強収束することを示し、対流項の極限を通せる
   - 時間積分した弱形式から初期値を回収し、極限解が C_w([0,T];H) に属することを説明できる
-  - 弱下半連続性により Galerkin のエネルギー恒等式が極限でエネルギー不等式になる機構を説明できる
+  - 弱収束に対するノルムの liminf 評価により Galerkin のエネルギー恒等式が極限でエネルギー不等式になる機構を説明できる
   - 任意の有限時間区間の構成と対角部分列から三次元周期 Navier--Stokes の Leray--Hopf 大域弱解を構成できる
   - 大域弱解の存在と三次元の弱解一意性・大域正則性を論理的に区別できる
 definitions:
   - { id: NS3-DEF-01, name: "周期 Leray--Hopf 弱解" }
 theorems:
   - { id: NS3-PROP-01, name: "Navier--Stokes Galerkin 解の一様エネルギー評価" }
-  - { id: NS3-PROP-02, name: "Galerkin 時間微分の V* 評価" }
+  - { id: NS3-PROP-02, name: "Galerkin 時間微分の双対空間評価" }
   - { id: NS3-THM-01, name: "周期版 Aubin--Lions 型コンパクト性" }
-  - { id: NS3-PROP-03, name: "強 L2 収束による対流項の極限" }
+  - { id: NS3-PROP-03, name: "強収束による対流項の極限" }
   - { id: NS3-THM-02, name: "三次元周期 Navier--Stokes の Leray--Hopf 大域弱解" }
 canonical_examples:
   - "u(t,x)=exp(-nu t)(sin x_2,0,0) が Leray--Hopf 条件を等号で満たす例"
