@@ -261,7 +261,9 @@ $$
 
 $$
 1\notin J_C
-$$
+$
+
+ここで「整列可能定理」は [F0-00A2 の整列可能定理](../F0_00A2_選択公理_Zorn_極大原理/index.md#thm-well-ordering) を指します。
 
 です。もし $1\in J_C$ なら、ある $J\in C$ が $1$ を含み、
 
@@ -862,7 +864,7 @@ $$
 &\downarrow\\
 &\mathrm{AC}
 \Longleftrightarrow
-\text{[整列可能定理](../F0_00A2_選択公理_Zorn_極大原理/index.md#thm-well-ordering)}
+\text{整列可能定理}
 \Longleftrightarrow
 \mathrm{Zorn}\\
 &\downarrow\\
