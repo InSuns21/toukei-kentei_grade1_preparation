@@ -95,6 +95,19 @@
 | σ有限 | sigma-finite | 数式・stable ID 以外では sigma有限 を主表記にしない |
 | コンパクト | compact | 位相的性質・集合の形容では日本語主表記。compact set を本文主語彙にしない |
 
+## DREAM THEATER：超準解析の主表記
+
+| 主表記 | 補助的な英語表記 | 備考 |
+|---|---|---|
+| 超準解析 | nonstandard analysis | 科目名・本文の主表記。英語は初出補助に限る |
+| 超実数 | hyperreal number | 実数列の商から作る元。本文では hyperreal を主語彙にしない |
+| 超冪 | ultrapower | 同一構造の超積。本系列では実数列の商構成に用いる |
+| 超フィルター | ultrafilter | SET9 の canonical 表記を継承する |
+| 自由超フィルター | free ultrafilter / nonprincipal ultrafilter | SET9 の canonical 表記を継承する。「非主超フィルター」は補助語に留める |
+| 実数の標準埋め込み | standard embedding of the reals | 実数を定数列の同値類へ送る写像。文脈が明らかな箇所では「この埋め込み」と略してよい |
+| 無限小 | infinitesimal | 初出で「無限小超実数」と明示してよい。以後は「無限小」を主表記とする |
+| 無限大超実数 | infinite hyperreal | 「無限大」を実数の元のように単独名詞化しない |
+
 ## DREAM THEATER：線形代数・幾何の主表記
 
 | 主表記 | 補助的な英語表記 | 備考 |

@@ -1,7 +1,14 @@
 # DREAM THEATER 超準解析コース計画
 
 作成日: 2026-10-02  
-状態: planned
+状態: in_progress
+
+## 進捗（2026-10-04）
+
+- SET9「弱い選択原理と超フィルター」は main へ反映済み。自然数上の自由超フィルターの canonical result を NSA 系列から利用できる。
+- NSA1「超実数はどこから来るか：自由超フィルターと商構成」を着手。本文・chapter metadata・knowledge metadata・公開導線を追加し、検証中。
+- NSA2 以降は NSA1 の検証完了後に順次実装する。
+
 
 ## 0. 目的
 
@@ -701,9 +708,9 @@ FA 系列との依存を実装前に監査する。
 
 ## 11. 実装順
 
-1. current main で SET-U1 / TOP6 / 実数完備性 / RA1--RA5 の canonical anchor を監査する。
-2. 集合論・数学基礎論 SET9 の実装後、自由超フィルターの stable result を確定する。
-3. NSA1 超実数の ultrapower 構成。
+1. [x] current main で SET-U1 / TOP6 / 実数完備性 / RA1--RA5 の canonical anchor を監査する。
+2. [x] 集合論・数学基礎論 SET9 の実装後、自由超フィルターの stable result を確定する。
+3. [ ] NSA1 超実数の超冪構成（本文・metadata・公開導線を実装済み、validation / pedagogy audit 中）。
 4. NSA2 移送のための最小一階論理。
 5. NSA3 Łoś の定理・移送原理。
 6. NSA4 内部 / 外部・超自然数・超有限集合。
@@ -718,7 +725,7 @@ FA 系列との依存を実装前に監査する。
 15. knowledge DAG / chapter prerequisites / stable anchors を更新する。
 16. DREAM THEATER 専用 validation / pedagogy audit と人手の依存監査を実施する。
 
-数学基礎論 SET9 が未実装の間に、NSA1 だけ先に「存在を仮定した自由超フィルター」で実装して completed 扱いにしない。依存正本が閉じてから本実装へ進む。
+数学基礎論 SET9 は main に反映済みであり、NSA1 は SET9 の自由超フィルターを canonical dependency として本実装する。
 
 ---
 

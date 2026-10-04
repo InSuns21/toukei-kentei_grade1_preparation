@@ -1,0 +1,20 @@
+chapter: "NSA1"
+terms:
+  - term: U-同値
+    english: ultrafilter equivalence
+    meaning: 二つの実数列が、固定した自由超フィルターが大きいと判定する添字集合上で一致するときに同一視する同値関係。
+  - term: 超実数
+    english: hyperreal number
+    meaning: 実数列全体を U-同値で割った商集合の元。
+  - term: 超冪
+    english: ultrapower
+    meaning: 同じ構造の列を超フィルターによる同値関係で割って得る商構成。本章では実数列から超実数を作る。
+  - term: 実数の標準埋め込み
+    english: standard embedding of the reals
+    meaning: 実数 r を定数列 (r,r,...) の同値類へ送る、実数体から超実数体への埋め込み。
+  - term: 無限小
+    english: infinitesimal
+    meaning: 絶対値が任意の正の標準実数より小さい超実数。
+  - term: 無限大超実数
+    english: infinite hyperreal
+    meaning: 絶対値が任意の正の標準実数より大きい超実数。

@@ -79,6 +79,7 @@
     {
       "name": "解析系",
       "paths": [
+        "textbook/volumes/00_foundations/NSA1/index.md",
         "textbook/volumes/00_foundations/CA1/index.md",
         "textbook/volumes/00_foundations/CA2/index.md",
         "textbook/volumes/00_foundations/CA3/index.md",
