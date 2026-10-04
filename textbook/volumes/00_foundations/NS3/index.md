@@ -295,7 +295,7 @@ $$
 \langle f,u_m\rangle.
 $$
 
-双対性と Young の不等式から
+双対性と [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)から
 
 $$
 |\langle f,u_m\rangle|
@@ -443,7 +443,7 @@ b(u_m,u_m,v)
 -b(u_m,v,u_m).
 $$
 
-従って Hölder の不等式から
+従って [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)から
 
 $$
 |b(u_m,u_m,v)|
@@ -541,7 +541,7 @@ $$
 
 右辺は $m$ に依らず有界です。
 
-また $f\in L^2(0,T;V^*)$ であり、有限区間上では Hölder の不等式から
+また $f\in L^2(0,T;V^*)$ であり、有限区間上では [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)から
 
 $$
 \|g\|_{L^{4/3}(0,T)}
@@ -982,7 +982,7 @@ $$
 \end{aligned}
 $$
 
-この式はまず滑らかな発散零 $v$ について得られます。これらは $V$ に稠密です。また NS2 の三重線形形式の連続評価により、固定した $u(t)\in V$ に対する各項は $v$ について連続です。従って密度で任意の $v\in V$ へ延長でき、分布微分の意味で
+この式はまず滑らかな発散零 $v$ について得られます。これらは $V$ に稠密です。また NS2 の [三重線形形式の連続評価](../NS2/index.md#prop-ns2-trilinear-continuity)により、固定した $u(t)\in V$ に対する各項は $v$ について連続です。従って密度で任意の $v\in V$ へ延長でき、分布微分の意味で
 
 $
 \partial_tu+\nu Au+B(u,u)=f
@@ -1159,7 +1159,7 @@ $$
 
 任意の $T>0$ を固定します。
 
-[Galerkin 解の一様エネルギー評価](#prop-ns3-galerkin-energy)から
+[Navier--Stokes Galerkin 解の一様エネルギー評価](#prop-ns3-galerkin-energy)から
 
 $$
 \{u_m\}
@@ -1338,7 +1338,7 @@ $$
 |b(u,v,u)|.
 $$
 
-Hölder の不等式で
+[Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)で
 
 $$
 |b(u,v,u)|
@@ -1495,7 +1495,7 @@ $$
 \|\partial_tz_n(\tau)\|_{V^*}\,d\tau.
 $$
 
-$q'=q/(q-1)$ とすると Hölder の不等式から
+$q'=q/(q-1)$ とすると [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)から
 
 $$
 \int_s^t
@@ -1679,7 +1679,7 @@ $$
 \langle f,u_m\rangle.
 $$
 
-双対性と Young の不等式で右辺を処理し、
+双対性と [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)で右辺を処理し、
 
 $$
 \|u_m\|_{L^\infty_tH}
