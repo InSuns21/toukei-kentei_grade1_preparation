@@ -781,7 +781,7 @@ $$
 
 性質を
 
-$
+$$
 P(\alpha):\Longleftrightarrow \alpha\in A
 $$
 
