@@ -42,7 +42,7 @@ $$
 
 <a id="def-set7-wellorders-on-subsets"></a>
 <!-- formal-statement-start -->
-### 定義（$X$ の部分集合上の整列の集合）
+### 定義（部分集合上の整列の集合）
 
 集合 $X$ に対し、
 
@@ -91,7 +91,7 @@ $$
 
 <a id="def-set7-order-types-realized-in-x"></a>
 <!-- formal-statement-start -->
-### 定義（$X$ 内で実現される順序型の集合）
+### 定義（実現される順序型の集合）
 
 $$
 \mathcal O_X
@@ -163,7 +163,7 @@ $$
 
 <a id="lem-set7-gamma-no-injection"></a>
 <!-- formal-statement-start -->
-### 補題（$\gamma_X$ は $X$ へ単射できない）
+### 補題（構成した順序数は元の集合へ単射できない）
 
 上で構成した順序数 $\gamma_X$ に対して、
 
@@ -362,7 +362,7 @@ $$
 - 分出公理図式：整列関係だけを切り出す。
 - [SET2 の順序型定理](../SET2/index.md#thm-set2-order-type)。
 - 置換公理図式：各整列の順序型を集合 $\mathcal O_X$ に集める。
-- 和集合公理：順序型の上限を作る。
+- 和集合公理：実現された全ての順序型より大きい順序数を作る。
 - 順序数の整列性：最小の非単射順序数を取る。
 
 です。
@@ -525,7 +525,7 @@ $$
 
 $$
 \boxed{
-\text{「選び続ければいつか全部取り尽くす」を保証する上限}
+\text{「選び続ければいつか全部取り尽くす」を保証する停止境界}
 }
 $$
 
@@ -721,6 +721,8 @@ $A$ 上に
 $$
 j(\xi)\ r\ j(\eta)
 \iff
+\xi=\eta
+\ \text{または}\ 
 \xi\in\eta
 $$
 
@@ -930,6 +932,8 @@ $j:\gamma_X\to X$ が単射とします。
 $$
 j(\xi)\ r\ j(\eta)
 \iff
+\xi=\eta
+\ \text{または}\ 
 \xi\in\eta
 $$
 
