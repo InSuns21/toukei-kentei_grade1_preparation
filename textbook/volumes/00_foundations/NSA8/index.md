@@ -34,11 +34,11 @@ $$
 
 です。有限和
 
-$$
+$
 \sum_{k=0}^{n-1}c_k
-$$
+$
 
-は、$n$ 個の項を順に足す通常の有限操作です。NSA3 の移送原理により、この「有限個」という形を超自然数へ拡張できます。
+は、$n$ 個の項を順に足す通常の有限操作です。[NSA3 の移送原理](../NSA3/index.md#cor-nsa3-transfer)により、この「有限個」という形を超自然数へ拡張できます。
 
 <a id="def-nsa8-hyperfinite-uniform-partition"></a>
 <!-- formal-statement-start -->
@@ -338,7 +338,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-前節の補題から、
+[等分割 Darboux gap の収束](#lem-nsa8-uniform-darboux-gap)から、
 
 $$
 f\text{ が Riemann 可積分}
