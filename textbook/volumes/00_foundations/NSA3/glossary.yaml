@@ -1,0 +1,17 @@
+chapter: "NSA3"
+terms:
+  - term: Łoś の定理
+    english: Łoś theorem
+    meaning: 超冪で一階論理式が真であることと、その論理式が元の構造で真になる添字集合が超フィルターに属することの同値を与える定理。
+  - term: 移送原理
+    english: transfer principle
+    meaning: 標準構造で成り立つ一階の命題が、標準埋め込みに沿って超冪でも成り立ち、その逆も成り立つという Łoś の定理の系。
+  - term: 超冪
+    english: ultrapower
+    meaning: 同一の一階構造を添字集合上で積にし、超フィルターに関する同値関係で割って得る構造。
+  - term: 標準拡張
+    english: standard extension
+    meaning: 言語に入れた固定関数・固定関係を、超冪で座標ごとの解釈から延長したもの。
+  - term: 一階制約
+    english: first-order restriction
+    meaning: 移送原理が固定した一階言語の論理式に適用され、standard や任意の外部集合への量化を自動的には含まないという適用範囲。
