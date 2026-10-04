@@ -272,6 +272,7 @@
 
 1. [NS1 発散零空間・Leray 射影・Stokes 作用素](textbook/volumes/00_foundations/NS1/index.md)
 2. [NS2 非線形項・三重線形形式・エネルギー評価](textbook/volumes/00_foundations/NS2/index.md)
+3. [NS3 Leray--Hopf 弱解と大域存在](textbook/volumes/00_foundations/NS3/index.md)
 
 <a id="dt-subject-stochastic-analysis"></a>
 ### 確率解析
