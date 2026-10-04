@@ -23,7 +23,7 @@ concepts:
     kind: proposition
     aliases: [periodic Poincare inequality for mean-zero fields]
     introduction: formal
-    introduction_aliases: ["命題（周期平均零場の Poincare 型評価）"]
+    introduction_aliases: ["命題（周期平均零場の Poincaré 型評価）"]
     requires:
       - navier-stokes.energy-space-v
       - fourier.fou4-parseval
