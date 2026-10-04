@@ -1,0 +1,20 @@
+chapter: "NS6"
+terms:
+  - term: 尺度変換
+    english: scaling
+    meaning: 空間 x を lambda x、時間 t を lambda^2 t と変えるとき、速度を lambda 倍、圧力を lambda^2 倍して Navier--Stokes 方程式の形を保つ変換。
+  - term: 臨界
+    english: critical
+    meaning: 方程式の尺度変換に対して対象ノルムが不変になること。三次元では L3 や dot H^(1/2) が代表例。
+  - term: 劣臨界
+    english: subcritical
+    meaning: lambda->infinity の高周波集中でノルムが大きくなる尺度階級。小さい空間尺度を臨界量より強く検出する。
+  - term: 超臨界
+    english: supercritical
+    meaning: lambda->infinity の高周波集中でノルムが小さくなる尺度階級。小さい空間尺度への集中をノルム上界だけでは捉えにくい。
+  - term: 斉次 Sobolev ノルム
+    english: homogeneous Sobolev norm
+    meaning: Fourier 側で |xi|^s を掛けて測る微分階数 s の量。本章では dot H^s と書き、三次元では s=1/2 が尺度臨界。
+  - term: 尺度臨界線
+    english: scaling-critical line
+    meaning: 時空間ノルム Lq_t Lp_x について 2/q+3/p=1 を満たす指数の集合。

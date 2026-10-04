@@ -853,7 +853,7 @@ DREAM THEATER の Navier--Stokes 系列は、VC9 の流体方程式、FOU4 の $
 VC9 非圧縮 Navier--Stokes 方程式 ─┐
 FOU4 Plancherel・L2 Fourier解析 ───┼→ NS1 発散零空間・Leray 射影・Stokes 作用素 ─┐
 GPDE3 Sobolev 空間 ────────────────┘                                              ├→ NS2 非線形項・三重線形形式・エネルギー評価 ─┐
-GPDE5 Sobolev 埋め込み・コンパクト性 ─────────────────────────────────────────────┘                                               ├→ NS3 Leray--Hopf 弱解と大域存在 → NS4 二次元渦度・大域制御 → NS5 三次元局所強解・発散判定
+GPDE5 Sobolev 埋め込み・コンパクト性 ─────────────────────────────────────────────┘                                               ├→ NS3 Leray--Hopf 弱解と大域存在 → NS4 二次元渦度・大域制御 → NS5 三次元局所強解・発散判定 → NS6 尺度変換・臨界性
 GPDE10 Galerkin・時間発展弱解 ────────────────────────────────────────────────────────────────────────────────────────────────┘
 ODE8 Grönwall の不等式 ─────────────────────────────────────────────────────────────────────────────────────────────────────────────→ NS5
 ~~~
@@ -866,5 +866,7 @@ NS3 は NS2 と GPDE10 を直接 prerequisite とし、Fourier--Galerkin 近似�
 
 NS4 は NS3 を直接 prerequisite とし、二次元スカラー渦度、速度--渦度 Fourier 対応、二次元周期 Ladyzhenskaya 型評価、渦度エネルギーによる大域 $H^1$ 制御、Leray--Hopf 弱解の一意性、大域強解、二次元で渦伸長が消える機構を担当する。
 
-NS5 は NS4 と ODE8 を直接 prerequisite とし、ODE8 の Grönwall の不等式を再利用しながら、三次元の $H^1$ 非線形評価、短時間 Galerkin 制御による局所強解、強解一意性、最大存在時間、$H^1$ continuation / blow-up alternative、積分型延長判定、弱--強一意性を担当する。直接 prerequisite の正本は各章の chapter.yaml / knowledge.yaml とする。
+NS5 は NS4 と ODE8 を直接 prerequisite とし、ODE8 の Grönwall の不等式を再利用しながら、三次元の $H^1$ 非線形評価、短時間 Galerkin 制御による局所強解、強解一意性、最大存在時間、$H^1$ continuation / blow-up alternative、積分型延長判定、弱--強一意性を担当する。
+
+NS6 は NS5、VC9、FOU4 を直接 prerequisite とし、全空間 $\mathbb R^3$ 上の無外力 Navier--Stokes scaling、$L^p$ と $L_t^qL_x^p$ の尺度則、劣臨界・臨界・超臨界の定義、エネルギー階級の超臨界性、Fourier 表示による $\dot H^s$ scaling と臨界指数 $s=1/2$ を担当する。直接 prerequisite の正本は各章の chapter.yaml / knowledge.yaml とする。
 
