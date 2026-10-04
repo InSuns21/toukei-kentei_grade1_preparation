@@ -238,7 +238,7 @@ $$
 
 ただし、HJB・viscosity solution・stochastic control・stochastic differential game の**理論正本は** DREAM_THEATER_OPTIMAL_CONTROL_DIFFERENTIAL_GAMES_PLAN.md とする。U3 は最適執行という金融応用に必要な範囲を参照して使い、DPP / HJB / Isaacs 理論を独立に再構築しない。
 
-optional basement は、部分観測下の filtering + control、order book、Track C で理論整備済みの場合の stochastic differential game 応用とする。
+optional basement は、部分観測下の filtering + control、order book、最適制御・HJB・微分ゲーム計画で理論整備済みの場合の stochastic differential game 応用とする。
 
 ### 最低到達点
 
