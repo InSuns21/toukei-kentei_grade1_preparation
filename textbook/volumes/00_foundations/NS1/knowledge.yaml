@@ -16,7 +16,7 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（周期発散零空間）"]
     requires:
-      - vector-calculus.incompressible-flow
+      - navier-stokes.divergence-free-fourier
       - fourier.fou4-complex-l2
 
   - id: navier-stokes.divergence-free-fourier
@@ -26,7 +26,7 @@ concepts:
     introduction: formal
     introduction_aliases: ["命題（発散零条件の Fourier 表示）"]
     requires:
-      - navier-stokes.periodic-divergence-free-space
+      - vector-calculus.incompressible-flow
       - vector-calculus.divergence
 
   - id: navier-stokes.divergence-free-closure
