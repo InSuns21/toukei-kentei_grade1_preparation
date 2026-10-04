@@ -200,15 +200,10 @@ $$
 
 標準解析では「微分可能なら連続」を増分比の有界性から証明しました。超準的には同じ機構が一行の積へ見えます。
 
-<a id="prop-nsa7-differentiable-continuous"></a>
-<!-- formal-statement-start -->
-### 命題（微分可能なら連続の超準的証明）
-
-標準関数 $f:J\to\mathbb R$ が標準点 $a\in J$ で微分可能なら、$f$ は $a$ で連続である。
-<!-- formal-statement-end -->
+ここでは [RA3 の命題「微分可能なら連続」](../RA3/index.md#prop-ra3-differentiable-continuous) を、無限小増分比から再証明します。
 
 <!-- proof-start -->
-### 証明
+### 超準的再証明
 
 $x\in{}^*J$ かつ $x\approx a$ とします。$x=a$ なら自明です。
 
@@ -269,18 +264,15 @@ $$
 
 「無限小だから高次項を捨てる」とだけ言うと、どこで標準部を取ったかが消えます。積の微分ではまず増分比を**厳密な等式**で分解し、そのあと無限小近接を使います。
 
-<a id="prop-nsa7-product-rule"></a>
-<!-- formal-statement-start -->
-### 命題（積の微分公式の超準的導出）
+[RA3 の積の微分公式](../RA3/index.md#prop-ra3-product-rule)
 
-標準関数 $f,g:J\to\mathbb R$ が標準点 $a\in J$ で微分可能なら、
-
-$$
+$
 (fg)'(a)
 =
-f'(a)g(a)+f(a)g'(a).
-$$
-<!-- formal-statement-end -->
+f'(a)g(a)+f(a)g'(a)
+$
+
+を、無限小増分比から再証明します。
 
 ### 証明の見取り図
 
@@ -293,9 +285,9 @@ $$
 と書き、${}^*f(a+h)g(a)$ を足して引きます。すると二つの増分比へ分かれます。
 
 <!-- proof-start -->
-### 証明
+### 超準的再証明
 
-非零無限小 $h$ を取り $a+h\in{}^*J$ とします。
+非零無限小 $h$ を取り $a+h\in{}^*J$ とします.
 
 $$
 \begin{aligned}
@@ -366,18 +358,15 @@ $$
 
 となる $h$ があり得るため、最初からこの比で割ると証明に穴が開きます。
 
-<a id="prop-nsa7-chain-rule"></a>
-<!-- formal-statement-start -->
-### 命題（連鎖律の超準的導出）
+[RA3 の連鎖律](../RA3/index.md#prop-ra3-chain-rule)
 
-標準開区間 $J,K\subseteq\mathbb R$、標準関数 $f:J\to K$、$g:K\to\mathbb R$、標準点 $a\in J$ とする。$f$ が $a$ で微分可能、$g$ が $f(a)$ で微分可能なら
-
-$$
+$
 (g\circ f)'(a)
 =
-g'(f(a))f'(a).
-$$
-<!-- formal-statement-end -->
+g'(f(a))f'(a)
+$
+
+を、無限小増分比から再証明します。標準開区間 $J,K\subseteq\mathbb R$、標準関数 $f:J\to K$、$g:K\to\mathbb R$、標準点 $a\in J$ を取り、$f$ は $a$ で、$g$ は $f(a)$ で微分可能とします。
 
 ### 証明の見取り図
 
@@ -561,9 +550,9 @@ $$
 
 ここで $x=a+h$ とし、$h$ を非零無限小にすると、Taylor 多項式の残りが「何次の無限小か」を読めます。
 
-<a id="thm-nsa7-taylor-infinitesimal"></a>
+<a id="cor-nsa7-taylor-remainder"></a>
 <!-- formal-statement-start -->
-### 定理（Taylor の定理の無限小表示）
+### 系（無限小増分における Taylor 剰余評価）
 
 $n\ge0$ を標準整数とする。標準開区間 $J\subseteq\mathbb R$ 上の標準関数 $f:J\to\mathbb R$ が $C^{n+1}$ 級で、標準点 $a\in J$ を取る。
 
