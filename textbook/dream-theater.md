@@ -123,6 +123,7 @@
 2. [NSA2 移送のための最小一階論理](textbook/volumes/00_foundations/NSA2/index.md)
 3. [NSA3 Łoś の定理と移送原理](textbook/volumes/00_foundations/NSA3/index.md)
 4. [NSA4 内部集合・外部集合・超自然数・超有限集合](textbook/volumes/00_foundations/NSA4/index.md)
+5. [NSA5 無限小・有限超実数・標準部](textbook/volumes/00_foundations/NSA5/index.md)
 
 <a id="dt-subject-complex-analysis-i"></a>
 ### 複素解析 I
