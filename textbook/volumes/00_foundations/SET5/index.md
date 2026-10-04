@@ -706,7 +706,7 @@ $$
 y\in V_{\operatorname{rank}(y)+1}.
 $$
 
-rank の定義から
+[集合の rank](#def-set5-rank)の定義式から
 
 $$
 \operatorname{rank}(y)+1
@@ -961,7 +961,7 @@ $$
 \operatorname{rank}(y)<\operatorname{rank}(x)
 $$
 
-を rank の定義から示せ。
+を [集合の rank](#def-set5-rank)の定義式から示せ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -1244,7 +1244,7 @@ $$
 
 **4. rank の減少。**
 
-$y\in z$ なら rank の定義から
+$y\in z$ なら [集合の rank](#def-set5-rank)の定義式から
 
 $$
 \operatorname{rank}(y)+1
