@@ -137,7 +137,7 @@ concepts:
     aliases: []
     requires:
       - nonstandard.hyperfinite-set
-      - nonstandard.internal-map
+      - nonstandard.many-sorted-transfer
       - topology.ultrafilter
 
   - id: nonstandard.infinitesimals-external
