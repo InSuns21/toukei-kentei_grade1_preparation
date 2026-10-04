@@ -2656,4 +2656,4 @@ $$
 
 のような臨界量は有限のままではいられません。
 
-次の NS8 では、これらの解析的な構図を踏まえて Clay Mathematics Institute の公式 statement を読み、「Navier--Stokes 問題を解く」とは正確に何を証明することなのかを整理します。
+次の NS8 では、これらの解析上の構図を踏まえて Clay Mathematics Institute の公式 statement を読み、「Navier--Stokes 問題を解く」とは正確に何を証明することなのかを整理します。
