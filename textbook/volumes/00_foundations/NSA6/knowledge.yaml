@@ -1,0 +1,75 @@
+chapter: NSA6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NSA5
+  - RA2
+  - F0-00C1
+
+concepts:
+  - id: nonstandard.sequence-limit-characterization
+    name: 数列極限の超準的特徴付け
+    kind: theorem
+    aliases: [hypernatural criterion for sequence convergence]
+    requires:
+      - analysis.real-sequence-convergence
+      - nonstandard.infinite-hypernatural
+      - nonstandard.infinitesimal-closeness
+      - nonstandard.standard-symbol-transfer
+
+  - id: nonstandard.cauchy-characterization
+    name: Cauchy 条件の超準的特徴付け
+    kind: theorem
+    aliases: [hypernatural criterion for Cauchy sequences]
+    requires:
+      - analysis.real-cauchy-sequence
+      - nonstandard.infinite-hypernatural
+      - nonstandard.infinitesimal-closeness
+      - nonstandard.standard-symbol-transfer
+
+  - id: nonstandard.continuity-characterization
+    name: 連続性の超準的特徴付け
+    kind: theorem
+    aliases: [microcontinuity criterion]
+    requires:
+      - analysis.real-function-continuity
+      - nonstandard.infinitesimal-closeness
+      - nonstandard.standard-set-extension
+      - nonstandard.standard-symbol-transfer
+
+  - id: nonstandard.uniform-continuity-characterization
+    name: 一様連続性の超準的特徴付け
+    kind: theorem
+    aliases: [uniform microcontinuity criterion]
+    requires:
+      - analysis.uniform-continuity
+      - nonstandard.continuity-characterization
+      - nonstandard.standard-symbol-transfer
+
+  - id: nonstandard.nearstandard-point
+    name: nearstandard point
+    kind: definition
+    aliases: [nearstandard point, nearstandard]
+    requires:
+      - nonstandard.infinitesimal-closeness
+      - nonstandard.standard-set-extension
+
+  - id: nonstandard.compactness-nearstandard-characterization
+    name: コンパクト性の nearstandard 特徴付け
+    kind: theorem
+    aliases: [nearstandard characterization of compactness]
+    requires:
+      - nonstandard.nearstandard-point
+      - topology.compact-sequential-equivalence-metric
+      - nonstandard.standard-set-extension
+      - topology.free-ultrafilter
+
+  - id: nonstandard.heine-cantor
+    name: Heine--Cantor の超準的証明
+    kind: corollary
+    aliases: []
+    requires:
+      - nonstandard.compactness-nearstandard-characterization
+      - nonstandard.continuity-characterization
+      - nonstandard.uniform-continuity-characterization
+      - topology.heine-cantor-compact-metric
