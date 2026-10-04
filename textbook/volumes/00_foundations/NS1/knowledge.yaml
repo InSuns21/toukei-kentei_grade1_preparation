@@ -1,0 +1,111 @@
+chapter: NS1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - VC9
+  - FOU4
+  - GPDE3
+
+forward_references: []
+
+concepts:
+  - id: navier-stokes.periodic-divergence-free-space
+    name: 周期発散零空間
+    kind: definition
+    aliases: [周期発散零空間, periodic divergence-free space]
+    introduction: formal
+    introduction_aliases: ["定義（周期発散零空間）"]
+    requires:
+      - vector-calculus.incompressible-flow
+      - fourier.fou4-complex-l2
+
+  - id: navier-stokes.divergence-free-fourier
+    name: 発散零条件の Fourier 表示
+    kind: proposition
+    aliases: [Fourier characterization of incompressibility]
+    introduction: formal
+    introduction_aliases: ["命題（発散零条件の Fourier 表示）"]
+    requires:
+      - navier-stokes.periodic-divergence-free-space
+      - vector-calculus.divergence
+
+  - id: navier-stokes.divergence-free-closure
+    name: 発散零空間の閉包表示
+    kind: proposition
+    aliases: [closure characterization of divergence-free fields]
+    introduction: formal
+    introduction_aliases: ["命題（発散零空間の閉包表示）"]
+    requires:
+      - navier-stokes.divergence-free-fourier
+      - fourier.fou4-parseval
+
+  - id: navier-stokes.leray-projection
+    name: Leray 射影
+    kind: definition
+    aliases: [Leray projection, Helmholtz--Leray projection]
+    introduction: formal
+    introduction_aliases: ["定義（Leray 射影）"]
+    requires:
+      - navier-stokes.periodic-divergence-free-space
+      - fourier.fou4-parseval
+
+  - id: navier-stokes.periodic-helmholtz
+    name: 周期 Leray 射影と Helmholtz 分解
+    kind: theorem
+    aliases: [periodic Helmholtz decomposition, periodic Hodge decomposition]
+    introduction: formal
+    introduction_aliases: ["定理（周期 Leray 射影と Helmholtz 分解）"]
+    requires:
+      - navier-stokes.leray-projection
+      - navier-stokes.divergence-free-fourier
+
+  - id: navier-stokes.stokes-operator
+    name: Stokes 作用素
+    kind: definition
+    aliases: [Stokes operator]
+    introduction: formal
+    introduction_aliases: ["定義（Stokes 作用素）"]
+    requires:
+      - navier-stokes.leray-projection
+      - sobolev.hk
+
+  - id: navier-stokes.stokes-positive
+    name: Stokes 作用素の Fourier 表示と正値性
+    kind: proposition
+    aliases: [Fourier representation of Stokes operator]
+    introduction: formal
+    introduction_aliases: ["命題（Stokes 作用素の Fourier 表示と正値性）"]
+    requires:
+      - navier-stokes.stokes-operator
+      - navier-stokes.divergence-free-fourier
+
+  - id: navier-stokes.projected-convection
+    name: 射影された移流作用素
+    kind: definition
+    aliases: [projected convection operator]
+    introduction: formal
+    introduction_aliases: ["定義（射影された移流作用素）"]
+    requires:
+      - navier-stokes.leray-projection
+      - vector-calculus.material-derivative
+
+  - id: navier-stokes.projected-equation
+    name: Leray 射影後の Navier--Stokes 方程式
+    kind: proposition
+    aliases: [projected Navier-Stokes equation]
+    introduction: formal
+    introduction_aliases: ["命題（Leray 射影後の Navier--Stokes 方程式）"]
+    requires:
+      - navier-stokes.stokes-operator
+      - navier-stokes.projected-convection
+      - vector-calculus.incompressible-navier-stokes-bridge
+
+  - id: navier-stokes.pressure-recovery
+    name: 圧力の Poisson 方程式による回収
+    kind: proposition
+    aliases: [pressure Poisson equation, pressure recovery]
+    introduction: formal
+    introduction_aliases: ["命題（圧力の Poisson 方程式による回収）"]
+    requires:
+      - navier-stokes.projected-equation
+      - vector-calculus.divergence
