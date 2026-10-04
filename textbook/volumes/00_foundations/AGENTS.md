@@ -29,7 +29,7 @@
 
 ## 完成条件
 
-`implemented`、`existing-anchor`、formal statement、proof block、CI green だけで完成扱いしない。
+`implemented`、`existing-anchor`、formal statement、proof block、自動検証 green だけで完成扱いしない。
 
 prerequisites だけを既知とする独習者が、本文から主要概念・主要定理・核心論証を追い、演習で自力再現できることを完成条件とする。prerequisite を知っていることと、途中2〜4手を脳内補完できることを分離する。
 
@@ -82,17 +82,17 @@ prerequisites だけを既知とする独習者が、本文から主要概念・
 - `knowledge.yaml` の `aliases` は真の同義語だけに使う。
 - 複数概念を同時導入する見出しは `introduction_aliases` を使い、global alias にしない。
 - 再掲 concept は canonical concept を `requires` で参照する。
-- CIを通すためだけに concept / dependency を追加しない。
+- 自動検証を通すためだけに concept / dependency を追加しない。
 - 弱*位相のように数学的意味を持つ記号を正規化で落とさない。
 
 ## 用語
 
 日本語として定着した数学・統計用語があるなら日本語を主表記にする。人名由来の定理名は原則として人名部分の英字表記を保持し、一般名詞側を日本語にする。用語の正本は `references/terminology-guide.md`。
 
-CI誤検出を避けるために自然な標準用語を不自然に改名しない。誤検出なら resolver、alias、contextual alias、監査ロジック側を修正する。
+自動監査の誤検出を避けるために自然な標準用語を不自然に改名しない。誤検出なら resolver、alias、contextual alias、監査ロジック側を修正する。
 
 ## 検証
 
 leaf chapter の通常PRでは changed-only validation を原則とする。global index、knowledge DAG、規約、validator、workflow等の全体波及変更では full audit を行う。
 
-少なくとも変更内容に応じて、DREAM THEATER exercise / concept / knowledge、KaTeX、proof/formal、Pages link を検証する。CI green だけを完成条件にせず、人手で数学的完全性と読者粒度も確認する。
+少なくとも変更内容に応じて、DREAM THEATER exercise / concept / knowledge、KaTeX、proof/formal、Pages link を検証する。自動検証 green だけを完成条件にせず、人手で数学的完全性と読者粒度も確認する。
