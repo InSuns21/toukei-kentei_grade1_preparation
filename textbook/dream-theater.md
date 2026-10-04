@@ -116,19 +116,6 @@
 
 ## 解析系
 
-<a id="dt-subject-nonstandard-analysis"></a>
-### 超準解析
-
-1. [NSA1 超実数はどこから来るか：自由超フィルターと商構成](textbook/volumes/00_foundations/NSA1/index.md)
-2. [NSA2 移送のための最小一階論理](textbook/volumes/00_foundations/NSA2/index.md)
-3. [NSA3 Łoś の定理と移送原理](textbook/volumes/00_foundations/NSA3/index.md)
-4. [NSA4 内部集合・外部集合・超自然数・超有限集合](textbook/volumes/00_foundations/NSA4/index.md)
-5. [NSA5 無限小・有限超実数・標準部](textbook/volumes/00_foundations/NSA5/index.md)
-6. [NSA6 極限・連続・一様連続・コンパクト性](textbook/volumes/00_foundations/NSA6/index.md)
-7. [NSA7 微分・Taylor 展開を無限小で読む](textbook/volumes/00_foundations/NSA7/index.md)
-8. [NSA8 Riemann 積分と超有限和](textbook/volumes/00_foundations/NSA8/index.md)
-9. [NSA9 級数・関数列・一様収束を無限添字で読む](textbook/volumes/00_foundations/NSA9/index.md)
-
 <a id="dt-subject-complex-analysis-i"></a>
 ### 複素解析 I
 
@@ -311,6 +298,19 @@
 4. [TSA4 線形フィルタ・ARMA / ARIMA・周波数領域](textbook/volumes/00_foundations/TSA4/index.md)
 5. [TSA5 エルゴード性・混合性・従属極限定理](textbook/volumes/00_foundations/TSA5/index.md)
 6. [TSA6 状態空間・Kalman フィルタ・イノベーション](textbook/volumes/00_foundations/TSA6/index.md)
+
+<a id="dt-subject-nonstandard-analysis"></a>
+### 超準解析
+
+1. [NSA1 超実数はどこから来るか：自由超フィルターと商構成](textbook/volumes/00_foundations/NSA1/index.md)
+2. [NSA2 移送のための最小一階論理](textbook/volumes/00_foundations/NSA2/index.md)
+3. [NSA3 Łoś の定理と移送原理](textbook/volumes/00_foundations/NSA3/index.md)
+4. [NSA4 内部集合・外部集合・超自然数・超有限集合](textbook/volumes/00_foundations/NSA4/index.md)
+5. [NSA5 無限小・有限超実数・標準部](textbook/volumes/00_foundations/NSA5/index.md)
+6. [NSA6 極限・連続・一様連続・コンパクト性](textbook/volumes/00_foundations/NSA6/index.md)
+7. [NSA7 微分・Taylor 展開を無限小で読む](textbook/volumes/00_foundations/NSA7/index.md)
+8. [NSA8 Riemann 積分と超有限和](textbook/volumes/00_foundations/NSA8/index.md)
+9. [NSA9 級数・関数列・一様収束を無限添字で読む](textbook/volumes/00_foundations/NSA9/index.md)
 
 ## 計算系
 
