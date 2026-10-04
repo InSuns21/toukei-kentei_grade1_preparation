@@ -96,7 +96,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-nsa1-u-equivalence -->
-**定義の確認。**
+**定義の確認**。
 
 $$
 x_n=0,
@@ -238,7 +238,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-nsa1-hyperreal -->
-**定義の確認。**
+**定義の確認**。
 
 $$
 (0,0,0,0,\ldots),
@@ -299,7 +299,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-nsa1-arithmetic -->
-**定義の確認。**
+**定義の確認**。
 
 $$
 \varepsilon
@@ -518,7 +518,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-nsa1-order -->
-**定義の確認。**
+**定義の確認**。
 
 $$
 \varepsilon
@@ -781,7 +781,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-nsa1-standard-embedding -->
-**定義の確認。**
+**定義の確認**。
 
 実数 $2$ は超実数の中では
 
@@ -893,7 +893,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-nsa1-infinitesimal -->
-**定義の確認。**
+**定義の確認**。
 
 候補
 
@@ -1014,7 +1014,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-nsa1-infinite-hyperreal -->
-**定義の確認。**
+**定義の確認**。
 
 $$
 H=[n+1]
