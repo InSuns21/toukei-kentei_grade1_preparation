@@ -1,0 +1,41 @@
+id: "NS5"
+title: "三次元局所強解・一意性・有限時間発散判定"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NS4
+official_scope: []
+learning_objectives:
+  - 三次元周期 Navier--Stokes の強解を C_t V、L2_t D(A)、時間微分 L2_t H の条件で定義し、Leray--Hopf 弱解との差を説明できる
+  - H1 エネルギー式を Au で試すことから導き、|b(u,u,Au)| <= C||grad u||_2^(3/2)||Au||_2^(3/2) を補間の途中式付きで示せる
+  - Young の不等式の指数 4/3 と 4 を選び、y=||grad u||_2^2 に対する y' <= C_nu y^3 + forcing を導ける
+  - Galerkin 近似を短時間で L-infinity_t V と L2_t D(A) に一様制御し、時間微分 L2_t H と Fourier コンパクト性から局所強解を構成できる
+  - 二つの強解の差に三次元 L4 評価を適用し、Gronwall の不等式で強解一意性を証明できる
+  - 最大強解存在時間を定義し、有限最大時刻なら H1 ノルムが無界になる blow-up alternative を再出発論法で証明できる
+  - int ||grad u||_2^4 dt が有限なら H1 ノルムが有限に保たれる積分型 continuation criterion を導ける
+  - 強解のエネルギー等号と Leray--Hopf 弱解のエネルギー不等式から相対エネルギーを作り、弱--強一意性を証明できる
+definitions:
+  - { id: NS5-DEF-01, name: "三次元周期 Navier--Stokes の強解" }
+  - { id: NS5-DEF-02, name: "最大強解存在時間" }
+theorems:
+  - { id: NS5-PROP-01, name: "三次元 H1 エネルギーでの非線形項評価" }
+  - { id: NS5-THM-01, name: "三次元周期 Navier--Stokes の局所強解と一意性" }
+  - { id: NS5-THM-02, name: "三次元局所強解の延長判定と有限時間発散選択肢" }
+  - { id: NS5-THM-03, name: "三次元周期 Navier--Stokes の弱--強一意性" }
+canonical_examples:
+  - "u(t,x)=exp(-nu t)(sin x_2,0,0) は非線形項が消える大域強解で T_max=infinity"
+  - "H1 非線形項を L6-L3-L2 の Holder、L3 補間、D(A) Fourier 評価で 3/2+3/2 型へ落とす計算"
+  - "y'=K y^3 の比較方程式を解き、短時間制御と大域上界の違いを確認する計算"
+  - "最大時刻直前の H1 上界 M から一様局所存在時間 delta を作って延長矛盾を得る再出発論法"
+  - "強解と Leray--Hopf 弱解の相対エネルギーから weak--strong uniqueness を閉じる計算"
+problem_patterns:
+  - NS-3D-H1-NONLINEAR-1
+  - NS-3D-LOCAL-STRONG-GALERKIN-1
+  - NS-3D-STRONG-UNIQUENESS-1
+  - NS-3D-BLOWUP-ALTERNATIVE-1
+  - NS-3D-H1-CONTINUATION-1
+  - NS-WEAK-STRONG-UNIQUENESS-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.5, exercises: 5.5, review: 1.5 }
