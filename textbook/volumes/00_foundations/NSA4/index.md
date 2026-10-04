@@ -257,6 +257,78 @@ $$
 上方閉性から $D\in\mathcal U$ です。逆向きは $C,D$ を入れ替えれば同じです。
 <!-- proof-end -->
 
+<a id="prop-nsa4-internal-set-sort-injective"></a>
+<!-- formal-statement-start -->
+### 命題（集合ソートから内部集合への対応は単射）
+
+部分集合列 $A_n,B_n\subseteq S$ に対し
+
+$$
+[A_n]_{\mathrm{int}}
+=
+[B_n]_{\mathrm{int}}
+$$
+
+が ${}^*S$ の部分集合として成り立つなら、集合ソートの超冪でも
+
+$$
+[A_n]=[B_n]
+$$
+
+である。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+標準世界では、異なる二つの部分集合には必ず一方だけに属する元があります。これは要素ソート $S$ と集合ソート $\mathcal P(S)$、所属関係 $\in$ を使う一階命題なので、NSA3 の移送原理をそのまま適用できます。
+
+<!-- proof-start -->
+### 証明
+
+標準世界の外延性から、任意の $A,B\subseteq S$ について
+
+$$
+A\ne B
+\Longrightarrow
+\exists x\in S\,
+\bigl(
+(x\in A\land x\notin B)
+\lor
+(x\in B\land x\notin A)
+\bigr)
+$$
+
+が成り立ちます。
+
+これは多ソート一階言語で書けるので、移送原理により集合ソートの超冪でも同じ主張が成り立ちます。
+
+いま
+
+$$
+[A_n]_{\mathrm{int}}
+=
+[B_n]_{\mathrm{int}}
+$$
+
+と仮定します。もし集合ソートで $[A_n]\ne[B_n]$ なら、移送された外延性により、ある $X\in{}^*S$ が存在して
+
+$$
+X\in[A_n]_{\mathrm{int}},
+\quad
+X\notin[B_n]_{\mathrm{int}}
+$$
+
+またはその逆が成り立ちます。
+
+しかしこれは二つの内部部分集合が等しいという仮定に反します。従って
+
+$$
+[A_n]=[B_n].
+$$
+<!-- proof-end -->
+
+この単射性により、内部集合を「集合ソートの超冪の元」として扱う見方と、「${}^*S$ の部分集合」として扱う見方を混同せず往復できます。
+
 ### 2.1 内部集合は有限集合演算で閉じる
 
 $X=[A_n]_{\mathrm{int}}$、$Y=[B_n]_{\mathrm{int}}$ なら
