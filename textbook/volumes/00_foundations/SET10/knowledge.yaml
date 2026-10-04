@@ -2,6 +2,8 @@ chapter: SET10
 scope: dream-theater
 coverage: complete
 prerequisites:
+  - SET5
+  - SET7
   - SET9
 
 forward_references:
