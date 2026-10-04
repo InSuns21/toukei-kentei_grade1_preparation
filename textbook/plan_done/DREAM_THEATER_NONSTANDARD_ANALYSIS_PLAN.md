@@ -1,6 +1,7 @@
 # DREAM THEATER 超準解析コース計画
 
 作成日: 2026-10-02  
+完了日: 2026-10-05  
 状態: completed
 
 ## 進捗（2026-10-05）
@@ -727,7 +728,7 @@ FA 系列との依存を実装前に監査する。
 7. [x] NSA5 無限小・有限超実数・標準部。
 8. [x] NSA6 極限・連続・一様連続・コンパクト性。
 9. [x] NSA7 微分・Taylor 展開。
-10. NSA8 Riemann 積分・超有限和。
+10. [x] NSA8 Riemann 積分・超有限和。
 11. [x] NSA9 級数・関数列・一様収束。
 12. [x] dream-theater.md に独立科目「超準解析」を追加する。
 13. [x] dream-theater-standard-math-core.md では共通基礎に入れず、発展分岐として配置する。

@@ -2,7 +2,7 @@ version: 1
 updated: 2026-10-05
 
 active_series: NSA
-active_plan: textbook/plans_progress/DREAM_THEATER_NONSTANDARD_ANALYSIS_PLAN.md
+active_plan: textbook/plan_done/DREAM_THEATER_NONSTANDARD_ANALYSIS_PLAN.md
 series_manifest: textbook/dream-theater-series/NSA.yaml
 
 completed_through: NSA9
