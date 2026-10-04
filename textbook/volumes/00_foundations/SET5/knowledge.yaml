@@ -32,7 +32,7 @@ concepts:
     aliases: [整礎再帰, well-founded recursion]
     requires:
       - set.well-founded-relation
-      - set.replacement-schema-zf
+      - set.replacement-schema
 
   - id: set.rank
     name: 集合の rank
