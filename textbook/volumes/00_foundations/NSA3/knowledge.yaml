@@ -1,0 +1,78 @@
+chapter: NSA3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NSA2
+  - SET9
+
+forward_references: []
+
+concepts:
+  - id: model.ultrapower-structure
+    name: 一階構造の超冪
+    kind: definition
+    aliases: [ultrapower structure]
+    requires:
+      - logic.first-order-structure
+      - nonstandard.u-equivalence
+      - topology.ultrafilter
+
+  - id: model.ultrapower-symbol-well-defined
+    name: 超冪の記号解釈は代表元によらない
+    kind: proposition
+    aliases: []
+    requires:
+      - model.ultrapower-structure
+      - topology.filter
+
+  - id: model.ultrapower-term-evaluation
+    name: 超冪における項評価補題
+    kind: lemma
+    aliases: [ultrapower term evaluation lemma]
+    requires:
+      - model.ultrapower-symbol-well-defined
+      - logic.term-evaluation
+
+  - id: model.los-theorem
+    name: Łoś の定理
+    kind: theorem
+    aliases: [Los theorem, Łoś theorem]
+    requires:
+      - model.ultrapower-term-evaluation
+      - logic.satisfaction
+      - logic.formula-structural-induction
+      - topology.ultrafilter-dichotomy
+      - set.dc-implies-countable-choice
+
+  - id: nonstandard.transfer-principle
+    name: 移送原理
+    kind: corollary
+    aliases: [transfer principle]
+    requires:
+      - model.los-theorem
+      - nonstandard.standard-embedding
+
+  - id: nonstandard.standard-symbol-transfer
+    name: 固定した標準関数・標準関係の移送
+    kind: corollary
+    aliases: []
+    requires:
+      - nonstandard.transfer-principle
+      - logic.first-order-language
+
+  - id: nonstandard.many-sorted-transfer
+    name: 多ソート超冪での移送
+    kind: proposition
+    aliases: []
+    requires:
+      - model.los-theorem
+      - logic.many-sorted-first-order-language
+
+  - id: nonstandard.first-order-transfer-restriction
+    name: 移送原理の一階制約
+    kind: proposition
+    aliases: []
+    requires:
+      - nonstandard.transfer-principle
+      - logic.first-order-formula
+      - nonstandard.many-sorted-transfer
