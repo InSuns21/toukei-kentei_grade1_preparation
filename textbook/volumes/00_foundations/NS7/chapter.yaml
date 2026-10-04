@@ -1,0 +1,45 @@
+id: "NS7"
+title: "正則性判定・渦伸長・何が特異点を防ぐのか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NS6
+official_scope: []
+learning_objectives:
+  - 3<p<=infinity に対する Prodi--Serrin 指数条件 2/q+3/p<=1 を scaling と非線形エネルギー評価の両方から説明できる
+  - Hölder の指数 r=2p/(p-2) と補間指数 theta=3/p を導き、|b(u,u,Au)| を ||u||_p、||grad u||_2、||Au||_2 で評価できる
+  - Young の不等式から臨界時間指数 q_c=2p/(p-3) を導き、Prodi--Serrin 条件が H1 延長判定を与えることを証明できる
+  - p=3, q=infinity の端点で同じ H1 エネルギー証明が退化する箇所を指数計算から特定できる
+  - 三次元渦度 omega=curl u を定義し、対流項の curl を成分恒等式から計算して三次元渦度方程式を導ける
+  - 二次元では渦伸長項が消え、三次元では (omega dot grad)u が渦度 L2 エネルギーへ残る理由を式で説明できる
+  - 渦伸長項が速度勾配の対称部分による伸縮を測ることを具体的な affine 場で確認できる
+  - int ||grad u||_infinity dt が有限なら H1 ノルムが有界となり最大強解を延長できることを渦度エネルギーと Gronwall から証明できる
+  - Leray--Hopf 弱解、弱--強一意性、Prodi--Serrin 型判定を接続し、追加積分可能性の下で弱解が強解として一意になることを説明できる
+definitions:
+  - { id: NS7-DEF-01, name: "本章の Prodi--Serrin 指数対" }
+  - { id: NS7-DEF-02, name: "三次元渦度" }
+theorems:
+  - { id: NS7-PROP-01, name: "Prodi--Serrin 型非線形項評価" }
+  - { id: NS7-THM-01, name: "三次元周期 Navier--Stokes の Prodi--Serrin 型延長判定" }
+  - { id: NS7-PROP-02, name: "三次元 Navier--Stokes の渦度方程式" }
+  - { id: NS7-PROP-03, name: "三次元渦度エネルギーと渦伸長" }
+  - { id: NS7-THM-02, name: "速度勾配による尺度臨界延長判定" }
+  - { id: NS7-COR-01, name: "Prodi--Serrin 条件下の弱--強一致" }
+canonical_examples:
+  - "(p,q)=(6,4),(infinity,2) が臨界 Prodi--Serrin 指数対になることを直接確認する"
+  - "周期せん断流 u=(sin x2,0,0) の三次元渦度を直接計算する"
+  - "二次元速度場を三次元へ埋め込み、omega=(0,0,omega3) と partial_3 u=0 から渦伸長が消えることを確認する"
+  - "発散零 affine 場で (omega dot grad)u dot omega=4 Omega^2 c を計算し、伸長と圧縮の符号を確認する"
+  - "p=3 端点で Young の共役指数が退化し、有限 L-infinity_t L3_x だけでは単純吸収できないことを確認する"
+problem_patterns:
+  - NS-PRODI-SERRIN-EXPONENT-1
+  - NS-PRODI-SERRIN-H1-1
+  - NS-VORTICITY-EQUATION-1
+  - NS-VORTEX-STRETCHING-1
+  - NS-GRADIENT-CONTINUATION-1
+  - NS-ENDPOINT-FAILURE-1
+  - NS-WEAK-STRONG-REGULARITY-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.5, exercises: 5.0, review: 1.0 }
