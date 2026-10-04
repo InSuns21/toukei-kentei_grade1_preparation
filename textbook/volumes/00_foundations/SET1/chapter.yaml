@@ -1,0 +1,34 @@
+id: "SET1"
+title: "公理的集合論への入口：ZF と ZFC"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00A1D
+official_scope: []
+learning_objectives:
+  - Russell のパラドックスから無制限内包が破綻する理由を説明できる
+  - ZF の主要公理・公理図式がどの集合構成を保証するか説明できる
+  - 分出公理図式と無制限内包を区別できる
+  - 置換公理図式が一価な対応の像を集合として確保する役割を説明できる
+  - 正則性公理から自己所属や有限の所属循環が排除されることを示せる
+  - ZF と ZFC を区別し、後続構成で選択公理を使う位置を追跡できる
+definitions:
+  - { id: SET1-TERM-01, name: 真の類 }
+  - { id: SET1-TERM-02, name: 公理図式 }
+  - { id: SET1-DEF-01, name: ZF と ZFC }
+theorems:
+  - { id: SET1-PROP-01, name: 無制限内包は矛盾を生む }
+  - { id: SET1-PROP-02, name: 空集合の存在と一意性 }
+  - { id: SET1-PROP-03, name: 自己所属は起きない }
+canonical_examples:
+  - Russell のパラドックス
+  - 分出による空集合の構成
+  - 対公理と和集合公理による有限集合の構成
+problem_patterns:
+  - ZF-AXIOM-TRACKING-1
+  - SEPARATION-VS-COMPREHENSION-1
+  - FOUNDATION-CYCLE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2.5, exercises: 2.0, review: 0.6 }

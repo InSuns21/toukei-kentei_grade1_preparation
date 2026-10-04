@@ -1,0 +1,17 @@
+chapter: "SET1"
+terms:
+  - term: ZF
+    english: Zermelo--Fraenkel set theory
+    meaning: 選択公理を含めない Zermelo--Fraenkel 集合論。本系列では ZFC と区別して公理使用箇所を追う。
+  - term: ZFC
+    english: Zermelo--Fraenkel set theory with Choice
+    meaning: ZF に選択公理を加えた公理系。
+  - term: 公理図式
+    english: axiom schema
+    meaning: 論理式などのパラメータを変えるごとに個別の公理を与える仕組み。
+  - term: 置換公理図式
+    english: replacement schema
+    meaning: 集合上で一意に定まる対応の像全体を集合として確保する公理図式。
+  - term: 正則性公理
+    english: axiom of foundation
+    meaning: 所属関係の自己循環や有限循環を排除し、整礎的な再帰へつなぐ公理。

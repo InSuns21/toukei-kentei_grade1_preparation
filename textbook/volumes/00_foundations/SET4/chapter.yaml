@@ -1,0 +1,32 @@
+id: "SET4"
+title: "超限再帰：以前の全段階から次を定義する"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SET3
+  - SET1
+official_scope: []
+learning_objectives:
+  - 超限再帰と超限帰納法の役割を区別できる
+  - 超限再帰定理の存在証明で近似・両立性・置換公理図式の役割を追える
+  - 順序数の加法・乗法・冪を超限再帰で定義できる
+  - 1+omega と omega+1 の違いを定義から計算できる
+definitions:
+  - { id: SET4-DEF-01, name: 超限再帰規則 }
+  - { id: SET4-DEF-03, name: 順序数の加法 }
+  - { id: SET4-DEF-04, name: 順序数の乗法 }
+  - { id: SET4-DEF-05, name: 順序数の冪 }
+theorems:
+  - { id: SET4-THM-01, name: 超限再帰定理 }
+canonical_examples:
+  - 1+omega=omega
+  - omega+1>omega
+  - 2 times omega と omega times 2
+  - 0 の順序数冪
+problem_patterns:
+  - TRANSFINITE-RECURSION-1
+  - ORDINAL-ARITHMETIC-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.2, exercises: 2.5, review: 0.7 }

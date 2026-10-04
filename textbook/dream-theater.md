@@ -28,7 +28,7 @@
 7. [F0-00A2 選択公理](textbook/volumes/00_foundations/F0_00A2_選択公理_Zorn_極大原理/index.md)
 8. [F0-00A3 Zorn の補題・極大延長](textbook/volumes/00_foundations/F0_00A3_半順序_Zorn_極大延長/index.md)
 
-順序数・超限帰納法・超限再帰・Hartogs の補題を使って選択公理の同値性を完全に追う内容は、共通基礎の必修列には含めません。証明まで追いたい場合は、発展分岐の [F0-00A3A 選択公理と Zorn の補題の同値性](textbook/volumes/00_foundations/F0_00A3A_AC_Zorn_equivalence_proof/index.md) へ進めます。
+順序数・超限帰納法・超限再帰・Hartogs の補題まで公理的集合論として追う内容は、共通基礎の必修列には含めません。必要なら、独立した発展分岐の [集合論・数学基礎論](#dt-subject-axiomatic-set-theory) へ進みます。
 
 <a id="dt-subject-linear-algebra"></a>
 ### 線形代数
@@ -93,6 +93,26 @@
 18. [TOP7 一様構造・一様連続・Cauchy構造](textbook/volumes/00_foundations/TOP7/index.md)
 
 位相空間論で一般コンパクト性まで進んだら、実解析へ戻る発展分岐として [RA8 関数族のコンパクト性・近似](textbook/volumes/00_foundations/RA8/index.md) を読めます。
+
+## 基礎論系
+
+<a id="dt-subject-axiomatic-set-theory"></a>
+### 集合論・数学基礎論
+
+共通基礎の集合論で集合・写像・濃度・順序・選択公理・Zorn の補題まで学んだあと、**数学の対象そのものを集合・順序数・公理系から調べたい読者のための独立した発展分岐**です。解析・線形代数・確率・幾何を読むための必修前提にはしません。
+
+1. [SET1 公理的集合論への入口：ZF と ZFC](textbook/volumes/00_foundations/SET1/index.md)
+2. [SET2 順序型と順序数：整列の長さを集合で表す](textbook/volumes/00_foundations/SET2/index.md)
+3. [SET3 超限帰納法：極限段階を含む帰納法](textbook/volumes/00_foundations/SET3/index.md)
+4. [SET4 超限再帰：以前の全段階から次を定義する](textbook/volumes/00_foundations/SET4/index.md)
+5. [SET5 累積階層と rank：集合はどの段階で現れるか](textbook/volumes/00_foundations/SET5/index.md)
+6. [SET6 基数：順序の長さと集合の大きさを分ける](textbook/volumes/00_foundations/SET6/index.md)
+7. [SET7 Hartogs の補題：選択公理なしで大きすぎる順序数を作る](textbook/volumes/00_foundations/SET7/index.md)
+8. [F0-00A3A 選択公理と Zorn の補題の同値性](textbook/volumes/00_foundations/F0_00A3A_AC_Zorn_equivalence_proof/index.md)
+9. [SET9 弱い選択原理と超フィルター](textbook/volumes/00_foundations/SET9/index.md)
+10. [SET10 選択公理は普通の数学のどこに現れるか](textbook/volumes/00_foundations/SET10/index.md)
+
+この系列では、ZF / ZFC → 順序型・順序数 → 超限帰納法 → 超限再帰 → 累積階層・rank → 基数 → Hartogs → 選択公理・整列可能定理・Zorn の同値性 → 弱い選択原理・超フィルター、という主線を追い、最後に Hamel 基底・Hahn--Banach・Vitali 集合など既存科目へ戻って選択原理の使われ方を監査します。
 
 ## 解析系
 

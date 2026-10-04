@@ -1,0 +1,17 @@
+chapter: "SET2"
+terms:
+  - term: 推移的集合
+    english: transitive set
+    meaning: y が x の元で x が集合 T の元なら、y も T の元になる集合。
+  - term: 順序数
+    english: ordinal
+    meaning: 推移的で、その元が所属関係から作る標準整列で整列される集合。
+  - term: 後続順序数
+    english: successor ordinal
+    meaning: 順序数 alpha に対する alpha union {alpha} の形の順序数。
+  - term: 極限順序数
+    english: limit ordinal
+    meaning: 0 でも後続順序数でもない順序数。
+  - term: 順序型
+    english: order type
+    meaning: 整列集合と順序同型になる一意な順序数。

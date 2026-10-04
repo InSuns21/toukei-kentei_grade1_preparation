@@ -1,0 +1,113 @@
+chapter: SET1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00A1D
+
+forward_references:
+  - set.choice-axiom
+  - set.ordinal
+  - set.inductive-set
+  - set.transfinite-induction
+  - set.transfinite-recursion
+  - set.cumulative-hierarchy
+  - set.cardinal
+  - set.hartogs-lemma
+
+concepts:
+  - id: set.unrestricted-comprehension-contradiction
+    name: 無制限内包は矛盾を生む
+    kind: proposition
+    aliases: [無制限内包は矛盾を生む]
+    requires: []
+
+  - id: set.proper-class
+    name: 真の類
+    kind: definition
+    aliases: [真の類, proper class]
+    introduction: inline
+    requires: []
+
+  - id: set.axiom-schema
+    name: 公理図式
+    kind: definition
+    aliases: [公理図式, axiom schema]
+    introduction: inline
+    requires: []
+
+  - id: set.extensionality-axiom
+    name: 外延性公理
+    kind: axiom
+    aliases: [外延性公理, axiom of extensionality]
+    requires: []
+
+  - id: set.pairing-axiom
+    name: 対公理
+    kind: axiom
+    aliases: [対公理, axiom of pairing]
+    requires: []
+
+  - id: set.union-axiom
+    name: 和集合公理
+    kind: axiom
+    aliases: [和集合公理, axiom of union]
+    requires: []
+
+  - id: set.power-set-axiom
+    name: 冪集合公理
+    kind: axiom
+    aliases: [冪集合公理, power set axiom]
+    requires: []
+
+  - id: set.infinity-axiom
+    name: 無限公理
+    kind: axiom
+    aliases: [無限公理, axiom of infinity]
+    requires: []
+
+  - id: set.separation-schema
+    name: 分出公理図式
+    kind: axiom
+    aliases: [分出公理図式, separation schema]
+    introduction: inline
+    requires:
+      - set.axiom-schema
+
+  - id: set.empty-set-existence-uniqueness
+    name: 空集合の存在と一意性
+    kind: proposition
+    aliases: [空集合の存在と一意性]
+    requires:
+      - set.separation-schema
+
+  - id: set.replacement-schema
+    name: 置換公理図式
+    kind: axiom
+    aliases: [置換公理図式, replacement schema]
+    introduction: inline
+    requires:
+      - set.axiom-schema
+
+  - id: set.foundation-axiom
+    name: 正則性公理
+    kind: axiom
+    aliases: [正則性公理, foundation axiom]
+    introduction: inline
+    requires: []
+
+  - id: set.no-self-membership
+    name: 自己所属は起きない
+    kind: proposition
+    aliases: [自己所属は起きない]
+    requires:
+      - set.foundation-axiom
+
+  - id: set.zf-zfc
+    name: ZF と ZFC
+    kind: definition
+    aliases: [ZF と ZFC]
+    introduction_aliases: [ZF, ZFC]
+    requires:
+      - set.separation-schema
+      - set.replacement-schema
+      - set.foundation-axiom

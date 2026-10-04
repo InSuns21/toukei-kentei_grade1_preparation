@@ -9,27 +9,26 @@ prerequisites:
   - F0-00A3
   - F0-02C6
   - F0-02C6A
+  - SET9
 official_scope: []
 learning_objectives:
-  - ウルトラフィルター拡張補題をZornの補題から導き、どの存在段階で選択原理を使うか説明できる
-  - コンパクト性をウルトラフィルターの収束で特徴付け、コンパクト Hausdorff 空間族の積のコンパクト性を座標フィルターから証明できる
+  - SET9 の超フィルター拡張補題を用い、コンパクト性の超フィルター特徴付けへ接続できる
+  - コンパクト性を超フィルターの収束で特徴付け、コンパクト Hausdorff 空間族の積のコンパクト性を座標フィルターから証明できる
   - Banach–Alaogluを双対単位球の座標埋め込みと閉条件の積として証明し、定義域の完備性が不要であることを説明できる
   - Goldstineの定理を有限個の汎関数による同時近似へ還元し、有限次元分離の核心計算から証明できる
   - 反射性を標準埋め込みJ:X→X**の全射性として定義し、有限次元Banach空間が反射的であることを示せる
   - 反射性と閉単位球の弱コンパクト性の同値をBanach–Alaoglu・Goldstine・Hausdorff性から証明できる
   - Eberlein–Šmulianを使わず、弱コンパクト性を一般位相のコンパクト性として扱う証明境界を説明できる
 definitions:
-  - { id: FA4-DEF-01, name: ウルトラフィルター }
   - { id: FA4-DEF-02, name: 反射的Banach空間 }
 theorems:
-  - { id: FA4-LEM-01, name: ウルトラフィルター拡張補題 }
-  - { id: FA4-THM-01, name: コンパクト性のウルトラフィルター特徴付け }
+  - { id: FA4-THM-01, name: コンパクト性の超フィルター特徴付け }
   - { id: FA4-THM-02, name: コンパクト Hausdorff 空間族の積コンパクト性 }
   - { id: FA4-THM-03, name: Banach–Alaogluの定理 }
   - { id: FA4-THM-04, name: Goldstineの定理 }
   - { id: FA4-THM-05, name: 反射性と閉単位球の弱コンパクト性の同値 }
   - { id: FA4-COR-01, name: 反射的Banach空間の閉有界凸集合は弱コンパクト }
-canonical_examples: [一点フィルターとウルトラフィルター, 双対単位球の座標埋め込み, 有限次元Banach空間の反射性]
+canonical_examples: [一点フィルターと超フィルター, 双対単位球の座標埋め込み, 有限次元Banach空間の反射性]
 problem_patterns: [FA4-ULTRAFILTER-1, FA4-ALAOGLU-CLOSED-IMAGE-1, FA4-GOLDSTINE-FINITE-1, FA4-REFLEXIVE-BALL-1, FA4-WEAK-COMPACT-CONVEX-1]
 past_exam_alignment: []
 integrated_exam_problems: []

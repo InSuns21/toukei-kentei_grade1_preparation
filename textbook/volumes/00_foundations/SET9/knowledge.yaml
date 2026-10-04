@@ -1,0 +1,100 @@
+chapter: SET9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00A2
+  - F0-00A3A
+  - TOP6
+
+forward_references:
+  - linear.basis
+  - algebra.prime-ideal
+
+concepts:
+  - id: set.finite-choice
+    name: 有限選択
+    kind: theorem
+    aliases: [有限選択]
+    requires:
+      - set.choice-function
+
+  - id: set.dependent-choice
+    name: 従属選択公理
+    kind: axiom
+    aliases: [従属選択公理, dependent choice, DC]
+    requires: []
+
+  - id: set.ac-implies-dependent-choice
+    name: AC は DC を導く
+    kind: theorem
+    aliases: [AC は DC を導く]
+    requires:
+      - set.choice-axiom
+      - set.dependent-choice
+
+  - id: set.dc-implies-countable-choice
+    name: DC は可算選択を導く
+    kind: theorem
+    aliases: [DC は可算選択を導く]
+    requires:
+      - set.dependent-choice
+      - set.countable-choice
+
+  - id: topology.ultrafilter
+    name: 超フィルター
+    kind: definition
+    aliases: [超フィルター, ultrafilter]
+    requires:
+      - topology.filter
+
+  - id: topology.ultrafilter-dichotomy
+    name: 超フィルターの二者択一
+    kind: theorem
+    aliases: [超フィルターの二者択一]
+    requires:
+      - topology.ultrafilter
+
+  - id: topology.principal-ultrafilter
+    name: 主超フィルター
+    kind: definition
+    aliases: [主超フィルター, principal ultrafilter]
+    requires:
+      - topology.ultrafilter
+
+  - id: topology.free-ultrafilter
+    name: 自由超フィルター
+    kind: definition
+    aliases: [自由超フィルター, free ultrafilter]
+    requires:
+      - topology.principal-ultrafilter
+
+  - id: set.cofinite-filter
+    name: 余有限フィルター
+    kind: definition
+    aliases: [余有限フィルター, cofinite filter]
+    requires:
+      - topology.filter
+
+  - id: set.cofinite-is-filter
+    name: 余有限族はフィルターである
+    kind: proposition
+    aliases: [余有限族はフィルターである]
+    requires:
+      - set.cofinite-filter
+
+  - id: topology.ultrafilter-extension
+    name: 超フィルター拡張補題
+    kind: theorem
+    aliases: [超フィルター拡張補題, 超フィルター補題, ウルトラフィルター拡張補題, ultrafilter extension lemma, ultrafilter lemma]
+    requires:
+      - topology.ultrafilter
+      - set.zorn-lemma
+
+  - id: set.free-ultrafilter-on-natural
+    name: 自然数上の自由超フィルターの存在
+    kind: theorem
+    aliases: [自然数上の自由超フィルターの存在]
+    requires:
+      - set.cofinite-is-filter
+      - topology.ultrafilter-extension
+      - topology.free-ultrafilter

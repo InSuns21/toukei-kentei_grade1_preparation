@@ -1,0 +1,11 @@
+chapter: "SET7"
+terms:
+  - term: Hartogs 数
+    english: Hartogs number
+    meaning: 集合 X へ単射できない最小の順序数 h(X)。
+  - term: Hartogs の補題
+    english: Hartogs lemma
+    meaning: 任意の集合 X に対し、X へ単射できない順序数が ZF だけで存在するという定理。
+  - term: 次の基数
+    english: successor cardinal
+    meaning: 基数 kappa より大きい最小の基数。Hartogs 数 h(kappa) として構成できる。

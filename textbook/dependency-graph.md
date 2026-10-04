@@ -52,7 +52,33 @@ F0-00A1C 集合族・添字集合
 
 である。
 
-F0-00A3A「選択公理と Zorn の補題の同値性」は DREAM THEATER index には stable asset として残すが、共通基礎の必修番号列には含めない。順序数・超限再帰・Hartogs 補題の canonical 章が独立「集合論・数学基礎論」に実装された後、SET8 相当として prerequisite を付け替える。
+F0-00A3A「選択公理と Zorn の補題の同値性」は stable ID / URL を維持したまま、独立「集合論・数学基礎論」の SET8 相当として扱う。共通基礎の必修番号列には含めない。
+
+独立系列の現行主線は
+
+```text
+F0-00A1D
+  ↓
+SET1 ZF / ZFC
+  ↓
+SET2 順序型・順序数
+  ↓
+SET3 超限帰納法
+  ↓
+SET4 超限再帰 ─────→ SET5 累積階層・rank
+  │
+  └→ SET6 基数
+        ↓
+      SET7 Hartogs の補題
+        ↓
+F0-00A2 + F0-00A3 ─→ F0-00A3A AC・整列可能定理・Zorn 同値性
+        ↓
+TOP6 filter ─────────→ SET9 弱い選択原理・超フィルター
+                              ↓
+                         SET10 数学各分野への接続
+```
+
+SET2 は順序型・順序数、SET4 は超限再帰、SET7 は Hartogs の補題の canonical owner である。F0-00A3A はこれらを再定義せず直接 prerequisite として使い、同値性証明そのものを所有する。SET9 は TOP6 の filter 定義を再利用し、従属選択・超フィルター・自由超フィルターを所有する。SET10 は新しい基礎概念を増やす章ではなく、既存の Hamel 基底・Hahn--Banach・Vitali 集合等へ依存を戻す出口章である。SET1--SET7 と Hartogs の構成までは ZF で閉じ、選択公理は F0-00A2 / F0-00A3A で明示的に導入する。
 
 ### 線形代数
 

@@ -1,0 +1,66 @@
+chapter: SET7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SET4
+  - SET6
+
+forward_references:
+  - set.choice-axiom
+  - set.well-ordering-theorem
+  - set.zorn-lemma
+
+concepts:
+  - id: set.wellorders-on-subsets
+    name: 部分集合上の整列の集合
+    kind: definition
+    aliases: [部分集合上の整列の集合]
+    requires:
+      - order.well-order
+
+  - id: set.order-types-realized-in-x
+    name: 実現される順序型の集合
+    kind: definition
+    aliases: [実現される順序型の集合]
+    requires:
+      - set.wellorders-on-subsets
+      - order.order-type
+      - set.replacement-schema
+
+  - id: set.hartogs-gamma-no-injection
+    name: 構成した順序数は元の集合へ単射できない
+    kind: lemma
+    aliases: [構成した順序数は元の集合へ単射できない]
+    requires:
+      - set.order-types-realized-in-x
+      - set.ordinal
+
+  - id: set.hartogs-number
+    name: Hartogs 数
+    kind: definition
+    aliases: [Hartogs 数, Hartogs number]
+    requires:
+      - set.hartogs-gamma-no-injection
+
+  - id: set.hartogs-lemma
+    name: Hartogs の補題
+    kind: theorem
+    aliases: [Hartogs の補題, Hartogs補題, Hartogs lemma]
+    requires:
+      - set.hartogs-number
+
+  - id: set.hartogs-cardinal
+    name: 順序数の Hartogs 数はより大きい基数
+    kind: theorem
+    aliases: [順序数の Hartogs 数はより大きい基数]
+    requires:
+      - set.hartogs-lemma
+      - set.cardinal
+
+  - id: set.successor-cardinal
+    name: 次の基数
+    kind: corollary
+    aliases: [次の基数, successor cardinal]
+    requires:
+      - set.hartogs-cardinal
+      - set.cantor-bernstein

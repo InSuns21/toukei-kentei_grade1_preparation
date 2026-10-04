@@ -1,8 +1,8 @@
 # DREAM THEATER 集合論・数学基礎論コース計画
 
 作成日: 2026-09-29  
-更新日: 2026-10-03  
-状態: planned
+更新日: 2026-10-04  
+状態: implemented_pending_validation
 
 ## 0. 位置づけ
 
@@ -345,28 +345,19 @@ ultrafilter lemma による延長
 
 2026-10-03 の decision gate で、**stable ID / URL を維持したまま F0-00A3A 自体を SET8 相当の canonical asset とする第一候補**を採用した。
 
-ただし、現行 A3A が使用する
+2026-10-04 に SET1--SET7 を実装し、次を canonical owner として確定した。
 
-- 順序数
-- Replacement
-- 超限再帰
-- Hartogs 補題
+- SET1: ZF / ZFC・分出公理図式・置換公理図式・正則性公理
+- SET2: 順序型・順序数・後続順序数・極限順序数・$\omega$
+- SET3: 超限帰納法
+- SET4: 超限再帰・順序数演算
+- SET5: 累積階層・rank
+- SET6: 基数
+- SET7: Hartogs の補題・Hartogs 数・次の基数
 
-の canonical owner となる SET2 / SET4 / SET7 はまだ未実装である。したがって、それらが存在しない段階で架空の chapter ID を prerequisite に追加しない。
+同日に F0-00A3A の stable ID / URL を維持したまま、chapter.yaml / knowledge.yaml の prerequisite を SET2 / SET4 / SET7 へ付け替えた。A3A 内で仮置きしていた順序数・Replacement・超限再帰・Hartogs の canonical ownership は新章へ移し、A3A は **選択公理・整列可能定理・Zorn の同値性そのもの**を所有する SET8 相当の章とした。
 
-移行順は次の通りとする。
-
-~~~text
-SET1--SET7 を実装
-  ↓
-順序数・超限再帰・Hartogs の stable ID / anchor を確定
-  ↓
-F0-00A3A の chapter.yaml / knowledge.yaml prerequisite を実在章へ付け替える
-  ↓
-公開所属を「集合論・数学基礎論」の SET8 として確定
-~~~
-
-SET1--SET7 が揃うまで、F0-00A3A は stable asset として保持するが、共通基礎の必修通読には置かない。重複する AC $\Leftrightarrow$ Zorn 証明は作らない。
+公開所属も独立「集合論・数学基礎論」へ移し、重複する AC $\Leftrightarrow$ Zorn 証明は新規作成しない。
 
 ## 5. 共通基礎にしないことの明文化
 
@@ -481,7 +472,7 @@ dream-theater-standard-math-core.md の共通基礎には、本科目を必修�
 1. 共通基礎再構成計画の SET-U1--U3 と F0-00A1D 改稿を先に監査
 2. F0-00A3A が現在暗黙に使う順序数・Replacement・超限再帰を依存一覧化
 3. SET1 ZF / ZFC
-4. SET2 順序数
+4. SET2 順序型・順序数
 5. SET3 超限帰納法
 6. SET4 超限再帰
 7. SET5 累積階層・rank
@@ -494,6 +485,33 @@ dream-theater-standard-math-core.md の共通基礎には、本科目を必修�
 14. dream-theater-standard-math-core.md では共通基礎に含めず、発展分岐として案内
 15. knowledge DAG / prerequisites / stable anchor を更新
 16. DREAM THEATER 専用 validation / pedagogy audit を実施
+
+## 8A. 2026-10-04 進捗
+
+実装完了:
+
+- SET-U1--SET-U3 / F0-00A1D の既存前提を確認
+- F0-00A3A の暗黙依存を特定
+- SET1 公理的集合論への入口
+- SET2 順序型・順序数
+- SET3 超限帰納法
+- SET4 超限再帰・順序数演算
+- SET5 累積階層・rank
+- SET6 基数
+- SET7 Hartogs の補題
+- F0-00A3A を stable ID / URL のまま SET8 相当へ再配置
+- SET9 弱い選択原理・超フィルター
+- SET10 選択公理の数学各分野への接続
+- dream-theater.md / dream-theater-index.json に独立「集合論・数学基礎論」を追加
+- dream-theater-standard-math-core.md では共通基礎に入れず発展分岐として案内
+- dependency-graph.md に独立系列の主線を追加
+- 順序型・順序数・超限再帰・Hartogs・Replacement の canonical owner を整理
+
+残作業:
+
+- DREAM THEATER 専用 validation / pedagogy audit
+- CI / Pages の確認
+- 検証完了後に plan_done へ移動
 
 ## 9. 完成条件
 

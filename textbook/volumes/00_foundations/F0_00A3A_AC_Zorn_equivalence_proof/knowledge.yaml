@@ -4,38 +4,11 @@ coverage: complete
 prerequisites:
   - F0-00A2
   - F0-00A3
+  - SET2
+  - SET4
+  - SET7
 
 concepts:
-  - id: set.ordinal
-    name: 順序数
-    kind: term
-    introduction: inline
-    aliases: [順序数, ordinal]
-    requires: []
-
-  - id: set.replacement-schema
-    name: 置換公理図式
-    kind: term
-    introduction: inline
-    aliases: [置換公理図式, Replacement schema]
-    requires: []
-
-  - id: set.transfinite-recursion
-    name: 超限再帰
-    kind: term
-    introduction: inline
-    aliases: [超限再帰, transfinite recursion]
-    requires:
-      - set.ordinal
-
-  - id: set.hartogs-lemma
-    name: Hartogs の補題
-    kind: lemma
-    aliases: [Hartogs の補題, Hartogs補題]
-    requires:
-      - set.ordinal
-      - set.replacement-schema
-
   - id: set.ac-zorn-equivalence
     name: 選択公理とZornの補題の同値性
     kind: theorem

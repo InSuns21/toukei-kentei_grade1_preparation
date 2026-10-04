@@ -1,0 +1,11 @@
+chapter: "SET3"
+terms:
+  - term: 超限帰納法
+    english: transfinite induction
+    meaning: 順序数 alpha より前の全段階で命題が成り立つことから alpha での成立を示し、全順序数へ広げる帰納法。
+  - term: 累進的な性質
+    english: progressive property
+    meaning: それ以前の全順序数で成立すれば現在の順序数でも成立する性質。
+  - term: 極限段階
+    english: limit stage
+    meaning: 後続順序数ではない極限順序数での帰納・再帰の段階。

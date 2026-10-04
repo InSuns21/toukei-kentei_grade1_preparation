@@ -1,0 +1,55 @@
+chapter: SET3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SET2
+
+forward_references:
+  - set.choice-axiom
+  - set.transfinite-recursion
+  - set.ordinal-addition
+
+concepts:
+  - id: set.transfinite-induction
+    name: 超限帰納法
+    kind: theorem
+    aliases: [超限帰納法, transfinite induction]
+    requires:
+      - set.ordinal
+
+
+  - id: set.three-stage-transfinite-induction
+    name: 三段階の超限帰納法
+    kind: theorem
+    aliases: [三段階の超限帰納法]
+    requires:
+      - set.transfinite-induction
+      - set.limit-ordinal
+
+  - id: set.limit-step-necessary
+    name: 後続段階だけでは極限を越えられない
+    kind: proposition
+    aliases: [後続段階だけでは極限を越えられない]
+    requires:
+      - set.limit-ordinal
+
+  - id: set.ordinal-elements-proper-subsets
+    name: 順序数の元は真の部分集合
+    kind: proposition
+    aliases: [順序数の元は真の部分集合]
+    requires:
+      - set.ordinal
+
+  - id: set.limit-ordinal-union
+    name: 極限順序数は以前の段階の合併
+    kind: proposition
+    aliases: [極限順序数は以前の段階の合併]
+    requires:
+      - set.limit-ordinal
+
+  - id: set.progressive-property
+    name: 累進的な性質
+    kind: definition
+    aliases: [累進的な性質, progressive property]
+    requires:
+      - set.ordinal

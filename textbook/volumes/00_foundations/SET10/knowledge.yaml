@@ -1,0 +1,29 @@
+chapter: SET10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SET5
+  - SET7
+  - SET9
+
+forward_references:
+  - linear.linear-independence
+  - linear.basis
+  - linear.hamel-basis-existence
+  - functional.linear-functional
+  - functional.sublinear-functional
+  - functional.hahn-banach-theorem
+  - algebra.commutative-ring
+  - algebra.unital-ring
+  - algebra.maximal-ideal
+  - algebra.prime-ideal
+  - measure.vitali-set
+  - topology.compact-hausdorff-product-fa4
+
+concepts:
+  - id: set.explicit-selector-no-choice
+    name: 明示的な選択規則があれば追加の選択原理はいらない
+    kind: proposition
+    aliases: [明示的な選択規則があれば追加の選択原理はいらない]
+    requires:
+      - set.choice-function

@@ -1,0 +1,36 @@
+id: "SET10"
+title: "選択公理は普通の数学のどこに現れるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SET5
+  - SET7
+  - SET9
+official_scope: []
+learning_objectives:
+  - 明示的な選択規則がある場合と選択公理による存在保証を区別できる
+  - Hamel 基底存在証明で Zorn の補題を使う局所箇所を特定できる
+  - Hahn--Banach の一次元延長と Zorn による極大化の役割を分離できる
+  - 極大イデアルの標準的な Zorn 構成で鎖上界を確認できる
+  - Vitali 集合で選択する集合族を明示できる
+  - Tychonoff の定理は版によって必要な選択原理の強さが異なることを説明できる
+  - 自由超フィルターが超準解析の ultrapower に入る位置を説明できる
+  - 証明が強い選択原理を使うことと定理自体の論理的強さを区別できる
+definitions: []
+theorems:
+  - { id: SET10-PROP-01, name: 明示的な選択規則があれば追加の選択原理はいらない }
+canonical_examples:
+  - Hamel 基底
+  - Hahn--Banach
+  - 極大イデアル
+  - Vitali 集合
+  - Tychonoff の定理
+  - 自由超フィルターと超準解析
+problem_patterns:
+  - CHOICE-AUDIT-1
+  - ZORN-LOCALIZATION-1
+  - EXPLICIT-VS-AXIOMATIC-CHOICE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2.8, exercises: 2.2, review: 0.8 }

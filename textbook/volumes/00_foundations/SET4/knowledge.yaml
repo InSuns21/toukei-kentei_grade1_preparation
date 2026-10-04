@@ -1,0 +1,50 @@
+chapter: SET4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SET3
+  - SET1
+
+forward_references:
+  - set.cumulative-hierarchy
+
+concepts:
+  - id: set.transfinite-recursion-rule
+    name: 超限再帰規則
+    kind: definition
+    aliases: [超限再帰規則]
+    requires:
+      - set.ordinal
+
+  - id: set.transfinite-recursion
+    name: 超限再帰定理
+    kind: theorem
+    aliases: [超限再帰定理, transfinite recursion theorem]
+    requires:
+      - set.transfinite-recursion-rule
+      - set.transfinite-induction
+      - set.replacement-schema
+
+
+
+  - id: set.ordinal-addition
+    name: 順序数の加法
+    kind: definition
+    aliases: [順序数の加法, ordinal addition]
+    requires:
+      - set.transfinite-recursion
+      - set.limit-ordinal
+
+  - id: set.ordinal-multiplication
+    name: 順序数の乗法
+    kind: definition
+    aliases: [順序数の乗法, ordinal multiplication]
+    requires:
+      - set.ordinal-addition
+
+  - id: set.ordinal-exponentiation
+    name: 順序数の冪
+    kind: definition
+    aliases: [順序数の冪, ordinal exponentiation]
+    requires:
+      - set.ordinal-multiplication

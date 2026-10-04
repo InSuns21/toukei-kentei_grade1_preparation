@@ -1,0 +1,77 @@
+chapter: SET5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SET4
+  - SET1
+
+forward_references:
+  - set.cardinal
+
+concepts:
+  - id: set.cumulative-hierarchy
+    name: 累積階層
+    kind: definition
+    aliases: [累積階層, cumulative hierarchy]
+    requires:
+      - set.transfinite-recursion
+
+  - id: set.cumulative-hierarchy-monotone
+    name: 累積階層の単調性
+    kind: theorem
+    aliases: [累積階層の単調性]
+    requires:
+      - set.cumulative-hierarchy
+      - set.transfinite-induction
+
+  - id: set.cumulative-hierarchy-transitive
+    name: 累積階層の各段階は推移的
+    kind: corollary
+    aliases: [累積階層の各段階は推移的]
+    requires:
+      - set.cumulative-hierarchy-monotone
+      - set.transitive-set
+
+  - id: set.transitive-closure
+    name: 推移閉包
+    kind: definition
+    aliases: [推移閉包, transitive closure]
+    requires: []
+
+  - id: set.well-founded-relation
+    name: 整礎関係
+    kind: definition
+    aliases: [整礎関係, well-founded relation]
+    requires:
+      - set.foundation-axiom
+
+  - id: set.well-founded-recursion
+    name: 整礎再帰
+    kind: theorem
+    aliases: [整礎再帰, well-founded recursion]
+    requires:
+      - set.well-founded-relation
+      - set.replacement-schema
+
+  - id: set.rank
+    name: 集合の rank
+    kind: definition
+    aliases: [集合の rank, set rank]
+    requires:
+      - set.well-founded-recursion
+      - set.ordinal
+
+  - id: set.rank-stage
+    name: rank と累積階層
+    kind: theorem
+    aliases: [rank と累積階層]
+    requires:
+      - set.rank
+      - set.cumulative-hierarchy-monotone
+
+  - id: set.every-set-in-hierarchy
+    name: 全ての集合は累積階層のどこかに現れる
+    kind: corollary
+    aliases: [全ての集合は累積階層のどこかに現れる]
+    requires:
+      - set.rank-stage

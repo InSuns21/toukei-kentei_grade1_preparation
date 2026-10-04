@@ -1,0 +1,17 @@
+chapter: "SET5"
+terms:
+  - term: 累積階層
+    english: cumulative hierarchy
+    meaning: V_0=emptyset、後続段階で冪集合、極限段階で合併を取って構成する集合宇宙の段階。
+  - term: 推移閉包
+    english: transitive closure
+    meaning: 集合から所属関係を有限回下って到達できる集合をすべて含む最小の推移的集合。
+  - term: 整礎関係
+    english: well-founded relation
+    meaning: 任意の非空部分集合が、その部分集合内に先行元を持たない元を持つ関係。
+  - term: 整礎再帰
+    english: well-founded recursion
+    meaning: 整礎関係の先行元上で既に定めた値から現在の値を一意に定義する再帰原理。
+  - term: rank
+    english: rank
+    meaning: 集合の元の rank に 1 を加えた順序数たちから定まる、その集合が累積階層に現れる高さ。
