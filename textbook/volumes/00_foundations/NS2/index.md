@@ -876,7 +876,7 @@ b(u_N,v_N,w_N)
 -b(u_N,w_N,v_N).
 $$
 
-$n\to\infty$ として
+$N\to\infty$ として
 
 $$
 b(u,v,w)
