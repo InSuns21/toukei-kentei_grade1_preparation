@@ -634,23 +634,23 @@ $$
 
 次に勾配成分を作ります。$k\ne0$ に対して
 
-$
+$$
 \widehat\phi(k)
 =
 -i\frac{k\cdot\widehat u(k)}{|k|^2},
 \qquad
 \widehat\phi(0)=0
-$
+$$
 
 と置きます。Cauchy--Schwarz により
 
-$
+$$
 |k|^2|\widehat\phi(k)|^2
 =
 \frac{|k\cdot\widehat u(k)|^2}{|k|^2}
 \le
 |\widehat u(k)|^2.
-$
+$$
 
 右辺は $u\in L^2$ により総和可能なので、Parseval 型等式から $\nabla\phi\in L^2$、すなわち $\phi\in H^1$ です。
 
@@ -1242,24 +1242,24 @@ $$
 
 平均零スカラー Sobolev 空間を
 
-$
+$$
 \dot H^1(\mathbb T^3)
 :=
 \left\{
 \phi\in H^1(\mathbb T^3):
 \int_{\mathbb T^3}\phi\,dx=0
 \right\}
-$
+$$
 
 と書けば、本章で
 
-$
+$$
 L^2_0(\mathbb T^3;\mathbb R^3)
 =
 H
 \oplus
 \nabla \dot H^1(\mathbb T^3)
-$
+$$
 
 という直交分解を Fourier モードごとに構成し、Leray 射影 $P$ によって速度空間 $H$ を取り出しました。
 
@@ -1716,13 +1716,13 @@ $$
 
 整数 $s\ge0$ とし、周期 Sobolev ノルムを Fourier 係数で
 
-$
+$$
 \|u\|_{H^s}^2
 :=
 (2\pi)^3
 \sum_{k\in\mathbb Z^3}
 (1+|k|^2)^s|\widehat u(k)|^2
-$
+$$
 
 と定める。
 
