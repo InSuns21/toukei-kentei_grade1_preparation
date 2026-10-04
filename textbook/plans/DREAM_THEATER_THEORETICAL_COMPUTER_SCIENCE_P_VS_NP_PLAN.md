@@ -5,15 +5,15 @@
 
 ## 0. 目的
 
-本計画は、DREAM THEATER に現在欠けている **形式言語・オートマトン、計算可能性、計算量理論** の主線を新設し、最終的に \(P\) vs \(NP\) 問題を「有名な未解決問題」として眺めるのではなく、
+本計画は、DREAM THEATER に現在欠けている **形式言語・オートマトン、計算可能性、計算量理論** の主線を新設し、最終的に $P$ vs $NP$ 問題を「有名な未解決問題」として眺めるのではなく、
 
 1. 何を入力とする判定問題なのか。
 2. 計算モデルをどう数学的に定義するのか。
 3. 「計算できる」と「効率よく計算できる」をどう分離するのか。
-4. \(P\)、\(NP\)、coNP、NP-hard、NP-complete が何を意味するのか。
+4. $P$、$NP$、coNP、NP-hard、NP-complete が何を意味するのか。
 5. Cook--Levin の定理で Turing 機械の計算をなぜ SAT へ符号化できるのか。
 6. なぜ一つの NP 完全問題の多項式時間アルゴリズムが全 NP 問題へ波及するのか。
-7. \(P\stackrel{?}{=}NP\) が何を主張し、何を主張していないのか。
+7. $P\stackrel{?}{=}NP$ が何を主張し、何を主張していないのか。
 8. 既知の証明技法が相対化、Natural Proofs、algebrization などの障壁にどこで当たるのか。
 9. 回路、乱択、通信、証明、論理、暗号、量子計算などが計算量理論とどう接続するのか。
 
@@ -64,10 +64,10 @@ P vs NP
 - Turing 機械
 - 計算可能性
 - 決定不能性
-- 計算量クラス \(P,NP\)
+- 計算量クラス $P,NP$
 - NP 完全性
 - Cook--Levin の定理
-- \(P\) vs \(NP\)
+- $P$ vs $NP$
 - 回路計算量・乱択計算量・多項式階層
 - 計算量下界の証明障壁
 
@@ -112,7 +112,7 @@ P vs NP
 
 1. **計算理論 I：形式言語・オートマトン**
 2. **計算理論 II：計算可能性**
-3. **計算量理論 I：\(P\)・\(NP\)・NP 完全性**
+3. **計算量理論 I：$P$・$NP$・NP 完全性**
 4. **計算量理論 II：階層・回路・乱択・証明障壁**
 
 「学部レベル」「大学院レベル」のような教育段階名は主科目名に使わない。I / II は内容上の自然な切れ目を表す。
@@ -146,7 +146,7 @@ P vs NP
 次は「知っているもの」と仮定せず、最初に必要になった章で導入する。
 
 - アルファベット、文字列、言語
-- 漸近記法 \(O,\Omega,\Theta\)
+- 漸近記法 $O,\Omega,\Theta$
 - 入力長
 - 計算モデル
 - Boolean 回路
@@ -169,10 +169,10 @@ P vs NP
 
 扱う内容:
 
-- 有限アルファベット \(\Sigma\)
+- 有限アルファベット $\Sigma$
 - 文字列、空文字、長さ
-- \(\Sigma^*\)
-- 形式言語 \(L\subseteq\Sigma^*\)
+- $\Sigma^*$
+- 形式言語 $L\subseteq\Sigma^*$
 - 判定問題と言語の対応
 - yes-instance / no-instance
 - 数、グラフ、論理式を文字列へ符号化する考え方
@@ -185,7 +185,7 @@ P vs NP
 - SAT の入力を文字列として見る入口
 - グラフ到達可能性を符号化する入口
 
-ここで「判定問題へ直す」という視点を明示し、後続の \(P\) / \(NP\) が言語のクラスとして定義される準備をする。
+ここで「判定問題へ直す」という視点を明示し、後続の $P$ / $NP$ が言語のクラスとして定義される準備をする。
 
 ## AUT2 決定性有限オートマトン
 
@@ -209,13 +209,13 @@ P vs NP
 扱う内容:
 
 - 非決定性有限オートマトン（NFA）
-- \(\varepsilon\)-遷移
+- $\varepsilon$-遷移
 - subset construction
 - DFA と NFA の表現力同値
 - 正規表現
 - Kleene の定理
 
-「非決定性」を最初にここで経験させるが、\(NP\) の非決定性 Turing 機械とは計算時間の意味が違うことを後続で明示する。
+「非決定性」を最初にここで経験させるが、$NP$ の非決定性 Turing 機械とは計算時間の意味が違うことを後続で明示する。
 
 ## AUT4 正規言語の限界
 
@@ -229,7 +229,7 @@ P vs NP
 
 主要目標:
 
-- \(\{0^n1^n:n\ge0\}\) が正規でないことを証明できる。
+- $\{0^n1^n:n\ge0\}$ が正規でないことを証明できる。
 - Myhill--Nerode により「有限状態では記憶が足りない」を構造的に説明できる。
 
 ## AUT5 文脈自由文法
@@ -246,7 +246,7 @@ P vs NP
 例:
 
 - 括弧列
-- \(0^n1^n\)
+- $0^n1^n$
 - 算術式
 
 ## AUT6 Pushdown automaton
@@ -317,8 +317,8 @@ P vs NP
 
 扱う内容:
 
-- Turing 機械自身の符号化 \(\langle M\rangle\)
-- \(\langle M,x\rangle\)
+- Turing 機械自身の符号化 $\langle M\rangle$
+- $\langle M,x\rangle$
 - 万能 Turing 機械
 - プログラムをデータとして扱うこと
 - 自己参照への入口
@@ -339,7 +339,7 @@ P vs NP
 
 主要結果:
 
-- \(A_{TM}\) の決定不能性
+- $A_{TM}$ の決定不能性
 - HALT の決定不能性
 - 対角化
 
@@ -352,7 +352,7 @@ P vs NP
 - many-one reduction
 - 決定不能性を移す方法
 - mapping reduction の向き
-- \(A\le_m B\) から何が従うか
+- $A\le_m B$ から何が従うか
 
 ここで後の多項式時間帰着と共通する「難しさを写す」発想を作る。
 
@@ -366,11 +366,11 @@ P vs NP
 - syntactic property との区別
 - 適用できる例 / できない例
 
-## CMP8 \(\lambda\) 計算・再帰関数・計算可能性の同値像
+## CMP8 $\lambda$ 計算・再帰関数・計算可能性の同値像
 
 扱う内容:
 
-- \(\lambda\) 計算の最小導入
+- $\lambda$ 計算の最小導入
 - 再帰関数的計算の入口
 - 異なる計算モデルが同じ「計算可能性」を捉えるという見方
 - Church--Turing thesis の位置付け
@@ -397,11 +397,11 @@ P vs NP
 
 中心的な見方:
 
-\[
+$
 x_i(t+1)
 =
 F(x_{i-r}(t),\ldots,x_{i+r}(t)).
-\]
+$
 
 「次の状態は局所的に決まるが、長時間後の全体像は複雑になり得る」ことを具体例で見る。
 
@@ -442,27 +442,27 @@ F(x_{i-r}(t),\ldots,x_{i+r}(t)).
 
 扱う内容:
 
-- 入力長 \(n=|x|\)
+- 入力長 $n=|x|$
 - worst-case complexity
-- \(O,\Omega,\Theta\)
+- $O,\Omega,\Theta$
 - 多項式時間
 - 指数時間
 - 単項符号化 / 二進符号化
 - pseudo-polynomial time への入口
 - 時間と空間の資源
 
-## CPLX2 クラス \(P\)
+## CPLX2 クラス $P$
 
 扱う内容:
 
 - deterministic polynomial time
-- \(P\)
+- $P$
 - 計算モデル変更に対する多項式時間の頑健性
 - グラフ到達可能性などの具体例
 
-「\(n^{100}\) も \(P\)」という形式的事実と、「実用上高速」の意味を区別する。
+「$n^{100}$ も $P$」という形式的事実と、「実用上高速」の意味を区別する。
 
-## CPLX3 クラス \(NP\)：証明書と検証
+## CPLX3 クラス $NP$：証明書と検証
 
 中心問い:
 
@@ -472,35 +472,35 @@ F(x_{i-r}(t),\ldots,x_{i+r}(t)).
 
 - polynomially balanced certificate
 - polynomial-time verifier
-- \(NP\)
+- $NP$
 - SAT, CLIQUE, Hamiltonian cycle などの証明書
 
 定義を「非決定性機械で解ける」で始めず、最初に具体的な証明書・検証から入る。
 
-## CPLX4 非決定性 Turing 機械と \(NP\)
+## CPLX4 非決定性 Turing 機械と $NP$
 
 扱う内容:
 
 - nondeterministic polynomial time
 - 計算木
 - verifier 定義との同値
-- \(P\subseteq NP\)
+- $P\subseteq NP$
 - coNP
 - TAUT
-- \(NP\cap coNP\)
+- $NP\cap coNP$
 
 ## CPLX5 多項式時間 many-one 帰着
 
 扱う内容:
 
-\[
+$
 A\le_p B.
-\]
+$
 
 - reduction algorithm
 - yes / no の保存
 - 合成
-- \(B\in P\) なら \(A\in P\)
+- $B\in P$ なら $A\in P$
 - hardness を移す向き
 
 帰着の向きを取り違えないことを重点演習にする。
@@ -511,7 +511,7 @@ A\le_p B.
 
 - NP-hard
 - NP-complete
-- \(P=NP\) との同値な言い換え
+- $P=NP$ との同値な言い換え
 - 「NP-complete = 解けない」ではないこと
 - 未解決性と条件付き結論の区別
 
@@ -525,17 +525,17 @@ A\le_p B.
 
 tableau の各セルに対し、必要に応じて
 
-\[
+$
 X_{t,i,s}
 =
 \text{時刻 }t\text{、位置 }i\text{ が記号・状態 }s\text{ を持つ}
-\]
+$
 
 型の Boolean 変数を導入する。
 
 論理式を少なくとも次へ分解する。
 
-\[
+$
 \varphi
 =
 \varphi_{\mathrm{cell}}
@@ -545,31 +545,31 @@ X_{t,i,s}
 \varphi_{\mathrm{move}}
 \land
 \varphi_{\mathrm{accept}}.
-\]
+$
 
 証明責務:
 
 1. 各セルがちょうど一つの状態を持つ。
-2. 初期配置が入力 \(x\) と一致する。
+2. 初期配置が入力 $x$ と一致する。
 3. 隣接時刻が合法な Turing 遷移に従う。
 4. 受理状態が現れる。
 5. 充足割当てから受理計算を復元できる。
 6. 受理計算から充足割当てを作れる。
-7. 変数数・節数が \(|x|\) の多項式で抑えられる。
+7. 変数数・節数が $|x|$ の多項式で抑えられる。
 
 最終的に
 
-\[
+$
 M\text{ accepts }x
 \iff
 \varphi_{M,x}\in SAT
-\]
+$
 
 と
 
-\[
+$
 |\varphi_{M,x}|=\operatorname{poly}(|x|)
-\]
+$
 
 を閉じる。
 
@@ -591,9 +591,9 @@ M\text{ accepts }x
 
 候補:
 
-- 3-SAT \(\le_p\) CLIQUE
-- CLIQUE \(\leftrightarrow\) Independent Set
-- Independent Set \(\leftrightarrow\) Vertex Cover
+- 3-SAT $\le_p$ CLIQUE
+- CLIQUE $\leftrightarrow$ Independent Set
+- Independent Set $\leftrightarrow$ Vertex Cover
 - Hamiltonian cycle への代表帰着
 
 「ガジェット」を、なぜその形にするのかから説明する。
@@ -611,7 +611,7 @@ M\text{ accepts }x
 
 離散最適化側に既存 canonical owner ができた場合は重複せず相互参照する。
 
-## CPLX11 \(P\) vs \(NP\)
+## CPLX11 $P$ vs $NP$
 
 中心問い:
 
@@ -619,13 +619,13 @@ M\text{ accepts }x
 
 扱う内容:
 
-- \(P\subseteq NP\)
-- \(P=NP\) と NP 完全問題の多項式時間可解性の同値
-- \(P\ne NP\) を示すために必要なこと
+- $P\subseteq NP$
+- $P=NP$ と NP 完全問題の多項式時間可解性の同値
+- $P\ne NP$ を示すために必要なこと
 - search vs decision の関係
 - self-reducibility の代表例
-- \(P=NP\) が意味すること
-- \(P=NP\) だけから直ちには従わないこと
+- $P=NP$ が意味すること
+- $P=NP$ だけから直ちには従わないこと
 - 暗号への含意を過剰に単純化しない
 - Clay Millennium Problem の位置付け
 
@@ -639,9 +639,9 @@ CPLX11 を読んだ時点で、読者が問題文そのものを厳密に説明�
 
 扱う内容:
 
-- \(L\)
-- \(NL\)
-- \(PSPACE\)
+- $L$
+- $NL$
+- $PSPACE$
 - configuration graph
 - time と space の基本関係
 
@@ -649,11 +649,11 @@ CPLX11 を読んだ時点で、読者が問題文そのものを厳密に説明�
 
 主要結果:
 
-\[
+$
 NSPACE(s(n))
 \subseteq
 DSPACE(s(n)^2)
-\]
+$
 
 の標準形。
 
@@ -682,10 +682,10 @@ DSPACE(s(n)^2)
 
 扱う内容:
 
-- \(\Sigma_k^P,\Pi_k^P\)
+- $\Sigma_k^P,\Pi_k^P$
 - alternating quantifiers
 - oracle characterization
-- \(P=NP\) のときの collapse
+- $P=NP$ のときの collapse
 - coNP との接続
 
 ## CPLX17 Oracle と相対化
@@ -693,7 +693,7 @@ DSPACE(s(n)^2)
 扱う内容:
 
 - oracle Turing machine
-- \(P^A,NP^A\)
+- $P^A,NP^A$
 - Baker--Gill--Solovay 型相対化障壁の意味
 - 「oracle の世界で両方の答えが作れる」ことが何を制限するか
 
@@ -708,7 +708,7 @@ DSPACE(s(n)^2)
 - depth
 - circuit family
 - uniform / non-uniform
-- \(P/poly\)
+- $P/poly$
 - formula vs circuit
 - 下界問題
 
@@ -716,7 +716,7 @@ DSPACE(s(n)^2)
 
 扱う内容候補:
 
-- \(AC^0\)
+- $AC^0$
 - parity 下界
 - switching lemma の位置付け
 - monotone circuit lower bounds
@@ -728,16 +728,16 @@ DSPACE(s(n)^2)
 
 扱う内容:
 
-- \(RP\)
-- \(coRP\)
-- \(ZPP\)
-- \(BPP\)
+- $RP$
+- $coRP$
+- $ZPP$
+- $BPP$
 - error reduction
 - randomized algorithms
 - pseudorandomness への入口
 - derandomization と lower bounds の接点
 
-## CPLX21 \(P\) vs \(NP\) の証明障壁
+## CPLX21 $P$ vs $NP$ の証明障壁
 
 本科目群の第二の山場とする。
 
@@ -747,7 +747,7 @@ DSPACE(s(n)^2)
 2. Natural Proofs
 3. algebrization
 4. circuit lower bound と擬似乱数の接続
-5. 「障壁」は \(P\ne NP\) の証明不可能性を示す定理ではないこと
+5. 「障壁」は $P\ne NP$ の証明不可能性を示す定理ではないこと
 6. どの種類の証明技法が排除され、何がまだ残っているか
 
 読者が、
@@ -775,11 +775,11 @@ DSPACE(s(n)^2)
 
 ## 9.2 パラメータ化計算量
 
-- parameter \(k\)
+- parameter $k$
 - fixed-parameter tractability
-- \(FPT\)
+- $FPT$
 - kernelization
-- \(W[1],W[2]\)
+- $W[1],W[2]$
 - Clique を代表例とする hardness
 
 ## 9.3 Fine-grained complexity
@@ -788,7 +788,7 @@ DSPACE(s(n)^2)
 - 3SUM conjecture
 - Orthogonal Vectors
 - conditional lower bound
-- \(n^2\) と \(n^{2-\varepsilon}\) の差を問う考え方
+- $n^2$ と $n^{2-\varepsilon}$ の差を問う考え方
 
 ## 9.4 通信計算量
 
@@ -805,7 +805,7 @@ DSPACE(s(n)^2)
 - proof length
 - resolution
 - Frege 系
-- \(NP\) / \(coNP\) との接続
+- $NP$ / $coNP$ との接続
 
 ## 9.6 記述計算量・有限モデル理論
 
@@ -816,11 +816,11 @@ DSPACE(s(n)^2)
 
 代表的到達点:
 
-\[
+$
 NP
 =
 \text{existential second-order definability}.
-\]
+$
 
 ## 9.7 暗号理論
 
@@ -833,18 +833,18 @@ P vs NP との関係を誤って単純化しないことを最優先にする。
 - public-key cryptography
 - zero-knowledge proof
 
-特に \(P\ne NP\) だけから一般的な暗号の存在が直ちに従うわけではないことを明示する。
+特に $P\ne NP$ だけから一般的な暗号の存在が直ちに従うわけではないことを明示する。
 
 ## 9.8 量子計算量
 
 既存線形代数を prerequisite とする別枝。
 
 - quantum circuit
-- \(BQP\)
+- $BQP$
 - Grover
 - Shor
-- \(QMA\)
-- \(NP\) との既知の関係
+- $QMA$
+- $NP$ との既知の関係
 
 「量子計算機なら NP 完全問題をすべて高速に解ける」という誤解を避ける。
 
@@ -854,7 +854,7 @@ P vs NP との関係を誤って単純化しないことを最優先にする。
 - incompressibility
 - universal machine
 - algorithmic randomness
-- uncomputability of \(K(x)\)
+- uncomputability of $K(x)$
 
 計算可能性と情報・ランダム性を結ぶ独立枝とする。
 
@@ -945,9 +945,9 @@ DREAM THEATER の「2--4 手の非自明な省略を読者へ押し付けない�
 
 ## 11.4 未解決問題と定理を区別する
 
-- \(P=NP\) か \(P\ne NP\) かは未解決。
+- $P=NP$ か $P\ne NP$ かは未解決。
 - NP 完全性や階層定理は証明済み。
-- 証明障壁は「\(P\ne NP\) を証明できない」という不可能性定理ではない。
+- 証明障壁は「$P\ne NP$ を証明できない」という不可能性定理ではない。
 
 この三者を混同しない。
 
@@ -971,7 +971,7 @@ DREAM THEATER の「2--4 手の非自明な省略を読者へ押し付けない�
 - NFA を DFA に変換する
 - 簡単な文法の導出木を書く
 - Turing 機械の configuration を追う
-- \(O,\Theta\) を判定する
+- $O,\Theta$ を判定する
 - certificate を構成して verifier を書く
 
 ### Level B
@@ -1039,7 +1039,7 @@ CPLX1--CPLX11 を実装する。
 
 - CPLX7 Cook--Levin を教育的・数学的に完全な状態へする。
 - CPLX8--CPLX10 の少なくとも複数の代表帰着を詳細に閉じる。
-- CPLX11 で \(P\) vs \(NP\) の定式化・含意・非含意を明確化する。
+- CPLX11 で $P$ vs $NP$ の定式化・含意・非含意を明確化する。
 
 ## Phase 4: 計算量理論 II
 
@@ -1127,19 +1127,19 @@ plan 作成時点では textbook/dream-theater-index.json と textbook/dream-the
 1. 有限オートマトン、PDA、Turing 機械の表現力の違い。
 2. 決定可能性と計算量の違い。
 3. 停止問題がなぜ決定不能か。
-4. \(P\)、\(NP\)、coNP の定義と代表例。
-5. certificate/verifier と非決定性 Turing 機械による \(NP\) の定義がなぜ一致するか。
+4. $P$、$NP$、coNP の定義と代表例。
+5. certificate/verifier と非決定性 Turing 機械による $NP$ の定義がなぜ一致するか。
 6. polynomial-time reduction が難しさをどう移すか。
 7. Cook--Levin の tableau 符号化を主要中間式・局所制約から再構成する方法。
 8. SAT から複数の代表 NP 完全問題への帰着。
-9. \(P=NP\) と NP 完全問題の多項式時間可解性がなぜ同値か。
-10. \(P\) vs \(NP\) が暗号・最適化等に関係する一方、それだけで全てを決める問題ではない理由。
-11. PSPACE、PH、乱択、回路などが \(P/NP\) の外側にどのような地図を作るか。
+9. $P=NP$ と NP 完全問題の多項式時間可解性がなぜ同値か。
+10. $P$ vs $NP$ が暗号・最適化等に関係する一方、それだけで全てを決める問題ではない理由。
+11. PSPACE、PH、乱択、回路などが $P/NP$ の外側にどのような地図を作るか。
 12. relativization、Natural Proofs、algebrization がどの証明戦略を制限するか。
 13. セル・オートマトンの時空間図と Cook--Levin の局所整合性が同じ構造を共有する理由。
 14. 通信計算量、証明計算量、記述計算量、暗号、量子計算、PCP 等がどの地点から分岐するか。
 
-最終的な目標は「\(P\) vs \(NP\) の答えを知る」ことではなく、
+最終的な目標は「$P$ vs $NP$ の答えを知る」ことではなく、
 
 > **問題を厳密に定式化し、NP 完全性の核心証明を追い、現代の計算量理論で何が既知で何が未解決なのかを自分で地図化できること**
 
