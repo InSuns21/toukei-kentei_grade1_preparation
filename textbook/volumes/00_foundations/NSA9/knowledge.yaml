@@ -1,0 +1,64 @@
+chapter: NSA9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NSA6
+  - RA5
+
+concepts:
+  - id: nonstandard.series-cauchy-characterization
+    name: 級数の超準的 Cauchy 判定
+    kind: theorem
+    aliases: [hypernatural Cauchy criterion for series]
+    requires:
+      - analysis.series-cauchy-criterion
+      - nonstandard.cauchy-characterization
+      - nonstandard.hyperfinite-set
+
+  - id: nonstandard.series-comparison-tail-form
+    name: 比較判定の無限尾和表示
+    kind: corollary
+    aliases: []
+    requires:
+      - nonstandard.series-cauchy-characterization
+      - analysis.series-comparison-test
+      - nonstandard.standard-symbol-transfer
+
+  - id: nonstandard.pointwise-convergence-characterization
+    name: 各点収束の超準的特徴付け
+    kind: theorem
+    aliases: [nonstandard criterion for pointwise convergence]
+    requires:
+      - analysis.pointwise-convergence
+      - nonstandard.sequence-limit-characterization
+      - nonstandard.standard-symbol-transfer
+
+  - id: nonstandard.uniform-convergence-characterization
+    name: 一様収束の超準的特徴付け
+    kind: theorem
+    aliases: [nonstandard criterion for uniform convergence]
+    requires:
+      - analysis.uniform-convergence
+      - nonstandard.infinitesimal-closeness
+      - nonstandard.standard-set-extension
+      - nonstandard.standard-symbol-transfer
+
+  - id: nonstandard.uniform-cauchy-characterization
+    name: 一様 Cauchy 条件の超準的特徴付け
+    kind: theorem
+    aliases: [nonstandard uniform Cauchy criterion]
+    requires:
+      - analysis.uniform-cauchy
+      - nonstandard.infinitesimal-closeness
+      - nonstandard.standard-set-extension
+      - nonstandard.standard-symbol-transfer
+
+  - id: nonstandard.weierstrass-m-test-reading
+    name: Weierstrass M-test の超準的読み方
+    kind: corollary
+    aliases: []
+    requires:
+      - analysis.weierstrass-m-test
+      - nonstandard.series-cauchy-characterization
+      - nonstandard.uniform-cauchy-characterization
+      - analysis.uniform-cauchy-criterion
