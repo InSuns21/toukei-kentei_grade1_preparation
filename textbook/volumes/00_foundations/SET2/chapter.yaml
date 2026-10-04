@@ -1,5 +1,5 @@
 id: "SET2"
-title: "順序数：整列の位置を集合で表す"
+title: "順序型と順序数：整列の長さを集合で表す"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -13,12 +13,14 @@ learning_objectives:
   - 後続順序数と極限順序数を区別できる
   - 無限公理から最小帰納的集合 omega を構成する流れを追える
   - 順序数の三分律を推移的初期部分の補題から証明できる
+  - 任意の整列集合が一意な順序数を順序型として持つことを証明できる
 definitions:
   - { id: SET2-DEF-01, name: 推移的集合 }
   - { id: SET2-DEF-02, name: von Neumann 順序数 }
   - { id: SET2-DEF-03, name: 後続順序数 }
   - { id: SET2-DEF-04, name: 帰納的集合 }
   - { id: SET2-DEF-05, name: 極限順序数 }
+  - { id: SET2-DEF-06, name: 順序型 }
 theorems:
   - { id: SET2-THM-01, name: 順序数の元は順序数 }
   - { id: SET2-THM-02, name: 順序数の後続は順序数 }
@@ -26,6 +28,7 @@ theorems:
   - { id: SET2-PROP-01, name: 順序数の三分類 }
   - { id: SET2-LEM-01, name: 順序数の推移的部分集合は初期部分 }
   - { id: SET2-THM-04, name: 順序数の三分律 }
+  - { id: SET2-THM-05, name: 整列集合の順序型 }
 canonical_examples:
   - 有限 von Neumann 順序数
   - omega と omega+1
