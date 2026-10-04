@@ -508,11 +508,11 @@ $$
 
 また
 
-$
+$$
 x<y
 \quad\Longleftrightarrow\quad
 \{n:x_n<y_n\}\in\mathcal U
-$
+$$
 
 と定める。
 <!-- formal-statement-end -->
@@ -597,22 +597,22 @@ $$
 
 厳密不等号についても、$E$ 上では
 
-$
+$$
 x_n<y_n
 \quad\Longleftrightarrow\quad
 x_n'<y_n'
-$
+$$
 
 なので同じ議論が使えます。従って $<$ も代表元によらず定まります。$\square$
 <!-- proof-end -->
 
 さらに実数では、各添字で $x_n<y_n$、$x_n=y_n$、$x_n>y_n$ のちょうど一つが成り立ちます。三つの添字集合は $\mathbb N$ を分割するため、超フィルターはそのちょうど一つを選びます。したがって、ここで定めた $x<y$ は
 
-$
+$$
 x\le y
 \quad\text{かつ}\quad
 x\ne y
-$
+$$
 
 と同値です。
 
@@ -865,13 +865,13 @@ $$
 
 全順序体では、実数と同じように絶対値を
 
-$
+$$
 |x|=
 \begin{cases}
 x,&x\ge0,\\
 -x,&x<0
 \end{cases}
-$
+$$
 
 と定められます。以下の「小さい」「大きい」は、前節までに構成した超実数の順序について述べています。
 
