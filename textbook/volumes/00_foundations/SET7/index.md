@@ -1,4 +1,4 @@
-# SET7 Hartogs の補題：選択公理なしで「大きすぎる順序数」を作る
+# SET7 Hartogs の補題：選択公理なしで大きすぎる順序数を作る
 
 <!-- definition-example-audit: strict -->
 
