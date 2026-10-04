@@ -1,0 +1,17 @@
+chapter: "NS7"
+terms:
+  - term: Prodi--Serrin 指数対
+    english: Prodi--Serrin exponent pair
+    meaning: 三次元 Navier--Stokes の速度について 3<p<=infinity かつ 2/q+3/p<=1 を満たす時空間積分指数。本章ではこの条件から H1 制御と延長判定を導く。
+  - term: Prodi--Serrin 型正則性判定
+    english: Prodi--Serrin regularity criterion
+    meaning: 速度が適切な Lq_t Lp_x 空間に属するなら強解の H1 ノルムを有限に保てるという判定。本章では p>3 の範囲をエネルギー法で証明する。
+  - term: 三次元渦度
+    english: three-dimensional vorticity
+    meaning: 三次元速度場 u の curl で定まるベクトル場 omega=curl u。非圧縮 Navier--Stokes では輸送・粘性拡散に加えて渦伸長を受ける。
+  - term: 渦伸長項
+    english: vortex stretching term
+    meaning: 三次元渦度方程式に現れる (omega dot grad)u。二次元では消えるが、三次元では渦度 L2 エネルギーを増幅しうる。
+  - term: 速度勾配による延長判定
+    english: velocity-gradient continuation criterion
+    meaning: 時間積分 int ||grad u||_infinity dt が有限なら渦度 L2、従って速度の H1 ノルムを有限に保ち、強解を延長できるという尺度臨界な判定。
