@@ -1627,9 +1627,10 @@ $$
 ## Level B
 
 <a id="ex-nsa4-b01"></a>
-### NSA4-B01 内部集合への所属の well-defined 性
+### NSA4-B01 内部集合の表現と超有限サイズの well-defined 性
 - Level: B
 
+1. 
 $$
 [x_n]=[y_n],
 \qquad
@@ -1638,8 +1639,24 @@ $$
 
 とする。$[x_n]\in[A_n]_{\mathrm{int}}$ なら $[y_n]\in[B_n]_{\mathrm{int}}$ を示せ。
 
+2. 同じ超有限集合 $X$ が有限集合列 $(F_n)$ と $(G_n)$ により
+
+$$
+X=[F_n]_{\mathrm{int}}=[G_n]_{\mathrm{int}}
+$$
+
+と表されるとき
+
+$$
+[|F_n|]=[|G_n|]
+$$
+
+を示せ。
+
 <!-- solution-start -->
 #### 詳細解答
+
+**1. 所属の well-defined 性。**
 
 $$
 E=\{n:x_n=y_n\},
@@ -1665,7 +1682,47 @@ C\cap E\cap F
 \{n:y_n\in B_n\}.
 $$
 
-上方閉性から右辺も $\mathcal U$ に属し、結論が従います。
+上方閉性から右辺も $\mathcal U$ に属し、$[y_n]\in[B_n]_{\mathrm{int}}$ が従います。
+
+**2. 内部的な大きさの一意性。**
+
+本文の「集合ソートから内部集合への対応は単射」を使うと
+
+$$
+[F_n]_{\mathrm{int}}=[G_n]_{\mathrm{int}}
+$$
+
+から集合ソートの超冪で
+
+$$
+[F_n]=[G_n]
+$$
+
+が従います。従って
+
+$$
+E=\{n:F_n=G_n\}\in\mathcal U.
+$$
+
+$n\in E$ では有限集合そのものが一致するので
+
+$$
+|F_n|=|G_n|.
+$$
+
+よって
+
+$$
+E\subseteq\{n:|F_n|=|G_n|\}.
+$$
+
+上方閉性から右辺は $\mathcal U$ に属し、超自然数の同値類として
+
+$$
+[|F_n|]=[|G_n|]
+$$
+
+が成り立ちます。
 <!-- solution-end -->
 
 <a id="ex-nsa4-b02"></a>
