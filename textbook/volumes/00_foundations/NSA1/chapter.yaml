@@ -1,0 +1,50 @@
+id: "NSA1"
+title: "超実数はどこから来るか：自由超フィルターと商構成"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SET-U1
+  - SET9
+  - F0-00A1B
+official_scope: []
+learning_objectives:
+  - 自由超フィルターを固定し、実数列上の U-同値を定義して同値関係であることを証明できる
+  - 商集合として超実数を構成し、加法・乗法・順序が代表元によらず定まることを証明できる
+  - 非零超実数の逆元を代表列から具体的に構成できる
+  - 超フィルターの二者択一が超実数体の全順序性に使われる箇所を説明できる
+  - 定数列による標準埋め込みが単射かつ順序と四則演算を保存することを証明できる
+  - 正の非零無限小と無限大超実数を具体的に構成できる
+  - 同じ極限を持つ数列と U-同値な数列を区別できる
+definitions:
+  - { id: NSA1-DEF-01, name: U-同値 }
+  - { id: NSA1-DEF-02, name: 超実数 }
+  - { id: NSA1-DEF-03, name: 超実数の加法・乗法・符号反転 }
+  - { id: NSA1-DEF-04, name: 超実数の順序 }
+  - { id: NSA1-DEF-05, name: 標準埋め込み }
+  - { id: NSA1-DEF-06, name: 無限小超実数 }
+  - { id: NSA1-DEF-07, name: 無限大超実数 }
+theorems:
+  - { id: NSA1-PROP-01, name: U-同値は同値関係である }
+  - { id: NSA1-PROP-02, name: 加法・乗法は代表元によらない }
+  - { id: NSA1-PROP-03, name: 非零超実数の逆元 }
+  - { id: NSA1-PROP-04, name: 順序は代表元によらない }
+  - { id: NSA1-THM-01, name: 超実数は全順序体をなす }
+  - { id: NSA1-PROP-05, name: 標準埋め込みは順序体の埋め込みである }
+  - { id: NSA1-THM-02, name: 正の非零無限小が存在する }
+  - { id: NSA1-THM-03, name: 無限大超実数が存在する }
+  - { id: NSA1-COR-01, name: 超実数体は実数体の真の拡大である }
+canonical_examples:
+  - 有限個だけ異なる数列の U-同値
+  - 同じ極限を持つが U-同値でない数列
+  - 交代列の同値類と超フィルターの二者択一
+  - 正の非零無限小 1/(n+1)
+  - 無限大超実数 n+1
+problem_patterns:
+  - HYPERREAL-QUOTIENT-1
+  - HYPERREAL-WELL-DEFINED-1
+  - HYPERREAL-ORDER-1
+  - INFINITESIMAL-CONSTRUCTION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 3.0, review: 1.0 }
