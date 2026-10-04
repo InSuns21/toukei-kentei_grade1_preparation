@@ -18,7 +18,6 @@ concepts:
     name: 従属選択公理
     kind: axiom
     aliases: [従属選択公理, dependent choice, DC]
-    introduction: inline
     requires: []
 
   - id: set.ac-implies-dependent-choice
@@ -68,14 +67,14 @@ concepts:
   - id: set.cofinite-filter
     name: 余有限フィルター
     kind: definition
-    aliases: [余有限フィルター, 余有限フィルター, 余有限フィルター（cofinite filter）]
+    aliases: [余有限フィルター, cofinite filter]
     requires:
       - topology.filter
 
   - id: set.cofinite-is-filter
-    name: 余有限族はフィルター である
+    name: 余有限族はフィルターである
     kind: proposition
-    aliases: [余有限族はフィルター である]
+    aliases: [余有限族はフィルターである]
     requires:
       - set.cofinite-filter
 
