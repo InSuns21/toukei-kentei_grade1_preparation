@@ -313,7 +313,7 @@ $$
 \nabla p
 -
 \nu\Delta u
-\left.\right]_{\;(\lambda x,\lambda^2t)}
+\right]\Big|_{(\lambda x,\lambda^2t)}
 \\
 &=
 0.
