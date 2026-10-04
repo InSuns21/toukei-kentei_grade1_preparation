@@ -1866,7 +1866,7 @@ f-(u\cdot\nabla)u
 Pg.
 $$
 
-[本章の周期分解定理](#thm-ns1-periodic-helmholtz)により
+[周期 Leray 射影と Helmholtz 分解](#thm-ns1-periodic-helmholtz)により
 
 $$
 g=Pg+\nabla\phi.
