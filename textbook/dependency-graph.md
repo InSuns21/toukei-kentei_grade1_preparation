@@ -855,6 +855,7 @@ FOU4 Plancherel・L2 Fourier解析 ───┼→ NS1 発散零空間・Leray �
 GPDE3 Sobolev 空間 ────────────────┘                                              ├→ NS2 非線形項・三重線形形式・エネルギー評価 ─┐
 GPDE5 Sobolev 埋め込み・コンパクト性 ─────────────────────────────────────────────┘                                               ├→ NS3 Leray--Hopf 弱解と大域存在 → NS4 二次元渦度・大域制御 → NS5 三次元局所強解・発散判定
 GPDE10 Galerkin・時間発展弱解 ────────────────────────────────────────────────────────────────────────────────────────────────┘
+ODE8 Grönwall の不等式 ─────────────────────────────────────────────────────────────────────────────────────────────────────────────→ NS5
 ~~~
 
 NS1 は周期発散零空間、Leray 射影、周期 Helmholtz 分解、Stokes 作用素、射影後の Navier--Stokes 方程式、圧力回収を担当する。
@@ -865,5 +866,5 @@ NS3 は NS2 と GPDE10 を直接 prerequisite とし、Fourier--Galerkin 近似�
 
 NS4 は NS3 を直接 prerequisite とし、二次元スカラー渦度、速度--渦度 Fourier 対応、二次元周期 Ladyzhenskaya 型評価、渦度エネルギーによる大域 $H^1$ 制御、Leray--Hopf 弱解の一意性、大域強解、二次元で渦伸長が消える機構を担当する。
 
-NS5 は NS4 を直接 prerequisite とし、三次元の $H^1$ 非線形評価、短時間 Galerkin 制御による局所強解、強解一意性、最大存在時間、$H^1$ continuation / blow-up alternative、積分型延長判定、弱--強一意性を担当する。直接 prerequisite の正本は各章の chapter.yaml / knowledge.yaml とする。
+NS5 は NS4 と ODE8 を直接 prerequisite とし、ODE8 の Grönwall の不等式を再利用しながら、三次元の $H^1$ 非線形評価、短時間 Galerkin 制御による局所強解、強解一意性、最大存在時間、$H^1$ continuation / blow-up alternative、積分型延長判定、弱--強一意性を担当する。直接 prerequisite の正本は各章の chapter.yaml / knowledge.yaml とする。
 
