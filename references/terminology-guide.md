@@ -104,7 +104,7 @@
 | 超冪 | ultrapower | 同一構造の超積。本系列では実数列の商構成に用いる |
 | 超フィルター | ultrafilter | SET9 の canonical 表記を継承する |
 | 自由超フィルター | free ultrafilter / nonprincipal ultrafilter | SET9 の canonical 表記を継承する。「非主超フィルター」は補助語に留める |
-| 標準埋め込み | standard embedding | 実数を定数列の同値類へ送る写像 |
+| 実数の標準埋め込み | standard embedding of the reals | 実数を定数列の同値類へ送る写像。文脈が明らかな箇所では「この埋め込み」と略してよい |
 | 無限小 | infinitesimal | 初出で「無限小超実数」と明示してよい。以後は「無限小」を主表記とする |
 | 無限大超実数 | infinite hyperreal | 「無限大」を実数の元のように単独名詞化しない |
 
