@@ -5,6 +5,9 @@ prerequisites:
   - SET3
   - SET1
 
+forward_references:
+  - set.cumulative-hierarchy
+
 concepts:
   - id: set.transfinite-recursion-rule
     name: 超限再帰規則
