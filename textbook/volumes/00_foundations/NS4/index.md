@@ -1665,7 +1665,7 @@ $$
 
 非線形項を調べます。
 
-Hölder により
+[Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)により
 
 $$
 \|B(u_m,u_m)\|_2
@@ -2668,7 +2668,7 @@ $$
 -b(w,u,w).
 $$
 
-Hölder と二次元 Ladyzhenskaya 型評価より
+[Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)と二次元 Ladyzhenskaya 型評価より
 
 $$
 \begin{aligned}
@@ -2896,7 +2896,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-Hölder により
+[Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)により
 
 $$
 \|B(u_m,u_m)\|_2
