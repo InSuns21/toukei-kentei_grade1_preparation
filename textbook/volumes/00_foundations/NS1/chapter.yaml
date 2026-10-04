@@ -1,0 +1,44 @@
+id: "NS1"
+title: "発散零空間・Leray 射影・Stokes 作用素"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - VC9
+  - FOU4
+  - GPDE3
+official_scope: []
+learning_objectives:
+  - 三次元トーラス上のベクトル場を Fourier モードで表し、発散零条件が k・u_hat(k)=0 に対応することを導ける
+  - 平均零の発散零 L2 空間を Fourier 条件と滑らかな発散零三角多項式の L2 閉包の両方から特徴付けられる
+  - Leray 射影の Fourier multiplier を導き、発散零成分を残し勾配成分を消すことを各モードで確認できる
+  - 周期 Helmholtz 分解 u=Pu+grad phi を構成し、直交性と一意性を証明できる
+  - Stokes 作用素 A=-P Delta を定義し、発散零空間上で -Delta と一致すること、正値性を示せる
+  - Navier--Stokes 方程式へ Leray 射影を適用して圧力を消去した発展方程式を導ける
+  - 射影後にも圧力情報は失われず、Poisson 方程式から平均零圧力を回収できることを説明できる
+definitions:
+  - { id: NS1-DEF-01, name: "周期発散零空間 H" }
+  - { id: NS1-DEF-02, name: "Leray 射影" }
+  - { id: NS1-DEF-03, name: "Stokes 作用素" }
+  - { id: NS1-DEF-04, name: "射影された移流作用素" }
+theorems:
+  - { id: NS1-PROP-01, name: "発散零条件の Fourier 表示" }
+  - { id: NS1-PROP-02, name: "発散零空間の閉包表示" }
+  - { id: NS1-THM-01, name: "周期 Leray 射影と Helmholtz 分解" }
+  - { id: NS1-PROP-03, name: "Stokes 作用素の Fourier 表示と正値性" }
+  - { id: NS1-PROP-04, name: "Leray 射影後の Navier--Stokes 方程式" }
+  - { id: NS1-PROP-05, name: "圧力の Poisson 方程式による回収" }
+canonical_examples:
+  - 単一 Fourier モードの発散零判定
+  - 勾配モードが Leray 射影で消える例
+  - k=(1,2,0) のモードに対する Leray 射影の数値計算
+  - u=(sin x_2,0,0) に対する Stokes 作用素
+problem_patterns:
+  - NS-LERAY-MODE-1
+  - NS-HELMHOLTZ-PERIODIC-1
+  - NS-STOKES-FOURIER-1
+  - NS-PRESSURE-ELIMINATION-1
+  - NS-DIVFREE-CLOSURE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.0, review: 1.0 }
