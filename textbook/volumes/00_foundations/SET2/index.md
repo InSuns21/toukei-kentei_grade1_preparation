@@ -681,24 +681,212 @@ SET3 では、この三分類が超限帰納法の「初期・後続・極限」
 
 ---
 
-## 8. 順序型との接続
+## 8. 一般の整列集合には一意な順序型がある
 
-整列集合 $(X,\prec)$ に対し、「それと順序同型な唯一の順序数」を順序型と呼びたくなります。
+順序数は整列の標準形として作りました。ここでは逆に、任意の整列集合が一意な順序数を標準形として持つことを、整列性・順序数の三分律・置換公理図式から証明します。
 
-ただし、一般の整列集合に対してその順序数を**実際に構成する存在証明**には、各 $x\in X$ へ「それ以前の点の順序型」を割り当てる超限再帰が自然に現れます。
+<a id="thm-set4-order-type"></a>
+<!-- formal-statement-start -->
+### 定理（整列集合の順序型）
 
-したがってこの章では、
+$(X,\preceq)$ を整列集合とする。
 
-- 順序数同士の比較、
-- 有限順序数、
-- $\omega$、
-- 後続順序数と極限順序数
+このとき一意な順序数 $\alpha$ が存在して、
 
-までを閉じます。
+$$
+(X,\preceq)
+$$
 
-一般の整列集合が一意な順序数と順序同型になる定理は、SET4 で証明します。後続理論を現在章へ逆輸入しないための境界です。
+と、SET2 で定めた順序数の標準整列
+
+$$
+(\alpha,\preceq_\alpha)
+$$
+
+は順序同型である。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+まず二つの順序数が順序同型なら等しいことを確認します。
+
+順序数 $\alpha,\beta$ と順序同型
+
+$$
+\phi:(\alpha,\preceq_\alpha)\to(\beta,\preceq_\beta)
+$$
+
+があるとします。$\alpha\ne\beta$ と仮定し、[順序数の三分律](../SET2/index.md#thm-set2-ordinal-trichotomy)により、必要なら $\alpha,\beta$ を入れ替えて
+
+$$
+\alpha\in\beta
+$$
+
+とします。
+
+$\phi$ が恒等写像でなければ、
+
+$$
+D=\{\xi\in\alpha:\phi(\xi)\ne\xi\}
+$$
+
+は非空であり、$\alpha$ の整列性から最小元 $\xi_0$ を持ちます。$\eta\in\xi_0$ なら最小性から $\phi(\eta)=\eta$ です。
+
+順序同型は $\xi_0$ より前の元全体を $\phi(\xi_0)$ より前の元全体へ写すので、
+
+$$
+\phi[\xi_0]=\phi(\xi_0).
+$$
+
+左辺では全ての $\eta\in\xi_0$ が固定されるため
+
+$$
+\phi[\xi_0]=\xi_0.
+$$
+
+従って $\phi(\xi_0)=\xi_0$ となり矛盾です。
+
+よって $\phi$ は $\alpha$ 上で恒等写像です。しかし $\alpha\in\beta$ なので $\alpha$ は $\beta$ の真部分集合であり、恒等写像 $\alpha\to\beta$ は全射ではありません。これも $\phi$ が順序同型であることに反します。
+
+したがって、順序同型な二順序数は等しいことが分かりました。
+
+次に存在を示します。各 $x\in X$ について前方部分
+
+$$
+X_{<x}
+=
+\{y\in X:y\prec x\}
+$$
+
+を考えます。ここで $y\prec x$ は
+
+$$
+y\preceq x,\qquad y\ne x
+$$
+
+の略記です。
+
+「$X_{<x}$ がある順序数と順序同型である」ことを全ての $x\in X$ について示します。反対に、そうでない点があると仮定し、その集合の $\preceq$-最小元を $x_0$ とします。
+
+すると全ての $y\prec x_0$ について、$X_{<y}$ はある順序数 $\alpha_y$ と順序同型です。最初に示した一意性から、この $\alpha_y$ は $y$ ごとに一意です。
+
+従って[置換公理図式](../SET1/index.md#axiom-set1-replacement)により、
+
+$$
+A_0
+=
+\{\alpha_y:y\prec x_0\}
+$$
+
+は集合です。
+
+$y\prec z\prec x_0$ とします。$X_{<y}$ は $X_{<z}$ の真の初期部分です。$X_{<z}$ と $\alpha_z$ の順序同型で像を取ると、その像は $\alpha_z$ の真の初期部分なので、ある $\delta\in\alpha_z$ に等しくなります。この初期部分は $X_{<y}$ と順序同型なので、順序数の一意性から
+
+$$
+\delta=\alpha_y.
+$$
+
+従って
+
+$$
+y\prec z
+\Longrightarrow
+\alpha_y\in\alpha_z.
+$$
+
+逆に $\alpha_y\in\alpha_z$ とします。$X$ は全順序なので、$y=z$、$y\prec z$、$z\prec y$ のいずれかです。$y=z$ なら $\alpha_y=\alpha_z$ に反し、$z\prec y$ なら上で示した含意から $\alpha_z\in\alpha_y$ となって順序数の三分律に反します。よって $y\prec z$ です。
+
+したがって
+
+$$
+y\longmapsto\alpha_y
+$$
+
+は $X_{<x_0}$ と $A_0$ の順序同型です。
+
+さらに $A_0$ が順序数であることを確認します。$\delta\in\alpha_z\in A_0$ とすると、$\alpha_z$ と $X_{<z}$ の順序同型により、$\delta=\alpha_y$ となる $y\prec z$ が存在します。従って $\delta\in A_0$ であり、$A_0$ は推移的です。
+
+また $A_0$ の任意の非空部分集合 $B$ を取ると、その逆像
+
+$$
+\{y\prec x_0:\alpha_y\in B\}
+$$
+
+は $X_{<x_0}$ の非空部分集合なので最小元を持ちます。その像が $B$ の最小元です。従って $\preceq_{A_0}$ は $A_0$ を整列し、$A_0$ は順序数です。
+
+これは $X_{<x_0}$ が順序数 $A_0$ と順序同型であることを意味し、$x_0$ の選び方に矛盾します。
+
+よって全ての $x\in X$ に一意な順序数 $\alpha_x$ が対応します。再び置換公理図式で
+
+$$
+\alpha
+=
+\{\alpha_x:x\in X\}
+$$
+
+を集合として取ります。
+
+先ほどと同じ議論により、
+
+$$
+x\prec y
+\Longleftrightarrow
+\alpha_x\in\alpha_y
+$$
+
+であり、$\alpha$ は推移的で $\preceq_\alpha$ により整列されます。従って $\alpha$ は順序数で、
+
+$$
+x\longmapsto\alpha_x
+$$
+
+は $(X,\preceq)$ から $(\alpha,\preceq_\alpha)$ への順序同型です。
+
+最後に、別の順序数 $\beta$ も $X$ と順序同型なら、合成により $\alpha$ と $\beta$ が順序同型です。冒頭の一意性から
+
+$$
+\alpha=\beta.
+$$
+
+以上で存在と一意性が示されました。$\square$
+<!-- proof-end -->
+
+<a id="def-set4-order-type"></a>
+<!-- formal-statement-start -->
+### 定義（順序型）
+
+整列集合 $(X,\prec)$ と順序同型な一意な順序数を
+
+$$
+\operatorname{otp}(X,\prec)
+$$
+
+と書き、$(X,\prec)$ の **順序型** という。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-set4-order-type -->
+**定義の確認。**
+
+自然な順序を入れた
+
+$$
+\{a,b,c\},
+\qquad
+a\prec b\prec c
+$$
+
+の順序型は
+
+$$
+3=\{0,1,2\}
+$$
+
+です。対応は $a\mapsto0$, $b\mapsto1$, $c\mapsto2$ です。
+<!-- definition-example-end -->
 
 ---
+
 
 ## 9. 演習
 
