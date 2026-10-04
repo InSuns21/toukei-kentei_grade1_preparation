@@ -661,7 +661,7 @@ RA1A / RA5 の標準定理を再証明するだけの章にせず、量化順序
 
 ### 10.1 saturation・underspill
 
-NSA4 では、今回採用した (mathbb N) 上の ultrapower に対する overspill を代表列の対角構成から直接証明した。したがって overspill 自体は発展候補から外す。
+NSA4 では、今回採用した $\mathbb N$ 上の超冪に対する overspill を代表列の対角構成から直接証明した。したがって overspill 自体は発展候補から外す。
 
 今後の候補は次とする。
 
