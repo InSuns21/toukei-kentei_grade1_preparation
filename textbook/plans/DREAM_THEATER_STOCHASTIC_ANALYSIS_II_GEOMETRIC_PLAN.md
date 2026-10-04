@@ -720,6 +720,8 @@ Lie 理論 ─────────────────┘
 
 ## 13. 実装順
 
+SGA3 の実装前に DREAM_THEATER_GEOMETRIC_ANALYSIS_PLAN.md の GA1 が実装済みか確認する。未実装なら、Laplace--Beltrami・Green 公式・弱形式の canonical owner を重複して SGA3 に作らず、GA1 を先に実装することを第一候補とする。
+
 1. current main で STO7 / STO9 / STO11、GEO5 / GEO12--GEO16、LIE1--LIE4 の canonical anchor と knowledge concept ID を監査する。
 2. SGA1 多様体値 SDE。
 3. SGA2 Lie 群上の SDE。
