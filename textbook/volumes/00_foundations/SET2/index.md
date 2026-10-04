@@ -963,9 +963,9 @@ $S(0),S(1),S(2)$ を求めよ。
 <!-- solution-start -->
 #### 詳細解答
 
-定義
+後続順序数の式
 
-$$
+$
 S(\alpha)=\alpha\cup\{\alpha\}
 $$
 
