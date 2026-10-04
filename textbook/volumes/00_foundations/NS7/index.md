@@ -124,7 +124,7 @@ $$
 
 なので、本章の条件には入りません。
 
-また $(3,\infty)$ は尺度臨界ですが、定義では $p>3$ を要求しているため含めません。これは単なる書き忘れではなく、第5節で見るように主証明の Young の不等式が端点で退化するためです。
+また $(3,\infty)$ は尺度臨界ですが、定義では $p>3$ を要求しているため含めません。これは単なる書き忘れではなく、第5節で見るように主証明の [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)が端点で退化するためです。
 <!-- definition-example-end -->
 
 ---
@@ -175,7 +175,7 @@ $$
 
 です。
 
-したがって Hölder の不等式から
+したがって [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)から
 
 $$
 |b(u,u,Au)|
@@ -229,7 +229,7 @@ $$
 \theta=\frac3p.
 $$
 
-この補間を公式名だけで使わず、Hölder の不等式から確認します。$g=\nabla u$ とし、
+この補間を公式名だけで使わず、[Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)から確認します。$g=\nabla u$ とし、
 
 $$
 |g|^r
@@ -260,7 +260,7 @@ $$
 1.
 $$
 
-従って Hölder の不等式より
+従って [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)より
 
 $$
 \begin{aligned}
@@ -327,7 +327,7 @@ C
 \end{aligned}
 $$
 
-$p=\infty$ では Hölder の不等式から直接
+$p=\infty$ では [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)から直接
 
 $$
 |b(u,u,Au)|
@@ -374,11 +374,11 @@ $$
 > が成り立つ。
 <!-- formal-statement-end -->
 
-この式の指数は偶然ではありません。次節で Young の不等式を使うと、第1節で定めた臨界時間指数 $q_c(p)$ がそのまま現れます。
+この式の指数は偶然ではありません。次節で [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)を使うと、第1節で定めた臨界時間指数 $q_c(p)$ がそのまま現れます。
 
 ---
 
-## 4. Young の不等式から臨界時間指数を取り出す
+## 4. [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)から臨界時間指数を取り出す
 
 記号を短くするため
 
@@ -403,7 +403,7 @@ $$
 
 です。
 
-Young の不等式で $\|Au\|_2^2$ を作るため、共役指数を
+[Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)で $\|Au\|_2^2$ を作るため、共役指数を
 
 $$
 m=\frac{2}{1+\theta},
@@ -459,7 +459,7 @@ $$
 q_c(p).
 $$
 
-$p=\infty$ では $\theta=0$ なので、同じ Young の不等式を共役指数 $2,2$ で使い、
+$p=\infty$ では $\theta=0$ なので、同じ [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)を共役指数 $2,2$ で使い、
 
 $$
 \|u\|_\infty
@@ -537,7 +537,7 @@ $$
 a(t)=C_{\nu,p}\|u(t)\|_p^{q_c(p)}
 $$
 
-が時間積分可能なら、Grönwall の不等式で $y$ を制御できます。
+が時間積分可能なら、[Grönwall の不等式](../ODE8/index.md#lem-ode8-gronwall)で $y$ を制御できます。
 
 ---
 
@@ -557,7 +557,7 @@ $$
 
 と同値です。
 
-有限時間区間 $[0,T]$ では、$q\ge q_c$ なら Hölder の不等式により
+有限時間区間 $[0,T]$ では、$q\ge q_c$ なら [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)により
 
 $$
 L^q(0,T)
@@ -632,7 +632,7 @@ $$
 y'(t)\le a(t)y(t)+g(t)
 $$
 
-へ変形しました。Prodi--Serrin 条件は $a\in L^1(0,T)$ を保証します。そこで積分因子または Grönwall の不等式を使えば $y$ が有限に保たれ、NS5 の延長判定へ接続できます。
+へ変形しました。Prodi--Serrin 条件は $a\in L^1(0,T)$ を保証します。そこで積分因子または [Grönwall の不等式](../ODE8/index.md#lem-ode8-gronwall)を使えば $y$ が有限に保たれ、NS5 の延長判定へ接続できます。
 
 <!-- proof-start -->
 ### 証明
@@ -688,7 +688,7 @@ $$
 \int_0^T g(t)\,dt<\infty.
 $$
 
-Grönwall の不等式を適用すると
+[Grönwall の不等式](../ODE8/index.md#lem-ode8-gronwall)を適用すると
 
 $$
 y(t)
@@ -756,7 +756,7 @@ $$
 
 となります。
 
-ここでは Young の不等式で
+ここでは [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)で
 
 $$
 \frac{\nu}{4}\|Au\|_2^2
@@ -1371,7 +1371,7 @@ $$
 \|\omega\|_2^2.
 $$
 
-従って Grönwall の不等式より
+従って [Grönwall の不等式](../ODE8/index.md#lem-ode8-gronwall)より
 
 $$
 \|\omega(t)\|_2^2
@@ -1426,7 +1426,7 @@ $$
 
 ### 証明の見取り図
 
-渦度エネルギーに Grönwall の不等式を使い、$\|\omega\|_2=\|\nabla u\|_2$ から NS5 の $H^1$ 延長判定へ戻します。
+渦度エネルギーに [Grönwall の不等式](../ODE8/index.md#lem-ode8-gronwall)を使い、$\|\omega\|_2=\|\nabla u\|_2$ から NS5 の $H^1$ 延長判定へ戻します。
 
 <!-- proof-start -->
 ### 証明
@@ -1440,7 +1440,7 @@ $$
 \infty.
 $$
 
-第10節の渦度エネルギー評価へ Grönwall の不等式を適用すると
+第10節の渦度エネルギー評価へ [Grönwall の不等式](../ODE8/index.md#lem-ode8-gronwall)を適用すると
 
 $$
 \sup_{t<T_{\max}}\|\omega(t)\|_2<\infty.
@@ -2088,7 +2088,7 @@ C
 \|Au\|_2^{3/2}
 $$
 
-を導き、Young の不等式から
+を導き、[Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)から
 
 $$
 |b(u,u,Au)|
@@ -2117,7 +2117,7 @@ r=\frac{2p}{p-2}
 3.
 $$
 
-従って Hölder の不等式から
+従って [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)から
 
 $$
 |b(u,u,Au)|
@@ -2177,7 +2177,7 @@ C^4
 \|\nabla u\|_2^2.
 $$
 
-係数付き Young の不等式から
+係数付き [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)から
 
 $$
 \boxed{
@@ -2354,7 +2354,7 @@ $$
 \|\omega\|_2^2.
 $$
 
-Grönwall の不等式から
+[Grönwall の不等式](../ODE8/index.md#lem-ode8-gronwall)から
 
 $$
 \|\omega(t)\|_2^2
