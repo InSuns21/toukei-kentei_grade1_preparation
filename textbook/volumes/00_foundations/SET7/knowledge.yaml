@@ -5,27 +5,32 @@ prerequisites:
   - SET4
   - SET6
 
+forward_references:
+  - set.choice-axiom
+  - set.well-ordering-theorem
+  - set.zorn-lemma
+
 concepts:
   - id: set.wellorders-on-subsets
-    name: X の部分集合上の整列の集合
+    name: 部分集合上の整列の集合
     kind: definition
-    aliases: [X の部分集合上の整列の集合]
+    aliases: [部分集合上の整列の集合]
     requires:
       - order.well-order
 
   - id: set.order-types-realized-in-x
-    name: X 内で実現される順序型の集合
+    name: 実現される順序型の集合
     kind: definition
-    aliases: [X 内で実現される順序型の集合]
+    aliases: [実現される順序型の集合]
     requires:
       - set.wellorders-on-subsets
       - order.order-type
       - set.replacement-schema
 
   - id: set.hartogs-gamma-no-injection
-    name: gamma_X は X へ単射できない
+    name: 構成した順序数は元の集合へ単射できない
     kind: lemma
-    aliases: [gamma_X は X へ単射できない]
+    aliases: [構成した順序数は元の集合へ単射できない]
     requires:
       - set.order-types-realized-in-x
       - set.ordinal
