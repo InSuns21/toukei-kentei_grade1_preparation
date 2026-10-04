@@ -1,0 +1,11 @@
+chapter: "SET10"
+terms:
+  - term: 選択原理監査
+    english: choice-principle audit
+    meaning: 証明中で何を選ぶか、どの選択原理を使うか、その原理を失うとどこで構成が止まるかを局所的に確認する見方。
+  - term: 極大延長
+    english: maximal extension
+    meaning: 包含などの順序でこれ以上真に延長できない対象を得る構成。Hamel 基底や Hahn--Banach では Zorn の補題が標準的に使われる。
+  - term: 明示的選択
+    english: explicit selection
+    meaning: 各添字に対して選ぶ元を具体的な規則で定義でき、追加の選択公理による存在保証を必要としない選択。
