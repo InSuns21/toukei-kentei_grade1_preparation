@@ -17,7 +17,7 @@ definitions:
   - { id: SET1-TERM-02, name: 公理図式 }
   - { id: SET1-DEF-01, name: ZF と ZFC }
 theorems:
-  - { id: SET1-PROP-01, name: 無制限内包は矛盾を生む }
+  - { id: SET1-PROP-01, name: Russell のパラドックス：無制限内包は矛盾を生む }
   - { id: SET1-PROP-02, name: 空集合の存在と一意性 }
   - { id: SET1-PROP-03, name: 自己所属は起きない }
 canonical_examples:
