@@ -62,7 +62,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-set7-wellorders-on-subsets -->
-**定義の確認。** $X=\{a,b\}$ なら、
+**定義の確認**。 $X=\{a,b\}$ なら、
 
 - 空集合上の整列、
 - $\{a\}$ 上の整列、
@@ -107,7 +107,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-set7-order-types-realized-in-x -->
-**定義の確認。** $X=\{a,b\}$ では、空集合・1点集合・2点集合の整列しか作れないため、
+**定義の確認**。 $X=\{a,b\}$ では、空集合・1点集合・2点集合の整列しか作れないため、
 
 $$
 \mathcal O_X=\{0,1,2\}.
@@ -267,7 +267,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-set7-hartogs-number -->
-**定義の確認：有限集合。**
+**定義の確認**：有限集合。
 
 $X$ が $n$ 個の元を持つ有限集合なら、
 
