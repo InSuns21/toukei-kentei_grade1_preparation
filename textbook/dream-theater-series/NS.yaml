@@ -27,7 +27,7 @@ chapters:
     title: 三次元局所強解・一意性・有限時間発散判定
   - id: NS6
     path: textbook/volumes/00_foundations/NS6
-    status: planned
+    status: completed
     title: スケーリング・臨界性・どのノルムを見るべきか
   - id: NS7
     path: textbook/volumes/00_foundations/NS7
