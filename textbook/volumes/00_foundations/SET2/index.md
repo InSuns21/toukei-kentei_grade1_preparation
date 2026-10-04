@@ -1113,35 +1113,56 @@ $$
 <!-- solution-end -->
 
 <a id="ex-set2-b03"></a>
-#### SET2-B03 $\omega$ が後続順序数でない理由
+#### SET2-B03 有限整列集合の順序型を構成する
 - Level: B
 
-$\omega=S(\alpha)$ となる順序数 $\alpha$ は存在しないことを、$\omega$ の最小帰納性を使って説明せよ。
+$X=\{a,b,c,d\}$ に
+
+$$
+c\prec a\prec d\prec b
+$$
+
+という整列を入れる。
+
+1. $(X,\preceq)$ の順序型を求めよ。
+2. 標準順序数への順序同型を一つ書け。
+3. 別の順序数が同じ整列と順序同型になれない理由を説明せよ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-$\omega=S(\alpha)$ と仮定します。
-
-$S(\alpha)=\alpha\cup\{\alpha\}$ なので $\alpha\in\omega$ です。
-
-$\omega$ は帰納的なので、$\alpha\in\omega$ なら
+4点の整列なので候補となる順序数は
 
 $$
-S(\alpha)\in\omega.
+4=\{0,1,2,3\}.
 $$
 
-仮定 $S(\alpha)=\omega$ を代入すると
+順序を保つ全単射
 
 $$
-\omega\in\omega
+c\mapsto0,\qquad
+a\mapsto1,\qquad
+d\mapsto2,\qquad
+b\mapsto3
 $$
 
-となります。
+を取れます。したがって
 
-しかし $\omega$ は順序数であり、自分自身を元に持ちません。矛盾です。
+$$
+\operatorname{otp}(X,\preceq)=4.
+$$
 
-従って $\omega$ は後続順序数ではなく、非零なので極限順序数です。
+一意性は本文の[整列集合の順序型](#thm-set4-order-type)の証明で示した「順序同型な二つの順序数は等しい」という事実から従います。もし別の順序数 $\beta$ も $(X,\preceq)$ と順序同型なら、
+
+$$
+4\cong\beta
+$$
+
+が順序同型として成り立つため
+
+$$
+\beta=4.
+$$
 <!-- solution-end -->
 
 ### Level C
