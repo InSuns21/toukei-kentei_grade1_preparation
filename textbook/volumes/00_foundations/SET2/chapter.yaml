@@ -1,0 +1,39 @@
+id: "SET2"
+title: "順序数：整列の位置を集合で表す"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SET1
+  - F0-00A1D
+official_scope: []
+learning_objectives:
+  - 推移的集合を定義し、有限例で条件を検証できる
+  - von Neumann 順序数を定義し、0,1,2,3を集合として書ける
+  - 順序数の元が順序数であることを証明できる
+  - 後続順序数と極限順序数を区別できる
+  - 無限公理から最小帰納的集合 omega を構成する流れを追える
+  - 順序数の三分律を推移的初期部分の補題から証明できる
+definitions:
+  - { id: SET2-DEF-01, name: 推移的集合 }
+  - { id: SET2-DEF-02, name: von Neumann 順序数 }
+  - { id: SET2-DEF-03, name: 後続順序数 }
+  - { id: SET2-DEF-04, name: 帰納的集合 }
+  - { id: SET2-DEF-05, name: 極限順序数 }
+theorems:
+  - { id: SET2-THM-01, name: 順序数の元は順序数 }
+  - { id: SET2-THM-02, name: 順序数の後続は順序数 }
+  - { id: SET2-THM-03, name: 最小の帰納的集合 omega }
+  - { id: SET2-LEM-01, name: 順序数の推移的部分集合は初期部分 }
+  - { id: SET2-THM-04, name: 順序数の三分律 }
+canonical_examples:
+  - 有限 von Neumann 順序数
+  - omega と omega+1
+  - 共通部分による順序数比較
+problem_patterns:
+  - ORDINAL-VERIFY-1
+  - SUCCESSOR-ORDINAL-1
+  - ORDINAL-COMPARISON-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 2.5, review: 0.7 }
