@@ -108,6 +108,22 @@
 | 無限小 | infinitesimal | 初出で「無限小超実数」と明示してよい。以後は「無限小」を主表記とする |
 | 無限大超実数 | infinite hyperreal | 「無限大」を実数の元のように単独名詞化しない |
 
+## DREAM THEATER：一階論理の主表記
+
+| 主表記 | 補助的な英語表記 | 備考 |
+|---|---|---|
+| 一階言語 | first-order language | NSA2 では Łoś の定理に必要な最小範囲を扱う |
+| 項 | term | 論理式と区別し、構造の要素を表す式として使う |
+| 原子論理式 | atomic formula | 「原子式」より本文ではこの表記を優先する |
+| 一階論理式 | first-order formula | 文脈上明らかな場合は「論理式」と略してよい |
+| 自由変数 | free variable | 量化記号に束縛されない変数の出現を指す |
+| 文 | sentence | 自由変数を持たない一階論理式 |
+| 構造 | structure | 論理文脈では言語の記号に解釈を与える対象 |
+| 変数割当て | variable assignment | 変数へ構造の要素を対応させる写像 |
+| 充足 | satisfaction | 記号は $\models$ を用いる |
+| 構文帰納法 | structural induction | 論理式の構成規則に沿う帰納法 |
+| 多ソート一階言語 | many-sorted first-order language | 「many-sorted」を本文主語彙にしない |
+
 ## DREAM THEATER：線形代数・幾何の主表記
 
 | 主表記 | 補助的な英語表記 | 備考 |
