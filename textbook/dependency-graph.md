@@ -870,3 +870,5 @@ NS5 は NS4 と ODE8 を直接 prerequisite とし、ODE8 の Grönwall の不�
 
 NS6 は NS5、VC9、FOU4 を直接 prerequisite とし、全空間 $\mathbb R^3$ 上の無外力 Navier--Stokes scaling、$L^p$ と $L_t^qL_x^p$ の尺度則、劣臨界・臨界・超臨界の定義、エネルギー階級の超臨界性、Fourier 表示による $\dot H^s$ scaling と臨界指数 $s=1/2$ を担当する。直接 prerequisite の正本は各章の chapter.yaml / knowledge.yaml とする。
 
+NS7 は NS6 を直接 prerequisite とし、$3<p\le\infty$ の Prodi--Serrin 型非線形評価・延長判定、$p=3$ 端点での単純エネルギー法の退化、三次元渦度方程式、渦伸長による渦度エネルギー増幅、$\int\|\nabla u\|_\infty dt$ による尺度臨界延長判定、Prodi--Serrin 条件下の弱--強一致を担当する。
+
