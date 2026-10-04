@@ -3,6 +3,8 @@ title: "選択公理は普通の数学のどこに現れるか"
 volume: "foundations"
 status: supplementary
 prerequisites:
+  - SET5
+  - SET7
   - SET9
 official_scope: []
 learning_objectives:
