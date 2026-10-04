@@ -23,7 +23,7 @@ chapters:
     title: 二次元 Navier--Stokes はなぜ大域的に制御できるか
   - id: NS5
     path: textbook/volumes/00_foundations/NS5
-    status: planned
+    status: completed
     title: 三次元局所強解・一意性・有限時間発散判定
   - id: NS6
     path: textbook/volumes/00_foundations/NS6
