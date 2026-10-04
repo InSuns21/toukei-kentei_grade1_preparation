@@ -35,7 +35,7 @@ chapters:
     title: 微分・Taylor 展開を無限小で読む
   - id: NSA8
     path: textbook/volumes/00_foundations/NSA8
-    status: planned
+    status: completed
     title: Riemann 積分と超有限和
   - id: NSA9
     path: textbook/volumes/00_foundations/NSA9
