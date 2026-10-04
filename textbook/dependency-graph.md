@@ -72,9 +72,13 @@ SET4 超限再帰 ─────→ SET5 累積階層・rank
       SET7 Hartogs の補題
         ↓
 F0-00A2 + F0-00A3 ─→ F0-00A3A AC・整列可能定理・Zorn 同値性
+        ↓
+TOP6 filter ─────────→ SET9 弱い選択原理・超フィルター
+                              ↓
+                         SET10 数学各分野への接続
 ```
 
-SET2 は順序型・順序数、SET4 は超限再帰、SET7 は Hartogs の補題の canonical owner である。F0-00A3A はこれらを再定義せず直接 prerequisite として使い、同値性証明そのものを所有する。SET1--SET7 と Hartogs の構成までは ZF で閉じ、選択公理は F0-00A2 / F0-00A3A で明示的に導入する。
+SET2 は順序型・順序数、SET4 は超限再帰、SET7 は Hartogs の補題の canonical owner である。F0-00A3A はこれらを再定義せず直接 prerequisite として使い、同値性証明そのものを所有する。SET9 は TOP6 の filter 定義を再利用し、従属選択・超フィルター・自由超フィルターを所有する。SET10 は新しい基礎概念を増やす章ではなく、既存の Hamel 基底・Hahn--Banach・Vitali 集合等へ依存を戻す出口章である。SET1--SET7 と Hartogs の構成までは ZF で閉じ、選択公理は F0-00A2 / F0-00A3A で明示的に導入する。
 
 ### 線形代数
 
