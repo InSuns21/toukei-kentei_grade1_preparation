@@ -237,7 +237,7 @@ $$
 
 ## 3. 非線形項を $L^6$-$L^3$-$L^2$ へ分ける
 
-Hölder の不等式により
+[Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)により
 
 $$
 |b(u,u,Au)|
@@ -263,7 +263,7 @@ $$
 |\nabla u|^{3/2}.
 $$
 
-Hölder の不等式を指数 $4/3$ と $4$ で使うと
+[Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)を指数 $4/3$ と $4$ で使うと
 
 $$
 \begin{aligned}
@@ -374,7 +374,7 @@ $$
 
 ---
 
-## 4. Young の不等式で $y'\le C y^3$ を作る
+## 4. [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)で $y'\le C y^3$ を作る
 
 非線形評価で
 
@@ -402,7 +402,7 @@ X^p=\|Au\|_2^2,
 Y^q=C^4\|\nabla u\|_2^6.
 $$
 
-係数付き Young の不等式から
+係数付き [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)から
 
 $$
 |b(u,u,Au)|
@@ -1002,7 +1002,7 @@ $$
 -b(w,u,w).
 $$
 
-Hölder の不等式と NS2 の三次元 $L^4$ 評価により
+[Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)と NS2 の三次元 $L^4$ 評価により
 
 $$
 \begin{aligned}
@@ -1018,7 +1018,7 @@ C
 \end{aligned}
 $$
 
-Young の不等式を共役指数 $4/3,4$ で使えば
+[Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)を共役指数 $4/3,4$ で使えば
 
 $$
 |b(w,u,w)|
@@ -1046,7 +1046,7 @@ $$
 \int_0^T\|\nabla u(t)\|_2^4\,dt<\infty.
 $$
 
-Gronwall の不等式から
+[Grönwall の不等式](../ODE8/index.md#lem-ode8-gronwall)から
 
 $$
 \|w(t)\|_2^2
@@ -1205,7 +1205,7 @@ $$
 f\in L^2(0,T_{\max}+1;H)
 $$
 
-なので、積分の絶対連続性から、ある $\delta_1>0$ を取り、任意の長さ $\delta_1$ 以下の区間 $I\subset[0,T_{\max}+1]$ で
+なので、[Lebesgue 積分の絶対連続性](../MT4/index.md#thm-mt4-integral-absolute-continuity)から、ある $\delta_1>0$ を取り、任意の長さ $\delta_1$ 以下の区間 $I\subset[0,T_{\max}+1]$ で
 
 $$
 \frac2\nu\int_I\|f(t)\|_2^2\,dt
@@ -1598,7 +1598,7 @@ C_\nu
 \|w\|_2^2\,ds.
 $$
 
-強解では $\|\nabla u\|_2^4\in L^1(0,T)$ で、$w(0)=0$ です。Gronwall の不等式から
+強解では $\|\nabla u\|_2^4\in L^1(0,T)$ で、$w(0)=0$ です。[Grönwall の不等式](../ODE8/index.md#lem-ode8-gronwall)から
 
 $$
 \|w(t)\|_2^2=0.
@@ -1647,7 +1647,7 @@ $$
 
 $u\in D(A)$ とする。
 
-1. Hölder の不等式から
+1. [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)から
 $$
 \|\nabla u\|_3
 \le
@@ -1788,7 +1788,7 @@ X^{4/3}=\|Au\|_2^2,
 Y^4=C^4\|\nabla u\|_2^6.
 $$
 
-係数付き Young の不等式で $\varepsilon=\nu/4$ と選べば結論を得ます。
+係数付き [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)で $\varepsilon=\nu/4$ と選べば結論を得ます。
 <!-- solution-end -->
 
 <a id="ex-ns5-a03"></a>
@@ -1920,7 +1920,7 @@ C\|\nabla u\|_2
 \|\nabla w\|_2^{3/2}.
 $$
 
-Young の不等式を $4/3,4$ で使えば結論です。
+[Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)を $4/3,4$ で使えば結論です。
 <!-- solution-end -->
 
 <a id="ex-ns5-a05"></a>
@@ -1958,7 +1958,7 @@ $$
 f\in L^2(0,T_{\max}+1;H)
 $$
 
-なので、積分の絶対連続性から十分小さい $\delta>0$ を選べば、任意の長さ $\delta$ 以下の区間 $I$ で
+なので、[Lebesgue 積分の絶対連続性](../MT4/index.md#thm-mt4-integral-absolute-continuity)から十分小さい $\delta>0$ を選べば、任意の長さ $\delta$ 以下の区間 $I$ で
 
 $$
 \frac2\nu\int_I\|f\|_2^2
@@ -2320,7 +2320,7 @@ $$
 +(f,Au_m).
 $$
 
-第3節の評価と Young の不等式から
+第3節の評価と [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)から
 
 $$
 |b(u_m,u_m,Au_m)|
@@ -2470,7 +2470,7 @@ $$
 C_\nu\|\nabla u\|_2^4\|w\|_2^2.
 $$
 
-$u\in C([0,T_*];V)$ なので係数は積分可能です。$w(0)=0$ と Gronwall の不等式から $w=0$ です。
+$u\in C([0,T_*];V)$ なので係数は積分可能です。$w(0)=0$ と [Grönwall の不等式](../ODE8/index.md#lem-ode8-gronwall)から $w=0$ です。
 
 ### 6. 有限時間発散選択肢
 
@@ -2516,5 +2516,5 @@ C_\nu\int_0^t
 \|w\|_2^2.
 $$
 
-強解の存在時間では $\|\nabla u\|_2^4$ は積分可能で、$w(0)=0$ です。Gronwall の不等式から $w=0$ となり、弱解は強解と一致します。
+強解の存在時間では $\|\nabla u\|_2^4$ は積分可能で、$w(0)=0$ です。[Grönwall の不等式](../ODE8/index.md#lem-ode8-gronwall)から $w=0$ となり、弱解は強解と一致します。
 <!-- solution-end -->
