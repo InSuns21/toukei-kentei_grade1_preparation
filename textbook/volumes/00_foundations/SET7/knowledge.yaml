@@ -1,0 +1,31 @@
+chapter: SET7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SET4
+  - SET6
+
+concepts:
+  - id: set.hartogs-number
+    name: Hartogs 数
+    kind: definition
+    aliases: [Hartogs 数, Hartogs number]
+    requires:
+      - order.order-type
+      - set.replacement-schema-zf
+
+  - id: set.hartogs-lemma
+    name: Hartogs の補題
+    kind: theorem
+    aliases: [Hartogs の補題, Hartogs補題, Hartogs lemma]
+    requires:
+      - set.hartogs-number
+      - set.ordinal
+
+  - id: set.successor-cardinal
+    name: 次の基数
+    kind: theorem
+    aliases: [次の基数, successor cardinal]
+    requires:
+      - set.hartogs-lemma
+      - set.cardinal
