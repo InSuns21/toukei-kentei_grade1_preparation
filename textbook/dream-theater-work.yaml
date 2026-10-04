@@ -1,0 +1,28 @@
+version: 1
+updated: 2026-10-04
+
+active_series: NSA
+active_plan: textbook/plans_progress/DREAM_THEATER_NONSTANDARD_ANALYSIS_PLAN.md
+series_manifest: textbook/dream-theater-series/NSA.yaml
+
+completed_through: NSA2
+next_work: NSA3
+after_next: NSA4
+
+routing:
+  chapter_root: textbook/volumes/00_foundations
+  authoring_standard: textbook/DREAM_THEATER_AUTHORING_STANDARD.md
+  exercise_policy: textbook/DREAM_THEATER_EXERCISE_POLICY.md
+  global_index: textbook/dream-theater-index.json
+  knowledge_dag: textbook/knowledge-dag.yaml
+
+validation:
+  pull_request:
+    mode: changed_only
+    commands:
+      - npm run validate:textbook:changed
+      - npm run validate:textbook-knowledge:changed
+      - npm run validate:dream-theater-concepts:changed
+  full:
+    mode: main_or_nightly
+    workflow: .github/workflows/validate-textbook.yml

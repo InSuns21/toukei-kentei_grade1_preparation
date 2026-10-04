@@ -6,6 +6,19 @@
 
 DREAM THEATER は `textbook/` 内の発展数学講座だが、通常の試験答案訓練章とは目的・演習形式・前提知識の扱いが異なる。DREAM THEATER の執筆・改稿・査読では `textbook/DREAM_THEATER_AUTHORING_STANDARD.md` を入口の正本とする。
 
+## DREAM THEATER 継続ルーティング
+
+DREAM THEATER の「続けて」「planを進めて」では、全リポジトリ探索より先に次の順で現在地を確定する。
+
+1. `textbook/dream-theater-work.yaml`
+2. そこから参照される `textbook/dream-theater-series/<series>.yaml`
+3. `active_plan` の該当章
+4. 対象章と直接依存する正本だけ
+
+`textbook/dream-theater-work.yaml` は **継続作業のルーティング正本**であり、数学内容・依存関係の正本を置き換えない。章を完了して次へ進める作業では、対象成果物と同じ作業単位で `completed_through` / `next_work` / `after_next` と series manifest の status を更新する。
+
+global index、knowledge DAG、規約、validator、CI を変更する場合は通常どおり全体影響を確認する。一方、単一系列の通常執筆では、現在地確定のためだけに `textbook/volumes/00_foundations/` 全体を列挙しない。
+
 ---
 
 ## 作業前に読むファイル

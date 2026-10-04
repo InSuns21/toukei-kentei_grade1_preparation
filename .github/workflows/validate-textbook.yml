@@ -33,70 +33,115 @@ on:
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/validate-textbook.yml'
+  schedule:
+    - cron: '17 18 * * *'
   workflow_dispatch:
+
+concurrency:
+  group: validate-textbook-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   validate-textbook:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: '20'
+          node-version: '24'
           cache: npm
 
       - name: Install dependencies
         run: npm ci
 
+      - name: Validate DREAM THEATER work-state router
+        run: npm run validate:dream-theater-work
+
+      - name: Detect pull-request validation scope
+        if: github.event_name == 'pull_request'
+        id: scope
+        env:
+          TEXTBOOK_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: node scripts/detect-textbook-validation-scope.mjs --github-output
+
+      - name: Fast validate changed textbook files
+        if: github.event_name == 'pull_request' && steps.scope.outputs.full != 'true'
+        env:
+          TEXTBOOK_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          TEXTBOOK_KNOWLEDGE_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          npm run validate:textbook:changed -- --base "$TEXTBOOK_BASE_SHA"
+          npm run validate:textbook-knowledge:changed
+
+      - name: Explain fast-path selection
+        if: github.event_name == 'pull_request' && steps.scope.outputs.full != 'true'
+        run: echo "Changed-only fast path selected; exhaustive textbook audit remains blocking on main and runs nightly."
+
       - name: Audit official syllabus term coverage
+        if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
         run: npm run audit:textbook-syllabus -- --strict
 
       - name: Validate reader-facing wording
+        if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
         run: python3 scripts/validate-reader-facing-wording.py
 
       - name: Validate textbook structure
+        if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
         run: npm run validate:structure
 
       - name: Validate textbook knowledge DAG
+        if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
         run: npm run validate:textbook-knowledge
 
       - name: Validate textbook math
+        if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
         run: npm run validate:math
 
       - name: Validate exercise style
+        if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
         run: npm run validate:exercise-style
 
       - name: Validate textbook text
+        if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
         run: npm run validate:text
 
       - name: Validate prose outside math
+        if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
         run: npm run validate:prose-math
 
       - name: Validate collapsible proof sections
+        if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
         run: npm run validate:proof-folding
 
       - name: Validate formal statement panels and anchors
+        if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
         run: npm run validate:formal-statements
 
       - name: Block new prose-style formal definitions
+        if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
         run: npm run validate:implicit-formals
 
       - name: Validate named theorem-like results
+        if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
         run: npm run validate:named-formals
 
       - name: Validate formal theorem and definition references
+        if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
         run: npm run validate:formal-references
 
       - name: Validate definition examples against their definitions
+        if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
         run: npm run validate:definition-examples
 
       - name: Audit proof pedagogy
+        if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
         run: npm run audit:proof-pedagogy
 
       - name: Audit formalism pedagogy
+        if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
         run: npm run audit:formalism-pedagogy

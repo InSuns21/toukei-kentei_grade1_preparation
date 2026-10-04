@@ -39,23 +39,34 @@ on:
       - '.github/workflows/validate-terminology.yml'
   workflow_dispatch:
 
+concurrency:
+  group: validate-terminology-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   validate-terminology:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: '20'
+          node-version: '24'
           cache: npm
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Detect pull-request validation scope
+        if: github.event_name == 'pull_request'
+        id: scope
+        env:
+          TEXTBOOK_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: node scripts/detect-textbook-validation-scope.mjs --github-output
 
       - name: Validate syllabus terminology and changed prose
         env:
@@ -68,10 +79,13 @@ jobs:
         run: npm run validate:acronym-first-use:changed
 
       - name: Validate all Grade 1 Japanese terminology
+        if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
         run: node scripts/audit_textbook_japanese_terminology.mjs --strict
 
       - name: Validate Japanese terminology spacing
+        if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
         run: node scripts/audit_textbook_term_spacing.mjs
 
       - name: Validate advanced-math house style
+        if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
         run: node scripts/audit_house_style_terminology.mjs
