@@ -27,8 +27,9 @@ concepts:
     kind: theorem
     aliases: [整列集合の順序型]
     requires:
-      - set.transfinite-recursion
       - order.well-order
+      - set.ordinal-trichotomy
+      - set.replacement-schema
 
   - id: order.order-type
     name: 順序型
