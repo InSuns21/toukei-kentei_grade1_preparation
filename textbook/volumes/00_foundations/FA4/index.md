@@ -42,14 +42,14 @@ Goldstine
 
 ここでは次の二点を既知として使います。
 
-- [超フィルターの二者択一](../SET9/index.md#thm-set9-超フィルター-dichotomy)：任意の $A\subseteq S$ について
+- [超フィルターの二者択一](../SET9/index.md#thm-set9-ultrafilter-dichotomy)：任意の $A\subseteq S$ について
   $$
   A\in\mathcal U
   \quad\text{または}\quad
   S\setminus A\in\mathcal U
   $$
   のちょうど一方が成り立つ。
-- [超フィルター拡張補題](../SET9/index.md#thm-set9-超フィルター-lemma-from-zorn)：任意のフィルター $\mathcal F$ は、それを含む超フィルター $\mathcal U$ へ延長できる。
+- [超フィルター拡張補題](../SET9/index.md#thm-set9-ultrafilter-lemma-from-zorn)：任意のフィルター $\mathcal F$ は、それを含む超フィルター $\mathcal U$ へ延長できる。
 
 後者の SET9 での証明は、フィルター全体を包含で順序付け、鎖の合併を上界として Zorn の補題を適用するものです。したがって **選択原理が入る場所は超フィルターへの極大延長**であり、以後のコンパクト性の議論とは分けて追えます。
 
@@ -66,7 +66,7 @@ $$
 
 ## 2. コンパクト性と超フィルターの収束
 
-<a id="thm-fa4-compact-超フィルター"></a>
+<a id="thm-fa4-compact-ultrafilter"></a>
 <!-- formal-statement-start -->
 ### 定理（コンパクト性の超フィルター特徴付け）
 
@@ -152,7 +152,7 @@ $$
 
 だから $\mathcal U$ の二者択一により $\mathcal U_i$ も 超フィルター です。
 
-$K_i$ はコンパクトなので[前節の定理](#thm-fa4-compact-超フィルター)から $\mathcal U_i$ はある点へ収束します。しかも $K_i$ は Hausdorff なので極限は一意です。実際 $x_i\ne y_i$ がともに極限なら、互いに素な近傍 $V\ni x_i$, $W\ni y_i$ があり、$V,W\in\mathcal U_i$ から $\varnothing=V\cap W\in\mathcal U_i$ となって矛盾します。
+$K_i$ はコンパクトなので[前節の定理](#thm-fa4-compact-ultrafilter)から $\mathcal U_i$ はある点へ収束します。しかも $K_i$ は Hausdorff なので極限は一意です。実際 $x_i\ne y_i$ がともに極限なら、互いに素な近傍 $V\ni x_i$, $W\ni y_i$ があり、$V,W\in\mathcal U_i$ から $\varnothing=V\cap W\in\mathcal U_i$ となって矛盾します。
 
 よって各 $i$ に対する唯一の極限点 $x_i$ が定まり、$x=(x_i)_{i\in I}\in K$ が定まります。ここでは各座標で「どれか一つ」を新たに選んでいません。Hausdorff 性が極限を一意に指定しています。
 
