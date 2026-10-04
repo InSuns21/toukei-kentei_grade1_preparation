@@ -21,6 +21,9 @@ terms:
   - term: 超有限集合
     english: hyperfinite set
     meaning: 有限集合からなる列の超冪として表せる内部集合。外から見て無限でも有限集合と同じ内部的性質を移送できる。
-  - term: overspill
-    english: overspill
+  - term: 有限超実数
+    english: finite / limited hyperreal
+    meaning: ある標準正整数 m により絶対値が m 未満に抑えられる超実数。
+  - term: overspill 原理
+    english: overspill principle
     meaning: 内部集合がすべての標準自然数を含むなら、無限超自然数も少なくとも一つ含むという内部性の原理。
