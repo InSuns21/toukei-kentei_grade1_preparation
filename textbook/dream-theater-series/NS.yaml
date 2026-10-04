@@ -19,7 +19,7 @@ chapters:
     title: Leray--Hopf 弱解と大域存在
   - id: NS4
     path: textbook/volumes/00_foundations/NS4
-    status: planned
+    status: completed
     title: 二次元 Navier--Stokes はなぜ大域的に制御できるか
   - id: NS5
     path: textbook/volumes/00_foundations/NS5
