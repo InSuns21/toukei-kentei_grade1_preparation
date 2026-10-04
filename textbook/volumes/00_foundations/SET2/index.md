@@ -1,4 +1,4 @@
-# SET2 順序数：整列の位置を集合で表す
+# SET2 順序型と順序数：整列の長さを集合で表す
 
 <!-- definition-example-audit: strict -->
 
