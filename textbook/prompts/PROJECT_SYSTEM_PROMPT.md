@@ -23,7 +23,19 @@
 
 対象外スコープの長い規約を毎回読み込まない。古い監査・完了済み plan・過去チャットを現行規約として復活させない。
 
-### 2. 通常教材
+### 2. PLAN の状態管理
+
+DREAM THEATER 系 PLAN のライフサイクルは `textbook/AGENTS.md` と各ディレクトリの README を正本とする。
+
+- `textbook/plans/`: 設計済み・PLAN 固有作業は未着手。
+- `textbook/plans_progress/`: PLAN 固有の実装・検証・監査に着手済みで未完了。
+- `textbook/plan_done/`: 成果物、必要な検証・監査、直接必要な routing / index / manifest 更新まで完了。
+
+状態遷移はコピーではなく移動で行い、同一 PLAN を複数ディレクトリへ置かない。既存章があるだけでは着手扱いにせず、一部の章が完成しただけで done にしない。PLAN の移動でパスが変わる場合は、`dream-theater-work.yaml`、対応する series manifest の `plan`、その他の直接参照を同じ作業単位で更新する。
+
+`dream-theater-work.yaml` は次作業の routing、3ディレクトリは PLAN の状態を表す。ディレクトリ一覧だけから次の作業や優先順位を推測しない。`plan_done/` は履歴であり、現行規約として復活させない。
+
+### 3. 通常教材
 
 通常教材では、scoped AGENTS に加え、必要な範囲で次を確認する。
 
@@ -37,7 +49,7 @@
 
 通常教材は統計検定1級の答案訓練を目的とし、詳細解答と本番答案を分離する。仮定、定義域、分布の台、パラメータ空間、正則性条件、独立同分布性、極限定理の条件、行列の次元等を省略しない。prerequisite 外の高度な概念を暗黙前提にしない。
 
-### 3. DREAM THEATER の現在地
+### 4. DREAM THEATER の現在地
 
 DREAM THEATER の「続けて」「planを進めて」では、`textbook/volumes/00_foundations/` 全体を先に探索しない。次の順で現在地を確定する。
 
@@ -51,7 +63,7 @@ DREAM THEATER の「続けて」「planを進めて」では、`textbook/volumes
 
 DREAM THEATER の本文品質・証明粒度・定義例・演習・詳細解答・依存関係・完成条件は、`textbook/DREAM_THEATER_AUTHORING_STANDARD.md` を入口の正本として判定する。必要に応じて `DREAM_THEATER_EXERCISE_POLICY.md`、formal statement / proof presentation guide、knowledge DAG を読む。
 
-### 4. DREAM THEATER の品質
+### 5. DREAM THEATER の品質
 
 `implemented`、formal statement、proof block、自動検証 green だけで完成扱いしない。prerequisites だけを既知とする独習者が、本文から主要概念・主要定理・核心論証を追い、演習で自力再現できることを完成条件とする。
 
@@ -80,7 +92,7 @@ prerequisite を知っていることと、途中2〜4手を脳内補完でき�
 - 学習者向け本文に archive、canonical owner、stable anchor、自動検証・監査等の編集事情を書かない。
 - 同じ前提の一続きの内容は、実装単位ではなく学習者の中心問いで章・節を構成する。
 
-### 5. DREAM THEATER の演習・解答
+### 6. DREAM THEATER の演習・解答
 
 理由付き例外がなければ、変更章の実本文に最低
 
@@ -92,7 +104,7 @@ prerequisite を知っていることと、途中2〜4手を脳内補完でき�
 
 詳細解答では、出発点、使用定理、適用条件、主要中間式、結論を紙上で再現できる粒度にする。「整理すると」「計算すると」「同様に」で非自明な複数段を隠さない。
 
-### 6. 依存関係・用語
+### 7. 依存関係・用語
 
 `chapter.yaml` / `knowledge.yaml` の prerequisites と knowledge DAG を基準にする。
 
@@ -108,7 +120,7 @@ prerequisite を知っていることと、途中2〜4手を脳内補完でき�
 
 自動監査の誤検出を避けるために自然な標準用語を不自然に改名しない。原因が alias、matcher、resolver にある場合は機械側を直す。数学的意味を持つ記号を正規化で落とさない。
 
-### 7. 改稿・査読・検証
+### 8. 改稿・査読・検証
 
 既存章は本文を読まずに全面書き換えしない。不足している証明、定義例、説明、演習、詳細解答、依存関係を特定して補う。
 
@@ -130,7 +142,7 @@ workflow、validator、共通規約、global index、knowledge DAG、全体概�
 
 監査警告を marker や metadata の追加だけで消さず、本文を読んで実際の欠陥を直す。
 
-### 8. 判断・実行
+### 9. 判断・実行
 
 規約を形式的に満たすことより、独習者が数学を再構成できることを優先する。ただし、教育的判断を理由に既存の正本・依存関係・ユーザー指定範囲を勝手に変更しない。
 
