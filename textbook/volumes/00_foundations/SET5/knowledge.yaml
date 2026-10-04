@@ -13,6 +13,22 @@ concepts:
     requires:
       - set.transfinite-recursion
 
+  - id: set.cumulative-hierarchy-monotone
+    name: 累積階層の単調性
+    kind: theorem
+    aliases: [累積階層の単調性]
+    requires:
+      - set.cumulative-hierarchy
+      - set.transfinite-induction
+
+  - id: set.cumulative-hierarchy-transitive
+    name: 各 V_alpha は推移的
+    kind: corollary
+    aliases: [各 V_alpha は推移的]
+    requires:
+      - set.cumulative-hierarchy-monotone
+      - set.transitive-set
+
   - id: set.transitive-closure
     name: 推移閉包
     kind: definition
@@ -37,15 +53,22 @@ concepts:
   - id: set.rank
     name: 集合の rank
     kind: definition
-    aliases: [集合の rank, rank]
+    aliases: [集合の rank, set rank]
     requires:
       - set.well-founded-recursion
       - set.ordinal
 
-  - id: set.every-set-in-hierarchy
-    name: 全ての集合は累積階層のどこかに現れる
+  - id: set.rank-stage
+    name: rank と累積階層
     kind: theorem
-    aliases: [全ての集合は累積階層のどこかに現れる]
+    aliases: [rank と累積階層]
     requires:
       - set.rank
-      - set.cumulative-hierarchy
+      - set.cumulative-hierarchy-monotone
+
+  - id: set.every-set-in-hierarchy
+    name: 全ての集合は累積階層のどこかに現れる
+    kind: corollary
+    aliases: [全ての集合は累積階層のどこかに現れる]
+    requires:
+      - set.rank-stage
