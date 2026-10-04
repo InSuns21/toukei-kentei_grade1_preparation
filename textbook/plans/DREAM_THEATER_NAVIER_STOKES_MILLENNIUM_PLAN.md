@@ -1210,6 +1210,18 @@ NS 側からは optional cross-reference に留める。
 - Plancherel。
 - $\mathbb R^3$ での scaling と Sobolev ノルムの Fourier 表現。
 
+### 実解析・調和解析
+
+- Hardy--Littlewood maximal operator、Riesz potential、Riesz transform、Calderón--Zygmund の一般理論は DREAM_THEATER_REAL_ANALYSIS_STRENGTHENING_PLAN.md の HA 系列を canonical owner とする。
+- NS 側では、圧力表示・渦度表示・正則性評価で実際に使う result の仮定を局所確認する。
+- NS の都合だけで singular integral theory を再構築しない。
+
+### 非線形偏微分方程式
+
+- 一般の scaling・self-similarity・非線形拡散・長時間漸近は DREAM_THEATER_NONLINEAR_PDE_PLAN.md を canonical owner とする。
+- Navier--Stokes 固有の scaling、臨界空間、Leray--Hopf 弱解、渦伸長、Prodi--Serrin は本計画を canonical owner とする。
+- NS6 の核心を一般非線形 PDE 計画へ移して prerequisite 化しない。共有できる一般機構だけ相互参照する。
+
 ---
 
 ## 13. 標準学習順での位置

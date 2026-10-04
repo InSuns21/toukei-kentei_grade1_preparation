@@ -680,8 +680,14 @@ Dynkin 公式、semigroup derivative、test function への作用、transition d
 
 ### PDE / GPDE
 
-- heat equation、Sobolev 空間、楕円型正則性の一般論は既存 owner を確認する。
-- SGA9 は heat kernel と stochastic representation の交点に責務を限定する。
+- Euclid 空間上の heat equation、Sobolev 空間、楕円型正則性の一般論は既存 PDE / GPDE を canonical とする。
+- SGA 側では確率過程との接続に必要な result だけ参照する。
+
+### 幾何解析
+
+- Laplace--Beltrami 作用素、manifold Sobolev、決定論的 heat equation / heat kernel、Hodge Laplacian、harmonic map は DREAM_THEATER_GEOMETRIC_ANALYSIS_PLAN.md を canonical owner とする。
+- SGA9 は Brown 運動の transition density、Markov 半群、Feynman--Kac、Hörmander 拡散など、heat kernel の確率論的側面に責務を限定する。
+- SGA3 で Laplace--Beltrami を生成作用素として使う場合も、決定論的定義・Green 公式・弱形式を重複正本化しない。
 
 ### 将来の rough paths / SPDE
 
@@ -713,6 +719,8 @@ Lie 理論 ─────────────────┘
 ---
 
 ## 13. 実装順
+
+SGA3 の実装前に DREAM_THEATER_GEOMETRIC_ANALYSIS_PLAN.md の GA1 が実装済みか確認する。未実装なら、Laplace--Beltrami・Green 公式・弱形式の canonical owner を重複して SGA3 に作らず、GA1 を先に実装することを第一候補とする。
 
 1. current main で STO7 / STO9 / STO11、GEO5 / GEO12--GEO16、LIE1--LIE4 の canonical anchor と knowledge concept ID を監査する。
 2. SGA1 多様体値 SDE。

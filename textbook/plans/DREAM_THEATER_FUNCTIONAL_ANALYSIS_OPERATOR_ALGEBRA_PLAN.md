@@ -137,6 +137,65 @@ F0-02C6A の分離定理・Minkowski 汎関数・Farkas は、関数解析 I の
 
 一般の有界自己共役作用素・有界正規作用素の射影値測度によるスペクトル定理は、後述の作用素環論 I に送る。
 
+
+### 2.2A 関数解析 II の発展枝：非有界作用素・半群・抽象発展方程式
+
+関数解析 II から PDE へ進む読者向けに、作用素環論とは別方向の発展枝を置く。
+
+中心問いは
+
+> 時間発展 PDE を「無限次元空間上の常微分方程式」として見ると、時間発展を生成する作用素をどう特徴付ければよいか。
+
+である。
+
+この枝は公開科目を新たに「関数解析 III」と分けることを現時点では要求しない。まず FA7 後の補講・発展章として設計し、実装量が大きくなった場合だけ独立科目化を再検討する。
+
+仮 ID は FA8--FA10 とする。
+
+#### FA8 閉作用素・可閉作用素・グラフノルム
+
+扱う内容:
+
+- densely defined operator
+- closed operator
+- closable operator
+- closure
+- graph norm
+- resolvent
+- 非有界作用素で定義域を明示する必要性
+- 微分作用素を最小具体例にする
+
+有界作用素の FA5 と異なり、$D(A)$ が空間全体ではないことを毎回明示する。
+
+#### FA9 $C_0$ 半群・生成作用素・Hille--Yosida
+
+扱う内容:
+
+- strongly continuous semigroup
+- infinitesimal generator
+- generator が一般に非有界になること
+- resolvent estimate
+- Hille--Yosida theorem
+- contraction semigroup
+- heat semigroup を代表例にする
+
+Hille--Yosida は「生成作用素ならこの条件」と列挙するだけでなく、resolvent と時間発展がどう結びつくかを学習目標にする。
+
+#### FA10 抽象 Cauchy 問題・mild solution・Duhamel
+
+扱う内容:
+
+- abstract Cauchy problem
+- classical / strong / mild solution
+- variation of constants formula
+- Duhamel formula
+- inhomogeneous evolution equation
+- analytic semigroup への入口
+- parabolic PDE との接続
+
+熱核の具体的 $L^p$--$L^q$ decay や自己相似は DREAM_THEATER_NONLINEAR_PDE_PLAN.md を正本とし、本枝では抽象時間発展の作用素論を主役にする。
+
+
 ### 2.3 作用素環論 I
 
 科目名案:
@@ -443,8 +502,6 @@ $$
 
 - 非有界自己共役作用素の完全なスペクトル理論
 - Stone の定理
-- $C_0$-半群と Hille--Yosida 理論
-- closed / closable operator の体系
 - unbounded operator の functional calculus
 - affiliated operator
 - noncommutative $L^p$ 空間
@@ -460,7 +517,6 @@ $$
 
 これらは将来、必要に応じて
 
-- 非有界作用素・半群論
 - 作用素環論 III
 - 非可換積分論
 
@@ -499,6 +555,17 @@ $$
 と分岐できる設計にする。
 
 PDE・確率解析・時系列解析に、作用素環論 I / II を不要に prerequisite として追加しない。
+
+関数解析 II からは二つの発展方向を区別する。
+
+~~~text
+関数解析 II
+  ├─→ FA8--FA10 非有界作用素・半群・抽象発展方程式
+  │      └─→ 非線形 PDE / evolution PDE
+  └─→ 作用素環論 I → 作用素環論 II
+~~~
+
+半群枝を学ぶために作用素環論 I / II を prerequisite にせず、作用素環論を学ぶために半群枝を prerequisite にしない。
 
 ### 4.1 一般スペクトル定理の置き場所
 
@@ -788,6 +855,18 @@ plan 段階では未実装パスを index に入れない。
 
 ただし新しい境界から見て導入文・「次に何を学ぶか」が明らかに不整合なら局所修正する。
 
+### Phase 1A: 半群・抽象発展方程式
+
+PDE 側から需要が高い順に
+
+- FA8 閉作用素・可閉作用素
+- FA9 $C_0$ 半群・Hille--Yosida
+- FA10 抽象 Cauchy 問題・mild solution・Duhamel
+
+を実装する。
+
+この Phase は作用素環論 I / II と独立に進めてよい。DREAM_THEATER_NONLINEAR_PDE_PLAN.md の実装に必要な結果だけ先行して閉じることも許す。
+
 ### Phase 2: 作用素環論 I
 
 順に
@@ -878,6 +957,7 @@ knowledge.yaml、全体 concept registry、依存監査ロジックを変更し�
 10. factor と type I / II / III 分類が「名前だけの紹介」にならず、center・projection の構造から動機を説明できる。
 11. 既存 PDE・確率解析等へ不要な prerequisite を追加していない。
 12. 全変更章が DREAM THEATER の導入・証明・例・演習・詳細解答の規約を満たす。
+13. FA8--FA10 で、閉作用素から $C_0$ 半群・生成作用素・Hille--Yosida・mild solution までが PDE から再利用できる stable result として閉じている。
 
 ---
 
@@ -906,28 +986,30 @@ knowledge.yaml、全体 concept registry、依存監査ロジックを変更し�
   Fredholm
   コンパクト自己共役作用素
 
-        ↓
-
-作用素環論 I
-  Banach 環
-  Gelfand 理論
-  C*-環
-  連続関数計算
-  Gelfand--Naimark
-  状態・GNS
-  一般スペクトル定理
-
-        ↓
-
-作用素環論 II
-  SOT / WOT
-  可換子・二重可換子
-  von Neumann 環
-  極分解・射影
-  predual
-  normal state / trace
-  可換 von Neumann 環
-  factor・型分類への入口
+  ├─→ 発展枝：FA8--FA10
+  │     閉作用素
+  │     C0 半群・生成作用素
+  │     Hille--Yosida
+  │     抽象 Cauchy 問題・mild solution
+  │
+  └─→ 作用素環論 I
+        Banach 環
+        Gelfand 理論
+        C*-環
+        連続関数計算
+        Gelfand--Naimark
+        状態・GNS
+        一般スペクトル定理
+          ↓
+        作用素環論 II
+          SOT / WOT
+          可換子・二重可換子
+          von Neumann 環
+          極分解・射影
+          predual
+          normal state / trace
+          可換 von Neumann 環
+          factor・型分類への入口
 ~~~
 
 この4科目構成を、今後の関数解析・作用素環系列の設計基準とする。

@@ -236,9 +236,9 @@ $$
 
 へ接続する。
 
-ただし、HJB・viscosity solution・stochastic control・stochastic differential game の**理論正本は** `DREAM_THEATER_POST_GPDE_PDE_EXTENSIONS_PLAN.md` Track C とする。U3 は最適執行という金融応用に必要な範囲を参照して使い、DPP / HJB / Isaacs 理論を独立に再構築しない。
+ただし、HJB・viscosity solution・stochastic control・stochastic differential game の**理論正本は** DREAM_THEATER_OPTIMAL_CONTROL_DIFFERENTIAL_GAMES_PLAN.md とする。U3 は最適執行という金融応用に必要な範囲を参照して使い、DPP / HJB / Isaacs 理論を独立に再構築しない。
 
-optional basement は、部分観測下の filtering + control、order book、Track C で理論整備済みの場合の stochastic differential game 応用とする。
+optional basement は、部分観測下の filtering + control、order book、最適制御・HJB・微分ゲーム計画で理論整備済みの場合の stochastic differential game 応用とする。
 
 ### 最低到達点
 
@@ -442,7 +442,7 @@ Schrödinger方程式、量子力学の全体系、場の量子論を本系列�
 │
 ├─ 確率過程 / 条件付き期待値 / 時系列
 │   ├─ U3 数理ファイナンス
-│   │   └─ 最適執行（確率制御・HJB は POST_GPDE Track C を参照）
+│   │   └─ 最適執行（確率制御・HJB は 最適制御・HJB・微分ゲーム計画 を参照）
 │   └─ U4 裁定機会
 │       ├─ 無裁定理論・測度変換
 │       └─ 統計的裁定・共和分
@@ -507,7 +507,7 @@ $$
 6. U2-03 particle filterからSLAM入口
 7. U3-01 random walkからBrown運動・GBM
 8. U3-02 Monte Carlo pricing・Black–Scholes
-9. U3-03 最適執行・確率制御入口（HJB / viscosity の正本は POST_GPDE Track C）
+9. U3-03 最適執行・確率制御入口（HJB / viscosity の正本は 最適制御・HJB・微分ゲーム計画）
 10. U4-01 静的裁定と凸最適化
 11. U4-02 無裁定とマルチンゲール測度
 12. U4-03 統計的裁定・共和分
