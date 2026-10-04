@@ -28,7 +28,7 @@ $$
 
 を「何を選ぶ原理なのか」という視点で整理し、さらに超フィルター補題へ進みます。
 
-フィルター 自体は [TOP6 の定義](../TOP6/index.md#def-top6-filter)を正本として使います。TOP6 の Baire・net などをこの章で使うわけではありません。必要なのはフィルターの三条件だけです。
+フィルター自体は [TOP6 の定義](../TOP6/index.md#def-top6-filter)を正本として使います。TOP6 の Baire・net などをこの章で使うわけではありません。必要なのはフィルターの三条件だけです。
 
 ---
 
@@ -379,7 +379,7 @@ $$
 <!-- formal-statement-start -->
 ### 定義（超フィルター）
 
-集合 $X$ 上のフィルター $\mathcal U$ が **超フィルター**（ultrafilter）であるとは、$\mathcal U$ を真に含む $X$ 上のフィルターが存在しないことをいう。
+集合 $X$ 上のフィルター$\mathcal U$ が **超フィルター**（ultrafilter）であるとは、$\mathcal U$ を真に含む $X$ 上のフィルターが存在しないことをいう。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-set9-ultrafilter -->
@@ -402,7 +402,7 @@ $$
 <!-- formal-statement-start -->
 ### 定理（超フィルターの二者択一）
 
-$\mathcal U$ を $X$ 上のフィルター とする。
+$\mathcal U$ を $X$ 上のフィルターとする。
 
 $\mathcal U$ が超フィルターであることと、任意の $A\subseteq X$ について
 
@@ -460,7 +460,7 @@ $$
 
 よって二者択一が成り立ちます。
 
-逆に二者択一を仮定し、$\mathcal U\subsetneq\mathcal F$ となるフィルター $\mathcal F$ があるとします。
+逆に二者択一を仮定し、$\mathcal U\subsetneq\mathcal F$ となるフィルター$\mathcal F$ があるとします。
 
 $$
 A\in\mathcal F\setminus\mathcal U
@@ -516,7 +516,7 @@ $$
 
 が入ります。
 
-逆に超フィルター $\mathcal U$ が $\{x\}$ を含むなら、上方閉性から $x$ を含む全ての集合が $\mathcal U$ に入り、$x$ を含まない集合はその補集合が $x$ を含むので $\mathcal U$ に入れません。従って
+逆に超フィルター$\mathcal U$ が $\{x\}$ を含むなら、上方閉性から $x$ を含む全ての集合が $\mathcal U$ に入り、$x$ を含まない集合はその補集合が $x$ を含むので $\mathcal U$ に入れません。従って
 
 $$
 \mathcal U=\mathcal U_x.
@@ -646,7 +646,7 @@ $$
 <!-- formal-statement-start -->
 ### 定理（Zorn からの超フィルター拡張）
 
-集合 $X$ 上のフィルター $\mathcal F_0$ に対して、$\mathcal F_0$ を含む超フィルター $\mathcal U$ が存在する。
+集合 $X$ 上のフィルター$\mathcal F_0$ に対して、$\mathcal F_0$ を含む超フィルター$\mathcal U$ が存在する。
 <!-- formal-statement-end -->
 
 この主張そのものを **超フィルター補題**（ultrafilter lemma）と呼びます。ここでは [Zorn の補題](../F0_00A3_半順序_Zorn_極大延長/index.md#thm-zorn)から導くため、ZFC では成立することが分かります。
@@ -654,7 +654,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\mathcal F_0$ を含む $X$ 上のフィルター 全体を
+$\mathcal F_0$ を含む $X$ 上のフィルター全体を
 
 $$
 P
@@ -771,7 +771,7 @@ $$
 \mathcal U
 $$
 
-となる超フィルター $\mathcal U$ が存在します。
+となる超フィルター$\mathcal U$ が存在します。
 
 $\mathcal U$ が主超フィルターだと仮定します。するとある $n\in\mathbb N$ が存在して
 
@@ -1081,7 +1081,7 @@ $$
 #### SET9-B02 鎖のフィルターの合併
 - Level: B
 
-包含関係で鎖をなすフィルター 族 $C$ に対し、
+包含関係で鎖をなすフィルター族 $C$ に対し、
 
 $$
 \mathcal F_C=\bigcup_{\mathcal F\in C}\mathcal F
@@ -1115,7 +1115,7 @@ $$
 
 または逆向きです。前者としてよいです。
 
-すると $A,B$ は同じフィルター $\mathcal F_2$ に入り、
+すると $A,B$ は同じフィルター$\mathcal F_2$ に入り、
 
 $$
 A\cap B\in\mathcal F_2\subseteq\mathcal F_C.
