@@ -1,0 +1,45 @@
+id: "NS4"
+title: "二次元 Navier--Stokes はなぜ大域的に制御できるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NS3
+official_scope: []
+learning_objectives:
+  - 二次元周期 Navier--Stokes からスカラー渦度方程式を成分計算で導き、発散零条件がどこで使われるか説明できる
+  - 二次元の発散零 Fourier モードから速度と渦度の対応を導き、||grad u||_2=||omega||_2 および ||Au||_2=||grad omega||_2 を示せる
+  - 二次元周期 Ladyzhenskaya 型評価 ||v||_4^2 <= C||v||_2||grad v||_2 を導き、三次元の L4 評価との指数差を説明できる
+  - 渦度方程式を omega で試して enstrophy 評価を導き、L-infinity_t H1 と L2_t H2 の大域制御を得られる
+  - 二つの Leray--Hopf 弱解の差に二次元 Ladyzhenskaya 評価を適用し、弱解の一意性を積分因子まで含めて証明できる
+  - Galerkin 近似へ二次元の H1 評価を追加し、大域強解を構成する流れを NS3 のコンパクト性と接続できる
+  - 滑らかなデータでは有限時間ごとの高階正則性へ持ち上げられ、二次元では有限時間特異点が生じない理由を説明できる
+  - 二次元場を三次元へ埋め込んで渦伸長項 (omega dot grad)u が消えることを直接確認できる
+  - 三次元渦度エネルギーに残る渦伸長項が符号を持たず、二次元と同じ閉じた評価を与えないことを説明できる
+definitions:
+  - { id: NS4-DEF-01, name: "二次元スカラー渦度" }
+theorems:
+  - { id: NS4-PROP-01, name: "二次元周期 Navier--Stokes の渦度方程式" }
+  - { id: NS4-PROP-02, name: "二次元速度--渦度 Fourier 対応" }
+  - { id: NS4-PROP-03, name: "二次元周期 Ladyzhenskaya 型評価" }
+  - { id: NS4-THM-01, name: "二次元渦度エネルギーと大域 H1 評価" }
+  - { id: NS4-THM-02, name: "二次元 Leray--Hopf 弱解の一意性" }
+  - { id: NS4-THM-03, name: "二次元周期 Navier--Stokes の大域強解" }
+  - { id: NS4-PROP-04, name: "二次元では渦伸長項が消える" }
+canonical_examples:
+  - "u(t,x,y)=exp(-nu t)(sin y,0) の渦度 omega=-exp(-nu t)cos y と enstrophy 等号"
+  - "単一 Fourier モードで k dot uhat=0 から uhat=-i k-perp omegahat/|k|^2 を復元する計算"
+  - "二つの弱解の差 w に対して ||w||_4^2 <= C||w||_2||grad w||_2 を使い一意性を閉じる計算"
+  - "二次元場 (u1,u2,0) では omega=(0,0,omega3) かつ partial_3 u=0 なので (omega dot grad)u=0 となる確認"
+  - "三次元渦度エネルギーに int ((omega dot grad)u) dot omega が残る比較"
+problem_patterns:
+  - NS-2D-VORTICITY-EQUATION-1
+  - NS-2D-FOURIER-VORTICITY-1
+  - NS-2D-LADYZHENSKAYA-1
+  - NS-2D-ENSTROPHY-1
+  - NS-2D-WEAK-UNIQUENESS-1
+  - NS-2D-GLOBAL-STRONG-1
+  - NS-VORTEX-STRETCHING-COMPARISON-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 1.4 }

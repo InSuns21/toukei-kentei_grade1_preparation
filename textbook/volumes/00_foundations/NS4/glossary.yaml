@@ -1,0 +1,17 @@
+chapter: "NS4"
+terms:
+  - term: 二次元スカラー渦度
+    english: two-dimensional scalar vorticity
+    meaning: 二次元速度場 u=(u_1,u_2) に対する偏微分 ∂_1u_2-∂_2u_1。速度の局所的な回転を表し、二次元では一つのスカラーで記述できる。
+  - term: 渦度エネルギー
+    english: enstrophy
+    meaning: 渦度の L2 ノルムの二乗で測る量。二次元 Navier--Stokes では対流項が消えるため、粘性散逸と閉じた大域評価を持つ。
+  - term: Ladyzhenskaya 型評価
+    english: Ladyzhenskaya inequality
+    meaning: 二次元で L4 ノルムを L2 ノルムと一階微分の L2 ノルムから評価する補間不等式。弱解一意性の差のエネルギー評価を閉じる。
+  - term: 渦伸長
+    english: vortex stretching
+    meaning: 三次元渦度方程式の (omega dot grad)u に対応する機構。二次元埋め込みでは渦度が第3方向だけを向き、速度が第3変数に依存しないため消える。
+  - term: 二次元大域強解
+    english: global strong solution for two-dimensional Navier--Stokes
+    meaning: 任意の有限時間区間で速度が L-infinity_t H1 と L2_t H2、時間微分が L2_t L2 の制御を持つ二次元 Navier--Stokes 解。
