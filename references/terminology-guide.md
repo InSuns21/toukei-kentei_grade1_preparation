@@ -116,7 +116,10 @@
 | 外部集合 | external set | 超準世界の部分集合ではあるが集合列の超冪として表せない集合 |
 | 内部写像 | internal map | 写像列を座標ごとに評価して得られる超準世界の写像 |
 | 超有限集合 | hyperfinite set | 有限集合列の超冪として得られる内部集合。外から見た有限性とは区別する |
-| 有限超実数 | finite / limited hyperreal | ある標準正整数で絶対値を上から抑えられる超実数。本文の主表記は「有限超実数」 |
+| 有限超実数 | finite / limited hyperreal | ある標準正実数（同値に標準正整数）で絶対値を上から抑えられる超実数。本文の主表記は「有限超実数」 |
+| 無限小近接 | infinitesimal closeness | 二つの超実数の差が無限小である関係。記号は $x\approx y$ |
+| monad | monad / halo | 標準点に無限小近接する超実数全体。本文では monad を主表記とし halo を併記可 |
+| 標準部 | standard part | 有限超実数に無限小近接する唯一の標準実数。記号は $\operatorname{st}(x)$ |
 | overspill 原理 | overspill principle | 内部集合が全ての標準自然数を含むとき無限超自然数も含むという原理 |
 
 ## DREAM THEATER：一階論理の主表記
