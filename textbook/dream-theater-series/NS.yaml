@@ -15,7 +15,7 @@ chapters:
     title: 非線形項・三重線形形式・エネルギー評価
   - id: NS3
     path: textbook/volumes/00_foundations/NS3
-    status: planned
+    status: completed
     title: Leray--Hopf 弱解と大域存在
   - id: NS4
     path: textbook/volumes/00_foundations/NS4
