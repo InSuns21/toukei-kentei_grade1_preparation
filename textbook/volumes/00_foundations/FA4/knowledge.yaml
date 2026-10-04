@@ -16,10 +16,10 @@ concepts:
 
 
   - id: topology.compactness-ultrafilter-characterization
-    name: コンパクト性のウルトラフィルター特徴付け
+    name: コンパクト性の超フィルター特徴付け
     kind: theorem
-    aliases: [コンパクト性のウルトラフィルター特徴付け]
-    introduction_aliases: ["### 定理（コンパクト性のウルトラフィルター特徴付け）"]
+    aliases: [コンパクト性の超フィルター特徴付け]
+    introduction_aliases: ["### 定理（コンパクト性の超フィルター特徴付け）"]
     requires:
       - topology.ultrafilter-extension
       - topology.filter-convergence
