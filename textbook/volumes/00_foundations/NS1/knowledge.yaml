@@ -9,16 +9,6 @@ prerequisites:
 forward_references: []
 
 concepts:
-  - id: navier-stokes.periodic-divergence-free-space
-    name: 周期発散零空間
-    kind: definition
-    aliases: [周期発散零空間, periodic divergence-free space]
-    introduction: formal
-    introduction_aliases: ["定義（周期発散零空間）"]
-    requires:
-      - navier-stokes.divergence-free-fourier
-      - fourier.fou4-complex-l2
-
   - id: navier-stokes.divergence-free-fourier
     name: 発散零条件の Fourier 表示
     kind: proposition
@@ -28,6 +18,16 @@ concepts:
     requires:
       - vector-calculus.incompressible-flow
       - vector-calculus.divergence
+
+  - id: navier-stokes.periodic-divergence-free-space
+    name: 周期発散零空間
+    kind: definition
+    aliases: [周期発散零空間, periodic divergence-free space]
+    introduction: formal
+    introduction_aliases: ["定義（周期発散零空間）"]
+    requires:
+      - navier-stokes.divergence-free-fourier
+      - fourier.fou4-complex-l2
 
   - id: navier-stokes.divergence-free-closure
     name: 発散零空間の閉包表示
