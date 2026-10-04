@@ -7,7 +7,7 @@ prerequisites:
 
 concepts:
   - id: set.cardinal
-    name: 基数
+    name: 基数・初期順序数
     kind: definition
     aliases: [基数, 初期順序数, cardinal, initial ordinal]
     requires:
@@ -22,6 +22,21 @@ concepts:
       - set.cardinal
       - order.order-type
 
+  - id: set.cardinality-wellorderable
+    name: 整列可能な集合の基数
+    kind: definition
+    aliases: [整列可能な集合の基数]
+    requires:
+      - set.wellorderable-cardinal-representative
+
+  - id: set.cardinal-injection-order
+    name: 基数の順序と単射
+    kind: theorem
+    aliases: [基数の順序と単射]
+    requires:
+      - set.cardinal
+      - set.cantor-bernstein
+
   - id: set.aleph-zero
     name: aleph_0
     kind: definition
@@ -30,16 +45,25 @@ concepts:
       - set.cardinal
       - set.omega
 
-  - id: set.cardinal-arithmetic
-    name: 基数の加法・乗法
+  - id: set.cardinal-addition
+    name: 基数の加法
     kind: definition
-    aliases: [基数の加法, 基数の乗法, cardinal arithmetic]
+    aliases: [基数の加法, cardinal addition]
+    requires:
+      - set.cardinal
+
+  - id: set.cardinal-multiplication
+    name: 基数の乗法
+    kind: definition
+    aliases: [基数の乗法, cardinal multiplication]
     requires:
       - set.cardinal
 
   - id: set.power-set-cardinality-growth
-    name: 冪集合の濃度増大
-    kind: theorem
-    aliases: [冪集合の濃度増大]
+    name: Cantor の定理による冪集合の増大
+    kind: proposition
+    aliases: [Cantor の定理による冪集合の増大, 冪集合の濃度増大]
     requires:
       - set.cardinal
+      - set.cantor-bernstein
+      - set.cantor-theorem
