@@ -153,38 +153,77 @@ $\alpha=0$ では空関数が近似です。
 
 $\alpha>0$ とし、全ての $\beta<\alpha$ で長さ $\beta$ の近似が存在すると仮定します。
 
-各 $\beta<\alpha$ について、長さ $\beta+1$ の近似が存在すれば、その $\beta$ での値は近似の両立性により一意です。これを $y_\beta$ と書きます。
+各 $\beta<\alpha$ を固定します。帰納法の仮定から長さ $\beta$ の近似 $f_\beta$ が存在します。これを一段だけ延長し、
 
-式
+$
+f_\beta^+
+=
+f_\beta
+\cup
+\{(\beta,G(f_\beta))\}
+$
 
-$$
+と置きます。$f_\beta$ の定義域は $\beta$ なので新しい組の第一成分 $\beta$ は既存の定義域に入っておらず、$f_\beta^+$ は定義域 $\beta+1$ の関数です。さらに古い段階では $f_\beta$ が再帰式を満たし、新しい段階では定義そのものから
+
+$
+f_\beta^+(\beta)
+=
+G(f_\beta)
+=
+G(f_\beta^+|_\beta)
+$
+
+なので、$f_\beta^+$ は長さ $\beta+1$ の近似です。
+
+二つの長さ $\beta+1$ の近似は両立性により $\beta$ で同じ値を取ります。そこで
+
+$
+y_\beta
+=
+f_\beta^+(\beta)
+$
+
+と置けば、$y_\beta$ は近似の選び方に依らず一意です。
+
+したがって
+
+$
 \beta\longmapsto y_\beta
-$$
+$
 
-は $\alpha$ 上で一意な対応を定めています。SET1 の置換公理図式により、値の集合
+は $\alpha$ 上で一意な対応を定めます。SET1 の[置換公理図式](../SET1/index.md#axiom-set1-replacement)により、値の集合
 
-$$
+$
 \{y_\beta:\beta<\alpha\}
-$$
+$
 
 を一つの集合として集められます。従ってグラフ
 
-$$
+$
 h_\alpha
 =
 \{(\beta,y_\beta):\beta<\alpha\}
-$$
+$
 
 も集合として存在し、定義域 $\alpha$ の関数になります。
 
-近似どうしの両立性から、$h_\alpha$ の任意の初期制限は対応する近似と一致します。したがって
+固定した $\beta<\alpha$ について、$h_\alpha|_\beta$ と $f_\beta$ はどちらも長さ $\beta$ の近似なので、両立性から
 
-$$
+$
+h_\alpha|_\beta=f_\beta.
+$
+
+したがって
+
+$
 h_\alpha(\beta)
 =
-G(h_\alpha|_\beta)
-\qquad(\beta<\alpha).
-$$
+y_\beta
+=
+G(f_\beta)
+=
+G(h_\alpha|_\beta).
+$
 
 よって $h_\alpha$ 自身が長さ $\alpha$ の近似です。
 
@@ -231,18 +270,18 @@ SET2 では、一般の整列集合の順序型の存在証明を保留しまし
 <!-- formal-statement-start -->
 ### 定理（整列集合の順序型）
 
-$(X,\prec)$ を整列集合とする。
+$(X,\preceq)$ を整列集合とする。
 
 このとき一意な順序数 $\alpha$ が存在して、
 
 $$
-(X,\prec)
+(X,\preceq)
 $$
 
-と
+と、SET2 で定めた順序数の標準整列
 
 $$
-(\alpha,\in)
+(\alpha,\preceq_\alpha)
 $$
 
 は順序同型である。
@@ -250,7 +289,49 @@ $$
 
 ### 証明
 
-各 $x\in X$ に対し、その前方部分
+まず二つの順序数が順序同型なら等しいことを確認します。
+
+順序数 $\alpha,\beta$ と順序同型
+
+$$
+\phi:(\alpha,\preceq_\alpha)\to(\beta,\preceq_\beta)
+$$
+
+があるとします。$\alpha\ne\beta$ と仮定し、[順序数の三分律](../SET2/index.md#thm-set2-ordinal-trichotomy)により、必要なら $\alpha,\beta$ を入れ替えて
+
+$$
+\alpha\in\beta
+$$
+
+とします。
+
+$\phi$ が恒等写像でなければ、
+
+$$
+D=\{\xi\in\alpha:\phi(\xi)\ne\xi\}
+$$
+
+は非空であり、$\alpha$ の整列性から最小元 $\xi_0$ を持ちます。$\eta\in\xi_0$ なら最小性から $\phi(\eta)=\eta$ です。
+
+順序同型は $\xi_0$ より前の元全体を $\phi(\xi_0)$ より前の元全体へ写すので、
+
+$$
+\phi[\xi_0]=\phi(\xi_0).
+$$
+
+左辺では全ての $\eta\in\xi_0$ が固定されるため
+
+$$
+\phi[\xi_0]=\xi_0.
+$$
+
+従って $\phi(\xi_0)=\xi_0$ となり矛盾です。
+
+よって $\phi$ は $\alpha$ 上で恒等写像です。しかし $\alpha\in\beta$ なので $\alpha$ は $\beta$ の真部分集合であり、恒等写像 $\alpha\to\beta$ は全射ではありません。これも $\phi$ が順序同型であることに反します。
+
+したがって、順序同型な二順序数は等しいことが分かりました。
+
+次に存在を示します。各 $x\in X$ について前方部分
 
 $$
 X_{<x}
@@ -258,63 +339,97 @@ X_{<x}
 \{y\in X:y\prec x\}
 $$
 
-を考えます。
-
-整列順に沿う再帰で
+を考えます。ここで $y\prec x$ は
 
 $$
-F(x)
+y\preceq x,\qquad y\ne x
+$$
+
+の略記です。
+
+「$X_{<x}$ がある順序数と順序同型である」ことを全ての $x\in X$ について示します。反対に、そうでない点があると仮定し、その集合の $\preceq$-最小元を $x_0$ とします。
+
+すると全ての $y\prec x_0$ について、$X_{<y}$ はある順序数 $\alpha_y$ と順序同型です。最初に示した一意性から、この $\alpha_y$ は $y$ ごとに一意です。
+
+従って[置換公理図式](../SET1/index.md#axiom-set1-replacement)により、
+
+$$
+A_0
 =
-\{F(y):y\prec x\}
+\{\alpha_y:y\prec x_0\}
 $$
 
-と定めます。これは順序数上の超限再帰と同じ近似関数の議論を、整列集合の各初期部分へ移したものです。より具体的には、$(X,\prec)$ の初期部分を順にたどり、既に前方で定まった値の集合を置換公理図式で集めます。
+は集合です。
 
-各 $x$ について $F(x)$ が順序数であることを整列帰納法で示します。前方の $F(y)$ は順序数で、順序保存性
+$y\prec z\prec x_0$ とします。$X_{<y}$ は $X_{<z}$ の真の初期部分です。$X_{<z}$ と $\alpha_z$ の順序同型で像を取ると、その像は $\alpha_z$ の真の初期部分なので、ある $\delta\in\alpha_z$ に等しくなります。この初期部分は $X_{<y}$ と順序同型なので、順序数の一意性から
+
+$$
+\delta=\alpha_y.
+$$
+
+従って
 
 $$
 y\prec z
+\Longrightarrow
+\alpha_y\in\alpha_z.
+$$
+
+逆に $\alpha_y\in\alpha_z$ とします。$X$ は全順序なので、$y=z$、$y\prec z$、$z\prec y$ のいずれかです。$y=z$ なら $\alpha_y=\alpha_z$ に反し、$z\prec y$ なら上で示した含意から $\alpha_z\in\alpha_y$ となって順序数の三分律に反します。よって $y\prec z$ です。
+
+したがって
+
+$$
+y\longmapsto\alpha_y
+$$
+
+は $X_{<x_0}$ と $A_0$ の順序同型です。
+
+さらに $A_0$ が順序数であることを確認します。$\delta\in\alpha_z\in A_0$ とすると、$\alpha_z$ と $X_{<z}$ の順序同型により、$\delta=\alpha_y$ となる $y\prec z$ が存在します。従って $\delta\in A_0$ であり、$A_0$ は推移的です。
+
+また $A_0$ の任意の非空部分集合 $B$ を取ると、その逆像
+
+$$
+\{y\prec x_0:\alpha_y\in B\}
+$$
+
+は $X_{<x_0}$ の非空部分集合なので最小元を持ちます。その像が $B$ の最小元です。従って $\preceq_{A_0}$ は $A_0$ を整列し、$A_0$ は順序数です。
+
+これは $X_{<x_0}$ が順序数 $A_0$ と順序同型であることを意味し、$x_0$ の選び方に矛盾します。
+
+よって全ての $x\in X$ に一意な順序数 $\alpha_x$ が対応します。再び置換公理図式で
+
+$$
+\alpha
+=
+\{\alpha_x:x\in X\}
+$$
+
+を集合として取ります。
+
+先ほどと同じ議論により、
+
+$$
+x\prec y
 \Longleftrightarrow
-F(y)\in F(z)
+\alpha_x\in\alpha_y
 $$
 
-が帰納的に成り立つため、
+であり、$\alpha$ は推移的で $\preceq_\alpha$ により整列されます。従って $\alpha$ は順序数で、
 
 $$
-F(x)=\{F(y):y\prec x\}
+x\longmapsto\alpha_x
 $$
 
-は推移的で $\in$ により整列されます。
+は $(X,\preceq)$ から $(\alpha,\preceq_\alpha)$ への順序同型です。
 
-置換公理図式で像
-
-$$
-\alpha=F[X]
-$$
-
-を集合として取ります。上の式から $\alpha$ も推移的で $\in$ により整列されるので順序数です。
-
-また
-
-$$
-x\mapsto F(x)
-$$
-
-は順序を保ち、異なる点を異なる順序数へ送るので全単射
-
-$$
-F:X\to\alpha
-$$
-
-です。従って順序同型です。
-
-一意性を示します。$\alpha,\beta$ がともに $X$ と順序同型なら、合成により $\alpha$ と $\beta$ が順序同型です。順序数の三分律より、もし $\alpha\in\beta$ なら $\alpha$ は $\beta$ の真の初期部分であり、全体 $\beta$ と順序同型にはなれません。$\beta\in\alpha$ も同様です。従って
+最後に、別の順序数 $\beta$ も $X$ と順序同型なら、合成により $\alpha$ と $\beta$ が順序同型です。冒頭の一意性から
 
 $$
 \alpha=\beta.
 $$
 
-$\square$
+以上で存在と一意性が示されました。$\square$
 <!-- proof-end -->
 
 <a id="def-set4-order-type"></a>
@@ -481,28 +596,42 @@ $$
 <!-- formal-statement-start -->
 ### 定義（順序数の冪）
 
-順序数 $\alpha,\beta$ に対し、$\beta$ に関する超限再帰で
+順序数 $\alpha,\beta$ に対し、まず
 
-$$
-\alpha^0=1,
-$$
+$
+\alpha^0=1
+$
 
-$$
+と定める。
+
+$\beta>0$ については、$\alpha=0$ なら
+
+$
+0^\beta=0
+$
+
+と定める。
+
+$\alpha>0$ では $\beta$ に関する超限再帰で
+
+$
 \alpha^{\gamma+1}
 =
 \alpha^\gamma\cdot\alpha,
-$$
+$
 
 非零極限順序数 $\lambda$ に対して
 
-$$
+$
 \alpha^\lambda
 =
 \bigcup_{\gamma<\lambda}
 \alpha^\gamma
-$$
+$
 
 と定める。
+
+$\alpha=0$ を別に扱うのは、極限段階の合併へ $\alpha^0=1$ をそのまま含めると $0^\lambda$ の標準的な値 $0$ を再現しないためである。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-set4-ordinal-exponentiation -->
