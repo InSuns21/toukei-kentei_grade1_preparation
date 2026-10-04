@@ -22,6 +22,7 @@ definitions:
   - { id: NSA4-DEF-04, name: 標準集合の超準拡張 }
   - { id: NSA4-DEF-05, name: 内部写像 }
   - { id: NSA4-DEF-06, name: 超有限集合 }
+  - { id: NSA4-DEF-07, name: 外部集合 }
 theorems:
   - { id: NSA4-PROP-01, name: 内部集合への所属は代表元によらない }
   - { id: NSA4-PROP-02, name: 有限標準集合の超準拡張は新しい元を持たない }
