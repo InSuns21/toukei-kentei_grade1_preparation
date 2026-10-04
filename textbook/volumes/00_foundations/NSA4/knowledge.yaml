@@ -1,0 +1,156 @@
+chapter: NSA4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NSA3
+  - SET9
+
+concepts:
+  - id: nonstandard.hypernatural-number
+    name: 超自然数
+    kind: definition
+    aliases: [hypernatural number]
+    requires:
+      - nonstandard.u-equivalence
+      - nonstandard.many-sorted-transfer
+
+  - id: nonstandard.infinite-hypernatural
+    name: 無限超自然数
+    kind: definition
+    aliases: [infinite hypernatural]
+    requires:
+      - nonstandard.hypernatural-number
+      - topology.free-ultrafilter
+
+  - id: nonstandard.internal-set
+    name: 内部集合
+    kind: definition
+    aliases: [internal set]
+    requires:
+      - nonstandard.many-sorted-transfer
+      - nonstandard.u-equivalence
+      - topology.ultrafilter
+
+  - id: nonstandard.internal-membership-well-defined
+    name: 内部集合への所属は代表元によらない
+    kind: proposition
+    aliases: []
+    requires:
+      - nonstandard.internal-set
+      - topology.filter
+
+  - id: nonstandard.internal-set-sort-injective
+    name: 集合ソートから内部集合への対応は単射
+    kind: proposition
+    aliases: []
+    requires:
+      - nonstandard.internal-membership-well-defined
+      - nonstandard.transfer-principle
+      - logic.many-sorted-first-order-language
+
+  - id: nonstandard.standard-set-extension
+    name: 標準集合の超準拡張
+    kind: definition
+    aliases: [standard set extension]
+    requires:
+      - nonstandard.internal-set
+      - nonstandard.standard-embedding
+
+  - id: nonstandard.finite-standard-extension
+    name: 有限標準集合の超準拡張は新しい元を持たない
+    kind: proposition
+    aliases: []
+    requires:
+      - nonstandard.standard-set-extension
+      - topology.ultrafilter-dichotomy
+
+  - id: nonstandard.internal-map
+    name: 内部写像
+    kind: definition
+    aliases: [internal map]
+    requires:
+      - nonstandard.many-sorted-transfer
+      - nonstandard.u-equivalence
+
+  - id: nonstandard.internal-map-evaluation-well-defined
+    name: 内部写像の評価は代表元によらない
+    kind: proposition
+    aliases: []
+    requires:
+      - nonstandard.internal-map
+      - topology.filter
+
+  - id: nonstandard.hyperfinite-set
+    name: 超有限集合
+    kind: definition
+    aliases: [hyperfinite set]
+    requires:
+      - nonstandard.internal-set
+      - nonstandard.hypernatural-number
+
+  - id: nonstandard.hyperfinite-cardinality-well-defined
+    name: 超有限集合の内部的な大きさは表現によらない
+    kind: proposition
+    aliases: []
+    requires:
+      - nonstandard.hyperfinite-set
+      - nonstandard.internal-set-sort-injective
+
+  - id: nonstandard.hyperfinite-initial-segment
+    name: 超有限初期区間
+    kind: proposition
+    aliases: []
+    requires:
+      - nonstandard.hyperfinite-set
+      - nonstandard.hypernatural-number
+
+  - id: nonstandard.external-set
+    name: 外部集合
+    kind: definition
+    aliases: [external set]
+    requires:
+      - nonstandard.internal-set
+
+  - id: nonstandard.internal-overspill
+    name: 内部集合の overspill
+    kind: theorem
+    aliases: [overspill principle]
+    requires:
+      - nonstandard.internal-set
+      - nonstandard.infinite-hypernatural
+      - topology.free-ultrafilter
+
+  - id: nonstandard.standard-naturals-external
+    name: 標準自然数全体は外部集合である
+    kind: corollary
+    aliases: []
+    requires:
+      - nonstandard.external-set
+      - nonstandard.internal-overspill
+
+  - id: nonstandard.hyperfinite-maximum
+    name: 非空内部部分集合の最大元定理
+    kind: theorem
+    aliases: []
+    requires:
+      - nonstandard.hyperfinite-set
+      - nonstandard.many-sorted-transfer
+      - topology.ultrafilter
+
+  - id: nonstandard.infinitesimals-external
+    name: 無限小全体は外部集合である
+    kind: proposition
+    aliases: []
+    requires:
+      - nonstandard.infinitesimal
+      - nonstandard.external-set
+      - topology.free-ultrafilter
+
+  - id: nonstandard.limited-hyperreals-external
+    name: 有限超実数全体は外部集合である
+    kind: proposition
+    aliases: []
+    requires:
+      - nonstandard.external-set
+      - nonstandard.internal-overspill
+      - nonstandard.infinite-hyperreal
