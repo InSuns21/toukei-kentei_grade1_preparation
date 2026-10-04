@@ -582,7 +582,7 @@ $$
 {}^*f(x)\approx{}^*f(y).
 $$
 
-任意の $x,y\in{}^*K$ で成り立つため、一様[連続性の超準的特徴付け](#thm-nsa6-continuity)から $f$ は一様連続です。
+任意の $x,y\in{}^*K$ で成り立つため、[一様連続性の超準的特徴付け](#thm-nsa6-uniform-continuity)から $f$ は一様連続です。
 <!-- proof-end -->
 
 ---
@@ -682,7 +682,7 @@ $$
 y^2-x^2=2+\frac1{H^2}
 $$
 
-の標準部は2なので無限小ではありません。一様[連続性の超準的特徴付け](#thm-nsa6-continuity)から結論が従います。
+の標準部は2なので無限小ではありません。[一様連続性の超準的特徴付け](#thm-nsa6-uniform-continuity)から結論が従います。
 <!-- solution-end -->
 
 <a id="ex-nsa6-a05"></a>
@@ -792,7 +792,7 @@ $$
 {}^*f(y)\approx f(a).
 $$
 
-従って ${}^*f(x)\approx{}^*f(y)$。一様[連続性の超準的特徴付け](#thm-nsa6-continuity)から $f$ は一様連続です。
+従って ${}^*f(x)\approx{}^*f(y)$。[一様連続性の超準的特徴付け](#thm-nsa6-uniform-continuity)から $f$ は一様連続です。
 <!-- solution-end -->
 
 <a id="ex-nsa6-c01"></a>
