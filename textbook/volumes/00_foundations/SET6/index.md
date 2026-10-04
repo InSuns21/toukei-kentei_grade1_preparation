@@ -116,7 +116,7 @@ $$
 
 $X$ は整列可能なので、ある整列 $\prec$ を入れられます。
 
-[SET2 の順序型定理](../SET2/index.md#thm-set2-order-type)から、ある順序数 $\alpha$ が存在して
+[整列集合の順序型](../SET2/index.md#thm-set2-order-type)から、ある順序数 $\alpha$ が存在して
 
 $$
 X\cong\alpha.
@@ -788,7 +788,7 @@ $$
 
 従って単射による比較の意味で $\mathcal P(\kappa)$ は $\kappa$ より真に大きいです。
 
-ただし ZF だけでは $\mathcal P(\kappa)$ が整列可能とは限らないので、その濃度を必ず一つの初期順序数で表せるとは限りません。ZFC なら[整列可能定理](../F0_00A2_選択公理_Zorn_極大原理/index.md#thm-well-ordering)により基数代表を取れます。
+ただし ZF だけでは $\mathcal P(\kappa)$ が整列可能とは限らないので、その濃度を必ず一つの初期順序数で表せるとは限りません。ZFC を仮定するとこの障害が解消されることは、後続の F0-00A3A で証明します。
 <!-- solution-end -->
 
 <a id="ex-set6-b03"></a>
@@ -850,7 +850,7 @@ $$
 
 $X$ は整列可能なので、整列 $\prec$ を一つ選びます。
 
-[SET2 の順序型定理](../SET2/index.md#thm-set2-order-type)から、ある順序数 $\alpha$ が存在して
+[整列集合の順序型](../SET2/index.md#thm-set2-order-type)から、ある順序数 $\alpha$ が存在して
 
 $$
 (X,\prec)\cong(\alpha,\in).
