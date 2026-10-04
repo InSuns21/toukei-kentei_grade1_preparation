@@ -155,7 +155,6 @@ $$
 を満たす、という原理を **従属選択公理**（dependent choice; DC）という。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: axiom-set9-dependent-choice -->
 **意味の確認。**
 
 可算選択では第 $n$ 回の選択肢 $A_n$ が先に固定されています。
@@ -171,7 +170,6 @@ $$
 のように、実際に選んだ $x_n$ に依存します。
 
 「各段階で次へ進める」から「無限に進む一本の列がある」へ移る原理だと読むと役割が明確です。
-<!-- definition-example-end -->
 
 ---
 
@@ -383,7 +381,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-set9-ultrafilter -->
-**定義の確認。**
+**定義の確認**。
 
 $x\in X$ を固定して
 
@@ -508,7 +506,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-set9-principal-ultrafilter -->
-**定義の確認。**
+**定義の確認**。
 
 $\mathcal U_x$ には一元集合
 
@@ -535,7 +533,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-set9-free-ultrafilter -->
-**定義の確認。**
+**定義の確認**。
 
 有限集合 $X$ 上では全ての超フィルターが主超フィルターです。
 
@@ -566,7 +564,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-set9-cofinite-filter -->
-**定義の確認：$\mathbb N$。**
+**定義の確認**：$\mathbb N$。
 
 $$
 \{10,11,12,\ldots\}
