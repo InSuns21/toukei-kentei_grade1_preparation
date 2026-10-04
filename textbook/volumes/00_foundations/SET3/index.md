@@ -266,7 +266,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
-### 確認
+### 証明
 
 $0<\omega$ なので $P(0)$ は真です。
 
@@ -779,9 +779,9 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-命題
+性質を
 
-$$
+$
 P(\alpha):\Longleftrightarrow \alpha\in A
 $$
 
