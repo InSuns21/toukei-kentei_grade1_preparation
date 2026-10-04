@@ -1,0 +1,43 @@
+version: 1
+id: NS
+title: Navier--Stokes 方程式への道
+plan: textbook/plans_progress/DREAM_THEATER_NAVIER_STOKES_MILLENNIUM_PLAN.md
+chapter_root: textbook/volumes/00_foundations
+
+chapters:
+  - id: NS1
+    path: textbook/volumes/00_foundations/NS1
+    status: completed
+    title: 発散零空間・Leray 射影・Stokes 作用素
+  - id: NS2
+    path: textbook/volumes/00_foundations/NS2
+    status: planned
+    title: 非線形項・三重線形形式・エネルギー評価
+  - id: NS3
+    path: textbook/volumes/00_foundations/NS3
+    status: planned
+    title: Leray--Hopf 弱解と大域存在
+  - id: NS4
+    path: textbook/volumes/00_foundations/NS4
+    status: planned
+    title: 二次元 Navier--Stokes はなぜ大域的に制御できるか
+  - id: NS5
+    path: textbook/volumes/00_foundations/NS5
+    status: planned
+    title: 三次元局所強解・一意性・有限時間発散判定
+  - id: NS6
+    path: textbook/volumes/00_foundations/NS6
+    status: planned
+    title: スケーリング・臨界性・どのノルムを見るべきか
+  - id: NS7
+    path: textbook/volumes/00_foundations/NS7
+    status: planned
+    title: 正則性判定・渦伸長・何が特異点を防ぐのか
+  - id: NS8
+    path: textbook/volumes/00_foundations/NS8
+    status: planned
+    title: ミレニアム問題の公式定式化を読む
+  - id: NS8A
+    path: textbook/volumes/00_foundations/NS8A
+    status: planned
+    title: 2026年の有限時間特異点構成とミレニアム問題の現在地
