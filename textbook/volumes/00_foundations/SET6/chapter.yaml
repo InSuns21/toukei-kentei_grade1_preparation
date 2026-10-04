@@ -16,7 +16,7 @@ learning_objectives:
 definitions:
   - { id: SET6-DEF-01, name: 基数・初期順序数 }
   - { id: SET6-DEF-02, name: 整列可能な集合の基数 }
-  - { id: SET6-DEF-03, name: aleph_0 }
+  - { id: SET6-DEF-03, name: 最小の無限基数 }
   - { id: SET6-DEF-04, name: 基数の加法 }
   - { id: SET6-DEF-05, name: 基数の乗法 }
 theorems:
