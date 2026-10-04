@@ -146,10 +146,10 @@ STO9 + STO11 ────────→ C5 stochastic control / second-order HJ
 
 代表形
 
-$
+$$
 \dot x(s)=f(x(s),u(s)),\qquad
 J_{t,x}(u)=g(x(T))+\int_t^T L(x(s),u(s))\,ds
-$
+$$
 
 から始める。
 
@@ -216,11 +216,11 @@ C1 の形式導出と C2 の解概念を合流させる。
 
 ここで初めて
 
-$
+$$
 \text{dynamic programming}
 \Longleftrightarrow
 \text{HJB in viscosity sense}
-$
+$$
 
 を標準ルートとして閉じる。
 
@@ -228,10 +228,10 @@ $
 
 二人零和ゲームを標準モデルとする。
 
-$
+$$
 \dot x=f(x,u,v),\qquad
 J_{t,x}(u,v)
-$
+$$
 
 に対して、一方が最小化、他方が最大化する。
 
@@ -257,9 +257,9 @@ Encore IV の確率基盤と合流する。
 
 代表形
 
-$
+$$
 dX_s=b(X_s,u_s)\,ds+\sigma(X_s,u_s)\,dW_s
-$
+$$
 
 から、
 
@@ -289,10 +289,10 @@ direct prerequisite 候補は少なくとも
 
 C4 のゲーム構造と C5 の controlled diffusion を合流させる。
 
-$
+$$
 dX_s=b(X_s,u_s,v_s)\,ds
 +\sigma(X_s,u_s,v_s)\,dW_s
-$
+$$
 
 を基準形として、
 
