@@ -1,0 +1,47 @@
+id: "NS2"
+title: "非線形項・三重線形形式・エネルギー評価"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NS1
+  - GPDE5
+official_scope: []
+learning_objectives:
+  - 発散零 H1 空間 V を定め、周期平均零条件から Poincare 型評価を Fourier 表示で証明できる
+  - 三次元周期領域で H1 制御から L6 評価を得て、Hölder により L4 補間評価を導ける
+  - 三重線形形式 b(u,v,w) を定義し、Hölder と L4 評価から V 上で連続に定義できることを示せる
+  - 発散零条件と周期部分積分から b(u,v,w)=-b(u,w,v) と b(u,v,v)=0 を証明できる
+  - 発散零仮定を失うと非線形エネルギー相殺が壊れる具体例を計算できる
+  - Leray 射影後の Navier--Stokes 方程式を u と内積し、基本 L2 エネルギー恒等式を一項ずつ導ける
+  - 外力項を Cauchy--Schwarz と Young の不等式で処理し、L-infinity_t H と L2_t V の一様エネルギー評価を得られる
+  - 無外力では周期 Poincare 評価から L2 エネルギーの指数減衰を導ける
+  - 基本エネルギー評価が三次元大域弱解の構成には使える一方、強解の大域正則性を直接は与えない理由を説明できる
+definitions:
+  - { id: NS2-DEF-01, name: "発散零エネルギー空間 V" }
+  - { id: NS2-DEF-02, name: "Navier--Stokes 三重線形形式" }
+  - { id: NS2-DEF-03, name: "有限時間エネルギー階級" }
+theorems:
+  - { id: NS2-PROP-01, name: "周期平均零場の Poincare 型評価" }
+  - { id: NS2-PROP-02, name: "三次元周期場の L6・L4 評価" }
+  - { id: NS2-THM-01, name: "三重線形形式の反対称性とエネルギー相殺" }
+  - { id: NS2-PROP-03, name: "三重線形形式の連続評価" }
+  - { id: NS2-THM-02, name: "滑らかな Navier--Stokes 解のエネルギー恒等式" }
+  - { id: NS2-PROP-04, name: "外力付きエネルギー評価" }
+  - { id: NS2-COR-01, name: "無外力での指数減衰" }
+canonical_examples:
+  - "u=(sin x_2,0,0), v=(0,sin x_1,0) に対する b(u,v,v)=0 の直接計算"
+  - "発散零でない u=(sin x_1,0,0) では b(u,v,v) が消えない例"
+  - "周期 Fourier 係数から ||u||_2 <= ||grad u||_2 を得る計算"
+  - "Hölder により ||u||_4^4 <= ||u||_2 ||u||_6^3 を導く補間計算"
+  - "外力付きエネルギー恒等式から Young の不等式で散逸項の半分を吸収する計算"
+problem_patterns:
+  - NS-TRILINEAR-SKEW-1
+  - NS-ENERGY-CANCELLATION-1
+  - NS-PERIODIC-POINCARE-1
+  - NS-L4-INTERPOLATION-1
+  - NS-FORCED-ENERGY-1
+  - NS-GALERKIN-UNIFORM-ENERGY-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.6, exercises: 4.8, review: 1.2 }
