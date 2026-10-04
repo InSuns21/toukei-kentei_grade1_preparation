@@ -81,7 +81,7 @@ $\mathcal P(X)$ と $\mathcal P(X\times X)$ は集合なので、その直積も
 
 ## 2. 順序型を全部集めるところで Replacement を使う
 
-SET4 で、各整列集合 $(A,r)$ には一意な順序型
+[SET2](../SET2/index.md#thm-set2-order-type) で、各整列集合 $(A,r)$ には一意な順序型
 
 $$
 \operatorname{otp}(A,r)
@@ -360,7 +360,7 @@ $$
 
 - 冪集合公理：関係候補を $\mathcal P(X\times X)$ に収める。
 - 分出公理図式：整列関係だけを切り出す。
-- SET4 の順序型定理。
+- [SET2 の順序型定理](../SET2/index.md#thm-set2-order-type)。
 - 置換公理図式：各整列の順序型を集合 $\mathcal O_X$ に集める。
 - 和集合公理：順序型の上限を作る。
 - 順序数の整列性：最小の非単射順序数を取る。
@@ -632,7 +632,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-SET4 の順序型定理により、各 $(A,r)\in\mathcal W_X$ に対して
+[SET2 の順序型定理](../SET2/index.md#thm-set2-order-type)により、各 $(A,r)\in\mathcal W_X$ に対して
 
 $$
 \operatorname{otp}(A,r)
@@ -891,7 +891,7 @@ $$
 
 **2. 順序型を集める。**
 
-各 $(A,r)\in\mathcal W_X$ には SET4 により一意な順序型があります。
+各 $(A,r)\in\mathcal W_X$ には [SET2](../SET2/index.md#thm-set2-order-type) により一意な順序型があります。
 
 一価な対応なので置換公理図式から
 
