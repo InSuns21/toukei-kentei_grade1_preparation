@@ -1,0 +1,40 @@
+id: "NSA9"
+title: "級数・関数列・一様収束を無限添字で読む"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NSA6
+  - RA5
+official_scope: []
+learning_objectives:
+  - 級数の収束を、任意の無限 H<K に対する超有限尾和の無限小性と同値にできる
+  - 比較判定を無限尾和の大小比較として再構成し、一般項が無限小であるだけでは級数収束に足りない理由を説明できる
+  - 関数列の各点収束を、標準点を固定した無限添字での無限小近接と同値にできる
+  - 一様収束を、全ての超準点 X と無限添字 H における無限小近接と同値にし、各点収束との量化順序の差を説明できる
+  - x^n の例で境界へ無限小距離で近づく超準点を構成し、各点収束するが一様収束しないことを判定できる
+  - 一様 Cauchy 条件を全超準点と無限添字 H,K による特徴付けへ変換できる
+  - Weierstrass M-test を数値級数の無限尾和による一様上界として説明できる
+  - 幾何関数級数が任意の [-r,r] では一様収束するが (-1,1) 全体では一様収束しないことを超準的に示せる
+definitions: []
+theorems:
+  - { id: NSA9-THM-01, name: 級数の超準的 Cauchy 判定 }
+  - { id: NSA9-COR-01, name: 比較判定の無限尾和表示 }
+  - { id: NSA9-THM-02, name: 各点収束の超準的特徴付け }
+  - { id: NSA9-THM-03, name: 一様収束の超準的特徴付け }
+  - { id: NSA9-THM-04, name: 一様 Cauchy 条件の超準的特徴付け }
+  - { id: NSA9-COR-02, name: Weierstrass M-test の超準的読み方 }
+canonical_examples:
+  - "調和級数では H から 2H までの尾和が 1/2 以上となり発散を検出できる"
+  - "x^n は [0,1) の各標準点では無限添字で 0 に近いが X=1-1/H^2 では X^H≈1 となる"
+  - "x^n は [0,r] では全超準点に対し X^H≈0 となり一様収束する"
+  - "幾何関数級数は [-r,r] では一様収束するが (-1,1) 全体では一様収束しない"
+problem_patterns:
+  - NONSTANDARD-SERIES-TAIL-1
+  - NONSTANDARD-POINTWISE-1
+  - NONSTANDARD-UNIFORM-1
+  - NONSTANDARD-UNIFORM-CAUCHY-1
+  - NONSTANDARD-MTEST-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.2, review: 1.2 }

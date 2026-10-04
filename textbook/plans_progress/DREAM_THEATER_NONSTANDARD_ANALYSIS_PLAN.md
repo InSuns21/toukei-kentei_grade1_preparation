@@ -1,9 +1,9 @@
 # DREAM THEATER 超準解析コース計画
 
 作成日: 2026-10-02  
-状態: in_progress
+状態: completed
 
-## 進捗（2026-10-04）
+## 進捗（2026-10-05）
 
 - SET9「弱い選択原理と超フィルター」は main へ反映済み。自然数上の自由超フィルターの canonical result を NSA 系列から利用できる。
 - NSA1「超実数はどこから来るか：自由超フィルターと商構成」は main へ反映済み。
@@ -13,7 +13,8 @@
 - NSA5「無限小・有限超実数・標準部」は main へ反映済み。
 - NSA6「極限・連続・一様連続・コンパクト性」を実装し、無限添字による数列極限・Cauchy 条件、無限小近接による連続・一様連続、nearstandard point による距離空間のコンパクト性の特徴付け、そこからの Heine--Cantor まで閉じた。
 - NSA7「微分・Taylor 展開を無限小で読む」を実装し、非零無限小差分商による微分可能性、導関数の標準部表示、微分可能なら連続、積の微分公式、ゼロ増分枝を含む連鎖律、Taylor の Lagrange 剰余の無限小評価まで閉じた。
-- NSA8「Riemann 積分と超有限和」を実装し、超有限等分割・内部標本点付き和、等分割 Darboux gap の収束、Riemann 可積分性の超準的特徴付け、任意の内部標本点に対する積分の標準部表示、連続関数での一様連続性による誤差制御、Dirichlet 関数の失敗例まで閉じた。次は NSA9「級数・関数列・一様収束を無限添字で読む」へ進む。
+- NSA8「Riemann 積分と超有限和」を実装し、超有限等分割・内部標本点付き和、等分割 Darboux gap の収束、Riemann 可積分性の超準的特徴付け、任意の内部標本点に対する積分の標準部表示、連続関数での一様連続性による誤差制御、Dirichlet 関数の失敗例まで閉じた。
+- NSA9「級数・関数列・一様収束を無限添字で読む」を実装し、級数の超準的 Cauchy 判定、比較判定の無限尾和表示、各点収束と一様収束の量化順序、一様 Cauchy 条件、Weierstrass M-test、$x^n$ と幾何関数級数の境界超準点による非一様性まで閉じた。NSA1--NSA9 の系列実装と validation を完了した。
 
 
 ## 0. 目的
@@ -254,7 +255,7 @@ $$
 
 ## 4. コース構成案
 
-ID は実装前に既存 ID / dream-theater-index / knowledge DAG を確認して確定する。現時点では仮に **NSA1--NSA9** とする。
+ID は実装時に既存 ID / dream-theater-index / knowledge DAG を確認し、**NSA1--NSA9** として確定した。
 
 ### NSA1 超実数はどこから来るか：自由超フィルターと商構成
 
@@ -614,7 +615,7 @@ RA1A / RA5 の標準定理を再証明するだけの章にせず、量化順序
 7. **Archimedes 性の transfer で得る自然数は超自然数であり、標準自然数とは限らない。**
 8. **内部集合と外部集合を混同すると、超有限性や最大値原理を誤用する。**
 9. **「$dx$ を0として捨てる」のではなく、無限小近接と標準部で処理する。**
-10. **超準的証明が短いことと、証明責務が消えることは別である。**
+10. [x] **超準的証明が短いことと、証明責務が消えることは別である。**
 
 ---
 
@@ -727,12 +728,12 @@ FA 系列との依存を実装前に監査する。
 8. [x] NSA6 極限・連続・一様連続・コンパクト性。
 9. [x] NSA7 微分・Taylor 展開。
 10. NSA8 Riemann 積分・超有限和。
-11. NSA9 級数・関数列・一様収束。
-12. dream-theater.md に独立科目「超準解析」を追加する。
-13. dream-theater-standard-math-core.md では共通基礎に入れず、発展分岐として配置する。
-14. references/terminology-guide.md に、実装で実際に採用した日本語主表記を追加する。
-15. knowledge DAG / chapter prerequisites / stable anchors を更新する。
-16. DREAM THEATER 専用 validation / pedagogy audit と人手の依存監査を実施する。
+11. [x] NSA9 級数・関数列・一様収束。
+12. [x] dream-theater.md に独立科目「超準解析」を追加する。
+13. [x] dream-theater-standard-math-core.md では共通基礎に入れず、発展分岐として配置する。
+14. [x] references/terminology-guide.md に、実装で実際に採用した日本語主表記を追加する。
+15. [x] knowledge DAG / chapter prerequisites / stable anchors を更新する。
+16. [x] DREAM THEATER 専用 validation / pedagogy audit と人手の依存監査を実施する。
 
 数学基礎論 SET9 は main に反映済みであり、NSA1 は SET9 の自由超フィルターを canonical dependency として本実装する。
 

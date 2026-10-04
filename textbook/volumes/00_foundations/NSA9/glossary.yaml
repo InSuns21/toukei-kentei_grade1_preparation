@@ -1,0 +1,14 @@
+chapter: "NSA9"
+terms:
+  - term: 級数の超準的 Cauchy 判定
+    english: nonstandard Cauchy criterion for series
+    meaning: 級数の収束を、任意の無限超自然数 H<K に対する H+1 項目から K 項目までの超有限尾和が無限小になることとして表す判定。
+  - term: 各点収束の超準的特徴付け
+    english: nonstandard characterization of pointwise convergence
+    meaning: 標準点 x を固定し、全ての無限超自然数 H で *f_H(x) が極限値 f(x) に無限小近接することとして各点収束を表す。
+  - term: 一様収束の超準的特徴付け
+    english: nonstandard characterization of uniform convergence
+    meaning: 全ての超準点 X in *E と全ての無限超自然数 H で *f_H(X) が *f(X) に無限小近接することとして一様収束を表す。
+  - term: 一様 Cauchy 条件の超準的特徴付け
+    english: nonstandard characterization of uniform Cauchy condition
+    meaning: 全ての超準点 X と無限超自然数 H,K で *f_H(X) と *f_K(X) が無限小近接することとして一様 Cauchy 条件を表す。
