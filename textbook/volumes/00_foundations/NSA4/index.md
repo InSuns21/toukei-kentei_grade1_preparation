@@ -124,7 +124,15 @@ $$
 A_n\subseteq S
 $$
 
-の同値類です。
+の同値類です。ここで集合列どうしの同値は
+
+$
+[A_n]=[B_n]
+\iff
+\{n:A_n=B_n\}\in\mathcal U
+$
+
+で定めます。つまり、添字の $\mathcal U$-大集合上で同じ部分集合になれば、同じ集合ソートの元を表します。
 
 <a id="def-nsa4-internal-set"></a>
 <!-- formal-statement-start -->
@@ -519,7 +527,15 @@ $$
 f_n:S\to T
 $$
 
-を取ります。
+を取ります。二つの写像列 $(f_n)$、$(g_n)$ は
+
+$
+[f_n]=[g_n]
+\iff
+\{n:f_n=g_n\}\in\mathcal U
+$
+
+で同一視します。ここで $f_n=g_n$ は、$S\to T$ の写像として全ての入力で値が一致するという意味です。
 
 <a id="def-nsa4-internal-map"></a>
 <!-- formal-statement-start -->
@@ -1248,14 +1264,25 @@ $$
 
 ## 10. 有限超実数全体も外部集合である
 
-以下では自然数の包含 $\mathbb N\subset\mathbb R$ を座標ごとに超冪へ延ばして得る埋め込み
+以下では自然数の標準包含
 
 $
-{}^*\mathbb N\hookrightarrow{}^*\mathbb R
+\iota:\mathbb N\hookrightarrow\mathbb R
 $
 
-を通じて、超自然数を超実数としても同じ記号で見ます。この対応は順序を保存します。
+の超準拡張
 
+$
+{}^*\iota:{}^*\mathbb N\hookrightarrow{}^*\mathbb R
+$
+
+を通じて、超自然数を超実数としても同じ記号で見ます。代表列では
+
+$
+{}^*\iota([h_n])=[h_n]
+$
+
+であり、この埋め込みは順序を保存します。
 
 NSA5 で標準部を作るため、有限超実数を詳しく扱います。ここでは外部性だけ先に確認します。
 
