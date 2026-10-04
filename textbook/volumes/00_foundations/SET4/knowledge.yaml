@@ -22,21 +22,7 @@ concepts:
       - set.transfinite-induction
       - set.replacement-schema
 
-  - id: order.wellorder-order-type
-    name: 整列集合の順序型
-    kind: theorem
-    aliases: [整列集合の順序型]
-    requires:
-      - order.well-order
-      - set.ordinal-trichotomy
-      - set.replacement-schema
 
-  - id: order.order-type
-    name: 順序型
-    kind: definition
-    aliases: [順序型, order type]
-    requires:
-      - order.wellorder-order-type
 
   - id: set.ordinal-addition
     name: 順序数の加法
