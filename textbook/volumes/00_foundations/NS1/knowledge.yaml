@@ -36,6 +36,7 @@ concepts:
     introduction: formal
     introduction_aliases: ["命題（発散零空間の閉包表示）"]
     requires:
+      - navier-stokes.periodic-divergence-free-space
       - navier-stokes.divergence-free-fourier
       - fourier.fou4-parseval
 
@@ -96,7 +97,8 @@ concepts:
     introduction: formal
     introduction_aliases: ["命題（Leray 射影後の Navier--Stokes 方程式）"]
     requires:
-      - navier-stokes.stokes-operator
+      - navier-stokes.stokes-positive
+      - navier-stokes.periodic-helmholtz
       - navier-stokes.projected-convection
       - vector-calculus.incompressible-navier-stokes-bridge
 
