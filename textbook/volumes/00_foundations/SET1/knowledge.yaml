@@ -35,6 +35,36 @@ concepts:
     introduction: inline
     requires: []
 
+  - id: set.extensionality-axiom
+    name: 外延性公理
+    kind: axiom
+    aliases: [外延性公理, axiom of extensionality]
+    requires: []
+
+  - id: set.pairing-axiom
+    name: 対公理
+    kind: axiom
+    aliases: [対公理, axiom of pairing]
+    requires: []
+
+  - id: set.union-axiom
+    name: 和集合公理
+    kind: axiom
+    aliases: [和集合公理, axiom of union]
+    requires: []
+
+  - id: set.power-set-axiom
+    name: 冪集合公理
+    kind: axiom
+    aliases: [冪集合公理, power set axiom]
+    requires: []
+
+  - id: set.infinity-axiom
+    name: 無限公理
+    kind: axiom
+    aliases: [無限公理, axiom of infinity]
+    requires: []
+
   - id: set.separation-schema
     name: 分出公理図式
     kind: axiom
