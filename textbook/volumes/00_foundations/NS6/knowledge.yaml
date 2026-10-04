@@ -44,7 +44,6 @@ concepts:
     introduction_aliases: ["命題（Lp ノルムの尺度則）"]
     requires:
       - navier-stokes.scaling
-      - navier-stokes.scaling-criticality
 
   - id: navier-stokes.mixed-lp-scaling
     name: 時空間 Lq_t Lp_x ノルムの尺度則
