@@ -31,11 +31,11 @@ concepts:
       - navier-stokes.trilinear-skew
 
   - id: navier-stokes.galerkin-time-derivative-vstar
-    name: Galerkin 時間微分の V* 評価
+    name: Galerkin 時間微分の双対空間評価
     kind: proposition
-    aliases: ["Galerkin time derivative V-star estimate"]
+    aliases: ["Galerkin time derivative V-star estimate", "Galerkin 時間微分の V* 評価"]
     introduction: formal
-    introduction_aliases: ["命題（Galerkin 時間微分の V* 評価）"]
+    introduction_aliases: ["命題（Galerkin 時間微分の双対空間評価）"]
     requires:
       - navier-stokes.galerkin-uniform-energy
       - navier-stokes.periodic-l4-estimate
@@ -52,11 +52,11 @@ concepts:
       - evolution.gelfand-triple
 
   - id: navier-stokes.nonlinear-strong-limit
-    name: 強 L2 収束による対流項の極限
+    name: 強収束による対流項の極限
     kind: proposition
-    aliases: ["strong L2 convergence of the convection term"]
+    aliases: ["strong L2 convergence of the convection term", "強 L2 収束による対流項の極限"]
     introduction: formal
-    introduction_aliases: ["命題（強 L2 収束による対流項の極限）"]
+    introduction_aliases: ["命題（強収束による対流項の極限）"]
     requires:
       - navier-stokes.periodic-aubin-lions
       - navier-stokes.trilinear-form
