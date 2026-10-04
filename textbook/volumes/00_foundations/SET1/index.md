@@ -787,7 +787,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-まず空集合の存在命題から
+まず[空集合の存在と一意性](#prop-set1-empty-set)から
 
 $$
 0=\varnothing
