@@ -54,7 +54,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-set5-cumulative-hierarchy -->
-**定義の確認：最初の段階。**
+**定義の確認**：最初の段階。
 
 $$
 V_0=\varnothing.
@@ -212,7 +212,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-set5-transitive-closure -->
-**定義の確認。**
+**定義の確認**。
 
 $$
 x=\{\{0\}\}
@@ -265,7 +265,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-set5-well-founded-relation -->
-**定義の確認。** 正則性公理を集合 $B$ に適用すると、ある $x\in B$ が
+**定義の確認**。 正則性公理を集合 $B$ に適用すると、ある $x\in B$ が
 
 $$
 x\cap B=\varnothing
@@ -557,7 +557,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-set5-rank -->
-**定義の確認。**
+**定義の確認**。
 
 $$
 \operatorname{rank}(0)=0.
