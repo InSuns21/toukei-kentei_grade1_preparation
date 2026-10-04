@@ -6,13 +6,36 @@ prerequisites:
   - SET6
 
 concepts:
+  - id: set.wellorders-on-subsets
+    name: X の部分集合上の整列の集合
+    kind: definition
+    aliases: [X の部分集合上の整列の集合]
+    requires:
+      - order.well-order
+
+  - id: set.order-types-realized-in-x
+    name: X 内で実現される順序型の集合
+    kind: definition
+    aliases: [X 内で実現される順序型の集合]
+    requires:
+      - set.wellorders-on-subsets
+      - order.order-type
+      - set.replacement-schema
+
+  - id: set.hartogs-gamma-no-injection
+    name: gamma_X は X へ単射できない
+    kind: lemma
+    aliases: [gamma_X は X へ単射できない]
+    requires:
+      - set.order-types-realized-in-x
+      - set.ordinal
+
   - id: set.hartogs-number
     name: Hartogs 数
     kind: definition
     aliases: [Hartogs 数, Hartogs number]
     requires:
-      - order.order-type
-      - set.replacement-schema
+      - set.hartogs-gamma-no-injection
 
   - id: set.hartogs-lemma
     name: Hartogs の補題
@@ -20,12 +43,19 @@ concepts:
     aliases: [Hartogs の補題, Hartogs補題, Hartogs lemma]
     requires:
       - set.hartogs-number
-      - set.ordinal
 
-  - id: set.successor-cardinal
-    name: 次の基数
+  - id: set.hartogs-cardinal
+    name: 順序数の Hartogs 数はより大きい基数
     kind: theorem
-    aliases: [次の基数, successor cardinal]
+    aliases: [順序数の Hartogs 数はより大きい基数]
     requires:
       - set.hartogs-lemma
       - set.cardinal
+
+  - id: set.successor-cardinal
+    name: 次の基数
+    kind: corollary
+    aliases: [次の基数, successor cardinal]
+    requires:
+      - set.hartogs-cardinal
+      - set.cantor-bernstein
