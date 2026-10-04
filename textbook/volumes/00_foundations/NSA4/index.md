@@ -58,7 +58,7 @@ $$
 H=[n+1]\in{}^*\mathbb N.
 $$
 
-順序は NSA3 の Łoś の定理から
+順序は NSA3 の [Łoś の定理](../NSA3/index.md#thm-nsa3-los)から
 
 $$
 [h_n]<[k_n]
@@ -308,7 +308,7 @@ $$
 
 が成り立ちます。
 
-これは多ソート一階言語で書けるので、移送原理により集合ソートの超冪でも同じ主張が成り立ちます。
+これは多ソート一階言語で書けるので、[移送原理](../NSA3/index.md#cor-nsa3-transfer)により集合ソートの超冪でも同じ主張が成り立ちます。
 
 いま
 
@@ -423,7 +423,7 @@ E_0=\{n:x_n=0\},
 E_1=\{n:x_n=1\}
 $$
 
-の和集合です。超フィルターの二者択一から $E_0$ または $E_1$ が $\mathcal U$ に属するので
+の和集合です。[超フィルターの二者択一](../SET9/index.md#thm-set9-ultrafilter-dichotomy)から $E_0$ または $E_1$ が $\mathcal U$ に属するので
 
 $$
 X={}^*0
@@ -826,7 +826,7 @@ $$
 \forall x\,(x\in Y\to x\in I_H)
 $$
 
-なので Łoś の定理から
+なので [Łoś の定理](../NSA3/index.md#thm-nsa3-los)から
 
 $$
 E_1
@@ -1243,7 +1243,7 @@ $$
 0<X<\frac1m.
 $$
 
-任意の標準実数 $r>0$ に対し、Archimedes 性から $1/m<r$ となる標準 $m$ を選べるので
+任意の標準実数 $r>0$ に対し、[Archimedes 性](../F0_00A1B_実数の上限性質_Archimedes性/index.md#thm-f0-00a1b-archimedean)から $1/m<r$ となる標準 $m$ を選べるので
 
 $$
 |X|<r.
@@ -1713,7 +1713,7 @@ $$
 
 **2. 内部的な大きさの一意性。**
 
-本文の「集合ソートから内部集合への対応は単射」を使うと
+本文の「[集合ソートから内部集合への対応は単射](#prop-nsa4-internal-set-sort-injective)」を使うと
 
 $$
 [F_n]_{\mathrm{int}}=[G_n]_{\mathrm{int}}
@@ -1867,7 +1867,7 @@ $$
 0<X<1/m
 $$
 
-が全ての標準 $m$ について成り立ちます。Archimedes 性から任意の標準 $r>0$ に対し $1/m<r$ となる $m$ が取れるため $|X|<r$ です。
+が全ての標準 $m$ について成り立ちます。[Archimedes 性](../F0_00A1B_実数の上限性質_Archimedes性/index.md#thm-f0-00a1b-archimedean)から任意の標準 $r>0$ に対し $1/m<r$ となる $m$ が取れるため $|X|<r$ です。
 
 よって $X$ は無限小です。これは $X\notin[A_n]_{\mathrm{int}}$ と矛盾します。
 <!-- solution-end -->
