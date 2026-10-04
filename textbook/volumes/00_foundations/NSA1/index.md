@@ -500,13 +500,13 @@ $$
 
 また
 
-$$
+$
 x<y
 \quad\Longleftrightarrow\quad
-x\le y\ \text{かつ}\ x\ne y
-$$
+\{n:x_n<y_n\}\in\mathcal U
+$
 
-とする。
+と定める。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-nsa1-order -->
@@ -585,8 +585,28 @@ $$
 A\cap E\in\mathcal U.
 $$
 
-しかも $A\cap E\subseteq A'$ なので上方閉性から $A'\in\mathcal U$ です。逆向きも $A'$ と $A$ を入れ替えれば同じです。従って順序は代表元によらず定まります。$\square$
+しかも $A\cap E\subseteq A'$ なので上方閉性から $A'\in\mathcal U$ です。逆向きも $A'$ と $A$ を入れ替えれば同じです。従って $\le$ は代表元によらず定まります。
+
+厳密不等号についても、$E$ 上では
+
+$
+x_n<y_n
+\quad\Longleftrightarrow\quad
+x_n'<y_n'
+$
+
+なので同じ議論が使えます。従って $<$ も代表元によらず定まります。$\square$
 <!-- proof-end -->
+
+さらに実数では、各添字で $x_n<y_n$、$x_n=y_n$、$x_n>y_n$ のちょうど一つが成り立ちます。三つの添字集合は $\mathbb N$ を分割するため、超フィルターはそのちょうど一つを選びます。したがって、ここで定めた $x<y$ は
+
+$
+x\le y
+\quad\text{かつ}\quad
+x\ne y
+$
+
+と同値です。
 
 ---
 
