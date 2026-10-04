@@ -63,6 +63,18 @@ SET10 数学各分野での選択原理
 19. [**偏微分方程式 II**](textbook/dream-theater.md#dt-subject-pde-ii)：超関数、Sobolev 空間、弱解、変分法、楕円型正則性、Galerkin 法までを扱う。
 20. [**確率解析**](textbook/dream-theater.md#dt-subject-stochastic-analysis)：マルチンゲール、Brown 運動と Wiener 測度、Itô 積分、SDE、生成作用素、Lévy 過程までを扱う。
 
+### Navier--Stokes 方程式への発展分岐
+
+[**Navier--Stokes 方程式への道**](textbook/dream-theater.md#dt-subject-navier-stokes) は、ベクトル解析 II・Fourier 解析・偏微分方程式 II を土台に、非圧縮流体の存在・正則性問題へ進む解析 PDE の発展分岐です。共通の標準通読順には挿入しません。
+
+~~~text
+VC9 非圧縮 Navier--Stokes の導出 ─┐
+FOU4 L2 Fourier / Plancherel ──────┼→ NS1 発散零空間・Leray 射影・Stokes 作用素
+GPDE3 Sobolev 空間 ────────────────┘
+~~~
+
+NS1 では周期領域で発散零空間を Fourier モードから構成し、Leray 射影で圧力勾配を分離して、Stokes 作用素を持つ速度だけの発展方程式へ移ります。
+
 ### 超準解析への発展分岐
 
 [**超準解析**](textbook/dream-theater.md#dt-subject-nonstandard-analysis) は、実解析と集合論・数学基礎論を接続する独立系列です。共通基礎の必修順には挿入しません。
