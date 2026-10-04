@@ -1,0 +1,51 @@
+chapter: SET5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SET4
+  - SET1
+
+concepts:
+  - id: set.cumulative-hierarchy
+    name: 累積階層
+    kind: definition
+    aliases: [累積階層, cumulative hierarchy]
+    requires:
+      - set.transfinite-recursion
+
+  - id: set.transitive-closure
+    name: 推移閉包
+    kind: definition
+    aliases: [推移閉包, transitive closure]
+    requires: []
+
+  - id: set.well-founded-relation
+    name: 整礎関係
+    kind: definition
+    aliases: [整礎関係, well-founded relation]
+    requires:
+      - set.foundation-axiom
+
+  - id: set.well-founded-recursion
+    name: 整礎再帰
+    kind: theorem
+    aliases: [整礎再帰, well-founded recursion]
+    requires:
+      - set.well-founded-relation
+      - set.replacement-schema-zf
+
+  - id: set.rank
+    name: 集合の rank
+    kind: definition
+    aliases: [集合の rank, rank]
+    requires:
+      - set.well-founded-recursion
+      - set.ordinal
+
+  - id: set.every-set-in-hierarchy
+    name: 全ての集合は累積階層のどこかに現れる
+    kind: theorem
+    aliases: [全ての集合は累積階層のどこかに現れる]
+    requires:
+      - set.rank
+      - set.cumulative-hierarchy
