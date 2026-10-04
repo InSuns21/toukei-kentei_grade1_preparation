@@ -45,7 +45,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[RA1 の級数の Cauchy 判定](../RA1/index.md#thm-ra1-series-cauchy)と実数の完備性から、
+[RA1 の級数の Cauchy 判定](../RA1/index.md#thm-ra1-series-cauchy)と[実数の完備性](../RA1/index.md#thm-ra1-real-completeness)から、
 
 $$
 \sum_{n=1}^{\infty}a_n\text{ が収束}
@@ -411,7 +411,7 @@ $$
 
 $\sum M_n$ は収束するので、[級数の超準的 Cauchy 判定](#thm-nsa9-series-cauchy)から右端は無限小です。
 
-従って部分和関数列は [一様 Cauchy 条件の超準的特徴付け](#thm-nsa9-uniform-cauchy)を満たします。最後に RA5 の一様 Cauchy 判定から一様収束します。
+従って部分和関数列は [一様 Cauchy 条件の超準的特徴付け](#thm-nsa9-uniform-cauchy)を満たします。最後に [RA5 の一様 Cauchy 判定](../RA5/index.md#thm-ra5-uniform-cauchy-criterion)から一様収束します。
 <!-- proof-end -->
 
 同じ数値尾和が全ての超準点を同時に抑えることが、一様性の源です。
@@ -517,7 +517,7 @@ $$
 \frac{3^{-H}}2.
 $$
 
-標準列 $3^{-n}\to0$ なので、無限 $H$ では $3^{-H}\approx0$ です。従って尾和も無限小です。任意の無限 $H<K$ で成り立つため、級数の超準的 Cauchy 判定から級数は収束します。
+標準列 $3^{-n}\to0$ なので、無限 $H$ では $3^{-H}\approx0$ です。従って尾和も無限小です。任意の無限 $H<K$ で成り立つため、[級数の超準的 Cauchy 判定](#thm-nsa9-series-cauchy)から級数は収束します。
 <!-- solution-end -->
 
 <a id="ex-nsa9-a02"></a>
@@ -551,7 +551,7 @@ $f_n(x)=x^n$ を $[0,1)$ 上で考える。標準 $x\in[0,1)$ と無限 $H$ に�
 <!-- solution-start -->
 **詳細解答**。
 
-標準 $x\in[0,1)$ を固定すると、標準解析で $x^n\to0$ です。[NSA6 の数列極限の超準的特徴付け](../NSA6/index.md#thm-nsa6-sequence-limit)を適用すると、任意の無限 $H$ に対して $x^H\approx0$ です。従って各点収束の超準的特徴付けから $f_n\to0$ は各点収束です。
+標準 $x\in[0,1)$ を固定すると、標準解析で $x^n\to0$ です。[NSA6 の数列極限の超準的特徴付け](../NSA6/index.md#thm-nsa6-sequence-limit)を適用すると、任意の無限 $H$ に対して $x^H\approx0$ です。従って[各点収束の超準的特徴付け](#thm-nsa9-pointwise)から $f_n\to0$ は各点収束です。
 <!-- solution-end -->
 
 <a id="ex-nsa9-a04"></a>
@@ -605,7 +605,7 @@ $$
 \sum_{n=H+1}^{K}{}^*b_n.
 $$
 
-右端は $\sum b_n$ の収束により無限小です。従って中央も無限小です。任意の無限 $H<K$ で成り立つため、級数の超準的 Cauchy 判定から $\sum a_n$ は収束します。
+右端は $\sum b_n$ の収束により無限小です。従って中央も無限小です。任意の無限 $H<K$ で成り立つため、[級数の超準的 Cauchy 判定](#thm-nsa9-series-cauchy)から $\sum a_n$ は収束します。
 <!-- solution-end -->
 
 <a id="ex-nsa9-b02"></a>
@@ -668,7 +668,7 @@ $$
 \approx0.
 $$
 
-部分和関数列は一様 Cauchy であり、RA5 の一様 Cauchy 判定から一様収束します。
+部分和関数列は一様 Cauchy であり、[RA5 の一様 Cauchy 判定](../RA5/index.md#thm-ra5-uniform-cauchy-criterion)から一様収束します。
 <!-- solution-end -->
 
 <a id="ex-nsa9-c01"></a>
