@@ -769,7 +769,7 @@ $$
 
 を考えます。
 
-超フィルター補題により、
+[超フィルター拡張補題](#thm-set9-ultrafilter-lemma-from-zorn)により、
 
 $$
 \mathcal F_{\mathrm{cof}}
@@ -847,13 +847,13 @@ $$
 \mathrm{ZF+AC_\omega}.
 $$
 
-また ZFC では [Zorn の補題](../F0_00A3_半順序_Zorn_極大延長/index.md#thm-zorn)を通じて超フィルター補題も得られます。
+また ZFC では [Zorn の補題](../F0_00A3_半順序_Zorn_極大延長/index.md#thm-zorn)を通じて[超フィルター拡張補題](#thm-set9-ultrafilter-lemma-from-zorn)も得られます。
 
 一方、
 
 - 可算選択から DC が出るか、
 - DC から完全な AC が出るか、
-- 超フィルター補題から完全な AC が出るか
+- [超フィルター拡張補題](#thm-set9-ultrafilter-lemma-from-zorn)から完全な AC が出るか
 
 については、この章の道具だけで肯定しません。
 
@@ -1190,7 +1190,7 @@ $$
 $\mathbb N$ 上の自由超フィルターを得る構成を、
 
 1. 余有限フィルターの構成
-2. Zorn を適用する半順序集合
+2. [Zorn の補題](../F0_00A3_半順序_Zorn_極大延長/index.md#thm-zorn)を適用する半順序集合
 3. 鎖の上界
 4. 極大元が超フィルターになる理由
 5. 主でない理由
