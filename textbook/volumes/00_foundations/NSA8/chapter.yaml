@@ -1,0 +1,41 @@
+id: "NSA8"
+title: "Riemann 積分と超有限和"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NSA6
+  - RA4
+official_scope: []
+learning_objectives:
+  - 超有限等分割と内部標本点族を定義し、有限和の移送として超有限 Riemann 和を構成できる
+  - 有限和公式を無限超自然数へ移送し、x と x^2 の超有限和から積分値の標準部を計算できる
+  - Riemann 可積分性と等分割 Darboux gap の 0 収束が同値であることを 境界セル評価から証明できる
+  - NSA6 の数列極限の超準的特徴付けを用いて、Riemann 可積分性を無限 H における Darboux gap の無限小性と同値にできる
+  - 可積分関数の任意の内部標本点による超有限 Riemann 和が積分値に無限小近接し、その標準部が積分値になることを証明できる
+  - 連続関数では一様連続性が標本点依存性を消すことを、標準 epsilon による総和評価で説明できる
+  - 一点ジャンプと Dirichlet 関数を比較し、最大幅の無限小性だけでは可積分性が保証されない理由を説明できる
+  - 超有限個の無限小の総和は無限小とは限らないことを認識し、一様評価または Darboux gap で総誤差を制御できる
+definitions:
+  - { id: NSA8-DEF-01, name: 超有限等分割 }
+  - { id: NSA8-DEF-02, name: 超有限 Riemann 和 }
+theorems:
+  - { id: NSA8-LEM-01, name: 等分割 Darboux gap の収束 }
+  - { id: NSA8-THM-01, name: Riemann 可積分性の超準的特徴付け }
+  - { id: NSA8-COR-01, name: 積分は超有限 Riemann 和の標準部 }
+  - { id: NSA8-PROP-01, name: 連続関数の超有限和 }
+canonical_examples:
+  - "f(x)=x の左端超有限和が 1/2-1/(2H) となる"
+  - "f(x)=x^2 の左端超有限和の標準部が 1/3 となる"
+  - "一点ジャンプでは Darboux gap が高々 1/H になる"
+  - "Dirichlet 関数では各セルの振動が 1 のため gap が 1 のまま残る"
+  - "H 個の 1/H は各項が無限小でも総和が 1 になる"
+problem_patterns:
+  - HYPERFINITE-RIEMANN-SUM-1
+  - HYPERFINITE-DARBOUX-GAP-1
+  - NONSTANDARD-RIEMANN-INTEGRABILITY-1
+  - TAG-INDEPENDENCE-1
+  - INFINITESIMAL-MESH-PARTITION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.4, exercises: 4.5, review: 1.3 }

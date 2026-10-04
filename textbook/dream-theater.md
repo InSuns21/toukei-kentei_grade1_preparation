@@ -126,6 +126,7 @@
 5. [NSA5 無限小・有限超実数・標準部](textbook/volumes/00_foundations/NSA5/index.md)
 6. [NSA6 極限・連続・一様連続・コンパクト性](textbook/volumes/00_foundations/NSA6/index.md)
 7. [NSA7 微分・Taylor 展開を無限小で読む](textbook/volumes/00_foundations/NSA7/index.md)
+8. [NSA8 Riemann 積分と超有限和](textbook/volumes/00_foundations/NSA8/index.md)
 
 <a id="dt-subject-complex-analysis-i"></a>
 ### 複素解析 I

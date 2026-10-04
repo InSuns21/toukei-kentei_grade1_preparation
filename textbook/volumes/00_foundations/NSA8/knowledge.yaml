@@ -1,0 +1,62 @@
+chapter: NSA8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NSA6
+  - RA4
+
+concepts:
+  - id: nonstandard.hyperfinite-uniform-partition
+    name: 超有限等分割
+    kind: definition
+    aliases: [hyperfinite uniform partition]
+    requires:
+      - nonstandard.hyperfinite-set
+      - nonstandard.standard-symbol-transfer
+      - nonstandard.infinitesimal
+
+  - id: nonstandard.hyperfinite-riemann-sum
+    name: 超有限 Riemann 和
+    kind: definition
+    aliases: [hyperfinite Riemann sum]
+    requires:
+      - nonstandard.hyperfinite-uniform-partition
+      - nonstandard.standard-symbol-transfer
+      - analysis.darboux-sums
+
+  - id: nonstandard.uniform-darboux-gap-convergence
+    name: 等分割 Darboux gap の収束
+    kind: lemma
+    aliases: []
+    requires:
+      - analysis.riemann-integrable
+      - analysis.darboux-integrability-criterion
+      - analysis.darboux-sums
+
+  - id: nonstandard.riemann-integrability-characterization
+    name: Riemann 可積分性の超準的特徴付け
+    kind: theorem
+    aliases: [nonstandard criterion for Riemann integrability]
+    requires:
+      - nonstandard.uniform-darboux-gap-convergence
+      - nonstandard.sequence-limit-characterization
+      - analysis.riemann-integrable
+
+  - id: nonstandard.hyperfinite-integral-standard-part
+    name: 積分は超有限 Riemann 和の標準部
+    kind: corollary
+    aliases: [standard part of hyperfinite Riemann sum]
+    requires:
+      - nonstandard.hyperfinite-riemann-sum
+      - nonstandard.riemann-integrability-characterization
+      - nonstandard.standard-part
+      - analysis.riemann-integrable
+
+  - id: nonstandard.continuous-hyperfinite-integral
+    name: 連続関数の超有限和
+    kind: proposition
+    aliases: []
+    requires:
+      - nonstandard.hyperfinite-integral-standard-part
+      - nonstandard.uniform-continuity-characterization
+      - analysis.continuous-riemann-integrable
