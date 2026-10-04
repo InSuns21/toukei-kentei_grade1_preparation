@@ -1,0 +1,14 @@
+chapter: "NSA6"
+terms:
+  - term: 無限添字
+    english: infinite hypernatural index
+    meaning: 無限超自然数 H を列の添字として用いたもの。標準的な「十分大きい n」を一つの超準的対象として表す。
+  - term: microcontinuity
+    english: microcontinuity
+    meaning: x≈a なら *f(x)≈f(a) となる性質。本章では標準点 a における通常の連続性と同値であることを証明する。
+  - term: nearstandard point
+    english: nearstandard point
+    meaning: ある標準点 a に無限小近接する超準点。距離空間では超準距離が無限小であることで表す。
+  - term: 一様連続性の超準的判定
+    english: nonstandard criterion for uniform continuity
+    meaning: *E の任意の x,y について x≈y なら *f(x)≈*f(y) となること。
