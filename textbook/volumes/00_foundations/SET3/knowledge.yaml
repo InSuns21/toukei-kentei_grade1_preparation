@@ -1,0 +1,28 @@
+chapter: SET3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SET2
+
+concepts:
+  - id: set.transfinite-induction
+    name: 超限帰納法
+    kind: theorem
+    aliases: [超限帰納法, transfinite induction]
+    requires:
+      - set.ordinal
+
+  - id: set.progressive-property
+    name: 累進的な性質
+    kind: definition
+    aliases: [累進的な性質, progressive property]
+    requires:
+      - set.ordinal
+
+  - id: set.three-stage-transfinite-induction
+    name: 三段階の超限帰納法
+    kind: theorem
+    aliases: [三段階の超限帰納法]
+    requires:
+      - set.transfinite-induction
+      - set.limit-ordinal
