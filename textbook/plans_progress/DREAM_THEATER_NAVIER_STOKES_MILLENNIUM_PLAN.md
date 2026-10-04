@@ -1,7 +1,8 @@
 # DREAM THEATER Navier--Stokes 方程式への道 — ミレニアム問題の入口 コース計画
 
 作成日: 2026-10-04  
-状態: planned
+更新日: 2026-10-05  
+状態: in_progress
 
 ## 0. 目的
 
@@ -1495,3 +1496,22 @@ plan 作成時点で確認した一次資料:
 この節は learner-facing 本文へそのまま転載するためのものではない。
 
 NS8A 実装時にはリンク・日付・status を再確認し、解析論文と Lean formalization を追加してから本文を執筆する。
+
+
+---
+
+## 21. 2026-10-05 進捗
+
+実装完了:
+
+- 既存 ID、VC9 / FOU4 / GPDE3 の prerequisite と knowledge dependency を確認
+- NS1「発散零空間・Leray 射影・Stokes 作用素」を実装
+- 周期 Fourier 表示から発散零条件を導出
+- Leray 射影と周期 Helmholtz 分解をモードごとに構成
+- Stokes 作用素、射影後 Navier--Stokes 方程式、圧力 Poisson 方程式を導出
+- NS1 に Level A 4題 / B 3題 / C 1題と全問詳細解答を追加
+- DREAM THEATER 目次・読む順・dependency graph・series routing を NS 系列へ接続
+
+次作業:
+
+- NS2「非線形項・三重線形形式・エネルギー評価」

@@ -1,0 +1,17 @@
+chapter: "NS1"
+terms:
+  - term: 発散零空間
+    english: divergence-free space
+    meaning: 三次元トーラス上の平均零 L2 ベクトル場のうち、各非零 Fourier モードが波数 k に直交するものからなる閉部分空間。
+  - term: Leray 射影
+    english: Leray projection
+    meaning: 各非零 Fourier モードを波数 k に直交する平面へ直交射影し、ベクトル場の発散零成分だけを取り出す作用素。
+  - term: 周期 Helmholtz 分解
+    english: periodic Helmholtz decomposition
+    meaning: 平均零周期ベクトル場を、発散零成分と平均零スカラーポテンシャルの勾配成分へ直交分解すること。
+  - term: Stokes 作用素
+    english: Stokes operator
+    meaning: 発散零空間上で A=-P Delta と定義される作用素。周期境界条件では発散零場に対して -Delta と一致する。
+  - term: 圧力 Poisson 方程式
+    english: pressure Poisson equation
+    meaning: 非圧縮 Navier--Stokes 方程式の発散を取り、速度と外力から圧力を回収するために得られる Poisson 方程式。

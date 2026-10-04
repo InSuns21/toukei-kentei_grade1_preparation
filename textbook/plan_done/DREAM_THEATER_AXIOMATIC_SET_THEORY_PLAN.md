@@ -1,8 +1,8 @@
 # DREAM THEATER 集合論・数学基礎論コース計画
 
 作成日: 2026-09-29  
-更新日: 2026-10-04  
-状態: implemented_pending_validation
+更新日: 2026-10-05  
+状態: completed
 
 ## 0. 位置づけ
 
@@ -507,11 +507,10 @@ dream-theater-standard-math-core.md の共通基礎には、本科目を必修�
 - dependency-graph.md に独立系列の主線を追加
 - 順序型・順序数・超限再帰・Hartogs・Replacement の canonical owner を整理
 
-残作業:
+検証完了:
 
-- DREAM THEATER 専用 validation / pedagogy audit
-- CI / Pages の確認
-- 検証完了後に plan_done へ移動
+- PR #720 の head で Validate terminology / DREAM THEATER exercises / Pages assembly / DREAM THEATER concepts / textbook がすべて success
+- 2026-10-05 に完成条件と公開・検証条件を満たしたことを確認し、plan_done へ移動
 
 ## 9. 完成条件
 

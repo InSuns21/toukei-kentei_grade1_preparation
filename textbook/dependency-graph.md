@@ -844,3 +844,16 @@ NUMLAB5 は PYNUM1、NUMLAB0、QMC1–QMC8 を直接 prerequisite とし、準 M
 読者向け入口は F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md。実装済み本編は NA1–NA12、FDM1–FDM4、FEM1–FEM7、MC1–MC4、QMC1–QMC8、PYNUM1、NUMLAB0–NUMLAB5 である。理論完成直後の横断監査は方針決定により実施対象外とし、Encore V の計算機演習系列は NUMLAB5 まで完了している。
 
 ---
+
+## Navier--Stokes 方程式への発展分岐
+
+DREAM THEATER の Navier--Stokes 系列は、VC9 の流体方程式、FOU4 の $L^2$ Fourier 解析、GPDE3 の Sobolev 空間を直接の入口として開始する。
+
+~~~text
+VC9 非圧縮 Navier--Stokes 方程式 ─┐
+FOU4 Plancherel・L2 Fourier解析 ───┼→ NS1 発散零空間・Leray 射影・Stokes 作用素
+GPDE3 Sobolev 空間 ────────────────┘
+~~~
+
+NS1 は周期発散零空間、Leray 射影、周期 Helmholtz 分解、Stokes 作用素、射影後の Navier--Stokes 方程式、圧力回収を担当する。直接 prerequisite の正本は NS1 の chapter.yaml / knowledge.yaml とする。
+
