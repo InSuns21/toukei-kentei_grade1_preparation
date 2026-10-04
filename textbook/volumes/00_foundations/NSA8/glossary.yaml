@@ -5,7 +5,7 @@ terms:
     meaning: 無限超自然数 H を用いて [a,b] を H 個の内部小区間へ等分した超有限分割。H が無限なら各幅 (b-a)/H は無限小になる。
   - term: 超有限 Riemann 和
     english: hyperfinite Riemann sum
-    meaning: 超有限分割上の内部標本点族に対し、有限 Riemann 和を移送して得る内部超有限和。Riemann 可積分関数では無限小 mesh の和の標準部が積分値になる。
+    meaning: 超有限分割上の内部標本点族に対し、有限 Riemann 和を移送して得る内部超有限和。Riemann 可積分関数では最大幅が無限小の分割上の和の標準部が積分値になる。
   - term: 超有限 Darboux gap
     english: hyperfinite Darboux gap
     meaning: 移送された Darboux 上和と下和の差。等分割では、この差が全ての無限超自然数 H で無限小になることが Riemann 可積分性と同値になる。
