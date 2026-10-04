@@ -10,7 +10,7 @@ $$
 
 と Zorn の補題・整列可能定理が ZF 上で同値であることを学びました。
 
-しかし実際の数学では、「選択を使うか、全く使わないか」の二択だけでは粗すぎます。添字集合を可算に限ればよい問題、直前に選んだ値へ依存して次の値を選ぶ問題、filter を極大化すれば足りる問題では、必要な選択原理の形が異なります。
+しかし実際の数学では、「選択を使うか、全く使わないか」の二択だけでは粗すぎます。添字集合を可算に限ればよい問題、直前に選んだ値へ依存して次の値を選ぶ問題、フィルター を極大化すれば足りる問題では、必要な選択原理の形が異なります。
 
 この章では
 
@@ -28,7 +28,7 @@ $$
 
 を「何を選ぶ原理なのか」という視点で整理し、さらに超フィルター補題へ進みます。
 
-filter 自体は [TOP6 の定義](../TOP6/index.md#def-top6-filter)を正本として使います。TOP6 の Baire・net などをこの章で使うわけではありません。必要なのは filter の三条件だけです。
+フィルター 自体は [TOP6 の定義](../TOP6/index.md#def-top6-filter)を正本として使います。TOP6 の Baire・net などをこの章で使うわけではありません。必要なのは フィルター の三条件だけです。
 
 ---
 
@@ -351,9 +351,9 @@ $$
 
 ---
 
-## 5. filter の正本を再利用する
+## 5. フィルター の正本を再利用する
 
-[TOP6](../TOP6/index.md#def-top6-filter) では、集合 $X$ 上の filter を
+[TOP6](../TOP6/index.md#def-top6-filter) では、集合 $X$ 上の フィルター を
 
 $$
 \mathcal F\subseteq\mathcal P(X)
@@ -367,22 +367,22 @@ $$
 
 を満たすものとして定義しました。
 
-この定義は既に空集合を含まないので、本章でいう filter は文献で **proper filter** と呼ばれるものに対応します。ここでは重複定義を作りません。
+この定義は既に空集合を含まないので、本章でいう フィルター は文献で **真のフィルター（proper フィルター）** と呼ばれるものに対応します。ここでは重複定義を作りません。
 
 ---
 
-## 6. 超フィルター：これ以上大きくできない filter
+## 6. 超フィルター：これ以上大きくできない フィルター
 
-filter を包含関係で大きくしていくと、「proper なままこれ以上集合を追加できない」ところまで進めることがあります。
+フィルター を包含関係で大きくしていくと、「proper なままこれ以上集合を追加できない」ところまで進めることがあります。
 
 <a id="def-set9-ultrafilter"></a>
 <!-- formal-statement-start -->
 ### 定義（超フィルター）
 
-集合 $X$ 上の filter $\mathcal U$ が **超フィルター**（ultrafilter）であるとは、$\mathcal U$ を真に含む $X$ 上の filter が存在しないことをいう。
+集合 $X$ 上の フィルター $\mathcal U$ が **超フィルター**（ultrafilter）であるとは、$\mathcal U$ を真に含む $X$ 上の フィルター が存在しないことをいう。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-set9-ultrafilter -->
+<!-- definition-example-start: def-set9-ultraフィルター -->
 **定義の確認。**
 
 $x\in X$ を固定して
@@ -395,14 +395,14 @@ $$
 
 と置きます。
 
-これは TOP6 の一点 filter です。後で示す二者択一性から、任意の $A\subseteq X$ について $x\in A$ なら $A\in\mathcal U_x$、$x\notin A$ なら $X\setminus A\in\mathcal U_x$ なので、$\mathcal U_x$ は超フィルターです。
+これは TOP6 の一点 フィルター です。後で示す二者択一性から、任意の $A\subseteq X$ について $x\in A$ なら $A\in\mathcal U_x$、$x\notin A$ なら $X\setminus A\in\mathcal U_x$ なので、$\mathcal U_x$ は超フィルターです。
 <!-- definition-example-end -->
 
 <a id="thm-set9-ultrafilter-dichotomy"></a>
 <!-- formal-statement-start -->
 ### 定理（超フィルターの二者択一）
 
-$\mathcal U$ を $X$ 上の filter とする。
+$\mathcal U$ を $X$ 上の フィルター とする。
 
 $\mathcal U$ が超フィルターであることと、任意の $A\subseteq X$ について
 
@@ -436,7 +436,7 @@ $$
 
 と置けます。
 
-$\mathcal F_A$ は $\mathcal U$ を含み、$A\in\mathcal F_A$ です。また仮定により空集合は入りません。有限共通部分と上方閉性も定義から確認できるので、$\mathcal F_A$ は $\mathcal U$ を真に含む filter になります。
+$\mathcal F_A$ は $\mathcal U$ を含み、$A\in\mathcal F_A$ です。また仮定により空集合は入りません。有限共通部分と上方閉性も定義から確認できるので、$\mathcal F_A$ は $\mathcal U$ を真に含む フィルター になります。
 
 これは超フィルターの極大性に反します。
 
@@ -452,7 +452,7 @@ $$
 B\subseteq X\setminus A.
 $$
 
-filter の上方閉性から
+フィルター の上方閉性から
 
 $$
 X\setminus A\in\mathcal U.
@@ -460,7 +460,7 @@ $$
 
 よって二者択一が成り立ちます。
 
-逆に二者択一を仮定し、$\mathcal U\subsetneq\mathcal F$ となる filter $\mathcal F$ があるとします。
+逆に二者択一を仮定し、$\mathcal U\subsetneq\mathcal F$ となる フィルター $\mathcal F$ があるとします。
 
 $$
 A\in\mathcal F\setminus\mathcal U
@@ -472,7 +472,7 @@ $$
 X\setminus A\in\mathcal U\subseteq\mathcal F.
 $$
 
-すると filter の有限共通部分閉性から
+すると フィルター の有限共通部分閉性から
 
 $$
 \varnothing
@@ -481,7 +481,7 @@ A\cap(X\setminus A)
 \in\mathcal F,
 $$
 
-となり filter の定義に反します。
+となり フィルター の定義に反します。
 
 従って $\mathcal U$ は極大で、超フィルターです。$\square$
 <!-- proof-end -->
@@ -505,7 +505,7 @@ $$
 の形で書ける超フィルターを **主超フィルター**という。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-set9-principal-ultrafilter -->
+<!-- definition-example-start: def-set9-principal-ultraフィルター -->
 **定義の確認。**
 
 $\mathcal U_x$ には一元集合
@@ -530,21 +530,21 @@ $$
 主超フィルターでない超フィルターを **自由超フィルター**という。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-set9-free-ultrafilter -->
+<!-- definition-example-start: def-set9-free-ultraフィルター -->
 **定義の確認。**
 
 有限集合 $X$ 上では全ての超フィルターが主超フィルターです。
 
-一方、無限集合では後で余有限 filter を延長すると自由超フィルターを得られます。ただし、この延長には選択原理が必要です。
+一方、無限集合では後で余有限 フィルター を延長すると自由超フィルターを得られます。ただし、この延長には選択原理が必要です。
 <!-- definition-example-end -->
 
 ---
 
-## 8. $\mathbb N$ 上の余有限 filter
+## 8. $\mathbb N$ 上の余有限 フィルター
 
 <a id="def-set9-cofinite-filter"></a>
 <!-- formal-statement-start -->
-### 定義（余有限 filter）
+### 定義（余有限 フィルター）
 
 無限集合 $X$ に対して
 
@@ -556,26 +556,26 @@ $$
 
 と置く。
 
-これを $X$ 上の **余有限 filter** という。
+これを $X$ 上の **余有限 フィルター** という。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-set9-cofinite-filter -->
+<!-- definition-example-start: def-set9-cofinite-フィルター -->
 **定義の確認：$\mathbb N$。**
 
 $$
 \{10,11,12,\ldots\}
 $$
 
-は補集合 $\{0,1,\ldots,9\}$ が有限なので余有限 filter に入ります。
+は補集合 $\{0,1,\ldots,9\}$ が有限なので余有限 フィルター に入ります。
 
-偶数全体の集合は補集合である奇数全体も無限なので、余有限 filter には入りません。
+偶数全体の集合は補集合である奇数全体も無限なので、余有限 フィルター には入りません。
 <!-- definition-example-end -->
 
 <a id="prop-set9-cofinite-is-filter"></a>
 <!-- formal-statement-start -->
-### 命題（余有限族は filter である）
+### 命題（余有限族は フィルター である）
 
-無限集合 $X$ 上の $\mathcal F_{\mathrm{cof}}$ は filter である。
+無限集合 $X$ 上の $\mathcal F_{\mathrm{cof}}$ は フィルター である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -635,33 +635,33 @@ $$
 B\in\mathcal F_{\mathrm{cof}}.
 $$
 
-よって filter の三条件を満たします。$\square$
+よって フィルター の三条件を満たします。$\square$
 <!-- proof-end -->
 
 ---
 
-## 9. Zorn の補題で filter を超フィルターへ延長する
+## 9. Zorn の補題で フィルター を超フィルターへ延長する
 
 <a id="thm-set9-ultrafilter-lemma-from-zorn"></a>
 <!-- formal-statement-start -->
 ### 定理（Zorn からの超フィルター拡張）
 
-集合 $X$ 上の filter $\mathcal F_0$ に対して、$\mathcal F_0$ を含む超フィルター $\mathcal U$ が存在する。
+集合 $X$ 上の フィルター $\mathcal F_0$ に対して、$\mathcal F_0$ を含む超フィルター $\mathcal U$ が存在する。
 <!-- formal-statement-end -->
 
-この主張そのものを **超フィルター補題**（ultrafilter lemma）と呼びます。ここでは [Zorn の補題](../F0_00A3_半順序_Zorn_極大延長/index.md#thm-zorn)から導くため、ZFC では成立することが分かります。
+この主張そのものを **超フィルター補題**（ultraフィルター lemma）と呼びます。ここでは [Zorn の補題](../F0_00A3_半順序_Zorn_極大延長/index.md#thm-zorn)から導くため、ZFC では成立することが分かります。
 
 <!-- proof-start -->
 ### 証明
 
-$\mathcal F_0$ を含む $X$ 上の filter 全体を
+$\mathcal F_0$ を含む $X$ 上の フィルター 全体を
 
 $$
 P
 =
 \{
 \mathcal F:
-\mathcal F\text{ は }X\text{ 上の filter},\
+\mathcal F\text{ は }X\text{ 上の フィルター},\
 \mathcal F_0\subseteq\mathcal F
 \}
 $$
@@ -706,13 +706,13 @@ $$
 A\cap B\in\mathcal F_2\subseteq\mathcal F_C.
 $$
 
-上方閉性も、$A\in\mathcal F_C$ を含む一つの filter で確認すれば従います。
+上方閉性も、$A\in\mathcal F_C$ を含む一つの フィルター で確認すれば従います。
 
-したがって $\mathcal F_C$ は filter です。また全ての $\mathcal F\in C$ を含むので鎖 $C$ の上界です。
+したがって $\mathcal F_C$ は フィルター です。また全ての $\mathcal F\in C$ を含むので鎖 $C$ の上界です。
 
 よって $P$ の任意の鎖は上界を持ちます。[Zorn の補題](../F0_00A3_半順序_Zorn_極大延長/index.md#thm-zorn)から、$P$ は極大元 $\mathcal U$ を持ちます。
 
-$\mathcal U$ を真に含む filter があれば、それも $\mathcal F_0$ を含むので $P$ に属し、$\mathcal U$ の極大性に反します。
+$\mathcal U$ を真に含む フィルター があれば、それも $\mathcal F_0$ を含むので $P$ に属し、$\mathcal U$ の極大性に反します。
 
 従って $\mathcal U$ は超フィルターです。$\square$
 <!-- proof-end -->
@@ -755,7 +755,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\mathbb N$ 上の余有限 filter
+$\mathbb N$ 上の余有限 フィルター
 
 $$
 \mathcal F_{\mathrm{cof}}
@@ -795,7 +795,7 @@ $$
 \mathcal U.
 $$
 
-filter の有限共通部分閉性から
+フィルター の有限共通部分閉性から
 
 $$
 \varnothing
@@ -814,7 +814,7 @@ $$
 この証明で大事なのは、
 
 $$
-\text{余有限 filter}
+\text{余有限 フィルター}
 \longrightarrow
 \text{超フィルターへ延長}
 \longrightarrow
@@ -942,10 +942,10 @@ $$
 <!-- solution-end -->
 
 <a id="ex-set9-a03"></a>
-#### SET9-A03 余有限 filter を判定する
+#### SET9-A03 余有限 フィルター を判定する
 - Level: A
 
-$\mathbb N$ の次の部分集合が余有限 filter に入るか判定せよ。
+$\mathbb N$ の次の部分集合が余有限 フィルター に入るか判定せよ。
 
 1. $\{100,101,102,\ldots\}$
 2. 偶数全体
@@ -954,7 +954,7 @@ $\mathbb N$ の次の部分集合が余有限 filter に入るか判定せよ。
 <!-- solution-start -->
 #### 詳細解答
 
-余有限 filter に入る条件は、補集合が有限であることです。
+余有限 フィルター に入る条件は、補集合が有限であることです。
 
 1. 補集合は $\{0,\ldots,99\}$ で有限なので入ります。
 2. 補集合は奇数全体で無限なので入りません。
@@ -1078,16 +1078,16 @@ $$
 <!-- solution-end -->
 
 <a id="ex-set9-b02"></a>
-#### SET9-B02 鎖の filter の合併
+#### SET9-B02 鎖の フィルター の合併
 - Level: B
 
-包含関係で鎖をなす filter 族 $C$ に対し、
+包含関係で鎖をなす フィルター 族 $C$ に対し、
 
 $$
 \mathcal F_C=\bigcup_{\mathcal F\in C}\mathcal F
 $$
 
-が filter であることを示せ。特に有限共通部分閉性で鎖性を使う箇所を明示せよ。
+が フィルター であることを示せ。特に有限共通部分閉性で鎖性を使う箇所を明示せよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -1115,7 +1115,7 @@ $$
 
 または逆向きです。前者としてよいです。
 
-すると $A,B$ は同じ filter $\mathcal F_2$ に入り、
+すると $A,B$ は同じ フィルター $\mathcal F_2$ に入り、
 
 $$
 A\cap B\in\mathcal F_2\subseteq\mathcal F_C.
@@ -1123,13 +1123,13 @@ $$
 
 これが鎖性を使う核心です。
 
-上方閉性は、$A$ を含む一つの filter に $A\subseteq B$ を適用すれば従います。
+上方閉性は、$A$ を含む一つの フィルター に $A\subseteq B$ を適用すれば従います。
 
-従って $\mathcal F_C$ は filter です。
+従って $\mathcal F_C$ は フィルター です。
 <!-- solution-end -->
 
 <a id="ex-set9-b03"></a>
-#### SET9-B03 余有限 filter の延長は自由
+#### SET9-B03 余有限 フィルター の延長は自由
 - Level: B
 
 $\mathcal U$ が $\mathbb N$ 上の超フィルターで
@@ -1170,7 +1170,7 @@ $$
 \in\mathcal U,
 $$
 
-となり filter の定義に反します。
+となり フィルター の定義に反します。
 
 従って $\mathcal U$ は自由超フィルターです。
 <!-- solution-end -->
@@ -1183,7 +1183,7 @@ $$
 
 $\mathbb N$ 上の自由超フィルターを得る構成を、
 
-1. 余有限 filter の構成
+1. 余有限 フィルター の構成
 2. Zorn を適用する半順序集合
 3. 鎖の上界
 4. 極大元が超フィルターになる理由
@@ -1194,7 +1194,7 @@ $\mathbb N$ 上の自由超フィルターを得る構成を、
 <!-- solution-start -->
 #### 詳細解答
 
-**1. 余有限 filter。**
+**1. 余有限 フィルター。**
 
 $$
 \mathcal F_{\mathrm{cof}}
@@ -1213,7 +1213,7 @@ P
 =
 \{
 \mathcal F:
-\mathcal F\text{ は }\mathbb N\text{ 上の filter},
+\mathcal F\text{ は }\mathbb N\text{ 上の フィルター},
 \ \mathcal F_{\mathrm{cof}}\subseteq\mathcal F
 \}
 $$
@@ -1232,13 +1232,13 @@ $$
 
 と置きます。
 
-$A,B$ が合併に入るとき、鎖性により両方を含む一方の filter を選べるため、
+$A,B$ が合併に入るとき、鎖性により両方を含む一方の フィルター を選べるため、
 
 $$
 A\cap B\in\mathcal F_C.
 $$
 
-従って $\mathcal F_C$ は filter で、$C$ の上界です。
+従って $\mathcal F_C$ は フィルター で、$C$ の上界です。
 
 **4. 極大元。**
 
@@ -1250,7 +1250,7 @@ $$
 
 という極大元が存在します。
 
-$\mathcal U$ を真に含む filter があれば、それも $\mathcal F_{\mathrm{cof}}$ を含むため $P$ の元となり、極大性に反します。従って $\mathcal U$ は超フィルターです。
+$\mathcal U$ を真に含む フィルター があれば、それも $\mathcal F_{\mathrm{cof}}$ を含むため $P$ の元となり、極大性に反します。従って $\mathcal U$ は超フィルターです。
 
 **5. 自由性。**
 
@@ -1272,11 +1272,11 @@ $$
 
 **選択原理の監査。**
 
-余有限 filter の構成には選択公理を使っていません。
+余有限 フィルター の構成には選択公理を使っていません。
 
-filter の鎖の合併が上界になる確認にも使っていません。
+フィルター の鎖の合併が上界になる確認にも使っていません。
 
-選択原理を使うのは、鎖上界条件から極大 filter の存在を得る **Zorn の補題の適用**です。
+選択原理を使うのは、鎖上界条件から極大 フィルター の存在を得る **Zorn の補題の適用**です。
 
 F0-00A3A により Zorn は完全な AC から導けます。一方、超フィルター拡張という結論自体は完全な AC より弱い選択原理として扱えるため、「この証明が AC を使った」ことと「この結論が AC と同値」であることは区別します。
 <!-- solution-end -->
