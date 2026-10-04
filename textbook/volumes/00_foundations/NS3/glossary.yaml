@@ -1,0 +1,14 @@
+chapter: "NS3"
+terms:
+  - term: Leray--Hopf 弱解
+    english: Leray--Hopf weak solution
+    meaning: Navier--Stokes の弱形式、有限エネルギー階級、初期値、エネルギー不等式を満たす大域的な弱解。
+  - term: Fourier--Galerkin 近似
+    english: Fourier--Galerkin approximation
+    meaning: 発散零 Fourier モードの有限個だけで速度場を近似し、Navier--Stokes 方程式を有限次元 ODE 系へ落とす構成。
+  - term: Aubin--Lions 型コンパクト性
+    english: Aubin--Lions compactness
+    meaning: 空間方向の強いノルムでの有界性と、弱い双対空間での時間微分評価を組み合わせて時空間の強収束部分列を得る原理。
+  - term: 弱下半連続性
+    english: weak lower semicontinuity
+    meaning: 弱収束する列の極限ノルムが列のノルムの liminf 以下になる性質。Galerkin のエネルギー恒等式が弱解では不等式になる箇所で働く。
