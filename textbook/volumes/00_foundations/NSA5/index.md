@@ -1526,3 +1526,656 @@ $$
 
 という $\varepsilon$-$\delta$ / $\varepsilon$-$N$ の量化を、無限超自然数と無限小近接で読み替えます。
 
+
+---
+
+# 演習
+
+## Level A
+
+<a id="ex-nsa5-a01"></a>
+### NSA5-A01 有限・無限大・無限小を分類する
+- Level: A
+
+正の非零無限小 $\varepsilon$ と $H=1/\varepsilon$ を取る。次の超実数が有限か、無限大か、無限小かを判定せよ。
+
+1. $5+\varepsilon$
+2. $7\varepsilon$
+3. $H+3$
+4. $1/H$
+
+<!-- solution-start -->
+#### 詳細解答
+
+1. $|\varepsilon|<1$ なので
+
+$$
+|5+\varepsilon|
+\le5+|\varepsilon|
+<6.
+$$
+
+従って有限です。また $5+\varepsilon$ は無限小ではありません。例えば $|\varepsilon|<1$ から
+
+$$
+|5+\varepsilon|>4
+$$
+
+となり、任意の標準正実数より小さいという無限小の条件を満たさないからです。
+
+2. 標準実数 $7$ は有限なので、有限超実数と無限小の積に関する補題から $7\varepsilon$ は無限小です。無限小は特に有限です。
+
+3. 標準 $r>0$ を任意に取ります。$H$ は無限大なので
+
+$$
+H>r+3.
+$$
+
+従って
+
+$$
+H+3>r+6>r.
+$$
+
+よって $H+3$ は無限大です。
+
+4.
+
+$$
+\frac1H=\varepsilon
+$$
+
+なので無限小であり、従って有限です。
+<!-- solution-end -->
+
+<a id="ex-nsa5-a02"></a>
+### NSA5-A02 無限小近接を直接確認する
+- Level: A
+
+$\varepsilon,\delta$ を無限小とする。次を示せ。
+
+1. $2+\varepsilon\approx2$
+2. $3+\varepsilon+\delta\approx3$
+3. $4\varepsilon-\delta\approx0$
+
+<!-- solution-start -->
+#### 詳細解答
+
+1.
+
+$$
+(2+\varepsilon)-2=\varepsilon
+$$
+
+が無限小なので、定義から $2+\varepsilon\approx2$ です。
+
+2.
+
+$$
+(3+\varepsilon+\delta)-3
+=
+\varepsilon+\delta.
+$$
+
+無限小の和は無限小なので
+
+$$
+3+\varepsilon+\delta\approx3.
+$$
+
+3. 標準実数 $4$ は有限です。従って $4\varepsilon$ は無限小です。また $-\delta$ も無限小なので
+
+$$
+4\varepsilon-\delta
+=
+4\varepsilon+(-\delta)
+$$
+
+は無限小です。よって $4\varepsilon-\delta\approx0$ です。
+<!-- solution-end -->
+
+<a id="ex-nsa5-a03"></a>
+### NSA5-A03 標準部を計算する
+- Level: A
+
+$\varepsilon,\delta$ を無限小とする。次の標準部を求めよ。
+
+1. $4+3\varepsilon$
+2. $-2+\delta$
+3. $(2+\varepsilon)(5+\delta)$
+
+<!-- solution-start -->
+#### 詳細解答
+
+1. $3\varepsilon$ は無限小なので
+
+$$
+4+3\varepsilon\approx4.
+$$
+
+従って
+
+$$
+\operatorname{st}(4+3\varepsilon)=4.
+$$
+
+2. $\delta$ は無限小なので
+
+$$
+-2+\delta\approx-2.
+$$
+
+従って
+
+$$
+\operatorname{st}(-2+\delta)=-2.
+$$
+
+3. 標準部の積保存を使います。
+
+$$
+\operatorname{st}(2+\varepsilon)=2,
+\qquad
+\operatorname{st}(5+\delta)=5.
+$$
+
+従って
+
+$$
+\operatorname{st}((2+\varepsilon)(5+\delta))
+=
+2\cdot5
+=
+10.
+$$
+
+展開して確認すると
+
+$$
+(2+\varepsilon)(5+\delta)
+=
+10+2\delta+5\varepsilon+\varepsilon\delta,
+$$
+
+後ろ三項はいずれも無限小です。
+<!-- solution-end -->
+
+<a id="ex-nsa5-a04"></a>
+### NSA5-A04 標準部が 0 であることを判定する
+- Level: A
+
+有限超実数 $x$ について
+
+$$
+\operatorname{st}(x)=0
+$$
+
+なら $x^2$ も無限小であることを示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+$\operatorname{st}(x)=0$ なら、本文の命題から $x$ は無限小です。
+
+無限小は有限でもあるので、「有限超実数と無限小の積は無限小」を $x$ と $x$ に適用すると
+
+$$
+x^2=x\cdot x
+$$
+
+は無限小です。
+
+同じことは標準部の積保存から
+
+$$
+\operatorname{st}(x^2)
+=
+\operatorname{st}(x)^2
+=
+0
+$$
+
+と確認してもよいです。
+<!-- solution-end -->
+
+<a id="ex-nsa5-a05"></a>
+### NSA5-A05 monad の平行移動
+- Level: A
+
+標準実数 $a,b$ と超実数 $x$ について
+
+$$
+x\in\mu(a)
+$$
+
+なら
+
+$$
+x+b\in\mu(a+b)
+$$
+
+を示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+$x\in\mu(a)$ なので
+
+$$
+x\approx a.
+$$
+
+定義から
+
+$$
+x-a
+$$
+
+は無限小です。
+
+差を計算すると
+
+$$
+(x+b)-(a+b)
+=
+x-a.
+$$
+
+右辺は無限小なので
+
+$$
+x+b\approx a+b.
+$$
+
+従って
+
+$$
+x+b\in\mu(a+b).
+$$
+<!-- solution-end -->
+
+## Level B
+
+<a id="ex-nsa5-b01"></a>
+### NSA5-B01 標準部の存在証明を再構成する
+- Level: B
+
+$x$ を有限超実数とし
+
+$$
+A_x=\{r\in\mathbb R:r\le x\}
+$$
+
+と置く。
+
+1. $A_x$ が空でなく上に有界であることを示せ。
+2. $s=\sup A_x$ と置き、任意の標準 $\varepsilon>0$ に対して
+   $$
+   s-\varepsilon<x
+   $$
+   を示せ。
+3. 同じ $\varepsilon$ に対して
+   $$
+   x<s+\varepsilon
+   $$
+   を示せ。
+4. $x\approx s$ を結論せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+1. $x$ は有限なので、標準 $M>0$ が存在して
+
+$$
+|x|<M.
+$$
+
+従って
+
+$$
+-M<x<M.
+$$
+
+よって $-M\in A_x$ であり、$A_x$ は空ではありません。
+
+$r\in A_x$ なら $r\le x<M$ なので、$M$ は $A_x$ の上界です。
+
+2. 実数の上限性質から
+
+$$
+s=\sup A_x
+$$
+
+が存在します。
+
+標準 $\varepsilon>0$ を取ります。$s-\varepsilon<s$ なので、$s-\varepsilon$ は $A_x$ の上界ではありません。従ってある $r\in A_x$ が存在して
+
+$$
+s-\varepsilon<r.
+$$
+
+$r\in A_x$ だから $r\le x$ であり
+
+$$
+s-\varepsilon<x.
+$$
+
+3. 反対に $x\ge s+\varepsilon$ と仮定します。
+
+$$
+t=s+\frac{\varepsilon}{2}
+$$
+
+は標準実数で
+
+$$
+t<s+\varepsilon\le x.
+$$
+
+従って $t\in A_x$ です。しかし $t>s$ なので $s$ が上界であることに矛盾します。よって
+
+$$
+x<s+\varepsilon.
+$$
+
+4. 2. と3. から
+
+$$
+-\varepsilon<x-s<\varepsilon.
+$$
+
+従って
+
+$$
+|x-s|<\varepsilon.
+$$
+
+これは任意の標準 $\varepsilon>0$ で成り立つので $x-s$ は無限小です。従って
+
+$$
+x\approx s.
+$$
+<!-- solution-end -->
+
+<a id="ex-nsa5-b02"></a>
+### NSA5-B02 標準部の一意性と標準実数の剛性
+- Level: B
+
+標準実数 $r,s$ が
+
+$$
+r\approx s
+$$
+
+を満たすとき $r=s$ を示せ。その上で、有限超実数 $x$ に対する標準部が高々一つしか存在しないことを示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+$r\approx s$ なので $r-s$ は無限小です。
+
+もし $r\ne s$ なら
+
+$$
+d=|r-s|>0
+$$
+
+は標準正実数です。
+
+$r-s$ の無限小性を標準正実数 $d$ に適用すると
+
+$$
+|r-s|<d.
+$$
+
+しかし左辺は $d$ なので
+
+$$
+d<d
+$$
+
+となり矛盾です。従って $r=s$ です。
+
+次に標準実数 $r,s$ がともに
+
+$$
+x\approx r,
+\qquad
+x\approx s
+$$
+
+を満たすとします。
+
+$\approx$ の対称性と推移性から
+
+$$
+r\approx s.
+$$
+
+前半の結果により $r=s$ です。従って標準部は高々一つです。
+<!-- solution-end -->
+
+<a id="ex-nsa5-b03"></a>
+### NSA5-B03 $\approx$ を割り算へ無条件に持ち込めないこと
+- Level: B
+
+正の非零無限小 $\varepsilon$ を取る。
+
+1. $\varepsilon\approx2\varepsilon$ を示せ。
+2. 
+   $$
+   \frac{\varepsilon}{\varepsilon}
+   \quad\text{と}\quad
+   \frac{\varepsilon}{2\varepsilon}
+   $$
+   を計算せよ。
+3. 「$x\approx y$ なら、同じ無限小で割っても近接が保たれる」という主張が偽であることを説明せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+1. 差は
+
+$$
+2\varepsilon-\varepsilon=\varepsilon
+$$
+
+であり、無限小です。従って
+
+$$
+\varepsilon\approx2\varepsilon.
+$$
+
+2. $\varepsilon\ne0$ なので
+
+$$
+\frac{\varepsilon}{\varepsilon}=1,
+$$
+
+$$
+\frac{\varepsilon}{2\varepsilon}=\frac12.
+$$
+
+3. 得られた二つの商の差は
+
+$$
+1-\frac12=\frac12.
+$$
+
+これは標準正実数であり無限小ではありません。従って
+
+$$
+1\not\approx\frac12.
+$$
+
+問題は、割る量 $\varepsilon$ が 0 に無限小近接しており、その逆数 $1/\varepsilon$ が無限大になることです。無限大を掛ける操作は無限小近接を保つとは限りません。
+<!-- solution-end -->
+
+<a id="ex-nsa5-b04"></a>
+### NSA5-B04 標準部のグラフが内部ではない理由
+- Level: B
+
+標準部のグラフ $G_{\operatorname{st}}$ が内部集合であると仮定する。
+
+1. その第一座標への射影
+   $$
+   D=\{x:\exists y,\ (x,y)\in G_{\operatorname{st}}\}
+   $$
+   が内部集合になる理由を説明せよ。
+2. $D=\operatorname{Fin}({}^*\mathbb R)$ であることを確認せよ。
+3. NSA4 の結果と矛盾することを示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+1. 内部集合は集合列の超冪から得られます。$G_{\operatorname{st}}=[G_n]_{\mathrm{int}}$ と表せるなら、各座標で第一射影
+
+$$
+D_n
+=
+\{x\in\mathbb R:\exists y\in\mathbb R,\ (x,y)\in G_n\}
+$$
+
+を取れます。
+
+この集合列が定める内部集合 $[D_n]_{\mathrm{int}}$ が $D$ です。これは Łoś の定理で存在量化を座標ごとに読むことと同じです。
+
+2. $G_{\operatorname{st}}$ の第一座標に現れるのは、標準部が定義される超実数です。標準部は有限超実数に対してちょうど定義されるので
+
+$$
+D=\operatorname{Fin}({}^*\mathbb R).
+$$
+
+3. 1. から $D$ は内部集合です。しかし NSA4 では有限超実数全体が外部集合であることを証明しました。矛盾です。
+
+従って $G_{\operatorname{st}}$ は内部集合ではありません。
+<!-- solution-end -->
+
+## Level C
+
+<a id="ex-nsa5-c01"></a>
+### NSA5-C01 有界列・通常極限・超フィルター依存を標準部で統合する
+- Level: C
+
+実数列 $(a_n)$ がある標準 $M>0$ に対して
+
+$$
+|a_n|\le M
+\qquad
+(\forall n)
+$$
+
+を満たすとする。$x=[a_n]\in{}^*\mathbb R$ と置く。
+
+1. $x$ が有限超実数であり、$\operatorname{st}(x)$ が存在することを示せ。
+2. さらに通常の意味で $a_n\to L$ なら
+   $$
+   \operatorname{st}(x)=L
+   $$
+   を示せ。
+3. $a_n=(-1)^n$ の場合、$\operatorname{st}(x)$ が $1$ または $-1$ であることを示し、どちらになるかが固定した自由超フィルターに依存し得ることを説明せよ。
+4. 2. と3. を比較し、通常極限が存在する場合には標準部が超フィルターの選択に依存しない理由を述べよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+1. 全ての $n$ で
+
+$$
+|a_n|\le M
+$$
+
+なので
+
+$$
+\{n:|a_n|\le M\}
+=
+\mathbb N\in\mathcal U.
+$$
+
+超実数の順序から
+
+$$
+|x|\le M.
+$$
+
+例えば標準実数 $M+1$ を取れば
+
+$$
+|x|<M+1,
+$$
+
+なので $x$ は有限超実数です。従って標準部の存在定理により $\operatorname{st}(x)$ が存在します。
+
+2. $a_n\to L$ とします。標準 $\varepsilon>0$ を任意に取ります。
+
+通常の収束の定義から、ある $N$ が存在して
+
+$$
+n\ge N
+\Longrightarrow
+|a_n-L|<\varepsilon.
+$$
+
+従って
+
+$$
+\{n:n\ge N\}
+\subseteq
+\{n:|a_n-L|<\varepsilon\}.
+$$
+
+左辺は余有限集合なので $\mathcal U$ に属します。上方閉性から右辺も $\mathcal U$ に属します。
+
+従って超実数の順序で
+
+$$
+|x-L|<\varepsilon.
+$$
+
+これは任意の標準 $\varepsilon>0$ で成り立つので
+
+$$
+x\approx L.
+$$
+
+標準部の一意性から
+
+$$
+\operatorname{st}(x)=L.
+$$
+
+3. 偶数集合を $E$、奇数集合を $O$ とします。$O=\mathbb N\setminus E$ なので、超フィルターの二者択一により $E,O$ のちょうど一方が $\mathcal U$ に属します。
+
+$E\in\mathcal U$ なら $a_n=1$ となる添字集合が $\mathcal U$-大なので
+
+$$
+x=1.
+$$
+
+従って
+
+$$
+\operatorname{st}(x)=1.
+$$
+
+$O\in\mathcal U$ なら同様に
+
+$$
+x=-1,
+\qquad
+\operatorname{st}(x)=-1.
+$$
+
+どちらを $\mathcal U$ が選ぶかは自由超フィルターの選択に依存し得ます。
+
+4. 通常極限 $L$ が存在する場合、任意の $\varepsilon>0$ に対する近接条件は**余有限集合**上で成り立ちます。全ての自由超フィルターは余有限集合を含むので、どの自由超フィルターを使っても
+
+$$
+[a_n]\approx L
+$$
+
+です。
+
+一方、$(-1)^n$ の偶数集合も奇数集合も余有限ではありません。どちらを大集合とみなすかは超フィルターの選択に委ねられるため、標準部もその選択に依存し得ます。
+<!-- solution-end -->
