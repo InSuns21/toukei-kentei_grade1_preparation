@@ -4,13 +4,14 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - NS4
+  - ODE8
 official_scope: []
 learning_objectives:
   - 三次元周期 Navier--Stokes の強解を C_t V、L2_t D(A)、時間微分 L2_t H の条件で定義し、Leray--Hopf 弱解との差を説明できる
   - H1 エネルギー式を Au で試すことから導き、|b(u,u,Au)| <= C||grad u||_2^(3/2)||Au||_2^(3/2) を補間の途中式付きで示せる
   - Young の不等式の指数 4/3 と 4 を選び、y=||grad u||_2^2 に対する y' <= C_nu y^3 + forcing を導ける
   - Galerkin 近似を短時間で L-infinity_t V と L2_t D(A) に一様制御し、時間微分 L2_t H と Fourier コンパクト性から局所強解を構成できる
-  - 二つの強解の差に三次元 L4 評価を適用し、Gronwall の不等式で強解一意性を証明できる
+  - 二つの強解の差に三次元 L4 評価を適用し、Grönwall の不等式で強解一意性を証明できる
   - 最大強解存在時間を定義し、有限最大時刻なら H1 ノルムが無界になる blow-up alternative を再出発論法で証明できる
   - int ||grad u||_2^4 dt が有限なら H1 ノルムが有限に保たれる積分型 continuation criterion を導ける
   - 強解のエネルギー等号と Leray--Hopf 弱解のエネルギー不等式から相対エネルギーを作り、弱--強一意性を証明できる
