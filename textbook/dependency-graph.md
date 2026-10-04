@@ -374,7 +374,7 @@ P7 正則model・score・Fisher → P7A MLE漸近論
 
 ## DREAM THEATER：標準複素解析 I--II
 
-複素解析の読順は CA1--CA6 を局所理論・Cauchy 理論・留数・解析接続・円板幾何の主線、CA7--CA12 を大域正則関数論・Riemann 面・関数構成・特殊関数の後半系列とする。局所的な必須前提の正本は各 `chapter.yaml` である。
+複素解析の公開科目境界は、CA1--CA7 を **複素解析 I**、CA8--CA12 を **複素解析 II** とする。CA7 は正則関数族・Montel / Hurwitz・Riemann 写像定理によって平面領域上の複素解析を締めくくる橋であり、CA8 から Riemann 面・楕円関数・関数構成・特殊関数へ進む。局所的な必須前提の正本は各 `chapter.yaml` である。
 
 ~~~text
 CA1 → CA2 → CA3 → CA4 → CA5 → CA6
