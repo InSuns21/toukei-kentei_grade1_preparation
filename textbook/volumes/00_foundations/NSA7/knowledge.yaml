@@ -21,7 +21,6 @@ concepts:
     aliases: [nonstandard criterion for differentiability]
     requires:
       - nonstandard.infinitesimal-difference-quotient
-      - nonstandard.continuity-characterization
       - analysis.differential-coefficient
       - nonstandard.standard-symbol-transfer
 
