@@ -13,7 +13,7 @@ concepts:
     requires:
       - set.ordinal
       - set.transfinite-induction
-      - set.replacement-schema-zf
+      - set.replacement-schema
 
   - id: order.order-type
     name: 順序型
