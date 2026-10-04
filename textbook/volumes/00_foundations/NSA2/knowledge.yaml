@@ -1,0 +1,125 @@
+chapter: NSA2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NSA1
+
+forward_references: []
+
+concepts:
+  - id: logic.first-order-language
+    name: 一階言語
+    kind: definition
+    aliases: [first-order language]
+    requires: []
+
+  - id: logic.term
+    name: 一階論理の項
+    kind: definition
+    aliases: [logical term]
+    introduction_aliases: [項]
+    requires:
+      - logic.first-order-language
+
+  - id: logic.atomic-formula
+    name: 原子論理式
+    kind: definition
+    aliases: [atomic formula]
+    requires:
+      - logic.term
+
+  - id: logic.first-order-formula
+    name: 一階論理式
+    kind: definition
+    aliases: [first-order formula]
+    requires:
+      - logic.atomic-formula
+
+  - id: logic.free-variables
+    name: 自由変数集合
+    kind: definition
+    aliases: [free variable set]
+    requires:
+      - logic.first-order-formula
+
+  - id: logic.sentence
+    name: 一階論理の文
+    kind: definition
+    aliases: [sentence]
+    introduction_aliases: [文]
+    requires:
+      - logic.free-variables
+
+  - id: logic.first-order-structure
+    name: 一階言語の構造
+    kind: definition
+    aliases: [first-order structure]
+    requires:
+      - logic.first-order-language
+
+  - id: logic.variable-assignment
+    name: 変数割当て
+    kind: definition
+    aliases: [variable assignment]
+    requires:
+      - logic.first-order-structure
+
+  - id: logic.term-evaluation
+    name: 項の値
+    kind: definition
+    aliases: [term evaluation]
+    requires:
+      - logic.term
+      - logic.first-order-structure
+      - logic.variable-assignment
+
+  - id: logic.term-evaluation-variable-dependence
+    name: 項の値は項に現れる変数だけに依存する
+    kind: proposition
+    aliases: []
+    requires:
+      - logic.term-evaluation
+
+  - id: logic.satisfaction
+    name: 充足
+    kind: definition
+    aliases: [satisfaction]
+    requires:
+      - logic.atomic-formula
+      - logic.first-order-structure
+      - logic.variable-assignment
+      - logic.term-evaluation
+
+  - id: logic.formula-structural-induction
+    name: 論理式に関する構文帰納法
+    kind: theorem
+    aliases: [structural induction on formulas]
+    requires:
+      - logic.first-order-formula
+
+  - id: logic.satisfaction-free-variable-dependence
+    name: 充足は自由変数の値だけに依存する
+    kind: proposition
+    aliases: []
+    requires:
+      - logic.satisfaction
+      - logic.free-variables
+      - logic.term-evaluation-variable-dependence
+      - logic.formula-structural-induction
+
+  - id: logic.sentence-assignment-independence
+    name: 文の真偽は変数割当てに依存しない
+    kind: corollary
+    aliases: []
+    requires:
+      - logic.sentence
+      - logic.satisfaction-free-variable-dependence
+
+  - id: logic.many-sorted-first-order-language
+    name: 多ソート一階言語
+    kind: definition
+    aliases: [many-sorted first-order language]
+    requires:
+      - logic.first-order-language
+      - logic.first-order-structure
+      - logic.satisfaction

@@ -1,0 +1,47 @@
+id: "NSA2"
+title: "移送のための最小一階論理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NSA1
+official_scope: []
+learning_objectives:
+  - 一階言語の定数記号・関数記号・関係記号を区別し、項と論理式を構文規則から組み立てられる
+  - 原子論理式・自由変数・束縛された出現・文を区別できる
+  - 構造・変数割当て・項の値・充足関係を再帰的に定義し、具体例を評価できる
+  - 論理式に関する構文帰納法を説明し、充足が自由変数の値だけに依存することを証明できる
+  - 順序体の一階言語でそのまま書ける主張と、standard・無限小・集合量化などそのままでは書けない主張を区別できる
+  - 多ソート一階言語の型を読み、実数・集合など異なる種類の対象を一階論理の枠内で扱う意味を説明できる
+definitions:
+  - { id: NSA2-DEF-01, name: 一階言語 }
+  - { id: NSA2-DEF-02, name: 項 }
+  - { id: NSA2-DEF-03, name: 原子論理式 }
+  - { id: NSA2-DEF-04, name: 一階論理式 }
+  - { id: NSA2-DEF-05, name: 自由変数集合 }
+  - { id: NSA2-DEF-06, name: 文 }
+  - { id: NSA2-DEF-07, name: 一階言語の構造 }
+  - { id: NSA2-DEF-08, name: 変数割当て }
+  - { id: NSA2-DEF-09, name: 項の値 }
+  - { id: NSA2-DEF-10, name: 充足 }
+  - { id: NSA2-DEF-11, name: 多ソート一階言語 }
+theorems:
+  - { id: NSA2-PROP-01, name: 項の値は項に現れる変数だけに依存する }
+  - { id: NSA2-THM-01, name: 論理式に関する構文帰納法 }
+  - { id: NSA2-PROP-02, name: 充足は自由変数の値だけに依存する }
+  - { id: NSA2-COR-01, name: 文の真偽は変数割当てに依存しない }
+canonical_examples:
+  - 順序体の言語 L_of
+  - 実数構造と有理数構造で真偽が変わる文
+  - 存在量化の witness による充足確認
+  - standard と無限小が順序体言語の語彙ではないこと
+  - 実数ソートと集合ソートを持つ多ソート言語
+problem_patterns:
+  - FIRST-ORDER-SYNTAX-1
+  - FREE-VARIABLES-1
+  - SATISFACTION-EVALUATION-1
+  - FIRST-ORDER-EXPRESSIBILITY-1
+  - MANY-SORTED-TYPING-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 3.0, review: 1.0 }
