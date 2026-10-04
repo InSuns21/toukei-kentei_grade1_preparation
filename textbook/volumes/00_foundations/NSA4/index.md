@@ -907,7 +907,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-nsa4-external-set -->
-**定義の見通し**。次節で
+**定義の確認**。次節で
 
 $$
 \mathbb N_{\mathrm{std}}
