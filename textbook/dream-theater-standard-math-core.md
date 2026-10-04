@@ -13,7 +13,29 @@
 3. [**実解析**](textbook/dream-theater.md#dt-subject-real-analysis)：実数の上限性質から数列・級数、極限、微分、Riemann 積分、多変数解析までを、一般位相空間を前提にせず具体的に組み立てる。
 4. [**位相空間論**](textbook/dream-theater.md#dt-subject-topology)：実解析で学んだ収束・連続性・コンパクト性・Cauchy 条件・完備性を、距離空間・位相空間へ一般化する。
 
-> **RA8 は位相空間論後の実解析発展です。** RA5 までの一様収束に加えて TOP5 の一般コンパクト性を使うため、共通基礎の実解析本体には置かず、位相空間論を終えた後に [RA8 関数族のコンパクト性・近似](textbook/volumes/00_foundations/RA8/index.md) へ戻ります。順序数・超限再帰・Hartogs 補題を使う選択公理の完全同値証明は、共通基礎ではなく独立「集合論・数学基礎論」の発展分岐で扱います。
+> **RA8 は位相空間論後の実解析発展です。** RA5 までの一様収束に加えて TOP5 の一般コンパクト性を使うため、共通基礎の実解析本体には置かず、位相空間論を終えた後に [RA8 関数族のコンパクト性・近似](textbook/volumes/00_foundations/RA8/index.md) へ戻ります。順序数・超限再帰・Hartogs 補題を使う選択公理の完全同値証明は、共通基礎ではなく独立した [**集合論・数学基礎論**](textbook/dream-theater.md#dt-subject-axiomatic-set-theory) の発展分岐で扱います。
+
+## 共通基礎からの発展分岐
+
+[**集合論・数学基礎論**](textbook/dream-theater.md#dt-subject-axiomatic-set-theory) は、共通基礎の集合論を終えた後に必要に応じて進む独立系列です。
+
+```text
+SET1 ZF / ZFC
+  ↓
+SET2 順序数
+  ↓
+SET3 超限帰納法
+  ↓
+SET4 超限再帰 ─────→ SET5 累積階層・rank
+  │
+  └→ SET6 基数
+        ↓
+      SET7 Hartogs の補題
+        ↓
+F0-00A3A 選択公理・整列可能定理・Zorn の同値性
+```
+
+この系列は、解析・線形代数・確率・幾何の標準通読に対する必須 prerequisite ではありません。ZF の公理使用箇所、順序数による超限構成、選択公理の同値形を体系的に追いたい場合に読みます。
 
 ## 解析・幾何の主幹
 
