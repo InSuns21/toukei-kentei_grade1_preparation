@@ -228,37 +228,37 @@ $$
 
 これは係数 $d^{(m)}(t)$ に関する有限次元 ODE 系です。係数ベクトルを $d(t)$、外力係数を $F(t)$、二次非線形項を $N(d)$ と書けば
 
-$
+$$
 d'(t)=F(t)-Ld(t)-N(d(t))
-$
+$$
 
 の形です。ここで $F\in L^2(0,T;\mathbb R^m)\subset L^1(0,T;\mathbb R^m)$、$N$ は二次多項式なので任意の有界球上で Lipschitz です。
 
 局所解が作れることも確認します。初期値 $d_0$ を含む十分大きい閉球上で $N$ の Lipschitz 定数を $K$、$|Ld+N(d)|$ の上界を $M$ とします。小さい $\tau>0$ を
 
-$
+$$
 \int_0^\tau |F(s)|\,ds+\tau M
-$
+$$
 
 が球の余裕より小さく、さらに $\tau(\|L\|+K)<1/2$ となるように取ります。写像
 
-$
+$$
 (\Phi d)(t)
 =
 d_0+
 \int_0^t
 \{F(s)-Ld(s)-N(d(s))\}\,ds
-$
+$$
 
 はその閉球内の連続関数を同じ閉球へ写し、
 
-$
+$$
 \|\Phi d-\Phi e\|_\infty
 \le
 \tau(\|L\|+K)\|d-e\|_\infty
 \le
 \frac12\|d-e\|_\infty.
-$
+$$
 
 したがって反復 $d^{(n+1)}=\Phi d^{(n)}$ の差は幾何級数で一様に小さくなり、連続関数 $d$ へ一様収束します。極限を積分式へ入れれば $d=\Phi d$ であり、$d$ は絶対連続な局所解です。
 
@@ -423,15 +423,15 @@ Navier--Stokes でも同じ問題が $u_m\otimes u_m$ に起こります。そ�
 
 $u_m'(t)\in H_m$ なので、任意の $v\in V$ に対して
 
-$
+$$
 (u_m',v)_H=(u_m',P_mv)_H.
-$
+$$
 
 Fourier 射影は各モードを捨てるだけなので
 
-$
+$$
 \|P_mv\|_V\le\|v\|_V.
-$
+$$
 
 従って Galerkin 方程式へ $P_mv$ を入れれば、$u_m'$ を $V^*$ 上の汎関数として評価できます。
 
@@ -551,7 +551,7 @@ $$
 
 任意の $v\in V$ に対して Galerkin 方程式を $P_mv$ で試すと
 
-$
+$$
 \begin{aligned}
 |\langle\partial_tu_m,v\rangle|
 &=
@@ -564,7 +564,7 @@ $
 +
 \|f\|_{V^*}\|P_mv\|_V.
 \end{aligned}
-$
+$$
 
 ここで $\|P_mv\|_V\le\|v\|_V$ と、上で得た非線形項の評価を使います。$\|v\|_V=1$ 上で上限を取り、各項の時間ノルムを合わせれば結論です。
 <!-- proof-end -->
@@ -708,15 +708,15 @@ $$
 
 さらに $\varepsilon>0$ に対し、一様等連続性から
 
-$
+$$
 |t-s|<\delta
 \quad\Longrightarrow\quad
 |a_{n,j}(t)-a_{n,j}(s)|<\frac{\varepsilon}{3}
-$
+$$
 
 となる $\delta>0$ を $n$ に依らず選べます。$D$ から有限個の点 $r_{\ell_1},\ldots,r_{\ell_M}$ を選んで $[0,T]$ を $\delta$ 近傍で覆います。これら有限個の点では対角部分列は Cauchy なので、十分大きい $n,m$ と任意の $t$ に対し、$|t-r_{\ell_s}|<\delta$ となる点を選べば
 
-$
+$$
 \begin{aligned}
 |a_{n,j}(t)-a_{m,j}(t)|
 &\le
@@ -729,13 +729,13 @@ $
 |a_{m,j}(r_{\ell_s})-a_{m,j}(t)|
 <\varepsilon.
 \end{aligned}
-$
+$$
 
 従って各係数は一様収束部分列を持ちます。$j=1,\ldots,N$ は有限個なので同じ部分列を選べ、
 
-$
+$$
 Q_Kz_n
-$
+$$
 
 は $C([0,T];Q_KH)$、従って $L^2(0,T;H)$ で強収束します。
 
@@ -743,9 +743,9 @@ $
 
 最後に $\varepsilon>0$ を取ります。まず
 
-$
+$$
 \frac{2M_1}{K}<\frac{\varepsilon}{2}
-$
+$$
 
 となる $K$ を固定します。上で選んだ共通の対角部分列では、この $K$ の低周波部分が Cauchy なので、十分大きい $n,m$ で
 
@@ -950,14 +950,14 @@ $$
 - 時間項は $u_m\to u$ strongly in $L^2H$。
 - 粘性項は $u_m\rightharpoonup u$ weakly in $L^2V$。
 - 非線形項では、まず第9節を $v$ に使い、さらに
-$
+$$
 \int_0^T
 |b(u_m,u_m,P_mv-v)|\,dt
 \le
 \|P_mv-v\|_V
 \int_0^T
 \|u_m\|_4^2\,dt
-$
+$$
 と評価します。NS2 の $L^4$ 評価と一様エネルギー評価により右辺第2因子は $m$ によらず有界なので、$P_mv\to v$ in $V$ からこの誤差は0へ収束します。
 - 外力項は $P_mv\to v$ in $V$。
 - 初期項は $P_mu_0\to u_0$ in $H$。
@@ -984,10 +984,10 @@ $$
 
 この式はまず滑らかな発散零 $v$ について得られます。これらは $V$ に稠密です。また NS2 の [三重線形形式の連続評価](../NS2/index.md#prop-ns2-trilinear-continuity)により、固定した $u(t)\in V$ に対する各項は $v$ について連続です。従って密度で任意の $v\in V$ へ延長でき、分布微分の意味で
 
-$
+$$
 \partial_tu+\nu Au+B(u,u)=f
 \quad\text{in }V^*
-$
+$$
 
 と初期値 $u(0)=u_0$ を同時に読み取れます。
 
@@ -1027,38 +1027,38 @@ $$
 
 $X=L^2(0,t;V)$ と置き、$u_m\rightharpoonup u$ in $X$ とします。$u\ne0$ なら弱収束の定義から
 
-$
+$$
 \|u\|_X^2
 =
 (u,u)_X
 =
 \lim_{m\to\infty}(u_m,u)_X.
-$
+$$
 
 Cauchy--Schwarz により
 
-$
+$$
 (u_m,u)_X
 \le
 \|u_m\|_X\|u\|_X.
-$
+$$
 
 従って
 
-$
+$$
 \|u\|_X
 \le
 \liminf_{m\to\infty}\|u_m\|_X.
-$
+$$
 
 $u=0$ の場合も自明です。二乗して
 
-$
+$$
 \int_0^t\|u(s)\|_V^2\,ds
 \le
 \liminf_{m\to\infty}
 \int_0^t\|u_m(s)\|_V^2\,ds.
-$
+$$
 
 一方、強 $L^2_tH$ 収束から部分列を取れば $u_m(t)\to u(t)$ in $H$ がほとんどすべての $t$ で成り立ち、外力項も弱 $L^2_tV$ 収束で極限を取れます。
 
@@ -1074,18 +1074,18 @@ $$
 
 任意の時刻 $t$ には、上の不等式が成り立つ時刻 $t_n\downarrow t$ を取ります。弱連続性から
 
-$
+$$
 u(t_n)\rightharpoonup u(t)
 \quad\text{in }H.
-$
+$$
 
 上と同じ Hilbert 空間の liminf 計算を $X=H$ へ適用すると
 
-$
+$$
 \|u(t)\|_H^2
 \le
 \liminf_{n\to\infty}\|u(t_n)\|_H^2.
-$
+$$
 
 積分項は $t_n\downarrow t$ で通常の積分連続性を持つため、同じエネルギー不等式が全ての $t\in[0,T]$ へ延長されます。
 
