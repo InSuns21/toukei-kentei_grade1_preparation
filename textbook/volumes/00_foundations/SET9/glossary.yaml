@@ -1,0 +1,20 @@
+chapter: "SET9"
+terms:
+  - term: 従属選択公理
+    english: axiom of dependent choice
+    meaning: 各点から次へ進める関係があるとき、関係に沿う無限列を構成できるという選択原理。
+  - term: 超フィルター
+    english: ultrafilter
+    meaning: 真に大きいフィルターへ延長できない極大なフィルター。
+  - term: 主超フィルター
+    english: principal ultrafilter
+    meaning: 一点 x を含む部分集合全体からなる超フィルター。
+  - term: 自由超フィルター
+    english: free ultrafilter
+    meaning: 主超フィルターではない超フィルター。
+  - term: 余有限フィルター
+    english: cofinite filter
+    meaning: 補集合が有限である部分集合全体からなるフィルター。
+  - term: 超フィルター補題
+    english: ultrafilter lemma
+    meaning: 任意のフィルターが超フィルターへ延長できるという選択原理。
