@@ -19,7 +19,7 @@ concepts:
   - id: set.transfinite-recursion
     name: 超限再帰定理
     kind: theorem
-    aliases: [超限再帰, 超限再帰定理, transfinite recursion]
+    aliases: [超限再帰定理, transfinite recursion theorem]
     requires:
       - set.transfinite-recursion-rule
       - set.transfinite-induction
