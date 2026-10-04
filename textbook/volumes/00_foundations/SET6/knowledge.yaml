@@ -5,6 +5,12 @@ prerequisites:
   - SET4
   - SET-U3
 
+forward_references:
+  - set.choice-axiom
+  - set.well-ordering-theorem
+  - set.hartogs-lemma
+  - set.successor-cardinal
+
 concepts:
   - id: set.cardinal
     name: 基数・初期順序数
@@ -38,9 +44,9 @@ concepts:
       - set.cantor-bernstein
 
   - id: set.aleph-zero
-    name: aleph_0
+    name: 最小の無限基数
     kind: definition
-    aliases: [aleph_0, 最小の無限基数]
+    aliases: [最小の無限基数, aleph_0]
     requires:
       - set.cardinal
       - set.omega
