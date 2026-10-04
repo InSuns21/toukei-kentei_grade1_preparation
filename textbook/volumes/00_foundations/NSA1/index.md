@@ -82,7 +82,7 @@ $$
 
 <a id="def-nsa1-u-equivalence"></a>
 <!-- formal-statement-start -->
-### 定義（$\mathcal U$-同値）
+### 定義（U-同値）
 
 $x=(x_n),y=(y_n)\in\mathbb R^{\mathbb N}$ に対し、
 
@@ -149,7 +149,7 @@ $$
 
 <a id="prop-nsa1-u-equivalence-relation"></a>
 <!-- formal-statement-start -->
-### 命題（$\mathcal U$-同値は同値関係である）
+### 命題（U-同値は同値関係である）
 
 関係 $\sim_{\mathcal U}$ は $\mathbb R^{\mathbb N}$ 上の同値関係である。
 <!-- formal-statement-end -->
@@ -263,6 +263,10 @@ $$
 
 ## 4. 加法・乗法を同値類へ降ろす
 
+超実数を「数」として使うには、同値類どうしを足したり掛けたりできなければなりません。自然な候補は、代表列を成分ごとに計算してから再び同値類へ戻す方法です。
+
+ただし、同じ超実数には複数の代表列があります。そこで、まず成分ごとの演算を定義し、その直後に代表列を取り替えても結果が変わらないことを証明します。
+
 <a id="def-nsa1-arithmetic"></a>
 <!-- formal-statement-start -->
 ### 定義（超実数の加法・乗法・符号反転）
@@ -320,7 +324,7 @@ $$
 この段階では $\varepsilon$ が無限小、$H$ が無限大であることはまだ使っていません。
 <!-- definition-example-end -->
 
-<a id="prop-nsa1-arithmetic-代表元によらず定まる"></a>
+<a id="prop-nsa1-arithmetic-well-defined"></a>
 <!-- formal-statement-start -->
 ### 命題（加法・乗法は代表元によらない）
 
@@ -484,6 +488,10 @@ $$
 
 ## 6. 順序も代表列から作る
 
+四則演算だけでは、無限小が「0より大きい」「標準実数より小さい」といった比較をまだ表せません。そこで、代表列の大小関係が $\mathcal U$-大な添字集合で成り立つかどうかを、超実数の大小関係として採用します。
+
+ここでも、代表列を替えたときに判定が変わらないことを定義の直後に確認します。
+
 <a id="def-nsa1-order"></a>
 <!-- formal-statement-start -->
 ### 定義（超実数の順序）
@@ -531,7 +539,7 @@ $$
 $$
 <!-- definition-example-end -->
 
-<a id="prop-nsa1-order-代表元によらず定まる"></a>
+<a id="prop-nsa1-order-well-defined"></a>
 <!-- formal-statement-start -->
 ### 命題（順序は代表元によらない）
 
@@ -751,7 +759,7 @@ $$
 
 <a id="def-nsa1-standard-embedding"></a>
 <!-- formal-statement-start -->
-### 定義（標準埋め込み）
+### 定義（実数の標準埋め込み）
 
 $r\in\mathbb R$ に対して定数列
 
@@ -767,7 +775,7 @@ $$
 \iota(r)=[r,r,r,\ldots]
 $$
 
-を **標準埋め込み**という。
+を **実数の標準埋め込み**という。
 
 混乱のない範囲で、以後 $\iota(r)$ を単に $r$ と書く。
 <!-- formal-statement-end -->
@@ -796,7 +804,7 @@ $$
 
 <a id="prop-nsa1-standard-embedding"></a>
 <!-- formal-statement-start -->
-### 命題（標準埋め込みは順序体の埋め込みである）
+### 命題（実数の標準埋め込みは順序体の埋め込みである）
 
 $\iota$ は単射であり、任意の $r,s\in\mathbb R$ に対して
 
@@ -987,6 +995,10 @@ $$
 ---
 
 ## 10. 無限大超実数も同時に現れる
+
+正の無限小 $\varepsilon$ は0ではないので、全順序体の中では逆数 $1/\varepsilon$ を取れます。先ほどの具体例では、その逆数は $[n+1]$ です。
+
+この数は、どの標準正実数よりも大きくなります。この性質を名前で呼べるようにしてから、$[n+1]$ が実際にその条件を満たすことを証明します。
 
 <a id="def-nsa1-infinite-hyperreal"></a>
 <!-- formal-statement-start -->
@@ -1311,7 +1323,7 @@ $$
 \{n:r=s\}=\varnothing.
 $$
 
-しかし $\varnothing\notin\mathcal U$ です。矛盾なので $r=s$ です。従って標準埋め込みは単射です。
+しかし $\varnothing\notin\mathcal U$ です。矛盾なので $r=s$ です。従って実数の標準埋め込みは単射です。
 <!-- solution-end -->
 
 <a id="ex-nsa1-a04"></a>
