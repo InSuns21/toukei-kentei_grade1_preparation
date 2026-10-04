@@ -267,6 +267,11 @@
 10. [GPDE9 楕円型正則性](textbook/volumes/00_foundations/GPDE9/index.md)
 11. [GPDE10 Galerkin・時間発展 PDE の弱解](textbook/volumes/00_foundations/GPDE10/index.md)
 
+<a id="dt-subject-navier-stokes"></a>
+### Navier--Stokes 方程式への道
+
+1. [NS1 発散零空間・Leray 射影・Stokes 作用素](textbook/volumes/00_foundations/NS1/index.md)
+
 <a id="dt-subject-stochastic-analysis"></a>
 ### 確率解析
 
