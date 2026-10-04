@@ -110,12 +110,12 @@ $$
 
 順序数 $\gamma\le\theta$ を定義域とし、
 
-$
+$$
 f(\alpha)
 =
 G(f|_\alpha)
 \qquad(\alpha<\gamma)
-$
+$$
 
 を満たす関数 $f$ を考えます。
 
