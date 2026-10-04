@@ -86,3 +86,19 @@ concepts:
     aliases: [順序数の三分律, ordinal trichotomy]
     requires:
       - set.transitive-subset-initial-segment
+
+  - id: order.wellorder-order-type
+    name: 整列集合の順序型
+    kind: theorem
+    aliases: [整列集合の順序型]
+    requires:
+      - order.well-order
+      - set.ordinal-trichotomy
+      - set.replacement-schema
+
+  - id: order.order-type
+    name: 順序型
+    kind: definition
+    aliases: [順序型, order type]
+    requires:
+      - order.wellorder-order-type
