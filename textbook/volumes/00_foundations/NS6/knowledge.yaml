@@ -6,8 +6,7 @@ prerequisites:
   - VC9
   - FOU4
 
-forward_references:
-  - navier-stokes.prodi-serrin-criterion
+forward_references: []
 
 concepts:
   - id: navier-stokes.scaling
