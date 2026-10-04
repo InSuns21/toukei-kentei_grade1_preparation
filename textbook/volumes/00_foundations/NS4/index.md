@@ -896,7 +896,7 @@ $$
 
 二次元では勾配の指数が1で済みます。
 
-一意性証明で Young の不等式を使うと、この指数差が決定的になります。
+一意性証明で [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)を使うと、この指数差が決定的になります。
 
 ---
 
@@ -1023,7 +1023,7 @@ $$
 \|\nabla\omega\|_2.
 $$
 
-Young の不等式から
+[Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)から
 
 $$
 \|f\|_2
@@ -1396,7 +1396,7 @@ $$
 -b(w,u,w).
 $$
 
-Hölder の不等式で
+[Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)で
 
 $$
 |b(w,u,w)|
@@ -1416,7 +1416,7 @@ C
 \|\nabla u\|_2.
 $$
 
-Young の不等式から
+[Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)から
 
 $$
 C
@@ -1589,7 +1589,7 @@ C
 \|\nabla u\|_2.
 $$
 
-Young の不等式で $\|\nabla w\|_2^2$ を吸収すると、残る係数は概ね
+[Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)で $\|\nabla w\|_2^2$ を吸収すると、残る係数は概ね
 
 $$
 \|\nabla u\|_2^4
@@ -1963,7 +1963,7 @@ $$
 
 二次元では $H^1$ と $H^2$ の制御から、有限時間区間上で必要な $L^4$ 型積評価を繰り返し使えます。
 
-各段階で最高階の散逸項の半分を Young の不等式で左辺へ吸収し、残りを既に一段下で制御済みのノルムへ落とします。
+各段階で最高階の散逸項の半分を [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)で左辺へ吸収し、残りを既に一段下で制御済みのノルムへ落とします。
 
 構造は
 
@@ -2685,7 +2685,7 @@ C
 \end{aligned}
 $$
 
-Young の不等式で
+[Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)で
 
 $$
 |b(w,u,w)|
@@ -2806,7 +2806,7 @@ $$
 \|\nabla\omega\|_2.
 $$
 
-Young の不等式で
+[Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)で
 
 $$
 |\langle g,\omega\rangle|
@@ -3165,7 +3165,7 @@ $$
 \|\nabla\omega\|_2.
 $$
 
-Young の不等式から
+[Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)から
 
 $$
 \frac{d}{dt}
@@ -3234,7 +3234,7 @@ C
 \|\nabla u\|_2.
 $$
 
-Young の不等式で
+[Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)で
 
 $$
 \frac{d}{dt}
