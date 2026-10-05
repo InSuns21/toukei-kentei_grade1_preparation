@@ -5,7 +5,9 @@ prerequisites:
   - NS2
   - GPDE10
 
-forward_references: []
+forward_references:
+  - NPDE1
+  - NPDE2
 
 concepts:
   - id: navier-stokes.leray-hopf-weak-solution
