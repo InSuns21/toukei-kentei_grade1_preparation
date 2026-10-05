@@ -59,9 +59,9 @@ $$
 \lambda I-A
 $$
 
-が空間全体へ届くことが必要です。Lumer--Phillips 定理は
+が空間全体へ届くことが必要です。本章後半で示す生成定理は
 
-$$
+$
 \text{dissipativity}
 +
 \text{range condition}
