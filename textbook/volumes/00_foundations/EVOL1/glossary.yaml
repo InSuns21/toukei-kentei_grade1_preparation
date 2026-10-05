@@ -1,0 +1,26 @@
+chapter: "EVOL1"
+terms:
+  - term: 部分定義線形作用素
+    english: partially defined linear operator
+    meaning: 線形空間 X の部分空間 D(A) だけを定義域として持つ線形作用素 A:D(A)→Y。非有界作用素では作用規則だけでなく定義域も作用素のデータになる。
+  - term: 非有界作用素
+    english: unbounded operator
+    meaning: 定義域 D(A) 上で ||Ax||≤C||x|| を満たす一様な定数 C が存在しない作用素。
+  - term: 閉作用素
+    english: closed operator
+    meaning: グラフ G(A)={(x,Ax):x∈D(A)} が積空間 X×Y で閉集合になる部分定義線形作用素。
+  - term: 可閉作用素
+    english: closable operator
+    meaning: グラフの閉包が再びある作用素のグラフになる作用素。その作用素を元の作用素の閉包という。
+  - term: 作用素の閉包
+    english: closure of an operator
+    meaning: 可閉作用素 A のグラフを閉包して得られる最小の閉拡張で、通常 Ā と表す。
+  - term: 作用素の core
+    english: core of an operator
+    meaning: 閉作用素 A の定義域 D(A) をグラフノルムで稠密に近似できる部分空間 D0⊂D(A)。
+  - term: レゾルベント集合
+    english: resolvent set
+    meaning: 閉作用素 A に対し λI−A が D(A) から X への全単射で、その逆が有界となる λ 全体の集合。
+  - term: 制限と拡張
+    english: restriction and extension of operators
+    meaning: D(A)⊂D(B) かつ Bx=Ax が D(A) 上で成り立つとき、A を B の制限、B を A の拡張という関係。
