@@ -31,11 +31,11 @@ $$
   ↓
 その散逸不等式を粘性0の極限にも残したい
   ↓
-entropy inequality
+凸 entropy の散逸不等式
   ↓
 Kruzhkov の全ての |u-k| を課す
   ↓
-二つの解の差に対する Kato 型不等式
+二つの解の差に対する比較不等式
   ↓
 L1 収縮性
   ↓
@@ -198,7 +198,7 @@ $$
 です。
 <!-- definition-example-end -->
 
-$q$ には加法定数の自由があります。ただし $\partial_xq(u)$ では定数が消えるので、entropy inequality の判定には影響しません。
+$q$ には加法定数の自由があります。ただし $\partial_xq(u)$ では定数が消えるので、後で導入する散逸不等式の判定には影響しません。
 
 重要なのは、まだ凸性を使っていないことです。滑らかな解では、$\eta$ が凸でなくても上の連鎖律から等式が成り立ちます。
 
@@ -851,7 +851,7 @@ $u=1$ では $q_1(1)=0$ です。
 
 $\eta_k$ は $u=k$ で $C^2$ ではありません。ただし滑らかな凸近似を取れるため、前節までの entropy pair の極限として扱えます。
 
-本章で単に entropy solution と書くときは、次の Kruzhkov entropy solution を指します。
+本章で単に entropy solution と書くときは、次に定義する選択解を指します。
 
 <a id="def-npde2-kruzhkov-solution"></a>
 <!-- formal-statement-start -->
