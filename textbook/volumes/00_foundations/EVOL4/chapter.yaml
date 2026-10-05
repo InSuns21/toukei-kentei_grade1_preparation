@@ -21,7 +21,7 @@ definitions:
   - { id: EVOL4-DEF-01, name: "抽象 Cauchy 問題の classical 解" }
   - { id: EVOL4-DEF-02, name: "抽象 Cauchy 問題の strong 解" }
 theorems:
-  - { id: EVOL4-THM-01, name: "classical 解の variation of constants formula" }
+  - { id: EVOL4-THM-01, name: "classical 解の Duhamel 公式" }
   - { id: EVOL4-PROP-01, name: "mild 解の存在・連続性・安定性" }
   - { id: EVOL4-PROP-02, name: "strong 解は mild 解" }
   - { id: EVOL4-THM-02, name: "mild 解から classical 解への正則性回復" }
