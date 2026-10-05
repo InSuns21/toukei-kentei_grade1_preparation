@@ -126,25 +126,25 @@ $$
 <!-- formal-statement-start -->
 > **定義（entropy / entropy flux pair）**  
 > $f\in C^1(\mathbb R)$ とする。$\eta\in C^2(\mathbb R)$ が凸、すなわち
->
-> $$
-> \eta''(z)\ge0
-> \qquad
-> (z\in\mathbb R)
-> $$
->
+
+$$
+\eta''(z)\ge0
+\qquad
+(z\in\mathbb R)
+$$
+
 > を満たし、$q\in C^1(\mathbb R)$ が
->
-> $$
-> q'(z)=\eta'(z)f'(z)
-> $$
->
+
+$$
+q'(z)=\eta'(z)f'(z)
+$$
+
 > を満たすとき、$(\eta,q)$ を保存則
->
-> $$
-> u_t+\partial_xf(u)=0
-> $$
->
+
+$$
+u_t+\partial_xf(u)=0
+$$
+
 > の **entropy / entropy flux pair** という。本章では $\eta$ を entropy、$q$ を entropy flux と呼ぶ。
 <!-- formal-statement-end -->
 
@@ -330,32 +330,32 @@ $$
 <!-- formal-statement-start -->
 > **定義（entropy inequality）**  
 > $f\in C^1(\mathbb R)$ とし、$(\eta,q)$ を entropy pair とする。局所有界な分布的弱解 $u$ が
->
-> $$
-> \partial_t\eta(u)+\partial_xq(u)\le0
-> $$
->
+
+$$
+\partial_t\eta(u)+\partial_xq(u)\le0
+$$
+
 > を超関数の意味で満たすとは、任意の非負テスト関数
->
-> $$
-> \varphi\in C_c^\infty((0,T)\times\mathbb R),
-> \qquad
-> \varphi\ge0
-> $$
->
+
+$$
+\varphi\in C_c^\infty((0,T)\times\mathbb R),
+\qquad
+\varphi\ge0
+$$
+
 > に対して
->
-> $$
-> \iint
-> \left(
-> \eta(u)\varphi_t
-> +
-> q(u)\varphi_x
-> \right)
-> dx\,dt
-> \ge0
-> $$
->
+
+$$
+\iint
+\left(
+\eta(u)\varphi_t
++
+q(u)\varphi_x
+\right)
+dx\,dt
+\ge0
+$$
+
 > が成り立つことをいう。
 <!-- formal-statement-end -->
 
@@ -466,23 +466,23 @@ $$
 <!-- formal-statement-start -->
 > **命題（跳躍に対する entropy 条件）**  
 > $f\in C^1(\mathbb R)$ とし、定数状態 $u_L\ne u_R$ を速度
->
-> $$
-> s=
-> \frac{f(u_R)-f(u_L)}{u_R-u_L}
-> $$
->
+
+$$
+s=
+\frac{f(u_R)-f(u_L)}{u_R-u_L}
+$$
+
 > で結ぶ Rankine--Hugoniot 跳躍を考える。entropy pair $(\eta,q)$ に対して、この跳躍が entropy inequality を満たすための必要十分条件は
->
-> $$
-> \boxed{
-> q(u_R)-q(u_L)
-> -
-> s\{\eta(u_R)-\eta(u_L)\}
-> \le0
-> }
-> $$
->
+
+$$
+\boxed{
+q(u_R)-q(u_L)
+-
+s\{\eta(u_R)-\eta(u_L)\}
+\le0
+}
+$$
+
 > である。
 <!-- formal-statement-end -->
 
@@ -710,20 +710,20 @@ $$
 <!-- formal-statement-start -->
 > **命題（狭義凸流束の Lax 圧縮条件）**  
 > $f\in C^2(\mathbb R)$、$f''>0$ とし、$u_L>u_R$ とする。Rankine--Hugoniot 速度
->
-> $$
-> s=
-> \frac{f(u_L)-f(u_R)}{u_L-u_R}
-> $$
->
+
+$$
+s=
+\frac{f(u_L)-f(u_R)}{u_L-u_R}
+$$
+
 > は
->
-> $$
-> \boxed{
-> f'(u_L)>s>f'(u_R)
-> }
-> $$
->
+
+$$
+\boxed{
+f'(u_L)>s>f'(u_R)
+}
+$$
+
 > を満たす。
 <!-- formal-statement-end -->
 
@@ -792,17 +792,17 @@ $$
 <!-- formal-statement-start -->
 > **定義（Kruzhkov entropy pair）**  
 > $f\in C^1(\mathbb R)$ とし、各 $k\in\mathbb R$ に対して
->
-> $$
-> \eta_k(u)=|u-k|,
-> $$
->
-> $$
-> q_k(u)
-> =
-> \operatorname{sgn}(u-k)\{f(u)-f(k)\}
-> $$
->
+
+$$
+\eta_k(u)=|u-k|,
+$$
+
+$$
+q_k(u)
+=
+\operatorname{sgn}(u-k)\{f(u)-f(k)\}
+$$
+
 > と定める。$(\eta_k,q_k)$ を **Kruzhkov entropy pair** という。
 <!-- formal-statement-end -->
 
@@ -857,36 +857,36 @@ $\eta_k$ は $u=k$ で $C^2$ ではありません。ただし滑らかな凸近
 <!-- formal-statement-start -->
 > **定義（Kruzhkov entropy solution）**  
 > $T>0$、$f\in C^1(\mathbb R)$、$u_0\in L^\infty(\mathbb R)$ とする。関数
->
-> $$
-> u\in L^\infty((0,T)\times\mathbb R)
-> $$
->
+
+$$
+u\in L^\infty((0,T)\times\mathbb R)
+$$
+
 > が初期値 $u_0$ を持つ [NPDE1 の分布的弱解](../NPDE1/index.md#def-npde1-weak-solution)であり、さらに任意の $k\in\mathbb R$ と任意の非負
->
-> $$
-> \varphi\in C_c^\infty([0,T)\times\mathbb R)
-> $$
->
+
+$$
+\varphi\in C_c^\infty([0,T)\times\mathbb R)
+$$
+
 > に対して
->
-> $$
-> \boxed{
-> \iint
-> \left[
-> |u-k|\varphi_t
-> +
-> \operatorname{sgn}(u-k)
-> \{f(u)-f(k)\}\varphi_x
-> \right]
-> dx\,dt
-> +
-> \int_{\mathbb R}
-> |u_0-k|\varphi(0,x)\,dx
-> \ge0
-> }
-> $$
->
+
+$$
+\boxed{
+\iint
+\left[
+|u-k|\varphi_t
++
+\operatorname{sgn}(u-k)
+\{f(u)-f(k)\}\varphi_x
+\right]
+dx\,dt
++
+\int_{\mathbb R}
+|u_0-k|\varphi(0,x)\,dx
+\ge0
+}
+$$
+
 > を満たすとき、$u$ を初期値 $u_0$ に対する **Kruzhkov entropy solution** という。
 <!-- formal-statement-end -->
 
@@ -1046,25 +1046,25 @@ $$
 <!-- formal-statement-start -->
 > **定理（狭義凸流束の Riemann entropy 選択）**  
 > $f\in C^2(\mathbb R)$、$f''>0$ とし、
->
-> $$
-> u_0(x)
-> =
-> \begin{cases}
-> u_L,&x<0,\\
-> u_R,&x>0
-> \end{cases}
-> $$
->
+
+$$
+u_0(x)
+=
+\begin{cases}
+u_L,&x<0,\\
+u_R,&x>0
+\end{cases}
+$$
+
 > を初期値とする。
 >
 > 1. $u_L>u_R$ なら、Rankine--Hugoniot 速度
->
-> $$
-> s=
-> \frac{f(u_L)-f(u_R)}{u_L-u_R}
-> $$
->
+
+$$
+s=
+\frac{f(u_L)-f(u_R)}{u_L-u_R}
+$$
+
 > で進む圧縮 shock は Kruzhkov entropy solution である。
 > 2. $u_L<u_R$ なら、NPDE1 で構成した中心希薄波は Kruzhkov entropy solution である。
 > 3. $u_L<u_R$ を直接つなぐ Rankine--Hugoniot expansion shock は Kruzhkov entropy solution ではない。
@@ -1231,20 +1231,20 @@ $$
 <!-- formal-statement-start -->
 > **補題（Kato 型不等式）**  
 > $f\in C^1(\mathbb R)$ とし、$u,v\in L^\infty((0,T)\times\mathbb R)$ をそれぞれ Kruzhkov entropy solution とする。すると超関数の意味で
->
-> $$
-> \boxed{
-> \partial_t|u-v|
-> +
-> \partial_x
-> \left[
-> \operatorname{sgn}(u-v)
-> \{f(u)-f(v)\}
-> \right]
-> \le0
-> }
-> $$
->
+
+$$
+\boxed{
+\partial_t|u-v|
++
+\partial_x
+\left[
+\operatorname{sgn}(u-v)
+\{f(u)-f(v)\}
+\right]
+\le0
+}
+$$
+
 > が成り立つ。
 <!-- formal-statement-end -->
 
@@ -1487,48 +1487,48 @@ $$
 <!-- formal-statement-start -->
 > **定理（Kruzhkov の局所 L1 評価と L1 収縮性）**  
 > $f\in C^1(\mathbb R)$ とし、$u,v$ を初期値 $u_0,v_0\in L^\infty(\mathbb R)$ に対する Kruzhkov entropy solution とする。ある $M>0$ について
->
-> $$
-> |u|,|v|\le M
-> $$
->
+
+$$
+|u|,|v|\le M
+$$
+
 > がほとんど至る所で成り立つとし、
->
-> $$
-> L=
-> \max_{|z|\le M}|f'(z)|
-> $$
->
+
+$$
+L=
+\max_{|z|\le M}|f'(z)|
+$$
+
 > と置く。このとき任意の有限区間 $[a,b]$ と、ほとんど全ての $t\in(0,T)$ に対して
->
-> $$
-> \boxed{
-> \int_a^b
-> |u(t,x)-v(t,x)|\,dx
-> \le
-> \int_{a-Lt}^{b+Lt}
-> |u_0(x)-v_0(x)|\,dx
-> }
-> $$
->
+
+$$
+\boxed{
+\int_a^b
+|u(t,x)-v(t,x)|\,dx
+\le
+\int_{a-Lt}^{b+Lt}
+|u_0(x)-v_0(x)|\,dx
+}
+$$
+
 > が成り立つ。
 >
 > 特に
->
-> $$
-> u_0-v_0\in L^1(\mathbb R)
-> $$
->
+
+$$
+u_0-v_0\in L^1(\mathbb R)
+$$
+
 > なら
->
-> $$
-> \boxed{
-> \|u(t,\cdot)-v(t,\cdot)\|_{L^1(\mathbb R)}
-> \le
-> \|u_0-v_0\|_{L^1(\mathbb R)}
-> }
-> $$
->
+
+$$
+\boxed{
+\|u(t,\cdot)-v(t,\cdot)\|_{L^1(\mathbb R)}
+\le
+\|u_0-v_0\|_{L^1(\mathbb R)}
+}
+$$
+
 > がほとんど全ての $t$ で成り立つ。
 <!-- formal-statement-end -->
 
@@ -1709,17 +1709,17 @@ entropy solution は同値な時間代表を取り直すことで標準的には
 <!-- formal-statement-start -->
 > **系（Kruzhkov entropy solution の一意性）**  
 > 上の定理の仮定の下で、二つの Kruzhkov entropy solution $u,v$ が同じ初期値
->
-> $$
-> u_0=v_0
-> $$
->
+
+$$
+u_0=v_0
+$$
+
 > を持つなら
->
-> $$
-> u=v
-> $$
->
+
+$$
+u=v
+$$
+
 > が $(0,T)\times\mathbb R$ のほとんど至る所で成り立つ。
 <!-- formal-statement-end -->
 
@@ -1776,30 +1776,30 @@ entropy inequality の導入は粘性方程式から始まりました。
 <!-- formal-statement-start -->
 > **命題（vanishing viscosity 極限の entropy 選択）**  
 > $f\in C^2(\mathbb R)$ とする。各 $\varepsilon>0$ に対して滑らかな関数 $u^\varepsilon$ が
->
-> $$
-> u_t^\varepsilon
-> +
-> \partial_xf(u^\varepsilon)
-> =
-> \varepsilon u_{xx}^\varepsilon
-> $$
->
+
+$$
+u_t^\varepsilon
++
+\partial_xf(u^\varepsilon)
+=
+\varepsilon u_{xx}^\varepsilon
+$$
+
 > を満たすとする。
 >
 > さらに、ある $M>0$ が存在して
->
-> $$
-> \|u^\varepsilon\|_{L^\infty((0,T)\times\mathbb R)}
-> \le M
-> $$
->
+
+$$
+\|u^\varepsilon\|_{L^\infty((0,T)\times\mathbb R)}
+\le M
+$$
+
 > が一様に成り立ち、
->
-> $$
-> u^\varepsilon\to u
-> $$
->
+
+$$
+u^\varepsilon\to u
+$$
+
 > が $L^1_{\mathrm{loc}}((0,T)\times\mathbb R)$ で成り立つとする。初期値も必要な局所 $L^1$ 収束を満たすとする。
 >
 > このとき極限 $u$ は全ての Kruzhkov entropy inequality を満たす。従って $u$ が分布的弱解と初期トレースを持てば、Kruzhkov entropy solution である。
