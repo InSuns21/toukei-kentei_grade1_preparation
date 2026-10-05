@@ -1,0 +1,44 @@
+id: "EVOL2"
+title: "C0 半群・生成作用素・Hille--Yosida"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - EVOL1
+  - GPDE10
+official_scope: []
+learning_objectives:
+  - GPDE10 の強連続半群を時間発展作用素として読み、縮小半群をノルム評価まで含めて確認できる
+  - 強連続半群の生成作用素を時刻0の差分商で定義し、その定義域が作用素の本質的データであることを説明できる
+  - 生成作用素上の軌道微分 AT(t)x=T(t)Ax と積分恒等式を証明できる
+  - 任意の C0 半群の生成作用素が閉かつ稠密定義になることを短時間平均と積分恒等式から証明できる
+  - 縮小半群のレゾルベントを Laplace 変換として導出し norm R(lambda,A) <= 1/lambda を証明できる
+  - Yosida 近似 A_lambda=lambda A R(lambda,A) が有界作用素になる理由と A_lambda x -> Ax の機構を説明できる
+  - 縮小半群版 Hille--Yosida 定理の必要十分条件を述べ、Yosida 近似から半群を構成する逆向きの核心論証を再現できる
+  - A-omega I への shift から指数成長型 Hille--Yosida を導ける
+  - 対角半群・translation semigroup・Dirichlet 熱半群で generator と resolvent を具体計算できる
+  - Hille--Yosida が resolvent 条件から生成性を見る定理であり、次章の Lumer--Phillips が dissipativity から見る定理であることを区別できる
+definitions:
+  - { id: EVOL2-DEF-01, name: "縮小半群" }
+  - { id: EVOL2-DEF-02, name: "強連続半群の生成作用素" }
+  - { id: EVOL2-DEF-03, name: "Yosida 近似" }
+theorems:
+  - { id: EVOL2-PROP-01, name: "生成作用素上の軌道微分" }
+  - { id: EVOL2-THM-01, name: "生成作用素は閉かつ稠密定義" }
+  - { id: EVOL2-THM-02, name: "レゾルベントの Laplace 表現" }
+  - { id: EVOL2-THM-03, name: "Hille--Yosida 定理（縮小半群版）" }
+  - { id: EVOL2-COR-01, name: "指数成長型 Hille--Yosida" }
+canonical_examples:
+  - "ell2 上の対角縮小半群 T(t)(x_n)=(e^{-nt}x_n)"
+  - "対角生成作用素 A(x_n)=(-n x_n) と resolvent"
+  - "C0([0,infinity)) 上の translation semigroup と微分生成作用素"
+  - "L2(0,pi) 上の Dirichlet heat semigroup"
+problem_patterns:
+  - EVOL2-C0-SEMIGROUP-1
+  - EVOL2-GENERATOR-1
+  - EVOL2-LAPLACE-RESOLVENT-1
+  - EVOL2-YOSIDA-1
+  - EVOL2-HILLE-YOSIDA-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 6.0, review: 1.5 }
