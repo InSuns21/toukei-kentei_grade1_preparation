@@ -24,7 +24,7 @@ theorems:
   - { id: NPDE5-PROP-02, name: "多孔質媒質方程式の質量保存型自己相似指数" }
   - { id: NPDE5-THM-01, name: "Barenblatt 型自己相似解" }
   - { id: NPDE5-PROP-03, name: "Barenblatt 解の support 半径" }
-  - { id: NPDE5-PROP-04, name: "比較原理から従う compact support の有限伝播" }
+  - { id: NPDE5-PROP-04, name: "compact support 初期値の有限伝播" }
   - { id: NPDE5-PROP-05, name: "pressure equation" }
   - { id: NPDE5-PROP-06, name: "再正規化多孔質媒質方程式" }
 canonical_examples:
