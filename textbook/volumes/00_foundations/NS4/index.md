@@ -2223,7 +2223,7 @@ $$
 
 二次元で大域強解が得られると、次には長時間挙動を問えます。ただし、ここでの周期領域と、[NPDE7](../NPDE7/index.md) で扱う全空間の拡散方程式では、長時間像は同じではありません。
 
-平均零の周期 Navier--Stokes では Poincaré 型評価により $L^2$ エネルギーは指数的に減衰します。一方、全空間の熱方程式や多孔質媒質方程式では、空間へ広がる解を similarity variables で固定尺度へ戻し、Gaussian や Barenblatt 型 profile への再正規化収束を調べます。
+無外力かつ平均零の周期 Navier--Stokes では、Poincaré 型評価により $L^2$ エネルギーは指数的に減衰します。一方、全空間の熱方程式や多孔質媒質方程式では、空間へ広がる解を similarity variables で固定尺度へ戻し、Gaussian や Barenblatt 型 profile への再正規化収束を調べます。
 
 共通しているのは
 
