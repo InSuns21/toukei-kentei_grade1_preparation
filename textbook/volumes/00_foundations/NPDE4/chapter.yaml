@@ -1,0 +1,53 @@
+id: "NPDE4"
+title: "尺度変換・熱核平滑化・自己相似"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PDE3
+  - GPDE5
+official_scope: []
+learning_objectives:
+  - 放物型尺度変換 u_lambda(t,x)=lambda^alpha u(lambda^2 t,lambda x) を各微分項へ代入し、時間指数2を自力で導ける
+  - Lp ノルムの scaling exponent alpha-d/p を変数変換から導き、劣臨界・臨界・超臨界を小スケール集中との関係で説明できる
+  - d 次元熱核 G_t=t^{-d/2}Phi(x/sqrt(t)) の Lr ノルムを scaling から計算できる
+  - Young の畳み込み不等式を証明し、熱核の Lp-Lq smoothing exponent d/2(1/p-1/q) を導ける
+  - 熱核の一階微分評価で空間微分一回が t^{-1/2} を追加することを scaling と結び付けられる
+  - d>=3 で Sobolev 不等式と L1-L2*-interpolation から Nash 型不等式を導ける
+  - energy identity と Nash 型不等式から L1-L2 decay t^{-d/4} を導ける
+  - 質量保存から自己相似指数 d/2 を導き、完成式の暗記なしに self-similar ansatz を再構成できる
+  - similarity variables tau=log t, y=x/sqrt(t) の連鎖律を省略せず計算し、rescaled heat equation を導ける
+  - Gaussian heat kernel profile が rescaled dynamics の定常解であることを直接検証できる
+definitions:
+  - { id: NPDE4-DEF-01, name: "放物型尺度変換" }
+  - { id: NPDE4-DEF-02, name: "尺度に関する劣臨界・臨界・超臨界" }
+  - { id: NPDE4-DEF-03, name: "放物型自己相似解" }
+  - { id: NPDE4-DEF-04, name: "similarity variables と rescaled solution" }
+theorems:
+  - { id: NPDE4-PROP-01, name: "熱核の Lr ノルム" }
+  - { id: NPDE4-THM-01, name: "Young の畳み込み不等式" }
+  - { id: NPDE4-THM-02, name: "熱核の Lp-Lq 平滑化評価" }
+  - { id: NPDE4-COR-01, name: "熱核の一階微分平滑化" }
+  - { id: NPDE4-THM-03, name: "Nash 型不等式" }
+  - { id: NPDE4-PROP-02, name: "energy と Nash 型不等式による L1-L2 減衰" }
+  - { id: NPDE4-PROP-03, name: "rescaled heat equation" }
+  - { id: NPDE4-PROP-04, name: "Gaussian profile は rescaled heat equation の定常解" }
+canonical_examples:
+  - "質量保存 scaling で L1 が臨界になる熱方程式"
+  - "熱核の高さ t^{-d/2} と幅 sqrt(t) の積が質量1を保つ"
+  - "Young の不等式から L1-Linfinity と L1-L2 smoothing を導く"
+  - "Sobolev と補間から Nash 型不等式を作り energy decay を再現する"
+  - "Gaussian heat kernel を similarity variables で静止させる"
+problem_patterns:
+  - NPDE4-PARABOLIC-SCALING-1
+  - NPDE4-CRITICALITY-1
+  - NPDE4-HEAT-KERNEL-LR-1
+  - NPDE4-YOUNG-1
+  - NPDE4-SMOOTHING-1
+  - NPDE4-NASH-1
+  - NPDE4-ENERGY-DECAY-1
+  - NPDE4-SELF-SIMILAR-1
+  - NPDE4-RESCALED-HEAT-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 6.0, review: 1.5 }
