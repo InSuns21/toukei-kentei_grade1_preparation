@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - NPDE4
   - PDE8
+  - GPDE10
 official_scope: []
 learning_objectives:
   - 半線形熱方程式 u_t=Delta u+u^p, p>1 を拡散と反応の競合として説明し、非負 mild solution の Duhamel 表示を書ける
