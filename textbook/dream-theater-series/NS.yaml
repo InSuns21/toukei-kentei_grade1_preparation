@@ -1,7 +1,7 @@
 version: 1
 id: NS
 title: Navier--Stokes 方程式への道
-plan: textbook/plan_done/DREAM_THEATER_NAVIER_STOKES_MILLENNIUM_PLAN.md
+plan: textbook/plans_progress/DREAM_THEATER_NAVIER_STOKES_NPDE_CONNECTION_AUDIT_PLAN.md
 chapter_root: textbook/volumes/00_foundations
 
 chapters:
