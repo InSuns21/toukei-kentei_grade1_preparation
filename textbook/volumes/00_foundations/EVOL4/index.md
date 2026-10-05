@@ -957,7 +957,7 @@ $$
 
 ### 証明の見取り図
 
-安定性は Duhamel 公式から直接ノルム評価します。
+安定性は mild 解の積分表示から直接ノルム評価します。
 
 連続性は
 
@@ -1874,7 +1874,7 @@ $$
 v'(t)-f(t).
 $$
 
-生成作用素の定義から
+[強連続半群の生成作用素の定義](../EVOL2/index.md#def-evol2-generator)から
 
 $$
 v(t)\in D(A),
@@ -2932,7 +2932,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-Duhamel 公式から
+mild 解の積分表示から
 
 $$
 u(t)
@@ -3036,7 +3036,7 @@ $$
 u_0=0\in D(A).
 $$
 
-従って正則性回復定理から $u$ は classical 解です。
+従って[「mild 解から classical 解への正則性回復」](#thm-evol4-mild-to-classical)から $u$ は classical 解です。
 
 成分計算からも $u'(t)$ と $Au(t)$ が $X$ で連続であることを確認できます。
 <!-- solution-end -->
@@ -3412,7 +3412,7 @@ $$
 u_0\notin D(A).
 $$
 
-Duhamel 公式から
+mild 解の積分表示から
 
 $$
 u(t)
