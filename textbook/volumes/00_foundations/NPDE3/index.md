@@ -573,7 +573,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-npde3-p-energy -->
-**定義の確認：$p=2$**
+**定義の確認**：$p=2$
 
 $p=2$ なら
 
@@ -927,7 +927,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-npde3-monotone-operator -->
-**定義の確認：一変数の $p=4$**
+**定義の確認**：一変数の $p=4$
 
 $A:\mathbb R\to\mathbb R$ を
 
@@ -1497,7 +1497,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-npde3-plaplacian-weak -->
-**定義の確認：滑らかな解から弱形式へ**
+**定義の確認**：滑らかな解から弱形式へ
 
 $u\in W_0^{1,p}(\Omega)$ とし、さらにベクトル場
 
