@@ -919,7 +919,7 @@ $$
 
 ここでは $d\ge3$ とします。
 
-[GPDE5 の Sobolev 不等式](../GPDE5/index.md#thm-gpde5-sobolev-rd)から
+[R^d 上の Sobolev 不等式](../GPDE5/index.md#thm-gpde5-sobolev-rd)から
 
 $$
 \|f\|_{L^{2^*}}
