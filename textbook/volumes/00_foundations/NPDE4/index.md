@@ -39,7 +39,7 @@ critical / subcritical / supercritical を判定する
   ↓
 熱核の幅と高さを scaling から読む
   ↓
-Young の畳み込み不等式で Lp-Lq smoothing を得る
+畳み込み評価で Lp-Lq smoothing を得る
   ↓
 Sobolev + 補間から減衰に使う不等式を作る
   ↓
