@@ -125,27 +125,27 @@ NS1--NS7 で使ってきた方程式と同じです。
 > **定義（CMI 公式問題の全空間データ条件）**  
 > 初期速度 $u^0\in C^\infty(\mathbb R^3;\mathbb R^3)$ は
 >
-$
+$$
 > \nabla\cdot u^0=0
-$
+$$
 >
 > を満たし、任意の多重指数 $\alpha$ と任意の整数 $K\ge0$ に対して、ある定数 $C_{\alpha,K}$ が存在して
 >
-$
+$$
 > |\partial_x^\alpha u^0(x)|
 > \le
 > C_{\alpha,K}(1+|x|)^{-K}
-$
+$$
 >
 > を満たすものとする。
 >
 > 外力 $f\in C^\infty(\mathbb R^3\times[0,\infty);\mathbb R^3)$ を使う場合は、任意の $\alpha,m,K$ に対して
 >
-$
+$$
 > |\partial_x^\alpha\partial_t^m f(x,t)|
 > \le
 > C_{\alpha,m,K}(1+|x|+t)^{-K}
-$
+$$
 >
 > を満たすものとする。
 <!-- formal-statement-end -->
@@ -220,9 +220,9 @@ $$
 > 2. $p,u$ が $\mathbb R^3\times[0,\infty)$ 上で $C^\infty$ である。
 > 3. ある有限定数 $C$ が存在して、すべての $t\ge0$ について
 >
-$
+$$
 > \int_{\mathbb R^3}|u(x,t)|^2\,dx<C
-$
+$$
 >
 > が成り立つ。
 >
@@ -289,11 +289,11 @@ $$
 > 初期速度 $u^0$ は滑らか、発散零、各座標方向に周期1とする。  
 > 外力を使う場合、$f$ も空間周期的かつ滑らかであり、任意の多重指数 $\alpha$、時間微分次数 $m$、整数 $K\ge0$ に対して
 >
-$
+$$
 > |\partial_x^\alpha\partial_t^m f(x,t)|
 > \le
 > C_{\alpha,m,K}(1+t)^{-K}
-$
+$$
 >
 > を満たすものとする。
 >
@@ -345,9 +345,9 @@ $$
 > **命題（公式問題の Statement A）**  
 > $\nu>0$ とする。全空間データ条件を満たす任意の滑らかな発散零初期速度 $u^0$ に対し、
 >
-$
+$$
 > f\equiv0
-$
+$$
 >
 > とする。このとき $\mathbb R^3\times[0,\infty)$ 上に、全空間 smooth finite-energy solution $(p,u)$ が存在することを示せ。
 <!-- formal-statement-end -->
@@ -388,9 +388,9 @@ NS5 で証明した局所強解は「短時間なら存在する」までです�
 > **命題（公式問題の Statement B）**  
 > $\nu>0$ とする。任意の滑らかな発散零・周期初期速度 $u^0$ に対し、
 >
-$
+$$
 > f\equiv0
-$
+$$
 >
 > とする。このとき全時間で滑らかな周期速度 $u$ と滑らかな圧力 $p$ が存在することを示せ。
 <!-- formal-statement-end -->
@@ -512,19 +512,19 @@ Fefferman の公式 problem description は、**この四つの statement のう
 >
 > 特に
 >
-$
+$$
 > \neg A\Longrightarrow C,
 > \qquad
 > \neg B\Longrightarrow D
-$
+$$
 >
 > は成り立つが、逆向き
 >
-$
+$$
 > C\Longrightarrow\neg A,
 > \qquad
 > D\Longrightarrow\neg B
-$
+$$
 >
 > は一般には成り立たない。
 <!-- formal-statement-end -->
