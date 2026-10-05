@@ -267,6 +267,11 @@
 10. [GPDE9 楕円型正則性](textbook/volumes/00_foundations/GPDE9/index.md)
 11. [GPDE10 Galerkin・時間発展 PDE の弱解](textbook/volumes/00_foundations/GPDE10/index.md)
 
+<a id="dt-subject-nonlinear-pde"></a>
+### 非線形偏微分方程式
+
+1. [NPDE1 保存則・衝撃波・Rankine--Hugoniot 条件](textbook/volumes/00_foundations/NPDE1/index.md)
+
 <a id="dt-subject-navier-stokes"></a>
 ### Navier--Stokes 方程式への道
 

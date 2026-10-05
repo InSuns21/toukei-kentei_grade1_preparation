@@ -1,0 +1,106 @@
+chapter: NPDE1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PDE1
+  - GPDE1
+
+forward_references: []
+
+concepts:
+  - id: nonlinear-pde.scalar-conservation-law
+    name: 一次元スカラー保存則
+    kind: definition
+    aliases: ["scalar conservation law", "スカラー保存則"]
+    introduction: formal
+    introduction_aliases: ["定義（一次元スカラー保存則）"]
+    requires:
+      - pde.pde1-partial-differential-equation
+
+  - id: nonlinear-pde.conservation-characteristics
+    name: 滑らかな保存則の特性表示
+    kind: proposition
+    aliases: ["characteristics for scalar conservation laws"]
+    introduction: formal
+    introduction_aliases: ["命題（滑らかな保存則の特性表示）"]
+    requires:
+      - nonlinear-pde.scalar-conservation-law
+      - pde.pde1-characteristic-curve
+
+  - id: nonlinear-pde.distributional-weak-solution
+    name: 保存則の分布的弱解
+    kind: definition
+    aliases: ["distributional weak solution of conservation law", "保存則の弱解"]
+    introduction: formal
+    introduction_aliases: ["定義（保存則の分布的弱解）"]
+    requires:
+      - nonlinear-pde.scalar-conservation-law
+      - distribution.test-function
+      - distribution.regular-distribution
+
+  - id: nonlinear-pde.rankine-hugoniot
+    name: Rankine--Hugoniot 条件
+    kind: theorem
+    aliases: ["Rankine-Hugoniot condition", "Rankine--Hugoniot condition"]
+    introduction: formal
+    introduction_aliases: ["定理（Rankine--Hugoniot 条件）"]
+    requires:
+      - nonlinear-pde.distributional-weak-solution
+
+  - id: nonlinear-pde.shock-wave
+    name: 定数状態を結ぶ衝撃波
+    kind: definition
+    aliases: ["衝撃波", "shock wave"]
+    introduction: formal
+    introduction_aliases: ["定義（定数状態を結ぶ衝撃波）"]
+    requires:
+      - nonlinear-pde.rankine-hugoniot
+
+  - id: nonlinear-pde.shock-speed
+    name: 定数状態を結ぶ衝撃波速度
+    kind: corollary
+    aliases: ["shock speed"]
+    introduction: formal
+    introduction_aliases: ["系（定数状態を結ぶ衝撃波速度）"]
+    requires:
+      - nonlinear-pde.rankine-hugoniot
+      - nonlinear-pde.shock-wave
+
+  - id: nonlinear-pde.riemann-problem
+    name: Riemann 問題
+    kind: definition
+    aliases: ["Riemann problem"]
+    introduction: formal
+    introduction_aliases: ["定義（Riemann 問題）"]
+    requires:
+      - nonlinear-pde.scalar-conservation-law
+
+  - id: nonlinear-pde.rarefaction-wave
+    name: 中心希薄波
+    kind: definition
+    aliases: ["希薄波", "rarefaction wave", "centered rarefaction wave"]
+    introduction: formal
+    introduction_aliases: ["定義（中心希薄波）"]
+    requires:
+      - nonlinear-pde.riemann-problem
+
+  - id: nonlinear-pde.convex-rarefaction
+    name: 狭義凸流束の中心希薄波
+    kind: theorem
+    aliases: ["centered rarefaction for strictly convex flux"]
+    introduction: formal
+    introduction_aliases: ["定理（狭義凸流束の中心希薄波）"]
+    requires:
+      - nonlinear-pde.rarefaction-wave
+      - nonlinear-pde.distributional-weak-solution
+
+  - id: nonlinear-pde.weak-nonuniqueness
+    name: Burgers Riemann 問題の弱解非一意性
+    kind: proposition
+    aliases: ["nonuniqueness of distributional weak solutions for Burgers Riemann problem"]
+    introduction: formal
+    introduction_aliases: ["命題（Burgers Riemann 問題の弱解非一意性）"]
+    requires:
+      - nonlinear-pde.rankine-hugoniot
+      - nonlinear-pde.convex-rarefaction
+      - pde.pde1-burgers-characteristics

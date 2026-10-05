@@ -63,6 +63,17 @@ SET10 数学各分野での選択原理
 19. [**偏微分方程式 II**](textbook/dream-theater.md#dt-subject-pde-ii)：超関数、Sobolev 空間、弱解、変分法、楕円型正則性、Galerkin 法までを扱う。
 20. [**確率解析**](textbook/dream-theater.md#dt-subject-stochastic-analysis)：マルチンゲール、Brown 運動と Wiener 測度、Itô 積分、SDE、生成作用素、Lévy 過程までを扱う。
 
+### 非線形偏微分方程式への発展分岐
+
+[**非線形偏微分方程式**](textbook/dream-theater.md#dt-subject-nonlinear-pde) は、偏微分方程式 I の特性曲線と偏微分方程式 II のテスト関数・超関数を土台に、古典解破綻後の保存則、弱解と選択原理、非線形拡散・反応拡散へ進む解析 PDE の発展分岐です。共通の標準通読順には挿入しません。
+
+~~~text
+PDE1 Burgers・特性線交差 ─┐
+GPDE1 テスト関数・超関数 ─┴→ NPDE1 保存則・衝撃波・Rankine--Hugoniot 条件
+~~~
+
+NPDE1 では一次元スカラー保存則を局所保存の積分収支から導き、古典特性から分布的弱解へ移ります。移動界面の部分積分から Rankine--Hugoniot 条件を証明し、Riemann 問題の衝撃波と中心希薄波を構成します。Burgers 方程式の同一初期値に expansion shock と rarefaction が共存することを直接示し、弱解だけでは一意性が戻らず、後続の entropy 選択原理が必要になる地点までを閉じます。
+
 ### Navier--Stokes 方程式への発展分岐
 
 [**Navier--Stokes 方程式への道**](textbook/dream-theater.md#dt-subject-navier-stokes) は、ベクトル解析 II・Fourier 解析・偏微分方程式 II を土台に、非圧縮流体の存在・正則性問題へ進む解析 PDE の発展分岐です。共通の標準通読順には挿入しません。

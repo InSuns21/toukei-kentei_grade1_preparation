@@ -1,0 +1,43 @@
+id: "NPDE1"
+title: "保存則・衝撃波・Rankine--Hugoniot 条件"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PDE1
+  - GPDE1
+official_scope: []
+learning_objectives:
+  - 一次元スカラー保存則を局所保存の積分収支から導き、滑らかな場合に特性速度 f'(u) を再構成できる
+  - 保存則の分布的弱解をテスト関数恒等式として定義し、初期値への局所 L1 収束と区別できる
+  - 一本の移動界面をまたぐ部分積分から Rankine--Hugoniot 条件を導出できる
+  - 定数状態を結ぶ衝撃波速度を流束の割線勾配として計算できる
+  - Riemann 問題を定義し、Burgers 方程式の圧縮型と拡張型を特性速度から説明できる
+  - 狭義凸流束の中心希薄波を自己相似変数から導き、弱解であることと初期値への収束を確認できる
+  - Burgers の同一 Riemann 初期値に expansion shock と rarefaction が共存することを示し、弱解だけでは一意性がないことを説明できる
+definitions:
+  - { id: NPDE1-DEF-01, name: "一次元スカラー保存則" }
+  - { id: NPDE1-DEF-02, name: "保存則の分布的弱解" }
+  - { id: NPDE1-DEF-03, name: "定数状態を結ぶ衝撃波" }
+  - { id: NPDE1-DEF-04, name: "Riemann 問題" }
+  - { id: NPDE1-DEF-05, name: "中心希薄波" }
+theorems:
+  - { id: NPDE1-PROP-01, name: "滑らかな保存則の特性表示" }
+  - { id: NPDE1-THM-01, name: "Rankine--Hugoniot 条件" }
+  - { id: NPDE1-COR-01, name: "定数状態を結ぶ衝撃波速度" }
+  - { id: NPDE1-THM-02, name: "狭義凸流束の中心希薄波" }
+  - { id: NPDE1-PROP-02, name: "Burgers Riemann 問題の弱解非一意性" }
+canonical_examples:
+  - Burgers 方程式を保存則の形へ書き直す
+  - "u_L=2, u_R=0 の Burgers 衝撃波と速度 s=1"
+  - "u_L=0, u_R=1 の Burgers 中心希薄波"
+  - "同一 Riemann 初期値に対する expansion shock と rarefaction の共存"
+problem_patterns:
+  - NPDE-CONSERVATION-CHARACTERISTIC-1
+  - NPDE-RANKINE-HUGONIOT-1
+  - NPDE-SHOCK-SPEED-1
+  - NPDE-RIEMANN-RAREFACTION-1
+  - NPDE-WEAK-NONUNIQUENESS-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 1.0 }
