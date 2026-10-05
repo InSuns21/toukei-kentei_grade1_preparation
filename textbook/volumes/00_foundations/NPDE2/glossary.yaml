@@ -1,0 +1,32 @@
+chapter: "NPDE2"
+terms:
+  - term: entropy
+    english: entropy
+    meaning: スカラー保存則で弱解を選別するために用いる凸関数 eta。滑らかな解では対応する entropy flux と保存等式を満たし、衝撃波では散逸不等式を課す。
+  - term: entropy flux
+    english: entropy flux
+    meaning: entropy eta に対し q'(u)=eta'(u)f'(u) で結ばれる流束 q。
+  - term: entropy inequality
+    english: entropy inequality
+    meaning: 凸 entropy に対して partial_t eta(u)+partial_x q(u)<=0 を超関数の意味で要求する追加選択条件。
+  - term: Lax 圧縮条件
+    english: Lax shock condition
+    meaning: 狭義凸流束の shock で f'(u_L)>s>f'(u_R) とし、左右の特性が shock へ流入することを表す条件。
+  - term: Kruzhkov entropy pair
+    english: Kruzhkov entropy pair
+    meaning: 各 k に対する eta_k(u)=|u-k| と q_k(u)=sgn(u-k)(f(u)-f(k)) の組。
+  - term: Kruzhkov entropy solution
+    english: Kruzhkov entropy solution
+    meaning: 分布的弱解のうち、全ての k に対する Kruzhkov entropy inequality を満たす解。
+  - term: doubling of variables
+    english: doubling of variables
+    meaning: 二つの entropy solution を別々の時空変数で扱い、互いの値を定数パラメータとして entropy inequality に入れた後、平滑化核で二点を一致させる比較手法。
+  - term: Kato 型不等式
+    english: Kato inequality
+    meaning: 二つの entropy solution の差について partial_t|u-v|+partial_x(sgn(u-v)(f(u)-f(v)))<=0 と表す比較不等式。
+  - term: L1 収縮性
+    english: L1 contraction
+    meaning: 二つの entropy solution の L1 距離が時間発展で増加しない性質。初期値問題の一意性と安定性を与える。
+  - term: vanishing viscosity
+    english: vanishing viscosity
+    meaning: 保存則へ epsilon u_xx を加えた粘性方程式を解き、epsilon を0へ送って entropy solution を選ぶ近似原理。
