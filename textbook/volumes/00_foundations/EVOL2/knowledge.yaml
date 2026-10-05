@@ -5,10 +5,7 @@ prerequisites:
   - EVOL1
   - GPDE10
 
-forward_references:
-  - evolution.dissipative-operator
-  - evolution.lumer-phillips
-  - evolution.abstract-cauchy-problem
+forward_references: []
 
 concepts:
   - id: evolution.contraction-semigroup
@@ -24,7 +21,7 @@ concepts:
   - id: evolution.infinitesimal-generator
     name: 強連続半群の生成作用素
     kind: definition
-    aliases: ["infinitesimal generator", "C0 semigroup generator", "半群の生成作用素"]
+    aliases: ["infinitesimal generator", "C0 semigroup generator", "strongly continuous semigroup generator", "半群の生成作用素"]
     introduction: formal
     introduction_aliases: ["定義（強連続半群の生成作用素）"]
     requires:
