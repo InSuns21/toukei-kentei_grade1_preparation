@@ -48,7 +48,7 @@ concepts:
   - id: nonlinear-pde.semilinear-maximal-time
     name: 最大存在時間と有限時間 blow-up
     kind: definition
-    aliases: ["maximal existence time", "finite-time blow-up"]
+    aliases: ["maximal existence time and finite-time blow-up"]
     introduction: formal
     introduction_aliases: ["定義（最大存在時間と有限時間 blow-up）"]
     requires:
