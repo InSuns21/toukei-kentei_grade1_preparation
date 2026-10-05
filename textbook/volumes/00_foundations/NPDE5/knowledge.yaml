@@ -11,8 +11,7 @@ concepts:
     name: 多孔質媒質方程式
     kind: definition
     aliases: ["porous medium equation", "PME"]
-    introduction: formal
-    introduction_aliases: ["定義（多孔質媒質方程式）"]
+    introduction: inline
     requires:
       - nonlinear-pde.parabolic-scaling
 
@@ -39,8 +38,7 @@ concepts:
     name: Barenblatt 型自己相似解
     kind: theorem
     aliases: ["Barenblatt solution", "Barenblatt profile"]
-    introduction: formal
-    introduction_aliases: ["定理（Barenblatt 型自己相似解）"]
+    introduction: inline
     requires:
       - nonlinear-pde.pme-similarity-exponents
 
@@ -48,8 +46,7 @@ concepts:
     name: 有限伝播
     kind: definition
     aliases: ["finite speed of propagation"]
-    introduction: formal
-    introduction_aliases: ["定義（有限伝播）"]
+    introduction: inline
     requires:
       - nonlinear-pde.barenblatt-profile
 
@@ -64,11 +61,11 @@ concepts:
       - nonlinear-pde.barenblatt-profile
 
   - id: nonlinear-pde.compact-support-propagation
-    name: 比較原理から従う compact support の有限伝播
+    name: compact support 初期値の有限伝播
     kind: proposition
     aliases: ["compact support propagation for porous medium equation"]
     introduction: formal
-    introduction_aliases: ["命題（比較原理から従う compact support の有限伝播）"]
+    introduction_aliases: ["命題（compact support 初期値の有限伝播）"]
     requires:
       - nonlinear-pde.barenblatt-support
 
