@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - NPDE4
   - PDE8
+  - GPDE10
 
 forward_references: []
 
@@ -25,6 +26,7 @@ concepts:
     requires:
       - nonlinear-pde.semilinear-heat-equation
       - pde.pde8-heat-duhamel
+      - evolution.mild-solution
 
   - id: nonlinear-pde.semilinear-local-existence
     name: 半線形熱方程式の局所存在一意性
