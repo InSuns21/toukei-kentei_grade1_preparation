@@ -19,8 +19,8 @@ chapters:
     title: 散逸作用素・Lumer--Phillips
   - id: EVOL4
     path: textbook/volumes/00_foundations/EVOL4
-    status: planned
-    title: 抽象 Cauchy 問題・mild solution・Duhamel
+    status: completed
+    title: 抽象 Cauchy 問題・mild 解・Duhamel 公式
   - id: EVOL5
     path: textbook/volumes/00_foundations/EVOL5
     status: planned
