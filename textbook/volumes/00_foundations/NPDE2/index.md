@@ -2931,7 +2931,7 @@ $$
 <0.
 $$
 
-$k$ が $[b,a]$ の外なら jump coefficient は Rankine--Hugoniot 条件により0です。
+$k$ が $[b,a]$ の外なら jump coefficient は [NPDE1 の Rankine--Hugoniot 条件](../NPDE1/index.md#thm-npde1-rankine-hugoniot)により0です。
 
 従って全ての $k$ で entropy inequality を満たします。
 
