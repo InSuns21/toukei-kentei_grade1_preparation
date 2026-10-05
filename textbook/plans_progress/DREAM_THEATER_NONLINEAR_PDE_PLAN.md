@@ -395,6 +395,20 @@ NS 側の主要証明は NPDE に依存させず、NPDE 既読者向けの一般
 - Level A 5題 / B 4題 / C 1題と全問詳細解答を追加
 - DREAM THEATER 目次・読む順・dependency graph・series routing を NPDE5 へ接続
 
+- NPDE6「半線形熱方程式・臨界性・有限時間 blow-up」を実装
+- $u_t=\Delta u+u^p$、$p>1$ を拡散と反応の競合として導入し、非負 mild solution の Duhamel 表示を定義
+- $u^p$ の局所 Lipschitz 性と熱半群の $L^\infty$ 収縮性から BUC 非負初期値の局所存在一意性を contraction で証明
+- 順序保存 Picard 反復から非負 mild solution の比較原理を証明
+- 最大存在時間を定義し、有限最大存在時間なら $\|u(t)\|_\infty\to\infty$ となる blow-up alternative を continuation argument で証明
+- scaling $u_\lambda(t,x)=\lambda^{2/(p-1)}u(\lambda^2t,\lambda x)$ と臨界 $L^q$ 指数 $q_c=d(p-1)/2$ を導出
+- $q_c=1$ から Fujita 指数 $p_F=1+2/d$ を導き、質量尺度との関係を整理
+- backward heat-kernel average $F(t)=S(T-t)u(t)(x_0)$ と Jensen の不等式から $F'\ge F^p$、global existence の必要条件を導出
+- $1<p<p_F$ の冪矛盾と $p=p_F$ の logarithmic contradiction を分け、全ての非零非負 $L^1$ データの有限時間 blow-up を証明
+- $p>p_F$ で Gaussian supersolution を構成し、明示的 smallness 条件の下で nontrivial global mild solution を構成
+- backward self-similar ansatz から profile 方程式を導き、定数 profile が空間一様 ODE blow-up を再現することを確認
+- Level A 5題 / B 4題 / C 1題と全問詳細解答を追加
+- DREAM THEATER 目次・読む順・dependency graph・series routing を NPDE6 へ接続
+
 次作業:
 
-- NPDE6「半線形熱方程式・臨界性・有限時間 blow-up」
+- NPDE7「長時間漸近・普遍 profile・rescaled convergence」
