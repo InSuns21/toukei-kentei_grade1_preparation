@@ -91,11 +91,11 @@ concepts:
       - nonlinear-pde.pme-pressure
 
   - id: nonlinear-pde.rescaled-pme
-    name: rescaled porous medium equation
+    name: 再正規化多孔質媒質方程式
     kind: proposition
     aliases: ["rescaled porous medium equation"]
     introduction: formal
-    introduction_aliases: ["命題（rescaled porous medium equation）"]
+    introduction_aliases: ["命題（再正規化多孔質媒質方程式）"]
     requires:
       - nonlinear-pde.pme-similarity-exponents
       - nonlinear-pde.similarity-variables
