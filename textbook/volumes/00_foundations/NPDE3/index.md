@@ -156,7 +156,7 @@ $W_0^{1,p}$ は $C_c^\infty(\Omega)$ の $W^{1,p}$ 閉包なので、近似極�
 
 <a id="prop-npde3-p-poincare"></a>
 <!-- formal-statement-start -->
-> **命題（$W_0^{1,p}$ の $p$-Poincaré 不等式）**  
+> **命題（W01p の p-Poincaré 不等式）**  
 > $\Omega\subset\mathbb R^d$ を有界開集合、$1<p<\infty$ とする。このとき $\Omega$ のみに依存する定数 $C_{\Omega,p}>0$ が存在し、任意の $u\in W_0^{1,p}(\Omega)$ に対して
 
 $$
@@ -189,7 +189,7 @@ $W_0^{1,p}$ が反射的であることも、既習の $L^p$ 双対性から確�
 
 <a id="prop-npde3-w01p-reflexive"></a>
 <!-- formal-statement-start -->
-> **命題（$W_0^{1,p}$ の反射性）**  
+> **命題（W01p の反射性）**  
 > $\Omega\subset\mathbb R^d$ を有界開集合、$1<p<\infty$ とする。このとき $W_0^{1,p}(\Omega)$ は反射的 Banach 空間である。
 <!-- formal-statement-end -->
 
@@ -542,7 +542,7 @@ $f\in X^*$ を固定します。
 
 <a id="def-npde3-p-energy"></a>
 <!-- formal-statement-start -->
-> **定義（$p$-energy）**  
+> **定義（p-energy）**  
 > $\Omega\subset\mathbb R^d$ を有界開集合、$1<p<\infty$、
 
 $$
@@ -771,7 +771,7 @@ $$
 
 <a id="thm-npde3-p-energy-euler"></a>
 <!-- formal-statement-start -->
-> **定理（$p$-energy の最小化と Euler--Lagrange 方程式）**  
+> **定理（p-energy の最小化と Euler--Lagrange 方程式）**  
 > $\Omega\subset\mathbb R^d$ を有界開集合、$1<p<\infty$、
 
 $$
@@ -1143,7 +1143,7 @@ $$
 
 ---
 
-## 6. Browder--Minty 型定理：単調性で全射性を得る
+## 6. 単調性で全射性を得る：Browder--Minty の方法
 
 線形 Lax--Milgram と比較すると、役割分担は次のようになります。
 
@@ -1447,7 +1447,7 @@ $$
 
 <a id="def-npde3-plaplacian-weak"></a>
 <!-- formal-statement-start -->
-> **定義（$p$-Laplacian の変分弱解）**  
+> **定義（p-Laplacian の変分弱解）**  
 > $\Omega\subset\mathbb R^d$ を有界開集合、$1<p<\infty$、
 
 $$
@@ -1576,7 +1576,7 @@ $$
 
 <a id="prop-npde3-plaplacian-properties"></a>
 <!-- formal-statement-start -->
-> **命題（$p$-Laplacian 作用素の基本性質）**  
+> **命題（p-Laplacian 作用素の基本性質）**  
 > $\Omega\subset\mathbb R^d$ を有界開集合、$1<p<\infty$ とし、
 
 $$
@@ -1774,7 +1774,7 @@ $p>1$ なので $\|u\|_X\to\infty$ で右辺は $+\infty$ へ向かいます。�
 
 <a id="thm-npde3-plaplacian-existence"></a>
 <!-- formal-statement-start -->
-> **定理（零 Dirichlet $p$-Laplacian の存在一意性）**  
+> **定理（零 Dirichlet p-Laplacian の存在一意性）**  
 > $\Omega\subset\mathbb R^d$ を有界開集合、$1<p<\infty$、
 
 $$
@@ -3319,7 +3319,7 @@ $$
 
 と置きます。$t=0$ は最小点なので $h'(0)=0$ です。
 
-本文と同じ差分商・優収束の計算から
+本文と同じ一変数微分の計算と優収束の議論から
 
 $$
 \frac{d}{dt}
