@@ -1,0 +1,35 @@
+version: 1
+id: NPDE
+title: 非線形偏微分方程式
+plan: textbook/plans_progress/DREAM_THEATER_NONLINEAR_PDE_PLAN.md
+chapter_root: textbook/volumes/00_foundations
+
+chapters:
+  - id: NPDE1
+    path: textbook/volumes/00_foundations/NPDE1
+    status: planned
+    title: 保存則・衝撃波・Rankine--Hugoniot 条件
+  - id: NPDE2
+    path: textbook/volumes/00_foundations/NPDE2
+    status: planned
+    title: entropy solution・選択原理・L1 contraction
+  - id: NPDE3
+    path: textbook/volumes/00_foundations/NPDE3
+    status: planned
+    title: 非線形変分法・単調作用素・p-Laplacian
+  - id: NPDE4
+    path: textbook/volumes/00_foundations/NPDE4
+    status: planned
+    title: 尺度変換・熱核平滑化・自己相似
+  - id: NPDE5
+    path: textbook/volumes/00_foundations/NPDE5
+    status: planned
+    title: 多孔質媒質方程式・有限伝播速度
+  - id: NPDE6
+    path: textbook/volumes/00_foundations/NPDE6
+    status: planned
+    title: 半線形熱方程式・臨界性・有限時間 blow-up
+  - id: NPDE7
+    path: textbook/volumes/00_foundations/NPDE7
+    status: planned
+    title: 長時間漸近・普遍 profile・rescaled convergence

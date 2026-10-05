@@ -1,7 +1,7 @@
 # DREAM THEATER 非線形偏微分方程式計画
 
 作成日: 2026-10-04  
-状態: planned
+状態: in_progress
 
 ## 0. 目的
 
@@ -313,7 +313,22 @@ NPDE1--NPDE3 と NPDE4--NPDE7 は一列に強制せず、直接 prerequisite が
 
 ---
 
-## 11. 完成条件
+## 11. Navier--Stokes への戻り接続
+
+NPDE の一般理論が整った後は、完了済み NS 系列へ一般論を後付け prerequisite として強制せず、別計画 `DREAM_THEATER_NAVIER_STOKES_NPDE_CONNECTION_AUDIT_PLAN.md` に従って接続監査を行う。
+
+節目は次とする。
+
+- NPDE2 完成後: NS3 の弱解と entropy selection の違いを監査する。
+- NPDE4 完成後: NS6 / NS7 / NS8A の scaling・criticality・self-similarity を監査する。
+- NPDE6 完成後: NS5 / NS7 / NS8A の finite-time blow-up・continuation criterion を監査する。
+- NPDE7 完成後: NS4 / NS8A の rescaling・長時間挙動との接続を監査する。
+
+NS 側の主要証明は NPDE に依存させず、NPDE 既読者向けの一般理論への参照と、NS 固有機構の境界を磨くことを目的とする。
+
+---
+
+## 12. 完成条件
 
 - weak solution の非一意性から entropy selection が必要になる流れを説明できる。
 - 単調作用素法が Lax--Milgram のどの部分を一般化するか説明できる。
