@@ -99,7 +99,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-evol2-contraction-semigroup -->
-### 定義の確認：減衰する対角時間発展
+### **定義の確認**：減衰する対角時間発展
 
 $X=\ell^2(\mathbb N)$ とし、
 
@@ -242,7 +242,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-evol2-generator -->
-### 定義の確認：対角半群の生成作用素
+### **定義の確認**：対角半群の生成作用素
 
 第1節の
 
@@ -1003,7 +1003,7 @@ $A_\lambda$ を $A$ の **Yosida 近似**という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-evol2-yosida-approximation -->
-### 定義の確認：対角生成作用素
+### **定義の確認**：対角生成作用素
 
 $$
 A(x_n)=(-nx_n)
