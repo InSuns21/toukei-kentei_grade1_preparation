@@ -339,10 +339,10 @@ $$
 
 ## 5. 公式 statement A：全空間・無外力・大域滑らかさ
 
-<a id="stmt-ns8-a"></a>
+<a id="prop-ns8-statement-a"></a>
 
 <!-- formal-statement-start -->
-> **公式問題の Statement A（$\mathbb R^3$ での存在と滑らかさ）**  
+> **命題（公式問題の Statement A）**  
 > $\nu>0$ とする。全空間データ条件を満たす任意の滑らかな発散零初期速度 $u^0$ に対し、
 >
 > $$
@@ -382,10 +382,10 @@ NS5 で証明した局所強解は「短時間なら存在する」までです�
 
 ## 6. 公式 statement B：周期・無外力・大域滑らかさ
 
-<a id="stmt-ns8-b"></a>
+<a id="prop-ns8-statement-b"></a>
 
 <!-- formal-statement-start -->
-> **公式問題の Statement B（$\mathbb R^3/\mathbb Z^3$ での存在と滑らかさ）**  
+> **命題（公式問題の Statement B）**  
 > $\nu>0$ とする。任意の滑らかな発散零・周期初期速度 $u^0$ に対し、
 >
 > $$
@@ -429,10 +429,10 @@ $$
 
 ## 7. 公式 statement C：全空間・滑らかな外力付き breakdown
 
-<a id="stmt-ns8-c"></a>
+<a id="prop-ns8-statement-c"></a>
 
 <!-- formal-statement-start -->
-> **公式問題の Statement C（$\mathbb R^3$ での breakdown）**  
+> **命題（公式問題の Statement C）**  
 > $\nu>0$ とする。全空間データ条件を満たす滑らかな発散零初期速度 $u^0$ と、全空間外力条件を満たす滑らかな外力 $f$ が少なくとも一組存在して、そのデータに対して全時間の smooth finite-energy solution が存在しないことを示せ。
 <!-- formal-statement-end -->
 
@@ -466,10 +466,10 @@ Statement C は
 
 ## 8. 公式 statement D：周期・滑らかな外力付き breakdown
 
-<a id="stmt-ns8-d"></a>
+<a id="prop-ns8-statement-d"></a>
 
 <!-- formal-statement-start -->
-> **公式問題の Statement D（$\mathbb R^3/\mathbb Z^3$ での breakdown）**  
+> **命題（公式問題の Statement D）**  
 > $\nu>0$ とする。滑らかな発散零・周期初期速度 $u^0$ と、周期データ条件を満たす滑らかな外力 $f$ が少なくとも一組存在して、そのデータに対して全時間の滑らかな周期解が存在しないことを示せ。
 <!-- formal-statement-end -->
 
