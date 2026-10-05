@@ -18,11 +18,11 @@ concepts:
       - pde.pde3-heat-equation
 
   - id: nonlinear-pde.scaling-criticality
-    name: 尺度に関する劣臨界・臨界・超臨界
+    name: 尺度指数による三分類
     kind: definition
     aliases: ["scaling criticality", "subcritical critical supercritical"]
     introduction: formal
-    introduction_aliases: ["定義（尺度に関する劣臨界・臨界・超臨界）"]
+    introduction_aliases: ["定義（尺度指数による三分類）"]
     requires:
       - nonlinear-pde.parabolic-scaling
 
@@ -31,7 +31,7 @@ concepts:
     kind: proposition
     aliases: ["heat kernel Lr norm", "heat kernel scaling norm"]
     introduction: formal
-    introduction_aliases: ["命題（熱核の $L^r$ ノルム）"]
+    introduction_aliases: ["命題（熱核の Lr ノルム）"]
     requires:
       - pde.pde3-heat-kernel
       - nonlinear-pde.parabolic-scaling
@@ -50,7 +50,7 @@ concepts:
     kind: theorem
     aliases: ["heat kernel Lp-Lq smoothing", "heat semigroup smoothing estimate"]
     introduction: formal
-    introduction_aliases: ["定理（熱核の $L^p$--$L^q$ 平滑化評価）"]
+    introduction_aliases: ["定理（熱核の Lp--Lq 平滑化評価）"]
     requires:
       - nonlinear-pde.heat-kernel-lr-scaling
       - analysis.young-convolution
@@ -78,7 +78,7 @@ concepts:
     kind: proposition
     aliases: ["heat decay from Nash inequality"]
     introduction: formal
-    introduction_aliases: ["命題（energy と Nash 型不等式による $L^1$--$L^2$ 減衰）"]
+    introduction_aliases: ["命題（energy と Nash 型不等式による L1--L2 減衰）"]
     requires:
       - nonlinear-pde.nash-inequality
       - pde.pde3-energy-dissipation
