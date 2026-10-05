@@ -25,13 +25,13 @@ u=0 の近くで拡散が退化すると何が変わるか
   ↓
 質量保存と scaling から自己相似指数を決める
   ↓
-profile 方程式を解いて Barenblatt profile を得る
+profile 方程式を解いて compact support の自己相似 profile を得る
   ↓
 profile が compact support を持つことを確認する
   ↓
-比較原理を使うと一般の compact-support 初期値も有限時間で有界 support を保つ
+順序保存性を使うと一般の compact-support 初期値も有限時間で有界 support を保つ
   ↓
-similarity variables で Barenblatt profile を定常解として読む
+similarity variables でその自己相似 profile を定常解として読む
 ~~~
 
 前提は [NPDE4 の scaling・自己相似](../NPDE4/index.md#def-npde4-parabolic-scaling)です。特に断らない限り、空間次元を $d\ge1$、指数を $m>1$ とします。
@@ -48,7 +48,7 @@ $$
 
 です。
 
-$u>0$ の領域で連鎖律を使うと
+$u>0$ の領域で[連鎖律](../RA3/index.md#prop-ra3-chain-rule)を使うと
 
 $$
 \nabla(u^m)
@@ -171,7 +171,7 @@ u(t,x)\,dx
 \Delta(u^m)(t,x)\,dx.
 $$
 
-半径 $R$ の球 $B_R$ で積分し、発散定理を使うと
+半径 $R$ の球 $B_R$ で積分し、[発散定理](../VC4/index.md#thm-vc4-gauss-divergence)を使うと
 
 $$
 \int_{B_R}
@@ -787,17 +787,17 @@ $$
 
 明示解が compact support を持つだけでは、一般の初期値について有限伝播を証明したことにはなりません。
 
-ここで一つ、非線形拡散の標準的な解理論から **比較原理** を入力として使います。
+ここで一つ、非線形拡散の標準的な解理論から **順序保存性** を入力として使います。
 
-> **この章で使う比較原理**  
+> **この章で使う順序保存性**  
 > 同じ $m>1$ に対する二つの非負弱解 $u,v$ が初期時刻に $u_0\le v_0$ を満たすなら、その後も $u(t,\cdot)\le v(t,\cdot)$ が保たれる。
 
-この比較原理の一般弱解に対する完全証明は、近似解・収縮性・極限通過を含む別の解理論を要するため、本章では入力として明示して使います。ここでは **どの仮定の下で、どこに比較原理を使うか** を完全に追います。
+この順序保存性の一般弱解に対する完全証明は、近似解・収縮性・極限通過を含む別の解理論を要するため、本章では入力として明示して使います。ここでは **どの仮定の下で、どこに順序保存性を使うか** を完全に追います。
 
 <a id="prop-npde5-compact-support-propagation"></a>
 <!-- formal-statement-start -->
 > **命題（compact support 初期値の有限伝播）**  
-> $u$ を多孔質媒質方程式の非負弱解とし、比較原理が成り立つ解のクラスに属するとする。初期値が
+> $u$ を多孔質媒質方程式の非負弱解とし、順序保存性が成り立つ解のクラスに属するとする。初期値が
 
 $$
 0\le u_0(x)
@@ -818,7 +818,7 @@ $$
 
 ### 証明の見取り図
 
-時刻を少し前へずらした Barenblatt 解を大きな傘として初期値の上に置きます。比較原理が、その順序を未来へ運びます。
+時刻を少し前へずらした Barenblatt 解を大きな傘として初期値の上に置きます。順序保存性が、その順序を未来へ運びます。
 
 <!-- proof-start -->
 ### 証明
@@ -893,7 +893,7 @@ v(t,x)
 \mathcal B_C(t+\tau,x)
 $$
 
-も多孔質媒質方程式の解です。比較原理から
+も多孔質媒質方程式の解です。順序保存性から
 
 $$
 u(t,x)
@@ -914,7 +914,7 @@ $$
 に含まれるので、非負性から $u(t,x)=0$ もその球の外で従います。
 <!-- proof-end -->
 
-ここで使った比較原理こそが、明示解の情報を一般解へ運ぶ橋です。明示 profile の support を計算しただけで一般論が自動的に出るわけではありません。
+ここで使った順序保存性こそが、明示解の情報を一般解へ運ぶ橋です。明示 profile の support を計算しただけで一般論が自動的に出るわけではありません。
 
 ---
 
@@ -1353,7 +1353,7 @@ NPDE7 では、この「定常解である」という事実からさらに進�
 - 質量保存と PDE scaling から $\alpha,\beta$ が決まる。
 - profile 方程式を積分すると Barenblatt profile が現れる。
 - Barenblatt profile は compact support を持ち、support 半径は $t^\beta$ で広がる。
-- 比較原理を使うと、一般の bounded compact-support 初期値にも有限伝播を移せる。
+- 順序保存性を使うと、一般の bounded compact-support 初期値にも有限伝播を移せる。
 - 線形熱方程式では Gaussian kernel が全点で正なので、正時刻に瞬時に全空間へ広がる。
 - pressure variable は退化拡散と自由境界を見やすくする。
 - similarity variables では Barenblatt profile が定常解になる。
@@ -1615,7 +1615,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-連鎖律から
+[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 \nabla p
@@ -2004,7 +2004,7 @@ $$
 ### NPDE5-C01 Barenblatt barrier から有限伝播を再構成する
 - Level: C
 
-比較原理が成り立つ非負弱解 $u$ を考える。初期値は
+順序保存性が成り立つ非負弱解 $u$ を考える。初期値は
 
 $$
 0\le u_0(x)
@@ -2017,7 +2017,7 @@ $$
 1. $\mathcal B_C(\tau,\cdot)$ の support 半径を $2R_0$ にする $C$ を求めよ。
 2. $|x|\le R_0$ で $\mathcal B_C(\tau,x)$ の下界を求めよ。
 3. $\tau$ を十分小さくすると $u_0\le\mathcal B_C(\tau,\cdot)$ とできることを示せ。
-4. 比較原理から $u(t,\cdot)$ の support 上界を求めよ。
+4. 順序保存性から $u(t,\cdot)$ の support 上界を求めよ。
 5. 同じ議論が線形熱方程式では成立しない理由を述べよ。
 
 <!-- solution-start -->
@@ -2092,7 +2092,7 @@ $$
 v(t,x)=\mathcal B_C(t+\tau,x)
 $$
 
-も解なので、比較原理から
+も解なので、順序保存性から
 
 $$
 u(t,x)\le v(t,x).
