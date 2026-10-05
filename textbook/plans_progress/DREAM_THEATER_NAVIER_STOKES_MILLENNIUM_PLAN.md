@@ -1652,3 +1652,26 @@ NS8A 実装時にはリンク・日付・status を再確認し、解析論文�
 次作業:
 
 - NS8「ミレニアム問題の公式定式化を読む」
+
+
+---
+
+## 28. 2026-10-05 NS8 進捗
+
+実装完了:
+
+- NS8「ミレニアム問題の公式定式化を読む」を実装
+- CMI Navier--Stokes 問題ページ、Charles L. Fefferman の公式 problem description、CMI Millennium Prize Rules を一次資料として再確認
+- 全空間 $\mathbb R^3$ の滑らかな発散零・急減少初期値条件と、外力の空間時間急減少条件を数式で整理
+- 周期版 $\mathbb R^3/\mathbb Z^3$ の周期初期値・周期外力・時間急減少条件を整理
+- Statement A/B を無外力・任意初期値に対する大域滑らか解存在、Statement C/D を滑らかな外力を許す存在型 breakdown として分離
+- $\neg A\Rightarrow C$、$\neg B\Rightarrow D$ を $f=0$ が admissible forcing であることから証明し、逆向きが一般に成り立たないことを量化構造から説明
+- Leray--Hopf 大域弱解の存在と公式 A/B が要求する全時間 $C^\infty$ 解の差を解クラスから明示
+- smooth breakdown と大域弱解 continuation が論理矛盾しないことを整理
+- 数学的 statement の解決と CMI Prize Rules に基づく賞の認定・評価手続きを分離
+- NS8 に Level A 5題 / B 4題 / C 1題と全問詳細解答を追加
+- DREAM THEATER 目次・標準数学コア・dependency graph・series routing を NS8 完了へ同期
+
+次作業:
+
+- NS8A「2026年の有限時間特異点構成とミレニアム問題の現在地」
