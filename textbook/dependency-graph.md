@@ -858,7 +858,7 @@ FA4 反射性・弱コンパクト性 ─┤
 FIX1 Brouwer 不動点定理 ───┼→ NPDE3 非線形変分法・単調作用素・p-Laplacian
 OPT3 強圧性 ───────────────┘
 PDE3 熱方程式・熱核 ────────┐
-GPDE5 Sobolev 埋め込み ─────┴→ NPDE4 尺度変換・熱核平滑化・自己相似 ─┬→ NPDE5 多孔質媒質方程式・有限伝播速度
+GPDE5 Sobolev 埋め込み ─────┴→ NPDE4 尺度変換・熱核平滑化・自己相似 ─┬→ NPDE5 多孔質媒質方程式・有限伝播速度 → NPDE7 長時間漸近・普遍 profile・rescaled convergence
 PDE8 Duhamel 原理・非斉次問題 ──────────────────────────────────────┤
 GPDE10 強連続半群・mild 解 ─────────────────────────────────────────┴→ NPDE6 半線形熱方程式・臨界性・有限時間 blow-up
 ~~~
@@ -874,6 +874,8 @@ NPDE4 は PDE3、GPDE5 を直接 prerequisite とし、放物型尺度変換、$
 NPDE5 は NPDE4 を直接 prerequisite とし、多孔質媒質方程式の退化拡散、弱形式と質量保存、質量保存型 scaling、Barenblatt 型自己相似解、finite speed of propagation、Barenblatt barrier と比較原理による compact support の伝播、線形熱方程式の infinite speed との比較、pressure variable、rescaled porous medium equation を担当する。比較原理の一般弱解に対する完全証明は本章の黒箱入力とし、その利用箇所と責務境界を本文で明示する。直接 prerequisite の正本は各章の chapter.yaml / knowledge.yaml とする。
 
 NPDE6 は NPDE4、PDE8、GPDE10 を直接 prerequisite とし、半線形熱方程式 $u_t=\Delta u+u^p$ の非負 mild solution、局所存在一意性、Picard 反復による比較原理、最大存在時間と $L^\infty$ blow-up alternative、尺度変換と臨界 $L^q$ 指数、Fujita 指数 $p_F=1+2/d$、backward heat-kernel average による存在必要条件、劣臨界・臨界の有限時間 blow-up、超臨界の Gaussian supersolution による small-data global solution、backward self-similar blow-up profile を担当する。直接 prerequisite の正本は各章の chapter.yaml / knowledge.yaml とする。
+
+NPDE7 は NPDE4 と NPDE5 を直接 prerequisite とし、熱方程式の conserved mass、Gaussian leading asymptotic profile、$L^q$ decay、有限一次 moment による補正、rescaled convergence を担当する。多孔質媒質方程式では rescaled free energy と散逸恒等式、零散逸定常状態としての Barenblatt profile、相対 compactness と極限点 identification から収束を導く抽象論理を担当する。一般 $L^1$ データに対する PME の compactness・tightness・下半連続性を含む完全漸近定理は本章では仮定付きの収束機構と分離する。直接 prerequisite の正本は各章の chapter.yaml / knowledge.yaml とする。
 
 ---
 
