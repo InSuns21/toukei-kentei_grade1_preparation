@@ -99,7 +99,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-evol2-contraction-semigroup -->
-### 定義の確認：減衰する対角時間発展
+### **定義の確認**：減衰する対角時間発展
 
 $X=\ell^2(\mathbb N)$ とし、
 
@@ -242,7 +242,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-evol2-generator -->
-### 定義の確認：対角半群の生成作用素
+### **定義の確認**：対角半群の生成作用素
 
 第1節の
 
@@ -567,7 +567,7 @@ T(t)x_n-x_n
 T(t)x-x.
 $$
 
-右辺について、$s\in[0,t]$ 上で $(T(s))$ は一様有界です。実際、強連続性と一様有界性原理から
+右辺について、$s\in[0,t]$ 上で $(T(s))$ は一様有界です。実際、強連続性と[一様有界性原理](../FA1/index.md#thm-fa1-uniform-boundedness)から
 
 $$
 M_t
@@ -1003,7 +1003,7 @@ $A_\lambda$ を $A$ の **Yosida 近似**という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-evol2-yosida-approximation -->
-### 定義の確認：対角生成作用素
+### **定義の確認**：対角生成作用素
 
 $$
 A(x_n)=(-nx_n)
