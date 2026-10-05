@@ -40,7 +40,7 @@ concepts:
     kind: proposition
     aliases: ["CMI Navier--Stokes Statement A"]
     introduction: formal
-    introduction_aliases: ["公式問題の Statement A（R3 での存在と滑らかさ）"]
+    introduction_aliases: ["命題（公式問題の Statement A）"]
     requires:
       - navier-stokes.cmi-whole-space-smooth-solution
 
@@ -49,7 +49,7 @@ concepts:
     kind: proposition
     aliases: ["CMI Navier--Stokes Statement B"]
     introduction: formal
-    introduction_aliases: ["公式問題の Statement B（R3/Z3 での存在と滑らかさ）"]
+    introduction_aliases: ["命題（公式問題の Statement B）"]
     requires:
       - navier-stokes.cmi-periodic-data
       - navier-stokes.leray-hopf-existence
@@ -59,7 +59,7 @@ concepts:
     kind: proposition
     aliases: ["CMI Navier--Stokes Statement C"]
     introduction: formal
-    introduction_aliases: ["公式問題の Statement C（R3 での breakdown）"]
+    introduction_aliases: ["命題（公式問題の Statement C）"]
     requires:
       - navier-stokes.cmi-whole-space-data
 
@@ -68,7 +68,7 @@ concepts:
     kind: proposition
     aliases: ["CMI Navier--Stokes Statement D"]
     introduction: formal
-    introduction_aliases: ["公式問題の Statement D（R3/Z3 での breakdown）"]
+    introduction_aliases: ["命題（公式問題の Statement D）"]
     requires:
       - navier-stokes.cmi-periodic-data
 
