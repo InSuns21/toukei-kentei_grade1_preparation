@@ -1684,7 +1684,7 @@ a(\nabla u)-a(\nabla v)
 \ge0.
 $$
 
-等号なら $\nabla u=\nabla v$ a.e. です。$u-v\in W_0^{1,p}$ なので $p$-Poincaré 不等式より
+等号なら $\nabla u=\nabla v$ は、ほとんど至る所（almost everywhere; a.e.）で成り立ちます。$u-v\in W_0^{1,p}$ なので $p$-Poincaré 不等式より
 
 $$
 \|u-v\|_{L^p}
