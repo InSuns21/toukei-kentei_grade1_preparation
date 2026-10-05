@@ -6,11 +6,12 @@ prerequisites:
   - GPDE6
   - FA4
   - FIX1
+  - OPT3
 official_scope: []
 learning_objectives:
   - 1<p<infinity で W_0^{1,p}(Omega) に p-Poincare 不等式を導き、勾配 Lp ノルムを同値ノルムとして使える
   - MT7 の Lp 双対性と FA4 の弱コンパクト性から W_0^{1,p}(Omega) の反射性を説明できる
-  - 弱下半連続性と強圧性を定義し、反射的 Banach 空間上の直接法を弱コンパクトな劣位集合から証明できる
+  - 弱下半連続性を定義し、OPT3 の強圧性と合わせて反射的 Banach 空間上の直接法を弱コンパクトな劣位集合から証明できる
   - p-energy J_f(v)=(1/p)int|grad v|^p-<f,v> の弱下半連続性・強圧性・狭義凸性を確認できる
   - p-energy の Gateaux 微分を主要中間式付きで導き、p-Laplacian の弱形式を得られる
   - 単調作用素・半連続性・作用素の強圧性を定義し、p-Laplacian 作用素で各条件を検証できる
@@ -19,12 +20,11 @@ learning_objectives:
   - Minty の同定法を使い、弱収束する近似列の非線形項の極限を Au と同定するために必要な limsup 条件を説明できる
 definitions:
   - { id: NPDE3-DEF-01, name: "弱下半連続汎関数" }
-  - { id: NPDE3-DEF-02, name: "強圧的汎関数" }
-  - { id: NPDE3-DEF-03, name: "p-energy" }
-  - { id: NPDE3-DEF-04, name: "単調作用素" }
-  - { id: NPDE3-DEF-05, name: "半連続作用素" }
-  - { id: NPDE3-DEF-06, name: "強圧的作用素" }
-  - { id: NPDE3-DEF-07, name: "p-Laplacian の変分弱解" }
+  - { id: NPDE3-DEF-02, name: "p-energy" }
+  - { id: NPDE3-DEF-03, name: "単調作用素" }
+  - { id: NPDE3-DEF-04, name: "半連続作用素" }
+  - { id: NPDE3-DEF-05, name: "強圧的作用素" }
+  - { id: NPDE3-DEF-06, name: "p-Laplacian の変分弱解" }
 theorems:
   - { id: NPDE3-PROP-01, name: "W_0^{1,p} の p-Poincare 不等式" }
   - { id: NPDE3-PROP-02, name: "W_0^{1,p} の反射性" }
