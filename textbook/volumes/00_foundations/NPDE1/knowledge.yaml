@@ -42,8 +42,8 @@ concepts:
     name: Rankine--Hugoniot 条件
     kind: theorem
     aliases: ["Rankine-Hugoniot condition", "Rankine--Hugoniot condition"]
-    introduction: inline
-    introduction_aliases: ["Rankine--Hugoniot 条件"]
+    introduction: formal
+    introduction_aliases: ["定理（Rankine--Hugoniot 条件）"]
     requires:
       - nonlinear-pde.distributional-weak-solution
 
@@ -51,8 +51,8 @@ concepts:
     name: 定数状態を結ぶ衝撃波
     kind: definition
     aliases: ["衝撃波", "shock wave"]
-    introduction: inline
-    introduction_aliases: ["衝撃波"]
+    introduction: formal
+    introduction_aliases: ["定義（定数状態を結ぶ衝撃波）"]
     requires:
       - nonlinear-pde.rankine-hugoniot
 
