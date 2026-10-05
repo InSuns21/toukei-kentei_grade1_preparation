@@ -22,7 +22,7 @@ concepts:
   - id: sobolev.w01p-poincare
     name: "W_0^{1,p} の p-Poincare 不等式"
     kind: proposition
-    aliases: ["p-Poincare inequality on W_0^{1,p}", "Poincare inequality for W01p"]
+    aliases: ["p-Poincaré 不等式", "p-Poincare inequality on W_0^{1,p}", "Poincare inequality for W01p"]
     introduction: formal
     introduction_aliases: ["命題（W01p の p-Poincaré 不等式）"]
     requires:
