@@ -1,0 +1,43 @@
+id: "EVOL3"
+title: "散逸作用素・Lumer--Phillips"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - EVOL2
+official_scope: []
+learning_objectives:
+  - Banach 空間上の散逸作用素を resolvent 型ノルム不等式で定義し、縮小時間発展との対応を説明できる
+  - Hilbert 空間では dissipativity が Re<Ax,x> <= 0 と同値であることを二乗ノルムの展開から証明できる
+  - 散逸性だけでは生成性に足りず range condition が必要であることを稠密だが非閉な零作用素の制限から説明できる
+  - m-散逸作用素を dissipativity と range condition の組で定義し、その条件から閉性・全正実軸の resolvent 評価を導ける
+  - Lumer--Phillips 定理の必要十分条件を述べ、Hille--Yosida へ接続する核心論証を再現できる
+  - range condition が一点 lambda0 > 0 で成立すれば全ての lambda > 0 へ伝播することを Neumann 級数で示せる
+  - Hilbert 空間上の古典解軌道で dissipativity がエネルギー非増大 d/dt ||u(t)||^2 <= 0 を与えることを説明できる
+  - ell2 上の対角作用素と Dirichlet Laplacian を Lumer--Phillips で縮小半群生成作用素と判定できる
+  - Stokes 作用素では正作用素 A そのものではなく線形発展の生成作用素 -nu A が散逸的になるという符号規約を説明できる
+definitions:
+  - { id: EVOL3-DEF-01, name: "散逸作用素" }
+  - { id: EVOL3-DEF-02, name: "range condition と m-散逸作用素" }
+  - { id: EVOL3-DEF-03, name: "極大散逸作用素" }
+theorems:
+  - { id: EVOL3-PROP-01, name: "Hilbert 空間での散逸性判定" }
+  - { id: EVOL3-PROP-02, name: "m-散逸作用素は閉作用素" }
+  - { id: EVOL3-LEM-01, name: "range condition の正実軸への伝播" }
+  - { id: EVOL3-THM-01, name: "Lumer--Phillips 定理" }
+  - { id: EVOL3-COR-01, name: "Hilbert 空間版 Lumer--Phillips" }
+  - { id: EVOL3-PROP-03, name: "Dirichlet Laplacian の縮小半群生成性" }
+canonical_examples:
+  - "ell2 上の対角作用素 A(x_n)=(-n x_n)"
+  - "c00 上に制限した零作用素：散逸的だが range condition を満たさない例"
+  - "L2(0,pi) 上の Dirichlet Laplacian"
+  - "Stokes 作用素の正値性と generator -nu A の散逸性の符号対応"
+problem_patterns:
+  - EVOL3-DISSIPATIVE-1
+  - EVOL3-HILBERT-CRITERION-1
+  - EVOL3-RANGE-CONDITION-1
+  - EVOL3-LUMER-PHILLIPS-1
+  - EVOL3-LAPLACIAN-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.5, exercises: 6.0, review: 1.5 }
