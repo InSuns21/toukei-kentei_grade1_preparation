@@ -18,6 +18,6 @@ terms:
   - term: pressure variable
     english: pressure variable
     meaning: p=m/(m-1)u^(m-1) で定め、自由境界と退化拡散の構造を見やすくする変数。
-  - term: rescaled porous medium equation
+  - term: 再正規化多孔質媒質方程式
     english: rescaled porous medium equation
     meaning: 質量保存型 similarity variables で書き直した v_tau=Delta(v^m)+beta div(yv)。
