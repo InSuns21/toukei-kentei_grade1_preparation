@@ -336,3 +336,25 @@ NS 側の主要証明は NPDE に依存させず、NPDE 既読者向けの一般
 - self-similar profile の指数を保存量と scaling から再構成できる。
 - blow-up と long-time decay の問いを、存在・一意性の問いと区別できる。
 - 他系列の HJB / Navier--Stokes / geometric analysis を重複実装せず接続できる。
+
+
+---
+
+## 13. 2026-10-05 進捗
+
+実装完了:
+
+- NPDE1「保存則・衝撃波・Rankine--Hugoniot 条件」を実装
+- 一次元スカラー保存則を区間の保存量と境界流束から導出
+- 滑らかな解の特性速度 $f'(u)$ と古典解破綻の接続を整理
+- テスト関数による分布的弱解と局所 $L^1$ 初期値トレースを定義
+- 移動界面の Leibniz 則と部分積分から Rankine--Hugoniot 条件を完全証明
+- 定数状態を結ぶ衝撃波速度を流束の割線勾配として導出
+- Riemann 問題と狭義凸流束の中心希薄波を構成し、弱解性と初期値収束を証明
+- Burgers の $0\to1$ 初期値で expansion shock と rarefaction が共存する弱解非一意性を証明
+- Level A 5題 / B 4題 / C 1題と全問詳細解答を追加
+- DREAM THEATER 目次・読む順・dependency graph・series routing を NPDE1 へ接続
+
+次作業:
+
+- NPDE2「entropy solution・選択原理・L1 contraction」
