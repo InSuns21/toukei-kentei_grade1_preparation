@@ -2233,7 +2233,7 @@ $$
 \text{次に decay・profile・rescaling を問える}
 $$
 
-という順序です。領域、保存量、自然な rescaling が違えば、同じ profile を期待してよいわけではありません。
+という順序です。領域、時間発展で何が保たれるか、自然な rescaling が違えば、同じ profile を期待してよいわけではありません。
 
 ---
 
