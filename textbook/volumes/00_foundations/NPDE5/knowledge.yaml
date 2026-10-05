@@ -38,7 +38,8 @@ concepts:
     name: Barenblatt 型自己相似解
     kind: theorem
     aliases: ["Barenblatt solution", "Barenblatt profile"]
-    introduction: inline
+    introduction: formal
+    introduction_aliases: ["定理（Barenblatt 型自己相似解）"]
     requires:
       - nonlinear-pde.pme-similarity-exponents
 
@@ -47,8 +48,7 @@ concepts:
     kind: definition
     aliases: ["finite speed of propagation"]
     introduction: inline
-    requires:
-      - nonlinear-pde.barenblatt-profile
+    requires: []
 
   - id: nonlinear-pde.barenblatt-support
     name: Barenblatt 解の support 半径
