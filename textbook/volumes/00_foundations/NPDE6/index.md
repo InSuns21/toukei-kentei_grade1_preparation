@@ -2075,7 +2075,7 @@ $$
 ## Level B
 
 <a id="ex-npde6-b01"></a>
-### NPDE6-B01 contraction の時間条件を作る
+### NPDE6-B01 縮小写像の時間条件を作る
 - Level: B
 
 $M=\|u_0\|_\infty>0$、$R=2M$ とする。Duhamel 写像
