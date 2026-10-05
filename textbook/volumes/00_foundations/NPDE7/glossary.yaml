@@ -1,0 +1,20 @@
+chapter: "NPDE7"
+terms:
+  - term: 長時間漸近 profile
+    english: long-time asymptotic profile
+    meaning: 時間を無限大へ送るとき、適切な振幅・空間 rescaling の後で解が近づく基準形。
+  - term: 再正規化収束
+    english: rescaled convergence
+    meaning: 拡散や集中によって変化する幅と高さを時間依存の変数変換で固定し、その新しい変数で解が一定の profile へ収束すること。
+  - term: 普遍 profile
+    english: universal profile
+    meaning: 初期値の細部ではなく、質量など少数の保存量・不変量だけで決まり、広い初期値クラスの長時間挙動を支配する profile。
+  - term: 一次 moment 補正
+    english: first-moment correction
+    meaning: leading Gaussian profile を引いた後に、初期値の一次 moment b が -b dot grad G_t として現れる次の漸近項。
+  - term: 自由エネルギー
+    english: free energy
+    meaning: 再正規化多孔質媒質方程式で拡散による集中費用と二次 moment による広がり費用を合わせた単調減少汎関数。
+  - term: 零散逸定常状態
+    english: zero-dissipation stationary state
+    meaning: 自由エネルギー散逸量が0で時間変化もしない状態。多孔質媒質方程式の再正規化では質量固定の Barenblatt profile が該当する。
