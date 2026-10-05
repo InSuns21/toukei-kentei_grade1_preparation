@@ -5,6 +5,7 @@ prerequisites:
   - EVOL2
 
 forward_references:
+  - navier-stokes.leray-projection
   - navier-stokes.stokes-operator
   - navier-stokes.stokes-positive
 
