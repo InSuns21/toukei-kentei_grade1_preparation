@@ -1,0 +1,43 @@
+id: "NS8"
+title: "ミレニアム問題の公式定式化を読む"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NS7
+official_scope: []
+learning_objectives:
+  - CMI 公式 problem description の全空間版と周期版について、初期値・外力・滑らかさ・エネルギー条件を数式で読み分けられる
+  - Statement A と B が無外力の任意データに対する大域滑らか解存在を要求することを説明できる
+  - Statement C と D が滑らかな外力を許す存在型 breakdown statement であることを説明できる
+  - A/C および B/D が単純な論理否定ではなく、neg A=>C と neg B=>D は成り立つが逆は成り立たないことを証明できる
+  - Leray--Hopf 大域弱解の存在と公式 A/B の大域滑らか解存在の差を解クラスから説明できる
+  - smooth breakdown と大域弱解の存在が両立し得ることを説明できる
+  - 公式 problem statement の数学的解決と CMI Prize Rules による賞の認定手続きを区別できる
+  - 仮想的な研究結果の領域・外力・解クラスを読み、A/B/C/D のどれに対応するか判定できる
+definitions:
+  - { id: NS8-DEF-01, name: "CMI 公式問題の全空間データ条件" }
+  - { id: NS8-DEF-02, name: "公式問題での全空間 smooth finite-energy solution" }
+  - { id: NS8-DEF-03, name: "CMI 公式問題の周期データ条件" }
+theorems:
+  - { id: NS8-STMT-A, name: "公式問題の Statement A" }
+  - { id: NS8-STMT-B, name: "公式問題の Statement B" }
+  - { id: NS8-STMT-C, name: "公式問題の Statement C" }
+  - { id: NS8-STMT-D, name: "公式問題の Statement D" }
+  - { id: NS8-PROP-01, name: "公式 A / B / C / D の論理構造" }
+  - { id: NS8-PROP-02, name: "Leray--Hopf 大域存在だけでは A / B は終わらない" }
+canonical_examples:
+  - "curl of (0,0,exp(-|x|^2)) から滑らかな発散零・急減少初期値を作り、全空間データ条件を確認する"
+  - "u0=(sin 2pi x2,0,0) と e^(-t^2) 型外力で周期データ条件を直接確認する"
+  - "A と C が同時に真でも論理矛盾しない仮想状況を外力の有無から確認する"
+  - "Leray--Hopf 弱解と公式 B の smooth solution の解クラス差を比較する"
+problem_patterns:
+  - NS-CMI-ABCD-CLASSIFY-1
+  - NS-CMI-DECAY-CONDITIONS-1
+  - NS-CMI-WEAK-VS-SMOOTH-1
+  - NS-CMI-LOGIC-1
+  - NS-CMI-PRIZE-RULES-1
+  - NS-CMI-RESULT-MAPPING-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.5, review: 1.0 }
