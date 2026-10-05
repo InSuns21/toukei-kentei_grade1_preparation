@@ -200,7 +200,7 @@ $$
 
 $q$ には加法定数の自由があります。ただし $\partial_xq(u)$ では定数が消えるので、後で導入する散逸不等式の判定には影響しません。
 
-重要なのは、まだ凸性を使っていないことです。滑らかな解では、$\eta$ が凸でなくても上の連鎖律から等式が成り立ちます。
+重要なのは、まだ凸性を使っていないことです。滑らかな解では、$\eta$ が凸でなくても[RA3 の連鎖律](../RA3/index.md#prop-ra3-chain-rule)から等式が成り立ちます。
 
 凸性が効くのは、衝撃波や粘性を考えたときです。
 
@@ -918,7 +918,7 @@ NPDE1 で許した弱解をさらに増やすのではなく、全ての $k$ に
 
 Rankine--Hugoniot shock を考えます。
 
-$k$ が区間 $[u_R,u_L]$ の外にあるとき、$\operatorname{sgn}(u-k)$ は左右で変わりません。この場合 Kruzhkov entropy は元の保存則の定数倍になり、跳躍係数は Rankine--Hugoniot 条件により0です。
+$k$ が区間 $[u_R,u_L]$ の外にあるとき、$\operatorname{sgn}(u-k)$ は左右で変わりません。この場合 Kruzhkov entropy は元の保存則の定数倍になり、跳躍係数は [NPDE1 の Rankine--Hugoniot 条件](../NPDE1/index.md#thm-npde1-rankine-hugoniot)により0です。
 
 本質は
 
@@ -1389,7 +1389,7 @@ $$
 
 $u,v$ は局所有界なので、共通の値域を含む区間上で $f$ は Lipschitz です。
 
-GPDE2 の平滑化核の局所 $L^1$ 近似と、$L^1_{\mathrm{loc}}$ の平行移動連続性により、
+[GPDE2 の平滑化核の局所 $L^1$ 近似](../GPDE2/index.md#thm-gpde2-mollifier-l1loc)と、[多次元の平行移動補題](../GPDE2/index.md#lem-gpde2-l1-translation-rd)により、
 
 $$
 u(t,x)-v(s,y)
@@ -3055,6 +3055,6 @@ $$
 - Kruzhkov entropy pair $(|u-k|,q_k)$ を定義できる。
 - 凸流束の Riemann 問題で圧縮 shock / 希薄波が選ばれ、expansion shock が排除されることを chord 条件から説明できる。
 - doubling of variables で「定数 $k$」をもう一つの解へ変える手順を説明できる。
-- Kato 型不等式から局所 $L^1$ 評価を導き、$L^1$ 収縮性と一意性へ進める。
+- [Kato 型不等式](#lem-npde2-kato-inequality)から局所 $L^1$ 評価を導き、$L^1$ 収縮性と一意性へ進める。
 - vanishing viscosity で得られる極限が entropy inequality を満たす理由を、凸性・強収束・$\varepsilon$ 項の消失に分けて説明できる。
 - entropy solution が「弱解より弱い」のではなく「弱解を選別する」概念だと説明できる。
