@@ -4,7 +4,9 @@ coverage: complete
 prerequisites:
   - NS6
 
-forward_references: []
+forward_references:
+  - NPDE4
+  - NPDE6
 
 concepts:
   - id: navier-stokes.prodi-serrin-pair
