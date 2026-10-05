@@ -18,7 +18,8 @@ learning_objectives:
   - 相対 compactness と極限点の identification から Barenblatt profile への L1 収束が従う論理を証明できる
   - 自己相似解を構成することと、一般解の再正規化収束を証明することを区別できる
 definitions:
-  - { id: NPDE7-DEF-01, name: "再正規化収束と長時間漸近 profile" }
+  - { id: NPDE7-DEF-01, name: "再正規化収束" }
+  - { id: NPDE7-DEF-01A, name: "長時間漸近 profile" }
   - { id: NPDE7-DEF-02, name: "再正規化多孔質媒質方程式の自由エネルギー" }
 theorems:
   - { id: NPDE7-THM-01, name: "熱方程式の Gaussian 長時間漸近" }
