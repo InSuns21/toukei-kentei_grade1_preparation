@@ -15,8 +15,8 @@ chapters:
     title: entropy solution・選択原理・$L^1$ 収縮性
   - id: NPDE3
     path: textbook/volumes/00_foundations/NPDE3
-    status: planned
-    title: 非線形変分法・単調作用素・p-Laplacian
+    status: completed
+    title: 非線形変分法・単調作用素・$p$-Laplacian
   - id: NPDE4
     path: textbook/volumes/00_foundations/NPDE4
     status: planned

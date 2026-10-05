@@ -1,0 +1,56 @@
+id: "NPDE3"
+title: "非線形変分法・単調作用素・$p$-Laplacian"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GPDE6
+  - FA4
+  - FIX1
+  - OPT3
+official_scope: []
+learning_objectives:
+  - 1<p<infinity で W_0^{1,p}(Omega) に p-Poincare 不等式を導き、勾配 Lp ノルムを同値ノルムとして使える
+  - MT7 の Lp 双対性と FA4 の弱コンパクト性から W_0^{1,p}(Omega) の反射性を説明できる
+  - 弱下半連続性を定義し、OPT3 の強圧性と合わせて反射的 Banach 空間上の直接法を弱コンパクトな劣位集合から証明できる
+  - p-energy J_f(v)=(1/p)int|grad v|^p-<f,v> の弱下半連続性・強圧性・狭義凸性を確認できる
+  - p-energy の Gateaux 微分を主要中間式付きで導き、p-Laplacian の弱形式を得られる
+  - 単調作用素・半連続性・作用素の強圧性を定義し、p-Laplacian 作用素で各条件を検証できる
+  - 有限次元 Galerkin 問題と Brouwer 不動点定理から Browder--Minty 型全射定理を証明できる
+  - Browder--Minty 型定理から -Delta_p u=f の弱解の存在一意性を導ける
+  - Minty の同定法を使い、弱収束する近似列の非線形項の極限を Au と同定するために必要な limsup 条件を説明できる
+definitions:
+  - { id: NPDE3-DEF-01, name: "弱下半連続汎関数" }
+  - { id: NPDE3-DEF-02, name: "p-energy" }
+  - { id: NPDE3-DEF-03, name: "単調作用素" }
+  - { id: NPDE3-DEF-04, name: "半連続作用素" }
+  - { id: NPDE3-DEF-05, name: "強圧的作用素" }
+  - { id: NPDE3-DEF-06, name: "p-Laplacian の変分弱解" }
+theorems:
+  - { id: NPDE3-PROP-01, name: "W_0^{1,p} の p-Poincare 不等式" }
+  - { id: NPDE3-PROP-02, name: "W_0^{1,p} の反射性" }
+  - { id: NPDE3-PROP-03, name: "ノルムの弱下半連続性" }
+  - { id: NPDE3-THM-01, name: "反射的 Banach 空間上の直接法" }
+  - { id: NPDE3-THM-02, name: "p-energy の最小化と Euler--Lagrange 方程式" }
+  - { id: NPDE3-LEM-01, name: "有限次元の強圧零点補題" }
+  - { id: NPDE3-THM-03, name: "Browder--Minty 型全射定理" }
+  - { id: NPDE3-PROP-04, name: "p-Laplacian 作用素の単調性・半連続性・強圧性" }
+  - { id: NPDE3-THM-04, name: "零 Dirichlet p-Laplacian の存在一意性" }
+  - { id: NPDE3-LEM-02, name: "Minty の非線形極限同定" }
+canonical_examples:
+  - "p=2 で Poisson 方程式と二次エネルギーへ戻る"
+  - "区間上の -(|u'|^{p-2}u')'=1 の明示解"
+  - "p-Laplacian 作用素 A(u)=-Delta_p u の双対評価"
+  - "Galerkin 近似から Browder--Minty へ進む有限次元射影"
+  - "Minty trick による弱極限の非線形項同定"
+problem_patterns:
+  - NPDE3-P-POINCARE-1
+  - NPDE3-DIRECT-METHOD-1
+  - NPDE3-P-ENERGY-1
+  - NPDE3-MONOTONE-1
+  - NPDE3-BROWDER-MINTY-1
+  - NPDE3-PLAPLACIAN-WEAK-1
+  - NPDE3-MINTY-LIMIT-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 6.5, review: 1.5 }

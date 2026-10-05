@@ -1,0 +1,32 @@
+chapter: "NPDE3"
+terms:
+  - term: 弱下半連続
+    english: weakly lower semicontinuous
+    meaning: 弱収束 u_alpha -> u に対して J(u)<=liminf J(u_alpha) を満たす性質。弱極限でエネルギーが突然下がり過ぎないことを保証する。
+  - term: 強圧性
+    english: coercivity
+    meaning: 汎関数では ||u||->infinity のとき J(u)->+infinity となる性質。最小化列を有界領域へ閉じ込める。
+  - term: 直接法
+    english: direct method of the calculus of variations
+    meaning: 最小化列を弱コンパクト性で極限へ送り、弱下半連続性でその極限が最小値を達成することを示す方法。
+  - term: p-energy
+    english: p-energy
+    meaning: (1/p)int|grad u|^p を主項とする凸エネルギー。線形外力を引いた最小化問題の Euler--Lagrange 方程式が p-Laplacian になる。
+  - term: 単調作用素
+    english: monotone operator
+    meaning: <Au-Av,u-v>>=0 を満たす X から X* への作用素。線形問題の正定値性を非線形に拡張した役割を持つ。
+  - term: 半連続性
+    english: hemicontinuity
+    meaning: 任意の u,v,w に対して t -> <A(u+tv),w> が連続となる性質。
+  - term: 強圧的作用素
+    english: coercive operator
+    meaning: <Au,u>/||u|| -> +infinity となる作用素。有限次元近似解を一様有界に保つ。
+  - term: Browder--Minty 型定理
+    english: Browder--Minty theorem
+    meaning: 反射的 Banach 空間上で単調性・半連続性・強圧性を持つ作用素の全射性を与える存在定理。
+  - term: p-Laplacian
+    english: p-Laplacian
+    meaning: Delta_p u=div(|grad u|^{p-2}grad u) で定まる非線形楕円型作用素。p=2 で通常の Laplacian に一致する。
+  - term: Minty trick
+    english: Minty trick
+    meaning: 単調性不等式に任意の比較点を入れ、弱極限と limsup エネルギー条件から非線形項の弱極限を Au と同定する方法。

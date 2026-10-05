@@ -1,0 +1,174 @@
+chapter: NPDE3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GPDE6
+  - FA4
+  - FIX1
+  - OPT3
+
+forward_references: []
+
+concepts:
+  - id: variational.weak-lower-semicontinuous
+    name: 弱下半連続汎関数
+    kind: definition
+    aliases: ["weakly lower semicontinuous functional", "weak lsc functional"]
+    introduction: formal
+    introduction_aliases: ["定義（弱下半連続汎関数）"]
+    requires:
+      - functional.weak-convergence-banach
+
+  - id: sobolev.w01p-poincare
+    name: "W_0^{1,p} の p-Poincare 不等式"
+    kind: proposition
+    aliases: ["p-Poincaré 不等式", "p-Poincare inequality on W_0^{1,p}", "Poincare inequality for W01p"]
+    introduction: formal
+    introduction_aliases: ["命題（W01p の p-Poincaré 不等式）"]
+    requires:
+      - sobolev.w01p
+
+  - id: sobolev.w01p-reflexive
+    name: "W_0^{1,p} の反射性"
+    kind: proposition
+    aliases: ["reflexivity of W_0^{1,p}", "W01p reflexivity"]
+    introduction: formal
+    introduction_aliases: ["命題（W01p の反射性）"]
+    requires:
+      - sobolev.w01p
+      - functional.reflexive-banach-space
+      - functional.reflexivity-weak-compact-unit-ball
+
+  - id: functional.norm-weak-lsc
+    name: ノルムの弱下半連続性
+    kind: proposition
+    aliases: ["weak lower semicontinuity of norm"]
+    introduction: formal
+    introduction_aliases: ["命題（ノルムは弱下半連続）"]
+    requires:
+      - functional.weak-convergence-banach
+      - functional.norm-preserving-extension
+
+  - id: variational.direct-method-reflexive
+    name: 反射的 Banach 空間上の直接法
+    kind: theorem
+    aliases: ["direct method on reflexive Banach spaces", "direct method of calculus of variations"]
+    introduction: formal
+    introduction_aliases: ["定理（反射的 Banach 空間上の直接法）"]
+    requires:
+      - variational.weak-lower-semicontinuous
+      - convex.coercivity
+      - functional.reflexivity-weak-compact-unit-ball
+
+  - id: nonlinear-pde.p-energy
+    name: p-energy
+    kind: definition
+    aliases: ["p-energy functional"]
+    introduction: formal
+    introduction_aliases: ["定義（p-energy）"]
+    requires:
+      - sobolev.w01p
+      - functional.dual-space
+
+  - id: nonlinear-pde.p-energy-euler-lagrange
+    name: p-energy の最小化と Euler--Lagrange 方程式
+    kind: theorem
+    aliases: ["p-energy minimizer", "Euler--Lagrange equation for p-energy"]
+    introduction: formal
+    introduction_aliases: ["定理（p-energy の最小化と Euler--Lagrange 方程式）"]
+    requires:
+      - nonlinear-pde.p-energy
+      - variational.direct-method-reflexive
+      - sobolev.w01p-reflexive
+      - functional.norm-weak-lsc
+
+  - id: functional.monotone-operator
+    name: 単調作用素
+    kind: definition
+    aliases: ["monotone operator"]
+    introduction: formal
+    introduction_aliases: ["定義（単調作用素）"]
+    requires:
+      - functional.dual-space
+
+  - id: functional.hemicontinuous-operator
+    name: 半連続作用素
+    kind: definition
+    aliases: ["hemicontinuous operator", "hemicontinuity"]
+    introduction: formal
+    introduction_aliases: ["定義（半連続作用素）"]
+    requires:
+      - functional.dual-space
+
+  - id: functional.coercive-operator
+    name: 強圧的作用素
+    kind: definition
+    aliases: ["coercive operator"]
+    introduction: formal
+    introduction_aliases: ["定義（強圧的作用素）"]
+    requires:
+      - functional.dual-space
+
+  - id: functional.finite-dimensional-coercive-zero
+    name: 有限次元の強圧零点補題
+    kind: lemma
+    aliases: ["finite-dimensional coercive zero lemma"]
+    introduction: formal
+    introduction_aliases: ["補題（有限次元の強圧零点補題）"]
+    requires:
+      - fixedpoint.brouwer-compact-convex
+
+  - id: functional.browder-minty
+    name: Browder--Minty 型全射定理
+    kind: theorem
+    aliases: ["Browder--Minty theorem", "Browder Minty surjectivity"]
+    introduction: formal
+    introduction_aliases: ["定理（Browder--Minty 型全射定理）"]
+    requires:
+      - functional.monotone-operator
+      - functional.hemicontinuous-operator
+      - functional.coercive-operator
+      - functional.finite-dimensional-coercive-zero
+      - functional.reflexivity-weak-compact-unit-ball
+
+  - id: nonlinear-pde.p-laplacian-weak-solution
+    name: p-Laplacian の変分弱解
+    kind: definition
+    aliases: ["weak solution of p-Laplacian", "p-Laplacian weak solution"]
+    introduction: formal
+    introduction_aliases: ["定義（p-Laplacian の変分弱解）"]
+    requires:
+      - sobolev.w01p
+      - functional.dual-space
+
+  - id: nonlinear-pde.p-laplacian-monotone-operator
+    name: p-Laplacian 作用素の単調性・半連続性・強圧性
+    kind: proposition
+    aliases: ["p-Laplacian monotone operator"]
+    introduction: formal
+    introduction_aliases: ["命題（p-Laplacian 作用素の基本性質）"]
+    requires:
+      - nonlinear-pde.p-laplacian-weak-solution
+      - functional.monotone-operator
+      - functional.hemicontinuous-operator
+      - functional.coercive-operator
+
+  - id: nonlinear-pde.p-laplacian-existence-uniqueness
+    name: 零 Dirichlet p-Laplacian の存在一意性
+    kind: theorem
+    aliases: ["existence uniqueness for Dirichlet p-Laplacian"]
+    introduction: formal
+    introduction_aliases: ["定理（零 Dirichlet p-Laplacian の存在一意性）"]
+    requires:
+      - nonlinear-pde.p-laplacian-monotone-operator
+      - functional.browder-minty
+
+  - id: functional.minty-identification
+    name: Minty の非線形極限同定
+    kind: lemma
+    aliases: ["Minty trick", "Minty identification lemma"]
+    introduction: formal
+    introduction_aliases: ["補題（Minty の非線形極限同定）"]
+    requires:
+      - functional.monotone-operator
+      - functional.hemicontinuous-operator
