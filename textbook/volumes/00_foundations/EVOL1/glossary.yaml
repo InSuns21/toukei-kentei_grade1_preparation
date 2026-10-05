@@ -1,0 +1,26 @@
+chapter: "EVOL1"
+terms:
+  - term: partially defined linear operator
+    english: partially defined linear operator
+    meaning: Banach空間Xの線形部分空間D(A)上で定義された線形作用素A:D(A) to Y。非有界作用素では定義域D(A)自体が作用素のデータになる。
+  - term: closed operator
+    english: closed operator
+    meaning: グラフG(A)={(x,Ax):x in D(A)}がX x Yで閉じている作用素。入力と出力を同時に収束させた極限で作用素の対応が壊れない。
+  - term: graph norm
+    english: graph norm
+    meaning: D(A)上のnorm ||x||_A=||x||+||Ax||。閉作用素ではD(A)をこのnormでBanach空間にする。
+  - term: densely defined operator
+    english: densely defined operator
+    meaning: 定義域D(A)が元の空間Xに稠密な作用素。C0 semigroupのgeneratorではこの性質が自動的に現れる。
+  - term: closable operator
+    english: closable operator
+    meaning: グラフの閉包が再び一価な線形作用素のグラフになる作用素。入力が0へ収束するとき作用素像の収束極限も0になることと同値。
+  - term: closure of an operator
+    english: closure of an operator
+    meaning: closable operator AのグラフG(A)を閉包して得られる閉作用素。A barで表す。
+  - term: core
+    english: core of an operator
+    meaning: 閉作用素Aの定義域D(A)にgraph normで稠密な部分空間D0。AをD0へ制限してから閉包すると元のAを回収できる。
+  - term: resolvent
+    english: resolvent
+    meaning: lambda I-Aが全単射で有界逆作用素を持つときの逆作用素R(lambda,A)=(lambda I-A)^(-1)。非有界作用素のspectrumとsemigroup生成論を結ぶ。
