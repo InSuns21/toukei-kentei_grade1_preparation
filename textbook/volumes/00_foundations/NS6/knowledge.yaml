@@ -7,7 +7,9 @@ prerequisites:
   - FOU4
 
 forward_references:
-  - NPDE4
+  - nonlinear-pde.parabolic-scaling
+  - nonlinear-pde.scaling-criticality
+  - nonlinear-pde.similarity-variables
 
 concepts:
   - id: navier-stokes.scaling
