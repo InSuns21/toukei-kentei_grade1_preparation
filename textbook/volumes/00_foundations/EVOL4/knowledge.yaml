@@ -27,12 +27,12 @@ concepts:
     requires:
       - evolution.infinitesimal-generator
 
-  - id: evolution.variation-of-constants-classical
-    name: classical 解の variation of constants formula
+  - id: evolution.classical-duhamel-formula
+    name: classical 解の Duhamel 公式
     kind: theorem
     aliases: ["variation of constants formula for classical solutions", "Duhamel formula for classical solutions"]
     introduction: formal
-    introduction_aliases: ["定理（classical 解の variation of constants formula）"]
+    introduction_aliases: ["定理（classical 解の Duhamel 公式）"]
     requires:
       - evolution.abstract-cauchy-classical-solution
       - evolution.generator-orbit-differentiation
