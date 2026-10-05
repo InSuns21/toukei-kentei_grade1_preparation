@@ -168,40 +168,57 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-evol5-analytic-semigroup -->
-### **定義の確認**：有界作用素の指数半群
+### **定義の確認**：$B=bI$ の指数半群
 
-$B\in\mathcal B(X)$ とします。
+$b>0$ とし、$B=bI\in\mathcal B(X)$ とします。
 
-$$
-S(z)
-=
-e^{-zB}
-=
-\sum_{k=0}^{\infty}
-\frac{(-zB)^k}{k!}
-$$
+$
+S(z)=e^{-bz}I
+$
 
-と置くと、作用素ノルムで級数が絶対収束するので $z\mapsto S(z)$ は全平面で正則です。
+と置きます。指数関数は全関数なので、各 $x\in X$ に対して
 
-さらに指数関数の積法則から
+$
+z\mapsto S(z)x
+$
 
-$$
+は正則です。また
+
+$
 S(z+w)=S(z)S(w)
-$$
+$
 
 です。
 
-ただし
+$0<\theta'<\pi/2$ とし、$z=re^{i\varphi}\in\Sigma_{\theta'}$ とすると
 
-$$
+$
+\operatorname{Re}z
+=
+r\cos\varphi
+\ge
+r\cos\theta'
+>
+0.
+$
+
+したがって
+
+$
 \|S(z)\|
+=
+e^{-b\operatorname{Re}z}
 \le
-e^{|z|\|B\|}
-$$
+1.
+$
 
-なので、無限に広い sector 全体で一様有界とは限りません。bounded analytic semigroup の定義では、生成作用素のスペクトル位置と減衰方向が重要になります。
+さらに $z\to0$ なら $e^{-bz}\to1$ なので
 
-本章の主役は、単に「正則」なだけでなく、正の実時間方向で安定に振る舞う非有界作用素です。
+$
+S(z)x\to x.
+$
+
+よって $S$ は任意の角度 $\theta<\pi/2$ で bounded analytic $C_0$ 半群です。
 <!-- definition-example-end -->
 
 ---
