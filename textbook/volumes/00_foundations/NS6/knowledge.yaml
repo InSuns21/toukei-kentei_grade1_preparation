@@ -6,7 +6,8 @@ prerequisites:
   - VC9
   - FOU4
 
-forward_references: []
+forward_references:
+  - NPDE4
 
 concepts:
   - id: navier-stokes.scaling
