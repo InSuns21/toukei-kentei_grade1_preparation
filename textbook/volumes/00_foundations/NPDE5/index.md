@@ -1309,7 +1309,7 @@ $$
 
 <a id="prop-npde5-rescaled-pme"></a>
 <!-- formal-statement-start -->
-> **命題（rescaled porous medium equation）**  
+> **命題（再正規化多孔質媒質方程式）**  
 > 上の similarity variables で定めた $v$ は
 
 $$
