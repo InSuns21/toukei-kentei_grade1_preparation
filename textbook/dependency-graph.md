@@ -853,7 +853,7 @@ DREAM THEATER の Navier--Stokes 系列は、VC9 の流体方程式、FOU4 の $
 VC9 非圧縮 Navier--Stokes 方程式 ─┐
 FOU4 Plancherel・L2 Fourier解析 ───┼→ NS1 発散零空間・Leray 射影・Stokes 作用素 ─┐
 GPDE3 Sobolev 空間 ────────────────┘                                              ├→ NS2 非線形項・三重線形形式・エネルギー評価 ─┐
-GPDE5 Sobolev 埋め込み・コンパクト性 ─────────────────────────────────────────────┘                                               ├→ NS3 Leray--Hopf 弱解と大域存在 → NS4 二次元渦度・大域制御 → NS5 三次元局所強解・発散判定 → NS6 尺度変換・臨界性 → NS7 正則性判定・渦伸長 → NS8 CMI 公式問題 A/B/C/D
+GPDE5 Sobolev 埋め込み・コンパクト性 ─────────────────────────────────────────────┘                                               ├→ NS3 Leray--Hopf 弱解と大域存在 → NS4 二次元渦度・大域制御 → NS5 三次元局所強解・発散判定 → NS6 尺度変換・臨界性 → NS7 正則性判定・渦伸長 → NS8 CMI 公式問題 A/B/C/D → NS8A 2026年有限時間特異点構成・検証状況
 GPDE10 Galerkin・時間発展弱解 ────────────────────────────────────────────────────────────────────────────────────────────────┘
 ODE8 Grönwall の不等式 ─────────────────────────────────────────────────────────────────────────────────────────────────────────────→ NS5
 ~~~
@@ -873,4 +873,6 @@ NS6 は NS5、VC9、FOU4 を直接 prerequisite とし、全空間 $\mathbb R^3$
 NS7 は NS6 を直接 prerequisite とし、$3<p\le\infty$ の Prodi--Serrin 型非線形評価・延長判定、$p=3$ 端点での単純エネルギー法の退化、三次元渦度方程式、渦伸長による渦度エネルギー増幅、$\int\|\nabla u\|_\infty dt$ による尺度臨界延長判定、Prodi--Serrin 条件下の弱--強一致を担当する。
 
 NS8 は NS7 を直接 prerequisite とし、CMI の公式 problem description を一次資料として、$\mathbb R^3$ / $\mathbb T^3$ のデータ条件、無外力の existence and smoothness statements A/B、滑らかな外力付き breakdown statements C/D、A/C・B/D の論理関係、Leray--Hopf 大域弱解と公式 smooth solution の差、Prize Rules 上の認定手続きとの区別を担当する。
+
+NS8A は NS8 を直接 prerequisite とし、2026年に公表された全空間の smooth forced finite-time blowup theorem、$\tau=1-t$ による異方的集中尺度、有限 $L^2$ エネルギーと $L^\infty$ 発散の両立、輸送と粘性の主要バランス、振動応力と補正による smooth residual の構成機構、全空間 C と周期 D への対応、Leray--Hopf 弱解との整合、解析的 proof・Lean formalization・CMI status の区別を担当する。
 
