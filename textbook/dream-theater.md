@@ -277,6 +277,7 @@
 5. [NS5 三次元局所強解・一意性・有限時間発散判定](textbook/volumes/00_foundations/NS5/index.md)
 6. [NS6 スケーリング・臨界性・どのノルムを見るべきか](textbook/volumes/00_foundations/NS6/index.md)
 7. [NS7 正則性判定・渦伸長・何が特異点を防ぐのか](textbook/volumes/00_foundations/NS7/index.md)
+8. [NS8 ミレニアム問題の公式定式化を読む](textbook/volumes/00_foundations/NS8/index.md)
 
 <a id="dt-subject-stochastic-analysis"></a>
 ### 確率解析
