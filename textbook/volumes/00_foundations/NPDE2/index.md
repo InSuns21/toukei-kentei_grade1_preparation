@@ -360,7 +360,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-npde2-entropy-inequality -->
-**符号の確認**
+**定義の確認**
+
+### 符号の確認
 
 超関数微分では
 
@@ -891,7 +893,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-npde2-kruzhkov-solution -->
-**追加条件であることの確認**
+**定義の確認**
+
+### 追加条件であることの確認
 
 定義の最初に「分布的弱解である」と要求しています。
 
