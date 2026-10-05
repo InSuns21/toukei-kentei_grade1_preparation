@@ -8,7 +8,7 @@ prerequisites:
 official_scope: []
 learning_objectives:
   - 放物型尺度変換 u_lambda(t,x)=lambda^alpha u(lambda^2 t,lambda x) を各微分項へ代入し、時間指数2を自力で導ける
-  - Lp ノルムの scaling exponent alpha-d/p を変数変換から導き、劣臨界・臨界・超臨界を小スケール集中との関係で説明できる
+  - Lp ノルムの scaling exponent alpha-d/p を変数変換から導き、尺度指数の符号による三分類を小スケール集中との関係で説明できる
   - d 次元熱核 G_t=t^{-d/2}Phi(x/sqrt(t)) の Lr ノルムを scaling から計算できる
   - Young の畳み込み不等式を証明し、熱核の Lp-Lq smoothing exponent d/2(1/p-1/q) を導ける
   - 熱核の一階微分評価で空間微分一回が t^{-1/2} を追加することを scaling と結び付けられる
@@ -34,7 +34,7 @@ theorems:
 canonical_examples:
   - "質量保存 scaling で L1 が臨界になる熱方程式"
   - "熱核の高さ t^{-d/2} と幅 sqrt(t) の積が質量1を保つ"
-  - "Young の不等式から L1-Linfinity と L1-L2 smoothing を導く"
+  - "Young の畳み込み不等式から L1-Linfinity と L1-L2 smoothing を導く"
   - "Sobolev と補間から Nash 型不等式を作り energy decay を再現する"
   - "Gaussian heat kernel を similarity variables で静止させる"
 problem_patterns:
