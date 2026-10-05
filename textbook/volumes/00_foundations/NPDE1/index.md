@@ -29,14 +29,14 @@ $$
   ↓
 跳躍面で保存される量が釣り合う条件を導く
   ↓
-Rankine--Hugoniot 条件
+跳躍速度の釣り合い条件
   ↓
 同じ初期値から複数の弱解が生じる
   ↓
 NPDE2 の entropy 選択原理が必要になる
 ~~~
 
-前提は [PDE1 の Burgers 方程式と特性線交差](../PDE1/index.md#thm-pde1-burgers-characteristics) と、[GPDE1 のテスト関数](../GPDE1/index.md#def-gpde1-test-function)・[超関数解](../GPDE1/index.md#def-gpde1-distributional-poisson)です。本章では一般のスカラー保存則を扱い、最後に Burgers 方程式へ戻って「弱くすれば存在するが、一意性は戻らない」ことを具体的に示します。
+前提は [PDE1 の Burgers 方程式と特性線交差](../PDE1/index.md#thm-pde1-burgers-characteristics) と、[GPDE1 のテスト関数](../GPDE1/index.md#def-gpde1-test-function)・[超関数解](../GPDE1/index.md#def-gpde1-distributional-poisson)です。本章では一般の一次元保存方程式を扱い、最後に Burgers 方程式へ戻って「弱くすれば存在するが、一意性は戻らない」ことを具体的に示します。
 
 ---
 
@@ -76,6 +76,8 @@ u_t+\partial_x f(u)=0
 $$
 
 が得られます。
+
+このように、局所的な生成・消滅がなく、密度の時間変化を流束の空間変化だけで表す一次元方程式を **スカラー保存則** と呼びます。
 
 <a id="def-npde1-scalar-conservation-law"></a>
 <!-- formal-statement-start -->
@@ -281,7 +283,7 @@ $$
 
 ## 3. 古典微分を捨て、保存則をテスト関数に対する恒等式へ移す
 
-衝撃波では $u$ は跳びます。したがって $u_t$ や $u_x$ を各点で求めることはできません。
+跳躍を持つ解では $u$ は不連続です。したがって $u_t$ や $u_x$ を各点で求めることはできません。
 
 一方、$u$ と $f(u)$ が局所可積分なら、テスト関数 $\varphi$ を掛けて積分することはできます。
 
@@ -437,6 +439,8 @@ u^+(t)=\lim_{x\downarrow\gamma(t)}u(t,x)
 $$
 
 と書きます。
+
+界面が動くことで運ぶ量まで含め、左右の流束と釣り合わせる条件を **Rankine--Hugoniot 条件** と呼びます。
 
 <a id="thm-npde1-rankine-hugoniot"></a>
 <!-- formal-statement-start -->
@@ -688,6 +692,8 @@ $$
 
 という一本の直線状の跳躍を考えます。
 
+このように二つの定数状態を移動する一本の跳躍でつなぐ弱解を **衝撃波** と呼びます。
+
 <a id="def-npde1-shock-wave"></a>
 <!-- formal-statement-start -->
 > **定義（定数状態を結ぶ衝撃波）**  
@@ -824,7 +830,7 @@ $$
 したがって原点に静止した跳躍が弱解候補になります。
 <!-- definition-example-end -->
 
-Riemann 問題は単純に見えますが、保存則の二つの基本波である **衝撃波** と **希薄波** が最小構成で現れます。
+Riemann 問題は単純に見えますが、二つの基本的な波の形が最小構成で現れます。特性が互いに離れ、その間を連続な自己相似 profile が埋める波を **希薄波** と呼びます。
 
 ---
 
