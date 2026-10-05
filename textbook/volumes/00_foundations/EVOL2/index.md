@@ -238,7 +238,7 @@ $$
 A:D(A)\subset X\to X
 $$
 
-を $(T(t))$ の **無限小生成作用素**、または単に **生成作用素**という。
+を $(T(t))$ の **生成作用素**（infinitesimal generator）という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-evol2-generator -->
@@ -1126,7 +1126,7 @@ $$
 
 ---
 
-## 7. Hille--Yosida 定理：レゾルベント条件から時間発展を作る
+## 7. レゾルベント条件から時間発展を作る
 
 いよいよ逆向きをまとめます。
 
