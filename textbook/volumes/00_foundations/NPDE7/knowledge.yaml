@@ -1,0 +1,83 @@
+chapter: NPDE7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NPDE4
+  - NPDE5
+
+forward_references: []
+
+concepts:
+  - id: nonlinear-pde.rescaled-convergence
+    name: 再正規化収束と長時間漸近 profile
+    kind: definition
+    aliases: ["rescaled convergence"]
+    introduction: formal
+    introduction_aliases: ["定義（再正規化収束と長時間漸近 profile）"]
+    requires:
+      - nonlinear-pde.similarity-variables
+
+  - id: nonlinear-pde.heat-gaussian-asymptotics
+    name: 熱方程式の Gaussian 長時間漸近
+    kind: theorem
+    aliases: ["Gaussian long-time asymptotics for the heat equation"]
+    introduction: formal
+    introduction_aliases: ["定理（熱方程式の Gaussian 長時間漸近）"]
+    requires:
+      - nonlinear-pde.rescaled-convergence
+      - pde.pde3-heat-kernel
+
+  - id: nonlinear-pde.heat-leading-decay
+    name: 熱方程式の leading decay rate
+    kind: corollary
+    aliases: ["leading decay rate for the heat equation"]
+    introduction: formal
+    introduction_aliases: ["系（熱方程式の leading decay rate）"]
+    requires:
+      - nonlinear-pde.heat-gaussian-asymptotics
+
+  - id: nonlinear-pde.heat-first-moment-correction
+    name: 熱方程式の一次 moment 補正
+    kind: theorem
+    aliases: ["first-moment correction for the heat equation"]
+    introduction: formal
+    introduction_aliases: ["定理（熱方程式の一次 moment 補正）"]
+    requires:
+      - nonlinear-pde.heat-gaussian-asymptotics
+
+  - id: nonlinear-pde.pme-rescaled-free-energy
+    name: 再正規化多孔質媒質方程式の自由エネルギー
+    kind: definition
+    aliases: ["rescaled porous medium free energy"]
+    introduction: formal
+    introduction_aliases: ["定義（再正規化多孔質媒質方程式の自由エネルギー）"]
+    requires:
+      - nonlinear-pde.rescaled-pme
+
+  - id: nonlinear-pde.pme-free-energy-dissipation
+    name: 自由エネルギー散逸恒等式
+    kind: proposition
+    aliases: ["porous medium free-energy dissipation identity"]
+    introduction: formal
+    introduction_aliases: ["命題（自由エネルギー散逸恒等式）"]
+    requires:
+      - nonlinear-pde.pme-rescaled-free-energy
+
+  - id: nonlinear-pde.pme-stationary-barenblatt
+    name: 零散逸定常状態は Barenblatt profile
+    kind: proposition
+    aliases: ["zero-dissipation Barenblatt stationary profile"]
+    introduction: formal
+    introduction_aliases: ["命題（零散逸定常状態は Barenblatt profile）"]
+    requires:
+      - nonlinear-pde.pme-free-energy-dissipation
+      - nonlinear-pde.barenblatt-profile
+
+  - id: nonlinear-pde.pme-compactness-identification
+    name: compactness と identification による Barenblatt 収束
+    kind: theorem
+    aliases: ["Barenblatt convergence by compactness and identification"]
+    introduction: formal
+    introduction_aliases: ["定理（compactness と identification による Barenblatt 収束）"]
+    requires:
+      - nonlinear-pde.pme-stationary-barenblatt
