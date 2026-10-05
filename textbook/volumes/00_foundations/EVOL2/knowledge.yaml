@@ -21,7 +21,7 @@ concepts:
   - id: evolution.infinitesimal-generator
     name: 強連続半群の生成作用素
     kind: definition
-    aliases: ["infinitesimal generator", "C0 semigroup generator", "strongly continuous semigroup generator", "半群の生成作用素"]
+    aliases: ["C0 semigroup generator", "strongly continuous semigroup generator", "半群の生成作用素"]
     introduction: formal
     introduction_aliases: ["定義（強連続半群の生成作用素）"]
     requires:
