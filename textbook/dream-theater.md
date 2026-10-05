@@ -256,6 +256,7 @@
 
 1. [EVOL1 非有界作用素・閉作用素・可閉作用素](textbook/volumes/00_foundations/EVOL1/index.md)
 2. [EVOL2 $C_0$ 半群・生成作用素・Hille--Yosida](textbook/volumes/00_foundations/EVOL2/index.md)
+3. [EVOL3 散逸作用素・Lumer--Phillips](textbook/volumes/00_foundations/EVOL3/index.md)
 
 <a id="dt-subject-pde-ii"></a>
 <a id="dt-subject-pde-graduate"></a>

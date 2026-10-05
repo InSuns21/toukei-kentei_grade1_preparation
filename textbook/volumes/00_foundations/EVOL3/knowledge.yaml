@@ -1,0 +1,110 @@
+chapter: EVOL3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - EVOL2
+
+forward_references:
+  - navier-stokes.leray-projection
+  - navier-stokes.stokes-operator
+  - navier-stokes.stokes-positive
+
+concepts:
+  - id: evolution.dissipative-operator
+    name: 散逸作用素
+    kind: definition
+    aliases: ["dissipative operator"]
+    introduction: formal
+    introduction_aliases: ["定義（散逸作用素）"]
+    requires:
+      - evolution.partially-defined-linear-operator
+      - functional.norm
+
+  - id: evolution.hilbert-dissipativity-criterion
+    name: Hilbert 空間での散逸性判定
+    kind: proposition
+    aliases: ["Hilbert space dissipativity criterion"]
+    introduction: formal
+    introduction_aliases: ["命題（Hilbert 空間での散逸性判定）"]
+    requires:
+      - evolution.dissipative-operator
+      - functional.hilbert-space
+
+  - id: evolution.range-condition
+    name: 散逸作用素の range condition
+    kind: definition
+    aliases: ["range condition for dissipative operators"]
+    introduction: formal
+    introduction_aliases: ["定義（range condition と m-散逸作用素）"]
+    requires:
+      - evolution.dissipative-operator
+
+  - id: evolution.m-dissipative-operator
+    name: m-散逸作用素
+    kind: definition
+    aliases: ["m-dissipative operator", "maximally dissipative operator"]
+    introduction: formal
+    introduction_aliases: ["定義（range condition と m-散逸作用素）"]
+    requires:
+      - evolution.dissipative-operator
+      - evolution.range-condition
+
+  - id: evolution.maximal-dissipative-extension-order
+    name: 極大散逸作用素
+    kind: definition
+    aliases: ["maximal dissipative operator in extension order"]
+    introduction: formal
+    introduction_aliases: ["定義（極大散逸作用素）"]
+    requires:
+      - evolution.dissipative-operator
+
+  - id: evolution.m-dissipative-closed
+    name: m-散逸作用素の閉性
+    kind: proposition
+    aliases: ["closedness of m-dissipative operators"]
+    introduction: formal
+    introduction_aliases: ["命題（m-散逸作用素は閉作用素）"]
+    requires:
+      - evolution.m-dissipative-operator
+      - evolution.closed-operator
+
+  - id: evolution.range-condition-propagation
+    name: range condition の正実軸への伝播
+    kind: lemma
+    aliases: ["propagation of the range condition"]
+    introduction: formal
+    introduction_aliases: ["補題（range condition の正実軸への伝播）"]
+    requires:
+      - evolution.m-dissipative-operator
+      - evolution.closed-operator-resolvent
+
+  - id: evolution.lumer-phillips
+    name: Lumer--Phillips 定理
+    kind: theorem
+    aliases: ["Lumer--Phillips theorem"]
+    introduction: formal
+    introduction_aliases: ["定理（Lumer--Phillips）"]
+    requires:
+      - evolution.m-dissipative-operator
+      - evolution.range-condition-propagation
+      - evolution.hille-yosida-contraction
+      - evolution.generator-closed-dense
+
+  - id: evolution.lumer-phillips-hilbert
+    name: Hilbert 空間版 Lumer--Phillips
+    kind: corollary
+    aliases: ["Hilbert space Lumer--Phillips theorem"]
+    introduction: formal
+    introduction_aliases: ["系（Hilbert 空間版 Lumer--Phillips）"]
+    requires:
+      - evolution.lumer-phillips
+      - evolution.hilbert-dissipativity-criterion
+
+  - id: evolution.dirichlet-laplacian-lumer-phillips
+    name: Dirichlet Laplacian の Lumer--Phillips 判定
+    kind: proposition
+    aliases: ["Lumer--Phillips criterion for the Dirichlet Laplacian"]
+    introduction: formal
+    introduction_aliases: ["命題（Dirichlet Laplacian は縮小半群を生成する）"]
+    requires:
+      - evolution.lumer-phillips-hilbert

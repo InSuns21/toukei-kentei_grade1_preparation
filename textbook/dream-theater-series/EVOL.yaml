@@ -15,8 +15,8 @@ chapters:
     title: C0 半群・生成作用素・Hille--Yosida
   - id: EVOL3
     path: textbook/volumes/00_foundations/EVOL3
-    status: planned
-    title: dissipative operator・Lumer--Phillips
+    status: completed
+    title: 散逸作用素・Lumer--Phillips
   - id: EVOL4
     path: textbook/volumes/00_foundations/EVOL4
     status: planned

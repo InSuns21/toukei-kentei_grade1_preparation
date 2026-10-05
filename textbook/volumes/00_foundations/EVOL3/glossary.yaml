@@ -1,0 +1,23 @@
+chapter: "EVOL3"
+terms:
+  - term: dissipative operator
+    english: dissipative operator
+    meaning: Banach空間上で全てのlambda > 0とx in D(A)に対しnorm ||(lambda I-A)x|| >= lambda ||x||を満たす作用素。Hilbert空間ではRe<Ax,x> <= 0と同値。
+  - term: range condition
+    english: range condition
+    meaning: あるlambda0 > 0についてRan(lambda0 I-A)=Xとなる条件。散逸性と組み合わせるとLumer--Phillipsの生成条件になる。
+  - term: m-dissipative operator
+    english: m-dissipative operator
+    meaning: 散逸的でrange conditionを満たす作用素。本章では縮小C0 semigroupのgeneratorを特徴付ける中心概念。
+  - term: maximal dissipative operator
+    english: maximal dissipative operator
+    meaning: 散逸作用素の包含順序で真の散逸的拡張を持たない作用素。m-dissipativeならこの意味でも極大になる。
+  - term: Lumer--Phillips theorem
+    english: Lumer--Phillips theorem
+    meaning: densely defined operatorがcontraction C0 semigroupを生成することとm-dissipativityを同値にする生成定理。
+  - term: energy dissipation
+    english: energy dissipation
+    meaning: Hilbert空間でRe<Ax,x> <= 0からd/dt ||u(t)||^2 <= 0が従う構造。PDEのenergy estimateとsemigroup generationを結ぶ。
+  - term: Dirichlet Laplacian
+    english: Dirichlet Laplacian
+    meaning: 零Dirichlet境界条件を伴うLaplacian。本章ではsine basis上でeigenvalue -n^2を持つ散逸的generatorとして扱う。
