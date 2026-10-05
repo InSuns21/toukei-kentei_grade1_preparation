@@ -44,8 +44,8 @@ $$
 | Banach / Hilbert 空間・有界作用素 | 関数解析 I |
 | 弱位相・スペクトル・コンパクト作用素・Fredholm | 関数解析 II |
 | 閉作用素・生成作用素・半群・抽象 Cauchy 問題 | 本計画 |
-| Banach 環・C*-環・GNS・von Neumann 環 | DREAM_THEATER_FUNCTIONAL_ANALYSIS_OPERATOR_ALGEBRA_PLAN.md |
-| heat kernel の具体解析・Lp-Lq decay・自己相似 | NPDE 系列 |
+| Banach 環・$C^*$-環・GNS・von Neumann 環 | DREAM_THEATER_FUNCTIONAL_ANALYSIS_OPERATOR_ALGEBRA_PLAN.md |
+| heat kernel の具体解析・$L^p$--$L^q$ decay・自己相似 | NPDE 系列 |
 | 半線形熱方程式の具体的 blow-up / Fujita 型現象 | NPDE6 |
 | Navier--Stokes 固有の Stokes 作用素・非線形項・正則性問題 | NS 系列 |
 | 多様体上の heat semigroup / Laplace--Beltrami | DREAM_THEATER_GEOMETRIC_ANALYSIS_PLAN.md |
@@ -82,12 +82,12 @@ $$
 非有界作用素では
 
 $$
-A:D(A)subset X	o X
+A:D(A)\subset X\to X
 $$
 
 の定義域 $D(A)$ が理論の一部である。
 
-「$A$ を作用素とする」とだけ書いて定義域・稠密性・閉性を暗黙化しない。有界作用素 $Ain B(X)$ との違いを各章で明示する。
+「$A$ を作用素とする」とだけ書いて定義域・稠密性・閉性を暗黙化しない。有界作用素 $A\in B(X)$ との違いを各章で明示する。
 
 ---
 
@@ -116,7 +116,7 @@ $$
 
 直接例では、微分作用素や Laplacian について「どの関数空間からどの関数空間へ写すか」を明示する。
 
-### EVOL2 C0 半群・生成作用素・Hille--Yosida
+### EVOL2 $C_0$ 半群・生成作用素・Hille--Yosida
 
 中心問い:
 
@@ -138,9 +138,9 @@ $$
 Hille--Yosida は条件を暗記させず、
 
 $$
-(lambda I-A)^{-1}
+(\lambda I-A)^{-1}
 =
-int_0^infty e^{-lambda t}T(t),dt
+\int_0^\infty e^{-\lambda t}T(t)\,dt
 $$
 
 という関係から、なぜ resolvent 条件が時間発展を支配するのかを説明する。
@@ -175,7 +175,7 @@ Hille--Yosida と Lumer--Phillips の役割を区別し、後者が PDE のエ�
 
 $$
 u'(t)=Au(t)+f(t),
-qquad
+\qquad
 u(0)=u_0.
 $$
 
@@ -195,7 +195,7 @@ $$
 特に
 
 $$
-u(t)=T(t)u_0+int_0^tT(t-s)f(s),ds
+u(t)=T(t)u_0+\int_0^tT(t-s)f(s)\,ds
 $$
 
 を完成式として置くだけでなく、積分式をどこから得るか、どの意味で微分方程式へ戻れるかを段階的に確認する。
@@ -222,14 +222,14 @@ $$
 必要なら
 
 $$
-|A^alpha T(t)|
-le
-C_alpha t^{-alpha}
+\|A^\alpha T(t)\|
+\le
+C_\alpha t^{-\alpha}
 $$
 
 型評価を代表例として扱い、「正の時間が微分を買う」ことを具体的に読む。
 
-fractional power の完全理論や $H^infty$ functional calculus は本PLANの完成条件に含めない。
+fractional power の完全理論や $H^\infty$ functional calculus は本PLANの完成条件に含めない。
 
 ### EVOL6 半線形発展方程式・局所解・continuation criterion
 
@@ -241,7 +241,7 @@ fractional power の完全理論や $H^infty$ functional calculus は本PLANの�
 
 $$
 u'(t)=Au(t)+F(u(t)),
-qquad
+\qquad
 u(0)=u_0.
 $$
 
@@ -273,7 +273,7 @@ u(t)
 =
 T(t)u_0
 +
-int_0^tT(t-s)F(u(s)),ds
+\int_0^tT(t-s)F(u(s))\,ds
 $$
 
 を不動点写像として扱う。
@@ -313,8 +313,7 @@ EVOL6 は、その具体論を置き換えず、
 NS 系列では
 
 $$
-u_t+
-u Au+B(u,u)=f
+u_t+\nu Au+B(u,u)=f
 $$
 
 という形が既に現れる。
@@ -324,9 +323,9 @@ $$
 接続するときは
 
 $$
-	ext{linear semigroup}
+\text{linear semigroup}
 +
-	ext{quadratic nonlinearity}
+\text{quadratic nonlinearity}
 $$
 
 という mild formulation の構造を比較するに留め、Navier--Stokes の正則性問題を一般半群論だけで解けるような記述をしない。
@@ -352,7 +351,7 @@ Markov semigroup と generator は本系列と形式的に近いが、確率核�
 - nonlinear semigroup の完全理論
 - Crandall--Liggett theorem
 - maximal $L^p$ regularity の完全理論
-- $H^infty$ functional calculus
+- $H^\infty$ functional calculus
 - interpolation space の完全体系
 - evolution family / nonautonomous semigroup の一般論
 - delay differential equation
@@ -376,7 +375,7 @@ Markov semigroup と generator は本系列と形式的に近いが、確率核�
 まず
 
 $$
-rac{d}{dx}
+\frac{d}{dx}
 $$
 
 は連続関数全体には作用できないことを確認する。
@@ -384,7 +383,7 @@ $$
 「作用素には定義域が必要」という困りごとから
 
 $$
-A:D(A)subset X	o X
+A:D(A)\subset X\to X
 $$
 
 へ進む。
@@ -412,10 +411,10 @@ $$
 を思い出し、
 
 $$
-A x
+Ax
 =
-lim_{tdownarrow0}
-rac{T(t)x-x}{t}
+\lim_{t\downarrow0}
+\frac{T(t)x-x}{t}
 $$
 
 へ進む。
@@ -471,7 +470,7 @@ $$
 ### EVOL5
 - heat semigroup の smoothing estimate
 - analytic extension の最小例
-- $A^alpha T(t)$ の時間特異性
+- $A^\alpha T(t)$ の時間特異性
 - 正の時刻での regularization
 
 ### EVOL6
