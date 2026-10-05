@@ -26,10 +26,13 @@ if (!fs.existsSync(workPath)) {
 
 const work = readYaml(workPath);
 if (work) {
-  for (const key of ['active_series', 'active_plan', 'series_manifest', 'completed_through']) {
+  for (const key of ['active_series', 'active_plan', 'series_manifest']) {
     if (typeof work[key] !== 'string' || !work[key].trim()) {
       fail('dream-theater-work.yaml: ' + key + ' must be a non-empty string');
     }
+  }
+  if (work.completed_through != null && (typeof work.completed_through !== 'string' || !work.completed_through.trim())) {
+    fail('dream-theater-work.yaml: completed_through must be null or a non-empty string');
   }
   if (work.next_work != null && (typeof work.next_work !== 'string' || !work.next_work.trim())) {
     fail('dream-theater-work.yaml: next_work must be null or a non-empty string');
@@ -71,9 +74,20 @@ if (work) {
         }
       }
 
-      const completed = ids.get(work.completed_through);
-      if (!completed) fail('completed_through is not present in series manifest: ' + work.completed_through);
-      else if (completed.status !== 'completed') fail(work.completed_through + ': completed_through must have status completed');
+      const completedChapters = series.chapters.filter((chapter) => chapter && chapter.status === 'completed');
+      if (work.completed_through == null) {
+        if (completedChapters.length > 0) {
+          fail('completed_through may be null only when the series has no completed chapters');
+        }
+        const first = series.chapters[0];
+        if (work.next_work && first && work.next_work !== first.id) {
+          fail('a series with completed_through null must start at the first chapter: ' + first.id);
+        }
+      } else {
+        const completed = ids.get(work.completed_through);
+        if (!completed) fail('completed_through is not present in series manifest: ' + work.completed_through);
+        else if (completed.status !== 'completed') fail(work.completed_through + ': completed_through must have status completed');
+      }
 
       if (work.next_work) {
         const next = ids.get(work.next_work);
@@ -115,4 +129,5 @@ if (errors.length) {
 }
 
 const nextLabel = work.next_work || '<series complete>';
-console.log('DREAM THEATER work-state router is consistent: ' + work.active_series + ' / completed through ' + work.completed_through + ' / next ' + nextLabel + '.');
+const completedLabel = work.completed_through || '<none>';
+console.log('DREAM THEATER work-state router is consistent: ' + work.active_series + ' / completed through ' + completedLabel + ' / next ' + nextLabel + '.');
