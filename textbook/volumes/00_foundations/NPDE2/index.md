@@ -1359,7 +1359,7 @@ $$
 残るのは平均変数に作用する $\psi_t,\psi_x$ の項です。整理すると
 
 $$
-\iiiint
+\int\!\!\int\!\!\int\!\!\int
 |u(t,x)-v(s,y)|
 \psi_t\left(
 \frac{t+s}{2},
@@ -1372,7 +1372,7 @@ $$
 と
 
 $$
-\iiiint
+\int\!\!\int\!\!\int\!\!\int
 \operatorname{sgn}(u-v)
 \{f(u)-f(v)\}
 \psi_x\left(
