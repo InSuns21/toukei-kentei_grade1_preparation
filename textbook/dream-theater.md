@@ -275,6 +275,7 @@
 3. [NPDE3 非線形変分法・単調作用素・$p$-Laplacian](textbook/volumes/00_foundations/NPDE3/index.md)
 4. [NPDE4 尺度変換・熱核平滑化・自己相似](textbook/volumes/00_foundations/NPDE4/index.md)
 5. [NPDE5 多孔質媒質方程式・有限伝播速度](textbook/volumes/00_foundations/NPDE5/index.md)
+6. [NPDE6 半線形熱方程式・臨界性・有限時間 blow-up](textbook/volumes/00_foundations/NPDE6/index.md)
 
 <a id="dt-subject-navier-stokes"></a>
 ### Navier--Stokes 方程式への道

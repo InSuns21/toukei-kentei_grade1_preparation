@@ -27,7 +27,7 @@ chapters:
     title: 多孔質媒質方程式・有限伝播速度
   - id: NPDE6
     path: textbook/volumes/00_foundations/NPDE6
-    status: planned
+    status: completed
     title: 半線形熱方程式・臨界性・有限時間 blow-up
   - id: NPDE7
     path: textbook/volumes/00_foundations/NPDE7

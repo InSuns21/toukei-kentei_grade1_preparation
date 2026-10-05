@@ -1,0 +1,125 @@
+chapter: NPDE6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NPDE4
+  - PDE8
+  - GPDE10
+
+forward_references: []
+
+concepts:
+  - id: nonlinear-pde.semilinear-heat-equation
+    name: 半線形熱方程式
+    kind: definition
+    aliases: ["semilinear heat equation"]
+    introduction: inline
+    requires:
+      - pde.pde3-heat-equation
+
+  - id: nonlinear-pde.semilinear-heat-mild-solution
+    name: 半線形熱方程式の mild solution
+    kind: definition
+    aliases: ["semilinear heat mild solution"]
+    introduction: formal
+    introduction_aliases: ["定義（半線形熱方程式の mild solution）"]
+    requires:
+      - nonlinear-pde.semilinear-heat-equation
+      - pde.pde8-heat-duhamel
+      - evolution.mild-solution
+
+  - id: nonlinear-pde.semilinear-local-existence
+    name: 半線形熱方程式の局所存在一意性
+    kind: theorem
+    aliases: ["local well-posedness for semilinear heat equation"]
+    introduction: formal
+    introduction_aliases: ["定理（半線形熱方程式の局所存在一意性）"]
+    requires:
+      - nonlinear-pde.semilinear-heat-mild-solution
+      - pde.pde8-semilinear-picard
+
+  - id: nonlinear-pde.semilinear-comparison
+    name: 非負 mild solution の比較原理
+    kind: proposition
+    aliases: ["comparison principle for nonnegative mild solutions"]
+    introduction: formal
+    introduction_aliases: ["命題（非負 mild solution の比較原理）"]
+    requires:
+      - nonlinear-pde.semilinear-local-existence
+
+  - id: nonlinear-pde.semilinear-maximal-time
+    name: 最大存在時間と有限時間 blow-up
+    kind: definition
+    aliases: ["maximal existence time and finite-time blow-up"]
+    introduction: formal
+    introduction_aliases: ["定義（最大存在時間と有限時間 blow-up）"]
+    requires:
+      - nonlinear-pde.semilinear-local-existence
+
+  - id: nonlinear-pde.semilinear-blowup-alternative
+    name: L-infinity blow-up alternative
+    kind: theorem
+    aliases: ["L-infinity blow-up alternative", "blow-up alternative"]
+    introduction: formal
+    introduction_aliases: ["定理（L-infinity blow-up alternative）"]
+    requires:
+      - nonlinear-pde.semilinear-maximal-time
+
+  - id: nonlinear-pde.semilinear-heat-scaling
+    name: 半線形熱方程式の尺度変換と臨界 Lq 指数
+    kind: proposition
+    aliases: ["semilinear heat scaling", "critical Lq exponent for semilinear heat equation"]
+    introduction: formal
+    introduction_aliases: ["命題（半線形熱方程式の尺度変換と臨界 Lq 指数）"]
+    requires:
+      - nonlinear-pde.parabolic-scaling
+      - nonlinear-pde.semilinear-heat-equation
+
+  - id: nonlinear-pde.fujita-exponent
+    name: Fujita 指数
+    kind: definition
+    aliases: ["Fujita exponent"]
+    introduction: formal
+    introduction_aliases: ["定義（Fujita 指数）"]
+    requires:
+      - nonlinear-pde.semilinear-heat-scaling
+
+  - id: nonlinear-pde.backward-heat-kernel-criterion
+    name: backward heat-kernel average による存在必要条件
+    kind: proposition
+    aliases: ["backward heat-kernel blow-up criterion"]
+    introduction: formal
+    introduction_aliases: ["命題（backward heat-kernel average による存在必要条件）"]
+    requires:
+      - nonlinear-pde.semilinear-heat-mild-solution
+      - pde.pde3-kernel-consequences
+
+  - id: nonlinear-pde.fujita-dichotomy
+    name: Fujita 型 blow-up / global existence dichotomy
+    kind: theorem
+    aliases: ["Fujita blow-up theorem", "Fujita dichotomy"]
+    introduction: formal
+    introduction_aliases: ["定理（Fujita 型 blow-up / global existence dichotomy）"]
+    requires:
+      - nonlinear-pde.fujita-exponent
+      - nonlinear-pde.backward-heat-kernel-criterion
+      - nonlinear-pde.semilinear-comparison
+
+  - id: nonlinear-pde.backward-self-similar-blowup
+    name: backward self-similar blow-up
+    kind: definition
+    aliases: ["backward self-similar blow-up"]
+    introduction: formal
+    introduction_aliases: ["定義（backward self-similar blow-up）"]
+    requires:
+      - nonlinear-pde.parabolic-self-similar
+      - nonlinear-pde.semilinear-heat-scaling
+
+  - id: nonlinear-pde.backward-self-similar-profile-equation
+    name: backward self-similar profile 方程式
+    kind: proposition
+    aliases: ["backward self-similar profile equation"]
+    introduction: formal
+    introduction_aliases: ["命題（backward self-similar profile 方程式）"]
+    requires:
+      - nonlinear-pde.backward-self-similar-blowup
