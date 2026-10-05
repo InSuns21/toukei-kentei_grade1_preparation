@@ -11,8 +11,8 @@ chapters:
     title: 保存則・衝撃波・Rankine--Hugoniot 条件
   - id: NPDE2
     path: textbook/volumes/00_foundations/NPDE2
-    status: planned
-    title: entropy solution・選択原理・L1 contraction
+    status: completed
+    title: entropy solution・選択原理・$L^1$ 収縮性
   - id: NPDE3
     path: textbook/volumes/00_foundations/NPDE3
     status: planned

@@ -1,0 +1,119 @@
+chapter: NPDE2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NPDE1
+  - GPDE2
+
+forward_references: []
+
+concepts:
+  - id: nonlinear-pde.entropy-pair
+    name: entropy / entropy flux pair
+    kind: definition
+    aliases: ["entropy pair", "entropy-flux pair"]
+    introduction: formal
+    introduction_aliases: ["定義（entropy / entropy flux pair）"]
+    requires:
+      - nonlinear-pde.scalar-conservation-law
+
+  - id: nonlinear-pde.entropy-inequality
+    name: entropy inequality
+    kind: definition
+    aliases: ["entropy inequality for scalar conservation law"]
+    introduction: formal
+    introduction_aliases: ["定義（entropy inequality）"]
+    requires:
+      - nonlinear-pde.entropy-pair
+      - nonlinear-pde.distributional-weak-solution
+      - distribution.distributional-derivative
+
+  - id: nonlinear-pde.shock-entropy-jump
+    name: 跳躍に対する entropy 条件
+    kind: proposition
+    aliases: ["entropy jump condition", "shock entropy condition"]
+    introduction: formal
+    introduction_aliases: ["命題（跳躍に対する entropy 条件）"]
+    requires:
+      - nonlinear-pde.entropy-inequality
+      - nonlinear-pde.rankine-hugoniot
+      - distribution.heaviside-derivative
+
+  - id: nonlinear-pde.lax-compression
+    name: 狭義凸流束の Lax 圧縮条件
+    kind: proposition
+    aliases: ["Lax shock condition", "Lax entropy condition"]
+    introduction: formal
+    introduction_aliases: ["命題（狭義凸流束の Lax 圧縮条件）"]
+    requires:
+      - nonlinear-pde.shock-speed
+      - nonlinear-pde.conservation-characteristics
+
+  - id: nonlinear-pde.kruzhkov-entropy-pair
+    name: Kruzhkov entropy pair
+    kind: definition
+    aliases: ["Kruzhkov entropy", "Kružkov entropy pair"]
+    introduction: formal
+    introduction_aliases: ["定義（Kruzhkov entropy pair）"]
+    requires:
+      - nonlinear-pde.entropy-pair
+
+  - id: nonlinear-pde.kruzhkov-entropy-solution
+    name: Kruzhkov entropy solution
+    kind: definition
+    aliases: ["Kruzhkov solution", "Kružkov entropy solution", "entropy solution of scalar conservation law"]
+    introduction: formal
+    introduction_aliases: ["定義（Kruzhkov entropy solution）"]
+    requires:
+      - nonlinear-pde.kruzhkov-entropy-pair
+      - nonlinear-pde.distributional-weak-solution
+
+  - id: nonlinear-pde.convex-riemann-entropy-selection
+    name: 狭義凸流束の Riemann entropy 選択
+    kind: theorem
+    aliases: ["entropy solution of convex Riemann problem"]
+    introduction: formal
+    introduction_aliases: ["定理（狭義凸流束の Riemann entropy 選択）"]
+    requires:
+      - nonlinear-pde.kruzhkov-entropy-solution
+      - nonlinear-pde.shock-entropy-jump
+      - nonlinear-pde.lax-compression
+      - nonlinear-pde.convex-rarefaction
+
+  - id: nonlinear-pde.kato-inequality
+    name: Kato 型不等式
+    kind: lemma
+    aliases: ["Kato inequality for scalar conservation laws"]
+    introduction: formal
+    introduction_aliases: ["補題（Kato 型不等式）"]
+    requires:
+      - nonlinear-pde.kruzhkov-entropy-solution
+      - distribution.mollifier-l1loc-approximation
+
+  - id: nonlinear-pde.l1-contraction
+    name: Kruzhkov の局所 L1 評価と L1 収縮性
+    kind: theorem
+    aliases: ["L1 contraction", "Kruzhkov contraction", "L1 contraction principle"]
+    introduction: formal
+    introduction_aliases: ["定理（Kruzhkov の局所 L1 評価と L1 収縮性）"]
+    requires:
+      - nonlinear-pde.kato-inequality
+
+  - id: nonlinear-pde.entropy-uniqueness
+    name: Kruzhkov entropy solution の一意性
+    kind: corollary
+    aliases: ["uniqueness of Kruzhkov entropy solution"]
+    introduction: formal
+    introduction_aliases: ["系（Kruzhkov entropy solution の一意性）"]
+    requires:
+      - nonlinear-pde.l1-contraction
+
+  - id: nonlinear-pde.vanishing-viscosity-selection
+    name: vanishing viscosity 極限の entropy 選択
+    kind: proposition
+    aliases: ["vanishing viscosity selection", "vanishing viscosity entropy limit"]
+    introduction: formal
+    introduction_aliases: ["命題（vanishing viscosity 極限の entropy 選択）"]
+    requires:
+      - nonlinear-pde.entropy-inequality
+      - nonlinear-pde.kruzhkov-entropy-pair

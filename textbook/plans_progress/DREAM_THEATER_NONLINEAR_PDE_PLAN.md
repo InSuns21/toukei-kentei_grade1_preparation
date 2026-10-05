@@ -354,7 +354,16 @@ NS 側の主要証明は NPDE に依存させず、NPDE 既読者向けの一般
 - Burgers の $0\to1$ 初期値で expansion shock と rarefaction が共存する弱解非一意性を証明
 - Level A 5題 / B 4題 / C 1題と全問詳細解答を追加
 - DREAM THEATER 目次・読む順・dependency graph・series routing を NPDE1 へ接続
+- NPDE2「entropy solution・選択原理・L1 contraction」を実装
+- entropy / entropy flux pair と粘性散逸から entropy inequality を導出
+- shock entropy jump condition と Lax / Oleinik 型の圧縮選択を整理
+- Kruzhkov entropy pair と entropy solution を定義し、凸 Riemann 問題の shock / rarefaction 選択を証明
+- doubling of variables から Kato 型不等式を導出
+- Kato 型不等式から局所 $L^1$ 評価・$L^1$ 収縮性・一意性を証明
+- vanishing viscosity の強い局所 $L^1$ 極限が entropy inequality を満たすことを証明
+- Level A 5題 / B 4題 / C 1題と全問詳細解答を追加
+- DREAM THEATER 目次・読む順・dependency graph・series routing を NPDE2 へ接続
 
 次作業:
 
-- NPDE2「entropy solution・選択原理・L1 contraction」
+- NPDE3「非線形変分法・単調作用素・p-Laplacian」

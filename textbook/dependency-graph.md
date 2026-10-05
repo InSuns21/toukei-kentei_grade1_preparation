@@ -851,10 +851,13 @@ DREAM THEATER の非線形偏微分方程式系列は、PDE1 の Burgers 方程�
 
 ~~~text
 PDE1 Burgers 方程式・特性曲線 ─┐
-GPDE1 テスト関数・超関数 ──────┴→ NPDE1 保存則・衝撃波・Rankine--Hugoniot 条件
+GPDE1 テスト関数・超関数 ──────┴→ NPDE1 保存則・衝撃波・Rankine--Hugoniot 条件 ─┐
+GPDE2 平滑化核・局所 L1 近似 ───────────────────────────────────────────────────┴→ NPDE2 entropy solution・選択原理・L1 収縮性
 ~~~
 
-NPDE1 は一次元スカラー保存則、滑らかな保存則の特性表示、保存則の分布的弱解、移動界面からの Rankine--Hugoniot 条件、定数状態の衝撃波、Riemann 問題、狭義凸流束の中心希薄波、Burgers Riemann 問題における分布的弱解の非一意性を担当する。直接 prerequisite の正本は NPDE1 の chapter.yaml / knowledge.yaml とする。
+NPDE1 は一次元スカラー保存則、滑らかな保存則の特性表示、保存則の分布的弱解、移動界面からの Rankine--Hugoniot 条件、定数状態の衝撃波、Riemann 問題、狭義凸流束の中心希薄波、Burgers Riemann 問題における分布的弱解の非一意性を担当する。
+
+NPDE2 は NPDE1 と GPDE2 を直接 prerequisite とし、entropy / entropy flux pair、entropy inequality、Lax 圧縮条件、Kruzhkov entropy solution、凸 Riemann 問題の entropy 選択、doubling of variables による Kato 型不等式、局所 $L^1$ 評価と $L^1$ 収縮性、一意性、vanishing viscosity 極限の選択原理を担当する。直接 prerequisite の正本は各章の chapter.yaml / knowledge.yaml とする。
 
 ---
 

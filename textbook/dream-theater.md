@@ -271,6 +271,7 @@
 ### 非線形偏微分方程式
 
 1. [NPDE1 保存則・衝撃波・Rankine--Hugoniot 条件](textbook/volumes/00_foundations/NPDE1/index.md)
+2. [NPDE2 entropy solution・選択原理・$L^1$ 収縮性](textbook/volumes/00_foundations/NPDE2/index.md)
 
 <a id="dt-subject-navier-stokes"></a>
 ### Navier--Stokes 方程式への道
