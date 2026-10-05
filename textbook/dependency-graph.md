@@ -858,7 +858,8 @@ FA4 反射性・弱コンパクト性 ─┤
 FIX1 Brouwer 不動点定理 ───┼→ NPDE3 非線形変分法・単調作用素・p-Laplacian
 OPT3 強圧性 ───────────────┘
 PDE3 熱方程式・熱核 ────────┐
-GPDE5 Sobolev 埋め込み ─────┴→ NPDE4 尺度変換・熱核平滑化・自己相似 → NPDE5 多孔質媒質方程式・有限伝播速度
+GPDE5 Sobolev 埋め込み ─────┴→ NPDE4 尺度変換・熱核平滑化・自己相似 ─┬→ NPDE5 多孔質媒質方程式・有限伝播速度
+PDE8 Duhamel 原理・非斉次問題 ──────────────────────────────────────┴→ NPDE6 半線形熱方程式・臨界性・有限時間 blow-up
 ~~~
 
 NPDE1 は一次元スカラー保存則、滑らかな保存則の特性表示、保存則の分布的弱解、移動界面からの Rankine--Hugoniot 条件、定数状態の衝撃波、Riemann 問題、狭義凸流束の中心希薄波、Burgers Riemann 問題における分布的弱解の非一意性を担当する。
@@ -870,6 +871,8 @@ NPDE3 は GPDE6、FA4、FIX1、OPT3 を直接 prerequisite とし、$W_0^{1,p}$ 
 NPDE4 は PDE3、GPDE5 を直接 prerequisite とし、放物型尺度変換、$L^p$ scaling と劣臨界・臨界・超臨界、多次元熱核の $L^r$ 尺度、Young の畳み込み不等式、熱核の $L^p$--$L^q$ 平滑化と微分平滑化、Nash 型不等式、energy estimate からの $L^1$--$L^2$ decay、自己相似解、similarity variables、rescaled heat equation、Gaussian 定常 profile を担当する。直接 prerequisite の正本は各章の chapter.yaml / knowledge.yaml とする。
 
 NPDE5 は NPDE4 を直接 prerequisite とし、多孔質媒質方程式の退化拡散、弱形式と質量保存、質量保存型 scaling、Barenblatt 型自己相似解、finite speed of propagation、Barenblatt barrier と比較原理による compact support の伝播、線形熱方程式の infinite speed との比較、pressure variable、rescaled porous medium equation を担当する。比較原理の一般弱解に対する完全証明は本章の黒箱入力とし、その利用箇所と責務境界を本文で明示する。直接 prerequisite の正本は各章の chapter.yaml / knowledge.yaml とする。
+
+NPDE6 は NPDE4 と PDE8 を直接 prerequisite とし、半線形熱方程式 $u_t=\Delta u+u^p$ の非負 mild solution、局所存在一意性、Picard 反復による比較原理、最大存在時間と $L^\infty$ blow-up alternative、尺度変換と臨界 $L^q$ 指数、Fujita 指数 $p_F=1+2/d$、backward heat-kernel average による存在必要条件、劣臨界・臨界の有限時間 blow-up、超臨界の Gaussian supersolution による small-data global solution、backward self-similar blow-up profile を担当する。直接 prerequisite の正本は各章の chapter.yaml / knowledge.yaml とする。
 
 ---
 
