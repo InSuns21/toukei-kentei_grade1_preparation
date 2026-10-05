@@ -216,7 +216,7 @@ $$
 
 合成関数 $t\mapsto u(t,X(t;\xi))$ を $t$ で微分すると
 
-$
+$$
 \frac{d}{dt}u(t,X(t;\xi))
 =
 u_t+X'u_x.
@@ -1387,7 +1387,7 @@ $$
 
 合成関数 $x\mapsto f(u(t,x))$ を $x$ で微分すると
 
-$
+$$
 \partial_xf(u)
 =
 f'(u)u_x
