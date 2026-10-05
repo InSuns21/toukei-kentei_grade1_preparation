@@ -258,7 +258,7 @@ $$
 
 <a id="def-npde4-scaling-criticality"></a>
 <!-- formal-statement-start -->
-> **定義（尺度に関する劣臨界・臨界・超臨界）**  
+> **定義（尺度指数による三分類）**  
 > 方程式の尺度変換 $u\mapsto u_\lambda$ に対し、あるノルム $X$ が
 
 $$
@@ -388,7 +388,7 @@ $$
 
 <a id="prop-npde4-heat-kernel-lr"></a>
 <!-- formal-statement-start -->
-> **命題（熱核の $L^r$ ノルム）**  
+> **命題（熱核の Lr ノルム）**  
 > $1\le r\le\infty$ とする。$d$ 次元熱核
 
 $$
@@ -520,7 +520,7 @@ $q=1$ は $p=r=1$ なので [Tonelli の定理](../F0_00D2C_積測度_Tonelli_Fu
 
 まず $q=1$ とします。条件式から $p=r=1$ です。Tonelli の定理と $z=x-y$ の変数変換から
 
-$
+$$
 \|f*g\|_1
 \le
 \int\int
@@ -530,7 +530,7 @@ dy\,dx
 =
 \|f\|_1
 \|g\|_1.
-$
+$$
 
 次に $1<q<\infty$ とします。関係式から $p\le q$、$r\le q$ です。
 
@@ -558,15 +558,15 @@ $$
 
 と分けます。
 
-三つの Hölder 指数の逆数を
+三つの積分指数の逆数を
 
-$
+$$
 \frac1q,
 \qquad
 \frac1p-\frac1q,
 \qquad
 \frac1r-\frac1q
-$
+$$
 
 と取ります。第二または第三の値が0なら、対応する指数を $\infty$ と解釈します。その和は
 
@@ -647,9 +647,9 @@ $q$ 乗根を取れば結論を得ます。
 
 $q=\infty$ では条件は
 
-$
+$$
 \frac1p+\frac1r=1
-$
+$$
 
 です。固定した $x$ について [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)を使うと
 
@@ -706,7 +706,7 @@ $$
 
 <a id="thm-npde4-heat-lp-lq-smoothing"></a>
 <!-- formal-statement-start -->
-> **定理（熱核の $L^p$--$L^q$ 平滑化評価）**  
+> **定理（熱核の Lp--Lq 平滑化評価）**  
 > $1\le p\le q\le\infty$ とし、$u_0\in L^p(\mathbb R^d)$ とする。熱方程式の熱核解
 
 $$
@@ -763,7 +763,7 @@ $$
 
 で $1\le r\le\infty$ を定められます。
 
-Young の不等式から
+[Young の畳み込み不等式](#thm-npde4-young-convolution)から
 
 $$
 \|u(t)\|_q
@@ -836,7 +836,7 @@ t^{-d/4}
 \|u_0\|_1.
 $$
 
-後でこの同じ指数を、熱核を直接使わず energy estimate + Nash 型不等式から再現します。
+後でこの同じ指数を、熱核を直接使わず energy estimate + [Nash 型不等式](#thm-npde4-nash)から再現します。
 
 ---
 
@@ -987,50 +987,50 @@ $$
 
 この補間も指数を飛ばさず確認します。一般に
 
-$
+$$
 \frac1p
 =
 \frac{\theta}{p_0}
 +
 \frac{1-\theta}{p_1}
-$
+$$
 
 なら
 
-$
+$$
 |f|^p
 =
 |f|^{\theta p}
 |f|^{(1-\theta)p}.
-$
+$$
 
 ここへ [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)を、指数
 
-$
+$$
 \frac{p_0}{\theta p},
 \qquad
 \frac{p_1}{(1-\theta)p}
-$
+$$
 
 で適用すると
 
-$
+$$
 \|f\|_p
 \le
 \|f\|_{p_0}^{\theta}
 \|f\|_{p_1}^{1-\theta}
-$
+$$
 
 を得ます。
 
 $p=2$、$p_0=1$、$p_1=2^*$、$\theta=2/(d+2)$ を代入して
 
-$
+$$
 \|f\|_2
 \le
 \|f\|_1^{2/(d+2)}
 \|f\|_{2^*}^{d/(d+2)}.
-$
+$$
 
 Sobolev 不等式を入れると
 
@@ -1151,13 +1151,13 @@ $$
 
 [Young の畳み込み不等式](#thm-npde4-young-convolution)を $p=q=r=1$ で使い、$\|G_t\|_1=1$ を代入すると
 
-$
+$$
 \|u(t)\|_1
 =
 \|G_t*u_0\|_1
 \le
 \|u_0\|_1.
-$
+$$
 
 $M=\|u_0\|_1$、$Y(t)=\|u(t)\|_2^2$ と置くと
 
@@ -1229,7 +1229,7 @@ $$
 
 <a id="prop-npde4-energy-nash-decay"></a>
 <!-- formal-statement-start -->
-> **命題（energy と Nash 型不等式による $L^1$--$L^2$ 減衰）**  
+> **命題（energy と Nash 型不等式による L1--L2 減衰）**  
 > $d\ge3$ とし、$u$ を $\mathbb R^d$ 上の熱方程式の十分滑らかで減衰する解とする。$u_0\in L^1\cap L^2$ なら
 
 $$
@@ -1256,7 +1256,7 @@ $$
 
 ---
 
-## 9. 自己相似解の指数は保存量から決める
+## 9. 自己相似解の指数は保存される質量から決める
 
 熱核は
 
@@ -1452,7 +1452,7 @@ $$
 -\frac{1}{2t}y.
 $$
 
-従って連鎖律から
+従って [連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 u_t
@@ -2071,7 +2071,7 @@ $$
 -\frac{y}{2t}.
 $$
 
-積と連鎖律を使うと
+積の微分則と [連鎖律](../RA3/index.md#prop-ra3-chain-rule)を使うと
 
 $$
 u_t
@@ -2240,7 +2240,7 @@ $$
 ## Level B
 
 <a id="ex-npde4-b01"></a>
-### NPDE4-B01 Young の不等式から平滑化指数を作る
+### NPDE4-B01 [Young の畳み込み不等式](#thm-npde4-young-convolution)から平滑化指数を作る
 - Level: B
 
 $1\le p\le q\le\infty$ とする。
@@ -2285,7 +2285,7 @@ $$
 
 です。
 
-Young の不等式より
+[Young の畳み込み不等式](#thm-npde4-young-convolution)より
 
 $$
 \|u(t)\|_q
@@ -2548,7 +2548,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-Nash 型不等式から
+[Nash 型不等式](#thm-npde4-nash)から
 
 $$
 Y^{1+2/d}
@@ -2942,7 +2942,7 @@ $$
 
 **4. rescaled equation**
 
-逆変換は
+元の変数へ戻す式は
 
 $$
 u(t,x)
@@ -3154,7 +3154,7 @@ $$
 t^{-\frac d2(1-\frac1r)}.
 $$
 
-4. Young の畳み込み不等式により
+4. [Young の畳み込み不等式](#thm-npde4-young-convolution)により
 
 $$
 \|G_t*u_0\|_q
