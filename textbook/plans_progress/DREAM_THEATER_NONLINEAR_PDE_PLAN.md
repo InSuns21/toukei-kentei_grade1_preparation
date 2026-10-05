@@ -382,7 +382,19 @@ NS 側の主要証明は NPDE に依存させず、NPDE 既読者向けの一般
 - Gaussian heat kernel profile が rescaled dynamics の定常解であることを直接検証
 - Level A 5題 / B 4題 / C 1題と全問詳細解答を追加
 - DREAM THEATER 目次・読む順・dependency graph・series routing を NPDE4 へ接続
+- NPDE5「多孔質媒質方程式・有限伝播速度」を実装
+- $u_t=\Delta(u^m)$、$m>1$ を退化拡散として導入し、弱形式と質量保存を整理
+- 質量保存型 scaling から $\alpha=d/[d(m-1)+2]$、$\beta=1/[d(m-1)+2]$ を導出
+- profile equation を flux 形へ変形し、Barenblatt 型 profile と係数 $k=(m-1)\beta/(2m)$ を導出
+- Barenblatt 解が弱解となる際に $\nabla(F^m)$ が自由境界で0へ消えることを確認
+- support 半径 $R(t)=\sqrt{C/k}t^\beta$ を計算し、有限伝播の意味を瞬間速度の一様有界性と区別
+- 比較原理を解理論の黒箱入力として責務境界を明示し、時間シフトした Barenblatt barrier から bounded compact-support 初期値の有限伝播を証明
+- Gaussian 熱核の全空間正値性から線形熱方程式の infinite speed を証明し、退化拡散との差を対比
+- pressure variable $p=m/(m-1)u^{m-1}$ と pressure equation、rescaled porous medium equation を導出
+- 質量と Barenblatt parameter $C$ の scaling を計算し、NPDE7 の長時間漸近への接続を明示
+- Level A 5題 / B 4題 / C 1題と全問詳細解答を追加
+- DREAM THEATER 目次・読む順・dependency graph・series routing を NPDE5 へ接続
 
 次作業:
 
-- NPDE5「多孔質媒質方程式・有限伝播速度」
+- NPDE6「半線形熱方程式・臨界性・有限時間 blow-up」
