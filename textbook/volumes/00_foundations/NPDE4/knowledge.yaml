@@ -1,0 +1,122 @@
+chapter: NPDE4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PDE3
+  - GPDE5
+
+forward_references: []
+
+concepts:
+  - id: nonlinear-pde.parabolic-scaling
+    name: 放物型尺度変換
+    kind: definition
+    aliases: ["parabolic scaling"]
+    introduction: formal
+    introduction_aliases: ["定義（放物型尺度変換）"]
+    requires:
+      - pde.pde3-heat-equation
+
+  - id: nonlinear-pde.scaling-criticality
+    name: 尺度に関する劣臨界・臨界・超臨界
+    kind: definition
+    aliases: ["scaling criticality", "subcritical critical supercritical"]
+    introduction: formal
+    introduction_aliases: ["定義（尺度に関する劣臨界・臨界・超臨界）"]
+    requires:
+      - nonlinear-pde.parabolic-scaling
+
+  - id: nonlinear-pde.heat-kernel-lr-scaling
+    name: 熱核の Lr ノルム
+    kind: proposition
+    aliases: ["heat kernel Lr norm", "heat kernel scaling norm"]
+    introduction: formal
+    introduction_aliases: ["命題（熱核の $L^r$ ノルム）"]
+    requires:
+      - pde.pde3-heat-kernel
+      - nonlinear-pde.parabolic-scaling
+
+  - id: analysis.young-convolution
+    name: Young の畳み込み不等式
+    kind: theorem
+    aliases: ["Young convolution inequality", "Young's convolution inequality"]
+    introduction: formal
+    introduction_aliases: ["定理（Young の畳み込み不等式）"]
+    requires:
+      - fourier.fou3-convolution
+
+  - id: nonlinear-pde.heat-lp-lq-smoothing
+    name: 熱核の Lp-Lq 平滑化評価
+    kind: theorem
+    aliases: ["heat kernel Lp-Lq smoothing", "heat semigroup smoothing estimate"]
+    introduction: formal
+    introduction_aliases: ["定理（熱核の $L^p$--$L^q$ 平滑化評価）"]
+    requires:
+      - nonlinear-pde.heat-kernel-lr-scaling
+      - analysis.young-convolution
+
+  - id: nonlinear-pde.heat-gradient-smoothing
+    name: 熱核の一階微分平滑化
+    kind: corollary
+    aliases: ["heat gradient smoothing estimate"]
+    introduction: formal
+    introduction_aliases: ["系（熱核の一階微分平滑化）"]
+    requires:
+      - nonlinear-pde.heat-lp-lq-smoothing
+
+  - id: nonlinear-pde.nash-inequality
+    name: Nash 型不等式
+    kind: theorem
+    aliases: ["Nash inequality"]
+    introduction: formal
+    introduction_aliases: ["定理（Nash 型不等式）"]
+    requires:
+      - sobolev.inequality-rd
+
+  - id: nonlinear-pde.energy-nash-decay
+    name: energy と Nash 型不等式による L1-L2 減衰
+    kind: proposition
+    aliases: ["heat decay from Nash inequality"]
+    introduction: formal
+    introduction_aliases: ["命題（energy と Nash 型不等式による $L^1$--$L^2$ 減衰）"]
+    requires:
+      - nonlinear-pde.nash-inequality
+      - pde.pde3-energy-dissipation
+
+  - id: nonlinear-pde.parabolic-self-similar
+    name: 放物型自己相似解
+    kind: definition
+    aliases: ["parabolic self-similar solution", "self-similar solution"]
+    introduction: formal
+    introduction_aliases: ["定義（放物型自己相似解）"]
+    requires:
+      - nonlinear-pde.parabolic-scaling
+
+  - id: nonlinear-pde.similarity-variables
+    name: similarity variables と rescaled solution
+    kind: definition
+    aliases: ["similarity variables", "rescaled solution"]
+    introduction: formal
+    introduction_aliases: ["定義（similarity variables と rescaled solution）"]
+    requires:
+      - nonlinear-pde.parabolic-self-similar
+
+  - id: nonlinear-pde.rescaled-heat-equation
+    name: rescaled heat equation
+    kind: proposition
+    aliases: ["rescaled heat equation"]
+    introduction: formal
+    introduction_aliases: ["命題（rescaled heat equation）"]
+    requires:
+      - nonlinear-pde.similarity-variables
+      - pde.pde3-heat-equation
+
+  - id: nonlinear-pde.gaussian-stationary-profile
+    name: Gaussian profile は rescaled heat equation の定常解
+    kind: proposition
+    aliases: ["Gaussian stationary profile", "stationary Gaussian profile"]
+    introduction: formal
+    introduction_aliases: ["命題（Gaussian profile は rescaled heat equation の定常解）"]
+    requires:
+      - nonlinear-pde.rescaled-heat-equation
+      - pde.pde3-heat-kernel
