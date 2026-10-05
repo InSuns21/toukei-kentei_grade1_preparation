@@ -39,11 +39,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（半線形熱方程式）**  
 > $d\ge1$、$p>1$ とする。本章では
->
-> $$
-> u_t=\Delta u+u^p
-> $$
->
+
+$$
+u_t=\Delta u+u^p
+$$
+
 > を、非負解 $u\ge0$ の範囲で **半線形熱方程式** と呼ぶ。
 <!-- formal-statement-end -->
 
@@ -120,26 +120,26 @@ $$
 <!-- formal-statement-start -->
 > **定義（半線形熱方程式の mild solution）**  
 > $T>0$、$u_0\in BUC(\mathbb R^d)$、$u_0\ge0$ とする。関数
->
-> $$
-> u\in C([0,T];BUC(\mathbb R^d)),
-> \qquad
-> u(t,x)\ge0
-> $$
->
+
+$$
+u\in C([0,T];BUC(\mathbb R^d)),
+\qquad
+u(t,x)\ge0
+$$
+
 > が全ての $0\le t\le T$ について
->
-> $$
-> \boxed{
-> u(t)
-> =
-> S(t)u_0
-> +
-> \int_0^t
-> S(t-s)u(s)^p\,ds
-> }
-> $$
->
+
+$$
+\boxed{
+u(t)
+=
+S(t)u_0
++
+\int_0^t
+S(t-s)u(s)^p\,ds
+}
+$$
+
 > を満たすとき、$u$ をその初期値 $u_0$ に対する **mild solution** とする。
 <!-- formal-statement-end -->
 
@@ -177,11 +177,11 @@ $$
 <!-- formal-statement-start -->
 > **定理（半線形熱方程式の局所存在一意性）**  
 > $d\ge1$、$p>1$ とし、$u_0\in BUC(\mathbb R^d)$、$u_0\ge0$ とする。このときある $T>0$ が存在して、初期値 $u_0$ に対する非負 mild solution
->
-> $$
-> u\in C([0,T];BUC(\mathbb R^d))
-> $$
->
+
+$$
+u\in C([0,T];BUC(\mathbb R^d))
+$$
+
 > が一意に存在する。
 <!-- formal-statement-end -->
 
@@ -349,19 +349,19 @@ $q<1$ なので $u=v$ です。従って非負 mild solution が一意に得ら�
 <!-- formal-statement-start -->
 > **命題（非負 mild solution の比較原理）**  
 > $u_0,v_0\in BUC(\mathbb R^d)$ が
->
-> $$
-> 0\le u_0\le v_0
-> $$
->
+
+$$
+0\le u_0\le v_0
+$$
+
 > を満たすとする。$u,v$ をそれぞれの初期値から出る非負 mild solution とし、両方が $[0,T]$ に存在するとする。このとき
->
-> $$
-> u(t,x)\le v(t,x)
-> \qquad
-> (0\le t\le T,\ x\in\mathbb R^d)
-> $$
->
+
+$$
+u(t,x)\le v(t,x)
+\qquad
+(0\le t\le T,\ x\in\mathbb R^d)
+$$
+
 > が成り立つ。
 <!-- formal-statement-end -->
 
@@ -437,11 +437,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（最大存在時間と有限時間 blow-up）**  
 > $u_0\in BUC(\mathbb R^d)$、$u_0\ge0$ に対する一意な非負 mild solution が存在する最大区間を
->
-> $$
-> [0,T_{\max})
-> $$
->
+
+$$
+[0,T_{\max})
+$$
+
 > とする。$T_{\max}<\infty$ のとき、本章では解が **有限時間 blow-up** するという。
 <!-- formal-statement-end -->
 
@@ -503,22 +503,22 @@ $$
 <!-- formal-statement-start -->
 > **定理（L-infinity blow-up alternative）**  
 > $d\ge1$、$p>1$、$u_0\in BUC(\mathbb R^d)$、$u_0\ge0$ とし、$u$ を最大存在区間 $[0,T_{\max})$ 上の非負 mild solution とする。もし
->
-> $$
-> T_{\max}<\infty,
-> $$
->
+
+$$
+T_{\max}<\infty,
+$$
+
 > なら
->
-> $$
-> \boxed{
-> \lim_{t\uparrow T_{\max}}
-> \|u(t)\|_\infty
-> =
-> \infty
-> }
-> $$
->
+
+$$
+\boxed{
+\lim_{t\uparrow T_{\max}}
+\|u(t)\|_\infty
+=
+\infty
+}
+$$
+
 > が成り立つ。
 <!-- formal-statement-end -->
 
@@ -658,36 +658,36 @@ $$
 <!-- formal-statement-start -->
 > **命題（半線形熱方程式の尺度変換と臨界 Lq 指数）**  
 > $d\ge1$、$p>1$ とする。$u$ が
->
-> $$
-> u_t=\Delta u+u^p
-> $$
->
+
+$$
+u_t=\Delta u+u^p
+$$
+
 > を満たすなら、任意の $\lambda>0$ に対し
->
-> $$
-> u_\lambda(t,x)
-> =
-> \lambda^{2/(p-1)}
-> u(\lambda^2t,\lambda x)
-> $$
->
+
+$$
+u_\lambda(t,x)
+=
+\lambda^{2/(p-1)}
+u(\lambda^2t,\lambda x)
+$$
+
 > も同じ方程式を満たす。また
->
-> $$
-> \|u_\lambda(0)\|_q
-> =
-> \lambda^{2/(p-1)-d/q}
-> \|u_0\|_q.
-> $$
->
+
+$$
+\|u_\lambda(0)\|_q
+=
+\lambda^{2/(p-1)-d/q}
+\|u_0\|_q.
+$$
+
 > 従って $L^q$ が尺度不変となる指数は
->
-> $$
-> \boxed{
-> q_c=\frac{d(p-1)}{2}
-> }.
-> $$
+
+$$
+\boxed{
+q_c=\frac{d(p-1)}{2}
+}.
+$$
 <!-- formal-statement-end -->
 
 ここで二種類の「臨界」を区別します。
@@ -719,15 +719,15 @@ $$
 <!-- formal-statement-start -->
 > **定義（Fujita 指数）**  
 > 空間次元 $d\ge1$ に対し
->
-> $$
-> \boxed{
-> p_F
-> =
-> 1+\frac2d
-> }
-> $$
->
+
+$$
+\boxed{
+p_F
+=
+1+\frac2d
+}
+$$
+
 > を半線形熱方程式の **Fujita 指数** と呼ぶ。
 <!-- formal-statement-end -->
 
@@ -769,15 +769,15 @@ $S(T-t)$ の時間微分は生成子 $\Delta$ と逆符号になり、PDE の $\
 <!-- formal-statement-start -->
 > **命題（backward heat-kernel average による存在必要条件）**  
 > $d\ge1$、$p>1$ とし、非負 mild solution $u$ が $[0,T]$ まで有界に存在するとする。このとき任意の $x_0\in\mathbb R^d$ について
->
-> $$
-> \boxed{
-> (S(T)u_0)(x_0)
-> \le
-> \bigl((p-1)T\bigr)^{-1/(p-1)}
-> }
-> $$
->
+
+$$
+\boxed{
+(S(T)u_0)(x_0)
+\le
+\bigl((p-1)T\bigr)^{-1/(p-1)}
+}
+$$
+
 > が必要である。
 <!-- formal-statement-end -->
 
@@ -1248,53 +1248,53 @@ $$
 <!-- formal-statement-start -->
 > **定理（Fujita 型 blow-up / global existence dichotomy）**  
 > $d\ge1$、$p>1$ とし、
->
-> $$
-> u_0\in BUC(\mathbb R^d)\cap L^1(\mathbb R^d),
-> \qquad
-> u_0\ge0,
-> \qquad
-> u_0\not\equiv0
-> $$
->
+
+$$
+u_0\in BUC(\mathbb R^d)\cap L^1(\mathbb R^d),
+\qquad
+u_0\ge0,
+\qquad
+u_0\not\equiv0
+$$
+
 > とする。
->
+
 > 1. $1<p\le1+2/d$ なら、最大非負 mild solution の最大存在時間は有限であり、
->
-> $$
-> \|u(t)\|_\infty\to\infty
-> \qquad
-> (t\uparrow T_{\max})
-> $$
->
+
+$$
+\|u(t)\|_\infty\to\infty
+\qquad
+(t\uparrow T_{\max})
+$$
+
 > となる。
 > 2. $p>1+2/d$ なら、非零の sufficiently small data で global mild solution を持つものが存在する。具体的に $\tau>0$ を固定し、
->
-> $$
-> 0\le u_0(x)\le A G_\tau(x)
-> $$
->
+
+$$
+0\le u_0(x)\le A G_\tau(x)
+$$
+
 > とする。$a=d(p-1)/2>1$ と
->
-> $$
-> K
-> =
-> (4\pi)^{-a}
-> \frac{\tau^{1-a}}{a-1}
-> $$
->
+
+$$
+K
+=
+(4\pi)^{-a}
+\frac{\tau^{1-a}}{a-1}
+$$
+
 > に対して
->
-> $$
-> 2^pA^{p-1}K\le1
-> $$
->
+
+$$
+2^pA^{p-1}K\le1
+$$
+
 > が成り立てば、解は全時間に存在し、
->
-> $$
-> 0\le u(t,x)\le2A G_{t+\tau}(x)
-> $$
->
+
+$$
+0\le u(t,x)\le2A G_{t+\tau}(x)
+$$
+
 > を満たす。
 <!-- formal-statement-end -->
 
@@ -1460,16 +1460,16 @@ $$
 <!-- formal-statement-start -->
 > **定義（backward self-similar blow-up）**  
 > $T>0$、$p>1$ とする。ある profile $F$ が存在して
->
-> $$
-> u(t,x)
-> =
-> (T-t)^{-1/(p-1)}
-> F\left(
-> \frac{x}{\sqrt{T-t}}
-> \right)
-> $$
->
+
+$$
+u(t,x)
+=
+(T-t)^{-1/(p-1)}
+F\left(
+\frac{x}{\sqrt{T-t}}
+\right)
+$$
+
 > と表される解を、本章では **backward self-similar blow-up** と呼ぶ。
 <!-- formal-statement-end -->
 
@@ -1548,30 +1548,30 @@ $$
 <!-- formal-statement-start -->
 > **命題（backward self-similar profile 方程式）**  
 > $d\ge1$、$p>1$ とし、
->
-> $$
-> u(t,x)
-> =
-> (T-t)^{-1/(p-1)}
-> F\left(\frac{x}{\sqrt{T-t}}\right)
-> $$
->
+
+$$
+u(t,x)
+=
+(T-t)^{-1/(p-1)}
+F\left(\frac{x}{\sqrt{T-t}}\right)
+$$
+
 > が十分滑らかな半線形熱方程式の解であるとする。このとき profile $F$ は
->
-> $$
-> \boxed{
-> \Delta F
-> -
-> \frac12y\cdot\nabla F
-> -
-> \frac1{p-1}F
-> +
-> F^p
-> =
-> 0
-> }
-> $$
->
+
+$$
+\boxed{
+\Delta F
+-
+\frac12y\cdot\nabla F
+-
+\frac1{p-1}F
++
+F^p
+=
+0
+}
+$$
+
 > を満たす。
 <!-- formal-statement-end -->
 
