@@ -372,7 +372,17 @@ NS 側の主要証明は NPDE に依存させず、NPDE 既読者向けの一般
 - Minty の非線形極限同定を証明し、弱収束だけでは非線形項を同定できない点を整理
 - Level A 5題 / B 4題 / C 1題と全問詳細解答を追加
 - DREAM THEATER 目次・読む順・dependency graph・series routing を NPDE3 へ接続
+- NPDE4「尺度変換・熱核平滑化・自己相似」を実装
+- 放物型 scaling を時間微分・Laplacian へ代入して $tmapstolambda^2t$ を導出し、振幅指数とノルム指数を分離
+- $L^p$ scaling から劣臨界・臨界・超臨界を定義し、小スケール集中をノルムがどう見るかを整理
+- $d$ 次元熱核の $L^r$ ノルムを自己相似 scaling から導出
+- Young の畳み込み不等式を完全証明し、熱核の $L^p$--$L^q$ smoothing と一階微分 smoothing を導出
+- GPDE5 の Sobolev 不等式と補間から Nash 型不等式を導き、energy identity と合わせて $L^1$--$L^2$ decay $t^{-d/4}$ を再現
+- 質量保存から自己相似指数 $d/2$ を導き、$	au=log t$、$y=x/sqrt t$ の similarity variables から rescaled heat equation を導出
+- Gaussian heat kernel profile が rescaled dynamics の定常解であることを直接検証
+- Level A 5題 / B 4題 / C 1題と全問詳細解答を追加
+- DREAM THEATER 目次・読む順・dependency graph・series routing を NPDE4 へ接続
 
 次作業:
 
-- NPDE4「尺度変換・熱核平滑化・自己相似」
+- NPDE5「多孔質媒質方程式・有限伝播速度」
