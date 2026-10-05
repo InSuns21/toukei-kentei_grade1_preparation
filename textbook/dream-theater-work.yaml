@@ -1,13 +1,13 @@
 version: 1
-updated: 2026-10-05
+updated: 2026-10-06
 
-active_series: NS
-active_plan: textbook/plan_done/DREAM_THEATER_NAVIER_STOKES_NPDE_CONNECTION_AUDIT_PLAN.md
-series_manifest: textbook/dream-theater-series/NS.yaml
+active_series: EVOL
+active_plan: textbook/plans_progress/DREAM_THEATER_EVOLUTION_EQUATIONS_SEMIGROUP_PLAN.md
+series_manifest: textbook/dream-theater-series/EVOL.yaml
 
-completed_through: NS8A
-next_work: null
-after_next: null
+completed_through: EVOL1
+next_work: EVOL2
+after_next: EVOL3
 
 routing:
   chapter_root: textbook/volumes/00_foundations
