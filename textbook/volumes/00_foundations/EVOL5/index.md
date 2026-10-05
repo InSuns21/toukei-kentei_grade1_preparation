@@ -172,27 +172,27 @@ $$
 
 $b>0$ とし、$B=bI\in\mathcal B(X)$ とします。
 
-$
+$$
 S(z)=e^{-bz}I
-$
+$$
 
 と置きます。指数関数は全関数なので、各 $x\in X$ に対して
 
-$
+$$
 z\mapsto S(z)x
-$
+$$
 
 は正則です。また
 
-$
+$$
 S(z+w)=S(z)S(w)
-$
+$$
 
 です。
 
 $0<\theta'<\pi/2$ とし、$z=re^{i\varphi}\in\Sigma_{\theta'}$ とすると
 
-$
+$$
 \operatorname{Re}z
 =
 r\cos\varphi
@@ -200,23 +200,23 @@ r\cos\varphi
 r\cos\theta'
 >
 0.
-$
+$$
 
 したがって
 
-$
+$$
 \|S(z)\|
 =
 e^{-b\operatorname{Re}z}
 \le
 1.
-$
+$$
 
 さらに $z\to0$ なら $e^{-bz}\to1$ なので
 
-$
+$$
 S(z)x\to x.
-$
+$$
 
 よって $S$ は任意の角度 $\theta<\pi/2$ で bounded analytic $C_0$ 半群です。
 <!-- definition-example-end -->
