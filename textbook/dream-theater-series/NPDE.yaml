@@ -23,7 +23,7 @@ chapters:
     title: 尺度変換・熱核平滑化・自己相似
   - id: NPDE5
     path: textbook/volumes/00_foundations/NPDE5
-    status: planned
+    status: completed
     title: 多孔質媒質方程式・有限伝播速度
   - id: NPDE6
     path: textbook/volumes/00_foundations/NPDE6
