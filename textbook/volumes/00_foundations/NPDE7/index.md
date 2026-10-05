@@ -150,21 +150,21 @@ $$
 <!-- formal-statement-start -->
 > **定義（再正規化収束と長時間漸近 profile）**  
 > $1\le q\le\infty$ とする。熱方程式の解 $u$ に対し
->
-> $$
-> v(\tau,y)=t^{d/2}u(t,\sqrt t\,y),
-> \qquad
-> t=e^\tau
-> $$
->
+
+$$
+v(\tau,y)=t^{d/2}u(t,\sqrt t\,y),
+\qquad
+t=e^\tau
+$$
+
 > と置く。ある関数 $F\in L^q(\mathbb R^d)$ に対して
->
-> $$
-> \|v(\tau)-F\|_{L^q}\to0
-> \qquad
-> (\tau\to\infty)
-> $$
->
+
+$$
+\|v(\tau)-F\|_{L^q}\to0
+\qquad
+(\tau\to\infty)
+$$
+
 > が成り立つとき、$u$ はこの rescaling の下で $F$ へ **再正規化収束**するといい、$F$ を長時間漸近 profile と呼ぶ。
 <!-- formal-statement-end -->
 
@@ -208,31 +208,31 @@ $$
 <!-- formal-statement-start -->
 > **定理（熱方程式の Gaussian 長時間漸近）**  
 > $d\ge1$、$u_0\in L^1(\mathbb R^d)$ とし、
->
-> $$
-> u(t)=G_t*u_0,
-> \qquad
-> M=\int_{\mathbb R^d}u_0(x)\,dx
-> $$
->
+
+$$
+u(t)=G_t*u_0,
+\qquad
+M=\int_{\mathbb R^d}u_0(x)\,dx
+$$
+
 > とする。任意の $1\le q\le\infty$ に対して
->
-> $$
-> \boxed{
-> t^{\frac d2(1-\frac1q)}
-> \|u(t)-M G_t\|_{L^q}
-> \to0
-> }
-> $$
->
+
+$$
+\boxed{
+t^{\frac d2(1-\frac1q)}
+\|u(t)-M G_t\|_{L^q}
+\to0
+}
+$$
+
 > が $t\to\infty$ で成り立つ。ただし $q=\infty$ では $1/q=0$ とする。従って
->
-> $$
-> t^{d/2}u(t,\sqrt t\,\cdot)
-> \to
-> M\Phi
-> $$
->
+
+$$
+t^{d/2}u(t,\sqrt t\,\cdot)
+\to
+M\Phi
+$$
+
 > が $L^q(\mathbb R^d)$ で成り立つ。
 <!-- formal-statement-end -->
 
@@ -459,16 +459,16 @@ $$
 <!-- formal-statement-start -->
 > **系（熱方程式の leading decay rate）**  
 > 上の定理の仮定の下で $M\ne0$ とする。任意の $1\le q\le\infty$ に対して
->
-> $$
-> \boxed{
-> t^{\frac d2(1-\frac1q)}
-> \|u(t)\|_{L^q}
-> \to
-> |M|\|\Phi\|_{L^q}
-> }
-> $$
->
+
+$$
+\boxed{
+t^{\frac d2(1-\frac1q)}
+\|u(t)\|_{L^q}
+\to
+|M|\|\Phi\|_{L^q}
+}
+$$
+
 > が成り立つ。
 <!-- formal-statement-end -->
 
@@ -603,31 +603,31 @@ $$
 <!-- formal-statement-start -->
 > **定理（熱方程式の一次 moment 補正）**  
 > $u_0\in L^1(\mathbb R^d)$ が
->
-> $$
-> \int_{\mathbb R^d}|x|\,|u_0(x)|\,dx<\infty
-> $$
->
+
+$$
+\int_{\mathbb R^d}|x|\,|u_0(x)|\,dx<\infty
+$$
+
 > を満たすとする。
->
-> $$
-> M=\int u_0,
-> \qquad
-> b=\int x\,u_0(x)\,dx
-> $$
->
+
+$$
+M=\int u_0,
+\qquad
+b=\int x\,u_0(x)\,dx
+$$
+
 > と置けば
->
-> $$
-> \boxed{
-> t^{1/2}
-> \left\|
-> u(t)-M G_t+b\cdot\nabla G_t
-> \right\|_{L^1}
-> \to0
-> }
-> $$
->
+
+$$
+\boxed{
+t^{1/2}
+\left\|
+u(t)-M G_t+b\cdot\nabla G_t
+\right\|_{L^1}
+\to0
+}
+$$
+
 > が $t\to\infty$ で成り立つ。
 <!-- formal-statement-end -->
 
@@ -1011,27 +1011,27 @@ $$
 <!-- formal-statement-start -->
 > **定義（再正規化多孔質媒質方程式の自由エネルギー）**  
 > $m>1$、$\beta=1/[d(m-1)+2]$ とする。非負関数 $v$ が
->
-> $$
-> v\in L^m(\mathbb R^d),
-> \qquad
-> \int_{\mathbb R^d}|y|^2v(y)\,dy<\infty
-> $$
->
+
+$$
+v\in L^m(\mathbb R^d),
+\qquad
+\int_{\mathbb R^d}|y|^2v(y)\,dy<\infty
+$$
+
 > を満たすとき、
->
-> $$
-> \boxed{
-> \mathcal E[v]
-> =
-> \frac1{m-1}
-> \int_{\mathbb R^d}v^m\,dy
-> +
-> \frac\beta2
-> \int_{\mathbb R^d}|y|^2v\,dy
-> }
-> $$
->
+
+$$
+\boxed{
+\mathcal E[v]
+=
+\frac1{m-1}
+\int_{\mathbb R^d}v^m\,dy
++
+\frac\beta2
+\int_{\mathbb R^d}|y|^2v\,dy
+}
+$$
+
 > を再正規化多孔質媒質方程式の自由エネルギーとする。
 <!-- formal-statement-end -->
 
@@ -1061,26 +1061,26 @@ $$
 <!-- formal-statement-start -->
 > **命題（自由エネルギー散逸恒等式）**  
 > $v$ を再正規化多孔質媒質方程式の十分滑らかな非負解とし、積分 by parts の境界項が消えるだけの減衰または compact support を仮定する。すると
->
-> $$
-> \boxed{
-> \frac d{d\tau}\mathcal E[v(\tau)]
-> =
-> -
-> \int_{\mathbb R^d}
-> v
-> \left|
-> \nabla\left(
-> \frac m{m-1}v^{m-1}
-> +
-> \frac\beta2|y|^2
-> \right)
-> \right|^2
-> dy
-> \le0
-> }
-> $$
->
+
+$$
+\boxed{
+\frac d{d\tau}\mathcal E[v(\tau)]
+=
+-
+\int_{\mathbb R^d}
+v
+\left|
+\nabla\left(
+\frac m{m-1}v^{m-1}
++
+\frac\beta2|y|^2
+\right)
+\right|^2
+dy
+\le0
+}
+$$
+
 > が成り立つ。
 <!-- formal-statement-end -->
 
@@ -1203,23 +1203,23 @@ $$
 <!-- formal-statement-start -->
 > **命題（零散逸定常状態は Barenblatt profile）**  
 > $m>1$ とし、$v\ge0$ が有限正質量
->
-> $$
-> M=\int_{\mathbb R^d}v(y)\,dy>0
-> $$
->
+
+$$
+M=\int_{\mathbb R^d}v(y)\,dy>0
+$$
+
 > を持つ再正規化多孔質媒質方程式の定常状態であるとする。さらに $v$ は連続で、正値集合 $\{v>0\}$ の内部で十分滑らかであり、自由エネルギー散逸量が0とする。このとき
->
-> $$
-> \boxed{
-> v(y)
-> =
-> (C-k|y|^2)_+^{1/(m-1)},
-> \qquad
-> k=\frac{(m-1)\beta}{2m}
-> }
-> $$
->
+
+$$
+\boxed{
+v(y)
+=
+(C-k|y|^2)_+^{1/(m-1)},
+\qquad
+k=\frac{(m-1)\beta}{2m}
+}
+$$
+
 > であり、$C>0$ は質量 $M$ によって一意に決まる。
 <!-- formal-statement-end -->
 
@@ -1307,19 +1307,19 @@ $$
 <!-- formal-statement-start -->
 > **定理（compactness と identification による Barenblatt 収束）**  
 > $v(\tau)$ を質量 $M>0$ を保つ再正規化多孔質媒質方程式の非負解とする。次を仮定する。
->
+
 > 1. 集合 $\{v(\tau):\tau\ge0\}$ は $L^1(\mathbb R^d)$ で相対 compact である。
 > 2. 任意の列 $\tau_n\to\infty$ と、その部分列に沿う $L^1$ 極限 $w$ は、自由エネルギー散逸量0の定常状態である。
->
+
 > このとき、質量 $M$ を持つ Barenblatt profile を $B_M$ と書けば
->
-> $$
-> \boxed{
-> \|v(\tau)-B_M\|_{L^1}
-> \to0
-> }
-> $$
->
+
+$$
+\boxed{
+\|v(\tau)-B_M\|_{L^1}
+\to0
+}
+$$
+
 > が $\tau\to\infty$ で成り立つ。
 <!-- formal-statement-end -->
 
