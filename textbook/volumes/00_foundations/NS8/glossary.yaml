@@ -1,0 +1,17 @@
+chapter: "NS8"
+terms:
+  - term: CMI 公式問題
+    english: Clay Mathematics Institute Navier--Stokes Millennium Problem
+    meaning: Fefferman の公式 problem description で A/B/C/D の四つの accepted target として定式化された三次元 Navier--Stokes の存在・滑らかさまたは breakdown の問題。
+  - term: 急減少条件
+    english: rapid decay condition
+    meaning: 全空間版で初期値や外力の各微分が任意次数の多項式より速く無限遠で減衰するという条件。本章では公式問題の不等式を直接用いる。
+  - term: smooth finite-energy solution
+    english: smooth finite-energy solution
+    meaning: 全空間版で Navier--Stokes 方程式を全時間で滑らかに満たし、速度の L2 エネルギーが全時間で一様に有限な解。
+  - term: breakdown statement
+    english: breakdown statement
+    meaning: 公式 Statement C/D のように、許された滑らかな初期値と外力のある一組について全時間の滑らかな解が存在しないことを示す命題。
+  - term: Millennium Prize Rules
+    english: Millennium Prize Rules
+    meaning: 公式 problem statement の数学的内容とは別に、CMI が賞の候補を評価・認定するための公表、経過期間、一般的受容などの手続きを定める規則。
