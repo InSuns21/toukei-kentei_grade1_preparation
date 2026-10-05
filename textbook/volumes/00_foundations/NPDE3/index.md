@@ -52,7 +52,7 @@ Browder--Minty 型定理
 非線形近似列の極限は Minty の方法で同定する
 ~~~
 
-前提は [GPDE6 の弱形式・変分形式](../GPDE6/index.md)、[FA4 の反射性と弱コンパクト性](../FA4/index.md#def-fa4-reflexive)、[FIX1 の Brouwer 不動点定理](../FIX1/index.md#cor-fix1-brouwer-convex)です。
+前提は [GPDE6 の弱形式・変分形式](../GPDE6/index.md)、[FA4 の反射性と弱コンパクト性](../FA4/index.md#def-fa4-reflexive)、[FIX1 の Brouwer 不動点定理](../FIX1/index.md#cor-fix1-brouwer-convex)、[OPT3 の強圧性](../OPT3/index.md#def-opt3-coercivity)です。
 
 以下、$\Omega\subset\mathbb R^d$ は空でない有界開集合、$1<p<\infty$ とし、
 
@@ -336,10 +336,7 @@ $$
 は弱下半連続です。
 <!-- definition-example-end -->
 
-<a id="def-npde3-coercive-functional"></a>
-<!-- formal-statement-start -->
-> **定義（強圧的汎関数）**  
-> $X$ をノルム空間、$J:X\to(-\infty,+\infty]$ とする。
+強圧性そのものは OPT3 で導入済みです。有限次元に限定された定義ではなく、ノルム空間上の汎関数について
 
 $$
 \|u\|_X\to\infty
@@ -347,13 +344,9 @@ $$
 J(u)\to+\infty
 $$
 
-> が成り立つとき、$J$ は **強圧的** であるという。
-<!-- formal-statement-end -->
+を要求する条件でした。本章ではこの同じ強圧性を Banach 空間上で使います。
 
-<!-- definition-example-start: def-npde3-coercive-functional -->
-**定義の確認**
-
-$p>1$、$c\ge0$ とし
+例えば $p>1$、$c\ge0$ に対して
 
 $$
 J(u)
@@ -362,7 +355,7 @@ J(u)
 -c\|u\|_X
 $$
 
-とします。$r=\|u\|_X$ と置けば
+なら、$r=\|u\|_X$ と置くと
 
 $$
 J(u)
@@ -373,8 +366,7 @@ r
 \right).
 $$
 
-$p-1>0$ なので $r\to\infty$ で括弧内は $+\infty$ へ向かい、従って $J(u)\to+\infty$ です。
-<!-- definition-example-end -->
+$p-1>0$ なので $r\to\infty$ で $J(u)\to+\infty$ となり、OPT3 の定義どおり強圧的です。
 
 ここで Banach 空間一般に使える弱下半連続性を一つ準備します。
 
