@@ -1,0 +1,32 @@
+chapter: "NPDE4"
+terms:
+  - term: 放物型尺度変換
+    english: parabolic scaling
+    meaning: 空間を lambda 倍すると時間を lambda^2 倍して方程式の微分次数をそろえる尺度変換。
+  - term: 劣臨界
+    english: subcritical
+    meaning: 方程式の scaling で対象ノルムが lambda^sigma, sigma>0 と変わる場合。小スケール拡大でノルムが大きくなる。
+  - term: 臨界
+    english: critical
+    meaning: 方程式の scaling で対象ノルムが不変になる場合。尺度変換とノルムの強さが釣り合っている。
+  - term: 超臨界
+    english: supercritical
+    meaning: 方程式の scaling で対象ノルムが lambda^sigma, sigma<0 と変わる場合。小スケール集中がノルム上では小さく見える可能性がある。
+  - term: Young の畳み込み不等式
+    english: Young's convolution inequality
+    meaning: 1+1/q=1/p+1/r のとき ||f*g||_q<=||f||_p||g||_r を与える畳み込み評価。
+  - term: 熱核平滑化
+    english: heat kernel smoothing
+    meaning: 熱核との畳み込みにより初期値の Lp 情報が正時刻により高い Lq 可積分性や微分評価へ移る現象。
+  - term: Nash 型不等式
+    english: Nash inequality
+    meaning: L1 ノルム、L2 ノルム、勾配 L2 ノルムを結び、energy estimate から時間減衰を取り出すために使う補間型不等式。
+  - term: 自己相似解
+    english: self-similar solution
+    meaning: 時間発展が profile の形を保ち、幅と振幅だけを scaling に従って変える解。
+  - term: similarity variables
+    english: similarity variables
+    meaning: y=x/sqrt(t), tau=log t のように拡散尺度と対数時間で取り直した変数。
+  - term: rescaled solution
+    english: rescaled solution
+    meaning: 自己相似な振幅変化を取り除いて、profile の形そのものを時間発展として見るための再正規化解。

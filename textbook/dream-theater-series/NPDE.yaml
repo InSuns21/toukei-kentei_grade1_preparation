@@ -19,7 +19,7 @@ chapters:
     title: 非線形変分法・単調作用素・$p$-Laplacian
   - id: NPDE4
     path: textbook/volumes/00_foundations/NPDE4
-    status: planned
+    status: completed
     title: 尺度変換・熱核平滑化・自己相似
   - id: NPDE5
     path: textbook/volumes/00_foundations/NPDE5

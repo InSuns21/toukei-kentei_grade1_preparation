@@ -5,9 +5,9 @@ active_series: NPDE
 active_plan: textbook/plans_progress/DREAM_THEATER_NONLINEAR_PDE_PLAN.md
 series_manifest: textbook/dream-theater-series/NPDE.yaml
 
-completed_through: NPDE3
-next_work: NPDE4
-after_next: NPDE5
+completed_through: NPDE4
+next_work: NPDE5
+after_next: NPDE6
 
 routing:
   chapter_root: textbook/volumes/00_foundations
