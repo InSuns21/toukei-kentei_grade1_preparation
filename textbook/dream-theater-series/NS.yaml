@@ -35,7 +35,7 @@ chapters:
     title: 正則性判定・渦伸長・何が特異点を防ぐのか
   - id: NS8
     path: textbook/volumes/00_foundations/NS8
-    status: planned
+    status: completed
     title: ミレニアム問題の公式定式化を読む
   - id: NS8A
     path: textbook/volumes/00_foundations/NS8A

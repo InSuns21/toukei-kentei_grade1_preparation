@@ -1,0 +1,96 @@
+chapter: NS8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NS7
+
+forward_references: []
+
+concepts:
+  - id: navier-stokes.cmi-whole-space-data
+    name: CMI 公式問題の全空間データ条件
+    kind: definition
+    aliases: ["CMI whole-space data conditions"]
+    introduction: formal
+    introduction_aliases: ["定義（CMI 公式問題の全空間データ条件）"]
+    requires:
+      - vector-calculus.incompressible-navier-stokes-bridge
+
+  - id: navier-stokes.cmi-whole-space-smooth-solution
+    name: 公式問題での全空間 smooth finite-energy solution
+    kind: definition
+    aliases: ["CMI whole-space smooth finite-energy solution"]
+    introduction: formal
+    introduction_aliases: ["定義（公式問題での全空間 smooth finite-energy solution）"]
+    requires:
+      - navier-stokes.cmi-whole-space-data
+      - navier-stokes.leray-hopf-existence
+
+  - id: navier-stokes.cmi-periodic-data
+    name: CMI 公式問題の周期データ条件
+    kind: definition
+    aliases: ["CMI periodic data conditions"]
+    introduction: formal
+    introduction_aliases: ["定義（CMI 公式問題の周期データ条件）"]
+    requires:
+      - vector-calculus.incompressible-navier-stokes-bridge
+
+  - id: navier-stokes.cmi-statement-a
+    name: 公式問題の Statement A
+    kind: proposition
+    aliases: ["CMI Navier--Stokes Statement A"]
+    introduction: formal
+    introduction_aliases: ["命題（公式問題の Statement A）"]
+    requires:
+      - navier-stokes.cmi-whole-space-smooth-solution
+
+  - id: navier-stokes.cmi-statement-b
+    name: 公式問題の Statement B
+    kind: proposition
+    aliases: ["CMI Navier--Stokes Statement B"]
+    introduction: formal
+    introduction_aliases: ["命題（公式問題の Statement B）"]
+    requires:
+      - navier-stokes.cmi-periodic-data
+      - navier-stokes.leray-hopf-existence
+
+  - id: navier-stokes.cmi-statement-c
+    name: 公式問題の Statement C
+    kind: proposition
+    aliases: ["CMI Navier--Stokes Statement C"]
+    introduction: formal
+    introduction_aliases: ["命題（公式問題の Statement C）"]
+    requires:
+      - navier-stokes.cmi-whole-space-data
+
+  - id: navier-stokes.cmi-statement-d
+    name: 公式問題の Statement D
+    kind: proposition
+    aliases: ["CMI Navier--Stokes Statement D"]
+    introduction: formal
+    introduction_aliases: ["命題（公式問題の Statement D）"]
+    requires:
+      - navier-stokes.cmi-periodic-data
+
+  - id: navier-stokes.cmi-abcd-logic
+    name: 公式 A / B / C / D の論理構造
+    kind: proposition
+    aliases: ["logic of CMI Navier--Stokes statements A B C D"]
+    introduction: formal
+    introduction_aliases: ["命題（公式 A / B / C / D の論理構造）"]
+    requires:
+      - navier-stokes.cmi-statement-a
+      - navier-stokes.cmi-statement-b
+      - navier-stokes.cmi-statement-c
+      - navier-stokes.cmi-statement-d
+
+  - id: navier-stokes.cmi-weak-not-enough
+    name: Leray--Hopf 大域存在だけでは A / B は終わらない
+    kind: proposition
+    aliases: ["Leray--Hopf existence does not settle statements A or B"]
+    introduction: formal
+    introduction_aliases: ["命題（Leray--Hopf 大域存在だけでは A / B は終わらない）"]
+    requires:
+      - navier-stokes.leray-hopf-existence
+      - navier-stokes.cmi-statement-a
+      - navier-stokes.cmi-statement-b
