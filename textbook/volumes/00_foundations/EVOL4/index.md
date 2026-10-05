@@ -2272,7 +2272,7 @@ $$
 | $f\in L^1(0,T;X)$ | mild 解 | Duhamel 積分を作る |
 | 半群の局所有界性 | mild 連続性・各種極限 | 積分の支配関数を与える |
 | 強連続性 | mild 連続性・差分商 | $T(h)x\to x$ を使う |
-| $u(t)\in D(A)$ a.e. | strong 解 | $Au(t)$ を $X$ 値として読む |
+| $u(t)\in D(A)$ がほとんど至る所（almost everywhere; a.e.） | strong 解 | $Au(t)$ を $X$ 値として読む |
 | $Au\in L^1$ | strong 解 | 微分方程式を時間積分できる |
 | $f\in C^1$ | mild から classical | Duhamel 項を時間微分する |
 | EVOL2 の軌道微分 | Duhamel 導出 | $A$ の二項を相殺する |
