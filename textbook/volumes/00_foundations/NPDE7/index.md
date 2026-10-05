@@ -475,9 +475,26 @@ $$
 <!-- proof-start -->
 ### 証明
 
-逆三角不等式から
+二つの評価
 
-$$
+$
+\begin{aligned}
+\|u(t)\|_{L^q}
+&\le
+|M|\|G_t\|_{L^q}
++
+\|u(t)-MG_t\|_{L^q},\\
+|M|\|G_t\|_{L^q}
+&\le
+\|u(t)\|_{L^q}
++
+\|u(t)-MG_t\|_{L^q}
+\end{aligned}
+$
+
+を合わせると
+
+$
 \left|
 \|u(t)\|_{L^q}
 -
@@ -485,7 +502,7 @@ $$
 \right|
 \le
 \|u(t)-M G_t\|_{L^q}.
-$$
+$
 
 両辺へ
 
@@ -829,14 +846,26 @@ $$
 t^{-1/2}\|\nabla\Phi\|_{L^1}
 $$
 
-なので、$b\ne0$ なら逆三角不等式も使って
+なので、$b\ne0$ なら
 
-$$
+$
+\left|
+\|u(t)\|_{L^1}
+-
+\|b\cdot\nabla G_t\|_{L^1}
+\right|
+\le
+\|u(t)+b\cdot\nabla G_t\|_{L^1}
+$
+
+を使って
+
+$
 t^{1/2}\|u(t)\|_{L^1}
 \to
 \|b\cdot\nabla\Phi\|_{L^1}
 >0.
-$$
+$
 
 質量が消えると $L^1$ decay は一段速くなるわけです。
 
@@ -2204,9 +2233,26 @@ $$
 t^{-1/2}\|b\cdot\nabla\Phi\|_1.
 $$
 
-逆三角不等式から
+また、
 
-$$
+$
+\begin{aligned}
+\|u(t)\|_1
+&\le
+\|b\cdot\nabla G_t\|_1
++
+\|u(t)+b\cdot\nabla G_t\|_1,\\
+\|b\cdot\nabla G_t\|_1
+&\le
+\|u(t)\|_1
++
+\|u(t)+b\cdot\nabla G_t\|_1
+\end{aligned}
+$
+
+なので
+
+$
 \left|
 \|u(t)\|_1
 -
@@ -2214,7 +2260,7 @@ $$
 \right|
 \le
 \|u(t)+b\cdot\nabla G_t\|_1.
-$$
+$
 
 両辺へ $t^{1/2}$ を掛けると右辺は0へ収束するので、
 
