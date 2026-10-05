@@ -5,9 +5,10 @@ prerequisites:
   - NS3
 
 forward_references:
-  - NPDE4
-  - NPDE5
-  - NPDE7
+  - nonlinear-pde.similarity-variables
+  - nonlinear-pde.porous-medium-equation
+  - nonlinear-pde.rescaled-convergence
+  - navier-stokes.three-dimensional-vorticity
 
 concepts:
   - id: navier-stokes.two-dimensional-vorticity
