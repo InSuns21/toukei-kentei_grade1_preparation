@@ -1491,14 +1491,17 @@ $$
 <!-- definition-example-start: def-npde3-plaplacian-weak -->
 **定義の確認：滑らかな解から弱形式へ**
 
-$u$ が十分滑らかで、境界条件を満たし、
+$u\in W_0^{1,p}(\Omega)$ とし、さらにベクトル場
 
 $$
--\operatorname{div}
-\left(
+F=
 |\nabla u|^{p-2}\nabla u
-\right)
-=f
+$$
+
+が $C^1$ 級で、
+
+$$
+-\operatorname{div}F=f
 $$
 
 が古典的に成り立つとします。$\varphi\in C_c^\infty(\Omega)$ を掛けて積分すると
