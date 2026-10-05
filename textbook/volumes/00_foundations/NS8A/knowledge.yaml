@@ -1,0 +1,57 @@
+chapter: NS8A
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NS8
+
+forward_references: []
+
+concepts:
+  - id: navier-stokes.blowup-core-scales-2026
+    name: 2026年構成の主要尺度
+    kind: definition
+    aliases: ["2026 Navier--Stokes blowup core scales"]
+    introduction: formal
+    introduction_aliases: ["定義（2026年構成の主要尺度）"]
+    requires:
+      - navier-stokes.scaling
+
+  - id: navier-stokes.residual
+    name: Navier--Stokes 残差
+    kind: definition
+    aliases: ["Navier--Stokes residual"]
+    introduction: formal
+    introduction_aliases: ["定義（Navier--Stokes 残差）"]
+    requires:
+      - vector-calculus.incompressible-navier-stokes-bridge
+
+  - id: navier-stokes.forced-blowup-2026
+    name: 2026年の全空間有限時間特異点構成
+    kind: theorem
+    aliases: ["2026 forced Navier--Stokes finite-time blowup theorem"]
+    introduction: formal
+    introduction_aliases: ["定理（2026年の全空間有限時間特異点構成）"]
+    requires:
+      - navier-stokes.cmi-statement-c
+
+  - id: navier-stokes.energy-concentration-2026
+    name: 集中による有限エネルギーと速度発散の両立
+    kind: proposition
+    aliases: ["finite energy with velocity concentration in the 2026 construction"]
+    introduction: formal
+    introduction_aliases: ["命題（集中による有限エネルギーと速度発散の両立）"]
+    requires:
+      - navier-stokes.blowup-core-scales-2026
+      - navier-stokes.lp-scaling
+
+  - id: navier-stokes.cmi-cd-mapping-2026
+    name: 2026年構成の C / D 対応
+    kind: proposition
+    aliases: ["2026 construction mapping to CMI statements C and D"]
+    introduction: formal
+    introduction_aliases: ["命題（2026年構成の C / D 対応）"]
+    requires:
+      - navier-stokes.forced-blowup-2026
+      - navier-stokes.cmi-statement-c
+      - navier-stokes.cmi-statement-d
+      - navier-stokes.cmi-abcd-logic

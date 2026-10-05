@@ -2,7 +2,7 @@
 
 作成日: 2026-10-04  
 更新日: 2026-10-05  
-状態: in_progress
+状態: completed
 
 ## 0. 目的
 
@@ -1675,3 +1675,30 @@ NS8A 実装時にはリンク・日付・status を再確認し、解析論文�
 次作業:
 
 - NS8A「2026年の有限時間特異点構成とミレニアム問題の現在地」
+
+
+---
+
+## 29. 2026-10-05 NS8A 進捗
+
+実装完了:
+
+- NS8A「補講：2026年の有限時間特異点構成と検証状況」を実装
+- OpenAI の2026年解析的 proof paper、公開 Lean formalization、CMI announcement、CMI Navier--Stokes 問題ページ、Fefferman 公式 problem description、Prize Rules を一次資料として再確認
+- 任意の正粘性に対する全空間 forced finite-time blowup theorem を、零初期速度、smooth compactly supported forcing、有限 L2 energy、L-infinity blowup、global smooth finite-energy competitor の不存在まで仮定を省略せず整理
+- tau=1-t、ell_r~tau^(1/2)、ell_z~tau^(1/2-h)、主要速度~tau^(-1/2-h) から、中心領域体積 tau^(3/2-h) と代表エネルギー tau^(1/2-3h) を導出し、速度発散と有限エネルギーが両立する機構を計算
+- 半径・軸方向輸送と半径方向粘性が主要次数 tau^(-1) に並び、軸方向拡散が tau^(2h) だけ相対的に小さくなる異方的バランスを整理
+- Navier--Stokes 残差を導入し、特異な候補場から外力を形式的に定義するだけでは不十分であること、背景流・環状応力・振動パルス・逐次補正・熱型外部場・局在化によって残差を smooth compact support へ平坦化することが構成の核心であると説明
+- 零平均振動 w=a cos(k theta) が平均ゼロでも平均 w tensor w=(1/2)a tensor a を持つ最小計算から、二次運動量流束による振動応力の役割を可視化
+- 粘性1の構成から任意の nu>0 へ u_nu=sqrt(nu)u(x/sqrt(nu),t)、p_nu=nu p(x/sqrt(nu),t)、f_nu=sqrt(nu)f(x/sqrt(nu),t) で戻す式を全項へ代入して確認
+- 全空間構成の Statement C 対応と、圧縮・周期化による Statement D 対応を整理し、C/D から無外力 A/B の真偽は論理的には決まらないことを NS8 の量化構造へ戻って確認
+- smooth breakdown と Leray--Hopf 大域弱解存在が矛盾しないことを解クラスの差から整理
+- 解析的 proof paper、Lean theorem statement、kernel による形式検証、CMI problem mapping、Prize Rules 上の認定を別の論理層として説明
+- 2026-10-05 の status として、解析的 proof / Lean formalization 公開済み、CMI announcement の apparent settlement、CMI 問題ページの Active 表示、最終 prize recognition を未完了扱いとして日付付きで記録
+- NS8A に Level A 5題 / B 4題 / C 1題と全問詳細解答を追加
+- DREAM THEATER 目次・標準数学コア・dependency graph・series manifest・work-state を NS8A 完了へ同期
+
+系列完了:
+
+- NS1--NS8A の全章を completed とする
+- 本 PLAN の成果物、直接必要な routing / index / manifest 更新を完了したため、PLAN を plan_done へ移動する

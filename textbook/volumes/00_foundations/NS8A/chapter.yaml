@@ -1,0 +1,39 @@
+id: "NS8A"
+title: "補講：2026年の有限時間特異点構成と検証状況"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NS8
+official_scope: []
+learning_objectives:
+  - 2026年の全空間有限時間特異点構成について、領域・初期値・外力・粘性・有限エネルギー・blow-up 条件を数式で説明できる
+  - tau=1-t による異方的集中尺度から、L-infinity 発散と有限 L2 エネルギーが両立する指数計算を再現できる
+  - 輸送・粘性・異方的拡散の主要次数を比較し、粘性がある中で特異点構成が可能になるバランスを説明できる
+  - Navier--Stokes 残差を定義し、特異な候補場を書くだけでは不十分で smooth forcing を保つ残差相殺が核心であることを説明できる
+  - 背景流・環状応力・振動パルス・補正・局在化という構成の核心を主要中間式とともに追える
+  - 2026年結果が CMI Statement C / D に対応し、無外力 A / B の真偽を論理的には決めないことを説明できる
+  - smooth breakdown と Leray--Hopf 大域弱解存在が両立する理由を解クラスから説明できる
+  - 解析的 proof paper、Lean theorem、形式検証、CMI の problem mapping と prize recognition を区別できる
+definitions:
+  - { id: NS8A-DEF-01, name: "2026年構成の主要尺度" }
+  - { id: NS8A-DEF-02, name: "Navier--Stokes 残差" }
+theorems:
+  - { id: NS8A-THM-01, name: "2026年の全空間有限時間特異点構成" }
+  - { id: NS8A-PROP-01, name: "集中による有限エネルギーと速度発散の両立" }
+  - { id: NS8A-PROP-02, name: "2026年構成の C / D 対応" }
+canonical_examples:
+  - "tau=1-t、ell_r~tau^(1/2)、ell_z~tau^(1/2-h)、|u|~tau^(-1/2-h) から中心領域のエネルギー次数 tau^(1/2-3h) を直接計算する"
+  - "w(theta)=a cos(k theta) の平均は0だが w tensor w の平均は (1/2)a tensor a になることを計算し、振動応力の最小模型を確認する"
+  - "compact support を持つ smooth forcing が CMI の任意次数急減少条件を満たすことを直接示す"
+  - "C/D 型 breakdown、Leray--Hopf 弱解、無外力 A/B、CMI prize status を別々の論理層として分類する"
+problem_patterns:
+  - NS-2026-BLOWUP-HYPOTHESES-1
+  - NS-2026-ENERGY-CONCENTRATION-1
+  - NS-2026-TRANSPORT-VISCOSITY-BALANCE-1
+  - NS-2026-SMOOTH-RESIDUAL-1
+  - NS-2026-CD-MAPPING-1
+  - NS-2026-LEAN-CMI-DISTINCTION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 1.0 }

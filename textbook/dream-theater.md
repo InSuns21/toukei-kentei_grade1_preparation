@@ -278,6 +278,7 @@
 6. [NS6 スケーリング・臨界性・どのノルムを見るべきか](textbook/volumes/00_foundations/NS6/index.md)
 7. [NS7 正則性判定・渦伸長・何が特異点を防ぐのか](textbook/volumes/00_foundations/NS7/index.md)
 8. [NS8 ミレニアム問題の公式定式化を読む](textbook/volumes/00_foundations/NS8/index.md)
+9. [NS8A 補講：2026年の有限時間特異点構成と検証状況](textbook/volumes/00_foundations/NS8A/index.md)
 
 <a id="dt-subject-stochastic-analysis"></a>
 ### 確率解析

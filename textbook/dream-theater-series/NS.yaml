@@ -1,7 +1,7 @@
 version: 1
 id: NS
 title: Navier--Stokes 方程式への道
-plan: textbook/plans_progress/DREAM_THEATER_NAVIER_STOKES_MILLENNIUM_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_NAVIER_STOKES_MILLENNIUM_PLAN.md
 chapter_root: textbook/volumes/00_foundations
 
 chapters:
@@ -39,5 +39,5 @@ chapters:
     title: ミレニアム問題の公式定式化を読む
   - id: NS8A
     path: textbook/volumes/00_foundations/NS8A
-    status: planned
-    title: 2026年の有限時間特異点構成とミレニアム問題の現在地
+    status: completed
+    title: 補講：2026年の有限時間特異点構成と検証状況
