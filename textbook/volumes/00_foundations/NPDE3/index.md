@@ -82,7 +82,7 @@ $$
 
 を定義しました。
 
-$p=2$ の GPDE4 では Poincaré 不等式を使って $H_0^1$ の大きさを勾配だけで測れました。同じ機構は $1<p<\infty$ でも働きます。
+$p=2$ の GPDE4 では [Poincaré 不等式](../GPDE4/index.md#thm-gpde4-poincare)を使って $H_0^1$ の大きさを勾配だけで測れました。同じ機構は $1<p<\infty$ でも働きます。
 
 $\Omega$ が有界なので、ある $R>0$ を選んで
 
@@ -107,7 +107,7 @@ $$
 \partial_1\varphi(s,x')\,ds.
 $$
 
-Hölder の不等式を使うと
+[Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)を使うと
 
 $$
 |\varphi(x_1,x')|
@@ -390,7 +390,7 @@ Hahn--Banach により、ノルムは単位双対球上の連続線形汎関数�
 <!-- proof-start -->
 ### 証明
 
-Hahn--Banach のノルム保存拡張から、各 $x\in X$ に対して
+Hahn--Banach の [ノルム保存拡張](../F0_02C6_Hahn_Banach_分離定理/index.md#ref-hahn-banach-norm-preserving-extension)から、各 $x\in X$ に対して
 
 $$
 \|x\|_X
@@ -610,7 +610,7 @@ $$
 L^p(\Omega;\mathbb R^d).
 $$
 
-ノルムの弱下半連続性から
+[ノルムの弱下半連続性](#prop-npde3-norm-weak-lsc)から
 
 $$
 \|\nabla v\|_{L^p}
@@ -670,7 +670,7 @@ $$
 
 ### 3.3 狭義凸性
 
-$\xi\mapsto|\xi|^p$ は $1<p<\infty$ で狭義凸です。従って $u\ne v$ なら、Poincaré 不等式により $\nabla u$ と $\nabla v$ が正測度集合上で異なり、
+$\xi\mapsto|\xi|^p$ は $1<p<\infty$ で狭義凸です。従って $u\ne v$ なら、[p-Poincaré 不等式](#prop-npde3-p-poincare)により $\nabla u$ と $\nabla v$ が正測度集合上で異なり、
 
 $$
 \int_\Omega
@@ -765,7 +765,7 @@ $$
 
 で抑えられます。$a=\nabla u(x)$、$b=\nabla\varphi(x)$ とすれば、第一項は Hölder の不等式で可積分です。
 
-従って優収束定理により積分と $t\to0$ を交換でき、
+従って [優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)により積分と $t\to0$ を交換でき、
 
 $$
 h'(0)
@@ -1297,7 +1297,7 @@ $$
 \langle G_F(u),u\rangle>0.
 $$
 
-有限次元の強圧零点補題より、ある $u_F\in F$ が存在して
+[有限次元の強圧零点補題](#lem-npde3-fd-zero)より、ある $u_F\in F$ が存在して
 
 $$
 \langle Au_F-f,v\rangle=0
@@ -1551,7 +1551,7 @@ $$
 
 で定めます。
 
-まず Hölder の不等式から
+まず [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)から
 
 $$
 |\langle Au,v\rangle|
@@ -1692,7 +1692,7 @@ a(\nabla u)-a(\nabla v)
 \ge0.
 $$
 
-等号なら $\nabla u=\nabla v$ は、ほとんど至る所（almost everywhere; a.e.）で成り立ちます。$u-v\in W_0^{1,p}$ なので $p$-Poincaré 不等式より
+等号なら $\nabla u=\nabla v$ は、ほとんど至る所（almost everywhere; a.e.）で成り立ちます。$u-v\in W_0^{1,p}$ なので [p-Poincaré 不等式](#prop-npde3-p-poincare)より
 
 $$
 \|u-v\|_{L^p}
@@ -1749,11 +1749,11 @@ C_{p,M}
 |\nabla w|
 $$
 
-で抑えられます。$(p-1)q=p$ と Hölder の不等式から右辺は可積分です。
+で抑えられます。$(p-1)q=p$ と [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)から右辺は可積分です。
 
-優収束定理により
+[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)により
 
-$$
+$
 F(t_n)\to F(t).
 $$
 
@@ -1826,7 +1826,7 @@ $$
 
 です。
 
-従って Browder--Minty 型全射定理より、任意の $f\in X^*$ に対して $Au=f$ を満たす $u\in X$ が存在します。これは定義そのものから $-\Delta_pu=f$ の変分弱解です。
+従って [Browder--Minty 型全射定理](#thm-npde3-browder-minty)より、任意の $f\in X^*$ に対して $Au=f$ を満たす $u\in X$ が存在します。これは定義そのものから $-\Delta_pu=f$ の変分弱解です。
 
 さらに $A$ は狭義単調なので、この解は一意です。
 <!-- proof-end -->
@@ -2266,7 +2266,7 @@ $$
 $$
 
 と書けることを説明せよ。
-2. Hölder の不等式から
+2. [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)から
 
 $$
 |\varphi(x)|
@@ -2298,7 +2298,7 @@ $$
 \int_0^x\varphi'(s)\,ds.
 $$
 
-共役指数 $q=p/(p-1)$ を使い、Hölder の不等式を適用すると
+共役指数 $q=p/(p-1)$ を使い、[Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)を適用すると
 
 $$
 |\varphi(x)|
@@ -2456,7 +2456,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-点ごとに Cauchy--Schwarz の不等式を使うと
+点ごとに [Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)を使うと
 
 $$
 \left|
@@ -2476,7 +2476,7 @@ $$
 |\nabla u|^{p-1}|\nabla v|\,dx.
 $$
 
-共役指数 $q=p/(p-1)$ に対する Hölder の不等式より
+共役指数 $q=p/(p-1)$ に対する [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)より
 
 $$
 |\langle Au,v\rangle|
@@ -2641,7 +2641,7 @@ $$
 
 $p>1$ なので $r\to\infty$ で $+\infty$ へ向かいます。よって $J_f$ は強圧的です。
 
-$X=W_0^{1,p}(\Omega)$ は反射的であり、$J_f$ は弱下半連続です。従って反射的 Banach 空間上の直接法から最小化点 $u$ が存在します。
+$X=W_0^{1,p}(\Omega)$ は反射的であり、$J_f$ は弱下半連続です。従って [反射的 Banach 空間上の直接法](#thm-npde3-direct-method)から最小化点 $u$ が存在します。
 
 この最小化点は Euler--Lagrange 方程式
 
@@ -3040,7 +3040,7 @@ $$
 \|u\|_X^{p-1}\|v\|_X.
 $$
 
-第二項には Hölder の不等式を使って
+第二項には [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)を使って
 
 $$
 \left|
@@ -3052,7 +3052,7 @@ $$
 \|v\|_{L^p}.
 $$
 
-$p$-Poincaré 不等式より
+[p-Poincaré 不等式](#prop-npde3-p-poincare)より
 
 $$
 \|u\|_{L^p}
@@ -3213,7 +3213,7 @@ $$
 
 を要求することです。
 
-右辺について Hölder の不等式より
+右辺について [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)より
 
 $$
 \left|
@@ -3224,7 +3224,7 @@ $$
 \|\varphi\|_{L^p}.
 $$
 
-$p$-Poincaré 不等式から
+[p-Poincaré 不等式](#prop-npde3-p-poincare)から
 
 $$
 \|\varphi\|_{L^p}
@@ -3266,7 +3266,7 @@ $$
 \quad\text{in }L^p.
 $$
 
-ノルムの弱下半連続性より
+[ノルムの弱下半連続性](#prop-npde3-norm-weak-lsc)より
 
 $$
 \int_\Omega|\nabla v|^pdx
@@ -3410,7 +3410,7 @@ Level B04 で確認した通り、
 
 - Hölder と Poincaré により有界集合上有界
 - $z\mapsto|z|^{p-2}z$ の単調性により単調
-- 優収束定理により半連続
+- [優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)により半連続
 - $\langle A_\lambda u,u\rangle\ge\|u\|_X^p$ により強圧的
 
 です。
