@@ -12,8 +12,8 @@ concepts:
     name: 一次元スカラー保存則
     kind: definition
     aliases: ["scalar conservation law", "スカラー保存則"]
-    introduction: inline
-    introduction_aliases: ["スカラー保存則"]
+    introduction: formal
+    introduction_aliases: ["定義（一次元スカラー保存則）"]
     requires:
       - pde.pde1-partial-differential-equation
 
@@ -79,8 +79,8 @@ concepts:
     name: 中心希薄波
     kind: definition
     aliases: ["希薄波", "rarefaction wave", "centered rarefaction wave"]
-    introduction: inline
-    introduction_aliases: ["希薄波"]
+    introduction: formal
+    introduction_aliases: ["定義（中心希薄波）"]
     requires:
       - nonlinear-pde.riemann-problem
 
