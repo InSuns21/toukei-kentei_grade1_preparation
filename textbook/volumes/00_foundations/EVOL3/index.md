@@ -61,7 +61,7 @@ $$
 
 が空間全体へ届くことが必要です。本章後半で示す生成定理は
 
-$
+$$
 \text{dissipativity}
 +
 \text{range condition}
@@ -1884,7 +1884,7 @@ $$
 
 [Hilbert 空間での散逸性判定](#prop-evol3-hilbert-dissipativity)から
 
-$
+$$
 \operatorname{Re}\langle Au(t),u(t)\rangle
 \le0.
 $$
@@ -2536,7 +2536,7 @@ $$
 
 [Parseval の等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-parseval-identity)から
 
-$
+$$
 \|T(t)u_0\|_2^2
 =
 \sum e^{-2n^2t}|a_n|^2.
