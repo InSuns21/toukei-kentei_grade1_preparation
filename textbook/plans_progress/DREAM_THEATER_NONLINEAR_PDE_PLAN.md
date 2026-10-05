@@ -363,7 +363,16 @@ NS 側の主要証明は NPDE に依存させず、NPDE 既読者向けの一般
 - vanishing viscosity の強い局所 $L^1$ 極限が entropy inequality を満たすことを証明
 - Level A 5題 / B 4題 / C 1題と全問詳細解答を追加
 - DREAM THEATER 目次・読む順・dependency graph・series routing を NPDE2 へ接続
+- NPDE3「非線形変分法・単調作用素・p-Laplacian」を実装
+- $W_0^{1,p}$ の $p$-Poincaré 不等式と反射性を既存 Sobolev・$L^p$ 双対・FA4 から導出
+- 弱下半連続性・強圧性と反射的 Banach 空間上の直接法を完全証明
+- $p$-energy の弱下半連続性・強圧性・狭義凸性と Gâteaux 微分を導出し、Euler--Lagrange 方程式へ接続
+- 単調作用素・半連続性・作用素の強圧性を定義し、有限次元 Brouwer 補題から Browder--Minty 型全射定理を完全証明
+- $p$-Laplacian 作用素の単調性・半連続性・強圧性を確認し、零 Dirichlet 問題の存在一意性を証明
+- Minty の非線形極限同定を証明し、弱収束だけでは非線形項を同定できない点を整理
+- Level A 5題 / B 4題 / C 1題と全問詳細解答を追加
+- DREAM THEATER 目次・読む順・dependency graph・series routing を NPDE3 へ接続
 
 次作業:
 
-- NPDE3「非線形変分法・単調作用素・p-Laplacian」
+- NPDE4「尺度変換・熱核平滑化・自己相似」
