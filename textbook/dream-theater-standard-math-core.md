@@ -65,7 +65,7 @@ SET10 数学各分野での選択原理
 
 ### 非線形偏微分方程式への発展分岐
 
-[**非線形偏微分方程式**](textbook/dream-theater.md#dt-subject-nonlinear-pde) は、偏微分方程式 I の特性曲線と偏微分方程式 II のテスト関数・超関数を土台に、古典解破綻後の保存則、弱解と選択原理、非線形拡散・反応拡散へ進む解析 PDE の発展分岐です。共通の標準通読順には挿入しません。
+[**非線形偏微分方程式**](textbook/dream-theater.md#dt-subject-nonlinear-pde) は、偏微分方程式 I・II を土台に、保存則・非線形楕円型／放物型方程式へ進む発展系列です。共通の標準通読順には挿入しません。
 
 ~~~text
 PDE1 Burgers・特性線交差 ─┐
@@ -81,23 +81,9 @@ PDE8 Duhamel 原理・非斉次問題 ──────────────
 GPDE10 強連続半群・mild 解 ───────────────────────────────────────┴→ NPDE6 半線形熱方程式・臨界性・有限時間 blow-up
 ~~~
 
-NPDE1 では一次元スカラー保存則を局所保存の積分収支から導き、古典特性から分布的弱解へ移ります。移動界面の部分積分から Rankine--Hugoniot 条件を証明し、Riemann 問題の衝撃波と中心希薄波を構成します。Burgers 方程式の同一初期値に expansion shock と rarefaction が共存することを直接示し、弱解だけでは一意性が戻らない地点までを閉じます。
-
-NPDE2 はその非一意性を entropy inequality で選別し、Kruzhkov entropy pair、凸 Riemann 問題の shock / rarefaction 選択、doubling of variables による Kato 型不等式、局所 $L^1$ 評価と $L^1$ 収縮性、一意性、vanishing viscosity との接続までを扱います。
-
-NPDE3 は非線形楕円型問題へ進み、$W_0^{1,p}$ の反射性、弱下半連続性・強圧性による直接法、$p$-energy の Euler--Lagrange 方程式、単調作用素と Browder--Minty 型全射定理、零 Dirichlet $p$-Laplacian の存在一意性、Minty の非線形極限同定までを扱います。
-
-NPDE4 は放物型 scaling を各微分項への代入から導き、$L^p$ ノルムの尺度指数から劣臨界・臨界・超臨界を整理します。多次元熱核の $L^r$ 尺度、Young の畳み込み不等式、$L^p$--$L^q$ 平滑化と微分平滑化を証明し、Sobolev 不等式と補間から Nash 型不等式を作って energy estimate だけでも $L^1$--$L^2$ decay を再現します。さらに $\tau=\log t$、$y=x/sqrt t$ の similarity variables を連鎖律から導き、Gaussian 自己相似 profile を rescaled dynamics の定常解として読みます。
-
-NPDE5 は多孔質媒質方程式 $u_t=\Delta(u^m)$、$m>1$ を扱い、退化拡散と質量保存を確認した後、質量保存型 scaling から自己相似指数を導きます。profile 方程式から Barenblatt 型自己相似解を構成し、support 半径が $t^\beta$ で広がる有限伝播を明示します。比較原理を入力として一般の bounded compact-support 初期値へ有限伝播を移し、Gaussian 熱核による線形熱方程式の無限伝播と対比します。さらに pressure variable と rescaled porous medium equation を導き、Barenblatt profile を rescaled dynamics の定常解として読みます。
-
-NPDE6 は NPDE4・PDE8・GPDE10 を土台に、半線形熱方程式 $u_t=\Delta u+u^p$、$p>1$ を扱います。Duhamel 公式と局所 Lipschitz 性から非負 mild solution の局所存在一意性・比較原理・$L^\infty$ blow-up alternative を構成し、scaling から臨界 $L^q$ 指数と Fujita 指数 $p_F=1+2/d$ を導きます。backward heat-kernel average と直接の $p$ 乗平均評価で $p\le p_F$ の blow-up を証明し、臨界では対数増幅まで追います。$p>p_F$ では Gaussian supersolution を具体構成して small-data global solution を示し、最後に backward self-similar profile 方程式を導きます。
-
-NPDE7 は NPDE4・NPDE5 を土台に、熱方程式の質量保存と Gaussian profile の長時間漸近を $L^q$ 再正規化収束として証明し、有限一次 moment から $-b\cdot\nabla G_t$ の補正まで導きます。多孔質媒質方程式では再正規化自由エネルギーの散逸恒等式を導き、零散逸定常状態が質量で一意に決まる Barenblatt profile であることを示します。一般解の収束は「相対 compactness + 極限点の定常性 + 定常状態の一意性」に分解し、自己相似解の構成と一般軌道の収束を区別します。
-
 ### Navier--Stokes 方程式への発展分岐
 
-[**Navier--Stokes 方程式への道**](textbook/dream-theater.md#dt-subject-navier-stokes) は、ベクトル解析 II・Fourier 解析・偏微分方程式 II を土台に、非圧縮流体の存在・正則性問題へ進む解析 PDE の発展分岐です。共通の標準通読順には挿入しません。
+[**Navier--Stokes 方程式への道**](textbook/dream-theater.md#dt-subject-navier-stokes) は、ベクトル解析 II・Fourier 解析・偏微分方程式 II を土台に、非圧縮 Navier--Stokes 方程式の解析へ進む発展系列です。共通の標準通読順には挿入しません。
 
 ~~~text
 VC9 非圧縮 Navier--Stokes の導出 ─┐
@@ -107,19 +93,15 @@ GPDE5 Sobolev 埋め込み・コンパクト性 ──────────�
 GPDE10 Galerkin・時間発展弱解 ────────────────────────────────────────────────────────────────────────────────────────────────┘
 ~~~
 
-NS1 では周期領域で発散零空間を Fourier モードから構成し、Leray 射影で圧力勾配を分離して、Stokes 作用素を持つ速度だけの発展方程式へ移ります。NS2 では三重線形形式の反対称性から非線形項のエネルギー相殺を証明し、三次元の補間評価と外力付きエネルギー評価を得ます。NS3 では Fourier--Galerkin 近似、$V^*$ での時間微分評価、周期版 Aubin--Lions 型コンパクト性をつないで $L^2_{t,x}$ 強収束を作り、二次非線形項の極限を通して Leray--Hopf 大域弱解を構成します。NS4 では二次元のスカラー渦度方程式を成分計算から導き、渦度 $L^2$ エネルギーが速度の $H^1$ 大域制御へ一致することを Fourier 表示で確認します。二次元 Ladyzhenskaya 型評価から弱解一意性を証明し、Galerkin 近似を $L^\infty_tH^1_x\cap L^2_tH^2_x$ へ持ち上げて大域強解を構成したうえで、三次元では渦伸長項が残るため同じ評価が閉じないことを比較します。NS5 では三次元へ戻り、$Au$ で試した $H^1$ エネルギーから $|b(u,u,Au)|\le C\|\nabla u\|_2^{3/2}\|Au\|_2^{3/2}$ を導きます。短時間 Galerkin 制御から局所強解と一意性を構成し、最大存在時間・$H^1$ の有限時間発散選択肢・積分型延長判定・弱--強一意性までを閉じます。NS6 では全空間 $\mathbb R^3$ へ移り、Navier--Stokes scaling を全項へ代入して確認したうえで、$L^p$、$L_t^qL_x^p$、$\dot H^s$ の尺度指数を導きます。$L^2$ が超臨界、$L^3$ と $\dot H^{1/2}$ が臨界、$\dot H^1$ が劣臨界であることを比較し、エネルギー制御だけでは小スケール集中を排除できない理由を明示します。NS7 では $3<p\le\infty$ の Prodi--Serrin 型条件から $H^1$ 延長判定を導き、$p=3$ 端点で同じエネルギー法が退化する箇所を分離します。さらに三次元渦度方程式を成分恒等式から導出し、渦伸長が渦度エネルギーへ入る機構と $\int\|\nabla u\|_\infty dt$ による尺度臨界延長判定を証明します。NS8 では CMI の一次資料に戻り、全空間・周期版、無外力 A/B、外力付き breakdown C/D、滑らか解と Leray--Hopf 弱解の差、A/C・B/D が単純な否定関係ではないことを整理します。 NS8A では2026年に公表された smooth forcing 下の有限時間特異点構成を読み、異方的集中尺度から有限エネルギーと速度発散の両立を計算し、輸送・粘性の主要バランス、振動応力による残差相殺、Statement C/D への対応を追います。さらに解析的 proof、Lean 形式化、CMI の検証・Prize Rules 上の認定状況を分離して整理します。
-
 ### 超準解析への発展分岐
 
-[**超準解析**](textbook/dream-theater.md#dt-subject-nonstandard-analysis) は、実解析と集合論・数学基礎論を接続する独立系列です。共通基礎の必修順には挿入しません。
+[**超準解析**](textbook/dream-theater.md#dt-subject-nonstandard-analysis) は、実解析と集合論・数学基礎論を接続する発展系列です。共通の標準通読順には挿入しません。
 
 ```text
 SET-U1 同値関係・商集合 ─┐
 SET9 自由超フィルター ───┼→ NSA1 超実数の超冪構成 → NSA2 最小一階論理 → NSA3 Łoś の定理・移送原理 → NSA4 内部・外部／超有限 → NSA5 標準部 → NSA6 極限・連続・コンパクト性 → NSA7 微分・Taylor → NSA8 Riemann 積分・超有限和 → NSA9 級数・関数列・一様収束
 F0-00A1B Archimedes 性 ──┘
 ```
-
-NSA1 で超実数体を具体的に構成し、NSA2 で項・論理式・構造・充足・構文帰納法と、多ソート一階言語の最小枠組みを準備します。NSA3 では Łoś の定理を構文帰納法で証明し、移送原理を導きます。存在量化の witness 列では SET9 の可算選択を使います。NSA4 では集合列・写像列から内部集合・内部写像を構成し、超自然数・超有限集合・overspill を代表列から証明して、標準自然数全体・無限小全体・有限超実数全体が外部集合であることを確認します。NSA5 では実数の上限性質から有限超実数の標準部を構成し、加法・乗法・商・順序との整合性と標準部の外部性を確認します。NSA6 では無限添字による極限・Cauchy 条件、無限小近接による連続・一様連続、nearstandard point による距離空間のコンパクト性を標準定義と両方向に結び、Heine--Cantor を超準的に回収します。NSA7 では非零無限小差分商から微分可能性と導関数の標準部表示を導き、積の微分公式・連鎖律・Taylor の Lagrange 剰余を、ゼロ除算や「無限小を捨てる」という省略なしに読み直します。NSA8 では超有限等分割と内部標本点付き和を定義し、等分割 Darboux gap の収束を介して Riemann 可積分性を超準的に特徴付け、可積分関数の超有限和の標準部が積分値になることを証明します。NSA9 では級数の尾和、各点収束、一様収束、一様 Cauchy 条件を無限添字と超準点で読み替え、$x^n$ と幾何関数級数を通じて量化順序と境界現象を可視化し、Weierstrass M-test を一様尾和評価として回収します。依存関係上は実解析と集合論・数学基礎論を終えれば開始できますが、標準的な解析との比較が主眼なので、通読では解析系の主要科目を一巡した後の発展として読むことを推奨します。
 
 ## 代数系
 
