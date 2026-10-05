@@ -75,6 +75,8 @@ GPDE6 変分形式 ─┐
 FA4 反射性 ─────┤
 FIX1 Brouwer ───┼→ NPDE3 非線形変分法・単調作用素・p-Laplacian
 OPT3 強圧性 ────┘
+PDE3 熱方程式・熱核 ──────┐
+GPDE5 Sobolev 埋め込み ───┴→ NPDE4 尺度変換・熱核平滑化・自己相似
 ~~~
 
 NPDE1 では一次元スカラー保存則を局所保存の積分収支から導き、古典特性から分布的弱解へ移ります。移動界面の部分積分から Rankine--Hugoniot 条件を証明し、Riemann 問題の衝撃波と中心希薄波を構成します。Burgers 方程式の同一初期値に expansion shock と rarefaction が共存することを直接示し、弱解だけでは一意性が戻らない地点までを閉じます。
@@ -82,6 +84,8 @@ NPDE1 では一次元スカラー保存則を局所保存の積分収支から�
 NPDE2 はその非一意性を entropy inequality で選別し、Kruzhkov entropy pair、凸 Riemann 問題の shock / rarefaction 選択、doubling of variables による Kato 型不等式、局所 $L^1$ 評価と $L^1$ 収縮性、一意性、vanishing viscosity との接続までを扱います。
 
 NPDE3 は非線形楕円型問題へ進み、$W_0^{1,p}$ の反射性、弱下半連続性・強圧性による直接法、$p$-energy の Euler--Lagrange 方程式、単調作用素と Browder--Minty 型全射定理、零 Dirichlet $p$-Laplacian の存在一意性、Minty の非線形極限同定までを扱います。
+
+NPDE4 は放物型 scaling を各微分項への代入から導き、$L^p$ ノルムの尺度指数から劣臨界・臨界・超臨界を整理します。多次元熱核の $L^r$ 尺度、Young の畳み込み不等式、$L^p$--$L^q$ 平滑化と微分平滑化を証明し、Sobolev 不等式と補間から Nash 型不等式を作って energy estimate だけでも $L^1$--$L^2$ decay を再現します。さらに $	au=log t$、$y=x/sqrt t$ の similarity variables を連鎖律から導き、Gaussian 自己相似 profile を rescaled dynamics の定常解として読みます。
 
 ### Navier--Stokes 方程式への発展分岐
 
