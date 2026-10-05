@@ -1,0 +1,98 @@
+chapter: NPDE5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NPDE4
+
+forward_references: []
+
+concepts:
+  - id: nonlinear-pde.porous-medium-equation
+    name: 多孔質媒質方程式
+    kind: definition
+    aliases: ["porous medium equation", "PME"]
+    introduction: inline
+    requires:
+      - nonlinear-pde.parabolic-scaling
+
+  - id: nonlinear-pde.pme-mass-conservation
+    name: 多孔質媒質方程式の質量保存
+    kind: proposition
+    aliases: ["porous medium mass conservation"]
+    introduction: formal
+    introduction_aliases: ["命題（質量保存）"]
+    requires:
+      - nonlinear-pde.porous-medium-equation
+
+  - id: nonlinear-pde.pme-similarity-exponents
+    name: 多孔質媒質方程式の質量保存型自己相似指数
+    kind: proposition
+    aliases: ["porous medium similarity exponents"]
+    introduction: formal
+    introduction_aliases: ["命題（多孔質媒質方程式の質量保存型自己相似指数）"]
+    requires:
+      - nonlinear-pde.pme-mass-conservation
+      - nonlinear-pde.parabolic-scaling
+
+  - id: nonlinear-pde.barenblatt-profile
+    name: Barenblatt 型自己相似解
+    kind: theorem
+    aliases: ["Barenblatt solution", "Barenblatt profile"]
+    introduction: formal
+    introduction_aliases: ["定理（Barenblatt 型自己相似解）"]
+    requires:
+      - nonlinear-pde.pme-similarity-exponents
+
+  - id: nonlinear-pde.finite-propagation
+    name: 有限伝播
+    kind: definition
+    aliases: ["finite speed of propagation"]
+    introduction: inline
+    requires: []
+
+  - id: nonlinear-pde.barenblatt-support
+    name: Barenblatt 解の support 半径
+    kind: proposition
+    aliases: ["Barenblatt support radius"]
+    introduction: formal
+    introduction_aliases: ["命題（Barenblatt 解の support 半径）"]
+    requires:
+      - nonlinear-pde.finite-propagation
+      - nonlinear-pde.barenblatt-profile
+
+  - id: nonlinear-pde.compact-support-propagation
+    name: compact support 初期値の有限伝播
+    kind: proposition
+    aliases: ["compact support propagation for porous medium equation"]
+    introduction: formal
+    introduction_aliases: ["命題（compact support 初期値の有限伝播）"]
+    requires:
+      - nonlinear-pde.barenblatt-support
+
+  - id: nonlinear-pde.pme-pressure
+    name: 多孔質媒質方程式の pressure variable
+    kind: definition
+    aliases: ["porous medium pressure", "PME pressure variable"]
+    introduction: formal
+    introduction_aliases: ["定義（多孔質媒質方程式の pressure variable）"]
+    requires:
+      - nonlinear-pde.porous-medium-equation
+
+  - id: nonlinear-pde.pme-pressure-equation
+    name: pressure equation
+    kind: proposition
+    aliases: ["porous medium pressure equation"]
+    introduction: formal
+    introduction_aliases: ["命題（pressure equation）"]
+    requires:
+      - nonlinear-pde.pme-pressure
+
+  - id: nonlinear-pde.rescaled-pme
+    name: 再正規化多孔質媒質方程式
+    kind: proposition
+    aliases: ["rescaled porous medium equation"]
+    introduction: formal
+    introduction_aliases: ["命題（再正規化多孔質媒質方程式）"]
+    requires:
+      - nonlinear-pde.pme-similarity-exponents
+      - nonlinear-pde.similarity-variables

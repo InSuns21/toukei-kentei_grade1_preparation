@@ -1,0 +1,23 @@
+chapter: "NPDE5"
+terms:
+  - term: 多孔質媒質方程式
+    english: porous medium equation
+    meaning: u_t=Delta(u^m), m>1 で表される代表的な退化非線形拡散方程式。
+  - term: 退化拡散
+    english: degenerate diffusion
+    meaning: u=0 の近くで実効拡散係数 m u^(m-1) が0へ近づき、一様放物型性を失う拡散。
+  - term: Barenblatt profile
+    english: Barenblatt profile
+    meaning: 質量保存 scaling と profile 方程式から得られる compact support の自己相似 profile。
+  - term: 有限伝播
+    english: finite speed of propagation
+    meaning: compact support の初期値が任意の有限時間で有界な support を保ち、正時刻に瞬時に全空間へ広がらない性質。
+  - term: 無限伝播
+    english: infinite speed of propagation
+    meaning: 線形熱方程式のように非零の非負 compact-support 初期値が任意の正時刻に全空間で正になる性質。
+  - term: pressure variable
+    english: pressure variable
+    meaning: p=m/(m-1)u^(m-1) で定め、自由境界と退化拡散の構造を見やすくする変数。
+  - term: 再正規化多孔質媒質方程式
+    english: rescaled porous medium equation
+    meaning: 質量保存型 similarity variables で書き直した v_tau=Delta(v^m)+beta div(yv)。
