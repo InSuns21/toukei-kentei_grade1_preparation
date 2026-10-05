@@ -71,11 +71,16 @@ SET10 数学各分野での選択原理
 PDE1 Burgers・特性線交差 ─┐
 GPDE1 テスト関数・超関数 ─┴→ NPDE1 保存則・衝撃波・Rankine--Hugoniot 条件
 GPDE2 平滑化核・局所 L1 近似 ───────┴→ NPDE2 entropy solution・選択原理・L1 収縮性
+GPDE6 変分形式 ─┐
+FA4 反射性 ─────┼→ NPDE3 非線形変分法・単調作用素・p-Laplacian
+FIX1 Brouwer ───┘
 ~~~
 
 NPDE1 では一次元スカラー保存則を局所保存の積分収支から導き、古典特性から分布的弱解へ移ります。移動界面の部分積分から Rankine--Hugoniot 条件を証明し、Riemann 問題の衝撃波と中心希薄波を構成します。Burgers 方程式の同一初期値に expansion shock と rarefaction が共存することを直接示し、弱解だけでは一意性が戻らない地点までを閉じます。
 
 NPDE2 はその非一意性を entropy inequality で選別し、Kruzhkov entropy pair、凸 Riemann 問題の shock / rarefaction 選択、doubling of variables による Kato 型不等式、局所 $L^1$ 評価と $L^1$ 収縮性、一意性、vanishing viscosity との接続までを扱います。
+
+NPDE3 は非線形楕円型問題へ進み、$W_0^{1,p}$ の反射性、弱下半連続性・強圧性による直接法、$p$-energy の Euler--Lagrange 方程式、単調作用素と Browder--Minty 型全射定理、零 Dirichlet $p$-Laplacian の存在一意性、Minty の非線形極限同定までを扱います。
 
 ### Navier--Stokes 方程式への発展分岐
 
