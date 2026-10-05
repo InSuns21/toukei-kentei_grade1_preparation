@@ -1,0 +1,20 @@
+chapter: "NS8A"
+terms:
+  - term: 有限時間特異点
+    english: finite-time singularity
+    meaning: 滑らかな解が有限時刻までに必要な正則性を失い、ここでは速度の L-infinity ノルムが非有界になる現象。
+  - term: Navier--Stokes 残差
+    english: Navier--Stokes residual
+    meaning: 候補の速度・圧力を方程式左辺へ代入した R_nu(u,p)=partial_t u+(u dot grad)u-nu Delta u+grad p。外力付き構成ではこれが admissible な smooth forcing になることを示す必要がある。
+  - term: 異方的集中
+    english: anisotropic concentration
+    meaning: 半径方向と軸方向で異なる縮小率を持つ集中。本章の主要尺度では ell_r~tau^(1/2)、ell_z~tau^(1/2-h)。
+  - term: 振動応力
+    english: oscillatory stress
+    meaning: 高周波補正そのものの平均を小さくしながら、二次量 w tensor w の平均で非零の運動量流束を作り、主要残差を相殺する機構。
+  - term: 形式化
+    english: formalization
+    meaning: 自然言語の証明を定義・定理・補題と推論へ分解し、Lean などの proof assistant の kernel が論理的導出を検証できる形へすること。
+  - term: apparent settlement
+    english: apparent settlement
+    meaning: CMI が2026年9月11日の発表で用いた、問題が解決されたように見えるという段階を示す表現。本章では最終的な Prize Rules 上の認定と区別する。
