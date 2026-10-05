@@ -63,6 +63,15 @@ SET10 数学各分野での選択原理
 19. [**偏微分方程式 II**](textbook/dream-theater.md#dt-subject-pde-ii)：超関数、Sobolev 空間、弱解、変分法、楕円型正則性、Galerkin 法までを扱う。
 20. [**確率解析**](textbook/dream-theater.md#dt-subject-stochastic-analysis)：マルチンゲール、Brown 運動と Wiener 測度、Itô 積分、SDE、生成作用素、Lévy 過程までを扱う。
 
+### 抽象発展方程式・半群論への発展分岐
+
+[**抽象発展方程式・半群論**](textbook/dream-theater.md#dt-subject-evolution-equations) は、関数解析 II の後で時間発展 PDE を作用素論から読み直す発展系列です。共通の標準通読順には挿入しません。
+
+~~~text
+FA2 閉グラフ・グラフノルム ─┐
+FA5 スペクトル・レゾルベント ─┴→ EVOL1 非有界作用素・閉作用素・可閉作用素
+~~~
+
 ### 非線形偏微分方程式への発展分岐
 
 [**非線形偏微分方程式**](textbook/dream-theater.md#dt-subject-nonlinear-pde) は、偏微分方程式 I・II を土台に、保存則・非線形楕円型／放物型方程式へ進む発展系列です。共通の標準通読順には挿入しません。
