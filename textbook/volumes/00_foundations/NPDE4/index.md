@@ -513,12 +513,26 @@ $$
 
 ### 証明の見取り図
 
-$q<\infty$ では、畳み込み積分の被積分関数を三つの因子へ分けて Hölder の不等式を使います。そのあと $x$ でも積分し、Fubini で順序を交換します。$q=\infty$ は通常の Hölder の不等式だけで閉じます。
+$q=1$ は $p=r=1$ なので [Tonelli の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-01) だけで確認できます。$1<q<\infty$ では、畳み込み積分の被積分関数を三つの因子へ分けて [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)を使います。そのあと $x$ でも積分し、Tonelli の定理で順序を交換します。$q=\infty$ は通常の Hölder の不等式だけで閉じます。
 
 <!-- proof-start -->
 ### 証明
 
-まず $q<\infty$ とします。関係式から $p\le q$、$r\le q$ です。
+まず $q=1$ とします。条件式から $p=r=1$ です。Tonelli の定理と $z=x-y$ の変数変換から
+
+$
+\|f*g\|_1
+\le
+\int\int
+|f(y)|
+|g(x-y)|
+dy\,dx
+=
+\|f\|_1
+\|g\|_1.
+$
+
+次に $1<q<\infty$ とします。関係式から $p\le q$、$r\le q$ です。
 
 固定した $x$ に対し
 
@@ -546,15 +560,15 @@ $$
 
 三つの Hölder 指数の逆数を
 
-$$
+$
 \frac1q,
 \qquad
 \frac1p-\frac1q,
 \qquad
 \frac1r-\frac1q
-$$
+$
 
-と取ると、その和は
+と取ります。第二または第三の値が0なら、対応する指数を $\infty$ と解釈します。その和は
 
 $$
 \frac1p+\frac1r-\frac1q
@@ -604,7 +618,7 @@ $$
 dy\,dx.
 $$
 
-非負関数なので Tonelli の定理で積分順序を交換できます。
+非負関数なので [Tonelli の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-01)で積分順序を交換できます。
 
 固定した $y$ に対し $z=x-y$ と変数変換すると
 
@@ -633,11 +647,11 @@ $q$ 乗根を取れば結論を得ます。
 
 $q=\infty$ では条件は
 
-$$
+$
 \frac1p+\frac1r=1
-$$
+$
 
-です。固定した $x$ について Hölder の不等式を使うと
+です。固定した $x$ について [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)を使うと
 
 $$
 |f*g(x)|
@@ -971,14 +985,52 @@ $$
 \frac{2}{d+2}.
 $$
 
-Hölder の不等式による補間から
+この補間も指数を飛ばさず確認します。一般に
 
-$$
+$
+\frac1p
+=
+\frac{\theta}{p_0}
++
+\frac{1-\theta}{p_1}
+$
+
+なら
+
+$
+|f|^p
+=
+|f|^{\theta p}
+|f|^{(1-\theta)p}.
+$
+
+ここへ [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)を、指数
+
+$
+\frac{p_0}{\theta p},
+\qquad
+\frac{p_1}{(1-\theta)p}
+$
+
+で適用すると
+
+$
+\|f\|_p
+\le
+\|f\|_{p_0}^{\theta}
+\|f\|_{p_1}^{1-\theta}
+$
+
+を得ます。
+
+$p=2$、$p_0=1$、$p_1=2^*$、$\theta=2/(d+2)$ を代入して
+
+$
 \|f\|_2
 \le
 \|f\|_1^{2/(d+2)}
 \|f\|_{2^*}^{d/(d+2)}.
-$$
+$
 
 Sobolev 不等式を入れると
 
@@ -1097,13 +1149,15 @@ C_d^{-1}
 }.
 $$
 
-熱半群は $L^1$ を増やさないので
+[Young の畳み込み不等式](#thm-npde4-young-convolution)を $p=q=r=1$ で使い、$\|G_t\|_1=1$ を代入すると
 
-$$
+$
 \|u(t)\|_1
+=
+\|G_t*u_0\|_1
 \le
 \|u_0\|_1.
-$$
+$
 
 $M=\|u_0\|_1$、$Y(t)=\|u(t)\|_2^2$ と置くと
 
