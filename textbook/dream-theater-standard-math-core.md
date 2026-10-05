@@ -76,7 +76,7 @@ FA4 反射性 ─────┤
 FIX1 Brouwer ───┼→ NPDE3 非線形変分法・単調作用素・p-Laplacian
 OPT3 強圧性 ────┘
 PDE3 熱方程式・熱核 ──────┐
-GPDE5 Sobolev 埋め込み ───┴→ NPDE4 尺度変換・熱核平滑化・自己相似
+GPDE5 Sobolev 埋め込み ───┴→ NPDE4 尺度変換・熱核平滑化・自己相似 → NPDE5 多孔質媒質方程式・有限伝播速度
 ~~~
 
 NPDE1 では一次元スカラー保存則を局所保存の積分収支から導き、古典特性から分布的弱解へ移ります。移動界面の部分積分から Rankine--Hugoniot 条件を証明し、Riemann 問題の衝撃波と中心希薄波を構成します。Burgers 方程式の同一初期値に expansion shock と rarefaction が共存することを直接示し、弱解だけでは一意性が戻らない地点までを閉じます。
@@ -85,7 +85,9 @@ NPDE2 はその非一意性を entropy inequality で選別し、Kruzhkov entrop
 
 NPDE3 は非線形楕円型問題へ進み、$W_0^{1,p}$ の反射性、弱下半連続性・強圧性による直接法、$p$-energy の Euler--Lagrange 方程式、単調作用素と Browder--Minty 型全射定理、零 Dirichlet $p$-Laplacian の存在一意性、Minty の非線形極限同定までを扱います。
 
-NPDE4 は放物型 scaling を各微分項への代入から導き、$L^p$ ノルムの尺度指数から劣臨界・臨界・超臨界を整理します。多次元熱核の $L^r$ 尺度、Young の畳み込み不等式、$L^p$--$L^q$ 平滑化と微分平滑化を証明し、Sobolev 不等式と補間から Nash 型不等式を作って energy estimate だけでも $L^1$--$L^2$ decay を再現します。さらに $	au=log t$、$y=x/sqrt t$ の similarity variables を連鎖律から導き、Gaussian 自己相似 profile を rescaled dynamics の定常解として読みます。
+NPDE4 は放物型 scaling を各微分項への代入から導き、$L^p$ ノルムの尺度指数から劣臨界・臨界・超臨界を整理します。多次元熱核の $L^r$ 尺度、Young の畳み込み不等式、$L^p$--$L^q$ 平滑化と微分平滑化を証明し、Sobolev 不等式と補間から Nash 型不等式を作って energy estimate だけでも $L^1$--$L^2$ decay を再現します。さらに $\tau=\log t$、$y=x/sqrt t$ の similarity variables を連鎖律から導き、Gaussian 自己相似 profile を rescaled dynamics の定常解として読みます。
+
+NPDE5 は多孔質媒質方程式 $u_t=\Delta(u^m)$、$m>1$ を扱い、退化拡散と質量保存を確認した後、質量保存型 scaling から自己相似指数を導きます。profile 方程式から Barenblatt 型自己相似解を構成し、support 半径が $t^\beta$ で広がる有限伝播を明示します。比較原理を入力として一般の bounded compact-support 初期値へ有限伝播を移し、Gaussian 熱核による線形熱方程式の無限伝播と対比します。さらに pressure variable と rescaled porous medium equation を導き、Barenblatt profile を rescaled dynamics の定常解として読みます。
 
 ### Navier--Stokes 方程式への発展分岐
 
