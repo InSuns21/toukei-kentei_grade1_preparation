@@ -117,4 +117,3 @@ concepts:
     requires:
       - nonlinear-pde.entropy-inequality
       - nonlinear-pde.kruzhkov-entropy-pair
-      - distribution.mollifier-l1loc-approximation
