@@ -91,7 +91,7 @@ NPDE4 は放物型 scaling を各微分項への代入から導き、$L^p$ ノ�
 
 NPDE5 は多孔質媒質方程式 $u_t=\Delta(u^m)$、$m>1$ を扱い、退化拡散と質量保存を確認した後、質量保存型 scaling から自己相似指数を導きます。profile 方程式から Barenblatt 型自己相似解を構成し、support 半径が $t^\beta$ で広がる有限伝播を明示します。比較原理を入力として一般の bounded compact-support 初期値へ有限伝播を移し、Gaussian 熱核による線形熱方程式の無限伝播と対比します。さらに pressure variable と rescaled porous medium equation を導き、Barenblatt profile を rescaled dynamics の定常解として読みます。
 
-NPDE6 は NPDE4・PDE8・GPDE10 を土台に、半線形熱方程式 $u_t=\Delta u+u^p$、$p>1$ を扱います。Duhamel 公式と局所 Lipschitz 性から非負 mild solution の局所存在一意性・比較原理・$L^\infty$ blow-up alternative を構成し、scaling から臨界 $L^q$ 指数と Fujita 指数 $p_F=1+2/d$ を導きます。backward heat-kernel average と Jensen の不等式で $p\le p_F$ の blow-up を証明し、臨界では対数増幅まで追います。$p>p_F$ では Gaussian supersolution を具体構成して small-data global solution を示し、最後に backward self-similar profile 方程式を導きます。
+NPDE6 は NPDE4・PDE8・GPDE10 を土台に、半線形熱方程式 $u_t=\Delta u+u^p$、$p>1$ を扱います。Duhamel 公式と局所 Lipschitz 性から非負 mild solution の局所存在一意性・比較原理・$L^\infty$ blow-up alternative を構成し、scaling から臨界 $L^q$ 指数と Fujita 指数 $p_F=1+2/d$ を導きます。backward heat-kernel average と直接の $p$ 乗平均評価で $p\le p_F$ の blow-up を証明し、臨界では対数増幅まで追います。$p>p_F$ では Gaussian supersolution を具体構成して small-data global solution を示し、最後に backward self-similar profile 方程式を導きます。
 
 ### Navier--Stokes 方程式への発展分岐
 
