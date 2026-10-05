@@ -796,7 +796,7 @@ $$
 
 <a id="prop-npde5-compact-support-propagation"></a>
 <!-- formal-statement-start -->
-> **命題（比較原理から従う compact support の有限伝播）**  
+> **命題（compact support 初期値の有限伝播）**  
 > $u$ を多孔質媒質方程式の非負弱解とし、比較原理が成り立つ解のクラスに属するとする。初期値が
 
 $$
