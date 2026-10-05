@@ -56,12 +56,3 @@ concepts:
     introduction_aliases: ["命題（対角熱半群の fractional smoothing）"]
     requires:
       - evolution.analytic-semigroup-integer-smoothing
-
-  - id: evolution.parabolic-regularization
-    name: 放物型 regularization
-    kind: concept
-    aliases: ["parabolic regularization", "放物型 smoothing"]
-    introduction: prose
-    requires:
-      - evolution.analytic-semigroup-integer-smoothing
-      - evolution.mild-solution
