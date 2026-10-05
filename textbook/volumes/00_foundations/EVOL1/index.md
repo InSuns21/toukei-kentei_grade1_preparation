@@ -191,15 +191,21 @@ $$
 
 ### 制限と拡張
 
-二つの作用素
+同じ作用規則を保ったまま定義域を広げたり狭めたりする関係を、ここで固定します。
+
+<a id="def-evol1-restriction-extension"></a>
+<!-- formal-statement-start -->
+### 定義（作用素の制限と拡張）
+
+$X,Y$ を Banach 空間とし、
 
 $$
-A:D(A)\to Y,
+A:D(A)\subset X\to Y,
 \qquad
-B:D(B)\to Y
+B:D(B)\subset X\to Y
 $$
 
-について
+を部分定義線形作用素とする。
 
 $$
 D(A)\subset D(B),
@@ -207,7 +213,8 @@ D(A)\subset D(B),
 Bx=Ax\quad(x\in D(A))
 $$
 
-なら、$B$ を $A$ の **拡張**、$A$ を $B$ の **制限**と呼びます。
+が成り立つとき、$B$ を $A$ の **拡張**、$A$ を $B$ の **制限**という。
+<!-- formal-statement-end -->
 
 同じ微分式や同じ座標公式を持っていても、定義域が違えば別の作用素です。後で「閉包」を考えるとき、この区別が決定的になります。
 
