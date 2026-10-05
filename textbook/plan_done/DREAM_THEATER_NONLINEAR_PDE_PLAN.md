@@ -1,7 +1,7 @@
 # DREAM THEATER 非線形偏微分方程式計画
 
 作成日: 2026-10-04  
-状態: in_progress
+状態: completed
 
 ## 0. 目的
 
@@ -411,4 +411,29 @@ NS 側の主要証明は NPDE に依存させず、NPDE 既読者向けの一般
 
 次作業:
 
-- NPDE7「長時間漸近・普遍 profile・rescaled convergence」
+- なし（NPDE1--NPDE7 完了）
+
+---
+
+## 14. 2026-10-05 NPDE7 進捗
+
+実装完了:
+
+- NPDE7「長時間漸近・普遍 profile・rescaled convergence」を実装
+- 熱方程式について質量保存型 rescaling を固定し、任意の $L^1$ 初期値に対する Gaussian profile $M\Phi$ への $L^q$ 再正規化収束を tail 分割と平行移動連続性から証明
+- 元変数で $t^{d(1-1/q)/2}\|u(t)-MG_t\|_q\to0$ を導き、$M\ne0$ の leading $L^q$ decay rate を確定
+- 有限一次 moment $b=\int xu_0$ の保存を確認し、Gaussian の小平行移動展開から一次補正 $-b\cdot\nabla G_t$ を導出
+- 質量0の場合に一次 moment が leading term となり、$L^1$ decay が $t^{-1/2}$ へ一段速くなることを確認
+- 多孔質媒質方程式の再正規化方程式を自由エネルギーの gradient-flow 型 flux に書き直し、自由エネルギー散逸恒等式を積分 by parts から証明
+- 零散逸定常状態を分類して Barenblatt profile を再導出し、質量固定で profile parameter が一意になることを確認
+- 一般 PME 漸近の大きな compactness 論を数行で隠さず、相対 compactness と極限点の零散逸性を仮定した Barenblatt 収束定理として責務を分離し、その収束論理を完全証明
+- attractor という語を、収束空間・初期値クラス・compactness・stationary-state identification を伴う概念として整理
+- 線形熱・多孔質媒質・半線形熱の rescaling を比較し、long-time asymptotics と backward blow-up similarity の向きの違いを整理
+- Level A 5題 / B 4題 / C 1題と全問詳細解答を追加
+- DREAM THEATER 目次・標準数学コア・dependency graph・series manifest・work-state を NPDE7 完了へ同期
+
+系列完了:
+
+- NPDE1--NPDE7 の全章を completed とする
+- rough data / renormalized solution / measure-valued solution は本 PLAN の必須成果物ではなく、後続需要が生じた場合に独立章を再判定する発展候補として残す
+- 本 PLAN の成果物、必要な検証、直接必要な routing / index / manifest 更新を完了したため、PLAN を plan_done へ移動する

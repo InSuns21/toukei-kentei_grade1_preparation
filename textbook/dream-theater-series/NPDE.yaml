@@ -1,7 +1,7 @@
 version: 1
 id: NPDE
 title: 非線形偏微分方程式
-plan: textbook/plans_progress/DREAM_THEATER_NONLINEAR_PDE_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_NONLINEAR_PDE_PLAN.md
 chapter_root: textbook/volumes/00_foundations
 
 chapters:
@@ -31,5 +31,5 @@ chapters:
     title: 半線形熱方程式・臨界性・有限時間 blow-up
   - id: NPDE7
     path: textbook/volumes/00_foundations/NPDE7
-    status: planned
+    status: completed
     title: 長時間漸近・普遍 profile・rescaled convergence

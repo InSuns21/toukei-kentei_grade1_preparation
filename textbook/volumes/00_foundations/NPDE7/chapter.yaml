@@ -1,0 +1,47 @@
+id: "NPDE7"
+title: "長時間漸近・普遍 profile・rescaled convergence"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NPDE4
+  - NPDE5
+official_scope: []
+learning_objectives:
+  - 熱方程式の質量保存から、長時間で残る leading profile が質量 M を係数とする Gaussian になる理由を説明できる
+  - rescaling v(tau,y)=t^(d/2)u(t,sqrt(t)y) を用い、任意の L1 初期値に対する Gaussian profile への Lq 収束を tail 分割から証明できる
+  - Gaussian profile の Lq scaling から熱方程式の leading decay rate を導ける
+  - 有限一次 moment を持つ初期値について Gaussian の平行移動展開から一次 moment 補正 -b dot grad G_t を導ける
+  - 一次 moment が rescaled variables で e^(-tau/2) の減衰モードとして見えることを計算できる
+  - rescaled porous medium equation を自由エネルギーの gradient-flow 型 flux に書き直せる
+  - 再正規化多孔質媒質方程式の自由エネルギー散逸恒等式を積分 by parts から導ける
+  - 零散逸定常状態を分類し、質量固定で一意な Barenblatt profile が選ばれることを説明できる
+  - 相対 compactness と極限点の identification から Barenblatt profile への L1 収束が従う論理を証明できる
+  - 自己相似解を構成することと、一般解の再正規化収束を証明することを区別できる
+definitions:
+  - { id: NPDE7-DEF-01, name: "再正規化収束" }
+  - { id: NPDE7-DEF-01A, name: "長時間漸近 profile" }
+  - { id: NPDE7-DEF-02, name: "再正規化多孔質媒質方程式の自由エネルギー" }
+theorems:
+  - { id: NPDE7-THM-01, name: "熱方程式の Gaussian 長時間漸近" }
+  - { id: NPDE7-COR-01, name: "熱方程式の leading decay rate" }
+  - { id: NPDE7-THM-02, name: "熱方程式の一次 moment 補正" }
+  - { id: NPDE7-PROP-01, name: "自由エネルギー散逸恒等式" }
+  - { id: NPDE7-PROP-02, name: "零散逸定常状態は Barenblatt profile" }
+  - { id: NPDE7-THM-03, name: "compactness と identification による Barenblatt 収束" }
+canonical_examples:
+  - "L1 初期値を Gaussian の小さな平行移動の平均として書き、tail 分割から普遍 profile への収束を証明する"
+  - "有限一次 moment から -b dot grad G_t を次の漸近項として導き、質量0データの decay 改善を確認する"
+  - "rescaled porous medium equation の自由エネルギーを微分し、負の散逸平方を得る"
+  - "零散逸条件から Barenblatt profile を導き、質量と parameter C の単調関係で一意性を確認する"
+  - "compactness と stationary-state identification だけを仮定して Barenblatt 収束を背理法で閉じる"
+problem_patterns:
+  - NPDE7-HEAT-RESCALING-1
+  - NPDE7-GAUSSIAN-ASYMPTOTICS-1
+  - NPDE7-MOMENT-CORRECTION-1
+  - NPDE7-PME-FREE-ENERGY-1
+  - NPDE7-PME-STATIONARY-PROFILE-1
+  - NPDE7-COMPACTNESS-IDENTIFICATION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 6.0, review: 1.5 }
