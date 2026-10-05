@@ -5,9 +5,7 @@ prerequisites:
   - PDE1
   - GPDE1
 
-forward_references:
-  - nonlinear-pde.entropy-solution
-  - nonlinear-pde.l1-contraction
+forward_references: []
 
 concepts:
   - id: nonlinear-pde.scalar-conservation-law
