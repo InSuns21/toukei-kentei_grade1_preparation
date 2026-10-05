@@ -14,7 +14,7 @@ learning_objectives:
   - 最大存在時間 T_max を定義し、T_max<infinity なら L-infinity ノルムが発散する blow-up alternative を証明できる
   - 方程式の scaling u_lambda(t,x)=lambda^(2/(p-1))u(lambda^2t,lambda x) と L^q 臨界指数 q_c=d(p-1)/2 を導ける
   - q_c=1 から Fujita 指数 p_F=1+2/d を導き、質量尺度と反応の強さの境界として説明できる
-  - backward heat-kernel average と Jensen の不等式から global existence の必要条件を導ける
+  - backward heat-kernel average と p 乗平均評価から global existence の必要条件を導ける
   - 1<p<=p_F で非零非負 L1 初期値が有限時間 blow-up する Fujita 型結果を、劣臨界と臨界に分けて証明できる
   - p>p_F で Gaussian により十分小さく抑えられた非零初期値に global mild solution が存在することを supersolution で示せる
   - backward self-similar ansatz から blow-up profile 方程式を導き、定数 profile が空間一様 ODE blow-up を再現することを確認できる
@@ -35,7 +35,7 @@ theorems:
 canonical_examples:
   - "空間一様解 u(t)=[a^(1-p)-(p-1)t]^(-1/(p-1)) の有限時間 blow-up"
   - "scaling から q_c=d(p-1)/2 と p_F=1+2/d を導く"
-  - "backward heat-kernel average と Jensen の不等式による global existence 必要条件"
+  - "backward heat-kernel average と p 乗平均評価による global existence 必要条件"
   - "臨界 Fujita 指数で現れる logarithmic contradiction"
   - "supercritical p>p_F における Gaussian supersolution による small-data global solution"
   - "backward self-similar profile と定数 blow-up profile"
