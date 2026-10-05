@@ -4,7 +4,10 @@ coverage: complete
 prerequisites:
   - NS8
 
-forward_references: []
+forward_references:
+  - NPDE4
+  - NPDE6
+  - NPDE7
 
 concepts:
   - id: navier-stokes.blowup-core-scales-2026
