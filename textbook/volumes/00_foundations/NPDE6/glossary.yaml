@@ -1,0 +1,23 @@
+chapter: "NPDE6"
+terms:
+  - term: 半線形熱方程式
+    english: semilinear heat equation
+    meaning: u_t=Delta u+u^p, p>1 のように最高階の拡散項は線形だが低階の反応項が非線形な放物型方程式。
+  - term: mild solution
+    english: mild solution
+    meaning: 熱核による自由発展と Duhamel 積分を用いて u(t)=S(t)u0+integral_0^t S(t-s)u(s)^p ds を満たす解。
+  - term: 最大存在時間
+    english: maximal existence time
+    meaning: 同じ解概念で解を延長できる時間区間 [0,T_max) の右端。
+  - term: 有限時間 blow-up
+    english: finite-time blow-up
+    meaning: T_max<infinity となり、本章の BUC mild solution では t approaches T_max において L-infinity ノルムが無限大へ発散する現象。
+  - term: Fujita 指数
+    english: Fujita exponent
+    meaning: p_F=1+2/d で与えられ、非負半線形熱方程式で全ての非零 L1 データが blow-up する側と小さい global data が存在する側を分ける指数。
+  - term: backward heat-kernel average
+    english: backward heat-kernel average
+    meaning: 将来時刻 T を固定して F(t)=S(T-t)u(t)(x0) と置き、PDE を F'(t)>=F(t)^p という ODE 型不等式へ変換する量。
+  - term: backward self-similar blow-up
+    english: backward self-similar blow-up
+    meaning: blow-up 時刻 T までの残り時間 T-t で高さと空間幅を正規化し、u(t,x)=(T-t)^(-1/(p-1))F(x/sqrt(T-t)) と表す blow-up 形。
