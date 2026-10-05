@@ -1746,23 +1746,136 @@ v(t)
 T(r)f(t-r)\,dr.
 $$
 
-$f\in C^1([0,T];X)$ なので、有限時間区間での半群の局所有界性を使えば Bochner 積分を $t$ で微分できます。
-
-上端の寄与は
+ここで積分の微分を差分商から確認します。$0\le t<T$ を固定し、$h>0$ を十分小さく取ります。
 
 $$
-T(t)f(0)
+v(t+h)
+=
+\int_0^{t+h}
+T(r)f(t+h-r)\,dr
 $$
 
-です。
-
-積分内部の $t$ 微分は
+なので、
 
 $$
-T(r)f'(t-r)
+\begin{aligned}
+\frac{v(t+h)-v(t)}h
+&=
+\int_0^t
+T(r)
+\frac{f(t+h-r)-f(t-r)}h
+\,dr
+\\
+&\quad
++
+\frac1h
+\int_t^{t+h}
+T(r)f(t+h-r)\,dr.
+\end{aligned}
 $$
 
-なので
+第一項を調べます。微積分の基本定理から
+
+$$
+\frac{f(t+h-r)-f(t-r)}h
+=
+\frac1h
+\int_0^h
+f'(t-r+\theta)\,d\theta.
+$$
+
+$f'$ はコンパクト区間 $[0,T]$ 上で一様連続なので、$h\downarrow0$ のとき
+
+$$
+\sup_{0\le r\le t}
+\left\|
+\frac{f(t+h-r)-f(t-r)}h
+-
+f'(t-r)
+\right\|
+\to0.
+$$
+
+また
+
+$$
+M_T
+=
+\sup_{0\le r\le T}\|T(r)\|
+<
+\infty.
+$$
+
+従って積分の差は
+
+$$
+\begin{aligned}
+&\left\|
+\int_0^t
+T(r)
+\left[
+\frac{f(t+h-r)-f(t-r)}h
+-
+f'(t-r)
+\right]
+\,dr
+\right\|
+\\
+&\le
+M_T t
+\sup_{0\le r\le t}
+\left\|
+\frac{f(t+h-r)-f(t-r)}h
+-
+f'(t-r)
+\right\|
+\to0.
+\end{aligned}
+$$
+
+よって第一項は
+
+$$
+\int_0^t
+T(r)f'(t-r)\,dr
+$$
+
+へ収束します。
+
+第二項では $t\le r\le t+h$ なので、
+
+$$
+0\le t+h-r\le h.
+$$
+
+このとき
+
+$$
+\begin{aligned}
+&
+\|T(r)f(t+h-r)-T(t)f(0)\|
+\\
+&\le
+M_T
+\|f(t+h-r)-f(0)\|
++
+\|(T(r)-T(t))f(0)\|.
+\end{aligned}
+$$
+
+$f$ の連続性と、固定した $f(0)$ に対する半群軌道 $r\mapsto T(r)f(0)$ の連続性から、右辺は $r\in[t,t+h]$ について一様に $0$ へ行きます。
+
+したがって短区間平均も
+
+$$
+\frac1h
+\int_t^{t+h}
+T(r)f(t+h-r)\,dr
+\to
+T(t)f(0).
+$$
+
+以上より
 
 $$
 v'(t)
@@ -1770,14 +1883,17 @@ v'(t)
 T(t)f(0)
 +
 \int_0^t
-T(r)f'(t-r)\,dr.
+T(r)f'(t-r)\,dr
+\qquad(0\le t<T).
 $$
 
-右辺は $t$ に連続です。従って
+右辺は $t\uparrow T$ でも連続に極限を持つので、左微分を含めて $t=T$ まで延長でき、
 
 $$
-v\in C^1([0,T];X).
+v\in C^1([0,T];X)
 $$
+
+です。
 
 次に $h>0$ とします。
 
@@ -3107,7 +3223,42 @@ v(t)
 \int_0^tT(r)f(t-r)\,dr.
 $$
 
-$f\in C^1$ なので、上端の微分と被積分関数の微分を分けると
+差分商を取ると
+
+$$
+\begin{aligned}
+\frac{v(t+h)-v(t)}h
+&=
+\int_0^t
+T(r)
+\frac{f(t+h-r)-f(t-r)}h
+\,dr
+\\
+&\quad
++
+\frac1h
+\int_t^{t+h}
+T(r)f(t+h-r)\,dr.
+\end{aligned}
+$$
+
+$f'$ は $[0,T]$ 上で一様連続なので、第一項の差分商は $r\in[0,t]$ について一様に $f'(t-r)$ へ収束します。半群の局所有界性を使えば第一項は
+
+$$
+\int_0^tT(r)f'(t-r)\,dr
+$$
+
+へ収束します。
+
+第二項では $r\in[t,t+h]$ なので
+
+$$
+T(r)f(t+h-r)\to T(t)f(0)
+$$
+
+が区間上一様に成り立ち、その平均も $T(t)f(0)$ へ収束します。
+
+従って
 
 $$
 v'(t)
