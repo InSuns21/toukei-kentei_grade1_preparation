@@ -1,0 +1,48 @@
+id: "NPDE2"
+title: "entropy solution・選択原理・L1 contraction"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NPDE1
+  - GPDE2
+official_scope: []
+learning_objectives:
+  - entropy / entropy flux pair を q'(u)=eta'(u)f'(u) から構成し、滑らかな保存則で entropy 等式を導ける
+  - 粘性保存則から凸 entropy の散逸不等式を導き、entropy condition が追加選択原理であることを説明できる
+  - 一本の跳躍に対して entropy jump condition [q]-s[eta]<=0 を導出し、Burgers の圧縮 shock と expansion shock を判別できる
+  - 狭義凸流束の Lax 圧縮条件と chord による Oleinik 型条件の位置付けを説明できる
+  - Kruzhkov entropy pair と Kruzhkov entropy solution を定義し、凸 Riemann 問題で shock / rarefaction を選別できる
+  - doubling of variables から Kato 型不等式を導く核心を追跡できる
+  - Kato 型不等式から局所 L1 評価・L1 contraction・entropy solution の一意性を導ける
+  - vanishing viscosity の局所 L1 極限が entropy inequality を満たすことを導ける
+definitions:
+  - { id: NPDE2-DEF-01, name: "entropy / entropy flux pair" }
+  - { id: NPDE2-DEF-02, name: "entropy inequality" }
+  - { id: NPDE2-DEF-03, name: "Kruzhkov entropy pair" }
+  - { id: NPDE2-DEF-04, name: "Kruzhkov entropy solution" }
+theorems:
+  - { id: NPDE2-PROP-01, name: "跳躍に対する entropy 条件" }
+  - { id: NPDE2-PROP-02, name: "狭義凸流束の Lax 圧縮条件" }
+  - { id: NPDE2-THM-01, name: "狭義凸流束の Riemann entropy 選択" }
+  - { id: NPDE2-LEM-01, name: "Kato 型不等式" }
+  - { id: NPDE2-THM-02, name: "Kruzhkov の局所 L1 評価と L1 収縮性" }
+  - { id: NPDE2-COR-01, name: "Kruzhkov entropy solution の一意性" }
+  - { id: NPDE2-PROP-03, name: "vanishing viscosity 極限の entropy 選択" }
+canonical_examples:
+  - "Burgers の二次 entropy eta(u)=u^2/2 と entropy flux q(u)=u^3/3"
+  - "Burgers 1->0 圧縮 shock の entropy production"
+  - "Burgers 0->1 expansion shock の entropy 条件違反"
+  - "凸 Riemann 問題に対する shock / rarefaction の entropy 選択"
+  - "doubling of variables から Kato 型不等式"
+problem_patterns:
+  - NPDE-ENTROPY-PAIR-1
+  - NPDE-SHOCK-ENTROPY-1
+  - NPDE-KRUZHKOV-PAIR-1
+  - NPDE-CONVEX-RIEMANN-SELECTION-1
+  - NPDE-KATO-DOUBLING-1
+  - NPDE-L1-CONTRACTION-1
+  - NPDE-VANISHING-VISCOSITY-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.5, review: 1.0 }
