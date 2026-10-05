@@ -285,20 +285,50 @@ u_0(z)
 dz.
 $$
 
-$1\le q<\infty$ では Minkowski の積分不等式から
+まず $1\le q<\infty$ で必要な積分評価を直接確認します。$m=\|u_0\|_{L^1}$ とし、$m=0$ なら主張は自明なので $m>0$ とします。各 $y$ について
 
 $$
-\|v_t-M\Phi\|_{L^q}
+a_z(y)
+=
+\Phi\left(y-\frac z{\sqrt t}\right)-\Phi(y)
+$$
+
+と置きます。三角不等式から
+
+$$
+\left|
+\int u_0(z)a_z(y)\,dz
+\right|
 \le
-\int_{\mathbb R^d}
-|u_0(z)|
-\left\|
-\Phi\left(\cdot-\frac z{\sqrt t}\right)-\Phi
-\right\|_{L^q}
-dz.
+m
+\int |a_z(y)|\,d\mu(z),
+\qquad
+d\mu(z)=\frac{|u_0(z)|}{m}\,dz.
 $$
 
-$q=\infty$ でも、各 $y$ で絶対値を取ってから supremum を取れば同じ上界を得ます。
+$d\mu$ は全質量1の非負重みです。凸関数 $r\mapsto r^q$ に対して
+
+$$
+\left(
+\int |a_z(y)|\,d\mu(z)
+\right)^q
+\le
+\int |a_z(y)|^q\,d\mu(z)
+$$
+
+なので、$y$ について積分すると
+
+$$
+\left\|
+\int u_0(z)a_z\,dz
+\right\|_{L^q}^q
+\le
+m^{q-1}
+\int
+|u_0(z)|\|a_z\|_{L^q}^q\,dz.
+$$
+
+この評価を $|z|\le R$ と $|z|>R$ へ別々に適用します。$q=\infty$ では、各 $y$ で絶対値を取ってから supremum を取る同じ議論で十分です。
 
 $\varepsilon>0$ を固定します。$u_0\in L^1$ なので、ある $R>0$ を選んで
 
@@ -320,9 +350,12 @@ $$
 2\|\Phi\|_{L^q}.
 $$
 
-したがって tail の寄与は
+上で示した重み付き評価を tail だけに適用すると、その $L^q$ ノルムは
 
 $$
+2\|\Phi\|_{L^q}
+\int_{|z|>R}|u_0(z)|\,dz
+<
 2\|\Phi\|_{L^q}\varepsilon
 $$
 
@@ -336,23 +369,15 @@ $$
 \to0.
 $$
 
-よって
+よって内側 $|z|\le R$ の寄与の $L^q$ ノルムは
 
 $$
-\begin{aligned}
-&
-\int_{|z|\le R}
-|u_0(z)|
-\left\|
-\Phi\left(\cdot-\frac z{\sqrt t}\right)-\Phi
-\right\|_{L^q}
-dz\\
-&\le
-\|u_0\|_{L^1}
+\left(
+\int_{|z|\le R}|u_0(z)|\,dz
+\right)
 \sup_{|h|\le R/\sqrt t}
 \|\Phi(\cdot-h)-\Phi\|_{L^q}
 \to0.
-\end{aligned}
 $$
 
 以上から
@@ -1146,7 +1171,7 @@ $$
 > M=\int_{\mathbb R^d}v(y)\,dy>0
 > $$
 >
-> を持つ再正規化多孔質媒質方程式の定常状態であるとする。さらに positivity set の内部で十分滑らかで、自由エネルギー散逸量が0とする。このとき
+> を持つ再正規化多孔質媒質方程式の定常状態であるとする。さらに正値集合 $\{v>0\}$ の内部で十分滑らかで、自由エネルギー散逸量が0とする。このとき
 >
 > $$
 > \boxed{
@@ -1170,7 +1195,7 @@ $$
 \nabla\xi=0
 $$
 
-です。従って各 positivity component 上である定数 $A$ が存在し、
+です。従って正値集合 $\{v>0\}$ の各連結成分上である定数 $A$ が存在し、
 
 $$
 \frac m{m-1}v^{m-1}
@@ -1198,7 +1223,15 @@ C=\frac{m-1}{m}A,
 k=\frac{(m-1)\beta}{2m}
 $$
 
-と置けば
+と置けば、その連結成分上では
+
+$$
+v(y)
+=
+(C-k|y|^2)^{1/(m-1)}
+$$
+
+です。右辺が正になる領域は原点を中心とする球です。異なる定数 $C$ を持つ二つの非空な正値成分があれば、どちらも原点近傍を含んで互いに重なってしまうので、正値集合は一つの連結成分しか持てません。従って全空間では
 
 $$
 v(y)
@@ -1323,7 +1356,7 @@ $$
 
 ### 一般データの完全な PME 漸近定理へ進むには
 
-多孔質媒質方程式の一般的な $L^1$ 初期値から相対 compactness や極限点の定常性を導くには、平滑化、moment 制御、tightness、自由エネルギーの下半連続性などを組み合わせる必要があります。
+多孔質媒質方程式の一般的な $L^1$ 初期値から相対 compactness や極限点の定常性を導くには、平滑化、moment 制御、質量が空間無限遠へ逃げないことの評価（tightness）、自由エネルギーの下半連続性などを組み合わせる必要があります。
 
 それらを数行の「標準的 compactness」へ押し込むと、実際に必要な解析を隠してしまいます。そこで本章では、
 
@@ -1877,18 +1910,32 @@ u_0(z)
 dz.
 $$
 
-Minkowski の積分不等式から
+$m=\|u_0\|_1$ とする。$m=0$ なら自明なので $m>0$ とし、
 
 $$
-\|v_t-M\Phi\|_q
-\le
-\int
-|u_0(z)|
-\left\|
-\Phi\left(\cdot-\frac z{\sqrt t}\right)-\Phi
-\right\|_q
-dz.
+d\mu(z)=\frac{|u_0(z)|}{m}\,dz
 $$
+
+と置く。各 $y$ で三角不等式を使い、全質量1の重み $d\mu$ に対して $r\mapsto r^q$ の凸性を使うと
+
+$$
+\left\|
+\int u_0(z)a_z\,dz
+\right\|_q^q
+\le
+m^{q-1}
+\int |u_0(z)|\|a_z\|_q^q\,dz,
+$$
+
+ただし
+
+$$
+a_z
+=
+\Phi\left(\cdot-\frac z{\sqrt t}\right)-\Phi.
+$$
+
+$q=\infty$ では各点で三角不等式を使えば同じ tail / interior 評価が得られる。
 
 $|z|>R$ では
 
