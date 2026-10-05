@@ -7,7 +7,7 @@ chapter_root: textbook/volumes/00_foundations
 chapters:
   - id: NPDE1
     path: textbook/volumes/00_foundations/NPDE1
-    status: planned
+    status: completed
     title: 保存則・衝撃波・Rankine--Hugoniot 条件
   - id: NPDE2
     path: textbook/volumes/00_foundations/NPDE2
