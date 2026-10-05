@@ -5,6 +5,7 @@ prerequisites:
   - GPDE6
   - FA4
   - FIX1
+  - OPT3
 
 forward_references: []
 
@@ -17,15 +18,6 @@ concepts:
     introduction_aliases: ["定義（弱下半連続汎関数）"]
     requires:
       - functional.weak-convergence-banach
-
-  - id: variational.coercive-functional
-    name: 強圧的汎関数
-    kind: definition
-    aliases: ["coercive functional"]
-    introduction: formal
-    introduction_aliases: ["定義（強圧的汎関数）"]
-    requires:
-      - functional.banach-space
 
   - id: sobolev.w01p-poincare
     name: "W_0^{1,p} の p-Poincare 不等式"
@@ -65,7 +57,7 @@ concepts:
     introduction_aliases: ["定理（反射的 Banach 空間上の直接法）"]
     requires:
       - variational.weak-lower-semicontinuous
-      - variational.coercive-functional
+      - convex.coercivity
       - functional.reflexivity-weak-compact-unit-ball
 
   - id: nonlinear-pde.p-energy
