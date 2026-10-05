@@ -272,6 +272,7 @@
 
 1. [NPDE1 保存則・衝撃波・Rankine--Hugoniot 条件](textbook/volumes/00_foundations/NPDE1/index.md)
 2. [NPDE2 entropy solution・選択原理・$L^1$ 収縮性](textbook/volumes/00_foundations/NPDE2/index.md)
+3. [NPDE3 非線形変分法・単調作用素・$p$-Laplacian](textbook/volumes/00_foundations/NPDE3/index.md)
 
 <a id="dt-subject-navier-stokes"></a>
 ### Navier--Stokes 方程式への道
