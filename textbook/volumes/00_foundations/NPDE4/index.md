@@ -41,7 +41,7 @@ critical / subcritical / supercritical を判定する
   ↓
 Young の畳み込み不等式で Lp-Lq smoothing を得る
   ↓
-Sobolev + 補間から Nash 型不等式を作る
+Sobolev + 補間から減衰に使う不等式を作る
   ↓
 energy estimate と組み合わせて decay を導く
   ↓
@@ -79,7 +79,7 @@ u_\lambda(t,x)
 u(\lambda^a t,\lambda x)
 $$
 
-を作ると、連鎖律から
+を作ると、[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 \partial_tu_\lambda(t,x)
@@ -476,7 +476,7 @@ $$
 
 ---
 
-## 4. 畳み込みでノルムを移す：Young の不等式
+## 4. 畳み込みでノルムを移す
 
 熱方程式の解は
 
@@ -670,7 +670,7 @@ $x$ の上限を取って結論を得ます。
 
 ## 5. 熱核は $L^p$ の情報を $L^q$ へ平滑化する
 
-Young の不等式へ $g=G_t$ を入れます。
+[Young の畳み込み不等式](#thm-npde4-young-convolution)へ $g=G_t$ を入れます。
 
 条件
 
@@ -836,7 +836,7 @@ t^{-d/4}
 \|u_0\|_1.
 $$
 
-後でこの同じ指数を、熱核を直接使わず energy estimate + [Nash 型不等式](#thm-npde4-nash)から再現します。
+後でこの同じ指数を、熱核を直接使わず energy estimate と補間型不等式から再現します。
 
 ---
 
@@ -869,7 +869,7 @@ C_{d,r}
 t^{-1/2-\frac d2(1-\frac1r)}.
 $$
 
-Young の不等式をもう一度使うと
+[Young の畳み込み不等式](#thm-npde4-young-convolution)をもう一度使うと
 
 <a id="cor-npde4-gradient-smoothing"></a>
 <!-- formal-statement-start -->
@@ -905,7 +905,7 @@ $$
 
 ---
 
-## 7. Sobolev 不等式から Nash 型不等式を作る
+## 7. Sobolev 不等式と補間から減衰評価を作る
 
 熱核表示は非常に強力ですが、非線形 PDE では明示核がないことも多くあります。
 
@@ -1271,7 +1271,7 @@ $$
 
 という形をしています。
 
-この形を完成式として覚えるのではなく、方程式と保存量から再構成します。
+この形を完成式として覚えるのではなく、方程式と保存される質量から再構成します。
 
 一般に
 
@@ -2255,7 +2255,7 @@ $$
 
 を満たす $r$ を求めよ。
 2. $1-1/r=1/p-1/q$ を確認せよ。
-3. Young の不等式と熱核の $L^r$ ノルムから $L^p$--$L^q$ 平滑化評価を導け。
+3. [Young の畳み込み不等式](#thm-npde4-young-convolution)と熱核の $L^r$ ノルムから $L^p$--$L^q$ 平滑化評価を導け。
 4. $(p,q)=(1,\infty)$、$(1,2)$、$(2,\infty)$ の時間指数を求めよ。
 
 <!-- solution-start -->
@@ -2911,7 +2911,7 @@ $$
 u(t)=G_t*u_0.
 $$
 
-Young の不等式で $(p,q,r)=(1,\infty,\infty)$ を使うと
+[Young の畳み込み不等式](#thm-npde4-young-convolution)で $(p,q,r)=(1,\infty,\infty)$ を使うと
 
 $$
 \|u(t)\|_\infty
@@ -2955,7 +2955,7 @@ $$
 
 $\tau=\log t$、$y=x/\sqrt t$ とします。
 
-本文の連鎖律計算から
+本文の [連鎖律](../RA3/index.md#prop-ra3-chain-rule)の計算から
 
 $$
 u_t
