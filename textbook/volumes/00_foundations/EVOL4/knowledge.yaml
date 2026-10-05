@@ -58,6 +58,7 @@ concepts:
       - evolution.abstract-cauchy-strong-solution
       - evolution.mild-solution
       - evolution.generator-orbit-differentiation
+      - evolution.generator-closed-dense
 
   - id: evolution.mild-to-classical-regularity
     name: mild 解から classical 解への正則性回復
