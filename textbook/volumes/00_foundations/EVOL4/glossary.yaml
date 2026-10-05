@@ -1,0 +1,23 @@
+chapter: "EVOL4"
+terms:
+  - term: abstract Cauchy problem
+    english: abstract Cauchy problem
+    meaning: Banach空間上で u'(t)=Au(t)+f(t), u(0)=u0 の形に書かれる時間発展初期値問題。A は一般に非有界な C0 半群生成作用素。
+  - term: classical solution
+    english: classical solution
+    meaning: u が D(A) に連続に値を取り、X 値で C1 級となり、方程式を各時刻で X の等式として満たす解。
+  - term: strong solution
+    english: strong solution
+    meaning: u(t) がほとんどすべての時刻で D(A) に入り、Au と外力が Bochner 可積分で、積分形 u(t)=u0+int_0^t(Au+f) を満たす解。
+  - term: mild solution
+    english: mild solution
+    meaning: GPDE10 を正本とする半群表示の解。生成作用素の符号規約では u(t)=T(t)u0+int_0^t T(t-s)f(s)ds と表され、u0 が D(A) に入らなくても定義できる。
+  - term: variation of constants formula
+    english: variation of constants formula
+    meaning: 同次時間発展 T(t) に外力の寄与を畳み込む表示。Duhamel 公式と同じ積分表示を指す。
+  - term: Duhamel formula
+    english: Duhamel formula
+    meaning: 時刻 s に加わった外力 f(s) を残り時間 t-s だけ T(t-s) で運び、0 から t まで積分する公式。
+  - term: regularity recovery
+    english: regularity recovery
+    meaning: mild 解に追加条件を課し、D(A) 値連続性や時間微分可能性を回収して classical 解へ戻すこと。
