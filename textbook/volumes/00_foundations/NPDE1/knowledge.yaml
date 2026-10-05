@@ -12,8 +12,8 @@ concepts:
     name: 一次元スカラー保存則
     kind: definition
     aliases: ["scalar conservation law", "スカラー保存則"]
-    introduction: formal
-    introduction_aliases: ["定義（一次元スカラー保存則）"]
+    introduction: inline
+    introduction_aliases: ["スカラー保存則"]
     requires:
       - pde.pde1-partial-differential-equation
 
@@ -42,8 +42,8 @@ concepts:
     name: Rankine--Hugoniot 条件
     kind: theorem
     aliases: ["Rankine-Hugoniot condition", "Rankine--Hugoniot condition"]
-    introduction: formal
-    introduction_aliases: ["定理（Rankine--Hugoniot 条件）"]
+    introduction: inline
+    introduction_aliases: ["Rankine--Hugoniot 条件"]
     requires:
       - nonlinear-pde.distributional-weak-solution
 
@@ -51,8 +51,8 @@ concepts:
     name: 定数状態を結ぶ衝撃波
     kind: definition
     aliases: ["衝撃波", "shock wave"]
-    introduction: formal
-    introduction_aliases: ["定義（定数状態を結ぶ衝撃波）"]
+    introduction: inline
+    introduction_aliases: ["衝撃波"]
     requires:
       - nonlinear-pde.rankine-hugoniot
 
@@ -79,8 +79,8 @@ concepts:
     name: 中心希薄波
     kind: definition
     aliases: ["希薄波", "rarefaction wave", "centered rarefaction wave"]
-    introduction: formal
-    introduction_aliases: ["定義（中心希薄波）"]
+    introduction: inline
+    introduction_aliases: ["希薄波"]
     requires:
       - nonlinear-pde.riemann-problem
 
