@@ -3080,7 +3080,7 @@ $$
    \int_t^{t+h}T(t+h-s)f(s)\,ds
    $$
    を示せ。
-4. 生成作用素の定義を使って
+4. [強連続半群の生成作用素の定義](../EVOL2/index.md#def-evol2-generator)を使って
    $$
    v(t)\in D(A),
    \qquad
