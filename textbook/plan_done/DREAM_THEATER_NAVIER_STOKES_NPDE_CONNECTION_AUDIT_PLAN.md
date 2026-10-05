@@ -1,7 +1,7 @@
 # DREAM THEATER Navier--Stokes × 非線形PDE 接続監査計画
 
 作成日: 2026-10-05  
-状態: planned
+状態: completed
 
 ## 0. 目的
 

@@ -4,7 +4,11 @@ coverage: complete
 prerequisites:
   - NS8
 
-forward_references: []
+forward_references:
+  - nonlinear-pde.similarity-variables
+  - nonlinear-pde.semilinear-heat-equation
+  - nonlinear-pde.semilinear-blowup-alternative
+  - nonlinear-pde.rescaled-convergence
 
 concepts:
   - id: navier-stokes.blowup-core-scales-2026

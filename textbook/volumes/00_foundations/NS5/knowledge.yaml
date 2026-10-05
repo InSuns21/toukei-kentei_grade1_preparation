@@ -5,7 +5,10 @@ prerequisites:
   - NS4
   - ODE8
 
-forward_references: []
+forward_references:
+  - nonlinear-pde.semilinear-heat-equation
+  - nonlinear-pde.semilinear-blowup-alternative
+  - nonlinear-pde.fujita-exponent
 
 concepts:
   - id: navier-stokes.three-dimensional-strong-solution

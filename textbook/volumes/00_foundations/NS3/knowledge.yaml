@@ -5,7 +5,9 @@ prerequisites:
   - NS2
   - GPDE10
 
-forward_references: []
+forward_references:
+  - nonlinear-pde.scalar-conservation-law
+  - nonlinear-pde.entropy-inequality
 
 concepts:
   - id: navier-stokes.leray-hopf-weak-solution
