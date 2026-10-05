@@ -853,11 +853,16 @@ DREAM THEATER の非線形偏微分方程式系列は、PDE1 の Burgers 方程�
 PDE1 Burgers 方程式・特性曲線 ─┐
 GPDE1 テスト関数・超関数 ──────┴→ NPDE1 保存則・衝撃波・Rankine--Hugoniot 条件 ─┐
 GPDE2 平滑化核・局所 L1 近似 ───────────────────────────────────────────────────┴→ NPDE2 entropy solution・選択原理・L1 収縮性
+GPDE6 弱形式・変分形式 ─┐
+FA4 反射性・弱コンパクト性 ─┼→ NPDE3 非線形変分法・単調作用素・p-Laplacian
+FIX1 Brouwer 不動点定理 ───┘
 ~~~
 
 NPDE1 は一次元スカラー保存則、滑らかな保存則の特性表示、保存則の分布的弱解、移動界面からの Rankine--Hugoniot 条件、定数状態の衝撃波、Riemann 問題、狭義凸流束の中心希薄波、Burgers Riemann 問題における分布的弱解の非一意性を担当する。
 
-NPDE2 は NPDE1 と GPDE2 を直接 prerequisite とし、entropy / entropy flux pair、entropy inequality、Lax 圧縮条件、Kruzhkov entropy solution、凸 Riemann 問題の entropy 選択、doubling of variables による Kato 型不等式、局所 $L^1$ 評価と $L^1$ 収縮性、一意性、vanishing viscosity 極限の選択原理を担当する。直接 prerequisite の正本は各章の chapter.yaml / knowledge.yaml とする。
+NPDE2 は NPDE1 と GPDE2 を直接 prerequisite とし、entropy / entropy flux pair、entropy inequality、Lax 圧縮条件、Kruzhkov entropy solution、凸 Riemann 問題の entropy 選択、doubling of variables による Kato 型不等式、局所 $L^1$ 評価と $L^1$ 収縮性、一意性、vanishing viscosity 極限の選択原理を担当する。
+
+NPDE3 は GPDE6、FA4、FIX1 を直接 prerequisite とし、$W_0^{1,p}$ の $p$-Poincaré 不等式と反射性、弱下半連続性・強圧性による直接法、$p$-energy、単調作用素、Browder--Minty 型全射定理、零 Dirichlet $p$-Laplacian の存在一意性、Minty の非線形極限同定を担当する。直接 prerequisite の正本は各章の chapter.yaml / knowledge.yaml とする。
 
 ---
 
