@@ -285,7 +285,7 @@ u_0(z)
 dz.
 $$
 
-まず $1\le q<\infty$ で必要な積分評価を直接確認します。$m=\|u_0\|_{L^1}$ とし、$m=0$ なら主張は自明なので $m>0$ とします。各 $y$ について
+まず $q=1$ と $q=\infty$ を直接示します。
 
 $$
 a_z(y)
@@ -293,42 +293,20 @@ a_z(y)
 \Phi\left(y-\frac z{\sqrt t}\right)-\Phi(y)
 $$
 
-と置きます。三角不等式から
+と置きます。各点で三角不等式を使い、非負な量の積分順序を交換すると
 
 $$
-\left|
-\int u_0(z)a_z(y)\,dz
-\right|
-\le
-m
-\int |a_z(y)|\,d\mu(z),
-\qquad
-d\mu(z)=\frac{|u_0(z)|}{m}\,dz.
+\begin{aligned}
+\|v_t-M\Phi\|_{L^1}
+&\le
+\int_{\mathbb R^d}
+|u_0(z)|\|a_z\|_{L^1}\,dz,\\
+\|v_t-M\Phi\|_{L^\infty}
+&\le
+\int_{\mathbb R^d}
+|u_0(z)|\|a_z\|_{L^\infty}\,dz.
+\end{aligned}
 $$
-
-$d\mu$ は全質量1の非負重みです。凸関数 $r\mapsto r^q$ に対して
-
-$$
-\left(
-\int |a_z(y)|\,d\mu(z)
-\right)^q
-\le
-\int |a_z(y)|^q\,d\mu(z)
-$$
-
-なので、$y$ について積分すると
-
-$$
-\left\|
-\int u_0(z)a_z\,dz
-\right\|_{L^q}^q
-\le
-m^{q-1}
-\int
-|u_0(z)|\|a_z\|_{L^q}^q\,dz.
-$$
-
-この評価を $|z|\le R$ と $|z|>R$ へ別々に適用します。$q=\infty$ では、各 $y$ で絶対値を取ってから supremum を取る同じ議論で十分です。
 
 $\varepsilon>0$ を固定します。$u_0\in L^1$ なので、ある $R>0$ を選んで
 
@@ -340,45 +318,82 @@ $$
 
 とできます。
 
-まず $|z|>R$ の部分では平行移動で $L^q$ ノルムが変わらないため、
+$q=1,\infty$ のどちらでも、$|z|>R$ では平行移動で $L^q$ ノルムが変わらないため、
 
 $$
-\left\|
-\Phi\left(\cdot-\frac z{\sqrt t}\right)-\Phi
-\right\|_{L^q}
+\|a_z\|_{L^q}
 \le
 2\|\Phi\|_{L^q}.
 $$
 
-上で示した重み付き評価を tail だけに適用すると、その $L^q$ ノルムは
+したがって tail の寄与は
 
 $$
-2\|\Phi\|_{L^q}
-\int_{|z|>R}|u_0(z)|\,dz
-<
 2\|\Phi\|_{L^q}\varepsilon
 $$
 
 以下です。
 
-次に $|z|\le R$ を考えます。$\Phi$ は $1\le q<\infty$ では $L^q$ 平行移動に関して連続であり、$q=\infty$ では一様連続なので、
+一方 $|z|\le R$ では
 
 $$
+\left|\frac z{\sqrt t}\right|
+\le
+\frac R{\sqrt t}
+\to0.
+$$
+
+$\Phi$ は $L^1$ 平行移動に関して連続であり、また一様連続なので、
+
+$$
+\sup_{|h|\le R/\sqrt t}
+\|\Phi(\cdot-h)-\Phi\|_{L^q}
+\to0
+\qquad
+(q=1,\infty).
+$$
+
+従って内側の寄与は
+
+$$
+\|u_0\|_{L^1}
 \sup_{|h|\le R/\sqrt t}
 \|\Phi(\cdot-h)-\Phi\|_{L^q}
 \to0.
 $$
 
-よって内側 $|z|\le R$ の寄与の $L^q$ ノルムは
+よって $q=1,\infty$ では
 
 $$
-\left(
-\int_{|z|\le R}|u_0(z)|\,dz
-\right)
-\sup_{|h|\le R/\sqrt t}
-\|\Phi(\cdot-h)-\Phi\|_{L^q}
-\to0.
+\|v_t-M\Phi\|_{L^q}\to0.
 $$
+
+最後に $1<q<\infty$ とし、
+
+$$
+f_t=v_t-M\Phi
+$$
+
+と置きます。直接
+
+$$
+\begin{aligned}
+\|f_t\|_{L^q}^q
+&=
+\int |f_t|^{q-1}|f_t|\\
+&\le
+\|f_t\|_{L^\infty}^{q-1}
+\|f_t\|_{L^1}
+\end{aligned}
+$$
+
+なので、既に示した $L^1$ と $L^\infty$ の収束から
+
+$$
+\|f_t\|_{L^q}\to0
+$$
+
+も従います。
 
 以上から
 
@@ -407,7 +422,7 @@ $$
 $q=\infty$ でも同じ scaling が成り立つので、定理を得ます。
 <!-- proof-end -->
 
-この証明の重要点は、初期値の細かな形を使っていないことです。長時間・拡散スケールで見ると、$L^1$ 初期値の形状情報の大部分は消え、最初に残る保存量 $M$ が Gaussian の係数だけを決めます。これが「普遍 profile」という言葉の具体的な意味です。
+この証明の重要点は、初期値の細かな形を使っていないことです。長時間・拡散スケールで見ると、$L^1$ 初期値の形状情報の大部分は消え、最初に残る量は全時刻で保たれる質量 $M$ であり、それが Gaussian の係数だけを決めます。これが「普遍 profile」という言葉の具体的な意味です。
 
 ---
 
@@ -1356,7 +1371,7 @@ $$
 
 ### 一般データの完全な PME 漸近定理へ進むには
 
-多孔質媒質方程式の一般的な $L^1$ 初期値から相対 compactness や極限点の定常性を導くには、平滑化、moment 制御、質量が空間無限遠へ逃げないことの評価（tightness）、自由エネルギーの下半連続性などを組み合わせる必要があります。
+多孔質媒質方程式の一般的な $L^1$ 初期値から相対 compactness や極限点の定常性を導くには、平滑化、moment 制御、質量が空間無限遠へ逃げないための一様評価、自由エネルギーを極限へ渡すための追加評価などを組み合わせる必要があります。
 
 それらを数行の「標準的 compactness」へ押し込むと、実際に必要な解析を隠してしまいます。そこで本章では、
 
@@ -1442,7 +1457,7 @@ $$
 
 線形熱方程式と多孔質媒質方程式では、質量保存型 rescaling を使って $t\to\infty$ を固定スケールへ戻しました。
 
-[NPDE6](../NPDE6/index.md) の半線形熱方程式では、同じ放物型空間尺度でも時間の向きが逆で、$t\uparrow T$ の有限時間 blow-up を固定する backward rescaling を使いました。
+[NPDE6](../NPDE6/index.md) で扱った $u_t=\Delta u+u^p$ では、同じ放物型空間尺度でも時間の向きが逆で、$t\uparrow T$ の有限時間 blow-up を固定する backward rescaling を使いました。
 
 したがって self-similarity は一つの公式ではありません。
 
@@ -1910,32 +1925,20 @@ u_0(z)
 dz.
 $$
 
-$m=\|u_0\|_1$ とする。$m=0$ なら自明なので $m>0$ とし、
+まず $q=1$ では各点の三角不等式から
 
 $$
-d\mu(z)=\frac{|u_0(z)|}{m}\,dz
-$$
-
-と置く。各 $y$ で三角不等式を使い、全質量1の重み $d\mu$ に対して $r\mapsto r^q$ の凸性を使うと
-
-$$
-\left\|
-\int u_0(z)a_z\,dz
-\right\|_q^q
+\|v_t-M\Phi\|_1
 \le
-m^{q-1}
-\int |u_0(z)|\|a_z\|_q^q\,dz,
+\int
+|u_0(z)|
+\left\|
+\Phi\left(\cdot-\frac z{\sqrt t}\right)-\Phi
+\right\|_1
+dz.
 $$
 
-ただし
-
-$$
-a_z
-=
-\Phi\left(\cdot-\frac z{\sqrt t}\right)-\Phi.
-$$
-
-$q=\infty$ では各点で三角不等式を使えば同じ tail / interior 評価が得られる。
+$q=\infty$ でも各点で絶対値を評価して supremum を取れば同じ形の評価が得られます。
 
 $|z|>R$ では
 
@@ -1998,7 +2001,23 @@ $$
 2\|\Phi\|_q\varepsilon.
 $$
 
-$\varepsilon$ は任意なので
+$\varepsilon$ は任意なので $q=1,\infty$ で
+
+$$
+\|v_t-M\Phi\|_q\to0.
+$$
+
+$1<q<\infty$ では
+
+$$
+\|f\|_q^q
+=
+\int |f|^{q-1}|f|
+\le
+\|f\|_\infty^{q-1}\|f\|_1
+$$
+
+を $f=v_t-M\Phi$ に適用すれば、
 
 $$
 \boxed{
@@ -2274,7 +2293,7 @@ $$
 
 です。
 
-定義
+本文で置いた式
 
 $$
 \xi
