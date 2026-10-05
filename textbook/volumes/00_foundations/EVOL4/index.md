@@ -34,7 +34,7 @@ u'(t)=Au(t)+f(t),
 u(0)=u_0.
 $$
 
-有限次元なら行列指数を使って
+有限次元の線形方程式では
 
 $$
 u(t)
@@ -167,7 +167,7 @@ $$
 
 です。
 
-この符号の違いを曖昧にすると、熱方程式や Stokes 作用素で散逸性の向きを逆にしてしまいます。
+この符号の違いを曖昧にすると、拡散型方程式で散逸性の向きを逆にしてしまいます。
 
 本章では一貫して
 
@@ -688,7 +688,7 @@ classical 解が存在すると仮定すれば、半群則と生成作用素上�
 
 <a id="thm-evol4-variation-of-constants"></a>
 <!-- formal-statement-start -->
-### 定理（classical 解の variation of constants formula）
+### 定理（classical 解の Duhamel 公式）
 
 $X$ を Banach 空間、$A$ を強連続半群 $(T(t))_{t\ge0}$ の生成作用素とする。
 
@@ -855,7 +855,7 @@ T(t)u_0
 T(t-s)f(s)\,ds.
 $$
 
-これが variation of constants formula、すなわち Duhamel 公式です。$\square$
+これが本章でいう Duhamel 公式です。$\square$
 <!-- proof-end -->
 
 この証明で重要なのは、
