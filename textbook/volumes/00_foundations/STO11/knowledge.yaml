@@ -61,9 +61,9 @@ concepts:
       - stochastic.brownian-markov-property
 
   - id: stochastic.markov-generator
-    name: Markov semigroup の生成作用素
+    name: infinitesimal generator
     kind: definition
-    aliases: ["Markov generator", "Markov semigroup generator", "マルコフ生成作用素"]
+    aliases: ["generator", "infinitesimal generator", "Markov generator", "生成作用素"]
     introduction: formal
     introduction_aliases: ["定義（生成作用素）"]
     requires:
