@@ -20,7 +20,7 @@ concepts:
   - id: nonlinear-pde.scaling-criticality
     name: 尺度指数による三分類
     kind: definition
-    aliases: ["scaling criticality", "subcritical critical supercritical"]
+    aliases: ["PDE scaling classification"]
     introduction: formal
     introduction_aliases: ["定義（尺度指数による三分類）"]
     requires:
