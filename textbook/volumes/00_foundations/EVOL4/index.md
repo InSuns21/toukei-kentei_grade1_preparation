@@ -684,7 +684,7 @@ $$
 
 mild 解の積分表示は、有限次元 ODE の公式を単に真似したものではありません。
 
-classical 解が存在すると仮定すれば、半群則と生成作用素上の軌道微分から導けます。
+classical 解が存在すると仮定すれば、半群則と[EVOL2 の生成作用素上の軌道微分](../EVOL2/index.md#prop-evol2-orbit-differentiation)から導けます。
 
 <a id="thm-evol4-variation-of-constants"></a>
 <!-- formal-statement-start -->
@@ -890,7 +890,7 @@ $$
 
 まで許せます。
 
-強連続半群は有限時間区間で作用素ノルムが一様有界です。EVOL2 の閉性証明でも使った一様有界性原理から
+強連続半群は有限時間区間で作用素ノルムが一様有界です。EVOL2 の閉性証明でも使った[一様有界性原理](../FA1/index.md#thm-fa1-uniform-boundedness)から
 
 $$
 M_T
@@ -1472,7 +1472,7 @@ $$
 
 右辺は、互いに素な小区間について足し合わせたときに区間長の総和と $L^1$ 積分で制御できます。したがって $w_h$ は絶対連続です。
 
-$u_h$ が微分可能なほとんどすべての $s$ では、生成作用素上の軌道微分を使って
+$u_h$ が微分可能なほとんどすべての $s$ では、[EVOL2 の生成作用素上の軌道微分](../EVOL2/index.md#prop-evol2-orbit-differentiation)を使って
 
 $$
 \begin{aligned}
@@ -1493,7 +1493,7 @@ T(t-s)f_h(s).
 \end{aligned}
 $$
 
-絶対連続関数の基本定理により
+[絶対連続関数の基本定理](../MT4/index.md#thm-mt4-ac-ftc)により
 
 $$
 w_h(t)-w_h(0)
@@ -2820,7 +2820,7 @@ $$
 u'(s)=Au(s)+f(s).
 $$
 
-生成作用素上の軌道微分から
+[EVOL2 の生成作用素上の軌道微分](../EVOL2/index.md#prop-evol2-orbit-differentiation)から
 
 $$
 \frac{d}{dr}T(r)u(s)
