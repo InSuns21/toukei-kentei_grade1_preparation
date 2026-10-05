@@ -9,13 +9,22 @@ forward_references: []
 
 concepts:
   - id: nonlinear-pde.rescaled-convergence
-    name: 再正規化収束と長時間漸近 profile
+    name: 再正規化収束
     kind: definition
     aliases: ["rescaled convergence"]
     introduction: formal
     introduction_aliases: ["定義（再正規化収束と長時間漸近 profile）"]
     requires:
       - nonlinear-pde.similarity-variables
+
+  - id: nonlinear-pde.long-time-asymptotic-profile
+    name: 長時間漸近 profile
+    kind: definition
+    aliases: ["long-time asymptotic profile"]
+    introduction: formal
+    introduction_aliases: ["定義（再正規化収束と長時間漸近 profile）"]
+    requires:
+      - nonlinear-pde.rescaled-convergence
 
   - id: nonlinear-pde.heat-gaussian-asymptotics
     name: 熱方程式の Gaussian 長時間漸近
