@@ -8,6 +8,7 @@ prerequisites:
 forward_references:
   - evolution.strongly-continuous-semigroup
   - evolution.mild-solution
+  - evolution.infinitesimal-generator
 
 concepts:
   - id: evolution.partially-defined-linear-operator
@@ -19,6 +20,15 @@ concepts:
     requires:
       - linear.linear-map
       - functional.banach-space
+
+  - id: evolution.operator-restriction-extension
+    name: 作用素の制限と拡張
+    kind: definition
+    aliases: ["restriction and extension of operators"]
+    introduction: formal
+    introduction_aliases: ["定義（作用素の制限と拡張）"]
+    requires:
+      - evolution.partially-defined-linear-operator
 
   - id: evolution.unbounded-operator
     name: 非有界作用素
