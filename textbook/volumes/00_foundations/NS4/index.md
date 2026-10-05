@@ -2227,11 +2227,11 @@ $$
 
 共通しているのは
 
-$
+$$
 \text{大域解が存在する}
 \quad\Longrightarrow\quad
 \text{次に decay・profile・rescaling を問える}
-$
+$$
 
 という順序です。領域、保存量、自然な rescaling が違えば、同じ profile を期待してよいわけではありません。
 
