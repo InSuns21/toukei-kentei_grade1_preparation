@@ -1,0 +1,20 @@
+chapter: "NPDE1"
+terms:
+  - term: スカラー保存則
+    english: scalar conservation law
+    meaning: 一つの未知スカラー量 u と流束 f(u) に対し u_t + partial_x f(u) = 0 の形で局所保存を表す一次元偏微分方程式。
+  - term: 分布的弱解
+    english: distributional weak solution
+    meaning: u 自身を古典微分せず、全ての滑らかなコンパクト台テスト関数に対する積分恒等式で保存則を満たす解。
+  - term: Rankine--Hugoniot 条件
+    english: Rankine--Hugoniot condition
+    meaning: 移動する跳躍面で保存量の収支が一致するための条件 gamma'(u^+ - u^-) = f(u^+) - f(u^-)。
+  - term: 衝撃波
+    english: shock wave
+    meaning: 不連続な左右状態を移動界面でつなぎ、Rankine--Hugoniot 条件を満たす弱解。
+  - term: Riemann 問題
+    english: Riemann problem
+    meaning: 原点を境に二つの定数状態 u_L, u_R を置いた段差初期値から始める保存則の初期値問題。
+  - term: 希薄波
+    english: rarefaction wave
+    meaning: 特性が互いに離れるとき、その間を連続な自己相似 profile で埋める波。
