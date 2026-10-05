@@ -23,7 +23,7 @@ chapters:
     title: 抽象 Cauchy 問題・mild 解・Duhamel 公式
   - id: EVOL5
     path: textbook/volumes/00_foundations/EVOL5
-    status: planned
+    status: completed
     title: analytic semigroup・sectorial operator・放物型 smoothing
   - id: EVOL6
     path: textbook/volumes/00_foundations/EVOL6
