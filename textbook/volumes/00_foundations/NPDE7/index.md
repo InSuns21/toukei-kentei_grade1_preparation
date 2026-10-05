@@ -395,20 +395,13 @@ $$
 
 も従います。
 
-以上から
+以上で、任意の $1\le q\le\infty$ に対して
 
-$$
-\limsup_{t\to\infty}
-\|v_t-M\Phi\|_{L^q}
-\le
-2\|\Phi\|_{L^q}\varepsilon.
-$$
+$
+\|v_t-M\Phi\|_{L^q}\to0
+$
 
-$\varepsilon>0$ は任意なので
-
-$$
-\|v_t-M\Phi\|_{L^q}\to0.
-$$
+を得ました。
 
 最後に $x=\sqrt t\,y$ と変数変換すると
 
