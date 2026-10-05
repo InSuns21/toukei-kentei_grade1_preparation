@@ -33,8 +33,6 @@ concepts:
     introduction_aliases: ["定理（2026年の全空間有限時間特異点構成）"]
     requires:
       - navier-stokes.cmi-statement-c
-      - navier-stokes.residual
-      - navier-stokes.scaling
 
   - id: navier-stokes.energy-concentration-2026
     name: 集中による有限エネルギーと速度発散の両立
