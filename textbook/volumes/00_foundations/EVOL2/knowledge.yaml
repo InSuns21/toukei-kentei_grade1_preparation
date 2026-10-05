@@ -1,0 +1,90 @@
+chapter: EVOL2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - EVOL1
+  - GPDE10
+
+forward_references: []
+
+concepts:
+  - id: evolution.contraction-semigroup
+    name: 縮小半群
+    kind: definition
+    aliases: ["contraction semigroup"]
+    introduction: formal
+    introduction_aliases: ["定義（縮小半群）"]
+    requires:
+      - evolution.strongly-continuous-semigroup
+      - functional.operator-norm
+
+  - id: evolution.infinitesimal-generator
+    name: 強連続半群の生成作用素
+    kind: definition
+    aliases: ["C0 semigroup generator", "strongly continuous semigroup generator", "半群の生成作用素"]
+    introduction: formal
+    introduction_aliases: ["定義（強連続半群の生成作用素）"]
+    requires:
+      - evolution.strongly-continuous-semigroup
+      - evolution.partially-defined-linear-operator
+
+  - id: evolution.generator-orbit-differentiation
+    name: 生成作用素上の軌道微分
+    kind: proposition
+    aliases: ["differentiation of semigroup orbits"]
+    introduction: formal
+    introduction_aliases: ["命題（生成作用素上の軌道微分）"]
+    requires:
+      - evolution.infinitesimal-generator
+
+  - id: evolution.generator-closed-dense
+    name: 生成作用素は閉かつ稠密定義
+    kind: theorem
+    aliases: ["closedness and dense domain of a semigroup generator"]
+    introduction: formal
+    introduction_aliases: ["定理（生成作用素は閉かつ稠密定義）"]
+    requires:
+      - evolution.infinitesimal-generator
+      - evolution.closed-operator
+      - evolution.densely-defined-operator
+
+  - id: evolution.resolvent-laplace-representation
+    name: レゾルベントの Laplace 表現
+    kind: theorem
+    aliases: ["Laplace representation of the resolvent", "semigroup resolvent formula"]
+    introduction: formal
+    introduction_aliases: ["定理（レゾルベントの Laplace 表現）"]
+    requires:
+      - evolution.contraction-semigroup
+      - evolution.infinitesimal-generator
+      - evolution.closed-operator-resolvent
+
+  - id: evolution.yosida-approximation
+    name: Yosida 近似
+    kind: definition
+    aliases: ["Yosida approximation"]
+    introduction: formal
+    introduction_aliases: ["定義（Yosida 近似）"]
+    requires:
+      - evolution.closed-operator-resolvent
+
+  - id: evolution.hille-yosida-contraction
+    name: Hille--Yosida 定理（縮小半群版）
+    kind: theorem
+    aliases: ["Hille--Yosida theorem for contraction semigroups", "contraction Hille--Yosida theorem"]
+    introduction: formal
+    introduction_aliases: ["定理（Hille--Yosida：縮小半群版）"]
+    requires:
+      - evolution.generator-closed-dense
+      - evolution.resolvent-laplace-representation
+      - evolution.yosida-approximation
+      - evolution.contraction-semigroup
+
+  - id: evolution.hille-yosida-quasi-contraction
+    name: 指数成長型 Hille--Yosida
+    kind: corollary
+    aliases: ["quasi-contraction Hille--Yosida theorem"]
+    introduction: formal
+    introduction_aliases: ["系（指数成長型 Hille--Yosida）"]
+    requires:
+      - evolution.hille-yosida-contraction

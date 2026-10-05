@@ -1,0 +1,26 @@
+chapter: "EVOL2"
+terms:
+  - term: contraction semigroup
+    english: contraction semigroup
+    meaning: すべてのt >= 0でoperator norm ||T(t)|| <= 1を満たすC0 semigroup。Hille--Yosidaを最も基本的な形で学ぶ対象。
+  - term: infinitesimal generator
+    english: infinitesimal generator
+    meaning: C0 semigroup T(t)の時刻0での強微分Ax=lim_{h downarrow 0}(T(h)x-x)/hで定まる作用素。極限が存在するx全体がdomain D(A)になる。
+  - term: semigroup orbit
+    english: semigroup orbit
+    meaning: 初期状態xを固定してt mapsto T(t)xと見た時間軌道。x in D(A)ならd/dt T(t)x=AT(t)x=T(t)Axを満たす。
+  - term: Laplace resolvent formula
+    english: Laplace representation of the resolvent
+    meaning: contraction C0 semigroupのgenerator AについてR(lambda,A)x=integral_0^infinity e^(-lambda t)T(t)x dtと表す公式。時間発展とresolventを直接結ぶ。
+  - term: Yosida approximation
+    english: Yosida approximation
+    meaning: unbounded generator候補Aをresolventでbounded operator A_lambda=lambda A R(lambda,A)へ近似する方法。Hille--Yosidaの生成構成に使う。
+  - term: Hille--Yosida theorem
+    english: Hille--Yosida theorem
+    meaning: closedかつdensely definedな作用素がC0 semigroupを生成するための条件をresolventの存在とnorm estimateで特徴付ける生成定理。
+  - term: translation semigroup
+    english: translation semigroup
+    meaning: 関数fを(T(t)f)(s)=f(s+t)で右へ移すC0 semigroup。適切なfunction spaceではgeneratorが空間微分f'になる。
+  - term: heat semigroup
+    english: heat semigroup
+    meaning: heat equationの初期値を時刻tへ運ぶsemigroup。Dirichlet Laplacianのeigenbasisでは各modeをe^(-n^2 t)で減衰させる。

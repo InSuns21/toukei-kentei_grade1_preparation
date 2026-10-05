@@ -11,7 +11,7 @@ chapters:
     title: 非有界作用素・閉作用素・可閉作用素
   - id: EVOL2
     path: textbook/volumes/00_foundations/EVOL2
-    status: planned
+    status: completed
     title: C0 半群・生成作用素・Hille--Yosida
   - id: EVOL3
     path: textbook/volumes/00_foundations/EVOL3

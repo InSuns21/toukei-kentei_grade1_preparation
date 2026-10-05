@@ -114,7 +114,17 @@ function validateExercisePlacement() {
       if (!fs.existsSync(indexPath)) continue;
 
       const content = fs.readFileSync(indexPath, 'utf8');
-      const headings = [...content.matchAll(/^(#{1,6})\s+(.+)$/gm)].map((match) => ({
+      // 解答内の見出しは次の演習の親見出しではない。位置を保ったまま解答本文を空白化して階層だけ読む。
+      const hierarchyContent = content.replace(
+        /<!-- solution-start -->[\s\S]*?<!-- solution-end -->/g,
+        (block) => block
+          .split('\n')
+          .map((line) => /^#{1,6}\s+Level\s+[A-D]\b/u.test(line.trim())
+            ? line
+            : line.replace(/[^\n]/g, ' '))
+          .join('\n'),
+      );
+      const headings = [...hierarchyContent.matchAll(/^(#{1,6})\s+(.+)$/gm)].map((match) => ({
         pos: match.index,
         depth: match[1].length,
         text: match[2].trim(),
