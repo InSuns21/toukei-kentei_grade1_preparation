@@ -221,7 +221,7 @@ $$
 
 散逸性のノルム不等式は Banach 空間でそのまま使えますが、エネルギー法との対応が少し見えにくい形です。
 
-$x\ne0$ に対し Hahn--Banach 定理から
+$x\ne0$ に対し [Hahn--Banach 定理](../F0_02C6_Hahn_Banach_分離定理/index.md#thm-f0-02c6-hahn-banach-real)から
 
 $$
 x^*\in X^*
@@ -498,6 +498,8 @@ $$
 ---
 
 ## 5. range condition と $m$-散逸性
+
+散逸性だけでは、前節の $c_{00}$ 上の零作用素のように「定義域が小さすぎて時間発展を決められない」場合を排除できません。そこで、$lambda I-A$ が空間全体を覆うことを要求し、散逸性に不足していた生成作用素としての十分な大きさを補います。
 
 <a id="def-evol3-range-m-dissipative"></a>
 <!-- formal-statement-start -->
@@ -1314,7 +1316,7 @@ n^2|a_n|^2
 \end{aligned}
 $$
 
-従って Hilbert 空間での散逸性判定から $A$ は散逸的です。
+従って [Hilbert 空間での散逸性判定](#prop-evol3-hilbert-dissipativity)から $A$ は散逸的です。
 
 次に $\lambda>0$ と
 
@@ -1384,7 +1386,7 @@ $$
 L^2(0,\pi).
 $$
 
-散逸性と range condition がそろったので、Hilbert 空間版 Lumer--Phillips により $A$ は縮小 $C_0$ 半群を生成します。$\square$
+散逸性と range condition がそろったので、[Hilbert 空間版 Lumer--Phillips](#cor-evol3-lumer-phillips-hilbert) により $A$ は縮小 $C_0$ 半群を生成します。$\square$
 <!-- proof-end -->
 
 EVOL2 では同じ結論を Hille--Yosida のレゾルベント表示から得ました。
@@ -1654,7 +1656,7 @@ a_n|x_n|^2
 \le0.
 $$
 
-Hilbert 空間での散逸性判定より $A$ は散逸作用素です。
+[Hilbert 空間での散逸性判定](#prop-evol3-hilbert-dissipativity)より $A$ は散逸作用素です。
 
 ノルム不等式を直接確認するなら
 
@@ -1880,9 +1882,9 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-Hilbert 空間での散逸性判定から
+[Hilbert 空間での散逸性判定](#prop-evol3-hilbert-dissipativity)から
 
-$$
+$
 \operatorname{Re}\langle Au(t),u(t)\rangle
 \le0.
 $$
@@ -2092,7 +2094,7 @@ x_n
 R_0(\lambda_0x-y).
 $$
 
-左辺は $x$ に収束しているので極限の一意性から
+左辺は $x$ に収束しているので [距離空間における極限の一意性](../F0_00B_距離空間_開集合_閉集合_収束/index.md#prop-f0-00b-01)から
 
 $$
 x
@@ -2242,7 +2244,7 @@ n|x_n|^2
 \le0.
 $$
 
-Hilbert 空間での散逸性判定により $A$ は散逸的です。
+[Hilbert 空間での散逸性判定](#prop-evol3-hilbert-dissipativity)により $A$ は散逸的です。
 
 $\lambda>0$ と $y\in\ell^2$ を任意に取り、
 
@@ -2532,9 +2534,9 @@ T(t)u_0
 \sum e^{-n^2t}a_ne_n.
 $$
 
-Parseval の等式から
+[Parseval の等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-parseval-identity)から
 
-$$
+$
 \|T(t)u_0\|_2^2
 =
 \sum e^{-2n^2t}|a_n|^2.
