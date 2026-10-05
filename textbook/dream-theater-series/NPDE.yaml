@@ -12,7 +12,7 @@ chapters:
   - id: NPDE2
     path: textbook/volumes/00_foundations/NPDE2
     status: completed
-    title: entropy solution・選択原理・L1 contraction
+    title: entropy solution・選択原理・$L^1$ 収縮性
   - id: NPDE3
     path: textbook/volumes/00_foundations/NPDE3
     status: planned
