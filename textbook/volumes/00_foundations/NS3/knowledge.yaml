@@ -6,8 +6,8 @@ prerequisites:
   - GPDE10
 
 forward_references:
-  - NPDE1
-  - NPDE2
+  - nonlinear-pde.scalar-conservation-law
+  - nonlinear-pde.entropy-inequality
 
 concepts:
   - id: navier-stokes.leray-hopf-weak-solution
