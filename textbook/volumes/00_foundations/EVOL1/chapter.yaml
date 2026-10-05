@@ -1,0 +1,47 @@
+id: "EVOL1"
+title: "非有界作用素・閉作用素・可閉作用素"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FA2
+  - FA5
+official_scope: []
+learning_objectives:
+  - 部分定義線形作用素 A:D(A) subset X to Y では定義域 D(A) 自体が作用素のデータであることを説明できる
+  - 全定義の閉作用素が閉グラフ定理により有界になることから、非有界作用素で真部分集合の定義域が必要な理由を説明できる
+  - 閉作用素をグラフの閉性で定義し、点列による判定を使える
+  - 閉作用素であることと D(A) がグラフノルムで Banach 空間になることの同値を証明できる
+  - 稠密定義作用素を定義し、c00 が ell2 に稠密であることから対角作用素の定義域の稠密性を確認できる
+  - 可閉作用素を定義し、x_n to 0 かつ Ax_n to y なら y=0 という列判定を証明できる
+  - closable でない線形汎関数の具体例を作り、何が壊れるか説明できる
+  - 最小対角作用素の閉包を計算し、c00 が閉作用素の core になることをグラフノルムで示せる
+  - 閉作用素のレゾルベント集合を定義し、全単射な lambda I-A の逆が自動的に有界になることを有界逆定理から導ける
+  - 対角作用素 A(x_n)=(n x_n) のスペクトルが正整数全体になることを直接計算できる
+definitions:
+  - { id: EVOL1-DEF-01, name: "部分定義線形作用素と非有界性" }
+  - { id: EVOL1-DEF-02, name: "閉作用素" }
+  - { id: EVOL1-DEF-03, name: "稠密定義作用素" }
+  - { id: EVOL1-DEF-04, name: "可閉作用素と作用素の閉包" }
+  - { id: EVOL1-DEF-05, name: "作用素の core" }
+  - { id: EVOL1-DEF-06, name: "閉作用素のレゾルベント集合" }
+theorems:
+  - { id: EVOL1-THM-01, name: "閉作用素とグラフノルム完備性" }
+  - { id: EVOL1-THM-02, name: "可閉性の列判定" }
+  - { id: EVOL1-PROP-01, name: "最小対角作用素の閉包と core" }
+  - { id: EVOL1-PROP-02, name: "閉作用素の全単射レゾルベントは有界" }
+  - { id: EVOL1-PROP-03, name: "対角作用素のレゾルベントとスペクトル" }
+canonical_examples:
+  - "ell2 上の対角作用素 A(x_n)=(n x_n) とその最大定義域"
+  - "c00 上の最小対角作用素とその閉包"
+  - "c00 上の線形汎関数 T(x)=sum n x_n の非可閉性"
+  - "対角作用素の resolvent R(lambda,A)y=((lambda-n)^(-1)y_n)"
+problem_patterns:
+  - EVOL1-DOMAIN-1
+  - EVOL1-CLOSED-GRAPH-1
+  - EVOL1-CLOSABLE-1
+  - EVOL1-CLOSURE-CORE-1
+  - EVOL1-RESOLVENT-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 5.5, review: 1.5 }

@@ -1,0 +1,142 @@
+chapter: EVOL1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FA2
+  - FA5
+
+forward_references:
+  - evolution.strongly-continuous-semigroup
+  - evolution.mild-solution
+
+concepts:
+  - id: evolution.partially-defined-linear-operator
+    name: 部分定義線形作用素
+    kind: definition
+    aliases: ["partially defined linear operator"]
+    introduction: formal
+    introduction_aliases: ["定義（部分定義線形作用素と非有界性）"]
+    requires:
+      - linear.linear-map
+      - functional.banach-space
+
+  - id: evolution.unbounded-operator
+    name: 非有界作用素
+    kind: definition
+    aliases: ["unbounded operator", "非有界線形作用素"]
+    introduction: formal
+    introduction_aliases: ["定義（部分定義線形作用素と非有界性）"]
+    requires:
+      - evolution.partially-defined-linear-operator
+      - functional.norm
+
+  - id: evolution.closed-operator
+    name: 閉作用素
+    kind: definition
+    aliases: ["closed operator"]
+    introduction: formal
+    introduction_aliases: ["定義（閉作用素）"]
+    requires:
+      - evolution.partially-defined-linear-operator
+      - functional.operator-graph
+
+  - id: evolution.closed-graph-norm-completeness
+    name: 閉作用素とグラフノルム完備性
+    kind: theorem
+    aliases: ["graph norm completeness for closed operators"]
+    introduction: formal
+    introduction_aliases: ["定理（閉作用素とグラフノルム完備性）"]
+    requires:
+      - evolution.closed-operator
+      - functional.graph-norm
+      - functional.banach-space
+
+  - id: evolution.densely-defined-operator
+    name: 稠密定義作用素
+    kind: definition
+    aliases: ["densely defined operator", "稠密に定義された作用素"]
+    introduction: formal
+    introduction_aliases: ["定義（稠密定義作用素）"]
+    requires:
+      - evolution.partially-defined-linear-operator
+
+  - id: evolution.closable-operator
+    name: 可閉作用素
+    kind: definition
+    aliases: ["closable operator"]
+    introduction: formal
+    introduction_aliases: ["定義（可閉作用素と作用素の閉包）"]
+    requires:
+      - evolution.closed-operator
+
+  - id: evolution.operator-closure
+    name: 作用素の閉包
+    kind: definition
+    aliases: ["closure of an operator"]
+    introduction: formal
+    introduction_aliases: ["定義（可閉作用素と作用素の閉包）"]
+    requires:
+      - evolution.closable-operator
+
+  - id: evolution.closability-sequential-criterion
+    name: 可閉性の列判定
+    kind: theorem
+    aliases: ["sequential criterion for closability"]
+    introduction: formal
+    introduction_aliases: ["定理（可閉性の列判定）"]
+    requires:
+      - evolution.closable-operator
+      - evolution.operator-closure
+
+  - id: evolution.operator-core
+    name: 作用素の core
+    kind: definition
+    aliases: ["core of an operator", "operator core"]
+    introduction: formal
+    introduction_aliases: ["定義（作用素の core）"]
+    requires:
+      - evolution.closed-operator
+      - evolution.operator-closure
+      - functional.graph-norm
+
+  - id: evolution.diagonal-operator-closure-core
+    name: 最小対角作用素の閉包と core
+    kind: proposition
+    aliases: ["closure and core of the diagonal operator"]
+    introduction: formal
+    introduction_aliases: ["命題（最小対角作用素の閉包と core）"]
+    requires:
+      - evolution.operator-core
+      - evolution.operator-closure
+      - evolution.closed-graph-norm-completeness
+
+  - id: evolution.closed-operator-resolvent
+    name: 閉作用素のレゾルベント集合
+    kind: definition
+    aliases: ["resolvent set of a closed operator"]
+    introduction: formal
+    introduction_aliases: ["定義（閉作用素のレゾルベント集合）"]
+    requires:
+      - evolution.closed-operator
+      - functional.resolvent-spectrum
+
+  - id: evolution.closed-bijective-inverse-bounded
+    name: 閉作用素の全単射レゾルベントは有界
+    kind: proposition
+    aliases: ["bounded inverse for a closed bijective operator"]
+    introduction: formal
+    introduction_aliases: ["命題（閉作用素の全単射レゾルベントは自動的に有界）"]
+    requires:
+      - evolution.closed-operator-resolvent
+      - evolution.closed-graph-norm-completeness
+      - functional.bounded-inverse-theorem
+
+  - id: evolution.diagonal-operator-spectrum
+    name: 対角作用素のレゾルベントとスペクトル
+    kind: proposition
+    aliases: ["spectrum of the diagonal unbounded operator"]
+    introduction: formal
+    introduction_aliases: ["命題（対角作用素のレゾルベントとスペクトル）"]
+    requires:
+      - evolution.closed-operator-resolvent
+      - evolution.closed-bijective-inverse-bounded

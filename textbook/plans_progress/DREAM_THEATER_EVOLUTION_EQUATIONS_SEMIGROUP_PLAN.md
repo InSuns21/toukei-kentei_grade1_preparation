@@ -1,7 +1,7 @@
 # DREAM THEATER 抽象発展方程式・半群論計画
 
 作成日: 2026-10-06  
-状態: planned
+状態: in_progress
 
 ## 0. 目的
 
@@ -43,7 +43,8 @@ $$
 |---|---|
 | Banach / Hilbert 空間・有界作用素 | 関数解析 I |
 | 弱位相・スペクトル・コンパクト作用素・Fredholm | 関数解析 II |
-| 閉作用素・生成作用素・半群・抽象 Cauchy 問題 | 本計画 |
+| 強連続半群・mild solution の基本定義 | GPDE10 |
+| 閉作用素・生成作用素・Hille--Yosida・Lumer--Phillips・抽象 Cauchy 問題の体系化 | 本計画 |
 | Banach 環・$C^*$-環・GNS・von Neumann 環 | DREAM_THEATER_FUNCTIONAL_ANALYSIS_OPERATOR_ALGEBRA_PLAN.md |
 | heat kernel の具体解析・$L^p$--$L^q$ decay・自己相似 | NPDE 系列 |
 | 半線形熱方程式の具体的 blow-up / Fujita 型現象 | NPDE6 |
@@ -116,7 +117,7 @@ $$
 
 直接例では、微分作用素や Laplacian について「どの関数空間からどの関数空間へ写すか」を明示する。
 
-### EVOL2 $C_0$ 半群・生成作用素・Hille--Yosida
+### EVOL2 $C_0$ 半群から生成作用素へ・Hille--Yosida
 
 中心問い:
 
@@ -124,8 +125,8 @@ $$
 
 扱う内容:
 
-- semigroup property
-- strongly continuous semigroup
+- GPDE10 の strongly continuous semigroup を再掲せず参照
+- semigroup property と強連続性の最小確認
 - contraction semigroup
 - infinitesimal generator
 - generator が閉かつ稠密定義になること
@@ -165,7 +166,7 @@ $$
 
 Hille--Yosida と Lumer--Phillips の役割を区別し、後者が PDE のエネルギー構造から生成性を確認するときに有効であることを示す。
 
-### EVOL4 抽象 Cauchy 問題・mild solution・Duhamel 公式
+### EVOL4 抽象 Cauchy 問題・mild solution の一般理論・Duhamel 公式
 
 中心問い:
 
@@ -184,7 +185,7 @@ $$
 - abstract Cauchy problem
 - classical solution
 - strong solution
-- mild solution
+- GPDE10 の mild solution 定義を正本として参照し、一般生成作用素の文脈へ接続
 - variation of constants formula
 - Duhamel formula
 - inhomogeneous evolution equation

@@ -1,0 +1,31 @@
+version: 1
+id: EVOL
+title: 抽象発展方程式・半群論
+plan: textbook/plans_progress/DREAM_THEATER_EVOLUTION_EQUATIONS_SEMIGROUP_PLAN.md
+chapter_root: textbook/volumes/00_foundations
+
+chapters:
+  - id: EVOL1
+    path: textbook/volumes/00_foundations/EVOL1
+    status: completed
+    title: 非有界作用素・閉作用素・可閉作用素
+  - id: EVOL2
+    path: textbook/volumes/00_foundations/EVOL2
+    status: planned
+    title: C0 半群・生成作用素・Hille--Yosida
+  - id: EVOL3
+    path: textbook/volumes/00_foundations/EVOL3
+    status: planned
+    title: dissipative operator・Lumer--Phillips
+  - id: EVOL4
+    path: textbook/volumes/00_foundations/EVOL4
+    status: planned
+    title: 抽象 Cauchy 問題・mild solution・Duhamel
+  - id: EVOL5
+    path: textbook/volumes/00_foundations/EVOL5
+    status: planned
+    title: analytic semigroup・sectorial operator・放物型 smoothing
+  - id: EVOL6
+    path: textbook/volumes/00_foundations/EVOL6
+    status: planned
+    title: 半線形発展方程式・局所解・continuation criterion
