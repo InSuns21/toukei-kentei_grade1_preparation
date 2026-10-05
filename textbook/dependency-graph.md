@@ -845,6 +845,19 @@ NUMLAB5 は PYNUM1、NUMLAB0、QMC1–QMC8 を直接 prerequisite とし、準 M
 
 ---
 
+## 非線形偏微分方程式への発展分岐
+
+DREAM THEATER の非線形偏微分方程式系列は、PDE1 の Burgers 方程式・特性線交差と、GPDE1 のテスト関数・超関数を直接の入口として開始する。
+
+~~~text
+PDE1 Burgers 方程式・特性曲線 ─┐
+GPDE1 テスト関数・超関数 ──────┴→ NPDE1 保存則・衝撃波・Rankine--Hugoniot 条件
+~~~
+
+NPDE1 は一次元スカラー保存則、滑らかな保存則の特性表示、保存則の分布的弱解、移動界面からの Rankine--Hugoniot 条件、定数状態の衝撃波、Riemann 問題、狭義凸流束の中心希薄波、Burgers Riemann 問題における分布的弱解の非一意性を担当する。直接 prerequisite の正本は NPDE1 の chapter.yaml / knowledge.yaml とする。
+
+---
+
 ## Navier--Stokes 方程式への発展分岐
 
 DREAM THEATER の Navier--Stokes 系列は、VC9 の流体方程式、FOU4 の $L^2$ Fourier 解析、GPDE3 の Sobolev 空間を直接の入口として開始する。
