@@ -19,7 +19,7 @@ learning_objectives:
   - Gaussian heat kernel profile が rescaled dynamics の定常解であることを直接検証できる
 definitions:
   - { id: NPDE4-DEF-01, name: "放物型尺度変換" }
-  - { id: NPDE4-DEF-02, name: "尺度に関する劣臨界・臨界・超臨界" }
+  - { id: NPDE4-DEF-02, name: "尺度指数による三分類" }
   - { id: NPDE4-DEF-03, name: "放物型自己相似解" }
   - { id: NPDE4-DEF-04, name: "similarity variables と rescaled solution" }
 theorems:
