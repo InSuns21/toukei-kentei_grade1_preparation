@@ -1,0 +1,42 @@
+id: "EVOL4"
+title: "抽象 Cauchy 問題・mild 解・Duhamel 公式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - EVOL3
+  - GPDE10
+official_scope: []
+learning_objectives:
+  - Banach 空間上の抽象 Cauchy 問題 u'=Au+f で、生成作用素 A の定義域が classical 解の正則性条件にどう現れるか説明できる
+  - classical 解と strong 解を区別し、classical 解が strong 解であることを定義から確認できる
+  - GPDE10 の mild 解を一般の C0 半群生成作用素の符号規約へ翻訳し、初期値が D(A) に入らなくても積分表示が意味を持つことを説明できる
+  - classical 解に対して s -> T(t-s)u(s) を微分し、variation of constants formula / Duhamel 公式を導出できる
+  - f in L1(0,T;X) に対して Duhamel 積分が C([0,T];X) に入ることを局所有界性と強連続性から示せる
+  - mild 解の初期値・外力に対する連続依存評価を導き、一意性を説明できる
+  - strong 解から mild 解への含意を半群則と生成作用素の差分商を使って示せる
+  - u0 in D(A), f in C1([0,T];X) の下で mild 解が classical 解へ正則化される十分条件を証明できる
+  - GPDE10 のエネルギー弱解と半群による mild 解が異なる解概念であり、両者の一致には PDE 固有の作用素実現と一意性が必要であることを説明できる
+  - ell2 上の対角半群で mild だが t=0 では classical でない解を具体計算できる
+definitions:
+  - { id: EVOL4-DEF-01, name: "抽象 Cauchy 問題の classical 解" }
+  - { id: EVOL4-DEF-02, name: "抽象 Cauchy 問題の strong 解" }
+theorems:
+  - { id: EVOL4-THM-01, name: "classical 解の variation of constants formula" }
+  - { id: EVOL4-PROP-01, name: "mild 解の存在・連続性・安定性" }
+  - { id: EVOL4-PROP-02, name: "strong 解は mild 解" }
+  - { id: EVOL4-THM-02, name: "mild 解から classical 解への正則性回復" }
+canonical_examples:
+  - "R 上の u'=-2u+1"
+  - "A=0 と段階外力による strong だが classical でない解"
+  - "ell2 上の対角半群と u0=(1/n)：mild だが t=0 では classical でない解"
+  - "ell2 上の対角半群と定常外力 g=(1/n)"
+problem_patterns:
+  - EVOL4-DUHAMEL-SCALAR-1
+  - EVOL4-ROUGH-INITIAL-1
+  - EVOL4-STRONG-NOT-CLASSICAL-1
+  - EVOL4-STABILITY-1
+  - EVOL4-REGULARITY-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 6.0, review: 1.5 }
