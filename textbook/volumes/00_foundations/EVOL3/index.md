@@ -1077,9 +1077,9 @@ $$
 
 逆に、$A$ が稠密定義かつ $m$-散逸的であるとします。
 
-第6節の命題から $A$ は閉作用素です。
+[m-散逸作用素は閉作用素](#prop-evol3-m-dissipative-closed)から $A$ は閉作用素です。
 
-第7節の補題から、ある一点の range condition は全ての $\lambda>0$ へ広がるので
+[range condition の正実軸への伝播](#lem-evol3-range-propagation)から、ある一点の range condition は全ての $\lambda>0$ へ広がるので
 
 $$
 \operatorname{Ran}(\lambda I-A)=X
