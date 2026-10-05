@@ -607,6 +607,9 @@ $$
 
 本章で Lumer--Phillips に使うのは、range condition を含む $m$-散逸性です。
 
+<!-- definition-example-start: def-evol3-maximal-dissipative -->
+### **定義の確認**：m-散逸作用素は極大散逸的
+
 $m$-散逸作用素は順序の意味でも極大散逸的です。実際、$A\subset B$ を散逸的拡張とし、$\operatorname{Ran}(\lambda_0I-A)=X$ とします。任意の $x\in D(B)$ に対し
 
 $$
@@ -638,6 +641,7 @@ x=z\in D(A).
 $$
 
 よって $D(B)\subset D(A)$、従って $A=B$ です。
+<!-- definition-example-end -->
 
 ---
 
