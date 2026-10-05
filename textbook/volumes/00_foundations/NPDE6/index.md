@@ -28,7 +28,7 @@ $$
 
 この競合を読むために、次の順で進みます。
 
-1. [PDE8 の Duhamel 原理](../PDE8/index.md#thm-pde8-heat-duhamel)から積分方程式を作る。
+1. [PDE8 の Duhamel 原理](../PDE8/index.md#def-pde8-duhamel-principle)から積分方程式を作る。
 2. $u^p$ は大域 Lipschitz ではないので、値を有界範囲へ閉じ込めて局所解を作る。
 3. 解を延長できなくなるとき、何が発散するのかを固定する。
 4. [NPDE4 の放物型尺度変換](../NPDE4/index.md#def-npde4-parabolic-scaling)から臨界指数を導く。
@@ -1477,7 +1477,7 @@ $$
 **定義の確認**：$F$ が正の定数なら、空間変数への依存は消えます。したがって空間一様 ODE blow-up も、この形の最も単純な例になり得ます。
 <!-- definition-example-end -->
 
-profile 方程式を完成式として置かず、連鎖律から導きます。
+profile 方程式を完成式として置かず、[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から導きます。
 
 $$
 \alpha
@@ -1704,7 +1704,7 @@ $$
 
 半線形熱方程式では、存在・一意性を示すだけでは問題は終わりません。
 
-- Duhamel 公式により PDE を熱半群上の固定点問題へ変えられる。
+- [Duhamel 原理](../PDE8/index.md#def-pde8-duhamel-principle)により PDE を熱半群上の固定点問題へ変えられる。
 - $u^p$ は大域 Lipschitz でなくても、短時間の有界領域では縮小写像を作れる。
 - 非負初期値の順序は Picard 反復を通じて保存される。
 - 有限最大存在時間なら、壊れる量は $\|u(t)\|_\infty$ である。
@@ -1919,7 +1919,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-時間微分では $\lambda^2t$ の連鎖律から
+時間微分では $\lambda^2t$ の[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 (u_\lambda)_t
@@ -2439,7 +2439,7 @@ $$
 T_{\max}<\infty.
 $$
 
-blow-up alternative から
+[L-infinity blow-up alternative](#thm-npde6-blowup-alternative) から
 
 $$
 \|u(t)\|_\infty\to\infty
@@ -2855,7 +2855,7 @@ $$
 T_{\max}<\infty.
 $$
 
-さらに blow-up alternative から
+さらに [L-infinity blow-up alternative](#thm-npde6-blowup-alternative) から
 
 $$
 \boxed{
