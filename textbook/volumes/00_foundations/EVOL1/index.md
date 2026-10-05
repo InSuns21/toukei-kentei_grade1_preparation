@@ -114,7 +114,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-evol1-partial-operator -->
-### 定義の確認：対角作用素は本当に非有界か
+### **定義の確認**：対角作用素は本当に非有界か
 
 $X=Y=\ell^2(\mathbb N)$ とし、
 
@@ -216,6 +216,38 @@ $$
 が成り立つとき、$B$ を $A$ の **拡張**、$A$ を $B$ の **制限**という。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-evol1-restriction-extension -->
+### **定義の確認**：恒等作用素を小さい定義域へ制限する
+
+$X=Y=\ell^2(\mathbb N)$ とし、
+
+$$
+B:\ell^2\to\ell^2,
+\qquad
+Bx=x,
+$$
+
+$$
+A:c_{00}\to\ell^2,
+\qquad
+Ax=x
+$$
+
+と置きます。ここで $c_{00}\subset\ell^2$ なので
+
+$$
+D(A)=c_{00}\subset\ell^2=D(B).
+$$
+
+さらに任意の $x\in c_{00}$ に対して
+
+$$
+Bx=x=Ax.
+$$
+
+従って定義の二条件を実際に満たし、$B$ は $A$ の拡張、$A$ は $B$ の制限です。
+<!-- definition-example-end -->
+
 同じ微分式や同じ座標公式を持っていても、定義域が違えば別の作用素です。後で「閉包」を考えるとき、この区別が決定的になります。
 
 ---
@@ -299,7 +331,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-evol1-closed-operator -->
-### 定義の確認：閉部分空間上の零作用素
+### **定義の確認**：閉部分空間上の零作用素
 
 $M\subset X$ を閉線形部分空間とし、
 
@@ -607,7 +639,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-evol1-densely-defined -->
-### 定義の確認：$c_{00}$ が入っていればよい
+### **定義の確認**：$c_{00}$ が入っていればよい
 
 $c_{00}$ を有限個の成分しか非零でない数列全体とします。
 
@@ -694,7 +726,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-evol1-closable -->
-### 定義の確認：$c_{00}$ 上の恒等写像
+### **定義の確認**：$c_{00}$ 上の恒等写像
 
 $$
 A:c_{00}\subset\ell^2\to\ell^2,
@@ -970,7 +1002,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-evol1-core -->
-### 定義の確認：恒等作用素では $c_{00}$ が core
+### **定義の確認**：恒等作用素では $c_{00}$ が core
 
 $A=I_{\ell^2}$ とします。このとき
 
@@ -1186,7 +1218,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-evol1-closed-resolvent -->
-### 定義の確認：対角作用素では座標ごとに逆を解く
+### **定義の確認**：対角作用素では座標ごとに逆を解く
 
 主役の
 
