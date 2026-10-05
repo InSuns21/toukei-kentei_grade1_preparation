@@ -501,7 +501,7 @@ $$
 
 <a id="def-evol3-range-m-dissipative"></a>
 <!-- formal-statement-start -->
-### 定義（range condition と $m$-散逸作用素）
+### 定義（range condition と m-散逸作用素）
 
 $X$ を Banach 空間、
 
@@ -645,7 +645,7 @@ EVOL2 の Hille--Yosida を使うには閉性が必要でした。ところが L
 
 <a id="prop-evol3-m-dissipative-closed"></a>
 <!-- formal-statement-start -->
-### 命題（$m$-散逸作用素は閉作用素）
+### 命題（m-散逸作用素は閉作用素）
 
 $X$ を Banach 空間、
 
