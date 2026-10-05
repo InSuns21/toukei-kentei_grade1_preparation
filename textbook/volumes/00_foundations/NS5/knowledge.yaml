@@ -5,7 +5,8 @@ prerequisites:
   - NS4
   - ODE8
 
-forward_references: []
+forward_references:
+  - NPDE6
 
 concepts:
   - id: navier-stokes.three-dimensional-strong-solution
