@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - QM1
+  - F0-00P2A
 official_scope: []
 learning_objectives:
   - 純粋状態を Hilbert 空間の ray として捉え、計算では単位ベクトル代表を選ぶ理由と全体位相不変性を説明できる
