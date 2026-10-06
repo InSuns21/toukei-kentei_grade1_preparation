@@ -1,0 +1,20 @@
+chapter: "HJC4"
+terms:
+  - term: nonanticipative strategy
+    english: nonanticipative strategy
+    meaning: 相手の現在までの control 履歴だけを使って自分の control を返し、未来の相手 control を参照しない応答規則。
+  - term: lower value
+    english: lower value
+    meaning: MIN が nonanticipative strategy を使い、MAX が open-loop control を使う本章の lower game の値。
+  - term: upper value
+    english: upper value
+    meaning: MAX が nonanticipative strategy を使い、MIN が open-loop control を使う本章の upper game の値。
+  - term: Hamilton--Jacobi--Isaacs equation
+    english: Hamilton--Jacobi--Isaacs equation
+    meaning: 二人零和微分ゲームの DPP から得られる Hamilton--Jacobi 型方程式。lower / upper Hamiltonian の最適化順序に応じて二つに分かれる。
+  - term: Isaacs condition
+    english: Isaacs condition
+    meaning: lower Hamiltonian の sup-inf と upper Hamiltonian の inf-sup が全ての状態・勾配で一致する条件。
+  - term: pursuit--evasion
+    english: pursuit--evasion
+    meaning: 一方が距離を縮め、他方が距離を広げようとする代表的な二人零和微分ゲーム。
