@@ -745,7 +745,7 @@ E\int_t^{t+h}
 \phi_t
 +
 \mathcal L^{a,c}\phi
-\right](s,X_s)\,ds.
+\right]\!(s,X_s)\,ds.
 $$
 
 $h$ で割り $h\downarrow0$ とすると
@@ -989,7 +989,7 @@ L
 \phi_t
 +
 \mathcal L^{\alpha_h[v_h]_s,v_{h,s}}\phi
-\right](s,X_s)\,ds.
+\right]\!(s,X_s)\,ds.
 $$
 
 短時間では状態が $x_0$ から $O(\sqrt h)$ しか離れず、係数と $\phi$ の導関数は連続です。したがって $h$ で割った極限では
@@ -1946,7 +1946,7 @@ b\cdot\nabla\phi
 (
 \sigma\sigma^\top D^2\phi
 )
-\right](s,X_s)\,ds\\
+\right]\!(s,X_s)\,ds\\
 &\quad+
 \int_t^{t+h}
 \nabla\phi(s,X_s)^\top
@@ -1973,7 +1973,7 @@ b\cdot\nabla\phi
 (
 \sigma\sigma^\top D^2\phi
 )
-\right](s,X_s)\,ds.
+\right]\!(s,X_s)\,ds.
 $$
 
 短時間 SDE 評価により $X_s\to x$ in probability、係数と $\phi$ の導関数の連続性から平均 integrand は初期点の値へ収束します。
