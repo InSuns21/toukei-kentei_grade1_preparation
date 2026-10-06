@@ -56,7 +56,6 @@ concepts:
     kind: theorem
     aliases: ["Robertson uncertainty relation"]
     introduction: inline
-    introduction_aliases: ["定理（Robertson 型不確定性関係）"]
     requires:
       - quantum.commutator
       - quantum.observable-variance-operator-form
