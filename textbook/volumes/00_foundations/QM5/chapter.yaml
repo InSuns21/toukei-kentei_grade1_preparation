@@ -1,0 +1,45 @@
+id: "QM5"
+title: "非有界作用素と自己共役性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - QM4
+  - EVOL1
+  - FOU4
+official_scope: []
+learning_objectives:
+  - 稠密定義作用素の随伴を定義域込みで定義し、随伴作用素が閉作用素になることを証明できる
+  - symmetric operator と self-adjoint operator の違いを作用素の包含と定義域の等号として説明できる
+  - symmetric operator が可閉であることを稠密性と内積恒等式から証明できる
+  - c00 上の最小対角作用素の随伴を計算し、最大対角作用素が自己共役であることを示せる
+  - essential self-adjointness を閉包の自己共役性として説明し、最小対角作用素で具体的に確認できる
+  - L2(R) 上の位置作用素の定義域を明示し、その自己共役性を随伴の定義から証明できる
+  - L2 Fourier 変換を用いて運動量作用素を自己共役作用素として構成し、滑らかな関数上で -i hbar d/dx と一致することを示せる
+  - 有限次元で symmetric と self-adjoint が一致する直観が無限次元で破れる理由を定義域から説明できる
+definitions:
+  - { id: QM5-DEF-01, name: "稠密定義作用素の随伴" }
+  - { id: QM5-DEF-02, name: "対称作用素" }
+  - { id: QM5-DEF-03, name: "自己共役作用素" }
+  - { id: QM5-DEF-04, name: "本質的自己共役性" }
+theorems:
+  - { id: QM5-THM-01, name: "随伴作用素の閉性" }
+  - { id: QM5-PROP-01, name: "対称作用素の可閉性" }
+  - { id: QM5-PROP-02, name: "最小対角作用素の随伴" }
+  - { id: QM5-THM-02, name: "最大実対角作用素の自己共役性" }
+  - { id: QM5-THM-03, name: "位置作用素の自己共役性" }
+  - { id: QM5-PROP-03, name: "ユニタリ共役による自己共役性の保存" }
+  - { id: QM5-THM-04, name: "運動量作用素の Fourier 表現と自己共役性" }
+canonical_examples:
+  - "c00 上の最小対角作用素 A0(x_n)=(n x_n) と最大対角作用素 A"
+  - "L2(R) 上の位置作用素 Q psi=x psi"
+  - "L2 Fourier 変換で構成する運動量作用素 P"
+problem_patterns:
+  - QM5-ADJOINT-DOMAIN-1
+  - QM5-SYMMETRIC-SELFADJOINT-1
+  - QM5-ESSENTIAL-SELFADJOINT-1
+  - QM5-POSITION-OPERATOR-1
+  - QM5-MOMENTUM-FOURIER-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 7.0, review: 2.0 }
