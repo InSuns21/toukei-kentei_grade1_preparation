@@ -211,6 +211,8 @@ $$
 
 と書きます。
 
+以下では「ほとんど至る所（almost everywhere; a.e.）」という略記を使います。
+
 <a id="def-hjc6-stochastic-nonanticipative-strategy"></a>
 
 <!-- formal-statement-start -->
@@ -1109,6 +1111,12 @@ $$
 ---
 
 ## 8. stochastic Isaacs condition：二つの fully nonlinear PDE を一つにする
+
+ここまでで lower value と upper value は、それぞれ異なる二階 Isaacs equation を満たすことが分かりました。
+
+では、この二本を一つの game value へ戻すには何を要求すればよいでしょうか。
+
+HJC4 では一階の局所 game について $\sup\inf$ と $\inf\sup$ の一致を要求しました。確率微分ゲームでは diffusion が Hessian に作用するため、勾配 $p$ だけでなく二階変数 $M$ まで含めて二つの局所 operator が一致することを要求します。これが stochastic Isaacs condition です。
 
 <a id="def-hjc6-stochastic-isaacs-condition"></a>
 
