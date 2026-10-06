@@ -1750,7 +1750,7 @@ $$
 
 を test function として使えます。
 
-subsolution と supersolution の両不等式から
+二つの粘性不等式から
 
 $$
 -V_t+\mathcal B(x,\nabla V)\le0,
