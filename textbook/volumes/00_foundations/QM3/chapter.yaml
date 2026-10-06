@@ -9,6 +9,8 @@ prerequisites:
   - F0-00D2A
   - F0-00D2B
   - F0-00A3
+  - RA8
+  - MT5
 official_scope: []
 learning_objectives:
   - 有限次元の固有空間射影を Borel 集合上の射影値測度へ拡張する必要性を連続スペクトルの例から説明できる
