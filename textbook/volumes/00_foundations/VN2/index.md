@@ -241,7 +241,7 @@ X_\lambda A\xrightarrow{\mathrm{WOT}}XA,
 AX_\lambda\xrightarrow{\mathrm{WOT}}AX.
 $$
 
-各 $\lambda$ で $X_\lambda A=AX_\lambda$ なので、WOT の極限の一意性から
+各 $\lambda$ で $X_\lambda A=AX_\lambda$ なので、任意の $\xi,\eta\in H$ について $\langle\xi,XA\eta\rangle$ と $\langle\xi,AX\eta\rangle$ は同じスカラー net の極限です。したがって
 
 $$
 XA=AX.
@@ -447,7 +447,7 @@ VN1 より SOT は WOT より細かいので、SOT 閉包は WOT 閉包に含ま
 
 次に $\mathcal A\subset\mathcal A''$ は可換子の基本性質から成り立ちます。
 
-さらに $\mathcal A$ は随伴で閉じているため、前節の命題から $\mathcal A'$ も随伴で閉じています。$S=\mathcal A'$ として同じ命題を適用すれば
+さらに $\mathcal A$ は随伴で閉じているため、[前節の命題](#prop-vn2-commutant-wot-closed)から $\mathcal A'$ も随伴で閉じています。$S=\mathcal A'$ として[同じ命題](#prop-vn2-commutant-wot-closed)を適用すれば
 
 $$
 \mathcal A''
@@ -982,7 +982,7 @@ $$
 
 ## 10. von Neumann 環の三つの見方
 
-von Neumann の二重可換子定理により、単位を含む $*$-部分代数 $M\subset B(H)$ について次の三つは同じ概念になります。
+[von Neumann の二重可換子定理](#thm-vn2-bicommutant)により、単位を含む $*$-部分代数 $M\subset B(H)$ について次の三つは同じ概念になります。
 
 $$
 \boxed{
@@ -1760,7 +1760,7 @@ $$
 
 が全ての $B\in\mathcal A$ について成り立ちます。
 
-$P=(P_{ij})$ と作用素行列表示すると、対角増幅の可換子補題から
+$P=(P_{ij})$ と作用素行列表示すると、[対角増幅の可換子補題](#lem-vn2-amplification-commutant)から
 
 $$
 P_{ij}\in\mathcal A'
