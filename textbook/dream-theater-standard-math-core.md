@@ -95,7 +95,7 @@ GPDE10 強連続半群・mild 解 ───────────────�
 [**最適制御・HJB・微分ゲーム**](textbook/dream-theater.md#dt-subject-optimal-control-hjb) は、PDE12 の Hamilton--Jacobi 方程式から動的計画法と HJB へ進む PDE 発展系列です。
 
 ~~~text
-PDE12 Hamilton--Jacobi・特性曲線 → HJC1 決定論的最適制御・DPP・HJB
+PDE12 Hamilton--Jacobi・特性曲線 → HJC1 決定論的最適制御・DPP・HJB → HJC2 粘性解・comparison・一意性
 ~~~
 
 ### Navier--Stokes 方程式への発展分岐
