@@ -324,7 +324,7 @@ $$
 
 ---
 
-## 3. 弱作用素位相：全ての行列係数を見る
+## 3. 行列係数だけで収束を見る
 
 各 $T\xi$ をベクトルとして追う代わりに、全ての $\eta$ との内積
 
@@ -1002,9 +1002,9 @@ $$
 
 随伴について、$T_\alpha\xrightarrow{\mathrm{WOT}}T$ とします。
 
-任意の $\xi,\eta\in H$ に対して、内積の共役対称性と随伴の定義から
+任意の $\xi,\eta\in H$ に対して
 
-$$
+$
 \begin{aligned}
 \langle\eta,T_\alpha^*\xi\rangle
 &=
@@ -1012,7 +1012,9 @@ $$
 &=
 \overline{\langle\xi,T_\alpha\eta\rangle}.
 \end{aligned}
-$$
+$
+
+最初の等号は [Hilbert 随伴](../F0_02C3A_随伴作用素_Banach_Hilbert/index.md) の defining identity であり、二つ目は内積の共役対称性です。
 
 WOT 収束により
 
@@ -1806,19 +1808,31 @@ $B(H)$ を作用素ノルムで Banach 空間とみなす。
 
 #### 詳細解答
 
-Cauchy--Schwarz 不等式と作用素ノルムの定義から
+まず Cauchy--Schwarz 不等式を使うと
 
-$$
-\begin{aligned}
+$
 |\omega_{\eta,\xi}(T)|
-&=
-|\langle\eta,T\xi\rangle|\\
-&\le
-\|\eta\|\,\|T\xi\|\\
-&\le
+=
+|\langle\eta,T\xi\rangle|
+\le
+\|\eta\|\,\|T\xi\|.
+$
+
+さらに作用素ノルムの定義から
+
+$
+\|T\xi\|
+\le
+\|T\|\,\|\xi\|
+$
+
+なので
+
+$
+|\omega_{\eta,\xi}(T)|
+\le
 \|\eta\|\,\|T\|\,\|\xi\|.
-\end{aligned}
-$$
+$
 
 従って $\omega_{\eta,\xi}$ は作用素ノルムに関して連続な線形汎関数で、
 
