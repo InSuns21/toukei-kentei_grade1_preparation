@@ -433,7 +433,7 @@ $$
 q(a,b)=\varphi(b^*a)
 $$
 
-と書きます。前節の補題から
+と書きます。[前節の補題](#lem-oa5-positive-functional-hermitian)から
 
 $$
 q(b,a)=\overline{q(a,b)}.
@@ -743,7 +743,7 @@ $$
 
 <!-- definition-example-end -->
 
-前節の定理から、状態は自動的に
+[前節の定理](#thm-oa5-positive-functional-norm)から、状態は自動的に
 
 $$
 \|\varphi\|=1
