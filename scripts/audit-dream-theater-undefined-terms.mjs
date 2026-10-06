@@ -41,6 +41,7 @@ for (const relPath of pagePaths) {
   const fullPath = path.join(root, relPath);
   const knowledgePath = path.join(path.dirname(fullPath), metadataFile);
   const knowledgeRel = relative(knowledgePath);
+  const scanSource = !changedOnly || changed.files.has(relPath) || changed.files.has(knowledgeRel);
   const page = {
     id,
     path: relPath,
@@ -51,7 +52,7 @@ for (const relPath of pagePaths) {
     forwardReferences: new Set(),
     concepts: [],
     ancestors: new Set(),
-    source: fs.existsSync(fullPath) ? fs.readFileSync(fullPath, 'utf8') : '',
+    source: scanSource && fs.existsSync(fullPath) ? fs.readFileSync(fullPath, 'utf8') : '',
     localAliases: new Map(),
   };
   if (fs.existsSync(knowledgePath)) {
@@ -59,10 +60,10 @@ for (const relPath of pagePaths) {
     page.prerequisites = [...new Set((doc.prerequisites ?? []).map(String))];
     page.forwardReferences = new Set((doc.forward_references ?? []).map(String));
     page.concepts = (doc.concepts ?? []).map((raw, order) => normalizeConcept(raw, id, order));
-    page.localAliases = buildLocalAliasIntroductions(page.source, doc, id);
+    if (page.source) page.localAliases = buildLocalAliasIntroductions(page.source, doc, id);
     for (const concept of page.concepts) {
       concept.page = page;
-      concept.declarationLine = findConceptIntroductionLine(page.source, concept);
+      concept.declarationLine = page.source ? findConceptIntroductionLine(page.source, concept) : null;
       concepts.set(concept.id, concept);
       for (const alias of concept.aliases) {
         const key = normalizeAlias(alias);
@@ -328,10 +329,31 @@ function baseHasFirstUseViolation(baseSha, page, conceptId) {
 function loadBaseAliasOwners(baseSha) {
   const out = new Map();
   if (!baseSha) return out;
-  for (const relPath of pagePaths) {
-    const knowledgeRel = path.join(path.dirname(relPath), metadataFile).replaceAll(path.sep, '/');
+
+  // 未変更 knowledge は current == base なので git show しない。変更ページだけ base 版へ
+  // 差し戻して alias owner 集合を再構成することで、404ファイル分の subprocess を避ける。
+  const changedKnowledge = new Set(
+    [...pages.values()]
+      .map((page) => page.knowledgeRel)
+      .filter((knowledgeRel) => changed.files.has(knowledgeRel)),
+  );
+
+  for (const [alias, owners] of aliasOwners.entries()) {
+    for (const owner of owners) {
+      if (changedKnowledge.has(owner.page.knowledgeRel)) continue;
+      const ids = out.get(alias) ?? new Set();
+      ids.add(owner.id);
+      out.set(alias, ids);
+    }
+  }
+
+  for (const knowledgeRel of changedKnowledge) {
     try {
-      const doc = YAML.parse(execFileSync('git', ['show', `${baseSha}:${knowledgeRel}`], { cwd: root, encoding: 'utf8', maxBuffer: 5 * 1024 * 1024 })) ?? {};
+      const doc = YAML.parse(execFileSync('git', ['show', `${baseSha}:${knowledgeRel}`], {
+        cwd: root,
+        encoding: 'utf8',
+        maxBuffer: 5 * 1024 * 1024,
+      })) ?? {};
       for (const raw of doc.concepts ?? []) {
         const id = String(raw?.id ?? '');
         for (const alias of [raw?.name, ...(raw?.aliases ?? [])]) {
@@ -343,7 +365,7 @@ function loadBaseAliasOwners(baseSha) {
         }
       }
     } catch {
-      // Baseに存在しない新規ページは無視。
+      // Baseに存在しない新規ページは current 側でのみ alias owner を持つ。
     }
   }
   return out;
