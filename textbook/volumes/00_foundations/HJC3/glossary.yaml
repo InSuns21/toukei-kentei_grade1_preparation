@@ -1,0 +1,17 @@
+chapter: "HJC3"
+terms:
+  - term: backward Bellman form
+    english: backward Bellman form
+    meaning: 終端最小化問題の HJB を -V_t+B(x,grad V)=0 と書く形。HJC1 の最小化 Hamiltonian H に対し B=-H である。
+  - term: standing assumptions
+    english: standing assumptions
+    meaning: 章全体で固定して使う十分条件の組。HJC3 では制御集合のコンパクト性と f,L,g の有界性・Lipschitz 性を置く。
+  - term: epsilon-optimal control
+    english: epsilon-optimal control
+    meaning: infimum を厳密に達成しなくても、最小値から epsilon 以内の費用を実現する許容制御。
+  - term: viscosity characterization
+    english: viscosity characterization
+    meaning: value function が HJB の粘性解であり、comparison により同じ関数クラスの中で一意であるという特徴付け。
+  - term: strict time tilt
+    english: strict time tilt
+    meaning: comparison proof で subsolution から eta times time を引き、PDE 不等式に固定された strict gap を作る操作。
