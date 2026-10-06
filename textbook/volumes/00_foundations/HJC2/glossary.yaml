@@ -1,0 +1,26 @@
+chapter: "HJC2"
+terms:
+  - term: viscosity subsolution
+    english: viscosity subsolution
+    meaning: smooth test function が上から接する各点で PDE の左辺が 0 以下になる半連続関数。関数自身の微分可能性は要求しない。
+  - term: viscosity supersolution
+    english: viscosity supersolution
+    meaning: smooth test function が下から接する各点で PDE の左辺が 0 以上になる半連続関数。
+  - term: viscosity solution
+    english: viscosity solution
+    meaning: viscosity subsolution と viscosity supersolution の両方である連続関数。
+  - term: test function
+    english: test function
+    meaning: 非滑らかな候補解へ局所的に上または下から接し、その接触点で PDE の微分情報を代行する滑らかな関数。
+  - term: comparison principle
+    english: comparison principle
+    meaning: subsolution が supersolution を終端・境界で上回らなければ内部でも上回らないことを保証する順序原理。
+  - term: doubling of variables
+    english: doubling of variables
+    meaning: subsolution の点と supersolution の点を別変数として取り、二点間距離の罰則を加えて同一点での比較へ近づける方法。
+  - term: Perron method
+    english: Perron method
+    meaning: 許容される subsolution の上限を取り、半連続包と comparison を使って PDE 解を構成する方法。
+  - term: upper semicontinuous envelope
+    english: upper semicontinuous envelope
+    meaning: 関数の近傍上限から作る最小の上半連続 majorant。Perron 法で subsolution 性を閉じるために用いる。
