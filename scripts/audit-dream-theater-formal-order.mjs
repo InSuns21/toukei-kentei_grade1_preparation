@@ -36,13 +36,15 @@ for (const relPath of pagePaths) {
 }
 
 for (const page of pages.values()) {
-  if (!fs.existsSync(page.fullPath)) continue;
-  const source = fs.readFileSync(page.fullPath, 'utf8');
-  const declarations = collectFormalDeclarations(source);
-  const readerLines = stripStructuralNoise(source).split(/\r?\n/);
   const proseChanged = changedOnly && changedFiles.has(page.path);
   const metadataChanged = changedOnly && changedFiles.has(page.knowledgeRel);
   const pageTouched = proseChanged || metadataChanged || !changedOnly;
+  if (changedOnly && !pageTouched) continue;
+  if (!fs.existsSync(page.fullPath)) continue;
+
+  const source = fs.readFileSync(page.fullPath, 'utf8');
+  const declarations = collectFormalDeclarations(source);
+  const readerLines = stripStructuralNoise(source).split(/\r?\n/);
 
   for (const concept of page.concepts) {
     concept.declarationLine = findIntroductionLine(declarations, readerLines, concept);
