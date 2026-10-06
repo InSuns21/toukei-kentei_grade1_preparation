@@ -805,6 +805,10 @@ $$
 
 ## 6. DPP から Hamilton--Jacobi--Bellman 方程式へ
 
+前節で制御値 $a$ に関する最小化を $\mathcal H$ へまとめました。すると DPP の短時間展開に残るのは、value function の時間変化 $V_t$ と状態変化 $\nabla V$ です。
+
+ここで欲しいのは、「各点で最適な制御を選ぶ」という操作を内蔵した Hamiltonian と、value function の微分を一つの終端値 PDE にまとめることです。その方程式を本節で正式に固定します。
+
 <a id="def-hjc1-hjb"></a>
 <!-- formal-statement-start -->
 ### 定義（Hamilton--Jacobi--Bellman 方程式）
