@@ -421,7 +421,7 @@ $H$ を有限次元複素 Hilbert 空間とし、$A,B:H\to H$ を自己共役作
 
 1. $A$ と $B$ は可換する。
 2. $H$ には $A$ と $B$ の両方の固有ベクトルからなる正規直交基底が存在する。
-3. ある unitary 作用素 $U$ が存在して、$U^*AU$ と $U^*BU$ がともに対角行列になる。
+3. あるユニタリ作用素 $U$ が存在して、$U^*AU$ と $U^*BU$ がともに対角行列になる。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -682,35 +682,129 @@ $$
 Bf(A)=f(A)B.
 $$
 
-スペクトル射影 $E_A(S)$ は有界 Borel 関数
+ここからスペクトル射影へ進むときは、指示関数を連続関数で一様近似することはできないので、**強収束**を使います。
 
-$$
-\mathbf 1_S
-$$
+まず閉集合 $F\subset\sigma(A)$ を固定します。距離関数を用いて
 
-の関数計算
+$
+f_n(\lambda)
+=
+\max\left\{
+0,\,
+1-n\,\operatorname{dist}(\lambda,F)
+\right\}
+$
 
-$$
-E_A(S)=\mathbf 1_S(A)
-$$
+と置きます。
 
-です。
+各 $f_n$ は連続で、
 
-QM3 の有界 Borel 関数計算を単関数近似で構成すれば、連続関数の場合と同じ「可換する作用素のノルム極限も可換する」という議論により
+$
+0\le f_n\le1,
+$
 
-$$
+かつ各 $\lambda\in\sigma(A)$ について
+
+$
+f_n(\lambda)\to\mathbf 1_F(\lambda).
+$
+
+任意の $x\in H$ に対し、QM3 のスペクトル確率測度の構成と同じ計算から
+
+$
+\begin{aligned}
+\|
+\{f_n(A)-E_A(F)\}x
+\|^2
+&=
+\int_{\sigma(A)}
+|f_n(\lambda)-\mathbf 1_F(\lambda)|^2
+\,d\mu_x^A(\lambda).
+\end{aligned}
+$
+
+被積分関数は0へ各点収束し、常に1以下です。従って優収束により
+
+$
+f_n(A)x\to E_A(F)x.
+$
+
+つまり
+
+$
+f_n(A)\to E_A(F)
+$
+
+が強作用素位相で成り立ちます。
+
+各 $f_n(A)$ は $B$ と可換します。$B$ は有界なので、任意の $x$ について
+
+$
+\begin{aligned}
+BE_A(F)x
+&=
+B\lim_{n\to\infty}f_n(A)x\\
+&=
+\lim_{n\to\infty}Bf_n(A)x\\
+&=
+\lim_{n\to\infty}f_n(A)Bx\\
+&=
+E_A(F)Bx.
+\end{aligned}
+$
+
+従って $B$ はすべての閉集合 $F$ に対する $E_A(F)$ と可換します。
+
+ここで
+
+$
+\mathcal C
+=
+\{
+S\in\mathcal B(\sigma(A)):
 BE_A(S)=E_A(S)B
-$$
+\}
+$
 
-を得ます。
+と置きます。
 
-従って $E_A(S)$ は $B$ の有界 Borel 関数とも可換し、特に
+$\mathcal C$ は閉集合をすべて含みます。また
 
-$$
+$
+E_A(S^c)=I-E_A(S)
+$
+
+から補集合で閉じ、PVM の積の規則から有限交叉で閉じます。さらに互いに素な $S_n\in\mathcal C$ については
+
+$
+E_A\left(\bigcup_nS_n\right)x
+=
+\sum_nE_A(S_n)x
+$
+
+が強収束し、$B$ の有界性により極限と $B$ の作用を交換できるので、可算互いに素和でも閉じます。
+
+一般の可算和は互いに素な差集合へ分解できるため、$\mathcal C$ は σ代数です。
+
+閉集合が生成する σ代数は Borel σ代数なので、
+
+$
+\mathcal C=\mathcal B(\sigma(A)).
+$
+
+従って任意の Borel 集合 $S$ について
+
+$
+BE_A(S)=E_A(S)B.
+$
+
+同じ議論を $B$ のスペクトル PVM に適用すると、$E_A(S)$ は $E_B(T)$ と可換し、
+
+$
 E_A(S)E_B(T)
 =
 E_B(T)E_A(S).
-$$
+$
 
 逆に、すべての $S,T$ でスペクトル射影が可換するとします。
 
