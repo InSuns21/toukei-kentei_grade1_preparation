@@ -39,7 +39,7 @@ chapters:
     title: CCR・Weyl 関係と作用素環への入口
   - id: OA1
     path: textbook/volumes/00_foundations/OA1
-    status: planned
+    status: completed
     title: Banach 環とスペクトル
   - id: OA2
     path: textbook/volumes/00_foundations/OA2
