@@ -1,0 +1,47 @@
+id: "QM6"
+title: "非有界自己共役作用素のスペクトル定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - QM5
+  - QM3
+  - FOU4
+official_scope: []
+learning_objectives:
+  - PVM と状態に付随するスカラー測度から、二次モーメント条件を持つ非有界スペクトル積分を定義できる
+  - 非有界スペクトル積分の定義域・ノルム恒等式・稠密性を証明し、得られる作用素が自己共役であることを示せる
+  - 稠密定義対称作用素が自己共役であるための値域判定 Ran(A+iI)=Ran(A-iI)=H を証明できる
+  - 自己共役作用素の Cayley 変換がユニタリであることを示し、D(A)=Ran(I-U) と A=i(I+U)(I-U)^(-1) を導ける
+  - ユニタリ作用素のスペクトル定理を橋として、非有界自己共役作用素のスペクトル定理を定義域込みで導ける
+  - 位置作用素と運動量作用素のスペクトル PVM を具体的に書き、スペクトル積分の定義域が QM5 の定義域を回収することを確認できる
+  - 必要最小限の Borel 関数計算を定義し、exp(-itA) が全空間上のユニタリ作用素になることを示せる
+  - 自由粒子 Hamiltonian を Fourier 空間の実乗算作用素として構成し、その PVM と定義域を記述できる
+definitions:
+  - { id: QM6-DEF-01, name: "非有界スペクトル積分" }
+  - { id: QM6-DEF-02, name: "Cayley 変換" }
+  - { id: QM6-DEF-03, name: "自己共役作用素の Borel 関数計算" }
+theorems:
+  - { id: QM6-PROP-00, name: "非有界スペクトル積分の定義域とノルム" }
+  - { id: QM6-THM-01, name: "自己共役性の値域判定" }
+  - { id: QM6-THM-02, name: "実座標のスペクトル積分の自己共役性" }
+  - { id: QM6-PROP-01, name: "Cayley 変換の基本性質" }
+  - { id: QM6-THM-03, name: "ユニタリ作用素のスペクトル定理" }
+  - { id: QM6-THM-04, name: "非有界自己共役作用素のスペクトル定理" }
+  - { id: QM6-PROP-02, name: "スペクトル位相作用素のユニタリ性" }
+  - { id: QM6-PROP-03, name: "自由粒子 Hamiltonian のスペクトル表示" }
+canonical_examples:
+  - "ell2 上の最大実対角作用素 A(x_n)=(n x_n)"
+  - "L2(R) 上の位置作用素 Q とその区間射影"
+  - "Fourier 表現された運動量作用素 P"
+  - "自由粒子 Hamiltonian H0=P^2/(2m)"
+problem_patterns:
+  - QM6-UNBOUNDED-SPECTRAL-INTEGRAL-1
+  - QM6-SELFADJOINT-RANGE-CRITERION-1
+  - QM6-CAYLEY-TRANSFORM-1
+  - QM6-UNBOUNDED-SPECTRAL-THEOREM-1
+  - QM6-BOREL-FUNCTIONAL-CALCULUS-1
+  - QM6-FREE-HAMILTONIAN-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10.0, exercises: 8.0, review: 2.0 }

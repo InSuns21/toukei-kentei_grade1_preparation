@@ -27,7 +27,7 @@ chapters:
     title: 非有界作用素と自己共役性
   - id: QM6
     path: textbook/volumes/00_foundations/QM6
-    status: planned
+    status: completed
     title: 非有界自己共役作用素のスペクトル定理
   - id: QM7
     path: textbook/volumes/00_foundations/QM7

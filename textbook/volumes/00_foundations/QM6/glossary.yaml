@@ -1,0 +1,17 @@
+chapter: "QM6"
+terms:
+  - term: 非有界スペクトル積分
+    english: unbounded spectral integral
+    meaning: PVM E に対し、座標関数などの非有界 Borel 関数を有界切断で近似し、二乗可積分条件を満たすベクトルだけを定義域として作る作用素積分。
+  - term: Cayley 変換
+    english: Cayley transform
+    meaning: 自己共役作用素 A を U=(A-iI)(A+iI)^(-1) によりユニタリ作用素へ移す変換。実直線を単位円から一点を除いた集合へ送る。
+  - term: 非有界自己共役作用素のスペクトル定理
+    english: unbounded self-adjoint spectral theorem
+    meaning: 自己共役作用素 A を一意な PVM E_A により A=∫λ dE_A(λ) と表し、D(A) を ∫λ^2 dμ_x^A<∞ で特徴付ける定理。
+  - term: Borel 関数計算
+    english: Borel functional calculus
+    meaning: 自己共役作用素 A のスペクトル PVM に Borel 関数 g を代入し、g(A)=∫g(λ)dE_A(λ) を定義する仕組み。非有界 g では定義域も同時に指定する。
+  - term: 自由粒子 Hamiltonian
+    english: free-particle Hamiltonian
+    meaning: 一次元で H0=P^2/(2m) と表される運動エネルギー作用素。Fourier 空間では h(ξ)=ħ^2ξ^2/(2m) による実乗算作用素になる。
