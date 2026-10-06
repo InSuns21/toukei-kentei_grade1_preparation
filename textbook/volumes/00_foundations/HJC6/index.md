@@ -732,7 +732,7 @@ $$
 
 滑らかな test function $\phi\in C^{1,2}$ を考えます。
 
-短時間で actions $(a,c)$ を固定すると、時間依存 Itô 公式から
+短時間で actions $(a,c)$ を固定すると、[時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula)から
 
 $$
 E[
@@ -979,7 +979,7 @@ $$
 
 を得ます。
 
-Itô 公式により bracket の中は
+[多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)により bracket の中は
 
 $$
 E\int_{t_0}^{t_0+h}
@@ -1928,7 +1928,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-時間依存 Itô 公式より
+[時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula)より
 
 $$
 \begin{aligned}
@@ -2100,7 +2100,7 @@ $$
 
 $\phi\in C^{1,2}$ が $(t_0,x_0)$ で $V^-$ に上から接しているとする。
 
-stochastic DPP と Itô 公式から
+stochastic DPP と [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)から
 
 $$
 \phi_t(t_0,x_0)
