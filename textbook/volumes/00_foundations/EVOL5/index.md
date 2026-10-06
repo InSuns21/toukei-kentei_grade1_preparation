@@ -88,7 +88,7 @@ $$
 
 は複素変数 $z$ の正則関数です。
 
-無限次元で非有界作用素を扱うときも、もし $S(t)$ が複素時間 $z$ へ正則に延長できれば、[Cauchy の積分公式](../CA3/index.md#thm-ca3-cauchy-integral-formula)から時間微分を制御できます。
+無限次元で非有界作用素を扱うときも、もし $S(t)$ が複素時間 $z$ へ正則に延長できれば、[Cauchy積分公式](../CA3/index.md#thm-ca3-cauchy-integral-formula)から時間微分を制御できます。
 
 そして生成作用素との関係
 
@@ -674,7 +674,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $m=1$ は [Cauchy の積分公式](../CA3/index.md#thm-ca3-cauchy-integral-formula)を前節の議論へ適用した評価から
+まず $m=1$ は [Cauchy積分公式](../CA3/index.md#thm-ca3-cauchy-integral-formula)を前節の議論へ適用した評価から
 
 $$
 \|BS(t)\|
