@@ -6,8 +6,8 @@ terms:
   - term: スペクトル分布
     english: spectral distribution
     meaning: 正規元 a と状態 phi に対して、phi(f(a))=∫f dmu を満たすスペクトル上の確率測度。
-  - term: スペクトル測度
-    english: spectral measure
+  - term: 正規作用素の射影値測度
+    english: spectral measure of a normal operator
     meaning: 正規作用素 T の連続関数計算を PVM 積分 f(T)=∫f dE_T として表す射影値測度。
   - term: 有界 Borel 関数計算
     english: bounded Borel functional calculus
