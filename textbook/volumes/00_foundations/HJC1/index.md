@@ -1185,7 +1185,7 @@ $$
 
 です。
 
-制御軌道上で chain rule を使うと
+制御軌道上で [連鎖律](../RA3/index.md#prop-ra3-chain-rule)を使うと
 
 $$
 \frac d{ds}W(s,X(s))
@@ -1255,7 +1255,7 @@ $$
 \dot X=f(X,u)
 $$
 
-を満たすので chain rule から
+を満たすので [連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 \frac d{ds}W(s,X(s))
