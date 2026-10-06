@@ -90,8 +90,11 @@ function loadDreamTheaterKnowledge(contents) {
     .flatMap((concept) => concept.aliases.map((alias) => ({ concept, alias, normalized: normalizeSemantic(alias) })))
     .filter((item) => item.normalized.length >= 2)
     .sort((a, b) => b.normalized.length - a.normalized.length);
-  for (const concept of concepts) concept.reference = deriveCanonicalReference(concept, contents);
-  return { pagesByFile, aliases, concepts };
+  aliases.forEach((item, rank) => { item.rank = rank; });
+  const aliasPrefixIndex = buildAliasPrefixIndex(aliases);
+  const anchorCandidateCache = new Map();
+  for (const concept of concepts) concept.reference = deriveCanonicalReference(concept, contents, anchorCandidateCache);
+  return { pagesByFile, aliases, aliasPrefixIndex, concepts };
 }
 
 function normalizeConcept(raw, page, order) {
@@ -125,9 +128,34 @@ function anchorCandidates(markdown) {
   return out;
 }
 
-function deriveCanonicalReference(concept, contents) {
+function buildAliasPrefixIndex(aliases) {
+  const index = new Map();
+  for (const item of aliases) {
+    const key = item.normalized.slice(0, 2);
+    const bucket = index.get(key);
+    if (bucket) bucket.push(item);
+    else index.set(key, [item]);
+  }
+  return index;
+}
+
+function candidateAliasesForLine(normalizedLine, aliasPrefixIndex) {
+  const candidates = new Set();
+  for (let i = 0; i + 1 < normalizedLine.length; i += 1) {
+    const bucket = aliasPrefixIndex.get(normalizedLine.slice(i, i + 2));
+    if (!bucket) continue;
+    for (const item of bucket) candidates.add(item);
+  }
+  return [...candidates].sort((a, b) => a.rank - b.rank);
+}
+
+function deriveCanonicalReference(concept, contents, anchorCandidateCache) {
   const markdown = contents.get(concept.page.fullPath) ?? fs.readFileSync(concept.page.fullPath, 'utf8');
-  const candidates = anchorCandidates(markdown);
+  let candidates = anchorCandidateCache.get(concept.page.fullPath);
+  if (!candidates) {
+    candidates = anchorCandidates(markdown);
+    anchorCandidateCache.set(concept.page.fullPath, candidates);
+  }
   const aliases = [...new Set([...concept.introductionAliases, concept.name, ...concept.aliases].map((v) => String(v).trim()).filter(Boolean))];
   let best = null;
   let bestScore = -Infinity;
@@ -189,11 +217,11 @@ function formalDeclarationKind(line) {
   return null;
 }
 
-function collectDreamDependencyUses(readerLine, rawLine, lineNumber, aliases) {
+function collectDreamDependencyUses(readerLine, rawLine, lineNumber, aliases, aliasPrefixIndex) {
   const normalizedLine = normalizeSemantic(readerLine);
   const uses = new Map();
   const acceptedAliasTexts = [];
-  for (const item of aliases) {
+  for (const item of candidateAliasesForLine(normalizedLine, aliasPrefixIndex)) {
     if (!normalizedLine.includes(item.normalized)) continue;
     if (acceptedAliasTexts.some((longer) => longer.length > item.normalized.length && longer.includes(item.normalized))) continue;
     if (!hasExplicitReasoningUse(normalizedLine, item)) continue;
@@ -430,7 +458,7 @@ function escapeRegExp(value) { return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&
 const files = walk(ROOT);
 const contents = new Map(files.map((file) => [file, fs.readFileSync(file, 'utf8')]));
 const anchors = new Map([...contents].map(([file, text]) => [file, explicitAnchors(text)]));
-const { pagesByFile: dreamPages, aliases: dreamAliases } = loadDreamTheaterKnowledge(contents);
+const { pagesByFile: dreamPages, aliases: dreamAliases, aliasPrefixIndex: dreamAliasPrefixIndex } = loadDreamTheaterKnowledge(contents);
 const errors = [];
 let checkedPreciseLinks = 0;
 let checkedAnchors = 0;
@@ -483,7 +511,7 @@ for (const [file, markdown] of contents) {
     if (readerLines) {
       const readerLine = readerLines[i] ?? '';
       if (readerLine.trim() && !isNavigationOrChecklistLine(readerLine)) {
-        for (const use of collectDreamDependencyUses(readerLine, line, i + 1, dreamAliases)) {
+        for (const use of collectDreamDependencyUses(readerLine, line, i + 1, dreamAliases, dreamAliasPrefixIndex)) {
           checkedKnowledgeUses += 1;
           const result = validateOrFixKnowledgeDependencyLink(file, rel, use, line, errors, dreamAliases);
           if (result.fixed) { line = result.line; lines[i] = line; fileChanged = true; fixedKnowledgeLinks += 1; }
