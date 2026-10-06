@@ -1,0 +1,115 @@
+chapter: QM5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QM4
+  - EVOL1
+  - FOU4
+
+forward_references:
+  - quantum.unbounded-self-adjoint-spectral-theorem
+  - quantum.stone-theorem
+  - quantum.canonical-commutation-relation
+
+concepts:
+  - id: quantum.unbounded-adjoint
+    name: 稠密定義作用素の随伴
+    kind: definition
+    aliases: ["adjoint of a densely defined operator", "unbounded operator adjoint"]
+    introduction: formal
+    introduction_aliases: ["定義（稠密定義作用素の随伴）"]
+    requires:
+      - evolution.densely-defined-operator
+      - functional.hilbert-space
+
+  - id: quantum.adjoint-closed
+    name: 随伴作用素の閉性
+    kind: theorem
+    aliases: ["closedness of the adjoint operator"]
+    introduction_aliases: ["定理（随伴作用素は閉じている）"]
+    requires:
+      - quantum.unbounded-adjoint
+      - evolution.closed-operator
+
+  - id: quantum.symmetric-unbounded-operator
+    name: 対称作用素
+    kind: definition
+    aliases: ["symmetric operator"]
+    introduction: formal
+    introduction_aliases: ["定義（対称作用素）"]
+    requires:
+      - quantum.unbounded-adjoint
+
+  - id: quantum.symmetric-closable
+    name: 対称作用素の可閉性
+    kind: proposition
+    aliases: ["closability of symmetric operators"]
+    introduction_aliases: ["命題（稠密定義の対称作用素は可閉）"]
+    requires:
+      - quantum.symmetric-unbounded-operator
+      - evolution.closability-sequential-criterion
+
+  - id: quantum.self-adjoint-unbounded-operator
+    name: 自己共役作用素
+    kind: definition
+    aliases: ["self-adjoint operator"]
+    introduction: formal
+    introduction_aliases: ["定義（自己共役作用素）"]
+    requires:
+      - quantum.unbounded-adjoint
+      - quantum.symmetric-unbounded-operator
+
+  - id: quantum.essential-self-adjointness
+    name: 本質的自己共役性
+    kind: definition
+    aliases: ["essential self-adjointness", "essentially self-adjoint operator"]
+    introduction: formal
+    introduction_aliases: ["定義（本質的自己共役性）"]
+    requires:
+      - quantum.self-adjoint-unbounded-operator
+      - evolution.operator-closure
+
+  - id: quantum.minimal-diagonal-adjoint
+    name: 最小対角作用素の随伴
+    kind: proposition
+    aliases: ["adjoint of the minimal diagonal operator"]
+    introduction_aliases: ["命題（最小対角作用素の随伴）"]
+    requires:
+      - quantum.unbounded-adjoint
+      - evolution.diagonal-operator-closure-core
+
+  - id: quantum.real-diagonal-self-adjoint
+    name: 最大実対角作用素の自己共役性
+    kind: theorem
+    aliases: ["self-adjoint real diagonal operator"]
+    introduction_aliases: ["定理（最大実対角作用素は自己共役）"]
+    requires:
+      - quantum.minimal-diagonal-adjoint
+      - quantum.self-adjoint-unbounded-operator
+
+  - id: quantum.position-operator-self-adjoint
+    name: 位置作用素の自己共役性
+    kind: theorem
+    aliases: ["self-adjointness of the position operator"]
+    introduction_aliases: ["定理（位置作用素は自己共役）"]
+    requires:
+      - quantum.self-adjoint-unbounded-operator
+
+  - id: quantum.unitary-conjugation-self-adjoint
+    name: ユニタリ共役による自己共役性の保存
+    kind: proposition
+    aliases: ["unitary invariance of self-adjointness"]
+    introduction_aliases: ["命題（ユニタリ共役は自己共役性を保存する）"]
+    requires:
+      - quantum.self-adjoint-unbounded-operator
+      - fourier.fou4-l2-inversion
+
+  - id: quantum.momentum-operator-fourier
+    name: 運動量作用素の Fourier 表現
+    kind: theorem
+    aliases: ["Fourier representation of the momentum operator"]
+    introduction_aliases: ["定理（運動量作用素の Fourier 表現）"]
+    requires:
+      - quantum.position-operator-self-adjoint
+      - quantum.unitary-conjugation-self-adjoint
+      - fourier.fou4-l2-inversion
