@@ -84,7 +84,7 @@ $$
 
 <!-- definition-example-start: def-vn4-singular-values -->
 
-### 直接例：2次行列の特異値
+### **定義の確認**：2次行列の特異値
 
 $$
 T=
@@ -407,7 +407,7 @@ $$
 
 <!-- definition-example-start: def-vn4-trace-class -->
 
-### 直接例：$\ell^2$ 上の対角作用素
+### **定義の確認**：$\ell^2$ 上の対角作用素
 
 $H=\ell^2(\mathbb N)$ とし、
 
@@ -1056,7 +1056,7 @@ $$
 
 <!-- definition-example-start: def-vn4-trace -->
 
-### 直接例：有限次元では通常の行列トレースに戻る
+### **定義の確認**：有限次元では通常の行列トレースに戻る
 
 $H=\mathbb C^2$ で
 
@@ -1605,7 +1605,7 @@ $$
 
 <!-- definition-example-start: def-vn4-predual -->
 
-### 直接例：$B(H)$ の predual
+### **定義の確認**：$B(H)$ の predual
 
 [前節の定理](#thm-vn4-trace-duality)から
 
@@ -1705,7 +1705,7 @@ $$
 
 <!-- definition-example-start: def-vn4-ultraweak-topology -->
 
-### 直接例：有限個ではなく無限個の対角成分をまとめて読む
+### **定義の確認**：有限個ではなく無限個の対角成分をまとめて読む
 
 $H=\ell^2(\mathbb N)$ とし、
 
