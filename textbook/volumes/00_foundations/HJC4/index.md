@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-HJC1--HJC3 では、一人の意思決定者が制御 $u$ を選び、cost を最小にする問題を扱いました。dynamic programming principle から HJB が現れ、value function が滑らかでなくても粘性解として特徴付けられることまで分かりました。
+HJC1--HJC3 では、一人の意思決定者が制御 $u$ を選び、cost を最小にする問題を扱いました。[dynamic programming principle](../HJC1/index.md#thm-hjc1-dpp) から HJB が現れ、value function が滑らかでなくても粘性解として特徴付けられることまで分かりました。
 
 しかし、追跡・回避、ロバスト制御、競争する主体のように、もう一人がこちらに不利な方向へ操作する場合は事情が変わります。
 
@@ -547,7 +547,7 @@ $$
 |X(s)-x_0|\le M_fh.
 $$
 
-軌道上の連鎖律から
+軌道上の[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 \begin{aligned}
@@ -920,7 +920,7 @@ $$
 }{h}.
 $$
 
-§6 の局所計算と連鎖律から右辺は
+§6 の局所計算と[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から右辺は
 
 $$
 \phi_t(t_0,x_0)
@@ -987,7 +987,7 @@ $$
 }{h}.
 $$
 
-軌道上の連鎖律を用いると、短時間作用素の括弧内は
+軌道上の[連鎖律](../RA3/index.md#prop-ra3-chain-rule)を用いると、短時間作用素の括弧内は
 
 $$
 \frac1h
@@ -2024,7 +2024,7 @@ $$
 最後に $\delta\downarrow0$ とすれば、この近似誤差は消える。
 <!-- solution-end -->
 
-### B3 value function の空間 Lipschitz 性
+### B3 空間方向の Lipschitz 評価を導け
 
 - Level: B
 
