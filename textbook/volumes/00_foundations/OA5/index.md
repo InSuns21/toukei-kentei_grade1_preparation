@@ -2553,7 +2553,7 @@ $$
 $\varphi$ を状態とし、$(\rho,K,\Omega)$ を
 
 $$
-\varphi(a)=\langle\rho(a)\Omega,\Omega\rangle
+\varphi(a)=\langle\Omega,\rho(a)\Omega\rangle
 $$
 
 で実現する巡回表現とする。
