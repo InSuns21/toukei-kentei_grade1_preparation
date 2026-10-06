@@ -2024,7 +2024,7 @@ $$
 最後に $\delta\downarrow0$ とすれば、この近似誤差は消える。
 <!-- solution-end -->
 
-### B3 空間方向の Lipschitz 評価を導け
+### B3
 
 - Level: B
 
