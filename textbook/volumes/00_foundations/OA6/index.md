@@ -18,7 +18,7 @@ $$
 
 を作れます。
 
-一方 QM3 では、自己共役作用素 $A$ を射影値測度 $E_A$ によって
+一方 QM3 では、有界自己共役作用素 $A$ を射影値測度 $E_A$ によって
 
 $$
 A=\int_{\sigma(A)}\lambda\,dE_A(\lambda)
@@ -77,10 +77,10 @@ T = ∫ z dE(z)
   ↓
 連続関数計算と PVM 積分が一致
   ↓
-有界 Borel 関数計算
+有界 Borel 関数への拡張
 ~~~
 
-最後の「Borel 関数計算」は、連続関数だけを持つ $C^*$-環から、次章以降の von Neumann 環で現れる射影へ進む最初の橋です。
+最後の「Borel 関数への拡張」は、連続関数だけを持つ $C^*$-環から、次章以降の von Neumann 環で現れる射影へ進む最初の橋です。
 
 ---
 
@@ -102,7 +102,7 @@ $$
 
 であることです。
 
-自己共役作用素は
+有界自己共役作用素は
 
 $$
 T=T^*
@@ -152,7 +152,7 @@ $$
 
 です。
 
-QM3 の自己共役作用素ではスペクトルが実数上にありました。本章では射影値測度の台を
+QM3 の有界自己共役作用素ではスペクトルが実数上にありました。本章では射影値測度の台を
 
 $$
 K\subset\mathbb C
@@ -442,7 +442,7 @@ $$
 <a id="thm-oa6-commutative-representation-pvm"></a>
 
 <!-- formal-statement-start -->
-### 定理（可換 $C(K)$ 表現の射影値測度表示）
+### 定理（可換関数環表現の射影値測度表示）
 
 $K\subset\mathbb C$ をコンパクト集合、$H$ を複素 Hilbert 空間とする。
 
@@ -846,7 +846,185 @@ $$
 h\in\mathcal M_g.
 $$
 
-$K$ はコンパクト距離空間であり、Borel σ代数は連続関数が生成します。関数版の単調類定理により、$\mathcal M_g$ は全ての有界 Borel 関数を含みます。
+ここから全ての有界 Borel 関数まで到達することを、集合族の閉包だけで確認します。
+
+$$
+\mathcal D_g
+=
+\{B\in\mathcal B(K):\mathbf 1_B\in\mathcal M_g\}
+$$
+
+と置きます。
+
+まず $K\in\mathcal D_g$ です。実際、定数関数 $1$ は連続なので $1\in\mathcal M_g$ です。
+
+次に $B\in\mathcal D_g$ なら
+
+$$
+\mathbf 1_{K\setminus B}
+=
+1-\mathbf 1_B
+$$
+
+なので、$\mathcal M_g$ の線形性から
+
+$$
+K\setminus B\in\mathcal D_g.
+$$
+
+さらに、$B_1,B_2,\ldots\in\mathcal D_g$ が互いに素なら
+
+$$
+s_N
+=
+\sum_{n=1}^N\mathbf 1_{B_n}
+\in\mathcal M_g.
+$$
+
+しかも
+
+$$
+0\le s_N\le1,
+\qquad
+s_N(x)
+\longrightarrow
+\mathbf 1_{\cup_{n=1}^\infty B_n}(x).
+$$
+
+$\mathcal M_g$ は一様有界な点ごとの極限に閉じるので
+
+$$
+\bigcup_{n=1}^\infty B_n
+\in
+\mathcal D_g.
+$$
+
+次に開集合 $U\subset K$ を取ります。$U=K$ の場合は既に分かっています。$U\ne K$ なら
+
+$$
+u_n(x)
+=
+\min\{1,n\,d(x,K\setminus U)\}
+$$
+
+と置きます。距離関数は連続なので $u_n\in C(K)$ です。また
+
+$$
+0\le u_n\le1,
+\qquad
+u_n(x)\longrightarrow\mathbf 1_U(x).
+$$
+
+従って
+
+$$
+U\in\mathcal D_g.
+$$
+
+最後に、「$K$ を含み、補集合と互いに素な可算和に閉じる集合族」で開集合を全て含むもののうち最小のものを $\mathcal L$ とします。上で示した三つの閉包性から
+
+$$
+\mathcal L\subset\mathcal D_g.
+$$
+
+ここで $\mathcal L$ が有限共通部分にも閉じることを示します。
+
+まず開集合 $U$ を固定します。
+
+$$
+\mathcal L_U
+=
+\{B\in\mathcal L:U\cap B\in\mathcal L\}
+$$
+
+と置きます。$\mathcal L_U$ は $K$ を含み、補集合と互いに素な可算和に対して同じ閉包性を持ちます。たとえば $A\subset C$ かつ $A,C\in\mathcal L$ なら
+
+$$
+C\setminus A
+=
+(C^c\cup A)^c
+\in\mathcal L
+$$
+
+なので、補集合を取る場合も閉じています。
+
+さらに開集合 $V$ なら $U\cap V$ も開集合なので
+
+$$
+V\in\mathcal L_U.
+$$
+
+$\mathcal L$ の最小性から
+
+$$
+\mathcal L\subset\mathcal L_U.
+$$
+
+従って、任意の開集合 $U$ と任意の $B\in\mathcal L$ に対して
+
+$$
+U\cap B\in\mathcal L.
+$$
+
+今度は $B\in\mathcal L$ を固定し、
+
+$$
+\mathcal L^B
+=
+\{A\in\mathcal L:A\cap B\in\mathcal L\}
+$$
+
+と置きます。同じ閉包確認により $\mathcal L^B$ も $K$ を含み、補集合と互いに素な可算和に閉じます。直前の結果から全ての開集合を含むので、再び最小性から
+
+$$
+\mathcal L\subset\mathcal L^B.
+$$
+
+従って
+
+$$
+A,B\in\mathcal L
+\quad\Longrightarrow\quad
+A\cap B\in\mathcal L.
+$$
+
+補集合と有限共通部分に閉じるので有限和にも閉じます。任意の列 $A_1,A_2,\ldots\in\mathcal L$ は
+
+$$
+C_1=A_1,
+$$
+
+$$
+C_n
+=
+A_n\setminus\bigcup_{j<n}A_j
+\qquad(n\ge2)
+$$
+
+と互いに素な列へ分解でき、各 $C_n\in\mathcal L$ です。したがって
+
+$$
+\bigcup_{n=1}^\infty A_n
+=
+\bigcup_{n=1}^\infty C_n
+\in\mathcal L.
+$$
+
+よって $\mathcal L$ は開集合を含む σ代数です。したがって
+
+$$
+\mathcal L=\mathcal B(K).
+$$
+
+従って全ての Borel 集合 $B$ について
+
+$$
+\mathbf 1_B\in\mathcal M_g.
+$$
+
+線形性から有界 Borel 単関数は全て $\mathcal M_g$ に入ります。さらに任意の有界複素 Borel 関数は、実部・虚部の値域を幅 $2^{-n}$ の区間へ区切ることで、有界単関数列により一様近似できます。
+
+$\mathcal M_g$ は一様有界な点ごとの極限に閉じるので、最終的に全ての有界 Borel 関数が $\mathcal M_g$ に入ります。
 
 従って
 
@@ -957,7 +1135,48 @@ $$
 \end{aligned}
 $$
 
-です。最後は有限測度 $\mu_\eta$ の上からの連続性によります。
+です。最後の極限は可算加法性から直接確認できます。実際、
+
+$$
+C_n=B_n
+\qquad(n>N)
+$$
+
+は互いに素で、
+
+$$
+B^{(N)}
+=
+\bigcup_{n>N}C_n.
+$$
+
+したがって
+
+$$
+\mu_\eta(B^{(N)})
+=
+\sum_{n>N}\mu_\eta(C_n).
+$$
+
+一方
+
+$$
+\sum_{n=1}^\infty\mu_\eta(C_n)
+=
+\mu_\eta\left(\bigcup_{n=1}^\infty B_n\right)
+\le
+\mu_\eta(K)
+=
+\|\eta\|^2
+<
+\infty.
+$$
+
+収束する非負級数の尾和は $0$ へ収束するので
+
+$$
+\mu_\eta(B^{(N)})\to0.
+$$
 
 従って $E$ は射影値測度です。
 
@@ -1075,7 +1294,7 @@ $$
 \iota(z)=z
 $$
 
-を取れば、連続関数計算の定義から
+を取ります。[OA4 の連続関数計算](../OA4/index.md#thm-oa4-continuous-functional-calculus)は座標関数 $\iota$ を $T$ に送るので
 
 $$
 \iota(T)=T.
@@ -1190,7 +1409,7 @@ $$
 
 ## 5. QM3 の自己共役スペクトル定理は同じものになる
 
-自己共役作用素
+有界自己共役作用素
 
 $$
 A=A^*
@@ -1221,7 +1440,7 @@ $$
 <!-- formal-statement-start -->
 ### 命題（自己共役の場合の PVM の一致）
 
-$A\in B(H)$ を自己共役作用素とする。
+$A\in B(H)$ を有界自己共役作用素とする。
 
 QM3 の有界自己共役スペクトル定理で得られる PVM と、本章の可換 $C(\sigma(A))$ 表現から得られる PVM は一致する。
 <!-- formal-statement-end -->
@@ -1304,7 +1523,7 @@ $$
 
 ---
 
-## 6. 有界 Borel 関数計算
+## 6. 連続関数から有界 Borel 関数へ
 
 OA4 の連続関数計算では
 
@@ -1327,7 +1546,7 @@ $$
 <!-- formal-statement-start -->
 ### 定義（有界 Borel 関数計算）
 
-$T\in B(H)$ を正規作用素、$E_T$ をそのスペクトル測度とする。
+$T\in B(H)$ を正規作用素、$E_T$ をその射影値測度とする。
 
 有界 Borel 関数
 
@@ -1629,13 +1848,13 @@ $$
 が成り立つ。
 
 $\sigma(T_\varphi)\subset\sigma_A(a)$ なので、$T_\varphi$ の PVM $E_{T_\varphi}$ を
-$
+$$
 \widetilde E_{T_\varphi}(B)
 =
 E_{T_\varphi}(B\cap\sigma(T_\varphi))
 \qquad
 (B\subset\sigma_A(a))
-$
+$$
 で $\sigma_A(a)$ 上へ延長する。
 
 このとき状態 $\varphi$ における $a$ のスペクトル分布は、$\widetilde E_{T_\varphi}$ を巡回ベクトル $\Omega_\varphi$ で読んだスカラー測度と一致する。
@@ -1698,7 +1917,13 @@ $$
 
 が成り立ちます。
 
-GNS の状態回収公式を $f(a)$ に適用すると
+[OA5 の GNS 構成](../OA5/index.md#thm-oa5-gns)で得た
+$$
+\varphi(x)
+=
+\langle\Omega_\varphi,\pi_\varphi(x)\Omega_\varphi\rangle
+$$
+を $x=f(a)$ に適用すると
 
 $$
 \begin{aligned}
@@ -1716,44 +1941,44 @@ f(T_\varphi)\Omega_\varphi
 \end{aligned}
 $$
 
-$*$-準同型によるスペクトル縮小から
+$*$-準同型はスペクトルを拡大しないので
 
-$
+$$
 \sigma(T_\varphi)
 \subset
 \sigma_A(a)
-$
+$$
 
 です。
 
 $T_\varphi$ の PVM を $E_{T_\varphi}$ とし、$\sigma_A(a)$ 上の Borel 集合 $B$ に対して
 
-$
+$$
 \widetilde E_{T_\varphi}(B)
 =
 E_{T_\varphi}(B\cap\sigma(T_\varphi))
-$
+$$
 
 と延長します。
 
 すると
 
-$
+$$
 f(T_\varphi)
 =
 \int_{\sigma_A(a)} f(z)\,d\widetilde E_{T_\varphi}(z).
-$
+$$
 
 従って
 
-$
+$$
 \varphi(f(a))
 =
 \int_{\sigma_A(a)} f(z)\,
 d\langle
 \Omega_\varphi,\widetilde E_{T_\varphi}(z)\Omega_\varphi
 \rangle.
-$
+$$
 
 一方、左辺を表す確率測度は第2節で一意です。
 
@@ -2104,7 +2329,7 @@ $$
 となり定義を満たします。
 <!-- solution-end -->
 
-### A3. 自己共役作用素では台が実数になる
+### A3. 有界自己共役作用素では台が実数になる
 
 - Level: A
 
@@ -2118,7 +2343,7 @@ $A\in B(H)$ を自己共役とし、本章の正規作用素スペクトル定�
 
 #### 1. スペクトルの位置
 
-自己共役作用素については既に
+有界自己共役作用素については既に
 
 $$
 \sigma(A)\subset\mathbb R
@@ -2581,7 +2806,13 @@ $$
 f(\pi_\varphi(a)).
 $$
 
-GNS の状態回収公式から
+[OA5 の GNS 構成](../OA5/index.md#thm-oa5-gns)の
+$$
+\varphi(x)
+=
+\langle\Omega_\varphi,\pi_\varphi(x)\Omega_\varphi\rangle
+$$
+を $x=f(a)$ に適用すると
 
 $$
 \begin{aligned}
@@ -2908,7 +3139,7 @@ $$
 
 #### 5. 一つの PVM による同時記述
 
-$A$ と $B$ は可換する自己共役作用素です。
+$A$ と $B$ は可換する有界自己共役作用素です。
 
 個別に自己共役スペクトル定理を適用すれば、それぞれに PVM を考えることもできます。
 
@@ -2936,7 +3167,7 @@ $$
 
 が、実部 $x$ と虚部 $y$ の情報を同時に持っています。
 
-これが「自己共役作用素を一つずつ見る」立場から「正規作用素が生成する可換 $C^*$-環全体を見る」立場への移動です。
+これが「有界自己共役作用素を一つずつ見る」立場から「正規作用素が生成する可換 $C^*$-環全体を見る」立場への移動です。
 <!-- solution-end -->
 
 ---
