@@ -9,23 +9,6 @@ function argValue(name) {
   return i >= 0 ? process.argv[i + 1] : null;
 }
 
-const base = argValue('--base') || (process.env.TEXTBOOK_BASE_SHA || '').trim();
-if (!base) {
-  console.error('Validation-scope detection requires --base <sha> or TEXTBOOK_BASE_SHA.');
-  process.exit(2);
-}
-
-const diff = spawnSync('git', ['diff', '--name-only', '--diff-filter=ACMR', base + '...HEAD'], {
-  encoding: 'utf8',
-  stdio: ['ignore', 'pipe', 'pipe'],
-});
-if (diff.status !== 0) {
-  console.error(diff.stderr || 'git diff failed');
-  process.exit(diff.status || 2);
-}
-
-const files = diff.stdout.split(/\r?\n/u).map((x) => x.trim()).filter(Boolean);
-
 const fullPatterns = [
   /^\.github\/workflows\//u,
   /^scripts\//u,
@@ -57,6 +40,23 @@ if (process.argv.includes('--self-test')) {
   runSelfTests();
   process.exit(0);
 }
+
+const base = argValue('--base') || (process.env.TEXTBOOK_BASE_SHA || '').trim();
+if (!base) {
+  console.error('Validation-scope detection requires --base <sha> or TEXTBOOK_BASE_SHA.');
+  process.exit(2);
+}
+
+const diff = spawnSync('git', ['diff', '--name-only', '--diff-filter=ACMR', base + '...HEAD'], {
+  encoding: 'utf8',
+  stdio: ['ignore', 'pipe', 'pipe'],
+});
+if (diff.status !== 0) {
+  console.error(diff.stderr || 'git diff failed');
+  process.exit(diff.status || 2);
+}
+
+const files = diff.stdout.split(/\r?\n/u).map((x) => x.trim()).filter(Boolean);
 
 let full = false;
 let reason = 'leaf textbook change';
