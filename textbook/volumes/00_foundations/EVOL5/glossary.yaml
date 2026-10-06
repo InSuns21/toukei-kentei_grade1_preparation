@@ -1,0 +1,23 @@
+chapter: "EVOL5"
+terms:
+  - term: analytic semigroup
+    english: analytic semigroup
+    meaning: C0 半群を正の実時間だけでなく複素時間の sector へ正則に延長した半群。sector 内の微分可能性が正の時刻での作用素 smoothing を生む。
+  - term: sector
+    english: sector
+    meaning: 複素平面で絶対偏角が一定角より小さい領域。Sigma_theta={z != 0: |arg z|<theta} の形で用いる。
+  - term: sectorial operator
+    english: sectorial operator
+    meaning: スペクトルが正実軸を中心とする sector に入り、その外側で lambda(lambda I-B)^(-1) が一様有界となる閉作用素。
+  - term: smoothing estimate
+    english: smoothing estimate
+    meaning: ||B^m S(t)|| <= C_m t^(-m) のように、正の時刻で半群が作用素の高い定義域へ像を押し込むことを数量化する評価。
+  - term: parabolic regularization
+    english: parabolic regularization
+    meaning: 熱方程式型の時間発展で、粗い初期値から出発しても任意の正の時刻では空間方向の正則性が改善する現象。
+  - term: fractional power
+    english: fractional power
+    meaning: sectorial operator の非整数べき B^alpha。完全な構成理論は本章では扱わず、対角作用素では各固有値を alpha 乗して具体化する。
+  - term: maximal regularity
+    english: maximal regularity
+    meaning: 外力の Lp 正則性から u' と Bu の同じ Lp 正則性を得る理論。本章では入口だけ示し、完成理論は扱わない。

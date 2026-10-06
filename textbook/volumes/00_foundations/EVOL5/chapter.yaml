@@ -1,0 +1,39 @@
+id: "EVOL5"
+title: "analytic semigroup・sectorial operator・放物型 smoothing"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - EVOL4
+official_scope: []
+learning_objectives:
+  - C0 半群より強い analytic semigroup の定義を複素時間 sector 上の正則延長として説明できる
+  - 正作用素 B と生成作用素 -B の符号規約を区別し、sectorial operator のスペクトル包含と resolvent 評価を読める
+  - sectorial angle が pi/2 未満なら -B が bounded analytic C0 半群を生成するという対応の意味を説明できる
+  - analytic semigroup の Cauchy 積分表示から ||B S(t)|| <= C/t 型 smoothing estimate を導出できる
+  - 整数 m について ||B^m S(t)|| <= C_m t^{-m} を反復し、正の時刻で S(t)X が D(B^m) に入ることを説明できる
+  - ell2 上の対角熱半群で B^alpha S(t) の t^{-alpha} 評価を直接計算し、fractional power の意味を具体例で理解できる
+  - Dirichlet Laplacian の Fourier 係数表示から正の時刻で任意次数の空間正則性が得られる仕組みを説明できる
+  - EVOL4 の mild 解に analytic smoothing を組み合わせ、粗い初期値が t>0 で作用素定義域へ入ることを説明できる
+  - smoothing estimate の t=0 特異性が、初期値の粗さを消す代償であることを説明できる
+  - maximal regularity や H-infinity functional calculus を本章の結論と混同せず、次段階の理論として区別できる
+definitions:
+  - { id: EVOL5-DEF-01, name: "bounded analytic C0 半群" }
+  - { id: EVOL5-DEF-02, name: "sectorial operator" }
+theorems:
+  - { id: EVOL5-THM-01, name: "sectorial operator と analytic semigroup の生成対応" }
+  - { id: EVOL5-THM-02, name: "analytic semigroup の整数階 smoothing" }
+  - { id: EVOL5-PROP-01, name: "対角熱半群の fractional smoothing" }
+canonical_examples:
+  - "ell2 上の Bx=(n^2 x_n) と S(t)x=(e^{-n^2 t}x_n)"
+  - "L2(0,pi) 上の零 Dirichlet Laplacian と heat semigroup"
+  - "有界作用素 B の指数半群は analytic だが smoothing の定義域効果は自明"
+problem_patterns:
+  - EVOL5-ANALYTIC-BOUNDED-1
+  - EVOL5-SECTORIAL-DIAGONAL-1
+  - EVOL5-SMOOTHING-1
+  - EVOL5-FRACTIONAL-1
+  - EVOL5-MILD-REGULARIZATION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 6.5, review: 1.5 }

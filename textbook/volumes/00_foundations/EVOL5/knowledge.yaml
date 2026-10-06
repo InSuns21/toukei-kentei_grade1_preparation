@@ -1,0 +1,57 @@
+chapter: EVOL5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - EVOL4
+
+forward_references: []
+
+concepts:
+  - id: evolution.bounded-analytic-semigroup
+    name: bounded analytic C0 半群
+    kind: definition
+    aliases: ["bounded analytic semigroup", "analytic C0 semigroup"]
+    introduction: formal
+    introduction_aliases: ["定義（bounded analytic C0 半群）"]
+    requires:
+      - evolution.strongly-continuous-semigroup
+
+  - id: evolution.sectorial-operator
+    name: sectorial operator
+    kind: definition
+    aliases: ["sectorial operator", "扇形作用素"]
+    introduction: formal
+    introduction_aliases: ["定義（sectorial operator）"]
+    requires:
+      - evolution.closed-operator
+      - evolution.closed-operator-resolvent
+
+  - id: evolution.sectorial-analytic-generation
+    name: sectorial operator と analytic semigroup の生成対応
+    kind: theorem
+    aliases: ["sectorial analytic semigroup generation theorem"]
+    introduction: formal
+    introduction_aliases: ["定理（sectorial operator と analytic semigroup の生成対応）"]
+    requires:
+      - evolution.sectorial-operator
+      - evolution.bounded-analytic-semigroup
+      - evolution.infinitesimal-generator
+
+  - id: evolution.analytic-semigroup-integer-smoothing
+    name: analytic semigroup の整数階 smoothing
+    kind: theorem
+    aliases: ["integer-order smoothing for analytic semigroups"]
+    introduction: formal
+    introduction_aliases: ["定理（analytic semigroup の整数階 smoothing）"]
+    requires:
+      - evolution.sectorial-analytic-generation
+      - evolution.generator-orbit-differentiation
+
+  - id: evolution.diagonal-fractional-smoothing
+    name: 対角熱半群の fractional smoothing
+    kind: proposition
+    aliases: ["fractional smoothing for the diagonal heat semigroup"]
+    introduction: formal
+    introduction_aliases: ["命題（対角熱半群の fractional smoothing）"]
+    requires:
+      - evolution.analytic-semigroup-integer-smoothing

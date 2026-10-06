@@ -69,7 +69,7 @@ SET10 数学各分野での選択原理
 
 ~~~text
 FA2 閉グラフ・グラフノルム ─┐
-FA5 スペクトル・レゾルベント ─┴→ EVOL1 非有界作用素・閉作用素・可閉作用素 → EVOL2 C0 半群・生成作用素・Hille--Yosida → EVOL3 散逸作用素・Lumer--Phillips → EVOL4 抽象 Cauchy 問題・mild 解・Duhamel 公式
+FA5 スペクトル・レゾルベント ─┴→ EVOL1 非有界作用素・閉作用素・可閉作用素 → EVOL2 C0 半群・生成作用素・Hille--Yosida → EVOL3 散逸作用素・Lumer--Phillips → EVOL4 抽象 Cauchy 問題・mild 解・Duhamel 公式 → EVOL5 analytic semigroup・sectorial operator・放物型 smoothing
 ~~~
 
 ### 非線形偏微分方程式への発展分岐
