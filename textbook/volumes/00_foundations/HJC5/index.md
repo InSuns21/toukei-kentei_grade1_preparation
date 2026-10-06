@@ -176,6 +176,8 @@ progressively measurable という条件により、各時刻 $s$ の制御は $
 <!-- definition-example-start: def-hjc5-stochastic-admissible-control -->
 ### 直接例：現在の状態だけを見る feedback
 
+**定義の確認**
+
 ある Borel 関数
 
 $$
@@ -257,6 +259,8 @@ $$
 
 <!-- definition-example-start: def-hjc5-controlled-diffusion -->
 ### 直接例：ドリフトを操作する一次元系
+
+**定義の確認**
 
 $$
 dX_s=u_s\,ds+\sigma\,dW_s,
@@ -351,6 +355,8 @@ $$
 
 <!-- definition-example-start: def-hjc5-stochastic-value -->
 ### 直接例：制御なし Brown 運動の二乗 terminal cost
+
+**定義の確認**
 
 $$
 dX_s=\sigma\,dW_s,
@@ -794,6 +800,8 @@ $\mathcal L^a$ を control $a$ に対応する controlled generator という。
 <!-- definition-example-start: def-hjc5-controlled-generator -->
 ### 直接例：drift control と constant volatility
 
+**定義の確認**
+
 一次元で
 
 $$
@@ -958,6 +966,8 @@ $$
 
 <!-- definition-example-start: def-hjc5-second-order-hjb -->
 ### 直接例：Brown 運動の二乗 terminal cost
+
+**定義の確認**
 
 §4 の
 
@@ -1693,6 +1703,8 @@ $$
 
 <!-- definition-example-start: def-hjc5-second-order-viscosity -->
 ### 直接例：滑らかな Brown value は viscosity 条件も満たす
+
+**定義の確認**
 
 $$
 v(t,x)
