@@ -854,7 +854,7 @@ $$
 
 ここではまず $V\in C^{1,2}$ と仮定して形式計算します。
 
-両辺から $V(t,x)$ を引き、Itô 公式を入れると
+両辺から $V(t,x)$ を引き、[時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula)を入れると
 
 $$
 0
@@ -1196,7 +1196,7 @@ w_t+L(x,u)+\mathcal L^uw
 \ge0.
 $$
 
-Itô 公式で $w(s,X_s)$ を動かし、期待値を取ると
+[時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula)で $w(s,X_s)$ を動かし、期待値を取ると
 
 $$
 J(u)-w(t,x)
@@ -1811,7 +1811,7 @@ L(X_s,a)\,ds
 \right].
 $$
 
-Itô 公式を入れると
+[時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula)を入れると
 
 $$
 0
@@ -2344,7 +2344,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-時間依存 [時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula)より
+[時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula)より
 
 $$
 \begin{aligned}
@@ -2536,11 +2536,11 @@ $$
 
 従って積行列の対角成分を足すと
 
-$
+$$
 \operatorname{tr}(AD^2\phi)
 =
 4\phi_{11}.
-$
+$$
 
 よって
 
@@ -2838,7 +2838,7 @@ L(X_s,a)\,ds
 \right].
 $$
 
-Itô 公式により
+[時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula)により
 
 $$
 \begin{aligned}
@@ -3047,7 +3047,7 @@ uV_x
 \frac{\sigma^2}{2}V_{xx}.
 $$
 
-短時間 DPP へ Itô 公式を入れると
+短時間 DPP へ [時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula)を入れると
 
 $$
 \boxed{
