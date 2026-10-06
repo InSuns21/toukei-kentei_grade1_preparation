@@ -516,7 +516,7 @@ $$
 
 です。
 
-tower property を使うと
+[tower property](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md#thm-f0-00p3a-tower) を使うと
 
 $$
 \begin{aligned}
@@ -1875,7 +1875,7 @@ L(X_s,u_s^h)\,ds
 h\varepsilon.
 $$
 
-Itô 公式より
+[時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula)より
 
 $$
 0
@@ -2014,7 +2014,7 @@ E\left[
 \right].
 $$
 
-停止した Itô 公式を使うと
+[時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula)を停止した形で使うと
 
 $$
 0
@@ -2344,7 +2344,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-時間依存 Itô 公式より
+時間依存 [時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula)より
 
 $$
 \begin{aligned}
