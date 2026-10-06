@@ -1915,21 +1915,21 @@ $$
 
 任意の $\varepsilon>0$ を取る。$U$ の有限 net を十分細かく取り、各 $b$ についてその有限集合の中から
 
-$
+$$
 Q(a_\varepsilon(b),b)
 \le
 \inf_aQ(a,b)+\varepsilon
-$
+$$
 
 を満たす最初の点を選ぶ。有限個の連続関数の大小で選択領域が決まるため、$b\mapsto a_\varepsilon(b)$ は Borel 可測に取れる。
 
 strategy を
 
-$
+$$
 \alpha_\varepsilon[v](s)
 =
 a_\varepsilon(v(s))
-$
+$$
 
 と定める。$v$ は可測なので $\alpha_\varepsilon[v]$ も可測であり、時刻 $s$ の $v(s)$ だけを使うので nonanticipative である。
 
