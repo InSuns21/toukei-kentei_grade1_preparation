@@ -4,7 +4,7 @@
 
 > **既出概念**：[QM4 の交換子](../QM4/index.md#def-qm4-commutator)、[QM5 の位置作用素](../QM5/index.md#thm-qm5-position-self-adjoint)と[運動量作用素](../QM5/index.md#thm-qm5-momentum-fourier)、[QM7 の Stone の定理](../QM7/index.md#thm-qm7-stone)を使います。
 
-QM7 では、自己共役作用素を指数関数に入れることで、全 Hilbert 空間上に作用するユニタリ群
+QM7 では、自己共役作用素を指数関数に入れることで、全 Hilbert 空間上に作用する強連続1パラメータユニタリ群
 
 $$
 U(t)=e^{-itH/\hbar}
@@ -66,14 +66,14 @@ $$
 
 運動量作用素の自己共役な定義域は、QM5 の Fourier 表現では
 
-$
+$$
 D(P)
 =
 \left\{
 \psi\in L^2(\mathbb R):
 \xi(\mathcal F\psi)(\xi)\in L^2(\mathbb R)
 \right\}
-$
+$$
 
 です。
 
@@ -185,54 +185,54 @@ $$
 
 定義域問題は飾りではありません。例えば
 
-$
+$$
 f=\mathbf 1_{[0,1]}
-$
+$$
 
 は $xf\in L^2(\mathbb R)$ なので $f\in D(Q)$ です。一方、
 
-$
+$$
 \widehat f(\xi)
 =
 \frac{1-e^{-i\xi}}{i\xi}
-$
+$$
 
 だから
 
-$
+$$
 \xi\widehat f(\xi)
 =
 \frac{1-e^{-i\xi}}i
-$
+$$
 
 は $L^2(\mathbb R)$ に属しません。QM5 の Fourier 側の定義域表示から $f\notin D(P)$ です。
 
 逆向きには
 
-$
+$$
 g(x)=\frac1{(1+x^2)^{2/3}}
-$
+$$
 
 を取れます。$g,g'\in L^1(\mathbb R)\cap L^2(\mathbb R)$ なので、FOU3 の Fourier 微分公式と FOU4 の Plancherel により
 
-$
+$$
 \xi\widehat g(\xi)
 =
 \frac1i\widehat{g'}(\xi)
 \in L^2(\mathbb R).
-$
+$$
 
 従って $g\in D(P)$ です。
 
 一方、
 
-$
+$$
 |xg(x)|^2
 =
 \frac{x^2}{(1+x^2)^{4/3}}
 \sim
 |x|^{-2/3}
-$
+$$
 
 であり、右辺は無限遠で積分できません。従って $g\notin D(Q)$ です。
 
@@ -364,7 +364,7 @@ $$
 
 ## 3. 非有界作用素を指数化する
 
-QM7 の Stone の定理を使い、
+[QM7 の Stone の定理](../QM7/index.md#thm-qm7-stone)を使い、
 
 $$
 U(a)=e^{-iaP/\hbar},
@@ -581,8 +581,8 @@ $$
 
 CCR と Weyl 関係の違いを整理すると、
 
-- CCR は $Q,P$ という**非有界生成作用素**の微分的な関係、
-- Weyl 関係は $U(a),V(b)$ という**有界ユニタリ作用素**の有限変換の関係、
+- CCR は生成作用素 $Q,P$（一般には非有界）の微分的な関係、
+- Weyl 関係は全 Hilbert 空間上のユニタリ作用素 $U(a),V(b)$ の有限変換の関係、
 
 です。
 
@@ -645,7 +645,7 @@ $$
 
 を固定した $b$ と $\psi\in\mathcal D$ に作用させ、$a=0$ で強微分します。
 
-Stone の定理から
+[Stone の定理](../QM7/index.md#thm-qm7-stone)から
 
 $$
 \left.\frac{d}{da}U(a)\phi\right|_{a=0}
@@ -871,7 +871,7 @@ $$
 
 $M$ は $\{0\}$ でも全空間でもないので、この直和表現は既約ではありません。
 
-一方、標準 Schrödinger 表現そのものは既約です。この事実も Stone--von Neumann の定理に含まれる標準的構造の一部です。
+一方、標準 Schrödinger 表現そのものが既約であることは、次節で述べる一意性定理の枠組みで確認します。
 
 <!-- definition-example-end -->
 
@@ -908,13 +908,13 @@ $$
 
 が存在して、全ての $a,b\in\mathbb R$ について
 
-$
+$$
 (WU(a)W^{-1}\psi)(x)=\psi(x-a),
-$
+$$
 
-$
+$$
 (WV(b)W^{-1}\psi)(x)=e^{-ibx/\hbar}\psi(x)
-$
+$$
 
 となる。
 
@@ -1009,7 +1009,7 @@ $$
 
 ## 10. 演習
 
-### 問1　Schwartz 空間上の CCR
+### 問1　共通不変領域で CCR を確認する
 
 - Level: A
 
@@ -1087,9 +1087,9 @@ $$
 
 1. Fourier 変換を使って $f\in D(Q)$ だが $f\notin D(P)$ を示せ。
 2. 
-   $
+   $$
    g(x)=\frac1{(1+x^2)^{2/3}}
-   $
+   $$
    と取り、FOU3 の微分公式と Plancherel を使って $g\in D(P)$ だが $g\notin D(Q)$ を示せ。
 
 <!-- solution-start -->
@@ -1097,99 +1097,99 @@ $$
 
 $f$ は有限区間に台を持つので
 
-$
+$$
 \int_{\mathbb R}|x f(x)|^2\,dx
 =
 \int_0^1x^2\,dx
 =
 \frac13<\infty.
-$
+$$
 
 従って $f\in D(Q)$ です。
 
-また FOU3 の定義から、$\xi\ne0$ では
+Fourier 変換を直接計算すると、$\xi\ne0$ では
 
-$
+$$
 \widehat f(\xi)
 =
 \int_0^1e^{-i\xi x}\,dx
 =
 \frac{1-e^{-i\xi}}{i\xi}.
-$
+$$
 
 従って
 
-$
+$$
 \xi\widehat f(\xi)
 =
 \frac{1-e^{-i\xi}}i.
-$
+$$
 
 その絶対値二乗は
 
-$
+$$
 |1-e^{-i\xi}|^2
 =
 2-2\cos\xi
-$
+$$
 
 です。この関数は周期 $2\pi$ で、各周期上の積分は正の一定値です。従って
 
-$
+$$
 \int_{\mathbb R}
 |\xi\widehat f(\xi)|^2\,d\xi
 =
 \infty.
-$
+$$
 
 QM5 の定義域表示から $f\notin D(P)$ です。
 
 次に
 
-$
+$$
 g(x)=\frac1{(1+x^2)^{2/3}}
-$
+$$
 
 とします。無限遠では $g(x)\sim |x|^{-4/3}$ なので $g\in L^1\cap L^2$ です。
 
 微分すると
 
-$
+$$
 g'(x)
 =
 -\frac{4x}{3(1+x^2)^{5/3}}.
-$
+$$
 
 これは無限遠で $|x|^{-7/3}$ のオーダーなので $g'\in L^1\cap L^2$ です。従って FOU3 の微分公式
 
-$
+$$
 \widehat{g'}(\xi)
 =
 i\xi\widehat g(\xi)
-$
+$$
 
 を使えます。
 
 Plancherel により $\widehat{g'}\in L^2$ なので
 
-$
+$$
 \xi\widehat g(\xi)
 =
 \frac1i\widehat{g'}(\xi)
 \in L^2.
-$
+$$
 
 よって QM5 の定義域表示から $g\in D(P)$ です。
 
 一方
 
-$
+$$
 |xg(x)|^2
 =
 \frac{x^2}{(1+x^2)^{4/3}}
 \sim
 |x|^{-2/3}.
-$
+$$
 
 $\int_1^\infty x^{-2/3}\,dx$ は発散するので $xg\notin L^2$、従って $g\notin D(Q)$ です。
 
@@ -1509,7 +1509,7 @@ $$
 微分を行うために共通不変領域が必要だったことが、CCR の定義域問題そのものです。
 <!-- solution-end -->
 
-### 問7　Weyl 作用素の有限線形結合は代数を作る
+### 問7　生成元の有限線形結合は代数を作る
 
 - Level: B
 
@@ -1576,7 +1576,7 @@ $\mathcal A_0$ の一般元は有限線形結合なので、分配法則を使�
 従って $\mathcal A_0$ は積と随伴で閉じています。これが「二つの観測量」から「それらが生成する作用素代数」へ視点を上げる最初の具体例です。
 <!-- solution-end -->
 
-### 問8　位相空間上の平行移動と cocycle
+### 問8　Weyl 作用素の積と中心位相
 
 - Level: C
 
@@ -1602,7 +1602,7 @@ $$
    ab'-a'b
    $$
    が二つのベクトル $(a,b),(a',b')$ の向き付き面積を表すことを説明せよ。
-3. なぜ $(a,b)\mapsto W(a,b)$ が通常の可換群 $\mathbb R^2$ の素直なユニタリ表現ではなく、中心位相を伴う表現になるのか説明せよ。
+3. なぜ $(a,b)\mapsto W(a,b)$ が平面の通常の加法則をそのまま保つユニタリ表現ではなく、中心位相を伴うのか説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
