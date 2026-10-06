@@ -231,6 +231,54 @@ $$
 が成り立つとき、$F$ は **局所 Lipschitz** であるという。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-evol6-local-lipschitz -->
+### **定義の確認**：実数上の二次非線形項
+
+$X=\mathbb R$ とし、
+
+$
+F(x)=x^2
+$
+
+を考えます。任意の $x_0\in\mathbb R$ を固定し、
+
+$
+|y-x_0|<1,
+\qquad
+|z-x_0|<1
+$
+
+とします。このとき
+
+$
+|y|,|z|
+\le
+|x_0|+1.
+$
+
+したがって
+
+$
+\begin{aligned}
+|F(y)-F(z)|
+&=
+|y^2-z^2|\\
+&=
+|y+z|\,|y-z|\\
+&\le
+2(|x_0|+1)|y-z|.
+\end{aligned}
+$
+
+よって $x_0$ の半径1の近傍では
+
+$
+L_{x_0}=2(|x_0|+1)
+$
+
+を Lipschitz 定数として取れます。$x_0$ は任意なので $F(x)=x^2$ は局所 Lipschitz です。
+<!-- definition-example-end -->
+
 局所存在だけならこの条件で十分です。しかし continuation では「ノルムが $R$ 以下のどの点から再出発しても、同じ長さだけ解ける」ことが欲しくなります。
 
 そこで本章では次の強い条件も分けて使います。
