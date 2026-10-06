@@ -33,7 +33,7 @@ C*-環
   └─ スペクトルが [0,∞) に入る元 → 一意な非負平方根
 ~~~
 
-最後の平方根では、次章の一般連続関数計算を丸ごと仮定しません。自己共役元一個に対して必要な多項式近似だけを、[RA8 の実 Stone--Weierstrass 定理](../RA8/index.md#thm-ra8-stone-weierstrass)から作ります。
+最後の平方根では、次章の一般連続関数計算を丸ごと仮定しません。$h^*=h$ を満たす元一個に対して必要な多項式近似だけを、[RA8 の実 Stone--Weierstrass 定理](../RA8/index.md#thm-ra8-stone-weierstrass)から作ります。
 
 ---
 
