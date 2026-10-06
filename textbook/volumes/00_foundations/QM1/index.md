@@ -165,11 +165,11 @@ $$
 
 実数係数だけなら、符号の違い
 
-$
+$$
 +1,
 \qquad
 -1
-$
+$$
 
 によって「同位相」と「反対位相」は表せますが、その中間の連続的な位相差を同じ代数で扱うには窮屈です。
 
@@ -182,20 +182,20 @@ $
 
 非零の複素振幅
 
-$
+$$
 a=r_a e^{i\theta_a},
 \qquad
 b=r_b e^{i\theta_b},
 \qquad
 r_a,r_b>0
-$
+$$
 
 に対し、
 
-$
+$$
 \theta_b-\theta_a
 \pmod{2\pi}
-$
+$$
 
 を $a$ に対する $b$ の **相対位相** という。
 <!-- formal-statement-end -->
@@ -203,31 +203,31 @@ $
 <!-- definition-example-start: def-qm1-relative-phase -->
 ### 直接例：共通回転では相対位相は変わらない
 
-$
+$$
 a=A,
 \qquad
 b=Ae^{i\varphi},
 \qquad
 A>0
-$
+$$
 
 なら、$a$ に対する $b$ の相対位相は $\varphi$ です。
 
 両方へ同じ $e^{i\alpha}$ を掛けると
 
-$
+$$
 a'=Ae^{i\alpha},
 \qquad
 b'=Ae^{i(\alpha+\varphi)}
-$
+$$
 
 となるため、位相差は
 
-$
+$$
 (\alpha+\varphi)-\alpha
 =
 \varphi
-$
+$$
 
 のままです。共通の位相回転と、二つの成分の相対位相は別物です。
 <!-- definition-example-end -->
