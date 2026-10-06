@@ -4,8 +4,7 @@ coverage: complete
 prerequisites:
   - EVOL4
 
-forward_references:
-  - evolution.semilinear-duhamel-map
+forward_references: []
 
 concepts:
   - id: evolution.bounded-analytic-semigroup
