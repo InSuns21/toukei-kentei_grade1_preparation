@@ -273,6 +273,8 @@ $$
 
 <!-- definition-example-start: def-qm3-pvm -->
 
+**定義の確認**
+
 QM2 の有限次元観測量
 
 $$
@@ -436,6 +438,8 @@ $$
 ### 直接例：二値関数を積分する
 
 <!-- definition-example-start: def-qm3-spectral-integral -->
+
+**定義の確認**
 
 $B\subset K$ を Borel 集合とし、
 
@@ -656,39 +660,39 @@ $$
 
 ### 5.2 多項式から連続関数へ
 
-$sigma(A)$ は FA5 によりコンパクトで、自己共役性から $sigma(A)subsetmathbb R$ です。
+$\sigma(A)$ は FA5 によりコンパクトで、自己共役性から $\sigma(A)\subset\mathbb R$ です。
 
-ここでは [RA8 の実 Stone--Weierstrass 定理](../RA8/index.md#thm-ra8-stone-weierstrass)を使います。$sigma(A)$ 上の実多項式の制限全体は、
+ここでは [RA8 の実 Stone--Weierstrass 定理](../RA8/index.md#thm-ra8-stone-weierstrass)を使います。$\sigma(A)$ 上の実多項式の制限全体は、
 
 - 定数関数を含む。
 - 和・積・実数倍で閉じる。
-- 異なる $lambda,muinsigma(A)$ を、座標関数 $xmapsto x$ が分離する。
+- 異なる $\lambda,\mu\in\sigma(A)$ を、座標関数 $x\mapsto x$ が分離する。
 
-ので、$C(sigma(A),mathbb R)$ に一様ノルムで稠密です。
+ので、$C(\sigma(A),\mathbb R)$ に一様ノルムで稠密です。
 
-複素数値の $fin C(sigma(A))$ については
+複素数値の $f\in C(\sigma(A))$ については
 
 $$
-f=operatorname{Re}f+ioperatorname{Im}f
+f=\operatorname{Re}f+i\operatorname{Im}f
 $$
 
 と分けます。実多項式列 $p_n,q_n$ を
 
 $$
-p_n	ooperatorname{Re}f,
-qquad
-q_n	ooperatorname{Im}f
+p_n\to\operatorname{Re}f,
+\qquad
+q_n\to\operatorname{Im}f
 $$
 
 と一様近似するように取れば、
 
 $$
-p_n+i q_n	o f
+p_n+i q_n\to f
 $$
 
 も一様収束します。
 
-従って、任意の $fin C(sigma(A))$ は複素係数多項式で一様近似できます。
+従って、任意の $f\in C(\sigma(A))$ は複素係数多項式で一様近似できます。
 
 <a id="lem-qm3-continuous-functional-calculus"></a>
 
@@ -819,7 +823,7 @@ PVM を構成するため、[MT5 の Riesz--Markov 正汎関数版](../MT5/index
 MT5 の定理は局所コンパクト Hausdorff 空間 $X$ 上の $C_c(X)$ に対する結果です。本章では
 
 $$
-K=sigma(A)
+K=\sigma(A)
 $$
 
 と置きます。$K$ は実数直線のコンパクト部分集合なので局所コンパクト Hausdorff であり、コンパクト空間上では
@@ -833,23 +837,23 @@ $$
 従って、線形汎関数
 
 $$
-L:C(K)	omathbb C
+L:C(K)\to\mathbb C
 $$
 
 が
 
 $$
-fge0
-quadLongrightarrowquad
-L(f)ge0
+f\ge0
+\quad\Longrightarrow\quad
+L(f)\ge0
 $$
 
-を満たせば、MT5 の定理をそのまま適用でき、一意な有限 Radon 測度、従って有限 Borel 測度 $mu$ が存在して
+を満たせば、MT5 の定理をそのまま適用でき、一意な有限 Radon 測度、従って有限 Borel 測度 $\mu$ が存在して
 
 $$
 L(f)
 =
-int_K f,dmu
+\int_K f\,d\mu
 $$
 
 と表せます。
@@ -1420,7 +1424,58 @@ $$
 
 一意性を示します。
 
-$E$ と $F$ がどちらも $A$ を表す PVM とします。多項式 $p$ に対して積分の積法則から
+$E$ と $F$ がどちらも $A$ を表す PVM とします。
+
+まず PVM $E$ に対し、互いに素な分割上の単関数
+
+$$
+s=\sum_j c_j\mathbf 1_{B_j},
+\qquad
+t=\sum_k d_k\mathbf 1_{C_k}
+$$
+
+を取ります。定義と
+
+$$
+E(B_j)E(C_k)=E(B_j\cap C_k)
+$$
+
+から
+
+$$
+\begin{aligned}
+\left(\int s\,dE\right)
+\left(\int t\,dE\right)
+&=
+\sum_{j,k}c_jd_kE(B_j)E(C_k)\\
+&=
+\sum_{j,k}c_jd_kE(B_j\cap C_k)\\
+&=
+\int st\,dE.
+\end{aligned}
+$$
+
+有界 Borel 関数を単関数で一様近似し、第4節の作用素ノルム評価を使えば、この等式は有界 Borel 関数へ拡張できます。
+
+特に
+
+$$
+A=\int\lambda\,dE(\lambda)
+$$
+
+から帰納的に
+
+$$
+A^n=\int\lambda^n\,dE(\lambda)
+$$
+
+となります。従って任意の多項式 $p$ に対して
+
+$$
+p(A)=\int p(\lambda)\,dE(\lambda).
+$$
+
+同じ議論は $F$ にも成り立つので
 
 $$
 p(A)
@@ -1526,6 +1581,8 @@ $$
 ### 直接例：$L^2([0,1])$ の一様状態
 
 <!-- definition-example-start: def-qm3-state-spectral-measure -->
+
+**定義の確認**
 
 $$
 H=L^2([0,1]),
