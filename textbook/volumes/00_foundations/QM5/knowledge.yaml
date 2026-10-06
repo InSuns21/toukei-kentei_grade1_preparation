@@ -20,10 +20,10 @@ concepts:
       - functional.hilbert-space
 
   - id: quantum.adjoint-closed
-    name: 随伴作用素の閉性
+    name: 稠密定義作用素の随伴の閉性
     kind: theorem
     aliases: ["closedness of the adjoint operator"]
-    introduction_aliases: ["定理（随伴作用素は閉じている）"]
+    introduction_aliases: ["定理（随伴は閉じている）"]
     requires:
       - quantum.unbounded-adjoint
       - evolution.closed-operator
