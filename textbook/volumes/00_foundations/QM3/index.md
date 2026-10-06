@@ -46,56 +46,56 @@ $$
 
 それでも $M_x$ のスペクトルは
 
-$
+$$
 \sigma(M_x)=[0,1]
-$
+$$
 
 です。ここは固有値とは別に確認できます。
 
 まず $z\notin[0,1]$ なら
 
-$
+$$
 \delta
 =
 \operatorname{dist}(z,[0,1])
 >0
-$
+$$
 
 なので
 
-$
+$$
 \frac1{t-z}
-$
+$$
 
 は $[0,1]$ 上で有界です。従って
 
-$
+$$
 (M_x-zI)^{-1}g
 =
 \frac{g(t)}{t-z}
-$
+$$
 
 は有界作用素で、$z$ はレゾルベント集合に入ります。
 
 逆に $\lambda\in[0,1]$ とします。$\lambda$ の近くの長さ $O(1/n)$ の区間に台を持つ単位ベクトル $f_n$ を取れば、その台上で
 
-$
+$$
 |t-\lambda|
 \le
 \frac1n
-$
+$$
 
 とできるため
 
-$
+$$
 \|(M_x-\lambda I)f_n\|_2
 \le
 \frac1n.
-$
+$$
 
 もし $M_x-\lambda I$ が有界逆を持てば、
 
-$
+$$
 1
 =
 \|f_n\|_2
@@ -104,7 +104,7 @@ $
 \,
 \|(M_x-\lambda I)f_n\|_2
 \to0
-$
+$$
 
 となって矛盾です。従って $\lambda\in\sigma(M_x)$ です。
 
@@ -581,15 +581,15 @@ $$
 
 正規性から
 
-$
+$$
 (T^n)^*T^n
 =
 (T^*T)^n.
-$
+$$
 
 よって C*-恒等式と、正の自己共役作用素 $T^*T$ に対する先ほどの結果から
 
-$
+$$
 \begin{aligned}
 \|T^n\|^2
 &=
@@ -597,39 +597,39 @@ $
 &=
 \|(T^*T)^n\|.
 \end{aligned}
-$
+$$
 
 特に $n=2^k$ と取れば
 
-$
+$$
 \|(T^*T)^{2^k}\|
 =
 \|T^*T\|^{2^k}
 =
 \|T\|^{2^{k+1}},
-$
+$$
 
 したがって
 
-$
+$$
 \|T^{2^k}\|
 =
 \|T\|^{2^k}.
-$
+$$
 
 スペクトル半径公式へ $2^k$ 乗の部分列を入れて
 
-$
+$$
 r(T)=\|T\|.
-$
+$$
 
 従って
 
-$
+$$
 \|p(A)\|
 =
 r(p(A))
-$
+$$
 
 です。
 
@@ -720,42 +720,42 @@ $$
 
 さらに
 
-$
+$$
 \operatorname{Var}\left(\frac Kn\right)
 =
 \frac{x(1-x)}{n}
 \le
 \frac1{4n}.
-$
+$$
 
 事象
 
-$
+$$
 \left\{
 \left|\frac Kn-x\right|\ge\delta
 \right\}
-$
+$$
 
 上では
 
-$
+$$
 \left(\frac Kn-x\right)^2
 \ge
 \delta^2
-$
+$$
 
 なので、指示関数を使えば
 
-$
+$$
 \delta^2
 \mathbf 1_{\{|K/n-x|\ge\delta\}}
 \le
 \left(\frac Kn-x\right)^2.
-$
+$$
 
 期待値を取って
 
-$
+$$
 \Pr\left(
 \left|\frac Kn-x\right|\ge\delta
 \right)
@@ -763,7 +763,7 @@ $
 \frac{\operatorname{Var}(K/n)}{\delta^2}
 \le
 \frac{1}{4n\delta^2}.
-$
+$$
 
 右辺は $x$ に依存せず0へ収束します。従って $B_nf\to f$ は一様収束です。
 
@@ -986,31 +986,31 @@ $$
 
 多項式 $p$ に対し
 
-$
+$$
 W_u\bigl(p(A)u\bigr)
 =
 [p]
-$
+$$
 
 と置きます。右辺は $L^2(\mu_u)$ における同値類です。
 
 まず well-defined 性を確認します。もし
 
-$
+$$
 p(A)u=q(A)u
-$
+$$
 
 なら
 
-$
+$$
 (p-q)(A)u=0.
-$
+$$
 
 後で示すノルム等式から
 
-$
+$$
 \|p-q\|_{L^2(\mu_u)}=0
-$
+$$
 
 となるので、$p=q$ は $\mu_u$ ほとんど至るところ成り立ちます。従って $[p]=[q]$ で、$W_u$ は代表多項式の選び方に依存しません。
 
@@ -1233,17 +1233,17 @@ $$
 
 互いに素な $B_n$ については
 
-$
+$$
 \mathbf 1_{\cup_nB_n}
 =
 \sum_n\mathbf 1_{B_n}
-$
+$$
 
 が各点で成り立ちます。
 
 有限部分和との差の $L^2$ ノルムは
 
-$
+$$
 \begin{aligned}
 &\left\|
 \mathbf 1_{\cup_nB_n}f
@@ -1257,17 +1257,17 @@ $
 |f|^2
 \,d\mu.
 \end{aligned}
-$
+$$
 
 被積分関数は各点で0へ収束し、常に $|f|^2$ 以下です。$|f|^2$ は可積分なので、優収束定理から右辺は0へ収束します。
 
 従って
 
-$
+$$
 E\left(\bigcup_nB_n\right)f
 =
 \sum_nE(B_n)f
-$
+$$
 
 が $L^2$ ノルムで成り立ちます。
 
@@ -1401,42 +1401,42 @@ $$
 
 について各成分で
 
-$
+$$
 E_\alpha\left(\bigcup_nB_n\right)x_\alpha
 =
 \sum_nE_\alpha(B_n)x_\alpha
-$
+$$
 
 がノルム収束します。
 
 有限部分和との差を
 
-$
+$$
 d_{N,\alpha}
 =
 E_\alpha\left(\bigcup_nB_n\right)x_\alpha
 -
 \sum_{n=1}^NE_\alpha(B_n)x_\alpha
-$
+$$
 
 と置くと、
 
-$
+$$
 \|d_{N,\alpha}\|
 \to0
-$
+$$
 
 かつ
 
-$
+$$
 \|d_{N,\alpha}\|
 \le
 \|x_\alpha\|.
-$
+$$
 
 直交和のノルムから
 
-$
+$$
 \left\|
 E_A\left(\bigcup_nB_n\right)x
 -
@@ -1445,16 +1445,16 @@ E_A\left(\bigcup_nB_n\right)x
 =
 \sum_\alpha
 \|d_{N,\alpha}\|^2.
-$
+$$
 
 右辺は各 $\alpha$ で0へ収束し、$\|x_\alpha\|^2$ により支配され、
 
-$
+$$
 \sum_\alpha\|x_\alpha\|^2
 =
 \|x\|^2
 <\infty.
-$
+$$
 
 従って右辺全体も0へ収束し、直交和全体で強可算加法性が成立します。
 
@@ -1680,7 +1680,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
-### 有限次元公式の回収
+### 証明：有限次元公式の回収
 
 有限次元で
 
