@@ -1148,7 +1148,7 @@ $$
 
 ### 例3：Hermite 行列
 
-$M_n(\mathbb C)$ では、自己共役元は Hermite 行列です。[実対称行列のスペクトル定理](../F0_00F1_固有空間_スペクトル定理_PSD/index.md#thm-real-symmetric-spectral)の複素 Hermite 行列版により、正元は全固有値が非負の Hermite 行列、すなわち通常の正半定値行列に一致します。
+$M_n(\mathbb C)$ では、正元は自己共役な Hermite 行列のうち、スペクトルが $[0,\infty)$ に含まれるものです。これは通常、正半定値 Hermite 行列と呼ばれます。
 
 <!-- definition-example-end -->
 
