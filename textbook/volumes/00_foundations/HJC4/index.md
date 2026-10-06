@@ -194,7 +194,7 @@ $$
 ### 直接例
 
 $$
-\alpha[v](r)=-v(r)
+\alpha[v]\,(r)=-v(r)
 $$
 
 は nonanticipative です。時刻 $r$ の出力は $v(r)$ までしか使っていません。
@@ -202,14 +202,14 @@ $$
 一方、
 
 $$
-\alpha[v](r)=-v(T)
+\alpha[v]\,(r)=-v(T)
 $$
 
 は $r<T$ で未来の値 $v(T)$ を使うため nonanticipative ではありません。
 
 ここが control と strategy の最初の差です。
 
-**定義の確認**：$\alpha[v](r)=-v(r)$ は、$[t,s]$ で $v_1=v_2$ なら同じ区間で $\alpha[v_1]=\alpha[v_2]$ となるので、定義の nonanticipative 条件を直接満たします。対して $\alpha[v](r)=-v(T)$ は $r<T$ で未来値を参照するため、その条件を満たしません。
+**定義の確認**：$\alpha[v]\,(r)=-v(r)$ は、$[t,s]$ で $v_1=v_2$ なら同じ区間で $\alpha[v_1]=\alpha[v_2]$ となるので、定義の nonanticipative 条件を直接満たします。対して $\alpha[v]\,(r)=-v(T)$ は $r<T$ で未来値を参照するため、その条件を満たしません。
 <!-- definition-example-end -->
 control は「一本の予定表」ですが、strategy は「相手の行動履歴に対する応答規則」です。
 
@@ -353,7 +353,7 @@ $$
 \sup_{v_h}
 \Bigl\{
 &\int_t^{t+h}
-L(X(s),\alpha_h[v_h](s),v_h(s))\,ds\\
+L(X(s),\alpha_h[v_h]\,(s),v_h(s))\,ds\\
 &+
 \psi(t+h,X(t+h))
 \Bigr\}
@@ -372,7 +372,7 @@ $$
 \inf_{u_h}
 \Bigl\{
 &\int_t^{t+h}
-L(X(s),u_h(s),\beta_h[u_h](s))\,ds\\
+L(X(s),u_h(s),\beta_h[u_h]\,(s))\,ds\\
 &+
 \psi(t+h,X(t+h))
 \Bigr\}.
@@ -750,7 +750,7 @@ $$
 \sup_v
 \frac1h
 \int_t^{t+h}
-Q(\alpha[v](s),v(s))\,ds
+Q(\alpha[v]\,(s),v(s))\,ds
 $$
 
 です。
@@ -764,7 +764,7 @@ $$
 を選べば
 
 $$
-Q(\alpha[v](s),b)
+Q(\alpha[v]\,(s),b)
 \ge
 \inf_aQ(a,b).
 $$
@@ -797,7 +797,7 @@ $$
 を十分細かく取り、各 $b$ で「最初に $\varepsilon$-近似最小を達成する番号」を選びます。有限個の連続関数 $Q(a_i,b)$ の大小で領域を分けるので、こうして得る $a_\varepsilon(b)$ は Borel 可測に取れます。
 
 $$
-\alpha_\varepsilon[v](s)
+\alpha_\varepsilon[v]\,(s)
 =
 a_\varepsilon(v(s))
 $$
@@ -805,7 +805,7 @@ $$
 とすれば admissible かつ nonanticipative で、
 
 $$
-Q(\alpha_\varepsilon[v](s),v(s))
+Q(\alpha_\varepsilon[v]\,(s),v(s))
 \le
 H^-+\varepsilon.
 $$
@@ -835,7 +835,7 @@ upper game も同様に
 $$
 \boxed{
 \sup_\beta\inf_u
-\frac1h\int Q(u(s),\beta[u](s))\,ds
+\frac1h\int Q(u(s),\beta[u]\,(s))\,ds
 =
 \inf_a\sup_bQ(a,b)
 }.
@@ -1616,13 +1616,13 @@ $$
 1.
 
 $$
-\alpha[v](s)=\tanh(v(s)).
+\alpha[v]\,(s)=\tanh(v(s)).
 $$
 
 2.
 
 $$
-\widetilde\alpha[v](s)=\tanh(v(T)).
+\widetilde\alpha[v]\,(s)=\tanh(v(T)).
 $$
 
 <!-- solution-start -->
@@ -1661,13 +1661,13 @@ $$
 すると $s\le r$ でも
 
 $$
-\widetilde\alpha[v_1](s)
+\widetilde\alpha[v_1]\,(s)
 =
 \tanh(v_1(T))
 \ne
 \tanh(v_2(T))
 =
-\widetilde\alpha[v_2](s).
+\widetilde\alpha[v_2]\,(s).
 $$
 
 未来の control を使って現在の応答を決めているためである。
@@ -1932,7 +1932,7 @@ $$
 \sup_v
 \frac1h
 \int_t^{t+h}
-Q(\alpha[v](s),v(s))\,ds
+Q(\alpha[v]\,(s),v(s))\,ds
 $$
 
 とする。
@@ -1961,7 +1961,7 @@ $$
 各 $s$ で
 
 $$
-Q(\alpha[v_b](s),b)
+Q(\alpha[v_b]\,(s),b)
 \ge
 \inf_aQ(a,b)
 $$
@@ -1971,7 +1971,7 @@ $$
 $$
 \frac1h
 \int_t^{t+h}
-Q(\alpha[v_b](s),b)\,ds
+Q(\alpha[v_b]\,(s),b)\,ds
 \ge
 \inf_aQ(a,b).
 $$
@@ -2008,7 +2008,7 @@ $$
 strategy を
 
 $$
-\alpha_\varepsilon[v](s)
+\alpha_\varepsilon[v]\,(s)
 =
 a_\varepsilon(v(s))
 $$
@@ -2018,7 +2018,7 @@ $$
 すると
 
 $$
-Q(\alpha_\varepsilon[v](s),v(s))
+Q(\alpha_\varepsilon[v]\,(s),v(s))
 \le
 \inf_aQ(a,v(s))+\varepsilon
 \le
@@ -2381,13 +2381,13 @@ $$
 lower game では MIN が $v$ に反応できる。
 
 $$
-\alpha[v](s)=v(s)
+\alpha[v]\,(s)=v(s)
 $$
 
 とすれば
 
 $$
-L(\alpha[v](s),v(s))
+L(\alpha[v]\,(s),v(s))
 =
 (v(s)-v(s))^2
 =
@@ -2405,13 +2405,13 @@ $$
 upper game では MAX が $u$ に反応できる。
 
 $$
-\beta[u](s)=-u(s)
+\beta[u]\,(s)=-u(s)
 $$
 
 とすれば
 
 $$
-L(u(s),\beta[u](s))
+L(u(s),\beta[u]\,(s))
 =
 (u(s)+u(s))^2
 =
