@@ -19,7 +19,7 @@ concepts:
   - id: quantum.infinitesimal-generator-unitary-group
     name: ユニタリ群の無限小生成作用素
     kind: definition
-    aliases: ["infinitesimal generator of a unitary group"]
+    aliases: ["無限小生成作用素", "infinitesimal generator of a unitary group"]
     introduction: formal
     introduction_aliases: ["定義（無限小生成作用素）"]
     requires:
