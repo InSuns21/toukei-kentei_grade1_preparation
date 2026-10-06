@@ -22,9 +22,9 @@ $$
 
 > 状態のうち、von Neumann 環の弱い極限を壊さずに読み取れるものはどれか。
 
-答えは、predual の元として現れる状態です。本章ではそれを**正規状態**として切り出します。
+答えは、predual の元として現れる状態です。本章では「状態であり、しかも ultraweak 極限を保つ」という追加条件を切り出します。
 
-特に $B(H)$ では、正規状態は一つの正の trace class 作用素
+特に $B(H)$ では、この特別な状態は一つの正の trace class 作用素
 
 $$
 \rho\ge0,
@@ -38,7 +38,7 @@ $$
 \varphi(A)=\operatorname{Tr}(A\rho)
 $$
 
-と完全に表せます。量子力学で密度作用素と呼んだものが、ここでは「predual の正で正規化された元」として現れます。
+と完全に表せます。量子力学で「密度行列」と呼ばれる対象が、ここでは「predual の正で正規化された元」として現れます。
 
 後半では「状態」と「トレース」を分けます。有限次元では正規化トレースが状態でしたが、無限次元 $B(H)$ の標準トレースは
 
@@ -55,9 +55,9 @@ $$
 \longrightarrow
 \text{正規汎関数}
 \longrightarrow
-\text{正規状態}
+\text{ultraweak 連続な状態}
 \longrightarrow
-\text{密度作用素}
+\text{正でトレース1の trace class 作用素}
 \longrightarrow
 \text{射影の単調極限}
 \longrightarrow
@@ -170,7 +170,7 @@ $$
 <a id="prop-vn5-normal-trace-class-representation"></a>
 
 <!-- formal-statement-start -->
-### 命題（$B(H)$ 上の正規汎関数の trace class 表示）
+### 命題（有界作用素環上の正規汎関数の trace class 表示）
 
 $H$ を複素 Hilbert 空間とする。
 
@@ -328,7 +328,7 @@ $$
 
 と書けます。
 
-$A\ge0$ を取ります。VN4 の rank-one 公式とトレースノルム収束から
+$A\ge0$ を取ります。[rank-one 作用素のトレース公式](../VN4/index.md#prop-vn4-trace-rank-one)とトレースノルム収束から
 
 $$
 \begin{aligned}
@@ -376,7 +376,7 @@ $$
 \operatorname{Tr}(P_xT).
 $$
 
-VN4 の cyclicity と rank-one 公式から
+[rank-one 作用素のトレース公式](../VN4/index.md#prop-vn4-trace-rank-one)と、VN4 で示した $\operatorname{Tr}(AT)=\operatorname{Tr}(TA)$ を使うと
 
 $$
 \operatorname{Tr}(P_xT)
@@ -399,7 +399,7 @@ $$
 
 ---
 
-## 4. 正規状態と密度作用素
+## 4. 状態に ultraweak 連続性を課し、作用素で表す
 
 OA5 の状態は「正で、単位元を1へ送る汎関数」でした。
 
@@ -654,7 +654,7 @@ $$
 
 と置くと、$\rho\in S_1(H)$ なので $\varphi_\rho$ は正規汎関数です。
 
-また $\rho\ge0$ だから前節の命題により $\varphi_\rho$ は正です。
+また $\rho\ge0$ なので、[正規汎関数の正性と正 trace class 作用素](#prop-vn5-positive-normal-trace-class)より $\varphi_\rho$ は正です。
 
 さらに
 
@@ -761,7 +761,7 @@ $$
 p_j\langle Ae_j,e_j\rangle.
 $$
 
-これは複数のベクトル状態の凸結合です。
+これは複数のベクトル状態を、非負で総和1の係数で混ぜた重み付き平均です。
 
 たとえば
 
@@ -956,7 +956,7 @@ $B(H)$ では逆向きも、VN4 までの道具だけで具体的に証明でき
 <a id="thm-vn5-projection-normality-criterion"></a>
 
 <!-- formal-statement-start -->
-### 定理（$B(H)$ における射影単調連続性による正規性判定）
+### 定理（有界作用素環における射影単調連続性による正規性判定）
 
 $\varphi:B(H)\to\mathbb C$ を正線形汎関数とする。
 
@@ -1026,7 +1026,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$1\Rightarrow2$ は[前節の命題](#prop-vn5-normal-monotone-projections)で示しました。
+$1\Rightarrow2$ は[正規な正汎関数の射影単調連続性](#prop-vn5-normal-monotone-projections)で示しました。
 
 以下 $2$ を仮定します。
 
@@ -1162,7 +1162,7 @@ $$
 \varphi(I).
 $$
 
-#### Step 3: 有限ランク作用素では trace 表示が成り立つ
+#### Step 3: 有限ランク作用素ではトレース表示が成り立つ
 
 rank-one 作用素に対して
 
@@ -1492,7 +1492,7 @@ $$
 
 この経験だけを見ると「トレースとは特別な状態」と思いたくなります。
 
-しかし無限次元では、恒等作用素のトレースは一般に無限大です。そこで von Neumann 環上のトレースは、最初から $M_+$ 上の拡張値写像として扱うのが自然です。
+しかし無限次元では、恒等作用素のトレースは一般に無限大です。そこで von Neumann 環で使うトレース概念は、最初から $M_+$ 上の拡張値写像として扱うのが自然です。
 
 <a id="def-vn5-von-neumann-trace"></a>
 
@@ -1554,7 +1554,7 @@ $$
 
 とします。
 
-正行列の対角和なので $\tau(A)\ge0$ で、加法性と正の斉次性は通常の行列トレースの線形性から従います。
+正の行列の対角和なので $\tau(A)\ge0$ で、加法性と正の斉次性は通常の行列トレースの線形性から従います。
 
 さらに任意の $X\in M_n(\mathbb C)$ に対して
 
@@ -1646,7 +1646,7 @@ $$
 <a id="thm-vn5-standard-bh-trace"></a>
 
 <!-- formal-statement-start -->
-### 定理（$B(H)$ の標準トレースは正規・忠実・半有限）
+### 定理（有界作用素環の標準トレースは正規・忠実・半有限）
 
 $H$ を可分複素 Hilbert 空間とする。
 
@@ -2039,11 +2039,11 @@ $$
 <a id="prop-vn5-no-normal-tracial-state"></a>
 
 <!-- formal-statement-start -->
-### 命題（無限次元 $B(H)$ に正規トレース状態 は存在しない）
+### 命題（無限次元有界作用素環に正規トレース状態は存在しない）
 
 $H$ を無限次元可分複素 Hilbert 空間とする。
 
-$B(H)$ 上には、正規かつ tracial な状態は存在しない。
+$B(H)$ 上には正規トレース状態は存在しない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -2434,7 +2434,7 @@ $$
 
 よって $\rho_\xi$ は密度作用素です。
 
-VN4 の rank-one 公式から
+[rank-one 作用素のトレース公式](../VN4/index.md#prop-vn4-trace-rank-one)から
 
 $$
 \operatorname{Tr}(A\theta_{\xi,\xi})
@@ -2602,7 +2602,7 @@ $$
 \boxed{\tau_n(A)\ge0}.
 $$
 
-また通常の行列トレースの cyclicity から
+また有限次元の行列トレースでは積の順序を巡回させても値が変わらないので
 
 $$
 \operatorname{Tr}(X^*X)
@@ -2672,7 +2672,7 @@ $$
 \operatorname{Tr}(\theta_{x,y}\sigma).
 $$
 
-VN4 の cyclicity を使って
+VN4 で示した $\operatorname{Tr}(AT)=\operatorname{Tr}(TA)$ を使って
 
 $$
 \operatorname{Tr}(\theta_{x,y}\rho)
@@ -2682,7 +2682,7 @@ $$
 \langle\rho x,y\rangle.
 $$
 
-また同じ cyclicity と rank-one 公式を $\sigma$ に適用して
+また同じトレース交換則と [rank-one 作用素のトレース公式](../VN4/index.md#prop-vn4-trace-rank-one)を $\sigma$ に適用して
 
 $$
 \operatorname{Tr}(\theta_{x,y}\sigma)
