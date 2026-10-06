@@ -1,0 +1,101 @@
+chapter: QM6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QM5
+  - QM3
+  - FOU4
+
+forward_references: []
+
+concepts:
+  - id: quantum.unbounded-spectral-integral
+    name: 非有界スペクトル積分
+    kind: definition
+    aliases: ["unbounded spectral integral"]
+    introduction: formal
+    introduction_aliases: ["定義（非有界スペクトル積分）"]
+    requires:
+      - quantum.projection-valued-measure
+      - quantum.spectral-integral-bounded
+
+  - id: quantum.self-adjoint-range-criterion
+    name: 自己共役性の値域判定
+    kind: theorem
+    aliases: ["self-adjointness range criterion"]
+    introduction_aliases: ["定理（自己共役性の値域判定）"]
+    requires:
+      - quantum.self-adjoint-unbounded-operator
+      - quantum.unbounded-adjoint
+
+  - id: quantum.spectral-integral-self-adjoint
+    name: 実座標のスペクトル積分の自己共役性
+    kind: theorem
+    aliases: ["self-adjointness of the real spectral integral"]
+    introduction_aliases: ["定理（実座標のスペクトル積分は自己共役）"]
+    requires:
+      - quantum.unbounded-spectral-integral
+      - quantum.self-adjoint-range-criterion
+
+  - id: quantum.cayley-transform
+    name: Cayley 変換
+    kind: definition
+    aliases: ["Cayley transform"]
+    introduction: formal
+    introduction_aliases: ["定義（Cayley 変換）"]
+    requires:
+      - quantum.self-adjoint-unbounded-operator
+      - quantum.self-adjoint-range-criterion
+
+  - id: quantum.cayley-transform-properties
+    name: Cayley 変換の基本性質
+    kind: proposition
+    aliases: ["basic properties of the Cayley transform"]
+    introduction_aliases: ["命題（Cayley 変換の基本性質）"]
+    requires:
+      - quantum.cayley-transform
+
+  - id: quantum.unitary-spectral-theorem
+    name: ユニタリ作用素のスペクトル定理
+    kind: theorem
+    aliases: ["unitary spectral theorem"]
+    introduction_aliases: ["定理（ユニタリ作用素のスペクトル定理）"]
+    requires:
+      - quantum.projection-valued-measure
+
+  - id: quantum.unbounded-self-adjoint-spectral-theorem
+    name: 非有界自己共役作用素のスペクトル定理
+    kind: theorem
+    aliases: ["unbounded self-adjoint spectral theorem"]
+    introduction_aliases: ["定理（非有界自己共役作用素のスペクトル定理）"]
+    requires:
+      - quantum.cayley-transform-properties
+      - quantum.unitary-spectral-theorem
+      - quantum.spectral-integral-self-adjoint
+
+  - id: quantum.self-adjoint-borel-functional-calculus
+    name: 自己共役作用素の Borel 関数計算
+    kind: definition
+    aliases: ["Borel functional calculus for self-adjoint operators"]
+    introduction: formal
+    introduction_aliases: ["定義（自己共役作用素の Borel 関数計算）"]
+    requires:
+      - quantum.unbounded-self-adjoint-spectral-theorem
+      - quantum.unbounded-spectral-integral
+
+  - id: quantum.spectral-phase-unitary
+    name: スペクトル位相作用素のユニタリ性
+    kind: proposition
+    aliases: ["unitarity of spectral phase operators"]
+    introduction_aliases: ["命題（スペクトル位相作用素はユニタリ）"]
+    requires:
+      - quantum.self-adjoint-borel-functional-calculus
+
+  - id: quantum.free-particle-hamiltonian-spectral
+    name: 自由粒子 Hamiltonian のスペクトル表示
+    kind: proposition
+    aliases: ["spectral representation of the free-particle Hamiltonian"]
+    introduction_aliases: ["命題（自由粒子 Hamiltonian のスペクトル表示）"]
+    requires:
+      - quantum.momentum-operator-fourier
+      - quantum.unbounded-self-adjoint-spectral-theorem
