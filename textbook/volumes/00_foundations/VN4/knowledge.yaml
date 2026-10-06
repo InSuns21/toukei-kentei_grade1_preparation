@@ -47,6 +47,17 @@ concepts:
     requires:
       - operator-algebra.trace-class
 
+  - id: operator-algebra.ky-fan-singular-value-variational
+    name: Ky Fan 型変分公式
+    kind: lemma
+    aliases: ["Ky Fan singular-value variational formula"]
+    introduction_aliases: ["補題（Ky Fan 型変分公式）"]
+    requires:
+      - operator-algebra.compact-operator-singular-values
+      - operator-algebra.polar-decomposition
+      - linear.bessel-inequality
+      - linear.cauchy-schwarz
+
   - id: operator-algebra.trace-class-banach-ideal
     name: trace class の Banach イデアル性と有限ランク稠密性
     kind: theorem
@@ -56,6 +67,7 @@ concepts:
       - operator-algebra.trace-class
       - operator-algebra.trace-norm
       - operator-algebra.singular-value-best-approximation
+      - operator-algebra.ky-fan-singular-value-variational
 
   - id: operator-algebra.trace-functional
     name: trace class 上のトレース
@@ -125,3 +137,4 @@ concepts:
       - operator-algebra.trace-class-duality
       - operator-algebra.ultraweak-topology
       - functional.dual-space
+      - functional.quotient-banach-space
