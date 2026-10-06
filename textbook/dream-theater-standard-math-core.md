@@ -49,19 +49,20 @@ SET10 数学各分野での選択原理
 > **測度論の初回は、すべての証明を完走しなくても構いません。** 後続科目へ進むための一巡目では、測度・可測性・Lebesgue 積分・ほとんど至る所での性質・$L^p$ の定義と、単調収束定理・Fatou の補題・優収束定理・Tonelli--Fubini の定理・Radon--Nikodym の定理・$L^p$ の完備性や稠密性について、まず**主張と適用条件を確認して正しく使えること**を優先します。証明の仕組み自体が必要になった地点で該当章へ戻って補う読み方でも大丈夫です。測度論そのものを体系的に修了したい場合は、科目目次を上から通読してください。
 
 7. [**確率論**](textbook/dream-theater.md#dt-subject-probability)：測度論を基礎に、条件付き期待値、収束、極限定理、統計理論への接続までを扱う。
-8. [**関数解析**](textbook/dream-theater.md#dt-subject-functional-analysis)：Banach・Hilbert 空間、双対、弱位相、作用素とスペクトルを扱う。
-9. [**常微分方程式 I（ODE1--ODE7）**](textbook/dream-theater.md#dt-subject-ode-i)：一階方程式、線形方程式、連立系、非線形系、Laplace 変換、級数解、Sturm--Liouville 理論までを扱う。
-10. [**ベクトル解析 I（VC1--VC7）**](textbook/dream-theater.md#dt-subject-vector-calculus-i)：勾配・発散・回転、線積分・面積分、Green・Gauss--Ostrogradsky・Kelvin--Stokes の定理、曲線座標とテンソル記法までを扱う。
-11. [**常微分方程式 II（ODE8--ODE11）**](textbook/dream-theater.md#dt-subject-ode-ii)：最大解、連続依存、Lyapunov 理論、平面力学系、周期軌道、分岐までを扱う。
-12. [**Fourier 解析**](textbook/dream-theater.md#dt-subject-fourier-analysis)：Fourier 級数・Fourier 変換、Plancherel 理論、確率分布との接続、離散 Fourier 変換、サンプリングまでを一続きで扱う。
-13. [**時系列解析（大学院レベル）**](textbook/dream-theater.md#dt-subject-time-series)：確率論・関数解析・Fourier 解析を土台に、定常過程、Hilbert 空間による線形予測、Wold 分解、スペクトル表現、ARMA、エルゴード性、状態空間モデル、Kalman フィルタまでを扱う。
-14. [**複素解析 II（CA8--CA12）**](textbook/dream-theater.md#dt-subject-complex-analysis-ii)：Riemann 面、楕円関数、無限積、Gamma 関数、Riemann ζ 関数と theta 変換までを扱う。
-15. [**偏微分方程式 I**](textbook/dream-theater.md#dt-subject-pde-i)：特性曲線、熱・波動・Laplace / Poisson 方程式、Green 関数、固有関数展開、Hamilton--Jacobi 方程式までを扱う。
-16. [**ベクトル解析 II（VC8--VC9）**](textbook/dream-theater.md#dt-subject-vector-calculus-ii)：Newton ポテンシャル、Helmholtz 分解、流体、Maxwell 方程式までを扱う。
-17. [**微分幾何 I（GEO1--GEO9）**](textbook/dream-theater.md#dt-subject-differential-geometry-i)：滑らかな多様体、接空間、部分多様体、ベクトル場、微分形式、一般 Stokes の定理、de Rham コホモロジー入門までを扱う。
-18. [**微分幾何 II（GEO10--GEO19）**](textbook/dream-theater.md#dt-subject-differential-geometry-ii)：曲線・超曲面、Riemann 計量、接続、測地線、曲率、比較幾何、Gauss--Bonnet の定理までを扱う。
-19. [**偏微分方程式 II**](textbook/dream-theater.md#dt-subject-pde-ii)：超関数、Sobolev 空間、弱解、変分法、楕円型正則性、Galerkin 法までを扱う。
-20. [**確率解析**](textbook/dream-theater.md#dt-subject-stochastic-analysis)：マルチンゲール、Brown 運動と Wiener 測度、Itô 積分、SDE、生成作用素、Lévy 過程までを扱う。
+8. [**関数解析 I**](textbook/dream-theater.md#dt-subject-functional-analysis)：Banach・Hilbert 空間、双対、随伴、Hahn–Banach、Baire のカテゴリー定理と Banach 空間の基本定理を扱う。
+9. [**関数解析 II**](textbook/dream-theater.md#dt-subject-functional-analysis-ii)：弱位相・弱*位相、Banach–Alaoglu、スペクトル・レゾルベント、コンパクト作用素、Fredholm 理論を扱う。
+10. [**常微分方程式 I（ODE1--ODE7）**](textbook/dream-theater.md#dt-subject-ode-i)：一階方程式、線形方程式、連立系、非線形系、Laplace 変換、級数解、Sturm--Liouville 理論までを扱う。
+11. [**ベクトル解析 I（VC1--VC7）**](textbook/dream-theater.md#dt-subject-vector-calculus-i)：勾配・発散・回転、線積分・面積分、Green・Gauss--Ostrogradsky・Kelvin--Stokes の定理、曲線座標とテンソル記法までを扱う。
+12. [**常微分方程式 II（ODE8--ODE11）**](textbook/dream-theater.md#dt-subject-ode-ii)：最大解、連続依存、Lyapunov 理論、平面力学系、周期軌道、分岐までを扱う。
+13. [**Fourier 解析**](textbook/dream-theater.md#dt-subject-fourier-analysis)：Fourier 級数・Fourier 変換、Plancherel 理論、確率分布との接続、離散 Fourier 変換、サンプリングまでを一続きで扱う。
+14. [**時系列解析（大学院レベル）**](textbook/dream-theater.md#dt-subject-time-series)：確率論・関数解析・Fourier 解析を土台に、定常過程、Hilbert 空間による線形予測、Wold 分解、スペクトル表現、ARMA、エルゴード性、状態空間モデル、Kalman フィルタまでを扱う。
+15. [**複素解析 II（CA8--CA12）**](textbook/dream-theater.md#dt-subject-complex-analysis-ii)：Riemann 面、楕円関数、無限積、Gamma 関数、Riemann ζ 関数と theta 変換までを扱う。
+16. [**偏微分方程式 I**](textbook/dream-theater.md#dt-subject-pde-i)：特性曲線、熱・波動・Laplace / Poisson 方程式、Green 関数、固有関数展開、Hamilton--Jacobi 方程式までを扱う。
+17. [**ベクトル解析 II（VC8--VC9）**](textbook/dream-theater.md#dt-subject-vector-calculus-ii)：Newton ポテンシャル、Helmholtz 分解、流体、Maxwell 方程式までを扱う。
+18. [**微分幾何 I（GEO1--GEO9）**](textbook/dream-theater.md#dt-subject-differential-geometry-i)：滑らかな多様体、接空間、部分多様体、ベクトル場、微分形式、一般 Stokes の定理、de Rham コホモロジー入門までを扱う。
+19. [**微分幾何 II（GEO10--GEO19）**](textbook/dream-theater.md#dt-subject-differential-geometry-ii)：曲線・超曲面、Riemann 計量、接続、測地線、曲率、比較幾何、Gauss--Bonnet の定理までを扱う。
+20. [**偏微分方程式 II**](textbook/dream-theater.md#dt-subject-pde-ii)：超関数、Sobolev 空間、弱解、変分法、楕円型正則性、Galerkin 法までを扱う。
+21. [**確率解析**](textbook/dream-theater.md#dt-subject-stochastic-analysis)：マルチンゲール、Brown 運動と Wiener 測度、Itô 積分、SDE、生成作用素、Lévy 過程までを扱う。
 
 ### 抽象発展方程式・半群論への発展分岐
 
