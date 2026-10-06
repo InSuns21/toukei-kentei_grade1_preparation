@@ -19,6 +19,9 @@ if (!fs.existsSync(policyPath)) fatal('textbook/dream-theater-knowledge.yaml が
 const index = JSON.parse(fs.readFileSync(indexPath, 'utf8'));
 const policy = YAML.parse(fs.readFileSync(policyPath, 'utf8')) ?? {};
 const metadataFile = policy.metadata_file || 'knowledge.yaml';
+const reachabilityExemptConceptIds = new Set(
+  (policy.dependency_tracking?.reachability_exempt_concepts ?? []).map(String)
+);
 const contextualAliases = new Set(
   (policy.alias_matching?.contextual_aliases ?? [])
     .map((value) => normalizeAlias(String(value)))
@@ -232,6 +235,7 @@ for (const page of pages.values()) {
     const firstUses = findFirstUnshadowedConceptUses(lines, visibleShadowConcepts, page, aliasMatcher);
     for (const concept of conceptById.values()) {
       if (concept.pageId === page.id) continue;
+      if (reachabilityExemptConceptIds.has(concept.id)) continue;
       const firstUse = firstUses.get(concept.id);
       if (firstUse == null) continue;
       if (page.ancestors.has(concept.pageId)) continue;
@@ -281,6 +285,7 @@ function validateConceptDependencies(page, knowledgeRel) {
         findings.push(errorFinding(knowledgeRel, 1, `${concept.id} が未知の依存概念 ${requiredId} を要求しています。`));
         continue;
       }
+      if (reachabilityExemptConceptIds.has(requiredId)) continue;
       if (required.pageId === page.id) {
         if (required.order >= concept.order) {
           findings.push(errorFinding(knowledgeRel, 1, `${concept.id} は同ページで後に導入される ${requiredId} に依存しています。knowledge.yaml の順序を教材順に合わせてください。`));
