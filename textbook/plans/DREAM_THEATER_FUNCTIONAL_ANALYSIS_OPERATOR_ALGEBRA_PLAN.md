@@ -249,15 +249,15 @@ DREAM_THEATER_EVOLUTION_EQUATIONS_SEMIGROUP_PLAN.md
 
 中心式
 
-$
+$$
 A=\int_{\sigma(A)} \lambda\,dE_A(\lambda)
-$
+$$
 
 と
 
-$
+$$
 \Pr_\psi(A\in B)=\langle \psi,E_A(B)\psi\rangle
-$
+$$
 
 を結び、FA7 の固有値展開が一般の場合にどう拡張されるかを示す。
 
@@ -361,11 +361,11 @@ Hille--Yosida・解析半群・mild solution・半線形発展方程式は EVOL 
 
 中心対応
 
-$
+$$
 \text{自己共役 }H
 \quad\longleftrightarrow\quad
 U(t)=e^{-itH}
-$
+$$
 
 を、単なる公式ではなく定理として扱う。
 
@@ -528,9 +528,9 @@ $$
 
 目標は
 
-$
+$$
 T=\int_{\sigma(T)}\lambda\,dE(\lambda)
-$
+$$
 
 を $C^*$-環の関数計算と結び直し、有限次元対角化・FA7・QM3・Gelfand 理論が同じスペクトル概念の異なる表現であることを理解できるようにすること。
 
@@ -927,9 +927,9 @@ $$
 
 ### spin $1/2$
 
-$
+$$
 H=\mathbb C^2
-$
+$$
 
 - 有限次元量子状態
 - Pauli 行列
@@ -940,11 +940,11 @@ $
 
 ### $L^2(\mathbb R)$ 上の位置・運動量
 
-$
+$$
 (Q\psi)(x)=x\psi(x),
 \qquad
 (P\psi)(x)=-i\hbar\psi'(x)
-$
+$$
 
 - 非有界作用素
 - 定義域
