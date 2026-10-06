@@ -5,9 +5,9 @@ active_series: QMOA
 active_plan: textbook/plans_progress/DREAM_THEATER_FUNCTIONAL_ANALYSIS_OPERATOR_ALGEBRA_PLAN.md
 series_manifest: textbook/dream-theater-series/QMOA.yaml
 
-completed_through: QM8
-next_work: OA1
-after_next: OA2
+completed_through: OA1
+next_work: OA2
+after_next: OA3
 
 routing:
   chapter_root: textbook/volumes/00_foundations

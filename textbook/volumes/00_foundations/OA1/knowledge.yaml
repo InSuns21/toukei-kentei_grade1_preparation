@@ -1,0 +1,157 @@
+chapter: OA1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FA1
+  - FA5
+
+forward_references: []
+
+concepts:
+  - id: operator-algebra.banach-algebra
+    name: 複素 Banach 環
+    kind: definition
+    aliases: ["complex Banach algebra"]
+    introduction: formal
+    introduction_aliases: ["定義（複素 Banach 環）"]
+    requires:
+      - functional.banach-space
+
+  - id: operator-algebra.unital-banach-algebra
+    name: 単位的 Banach 環
+    kind: definition
+    aliases: ["unital Banach algebra"]
+    introduction: formal
+    introduction_aliases: ["定義（単位的 Banach 環・可逆元）"]
+    requires:
+      - operator-algebra.banach-algebra
+
+  - id: operator-algebra.invertible-element
+    name: 可逆元
+    kind: definition
+    aliases: ["invertible element"]
+    introduction: formal
+    introduction_aliases: ["定義（単位的 Banach 環・可逆元）"]
+    requires:
+      - operator-algebra.unital-banach-algebra
+
+  - id: operator-algebra.neumann-series
+    name: Banach 環の Neumann 級数
+    kind: lemma
+    aliases: ["Neumann series in a Banach algebra"]
+    introduction_aliases: ["補題（Banach 環の Neumann 級数）"]
+    requires:
+      - operator-algebra.invertible-element
+
+  - id: operator-algebra.invertibles-open
+    name: 可逆元全体の開性と逆元の局所級数表示
+    kind: theorem
+    aliases: ["openness of invertible group in a Banach algebra"]
+    introduction_aliases: ["定理（可逆元全体の開性と逆元の局所級数表示）"]
+    requires:
+      - operator-algebra.neumann-series
+
+  - id: operator-algebra.spectrum
+    name: Banach 環のスペクトル・レゾルベント集合
+    kind: definition
+    aliases: ["spectrum in a Banach algebra", "resolvent set in a Banach algebra"]
+    introduction: formal
+    introduction_aliases: ["定義（Banach 環のスペクトル・レゾルベント集合）"]
+    requires:
+      - operator-algebra.invertible-element
+      - operator-algebra.invertibles-open
+
+  - id: operator-algebra.left-regular-representation
+    name: 左正則表現
+    kind: definition
+    aliases: ["left regular representation of a Banach algebra"]
+    introduction: formal
+    introduction_aliases: ["定義（左正則表現）"]
+    requires:
+      - operator-algebra.unital-banach-algebra
+      - functional.bounded-linear-operator
+
+  - id: operator-algebra.left-regular-isometric-homomorphism
+    name: 左正則表現は等長な単位的代数準同型
+    kind: proposition
+    aliases: ["isometric left regular representation"]
+    introduction_aliases: ["命題（左正則表現は等長な単位的代数準同型である）"]
+    requires:
+      - operator-algebra.left-regular-representation
+
+  - id: operator-algebra.spectrum-regular-representation
+    name: 左正則表現による可逆性とスペクトルの保存
+    kind: theorem
+    aliases: ["spectrum preservation by left regular representation"]
+    introduction_aliases: ["定理（左正則表現による可逆性とスペクトルの保存）"]
+    requires:
+      - operator-algebra.spectrum
+      - operator-algebra.left-regular-isometric-homomorphism
+      - functional.resolvent-spectrum
+
+  - id: operator-algebra.spectrum-compact-nonempty
+    name: Banach 環のスペクトルの非空性・コンパクト性
+    kind: theorem
+    aliases: ["nonempty compact spectrum in a Banach algebra"]
+    introduction_aliases: ["定理（Banach 環のスペクトルの非空性・コンパクト性）"]
+    requires:
+      - operator-algebra.spectrum-regular-representation
+      - functional.spectrum-compact-norm-bound
+      - functional.spectrum-nonempty
+
+  - id: operator-algebra.spectral-radius
+    name: Banach 環のスペクトル半径
+    kind: definition
+    aliases: ["spectral radius in a Banach algebra"]
+    introduction: formal
+    introduction_aliases: ["定義（Banach 環のスペクトル半径）"]
+    requires:
+      - operator-algebra.spectrum-compact-nonempty
+
+  - id: operator-algebra.spectral-radius-formula
+    name: Banach 環のスペクトル半径公式
+    kind: theorem
+    aliases: ["spectral radius formula in a Banach algebra"]
+    introduction_aliases: ["定理（Banach 環のスペクトル半径公式）"]
+    requires:
+      - operator-algebra.spectral-radius
+      - operator-algebra.spectrum-regular-representation
+      - functional.spectral-radius-formula
+
+  - id: operator-algebra.closed-subalgebra
+    name: 閉部分代数
+    kind: definition
+    aliases: ["closed subalgebra"]
+    introduction: formal
+    introduction_aliases: ["定義（閉部分代数）"]
+    requires:
+      - operator-algebra.banach-algebra
+
+  - id: operator-algebra.closed-two-sided-ideal
+    name: 閉両側イデアル
+    kind: definition
+    aliases: ["closed two-sided ideal"]
+    introduction: formal
+    introduction_aliases: ["定義（閉両側イデアル）"]
+    requires:
+      - operator-algebra.banach-algebra
+
+  - id: operator-algebra.quotient-banach-algebra
+    name: 商 Banach 環
+    kind: definition
+    aliases: ["quotient Banach algebra"]
+    introduction: formal
+    introduction_aliases: ["定義（商 Banach 環）"]
+    requires:
+      - operator-algebra.closed-two-sided-ideal
+      - functional.quotient-norm
+      - functional.quotient-banach-space
+
+  - id: operator-algebra.quotient-banach-algebra-theorem
+    name: 閉両側イデアルによる商は Banach 環
+    kind: proposition
+    aliases: ["quotient by a closed two-sided ideal is a Banach algebra"]
+    introduction_aliases: ["命題（閉両側イデアルによる商は Banach 環になる）"]
+    requires:
+      - operator-algebra.quotient-banach-algebra
+      - functional.quotient-banach-space
