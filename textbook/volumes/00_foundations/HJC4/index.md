@@ -125,7 +125,15 @@ $$
 
 - $g:\mathbb R^d\to\mathbb R$ は bounded Lipschitz。
 
-controls は区分的連続とします。すると固定した $(u,v)$ に対する ODE は一意に解けます。
+controls は Lebesgue 可測な $U$ 値・$V$ 値関数とします。HJC1 の区分的連続 control より少し広いクラスですが、$f$ は control 変数について連続で、状態変数について一様 Lipschitz なので、固定した $(u,v)$ に対する積分方程式
+
+$
+X(s)
+=
+x+int_t^s f(X(r),u(r),v(r)),dr
+$
+
+は一意な絶対連続解を持ちます。以後使う Grönwall 評価も HJC1 と同じです。
 
 ここまでは HJC1 の control が二本になっただけです。違いは、次に導入する strategy にあります。
 
@@ -736,21 +744,29 @@ $$
 
 逆に、コンパクト性と連続性から各 $b$ に対し
 
-$$
+$
 Q(a_\varepsilon(b),b)
 \le
 \inf_aQ(a,b)+\varepsilon
-$$
+$
 
 となる近似 minimizer を選べます。
 
-$$
+ここで選択の可測性を曖昧にしないため、$U$ の有限 net
+
+$
+\{a_1,\dots,a_N\}
+$
+
+を十分細かく取り、各 $b$ で「最初に $arepsilon$-近似最小を達成する番号」を選びます。有限個の連続関数 $Q(a_i,b)$ の大小で領域を分けるので、こうして得る $a_\varepsilon(b)$ は Borel 可測に取れます。
+
+$
 \alpha_\varepsilon[v](s)
 =
 a_\varepsilon(v(s))
-$$
+$
 
-とすれば nonanticipative で、
+とすれば admissible かつ nonanticipative で、
 
 $$
 Q(\alpha_\varepsilon[v](s),v(s))
