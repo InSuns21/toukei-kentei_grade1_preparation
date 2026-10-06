@@ -203,6 +203,8 @@ $$
 <!-- definition-example-start: def-qm1-relative-phase -->
 ### 直接例：共通回転では相対位相は変わらない
 
+**定義の確認**：二つの非零振幅から位相差を直接計算します。
+
 $$
 a=A,
 \qquad
@@ -314,6 +316,8 @@ $$
 
 <!-- definition-example-start: def-qm1-complex-hilbert-space -->
 ### 直接例：$\mathbb C^2$ は複素 Hilbert 空間
+
+**定義の確認**：複素内積から得たノルムについて完備性まで確認します。
 
 LA5 の標準複素内積
 
@@ -620,6 +624,8 @@ $$
 
 <!-- definition-example-start: def-qm1-hilbert-ray -->
 ### 直接例：全体位相だけ違う二つのベクトル
+
+**定義の確認**：非零複素数倍で互いに移ることを直接確認します。
 
 $$
 \psi
