@@ -568,7 +568,7 @@ lower value について示します。upper value は MIN / MAX を入れ替え
 
 任意の global strategy $\alpha\in\mathcal A_t$ を固定し、その $[t,t+h]$ への restriction を $\alpha_h$ とします。さらに最初の区間で MAX が使う control $v_h$ を固定します。
 
-時刻 $t+h$ までの履歴を固定すると、$\alpha$ の後半部分は MIN の admissible continuation strategy $\alpha^{\mathrm{cont}}$ を定めます。ここで lower value の定義から使えるのは、固定した opponent control 一本に対する不等式ではなく
+時刻 $t+h$ までの履歴を固定すると、$\alpha$ の後半部分は MIN の admissible continuation strategy $\alpha^{\mathrm{cont}}$ を定めます。ここで [lower value](#def-hjc6-stochastic-lower-upper-values) から使えるのは、固定した opponent control 一本に対する不等式ではなく
 
 $$
 \sup_{v^{\mathrm{cont}}}
@@ -899,7 +899,7 @@ $$
 
 二階 Isaacs 方程式も value function が $C^{1,2}$ とは限りません。
 
-そこで HJC5 と同じ test-function 定義を使います。たとえば lower equation に対し、continuous function $w$ が viscosity subsolution であるとは、$\phi\in C^{1,2}$ が $(t_0,x_0)$ で上から接するとき
+そこで [HJC5 の二階 HJB に対する viscosity solution](../HJC5/index.md#def-hjc5-second-order-viscosity) と同じく、滑らかな test function の接触で不等式を読みます。たとえば lower equation に対し、continuous function $w$ が viscosity subsolution であるとは、$\phi\in C^{1,2}$ が $(t_0,x_0)$ で上から接するとき
 
 $$
 \phi_t(t_0,x_0)
@@ -2694,4 +2694,4 @@ $$
 \text{二階 HJI}
 $$
 
-を、dynamic programming という同じ原理から再構成できるようになりました。
+を、短時間区間と continuation value を結ぶ dynamic programming の計算から再構成できるようになりました。
