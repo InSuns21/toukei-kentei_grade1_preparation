@@ -581,7 +581,7 @@ $$
 
 ここで必要になるのが、対角に増幅した代数と可換する作用素の形です。
 
-<a id="lemma-vn2-amplification-commutant"></a>
+<a id="lem-vn2-amplification-commutant"></a>
 
 <!-- formal-statement-start -->
 ### 補題（対角増幅の可換子）
