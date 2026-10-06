@@ -1,0 +1,26 @@
+chapter: "OA3"
+terms:
+  - term: "*-代数"
+    english: "*-algebra"
+    meaning: 積の順序を反転する共役線形な対合 a↦a* を備えた複素代数。
+  - term: "C*-環"
+    english: "C*-algebra"
+    meaning: Banach 環・*-代数の構造が C*-恒等式 ||a*a||=||a||^2 で結ばれたもの。
+  - term: 自己共役元
+    english: self-adjoint element
+    meaning: a*=a を満たす C*-環の元。
+  - term: unitary 元
+    english: unitary element
+    meaning: u*u=uu*=1 を満たす元。
+  - term: projection
+    english: projection
+    meaning: p*=p かつ p^2=p を満たす元。
+  - term: "*-準同型"
+    english: "*-homomorphism"
+    meaning: 代数演算と随伴を保つ写像。本章では単位元も保つ場合を主に扱う。
+  - term: 正元
+    english: positive element
+    meaning: 自己共役でスペクトルが [0,∞) に含まれる元。
+  - term: 正の平方根
+    english: positive square root
+    meaning: 正元 a に対する、b^2=a を満たす一意な正元 b。
