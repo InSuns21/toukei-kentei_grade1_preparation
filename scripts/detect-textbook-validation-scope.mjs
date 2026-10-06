@@ -9,11 +9,6 @@ function argValue(name) {
   return i >= 0 ? process.argv[i + 1] : null;
 }
 
-if (process.argv.includes('--self-test')) {
-  runSelfTests();
-  process.exit(0);
-}
-
 const base = argValue('--base') || (process.env.TEXTBOOK_BASE_SHA || '').trim();
 if (!base) {
   console.error('Validation-scope detection requires --base <sha> or TEXTBOOK_BASE_SHA.');
@@ -57,6 +52,11 @@ const fastPatterns = [
   /^textbook\/templates\//u,
   /^textbook\/prompts\//u,
 ];
+
+if (process.argv.includes('--self-test')) {
+  runSelfTests();
+  process.exit(0);
+}
 
 let full = false;
 let reason = 'leaf textbook change';
