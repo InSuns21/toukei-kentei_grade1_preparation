@@ -69,14 +69,18 @@ const changed = changedOnly ? collectChangedLineNumbers() : { files: new Set(), 
 let matchedUses = 0;
 
 for (const page of pages.values()) {
+  const changedLineSet = changedOnly ? changed.lines.get(page.path) : null;
+  if (changedOnly && (!changedLineSet || changedLineSet.size === 0)) continue;
   if (!fs.existsSync(page.fullPath) || !fs.existsSync(page.knowledgePath)) continue;
+
   const source = fs.readFileSync(page.fullPath, 'utf8');
   const lines = stripNonReaderContent(source).split(/\r?\n/);
 
   for (let i = 0; i < lines.length; i += 1) {
+    const lineNumber = i + 1;
+    if (changedOnly && !changedLineSet.has(lineNumber)) continue;
     const rawLine = lines[i];
     if (!rawLine.trim() || isNavigationOrChecklistLine(rawLine)) continue;
-    const lineNumber = i + 1;
 
     for (const rule of rules) {
       if (!rule.concept) continue;
@@ -93,7 +97,7 @@ const counts = countBySeverity(findings);
 const patternCount = rules.reduce((sum, rule) => sum + rule.patterns.length, 0);
 console.log(strict ? 'DREAM THEATER 暗黙論証依存検証（strict）' : 'DREAM THEATER 暗黙論証依存監査');
 console.log(`対象ページ: ${pagePaths.length} / inference rules: ${rules.length} / patterns: ${patternCount} / 検出使用: ${matchedUses}`);
-if (changedOnly) console.log(`変更ファイル: ${changed.files.size} / 変更本文行だけをblocking対象に限定`);
+if (changedOnly) console.log(`変更ファイル: ${changed.files.size} / 変更本文行だけを走査・blocking対象に限定`);
 console.log(`ERROR: ${counts.ERROR ?? 0} / WARN: ${counts.WARN ?? 0} / AUDIT: ${counts.AUDIT ?? 0}`);
 for (const finding of findings.slice(0, 250)) {
   console.log(`- [${finding.severity}] ${finding.file}:${finding.line} ${finding.message}`);
