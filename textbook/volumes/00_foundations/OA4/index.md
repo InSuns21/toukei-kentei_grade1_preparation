@@ -170,7 +170,9 @@ $$
 
 <!-- definition-example-start: def-oa4-generated-cstar -->
 
-**定義の確認：projection が生成する場合**
+**定義の確認**
+
+### 例：projection が生成する場合
 
 $p$ を projection とします。すると
 
