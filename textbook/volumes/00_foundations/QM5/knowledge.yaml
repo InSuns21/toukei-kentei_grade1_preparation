@@ -6,10 +6,7 @@ prerequisites:
   - EVOL1
   - FOU4
 
-forward_references:
-  - quantum.unbounded-self-adjoint-spectral-theorem
-  - quantum.stone-theorem
-  - quantum.canonical-commutation-relation
+forward_references: []
 
 concepts:
   - id: quantum.unbounded-adjoint
