@@ -40,10 +40,10 @@ concepts:
       - operator-algebra.positive-functional
 
   - id: operator-algebra.normal-functional-trace-class-representation
-    name: B(H) 上の正規汎関数の trace class 表示
+    name: 有界作用素環上の正規汎関数の trace class 表示
     kind: proposition
     aliases: ["trace-class representation of normal functionals on B(H)"]
-    introduction_aliases: ["命題（B(H) 上の正規汎関数の trace class 表示）"]
+    introduction_aliases: ["命題（有界作用素環上の正規汎関数の trace class 表示）"]
     requires:
       - operator-algebra.normal-functional
       - operator-algebra.trace-class-duality
@@ -79,10 +79,10 @@ concepts:
       - operator-algebra.positive-functional
 
   - id: operator-algebra.bh-projection-normality-criterion
-    name: B(H) における射影単調連続性による正規性判定
+    name: 有界作用素環における射影単調連続性による正規性判定
     kind: theorem
     aliases: ["projection criterion for normality on B(H)"]
-    introduction_aliases: ["定理（B(H) における射影単調連続性による正規性判定）"]
+    introduction_aliases: ["定理（有界作用素環における射影単調連続性による正規性判定）"]
     requires:
       - operator-algebra.normal-positive-monotone-projections
       - operator-algebra.positive-functional-cauchy-schwarz
@@ -100,10 +100,10 @@ concepts:
       - operator-algebra.positive-element
 
   - id: operator-algebra.standard-bh-trace-nfs
-    name: B(H) の標準トレースは正規・忠実・半有限
+    name: 有界作用素環の標準トレースは正規・忠実・半有限
     kind: theorem
     aliases: ["standard trace on B(H) is normal faithful semifinite"]
-    introduction_aliases: ["定理（B(H) の標準トレースは正規・忠実・半有限）"]
+    introduction_aliases: ["定理（有界作用素環の標準トレースは正規・忠実・半有限）"]
     requires:
       - operator-algebra.tracial-weight
       - operator-algebra.trace-functional
@@ -111,10 +111,10 @@ concepts:
       - operator-algebra.projection-element
 
   - id: operator-algebra.no-normal-tracial-state-bh
-    name: 無限次元 B(H) に正規トレース状態は存在しない
+    name: 無限次元有界作用素環に正規トレース状態は存在しない
     kind: proposition
     aliases: ["no normal tracial state on infinite-dimensional B(H)", "正規トレース状態の非存在"]
-    introduction_aliases: ["命題（無限次元 B(H) に正規トレース状態は存在しない）"]
+    introduction_aliases: ["命題（無限次元有界作用素環に正規トレース状態は存在しない）"]
     requires:
       - operator-algebra.normal-state
       - operator-algebra.tracial-weight
