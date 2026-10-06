@@ -75,7 +75,7 @@ chapters:
     title: 射影・部分等長作用素・極分解
   - id: VN4
     path: textbook/volumes/00_foundations/VN4
-    status: planned
+    status: completed
     title: trace class・predual・ultraweak 位相
   - id: VN5
     path: textbook/volumes/00_foundations/VN5
