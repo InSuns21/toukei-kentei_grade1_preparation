@@ -1,0 +1,47 @@
+id: "HJC4"
+title: "決定論的微分ゲーム・Hamilton--Jacobi--Isaacs"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HJC3
+  - HJC2
+  - HJC1
+  - GAME-A2
+official_scope: []
+learning_objectives:
+  - control と nonanticipative strategy の違いを情報構造の観点から説明し、未来を参照しない条件を判定できる
+  - 二人零和微分ゲームの lower value / upper value を定義し、strategy を持つ側によって最適化順序が変わることを説明できる
+  - game の dynamic programming principle を restriction・concatenation・到達状態の有限 net による continuation strategy の貼り合わせから再構成できる
+  - lower / upper Isaacs Hamiltonian を局所 stage game から導き、sup-inf と inf-sup の順序を計算できる
+  - lower / upper HJI equation を backward viscosity form に直し、DPP から粘性 subsolution / supersolution 条件を導ける
+  - Isaacs Hamiltonian が comparison に必要な p-Lipschitz 条件と x 方向の線形成長 Lipschitz 条件を満たすことを確認できる
+  - Isaacs condition の意味を minimax の弱不等式と結び付け、成立時に lower / upper HJI が一致することを説明できる
+  - comparison による粘性解の一意性から game value V-=V+ を導ける
+  - 一次元 pursuit--evasion で H^- と H^+ を計算し、明示的 value function を HJI と照合できる
+  - Isaacs condition が失敗すると Hamiltonian・HJI・value が二つに分かれることを具体例で示せる
+definitions:
+  - { id: HJC4-DEF-01, name: "nonanticipative strategy" }
+  - { id: HJC4-DEF-02, name: "lower value / upper value" }
+  - { id: HJC4-DEF-03, name: "lower / upper Isaacs Hamiltonian" }
+  - { id: HJC4-DEF-04, name: "lower / upper Hamilton--Jacobi--Isaacs 方程式" }
+  - { id: HJC4-DEF-05, name: "Isaacs condition" }
+theorems:
+  - { id: HJC4-THM-01, name: "微分ゲームの dynamic programming principle" }
+  - { id: HJC4-THM-02, name: "lower / upper value の粘性解特徴付け" }
+  - { id: HJC4-THM-03, name: "Isaacs condition による game value の存在" }
+canonical_examples:
+  - "f=0, L(u,v)=uv, U=V={-1,1} で Isaacs condition が失敗する例"
+  - "x'=u-v, |u|<=a, |v|<=b の pursuit--evasion と H=-(a-b)|p|"
+  - "短時間 stage game から sup_v inf_u と inf_u sup_v が現れる計算"
+problem_patterns:
+  - HJC4-NONANTICIPATIVE-1
+  - HJC4-LOWER-UPPER-VALUE-1
+  - HJC4-GAME-DPP-1
+  - HJC4-ISAACS-HAMILTONIAN-1
+  - HJC4-HJI-VISCOSITY-1
+  - HJC4-ISAACS-CONDITION-1
+  - HJC4-PURSUIT-EVASION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10.0, exercises: 7.0, review: 2.0 }
