@@ -28,7 +28,7 @@ theorems:
   - { id: QM5-THM-02, name: "最大実対角作用素の自己共役性" }
   - { id: QM5-THM-03, name: "位置作用素の自己共役性" }
   - { id: QM5-PROP-03, name: "ユニタリ共役による自己共役性の保存" }
-  - { id: QM5-THM-04, name: "運動量作用素の Fourier 表現と自己共役性" }
+  - { id: QM5-THM-04, name: "運動量作用素の Fourier 表現" }
 canonical_examples:
   - "c00 上の最小対角作用素 A0(x_n)=(n x_n) と最大対角作用素 A"
   - "L2(R) 上の位置作用素 Q psi=x psi"
@@ -41,5 +41,5 @@ problem_patterns:
   - QM5-MOMENTUM-FOURIER-1
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 9.0, exercises: 7.0, review: 2.0 }
