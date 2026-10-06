@@ -31,7 +31,7 @@ chapters:
     title: 非有界自己共役作用素のスペクトル定理
   - id: QM7
     path: textbook/volumes/00_foundations/QM7
-    status: planned
+    status: completed
     title: Stone の定理と Schrödinger 発展
   - id: QM8
     path: textbook/volumes/00_foundations/QM8
