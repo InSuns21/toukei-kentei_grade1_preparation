@@ -6,8 +6,12 @@ prerequisites:
   - ODE8
 
 forward_references:
-  - NPDE6
-  - NS5
+  - fixedpoint.fixed-point
+  - nonlinear-pde.semilinear-heat-equation
+  - nonlinear-pde.semilinear-blowup-alternative
+  - nonlinear-pde.fujita-exponent
+  - navier-stokes.three-dimensional-local-strong
+  - navier-stokes.h1-blowup-alternative
 
 concepts:
   - id: evolution.semilinear-mild-solution
@@ -90,11 +94,11 @@ concepts:
       - evolution.bounded-ball-lipschitz-nonlinearity
 
   - id: evolution.semilinear-linear-growth-global
-    name: 線形成長条件による大域存在
+    name: 半線形発展方程式の線形成長条件による大域存在
     kind: corollary
-    aliases: ["global existence under linear growth"]
+    aliases: ["global existence for semilinear evolution equations under linear growth"]
     introduction: formal
-    introduction_aliases: ["系（線形成長条件による大域存在）"]
+    introduction_aliases: ["系（半線形発展方程式の線形成長条件による大域存在）"]
     requires:
       - evolution.semilinear-blowup-alternative
       - ode.ode8-gronwall
