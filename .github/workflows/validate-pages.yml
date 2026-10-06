@@ -47,6 +47,9 @@ jobs:
         run: |
           echo "Content-only PR: full Pages assembly is deferred to the main-branch deployment."
 
+      - name: Validate DREAM THEATER index facade
+        run: node scripts/validate-dream-theater-index.mjs --facade-only
+
       - name: Setup Node.js
         if: steps.scope.outputs.full == 'true'
         uses: actions/setup-node@v6

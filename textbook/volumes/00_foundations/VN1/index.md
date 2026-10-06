@@ -187,6 +187,8 @@ P_n\xrightarrow{\mathrm{SOT}}I.
 }
 $$
 
+**定義の確認**：任意の固定した $\xi\in\ell^2(\mathbb N)$ について $\|(P_n-I)\xi\|\to0$ を示したので、$P_n\to I$ は SOT 収束の定義を満たします。
+
 一方で $\|P_n-I\|=1$ なのでノルム収束ではありません。
 
 つまり SOT は「各固定ベクトル上では誤差が消えるが、最悪のベクトルを $n$ ごとに取り替えると誤差が残る」という現象を捉えます。
@@ -276,7 +278,7 @@ $$
 で定まる $B(H)$ 上の線形汎関数を **ベクトル汎関数** と呼ぶ。
 <!-- formal-statement-end -->
 
-Cauchy--Schwarz 不等式から
+[Cauchy--Schwarz 不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 \begin{aligned}
@@ -315,6 +317,8 @@ $$
 =
 t_{ij}.
 $$
+
+**定義の確認**：ベクトル汎関数の定義 $\omega_{\eta,\xi}(T)=\langle\eta,T\xi\rangle$ に $\eta=e_i$、$\xi=e_j$ を代入すると $\omega_{e_i,e_j}(T)=t_{ij}$ となります。
 
 したがってベクトル汎関数は、有限次元では文字通り「行列の一成分を読む」汎関数です。
 
@@ -443,6 +447,8 @@ S^n\xrightarrow{\mathrm{WOT}}0.
 }
 $$
 
+**定義の確認**：任意の $\xi,\eta\in\ell^2(\mathbb N)$ について $\langle\eta,S^n\xi\rangle\to0$ を示したので、$S^n\to0$ は WOT 収束の定義を満たします。
+
 しかし
 
 $$
@@ -548,7 +554,7 @@ $$
 
 よって SOT 収束です。
 
-次に SOT 収束を仮定します。任意の $\xi,\eta\in H$ に対して Cauchy--Schwarz 不等式から
+次に SOT 収束を仮定します。任意の $\xi,\eta\in H$ に対して [Cauchy--Schwarz 不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 \begin{aligned}
@@ -646,7 +652,7 @@ $$
 \to0.
 $$
 
-任意の $x=\sum_jx_je_j$ に対し、Cauchy--Schwarz 不等式を各行へ使うと
+任意の $x=\sum_jx_je_j$ に対し、[Cauchy--Schwarz 不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)を各行へ使うと
 
 $$
 \|A_\alpha x\|^2
@@ -1600,7 +1606,7 @@ $$
 \sum_ja_{ij}^{(\alpha)}x_j.
 $$
 
-各 $i$ について Cauchy--Schwarz 不等式を使うと
+各 $i$ について [Cauchy--Schwarz 不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)を使うと
 
 $$
 |(A_\alpha x)_i|^2
@@ -1808,7 +1814,7 @@ $B(H)$ を作用素ノルムで Banach 空間とみなす。
 
 #### 詳細解答
 
-まず Cauchy--Schwarz 不等式を使うと
+まず [Cauchy--Schwarz 不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)を使うと
 
 $$
 |\omega_{\eta,\xi}(T)|

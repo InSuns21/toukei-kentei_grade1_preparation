@@ -130,6 +130,8 @@ B(PH)\oplus B((I-P)H).
 }
 $$
 
+**定義の確認**：$\{P\}'$ は「$P$ と可換するすべての作用素」の集合であり、上の計算で $TP=PT\iff T_{12}=T_{21}=0$ を示したので、表示したブロック対角作用素全体が可換子の定義と一致します。
+
 つまり $P$ と可換する作用素は、$P$ が作る二つの部分空間を混ぜません。
 
 <!-- definition-example-end -->
@@ -241,7 +243,7 @@ X_\lambda A\xrightarrow{\mathrm{WOT}}XA,
 AX_\lambda\xrightarrow{\mathrm{WOT}}AX.
 $$
 
-各 $\lambda$ で $X_\lambda A=AX_\lambda$ なので、WOT の極限の一意性から
+各 $\lambda$ で $X_\lambda A=AX_\lambda$ なので、任意の $\xi,\eta\in H$ について $\langle\xi,XA\eta\rangle$ と $\langle\xi,AX\eta\rangle$ は同じスカラー net の極限です。したがって
 
 $$
 XA=AX.
@@ -336,6 +338,8 @@ $$
 \right\}.
 $$
 
+**定義の確認**：二重可換子は $\{P\}''=(\{P\}')'$ であり、$\{P\}'$ の全要素と可換する条件を各ブロックで課すと $\alpha P+\beta(I-P)$ に限られるため、上の集合は二重可換子の定義どおりです。
+
 一つの射影から、その射影が定める二つの部分空間上で独立にスカラーを掛ける代数が回収されました。
 
 <!-- definition-example-end -->
@@ -406,7 +410,7 @@ $$
 
 さらに $M$ は高々2次元の線形空間なので有限次元、従って WOT でも閉じています。
 
-よって $M$ は von Neumann 環です。
+**定義の確認**：$I\in M$ で、$(\alpha P+\beta(I-P))(\gamma P+\delta(I-P))=\alpha\gamma P+\beta\delta(I-P)\in M$、随伴でも閉じ、さらに WOT 閉なので、$M$ は von Neumann 環の定義を満たします。
 
 <!-- definition-example-end -->
 
@@ -447,7 +451,7 @@ VN1 より SOT は WOT より細かいので、SOT 閉包は WOT 閉包に含ま
 
 次に $\mathcal A\subset\mathcal A''$ は可換子の基本性質から成り立ちます。
 
-さらに $\mathcal A$ は随伴で閉じているため、前節の命題から $\mathcal A'$ も随伴で閉じています。$S=\mathcal A'$ として同じ命題を適用すれば
+さらに $\mathcal A$ は随伴で閉じているため、[前節の命題](#prop-vn2-commutant-wot-closed)から $\mathcal A'$ も随伴で閉じています。$S=\mathcal A'$ として[同じ命題](#prop-vn2-commutant-wot-closed)を適用すれば
 
 $$
 \mathcal A''
@@ -581,7 +585,7 @@ $$
 
 ここで必要になるのが、対角に増幅した代数と可換する作用素の形です。
 
-<a id="lemma-vn2-amplification-commutant"></a>
+<a id="lem-vn2-amplification-commutant"></a>
 
 <!-- formal-statement-start -->
 ### 補題（対角増幅の可換子）
@@ -982,7 +986,7 @@ $$
 
 ## 10. von Neumann 環の三つの見方
 
-von Neumann の二重可換子定理により、単位を含む $*$-部分代数 $M\subset B(H)$ について次の三つは同じ概念になります。
+[von Neumann の二重可換子定理](#thm-vn2-bicommutant)により、単位を含む $*$-部分代数 $M\subset B(H)$ について次の三つは同じ概念になります。
 
 $$
 \boxed{
@@ -1063,6 +1067,8 @@ W^*(P)
 =
 \{\alpha P+\beta(I-P):\alpha,\beta\in\mathbb C\}.
 $$
+
+**定義の確認**：右辺 $M=\{\alpha P+\beta(I-P)\}$ は先の例で von Neumann 環であり、$P$ を含む任意の von Neumann 環は $I-P$ とその線形結合も含むので $M$ を含みます。したがって $M$ は $P$ を含む最小の von Neumann 環、すなわち $W^*(P)$ です。
 
 これは先に計算した $\{P\}''$ と一致します。
 
@@ -1760,7 +1766,7 @@ $$
 
 が全ての $B\in\mathcal A$ について成り立ちます。
 
-$P=(P_{ij})$ と作用素行列表示すると、対角増幅の可換子補題から
+$P=(P_{ij})$ と作用素行列表示すると、[対角増幅の可換子補題](#lem-vn2-amplification-commutant)から
 
 $$
 P_{ij}\in\mathcal A'
