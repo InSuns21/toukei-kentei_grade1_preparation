@@ -17,6 +17,7 @@ learning_objectives:
 definitions:
   - { id: QM1-DEF-01, name: "複素 Hilbert 空間" }
   - { id: QM1-DEF-02, name: "Hilbert 空間の ray" }
+  - { id: QM1-DEF-03, name: "相対位相" }
 theorems:
   - { id: QM1-PROP-01, name: "二経路振幅の干渉恒等式" }
   - { id: QM1-PROP-02, name: "全体位相不変性" }
