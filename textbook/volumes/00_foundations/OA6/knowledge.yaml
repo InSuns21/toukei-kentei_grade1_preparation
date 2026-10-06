@@ -24,17 +24,17 @@ concepts:
   - id: operator-algebra.state-spectral-distribution
     name: 状態におけるスペクトル分布
     kind: definition
-    aliases: ["spectral distribution in a state"]
+    aliases: ["スペクトル分布", "spectral distribution in a state"]
     introduction: formal
     introduction_aliases: ["定義（状態におけるスペクトル分布）"]
     requires:
       - operator-algebra.state-spectral-measure
 
   - id: operator-algebra.commutative-representation-pvm
-    name: 可換 C(K) 表現の射影値測度表示
+    name: 可換関数環表現の射影値測度表示
     kind: theorem
     aliases: ["spectral measure representation of a commutative C(K) representation"]
-    introduction_aliases: ["定理（可換 C(K) 表現の射影値測度表示）"]
+    introduction_aliases: ["定理（可換関数環表現の射影値測度表示）"]
     requires:
       - operator-algebra.continuous-functional-calculus
       - measure.riesz-markov-positive
