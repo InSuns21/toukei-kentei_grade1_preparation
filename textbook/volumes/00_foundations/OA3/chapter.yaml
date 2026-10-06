@@ -5,7 +5,7 @@ status: supplementary
 prerequisites:
   - OA2
   - RA8
-  - F0-02C3A
+  - F0-02C3B
 official_scope: []
 learning_objectives:
   - 複素 *-代数と単位的 C*-環を定義し、C(K)、M_n(C)、B(H) で積・随伴・C*-恒等式を確認できる
