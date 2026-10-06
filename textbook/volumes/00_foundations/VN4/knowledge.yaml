@@ -1,0 +1,141 @@
+chapter: VN4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - VN3
+  - FA7
+  - F0-02C2
+
+forward_references: []
+
+concepts:
+  - id: operator-algebra.compact-operator-singular-values
+    name: コンパクト作用素の特異値
+    kind: definition
+    aliases: ["singular values of compact operators"]
+    introduction: formal
+    introduction_aliases: ["定義（コンパクト作用素の特異値）"]
+    requires:
+      - operator-algebra.operator-modulus
+      - functional.compact-self-adjoint-spectral-theorem
+
+  - id: operator-algebra.singular-value-best-approximation
+    name: 特異値と最良有限ランク近似
+    kind: lemma
+    aliases: ["singular values and best finite-rank approximation", "最良有限ランク近似補題"]
+    introduction_aliases: ["補題（特異値と最良有限ランク近似）"]
+    requires:
+      - operator-algebra.compact-operator-singular-values
+      - functional.finite-rank-operator
+      - operator-algebra.polar-decomposition
+
+  - id: operator-algebra.trace-class
+    name: trace class
+    kind: definition
+    aliases: ["trace-class operator"]
+    introduction: formal
+    introduction_aliases: ["定義（trace class とトレースノルム）"]
+    requires:
+      - operator-algebra.compact-operator-singular-values
+
+  - id: operator-algebra.trace-norm
+    name: トレースノルム
+    kind: definition
+    aliases: ["trace norm", "nuclear norm"]
+    introduction: formal
+    introduction_aliases: ["定義（trace class とトレースノルム）"]
+    requires:
+      - operator-algebra.trace-class
+
+  - id: operator-algebra.ky-fan-singular-value-variational
+    name: Ky Fan 型変分公式
+    kind: lemma
+    aliases: ["Ky Fan singular-value variational formula"]
+    introduction_aliases: ["補題（Ky Fan 型変分公式）"]
+    requires:
+      - operator-algebra.compact-operator-singular-values
+      - operator-algebra.polar-decomposition
+      - linear.bessel-inequality
+      - linear.cauchy-schwarz
+
+  - id: operator-algebra.trace-class-banach-ideal
+    name: trace class の Banach イデアル性と有限ランク稠密性
+    kind: theorem
+    aliases: ["trace class Banach ideal", "finite-rank density in trace norm"]
+    introduction_aliases: ["定理（trace class の Banach イデアル性と有限ランク稠密性）"]
+    requires:
+      - operator-algebra.trace-class
+      - operator-algebra.trace-norm
+      - operator-algebra.singular-value-best-approximation
+      - operator-algebra.ky-fan-singular-value-variational
+
+  - id: operator-algebra.trace-functional
+    name: trace class 上のトレース
+    kind: definition
+    aliases: ["operator trace", "trace on trace class"]
+    introduction: formal
+    introduction_aliases: ["定義（trace class 上のトレース）"]
+    requires:
+      - operator-algebra.trace-class-banach-ideal
+
+  - id: operator-algebra.trace-rank-one-formula
+    name: トレースの連続拡張と rank-one 公式
+    kind: proposition
+    aliases: ["rank-one trace formula", "rank-one 作用素のトレース公式"]
+    introduction_aliases: ["命題（トレースの連続拡張と rank-one 公式）"]
+    requires:
+      - operator-algebra.trace-functional
+      - functional.hilbert-space
+
+  - id: operator-algebra.trace-class-duality
+    name: 有界作用素環とトレース級の等長双対性
+    kind: theorem
+    aliases: ["B(H) trace-class duality", "trace duality"]
+    introduction_aliases: ["定理（有界作用素環とトレース級の等長双対性）"]
+    requires:
+      - operator-algebra.trace-rank-one-formula
+      - operator-algebra.trace-class-banach-ideal
+      - functional.riesz-representation-theorem
+
+  - id: operator-algebra.predual
+    name: predual
+    kind: definition
+    aliases: ["前双対", "predual Banach space"]
+    introduction: formal
+    introduction_aliases: ["定義（predual）"]
+    requires:
+      - functional.dual-space
+
+  - id: operator-algebra.ultraweak-topology
+    name: ultraweak 位相
+    kind: definition
+    aliases: ["sigma-weak topology", "σ-weak 位相", "超弱位相"]
+    introduction: formal
+    introduction_aliases: ["定義（ultraweak 位相）"]
+    requires:
+      - operator-algebra.predual
+      - operator-algebra.trace-class-duality
+      - topology.net-convergence
+
+  - id: operator-algebra.wot-ultraweak-comparison
+    name: WOT と ultraweak 位相の比較
+    kind: proposition
+    aliases: ["WOT versus ultraweak topology"]
+    introduction_aliases: ["命題（WOT と ultraweak 位相の比較）"]
+    requires:
+      - operator-algebra.ultraweak-topology
+      - operator-algebra.weak-operator-topology
+      - operator-algebra.trace-class-banach-ideal
+
+  - id: operator-algebra.von-neumann-predual
+    name: 具体的 von Neumann 環の predual
+    kind: theorem
+    aliases: ["predual of a concrete von Neumann algebra"]
+    introduction_aliases: ["定理（具体的 von Neumann 環の predual）"]
+    requires:
+      - operator-algebra.von-neumann-algebra
+      - operator-algebra.trace-class-duality
+      - operator-algebra.ultraweak-topology
+      - linear.quotient-dual-annihilator-isomorphism
+      - functional.dual-space
+      - functional.quotient-banach-space

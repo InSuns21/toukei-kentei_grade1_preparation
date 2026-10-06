@@ -597,6 +597,7 @@ function findFirstUnshadowedConceptUses(lines, visibleConcepts, currentPage, mat
   const availableVisibleAliases = new Set();
   const activeLocalAliasKeys = new Set();
   const localAliasesByLine = new Map();
+  const allLocalAliases = [...new Set(currentPage.concepts.flatMap((concept) => concept.aliases))];
 
   for (const visible of visibleConcepts) {
     if (visible.pageId !== currentPage.id && currentPage.ancestors.has(visible.pageId)) {
@@ -647,7 +648,8 @@ function findFirstUnshadowedConceptUses(lines, visibleConcepts, currentPage, mat
         const shadowed = activeLocalAliasKeys.has(remoteKey)
           || visibleAliasKeys.some((visibleKey) =>
             visibleKey.length > remoteKey.length && visibleKey.includes(remoteKey)
-          );
+          )
+          || aliasOccurrencesAreCoveredByLongerLocalAlias(lines[i], remoteAlias, allLocalAliases);
         if (shadowed) continue;
         firstUses.set(conceptId, lineNumber);
         break;
@@ -656,6 +658,37 @@ function findFirstUnshadowedConceptUses(lines, visibleConcepts, currentPage, mat
   }
 
   return firstUses;
+}
+
+function aliasOccurrencesAreCoveredByLongerLocalAlias(line, remoteAlias, localAliases) {
+  const remoteSpans = asciiAliasSpans(line, remoteAlias);
+  if (remoteSpans.length === 0) return false;
+
+  const remoteKey = normalizeAlias(remoteAlias);
+  const coveringSpans = [];
+  for (const localAlias of localAliases) {
+    const localKey = normalizeAlias(localAlias);
+    if (localKey.length <= remoteKey.length || !localKey.includes(remoteKey)) continue;
+    coveringSpans.push(...asciiAliasSpans(line, localAlias));
+  }
+  if (coveringSpans.length === 0) return false;
+
+  return remoteSpans.every((remote) =>
+    coveringSpans.some((local) => local.start <= remote.start && local.end >= remote.end)
+  );
+}
+
+function asciiAliasSpans(source, alias) {
+  const needle = String(alias ?? '').trim();
+  if (!/^[A-Za-z][A-Za-z0-9.^+\- ]*$/u.test(needle)) return [];
+  const regex = new RegExp(
+    `(?<![A-Za-z0-9_])${escapeRegExp(needle).replace(/\\ /g, '\\s+')}(?![A-Za-z0-9_])`,
+    'igu',
+  );
+  return [...String(source).matchAll(regex)].map((match) => ({
+    start: match.index ?? 0,
+    end: (match.index ?? 0) + match[0].length,
+  }));
 }
 
 function isContextualAlias(alias) {
@@ -749,6 +782,21 @@ function runAliasMatcherSelfTest() {
   const overlapMatches = overlap.match('abccab');
   for (const expected of ['a', 'ab', 'bc', 'c']) {
     if (!overlapMatches.has(expected)) throw new Error(`overlap self-test failed: ${expected}`);
+  }
+
+  if (!aliasOccurrencesAreCoveredByLongerLocalAlias(
+    '# VN4 trace class・predual',
+    'trace',
+    ['trace class'],
+  )) {
+    throw new Error('longer local alias should shadow a contained ASCII alias occurrence');
+  }
+  if (aliasOccurrencesAreCoveredByLongerLocalAlias(
+    'trace class と trace を比較する',
+    'trace',
+    ['trace class'],
+  )) {
+    throw new Error('standalone alias occurrence must remain visible beside a longer local alias');
   }
 
   const stripped = stripNonReaderContent('<a id="def-unit-torus"></a>\n本文');

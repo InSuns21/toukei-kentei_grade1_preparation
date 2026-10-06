@@ -288,6 +288,7 @@
 1. [VN1 B(H) の作用素位相](textbook/volumes/00_foundations/VN1/index.md)
 2. [VN2 可換子・二重可換子・von Neumann 環](textbook/volumes/00_foundations/VN2/index.md)
 3. [VN3 射影・部分等長作用素・極分解](textbook/volumes/00_foundations/VN3/index.md)
+4. [VN4 trace class・predual・ultraweak 位相](textbook/volumes/00_foundations/VN4/index.md)
 
 <a id="dt-subject-evolution-equations"></a>
 ### 抽象発展方程式・半群論

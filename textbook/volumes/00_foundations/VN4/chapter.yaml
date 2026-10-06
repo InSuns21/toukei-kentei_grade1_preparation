@@ -1,0 +1,51 @@
+id: "VN4"
+title: "trace class・predual・ultraweak 位相"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - VN3
+  - FA7
+  - F0-02C2
+official_scope: []
+learning_objectives:
+  - コンパクト作用素 T の特異値を |T| の固有値として定義し、有限ランク近似との関係を説明できる
+  - trace class S_1(H) とトレースノルムを定義し、有限ランク作用素がトレースノルムで稠密であることを証明できる
+  - トレースを有限ランク作用素から trace class へ連続拡張し、rank-one 作用素のトレースを計算できる
+  - B(H) と trace class のトレース対合 Tr(AT) による等長双対性 B(H)≅S_1(H)^* を証明できる
+  - predual の意味を説明し、B(H)_*=S_1(H) と具体的な von Neumann 環 M の predual M_* を構成できる
+  - ultraweak 位相を predual による弱*位相として定義し、WOT との包含関係とノルム有界集合上での一致を証明できる
+  - M_n(C) と ell^2 上の対角作用素で trace class・トレース対合・ultraweak 収束を具体計算できる
+definitions:
+  - { id: VN4-DEF-01, name: "コンパクト作用素の特異値" }
+  - { id: VN4-DEF-02, name: "trace class" }
+  - { id: VN4-DEF-03, name: "トレースノルム" }
+  - { id: VN4-DEF-04, name: "trace class 上のトレース" }
+  - { id: VN4-DEF-05, name: "predual" }
+  - { id: VN4-DEF-06, name: "ultraweak 位相" }
+theorems:
+  - { id: VN4-LEM-01, name: "特異値と最良有限ランク近似" }
+  - { id: VN4-LEM-02, name: "Ky Fan 型変分公式" }
+  - { id: VN4-THM-01, name: "trace class の Banach イデアル性と有限ランク稠密性" }
+  - { id: VN4-PROP-01, name: "トレースの連続拡張と rank-one 公式" }
+  - { id: VN4-THM-02, name: "有界作用素環とトレース級の等長双対性" }
+  - { id: VN4-PROP-02, name: "WOT と ultraweak 位相の比較" }
+  - { id: VN4-THM-03, name: "具体的 von Neumann 環の predual" }
+canonical_examples:
+  - "M_n(C) での trace norm と通常の行列トレース"
+  - "rank-one 作用素 theta_{x,y} と Tr(A theta_{x,y})=<Ax,y>"
+  - "ell^2 上の対角 trace class diag(t_n) と sum |t_n|"
+  - "座標射影 P_n の ultraweak 収束 P_n→0 と ||P_n||=1"
+problem_patterns:
+  - VN4-MATRIX-TRACE-NORM-1
+  - VN4-RANK-ONE-TRACE-1
+  - VN4-DIAGONAL-TRACE-CLASS-1
+  - VN4-ULTRAWEAK-PROJECTION-1
+  - VN4-TRACE-IDEAL-1
+  - VN4-WOT-ULTRAWEAK-BOUNDED-1
+  - VN4-DIAGONAL-PREDUAL-1
+  - VN4-VON-NEUMANN-PREDUAL-1
+  - VN4-DUALITY-RECONSTRUCTION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10.0, exercises: 9.0, review: 2.0 }
