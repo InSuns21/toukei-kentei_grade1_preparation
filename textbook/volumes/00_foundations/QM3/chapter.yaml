@@ -1,0 +1,44 @@
+id: "QM3"
+title: "射影・PVM・スペクトル定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - QM2
+  - FA5
+  - FA7
+  - F0-00D2A
+  - F0-00A3
+official_scope: []
+learning_objectives:
+  - 有限次元の固有空間射影を Borel 集合上の射影値測度へ拡張する必要性を連続スペクトルの例から説明できる
+  - 射影値測度の正規化・積の規則・強可算加法性を定義から確認できる
+  - 単位ベクトルと射影値測度からスカラー確率測度を作り、Born 則を Borel 集合上の確率へ拡張できる
+  - 有界な実 Borel 関数の射影値積分を単関数近似から構成し、作用素ノルム評価を説明できる
+  - 有界自己共役作用素のスペクトル定理を、連続関数計算・Riesz--Markov 表現・cyclic subspace・Zorn の補題による分解を通じて再構成できる
+  - 有限次元の固有値分解と FA7 のコンパクト自己共役スペクトル展開が一般 PVM 表現の原子的な場合として回収されることを説明できる
+  - L2([0,1]) 上の座標乗算作用素について連続スペクトル、PVM、状態の測定値分布を具体的に計算できる
+  - スペクトル測度から期待値と分散を積分表示し、QM2 の有限和公式との一致を証明できる
+definitions:
+  - { id: QM3-DEF-01, name: "射影値測度" }
+  - { id: QM3-DEF-02, name: "射影値積分" }
+  - { id: QM3-DEF-03, name: "状態に付随するスペクトル確率測度" }
+theorems:
+  - { id: QM3-LEM-01, name: "有界自己共役作用素の連続関数計算" }
+  - { id: QM3-THM-01, name: "有界自己共役作用素のスペクトル定理" }
+  - { id: QM3-PROP-01, name: "PVM による Born 則" }
+  - { id: QM3-PROP-02, name: "期待値と分散のスペクトル積分表示" }
+canonical_examples:
+  - "有限次元の A=sum_j a_j P_j から E_A(B)=sum_{a_j in B}P_j を作る原子的 PVM"
+  - "L2([0,1]) 上の座標乗算作用素 M_x と E(B)f=1_B f"
+  - "一様状態 psi=1 に対する M_x の測定値分布が [0,1] 上の一様分布になる例"
+  - "コンパクト自己共役作用素の固有値列を原子とする PVM"
+problem_patterns:
+  - QM3-PVM-1
+  - QM3-SPECTRAL-MEASURE-1
+  - QM3-MULTIPLICATION-OPERATOR-1
+  - QM3-SPECTRAL-INTEGRAL-1
+  - QM3-SPECTRAL-THEOREM-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11.0, exercises: 7.0, review: 2.0 }
