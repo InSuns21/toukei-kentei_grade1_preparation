@@ -276,7 +276,7 @@ $$
 で定まる $B(H)$ 上の線形汎関数を **ベクトル汎関数** と呼ぶ。
 <!-- formal-statement-end -->
 
-Cauchy--Schwarz 不等式から
+[Cauchy--Schwarz 不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 \begin{aligned}
@@ -548,7 +548,7 @@ $$
 
 よって SOT 収束です。
 
-次に SOT 収束を仮定します。任意の $\xi,\eta\in H$ に対して Cauchy--Schwarz 不等式から
+次に SOT 収束を仮定します。任意の $\xi,\eta\in H$ に対して [Cauchy--Schwarz 不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 \begin{aligned}
@@ -646,7 +646,7 @@ $$
 \to0.
 $$
 
-任意の $x=\sum_jx_je_j$ に対し、Cauchy--Schwarz 不等式を各行へ使うと
+任意の $x=\sum_jx_je_j$ に対し、[Cauchy--Schwarz 不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)を各行へ使うと
 
 $$
 \|A_\alpha x\|^2
@@ -1600,7 +1600,7 @@ $$
 \sum_ja_{ij}^{(\alpha)}x_j.
 $$
 
-各 $i$ について Cauchy--Schwarz 不等式を使うと
+各 $i$ について [Cauchy--Schwarz 不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)を使うと
 
 $$
 |(A_\alpha x)_i|^2
@@ -1808,7 +1808,7 @@ $B(H)$ を作用素ノルムで Banach 空間とみなす。
 
 #### 詳細解答
 
-まず Cauchy--Schwarz 不等式を使うと
+まず [Cauchy--Schwarz 不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)を使うと
 
 $$
 |\omega_{\eta,\xi}(T)|
