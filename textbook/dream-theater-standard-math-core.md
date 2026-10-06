@@ -90,6 +90,14 @@ PDE8 Duhamel 原理・非斉次問題 ──────────────
 GPDE10 強連続半群・mild 解 ───────────────────────────────────────┴→ NPDE6 半線形熱方程式・臨界性・有限時間 blow-up
 ~~~
 
+### 最適制御・HJB・微分ゲームへの発展分岐
+
+[**最適制御・HJB・微分ゲーム**](textbook/dream-theater.md#dt-subject-optimal-control-hjb) は、PDE12 の Hamilton--Jacobi 方程式から動的計画法と HJB へ進む PDE 発展系列です。
+
+~~~text
+PDE12 Hamilton--Jacobi・特性曲線 → HJC1 決定論的最適制御・DPP・HJB
+~~~
+
 ### Navier--Stokes 方程式への発展分岐
 
 [**Navier--Stokes 方程式への道**](textbook/dream-theater.md#dt-subject-navier-stokes) は、ベクトル解析 II・Fourier 解析・偏微分方程式 II を土台に、非圧縮 Navier--Stokes 方程式の解析へ進む発展系列です。共通の標準通読順には挿入しません。
