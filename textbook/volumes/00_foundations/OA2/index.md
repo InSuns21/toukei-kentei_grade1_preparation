@@ -1878,17 +1878,28 @@ $$
 
 よって Gelfand 変換は単射ではありません。
 
-さらに
+さらにスペクトルも直接計算できます。$\lambda\ne0$ なら
 
-$$
-\sigma_A(\varepsilon)=\{0\},
-$$
+$
+(\lambda1-\varepsilon)
+\left(
+\lambda^{-1}1+\lambda^{-2}\varepsilon
+\right)
+=
+1
+$
+
+です。逆順の積も同じなので、$\lambda1-\varepsilon$ は可逆です。一方 $\varepsilon^2=0$ かつ $\varepsilon\ne0$ なので $\varepsilon$ 自身は可逆ではありません。従って
+
+$
+\sigma_A(\varepsilon)=\{0\}.
+$
 
 したがって
 
-$$
+$
 r_A(\varepsilon)=0
-$$
+$
 
 ですが
 
