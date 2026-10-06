@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念**：[OA1 の単位的 Banach 環とスペクトル](../OA1/index.md#def-oa1-spectrum)、[OA1 のスペクトル半径公式](../OA1/index.md#thm-oa1-spectral-radius-formula)、[OA2 の character と Gelfand 変換](../OA2/index.md#def-oa2-character)、[OA2 のスペクトルの character 表示](../OA2/index.md#thm-oa2-spectrum-character)、[RA8 の実 Stone--Weierstrass 定理](../RA8/index.md#thm-ra8-stone-weierstrass)、[Hilbert 随伴](../F0_02C3A_随伴作用素_Banach_Hilbert/index.md#def-f0-02c3a-hilbert-adjoint)を使います。
+> **既出概念**：[OA1 の単位的 Banach 環とスペクトル](../OA1/index.md#def-oa1-spectrum)、[OA1 のスペクトル半径公式](../OA1/index.md#thm-oa1-spectral-radius-formula)、[OA2 の character と Gelfand 変換](../OA2/index.md#def-oa2-character)、[OA2 のスペクトルの character 表示](../OA2/index.md#thm-oa2-spectrum-character)、[RA8 の実 Stone--Weierstrass 定理](../RA8/index.md#thm-ra8-stone-weierstrass)、[Hilbert 随伴の存在・一意性とノルム一致](../F0_02C3B_Frechet_chain_adjoint_proofs/index.md#thm-f0-02c3b-hilbert-adjoint)を使います。
 
 OA1 と OA2 では、Banach 環の積とノルムからスペクトルを調べました。可換な場合には character を集めることで、抽象的な元を連続関数として観測できることも分かりました。
 
@@ -197,9 +197,9 @@ $$
 \|T^*T\|.
 $$
 
-一方、
+一方、既出の Hilbert 随伴のノルム一致 $\|T^*\|=\|T\|$ を使うと、
 
-$$
+$
 \|T^*T\|
 \le
 \|T^*\|\,\|T\|
