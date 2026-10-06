@@ -199,140 +199,72 @@ $$
 
 ## 3. 実 Hilbert 空間から複素 Hilbert 空間へ
 
-F0-02C1 では実内積を使いました。量子力学では複素係数を使うため、対称性
+F0-02C1 では Hilbert 空間の完備性を学び、LA5 では有限次元の複素ベクトル空間上で[複素内積](../LA5/index.md#def-la5-complex-inner-product)を定義しました。量子力学では、この二つを同時に使います。
+
+ここで複素内積を作り直す必要はありません。LA5 の規約をそのまま引き継ぎます。すなわち本教材では **第1変数で共役線形、第2変数で線形** とし、
 
 $$
-\langle x,y\rangle=\langle y,x\rangle
-$$
-
-をそのまま使うことはできません。代わりに複素共役を入れます。
-
-本教材では、**第1変数について線形**という規約を使います。
-
-<a id="def-qm1-complex-inner-product"></a>
-
-<!-- formal-statement-start -->
-### 定義（複素内積）
-
-複素ベクトル空間 $H$ 上の写像
-
-$$
-\langle\cdot,\cdot\rangle:H\times H\to\mathbb C
-$$
-
-が、任意の $x,y,z\in H$ と $\alpha,\beta\in\mathbb C$ に対して
-
-$$
-\langle \alpha x+\beta y,z\rangle
+\langle x,\alpha y+\beta z\rangle
 =
-\alpha\langle x,z\rangle
+\alpha\langle x,y\rangle
 +
-\beta\langle y,z\rangle,
+\beta\langle x,z\rangle,
 $$
 
 $$
 \langle x,y\rangle
 =
-\overline{\langle y,x\rangle},
+\overline{\langle y,x\rangle}
 $$
 
-$$
-\langle x,x\rangle\ge0,
-\qquad
-\langle x,x\rangle=0\iff x=0
-$$
+を使います。
 
-を満たすとき、これを **複素内積** という。
-<!-- formal-statement-end -->
-
-<!-- definition-example-start: def-qm1-complex-inner-product -->
-### 直接例：$\mathbb C^2$ の標準内積
-
-$z=(z_1,z_2)$、$w=(w_1,w_2)$ に対して
+たとえば $\mathbb C^2$ の標準内積は
 
 $$
 \langle z,w\rangle
 =
-z_1\overline{w_1}
-+
-z_2\overline{w_2}
+\overline{z_1}w_1+\overline{z_2}w_2
 $$
 
-と置きます。
-
-第1変数の線形性は
-
-$$
-\begin{aligned}
-\langle \alpha z+\beta u,w\rangle
-&=
-(\alpha z_1+\beta u_1)\overline{w_1}
-+
-(\alpha z_2+\beta u_2)\overline{w_2}\\
-&=
-\alpha\langle z,w\rangle
-+
-\beta\langle u,w\rangle
-\end{aligned}
-$$
-
-から確認できます。
-
-共役対称性は
-
-$$
-\begin{aligned}
-\overline{\langle w,z\rangle}
-&=
-\overline{
-w_1\overline{z_1}
-+
-w_2\overline{z_2}
-}\\
-&=
-z_1\overline{w_1}
-+
-z_2\overline{w_2}
-=
-\langle z,w\rangle.
-\end{aligned}
-$$
-
-また
+です。このとき
 
 $$
 \langle z,z\rangle
 =
-|z_1|^2+|z_2|^2\ge0,
+|z_1|^2+|z_2|^2
 $$
 
-等号が成り立つのは $z_1=z_2=0$ のときだけです。従って定義の全条件を満たします。
-<!-- definition-example-end -->
+なので、複素係数の位相を保ったまま長さを正の実数として測れます。
 
-複素内積からも
-
-$$
-\|x\|
-=
-\sqrt{\langle x,x\rangle}
-$$
-
-とノルムを作れます。量子状態の正規化で現れる「係数の絶対値二乗の和」は、このノルムの二乗そのものです。
-
-次に完備性を戻します。
+有限次元だけでなく $L^2$ のような無限次元空間でも極限操作を安定して行いたいので、ここへ完備性を加えます。
 
 <a id="def-qm1-complex-hilbert-space"></a>
 
 <!-- formal-statement-start -->
 ### 定義（複素 Hilbert 空間）
 
-複素内積から定まるノルムについて完備な複素内積空間を **複素 Hilbert 空間** という。
+複素内積から定まるノルム
+
+$$
+\|x\|=\sqrt{\langle x,x\rangle}
+$$
+
+について完備な複素内積空間を **複素 Hilbert 空間** という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qm1-complex-hilbert-space -->
 ### 直接例：$\mathbb C^2$ は複素 Hilbert 空間
 
-前の標準内積から
+LA5 の標準複素内積
+
+$$
+\langle z,w\rangle
+=
+\overline{z_1}w_1+\overline{z_2}w_2
+$$
+
+から
 
 $$
 \|z\|^2
@@ -347,7 +279,7 @@ $\mathbb C^2$ を実ベクトル空間として見れば $\mathbb R^4$ と同じ
 したがって $\mathbb C^2$ は複素 Hilbert 空間です。
 <!-- definition-example-end -->
 
-量子力学の最小例で $\mathbb C^2$ が繰り返し現れるのは偶然ではありません。二つの区別可能な出力を持つ系を、二つの直交方向を持つ複素ベクトル空間として表す最小モデルだからです。
+量子力学の最小例で $\mathbb C^2$ が繰り返し現れるのは偶然ではありません。二つの区別可能な出力を、二つの直交方向を持つ複素ベクトル空間として表す最小モデルだからです。
 
 ---
 
@@ -695,7 +627,7 @@ $$
 
 ### 証明の見取り図
 
-本教材では内積を第1変数について線形としたので、全体位相は内積の外へそのまま出ます。その絶対値は1です。
+LA5 の規約では内積は第1変数について共役線形なので、全体位相は複素共役されて内積の外へ出ます。しかしその絶対値は1のままです。
 
 <!-- proof-start -->
 ### 証明
@@ -855,7 +787,7 @@ $$
 - 観測量をどの作用素で表すか。
 - 固有値と測定結果をどう結ぶか。
 - Born 則で測定確率をどう計算するか。
-- 期待値と分散をどう定義するか。
+- 測定統計をどのような量で要約するか。
 
 つまり本章の役割は
 
@@ -1523,7 +1455,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-まず逆変換
+まず $z$ 基底を $x$ 基底で表す式
 
 $$
 |z+\rangle
