@@ -71,7 +71,7 @@ chapters:
     title: 可換子・二重可換子・von Neumann 環
   - id: VN3
     path: textbook/volumes/00_foundations/VN3
-    status: planned
+    status: completed
     title: 射影・部分等長作用素・極分解
   - id: VN4
     path: textbook/volumes/00_foundations/VN4
