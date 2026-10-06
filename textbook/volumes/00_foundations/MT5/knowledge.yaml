@@ -26,7 +26,7 @@ concepts:
   - id: functional.positive-linear-functional-cc
     name: C_c(X)上の正線形汎関数
     kind: definition
-    aliases: [正線形汎関数, positive linear functional]
+    aliases: [C_c(X)上の正線形汎関数, "positive linear functional on C_c(X)"]
     introduction_aliases: [正線形汎関数]
     requires:
       - topology.compact-support-cc

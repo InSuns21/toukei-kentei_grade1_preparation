@@ -508,7 +508,7 @@ $$
 GNS は公式だけで済ませず、
 
 $$
-\langle a,b\rangle_\varphi=\varphi(b^*a)
+\langle a,b\rangle_\varphi=\varphi(a^*b)
 $$
 
 が一般には半内積でしかない理由、null space を割る理由、左乗法が商へ降りる理由、有界作用素になる理由を段階的に証明する。
@@ -1185,7 +1185,7 @@ EVOL1 の閉作用素一般論を再利用し、Hille--Yosida 等は再実装し
 - OA2 Gelfand 理論 ✅（2026-10-07 完了）
 - OA3 $C^*$-環 ✅（2026-10-07 完了）
 - OA4 連続関数計算・可換 Gelfand--Naimark ✅（2026-10-07 完了）
-- OA5 状態・GNS
+- OA5 状態・GNS ✅（2026-10-07 完了）
 - OA6 正規作用素・関数計算とスペクトル定理の再解釈
 
 を実装する。

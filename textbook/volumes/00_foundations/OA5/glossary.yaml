@@ -1,0 +1,20 @@
+chapter: "OA5"
+terms:
+  - term: 正線形汎関数
+    english: positive linear functional
+    meaning: C*-環上の線形汎関数 phi で、任意の x に対して phi(x*x) が非負となるもの。
+  - term: 状態
+    english: state
+    meaning: 単位元を1へ送る正線形汎関数。
+  - term: GNS 零空間
+    english: GNS null space
+    meaning: 状態 phi に対して phi(a*a)=0 となる元 a 全体。GNS 構成ではこの左イデアルを商でつぶす。
+  - term: 単位的 *-表現
+    english: unital *-representation
+    meaning: C*-環 A から Hilbert 空間 H 上の有界作用素環 B(H) への単位的 *-準同型。
+  - term: 巡回ベクトル
+    english: cyclic vector
+    meaning: pi(A)Omega の閉包が表現空間全体になるベクトル Omega。
+  - term: GNS 構成
+    english: GNS construction
+    meaning: 状態 phi から Hilbert 空間 H_phi、巡回 *-表現 pi_phi、巡回ベクトル Omega_phi を構成し、phi(a)=<Omega_phi,pi_phi(a)Omega_phi> と実現する構成。

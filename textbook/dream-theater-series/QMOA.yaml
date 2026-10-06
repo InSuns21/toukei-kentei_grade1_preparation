@@ -55,7 +55,7 @@ chapters:
     title: 連続関数計算と可換 Gelfand--Naimark
   - id: OA5
     path: textbook/volumes/00_foundations/OA5
-    status: planned
+    status: completed
     title: 正汎関数・状態・GNS 構成
   - id: OA6
     path: textbook/volumes/00_foundations/OA6

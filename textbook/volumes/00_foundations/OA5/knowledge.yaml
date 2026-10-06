@@ -1,0 +1,142 @@
+chapter: OA5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OA4
+  - OA3
+  - LA5
+
+forward_references: []
+
+concepts:
+  - id: operator-algebra.positive-functional
+    name: 正線形汎関数
+    kind: definition
+    aliases: ["positive linear functional"]
+    introduction: formal
+    introduction_aliases: ["定義（正線形汎関数）"]
+    requires:
+      - operator-algebra.cstar-algebra
+      - operator-algebra.positive-square-root
+
+  - id: operator-algebra.cstar-square-bound
+    name: C*-ノルムによる平方差の平方表示
+    kind: lemma
+    aliases: ["C*-norm square bound"]
+    introduction_aliases: ["補題（C*-ノルムによる平方差の平方表示）"]
+    requires:
+      - operator-algebra.continuous-functional-calculus
+      - operator-algebra.self-adjoint-spectrum-real
+
+  - id: operator-algebra.positive-functional-hermitian
+    name: 正線形汎関数は随伴を複素共役へ送る
+    kind: lemma
+    aliases: ["Hermitian property of positive linear functionals"]
+    introduction_aliases: ["補題（正線形汎関数は随伴を複素共役へ送る）"]
+    requires:
+      - operator-algebra.positive-functional
+      - operator-algebra.continuous-functional-calculus
+
+  - id: operator-algebra.positive-functional-cauchy-schwarz
+    name: 正線形汎関数の Cauchy--Schwarz 不等式
+    kind: theorem
+    aliases: ["Cauchy-Schwarz inequality for positive linear functionals"]
+    introduction_aliases: ["定理（正線形汎関数の Cauchy--Schwarz 不等式）"]
+    requires:
+      - operator-algebra.positive-functional
+      - operator-algebra.positive-functional-hermitian
+
+  - id: operator-algebra.positive-functional-norm
+    name: 正線形汎関数のノルム
+    kind: theorem
+    aliases: ["norm of a positive linear functional"]
+    introduction_aliases: ["定理（正線形汎関数のノルム）"]
+    requires:
+      - operator-algebra.cstar-square-bound
+      - operator-algebra.positive-functional-cauchy-schwarz
+
+  - id: operator-algebra.state
+    name: 状態
+    kind: definition
+    aliases: ["state on a C*-algebra"]
+    introduction: formal
+    introduction_aliases: ["定義（状態）"]
+    requires:
+      - operator-algebra.positive-functional
+      - operator-algebra.positive-functional-norm
+
+  - id: operator-algebra.gns-null-space
+    name: GNS 零空間
+    kind: definition
+    aliases: ["GNS null space"]
+    introduction: formal
+    introduction_aliases: ["定義（GNS 零空間）"]
+    requires:
+      - operator-algebra.state
+
+
+  - id: operator-algebra.gns-null-left-ideal
+    name: GNS 零空間は左イデアルである
+    kind: proposition
+    aliases: ["GNS null space is a left ideal"]
+    introduction_aliases: ["命題（GNS 零空間は左イデアルである）"]
+    requires:
+      - operator-algebra.gns-null-space
+      - operator-algebra.positive-functional-cauchy-schwarz
+      - operator-algebra.cstar-square-bound
+
+  - id: operator-algebra.gns-quotient-inner-product
+    name: GNS 商空間の内積
+    kind: proposition
+    aliases: ["inner product on the GNS quotient"]
+    introduction_aliases: ["命題（GNS 商空間の内積）"]
+    requires:
+      - operator-algebra.gns-null-space
+      - operator-algebra.positive-functional-cauchy-schwarz
+      - linear.complex-inner-product
+
+  - id: operator-algebra.unital-star-representation
+    name: 単位的 *-表現
+    kind: definition
+    aliases: ["unital *-representation"]
+    introduction: formal
+    introduction_aliases: ["定義（単位的 *-表現と巡回ベクトル）"]
+    requires:
+      - operator-algebra.unital-star-homomorphism
+
+  - id: operator-algebra.cyclic-vector
+    name: 巡回ベクトル
+    kind: definition
+    aliases: ["cyclic vector"]
+    introduction: formal
+    introduction_aliases: ["定義（単位的 *-表現と巡回ベクトル）"]
+    requires:
+      - operator-algebra.unital-star-representation
+
+  - id: operator-algebra.gns-left-multiplication-bounded
+    name: GNS 左乗法は有界である
+    kind: proposition
+    aliases: ["boundedness of left multiplication in GNS"]
+    introduction_aliases: ["命題（GNS 左乗法は有界である）"]
+    requires:
+      - operator-algebra.gns-null-left-ideal
+      - operator-algebra.gns-quotient-inner-product
+      - operator-algebra.cstar-square-bound
+
+  - id: operator-algebra.gns-construction
+    name: GNS 構成
+    kind: theorem
+    aliases: ["GNS construction"]
+    introduction_aliases: ["定理（GNS 構成）"]
+    requires:
+      - operator-algebra.gns-left-multiplication-bounded
+      - operator-algebra.cyclic-vector
+      - operator-algebra.state
+
+  - id: operator-algebra.gns-uniqueness
+    name: GNS 巡回表現の一意性
+    kind: theorem
+    aliases: ["uniqueness of GNS cyclic representation"]
+    introduction_aliases: ["定理（GNS 巡回表現の一意性）"]
+    requires:
+      - operator-algebra.gns-construction

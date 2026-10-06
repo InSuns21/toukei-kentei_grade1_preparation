@@ -1,0 +1,51 @@
+id: "OA5"
+title: "正汎関数・状態・GNS 構成"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OA4
+  - OA3
+  - LA5
+official_scope: []
+learning_objectives:
+  - 正線形汎関数を平方 x*x に対する非負性で定義し、正元との関係を説明できる
+  - 正線形汎関数が随伴を複素共役へ送り、Cauchy--Schwarz 型不等式を満たすことを証明できる
+  - C*-ノルムから正線形汎関数の有界性とノルム公式 ||phi||=phi(1) を導ける
+  - 状態を正規化された正線形汎関数として定義し、点評価・ベクトル状態・正規化トレースを検証できる
+  - GNS 零空間 N_phi が線形部分空間かつ左イデアルであることを証明できる
+  - A/N_phi 上の内積が well-defined であることを確認し、完備化 H_phi を構成できる
+  - 左乗法が有界作用素へ降り、単位的 *-表現 pi_phi を与えることを証明できる
+  - 巡回ベクトル Omega_phi=[1] から phi(a)=<pi_phi(a)Omega_phi,Omega_phi> を回収し、GNS 巡回表現の一意性を証明できる
+definitions:
+  - { id: OA5-DEF-01, name: "正線形汎関数" }
+  - { id: OA5-DEF-02, name: "状態" }
+  - { id: OA5-DEF-03, name: "GNS 零空間" }
+  - { id: OA5-DEF-04, name: "単位的 *-表現と巡回ベクトル" }
+theorems:
+  - { id: OA5-LEM-01, name: "C*-ノルムによる平方差の平方表示" }
+  - { id: OA5-LEM-02, name: "正線形汎関数は随伴を複素共役へ送る" }
+  - { id: OA5-THM-01, name: "正線形汎関数の Cauchy--Schwarz 不等式" }
+  - { id: OA5-THM-02, name: "正線形汎関数のノルム" }
+  - { id: OA5-PROP-01, name: "GNS 零空間は左イデアルである" }
+  - { id: OA5-PROP-02, name: "GNS 商空間の内積" }
+  - { id: OA5-PROP-03, name: "GNS 左乗法は有界である" }
+  - { id: OA5-THM-03, name: "GNS 構成" }
+  - { id: OA5-THM-04, name: "GNS 巡回表現の一意性" }
+canonical_examples:
+  - "C(K) の点評価状態と1次元 GNS 表現"
+  - "M_n(C) のベクトル状態と標準表現"
+  - "M_n(C) の正規化トレースと左正則表現"
+  - "M_2(C) の混合状態と C^2⊕C^2 上の GNS 表現"
+problem_patterns:
+  - OA5-POSITIVE-FUNCTIONAL-1
+  - OA5-CAUCHY-SCHWARZ-1
+  - OA5-STATE-1
+  - OA5-NULL-SPACE-1
+  - OA5-GNS-QUOTIENT-1
+  - OA5-GNS-REPRESENTATION-1
+  - OA5-GNS-UNIQUENESS-1
+  - OA5-MATRIX-GNS-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11.0, exercises: 8.0, review: 2.0 }
