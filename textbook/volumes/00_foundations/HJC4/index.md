@@ -696,25 +696,25 @@ $$
 
 §3 の $f\equiv0$, $L(u,v)=uv$, $U=V=\{-1,1\}$ を使います。このとき $p$ に依存する項はなく、
 
-$
+$$
 H^-=\sup_v\inf_u uv=-1,
 \qquad
 H^+=\inf_u\sup_v uv=1.
-$
+$$
 
 従って lower / upper HJI はそれぞれ
 
-$
+$$
 V_t^- -1=0,
 \qquad
 V^-(T)=0,
-$
+$$
 
-$
+$$
 V_t^+ +1=0,
 \qquad
 V^+(T)=0
-$
+$$
 
 です。
 
