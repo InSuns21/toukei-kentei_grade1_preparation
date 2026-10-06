@@ -36,7 +36,7 @@ $$
 
 > 解を無理に微分するのではなく、解へ上または下から接する滑らかな関数を微分し、その接触点で PDE の不等式を読む。
 
-この方法が **粘性解**です。
+この接触による判定を、以下で subsolution と supersolution に分けて定式化します。
 
 本章の流れは
 
@@ -65,7 +65,7 @@ HJC3 では、この解概念を HJB の value function へ戻し、
 $$
 \text{dynamic programming}
 \Longrightarrow
-\text{HJB の粘性解}
+\text{HJB の非滑らかな解の特徴付け}
 $$
 
 を証明します。
@@ -144,7 +144,7 @@ $$
 
 最適制御や front propagation で欲しい解は、単に、ほとんど至る所（almost everywhere; a.e.）で微分できる候補ではなく、comparison principle と整合する候補です。
 
-粘性解は、この山型と谷型の違いを
+これから導入する接触による判定は、この山型と谷型の違いを
 
 $$
 \text{接触する smooth test function}
@@ -200,7 +200,7 @@ $$
 
 が局所最小なら $\phi$ は $u$ へ **下から接する** と言います。
 
-粘性解では、非滑らかな $u$ の代わりに、この $\phi$ の微分
+この枠組みでは、非滑らかな $u$ の代わりに、この $\phi$ の微分
 
 $$
 \phi_t(t_0,x_0),
@@ -265,7 +265,7 @@ $$
 0<t<T
 $$
 
-で課します。$t=0$ は有限時間問題を書き始めるための人工的な左端なので、そこで別の境界条件を課しません。$t=0$ の値まで必要な結論は、$t\downarrow0$ の連続性で延長します。終端 $t=T$ は PDE の接触条件とは分け、終端条件として扱います。
+で課します。$t=0$ は有限時間問題を書き始めるための人工的な左端なので、そこで別の境界条件を課しません。$t=0$ の値まで必要な結論は、$t\downarrow0$ の連続性で延長します。終端 $t=T$ は interior PDE の不等式とは分け、終端条件として扱います。
 
 解そのものが微分できなくても、test function は $C^1$ なので微分できます。
 
@@ -386,7 +386,7 @@ $$
 
 これは偽です。
 
-したがって $u_-$ は viscosity supersolution ではなく、粘性解ではありません。
+したがって $u_-$ は viscosity supersolution ではなく、subsolution と supersolution の両方を満たす候補にはなりません。
 
 a.e. には $|u_-'|=1$ だったのに、谷の頂点では comparison と両立しないことを test function が検出しました。
 <!-- definition-example-end -->
@@ -413,7 +413,7 @@ $$
 
 ---
 
-## 4. viscosity solution と終端条件
+## 4. subsolution と supersolution を一つの解概念にまとめる
 
 subsolution と supersolution の両方を満たせば、PDE の両側の不等式がそろいます。
 
