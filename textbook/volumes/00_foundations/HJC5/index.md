@@ -213,6 +213,10 @@ $$
 
 ## 3. controlled diffusion：制御を固定するごとに SDE が一つ決まる
 
+許容制御を定めただけでは、まだ「その制御を入れたとき状態がどう動くか」が決まっていません。決定論的制御で control ごとに ODE の軌道を作ったのと同じ役割を、ここでは SDE の強解に担わせます。
+
+つまり次に欲しいのは、各 admissible control を一つ固定したとき、その入力に応じたランダムな状態軌道を返す対象です。
+
 <a id="def-hjc5-controlled-diffusion"></a>
 
 <!-- formal-statement-start -->
@@ -746,6 +750,10 @@ $$
 ---
 
 ## 7. controlled generator は control ごとの局所平均変化率
+
+Itô 公式の短時間展開には、毎回ドリフト項と Hessian 項が同じ組で現れます。この組を control 値ごとに一つの作用素へまとめれば、DPP から PDE へ進む計算を「局所平均変化率」という一つの部品で扱えます。
+
+そこで、制御値を一瞬固定した拡散の生成作用素を切り出します。
 
 <a id="def-hjc5-controlled-generator"></a>
 
@@ -2526,13 +2534,13 @@ AD^2\phi
 \end{pmatrix}.
 $$
 
-従って trace は
+従って積行列の対角成分を足すと
 
-$$
+$
 \operatorname{tr}(AD^2\phi)
 =
 4\phi_{11}.
-$$
+$
 
 よって
 
