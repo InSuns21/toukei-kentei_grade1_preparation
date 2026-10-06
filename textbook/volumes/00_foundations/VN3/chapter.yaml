@@ -1,0 +1,46 @@
+id: "VN3"
+title: "射影・部分等長作用素・極分解"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - VN2
+  - OA3
+  - OA6
+official_scope: []
+learning_objectives:
+  - B(H) の射影と閉部分空間が一対一に対応し、ran P と ker P の直交分解を証明できる
+  - 部分等長作用素を初期空間上の等長性で定義し、V*V と VV* が初期射影・終射影になることを証明できる
+  - 正作用素 A の支持射影 s(A) を定義し、A(A+epsilon I)^(-1) の SOT 極限として回収できる
+  - 有界作用素 T に対し |T|=(T*T)^(1/2) を用いて極分解 T=U|T| を構成し、U の一意性まで証明できる
+  - 極分解で U*U=s(|T|) および UU*=s(|T*|) を導ける
+  - T が von Neumann 環 M に属するとき、極分解の部分等長作用素 U も M に属することを SOT 近似から証明できる
+  - 2次行列の具体例で |T|、支持射影、部分等長作用素 U を手計算できる
+definitions:
+  - { id: VN3-DEF-01, name: "作用素の絶対値" }
+  - { id: VN3-DEF-02, name: "部分等長作用素" }
+  - { id: VN3-DEF-03, name: "支持射影" }
+theorems:
+  - { id: VN3-PROP-01, name: "射影と閉部分空間の対応" }
+  - { id: VN3-PROP-02, name: "部分等長作用素と初期射影・終射影" }
+  - { id: VN3-PROP-03, name: "支持射影の SOT 近似" }
+  - { id: VN3-THM-01, name: "有界作用素の極分解" }
+  - { id: VN3-PROP-04, name: "極分解と支持射影" }
+  - { id: VN3-THM-02, name: "von Neumann 環内での極分解" }
+canonical_examples:
+  - "C^2 の座標軸への直交射影"
+  - "rank-one 部分等長作用素 V e2=e1, V e1=0"
+  - "T=[[0,2],[0,0]] の極分解 T=U|T|"
+  - "正作用素 diag(0,3) の支持射影 diag(0,1)"
+problem_patterns:
+  - VN3-PROJECTION-SUBSPACE-1
+  - VN3-PARTIAL-ISOMETRY-1
+  - VN3-SUPPORT-PROJECTION-1
+  - VN3-MATRIX-POLAR-1
+  - VN3-POLAR-UNIQUENESS-1
+  - VN3-SUPPORT-IDENTITIES-1
+  - VN3-VON-NEUMANN-POLAR-1
+  - VN3-INFINITE-DIAGONAL-SUPPORT-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 8.0, review: 2.0 }
