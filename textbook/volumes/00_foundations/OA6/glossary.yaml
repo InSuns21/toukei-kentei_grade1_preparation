@@ -1,0 +1,17 @@
+chapter: "OA6"
+terms:
+  - term: 正規作用素
+    english: normal operator
+    meaning: Hilbert 空間上の有界作用素 T で T*T=TT* を満たすもの。自己共役作用素と unitary 作用素を含む。
+  - term: スペクトル分布
+    english: spectral distribution
+    meaning: 正規元 a と状態 phi に対して、phi(f(a))=∫f dmu を満たすスペクトル上の確率測度。
+  - term: スペクトル測度
+    english: spectral measure
+    meaning: 正規作用素 T の連続関数計算を PVM 積分 f(T)=∫f dE_T として表す射影値測度。
+  - term: 有界 Borel 関数計算
+    english: bounded Borel functional calculus
+    meaning: 正規作用素 T とそのスペクトル測度 E_T に対し、有界 Borel 関数 g を g(T)=∫g dE_T へ送る関数計算。
+  - term: スペクトル射影
+    english: spectral projection
+    meaning: Borel 集合 B に対する E_T(B)=1_B(T)。スペクトルの B に属する部分を切り出す直交射影。
