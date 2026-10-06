@@ -1,0 +1,104 @@
+chapter: EVOL6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - EVOL5
+  - ODE8
+
+forward_references:
+  - fixedpoint.fixed-point
+  - nonlinear-pde.semilinear-heat-equation
+  - nonlinear-pde.semilinear-blowup-alternative
+  - nonlinear-pde.fujita-exponent
+  - navier-stokes.three-dimensional-local-strong
+  - navier-stokes.h1-blowup-alternative
+
+concepts:
+  - id: evolution.semilinear-mild-solution
+    name: 半線形発展方程式の mild 解
+    kind: definition
+    aliases: ["semilinear evolution mild solution"]
+    introduction: formal
+    introduction_aliases: ["定義（半線形発展方程式の mild 解）"]
+    requires:
+      - evolution.mild-solution
+      - evolution.strongly-continuous-semigroup
+
+  - id: evolution.locally-lipschitz-nonlinearity
+    name: 局所 Lipschitz 非線形項
+    kind: definition
+    aliases: ["locally Lipschitz nonlinearity"]
+    introduction: formal
+    introduction_aliases: ["定義（局所 Lipschitz 非線形項）"]
+    requires:
+      - functional.banach-space
+
+  - id: evolution.bounded-ball-lipschitz-nonlinearity
+    name: bounded-ball Lipschitz 非線形項
+    kind: definition
+    aliases: ["Lipschitz on bounded balls"]
+    introduction: formal
+    introduction_aliases: ["定義（bounded-ball Lipschitz 非線形項）"]
+    requires:
+      - evolution.locally-lipschitz-nonlinearity
+
+  - id: evolution.semilinear-local-wellposedness
+    name: 半線形発展方程式の局所存在一意性
+    kind: theorem
+    aliases: ["local well-posedness for semilinear evolution equations"]
+    introduction: formal
+    introduction_aliases: ["定理（半線形発展方程式の局所存在一意性）"]
+    requires:
+      - evolution.semilinear-mild-solution
+      - evolution.locally-lipschitz-nonlinearity
+      - functional.uniform-boundedness-principle
+
+  - id: evolution.semilinear-restart
+    name: mild 解の再出発公式
+    kind: proposition
+    aliases: ["restart identity for semilinear mild solutions"]
+    introduction: formal
+    introduction_aliases: ["命題（mild 解の再出発公式）"]
+    requires:
+      - evolution.semilinear-mild-solution
+
+  - id: evolution.semilinear-continuous-dependence
+    name: 有界領域での初期値連続依存
+    kind: proposition
+    aliases: ["continuous dependence for semilinear mild solutions"]
+    introduction: formal
+    introduction_aliases: ["命題（有界領域での初期値連続依存）"]
+    requires:
+      - evolution.semilinear-local-wellposedness
+      - ode.ode8-gronwall
+
+  - id: evolution.semilinear-maximal-time
+    name: 半線形発展方程式の最大存在時間
+    kind: definition
+    aliases: ["maximal existence time for semilinear evolution equations"]
+    introduction: formal
+    introduction_aliases: ["定義（最大存在時間）"]
+    requires:
+      - evolution.semilinear-local-wellposedness
+      - evolution.semilinear-restart
+
+  - id: evolution.semilinear-blowup-alternative
+    name: 半線形発展方程式の blow-up alternative
+    kind: theorem
+    aliases: ["semilinear evolution blow-up alternative"]
+    introduction: formal
+    introduction_aliases: ["定理（半線形発展方程式の blow-up alternative）"]
+    requires:
+      - evolution.semilinear-maximal-time
+      - evolution.semilinear-restart
+      - evolution.bounded-ball-lipschitz-nonlinearity
+
+  - id: evolution.semilinear-linear-growth-global
+    name: 半線形発展方程式の線形成長条件による大域存在
+    kind: corollary
+    aliases: ["global existence for semilinear evolution equations under linear growth"]
+    introduction: formal
+    introduction_aliases: ["系（半線形発展方程式の線形成長条件による大域存在）"]
+    requires:
+      - evolution.semilinear-blowup-alternative
+      - ode.ode8-gronwall

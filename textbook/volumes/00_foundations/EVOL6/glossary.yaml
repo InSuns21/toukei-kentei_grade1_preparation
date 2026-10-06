@@ -1,0 +1,26 @@
+chapter: "EVOL6"
+terms:
+  - term: semilinear evolution equation
+    english: semilinear evolution equation
+    meaning: 線形生成作用素 A が時間発展の主部を担い、非線形項 F(u) を加えた u'=Au+F(u) 型の発展方程式。
+  - term: nonlinear Duhamel map
+    english: nonlinear Duhamel map
+    meaning: Phi(u)(t)=T(t)u0+integral_0^t T(t-s)F(u(s))ds で定まる写像。mild 解はこの写像の不動点として構成する。
+  - term: locally Lipschitz
+    english: locally Lipschitz
+    meaning: 各点の近傍ごとに Lipschitz 定数を選べる性質。局所解の一意性に使う。
+  - term: bounded-ball Lipschitz
+    english: Lipschitz on bounded balls
+    meaning: 各半径 R に対して原点中心球 ||x||,||y||<=R 全体で共通の Lipschitz 定数 L_R を取れる性質。無限次元で一様な再出発時間を作るために用いる。
+  - term: restart
+    english: restart
+    meaning: 途中時刻 t0 の値 u(t0) を新しい初期値として同じ半線形方程式を解き直すこと。半群則と Duhamel 公式により元の mild 解と一致する。
+  - term: maximal existence time
+    english: maximal existence time
+    meaning: 局所 mild 解を一意性で貼り合わせて得られる最大の存在区間 [0,T_max) の右端。
+  - term: continuation criterion
+    english: continuation criterion
+    meaning: どの量が有限に保たれれば最大解をさらに延長できるかを与える条件。
+  - term: blow-up alternative
+    english: blow-up alternative
+    meaning: 最大存在時間が有限なら、延長を妨げる制御量が必ず発散するという二者択一。本章では bounded-ball Lipschitz 条件の下で ||u(t)||->infinity を示す。
