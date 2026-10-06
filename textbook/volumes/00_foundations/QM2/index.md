@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念への参照**：[QM1 の Hilbert 空間の ray](../QM1/index.md#def-qm1-hilbert-ray)、[LA5 の複素正規作用素のスペクトル定理](../LA5/index.md#thm-la5-normal-spectral)、[FA7 の自己共役有界作用素](../FA7/index.md#def-fa7-self-adjoint)を使います。
+> **既出概念への参照**：[QM1 の Hilbert 空間の ray](../QM1/index.md#def-qm1-hilbert-ray)、[LA5 の複素正規作用素のスペクトル定理](../LA5/index.md#thm-la5-normal-spectral)、[FA7 の自己共役有界作用素](../FA7/index.md#def-fa7-self-adjoint)、[P2A の期待値](../F0_00P2A_期待値_LOTUS/index.md#def-f0-00p2a-expectation)を使います。
 
 QM1 では、二重スリットと Stern--Gerlach 型実験を手掛かりに、量子状態を複素 Hilbert 空間で表す動機を作りました。しかし、そこでは意図的に一つの穴を残しました。
 
