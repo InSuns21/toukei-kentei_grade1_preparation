@@ -1,0 +1,40 @@
+id: "QM4"
+title: "非可換観測量と不確定性関係"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - QM3
+  - QM2
+  - LA5
+official_scope: []
+learning_objectives:
+  - 二つの観測量が可換することを交換子の消滅として判定し、その物理的意味を説明できる
+  - 有限次元自己共役作用素について、可換性と同時対角化可能性が同値であることを証明できる
+  - スペクトル射影の可換性が両立する射影測定を与えることを説明できる
+  - 理想射影測定の逐次確率を射影の積から計算し、測定順序への依存を判定できる
+  - 観測量を平均から中心化し、分散を中心化作用素のノルムとして書ける
+  - Cauchy--Schwarz の不等式から Robertson 型不確定性関係を途中式つきで導出できる
+  - Pauli 行列の交換子と spin 1/2 の具体状態について不確定性下限を計算できる
+  - 非可換性そのものと、特定状態で不確定性関係の右辺が非零になることを区別できる
+definitions:
+  - { id: QM4-DEF-01, name: "交換子" }
+  - { id: QM4-DEF-02, name: "可換する観測量" }
+theorems:
+  - { id: QM4-THM-01, name: "有限次元の同時対角化定理" }
+  - { id: QM4-PROP-01, name: "スペクトル射影による両立性" }
+  - { id: QM4-THM-02, name: "Robertson 型不確定性関係" }
+canonical_examples:
+  - "Pauli 行列 sigma_x, sigma_y, sigma_z の交換子"
+  - "z+ 状態における sigma_x と sigma_y の Robertson 不等式の等号成立"
+  - "z+ から x 測定を挟んで z を再測定する逐次 Stern--Gerlach 型測定"
+  - "対角行列同士の可換性と共通固有基底"
+problem_patterns:
+  - QM4-COMMUTATOR-1
+  - QM4-SIMULTANEOUS-DIAGONALIZATION-1
+  - QM4-SEQUENTIAL-MEASUREMENT-1
+  - QM4-ROBERTSON-1
+  - QM4-SPIN-UNCERTAINTY-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 6.0, review: 2.0 }

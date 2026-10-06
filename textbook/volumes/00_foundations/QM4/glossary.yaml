@@ -1,0 +1,20 @@
+chapter: "QM4"
+terms:
+  - term: 交換子
+    english: commutator
+    meaning: 二つの作用素 A,B に対する [A,B]=AB-BA。0なら二つの作用素は可換する。
+  - term: 可換する観測量
+    english: commuting observables
+    meaning: 自己共役観測量 A,B が AB=BA を満たすこと。有界自己共役作用素ではスペクトル射影同士の可換性と対応する。
+  - term: 同時対角化
+    english: simultaneous diagonalization
+    meaning: 複数の作用素を同じ正規直交基底で同時に対角行列へ表すこと。有限次元の自己共役作用素では可換性と同値。
+  - term: 不確定性
+    english: uncertainty
+    meaning: 本章では測定値分布の標準偏差で表すばらつき。測定装置の性能そのものではなく、状態と観測量から決まる量。
+  - term: Robertson 型不確定性関係
+    english: Robertson uncertainty relation
+    meaning: 二つの有界自己共役観測量 A,B の標準偏差の積を交換子期待値で下から評価する不等式。
+  - term: 両立する射影測定
+    english: compatible projective measurements
+    meaning: すべての対応射影が互いに可換する射影測定。本章では逐次測定の順序を入れ替えられる基準として用いる。
