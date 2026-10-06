@@ -282,6 +282,11 @@
 5. [OA5 正汎関数・状態・GNS 構成](textbook/volumes/00_foundations/OA5/index.md)
 6. [OA6 正規作用素・関数計算とスペクトル定理の再解釈](textbook/volumes/00_foundations/OA6/index.md)
 
+<a id="dt-subject-operator-algebra-ii"></a>
+### 作用素環論 II
+
+1. [VN1 B(H) の作用素位相](textbook/volumes/00_foundations/VN1/index.md)
+
 <a id="dt-subject-evolution-equations"></a>
 ### 抽象発展方程式・半群論
 
