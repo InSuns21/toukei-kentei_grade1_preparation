@@ -296,6 +296,7 @@
 3. [HJC3 HJB と value function の粘性解特徴付け](textbook/volumes/00_foundations/HJC3/index.md)
 4. [HJC4 決定論的微分ゲーム・Hamilton--Jacobi--Isaacs](textbook/volumes/00_foundations/HJC4/index.md)
 5. [HJC5 確率制御・二階 Hamilton--Jacobi--Bellman 方程式](textbook/volumes/00_foundations/HJC5/index.md)
+6. [HJC6 確率微分ゲーム・二階 Isaacs 方程式](textbook/volumes/00_foundations/HJC6/index.md)
 
 <a id="dt-subject-navier-stokes"></a>
 ### Navier--Stokes 方程式への道

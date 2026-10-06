@@ -1,0 +1,105 @@
+chapter: HJC6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HJC4
+  - HJC5
+
+forward_references: []
+
+concepts:
+  - id: control.stochastic-differential-game
+    name: 確率微分ゲーム
+    kind: definition
+    aliases: ["stochastic differential game", "zero-sum stochastic differential game"]
+    introduction: formal
+    introduction_aliases: ["定義（確率微分ゲーム）"]
+    requires:
+      - control.controlled-diffusion
+      - game.differential-lower-upper-values
+
+  - id: control.stochastic-nonanticipative-strategy
+    name: stochastic nonanticipative strategy
+    kind: definition
+    aliases: ["確率的 nonanticipative strategy"]
+    introduction: formal
+    introduction_aliases: ["定義（stochastic nonanticipative strategy）"]
+    requires:
+      - game.nonanticipative-strategy
+      - control.stochastic-admissible-control
+
+  - id: control.stochastic-lower-upper-value
+    name: lower / upper stochastic value
+    kind: definition
+    aliases: ["stochastic lower and upper values"]
+    introduction: formal
+    introduction_aliases: ["定義（lower / upper stochastic value）"]
+    requires:
+      - control.stochastic-differential-game
+      - control.stochastic-nonanticipative-strategy
+      - game.differential-lower-upper-values
+
+  - id: control.two-player-controlled-generator
+    name: 二人制御 generator
+    kind: definition
+    aliases: ["two-player controlled generator"]
+    introduction: formal
+    introduction_aliases: ["定義（二人制御 generator）"]
+    requires:
+      - control.stochastic-differential-game
+      - control.controlled-generator
+
+  - id: control.stochastic-game-dpp
+    name: stochastic differential game の DPP
+    kind: theorem
+    aliases: ["stochastic differential game DPP"]
+    introduction: formal
+    introduction_aliases: ["定理（stochastic differential game の DPP）"]
+    requires:
+      - control.stochastic-lower-upper-value
+      - control.stochastic-dpp
+      - game.differential-dpp
+
+  - id: control.second-order-isaacs
+    name: 二階 lower / upper Isaacs operator と方程式
+    kind: definition
+    aliases: ["second-order Isaacs equation", "second order Hamilton-Jacobi-Isaacs equation"]
+    introduction: formal
+    introduction_aliases: ["定義（二階 lower / upper Isaacs operator と方程式）"]
+    requires:
+      - control.stochastic-game-dpp
+      - control.two-player-controlled-generator
+      - game.isaacs-hamiltonians
+      - control.second-order-hjb
+
+  - id: control.stochastic-game-value-viscosity
+    name: lower / upper stochastic value の viscosity characterization
+    kind: theorem
+    aliases: ["viscosity characterization of stochastic differential game values"]
+    introduction: formal
+    introduction_aliases: ["定理（lower / upper stochastic value の viscosity characterization）"]
+    requires:
+      - control.second-order-isaacs
+      - control.second-order-hjb-viscosity
+      - game.hji-viscosity-characterization
+
+  - id: control.stochastic-isaacs-condition
+    name: stochastic Isaacs condition
+    kind: definition
+    aliases: ["確率的 Isaacs condition", "second-order Isaacs condition"]
+    introduction: formal
+    introduction_aliases: ["定義（stochastic Isaacs condition）"]
+    requires:
+      - control.second-order-isaacs
+      - game.isaacs-condition
+
+  - id: control.stochastic-isaacs-value
+    name: stochastic Isaacs condition と comparison による game value
+    kind: theorem
+    aliases: ["stochastic differential game value theorem under Isaacs condition"]
+    introduction: formal
+    introduction_aliases: ["定理（stochastic Isaacs condition と comparison による game value）"]
+    requires:
+      - control.stochastic-isaacs-condition
+      - control.stochastic-game-value-viscosity
+      - pde.viscosity-comparison-principle

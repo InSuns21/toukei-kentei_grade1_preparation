@@ -1,0 +1,47 @@
+id: "HJC6"
+title: "確率微分ゲーム・二階 Isaacs 方程式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HJC4
+  - HJC5
+official_scope: []
+learning_objectives:
+  - 二人零和の controlled diffusion と期待 payoff を定式化し、確率制御と決定論的微分ゲームの両方との差を説明できる
+  - stochastic nonanticipative strategy を定義し、相手 control と Brown noise の双方について未来を先読みしない条件を判定できる
+  - lower / upper stochastic value を定式化し、strategy を持つ側の違いが局所的な sup-inf / inf-sup の順序へ現れることを説明できる
+  - 二人制御 generator を Itô 公式から計算し、control-dependent diffusion が Hessian を含む二階項へ入ることを説明できる
+  - stochastic DPP をランダムな中間状態と continuation strategy の貼り合わせから再構成できる
+  - stochastic DPP の短時間展開から二階 lower / upper Isaacs equation を導出できる
+  - lower / upper stochastic value が対応する二階 Isaacs equation の viscosity solution になる局所証明を追える
+  - stochastic Isaacs condition を x, p, M 全体で検証し、決定論的 Isaacs condition との差を説明できる
+  - Isaacs condition と二階 PDE の comparison principle を分離し、両者から game value の存在を導ける
+  - 最悪外乱を第二プレイヤーとみなす robust-control viewpoint から局所 Hamiltonian と feedback candidates を計算できる
+definitions:
+  - { id: HJC6-DEF-01, name: "確率微分ゲーム" }
+  - { id: HJC6-DEF-02, name: "stochastic nonanticipative strategy" }
+  - { id: HJC6-DEF-03, name: "lower / upper stochastic value" }
+  - { id: HJC6-DEF-04, name: "二人制御 generator" }
+  - { id: HJC6-DEF-05, name: "二階 lower / upper Isaacs operator と方程式" }
+  - { id: HJC6-DEF-06, name: "stochastic Isaacs condition" }
+theorems:
+  - { id: HJC6-THM-01, name: "stochastic differential game の DPP" }
+  - { id: HJC6-THM-02, name: "lower / upper stochastic value の viscosity characterization" }
+  - { id: HJC6-THM-03, name: "stochastic Isaacs condition と comparison による game value" }
+canonical_examples:
+  - "dX=(u-v)dt+sigma dW の noisy pursuit--evasion"
+  - "control-dependent diffusion による Hessian を含む二人制御 generator"
+  - "L=uv の value gap と stochastic Isaacs condition の失敗"
+  - "最悪外乱を第二プレイヤーとする robust-control 型線形二次ゲーム"
+problem_patterns:
+  - HJC6-STOCHASTIC-GAME-1
+  - HJC6-STOCHASTIC-NONANTICIPATIVE-1
+  - HJC6-TWO-PLAYER-GENERATOR-1
+  - HJC6-STOCHASTIC-DPP-1
+  - HJC6-SECOND-ORDER-ISAACS-1
+  - HJC6-VISCOSITY-GAME-1
+  - HJC6-ROBUST-CONTROL-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10.5, exercises: 8.0, review: 2.0 }

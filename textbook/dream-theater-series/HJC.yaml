@@ -1,7 +1,7 @@
 version: 1
 id: HJC
 title: 最適制御・HJB・微分ゲーム
-plan: textbook/plans_progress/DREAM_THEATER_OPTIMAL_CONTROL_DIFFERENTIAL_GAMES_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_OPTIMAL_CONTROL_DIFFERENTIAL_GAMES_PLAN.md
 chapter_root: textbook/volumes/00_foundations
 
 chapters:
@@ -27,5 +27,5 @@ chapters:
     title: 確率制御・二階 HJB
   - id: HJC6
     path: textbook/volumes/00_foundations/HJC6
-    status: planned
+    status: completed
     title: 確率微分ゲーム・二階 Isaacs 方程式

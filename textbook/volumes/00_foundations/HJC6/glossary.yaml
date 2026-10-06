@@ -1,0 +1,23 @@
+chapter: "HJC6"
+terms:
+  - term: stochastic differential game
+    english: stochastic differential game
+    meaning: 二人以上のプレイヤーが controlled diffusion の係数を通じて同じ確率状態を動かし、期待 payoff を競う動的ゲーム。本章では二人零和を扱う。
+  - term: stochastic nonanticipative strategy
+    english: stochastic nonanticipative strategy
+    meaning: 相手の control 履歴に応答して自分の progressively measurable control を返す規則で、相手の未来 control や Brown 運動の未来を先読みしないもの。
+  - term: lower / upper stochastic value
+    english: lower / upper stochastic value
+    meaning: MIN または MAX のどちら側が nonanticipative strategy として相手の open-loop control に反応するかを分けて定義する二つのゲーム値。
+  - term: two-player controlled generator
+    english: two-player controlled generator
+    meaning: 二人の action を固定した controlled diffusion の無限小生成作用素。ドリフトの一階項と action-dependent diffusion による Hessian の二階項を持つ。
+  - term: second-order Isaacs equation
+    english: second-order Hamilton--Jacobi--Isaacs equation
+    meaning: running cost、二人制御 generator、sup-inf または inf-sup の局所最適化を組み合わせて得られる二階の Hamilton--Jacobi--Isaacs 方程式。
+  - term: stochastic Isaacs condition
+    english: stochastic Isaacs condition
+    meaning: 状態 x、勾配変数 p、Hessian 変数 M の全てについて lower と upper の二階 Isaacs operator が一致する条件。
+  - term: robust control viewpoint
+    english: robust control viewpoint
+    meaning: MAX を敵対的プレイヤーではなく最悪外乱と解釈し、MIN の制御と外乱の競合を零和確率微分ゲームとして扱う見方。
