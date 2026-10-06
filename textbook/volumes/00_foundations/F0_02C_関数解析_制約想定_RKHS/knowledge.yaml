@@ -29,6 +29,7 @@ forward_references:
   - functional.open-mapping-theorem
   - functional.bounded-inverse-theorem
   - functional.closed-graph-theorem
+  - topology.baire-category-theorem-complete-metric
   - vector-calculus.gradient
   - convex.convex-function
   - convex.cone
