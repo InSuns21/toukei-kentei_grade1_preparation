@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念**：[QM4 の交換子](../QM4/index.md#def-qm4-commutator)、[QM5 の位置作用素・運動量作用素](../QM5/index.md#thm-qm5-position-self-adjoint)、[QM7 の Stone の定理](../QM7/index.md#thm-qm7-stone)を使います。
+> **既出概念**：[QM4 の交換子](../QM4/index.md#def-qm4-commutator)、[QM5 の位置作用素](../QM5/index.md#thm-qm5-position-self-adjoint)と[運動量作用素](../QM5/index.md#thm-qm5-momentum-fourier)、[QM7 の Stone の定理](../QM7/index.md#thm-qm7-stone)を使います。
 
 QM7 では、自己共役作用素を指数関数に入れることで、全 Hilbert 空間上に作用するユニタリ群
 
@@ -64,11 +64,16 @@ x\psi(x)\in L^2(\mathbb R)
 \right\},
 $$
 
-運動量作用素の自己共役な定義域は
+運動量作用素の自己共役な定義域は、QM5 の Fourier 表現では
 
-$$
-D(P)=H^1(\mathbb R)
-$$
+$
+D(P)
+=
+\left\{
+\psi\in L^2(\mathbb R):
+\xi(\mathcal F\psi)(\xi)\in L^2(\mathbb R)
+\right\}
+$
 
 です。
 
@@ -186,26 +191,34 @@ $$
 
 は $xf\in L^2(\mathbb R)$ なので $f\in D(Q)$ ですが、跳びを持つため $f\notin H^1(\mathbb R)=D(P)$ です。
 
-逆に
+逆向きには
 
-$$
-g(x)=\frac1{1+|x|}
-$$
+$
+g(x)=\frac1{(1+x^2)^{2/3}}
+$
 
-は $g\in L^2(\mathbb R)$ で、弱微分
+を取れます。$g,g'\in L^1(\mathbb R)\cap L^2(\mathbb R)$ なので、FOU3 の Fourier 微分公式と FOU4 の Plancherel により
 
-$$
-g'(x)=
--\frac{\operatorname{sgn}(x)}{(1+|x|)^2}
-$$
+$
+\xi\widehat g(\xi)
+=
+\frac1i\widehat{g'}(\xi)
+\in L^2(\mathbb R).
+$
 
-も $L^2$ に属するので $g\in D(P)$ です。しかし
+従って $g\in D(P)$ です。
 
-$$
-xg(x)=\frac{x}{1+|x|}
-$$
+一方、
 
-は無限遠で絶対値が1へ近づくため $L^2$ ではなく、$g\notin D(Q)$ です。
+$
+|xg(x)|^2
+=
+\frac{x^2}{(1+x^2)^{4/3}}
+\sim
+|x|^{-2/3}
+$
+
+であり、右辺は無限遠で積分できません。従って $g\notin D(Q)$ です。
 
 したがって $Q$ と $P$ の「自己共役な最大定義域」が分かっても、交換子を全空間上の作用素のように書いてよいわけではありません。
 
@@ -1056,63 +1069,113 @@ $$
 
 とする。
 
-1. $f\in D(Q)$ だが $f\notin D(P)$ を示せ。
-2. $g\in D(P)$ だが $g\notin D(Q)$ を示せ。
+1. Fourier 変換を使って $f\in D(Q)$ だが $f\notin D(P)$ を示せ。
+2. 
+   $
+   g(x)=\frac1{(1+x^2)^{2/3}}
+   $
+   と取り、FOU3 の微分公式と Plancherel を使って $g\in D(P)$ だが $g\notin D(Q)$ を示せ。
 
 <!-- solution-start -->
 ### 詳細解答
 
 $f$ は有限区間に台を持つので
 
-$$
+$
 \int_{\mathbb R}|x f(x)|^2\,dx
 =
 \int_0^1x^2\,dx
 =
 \frac13<\infty.
-$$
+$
 
 従って $f\in D(Q)$ です。
 
-一方 $f$ は $0,1$ で跳びを持ちます。$H^1(\mathbb R)$ の関数は絶対連続な代表を持つので、この指示関数は $H^1$ に属しません。従って $f\notin D(P)$ です。
+また FOU3 の定義から、$\xi\ne0$ では
 
-次に $g$ について
-
-$$
-\int_{\mathbb R}|g(x)|^2\,dx
+$
+\widehat f(\xi)
 =
-2\int_0^\infty\frac{dx}{(1+x)^2}
-<\infty.
-$$
-
-弱微分は
-
-$$
-g'(x)=
--\frac{\operatorname{sgn}(x)}{(1+|x|)^2}
-$$
-
-であり、
-
-$$
-\int_{\mathbb R}|g'(x)|^2\,dx
+\int_0^1e^{-i\xi x}\,dx
 =
-2\int_0^\infty\frac{dx}{(1+x)^4}
-<\infty.
-$$
+\frac{1-e^{-i\xi}}{i\xi}.
+$
 
-従って $g\in H^1(\mathbb R)=D(P)$ です。
+従って
 
-しかし
+$
+\xi\widehat f(\xi)
+=
+\frac{1-e^{-i\xi}}i.
+$
 
-$$
+その絶対値二乗は
+
+$
+|1-e^{-i\xi}|^2
+=
+2-2\cos\xi
+$
+
+です。この関数は周期 $2\pi$ で、各周期上の積分は正の一定値です。従って
+
+$
+\int_{\mathbb R}
+|\xi\widehat f(\xi)|^2\,d\xi
+=
+\infty.
+$
+
+QM5 の定義域表示から $f\notin D(P)$ です。
+
+次に
+
+$
+g(x)=\frac1{(1+x^2)^{2/3}}
+$
+
+とします。無限遠では $g(x)\sim |x|^{-4/3}$ なので $g\in L^1\cap L^2$ です。
+
+微分すると
+
+$
+g'(x)
+=
+-\frac{4x}{3(1+x^2)^{5/3}}.
+$
+
+これは無限遠で $|x|^{-7/3}$ のオーダーなので $g'\in L^1\cap L^2$ です。従って FOU3 の微分公式
+
+$
+\widehat{g'}(\xi)
+=
+i\xi\widehat g(\xi)
+$
+
+を使えます。
+
+Plancherel により $\widehat{g'}\in L^2$ なので
+
+$
+\xi\widehat g(\xi)
+=
+\frac1i\widehat{g'}(\xi)
+\in L^2.
+$
+
+よって QM5 の定義域表示から $g\in D(P)$ です。
+
+一方
+
+$
 |xg(x)|^2
 =
-\frac{x^2}{(1+|x|)^2}
-\longrightarrow1
-$$
+\frac{x^2}{(1+x^2)^{4/3}}
+\sim
+|x|^{-2/3}.
+$
 
-なのでその積分は発散します。従って $g\notin D(Q)$ です。
+$\int_1^\infty x^{-2/3}\,dx$ は発散するので $xg\notin L^2$、従って $g\notin D(Q)$ です。
 
 この二例から、$D(Q)$ と $D(P)$ は互いに包含しないことが分かります。
 <!-- solution-end -->
