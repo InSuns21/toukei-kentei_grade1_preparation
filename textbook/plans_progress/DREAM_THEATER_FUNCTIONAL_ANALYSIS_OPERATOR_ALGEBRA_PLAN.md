@@ -1171,7 +1171,7 @@ DREAM_THEATER_EVOLUTION_EQUATIONS_SEMIGROUP_PLAN.md の開始時に、
 - QM5 非有界作用素・自己共役性 ✅（2026-10-06 完了）
 - QM6 非有界スペクトル定理 ✅（2026-10-06 完了）
 - QM7 Stone の定理・Schrödinger 発展 ✅（2026-10-06 完了）
-- QM8 CCR・Weyl 関係・作用素環への入口
+- QM8 CCR・Weyl 関係・作用素環への入口 ✅（2026-10-06 完了）
 
 を実装する。
 
@@ -1181,7 +1181,7 @@ EVOL1 の閉作用素一般論を再利用し、Hille--Yosida 等は再実装し
 
 順に
 
-- OA1 Banach 環
+- OA1 Banach 環 ✅（2026-10-06 完了）
 - OA2 Gelfand 理論
 - OA3 $C^*$-環
 - OA4 連続関数計算・可換 Gelfand--Naimark
