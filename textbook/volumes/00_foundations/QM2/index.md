@@ -159,6 +159,8 @@ $A$ の固有値を、その観測量の測定値候補とみなす。
 <!-- definition-example-start: def-qm2-finite-observable -->
 ### 直接例：$z$ 軸の二準位観測量
 
+**定義の確認**：自己共役性と固有値を直接計算します。
+
 $\mathbb C^2$ で
 
 $$
@@ -299,6 +301,8 @@ $$
 
 <!-- definition-example-start: def-qm2-projective-measurement -->
 ### 直接例：縮退した固有値は固有空間全体へ射影する
+
+**定義の確認**：異なる固有値ごとの固有空間と、その空間への直交射影を具体的に作ります。
 
 $\mathbb C^3$ で
 
