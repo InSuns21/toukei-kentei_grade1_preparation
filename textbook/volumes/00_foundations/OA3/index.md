@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念**：[OA1 の単位的 Banach 環とスペクトル](../OA1/index.md#def-oa1-spectrum)、[OA1 のスペクトル半径公式](../OA1/index.md#thm-oa1-spectral-radius-formula)、[OA2 の character と Gelfand 変換](../OA2/index.md#def-oa2-character)、[OA2 のスペクトルの character 表示](../OA2/index.md#thm-oa2-spectrum-character)、[RA8 の実 Stone--Weierstrass 定理](../RA8/index.md#thm-ra8-stone-weierstrass)、[Hilbert 随伴の存在・一意性とノルム一致](../F0_02C3B_Frechet_chain_adjoint_proofs/index.md#thm-f0-02c3b-hilbert-adjoint)を使います。
+> **既出概念**：[OA1 の単位的 Banach 環とスペクトル](../OA1/index.md#def-oa1-spectrum)、[FA5 のスペクトル半径公式](../FA5/index.md#thm-fa5-spectral-radius-formula)、[OA2 の character と Gelfand 変換](../OA2/index.md#def-oa2-character)、[OA2 のスペクトルの character 表示](../OA2/index.md#thm-oa2-spectrum-character)、[RA8 の実 Stone--Weierstrass 定理](../RA8/index.md#thm-ra8-stone-weierstrass)、[Hilbert 随伴の存在・一意性とノルム一致](../F0_02C3B_Frechet_chain_adjoint_proofs/index.md#thm-f0-02c3b-hilbert-adjoint)を使います。
 
 OA1 と OA2 では、Banach 環の積とノルムからスペクトルを調べました。可換な場合には character を集めることで、抽象的な元を連続関数として観測できることも分かりました。
 
@@ -33,7 +33,7 @@ C*-環
   └─ スペクトルが [0,∞) に入る元 → 一意な非負平方根
 ~~~
 
-最後の平方根では、次章の一般連続関数計算を丸ごと仮定しません。自己共役元一個に対して必要な多項式近似だけを、RA8 の Stone--Weierstrass 定理から作ります。
+最後の平方根では、次章の一般連続関数計算を丸ごと仮定しません。自己共役元一個に対して必要な多項式近似だけを、[RA8 の実 Stone--Weierstrass 定理](../RA8/index.md#thm-ra8-stone-weierstrass)から作ります。
 
 ---
 
@@ -387,7 +387,7 @@ $$
 h^*h=h^2
 $$
 
-です。$C^*$-恒等式を繰り返して $2^m$ 乗のノルムを正確に計算し、OA1 のスペクトル半径公式へ入れます。
+です。$C^*$-恒等式を繰り返して $2^m$ 乗のノルムを正確に計算し、[FA5 のスペクトル半径公式](../FA5/index.md#thm-fa5-spectral-radius-formula)へ入れます。
 
 <!-- proof-start -->
 ### 証明
@@ -422,7 +422,7 @@ $$
 
 を得ます。
 
-OA1 のスペクトル半径公式から
+[FA5 のスペクトル半径公式](../FA5/index.md#thm-fa5-spectral-radius-formula)から
 
 $$
 r_A(h)
@@ -845,7 +845,7 @@ $$
 (a^*a)^*=a^*a
 $$
 
-なので自己共役です。したがって前節の命題から
+なので自己共役です。したがって[自己共役元ではノルムとスペクトル半径が一致する命題](#prop-oa3-self-adjoint-norm-radius)から
 
 $$
 \|a^*a\|
@@ -853,7 +853,7 @@ $$
 r_A(a^*a).
 $$
 
-OA2 の Gelfand 変換とスペクトル半径の一致より
+[OA2 の Gelfand 変換とスペクトル半径の一致](../OA2/index.md#cor-oa2-gelfand-spectral-radius)より
 
 $$
 r_A(a^*a)
@@ -1148,7 +1148,7 @@ $$
 
 ### 例3：Hermite 行列
 
-$M_n(\mathbb C)$ では、自己共役元は Hermite 行列です。有限次元スペクトル定理により、正元は全固有値が非負の Hermite 行列、すなわち通常の正半定値行列に一致します。
+$M_n(\mathbb C)$ では、自己共役元は Hermite 行列です。[実対称行列のスペクトル定理](../F0_00F1_固有空間_スペクトル定理_PSD/index.md#thm-real-symmetric-spectral)の複素 Hermite 行列版により、正元は全固有値が非負の Hermite 行列、すなわち通常の正半定値行列に一致します。
 
 <!-- definition-example-end -->
 
@@ -1249,7 +1249,7 @@ $$
 \sigma_A(a)\subset\sigma_B(a).
 $$
 
-両方の環で $a$ は自己共役なので、前節の定理から
+両方の環で $a$ は自己共役なので、[自己共役元のスペクトルは実数である定理](#thm-oa3-self-adjoint-real-spectrum)から
 
 $$
 \sigma_A(a)\subset\mathbb R,
@@ -1277,7 +1277,7 @@ $$
 
 は $K$ 上の実数値連続関数です。
 
-$K$ 上の実多項式全体は定数を含み点を分離する実部分代数なので、RA8 の実 Stone--Weierstrass 定理から、実係数多項式 $p_n$ を
+$K$ 上の実多項式全体は定数を含み点を分離する実部分代数なので、[RA8 の実 Stone--Weierstrass 定理](../RA8/index.md#thm-ra8-stone-weierstrass)から、実係数多項式 $p_n$ を
 
 $$
 \sup_{t\in K}
@@ -1418,7 +1418,7 @@ a=a^*,
 K:=\sigma_A(a)\subset[0,\infty).
 $$
 
-$K$ はコンパクトです。RA8 の実 Stone--Weierstrass 定理を $K$ に適用し、実係数多項式 $p_n$ を
+$K$ はコンパクトです。[RA8 の実 Stone--Weierstrass 定理](../RA8/index.md#thm-ra8-stone-weierstrass)を $K$ に適用し、実係数多項式 $p_n$ を
 
 $$
 \sup_{t\in K}
@@ -1968,7 +1968,7 @@ $$
 \|p\|=r_A(p).
 $$
 
-$p\ne0$ なのに $\sigma_A(p)=\{0\}$ なら、スペクトル半径公式から $\|p\|=0$ となり矛盾です。従って $1\in\sigma_A(p)$ であり、
+$p\ne0$ なのに $\sigma_A(p)=\{0\}$ なら、[スペクトル半径公式](../FA5/index.md#thm-fa5-spectral-radius-formula)から $\|p\|=0$ となり矛盾です。従って $1\in\sigma_A(p)$ であり、
 
 $$
 r_A(p)=1.
@@ -2074,7 +2074,7 @@ $$
 $$
 
 を示せ。
-2. この式とスペクトル半径公式から
+2. この式と[スペクトル半径公式](../FA5/index.md#thm-fa5-spectral-radius-formula)から
 
 $$
 r_A(h)=\|h\|
@@ -2122,7 +2122,7 @@ $$
 
 #### 2. スペクトル半径
 
-OA1 のスペクトル半径公式から
+[FA5 のスペクトル半径公式](../FA5/index.md#thm-fa5-spectral-radius-formula)から
 
 $$
 r_A(h)
