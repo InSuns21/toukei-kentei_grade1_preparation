@@ -3,8 +3,10 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - QM1
+  - F0-00P2A
 
-forward_references: []
+forward_references:
+  - evolution.unbounded-operator
 
 concepts:
   - id: quantum.normalized-pure-state-representative
@@ -67,6 +69,7 @@ concepts:
     requires:
       - quantum.finite-born-rule
       - quantum.finite-dimensional-observable
+      - prob.expectation
 
   - id: quantum.observable-variance-operator-form
     name: 分散の作用素表示
@@ -76,3 +79,4 @@ concepts:
     introduction_aliases: ["命題（分散の作用素表示）"]
     requires:
       - quantum.observable-expectation-inner-product
+      - prob.variance
