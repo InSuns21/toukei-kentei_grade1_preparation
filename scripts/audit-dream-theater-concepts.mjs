@@ -589,6 +589,7 @@ function firstAliasUse(lines, aliases) {
 function findFirstUnshadowedConceptUses(lines, visibleConcepts, currentPage, matcher) {
   const firstUses = new Map();
   const availableVisibleAliases = new Set();
+  const activeLocalAliasKeys = new Set();
   const localAliasesByLine = new Map();
 
   for (const visible of visibleConcepts) {
@@ -604,7 +605,10 @@ function findFirstUnshadowedConceptUses(lines, visibleConcepts, currentPage, mat
 
   for (let i = 0; i < lines.length; i += 1) {
     const lineNumber = i + 1;
-    for (const alias of localAliasesByLine.get(lineNumber) ?? []) availableVisibleAliases.add(alias);
+    for (const alias of localAliasesByLine.get(lineNumber) ?? []) {
+      availableVisibleAliases.add(alias);
+      activeLocalAliasKeys.add(normalizeAlias(alias));
+    }
 
     const rawMatches = matcher.match(lines[i]);
     if (!rawMatches.size) continue;
@@ -634,9 +638,10 @@ function findFirstUnshadowedConceptUses(lines, visibleConcepts, currentPage, mat
         if (!matchedAliases.has(remoteAlias)) continue;
         if (isContextualAlias(remoteAlias) && !hasHighConfidenceAliasReference(lines[i], remoteAlias)) continue;
         const remoteKey = normalizeAlias(remoteAlias);
-        const shadowed = visibleAliasKeys.some((visibleKey) =>
-          visibleKey.length > remoteKey.length && visibleKey.includes(remoteKey)
-        );
+        const shadowed = activeLocalAliasKeys.has(remoteKey)
+          || visibleAliasKeys.some((visibleKey) =>
+            visibleKey.length > remoteKey.length && visibleKey.includes(remoteKey)
+          );
         if (shadowed) continue;
         firstUses.set(conceptId, lineNumber);
         break;
@@ -781,6 +786,13 @@ function runAliasMatcherSelfTest() {
     if (!hasHighConfidenceAliasReference(line, alias)) {
       throw new Error(`明示的 alias 参照を検出できませんでした: ${alias}`);
     }
+  }
+
+  const exactLocalKey = normalizeAlias('交換子');
+  const remoteKey = normalizeAlias('交換子');
+  const activeExactLocal = new Set([exactLocalKey]);
+  if (!activeExactLocal.has(remoteKey)) {
+    throw new Error('local exact alias shadow self-test failed');
   }
 
   runDefinitionIntroSelfTest();
