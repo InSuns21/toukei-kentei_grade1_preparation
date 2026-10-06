@@ -32,7 +32,7 @@ theorems:
   - { id: OA2-THM-03, name: "character 空間のコンパクト Hausdorff 性" }
   - { id: OA2-PROP-03, name: "Gelfand 変換は縮小的な単位的代数準同型" }
   - { id: OA2-THM-04, name: "可換 Banach 環のスペクトルの character 表示" }
-  - { id: OA2-COR-01, name: "Gelfand 変換の一様ノルムとスペクトル半径" }
+  - { id: OA2-COR-01, name: "Gelfand 変換とスペクトル半径の一致" }
 canonical_examples:
   - "C(K) の点評価 f↦f(x)"
   - "C^n の座標 character"
