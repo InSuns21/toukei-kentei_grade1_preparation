@@ -261,6 +261,7 @@
 
 1. [QM1 実験事実から Hilbert 空間形式へ](textbook/volumes/00_foundations/QM1/index.md)
 2. [QM2 状態・観測量・Born 則](textbook/volumes/00_foundations/QM2/index.md)
+3. [QM3 射影・PVM・スペクトル定理](textbook/volumes/00_foundations/QM3/index.md)
 
 <a id="dt-subject-evolution-equations"></a>
 ### 抽象発展方程式・半群論

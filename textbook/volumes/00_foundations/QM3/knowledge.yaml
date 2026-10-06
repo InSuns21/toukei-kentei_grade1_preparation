@@ -1,0 +1,90 @@
+chapter: QM3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QM2
+  - FA5
+  - FA7
+  - F0-00D2A
+  - F0-00D2B
+  - F0-00A3
+  - RA8
+  - MT5
+
+forward_references: []
+
+concepts:
+  - id: quantum.projection-valued-measure
+    name: 射影値測度
+    kind: definition
+    aliases: ["projection-valued measure", "PVM"]
+    introduction: inline
+    introduction_aliases: ["この集合から射影への対応を射影値測度と呼びます"]
+    requires:
+      - measure.borel-sigma-algebra
+      - functional.hilbert-space
+      - functional.self-adjoint-bounded-operator
+
+  - id: quantum.spectral-integral-bounded
+    name: 有界 Borel 関数の射影値積分
+    kind: definition
+    aliases: ["spectral integral", "射影値積分"]
+    introduction: formal
+    introduction_aliases: ["定義（有界 Borel 関数の射影値積分）"]
+    requires:
+      - quantum.projection-valued-measure
+      - measure.lebesgue-integral
+
+  - id: quantum.self-adjoint-continuous-functional-calculus
+    name: 有界自己共役作用素の連続関数計算
+    kind: lemma
+    aliases: ["continuous functional calculus for bounded self-adjoint operators"]
+    introduction_aliases: ["補題（有界自己共役作用素の連続関数計算）"]
+    requires:
+      - functional.self-adjoint-bounded-operator
+      - functional.polynomial-spectral-mapping
+      - functional.spectrum-compact-norm-bound
+
+  - id: quantum.bounded-self-adjoint-spectral-theorem
+    name: 有界自己共役作用素のスペクトル定理
+    kind: theorem
+    aliases: ["bounded self-adjoint spectral theorem", "一般有界自己共役作用素のスペクトル定理"]
+    introduction_aliases: ["定理（有界自己共役作用素のスペクトル定理）"]
+    requires:
+      - quantum.self-adjoint-continuous-functional-calculus
+      - quantum.projection-valued-measure
+      - quantum.spectral-integral-bounded
+      - set.zorn-lemma
+      - measure.riesz-markov-positive
+
+  - id: quantum.state-spectral-probability-measure
+    name: 状態に付随するスペクトル確率測度
+    kind: definition
+    aliases: ["スペクトル確率測度", "spectral probability measure", "測定値の確率測度"]
+    introduction: formal
+    introduction_aliases: ["定義（状態に付随するスペクトル確率測度）"]
+    requires:
+      - quantum.projection-valued-measure
+      - quantum.normalized-pure-state-representative
+      - measure.measure-space
+
+  - id: quantum.pvm-born-rule
+    name: PVM による Born 則
+    kind: proposition
+    aliases: ["PVM Born rule", "Born 則の PVM 表示"]
+    introduction_aliases: ["命題（PVM による Born 則）"]
+    requires:
+      - quantum.bounded-self-adjoint-spectral-theorem
+      - quantum.state-spectral-probability-measure
+      - quantum.finite-born-rule
+
+  - id: quantum.spectral-expectation-variance
+    name: 期待値と分散のスペクトル積分表示
+    kind: proposition
+    aliases: ["spectral expectation and variance formula"]
+    introduction_aliases: ["命題（期待値と分散のスペクトル積分表示）"]
+    requires:
+      - quantum.pvm-born-rule
+      - quantum.observable-expectation-inner-product
+      - quantum.observable-variance-operator-form
+      - measure.lebesgue-integral

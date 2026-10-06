@@ -15,7 +15,7 @@ chapters:
     title: 状態・観測量・Born 則
   - id: QM3
     path: textbook/volumes/00_foundations/QM3
-    status: planned
+    status: completed
     title: 射影・PVM・スペクトル定理
   - id: QM4
     path: textbook/volumes/00_foundations/QM4
