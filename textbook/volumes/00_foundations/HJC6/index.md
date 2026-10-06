@@ -941,7 +941,7 @@ standing assumptions と DPP の仮定を満たし、$V^-,V^+$ が continuous �
 
 lower value $V^-$ について示します。
 
-#### Step 1：上接触なら subsolution 不等式
+#### Step 1：上から接する場合
 
 $\phi\in C^{1,2}$ が $(t_0,x_0)$ で $V^-$ に上から接し、
 
@@ -1022,7 +1022,7 @@ x_0,\nabla\phi,D^2\phi
 \ge0.
 $$
 
-#### Step 2：下接触なら supersolution 不等式
+#### Step 2：下から接する場合
 
 今度は $\phi$ が $V^-$ に下から接するとします。
 
