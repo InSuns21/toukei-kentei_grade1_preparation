@@ -4,7 +4,7 @@ coverage: complete
 prerequisites:
   - OA2
   - RA8
-  - F0-02C3A
+  - F0-02C3B
 
 forward_references: []
 
