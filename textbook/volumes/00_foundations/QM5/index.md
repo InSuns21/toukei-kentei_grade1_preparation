@@ -74,6 +74,8 @@ $$
 よって $z_1=z_2$ です。
 
 <!-- definition-example-start: def-qm5-unbounded-adjoint -->
+
+**定義の確認**
 ### 直接例：最小対角作用素の随伴
 
 $y\in D(A_0^*)$、$A_0^*y=z$ とします。標準基底 $e_k\in c_{00}$ を使うと
@@ -238,6 +240,8 @@ $$
 と同値です。
 
 <!-- definition-example-start: def-qm5-symmetric -->
+
+**定義の確認**
 ### 直接例：対称だが自己共役ではない $A_0$
 
 $x,y\in c_{00}$ に対して
@@ -334,6 +338,8 @@ $$
 です。有限次元の Hermitian 行列ではこの差が隠れますが、非有界作用素では定義域の等号が本体です。
 
 <!-- definition-example-start: def-qm5-self-adjoint -->
+
+**定義の確認**
 ### 直接例：最大対角作用素 $A$
 
 $A$ は実対角作用素なので対称です。逆に $y\in D(A^*)$、$A^*y=z$ として $e_k\in D(A)$ を使うと
@@ -438,6 +444,8 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-qm5-essential-self-adjoint -->
+
+**定義の確認**
 ### 直接例：$A_0$ は本質的自己共役
 
 EVOL1 で
