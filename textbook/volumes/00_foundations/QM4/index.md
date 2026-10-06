@@ -504,7 +504,7 @@ $$
 
 従って $B_\lambda$ は $E_\lambda(A)$ 上で自己共役です。
 
-再び有限次元スペクトル定理を使うと、各 $E_\lambda(A)$ は $B_\lambda$ の正規直交固有基底を持ちます。
+再び [LA5 の複素正規作用素のスペクトル定理](../LA5/index.md#thm-la5-normal-spectral)を使うと、各 $E_\lambda(A)$ は $B_\lambda$ の正規直交固有基底を持ちます。
 
 それらの基底をすべての $\lambda$ について合わせれば、$H$ 全体の正規直交基底になります。
 
@@ -1263,7 +1263,7 @@ $$
 
 とします。
 
-QM2 の分散の作用素表示から
+[QM2 の分散の作用素表示](../QM2/index.md#prop-qm2-variance-operator)から
 
 $$
 \operatorname{Var}_\psi(A)
@@ -1349,7 +1349,7 @@ $$
 \Delta_\psi B=\|B'\psi\|.
 $$
 
-Cauchy--Schwarz の不等式から
+[Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 \Delta_\psi A\,\Delta_\psi B
@@ -1544,7 +1544,7 @@ $$
 \|v\|=\Delta_\psi B.
 $$
 
-Cauchy--Schwarz の不等式より
+[Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)より
 
 $$
 \Delta_\psi A\,\Delta_\psi B
@@ -1842,7 +1842,7 @@ $$
 
 ## 13. Robertson の証明でどこを弱めたか
 
-証明では二段階の不等式を使いました。
+この導出では二段階の不等式を使いました。
 
 $$
 \|u\|\|v\|
