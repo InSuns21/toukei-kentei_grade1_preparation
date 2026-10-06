@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念**：[VN3 の作用素の絶対値と極分解](../VN3/index.md#thm-vn3-polar-decomposition)、[FA7 のコンパクト自己共役作用素のスペクトル定理](../FA7/index.md)、[F0-02C2 の双対空間と Riesz 表現](../F0_02C2_線形汎関数_双対空間_Riesz/index.md)を使います。
+> **既出概念**：[VN3 の作用素の絶対値と極分解](../VN3/index.md#thm-vn3-polar-decomposition)、[FA7 のコンパクト自己共役作用素のスペクトル定理](../FA7/index.md#thm-fa7-compact-self-adjoint-spectral)、[F0-02C2 の双対空間](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#def-f0-02c2-dual-space)と [Riesz 表現](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)を使います。
 
 VN1 と VN2 では、von Neumann 環を $B(H)$ の部分代数として見て、SOT・WOT と二重可換子定理を調べました。そこでは連続性を測る汎関数は
 
@@ -36,7 +36,7 @@ $$
 
 という双対関係が成立することを示します。すると $B(H)$ には $X$ を使って定まる自然な弱*位相が入ります。
 
-本章では Schatten 級全般へは広げません。極分解とコンパクト自己共役スペクトル定理から特異値を作り、
+本章では Schatten 級全般へは広げません。[有界作用素の極分解](../VN3/index.md#thm-vn3-polar-decomposition)と[コンパクト自己共役作用素のスペクトル定理](../FA7/index.md#thm-fa7-compact-self-adjoint-spectral)から特異値を作り、
 
 $$
 \text{特異値の可算和}
@@ -62,7 +62,7 @@ $$
 
 を $T$ の絶対値と呼びました。$T$ がコンパクトなら $|T|$ もコンパクトで、しかも正の自己共役有界作用素です。
 
-したがって FA7 のコンパクト自己共役スペクトル定理により、$|T|$ の非零固有値を重複度込みで並べられます。
+したがって [FA7 のコンパクト自己共役作用素のスペクトル定理](../FA7/index.md#thm-fa7-compact-self-adjoint-spectral)により、$|T|$ の非零固有値を重複度込みで並べられます。
 
 <a id="def-vn4-singular-values"></a>
 
@@ -154,7 +154,7 @@ $$
 
 ### 証明の見取り図
 
-$|T|$ の固有ベクトルを大きい固有値から $e_1,e_2,\ldots$ と取り、極分解 $T=U|T|$ を使います。
+$|T|$ の固有ベクトルを大きい固有値から $e_1,e_2,\ldots$ と取り、[有界作用素の極分解](../VN3/index.md#thm-vn3-polar-decomposition) $T=U|T|$ を使います。
 
 最初の $N$ 個だけ残した作用素が誤差 $s_{N+1}(T)$ を達成します。逆に rank が $N$ 以下の作用素は、$N+1$ 次元空間を全部一対一には運べないので、最初の $N+1$ 本の特異方向のどれかを取り逃します。
 
@@ -165,7 +165,7 @@ $|T|$ の固有ベクトルを大きい固有値から $e_1,e_2,\ldots$ と取�
 
 以下 $s_{N+1}(T)>0$ とします。
 
-FA7 のスペクトル定理により、$|T|$ の正規直交固有ベクトル $e_1,e_2,\ldots$ を
+[FA7 のコンパクト自己共役作用素のスペクトル定理](../FA7/index.md#thm-fa7-compact-self-adjoint-spectral)により、$|T|$ の正規直交固有ベクトル $e_1,e_2,\ldots$ を
 
 $$
 |T|e_k=s_k(T)e_k
@@ -528,7 +528,7 @@ $$
 
 と書けます。
 
-任意の二つの $N$ 本の正規直交系に対して Bessel の不等式を使うと、各特異方向が寄与できる重みは0以上1以下で、重みの総量は高々 $N$ です。したがって最大値は大きい方から $N$ 個の特異値へ重みを集中したときに達成されます。
+任意の二つの $N$ 本の正規直交系に対して [Bessel の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-bessel-inequality)を使うと、各特異方向が寄与できる重みは0以上1以下で、重みの総量は高々 $N$ です。したがって最大値は大きい方から $N$ 個の特異値へ重みを集中したときに達成されます。
 
 <!-- proof-start -->
 ### 証明
@@ -590,7 +590,7 @@ $$
 
 と置きます。
 
-Bessel の不等式から
+[Bessel の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-bessel-inequality)から
 
 $$
 0\le a_k\le1,
@@ -615,7 +615,7 @@ $$
 \sum_k b_k^2\le N.
 $$
 
-有限和に Cauchy--Schwarz の不等式を使うと
+有限和に [Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)を使うと
 
 $$
 \left|
@@ -780,7 +780,7 @@ $$
 \|\lambda T\|_1=|\lambda|\,\|T\|_1
 $$
 
-は特異値の定義から直ちに従います。さらに $\|T\|_1=0$ なら $s_1(T)=0$ であり、コンパクト作用素のスペクトル定理から $\|T\|=s_1(T)=0$、従って $T=0$ です。
+は特異値の定義から直ちに従います。さらに $\|T\|_1=0$ なら $s_1(T)=0$ であり、[コンパクト自己共役作用素のスペクトル定理](../FA7/index.md#thm-fa7-compact-self-adjoint-spectral)から $\|T\|=s_1(T)=0$、従って $T=0$ です。
 
 よって $S_1(H)$ は線形空間で、$\|\cdot\|_1$ は実際にノルムです。
 
@@ -1253,7 +1253,7 @@ $$
 \theta_{x,A^*y}.
 $$
 
-従って rank-one 作用素のトレース公式から
+従って [rank-one 作用素のトレース公式](#prop-vn4-trace-rank-one)から
 
 $$
 \begin{aligned}
@@ -1468,7 +1468,7 @@ $$
 
 と置きます。
 
-rank-one 作用素のトレース公式から
+[rank-one 作用素のトレース公式](#prop-vn4-trace-rank-one)から
 
 $$
 |b_f(x,y)|
@@ -1480,7 +1480,7 @@ $$
 
 従って $b_f$ は有界な半双線形形式です。
 
-固定した $x$ に対し $y\mapsto b_f(x,y)$ は連続な共役線形汎関数です。本教材の内積は第1変数について線形なので、Riesz 表現定理により、一意なベクトル $Ax\in H$ が存在して
+固定した $x$ に対し $y\mapsto b_f(x,y)$ は連続な共役線形汎関数です。本教材の内積は第1変数について線形なので、[Riesz 表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)により、一意なベクトル $Ax\in H$ が存在して
 
 $$
 b_f(x,y)=\langle Ax,y\rangle
@@ -1607,7 +1607,7 @@ $$
 
 ### 直接例：$B(H)$ の predual
 
-前節の定理から
+[前節の定理](#thm-vn4-trace-duality)から
 
 $$
 B(H)\cong S_1(H)^*.
@@ -1982,7 +1982,7 @@ $$
 
 なので $(P_n)$ はノルム有界です。
 
-前節の命題から
+[前節の命題](#prop-vn4-wot-ultraweak)から
 
 $$
 \boxed{
@@ -2828,7 +2828,7 @@ A\theta_{x,y}
 \theta_{Ax,y}.
 $$
 
-rank-one 作用素のトレース公式を使うと
+[rank-one 作用素のトレース公式](#prop-vn4-trace-rank-one)を使うと
 
 $$
 \operatorname{Tr}(A\theta_{x,y})
@@ -3303,7 +3303,7 @@ $$
 \operatorname{Tr}((A_\alpha-A)\theta_{x_j,y_j}).
 $$
 
-rank-one 作用素のトレース公式より
+[rank-one 作用素のトレース公式](#prop-vn4-trace-rank-one)より
 
 $$
 \operatorname{Tr}((A_\alpha-A)\theta_{x_j,y_j})
@@ -3536,7 +3536,7 @@ $$
 }
 $$
 
-第一同型定理から
+[第一同型定理](../LA2/index.md#thm-la2-first-isomorphism)から
 
 $$
 S_1(H)/M_\perp
@@ -3590,7 +3590,7 @@ $H$ を複素 Hilbert 空間とする。以下を順に示せ。
    $$
    b_f(x,y)=f(\theta_{x,y})
    $$
-   と置き、Riesz 表現定理から $A\in B(H)$ を構成して
+   と置き、[Riesz 表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)から $A\in B(H)$ を構成して
    $$
    f=\Phi_A
    $$
@@ -3658,7 +3658,7 @@ A\theta_{x,y}
 \theta_{Ax,y}.
 $$
 
-rank-one 作用素のトレース公式から
+[rank-one 作用素のトレース公式](#prop-vn4-trace-rank-one)から
 
 $$
 \boxed{
@@ -3740,7 +3740,7 @@ $$
 
 従って $b_f$ は有界半双線形形式です。
 
-固定した $x$ に対して $y\mapsto b_f(x,y)$ は連続な共役線形汎関数です。本教材の内積は第1変数について線形なので、Riesz 表現定理を適用すると、一意な $Ax\in H$ が存在して
+固定した $x$ に対して $y\mapsto b_f(x,y)$ は連続な共役線形汎関数です。本教材の内積は第1変数について線形なので、[Riesz 表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)を適用すると、一意な $Ax\in H$ が存在して
 
 $$
 b_f(x,y)=\langle Ax,y\rangle
