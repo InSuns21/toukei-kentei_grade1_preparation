@@ -63,7 +63,7 @@ chapters:
     title: 正規作用素・関数計算とスペクトル定理の再解釈
   - id: VN1
     path: textbook/volumes/00_foundations/VN1
-    status: planned
+    status: completed
     title: B(H) の作用素位相
   - id: VN2
     path: textbook/volumes/00_foundations/VN2

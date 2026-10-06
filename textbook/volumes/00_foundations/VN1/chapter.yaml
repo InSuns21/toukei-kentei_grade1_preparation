@@ -1,0 +1,49 @@
+id: "VN1"
+title: "B(H) の作用素位相"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OA6
+  - FA3
+  - F0-02C3A
+official_scope: []
+learning_objectives:
+  - 強作用素位相 SOT を評価写像 T↦Tξ が連続となる位相として定義し、ネットによる収束判定を使える
+  - 弱作用素位相 WOT をベクトル汎関数 T↦<η,Tξ> が連続となる位相として定義し、ネットによる収束判定を使える
+  - ノルム収束、SOT 収束、WOT 収束の含意関係を証明し、無限次元で逆が成り立たない具体例を示せる
+  - 有限次元ではノルム位相・SOT・WOT が一致することを行列係数から証明できる
+  - FA3 の Banach 空間の弱位相と B(H) 上の WOT の違いを、使う連続線形汎関数の集合の違いとして説明できる
+  - 一様にノルム有界な族上で積が SOT に関して連続であることを評価し、WOT では積が共同連続でない反例を示せる
+  - 随伴写像が WOT では連続だが SOT では連続でないことを unilateral shift で示せる
+  - 有限ランク作用素が SOT では B(H) を近似できてもノルムではできないことを示し、von Neumann 環で弱い閉包を考える動機を説明できる
+definitions:
+  - { id: VN1-DEF-01, name: "強作用素位相" }
+  - { id: VN1-DEF-02, name: "ベクトル汎関数" }
+  - { id: VN1-DEF-03, name: "弱作用素位相" }
+theorems:
+  - { id: VN1-THM-01, name: "強作用素収束の評価判定" }
+  - { id: VN1-THM-02, name: "弱作用素収束の行列係数判定" }
+  - { id: VN1-PROP-01, name: "ノルム収束・強作用素収束・弱作用素収束の比較" }
+  - { id: VN1-PROP-02, name: "有限次元での作用素位相の一致" }
+  - { id: VN1-PROP-03, name: "一様ノルム有界族上の SOT 積の連続性" }
+  - { id: VN1-PROP-04, name: "WOT における左右乗法と随伴の連続性" }
+  - { id: VN1-PROP-05, name: "SOT における随伴の非連続性" }
+canonical_examples:
+  - "ell2 上の有限次元射影 P_n が I へ SOT 収束するがノルム収束しない例"
+  - "unilateral shift の冪 S^n が 0 へ WOT 収束するが SOT 収束しない例"
+  - "S^{*n} が 0 へ SOT 収束する一方で随伴 S^n は SOT 収束しない例"
+  - "S^{*n}S^n=I による WOT での積の共同連続性失敗"
+problem_patterns:
+  - VN1-SOT-PROJECTION-1
+  - VN1-WOT-SHIFT-1
+  - VN1-TOPOLOGY-COMPARISON-1
+  - VN1-ADJOINT-CONTINUITY-1
+  - VN1-FINITE-DIMENSION-1
+  - VN1-SOT-MULTIPLICATION-1
+  - VN1-WOT-MULTIPLICATION-1
+  - VN1-WOT-VS-BANACH-WEAK-1
+  - VN1-FINITE-RANK-SOT-DENSITY-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 7.0, review: 2.0 }
