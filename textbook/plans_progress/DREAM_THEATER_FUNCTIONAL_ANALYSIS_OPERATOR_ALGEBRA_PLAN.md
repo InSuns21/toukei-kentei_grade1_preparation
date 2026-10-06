@@ -1156,7 +1156,7 @@ DREAM_THEATER_EVOLUTION_EQUATIONS_SEMIGROUP_PLAN.md の開始時に、
 順に
 
 - QM1 実験事実から Hilbert 空間形式へ ✅（2026-10-06 完了）
-- QM2 状態・観測量・Born 則
+- QM2 状態・観測量・Born 則 ✅（2026-10-06 完了）
 - QM3 PVM・一般自己共役スペクトル定理
 - QM4 非可換観測量・不確定性関係
 
