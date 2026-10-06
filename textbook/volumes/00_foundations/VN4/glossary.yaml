@@ -1,0 +1,20 @@
+chapter: "VN4"
+terms:
+  - term: コンパクト作用素の特異値
+    english: singular values of a compact operator
+    meaning: コンパクト作用素 T に対して |T|=(T*T)^(1/2) の非零固有値を重複度込みで大きい順に並べたもの。有限ランクの場合は 0 を補う。
+  - term: trace class
+    english: trace class
+    meaning: 特異値の総和が有限であるコンパクト作用素のクラス S_1(H)。有界作用素を左右から掛けても保たれる Banach イデアルをなす。
+  - term: トレースノルム
+    english: trace norm
+    meaning: trace class 作用素 T に対して特異値の総和 ||T||_1=sum_n s_n(T) で定めるノルム。
+  - term: トレース
+    english: operator trace
+    meaning: 有限ランク作用素の通常のトレースをトレースノルム連続に S_1(H) へ延長した線形汎関数 Tr。
+  - term: predual
+    english: predual
+    meaning: Banach 空間 X を X=(X_*)* と等長同型に表す Banach 空間 X_*。B(H) では S_1(H) が自然な predual になる。
+  - term: ultraweak 位相
+    english: ultraweak topology
+    meaning: B(H)=S_1(H)* の predual が定める弱*位相 sigma(B(H),S_1(H))。sigma-weak 位相とも呼ばれる。
