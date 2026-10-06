@@ -22,7 +22,7 @@ definitions:
   - { id: QM5-DEF-03, name: "自己共役作用素" }
   - { id: QM5-DEF-04, name: "本質的自己共役性" }
 theorems:
-  - { id: QM5-THM-01, name: "随伴作用素の閉性" }
+  - { id: QM5-THM-01, name: "稠密定義作用素の随伴の閉性" }
   - { id: QM5-PROP-01, name: "対称作用素の可閉性" }
   - { id: QM5-PROP-02, name: "最小対角作用素の随伴" }
   - { id: QM5-THM-02, name: "最大実対角作用素の自己共役性" }
