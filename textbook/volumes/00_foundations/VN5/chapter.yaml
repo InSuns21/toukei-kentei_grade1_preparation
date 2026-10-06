@@ -20,13 +20,13 @@ definitions:
   - { id: VN5-DEF-03, name: "密度作用素" }
   - { id: VN5-DEF-04, name: "von Neumann 環上のトレース" }
 theorems:
-  - { id: VN5-PROP-01, name: "B(H) 上の正規汎関数の trace class 表示" }
+  - { id: VN5-PROP-01, name: "有界作用素環上の正規汎関数の trace class 表示" }
   - { id: VN5-PROP-02, name: "正規汎関数の正性と正 trace class 作用素" }
   - { id: VN5-THM-01, name: "正規状態と密度作用素の対応" }
   - { id: VN5-PROP-03, name: "正規な正汎関数の射影単調連続性" }
-  - { id: VN5-THM-02, name: "B(H) における射影単調連続性による正規性判定" }
-  - { id: VN5-THM-03, name: "B(H) の標準トレースは正規・忠実・半有限" }
-  - { id: VN5-PROP-04, name: "無限次元 B(H) に正規トレース状態は存在しない" }
+  - { id: VN5-THM-02, name: "有界作用素環における射影単調連続性による正規性判定" }
+  - { id: VN5-THM-03, name: "有界作用素環の標準トレースは正規・忠実・半有限" }
+  - { id: VN5-PROP-04, name: "無限次元有界作用素環に正規トレース状態は存在しない" }
 canonical_examples:
   - "M_2(C) の密度行列 diag(3/4,1/4) が与える正規状態"
   - "単位ベクトル xi によるベクトル状態と rank-one 密度作用素 theta_{xi,xi}"
