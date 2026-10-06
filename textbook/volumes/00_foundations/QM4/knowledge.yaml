@@ -6,7 +6,10 @@ prerequisites:
   - QM2
   - LA5
 
-forward_references: []
+forward_references:
+  - evolution.unbounded-operator
+  - evolution.closed-operator
+  - evolution.closable-operator
 
 concepts:
   - id: quantum.commutator
