@@ -269,6 +269,7 @@
 
 1. [QM5 非有界作用素と自己共役性](textbook/volumes/00_foundations/QM5/index.md)
 2. [QM6 非有界自己共役作用素のスペクトル定理](textbook/volumes/00_foundations/QM6/index.md)
+3. [QM7 Stone の定理と Schrödinger 発展](textbook/volumes/00_foundations/QM7/index.md)
 
 <a id="dt-subject-evolution-equations"></a>
 ### 抽象発展方程式・半群論
