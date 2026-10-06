@@ -82,6 +82,7 @@ function isGlobalAuditTrigger(relPath) {
   if (relPath === '.github/workflows/validate-dream-theater-concepts.yml') return true;
   if (relPath === 'scripts/lib/dream-theater-concept-resolution.mjs') return true;
   if (relPath === 'scripts/validate-dream-theater-concepts-changed.mjs') return true;
+  if (relPath === 'scripts/run-dream-theater-concept-changed-audits.mjs') return true;
   if (relPath === 'scripts/detect-dream-theater-concept-audit-scope.mjs') return true;
   return /^scripts\/audit-dream-theater-(?:concepts|formal-order|explicit-dependencies|implicit-dependencies|undefined-terms|undefined-terms-filtered)\.mjs$/u.test(relPath);
 }
