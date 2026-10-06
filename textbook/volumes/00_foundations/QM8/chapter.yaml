@@ -1,0 +1,41 @@
+id: "QM8"
+title: "CCR・Weyl 関係と作用素環への入口"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - QM7
+official_scope: []
+learning_objectives:
+  - 非有界作用素の交換子では D(QP) と D(PQ) を区別する必要があることを説明し、共通不変領域上の CCR を定式化できる
+  - L2(R) 上の位置 Q と運動量 P が Schwartz 空間上で [Q,P]=iħI を満たすことを直接計算できる
+  - 有界作用素 A,B では AB-BA=I が不可能であることを交換子の冪と作用素ノルムから証明できる
+  - Stone の定理を用いて Q,P をユニタリ群へ指数化し、Schrödinger 表現で平行移動作用素と位相変調作用素を得られる
+  - Weyl 関係を定義し、Schrödinger 表現で U(a)V(b)=exp(iab/ħ)V(b)U(a) を検証できる
+  - 適切な共通不変領域上で Weyl 関係を微分し、CCR を回復できる
+  - 既約性と Stone--von Neumann の定理の仮定・結論・有限自由度での意味を説明できる
+  - Weyl 作用素の有限線形結合が積と随伴で閉じることを示し、作用素環論へ進む動機を説明できる
+definitions:
+  - { id: QM8-DEF-01, name: "共通不変領域上の正準交換関係" }
+  - { id: QM8-DEF-02, name: "Weyl 関係" }
+  - { id: QM8-DEF-03, name: "既約な Weyl 対" }
+theorems:
+  - { id: QM8-PROP-01, name: "有界作用素では正準交換関係を満たせない" }
+  - { id: QM8-PROP-02, name: "Schrödinger 表現の平行移動と位相変調" }
+  - { id: QM8-PROP-03, name: "Weyl 関係の微分から CCR を得る" }
+  - { id: QM8-THM-01, name: "Stone--von Neumann の定理" }
+canonical_examples:
+  - "Schwartz 空間上の位置作用素 Q と運動量作用素 P"
+  - "L2(R) 上の平行移動 U(a) と位相変調 V(b)"
+  - "Schrödinger Weyl 表現の二重直和による可約表現"
+  - "W(a,b) の中心位相と向き付き面積"
+problem_patterns:
+  - QM8-CCR-DOMAIN-1
+  - QM8-BOUNDED-IMPOSSIBILITY-1
+  - QM8-WEYL-RELATION-1
+  - QM8-WEYL-DIFFERENTIATION-1
+  - QM8-GENERATED-ALGEBRA-1
+  - QM8-PHASE-SPACE-COCYCLE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 8.0, review: 2.0 }

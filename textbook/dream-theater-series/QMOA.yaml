@@ -35,7 +35,7 @@ chapters:
     title: Stone の定理と Schrödinger 発展
   - id: QM8
     path: textbook/volumes/00_foundations/QM8
-    status: planned
+    status: completed
     title: CCR・Weyl 関係と作用素環への入口
   - id: OA1
     path: textbook/volumes/00_foundations/OA1
