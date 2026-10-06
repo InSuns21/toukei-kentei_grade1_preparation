@@ -2,7 +2,6 @@ chapter: FA5
 scope: dream-theater
 coverage: complete
 prerequisites:
-  - FA0
   - FA2
   - LA6
   - CA3

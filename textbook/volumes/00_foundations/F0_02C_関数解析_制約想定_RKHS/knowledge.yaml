@@ -9,6 +9,18 @@ prerequisites:
 
 forward_references:
   - functional.banach-space
+  - functional.linear-functional
+  - functional.adjoint-operator
+  - functional.hilbert-adjoint
+  - functional.weak-topology
+  - functional.weak-star-topology
+  - functional.banach-alaoglu
+  - functional.goldstine-theorem
+  - functional.reflexive-banach-space
+  - functional.resolvent-spectrum
+  - functional.compact-operator
+  - functional.fredholm-alternative-compact
+  - functional.compact-self-adjoint-spectral-theorem
   - functional.hilbert-space
   - functional.hilbert-projection-theorem
   - functional.frechet-derivative
@@ -17,6 +29,7 @@ forward_references:
   - functional.open-mapping-theorem
   - functional.bounded-inverse-theorem
   - functional.closed-graph-theorem
+  - topology.baire-category-theorem-complete-metric
   - vector-calculus.gradient
   - convex.convex-function
   - convex.cone
@@ -38,9 +51,9 @@ forward_references:
 
 concepts:
   - id: functional.analysis-roadmap
-    name: 関数解析補講
+    name: 関数解析ロードマップ
     kind: term
-    aliases: [関数解析補講]
+    aliases: [関数解析ロードマップ]
     requires:
       - functional.normed-space
       - linear.linear-map
