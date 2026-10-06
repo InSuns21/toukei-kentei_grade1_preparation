@@ -1648,13 +1648,42 @@ $$
 
 と置きます。
 
-$\Psi$ は単位的 *-準同型で、座標関数 $\iota(z)=z$ に対して
+まず $\Psi(f)$ が実際に $C^*(g,1)$ に属することを確認します。$g(K)$ 上の $z,\overline z$ の *-多項式全体は、定数を含み、複素共役で閉じ、座標関数 $z$ によって点を分離します。したがって[自己共役部分代数版 Stone--Weierstrass 定理](#thm-oa4-stone-weierstrass-self-adjoint)から、*-多項式 $q_n(z,\overline z)$ を
+
+$$
+\|q_n-f\|_{\infty,g(K)}\to0
+$$
+
+となるように選べます。
+
+合成すると
+
+$$
+\|q_n(g,g^*)-f\circ g\|_{\infty,K}
+\le
+\|q_n-f\|_{\infty,g(K)}
+\to0.
+$$
+
+各 $q_n(g,g^*)$ は $C^*(g,1)$ に属し、$C^*(g,1)$ は閉なので
+
+$$
+f\circ g\in C^*(g,1).
+$$
+
+従って
+
+$$
+\Psi:C(g(K))\to C^*(g,1)
+$$
+
+は単位的 *-準同型として定まり、座標関数 $\iota(z)=z$ に対して
 
 $$
 \Psi(\iota)=g.
 $$
 
-連続関数計算の一意性から
+[正規元の連続関数計算の一意性](#thm-oa4-continuous-functional-calculus)から
 
 $$
 \boxed{
