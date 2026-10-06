@@ -7,9 +7,7 @@ prerequisites:
   - STO9
   - STO11
 
-forward_references:
-  - game.stochastic-differential-game
-  - game.second-order-isaacs-equations
+forward_references: []
 
 concepts:
   - id: control.stochastic-admissible-control
