@@ -510,7 +510,7 @@ lower game では最初の区間で strategy $\alpha_h$ と相手 control $v_h$ 
 <!-- formal-statement-start -->
 ### 定理（stochastic differential game の DPP）
 
-standing assumptions に加え、strategy class が restriction と concatenation で閉じ、到達状態に応じた $\varepsilon$-optimal continuation strategy を有限 Borel 分割上で貼り合わせられると仮定する。
+standing assumptions に加え、strategy class が restriction と concatenation で閉じ、到達状態に応じた $\varepsilon$-optimal continuation strategy と opponent の $\varepsilon$-maximizing continuation control を有限 Borel 分割上で貼り合わせられると仮定する。
 
 このとき
 
@@ -564,47 +564,34 @@ lower value について示します。upper value は MIN / MAX を入れ替え
 
 #### Step 1：$V^-\ge R_h^-$
 
-任意の global strategy $\alpha\in\mathcal A_t$ を固定します。その $[t,t+h]$ への restriction を $\alpha_h$ とします。
+任意の global strategy $\alpha\in\mathcal A_t$ を固定し、その $[t,t+h]$ への restriction を $\alpha_h$ とします。さらに最初の区間で MAX が使う control $v_h$ を固定します。
 
-任意の opponent control $v\in\mathcal V_t$ に対し payoff を前半と後半へ分けると
-
-$$
-J_{t,x}(\alpha[v],v)
-=
-E\left[
-\int_t^{t+h}L_s\,ds
-+
-C_{t+h}
-\right],
-$$
-
-ここで
+時刻 $t+h$ までの履歴を固定すると、$\alpha$ の後半部分は MIN の admissible continuation strategy $\alpha^{\mathrm{cont}}$ を定めます。ここで lower value の定義から使えるのは、固定した opponent control 一本に対する不等式ではなく
 
 $$
-C_{t+h}
-=
-E\left[
-g(X_T)
-+
-\int_{t+h}^T L_s\,ds
-\middle|
-\mathcal F_{t+h}
-\right].
-$$
-
-時刻 $t+h$ 以後に global strategy $\alpha$ が指定する continuation は、その到達状態から使える admissible continuation strategy の一つです。
-
-従って lower continuation value の定義から
-
-$$
-C_{t+h}
+\sup_{v^{\mathrm{cont}}}
+J_{t+h,y}
+\left(
+\alpha^{\mathrm{cont}}[v^{\mathrm{cont}}],
+v^{\mathrm{cont}}
+\right)
 \ge
-V^-(t+h,X_{t+h})
+\inf_{\widetilde\alpha}
+\sup_{v^{\mathrm{cont}}}
+J_{t+h,y}
+\left(
+\widetilde\alpha[v^{\mathrm{cont}}],
+v^{\mathrm{cont}}
+\right)
+=
+V^-(t+h,y)
 $$
 
-を得ます。
+です。
 
-よって
+従って、各 continuation state $y$ では MAX 側に $V^-(t+h,y)$ を $\varepsilon$ 以内で下から実現する continuation control を選ばせます。定理で仮定した finite Borel partition と measurable pasting を使えば、ランダムな到達状態 $X_{t+h}$ に応じてこれらを貼り合わせ、$v_h$ を global control $v$ へ延長できます。
+
+SDE の初期値安定性と cost の一様連続性を併用すると、この延長について
 
 $$
 J_{t,x}(\alpha[v],v)
@@ -613,14 +600,21 @@ E\left[
 \int_t^{t+h}L_s\,ds
 +
 V^-(t+h,X_{t+h})
-\right].
+\right]
+-\varepsilon-o(1)
 $$
 
-$v$ の supremum、$\alpha$ の infimum を取れば
+となります。ここで $o(1)$ は partition の直径と tail truncation の誤差で、両者を 0 に送れば消えます。
+
+global opponent controls に対する supremum は、この特定の延長 $v$ の payoff 以上です。したがって $v_h$ の supremum を取り、最後に global strategy $\alpha$ の infimumを取れば
 
 $$
-V^-(t,x)\ge R_h^-(t,x).
+V^-(t,x)
+\ge
+R_h^-(t,x).
 $$
+
+最後に $\varepsilon\downarrow0$ とすればよいです。
 
 #### Step 2：$V^-\le R_h^-$
 
