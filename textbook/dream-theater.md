@@ -256,6 +256,11 @@
 4. [FA6 コンパクト作用素](textbook/volumes/00_foundations/FA6/index.md)
 5. [FA7 コンパクト自己共役作用素・Fredholm の交代定理](textbook/volumes/00_foundations/FA7/index.md)
 
+<a id="dt-subject-quantum-foundations-i"></a>
+### 量子力学基礎 I
+
+1. [QM1 実験事実から Hilbert 空間形式へ](textbook/volumes/00_foundations/QM1/index.md)
+
 <a id="dt-subject-evolution-equations"></a>
 ### 抽象発展方程式・半群論
 
