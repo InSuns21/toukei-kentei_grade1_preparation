@@ -2055,60 +2055,35 @@ $$
 
 ということです。つまり $M$ の元に pairing したとき、$T_1$ と $T_2$ は全く区別できません。
 
-<a id="lem-vn4-quotient-dual"></a>
+### 商空間の双対を Banach 空間で使う準備
 
-<!-- formal-statement-start -->
-### 補題（商空間の双対と annihilator）
-
-$X$ を Banach 空間、$Y\subset X$ を閉部分空間とし、
+[LA3A の商空間の双対と零化空間](../LA3A/index.md#thm-la3a-quotient-dual-annihilator)では、標準商写像
 
 $$
+q:X\to X/Y
+$$
+
+に対して
+
+$$
+(X/Y)^*
+\cong
 Y^\perp
 =
-\{f\in X^*:f(y)=0\ \forall y\in Y\}
+\{f\in X^*:f(y)=0\ (\forall y\in Y)\}
 $$
 
-とする。
+となる線形同型を構成しました。
 
-標準商写像 $q:X\to X/Y$ に対して
-
-$$
-\boxed{
-(X/Y)^*\cong Y^\perp
-}
-$$
-
-が等長同型として成り立つ。同型は
+ここでは $X$ が Banach 空間、$Y$ が閉部分空間なので商ノルムも入っています。同じ写像
 
 $$
 g\longmapsto g\circ q
 $$
 
-で与えられる。
-<!-- formal-statement-end -->
+が等長であることだけ確認します。
 
-<!-- proof-start -->
-### 証明
-
-$g\in(X/Y)^*$ に対し
-
-$$
-\widetilde g=g\circ q
-$$
-
-と置きます。$q(y)=0$ が $y\in Y$ について成り立つので
-
-$$
-\widetilde g(y)=0.
-$$
-
-従って
-
-$$
-\widetilde g\in Y^\perp.
-$$
-
-また商ノルムの定義から
+$q$ は
 
 $$
 \|q(x)\|
@@ -2118,101 +2093,44 @@ $$
 \|x\|
 $$
 
-なので
+を満たすので
 
 $$
-|\widetilde g(x)|
+\|g\circ q\|\le\|g\|.
+$$
+
+逆に $z=q(x)$ と $\varepsilon>0$ に対して、商ノルムの定義から
+
+$$
+\|x+y\|<\|z\|+\varepsilon
+$$
+
+となる $y\in Y$ を取れます。すると
+
+$$
+|g(z)|
 =
-|g(q(x))|
+|(g\circ q)(x+y)|
 \le
-\|g\|\,\|x\|.
+\|g\circ q\|
+(\|z\|+\varepsilon).
+$$
+
+$\varepsilon\downarrow0$ として
+
+$$
+\|g\|\le\|g\circ q\|.
 $$
 
 従って
 
 $$
-\|\widetilde g\|\le\|g\|.
+\boxed{
+\|g\circ q\|=\|g\|.
+}
 $$
 
-逆向きに、任意の $z=q(x)\in X/Y$ と $\varepsilon>0$ に対し、商ノルムの定義から $y\in Y$ を
-
-$$
-\|x+y\|
-<
-\|z\|+\varepsilon
-$$
-
-となるように取れます。
-
-$q(x+y)=q(x)=z$ だから
-
-$$
-|g(z)|
-=
-|\widetilde g(x+y)|
-\le
-\|\widetilde g\|
-(\|z\|+\varepsilon).
-$$
-
-$\varepsilon\downarrow0$ とすれば
-
-$$
-\|g\|\le\|\widetilde g\|.
-$$
-
-よって
-
-$$
-\boxed{\|g\|=\|\widetilde g\|}.
-$$
-
-次に $f\in Y^\perp$ を取ります。
-
-$$
-g_f(q(x))=f(x)
-$$
-
-と定めます。もし $q(x_1)=q(x_2)$ なら $x_1-x_2\in Y$ なので
-
-$$
-f(x_1)-f(x_2)
-=
-f(x_1-x_2)
-=
-0.
-$$
-
-従って $g_f$ は well-defined です。
-
-さらに任意の $y\in Y$ について $f(x)=f(x+y)$ だから
-
-$$
-|g_f(q(x))|
-=
-|f(x)|
-=
-|f(x+y)|
-\le
-\|f\|\,\|x+y\|.
-$$
-
-$y$ について下限を取ると
-
-$$
-|g_f(q(x))|
-\le
-\|f\|\,\|q(x)\|.
-$$
-
-従って $g_f\in(X/Y)^*$ であり、
-
-$$
-f=g_f\circ q.
-$$
-
-以上から $g\mapsto g\circ q$ は $(X/Y)^*$ と $Y^\perp$ の等長線形同型です。
-<!-- proof-end -->
+つまり LA3A の線形同型は、この Banach 空間の状況では等長同型として使えます。
 
 <a id="thm-vn4-von-neumann-predual"></a>
 
@@ -2286,7 +2204,7 @@ von Neumann 環 $M$ は WOT 閉で、ultraweak 位相は WOT より強いので�
 <!-- proof-start -->
 ### 証明
 
-[商空間の双対と annihilator](#lem-vn4-quotient-dual)を
+[LA3A の商空間の双対と零化空間](../LA3A/index.md#thm-la3a-quotient-dual-annihilator)を
 
 $$
 X=S_1(H),
@@ -3930,7 +3848,7 @@ $$
 
 は $S_1(H)$ の閉部分空間です。
 
-[商空間の双対と annihilator](#lem-vn4-quotient-dual)から
+[LA3A の商空間の双対と零化空間](../LA3A/index.md#thm-la3a-quotient-dual-annihilator)から
 
 $$
 \left(S_1(H)/M_\perp\right)^*
