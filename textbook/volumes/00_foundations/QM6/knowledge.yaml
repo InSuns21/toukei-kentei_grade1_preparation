@@ -19,6 +19,14 @@ concepts:
       - quantum.projection-valued-measure
       - quantum.spectral-integral-bounded
 
+  - id: quantum.unbounded-spectral-integral-domain-norm
+    name: 非有界スペクトル積分の定義域とノルム
+    kind: proposition
+    aliases: ["domain and norm formula for the unbounded spectral integral"]
+    introduction_aliases: ["命題（非有界スペクトル積分の定義域とノルム）"]
+    requires:
+      - quantum.unbounded-spectral-integral
+
   - id: quantum.self-adjoint-range-criterion
     name: 自己共役性の値域判定
     kind: theorem
