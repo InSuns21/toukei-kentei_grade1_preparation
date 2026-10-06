@@ -8,6 +8,15 @@ prerequisites:
 forward_references: []
 
 concepts:
+  - id: quantum.relative-phase
+    name: 相対位相
+    kind: definition
+    aliases: ["relative phase"]
+    introduction: formal
+    introduction_aliases: ["定義（相対位相）"]
+    requires:
+      - linear.complex-inner-product
+
   - id: functional.complex-hilbert-space
     name: 複素 Hilbert 空間
     kind: definition
