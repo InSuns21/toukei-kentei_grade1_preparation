@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念**：[VN2 の von Neumann 環と二重可換子定理](../VN2/index.md#def-vn2-von-neumann-algebra)、[OA3 の projection・正元・正の平方根](../OA3/index.md#def-oa3-projection)、[OA6 の有界正規作用素のスペクトル定理](../OA6/index.md)を使います。
+> **既出概念**：[VN2 の von Neumann 環と二重可換子定理](../VN2/index.md#def-vn2-von-neumann-algebra)、[OA3 の projection・正元・正の平方根](../OA3/index.md#def-oa3-projection)、[OA6 の有界正規作用素のスペクトル定理](../OA6/index.md#thm-oa6-bounded-normal-spectral-theorem)を使います。
 
 VN2 では、von Neumann 環を「作用素の弱い極限まで取り込んだ $*$-代数」として捉えました。しかし、代数の元を一つ取ったとき、その作用素が Hilbert 空間を**どの部分空間からどの部分空間へ運ぶか**はまだ見えていません。
 
@@ -433,7 +433,7 @@ $$
 \langle x,Px\rangle.
 $$
 
-射影の直交分解 $x=Px+(I-P)x$ を使うと
+[直交分解](../F0_02C1A_Hilbert射影定理_直交分解/index.md#thm-f0-02c1a-orthogonal-decomposition) $x=Px+(I-P)x$ を使うと
 
 $$
 \langle x,Px\rangle
@@ -652,7 +652,7 @@ $$
 f_n(t)\longrightarrow1.
 $$
 
-[OA6 の有界正規作用素のスペクトル定理](../OA6/index.md)に現れる PVM を $E_A$ と書き、$x\in H$ に対して
+[OA6 の有界正規作用素のスペクトル定理](../OA6/index.md#thm-oa6-bounded-normal-spectral-theorem)に現れる PVM を $E_A$ と書き、$x\in H$ に対して
 
 $$
 \mu_x(B)=\langle x,E_A(B)x\rangle
@@ -686,7 +686,7 @@ f_n(t)-\mathbf 1_{(0,\infty)}(t)
 \,d\mu_x(t).
 $$
 
-被積分関数は各 $t$ で $0$ へ収束し、絶対値は常に $1$ 以下です。よって優収束定理から
+被積分関数は各 $t$ で $0$ へ収束し、絶対値は常に $1$ 以下です。よって [Lebesgue の優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)から
 
 $$
 \|(R_n-s(A))x\|\longrightarrow0.
@@ -1177,7 +1177,7 @@ $$
 |T|=(T^*T)^{1/2}\in M.
 $$
 
-支持射影の SOT 近似命題を $|T|$ に適用すると
+[支持射影の SOT 近似命題](#prop-vn3-support-sot)を $|T|$ に適用すると
 
 $$
 s(|T|)\in M.
@@ -1948,7 +1948,7 @@ U|T|
 \left(|T|+\frac1nI\right)^{-1}.
 $$
 
-支持射影の SOT 近似から
+[支持射影の SOT 近似](#prop-vn3-support-sot)から
 
 $$
 |T|
