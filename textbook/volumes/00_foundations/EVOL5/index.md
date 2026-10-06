@@ -137,7 +137,7 @@ $$
 
 <a id="def-evol5-analytic-semigroup"></a>
 <!-- formal-statement-start -->
-### 定義（bounded analytic $C_0$ 半群）
+### 定義（bounded analytic C0 半群）
 
 $X$ を複素 Banach 空間、$0<\theta\le\pi/2$ とする。
 
@@ -435,7 +435,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-ここでは構成の主要評価を確認します。完全な contour deformation の細部は複素解析の標準積分論を用います。
+ここでは構成の主要評価を確認します。完全な contour deformation の細部は複素解析の積分論を用います。
 
 $B$ を角度 $\omega<\pi/2$ の sectorial operator とし、
 
@@ -496,7 +496,7 @@ $$
 
 が定義できます。
 
-積分核は $z$ について正則なので $S(z)$ も正則です。resolvent identity を用いて積分を二重化すると半群則
+積分核は $z$ について正則なので $S(z)$ も正則です。[レゾルベント恒等式](../FA5/index.md#thm-fa5-resolvent-identity)を用いて積分を二重化すると半群則
 
 $$
 S(z+w)=S(z)S(w)
@@ -674,7 +674,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $m=1$ は前節の Cauchy 積分公式から
+まず $m=1$ は [Cauchy の積分公式](../CA3/index.md#thm-ca3-cauchy-integral-formula)を前節の議論へ適用した評価から
 
 $$
 \|BS(t)\|
@@ -989,7 +989,7 @@ B^mS(t)u_0
 n^{2m}e^{-n^2t}a_ne_n.
 $$
 
-従って Parseval の等式から
+従って [Parseval の等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-parseval-identity)から
 
 $$
 \begin{aligned}
@@ -1349,7 +1349,7 @@ $$
 g'(r)=e^{-rt}(1-rt)
 $$
 
-なので臨界点は
+なので導関数が $0$ になる点は
 
 $$
 r=\frac1t.
@@ -1557,7 +1557,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$u_0\in L^2$ なので Parseval の等式から
+$u_0\in L^2$ なので [Parseval の等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-parseval-identity)から
 
 $$
 \sum_{n=1}^{\infty}|a_n|^2<\infty.
@@ -1684,13 +1684,13 @@ $$
 
 ### B4. translation semigroup が熱半群のように smoothing しない理由
 
-$X=L^2(\mathbb R)$ 上の translation group
+$X=L^2(\mathbb R)$ 上の translation semigroup
 
 $$
 (T(t)f)(x)=f(x+t)
 $$
 
-を考える。これは $C_0$ 群だが、一般の $f\in L^2$ を正の時刻で自動的に $H^1$ へ送らないことを説明せよ。
+を考える。これは $C_0$ 半群だが、一般の $f\in L^2$ を正の時刻で自動的に $H^1$ へ送らないことを説明せよ。
 
 - Level: B
 
@@ -1906,5 +1906,5 @@ $$
 
 したがって fractional smoothing は、完全な一階作用素 $B$ をいきなり要求するより、非線形 Duhamel 項を閉じやすい中間正則性を与えます。
 
-EVOL6 ではこの型の時間特異性を、局所不動点の時間幅と組み合わせます。
+EVOL6 ではこの型の時間特異性を、局所解を得る反復の時間幅と組み合わせます。
 <!-- solution-end -->
