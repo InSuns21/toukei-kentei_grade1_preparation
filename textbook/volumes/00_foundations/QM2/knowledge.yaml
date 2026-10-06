@@ -45,7 +45,7 @@ concepts:
     kind: axiom
     aliases: ["Born 則", "Born rule"]
     introduction: inline
-    introduction_aliases: ["公理（有限次元 Born 則）"]
+    introduction_aliases: ["Born 則は線形代数から証明される定理ではない", "公理（有限次元 Born 則）"]
     requires:
       - quantum.normalized-pure-state-representative
       - quantum.finite-spectral-projection-measurement
