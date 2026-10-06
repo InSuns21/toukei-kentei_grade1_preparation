@@ -542,7 +542,7 @@ L_\xi(h)
 \ge0.
 $$
 
-Riesz--Markov により、一意な正 Radon 測度 $\mu_\xi$ が存在して
+[Riesz--Markov の定理](../MT5/index.md#thm-mt5-riesz-markov-positive)により、一意な正 Radon 測度 $\mu_\xi$ が存在して
 
 $$
 \langle\xi,\pi(f)\xi\rangle
@@ -675,7 +675,7 @@ $$
 
 は正半定値 sesquilinear form になります。
 
-Cauchy--Schwarz 不等式から
+[Cauchy--Schwarz 不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 |\beta_B(\xi,\eta)|^2
@@ -824,7 +824,7 @@ $$
 
 $\mathcal M_g$ は線形空間で、今示したことから $C(K)$ を含みます。
 
-さらに $h_n$ が一様有界で点ごとに $h_n\to h$ なら、有限複素測度 $\mu_{\xi,\eta}$ に対する優収束定理から
+さらに $h_n$ が一様有界で点ごとに $h_n\to h$ なら、有限複素測度 $\mu_{\xi,\eta}$ に対する [Lebesgue の優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)から
 
 $$
 \widetilde\pi(h_n)
@@ -2333,7 +2333,7 @@ $$
 
 - Level: A
 
-$A\in B(H)$ を自己共役とし、本章の正規作用素スペクトル定理を適用する。
+$A\in B(H)$ を自己共役とし、[有界正規作用素のスペクトル定理](#thm-oa6-bounded-normal-spectral-theorem)を適用する。
 
 1. $\sigma(A)\subset\mathbb R$ を使って、PVM の台が実数上にあることを説明せよ。
 2. $A=\int \lambda\,dE_A(\lambda)$ が QM3 の表示と同じ形になることを確認せよ。
@@ -2525,7 +2525,7 @@ $$
 
 $q_B$ の偏極で得られる sesquilinear form が $\beta_B$ です。
 
-正半定値 sesquilinear form の Cauchy--Schwarz 不等式から
+正半定値 sesquilinear form の [Cauchy--Schwarz 不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 |\beta_B(\xi,\eta)|^2
@@ -2559,7 +2559,7 @@ $$
 
 は連続な共役線形汎関数で、そのノルムは高々 $\|\eta\|$ です。
 
-Hilbert 空間の Riesz 表現定理により、ある一意なベクトル $E(B)\eta$ が存在して
+Hilbert 空間の [Riesz 表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)により、ある一意なベクトル $E(B)\eta$ が存在して
 
 $$
 \beta_B(\xi,\eta)
@@ -3089,7 +3089,7 @@ $$
 
 #### 4. 同じ PVM から実部・虚部を取り出す
 
-スペクトル定理から
+[有界正規作用素のスペクトル定理](#thm-oa6-bounded-normal-spectral-theorem)から
 
 $$
 T=\int z\,dE_T(z).
