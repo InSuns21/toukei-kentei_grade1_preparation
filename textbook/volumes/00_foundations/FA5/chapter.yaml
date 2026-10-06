@@ -3,7 +3,6 @@ title: "スペクトル・レゾルベント"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - FA0
   - FA2
   - LA6
   - CA3
