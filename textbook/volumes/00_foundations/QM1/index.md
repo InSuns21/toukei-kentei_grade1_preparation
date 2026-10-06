@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念への参照**：[F0-02C1 の Hilbert 空間](../F0_02C1_ノルム空間_Banach_Hilbert/index.md#def-f0-02c1-hilbert-space)を出発点にします。ただし F0-02C1 では実 Hilbert 空間を中心に扱ったため、本章で量子力学に必要な複素版を明示的に導入します。
+> **既出概念への参照**：[LA5 の複素内積](../LA5/index.md#def-la5-complex-inner-product)と、関数解析で学んだ Hilbert 空間・自己共役作用素の流れを出発点にします。本章ではそれらを量子実験のモデル化へ接続します。
 
 関数解析では、Hilbert 空間を「内積があり、極限を取っても空間の外へ逃げない完備な空間」として学びました。ところが量子力学へ進むと、最初に出会う問いは逆向きです。
 
@@ -632,34 +632,34 @@ LA5 の規約では内積は第1変数について共役線形なので、全体
 <!-- proof-start -->
 ### 証明
 
-第1変数の線形性から
+第1変数の共役線形性から
 
-$$
+$
 \langle \psi',\phi\rangle
 =
 \langle e^{i\theta}\psi,\phi\rangle
 =
-e^{i\theta}\langle\psi,\phi\rangle.
-$$
+e^{-i\theta}\langle\psi,\phi\rangle.
+$
 
 従って
 
-$$
+$
 \begin{aligned}
 |\langle \psi',\phi\rangle|^2
 &=
-|e^{i\theta}|^2
+|e^{-i\theta}|^2
 |\langle\psi,\phi\rangle|^2\\
 &=
 |\langle\psi,\phi\rangle|^2.
 \end{aligned}
-$$
+$
 
 ここで
 
-$$
-|e^{i\theta}|=1
-$$
+$
+|e^{-i\theta}|=1
+$
 
 を使いました。
 <!-- proof-end -->
