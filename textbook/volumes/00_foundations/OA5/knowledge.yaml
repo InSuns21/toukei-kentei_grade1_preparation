@@ -1,0 +1,20 @@
+chapter: OA5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OA4
+  - OA3
+  - LA5
+
+forward_references: []
+
+concepts:
+  - id: operator-algebra.positive-functional
+    name: 正線形汎関数
+    kind: definition
+    aliases: ["positive linear functional"]
+    introduction: formal
+    introduction_aliases: ["定義（正線形汎関数）"]
+    requires:
+      - operator-algebra.cstar-algebra
+      - operator-algebra.positive-square-root
