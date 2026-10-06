@@ -48,7 +48,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
         with:
-          fetch-depth: 0
+          fetch-depth: 2
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
@@ -61,6 +61,10 @@ jobs:
 
       - name: Validate DREAM THEATER work-state router
         run: npm run validate:dream-theater-work
+
+      - name: Self-test validation scope semantics
+        if: github.event_name == 'pull_request'
+        run: node scripts/detect-textbook-validation-scope.mjs --self-test
 
       - name: Detect pull-request validation scope
         if: github.event_name == 'pull_request'

@@ -22,16 +22,13 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  scope:
+  validate-pages:
     runs-on: ubuntu-latest
-    outputs:
-      full: ${{ steps.scope.outputs.full }}
-      reason: ${{ steps.scope.outputs.reason }}
     steps:
       - name: Checkout
         uses: actions/checkout@v6
         with:
-          fetch-depth: 0
+          fetch-depth: 2
 
       - name: Detect Pages validation scope
         id: scope
@@ -50,25 +47,21 @@ jobs:
         run: |
           echo "Content-only PR: full Pages assembly is deferred to the main-branch deployment."
 
-  validate-pages:
-    needs: scope
-    if: needs.scope.outputs.full == 'true'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-
       - name: Setup Node.js
+        if: steps.scope.outputs.full == 'true'
         uses: actions/setup-node@v6
         with:
           node-version: '22'
           cache: npm
 
       - name: Install dependencies
+        if: steps.scope.outputs.full == 'true'
         run: npm ci
 
       - name: Validate live smoke script syntax
+        if: steps.scope.outputs.full == 'true'
         run: python3 -m py_compile scripts/smoke-pages-live.py
 
       - name: Assemble and validate Pages site
+        if: steps.scope.outputs.full == 'true'
         run: npm run validate:pages
