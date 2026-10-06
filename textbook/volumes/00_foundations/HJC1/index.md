@@ -603,15 +603,32 @@ X(t+h)-x
 h f(x,a)+o(h).
 $$
 
-同様に running cost は
+running cost についても
 
-$$
+$
 \int_t^{t+h}L(X(s),a)\,ds
 =
-hL(x,a)+o(h).
-$$
+hL(x,a)+o(h)
+$
 
-value function が $C^1$ なら [多変数の一次 Taylor 展開](../RA6A/index.md)の形で
+です。実際、積分平均と連続性から
+
+$
+\frac1h
+\int_t^{t+h}L(X(s),a)\,ds
+\longrightarrow
+L(x,a)
+$
+
+となるためです。
+
+value function が $C^1$ なら、増分
+
+$
+\bigl(h,\,X(t+h)-x\bigr)
+$
+
+に対する微分可能性から
 
 $$
 \begin{aligned}
@@ -2791,13 +2808,13 @@ $$
 
 の内側では $V_x=0$、外側では $V_x=1$ です。
 
-同様に
+もう一方の境界
 
-$$
+$
 x=-(T-t)
-$$
+$
 
-では内側の $V_x=0$ と外側の $V_x=-1$ が一致しません。
+では、内側の領域 $|x|<T-t$ から近づくと $V_x=0$ ですが、外側の領域 $x<-(T-t)$ から近づくと $V_x=-1$ です。したがってここでも左右の微分が一致しません。
 
 従って切替境界で $V$ は微分可能ではありません。
 
