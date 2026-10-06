@@ -46,7 +46,7 @@ $$
   ↓
 Cauchy--Schwarz 型不等式
   ↓
-半内積 〈a,b〉φ = φ(b*a)
+半内積 〈a,b〉φ = φ(a*b)
   ↓
 長さ 0 の元を商でつぶす
   ↓
@@ -782,7 +782,7 @@ QM2 で状態ベクトルから期待値を作った式が、ここでは $C^*$-
 $$
 \langle a,b\rangle_\varphi
 =
-\varphi(b^*a)
+\varphi(a^*b)
 $$
 
 と置きたくなります。
@@ -1029,7 +1029,7 @@ $$
 $$
 \langle[a],[b]\rangle
 =
-\varphi(b^*a)
+\varphi(a^*b)
 $$
 
 と定めたいのですが、代表元の選び方に依存しないことを確認しなければなりません。
@@ -1045,7 +1045,7 @@ $$
 \boxed{
 \langle[a],[b]\rangle_\varphi
 =
-\varphi(b^*a)
+\varphi(a^*b)
 }
 $$
 
@@ -1066,30 +1066,30 @@ $$
 Cauchy--Schwarz から、零空間の元は任意の元と直交するので
 
 $$
-\varphi(b^*n)=0,
+\varphi(a^*m)=0,
 \qquad
-\varphi(m^*a)=0,
+\varphi(n^*b)=0,
 \qquad
-\varphi(m^*n)=0.
+\varphi(n^*m)=0.
 $$
 
 従って
 
 $$
 \begin{aligned}
-\varphi((b')^*a')
+\varphi((a')^*b')
 &=
-\varphi((b+m)^*(a+n))\\
+\varphi((a+n)^*(b+m))\\
 &=
-\varphi(b^*a)
+\varphi(a^*b)
 +
-\varphi(b^*n)
+\varphi(a^*m)
 +
-\varphi(m^*a)
+\varphi(n^*b)
 +
-\varphi(m^*n)\\
+\varphi(n^*m)\\
 &=
-\varphi(b^*a).
+\varphi(a^*b).
 \end{aligned}
 $$
 
@@ -1103,9 +1103,9 @@ $$
 \begin{aligned}
 \langle[b],[a]\rangle_\varphi
 &=
-\varphi(a^*b)\\
+\varphi(b^*a)\\
 &=
-\overline{\varphi(b^*a)}\\
+\overline{\varphi(a^*b)}\\
 &=
 \overline{\langle[a],[b]\rangle_\varphi}
 \end{aligned}
@@ -1347,9 +1347,9 @@ $$
 \begin{aligned}
 \langle \pi_\varphi^0(x)[a],[b]\rangle_\varphi
 &=
-\varphi(b^*xa)\\
+\varphi((xa)^*b)\\
 &=
-\varphi((x^*b)^*a)\\
+\varphi(a^*x^*b)\\
 &=
 \langle[a],\pi_\varphi^0(x^*)[b]\rangle_\varphi.
 \end{aligned}
@@ -1408,8 +1408,8 @@ $$
 \varphi(a)
 =
 \langle
-\pi_\varphi(a)\Omega_\varphi,
-\Omega_\varphi
+\Omega_\varphi,
+\pi_\varphi(a)\Omega_\varphi
 \rangle
 }
 $$
@@ -1503,11 +1503,11 @@ $$
 $$
 \begin{aligned}
 \langle
-\pi_\varphi(a)\Omega_\varphi,
-\Omega_\varphi
+\Omega_\varphi,
+\pi_\varphi(a)\Omega_\varphi
 \rangle
 &=
-\langle[a],[1]\rangle_\varphi\\
+\langle[1],[a]\rangle_\varphi\\
 &=
 \varphi(1^*a)\\
 &=
@@ -1538,7 +1538,7 @@ $(\pi_\varphi,H_\varphi,\Omega_\varphi)$ を GNS 表現とし、別の巡回表�
 $$
 \varphi(a)
 =
-\langle\rho(a)\Omega,\Omega\rangle
+\langle\Omega,\rho(a)\Omega\rangle
 $$
 
 を全ての $a\in A$ について満たすとする。
@@ -1613,8 +1613,8 @@ $$
 \rangle\\
 &=
 \langle
-\rho((a-b)^*(a-b))\Omega,
-\Omega
+\Omega,
+\rho((a-b)^*(a-b))\Omega
 \rangle\\
 &=
 \varphi((a-b)^*(a-b))\\
@@ -1639,11 +1639,11 @@ $$
 &=
 \langle\rho(a)\Omega,\rho(b)\Omega\rangle\\
 &=
-\langle\rho(b)^*\rho(a)\Omega,\Omega\rangle\\
+\langle\Omega,\rho(a)^*\rho(b)\Omega\rangle\\
 &=
-\langle\rho(b^*a)\Omega,\Omega\rangle\\
+\langle\Omega,\rho(a^*b)\Omega\rangle\\
 &=
-\varphi(b^*a)\\
+\varphi(a^*b)\\
 &=
 \langle[a],[b]\rangle_\varphi.
 \end{aligned}
@@ -1765,7 +1765,7 @@ $$
 $$
 \langle[f],[g]\rangle
 =
-\overline{g(x_0)}f(x_0)
+\overline{f(x_0)}g(x_0)
 $$
 
 です。既に完備なので
@@ -1830,9 +1830,9 @@ $$
 \begin{aligned}
 \langle[A],[B]\rangle_\varphi
 &=
-e_1^*B^*Ae_1\\
+e_1^*A^*Be_1\\
 &=
-(B e_1)^*(A e_1),
+(A e_1)^*(B e_1),
 \end{aligned}
 $$
 
@@ -1901,7 +1901,7 @@ $$
 $$
 \langle A,B\rangle_\tau
 =
-\frac1n\operatorname{Tr}(B^*A).
+\frac1n\operatorname{Tr}(A^*B).
 $$
 
 表現は左乗法
@@ -2453,7 +2453,7 @@ $$
 $$
 \langle X,Y\rangle_\tau
 =
-\frac12\operatorname{Tr}(Y^*X)
+\frac12\operatorname{Tr}(X^*Y)
 $$
 
 になることを示せ。
@@ -2512,7 +2512,7 @@ $$
 =
 \tau(Y^*X)
 =
-\frac12\operatorname{Tr}(Y^*X).
+\frac12\operatorname{Tr}(X^*Y).
 $$
 
 #### 3. 表現
@@ -2592,8 +2592,8 @@ $$
 \|\rho(a-b)\Omega\|^2
 &=
 \langle
-\rho((a-b)^*(a-b))\Omega,
-\Omega
+\Omega,
+\rho((a-b)^*(a-b))\Omega
 \rangle\\
 &=
 \varphi((a-b)^*(a-b))\\
@@ -2618,11 +2618,11 @@ $$
 &=
 \langle\rho(a)\Omega,\rho(b)\Omega\rangle\\
 &=
-\langle\rho(b)^*\rho(a)\Omega,\Omega\rangle\\
+\langle\Omega,\rho(a)^*\rho(b)\Omega\rangle\\
 &=
-\langle\rho(b^*a)\Omega,\Omega\rangle\\
+\langle\Omega,\rho(a^*b)\Omega\rangle\\
 &=
-\varphi(b^*a)\\
+\varphi(a^*b)\\
 &=
 \langle[a],[b]\rangle_\varphi.
 \end{aligned}
@@ -2729,7 +2729,7 @@ $$
 $$
 \varphi_p(A)
 =
-\langle(A\oplus A)\Omega,\Omega\rangle
+\langle\Omega,(A\oplus A)\Omega\rangle
 $$
 
 を直接確認せよ。
@@ -2813,7 +2813,7 @@ GNS 内積は
 $$
 \langle X,Y\rangle_{\varphi_p}
 =
-\varphi_p(Y^*X).
+\varphi_p(X^*Y).
 $$
 
 従って
@@ -2822,13 +2822,13 @@ $$
 \begin{aligned}
 \langle X,Y\rangle_{\varphi_p}
 &=
-p\,e_1^*Y^*Xe_1
+p\,e_1^*X^*Ye_1
 +
-(1-p)e_2^*Y^*Xe_2\\
+(1-p)e_2^*X^*Ye_2\\
 &=
-p\,(Ye_1)^*(Xe_1)
+p\,(Xe_1)^*(Ye_1)
 +
-(1-p)(Ye_2)^*(Xe_2).
+(1-p)(Xe_2)^*(Ye_2).
 \end{aligned}
 $$
 
@@ -2838,14 +2838,14 @@ $$
 \begin{aligned}
 \langle U(X),U(Y)\rangle
 &=
-(\sqrt p\,Ye_1)^*(\sqrt p\,Xe_1)\\
+(\sqrt p\,Xe_1)^*(\sqrt p\,Ye_1)\\
 &\qquad+
-(\sqrt{1-p}\,Ye_2)^*
-(\sqrt{1-p}\,Xe_2)\\
+(\sqrt{1-p}\,Xe_2)^*
+(\sqrt{1-p}\,Ye_2)\\
 &=
-p\,(Ye_1)^*(Xe_1)
+p\,(Xe_1)^*(Ye_1)
 +
-(1-p)(Ye_2)^*(Xe_2).
+(1-p)(Xe_2)^*(Ye_2).
 \end{aligned}
 $$
 
@@ -2966,7 +2966,7 @@ $$
 
 $$
 \begin{aligned}
-\langle(A\oplus A)\Omega,\Omega\rangle
+\langle\Omega,(A\oplus A)\Omega\rangle
 &=
 p\,e_1^*Ae_1
 +
@@ -3028,7 +3028,7 @@ $$
 $$
 \langle a,b\rangle_\varphi
 =
-\varphi(b^*a)
+\varphi(a^*b)
 $$
 
 は一般には半内積なので、
@@ -3078,8 +3078,8 @@ $$
 \varphi(a)
 =
 \langle
-\pi_\varphi(a)\Omega_\varphi,
-\Omega_\varphi
+\Omega_\varphi,
+\pi_\varphi(a)\Omega_\varphi
 \rangle
 }
 $$
