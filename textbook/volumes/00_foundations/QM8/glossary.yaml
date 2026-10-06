@@ -1,0 +1,17 @@
+chapter: "QM8"
+terms:
+  - term: 正準交換関係
+    english: canonical commutation relation
+    meaning: 位置 Q と運動量 P のような非有界作用素について、適切な共通不変領域上で [Q,P]=iħI と表される交換関係。
+  - term: Weyl 関係
+    english: Weyl relations
+    meaning: 自己共役な生成作用素を指数化して得るユニタリ群 U(a), V(b) が U(a)V(b)=exp(iab/ħ)V(b)U(a) を満たすという、有界作用素による正準交換関係の有限変換版。
+  - term: Weyl 対
+    english: Weyl pair
+    meaning: Weyl 関係を満たす二つの強連続1パラメータユニタリ群の組。
+  - term: 既約表現
+    english: irreducible representation
+    meaning: 表現を構成する全ての作用素で不変な閉部分空間が {0} と全 Hilbert 空間しかない表現。
+  - term: Stone--von Neumann の定理
+    english: Stone-von Neumann theorem
+    meaning: 固定した ħ に対する有限自由度の強連続かつ既約な Weyl 表現が、ユニタリ同値を除いて Schrödinger 表現に一意であることを述べる定理。
