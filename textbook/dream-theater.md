@@ -264,6 +264,11 @@
 3. [QM3 射影・PVM・スペクトル定理](textbook/volumes/00_foundations/QM3/index.md)
 4. [QM4 非可換観測量と不確定性関係](textbook/volumes/00_foundations/QM4/index.md)
 
+<a id="dt-subject-quantum-foundations-ii"></a>
+### 量子力学基礎 II
+
+1. [QM5 非有界作用素と自己共役性](textbook/volumes/00_foundations/QM5/index.md)
+
 <a id="dt-subject-evolution-equations"></a>
 ### 抽象発展方程式・半群論
 

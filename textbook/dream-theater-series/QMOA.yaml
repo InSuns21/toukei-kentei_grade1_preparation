@@ -23,7 +23,7 @@ chapters:
     title: 非可換観測量と不確定性関係
   - id: QM5
     path: textbook/volumes/00_foundations/QM5
-    status: planned
+    status: completed
     title: 非有界作用素と自己共役性
   - id: QM6
     path: textbook/volumes/00_foundations/QM6

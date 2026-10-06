@@ -1,0 +1,20 @@
+chapter: "QM5"
+terms:
+  - term: 稠密定義作用素の随伴
+    english: adjoint of a densely defined operator
+    meaning: 稠密定義作用素 A に対し、内積恒等式 <Ax,y>=<x,A*y> が成立する y を集めた定義域 D(A*) 上で作る随伴。非有界作用素では定義域も構成の一部になる。
+  - term: 対称作用素
+    english: symmetric operator
+    meaning: 稠密定義作用素 A が D(A) 上で <Ax,y>=<x,Ay> を満たすこと。作用素の包含では A⊂A* に対応する。
+  - term: 自己共役作用素
+    english: self-adjoint operator
+    meaning: 稠密定義作用素 A が A=A* を満たすこと。作用規則の一致だけでなく D(A)=D(A*) を要求する。
+  - term: 本質的自己共役
+    english: essentially self-adjoint
+    meaning: 稠密定義対称作用素の閉包が自己共役になること。小さい定義域から一意な自己共役な閉包を回収できる状況を表す。
+  - term: 位置作用素
+    english: position operator
+    meaning: L2(R) 上で (Q psi)(x)=x psi(x) と作用する非有界乗算作用素。本章では x psi が L2 に属する関数を最大定義域とする。
+  - term: 運動量作用素
+    english: momentum operator
+    meaning: Fourier 空間の実乗算作用素をユニタリ共役して作る自己共役作用素。滑らかなコンパクト台関数上では -i hbar d/dx と一致する。
