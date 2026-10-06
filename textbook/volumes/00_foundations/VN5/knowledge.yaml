@@ -1,0 +1,121 @@
+chapter: VN5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - VN4
+  - OA5
+
+forward_references: []
+
+concepts:
+  - id: operator-algebra.normal-functional
+    name: 正規汎関数
+    kind: definition
+    aliases: ["normal functional"]
+    introduction: formal
+    introduction_aliases: ["定義（正規汎関数）"]
+    requires:
+      - operator-algebra.ultraweak-topology
+      - operator-algebra.von-neumann-predual
+
+  - id: operator-algebra.normal-state
+    name: 正規状態
+    kind: definition
+    aliases: ["normal state"]
+    introduction: formal
+    introduction_aliases: ["定義（正規状態）"]
+    requires:
+      - operator-algebra.normal-functional
+      - operator-algebra.state
+
+  - id: operator-algebra.density-operator
+    name: 密度作用素
+    kind: definition
+    aliases: ["density operator", "density matrix"]
+    introduction: formal
+    introduction_aliases: ["定義（密度作用素）"]
+    requires:
+      - operator-algebra.trace-class
+      - operator-algebra.trace-functional
+      - operator-algebra.positive-functional
+
+  - id: operator-algebra.normal-functional-trace-class-representation
+    name: B(H) 上の正規汎関数の trace class 表示
+    kind: proposition
+    aliases: ["trace-class representation of normal functionals on B(H)"]
+    introduction_aliases: ["命題（B(H) 上の正規汎関数の trace class 表示）"]
+    requires:
+      - operator-algebra.normal-functional
+      - operator-algebra.trace-class-duality
+
+  - id: operator-algebra.normal-positive-trace-class
+    name: 正規汎関数の正性と正 trace class 作用素
+    kind: proposition
+    aliases: ["positive normal functional and positive trace-class operator"]
+    introduction_aliases: ["命題（正規汎関数の正性と正 trace class 作用素）"]
+    requires:
+      - operator-algebra.normal-functional-trace-class-representation
+      - operator-algebra.trace-rank-one-formula
+      - operator-algebra.positive-functional
+
+  - id: operator-algebra.density-state-correspondence
+    name: 正規状態と密度作用素の対応
+    kind: theorem
+    aliases: ["normal states and density operators"]
+    introduction_aliases: ["定理（正規状態と密度作用素の対応）"]
+    requires:
+      - operator-algebra.normal-state
+      - operator-algebra.density-operator
+      - operator-algebra.normal-positive-trace-class
+
+  - id: operator-algebra.normal-positive-monotone-projections
+    name: 正規な正汎関数の射影単調連続性
+    kind: proposition
+    aliases: ["monotone continuity of normal positive functionals on projections"]
+    introduction_aliases: ["命題（正規な正汎関数は増大射影の上限を保つ）"]
+    requires:
+      - operator-algebra.normal-functional
+      - operator-algebra.wot-ultraweak-comparison
+      - operator-algebra.positive-functional
+
+  - id: operator-algebra.bh-projection-normality-criterion
+    name: B(H) における射影単調連続性による正規性判定
+    kind: theorem
+    aliases: ["projection criterion for normality on B(H)"]
+    introduction_aliases: ["定理（B(H) における射影単調連続性による正規性判定）"]
+    requires:
+      - operator-algebra.normal-positive-monotone-projections
+      - operator-algebra.positive-functional-cauchy-schwarz
+      - operator-algebra.trace-class-banach-ideal
+      - operator-algebra.trace-rank-one-formula
+
+  - id: operator-algebra.tracial-weight
+    name: von Neumann 環上のトレース
+    kind: definition
+    aliases: ["trace on a von Neumann algebra", "tracial weight"]
+    introduction: formal
+    introduction_aliases: ["定義（von Neumann 環上のトレース）"]
+    requires:
+      - operator-algebra.von-neumann-algebra
+      - operator-algebra.positive-element
+
+  - id: operator-algebra.standard-bh-trace-nfs
+    name: B(H) の標準トレースは正規・忠実・半有限
+    kind: theorem
+    aliases: ["standard trace on B(H) is normal faithful semifinite"]
+    introduction_aliases: ["定理（B(H) の標準トレースは正規・忠実・半有限）"]
+    requires:
+      - operator-algebra.tracial-weight
+      - operator-algebra.trace-functional
+      - operator-algebra.polar-decomposition
+      - operator-algebra.projection-element
+
+  - id: operator-algebra.no-normal-tracial-state-bh
+    name: 無限次元 B(H) に正規トレース状態は存在しない
+    kind: proposition
+    aliases: ["no normal tracial state on infinite-dimensional B(H)", "正規トレース状態の非存在"]
+    introduction_aliases: ["命題（無限次元 B(H) に正規トレース状態は存在しない）"]
+    requires:
+      - operator-algebra.normal-state
+      - operator-algebra.tracial-weight
+      - operator-algebra.normal-positive-monotone-projections
