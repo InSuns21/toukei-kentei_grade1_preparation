@@ -19,7 +19,7 @@ learning_objectives:
 definitions:
   - { id: OA2-DEF-01, name: "可換 Banach 環" }
   - { id: OA2-DEF-02, name: "character" }
-  - { id: OA2-DEF-03, name: "極大イデアル" }
+  - { id: OA2-DEF-03, name: "イデアル・極大イデアル" }
   - { id: OA2-DEF-04, name: "複素 Banach 可除代数" }
   - { id: OA2-DEF-05, name: "character 空間・Gelfand 位相" }
   - { id: OA2-DEF-06, name: "Gelfand 変換" }
