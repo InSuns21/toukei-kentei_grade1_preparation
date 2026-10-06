@@ -1,0 +1,78 @@
+chapter: QM2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QM1
+
+forward_references: []
+
+concepts:
+  - id: quantum.normalized-pure-state-representative
+    name: 純粋状態の単位ベクトル代表
+    kind: definition
+    aliases: ["normalized pure-state representative"]
+    introduction: formal
+    introduction_aliases: ["定義（純粋状態の単位ベクトル代表）"]
+    requires:
+      - quantum.hilbert-ray
+      - functional.complex-hilbert-space
+
+  - id: quantum.finite-dimensional-observable
+    name: 有限次元の観測量
+    kind: definition
+    aliases: ["finite-dimensional observable"]
+    introduction: formal
+    introduction_aliases: ["定義（有限次元の観測量）"]
+    requires:
+      - functional.self-adjoint-bounded-operator
+      - linear.hermitian-real-eigenvalues
+      - linear.complex-normal-spectral-theorem
+
+  - id: quantum.finite-spectral-projection-measurement
+    name: 固有空間への射影測定
+    kind: definition
+    aliases: ["finite spectral projection measurement", "射影測定"]
+    introduction: formal
+    introduction_aliases: ["定義（固有空間への射影測定）"]
+    requires:
+      - quantum.finite-dimensional-observable
+      - linear.complex-normal-spectral-theorem
+
+  - id: quantum.finite-born-rule
+    name: 有限次元 Born 則
+    kind: axiom
+    aliases: ["Born 則", "Born rule"]
+    introduction: formal
+    introduction_aliases: ["公理（有限次元 Born 則）"]
+    requires:
+      - quantum.normalized-pure-state-representative
+      - quantum.finite-spectral-projection-measurement
+
+  - id: quantum.born-global-phase-invariance
+    name: Born 確率の全体位相不変性
+    kind: proposition
+    aliases: ["Born probability global-phase invariance"]
+    introduction: formal
+    introduction_aliases: ["命題（Born 確率の全体位相不変性）"]
+    requires:
+      - quantum.finite-born-rule
+      - quantum.global-phase-invariance
+
+  - id: quantum.observable-expectation-inner-product
+    name: 期待値の内積表示
+    kind: proposition
+    aliases: ["expectation value inner-product formula"]
+    introduction: formal
+    introduction_aliases: ["命題（期待値の内積表示）"]
+    requires:
+      - quantum.finite-born-rule
+      - quantum.finite-dimensional-observable
+
+  - id: quantum.observable-variance-operator-form
+    name: 分散の作用素表示
+    kind: proposition
+    aliases: ["observable variance operator formula"]
+    introduction: formal
+    introduction_aliases: ["命題（分散の作用素表示）"]
+    requires:
+      - quantum.observable-expectation-inner-product
