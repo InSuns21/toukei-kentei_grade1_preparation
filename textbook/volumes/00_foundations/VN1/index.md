@@ -1004,7 +1004,7 @@ $$
 
 任意の $\xi,\eta\in H$ に対して
 
-$
+$$
 \begin{aligned}
 \langle\eta,T_\alpha^*\xi\rangle
 &=
@@ -1012,7 +1012,7 @@ $
 &=
 \overline{\langle\xi,T_\alpha\eta\rangle}.
 \end{aligned}
-$
+$$
 
 最初の等号は [Hilbert 随伴](../F0_02C3A_随伴作用素_Banach_Hilbert/index.md) の defining identity であり、二つ目は内積の共役対称性です。
 
@@ -1810,29 +1810,29 @@ $B(H)$ を作用素ノルムで Banach 空間とみなす。
 
 まず Cauchy--Schwarz 不等式を使うと
 
-$
+$$
 |\omega_{\eta,\xi}(T)|
 =
 |\langle\eta,T\xi\rangle|
 \le
 \|\eta\|\,\|T\xi\|.
-$
+$$
 
 さらに作用素ノルムの定義から
 
-$
+$$
 \|T\xi\|
 \le
 \|T\|\,\|\xi\|
-$
+$$
 
 なので
 
-$
+$$
 |\omega_{\eta,\xi}(T)|
 \le
 \|\eta\|\,\|T\|\,\|\xi\|.
-$
+$$
 
 従って $\omega_{\eta,\xi}$ は作用素ノルムに関して連続な線形汎関数で、
 
