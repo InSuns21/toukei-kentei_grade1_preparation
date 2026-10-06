@@ -6,9 +6,7 @@ prerequisites:
   - QM2
   - LA5
 
-forward_references:
-  - quantum.unbounded-self-adjoint-operator
-  - operator-algebra.noncommutative-observable-algebra
+forward_references: []
 
 concepts:
   - id: quantum.commutator
