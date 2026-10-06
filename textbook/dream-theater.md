@@ -259,6 +259,7 @@
 3. [EVOL3 散逸作用素・Lumer--Phillips](textbook/volumes/00_foundations/EVOL3/index.md)
 4. [EVOL4 抽象 Cauchy 問題・mild 解・Duhamel 公式](textbook/volumes/00_foundations/EVOL4/index.md)
 5. [EVOL5 analytic semigroup・sectorial operator・放物型 smoothing](textbook/volumes/00_foundations/EVOL5/index.md)
+6. [EVOL6 半線形発展方程式・局所解・continuation criterion](textbook/volumes/00_foundations/EVOL6/index.md)
 
 <a id="dt-subject-pde-ii"></a>
 <a id="dt-subject-pde-graduate"></a>
