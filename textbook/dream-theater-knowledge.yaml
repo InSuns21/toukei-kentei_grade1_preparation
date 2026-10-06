@@ -13,6 +13,12 @@ strict:
   reject_unreachable_registered_concept: true
   reject_unresolved_concept_dependency: true
 
+dependency_tracking:
+  # 教材内では正式に証明・参照するが、後続章の prerequisite 到達性としては追跡しない基礎結果。
+  # 高校数学〜大学初年級の復習事項に限定し、専門的な主要定理の依存隠しには使わない。
+  reachability_exempt_concepts:
+    - analysis.chain-rule
+
 alias_matching:
   # 真の別称ではあるが、分野横断では多義的で自由文の部分一致だけでは意味を確定できない語。
   # formal label、完全一致の強調・リンク文字列・引用など、明示的な概念参照だけを高信頼使用とする。
