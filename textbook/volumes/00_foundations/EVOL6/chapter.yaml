@@ -27,7 +27,7 @@ theorems:
   - { id: EVOL6-PROP-01, name: "mild 解の再出発公式" }
   - { id: EVOL6-PROP-02, name: "有界領域での初期値連続依存" }
   - { id: EVOL6-THM-02, name: "半線形発展方程式の blow-up alternative" }
-  - { id: EVOL6-COR-01, name: "線形成長条件による大域存在" }
+  - { id: EVOL6-COR-01, name: "半線形発展方程式の線形成長条件による大域存在" }
 canonical_examples:
   - "X=R, A=0, F(u)=u^2 の有限時間 blow-up"
   - "一般 Banach 空間上の F(x)=||x||x は bounded ball 上で Lipschitz"
