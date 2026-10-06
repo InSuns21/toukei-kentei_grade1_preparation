@@ -1,0 +1,26 @@
+chapter: "QM2"
+terms:
+  - term: 純粋状態
+    english: pure state
+    meaning: 本系列では Hilbert 空間の ray で表す量子状態。計算時にはその ray からノルム1の代表ベクトルを一つ選ぶ。
+  - term: 観測量
+    english: observable
+    meaning: QM2 の有限次元モデルでは自己共役作用素で表す測定対象。固有値を測定値候補、固有空間を対応する測定結果の部分空間として読む。
+  - term: 射影測定
+    english: projective measurement
+    meaning: 観測量の異なる固有値に対応する固有空間への直交射影を用いる理想測定。QM2 では有限個の固有値を持つ場合だけを扱う。
+  - term: Born 則
+    english: Born rule
+    meaning: 状態と測定射影から測定結果の確率を与える量子理論の基本公理。QM2 では確率を射影成分のノルム二乗で与える。
+  - term: 縮退
+    english: degeneracy
+    meaning: 同じ固有値に一次元より大きい固有空間が対応すること。縮退した測定結果の確率は固有空間全体への射影で計算する。
+  - term: 期待値
+    english: expectation value
+    meaning: 同じ状態を多数回準備して同じ観測量を測るときの測定値分布の平均。有限次元では内積 <psi,A psi> と一致する。
+  - term: 分散
+    english: variance
+    meaning: 測定値が期待値の周りへどれだけ散らばるかを表す量。有限次元では <psi,(A-mu I)^2 psi> と書ける。
+  - term: Pauli 行列
+    english: Pauli matrix
+    meaning: spin 1/2 の二準位モデルで基本的な観測量を表す 2x2 Hermitian 行列。本章では sigma_z と sigma_x を使う。
