@@ -375,9 +375,9 @@ $$
 
 であり、さらに
 
-$
+$$
 \boxed{VV^*=P_{\overline{\operatorname{ran}V}}}
-$
+$$
 
 である。$V^*V$ を**初期射影**、$VV^*$ を**終射影**と呼ぶ。
 <!-- formal-statement-end -->
