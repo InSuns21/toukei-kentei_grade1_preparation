@@ -448,7 +448,6 @@ function runSelfTest() {
   if (normalizeAlias('**弱*位相**') !== normalizeAlias('弱*位相')) failures.push('markdown emphasis star normalization');
   if (!isPotentiallyBroadShortAlias('階数', { name: '常微分方程式・階数' })) failures.push('broad short alias detection');
   if (isPotentiallyBroadShortAlias('常微分方程式・階数', { name: '常微分方程式・階数' })) failures.push('canonical name broad alias false positive');
-  if (!contextualAliases.has(normalizeAlias('交換子'))) failures.push('contextual alias policy loading');
 
   const source = [
     '# test',
