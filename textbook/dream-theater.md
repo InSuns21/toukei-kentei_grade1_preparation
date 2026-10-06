@@ -272,6 +272,11 @@
 3. [QM7 Stone の定理と Schrödinger 発展](textbook/volumes/00_foundations/QM7/index.md)
 4. [QM8 CCR・Weyl 関係と作用素環への入口](textbook/volumes/00_foundations/QM8/index.md)
 
+<a id="dt-subject-operator-algebra-i"></a>
+### 作用素環論 I
+
+1. [OA1 Banach 環とスペクトル](textbook/volumes/00_foundations/OA1/index.md)
+
 <a id="dt-subject-evolution-equations"></a>
 ### 抽象発展方程式・半群論
 
