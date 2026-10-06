@@ -1,0 +1,99 @@
+chapter: VN2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - VN1
+  - OA3
+  - F0-02C3A
+
+forward_references: []
+
+concepts:
+  - id: operator-algebra.commutant
+    name: 可換子
+    kind: definition
+    aliases: ["commutant"]
+    introduction: formal
+    introduction_aliases: ["定義（可換子）"]
+    requires:
+      - functional.bounded-linear-operator
+
+  - id: operator-algebra.commutant-order-properties
+    name: 可換子の基本的な順序関係
+    kind: proposition
+    aliases: ["order reversing properties of commutants"]
+    introduction_aliases: ["命題（可換子の基本的な順序関係）"]
+    requires:
+      - operator-algebra.commutant
+
+  - id: operator-algebra.commutant-wot-closed
+    name: 可換子の WOT 閉性
+    kind: proposition
+    aliases: ["WOT closedness of commutants"]
+    introduction_aliases: ["命題（可換子の WOT 閉性）"]
+    requires:
+      - operator-algebra.commutant
+      - operator-algebra.weak-operator-topology
+      - operator-algebra.wot-fixed-multiplication-adjoint
+      - functional.hilbert-adjoint
+
+  - id: operator-algebra.bicommutant
+    name: 二重可換子
+    kind: definition
+    aliases: ["bicommutant", "double commutant"]
+    introduction: formal
+    introduction_aliases: ["定義（二重可換子）"]
+    requires:
+      - operator-algebra.commutant
+
+  - id: operator-algebra.von-neumann-algebra
+    name: von Neumann 環
+    kind: definition
+    aliases: ["von Neumann algebra"]
+    introduction: formal
+    introduction_aliases: ["定義（von Neumann 環）"]
+    requires:
+      - operator-algebra.weak-operator-topology
+      - functional.hilbert-adjoint
+
+  - id: operator-algebra.closures-in-bicommutant
+    name: SOT/WOT 閉包は二重可換子に含まれる
+    kind: proposition
+    aliases: ["operator topology closures lie in the bicommutant"]
+    introduction_aliases: ["命題（SOT/WOT 閉包は二重可換子に含まれる）"]
+    requires:
+      - operator-algebra.bicommutant
+      - operator-algebra.strong-operator-topology
+      - operator-algebra.weak-operator-topology
+      - operator-algebra.commutant-wot-closed
+
+  - id: operator-algebra.amplification-commutant
+    name: 対角増幅の可換子
+    kind: lemma
+    aliases: ["commutant of diagonal amplification"]
+    introduction_aliases: ["補題（対角増幅の可換子）"]
+    requires:
+      - operator-algebra.commutant
+
+  - id: operator-algebra.von-neumann-bicommutant-theorem
+    name: von Neumann の二重可換子定理
+    kind: theorem
+    aliases: ["von Neumann bicommutant theorem", "von Neumann double commutant theorem"]
+    introduction_aliases: ["定理（von Neumann の二重可換子定理）"]
+    requires:
+      - operator-algebra.closures-in-bicommutant
+      - operator-algebra.amplification-commutant
+      - operator-algebra.bicommutant
+      - operator-algebra.strong-operator-topology
+      - operator-algebra.weak-operator-topology
+      - functional.hilbert-space
+
+  - id: operator-algebra.generated-von-neumann-algebra
+    name: 生成された von Neumann 環
+    kind: definition
+    aliases: ["generated von Neumann algebra"]
+    introduction: formal
+    introduction_aliases: ["定義（生成された von Neumann 環）"]
+    requires:
+      - operator-algebra.von-neumann-algebra
+      - operator-algebra.von-neumann-bicommutant-theorem

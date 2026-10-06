@@ -1,0 +1,48 @@
+id: "VN2"
+title: "可換子・二重可換子・von Neumann 環"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - VN1
+  - OA3
+  - F0-02C3A
+official_scope: []
+learning_objectives:
+  - 可換子 S' と二重可換子 S'' を定義し、包含の反転、S⊂S''、S'''=S' を証明できる
+  - 可換子が単位的部分代数かつ WOT 閉であり、元集合が随伴で閉じていれば可換子も *-閉であることを証明できる
+  - von Neumann 環を B(H) の単位的 WOT 閉 *-部分代数として定義し、具体例を確認できる
+  - 単位的 *-部分代数 A について SOT 閉包⊂WOT 閉包⊂A'' を証明できる
+  - H^n 上の対角増幅の可換子を作用素行列の各成分から記述できる
+  - von Neumann の二重可換子定理を、巡回部分空間・直交射影・行列増幅を使って核心証明まで再構成できる
+  - 二重可換子定理における単位性と *-閉性の役割を反例と証明機構の破綻から説明できる
+  - W*(S) を S が生成する von Neumann 環として記述し、SOT/WOT 閉包と二重可換子の一致を使える
+definitions:
+  - { id: VN2-DEF-01, name: "可換子" }
+  - { id: VN2-DEF-02, name: "二重可換子" }
+  - { id: VN2-DEF-03, name: "von Neumann 環" }
+  - { id: VN2-DEF-04, name: "生成された von Neumann 環" }
+theorems:
+  - { id: VN2-PROP-01, name: "可換子の基本的な順序関係" }
+  - { id: VN2-PROP-02, name: "可換子の WOT 閉性" }
+  - { id: VN2-PROP-03, name: "SOT/WOT 閉包は二重可換子に含まれる" }
+  - { id: VN2-LEM-01, name: "対角増幅の可換子" }
+  - { id: VN2-THM-01, name: "von Neumann の二重可換子定理" }
+canonical_examples:
+  - "直交射影 P の可換子が PH と (I-P)H を混ぜないブロック対角作用素になる例"
+  - "射影 P の二重可換子が alpha P+beta(I-P) となる例"
+  - "零代数で単位性を落とすと SOT 閉包と二重可換子が一致しない反例"
+  - "2次上三角行列代数で *-閉性を落とすと WOT 閉包と二重可換子が一致しない反例"
+problem_patterns:
+  - VN2-COMMUTANT-MATRIX-1
+  - VN2-COMMUTANT-ORDER-1
+  - VN2-BICOMMUTANT-IDENTITIES-1
+  - VN2-PROJECTION-GENERATED-1
+  - VN2-WOT-CLOSED-1
+  - VN2-AMPLIFICATION-1
+  - VN2-NONUNITAL-COUNTEREXAMPLE-1
+  - VN2-NONSTAR-COUNTEREXAMPLE-1
+  - VN2-BICOMMUTANT-THEOREM-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10.0, exercises: 8.0, review: 2.0 }
