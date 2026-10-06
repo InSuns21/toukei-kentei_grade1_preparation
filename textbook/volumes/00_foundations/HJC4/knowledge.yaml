@@ -1,0 +1,96 @@
+chapter: HJC4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HJC3
+  - HJC2
+  - HJC1
+  - GAME-A2
+
+forward_references: []
+
+concepts:
+  - id: game.nonanticipative-strategy
+    name: nonanticipative strategy
+    kind: definition
+    aliases: ["非予見戦略", "Elliott--Kalton strategy"]
+    introduction: formal
+    introduction_aliases: ["定義（nonanticipative strategy）"]
+    requires:
+      - control.admissible-control-trajectory
+      - game.zero-sum-game
+
+  - id: game.differential-lower-upper-values
+    name: 微分ゲームの lower value / upper value
+    kind: definition
+    aliases: ["lower and upper values of a differential game"]
+    introduction: formal
+    introduction_aliases: ["定義（lower value / upper value）"]
+    requires:
+      - game.nonanticipative-strategy
+      - control.cost-functional
+      - game.maximin-minimax-weak-inequality
+
+  - id: game.differential-dpp
+    name: 微分ゲームの dynamic programming principle
+    kind: theorem
+    aliases: ["dynamic programming principle for differential games"]
+    introduction: formal
+    introduction_aliases: ["定理（微分ゲームの dynamic programming principle）"]
+    requires:
+      - game.differential-lower-upper-values
+      - control.dynamic-programming-principle
+
+  - id: game.isaacs-hamiltonians
+    name: lower / upper Isaacs Hamiltonian
+    kind: definition
+    aliases: ["lower and upper Isaacs Hamiltonians"]
+    introduction: formal
+    introduction_aliases: ["定義（lower / upper Isaacs Hamiltonian）"]
+    requires:
+      - game.differential-lower-upper-values
+      - game.maximin-minimax-weak-inequality
+      - pde.pde12-hamilton-jacobi
+
+  - id: game.hji-equations
+    name: Hamilton--Jacobi--Isaacs 方程式
+    kind: definition
+    aliases: ["HJI equation", "Hamilton--Jacobi--Isaacs equation"]
+    introduction: formal
+    introduction_aliases: ["定義（lower / upper Hamilton--Jacobi--Isaacs 方程式）"]
+    requires:
+      - game.isaacs-hamiltonians
+      - pde.viscosity-solution
+
+  - id: game.hji-viscosity-characterization
+    name: lower / upper value の HJI 粘性解特徴付け
+    kind: theorem
+    aliases: ["viscosity characterization of differential game values"]
+    introduction: formal
+    introduction_aliases: ["定理（lower / upper value の粘性解特徴付け）"]
+    requires:
+      - game.differential-dpp
+      - game.hji-equations
+      - pde.viscosity-subsolution-supersolution
+      - control.backward-hjb-comparison
+
+  - id: game.isaacs-condition
+    name: Isaacs condition
+    kind: definition
+    aliases: ["Isaacs 条件"]
+    introduction: formal
+    introduction_aliases: ["定義（Isaacs condition）"]
+    requires:
+      - game.isaacs-hamiltonians
+      - game.maximin-minimax-weak-inequality
+
+  - id: game.isaacs-value-theorem
+    name: Isaacs condition による game value の存在
+    kind: theorem
+    aliases: ["existence of differential game value under Isaacs condition"]
+    introduction: formal
+    introduction_aliases: ["定理（Isaacs condition による game value の存在）"]
+    requires:
+      - game.isaacs-condition
+      - game.hji-viscosity-characterization
+      - pde.viscosity-uniqueness
