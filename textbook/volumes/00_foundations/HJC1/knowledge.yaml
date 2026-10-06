@@ -17,14 +17,23 @@ concepts:
     requires:
       - ode.ode1-picard-lindelof
 
-  - id: control.cost-value-function
-    name: cost functional と value function
+  - id: control.cost-functional
+    name: cost functional
     kind: definition
-    aliases: ["cost functional and value function", "value function of deterministic optimal control"]
+    aliases: ["cost functional", "performance functional"]
     introduction: formal
     introduction_aliases: ["定義（cost functional と value function）"]
     requires:
       - control.admissible-control-trajectory
+
+  - id: control.value-function
+    name: value function
+    kind: definition
+    aliases: ["value function", "optimal value function"]
+    introduction: formal
+    introduction_aliases: ["定義（cost functional と value function）"]
+    requires:
+      - control.cost-functional
 
   - id: control.dynamic-programming-principle
     name: dynamic programming principle
@@ -33,7 +42,8 @@ concepts:
     introduction: formal
     introduction_aliases: ["定理（dynamic programming principle）"]
     requires:
-      - control.cost-value-function
+      - control.cost-functional
+      - control.value-function
 
   - id: control.optimal-control-hamiltonian
     name: 最適制御 Hamiltonian
@@ -42,7 +52,7 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（最適制御 Hamiltonian）"]
     requires:
-      - control.cost-value-function
+      - control.cost-functional
       - pde.pde12-hamilton-jacobi
 
   - id: control.hjb-equation
@@ -73,4 +83,5 @@ concepts:
     introduction_aliases: ["定理（smooth verification theorem）"]
     requires:
       - control.hjb-equation
-      - control.cost-value-function
+      - control.cost-functional
+      - control.value-function
