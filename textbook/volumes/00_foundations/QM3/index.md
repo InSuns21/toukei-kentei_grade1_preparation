@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念への参照**：[QM2 の有限次元 Born 則](../QM2/index.md#axiom-qm2-born-rule)、[FA5 のスペクトル・レゾルベント](../FA5/index.md#def-fa5-resolvent-spectrum)、[FA7 の自己共役有界作用素](../FA7/index.md#def-fa7-self-adjoint)、[測度・Borel σ代数](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md)、[Lebesgue 積分](../F0_00D2A_単関数_Lebesgue積分_構成/index.md)、[Zorn の補題](../F0_00A3_半順序_Zorn_極大延長/index.md)を使います。
+> **既出概念への参照**：[QM2 の有限次元 Born 則](../QM2/index.md#axiom-qm2-born-rule)、[FA5 のスペクトル・レゾルベント](../FA5/index.md#def-fa5-resolvent-spectrum)、[FA7 の自己共役有界作用素](../FA7/index.md#def-fa7-self-adjoint)、[測度・Borel σ代数](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md)、[Lebesgue 積分](../F0_00D2A_単関数_Lebesgue積分_構成/index.md)、[単調収束・優収束](../F0_00D2B_単調収束_Fatou_優収束/index.md)、[Zorn の補題](../F0_00A3_半順序_Zorn_極大延長/index.md)を使います。
 
 QM2 では、有限次元の観測量を
 
