@@ -869,3 +869,201 @@ $$
 
 一方 $\psi(x)=1/(1+|x|)$ は $L^2$ に属しますが $x\psi\notin L^2$ なので $D(Q)\ne L^2$ です。
 <!-- solution-end -->
+
+
+### Level B
+
+<a id="ex-qm5-b01"></a>
+#### QM5-B01 最大実対角作用素の自己共役性
+- Level: B
+
+実数列 $(\lambda_n)$ に対し
+
+$$
+D(M_\lambda)=\{x\in\ell^2:(\lambda_nx_n)\in\ell^2\},
+\qquad
+M_\lambda x=(\lambda_nx_n)
+$$
+
+とする。随伴の定義から $M_\lambda^*=M_\lambda$ を証明せよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+まず $\lambda_n\in\mathbb R$ より
+
+$$
+\langle M_\lambda x,y\rangle
+=
+\sum_n\lambda_nx_n\overline{y_n}
+=
+\langle x,M_\lambda y\rangle,
+$$
+
+なので $M_\lambda$ は対称です。
+
+$y\in D(M_\lambda^*)$、$M_\lambda^*y=z$ とし、$e_k$ を入れると
+
+$$
+z_k=\lambda_ky_k.
+$$
+
+$z\in\ell^2$ なので $(\lambda_ky_k)\in\ell^2$、従って $y\in D(M_\lambda)$ です。
+
+したがって
+
+$$
+D(M_\lambda^*)\subset D(M_\lambda).
+$$
+
+対称性から逆包含も成り立つため、定義域と作用が一致して
+
+$$
+M_\lambda^*=M_\lambda.
+$$
+<!-- solution-end -->
+
+<a id="ex-qm5-b02"></a>
+#### QM5-B02 対称作用素の可閉性
+- Level: B
+
+稠密定義対称作用素 $A$ が可閉であることを EVOL1 の可閉性の列判定から証明せよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+$x_n\to0$、$Ax_n\to y$ とします。任意の $z\in D(A)$ に対し
+
+$$
+\langle y,z\rangle
+=
+\lim_n\langle Ax_n,z\rangle
+=
+\lim_n\langle x_n,Az\rangle
+=
+0.
+$$
+
+$D(A)$ は $H$ に稠密なので、$y$ は $H$ 全体に直交し
+
+$$
+y=0.
+$$
+
+従って EVOL1 の列判定を満たし、$A$ は可閉です。
+<!-- solution-end -->
+
+<a id="ex-qm5-b03"></a>
+#### QM5-B03 Fourier 変換と運動量
+- Level: B
+
+$$
+P=\mathcal F^{-1}(\hbar M_\xi)\mathcal F
+$$
+
+について、$P$ が自己共役であり、$f\in C_c^\infty(\mathbb R)$ では
+
+$$
+Pf=-i\hbar f'
+$$
+
+となることを示せ。
+
+<!-- solution-start -->
+### 詳細解答
+
+$M_\xi$ は最大実乗算作用素なので自己共役です。$\hbar>0$ だから $\hbar M_\xi$ も自己共役です。
+
+FOU4 の $\mathcal F$ はユニタリなので、第7節のユニタリ共役の命題から $P$ は自己共役です。
+
+また $f\in C_c^\infty$ なら
+
+$$
+\mathcal F(f')=i\xi\mathcal Ff.
+$$
+
+従って
+
+$$
+\mathcal F(-i\hbar f')
+=
+\hbar\xi\mathcal Ff
+=
+(\hbar M_\xi)\mathcal Ff.
+$$
+
+$\mathcal F^{-1}$ を作用させると
+
+$$
+Pf=-i\hbar f'.
+$$
+<!-- solution-end -->
+
+### Level C
+
+<a id="ex-qm5-c01"></a>
+#### QM5-C01 定義域から自己共役性を再構成する
+- Level: C
+
+最小対角作用素 $A_0$ と最大対角作用素 $A$ について、次を順に示せ。
+
+1. $A_0$ は稠密定義対称作用素である。
+2. $A_0^*=A$ である。
+3. $A$ は自己共役である。
+4. EVOL1 の $\overline{A_0}=A$ を使い、$A_0$ は本質的自己共役だが自己共役ではないことを説明せよ。
+5. 有限次元では 4 のような現象が見えにくい理由を説明せよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+1. $c_{00}$ は $\ell^2$ に稠密です。また実対角なので
+   $$
+   \langle A_0x,y\rangle=\langle x,A_0y\rangle
+   $$
+   が $x,y\in c_{00}$ で成立します。
+
+2. $A_0^*y=z$ とし $e_k$ を代入すると $z_k=ky_k$ です。従って
+   $$
+   D(A_0^*)=\{y:(ny_n)\in\ell^2\}=D(A),
+   $$
+   かつ作用も一致するので $A_0^*=A$ です。
+
+3. $A$ は対称です。$A^*y=z$ として $e_k$ を代入すると再び $z_k=ky_k$ なので $y\in D(A)$。従って
+   $$
+   D(A^*)\subset D(A).
+   $$
+   対称性から逆包含があるため $A^*=A$ です。
+
+4. EVOL1 より $\overline{A_0}=A$。第3問で $A$ は自己共役なので $A_0$ は本質的自己共役です。一方
+   $$
+   D(A_0)=c_{00}\subsetneq D(A_0^*)=D(A)
+   $$
+   なので $A_0$ 自身は自己共役ではありません。
+
+5. 有限次元では線形部分空間は全て閉じています。従って稠密な定義域は $H$ 全体しかなく、無限次元のような真の包含
+   $$
+   D(A)\subsetneq D(A^*)
+   $$
+   が生じにくいためです。
+<!-- solution-end -->
+
+---
+
+## 10. まとめ
+
+- 非有界作用素の随伴では、作用規則だけでなく $D(A^*)$ も定義から決まる。
+- 随伴作用素 $A^*$ は閉じている。
+- 対称作用素は $A\subset A^*$、自己共役作用素は $A=A^*$ を満たす。
+- 稠密定義対称作用素は可閉である。
+- 本質的自己共役とは、閉包が自己共役になることである。
+- $c_{00}$ 上の最小対角作用素は対称だが自己共役ではなく、本質的自己共役である。
+- 最大実対角作用素と位置作用素は自己共役である。
+- 運動量作用素は Fourier 空間の自己共役乗算作用素をユニタリ共役して構成できる。
+
+次の QM6 では、自己共役作用素に対する非有界スペクトル定理を扱い、
+
+$$
+A=\int_{\mathbb R}\lambda\,dE_A(\lambda)
+$$
+
+を定義域まで含めて厳密化します。
