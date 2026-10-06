@@ -1,0 +1,20 @@
+chapter: "QM1"
+terms:
+  - term: 実験事実
+    english: experimental fact
+    meaning: 装置条件と観測手順を固定したときに再現可能に確認される現象。本章では理論公理や数式からの帰結と区別して扱う。
+  - term: 複素確率振幅
+    english: complex probability amplitude
+    meaning: 重ね合わせる候補を複素数で表す量。量子理論では振幅を先に加え、その後で絶対値二乗を測定確率へ結び付ける。
+  - term: 相対位相
+    english: relative phase
+    meaning: 二つの振幅の位相差。全体位相と違い、干渉項や別基底での測定統計を変え得る。
+  - term: 全体位相
+    english: global phase
+    meaning: 状態ベクトル全体へ同じ絶対値1の複素数を掛ける変換。内積の絶対値二乗を変えない。
+  - term: ray
+    english: ray
+    meaning: 複素 Hilbert 空間の非零ベクトルを非零複素数倍で同一視した一次元複素部分空間。純粋状態表現への数学的入口となる。
+  - term: Stern--Gerlach 型実験
+    english: Stern--Gerlach-type experiment
+    meaning: 不均一磁場によって二準位系の測定出力を空間的に分離して考える理想化実験。本章では z 軸・x 軸の逐次選別を二次元 Hilbert 空間でモデル化する。
