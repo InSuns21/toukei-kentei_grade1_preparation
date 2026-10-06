@@ -49,7 +49,6 @@ concepts:
   - id: operator-algebra.maximal-ideal
     name: 極大イデアル
     kind: definition
-    aliases: []
     introduction: formal
     introduction_aliases: ["定義（イデアル・極大イデアル）"]
     requires:
