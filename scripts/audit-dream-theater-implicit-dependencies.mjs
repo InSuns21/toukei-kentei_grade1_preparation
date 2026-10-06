@@ -17,6 +17,9 @@ if (!fs.existsSync(inferencePath)) fatal('textbook/dream-theater-inference-rules
 const index = JSON.parse(fs.readFileSync(indexPath, 'utf8'));
 const policy = YAML.parse(fs.readFileSync(policyPath, 'utf8')) ?? {};
 const inferencePolicy = YAML.parse(fs.readFileSync(inferencePath, 'utf8')) ?? {};
+const reachabilityExemptConceptIds = new Set(
+  (policy.dependency_tracking?.reachability_exempt_concepts ?? []).map(String)
+);
 const metadataFile = policy.metadata_file || 'knowledge.yaml';
 const pagePaths = (index.sections ?? []).flatMap((section) => section.paths ?? []);
 const pages = new Map();
@@ -166,6 +169,7 @@ function validateRule(rule) {
 
 function validateImplicitUse(page, lineNumber, rawLine, rule, pattern) {
   const concept = rule.concept;
+  if (reachabilityExemptConceptIds.has(concept.id)) return;
   let problem = null;
 
   if (concept.page.id !== page.id && !page.ancestors.has(concept.page.id)) {

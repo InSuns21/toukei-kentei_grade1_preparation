@@ -15,6 +15,9 @@ if (!fs.existsSync(policyPath)) fatal('textbook/dream-theater-knowledge.yaml が
 const index = JSON.parse(fs.readFileSync(indexPath, 'utf8'));
 const policy = YAML.parse(fs.readFileSync(policyPath, 'utf8')) ?? {};
 const metadataFile = policy.metadata_file || 'knowledge.yaml';
+const reachabilityExemptConceptIds = new Set(
+  (policy.dependency_tracking?.reachability_exempt_concepts ?? []).map(String)
+);
 const pagePaths = (index.sections ?? []).flatMap((section) => section.paths ?? []);
 const pages = new Map();
 const concepts = [];
@@ -118,6 +121,7 @@ if (strict && findings.some((finding) => finding.severity === 'ERROR')) process.
 
 function validateExplicitUse(page, use) {
   const concept = use.concept;
+  if (reachabilityExemptConceptIds.has(concept.id)) return;
   let problem = null;
 
   if (concept.pageId === page.id) {
