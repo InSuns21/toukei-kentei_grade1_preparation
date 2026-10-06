@@ -17,4 +17,4 @@ terms:
     meaning: pi(A)Omega の閉包が表現空間全体になるベクトル Omega。
   - term: GNS 構成
     english: GNS construction
-    meaning: 状態 phi から Hilbert 空間 H_phi、巡回 *-表現 pi_phi、巡回ベクトル Omega_phi を構成し、phi(a)=<pi_phi(a)Omega_phi,Omega_phi> と実現する構成。
+    meaning: 状態 phi から Hilbert 空間 H_phi、巡回 *-表現 pi_phi、巡回ベクトル Omega_phi を構成し、phi(a)=<Omega_phi,pi_phi(a)Omega_phi> と実現する構成。
