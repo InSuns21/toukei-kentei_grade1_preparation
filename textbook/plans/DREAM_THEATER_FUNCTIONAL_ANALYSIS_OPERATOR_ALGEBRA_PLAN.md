@@ -1,18 +1,20 @@
-# DREAM THEATER 関数解析・作用素環論再編計画
+# DREAM THEATER 関数解析・量子力学基礎・作用素環論再編計画
 
 作成日: 2026-10-03  
 状態: planned
 
 ## 0. 目的
 
-本計画は、現在の DREAM THEATER の「関数解析」を、教育段階を表す「大学院レベル」のような名称ではなく、**数学的内容に基づく4科目**
+本計画は、現在の DREAM THEATER の「関数解析」を、教育段階を表す「大学院レベル」のような名称ではなく、**数学的内容に基づく6科目**
 
 1. 関数解析 I
 2. 関数解析 II
-3. 作用素環論 I
-4. 作用素環論 II
+3. 量子力学基礎 I
+4. 量子力学基礎 II
+5. 作用素環論 I
+6. 作用素環論 II
 
-へ整理し、既存の関数解析系列を保ったまま $C^*$-環・Gelfand 理論・GNS 構成・von Neumann 環へ自然に接続するための設計台帳である。
+へ整理し、既存の関数解析系列を保ったまま、量子力学の数学的基礎を「Hilbert 空間と作用素をなぜ使うのか」という物理的動機ごと導入し、その先で $C^*$-環・Gelfand 理論・GNS 構成・von Neumann 環へ自然に接続するための設計台帳である。
 
 中心となる通読像は次とする。
 
@@ -20,6 +22,8 @@ $$
 \begin{array}{ll}
 \text{関数解析 I} & \text{ノルム空間・Banach/Hilbert 空間・Hahn--Banach・Banach 空間の基本定理}\\
 \text{関数解析 II} & \text{弱位相・双対性・スペクトル・コンパクト作用素・Fredholm 理論}\\
+\text{量子力学基礎 I} & \text{状態・観測量・Born 則・自己共役作用素・スペクトル定理}\\
+\text{量子力学基礎 II} & \text{非有界作用素・Stone の定理・Schrödinger 発展・CCR}\\
 \text{作用素環論 I} & \text{Banach 環・}C^*\text{-環・Gelfand 理論・関数計算・GNS}\\
 \text{作用素環論 II} & \text{von Neumann 環・二重可換子・predual・正規汎関数・factor}
 \end{array}
@@ -52,10 +56,11 @@ $$
 
 既存章は内容として大きく不足していない。したがって本計画では、**既存 FA1--FA7 を全面改番・再実装しない**。
 
-再編は次の2段階で行う。
+再編は次の3段階で行う。
 
 1. 既存ページを「関数解析 I / II」に分けて科目境界を明確化する。
-2. FA7 の後に「作用素環論 I / II」を新設する。
+2. 関数解析 II の後に「量子力学基礎 I / II」を新設し、作用素・スペクトル・確率を物理的意味へ接続する。
+3. 量子力学基礎 II の先に「作用素環論 I / II」を置き、個々の観測量から観測量全体の非可換代数へ進む。
 
 stable ID、既存 anchor、既存ページ URL は原則維持し、科目名変更を理由に章IDを振り直さない。
 
@@ -135,7 +140,7 @@ F0-02C6A の分離定理・Minkowski 汎関数・Farkas は、関数解析 I の
 
 ここで扱うスペクトル定理は、固有値展開が成立する**コンパクト自己共役作用素**が中心である。
 
-一般の有界自己共役作用素・有界正規作用素の射影値測度によるスペクトル定理は、後述の作用素環論 I に送る。
+一般の有界自己共役作用素の射影値測度によるスペクトル定理は、量子力学基礎 I の QM3 を canonical owner とする。有界正規作用素への一般化と $C^*$-環的な関数計算からの再解釈は、後述の作用素環論 I で扱う。
 
 
 ### 2.2A 抽象発展方程式への分岐
@@ -158,6 +163,244 @@ DREAM_THEATER_EVOLUTION_EQUATIONS_SEMIGROUP_PLAN.md
 
 と分岐する。どちらも互いを prerequisite にしない。
 
+
+### 2.2B 量子力学基礎 I
+
+科目名案:
+
+> **量子力学基礎 I：状態・観測量・Born 則・スペクトル**
+
+#### 中心問い
+
+> 量子実験で現れる「重ね合わせ・確率的な測定結果・離散スペクトル」を、Hilbert 空間・自己共役作用素・射影でどう一つの数学へまとめるか。
+
+本科目は「物理学としての量子力学」を網羅する講義ではなく、作用素環論へ進むために必要な**量子力学の数学的公理が、どの実験事実を受けて導入されるのか**を最低限理解する橋とする。
+
+特に、次の三層を本文で混同しない。
+
+1. **実験事実**: 装置で観測される再現可能な現象。
+2. **理論の公理・モデル化**: 状態ベクトル、自己共役作用素、Born 則など。
+3. **公理から導かれる定理**: 不確定性関係、スペクトル分解から得られる測定確率など。
+
+「実験から Hilbert 空間が一意に導かれる」とは書かない。実験事実が古典的記述では扱いにくい構造を示し、Hilbert 空間形式がそれを統一的に表す、という位置づけにする。
+
+#### 最低限の物理的基礎づけ
+
+入口では次だけを扱い、黒体放射・光電効果・Bohr 模型などの量子論史を長く遡らない。
+
+- **単一粒子の二重スリット干渉**
+  - 一個ずつ検出しても、多数回では干渉縞が形成される。
+  - 確率そのものではなく、複素振幅を重ね合わせてから絶対値二乗を取る形式への動機にする。
+- **Stern--Gerlach 型の離散的測定結果**
+  - 測定値が連続的にばらけるのではなく、離散的な出力へ分かれる例として扱う。
+  - 固有値・射影・スペクトル分解への入口にする。
+- **同一条件での反復測定の統計**
+  - 個々の測定結果ではなく頻度分布を予測する理論であることを確認する。
+  - Born 則は「実験事実そのもの」ではなく、実験統計を与える量子理論の基本公理として置く。
+- **異なる軸での逐次 Stern--Gerlach 測定**
+  - 測定順序が無関係ではないことを具体例で見せる。
+  - 非可換作用素と両立しない観測量への動機にする。
+
+原子スペクトルは「スペクトル」という語の物理的由来を補う短い例には使えるが、本科目の prerequisite にはしない。
+
+#### 新規章案
+
+章IDは実装開始時に既存IDとの衝突を確認して確定する。以下では仮に QM1 以降を用いる。
+
+##### QM1 実験事実から Hilbert 空間形式へ
+
+扱う内容:
+
+- 二重スリット干渉
+- Stern--Gerlach
+- 反復測定と確率
+- 状態の重ね合わせ
+- 複素確率振幅
+- ray としての純粋状態への入口
+- 「実験事実 / 公理 / 定理」の区別
+
+数学を先に定義して実験を後付けしない。各公理を導入する直前に、それが何を表現するためのものかを示す。
+
+##### QM2 状態・観測量・Born 則
+
+扱う内容:
+
+- Hilbert 空間上の単位ベクトル
+- global phase
+- 観測量としての自己共役作用素
+- 固有値と固有状態
+- 射影測定
+- Born 則
+- 期待値と分散
+- 有限次元例として spin $1/2$
+
+まず $\mathbb C^2$ で具体計算し、抽象 Hilbert 空間へ進む。
+
+##### QM3 射影・PVM・スペクトル定理
+
+扱う内容:
+
+- 直交射影
+- projection-valued measure
+- 有界自己共役作用素のスペクトル定理
+- 測定値の確率測度
+- 期待値
+- 有限次元の固有値分解との対応
+
+中心式
+
+$
+A=\int_{\sigma(A)} \lambda\,dE_A(\lambda)
+$
+
+と
+
+$
+\Pr_\psi(A\in B)=\langle \psi,E_A(B)\psi\rangle
+$
+
+を結び、FA7 の固有値展開が一般の場合にどう拡張されるかを示す。
+
+このため、現行 OA6 の「一般有界自己共役作用素のスペクトル定理」は QM3 を canonical owner とし、OA6 では作用素環側から再解釈・参照する設計へ変更する。
+
+##### QM4 非可換観測量と不確定性関係
+
+扱う内容:
+
+- 可換する観測量
+- 同時対角化の有限次元像
+- 交換子
+- Robertson 型不確定性関係
+- spin の異なる成分
+- 逐次測定との対応
+
+不確定性関係を「測定器が乱すから」という説明だけで済ませず、状態の分散と交換子から導かれる数学的関係として証明する。
+
+#### 到達点
+
+量子力学基礎 I の修了時には、読者が
+
+- どの実験事実が量子形式の導入を動機づけるか
+- 状態・観測量・測定確率を Hilbert 空間上でどう表すか
+- Born 則が理論の公理であること
+- スペクトル定理と測定値分布の関係
+- 非可換性と不確定性関係の違い
+
+を説明できることを目標にする。
+
+### 2.2C 量子力学基礎 II
+
+科目名案:
+
+> **量子力学基礎 II：非有界作用素・Stone の定理・Schrödinger 発展・CCR**
+
+#### 中心問い
+
+> 位置・運動量・Hamiltonian のような非有界観測量と、量子状態の時間発展を、定義域を壊さずにどう厳密化するか。
+
+量子力学基礎 I が「測定」を中心にした静的形式なら、II は「非有界観測量」と「時間発展」を中心にする。
+
+#### EVOL 系列との責務境界
+
+一般の閉作用素・closable operator・グラフノルムの基礎は、完了済み EVOL1 を canonical owner とする。
+
+量子力学基礎 II ではそれを参照したうえで、量子力学固有の論点である
+
+- symmetric と self-adjoint の違い
+- 自己共役作用素のスペクトル理論
+- 1パラメータ unitary group
+- Stone の定理
+- Hamiltonian による Schrödinger 発展
+- CCR / Weyl 関係
+
+を扱う。
+
+Hille--Yosida・解析半群・mild solution・半線形発展方程式は EVOL 系列の責務のままとし、量子側で再証明しない。
+
+#### 新規章案
+
+##### QM5 非有界作用素と自己共役性
+
+扱う内容:
+
+- $A:D(A)\subset H\to H$
+- dense domain
+- closed / closable
+- adjoint of an unbounded operator
+- symmetric operator
+- self-adjoint operator
+- essential self-adjointness への入口
+- 位置作用素 $Q$
+- 運動量作用素 $P$
+
+「Hermite 行列なら symmetric = self-adjoint」という有限次元直観が無限次元では破れることを、定義域を含めて説明する。
+
+##### QM6 非有界自己共役作用素のスペクトル定理
+
+扱う内容:
+
+- spectral measure
+- unbounded spectral integral
+- domain の表現
+- Borel functional calculus の必要部分
+- position / momentum / Hamiltonian の例
+
+非有界関数計算の完全理論を独立に展開するのではなく、Stone の定理と Schrödinger 発展へ必要な範囲に絞る。
+
+##### QM7 Stone の定理と Schrödinger 発展
+
+扱う内容:
+
+- strongly continuous one-parameter unitary group
+- infinitesimal generator
+- Stone の定理
+- $U(t)=e^{-itH/\hbar}$
+- Schrödinger 方程式との対応
+- 保存されるノルム
+- 時間並進と Hamiltonian
+
+中心対応
+
+$
+\text{自己共役 }H
+\quad\longleftrightarrow\quad
+U(t)=e^{-itH}
+$
+
+を、単なる公式ではなく定理として扱う。
+
+##### QM8 CCR・Weyl 関係と作用素環への入口
+
+扱う内容:
+
+- canonical commutation relation
+- $[Q,P]=i\hbar I$ の形式的意味
+- 非有界作用素の積で起きる定義域問題
+- Weyl relations
+- unitary operators による CCR の有界化
+- Stone--von Neumann theorem の主張と意味への入口
+- 観測量を一個ずつではなく、それらが生成する代数として見る動機
+
+最後に
+
+> 量子系を記述するために必要なのは一個の作用素ではなく、和・積・随伴・極限で結ばれた観測量全体である。
+
+という問いを置き、作用素環論 I へ接続する。
+
+#### 到達点
+
+量子力学基礎 II の修了時には、読者が
+
+- 非有界作用素で定義域が本質的である理由
+- symmetric と self-adjoint の違い
+- 自己共役性が unitary 時間発展と結びつく理由
+- Stone の定理と Schrödinger 方程式の関係
+- CCR を非有界作用素の形式式だけで扱う危険
+- Weyl 関係から作用素環を見る動機
+
+を説明できることを目標にする。
+
+
 ### 2.3 作用素環論 I
 
 科目名案:
@@ -168,7 +411,7 @@ DREAM_THEATER_EVOLUTION_EQUATIONS_SEMIGROUP_PLAN.md
 
 > 一つ一つの作用素を調べるだけでなく、作用素を加法・積・随伴で閉じた「代数」として見ると、スペクトル論をどこまで統一できるか。
 
-作用素環論 I は、関数解析 II の先に新設する。
+作用素環論 I は、標準通読では量子力学基礎 II の先に置く。ただし純粋数学としての formal prerequisite は関数解析 I / II を中心とし、量子力学基礎 I / II を履修していなくても定義・証明そのものは追える設計にする。量子力学基礎は「なぜ状態・正汎関数・非可換代数を見るのか」を与える標準的な動機づけルートとする。
 
 ただし後続の PDE・確率解析などの一般読者に必修とはしない。DREAM THEATER 全体の標準通読では、関数解析 II から分岐する発展科目として扱ってよい。
 
@@ -270,25 +513,26 @@ $$
 
 が一般には半内積でしかない理由、null space を割る理由、左乗法が商へ降りる理由、有界作用素になる理由を段階的に証明する。
 
-##### OA6 一般有界自己共役・正規作用素のスペクトル定理
+##### OA6 正規作用素・関数計算とスペクトル定理の再解釈
 
 扱う内容:
 
 - $C^*(T,I)$ と連続関数計算
 - Riesz--Markov 表現との接続
-- spectral measure
-- projection-valued measure
-- 有界自己共役作用素のスペクトル定理
+- QM3 の projection-valued measure の再利用
 - 有界正規作用素のスペクトル定理
 - Borel 関数計算への入口
+- 「観測量一個のスペクトル」から「生成された $C^*$-環」への視点移動
+
+有界自己共役作用素の PVM 版スペクトル定理そのものは QM3 を canonical owner とし、ここでは重複証明しない。
 
 目標は
 
-$$
+$
 T=\int_{\sigma(T)}\lambda\,dE(\lambda)
-$$
+$
 
-を記号として置くだけでなく、有限次元の対角化および FA7 のコンパクト自己共役作用素の固有値展開から、なぜ「固有値の和」を「射影値測度による積分」へ置き換えるのかを読者が理解できるようにすること。
+を $C^*$-環の関数計算と結び直し、有限次元対角化・FA7・QM3・Gelfand 理論が同じスペクトル概念の異なる表現であることを理解できるようにすること。
 
 #### 作用素環論 I の prerequisite
 
@@ -460,11 +704,14 @@ $$
 
 ## 3. 本計画に含めないもの
 
-以下は重要だが、本計画の「作用素環論 II」完了条件には含めない。
+以下は重要だが、本計画の6科目の完成条件には含めない。
 
-- 非有界自己共役作用素の完全なスペクトル理論
-- Stone の定理
-- unbounded operator の functional calculus
+- relativistic quantum mechanics
+- quantum field theory
+- scattering theory
+- path integral の厳密構成
+- 量子測定解釈の網羅的比較
+- unbounded operator の functional calculus の完全理論
 - affiliated operator
 - noncommutative $L^p$ 空間
 - weights
@@ -501,6 +748,10 @@ $$
   ↓
 関数解析 II
   ↓
+量子力学基礎 I
+  ↓
+量子力学基礎 II
+  ↓
 作用素環論 I
   ↓
 作用素環論 II
@@ -511,7 +762,8 @@ $$
 ~~~text
 関数解析 II
   ├─→ PDE / 確率解析 / 時系列解析など
-  └─→ 作用素環論 I → 作用素環論 II
+  └─→ 量子力学基礎 I → 量子力学基礎 II
+          └─→ 作用素環論 I → 作用素環論 II
 ~~~
 
 と分岐できる設計にする。
@@ -524,14 +776,15 @@ PDE・確率解析・時系列解析に、作用素環論 I / II を不要に pr
 関数解析 II
   ├─→ EVOL1--EVOL6 抽象発展方程式・半群論
   │      └─→ 非線形 PDE / evolution PDE
-  └─→ 作用素環論 I → 作用素環論 II
+  └─→ 量子力学基礎 I → 量子力学基礎 II
+          └─→ 作用素環論 I → 作用素環論 II
 ~~~
 
 抽象発展方程式・半群論の canonical owner は DREAM_THEATER_EVOLUTION_EQUATIONS_SEMIGROUP_PLAN.md とする。半群系列を学ぶために作用素環論 I / II を prerequisite にせず、作用素環論を学ぶために半群系列を prerequisite にしない。
 
 ### 4.1 一般スペクトル定理の置き場所
 
-一般の有界自己共役作用素・正規作用素の spectral measure によるスペクトル定理は、FA7 に逆輸入しない。
+一般の有界自己共役作用素の spectral measure によるスペクトル定理は、FA7 に逆輸入せず QM3 を canonical owner とする。有界正規作用素への一般化と $C^*$-環からの再解釈は OA6 で扱う。
 
 FA7 は
 
@@ -541,22 +794,18 @@ FA7 は
 
 という具体的な世界で閉じる。
 
-その後、作用素環論 I で
+その後、
 
 ~~~text
 有限次元対角化
   ↓
-コンパクト自己共役作用素
+コンパクト自己共役作用素（FA7）
   ↓
-C*(T,I)
+projection-valued measure と一般自己共役スペクトル定理（QM3）
   ↓
-連続関数計算
+C*(T,I)・連続関数計算・Gelfand 理論（OA4 / OA6）
   ↓
-Riesz--Markov
-  ↓
-projection-valued measure
-  ↓
-一般スペクトル定理
+有界正規作用素と作用素環的再解釈
 ~~~
 
 という拡張として扱う。
@@ -573,6 +822,20 @@ GNS 構成は作用素環論 I の canonical owner とする。
 - $L^\infty$ は既存 $L^p$ 系列との整合を取る。
 - 「本質的上限」「a.e. 同値類」を未定義で使わない。
 - spectral measure は通常のスカラー測度と何が同じで何が違うかを説明する。
+
+
+### 4.4 量子力学基礎と EVOL の境界
+
+非有界作用素は QM II と EVOL の両方に現れるが、canonical owner を分ける。
+
+- 一般の closed / closable operator、graph norm、生成作用素の一般論: EVOL1 以降
+- symmetric / self-adjoint operator、量子観測量としての非有界作用素: QM5
+- 自己共役作用素の spectral measure: QM6
+- Stone theorem と unitary quantum dynamics: QM7
+- Hille--Yosida、解析半群、mild solution: EVOL
+- CCR / Weyl relations: QM8
+
+同じ定義・証明を二重実装せず、必要な stable result を相互参照する。
 
 ---
 
@@ -639,11 +902,56 @@ $$
 
 という問題から SOT / WOT と von Neumann 環へ進む。
 
+
+### 5.4 量子力学基礎
+
+量子力学では、抽象公理を「そういうもの」として列挙しない。
+
+最初に二重スリット・Stern--Gerlach・反復測定を示し、
+
+- なぜ状態を重ね合わせられるものとして扱うのか
+- なぜ観測量を作用素で表すのか
+- なぜ測定結果がスペクトルと結びつくのか
+- なぜ確率が内積の絶対値二乗として現れるのか
+
+という問いを置く。
+
+ただし、実験事実から数学的公理が論理的に一意に導かれるような書き方はしない。実験と公理の間にはモデル化の選択があることを明示する。
+
 ---
 
 ## 6. 例の系列
 
 抽象概念だけが連続しないよう、全体を通して少なくとも次の具体例を使い回す。
+
+
+### spin $1/2$
+
+$
+H=\mathbb C^2
+$
+
+- 有限次元量子状態
+- Pauli 行列
+- Stern--Gerlach
+- Born 則
+- 非可換観測量
+- 不確定性関係
+
+### $L^2(\mathbb R)$ 上の位置・運動量
+
+$
+(Q\psi)(x)=x\psi(x),
+\qquad
+(P\psi)(x)=-i\hbar\psi'(x)
+$
+
+- 非有界作用素
+- 定義域
+- self-adjointness
+- CCR
+- Weyl relations
+- Stone theorem への接続
 
 ### 行列環
 
@@ -761,6 +1069,8 @@ $$
 ~~~text
 関数解析 I
 関数解析 II
+量子力学基礎 I
+量子力学基礎 II
 作用素環論 I
 作用素環論 II
 ~~~
@@ -828,6 +1138,33 @@ DREAM_THEATER_EVOLUTION_EQUATIONS_SEMIGROUP_PLAN.md の開始時に、
 - 作用素環論 I との相互非依存
 
 だけを確認し、二重正本を作らない。
+
+
+### Phase 1B: 量子力学基礎 I
+
+順に
+
+- QM1 実験事実から Hilbert 空間形式へ
+- QM2 状態・観測量・Born 則
+- QM3 PVM・一般自己共役スペクトル定理
+- QM4 非可換観測量・不確定性関係
+
+を実装する。
+
+物理的導入は「最低限の実験事実」に絞り、量子論史や解釈論へ横滑りしない。
+
+### Phase 1C: 量子力学基礎 II
+
+順に
+
+- QM5 非有界作用素・自己共役性
+- QM6 非有界スペクトル定理
+- QM7 Stone の定理・Schrödinger 発展
+- QM8 CCR・Weyl 関係・作用素環への入口
+
+を実装する。
+
+EVOL1 の閉作用素一般論を再利用し、Hille--Yosida 等は再実装しない。
 
 ### Phase 2: 作用素環論 I
 
@@ -919,7 +1256,11 @@ knowledge.yaml、全体 concept registry、依存監査ロジックを変更し�
 10. factor と type I / II / III 分類が「名前だけの紹介」にならず、center・projection の構造から動機を説明できる。
 11. 既存 PDE・確率解析等へ不要な prerequisite を追加していない。
 12. 全変更章が DREAM THEATER の導入・証明・例・演習・詳細解答の規約を満たす。
-13. 抽象発展方程式・半群論が DREAM_THEATER_EVOLUTION_EQUATIONS_SEMIGROUP_PLAN.md へ分離され、作用素環論 I / II との責務・prerequisite 境界が明確になっている。
+13. 抽象発展方程式・半群論が DREAM_THEATER_EVOLUTION_EQUATIONS_SEMIGROUP_PLAN.md へ分離され、量子力学基礎 II・作用素環論 I / II との責務・prerequisite 境界が明確になっている。
+14. 量子力学基礎 I で、二重スリット・Stern--Gerlach・反復測定を通じて「実験事実 / 公理 / 定理」の区別が保たれている。
+15. Born 則を実験事実そのものとして扱わず、実験統計を記述する量子理論の公理として位置づけている。
+16. 量子力学基礎 II で、非有界作用素の定義域、symmetric / self-adjoint の差、Stone の定理、Schrödinger 発展、CCR / Weyl 関係を作用素環への橋として追える。
+17. 一般自己共役スペクトル定理は QM3、閉作用素一般論は EVOL1、作用素環的再解釈は OA6 と canonical ownership が分離されている。
 
 ---
 
@@ -951,7 +1292,21 @@ knowledge.yaml、全体 concept registry、依存監査ロジックを変更し�
   ├─→ 抽象発展方程式・半群論（独立PLAN）
   │     EVOL1--EVOL6
   │
-  └─→ 作用素環論 I
+  └─→ 量子力学基礎 I
+        実験事実と公理
+        状態・観測量
+        Born 則
+        PVM・スペクトル定理
+        非可換性・不確定性
+          ↓
+        量子力学基礎 II
+          非有界作用素
+          自己共役性
+          Stone の定理
+          Schrödinger 発展
+          CCR / Weyl 関係
+            ↓
+          作用素環論 I
         Banach 環
         Gelfand 理論
         C*-環
