@@ -1135,7 +1135,7 @@ $$
 
 でなければ大きな罰を受けます。
 
-この方法を **doubling of variables** と呼びます。
+以下では **doubling of variables** の形で二つの点を比較します。
 
 さらに
 
@@ -2072,7 +2072,7 @@ $$
 \widetilde U\in\mathcal S.
 $$
 
-一方 $U_*(z_0)=\phi(z_0)$ なので、下半連続包の定義から $z_n\to z_0$ で
+一方 $U_*(z_0)=\phi(z_0)$ なので、下半連続包を表す極限下限の式から $z_n\to z_0$ で
 
 $$
 U(z_n)\to U_*(z_0)
@@ -2118,7 +2118,7 @@ $$
 U\le U_*.
 $$
 
-一方、下半連続包の定義から
+一方、下半連続包を表す極限下限の式から
 
 $$
 U_*\le U.
@@ -2879,7 +2879,7 @@ $$
 x=T-t
 $$
 
-で test function の定義から示せ。
+で上接触・下接触の条件を直接使って示せ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -3006,7 +3006,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-hjc2-b04"></a>
-### HJC2-B04 max of subsolutions の補題を証明する
+### HJC2-B04 subsolution の最大安定性を証明する
 - Level: B
 
 $u_1,u_2$ を同じ一次 Hamilton--Jacobi 方程式の upper semicontinuous viscosity subsolution とする。
@@ -3274,7 +3274,7 @@ $$
 
 と局所的に持ち上げます。
 
-max of subsolutions の補題により $\widetilde U$ は subsolution です。
+二つの subsolution の最大も subsolution であることから $\widetilde U$ は subsolution です。
 
 しかも barrier の範囲内に収めれば Perron family に属します。
 
