@@ -75,14 +75,14 @@ FA5 スペクトル・レゾルベント ─┴→ EVOL1 非有界作用素・�
 
 ### 量子力学基礎・作用素環論への発展分岐
 
-[**量子力学基礎 I**](textbook/dream-theater.md#dt-subject-quantum-foundations-i) は、関数解析 II の後で、量子実験に現れる重ね合わせ・位相・離散的測定を複素 Hilbert 空間形式へ接続する発展系列です。[**量子力学基礎 II**](textbook/dream-theater.md#dt-subject-quantum-foundations-ii) では、EVOL1 の非有界作用素一般論と FOU4 の $L^2$ Fourier 変換を使って、位置・運動量などの非有界観測量へ進みます。その先の [**作用素環論 I**](textbook/dream-theater.md#dt-subject-operator-algebra-i) では、FA5 の作用素スペクトル論を Banach 環へ抽象化し、可換 Banach 環では character と Gelfand 変換によってスペクトルを連続関数として読み直します。作用素環論 I の数学的 prerequisite は関数解析 I / II を中心とし、量子力学基礎は「なぜ作用素を代数としてまとめるのか」を与える標準的な動機づけルートです。一般の解析主幹には強制しません。
+[**量子力学基礎 I**](textbook/dream-theater.md#dt-subject-quantum-foundations-i) は、関数解析 II の後で、量子実験に現れる重ね合わせ・位相・離散的測定を複素 Hilbert 空間形式へ接続する発展系列です。[**量子力学基礎 II**](textbook/dream-theater.md#dt-subject-quantum-foundations-ii) では、EVOL1 の非有界作用素一般論と FOU4 の $L^2$ Fourier 変換を使って、位置・運動量などの非有界観測量へ進みます。その先の [**作用素環論 I**](textbook/dream-theater.md#dt-subject-operator-algebra-i) では、FA5 の作用素スペクトル論を Banach 環へ抽象化し、可換 Banach 環の Gelfand 理論から随伴と $C^*$-恒等式を備えた $C^*$-環へ進みます。作用素環論 I の数学的 prerequisite は関数解析 I / II を中心とし、量子力学基礎は「なぜ作用素を代数としてまとめるのか」を与える標準的な動機づけルートです。一般の解析主幹には強制しません。
 
 ~~~text
 LA5 複素内積 ───────────┐
 FA7 コンパクト自己共役作用素 ─┴→ QM1 実験事実から Hilbert 空間形式へ → QM2 状態・観測量・Born 則 → QM3 射影・PVM・スペクトル定理 → QM4 非可換観測量と不確定性関係
                                                                                                                                        │
 EVOL1 非有界・閉・可閉作用素 ────────────────────────────────────────────────────────────────────────────────────────────────┤
-FOU4 L2 Fourier 変換 ────────────────────────────────────────────────────────────────────────────────────────────────────┴→ QM5 非有界作用素と自己共役性 → QM6 非有界自己共役作用素のスペクトル定理 → QM7 Stone の定理と Schrödinger 発展 → QM8 CCR・Weyl 関係 → OA1 Banach 環とスペクトル → OA2 可換 Banach 環と Gelfand 変換
+FOU4 L2 Fourier 変換 ────────────────────────────────────────────────────────────────────────────────────────────────────┴→ QM5 非有界作用素と自己共役性 → QM6 非有界自己共役作用素のスペクトル定理 → QM7 Stone の定理と Schrödinger 発展 → QM8 CCR・Weyl 関係 → OA1 Banach 環とスペクトル → OA2 可換 Banach 環と Gelfand 変換 → OA3 C*-環の基本構造
 ~~~
 
 ### 非線形偏微分方程式への発展分岐
