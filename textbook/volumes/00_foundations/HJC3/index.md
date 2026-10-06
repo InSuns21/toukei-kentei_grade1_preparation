@@ -678,7 +678,7 @@ L(X_a(s),a)\,ds
 \phi(t_0,x_0).
 $$
 
-最後の差は軌道上の連鎖律で
+最後の差は軌道上の[連鎖律](../RA3/index.md#prop-ra3-chain-rule)で
 
 $$
 \begin{aligned}
@@ -906,7 +906,7 @@ h^2.
 \end{aligned}
 $$
 
-連鎖律を使うと
+[連鎖律](../RA3/index.md#prop-ra3-chain-rule)を使うと
 
 $$
 \begin{aligned}
@@ -1026,7 +1026,7 @@ $$
 
 各 $h$ で DPP の infimum から $h^2$ 以内の短時間制御 $u_h$ を選ぶ。
 
-下接触条件 $V\ge\phi$ と軌道上の連鎖律を使うと
+下接触条件 $V\ge\phi$ と軌道上の[連鎖律](../RA3/index.md#prop-ra3-chain-rule)を使うと
 
 $$
 \frac1h
@@ -2255,7 +2255,7 @@ $$
 \phi(t_0,x_0).
 $$
 
-軌道上の連鎖律を使い、$h$ で割って $h\downarrow0$ とすると
+軌道上の[連鎖律](../RA3/index.md#prop-ra3-chain-rule)を使い、$h$ で割って $h\downarrow0$ とすると
 
 $$
 0
@@ -2552,7 +2552,7 @@ $$
 h^2.
 $$
 
-連鎖律により
+[連鎖律](../RA3/index.md#prop-ra3-chain-rule)により
 
 $$
 \frac1h
@@ -2914,7 +2914,7 @@ V(t_0,x_0)
 V(t_0+h,X_a(t_0+h)).
 $$
 
-上接触 $V\le\phi$ と連鎖律から
+上接触 $V\le\phi$ と[連鎖律](../RA3/index.md#prop-ra3-chain-rule)から
 
 $$
 0
