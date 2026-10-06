@@ -53,6 +53,7 @@ const fastPatterns = [
   /^textbook\/plans(?:_progress|_done)?\//u,
   /^textbook\/dream-theater-work\.yaml$/u,
   /^textbook\/dream-theater-series\//u,
+  /^textbook\/dream-theater(?:-standard-math-core)?\.md$/u,
   /^textbook\/templates\//u,
   /^textbook\/prompts\//u,
 ];
@@ -242,12 +243,22 @@ function runSelfTests() {
   }, false, 'section reorder');
 
   assertPure({ version: 1, ...baseIndex }, { version: 2, ...baseIndex }, false, 'metadata change');
-  console.log('Textbook validation scope semantic index self-test: OK');
+  assertFastPath('textbook/dream-theater.md', true, 'DREAM THEATER subject routing');
+  assertFastPath('textbook/dream-theater-standard-math-core.md', true, 'DREAM THEATER standard math routing');
+  assertFastPath('textbook/unknown-global.md', false, 'unknown top-level textbook markdown');
+  console.log('Textbook validation scope semantic index/path self-test: OK');
 }
 
 function assertPure(before, after, expected, label) {
   const actual = classifyIndexChange(before, after).pureAdd;
   if (actual !== expected) {
     throw new Error(label + ': expected pureAdd=' + expected + ', actual=' + actual);
+  }
+}
+
+function assertFastPath(file, expected, label) {
+  const actual = !fullPatterns.some((re) => re.test(file)) && fastPatterns.some((re) => re.test(file));
+  if (actual !== expected) {
+    throw new Error(label + ': expected fastPath=' + expected + ', actual=' + actual);
   }
 }
