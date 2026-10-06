@@ -1,0 +1,14 @@
+chapter: "VN1"
+terms:
+  - term: 強作用素位相
+    english: strong operator topology
+    meaning: B(H) 上で、各ベクトル ξ に対する評価 T↦Tξ が H のノルム位相へ連続になるように入れる位相。T_alpha→T は全ての ξ について ||(T_alpha-T)ξ||→0 と同値。
+  - term: 弱作用素位相
+    english: weak operator topology
+    meaning: B(H) 上で、全てのベクトル汎関数 T↦<η,Tξ> が連続になるように入れる位相。T_alpha→T は全ての ξ,η について <η,T_alpha ξ>→<η,Tξ> と同値。
+  - term: ベクトル汎関数
+    english: vector functional
+    meaning: ξ,η∈H に対して omega_{η,ξ}(T)=<η,Tξ> と定める B(H) 上の連続線形汎関数。WOT を生成する基本的な観測量。
+  - term: unilateral shift
+    english: unilateral shift
+    meaning: ell2(N) の標準正規直交基底 e_k に対して Se_k=e_{k+1} と定める等長作用素。SOT と WOT の差、随伴の非連続性、積の非共同連続性を示す標準例。
