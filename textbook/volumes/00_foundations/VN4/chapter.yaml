@@ -24,6 +24,7 @@ definitions:
   - { id: VN4-DEF-06, name: "ultraweak 位相" }
 theorems:
   - { id: VN4-LEM-01, name: "特異値と最良有限ランク近似" }
+  - { id: VN4-LEM-02, name: "Ky Fan 型変分公式" }
   - { id: VN4-THM-01, name: "trace class の Banach イデアル性と有限ランク稠密性" }
   - { id: VN4-PROP-01, name: "トレースの連続拡張と rank-one 公式" }
   - { id: VN4-THM-02, name: "B(H) と trace class の等長双対性" }
