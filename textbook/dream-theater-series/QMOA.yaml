@@ -79,7 +79,7 @@ chapters:
     title: trace class・predual・ultraweak 位相
   - id: VN5
     path: textbook/volumes/00_foundations/VN5
-    status: planned
+    status: completed
     title: 正規汎関数・正規状態・トレース
   - id: VN6
     path: textbook/volumes/00_foundations/VN6
