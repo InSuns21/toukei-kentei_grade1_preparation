@@ -43,7 +43,7 @@ chapters:
     title: Banach 環とスペクトル
   - id: OA2
     path: textbook/volumes/00_foundations/OA2
-    status: planned
+    status: completed
     title: 可換 Banach 環と Gelfand 変換
   - id: OA3
     path: textbook/volumes/00_foundations/OA3
