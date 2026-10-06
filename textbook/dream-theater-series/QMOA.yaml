@@ -47,7 +47,7 @@ chapters:
     title: 可換 Banach 環と Gelfand 変換
   - id: OA3
     path: textbook/volumes/00_foundations/OA3
-    status: planned
+    status: completed
     title: C*-環の基本構造
   - id: OA4
     path: textbook/volumes/00_foundations/OA4
