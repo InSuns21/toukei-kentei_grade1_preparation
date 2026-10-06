@@ -37,11 +37,11 @@ concepts:
       - pde.viscosity-solution
 
   - id: pde.viscosity-uniform-stability
-    name: 局所一様極限に対する粘性解の安定性
+    name: コンパクト集合ごとの一様収束に対する粘性解の安定性
     kind: theorem
-    aliases: ["stability of viscosity solutions under locally uniform convergence"]
+    aliases: ["stability of viscosity solutions under compact-by-compact uniform convergence"]
     introduction: formal
-    introduction_aliases: ["定理（局所一様極限に対する安定性）"]
+    introduction_aliases: ["定理（任意のコンパクト集合ごとの一様収束に対する安定性）"]
     requires:
       - pde.viscosity-subsolution-supersolution
 
