@@ -73,6 +73,15 @@ FA2 閉グラフ・グラフノルム ─┐
 FA5 スペクトル・レゾルベント ─┴→ EVOL1 非有界作用素・閉作用素・可閉作用素 → EVOL2 C0 半群・生成作用素・Hille--Yosida → EVOL3 散逸作用素・Lumer--Phillips → EVOL4 抽象 Cauchy 問題・mild 解・Duhamel 公式 → EVOL5 analytic semigroup・sectorial operator・放物型 smoothing → EVOL6 半線形発展方程式・局所解・continuation criterion
 ~~~
 
+### 量子力学基礎・作用素環論への発展分岐
+
+[**量子力学基礎 I**](textbook/dream-theater.md#dt-subject-quantum-foundations-i) は、関数解析 II の後で、量子実験に現れる重ね合わせ・位相・離散的測定を複素 Hilbert 空間形式へ接続する発展系列です。一般の解析主幹には強制せず、量子力学と作用素環論へ進む読者の分岐として置きます。
+
+~~~text
+LA5 複素内積 ───────────┐
+FA7 コンパクト自己共役作用素 ─┴→ QM1 実験事実から Hilbert 空間形式へ
+~~~
+
 ### 非線形偏微分方程式への発展分岐
 
 [**非線形偏微分方程式**](textbook/dream-theater.md#dt-subject-nonlinear-pde) は、偏微分方程式 I・II を土台に、保存則・非線形楕円型／放物型方程式へ進む発展系列です。共通の標準通読順には挿入しません。

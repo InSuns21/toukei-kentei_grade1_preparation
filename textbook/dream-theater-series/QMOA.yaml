@@ -7,7 +7,7 @@ chapter_root: textbook/volumes/00_foundations
 chapters:
   - id: QM1
     path: textbook/volumes/00_foundations/QM1
-    status: planned
+    status: completed
     title: 実験事実から Hilbert 空間形式へ
   - id: QM2
     path: textbook/volumes/00_foundations/QM2

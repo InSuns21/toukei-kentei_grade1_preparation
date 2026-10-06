@@ -1,0 +1,56 @@
+chapter: QM1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LA5
+  - FA7
+
+forward_references: []
+
+concepts:
+  - id: quantum.relative-phase
+    name: 相対位相
+    kind: definition
+    aliases: ["relative phase"]
+    introduction: formal
+    introduction_aliases: ["定義（相対位相）"]
+    requires:
+      - linear.complex-inner-product
+
+  - id: functional.complex-hilbert-space
+    name: 複素 Hilbert 空間
+    kind: definition
+    aliases: ["complex Hilbert space"]
+    introduction: formal
+    introduction_aliases: ["定義（複素 Hilbert 空間）"]
+    requires:
+      - linear.complex-inner-product
+      - functional.hilbert-space-recap-c1
+
+  - id: quantum.hilbert-ray
+    name: Hilbert 空間の ray
+    kind: definition
+    aliases: ["Hilbert ray", "ray"]
+    introduction: formal
+    introduction_aliases: ["定義（Hilbert 空間の ray）"]
+    requires:
+      - functional.complex-hilbert-space
+
+  - id: quantum.two-path-interference-identity
+    name: 二経路振幅の干渉恒等式
+    kind: theorem
+    aliases: ["two-path interference identity"]
+    introduction: formal
+    introduction_aliases: ["命題（二経路振幅の干渉恒等式）"]
+    requires:
+      - linear.complex-inner-product
+
+  - id: quantum.global-phase-invariance
+    name: 全体位相不変性
+    kind: theorem
+    aliases: ["global phase invariance"]
+    introduction: formal
+    introduction_aliases: ["命題（全体位相不変性）"]
+    requires:
+      - quantum.hilbert-ray
+      - linear.complex-inner-product
