@@ -573,3 +573,299 @@ $$
 
 対称性から逆包含もあるため $Q^*=Q$ です。$\square$
 <!-- proof-end -->
+
+
+## 7. 運動量作用素を Fourier 空間で作る
+
+位置作用素と違い、微分作用素を直接自己共役にするには定義域の選び方が見えにくくなります。そこで FOU4 のユニタリ Fourier 変換を使い、微分を Fourier 側の乗算へ移します。
+
+<a id="prop-qm5-unitary-conjugation"></a>
+
+<!-- formal-statement-start -->
+### 命題（ユニタリ共役は自己共役性を保存する）
+
+$U:H\to H$ をユニタリ作用素、$A:D(A)\subset H\to H$ を自己共役作用素とする。
+
+$$
+D(B)=U^{-1}D(A),
+\qquad
+B=U^{-1}AU
+$$
+
+と定める。このとき $B$ は自己共役である。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+$x,y\in D(B)$ なら $Ux,Uy\in D(A)$ です。$A$ の対称性と $U$ のユニタリ性から
+
+$$
+\langle Bx,y\rangle
+=
+\langle AUx,Uy\rangle
+=
+\langle Ux,AUy\rangle
+=
+\langle x,By\rangle.
+$$
+
+従って $B$ は対称です。
+
+次に $y\in D(B^*)$、$B^*y=z$ とします。任意の $v\in D(A)$ に対して $x=U^{-1}v$ と置くと
+
+$$
+\langle Av,Uy\rangle
+=
+\langle v,Uz\rangle.
+$$
+
+従って $Uy\in D(A^*)$ です。$A=A^*$ なので $Uy\in D(A)$、したがって
+
+$$
+y\in U^{-1}D(A)=D(B).
+$$
+
+よって $D(B^*)\subset D(B)$。対称性から逆包含もあるため $B=B^*$ です。$\square$
+<!-- proof-end -->
+
+FOU4 のユニタリ Fourier 作用素を
+
+$$
+\mathcal F:L^2(\mathbb R)\to L^2(\mathbb R)
+$$
+
+とします。Fourier 側で
+
+$$
+D(M_\xi)
+=
+\{\widehat\psi\in L^2:\xi\widehat\psi\in L^2\},
+$$
+
+$$
+(M_\xi\widehat\psi)(\xi)
+=
+\xi\widehat\psi(\xi)
+$$
+
+と定めます。$M_\xi$ は位置作用素と同じ型の最大実乗算作用素なので自己共役です。
+
+$\hbar>0$ として
+
+$$
+D(P)
+=
+\{\psi\in L^2:\xi(\mathcal F\psi)(\xi)\in L^2\},
+$$
+
+$$
+P
+=
+\mathcal F^{-1}(\hbar M_\xi)\mathcal F
+$$
+
+と定めます。
+
+<a id="thm-qm5-momentum-fourier"></a>
+
+<!-- formal-statement-start -->
+### 定理（運動量作用素の Fourier 表現）
+
+上で定めた $P$ は自己共役である。さらに $f\in C_c^\infty(\mathbb R)$ に対して
+
+$$
+Pf=-i\hbar f'
+$$
+
+が成り立つ。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+$M_\xi$ は自己共役で、$\hbar$ は実数なので $\hbar M_\xi$ も自己共役です。前節の命題に
+
+$$
+U=\mathcal F,
+\qquad
+A=\hbar M_\xi
+$$
+
+を適用すれば $P$ は自己共役です。
+
+次に $f\in C_c^\infty(\mathbb R)$ とします。FOU4 の Fourier 規約では部分積分から
+
+$$
+\mathcal F(f')(\xi)
+=
+i\xi\,\mathcal Ff(\xi).
+$$
+
+従って
+
+$$
+\mathcal F(-i\hbar f')
+=
+\hbar\xi\,\mathcal Ff.
+$$
+
+両辺に $\mathcal F^{-1}$ を作用させれば
+
+$$
+Pf=-i\hbar f'.
+$$
+
+$\square$
+<!-- proof-end -->
+
+大事なのは、形式的な式 $-i\hbar\,d/dx$ を見て自己共役と宣言していないことです。まず Fourier 空間で自己共役な最大実乗算作用素を作り、ユニタリ共役で戻しています。
+
+## 8. なぜ量子力学では self-adjoint が必要か
+
+対称性だけなら
+
+$$
+\langle A\psi,\varphi\rangle
+=
+\langle\psi,A\varphi\rangle
+$$
+
+は成り立ちます。しかし、それだけでは $D(A)=D(A^*)$ は保証されません。
+
+QM6 では自己共役作用素に対して
+
+$$
+A
+=
+\int_{\mathbb R}\lambda\,dE_A(\lambda)
+$$
+
+という非有界スペクトル表示を扱い、QM7 では Stone の定理による
+
+$$
+\text{自己共役 }H
+\longleftrightarrow
+U(t)=e^{-itH}
+$$
+
+という時間発展との対応を扱います。そのため、ここで symmetric と self-adjoint を分けることが後続章の土台になります。
+
+---
+
+## 9. 演習
+
+### Level A
+
+<a id="ex-qm5-a01"></a>
+#### QM5-A01 最小対角作用素の随伴
+- Level: A
+
+$A_0:c_{00}\to\ell^2$, $A_0x=(nx_n)$ について $A_0^*$ の定義域と作用を求めよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+$A_0^*y=z$ とし、$e_k$ を随伴の定義へ入れると
+
+$$
+z_k=ky_k.
+$$
+
+従って必要条件は $(ny_n)\in\ell^2$ です。
+
+逆に $(ny_n)\in\ell^2$ として $z=(ny_n)$ と置けば、$x\in c_{00}$ について有限和で
+
+$$
+\langle A_0x,y\rangle
+=
+\sum_n nx_n\overline{y_n}
+=
+\sum_n x_n\overline{ny_n}
+=
+\langle x,z\rangle.
+$$
+
+よって
+
+$$
+D(A_0^*)
+=
+\{y:(ny_n)\in\ell^2\},
+\qquad
+A_0^*y=(ny_n).
+$$
+<!-- solution-end -->
+
+<a id="ex-qm5-a02"></a>
+#### QM5-A02 対称だが自己共役ではない
+- Level: A
+
+$A_0$ が対称だが自己共役ではないことを示せ。
+
+<!-- solution-start -->
+### 詳細解答
+
+$x,y\in c_{00}$ なら
+
+$$
+\langle A_0x,y\rangle
+=
+\sum_n nx_n\overline{y_n}
+=
+\langle x,A_0y\rangle,
+$$
+
+なので対称です。
+
+一方 A01 から
+
+$$
+D(A_0^*)
+=
+\{y:(ny_n)\in\ell^2\}.
+$$
+
+$y_n=1/n^2$ はこの定義域に属しますが $c_{00}$ には属しません。従って
+
+$$
+D(A_0)\subsetneq D(A_0^*),
+$$
+
+なので自己共役ではありません。
+<!-- solution-end -->
+
+<a id="ex-qm5-a03"></a>
+#### QM5-A03 自己共役作用素は閉じている
+- Level: A
+
+第2節の定理だけを使い、自己共役作用素が閉作用素であることを示せ。
+
+<!-- solution-start -->
+### 詳細解答
+
+自己共役なら $A=A^*$ です。第2節で随伴 $A^*$ は閉じていると証明済みなので、同じ作用素 $A$ も閉作用素です。
+<!-- solution-end -->
+
+<a id="ex-qm5-a04"></a>
+#### QM5-A04 位置作用素の定義域
+- Level: A
+
+位置作用素 $Q$ の定義域 $D(Q)$ が $L^2(\mathbb R)$ に稠密だが全空間ではないことを示せ。
+
+<!-- solution-start -->
+### 詳細解答
+
+$\psi_N=\mathbf1_{[-N,N]}\psi$ とすれば $x\psi_N\in L^2$ なので $\psi_N\in D(Q)$ です。また
+
+$$
+\|\psi-\psi_N\|_2^2
+=
+\int_{|x|>N}|\psi|^2
+\to0.
+$$
+
+従って $D(Q)$ は稠密です。
+
+一方 $\psi(x)=1/(1+|x|)$ は $L^2$ に属しますが $x\psi\notin L^2$ なので $D(Q)\ne L^2$ です。
+<!-- solution-end -->
