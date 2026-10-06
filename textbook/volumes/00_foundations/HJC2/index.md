@@ -261,9 +261,9 @@ $H$ は連続とします。
 
 本章では PDE の viscosity inequality を interior point
 
-$
+$$
 0<t<T
-$
+$$
 
 で課します。$t=0$ は有限時間問題を書き始めるための人工的な左端なので、そこで別の境界条件を課しません。$t=0$ の値まで必要な結論は、$t\downarrow0$ の連続性で延長します。終端 $t=T$ は PDE の接触条件とは分け、終端条件として扱います。
 
@@ -289,9 +289,9 @@ $$
 
 の **viscosity subsolution** であるとは、任意の $\phi\in C^1$ と、$u-\phi$ が interior point
 
-$
+$$
 (t_0,x_0)\in(0,T)\times\mathbb R^d
-$
+$$
 
 で局所最大を取る場合に
 
@@ -314,9 +314,9 @@ $$
 
 が **viscosity supersolution** であるとは、任意の $\phi\in C^1$ と、$v-\phi$ が interior point
 
-$
+$$
 (t_0,x_0)\in(0,T)\times\mathbb R^d
-$
+$$
 
 で局所最小を取る場合に
 
@@ -1267,11 +1267,11 @@ $$
 
 罰則を入れない候補
 
-$
+$$
 (t,s,x,y)
 =
 (t_*,t_*,x_*,x_*)
-$
+$$
 
 と比較すると、$\eta$ を選んだ方法から最大値は正です。
 
@@ -1281,23 +1281,23 @@ PDE 不等式は $0<t<T$ で課しているので、以下の doubled maximum �
 
 まず $u,v$ の有界性と最大性から、固定した $\alpha,\eta$ の下で
 
-$
+$$
 \frac{|\hat x-\hat y|^2}{2\varepsilon}
 +
 \frac{|\hat t-\hat s|^2}{2\delta}
-$
+$$
 
 は一様に有界です。従って
 
-$
+$$
 |\hat x-\hat y|\to0,
 \qquad
 |\hat t-\hat s|\to0.
-$
+$$
 
 さらに最大点 $(\hat t,\hat s,\hat x,\hat y)$ と、二点を一致させた候補 $(\hat t,\hat t,\hat x,\hat x)$ を比較します。最大性から
 
-$
+$$
 \begin{aligned}
 &\frac{|\hat x-\hat y|^2}{2\varepsilon}
 +
@@ -1314,22 +1314,22 @@ v(\hat t,\hat x)-v(\hat s,\hat y)
 \frac1{T-\hat s}
 \right\}.
 \end{aligned}
-$
+$$
 
 固定した $\alpha,\eta$ では confinement により最大点は有限領域にあり、終端罰則により $T$ からも離れています。したがって右辺は $v$ の一様連続性と
 
-$
+$$
 |\hat x-\hat y|+|\hat t-\hat s|\to0
-$
+$$
 
 から0へ収束します。よって
 
-$
+$$
 \frac{|\hat x-\hat y|^2}{\varepsilon}
 +
 \frac{|\hat t-\hat s|^2}{\delta}
 \longrightarrow0.
-$
+$$
 
 ここで $u$ に対する test function を作ります。
 
