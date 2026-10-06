@@ -1,0 +1,112 @@
+chapter: VN1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OA6
+  - FA3
+  - F0-02C3A
+
+forward_references: []
+
+concepts:
+  - id: operator-algebra.strong-operator-topology
+    name: 強作用素位相
+    kind: definition
+    aliases: ["SOT", "strong operator topology"]
+    introduction: formal
+    introduction_aliases: ["定義（強作用素位相）"]
+    requires:
+      - functional.bounded-linear-operator
+      - functional.hilbert-space
+      - topology.net-convergence
+
+  - id: operator-algebra.sot-convergence-criterion
+    name: 強作用素収束の評価判定
+    kind: theorem
+    aliases: ["strong operator convergence criterion"]
+    introduction_aliases: ["定理（強作用素収束の評価判定）"]
+    requires:
+      - operator-algebra.strong-operator-topology
+      - topology.net-convergence
+
+  - id: operator-algebra.vector-functional
+    name: ベクトル汎関数
+    kind: definition
+    aliases: ["vector functional"]
+    introduction: formal
+    introduction_aliases: ["定義（ベクトル汎関数）"]
+    requires:
+      - functional.bounded-linear-operator
+      - functional.hilbert-space
+
+  - id: operator-algebra.weak-operator-topology
+    name: 弱作用素位相
+    kind: definition
+    aliases: ["WOT", "weak operator topology"]
+    introduction: formal
+    introduction_aliases: ["定義（弱作用素位相）"]
+    requires:
+      - operator-algebra.vector-functional
+      - topology.net-convergence
+
+  - id: operator-algebra.wot-convergence-criterion
+    name: 弱作用素収束の行列係数判定
+    kind: theorem
+    aliases: ["weak operator convergence criterion"]
+    introduction_aliases: ["定理（弱作用素収束の行列係数判定）"]
+    requires:
+      - operator-algebra.weak-operator-topology
+
+  - id: operator-algebra.operator-topology-comparison
+    name: ノルム収束・強作用素収束・弱作用素収束の比較
+    kind: proposition
+    aliases: ["comparison of norm SOT WOT convergence"]
+    introduction_aliases: ["命題（ノルム収束・強作用素収束・弱作用素収束の比較）"]
+    requires:
+      - operator-algebra.strong-operator-topology
+      - operator-algebra.weak-operator-topology
+      - linear.cauchy-schwarz
+
+  - id: operator-algebra.finite-dimensional-operator-topology-coincidence
+    name: 有限次元での作用素位相の一致
+    kind: proposition
+    aliases: ["finite dimensional coincidence of operator topologies"]
+    introduction_aliases: ["命題（有限次元ではノルム位相・SOT・WOT が一致する）"]
+    requires:
+      - operator-algebra.operator-topology-comparison
+
+  - id: operator-algebra.wot-vs-banach-weak
+    name: WOT と Banach 空間の弱位相の区別
+    kind: proposition
+    aliases: ["WOT versus Banach weak topology"]
+    introduction_aliases: ["命題（WOT と Banach 空間の弱位相の関係）"]
+    requires:
+      - operator-algebra.weak-operator-topology
+      - functional.weak-topology
+      - functional.dual-space
+
+  - id: operator-algebra.sot-bounded-multiplication
+    name: 一様ノルム有界族上の SOT 積の連続性
+    kind: proposition
+    aliases: ["SOT multiplication on norm bounded sets"]
+    introduction_aliases: ["命題（一様ノルム有界族上では積は SOT 収束を保つ）"]
+    requires:
+      - operator-algebra.strong-operator-topology
+
+  - id: operator-algebra.wot-fixed-multiplication-adjoint
+    name: WOT における左右乗法と随伴の連続性
+    kind: proposition
+    aliases: ["WOT continuity of fixed multiplication and adjoint"]
+    introduction_aliases: ["命題（WOT では固定作用素による左右乗法と随伴が連続）"]
+    requires:
+      - operator-algebra.weak-operator-topology
+      - functional.hilbert-adjoint
+
+  - id: operator-algebra.sot-adjoint-discontinuity
+    name: SOT における随伴の非連続性
+    kind: proposition
+    aliases: ["SOT discontinuity of adjoint"]
+    introduction_aliases: ["命題（随伴は SOT では連続でない）"]
+    requires:
+      - operator-algebra.strong-operator-topology
+      - functional.hilbert-adjoint
