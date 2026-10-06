@@ -8,6 +8,8 @@ prerequisites:
   - F0-00D2A
   - F0-00D2B
   - F0-00A3
+  - RA8
+  - MT5
 
 forward_references: []
 
@@ -53,7 +55,7 @@ concepts:
       - quantum.projection-valued-measure
       - quantum.spectral-integral-bounded
       - set.zorn-lemma
-      - functional.riesz-representation-theorem
+      - measure.riesz-markov-positive
 
   - id: quantum.state-spectral-probability-measure
     name: 状態に付随するスペクトル確率測度
