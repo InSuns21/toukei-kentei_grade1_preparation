@@ -278,6 +278,7 @@
 1. [OA1 Banach 環とスペクトル](textbook/volumes/00_foundations/OA1/index.md)
 2. [OA2 可換 Banach 環と Gelfand 変換](textbook/volumes/00_foundations/OA2/index.md)
 3. [OA3 C*-環の基本構造](textbook/volumes/00_foundations/OA3/index.md)
+4. [OA4 連続関数計算と可換 Gelfand--Naimark](textbook/volumes/00_foundations/OA4/index.md)
 
 <a id="dt-subject-evolution-equations"></a>
 ### 抽象発展方程式・半群論

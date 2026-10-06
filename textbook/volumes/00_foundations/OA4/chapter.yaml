@@ -1,0 +1,45 @@
+id: "OA4"
+title: "連続関数計算と可換 Gelfand--Naimark"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OA3
+  - OA2
+  - RA8
+official_scope: []
+learning_objectives:
+  - 正規元と一つの元が生成する単位的 C*-部分環 C*(a,1) を定義し、正規元なら C*(a,1) が可換になることを証明できる
+  - コンパクト Hausdorff 空間上の自己共役な部分代数に対する Stone--Weierstrass 型稠密性を証明できる
+  - 可換単位的 C*-環の Gelfand 変換が C(Delta(A)) への等長 *-同型である可換 Gelfand--Naimark 定理を証明できる
+  - 単位的 C*-部分環でスペクトルが保存されることを OA3 の逆元近似から導ける
+  - 正規元 a について character 空間 Delta(C*(a,1)) とスペクトル sigma(a) の同相を構成できる
+  - 正規元の連続関数計算 f↦f(a) を構成し、ノルム保存・積・随伴との両立を説明できる
+  - 連続スペクトル写像 sigma(f(a))=f(sigma(a)) を証明し、自己共役元・projection・C(K) の具体例へ適用できる
+definitions:
+  - { id: OA4-DEF-01, name: "正規元" }
+  - { id: OA4-DEF-02, name: "一つの元が生成する単位的 C*-部分環" }
+theorems:
+  - { id: OA4-PROP-01, name: "正規元が生成する C*-部分環の可換性" }
+  - { id: OA4-THM-01, name: "自己共役部分代数版 Stone--Weierstrass 定理" }
+  - { id: OA4-THM-02, name: "可換 Gelfand--Naimark 定理" }
+  - { id: OA4-THM-03, name: "単位的 C*-部分環のスペクトル不変性" }
+  - { id: OA4-THM-04, name: "正規元の character 空間とスペクトルの同相" }
+  - { id: OA4-THM-05, name: "正規元の連続関数計算" }
+  - { id: OA4-THM-06, name: "連続スペクトル写像定理" }
+canonical_examples:
+  - "C(K) の任意の元は正規元"
+  - "projection p が生成する C*-環 C*(p,1)=span{1,p}"
+  - "対角行列 a=diag(1,i) の連続関数計算"
+  - "C(K) での f(g)=f∘g"
+problem_patterns:
+  - OA4-NORMAL-GENERATED-1
+  - OA4-STONE-WEIERSTRASS-1
+  - OA4-GELFAND-NAIMARK-1
+  - OA4-SPECTRAL-INVARIANCE-1
+  - OA4-FUNCTIONAL-CALCULUS-1
+  - OA4-SPECTRAL-MAPPING-1
+  - OA4-PROJECTION-CALCULUS-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12.0, exercises: 8.0, review: 2.0 }

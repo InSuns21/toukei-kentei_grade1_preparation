@@ -51,7 +51,7 @@ chapters:
     title: C*-環の基本構造
   - id: OA4
     path: textbook/volumes/00_foundations/OA4
-    status: planned
+    status: completed
     title: 連続関数計算と可換 Gelfand--Naimark
   - id: OA5
     path: textbook/volumes/00_foundations/OA5

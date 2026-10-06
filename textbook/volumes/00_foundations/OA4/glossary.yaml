@@ -1,0 +1,20 @@
+chapter: "OA4"
+terms:
+  - term: 正規元
+    english: normal element
+    meaning: C*-環の元 a で a*a=aa* を満たすもの。
+  - term: "C*(a,1)"
+    english: generated unital C*-subalgebra
+    meaning: a と単位元を含む最小の閉じた *-部分代数。
+  - term: 可換 Gelfand--Naimark 定理
+    english: commutative Gelfand--Naimark theorem
+    meaning: 可換単位的 C*-環を character 空間上の連続関数環 C(Delta(A)) と等長 *-同型で同一視する定理。
+  - term: 連続関数計算
+    english: continuous functional calculus
+    meaning: 正規元 a のスペクトル上の連続関数 f を C*-環の元 f(a) へ送る一意な等長 *-準同型。
+  - term: スペクトル不変性
+    english: spectral invariance
+    meaning: 単位元を共有する C*-部分環で計算したスペクトルが大きい C*-環でのスペクトルと一致する性質。
+  - term: 連続スペクトル写像
+    english: continuous spectral mapping
+    meaning: 正規元 a と f∈C(sigma(a)) に対して sigma(f(a))=f(sigma(a)) が成り立つこと。
