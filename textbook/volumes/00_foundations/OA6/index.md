@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念**：[OA4 の正規元](../OA4/index.md#def-oa4-normal-element)と[連続関数計算](../OA4/index.md#thm-oa4-continuous-functional-calculus)、[OA5 の状態・GNS 構成](../OA5/index.md#thm-oa5-gns-construction)、[QM3 の射影値測度](../QM3/index.md#def-qm3-pvm)と[有界自己共役作用素のスペクトル定理](../QM3/index.md#thm-qm3-bounded-self-adjoint-spectral-theorem)、[MT5 の Riesz--Markov 表現](../MT5/index.md#thm-mt5-riesz-markov-positive)、[Hilbert 空間の Riesz 表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)を使います。
+> **既出概念**：[OA4 の正規元](../OA4/index.md#def-oa4-normal-element)と[連続関数計算](../OA4/index.md#thm-oa4-continuous-functional-calculus)、[OA5 の状態・GNS 構成](../OA5/index.md#thm-oa5-gns)、[QM3 の射影値測度](../QM3/index.md#def-qm3-pvm)と[有界自己共役作用素のスペクトル定理](../QM3/index.md#thm-qm3-bounded-self-adjoint-spectral)、[MT5 の Riesz--Markov 表現](../MT5/index.md#thm-mt5-riesz-markov-positive)、[Hilbert 空間の Riesz 表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)を使います。
 
 OA4 では、正規元 $a$ 一つが生成する $C^*$-環を
 
@@ -1628,7 +1628,17 @@ $$
 
 が成り立つ。
 
-従って状態 $\varphi$ における $a$ のスペクトル分布は、$T_\varphi$ の PVM を巡回ベクトル $\Omega_\varphi$ で読んだスカラー測度と一致する。
+$\sigma(T_\varphi)\subset\sigma_A(a)$ なので、$T_\varphi$ の PVM $E_{T_\varphi}$ を
+$
+\widetilde E_{T_\varphi}(B)
+=
+E_{T_\varphi}(B\cap\sigma(T_\varphi))
+\qquad
+(B\subset\sigma_A(a))
+$
+で $\sigma_A(a)$ 上へ延長する。
+
+このとき状態 $\varphi$ における $a$ のスペクトル分布は、$\widetilde E_{T_\varphi}$ を巡回ベクトル $\Omega_\varphi$ で読んだスカラー測度と一致する。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -1706,24 +1716,44 @@ f(T_\varphi)\Omega_\varphi
 \end{aligned}
 $$
 
-$T_\varphi$ の PVM を $E_{T_\varphi}$ とすると、
+$*$-準同型によるスペクトル縮小から
 
-$$
+$
+\sigma(T_\varphi)
+\subset
+\sigma_A(a)
+$
+
+です。
+
+$T_\varphi$ の PVM を $E_{T_\varphi}$ とし、$\sigma_A(a)$ 上の Borel 集合 $B$ に対して
+
+$
+\widetilde E_{T_\varphi}(B)
+=
+E_{T_\varphi}(B\cap\sigma(T_\varphi))
+$
+
+と延長します。
+
+すると
+
+$
 f(T_\varphi)
 =
-\int f\,dE_{T_\varphi}.
-$$
+\int_{\sigma_A(a)} f(z)\,d\widetilde E_{T_\varphi}(z).
+$
 
 従って
 
-$$
+$
 \varphi(f(a))
 =
-\int f(z)\,
+\int_{\sigma_A(a)} f(z)\,
 d\langle
-\Omega_\varphi,E_{T_\varphi}(z)\Omega_\varphi
+\Omega_\varphi,\widetilde E_{T_\varphi}(z)\Omega_\varphi
 \rangle.
-$$
+$
 
 一方、左辺を表す確率測度は第2節で一意です。
 
