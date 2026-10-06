@@ -1,0 +1,48 @@
+id: "VN5"
+title: "正規汎関数・正規状態・トレース"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - VN4
+  - OA5
+official_scope: []
+learning_objectives:
+  - von Neumann 環上の正規汎関数を ultraweak 連続な線形汎関数として定義し、predual との関係を説明できる
+  - B(H) 上の正規汎関数を一意な trace class 作用素 T による phi(A)=Tr(AT) として表し、正性が T>=0 と同値であることを証明できる
+  - 正規状態と密度作用素 rho>=0, Tr(rho)=1 の一対一対応を証明し、ベクトル状態と混合状態を具体計算できる
+  - 正規な正汎関数が単調増加する射影族の上限を保存することを示し、B(H) では射影に対する単調連続性から正規性を再構成できる
+  - von Neumann 環上のトレースを拡張値正値写像として定義し、正規性・忠実性・半有限性の意味を説明できる
+  - 無限次元 B(H) の標準トレースが正規・忠実・半有限であることを証明し、有限次元の正規化トレースとの違いを説明できる
+  - 無限次元 B(H) に正規トレース状態が存在しないことを証明し、VN7 の有限性・型分類へ何が残るかを説明できる
+definitions:
+  - { id: VN5-DEF-01, name: "正規汎関数" }
+  - { id: VN5-DEF-02, name: "正規状態" }
+  - { id: VN5-DEF-03, name: "密度作用素" }
+  - { id: VN5-DEF-04, name: "von Neumann 環上のトレース" }
+theorems:
+  - { id: VN5-PROP-01, name: "B(H) 上の正規汎関数の trace class 表示" }
+  - { id: VN5-PROP-02, name: "正規汎関数の正性と正 trace class 作用素" }
+  - { id: VN5-THM-01, name: "正規状態と密度作用素の対応" }
+  - { id: VN5-PROP-03, name: "正規な正汎関数の射影単調連続性" }
+  - { id: VN5-THM-02, name: "B(H) における射影単調連続性による正規性判定" }
+  - { id: VN5-THM-03, name: "B(H) の標準トレースは正規・忠実・半有限" }
+  - { id: VN5-PROP-04, name: "無限次元 B(H) に正規トレース状態は存在しない" }
+canonical_examples:
+  - "M_2(C) の密度行列 diag(3/4,1/4) が与える正規状態"
+  - "単位ベクトル xi によるベクトル状態と rank-one 密度作用素 theta_{xi,xi}"
+  - "ell^2 上の対角密度作用素 diag(2^{-n}) と単調増加する座標射影 P_N"
+  - "M_n(C) の正規化トレースと無限次元 B(H) の拡張値標準トレース"
+problem_patterns:
+  - VN5-MATRIX-DENSITY-STATE-1
+  - VN5-VECTOR-STATE-1
+  - VN5-DIAGONAL-NORMALITY-1
+  - VN5-MATRIX-NORMALIZED-TRACE-1
+  - VN5-DENSITY-UNIQUENESS-1
+  - VN5-PROJECTION-NORMALITY-CRITERION-1
+  - VN5-FAITHFUL-DENSITY-1
+  - VN5-BH-SEMIFINITE-TRACE-1
+  - VN5-NORMAL-STATE-TRACE-SYNTHESIS-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 8.0, review: 2.0 }
