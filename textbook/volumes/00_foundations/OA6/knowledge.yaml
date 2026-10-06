@@ -1,0 +1,100 @@
+chapter: OA6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OA4
+  - OA5
+  - QM3
+  - MT5
+  - F0-02C2
+
+forward_references: []
+
+concepts:
+  - id: operator-algebra.state-spectral-measure
+    name: 状態から得られるスペクトル確率測度
+    kind: theorem
+    aliases: ["spectral probability measure induced by a state"]
+    introduction_aliases: ["定理（状態から得られるスペクトル確率測度）"]
+    requires:
+      - operator-algebra.continuous-functional-calculus
+      - operator-algebra.state
+      - measure.riesz-markov-positive
+
+  - id: operator-algebra.state-spectral-distribution
+    name: 状態におけるスペクトル分布
+    kind: definition
+    aliases: ["spectral distribution in a state"]
+    introduction: formal
+    introduction_aliases: ["定義（状態におけるスペクトル分布）"]
+    requires:
+      - operator-algebra.state-spectral-measure
+
+  - id: operator-algebra.commutative-representation-pvm
+    name: 可換 C(K) 表現の射影値測度表示
+    kind: theorem
+    aliases: ["spectral measure representation of a commutative C(K) representation"]
+    introduction_aliases: ["定理（可換 C(K) 表現の射影値測度表示）"]
+    requires:
+      - operator-algebra.continuous-functional-calculus
+      - measure.riesz-markov-positive
+      - functional.riesz-representation-theorem
+      - quantum.projection-valued-measure
+
+  - id: operator-algebra.bounded-normal-spectral-theorem
+    name: 有界正規作用素のスペクトル定理
+    kind: theorem
+    aliases: ["bounded normal spectral theorem"]
+    introduction_aliases: ["定理（有界正規作用素のスペクトル定理）"]
+    requires:
+      - operator-algebra.normal-element
+      - operator-algebra.continuous-functional-calculus
+      - operator-algebra.commutative-representation-pvm
+
+  - id: operator-algebra.pvm-coordinate-integral-normal
+    name: PVM による座標関数の積分は正規作用素である
+    kind: proposition
+    aliases: ["normality of the coordinate spectral integral"]
+    introduction_aliases: ["命題（PVM による座標関数の積分は正規作用素である）"]
+    requires:
+      - operator-algebra.bounded-normal-spectral-theorem
+      - quantum.spectral-integral-bounded
+
+  - id: operator-algebra.self-adjoint-pvm-agreement
+    name: 自己共役の場合の PVM の一致
+    kind: proposition
+    aliases: ["agreement of self-adjoint spectral measures"]
+    introduction_aliases: ["命題（自己共役の場合の PVM の一致）"]
+    requires:
+      - operator-algebra.commutative-representation-pvm
+      - quantum.bounded-self-adjoint-spectral-theorem
+      - measure.riesz-markov-positive
+
+  - id: operator-algebra.bounded-borel-functional-calculus
+    name: 有界 Borel 関数計算
+    kind: definition
+    aliases: ["bounded Borel functional calculus"]
+    introduction: formal
+    introduction_aliases: ["定義（有界 Borel 関数計算）"]
+    requires:
+      - operator-algebra.bounded-normal-spectral-theorem
+      - quantum.spectral-integral-bounded
+
+  - id: operator-algebra.borel-functional-calculus-properties
+    name: 有界 Borel 関数計算の基本性質
+    kind: proposition
+    aliases: ["basic properties of bounded Borel functional calculus"]
+    introduction_aliases: ["命題（有界 Borel 関数計算の基本性質）"]
+    requires:
+      - operator-algebra.bounded-borel-functional-calculus
+      - operator-algebra.commutative-representation-pvm
+
+  - id: operator-algebra.gns-spectral-distribution
+    name: GNS 表現でのスペクトル分布の回収
+    kind: proposition
+    aliases: ["spectral distribution in the GNS representation"]
+    introduction_aliases: ["命題（GNS 表現でのスペクトル分布の回収）"]
+    requires:
+      - operator-algebra.gns-construction
+      - operator-algebra.state-spectral-distribution
+      - operator-algebra.bounded-normal-spectral-theorem
