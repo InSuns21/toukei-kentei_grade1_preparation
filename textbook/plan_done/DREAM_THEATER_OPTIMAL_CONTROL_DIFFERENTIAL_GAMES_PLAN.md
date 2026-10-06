@@ -1,7 +1,7 @@
 # DREAM THEATER 最適制御・HJB・微分ゲーム計画
 
 作成日: 2026-10-04  
-状態: in_progress
+状態: completed
 
 ## 0. 目的
 
