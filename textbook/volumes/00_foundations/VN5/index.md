@@ -2682,10 +2682,12 @@ $$
 \langle\rho x,y\rangle.
 $$
 
-同様に
+また同じ cyclicity と rank-one 公式を $\sigma$ に適用して
 
 $$
 \operatorname{Tr}(\theta_{x,y}\sigma)
+=
+\operatorname{Tr}(\sigma\theta_{x,y})
 =
 \langle\sigma x,y\rangle.
 $$
@@ -3347,37 +3349,59 @@ $$
 \operatorname{Tr}(P_NAP_N\rho).
 $$
 
-一方、正線形汎関数の Cauchy--Schwarz 不等式を使うと、本文の定理と同様に
-
-$$
-|\varphi(A-P_NAP_N)|
-\to0.
-$$
-
-実際
+一方、正線形汎関数の Cauchy--Schwarz 不等式で圧縮誤差を評価します。まず
 
 $$
 A-P_NAP_N
 =
 (I-P_N)A
 +
-P_NA(I-P_N)
+P_NA(I-P_N).
 $$
 
-であり、それぞれの絶対値は定数倍の
+第1項では $a=A$, $b=I-P_N$ として Cauchy--Schwarz を適用すると
 
 $$
-\sqrt{\varphi(I-P_N)}
+\begin{aligned}
+|\varphi((I-P_N)A)|^2
+&\le \varphi(A^*A)\,\varphi(I-P_N)\\
+&\le \|A\|^2\varphi(I)\,\varphi(I-P_N)\\
+&=\|A\|^2\varphi(I-P_N).
+\end{aligned}
 $$
 
-で抑えられます。
+第2項は
 
-また
+$$
+P_NA(I-P_N)=(A^*P_N)^*(I-P_N)
+$$
+
+と書けるので、$a=I-P_N$, $b=A^*P_N$ として
+
+$$
+\begin{aligned}
+|\varphi(P_NA(I-P_N))|^2
+&\le \varphi(I-P_N)\,\varphi(P_NAA^*P_N)\\
+&\le \|A\|^2\varphi(I-P_N)\,\varphi(P_N)\\
+&\le \|A\|^2\varphi(I-P_N).
+\end{aligned}
+$$
+
+ここで状態なので $\varphi(I)=1$ を使いました。また
 
 $$
 \varphi(I-P_N)
 =
 1-\varphi(P_N)
+\to0.
+$$
+
+従って三角不等式から
+
+$$
+|\varphi(A-P_NAP_N)|
+\le
+2\|A\|\sqrt{\varphi(I-P_N)}
 \to0.
 $$
 
