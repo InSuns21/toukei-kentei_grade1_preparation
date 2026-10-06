@@ -1182,21 +1182,72 @@ $$
 
 これで存在と定義域表示が示されました。
 
-最後に一意性を示します。$G$ も同じ $A$ を表す PVM とします。$c$ は有界 Borel 関数なので
+最後に一意性を示します。$G$ も同じ $A$ を表す PVM とします。
 
-$$
-c(A)
+まず有界 Borel 関数
+
+$
+r(\lambda)=\frac1{\lambda+i}
+$
+
+を $G$ で積分し、
+
+$
+S=\int r(\lambda)\,dG(\lambda)
+$
+
+と置きます。
+
+$
+\frac{\lambda^2}{|\lambda+i|^2}
 =
-\int_{\mathbb R}c(\lambda)\,dG(\lambda)
-$$
+\frac{\lambda^2}{\lambda^2+1}
+\le1
+$
 
-です。
+なので $Sx\in D(A)$ です。さらに
 
-一方 Cayley 変換の定義から
+$
+\begin{aligned}
+(A+iI)Sx
+&=
+\int
+(\lambda+i)\frac1{\lambda+i}
+\,dG(\lambda)x\\
+&=
+x.
+\end{aligned}
+$
 
-$$
-c(A)=U.
-$$
+従って
+
+$
+S=(A+iI)^{-1}.
+$
+
+そこで
+
+$
+\widetilde U
+=
+\int
+\frac{\lambda-i}{\lambda+i}
+\,dG(\lambda)
+$
+
+と置くと、
+
+$
+\begin{aligned}
+\widetilde U
+&=
+(A-iI)S\\
+&=
+(A-iI)(A+iI)^{-1}\\
+&=
+U.
+\end{aligned}
+$
 
 従って $G$ を $c$ で単位円へ押し出した PVM は $U$ のスペクトル PVM です。ユニタリ作用素のスペクトル定理の一意性から、その押し出しは $F$ と一致します。
 
@@ -2280,11 +2331,11 @@ $$
 
 したがって負の実数はスペクトル測度の台に現れず、
 
-$$
+$
 \sigma(H_0)\subset[0,\infty)
-$$
+$
 
-です。実際には $h(\mathbb R)=[0,\infty)$ なのでスペクトルは $[0,\infty)$ です。
+です。
 <!-- solution-end -->
 
 ### Level C
