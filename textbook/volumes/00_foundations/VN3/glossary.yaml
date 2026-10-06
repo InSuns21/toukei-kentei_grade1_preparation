@@ -1,0 +1,20 @@
+chapter: "VN3"
+terms:
+  - term: 作用素の絶対値
+    english: operator modulus
+    meaning: 有界作用素 T に対して |T|=(T*T)^(1/2) と定める正作用素。極分解 T=U|T| の正の部分を担う。
+  - term: 部分等長作用素
+    english: partial isometry
+    meaning: ある閉部分空間上では等長写像として作用し、その直交補空間上では 0 となる有界作用素。V*V と VV* が初期射影・終射影になる。
+  - term: 支持射影
+    english: support projection
+    meaning: 正作用素 A に対して ker(A) の直交補空間への直交射影。A(A+epsilon I)^(-1) の SOT 極限として得られる。
+  - term: 極分解
+    english: polar decomposition
+    meaning: 有界作用素 T を T=U|T| と表す分解。U は |T| の支持上で一意に定まる部分等長作用素である。
+  - term: 初期射影
+    english: initial projection
+    meaning: 部分等長作用素 V に対する V*V。V が等長的に作用する初期空間への直交射影。
+  - term: 終射影
+    english: final projection
+    meaning: 部分等長作用素 V に対する VV*。V の像の閉包である終空間への直交射影。

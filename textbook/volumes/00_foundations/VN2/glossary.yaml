@@ -1,0 +1,17 @@
+chapter: "VN2"
+terms:
+  - term: 可換子
+    english: commutant
+    meaning: B(H) の部分集合 S に対して、S のすべての元と可換する有界作用素全体 S'。包含を反転し、二重可換子 S'' の出発点になる。
+  - term: 二重可換子
+    english: bicommutant
+    meaning: 可換子 S' の可換子 S''。単位的 *-部分代数では von Neumann の二重可換子定理により SOT・WOT 閉包を記述する。
+  - term: von Neumann 環
+    english: von Neumann algebra
+    meaning: Hilbert 空間 H 上の B(H) に含まれる単位的 *-部分代数で、弱作用素位相について閉じているもの。
+  - term: 対角増幅
+    english: diagonal amplification
+    meaning: A∈B(H) を H^n 上の A^(n)=diag(A,...,A) に送る構成。有限個のベクトルに対する同時近似を一つのベクトル近似へまとめるために使う。
+  - term: von Neumann の二重可換子定理
+    english: von Neumann bicommutant theorem
+    meaning: B(H) の単位的 *-部分代数 A について、A の SOT 閉包・WOT 閉包・二重可換子 A'' が一致することを述べる定理。

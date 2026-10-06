@@ -116,7 +116,7 @@ $$
 \end{aligned}
 $$
 
-したがって $\tau$ は正線形汎関数です。
+**定義の確認**：$\operatorname{Tr}$ の線形性から $\tau$ は線形であり、上の計算で任意の $X$ に対して $\tau(X^*X)\ge0$ を確認したので、$\tau$ は正線形汎関数の定義を満たします。
 
 <!-- definition-example-end -->
 
@@ -433,7 +433,7 @@ $$
 q(a,b)=\varphi(b^*a)
 $$
 
-と書きます。前節の補題から
+と書きます。[前節の補題](#lem-oa5-positive-functional-hermitian)から
 
 $$
 q(b,a)=\overline{q(a,b)}.
@@ -739,11 +739,11 @@ $$
 \delta_{x_0}(1)=1.
 $$
 
-したがって $\delta_{x_0}$ は状態です。
+**定義の確認**：点評価は線形で、上式より $\delta_{x_0}(f^*f)\ge0$、さらに $\delta_{x_0}(1)=1$ なので、$\delta_{x_0}$ は状態の定義を満たします。
 
 <!-- definition-example-end -->
 
-前節の定理から、状態は自動的に
+[前節の定理](#thm-oa5-positive-functional-norm)から、状態は自動的に
 
 $$
 \|\varphi\|=1
@@ -834,6 +834,8 @@ N_\varphi
 =
 \{f\in C(K):f(x_0)=0\}.
 $$
+
+**定義の確認**：$N_\varphi=\{f:\varphi(f^*f)=0\}$ という定義に $\varphi(f^*f)=|f(x_0)|^2$ を代入すると、ちょうど $N_\varphi=\{f:f(x_0)=0\}$ です。
 
 したがって $f$ と $g$ が商空間で同じ類になることは
 
@@ -1200,7 +1202,9 @@ $$
 \pi(A)\xi=A\xi
 $$
 
-と置きます。これは積・随伴・単位元をそのまま保つ単位的 *-表現です。
+と置きます。
+
+**定義の確認**：任意の $A,B\in M_n(\mathbb C)$ について $\pi(AB)=\pi(A)\pi(B)$、$\pi(A^*)=\pi(A)^*$、$\pi(I)=I_H$ なので、$\pi$ は単位的 *-表現の定義を満たします。
 
 $\Omega=e_1$ とすると、任意の $\eta\in\mathbb C^n$ に対して第一列が $\eta$ である行列 $A$ を取れば
 

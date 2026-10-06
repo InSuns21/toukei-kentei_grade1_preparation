@@ -1,6 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import YAML from 'yaml';
+const facadeOnly = process.argv.includes('--facade-only');
+let YAML;
+if (!facadeOnly) ({ default: YAML } = await import('yaml'));
 
 const repoRoot = process.cwd();
 const facadePath = path.join(repoRoot, 'textbook', 'dream-theater.md');
@@ -144,7 +146,7 @@ for (const p of expected) {
     } else {
       pageTitles.set(p, title);
       const chapterYamlPath = path.join(path.dirname(absolutePath), 'chapter.yaml');
-      if (fs.existsSync(chapterYamlPath)) {
+      if (!facadeOnly && fs.existsSync(chapterYamlPath)) {
         try {
           const metadata = YAML.parse(fs.readFileSync(chapterYamlPath, 'utf8')) ?? {};
           const id = String(metadata.id ?? '').trim();
@@ -213,4 +215,8 @@ if (actual.length === expected.length) {
 
 if (errors.length) fail(errors);
 
-console.log(`DREAM THEATER index OK: ${expected.length} chapters/roadmaps, ${archivedPaths.size} archived compatibility pages excluded, all indexed pages expose readable H1 titles, chapter.yaml titles and source facade labels match those H1s, and there are no omissions, extras, duplicates, broken targets, or order drift.`);
+if (facadeOnly) {
+  console.log(`DREAM THEATER index facade OK: ${expected.length} indexed chapters/roadmaps are synchronized with the reader-facing facade, with no omissions, extras, duplicates, broken targets, or order drift.`);
+} else {
+  console.log(`DREAM THEATER index OK: ${expected.length} chapters/roadmaps, ${archivedPaths.size} archived compatibility pages excluded, all indexed pages expose readable H1 titles, chapter.yaml titles and source facade labels match those H1s, and there are no omissions, extras, duplicates, broken targets, or order drift.`);
+}
