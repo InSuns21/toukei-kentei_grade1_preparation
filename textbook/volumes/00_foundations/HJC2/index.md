@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-HJC1 では、動的計画原理から
+HJC1 では、[動的計画原理](../HJC1/index.md#thm-hjc1-dpp)から
 
 $$
 V_t+\mathcal H(x,\nabla V)=0
@@ -2549,7 +2549,7 @@ H(x,p)-H(x,q)
 b(x)\cdot(p-q).
 $$
 
-Cauchy--Schwarz の不等式から
+[Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 |H(x,p)-H(x,q)|
