@@ -9,12 +9,12 @@ prerequisites:
 forward_references: []
 
 concepts:
-  - id: operator-algebra.singular-values
-    name: 特異値
+  - id: operator-algebra.compact-operator-singular-values
+    name: コンパクト作用素の特異値
     kind: definition
-    aliases: ["singular values"]
+    aliases: ["singular values of compact operators"]
     introduction: formal
-    introduction_aliases: ["定義（特異値）"]
+    introduction_aliases: ["定義（コンパクト作用素の特異値）"]
     requires:
       - operator-algebra.operator-modulus
       - functional.compact-self-adjoint-spectral-theorem
@@ -25,18 +25,18 @@ concepts:
     aliases: ["singular values and best finite-rank approximation"]
     introduction_aliases: ["補題（特異値と最良有限ランク近似）"]
     requires:
-      - operator-algebra.singular-values
+      - operator-algebra.compact-operator-singular-values
       - functional.finite-rank-operator
       - operator-algebra.polar-decomposition
 
   - id: operator-algebra.trace-class
     name: trace class
     kind: definition
-    aliases: ["trace-class operator", "S_1(H)"]
+    aliases: ["trace-class operator"]
     introduction: formal
     introduction_aliases: ["定義（trace class とトレースノルム）"]
     requires:
-      - operator-algebra.singular-values
+      - operator-algebra.compact-operator-singular-values
 
   - id: operator-algebra.trace-norm
     name: トレースノルム
