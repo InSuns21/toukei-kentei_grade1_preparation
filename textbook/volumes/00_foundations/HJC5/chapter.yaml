@@ -1,0 +1,50 @@
+id: "HJC5"
+title: "確率制御・二階 Hamilton--Jacobi--Bellman 方程式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HJC3
+  - STO7
+  - STO9
+  - STO11
+official_scope: []
+learning_objectives:
+  - progressively measurable な確率制御と controlled diffusion を定義し、決定論的制御との違いを説明できる
+  - 期待損失を用いた stochastic value function を定式化し、条件付き期待値を使う stochastic dynamic programming principle を再構成できる
+  - controlled generator を Itô 公式から計算し、ドリフトが一階項、拡散が Hessian を含む二階項を生むことを説明できる
+  - stochastic DPP の短時間展開から二階 HJB equation を導出できる
+  - smooth verification theorem を Itô 公式と HJB 不等式から証明し、最適 feedback の候補を検証できる
+  - 二階 HJB の viscosity subsolution / supersolution 条件を C^{1,2} test function で記述できる
+  - stochastic DPP から value function の viscosity solution 性を、上接触・下接触の両方向で導ける
+  - 拡散行列 a=sigma sigma^T が半正定値であることから、二階 HJB の degenerate parabolic 構造を説明できる
+  - Feynman--Kac の線形後退 PDE と、control の infimum が入る HJB の非線形性の違いを説明できる
+  - 一次元線形 Gaussian 制御で quadratic ansatz から Riccati 型 ODE と最適 feedback を導出し、verification まで行える
+definitions:
+  - { id: HJC5-DEF-01, name: "確率的許容制御" }
+  - { id: HJC5-DEF-02, name: "controlled diffusion" }
+  - { id: HJC5-DEF-03, name: "stochastic cost functional と value function" }
+  - { id: HJC5-DEF-04, name: "controlled generator" }
+  - { id: HJC5-DEF-05, name: "二階 Hamilton--Jacobi--Bellman 方程式" }
+  - { id: HJC5-DEF-06, name: "二階 HJB の viscosity solution" }
+theorems:
+  - { id: HJC5-THM-01, name: "stochastic dynamic programming principle" }
+  - { id: HJC5-THM-02, name: "stochastic smooth verification theorem" }
+  - { id: HJC5-THM-03, name: "value function の二階 HJB 粘性解特徴付け" }
+canonical_examples:
+  - "dX=u dt+sigma dW、quadratic running/terminal cost の線形 Gaussian 制御"
+  - "無制御ブラウン運動と terminal cost x^2 に対する V(t,x)=x^2+sigma^2(T-t)"
+  - "control が一つしかない場合に二階 HJB が Feynman--Kac の線形 PDE へ戻る例"
+  - "rank-deficient sigma による degenerate diffusion と半正定値二階項"
+problem_patterns:
+  - HJC5-CONTROLLED-DIFFUSION-1
+  - HJC5-STOCHASTIC-DPP-1
+  - HJC5-CONTROLLED-GENERATOR-1
+  - HJC5-SECOND-ORDER-HJB-1
+  - HJC5-STOCHASTIC-VERIFICATION-1
+  - HJC5-VISCOSITY-DPP-1
+  - HJC5-LQG-1
+  - HJC5-DEGENERATE-DIFFUSION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10.5, exercises: 7.5, review: 2.0 }

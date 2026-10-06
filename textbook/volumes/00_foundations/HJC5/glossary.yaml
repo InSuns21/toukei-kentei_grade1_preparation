@@ -1,0 +1,20 @@
+chapter: "HJC5"
+terms:
+  - term: controlled diffusion
+    english: controlled diffusion
+    meaning: ドリフトや拡散係数が制御入力に依存する Itô SDE。制御を固定するごとに一つの拡散過程が得られる。
+  - term: stochastic dynamic programming principle
+    english: stochastic dynamic programming principle
+    meaning: 最初の短時間区間の期待損失と、その時点のランダムな到達状態からの value function の条件付き期待値を足して現在の値を表す原理。
+  - term: controlled generator
+    english: controlled generator
+    meaning: 制御値を固定した Itô 拡散の無限小生成作用素。ドリフトによる一階項と拡散による Hessian の二階項を持つ。
+  - term: second-order HJB equation
+    english: second-order Hamilton--Jacobi--Bellman equation
+    meaning: controlled generator と局所 cost を制御について最適化して得られる非線形二階 PDE。
+  - term: degenerate parabolic
+    english: degenerate parabolic
+    meaning: 拡散行列 sigma sigma^T が半正定値だが正定値とは限らず、ある方向では二階微分項が消えてよい放物型構造。
+  - term: stochastic verification theorem
+    english: stochastic verification theorem
+    meaning: 十分滑らかな HJB 解候補が全 admissible controls の期待損失の下界であり、HJB の minimizer を実現する feedback があれば value function と一致することを示す定理。

@@ -1,0 +1,111 @@
+chapter: HJC5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HJC3
+  - STO7
+  - STO9
+  - STO11
+
+forward_references: []
+
+concepts:
+  - id: control.stochastic-admissible-control
+    name: 確率的許容制御
+    kind: definition
+    aliases: ["stochastic admissible control", "progressively measurable control"]
+    introduction: formal
+    introduction_aliases: ["定義（確率的許容制御）"]
+    requires:
+      - stochastic.filtration
+      - stochastic.adapted-process
+
+  - id: control.controlled-diffusion
+    name: controlled diffusion
+    kind: definition
+    aliases: ["controlled Ito diffusion", "制御付き拡散過程"]
+    introduction: formal
+    introduction_aliases: ["定義（controlled diffusion）"]
+    requires:
+      - control.stochastic-admissible-control
+      - stochastic.brownian-sde
+      - stochastic.global-lipschitz-sde-existence-uniqueness
+
+  - id: control.stochastic-cost-value
+    name: stochastic cost functional と value function
+    kind: definition
+    aliases: ["stochastic control value function", "expected cost value function"]
+    introduction: formal
+    introduction_aliases: ["定義（stochastic cost functional と value function）"]
+    requires:
+      - control.controlled-diffusion
+      - control.cost-functional
+      - control.value-function
+
+  - id: control.stochastic-dpp
+    name: stochastic dynamic programming principle
+    kind: theorem
+    aliases: ["stochastic DPP", "dynamic programming principle for controlled diffusions"]
+    introduction: formal
+    introduction_aliases: ["定理（stochastic dynamic programming principle）"]
+    requires:
+      - control.stochastic-cost-value
+      - control.dynamic-programming-principle
+      - prob.tower-property
+      - stochastic.sde-stability
+
+  - id: control.controlled-generator
+    name: controlled generator
+    kind: definition
+    aliases: ["controlled diffusion generator", "control-dependent generator"]
+    introduction: formal
+    introduction_aliases: ["定義（controlled generator）"]
+    requires:
+      - control.controlled-diffusion
+      - stochastic.diffusion-generator
+      - stochastic.ito-process-formula
+
+  - id: control.second-order-hjb
+    name: 二階 Hamilton--Jacobi--Bellman 方程式
+    kind: definition
+    aliases: ["second-order HJB equation", "second order Hamilton-Jacobi-Bellman equation"]
+    introduction: formal
+    introduction_aliases: ["定義（二階 Hamilton--Jacobi--Bellman 方程式）"]
+    requires:
+      - control.stochastic-dpp
+      - control.controlled-generator
+      - control.hjb-equation
+
+  - id: control.second-order-hjb-viscosity
+    name: 二階 HJB の viscosity solution
+    kind: definition
+    aliases: ["viscosity solution of second-order HJB"]
+    introduction: formal
+    introduction_aliases: ["定義（二階 HJB の viscosity solution）"]
+    requires:
+      - control.second-order-hjb
+      - pde.viscosity-solution
+      - pde.viscosity-subsolution-supersolution
+
+  - id: control.stochastic-smooth-verification
+    name: stochastic smooth verification theorem
+    kind: theorem
+    aliases: ["verification theorem for stochastic control", "stochastic verification theorem"]
+    introduction: formal
+    introduction_aliases: ["定理（stochastic smooth verification theorem）"]
+    requires:
+      - control.second-order-hjb
+      - control.stochastic-cost-value
+      - stochastic.ito-process-formula
+
+  - id: control.stochastic-value-viscosity
+    name: value function の二階 HJB 粘性解特徴付け
+    kind: theorem
+    aliases: ["viscosity characterization of stochastic control value function"]
+    introduction: formal
+    introduction_aliases: ["定理（value function の二階 HJB 粘性解特徴付け）"]
+    requires:
+      - control.stochastic-dpp
+      - control.second-order-hjb-viscosity
+      - stochastic.ito-process-formula
+      - stochastic.sde-stability
