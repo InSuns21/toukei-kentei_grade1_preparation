@@ -44,7 +44,7 @@ concepts:
     name: 有限次元 Born 則
     kind: axiom
     aliases: ["Born 則", "Born rule"]
-    introduction: formal
+    introduction: inline
     introduction_aliases: ["公理（有限次元 Born 則）"]
     requires:
       - quantum.normalized-pure-state-representative
