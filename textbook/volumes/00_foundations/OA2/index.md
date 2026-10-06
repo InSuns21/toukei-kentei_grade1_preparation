@@ -1062,7 +1062,17 @@ $$
 U_1=\{\varepsilon_1\}.
 $$
 
-同様に $\{\varepsilon_2\}$ も開です。従って $\Delta(\mathbb C^2)$ は2点離散空間です。
+$e_2$ を使って
+
+$
+U_2
+=
+\{\varphi\in\Delta(A):|\varphi(e_2)-1|<1/2\}
+=
+\{\varepsilon_2\}
+$
+
+も開です。従って $\Delta(\mathbb C^2)$ は2点離散空間です。
 
 <!-- definition-example-end -->
 
@@ -2148,7 +2158,13 @@ $$
 \varphi=\varepsilon_{j_0}.
 $$
 
-逆に各 $\varepsilon_j$ は明らかに複素線形・乗法的・非零なので character です。
+逆に各 $\varepsilon_j$ は座標評価なので複素線形であり、成分ごとの積に対して
+
+$
+\varepsilon_j(zw)=z_jw_j=\varepsilon_j(z)\varepsilon_j(w)
+$
+
+を満たします。また $\varepsilon_j(1)=1$ なので非零です。従って各 $\varepsilon_j$ は character です。
 
 よって
 
