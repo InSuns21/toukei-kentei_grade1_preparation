@@ -36,7 +36,6 @@ concepts:
     requires:
       - operator-algebra.character
       - operator-algebra.spectrum-compact-nonempty
-      - operator-algebra.spectral-radius
 
   - id: operator-algebra.ideal
     name: 可換 Banach 環のイデアル
@@ -132,6 +131,8 @@ concepts:
     requires:
       - operator-algebra.gelfand-topology
       - operator-algebra.character-continuity-spectrum
+      - operator-algebra.maximal-ideal-extension
+      - operator-algebra.character-maximal-ideal-correspondence
       - functional.banach-alaoglu
 
   - id: operator-algebra.gelfand-transform
