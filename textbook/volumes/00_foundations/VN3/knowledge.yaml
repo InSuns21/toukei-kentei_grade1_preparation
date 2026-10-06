@@ -1,0 +1,100 @@
+chapter: VN3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - VN2
+  - OA3
+  - OA6
+
+forward_references: []
+
+concepts:
+  - id: operator-algebra.projection-closed-subspace-correspondence
+    name: 射影と閉部分空間の対応
+    kind: proposition
+    aliases: ["correspondence between projections and closed subspaces"]
+    introduction_aliases: ["命題（射影と閉部分空間の対応）"]
+    requires:
+      - operator-algebra.projection-element
+      - functional.hilbert-space
+
+  - id: operator-algebra.operator-modulus
+    name: 作用素の絶対値
+    kind: definition
+    aliases: ["operator modulus", "absolute value of an operator"]
+    introduction: formal
+    introduction_aliases: ["定義（作用素の絶対値）"]
+    requires:
+      - operator-algebra.positive-square-root
+      - functional.hilbert-adjoint
+
+  - id: operator-algebra.partial-isometry
+    name: 部分等長作用素
+    kind: definition
+    aliases: ["partial isometry"]
+    introduction: formal
+    introduction_aliases: ["定義（部分等長作用素）"]
+    requires:
+      - functional.hilbert-space
+      - functional.hilbert-adjoint
+
+  - id: operator-algebra.partial-isometry-projections
+    name: 部分等長作用素の初期射影・終射影
+    kind: proposition
+    aliases: ["initial and final projections of a partial isometry"]
+    introduction_aliases: ["命題（部分等長作用素と初期射影・終射影）"]
+    requires:
+      - operator-algebra.partial-isometry
+      - operator-algebra.projection-closed-subspace-correspondence
+
+  - id: operator-algebra.support-projection
+    name: 支持射影
+    kind: definition
+    aliases: ["support projection"]
+    introduction: formal
+    introduction_aliases: ["定義（支持射影）"]
+    requires:
+      - operator-algebra.positive-element
+      - operator-algebra.projection-closed-subspace-correspondence
+
+  - id: operator-algebra.support-projection-sot-approximation
+    name: 支持射影の SOT 近似
+    kind: proposition
+    aliases: ["strong approximation of the support projection"]
+    introduction_aliases: ["命題（支持射影の SOT 近似）"]
+    requires:
+      - operator-algebra.support-projection
+      - operator-algebra.bounded-normal-spectral-theorem
+      - operator-algebra.strong-operator-topology
+
+  - id: operator-algebra.polar-decomposition
+    name: 有界作用素の極分解
+    kind: theorem
+    aliases: ["polar decomposition of a bounded operator", "polar decomposition"]
+    introduction_aliases: ["定理（有界作用素の極分解）"]
+    requires:
+      - operator-algebra.operator-modulus
+      - operator-algebra.partial-isometry
+      - operator-algebra.positive-square-root
+      - functional.hilbert-space
+
+  - id: operator-algebra.polar-support-identities
+    name: 極分解と支持射影
+    kind: proposition
+    aliases: ["support projections in polar decomposition"]
+    introduction_aliases: ["命題（極分解と支持射影）"]
+    requires:
+      - operator-algebra.polar-decomposition
+      - operator-algebra.support-projection
+      - operator-algebra.partial-isometry-projections
+
+  - id: operator-algebra.von-neumann-internal-polar-decomposition
+    name: von Neumann 環内での極分解
+    kind: theorem
+    aliases: ["polar decomposition inside a von Neumann algebra"]
+    introduction_aliases: ["定理（von Neumann 環内での極分解）"]
+    requires:
+      - operator-algebra.polar-decomposition
+      - operator-algebra.support-projection-sot-approximation
+      - operator-algebra.von-neumann-bicommutant-theorem
+      - operator-algebra.continuous-functional-calculus
