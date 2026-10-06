@@ -634,17 +634,17 @@ LA5 の規約では内積は第1変数について共役線形なので、全体
 
 第1変数の共役線形性から
 
-$
+$$
 \langle \psi',\phi\rangle
 =
 \langle e^{i\theta}\psi,\phi\rangle
 =
 e^{-i\theta}\langle\psi,\phi\rangle.
-$
+$$
 
 従って
 
-$
+$$
 \begin{aligned}
 |\langle \psi',\phi\rangle|^2
 &=
@@ -653,13 +653,13 @@ $
 &=
 |\langle\psi,\phi\rangle|^2.
 \end{aligned}
-$
+$$
 
 ここで
 
-$
+$$
 |e^{-i\theta}|=1
-$
+$$
 
 を使いました。
 <!-- proof-end -->
@@ -945,22 +945,22 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-本教材の規約では
+LA5 から引き継いだ規約では
 
 $$
 \langle z,w\rangle
 =
-z_1\overline{w_1}
+\overline{z_1}w_1
 +
-z_2\overline{w_2}.
+\overline{z_2}w_2.
 $$
 
 まず
 
 $$
-\overline{w_1}=-i,
+\overline{z_1}=1-i,
 \qquad
-\overline{w_2}=1+i
+\overline{z_2}=2
 $$
 
 なので
@@ -969,20 +969,20 @@ $$
 \begin{aligned}
 \langle z,w\rangle
 &=
-(1+i)(-i)+2(1+i)\\
+(1-i)i+2(1-i)\\
 &=
-(1-i)+2+2i\\
+(1+i)+(2-2i)\\
 &=
-3+i.
+3-i.
 \end{aligned}
 $$
 
 一方、
 
 $$
-\overline{z_1}=1-i,
+\overline{w_1}=-i,
 \qquad
-\overline{z_2}=2
+\overline{w_2}=1+i
 $$
 
 より
@@ -991,11 +991,11 @@ $$
 \begin{aligned}
 \langle w,z\rangle
 &=
-i(1-i)+(1-i)2\\
+(-i)(1+i)+(1+i)2\\
 &=
-(1+i)+(2-2i)\\
+(1-i)+(2+2i)\\
 &=
-3-i.
+3+i.
 \end{aligned}
 $$
 
@@ -1201,7 +1201,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-第1問。内積を展開すると
+第1問。LA5 の規約では第1変数が共役線形、第2変数が線形なので、
 
 $$
 \begin{aligned}
@@ -1209,11 +1209,11 @@ $$
 &=
 \langle a1+b2,a1+b2\rangle\\
 &=
-a\overline a\langle1,1\rangle
-+a\overline b\langle1,2\rangle\\
+\overline a a\langle1,1\rangle
++\overline a b\langle1,2\rangle\\
 &\quad
-+b\overline a\langle2,1\rangle
-+b\overline b\langle2,2\rangle.
++\overline b a\langle2,1\rangle
++\overline b b\langle2,2\rangle.
 \end{aligned}
 $$
 
