@@ -104,14 +104,28 @@ for (const page of pages.values()) page.ancestors = collectAncestors(page.id, ne
 const changedFiles = changedOnly ? collectChangedFiles() : new Set();
 
 for (const page of pages.values()) {
+  const knowledgeRel = relative(page.knowledgePath);
+  const pageChanged = changedOnly && (changedFiles.has(page.path) || changedFiles.has(knowledgeRel));
+  const proseChanged = changedOnly && changedFiles.has(page.path);
+
+  // changed-only でも DAG 自体の整合性は全ページ分維持する。一方、本文走査は
+  // 変更ページだけに限定し、404ページの Markdown を毎回読み直さない。
+  if (fs.existsSync(page.knowledgePath)) {
+    for (const refId of page.forwardReferences) {
+      if (!conceptById.has(refId)) {
+        findings.push(errorFinding(knowledgeRel, 1, `forward_references に未知の概念 ${refId} があります。`));
+      }
+    }
+    validateConceptDependencies(page, knowledgeRel);
+  }
+
+  if (changedOnly && !pageChanged) continue;
   if (!fs.existsSync(page.fullPath)) continue;
+
   const source = fs.readFileSync(page.fullPath, 'utf8');
   const rawLines = source.split(/\r?\n/);
   const readerSource = stripNonReaderContent(source);
   const lines = readerSource.split(/\r?\n/);
-  const knowledgeRel = relative(page.knowledgePath);
-  const pageChanged = changedOnly && (changedFiles.has(page.path) || changedFiles.has(knowledgeRel));
-  const proseChanged = changedOnly && changedFiles.has(page.path);
   const hasFormal = lines.some(isFormalDeclarationLine);
   const shouldCheckDefinitionIntros = pageChanged || !changedOnly;
   const definitionIntroContext = shouldCheckDefinitionIntros
@@ -137,12 +151,6 @@ for (const page of pages.values()) {
       findings.push({ severity: 'AUDIT', file: page.path, line: 1, message: `${metadataFile} 未移行` });
     }
     continue;
-  }
-
-  for (const refId of page.forwardReferences) {
-    if (!conceptById.has(refId)) {
-      findings.push(errorFinding(knowledgeRel, 1, `forward_references に未知の概念 ${refId} があります。`));
-    }
   }
 
   // introduction: inline/prose-math は「読者が最初に意味を知る位置」を指定するだけで、
@@ -223,8 +231,6 @@ for (const page of pages.values()) {
       message: `初出定義「${concept.name}」(${concept.id}) の前に導入的な通常文がありません。定義へ入る前に、既存手段の限界・解きたい問い・この概念の役割のいずれかを読者向け文章で示してください。教育上の例外なら definition-intro-skip を理由付きで置いてください。`,
     });
   }
-
-  validateConceptDependencies(page, knowledgeRel);
 
   if (pageChanged || !changedOnly) {
     const visibleShadowConcepts = [
