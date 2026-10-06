@@ -1,0 +1,52 @@
+id: "OA2"
+title: "可換 Banach 環と Gelfand 変換"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OA1
+  - FA3
+  - FA4
+  - F0-00A3
+official_scope: []
+learning_objectives:
+  - 可換複素単位的 Banach 環の character を定義し、character が自動的に連続・ノルム1で、その値が元のスペクトルに属することを証明できる
+  - 極大イデアルが閉であることを示し、Zorn の補題で任意の真のイデアルを極大イデアルへ延長できる
+  - Gelfand--Mazur の定理を OA1 のスペクトル非空性から証明し、character と極大イデアルの対応を導ける
+  - character 空間に弱*位相の部分空間位相として Gelfand 位相を入れ、Banach--Alaoglu からコンパクト Hausdorff 性を証明できる
+  - Gelfand 変換 a↦â を定義し、単位的代数準同型・縮小写像であることを確認できる
+  - 可換 Banach 環で σ_A(a)=â(Δ(A)) を証明し、||â||∞=r(a) を導ける
+  - C(K) の評価 character と、冪零元を持つ可換 Banach 環で Gelfand 変換が単射でない例を説明できる
+definitions:
+  - { id: OA2-DEF-01, name: "可換 Banach 環" }
+  - { id: OA2-DEF-02, name: "character" }
+  - { id: OA2-DEF-03, name: "極大イデアル" }
+  - { id: OA2-DEF-04, name: "複素 Banach 可除代数" }
+  - { id: OA2-DEF-05, name: "character 空間・Gelfand 位相" }
+  - { id: OA2-DEF-06, name: "Gelfand 変換" }
+theorems:
+  - { id: OA2-PROP-01, name: "character の自動連続性・ノルム1・スペクトル値性" }
+  - { id: OA2-PROP-02, name: "極大イデアルは閉" }
+  - { id: OA2-LEM-01, name: "真のイデアルの極大イデアルへの延長" }
+  - { id: OA2-THM-01, name: "Gelfand--Mazur の定理" }
+  - { id: OA2-THM-02, name: "character と極大イデアルの対応" }
+  - { id: OA2-THM-03, name: "character 空間のコンパクト Hausdorff 性" }
+  - { id: OA2-PROP-03, name: "Gelfand 変換は縮小的な単位的代数準同型" }
+  - { id: OA2-THM-04, name: "可換 Banach 環のスペクトルの character 表示" }
+  - { id: OA2-COR-01, name: "Gelfand 変換の一様ノルムとスペクトル半径" }
+canonical_examples:
+  - "C(K) の点評価 f↦f(x)"
+  - "C^n の座標 character"
+  - "C([0,1]) の極大イデアル M_x={f:f(x)=0}"
+  - "双対数型 Banach 環 C[ε]/(ε^2) で Gelfand 変換が冪零元を消す例"
+problem_patterns:
+  - OA2-CHARACTER-SPECTRUM-1
+  - OA2-MAXIMAL-IDEAL-1
+  - OA2-GELFAND-MAZUR-1
+  - OA2-CHARACTER-SPACE-COMPACT-1
+  - OA2-GELFAND-TRANSFORM-1
+  - OA2-SPECTRUM-CHARACTER-1
+  - OA2-QUOTIENT-CHARACTER-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10.0, exercises: 8.0, review: 2.0 }
