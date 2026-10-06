@@ -1,0 +1,17 @@
+chapter: "QM7"
+terms:
+  - term: 強連続1パラメータユニタリ群
+    english: strongly continuous one-parameter unitary group
+    meaning: 実数 t ごとにユニタリ作用素 U(t) を対応させ、U(t+s)=U(t)U(s)、U(0)=I を満たし、各 x について t↦U(t)x がノルム連続になる作用素族。
+  - term: 無限小生成作用素
+    english: infinitesimal generator
+    meaning: 強連続作用素群 U(t) に対し、t=0 の強微分 A x=lim_{t→0}(U(t)x-x)/t が存在する x を定義域として作る一般に非有界な作用素。
+  - term: Stone の定理
+    english: Stone's theorem
+    meaning: 複素 Hilbert 空間上の強連続1パラメータユニタリ群と自己共役作用素が U(t)=exp(-itH) により一対一に対応することを述べる定理。
+  - term: Schrödinger 発展
+    english: Schrodinger evolution
+    meaning: 時間に依存しない自己共役 Hamiltonian H に対し U(t)=exp(-itH/ħ) で与えられる量子状態のユニタリ時間発展。
+  - term: 強解
+    english: strong solution
+    meaning: ψ(t) が H の定義域に属し、Hilbert 空間のノルムで微分可能で iħ ψ'(t)=Hψ(t) を満たす解。

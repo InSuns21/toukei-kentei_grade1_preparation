@@ -1,0 +1,43 @@
+id: "QM7"
+title: "Stone の定理と Schrödinger 発展"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - QM6
+official_scope: []
+learning_objectives:
+  - 強連続1パラメータユニタリ群を定義し、群性・ユニタリ性・強連続性をそれぞれ確認できる
+  - 自己共役作用素 H に対し U(t)=exp(-itH/ħ) を Borel 関数計算で構成し、強連続1パラメータユニタリ群になることを証明できる
+  - U(t)=exp(-itH/ħ) の強微分可能な初期値がちょうど D(H) であり、dU(t)x/dt=-(i/ħ)HU(t)x を導ける
+  - 強連続1パラメータユニタリ群の生成作用素を定義し、その定義域の稠密性と歪対称性を証明できる
+  - Laplace 型積分から生成作用素の値域条件を導き、QM6 の自己共役性判定を用いて Stone の定理の逆向きを証明できる
+  - Schrödinger 方程式の強解を unitary group と結び、初期値が D(H) に属する場合の存在・一意性を示せる
+  - ユニタリ時間発展からノルム保存と Hamiltonian のスペクトル分布保存を説明できる
+  - 二準位系・対角 Hamiltonian・自由粒子 Hamiltonian で時間発展を具体計算できる
+definitions:
+  - { id: QM7-DEF-01, name: "強連続1パラメータユニタリ群" }
+  - { id: QM7-DEF-02, name: "無限小生成作用素" }
+  - { id: QM7-DEF-03, name: "Schrödinger 方程式の強解" }
+theorems:
+  - { id: QM7-PROP-01, name: "自己共役作用素から得られるユニタリ群" }
+  - { id: QM7-THM-01, name: "スペクトル表示による生成作用素の定義域特徴付け" }
+  - { id: QM7-PROP-02, name: "強連続ユニタリ群の生成作用素の稠密性と歪対称性" }
+  - { id: QM7-PROP-03, name: "生成作用素の Laplace レゾルベント" }
+  - { id: QM7-THM-02, name: "Stone の定理" }
+  - { id: QM7-THM-03, name: "Schrödinger 発展の存在・一意性" }
+  - { id: QM7-PROP-04, name: "ノルムとエネルギー分布の保存" }
+canonical_examples:
+  - "C^2 上の対角 Hamiltonian と相対位相"
+  - "ell2 上の対角 Hamiltonian H e_n=E_n e_n"
+  - "L2(R) 上の自由粒子 Hamiltonian H0=P^2/(2m)"
+problem_patterns:
+  - QM7-UNITARY-GROUP-1
+  - QM7-GENERATOR-DOMAIN-1
+  - QM7-STONE-CONVERSE-1
+  - QM7-SCHRODINGER-EVOLUTION-1
+  - QM7-CONSERVATION-1
+  - QM7-FREE-PARTICLE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10.0, exercises: 8.0, review: 2.0 }
