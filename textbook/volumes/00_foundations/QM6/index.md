@@ -1186,28 +1186,28 @@ $$
 
 まず有界 Borel 関数
 
-$
+$$
 r(\lambda)=\frac1{\lambda+i}
-$
+$$
 
 を $G$ で積分し、
 
-$
+$$
 S=\int r(\lambda)\,dG(\lambda)
-$
+$$
 
 と置きます。
 
-$
+$$
 \frac{\lambda^2}{|\lambda+i|^2}
 =
 \frac{\lambda^2}{\lambda^2+1}
 \le1
-$
+$$
 
 なので $Sx\in D(A)$ です。さらに
 
-$
+$$
 \begin{aligned}
 (A+iI)Sx
 &=
@@ -1217,27 +1217,27 @@ $
 &=
 x.
 \end{aligned}
-$
+$$
 
 従って
 
-$
+$$
 S=(A+iI)^{-1}.
-$
+$$
 
 そこで
 
-$
+$$
 \widetilde U
 =
 \int
 \frac{\lambda-i}{\lambda+i}
 \,dG(\lambda)
-$
+$$
 
 と置くと、
 
-$
+$$
 \begin{aligned}
 \widetilde U
 &=
@@ -1247,7 +1247,7 @@ $
 &=
 U.
 \end{aligned}
-$
+$$
 
 従って $G$ を $c$ で単位円へ押し出した PVM は $U$ のスペクトル PVM です。[ユニタリ作用素のスペクトル定理](#thm-qm6-unitary-spectral)の一意性から、その押し出しは $F$ と一致します。
 
@@ -2331,9 +2331,9 @@ $$
 
 したがって負の実数に対するスペクトル射影は0であり、
 
-$
+$$
 \sigma(H_0)\subset[0,\infty)
-$
+$$
 
 です。
 <!-- solution-end -->
