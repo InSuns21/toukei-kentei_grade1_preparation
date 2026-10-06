@@ -22,7 +22,7 @@ concepts:
   - id: operator-algebra.singular-value-best-approximation
     name: 特異値と最良有限ランク近似
     kind: lemma
-    aliases: ["singular values and best finite-rank approximation"]
+    aliases: ["singular values and best finite-rank approximation", "最良有限ランク近似補題"]
     introduction_aliases: ["補題（特異値と最良有限ランク近似）"]
     requires:
       - operator-algebra.compact-operator-singular-values
@@ -81,17 +81,17 @@ concepts:
   - id: operator-algebra.trace-rank-one-formula
     name: トレースの連続拡張と rank-one 公式
     kind: proposition
-    aliases: ["rank-one trace formula"]
+    aliases: ["rank-one trace formula", "rank-one 作用素のトレース公式"]
     introduction_aliases: ["命題（トレースの連続拡張と rank-one 公式）"]
     requires:
       - operator-algebra.trace-functional
       - functional.hilbert-space
 
   - id: operator-algebra.trace-class-duality
-    name: B(H) と trace class の等長双対性
+    name: 有界作用素環とトレース級の等長双対性
     kind: theorem
     aliases: ["B(H) trace-class duality", "trace duality"]
-    introduction_aliases: ["定理（B(H) と trace class の等長双対性）"]
+    introduction_aliases: ["定理（有界作用素環とトレース級の等長双対性）"]
     requires:
       - operator-algebra.trace-rank-one-formula
       - operator-algebra.trace-class-banach-ideal
@@ -127,6 +127,15 @@ concepts:
       - operator-algebra.weak-operator-topology
       - operator-algebra.trace-class-banach-ideal
 
+  - id: functional.quotient-dual-annihilator-vn4
+    name: 商空間の双対と annihilator
+    kind: lemma
+    aliases: ["quotient dual and annihilator", "商空間の双対公式"]
+    introduction_aliases: ["補題（商空間の双対と annihilator）"]
+    requires:
+      - functional.quotient-banach-space
+      - functional.dual-space
+
   - id: operator-algebra.von-neumann-predual
     name: 具体的 von Neumann 環の predual
     kind: theorem
@@ -136,5 +145,6 @@ concepts:
       - operator-algebra.von-neumann-algebra
       - operator-algebra.trace-class-duality
       - operator-algebra.ultraweak-topology
+      - functional.quotient-dual-annihilator-vn4
       - functional.dual-space
       - functional.quotient-banach-space
