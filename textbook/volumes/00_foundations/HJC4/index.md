@@ -127,11 +127,11 @@ $$
 
 controls は Lebesgue 可測な $U$ 値・$V$ 値関数とします。HJC1 の区分的連続 control より少し広いクラスですが、$f$ は control 変数について連続で、状態変数について一様 Lipschitz なので、固定した $(u,v)$ に対する積分方程式
 
-$
+$$
 X(s)
 =
-x+int_t^s f(X(r),u(r),v(r)),dr
-$
+x+\int_t^s f(X(r),u(r),v(r))\,dr
+$$
 
 は一意な絶対連続解を持ちます。以後使う Grönwall 評価も HJC1 と同じです。
 
@@ -151,7 +151,7 @@ $$
 
 一方 strategy は、**相手がどの control を選んだかに応じて、自分の control を返す規則**です。
 
-ただし未来を先読みしてはいけません。
+ただし未来を先読みしてはいけません。以下、ほとんど至る所（almost everywhere; a.e.）での一致を用います。
 
 <a id="def-hjc4-nonanticipative-strategy"></a>
 <!-- formal-statement-start -->
@@ -744,27 +744,27 @@ $$
 
 逆に、コンパクト性と連続性から各 $b$ に対し
 
-$
+$$
 Q(a_\varepsilon(b),b)
 \le
 \inf_aQ(a,b)+\varepsilon
-$
+$$
 
 となる近似 minimizer を選べます。
 
 ここで選択の可測性を曖昧にしないため、$U$ の有限 net
 
-$
+$$
 \{a_1,\dots,a_N\}
-$
+$$
 
-を十分細かく取り、各 $b$ で「最初に $arepsilon$-近似最小を達成する番号」を選びます。有限個の連続関数 $Q(a_i,b)$ の大小で領域を分けるので、こうして得る $a_\varepsilon(b)$ は Borel 可測に取れます。
+を十分細かく取り、各 $b$ で「最初に $\varepsilon$-近似最小を達成する番号」を選びます。有限個の連続関数 $Q(a_i,b)$ の大小で領域を分けるので、こうして得る $a_\varepsilon(b)$ は Borel 可測に取れます。
 
-$
+$$
 \alpha_\varepsilon[v](s)
 =
 a_\varepsilon(v(s))
-$
+$$
 
 とすれば admissible かつ nonanticipative で、
 
@@ -1527,6 +1527,8 @@ $$
 
 ### A1 nonanticipative か判定せよ
 
+- Level: A
+
 次の二つの写像を判定せよ。
 
 1.
@@ -1591,6 +1593,8 @@ $$
 
 ### A2 lower / upper Hamiltonian を計算せよ
 
+- Level: A
+
 $$
 U=V=\{-1,1\},
 \qquad
@@ -1649,7 +1653,9 @@ $$
 よって Isaacs condition は失敗する。
 <!-- solution-end -->
 
-### A3 minimax の弱不等式
+### A3 二つの最適化順序を比較せよ
+
+- Level: A
 
 任意の実数値関数 $Q(a,b)$ について
 
@@ -1712,6 +1718,8 @@ $$
 <!-- solution-end -->
 
 ### A4 pursuit--evasion の Hamiltonian
+
+- Level: A
 
 $$
 Q(u,v)=p(u-v),
@@ -1779,6 +1787,8 @@ Isaacs condition が成立する。
 
 ### A5 backward form の符号
 
+- Level: A
+
 $$
 V_t+H(x,\nabla V)=0
 $$
@@ -1828,6 +1838,8 @@ $$
 ## Level B
 
 ### B1 lower stage game の consistency
+
+- Level: B
 
 連続関数 $Q:U\times V\to\mathbb R$ とコンパクト集合 $U,V$ を考える。
 
@@ -1901,25 +1913,25 @@ $$
 
 逆向きを示す。
 
-任意の $\varepsilon>0$ を取る。各 $b$ について
+任意の $\varepsilon>0$ を取る。$U$ の有限 net を十分細かく取り、各 $b$ についてその有限集合の中から
 
-$$
+$
 Q(a_\varepsilon(b),b)
 \le
 \inf_aQ(a,b)+\varepsilon
-$$
+$
 
-となる $a_\varepsilon(b)$ を選ぶ。
+を満たす最初の点を選ぶ。有限個の連続関数の大小で選択領域が決まるため、$b\mapsto a_\varepsilon(b)$ は Borel 可測に取れる。
 
 strategy を
 
-$$
+$
 \alpha_\varepsilon[v](s)
 =
 a_\varepsilon(v(s))
-$$
+$
 
-と定める。これは時刻 $s$ の $v(s)$ だけを使うので nonanticipative である。
+と定める。$v$ は可測なので $\alpha_\varepsilon[v]$ も可測であり、時刻 $s$ の $v(s)$ だけを使うので nonanticipative である。
 
 すると
 
@@ -1945,6 +1957,8 @@ $\varepsilon\downarrow0$ とすれば逆向きも得る。よって equality が
 <!-- solution-end -->
 
 ### B2 DPP の貼り合わせで有限 net を使う理由
+
+- Level: B
 
 時刻 $t+h$ の到達状態ごとに continuation strategy を選びたいとする。
 
@@ -2011,6 +2025,8 @@ $$
 <!-- solution-end -->
 
 ### B3 value function の空間 Lipschitz 性
+
+- Level: B
 
 standing assumptions の下で
 
@@ -2101,6 +2117,8 @@ $$
 
 ### B4 加法分離された stage cost と Isaacs condition
 
+- Level: B
+
 $$
 Q(a,b)=c+r(a)+s(b)
 $$
@@ -2160,6 +2178,8 @@ $$
 ## Level C
 
 ### C1 Isaacs condition が失敗する有限時間ゲーム
+
+- Level: C
 
 状態は動かず、
 
