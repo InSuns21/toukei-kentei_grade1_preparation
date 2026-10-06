@@ -1116,7 +1116,7 @@ $$
 
 では、この二本を一つの game value へ戻すには何を要求すればよいでしょうか。
 
-HJC4 では一階の局所 game について $\sup\inf$ と $\inf\sup$ の一致を要求しました。確率微分ゲームでは diffusion が Hessian に作用するため、勾配 $p$ だけでなく二階変数 $M$ まで含めて二つの局所 operator が一致することを要求します。これが stochastic Isaacs condition です。
+HJC4 では一階の局所 game について $\sup\inf$ と $\inf\sup$ の一致を要求しました。確率微分ゲームでは diffusion が Hessian に作用するため、勾配 $p$ だけでなく二階変数 $M$ まで含めて二つの局所 operator が一致することを要求します。この一致条件を次で定義します。
 
 <a id="def-hjc6-stochastic-isaacs-condition"></a>
 
