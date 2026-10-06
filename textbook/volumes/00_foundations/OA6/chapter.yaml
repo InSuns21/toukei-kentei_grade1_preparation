@@ -24,7 +24,7 @@ definitions:
   - { id: OA6-DEF-02, name: "有界 Borel 関数計算" }
 theorems:
   - { id: OA6-THM-01, name: "状態から得られるスペクトル確率測度" }
-  - { id: OA6-THM-02, name: "可換 C(K) 表現の射影値測度表示" }
+  - { id: OA6-THM-02, name: "可換関数環表現の射影値測度表示" }
   - { id: OA6-THM-03, name: "有界正規作用素のスペクトル定理" }
   - { id: OA6-PROP-01, name: "PVM による座標関数の積分は正規作用素である" }
   - { id: OA6-PROP-02, name: "自己共役の場合の PVM の一致" }
