@@ -49,7 +49,7 @@ concepts:
   - id: operator-algebra.maximal-ideal
     name: 極大イデアル
     kind: definition
-    aliases: ["maximal ideal"]
+    aliases: []
     introduction: formal
     introduction_aliases: ["定義（イデアル・極大イデアル）"]
     requires:
@@ -67,7 +67,7 @@ concepts:
   - id: operator-algebra.maximal-ideal-extension
     name: 真のイデアルの極大イデアルへの延長
     kind: lemma
-    aliases: ["maximal ideal extension lemma"]
+    aliases: ["maximal ideal extension lemma", "極大イデアルへの延長補題", "真のイデアルは極大イデアルへ延長できる補題"]
     introduction_aliases: ["補題（真のイデアルは極大イデアルへ延長できる）"]
     requires:
       - operator-algebra.maximal-ideal
@@ -166,7 +166,7 @@ concepts:
       - operator-algebra.gelfand-transform
 
   - id: operator-algebra.gelfand-transform-spectral-radius
-    name: Gelfand 変換の一様ノルムとスペクトル半径
+    name: Gelfand 変換とスペクトル半径の一致
     kind: corollary
     aliases: ["spectral radius norm of the Gelfand transform"]
     introduction_aliases: ["系（Gelfand 変換の一様ノルムはスペクトル半径）"]
