@@ -11,7 +11,7 @@ chapters:
     title: 実験事実から Hilbert 空間形式へ
   - id: QM2
     path: textbook/volumes/00_foundations/QM2
-    status: planned
+    status: completed
     title: 状態・観測量・Born 則
   - id: QM3
     path: textbook/volumes/00_foundations/QM3
