@@ -1,0 +1,76 @@
+chapter: HJC1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PDE12
+  - ODE8
+
+forward_references: []
+
+concepts:
+  - id: control.admissible-control-trajectory
+    name: 許容制御と制御軌道
+    kind: definition
+    aliases: ["admissible control and controlled trajectory"]
+    introduction: formal
+    introduction_aliases: ["定義（許容制御と制御軌道）"]
+    requires:
+      - ode.ode1-picard-lindelof
+
+  - id: control.cost-value-function
+    name: cost functional と value function
+    kind: definition
+    aliases: ["cost functional and value function", "value function of deterministic optimal control"]
+    introduction: formal
+    introduction_aliases: ["定義（cost functional と value function）"]
+    requires:
+      - control.admissible-control-trajectory
+
+  - id: control.dynamic-programming-principle
+    name: dynamic programming principle
+    kind: theorem
+    aliases: ["動的計画原理", "Bellman principle of optimality"]
+    introduction: formal
+    introduction_aliases: ["定理（dynamic programming principle）"]
+    requires:
+      - control.cost-value-function
+
+  - id: control.optimal-control-hamiltonian
+    name: 最適制御 Hamiltonian
+    kind: definition
+    aliases: ["optimal-control Hamiltonian"]
+    introduction: formal
+    introduction_aliases: ["定義（最適制御 Hamiltonian）"]
+    requires:
+      - control.cost-value-function
+      - pde.pde12-hamilton-jacobi
+
+  - id: control.hjb-equation
+    name: Hamilton--Jacobi--Bellman 方程式
+    kind: definition
+    aliases: ["HJB equation", "Hamilton--Jacobi--Bellman equation"]
+    introduction: formal
+    introduction_aliases: ["定義（Hamilton--Jacobi--Bellman 方程式）"]
+    requires:
+      - control.optimal-control-hamiltonian
+      - pde.pde12-hamilton-jacobi
+
+  - id: control.smooth-value-hjb
+    name: 滑らかな value function に対する HJB の導出
+    kind: proposition
+    aliases: ["classical HJB derivation from DPP"]
+    introduction: formal
+    introduction_aliases: ["命題（滑らかな value function に対する HJB の導出）"]
+    requires:
+      - control.dynamic-programming-principle
+      - control.hjb-equation
+
+  - id: control.smooth-verification-theorem
+    name: smooth verification theorem
+    kind: theorem
+    aliases: ["verification theorem for deterministic optimal control"]
+    introduction: formal
+    introduction_aliases: ["定理（smooth verification theorem）"]
+    requires:
+      - control.hjb-equation
+      - control.cost-value-function
