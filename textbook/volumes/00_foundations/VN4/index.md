@@ -30,15 +30,15 @@ $$
 
 さらに、その作用素全体の Banach 空間を $X$ と書いたとき、
 
-$
+$$
 B(H)\cong X^*
-$
+$$
 
 という双対関係が成立することを示します。すると $B(H)$ には $X$ を使って定まる自然な弱*位相が入ります。
 
 本章では Schatten 級全般へは広げません。極分解とコンパクト自己共役スペクトル定理から特異値を作り、
 
-$
+$$
 \text{特異値の可算和}
 \longrightarrow
 \text{作用素トレース}
@@ -46,7 +46,7 @@ $
 \text{双対空間表示}
 \longrightarrow
 \text{自然な弱*位相}
-$
+$$
 
 という順に必要な道具を一つずつ定義します。
 
@@ -341,7 +341,7 @@ $$
 
 右から掛ける場合も最良有限ランク近似を直接使えます。rank $R\le n-1$ なら rank $RA\le n-1$ なので
 
-$
+$$
 \begin{aligned}
 s_n(TA)
 &=
@@ -351,15 +351,15 @@ s_n(TA)
 &\le
 \|T-R\|\,\|A\|.
 \end{aligned}
-$
+$$
 
 $R$ について下限を取れば
 
-$
+$$
 \boxed{
 s_n(TA)\le\|A\|s_n(T).
 }
-$
+$$
 
 したがって左右どちらから有界作用素を掛けても、特異値は作用素ノルム倍より大きくはなりません。
 
@@ -480,9 +480,9 @@ $$
 
 predual として使うには、まず
 
-$
+$$
 \|T\|_1=\sum_{n=1}^{\infty}s_n(T)
-$
+$$
 
 が本当にノルムになることを確認する必要があります。特に三角不等式は、特異値を一つずつ見ただけでは出ません。
 
@@ -495,7 +495,7 @@ $
 
 $T\in B(H)$ をコンパクト作用素とし、$N\ge1$ とする。このとき
 
-$
+$$
 \boxed{
 \sum_{k=1}^{N}s_k(T)
 =
@@ -509,7 +509,7 @@ $
 \text{ は正規直交系}
 \right\}.
 }
-$
+$$
 
 有限次元で $N>\dim H$ の場合は $N\le\dim H$ の範囲で読む。
 <!-- formal-statement-end -->
@@ -518,13 +518,13 @@ $
 
 極分解 $T=U|T|$ と $|T|$ の固有ベクトルを使うと、
 
-$
+$$
 Tx
 =
 \sum_k s_k(T)\langle x,e_k\rangle f_k,
 \qquad
 f_k=Ue_k
-$
+$$
 
 と書けます。
 
@@ -535,48 +535,48 @@ $
 
 $|T|$ の非零固有値に対応する正規直交固有ベクトルを $e_k$ とし、
 
-$
+$$
 |T|e_k=s_k(T)e_k
-$
+$$
 
 とします。
 
 極分解 $T=U|T|$ に対し
 
-$
+$$
 f_k=Ue_k
-$
+$$
 
 と置くと、$(f_k)$ も正規直交系です。従って
 
-$
+$$
 Tx
 =
 \sum_k s_k(T)\langle x,e_k\rangle f_k.
-$
+$$
 
 任意の正規直交系
 
-$
+$$
 x_1,\ldots,x_N,
 \qquad
 y_1,\ldots,y_N
-$
+$$
 
 を取ります。このとき
 
-$
+$$
 \sum_{j=1}^{N}\langle Tx_j,y_j\rangle
 =
 \sum_k s_k(T)
 \sum_{j=1}^{N}
 \langle x_j,e_k\rangle
 \langle f_k,y_j\rangle.
-$
+$$
 
 各 $k$ について
 
-$
+$$
 a_k^2
 =
 \sum_{j=1}^{N}
@@ -586,38 +586,38 @@ b_k^2
 =
 \sum_{j=1}^{N}
 |\langle f_k,y_j\rangle|^2
-$
+$$
 
 と置きます。
 
 Bessel の不等式から
 
-$
+$$
 0\le a_k\le1,
 \qquad
 0\le b_k\le1.
-$
+$$
 
 また和の順序を入れ替えると
 
-$
+$$
 \sum_k a_k^2
 =
 \sum_{j=1}^{N}
 \sum_k|\langle x_j,e_k\rangle|^2
 \le
 N
-$
+$$
 
 であり、同様に
 
-$
+$$
 \sum_k b_k^2\le N.
-$
+$$
 
 有限和に Cauchy--Schwarz の不等式を使うと
 
-$
+$$
 \left|
 \sum_{j=1}^{N}
 \langle x_j,e_k\rangle
@@ -625,61 +625,61 @@ $
 \right|
 \le
 a_kb_k.
-$
+$$
 
 さらに
 
-$
+$$
 a_kb_k
 \le
 \frac{a_k^2+b_k^2}{2}.
-$
+$$
 
 そこで
 
-$
+$$
 c_k=\frac{a_k^2+b_k^2}{2}
-$
+$$
 
 と置くと
 
-$
+$$
 0\le c_k\le1,
 \qquad
 \sum_k c_k\le N.
-$
+$$
 
 特異値は大きい順に並んでいるので、この条件を満たす重みについて
 
-$
+$$
 \sum_k s_k(T)c_k
 \le
 \sum_{k=1}^{N}s_k(T)
-$
+$$
 
 です。
 
 実際、$s_N(T)$ を境に分ければ
 
-$
+$$
 \sum_k s_k(T)c_k
 \le
 \sum_{k=1}^{N}s_k(T)c_k
 +
 s_N(T)\sum_{k>N}c_k.
-$
+$$
 
 しかも
 
-$
+$$
 \sum_{k>N}c_k
 \le
 N-\sum_{k=1}^{N}c_k
-$
+$$
 
 だから
 
-$
+$$
 \begin{aligned}
 \sum_k s_k(T)c_k
 &\le
@@ -699,48 +699,48 @@ s_N(T)
 &\le
 \sum_{k=1}^{N}s_k(T).
 \end{aligned}
-$
+$$
 
 従って
 
-$
+$$
 \left|
 \sum_{j=1}^{N}\langle Tx_j,y_j\rangle
 \right|
 \le
 \sum_{k=1}^{N}s_k(T).
-$
+$$
 
 逆に $x_j=e_j$、$y_j=f_j$ と取れば
 
-$
+$$
 \langle Te_j,f_j\rangle
 =
 s_j(T)
-$
+$$
 
 なので
 
-$
+$$
 \sum_{j=1}^{N}\langle Te_j,f_j\rangle
 =
 \sum_{j=1}^{N}s_j(T).
-$
+$$
 
 rank が $N$ 未満なら、残りの特異値を0とみなし、正規直交系を補えば同じ結論です。
 
 したがって主張の上限はちょうど
 
-$
+$$
 \sum_{k=1}^{N}s_k(T)
-$
+$$
 
 です。
 <!-- proof-end -->
 
 この補題を $S+T$ に適用します。任意の正規直交系に対して
 
-$
+$$
 \left|
 \sum_{j=1}^{N}\langle(S+T)x_j,y_j\rangle
 \right|
@@ -752,33 +752,33 @@ $
 \left|
 \sum_{j=1}^{N}\langle Tx_j,y_j\rangle
 \right|.
-$
+$$
 
 従って変分公式から
 
-$
+$$
 \sum_{k=1}^{N}s_k(S+T)
 \le
 \sum_{k=1}^{N}s_k(S)
 +
 \sum_{k=1}^{N}s_k(T).
-$
+$$
 
 $S,T\in S_1(H)$ なら $N\to\infty$ として
 
-$
+$$
 \boxed{
 \|S+T\|_1
 \le
 \|S\|_1+\|T\|_1.
 }
-$
+$$
 
 また
 
-$
+$$
 \|\lambda T\|_1=|\lambda|\,\|T\|_1
-$
+$$
 
 は特異値の定義から直ちに従います。さらに $\|T\|_1=0$ なら $s_1(T)=0$ であり、コンパクト作用素のスペクトル定理から $\|T\|=s_1(T)=0$、従って $T=0$ です。
 
@@ -918,27 +918,27 @@ $$
 
 特異値の最良近似表示から、任意の rank $R\le n-1$ に対して
 
-$
+$$
 \|T_m-R\|
 \le
 \|T_m-T\|+\|T-R\|.
-$
+$$
 
 $R$ について下限を取ると
 
-$
+$$
 s_n(T_m)
 \le
 \|T_m-T\|+s_n(T).
-$
+$$
 
 $T_m$ と $T$ を入れ替えれば逆向きも得られるので
 
-$
+$$
 |s_n(T_m)-s_n(T)|
 \le
 \|T_m-T\|.
-$
+$$
 
 したがって固定した $n$ ごとに
 
@@ -1060,21 +1060,21 @@ $$
 
 $H=\mathbb C^2$ で
 
-$
+$$
 T=
 \begin{pmatrix}
 2&1\\
 0&-1
 \end{pmatrix}
-$
+$$
 
 とします。有限次元では $T$ 自身が有限ランクなので、上の連続拡張は通常の行列 trace と一致します。したがって
 
-$
+$$
 \boxed{
 \operatorname{Tr}(T)=2+(-1)=1.
 }
-$
+$$
 
 無限次元で導入した $\operatorname{Tr}$ は、有限次元の trace を別物に置き換えるのではなく、その定義域を trace class まで広げたものです。
 
@@ -1239,23 +1239,23 @@ $$
 
 まず rank-one 作用素 $\theta_{x,y}$ について
 
-$
+$$
 A\theta_{x,y}
 =
 \theta_{Ax,y},
-$
+$$
 
 一方
 
-$
+$$
 \theta_{x,y}A
 =
 \theta_{x,A^*y}.
-$
+$$
 
 従って rank-one 作用素のトレース公式から
 
-$
+$$
 \begin{aligned}
 \operatorname{Tr}(A\theta_{x,y})
 &=
@@ -1266,13 +1266,13 @@ $
 =
 \langle Ax,y\rangle.
 \end{aligned}
-$
+$$
 
 有限ランク作用素は rank-one 作用素の有限和なので、任意の有限ランク $F$ に対して
 
-$
+$$
 \operatorname{Tr}(AF)=\operatorname{Tr}(FA).
-$
+$$
 
 一般の $T\in S_1(H)$ に対し、有限ランク $F_n$ を
 
@@ -1490,7 +1490,7 @@ $$
 
 さらに $b_f$ は第1変数について線形なので、$\alpha,\beta\in\mathbb C$ と $x_1,x_2,y\in H$ に対して
 
-$
+$$
 \begin{aligned}
 \langle A(\alpha x_1+\beta x_2),y\rangle
 &=
@@ -1500,31 +1500,31 @@ b_f(\alpha x_1+\beta x_2,y)\\
 &=
 \langle \alpha Ax_1+\beta Ax_2,y\rangle.
 \end{aligned}
-$
+$$
 
 これは全ての $y$ について成り立つので
 
-$
+$$
 A(\alpha x_1+\beta x_2)
 =
 \alpha Ax_1+\beta Ax_2.
-$
+$$
 
 従って $A$ は線形です。
 
 さらに
 
-$
+$$
 |\langle Ax,y\rangle|
 \le
 \|f\|\,\|x\|\,\|y\|
-$
+$$
 
 なので
 
-$
+$$
 \|Ax\|\le\|f\|\,\|x\|.
-$
+$$
 
 したがって $A$ は有界線形作用素で
 
@@ -2062,27 +2062,27 @@ $$
 
 $X$ を Banach 空間、$Y\subset X$ を閉部分空間とし、
 
-$
+$$
 Y^\perp
 =
 \{f\in X^*:f(y)=0\ \forall y\in Y\}
-$
+$$
 
 とする。
 
 標準商写像 $q:X\to X/Y$ に対して
 
-$
+$$
 \boxed{
 (X/Y)^*\cong Y^\perp
 }
-$
+$$
 
 が等長同型として成り立つ。同型は
 
-$
+$$
 g\longmapsto g\circ q
-$
+$$
 
 で与えられる。
 <!-- formal-statement-end -->
@@ -2092,102 +2092,102 @@ $
 
 $g\in(X/Y)^*$ に対し
 
-$
+$$
 \widetilde g=g\circ q
-$
+$$
 
 と置きます。$q(y)=0$ が $y\in Y$ について成り立つので
 
-$
+$$
 \widetilde g(y)=0.
-$
+$$
 
 従って
 
-$
+$$
 \widetilde g\in Y^\perp.
-$
+$$
 
 また商ノルムの定義から
 
-$
+$$
 \|q(x)\|
 =
 \inf_{y\in Y}\|x+y\|
 \le
 \|x\|
-$
+$$
 
 なので
 
-$
+$$
 |\widetilde g(x)|
 =
 |g(q(x))|
 \le
 \|g\|\,\|x\|.
-$
+$$
 
 従って
 
-$
+$$
 \|\widetilde g\|\le\|g\|.
-$
+$$
 
 逆向きに、任意の $z=q(x)\in X/Y$ と $\varepsilon>0$ に対し、商ノルムの定義から $y\in Y$ を
 
-$
+$$
 \|x+y\|
 <
 \|z\|+\varepsilon
-$
+$$
 
 となるように取れます。
 
 $q(x+y)=q(x)=z$ だから
 
-$
+$$
 |g(z)|
 =
 |\widetilde g(x+y)|
 \le
 \|\widetilde g\|
 (\|z\|+\varepsilon).
-$
+$$
 
 $\varepsilon\downarrow0$ とすれば
 
-$
+$$
 \|g\|\le\|\widetilde g\|.
-$
+$$
 
 よって
 
-$
+$$
 \boxed{\|g\|=\|\widetilde g\|}.
-$
+$$
 
 次に $f\in Y^\perp$ を取ります。
 
-$
+$$
 g_f(q(x))=f(x)
-$
+$$
 
 と定めます。もし $q(x_1)=q(x_2)$ なら $x_1-x_2\in Y$ なので
 
-$
+$$
 f(x_1)-f(x_2)
 =
 f(x_1-x_2)
 =
 0.
-$
+$$
 
 従って $g_f$ は well-defined です。
 
 さらに任意の $y\in Y$ について $f(x)=f(x+y)$ だから
 
-$
+$$
 |g_f(q(x))|
 =
 |f(x)|
@@ -2195,21 +2195,21 @@ $
 |f(x+y)|
 \le
 \|f\|\,\|x+y\|.
-$
+$$
 
 $y$ について下限を取ると
 
-$
+$$
 |g_f(q(x))|
 \le
 \|f\|\,\|q(x)\|.
-$
+$$
 
 従って $g_f\in(X/Y)^*$ であり、
 
-$
+$$
 f=g_f\circ q.
-$
+$$
 
 以上から $g\mapsto g\circ q$ は $(X/Y)^*$ と $Y^\perp$ の等長線形同型です。
 <!-- proof-end -->
@@ -2288,19 +2288,19 @@ von Neumann 環 $M$ は WOT 閉で、ultraweak 位相は WOT より強いので�
 
 [商空間の双対と annihilator](#lem-vn4-quotient-dual)を
 
-$
+$$
 X=S_1(H),
 \qquad
 Y=M_\perp
-$
+$$
 
 に適用すると
 
-$
+$$
 \left(S_1(H)/M_\perp\right)^*
 \cong
 (M_\perp)^\perp
-$
+$$
 
 を得ます。
 
@@ -2343,25 +2343,25 @@ $$
 
 従って $A$ を含み $M$ と交わらない ultraweak 基本近傍が存在します。すなわち、ある
 
-$
+$$
 T_1,\ldots,T_n\in S_1(H),
 \qquad
 \varepsilon>0
-$
+$$
 
 が存在して、
 
-$
+$$
 |\operatorname{Tr}((B-A)T_j)|<\varepsilon
 \qquad
 (j=1,\ldots,n)
-$
+$$
 
 を全て満たす $B$ は $M$ に属しません。
 
 線形写像
 
-$
+$$
 L:B(H)\to\mathbb C^n,
 \qquad
 L(B)
@@ -2370,63 +2370,63 @@ L(B)
 \operatorname{Tr}(BT_1),\ldots,
 \operatorname{Tr}(BT_n)
 \bigr)
-$
+$$
 
 を考えます。
 
 もし $L(A)\in L(M)$ なら、ある $B\in M$ が存在して
 
-$
+$$
 L(B)=L(A)
-$
+$$
 
 となります。このとき全ての $j$ について
 
-$
+$$
 \operatorname{Tr}((B-A)T_j)=0
-$
+$$
 
 となり、上の基本近傍に $B\in M$ が入ってしまいます。これは矛盾です。
 
 したがって
 
-$
+$$
 L(A)\notin L(M).
-$
+$$
 
 $L(M)$ は有限次元空間 $\mathbb C^n$ の線形部分空間なので、有限次元線形代数により、ある線形汎関数
 
-$
+$$
 \lambda:\mathbb C^n\to\mathbb C
-$
+$$
 
 が存在して
 
-$
+$$
 \lambda|_{L(M)}=0,
 \qquad
 \lambda(L(A))\ne0
-$
+$$
 
 となります。
 
-$
+$$
 \lambda(z_1,\ldots,z_n)
 =
 \sum_{j=1}^{n}c_jz_j
-$
+$$
 
 と書き、
 
-$
+$$
 T=\sum_{j=1}^{n}c_jT_j\in S_1(H)
-$
+$$
 
 と置きます。
 
 任意の $B\in M$ に対し
 
-$
+$$
 \operatorname{Tr}(BT)
 =
 \sum_{j=1}^{n}
@@ -2435,42 +2435,42 @@ c_j\operatorname{Tr}(BT_j)
 \lambda(L(B))
 =
 0.
-$
+$$
 
 従って
 
-$
+$$
 T\in M_\perp.
-$
+$$
 
 一方
 
-$
+$$
 \operatorname{Tr}(AT)
 =
 \lambda(L(A))
 \ne0.
-$
+$$
 
 よって
 
-$
+$$
 A\notin(M_\perp)^\perp.
-$
+$$
 
 対偶から
 
-$
+$$
 (M_\perp)^\perp\subset M.
-$
+$$
 
 したがって
 
-$
+$$
 \boxed{
 (M_\perp)^\perp=M.
 }
-$
+$$
 
 したがって
 
@@ -3832,7 +3832,7 @@ $$
 
 $b_f$ は第1変数について線形なので、全ての $y$ について
 
-$
+$$
 \begin{aligned}
 \langle A(\alpha x_1+\beta x_2),y\rangle
 &=
@@ -3842,37 +3842,37 @@ b_f(\alpha x_1+\beta x_2,y)\\
 &=
 \langle \alpha Ax_1+\beta Ax_2,y\rangle.
 \end{aligned}
-$
+$$
 
 従って
 
-$
+$$
 A(\alpha x_1+\beta x_2)
 =
 \alpha Ax_1+\beta Ax_2,
-$
+$$
 
 すなわち $A$ は線形です。
 
 しかも
 
-$
+$$
 |\langle Ax,y\rangle|
 \le
 \|f\|\,\|x\|\,\|y\|
-$
+$$
 
 なので
 
-$
+$$
 \|Ax\|\le\|f\|\,\|x\|.
-$
+$$
 
 したがって
 
-$
+$$
 A\in B(H).
-$
+$$
 
 rank-one 作用素について
 
