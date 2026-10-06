@@ -1,0 +1,71 @@
+chapter: QM4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QM3
+  - QM2
+  - LA5
+
+forward_references:
+  - quantum.unbounded-self-adjoint-operator
+  - operator-algebra.noncommutative-observable-algebra
+
+concepts:
+  - id: quantum.commutator
+    name: 交換子
+    kind: definition
+    aliases: ["commutator"]
+    introduction: formal
+    introduction_aliases: ["定義（交換子）"]
+    requires:
+      - functional.self-adjoint-bounded-operator
+
+  - id: quantum.commuting-observables
+    name: 可換する観測量
+    kind: definition
+    aliases: ["compatible commuting observables"]
+    introduction: formal
+    introduction_aliases: ["定義（可換する観測量）"]
+    requires:
+      - quantum.commutator
+      - functional.self-adjoint-bounded-operator
+
+  - id: quantum.finite-simultaneous-diagonalization
+    name: 有限次元の同時対角化定理
+    kind: theorem
+    aliases: ["simultaneous diagonalization of commuting self-adjoint operators"]
+    introduction_aliases: ["定理（有限次元の同時対角化）"]
+    requires:
+      - quantum.commuting-observables
+      - quantum.finite-dimensional-observable
+      - linear.complex-normal-spectral-theorem
+
+  - id: quantum.spectral-projection-compatibility
+    name: スペクトル射影による両立性
+    kind: proposition
+    aliases: ["commuting spectral projections", "spectral projection compatibility"]
+    introduction_aliases: ["命題（可換観測量のスペクトル射影）"]
+    requires:
+      - quantum.commuting-observables
+      - quantum.projection-valued-measure
+      - quantum.bounded-self-adjoint-spectral-theorem
+
+  - id: quantum.robertson-uncertainty
+    name: Robertson 型不確定性関係
+    kind: theorem
+    aliases: ["Robertson uncertainty relation"]
+    introduction_aliases: ["定理（Robertson 型不確定性関係）"]
+    requires:
+      - quantum.commutator
+      - quantum.observable-variance-operator-form
+      - quantum.normalized-pure-state-representative
+
+  - id: quantum.sequential-projective-measurement-order
+    name: 逐次射影測定の順序依存
+    kind: proposition
+    aliases: ["sequential projective measurement order dependence"]
+    introduction_aliases: ["命題（可換な射影測定では順序を入れ替えられる）"]
+    requires:
+      - quantum.finite-born-rule
+      - quantum.finite-spectral-projection-measurement
+      - quantum.commuting-observables
