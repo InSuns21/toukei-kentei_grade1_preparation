@@ -1,0 +1,26 @@
+chapter: "HJC1"
+terms:
+  - term: admissible control
+    english: admissible control
+    meaning: 制御値集合 U に値を取り、状態方程式を意味のある形で解けるように許した制御関数。本章では piecewise continuous な制御を基本とする。
+  - term: controlled trajectory
+    english: controlled trajectory
+    meaning: 許容制御 u を固定したとき、状態方程式 x'=f(x,u) を初期条件から解いて得られる状態の時間発展。
+  - term: running cost
+    english: running cost
+    meaning: 時間の進行中に蓄積する費用 L(x,u)。積分により総費用へ入る。
+  - term: terminal cost
+    english: terminal cost
+    meaning: 終端時刻 T の状態に対して課す費用 g(x(T))。
+  - term: value function
+    english: value function
+    meaning: 各開始時刻・開始状態から達成できる cost functional の infimum。最適制御問題を状態空間上の関数へ圧縮する。
+  - term: dynamic programming principle
+    english: dynamic programming principle
+    meaning: 最適化問題を短い最初の区間と、その後に残る同型の最適化問題へ分割する原理。
+  - term: optimal-control Hamiltonian
+    english: optimal-control Hamiltonian
+    meaning: minimization convention で H(x,p)=inf_a {L(x,a)+f(x,a)·p} と置く関数。HJB の非線形項をまとめる。
+  - term: verification theorem
+    english: verification theorem
+    meaning: HJB を滑らかに解く候補関数と Hamiltonian の minimizer が与えられたとき、それらが真の value function と最適制御であることを確認する定理。
