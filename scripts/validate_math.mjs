@@ -33,6 +33,9 @@ const forbidden = [
   [/\\(?:label|ref|eqref|tag|newcommand|renewcommand|def)\b/g, 'unsupported command'],
 ];
 
+const katexValidationCache = new Map();
+let katexRenderCount = 0;
+let katexCacheHits = 0;
 for (const file of delimiterFiles) {
   const source = fs.readFileSync(file, 'utf8');
   const searchable = stripCode(source);
@@ -52,12 +55,9 @@ for (const file of files) {
     if (match) errors.push(`${relative(file)}:${lineAt(searchable, match.index)} 禁止記法 ${label}`);
   }
   for (const item of extractMath(searchable, file)) {
-    try {
-      katex.renderToString(item.value, {
-        displayMode: item.display, throwOnError: true, strict: 'error', trust: false,
-      });
-    } catch (error) {
-      errors.push(`${relative(file)}:${lineAt(searchable, item.index)} KaTeX: ${error.message}`);
+    const errorMessage = validateKatex(item);
+    if (errorMessage !== null) {
+      errors.push(`${relative(file)}:${lineAt(searchable, item.index)} KaTeX: ${errorMessage}`);
     }
   }
 }
@@ -68,6 +68,31 @@ if (errors.length) {
   process.exit(1);
 }
 console.log(`${files.length} 個の textbook/shared Markdown ファイルを KaTeX strict で検証し、${delimiterFiles.length} 個の教材 Markdown で単独行 $ を検査しました。`);
+console.log(`KaTeX render cache: ${katexRenderCount} unique render(s), ${katexCacheHits} cache hit(s).`);
+
+function validateKatex(item) {
+  let modeCache = katexValidationCache.get(item.display);
+  if (!modeCache) {
+    modeCache = new Map();
+    katexValidationCache.set(item.display, modeCache);
+  }
+  if (modeCache.has(item.value)) {
+    katexCacheHits += 1;
+    return modeCache.get(item.value);
+  }
+
+  katexRenderCount += 1;
+  let errorMessage = null;
+  try {
+    katex.renderToString(item.value, {
+      displayMode: item.display, throwOnError: true, strict: 'error', trust: false,
+    });
+  } catch (error) {
+    errorMessage = error.message;
+  }
+  modeCache.set(item.value, errorMessage);
+  return errorMessage;
+}
 
 function extractMath(source, file) {
   const result = [];
