@@ -1,0 +1,44 @@
+id: "HJC1"
+title: "決定論的最適制御・動的計画原理・HJB の導出"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PDE12
+  - ODE8
+official_scope: []
+learning_objectives:
+  - 制御付き ODE、許容制御、制御軌道を定義し、通常の ODE 初期値問題との違いを説明できる
+  - running cost・terminal cost・cost functional・value function を区別し、最小化問題として定式化できる
+  - 制御の restriction と concatenation を使い、dynamic programming principle を epsilon 近似まで含めて証明できる
+  - DPP の短時間分割から時間微分・状態微分・局所最適化が現れる仕組みを追える
+  - 最小化規約の optimal-control Hamiltonian を定義し、HJB equation の符号を一貫して書ける
+  - 滑らかな value function と十分正則な最適制御の下で、DPP から classical HJB を導出できる
+  - smooth verification theorem を chain rule と HJB 不等式から証明し、候補 value function と最適制御を検証できる
+  - 一次元有限時間 LQR で quadratic ansatz から Riccati 型 ODE と最適 feedback を導出できる
+  - 速度制約付き bang-bang 例で value function を直接求め、HJB を滑らかな領域で確認できる
+  - value function が自然に非微分可能になりうることを確認し、次章の粘性解が必要になる動機を説明できる
+definitions:
+  - { id: HJC1-DEF-01, name: "許容制御と制御軌道" }
+  - { id: HJC1-DEF-02, name: "cost functional と value function" }
+  - { id: HJC1-DEF-03, name: "最適制御 Hamiltonian" }
+  - { id: HJC1-DEF-04, name: "Hamilton--Jacobi--Bellman 方程式" }
+theorems:
+  - { id: HJC1-THM-01, name: "dynamic programming principle" }
+  - { id: HJC1-PROP-01, name: "滑らかな value function に対する HJB の導出" }
+  - { id: HJC1-THM-02, name: "smooth verification theorem" }
+canonical_examples:
+  - "x'=u, |u|<=1, terminal cost |x(T)| の bang-bang 制御と非滑らかな value function"
+  - "x'=u, running cost u^2/2, terminal cost q x(T)^2/2 の有限時間 LQR"
+  - "短時間区間 [t,t+h] の切り出しから DPP と HJB を導く計算"
+problem_patterns:
+  - HJC1-CONTROLLED-TRAJECTORY-1
+  - HJC1-DPP-1
+  - HJC1-HAMILTONIAN-1
+  - HJC1-HJB-DERIVATION-1
+  - HJC1-VERIFICATION-1
+  - HJC1-LQR-1
+  - HJC1-BANG-BANG-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 6.5, review: 1.5 }

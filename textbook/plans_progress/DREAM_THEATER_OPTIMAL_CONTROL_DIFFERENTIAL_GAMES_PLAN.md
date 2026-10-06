@@ -1,7 +1,7 @@
 # DREAM THEATER 最適制御・HJB・微分ゲーム計画
 
 作成日: 2026-10-04  
-状態: planned
+状態: in_progress
 
 ## 0. 目的
 
@@ -83,7 +83,7 @@ TSA6 の Kalman filter、Girsanov、martingale representation は、実際に使
 
 ## 3. コース構成
 
-章 ID は仮。実装開始時に既存 ID と衝突しないことを確認する。
+章 ID は HJC1--HJC6 で確定済みであり、実装開始時に既存 ID と衝突しないことを確認した。
 
 ### HJC1 決定論的最適制御・動的計画原理・HJB の導出
 
@@ -365,7 +365,7 @@ HJC1--HJC4 は確率解析の完了を待たない。HJC5--HJC6 で初めて STO
 - DREAM_THEATER_UNDERGROUND_EMPIRE_PLAN.md: 最適執行は本計画の確率制御を使う応用。
 - DREAM_THEATER_STOCHASTIC_ANALYSIS_II_GEOMETRIC_PLAN.md: manifold-valued controlled diffusion が必要になった場合の発展先。
 - DREAM_THEATER_NONLINEAR_PDE_PLAN.md: 粘性解以外の entropy / monotone / nonlinear diffusion はそちらの正本。
-- DREAM_THEATER_FUNCTIONAL_ANALYSIS_OPERATOR_ALGEBRA_PLAN.md: 半群・抽象発展方程式はそちらの関数解析発展枝。
+- 完了済み DREAM_THEATER_EVOLUTION_EQUATIONS_SEMIGROUP_PLAN.md: 閉作用素・半群・抽象発展方程式・半線形発展方程式の正本。
 
 ---
 

@@ -288,6 +288,11 @@
 6. [NPDE6 半線形熱方程式・臨界性・有限時間 blow-up](textbook/volumes/00_foundations/NPDE6/index.md)
 7. [NPDE7 長時間漸近・普遍 profile・rescaled convergence](textbook/volumes/00_foundations/NPDE7/index.md)
 
+<a id="dt-subject-optimal-control-hjb"></a>
+### 最適制御・HJB・微分ゲーム
+
+1. [HJC1 決定論的最適制御・動的計画原理・HJB の導出](textbook/volumes/00_foundations/HJC1/index.md)
+
 <a id="dt-subject-navier-stokes"></a>
 ### Navier--Stokes 方程式への道
 

@@ -1,0 +1,31 @@
+version: 1
+id: HJC
+title: 最適制御・HJB・微分ゲーム
+plan: textbook/plans_progress/DREAM_THEATER_OPTIMAL_CONTROL_DIFFERENTIAL_GAMES_PLAN.md
+chapter_root: textbook/volumes/00_foundations
+
+chapters:
+  - id: HJC1
+    path: textbook/volumes/00_foundations/HJC1
+    status: completed
+    title: 決定論的最適制御・動的計画原理・HJB の導出
+  - id: HJC2
+    path: textbook/volumes/00_foundations/HJC2
+    status: planned
+    title: 粘性解・比較原理・一意性
+  - id: HJC3
+    path: textbook/volumes/00_foundations/HJC3
+    status: planned
+    title: HJB と value function の粘性解特徴付け
+  - id: HJC4
+    path: textbook/volumes/00_foundations/HJC4
+    status: planned
+    title: 決定論的微分ゲーム・Hamilton--Jacobi--Isaacs
+  - id: HJC5
+    path: textbook/volumes/00_foundations/HJC5
+    status: planned
+    title: 確率制御・二階 HJB
+  - id: HJC6
+    path: textbook/volumes/00_foundations/HJC6
+    status: planned
+    title: 確率微分ゲーム・二階 Isaacs 方程式
