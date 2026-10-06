@@ -280,6 +280,7 @@
 3. [OA3 C*-環の基本構造](textbook/volumes/00_foundations/OA3/index.md)
 4. [OA4 連続関数計算と可換 Gelfand--Naimark](textbook/volumes/00_foundations/OA4/index.md)
 5. [OA5 正汎関数・状態・GNS 構成](textbook/volumes/00_foundations/OA5/index.md)
+6. [OA6 正規作用素・関数計算とスペクトル定理の再解釈](textbook/volumes/00_foundations/OA6/index.md)
 
 <a id="dt-subject-evolution-equations"></a>
 ### 抽象発展方程式・半群論
