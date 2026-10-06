@@ -1,0 +1,51 @@
+id: "OA3"
+title: "C*-環の基本構造"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OA2
+  - RA8
+  - F0-02C3B
+official_scope: []
+learning_objectives:
+  - 複素 *-代数と単位的 C*-環を定義し、C(K)、M_n(C)、B(H) で積・随伴・C*-恒等式を確認できる
+  - C*-恒等式から随伴が等長であることと ||a*a||=||a||^2 を導ける
+  - 自己共役元を定義し、自己共役元のノルムがスペクトル半径に一致し、そのスペクトルが実数に含まれることを証明できる
+  - unitary 元と projection を定義し、基本的なスペクトル制約と具体例を計算できる
+  - 可換 C*-環では character が随伴を保ち、Gelfand 変換が等長かつ単射になることを証明できる
+  - 単位的 *-準同型を定義し、C*-環の単位的 *-準同型が自動的に縮小写像になることを証明できる
+  - 正元を自己共役元の非負スペクトルで定義し、Stone--Weierstrass による多項式近似から正の平方根の存在と一意性を証明できる
+definitions:
+  - { id: OA3-DEF-01, name: "*-代数" }
+  - { id: OA3-DEF-02, name: "単位的 C*-環" }
+  - { id: OA3-DEF-03, name: "自己共役元" }
+  - { id: OA3-DEF-04, name: "unitary 元" }
+  - { id: OA3-DEF-05, name: "projection" }
+  - { id: OA3-DEF-06, name: "単位的 *-準同型" }
+  - { id: OA3-DEF-07, name: "正元" }
+theorems:
+  - { id: OA3-PROP-01, name: "随伴の等長性" }
+  - { id: OA3-PROP-02, name: "自己共役元ではノルムとスペクトル半径が一致する" }
+  - { id: OA3-THM-01, name: "自己共役元のスペクトルは実数" }
+  - { id: OA3-THM-02, name: "可換 C*-環の Gelfand 変換は等長かつ単射" }
+  - { id: OA3-THM-03, name: "単位的 *-準同型の縮小性" }
+  - { id: OA3-LEM-01, name: "自己共役元が生成する閉部分代数での逆元近似" }
+  - { id: OA3-THM-04, name: "正元の正の平方根" }
+canonical_examples:
+  - "C(K) の複素共役 f*(x)=conj(f(x))"
+  - "M_n(C) の共役転置 A*"
+  - "B(H) の Hilbert 随伴 T*"
+  - "M_2(C) の Pauli 行列・unitary・projection"
+  - "C([0,1]) の非負関数 f(t)=t と平方根 sqrt(t)"
+problem_patterns:
+  - OA3-STAR-ALGEBRA-1
+  - OA3-CSTAR-IDENTITY-1
+  - OA3-SELFADJOINT-SPECTRUM-1
+  - OA3-UNITARY-PROJECTION-1
+  - OA3-GELFAND-ISOMETRY-1
+  - OA3-STAR-HOM-CONTRACTIVE-1
+  - OA3-POSITIVE-SQRT-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11.0, exercises: 8.0, review: 2.0 }
