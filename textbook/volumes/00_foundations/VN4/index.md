@@ -371,7 +371,7 @@ $$
 
 そこで特異値の**総和**まで有限であることを要求します。
 
-<a id="def-vn4-trace-class"></a>
+<a id="def-vn4-トレース-class"></a>
 
 <!-- formal-statement-start -->
 ### 定義（trace class とトレースノルム）
@@ -405,7 +405,7 @@ $$
 を $T$ の**トレースノルム**と呼ぶ。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-vn4-trace-class -->
+<!-- definition-example-start: def-vn4-トレース-class -->
 
 ### 直接例：$\ell^2$ 上の対角作用素
 
@@ -786,7 +786,7 @@ $$
 
 次に、このノルムについて完備であることと、$B(H)$ の両側イデアルになることを示します。
 
-<a id="thm-vn4-trace-class-banach-ideal"></a>
+<a id="thm-vn4-トレース-class-banach-ideal"></a>
 
 <!-- formal-statement-start -->
 ### 定理（trace class の Banach イデアル性と有限ランク稠密性）
@@ -988,13 +988,13 @@ $$
 - 有限ランク作用素で近似できる
 - Cauchy 列の極限も残る
 
-という、predual に必要な解析的構造を持つことが分かりました。
+という、後で双対空間の一つ手前として使うために必要な解析的構造を持つことが分かりました。
 
 ---
 
 ## 5. トレース：有限次元のトレース を連続拡張する
 
-有限次元では行列の trace は
+有限次元では行列の トレース は
 
 $$
 \operatorname{tr}F
@@ -1004,7 +1004,7 @@ $$
 
 でした。
 
-有限ランク作用素 $F$ でも、$\operatorname{ran}F+\operatorname{ran}F^*$ を含む有限次元部分空間へ制限すれば同じ有限次元 trace を定義できます。
+有限ランク作用素 $F$ でも、$\operatorname{ran}F+\operatorname{ran}F^*$ を含む有限次元部分空間へ制限すれば同じ有限次元 トレース を定義できます。
 
 この有限ランクトレース はトレースノルムで連続です。
 
@@ -1038,9 +1038,9 @@ $$
 \|F\|_1.
 $$
 
-有限ランク作用素は $S_1(H)$ で稠密だったので、trace を一意に連続延長できます。
+有限ランク作用素は $S_1(H)$ で稠密だったので、トレース を一意に連続延長できます。
 
-<a id="def-vn4-trace"></a>
+<a id="def-vn4-トレース"></a>
 
 <!-- formal-statement-start -->
 ### 定義（trace class 上のトレース）
@@ -1054,7 +1054,7 @@ $$
 と書き、**トレース**と呼ぶ。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-vn4-trace -->
+<!-- definition-example-start: def-vn4-トレース -->
 
 ### 直接例：有限次元では通常の行列トレース に戻る
 
@@ -1080,7 +1080,7 @@ $$
 
 <!-- definition-example-end -->
 
-<a id="prop-vn4-trace-rank-one"></a>
+<a id="prop-vn4-トレース-rank-one"></a>
 
 <!-- formal-statement-start -->
 ### 命題（トレースの連続拡張と rank-one 公式）
@@ -1347,7 +1347,7 @@ $$
 
 前節の評価から $\Phi_A$ は $S_1(H)$ 上の有界線形汎関数です。
 
-<a id="thm-vn4-trace-duality"></a>
+<a id="thm-vn4-トレース-duality"></a>
 
 <!-- formal-statement-start -->
 ### 定理（有界作用素環とトレース級の等長双対性）
@@ -1667,7 +1667,7 @@ $$
 \operatorname{Tr}(A\theta_{x,y})
 $$
 
-なので、ベクトル汎関数は trace class pairing の特殊例です。
+なので、ベクトル汎関数は trace class のトレース対合 の特殊例です。
 
 そこで rank-one だけでなく、trace class 全体を試験汎関数として使います。
 
@@ -2671,7 +2671,7 @@ $$
 
 ## Level A
 
-### A1. $2\times2$ 行列の トレースノルム と trace
+### A1. $2\times2$ 行列の トレースノルム と トレース
 
 $$
 T=
@@ -2980,7 +2980,7 @@ $$
 }
 $$
 
-trace は対角成分の絶対収束級数として
+トレース は対角成分の絶対収束級数として
 
 $$
 \operatorname{Tr}(T)
@@ -3276,7 +3276,7 @@ $$
 
 となるように取ります。
 
-有限ランクでは通常の有限次元 trace の cyclicity から
+有限ランクでは通常の有限次元 トレース の cyclicity から
 
 $$
 \operatorname{Tr}(AF_m)
@@ -3758,7 +3758,7 @@ $$
 
 と置きます。
 
-イデアル評価と trace の連続性から
+イデアル評価と トレース の連続性から
 
 $$
 |\Phi_A(T)|
