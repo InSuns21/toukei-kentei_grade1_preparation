@@ -34,7 +34,7 @@ $$
 
 逆向きも重要です。もし実験やモデルから「時間並進は強連続なユニタリ作用素族である」と分かったなら、その背後には本当に自己共役 Hamiltonian が存在するのでしょうか。
 
-Stone の定理は、この二つを一つの対応にします。
+本章で証明する中心定理は、この二つを一つの対応にします。
 
 $$
 \boxed{
@@ -185,7 +185,7 @@ $$
 
 ---
 
-## 2. 自己共役作用素からユニタリ群を作る
+## 2. 自己共役作用素から時間発展を作る
 
 自己共役作用素 $H$ のスペクトル PVM を $E_H$ とします。QM6 の Borel 関数計算で
 
@@ -274,7 +274,7 @@ $$
 \le4.
 $$
 
-$\mu_x^H(\mathbb R)=\|x\|^2<\infty$ なので、優収束定理から
+$\mu_x^H(\mathbb R)=\|x\|^2<\infty$ なので、[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)から
 
 $$
 \|U_H(t)x-U_H(t_0)x\|^2\to0.
@@ -471,7 +471,7 @@ $$
 
 まず $x\in D(H)$ とします。
 
-QM6 のスペクトル定理より
+[QM6 の非有界自己共役作用素のスペクトル定理](../QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral)より
 
 $$
 \int_{\mathbb R}\lambda^2\,d\mu_x^H(\lambda)<\infty.
@@ -531,7 +531,7 @@ $$
 \frac{4\lambda^2}{\hbar^2}.
 $$
 
-右辺は $\mu_x^H$ 可積分なので優収束定理から
+右辺は $\mu_x^H$ 可積分なので[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)から
 
 $$
 \frac{U_H(t)x-x}{t}
@@ -570,7 +570,7 @@ $$
 \frac{\lambda^2}{\hbar^2}
 $$
 
-へ収束します。Fatou の補題から
+へ収束します。[Fatou の補題](../F0_00D2B_単調収束_Fatou_優収束/index.md#lem-f0-00d2b-01)から
 
 $$
 \begin{aligned}
@@ -592,7 +592,7 @@ $$
 \int\lambda^2\,d\mu_x^H(\lambda)<\infty.
 $$
 
-QM6 の非有界スペクトル定理より $x\in D(H)$ です。
+[QM6 の非有界自己共役作用素のスペクトル定理](../QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral)より $x\in D(H)$ です。
 
 両包含が示されたので、強微分可能な初期値はちょうど $D(H)$ です。$\square$
 <!-- proof-end -->
@@ -1679,7 +1679,7 @@ $$
 <\infty
 $$
 
-であり、第4節の定理から
+であり、[強微分可能性と Hamiltonian の定義域](#thm-qm7-generator-domain)から
 
 $$
 i\hbar\frac{d}{dt}\psi(t)
@@ -1709,7 +1709,7 @@ $$
 - 内積を保ち、
 - 時間について強連続
 
-なら、Stone の定理によって一意な自己共役作用素 $\mathsf H$ が存在して
+なら、[Stone の定理](#thm-qm7-stone)によって一意な自己共役作用素 $\mathsf H$ が存在して
 
 $$
 U(t)=e^{-it\mathsf H/\hbar}.
@@ -1728,7 +1728,7 @@ i\hbar
 }
 $$
 
-という意味で**時間並進の自己共役生成作用素**です。
+という意味で**時間並進を生成する自己共役作用素**です。
 
 ただし右辺は全てのベクトルで定義されるわけではなく、
 
@@ -1903,7 +1903,7 @@ $$
 |x_n|^2.
 $$
 
-第4節の定理から強微分が存在することは
+[強微分可能性と Hamiltonian の定義域](#thm-qm7-generator-domain)から強微分が存在することは
 
 $$
 x\in D(\mathsf H)
@@ -2109,7 +2109,7 @@ $$
 \frac{\lambda^2}{\hbar^2}.
 $$
 
-Fatou の補題により
+[Fatou の補題](../F0_00D2B_単調収束_Fatou_優収束/index.md#lem-f0-00d2b-01)により
 
 $$
 \begin{aligned}
@@ -2529,7 +2529,7 @@ $$
    \operatorname{Ran}(K-iI)=H.
    $$
    
-   QM6 の自己共役性の値域判定から $K$ は自己共役です。
+   [QM6 の自己共役性の値域判定](../QM6/index.md#thm-qm6-self-adjoint-range-criterion)から $K$ は自己共役です。
 
 5. 
    $$
@@ -2607,7 +2607,7 @@ $$
   $$
   を示せる。
 - $K=iA$ に QM6 の自己共役性判定を適用すると $K$ は自己共役になる。
-- Stone の定理により
+- [Stone の定理](#thm-qm7-stone)により
   $$
   \boxed{
   U(t)=e^{-it\mathsf H/\hbar},
