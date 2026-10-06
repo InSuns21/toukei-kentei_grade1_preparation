@@ -1,0 +1,23 @@
+chapter: "QM3"
+terms:
+  - term: 射影値測度
+    english: projection-valued measure
+    meaning: Borel 集合 B ごとに直交射影 E(B) を対応させ、空集合・全体集合・積・可算和を測度と同様の規則で満たす作用素値の測度。略号 PVM は初出後の補助表記として用いる。
+  - term: スペクトル射影
+    english: spectral projection
+    meaning: 自己共役作用素 A の PVM E_A が Borel 集合 B に割り当てる直交射影 E_A(B)。測定値が B に入る成分を取り出す。
+  - term: 射影値積分
+    english: spectral integral
+    meaning: 射影値測度 E に対し、単関数の重み付き射影和から極限で作る作用素積分。スペクトル定理では A=int lambda dE_A(lambda) と書く。
+  - term: スペクトル確率測度
+    english: spectral probability measure
+    meaning: 単位ベクトル psi と PVM E_A から mu_psi^A(B)=<psi,E_A(B)psi> で作る確率測度。観測量 A の測定値分布を表す。
+  - term: 連続スペクトル
+    english: continuous spectrum
+    meaning: 本章では、有限個または可算個の固有値射影だけでは表せないスペクトルの部分を理解するための呼び名として用いる。L2([0,1]) 上の座標乗算作用素が典型例。
+  - term: cyclic subspace
+    english: cyclic subspace
+    meaning: ベクトル u から p(A)u を多項式 p で動かして得られる集合の閉包。スペクトル定理の証明で一般 Hilbert 空間を乗算作用素模型へ分解する単位になる。
+  - term: 連続関数計算
+    english: continuous functional calculus
+    meaning: 有界自己共役作用素 A と連続関数 f に対し、f(A) を多項式近似から定義する構成。本章では PVM 構成の証明道具として扱う。
