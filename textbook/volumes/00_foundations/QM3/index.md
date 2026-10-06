@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念への参照**：[QM2 の有限次元 Born 則](../QM2/index.md#axiom-qm2-born-rule)、[FA5 のスペクトル・レゾルベント](../FA5/index.md#def-fa5-resolvent-spectrum)、[FA7 の自己共役有界作用素](../FA7/index.md#def-fa7-self-adjoint)、[測度・Borel σ代数](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md)、[Lebesgue 積分](../F0_00D2A_単関数_Lebesgue積分_構成/index.md)、[単調収束・優収束](../F0_00D2B_単調収束_Fatou_優収束/index.md)、[Zorn の補題](../F0_00A3_半順序_Zorn_極大延長/index.md)を使います。
+> **既出概念への参照**：[QM2 の有限次元 Born 則](../QM2/index.md#axiom-qm2-born-rule)、[FA5 のスペクトル・レゾルベント](../FA5/index.md#def-fa5-resolvent-spectrum)、[FA7 の自己共役有界作用素](../FA7/index.md#def-fa7-self-adjoint)、[測度・Borel σ代数](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md)、[Lebesgue 積分](../F0_00D2A_単関数_Lebesgue積分_構成/index.md)、[単調収束・優収束](../F0_00D2B_単調収束_Fatou_優収束/index.md)、[Zorn の補題](../F0_00A3_半順序_Zorn_極大延長/index.md#thm-zorn)、[実 Stone--Weierstrass 定理](../RA8/index.md#thm-ra8-stone-weierstrass)、[Riesz--Markov 正汎関数版](../MT5/index.md#thm-mt5-riesz-markov-positive)を使います。
 
 QM2 では、有限次元の観測量を
 
@@ -633,7 +633,7 @@ $$
 
 です。
 
-さらに FA5 の多項式スペクトル写像定理から
+さらに [FA5 の多項式スペクトル写像定理](../FA5/index.md#thm-fa5-polynomial-spectral-mapping)から
 
 $$
 \sigma(p(A))
@@ -656,118 +656,39 @@ $$
 
 ### 5.2 多項式から連続関数へ
 
-$\sigma(A)$ は FA5 によりコンパクトです。また $A$ は自己共役なので $\sigma(A)\subset\mathbb R$ です。
+$sigma(A)$ は FA5 によりコンパクトで、自己共役性から $sigma(A)subsetmathbb R$ です。
 
-ここで一変数の Weierstrass 近似定理を使います。
+ここでは [RA8 の実 Stone--Weierstrass 定理](../RA8/index.md#thm-ra8-stone-weierstrass)を使います。$sigma(A)$ 上の実多項式の制限全体は、
 
-> コンパクト区間上の連続関数は、多項式で一様近似できる。
+- 定数関数を含む。
+- 和・積・実数倍で閉じる。
+- 異なる $lambda,muinsigma(A)$ を、座標関数 $xmapsto x$ が分離する。
 
-この定理の核心は Bernstein 多項式で確認できます。$[0,1]$ 上の連続関数 $f$ に対して
+ので、$C(sigma(A),mathbb R)$ に一様ノルムで稠密です。
 
-$$
-B_nf(x)
-=
-\sum_{k=0}^n
-f\left(\frac{k}{n}\right)
-\binom{n}{k}
-x^k(1-x)^{n-k}
-$$
-
-と置きます。
-
-$x$ を固定し、$K\sim\operatorname{Bin}(n,x)$ とみなすと
+複素数値の $fin C(sigma(A))$ については
 
 $$
-B_nf(x)
-=
-\mathbb E
-\left[
-f\left(\frac Kn\right)
-\right].
+f=operatorname{Re}f+ioperatorname{Im}f
 $$
 
-$f$ はコンパクト区間上で一様連続なので、任意の $\varepsilon>0$ に対し、ある $\delta>0$ があり、
+と分けます。実多項式列 $p_n,q_n$ を
 
 $$
-|u-v|<\delta
-\Longrightarrow
-|f(u)-f(v)|<\varepsilon
+p_n	ooperatorname{Re}f,
+qquad
+q_n	ooperatorname{Im}f
 $$
 
-です。
-
-すると
+と一様近似するように取れば、
 
 $$
-\begin{aligned}
-|B_nf(x)-f(x)|
-&\le
-\mathbb E
-\left[
-\left|
-f\left(\frac Kn\right)-f(x)
-\right|
-\right]\\
-&\le
-\varepsilon
-+
-2\|f\|_\infty
-\Pr\left(
-\left|\frac Kn-x\right|\ge\delta
-\right).
-\end{aligned}
+p_n+i q_n	o f
 $$
 
-さらに
+も一様収束します。
 
-$$
-\operatorname{Var}\left(\frac Kn\right)
-=
-\frac{x(1-x)}{n}
-\le
-\frac1{4n}.
-$$
-
-事象
-
-$$
-\left\{
-\left|\frac Kn-x\right|\ge\delta
-\right\}
-$$
-
-上では
-
-$$
-\left(\frac Kn-x\right)^2
-\ge
-\delta^2
-$$
-
-なので、指示関数を使えば
-
-$$
-\delta^2
-\mathbf 1_{\{|K/n-x|\ge\delta\}}
-\le
-\left(\frac Kn-x\right)^2.
-$$
-
-期待値を取って
-
-$$
-\Pr\left(
-\left|\frac Kn-x\right|\ge\delta
-\right)
-\le
-\frac{\operatorname{Var}(K/n)}{\delta^2}
-\le
-\frac{1}{4n\delta^2}.
-$$
-
-右辺は $x$ に依存せず0へ収束します。従って $B_nf\to f$ は一様収束です。
-
-一般のコンパクト区間へは一次変換で移せます。
+従って、任意の $fin C(sigma(A))$ は複素係数多項式で一様近似できます。
 
 <a id="lem-qm3-continuous-functional-calculus"></a>
 
@@ -891,30 +812,49 @@ $$
 
 ---
 
-## 6. スペクトル定理の証明で使う一つの意図的黒箱
+## 6. Riesz--Markov をスペクトルへつなぐ
 
-ここで一つだけ、別分野の大きな表現定理を使います。
+PVM を構成するため、[MT5 の Riesz--Markov 正汎関数版](../MT5/index.md#thm-mt5-riesz-markov-positive)を使います。
 
-> **Riesz--Markov 表現定理**  
-> コンパクト Hausdorff 空間 $K$ 上の線形汎関数
-> $
-> L:C(K)\to\mathbb C
-> $
-> が
-> $
-> f\ge0\quad\Longrightarrow\quad L(f)\ge0
-> $
-> を満たすとする。このとき $L$ は、一意な有限正則 Borel 測度 $\mu$ により
-> $$
-> L(f)=\int_K f\,d\mu
-> $$
-> と表される。
+MT5 の定理は局所コンパクト Hausdorff 空間 $X$ 上の $C_c(X)$ に対する結果です。本章では
 
-本章ではこの定理自体の完全証明は扱いません。証明には、上の正値性条件を持つ線形汎関数と有限正則 Borel 測度を対応させる、測度論と位相の橋渡しが必要です。
+$$
+K=sigma(A)
+$$
 
-本章で必要なのは、**この正値性条件を満たす線形汎関数から Borel 測度が一意に出る**という部分です。
+と置きます。$K$ は実数直線のコンパクト部分集合なので局所コンパクト Hausdorff であり、コンパクト空間上では
 
-スペクトル定理そのものについては、この黒箱の後の構成を省略せず追います。
+$$
+C_c(K)=C(K)
+$$
+
+です。
+
+従って、線形汎関数
+
+$$
+L:C(K)	omathbb C
+$$
+
+が
+
+$$
+fge0
+quadLongrightarrowquad
+L(f)ge0
+$$
+
+を満たせば、MT5 の定理をそのまま適用でき、一意な有限 Radon 測度、従って有限 Borel 測度 $mu$ が存在して
+
+$$
+L(f)
+=
+int_K f,dmu
+$$
+
+と表せます。
+
+本章で新しく行うのは Riesz--Markov の再証明ではなく、この表現測度から cyclic subspace 上の乗算作用素模型と PVM を組み立てる部分です。
 
 ---
 
@@ -964,7 +904,7 @@ $$
 
 つまり $L_u$ は線形で、非負関数を非負数へ送ります。
 
-Riesz--Markov 表現定理により、ある有限 Borel 測度 $\mu_u$ が一意に存在して
+[MT5 の Riesz--Markov 正汎関数版](../MT5/index.md#thm-mt5-riesz-markov-positive)により、ある有限 Borel 測度 $\mu_u$ が一意に存在して
 
 $$
 \langle u,f(A)u\rangle
@@ -1137,7 +1077,7 @@ $$
 
 このような族を包含で順序付けます。鎖に対しては、その族の合併を取れば再び互いに直交する cyclic reducing subspace の族なので上界があります。
 
-Zorn の補題から極大な族を取れます。
+[Zorn の補題](../F0_00A3_半順序_Zorn_極大延長/index.md#thm-zorn)から極大な族を取れます。
 
 その直交和の閉包を
 
@@ -1259,7 +1199,7 @@ $$
 \end{aligned}
 $$
 
-被積分関数は各点で0へ収束し、常に $|f|^2$ 以下です。$|f|^2$ は可積分なので、優収束定理から右辺は0へ収束します。
+被積分関数は各点で0へ収束し、常に $|f|^2$ 以下です。$|f|^2$ は可積分なので、[Lebesgue の優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)から右辺は0へ収束します。
 
 従って
 
@@ -1328,9 +1268,9 @@ $$
 証明は次の5段階です。
 
 1. 多項式 $p(A)$ を連続関数 $f(A)$ へ拡張する。
-2. 各 cyclic subspace で正線形汎関数から Riesz--Markov により測度を得る。
+2. 各 cyclic subspace で正線形汎関数から [Riesz--Markov](../MT5/index.md#thm-mt5-riesz-markov-positive) により測度を得る。
 3. cyclic subspace を $L^2$ 空間へ unitary 同値に移し、$A$ を座標乗算作用素にする。
-4. Zorn の補題で Hilbert 空間全体を cyclic subspace の直交和へ分解する。
+4. [Zorn の補題](../F0_00A3_半順序_Zorn_極大延長/index.md#thm-zorn)で Hilbert 空間全体を cyclic subspace の直交和へ分解する。
 5. 各 $L^2$ 上の指示関数乗算射影を直交和して $E_A$ を得る。
 
 <!-- proof-start -->
@@ -1360,7 +1300,7 @@ $$
 
 第8節により各 $H_u$ は reducing subspace です。
 
-第9節で Zorn の補題を使うと、
+第9節で [Zorn の補題](../F0_00A3_半順序_Zorn_極大延長/index.md#thm-zorn)を使うと、
 
 $$
 H
@@ -1822,7 +1762,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-スペクトル定理から
+[本章の有界自己共役作用素のスペクトル定理](#thm-qm3-bounded-self-adjoint-spectral)から
 
 $$
 A
@@ -2557,7 +2497,7 @@ $$
 
 1. それぞれの PVM $E_1,E_2$ を明示せよ。
 2. $A_1=\int\lambda\,dE_1(\lambda)$ を有限和として確認せよ。
-3. $A_2=\int\lambda\,dE_2(\lambda)$ が座標乗算作用素を与えることを単関数近似から説明せよ。
+3. $A_2=\int\lambda\,dE_2(\lambda)$ が座標乗算作用素を与えることを[単関数近似](../F0_00D2A_単関数_Lebesgue積分_構成/index.md#thm-simple-function-approximation)の考え方から説明せよ。
 4. なぜ $A_1$ では固有値の和で十分だが、$A_2$ では Borel 集合全体に対する PVM が必要か説明せよ。
 
 <!-- solution-start -->
