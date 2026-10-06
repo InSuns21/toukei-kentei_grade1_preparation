@@ -1,0 +1,23 @@
+chapter: "VN5"
+terms:
+  - term: 正規汎関数
+    english: normal functional
+    meaning: von Neumann 環 M の predual M_* に属する、すなわち ultraweak 位相に関して連続な有界線形汎関数。
+  - term: 正規状態
+    english: normal state
+    meaning: 正線形汎関数かつ phi(1)=1 を満たす状態のうち、さらに ultraweak 連続なもの。
+  - term: 密度作用素
+    english: density operator
+    meaning: B(H) 上の正規状態を表す正の trace class 作用素 rho で Tr(rho)=1 を満たすもの。
+  - term: 射影単調連続性
+    english: monotone continuity on projections
+    meaning: 増大する射影族 P_alpha↑P に対して phi(P_alpha)↑phi(P) を満たす性質。正規な正汎関数はこの性質を持つ。
+  - term: トレース
+    english: trace on a von Neumann algebra
+    meaning: M_+ 上の [0,infinity] 値写像で、加法性・正の斉次性と tau(x*x)=tau(xx*) を満たすもの。本章では拡張値を許す。
+  - term: 忠実なトレース
+    english: faithful trace
+    meaning: 正元 a>=0 に対して tau(a)=0 なら a=0 となるトレース。
+  - term: 半有限トレース
+    english: semifinite trace
+    meaning: 任意の正元 a について、tau(a) が 0<=b<=a かつ tau(b)<infinity を満たす正元 b の tau(b) の上限として回収できるトレース。
