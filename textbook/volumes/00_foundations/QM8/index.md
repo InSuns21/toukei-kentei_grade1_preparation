@@ -185,11 +185,27 @@ $$
 
 定義域問題は飾りではありません。例えば
 
-$$
+$
 f=\mathbf 1_{[0,1]}
-$$
+$
 
-は $xf\in L^2(\mathbb R)$ なので $f\in D(Q)$ ですが、跳びを持つため $f\notin H^1(\mathbb R)=D(P)$ です。
+は $xf\in L^2(\mathbb R)$ なので $f\in D(Q)$ です。一方、
+
+$
+\widehat f(\xi)
+=
+\frac{1-e^{-i\xi}}{i\xi}
+$
+
+だから
+
+$
+\xi\widehat f(\xi)
+=
+\frac{1-e^{-i\xi}}i
+$
+
+は $L^2(\mathbb R)$ に属しません。QM5 の Fourier 側の定義域表示から $f\notin D(P)$ です。
 
 逆向きには
 
@@ -892,13 +908,13 @@ $$
 
 が存在して、全ての $a,b\in\mathbb R$ について
 
-$$
-WU(a)W^{-1}\psi(x)=\psi(x-a),
-$$
+$
+(WU(a)W^{-1}\psi)(x)=\psi(x-a),
+$
 
-$$
-WV(b)W^{-1}\psi(x)=e^{-ibx/\hbar}\psi(x)
-$$
+$
+(WV(b)W^{-1}\psi)(x)=e^{-ibx/\hbar}\psi(x)
+$
 
 となる。
 
