@@ -1,7 +1,7 @@
 version: 1
 id: EVOL
 title: 抽象発展方程式・半群論
-plan: textbook/plans_progress/DREAM_THEATER_EVOLUTION_EQUATIONS_SEMIGROUP_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_EVOLUTION_EQUATIONS_SEMIGROUP_PLAN.md
 chapter_root: textbook/volumes/00_foundations
 
 chapters:
@@ -27,5 +27,5 @@ chapters:
     title: analytic semigroup・sectorial operator・放物型 smoothing
   - id: EVOL6
     path: textbook/volumes/00_foundations/EVOL6
-    status: planned
+    status: completed
     title: 半線形発展方程式・局所解・continuation criterion
