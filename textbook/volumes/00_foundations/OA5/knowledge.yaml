@@ -73,3 +73,70 @@ concepts:
     introduction_aliases: ["定義（GNS 零空間）"]
     requires:
       - operator-algebra.state
+
+
+  - id: operator-algebra.gns-null-left-ideal
+    name: GNS 零空間は左イデアルである
+    kind: proposition
+    aliases: ["GNS null space is a left ideal"]
+    introduction_aliases: ["命題（GNS 零空間は左イデアルである）"]
+    requires:
+      - operator-algebra.gns-null-space
+      - operator-algebra.positive-functional-cauchy-schwarz
+      - operator-algebra.cstar-square-bound
+
+  - id: operator-algebra.gns-quotient-inner-product
+    name: GNS 商空間の内積
+    kind: proposition
+    aliases: ["inner product on the GNS quotient"]
+    introduction_aliases: ["命題（GNS 商空間の内積）"]
+    requires:
+      - operator-algebra.gns-null-space
+      - operator-algebra.positive-functional-cauchy-schwarz
+      - linear.complex-inner-product
+
+  - id: operator-algebra.unital-star-representation
+    name: 単位的 *-表現
+    kind: definition
+    aliases: ["unital *-representation"]
+    introduction: formal
+    introduction_aliases: ["定義（単位的 *-表現と巡回ベクトル）"]
+    requires:
+      - operator-algebra.unital-star-homomorphism
+
+  - id: operator-algebra.cyclic-vector
+    name: 巡回ベクトル
+    kind: definition
+    aliases: ["cyclic vector"]
+    introduction: formal
+    introduction_aliases: ["定義（単位的 *-表現と巡回ベクトル）"]
+    requires:
+      - operator-algebra.unital-star-representation
+
+  - id: operator-algebra.gns-left-multiplication-bounded
+    name: GNS 左乗法は有界である
+    kind: proposition
+    aliases: ["boundedness of left multiplication in GNS"]
+    introduction_aliases: ["命題（GNS 左乗法は有界である）"]
+    requires:
+      - operator-algebra.gns-null-left-ideal
+      - operator-algebra.gns-quotient-inner-product
+      - operator-algebra.cstar-square-bound
+
+  - id: operator-algebra.gns-construction
+    name: GNS 構成
+    kind: theorem
+    aliases: ["GNS construction"]
+    introduction_aliases: ["定理（GNS 構成）"]
+    requires:
+      - operator-algebra.gns-left-multiplication-bounded
+      - operator-algebra.cyclic-vector
+      - operator-algebra.state
+
+  - id: operator-algebra.gns-uniqueness
+    name: GNS 巡回表現の一意性
+    kind: theorem
+    aliases: ["uniqueness of GNS cyclic representation"]
+    introduction_aliases: ["定理（GNS 巡回表現の一意性）"]
+    requires:
+      - operator-algebra.gns-construction
