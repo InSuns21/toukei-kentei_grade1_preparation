@@ -162,3 +162,5 @@ Fourier 解析は途中で測度論や確率論へ寄り道せず、必要な前
 常微分方程式は、ODE10 の Bendixson--Dulac の判定で Green の定理を使うため、基礎的な ODE1--ODE7 と力学系中心の ODE8--ODE11 を分けます。ベクトル解析も、VC8 の Newton ポテンシャル・Helmholtz 分解が偏微分方程式の基本解と深く結び付くため、古典的な積分定理までの VC1--VC7 と応用的な VC8--VC9 を分けます。
 
 微分幾何は章数が多いため、GEO1--GEO9 で多様体・微分形式・一般 Stokes の定理までを一つのまとまりとし、GEO10--GEO19 で曲面論・Riemann 幾何・大域幾何へ進みます。
+
+<!-- ci-fast-path-benchmark-797:routing -->
