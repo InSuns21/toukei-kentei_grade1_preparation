@@ -343,17 +343,29 @@ $$
 
 右辺を $R$ について下限に取ればよいわけです。
 
-また $T$ と $T^*$ は同じ非零特異値を持つので、
+右から掛ける場合も最良有限ランク近似を直接使えます。rank $R\le n-1$ なら rank $RA\le n-1$ なので
 
-$$
+$
+\begin{aligned}
 s_n(TA)
-=
-s_n(A^*T^*)
-\le
-\|A\|s_n(T)
-$$
+&=
+\inf_{\operatorname{rank}S\le n-1}\|TA-S\|\\
+&\le
+\|(T-R)A\|\\
+&\le
+\|T-R\|\,\|A\|.
+\end{aligned}
+$
 
-も得られます。
+$R$ について下限を取れば
+
+$
+\boxed{
+s_n(TA)\le\|A\|s_n(T).
+}
+$
+
+したがって左右どちらから有界作用素を掛けても、特異値は作用素ノルム倍より大きくはなりません。
 
 ---
 
@@ -470,7 +482,313 @@ $$
 
 ## 4. trace class は Banach 空間で、有限ランク作用素が稠密
 
-predual として使うには、$S_1(H)$ 自身が Banach 空間でなければなりません。またトレースを有限ランクから一般の trace class へ延長するため、有限ランク稠密性も必要です。
+predual として使うには、まず
+
+$
+\|T\|_1=\sum_{n=1}^{\infty}s_n(T)
+$
+
+が本当にノルムになることを確認する必要があります。特に三角不等式は、特異値を一つずつ見ただけでは出ません。
+
+そこで有限個の特異値の和を、直交系に対する行列係数の最大値として読み替えます。
+
+<a id="lem-vn4-ky-fan-variational"></a>
+
+<!-- formal-statement-start -->
+### 補題（Ky Fan 型変分公式）
+
+$T\in B(H)$ をコンパクト作用素とし、$N\ge1$ とする。このとき
+
+$
+\boxed{
+\sum_{k=1}^{N}s_k(T)
+=
+\sup
+\left\{
+\left|
+\sum_{j=1}^{N}\langle Tx_j,y_j\rangle
+\right|
+:
+(x_j)_{j=1}^{N},(y_j)_{j=1}^{N}
+\text{ は正規直交系}
+\right\}.
+}
+$
+
+有限次元で $N>\dim H$ の場合は $N\le\dim H$ の範囲で読む。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+極分解 $T=U|T|$ と $|T|$ の固有ベクトルを使うと、
+
+$
+Tx
+=
+\sum_k s_k(T)\langle x,e_k\rangle f_k,
+\qquad
+f_k=Ue_k
+$
+
+と書けます。
+
+任意の二つの $N$ 本の正規直交系に対して Bessel の不等式を使うと、各特異方向が寄与できる重みは0以上1以下で、重みの総量は高々 $N$ です。したがって最大値は大きい方から $N$ 個の特異値へ重みを集中したときに達成されます。
+
+<!-- proof-start -->
+### 証明
+
+$|T|$ の非零固有値に対応する正規直交固有ベクトルを $e_k$ とし、
+
+$
+|T|e_k=s_k(T)e_k
+$
+
+とします。
+
+極分解 $T=U|T|$ に対し
+
+$
+f_k=Ue_k
+$
+
+と置くと、$(f_k)$ も正規直交系です。従って
+
+$
+Tx
+=
+\sum_k s_k(T)\langle x,e_k\rangle f_k.
+$
+
+任意の正規直交系
+
+$
+x_1,\ldots,x_N,
+\qquad
+y_1,\ldots,y_N
+$
+
+を取ります。このとき
+
+$
+\sum_{j=1}^{N}\langle Tx_j,y_j\rangle
+=
+\sum_k s_k(T)
+\sum_{j=1}^{N}
+\langle x_j,e_k\rangle
+\langle f_k,y_j\rangle.
+$
+
+各 $k$ について
+
+$
+a_k^2
+=
+\sum_{j=1}^{N}
+|\langle x_j,e_k\rangle|^2,
+\qquad
+b_k^2
+=
+\sum_{j=1}^{N}
+|\langle f_k,y_j\rangle|^2
+$
+
+と置きます。
+
+Bessel の不等式から
+
+$
+0\le a_k\le1,
+\qquad
+0\le b_k\le1.
+$
+
+また和の順序を入れ替えると
+
+$
+\sum_k a_k^2
+=
+\sum_{j=1}^{N}
+\sum_k|\langle x_j,e_k\rangle|^2
+\le
+N
+$
+
+であり、同様に
+
+$
+\sum_k b_k^2\le N.
+$
+
+有限和に Cauchy--Schwarz の不等式を使うと
+
+$
+\left|
+\sum_{j=1}^{N}
+\langle x_j,e_k\rangle
+\langle f_k,y_j\rangle
+\right|
+\le
+a_kb_k.
+$
+
+さらに
+
+$
+a_kb_k
+\le
+\frac{a_k^2+b_k^2}{2}.
+$
+
+そこで
+
+$
+c_k=\frac{a_k^2+b_k^2}{2}
+$
+
+と置くと
+
+$
+0\le c_k\le1,
+\qquad
+\sum_k c_k\le N.
+$
+
+特異値は大きい順に並んでいるので、この条件を満たす重みについて
+
+$
+\sum_k s_k(T)c_k
+\le
+\sum_{k=1}^{N}s_k(T)
+$
+
+です。
+
+実際、$s_N(T)$ を境に分ければ
+
+$
+\sum_k s_k(T)c_k
+\le
+\sum_{k=1}^{N}s_k(T)c_k
++
+s_N(T)\sum_{k>N}c_k.
+$
+
+しかも
+
+$
+\sum_{k>N}c_k
+\le
+N-\sum_{k=1}^{N}c_k
+$
+
+だから
+
+$
+\begin{aligned}
+\sum_k s_k(T)c_k
+&\le
+\sum_{k=1}^{N}s_k(T)c_k
++
+s_N(T)
+\left(
+N-\sum_{k=1}^{N}c_k
+\right)\\
+&=
+\sum_{k=1}^{N}
+\left[
+s_N(T)
++
+\bigl(s_k(T)-s_N(T)\bigr)c_k
+\right]\\
+&\le
+\sum_{k=1}^{N}s_k(T).
+\end{aligned}
+$
+
+従って
+
+$
+\left|
+\sum_{j=1}^{N}\langle Tx_j,y_j\rangle
+\right|
+\le
+\sum_{k=1}^{N}s_k(T).
+$
+
+逆に $x_j=e_j$、$y_j=f_j$ と取れば
+
+$
+\langle Te_j,f_j\rangle
+=
+s_j(T)
+$
+
+なので
+
+$
+\sum_{j=1}^{N}\langle Te_j,f_j\rangle
+=
+\sum_{j=1}^{N}s_j(T).
+$
+
+rank が $N$ 未満なら、残りの特異値を0とみなし、正規直交系を補えば同じ結論です。
+
+したがって主張の上限はちょうど
+
+$
+\sum_{k=1}^{N}s_k(T)
+$
+
+です。
+<!-- proof-end -->
+
+この補題を $S+T$ に適用します。任意の正規直交系に対して
+
+$
+\left|
+\sum_{j=1}^{N}\langle(S+T)x_j,y_j\rangle
+\right|
+\le
+\left|
+\sum_{j=1}^{N}\langle Sx_j,y_j\rangle
+\right|
++
+\left|
+\sum_{j=1}^{N}\langle Tx_j,y_j\rangle
+\right|.
+$
+
+従って変分公式から
+
+$
+\sum_{k=1}^{N}s_k(S+T)
+\le
+\sum_{k=1}^{N}s_k(S)
++
+\sum_{k=1}^{N}s_k(T).
+$
+
+$S,T\in S_1(H)$ なら $N\to\infty$ として
+
+$
+\boxed{
+\|S+T\|_1
+\le
+\|S\|_1+\|T\|_1.
+}
+$
+
+また
+
+$
+\|\lambda T\|_1=|\lambda|\,\|T\|_1
+$
+
+は特異値の定義から直ちに従います。さらに $\|T\|_1=0$ なら $s_1(T)=0$ であり、コンパクト作用素のスペクトル定理から $\|T\|=s_1(T)=0$、従って $T=0$ です。
+
+よって $S_1(H)$ は線形空間で、$\|\cdot\|_1$ は実際にノルムです。
+
+次に、このノルムについて完備であることと、$B(H)$ の両側イデアルになることを示します。
 
 <a id="thm-vn4-trace-class-banach-ideal"></a>
 
@@ -602,13 +920,29 @@ $$
 
 各 $T_m$ はコンパクトであり、コンパクト作用素全体は作用素ノルム閉なので $T$ もコンパクトです。
 
-特異値の最良近似表示から、任意の $n$ について
+特異値の最良近似表示から、任意の rank $R\le n-1$ に対して
 
-$$
+$
+\|T_m-R\|
+\le
+\|T_m-T\|+\|T-R\|.
+$
+
+$R$ について下限を取ると
+
+$
+s_n(T_m)
+\le
+\|T_m-T\|+s_n(T).
+$
+
+$T_m$ と $T$ を入れ替えれば逆向きも得られるので
+
+$
 |s_n(T_m)-s_n(T)|
 \le
 \|T_m-T\|.
-$$
+$
 
 したがって固定した $n$ ごとに
 
@@ -907,11 +1241,42 @@ $$
 
 最後に cyclicity を示します。
 
-有限ランク $F$ なら、$AF$ と $FA$ はとも有限ランクで、有限次元 trace の cyclicity から
+まず rank-one 作用素 $\theta_{x,y}$ について
 
-$$
+$
+A\theta_{x,y}
+=
+\theta_{Ax,y},
+$
+
+一方
+
+$
+\theta_{x,y}A
+=
+\theta_{x,A^*y}.
+$
+
+従って rank-one trace 公式から
+
+$
+\begin{aligned}
+\operatorname{Tr}(A\theta_{x,y})
+&=
+\langle Ax,y\rangle,\\
+\operatorname{Tr}(\theta_{x,y}A)
+&=
+\langle x,A^*y\rangle
+=
+\langle Ax,y\rangle.
+\end{aligned}
+$
+
+有限ランク作用素は rank-one 作用素の有限和なので、任意の有限ランク $F$ に対して
+
+$
 \operatorname{Tr}(AF)=\operatorname{Tr}(FA).
-$$
+$
 
 一般の $T\in S_1(H)$ に対し、有限ランク $F_n$ を
 
@@ -1127,19 +1492,43 @@ $$
 
 を全ての $y$ について満たします。
 
+さらに $b_f$ は第1変数について線形なので、$\alpha,\beta\in\mathbb C$ と $x_1,x_2,y\in H$ に対して
+
+$
+\begin{aligned}
+\langle A(\alpha x_1+\beta x_2),y\rangle
+&=
+b_f(\alpha x_1+\beta x_2,y)\\
+&=
+\alpha b_f(x_1,y)+\beta b_f(x_2,y)\\
+&=
+\langle \alpha Ax_1+\beta Ax_2,y\rangle.
+\end{aligned}
+$
+
+これは全ての $y$ について成り立つので
+
+$
+A(\alpha x_1+\beta x_2)
+=
+\alpha Ax_1+\beta Ax_2.
+$
+
+従って $A$ は線形です。
+
 さらに
 
-$$
+$
 |\langle Ax,y\rangle|
 \le
 \|f\|\,\|x\|\,\|y\|
-$$
+$
 
 なので
 
-$$
+$
 \|Ax\|\le\|f\|\,\|x\|.
-$$
+$
 
 したがって $A$ は有界線形作用素で
 
@@ -3159,25 +3548,49 @@ $$
 
 となります。
 
+$b_f$ は第1変数について線形なので、全ての $y$ について
+
+$
+\begin{aligned}
+\langle A(\alpha x_1+\beta x_2),y\rangle
+&=
+b_f(\alpha x_1+\beta x_2,y)\\
+&=
+\alpha b_f(x_1,y)+\beta b_f(x_2,y)\\
+&=
+\langle \alpha Ax_1+\beta Ax_2,y\rangle.
+\end{aligned}
+$
+
+従って
+
+$
+A(\alpha x_1+\beta x_2)
+=
+\alpha Ax_1+\beta Ax_2,
+$
+
+すなわち $A$ は線形です。
+
 しかも
 
-$$
+$
 |\langle Ax,y\rangle|
 \le
 \|f\|\,\|x\|\,\|y\|
-$$
+$
 
 なので
 
-$$
+$
 \|Ax\|\le\|f\|\,\|x\|.
-$$
+$
 
 したがって
 
-$$
+$
 A\in B(H).
-$$
+$
 
 rank-one 作用素について
 
