@@ -102,6 +102,14 @@ jobs:
         if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
         run: npm run validate:math
 
+      - name: Benchmark KaTeX validation cache
+        if: github.event_name == 'pull_request' && steps.scope.outputs.full == 'true'
+        run: |
+          node scripts/benchmark-validate-math-cache.mjs baseline
+          node scripts/benchmark-validate-math-cache.mjs cache
+          node scripts/benchmark-validate-math-cache.mjs cache
+          node scripts/benchmark-validate-math-cache.mjs baseline
+
       - name: Validate exercise style
         if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
         run: npm run validate:exercise-style
