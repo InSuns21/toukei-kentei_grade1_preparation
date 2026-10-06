@@ -127,15 +127,6 @@ concepts:
       - operator-algebra.weak-operator-topology
       - operator-algebra.trace-class-banach-ideal
 
-  - id: functional.quotient-dual-annihilator-vn4
-    name: 商空間の双対と annihilator
-    kind: lemma
-    aliases: ["quotient dual and annihilator", "商空間の双対公式"]
-    introduction_aliases: ["補題（商空間の双対と annihilator）"]
-    requires:
-      - functional.quotient-banach-space
-      - functional.dual-space
-
   - id: operator-algebra.von-neumann-predual
     name: 具体的 von Neumann 環の predual
     kind: theorem
@@ -145,6 +136,6 @@ concepts:
       - operator-algebra.von-neumann-algebra
       - operator-algebra.trace-class-duality
       - operator-algebra.ultraweak-topology
-      - functional.quotient-dual-annihilator-vn4
+      - linear.quotient-dual-annihilator-isomorphism
       - functional.dual-space
       - functional.quotient-banach-space
