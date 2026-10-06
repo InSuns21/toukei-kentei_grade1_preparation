@@ -15,7 +15,7 @@ chapters:
     title: 粘性解・比較原理・一意性
   - id: HJC3
     path: textbook/volumes/00_foundations/HJC3
-    status: planned
+    status: completed
     title: HJB と value function の粘性解特徴付け
   - id: HJC4
     path: textbook/volumes/00_foundations/HJC4

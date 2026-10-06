@@ -1,0 +1,41 @@
+id: "HJC3"
+title: "HJB と value function の粘性解特徴付け"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HJC2
+  - HJC1
+official_scope: []
+learning_objectives:
+  - HJC1 の最小化 Hamiltonian と backward Bellman Hamiltonian の符号関係を説明し、終端 HJB を粘性解に適した形で書ける
+  - 制御軌道の初期値安定性から cost functional と value function の空間 Lipschitz 連続性を導ける
+  - DPP と短時間の状態変化から value function の時間 Lipschitz 連続性を導ける
+  - 上接触 test function と任意の短時間定数制御を用いて value function の viscosity subsolution 性を証明できる
+  - 下接触 test function と h^2 近似最適制御を用いて value function の viscosity supersolution 性を証明できる
+  - Bellman Hamiltonian が comparison theorem に必要な p-Lipschitz 条件と x 方向の線形成長 Lipschitz 条件を満たすことを確認できる
+  - 終端問題を時間反転して初期値問題へ移し、strict time tilt と doubling of variables により backward comparison を導ける
+  - comparison により value function が bounded uniformly continuous viscosity solution として一意であることを示せる
+  - smooth case では HJC1 の classical HJB と verification theorem に戻ることを説明できる
+  - HJC1 の bang-bang value function を backward HJB の粘性解として切替境界まで確認できる
+definitions: []
+theorems:
+  - { id: HJC3-THM-01, name: "value function の bounded Lipschitz regularity" }
+  - { id: HJC3-PROP-01, name: "DPP から viscosity subsolution" }
+  - { id: HJC3-PROP-02, name: "DPP から viscosity supersolution" }
+  - { id: HJC3-THM-02, name: "backward HJB comparison" }
+  - { id: HJC3-THM-03, name: "value function の粘性解特徴付け" }
+canonical_examples:
+  - "x'=u, |u|<=1, terminal cost |x| の bang-bang value function と -V_t+|V_x|=0"
+  - "短時間定数制御から subsolution 不等式を出す計算"
+  - "h^2 近似最適制御から supersolution 不等式を出す計算"
+problem_patterns:
+  - HJC3-BELLMAN-SIGN-1
+  - HJC3-VALUE-CONTINUITY-1
+  - HJC3-VISCOSITY-SUB-1
+  - HJC3-VISCOSITY-SUPER-1
+  - HJC3-COMPARISON-1
+  - HJC3-CHARACTERIZATION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10.0, exercises: 7.0, review: 2.0 }

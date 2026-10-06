@@ -1,0 +1,65 @@
+chapter: HJC3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HJC2
+  - HJC1
+
+forward_references: []
+
+concepts:
+  - id: control.value-function-regularity
+    name: value function の bounded Lipschitz regularity
+    kind: theorem
+    aliases: ["Lipschitz regularity of deterministic control value functions"]
+    introduction: formal
+    introduction_aliases: ["定理（value function の bounded Lipschitz regularity）"]
+    requires:
+      - control.value-function
+      - control.dynamic-programming-principle
+      - control.admissible-control-trajectory
+
+  - id: control.value-viscosity-subsolution
+    name: DPP から得る value function の viscosity subsolution 性
+    kind: proposition
+    aliases: ["viscosity subsolution property of the value function"]
+    introduction: formal
+    introduction_aliases: ["命題（DPP から viscosity subsolution）"]
+    requires:
+      - control.dynamic-programming-principle
+      - control.hjb-equation
+      - pde.viscosity-subsolution-supersolution
+
+  - id: control.value-viscosity-supersolution
+    name: DPP から得る value function の viscosity supersolution 性
+    kind: proposition
+    aliases: ["viscosity supersolution property of the value function"]
+    introduction: formal
+    introduction_aliases: ["命題（DPP から viscosity supersolution）"]
+    requires:
+      - control.dynamic-programming-principle
+      - control.value-viscosity-subsolution
+      - pde.viscosity-subsolution-supersolution
+
+  - id: control.backward-hjb-comparison
+    name: backward HJB comparison
+    kind: theorem
+    aliases: ["comparison principle for backward HJB"]
+    introduction: formal
+    introduction_aliases: ["定理（backward HJB comparison）"]
+    requires:
+      - pde.viscosity-comparison-principle
+      - control.hjb-equation
+
+  - id: control.value-viscosity-characterization
+    name: value function の粘性解特徴付け
+    kind: theorem
+    aliases: ["viscosity characterization of the value function"]
+    introduction: formal
+    introduction_aliases: ["定理（value function の粘性解特徴付け）"]
+    requires:
+      - control.value-function-regularity
+      - control.value-viscosity-subsolution
+      - control.value-viscosity-supersolution
+      - control.backward-hjb-comparison
+      - pde.viscosity-solution
