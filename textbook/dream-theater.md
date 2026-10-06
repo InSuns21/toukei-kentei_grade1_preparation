@@ -231,7 +231,7 @@
 19. [P7B QMD・LAN](textbook/volumes/00_foundations/F0_00P7B_QMD_LAN/index.md)
 
 <a id="dt-subject-functional-analysis"></a>
-### 関数解析
+### 関数解析 I
 
 1. [関数解析ロードマップ](textbook/volumes/00_foundations/F0_02C_関数解析_制約想定_RKHS/index.md)
 2. [F0-00D1 ノルム・Banach](textbook/volumes/00_foundations/F0_00D1_ノルム_Banach_有限次元_無限次元/index.md)
@@ -244,12 +244,17 @@
 9. [FA1 Banach空間の商・Baire・一様有界性原理](textbook/volumes/00_foundations/FA1/index.md)
 10. [FA2 開写像定理・有界逆定理・閉グラフ定理](textbook/volumes/00_foundations/FA2/index.md)
 11. [F0-02C6 Hahn–Banach](textbook/volumes/00_foundations/F0_02C6_Hahn_Banach_分離定理/index.md)
-12. [FA3 弱位相・弱*位相・標準埋め込み](textbook/volumes/00_foundations/FA3/index.md)
-13. [F0-02C6A 分離定理・Minkowski汎関数・Farkas](textbook/volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md)
-14. [FA4 Banach–Alaoglu・Goldstine・反射性](textbook/volumes/00_foundations/FA4/index.md)
-15. [FA5 スペクトル・レゾルベント](textbook/volumes/00_foundations/FA5/index.md)
-16. [FA6 コンパクト作用素](textbook/volumes/00_foundations/FA6/index.md)
-17. [FA7 コンパクト自己共役作用素・Fredholm の交代定理](textbook/volumes/00_foundations/FA7/index.md)
+
+補講として [F0-02C6A 分離定理・Minkowski汎関数・Farkas](textbook/volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md) を置きます。Hahn–Banach の応用と凸解析への橋であり、関数解析 II の必須 prerequisite ではありません。
+
+<a id="dt-subject-functional-analysis-ii"></a>
+### 関数解析 II
+
+1. [FA3 弱位相・弱*位相・標準埋め込み](textbook/volumes/00_foundations/FA3/index.md)
+2. [FA4 Banach–Alaoglu・Goldstine・反射性](textbook/volumes/00_foundations/FA4/index.md)
+3. [FA5 スペクトル・レゾルベント](textbook/volumes/00_foundations/FA5/index.md)
+4. [FA6 コンパクト作用素](textbook/volumes/00_foundations/FA6/index.md)
+5. [FA7 コンパクト自己共役作用素・Fredholm の交代定理](textbook/volumes/00_foundations/FA7/index.md)
 
 <a id="dt-subject-evolution-equations"></a>
 ### 抽象発展方程式・半群論
