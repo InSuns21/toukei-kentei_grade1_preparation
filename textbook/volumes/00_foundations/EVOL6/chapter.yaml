@@ -1,0 +1,47 @@
+id: "EVOL6"
+title: "半線形発展方程式・局所解・continuation criterion"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - EVOL5
+  - ODE8
+official_scope: []
+learning_objectives:
+  - C0 半群 T(t) と非線形項 F から半線形発展方程式の mild formulation を書き、非線形 Duhamel 写像として読める
+  - Banach 空間上の局所 Lipschitz 性と bounded-ball Lipschitz 性を区別し、後者が無限次元で continuation を一様化する理由を説明できる
+  - C([0,T];X) 上の閉球を選び、Duhamel 写像の閉球不変性と縮小率を具体的な時間条件まで計算できる
+  - 局所不動点構成から半線形発展方程式の局所存在一意性を証明できる
+  - mild 解の restart identity を半群則と Duhamel 公式から導出できる
+  - 最大存在時間を定義し、局所解を一意性で貼り合わせて最大 mild 解を構成する論理を説明できる
+  - bounded-ball Lipschitz 非線形項の下で、有限最大存在時間なら解ノルムが発散する blow-up alternative を再出発論法で証明できる
+  - 線形成長評価から Grönwall の不等式を用いて有限時間ノルム上界を得て、大域存在を導ける
+  - NPDE6 の半線形熱方程式と NS5 の三次元局所強解を、線形半群・非線形項・局所構成・再出発という共通骨格で比較できる
+  - analytic smoothing や PDE 固有の双線形評価が必要な場合、単純な F:X->X の抽象定理だけでは閉じないことを説明できる
+definitions:
+  - { id: EVOL6-DEF-01, name: "半線形発展方程式の mild 解" }
+  - { id: EVOL6-DEF-02, name: "局所 Lipschitz 非線形項" }
+  - { id: EVOL6-DEF-03, name: "bounded-ball Lipschitz 非線形項" }
+  - { id: EVOL6-DEF-04, name: "最大存在時間" }
+theorems:
+  - { id: EVOL6-THM-01, name: "半線形発展方程式の局所存在一意性" }
+  - { id: EVOL6-PROP-01, name: "mild 解の再出発公式" }
+  - { id: EVOL6-PROP-02, name: "有界領域での初期値連続依存" }
+  - { id: EVOL6-THM-02, name: "半線形発展方程式の blow-up alternative" }
+  - { id: EVOL6-COR-01, name: "線形成長条件による大域存在" }
+canonical_examples:
+  - "X=R, A=0, F(u)=u^2 の有限時間 blow-up"
+  - "一般 Banach 空間上の F(x)=||x||x は bounded ball 上で Lipschitz"
+  - "F が大域 Lipschitz の場合の一様な局所時間"
+  - "半線形熱方程式の heat semigroup と u^p"
+  - "Navier--Stokes の Stokes semigroup と二次非線形項の論理構造比較"
+problem_patterns:
+  - EVOL6-MILD-1
+  - EVOL6-LOCAL-FIXED-POINT-1
+  - EVOL6-RESTART-1
+  - EVOL6-CONTINUATION-1
+  - EVOL6-GLOBAL-GROWTH-1
+  - EVOL6-PDE-COMPARISON-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.5, exercises: 6.5, review: 1.5 }
