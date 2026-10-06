@@ -24,6 +24,11 @@ if (selfTest) {
 const index = JSON.parse(fs.readFileSync(path.join(root, 'textbook/dream-theater-index.json'), 'utf8'));
 const policy = YAML.parse(fs.readFileSync(path.join(root, 'textbook/dream-theater-knowledge.yaml'), 'utf8')) ?? {};
 const metadataFile = policy.metadata_file || 'knowledge.yaml';
+const contextualAliases = new Set(
+  (policy.alias_matching?.contextual_aliases ?? [])
+    .map((value) => normalizeAlias(String(value)))
+    .filter(Boolean),
+);
 const pagePaths = (index.sections ?? []).flatMap((section) => section.paths ?? []);
 const changed = changedOnly ? collectChangedLineNumbers() : { files: new Set(), lines: new Map(), base: null };
 const pages = new Map();
@@ -84,13 +89,14 @@ for (const [alias, owners] of aliasOwners.entries()) {
   const currentIds = new Set(uniqueIds);
   const collisionChanged = !sameSet(baseIds, currentIds);
   const touchesOwnerKnowledge = owners.some((owner) => changed.files.has(owner.page.knowledgeRel));
-  const mustBlock = strict && changedOnly && collisionChanged && touchesOwnerKnowledge;
+  const contextualCollision = contextualAliases.has(alias);
+  const mustBlock = strict && changedOnly && collisionChanged && touchesOwnerKnowledge && !contextualCollision;
 
   findings.push({
     severity: mustBlock ? 'ERROR' : 'WARN',
     file: 'textbook/dream-theater-knowledge.yaml',
     line: 1,
-    message: `${mustBlock ? '新しい' : '既存の'} alias衝突「${alias}」: ${uniqueIds.join(', ')}。同名を維持するなら使用箇所で一意に解決できる設計にしてください。`,
+    message: `${collisionChanged ? '新しい' : '既存の'} alias衝突「${alias}」: ${uniqueIds.join(', ')}。${contextualCollision ? 'contextual alias として使用箇所ごとの一意解決を検査します。' : '同名を維持するなら使用箇所で一意に解決できる設計にしてください。'}`,
   });
 }
 
@@ -442,6 +448,7 @@ function runSelfTest() {
   if (normalizeAlias('**弱*位相**') !== normalizeAlias('弱*位相')) failures.push('markdown emphasis star normalization');
   if (!isPotentiallyBroadShortAlias('階数', { name: '常微分方程式・階数' })) failures.push('broad short alias detection');
   if (isPotentiallyBroadShortAlias('常微分方程式・階数', { name: '常微分方程式・階数' })) failures.push('canonical name broad alias false positive');
+  if (!contextualAliases.has(normalizeAlias('交換子'))) failures.push('contextual alias policy loading');
 
   const source = [
     '# test',
