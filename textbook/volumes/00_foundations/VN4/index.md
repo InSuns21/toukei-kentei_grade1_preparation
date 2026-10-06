@@ -26,33 +26,29 @@ $$
 
 という無限和も自然に現れます。これは一個のベクトル汎関数ではありませんが、作用素 $A$ の「無限個の行列係数を、絶対収束する重みでまとめて読む」汎関数です。
 
-この無限和を一つの作用素で書く道具が **trace class** です。trace class 作用素 $T$ を使うと
+この無限和を一つの作用素で管理するには、まず「特異値の総和が有限な作用素」を取り出す必要があります。その作用素を試験側に置くと、$B(H)$ 上の無限個の行列係数を絶対収束する形でまとめられます。
 
-$$
-\boxed{
-A\longmapsto \operatorname{Tr}(AT)
-}
-$$
+さらに、その作用素全体の Banach 空間を $X$ と書いたとき、
 
-という形で $B(H)$ 上の汎関数をまとめられます。
+$
+B(H)\cong X^*
+$
 
-本章の中心は次の一本の線です。
+という双対関係が成立することを示します。すると $B(H)$ には $X$ を使って定まる自然な弱*位相が入ります。
 
-$$
-\boxed{
-S_1(H)
-\quad\longrightarrow\quad
-B(H)=S_1(H)^*
-\quad\longrightarrow\quad
-B(H)_*=S_1(H)
-\quad\longrightarrow\quad
-\sigma(B(H),S_1(H))
-}
-$$
+本章では Schatten 級全般へは広げません。極分解とコンパクト自己共役スペクトル定理から特異値を作り、
 
-最後の位相が **ultraweak 位相**です。
+$
+\text{特異値の可算和}
+\longrightarrow
+\text{作用素トレース}
+\longrightarrow
+\text{双対空間表示}
+\longrightarrow
+\text{自然な弱*位相}
+$
 
-この章では Schatten 級全般へは広げません。極分解とコンパクト自己共役スペクトル定理から特異値を作り、trace class、トレース対合、predual、ultraweak 位相までを一続きに構成します。
+という順に必要な道具を一つずつ定義します。
 
 ---
 
@@ -64,7 +60,7 @@ $$
 |T|=(T^*T)^{1/2}
 $$
 
-を $T$ の絶対値と呼びました。$T$ がコンパクトなら $|T|$ もコンパクトで、しかも正の自己共役作用素です。
+を $T$ の絶対値と呼びました。$T$ がコンパクトなら $|T|$ もコンパクトで、しかも正の自己共役有界作用素です。
 
 したがって FA7 のコンパクト自己共役スペクトル定理により、$|T|$ の非零固有値を重複度込みで並べられます。
 
@@ -369,7 +365,7 @@ $
 
 ---
 
-## 3. trace class：特異値の総和が有限な作用素
+## 3. 特異値の総和が有限な作用素
 
 コンパクト作用素は特異値が0へ落ちます。しかし「0へ落ちる」だけでは、無限個の行列係数を絶対収束する形でまとめるには弱すぎます。
 
@@ -1257,7 +1253,7 @@ $
 \theta_{x,A^*y}.
 $
 
-従って rank-one trace 公式から
+従って rank-one 作用素のトレース公式から
 
 $
 \begin{aligned}
@@ -1335,7 +1331,7 @@ $$
 
 ---
 
-## 6. $B(H)$ は trace class の双対空間である
+## 6. $B(H)$ は $S_1(H)$ の双対空間である
 
 ここまでの準備で、本章の中心定理を証明できます。
 
@@ -1354,7 +1350,7 @@ $$
 <a id="thm-vn4-trace-duality"></a>
 
 <!-- formal-statement-start -->
-### 定理（$B(H)$ と trace class の等長双対性）
+### 定理（有界作用素環とトレース級の等長双対性）
 
 写像
 
@@ -1472,7 +1468,7 @@ $$
 
 と置きます。
 
-rank-one 作用素のトレースノルム公式から
+rank-one 作用素のトレース公式から
 
 $$
 |b_f(x,y)|
@@ -1575,7 +1571,7 @@ $$
 
 ---
 
-## 7. predual：双対空間の一つ手前
+## 7. 双対空間の一つ手前
 
 通常の双対空間では
 
@@ -1653,7 +1649,7 @@ predual は単なる記号ではありません。**どの弱*位相を使うか
 
 ---
 
-## 8. ultraweak 位相：trace class 全体で作用素を見る
+## 8. 双対構造が定める弱*位相
 
 WOT は
 
@@ -2059,6 +2055,165 @@ $$
 
 ということです。つまり $M$ の元に pairing したとき、$T_1$ と $T_2$ は全く区別できません。
 
+<a id="lem-vn4-quotient-dual"></a>
+
+<!-- formal-statement-start -->
+### 補題（商空間の双対と annihilator）
+
+$X$ を Banach 空間、$Y\subset X$ を閉部分空間とし、
+
+$
+Y^\perp
+=
+\{f\in X^*:f(y)=0\ \forall y\in Y\}
+$
+
+とする。
+
+標準商写像 $q:X\to X/Y$ に対して
+
+$
+\boxed{
+(X/Y)^*\cong Y^\perp
+}
+$
+
+が等長同型として成り立つ。同型は
+
+$
+g\longmapsto g\circ q
+$
+
+で与えられる。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+$g\in(X/Y)^*$ に対し
+
+$
+\widetilde g=g\circ q
+$
+
+と置きます。$q(y)=0$ が $y\in Y$ について成り立つので
+
+$
+\widetilde g(y)=0.
+$
+
+従って
+
+$
+\widetilde g\in Y^\perp.
+$
+
+また商ノルムの定義から
+
+$
+\|q(x)\|
+=
+\inf_{y\in Y}\|x+y\|
+\le
+\|x\|
+$
+
+なので
+
+$
+|\widetilde g(x)|
+=
+|g(q(x))|
+\le
+\|g\|\,\|x\|.
+$
+
+従って
+
+$
+\|\widetilde g\|\le\|g\|.
+$
+
+逆向きに、任意の $z=q(x)\in X/Y$ と $\varepsilon>0$ に対し、商ノルムの定義から $y\in Y$ を
+
+$
+\|x+y\|
+<
+\|z\|+\varepsilon
+$
+
+となるように取れます。
+
+$q(x+y)=q(x)=z$ だから
+
+$
+|g(z)|
+=
+|\widetilde g(x+y)|
+\le
+\|\widetilde g\|
+(\|z\|+\varepsilon).
+$
+
+$\varepsilon\downarrow0$ とすれば
+
+$
+\|g\|\le\|\widetilde g\|.
+$
+
+よって
+
+$
+\boxed{\|g\|=\|\widetilde g\|}.
+$
+
+次に $f\in Y^\perp$ を取ります。
+
+$
+g_f(q(x))=f(x)
+$
+
+と定めます。もし $q(x_1)=q(x_2)$ なら $x_1-x_2\in Y$ なので
+
+$
+f(x_1)-f(x_2)
+=
+f(x_1-x_2)
+=
+0.
+$
+
+従って $g_f$ は well-defined です。
+
+さらに任意の $y\in Y$ について $f(x)=f(x+y)$ だから
+
+$
+|g_f(q(x))|
+=
+|f(x)|
+=
+|f(x+y)|
+\le
+\|f\|\,\|x+y\|.
+$
+
+$y$ について下限を取ると
+
+$
+|g_f(q(x))|
+\le
+\|f\|\,\|q(x)\|.
+$
+
+従って $g_f\in(X/Y)^*$ であり、
+
+$
+f=g_f\circ q.
+$
+
+以上から $g\mapsto g\circ q$ は $(X/Y)^*$ と $Y^\perp$ の等長線形同型です。
+<!-- proof-end -->
+
 <a id="thm-vn4-von-neumann-predual"></a>
 
 <!-- formal-statement-start -->
@@ -2131,13 +2286,23 @@ von Neumann 環 $M$ は WOT 閉で、ultraweak 位相は WOT より強いので�
 <!-- proof-start -->
 ### 証明
 
-商空間の双対の標準同型により
+[商空間の双対と annihilator](#lem-vn4-quotient-dual)を
 
-$$
+$
+X=S_1(H),
+\qquad
+Y=M_\perp
+$
+
+に適用すると
+
+$
 \left(S_1(H)/M_\perp\right)^*
 \cong
-(M_\perp)^\perp.
-$$
+(M_\perp)^\perp
+$
+
+を得ます。
 
 ここで右辺は
 
@@ -2172,23 +2337,140 @@ A\in B(H):
 \right\}.
 $$
 
-双対対合の一般原理から、これは $M$ の
+まず $M\subset(M_\perp)^\perp$ は定義から明らかです。
 
-$$
-\sigma(B(H),S_1(H))
-$$
+逆包含を示すため、$A\notin M$ と仮定します。$M$ は von Neumann 環なので WOT 閉であり、ultraweak 位相は WOT より強いので $M$ は ultraweak 位相でも閉です。
 
-閉包、すなわち ultraweak 閉包です。
+従って $A$ を含み $M$ と交わらない ultraweak 基本近傍が存在します。すなわち、ある
 
-一方 $M$ は von Neumann 環なので WOT 閉です。
+$
+T_1,\ldots,T_n\in S_1(H),
+\qquad
+\varepsilon>0
+$
 
-ultraweak 位相は WOT より強いので、WOT 閉集合は ultraweak 位相でも閉です。従って $M$ の ultraweak 閉包は $M$ 自身です。
+が存在して、
+
+$
+|\operatorname{Tr}((B-A)T_j)|<\varepsilon
+\qquad
+(j=1,\ldots,n)
+$
+
+を全て満たす $B$ は $M$ に属しません。
+
+線形写像
+
+$
+L:B(H)\to\mathbb C^n,
+\qquad
+L(B)
+=
+\bigl(
+\operatorname{Tr}(BT_1),\ldots,
+\operatorname{Tr}(BT_n)
+\bigr)
+$
+
+を考えます。
+
+もし $L(A)\in L(M)$ なら、ある $B\in M$ が存在して
+
+$
+L(B)=L(A)
+$
+
+となります。このとき全ての $j$ について
+
+$
+\operatorname{Tr}((B-A)T_j)=0
+$
+
+となり、上の基本近傍に $B\in M$ が入ってしまいます。これは矛盾です。
+
+したがって
+
+$
+L(A)\notin L(M).
+$
+
+$L(M)$ は有限次元空間 $\mathbb C^n$ の線形部分空間なので、有限次元線形代数により、ある線形汎関数
+
+$
+\lambda:\mathbb C^n\to\mathbb C
+$
+
+が存在して
+
+$
+\lambda|_{L(M)}=0,
+\qquad
+\lambda(L(A))\ne0
+$
+
+となります。
+
+$
+\lambda(z_1,\ldots,z_n)
+=
+\sum_{j=1}^{n}c_jz_j
+$
+
+と書き、
+
+$
+T=\sum_{j=1}^{n}c_jT_j\in S_1(H)
+$
+
+と置きます。
+
+任意の $B\in M$ に対し
+
+$
+\operatorname{Tr}(BT)
+=
+\sum_{j=1}^{n}
+c_j\operatorname{Tr}(BT_j)
+=
+\lambda(L(B))
+=
+0.
+$
+
+従って
+
+$
+T\in M_\perp.
+$
+
+一方
+
+$
+\operatorname{Tr}(AT)
+=
+\lambda(L(A))
+\ne0.
+$
 
 よって
 
-$$
+$
+A\notin(M_\perp)^\perp.
+$
+
+対偶から
+
+$
+(M_\perp)^\perp\subset M.
+$
+
+したがって
+
+$
+\boxed{
 (M_\perp)^\perp=M.
-$$
+}
+$
 
 したがって
 
@@ -2628,7 +2910,7 @@ A\theta_{x,y}
 \theta_{Ax,y}.
 $$
 
-rank-one trace 公式を使うと
+rank-one 作用素のトレース公式を使うと
 
 $$
 \operatorname{Tr}(A\theta_{x,y})
@@ -2897,7 +3179,7 @@ T\notin S_1(H).
 }
 $$
 
-最後に最良有限ランク近似補題から
+最後に[特異値と最良有限ランク近似](#lem-vn4-best-rank-approximation)から
 
 $$
 \inf_{\operatorname{rank}R\le N}\|T-R\|
@@ -3103,7 +3385,7 @@ $$
 \operatorname{Tr}((A_\alpha-A)\theta_{x_j,y_j}).
 $$
 
-rank-one trace 公式より
+rank-one 作用素のトレース公式より
 
 $$
 \operatorname{Tr}((A_\alpha-A)\theta_{x_j,y_j})
@@ -3458,7 +3740,7 @@ A\theta_{x,y}
 \theta_{Ax,y}.
 $$
 
-rank-one trace 公式から
+rank-one 作用素のトレース公式から
 
 $$
 \boxed{
@@ -3648,7 +3930,7 @@ $$
 
 は $S_1(H)$ の閉部分空間です。
 
-商空間の双対公式から
+[商空間の双対と annihilator](#lem-vn4-quotient-dual)から
 
 $$
 \left(S_1(H)/M_\perp\right)^*
