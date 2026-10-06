@@ -23,7 +23,7 @@ chapters:
     title: 決定論的微分ゲーム・Hamilton--Jacobi--Isaacs
   - id: HJC5
     path: textbook/volumes/00_foundations/HJC5
-    status: planned
+    status: completed
     title: 確率制御・二階 HJB
   - id: HJC6
     path: textbook/volumes/00_foundations/HJC6
