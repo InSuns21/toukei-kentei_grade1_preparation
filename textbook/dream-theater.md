@@ -294,6 +294,7 @@
 1. [HJC1 決定論的最適制御・動的計画原理・HJB の導出](textbook/volumes/00_foundations/HJC1/index.md)
 2. [HJC2 粘性解・比較原理・一意性](textbook/volumes/00_foundations/HJC2/index.md)
 3. [HJC3 HJB と value function の粘性解特徴付け](textbook/volumes/00_foundations/HJC3/index.md)
+4. [HJC4 決定論的微分ゲーム・Hamilton--Jacobi--Isaacs](textbook/volumes/00_foundations/HJC4/index.md)
 
 <a id="dt-subject-navier-stokes"></a>
 ### Navier--Stokes 方程式への道
