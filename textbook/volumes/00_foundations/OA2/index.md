@@ -440,7 +440,7 @@ $A$ を可換複素単位的 Banach 環、$M$ を極大イデアルとする。�
 
 閉包 $\overline M$ もイデアルです。極大性から $\overline M=M$ または $\overline M=A$ です。
 
-もし $\overline M=A$ なら $1$ に十分近い $m\in M$ が取れます。OA1 の Neumann 級数により、その $m$ は可逆になります。しかし真のイデアルは可逆元を含めません。
+もし $\overline M=A$ なら $1$ に十分近い $m\in M$ が取れます。OA1 の [Banach 環の Neumann 級数](../OA1/index.md#lem-oa1-neumann-series)により、その $m$ は可逆になります。しかし真のイデアルは可逆元を含めません。
 
 <!-- proof-start -->
 ### 証明
@@ -2435,7 +2435,7 @@ $$
 
 $b\in B$ を固定します。
 
-OA1 のスペクトル非空性から
+OA1 が [FA5 の複素 Banach 空間上のスペクトル非空性](../FA5/index.md#thm-fa5-spectrum-nonempty)から導いたスペクトル非空性により
 
 $$
 \sigma_B(b)\ne\varnothing.
@@ -2522,7 +2522,7 @@ $$
 \ker\varepsilon_j=M_j.
 $$
 
-本文の character と極大イデアルの対応から、character の核は極大イデアルです。従って $M_j$ は極大です。
+本文の [character と極大イデアルの対応](#thm-oa2-character-maximal-ideal)から、character の核は極大イデアルです。従って $M_j$ は極大です。
 
 #### 2. 他にないこと
 
