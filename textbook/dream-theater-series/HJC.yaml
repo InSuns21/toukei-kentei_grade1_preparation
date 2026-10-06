@@ -19,7 +19,7 @@ chapters:
     title: HJB と value function の粘性解特徴付け
   - id: HJC4
     path: textbook/volumes/00_foundations/HJC4
-    status: planned
+    status: completed
     title: 決定論的微分ゲーム・Hamilton--Jacobi--Isaacs
   - id: HJC5
     path: textbook/volumes/00_foundations/HJC5
