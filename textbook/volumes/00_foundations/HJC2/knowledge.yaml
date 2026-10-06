@@ -1,0 +1,75 @@
+chapter: HJC2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HJC1
+  - PDE12
+
+forward_references: []
+
+concepts:
+  - id: pde.viscosity-subsolution-supersolution
+    name: viscosity subsolution / supersolution
+    kind: definition
+    aliases: ["粘性劣解・粘性優解", "viscosity subsolution and supersolution"]
+    introduction: formal
+    introduction_aliases: ["定義（viscosity subsolution / supersolution）"]
+    requires:
+      - control.hjb-equation
+      - pde.pde12-hamilton-jacobi
+
+  - id: pde.viscosity-solution
+    name: 粘性解
+    kind: definition
+    aliases: ["viscosity solution"]
+    introduction: formal
+    introduction_aliases: ["定義（viscosity solution）"]
+    requires:
+      - pde.viscosity-subsolution-supersolution
+
+  - id: pde.viscosity-classical-consistency
+    name: 古典解と粘性解の整合性
+    kind: proposition
+    aliases: ["classical-viscosity consistency"]
+    introduction: formal
+    introduction_aliases: ["命題（古典解と粘性解の整合性）"]
+    requires:
+      - pde.viscosity-solution
+
+  - id: pde.viscosity-uniform-stability
+    name: コンパクト集合ごとの一様収束に対する粘性解の安定性
+    kind: theorem
+    aliases: ["stability of viscosity solutions under compact-by-compact uniform convergence"]
+    introduction: formal
+    introduction_aliases: ["定理（任意のコンパクト集合ごとの一様収束に対する安定性）"]
+    requires:
+      - pde.viscosity-subsolution-supersolution
+
+  - id: pde.viscosity-comparison-principle
+    name: 粘性解の comparison principle
+    kind: theorem
+    aliases: ["comparison principle for viscosity solutions"]
+    introduction: formal
+    introduction_aliases: ["定理（一次 Hamilton--Jacobi 終端値問題の comparison principle）"]
+    requires:
+      - pde.viscosity-subsolution-supersolution
+
+  - id: pde.viscosity-uniqueness
+    name: comparison による粘性解の一意性
+    kind: corollary
+    aliases: ["uniqueness by viscosity comparison"]
+    introduction: formal
+    introduction_aliases: ["系（comparison による一意性）"]
+    requires:
+      - pde.viscosity-comparison-principle
+      - pde.viscosity-solution
+
+  - id: pde.viscosity-perron-method
+    name: 粘性解に対する Perron method
+    kind: theorem
+    aliases: ["Perron method for viscosity solutions"]
+    introduction: formal
+    introduction_aliases: ["定理（Perron method）"]
+    requires:
+      - pde.viscosity-comparison-principle
+      - pde.viscosity-uniform-stability

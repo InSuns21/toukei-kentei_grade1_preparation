@@ -11,7 +11,7 @@ chapters:
     title: 決定論的最適制御・動的計画原理・HJB の導出
   - id: HJC2
     path: textbook/volumes/00_foundations/HJC2
-    status: planned
+    status: completed
     title: 粘性解・比較原理・一意性
   - id: HJC3
     path: textbook/volumes/00_foundations/HJC3

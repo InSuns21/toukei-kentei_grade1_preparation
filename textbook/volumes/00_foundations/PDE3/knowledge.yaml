@@ -55,7 +55,7 @@ concepts:
   - id: pde.pde3-comparison
     name: 熱方程式の比較原理
     kind: corollary
-    aliases: [比較原理, comparison principle for heat equation]
+    aliases: [熱方程式の比較原理, comparison principle for heat equation]
     introduction: formal
     introduction_aliases: ["系（比較原理）"]
     requires: [pde.pde3-maximum-principle]

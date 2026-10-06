@@ -1,0 +1,43 @@
+id: "HJC2"
+title: "粘性解・比較原理・一意性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HJC1
+  - PDE12
+official_scope: []
+learning_objectives:
+  - 古典解が非微分可能点で破綻しても Hamilton--Jacobi 型 PDE の選択原理が必要な理由を説明できる
+  - 上半連続・下半連続と smooth test function の上接触・下接触を使って viscosity subsolution / supersolution を定義できる
+  - 接触点で test function と古典解の一階微分が一致することを用い、古典解が粘性解になることを証明できる
+  - 一次元 Eikonal 方程式で a.e. 解の非一意性と粘性解による選択を具体的に確認できる
+  - HJC1 の bang-bang value function を非微分点を含めて粘性解として判定できる
+  - 任意のコンパクト集合ごとに一様収束する粘性 subsolution / supersolution の極限が同じ不等式を保つ安定性を証明できる
+  - doubling of variables の罰則項が空間点・時刻を近づける仕組みを追い、comparison principle の主要評価を再現できる
+  - comparison principle から終端値問題の粘性解の一意性を導ける
+  - Perron method で subsolution の上限から解を構成する発想と semicontinuous envelope の役割を説明できる
+  - terminal condition と interior viscosity inequality の役割を分離して扱える
+definitions:
+  - { id: HJC2-DEF-01, name: "viscosity subsolution / supersolution" }
+  - { id: HJC2-DEF-02, name: "viscosity solution" }
+theorems:
+  - { id: HJC2-PROP-01, name: "古典解と粘性解の整合性" }
+  - { id: HJC2-THM-01, name: "任意のコンパクト集合ごとの一様収束に対する安定性" }
+  - { id: HJC2-THM-02, name: "一次 Hamilton--Jacobi 終端値問題の comparison principle" }
+  - { id: HJC2-COR-01, name: "comparison による一意性" }
+  - { id: HJC2-THM-03, name: "Perron method" }
+canonical_examples:
+  - "|u'|=1, u(±1)=0 に対する a.e. 解の非一意性と距離関数の viscosity 選択"
+  - "V(t,x)=max{|x|-(T-t),0} の切替境界における test-function 判定"
+  - "doubling of variables で |x-y|^2/(2 epsilon) を用いる comparison proof"
+problem_patterns:
+  - HJC2-CONTACT-TEST-1
+  - HJC2-EIKONAL-SELECTION-1
+  - HJC2-CLASSICAL-CONSISTENCY-1
+  - HJC2-STABILITY-1
+  - HJC2-COMPARISON-1
+  - HJC2-PERRON-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10.0, exercises: 7.0, review: 2.0 }
