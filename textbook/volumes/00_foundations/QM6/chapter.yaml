@@ -21,6 +21,7 @@ definitions:
   - { id: QM6-DEF-02, name: "Cayley 変換" }
   - { id: QM6-DEF-03, name: "自己共役作用素の Borel 関数計算" }
 theorems:
+  - { id: QM6-PROP-00, name: "非有界スペクトル積分の定義域とノルム" }
   - { id: QM6-THM-01, name: "自己共役性の値域判定" }
   - { id: QM6-THM-02, name: "実座標のスペクトル積分の自己共役性" }
   - { id: QM6-PROP-01, name: "Cayley 変換の基本性質" }
