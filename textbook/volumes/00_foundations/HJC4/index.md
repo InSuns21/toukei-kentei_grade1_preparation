@@ -190,6 +190,7 @@ $$
 
 この条件は、「時刻 $s$ までの応答を決めるために、相手の $s$ より後の control を使わない」という意味です。
 
+<!-- definition-example-start: def-hjc4-nonanticipative-strategy -->
 ### 直接例
 
 $$
@@ -208,6 +209,8 @@ $$
 
 ここが control と strategy の最初の差です。
 
+**定義の確認**：$\alpha[v](r)=-v(r)$ は、$[t,s]$ で $v_1=v_2$ なら同じ区間で $\alpha[v_1]=\alpha[v_2]$ となるので、定義の nonanticipative 条件を直接満たします。対して $\alpha[v](r)=-v(T)$ は $r<T$ で未来値を参照するため、その条件を満たしません。
+<!-- definition-example-end -->
 control は「一本の予定表」ですが、strategy は「相手の行動履歴に対する応答規則」です。
 
 ---
@@ -271,6 +274,7 @@ $$
 
 GAME-A2 の有限ゲームでは混合戦略を導入することで minmax equality を得ました。本章では純粋な deterministic controls のまま進むので、二つの順序は一般には一致しません。
 
+<!-- definition-example-start: def-hjc4-lower-upper-values -->
 ### Isaacs 条件が失敗する最小例
 
 状態を動かさず、
@@ -327,6 +331,8 @@ $$
 
 同じ running cost でも情報構造が違えば value は一致しません。
 
+**定義の確認**：lower game では MIN の strategy $\alpha[v]=-v$ を先に固定してから MAX の $v$ に対する supremum を取るため $V^-=-(T-t)$ になります。upper game では MAX の strategy $\beta[u]=u$ を先に固定してから MIN の $u$ に対する infimum を取るため $V^+=T-t$ になります。したがって二つの式で strategy を持つ側と最適化順序が実際に異なることを確認できます。
+<!-- definition-example-end -->
 ---
 
 ## 4. 微分ゲームの dynamic programming principle
@@ -684,6 +690,36 @@ $$
 
 これらを lower / upper Hamilton--Jacobi--Isaacs 方程式という。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-hjc4-isaacs-hamiltonians, def-hjc4-hji -->
+### 定義を式で確認する
+
+§3 の $f\equiv0$, $L(u,v)=uv$, $U=V=\{-1,1\}$ を使います。このとき $p$ に依存する項はなく、
+
+$
+H^-=\sup_v\inf_u uv=-1,
+\qquad
+H^+=\inf_u\sup_v uv=1.
+$
+
+従って lower / upper HJI はそれぞれ
+
+$
+V_t^- -1=0,
+\qquad
+V^-(T)=0,
+$
+
+$
+V_t^+ +1=0,
+\qquad
+V^+(T)=0
+$
+
+です。
+
+**定義の確認**：同じ局所量 $Q(u,v)=uv$ に対して、lower Hamiltonian では $\sup_v\inf_u$、upper Hamiltonian では $\inf_u\sup_v$ を取っているため、定義どおり $H^-=-1$ と $H^+=1$ に分かれます。その二つを $V_t^\pm+H^\pm=0$ へ代入すると、上の二本の HJI がそのまま得られます。
+<!-- definition-example-end -->
 
 HJC3 と同じ backward viscosity convention を使うときは
 
@@ -1138,6 +1174,52 @@ $$
 
 が成り立つとき、Isaacs condition が成り立つという。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-hjc4-isaacs-condition -->
+### Isaacs condition を直接確認する
+
+$$
+f(x,u,v)=u-v,
+\qquad
+L\equiv0,
+$$
+
+$$
+U=[-a,a],
+\qquad
+V=[-b,b],
+\qquad
+a>b>0
+$$
+
+とします。局所量は
+
+$$
+Q(u,v)=p(u-v)
+$$
+
+なので、
+
+$$
+\sup_{|v|\le b}\inf_{|u|\le a}p(u-v)
+=
+-a|p|+b|p|
+=
+-(a-b)|p|,
+$$
+
+一方、
+
+$$
+\inf_{|u|\le a}\sup_{|v|\le b}p(u-v)
+=
+-a|p|+b|p|
+=
+-(a-b)|p|.
+$$
+
+**定義の確認**：全ての $p$ で lower Hamiltonian と upper Hamiltonian が同じ $-(a-b)|p|$ になるので、この例は Isaacs condition の等式を直接満たします。§9 ではこの計算を pursuit--evasion の value function までつなげます。
+<!-- definition-example-end -->
 
 <a id="thm-hjc4-isaacs-value"></a>
 <!-- formal-statement-start -->
