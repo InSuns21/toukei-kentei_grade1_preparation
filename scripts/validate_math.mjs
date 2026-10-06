@@ -18,6 +18,7 @@ const timings = {
   katexRenderMs: 0,
 };
 let mathExpressionCount = 0;
+const uniqueMathExpressions = new Set();
 
 function measured(label, fn) {
   const startedAt = performance.now();
@@ -83,6 +84,7 @@ for (const file of files) {
   const items = measured('extractMathMs', () => extractMath(searchable, file));
   mathExpressionCount += items.length;
   for (const item of items) {
+    uniqueMathExpressions.add(`${item.display ? 'display' : 'inline'}\0${item.value}`);
     const katexStartedAt = performance.now();
     try {
       katex.renderToString(item.value, {
@@ -106,6 +108,7 @@ const totalMs = performance.now() - scriptStartedAt;
 console.log('validate:math perf ' + JSON.stringify({
   totalMs: Number(totalMs.toFixed(1)),
   mathExpressionCount,
+  uniqueMathExpressionCount: uniqueMathExpressions.size,
   ...Object.fromEntries(Object.entries(timings).map(([key, value]) => [key, Number(value.toFixed(1))])),
 }));
 
