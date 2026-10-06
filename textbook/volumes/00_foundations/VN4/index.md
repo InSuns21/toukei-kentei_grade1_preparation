@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念**：[VN3 の作用素の絶対値と極分解](../VN3/index.md#thm-vn3-polar-decomposition)、[FA7 のコンパクト自己共役作用素のスペクトル定理](../FA7/index.md)、[F0-02C2 の双対空間と Riesz 表現](../F0-02C2/index.md)を使います。
+> **既出概念**：[VN3 の作用素の絶対値と極分解](../VN3/index.md#thm-vn3-polar-decomposition)、[FA7 のコンパクト自己共役作用素のスペクトル定理](../FA7/index.md)、[F0-02C2 の双対空間と Riesz 表現](../F0_02C2_線形汎関数_双対空間_Riesz/index.md)を使います。
 
 VN1 と VN2 では、von Neumann 環を $B(H)$ の部分代数として見て、SOT・WOT と二重可換子定理を調べました。そこでは連続性を測る汎関数は
 
@@ -71,7 +71,7 @@ $$
 <a id="def-vn4-singular-values"></a>
 
 <!-- formal-statement-start -->
-### 定義（特異値）
+### 定義（コンパクト作用素の特異値）
 
 $H$ を複素 Hilbert 空間、$T\in B(H)$ をコンパクト作用素とする。
 
@@ -723,6 +723,32 @@ $$
 
 と書き、**トレース**と呼ぶ。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-vn4-trace -->
+
+### 直接例：有限次元では通常の行列 trace に戻る
+
+$H=\mathbb C^2$ で
+
+$
+T=
+\begin{pmatrix}
+2&1\\
+0&-1
+\end{pmatrix}
+$
+
+とします。有限次元では $T$ 自身が有限ランクなので、上の連続拡張は通常の行列 trace と一致します。したがって
+
+$
+\boxed{
+\operatorname{Tr}(T)=2+(-1)=1.
+}
+$
+
+無限次元で導入した $\operatorname{Tr}$ は、有限次元の trace を別物に置き換えるのではなく、その定義域を trace class まで広げたものです。
+
+<!-- definition-example-end -->
 
 <a id="prop-vn4-trace-rank-one"></a>
 
