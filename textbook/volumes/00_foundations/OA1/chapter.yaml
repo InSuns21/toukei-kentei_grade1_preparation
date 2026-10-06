@@ -1,0 +1,50 @@
+id: "OA1"
+title: "Banach 環とスペクトル"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FA1
+  - FA5
+official_scope: []
+learning_objectives:
+  - 複素 Banach 環・単位的 Banach 環・可逆元を定義し、C([0,1]) と B(X) で条件を確認できる
+  - Banach 環の Neumann 級数を完備性と劣乗法性から証明し、可逆元全体の開性と逆元の局所級数表示を導ける
+  - 一般の元 a のスペクトルを λ1-a の非可逆性として定義し、C([0,1]) の具体例で計算できる
+  - 左正則表現 a↦L_a が等長な単位的代数準同型であり、可逆性とスペクトルを保存することを証明できる
+  - FA5 の作用素スペクトル論を再利用して、Banach 環のスペクトルの非空性・コンパクト性・ノルム円板評価を導ける
+  - Banach 環のスペクトル半径公式 r(a)=lim ||a^n||^(1/n) を左正則表現から導ける
+  - 閉部分代数と閉両側イデアルを区別し、閉両側イデアルによる商が Banach 環になることを示せる
+definitions:
+  - { id: OA1-DEF-01, name: "複素 Banach 環" }
+  - { id: OA1-DEF-02, name: "単位的 Banach 環・可逆元" }
+  - { id: OA1-DEF-03, name: "Banach 環のスペクトル・レゾルベント集合" }
+  - { id: OA1-DEF-04, name: "左正則表現" }
+  - { id: OA1-DEF-05, name: "Banach 環のスペクトル半径" }
+  - { id: OA1-DEF-06, name: "閉部分代数" }
+  - { id: OA1-DEF-07, name: "閉両側イデアル" }
+  - { id: OA1-DEF-08, name: "商 Banach 環" }
+theorems:
+  - { id: OA1-LEM-01, name: "Banach 環の Neumann 級数" }
+  - { id: OA1-THM-01, name: "可逆元全体の開性と逆元の局所級数表示" }
+  - { id: OA1-PROP-01, name: "左正則表現は等長な単位的代数準同型" }
+  - { id: OA1-THM-02, name: "左正則表現による可逆性とスペクトルの保存" }
+  - { id: OA1-THM-03, name: "Banach 環のスペクトルの非空性・コンパクト性" }
+  - { id: OA1-THM-04, name: "Banach 環のスペクトル半径公式" }
+  - { id: OA1-PROP-02, name: "閉両側イデアルによる商は Banach 環" }
+canonical_examples:
+  - "C([0,1]) の点ごとの積と一様ノルム"
+  - "B(X) の作用素合成"
+  - "C([0,1]) の座標関数 t↦t のスペクトル [0,1]"
+  - "M2(C) の対角閉部分代数"
+  - "I0={f∈C([0,1]):f(0)=0} と C([0,1])/I0≅C"
+problem_patterns:
+  - OA1-NEUMANN-1
+  - OA1-INVERTIBLE-PERTURBATION-1
+  - OA1-CFUNCTION-SPECTRUM-1
+  - OA1-REGULAR-REPRESENTATION-1
+  - OA1-SPECTRAL-RADIUS-1
+  - OA1-QUOTIENT-ALGEBRA-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 7.0, review: 2.0 }
