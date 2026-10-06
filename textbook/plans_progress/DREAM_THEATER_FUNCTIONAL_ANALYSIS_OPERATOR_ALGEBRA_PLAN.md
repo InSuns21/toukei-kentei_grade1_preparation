@@ -508,7 +508,7 @@ $$
 GNS は公式だけで済ませず、
 
 $$
-\langle a,b\rangle_\varphi=\varphi(b^*a)
+\langle a,b\rangle_\varphi=\varphi(a^*b)
 $$
 
 が一般には半内積でしかない理由、null space を割る理由、左乗法が商へ降りる理由、有界作用素になる理由を段階的に証明する。
