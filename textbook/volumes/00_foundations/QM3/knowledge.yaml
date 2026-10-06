@@ -18,8 +18,8 @@ concepts:
     name: 射影値測度
     kind: definition
     aliases: ["projection-valued measure", "PVM"]
-    introduction: formal
-    introduction_aliases: ["定義（射影値測度）"]
+    introduction: inline
+    introduction_aliases: ["この集合から射影への対応を射影値測度と呼びます"]
     requires:
       - measure.borel-sigma-algebra
       - functional.hilbert-space
@@ -60,7 +60,7 @@ concepts:
   - id: quantum.state-spectral-probability-measure
     name: 状態に付随するスペクトル確率測度
     kind: definition
-    aliases: ["spectral probability measure", "測定値の確率測度"]
+    aliases: ["スペクトル確率測度", "spectral probability measure", "測定値の確率測度"]
     introduction: formal
     introduction_aliases: ["定義（状態に付随するスペクトル確率測度）"]
     requires:
