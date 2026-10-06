@@ -1182,7 +1182,7 @@ EVOL1 の閉作用素一般論を再利用し、Hille--Yosida 等は再実装し
 順に
 
 - OA1 Banach 環 ✅（2026-10-06 完了）
-- OA2 Gelfand 理論
+- OA2 Gelfand 理論 ✅（2026-10-07 完了）
 - OA3 $C^*$-環
 - OA4 連続関数計算・可換 Gelfand--Naimark
 - OA5 状態・GNS

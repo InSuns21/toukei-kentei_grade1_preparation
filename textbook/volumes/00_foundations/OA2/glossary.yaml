@@ -1,0 +1,26 @@
+chapter: "OA2"
+terms:
+  - term: 可換 Banach 環
+    english: commutative Banach algebra
+    meaning: 積が可換である Banach 環。本章では複素・単位的な場合を扱う。
+  - term: character
+    english: character
+    meaning: 複素単位的可換 Banach 環から C への非零な複素線形・乗法的汎関数。
+  - term: 極大イデアル
+    english: maximal ideal
+    meaning: 真のイデアルのうち、それを真に含む真のイデアルが存在しないもの。
+  - term: Gelfand--Mazur の定理
+    english: Gelfand--Mazur theorem
+    meaning: 複素単位的 Banach 可除代数はスカラー倍 λ1 だけからなるという定理。
+  - term: character 空間
+    english: character space
+    meaning: Banach 環 A の全 character を集めた集合 Δ(A)。
+  - term: Gelfand 位相
+    english: Gelfand topology
+    meaning: Δ(A) を A* の弱*位相の部分空間として見た位相。
+  - term: Gelfand 変換
+    english: Gelfand transform
+    meaning: a∈A を â(φ)=φ(a) で定まる Δ(A) 上の連続関数へ写す変換。
+  - term: スペクトルの character 表示
+    english: character representation of the spectrum
+    meaning: 可換単位的 Banach 環で σ_A(a)=â(Δ(A)) と表す結果。

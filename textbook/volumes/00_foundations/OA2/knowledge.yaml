@@ -1,0 +1,174 @@
+chapter: OA2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OA1
+  - FA3
+  - FA4
+  - F0-00A3
+
+forward_references: []
+
+concepts:
+  - id: operator-algebra.commutative-unital-banach-algebra
+    name: 可換複素単位的 Banach 環
+    kind: definition
+    aliases: ["commutative unital Banach algebra"]
+    introduction: formal
+    introduction_aliases: ["定義（可換複素単位的 Banach 環）"]
+    requires:
+      - operator-algebra.unital-banach-algebra
+
+  - id: operator-algebra.character
+    name: Banach 環の character
+    kind: definition
+    aliases: ["Banach algebra character", "multiplicative character"]
+    introduction: formal
+    introduction_aliases: ["定義（character）"]
+    requires:
+      - operator-algebra.commutative-unital-banach-algebra
+
+  - id: operator-algebra.character-continuity-spectrum
+    name: character の自動連続性・ノルム1・スペクトル値性
+    kind: proposition
+    aliases: ["automatic continuity of Banach algebra characters"]
+    introduction_aliases: ["命題（character の自動連続性・ノルム1・スペクトル値性）"]
+    requires:
+      - operator-algebra.character
+      - operator-algebra.spectrum-compact-nonempty
+
+  - id: operator-algebra.ideal
+    name: 可換 Banach 環のイデアル
+    kind: definition
+    aliases: ["ideal in a commutative Banach algebra"]
+    introduction: formal
+    introduction_aliases: ["定義（イデアル・極大イデアル）"]
+    requires:
+      - operator-algebra.commutative-unital-banach-algebra
+
+  - id: operator-algebra.maximal-ideal
+    name: 極大イデアル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（イデアル・極大イデアル）"]
+    requires:
+      - operator-algebra.ideal
+
+  - id: operator-algebra.maximal-ideal-closed
+    name: 極大イデアルは閉
+    kind: proposition
+    aliases: ["maximal ideals in a unital Banach algebra are closed"]
+    introduction_aliases: ["命題（極大イデアルは閉である）"]
+    requires:
+      - operator-algebra.maximal-ideal
+      - operator-algebra.neumann-series
+
+  - id: operator-algebra.maximal-ideal-extension
+    name: 真のイデアルの極大イデアルへの延長
+    kind: lemma
+    aliases: ["maximal ideal extension lemma", "極大イデアルへの延長補題", "真のイデアルは極大イデアルへ延長できる補題"]
+    introduction_aliases: ["補題（真のイデアルは極大イデアルへ延長できる）"]
+    requires:
+      - operator-algebra.maximal-ideal
+      - set.zorn-lemma
+
+  - id: operator-algebra.division-banach-algebra
+    name: 複素 Banach 可除代数
+    kind: definition
+    aliases: ["complex Banach division algebra"]
+    introduction: formal
+    introduction_aliases: ["定義（複素 Banach 可除代数）"]
+    requires:
+      - operator-algebra.unital-banach-algebra
+
+  - id: operator-algebra.gelfand-mazur
+    name: Gelfand--Mazur の定理
+    kind: theorem
+    aliases: ["Gelfand--Mazur theorem"]
+    introduction_aliases: ["定理（Gelfand--Mazur）"]
+    requires:
+      - operator-algebra.division-banach-algebra
+      - operator-algebra.spectrum-compact-nonempty
+
+  - id: operator-algebra.character-maximal-ideal-correspondence
+    name: character と極大イデアルの対応
+    kind: theorem
+    aliases: ["character-maximal ideal correspondence"]
+    introduction_aliases: ["定理（character と極大イデアルの対応）"]
+    requires:
+      - operator-algebra.character
+      - operator-algebra.maximal-ideal
+      - operator-algebra.maximal-ideal-closed
+      - operator-algebra.quotient-banach-algebra-theorem
+      - operator-algebra.gelfand-mazur
+
+  - id: operator-algebra.character-space
+    name: character 空間
+    kind: definition
+    aliases: ["character space"]
+    introduction: formal
+    introduction_aliases: ["定義（character 空間・Gelfand 位相）"]
+    requires:
+      - operator-algebra.character
+      - operator-algebra.character-continuity-spectrum
+
+  - id: operator-algebra.gelfand-topology
+    name: Gelfand 位相
+    kind: definition
+    aliases: ["Gelfand topology"]
+    introduction: formal
+    introduction_aliases: ["定義（character 空間・Gelfand 位相）"]
+    requires:
+      - operator-algebra.character-space
+      - functional.weak-star-topology
+
+  - id: operator-algebra.character-space-compact
+    name: character 空間のコンパクト Hausdorff 性
+    kind: theorem
+    aliases: ["compactness of the character space"]
+    introduction_aliases: ["定理（character 空間はコンパクト Hausdorff）"]
+    requires:
+      - operator-algebra.gelfand-topology
+      - operator-algebra.character-continuity-spectrum
+      - operator-algebra.maximal-ideal-extension
+      - operator-algebra.character-maximal-ideal-correspondence
+      - functional.banach-alaoglu
+
+  - id: operator-algebra.gelfand-transform
+    name: Gelfand 変換
+    kind: definition
+    aliases: ["Gelfand transform"]
+    introduction: formal
+    introduction_aliases: ["定義（Gelfand 変換）"]
+    requires:
+      - operator-algebra.character-space
+      - operator-algebra.gelfand-topology
+
+  - id: operator-algebra.gelfand-transform-homomorphism
+    name: Gelfand 変換は縮小的な単位的代数準同型
+    kind: proposition
+    aliases: ["contractive Gelfand transform homomorphism"]
+    introduction_aliases: ["命題（Gelfand 変換は縮小的な単位的代数準同型）"]
+    requires:
+      - operator-algebra.gelfand-transform
+      - operator-algebra.character-continuity-spectrum
+
+  - id: operator-algebra.spectrum-characterization
+    name: 可換 Banach 環のスペクトルの character 表示
+    kind: theorem
+    aliases: ["character representation of the spectrum"]
+    introduction_aliases: ["定理（可換 Banach 環のスペクトルの character 表示）"]
+    requires:
+      - operator-algebra.spectrum
+      - operator-algebra.maximal-ideal-extension
+      - operator-algebra.character-maximal-ideal-correspondence
+      - operator-algebra.gelfand-transform
+
+  - id: operator-algebra.gelfand-transform-spectral-radius
+    name: Gelfand 変換とスペクトル半径の一致
+    kind: corollary
+    aliases: ["spectral radius norm of the Gelfand transform"]
+    introduction_aliases: ["系（Gelfand 変換の一様ノルムはスペクトル半径）"]
+    requires:
+      - operator-algebra.spectrum-characterization
+      - operator-algebra.spectral-radius

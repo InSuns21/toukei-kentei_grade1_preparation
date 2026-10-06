@@ -276,6 +276,7 @@
 ### 作用素環論 I
 
 1. [OA1 Banach 環とスペクトル](textbook/volumes/00_foundations/OA1/index.md)
+2. [OA2 可換 Banach 環と Gelfand 変換](textbook/volumes/00_foundations/OA2/index.md)
 
 <a id="dt-subject-evolution-equations"></a>
 ### 抽象発展方程式・半群論
