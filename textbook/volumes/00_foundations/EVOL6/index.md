@@ -1182,7 +1182,7 @@ $$
 
 <a id="cor-evol6-linear-growth-global"></a>
 <!-- formal-statement-start -->
-### 系（線形成長条件による大域存在）
+### 系（半線形発展方程式の線形成長条件による大域存在）
 
 blow-up alternative の仮定に加えて、定数 $a,b\ge0$ が存在し、
 
@@ -2094,7 +2094,7 @@ M_T\|u(0)-v(0)\|
 M_TL_R\int_0^t\|u(s)-v(s)\|\,ds.
 $$
 
-Grönwall の不等式を適用すると
+[Grönwall の不等式](../ODE8/index.md#lem-ode8-gronwall)を適用すると
 
 $$
 \boxed{
