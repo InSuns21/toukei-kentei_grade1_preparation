@@ -1,0 +1,23 @@
+chapter: "OA1"
+terms:
+  - term: Banach 環
+    english: Banach algebra
+    meaning: Banach 空間に結合的な双線形積を入れ、積が ||ab||≤||a||||b|| を満たす代数。
+  - term: 可逆元
+    english: invertible element
+    meaning: 単位的 Banach 環で左右両方の逆元を持つ元。
+  - term: Banach 環のスペクトル
+    english: spectrum in a Banach algebra
+    meaning: 元 a に対し λ1-a が環の内部で可逆でない複素数 λ の集合。
+  - term: 左正則表現
+    english: left regular representation
+    meaning: Banach 環の元 a を、自身への左乗法作用素 L_a(x)=ax に写す表現。
+  - term: 閉部分代数
+    english: closed subalgebra
+    meaning: 加法・スカラー倍・積で閉じ、さらにノルム位相で閉じた部分代数。
+  - term: 閉両側イデアル
+    english: closed two-sided ideal
+    meaning: 左右から任意の環の元を掛けても内部に残り、ノルム位相で閉じた線形部分空間。
+  - term: 商 Banach 環
+    english: quotient Banach algebra
+    meaning: 閉両側イデアル I による商 A/I に商ノルムと剰余類の積を入れて得る Banach 環。
