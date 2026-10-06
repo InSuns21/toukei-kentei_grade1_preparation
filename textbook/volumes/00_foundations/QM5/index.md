@@ -290,3 +290,286 @@ $$
 
 これは全ての $z\in D(A)$ で成り立ちます。$D(A)$ は稠密なので $y=0$ です。従って EVOL1 の列判定から $A$ は可閉です。$\square$
 <!-- proof-end -->
+
+
+## 4. self-adjoint は定義域まで一致する
+
+<a id="def-qm5-self-adjoint"></a>
+
+<!-- formal-statement-start -->
+### 定義（自己共役作用素）
+
+稠密定義作用素 $A:D(A)\subset H\to H$ が
+
+$$
+A=A^*
+$$
+
+すなわち
+
+$$
+D(A)=D(A^*),
+\qquad
+Ax=A^*x
+\quad(x\in D(A))
+$$
+
+を満たすとき、$A$ を**自己共役作用素**という。
+<!-- formal-statement-end -->
+
+つまり
+
+$$
+\boxed{
+\text{対称}:A\subset A^*,
+\qquad
+\text{自己共役}:A=A^*
+}
+$$
+
+です。有限次元の Hermitian 行列ではこの差が隠れますが、非有界作用素では定義域の等号が本体です。
+
+<!-- definition-example-start: def-qm5-self-adjoint -->
+### 直接例：最大対角作用素 $A$
+
+$A$ は実対角作用素なので対称です。逆に $y\in D(A^*)$、$A^*y=z$ として $e_k\in D(A)$ を使うと
+
+$$
+z_k=ky_k.
+$$
+
+$z\in\ell^2$ だから $(ky_k)\in\ell^2$、従って $y\in D(A)$ です。よって
+
+$$
+D(A^*)\subset D(A).
+$$
+
+対称性から逆包含もあるため
+
+$$
+D(A^*)=D(A),
+\qquad
+A^*=A.
+$$
+<!-- definition-example-end -->
+
+<a id="thm-qm5-real-diagonal-self-adjoint"></a>
+
+<!-- formal-statement-start -->
+### 定理（最大実対角作用素は自己共役）
+
+実数列 $(\lambda_n)$ に対し
+
+$$
+D(M_\lambda)
+=
+\{x\in\ell^2:(\lambda_nx_n)\in\ell^2\},
+$$
+
+$$
+(M_\lambda x)_n
+=
+\lambda_nx_n
+$$
+
+と定める。このとき $M_\lambda$ は自己共役である。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+$\lambda_n\in\mathbb R$ なので
+
+$$
+\langle M_\lambda x,y\rangle
+=
+\sum_n\lambda_nx_n\overline{y_n}
+=
+\sum_nx_n\overline{\lambda_ny_n}
+=
+\langle x,M_\lambda y\rangle,
+$$
+
+従って $M_\lambda$ は対称です。
+
+$y\in D(M_\lambda^*)$、$M_\lambda^*y=z$ とし、$e_k$ を随伴の定義へ入れると
+
+$$
+z_k=\lambda_ky_k.
+$$
+
+$z\in\ell^2$ より $(\lambda_ky_k)\in\ell^2$、したがって $y\in D(M_\lambda)$ です。よって
+
+$$
+D(M_\lambda^*)\subset D(M_\lambda).
+$$
+
+対称性による逆包含と合わせて
+
+$$
+M_\lambda^*=M_\lambda.
+$$
+
+$\square$
+<!-- proof-end -->
+
+自己共役なら $A=A^*$ であり、第2節で $A^*$ は閉じていると証明しました。従って
+
+$$
+\boxed{\text{自己共役作用素は閉作用素}}
+$$
+
+です。
+
+## 5. 本質的自己共役性
+
+対称作用素を扱いやすい小さい定義域で作った後、閉包を取って自己共役作用素を回収できることがあります。
+
+<a id="def-qm5-essential-self-adjoint"></a>
+
+<!-- formal-statement-start -->
+### 定義（本質的自己共役性）
+
+稠密定義対称作用素 $A$ の閉包 $\overline A$ が自己共役であるとき、$A$ は**本質的自己共役**であるという。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-qm5-essential-self-adjoint -->
+### 直接例：$A_0$ は本質的自己共役
+
+EVOL1 で
+
+$$
+\overline{A_0}=A
+$$
+
+を証明しました。本章で $A$ は自己共役と分かったので、$A_0$ は本質的自己共役です。
+
+一方
+
+$$
+D(A_0)\subsetneq D(A_0^*)
+$$
+
+なので $A_0$ 自身は自己共役ではありません。
+<!-- definition-example-end -->
+
+有限次元では全ての線形部分空間が閉じています。そのため稠密な定義域は $H$ 全体しかなく、
+
+$$
+D(A)\subsetneq H,
+\qquad
+\overline{D(A)}=H
+$$
+
+という無限次元特有の状況が起こりません。これが有限次元で「対称」と「自己共役」の差が見えにくい理由です。
+
+## 6. 位置作用素：掛け算だけでも非有界になる
+
+$H=L^2(\mathbb R)$ 上で
+
+$$
+D(Q)
+=
+\{\psi\in L^2(\mathbb R):x\psi(x)\in L^2(\mathbb R)\},
+$$
+
+$$
+(Q\psi)(x)=x\psi(x)
+$$
+
+とします。
+
+任意の $\psi\in L^2$ に対し
+
+$$
+\psi_N=\mathbf 1_{[-N,N]}\psi
+$$
+
+と置けば、$|x|\le N$ 上で
+
+$$
+\|x\psi_N\|_2
+\le
+N\|\psi_N\|_2,
+$$
+
+なので $\psi_N\in D(Q)$ です。また
+
+$$
+\|\psi-\psi_N\|_2^2
+=
+\int_{|x|>N}|\psi(x)|^2\,dx
+\to0.
+$$
+
+従って $D(Q)$ は稠密です。
+
+一方
+
+$$
+\psi(x)=\frac1{1+|x|}
+$$
+
+は $L^2(\mathbb R)$ に属しますが、$x\psi(x)$ は無限遠で絶対値が 1 に近づくため $L^2$ には属しません。よって
+
+$$
+D(Q)\subsetneq L^2(\mathbb R).
+$$
+
+<a id="thm-qm5-position-self-adjoint"></a>
+
+<!-- formal-statement-start -->
+### 定理（位置作用素は自己共役）
+
+上の最大定義域 $D(Q)$ 上で定めた位置作用素 $Q$ は自己共役である。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+$x$ は実数なので、$\psi,\varphi\in D(Q)$ に対し
+
+$$
+\langle Q\psi,\varphi\rangle
+=
+\int x\psi\overline{\varphi}
+=
+\int\psi\overline{x\varphi}
+=
+\langle\psi,Q\varphi\rangle.
+$$
+
+従って $Q$ は対称で $Q\subset Q^*$ です。
+
+逆に $g\in D(Q^*)$、$Q^*g=h$ とします。任意の $f\in D(Q)$ について
+
+$$
+\int xf\,\overline g
+=
+\int f\,\overline h.
+$$
+
+$N\ge1$ を固定し
+
+$$
+k_N
+=
+\mathbf1_{[-N,N]}(xg-h)
+$$
+
+と置きます。区間上では $x$ が有界なので $k_N\in D(Q)$ です。$f=k_N$ を代入すると
+
+$$
+\int_{-N}^{N}|xg-h|^2\,dx=0.
+$$
+
+従って $xg=h$ が $[-N,N]$ 上でほとんど至る所成り立ちます。$N$ は任意なので $\mathbb R$ 全体で $xg=h$ です。
+
+$h\in L^2$ より $xg\in L^2$、すなわち $g\in D(Q)$。従って
+
+$$
+D(Q^*)\subset D(Q).
+$$
+
+対称性から逆包含もあるため $Q^*=Q$ です。$\square$
+<!-- proof-end -->
