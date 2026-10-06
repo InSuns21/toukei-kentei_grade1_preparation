@@ -38,6 +38,24 @@ concepts:
       - functional.hilbert-space
       - functional.hilbert-adjoint
 
+  - id: operator-algebra.partial-isometry-initial-space
+    name: 初期空間
+    kind: definition
+    aliases: ["initial space of a partial isometry"]
+    introduction: formal
+    introduction_aliases: ["定義（部分等長作用素）"]
+    requires:
+      - operator-algebra.partial-isometry
+
+  - id: operator-algebra.partial-isometry-final-space
+    name: 終空間
+    kind: definition
+    aliases: ["final space of a partial isometry"]
+    introduction: formal
+    introduction_aliases: ["定義（部分等長作用素）"]
+    requires:
+      - operator-algebra.partial-isometry
+
   - id: operator-algebra.partial-isometry-projections
     name: 部分等長作用素の初期射影・終射影
     kind: proposition
@@ -70,7 +88,7 @@ concepts:
   - id: operator-algebra.polar-decomposition
     name: 有界作用素の極分解
     kind: theorem
-    aliases: ["polar decomposition of a bounded operator", "polar decomposition"]
+    aliases: ["polar decomposition of a bounded operator"]
     introduction_aliases: ["定理（有界作用素の極分解）"]
     requires:
       - operator-algebra.operator-modulus
