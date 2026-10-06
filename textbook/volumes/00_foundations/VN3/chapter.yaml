@@ -19,6 +19,8 @@ definitions:
   - { id: VN3-DEF-01, name: "作用素の絶対値" }
   - { id: VN3-DEF-02, name: "部分等長作用素" }
   - { id: VN3-DEF-03, name: "支持射影" }
+  - { id: VN3-DEF-04, name: "初期空間" }
+  - { id: VN3-DEF-05, name: "終空間" }
 theorems:
   - { id: VN3-PROP-01, name: "射影と閉部分空間の対応" }
   - { id: VN3-PROP-02, name: "部分等長作用素と初期射影・終射影" }
