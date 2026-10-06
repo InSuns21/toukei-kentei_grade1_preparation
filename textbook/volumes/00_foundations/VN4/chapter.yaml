@@ -29,7 +29,6 @@ theorems:
   - { id: VN4-PROP-01, name: "トレースの連続拡張と rank-one 公式" }
   - { id: VN4-THM-02, name: "有界作用素環とトレース級の等長双対性" }
   - { id: VN4-PROP-02, name: "WOT と ultraweak 位相の比較" }
-  - { id: VN4-LEM-03, name: "商空間の双対と annihilator" }
   - { id: VN4-THM-03, name: "具体的 von Neumann 環の predual" }
 canonical_examples:
   - "M_n(C) での trace norm と通常の行列トレース"
