@@ -19,7 +19,7 @@ chapters:
     title: 射影・PVM・スペクトル定理
   - id: QM4
     path: textbook/volumes/00_foundations/QM4
-    status: planned
+    status: completed
     title: 非可換観測量と不確定性関係
   - id: QM5
     path: textbook/volumes/00_foundations/QM5
