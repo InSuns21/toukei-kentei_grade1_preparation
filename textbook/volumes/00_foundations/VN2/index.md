@@ -447,7 +447,7 @@ VN1 より SOT は WOT より細かいので、SOT 閉包は WOT 閉包に含ま
 
 次に $\mathcal A\subset\mathcal A''$ は可換子の基本性質から成り立ちます。
 
-さらに $\mathcal A'$ は $\mathcal A$ が $*$-閉なので随伴で閉じています。従って前節の命題を $S=\mathcal A'$ に適用すれば
+さらに $\mathcal A$ は随伴で閉じているため、前節の命題から $\mathcal A'$ も随伴で閉じています。$S=\mathcal A'$ として同じ命題を適用すれば
 
 $$
 \mathcal A''
@@ -1513,7 +1513,7 @@ $$
 \mathbb CI.
 $$
 
-一方 $\mathcal A=\{0\}$ は既に SOT 閉なので
+一方 $\mathcal A=\{0\}$ は既に SOT 閉集合なので
 
 $$
 \overline{\mathcal A}^{\mathrm{SOT}}
