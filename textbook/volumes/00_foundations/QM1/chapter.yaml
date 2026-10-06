@@ -1,0 +1,37 @@
+id: "QM1"
+title: "実験事実から Hilbert 空間形式へ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-02C1
+official_scope: []
+learning_objectives:
+  - 二重スリットと Stern--Gerlach 型実験について、実験事実・理論上のモデル化・モデルから導く数学的帰結を区別して説明できる
+  - 二経路の複素振幅を加えてから絶対値二乗を取ると干渉項が現れることを途中式から導ける
+  - 実 Hilbert 空間との違いを意識して複素内積と複素 Hilbert 空間を定義し、C^2 で公理を直接確認できる
+  - 直交する二状態の重ね合わせを C^2 のベクトルとして表し、係数の大きさと相対位相の役割を計算できる
+  - Stern--Gerlach 型の二準位モデルで z 基底と x 基底を相互変換し、逐次選別で出力統計が変わる仕組みを説明できる
+  - 全体位相が内積の絶対値二乗を変えないことを証明し、Hilbert 空間の ray が純粋状態表現の候補になる理由を説明できる
+  - 実験事実から Hilbert 空間形式が論理的に一意に導かれるわけではなく、物理的要請を統一するモデル化であることを説明できる
+definitions:
+  - { id: QM1-DEF-01, name: "複素内積" }
+  - { id: QM1-DEF-02, name: "複素 Hilbert 空間" }
+  - { id: QM1-DEF-03, name: "Hilbert 空間の ray" }
+theorems:
+  - { id: QM1-PROP-01, name: "二経路振幅の干渉恒等式" }
+  - { id: QM1-PROP-02, name: "全体位相不変性" }
+canonical_examples:
+  - "二重スリットの二経路振幅 psi_1+psi_2 と干渉項"
+  - "C^2 の標準複素内積"
+  - "spin 1/2 の z 基底と x 基底"
+  - "z+ 選別後に x+ を選別して再び z を測る逐次 Stern--Gerlach 型実験"
+problem_patterns:
+  - QM1-INTERFERENCE-1
+  - QM1-COMPLEX-HILBERT-1
+  - QM1-RAY-PHASE-1
+  - QM1-STERN-GERLACH-1
+  - QM1-LAYER-SEPARATION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.0, review: 1.5 }
