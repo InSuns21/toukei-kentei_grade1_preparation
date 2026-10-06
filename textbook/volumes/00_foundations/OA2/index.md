@@ -29,15 +29,15 @@ $$
   ↓
 積を保つ複素数値の観測器 character
   ↓
-character の核は極大イデアル
+character の核がどんなイデアルになるかを調べる
   ↑
 Gelfand--Mazur と Zorn の補題
   ↓
-character 空間 Δ(A)
+全 character を集合 Δ(A) にまとめる
   ↓ 弱*位相
 コンパクト Hausdorff 空間
   ↓
-a を関数 φ↦φ(a) に変える Gelfand 変換
+a を関数 φ↦φ(a) に変える
   ↓
 σ_A(a)=â(Δ(A))
 ~~~
@@ -1064,13 +1064,13 @@ $$
 
 $e_2$ を使って
 
-$
+$$
 U_2
 =
 \{\varphi\in\Delta(A):|\varphi(e_2)-1|<1/2\}
 =
 \{\varepsilon_2\}
-$
+$$
 
 も開です。従って $\Delta(\mathbb C^2)$ は2点離散空間です。
 
@@ -1385,7 +1385,7 @@ $$
 \lambda1-a
 $$
 
-は可逆ではありません。可換環では、この元が生成するイデアルを極大イデアルまで拡張し、その極大イデアルに対応する character を使えます。
+は可逆ではありません。本章で扱う可換 Banach 環では、この元が生成するイデアルを極大イデアルまで拡張し、その極大イデアルに対応する character を使えます。
 
 <a id="thm-oa2-spectrum-character"></a>
 
@@ -1480,7 +1480,7 @@ $$
 
 よって $Ax$ は真のイデアルです。
 
-[極大イデアルへの延長補題](#lem-oa2-maximal-ideal-extension)により、ある極大イデアル $M$ が存在して
+[真のイデアルは極大イデアルへ延長できる補題](#lem-oa2-maximal-ideal-extension)により、ある極大イデアル $M$ が存在して
 
 $$
 Ax\subset M
@@ -1890,26 +1890,26 @@ $$
 
 さらにスペクトルも直接計算できます。$\lambda\ne0$ なら
 
-$
+$$
 (\lambda1-\varepsilon)
 \left(
 \lambda^{-1}1+\lambda^{-2}\varepsilon
 \right)
 =
 1
-$
+$$
 
 です。逆順の積も同じなので、$\lambda1-\varepsilon$ は可逆です。一方 $\varepsilon^2=0$ かつ $\varepsilon\ne0$ なので $\varepsilon$ 自身は可逆ではありません。従って
 
-$
+$$
 \sigma_A(\varepsilon)=\{0\}.
-$
+$$
 
 したがって
 
-$
+$$
 r_A(\varepsilon)=0
-$
+$$
 
 ですが
 
@@ -2160,9 +2160,9 @@ $$
 
 逆に各 $\varepsilon_j$ は座標評価なので複素線形であり、成分ごとの積に対して
 
-$
+$$
 \varepsilon_j(zw)=z_jw_j=\varepsilon_j(z)\varepsilon_j(w)
-$
+$$
 
 を満たします。また $\varepsilon_j(1)=1$ なので非零です。従って各 $\varepsilon_j$ は character です。
 
