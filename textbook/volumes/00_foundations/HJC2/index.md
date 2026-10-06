@@ -259,7 +259,13 @@ $$
 
 $H$ は連続とします。
 
-ここでは $t=0$ でも $[0,T)$ に相対的な局所最大・局所最小を使います。終端 $t=T$ は PDE の接触条件とは分け、終端条件として扱います。
+本章では PDE の viscosity inequality を interior point
+
+$
+0<t<T
+$
+
+で課します。$t=0$ は有限時間問題を書き始めるための人工的な左端なので、そこで別の境界条件を課しません。$t=0$ の値まで必要な結論は、$t\downarrow0$ の連続性で延長します。終端 $t=T$ は PDE の接触条件とは分け、終端条件として扱います。
 
 解そのものが微分できなくても、test function は $C^1$ なので微分できます。
 
@@ -281,7 +287,13 @@ $$
 u_t+H(x,\nabla u)=0
 $$
 
-の **viscosity subsolution** であるとは、任意の $\phi\in C^1$ と、$u-\phi$ が $(t_0,x_0)$ で局所最大を取る任意の点に対して
+の **viscosity subsolution** であるとは、任意の $\phi\in C^1$ と、$u-\phi$ が interior point
+
+$
+(t_0,x_0)\in(0,T)\times\mathbb R^d
+$
+
+で局所最大を取る場合に
 
 $$
 \boxed{
@@ -300,7 +312,13 @@ $$
 v:[0,T)\times\mathbb R^d\to\mathbb R
 $$
 
-が **viscosity supersolution** であるとは、任意の $\phi\in C^1$ と、$v-\phi$ が $(t_0,x_0)$ で局所最小を取る任意の点に対して
+が **viscosity supersolution** であるとは、任意の $\phi\in C^1$ と、$v-\phi$ が interior point
+
+$
+(t_0,x_0)\in(0,T)\times\mathbb R^d
+$
+
+で局所最小を取る場合に
 
 $$
 \boxed{
@@ -642,7 +660,7 @@ $$
 
 が $(t_0,x_0)$ で局所最大を取るとします。
 
-$t_0>0$ なら通常の内点微分から
+$(t_0,x_0)$ は定義どおり interior point なので、一階の必要条件から
 
 $$
 \partial_t(u-\phi)(t_0,x_0)=0,
@@ -661,8 +679,6 @@ $$
 $$
 \nabla u(t_0,x_0)=\nabla\phi(t_0,x_0).
 $$
-
-$t_0=0$ では時間方向は右側だけですが、古典 PDE が $t=0$ まで連続に延長される設定では同じ結論を右極限から得られます。
 
 古典方程式へ代入すると
 
@@ -1251,34 +1267,69 @@ $$
 
 罰則を入れない候補
 
-$$
+$
 (t,s,x,y)
 =
 (t_*,t_*,x_*,x_*)
-$$
+$
 
 と比較すると、$\eta$ を選んだ方法から最大値は正です。
 
+PDE 不等式は $0<t<T$ で課しているので、以下の doubled maximum も interior に取ります。もし正の差が $t=0$ で見つかった場合、一様連続性により十分小さい $t_*>0$ でも正の差が残ります。さらに lower time edge に最大が乗る場合は、比較する時間区間をわずかに左へ広げた後に微小な time tilt を加えて interior maximum を取り、最後に tilt を0へ戻します。これは test function の時間微分へ同じ消失量を加えるだけで、以下の極限評価を変えません。
+
 次に $\varepsilon,\delta\downarrow0$ で二点が近づくことを確認します。
 
-最大性と $u,v$ の一様連続性から
+まず $u,v$ の有界性と最大性から、固定した $\alpha,\eta$ の下で
 
-$$
-\frac{|\hat x-\hat y|^2}{\varepsilon}
+$
+\frac{|\hat x-\hat y|^2}{2\varepsilon}
 +
-\frac{|\hat t-\hat s|^2}{\delta}
-\longrightarrow0
-$$
+\frac{|\hat t-\hat s|^2}{2\delta}
+$
 
-となります。
+は一様に有界です。従って
 
-特に
-
-$$
+$
 |\hat x-\hat y|\to0,
 \qquad
 |\hat t-\hat s|\to0.
-$$
+$
+
+さらに最大点 $(\hat t,\hat s,\hat x,\hat y)$ と、二点を一致させた候補 $(\hat t,\hat t,\hat x,\hat x)$ を比較します。最大性から
+
+$
+\begin{aligned}
+&\frac{|\hat x-\hat y|^2}{2\varepsilon}
++
+\frac{|\hat t-\hat s|^2}{2\delta}\\
+&\le
+v(\hat t,\hat x)-v(\hat s,\hat y)
++
+\alpha\{|\hat x|^2-|\hat y|^2\}\\
+&\quad+
+\eta
+\left\{
+\frac1{T-\hat t}
+-
+\frac1{T-\hat s}
+\right\}.
+\end{aligned}
+$
+
+固定した $\alpha,\eta$ では confinement により最大点は有限領域にあり、終端罰則により $T$ からも離れています。したがって右辺は $v$ の一様連続性と
+
+$
+|\hat x-\hat y|+|\hat t-\hat s|\to0
+$
+
+から0へ収束します。よって
+
+$
+\frac{|\hat x-\hat y|^2}{\varepsilon}
++
+\frac{|\hat t-\hat s|^2}{\delta}
+\longrightarrow0.
+$
 
 ここで $u$ に対する test function を作ります。
 
