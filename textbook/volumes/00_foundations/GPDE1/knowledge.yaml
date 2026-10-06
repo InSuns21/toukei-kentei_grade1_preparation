@@ -14,7 +14,7 @@ concepts:
   - id: distribution.test-function
     name: テスト関数
     kind: definition
-    aliases: [test function, C_c^infty]
+    aliases: [distribution test function, C_c^infty]
     introduction: formal
     introduction_aliases: ["定義（テスト関数とテスト関数空間）"]
 
