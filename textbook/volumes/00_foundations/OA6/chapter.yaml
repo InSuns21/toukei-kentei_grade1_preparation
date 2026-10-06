@@ -1,0 +1,48 @@
+id: "OA6"
+title: "正規作用素・関数計算とスペクトル定理の再解釈"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OA4
+  - OA5
+  - QM3
+  - MT5
+  - F0-02C2
+official_scope: []
+learning_objectives:
+  - 正規作用素を B(H) の正規元として捉え、自己共役作用素・unitary 作用素との包含関係を説明できる
+  - 正規元 a と状態 phi から f↦phi(f(a)) を Riesz--Markov 表現でスペクトル上の確率測度へ変換できる
+  - 単位的 *-表現 pi:C(K)→B(H) からベクトル測度・偏極・Riesz 表現を経て PVM を構成できる
+  - 可換表現から得た作用素値測度が射影性・積の規則・強可算加法性を満たすことを証明できる
+  - 有界正規作用素 T のスペクトル定理 T=∫z dE_T を OA4 の連続関数計算から導ける
+  - 自己共役の場合に本章の PVM が QM3 の PVM と一意性により一致することを説明できる
+  - 有界 Borel 関数計算を定義し、指示関数がスペクトル射影を与えることを示せる
+  - 連続関数計算で得られる C*(T,I) と Borel 関数計算で得られる射影の差を説明できる
+  - GNS 表現で抽象状態のスペクトル分布が巡回ベクトルのスペクトル測度として回収されることを証明できる
+definitions:
+  - { id: OA6-DEF-01, name: "状態におけるスペクトル分布" }
+  - { id: OA6-DEF-02, name: "有界 Borel 関数計算" }
+theorems:
+  - { id: OA6-THM-01, name: "状態から得られるスペクトル確率測度" }
+  - { id: OA6-THM-02, name: "可換関数環表現の射影値測度表示" }
+  - { id: OA6-THM-03, name: "有界正規作用素のスペクトル定理" }
+  - { id: OA6-PROP-01, name: "PVM による座標関数の積分は正規作用素である" }
+  - { id: OA6-PROP-02, name: "自己共役の場合の PVM の一致" }
+  - { id: OA6-PROP-03, name: "有界 Borel 関数計算の基本性質" }
+  - { id: OA6-PROP-04, name: "GNS 表現でのスペクトル分布の回収" }
+canonical_examples:
+  - "diag(1,i) と正規化トレースから 1/2(delta_1+delta_i) を得る例"
+  - "有限次元正規行列の PVM が固有空間射影の有限和になる例"
+  - "L2([0,1]) 上の複素数値乗算作用素 M_{x+ix^2}"
+  - "M_x の区間指示関数から C*(T,I) の外にあるスペクトル射影を得る例"
+problem_patterns:
+  - OA6-STATE-SPECTRAL-DISTRIBUTION-1
+  - OA6-COMMUTATIVE-REPRESENTATION-PVM-1
+  - OA6-NORMAL-SPECTRAL-THEOREM-1
+  - OA6-BOREL-FUNCTIONAL-CALCULUS-1
+  - OA6-GNS-SPECTRAL-DISTRIBUTION-1
+  - OA6-CSTAR-VON-NEUMANN-BRIDGE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11.0, exercises: 8.0, review: 2.0 }
