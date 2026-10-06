@@ -2109,7 +2109,7 @@ E\int_{t_0}^{\tau_\rho}
 \phi_t
 +
 \inf_a\{L+\mathcal L^a\phi\}
-\right](s,X_s)\,ds
+\right]_{(s,X_s)}\,ds
 -
 h\varepsilon
 +
@@ -2371,7 +2371,7 @@ b\cdot\nabla\phi
 \frac12
 \operatorname{tr}
 (\sigma\sigma^\top D^2\phi)
-\right](s,X_s)\,ds\\
+\right]_{(s,X_s)}\,ds\\
 &\quad+
 \int_t^{t+h}
 \nabla\phi(s,X_s)^\top
@@ -2400,7 +2400,7 @@ b\cdot\nabla\phi
 \frac12
 \operatorname{tr}
 (\sigma\sigma^\top D^2\phi)
-\right](s,X_s)\,ds.
+\right]_{(s,X_s)}\,ds.
 \end{aligned}
 $$
 
