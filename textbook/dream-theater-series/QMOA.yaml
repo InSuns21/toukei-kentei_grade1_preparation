@@ -1,0 +1,91 @@
+version: 1
+id: QMOA
+title: 量子力学基礎・作用素環論
+plan: textbook/plans_progress/DREAM_THEATER_FUNCTIONAL_ANALYSIS_OPERATOR_ALGEBRA_PLAN.md
+chapter_root: textbook/volumes/00_foundations
+
+chapters:
+  - id: QM1
+    path: textbook/volumes/00_foundations/QM1
+    status: planned
+    title: 実験事実から Hilbert 空間形式へ
+  - id: QM2
+    path: textbook/volumes/00_foundations/QM2
+    status: planned
+    title: 状態・観測量・Born 則
+  - id: QM3
+    path: textbook/volumes/00_foundations/QM3
+    status: planned
+    title: 射影・PVM・スペクトル定理
+  - id: QM4
+    path: textbook/volumes/00_foundations/QM4
+    status: planned
+    title: 非可換観測量と不確定性関係
+  - id: QM5
+    path: textbook/volumes/00_foundations/QM5
+    status: planned
+    title: 非有界作用素と自己共役性
+  - id: QM6
+    path: textbook/volumes/00_foundations/QM6
+    status: planned
+    title: 非有界自己共役作用素のスペクトル定理
+  - id: QM7
+    path: textbook/volumes/00_foundations/QM7
+    status: planned
+    title: Stone の定理と Schrödinger 発展
+  - id: QM8
+    path: textbook/volumes/00_foundations/QM8
+    status: planned
+    title: CCR・Weyl 関係と作用素環への入口
+  - id: OA1
+    path: textbook/volumes/00_foundations/OA1
+    status: planned
+    title: Banach 環とスペクトル
+  - id: OA2
+    path: textbook/volumes/00_foundations/OA2
+    status: planned
+    title: 可換 Banach 環と Gelfand 変換
+  - id: OA3
+    path: textbook/volumes/00_foundations/OA3
+    status: planned
+    title: C*-環の基本構造
+  - id: OA4
+    path: textbook/volumes/00_foundations/OA4
+    status: planned
+    title: 連続関数計算と可換 Gelfand--Naimark
+  - id: OA5
+    path: textbook/volumes/00_foundations/OA5
+    status: planned
+    title: 正汎関数・状態・GNS 構成
+  - id: OA6
+    path: textbook/volumes/00_foundations/OA6
+    status: planned
+    title: 正規作用素・関数計算とスペクトル定理の再解釈
+  - id: VN1
+    path: textbook/volumes/00_foundations/VN1
+    status: planned
+    title: B(H) の作用素位相
+  - id: VN2
+    path: textbook/volumes/00_foundations/VN2
+    status: planned
+    title: 可換子・二重可換子・von Neumann 環
+  - id: VN3
+    path: textbook/volumes/00_foundations/VN3
+    status: planned
+    title: 射影・部分等長作用素・極分解
+  - id: VN4
+    path: textbook/volumes/00_foundations/VN4
+    status: planned
+    title: trace class・predual・ultraweak 位相
+  - id: VN5
+    path: textbook/volumes/00_foundations/VN5
+    status: planned
+    title: 正規汎関数・正規状態・トレース
+  - id: VN6
+    path: textbook/volumes/00_foundations/VN6
+    status: planned
+    title: 可換 von Neumann 環と L^infinity
+  - id: VN7
+    path: textbook/volumes/00_foundations/VN7
+    status: planned
+    title: factor と型分類への入口
