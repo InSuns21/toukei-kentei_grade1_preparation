@@ -1,13 +1,13 @@
 version: 1
-updated: 2026-10-06
+updated: 2026-10-07
 
 active_series: QMOA
 active_plan: textbook/plans_progress/DREAM_THEATER_FUNCTIONAL_ANALYSIS_OPERATOR_ALGEBRA_PLAN.md
 series_manifest: textbook/dream-theater-series/QMOA.yaml
 
-completed_through: OA1
-next_work: OA2
-after_next: OA3
+completed_through: OA2
+next_work: OA3
+after_next: OA4
 
 routing:
   chapter_root: textbook/volumes/00_foundations
