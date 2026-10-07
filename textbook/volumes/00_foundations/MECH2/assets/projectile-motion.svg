@@ -18,13 +18,12 @@
   <line x1="95" y1="405" x2="405" y2="405" stroke="#374151" stroke-width="3" marker-end="url(#arrow-neutral)"/>
   <line x1="95" y1="405" x2="95" y2="115" stroke="#374151" stroke-width="3" marker-end="url(#arrow-neutral)"/>
   <line x1="95" y1="405" x2="270" y2="235" stroke="#0072B2" stroke-width="5" marker-end="url(#arrow-blue)"/>
-  <path d="M155 403 A60 60 0 0 0 137 363" fill="none" stroke="#8E5FB2" stroke-width="3"/>
+  <path d="M155 403 Q151 380 137 363" fill="none" stroke="#8E5FB2" stroke-width="3"/>
   <g font-family="Noto Sans CJK JP, sans-serif" font-size="22" fill="#1F2937">
     <text x="415" y="420">x</text>
-    <text x="72" y="105">y</text>
+    <text x="55" y="90">y</text>
     <text x="72" y="438">O</text>
-    <text x="220" y="270" fill="#0072B2" font-weight="700">v₀</text>
-    <text x="154" y="365" fill="#8E5FB2" font-weight="700">θ</text>
+    <text x="185" y="390" fill="#8E5FB2" font-weight="700">θ</text>
   </g>
 
   <line x1="515" y1="405" x2="865" y2="405" stroke="#374151" stroke-width="3" marker-end="url(#arrow-neutral)"/>
@@ -37,7 +36,7 @@
     <text x="492" y="105">y</text>
     <text x="492" y="438">O</text>
     <text x="730" y="184">P</text>
-    <text x="738" y="270" fill="#D55E00" font-weight="700">g</text>
   </g>
-  <text x="650" y="468" font-family="Noto Sans CJK JP, sans-serif" font-size="20" fill="#1F2937">g は常に鉛直下向き</text>
+  <text x="110" y="468" font-family="Noto Sans CJK JP, sans-serif" font-size="20" fill="#0072B2" font-weight="700">v₀：初速度</text>
+  <text x="650" y="468" font-family="Noto Sans CJK JP, sans-serif" font-size="20" fill="#D55E00" font-weight="700">g：常に鉛直下向き</text>
 </svg>
