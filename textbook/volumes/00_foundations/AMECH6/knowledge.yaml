@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - AMECH5
   - ODE4
+  - VC1
 
 forward_references: []
 
