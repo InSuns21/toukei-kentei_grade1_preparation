@@ -80,6 +80,16 @@ concepts:
       - analytical-mechanics.complete-integral-reconstruction
       - analytical-mechanics.hamiltonian-time-balance
 
+  - id: analytical-mechanics.hamilton-jacobi-method
+    name: Hamilton--Jacobi 法
+    kind: term
+    aliases: [Hamilton-Jacobi method]
+    introduction: inline
+    introduction_aliases: [Hamilton--Jacobi 法]
+    requires:
+      - analytical-mechanics.hamilton-jacobi-reduction
+      - analytical-mechanics.complete-integral-reconstruction
+
   - id: analytical-mechanics.one-dof-hj-quadrature
     name: 1自由度 Hamilton--Jacobi 法の求積
     kind: proposition
