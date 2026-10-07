@@ -21,6 +21,8 @@
 | 保存則・entropy solution・単調作用素・非線形拡散・blow-up・漸近 | `DREAM_THEATER_NONLINEAR_PDE_PLAN.md` |
 | 強連続半群・mild 解の基本導入 | 完了済み `GPDE10` |
 | 閉作用素・半群生成論・Hille--Yosida・抽象発展方程式・半線形発展方程式 | `DREAM_THEATER_EVOLUTION_EQUATIONS_SEMIGROUP_PLAN.md` |
+| 現代調和解析・最大作用素・補間・特異積分・Littlewood--Paley・restriction | `DREAM_THEATER_REAL_ANALYSIS_STRENGTHENING_PLAN.md` の HA1--HA8 |
+| 幾何学的測度論・Frostman・射影・rectifiability・有限周長・Kakeya interface | `DREAM_THEATER_GEOMETRIC_MEASURE_THEORY_PLAN.md` |
 | Riesz potential / Riesz transform / Calderón--Zygmund | `DREAM_THEATER_REAL_ANALYSIS_STRENGTHENING_PLAN.md` の HA 系列 |
 | 幾何解析・Laplace--Beltrami・manifold Sobolev・harmonic map | `DREAM_THEATER_GEOMETRIC_ANALYSIS_PLAN.md` |
 | 逆問題・ill-posedness・正則化・tomography・Bayes/PDE 逆問題 | `DREAM_THEATER_INVERSE_PROBLEMS_PLAN.md` |
@@ -28,7 +30,9 @@
 | SDE / Markov generator / Feynman--Kac | 完了済み Encore IV（`STO9` / `STO11`） |
 | 多様体上の確率解析 | `DREAM_THEATER_STOCHASTIC_ANALYSIS_II_GEOMETRIC_PLAN.md` |
 | Navier--Stokes millennium problem への専門ルート | `DREAM_THEATER_NAVIER_STOKES_MILLENNIUM_PLAN.md` |
-| 初等整数論・解析的整数論・楕円曲線・モジュラー形式・Modularity Theorem への統合ルート | `DREAM_THEATER_NUMBER_THEORY_MODULARITY_ROUTE_PLAN.md`（楕円関数は既存 `CA8` / `CA9` を再利用） |
+| 初等整数論・Diophantine近似・Hilbert第10問題への発展章・解析的整数論・楕円曲線・モジュラー形式 | `DREAM_THEATER_NUMBER_THEORY_MODULARITY_ROUTE_PLAN.md`（楕円関数は既存 `CA8` / `CA9` を再利用） |
+| 熱力学・統計力学・スピングラス | `DREAM_THEATER_THERMODYNAMICS_STATISTICAL_MECHANICS_SPIN_GLASS_PLAN.md` |
+| THE END OF MATHEMATICS? 5テーマの横断接続 | `DREAM_THEATER_END_OF_MATHEMATICS_PLAN.md` |
 | 金融の最適執行・HJB 応用 | `DREAM_THEATER_UNDERGROUND_EMPIRE_PLAN.md` U3（理論は最適制御・HJB・微分ゲーム計画を参照） |
 | Newton 力学・保存則・振動・中心力・2体問題・剛体 | `DREAM_THEATER_CLASSICAL_MECHANICS_I_PLAN.md` |
 | 一般化座標・Lagrangian・Hamiltonian・Poisson 括弧・Hamilton--Jacobi | `DREAM_THEATER_ANALYTICAL_MECHANICS_I_PLAN.md` |
