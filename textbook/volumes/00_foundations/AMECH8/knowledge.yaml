@@ -6,8 +6,19 @@ prerequisites:
   - MECH6
 
 forward_references:
+  - pde.pde1-partial-differential-equation
+  - pde.pde1-characteristic-curve
+  - pde.pde12-first-order
+  - pde.pde12-charpit
   - pde.pde12-hamilton-jacobi
   - pde.pde12-hamilton-characteristics
+  - pde.pde12-caustic
+  - pde.pde12-eikonal
+  - pde.viscosity-solution
+  - geometry.jacobi-field
+  - algebra.group-action
+  - lie.lie-group
+  - lie.smooth-action
 
 concepts:
   - id: analytical-mechanics.hamilton-jacobi-reduction
@@ -24,8 +35,8 @@ concepts:
     name: Hamilton の主関数
     kind: definition
     aliases: [Hamilton principal function, Hamilton's principal function]
-    introduction: formal
-    introduction_aliases: [定義（Hamilton の主関数）]
+    introduction: inline
+    introduction_aliases: [Hamilton の主関数]
     requires:
       - analytical-mechanics.action-functional
       - analytical-mechanics.hamilton-jacobi-reduction
@@ -63,8 +74,8 @@ concepts:
     name: Hamilton の特性関数
     kind: definition
     aliases: [Hamilton characteristic function, Hamilton's characteristic function]
-    introduction: formal
-    introduction_aliases: [定義（Hamilton の特性関数）]
+    introduction: inline
+    introduction_aliases: [Hamilton の特性関数]
     requires:
       - analytical-mechanics.complete-integral-reconstruction
       - analytical-mechanics.hamiltonian-time-balance
