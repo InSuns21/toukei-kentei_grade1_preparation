@@ -4,6 +4,8 @@ coverage: complete
 prerequisites:
   - MECH2
   - VC1
+  - VC2
+  - VC3
   - RA7
 
 forward_references: []
@@ -74,6 +76,8 @@ concepts:
     introduction_aliases: [定義（連続電荷分布の密度）]
     requires:
       - electromagnetism.electric-charge
+      - vector-calculus.scalar-line-integral
+      - vector-calculus.scalar-surface-integral
       - analysis.multiple-riemann-integral
 
   - id: electromagnetism.continuous-charge-electric-field
