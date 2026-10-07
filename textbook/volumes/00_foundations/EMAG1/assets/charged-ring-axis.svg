@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" data-layout-lint="strict" viewBox="0 0 920 520" role="img" aria-labelledby="title desc">
+  <title id="title">一様帯電リングの軸上電場</title>
+  <desc id="desc">左側に半径 a の帯電リングを楕円で描き、中心 O から右向き x 軸上に観測点 P を置く。リング上の電荷要素 dq から P へのベクトル R と、P での軸方向成分 dE_x を示す。</desc>
+  <rect width="920" height="520" fill="white"/>
+  <defs>
+    <marker id="arrow-solid" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#0072B2"/>
+    </marker>
+    <marker id="arrow-dashed" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#D55E00"/>
+    </marker>
+  </defs>
+  <line x1="180" y1="280" x2="820" y2="280" stroke="#6B7280" stroke-width="3"/>
+  <text x="804" y="318" font-family="Noto Sans CJK JP, sans-serif" font-size="22" fill="#1F2937">x</text>
+  <ellipse cx="330" cy="280" rx="72" ry="160" fill="none" stroke="#374151" stroke-width="5"/>
+  <circle cx="330" cy="280" r="7" fill="#1F2937"/>
+  <text x="295" y="318" font-family="Noto Sans CJK JP, sans-serif" font-size="22" fill="#1F2937">O</text>
+  <line x1="330" y1="280" x2="330" y2="120" stroke="#6B7280" stroke-width="2" stroke-dasharray="8 7"/>
+  <text x="344" y="190" font-family="Noto Sans CJK JP, sans-serif" font-size="22" fill="#1F2937">a</text>
+  <circle cx="350" cy="126" r="10" fill="#D55E00"/>
+  <text x="365" y="105" font-family="Noto Sans CJK JP, sans-serif" font-size="22" fill="#1F2937">dq</text>
+  <circle cx="720" cy="280" r="10" fill="#1F2937"/>
+  <text x="734" y="272" font-family="Noto Sans CJK JP, sans-serif" font-size="22" fill="#1F2937">P</text>
+  <line x1="365" y1="132" x2="700" y2="270" stroke="#0072B2" stroke-width="4" marker-end="url(#arrow-solid)"/>
+  <text x="505" y="170" font-family="Noto Sans CJK JP, sans-serif" font-size="22" fill="#0072B2">R</text>
+  <line x1="720" y1="280" x2="810" y2="280" stroke="#D55E00" stroke-width="5" stroke-dasharray="10 7" marker-end="url(#arrow-dashed)"/>
+  <text x="744" y="245" font-family="Noto Sans CJK JP, sans-serif" font-size="22" fill="#D55E00">dE_x</text>
+</svg>
