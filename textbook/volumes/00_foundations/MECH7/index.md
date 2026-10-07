@@ -2,9 +2,9 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念**：[MECH2 の Newton の第2・第3法則](../MECH2/index.md#principle-mech2-newton-second)、[MECH3 の運動エネルギー](../MECH3/index.md#def-mech3-kinetic-energy)、[MECH4 の運動量と力積](../MECH4/index.md#def-mech4-linear-momentum)、[MECH6 の Newton の万有引力](../MECH6/index.md#principle-mech6-newtonian-gravitation)を使います。
+> **既出概念**：[MECH2 の Newton の第2法則](../MECH2/index.md#principle-mech2-newton-second)と[第3法則](../MECH2/index.md#principle-mech2-newton-third)、[MECH3 の運動エネルギー](../MECH3/index.md#def-mech3-kinetic-energy)、[MECH4 の運動量と力積](../MECH4/index.md#def-mech4-linear-momentum)、[MECH6 の Newton の万有引力](../MECH6/index.md#principle-mech6-newtonian-gravitation)を使います。
 
-MECH6 では中心天体を固定し、その周囲を一つの質点が運動する問題へ縮約しました。しかし実際には、二つの天体は互いに引き合い、どちらも動きます。衝突でも同じで、見るべき対象は一個の質点ではなく、**複数の質点を一つの系として見たときに何が保存され、何が内部運動として残るか**です。
+MECH6 では中心天体を固定し、その周囲を一つの質点が運動する問題として扱いました。しかし実際には、二つの天体は互いに引き合い、どちらも動きます。衝突でも同じで、見るべき対象は一個の質点ではなく、**複数の質点を一つの系として見たときに何が保存され、何が内部運動として残るか**です。
 
 本章の中心となる流れは
 
@@ -395,7 +395,7 @@ $$
 
 ## 5. 換算質量：二体問題を一体問題へ変える
 
-外力がなく、二質点の間にだけ内力が働くとします。質点2が質点1へ及ぼす力を $F(r)$ とし、第3法則により質点1が質点2へ及ぼす力は $-F(r)$ とします。
+外力がなく、二質点の間にだけ内力が働くとします。質点2が質点1へ及ぼす力を $F(r)$ とし、[Newton の第3法則](../MECH2/index.md#principle-mech2-newton-third)により質点1が質点2へ及ぼす力は $-F(r)$ とします。
 
 運動方程式は
 
@@ -1329,9 +1329,9 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-定義
+[換算質量](#def-mech7-reduced-mass)は
 
-$$
+$
 \mu=\frac{m_1m_2}{m_1+m_2}
 $$
 
@@ -1412,7 +1412,7 @@ $$
 
 ### A4. 等質量の弾性衝突
 
-一次元で $m_1=m_2=m$ とする。一次元弾性衝突の公式から、衝突後に速度が交換されることを示せ。
+一次元で $m_1=m_2=m$ とする。[一次元弾性衝突の速度](#thm-mech7-one-dimensional-elastic-collision)から、衝突後に速度が交換されることを示せ。
 
 - Level: A
 
@@ -1743,9 +1743,9 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-重心と相対位置の定義から
+4節で得た重心・相対座標の変換を使うと
 
-$$
+$
 \boxed{
 r_1
 =
