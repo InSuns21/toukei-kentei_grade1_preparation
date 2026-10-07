@@ -259,7 +259,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（Hamilton の主関数）**  
-> 正則な Lagrangian $L(q,\dot q,t)$ を考える。固定した初期端点 $(q_0,t_0)$ と、近傍の終端 $(q,t)$ の間に、境界条件を満たす古典軌道 $q_{\mathrm{cl}}(\tau)$ が局所的に一意に存在するとする。このとき
+> 正則な力学的ラグランジアン $L(q,\dot q,t)$ を考える。固定した初期端点 $(q_0,t_0)$ と、近傍の終端 $(q,t)$ の間に、境界条件を満たす古典軌道 $q_{\mathrm{cl}}(\tau)$ が局所的に一意に存在するとする。このとき
 >
 $$
 \boxed{
@@ -2585,7 +2585,7 @@ $$
 
 ### C1. Kepler 問題を Hamilton--Jacobi 法から円錐曲線まで戻す
 
-引力 Kepler potential
+Kepler 型引力の位置エネルギー
 
 $$
 V(r)=-\frac{k}{r},
