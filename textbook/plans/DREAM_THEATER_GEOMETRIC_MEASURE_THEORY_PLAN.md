@@ -24,6 +24,14 @@ Kakeya を読むためだけに Hausdorff dimension と Frostman lemma の短い
 
 Kakeya の研究最前線は本計画の終盤で調和解析 HA8 と合流し、EOM074 へ送る。
 
+## 0.1 範囲校正に用いる標準書
+
+- Pertti Mattila, *Geometry of Sets and Measures in Euclidean Spaces*
+- Pertti Mattila, *Fourier Analysis and Hausdorff Dimension*
+- Lawrence C. Evans and Ronald F. Gariepy, *Measure Theory and Fine Properties of Functions*
+
+Mattila の全範囲を一学期へ詰め込まず、Frostman / projection / rectifiability / finite perimeter / Kakeya interface を本科目の標準射程とする。analytic capacity、uniform rectifiability、currents / varifolds の完全理論は停止線の外へ置く。
+
 ## 1. canonical owner と既存資産
 
 既存正本:
