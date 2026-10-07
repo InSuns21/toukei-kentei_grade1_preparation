@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念**：[MECH3 仕事・エネルギー・ポテンシャル](../MECH3/index.md)までを使います。高校物理は前提にしません。
+> **既出概念**：[MECH3 仕事・エネルギー・ポテンシャル](../MECH3/index.md)までを使います。
 
 MECH3 では、Newton の運動方程式を毎回そのまま解かなくても、
 
