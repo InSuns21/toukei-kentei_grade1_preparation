@@ -1,0 +1,44 @@
+id: "AMECH3"
+title: "作用積分と Hamilton の原理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AMECH2
+official_scope: []
+learning_objectives:
+  - 軌道 q(t) を入力して実数を返す作用 S[q]=integral L dt を汎関数として説明できる
+  - 固定端変分 q_epsilon=q+epsilon eta と実際の時間発展を区別し、端点条件の役割を説明できる
+  - 第一変分を epsilon 微分として定義し、連鎖律から一般形を計算できる
+  - 部分積分で現れる境界項が固定端条件で消えることを途中式を追って説明できる
+  - 変分法の基本補題を用いて停留条件から Euler--Lagrange 方程式を導き、逆向きも示せる
+  - Hamilton の原理という物理原理と Euler--Lagrange 方程式という数学的停留条件を区別できる
+  - 停留作用が必ずしも最小作用ではないことを調和振動子の具体的変分で確認できる
+  - Lagrangian に全時間微分 dF/dt を加えても固定端運動方程式が変わらないことを作用の端点差から証明できる
+definitions:
+  - { id: AMECH3-DEF-01, name: "作用汎関数" }
+  - { id: AMECH3-DEF-02, name: "固定端変分" }
+  - { id: AMECH3-DEF-03, name: "第一変分" }
+theorems:
+  - { id: AMECH3-LEM-01, name: "変分法の基本補題・本章で使う形" }
+  - { id: AMECH3-THM-01, name: "固定端変分の Euler--Lagrange 方程式" }
+  - { id: AMECH3-PRI-01, name: "Hamilton の原理" }
+  - { id: AMECH3-PROP-01, name: "全時間微分を加えた Lagrangian の同値性" }
+canonical_examples:
+  - "自由粒子の等速軌道で作用を直接積分する例"
+  - "t(T-t)u を用いて固定端変分を具体的に作る例"
+  - "自由粒子の第一変分を epsilon 展開から直接計算する例"
+  - "調和振動子で停留作用が長い時間区間では最小にならないことを確認する例"
+  - "自由粒子の Lagrangian に total derivative を加えて同じ運動方程式を得る例"
+problem_patterns:
+  - AMECH3-FIXED-END-VARIATION-1
+  - AMECH3-FIRST-VARIATION-1
+  - AMECH3-EULER-LAGRANGE-1
+  - AMECH3-TOTAL-DERIVATIVE-1
+  - AMECH3-FREE-PARTICLE-MINIMUM-1
+  - AMECH3-STATIONARY-NOT-MINIMUM-1
+  - AMECH3-MULTIDIMENSIONAL-POTENTIAL-1
+  - AMECH3-TIME-DEPENDENT-INTEGRATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 1.0 }
