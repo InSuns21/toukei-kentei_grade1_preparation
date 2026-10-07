@@ -346,13 +346,15 @@ $$
 
 ここでは静電気に必要な形へ読み替えます。
 
-同じ領域 $\Omega$ で、同じ電荷密度 $\rho$ と同じ境界電位を持つ二つの候補
+境界が十分滑らかな有界連結領域 $\Omega$ を考え、電位は $C^2(\overline\Omega)$ 級とします。
 
-$$
+同じ領域で、同じ電荷密度 $\rho$ と同じ境界電位を持つ二つの候補
+
+$
 \phi_1,
 \qquad
 \phi_2
-$$
+$
 
 があると仮定します。
 
@@ -901,21 +903,65 @@ $$
 
 これは平行平板だけの偶然ではありません。
 
-滑らかで局在した電荷分布についても、EMAG3 の
+まず、滑らかで局在した最終電荷密度を $\rho$、その電位を $\phi$ とします。
 
-$$
-\rho=-\varepsilon_0\Delta\phi
-$$
+電荷分布を
 
-を使えば
+$
+\rho_\lambda=\lambda\rho,
+\qquad
+0\le\lambda\le1
+$
 
-$$
+と比例的に組み立てると、Poisson 方程式の線形性から途中の電位は
+
+$
+\phi_\lambda=\lambda\phi
+$
+
+です。
+
+$\lambda$ を $\lambda+d\lambda$ へ増やすと追加される電荷密度は
+
+$
+d\rho=\rho\,d\lambda.
+$
+
+したがって外力がする微小仕事は
+
+$
+dU
+=
+\int_{\mathbb R^3}
+\phi_\lambda\,d\rho\,dV
+=
+\lambda
+\left(
+\int_{\mathbb R^3}\rho\phi\,dV
+\right)d\lambda.
+$
+
+$\lambda=0$ から $1$ まで積分すると
+
+$
 U
 =
-\frac12\int_{\mathbb R^3}\rho\phi\,dV
-$$
+\left(
+\int_0^1\lambda\,d\lambda
+\right)
+\int_{\mathbb R^3}\rho\phi\,dV
+=
+\frac12
+\int_{\mathbb R^3}\rho\phi\,dV.
+$
 
-から電場エネルギーへ移れます。
+ここで EMAG3 の
+
+$
+\rho=-\varepsilon_0\Delta\phi
+$
+
+を使えば、電荷で書いたエネルギーから電場エネルギーへ移れます。
 
 まず
 
