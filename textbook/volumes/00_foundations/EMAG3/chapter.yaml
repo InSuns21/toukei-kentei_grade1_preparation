@@ -1,0 +1,53 @@
+id: "EMAG3"
+title: "電位・Poisson 方程式・Coulomb ポテンシャル"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - EMAG2
+  - MECH3
+  - VC1
+  - VC2
+  - VC9
+official_scope: []
+learning_objectives:
+  - 静電場で Faraday の法則から閉曲線積分が 0 になる理由を説明し、線積分の経路独立性へ接続できる
+  - 電位差を電場の線積分から定義し、基準値の任意性と SI 単位を説明できる
+  - 電位差の定義から E=-grad(phi) を導き、与えられた電位から電場を復元できる
+  - 等電位面に電場が直交することを勾配とレベル曲面から説明できる
+  - 点電荷の電位 Q/(4*pi*epsilon_0*r) を無限遠基準から導き、無限遠基準を選べない配置と区別できる
+  - 点電荷系・連続電荷分布の電位を Coulomb 核の重ね合わせとして計算できる
+  - Gauss の法則の微分形と E=-grad(phi) から -Delta(phi)=rho/epsilon_0 を導き、無電荷領域の Laplace 方程式へ移れる
+  - 電位 phi と静電ポテンシャルエネルギー U=q*phi を単位・符号・役割で区別できる
+  - 二点電荷の Coulomb ポテンシャルエネルギーを導き、電子と陽子について -e^2/(4*pi*epsilon_0*r) を得られる
+  - 一様帯電球について Gauss の法則・電位の線積分・Poisson 方程式を相互に照合できる
+definitions:
+  - { id: EMAG3-DEF-01, name: "電位" }
+  - { id: EMAG3-DEF-02, name: "等電位面" }
+  - { id: EMAG3-DEF-03, name: "静電ポテンシャルエネルギー" }
+theorems:
+  - { id: EMAG3-PROP-01, name: "電場と電位の勾配" }
+  - { id: EMAG3-PROP-02, name: "点電荷の電位" }
+  - { id: EMAG3-PROP-03, name: "連続電荷分布の電位" }
+  - { id: EMAG3-PROP-04, name: "静電位の Poisson 方程式" }
+  - { id: EMAG3-PROP-05, name: "二点電荷の Coulomb ポテンシャルエネルギー" }
+canonical_examples:
+  - "一様電場 E=E0 e_x から phi=-E0 x を求め、E=-grad(phi) を直接確認する例"
+  - "正の点電荷の球形等電位面と放射状電場が直交する例"
+  - "点電荷の電位を有限半径 R から積分し、R→∞ で Q/(4*pi*epsilon_0*r) を得る例"
+  - "無限直線電荷では電位差が対数になり、phi(infinity)=0 を選べない例"
+  - "二つの等しい正電荷の中点で E=0 だが phi>0 となる例"
+  - "一様帯電球の内外の電位を求め、球内で Poisson 方程式を直接確認する例"
+  - "陽子の電位と電子の電荷から -e^2/(4*pi*epsilon_0*r) を導く例"
+problem_patterns:
+  - EMAG3-UNIFORM-FIELD-POTENTIAL-1
+  - EMAG3-POINT-CHARGE-POTENTIAL-1
+  - EMAG3-EQUIPOTENTIAL-GRADIENT-1
+  - EMAG3-POTENTIAL-ENERGY-1
+  - EMAG3-SPHERICAL-SHELL-POTENTIAL-1
+  - EMAG3-TWO-CHARGE-CANCELLATION-1
+  - EMAG3-LINE-CHARGE-REFERENCE-1
+  - EMAG3-UNIFORM-SPHERE-POISSON-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.5, exercises: 5.5, review: 1.0 }
