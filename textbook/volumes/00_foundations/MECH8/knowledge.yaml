@@ -1,0 +1,120 @@
+chapter: MECH8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MECH7
+  - F0-00F1
+
+forward_references: []
+
+concepts:
+  - id: mechanics.rigid-body
+    name: 剛体
+    kind: definition
+    aliases: [rigid body]
+    introduction: formal
+    introduction_aliases: [定義（剛体）]
+    requires:
+      - mechanics.center-of-mass
+
+  - id: mechanics.fixed-axis-angular-velocity-kinematics
+    name: 固定軸回転の速度
+    kind: proposition
+    aliases: [velocity in fixed-axis rotation]
+    introduction: formal
+    introduction_aliases: [命題（固定軸回転の速度）]
+    requires:
+      - mechanics.rigid-body
+      - mechanics.velocity-acceleration
+
+  - id: mechanics.moment-of-inertia
+    name: 固定軸まわりの慣性モーメント
+    kind: definition
+    aliases: [moment of inertia, rotational inertia]
+    introduction: formal
+    introduction_aliases: [定義（固定軸まわりの慣性モーメント）]
+    requires:
+      - mechanics.rigid-body
+
+  - id: mechanics.parallel-axis-theorem
+    name: 平行軸の定理
+    kind: theorem
+    aliases: [parallel-axis theorem, Huygens--Steiner theorem]
+    introduction: formal
+    introduction_aliases: [定理（平行軸の定理）]
+    requires:
+      - mechanics.moment-of-inertia
+      - mechanics.center-of-mass
+
+  - id: mechanics.inertia-tensor
+    name: 慣性テンソル
+    kind: definition
+    aliases: [inertia tensor]
+    introduction: formal
+    introduction_aliases: [定義（慣性テンソル）]
+    requires:
+      - mechanics.rigid-body
+      - mechanics.angular-momentum
+      - linear.inner-product
+
+  - id: mechanics.inertia-tensor-angular-momentum-energy
+    name: 慣性テンソルによる角運動量と回転エネルギー
+    kind: theorem
+    aliases: [angular momentum and rotational energy from the inertia tensor]
+    introduction: formal
+    introduction_aliases: [定理（慣性テンソルによる角運動量と回転エネルギー）]
+    requires:
+      - mechanics.inertia-tensor
+      - mechanics.kinetic-energy
+      - mechanics.angular-momentum
+
+  - id: mechanics.principal-axis
+    name: 主軸・主慣性モーメント
+    kind: definition
+    aliases: [principal axis and principal moment of inertia, principal axes, principal moments of inertia]
+    introduction: formal
+    introduction_aliases: [定義（主軸・主慣性モーメント）]
+    requires:
+      - mechanics.inertia-tensor
+      - linear.eigenvector
+      - linear.eigenvalue
+
+  - id: mechanics.principal-axis-existence
+    name: 主軸の存在
+    kind: theorem
+    aliases: [existence of principal axes]
+    introduction: formal
+    introduction_aliases: [定理（主軸の存在）]
+    requires:
+      - mechanics.principal-axis
+      - linear.spectral-theorem
+
+  - id: mechanics.rigid-body-kinetic-energy-decomposition
+    name: 剛体の並進・回転運動エネルギー分解
+    kind: proposition
+    aliases: [rigid-body kinetic energy decomposition]
+    introduction: formal
+    introduction_aliases: [命題（剛体の運動エネルギー分解）]
+    requires:
+      - mechanics.center-of-mass
+      - mechanics.inertia-tensor-angular-momentum-energy
+
+  - id: mechanics.rotating-basis-derivative
+    name: 回転基底での時間微分
+    kind: proposition
+    aliases: [time derivative in a rotating basis, transport theorem for a rotating basis]
+    introduction: formal
+    introduction_aliases: [命題（回転基底での時間微分）]
+    requires:
+      - mechanics.fixed-axis-angular-velocity-kinematics
+
+  - id: mechanics.euler-rigid-body-equations
+    name: Euler の剛体方程式
+    kind: theorem
+    aliases: [Euler equations for a rigid body, Euler rigid-body equations]
+    introduction: formal
+    introduction_aliases: [定理（Euler の剛体方程式）]
+    requires:
+      - mechanics.rotating-basis-derivative
+      - mechanics.principal-axis
+      - mechanics.angular-momentum-balance
