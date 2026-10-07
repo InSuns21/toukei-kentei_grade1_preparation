@@ -31,20 +31,20 @@ concepts:
       - measure.essential-supremum
 
   - id: operator-algebra.linfty-multiplication-algebra
-    name: L^∞乗算環
+    name: L∞乗算環
     kind: definition
     aliases: ["L-infinity multiplication algebra"]
     introduction: formal
-    introduction_aliases: ["定義（L^∞ 乗算環）"]
+    introduction_aliases: ["定義（L∞乗算環）"]
     requires:
       - operator-algebra.multiplication-operator
       - operator-algebra.multiplication-operator-structure
 
   - id: operator-algebra.linfty-self-commutant
-    name: L^∞乗算環の自己可換子性
+    name: L∞乗算環は自分自身の可換子である
     kind: theorem
     aliases: ["commutant of the L-infinity multiplication algebra"]
-    introduction_aliases: ["定理（L^∞ 乗算環は自分自身の可換子である）"]
+    introduction_aliases: ["定理（L∞乗算環は自分自身の可換子である）"]
     requires:
       - operator-algebra.linfty-multiplication-algebra
       - operator-algebra.commutant
@@ -60,20 +60,20 @@ concepts:
       - measure.ae-equivalence
 
   - id: operator-algebra.linfty-projection-measure-algebra
-    name: 測度代数と L^∞乗算環の射影の対応
+    name: 測度代数と L∞乗算環の射影の対応
     kind: theorem
     aliases: ["projection-measure algebra correspondence for L-infinity"]
-    introduction_aliases: ["定理（測度代数と L^∞ 乗算環の射影の対応）"]
+    introduction_aliases: ["定理（測度代数と L∞乗算環の射影の対応）"]
     requires:
       - measure.measure-algebra
       - operator-algebra.linfty-multiplication-algebra
       - operator-algebra.projection-element
 
   - id: operator-algebra.linfty-vector-state-integral
-    name: L^∞乗算環上のベクトル状態の積分表示
+    name: L∞乗算環上のベクトル状態の積分表示
     kind: proposition
     aliases: ["integral formula for vector states on L-infinity"]
-    introduction_aliases: ["命題（L^∞ 乗算環上のベクトル状態の積分表示）"]
+    introduction_aliases: ["命題（L∞乗算環上のベクトル状態の積分表示）"]
     requires:
       - operator-algebra.linfty-multiplication-algebra
       - operator-algebra.normal-state
