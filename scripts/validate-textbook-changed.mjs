@@ -176,16 +176,45 @@ function checkPair(source, rel, start, end, label) {
 }
 
 function checkDefinitionExamplePairs(source, rel) {
-  let depth = 0;
+  let inExample = false;
+  let startLine = 0;
+  let exampleLines = [];
+
   for (const [i, line] of source.split(/\r?\n/u).entries()) {
     const t = line.trim();
-    if (/^<!--\s*definition-example-start:/u.test(t)) depth += 1;
-    if (t === '<!-- definition-example-end -->') {
-      if (depth === 0) errors.push(rel + ':' + (i + 1) + ': definition-example-end without start marker');
-      else depth -= 1;
+
+    if (/^<!--\s*definition-example-start:/u.test(t)) {
+      if (inExample) {
+        errors.push(rel + ':' + (i + 1) + ': nested definition-example block is not allowed');
+        continue;
+      }
+      inExample = true;
+      startLine = i + 1;
+      exampleLines = [];
+      continue;
     }
+
+    if (t === '<!-- definition-example-end -->') {
+      if (!inExample) {
+        errors.push(rel + ':' + (i + 1) + ': definition-example-end without start marker');
+        continue;
+      }
+
+      const body = exampleLines.join('\n');
+      if (!/\*\*定義の確認\*\*/u.test(body)) {
+        errors.push(rel + ':' + startLine + ': definition-example block must contain **定義の確認**');
+      }
+
+      inExample = false;
+      startLine = 0;
+      exampleLines = [];
+      continue;
+    }
+
+    if (inExample) exampleLines.push(line);
   }
-  if (depth !== 0) errors.push(rel + ': unclosed definition-example block (' + depth + ' open)');
+
+  if (inExample) errors.push(rel + ':' + startLine + ': unclosed definition-example block');
 }
 
 function isReviewedChapter(rel) {
