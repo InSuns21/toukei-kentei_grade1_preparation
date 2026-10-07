@@ -20,7 +20,6 @@ definitions:
   - { id: EMAG5-DEF-02, name: "電流密度" }
 principles:
   - { id: EMAG5-PRIN-01, name: "Biot--Savart の法則" }
-  - { id: EMAG5-PRIN-02, name: "磁静場の Ampère の法則" }
 theorems:
   - { id: EMAG5-PROP-01, name: "電荷保存の連続の式" }
   - { id: EMAG5-PROP-02, name: "無限直線電流の磁場" }
