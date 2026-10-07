@@ -101,6 +101,7 @@ function inherited(parent, attrs) {
     textAnchor: attrs['text-anchor'] ?? parent.textAnchor ?? 'start',
     stroke: attrs.stroke ?? parent.stroke ?? 'none',
     strokeWidth: attrs['stroke-width'] ?? parent.strokeWidth ?? '1',
+    strokeDasharray: attrs['stroke-dasharray'] ?? parent.strokeDasharray ?? 'solid',
     transform: attrs.transform ?? parent.transform ?? '',
   };
 }
@@ -114,12 +115,14 @@ function validateSvg(source) {
     textAnchor: 'start',
     stroke: 'none',
     strokeWidth: '1',
+    strokeDasharray: 'solid',
     skip: false,
     textContent: '',
     startIndex: 0,
   }];
   const texts = [];
   const segments = [];
+  const semanticSeries = [];
   const tokenRe = /<[^>]+>|[^<]+/gu;
 
   for (const match of source.matchAll(tokenRe)) {
@@ -164,6 +167,24 @@ function validateSvg(source) {
       if (!ignore.includes('text-overlap')) {
         segments.push(...geometrySegments(tag, attrs, state, index, source));
       }
+      const group = attrs['data-series-group'];
+      const label = attrs['data-series-label'];
+      if (group || label) {
+        if (!group || !label) {
+          issues.push({
+            line: lineAt(source, index),
+            message: 'semantic series elements must provide both data-series-group and data-series-label',
+          });
+        } else {
+          semanticSeries.push({
+            group,
+            label,
+            dash: (attrs['stroke-dasharray'] ?? state.strokeDasharray ?? 'solid').trim() || 'solid',
+            width: String(attrs['stroke-width'] ?? state.strokeWidth ?? '1'),
+            line: lineAt(source, index),
+          });
+        }
+      }
     }
 
     const selfClosing = /\/\s*>$/.test(token) || ['line', 'rect', 'circle', 'path', 'polyline', 'polygon'].includes(tag);
@@ -185,7 +206,43 @@ function validateSvg(source) {
     }
   }
 
+  issues.push(...validateNonColorSeries(semanticSeries));
   return dedupe(issues);
+}
+
+function validateNonColorSeries(series) {
+  const issues = [];
+  const groups = new Map();
+  for (const item of series) {
+    if (!groups.has(item.group)) groups.set(item.group, new Map());
+    const labels = groups.get(item.group);
+    if (!labels.has(item.label)) labels.set(item.label, []);
+    labels.get(item.label).push(item);
+  }
+
+  for (const [group, labels] of groups) {
+    if (labels.size < 2) continue;
+    const signatures = new Map();
+    for (const [label, items] of labels) {
+      const first = items[0];
+      const signature = `${normalizeDash(first.dash)}|width:${num(first.width, 1)}`;
+      if (!signatures.has(signature)) signatures.set(signature, []);
+      signatures.get(signature).push({ label, line: first.line });
+    }
+    for (const [signature, entries] of signatures) {
+      if (entries.length < 2) continue;
+      issues.push({
+        line: entries[0].line,
+        message: `series group "${group}" relies on color/position alone: ${entries.map((x) => x.label).join(', ')} share non-color stroke style ${signature}; give compared series distinct dash patterns or widths`,
+      });
+    }
+  }
+  return issues;
+}
+
+function normalizeDash(value) {
+  const t = String(value ?? '').trim();
+  return !t || t === 'none' ? 'solid' : t.replace(/\s+/gu, ' ');
 }
 
 function makeText(ctx, source) {
@@ -393,5 +450,9 @@ function runSelfTest() {
   if (validateSvg(bad).length === 0) throw new Error('self-test: overlapping text was not detected');
   if (validateSvg(good).length !== 0) throw new Error('self-test: separated text was falsely rejected');
   if (validateSvg(grouped).length === 0) throw new Error('self-test: inherited font-size overlap was not detected');
+  const colorOnly = `<svg data-layout-lint="strict"><line data-series-group="g" data-series-label="a" x1="0" y1="10" x2="50" y2="10" stroke="red" stroke-width="4"/><line data-series-group="g" data-series-label="b" x1="0" y1="40" x2="50" y2="40" stroke="blue" stroke-width="4"/></svg>`;
+  const colorSafe = `<svg data-layout-lint="strict"><line data-series-group="g" data-series-label="a" x1="0" y1="10" x2="50" y2="10" stroke="red" stroke-width="4"/><line data-series-group="g" data-series-label="b" x1="0" y1="40" x2="50" y2="40" stroke="blue" stroke-width="4" stroke-dasharray="8 4"/></svg>`;
+  if (!validateSvg(colorOnly).some((x) => x.message.includes('relies on color/position alone'))) throw new Error('self-test: color-only series distinction was not detected');
+  if (validateSvg(colorSafe).some((x) => x.message.includes('relies on color/position alone'))) throw new Error('self-test: non-color series cue was falsely rejected');
   console.log('SVG layout validator self-test passed.');
 }
