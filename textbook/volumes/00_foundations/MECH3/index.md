@@ -147,24 +147,24 @@ $$
 
 時刻 $t_0$ から $t$ までの累積仕事を
 
-$
+$$
 W(t)
 :=
 \int_{t_0}^{t}
 F(q(s),\dot q(s),s)
 \cdot
 \dot q(s)\,ds
-$
+$$
 
 と置きます。積分の上端について微分すると、
 
-$
+$$
 \frac{dW}{dt}
 =
 F(q(t),\dot q(t),t)
 \cdot
 \dot q(t)
-$
+$$
 
 です。従って、仕事の増加率は力と速度の内積で決まります。
 
@@ -281,7 +281,7 @@ $$
 m\ddot q\cdot\dot q
 $$
 
-ですが、これは $rac12m\lVert\dot q\rVert^2$ の時間微分です。
+ですが、これは $\frac12m\lVert\dot q\rVert^2$ の時間微分です。
 
 <!-- proof-start -->
 ### 証明
@@ -837,23 +837,23 @@ $$
 
 一定質量 $m>0$ の質点が、慣性系で
 
-$
+$$
 m\ddot q(t)
 =
 -\nabla V(q(t))
 +
 R(q(t),\dot q(t),t)
-$
+$$
 
 を満たすとする。$V$ は連続微分可能で時間に陽には依存しないとする。
 
-$
+$$
 E(t)
 =
 \frac12m\lVert\dot q(t)\rVert^2
 +
 V(q(t))
-$
+$$
 
 と置くと
 
