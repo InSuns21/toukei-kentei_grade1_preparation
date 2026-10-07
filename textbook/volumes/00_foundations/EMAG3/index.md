@@ -1182,7 +1182,7 @@ Q
 \frac{4\pi R^3}{3}\rho_0.
 $$
 
-EMAG2 の Gauss の法則から電場は
+EMAG2 で用いた [Gauss の法則](../VC9/index.md#principle-vc9-maxwell-integral) から電場は
 
 $$
 E(r)
@@ -1978,7 +1978,7 @@ $$
 半径 $R$ の球内部に一定の体積電荷密度 $\rho_0>0$ で電荷が分布し、球外では $\rho=0$ とする。無限遠で $\phi\to0$ とする。
 
 1. 全電荷 $Q$ を求めよ。
-2. Gauss の法則から球内・球外の電場を求めよ。
+2. [Gauss の法則](../VC9/index.md#principle-vc9-maxwell-integral) から球内・球外の電場を求めよ。
 3. 電位 $\phi(r)$ を球内・球外で求めよ。
 4. $r=R$ で電位が連続することを確認せよ。
 5. 球内で $-\Delta\phi=\rho_0/\varepsilon_0$、球外の $r>R$ で $\Delta\phi=0$ を直接確認せよ。
@@ -2023,7 +2023,7 @@ Q(r)
 \rho_0\frac{4\pi r^3}{3}.
 $$
 
-Gauss の法則から
+[Gauss の法則](../VC9/index.md#principle-vc9-maxwell-integral) から
 
 $$
 4\pi r^2E_r(r)
