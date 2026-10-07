@@ -1,0 +1,29 @@
+chapter: "MECH3"
+terms:
+  - term: 仕事
+    english: work
+    meaning: 力と速度の内積を時間積分して得る量。本章では W=∫F·v dt で定義する。
+  - term: 運動エネルギー
+    english: kinetic energy
+    meaning: 一定質量 m>0 の質点について K=(1/2)m|v|^2 で定めるエネルギー。
+  - term: 保存力
+    english: conservative force
+    meaning: 位置だけに依存し、あるポテンシャル V を用いて F=-∇V と表せる力。
+  - term: ポテンシャルエネルギー
+    english: potential energy
+    meaning: 保存力 F=-∇V を与えるスカラー関数 V。加法定数だけの不定性を持つ。
+  - term: 力学的エネルギー
+    english: mechanical energy
+    meaning: 運動エネルギーとポテンシャルエネルギーの和 E=K+V。
+  - term: 非保存力
+    english: nonconservative force
+    meaning: 本章では保存力以外に働く力 R を指し、エネルギー収支 dE/dt=R·v に寄与する。
+  - term: 許容領域
+    english: allowed region
+    meaning: 一自由度の保存力運動で、エネルギー条件 V(x)<=E を満たし運動が可能な位置の集合。
+  - term: 転回点
+    english: turning point
+    meaning: 一次元運動で速度が0となり、その前後で速度の符号が反転して運動方向が変わる位置。
+  - term: エネルギー曲線
+    english: energy curve
+    meaning: エネルギー一定条件を位置と速度などの変数の平面上で表した曲線。

@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念**：[MECH2 Newton の運動法則と運動方程式](../MECH2/index.md)を使います。高校物理は前提にしません。
+> **既出概念**：[MECH2 の Newton の第2法則](../MECH2/index.md#principle-mech2-newton-second)から得た運動方程式を使います。高校物理は前提にしません。
 
 MECH2 では、力のモデルを決めると
 
@@ -529,7 +529,7 @@ $$
 
 ### 証明の見取り図
 
-$V(q(t))$ を時間で微分します。多変数の連鎖律により
+$V(q(t))$ を時間で微分します。[多変数の連鎖律](../RA6/index.md#thm-ra6-chain-rule)により
 
 $$
 \frac{d}{dt}V(q(t))
@@ -542,7 +542,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-多変数の連鎖律から
+[多変数の連鎖律](../RA6/index.md#thm-ra6-chain-rule)から
 
 $$
 \frac{d}{dt}V(q(t))
