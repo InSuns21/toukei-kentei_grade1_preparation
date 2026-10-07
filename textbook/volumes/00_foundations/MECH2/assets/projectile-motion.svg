@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 500" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" data-layout-lint="strict" viewBox="0 0 940 500" role="img" aria-labelledby="title desc">
   <title id="title">斜方投射の初期速度と重力加速度</title>
   <desc id="desc">左図は原点 O から角度 theta で与える初速度 v0 を示す。右図は同じ斜方投射の放物線軌道と、軌道上の点 P において鉛直下向きに向く重力加速度 g を示す。初速度の矢印と軌道を重ねず、役割を分けて表示する。</desc>
   <rect width="940" height="500" fill="white"/>
