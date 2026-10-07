@@ -5,9 +5,7 @@ prerequisites:
   - MECH7
   - RA6A
 
-forward_references:
-  - analytical-mechanics.dalembert-principle
-  - analytical-mechanics.lagrange-equation
+forward_references: []
 
 concepts:
   - id: analytical-mechanics.holonomic-constraint
