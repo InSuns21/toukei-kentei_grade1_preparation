@@ -8,7 +8,10 @@ prerequisites:
   - VC3
   - RA7
 
-forward_references: []
+forward_references:
+  - vector-calculus.maxwell-gauss-electric
+  - vector-calculus.maxwell-faraday
+  - vector-calculus.maxwell-ampere-maxwell
 
 concepts:
   - id: electromagnetism.electric-charge
@@ -39,9 +42,9 @@ concepts:
       - mechanics.mass-force-resultant
 
   - id: electromagnetism.electrostatic-superposition
-    name: 静電気力の重ね合わせ原理
+    name: 重ね合わせ原理
     kind: principle
-    aliases: [electrostatic superposition principle]
+    aliases: [静電気力の重ね合わせ原理, electrostatic superposition principle]
     introduction: formal
     introduction_aliases: [原理（重ね合わせ）]
     requires:
@@ -94,7 +97,7 @@ concepts:
 
   - id: electromagnetism.electric-field-line
     name: 電気力線
-    kind: representation
+    kind: definition
     aliases: [electric field line]
     introduction: formal
     introduction_aliases: [定義（電気力線）]
