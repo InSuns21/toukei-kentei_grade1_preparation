@@ -1,0 +1,50 @@
+id: "VN7"
+title: "factor と型分類への入口"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - VN2
+  - VN3
+  - VN5
+  - VN6
+official_scope: []
+learning_objectives:
+  - von Neumann 環 M の中心 Z(M)=M∩M' を定義し、中心射影 z による M≅zM⊕(I-z)M の分解を証明できる
+  - factor を Z(M)=CI で定義し、M_n(C) と B(H) が factor になることを行列単位・rank-one 作用素から証明できる
+  - 射影 p,q の Murray--von Neumann 同値を部分等長作用素 v*v=p, vv*=q で定義し、それが同値関係であることを証明できる
+  - M_n(C) では射影の Murray--von Neumann 同値が rank の一致と同値であることを証明できる
+  - 有限射影・無限射影・最小射影を定義し、片側シフトから B(l2) の単位射影が無限であることを示せる
+  - factor の I / II / III 型を最小射影と有限射影の有無から区別し、M_n(C) を I_n 型、B(l2) を I_infinity 型と判定できる
+  - II 型・III 型が必要になる理由を、最小射影と有限射影が失われる構造として説明できる
+definitions:
+  - { id: VN7-DEF-01, name: "中心" }
+  - { id: VN7-DEF-02, name: "factor" }
+  - { id: VN7-DEF-03, name: "射影の Murray--von Neumann 同値" }
+  - { id: VN7-DEF-04, name: "有限射影・無限射影" }
+  - { id: VN7-DEF-05, name: "最小射影" }
+  - { id: VN7-DEF-06, name: "factor の I / II / III 型" }
+theorems:
+  - { id: VN7-PROP-01, name: "中心射影による直和分解" }
+  - { id: VN7-THM-01, name: "全有界作用素環は factor" }
+  - { id: VN7-PROP-02, name: "Murray--von Neumann 同値は同値関係" }
+  - { id: VN7-THM-02, name: "行列環では射影同値と rank が一致する" }
+  - { id: VN7-PROP-03, name: "片側シフトが示す単位射影の無限性" }
+canonical_examples:
+  - "M_n(C) の中心が CI となる行列単位による計算"
+  - "M_2(C) の二つの rank-one 射影を行列単位で Murray--von Neumann 同値にする例"
+  - "片側シフト S により I∼I-P_e1 を実現して B(l2) の単位射影が無限になる例"
+  - "M_n(C) が I_n 型、B(l2) が I_infinity 型になる比較"
+problem_patterns:
+  - VN7-CENTER-MATRIX-1
+  - VN7-PROJECTION-EQUIVALENCE-1
+  - VN7-SHIFT-INFINITE-1
+  - VN7-TYPE-I-EXAMPLES-1
+  - VN7-BH-COMMUTANT-1
+  - VN7-MATRIX-RANK-EQUIVALENCE-1
+  - VN7-CENTRAL-DECOMPOSITION-1
+  - VN7-EQUIVALENCE-FINITENESS-1
+  - VN7-BH-TYPE-I-INFINITY-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 7.0, review: 1.5 }

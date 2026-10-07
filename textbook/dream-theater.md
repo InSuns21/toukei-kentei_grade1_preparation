@@ -291,6 +291,7 @@
 4. [VN4 trace class・predual・ultraweak 位相](textbook/volumes/00_foundations/VN4/index.md)
 5. [VN5 正規汎関数・正規状態・トレース](textbook/volumes/00_foundations/VN5/index.md)
 6. [VN6 可換 von Neumann 環と $L^\infty$](textbook/volumes/00_foundations/VN6/index.md)
+7. [VN7 factor と型分類への入口](textbook/volumes/00_foundations/VN7/index.md)
 
 <a id="dt-subject-evolution-equations"></a>
 ### 抽象発展方程式・半群論
