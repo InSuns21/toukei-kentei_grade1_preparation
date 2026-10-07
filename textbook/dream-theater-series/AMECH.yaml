@@ -23,7 +23,7 @@ chapters:
     title: 対称性・循環座標・Noether の定理
   - id: AMECH5
     path: textbook/volumes/00_foundations/AMECH5
-    status: planned
+    status: completed
     title: Legendre 変換と Hamilton 形式
   - id: AMECH6
     path: textbook/volumes/00_foundations/AMECH6

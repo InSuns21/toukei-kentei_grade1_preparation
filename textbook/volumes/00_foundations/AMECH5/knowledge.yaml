@@ -1,0 +1,93 @@
+chapter: AMECH5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AMECH4
+
+forward_references: []
+
+concepts:
+  - id: analytical-mechanics.legendre-map
+    name: Legendre 写像
+    kind: definition
+    aliases: [Legendre map, fiber derivative]
+    introduction: formal
+    introduction_aliases: [定義（Legendre 写像）]
+    requires:
+      - analytical-mechanics.generalized-momentum
+
+  - id: analytical-mechanics.regular-lagrangian
+    name: 正則ラグランジアン
+    kind: definition
+    aliases: [regular Lagrangian]
+    introduction: formal
+    introduction_aliases: [定義（正則ラグランジアン）]
+    requires:
+      - analytical-mechanics.legendre-map
+
+  - id: analytical-mechanics.local-velocity-recovery
+    name: 正則性による局所速度回収
+    kind: proposition
+    aliases: [local inversion of the Legendre map]
+    introduction: formal
+    introduction_aliases: [命題（正則性による局所速度回収）]
+    requires:
+      - analytical-mechanics.regular-lagrangian
+
+  - id: analytical-mechanics.hamiltonian
+    name: 解析力学の Hamiltonian
+    kind: definition
+    aliases: [mechanical Hamiltonian, Hamilton function]
+    introduction: formal
+    introduction_aliases: [定義（Hamiltonian）]
+    requires:
+      - analytical-mechanics.local-velocity-recovery
+      - analytical-mechanics.lagrangian-energy
+
+  - id: analytical-mechanics.hamiltonian-differential
+    name: Hamiltonian の微分公式
+    kind: proposition
+    aliases: [differential identity for the Hamiltonian]
+    introduction: formal
+    introduction_aliases: [命題（Hamiltonian の微分公式）]
+    requires:
+      - analytical-mechanics.hamiltonian
+
+  - id: analytical-mechanics.hamilton-equations
+    name: 解析力学の Hamilton 正準方程式
+    kind: theorem
+    aliases: [Hamilton equations, canonical equations of Hamilton]
+    introduction: formal
+    introduction_aliases: [定理（Hamilton の正準方程式と Lagrange 方程式の同値性）]
+    requires:
+      - analytical-mechanics.hamiltonian-differential
+      - analytical-mechanics.lagrange-equations
+
+  - id: analytical-mechanics.phase-space
+    name: 相空間
+    kind: definition
+    aliases: [phase space]
+    introduction: formal
+    introduction_aliases: [定義（相空間）]
+    requires:
+      - analytical-mechanics.generalized-momentum
+
+  - id: analytical-mechanics.natural-lagrangian-hamiltonian
+    name: 自然なラグランジアンの Hamiltonian
+    kind: proposition
+    aliases: [Hamiltonian of a natural Lagrangian]
+    introduction: formal
+    introduction_aliases: [命題（自然なラグランジアンの Hamiltonian）]
+    requires:
+      - analytical-mechanics.hamiltonian
+      - analytical-mechanics.regular-lagrangian
+
+  - id: analytical-mechanics.hamiltonian-time-balance
+    name: Hamiltonian の時間変化
+    kind: proposition
+    aliases: [Hamiltonian time balance]
+    introduction: formal
+    introduction_aliases: [命題（Hamiltonian の時間変化）]
+    requires:
+      - analytical-mechanics.hamilton-equations
+      - analytical-mechanics.lagrangian-energy-balance

@@ -653,4 +653,5 @@
 2. [AMECH2 d'Alembert 原理と Lagrange 方程式](textbook/volumes/00_foundations/AMECH2/index.md)
 3. [AMECH3 作用積分と Hamilton の原理](textbook/volumes/00_foundations/AMECH3/index.md)
 4. [AMECH4 対称性・循環座標・Noether の定理](textbook/volumes/00_foundations/AMECH4/index.md)
+5. [AMECH5 Legendre 変換と Hamilton 形式](textbook/volumes/00_foundations/AMECH5/index.md)
 
