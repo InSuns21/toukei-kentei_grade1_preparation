@@ -599,7 +599,7 @@ t
 t+\varepsilon\tau
 $$
 
-とします。ここで $\tau$ は定数です。
+とします。ここで $\tau$ は定数です。本章ではこのような**一定時間シフト**だけを扱うため、変換後も $dt_\varepsilon=dt$ です。時間の伸縮まで許す一般の再パラメータ化は扱いません。
 
 軌道上では $\xi$ 自身も $q(t)$ と $t$ に依存するので、連鎖律から
 
@@ -947,7 +947,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（空間並進と運動量）**  
-> 質量 $m>0$ の質点の Lagrangian を
+> $V(r,t)$ を $r$ について $C^1$ 級とし、質量 $m>0$ の質点の Lagrangian を
 
 $$
 L(r,v,t)
@@ -955,13 +955,13 @@ L(r,v,t)
 \frac12m|v|^2-V(r,t)
 $$
 
-> とする。一定ベクトル $a$ に対して
+> とする。$C^2$ 級軌道 $r(t)$ がこの Lagrangian の Lagrange 方程式を満たすとする。一定ベクトル $a$ に対して
 
 $$
 a\cdot\nabla V(r,t)=0
 $$
 
-> が領域内で恒等的に成り立つなら、$a$ 方向の並進は無限小対称性であり、
+> が軌道を含む領域で恒等的に成り立つなら、$a$ 方向の並進は無限小対称性であり、運動量 $p=mv$ の成分
 
 $$
 \boxed{
@@ -969,7 +969,7 @@ p\cdot a
 }
 $$
 
-> が保存する。ここで $p=mv$ である。
+> が軌道に沿って保存する。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1060,7 +1060,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（回転と角運動量）**  
-> 質量 $m>0$ の質点が三次元で
+> $U:(0,\infty)\to\mathbb R$ を $C^2$ 級とし、質量 $m>0$ の質点が三次元の領域 $r\neq0$ で
 
 $$
 L(r,v)
@@ -1068,7 +1068,7 @@ L(r,v)
 \frac12m|v|^2-U(|r|)
 $$
 
-> に従うとする。任意の一定ベクトル $\omega$ に対する生成方向
+> に従うとする。$C^2$ 級軌道 $r(t)$ がこの Lagrangian の Lagrange 方程式を満たし、考えている時間区間で $r(t)\neq0$ とする。任意の一定ベクトル $\omega$ に対する生成方向
 
 $$
 \xi(r)=\omega\times r
@@ -1090,7 +1090,7 @@ $$
 p=mv
 $$
 
-> は角運動量である。任意の $\omega$ について成り立つので、角運動量ベクトル $\ell$ は保存する。
+> は角運動量である。任意の $\omega$ について成り立つので、角運動量ベクトル $\ell$ は軌道に沿って保存する。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1244,13 +1244,21 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（時間並進とエネルギー）**  
-> $C^2$ 級 Lagrangian $L(q,\dot q,t)$ が
+> $C^2$ 級 Lagrangian $L(q,\dot q,t)$ と、その Lagrange 方程式を満たす $C^2$ 級軌道 $q(t)$ を考える。一般化運動量と Lagrangian energy を
+
+$$
+p_j=\frac{\partial L}{\partial\dot q_j},
+\qquad
+E_L=\sum_{j=1}^n\dot q_jp_j-L
+$$
+
+> とする。Lagrangian が
 
 $$
 \frac{\partial L}{\partial t}=0
 $$
 
-> を満たすとする。このとき時間並進に対応する Noether 量は $-E_L$ であり、したがって Lagrangian energy $E_L$ は保存する。
+> を満たすなら、時間並進に対応する Noether 量は $-E_L$ であり、したがって $E_L$ は軌道に沿って保存する。
 <!-- formal-statement-end -->
 
 ### 確認
@@ -1774,7 +1782,7 @@ $$
 
 ### B1. 中心ポテンシャルの回転対称性から角運動量を出す
 
-三次元の質点について
+$U:(0,\infty)\to\mathbb R$ を $C^2$ 級とする。三次元で $r(t)\neq0$ を保って運動する質点について
 
 $$
 L(r,v)
