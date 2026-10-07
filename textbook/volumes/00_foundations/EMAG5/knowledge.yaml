@@ -1,0 +1,56 @@
+chapter: EMAG5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - EMAG4
+  - VC5
+
+concepts:
+  - id: electromagnetism.electric-current
+    name: 電流
+    kind: definition
+    aliases: [electric current]
+    introduction: formal
+    introduction_aliases: [定義（電流）]
+    requires:
+      - electromagnetism.electric-charge
+
+  - id: electromagnetism.current-density
+    name: 電流密度
+    kind: definition
+    aliases: [current density]
+    introduction: formal
+    introduction_aliases: [定義（電流密度）]
+    requires:
+      - electromagnetism.electric-current
+      - vector-calculus.flux-integral
+
+  - id: electromagnetism.charge-continuity
+    name: 電荷保存の連続の式
+    kind: proposition
+    aliases: []
+    introduction: formal
+    introduction_aliases: [命題（電荷保存の連続の式）]
+    requires:
+      - electromagnetism.charge-conservation
+      - electromagnetism.charge-density
+      - electromagnetism.current-density
+      - vector-calculus.gauss-divergence
+
+  - id: electromagnetism.biot-savart-law
+    name: Biot--Savart の法則
+    kind: principle
+    aliases: []
+    introduction: formal
+    introduction_aliases: [原理（Biot--Savart の法則）]
+    requires:
+      - electromagnetism.current-density
+
+  - id: electromagnetism.straight-wire-magnetic-field
+    name: 無限直線電流の磁場
+    kind: proposition
+    aliases: [magnetic field of an infinite straight current]
+    introduction: formal
+    introduction_aliases: [命題（無限直線電流の磁場）]
+    requires:
+      - electromagnetism.biot-savart-law

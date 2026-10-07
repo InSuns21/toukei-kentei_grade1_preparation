@@ -1,0 +1,29 @@
+chapter: "EMAG5"
+terms:
+  - term: 電流
+    english: electric current
+    meaning: "向き付けられた面を単位時間に通過する電荷の正味量。正電荷が法線方向へ通過する向きを正とし、SI単位は ampere (A) である。"
+  - term: 電流密度
+    english: current density
+    meaning: "単位面積あたりの局所的な電荷流を表すベクトル J。向き付けられた面 S を通る電流は I=∫_S J·n dS で与えられ、SI単位は A/m^2 である。"
+  - term: 連続の式
+    english: charge continuity equation
+    meaning: "局所的な電荷保存を表す式 partial_t rho + div J = 0。ある場所から電流が流出すれば、その場所の電荷密度が減ることを表す。"
+  - term: 定常電流
+    english: steady current
+    meaning: "時間に依存しない電流分布。電荷密度も時間変化しない磁静場の設定では div J=0 となる。"
+  - term: 磁束密度
+    english: magnetic flux density
+    meaning: "磁場を表すベクトル B。本系列では真空中の SI 単位系を用い、単位は tesla (T) とする。"
+  - term: Biot--Savart の法則
+    english: Biot-Savart law
+    meaning: "定常電流分布が作る磁場を、各電流要素からの寄与の重ね合わせとして与える磁静場の法則。"
+  - term: Ampère の法則
+    english: Ampere circuital law
+    meaning: "磁静場で、閉曲線 C に沿う磁場の循環が C を張る面を貫く電流の mu_0 倍に等しいという法則。時間変化する場では Ampère--Maxwell の法則へ拡張される。"
+  - term: 磁束に対する Gauss の法則
+    english: Gauss law for magnetism
+    meaning: "任意の閉曲面を貫く磁束の総和が0であるという Maxwell 方程式。局所形は div B=0 である。"
+  - term: ベクトルポテンシャル
+    english: vector potential
+    meaning: "磁場を B=curl A と表すベクトル場 A。A に grad chi を加えても B は変わらず、この非一意性を gauge 自由度という。"

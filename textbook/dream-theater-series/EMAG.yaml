@@ -23,8 +23,8 @@ chapters:
     title: 導体・境界値問題・静電エネルギー
   - id: EMAG5
     path: textbook/volumes/00_foundations/EMAG5
-    status: planned
-    title: 電流・磁場・Ampere の法則
+    status: completed
+    title: 電流・磁場・Ampère の法則
   - id: EMAG6
     path: textbook/volumes/00_foundations/EMAG6
     status: planned

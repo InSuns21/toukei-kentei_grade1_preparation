@@ -666,4 +666,5 @@
 2. [EMAG2 Gauss の法則と静電場](textbook/volumes/00_foundations/EMAG2/index.md)
 3. [EMAG3 電位・Poisson 方程式・Coulomb ポテンシャル](textbook/volumes/00_foundations/EMAG3/index.md)
 4. [EMAG4 導体・境界値問題・静電エネルギー](textbook/volumes/00_foundations/EMAG4/index.md)
+5. [EMAG5 電流・磁場・Ampère の法則](textbook/volumes/00_foundations/EMAG5/index.md)
 
