@@ -643,4 +643,5 @@
 4. [MECH4 運動量・角運動量・保存則](textbook/volumes/00_foundations/MECH4/index.md)
 5. [MECH5 振動](textbook/volumes/00_foundations/MECH5/index.md)
 6. [MECH6 中心力・万有引力・Kepler 問題](textbook/volumes/00_foundations/MECH6/index.md)
+7. [MECH7 質点系・重心・衝突](textbook/volumes/00_foundations/MECH7/index.md)
 
