@@ -1,0 +1,45 @@
+id: "EMAG6"
+title: "Lorentz 力と荷電粒子"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - EMAG5
+  - AMECH4
+official_scope: []
+learning_objectives:
+  - Lorentz 力 F=q(E+v cross B) の各項の向き・単位・電荷符号への依存を説明できる
+  - 磁気力が仕事をせず、荷電粒子の運動エネルギー変化が q E dot v で決まることを導ける
+  - 一様磁場中の運動を磁場に平行・垂直な速度へ分解し、円運動・螺旋運動、cyclotron 角周波数、Larmor 半径を導ける
+  - 一様な交差電場・磁場で E cross B ドリフト速度を導き、電荷符号や質量に依らないことを説明できる
+  - scalar potential phi と vector potential A から E=-grad phi-partial_t A、B=curl A を置いたときの電磁場中の Lagrangian を扱える
+  - 電磁場中の Lagrangian L=m|v|^2/2+q A dot v-q phi の Euler--Lagrange 方程式から Lorentz 力を成分計算で再現できる
+  - 直交座標における正準運動量 p=mv+qA を導き、力学的運動量 mv と区別できる
+  - gauge transformation が場を変えず Lagrangian を全時間微分だけ変えることを確認し、正準運動量の gauge 依存性を説明できる
+principles:
+  - { id: EMAG6-PRIN-01, name: "Lorentz 力" }
+definitions:
+  - { id: EMAG6-DEF-01, name: "電磁場中の荷電粒子の Lagrangian" }
+theorems:
+  - { id: EMAG6-PROP-01, name: "磁気力は仕事をしない" }
+  - { id: EMAG6-PROP-02, name: "一様磁場中の荷電粒子運動" }
+  - { id: EMAG6-PROP-03, name: "交差電場・磁場の E cross B ドリフト" }
+  - { id: EMAG6-THM-01, name: "電磁場中の Lagrangian と Lorentz 力" }
+  - { id: EMAG6-PROP-04, name: "電磁場中の正準運動量" }
+canonical_examples:
+  - "正電荷と負電荷で磁気力の向きが反転することを v cross B から確認する例"
+  - "B=B0 e_z 中で初速度 v0 e_x を持つ正電荷が時計回りに円運動することを成分方程式から導く例"
+  - "E=E0 e_x、B=B0 e_z の交差場で v_D=E cross B/B^2=-(E0/B0)e_y を確認する例"
+  - "一様磁場の対称 gauge A=(-B0 y/2,B0 x/2,0) から p=mv+qA を具体計算する例"
+problem_patterns:
+  - EMAG6-LORENTZ-DIRECTION-1
+  - EMAG6-MAGNETIC-WORK-1
+  - EMAG6-CYCLOTRON-RADIUS-1
+  - EMAG6-HELICAL-MOTION-1
+  - EMAG6-EXB-DRIFT-1
+  - EMAG6-LAGRANGIAN-DERIVATION-1
+  - EMAG6-CANONICAL-MOMENTUM-1
+  - EMAG6-GAUGE-EQUIVALENCE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 6.0, review: 1.5 }
