@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 430" role="img" aria-labelledby="title desc" data-layout-lint="strict">
+  <title id="title">剛体回転の固定軸と主軸</title>
+  <desc id="desc">左側は固定回転軸 e、角速度 omega、回転軸から離れた点の位置 rho と接線速度 v=omega cross rho を示す。右側は剛体の三本の主軸 e1,e2,e3 と、一般には平行でない角速度 omega と角運動量 L を、線種と矢印で区別して示す。</desc>
+  <rect width="920" height="430" fill="white"/>
+  <defs>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#1f5f99"/></marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#8a3d2f"/></marker>
+    <marker id="arrow-black" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#222"/></marker>
+  </defs>
+
+  <g font-family="Noto Sans CJK JP, sans-serif" fill="#111">
+    <text x="28" y="36" font-size="23" font-weight="700">固定軸回転</text>
+    <line x1="205" y1="350" x2="205" y2="72" stroke="#222" stroke-width="3" stroke-dasharray="10 7" marker-end="url(#arrow-black)"/>
+    <text x="220" y="86" font-size="21">回転軸 e</text>
+    <path d="M205 235 C250 208, 312 204, 355 230 C312 256,250 258,205 235 Z" fill="#eef4fa" stroke="#222" stroke-width="3"/>
+    <circle cx="330" cy="224" r="7" fill="#111"/>
+    <line x1="205" y1="235" x2="330" y2="224" stroke="#1f5f99" stroke-width="3" marker-end="url(#arrow-blue)"/>
+    <text x="260" y="209" font-size="21" fill="#1f5f99">ρ</text>
+    <line x1="330" y1="224" x2="345" y2="140" stroke="#8a3d2f" stroke-width="4" marker-end="url(#arrow-red)"/>
+    <text x="356" y="150" font-size="20" fill="#8a3d2f">v = ω × ρ</text>
+    <path d="M160 138 C130 160,133 194,165 208" fill="none" stroke="#1f5f99" stroke-width="4" marker-end="url(#arrow-blue)"/>
+    <text x="82" y="160" font-size="21" fill="#1f5f99">ω</text>
+
+    <line x1="455" y1="48" x2="455" y2="392" stroke="#bbb" stroke-width="2"/>
+
+    <text x="486" y="36" font-size="23" font-weight="700">主軸と L = Jω</text>
+    <path d="M565 270 C535 215,565 155,645 132 C727 108,805 158,812 232 C818 305,745 345,660 332 C612 325,582 304,565 270 Z" fill="#f5ece9" stroke="#222" stroke-width="3"/>
+    <circle cx="680" cy="235" r="6" fill="#111"/>
+    <line x1="680" y1="235" x2="808" y2="235" stroke="#222" stroke-width="3" marker-end="url(#arrow-black)"/>
+    <line x1="680" y1="235" x2="628" y2="338" stroke="#222" stroke-width="3" marker-end="url(#arrow-black)"/>
+    <line x1="680" y1="235" x2="680" y2="92" stroke="#222" stroke-width="3" marker-end="url(#arrow-black)"/>
+    <text x="814" y="242" font-size="20">e1</text>
+    <text x="600" y="362" font-size="20">e2</text>
+    <text x="691" y="104" font-size="20">e3</text>
+
+    <line x1="680" y1="235" x2="760" y2="122" stroke="#1f5f99" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-blue)"/>
+    <text x="765" y="124" font-size="21" fill="#1f5f99">ω（破線）</text>
+    <line x1="680" y1="235" x2="835" y2="165" stroke="#8a3d2f" stroke-width="4" marker-end="url(#arrow-red)"/>
+    <text x="806" y="155" font-size="21" fill="#8a3d2f">L（実線）</text>
+    <text x="500" y="400" font-size="18">一般には ω と L は平行でない。主軸に沿う回転では平行になる。</text>
+  </g>
+</svg>
