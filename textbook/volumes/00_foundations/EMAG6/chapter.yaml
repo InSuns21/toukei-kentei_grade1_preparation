@@ -12,18 +12,18 @@ learning_objectives:
   - 一様磁場中の運動を磁場に平行・垂直な速度へ分解し、円運動・螺旋運動、cyclotron 角周波数、Larmor 半径を導ける
   - 一様な交差電場・磁場で E cross B ドリフト速度を導き、電荷符号や質量に依らないことを説明できる
   - scalar potential phi と vector potential A から E=-grad phi-partial_t A、B=curl A を置いたときの電磁場中の Lagrangian を扱える
-  - 電磁場中の Lagrangian L=m|v|^2/2+q A dot v-q phi の Euler--Lagrange 方程式から Lorentz 力を成分計算で再現できる
+  - 電磁場中のラグランジアン L=m|v|^2/2+q A dot v-q phi の Euler--Lagrange 方程式から Lorentz 力を成分計算で再現できる
   - 直交座標における正準運動量 p=mv+qA を導き、力学的運動量 mv と区別できる
   - gauge transformation が場を変えず Lagrangian を全時間微分だけ変えることを確認し、正準運動量の gauge 依存性を説明できる
 principles:
   - { id: EMAG6-PRIN-01, name: "Lorentz 力" }
 definitions:
-  - { id: EMAG6-DEF-01, name: "電磁場中の荷電粒子の Lagrangian" }
+  - { id: EMAG6-DEF-01, name: "電磁場中の荷電粒子のラグランジアン" }
 theorems:
   - { id: EMAG6-PROP-01, name: "磁気力は仕事をしない" }
   - { id: EMAG6-PROP-02, name: "一様磁場中の荷電粒子運動" }
   - { id: EMAG6-PROP-03, name: "交差電場・磁場の E cross B ドリフト" }
-  - { id: EMAG6-THM-01, name: "電磁場中の Lagrangian と Lorentz 力" }
+  - { id: EMAG6-THM-01, name: "電磁場中のラグランジアンと Lorentz 力" }
   - { id: EMAG6-PROP-04, name: "電磁場中の正準運動量" }
 canonical_examples:
   - "正電荷と負電荷で磁気力の向きが反転することを v cross B から確認する例"
