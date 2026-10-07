@@ -15,11 +15,11 @@
   <line data-series-group="left-forces" data-series-label="mg" x1="290" y1="260" x2="290" y2="305" stroke="#D55E00" stroke-width="5" stroke-dasharray="10 6" marker-end="url(#arrow-orange)"/>
   <text x="420" y="282" font-family="Noto Sans CJK JP, sans-serif" font-size="22" fill="#D55E00" font-weight="700">mg</text>
 
-  <g data-series-group="left-forces" data-series-label="contact-distribution" stroke="#0072B2" stroke-width="3" marker-end="url(#arrow-blue)">
-    <line x1="210" y1="318" x2="210" y2="285"/>
-    <line x1="255" y1="318" x2="255" y2="275"/>
-    <line x1="325" y1="318" x2="325" y2="275"/>
-    <line x1="370" y1="318" x2="370" y2="285"/>
+  <g stroke="#0072B2" stroke-width="3" marker-end="url(#arrow-blue)">
+    <line data-series-group="left-forces" data-series-label="contact-distribution" x1="210" y1="318" x2="210" y2="285"/>
+    <line data-series-group="left-forces" data-series-label="contact-distribution" x1="255" y1="318" x2="255" y2="275"/>
+    <line data-series-group="left-forces" data-series-label="contact-distribution" x1="325" y1="318" x2="325" y2="275"/>
+    <line data-series-group="left-forces" data-series-label="contact-distribution" x1="370" y1="318" x2="370" y2="285"/>
   </g>
 
   <line data-series-group="right-forces" data-series-label="N" x1="710" y1="250" x2="710" y2="95" stroke="#0072B2" stroke-width="5" marker-end="url(#arrow-blue)"/>
