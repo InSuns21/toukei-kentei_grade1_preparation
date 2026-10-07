@@ -98,7 +98,7 @@ $$
 
 を **合力** と呼ぶ。
 
-一定質量の Newton 力学では、合力と加速度を Newton の第2法則で結ぶ。
+一定質量の Newton 力学では、合力と加速度を [Newton の第2法則](#principle-mech2-newton-second)で結ぶ。
 <!-- formal-statement-end -->
 
 力の SI 単位 N（newton）は
@@ -253,7 +253,7 @@ $$
 <!-- formal-statement-start -->
 ### 定義（慣性系）
 
-Newton の第1法則が成り立ち、合力が 0 の質点が一定速度で運動する基準系を **慣性系** と呼ぶ。
+[Newton の第1法則](#principle-mech2-newton-first)が成り立ち、合力が 0 の質点が一定速度で運動する基準系を **慣性系** と呼ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mech2-inertial-frame -->
@@ -272,7 +272,7 @@ $$
 
 でした。
 
-$S$ で合力が 0 なら Newton の第1法則により
+$S$ で合力が 0 なら [Newton の第1法則](#principle-mech2-newton-first)により
 
 $$
 a=0.
@@ -480,7 +480,7 @@ $$
 
 です。
 
-下図では、二本の矢印はどちらも **本** を作用対象としています。このため、向きが反対でも Newton 第3法則の組ではありません。
+下図では、二本の矢印はどちらも **本** を作用対象としています。このため、向きが反対でも [Newton 第3法則](#principle-mech2-newton-third)の組ではありません。
 
 ![机上の本に働く上向きの垂直抗力 N と下向きの重力 mg は、どちらも本に働くので作用反作用の組ではないことを示す自由物体図](assets/book-free-body.svg)
 
@@ -540,7 +540,7 @@ $$
 
 ## 5. 力のモデルを作る
 
-Newton の第2法則は、力の式を与えなければ閉じません。
+[Newton の第2法則](#principle-mech2-newton-second)は、力の式を与えなければ閉じません。
 
 ここでは大学初年級力学で最も基本的な三つのモデルを導入します。
 
@@ -798,7 +798,7 @@ $$
 
 とし、質量 $m>0$ を一定とします。
 
-Newton の第2法則は
+[Newton の第2法則](#principle-mech2-newton-second)は
 
 $$
 m\ddot q
@@ -905,7 +905,7 @@ $$
 F_g=-mg
 $$
 
-と近似するので、Newton の第2法則から
+と近似するので、[Newton の第2法則](#principle-mech2-newton-second)から
 
 $$
 m\ddot y=-mg.
@@ -1185,7 +1185,7 @@ $$
 
 ![下向きを正に取った落下で、速度 v と重力 mg は下向き、線形抵抗 cv は上向きで、終端速度では両力がつり合う模式図](assets/linear-drag-fall.svg)
 
-Newton の第2法則は
+[Newton の第2法則](#principle-mech2-newton-second)は
 
 $$
 m\dot v
@@ -1547,7 +1547,7 @@ $$
 特に次を区別できることが重要です。
 
 - Newton の法則は物理的入力であり、数学定理ではない。
-- 力の式は現象に応じたモデルであり、Newton の第2法則だけからは決まらない。
+- 力の式は現象に応じたモデルであり、[Newton の第2法則](#principle-mech2-newton-second)だけからは決まらない。
 - 作用反作用の二力は別々の物体に働く。
 - 運動方程式を立てた後は ODE の初期値問題として扱える。
 - 加速座標系では、座標系の加速度に由来する慣性力が必要になる。
@@ -1589,7 +1589,7 @@ $$
 が同時に働く。
 
 1. 合力 $F_{\mathrm{net}}$ を求めよ。
-2. Newton の第2法則から加速度 $a$ を求めよ。
+2. [Newton の第2法則](#principle-mech2-newton-second)から加速度 $a$ を求めよ。
 3. 加速度の大きさを求めよ。
 4. $F_{\mathrm{net}}$ と $a$ の向きを比較せよ。
 
@@ -1624,7 +1624,7 @@ F_1+F_2\\
 \end{aligned}
 $$
 
-Newton の第2法則
+[Newton の第2法則](#principle-mech2-newton-second)
 
 $$
 F_{\mathrm{net}}=ma
@@ -1710,7 +1710,7 @@ $$
 F_g=-mg.
 $$
 
-Newton の第2法則から
+[Newton の第2法則](#principle-mech2-newton-second)から
 
 $$
 m\ddot y=-mg.
@@ -1853,7 +1853,7 @@ F_s
 }.
 $$
 
-Newton の第2法則から
+[Newton の第2法則](#principle-mech2-newton-second)から
 
 $$
 a
@@ -1914,7 +1914,7 @@ $$
 
 次を答えよ。
 
-1. Newton 第3法則の作用反作用の組を二組挙げよ。
+1. [Newton 第3法則](#principle-mech2-newton-third)の作用反作用の組を二組挙げよ。
 2. 本に働く力だけを挙げよ。
 3. 本が静止しているとき、なぜ重力と垂直抗力の大きさが等しくなるか説明せよ。
 4. 重力と垂直抗力が作用反作用の組でない理由を説明せよ。
@@ -1947,7 +1947,7 @@ $$
 
 の二つです。
 
-本は静止しているので加速度は 0 です。Newton の第2法則から
+本は静止しているので加速度は 0 です。[Newton の第2法則](#principle-mech2-newton-second)から
 
 $$
 F_{\mathrm{net}}=0.
@@ -1967,7 +1967,7 @@ $$
 
 重力と垂直抗力は大きさが等しく向きが反対ですが、どちらも **本に働く力** です。
 
-Newton 第3法則の対は異なる物体に働く必要があるため、この二力は作用反作用の組ではありません。
+[Newton 第3法則](#principle-mech2-newton-third)の対は異なる物体に働く必要があるため、この二力は作用反作用の組ではありません。
 
 <!-- solution-end -->
 
@@ -2173,7 +2173,7 @@ $$
 
 下向きを正に取っているので、重力は $+mg$、抵抗力は $-cv$ です。
 
-Newton の第2法則から
+[Newton の第2法則](#principle-mech2-newton-second)から
 
 $$
 m\dot v
@@ -2382,7 +2382,7 @@ $$
 
 です。
 
-Newton の第2法則から
+[Newton の第2法則](#principle-mech2-newton-second)から
 
 $$
 m\ddot x=0.
