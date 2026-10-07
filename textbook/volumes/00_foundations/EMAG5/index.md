@@ -253,7 +253,7 @@ $$
 
 ### 証明の見取り図
 
-左辺の時間微分を体積積分の中へ入れ、右辺へ Gauss--Ostrogradsky の発散定理を使います。すると任意の体積 $\Omega$ 上で
+左辺の時間微分を体積積分の中へ入れ、右辺へ [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)を使います。すると任意の体積 $\Omega$ 上で
 
 $$
 \int_\Omega
@@ -1647,9 +1647,9 @@ J\cdot n_1\,dS
 J\cdot n_2\,dS.
 $$
 
-Gauss--Ostrogradsky の発散定理から
+[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)から
 
-$$
+$
 \int_{\partial V}
 J\cdot n\,dS
 =
