@@ -50,7 +50,7 @@ $$
 
 > **どの座標変換なら、$(q,p)$ を $(Q,P)$ に取り替えても Poisson 括弧と Hamilton 方程式の形を保てるか。**
 
-その答えが**正準変換**です。
+そのために、Poisson 括弧の基本関係を保つ座標変換を選びます。
 
 本章では
 
@@ -90,21 +90,21 @@ $$
 > **定義（正準変換）**  
 > 正準座標 $(q,p)$ を持つ相空間の開領域 $U\subset\mathbb R^{2n}$ から開領域 $V\subset\mathbb R^{2n}$ への、$C^1$ 級で局所的に可逆な座標変換
 >
-> $$
-> \Phi:(q,p)\longmapsto(Q(q,p),P(q,p))
-> $$
+$$
+\Phi:(q,p)\longmapsto(Q(q,p),P(q,p))
+$$
 >
 > を考える。元の $(q,p)$ による Poisson 括弧で
 >
-> $$
-> \boxed{
-> \{Q_i,Q_j\}=0,
-> \qquad
-> \{P_i,P_j\}=0,
-> \qquad
-> \{Q_i,P_j\}=\delta_{ij}
-> }
-> $$
+$$
+\boxed{
+\{Q_i,Q_j\}=0,
+\qquad
+\{P_i,P_j\}=0,
+\qquad
+\{Q_i,P_j\}=\delta_{ij}
+}
+$$
 >
 > がすべての $i,j$ について成り立つとき、$\Phi$ を正準変換という。
 <!-- formal-statement-end -->
@@ -199,13 +199,13 @@ $a^2\ne1$ なら正準変換ではありません。「座標を同じ倍率で�
 > **定理（正準変換による Poisson 括弧保存）**  
 > $\Phi:(q,p)\mapsto(Q,P)$ を正準変換とする。$F,G$ を新座標 $(Q,P)$ 上の $C^1$ 級関数とする。このとき
 >
-> $$
-> \boxed{
-> \{F\circ\Phi,G\circ\Phi\}_{q,p}
-> =
-> \{F,G\}_{Q,P}\circ\Phi
-> }
-> $$
+$$
+\boxed{
+\{F\circ\Phi,G\circ\Phi\}_{q,p}
+=
+\{F,G\}_{Q,P}\circ\Phi
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -367,20 +367,20 @@ $$
 > 1. $\Phi$ は正準変換である。
 > 2. 各点で
 >
-> $$
-> \boxed{
-> M J M^{\mathsf T}=J
-> }
-> $$
+$$
+\boxed{
+M J M^{\mathsf T}=J
+}
+$$
 >
 > が成り立つ。
 > 3. 各点で
 >
-> $$
-> \boxed{
-> M^{\mathsf T}J M=J
-> }
-> $$
+$$
+\boxed{
+M^{\mathsf T}J M=J
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -509,7 +509,7 @@ $$
 従って 3 から 2 も従い、2 と 3 は同値です。
 <!-- proof-end -->
 
-この行列条件は、後の解析力学 II でシンプレクティック構造として整理されます。本章では多様体や微分形式の一般論へ進まず、**$J$ が表す位置・運動量の反対称な組を保つこと**だけを使います。
+この行列条件は、後の解析力学 II でシンプレクティック構造として整理されます。本章では多様体上の幾何学的な一般論へ進まず、**$J$ が表す位置・運動量の反対称な組を保つこと**だけを使います。
 
 ---
 
@@ -534,15 +534,15 @@ $$
 > **命題（一自由度の正準条件）**  
 > 一自由度の $C^1$ 級局所座標変換 $(q,p)\mapsto(Q,P)$ は
 >
-> $$
-> \boxed{
-> \frac{\partial(Q,P)}{\partial(q,p)}
-> =
-> Q_qP_p-Q_pP_q
-> =
-> 1
-> }
-> $$
+$$
+\boxed{
+\frac{\partial(Q,P)}{\partial(q,p)}
+=
+Q_qP_p-Q_pP_q
+=
+1
+}
+$$
 >
 > を満たすとき、かつそのときに限り正準変換である。
 <!-- formal-statement-end -->
@@ -641,11 +641,11 @@ $$
 > **命題（正準変換の局所体積保存）**  
 > $2n$ 次元相空間の正準変換 $\Phi$ の Jacobian 行列を $M=D\Phi$ とする。このとき
 >
-> $$
-> \boxed{
-> |\det M|=1
-> }
-> $$
+$$
+\boxed{
+|\det M|=1
+}
+$$
 >
 > である。従って正準変換は局所的な $2n$ 次元体積を保存する。
 <!-- formal-statement-end -->
@@ -724,9 +724,9 @@ AMECH6 で Hamiltonian flow $\Phi_t$ が体積を保つことを示しました�
 > **定理（Hamiltonian flow は正準変換）**  
 > $H(q,p)$ を $C^2$ 級の自律 Hamiltonian とし、$\Phi_t$ をその $C^1$ 級局所 Hamiltonian flow とする。flow が定義される範囲で、各固定時刻 $t$ の写像
 >
-> $$
-> \Phi_t:z_0\longmapsto z(t;z_0)
-> $$
+$$
+\Phi_t:z_0\longmapsto z(t;z_0)
+$$
 >
 > は正準変換である。
 <!-- formal-statement-end -->
@@ -932,7 +932,7 @@ $$
 
 一つのスカラー関数を選び、その偏微分から $p$ と $Q$ を同時に作れば、正準条件が自動的に入るようにします。
 
-本章では最も使いやすい**第2種母関数**を詳しく扱います。
+本章では、この発想を $q,P,t$ を独立変数とする一つのスカラー関数として具体化します。
 
 <a id="def-amech7-type2-generating-function"></a>
 
@@ -940,27 +940,27 @@ $$
 > **定義（第2種母関数）**  
 > $q=(q_1,\ldots,q_n)$、$P=(P_1,\ldots,P_n)$、時刻 $t$ の $C^2$ 級関数
 >
-> $$
-> F_2(q,P,t)
-> $$
+$$
+F_2(q,P,t)
+$$
 >
 > を考える。
 >
-> $$
-> \boxed{
-> p_i=\frac{\partial F_2}{\partial q_i},
-> \qquad
-> Q_i=\frac{\partial F_2}{\partial P_i}
-> }
-> $$
+$$
+\boxed{
+p_i=\frac{\partial F_2}{\partial q_i},
+\qquad
+Q_i=\frac{\partial F_2}{\partial P_i}
+}
+$$
 >
 > によって $(q,p)$ と $(Q,P)$ を関係付け、混合 Hessian
 >
-> $$
-> \left(
-> \frac{\partial^2F_2}{\partial q_i\partial P_j}
-> \right)_{i,j}
-> $$
+$$
+\left(
+\frac{\partial^2F_2}{\partial q_i\partial P_j}
+\right)_{i,j}
+$$
 >
 > が可逆で、これらの式から局所的に $(Q,P)$ と $(q,p)$ を互いに解けるとする。このとき $F_2$ を第2種母関数という。
 <!-- formal-statement-end -->
@@ -1089,36 +1089,36 @@ $$
 > **定理（第2種母関数による正準変換と Hamiltonian の変換）**  
 > $F_2(q,P,t)$ を第2種母関数とし
 >
-> $$
-> p_i=\frac{\partial F_2}{\partial q_i},
-> \qquad
-> Q_i=\frac{\partial F_2}{\partial P_i}
-> $$
+$$
+p_i=\frac{\partial F_2}{\partial q_i},
+\qquad
+Q_i=\frac{\partial F_2}{\partial P_i}
+$$
 >
 > により局所変換 $(q,p)\leftrightarrow(Q,P)$ を定める。
 >
 > 1. 各固定時刻 $t$ で、この変換は正準変換である。
 > 2. 元の Hamiltonian を $H(q,p,t)$ とすると、新座標で
 >
-> $$
-> \boxed{
-> K(Q,P,t)
-> =
-> H(q,p,t)
-> +
-> \frac{\partial F_2}{\partial t}(q,P,t)
-> }
-> $$
+$$
+\boxed{
+K(Q,P,t)
+=
+H(q,p,t)
++
+\frac{\partial F_2}{\partial t}(q,P,t)
+}
+$$
 >
 > と定め、右辺の $q,p$ を $Q,P,t$ で表せば、新変数は
 >
-> $$
-> \boxed{
-> \dot Q_i=\frac{\partial K}{\partial P_i},
-> \qquad
-> \dot P_i=-\frac{\partial K}{\partial Q_i}
-> }
-> $$
+$$
+\boxed{
+\dot Q_i=\frac{\partial K}{\partial P_i},
+\qquad
+\dot P_i=-\frac{\partial K}{\partial Q_i}
+}
+$$
 >
 > を満たす。
 <!-- formal-statement-end -->
@@ -1413,7 +1413,7 @@ $$
 }
 $$
 
-です。元の相空間作用と新しい相空間作用は上の恒等式により全時間微分だけ異なるため、局所的な正準変換で同じ運動を記述します。
+です。したがって二つの相空間作用の差は端点項 $F_2(t_1)-F_2(t_0)$ だけです。端点を固定した変分ではこの項の変分は 0 なので、新しい作用からも同じ停留条件が得られ、局所的な正準変換で同じ運動を記述します。
 <!-- proof-end -->
 
 この定理で重要なのは、時間依存変換では
@@ -1672,9 +1672,9 @@ $$
 
 が現れます。
 
-これが次章 AMECH8 で扱う Hamilton--Jacobi 方程式です。
+これが次章 AMECH8 で扱う **Hamilton--Jacobi の方程式**です。
 
-本章では「母関数をうまく選ぶと Hamiltonian 自体を簡単化できる」ことまでが責務です。Hamilton--Jacobi 方程式の完全積分、主関数、特性関数、中心力への適用は次章で扱います。
+本章では「母関数をうまく選ぶと Hamiltonian 自体を簡単化できる」ことまでが責務です。この方程式の完全積分、主関数、特性関数、中心力への適用は次章で扱います。
 
 ---
 
@@ -1740,7 +1740,7 @@ $$
 
 となります。
 
-次章では $K=0$ となる母関数を探すことで、運動方程式を一つの偏微分方程式へ変換します。
+次章では $K=0$ となる母関数を探すことで、運動方程式を未知関数 $S$ の一階方程式へ変換します。
 
 ---
 
@@ -1872,7 +1872,7 @@ $$
 1. Jacobian 行列 $M$ を求めよ。
 2. $\det M$ を求めよ。
 3. 一自由度の正準条件から正準変換であることを示せ。
-4. 逆変換を求めよ。
+4. $q,p$ を $Q,P$ で表せ。
 
 - Level: A
 
@@ -1910,7 +1910,7 @@ $$
 
 が正準条件と同値なので、この変換は正準です。
 
-逆変換は第1式から
+元の変数は第1式から
 
 $$
 q=Q.
@@ -2547,7 +2547,7 @@ $$
    \frac{\partial S}{\partial t}
    $$
    となることを示せ。
-2. $K=0$ を要求すると Hamilton--Jacobi 方程式
+2. $K=0$ を要求すると Hamilton--Jacobi の方程式
    $$
    \frac{\partial S}{\partial t}
    +
@@ -2731,7 +2731,7 @@ $$
 \frac{\partial W}{\partial q}.
 $$
 
-Hamilton--Jacobi 方程式へ代入すると
+Hamilton--Jacobi の方程式へ代入すると
 
 $$
 -E
@@ -2763,7 +2763,7 @@ $$
 
 ただし、これは計算を消したわけではありません。
 
-元の Hamilton 方程式は $(q(t),p(t))$ に対する一階連立常微分方程式でした。Hamilton--Jacobi 法では、その情報を母関数 $S$ に対する偏微分方程式へ移しています。
+元の Hamilton 方程式は $(q(t),p(t))$ に対する一階連立常微分方程式でした。この母関数法では、その情報を母関数 $S$ に対する一階の方程式へ移しています。
 
 したがって難しさは
 
