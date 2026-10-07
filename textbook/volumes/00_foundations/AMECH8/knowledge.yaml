@@ -3,7 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - AMECH7
-  - MECH7
+  - MECH6
 
 forward_references:
   - pde.pde12-hamilton-jacobi
@@ -67,7 +67,7 @@ concepts:
     introduction_aliases: [定義（Hamilton の特性関数）]
     requires:
       - analytical-mechanics.complete-integral-reconstruction
-      - analytical-mechanics.hamiltonian-energy
+      - analytical-mechanics.hamiltonian-time-balance
 
   - id: analytical-mechanics.one-dof-hj-quadrature
     name: 1自由度 Hamilton--Jacobi 法の求積
@@ -86,4 +86,5 @@ concepts:
     introduction_aliases: [命題（中心力 Hamilton--Jacobi 方程式の分離）]
     requires:
       - analytical-mechanics.hamilton-characteristic-function
-      - analytical-mechanics.central-force-hamiltonian
+      - analytical-mechanics.natural-lagrangian-hamiltonian
+      - mechanics.central-force-effective-reduction
