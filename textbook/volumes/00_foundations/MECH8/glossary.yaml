@@ -1,0 +1,29 @@
+chapter: "MECH8"
+terms:
+  - term: 剛体
+    english: rigid body
+    meaning: 構成点どうしの距離が時間によらず一定に保たれると理想化した物体系。
+  - term: 角速度
+    english: angular velocity
+    meaning: 回転の瞬間的な軸と速さを表すベクトル。固定軸回転では omega=phidot e と書ける。
+  - term: 慣性モーメント
+    english: moment of inertia
+    meaning: 指定した回転軸からの距離の二乗を質量で重み付けした量。固定軸回転の回転しにくさを表す。
+  - term: 平行軸の定理
+    english: parallel-axis theorem
+    meaning: 重心を通る軸とそれに平行な軸の慣性モーメントを I=I_C+Md^2 で結ぶ定理。
+  - term: 慣性テンソル
+    english: inertia tensor
+    meaning: 回転軸の向きも含めて剛体の回転慣性を表す実対称行列 J。角運動量は L=J omega で与えられる。
+  - term: 主軸
+    english: principal axis
+    meaning: 慣性テンソルの固有ベクトルが張る方向。この軸に沿う回転では角運動量と角速度が平行になる。
+  - term: 主慣性モーメント
+    english: principal moment of inertia
+    meaning: 慣性テンソルの固有値。対応する主軸まわりの慣性モーメントに等しい。
+  - term: 物体固定基底
+    english: body-fixed basis
+    meaning: 剛体とともに回転する正規直交基底。主軸方向に選ぶと慣性テンソルの成分が対角になる。
+  - term: Euler の剛体方程式
+    english: Euler equations for a rigid body
+    meaning: 主軸に沿う物体固定基底で、トルクと角速度成分の時間変化を結ぶ三本の方程式。
