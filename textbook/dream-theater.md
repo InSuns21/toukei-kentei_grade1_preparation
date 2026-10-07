@@ -654,4 +654,5 @@
 3. [AMECH3 作用積分と Hamilton の原理](textbook/volumes/00_foundations/AMECH3/index.md)
 4. [AMECH4 対称性・循環座標・Noether の定理](textbook/volumes/00_foundations/AMECH4/index.md)
 5. [AMECH5 Legendre 変換と Hamilton 形式](textbook/volumes/00_foundations/AMECH5/index.md)
+6. [AMECH6 Poisson 括弧と Hamiltonian flow](textbook/volumes/00_foundations/AMECH6/index.md)
 

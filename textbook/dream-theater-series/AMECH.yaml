@@ -27,7 +27,7 @@ chapters:
     title: Legendre 変換と Hamilton 形式
   - id: AMECH6
     path: textbook/volumes/00_foundations/AMECH6
-    status: planned
+    status: completed
     title: Poisson 括弧と Hamiltonian flow
   - id: AMECH7
     path: textbook/volumes/00_foundations/AMECH7

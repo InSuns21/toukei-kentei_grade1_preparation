@@ -1,0 +1,50 @@
+id: "AMECH6"
+title: "Poisson 括弧と Hamiltonian flow"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AMECH5
+  - ODE4
+  - VC1
+official_scope: []
+learning_objectives:
+  - 正準座標上の Poisson 括弧を定義し、基本関係 {q_i,q_j}=0, {p_i,p_j}=0, {q_i,p_j}=delta_ij を直接計算できる
+  - Poisson 括弧の双線形性・反対称性・Leibniz 則・Jacobi 恒等式を座標表示から説明できる
+  - Hamilton 方程式と連鎖律から df/dt={f,H}+partial f/partial t を導き、保存量の判定に使える
+  - 自律 Hamilton 系で Poisson 可換な量が保存されること、および保存量同士の Poisson 括弧も保存量になることを Jacobi 恒等式から示せる
+  - 三次元の角運動量 ell=r cross p について {ell_i,ell_j}=epsilon_ijk ell_k を具体成分から確認できる
+  - Hamiltonian vector field X_H=(partial H/partial p,-partial H/partial q) を定義し、Hamilton 方程式を位相空間上のベクトル場として読める
+  - Hamiltonian flow Phi_t を局所解の写像として定義し、自律系で Phi_0=id と Phi_{t+s}=Phi_t circ Phi_s が成り立つ理由を説明できる
+  - Hamiltonian vector field の発散が 0 であることから、Liouville の定理として Hamiltonian flow が局所的に位相体積を保存することを導ける
+  - Poisson 括弧と量子力学の交換子の対応は構造上の類似であり、同一の演算ではないことを説明できる
+definitions:
+  - { id: AMECH6-DEF-01, name: "Poisson 括弧" }
+  - { id: AMECH6-DEF-02, name: "Hamiltonian vector field" }
+  - { id: AMECH6-DEF-03, name: "Hamiltonian flow" }
+theorems:
+  - { id: AMECH6-PROP-01, name: "正準座標の基本 Poisson 括弧" }
+  - { id: AMECH6-THM-01, name: "Poisson 括弧の代数的性質" }
+  - { id: AMECH6-THM-02, name: "観測量の時間発展" }
+  - { id: AMECH6-PROP-02, name: "Poisson 括弧による保存量判定" }
+  - { id: AMECH6-PROP-03, name: "保存量の Poisson 括弧" }
+  - { id: AMECH6-PROP-04, name: "角運動量の Poisson 括弧" }
+  - { id: AMECH6-PROP-05, name: "Hamiltonian vector field の発散" }
+  - { id: AMECH6-THM-03, name: "Liouville の定理・正準座標版" }
+canonical_examples:
+  - "一次元調和振動子で {q,H}=p/m, {p,H}=-kq から Hamilton 方程式を再現する例"
+  - "三次元角運動量 ell=r cross p で {ell_x,ell_y}=ell_z を直接計算する例"
+  - "調和振動子の位相平面で Hamiltonian vector field が等エネルギー曲線へ接する例"
+  - "Hamiltonian flow の Jacobian 行列式が 1 のまま保たれることから位相面積保存を読む例"
+problem_patterns:
+  - AMECH6-BASIC-POISSON-1
+  - AMECH6-HARMONIC-TIME-EVOLUTION-1
+  - AMECH6-CONSERVED-QUANTITY-1
+  - AMECH6-VECTOR-FIELD-DIVERGENCE-1
+  - AMECH6-ANGULAR-MOMENTUM-1
+  - AMECH6-JACOBI-CONSERVED-BRACKET-1
+  - AMECH6-FLOW-JACOBIAN-1
+  - AMECH6-ROTATION-GENERATOR-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.5, exercises: 6.0, review: 1.5 }
