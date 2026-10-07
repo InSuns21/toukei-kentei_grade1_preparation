@@ -26,6 +26,19 @@
 
 したがって本計画の目的は、**既存正本と重複しない実解析上の不足を補い、PDE で必要になる高次元の実解析・調和解析へ自然に接続すること**である。
 
+## 0.1 調和解析の範囲校正に用いる標準書
+
+HA1--HA8 の範囲・順序は、特定の一冊を写すのではなく、次の標準書を比較して校正する。
+
+- Loukas Grafakos, *Classical Fourier Analysis*, Springer
+  - maximal function、interpolation、singular integrals、Littlewood--Paley theory の標準的な射程を参照する。
+- Elias M. Stein, *Singular Integrals and Differentiability Properties of Functions*, Princeton University Press
+  - maximal theorem、singular integral、Riesz potential の古典的正本として参照する。
+- Elias M. Stein and Rami Shakarchi, *Fourier Analysis: An Introduction*, Princeton University Press
+  - 既存 FOU 系列から現代調和解析へ進む教育的接続を校正する。
+
+Kakeya / restriction のためだけに上記の一部を抜き出すのではなく、独立科目として自然な順序を優先する。
+
 ## 1. 現在の実解析系列
 
 現行の主要系列は次である。
