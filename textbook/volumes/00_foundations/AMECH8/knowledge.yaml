@@ -88,7 +88,6 @@ concepts:
     introduction_aliases: [Hamilton--Jacobi 法]
     requires:
       - analytical-mechanics.hamilton-jacobi-reduction
-      - analytical-mechanics.complete-integral-reconstruction
 
   - id: analytical-mechanics.one-dof-hj-quadrature
     name: 1自由度 Hamilton--Jacobi 法の求積
