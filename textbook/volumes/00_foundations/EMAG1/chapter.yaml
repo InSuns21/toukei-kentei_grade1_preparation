@@ -5,6 +5,8 @@ status: supplementary
 prerequisites:
   - MECH2
   - VC1
+  - VC2
+  - VC3
   - RA7
 official_scope: []
 learning_objectives:
