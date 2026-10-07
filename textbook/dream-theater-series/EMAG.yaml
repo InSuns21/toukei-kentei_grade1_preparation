@@ -27,7 +27,7 @@ chapters:
     title: 電流・磁場・Ampère の法則
   - id: EMAG6
     path: textbook/volumes/00_foundations/EMAG6
-    status: planned
+    status: completed
     title: Lorentz 力と荷電粒子
   - id: EMAG7
     path: textbook/volumes/00_foundations/EMAG7
