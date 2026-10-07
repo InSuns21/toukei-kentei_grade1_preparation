@@ -58,7 +58,7 @@ concepts:
   - id: electromagnetism.magnetostatic-ampere-law
     name: 磁静場の Ampère の法則
     kind: principle
-    aliases: [Ampère の法則]
+    aliases: []
     introduction: formal
     introduction_aliases: [原理（磁静場の Ampère の法則）]
     requires:
