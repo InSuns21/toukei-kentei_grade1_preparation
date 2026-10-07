@@ -31,7 +31,7 @@ chapters:
     title: Poisson 括弧と Hamiltonian flow
   - id: AMECH7
     path: textbook/volumes/00_foundations/AMECH7
-    status: planned
+    status: completed
     title: 正準変換
   - id: AMECH8
     path: textbook/volumes/00_foundations/AMECH8

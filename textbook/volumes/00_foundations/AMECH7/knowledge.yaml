@@ -1,0 +1,106 @@
+chapter: AMECH7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AMECH6
+  - VC1
+
+forward_references:
+  - pde.pde12-hamilton-jacobi
+
+concepts:
+  - id: analytical-mechanics.canonical-transformation
+    name: 正準変換
+    kind: definition
+    aliases: [canonical transformation]
+    introduction: formal
+    introduction_aliases: [定義（正準変換）]
+    requires:
+      - analytical-mechanics.poisson-bracket
+      - analytical-mechanics.phase-space
+
+  - id: analytical-mechanics.canonical-poisson-invariance
+    name: 正準変換による Poisson 括弧保存
+    kind: theorem
+    aliases: [Poisson bracket invariance under canonical transformations]
+    introduction: formal
+    introduction_aliases: [定理（正準変換による Poisson 括弧保存）]
+    requires:
+      - analytical-mechanics.canonical-transformation
+      - analytical-mechanics.poisson-identities
+
+  - id: analytical-mechanics.canonical-jacobian-condition
+    name: 正準変換の Jacobian 行列条件
+    kind: theorem
+    aliases: [symplectic Jacobian condition, canonical Jacobian condition]
+    introduction: formal
+    introduction_aliases: [定理（正準変換の Jacobian 行列条件）]
+    requires:
+      - analytical-mechanics.canonical-transformation
+      - analytical-mechanics.canonical-poisson-invariance
+
+  - id: analytical-mechanics.one-dof-canonical-jacobian
+    name: 一自由度の正準条件
+    kind: proposition
+    aliases: [one-degree-of-freedom canonical Jacobian criterion]
+    introduction: formal
+    introduction_aliases: [命題（一自由度の正準条件）]
+    requires:
+      - analytical-mechanics.canonical-jacobian-condition
+
+  - id: analytical-mechanics.canonical-volume-preservation
+    name: 正準変換の局所体積保存
+    kind: proposition
+    aliases: [phase-volume preservation by canonical transformations]
+    introduction: formal
+    introduction_aliases: [命題（正準変換の局所体積保存）]
+    requires:
+      - analytical-mechanics.canonical-jacobian-condition
+
+  - id: analytical-mechanics.hamiltonian-flow-canonical
+    name: Hamiltonian flow の正準性
+    kind: theorem
+    aliases: [Hamiltonian flow is canonical, symplecticity of Hamiltonian flow]
+    introduction: formal
+    introduction_aliases: [定理（Hamiltonian flow は正準変換）]
+    requires:
+      - analytical-mechanics.hamiltonian-flow
+      - analytical-mechanics.canonical-jacobian-condition
+
+  - id: analytical-mechanics.type-2-generating-function
+    name: 第2種母関数
+    kind: definition
+    aliases: [type-2 generating function, generating function of the second kind]
+    introduction: formal
+    introduction_aliases: [定義（第2種母関数）]
+    requires:
+      - analytical-mechanics.canonical-transformation
+      - analytical-mechanics.action-functional
+
+  - id: analytical-mechanics.generating-function-canonical-transformation
+    name: 第2種母関数による正準変換
+    kind: theorem
+    aliases: [canonical transformation from a type-2 generating function]
+    introduction: formal
+    introduction_aliases: [定理（第2種母関数による正準変換と Hamiltonian の変換）]
+    requires:
+      - analytical-mechanics.type-2-generating-function
+      - analytical-mechanics.hamilton-principle
+
+  - id: analytical-mechanics.time-dependent-canonical-hamiltonian
+    name: 時間依存正準変換の Hamiltonian
+    kind: result
+    aliases: [Hamiltonian under a time-dependent canonical transformation]
+    introduction: inline
+    introduction_aliases: [時間依存変換では追加項を落としてはいけない]
+    requires:
+      - analytical-mechanics.generating-function-canonical-transformation
+
+  - id: analytical-mechanics.hamilton-jacobi-bridge
+    name: Hamilton--Jacobi 方程式への母関数接続
+    kind: result
+    aliases: [generating-function bridge to the Hamilton--Jacobi equation]
+    introduction: inline
+    introduction_aliases: [次章 Hamilton--Jacobi 理論への入口]
+    requires:
+      - analytical-mechanics.time-dependent-canonical-hamiltonian

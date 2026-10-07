@@ -1,0 +1,47 @@
+id: "AMECH7"
+title: "正準変換"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AMECH6
+  - VC1
+official_scope: []
+learning_objectives:
+  - 正準変換を、相空間の局所座標変換が基本 Poisson 括弧を保つという条件で定義できる
+  - 正準変換が任意の相空間関数の Poisson 括弧を保つことを連鎖律から証明できる
+  - 変換の Jacobian 行列 M と標準行列 J を用いて M J M^T=J および M^T J M=J という正準条件を判定できる
+  - 一自由度では正準条件が det partial(Q,P)/partial(q,p)=1 に一致する一方、多自由度では体積保存だけでは不十分であることを反例で説明できる
+  - Hamiltonian flow の微分 D Phi_t が正準条件を保つことを変分方程式から示せる
+  - 第2種母関数 F_2(q,P,t) から p=partial F_2/partial q, Q=partial F_2/partial P を作り、正準変換を構成できる
+  - 時間依存母関数では新 Hamiltonian が K=H+partial F_2/partial t となることを作用積分の境界項から導ける
+  - 正準 shear、正準 scaling、移動座標系を具体計算し、非正準変換との違いを Poisson 括弧で判定できる
+  - 母関数で K=0 を狙うことが Hamilton--Jacobi 方程式へつながる見取り図を説明できる
+definitions:
+  - { id: AMECH7-DEF-01, name: "正準変換" }
+  - { id: AMECH7-DEF-02, name: "第2種母関数" }
+theorems:
+  - { id: AMECH7-THM-01, name: "正準変換による Poisson 括弧保存" }
+  - { id: AMECH7-THM-02, name: "正準変換の Jacobian 行列条件" }
+  - { id: AMECH7-PROP-01, name: "一自由度の正準条件" }
+  - { id: AMECH7-PROP-02, name: "正準変換の局所体積保存" }
+  - { id: AMECH7-THM-03, name: "Hamiltonian flow は正準変換" }
+  - { id: AMECH7-THM-04, name: "第2種母関数による正準変換と Hamiltonian の変換" }
+canonical_examples:
+  - "Q=a q, P=p/a が正準変換であることを Poisson 括弧から確認する例"
+  - "Q=q, P=p+alpha q の正準 shear と、Q=a q, P=a p の非正準 scaling を比較する例"
+  - "一次元調和振動子の Hamiltonian flow が正準変換であることを行列条件から確認する例"
+  - "F_2(q,P)=qP-alpha q^2/2 から正準 shear を構成する例"
+  - "F_2(q,P,t)=(q-a(t))P により移動座標 Q=q-a(t) と K=H-dot a P を導く例"
+problem_patterns:
+  - AMECH7-CANONICAL-BRACKETS-1
+  - AMECH7-CANONICAL-SCALING-1
+  - AMECH7-JACOBIAN-CRITERION-1
+  - AMECH7-FLOW-CANONICAL-1
+  - AMECH7-GENERATING-FUNCTION-1
+  - AMECH7-TIME-DEPENDENT-GENERATOR-1
+  - AMECH7-VOLUME-NOT-SUFFICIENT-1
+  - AMECH7-HJ-BRIDGE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.5, exercises: 6.5, review: 1.5 }
