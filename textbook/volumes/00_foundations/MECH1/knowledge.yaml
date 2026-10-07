@@ -25,6 +25,15 @@ concepts:
     requires:
       - mechanics.dimension-and-unit
 
+  - id: mechanics.reference-frame
+    name: 基準系
+    kind: definition
+    aliases: ["reference frame"]
+    introduction: formal
+    introduction_aliases: ["定義（基準系）"]
+    requires:
+      - mechanics.dimension-and-unit
+
   - id: mechanics.velocity-acceleration
     name: 質点の速度・速さ・加速度
     kind: definition
@@ -33,6 +42,7 @@ concepts:
     introduction_aliases: ["定義（質点の速度・速さ・加速度）"]
     requires:
       - mechanics.point-particle-trajectory
+      - mechanics.reference-frame
 
   - id: mechanics.constant-acceleration-kinematics
     name: 一定加速度の位置と速度
@@ -58,6 +68,7 @@ concepts:
     introduction_aliases: ["定義（等速移動する座標系間の Galilei 変換）"]
     requires:
       - mechanics.point-particle-trajectory
+      - mechanics.reference-frame
 
   - id: mechanics.galilei-kinematics
     name: Galilei 変換における速度・加速度
