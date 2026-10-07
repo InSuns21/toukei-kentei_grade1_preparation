@@ -13,25 +13,23 @@ learning_objectives:
   - Biot--Savart の法則から無限直線電流の磁場 B=mu_0 I/(2 pi s) e_phi を途中式付きで導ける
   - 磁静場における Ampère の法則を対称性と組み合わせ、直線電流・円柱電流・同軸配置の磁場を求められる
   - 磁束に対する Gauss の法則と div B=0 の意味を、磁力線に始点・終点がないことと結び付けて説明できる
-  - ベクトルポテンシャル B=curl A を定義し、A->A+grad chi の gauge 自由度を具体例で確認できる
-  - VC9 の Ampère--Maxwell 則と本章の磁静場近似の関係を説明し、時間変化する場では displacement current が必要になることを述べられる
+  - VC5 のベクトルポテンシャル B=curl A を磁場へ適用し、A->A+grad chi のゲージ自由度を具体例で確認できる
+  - VC9 の Ampère--Maxwell 則と本章の磁静場近似の関係を説明し、時間変化する場では変位電流が必要になることを述べられる
 definitions:
   - { id: EMAG5-DEF-01, name: "電流" }
   - { id: EMAG5-DEF-02, name: "電流密度" }
-  - { id: EMAG5-DEF-03, name: "ベクトルポテンシャル" }
 principles:
   - { id: EMAG5-PRIN-01, name: "Biot--Savart の法則" }
   - { id: EMAG5-PRIN-02, name: "磁静場の Ampère の法則" }
 theorems:
   - { id: EMAG5-PROP-01, name: "電荷保存の連続の式" }
   - { id: EMAG5-PROP-02, name: "無限直線電流の磁場" }
-  - { id: EMAG5-PROP-03, name: "磁束に対する Gauss の法則の局所形" }
 canonical_examples:
   - "一様な電流密度が円形断面を通るとき I=J pi a^2 を確認する例"
   - "固定体積の電荷変化と境界から流出する電流を対応させて連続の式を導く例"
   - "Biot--Savart の法則を無限直線電流へ適用し、方向と 1/s の大きさを導く例"
   - "Ampère の法則で一様電流密度を持つ円柱導体の内外磁場を求める例"
-  - "一様磁場に対する二つのベクトルポテンシャルが gauge 変換で結ばれる例"
+  - "一様磁場に対する二つのベクトルポテンシャルがゲージ変換で結ばれる例"
 problem_patterns:
   - EMAG5-CURRENT-FLUX-1
   - EMAG5-CONTINUITY-1
