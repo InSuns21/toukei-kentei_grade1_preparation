@@ -20,9 +20,9 @@
   <circle cx="405" cy="164" r="8" fill="#111"/>
 
   <g font-family="Noto Sans CJK JP, sans-serif" font-size="21" fill="#111">
-    <text x="624" y="82">m1</text>
-    <text x="219" y="252">m2</text>
-    <text x="414" y="145">R</text>
+    <text x="646" y="92">m1</text>
+    <text x="190" y="205">m2</text>
+    <text x="397" y="112">R</text>
     <text x="461" y="113" fill="#8a3d2f" font-weight="700">r</text>
     <text x="385" y="230" fill="#1f5f99">r1</text>
     <text x="135" y="225" fill="#1f5f99">r2</text>
