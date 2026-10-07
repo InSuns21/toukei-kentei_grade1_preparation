@@ -15,7 +15,7 @@ chapters:
     title: Gauss の法則と静電場
   - id: EMAG3
     path: textbook/volumes/00_foundations/EMAG3
-    status: planned
+    status: completed
     title: 電位・Poisson 方程式・Coulomb ポテンシャル
   - id: EMAG4
     path: textbook/volumes/00_foundations/EMAG4
