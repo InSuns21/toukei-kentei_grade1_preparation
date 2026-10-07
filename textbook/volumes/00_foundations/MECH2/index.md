@@ -224,10 +224,10 @@ $$
 
 Newton 力学では、まず特別な基準系のクラスを選びます。
 
-<a id="law-mech2-newton-first"></a>
+<a id="principle-mech2-newton-first"></a>
 
 <!-- formal-statement-start -->
-### Newton の第1法則（慣性の法則）
+### 原理（Newton の第1法則・慣性の法則）
 
 ある基準系で質点に働く合力が 0 であるとき、その質点の速度は時間に依らず一定である。
 
@@ -312,10 +312,10 @@ $$
 
 慣性系を選んだら、合力と加速度を結びます。
 
-<a id="law-mech2-newton-second"></a>
+<a id="principle-mech2-newton-second"></a>
 
 <!-- formal-statement-start -->
-### Newton の第2法則
+### 原理（Newton の第2法則）
 
 慣性系で、一定の慣性質量 $m>0$ を持つ質点を考える。
 
@@ -426,10 +426,10 @@ $$
 
 二つの物体が相互作用するとき、力を片側だけ考えると系全体の構造を見失います。
 
-<a id="law-mech2-newton-third"></a>
+<a id="principle-mech2-newton-third"></a>
 
 <!-- formal-statement-start -->
-### Newton の第3法則（作用反作用の法則）
+### 原理（Newton の第3法則・作用反作用の法則）
 
 Newton 的な二質点間の相互作用モデルで、質点 2 が質点 1 に及ぼす力を
 
