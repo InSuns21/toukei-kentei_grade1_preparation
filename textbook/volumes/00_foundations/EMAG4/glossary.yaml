@@ -1,0 +1,29 @@
+chapter: "EMAG4"
+terms:
+  - term: 静電平衡
+    english: electrostatic equilibrium
+    meaning: "導体内の自由電荷の巨視的な移動が止まった平衡。理想導体の内部では E=0 となり、連結な導体は等電位になる。"
+  - term: 表面電荷密度
+    english: surface charge density
+    meaning: "導体表面の単位面積あたりの電荷を表す量 sigma。静電平衡の真空側では法線電場と E_out dot n=sigma/epsilon_0 で結ばれる。"
+  - term: 静電境界条件
+    english: electrostatic boundary condition
+    meaning: "静電平衡にある導体表面で電場の接線成分が0となり、法線成分が表面電荷密度によって決まるという条件。"
+  - term: Dirichlet 境界値問題
+    english: Dirichlet boundary value problem
+    meaning: "領域内部で Laplace または Poisson 方程式を満たし、境界上で電位そのものを指定して解を求める問題。"
+  - term: 鏡像法
+    english: method of images
+    meaning: "導体を含む境界値問題で、物理領域外の仮想電荷を用いて境界条件を満たす電位を構成し、一意性から物理解を同定する方法。"
+  - term: 静電容量
+    english: capacitance
+    meaning: "形と配置を固定した導体系で、蓄えた電荷の大きさ Q と電位差 V の比 C=Q/V。SI単位は farad (F) である。"
+  - term: コンデンサー
+    english: capacitor
+    meaning: "二つの導体に異符号の電荷を蓄え、その間に電位差を作る系。静電容量によって電荷と電位差の関係を表す。"
+  - term: 静電エネルギー
+    english: electrostatic energy
+    meaning: "電荷配置または静電場に蓄えられるエネルギー。コンデンサーでは U=Q^2/(2C)=QV/2=CV^2/2、真空中の場のエネルギー密度は epsilon_0 |E|^2/2 である。"
+  - term: 静電遮蔽
+    english: electrostatic shielding
+    meaning: "静電平衡にある導体によって外部の静電場の影響が導体内部や電荷のない閉じた空洞へ伝わらない性質。"
