@@ -15,7 +15,7 @@ chapters:
     title: Newton の運動法則と運動方程式
   - id: MECH3
     path: textbook/volumes/00_foundations/MECH3
-    status: planned
+    status: completed
     title: 仕事・エネルギー・ポテンシャル
   - id: MECH4
     path: textbook/volumes/00_foundations/MECH4
