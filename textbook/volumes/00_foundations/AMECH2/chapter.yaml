@@ -1,0 +1,45 @@
+id: "AMECH2"
+title: "d'Alembert 原理と Lagrange 方程式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AMECH1
+official_scope: []
+learning_objectives:
+  - 拘束反力と既知の力を分け、理想拘束を仮想仕事がゼロになる条件として説明できる
+  - Newton 方程式と理想拘束条件から d'Alembert 原理を導ける
+  - 仮想変位を一般化座標で展開し、d'Alembert 原理を自由度ごとの方程式へ射影できる
+  - 運動エネルギー恒等式を速度公式から途中式を追って証明できる
+  - 一般化力を用いる Lagrange 方程式を d'Alembert 原理から導ける
+  - 保存力の一般化力がポテンシャルの偏微分で表されることを連鎖律から導ける
+  - 力学的 Lagrangian L=T-V から保存力系の Lagrange 方程式を計算できる
+  - 振り子・平面中心力・連成振動子・時間依存拘束へ Lagrange 方程式を適用できる
+definitions:
+  - { id: AMECH2-DEF-01, name: "理想拘束" }
+  - { id: AMECH2-DEF-02, name: "力学的 Lagrangian" }
+theorems:
+  - { id: AMECH2-PRI-01, name: "d'Alembert 原理" }
+  - { id: AMECH2-PROP-01, name: "d'Alembert 原理の一般化座標表示" }
+  - { id: AMECH2-PROP-02, name: "運動エネルギー恒等式" }
+  - { id: AMECH2-THM-01, name: "Lagrange 方程式" }
+  - { id: AMECH2-THM-02, name: "保存力系の Lagrange 方程式" }
+canonical_examples:
+  - "滑らかな曲線上の質点で法線反力の仮想仕事がゼロになることを確認する例"
+  - "単振り子で張力を解かずに Lagrange 方程式から運動方程式を得る例"
+  - "平面中心力で動径方程式と角運動量保存を得る例"
+  - "二質点連成振動子で Lagrangian から連立運動方程式を得る例"
+  - "回転する円形フープで時間依存拘束の Lagrangian を作る例"
+problem_patterns:
+  - AMECH2-IDEAL-CONSTRAINT-1
+  - AMECH2-DALAMBERT-PROJECTION-1
+  - AMECH2-LAGRANGE-DIRECT-1
+  - AMECH2-CONSERVATIVE-GENERALIZED-FORCE-1
+  - AMECH2-NONCONSERVATIVE-FORCE-1
+  - AMECH2-MOVING-PIVOT-1
+  - AMECH2-CENTRAL-FORCE-1
+  - AMECH2-COUPLED-OSCILLATOR-1
+  - AMECH2-RHEONOMOUS-INTEGRATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 1.0 }
