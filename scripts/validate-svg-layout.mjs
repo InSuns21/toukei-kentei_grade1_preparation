@@ -200,7 +200,7 @@ function validateSvg(source) {
       if (!segmentHitsBox(seg, box)) continue;
       issues.push({
         line: text.line,
-        message: `text "${text.value.trim().replace(/\s+/gu, ' ')}" overlaps ${seg.kind} near line ${seg.line}; move the label or split the diagram instead of relying on color/z-order`,
+        message: `text "${text.value.trim().replace(/\s+/gu, ' ')}" overlaps ${seg.kind} near line ${seg.line}; move the label, add a leader/helper line, or adjust spacing/style; split the diagram only as a last resort under the authoring rule`,
       });
       break;
     }
