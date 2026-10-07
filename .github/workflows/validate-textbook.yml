@@ -73,13 +73,18 @@ jobs:
           TEXTBOOK_BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: node scripts/detect-textbook-validation-scope.mjs --github-output
 
-      - name: Fast validate changed textbook files
+      - name: Validate changed textbook guardrails
+        if: github.event_name == 'pull_request'
+        env:
+          TEXTBOOK_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: npm run validate:textbook:changed -- --base "$TEXTBOOK_BASE_SHA"
+
+      - name: Fast validate changed textbook dependencies and SVG
         if: github.event_name == 'pull_request' && steps.scope.outputs.full != 'true'
         env:
           TEXTBOOK_BASE_SHA: ${{ github.event.pull_request.base.sha }}
           TEXTBOOK_KNOWLEDGE_BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: |
-          npm run validate:textbook:changed -- --base "$TEXTBOOK_BASE_SHA"
           npm run validate:svg-layout:changed -- --base "$TEXTBOOK_BASE_SHA"
           npm run validate:textbook-knowledge:changed
 
