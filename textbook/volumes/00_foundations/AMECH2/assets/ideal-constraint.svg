@@ -16,7 +16,7 @@
         fill="none" stroke="#4B5563" stroke-width="5"/>
 
   <circle cx="430" cy="254" r="11" fill="#111827"/>
-  <text x="446" y="245" font-family="Noto Sans CJK JP, sans-serif" font-size="24" fill="#111827">P</text>
+  <text x="395" y="220" font-family="Noto Sans CJK JP, sans-serif" font-size="24" fill="#111827">P</text>
 
   <line x1="270" y1="218" x2="610" y2="304"
         stroke="#9CA3AF" stroke-width="2" stroke-dasharray="10 8"/>
