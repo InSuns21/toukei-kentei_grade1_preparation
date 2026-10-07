@@ -643,12 +643,31 @@ $$
 
 とし、$C$ の向きは $S$ の法線と右ねじで整合する向きを取ります。
 
-<a id="principle-emag5-ampere"></a>
+[VC9 の Ampère--Maxwell の法則](../VC9/index.md#principle-vc9-maxwell-integral)は
 
-<!-- formal-statement-start -->
-> **原理（磁静場の Ampère の法則）**  
-> 真空中の時間に依存しない電流密度 $J$ と磁場 $B$ を考える。向き付けられた曲面 $S$ と、その誘導境界向きを持つ閉曲線 $C=\partial S$ に対し、
->
+$$
+\oint_C B\cdot d\ell
+=
+\mu_0\int_SJ\cdot n\,dS
++
+\mu_0\varepsilon_0
+\frac{d}{dt}
+\int_SE\cdot n\,dS
+$$
+
+です。
+
+磁静場では場が時間に依存しないので
+
+$$
+\frac{d}{dt}
+\int_SE\cdot n\,dS
+=
+0.
+$$
+
+したがって Ampère--Maxwell の法則は
+
 $$
 \boxed{
 \oint_C
@@ -659,17 +678,17 @@ B\cdot d\ell
 J\cdot n\,dS
 }
 $$
->
-> が成り立つ。右辺の面積分を
->
+
+へ特殊化されます。右辺を貫く電流
+
 $$
 I_{\mathrm{enc}}
 :=
 \int_SJ\cdot n\,dS
 $$
->
-> と書けば、
->
+
+で書けば
+
 $$
 \boxed{
 \oint_C B\cdot d\ell
@@ -677,9 +696,8 @@ $$
 \mu_0I_{\mathrm{enc}}
 }
 $$
->
-> である。
-<!-- formal-statement-end -->
+
+です。本章ではこの磁静場での特殊化を、対称性の高い具体計算に使います。
 
 これは [VC9 の Ampère--Maxwell の法則](../VC9/index.md#principle-vc9-maxwell-integral)を、電場が時間変化しない磁静場へ特殊化した形です。
 
@@ -718,7 +736,7 @@ $$
 
 一方、円が囲む電流は $I$ です。
 
-[磁静場の Ampère の法則](#principle-emag5-ampere)から
+[Ampère--Maxwell の法則](../VC9/index.md#principle-vc9-maxwell-integral)の磁静場での特殊化から
 
 $$
 B(s)\,2\pi s
@@ -740,7 +758,7 @@ Biot--Savart の積分と同じ結果が、対称性を使うことで大幅に�
 
 ### 5.2 局所形は $\nabla\times B=\mu_0J$
 
-磁静場の Ampère の法則の左辺へ [Kelvin--Stokes の定理](../VC5/index.md#thm-vc5-stokes)を使うと
+この磁静場の積分式の左辺へ [Kelvin--Stokes の定理](../VC5/index.md#thm-vc5-stokes)を使うと
 
 $$
 \oint_C B\cdot d\ell
@@ -1519,7 +1537,7 @@ $$
 ことが分かります。
 <!-- solution-end -->
 
-### A4. 磁静場の Ampère の法則で無限直線電流を求める
+### A4. 磁場の循環から無限直線電流を求める
 
 $z$ 軸に沿って $+z$ 方向へ定常電流 $I>0$ が流れる無限直線導線を考える。
 
@@ -1527,7 +1545,7 @@ $z$ 軸に沿って $+z$ 方向へ定常電流 $I>0$ が流れる無限直線導
 
 1. 対称性から、$C$ 上で磁場の向きと大きさがどのようになるか述べよ。
 2. $\oint_C B\cdot d\ell$ を $B(s)$ で表せ。
-3. 磁静場の Ampère の法則から $B(s)$ を求めよ。
+3. 上で得た磁静場の循環式から $B(s)$ を求めよ。
 4. 磁場の向きを答えよ。
 
 - Level: A
@@ -1561,7 +1579,7 @@ B(s)\,2\pi s.
 \end{aligned}
 $$
 
-$C$ が囲む電流は $I$ なので [磁静場の Ampère の法則](#principle-emag5-ampere)より
+$C$ が囲む電流は $I$ なので [Ampère--Maxwell の法則](../VC9/index.md#principle-vc9-maxwell-integral)の磁静場での特殊化より
 
 $$
 B(s)\,2\pi s
@@ -1749,7 +1767,7 @@ $$
 
 回転対称性から円周上で磁場は接線方向を向き、大きさは一定です。
 
-したがって磁静場の Ampère の法則は
+したがって磁静場の循環式は
 
 $$
 B(s)\,2\pi s
@@ -2117,7 +2135,7 @@ I-I
 0.
 $$
 
-[磁静場の Ampère の法則](#principle-emag5-ampere)から
+[Ampère--Maxwell の法則](../VC9/index.md#principle-vc9-maxwell-integral)の磁静場での特殊化から
 
 $$
 B(s)\,2\pi s=0.
@@ -2271,7 +2289,7 @@ $$
 
 になります。
 
-この一問で、電流密度、連続の式、磁静場の Ampère の法則、磁束に対する Gauss の法則が同じ物理像へつながりました。
+この一問で、電流密度、連続の式、磁場の循環、磁束に対する Gauss の法則が同じ物理像へつながりました。
 <!-- solution-end -->
 
 ---
@@ -2285,7 +2303,7 @@ $$
 - 定常電流で $\nabla\cdot J=0$ となり、同じ境界を持つ面を貫く電流が一致することを示せる。
 - Biot--Savart の法則で、源点・観測点・ベクトル積の向きを区別できる。
 - 無限直線電流の $B=\mu_0I/(2\pi s)e_\varphi$ を積分から導ける。
-- 磁静場の Ampère の法則を対称性と組み合わせて使える。
+- Ampère--Maxwell の法則を磁静場へ特殊化し、対称性と組み合わせて使える。
 - 一様電流を持つ円柱導体の内外磁場を求められる。
 - 磁束に対する Gauss の法則と $\nabla\cdot B=0$ が「$B=0$」を意味しないことを説明できる。
 - VC5 のベクトルポテンシャルを磁場へ適用し、ゲージ変換で $B$ が不変であることを確認できる。
