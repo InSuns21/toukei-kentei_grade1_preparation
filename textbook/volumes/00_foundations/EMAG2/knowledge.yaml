@@ -15,7 +15,7 @@ concepts:
     introduction_aliases: [定義（電束）]
     requires:
       - electromagnetism.electric-field
-      - vector-calculus.flux-surface-integral
+      - vector-calculus.flux-integral
 
   - id: electromagnetism.gauss-law-static-recap
     name: 静電場で使う Gauss の法則の再掲
