@@ -1,20 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" role="img" aria-labelledby="title desc">
   <title id="title">斜方投射の座標と力</title>
-  <desc id="desc">原点から角度 theta で初速度 v0 を与えられた質点の放物線軌道。x 軸は右向き、y 軸は上向き、重力加速度 g は下向き。</desc>
+  <desc id="desc">原点から角度 theta で青い初速度 v0 を与えられた質点の緑の放物線軌道。x 軸は右向き、y 軸は上向き、朱色の重力加速度 g は下向き。色に加えて文字と線種でも区別する。</desc>
   <rect width="880" height="500" fill="white"/>
-  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#111"/></marker></defs>
-  <g stroke="#111" stroke-width="3" fill="none" marker-end="url(#arrow)">
+  <defs>
+    <marker id="arrow-neutral" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#374151"/></marker>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#0072B2"/></marker>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#D55E00"/></marker>
+  </defs>
+  <g stroke="#374151" stroke-width="3" fill="none" marker-end="url(#arrow-neutral)">
     <line x1="95" y1="410" x2="790" y2="410"/><line x1="95" y1="410" x2="95" y2="65"/>
-    <line x1="105" y1="400" x2="255" y2="255"/>
-    <line x1="560" y1="185" x2="560" y2="310"/>
   </g>
-  <path d="M100 405 Q390 70 710 405" fill="none" stroke="#111" stroke-width="4" stroke-dasharray="10 7"/>
-  <circle cx="560" cy="180" r="8" fill="#111"/>
-  <path d="M145 408 A55 55 0 0 0 132 370" fill="none" stroke="#111" stroke-width="2"/>
-  <g font-family="sans-serif" font-size="24" fill="#111">
+  <line x1="105" y1="400" x2="255" y2="255" stroke="#0072B2" stroke-width="4" fill="none" marker-end="url(#arrow-blue)"/>
+  <line x1="560" y1="185" x2="560" y2="310" stroke="#D55E00" stroke-width="4" fill="none" marker-end="url(#arrow-orange)"/>
+  <path d="M100 405 Q390 70 710 405" fill="none" stroke="#009E73" stroke-width="4" stroke-dasharray="10 7"/>
+  <circle cx="560" cy="180" r="8" fill="#1F2937"/>
+  <path d="M145 408 A55 55 0 0 0 132 370" fill="none" stroke="#8E5FB2" stroke-width="3"/>
+  <g font-family="sans-serif" font-size="24" fill="#1F2937">
     <text x="800" y="427">x</text><text x="72" y="58">y</text><text x="78" y="445">O</text>
-    <text x="205" y="285">v₀</text><text x="145" y="370">θ</text><text x="580" y="255">g</text>
+    <text x="205" y="285" fill="#0072B2" font-weight="700">v₀</text>
+    <text x="145" y="370" fill="#8E5FB2" font-weight="700">θ</text>
+    <text x="580" y="255" fill="#D55E00" font-weight="700">g</text>
     <text x="315" y="475">空気抵抗を無視すると加速度は一定で下向き</text>
   </g>
 </svg>
