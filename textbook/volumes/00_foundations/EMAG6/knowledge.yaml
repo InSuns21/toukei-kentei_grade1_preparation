@@ -51,22 +51,22 @@ concepts:
       - electromagnetism.uniform-magnetic-particle-motion
 
   - id: electromagnetism.charged-particle-lagrangian
-    name: 電磁場中の荷電粒子の Lagrangian
+    name: 電磁場中の荷電粒子のラグランジアン
     kind: definition
     aliases: [electromagnetic charged-particle Lagrangian]
     introduction: formal
-    introduction_aliases: [定義（電磁場中の荷電粒子の Lagrangian）]
+    introduction_aliases: [定義（電磁場中の荷電粒子のラグランジアン）]
     requires:
       - electromagnetism.electric-potential
       - electromagnetism.lorentz-force
       - analytical-mechanics.lagrange-equations
 
   - id: electromagnetism.lagrangian-lorentz-equivalence
-    name: 電磁場中の Lagrangian と Lorentz 力
+    name: 電磁場中のラグランジアンと Lorentz 力
     kind: theorem
     aliases: [Lorentz force from the electromagnetic Lagrangian]
     introduction: formal
-    introduction_aliases: [定理（電磁場中の Lagrangian と Lorentz 力）]
+    introduction_aliases: [定理（電磁場中のラグランジアンと Lorentz 力）]
     requires:
       - electromagnetism.charged-particle-lagrangian
       - analytical-mechanics.lagrange-equations
