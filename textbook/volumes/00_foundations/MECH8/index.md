@@ -1227,15 +1227,67 @@ $$
 
 ## 12. Euler の剛体方程式への入口
 
-外力の重心まわりの総トルクを $\tau$ とします。[MECH4 の角運動量収支](../MECH4/index.md#thm-mech4-angular-momentum-balance)より、慣性系では
+まず、どの点まわりで
 
 $$
 \tau
 =
 \left(
 \frac{dL}{dt}
-\right)_{\mathrm{space}}.
+\right)_{\mathrm{space}}
 $$
+
+を使えるかを確認します。空間に固定された点まわりなら、[MECH4 の角運動量収支](../MECH4/index.md#thm-mech4-angular-momentum-balance)を各質点へ適用して足し合わせればよいです。
+
+自由な剛体では重心まわりを使います。このとき、内力について Newton の第3法則
+
+$$
+F_{ij}=-F_{ji}
+$$
+
+だけでなく、理想的な距離拘束が生む力が二点を結ぶ方向に沿うという条件
+
+$$
+F_{ij}\parallel(r_i-r_j)
+$$
+
+を仮定します。質点 $i,j$ の重心からの位置を $\rho_i,\rho_j$ とすると、この一組が作る内力トルクは
+
+$$
+\rho_i\times F_{ij}
++
+\rho_j\times F_{ji}
+=
+(\rho_i-\rho_j)\times F_{ij}.
+$$
+
+ここで
+
+$$
+\rho_i-\rho_j
+=
+r_i-r_j
+$$
+
+であり、$F_{ij}\parallel(r_i-r_j)$ なので
+
+$$
+(\rho_i-\rho_j)\times F_{ij}=0.
+$$
+
+従って内力トルクは対ごとに相殺し、重心まわりでも外トルク $\tau$ と角運動量 $L$ は
+
+$$
+\boxed{
+\tau
+=
+\left(
+\frac{dL}{dt}
+\right)_{\mathrm{space}}
+}
+$$
+
+で結ばれます。本章の自由剛体では、この標準的な理想剛体モデルを採用します。
 
 物体固定基底を主軸 $e_1,e_2,e_3$ に取ると
 
@@ -1256,7 +1308,7 @@ $$
 <!-- formal-statement-start -->
 ### 定理（Euler の剛体方程式）
 
-重心または固定点を原点とし、物体固定基底を慣性テンソルの主軸 $e_1,e_2,e_3$ に取る。主慣性モーメントを $I_1,I_2,I_3$、角速度成分を $\omega_1,\omega_2,\omega_3$、外トルク成分を $\tau_1,\tau_2,\tau_3$ とする。このとき
+空間に固定された点、または上記の理想剛体モデルで重心を原点とし、物体固定基底を慣性テンソルの主軸 $e_1,e_2,e_3$ に取る。主慣性モーメントを $I_1,I_2,I_3$、角速度成分を $\omega_1,\omega_2,\omega_3$、外トルク成分を $\tau_1,\tau_2,\tau_3$ とする。このとき
 
 $$
 \boxed{
