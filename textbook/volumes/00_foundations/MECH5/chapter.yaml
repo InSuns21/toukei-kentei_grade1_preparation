@@ -1,0 +1,54 @@
+id: "MECH5"
+title: "振動"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MECH4
+  - RA3
+  - ODE2
+official_scope: []
+learning_objectives:
+  - 保存力 F=-V' の平衡点を判定し、V'(x*)=0 と V''(x*)>0 を非退化安定平衡点の条件として区別できる
+  - Taylor の定理を V と V' へ適用し、一般ポテンシャルの非退化極小近傍から m yddot+k_eff y=0 を導ける
+  - 単振動の振幅・位相・固有角振動数・周期を初期条件から求められる
+  - 単振動のエネルギー保存 E=(1/2)m ydot^2+(1/2)k y^2 を運動方程式から導ける
+  - 線形減衰振動子を不足減衰・臨界減衰・過減衰に分類し、それぞれの解の形を物理的に説明できる
+  - 減衰振動で dE/dt=-c ydot^2<=0 を導き、抵抗による散逸を説明できる
+  - 正弦駆動される減衰振動子の定常応答を係数比較から導き、振幅と位相差を求められる
+  - 無減衰の厳密共振で t sin(omega_0 t) 型の増大項が現れることを導ける
+  - 減衰ありの変位振幅ピーク Omega_r=sqrt(k/m-c^2/(2m^2)) の成立条件を導き、omega_0 との違いを説明できる
+  - 一般ポテンシャル極小付近で調和振動子が普遍的に現れる理由と、小振幅近似が破れる条件を説明できる
+definitions:
+  - { id: MECH5-DEF-01, name: "平衡点" }
+  - { id: MECH5-DEF-02, name: "非退化安定平衡点" }
+  - { id: MECH5-DEF-03, name: "単振動・固有角振動数" }
+  - { id: MECH5-DEF-04, name: "線形減衰振動子" }
+  - { id: MECH5-DEF-05, name: "正弦駆動される減衰振動子" }
+  - { id: MECH5-DEF-06, name: "共振" }
+theorems:
+  - { id: MECH5-PROP-01, name: "非退化極小の調和近似" }
+  - { id: MECH5-THM-01, name: "単振動のエネルギー保存" }
+  - { id: MECH5-PROP-02, name: "減衰振動の三領域" }
+  - { id: MECH5-PROP-03, name: "減衰強制振動の定常応答" }
+  - { id: MECH5-PROP-04, name: "無減衰線形振動子の厳密共振" }
+canonical_examples:
+  - "ばねの自然長で平衡条件と復元力の向きを確認する例"
+  - "一般ポテンシャルの非退化極小を Taylor 展開して有効ばね定数を得る例"
+  - "初期位置・初速度から単振動の振幅と位相を決める例"
+  - "単振動の運動エネルギーとポテンシャルエネルギーの交換"
+  - "不足減衰・臨界減衰・過減衰を特性根で分類する例"
+  - "減衰強制振動で過渡応答が消え定常応答へ近づく例"
+  - "無減衰の厳密共振と減衰ありの有限ピークを比較する例"
+problem_patterns:
+  - MECH5-HARMONIC-APPROXIMATION-1
+  - MECH5-SHM-INITIAL-DATA-1
+  - MECH5-SHM-ENERGY-1
+  - MECH5-DAMPING-CLASSIFICATION-1
+  - MECH5-TAYLOR-POTENTIAL-1
+  - MECH5-DAMPED-IVP-1
+  - MECH5-FORCED-STEADY-STATE-1
+  - MECH5-NONLINEAR-TO-LINEAR-RESONANCE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.5, exercises: 5.0, review: 1.0 }
