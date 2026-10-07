@@ -38,10 +38,19 @@ concepts:
       - mechanics.kinetic-energy
       - mechanics.newton-second-law
 
-  - id: mechanics.conservative-force-potential
-    name: 保存力とポテンシャルエネルギー
+  - id: mechanics.conservative-force
+    name: 保存力
     kind: definition
-    aliases: ["conservative force and potential energy"]
+    aliases: ["conservative force"]
+    introduction: formal
+    introduction_aliases: ["定義（保存力・ポテンシャルエネルギー）"]
+    requires:
+      - mechanics.work
+
+  - id: mechanics.potential-energy
+    name: ポテンシャルエネルギー
+    kind: definition
+    aliases: ["potential energy"]
     introduction: formal
     introduction_aliases: ["定義（保存力・ポテンシャルエネルギー）"]
     requires:
@@ -54,7 +63,8 @@ concepts:
     introduction: formal
     introduction_aliases: ["命題（保存力の仕事とポテンシャル差）"]
     requires:
-      - mechanics.conservative-force-potential
+      - mechanics.conservative-force
+      - mechanics.potential-energy
       - mechanics.work
 
   - id: mechanics.mechanical-energy
@@ -65,7 +75,7 @@ concepts:
     introduction_aliases: ["定義（力学的エネルギー）"]
     requires:
       - mechanics.kinetic-energy
-      - mechanics.conservative-force-potential
+      - mechanics.potential-energy
 
   - id: mechanics.mechanical-energy-conservation
     name: 力学的エネルギー保存
@@ -119,7 +129,7 @@ concepts:
 
   - id: mechanics.classical-energy-momentum-form
     name: 古典的な p^2/(2m)+V(q) の形
-    kind: bridge
+    kind: result
     aliases: ["classical p squared over 2m plus V"]
     introduction: inline
     introduction_aliases: ["p^2/(2m)+V への最初の橋"]
