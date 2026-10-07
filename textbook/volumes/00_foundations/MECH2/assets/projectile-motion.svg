@@ -34,7 +34,7 @@
     <text x="78" y="397">O</text>
     <text x="580" y="180">P</text>
     <text x="215" y="339" font-weight="700">θ</text>
-    <text x="220" y="250" fill="#0072B2" font-weight="700">v₀</text>
+    <text x="195" y="292" fill="#0072B2" font-weight="700">v₀</text>
     <text x="555" y="300" fill="#D55E00" font-weight="700">g</text>
   </g>
 </svg>
