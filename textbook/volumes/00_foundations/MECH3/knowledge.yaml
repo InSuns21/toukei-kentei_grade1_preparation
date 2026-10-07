@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - MECH2
+  - RA6
 
 forward_references: []
 
@@ -46,6 +47,7 @@ concepts:
     introduction_aliases: ["定義（保存力・ポテンシャルエネルギー）"]
     requires:
       - mechanics.work
+      - analysis.multivariable-differentiability
 
   - id: mechanics.potential-energy
     name: ポテンシャルエネルギー
@@ -58,7 +60,7 @@ concepts:
 
   - id: mechanics.potential-work-relation
     name: 保存力の仕事とポテンシャル差
-    kind: theorem
+    kind: proposition
     aliases: ["work and potential difference", "potential energy difference"]
     introduction: formal
     introduction_aliases: ["命題（保存力の仕事とポテンシャル差）"]
@@ -66,6 +68,7 @@ concepts:
       - mechanics.conservative-force
       - mechanics.potential-energy
       - mechanics.work
+      - analysis.multivariable-chain-rule
 
   - id: mechanics.mechanical-energy
     name: 力学的エネルギー
@@ -90,7 +93,7 @@ concepts:
 
   - id: mechanics.nonconservative-energy-balance
     name: 非保存力を含むエネルギー収支
-    kind: result
+    kind: proposition
     aliases: ["energy balance with nonconservative force"]
     introduction: formal
     introduction_aliases: ["命題（非保存力を含むエネルギー収支）"]
@@ -109,7 +112,7 @@ concepts:
 
   - id: mechanics.allowed-region-turning
     name: 一自由度の許容領域と転回点判定
-    kind: theorem
+    kind: proposition
     aliases: ["allowed region and turning point criterion"]
     introduction: formal
     introduction_aliases: ["命題（許容領域と通常の転回点）"]
