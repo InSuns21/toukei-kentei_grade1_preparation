@@ -4,7 +4,15 @@
 
 > **既出概念**：[MECH1 運動を測る：位置・速度・加速度](../MECH1/index.md)と[ODE1 一階常微分方程式・初期値問題](../ODE1/index.md)を使います。高校物理は前提にしません。
 
-MECH1 では、観測された位置を軌道 $q(t)$ でモデル化し、その時間微分から速度と加速度を定義しました。
+MECH1 では、観測された位置を軌道 $r(t)$ でモデル化し、
+
+$$
+v(t)=\dot r(t),
+\qquad
+a(t)=\ddot r(t)
+$$
+
+として速度と加速度を定義しました。文字の上の点は、MECH1 で導入した **時間微分の略記** です。
 
 しかし、運動学だけでは
 
@@ -20,21 +28,19 @@ $$
 
 Newton の運動法則は、微積分から証明される数学定理ではありません。実験・観測によって支持され、一定の速度域・長さ尺度・基準系で非常によく働く **物理学側の出発点** です。
 
-一方、その法則と力のモデルをいったん入力すれば、
+本章の中心となる物理法則は、まず
 
 $$
-m\ddot q=F(q,\dot q,t)
+F_{\mathrm{net}}=ma
 $$
 
-という微分方程式が得られます。ここで点は時間微分を表し、
+です。軌道 $r(t)$ を使えば $a=\ddot r$ なので、
 
 $$
-\dot q=\frac{dq}{dt},
-\qquad
-\ddot q=\frac{d^2q}{dt^2}
+m\ddot r(t)=F_{\mathrm{net}}(t)
 $$
 
-です。その後の解法・一意性・極限計算は数学の仕事です。
+と読めます。力が位置や速度にどう依存するかは Newton の法則そのものではなく、重力・ばね・抵抗など **個々の力モデル** の側で決めます。その後の微分方程式の解法・一意性・極限計算は数学の仕事です。
 
 本章の流れは
 
@@ -335,22 +341,22 @@ $$
 MECH1 で
 
 $$
-a(t)=\ddot q(t)
+a(t)=\ddot r(t)
 $$
 
 と定義したので、
 
 $$
 \boxed{
-m\ddot q(t)
+m\ddot r(t)
 =
-F_{\mathrm{net}}(q(t),\dot q(t),t)
+F_{\mathrm{net}}(t)
 }
 $$
 
 と書けます。
 
-これが本章の中心となる **運動方程式** です。
+これが本章の中心となる **運動方程式** です。ここで $F_{\mathrm{net}}(t)$ は、実際の軌道上で時刻 $t$ に質点へ働いている合力を表します。
 
 ### 3.1 第2法則は「加速度の公式」ではなくモデルの変換器
 
@@ -393,13 +399,13 @@ $$
 一定質量 $m$ に一定の合力 $F_0$ が働くなら
 
 $$
-m\ddot q=F_0
+m\ddot r=F_0
 $$
 
 なので
 
 $$
-\ddot q=\frac{F_0}{m}.
+\ddot r=\frac{F_0}{m}.
 $$
 
 右辺は一定です。
@@ -407,15 +413,15 @@ $$
 したがって MECH1 の[一定加速度の位置と速度](../MECH1/index.md#prop-mech1-constant-acceleration)から
 
 $$
-\dot q(t)
+\dot r(t)
 =
 v_0+\frac{F_0}{m}t,
 $$
 
 $$
-q(t)
+r(t)
 =
-q_0+v_0t+\frac{F_0}{2m}t^2.
+r_0+v_0t+\frac{F_0}{2m}t^2.
 $$
 
 運動学で置いていた「一定加速度」という仮定が、一定合力という力学的条件から導かれました。
@@ -793,27 +799,43 @@ $$
 三次元の位置を
 
 $$
-q(t)\in\mathbb R^3
+r(t)\in\mathbb R^3
 $$
 
 とし、質量 $m>0$ を一定とします。
 
-[Newton の第2法則](#principle-mech2-newton-second)は
+ここでは、合力のモデルが「現在の位置 $r$、速度 $v$、時刻 $t$」から決まる場合、その **力モデルを表す写像** を
 
 $$
-m\ddot q
+\mathcal F(r,v,t)
+$$
+
+と書くことにします。これは力一般の定義ではなく、運動方程式を位置と速度の変数で閉じるための一つの書き方です。
+
+実際の軌道に沿って働く合力は
+
+$$
+F_{\mathrm{net}}(t)
 =
-F(q,\dot q,t).
+\mathcal F(r(t),v(t),t)
 $$
 
-これは $q$ に関する二階 ODE です。
+であり、[Newton の第2法則](#principle-mech2-newton-second)は
+
+$$
+m\ddot r(t)
+=
+\mathcal F(r(t),\dot r(t),t)
+$$
+
+となります。これは $r$ に関する二階 ODE です。
 
 一つの軌道を選ぶには、通常
 
 $$
-q(t_0)=q_0,
+r(t_0)=r_0,
 \qquad
-\dot q(t_0)=v_0
+\dot r(t_0)=v_0
 $$
 
 という位置と速度の初期値を与えます。
@@ -823,17 +845,17 @@ $$
 速度を
 
 $$
-v=\dot q
+v=\dot r
 $$
 
 と新しい未知関数として導入すると、
 
 $$
-\dot q=v,
+\dot r=v,
 $$
 
 $$
-\dot v=\frac1mF(q,v,t).
+\dot v=\frac1m\mathcal F(r,v,t).
 $$
 
 したがって位置と速度を一つにまとめた変数
@@ -841,7 +863,7 @@ $$
 $$
 Y=
 \begin{pmatrix}
-q\\
+r\\
 v
 \end{pmatrix}
 $$
@@ -853,7 +875,7 @@ $$
 =
 \begin{pmatrix}
 v\\
-m^{-1}F(q,v,t)
+m^{-1}\mathcal F(r,v,t)
 \end{pmatrix}
 $$
 
@@ -1531,11 +1553,11 @@ $$
 $$
 \boxed{
 \begin{array}{c}
-\text{位置 }q(t),\ \text{速度 }\dot q,\ \text{加速度 }\ddot q\\
+\text{位置 }r(t),\ \text{速度 }v(t)=\dot r(t),\ \text{加速度 }a(t)=\ddot r(t)\\
 \downarrow\\
-\text{相互作用を力 }F\text{ としてモデル化}\\
+\text{相互作用を個々の力 }F_i\text{ としてモデル化}\\
 \downarrow\\
-\text{慣性系で }m\ddot q=F\\
+\text{合力 }F_{\mathrm{net}}\text{ を作り、慣性系で }m\ddot r=F_{\mathrm{net}}\\
 \downarrow\\
 \text{位置・速度を与えた初期値問題}\\
 \downarrow\\

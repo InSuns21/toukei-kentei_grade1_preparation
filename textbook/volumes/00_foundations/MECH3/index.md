@@ -4,13 +4,13 @@
 
 > **既出概念**：[MECH2 の Newton の第2法則](../MECH2/index.md#principle-mech2-newton-second)から得た運動方程式を使います。高校物理は前提にしません。
 
-MECH2 では、力のモデルを決めると
+MECH2 では、質点に働く合力 $F_{\mathrm{net}}(t)$ を定めると
 
 $$
-m\ddot q=F(q,\dot q,t)
+m\ddot r(t)=F_{\mathrm{net}}(t)
 $$
 
-という運動方程式が得られ、位置と速度の初期値から軌道を求められることを学びました。
+という運動方程式が得られ、位置と速度の初期値から軌道を求められることを学びました。力モデルが位置・速度・時刻に依存する場合の写像記法は MECH2 で導入しましたが、本章では実際の軌道上で働く力そのものを主に記します。
 
 しかし、毎回この微分方程式を時刻ごとに解くのが最も見通しのよい方法とは限りません。
 
@@ -58,27 +58,21 @@ $$
 時刻区間 $[t_0,t_1]$ で質点の軌道を
 
 $$
-q:[t_0,t_1]\to\mathbb R^n
+r:[t_0,t_1]\to\mathbb R^n
 $$
 
-とし、$q$ は連続微分可能とする。
+とし、$r$ は連続微分可能とする。
 
-質点に力
-
-$$
-F(q(t),\dot q(t),t)
-$$
-
-が働くとき、この力が区間 $[t_0,t_1]$ で行う **仕事** を
+時刻 $t$ に質点へ働く力ベクトルを $F(t)$ とする。この力が区間 $[t_0,t_1]$ で行う **仕事** を
 
 $$
 \boxed{
 W_{t_0\to t_1}[F]
 =
 \int_{t_0}^{t_1}
-F(q(t),\dot q(t),t)
+F(t)
 \cdot
-\dot q(t)\,dt
+\dot r(t)\,dt
 }
 $$
 
@@ -94,6 +88,8 @@ $$
 
 とする。
 <!-- formal-statement-end -->
+
+力のモデル自体が位置や速度に依存していても、仕事を計算するときは、**実際の軌道に沿って時刻 $t$ に働く力**を $F(t)$ と書けば十分です。たとえば MECH2 の写像 $\mathcal F(r,v,t)$ を使う場合でも、軌道上では $F(t)=\mathcal F(r(t),v(t),t)$ です。
 
 <!-- definition-example-start: def-mech3-work -->
 
@@ -151,9 +147,9 @@ $$
 W(t)
 :=
 \int_{t_0}^{t}
-F(q(s),\dot q(s),s)
+F(s)
 \cdot
-\dot q(s)\,ds
+\dot r(s)\,ds
 $$
 
 と置きます。積分の上端について微分すると、
@@ -161,9 +157,9 @@ $$
 $$
 \frac{dW}{dt}
 =
-F(q(t),\dot q(t),t)
+F(t)
 \cdot
-\dot q(t)
+\dot r(t)
 $$
 
 です。従って、仕事の増加率は力と速度の内積で決まります。
@@ -171,7 +167,7 @@ $$
 なので、力と速度が直交していれば
 
 $$
-F\cdot\dot q=0.
+F\cdot\dot r=0.
 $$
 
 この場合、その力は瞬間的には速さを変える向きに仕事をしません。この性質が、次節で定義するエネルギー量の変化と結び付きます。
@@ -185,7 +181,7 @@ $$
 Newton の第2法則は加速度を与えますが、仕事の積分には速度が現れます。そこで
 
 $$
-m\ddot q\cdot\dot q
+m\ddot r\cdot\dot r
 $$
 
 を、速度だけから作られる量の時間微分として読み替えます。
@@ -253,12 +249,12 @@ $$
 一定質量 $m>0$ の質点が、慣性系で区間 $[t_0,t_1]$ において
 
 $$
-m\ddot q(t)
+m\ddot r(t)
 =
-F_{\mathrm{net}}(q(t),\dot q(t),t)
+F_{\mathrm{net}}(t)
 $$
 
-を満たすとする。$q$ は二回連続微分可能とする。
+を満たすとする。$r$ は二回連続微分可能とする。
 
 このとき合力のした仕事は運動エネルギーの変化に等しく、
 
@@ -275,13 +271,13 @@ $$
 
 ### 証明の見取り図
 
-Newton 方程式の両辺と速度 $\dot q$ の内積を取ります。左辺は
+Newton 方程式の両辺と速度 $\dot r$ の内積を取ります。左辺は
 
 $$
-m\ddot q\cdot\dot q
+m\ddot r\cdot\dot r
 $$
 
-ですが、これは $\frac12m\lVert\dot q\rVert^2$ の時間微分です。
+ですが、これは $\frac12m\lVert\dot r\rVert^2$ の時間微分です。
 
 <!-- proof-start -->
 ### 証明
@@ -291,7 +287,7 @@ $$
 $$
 K(t)
 =
-\frac12m\lVert\dot q(t)\rVert^2
+\frac12m\lVert\dot r(t)\rVert^2
 $$
 
 と書きます。
@@ -299,9 +295,9 @@ $$
 内積を成分表示すると
 
 $$
-\lVert\dot q(t)\rVert^2
+\lVert\dot r(t)\rVert^2
 =
-\sum_{i=1}^n \dot q_i(t)^2.
+\sum_{i=1}^n \dot r_i(t)^2.
 $$
 
 従って各成分を微分して
@@ -312,20 +308,20 @@ $$
 &=
 \frac12m
 \frac{d}{dt}
-\sum_{i=1}^n\dot q_i^2\\
+\sum_{i=1}^n\dot r_i^2\\
 &=
 \frac12m
 \sum_{i=1}^n
-2\dot q_i\ddot q_i\\
+2\dot r_i\ddot r_i\\
 &=
-m\dot q\cdot\ddot q.
+m\dot r\cdot\ddot r.
 \end{aligned}
 $$
 
 [Newton の第2法則](../MECH2/index.md#principle-mech2-newton-second)から
 
 $$
-m\ddot q=F_{\mathrm{net}}
+m\ddot r=F_{\mathrm{net}}
 $$
 
 なので、
@@ -333,7 +329,7 @@ $$
 $$
 \frac{dK}{dt}
 =
-F_{\mathrm{net}}\cdot\dot q.
+F_{\mathrm{net}}\cdot\dot r.
 $$
 
 $t_0$ から $t_1$ まで積分すると
@@ -342,7 +338,7 @@ $$
 K(t_1)-K(t_0)
 =
 \int_{t_0}^{t_1}
-F_{\mathrm{net}}\cdot\dot q\,dt.
+F_{\mathrm{net}}\cdot\dot r\,dt.
 $$
 
 右辺は[仕事の定義](#def-mech3-work)そのものだから、
@@ -365,15 +361,15 @@ $$
 
 一方、ばねの力や地表近くの重力では、力をあるスカラー関数の傾きから作れます。
 
-多変数微積分で、スカラー関数 $V(q)$ の各偏微分を並べたベクトルを
+多変数微積分で、スカラー関数 $V(r)$ の各偏微分を並べたベクトルを
 
 $$
 \nabla V
 =
 \begin{pmatrix}
-\partial V/\partial q_1\\
+\partial V/\partial r_1\\
 \vdots\\
-\partial V/\partial q_n
+\partial V/\partial r_n
 \end{pmatrix}
 $$
 
@@ -410,9 +406,9 @@ $$
 
 $$
 \boxed{
-F(q)
+F(r)
 =
--\nabla V(q)
+-\nabla V(r)
 }
 $$
 
@@ -476,7 +472,7 @@ $$
 定数 $C$ に対して
 
 $$
-\widetilde V(q)=V(q)+C
+\widetilde V(r)=V(r)+C
 $$
 
 と置いても、
@@ -512,7 +508,7 @@ $$
 <!-- formal-statement-start -->
 ### 命題（保存力の仕事とポテンシャル差）
 
-$F=-\nabla V$ が保存力であり、$q:[t_0,t_1]\to U$ が連続微分可能な軌道であるとする。
+$F=-\nabla V$ が保存力であり、$r:[t_0,t_1]\to U$ が連続微分可能な軌道であるとする。
 
 このとき
 
@@ -520,7 +516,7 @@ $$
 \boxed{
 W_{t_0\to t_1}[F]
 =
-V(q(t_0))-V(q(t_1))
+V(r(t_0))-V(r(t_1))
 }
 $$
 
@@ -529,12 +525,12 @@ $$
 
 ### 証明の見取り図
 
-$V(q(t))$ を時間で微分します。[多変数の連鎖律](../RA6/index.md#thm-ra6-chain-rule)により
+$V(r(t))$ を時間で微分します。[多変数の連鎖律](../RA6/index.md#thm-ra6-chain-rule)により
 
 $$
-\frac{d}{dt}V(q(t))
+\frac{d}{dt}V(r(t))
 =
-\nabla V(q(t))\cdot\dot q(t).
+\nabla V(r(t))\cdot\dot r(t).
 $$
 
 ここへ $F=-\nabla V$ を代入します。
@@ -545,26 +541,26 @@ $$
 [多変数の連鎖律](../RA6/index.md#thm-ra6-chain-rule)から
 
 $$
-\frac{d}{dt}V(q(t))
+\frac{d}{dt}V(r(t))
 =
-\nabla V(q(t))\cdot\dot q(t).
+\nabla V(r(t))\cdot\dot r(t).
 $$
 
 保存力の定義
 
 $$
-F(q(t))
+F(r(t))
 =
--\nabla V(q(t))
+-\nabla V(r(t))
 $$
 
 を代入すると、
 
 $$
-F(q(t))\cdot\dot q(t)
+F(r(t))\cdot\dot r(t)
 =
 -
-\frac{d}{dt}V(q(t)).
+\frac{d}{dt}V(r(t)).
 $$
 
 $t_0$ から $t_1$ まで積分して
@@ -574,18 +570,18 @@ $$
 W_{t_0\to t_1}[F]
 &=
 \int_{t_0}^{t_1}
-F(q(t))\cdot\dot q(t)\,dt\\
+F(r(t))\cdot\dot r(t)\,dt\\
 &=
 -
 \int_{t_0}^{t_1}
-\frac{d}{dt}V(q(t))\,dt\\
+\frac{d}{dt}V(r(t))\,dt\\
 &=
 -
 \bigl(
-V(q(t_1))-V(q(t_0))
+V(r(t_1))-V(r(t_0))
 \bigr)\\
 &=
-V(q(t_0))-V(q(t_1)).
+V(r(t_0))-V(r(t_1)).
 \end{aligned}
 $$
 
@@ -632,13 +628,13 @@ $$
 <!-- formal-statement-start -->
 ### 定義（力学的エネルギー）
 
-一定質量 $m>0$ の質点が位置 $q$、速度 $v$ を持ち、位置に依存するポテンシャルエネルギー $V(q)$ が与えられているとする。
+一定質量 $m>0$ の質点が位置 $r$、速度 $v$ を持ち、位置に依存するポテンシャルエネルギー $V(r)$ が与えられているとする。
 
 $$
 \boxed{
-E(q,v)
+E(r,v)
 =
-\frac12m\lVert v\rVert^2+V(q)
+\frac12m\lVert v\rVert^2+V(r)
 }
 $$
 
@@ -709,9 +705,9 @@ $$
 一定質量 $m>0$ の質点が、慣性系で
 
 $$
-m\ddot q(t)
+m\ddot r(t)
 =
--\nabla V(q(t))
+-\nabla V(r(t))
 $$
 
 を満たすとする。$V$ は時間に陽には依存しない連続微分可能な関数とする。
@@ -722,9 +718,9 @@ $$
 \boxed{
 E(t)
 =
-\frac12m\lVert\dot q(t)\rVert^2
+\frac12m\lVert\dot r(t)\rVert^2
 +
-V(q(t))
+V(r(t))
 }
 $$
 
@@ -738,7 +734,7 @@ $$
 $$
 K(t_1)-K(t_0)
 =
-V(q(t_0))-V(q(t_1))
+V(r(t_0))-V(r(t_1))
 $$
 
 です。項を移せば $K+V$ が両端で一致します。
@@ -765,7 +761,7 @@ $$
 $$
 W_{t_0\to t_1}[F]
 =
-V(q(t_0))-V(q(t_1)).
+V(r(t_0))-V(r(t_1)).
 $$
 
 従って
@@ -773,15 +769,15 @@ $$
 $$
 K(t_1)-K(t_0)
 =
-V(q(t_0))-V(q(t_1)).
+V(r(t_0))-V(r(t_1)).
 $$
 
-右辺の $V(q(t_1))$ と左辺の $K(t_0)$ を移項すると、
+右辺の $V(r(t_1))$ と左辺の $K(t_0)$ を移項すると、
 
 $$
-K(t_1)+V(q(t_1))
+K(t_1)+V(r(t_1))
 =
-K(t_0)+V(q(t_0)).
+K(t_0)+V(r(t_0)).
 $$
 
 $t_0,t_1$ は任意なので、
@@ -789,7 +785,7 @@ $t_0,t_1$ は任意なので、
 $$
 E(t)
 =
-K(t)+V(q(t))
+K(t)+V(r(t))
 $$
 
 は一定です。
@@ -810,22 +806,22 @@ $$
 
 ## 6. 非保存力があるときのエネルギー収支
 
-MECH2 の線形抵抗
+MECH2 の線形抵抗は、実際の軌道上では
 
 $$
-R=-c\dot q,
+R(t)=-c\,v(t)=-c\dot r(t),
 \qquad
 c>0
 $$
 
-は速度に依存します。
+と書けます。これは速度に依存する力モデルです。
 
 運動方程式が
 
 $$
-m\ddot q
+m\ddot r(t)
 =
--\nabla V(q)+R
+-\nabla V(r(t))+R(t)
 $$
 
 なら、
@@ -838,11 +834,11 @@ $$
 一定質量 $m>0$ の質点が、慣性系で
 
 $$
-m\ddot q(t)
+m\ddot r(t)
 =
--\nabla V(q(t))
+-\nabla V(r(t))
 +
-R(q(t),\dot q(t),t)
+R(t)
 $$
 
 を満たすとする。$V$ は連続微分可能で時間に陽には依存しないとする。
@@ -850,9 +846,9 @@ $$
 $$
 E(t)
 =
-\frac12m\lVert\dot q(t)\rVert^2
+\frac12m\lVert\dot r(t)\rVert^2
 +
-V(q(t))
+V(r(t))
 $$
 
 と置くと
@@ -861,19 +857,19 @@ $$
 \boxed{
 \frac{dE}{dt}
 =
-R\cdot\dot q
+R\cdot\dot r
 }
 $$
 
 が成り立つ。
 
-特に $R=-c\dot q$ なら
+特に $R=-c\dot r$ なら
 
 $$
 \boxed{
 \frac{dE}{dt}
 =
--c\lVert\dot q\rVert^2
+-c\lVert\dot r\rVert^2
 \le0
 }
 $$
@@ -889,7 +885,7 @@ $$
 $$
 \frac{dK}{dt}
 =
-m\ddot q\cdot\dot q
+m\ddot r\cdot\dot r
 $$
 
 です。
@@ -902,7 +898,7 @@ $$
 \left(
 -\nabla V+R
 \right)
-\cdot\dot q.
+\cdot\dot r.
 $$
 
 一方、連鎖律から
@@ -910,7 +906,7 @@ $$
 $$
 \frac{dV}{dt}
 =
-\nabla V\cdot\dot q.
+\nabla V\cdot\dot r.
 $$
 
 二式を足すと
@@ -923,22 +919,22 @@ $$
 +
 \frac{dV}{dt}\\
 &=
--\nabla V\cdot\dot q
+-\nabla V\cdot\dot r
 +
-R\cdot\dot q
+R\cdot\dot r
 +
-\nabla V\cdot\dot q\\
+\nabla V\cdot\dot r\\
 &=
-R\cdot\dot q.
+R\cdot\dot r.
 \end{aligned}
 $$
 
-$R=-c\dot q$ なら
+$R=-c\dot r$ なら
 
 $$
-R\cdot\dot q
+R\cdot\dot r
 =
--c\lVert\dot q\rVert^2
+-c\lVert\dot r\rVert^2
 \le0.
 $$
 
@@ -1369,13 +1365,13 @@ $$
 一定質量の質点について、古典的な運動量を
 
 $$
-p=m\dot q
+p=mv
 $$
 
 と書くと、
 
 $$
-\dot q=\frac{p}{m}.
+v=\frac{p}{m}.
 $$
 
 従って運動エネルギーは
@@ -1384,7 +1380,7 @@ $$
 \begin{aligned}
 K
 &=
-\frac12m\lVert\dot q\rVert^2\\
+\frac12m\lVert v\rVert^2\\
 &=
 \frac12m
 \left\lVert
@@ -1403,13 +1399,13 @@ E
 =
 \frac{\lVert p\rVert^2}{2m}
 +
-V(q)
+V(r)
 }
 $$
 
 と書けます。
 
-一自由度なら
+一自由度で位置を $x$ と書けば
 
 $$
 \boxed{
@@ -1417,7 +1413,7 @@ E
 =
 \frac{p^2}{2m}
 +
-V(q)
+V(x)
 }
 $$
 
@@ -1427,7 +1423,7 @@ $$
 
 本章ではまず、
 
-> $p^2/(2m)$ は古典的な運動エネルギー、$V(q)$ は位置に依存するポテンシャルエネルギー
+> $p^2/(2m)$ は古典的な運動エネルギー、$V$ は位置に依存するポテンシャルエネルギー
 
 という由来を押さえておけば十分です。
 
@@ -1440,9 +1436,9 @@ $$
 $$
 \boxed{
 \begin{array}{c}
-m\ddot q=F\\
+m\ddot r=F_{\mathrm{net}}\\
 \downarrow\\
-W=\displaystyle\int F\cdot dq\\
+W=\displaystyle\int F\cdot dr\\
 \downarrow\\
 \Delta K=W\\
 \downarrow\\
