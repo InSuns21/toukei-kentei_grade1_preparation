@@ -1,0 +1,92 @@
+chapter: VN6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00D2D
+  - F0-00D2E
+  - OA4
+  - VN2
+  - VN5
+
+forward_references:
+  - operator-algebra.factor
+  - operator-algebra.center
+
+concepts:
+  - id: operator-algebra.multiplication-operator
+    name: 乗算作用素
+    kind: definition
+    aliases: ["multiplication operator"]
+    introduction: formal
+    introduction_aliases: ["定義（乗算作用素）"]
+    requires:
+      - measure.linfty-space
+      - functional.l2-hilbert
+
+  - id: operator-algebra.multiplication-operator-structure
+    name: 乗算作用素のノルム・積・随伴
+    kind: proposition
+    aliases: ["norm product and adjoint of multiplication operators"]
+    introduction_aliases: ["命題（乗算作用素のノルム・積・随伴）"]
+    requires:
+      - operator-algebra.multiplication-operator
+      - measure.essential-supremum
+
+  - id: operator-algebra.linfty-multiplication-algebra
+    name: L^∞乗算環
+    kind: definition
+    aliases: ["L-infinity multiplication algebra"]
+    introduction: formal
+    introduction_aliases: ["定義（L^∞ 乗算環）"]
+    requires:
+      - operator-algebra.multiplication-operator
+      - operator-algebra.multiplication-operator-structure
+
+  - id: operator-algebra.linfty-self-commutant
+    name: L^∞乗算環の自己可換子性
+    kind: theorem
+    aliases: ["commutant of the L-infinity multiplication algebra"]
+    introduction_aliases: ["定理（L^∞ 乗算環は自分自身の可換子である）"]
+    requires:
+      - operator-algebra.linfty-multiplication-algebra
+      - operator-algebra.commutant
+      - operator-algebra.von-neumann-bicommutant-theorem
+
+  - id: measure.measure-algebra
+    name: 測度代数
+    kind: definition
+    aliases: ["measure algebra"]
+    introduction: formal
+    introduction_aliases: ["定義（測度代数）"]
+    requires:
+      - measure.ae-equivalence
+
+  - id: operator-algebra.linfty-projection-measure-algebra
+    name: 測度代数と L^∞乗算環の射影の対応
+    kind: theorem
+    aliases: ["projection-measure algebra correspondence for L-infinity"]
+    introduction_aliases: ["定理（測度代数と L^∞ 乗算環の射影の対応）"]
+    requires:
+      - measure.measure-algebra
+      - operator-algebra.linfty-multiplication-algebra
+      - operator-algebra.projection-element
+
+  - id: operator-algebra.linfty-vector-state-integral
+    name: L^∞乗算環上のベクトル状態の積分表示
+    kind: proposition
+    aliases: ["integral formula for vector states on L-infinity"]
+    introduction_aliases: ["命題（L^∞ 乗算環上のベクトル状態の積分表示）"]
+    requires:
+      - operator-algebra.linfty-multiplication-algebra
+      - operator-algebra.normal-state
+
+  - id: operator-algebra.continuous-multiplication-sot-limit
+    name: 連続乗算作用素の SOT 極限として現れる可測射影
+    kind: proposition
+    aliases: ["measurable projection as a strong-operator limit of continuous multipliers"]
+    introduction_aliases: ["命題（連続乗算作用素の SOT 極限として現れる可測射影）"]
+    requires:
+      - operator-algebra.multiplication-operator-structure
+      - operator-algebra.strong-operator-topology
+      - measure.dominated-convergence-theorem
+      - operator-algebra.commutative-gelfand-naimark
