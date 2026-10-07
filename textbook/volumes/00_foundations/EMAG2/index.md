@@ -22,12 +22,12 @@ $$
 
 流れは
 
-$
+$$
 \text{曲面を貫く電場の総量}
 \longrightarrow
 \text{Gauss の法則}
 \longrightarrow
-\text{対称性に合う Gauss 面}
+\text{対称性に合う補助閉曲面}
 \longrightarrow
 \text{球・円筒・平面対称}
 \longrightarrow
@@ -223,7 +223,7 @@ $$
 
 ---
 
-## 3. Gauss 面：法則を使いやすくするための仮想的な閉曲面
+## 3. 対称性に合う補助閉曲面を選ぶ
 
 Gauss の法則はどんな適切な閉曲面にも成り立ちます。しかし、どんな閉曲面を選んでも計算が簡単になるわけではありません。
 
