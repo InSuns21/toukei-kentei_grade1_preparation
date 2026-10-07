@@ -18,7 +18,7 @@
   <text x="195" y="252" font-family="Noto Sans CJK JP, sans-serif" font-size="22" fill="#1F2937">本</text>
 
   <circle cx="290" cy="280" r="6" fill="#D55E00"/>
-  <text x="318" y="266" font-family="Noto Sans CJK JP, sans-serif" font-size="20" fill="#D55E00" font-weight="700">G（重心）</text>
+  <text x="250" y="195" font-family="Noto Sans CJK JP, sans-serif" font-size="20" fill="#D55E00" font-weight="700">G（重心）</text>
   <line x1="290" y1="280" x2="290" y2="325" stroke="#D55E00" stroke-width="5" marker-end="url(#arrow-orange)"/>
   <text x="425" y="302" font-family="Noto Sans CJK JP, sans-serif" font-size="22" fill="#D55E00" font-weight="700">mg</text>
 
