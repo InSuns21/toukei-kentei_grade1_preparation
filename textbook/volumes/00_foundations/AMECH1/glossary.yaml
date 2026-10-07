@@ -1,0 +1,26 @@
+chapter: "AMECH1"
+terms:
+  - term: holonomic constraint
+    english: holonomic constraint
+    meaning: 粒子の位置と時刻に関する等式 f_a(r_1,...,r_N,t)=0 で表せる拘束。本章では独立で正則な拘束を主に扱う。
+  - term: 配置空間
+    english: configuration space
+    meaning: ある時刻に拘束条件を満たす、系の許される配置全体の集合。
+  - term: 自由度
+    english: degree of freedom
+    meaning: 許される配置を局所的に指定するために必要な独立パラメータの個数。
+  - term: 一般化座標
+    english: generalized coordinate
+    meaning: 配置空間を局所的にパラメータ化する座標 q_1,...,q_n。長さに限らず角度などでもよい。
+  - term: 仮想変位
+    english: virtual displacement
+    meaning: 時刻を固定したまま拘束を破らずに許される無限小の配置変化。実際の時間発展による変位とは区別する。
+  - term: 一般化力
+    english: generalized force
+    meaning: 一般化座標 q_j に対応し、Q_j=sum_i F_i dot partial r_i/partial q_j で定義される量。q_j が角度なら力の次元ではなくトルクの次元を持つ。
+  - term: rheonomous constraint
+    english: rheonomous constraint
+    meaning: 拘束式が時刻 t に陽に依存する holonomic constraint。
+  - term: scleronomous constraint
+    english: scleronomous constraint
+    meaning: 拘束式が時刻 t に陽に依存しない holonomic constraint。
