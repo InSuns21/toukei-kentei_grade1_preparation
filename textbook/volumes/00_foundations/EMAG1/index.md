@@ -21,15 +21,15 @@ $$
 流れは
 
 $$
-	ext{電荷}
-longrightarrow
-	ext{Coulomb の法則}
-longrightarrow
-	ext{重ね合わせ}
-longrightarrow
-	ext{電場}
-longrightarrow
-	ext{連続電荷分布}
+\text{電荷}
+\longrightarrow
+\text{Coulomb の法則}
+\longrightarrow
+\text{重ね合わせ}
+\longrightarrow
+\text{電場}
+\longrightarrow
+\text{連続電荷分布}
 $$
 
 です。
@@ -40,7 +40,7 @@ Gauss の法則は EMAG2、電位と Poisson 方程式は EMAG3 で扱います�
 
 ## 1. 電荷：符号を持つ相互作用の源
 
-物体の電気的な性質を表す量を電荷と呼び、本章では $q$ で表します。SI 単位は coulomb で、記号は $mathrm C$ です。
+電磁気学では、電気的相互作用の源となる物理量として電荷 $q$ を用います。SI 単位は coulomb で、記号は $\mathrm C$ です。
 
 電荷には正負があります。
 
@@ -86,19 +86,19 @@ $$
 
 <!-- formal-statement-start -->
 > **原理（Coulomb の法則）**  
-> 真空中で静止している二つの点電荷 $q_1,q_2$ が異なる位置 $r_1,r_2inmathbb R^3$ にあるとする。電荷 1 が電荷 2 に及ぼす力を $F_{2leftarrow1}$ とすると、
+> 真空中で静止している二つの点電荷 $q_1,q_2$ が異なる位置 $r_1,r_2\in\mathbb R^3$ にあるとする。電荷 1 が電荷 2 に及ぼす力を $F_{2\leftarrow1}$ とすると、
 >
 $$
-oxed{
-F_{2leftarrow1}
+\boxed{
+F_{2\leftarrow1}
 =
-rac{1}{4piarepsilon_0}
-rac{q_1q_2}{|r_2-r_1|^3}
+\frac{1}{4\pi\varepsilon_0}
+\frac{q_1q_2}{|r_2-r_1|^3}
 (r_2-r_1)
 }
 $$
 >
-> とする。ここで $arepsilon_0>0$ は真空の誘電率である。
+> とする。ここで $\varepsilon_0>0$ は真空の誘電率である。
 <!-- formal-statement-end -->
 
 Coulomb 定数
@@ -106,17 +106,17 @@ Coulomb 定数
 $$
 k_e
 =
-rac{1}{4piarepsilon_0}
+\frac{1}{4\pi\varepsilon_0}
 $$
 
 を使えば
 
 $$
-F_{2leftarrow1}
+F_{2\leftarrow1}
 =
 k_e
-rac{q_1q_2}{R^3}R,
-qquad
+\frac{q_1q_2}{R^3}R,
+\qquad
 R=|R|
 $$
 
@@ -125,11 +125,11 @@ $$
 力の大きさだけなら
 
 $$
-oxed{
-|F_{2leftarrow1}|
+\boxed{
+|F_{2\leftarrow1}|
 =
 k_e
-rac{|q_1q_2|}{R^2}
+\frac{|q_1q_2|}{R^2}
 }
 $$
 
@@ -153,10 +153,10 @@ $R=r_2-r_1$ は電荷 1 から電荷 2 へ向くベクトルです。
 電荷 2 が電荷 1 に及ぼす力は
 
 $$
-F_{1leftarrow2}
+F_{1\leftarrow2}
 =
 k_e
-rac{q_1q_2}{|r_1-r_2|^3}
+\frac{q_1q_2}{|r_1-r_2|^3}
 (r_1-r_2).
 $$
 
@@ -171,11 +171,11 @@ $$
 なので
 
 $$
-oxed{
-F_{1leftarrow2}
+\boxed{
+F_{1\leftarrow2}
 =
 -
-F_{2leftarrow1}
+F_{2\leftarrow1}
 }.
 $$
 
@@ -188,15 +188,15 @@ $$
 距離
 
 $$
-R=0.50 mathrm m
+R=0.50\ \mathrm m
 $$
 
 だけ離れた
 
 $$
-q_1=2.0 mumathrm C,
-qquad
-q_2=-3.0 mumathrm C
+q_1=2.0\ \mu\mathrm C,
+\qquad
+q_2=-3.0\ \mu\mathrm C
 $$
 
 を考えます。
@@ -207,25 +207,25 @@ $$
 |F|
 =
 k_e
-rac{
-(2.0	imes10^{-6})
-(3.0	imes10^{-6})
+\frac{
+(2.0\times10^{-6})
+(3.0\times10^{-6})
 }{
 (0.50)^2
 }.
 $$
 
 $$
-k_eapprox8.99	imes10^9 
-mathrm{N,m^2/C^2}
+k_e\approx8.99\times10^9\ 
+\mathrm{N\,m^2/C^2}
 $$
 
 を使うと
 
 $$
 |F|
-approx
-0.216 mathrm N.
+\approx
+0.216\ \mathrm N.
 $$
 
 $q_1q_2<0$ なので引力です。
@@ -240,16 +240,15 @@ Coulomb の法則は二点電荷の法則です。多数の電荷があるとき
 
 <!-- formal-statement-start -->
 > **原理（重ね合わせ）**  
-> 位置 $r_1,ldots,r_N$ に固定された点電荷 $q_1,ldots,q_N$ があり、別の点電荷 $q_0$ を位置 $r$ に置くとする。$r
-e r_i$ とする。このとき $q_0$ に働く静電気力は、各 $q_i$ が単独で存在するときの Coulomb 力のベクトル和
+> 位置 $r_1,\ldots,r_N$ に固定された点電荷 $q_1,\ldots,q_N$ があり、別の点電荷 $q_0$ を位置 $r$ に置くとする。$r\ne r_i$ とする。このとき $q_0$ に働く静電気力は、各 $q_i$ が単独で存在するときの Coulomb 力のベクトル和
 >
 $$
-oxed{
+\boxed{
 F(r)
 =
-sum_{i=1}^N
-rac{1}{4piarepsilon_0}
-rac{q_0q_i}{|r-r_i|^3}
+\sum_{i=1}^N
+\frac{1}{4\pi\varepsilon_0}
+\frac{q_0q_i}{|r-r_i|^3}
 (r-r_i)
 }
 $$
@@ -260,9 +259,9 @@ $$
 この原理のおかげで、多数の電荷がある問題を
 
 $$
-	ext{各電荷の寄与を求める}
-longrightarrow
-	ext{成分ごとに足す}
+\text{各電荷の寄与を求める}
+\longrightarrow
+\text{成分ごとに足す}
 $$
 
 という手順へ分解できます。
@@ -273,7 +272,7 @@ $x$ 軸上の
 
 $$
 r_1=(-a,0,0),
-qquad
+\qquad
 r_2=(a,0,0)
 $$
 
@@ -284,7 +283,7 @@ $$
 大きさはどちらも
 
 $$
-k_erac{q_0q}{a^2}
+k_e\frac{q_0q}{a^2}
 $$
 
 なので
@@ -326,7 +325,7 @@ $$
 SI 単位は
 
 $$
-mathrm{N/C}
+\mathrm{N/C}
 $$
 
 です。
@@ -336,8 +335,7 @@ $$
 <!-- definition-example-start: def-emag1-electric-field -->
 ### 定義の確認：原点の一点電荷
 
-原点に源電荷 $Q$ を置き、$r
-e0$ に試験電荷 $q_0$ を置きます。
+原点に源電荷 $Q$ を置き、$r\ne0$ に試験電荷 $q_0$ を置きます。
 
 Coulomb の法則から
 
@@ -345,7 +343,7 @@ $$
 F(r)
 =
 k_e
-rac{Qq_0}{|r|^3}r.
+\frac{Qq_0}{|r|^3}r.
 $$
 
 右辺から $q_0$ をくくると
@@ -354,20 +352,20 @@ $$
 F(r)
 =
 q_0
-left(
+\left(
 k_e
-rac{Q}{|r|^3}r
-ight).
+\frac{Q}{|r|^3}r
+\right).
 $$
 
 したがって定義の係数は
 
 $$
-oxed{
+\boxed{
 E(r)
 =
 k_e
-rac{Q}{|r|^3}r
+\frac{Q}{|r|^3}r
 }.
 $$
 
@@ -379,7 +377,7 @@ $$
 q_0E(r)
 =
 k_e
-rac{Qq_0}{|r|^3}r
+\frac{Qq_0}{|r|^3}r
 =
 F(r)
 $$
@@ -405,16 +403,16 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（点電荷系が作る電場）**  
-> 位置 $r_i$ に固定された点電荷 $q_i$ が $i=1,ldots,N$ まであり、観測点 $r$ はどの $r_i$ とも一致しないとする。Coulomb の法則と重ね合わせ原理のもとで、観測点 $r$ の電場は
+> 位置 $r_i$ に固定された点電荷 $q_i$ が $i=1,\ldots,N$ まであり、観測点 $r$ はどの $r_i$ とも一致しないとする。Coulomb の法則と重ね合わせ原理のもとで、観測点 $r$ の電場は
 >
 $$
-oxed{
+\boxed{
 E(r)
 =
-rac{1}{4piarepsilon_0}
-sum_{i=1}^N
+\frac{1}{4\pi\varepsilon_0}
+\sum_{i=1}^N
 q_i
-rac{r-r_i}{|r-r_i|^3}
+\frac{r-r_i}{|r-r_i|^3}
 }
 $$
 >
@@ -433,9 +431,9 @@ $$
 $$
 F(r)
 =
-sum_{i=1}^N
+\sum_{i=1}^N
 k_e
-rac{q_0q_i}{|r-r_i|^3}
+\frac{q_0q_i}{|r-r_i|^3}
 (r-r_i).
 $$
 
@@ -445,12 +443,12 @@ $$
 F(r)
 =
 q_0
-left[
+\left[
 k_e
-sum_{i=1}^N
+\sum_{i=1}^N
 q_i
-rac{r-r_i}{|r-r_i|^3}
-ight].
+\frac{r-r_i}{|r-r_i|^3}
+\right].
 $$
 
 電場の定義
@@ -465,15 +463,15 @@ $$
 E(r)
 =
 k_e
-sum_{i=1}^N
+\sum_{i=1}^N
 q_i
-rac{r-r_i}{|r-r_i|^3}.
+\frac{r-r_i}{|r-r_i|^3}.
 $$
 
 最後に
 
 $$
-k_e=rac{1}{4piarepsilon_0}
+k_e=\frac{1}{4\pi\varepsilon_0}
 $$
 
 を代入すれば結論を得ます。
@@ -485,9 +483,9 @@ $$
 
 $$
 r_1=(-a,0,0),
-qquad
+\qquad
 r_2=(a,0,0),
-qquad
+\qquad
 q_1=q_2=q>0
 $$
 
@@ -499,24 +497,24 @@ $$
 E_1(0)
 =
 k_e q
-rac{(a,0,0)}{a^3}
+\frac{(a,0,0)}{a^3}
 =
-rac{k_eq}{a^2}(1,0,0),
+\frac{k_eq}{a^2}(1,0,0),
 $$
 
 $$
 E_2(0)
 =
 k_e q
-rac{(-a,0,0)}{a^3}
+\frac{(-a,0,0)}{a^3}
 =
--rac{k_eq}{a^2}(1,0,0).
+-\frac{k_eq}{a^2}(1,0,0).
 $$
 
 よって
 
 $$
-oxed{
+\boxed{
 E(0)=0
 }.
 $$
@@ -544,34 +542,34 @@ $$
 > 線上の微小長さ $ds$ に含まれる電荷を $dq$ とするとき、
 >
 $$
-dq=lambda,ds
+dq=\lambda\,ds
 $$
 >
-> を満たす $lambda$ を線電荷密度とする。  
+> を満たす $\lambda$ を線電荷密度とする。  
 > 曲面上の微小面積 $dS$ に対して
 >
 $$
-dq=sigma,dS
+dq=\sigma\,dS
 $$
 >
-> を満たす $sigma$ を面電荷密度とする。  
+> を満たす $\sigma$ を面電荷密度とする。  
 > 三次元領域の微小体積 $dV$ に対して
 >
 $$
-dq=ho,dV
+dq=\rho\,dV
 $$
 >
-> を満たす $ho$ を体積電荷密度とする。
+> を満たす $\rho$ を体積電荷密度とする。
 <!-- formal-statement-end -->
 
 単位はそれぞれ
 
 $$
-[lambda]=mathrm{C/m},
-qquad
-[sigma]=mathrm{C/m^2},
-qquad
-[ho]=mathrm{C/m^3}
+[\lambda]=\mathrm{C/m},
+\qquad
+[\sigma]=\mathrm{C/m^2},
+\qquad
+[\rho]=\mathrm{C/m^3}
 $$
 
 です。
@@ -582,15 +580,15 @@ $$
 長さ $L$ の棒に総電荷 $Q$ が一様に分布しているなら
 
 $$
-lambda=rac{Q}{L}.
+\lambda=\frac{Q}{L}.
 $$
 
 したがって
 
 $$
-int_0^L lambda,ds
+\int_0^L \lambda\,ds
 =
-rac{Q}{L}L
+\frac{Q}{L}L
 =
 Q.
 $$
@@ -598,15 +596,15 @@ $$
 半径 $a$ の円板に総電荷 $Q$ が一様に分布しているなら
 
 $$
-sigma=rac{Q}{pi a^2}.
+\sigma=\frac{Q}{\pi a^2}.
 $$
 
 面積全体で積分すると
 
 $$
-int_Ssigma,dS
+\int_S\sigma\,dS
 =
-sigma,pi a^2
+\sigma\,\pi a^2
 =
 Q.
 $$
@@ -614,19 +612,19 @@ $$
 半径 $a$ の球に総電荷 $Q$ が一様に分布しているなら
 
 $$
-ho
+\rho
 =
-rac{Q}{(4/3)pi a^3}
+\frac{Q}{(4/3)\pi a^3}
 =
-rac{3Q}{4pi a^3}.
+\frac{3Q}{4\pi a^3}.
 $$
 
 体積全体で積分すると
 
 $$
-int_Vho,dV
+\int_V\rho\,dV
 =
-horac{4}{3}pi a^3
+\rho\frac{4}{3}\pi a^3
 =
 Q.
 $$
@@ -644,9 +642,9 @@ $$
 E(r)
 =
 k_e
-sum_i
+\sum_i
 q_i
-rac{r-r_i}{|r-r_i|^3}
+\frac{r-r_i}{|r-r_i|^3}
 $$
 
 でした。
@@ -661,7 +659,7 @@ $$
 dE(r)
 =
 k_e
-rac{dq}{|r-r'|^3}
+\frac{dq}{|r-r'|^3}
 (r-r').
 $$
 
@@ -671,21 +669,21 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（連続電荷分布が作る電場）**  
-> 有界な領域 $Dsubsetmathbb R^3$ に連続な体積電荷密度 $ho(r')$ が分布し、観測点 $r$ が $D$ の外にあるとする。Coulomb の法則、重ね合わせ原理、および連続分布模型のもとで、
+> 有界な領域 $D\subset\mathbb R^3$ に連続な体積電荷密度 $\rho(r')$ が分布し、観測点 $r$ が $D$ の外にあるとする。Coulomb の法則、重ね合わせ原理、および連続分布模型のもとで、
 >
 $$
-oxed{
+\boxed{
 E(r)
 =
-rac{1}{4piarepsilon_0}
-int_D
-ho(r')
-rac{r-r'}{|r-r'|^3}
-,dV'
+\frac{1}{4\pi\varepsilon_0}
+\int_D
+\rho(r')
+\frac{r-r'}{|r-r'|^3}
+\,dV'
 }
 $$
 >
-> である。線電荷・面電荷では、それぞれ $ho,dV'$ を $lambda,ds'$、$sigma,dS'$ に置き換える。
+> である。線電荷・面電荷では、それぞれ $\rho\,dV'$ を $\lambda\,ds'$、$\sigma\,dS'$ に置き換える。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -698,31 +696,31 @@ $$
 $D$ を小領域
 
 $$
-D_1,ldots,D_M
+D_1,\ldots,D_M
 $$
 
 へ分割し、各 $D_j$ から代表点 $r'_j$ を一つ取ります。
 
-$D_j$ の体積を $Delta V_j$ とすると、その小領域の電荷は細分化極限で
+$D_j$ の体積を $\Delta V_j$ とすると、その小領域の電荷は細分化極限で
 
 $$
-Delta q_j
-approx
-ho(r'_j)Delta V_j
+\Delta q_j
+\approx
+\rho(r'_j)\Delta V_j
 $$
 
 と表されます。
 
-各 $Delta q_j$ を代表点 $r'_j$ に置いた点電荷として近似すれば、点電荷系の電場は
+各 $\Delta q_j$ を代表点 $r'_j$ に置いた点電荷として近似すれば、点電荷系の電場は
 
 $$
 E_M(r)
 =
 k_e
-sum_{j=1}^M
-ho(r'_j)
-rac{r-r'_j}{|r-r'_j|^3}
-Delta V_j.
+\sum_{j=1}^M
+\rho(r'_j)
+\frac{r-r'_j}{|r-r'_j|^3}
+\Delta V_j.
 $$
 
 観測点 $r$ は $D$ の外にあるため、考えている領域で
@@ -735,9 +733,9 @@ $$
 
 $$
 r'
-longmapsto
-ho(r')
-rac{r-r'}{|r-r'|^3}
+\longmapsto
+\rho(r')
+\frac{r-r'}{|r-r'|^3}
 $$
 
 は $D$ 上で連続です。
@@ -746,10 +744,10 @@ $$
 
 $$
 k_e
-int_D
-ho(r')
-rac{r-r'}{|r-r'|^3}
-,dV'
+\int_D
+\rho(r')
+\frac{r-r'}{|r-r'|^3}
+\,dV'
 $$
 
 へ収束します。
@@ -759,7 +757,7 @@ $$
 $$
 k_e
 =
-rac{1}{4piarepsilon_0}
+\frac{1}{4\pi\varepsilon_0}
 $$
 
 を代入すれば結論を得ます。
@@ -767,9 +765,9 @@ $$
 線分布と面分布でも、同じ重ね合わせの議論を弧長・面積に対する Riemann 和で行えば
 
 $$
-dq=lambda,ds',
-qquad
-dq=sigma,dS'
+dq=\lambda\,ds',
+\qquad
+dq=\sigma\,dS'
 $$
 
 を使う対応する積分式が得られます。
@@ -778,7 +776,7 @@ $$
 ここで観測点を電荷分布の内部へ入れる場合、核
 
 $$
-rac{r-r'}{|r-r'|^3}
+\frac{r-r'}{|r-r'|^3}
 $$
 
 が $r'=r$ で特異になります。点電荷や特異点を含む場の扱いは、EMAG2 で Gauss の法則とともに整理します。
@@ -804,7 +802,7 @@ $$
 $$
 R
 =
-sqrt{x^2+a^2}
+\sqrt{x^2+a^2}
 $$
 
 です。
@@ -815,7 +813,7 @@ $$
 dE
 =
 k_e
-rac{dq}{x^2+a^2}.
+\frac{dq}{x^2+a^2}.
 $$
 
 ここで一つの $dq$ が作る電場には
@@ -829,12 +827,12 @@ $$
 
 残るのは $x$ 成分だけです。
 
-電荷要素から観測点へのベクトルと $x$ 軸のなす角を $alpha$ とすると
+電荷要素から観測点へのベクトルと $x$ 軸のなす角を $\alpha$ とすると
 
 $$
-cosalpha
+\cos\alpha
 =
-rac{x}{sqrt{x^2+a^2}}.
+\frac{x}{\sqrt{x^2+a^2}}.
 $$
 
 よって
@@ -842,10 +840,10 @@ $$
 $$
 dE_x
 =
-dEcosalpha
+dE\cos\alpha
 =
 k_e
-rac{x,dq}{(x^2+a^2)^{3/2}}.
+\frac{x\,dq}{(x^2+a^2)^{3/2}}.
 $$
 
 リング全体で積分すると
@@ -854,24 +852,24 @@ $$
 E_x
 =
 k_e
-rac{x}{(x^2+a^2)^{3/2}}
-int dq.
+\frac{x}{(x^2+a^2)^{3/2}}
+\int dq.
 $$
 
 総電荷が $Q$ なので
 
 $$
-int dq=Q.
+\int dq=Q.
 $$
 
 従って
 
 $$
-oxed{
+\boxed{
 E(x,0,0)
 =
 k_e
-rac{Qx}{(x^2+a^2)^{3/2}}
+\frac{Qx}{(x^2+a^2)^{3/2}}
 (1,0,0)
 }.
 $$
@@ -889,7 +887,7 @@ $$
 一方、
 
 $$
-|x|gg a
+|x|\gg a
 $$
 
 では
@@ -898,10 +896,10 @@ $$
 (x^2+a^2)^{3/2}
 =
 |x|^3
-left(
-1+rac{a^2}{x^2}
-ight)^{3/2}
-approx
+\left(
+1+\frac{a^2}{x^2}
+\right)^{3/2}
+\approx
 |x|^3.
 $$
 
@@ -909,9 +907,9 @@ $$
 
 $$
 E
-approx
+\approx
 k_e
-rac{Qx}{|x|^3}(1,0,0),
+\frac{Qx}{|x|^3}(1,0,0),
 $$
 
 つまり総電荷 $Q$ を原点に集めた点電荷の電場へ近づきます。
@@ -930,11 +928,59 @@ $$
 
 電場 $E(r)$ は数式としてはベクトル場です。
 
-しかし空間の多数の点で矢印を全部描くと見づらくなるため、各点で接線方向が $E$ の方向と一致する曲線を描くことがあります。これが電気力線です。
+空間の多数の点で矢印を全部描くと見づらくなるため、電場の向きを曲線で表す補助表現を導入します。
+
+<a id="def-emag1-electric-field-line"></a>
+
+<!-- formal-statement-start -->
+> **定義（電気力線）**  
+> 電場 $E$ が 0 でない領域で、各点における接線方向がその点の $E$ と平行になる曲線を **電気力線**とする。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-emag1-electric-field-line -->
+### 定義の確認：正の点電荷の放射状の線
+
+原点に $Q>0$ の点電荷があるとき
+
+$$
+E(r)
+=
+k_e\frac{Q}{|r|^3}r,
+\qquad
+r\ne0.
+$$
+
+任意の固定した単位ベクトル $n$ と $s>0$ に対し、曲線
+
+$$
+\gamma(s)=sn
+$$
+
+を考えます。
+
+接ベクトルは
+
+$$
+\gamma'(s)=n.
+$$
+
+一方、
+
+$$
+E(\gamma(s))
+=
+k_e
+\frac{Q}{s^2}n
+$$
+
+なので、$\gamma'(s)$ と $E(\gamma(s))$ は平行です。
+
+従って原点から外向きに伸びる放射状の半直線は、定義を満たす電気力線です。
+<!-- definition-example-end -->
 
 電気力線について、少なくとも次の三点を区別します。
 
-1. 正電荷からは外向き、負電荷へは内向きになる。
+1. 正電荷の近くでは外向き、負電荷の近くでは内向きになる。
 2. 電場が一意に定まる点では、異なる電気力線が同じ点で異なる方向へ交差することはできない。
 3. 電気力線は物質の糸でも、電荷が必ずそこを流れる軌跡でもない。
 
@@ -966,6 +1012,7 @@ $$
 
 - 電場
 - 電荷密度
+- 電気力線
 
 これらは経験法則を整理して使うための表現です。
 
@@ -977,9 +1024,9 @@ $$
 E(r)
 =
 k_e
-sum_i
+\sum_i
 q_i
-rac{r-r_i}{|r-r_i|^3}
+\frac{r-r_i}{|r-r_i|^3}
 $$
 
 や
@@ -988,9 +1035,9 @@ $$
 E(r)
 =
 k_e
-int
-rac{r-r'}{|r-r'|^3}
-,dq
+\int
+\frac{r-r'}{|r-r'|^3}
+\,dq
 $$
 
 が導かれます。
@@ -1012,9 +1059,9 @@ $$
 Coulomb の式をそのまま
 
 $$
-	ext{遠くの電荷の現在位置}
-longrightarrow
-	ext{瞬時に現在の力}
+\text{遠くの電荷の現在位置}
+\longrightarrow
+\text{瞬時に現在の力}
 $$
 
 という一般原理へ拡張してはいけません。
@@ -1060,24 +1107,24 @@ $$
 $x$ 軸上の
 
 $$
-r_1=(0,0,0) mathrm m,
-qquad
-r_2=(0.30,0,0) mathrm m
+r_1=(0,0,0)\ \mathrm m,
+\qquad
+r_2=(0.30,0,0)\ \mathrm m
 $$
 
 に
 
 $$
-q_1=2.0 mumathrm C,
-qquad
-q_2=-5.0 mumathrm C
+q_1=2.0\ \mu\mathrm C,
+\qquad
+q_2=-5.0\ \mu\mathrm C
 $$
 
 を置く。
 
-1. 電荷 1 が電荷 2 に及ぼす力 $F_{2leftarrow1}$ の向きを答えよ。
-2. 力の大きさを $k_e=8.99	imes10^9 mathrm{N,m^2/C^2}$ として求めよ。
-3. $F_{1leftarrow2}$ をベクトルで表し、Newton 第3法則を確認せよ。
+1. 電荷 1 が電荷 2 に及ぼす力 $F_{2\leftarrow1}$ の向きを答えよ。
+2. 力の大きさを $k_e=8.99\times10^9\ \mathrm{N\,m^2/C^2}$ として求めよ。
+3. $F_{1\leftarrow2}$ をベクトルで表し、Newton 第3法則を確認せよ。
 
 - Level: A
 
@@ -1091,7 +1138,7 @@ R
 =
 r_2-r_1
 =
-(0.30,0,0) mathrm m.
+(0.30,0,0)\ \mathrm m.
 $$
 
 電荷の積は
@@ -1099,8 +1146,8 @@ $$
 $$
 q_1q_2
 =
-(2.0	imes10^{-6})
-(-5.0	imes10^{-6})
+(2.0\times10^{-6})
+(-5.0\times10^{-6})
 <0
 $$
 
@@ -1114,7 +1161,7 @@ $$
 |F|
 =
 k_e
-rac{|q_1q_2|}{R^2}.
+\frac{|q_1q_2|}{R^2}.
 $$
 
 数値を代入すると
@@ -1122,10 +1169,10 @@ $$
 $$
 |F|
 =
-8.99	imes10^9
-rac{
-(2.0	imes10^{-6})
-(5.0	imes10^{-6})
+8.99\times10^9
+\frac{
+(2.0\times10^{-6})
+(5.0\times10^{-6})
 }{
 (0.30)^2
 }.
@@ -1134,9 +1181,9 @@ $$
 分子の電荷積は
 
 $$
-(2.0	imes10^{-6})(5.0	imes10^{-6})
+(2.0\times10^{-6})(5.0\times10^{-6})
 =
-1.0	imes10^{-11}.
+1.0\times10^{-11}.
 $$
 
 従って
@@ -1144,39 +1191,39 @@ $$
 $$
 |F|
 =
-8.99	imes10^9
-rac{1.0	imes10^{-11}}{0.09}
-approx
-0.999 mathrm N.
+8.99\times10^9
+\frac{1.0\times10^{-11}}{0.09}
+\approx
+0.999\ \mathrm N.
 $$
 
 したがって
 
 $$
-oxed{
-F_{2leftarrow1}
-approx
-(-0.999,0,0) mathrm N
+\boxed{
+F_{2\leftarrow1}
+\approx
+(-0.999,0,0)\ \mathrm N
 }.
 $$
 
 反対向きの力は
 
 $$
-oxed{
-F_{1leftarrow2}
-approx
-(0.999,0,0) mathrm N
+\boxed{
+F_{1\leftarrow2}
+\approx
+(0.999,0,0)\ \mathrm N
 }.
 $$
 
 よって
 
 $$
-F_{1leftarrow2}
+F_{1\leftarrow2}
 =
 -
-F_{2leftarrow1}
+F_{2\leftarrow1}
 $$
 
 が確認できます。
@@ -1189,7 +1236,7 @@ $$
 1. 位置
    $$
    r=(3a,4a,0),
-   qquad
+   \qquad
    a>0
    $$
    の電場を求めよ。
@@ -1205,7 +1252,7 @@ $$
 $$
 |r|
 =
-sqrt{(3a)^2+(4a)^2}
+\sqrt{(3a)^2+(4a)^2}
 =
 5a.
 $$
@@ -1216,7 +1263,7 @@ $$
 E(r)
 =
 k_e
-rac{Q}{|r|^3}r.
+\frac{Q}{|r|^3}r.
 $$
 
 したがって
@@ -1225,17 +1272,17 @@ $$
 E(r)
 =
 k_e
-rac{Q}{(5a)^3}
+\frac{Q}{(5a)^3}
 (3a,4a,0).
 $$
 
 $a$ を約分すると
 
 $$
-oxed{
+\boxed{
 E(r)
 =
-rac{k_eQ}{125a^2}
+\frac{k_eQ}{125a^2}
 (3,4,0)
 }.
 $$
@@ -1251,10 +1298,10 @@ $$
 よって
 
 $$
-oxed{
+\boxed{
 F
 =
-rac{k_eQq_0}{125a^2}
+\frac{k_eQq_0}{125a^2}
 (3,4,0)
 }.
 $$
@@ -1286,7 +1333,7 @@ $$
 $$
 E_1
 =
-rac{k_eq}{a^2}(1,0,0).
+\frac{k_eq}{a^2}(1,0,0).
 $$
 
 右側の電荷から原点への変位は
@@ -1300,13 +1347,13 @@ $$
 $$
 E_2
 =
--rac{k_eq}{a^2}(1,0,0).
+-\frac{k_eq}{a^2}(1,0,0).
 $$
 
 従って
 
 $$
-oxed{
+\boxed{
 E_1+E_2=0
 }.
 $$
@@ -1316,23 +1363,21 @@ $$
 $$
 F_1=q_0E_1
 =
-rac{k_eqq_0}{a^2}(1,0,0),
+\frac{k_eqq_0}{a^2}(1,0,0),
 $$
 
 $$
 F_2=q_0E_2
 =
--rac{k_eqq_0}{a^2}(1,0,0).
+-\frac{k_eqq_0}{a^2}(1,0,0).
 $$
 
 $q,q_0,a>0$ なので
 
 $$
-F_1
-e0,
-qquad
-F_2
-e0.
+F_1\ne0,
+\qquad
+F_2\ne0.
 $$
 
 しかし
@@ -1348,11 +1393,11 @@ $$
 
 次の一様分布について総電荷を求めよ。
 
-1. 長さ $L$ の線分、線電荷密度 $lambda_0$
-2. 面積 $A$ の平面領域、面電荷密度 $sigma_0$
-3. 体積 $V$ の三次元領域、体積電荷密度 $ho_0$
+1. 長さ $L$ の線分、線電荷密度 $\lambda_0$
+2. 面積 $A$ の平面領域、面電荷密度 $\sigma_0$
+3. 体積 $V$ の三次元領域、体積電荷密度 $\rho_0$
 
-さらに、$lambda_0,sigma_0,ho_0$ の SI 単位を答えよ。
+さらに、$\lambda_0,\sigma_0,\rho_0$ の SI 単位を答えよ。
 
 - Level: A
 
@@ -1362,7 +1407,7 @@ $$
 線分では
 
 $$
-dq=lambda_0,ds.
+dq=\lambda_0\,ds.
 $$
 
 従って
@@ -1370,17 +1415,17 @@ $$
 $$
 Q
 =
-int dq
+\int dq
 =
-int_0^Llambda_0,ds
+\int_0^L\lambda_0\,ds
 =
-oxed{lambda_0L}.
+\boxed{\lambda_0L}.
 $$
 
 面分布では
 
 $$
-dq=sigma_0,dS.
+dq=\sigma_0\,dS.
 $$
 
 従って
@@ -1388,17 +1433,17 @@ $$
 $$
 Q
 =
-int_Ssigma_0,dS
+\int_S\sigma_0\,dS
 =
-sigma_0A
+\sigma_0A
 =
-oxed{sigma_0A}.
+\boxed{\sigma_0A}.
 $$
 
 体積分布では
 
 $$
-dq=ho_0,dV.
+dq=\rho_0\,dV.
 $$
 
 従って
@@ -1406,22 +1451,22 @@ $$
 $$
 Q
 =
-int_Dho_0,dV
+\int_D\rho_0\,dV
 =
-ho_0V
+\rho_0V
 =
-oxed{ho_0V}.
+\boxed{\rho_0V}.
 $$
 
 SI 単位は
 
 $$
-oxed{
-[lambda_0]=mathrm{C/m},
-qquad
-[sigma_0]=mathrm{C/m^2},
-qquad
-[ho_0]=mathrm{C/m^3}
+\boxed{
+[\lambda_0]=\mathrm{C/m},
+\qquad
+[\sigma_0]=\mathrm{C/m^2},
+\qquad
+[\rho_0]=\mathrm{C/m^3}
 }.
 $$
 <!-- solution-end -->
@@ -1441,10 +1486,10 @@ $x$ 軸上の点 $(x,0,0)$ における電場を求めよ。
    E_x
    =
    k_e
-   rac{Qx}{(x^2+a^2)^{3/2}}
+   \frac{Qx}{(x^2+a^2)^{3/2}}
    $$
    を導け。
-4. $x=0$ と $|x|gg a$ の極限を確認せよ。
+4. $x=0$ と $|x|\gg a$ の極限を確認せよ。
 
 - Level: B
 
@@ -1458,7 +1503,7 @@ $x$ 軸上の点 $(x,0,0)$ における電場を求めよ。
 $$
 R
 =
-sqrt{x^2+a^2}.
+\sqrt{x^2+a^2}.
 $$
 
 微小電荷 $dq$ が作る電場の大きさは
@@ -1466,24 +1511,24 @@ $$
 $$
 dE
 =
-k_erac{dq}{R^2}
+k_e\frac{dq}{R^2}
 =
 k_e
-rac{dq}{x^2+a^2}.
+\frac{dq}{x^2+a^2}.
 $$
 
 リング上で正反対にある二つの電荷要素を組にすると、$yz$ 平面内の成分は反対向きで同じ大きさなので相殺します。
 
 従って全電場は $x$ 軸方向だけです。
 
-電場ベクトルと $x$ 軸のなす角を $alpha$ とすると
+電場ベクトルと $x$ 軸のなす角を $\alpha$ とすると
 
 $$
-cosalpha
+\cos\alpha
 =
-rac{x}{R}
+\frac{x}{R}
 =
-rac{x}{sqrt{x^2+a^2}}.
+\frac{x}{\sqrt{x^2+a^2}}.
 $$
 
 従って
@@ -1491,10 +1536,10 @@ $$
 $$
 dE_x
 =
-dEcosalpha
+dE\cos\alpha
 =
 k_e
-rac{x,dq}{(x^2+a^2)^{3/2}}.
+\frac{x\,dq}{(x^2+a^2)^{3/2}}.
 $$
 
 $x,a$ はリング上の積分変数に依存しないので外へ出せます。
@@ -1503,35 +1548,35 @@ $$
 E_x
 =
 k_e
-rac{x}{(x^2+a^2)^{3/2}}
-int dq.
+\frac{x}{(x^2+a^2)^{3/2}}
+\int dq.
 $$
 
 総電荷が $Q$ なので
 
 $$
-int dq=Q.
+\int dq=Q.
 $$
 
 従って
 
 $$
-oxed{
+\boxed{
 E_x
 =
 k_e
-rac{Qx}{(x^2+a^2)^{3/2}}
+\frac{Qx}{(x^2+a^2)^{3/2}}
 }.
 $$
 
 よって
 
 $$
-oxed{
+\boxed{
 E(x,0,0)
 =
 k_e
-rac{Qx}{(x^2+a^2)^{3/2}}
+\frac{Qx}{(x^2+a^2)^{3/2}}
 (1,0,0)
 }.
 $$
@@ -1542,11 +1587,11 @@ $$
 E(0)=0.
 $$
 
-また $|x|gg a$ では
+また $|x|\gg a$ では
 
 $$
 (x^2+a^2)^{3/2}
-approx
+\approx
 |x|^3
 $$
 
@@ -1554,9 +1599,9 @@ $$
 
 $$
 E
-approx
+\approx
 k_e
-rac{Qx}{|x|^3}(1,0,0),
+\frac{Qx}{|x|^3}(1,0,0),
 $$
 
 原点の点電荷 $Q$ の遠方場と一致します。
@@ -1580,7 +1625,7 @@ $$
 
 を置く。$q>0$ とする。
 
-$x>a$ の点における電場を求め、さらに $xgg a$ で先頭項を求めよ。
+$x>a$ の点における電場を求め、さらに $x\gg a$ で先頭項を求めよ。
 
 - Level: B
 
@@ -1593,7 +1638,7 @@ $$
 E_+
 =
 k_e
-rac{q}{(x-a)^2}.
+\frac{q}{(x-a)^2}.
 $$
 
 $-q$ からの電場は負電荷へ向くので $-x$ 方向で
@@ -1603,7 +1648,7 @@ E_-
 =
 -
 k_e
-rac{q}{(x+a)^2}.
+\frac{q}{(x+a)^2}.
 $$
 
 従って
@@ -1612,11 +1657,11 @@ $$
 E_x
 =
 k_eq
-left[
-rac{1}{(x-a)^2}
+\left[
+\frac{1}{(x-a)^2}
 -
-rac{1}{(x+a)^2}
-ight].
+\frac{1}{(x+a)^2}
+\right].
 $$
 
 通分すると
@@ -1625,7 +1670,7 @@ $$
 E_x
 =
 k_eq
-rac{
+\frac{
 (x+a)^2-(x-a)^2
 }{
 (x^2-a^2)^2
@@ -1643,24 +1688,24 @@ $$
 よって厳密には
 
 $$
-oxed{
+\boxed{
 E_x
 =
 k_e
-rac{4qax}{(x^2-a^2)^2}
+\frac{4qax}{(x^2-a^2)^2}
 }.
 $$
 
-$xgg a$ では
+$x\gg a$ では
 
 $$
 x^2-a^2
 =
 x^2
-left(
-1-rac{a^2}{x^2}
-ight)
-approx
+\left(
+1-\frac{a^2}{x^2}
+\right)
+\approx
 x^2.
 $$
 
@@ -1668,12 +1713,12 @@ $$
 
 $$
 E_x
-approx
+\approx
 k_e
-rac{4qax}{x^4}
+\frac{4qax}{x^4}
 =
-oxed{
-k_erac{4qa}{x^3}
+\boxed{
+k_e\frac{4qa}{x^3}
 }.
 $$
 
@@ -1686,10 +1731,10 @@ $$
 と書けば
 
 $$
-oxed{
+\boxed{
 E_x
-approx
-k_erac{2p}{x^3}
+\approx
+k_e\frac{2p}{x^3}
 }.
 $$
 
@@ -1707,16 +1752,16 @@ $$
 $x$ 軸上の
 
 $$
--rac{L}{2}le x'lerac{L}{2}
+-\frac{L}{2}\le x'\le\frac{L}{2}
 $$
 
-に、一様な線電荷密度 $lambda>0$ の棒がある。
+に、一様な線電荷密度 $\lambda>0$ の棒がある。
 
 観測点を
 
 $$
 P=(0,y,0),
-qquad
+\qquad
 y>0
 $$
 
@@ -1725,15 +1770,15 @@ $$
 1. 対称性から電場の $x$ 成分が 0 であることを説明せよ。
 2. 微小電荷
    $$
-   dq=lambda,dx'
+   dq=\lambda\,dx'
    $$
    が作る $y$ 成分を書け。
 3. 積分して
    $$
    E_y
    =
-   rac{k_elambda L}
-   {ysqrt{y^2+(L/2)^2}}
+   \frac{k_e\lambda L}
+   {y\sqrt{y^2+(L/2)^2}}
    $$
    を示せ。
 
@@ -1765,7 +1810,7 @@ $$
 $$
 R
 =
-sqrt{x'^2+y^2}.
+\sqrt{x'^2+y^2}.
 $$
 
 微小電場は
@@ -1774,7 +1819,7 @@ $$
 dE
 =
 k_e
-rac{lambda,dx'}{R^3}
+\frac{\lambda\,dx'}{R^3}
 (-x',y,0).
 $$
 
@@ -1784,8 +1829,8 @@ $$
 dE_y
 =
 k_e
-lambda
-rac{y,dx'}{(x'^2+y^2)^{3/2}}.
+\lambda
+\frac{y\,dx'}{(x'^2+y^2)^{3/2}}.
 $$
 
 よって
@@ -1793,9 +1838,9 @@ $$
 $$
 E_y
 =
-k_elambda y
-int_{-L/2}^{L/2}
-rac{dx'}{(x'^2+y^2)^{3/2}}.
+k_e\lambda y
+\int_{-L/2}^{L/2}
+\frac{dx'}{(x'^2+y^2)^{3/2}}.
 $$
 
 被積分関数は偶関数なので
@@ -1803,26 +1848,26 @@ $$
 $$
 E_y
 =
-2k_elambda y
-int_0^{L/2}
-rac{dx'}{(x'^2+y^2)^{3/2}}.
+2k_e\lambda y
+\int_0^{L/2}
+\frac{dx'}{(x'^2+y^2)^{3/2}}.
 $$
 
 原始関数は
 
 $$
-rac{x'}{y^2sqrt{x'^2+y^2}}
+\frac{x'}{y^2\sqrt{x'^2+y^2}}
 $$
 
 です。実際、
 
 $$
-rac{d}{dx'}
-left[
-rac{x'}{y^2sqrt{x'^2+y^2}}
-ight]
+\frac{d}{dx'}
+\left[
+\frac{x'}{y^2\sqrt{x'^2+y^2}}
+\right]
 =
-rac{1}{(x'^2+y^2)^{3/2}}.
+\frac{1}{(x'^2+y^2)^{3/2}}.
 $$
 
 従って
@@ -1830,10 +1875,10 @@ $$
 $$
 E_y
 =
-2k_elambda y
-left[
-rac{x'}{y^2sqrt{x'^2+y^2}}
-ight]_0^{L/2}.
+2k_e\lambda y
+\left[
+\frac{x'}{y^2\sqrt{x'^2+y^2}}
+\right]_0^{L/2}.
 $$
 
 上端を代入すると
@@ -1841,34 +1886,34 @@ $$
 $$
 E_y
 =
-2k_elambda y
-rac{L/2}
-{y^2sqrt{(L/2)^2+y^2}}.
+2k_e\lambda y
+\frac{L/2}
+{y^2\sqrt{(L/2)^2+y^2}}.
 $$
 
 整理して
 
 $$
-oxed{
+\boxed{
 E_y
 =
-rac{k_elambda L}
-{ysqrt{y^2+(L/2)^2}}
+\frac{k_e\lambda L}
+{y\sqrt{y^2+(L/2)^2}}
 }.
 $$
 
 したがって
 
 $$
-oxed{
+\boxed{
 E(P)
 =
-left(
+\left(
 0,
-rac{k_elambda L}
-{ysqrt{y^2+(L/2)^2}},
+\frac{k_e\lambda L}
+{y\sqrt{y^2+(L/2)^2}},
 0
-ight)
+\right)
 }.
 $$
 <!-- solution-end -->
@@ -1880,30 +1925,30 @@ $$
 半径 $R$ の上半円
 
 $$
-r'(	heta)
+r'(\theta)
 =
-(Rcos	heta,Rsin	heta,0),
-qquad
-0le	hetalepi
+(R\cos\theta,R\sin\theta,0),
+\qquad
+0\le\theta\le\pi
 $$
 
-に、一定の線電荷密度 $lambda>0$ で電荷が分布している。
+に、一定の線電荷密度 $\lambda>0$ で電荷が分布している。
 
 中心 $O=(0,0,0)$ に質量 $m>0$、電荷 $q_0$ の小さな試験粒子を静かに置く。
 
-1. 微小弧長 $ds$ と微小電荷 $dq$ を $	heta$ で表せ。
+1. 微小弧長 $ds$ と微小電荷 $dq$ を $\theta$ で表せ。
 2. 電荷要素 $dq$ が中心に作る微小電場 $dE$ をベクトルで表せ。
 3. 対称性から $x$ 成分が相殺することを示せ。
 4. $y$ 成分を積分し、
    $$
-   oxed{
+   \boxed{
    E(O)
    =
-   left(
+   \left(
    0,
-   -rac{2k_elambda}{R},
+   -\frac{2k_e\lambda}{R},
    0
-   ight)
+   \right)
    }
    $$
    を導け。
@@ -1915,12 +1960,12 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-円弧の半径は $R$ なので、角度が $d	heta$ だけ増えると微小弧長は
+円弧の半径は $R$ なので、角度が $d\theta$ だけ増えると微小弧長は
 
 $$
 ds
 =
-R,d	heta.
+R\,d\theta.
 $$
 
 従って微小電荷は
@@ -1928,31 +1973,31 @@ $$
 $$
 dq
 =
-lambda,ds
+\lambda\,ds
 =
-lambda R,d	heta.
+\lambda R\,d\theta.
 $$
 
 電荷要素の位置は
 
 $$
-r'(	heta)
+r'(\theta)
 =
-(Rcos	heta,Rsin	heta,0).
+(R\cos\theta,R\sin\theta,0).
 $$
 
 観測点は原点なので、電荷要素から原点への変位は
 
 $$
-O-r'(	heta)
+O-r'(\theta)
 =
-(-Rcos	heta,-Rsin	heta,0).
+(-R\cos\theta,-R\sin\theta,0).
 $$
 
 その大きさは
 
 $$
-|O-r'(	heta)|
+|O-r'(\theta)|
 =
 R.
 $$
@@ -1963,8 +2008,8 @@ $$
 dE
 =
 k_e
-rac{dq}{R^3}
-(-Rcos	heta,-Rsin	heta,0).
+\frac{dq}{R^3}
+(-R\cos\theta,-R\sin\theta,0).
 $$
 
 $R$ を一つ約分して
@@ -1973,14 +2018,14 @@ $$
 dE
 =
 -k_e
-rac{dq}{R^2}
-(cos	heta,sin	heta,0).
+\frac{dq}{R^2}
+(\cos\theta,\sin\theta,0).
 $$
 
 さらに
 
 $$
-dq=lambda R,d	heta
+dq=\lambda R\,d\theta
 $$
 
 を代入すると
@@ -1988,9 +2033,9 @@ $$
 $$
 dE
 =
--rac{k_elambda}{R}
-(cos	heta,sin	heta,0)
-,d	heta.
+-\frac{k_e\lambda}{R}
+(\cos\theta,\sin\theta,0)
+\,d\theta.
 $$
 
 したがって $x$ 成分は
@@ -1998,17 +2043,17 @@ $$
 $$
 E_x
 =
--rac{k_elambda}{R}
-int_0^pi
-cos	heta,d	heta.
+-\frac{k_e\lambda}{R}
+\int_0^\pi
+\cos\theta\,d\theta.
 $$
 
 積分すると
 
 $$
-int_0^picos	heta,d	heta
+\int_0^\pi\cos\theta\,d\theta
 =
-[sin	heta]_0^pi
+[\sin\theta]_0^\pi
 =
 0.
 $$
@@ -2019,25 +2064,25 @@ $$
 E_x=0.
 $$
 
-これは角度 $	heta$ と $pi-	heta$ の電荷要素の $x$ 成分が相殺することに対応します。
+これは角度 $\theta$ と $\pi-\theta$ の電荷要素の $x$ 成分が相殺することに対応します。
 
 $y$ 成分は
 
 $$
 E_y
 =
--rac{k_elambda}{R}
-int_0^pi
-sin	heta,d	heta.
+-\frac{k_e\lambda}{R}
+\int_0^\pi
+\sin\theta\,d\theta.
 $$
 
 ここで
 
 $$
-int_0^pi
-sin	heta,d	heta
+\int_0^\pi
+\sin\theta\,d\theta
 =
-[-cos	heta]_0^pi
+[-\cos\theta]_0^\pi
 =
 2.
 $$
@@ -2047,20 +2092,20 @@ $$
 $$
 E_y
 =
--rac{2k_elambda}{R}.
+-\frac{2k_e\lambda}{R}.
 $$
 
 よって
 
 $$
-oxed{
+\boxed{
 E(O)
 =
-left(
+\left(
 0,
--rac{2k_elambda}{R},
+-\frac{2k_e\lambda}{R},
 0
-ight)
+\right)
 }.
 $$
 
@@ -2085,20 +2130,20 @@ $$
 $$
 a(0)
 =
-rac{q_0}{m}E(O).
+\frac{q_0}{m}E(O).
 $$
 
 従って
 
 $$
-oxed{
+\boxed{
 a(0)
 =
-left(
+\left(
 0,
--rac{2k_elambda q_0}{mR},
+-\frac{2k_e\lambda q_0}{mR},
 0
-ight)
+\right)
 }.
 $$
 
@@ -2107,7 +2152,7 @@ $q_0>0$ なら下向き、$q_0<0$ なら係数の符号が反転して上向き�
 最後に半円の長さは
 
 $$
-pi R
+\pi R
 $$
 
 なので総電荷は
@@ -2115,15 +2160,15 @@ $$
 $$
 Q
 =
-lambdapi R.
+\lambda\pi R.
 $$
 
 従って
 
 $$
-lambda
+\lambda
 =
-rac{Q}{pi R}.
+\frac{Q}{\pi R}.
 $$
 
 これを電場の大きさ
@@ -2131,16 +2176,16 @@ $$
 $$
 |E|
 =
-rac{2k_elambda}{R}
+\frac{2k_e\lambda}{R}
 $$
 
 へ代入すると
 
 $$
-oxed{
+\boxed{
 |E|
 =
-rac{2k_eQ}{pi R^2}
+\frac{2k_eQ}{\pi R^2}
 }.
 $$
 <!-- solution-end -->
