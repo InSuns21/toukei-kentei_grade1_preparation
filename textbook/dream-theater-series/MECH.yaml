@@ -1,7 +1,7 @@
 version: 1
 id: MECH
 title: 古典力学 I
-plan: textbook/plans_progress/DREAM_THEATER_CLASSICAL_MECHANICS_I_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_CLASSICAL_MECHANICS_I_PLAN.md
 chapter_root: textbook/volumes/00_foundations
 
 chapters:
