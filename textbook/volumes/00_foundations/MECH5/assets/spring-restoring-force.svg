@@ -21,8 +21,8 @@
   <line x1="580" y1="105" x2="430" y2="105" stroke="#D55E00" stroke-width="5" marker-end="url(#arrow-f)"/>
   <line x1="470" y1="115" x2="470" y2="300" stroke="#9CA3AF" stroke-width="2" stroke-dasharray="7 7"/>
   <g font-family="Noto Sans CJK JP, sans-serif" font-size="22" fill="#1F2937">
-    <text x="445" y="326">x = 0</text>
-    <text x="555" y="285" fill="#0072B2" font-weight="700">y &gt; 0</text>
+    <text x="420" y="342">x = 0</text>
+    <text x="590" y="310" fill="#0072B2" font-weight="700">y &gt; 0</text>
     <text x="455" y="82" fill="#D55E00" font-weight="700">F = −ky</text>
     <text x="555" y="190">m</text>
   </g>
