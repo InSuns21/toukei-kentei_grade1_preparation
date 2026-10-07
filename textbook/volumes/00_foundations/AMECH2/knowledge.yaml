@@ -1,0 +1,83 @@
+chapter: AMECH2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AMECH1
+
+forward_references:
+  - AMECH3
+
+concepts:
+  - id: analytical-mechanics.ideal-constraint
+    name: 理想拘束
+    kind: definition
+    aliases: [理想拘束, ideal constraint]
+    introduction: formal
+    introduction_aliases: [定義（理想拘束）]
+    requires:
+      - analytical-mechanics.virtual-displacement
+      - analytical-mechanics.generalized-virtual-work
+
+  - id: analytical-mechanics.dalembert-principle
+    name: d'Alembert 原理
+    kind: principle
+    aliases: [d'Alembert principle]
+    introduction: formal
+    introduction_aliases: [原理（d'Alembert 原理）]
+    requires:
+      - analytical-mechanics.ideal-constraint
+      - mechanics.newton-second-law
+
+  - id: analytical-mechanics.generalized-dalembert
+    name: d'Alembert 原理の一般化座標表示
+    kind: proposition
+    aliases: [d'Alembert principle in generalized coordinates]
+    introduction: formal
+    introduction_aliases: [命題（d'Alembert 原理の一般化座標表示）]
+    requires:
+      - analytical-mechanics.dalembert-principle
+      - analytical-mechanics.generalized-coordinates
+      - analytical-mechanics.generalized-force
+
+  - id: analytical-mechanics.kinetic-energy-identity
+    name: 運動エネルギー恒等式
+    kind: proposition
+    aliases: [kinetic-energy identity in generalized coordinates]
+    introduction: formal
+    introduction_aliases: [命題（運動エネルギー恒等式）]
+    requires:
+      - mechanics.kinetic-energy
+      - analytical-mechanics.generalized-velocity
+      - analysis.multivariable-chain-rule
+
+  - id: analytical-mechanics.lagrange-equations
+    name: Lagrange 方程式
+    kind: theorem
+    aliases: [Lagrange equations, Lagrange's equations]
+    introduction: formal
+    introduction_aliases: [定理（Lagrange 方程式）]
+    requires:
+      - analytical-mechanics.generalized-dalembert
+      - analytical-mechanics.kinetic-energy-identity
+
+  - id: analytical-mechanics.mechanical-lagrangian
+    name: 力学的 Lagrangian
+    kind: definition
+    aliases: [mechanical Lagrangian]
+    introduction: formal
+    introduction_aliases: [定義（力学的 Lagrangian）]
+    requires:
+      - mechanics.kinetic-energy
+      - mechanics.potential-energy
+      - analytical-mechanics.lagrange-equations
+
+  - id: analytical-mechanics.conservative-lagrange-equations
+    name: 保存力系の Lagrange 方程式
+    kind: theorem
+    aliases: [Lagrange equations for conservative systems]
+    introduction: formal
+    introduction_aliases: [定理（保存力系の Lagrange 方程式）]
+    requires:
+      - analytical-mechanics.mechanical-lagrangian
+      - mechanics.conservative-force
+      - mechanics.potential-energy
