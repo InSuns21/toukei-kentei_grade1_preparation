@@ -45,7 +45,6 @@ concepts:
     introduction_aliases: [原理（Biot--Savart の法則）]
     requires:
       - electromagnetism.current-density
-      - vector-calculus.cross-product
 
   - id: electromagnetism.straight-wire-magnetic-field
     name: 無限直線電流の磁場
@@ -66,24 +65,3 @@ concepts:
       - electromagnetism.current-density
       - vector-calculus.maxwell-ampere-maxwell
       - vector-calculus.stokes-theorem
-
-  - id: electromagnetism.magnetic-gauss-local
-    name: 磁束に対する Gauss の法則の局所形
-    kind: proposition
-    aliases: [local Gauss law for magnetism]
-    introduction: formal
-    introduction_aliases: [命題（磁束に対する Gauss の法則の局所形）]
-    requires:
-      - vector-calculus.maxwell-gauss-magnetic
-      - vector-calculus.gauss-divergence
-
-  - id: electromagnetism.magnetic-vector-potential-application
-    name: 磁場のベクトルポテンシャル表示
-    kind: proposition
-    aliases: [magnetic vector potential representation]
-    introduction: formal
-    introduction_aliases: [命題（磁場のベクトルポテンシャル表示）]
-    requires:
-      - electromagnetism.magnetic-gauss-local
-      - vector-calculus.vector-potential
-      - vector-calculus.vector-potential-gauge
