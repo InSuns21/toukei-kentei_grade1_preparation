@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" data-layout-lint="strict" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">Coulomb 力の源点と観測点の幾何</title>
+  <desc id="desc">左に位置 r prime の源電荷 q_s、右に位置 r の観測点 P を置き、源点から観測点へ変位ベクトル R equals r minus r prime を矢印で示す。</desc>
+  <rect width="920" height="420" fill="white"/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#0072B2"/>
+    </marker>
+  </defs>
+  <line x1="150" y1="300" x2="790" y2="300" stroke="#9CA3AF" stroke-width="2"/>
+  <circle cx="280" cy="220" r="18" fill="#D55E00"/>
+  <text x="238" y="176" font-family="Noto Sans CJK JP, sans-serif" font-size="24" fill="#1F2937">source q_s</text>
+  <text x="244" y="340" font-family="Noto Sans CJK JP, sans-serif" font-size="22" fill="#1F2937">r′</text>
+  <line x1="280" y1="220" x2="280" y2="300" stroke="#6B7280" stroke-width="2" stroke-dasharray="8 7"/>
+  <circle cx="690" cy="130" r="12" fill="#1F2937"/>
+  <text x="714" y="137" font-family="Noto Sans CJK JP, sans-serif" font-size="24" fill="#1F2937">P</text>
+  <text x="676" y="340" font-family="Noto Sans CJK JP, sans-serif" font-size="22" fill="#1F2937">r</text>
+  <line x1="690" y1="130" x2="690" y2="300" stroke="#6B7280" stroke-width="2" stroke-dasharray="8 7"/>
+  <line x1="304" y1="211" x2="664" y2="139" stroke="#0072B2" stroke-width="5" marker-end="url(#arrow)"/>
+  <text x="430" y="142" font-family="Noto Sans CJK JP, sans-serif" font-size="24" fill="#0072B2">R = r − r′</text>
+</svg>
