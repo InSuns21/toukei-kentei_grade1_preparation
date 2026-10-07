@@ -8,6 +8,14 @@ prerequisites:
 forward_references: []
 
 concepts:
+  - id: mechanics.newton-laws
+    name: Newton の運動法則
+    kind: topic
+    aliases: ["Newton の三法則", "Newton's laws of motion"]
+    introduction: inline
+    introduction_aliases: ["Newton の運動法則"]
+    requires: []
+
   - id: mechanics.mass-force-resultant
     name: 質量・力・合力
     kind: definition
@@ -16,6 +24,16 @@ concepts:
     introduction_aliases: ["定義（質量・力・合力）"]
     requires:
       - mechanics.dimension-and-unit
+
+  - id: mechanics.newton-first-law
+    name: Newton の第1法則
+    kind: principle
+    aliases: ["慣性の法則", "Newton's first law"]
+    introduction: inline
+    introduction_aliases: ["Newton の第1法則"]
+    requires:
+      - mechanics.mass-force-resultant
+      - mechanics.velocity-acceleration
 
   - id: mechanics.inertial-frame
     name: 慣性系
@@ -26,18 +44,27 @@ concepts:
     requires:
       - mechanics.reference-frame
       - mechanics.galilei-kinematics
-      - mechanics.mass-force-resultant
+      - mechanics.newton-first-law
 
-  - id: mechanics.newton-laws
-    name: Newton の運動法則
+  - id: mechanics.newton-second-law
+    name: Newton の第2法則
     kind: principle
-    aliases: ["Newton's laws of motion", "Newton の三法則"]
+    aliases: ["Newton's second law"]
     introduction: inline
-    introduction_aliases: ["Newton の第1法則", "Newton の第2法則", "Newton の第3法則"]
+    introduction_aliases: ["Newton の第2法則"]
     requires:
       - mechanics.mass-force-resultant
       - mechanics.inertial-frame
       - mechanics.velocity-acceleration
+
+  - id: mechanics.newton-third-law
+    name: Newton の第3法則
+    kind: principle
+    aliases: ["作用反作用の法則", "Newton's third law"]
+    introduction: inline
+    introduction_aliases: ["Newton の第3法則"]
+    requires:
+      - mechanics.mass-force-resultant
 
   - id: mechanics.newton-equation-ivp
     name: Newton 方程式を初期値問題として読む
@@ -46,7 +73,7 @@ concepts:
     introduction: inline
     introduction_aliases: ["運動方程式は初期値問題である"]
     requires:
-      - mechanics.newton-laws
+      - mechanics.newton-second-law
       - ode.ode1-initial-boundary-value-problem
 
   - id: mechanics.near-earth-gravity-model
@@ -56,7 +83,7 @@ concepts:
     introduction: inline
     introduction_aliases: ["地表近くの重力"]
     requires:
-      - mechanics.newton-laws
+      - mechanics.newton-second-law
 
   - id: mechanics.hooke-spring-force
     name: Hooke のばね力
@@ -65,7 +92,7 @@ concepts:
     introduction: inline
     introduction_aliases: ["Hooke の法則"]
     requires:
-      - mechanics.newton-laws
+      - mechanics.newton-second-law
 
   - id: mechanics.linear-drag
     name: 線形抵抗力
@@ -79,7 +106,7 @@ concepts:
 
   - id: mechanics.free-fall-near-earth
     name: 地表近くの自由落下
-    kind: proposition
+    kind: result
     aliases: ["free fall near Earth"]
     introduction: inline
     introduction_aliases: ["自由落下"]
@@ -89,7 +116,7 @@ concepts:
 
   - id: mechanics.projectile-motion
     name: 空気抵抗を無視した斜方投射
-    kind: proposition
+    kind: result
     aliases: ["projectile motion without drag"]
     introduction: inline
     introduction_aliases: ["斜方投射"]
@@ -99,9 +126,10 @@ concepts:
 
   - id: mechanics.linear-drag-fall
     name: 線形抵抗下の落下と終端速度
-    kind: proposition
+    kind: result
     aliases: ["fall with linear drag", "terminal velocity under linear drag"]
     introduction: inline
+    introduction_aliases: ["線形抵抗下の落下"]
     requires:
       - mechanics.linear-drag
       - mechanics.near-earth-gravity-model
@@ -109,11 +137,11 @@ concepts:
 
   - id: mechanics.accelerating-frame-inertial-force
     name: 加速座標系と慣性力
-    kind: proposition
+    kind: result
     aliases: ["accelerating frame and inertial force", "fictitious force"]
     introduction: inline
     introduction_aliases: ["加速する基準系では慣性力が現れる"]
     requires:
       - mechanics.inertial-frame
-      - mechanics.newton-laws
+      - mechanics.newton-second-law
       - mechanics.galilei-kinematics
