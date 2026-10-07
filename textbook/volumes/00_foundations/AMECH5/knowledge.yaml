@@ -35,9 +35,9 @@ concepts:
       - analytical-mechanics.regular-lagrangian
 
   - id: analytical-mechanics.hamiltonian
-    name: Hamiltonian
+    name: 解析力学の Hamiltonian
     kind: definition
-    aliases: [Hamilton function]
+    aliases: [mechanical Hamiltonian, Hamilton function]
     introduction: formal
     introduction_aliases: [定義（Hamiltonian）]
     requires:
@@ -54,7 +54,7 @@ concepts:
       - analytical-mechanics.hamiltonian
 
   - id: analytical-mechanics.hamilton-equations
-    name: Hamilton の正準方程式
+    name: 解析力学の Hamilton 正準方程式
     kind: theorem
     aliases: [Hamilton equations, canonical equations of Hamilton]
     introduction: formal
