@@ -1,0 +1,23 @@
+chapter: "AMECH4"
+terms:
+  - term: 一般化運動量
+    english: generalized momentum
+    meaning: 一般化座標 q_j に対応して p_j=partial L/partial dot q_j と定める量。座標に応じて通常の運動量成分や角運動量成分になる。
+  - term: 循環座標
+    english: cyclic coordinate
+    meaning: Lagrangian がその座標 q_a に陽に依存せず partial L/partial q_a=0 となる一般化座標。
+  - term: Lagrangian energy
+    english: Lagrangian energy
+    meaning: E_L=sum_j dot q_j p_j-L で定める量。自然な時間非依存 Lagrangian では通常の力学的エネルギー T+V に一致する。
+  - term: 1パラメータ変換
+    english: one-parameter transformation
+    meaning: 実数 epsilon を変換量として、epsilon=0 で恒等変換になる連続な変換族。
+  - term: 無限小生成方向
+    english: infinitesimal generator
+    meaning: 1パラメータ変換を epsilon=0 で微分して得る配置の一次変化 xi(q,t)。
+  - term: 無限小対称性
+    english: infinitesimal symmetry
+    meaning: 本章では Lagrangian の epsilon 一次変化を 0 にする生成方向 xi と定数時間シフト tau の組。
+  - term: Noether の定理
+    english: Noether theorem
+    meaning: 連続対称性の無限小生成方向から、Lagrange 方程式に沿って一定となる量を構成する定理。

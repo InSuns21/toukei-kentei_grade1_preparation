@@ -1,0 +1,109 @@
+chapter: AMECH4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AMECH3
+
+forward_references: []
+
+concepts:
+  - id: analytical-mechanics.generalized-momentum
+    name: 一般化運動量
+    kind: definition
+    aliases: [generalized momentum, conjugate momentum]
+    introduction: formal
+    introduction_aliases: [定義（一般化運動量）]
+    requires:
+      - analytical-mechanics.lagrange-equations
+      - analytical-mechanics.generalized-coordinates
+
+  - id: analytical-mechanics.cyclic-coordinate
+    name: 循環座標
+    kind: definition
+    aliases: [cyclic coordinate, ignorable coordinate]
+    introduction: formal
+    introduction_aliases: [定義（循環座標）]
+    requires:
+      - analytical-mechanics.generalized-coordinates
+      - analytical-mechanics.mechanical-lagrangian
+
+  - id: analytical-mechanics.cyclic-momentum-conservation
+    name: 循環座標に対応する一般化運動量保存
+    kind: theorem
+    aliases: [conservation of momentum conjugate to a cyclic coordinate]
+    introduction: formal
+    introduction_aliases: [定理（循環座標に対応する一般化運動量保存）]
+    requires:
+      - analytical-mechanics.cyclic-coordinate
+      - analytical-mechanics.generalized-momentum
+      - analytical-mechanics.lagrange-equations
+
+  - id: analytical-mechanics.lagrangian-energy
+    name: Lagrangian energy
+    kind: definition
+    aliases: [energy function of a Lagrangian, Lagrangian energy function]
+    introduction: formal
+    introduction_aliases: [定義（Lagrangian energy）]
+    requires:
+      - analytical-mechanics.generalized-momentum
+
+  - id: analytical-mechanics.lagrangian-energy-balance
+    name: Lagrangian energy の時間変化
+    kind: proposition
+    aliases: [Lagrangian energy balance]
+    introduction: formal
+    introduction_aliases: [命題（Lagrangian energy の時間変化）]
+    requires:
+      - analytical-mechanics.lagrangian-energy
+      - analytical-mechanics.lagrange-equations
+
+  - id: analytical-mechanics.infinitesimal-symmetry
+    name: 無限小対称性
+    kind: definition
+    aliases: [infinitesimal symmetry]
+    introduction: formal
+    introduction_aliases: [定義（無限小対称性・本章の形）]
+    requires:
+      - analytical-mechanics.lagrangian-energy
+      - analytical-mechanics.first-variation
+
+  - id: analytical-mechanics.noether-theorem-finite-dof
+    name: Noether の定理・有限自由度
+    kind: theorem
+    aliases: [Noether の定理, Noether theorem, Noether theorem for finite-dimensional Lagrangian systems]
+    introduction: formal
+    introduction_aliases: [定理（Noether の定理・有限自由度）]
+    requires:
+      - analytical-mechanics.infinitesimal-symmetry
+      - analytical-mechanics.lagrangian-energy-balance
+      - analytical-mechanics.generalized-momentum
+
+  - id: analytical-mechanics.translation-momentum-noether
+    name: 空間並進と運動量
+    kind: proposition
+    aliases: [translation symmetry and momentum]
+    introduction: formal
+    introduction_aliases: [命題（空間並進と運動量）]
+    requires:
+      - analytical-mechanics.noether-theorem-finite-dof
+      - mechanics.linear-momentum
+
+  - id: analytical-mechanics.rotation-angular-momentum-noether
+    name: 回転と角運動量
+    kind: proposition
+    aliases: [rotation symmetry and angular momentum]
+    introduction: formal
+    introduction_aliases: [命題（回転と角運動量）]
+    requires:
+      - analytical-mechanics.noether-theorem-finite-dof
+      - mechanics.angular-momentum
+
+  - id: analytical-mechanics.time-translation-energy-noether
+    name: 時間並進とエネルギー
+    kind: proposition
+    aliases: [time-translation symmetry and energy]
+    introduction: formal
+    introduction_aliases: [命題（時間並進とエネルギー）]
+    requires:
+      - analytical-mechanics.noether-theorem-finite-dof
+      - analytical-mechanics.lagrangian-energy-balance
