@@ -29,7 +29,7 @@ $$
 $$
 \text{静電場の閉曲線積分が 0}
 \longrightarrow
-\text{電位}
+\text{単位電荷あたりのスカラー場}
 \longrightarrow
 E=-\nabla\phi
 \longrightarrow
@@ -39,8 +39,6 @@ E=-\nabla\phi
 $$
 
 です。
-
-この章では、**電位 $\phi$** と **位置エネルギー $U$** を意識して区別します。量子力学でしばしば $V(r)$ と書く Coulomb ポテンシャルはエネルギーであり、電位そのものではありません。
 
 ---
 
@@ -144,6 +142,8 @@ $$
 $$
 
 としても電位差は変わりません。
+
+この章では、**電位 $\phi$** と **位置エネルギー $U$** を意識して区別します。量子力学でしばしば $V(r)$ と書く Coulomb ポテンシャルはエネルギーであり、電位そのものではありません。
 
 <!-- definition-example-start: def-emag3-electric-potential -->
 **定義の確認**\n\n一様電場で確認します。
@@ -2287,7 +2287,7 @@ $$
 - Gauss の法則と $E=-\nabla\phi$ から $-\Delta\phi=\rho/\varepsilon_0$ を導ける。
 - 電荷のない領域では $\Delta\phi=0$ になることを説明できる。
 - 電位 $\phi$ と位置エネルギー $U=q\phi$ の単位と役割を区別できる。
-- 電子と陽子の相互作用から
+- 電子と陽子の組から
   $$
   V(r)=-\frac{e^2}{4\pi\varepsilon_0r}
   $$
