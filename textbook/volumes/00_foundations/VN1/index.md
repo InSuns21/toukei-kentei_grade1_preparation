@@ -1281,6 +1281,7 @@ $$
 
 - Level: A
 
+<!-- solution-start -->
 #### 詳細解答
 
 $\xi=(\xi_k)_{k\ge1}\in\ell^2$ を固定します。
@@ -1339,6 +1340,8 @@ $$
 
 したがってノルム収束はしません。
 
+<!-- solution-end -->
+
 ---
 
 ### A2. rank-one 射影は $0$ へ SOT 収束する
@@ -1357,6 +1360,7 @@ $Q_n\to0$ が SOT で成り立つことを示し、$\|Q_n\|$ を求めよ。
 
 - Level: A
 
+<!-- solution-start -->
 #### 詳細解答
 
 $\xi=(\xi_k)\in\ell^2$ を固定します。
@@ -1409,6 +1413,8 @@ $$
 
 これも SOT 収束がノルム収束より弱いことを示します。
 
+<!-- solution-end -->
+
 ---
 
 ### A3. shift の冪は WOT だが SOT ではない
@@ -1429,6 +1435,7 @@ $$
 
 - Level: A
 
+<!-- solution-start -->
 #### 詳細解答
 
 まず有限支援の $\xi,\eta$ を取ります。
@@ -1477,6 +1484,8 @@ $$
 S^n\not\xrightarrow{\mathrm{SOT}}0.
 $$
 
+<!-- solution-end -->
+
 ---
 
 ### A4. 随伴の SOT 非連続性
@@ -1488,6 +1497,7 @@ $T_n=S^{*n}$ とする。
 
 - Level: A
 
+<!-- solution-start -->
 #### 詳細解答
 
 $\xi=(\xi_1,\xi_2,\ldots)$ に対して
@@ -1546,6 +1556,8 @@ $$
 
 は従わず、随伴写像は SOT 連続ではありません。
 
+<!-- solution-end -->
+
 ---
 
 ## Level B
@@ -1564,6 +1576,7 @@ $$
 
 - Level: B
 
+<!-- solution-start -->
 #### 詳細解答
 
 $$
@@ -1636,6 +1649,8 @@ $$
 
 よってノルム収束です。
 
+<!-- solution-end -->
+
 ---
 
 ### B2. 一様ノルム有界族上での積
@@ -1658,6 +1673,7 @@ $T_\alpha S_\alpha\to TS$ が SOT で成り立つことを証明せよ。
 
 - Level: B
 
+<!-- solution-start -->
 #### 詳細解答
 
 任意の $\xi\in H$ を固定します。
@@ -1708,6 +1724,8 @@ T_\alpha S_\alpha
 TS.
 $$
 
+<!-- solution-end -->
+
 ---
 
 ### B3. WOT では積が単位球上でも共同連続でない
@@ -1728,6 +1746,7 @@ $$
 
 - Level: B
 
+<!-- solution-start -->
 #### 詳細解答
 
 本文から
@@ -1798,6 +1817,8 @@ $$
 
 ですから、この失敗はノルム非有界性のせいではありません。単位球上でも積は WOT 共同連続ではありません。
 
+<!-- solution-end -->
+
 ---
 
 ### B4. WOT と Banach 弱位相を区別する
@@ -1812,6 +1833,7 @@ $B(H)$ を作用素ノルムで Banach 空間とみなす。
 
 - Level: B
 
+<!-- solution-start -->
 #### 詳細解答
 
 まず [Cauchy--Schwarz 不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)を使うと
@@ -1880,6 +1902,8 @@ $$
 
 という点です。
 
+<!-- solution-end -->
+
 ---
 
 ## Level C
@@ -1903,6 +1927,7 @@ $$
 
 - Level: C
 
+<!-- solution-start -->
 #### 詳細解答
 
 まず
@@ -2024,3 +2049,6 @@ M=M''
 $$
 
 で特徴付けられることを示します。
+
+
+<!-- solution-end -->
