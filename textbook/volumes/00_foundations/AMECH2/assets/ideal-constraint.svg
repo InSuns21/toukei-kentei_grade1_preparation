@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" data-layout-lint="strict" viewBox="0 0 840 480" role="img" aria-labelledby="title desc">
+  <title id="title">理想拘束における接線方向の仮想変位と法線方向の拘束反力</title>
+  <desc id="desc">滑らかな拘束曲線上の点 P から、接線方向に仮想変位 delta r、法線方向に拘束反力 R が描かれ、両者が直交することを示す。</desc>
+  <rect width="840" height="480" fill="white"/>
+  <defs>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#0072B2"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#D55E00"/>
+    </marker>
+  </defs>
+
+  <path d="M90 360 C230 250, 360 230, 500 270 C620 305, 705 275, 760 175"
+        fill="none" stroke="#4B5563" stroke-width="5"/>
+
+  <circle cx="430" cy="254" r="11" fill="#111827"/>
+  <text x="446" y="245" font-family="Noto Sans CJK JP, sans-serif" font-size="24" fill="#111827">P</text>
+
+  <line x1="270" y1="218" x2="610" y2="304"
+        stroke="#9CA3AF" stroke-width="2" stroke-dasharray="10 8"/>
+  <text x="290" y="190" font-family="Noto Sans CJK JP, sans-serif" font-size="21" fill="#4B5563">接線</text>
+
+  <line x1="430" y1="254" x2="575" y2="291"
+        stroke="#0072B2" stroke-width="5" marker-end="url(#arrow-blue)"/>
+  <text x="588" y="322" font-family="Noto Sans CJK JP, sans-serif" font-size="24" fill="#0072B2">δr</text>
+
+  <line x1="430" y1="254" x2="389" y2="96"
+        stroke="#D55E00" stroke-width="5" stroke-dasharray="12 8" marker-end="url(#arrow-orange)"/>
+  <text x="340" y="82" font-family="Noto Sans CJK JP, sans-serif" font-size="24" fill="#D55E00">R</text>
+
+  <path d="M451 259 L444 286 L417 279"
+        fill="none" stroke="#111827" stroke-width="3"/>
+</svg>
