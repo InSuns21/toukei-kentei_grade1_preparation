@@ -19,12 +19,12 @@ learning_objectives:
 definitions:
   - { id: MECH8-DEF-01, name: "剛体" }
   - { id: MECH8-DEF-02, name: "固定軸まわりの慣性モーメント" }
-  - { id: MECH8-DEF-03, name: "慣性テンソル" }
+  - { id: MECH8-DEF-03, name: "剛体の慣性テンソル" }
   - { id: MECH8-DEF-04, name: "主軸・主慣性モーメント" }
 theorems:
   - { id: MECH8-PROP-01, name: "固定軸回転の速度" }
   - { id: MECH8-THM-01, name: "平行軸の定理" }
-  - { id: MECH8-THM-02, name: "慣性テンソルによる角運動量と回転エネルギー" }
+  - { id: MECH8-THM-02, name: "剛体の慣性テンソルによる角運動量と回転エネルギー" }
   - { id: MECH8-THM-03, name: "主軸の存在" }
   - { id: MECH8-PROP-02, name: "剛体の運動エネルギー分解" }
   - { id: MECH8-PROP-03, name: "回転基底での時間微分" }
