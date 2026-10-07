@@ -1,0 +1,39 @@
+version: 1
+id: AMECH
+title: 解析力学 I
+plan: textbook/plans_progress/DREAM_THEATER_ANALYTICAL_MECHANICS_I_PLAN.md
+chapter_root: textbook/volumes/00_foundations
+
+chapters:
+  - id: AMECH1
+    path: textbook/volumes/00_foundations/AMECH1
+    status: planned
+    title: 拘束と一般化座標
+  - id: AMECH2
+    path: textbook/volumes/00_foundations/AMECH2
+    status: planned
+    title: d'Alembert 原理と Lagrange 方程式
+  - id: AMECH3
+    path: textbook/volumes/00_foundations/AMECH3
+    status: planned
+    title: 作用積分と Hamilton の原理
+  - id: AMECH4
+    path: textbook/volumes/00_foundations/AMECH4
+    status: planned
+    title: 対称性・循環座標・Noether の定理
+  - id: AMECH5
+    path: textbook/volumes/00_foundations/AMECH5
+    status: planned
+    title: Legendre 変換と Hamilton 形式
+  - id: AMECH6
+    path: textbook/volumes/00_foundations/AMECH6
+    status: planned
+    title: Poisson 括弧と Hamiltonian flow
+  - id: AMECH7
+    path: textbook/volumes/00_foundations/AMECH7
+    status: planned
+    title: 正準変換
+  - id: AMECH8
+    path: textbook/volumes/00_foundations/AMECH8
+    status: planned
+    title: Hamilton--Jacobi 理論
