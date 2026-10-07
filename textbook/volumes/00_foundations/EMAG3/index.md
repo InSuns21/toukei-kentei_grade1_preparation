@@ -329,7 +329,7 @@ $$
 > を満たす点の集合のうち曲面をなす部分を **等電位面**と呼ぶ。
 <!-- formal-statement-end -->
 
-[VC1 の正則レベル曲面と勾配の直交](../VC1/index.md#thm-vc1-level-gradient-normal)から、$\nabla\phi\ne0$ の点では $\nabla\phi$ は等電位面の接方向に直交します。
+[VC1 の正則レベル曲面と勾配の直交](../VC1/index.md#thm-vc1-level-normal)から、$\nabla\phi\ne0$ の点では $\nabla\phi$ は等電位面の接方向に直交します。
 
 しかも
 
@@ -784,7 +784,7 @@ $$
 \nabla\cdot(\nabla\phi).
 $$
 
-[VC1 のスカラー・ラプラシアン](../VC1/index.md#def-vc1-scalar-laplacian)は
+[VC1 のスカラー・ラプラシアン](../VC1/index.md#def-vc1-laplacian)は
 
 $$
 \Delta\phi
