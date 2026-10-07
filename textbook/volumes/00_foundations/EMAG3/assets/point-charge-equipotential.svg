@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-labelledby="title desc" data-layout-lint="strict">
+  <title id="title">正の点電荷の電場と等電位面</title>
+  <desc id="desc">中心の正電荷を囲む三つの同心円が球形等電位面の断面を表し、電場ベクトルは中心から外向きに伸びて各円と直交する。電位は外側ほど低い。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#222"/>
+    </marker>
+  </defs>
+
+  <circle cx="320" cy="180" r="60" fill="none" stroke="#2f6f9f" stroke-width="3" stroke-dasharray="8 6"/>
+  <circle cx="320" cy="180" r="105" fill="none" stroke="#2f6f9f" stroke-width="2.5" stroke-dasharray="12 7"/>
+  <circle cx="320" cy="180" r="150" fill="none" stroke="#2f6f9f" stroke-width="2" stroke-dasharray="4 7"/>
+
+  <line x1="350" y1="180" x2="505" y2="180" stroke="#222" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="290" y1="180" x2="135" y2="180" stroke="#222" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="320" y1="150" x2="320" y2="45" stroke="#222" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="320" y1="210" x2="320" y2="315" stroke="#222" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <circle cx="320" cy="180" r="6" fill="#222"/>
+  <text x="337" y="205" font-size="22" font-family="sans-serif" font-weight="700">+Q</text>
+  <text x="518" y="169" font-size="22" font-family="sans-serif">E</text>
+  <text x="36" y="43" font-size="20" font-family="sans-serif">φ₁ &gt; φ₂ &gt; φ₃ &gt; 0</text>
+</svg>
