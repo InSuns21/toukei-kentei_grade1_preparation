@@ -1,13 +1,13 @@
 version: 1
 updated: 2026-10-07
 
-active_series: MECH
-active_plan: textbook/plan_done/DREAM_THEATER_CLASSICAL_MECHANICS_I_PLAN.md
-series_manifest: textbook/dream-theater-series/MECH.yaml
+active_series: AMECH
+active_plan: textbook/plans_progress/DREAM_THEATER_ANALYTICAL_MECHANICS_I_PLAN.md
+series_manifest: textbook/dream-theater-series/AMECH.yaml
 
-completed_through: MECH8
-next_work: null
-after_next: null
+completed_through: AMECH1
+next_work: AMECH2
+after_next: AMECH3
 
 routing:
   chapter_root: textbook/volumes/00_foundations

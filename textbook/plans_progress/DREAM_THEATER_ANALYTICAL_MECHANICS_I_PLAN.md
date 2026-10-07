@@ -1,7 +1,7 @@
 # DREAM THEATER 解析力学 I コース計画
 
 作成日: 2026-10-07  
-状態: planned
+状態: in_progress
 
 ## 0. 目的
 
@@ -223,3 +223,9 @@ $$
 5. 解析力学 II / 変分問題 / 可積分系 / MQ0 への cross-link
 6. knowledge DAG / public index / series manifest
 7. 数学的完全性・物理的意味の二系統レビュー
+
+
+## 9. 進捗
+
+- 2026-10-07: AMECH1「拘束と一般化座標」を実装・査読し、系列 manifest / routing / public index を更新。
+- 次作業: AMECH2「d'Alembert 原理と Lagrange 方程式」。

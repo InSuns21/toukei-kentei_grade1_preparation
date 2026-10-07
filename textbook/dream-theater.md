@@ -646,3 +646,8 @@
 7. [MECH7 質点系・重心・衝突](textbook/volumes/00_foundations/MECH7/index.md)
 8. [MECH8 剛体の回転](textbook/volumes/00_foundations/MECH8/index.md)
 
+<a id="dt-subject-analytical-mechanics-i"></a>
+### 解析力学 I
+
+1. [AMECH1 拘束と一般化座標](textbook/volumes/00_foundations/AMECH1/index.md)
+
