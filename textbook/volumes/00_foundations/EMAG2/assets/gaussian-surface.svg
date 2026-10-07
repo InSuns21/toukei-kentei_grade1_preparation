@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="360" viewBox="0 0 720 360" role="img" aria-labelledby="title desc" data-layout-lint="strict">
+  <title id="title">Gauss面と包有電荷</title>
+  <desc id="desc">閉曲面の断面模式図。電荷Q_inは閉曲面の内側、q_outは外側にあり、曲面上の一点には外向き単位法線nが描かれている。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#222"/>
+    </marker>
+  </defs>
+  <path d="M 115 187 C 115 92, 213 50, 346 74 C 468 96, 520 166, 477 246 C 438 318, 294 328, 177 286 C 104 260, 79 226, 115 187 Z"
+        fill="none" stroke="#2f6f9f" stroke-width="4"/>
+  <circle cx="290" cy="190" r="8" fill="#222"/>
+  <text x="272" y="222" font-size="24" font-family="sans-serif">Q_in</text>
+  <circle cx="596" cy="205" r="8" fill="#222"/>
+  <text x="572" y="240" font-size="24" font-family="sans-serif">q_out</text>
+  <path d="M 423 100 L 502 54" fill="none" stroke="#222" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="516" y="57" font-size="24" font-family="sans-serif">n</text>
+  <path d="M 401 91 C 419 92, 435 97, 450 105" fill="none" stroke="#222" stroke-width="8" stroke-linecap="round"/>
+  <text x="548" y="116" font-size="22" font-family="sans-serif">dS</text>
+  <text x="190" y="42" font-size="24" font-family="sans-serif">∂Ω</text>
+</svg>

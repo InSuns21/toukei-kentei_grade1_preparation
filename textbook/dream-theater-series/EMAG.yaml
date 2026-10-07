@@ -11,7 +11,7 @@ chapters:
     title: 電荷・Coulomb 力・電場
   - id: EMAG2
     path: textbook/volumes/00_foundations/EMAG2
-    status: planned
+    status: completed
     title: Gauss の法則と静電場
   - id: EMAG3
     path: textbook/volumes/00_foundations/EMAG3
