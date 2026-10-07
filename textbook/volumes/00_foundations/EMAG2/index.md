@@ -244,6 +244,10 @@ $$
 > Gauss 面は実在する膜や物体ではなく、計算のための仮想的な閉曲面である。
 <!-- formal-statement-end -->
 
+下図は閉曲面の断面を模式的に描いたものです。$Q_{\mathrm{in}}$ は閉曲面の内部、$q_{\mathrm{out}}$ は外部にあり、$n$ は面素 $dS$ における外向き単位法線です。Gauss の法則の右辺へ入るのは内部の電荷だけです。
+
+![Gauss 面の断面模式図。閉曲面の内部に Q_in、外部に q_out があり、面素 dS から外向き単位法線 n が伸びている](assets/gaussian-surface.svg)
+
 <!-- definition-example-start: def-emag2-gaussian-surface -->
 **定義の確認：点電荷のまわりの球面**
 
