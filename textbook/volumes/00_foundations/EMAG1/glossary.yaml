@@ -1,0 +1,23 @@
+chapter: "EMAG1"
+terms:
+  - term: 電荷
+    english: electric charge
+    meaning: "電磁相互作用の源となる物理量。符号を持ち、SI単位は coulomb (C) である。本章では点電荷の値を q で表す。"
+  - term: 真空の誘電率
+    english: vacuum permittivity
+    meaning: "真空中の Coulomb の法則に現れる定数 epsilon_0。Coulomb 定数 k_e=1/(4 pi epsilon_0) と対応する。"
+  - term: Coulomb の法則
+    english: Coulomb's law
+    meaning: "静止した2点電荷間の力が電荷の積に比例し、距離の2乗に反比例して両点を結ぶ方向へ働くという経験法則。"
+  - term: 重ね合わせ原理
+    english: superposition principle
+    meaning: "複数の電荷があるとき、個々の電荷が与える電気力または電場をベクトル和して全体を得るという原理。"
+  - term: 電場
+    english: electric field
+    meaning: "固定した電荷源のもとで、位置 r に置いた試験電荷 q_0 に働く力を F=q_0 E(r) と表すベクトル場 E。"
+  - term: 電荷密度
+    english: charge density
+    meaning: "連続分布モデルで単位長さ・単位面積・単位体積あたりの電荷を表す量。線密度 lambda、面密度 sigma、体積密度 rho を用いる。"
+  - term: 電気力線
+    english: electric field line
+    meaning: "各点で接線方向が電場 E の方向と一致するように描く補助曲線。物質や電荷の実際の流線そのものではない。"

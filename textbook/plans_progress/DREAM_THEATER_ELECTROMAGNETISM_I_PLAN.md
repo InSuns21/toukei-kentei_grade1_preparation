@@ -1,7 +1,7 @@
 # DREAM THEATER 電磁気学 I コース計画
 
 作成日: 2026-10-07  
-状態: planned
+状態: in_progress
 
 ## 0. 目的
 
@@ -211,3 +211,11 @@ VC の定理と Maxwell の物理法則を混同しない。たとえば Gauss--
 5. MQ4 への Coulomb-potential cross-link
 6. knowledge DAG / public index / series manifest
 7. 数学的完全性・物理的モデル化の二系統レビュー
+
+
+## 9. 進捗
+
+- 2026-10-08: VC9 / MECH / AMECH との責務重複を確認し、電磁気学 I を着手。
+- 2026-10-08: EMAG1「電荷・Coulomb 力・電場」を実装・査読し、Coulomb の法則、重ね合わせ、電場、連続電荷分布、一様帯電リング、電気力線まで閉じた。
+- 2026-10-08: VC9 は Maxwell 方程式の積分形・微分形を結ぶベクトル解析側、本系列は物理法則・単位・具体計算を閉じる側として責務分担を維持。
+- 次作業: EMAG2「Gauss の法則と静電場」。

@@ -1,0 +1,39 @@
+version: 1
+id: EMAG
+title: 電磁気学 I
+plan: textbook/plans_progress/DREAM_THEATER_ELECTROMAGNETISM_I_PLAN.md
+chapter_root: textbook/volumes/00_foundations
+
+chapters:
+  - id: EMAG1
+    path: textbook/volumes/00_foundations/EMAG1
+    status: completed
+    title: 電荷・Coulomb 力・電場
+  - id: EMAG2
+    path: textbook/volumes/00_foundations/EMAG2
+    status: planned
+    title: Gauss の法則と静電場
+  - id: EMAG3
+    path: textbook/volumes/00_foundations/EMAG3
+    status: planned
+    title: 電位・Poisson 方程式・Coulomb ポテンシャル
+  - id: EMAG4
+    path: textbook/volumes/00_foundations/EMAG4
+    status: planned
+    title: 導体・境界値問題・静電エネルギー
+  - id: EMAG5
+    path: textbook/volumes/00_foundations/EMAG5
+    status: planned
+    title: 電流・磁場・Ampere の法則
+  - id: EMAG6
+    path: textbook/volumes/00_foundations/EMAG6
+    status: planned
+    title: Lorentz 力と荷電粒子
+  - id: EMAG7
+    path: textbook/volumes/00_foundations/EMAG7
+    status: planned
+    title: 電磁誘導と Maxwell 方程式
+  - id: EMAG8
+    path: textbook/volumes/00_foundations/EMAG8
+    status: planned
+    title: 電磁波とエネルギー
