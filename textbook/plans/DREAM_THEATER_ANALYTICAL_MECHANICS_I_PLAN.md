@@ -30,7 +30,7 @@
 
 裳華房の紹介では、解析力学の標準概念として作用積分、Lagrangian、Hamiltonian、正準変数、位相空間、Poisson 括弧が挙げられ、量子力学への接続も明示されている。これを DREAM THEATER の一学期コアの基準とする。
 
-Goldstein 等で扱われる高度な剛体論・Hamilton--Jacobi・正準変換の網羅は必要量を選び、シンプレクティック幾何そのものは別系列へ送る。
+Goldstein 等で扱われる高度な剛体論は必要量を選ぶ。Hamilton--Jacobi は AMECH8 で入口を閉じる一方、シンプレクティック幾何・Lie 群作用・運動量写像・簡約は `DREAM_THEATER_ANALYTICAL_MECHANICS_II_GEOMETRIC_SYMMETRY_PLAN.md`、Liouville--Arnold・作用角変数・Birkhoff・KAM は `DREAM_THEATER_INTEGRABLE_SYSTEMS_PERTURBATION_KAM_PLAN.md` へ送る。
 
 ## 2. prerequisite
 
@@ -181,12 +181,12 @@ $$
 
 本科目に含めない:
 
-- シンプレクティック多様体の一般論
+- シンプレクティック多様体・Lie 群作用・運動量写像・簡約の一般論（解析力学 II）
 - 無限次元 Hamilton 系
 - 場の理論
 - Dirac constraint theory
-- KAM 理論
-- 高度な可積分系
+- Liouville--Arnold・作用角変数・Birkhoff・KAM（可積分系と摂動論）
+- 三体問題・Hamiltonian chaos の発展理論（天体力学系列）
 - 量子化の一般理論
 
 既存 PDE12 の Hamilton--Jacobi 方程式を重複実装しない。
@@ -220,6 +220,6 @@ $$
 2. AMECH1--AMECH4
 3. AMECH5--AMECH6
 4. AMECH7--AMECH8
-5. MQ0 への cross-link
+5. 解析力学 II / 変分問題 / 可積分系 / MQ0 への cross-link
 6. knowledge DAG / public index / series manifest
 7. 数学的完全性・物理的意味の二系統レビュー

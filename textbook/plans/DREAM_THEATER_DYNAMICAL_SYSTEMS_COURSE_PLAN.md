@@ -62,6 +62,29 @@ DREAM THEATER には非線形 ODE・流れ・Lyapunov・周期軌道・分岐の
 - reaction--diffusion への橋
 - pattern formation への出口
 
+### DYN5 不変多様体とホモクリニック構造
+- hyperbolic fixed point / periodic orbit
+- stable / unstable manifold
+- local stable manifold theorem の位置づけ
+- homoclinic / heteroclinic orbit
+- transverse intersection
+- Poincare map
+- global bifurcation
+- Hamiltonian 系への橋
+
+### DYN6 記号力学とカオス
+- topological conjugacy / semi-conjugacy
+- shift map
+- symbolic dynamics
+- Smale horseshoe
+- sensitive dependence
+- topological transitivity
+- periodic points
+- entropy の入口
+- 「複雑そう」と chaos を同一視しない
+
+DYN5--DYN6 は天体力学・三体問題系列で使う一般理論の canonical owner とする。制限三体問題や KAM そのものは CELE / INT 系列へ送る。
+
 ## 4. 前提候補
 
 必須:
@@ -80,6 +103,8 @@ ODE10 の VC4 前提など既存依存は尊重し、科目名だけで一括前
 - 基本的な局所分岐を読める
 - 振動子の位相・同期を扱える
 - 時間スケール分離を発生時計・神経・化学反応へ接続できる
+- 双曲的不変集合・安定/不安定多様体・ホモクリニック交差の意味を説明できる
+- horseshoe と symbolic dynamics を用いて chaos を数学的に説明できる
 
 ## 6. 数理発生学との接続
 
@@ -91,7 +116,8 @@ ODE10 の VC4 前提など既存依存は尊重し、科目名だけで一括前
 
 1. ODE4 / ODE8--11 の役割監査
 2. 公開科目名の再編可否判断
-3. DYN1--DYN4 の重複監査
-4. 新規章実装
-5. knowledge DAG / 公開目次更新
-6. 既存 URL・リンク回帰試験
+3. DYN1--DYN6 の重複監査
+4. DYN1--DYN4 実装
+5. DYN5--DYN6 実装と CELE 系列への cross-link
+6. knowledge DAG / 公開目次更新
+7. 既存 URL・リンク回帰試験

@@ -32,6 +32,11 @@
 | 金融の最適執行・HJB 応用 | `DREAM_THEATER_UNDERGROUND_EMPIRE_PLAN.md` U3（理論は最適制御・HJB・微分ゲーム計画を参照） |
 | Newton 力学・保存則・振動・中心力・2体問題・剛体 | `DREAM_THEATER_CLASSICAL_MECHANICS_I_PLAN.md` |
 | 一般化座標・Lagrangian・Hamiltonian・Poisson 括弧・Hamilton--Jacobi | `DREAM_THEATER_ANALYTICAL_MECHANICS_I_PLAN.md` |
+| シンプレクティック幾何・Lie 群作用・幾何学的 Noether・運動量写像・簡約 | `DREAM_THEATER_ANALYTICAL_MECHANICS_II_GEOMETRIC_SYMMETRY_PLAN.md` |
+| 第二変分・測地線・Jacobi 場・共役点・極小曲面の安定性 | `DREAM_THEATER_VARIATIONAL_PROBLEMS_GEOMETRIC_PLAN.md` |
+| Liouville 可積分性・Liouville--Arnold・作用角変数・Birkhoff 標準形・KAM | `DREAM_THEATER_INTEGRABLE_SYSTEMS_PERTURBATION_KAM_PLAN.md` |
+| 三体問題・制限三体問題・Lagrange 点・天体力学上の非可積分性・Hamiltonian chaos | `DREAM_THEATER_CELESTIAL_MECHANICS_THREE_BODY_CHAOS_PLAN.md` |
+| 一般力学系の不変多様体・分岐・ホモクリニック構造・記号力学・chaos | `DREAM_THEATER_DYNAMICAL_SYSTEMS_COURSE_PLAN.md` |
 | Coulomb / Gauss / Maxwell・電磁ポテンシャル・電磁波 | `DREAM_THEATER_ELECTROMAGNETISM_I_PLAN.md` |
 | Schrödinger 作用素・変分原理・量子調和振動子・水素原子 | `DREAM_THEATER_MATHEMATICAL_QUANTUM_MECHANICS_PLAN.md` |
 
