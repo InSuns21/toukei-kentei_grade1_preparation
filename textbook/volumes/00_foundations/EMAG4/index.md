@@ -350,11 +350,11 @@ $$
 
 同じ領域で、同じ電荷密度 $\rho$ と同じ境界電位を持つ二つの候補
 
-$
+$$
 \phi_1,
 \qquad
 \phi_2
-$
+$$
 
 があると仮定します。
 
@@ -907,29 +907,29 @@ $$
 
 電荷分布を
 
-$
+$$
 \rho_\lambda=\lambda\rho,
 \qquad
 0\le\lambda\le1
-$
+$$
 
 と比例的に組み立てると、Poisson 方程式の線形性から途中の電位は
 
-$
+$$
 \phi_\lambda=\lambda\phi
-$
+$$
 
 です。
 
 $\lambda$ を $\lambda+d\lambda$ へ増やすと追加される電荷密度は
 
-$
+$$
 d\rho=\rho\,d\lambda.
-$
+$$
 
 したがって外力がする微小仕事は
 
-$
+$$
 dU
 =
 \int_{\mathbb R^3}
@@ -939,11 +939,11 @@ dU
 \left(
 \int_{\mathbb R^3}\rho\phi\,dV
 \right)d\lambda.
-$
+$$
 
 $\lambda=0$ から $1$ まで積分すると
 
-$
+$$
 U
 =
 \left(
@@ -953,13 +953,13 @@ U
 =
 \frac12
 \int_{\mathbb R^3}\rho\phi\,dV.
-$
+$$
 
 ここで EMAG3 の
 
-$
+$$
 \rho=-\varepsilon_0\Delta\phi
-$
+$$
 
 を使えば、電荷で書いたエネルギーから電場エネルギーへ移れます。
 
