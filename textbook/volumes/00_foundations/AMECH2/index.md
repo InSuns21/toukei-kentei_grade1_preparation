@@ -1,4 +1,4 @@
-# AMECH2 d'Alembert 原理と Lagrange 方程式
+# AMECH2 ダランベールの原理と Lagrange 方程式
 
 AMECH1 では、拘束を満たす配置を一般化座標で表し、仮想変位と一般化力を導入しました。これで「どちらへ動けるか」は見えるようになりました。
 
@@ -10,7 +10,7 @@ AMECH1 では、拘束を満たす配置を一般化座標で表し、仮想変�
 
 摩擦のない滑らかな拘束では、拘束反力は許される仮想変位に仕事をしません。この性質を使うと、拘束反力を明示的に解かずに、自由度の数だけの運動方程式を得られます。
 
-本章では d'Alembert 原理から出発し、一般化座標での Lagrange 方程式を導きます。さらに保存力の場合に
+本章では、この射影を一般化座標で書き直し、自由度の数だけの運動方程式を導きます。さらに保存力の場合に
 
 $$
 L=T-V
@@ -67,11 +67,9 @@ $$
 <!-- formal-statement-start -->
 > **定義（理想拘束）**  
 > 第 $i$ 粒子に働く拘束反力を $R_i$ とする。時刻を固定した任意の許容仮想変位 $\delta r_i$ に対して
->
-> $$
-> \sum_{i=1}^N R_i\cdot\delta r_i=0
-> $$
->
+$$
+\sum_{i=1}^N R_i\cdot\delta r_i=0
+$$
 > が成り立つとき、その拘束を理想拘束という。
 <!-- formal-statement-end -->
 
@@ -139,7 +137,7 @@ $$
 
 ---
 
-## 3. d'Alembert 原理
+## 3. ダランベールの原理
 
 Newton 方程式
 
@@ -160,33 +158,27 @@ $$
 <a id="thm-amech2-dalembert"></a>
 
 <!-- formal-statement-start -->
-> **原理（d'Alembert 原理）**  
+> **原理（ダランベールの原理）**  
 > $N$ 個の質点からなる系が
->
-> $$
-> m_i a_i=F_i+R_i,
-> \qquad i=1,\ldots,N
-> $$
->
+$$
+m_i a_i=F_i+R_i,
+\qquad i=1,\ldots,N
+$$
 > に従い、拘束反力 $R_i$ が理想拘束条件
->
-> $$
-> \sum_{i=1}^N R_i\cdot\delta r_i=0
-> $$
->
+$$
+\sum_{i=1}^N R_i\cdot\delta r_i=0
+$$
 > を満たすとする。このとき、任意の許容仮想変位に対して
->
-> $$
-> \boxed{
-> \sum_{i=1}^N
-> \left(
-> F_i-m_i a_i
-> \right)\cdot\delta r_i
-> =
-> 0
-> }
-> $$
->
+$$
+\boxed{
+\sum_{i=1}^N
+\left(
+F_i-m_i a_i
+\right)\cdot\delta r_i
+=
+0
+}
+$$
 > が成り立つ。
 <!-- formal-statement-end -->
 
@@ -276,7 +268,7 @@ $$
 
 です。
 
-これを d'Alembert 原理へ代入すると
+これを ダランベールの原理へ代入すると
 
 $$
 \sum_{i=1}^N
@@ -342,29 +334,25 @@ $$
 <a id="prop-amech2-generalized-dalembert"></a>
 
 <!-- formal-statement-start -->
-> **命題（d'Alembert 原理の一般化座標表示）**  
+> **命題（ダランベールの原理の一般化座標表示）**  
 > 一般化座標 $q_1,\ldots,q_n$ が独立で、拘束が理想拘束であるとする。既知の力 $F_i$ に対応する一般化力を
->
-> $$
-> Q_j
-> =
-> \sum_{i=1}^N
-> F_i\cdot
-> \frac{\partial r_i}{\partial q_j}
-> $$
->
+$$
+Q_j
+=
+\sum_{i=1}^N
+F_i\cdot
+\frac{\partial r_i}{\partial q_j}
+$$
 > と定める。このとき各 $j=1,\ldots,n$ について
->
-> $$
-> \boxed{
-> \sum_{i=1}^N
-> m_i a_i\cdot
-> \frac{\partial r_i}{\partial q_j}
-> =
-> Q_j
-> }
-> $$
->
+$$
+\boxed{
+\sum_{i=1}^N
+m_i a_i\cdot
+\frac{\partial r_i}{\partial q_j}
+=
+Q_j
+}
+$$
 > が成り立つ。
 <!-- formal-statement-end -->
 
@@ -408,30 +396,26 @@ $$
 <!-- formal-statement-start -->
 > **命題（運動エネルギー恒等式）**  
 > 各粒子の位置が $r_i=r_i(q,t)$ で表され、必要な二階偏微分が連続であるとする。運動エネルギーを
->
-> $$
-> T(q,\dot q,t)
-> =
-> \frac12
-> \sum_{i=1}^N
-> m_i|v_i|^2
-> $$
->
+$$
+T(q,\dot q,t)
+=
+\frac12
+\sum_{i=1}^N
+m_i|v_i|^2
+$$
 > とする。このとき各 $j=1,\ldots,n$ について
->
-> $$
-> \boxed{
-> \frac{d}{dt}
-> \frac{\partial T}{\partial\dot q_j}
-> -
-> \frac{\partial T}{\partial q_j}
-> =
-> \sum_{i=1}^N
-> m_i a_i\cdot
-> \frac{\partial r_i}{\partial q_j}
-> }
-> $$
->
+$$
+\boxed{
+\frac{d}{dt}
+\frac{\partial T}{\partial\dot q_j}
+-
+\frac{\partial T}{\partial q_j}
+=
+\sum_{i=1}^N
+m_i a_i\cdot
+\frac{\partial r_i}{\partial q_j}
+}
+$$
 > が成り立つ。
 <!-- formal-statement-end -->
 
@@ -626,7 +610,7 @@ $$
 
 ## 6. Lagrange 方程式
 
-d'Alembert 原理の一般化座標表示は
+ダランベールの原理の一般化座標表示は
 
 $$
 \sum_i
@@ -645,46 +629,40 @@ $$
 <!-- formal-statement-start -->
 > **定理（Lagrange 方程式）**  
 > $q_1,\ldots,q_n$ を独立な一般化座標とし、各粒子の位置が $r_i=r_i(q,t)$ で必要なだけ滑らかに表されるとする。拘束は理想拘束とし、拘束反力を除いた力 $F_i$ の一般化力を
->
-> $$
-> Q_j
-> =
-> \sum_{i=1}^N
-> F_i\cdot
-> \frac{\partial r_i}{\partial q_j}
-> $$
->
+$$
+Q_j
+=
+\sum_{i=1}^N
+F_i\cdot
+\frac{\partial r_i}{\partial q_j}
+$$
 > とする。運動エネルギー
->
-> $$
-> T
-> =
-> \frac12
-> \sum_{i=1}^N m_i|v_i|^2
-> $$
->
+$$
+T
+=
+\frac12
+\sum_{i=1}^N m_i|v_i|^2
+$$
 > に対して、運動は
->
-> $$
-> \boxed{
-> \frac{d}{dt}
-> \frac{\partial T}{\partial\dot q_j}
-> -
-> \frac{\partial T}{\partial q_j}
-> =
-> Q_j,
-> \qquad
-> j=1,\ldots,n
-> }
-> $$
->
+$$
+\boxed{
+\frac{d}{dt}
+\frac{\partial T}{\partial\dot q_j}
+-
+\frac{\partial T}{\partial q_j}
+=
+Q_j,
+\qquad
+j=1,\ldots,n
+}
+$$
 > を満たす。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
 
-[d'Alembert 原理の一般化座標表示](#prop-amech2-generalized-dalembert)より
+[ダランベールの原理の一般化座標表示](#prop-amech2-generalized-dalembert)より
 
 $$
 \sum_i
@@ -725,7 +703,7 @@ $$
 
 ---
 
-## 7. 保存力と Lagrangian
+## 7. 保存力とラグランジアン
 
 MECH3 では、保存力がポテンシャルエネルギーから得られることを学びました。
 
@@ -789,16 +767,14 @@ $$
 <a id="def-amech2-mechanical-lagrangian"></a>
 
 <!-- formal-statement-start -->
-> **定義（力学的 Lagrangian）**  
+> **定義（力学的 ラグランジアン）**  
 > 理想ホロノミック拘束のもとで、運動エネルギーを $T(q,\dot q,t)$、速度に依存しないポテンシャルエネルギーを $V(q,t)$ とする。このとき
->
-> $$
-> \boxed{
-> L(q,\dot q,t)=T(q,\dot q,t)-V(q,t)
-> }
-> $$
->
-> を本章で扱う力学的 Lagrangian という。
+$$
+\boxed{
+L(q,\dot q,t)=T(q,\dot q,t)-V(q,t)
+}
+$$
+> を本章で扱う力学的 ラグランジアン という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-amech2-mechanical-lagrangian -->
@@ -832,7 +808,7 @@ $$
 F.
 $$
 
-したがって力学的 Lagrangian は
+したがって力学的 ラグランジアン は
 
 $$
 \boxed{
@@ -850,26 +826,22 @@ $$
 <!-- formal-statement-start -->
 > **定理（保存力系の Lagrange 方程式）**  
 > Lagrange 方程式の仮定に加えて、拘束反力以外の力が速度に依存しないポテンシャル $V(q,t)$ から生じ、
->
-> $$
-> Q_j=-\frac{\partial V}{\partial q_j}
-> $$
->
+$$
+Q_j=-\frac{\partial V}{\partial q_j}
+$$
 > と書けるとする。$L=T-V$ とおけば
->
-> $$
-> \boxed{
-> \frac{d}{dt}
-> \frac{\partial L}{\partial\dot q_j}
-> -
-> \frac{\partial L}{\partial q_j}
-> =
-> 0,
-> \qquad
-> j=1,\ldots,n
-> }
-> $$
->
+$$
+\boxed{
+\frac{d}{dt}
+\frac{\partial L}{\partial\dot q_j}
+-
+\frac{\partial L}{\partial q_j}
+=
+0,
+\qquad
+j=1,\ldots,n
+}
+$$
 > が成り立つ。
 <!-- formal-statement-end -->
 
@@ -919,9 +891,9 @@ $$
 これで示されました。
 <!-- proof-end -->
 
-ここでは $L=T-V$ を d'Alembert 原理から導いた運動方程式の便利なまとめ方として導入しました。
+ここでは $L=T-V$ を ダランベールの原理から導いた運動方程式の便利なまとめ方として導入しました。
 
-次章 AMECH3 では、同じ方程式が作用積分の停留条件からも現れることを学びます。そこで初めて、Lagrangian が変分原理の中心に立つ意味を扱います。
+次章 AMECH3 では、同じ方程式が作用積分の停留条件からも現れることを学びます。そこで初めて、ラグランジアン が変分原理の中心に立つ意味を扱います。
 
 ---
 
@@ -1183,7 +1155,7 @@ $$
 
 これは角運動量保存です。
 
-この段階では、$\phi$ が式に現れないことと保存量の関係を「循環座標」として一般化しません。それは AMECH4 で扱います。ここでは Lagrange 方程式を計算した結果として確認します。
+この段階では、$\phi$ が式に現れないことと一定量が現れることの関係を「循環座標」として一般化しません。それは AMECH4 で扱います。ここでは Lagrange 方程式を計算した結果として確認します。
 
 ---
 
@@ -1418,7 +1390,7 @@ $$
 \sum_iR_i\cdot\delta r_i=0
 $$
 
-により、拘束反力が d'Alembert 原理から消えました。
+により、拘束反力が ダランベールの原理から消えました。
 
 ### 12.3 独立な一般化座標
 
@@ -2184,7 +2156,7 @@ $$
 
 ---
 
-### B3. 連成振動子の同相・逆相モード
+### B3. 連成振動子の同方向・逆方向モード
 
 二つの同質量 $m$ の変位を $x_1,x_2$ とし、
 
@@ -2256,7 +2228,7 @@ m\ddot x_2+(k+\kappa)x_2-\kappa x_1=0
 }.
 $$
 
-同相モード
+同方向モード
 
 $$
 x_1=x_2=A\cos\omega t
@@ -2296,7 +2268,7 @@ $$
 }.
 $$
 
-逆相モード
+逆方向モード
 
 $$
 x_1=-x_2=A\cos\omega t
@@ -2336,7 +2308,7 @@ $$
 }.
 $$
 
-同相モードでは
+同方向モードでは
 
 $$
 x_2-x_1=0
@@ -2344,7 +2316,7 @@ $$
 
 なので結合ばねは伸び縮みせず、復元力に寄与しません。
 
-逆相モードでは二質点が反対方向へ動くため結合ばねの伸び縮みが大きくなり、復元力が増えます。そのため逆相モードの角振動数の方が大きくなります。
+逆方向モードでは二質点が反対方向へ動くため結合ばねの伸び縮みが大きくなり、復元力が増えます。そのため逆方向モードの角振動数の方が大きくなります。
 <!-- solution-end -->
 
 ---
@@ -2406,7 +2378,7 @@ $$
 4. $L=T-V$ を書け。
 5. $\theta$ に関する Lagrange 方程式を導け。
 6. 平衡条件を求めよ。
-7. $\theta=0$ の平衡の線形安定性を調べよ。
+7. $\theta=0$ の平衡の微小なずれが時間とともにどう振る舞うかを調べよ。
 8. この問題でフープからの拘束反力を求めなくても $\theta$ の方程式が得られた理由を説明せよ。
 
 - Level: C
@@ -2664,7 +2636,7 @@ $$
 \Omega^2<\frac{g}{R}
 $$
 
-なら小振動方程式になり、$\theta=0$ は線形安定です。
+なら小振動方程式になり、$\theta=0$ からの微小なずれは振動にとどまります。
 
 一方、
 
@@ -2672,9 +2644,9 @@ $$
 \Omega^2>\frac{g}{R}
 $$
 
-なら係数が負になり、微小ずれが指数的に増えるため線形不安定です。
+なら係数が負になり、微小なずれは指数関数型の解を持って増大します。
 
-この問題では、フープからの反力はフープ接線方向の仮想変位に対して仮想仕事をしません。したがって理想拘束の d'Alembert 原理を一般化座標 $\theta$ に射影すると、拘束反力を明示的に求めずに $\theta$ の運動方程式を得られます。
+この問題では、フープからの反力はフープ接線方向の仮想変位に対して仮想仕事をしません。したがって理想拘束の ダランベールの原理を一般化座標 $\theta$ に射影すると、拘束反力を明示的に求めずに $\theta$ の運動方程式を得られます。
 
 ただしフープが回転しているため、拘束反力の実際の仕事率まで常に 0 とは限りません。AMECH1 で見たように、時間依存拘束では仮想仕事と実際の仕事を区別する必要があります。
 <!-- solution-end -->
@@ -2691,7 +2663,7 @@ $$
   \sum_iR_i\cdot\delta r_i=0
   $$
   が成り立つ。
-- Newton 方程式と理想拘束条件から d'Alembert 原理
+- Newton 方程式と理想拘束条件から ダランベールの原理
   $$
   \sum_i(F_i-m_ia_i)\cdot\delta r_i=0
   $$
