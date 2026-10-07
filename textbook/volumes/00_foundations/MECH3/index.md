@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念**：[MECH2 の Newton の第2法則](../MECH2/index.md#principle-mech2-newton-second)から得た運動方程式を使います。高校物理は前提にしません。
+> **既出概念**：[MECH2 の Newton の第2法則](../MECH2/index.md#principle-mech2-newton-second)から得た運動方程式を使います。
 
 MECH2 では、質点に働く合力 $F_{\mathrm{net}}(t)$ を定めると
 

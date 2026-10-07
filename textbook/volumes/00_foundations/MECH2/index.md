@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念**：[MECH1 運動を測る：位置・速度・加速度](../MECH1/index.md)と[ODE1 一階常微分方程式・初期値問題](../ODE1/index.md)を使います。高校物理は前提にしません。
+> **既出概念**：[MECH1 運動を測る：位置・速度・加速度](../MECH1/index.md)と[ODE1 一階常微分方程式・初期値問題](../ODE1/index.md)を使います。
 
 MECH1 では、観測された位置を軌道 $r(t)$ でモデル化し、
 
