@@ -1439,7 +1439,7 @@ qA\cdot v
 q\phi
 $$
 
-を出発点にして、Euler--Lagrange 方程式から同じ式を得ました。
+を出発点にして、AMECH2 の [Lagrange 方程式](../AMECH2/index.md#thm-amech2-lagrange-equations)から同じ式を得ました。
 
 この二つは競合する記述ではありません。
 
