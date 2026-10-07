@@ -22,7 +22,7 @@ Kakeya を読むためだけに Hausdorff dimension と Frostman lemma の短い
 
 までを一つの科目として閉じる。
 
-Kakeya の研究最前線は本計画の終盤で調和解析 HA8 と合流し、EOM074 へ送る。
+Kakeya の研究最前線は本計画の終盤で独立調和解析 PLAN の HA8 と合流し、EOM074 へ送る。
 
 ## 0.1 範囲校正に用いる標準書
 
@@ -40,7 +40,7 @@ Mattila の全範囲を一学期へ詰め込まず、Frostman / projection / rec
 - Radon measure: MT5--MT6
 - one-dimensional BV: MT4
 - Fourier transform / Plancherel: FOU3--FOU4
-- maximal / singular integral / restriction interface: HA 系列
+- maximal / singular integral / restriction interface: `DREAM_THEATER_HARMONIC_ANALYSIS_PLAN.md` の HA 系列
 - manifold / differential geometry: GEO 系列
 
 本計画はこれらを再実装しない。
