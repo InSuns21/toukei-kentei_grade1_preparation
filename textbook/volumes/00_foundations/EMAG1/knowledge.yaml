@@ -92,7 +92,7 @@ concepts:
     name: 電気力線
     kind: representation
     aliases: [electric field line]
-    introduction: inline
-    introduction_aliases: [電気力線]
+    introduction: formal
+    introduction_aliases: [定義（電気力線）]
     requires:
       - electromagnetism.electric-field
