@@ -1,0 +1,20 @@
+chapter: "AMECH2"
+terms:
+  - term: 理想拘束
+    english: ideal constraint
+    meaning: 拘束反力の任意の許容仮想変位に対する仮想仕事の総和が 0 になる拘束。
+  - term: ダランベールの原理
+    english: d'Alembert principle
+    meaning: 理想拘束のもとで、既知の力と慣性項 F_i-m_i a_i の仮想仕事の総和が任意の許容仮想変位に対して 0 になるという関係。
+  - term: 運動エネルギー恒等式
+    english: kinetic-energy identity in generalized coordinates
+    meaning: sum_i m_i a_i dot partial r_i/partial q_j を d/dt(partial T/partial dot q_j)-partial T/partial q_j に書き換える恒等式。
+  - term: Lagrange 方程式
+    english: Lagrange equations
+    meaning: 理想拘束系の運動を一般化座標で d/dt(partial T/partial dot q_j)-partial T/partial q_j=Q_j と表す方程式。
+  - term: 力学的ラグランジアン
+    english: mechanical Lagrangian
+    meaning: 速度に依存しないポテンシャルを持つ保存力系で L=T-V と定める関数。
+  - term: 非保存一般化力
+    english: nonconservative generalized force
+    meaning: ポテンシャル V から -partial V/partial q_j として表した保存力以外の一般化力。

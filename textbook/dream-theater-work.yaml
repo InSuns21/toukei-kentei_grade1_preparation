@@ -5,9 +5,9 @@ active_series: AMECH
 active_plan: textbook/plans_progress/DREAM_THEATER_ANALYTICAL_MECHANICS_I_PLAN.md
 series_manifest: textbook/dream-theater-series/AMECH.yaml
 
-completed_through: AMECH1
-next_work: AMECH2
-after_next: AMECH3
+completed_through: AMECH2
+next_work: AMECH3
+after_next: AMECH4
 
 routing:
   chapter_root: textbook/volumes/00_foundations

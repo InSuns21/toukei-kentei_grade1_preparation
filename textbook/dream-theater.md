@@ -650,4 +650,5 @@
 ### 解析力学 I
 
 1. [AMECH1 拘束と一般化座標](textbook/volumes/00_foundations/AMECH1/index.md)
+2. [AMECH2 d'Alembert 原理と Lagrange 方程式](textbook/volumes/00_foundations/AMECH2/index.md)
 

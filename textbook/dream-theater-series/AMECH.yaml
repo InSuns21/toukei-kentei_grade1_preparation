@@ -11,7 +11,7 @@ chapters:
     title: 拘束と一般化座標
   - id: AMECH2
     path: textbook/volumes/00_foundations/AMECH2
-    status: planned
+    status: completed
     title: d'Alembert 原理と Lagrange 方程式
   - id: AMECH3
     path: textbook/volumes/00_foundations/AMECH3
