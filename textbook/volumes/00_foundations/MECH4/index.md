@@ -857,7 +857,7 @@ m(\dot r\times\dot r)
 0.
 $$
 
-また Newton の第2法則から
+また [Newton の第2法則](../MECH2/index.md#principle-mech2-newton-second)から
 
 $$
 \dot p
