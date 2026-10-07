@@ -1,0 +1,112 @@
+chapter: AMECH6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AMECH5
+
+forward_references: []
+
+concepts:
+  - id: analytical-mechanics.poisson-bracket
+    name: Poisson 括弧
+    kind: definition
+    aliases: [Poisson bracket]
+    introduction: formal
+    introduction_aliases: [定義（Poisson 括弧）]
+    requires:
+      - analytical-mechanics.phase-space
+
+  - id: analytical-mechanics.canonical-poisson-relations
+    name: 正準座標の基本 Poisson 括弧
+    kind: proposition
+    aliases: [canonical Poisson relations, fundamental Poisson brackets]
+    introduction: formal
+    introduction_aliases: [命題（正準座標の基本 Poisson 括弧）]
+    requires:
+      - analytical-mechanics.poisson-bracket
+
+  - id: analytical-mechanics.poisson-identities
+    name: Poisson 括弧の代数的性質
+    kind: theorem
+    aliases: [Poisson bracket identities]
+    introduction: formal
+    introduction_aliases: [定理（Poisson 括弧の代数的性質）]
+    requires:
+      - analytical-mechanics.poisson-bracket
+
+  - id: analytical-mechanics.poisson-time-evolution
+    name: Poisson 括弧による時間発展
+    kind: theorem
+    aliases: [Hamiltonian time evolution by Poisson bracket]
+    introduction: formal
+    introduction_aliases: [定理（観測量の時間発展）]
+    requires:
+      - analytical-mechanics.poisson-bracket
+      - analytical-mechanics.hamilton-equations
+
+  - id: analytical-mechanics.poisson-conservation-criterion
+    name: Poisson 括弧による保存量判定
+    kind: proposition
+    aliases: [Poisson criterion for conserved quantities]
+    introduction: formal
+    introduction_aliases: [命題（Poisson 括弧による保存量判定）]
+    requires:
+      - analytical-mechanics.poisson-time-evolution
+
+  - id: analytical-mechanics.conserved-bracket
+    name: 保存量の Poisson 括弧
+    kind: proposition
+    aliases: [Poisson bracket of conserved quantities]
+    introduction: formal
+    introduction_aliases: [命題（保存量の Poisson 括弧）]
+    requires:
+      - analytical-mechanics.poisson-identities
+      - analytical-mechanics.poisson-conservation-criterion
+
+  - id: analytical-mechanics.angular-momentum-poisson-relations
+    name: 角運動量の Poisson 括弧
+    kind: proposition
+    aliases: [angular momentum Poisson relations]
+    introduction: formal
+    introduction_aliases: [命題（角運動量の Poisson 括弧）]
+    requires:
+      - analytical-mechanics.poisson-bracket
+      - analytical-mechanics.rotation-angular-momentum-noether
+
+  - id: analytical-mechanics.hamiltonian-vector-field
+    name: Hamiltonian vector field
+    kind: definition
+    aliases: [Hamilton vector field]
+    introduction: formal
+    introduction_aliases: [定義（Hamiltonian vector field）]
+    requires:
+      - analytical-mechanics.hamilton-equations
+      - analytical-mechanics.phase-space
+
+  - id: analytical-mechanics.hamiltonian-flow
+    name: Hamiltonian flow
+    kind: definition
+    aliases: [Hamilton flow]
+    introduction: formal
+    introduction_aliases: [定義（Hamiltonian flow）]
+    requires:
+      - analytical-mechanics.hamiltonian-vector-field
+
+  - id: analytical-mechanics.hamiltonian-divergence-free
+    name: Hamiltonian vector field の発散消失
+    kind: proposition
+    aliases: [divergence-free Hamiltonian vector field]
+    introduction: formal
+    introduction_aliases: [命題（Hamiltonian vector field の発散）]
+    requires:
+      - analytical-mechanics.hamiltonian-vector-field
+
+  - id: analytical-mechanics.liouville-volume-preservation
+    name: Liouville の定理・正準座標版
+    kind: theorem
+    aliases: [Liouville theorem for Hamiltonian flow, phase-volume preservation]
+    introduction: formal
+    introduction_aliases: [定理（Liouville の定理・正準座標版）]
+    requires:
+      - analytical-mechanics.hamiltonian-flow
+      - analytical-mechanics.hamiltonian-divergence-free
