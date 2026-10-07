@@ -1,0 +1,29 @@
+chapter: "MECH4"
+terms:
+  - term: 運動量
+    english: linear momentum
+    meaning: 一定質量 m の質点について p=mv で定めるベクトル量。
+  - term: 力積
+    english: impulse
+    meaning: 力を時間について積分した量 J=∫F dt。運動量の変化 Δp に等しい。
+  - term: 力積―運動量定理
+    english: impulse-momentum theorem
+    meaning: 一定質量の質点について、合力の力積が運動量変化に等しいという関係 Δp=J。
+  - term: 運動量保存
+    english: conservation of linear momentum
+    meaning: 合力が0なら運動量 p が時間に依らず一定になること。
+  - term: トルク
+    english: torque
+    meaning: 固定した基準点からの位置ベクトル r と力 F の外積 τ=r×F で定める回転作用の量。
+  - term: 角運動量
+    english: angular momentum
+    meaning: 固定した基準点に対して L=r×p で定めるベクトル量。
+  - term: 角運動量保存
+    english: conservation of angular momentum
+    meaning: 基準点まわりの合トルクが0なら角運動量 L が時間に依らず一定になること。
+  - term: 動径方向の力
+    english: radial force
+    meaning: 基準点からの位置ベクトル r と平行な力。r×F=0 なのでその基準点まわりのトルクは0になる。
+  - term: 保存則による階数低下
+    english: order reduction by a conservation law
+    meaning: 保存量を用いて二階の運動方程式の一部を一階の関係へ置き換え、運動の自由度を絞る考え方。
