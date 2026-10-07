@@ -63,6 +63,8 @@ DREAM THEATER の「続けて」「planを進めて」では、`textbook/volumes
 
 DREAM THEATER の本文品質・証明粒度・定義例・演習・詳細解答・依存関係・完成条件は、`textbook/DREAM_THEATER_AUTHORING_STANDARD.md` を入口の正本として判定する。必要に応じて `DREAM_THEATER_EXERCISE_POLICY.md`、formal statement / proof presentation guide、knowledge DAG を読む。
 
+図・SVG を追加・変更する場合も同 standard の図・SVG 規約を必ず確認する。ソース上で整っているだけで完成扱いせず、意味のある配置関係、分割の必要性、図中文字の量、ラベルと対象の適切な近接性、色以外の識別手段、実レンダリング時の余白・衝突を査読する。
+
 ### 5. DREAM THEATER の品質
 
 `implemented`、formal statement、proof block、自動検証 green だけで完成扱いしない。prerequisites だけを既知とする独習者が、本文から主要概念・主要定理・核心論証を追い、演習で自力再現できることを完成条件とする。
