@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 520" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" data-layout-lint="strict" viewBox="0 0 980 520" role="img" aria-labelledby="title desc">
   <title id="title">机上の本に働く重力と垂直抗力</title>
   <desc id="desc">左図は実際の作用位置を示し、重力 mg は本の重心 G から下向き、机からの接触力は本の下面に分布して上向きに働く。その分布の合力を N とする。右図は合力だけを示す自由物体図で、N は上向き、mg は下向きである。</desc>
   <rect width="980" height="520" fill="white"/>
