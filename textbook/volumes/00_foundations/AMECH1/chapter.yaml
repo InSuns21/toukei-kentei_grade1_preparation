@@ -1,0 +1,47 @@
+id: "AMECH1"
+title: "拘束と一般化座標"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MECH7
+  - RA6A
+official_scope: []
+learning_objectives:
+  - holonomic constraint を位置座標に対する等式として記述し、独立な拘束の個数と自由度を区別できる
+  - 配置空間を拘束を満たす配置の集合として説明し、局所的な一般化座標でパラメータ化できる
+  - 一般化座標 q から粒子位置 r_i(q,t) を与えたとき、連鎖律から速度を導ける
+  - 仮想変位を時刻を固定した許容変位として定義し、実際の微小時間発展との違いを説明できる
+  - holonomic constraint の下で仮想変位が拘束面の接方向にあることを連鎖律で確認できる
+  - 一般化力 Q_j=sum_i F_i dot partial r_i/partial q_j を導き、仮想仕事を一般化座標で表せる
+  - 極座標の速度・加速度を基底の時間変化まで含めて導き、直交座標での Newton 方程式との違いを説明できる
+  - 振り子・球面・時間依存拘束の具体例で自由度・一般化座標・仮想変位を判定できる
+definitions:
+  - { id: AMECH1-DEF-01, name: "holonomic constraint" }
+  - { id: AMECH1-DEF-02, name: "配置空間・自由度" }
+  - { id: AMECH1-DEF-03, name: "一般化座標" }
+  - { id: AMECH1-DEF-04, name: "仮想変位" }
+  - { id: AMECH1-DEF-05, name: "一般化力" }
+theorems:
+  - { id: AMECH1-PROP-01, name: "一般化座標による速度公式" }
+  - { id: AMECH1-PROP-02, name: "holonomic constraint と仮想変位の接方向性" }
+  - { id: AMECH1-PROP-03, name: "一般化力と仮想仕事" }
+  - { id: AMECH1-PROP-04, name: "平面極座標の速度・加速度" }
+canonical_examples:
+  - "単振り子の円拘束を角度 theta 一つで表す例"
+  - "球面上の質点を二つの角度で局所的に表し、極で座標が退化する例"
+  - "時間依存半径 R(t) の円周上の質点で実変位と仮想変位を区別する例"
+  - "重力の一般化力 Q_theta=-mgl sin theta を直接計算する例"
+  - "極座標の基底ベクトルを微分して遠心項・Coriolis型の項が現れることを確認する例"
+problem_patterns:
+  - AMECH1-CONSTRAINT-DOF-1
+  - AMECH1-GENERALIZED-COORDINATE-1
+  - AMECH1-VIRTUAL-DISPLACEMENT-1
+  - AMECH1-GENERALIZED-FORCE-1
+  - AMECH1-SPHERE-COORDINATES-1
+  - AMECH1-POLAR-KINEMATICS-1
+  - AMECH1-RHEONOMOUS-CONSTRAINT-1
+  - AMECH1-INTEGRATED-CONSTRAINTS-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 1.0 }
