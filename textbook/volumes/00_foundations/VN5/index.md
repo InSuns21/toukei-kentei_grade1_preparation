@@ -307,7 +307,7 @@ $$
 
 まず $T\ge0$ とします。
 
-$T$ は正の trace class 作用素なので、FA7 のコンパクト自己共役スペクトル定理により、正規直交系 $(e_n)$ と非負数列 $(t_n)$ を使って
+$T$ は正の trace class 作用素なので、[コンパクト自己共役作用素のスペクトル定理](../FA7/index.md#thm-fa7-compact-self-adjoint-spectral)により、正規直交系 $(e_n)$ と非負数列 $(t_n)$ を使って
 
 $$
 T
@@ -1194,7 +1194,7 @@ $$
 
 再び有限次元部分空間 $F$ と射影 $P_F$ を取ります。
 
-正線形汎関数の Cauchy--Schwarz 不等式から
+[正線形汎関数の Cauchy--Schwarz 不等式](../OA5/index.md#thm-oa5-positive-cauchy-schwarz)から
 
 $$
 \begin{aligned}
@@ -1622,7 +1622,7 @@ $$
 \|A^{1/2}e_n\|^2.
 $$
 
-Parseval の等式を使うと
+[Parseval の等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-parseval-identity)を使うと
 
 $$
 \begin{aligned}
@@ -2293,6 +2293,7 @@ $$
 
 - Level: A
 
+<!-- solution-start -->
 #### 詳細解答
 
 $\rho$ の固有値は
@@ -2375,6 +2376,8 @@ $$
 
 は $B(H)_*=S_1(H)$ の元です。したがって ultraweak 連続、すなわち正規です。
 
+<!-- solution-end -->
+
 ---
 
 ### A2. ベクトル状態の密度作用素
@@ -2400,6 +2403,7 @@ $$
 
 - Level: A
 
+<!-- solution-start -->
 #### 詳細解答
 
 任意の $x\in H$ に対し
@@ -2454,6 +2458,8 @@ $$
 
 密度作用素が作る状態は正規なので、ベクトル状態は正規状態です。
 
+<!-- solution-end -->
+
 ---
 
 ### A3. 対角密度作用素と増大射影
@@ -2485,6 +2491,7 @@ $$
 
 - Level: A
 
+<!-- solution-start -->
 #### 詳細解答
 
 $\rho$ は正の対角作用素です。
@@ -2557,6 +2564,8 @@ $$
 
 という正規な正汎関数の射影単調連続性を、そのまま級数の部分和として確認したことになります。
 
+<!-- solution-end -->
+
 ---
 
 ### A4. $M_n(\mathbb C)$ の正規化トレース
@@ -2578,6 +2587,7 @@ $$
 
 - Level: A
 
+<!-- solution-start -->
 #### 詳細解答
 
 $n$ 次単位行列のトレースは $n$ なので
@@ -2630,6 +2640,8 @@ $$
 }.
 $$
 
+<!-- solution-end -->
+
 ---
 
 ## Level B
@@ -2656,6 +2668,7 @@ $$
 
 - Level: B
 
+<!-- solution-start -->
 #### 詳細解答
 
 任意の $x,y\in H$ を取ります。
@@ -2714,6 +2727,8 @@ $$
 
 rank-one 作用素だけで全ての行列係数を読み取れることが、一意性の核心です。
 
+<!-- solution-end -->
+
 ---
 
 ### B2. 射影単調連続性から trace class を取り出す
@@ -2762,6 +2777,7 @@ $$
 
 - Level: B
 
+<!-- solution-start -->
 #### 詳細解答
 
 任意の $x\in H$ に対して
@@ -2884,6 +2900,8 @@ $$
 
 これが本文の正規性判定定理で、射影の極限条件から trace class 性が現れる核心部分です。
 
+<!-- solution-end -->
+
 ---
 
 ### B3. 密度作用素が作る状態の忠実性
@@ -2910,6 +2928,7 @@ $$
 
 - Level: B
 
+<!-- solution-start -->
 #### 詳細解答
 
 まず $\ker\rho\ne\{0\}$ とします。
@@ -3052,6 +3071,8 @@ $$
 }.
 $$
 
+<!-- solution-end -->
+
 ---
 
 ### B4. $B(\ell^2)$ の標準トレースは状態ではないが半有限である
@@ -3083,6 +3104,7 @@ $H=\ell^2(\mathbb N)$ とし、$B(H)$ の標準トレースを $\operatorname{Tr
 
 - Level: B
 
+<!-- solution-start -->
 #### 詳細解答
 
 標準基底を $(e_n)$ とすると
@@ -3171,6 +3193,8 @@ $$
 
 です。
 
+<!-- solution-end -->
+
 ---
 
 ## Level C
@@ -3228,6 +3252,7 @@ $$
 
 - Level: C
 
+<!-- solution-start -->
 #### 詳細解答
 
 まず
@@ -3440,7 +3465,7 @@ $$
 }.
 $$
 
-$\rho$ は密度作用素なので、正規状態と密度作用素の対応定理から
+$\rho$ は密度作用素なので、[正規状態と密度作用素の対応](#thm-vn5-density-state-correspondence)から
 
 $$
 \boxed{
@@ -3541,3 +3566,5 @@ $$
 $$
 
 を再構成し、さらに状態と半有限トレースの違いまで接続しました。
+
+<!-- solution-end -->
