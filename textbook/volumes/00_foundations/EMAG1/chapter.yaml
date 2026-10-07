@@ -24,6 +24,9 @@ definitions:
   - { id: EMAG1-DEF-02, name: "連続電荷分布の密度" }
   - { id: EMAG1-DEF-03, name: "電気力線" }
 theorems:
+  - { id: EMAG1-PRINCIPLE-01, name: "電荷保存" }
+  - { id: EMAG1-PRINCIPLE-02, name: "Coulomb の法則" }
+  - { id: EMAG1-PRINCIPLE-03, name: "重ね合わせ原理" }
   - { id: EMAG1-PROP-01, name: "点電荷系が作る電場" }
   - { id: EMAG1-PROP-02, name: "連続電荷分布が作る電場" }
 canonical_examples:
