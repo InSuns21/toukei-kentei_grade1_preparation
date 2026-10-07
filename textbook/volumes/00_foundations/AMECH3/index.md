@@ -217,6 +217,8 @@ $$
 <!-- definition-example-start: def-amech3-fixed-end-variation -->
 ### 例：端点で確かに消える変分
 
+**定義の確認**
+
 区間 $[0,T]$ で、固定ベクトル $u\in\mathbb R^n$ に対し
 
 $$
@@ -312,6 +314,8 @@ $$
 
 <!-- definition-example-start: def-amech3-first-variation -->
 ### 例：自由粒子で第一変分を直接見る
+
+**定義の確認**
 
 一次元自由粒子
 
