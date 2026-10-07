@@ -4,7 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - AMECH7
-  - MECH7
+  - MECH6
 official_scope: []
 learning_objectives:
   - 第2種母関数で新 Hamiltonian K=0 を要求し Hamilton--Jacobi 方程式を導ける
