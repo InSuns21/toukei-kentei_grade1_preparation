@@ -6,6 +6,7 @@ prerequisites:
   - EMAG1
   - VC3
   - VC4
+  - VC9
 official_scope: []
 learning_objectives:
   - 向き付けられた曲面を貫く電束を定義し、閉曲面では外向き法線を用いる理由を説明できる
