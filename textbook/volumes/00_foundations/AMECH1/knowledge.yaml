@@ -11,11 +11,11 @@ forward_references:
 
 concepts:
   - id: analytical-mechanics.holonomic-constraint
-    name: holonomic constraint
+    name: ホロノミック拘束
     kind: definition
     aliases: [ホロノミック拘束, holonomic constraint]
     introduction: formal
-    introduction_aliases: [定義（holonomic constraint）]
+    introduction_aliases: [定義（ホロノミック拘束）]
     requires:
       - mechanics.point-particle-trajectory
       - analysis.multivariable-differentiability
@@ -60,11 +60,11 @@ concepts:
       - analytical-mechanics.generalized-coordinates
 
   - id: analytical-mechanics.virtual-displacement-tangent
-    name: holonomic constraint と仮想変位の接方向性
+    name: ホロノミック拘束と仮想変位の接方向性
     kind: proposition
     aliases: [virtual displacement tangent to holonomic constraints]
     introduction: formal
-    introduction_aliases: [命題（holonomic constraint と仮想変位の接方向性）]
+    introduction_aliases: [命題（ホロノミック拘束と仮想変位の接方向性）]
     requires:
       - analytical-mechanics.holonomic-constraint
       - analytical-mechanics.virtual-displacement
