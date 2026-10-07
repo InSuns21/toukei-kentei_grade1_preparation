@@ -1,7 +1,7 @@
 # DREAM THEATER 古典力学 I コース計画
 
 作成日: 2026-10-07  
-状態: in_progress
+状態: completed
 
 ## 0. 目的
 
@@ -283,10 +283,10 @@ $$
 1. ✅ 既存 ODE / VC / PDE / 力学系 / 連続体力学との重複監査
 2. ✅ MECH1--MECH4
 3. MECH5 ✅ / MECH6 ✅
-4. MECH7 ✅ / MECH8
-5. 解析力学 I への cross-link
-6. knowledge DAG / public index / series manifest
-7. 数学的完全性と物理的モデル化の二系統レビュー
+4. ✅ MECH7 / MECH8
+5. ✅ 解析力学 I への cross-link
+6. ✅ knowledge DAG / public index / series manifest
+7. ✅ 数学的完全性と物理的モデル化の二系統レビュー
 
 
 ### 着手監査（2026-10-07）
@@ -300,3 +300,15 @@ $$
 - MECH series manifest を初期化し、work-state を MECH1 に向ける。public index / knowledge DAG への章登録は、未実装パスを公開しないため各章実装時に行う。
 - MECH1--MECH7 を実装済み。MECH1 には円運動・Galilei 変換、MECH2 には自由物体図・斜方投射・線形抵抗下の落下、MECH3 には一次元ポテンシャル・許容領域・転回点・力の向き、および位置―速度平面の等エネルギー楕円を対応づける SVG を追加した。MECH4 には位置ベクトル・運動量・力の作用点と角運動量・トルクの外積方向、MECH5 にはばねの変位と復元力および減衰強制振動の応答、MECH6 には中心力軌道・万有引力の有効ポテンシャル・Kepler 楕円の幾何、MECH7 には二質点・重心・相対座標と一次元衝突前後の速度配置を対応づける SVG を追加した。各図は図版共通チェックポイントで本文・数式との整合、作用点、色以外の識別手段、通常幅・縮小幅での可読性を監査する。
 - MECH1--MECH7 の記法監査を実施し、位置ベクトルを $r$、速度を $v$、加速度を $a$ とする古典力学側の主記法へ統一した。MECH1 でドット記法を明示的に導入し、MECH2 では $F_{\mathrm{net}}=ma$ と個別の力モデルを分離、MECH3--MECH4 でも一般化座標 $q$ を主記法から除いた。MECH5 は一次元の位置 $x(t)$ と平衡点からの変位 $y(t)$、MECH6 は中心からの距離 $\rho(t)$・軌道角 $\theta(t)$・保存角運動量 $\ell$、MECH7 は重心 $R(t)$・相対位置 $r(t)=r_1(t)-r_2(t)$・換算質量 $\mu$ を用い、解析力学の一般化座標を先取りしない。
+
+
+### 完了監査（2026-10-07）
+
+- MECH8「剛体の回転」を実装し、剛体・固定軸回転・慣性モーメント・平行軸の定理・剛体の慣性テンソル・主軸・回転基底での時間微分・Euler の剛体方程式までを本文内で接続した。
+- 主軸の存在は F0-00F1 の実対称行列のスペクトル定理を prerequisite として明示し、一般の瞬間角速度は回転正規直交基底の反対称行列から成分計算で導いた。
+- 自由剛体の重心まわりの角運動量収支では、Newton 第3法則に加えて理想的な距離拘束力が二点を結ぶ方向に沿う仮定を明示し、内力トルクが対ごとに消えることを確認した。
+- MECH8 に固定軸・主軸・角速度・角運動量の関係を示す SVG を追加し、図中文字と幾何要素の衝突を SVG lint で確認した。
+- MECH8 の演習は Level A 4題、Level B 3題、Level C 1題を実装し、全問に詳細解答を付けた。
+- MECH8 第14節で解析力学 I への概念的な接続を示した。未実装の後続章へ読者向けリンクは作らず、一般化座標・Lagrange/Hamilton 形式へ進む役割分担だけを明示した。
+- public index、DREAM THEATER 目次、MECH series manifest、work-state を MECH8 完了へ更新した。
+- PR #826 の MECH8 実装 head で Validate textbook / DREAM THEATER concepts / DREAM THEATER exercises / terminology / Pages assembly がすべて green であることを確認した。
