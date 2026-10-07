@@ -1,0 +1,43 @@
+id: "MECH1"
+title: "運動を測る：位置・速度・加速度"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RA3
+  - F0-00E1
+official_scope: []
+learning_objectives:
+  - 物理量の次元と単位を区別し、長さ・速度・加速度の次元を用いて式の整合性を確認できる
+  - 質点・基準系・位置ベクトル・軌道を区別し、観測値から軌道関数を置くことがモデル化であると説明できる
+  - 軌道 r(t) から速度 v(t)=r'(t)、速さ |v(t)|、加速度 a(t)=r''(t) を計算できる
+  - 一定加速度の仮定から速度が一次関数、位置が二次関数になることを平均値定理を用いて導ける
+  - 円運動の速度と加速度を計算し、速さ一定でも加速度が非零になり得ることを説明できる
+  - 等速移動する基準系間の Galilei 変換を使い、速度の変換則と加速度の不変性を導ける
+  - 離散的な位置測定と二回微分可能な軌道モデルを区別し、速度・加速度の推定に必要な仮定を説明できる
+definitions:
+  - { id: MECH1-DEF-01, name: "物理量の次元と単位" }
+  - { id: MECH1-DEF-02, name: "質点・位置ベクトル・軌道" }
+  - { id: MECH1-DEF-03, name: "質点の速度・速さ・加速度" }
+  - { id: MECH1-DEF-04, name: "等速移動する座標系間の Galilei 変換" }
+theorems:
+  - { id: MECH1-PROP-01, name: "一定加速度の位置と速度" }
+  - { id: MECH1-PROP-02, name: "等速円運動の速度と加速度" }
+  - { id: MECH1-PROP-03, name: "Galilei 変換における速度・加速度" }
+canonical_examples:
+  - "多項式軌道から位置・速度・加速度を順に計算する例"
+  - "等速円運動で速さ一定でも中心向き加速度が生じる例"
+  - "等速列車内の静止物体を地上系と列車系で記述する例"
+  - "三つの離散位置測定を二次関数で補間し、モデル仮定と派生量を区別する例"
+problem_patterns:
+  - MECH1-DIMENSION-UNIT-1
+  - MECH1-POLYNOMIAL-KINEMATICS-1
+  - MECH1-CIRCULAR-MOTION-1
+  - MECH1-GALILEI-TRANSFORM-1
+  - MECH1-CONSTANT-ACCELERATION-1
+  - MECH1-TANGENT-VELOCITY-1
+  - MECH1-DATA-MODEL-1
+  - MECH1-MOVING-CIRCLE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.0, review: 1.0 }
