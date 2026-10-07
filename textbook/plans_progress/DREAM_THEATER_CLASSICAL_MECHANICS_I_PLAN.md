@@ -279,4 +279,4 @@ $$
 - 力学系 PLAN は ODE4 / ODE8--ODE11 と高度な分岐・不変多様体・カオスを canonical owner とする。古典力学 I は保存則・振動・中心力の物理的意味と標準計算に留める。
 - 連続体力学 PLAN は deformation / strain / stress / balance law を canonical owner とする。古典力学 I の剛体・質点系から連続体へ責務を越境させない。
 - MECH series manifest を初期化し、work-state を MECH1 に向ける。public index / knowledge DAG への章登録は、未実装パスを公開しないため各章実装時に行う。
-- MECH1 と MECH2 を実装済み。MECH1 には円運動・Galilei 変換、MECH2 には自由物体図・斜方投射・線形抵抗下の落下の SVG を追加し、図版共通チェックポイントで本文・数式との整合を監査する。
+- MECH1--MECH3 を実装済み。MECH1 には円運動・Galilei 変換、MECH2 には自由物体図・斜方投射・線形抵抗下の落下、MECH3 には一次元ポテンシャル・許容領域・転回点・力の向きを対応づける SVG を追加し、図版共通チェックポイントで本文・数式との整合を監査する。
