@@ -39,7 +39,7 @@ $$
 ここで最初から区別しておくべき二つがあります。
 
 - **Gauss の法則**：電荷と電場を結ぶ電磁気学の物理法則
-- **Gauss--Ostrogradsky の発散定理**：ベクトル場の発散の体積積分と境界流束を結ぶ数学定理
+- **[Gauss--Ostrogradsky の[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)](../VC4/index.md#thm-vc4-gauss-divergence)**：ベクトル場の発散の体積積分と境界流束を結ぶ数学定理
 
 名前は似ていますが、役割は別です。この区別を保ったまま、両者がどう接続するかを見ます。
 
@@ -209,7 +209,7 @@ $$
 
 という **電場と電荷の関係**です。
 
-発散定理だけから、右辺に電荷が現れることは出てきません。逆に Gauss の法則だけから、一般のベクトル場について発散定理が成立することも出てきません。
+[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)だけから、右辺に電荷が現れることは出てきません。逆に Gauss の法則だけから、一般のベクトル場について[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)が成立することも出てきません。
 
 両者を組み合わせることで、後で
 
@@ -241,7 +241,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（Gauss 面）**  
-> Gauss の法則を用いて電場または包有電荷を計算するために、電荷配置の対称性に合わせて補助的に選ぶ閉曲面を **Gauss 面**と呼ぶ。
+> [Gauss の法則](../VC9/index.md#principle-vc9-maxwell-integral)を用いて電場または包有電荷を計算するために、電荷配置の対称性に合わせて補助的に選ぶ閉曲面を **Gauss 面**と呼ぶ。
 >
 > Gauss 面は実在する膜や物体ではなく、計算のための仮想的な閉曲面である。
 <!-- formal-statement-end -->
@@ -382,7 +382,7 @@ $$
 
 原点以外では Coulomb 場の発散は 0 です。
 
-原点が閉曲面の外なら、そのまま発散定理を使えます。原点が内側なら、原点を含む小球をくり抜いてから発散定理を使います。くり抜いた内側境界の向きが反転することが核心です。
+原点が閉曲面の外なら、そのまま[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)を使えます。原点が内側なら、原点を含む小球をくり抜いてから[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)を使います。くり抜いた内側境界の向きが反転することが核心です。
 
 <!-- proof-start -->
 ### 証明
@@ -507,7 +507,7 @@ $$
 
 です。
 
-発散定理を $\Omega_a$ に適用すると
+[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)を $\Omega_a$ に適用すると
 
 $$
 0
@@ -741,7 +741,7 @@ $$
 4\pi r^2E_r(r).
 $$
 
-Gauss の法則から
+[Gauss の法則](../VC9/index.md#principle-vc9-maxwell-integral)から
 
 $$
 4\pi r^2E_r(r)
@@ -941,7 +941,7 @@ Q_{\mathrm{in}}
 \lambda L.
 $$
 
-Gauss の法則より
+[Gauss の法則](../VC9/index.md#principle-vc9-maxwell-integral)より
 
 $$
 2\pi sL E_s(s)
@@ -1052,7 +1052,7 @@ Q_{\mathrm{in}}
 \sigma A.
 $$
 
-Gauss の法則より
+[Gauss の法則](../VC9/index.md#principle-vc9-maxwell-integral)より
 
 $$
 2E_0A
@@ -1081,6 +1081,8 @@ $$
 $\sigma>0$ なら電場は平面から両側へ離れる向き、$\sigma<0$ なら平面へ向かう向きです。
 
 ---
+
+<a id="ref-emag2-gauss-differential"></a>
 
 ## 9. 積分形から微分形へ
 
@@ -1151,9 +1153,7 @@ $$
 
 であり、
 
-<a id="ref-emag2-gauss-differential"></a>
-
-$$
+$
 \boxed{
 \nabla\cdot E
 =
@@ -1172,7 +1172,7 @@ $$
 \int_\Omega\rho\,dV
 $$
 
-とし、左辺へ発散定理を適用すれば積分形へ戻ります。
+とし、左辺へ[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)を適用すれば積分形へ戻ります。
 
 四本の Maxwell 方程式について同じ変換をまとめた完全な位置付けは、[VC9 の Maxwell 方程式の積分形と微分形](../VC9/index.md#thm-vc9-maxwell-differential)にあります。本章では電場の Gauss 則だけを静電場の計算へ具体化しました。
 
@@ -1215,9 +1215,9 @@ $$
 \nabla\cdot E=0
 $$
 
-だと思ってしまうと、発散定理から閉曲面流束まで 0 になるはずで、矛盾します。
+だと思ってしまうと、[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)から閉曲面流束まで 0 になるはずで、矛盾します。
 
-矛盾の原因は、**原点で $E$ が定義されず、通常の発散定理の仮定を満たさない**ことです。
+矛盾の原因は、**原点で $E$ が定義されず、通常の[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)の仮定を満たさない**ことです。
 
 点に集中した電荷を局所式でも表すには、通常の関数より広い「分布」という道具を使います。
 
@@ -1320,7 +1320,7 @@ $$
 \nabla\cdot E=0
 $$
 
-なので、発散定理から
+なので、[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)から
 
 $$
 \int_{\partial\Omega}E\cdot n\,dS=0
@@ -1365,8 +1365,8 @@ $$
 本章では次を組み立てました。
 
 1. 電束を向き付き曲面積分として定義できる。
-2. Gauss の法則と Gauss--Ostrogradsky の発散定理を、物理法則と数学定理として区別できる。
-3. 点電荷の Coulomb 場について、原点をくり抜いた領域に発散定理を使い、閉曲面流束を再現できる。
+2. Gauss の法則と [Gauss--Ostrogradsky の[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)](../VC4/index.md#thm-vc4-gauss-divergence)を、物理法則と数学定理として区別できる。
+3. 点電荷の Coulomb 場について、原点をくり抜いた領域に[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)を使い、閉曲面流束を再現できる。
 4. Gauss 面は対称性を作るものではなく、既存の対称性を計算へ利用する補助曲面だと説明できる。
 5. 球対称分布について包有電荷 $Q(r)$ から電場を求められる。
 6. 無限直線電荷について円筒形 Gauss 面から $1/s$ の電場を導ける。
@@ -1375,7 +1375,7 @@ $$
    $$
    \nabla\cdot E=\rho/\varepsilon_0
    $$
-   を発散定理で往復できる。
+   を[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)で往復できる。
 9. 点電荷では原点が特異点になり、delta 分布が局所式を補う理由を説明できる。
 10. 総電束 0 と電場 0 を混同しない。
 
@@ -1631,7 +1631,7 @@ $$
 Q_{\mathrm{in}}=0.
 $$
 
-Gauss の法則から
+[Gauss の法則](../VC9/index.md#principle-vc9-maxwell-integral)から
 
 $$
 4\pi r^2E_r(r)=0.
@@ -1745,7 +1745,7 @@ Q_{\mathrm{in}}
 \lambda L.
 $$
 
-Gauss の法則より
+[Gauss の法則](../VC9/index.md#principle-vc9-maxwell-integral)より
 
 $$
 2\pi sL E_s(s)
@@ -2027,7 +2027,7 @@ Q_{\mathrm{in}}
 \rho_0\pi s^2L.
 $$
 
-Gauss の法則より
+[Gauss の法則](../VC9/index.md#principle-vc9-maxwell-integral)より
 
 $$
 2\pi sL E_s(s)
@@ -2151,7 +2151,7 @@ Q_{\mathrm{in}}
 2zA\rho_0.
 $$
 
-Gauss の法則から
+[Gauss の法則](../VC9/index.md#principle-vc9-maxwell-integral)から
 
 $$
 2E_z(z)A
@@ -2332,7 +2332,7 @@ Q(r)
 \rho_0\frac{4\pi r^3}{3}.
 $$
 
-Gauss の法則より
+[Gauss の法則](../VC9/index.md#principle-vc9-maxwell-integral)より
 
 $$
 4\pi r^2E_r(r)
@@ -2409,7 +2409,7 @@ Q_0-Q_0
 0.
 $$
 
-Gauss の法則から
+[Gauss の法則](../VC9/index.md#principle-vc9-maxwell-integral)から
 
 $$
 4\pi r^2E_r(r)=0.
