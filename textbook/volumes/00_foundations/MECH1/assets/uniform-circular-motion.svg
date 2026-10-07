@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 430" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" data-layout-lint="strict" viewBox="0 0 920 430" role="img" aria-labelledby="title desc">
   <title id="title">等速円運動の位置・速度・向心加速度</title>
   <desc id="desc">同じ円周上の点 P を二つの図で示す。左では位置ベクトル r が中心 O から P へ、速度 v が P から接線方向へ向く。右では半径方向を破線で示し、加速度 a が P から中心 O へ向く。</desc>
   <rect width="920" height="430" fill="white"/>
