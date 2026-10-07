@@ -18,19 +18,19 @@
   <line x1="105" y1="410" x2="105" y2="105" stroke="#374151" stroke-width="3" marker-end="url(#arrow-neutral)"/>
 
   <path data-series-group="motion" data-series-label="trajectory"
-        d="M105 405 Q370 80 810 405"
+        d="M105 410 Q370 80 810 410"
         fill="none" stroke="#009E73" stroke-width="4" stroke-dasharray="12 8"/>
   <line data-series-group="motion" data-series-label="v0"
-        x1="105" y1="405" x2="245" y2="235"
+        x1="105" y1="410" x2="237" y2="246"
         stroke="#0072B2" stroke-width="5" marker-end="url(#arrow-blue)"/>
 
-  <path d="M170 405 Q165 382 147 365" fill="none" stroke="#6B7280" stroke-width="3"/>
-  <line x1="184" y1="356" x2="157" y2="378" stroke="#6B7280" stroke-width="2"/>
-  <text x="190" y="352" font-family="Noto Sans CJK JP, sans-serif" font-size="21" fill="#1F2937" font-weight="700">θ（投射角）</text>
+  <path d="M170 410 Q167 382 146 360" fill="none" stroke="#6B7280" stroke-width="3"/>
+  <line x1="205" y1="370" x2="161" y2="385" stroke="#6B7280" stroke-width="2"/>
+  <text x="215" y="384" font-family="Noto Sans CJK JP, sans-serif" font-size="21" fill="#1F2937" font-weight="700">θ（投射角）</text>
 
-  <circle cx="523" cy="257" r="8" fill="#1F2937"/>
+  <circle cx="523" cy="260" r="8" fill="#1F2937"/>
   <line data-series-group="motion" data-series-label="g"
-        x1="523" y1="257" x2="523" y2="365"
+        x1="523" y1="260" x2="523" y2="365"
         stroke="#D55E00" stroke-width="5" stroke-dasharray="12 5 3 5"
         marker-end="url(#arrow-orange)"/>
 
@@ -38,9 +38,9 @@
     <text x="855" y="426">x</text>
     <text x="80" y="95">y</text>
     <text x="78" y="442">O</text>
-    <text x="548" y="252">P</text>
-    <text x="275" y="230" fill="#0072B2" font-weight="700">v₀（実線）</text>
-    <text x="548" y="330" fill="#D55E00" font-weight="700">g（鎖線）</text>
+    <text x="580" y="225">P</text>
+    <text x="260" y="135" fill="#0072B2" font-weight="700">v₀（実線）</text>
+    <text x="620" y="385" fill="#D55E00" font-weight="700">g（鎖線）</text>
   </g>
 
   <text x="255" y="470" font-family="Noto Sans CJK JP, sans-serif" font-size="20" fill="#1F2937">軌道は破線。v₀ は O で軌道に接し、g はどの時刻でも鉛直下向き。</text>
