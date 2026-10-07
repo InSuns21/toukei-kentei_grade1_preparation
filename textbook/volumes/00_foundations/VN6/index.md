@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念**：[F0-00D2D の $L^\infty$ 空間](../F0_00D2D_Lp_Holder_Minkowski/index.md#def-f0-00d2d-04)と[本質的上限](../F0_00D2D_Lp_Holder_Minkowski/index.md#def-f0-00d2d-03)、[F0-00D2E の $L^2$ Hilbert 空間](../F0_00D2E_L2完備性_Riesz_Fischer/index.md)、[OA4 の可換 Gelfand--Naimark 定理](../OA4/index.md#thm-oa4-commutative-gelfand-naimark)、[VN2 の von Neumann 環](../VN2/index.md#def-vn2-von-neumann-algebra)と[二重可換子定理](../VN2/index.md#thm-vn2-bicommutant)、[VN5 の正規状態](../VN5/index.md#def-vn5-normal-state)を使います。
+> **既出概念**：[F0-00D2D の $L^\infty$ 空間](../F0_00D2D_Lp_Holder_Minkowski/index.md#def-f0-00d2d-04)と[本質的上限](../F0_00D2D_Lp_Holder_Minkowski/index.md#def-f0-00d2d-03)、[F0-00D2E の $L^2$ Hilbert 空間](../F0_00D2E_L2完備性_Riesz_Fischer/index.md#cor-f0-00d2e-01)、[OA4 の可換 Gelfand--Naimark 定理](../OA4/index.md#thm-oa4-commutative-gelfand-naimark)、[VN2 の von Neumann 環](../VN2/index.md#def-vn2-von-neumann-algebra)と[二重可換子定理](../VN2/index.md#thm-vn2-bicommutant)、[VN5 の正規状態](../VN5/index.md#def-vn5-normal-state)を使います。
 
 OA4 では、可換単位的 $C^*$-環がコンパクト Hausdorff 空間 $K$ 上の連続関数環
 
@@ -1026,7 +1026,7 @@ $$
 \mu(E\triangle F)=0.
 $$
 
-逆向きも同様に $1_E=1_F$ a.e. から $P_E=P_F$ です。
+逆に $1_E=1_F$ a.e. なら、$L^\infty$ の同値類として $1_E=1_F$ なので $M_{1_E}=M_{1_F}$、すなわち $P_E=P_F$ です。
 
 よって $[E]\mapsto P_E$ は well-defined で単射です。
 
