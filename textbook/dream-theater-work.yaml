@@ -5,9 +5,9 @@ active_series: MECH
 active_plan: textbook/plans_progress/DREAM_THEATER_CLASSICAL_MECHANICS_I_PLAN.md
 series_manifest: textbook/dream-theater-series/MECH.yaml
 
-completed_through: MECH1
-next_work: MECH2
-after_next: MECH3
+completed_through: MECH2
+next_work: MECH3
+after_next: MECH4
 
 routing:
   chapter_root: textbook/volumes/00_foundations

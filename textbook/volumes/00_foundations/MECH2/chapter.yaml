@@ -1,0 +1,42 @@
+id: "MECH2"
+title: "Newton の運動法則と運動方程式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MECH1
+  - ODE1
+official_scope: []
+learning_objectives:
+  - 質量・力・合力を区別し、力の次元と SI 単位を説明できる
+  - 慣性系の意味を Newton の第1法則と Galilei 変換から説明できる
+  - Newton の第2法則を経験法則として位置付け、一定質量の質点について m q''=F(q,q',t) を立てられる
+  - Newton の第3法則で相互作用する二物体の作用反作用を識別し、同一物体に働くつり合いの二力と混同しない
+  - 重力・ばね・線形抵抗力のモデルを状況と符号規約から式にできる
+  - 運動方程式を位置と速度を初期条件とする初期値問題として読み替えられる
+  - 空気抵抗を無視した自由落下と斜方投射を Newton 方程式から導ける
+  - 線形抵抗を受ける落下運動を一階線形 ODE として解き、終端速度と時定数を説明できる
+  - 加速座標系で慣性力が必要になる理由を座標変換から導ける
+definitions:
+  - { id: MECH2-DEF-01, name: "質量・力・合力" }
+  - { id: MECH2-DEF-02, name: "慣性系" }
+  - { id: MECH2-DEF-03, name: "線形抵抗力" }
+theorems: []
+canonical_examples:
+  - "複数の力をベクトル和して加速度を求める例"
+  - "机上の本で重力と垂直抗力が作用反作用の組ではないことを確認する例"
+  - "地表近くの自由落下を m y''=-mg から導く例"
+  - "斜方投射を x 方向と y 方向の運動方程式へ分解する例"
+  - "線形抵抗下の落下で終端速度を一階線形 ODE から導く例"
+problem_patterns:
+  - MECH2-RESULTANT-ACCELERATION-1
+  - MECH2-FREE-FALL-1
+  - MECH2-SPRING-EQUATION-1
+  - MECH2-THIRD-LAW-PAIR-1
+  - MECH2-PROJECTILE-1
+  - MECH2-LINEAR-DRAG-1
+  - MECH2-ACCELERATING-FRAME-1
+  - MECH2-DRAGGED-PROJECTILE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 4.5, review: 1.0 }

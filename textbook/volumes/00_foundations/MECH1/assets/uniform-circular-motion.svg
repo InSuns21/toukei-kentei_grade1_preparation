@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" role="img" aria-labelledby="title desc">
+  <title id="title">等速円運動の速度と向心加速度</title>
+  <desc id="desc">円周上の点 P で位置ベクトル r は中心 O から P へ、速度 v は接線方向へ、加速度 a は中心 O 方向へ向く。</desc>
+  <rect width="760" height="430" fill="white"/>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#111"/></marker></defs>
+  <circle cx="300" cy="225" r="145" fill="none" stroke="#111" stroke-width="3"/>
+  <circle cx="300" cy="225" r="7" fill="#111"/>
+  <circle cx="412" cy="133" r="8" fill="#111"/>
+  <g stroke="#111" stroke-width="3" fill="none" marker-end="url(#arrow)">
+    <line x1="305" y1="221" x2="404" y2="140"/>
+    <line x1="417" y1="128" x2="528" y2="260"/>
+    <line x1="407" y1="140" x2="323" y2="209"/>
+  </g>
+  <g font-family="sans-serif" font-size="24" fill="#111">
+    <text x="277" y="260">O</text><text x="430" y="127">P</text>
+    <text x="350" y="165">r</text><text x="520" y="246">v</text><text x="354" y="202">a</text>
+    <text x="84" y="405">v は接線方向、a は中心 O 方向</text>
+  </g>
+</svg>

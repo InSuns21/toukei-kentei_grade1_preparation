@@ -1,0 +1,38 @@
+chapter: "MECH2"
+terms:
+  - term: 慣性質量
+    english: inertial mass
+    meaning: 質点が運動状態を変えにくい度合いを表す正のスカラー量。本章では一定値 m>0 とし、SI 単位は kg。
+  - term: 力
+    english: force
+    meaning: 質点間または質点と外部環境との相互作用を表すベクトル量。一定質量の Newton 力学では合力と加速度を F=ma で結ぶ。
+  - term: 合力
+    english: net force
+    meaning: 一つの質点に同時に働く各力のベクトル和。
+  - term: 慣性系
+    english: inertial frame
+    meaning: 合力が零の質点が一定速度で運動するような基準系。互いに一定速度で動く Galilei 変換で結ばれた基準系は同じ慣性系のクラスに属する。
+  - term: Newton の第1法則
+    english: Newton's first law
+    meaning: 慣性系では合力が零なら速度は一定であるという経験法則。慣性系の存在を物理的入力として与える。
+  - term: Newton の第2法則
+    english: Newton's second law
+    meaning: 一定質量の質点について、慣性系で合力が質量と加速度の積に等しいとする経験法則。
+  - term: Newton の第3法則
+    english: Newton's third law
+    meaning: Newton 的な二体相互作用モデルで、物体2が物体1へ及ぼす力と物体1が物体2へ及ぼす力が等大反対向きになるという法則。
+  - term: 重力
+    english: gravitational force
+    meaning: 本章の地表近似では F_g=m g とモデル化する力。鉛直上向きを正に取る一次元表示では F_g=-mg。
+  - term: Hooke の法則
+    english: Hooke's law
+    meaning: 平衡位置からの小さな変位 x に対して、ばねの復元力を F=-kx と近似するモデル。
+  - term: 線形抵抗力
+    english: linear drag
+    meaning: 媒質に対する速度 v に反対向きで大きさが速さに比例する抵抗力 F_d=-cv。c>0。
+  - term: 終端速度
+    english: terminal velocity
+    meaning: 重力と抵抗力がつり合い、加速度が0へ近づくときの極限速度。
+  - term: 時定数
+    english: time constant
+    meaning: 線形抵抗モデルで速度が終端値へ近づく時間尺度。本章では tau=m/c。
