@@ -10,7 +10,7 @@
   </defs>
 
   <circle cx="340" cy="235" r="48" fill="#F3F4F6" stroke="#374151" stroke-width="3"/>
-  <text x="290" y="226" font-family="Noto Sans CJK JP, sans-serif" font-size="18" fill="#1F2937">重心</text>
+  <text x="200" y="238" font-family="Noto Sans CJK JP, sans-serif" font-size="18" fill="#1F2937">G（重心）</text>
 
   <line x1="340" y1="235" x2="340" y2="82" stroke="#009E73" stroke-width="5" marker-end="url(#arrow-green)"/>
   <line x1="340" y1="235" x2="340" y2="405" stroke="#D55E00" stroke-width="5" marker-end="url(#arrow-orange)"/>
