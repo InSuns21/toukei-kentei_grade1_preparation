@@ -70,7 +70,7 @@ concepts:
   - id: analytical-mechanics.noether-theorem-finite-dof
     name: Noether の定理・有限自由度
     kind: theorem
-    aliases: [Noether theorem for finite-dimensional Lagrangian systems]
+    aliases: [Noether の定理, Noether theorem, Noether theorem for finite-dimensional Lagrangian systems]
     introduction: formal
     introduction_aliases: [定理（Noether の定理・有限自由度）]
     requires:
