@@ -17,8 +17,8 @@
   <circle cx="245" cy="210" r="125" fill="none" stroke="#4B5563" stroke-width="3"/>
   <circle cx="245" cy="210" r="6" fill="#1F2937"/>
   <circle cx="343" cy="132" r="7" fill="#1F2937"/>
-  <line x1="245" y1="210" x2="343" y2="132" stroke="#009E73" stroke-width="4" marker-end="url(#arrow-green)"/>
-  <line x1="343" y1="132" x2="438" y2="240" stroke="#0072B2" stroke-width="4" marker-end="url(#arrow-blue)"/>
+  <line data-series-group="left-vectors" data-series-label="r" x1="245" y1="210" x2="343" y2="132" stroke="#009E73" stroke-width="4" marker-end="url(#arrow-green)"/>
+  <line data-series-group="left-vectors" data-series-label="v" x1="343" y1="132" x2="438" y2="240" stroke="#0072B2" stroke-width="4" stroke-dasharray="12 7" marker-end="url(#arrow-blue)"/>
   <g font-family="Noto Sans CJK JP, sans-serif" font-size="23" fill="#1F2937">
     <text x="225" y="244">O</text>
     <text x="370" y="102">P</text>
@@ -28,7 +28,7 @@
   <circle cx="665" cy="210" r="6" fill="#1F2937"/>
   <circle cx="763" cy="132" r="7" fill="#1F2937"/>
   <line x1="665" y1="210" x2="763" y2="132" stroke="#9CA3AF" stroke-width="3" stroke-dasharray="9 7"/>
-  <line x1="763" y1="132" x2="687" y2="193" stroke="#D55E00" stroke-width="5" marker-end="url(#arrow-orange)"/>
+  <line data-series-group="right-vector" data-series-label="a" x1="763" y1="132" x2="687" y2="193" stroke="#D55E00" stroke-width="5" marker-end="url(#arrow-orange)"/>
   <g font-family="Noto Sans CJK JP, sans-serif" font-size="23" fill="#1F2937">
     <text x="645" y="244">O</text>
     <text x="790" y="102">P</text>
@@ -36,7 +36,7 @@
 
   <g font-family="Noto Sans CJK JP, sans-serif" font-size="20" font-weight="700">
     <text x="95" y="366" fill="#009E73">r：O から P への位置ベクトル</text>
-    <text x="95" y="394" fill="#0072B2">v：P から接線方向</text>
+    <text x="95" y="394" fill="#0072B2">v：P から接線方向（破線）</text>
     <text x="545" y="380" fill="#D55E00">a：P から中心 O 方向</text>
   </g>
 </svg>
