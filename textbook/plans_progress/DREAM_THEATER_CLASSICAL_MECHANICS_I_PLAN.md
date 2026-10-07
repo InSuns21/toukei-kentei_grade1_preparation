@@ -257,7 +257,7 @@ $$
 
 - `textbook/volumes/00_foundations/MECH1` から `MECH8` までに既存パスはなく、章 ID は MECH1--MECH8 で確定した。
 - ODE1 は初期値問題と局所存在一意性、ODE2 は二階線形方程式・調和振動子、ODE3 は線形連立系・行列指数・線形安定性を canonical owner とする。古典力学側ではこれらを再証明せず、運動方程式を物理モデルとして立てて適用する。
-- VC1 は勾配・発散・回転を canonical owner とする。特に保存力の (F=-\nabla V) では VC1 の勾配を再利用し、ベクトル解析そのものを重複実装しない。
+- VC1 は勾配・発散・回転を canonical owner とする。特に保存力の $F=-\nabla V$ では VC1 の勾配を再利用し、ベクトル解析そのものを重複実装しない。
 - PDE12 は Hamilton--Jacobi 方程式と Hamilton 特性を PDE 側から扱うため、古典力学 I では逆輸入しない。解析力学 I の AMECH8 で PDE12 と責務分担する。
 - 力学系 PLAN は ODE4 / ODE8--ODE11 と高度な分岐・不変多様体・カオスを canonical owner とする。古典力学 I は保存則・振動・中心力の物理的意味と標準計算に留める。
 - 連続体力学 PLAN は deformation / strain / stress / balance law を canonical owner とする。古典力学 I の剛体・質点系から連続体へ責務を越境させない。
