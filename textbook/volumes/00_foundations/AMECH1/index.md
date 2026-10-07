@@ -1565,7 +1565,7 @@ $$
 \end{pmatrix}.
 $$
 
-一般化座標による速度公式から
+[一般化座標による速度公式](#prop-amech1-generalized-velocity)から
 
 $$
 \begin{aligned}
