@@ -1,0 +1,127 @@
+chapter: MECH3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MECH2
+
+forward_references: []
+
+concepts:
+  - id: mechanics.work
+    name: 仕事
+    kind: definition
+    aliases: ["mechanical work", "work by a force"]
+    introduction: formal
+    introduction_aliases: ["定義（仕事）"]
+    requires:
+      - mechanics.mass-force-resultant
+      - mechanics.velocity-acceleration
+
+  - id: mechanics.kinetic-energy
+    name: 運動エネルギー
+    kind: definition
+    aliases: ["kinetic energy"]
+    introduction: formal
+    introduction_aliases: ["定義（運動エネルギー）"]
+    requires:
+      - mechanics.velocity-acceleration
+      - mechanics.mass-force-resultant
+
+  - id: mechanics.work-energy-theorem
+    name: 仕事―エネルギー定理
+    kind: theorem
+    aliases: ["work-energy theorem", "work kinetic energy theorem"]
+    introduction: formal
+    introduction_aliases: ["定理（仕事―エネルギー定理）"]
+    requires:
+      - mechanics.work
+      - mechanics.kinetic-energy
+      - mechanics.newton-second-law
+
+  - id: mechanics.conservative-force-potential
+    name: 保存力とポテンシャルエネルギー
+    kind: definition
+    aliases: ["conservative force and potential energy"]
+    introduction: formal
+    introduction_aliases: ["定義（保存力・ポテンシャルエネルギー）"]
+    requires:
+      - mechanics.work
+
+  - id: mechanics.potential-work-relation
+    name: 保存力の仕事とポテンシャル差
+    kind: theorem
+    aliases: ["work and potential difference", "potential energy difference"]
+    introduction: formal
+    introduction_aliases: ["命題（保存力の仕事とポテンシャル差）"]
+    requires:
+      - mechanics.conservative-force-potential
+      - mechanics.work
+
+  - id: mechanics.mechanical-energy
+    name: 力学的エネルギー
+    kind: definition
+    aliases: ["mechanical energy"]
+    introduction: formal
+    introduction_aliases: ["定義（力学的エネルギー）"]
+    requires:
+      - mechanics.kinetic-energy
+      - mechanics.conservative-force-potential
+
+  - id: mechanics.mechanical-energy-conservation
+    name: 力学的エネルギー保存
+    kind: theorem
+    aliases: ["conservation of mechanical energy", "mechanical energy conservation"]
+    introduction: formal
+    introduction_aliases: ["定理（力学的エネルギー保存）"]
+    requires:
+      - mechanics.work-energy-theorem
+      - mechanics.potential-work-relation
+      - mechanics.mechanical-energy
+
+  - id: mechanics.nonconservative-energy-balance
+    name: 非保存力を含むエネルギー収支
+    kind: result
+    aliases: ["energy balance with nonconservative force"]
+    introduction: formal
+    introduction_aliases: ["命題（非保存力を含むエネルギー収支）"]
+    requires:
+      - mechanics.mechanical-energy
+      - mechanics.linear-drag
+
+  - id: mechanics.turning-point
+    name: 転回点
+    kind: definition
+    aliases: ["turning point"]
+    introduction: formal
+    introduction_aliases: ["定義（転回点）"]
+    requires:
+      - mechanics.mechanical-energy-conservation
+
+  - id: mechanics.allowed-region-turning
+    name: 一自由度の許容領域と転回点判定
+    kind: theorem
+    aliases: ["allowed region and turning point criterion"]
+    introduction: formal
+    introduction_aliases: ["命題（許容領域と通常の転回点）"]
+    requires:
+      - mechanics.turning-point
+      - mechanics.mechanical-energy-conservation
+
+  - id: mechanics.energy-phase-curve
+    name: 一自由度のエネルギー曲線
+    kind: method
+    aliases: ["energy curve in phase plane", "energy level curve"]
+    introduction: inline
+    introduction_aliases: ["エネルギー曲線を位相平面で読む"]
+    requires:
+      - mechanics.mechanical-energy-conservation
+      - mechanics.allowed-region-turning
+
+  - id: mechanics.classical-energy-momentum-form
+    name: 古典的な p^2/(2m)+V(q) の形
+    kind: bridge
+    aliases: ["classical p squared over 2m plus V"]
+    introduction: inline
+    introduction_aliases: ["p^2/(2m)+V への最初の橋"]
+    requires:
+      - mechanics.mechanical-energy
