@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念**：[F0-00D2D の $L^\infty$ 空間](../F0_00D2D_Lp_Holder_Minkowski/index.md#def-f0-00d2d-04)と[本質的上限](../F0_00D2D_Lp_Holder_Minkowski/index.md#def-f0-00d2d-03)、[F0-00D2E の $L^2$ Hilbert 空間](../F0_00D2E_L2完備性_Riesz_Fischer/index.md#cor-f0-00d2e-01)、[OA4 の可換 Gelfand--Naimark 定理](../OA4/index.md#thm-oa4-commutative-gelfand-naimark)、[VN2 の von Neumann 環](../VN2/index.md#def-vn2-von-neumann-algebra)と[二重可換子定理](../VN2/index.md#thm-vn2-bicommutant)、[VN5 の正規状態](../VN5/index.md#def-vn5-normal-state)を使います。
+> **既出概念**：[F0-00D2D の $L^\infty$ 空間](../F0_00D2D_Lp_Holder_Minkowski/index.md#def-f0-00d2d-04)と[本質的上限](../F0_00D2D_Lp_Holder_Minkowski/index.md#def-f0-00d2d-03)、[F0-00D2E の $L^2$ Hilbert 空間](../F0_00D2E_L2完備性_Riesz_Fischer/index.md#cor-f0-00d2e-01)、[OA4 の可換 Gelfand--Naimark 定理](../OA4/index.md#thm-oa4-commutative-gelfand-naimark)、[VN2 の von Neumann 環](../VN2/index.md#def-vn2-von-neumann-algebra)と[von Neumann の二重可換子定理](../VN2/index.md#thm-vn2-bicommutant)、[VN5 の正規状態](../VN5/index.md#def-vn5-normal-state)を使います。
 
 OA4 では、可換単位的 $C^*$-環がコンパクト Hausdorff 空間 $K$ 上の連続関数環
 
@@ -50,7 +50,7 @@ $$
 
 という違いが現れます。
 
-本章ではこの差を、抽象表現定理だけで済ませず、$L^2(X,\mu)$ 上の**乗算作用素**
+本章ではこの差を、抽象表現定理だけで済ませず、$L^2(X,\mu)$ 上で関数を**点ごとに掛ける作用**
 
 $$
 (M_f\xi)(x)=f(x)\xi(x)
@@ -71,7 +71,7 @@ $$
 $$
 L^\infty
 \longrightarrow
-\text{乗算作用素}
+\text{点ごとの掛け算}
 \longrightarrow
 \text{可換子の計算}
 \longrightarrow
@@ -90,7 +90,7 @@ $$
 
 ## 1. 可測関数を作用素へ変える
 
-$L^\infty$ の元は a.e. 同値類です。したがって一点だけ値を変えても同じ元です。
+$L^\infty$ の元は、ほとんど至る所（almost everywhere; a.e.）で一致する関数を同じものと見る同値類です。したがって一点だけ値を変えても同じ元です。
 
 一方、作用素 $M_f$ も $L^2$ の a.e. 同値類へ作用します。ここで両者の「零集合を無視する」という構造がぴったり一致します。
 
@@ -416,7 +416,7 @@ $$
 <a id="def-vn6-linfty-multiplication-algebra"></a>
 
 <!-- formal-statement-start -->
-### 定義（$L^\infty$ 乗算環）
+### 定義（L∞乗算環）
 
 $(X,\Sigma,\mu)$ を有限測度空間とし、
 
@@ -433,7 +433,7 @@ $$
 \subset B(H)
 $$
 
-を **$L^\infty$ 乗算環** と呼ぶ。
+を **L∞乗算環** と呼ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-vn6-linfty-multiplication-algebra -->
@@ -497,7 +497,7 @@ $$
 <a id="thm-vn6-linfty-commutant"></a>
 
 <!-- formal-statement-start -->
-### 定理（$L^\infty$ 乗算環は自分自身の可換子である）
+### 定理（L∞乗算環は自分自身の可換子である）
 
 $(X,\Sigma,\mu)$ を
 
@@ -766,7 +766,7 @@ $$
 \mathcal M_\mu.
 $$
 
-[VN2 の二重可換子定理](../VN2/index.md#thm-vn2-bicommutant)から、$\mathcal M_\mu$ は WOT 閉な単位的 $*$-部分代数、すなわち von Neumann 環です。
+[von Neumann の二重可換子定理](../VN2/index.md#thm-vn2-bicommutant)から、$\mathcal M_\mu$ は WOT 閉な単位的 $*$-部分代数、すなわち von Neumann 環です。
 <!-- proof-end -->
 
 この証明は、可換 von Neumann 環の重要な原型を与えます。
@@ -882,7 +882,7 @@ $$
 <a id="thm-vn6-projection-measure-algebra"></a>
 
 <!-- formal-statement-start -->
-### 定理（測度代数と $L^\infty$ 乗算環の射影の対応）
+### 定理（測度代数と L∞乗算環の射影の対応）
 
 $(X,\Sigma,\mu)$ を有限測度空間とし、
 
@@ -971,7 +971,7 @@ $$
 \overline{1_E}=1_E
 $$
 
-なので、乗算作用素の積と随伴の公式から
+なので、[乗算作用素のノルム・積・随伴](#prop-vn6-multiplication-norm-adjoint)から
 
 $$
 P_E^2
@@ -1181,7 +1181,7 @@ $$
 <a id="prop-vn6-vector-state-integral"></a>
 
 <!-- formal-statement-start -->
-### 命題（$L^\infty$ 乗算環上のベクトル状態の積分表示）
+### 命題（L∞乗算環上のベクトル状態の積分表示）
 
 $(X,\Sigma,\mu)$ を有限測度空間とし、
 
@@ -1371,7 +1371,7 @@ $$
 
 を考えます。
 
-乗算作用素のノルム公式から
+[乗算作用素のノルム・積・随伴](#prop-vn6-multiplication-norm-adjoint)から
 
 $$
 \|M_f-M_g\|
@@ -1548,7 +1548,7 @@ $$
 M_{f_n}\xrightarrow{\mathrm{SOT}}M_p.
 $$
 
-一方、乗算作用素のノルム公式から
+一方、[乗算作用素のノルム・積・随伴](#prop-vn6-multiplication-norm-adjoint)から
 
 $$
 \|M_{f_n}-M_p\|
@@ -1723,7 +1723,7 @@ $$
 2.
 $$
 
-乗算作用素のノルム公式から
+[乗算作用素のノルム・積・随伴](#prop-vn6-multiplication-norm-adjoint)から
 
 $$
 \boxed{
@@ -2294,7 +2294,7 @@ $$
 c\|1_{E_c}\|_2.
 $$
 
-一方、作用素ノルムの定義から
+一方、有界作用素 $T$ のノルム評価により
 
 $$
 \|T1_{E_c}\|_2
