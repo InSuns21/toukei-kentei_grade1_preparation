@@ -143,7 +143,7 @@ $$
 \sum_{i=1}^N\sum_{j\ne i}F_{ij}.
 $$
 
-二重和の内力項を unordered pair ごとにまとめると
+二重和の内力項を $i<j$ の組ごとにまとめると
 
 $$
 \sum_{i=1}^N\sum_{j\ne i}F_{ij}
