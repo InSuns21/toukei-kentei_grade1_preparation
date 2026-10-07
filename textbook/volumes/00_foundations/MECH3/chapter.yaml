@@ -1,0 +1,50 @@
+id: "MECH3"
+title: "仕事・エネルギー・ポテンシャル"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MECH2
+  - RA6
+official_scope: []
+learning_objectives:
+  - 仕事を力と速度の内積の時間積分として定義し、符号と SI 単位を説明できる
+  - 運動エネルギーを定義し、Newton の第2法則から仕事―エネルギー定理を導ける
+  - 保存力とポテンシャルエネルギーを F=-∇V の関係で結び、ポテンシャルの定数不定性を説明できる
+  - 保存力の仕事が始点と終点のポテンシャル差だけで決まることを連鎖律から導ける
+  - 時間に依らない保存力の下で力学的エネルギー K+V が保存する条件を説明できる
+  - 非保存力がある場合に dE/dt=R dot v を導き、線形抵抗で力学的エネルギーが減少することを示せる
+  - 一自由度で V(x)<=E から許容領域と転回点候補を読み、V'(x*)=0 の臨界点との違いを説明できる
+  - エネルギー一定条件を位置―速度平面上の曲線として読める
+  - 古典的な p=m v から p^2/(2m)+V(q) の意味を説明できる
+definitions:
+  - { id: MECH3-DEF-01, name: "仕事" }
+  - { id: MECH3-DEF-02, name: "運動エネルギー" }
+  - { id: MECH3-DEF-03, name: "保存力・ポテンシャルエネルギー" }
+  - { id: MECH3-DEF-04, name: "力学的エネルギー" }
+  - { id: MECH3-DEF-05, name: "転回点" }
+theorems:
+  - { id: MECH3-THM-01, name: "仕事―エネルギー定理" }
+  - { id: MECH3-PROP-01, name: "保存力の仕事とポテンシャル差" }
+  - { id: MECH3-THM-02, name: "力学的エネルギー保存" }
+  - { id: MECH3-PROP-02, name: "非保存力を含むエネルギー収支" }
+  - { id: MECH3-PROP-03, name: "許容領域と通常の転回点" }
+canonical_examples:
+  - "一定力の仕事を変位との内積として計算する例"
+  - "Hooke のばね力から V(x)=kx^2/2 を構成する例"
+  - "地表近くの重力で位置と速さをエネルギー保存から直接結ぶ例"
+  - "調和ポテンシャルの許容領域・転回点・力の向きを同じ図で読む例"
+  - "線形抵抗で dE/dt=-c|v|^2<=0 を導く例"
+  - "臨界エネルギーで V(x)=E でも通常の転回点とは限らない例"
+problem_patterns:
+  - MECH3-CONSTANT-FORCE-WORK-1
+  - MECH3-WORK-ENERGY-SPEED-1
+  - MECH3-CONSTRUCT-POTENTIAL-1
+  - MECH3-HARMONIC-TURNING-1
+  - MECH3-MULTIDIM-POTENTIAL-WORK-1
+  - MECH3-DRAG-ENERGY-BALANCE-1
+  - MECH3-DOUBLE-WELL-ALLOWED-REGION-1
+  - MECH3-CRITICAL-ENERGY-TURNING-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 1.0 }
