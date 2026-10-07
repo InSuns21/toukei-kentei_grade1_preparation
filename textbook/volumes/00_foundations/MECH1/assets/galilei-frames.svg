@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 430" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" data-layout-lint="strict" viewBox="0 0 920 430" role="img" aria-labelledby="title desc">
   <title id="title">Galilei 変換で結ばれた二つの基準系</title>
   <desc id="desc">同じ向きの x 軸を共有する基準系 S と S' を示す。原点 O と O' は水平軸上にあり、y 軸と y' 軸は平行である。質点 P への位置ベクトル r は O から、r' は O' から P へ向く。O' は S に対して右向き速度 U で移動する。</desc>
   <rect width="920" height="430" fill="white"/>
