@@ -75,13 +75,14 @@ for (const page of pages.values()) {
     const lineNumber = i + 1;
     const normalizedLine = normalizeSemantic(rawLine);
     const acceptedAliasTexts = [];
+    const matchingAliases = aliases.filter((item) => normalizedLine.includes(item.normalized));
 
     // 登録済み result は「○○より / ○○により / ○○を用いる」等を拾う。
     // definition は「○○の定義から」のように definition そのものを根拠にする場合だけ拾う。
     // 「polar cone の公式から」を polar cone 定義へ、「分離超平面定理から」を
     // 分離超平面の定義へ誤解決しない。未登録の公式・定理は下の named candidate 側へ流す。
-    for (const item of aliases) {
-      if (!normalizedLine.includes(item.normalized)) continue;
+    for (const item of matchingAliases) {
+      if (aliasOccurrencesAreCoveredByLongerCandidate(normalizedLine, item.normalized, matchingAliases)) continue;
       if (acceptedAliasTexts.some((longer) => longer.length > item.normalized.length && longer.includes(item.normalized))) continue;
       if (!hasExplicitReasoningUse(normalizedLine, item)) continue;
       acceptedAliasTexts.push(item.normalized);
@@ -144,6 +145,36 @@ function validateExplicitUse(page, use) {
     line: use.line,
     message: problem,
   });
+}
+
+function aliasOccurrencesAreCoveredByLongerCandidate(line, alias, candidates) {
+  const targetSpans = substringSpans(line, alias);
+  if (targetSpans.length === 0) return false;
+
+  const coveringSpans = [];
+  for (const candidate of candidates) {
+    const longer = candidate.normalized;
+    if (longer.length <= alias.length || !longer.includes(alias) || !line.includes(longer)) continue;
+    coveringSpans.push(...substringSpans(line, longer));
+  }
+  if (coveringSpans.length === 0) return false;
+
+  return targetSpans.every((target) =>
+    coveringSpans.some((cover) => cover.start <= target.start && cover.end >= target.end)
+  );
+}
+
+function substringSpans(source, needle) {
+  if (!needle) return [];
+  const spans = [];
+  let offset = 0;
+  while (offset <= source.length - needle.length) {
+    const start = source.indexOf(needle, offset);
+    if (start < 0) break;
+    spans.push({ start, end: start + needle.length });
+    offset = start + Math.max(1, needle.length);
+  }
+  return spans;
 }
 
 function hasExplicitReasoningUse(line, item) {
