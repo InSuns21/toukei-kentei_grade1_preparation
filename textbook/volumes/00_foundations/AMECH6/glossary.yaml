@@ -1,0 +1,17 @@
+chapter: "AMECH6"
+terms:
+  - term: Poisson 括弧
+    english: Poisson bracket
+    meaning: 正準座標 q,p 上の二つの関数 f,g に対し、sum_i(partial f/partial q_i partial g/partial p_i - partial f/partial p_i partial g/partial q_i) で定める二項演算。Hamiltonian による時間発展と保存則を表す。
+  - term: Hamiltonian vector field
+    english: Hamiltonian vector field
+    meaning: Hamiltonian H から X_H=(partial H/partial p,-partial H/partial q) と作る相空間上の写像。Hamilton の正準方程式は dot z=X_H(z) と書ける。
+  - term: Hamiltonian flow
+    english: Hamiltonian flow
+    meaning: 自律 Hamilton 系で、初期点 z_0 を時刻 t 後の解 z(t;z_0) へ送る写像 Phi_t。解の一意性が成り立つ範囲で Phi_t circ Phi_s=Phi_(t+s) を満たす。
+  - term: Liouville の定理
+    english: Liouville theorem
+    meaning: 正準座標上の Hamiltonian flow が局所的に相空間体積を保存するという定理。C2 級 Hamiltonian では div X_H=0 から det D Phi_t=1 が従う。
+  - term: Poisson 括弧の Jacobi 恒等式
+    english: Jacobi identity for the Poisson bracket
+    meaning: {{f,g},h}+{{g,h},f}+{{h,f},g}=0 という恒等式。自律系では保存される二つの量の Poisson 括弧も保存されることを導く。
