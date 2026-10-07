@@ -1,0 +1,49 @@
+id: "MECH7"
+title: "質点系・重心・衝突"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MECH6
+official_scope: []
+learning_objectives:
+  - 多粒子系の運動方程式を内力と外力に分け、Newton の第3法則による内力の相殺から全運動量収支を導ける
+  - 重心 R=(1/M) sum_i m_i r_i を定義し、P=M Rdot と M Rddot=F_ext,total を導ける
+  - 二体問題で重心座標 R と相対座標 r=r1-r2 を導入し、r1,r2 を R,r から復元できる
+  - 換算質量 mu=m1 m2/(m1+m2) を導き、相対運動を mu rddot=F(r) という一体問題へ縮約できる
+  - 二体の運動エネルギーを K=(1/2)M|Rdot|^2+(1/2)mu|rdot|^2 に分解できる
+  - 万有引力二体問題を中心質量 m1+m2・運動質量 mu の MECH6 型中心力問題へ縮約し、固定中心近似との関係を説明できる
+  - 衝突時間にわたる全運動量収支から、外力の総力積が 0 のとき衝突前後で全運動量が保存することを説明できる
+  - 一次元弾性衝突の速度公式を運動量保存と運動エネルギー保存から導ける
+  - 完全非弾性衝突で失われる運動エネルギーが (1/2)mu(u1-u2)^2 であることを重心系から説明できる
+definitions:
+  - { id: MECH7-DEF-01, name: "重心" }
+  - { id: MECH7-DEF-02, name: "換算質量" }
+  - { id: MECH7-DEF-03, name: "弾性衝突・非弾性衝突" }
+theorems:
+  - { id: MECH7-THM-01, name: "質点系の全運動量収支" }
+  - { id: MECH7-THM-02, name: "重心の運動方程式" }
+  - { id: MECH7-THM-03, name: "二体問題の重心・相対運動への縮約" }
+  - { id: MECH7-THM-04, name: "二体の運動エネルギー分解" }
+  - { id: MECH7-THM-05, name: "一次元弾性衝突の速度" }
+  - { id: MECH7-PROP-01, name: "完全非弾性衝突の運動エネルギー損失" }
+canonical_examples:
+  - "二質点の重心が重い質点側へ寄ることを質量加重平均から確認する例"
+  - "外力のない多粒子系で内力が相殺し、重心が等速運動する例"
+  - "二体問題を重心座標と相対座標へ変換して元の二位置を回収する例"
+  - "等質量と極端な質量比で換算質量を比較する例"
+  - "万有引力二体問題を MECH6 の中心力問題と同型にする例"
+  - "等質量の一次元弾性衝突で速度が交換される例"
+  - "完全非弾性衝突で相対運動エネルギーが失われる例"
+problem_patterns:
+  - MECH7-CENTER-OF-MASS-1
+  - MECH7-REDUCED-MASS-1
+  - MECH7-PERFECTLY-INELASTIC-VELOCITY-1
+  - MECH7-EQUAL-MASS-ELASTIC-1
+  - MECH7-COM-RELATIVE-DECOMPOSITION-1
+  - MECH7-TWO-BODY-GRAVITY-1
+  - MECH7-INELASTIC-ENERGY-LOSS-1
+  - MECH7-TWO-BODY-COLLISION-SYNTHESIS-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.5, exercises: 5.0, review: 1.0 }
