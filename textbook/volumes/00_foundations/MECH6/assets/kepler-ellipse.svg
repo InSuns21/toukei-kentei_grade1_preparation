@@ -12,7 +12,7 @@
   <text x="65" y="260" font-size="18">r_p</text>
   <text x="680" y="260" font-size="18">r_a</text>
   <text x="577" y="214" font-size="18">A1</text>
-  <text x="172" y="280" font-size="18">A2</text>
+  <text x="140" y="240" font-size="18">A2</text>
   <line x1="120" y1="402" x2="660" y2="402" stroke="#555" stroke-width="2"/>
   <line x1="120" y1="392" x2="120" y2="412" stroke="#555" stroke-width="2"/>
   <line x1="660" y1="392" x2="660" y2="412" stroke="#555" stroke-width="2"/>
