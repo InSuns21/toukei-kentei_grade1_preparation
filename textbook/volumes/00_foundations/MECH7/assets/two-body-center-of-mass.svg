@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 360" role="img" aria-labelledby="title desc" data-layout-lint="strict">
+  <title id="title">二質点の重心と相対位置</title>
+  <desc id="desc">質点1と質点2を結ぶ線分上に重心 R を示し、質点2から質点1へ相対位置ベクトル r=r1-r2 を描く。原点 O から各質点への位置ベクトル r1 と r2 も示す。</desc>
+  <rect width="820" height="360" fill="white"/>
+  <defs>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#1f5f99"/></marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#8a3d2f"/></marker>
+  </defs>
+  <circle cx="100" cy="320" r="7" fill="#111"/>
+  <text x="70" y="350" font-size="22">O</text>
+
+  <line x1="100" y1="320" x2="650" y2="70" stroke="#1f5f99" stroke-width="3" marker-end="url(#arrow-blue)"/>
+  <line x1="100" y1="320" x2="290" y2="190" stroke="#1f5f99" stroke-width="3" stroke-dasharray="10 7" marker-end="url(#arrow-blue)"/>
+
+  <line x1="290" y1="190" x2="650" y2="70" stroke="#8a3d2f" stroke-width="4" marker-end="url(#arrow-red)"/>
+
+
+  <circle cx="650" cy="70" r="18" fill="#eef4fa" stroke="#222" stroke-width="3"/>
+  <circle cx="290" cy="190" r="30" fill="#f5ece9" stroke="#222" stroke-width="3"/>
+  <circle cx="420" cy="147" r="8" fill="#111"/>
+
+  <g font-family="Noto Sans CJK JP, sans-serif" font-size="21" fill="#111">
+    <text x="680" y="65">m1</text>
+    <text x="220" y="190">m2</text>
+    <text x="405" y="108">R</text>
+    <text x="500" y="90" fill="#8a3d2f" font-weight="700">r</text>
+    <text x="445" y="245" fill="#1f5f99">r1</text>
+    <text x="150" y="245" fill="#1f5f99">r2</text>
+  </g>
+</svg>

@@ -31,7 +31,7 @@ chapters:
     title: 中心力・万有引力・Kepler 問題
   - id: MECH7
     path: textbook/volumes/00_foundations/MECH7
-    status: planned
+    status: completed
     title: 質点系・重心・衝突
   - id: MECH8
     path: textbook/volumes/00_foundations/MECH8

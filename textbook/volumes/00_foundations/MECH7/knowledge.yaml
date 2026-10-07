@@ -1,0 +1,108 @@
+chapter: MECH7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MECH6
+
+forward_references: []
+
+concepts:
+  - id: mechanics.total-momentum-balance
+    name: 質点系の全運動量収支
+    kind: theorem
+    aliases: [total momentum balance for a particle system]
+    introduction: formal
+    introduction_aliases: [定理（質点系の全運動量収支）]
+    requires:
+      - mechanics.linear-momentum
+      - mechanics.newton-second-law
+      - mechanics.newton-third-law
+
+  - id: mechanics.center-of-mass
+    name: 重心
+    kind: definition
+    aliases: [center of mass, centre of mass, 質量中心]
+    introduction: formal
+    introduction_aliases: [定義（重心）]
+    requires:
+      - mechanics.linear-momentum
+
+  - id: mechanics.center-of-mass-motion
+    name: 重心の運動方程式
+    kind: theorem
+    aliases: [equation of motion of the center of mass]
+    introduction: formal
+    introduction_aliases: [定理（重心の運動方程式）]
+    requires:
+      - mechanics.center-of-mass
+      - mechanics.total-momentum-balance
+
+  - id: mechanics.reduced-mass
+    name: 換算質量
+    kind: definition
+    aliases: [reduced mass]
+    introduction: formal
+    introduction_aliases: [定義（換算質量）]
+    requires:
+      - mechanics.center-of-mass-motion
+
+  - id: mechanics.two-body-reduction
+    name: 二体問題の重心・相対運動への縮約
+    kind: theorem
+    aliases: [two-body reduction to center-of-mass and relative motion]
+    introduction: formal
+    introduction_aliases: [定理（二体問題の重心・相対運動への縮約）]
+    requires:
+      - mechanics.reduced-mass
+      - mechanics.newton-third-law
+
+  - id: mechanics.two-body-kinetic-energy-decomposition
+    name: 二体の運動エネルギー分解
+    kind: theorem
+    aliases: [two-body kinetic energy decomposition]
+    introduction: formal
+    introduction_aliases: [定理（二体の運動エネルギー分解）]
+    requires:
+      - mechanics.two-body-reduction
+      - mechanics.kinetic-energy
+
+  - id: mechanics.gravitational-two-body-reduction
+    name: 万有引力二体問題の換算質量への縮約
+    kind: result
+    aliases: [gravitational two-body reduction]
+    introduction: inline
+    introduction_aliases: [万有引力の二体問題は MECH6 と同じ形になる]
+    requires:
+      - mechanics.two-body-reduction
+      - mechanics.newtonian-gravitation
+
+  - id: mechanics.elastic-inelastic-collision
+    name: 弾性衝突・非弾性衝突
+    kind: definition
+    aliases: [elastic and inelastic collision]
+    introduction: formal
+    introduction_aliases: [定義（弾性衝突・非弾性衝突）]
+    requires:
+      - mechanics.total-momentum-balance
+      - mechanics.kinetic-energy
+
+  - id: mechanics.one-dimensional-elastic-collision
+    name: 一次元弾性衝突の速度
+    kind: theorem
+    aliases: [one-dimensional elastic collision velocities]
+    introduction: formal
+    introduction_aliases: [定理（一次元弾性衝突の速度）]
+    requires:
+      - mechanics.elastic-inelastic-collision
+      - mechanics.total-momentum-balance
+
+  - id: mechanics.perfectly-inelastic-energy-loss
+    name: 完全非弾性衝突の運動エネルギー損失
+    kind: proposition
+    aliases: [kinetic energy loss in a perfectly inelastic collision]
+    introduction: formal
+    introduction_aliases: [命題（完全非弾性衝突の運動エネルギー損失）]
+    requires:
+      - mechanics.elastic-inelastic-collision
+      - mechanics.two-body-kinetic-energy-decomposition
+      - mechanics.reduced-mass
