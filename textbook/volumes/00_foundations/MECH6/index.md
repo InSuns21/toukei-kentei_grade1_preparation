@@ -159,9 +159,9 @@ $$
 
 また $L=r\times mv$ は $r$ に垂直なので
 
-$
+$$
 r(t)\cdot L=0
-$
+$$
 
 がすべての $t$ で成り立ちます。$L\neq0$ なら
 
@@ -1533,7 +1533,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-円運動の中心向き加速度は $v_c^2/R$ です。Newton の第2法則より
+円運動の中心向き加速度は $v_c^2/R$ です。[Newton の第2法則](../MECH2/index.md#principle-mech2-newton-second)より
 
 $$
 m\frac{v_c^2}{R}
