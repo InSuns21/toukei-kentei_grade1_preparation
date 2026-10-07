@@ -1,7 +1,7 @@
 version: 1
 id: AMECH
 title: 解析力学 I
-plan: textbook/plans_progress/DREAM_THEATER_ANALYTICAL_MECHANICS_I_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_ANALYTICAL_MECHANICS_I_PLAN.md
 chapter_root: textbook/volumes/00_foundations
 
 chapters:
@@ -35,5 +35,5 @@ chapters:
     title: 正準変換
   - id: AMECH8
     path: textbook/volumes/00_foundations/AMECH8
-    status: planned
+    status: completed
     title: Hamilton--Jacobi 理論
