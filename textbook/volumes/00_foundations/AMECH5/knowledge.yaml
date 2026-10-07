@@ -73,11 +73,11 @@ concepts:
       - analytical-mechanics.generalized-momentum
 
   - id: analytical-mechanics.natural-lagrangian-hamiltonian
-    name: 自然ラグランジアンの Hamiltonian
+    name: 自然なラグランジアンの Hamiltonian
     kind: proposition
     aliases: [Hamiltonian of a natural Lagrangian]
     introduction: formal
-    introduction_aliases: [命題（自然ラグランジアンの Hamiltonian）]
+    introduction_aliases: [命題（自然なラグランジアンの Hamiltonian）]
     requires:
       - analytical-mechanics.hamiltonian
       - analytical-mechanics.regular-lagrangian
