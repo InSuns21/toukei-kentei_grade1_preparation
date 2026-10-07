@@ -1,0 +1,103 @@
+chapter: AMECH1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MECH7
+  - RA6A
+
+forward_references:
+  - analytical-mechanics.dalembert-principle
+  - analytical-mechanics.lagrange-equation
+
+concepts:
+  - id: analytical-mechanics.holonomic-constraint
+    name: holonomic constraint
+    kind: definition
+    aliases: [ホロノミック拘束, holonomic constraint]
+    introduction: formal
+    introduction_aliases: [定義（holonomic constraint）]
+    requires:
+      - mechanics.point-particle-trajectory
+      - analysis.multivariable-differentiability
+
+  - id: analytical-mechanics.configuration-space-dof
+    name: 配置空間・自由度
+    kind: definition
+    aliases: [configuration space and degrees of freedom]
+    introduction: formal
+    introduction_aliases: [定義（配置空間・自由度）]
+    requires:
+      - analytical-mechanics.holonomic-constraint
+      - analysis.regular-level-set-local-graph
+
+  - id: analytical-mechanics.generalized-coordinates
+    name: 一般化座標
+    kind: definition
+    aliases: [generalized coordinates]
+    introduction: formal
+    introduction_aliases: [定義（一般化座標）]
+    requires:
+      - analytical-mechanics.configuration-space-dof
+
+  - id: analytical-mechanics.generalized-velocity
+    name: 一般化座標による速度公式
+    kind: proposition
+    aliases: [velocity formula in generalized coordinates]
+    introduction: formal
+    introduction_aliases: [命題（一般化座標による速度公式）]
+    requires:
+      - analytical-mechanics.generalized-coordinates
+      - mechanics.velocity-acceleration
+      - analysis.multivariable-chain-rule
+
+  - id: analytical-mechanics.virtual-displacement
+    name: 仮想変位
+    kind: definition
+    aliases: [virtual displacement]
+    introduction: formal
+    introduction_aliases: [定義（仮想変位）]
+    requires:
+      - analytical-mechanics.generalized-coordinates
+
+  - id: analytical-mechanics.virtual-displacement-tangent
+    name: holonomic constraint と仮想変位の接方向性
+    kind: proposition
+    aliases: [virtual displacement tangent to holonomic constraints]
+    introduction: formal
+    introduction_aliases: [命題（holonomic constraint と仮想変位の接方向性）]
+    requires:
+      - analytical-mechanics.holonomic-constraint
+      - analytical-mechanics.virtual-displacement
+      - analysis.multivariable-chain-rule
+
+  - id: analytical-mechanics.generalized-force
+    name: 一般化力
+    kind: definition
+    aliases: [generalized force]
+    introduction: formal
+    introduction_aliases: [定義（一般化力）]
+    requires:
+      - analytical-mechanics.generalized-coordinates
+      - mechanics.mass-force-resultant
+      - mechanics.work
+
+  - id: analytical-mechanics.generalized-virtual-work
+    name: 一般化力と仮想仕事
+    kind: proposition
+    aliases: [generalized force and virtual work]
+    introduction: formal
+    introduction_aliases: [命題（一般化力と仮想仕事）]
+    requires:
+      - analytical-mechanics.generalized-force
+      - analytical-mechanics.virtual-displacement
+
+  - id: analytical-mechanics.polar-kinematics
+    name: 平面極座標の速度・加速度
+    kind: proposition
+    aliases: [planar polar-coordinate velocity and acceleration]
+    introduction: formal
+    introduction_aliases: [命題（平面極座標の速度・加速度）]
+    requires:
+      - mechanics.velocity-acceleration
+      - analytical-mechanics.generalized-coordinates
+      - analysis.multivariable-chain-rule
