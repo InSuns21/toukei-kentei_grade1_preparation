@@ -7,8 +7,8 @@
     </marker>
   </defs>
 
-  <circle cx="320" cy="180" r="60" fill="none" stroke="#2f6f9f" stroke-width="3" stroke-dasharray="8 6"/>
-  <circle cx="320" cy="180" r="105" fill="none" stroke="#2f6f9f" stroke-width="2.5" stroke-dasharray="12 7"/>
+  <circle cx="320" cy="180" r="70" fill="none" stroke="#2f6f9f" stroke-width="3" stroke-dasharray="8 6"/>
+  <circle cx="320" cy="180" r="110" fill="none" stroke="#2f6f9f" stroke-width="2.5" stroke-dasharray="12 7"/>
   <circle cx="320" cy="180" r="150" fill="none" stroke="#2f6f9f" stroke-width="2" stroke-dasharray="4 7"/>
 
   <line x1="350" y1="180" x2="505" y2="180" stroke="#222" stroke-width="3" marker-end="url(#arrow)"/>
