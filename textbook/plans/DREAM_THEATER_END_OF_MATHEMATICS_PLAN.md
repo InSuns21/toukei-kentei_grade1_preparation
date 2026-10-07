@@ -29,7 +29,7 @@
 
 この原則により、今回整備する基礎は次となる。
 
-- 調和解析 HA1--HA8
+- 調和解析 HA1--HA8（`DREAM_THEATER_HARMONIC_ANALYSIS_PLAN.md`）
 - 幾何学的測度論 GMT1--GMT8
 - Diophantine近似 NDA1--NDA8
 - NT9--NT10 Hilbert第10問題発展章
@@ -205,7 +205,7 @@ status には基準日を付ける。
    - NDA
    - NT9 / NT10
 
-2. REAL ANALYSIS PLAN
+2. HARMONIC ANALYSIS PLAN
    - HA1--HA8
 
 3. GMT

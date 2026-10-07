@@ -1,4 +1,4 @@
-# DREAM THEATER：実解析・調和解析強化計画
+# DREAM THEATER：実解析強化計画
 
 作成日: 2026-09-23
 
@@ -24,20 +24,7 @@
 - 測度・Lebesgue 積分・絶対連続・BV：MT 系列
 - 関数解析：FA 系列
 
-したがって本計画の目的は、**既存正本と重複しない実解析上の不足を補い、PDE で必要になる高次元の実解析・調和解析へ自然に接続すること**である。
-
-## 0.1 調和解析の範囲校正に用いる標準書
-
-HA1--HA8 の範囲・順序は、特定の一冊を写すのではなく、次の標準書を比較して校正する。
-
-- Loukas Grafakos, *Classical Fourier Analysis*, Springer
-  - maximal function、interpolation、singular integrals、Littlewood--Paley theory の標準的な射程を参照する。
-- Elias M. Stein, *Singular Integrals and Differentiability Properties of Functions*, Princeton University Press
-  - maximal theorem、singular integral、Riesz potential の古典的正本として参照する。
-- Elias M. Stein and Rami Shakarchi, *Fourier Analysis: An Introduction*, Princeton University Press
-  - 既存 FOU 系列から現代調和解析へ進む教育的接続を校正する。
-
-Kakeya / restriction のためだけに上記の一部を抜き出すのではなく、独立科目として自然な順序を優先する。
+したがって本計画の目的は、**既存正本と重複しない実解析上の不足を補い、Fourier解析・測度論・調和解析などの後続科目へ自然に接続すること**である。
 
 ## 1. 現在の実解析系列
 
@@ -165,202 +152,37 @@ VC2 / GEO 系列を canonical とする。
 
 必要なら演習・補遺に置き、独立章にはしない。
 
-## 3. 実解析から現代調和解析へ
+## 3. 調和解析への出口
 
-杉浦『解析入門』の学部解析コアを確認すると、現行 RA 系列はかなり広く cover している。
+FOU1--FOU5 の後に続く現代調和解析は、本計画の内部系列ではなく独立 PLAN
 
-一方、FOU1--FOU5 で Fourier 級数・Fourier 変換・反転・Plancherel・離散 Fourier までを正本化した後に位置する、現代的な $L^p$ 調和解析はまだ独立科目として閉じていない。
+- `DREAM_THEATER_HARMONIC_ANALYSIS_PLAN.md`
 
-従来の HA1--HA3 は PDE / Navier--Stokes で必要な
+を canonical owner とする。
 
-- Hardy--Littlewood maximal operator
-- Riesz potential / HLS
-- Riesz transform
-- singular integral
-- Calderón--Zygmund estimate
+本計画では、
 
-を補う最短ルートとして設計されていた。
+- RA5 のパラメータ積分
+- RA7 の多変数広義積分
+- 実解析の演習強化
 
-2026-10-07 の再設計では、この方針を改める。
+など、実解析として自然な不足だけを扱う。
 
-> **後続 PDE や Kakeya のための道具箱として数章だけ置くのではなく、「調和解析を1セメスター履修した」と言える独立系列として HA を完成させる。**
-
-Kakeya / Fourier restriction は HA の終盤で幾何学的測度論と合流する出口として扱う。研究成果固有の技術を HA に逆輸入しない。
-
-## 4. 調和解析 HA1--HA8
-
-ID は仮。実装前に既存 ID と knowledge DAG を確認する。
-
-主 prerequisite:
-
-- FOU1--FOU4
-- MT7 の $L^p$ 完備性・稠密性・双対
-- 必要な章で MT4 / MT8
-- 必要な章で F0-02C1 の Hilbert / Banach 基礎
-
-### HA1 高次元最大作用素・被覆補題・Lebesgue 微分
-
-- ball / cube average
-- centered / uncentered Hardy--Littlewood maximal operator
-- Vitali 型 covering lemma
-- weak $(1,1)$ estimate
-- strong $(p,p)$ estimate への入口
-- Lebesgue differentiation theorem in $\mathbb R^d$
-
-MT4 の1次元結果を重複証明せず、高次元化に必要な幾何を主役にする。
-
-### HA2 weak $L^p$・補間理論
-
-- distribution function
-- weak $L^p$
-- sublinear operator
-- Marcinkiewicz interpolation
-- Riesz--Thorin interpolation
-- maximal operatorへの適用
-
-補間定理は named theorem の引用だけで済ませず、採用する形の証明責務を実装前に確定する。
-
-### HA3 Hilbert transform・principal value
-
-- principal value
-- Hilbert transform
-- cancellation
-- Fourier multiplier 表示
-- $L^2$ boundedness
-- Poisson kernel / conjugate Poisson kernel との関係
-
-一般 singular integral の前に、一変数モデルを完全に扱う。
-
-### HA4 Calderón--Zygmund decomposition
-
-- good / bad decomposition
-- maximal cubes
-- good part の $L^\infty$ / $L^1$ 制御
-- bad part の cancellation
-- weak $(1,1)$ estimate
-- interpolation への接続
-
-分解構成そのものを主要 proof とする。
-
-### HA5 Calderón--Zygmund singular integral・Riesz transform
-
-- standard kernel
-- size / smoothness condition
-- truncated operator
-- singular integral theorem
-- weak $(1,1)$ / strong $(p,p)$
-- Riesz transform
-- Poisson 方程式の二階微分評価
-- Navier--Stokes の圧力表示への出口
-
-PDE における意味は PDE / NS 側、operator mapping property は HA 側を canonical owner とする。
-
-### HA6 Riesz potential・Hardy--Littlewood--Sobolev
-
-- fractional integral
-- scaling
-- Riesz potential $I_\alpha$
-- Hardy--Littlewood--Sobolev inequality
-- endpoint の位置付け
-- Sobolev inequality との関係
-- Newton potential
-
-VC8 / PDE10 / GPDE5 の既存正本と役割分担する。
-
-### HA7 Littlewood--Paley theory・周波数局在
-
-- dyadic partition
-- Littlewood--Paley projection
-- square function
-- almost orthogonality
-- Bernstein inequality
-- frequency localization
-- Sobolev regularity の周波数的解釈
-
-Besov / Triebel--Lizorkin の完全理論は必須範囲にしない。
-
-### HA8 Fourier restriction・oscillatory integral への入口
-
-- hypersurface measure の Fourier transform
-- restriction / extension operator
-- scaling necessary condition
-- Stein--Tomas 型結果
-- oscillatory integral の基本像
-- wave packet の入口
-- tube geometry
-- Kakeya 問題との interface
-
-Kakeya set / maximal problem の詳細は幾何学的測度論 PLAN および EOM074 の責務とする。
-
-### 停止線
-
-1セメスターの本系列では原則として次を完全理論へ広げない。
-
-- Hardy space $H^p$
-- BMO の完全理論
-- weighted $A_p$
-- Carleson measure
-- Carleson--Hunt theorem
-- time--frequency analysis
-- multilinear harmonic analysis
-- decoupling の完全理論
-
-必要になった場合は「調和解析 II」として独立 PLAN を立てる。
-
-## 5. 推奨実装順
+maximal operator、interpolation、Hilbert transform、Calderón--Zygmund、Riesz potential / transform、Littlewood--Paley、restriction は HA 側へ送る。
 
 ~~~text
-既存 RA1--RA8 の監査
+RA / MT
   ↓
-RA5 parameter integral の補強
+FOU
   ↓
-RA7 多変数広義積分の補強
-  ↓
-RAX1 実解析・院試／編入 演習
-
-FOU1--FOU5
-  ↓
-HA1 maximal / covering
-  ↓
-HA2 weak Lp / interpolation
-  ↓
-HA3 Hilbert transform
-  ↓
-HA4 CZ decomposition
-  ↓
-HA5 CZ singular integral / Riesz transform
-  ↓
-HA6 Riesz potential / HLS
-  ↓
-HA7 Littlewood--Paley
-  ↓
-HA8 restriction / wave packet
+DREAM_THEATER_HARMONIC_ANALYSIS_PLAN.md
   ├──→ PDE / Navier--Stokes
-  └──→ 幾何学的測度論 / Kakeya
+  └──→ GMT / Kakeya
 ~~~
 
-RAX1 は理論章の標準 A4/B3/C1 を増量する代わりではなく、既存の LAX1 / CAX1 と同じく **理論系列とは別の演習専用章**として計画する。
+「PDE で使うから」という理由で HA の定理を本計画へ逆輸入しない。
 
-## 6. 後続理論との接続
-
-HA 系列は、一般非線形 PDE、Navier--Stokes、幾何学的測度論 / Kakeya の共通解析基盤とする。
-
-~~~text
-RA / MT / FOU
-   ↓
-HA1--HA6
-   ├──→ DREAM_THEATER_NONLINEAR_PDE_PLAN.md
-   ├──→ Navier--Stokes
-   └──→ HA7--HA8
-             ↓
-      geometric measure theory
-             ↓
-           Kakeya
-~~~
-
-ただし PDE の scaling・熱核平滑化・自己相似など、HA 全系列を必要としない章に過剰 prerequisite を課さない。
-
-## 7. 実装時の取捨選択基準
+## 4. 実装時の取捨選択基準
 
 新しい実解析トピックを追加する前に、次を順に確認する。
 
@@ -372,7 +194,7 @@ HA1--HA6
 
 単に「標準教科書に載っている」ことだけを新章追加の理由にしない。
 
-## 8. 完成条件
+## 5. 完成条件
 
 新設・改稿する DREAM THEATER 章は現行 DREAM_THEATER_AUTHORING_STANDARD.md に従う。
 
@@ -386,9 +208,8 @@ HA1--HA6
 - 原則 Level A 4題 / Level B 3題 / Level C 1題と詳細解答を置く。
 
 
-## 9. 2026-10-07 再設計メモ
+## 6. 2026-10-07 再設計メモ
 
-- HA を「PDE の不足を埋める3章」から、HA1--HA8 の1セメスター正規講義へ昇格する。
-- FOU1--FOU5 を Fourier 解析の canonical prerequisite とし、重複実装しない。
-- Kakeya は HA8 だけで閉じず、幾何学的測度論側の Besicovitch / tube geometry と合流して読む。
-- EOM074 固有の2026年結果・検証状況は EOM 側へ置く。
+- HA1--HA8 は実解析強化PLANから分離し、`DREAM_THEATER_HARMONIC_ANALYSIS_PLAN.md` の独立1セメスター正規講義とする。
+- 本計画は実解析上の不足と HA への接続だけを担当する。
+- FOU / MT / FA と HA の canonical ownership を混同しない。
