@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" data-layout-lint="strict" viewBox="0 0 820 360" role="img" aria-labelledby="title desc">
+  <title id="title">ばね振動で変位と復元力が反対向きになる配置</title>
+  <desc id="desc">左端の壁に固定したばねと質点を描く。平衡位置 x=0 より右へ質点が変位 y だけ移動しており、変位矢印は右向き、質点に働く復元力 F=-ky は左向きである。</desc>
+  <rect width="820" height="360" fill="white"/>
+  <defs>
+    <marker id="arrow-y" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#0072B2"/></marker>
+    <marker id="arrow-f" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#D55E00"/></marker>
+  </defs>
+  <line x1="90" y1="78" x2="90" y2="278" stroke="#374151" stroke-width="6"/>
+  <line x1="70" y1="95" x2="90" y2="75" stroke="#6B7280" stroke-width="3"/>
+  <line x1="70" y1="135" x2="90" y2="115" stroke="#6B7280" stroke-width="3"/>
+  <line x1="70" y1="175" x2="90" y2="155" stroke="#6B7280" stroke-width="3"/>
+  <line x1="70" y1="215" x2="90" y2="195" stroke="#6B7280" stroke-width="3"/>
+  <line x1="70" y1="255" x2="90" y2="235" stroke="#6B7280" stroke-width="3"/>
+  <polyline points="90,180 130,180 155,145 205,215 255,145 305,215 355,145 405,215 455,180 520,180" fill="none" stroke="#374151" stroke-width="5" stroke-linejoin="round"/>
+  <rect x="520" y="130" width="120" height="100" rx="8" fill="#F3F4F6" stroke="#1F2937" stroke-width="4"/>
+  <circle cx="580" cy="180" r="7" fill="#1F2937"/>
+  <line x1="470" y1="275" x2="470" y2="245" stroke="#6B7280" stroke-width="3"/>
+  <line x1="470" y1="260" x2="580" y2="260" stroke="#0072B2" stroke-width="5" stroke-dasharray="11 7" marker-end="url(#arrow-y)"/>
+  <line x1="580" y1="105" x2="430" y2="105" stroke="#D55E00" stroke-width="5" marker-end="url(#arrow-f)"/>
+  <line x1="470" y1="115" x2="470" y2="300" stroke="#9CA3AF" stroke-width="2" stroke-dasharray="7 7"/>
+  <g font-family="Noto Sans CJK JP, sans-serif" font-size="22" fill="#1F2937">
+    <text x="445" y="326">x = 0</text>
+    <text x="555" y="285" fill="#0072B2" font-weight="700">y &gt; 0</text>
+    <text x="455" y="82" fill="#D55E00" font-weight="700">F = −ky</text>
+    <text x="555" y="190">m</text>
+  </g>
+</svg>
