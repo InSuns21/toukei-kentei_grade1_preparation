@@ -1335,11 +1335,11 @@ $$
 
 点
 
-$$
-A=(0,0,0),
+$
+A=(0,0,0)\ \mathrm m,
 \qquad
-B=(2,1,0)
-$$
+B=(2,1,0)\ \mathrm m
+$
 
 について
 
@@ -1430,16 +1430,18 @@ $$
 
 ### A2. 点電荷の電位と電場
 
-原点に
+原点に点電荷 $Q$ を置き、
 
-$$
-Q=4\pi\varepsilon_0
-$$
+$
+\frac{Q}{4\pi\varepsilon_0}
+=
+6\ \mathrm{V\,m}
+$
 
-の点電荷を置き、$\phi(\infty)=0$ とする。
+とする。$\phi(\infty)=0$ とする。
 
 1. 電位 $\phi(r)$ を求めよ。
-2. $r=2$ での電位を求めよ。
+2. $r=2\ \mathrm m$ での電位を求めよ。
 3. $E=-\nabla\phi$ から電場を復元せよ。
 
 - Level: A
@@ -1449,66 +1451,82 @@ $$
 
 点電荷の電位は
 
-$$
+$
 \phi(r)
 =
 \frac{Q}{4\pi\varepsilon_0r}.
-$$
+$
 
-ここで
+与えられた係数を代入すると
 
-$$
-Q=4\pi\varepsilon_0
-$$
-
-なので
-
-$$
+$
 \boxed{
-\phi(r)=\frac1r
-}.
-$$
-
-したがって
-
-$$
-\phi(2)
+\phi(r)
 =
-\boxed{\frac12}.
-$$
+\frac{6\ \mathrm{V\,m}}{r}
+}.
+$
+
+したがって $r=2\ \mathrm m$ では
+
+$
+\phi(2\ \mathrm m)
+=
+\frac{6\ \mathrm{V\,m}}{2\ \mathrm m}
+=
+\boxed{3\ \mathrm V}.
+$
 
 $r=|x|$ に対して
 
-$$
+$
 \nabla\left(\frac1r\right)
 =
 -\frac{e_r}{r^2}
-$$
+$
 
 なので
 
-$$
+$
 E
 =
 -\nabla\phi
 =
--\nabla\left(\frac1r\right)
+-(6\ \mathrm{V\,m})
+\nabla\left(\frac1r\right)
 =
 \boxed{
-\frac1{r^2}e_r
+\frac{6\ \mathrm{V\,m}}{r^2}e_r
 }.
+$
+
+単位は
+
+$
+\frac{\mathrm{V\,m}}{\mathrm m^2}
+=
+\mathrm{V/m}
+=
+\mathrm{N/C}
+$
+
+で、電場の単位と一致します。
 $$
 <!-- solution-end -->
 
 ### A3. 与えられた電位から電場と等電位面を読む
 
-電位
+$x,y,z$ を metre で測る SI 座標とする。電位
 
-$$
+$
 \phi(x,y,z)
 =
-5-2x+3z
-$$
+5\ \mathrm V
+-
+(2\ \mathrm{V/m})x
++
+(3\ \mathrm{V/m})z
+$
 
 が与えられている。
 
@@ -1532,14 +1550,14 @@ $$
 \frac{\partial\phi}{\partial z}
 \right)
 =
-(-2,0,3).
-$$
+(-2,0,3)\ \mathrm{V/m}.
+$
 
 したがって
 
-$$
+$
 \boxed{
-E=-\nabla\phi=(2,0,-3)
+E=-\nabla\phi=(2,0,-3)\ \mathrm{V/m}
 }.
 $$
 
