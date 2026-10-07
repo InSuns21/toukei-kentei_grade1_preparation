@@ -1,0 +1,20 @@
+chapter: "VN6"
+terms:
+  - term: 乗算作用素
+    english: multiplication operator
+    meaning: L^infinity 関数 f に対し L^2 上で (M_f xi)(x)=f(x)xi(x) と作用する有界線形作用素。
+  - term: L^infinity 乗算環
+    english: L-infinity multiplication algebra
+    meaning: L^infinity(X,mu) の全ての元による乗算作用素 M_f を集めた B(L^2(X,mu)) の可換作用素環。
+  - term: 測度代数
+    english: measure algebra
+    meaning: 可測集合を対称差が零集合であるという同値関係で割った Boolean 代数。本章では L^infinity 乗算環の射影と対応する。
+  - term: 可測集合射影
+    english: measurable-set projection
+    meaning: 可測集合 E の指示関数による乗算作用素 P_E=M_{1_E}。零集合だけ異なる集合は同じ射影を与える。
+  - term: 自己可換子性
+    english: self-commutant property
+    meaning: 作用素環 M が M'=M を満たす性質。本章の有限測度空間上の L^infinity 乗算環で成立する。
+  - term: SOT 極限
+    english: strong-operator limit
+    meaning: 各ベクトル xi ごとに ||(T_n-T)xi|| が 0 に収束する作用素の極限。作用素ノルム収束より弱い。
