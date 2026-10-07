@@ -28,11 +28,11 @@ concepts:
       - mechanics.newton-second-law
 
   - id: analytical-mechanics.generalized-dalembert
-    name: ダランベールの原理の一般化座標表示
+    name: 一般化座標への射影式
     kind: proposition
-    aliases: [d'Alembert principle in generalized coordinates]
+    aliases: [generalized-coordinate projection of d'Alembert principle]
     introduction: formal
-    introduction_aliases: [命題（ダランベールの原理の一般化座標表示）]
+    introduction_aliases: [命題（一般化座標への射影式）]
     requires:
       - analytical-mechanics.dalembert-principle
       - analytical-mechanics.generalized-coordinates
