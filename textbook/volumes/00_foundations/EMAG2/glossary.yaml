@@ -1,0 +1,26 @@
+chapter: "EMAG2"
+terms:
+  - term: 電束
+    english: electric flux
+    meaning: "向き付けられた曲面 S を貫く電場の法線成分を積分した量。Phi_E=integral_S E dot n dS で定義する。"
+  - term: Gauss の法則
+    english: Gauss's law
+    meaning: "閉曲面を外向きに貫く電束が、その内部に含まれる総電荷を真空の誘電率 epsilon_0 で割った値に等しいという電磁気学の物理法則。"
+  - term: Gauss 面
+    english: Gaussian surface
+    meaning: "Gauss の法則を計算に使うために選ぶ仮想的な閉曲面。実在する膜ではなく、電荷配置の対称性に合わせて選ぶ。"
+  - term: 包有電荷
+    english: enclosed charge
+    meaning: "選んだ閉曲面の内部に含まれる総電荷。Gauss の法則では閉曲面の外側の電荷は右辺の包有電荷に含めない。"
+  - term: 球対称
+    english: spherical symmetry
+    meaning: "原点まわりの任意の回転で電荷配置が変わらない対称性。電場は半径方向を向き、大きさは半径だけに依存する。"
+  - term: 円筒対称
+    english: cylindrical symmetry
+    meaning: "ある軸まわりの回転と軸方向の平行移動で電荷配置が変わらない対称性。無限直線電荷などで現れる。"
+  - term: 平面対称
+    english: planar symmetry
+    meaning: "平面内の平行移動・回転などで電荷配置が変わらない対称性。無限平面電荷では電場が平面に垂直になる。"
+  - term: 三次元 delta 分布
+    english: three-dimensional Dirac delta distribution
+    meaning: "点電荷を局所方程式の源として表すための一般化された対象。滑らかな試験関数 f に対して integral delta^(3)(r) f(r) dV=f(0) を満たすものとして特徴付けられる。"
