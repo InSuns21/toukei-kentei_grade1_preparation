@@ -1,0 +1,14 @@
+chapter: "AMECH8"
+terms:
+  - term: Hamilton の主関数
+    english: Hamilton principal function
+    meaning: "固定した初期端点から終端 (q,t) までの古典軌道上で作用を評価して得る端点関数。終端微分は S_q=p, S_t=-H を満たし Hamilton--Jacobi 方程式を与える。"
+  - term: 完全積分
+    english: complete integral
+    meaning: "n 自由度の Hamilton--Jacobi 方程式の n 個の独立パラメータを持つ解族で、混合 Hessian det(partial^2 S/partial q_i partial alpha_j) が非零となるもの。母関数として使うと運動を 2n 個の積分定数で再構成できる。"
+  - term: Hamilton の特性関数
+    english: Hamilton characteristic function
+    meaning: "自律 Hamilton 系で S(q,t)=W(q)-Et と時間分離したときに H(q,partial W/partial q)=E を満たす W。"
+  - term: Hamilton--Jacobi 法
+    english: Hamilton--Jacobi method
+    meaning: "Hamilton 方程式を直接積分する代わりに、母関数 S の一階偏微分方程式を解き、完全積分の定数から軌道を回収する方法。"
