@@ -19,7 +19,7 @@ chapters:
     title: 電位・Poisson 方程式・Coulomb ポテンシャル
   - id: EMAG4
     path: textbook/volumes/00_foundations/EMAG4
-    status: planned
+    status: completed
     title: 導体・境界値問題・静電エネルギー
   - id: EMAG5
     path: textbook/volumes/00_foundations/EMAG5
