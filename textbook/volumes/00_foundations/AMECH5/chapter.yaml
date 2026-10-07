@@ -1,0 +1,47 @@
+id: "AMECH5"
+title: "Legendre 変換と Hamilton 形式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AMECH4
+official_scope: []
+learning_objectives:
+  - 速度変数から共役運動量への Legendre 写像を定義し、速度 Hessian が可逆である正則性条件を具体例で確認できる
+  - 正則性から逆関数定理を用いて局所的に dot q=dot q(q,p,t) と速度を回収できることを説明できる
+  - Hamiltonian H=sum_j p_j dot q_j-L を Legendre 変換として構成し、調和振動子で H=p^2/(2m)+V(q) を導ける
+  - Hamiltonian の全微分で d dot q の項が消えることを途中式で示し、Hamilton の正準方程式を導ける
+  - 正則 Lagrangian の Lagrange 方程式と Hamilton の正準方程式が局所的に同値であることを証明できる
+  - 位相空間を q と p を独立座標として持つ状態空間として説明し、調和振動子の等エネルギー曲線と時間発展を読める
+  - 自然な Lagrangian L=(1/2) dot q^T M(q) dot q-V(q,t) から H=(1/2)p^T M(q)^(-1)p+V(q,t) を導ける
+  - Hamiltonian が常に保存エネルギーとは限らず、dH/dt=partial H/partial t=-partial L/partial t となることを説明できる
+  - 中心力を極座標で Hamilton 形式へ変換し、p_theta 保存と radial dynamics を正準方程式から再現できる
+definitions:
+  - { id: AMECH5-DEF-01, name: "Legendre 写像" }
+  - { id: AMECH5-DEF-02, name: "正則 Lagrangian" }
+  - { id: AMECH5-DEF-03, name: "Hamiltonian" }
+  - { id: AMECH5-DEF-04, name: "位相空間" }
+theorems:
+  - { id: AMECH5-PROP-01, name: "正則性による局所速度回収" }
+  - { id: AMECH5-PROP-02, name: "Hamiltonian の微分公式" }
+  - { id: AMECH5-THM-01, name: "Hamilton の正準方程式と Lagrange 方程式の同値性" }
+  - { id: AMECH5-PROP-03, name: "自然な Lagrangian の Hamiltonian" }
+  - { id: AMECH5-PROP-04, name: "Hamiltonian の時間変化" }
+canonical_examples:
+  - "一次元調和振動子で p=m dot q を反転し H=p^2/(2m)+kq^2/2 を得る例"
+  - "速度に線形な Lagrangian で Legendre 写像が速度を失い正則性が破れる例"
+  - "調和振動子の位相空間で等エネルギー曲線が楕円になる例"
+  - "平面中心力を極座標で H=p_r^2/(2m)+p_theta^2/(2mr^2)+V(r) と書く例"
+  - "total derivative を加えた Lagrangian で canonical momentum がずれるが運動方程式は変わらない例"
+problem_patterns:
+  - AMECH5-LEGENDRE-HARMONIC-1
+  - AMECH5-REGULARITY-1
+  - AMECH5-PHASE-SPACE-1
+  - AMECH5-NATURAL-LAGRANGIAN-1
+  - AMECH5-HAMILTON-DIFFERENTIAL-1
+  - AMECH5-CENTRAL-FORCE-1
+  - AMECH5-TIME-DEPENDENT-1
+  - AMECH5-TOTAL-DERIVATIVE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 6.0, review: 1.0 }
