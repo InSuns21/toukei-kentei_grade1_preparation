@@ -4,8 +4,7 @@ coverage: complete
 prerequisites:
   - AMECH4
 
-forward_references:
-  - AMECH6
+forward_references: []
 
 concepts:
   - id: analytical-mechanics.legendre-map
