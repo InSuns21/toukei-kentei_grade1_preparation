@@ -5,7 +5,8 @@ prerequisites:
   - AMECH6
   - VC1
 
-forward_references: []
+forward_references:
+  - pde.pde12-hamilton-jacobi
 
 concepts:
   - id: analytical-mechanics.canonical-transformation
