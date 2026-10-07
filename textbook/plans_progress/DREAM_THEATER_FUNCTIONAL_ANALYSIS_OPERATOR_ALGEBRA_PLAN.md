@@ -1192,7 +1192,7 @@ EVOL1 の閉作用素一般論を再利用し、Hille--Yosida 等は再実装し
 
 OA1--OA6 の詳細IDは開始時に確定する。
 
-### Phase 3: 作用素環論 II
+### Phase 3: 作用素環論 II ✅
 
 順に
 
@@ -1202,11 +1202,12 @@ OA1--OA6 の詳細IDは開始時に確定する。
 - VN4 predual ✅（2026-10-07 完了）
 - VN5 正規状態・トレース ✅（2026-10-07 完了）
 - VN6 可換 von Neumann 環 ✅（2026-10-07 完了）
-- VN7 factor
+- VN7 factor ✅（2026-10-07 完了）
 
 を実装する。
 
 ### Phase 4: 横断監査
+
 
 - 用語統一
 - chapter.yaml / knowledge.yaml

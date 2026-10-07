@@ -1,0 +1,127 @@
+chapter: VN7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - VN2
+  - VN3
+  - VN5
+  - VN6
+
+forward_references: []
+
+concepts:
+  - id: operator-algebra.center
+    name: 中心
+    kind: definition
+    aliases: ["center of a von Neumann algebra"]
+    introduction: formal
+    introduction_aliases: ["定義（中心）"]
+    requires:
+      - operator-algebra.von-neumann-algebra
+      - operator-algebra.commutant
+
+  - id: operator-algebra.central-projection-decomposition
+    name: 中心射影による直和分解
+    kind: proposition
+    aliases: ["decomposition by a central projection"]
+    introduction_aliases: ["命題（中心射影による直和分解）"]
+    requires:
+      - operator-algebra.center
+      - operator-algebra.projection-element
+
+  - id: operator-algebra.factor
+    name: factor
+    kind: definition
+    aliases: ["von Neumann factor"]
+    introduction: formal
+    introduction_aliases: ["定義（factor）"]
+    requires:
+      - operator-algebra.center
+
+  - id: operator-algebra.bh-factor
+    name: 全有界作用素環は factor
+    kind: theorem
+    aliases: ["B(H) is a factor"]
+    introduction_aliases: ["定理（全有界作用素環は factor）"]
+    requires:
+      - operator-algebra.factor
+      - operator-algebra.commutant
+      - functional.hilbert-space
+
+  - id: operator-algebra.murray-von-neumann-equivalence
+    name: 射影の Murray--von Neumann 同値
+    kind: definition
+    aliases: ["Murray--von Neumann equivalence of projections"]
+    introduction: formal
+    introduction_aliases: ["定義（射影の Murray--von Neumann 同値）"]
+    requires:
+      - operator-algebra.partial-isometry
+      - operator-algebra.projection-element
+      - operator-algebra.von-neumann-algebra
+
+  - id: operator-algebra.murray-von-neumann-equivalence-relation
+    name: Murray--von Neumann 同値は同値関係
+    kind: proposition
+    aliases: ["Murray--von Neumann equivalence relation"]
+    introduction_aliases: ["命題（Murray--von Neumann 同値は同値関係）"]
+    requires:
+      - operator-algebra.murray-von-neumann-equivalence
+      - operator-algebra.partial-isometry-projections
+
+  - id: operator-algebra.matrix-projection-equivalence-rank
+    name: 行列環では射影同値と rank が一致する
+    kind: theorem
+    aliases: ["projection equivalence equals rank equality in matrix algebras"]
+    introduction_aliases: ["定理（行列環では射影同値と rank が一致する）"]
+    requires:
+      - operator-algebra.murray-von-neumann-equivalence
+      - operator-algebra.partial-isometry
+
+  - id: operator-algebra.finite-projection
+    name: 有限射影
+    kind: definition
+    aliases: ["finite projection"]
+    introduction: formal
+    introduction_aliases: ["定義（有限射影・無限射影）"]
+    requires:
+      - operator-algebra.murray-von-neumann-equivalence
+      - operator-algebra.projection-element
+
+  - id: operator-algebra.infinite-projection
+    name: 無限射影
+    kind: definition
+    aliases: ["infinite projection"]
+    introduction: formal
+    introduction_aliases: ["定義（有限射影・無限射影）"]
+    requires:
+      - operator-algebra.finite-projection
+
+  - id: operator-algebra.shift-infinite-identity
+    name: 片側シフトが示す単位射影の無限性
+    kind: proposition
+    aliases: ["identity projection of B(l2) is infinite"]
+    introduction_aliases: ["命題（片側シフトが示す単位射影の無限性）"]
+    requires:
+      - operator-algebra.infinite-projection
+      - operator-algebra.partial-isometry-projections
+
+  - id: operator-algebra.minimal-projection
+    name: 最小射影
+    kind: definition
+    aliases: ["minimal projection"]
+    introduction: formal
+    introduction_aliases: ["定義（最小射影）"]
+    requires:
+      - operator-algebra.projection-element
+
+  - id: operator-algebra.factor-type-classification
+    name: factor の I / II / III 型
+    kind: definition
+    aliases: ["type I II III classification of factors"]
+    introduction: formal
+    introduction_aliases: ["定義（factor の I / II / III 型）"]
+    requires:
+      - operator-algebra.factor
+      - operator-algebra.minimal-projection
+      - operator-algebra.finite-projection
+      - operator-algebra.infinite-projection

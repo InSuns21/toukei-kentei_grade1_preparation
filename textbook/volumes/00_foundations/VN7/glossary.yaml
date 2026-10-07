@@ -1,0 +1,29 @@
+chapter: "VN7"
+terms:
+  - term: 中心
+    english: center
+    meaning: von Neumann 環 M のうち M の全ての元と可換する元全体 Z(M)=M∩M'。
+  - term: factor
+    english: factor
+    meaning: 中心がスカラー倍 CI に限られる von Neumann 環。中心射影による非自明な直和分解を持たない基本ブロック。
+  - term: Murray--von Neumann 同値
+    english: Murray--von Neumann equivalence
+    meaning: 射影 p,q に対し v*v=p, vv*=q を満たす部分等長作用素 v が環内に存在するときの同値関係。
+  - term: 有限射影
+    english: finite projection
+    meaning: 自分と Murray--von Neumann 同値な真部分射影を持たない射影。
+  - term: 無限射影
+    english: infinite projection
+    meaning: 自分と Murray--von Neumann 同値な真部分射影を持つ射影。
+  - term: 最小射影
+    english: minimal projection
+    meaning: 0 と自分自身以外の部分射影を持たない非零射影。
+  - term: I 型 factor
+    english: type I factor
+    meaning: 非零の最小射影を持つ factor。M_n(C) と B(l2) が代表例。
+  - term: II 型 factor
+    english: type II factor
+    meaning: 最小射影を持たないが非零有限射影を持つ factor。
+  - term: III 型 factor
+    english: type III factor
+    meaning: 非零有限射影を持たず、全ての非零射影が無限である factor。
