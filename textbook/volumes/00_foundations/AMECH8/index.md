@@ -280,7 +280,7 @@ $$
 <!-- definition-example-start: def-amech8-principal-function -->
 ### 例：自由粒子の主関数
 
-一次元自由粒子
+**定義の確認**として、一次元自由粒子
 
 $$
 L=\frac{m}{2}\dot q^2
@@ -683,7 +683,7 @@ $$
 <!-- definition-example-start: def-amech8-complete-integral -->
 ### 例：一次元自由粒子の完全積分
 
-自由粒子
+**定義の確認**として、自由粒子
 
 $$
 H(q,p)=\frac{p^2}{2m}
@@ -1006,7 +1006,7 @@ $$
 <!-- definition-example-start: def-amech8-characteristic-function -->
 ### 例：自由粒子の特性関数
 
-一次元自由粒子では
+**定義の確認**として、一次元自由粒子では
 
 $$
 \frac{1}{2m}
