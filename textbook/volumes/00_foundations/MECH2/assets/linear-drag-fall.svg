@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 470" role="img" aria-labelledby="title desc">
   <title id="title">線形抵抗を受ける落下</title>
-  <desc id="desc">下向きを正に取った落下運動で、速度 v と重力 mg は下向き、線形抵抗力 cv は上向き。速度が増えると抵抗力が増え、終端速度でつり合う。</desc>
+  <desc id="desc">下向きを正に取った落下運動で、青い速度 v と朱色の重力 mg は下向き、緑の線形抵抗力 cv は上向き。速度が増えると抵抗力が増え、終端速度でつり合う。色に加えて文字と向きでも区別する。</desc>
   <rect width="780" height="470" fill="white"/>
-  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#111"/></marker></defs>
-  <circle cx="315" cy="220" r="42" fill="none" stroke="#111" stroke-width="3"/>
-  <g stroke="#111" stroke-width="4" fill="none" marker-end="url(#arrow)">
-    <line x1="315" y1="265" x2="315" y2="405"/>
-    <line x1="290" y1="220" x2="290" y2="355"/>
-    <line x1="340" y1="217" x2="340" y2="95"/>
-  </g>
-  <g font-family="sans-serif" font-size="25" fill="#111">
-    <text x="335" y="390">v（下向きを正）</text>
-    <text x="165" y="340">mg</text>
-    <text x="360" y="120">cv</text>
+  <defs>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#0072B2"/></marker>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#D55E00"/></marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#009E73"/></marker>
+  </defs>
+  <circle cx="315" cy="220" r="42" fill="#F3F4F6" stroke="#374151" stroke-width="3"/>
+  <line x1="315" y1="265" x2="315" y2="405" stroke="#0072B2" stroke-width="4" fill="none" marker-end="url(#arrow-blue)"/>
+  <line x1="290" y1="220" x2="290" y2="355" stroke="#D55E00" stroke-width="4" fill="none" marker-end="url(#arrow-orange)"/>
+  <line x1="340" y1="217" x2="340" y2="95" stroke="#009E73" stroke-width="4" fill="none" marker-end="url(#arrow-green)"/>
+  <g font-family="sans-serif" font-size="25" fill="#1F2937">
+    <text x="335" y="390" fill="#0072B2" font-weight="700">v（下向きを正）</text>
+    <text x="165" y="340" fill="#D55E00" font-weight="700">mg</text>
+    <text x="360" y="120" fill="#009E73" font-weight="700">cv</text>
     <text x="120" y="448">終端速度では mg = cv となり、加速度が 0 に近づく。</text>
   </g>
 </svg>
