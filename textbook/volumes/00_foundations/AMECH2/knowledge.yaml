@@ -21,8 +21,8 @@ concepts:
     name: ダランベールの原理
     kind: principle
     aliases: [ダランベールの原理, d'Alembert principle]
-    introduction: formal
-    introduction_aliases: [原理（ダランベールの原理）]
+    introduction: inline
+    introduction_aliases: [ダランベールの原理]
     requires:
       - analytical-mechanics.ideal-constraint
       - mechanics.newton-second-law
