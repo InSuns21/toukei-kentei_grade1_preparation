@@ -1,0 +1,39 @@
+version: 1
+id: MECH
+title: 古典力学 I
+plan: textbook/plans_progress/DREAM_THEATER_CLASSICAL_MECHANICS_I_PLAN.md
+chapter_root: textbook/volumes/00_foundations
+
+chapters:
+  - id: MECH1
+    path: textbook/volumes/00_foundations/MECH1
+    status: planned
+    title: 運動を測る：位置・速度・加速度
+  - id: MECH2
+    path: textbook/volumes/00_foundations/MECH2
+    status: planned
+    title: Newton の運動法則と運動方程式
+  - id: MECH3
+    path: textbook/volumes/00_foundations/MECH3
+    status: planned
+    title: 仕事・エネルギー・ポテンシャル
+  - id: MECH4
+    path: textbook/volumes/00_foundations/MECH4
+    status: planned
+    title: 運動量・角運動量・保存則
+  - id: MECH5
+    path: textbook/volumes/00_foundations/MECH5
+    status: planned
+    title: 振動
+  - id: MECH6
+    path: textbook/volumes/00_foundations/MECH6
+    status: planned
+    title: 中心力・万有引力・Kepler 問題
+  - id: MECH7
+    path: textbook/volumes/00_foundations/MECH7
+    status: planned
+    title: 質点系・重心・衝突
+  - id: MECH8
+    path: textbook/volumes/00_foundations/MECH8
+    status: planned
+    title: 剛体の回転
