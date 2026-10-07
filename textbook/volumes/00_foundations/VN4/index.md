@@ -2616,6 +2616,7 @@ $$
 
 - Level: A
 
+<!-- solution-start -->
 #### 詳細解答
 
 $T=T^*$ なので
@@ -2704,6 +2705,8 @@ $$
 }
 $$
 
+<!-- solution-end -->
+
 ---
 
 ### A2. rank-one 作用素のトレース class 計算
@@ -2729,6 +2732,7 @@ $$
 
 - Level: A
 
+<!-- solution-start -->
 #### 詳細解答
 
 任意の $u,v\in H$ に対し
@@ -2838,6 +2842,8 @@ $$
 \boxed{\langle Ax,y\rangle}.
 $$
 
+<!-- solution-end -->
+
 ---
 
 ### A3. 対角 trace class
@@ -2856,6 +2862,7 @@ $$
 
 - Level: A
 
+<!-- solution-start -->
 #### 詳細解答
 
 $T$ は対角作用素なので
@@ -2919,6 +2926,8 @@ $$
 \boxed{\frac13}.
 $$
 
+<!-- solution-end -->
+
 ---
 
 ### A4. rank-one 射影の ultraweak 収束
@@ -2938,6 +2947,7 @@ $$
 
 - Level: A
 
+<!-- solution-start -->
 #### 詳細解答
 
 $x=(x_k)$、$y=(y_k)$ とすると
@@ -3006,6 +3016,8 @@ $$
 
 が全ての $n$ で成り立つので、作用素ノルムでは0へ収束しません。
 
+<!-- solution-end -->
+
 ---
 
 ## Level B
@@ -3031,6 +3043,7 @@ $$
 
 - Level: B
 
+<!-- solution-start -->
 #### 詳細解答
 
 $T$ は対角作用素で、対角成分 $1/n$ は0へ収束します。
@@ -3109,6 +3122,8 @@ $$
 
 この問題は「コンパクトなら trace class」という誤解が成り立たないことを示しています。
 
+<!-- solution-end -->
+
 ---
 
 ### B2. trace class のイデアル性と cyclicity
@@ -3131,6 +3146,7 @@ $A\in B(H)$、$T\in S_1(H)$ とする。
 
 - Level: B
 
+<!-- solution-start -->
 #### 詳細解答
 
 特異値と最良有限ランク近似の関係から
@@ -3228,6 +3244,8 @@ $$
 }
 $$
 
+<!-- solution-end -->
+
 ---
 
 ### B3. ノルム有界 WOT 収束から ultraweak 収束へ
@@ -3258,6 +3276,7 @@ $$
 
 - Level: B
 
+<!-- solution-start -->
 #### 詳細解答
 
 ultraweak 収束を示すには、任意の
@@ -3355,6 +3374,8 @@ A_\alpha\xrightarrow{\mathrm{ultraweak}}A.
 }
 $$
 
+<!-- solution-end -->
+
 ---
 
 ### B4. 対角 von Neumann 環の predual
@@ -3395,6 +3416,7 @@ $$
 
 - Level: B
 
+<!-- solution-start -->
 #### 詳細解答
 
 まず有限集合 $F\subset\mathbb N$ を固定します。
@@ -3558,6 +3580,8 @@ M_*\cong\ell^1.
 }
 $$
 
+<!-- solution-end -->
+
 ---
 
 ## Level C
@@ -3614,6 +3638,7 @@ $H$ を複素 Hilbert 空間とする。以下を順に示せ。
 
 - Level: C
 
+<!-- solution-start -->
 #### 詳細解答
 
 まず rank-one 作用素を調べます。
@@ -3886,3 +3911,6 @@ $$
 は $M$ の predual です。
 
 この一問で、rank-one 作用素から トレース対合 を作り、$B(H)$ の双対表示を証明し、さらに一般の具体的 von Neumann 環の predual まで再構成できました。
+
+
+<!-- solution-end -->

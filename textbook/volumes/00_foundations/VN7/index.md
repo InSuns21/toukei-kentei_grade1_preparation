@@ -222,7 +222,7 @@ z(zx_\alpha)=zx_\alpha
 \longrightarrow zT
 $$
 
-です。一方、極限の一意性から $zT=T$。また [von Neumann 環の定義](../VN2/index.md#def-vn2-von-neumann-algebra)から、WOT 極限 $T$ も $M$ に属します。したがって
+です。一方、[距離空間における極限の一意性](../F0_00B_距離空間_開集合_閉集合_収束/index.md#prop-f0-00b-01)から $zT=T$。また [von Neumann 環の定義](../VN2/index.md#def-vn2-von-neumann-algebra)から、WOT 極限 $T$ も $M$ に属します。したがって
 
 $$
 T=zT\in zM.
@@ -436,7 +436,7 @@ $$
 
 と定めます。
 
-Cauchy--Schwarz の不等式から
+[Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 \|\theta_{x,e}(y)\|
@@ -1016,7 +1016,7 @@ $p\in M_n(\mathbb C)$ を射影とします。
 
 $q\le p$ かつ $q\sim p$ と仮定します。
 
-前節の定理から
+[行列環では射影同値と rank が一致する定理](#thm-vn7-matrix-equivalence-rank)から
 
 $$
 \operatorname{rank}q
@@ -1289,7 +1289,9 @@ $$
 | II | ない | ある | II$_1$ では有限、II$_\infty$ では無限 |
 | III | ない | ない | 無限 |
 
-### I$_n$ 型：$M_n(\mathbb C)$
+<!-- definition-example-start: def-vn7-factor-type-classification -->
+
+### **定義の確認**：$M_n(\mathbb C)$ は I$_n$ 型
 
 すでに示したように
 
@@ -1318,6 +1320,8 @@ $$
 M_n(\mathbb C)\text{ は I}_n\text{ 型}
 }.
 $$
+
+<!-- definition-example-end -->
 
 ### I$_\infty$ 型：$B(\ell^2)$
 
@@ -1480,6 +1484,7 @@ $M=M_2(\mathbb C)$ とする。
 
 - Level: A
 
+<!-- solution-start -->
 #### 詳細解答
 
 $$
@@ -1588,6 +1593,8 @@ Z(M_2(\mathbb C))=\mathbb CI
 }.
 $$
 
+<!-- solution-end -->
+
 ---
 
 ### A2. 二つの rank-one 射影を同値にする
@@ -1623,6 +1630,7 @@ $$
 
 - Level: A
 
+<!-- solution-start -->
 #### 詳細解答
 
 $$
@@ -1698,6 +1706,8 @@ $$
 q\mathbb C^2=\mathbb Ce_2.
 $$
 
+<!-- solution-end -->
+
 ---
 
 ### A3. 片側シフトで無限射影を確認する
@@ -1717,6 +1727,7 @@ $$
 
 - Level: A
 
+<!-- solution-start -->
 #### 詳細解答
 
 内積を基底上で比べると
@@ -1801,6 +1812,8 @@ I\text{ は無限射影}
 }.
 $$
 
+<!-- solution-end -->
+
 ---
 
 ### A4. I$_n$ と I$_\infty$ を判定する
@@ -1811,6 +1824,7 @@ $$
 
 - Level: A
 
+<!-- solution-start -->
 #### 詳細解答
 
 $M_n(\mathbb C)$ について、
@@ -1867,6 +1881,8 @@ $$
 
 です。
 
+<!-- solution-end -->
+
 ---
 
 ## Level B
@@ -1892,6 +1908,7 @@ $$
 
 - Level: B
 
+<!-- solution-start -->
 #### 詳細解答
 
 $P_e\in B(H)$ なので
@@ -1924,7 +1941,7 @@ $$
 
 とします。
 
-Cauchy--Schwarz の不等式により
+[Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)により
 
 $$
 \|\theta_{x,e}(y)\|
@@ -1988,6 +2005,8 @@ B(H)'=\mathbb CI
 }.
 $$
 
+<!-- solution-end -->
+
 ---
 
 ### B2. $M_n(\mathbb C)$ で射影同値と rank を結ぶ
@@ -2001,6 +2020,7 @@ $p,q\in M_n(\mathbb C)$ を射影とする。
 
 - Level: B
 
+<!-- solution-start -->
 #### 詳細解答
 
 $p\sim q$ なら、ある部分等長作用素 $v$ があって
@@ -2089,6 +2109,8 @@ M_n(\mathbb C)\text{ の全射影は有限}
 }.
 $$
 
+<!-- solution-end -->
+
 ---
 
 ### B3. 中心射影の分解を再構成する
@@ -2109,6 +2131,7 @@ $$
 
 - Level: B
 
+<!-- solution-start -->
 #### 詳細解答
 
 $z$ は中心にあるので
@@ -2259,6 +2282,8 @@ $$
 }.
 $$
 
+<!-- solution-end -->
+
 ---
 
 ### B4. Murray--von Neumann 同値の推移律と有限性
@@ -2281,6 +2306,7 @@ $$
 
 - Level: B
 
+<!-- solution-start -->
 #### 詳細解答
 
 $$
@@ -2427,6 +2453,8 @@ p\sim q\text{ なら有限性は同値類上で不変}
 }.
 $$
 
+<!-- solution-end -->
+
 ---
 
 ## Level C
@@ -2463,6 +2491,7 @@ $$
 
 - Level: C
 
+<!-- solution-start -->
 #### 詳細解答
 
 まず
@@ -2489,7 +2518,7 @@ $$
 
 と置きます。
 
-Cauchy--Schwarz の不等式から
+[Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 \|\theta_{x,e}(y)\|
@@ -2698,3 +2727,6 @@ $$
 $$
 
 と結論できます。
+
+
+<!-- solution-end -->

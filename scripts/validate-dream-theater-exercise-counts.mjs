@@ -37,6 +37,9 @@ for (const relPath of indexFiles) {
   const absolutePath = path.join(root, relPath);
   const source = fs.readFileSync(absolutePath, 'utf8');
   const counts = countExercises(source);
+  if (!auditAll) {
+    errors.push(...validateChangedSolutionFolding(source, relPath));
+  }
   const exception = readException(path.dirname(absolutePath), relPath);
 
   if (exception.error) {
@@ -166,6 +169,40 @@ function countExercises(source) {
     if (counts.has(level)) counts.set(level, counts.get(level) + 1);
   }
   return counts;
+}
+
+function validateChangedSolutionFolding(source, relPath) {
+  const lines = source.split(/\r?\n/u);
+  let solutionDepth = 0;
+  let exerciseSectionSeen = false;
+  const issues = [];
+
+  for (let i = 0; i < lines.length; i += 1) {
+    const line = lines[i];
+    const trimmed = line.trim();
+
+    if (/^#{1,2}\s+演習\s*$/u.test(trimmed)) {
+      exerciseSectionSeen = true;
+    }
+    if (!exerciseSectionSeen) continue;
+
+    if (trimmed === '<!-- solution-start -->') {
+      solutionDepth += 1;
+      continue;
+    }
+    if (trimmed === '<!-- solution-end -->') {
+      solutionDepth = Math.max(0, solutionDepth - 1);
+      continue;
+    }
+
+    if (/^#{3,6}\s+詳細解答\s*$/u.test(trimmed) && solutionDepth === 0) {
+      issues.push(
+        `${relPath}:${i + 1}: DREAM THEATER の詳細解答が折りたたみ marker 外にあります。\`<!-- solution-start -->\` / \`<!-- solution-end -->\` で囲んでください。`,
+      );
+    }
+  }
+
+  return issues;
 }
 
 function readException(chapterDir, relPath) {

@@ -1,7 +1,7 @@
 # DREAM THEATER 関数解析・量子力学基礎・作用素環論再編計画
 
 作成日: 2026-10-03  
-状態: in_progress
+状態: completed
 
 ## 0. 目的
 
@@ -1206,8 +1206,7 @@ OA1--OA6 の詳細IDは開始時に確定する。
 
 を実装する。
 
-### Phase 4: 横断監査
-
+### Phase 4: 横断監査 ✅
 
 - 用語統一
 - chapter.yaml / knowledge.yaml
@@ -1221,6 +1220,20 @@ OA1--OA6 の詳細IDは開始時に確定する。
 を横断確認する。
 
 「$C^*$-環」「von Neumann 環」「弱作用素位相」「弱*位相」などの matcher / alias が互いを誤認しないことも監査する。
+
+#### Phase 4 実施結果（2026-10-07）
+
+- QM1--QM8 / OA1--OA6 / VN1--VN7 の `chapter.yaml`・`knowledge.yaml`・prerequisite・公開索引を横断照合し、系列内に不要な依存逆転がないことを確認した。
+- FA3 の弱位相・弱*位相、VN1 の SOT / WOT、VN4 の ultraweak 位相を照合し、数学的に異なる位相を matcher / alias が同一視する誤登録がないことを確認した。
+- `dream-theater-index.json` と `textbook/dream-theater.md` は QM1--VN7 を全て収録していることを確認した。
+- `dream-theater-standard-math-core.md` の発展分岐図が VN1 で途切れていたため、VN2--VN7 まで補完した。
+- VN1--VN7 の全63題で詳細解答の `solution-start` / `solution-end` marker が欠落していたため補完し、今後の変更章で折りたたみ外の詳細解答を検出する changed-only validation を追加した。
+- main の full validation で露出していた VN5--VN7 の formal dependency 13件を canonical stable anchor への明示リンクへ修正した。
+- VN6 の H1 と `chapter.yaml.title` の表記差 `L^infinity` / `L^∞` を解消し、Pages assembly を復旧した。
+- VN7 の factor I / II / III 型定義について、既存の行列環の I_n 型判定を定義条件の直接確認として明示した。
+- Phase 4 修正状態で full textbook / Pages assembly / DREAM THEATER concepts / exercises / terminology validation がすべて green であることを確認した。
+
+以上により、Phase 4 の横断監査と本計画の完成条件を満たした。
 
 ---
 
