@@ -4,8 +4,7 @@ coverage: complete
 prerequisites:
   - AMECH1
 
-forward_references:
-  - AMECH3
+forward_references: []
 
 concepts:
   - id: analytical-mechanics.ideal-constraint
@@ -19,21 +18,21 @@ concepts:
       - analytical-mechanics.generalized-virtual-work
 
   - id: analytical-mechanics.dalembert-principle
-    name: d'Alembert 原理
+    name: ダランベールの原理
     kind: principle
-    aliases: [d'Alembert principle]
+    aliases: [ダランベールの原理, d'Alembert principle]
     introduction: formal
-    introduction_aliases: [原理（d'Alembert 原理）]
+    introduction_aliases: [原理（ダランベールの原理）]
     requires:
       - analytical-mechanics.ideal-constraint
       - mechanics.newton-second-law
 
   - id: analytical-mechanics.generalized-dalembert
-    name: d'Alembert 原理の一般化座標表示
+    name: ダランベールの原理の一般化座標表示
     kind: proposition
     aliases: [d'Alembert principle in generalized coordinates]
     introduction: formal
-    introduction_aliases: [命題（d'Alembert 原理の一般化座標表示）]
+    introduction_aliases: [命題（ダランベールの原理の一般化座標表示）]
     requires:
       - analytical-mechanics.dalembert-principle
       - analytical-mechanics.generalized-coordinates
@@ -61,11 +60,11 @@ concepts:
       - analytical-mechanics.kinetic-energy-identity
 
   - id: analytical-mechanics.mechanical-lagrangian
-    name: 力学的 Lagrangian
+    name: 力学的ラグランジアン
     kind: definition
-    aliases: [mechanical Lagrangian]
+    aliases: [力学的ラグランジアン, mechanical Lagrangian]
     introduction: formal
-    introduction_aliases: [定義（力学的 Lagrangian）]
+    introduction_aliases: [定義（力学的ラグランジアン）]
     requires:
       - mechanics.kinetic-energy
       - mechanics.potential-energy
