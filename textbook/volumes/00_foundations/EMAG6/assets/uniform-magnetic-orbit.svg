@@ -14,7 +14,7 @@
   <text x="424" y="258" font-size="24">v</text>
 
   <line x1="405" y1="180" x2="320" y2="180" stroke="currentColor" stroke-width="4" marker-end="url(#arrow)"/>
-  <text x="350" y="220" font-size="22">F_B</text>
+  <text x="330" y="250" font-size="22">F_B</text>
 
   <circle cx="92" cy="105" r="16" fill="none" stroke="currentColor" stroke-width="2"/>
   <circle cx="92" cy="105" r="4" fill="currentColor"/>
