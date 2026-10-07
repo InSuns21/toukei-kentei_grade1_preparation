@@ -57,7 +57,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mech8-rigid-body -->
-### 定義の確認：二点を結ぶ棒
+### 例：二点を結ぶ棒
+
+**定義の確認**
 
 二質点の位置を
 
@@ -280,7 +282,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mech8-moment-of-inertia -->
-### 定義の確認：一様細棒の中心軸
+### 例：一様細棒の中心軸
+
+**定義の確認**
 
 長さ $\ell$、質量 $M$ の一様な細棒を $x$ 軸上の $-\ell/2\le x\le\ell/2$ に置き、中心を通って棒に垂直な軸のまわりに回します。線密度は
 
@@ -621,7 +625,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mech8-inertia-tensor -->
-### 定義の確認：二つの点質量
+### 例：二つの点質量
+
+**定義の確認**
 
 質量 $m$ の二点を
 
@@ -922,7 +928,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mech8-principal-axis -->
-### 定義の確認：対角剛体の慣性テンソル
+### 例：対角剛体の慣性テンソル
+
+**定義の確認**
 
 $$
 J=
