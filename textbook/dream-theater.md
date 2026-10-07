@@ -664,4 +664,5 @@
 
 1. [EMAG1 電荷・Coulomb 力・電場](textbook/volumes/00_foundations/EMAG1/index.md)
 2. [EMAG2 Gauss の法則と静電場](textbook/volumes/00_foundations/EMAG2/index.md)
+3. [EMAG3 電位・Poisson 方程式・Coulomb ポテンシャル](textbook/volumes/00_foundations/EMAG3/index.md)
 
