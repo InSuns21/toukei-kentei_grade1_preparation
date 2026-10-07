@@ -233,7 +233,7 @@ $$
 \sigma\Delta S.
 $$
 
-Gauss の法則より
+[Gauss の法則](../VC9/index.md#principle-vc9-maxwell-integral)より
 
 $$
 E_{\mathrm{out}}\cdot n\,\Delta S
@@ -388,7 +388,7 @@ $$
 
 を領域全体で積分します。
 
-発散定理を使うと
+[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)を使うと
 
 $$
 \int_\Omega |\nabla w|^2\,dV
@@ -743,7 +743,7 @@ $$
 
 半径 $R$ の孤立導体球へ電荷 $Q$ を与えます。
 
-球対称性と Gauss の法則から球外は点電荷と同じで
+球対称性と [Gauss の法則](../VC9/index.md#principle-vc9-maxwell-integral)から球外は点電荷と同じで
 
 $$
 \phi(r)
@@ -993,7 +993,7 @@ $$
 \nabla\cdot(\phi\nabla\phi).
 $$
 
-十分遠方で境界項が消える条件の下では、発散定理により
+十分遠方で境界項が消える条件の下では、[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)により
 
 $$
 U
@@ -1447,9 +1447,9 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-球外では球対称性と Gauss の法則により、電場は中心に点電荷 $Q$ がある場合と同じです。
+球外では球対称性と [Gauss の法則](../VC9/index.md#principle-vc9-maxwell-integral)により、電場は中心に点電荷 $Q$ がある場合と同じです。
 
-したがって EMAG3 の点電荷の電位から
+したがって [EMAG3 の点電荷の電位](../EMAG3/index.md#prop-emag3-point-charge-potential)から
 
 $$
 \phi(r)
