@@ -5,6 +5,9 @@
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
       <path d="M0,0 L0,6 L9,3 z" fill="currentColor"/>
     </marker>
+    <marker id="arrow-flow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2f6f9f"/>
+    </marker>
   </defs>
 
   <line x1="90" y1="230" x2="690" y2="230" stroke="currentColor" stroke-width="2" marker-end="url(#arrow)"/>
@@ -13,7 +16,7 @@
   <text x="390" y="58" font-size="24">p</text>
 
   <ellipse cx="380" cy="230" rx="235" ry="120" fill="none" stroke="#2f6f9f" stroke-width="4"/>
-  <path d="M 201 152 C 250 116, 318 104, 380 110" fill="none" stroke="#2f6f9f" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M 201 152 C 250 116, 318 104, 380 110" fill="none" stroke="#2f6f9f" stroke-width="4" marker-end="url(#arrow-flow)"/>
 
   <circle cx="201" cy="152" r="7" fill="currentColor"/>
   <circle cx="380" cy="110" r="7" fill="currentColor"/>
