@@ -544,7 +544,7 @@ $$
 
 [多変数の連鎖律](../RA6/index.md#thm-ra6-chain-rule)から
 
-$
+$$
 \frac{d}{dt}V(q(t))
 =
 \nabla V(q(t))\cdot\dot q(t).
