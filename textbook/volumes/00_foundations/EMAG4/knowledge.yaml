@@ -1,0 +1,81 @@
+chapter: EMAG4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - EMAG3
+  - VC4
+
+forward_references:
+  - pde.pde6-dirichlet-energy-uniqueness
+
+concepts:
+  - id: electromagnetism.conductor-electrostatic-equilibrium
+    name: 導体の静電平衡
+    kind: proposition
+    aliases: [electrostatic equilibrium of a conductor]
+    introduction: formal
+    introduction_aliases: [命題（導体の静電平衡）]
+    requires:
+      - electromagnetism.electric-field-potential-gradient
+      - vector-calculus.maxwell-differential
+
+  - id: electromagnetism.conductor-boundary-condition
+    name: 導体表面の静電境界条件
+    kind: proposition
+    aliases: [electrostatic conductor boundary condition]
+    introduction: formal
+    introduction_aliases: [命題（導体表面の静電境界条件）]
+    requires:
+      - electromagnetism.conductor-electrostatic-equilibrium
+      - vector-calculus.maxwell-gauss-electric
+      - vector-calculus.maxwell-faraday
+
+  - id: electromagnetism.capacitance
+    name: 静電容量
+    kind: definition
+    aliases: [capacitance]
+    introduction: formal
+    introduction_aliases: [定義（静電容量）]
+    requires:
+      - electromagnetism.electric-potential
+      - electromagnetism.conductor-electrostatic-equilibrium
+
+  - id: electromagnetism.parallel-plate-capacitance
+    name: 平行平板コンデンサーの静電容量
+    kind: proposition
+    aliases: [parallel-plate capacitance]
+    introduction: formal
+    introduction_aliases: [命題（平行平板コンデンサーの静電容量）]
+    requires:
+      - electromagnetism.capacitance
+      - electromagnetism.sheet-charge-gauss-field
+
+  - id: electromagnetism.sphere-self-capacitance
+    name: 孤立導体球の自己静電容量
+    kind: proposition
+    aliases: [self-capacitance of an isolated sphere]
+    introduction: formal
+    introduction_aliases: [命題（孤立導体球の自己静電容量）]
+    requires:
+      - electromagnetism.capacitance
+      - electromagnetism.point-charge-potential
+
+  - id: electromagnetism.capacitor-energy
+    name: コンデンサーに蓄えられる静電エネルギー
+    kind: proposition
+    aliases: [capacitor electrostatic energy]
+    introduction: formal
+    introduction_aliases: [命題（コンデンサーに蓄えられる静電エネルギー）]
+    requires:
+      - electromagnetism.capacitance
+      - electromagnetism.electrostatic-potential-energy
+
+  - id: electromagnetism.electric-field-energy
+    name: 静電場のエネルギー
+    kind: proposition
+    aliases: [electrostatic field energy]
+    introduction: formal
+    introduction_aliases: [命題（静電場のエネルギー）]
+    requires:
+      - electromagnetism.electrostatic-poisson-equation
+      - vector-calculus.gauss-divergence
