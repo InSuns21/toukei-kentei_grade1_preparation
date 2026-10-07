@@ -35,5 +35,5 @@ chapters:
     title: 質点系・重心・衝突
   - id: MECH8
     path: textbook/volumes/00_foundations/MECH8
-    status: planned
+    status: completed
     title: 剛体の回転
