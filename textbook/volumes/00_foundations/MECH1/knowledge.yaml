@@ -5,8 +5,7 @@ prerequisites:
   - RA3
   - F0-00E1
 
-forward_references:
-  - MECH2
+forward_references: []
 
 concepts:
   - id: mechanics.dimension-and-unit
@@ -54,7 +53,7 @@ concepts:
   - id: mechanics.galilei-transformation
     name: 等速移動する座標系間の Galilei 変換
     kind: definition
-    aliases: ["Galilei transformation between uniformly moving frames"]
+    aliases: ["Galilei 変換", "Galilei transformation", "Galilei transformation between uniformly moving frames"]
     introduction: formal
     introduction_aliases: ["定義（等速移動する座標系間の Galilei 変換）"]
     requires:
