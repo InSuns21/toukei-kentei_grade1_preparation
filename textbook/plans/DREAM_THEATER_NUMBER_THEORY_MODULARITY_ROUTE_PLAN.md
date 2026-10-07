@@ -99,6 +99,8 @@ CA12 ζ・theta・関数等式 ─────────→ モジュラー形
 本計画は次を新規 canonical owner とする。
 
 - NT1--NT8: 整数論基礎
+- NDA1--NDA8: Diophantine近似（整数論内の独立1セメスター科目）
+- NT9--NT10: Hilbert第10問題へ進む整数論発展章
 - ANT1--ANT8: 解析的整数論
 - EC1--EC8: 楕円曲線
 - MF1--MF8: モジュラー形式と modularity への橋
@@ -267,14 +269,17 @@ $$
 - 四平方定理の位置付け
 - 局所条件と大域的解への入口
 
-## NT7 連分数・Diophantine 近似・Pell 方程式
+## NT7 連分数・Pell 方程式・Diophantine近似への入口
 
 - 有限・無限連分数
 - convergent
-- 最良近似
+- 最良近似の入口
 - 二次無理数の周期性
 - Pell 方程式
 - 基本解からの全解生成
+- Diophantine近似という独立分野への出口
+
+irrationality exponent、Roth、metric Diophantine approximation までを NT7 一章へ押し込まない。これらは後述する NDA 系列の canonical responsibility とする。
 
 解析的整数論には必須でないが、初等整数論を一学期科目として完結させる代表主題として含める。
 
@@ -293,6 +298,189 @@ $$
 - Dirichlet 級数を導入する必然性
 
 素数定理の完全証明は ANT へ送る。
+
+
+---
+
+# 3A. Diophantine近似 NDA1--NDA8
+
+## 3A.0 位置付け
+
+NT7 に一章分の Diophantine 近似を圧縮したり、EOM017 のためだけに irrationality exponent の補講を追加したりしない。
+
+**Diophantine近似を、整数論の内部に置く独立1セメスター科目として設計する。**
+
+公開科目名は「Diophantine近似」とする。管理 ID は仮に NDA1--NDA8 とし、実装開始時に衝突を再確認する。
+
+主 prerequisite:
+
+- NT1--NT3 の必要部分
+- NT7
+- RA1 / RA1A
+- NDA3 以降で必要に応じて線形代数・凸幾何
+- NDA8 で測度論 / 確率論の必要部分
+
+## NDA1 連分数と最良有理近似
+
+- finite / infinite continued fraction
+- convergent
+- recurrence
+- determinant identity
+- best approximation
+- 二次無理数の周期性
+- Pell 方程式との対応
+
+NT7 の内容を受け、近似論として再整理する。
+
+## NDA2 Dirichlet・Hurwitz・badly approximable numbers
+
+- pigeonhole による Dirichlet approximation
+- Hurwitz theorem
+- approximation constant
+- badly approximable number
+- golden ratio の位置付け
+
+## NDA3 geometry of numbers と同時近似
+
+- lattice の最小導入
+- symmetric convex body
+- Minkowski theorem
+- simultaneous approximation
+- linear forms
+
+geometry of numbers を巨大な別系列へ膨らませず、本科目に必要な標準部分を閉じる。
+
+## NDA4 一様分布・Kronecker・Weyl
+
+- fractional part
+- irrational rotation
+- equidistribution mod 1
+- Weyl criterion
+- Kronecker approximation theorem
+- QMC / dynamical systems との接続
+
+## NDA5 irrationality measure・irrationality exponent
+
+- rational approximation exponent
+- irrationality exponent $\mu(\alpha)$
+- $\mu(\alpha)\ge2$
+- badly approximable numbers との関係
+- 具体例の exponent
+
+EOM017 で使う語彙はここを canonical owner とする。
+
+## NDA6 Liouville 数・超越数
+
+- Liouville theorem
+- Liouville numbers
+- transcendence
+- 代数的数への近似制約
+- 明示的 transcendental number
+
+## NDA7 Thue--Siegel--Roth
+
+- Roth theorem の exact statement
+- algebraic irrational に対する $\mu(\alpha)=2$
+- Thue / Siegel / Roth の歴史的流れ
+- proof architecture
+- 完全証明を採用する場合の追加 prerequisite の監査
+
+黒箱一行では済ませない一方、EOM017 のためだけに研究レベルの補助理論を逆輸入しない。
+
+## NDA8 metric Diophantine approximation
+
+- almost every real number の irrationality exponent
+- Borel--Cantelli
+- Khintchine theorem への入口
+- null / full measure
+- exceptional set
+- Hausdorff dimension との接続
+
+MT8 / 幾何学的測度論への横断リンクを置く。
+
+## NDA から EOM017 への出口
+
+~~~text
+NT7
+ ↓
+NDA1--NDA4
+ ↓
+NDA5 irrationality exponent
+ ↓
+NDA6--NDA8
+ ↓
+代数的無理数では Roth により exponent 2
+ ↓
+超越数 pi では何が分かるか
+ ↓
+EOM017
+~~~
+
+EOM017 は irrationality exponent の初出定義を担当しない。
+
+---
+
+# 3B. NT9--NT10: Hilbert第10問題へ進む発展章
+
+NT9--NT10 は「基礎が足りないから作る短い補講」ではない。
+
+- 初等整数論 NT
+- 計算可能性 CMP
+- 楕円曲線 EC
+
+という複数の正規講義を合流させる **整数論発展章** とする。
+
+## NT9 Diophantine集合・Hilbert第10問題 over Z
+
+主 prerequisite:
+
+- NT1
+- NT6
+- CMP1 Turing machine
+- CMP3 万能計算・符号化
+- CMP4 decidable / recognizable
+- CMP5 停止問題
+- CMP6 many-one reduction
+
+扱う内容:
+
+- polynomial equation over $\mathbb Z$
+- Diophantine set
+- existential Diophantine definition
+- recursively enumerable set
+- Davis--Putnam--Robinson--Matiyasevich theorem
+- Hilbert第10問題の exact statement
+- undecidability
+- 「計算を整数方程式へ符号化する」とは何か
+
+計算可能性自体は CMP を canonical owner とし、NT9 で再講義しない。
+
+## NT10 Hilbert第10問題 over Q
+
+主 prerequisite:
+
+- NT9
+- EC の必要章
+- 必要に応じて追加の数論結果
+
+扱う内容:
+
+- $\mathbb Z$ 上と $\mathbb Q$ 上の問題の差
+- rational solution
+- Diophantine definability
+- elliptic curve / rational points との接続
+- 古典的部分結果
+- 2026年直前まで残っていた障害
+- EOM004 への interface
+
+2026年の研究成果そのもの、proof manuscript、formal / human verification の状態は EOM004 側の責務とする。
+
+### NT9--NT10 の停止線
+
+代数幾何一般をこの2章の内部で急造しない。
+
+EOM004 を正確に読むために EC を越える独立分野が一科目分必要だと判明した場合は、その時点で別 PLAN を立てる。
+
 
 ---
 
@@ -1191,3 +1379,11 @@ CA12 theta / zeta
 ~~~
 
 この統合像を、今後の整数論・楕円曲線・モジュラー形式系列の設計基準とする。
+
+
+## 17. 2026-10-07 EOM 接続再設計
+
+- EOM017 のためだけの NT7A は作らない。Diophantine近似を NDA1--NDA8 の独立1セメスター科目として用意する。
+- DIO 系列は作らない。Hilbert第10問題は NT9--NT10 として整数論側に置く。
+- NT9--NT10 は初等整数論の必修続編ではなく、NT + CMP + EC を合流させる発展章とする。
+- EOM004 / EOM017 固有の2026年結果・検証状況は EOM 側へ置く。
