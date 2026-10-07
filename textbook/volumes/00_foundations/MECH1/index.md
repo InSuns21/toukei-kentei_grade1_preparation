@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念**：[RA3 微分法の理論](../RA3/index.md)と[F0-00E1 内積・Gram–Schmidt・QR](../F0_00E1_内積_Gram_Schmidt_射影_QR/index.md)を使います。高校物理は前提にしません。
+> **既出概念**：[RA3 微分法の理論](../RA3/index.md)と[F0-00E1 内積・Gram–Schmidt・QR](../F0_00E1_内積_Gram_Schmidt_射影_QR/index.md)を使います。
 
 カメラや位置センサーが直接与えるのは、たとえば
 
