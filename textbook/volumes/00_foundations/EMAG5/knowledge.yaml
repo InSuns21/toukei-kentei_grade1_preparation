@@ -28,7 +28,7 @@ concepts:
   - id: electromagnetism.charge-continuity
     name: 電荷保存の連続の式
     kind: proposition
-    aliases: [charge continuity equation]
+    aliases: []
     introduction: formal
     introduction_aliases: [命題（電荷保存の連続の式）]
     requires:
@@ -40,7 +40,7 @@ concepts:
   - id: electromagnetism.biot-savart-law
     name: Biot--Savart の法則
     kind: principle
-    aliases: [Biot-Savart law]
+    aliases: []
     introduction: formal
     introduction_aliases: [原理（Biot--Savart の法則）]
     requires:
@@ -58,7 +58,7 @@ concepts:
   - id: electromagnetism.magnetostatic-ampere-law
     name: 磁静場の Ampère の法則
     kind: principle
-    aliases: [magnetostatic Ampere law, Ampere circuital law]
+    aliases: [Ampère の法則]
     introduction: formal
     introduction_aliases: [原理（磁静場の Ampère の法則）]
     requires:
