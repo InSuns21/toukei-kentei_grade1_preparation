@@ -656,4 +656,5 @@
 5. [AMECH5 Legendre 変換と Hamilton 形式](textbook/volumes/00_foundations/AMECH5/index.md)
 6. [AMECH6 Poisson 括弧と Hamiltonian flow](textbook/volumes/00_foundations/AMECH6/index.md)
 7. [AMECH7 正準変換](textbook/volumes/00_foundations/AMECH7/index.md)
+8. [AMECH8 Hamilton--Jacobi 理論](textbook/volumes/00_foundations/AMECH8/index.md)
 

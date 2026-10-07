@@ -645,6 +645,7 @@ function findFirstUnshadowedConceptUses(lines, visibleConcepts, currentPage, mat
         if (!matchedAliases.has(remoteAlias)) continue;
         if (isContextualAlias(remoteAlias) && !hasHighConfidenceAliasReference(lines[i], remoteAlias)) continue;
         const remoteKey = normalizeAlias(remoteAlias);
+        if (aliasOccurrencesAreCoveredByLongerMatchedAlias(lines[i], remoteAlias, matchedAliases)) continue;
         const shadowed = activeLocalAliasKeys.has(remoteKey)
           || visibleAliasKeys.some((visibleKey) =>
             visibleKey.length > remoteKey.length && visibleKey.includes(remoteKey)
@@ -658,6 +659,40 @@ function findFirstUnshadowedConceptUses(lines, visibleConcepts, currentPage, mat
   }
 
   return firstUses;
+}
+
+function aliasOccurrencesAreCoveredByLongerMatchedAlias(line, remoteAlias, matchedAliases) {
+  const remoteSpans = literalAliasSpans(line, remoteAlias);
+  if (remoteSpans.length === 0) return false;
+
+  const remoteKey = normalizeAlias(remoteAlias);
+  const coveringSpans = [];
+  for (const matchedAlias of matchedAliases) {
+    const matchedKey = normalizeAlias(matchedAlias);
+    if (matchedKey.length <= remoteKey.length || !matchedKey.includes(remoteKey)) continue;
+    coveringSpans.push(...literalAliasSpans(line, matchedAlias));
+  }
+  if (coveringSpans.length === 0) return false;
+
+  return remoteSpans.every((remote) =>
+    coveringSpans.some((cover) => cover.start <= remote.start && cover.end >= remote.end)
+  );
+}
+
+function literalAliasSpans(source, alias) {
+  const text = String(source);
+  const needle = String(alias ?? '').trim();
+  if (!needle) return [];
+
+  const spans = [];
+  let offset = 0;
+  while (offset <= text.length - needle.length) {
+    const start = text.indexOf(needle, offset);
+    if (start < 0) break;
+    spans.push({ start, end: start + needle.length });
+    offset = start + Math.max(1, needle.length);
+  }
+  return spans;
 }
 
 function aliasOccurrencesAreCoveredByLongerLocalAlias(line, remoteAlias, localAliases) {
@@ -797,6 +832,22 @@ function runAliasMatcherSelfTest() {
     ['trace class'],
   )) {
     throw new Error('standalone alias occurrence must remain visible beside a longer local alias');
+  }
+
+  const compoundAliases = new Set(['Hamilton--Jacobi 方程式', 'Jacobi 方程式']);
+  if (!aliasOccurrencesAreCoveredByLongerMatchedAlias(
+    'Hamilton--Jacobi 方程式から運動を再構成する',
+    'Jacobi 方程式',
+    compoundAliases,
+  )) {
+    throw new Error('contained concept alias should be shadowed by a longer matched alias');
+  }
+  if (aliasOccurrencesAreCoveredByLongerMatchedAlias(
+    'Jacobi 方程式と Hamilton--Jacobi 方程式を比較する',
+    'Jacobi 方程式',
+    compoundAliases,
+  )) {
+    throw new Error('standalone concept alias must remain visible beside a longer matched alias');
   }
 
   const stripped = stripNonReaderContent('<a id="def-unit-torus"></a>\n本文');

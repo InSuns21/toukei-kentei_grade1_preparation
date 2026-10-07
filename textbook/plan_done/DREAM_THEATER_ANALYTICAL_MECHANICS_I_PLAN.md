@@ -1,7 +1,7 @@
 # DREAM THEATER 解析力学 I コース計画
 
 作成日: 2026-10-07  
-状態: in_progress
+状態: completed
 
 ## 0. 目的
 
@@ -234,4 +234,5 @@ $$
 - 2026-10-07: AMECH5「Legendre 変換と Hamilton 形式」を実装・査読し、正則性から Legendre 写像の局所可逆性、Hamilton の正準方程式、相空間、自然なラグランジアンと中心力の具体計算まで接続。
 - 2026-10-07: AMECH6「Poisson 括弧と Hamiltonian flow」を実装・査読し、Poisson 括弧による時間発展・保存量、角運動量の括弧関係、Hamiltonian flow、Liouville の位相体積保存まで接続。
 - 2026-10-07: AMECH7「正準変換」を実装・査読し、Poisson 括弧保存、Jacobian 行列条件、Hamiltonian flow の正準性、第2種母関数、時間依存正準変換から Hamilton--Jacobi 方程式への入口まで接続。
-- 次作業: AMECH8「Hamilton--Jacobi 理論」。
+- 2026-10-08: AMECH8「Hamilton--Jacobi 理論」を実装・査読し、母関数からの Hamilton--Jacobi 還元、Hamilton の主関数と端点微分、完全積分、1自由度の求積、中心力分離、Kepler 軌道まで接続。
+- 2026-10-08: PDE12 との責務分担、幾何光学・半古典近似への見取り図、解析力学 II・変分問題・可積分系・数理量子力学への接続を確認し、解析力学 I 系列を完了。

@@ -150,6 +150,36 @@ function candidateAliasesForLine(normalizedLine, aliasPrefixIndex) {
   return [...candidates].sort((a, b) => a.rank - b.rank);
 }
 
+function aliasOccurrencesAreCoveredByLongerCandidate(line, alias, candidates) {
+  const targetSpans = substringSpans(line, alias);
+  if (targetSpans.length === 0) return false;
+
+  const coveringSpans = [];
+  for (const candidate of candidates) {
+    const longer = candidate.normalized;
+    if (longer.length <= alias.length || !longer.includes(alias) || !line.includes(longer)) continue;
+    coveringSpans.push(...substringSpans(line, longer));
+  }
+  if (coveringSpans.length === 0) return false;
+
+  return targetSpans.every((target) =>
+    coveringSpans.some((cover) => cover.start <= target.start && cover.end >= target.end)
+  );
+}
+
+function substringSpans(source, needle) {
+  if (!needle) return [];
+  const spans = [];
+  let offset = 0;
+  while (offset <= source.length - needle.length) {
+    const start = source.indexOf(needle, offset);
+    if (start < 0) break;
+    spans.push({ start, end: start + needle.length });
+    offset = start + Math.max(1, needle.length);
+  }
+  return spans;
+}
+
 function deriveCanonicalReference(concept, contents, anchorCandidateCache) {
   const markdown = contents.get(concept.page.fullPath) ?? fs.readFileSync(concept.page.fullPath, 'utf8');
   let candidates = anchorCandidateCache.get(concept.page.fullPath);
@@ -222,8 +252,10 @@ function collectDreamDependencyUses(readerLine, rawLine, lineNumber, aliases, al
   const normalizedLine = normalizeSemantic(readerLine);
   const uses = new Map();
   const acceptedAliasTexts = [];
-  for (const item of candidateAliasesForLine(normalizedLine, aliasPrefixIndex)) {
+  const candidates = candidateAliasesForLine(normalizedLine, aliasPrefixIndex);
+  for (const item of candidates) {
     if (!normalizedLine.includes(item.normalized)) continue;
+    if (aliasOccurrencesAreCoveredByLongerCandidate(normalizedLine, item.normalized, candidates)) continue;
     if (acceptedAliasTexts.some((longer) => longer.length > item.normalized.length && longer.includes(item.normalized))) continue;
     if (!hasExplicitReasoningUse(normalizedLine, item)) continue;
     acceptedAliasTexts.push(item.normalized);
