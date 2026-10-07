@@ -27,6 +27,26 @@ Family 221 を読むためだけの Gibbs / Ising / spin-glass 補講を作ら�
 EOM221
 ~~~
 
+## 0.1 範囲校正に用いる標準書
+
+### 熱力学
+
+- 田崎晴明『熱力学―現代的な視点から』
+- Herbert B. Callen, *Thermodynamics and an Introduction to Thermostatistics*
+
+### 統計力学
+
+- 田崎晴明『統計力学 I・II』
+- R. K. Pathria and Paul D. Beale, *Statistical Mechanics*
+
+### スピングラス
+
+- Dmitry Panchenko, *The Sherrington--Kirkpatrick Model*
+- Michel Talagrand, *Mean Field Models for Spin Glasses*
+- Marc Mézard and Andrea Montanari, *Information, Physics, and Computation*
+
+各系列は Family 221 への最短 prerequisite として内容を削るのではなく、上記標準書の射程を校正に使って独立科目として閉じる。
+
 ## 1. 熱力学 TH1--TH8
 
 ### TH1 平衡状態・状態量・温度
