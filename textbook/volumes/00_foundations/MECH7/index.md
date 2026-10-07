@@ -152,7 +152,7 @@ $$
 (F_{ij}+F_{ji}).
 $$
 
-Newton の第3法則 $F_{ij}=-F_{ji}$ より各括弧が 0 なので
+[Newton の第3法則](../MECH2/index.md#principle-mech2-newton-third) $F_{ij}=-F_{ji}$ より各括弧が 0 なので
 
 $$
 \sum_{i=1}^N\sum_{j\ne i}F_{ij}=0.
@@ -519,7 +519,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-外力がないので重心の運動方程式から
+外力がないので[重心の運動方程式](#thm-mech7-center-of-mass-motion)から
 
 $$
 M\ddot R=0.
@@ -1190,7 +1190,7 @@ $$
 
 ## 12. 本章の見取り図
 
-質点系の各運動方程式を足すと、Newton の第3法則により内力が消え、
+質点系の各運動方程式を足すと、[Newton の第3法則](../MECH2/index.md#principle-mech2-newton-third)により内力が消え、
 
 $$
 \frac{dP}{dt}
