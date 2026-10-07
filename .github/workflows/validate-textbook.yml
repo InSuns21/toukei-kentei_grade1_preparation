@@ -88,12 +88,15 @@ jobs:
           npm run validate:svg-layout:changed -- --base "$TEXTBOOK_BASE_SHA"
           npm run validate:textbook-knowledge:changed
 
-      - name: Validate PR structure, formal panels, and references
+      - name: Validate PR structure and formal source invariants
         if: github.event_name == 'pull_request' && steps.scope.outputs.full != 'true'
         run: |
           npm run validate:structure
           npm run validate:formal-statements
+          npm run validate:implicit-formals
+          npm run validate:named-formals
           npm run validate:formal-references
+          npm run validate:definition-examples
 
       - name: Explain fast-path selection
         if: github.event_name == 'pull_request' && steps.scope.outputs.full != 'true'
