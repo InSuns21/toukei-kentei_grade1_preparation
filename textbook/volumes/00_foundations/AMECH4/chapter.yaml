@@ -1,0 +1,47 @@
+id: "AMECH4"
+title: "対称性・循環座標・Noether の定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AMECH3
+official_scope: []
+learning_objectives:
+  - 一般化運動量 p_j=partial L/partial dot q_j を定義し、座標選択によって通常の運動量や角運動量成分になることを具体例で確認できる
+  - 循環座標 q_a に対して Lagrange 方程式から p_a の保存を途中式を追って導ける
+  - Lagrangian energy E_L=sum_j dot q_j p_j-L の時間微分を計算し、dE_L/dt=-partial L/partial t を証明できる
+  - 自然な Lagrangian で E_L=T+V となる条件を確認し、時間並進対称性とエネルギー保存を結び付けられる
+  - 本章で扱う1パラメータ無限小対称性を変換の生成方向 xi と定数時間シフト tau で記述できる
+  - 有限自由度の Noether の定理を証明し、保存量 J=sum_j p_j xi_j-tau E_L を導ける
+  - 空間並進から運動量、回転から角運動量、時間並進からエネルギーが現れることを手計算で示せる
+  - 対称性が壊れたとき対応する保存量が一般には保存しないことを具体例で説明できる
+definitions:
+  - { id: AMECH4-DEF-01, name: "一般化運動量" }
+  - { id: AMECH4-DEF-02, name: "循環座標" }
+  - { id: AMECH4-DEF-03, name: "Lagrangian energy" }
+  - { id: AMECH4-DEF-04, name: "無限小対称性・本章の形" }
+theorems:
+  - { id: AMECH4-THM-01, name: "循環座標に対応する一般化運動量保存" }
+  - { id: AMECH4-PROP-01, name: "Lagrangian energy の時間変化" }
+  - { id: AMECH4-THM-02, name: "Noether の定理・有限自由度" }
+  - { id: AMECH4-PROP-02, name: "空間並進と運動量" }
+  - { id: AMECH4-PROP-03, name: "回転と角運動量" }
+  - { id: AMECH4-PROP-04, name: "時間並進とエネルギー" }
+canonical_examples:
+  - "平面極座標で p_theta=mr^2 dot theta が角運動量成分になる例"
+  - "中心力 Lagrangian で theta が循環座標となる例"
+  - "調和振動子で Lagrangian energy が通常の力学的エネルギーに一致する例"
+  - "V(x,y)=V(y) の粒子で x 方向並進から p_x 保存を得る例"
+  - "中心ポテンシャルで無限小回転から角運動量保存を得る例"
+problem_patterns:
+  - AMECH4-GENERALIZED-MOMENTUM-1
+  - AMECH4-CYCLIC-COORDINATE-1
+  - AMECH4-LAGRANGIAN-ENERGY-1
+  - AMECH4-TRANSLATION-NOETHER-1
+  - AMECH4-ROTATION-NOETHER-1
+  - AMECH4-SYMMETRY-BREAKING-1
+  - AMECH4-NOETHER-DERIVATION-1
+  - AMECH4-TIME-DEPENDENT-CENTRAL-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.5, exercises: 5.5, review: 1.0 }
