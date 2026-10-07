@@ -16,7 +16,7 @@ learning_objectives:
   - 振り子・平面中心力・連成振動子・時間依存拘束へ Lagrange 方程式を適用できる
 definitions:
   - { id: AMECH2-DEF-01, name: "理想拘束" }
-  - { id: AMECH2-DEF-02, name: "力学的 Lagrangian" }
+  - { id: AMECH2-DEF-02, name: "力学的ラグランジアン" }
 theorems:
   - { id: AMECH2-PRI-01, name: "d'Alembert 原理" }
   - { id: AMECH2-PROP-01, name: "d'Alembert 原理の一般化座標表示" }
