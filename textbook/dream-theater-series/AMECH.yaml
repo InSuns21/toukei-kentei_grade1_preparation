@@ -15,7 +15,7 @@ chapters:
     title: d'Alembert 原理と Lagrange 方程式
   - id: AMECH3
     path: textbook/volumes/00_foundations/AMECH3
-    status: planned
+    status: completed
     title: 作用積分と Hamilton の原理
   - id: AMECH4
     path: textbook/volumes/00_foundations/AMECH4
