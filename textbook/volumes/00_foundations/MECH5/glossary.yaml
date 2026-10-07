@@ -1,0 +1,38 @@
+chapter: "MECH5"
+terms:
+  - term: 平衡点
+    english: equilibrium point
+    meaning: 合力が0となり、その位置に静止できる点。保存力では V'(x*)=0 に対応する。
+  - term: 非退化安定平衡点
+    english: nondegenerate stable equilibrium
+    meaning: 本章では V'(x*)=0 かつ V''(x*)>0 を満たす平衡点。小変位で線形復元力が現れる。
+  - term: 単振動
+    english: simple harmonic motion
+    meaning: yddot+omega_0^2 y=0 に従う往復運動。
+  - term: 固有角振動数
+    english: natural angular frequency
+    meaning: 外力がない単振動の角振動数。ばね―質点系では omega_0=sqrt(k/m)。
+  - term: 振幅
+    english: amplitude
+    meaning: 単振動 y=A cos(omega_0 t-phi) における平衡点からの最大変位 A。
+  - term: 位相
+    english: phase
+    meaning: 周期運動の一周期内での進み具合を表す角度。初期位相は初期条件から決まる。
+  - term: 線形減衰振動子
+    english: linearly damped oscillator
+    meaning: myddot+cydot+ky=0 に従い、速度比例抵抗によってエネルギーを失う振動子。
+  - term: 不足減衰
+    english: underdamping
+    meaning: c/(2m)<sqrt(k/m) で、指数的に振幅を減らしながら往復する領域。
+  - term: 臨界減衰
+    english: critical damping
+    meaning: c/(2m)=sqrt(k/m) となる境界。重根を持つ。
+  - term: 過減衰
+    english: overdamping
+    meaning: c/(2m)>sqrt(k/m) で、二つの負の実指数成分により振動せず平衡へ戻る領域。
+  - term: 定常応答
+    english: steady-state response
+    meaning: 減衰強制振動で過渡成分が消えた後に残る、駆動角振動数と同じ角振動数の周期応答。
+  - term: 共振
+    english: resonance
+    meaning: 駆動角振動数が固有角振動数付近にあることで応答が大きくなる現象。無減衰の厳密一致では時間増大項が現れる。

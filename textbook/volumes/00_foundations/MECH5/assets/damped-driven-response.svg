@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" data-layout-lint="strict" viewBox="0 0 860 430" role="img" aria-labelledby="title desc">
+  <title id="title">減衰強制振動の過渡応答と定常応答</title>
+  <desc id="desc">時間 t に対する変位 y を示す。全応答は初期には定常応答からずれているが、減衰する過渡成分が消えるにつれて、駆動角振動数で続く定常応答へ近づく。</desc>
+  <rect width="860" height="430" fill="white"/>
+  <defs>
+    <marker id="arrow-axis" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#374151"/></marker>
+  </defs>
+  <line x1="85" y1="215" x2="800" y2="215" stroke="#374151" stroke-width="3" marker-end="url(#arrow-axis)"/>
+  <line x1="105" y1="370" x2="105" y2="55" stroke="#374151" stroke-width="3" marker-end="url(#arrow-axis)"/>
+  <path data-series-group="response" data-series-label="steady" d="M110 190 C145 125 180 125 215 190 S285 255 320 190 S390 125 425 190 S495 255 530 190 S600 125 635 190 S705 255 740 190" fill="none" stroke="#D55E00" stroke-width="4" stroke-dasharray="11 7"/>
+  <path data-series-group="response" data-series-label="total" d="M110 92 C145 80 178 145 215 211 S285 292 320 198 S390 118 425 183 S495 257 530 195 S600 132 635 188 S705 248 740 192" fill="none" stroke="#0072B2" stroke-width="5"/>
+  <g font-family="Noto Sans CJK JP, sans-serif" font-size="21" fill="#1F2937">
+    <text x="812" y="223">t</text>
+    <text x="78" y="48">y</text>
+    <text x="560" y="92" fill="#0072B2" font-weight="700">全応答</text>
+    <text x="555" y="316" fill="#D55E00" font-weight="700">定常応答</text>
+  </g>
+</svg>

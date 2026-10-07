@@ -23,7 +23,7 @@ chapters:
     title: 運動量・角運動量・保存則
   - id: MECH5
     path: textbook/volumes/00_foundations/MECH5
-    status: planned
+    status: completed
     title: 振動
   - id: MECH6
     path: textbook/volumes/00_foundations/MECH6
