@@ -22,7 +22,6 @@
     <line x1="370" y1="318" x2="370" y2="285"/>
   </g>
 
-  <text x="680" y="72" font-family="Noto Sans CJK JP, sans-serif" font-size="20" fill="#4B5563">FBD</text>
   <line data-series-group="right-forces" data-series-label="N" x1="710" y1="250" x2="710" y2="95" stroke="#0072B2" stroke-width="5" marker-end="url(#arrow-blue)"/>
   <line data-series-group="right-forces" data-series-label="mg" x1="710" y1="250" x2="710" y2="410" stroke="#D55E00" stroke-width="5" stroke-dasharray="10 6" marker-end="url(#arrow-orange)"/>
   <circle cx="710" cy="250" r="8" fill="#1F2937"/>
