@@ -1,0 +1,89 @@
+chapter: AMECH8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AMECH7
+  - MECH7
+
+forward_references:
+  - pde.pde12-hamilton-jacobi
+  - pde.pde12-hamilton-characteristics
+
+concepts:
+  - id: analytical-mechanics.hamilton-jacobi-reduction
+    name: 母関数による Hamilton--Jacobi 還元
+    kind: theorem
+    aliases: [Hamilton--Jacobi reduction by generating function]
+    introduction: formal
+    introduction_aliases: [定理（母関数による Hamilton--Jacobi 還元）]
+    requires:
+      - analytical-mechanics.hamilton-jacobi-bridge
+      - analytical-mechanics.time-dependent-canonical-hamiltonian
+
+  - id: analytical-mechanics.hamilton-principal-function
+    name: Hamilton の主関数
+    kind: definition
+    aliases: [Hamilton principal function, Hamilton's principal function]
+    introduction: formal
+    introduction_aliases: [定義（Hamilton の主関数）]
+    requires:
+      - analytical-mechanics.action-functional
+      - analytical-mechanics.hamilton-jacobi-reduction
+
+  - id: analytical-mechanics.principal-function-endpoint-derivatives
+    name: 主関数の端点微分
+    kind: theorem
+    aliases: [endpoint derivatives of Hamilton principal function]
+    introduction: formal
+    introduction_aliases: [定理（主関数の端点微分）]
+    requires:
+      - analytical-mechanics.hamilton-principal-function
+      - analytical-mechanics.hamiltonian
+
+  - id: analytical-mechanics.complete-integral
+    name: Hamilton--Jacobi 方程式の完全積分
+    kind: definition
+    aliases: [complete integral of the Hamilton--Jacobi equation]
+    introduction: formal
+    introduction_aliases: [定義（完全積分）]
+    requires:
+      - analytical-mechanics.hamilton-jacobi-reduction
+
+  - id: analytical-mechanics.complete-integral-reconstruction
+    name: 完全積分からの運動再構成
+    kind: theorem
+    aliases: [trajectory reconstruction from a complete integral]
+    introduction: formal
+    introduction_aliases: [定理（完全積分からの運動再構成）]
+    requires:
+      - analytical-mechanics.complete-integral
+      - analytical-mechanics.type-2-generating-function
+
+  - id: analytical-mechanics.hamilton-characteristic-function
+    name: Hamilton の特性関数
+    kind: definition
+    aliases: [Hamilton characteristic function, Hamilton's characteristic function]
+    introduction: formal
+    introduction_aliases: [定義（Hamilton の特性関数）]
+    requires:
+      - analytical-mechanics.complete-integral-reconstruction
+      - analytical-mechanics.hamiltonian-energy
+
+  - id: analytical-mechanics.one-dof-hj-quadrature
+    name: 1自由度 Hamilton--Jacobi 法の求積
+    kind: proposition
+    aliases: [one-degree-of-freedom Hamilton--Jacobi quadrature]
+    introduction: formal
+    introduction_aliases: [命題（1自由度 Hamilton--Jacobi 法の求積）]
+    requires:
+      - analytical-mechanics.hamilton-characteristic-function
+
+  - id: analytical-mechanics.central-force-hj-separation
+    name: 中心力 Hamilton--Jacobi 方程式の分離
+    kind: proposition
+    aliases: [Hamilton--Jacobi separation for central force motion]
+    introduction: formal
+    introduction_aliases: [命題（中心力 Hamilton--Jacobi 方程式の分離）]
+    requires:
+      - analytical-mechanics.hamilton-characteristic-function
+      - analytical-mechanics.central-force-hamiltonian
