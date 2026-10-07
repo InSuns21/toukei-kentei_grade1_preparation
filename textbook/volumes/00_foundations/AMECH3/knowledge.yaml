@@ -7,13 +7,22 @@ prerequisites:
 forward_references: []
 
 concepts:
-  - id: analytical-mechanics.action-functional
-    name: 作用汎関数
+  - id: analysis.functional
+    name: 汎関数
     kind: definition
-    aliases: [作用, action, action functional]
+    aliases: [functional]
     introduction: formal
-    introduction_aliases: [定義（作用汎関数）]
+    introduction_aliases: [定義（汎関数）]
+    requires: []
+
+  - id: analytical-mechanics.action-functional
+    name: 作用
+    kind: definition
+    aliases: [作用汎関数, action, action functional]
+    introduction: formal
+    introduction_aliases: [定義（作用）]
     requires:
+      - analysis.functional
       - analytical-mechanics.mechanical-lagrangian
 
   - id: analytical-mechanics.fixed-end-variation
