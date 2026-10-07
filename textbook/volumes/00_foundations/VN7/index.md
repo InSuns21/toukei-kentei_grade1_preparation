@@ -1289,6 +1289,8 @@ $$
 | II | ない | ある | II$_1$ では有限、II$_\infty$ では無限 |
 | III | ない | ない | 無限 |
 
+<!-- definition-example-start: def-vn7-factor-type-classification -->
+
 ### I$_n$ 型：$M_n(\mathbb C)$
 
 すでに示したように
@@ -1318,6 +1320,8 @@ $$
 M_n(\mathbb C)\text{ は I}_n\text{ 型}
 }.
 $$
+
+<!-- definition-example-end -->
 
 ### I$_\infty$ 型：$B(\ell^2)$
 
