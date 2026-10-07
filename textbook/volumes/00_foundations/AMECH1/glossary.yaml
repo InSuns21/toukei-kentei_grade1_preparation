@@ -1,6 +1,6 @@
 chapter: "AMECH1"
 terms:
-  - term: holonomic constraint
+  - term: ホロノミック拘束
     english: holonomic constraint
     meaning: 粒子の位置と時刻に関する等式 f_a(r_1,...,r_N,t)=0 で表せる拘束。本章では独立で正則な拘束を主に扱う。
   - term: 配置空間
@@ -18,9 +18,9 @@ terms:
   - term: 一般化力
     english: generalized force
     meaning: 一般化座標 q_j に対応し、Q_j=sum_i F_i dot partial r_i/partial q_j で定義される量。q_j が角度なら力の次元ではなくトルクの次元を持つ。
-  - term: rheonomous constraint
+  - term: 時間依存ホロノミック拘束
     english: rheonomous constraint
     meaning: 拘束式が時刻 t に陽に依存する holonomic constraint。
-  - term: scleronomous constraint
+  - term: 時間非依存ホロノミック拘束
     english: scleronomous constraint
     meaning: 拘束式が時刻 t に陽に依存しない holonomic constraint。
