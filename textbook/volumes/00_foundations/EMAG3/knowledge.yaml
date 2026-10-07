@@ -1,0 +1,102 @@
+chapter: EMAG3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - EMAG2
+  - MECH3
+  - VC1
+  - VC2
+  - VC9
+
+forward_references:
+  - pde.pde5-laplace-poisson
+  - vector-calculus.newton-potential
+
+concepts:
+  - id: electromagnetism.electric-potential
+    name: 電位
+    kind: definition
+    aliases: [electric potential, electrostatic potential]
+    introduction: formal
+    introduction_aliases: [定義（電位）]
+    requires:
+      - electromagnetism.electric-field
+      - vector-calculus.vector-line-integral
+      - vector-calculus.conservative-equivalence
+      - vector-calculus.maxwell-faraday
+
+  - id: electromagnetism.electric-field-potential-gradient
+    name: 電場と電位の勾配
+    kind: proposition
+    aliases: [electric field as negative gradient of potential]
+    introduction: formal
+    introduction_aliases: [命題（電場と電位の勾配）]
+    requires:
+      - electromagnetism.electric-potential
+      - vector-calculus.gradient
+      - vector-calculus.line-integral-ftc
+
+  - id: electromagnetism.equipotential-surface
+    name: 等電位面
+    kind: definition
+    aliases: [equipotential surface]
+    introduction: formal
+    introduction_aliases: [定義（等電位面）]
+    requires:
+      - electromagnetism.electric-potential
+      - vector-calculus.level-surface
+      - vector-calculus.level-gradient-normal
+      - electromagnetism.electric-field-potential-gradient
+
+  - id: electromagnetism.point-charge-potential
+    name: 点電荷の電位
+    kind: proposition
+    aliases: [electric potential of a point charge]
+    introduction: formal
+    introduction_aliases: [命題（点電荷の電位）]
+    requires:
+      - electromagnetism.point-charge-electric-field
+      - electromagnetism.electric-potential
+
+  - id: electromagnetism.continuous-charge-potential
+    name: 連続電荷分布の電位
+    kind: proposition
+    aliases: [electric potential of a continuous charge distribution]
+    introduction: formal
+    introduction_aliases: [命題（連続電荷分布の電位）]
+    requires:
+      - electromagnetism.charge-density
+      - electromagnetism.electrostatic-superposition
+      - electromagnetism.point-charge-potential
+      - analysis.continuous-multiple-riemann-integrable
+
+  - id: electromagnetism.electrostatic-poisson-equation
+    name: 静電位の Poisson 方程式
+    kind: proposition
+    aliases: [electrostatic Poisson equation]
+    introduction: formal
+    introduction_aliases: [命題（静電位の Poisson 方程式）]
+    requires:
+      - electromagnetism.electric-field-potential-gradient
+      - vector-calculus.maxwell-differential
+      - vector-calculus.scalar-laplacian
+
+  - id: electromagnetism.electrostatic-potential-energy
+    name: 静電ポテンシャルエネルギー
+    kind: definition
+    aliases: [electrostatic potential energy]
+    introduction: formal
+    introduction_aliases: [定義（静電ポテンシャルエネルギー）]
+    requires:
+      - electromagnetism.electric-potential
+      - mechanics.potential-energy
+
+  - id: electromagnetism.coulomb-potential-energy
+    name: 二点電荷の Coulomb ポテンシャルエネルギー
+    kind: proposition
+    aliases: [Coulomb potential energy]
+    introduction: formal
+    introduction_aliases: [命題（二点電荷の Coulomb ポテンシャルエネルギー）]
+    requires:
+      - electromagnetism.point-charge-potential
+      - electromagnetism.electrostatic-potential-energy
