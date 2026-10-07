@@ -2,21 +2,21 @@
 
 EMAG5 では、電流が磁場を作ることを学びました。しかし「場がどう作られるか」だけでは、荷電粒子の運動はまだ決まりません。電場 $E$ と磁場 $B$ が与えられたとき、その中に置かれた電荷がどの向きへ、どれだけ加速されるかを結ぶ法則が必要です。
 
-本章では、場から粒子へ戻る法則として Lorentz 力を導入します。そこから
+本章では、場から粒子へ戻る法則として電磁力の基本式を導入します。そこから
 
 - 磁場だけでは速さが変わらないこと
 - 一様磁場中で円運動・螺旋運動が現れること
 - 互いに直交する一様電場・磁場から $E\times B$ ドリフトが生じること
-- 電磁場中の運動を一つの Lagrangian から記述できること
+- 電磁場中の運動を一つの ラグランジアン から記述できること
 - そのとき正準運動量が $mv$ ではなく $mv+qA$ になること
 
 を順に導きます。
 
-ここで重要なのは、Newton 力学と解析力学が別の理論を与えるのではなく、同じ Lorentz 力を別の入口から再現することです。
+ここで重要なのは、Newton 力学と解析力学が別の理論を与えるのではなく、同じ電磁力の運動方程式を別の入口から再現することです。
 
 ---
 
-## 1. 場から粒子へ：Lorentz 力
+## 1. 場から粒子へ働く力
 
 電場だけがあるとき、電荷 $q$ に働く力は
 
@@ -34,33 +34,33 @@ $$
 > **原理（Lorentz 力）**  
 > 真空中で電荷 $q$、質量 $m>0$ の点粒子が位置 $r(t)$、速度
 >
-> $$
-> v(t)=\dot r(t)
-> $$
+$$
+v(t)=\dot r(t)
+$$
 >
 > を持ち、その位置で電場 $E(t,r)$、磁場 $B(t,r)$ が与えられているとする。粒子に働く電磁力は
 >
-> $$
-> \boxed{
-> F
-> =
-> q\left(
-> E+v\times B
-> \right)
-> }
-> $$
+$$
+\boxed{
+F
+=
+q\left(
+E+v\times B
+\right)
+}
+$$
 >
 > である。したがって Newton 方程式は
 >
-> $$
-> \boxed{
-> m\dot v
-> =
-> q\left(
-> E+v\times B
-> \right)
-> }
-> $$
+$$
+\boxed{
+m\dot v
+=
+q\left(
+E+v\times B
+\right)
+}
+$$
 >
 > となる。
 <!-- formal-statement-end -->
@@ -177,25 +177,25 @@ $$
 > **命題（磁気力は仕事をしない）**  
 > Lorentz 力
 >
-> $$
-> F=q(E+v\times B)
-> $$
+$$
+F=q(E+v\times B)
+$$
 >
 > に従う質量 $m>0$ の粒子について、運動エネルギー
 >
-> $$
-> K=\frac12m|v|^2
-> $$
+$$
+K=\frac12m|v|^2
+$$
 >
 > の時間変化は
 >
-> $$
-> \boxed{
-> \frac{dK}{dt}
-> =
-> qE\cdot v
-> }
-> $$
+$$
+\boxed{
+\frac{dK}{dt}
+=
+qE\cdot v
+}
+$$
 >
 > である。特に $E=0$ なら $K$ は一定であり、磁場だけでは粒子の速さを変えない。
 <!-- formal-statement-end -->
@@ -317,13 +317,13 @@ $$
 > **命題（一様磁場中の荷電粒子運動）**  
 > 電荷 $q\neq0$、質量 $m>0$ の粒子が
 >
-> $$
-> E=0,
-> \qquad
-> B=B_0e_z,
-> \qquad
-> B_0>0
-> $$
+$$
+E=0,
+\qquad
+B=B_0e_z,
+\qquad
+B_0>0
+$$
 >
 > の一様磁場中を運動するとする。このとき
 >
@@ -331,19 +331,19 @@ $$
 > 2. $|v_\perp|$ は一定である。
 > 3. $v_\perp\neq0$ なら磁場に垂直な平面内の運動は円運動で、その角周波数と半径は
 >
-> $$
-> \boxed{
-> \omega_c
-> =
-> \frac{|q|B_0}{m}
-> },
-> \qquad
-> \boxed{
-> r_L
-> =
-> \frac{m|v_\perp|}{|q|B_0}
-> }.
-> $$
+$$
+\boxed{
+\omega_c
+=
+\frac{|q|B_0}{m}
+},
+\qquad
+\boxed{
+r_L
+=
+\frac{m|v_\perp|}{|q|B_0}
+}.
+$$
 >
 > 4. $v_\parallel\neq0$ も同時に持つ場合、全軌道は磁場方向へ進む螺旋となる。
 <!-- formal-statement-end -->
@@ -536,40 +536,40 @@ $$
 <a id="prop-emag6-exb-drift"></a>
 
 <!-- formal-statement-start -->
-> **命題（交差電場・磁場の $E\times B$ ドリフト）**  
+> **命題（交差電場・磁場の E×B ドリフト）**  
 > 電荷 $q\neq0$、質量 $m>0$ の粒子に対し、一様な場 $E,B$ が
 >
-> $$
-> B\neq0,
-> \qquad
-> E\cdot B=0
-> $$
+$$
+B\neq0,
+\qquad
+E\cdot B=0
+$$
 >
 > を満たすとする。
 >
-> $$
-> \boxed{
-> v_D
-> =
-> \frac{E\times B}{|B|^2}
-> }
-> $$
+$$
+\boxed{
+v_D
+=
+\frac{E\times B}{|B|^2}
+}
+$$
 >
 > と置き、
 >
-> $$
-> u=v-v_D
-> $$
+$$
+u=v-v_D
+$$
 >
 > とすると、$u$ は
 >
-> $$
-> \boxed{
-> m\dot u
-> =
-> q\,u\times B
-> }
-> $$
+$$
+\boxed{
+m\dot u
+=
+q\,u\times B
+}
+$$
 >
 > を満たす。したがって運動は、一様磁場中の回転運動に一定速度 $v_D$ の並進を重ねたものになる。$v_D$ は $q$ と $m$ に依らない。
 <!-- formal-statement-end -->
@@ -730,7 +730,7 @@ $E\times B$ ドリフトの向きが正電荷と負電荷で同じになるこ�
 
 解析力学では別の問いを立てます。
 
-> **電磁場中の運動も、一つの Lagrangian から Euler--Lagrange 方程式として得られるか。**
+> **電磁場中の運動も、一つの ラグランジアン から Euler--Lagrange 方程式として得られるか。**
 
 静電場では EMAG3 で
 
@@ -770,9 +770,9 @@ $$
 
 ---
 
-## 6. 電磁場中の Lagrangian
+## 6. 電磁場中の ラグランジアン
 
-自由粒子なら Lagrangian は
+自由粒子なら ラグランジアン は
 
 $$
 L_0
@@ -803,22 +803,22 @@ $$
 <a id="def-emag6-charged-particle-lagrangian"></a>
 
 <!-- formal-statement-start -->
-> **定義（電磁場中の荷電粒子の Lagrangian）**  
+> **定義（電磁場中の荷電粒子の ラグランジアン）**  
 > 電荷 $q$、質量 $m>0$ の粒子について、滑らかなスカラーポテンシャル $\phi(t,r)$ とベクトルポテンシャル $A(t,r)$ が与えられているとする。直交座標 $r=(x_1,x_2,x_3)$、速度 $v=\dot r$ に対して
 >
-> $$
-> \boxed{
-> L(r,v,t)
-> =
-> \frac12m|v|^2
-> +
-> qA(t,r)\cdot v
-> -
-> q\phi(t,r)
-> }
-> $$
+$$
+\boxed{
+L(r,v,t)
+=
+\frac12m|v|^2
++
+qA(t,r)\cdot v
+-
+q\phi(t,r)
+}
+$$
 >
-> を、電磁場中の荷電粒子の Lagrangian と呼ぶ。
+> を、電磁場中の荷電粒子の ラグランジアン と呼ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-emag6-charged-particle-lagrangian -->
@@ -864,7 +864,7 @@ A\cdot v
 (-y\dot x+x\dot y).
 $$
 
-Lagrangian は
+ラグランジアン は
 
 $$
 \boxed{
@@ -886,36 +886,36 @@ $$
 <a id="thm-emag6-lagrangian-lorentz"></a>
 
 <!-- formal-statement-start -->
-> **定理（電磁場中の Lagrangian と Lorentz 力）**  
+> **定理（電磁場中の ラグランジアン と Lorentz 力）**  
 > $\phi(t,r)$ と $A(t,r)$ を必要な偏微分が連続な関数とし、
 >
-> $$
-> E=-\nabla\phi-\partial_tA,
-> \qquad
-> B=\nabla\times A
-> $$
+$$
+E=-\nabla\phi-\partial_tA,
+\qquad
+B=\nabla\times A
+$$
 >
-> と置く。Lagrangian
+> と置く。ラグランジアン
 >
-> $$
-> L(r,v,t)
-> =
-> \frac12m|v|^2
-> +
-> qA(t,r)\cdot v
-> -
-> q\phi(t,r)
-> $$
+$$
+L(r,v,t)
+=
+\frac12m|v|^2
++
+qA(t,r)\cdot v
+-
+q\phi(t,r)
+$$
 >
 > に対する Euler--Lagrange 方程式は
 >
-> $$
-> \boxed{
-> m\dot v
-> =
-> q(E+v\times B)
-> }
-> $$
+$$
+\boxed{
+m\dot v
+=
+q(E+v\times B)
+}
+$$
 >
 > すなわち Lorentz 力の運動方程式と一致する。
 <!-- formal-statement-end -->
@@ -967,7 +967,7 @@ $$
 
 と書きます。
 
-Lagrangian は
+ラグランジアン は
 
 $$
 L
@@ -1145,47 +1145,47 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（電磁場中の正準運動量）**  
-> 電磁場中の荷電粒子の Lagrangian
+> 電磁場中の荷電粒子の ラグランジアン
 >
-> $$
-> L(r,v,t)
-> =
-> \frac12m|v|^2
-> +
-> qA(t,r)\cdot v
-> -
-> q\phi(t,r)
-> $$
+$$
+L(r,v,t)
+=
+\frac12m|v|^2
++
+qA(t,r)\cdot v
+-
+q\phi(t,r)
+$$
 >
 > に対し、直交座標 $x_i$ に共役な正準運動量は
 >
-> $$
-> \boxed{
-> p_i
-> =
-> \frac{\partial L}{\partial v_i}
-> =
-> mv_i+qA_i
-> }
-> $$
+$$
+\boxed{
+p_i
+=
+\frac{\partial L}{\partial v_i}
+=
+mv_i+qA_i
+}
+$$
 >
 > である。ベクトルとして
 >
-> $$
-> \boxed{
-> p
-> =
-> mv+qA
-> }
-> $$
+$$
+\boxed{
+p
+=
+mv+qA
+}
+$$
 >
 > と書ける。従って力学的運動量 $mv$ は
 >
-> $$
-> \boxed{
-> mv=p-qA
-> }
-> $$
+$$
+\boxed{
+mv=p-qA
+}
+$$
 >
 > である。
 <!-- formal-statement-end -->
@@ -1348,7 +1348,7 @@ $$
 
 したがって $E,B$ は変わりません。
 
-では Lagrangian はどうなるでしょうか。
+では ラグランジアン はどうなるでしょうか。
 
 $$
 \begin{aligned}
@@ -1390,7 +1390,7 @@ q\frac{d\chi}{dt}
 }.
 $$
 
-[AMECH3 の全時間微分を加えた Lagrangian の同値性](../AMECH3/index.md#prop-amech3-total-derivative)より、$L$ と $L'$ は同じ Euler--Lagrange 方程式を与えます。
+[AMECH3 の全時間微分を加えた ラグランジアン の同値性](../AMECH3/index.md#prop-amech3-total-derivative)より、$L$ と $L'$ は同じ Euler--Lagrange 方程式を与えます。
 
 一方、正準運動量は
 
@@ -1443,7 +1443,7 @@ $$
 
 この二つは競合する記述ではありません。
 
-前者は「粒子にどんな力が働くか」を直接見る方法です。後者は「場との結合を Lagrangian の中へどう組み込むか」を見る方法です。
+前者は「粒子にどんな力が働くか」を直接見る方法です。後者は「場との結合を ラグランジアン の中へどう組み込むか」を見る方法です。
 
 次章 EMAG7 では、粒子に与えられた場を使う側から、場そのものが時間発展する側へ進みます。Faraday の法則と変位電流を含め、四つの Maxwell 方程式を一つの体系として読み直します。
 
@@ -1641,7 +1641,7 @@ $$
 
 です。
 
-一様磁場中の公式から
+[一様磁場中の荷電粒子運動](#prop-emag6-uniform-magnetic-motion)から
 
 $$
 \boxed{
@@ -2084,7 +2084,7 @@ $$
 
 1. $B'=\nabla\times A'$ が $B$ と等しいことを示せ。
 2. $E'=-\nabla\phi'-\partial_tA'$ が $E$ と等しいことを示せ。
-3. Lagrangian の差が
+3. ラグランジアン の差が
    $$
    L'-L
    =
@@ -2167,7 +2167,7 @@ E'=E
 }.
 $$
 
-Lagrangian は
+ラグランジアン は
 
 $$
 L
