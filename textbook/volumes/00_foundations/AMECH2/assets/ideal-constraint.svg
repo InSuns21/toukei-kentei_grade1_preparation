@@ -26,10 +26,10 @@
         stroke="#0072B2" stroke-width="5" marker-end="url(#arrow-blue)"/>
   <text x="588" y="322" font-family="Noto Sans CJK JP, sans-serif" font-size="24" fill="#0072B2">δr</text>
 
-  <line x1="430" y1="254" x2="389" y2="96"
+  <line x1="430" y1="254" x2="473" y2="84"
         stroke="#D55E00" stroke-width="5" stroke-dasharray="12 8" marker-end="url(#arrow-orange)"/>
-  <text x="340" y="82" font-family="Noto Sans CJK JP, sans-serif" font-size="24" fill="#D55E00">R</text>
+  <text x="490" y="78" font-family="Noto Sans CJK JP, sans-serif" font-size="24" fill="#D55E00">R</text>
 
-  <path d="M451 259 L444 286 L417 279"
+  <path d="M457 261 L464 234 L437 227"
         fill="none" stroke="#111827" stroke-width="3"/>
 </svg>
