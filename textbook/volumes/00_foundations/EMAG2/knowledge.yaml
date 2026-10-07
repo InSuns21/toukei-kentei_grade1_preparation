@@ -5,6 +5,7 @@ prerequisites:
   - EMAG1
   - VC3
   - VC4
+  - VC9
 
 concepts:
   - id: electromagnetism.electric-flux
@@ -17,16 +18,6 @@ concepts:
       - electromagnetism.electric-field
       - vector-calculus.flux-integral
 
-  - id: electromagnetism.gauss-law-static-recap
-    name: 静電場で使う Gauss の法則の再掲
-    kind: term
-    aliases: []
-    introduction: inline
-    requires:
-      - vector-calculus.maxwell-gauss-electric
-      - electromagnetism.electric-flux
-      - electromagnetism.charge-density
-
   - id: electromagnetism.gaussian-surface
     name: Gauss 面
     kind: definition
@@ -34,7 +25,7 @@ concepts:
     introduction: formal
     introduction_aliases: [定義（Gauss 面）]
     requires:
-      - electromagnetism.gauss-law-static-recap
+      - vector-calculus.maxwell-gauss-electric
       - electromagnetism.electric-flux
 
   - id: electromagnetism.coulomb-closed-surface-flux
