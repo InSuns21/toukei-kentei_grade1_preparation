@@ -787,7 +787,7 @@ K_{\mathrm{rot}}
 m_i|\omega\times\rho_i|^2.
 $$
 
-ベクトル積の恒等式を使うと
+ベクトル積の大きさを内積で展開すると
 
 $$
 |\omega\times\rho_i|^2
