@@ -1,0 +1,26 @@
+chapter: "EMAG3"
+terms:
+  - term: 電位
+    english: electric potential
+    meaning: "静電場 E の線積分を用いて phi(B)-phi(A)=-integral_A^B E dot dl と定める単位電荷あたりのスカラー量。SI単位は volt (V)=J/C である。"
+  - term: 電位差
+    english: potential difference
+    meaning: "2点間の電位の差。静電場が単位電荷にする仕事と符号を反転した量で、基準電位へ定数を加えても変わらない。"
+  - term: 等電位面
+    english: equipotential surface
+    meaning: "電位 phi が一定値を取る曲面。正則な点では grad(phi) が法線方向を向き、E=-grad(phi) なので電場も等電位面に直交する。"
+  - term: Poisson 方程式
+    english: Poisson equation
+    meaning: "静電位と体積電荷密度を -Delta phi=rho/epsilon_0 で結ぶ方程式。Gauss の法則の微分形と E=-grad(phi) から従う。"
+  - term: Laplace 方程式
+    english: Laplace equation
+    meaning: "電荷のない領域 rho=0 で静電位が満たす Delta phi=0。Poisson 方程式の無源の場合である。"
+  - term: 静電ポテンシャルエネルギー
+    english: electrostatic potential energy
+    meaning: "電位 phi の点に電荷 q を置いたとき U=q phi で与えられる位置エネルギー。SI単位は joule (J) で、電位そのものとは異なる。"
+  - term: Coulomb ポテンシャルエネルギー
+    english: Coulomb potential energy
+    meaning: "距離 r だけ離れた2点電荷 Q,q の静電ポテンシャルエネルギー U=Qq/(4 pi epsilon_0 r)。異符号電荷では負になる。"
+  - term: Coulomb ポテンシャル
+    english: Coulomb potential
+    meaning: "量子力学などで二点電荷の Coulomb ポテンシャルエネルギーを指す表現。電子と陽子では V(r)=-e^2/(4 pi epsilon_0 r) となり、volt 単位の電位とは区別する。"
