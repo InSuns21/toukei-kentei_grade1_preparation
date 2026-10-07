@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 500" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" data-layout-lint="strict" viewBox="0 0 820 500" role="img" aria-labelledby="title desc">
   <title id="title">線形抵抗を受ける落下</title>
   <desc id="desc">下向きを正に取る。質点の重心から重力 mg は下向き、線形抵抗力 cv は上向きに作用する。速度の向きは力の矢印と重ならないよう右側の補助矢印で下向きと示す。終端速度では mg と cv の大きさが等しくなる。</desc>
   <rect width="820" height="500" fill="white"/>
