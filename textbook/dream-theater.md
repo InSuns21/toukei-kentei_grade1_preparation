@@ -639,4 +639,5 @@
 
 1. [MECH1 運動を測る：位置・速度・加速度](textbook/volumes/00_foundations/MECH1/index.md)
 2. [MECH2 Newton の運動法則と運動方程式](textbook/volumes/00_foundations/MECH2/index.md)
+3. [MECH3 仕事・エネルギー・ポテンシャル](textbook/volumes/00_foundations/MECH3/index.md)
 
