@@ -13,9 +13,10 @@ learning_objectives:
   - 変分法の基本補題を用いて停留条件から Euler--Lagrange 方程式を導き、逆向きも示せる
   - Hamilton の原理という物理原理と Euler--Lagrange 方程式という数学的停留条件を区別できる
   - 停留作用が必ずしも最小作用ではないことを調和振動子の具体的変分で確認できる
-  - Lagrangian に全時間微分 dF/dt を加えても固定端運動方程式が変わらないことを作用の端点差から証明できる
+  - 関数 L に全時間微分 dF/dt を加えても固定端運動方程式が変わらないことを作用の端点差から証明できる
 definitions:
-  - { id: AMECH3-DEF-01, name: "作用汎関数" }
+  - { id: AMECH3-DEF-00, name: "汎関数" }
+  - { id: AMECH3-DEF-01, name: "作用" }
   - { id: AMECH3-DEF-02, name: "固定端変分" }
   - { id: AMECH3-DEF-03, name: "第一変分" }
 theorems:
@@ -28,7 +29,7 @@ canonical_examples:
   - "t(T-t)u を用いて固定端変分を具体的に作る例"
   - "自由粒子の第一変分を epsilon 展開から直接計算する例"
   - "調和振動子で停留作用が長い時間区間では最小にならないことを確認する例"
-  - "自由粒子の Lagrangian に total derivative を加えて同じ運動方程式を得る例"
+  - "自由粒子の関数 L に全時間微分を加えて同じ運動方程式を得る例"
 problem_patterns:
   - AMECH3-FIXED-END-VARIATION-1
   - AMECH3-FIRST-VARIATION-1
