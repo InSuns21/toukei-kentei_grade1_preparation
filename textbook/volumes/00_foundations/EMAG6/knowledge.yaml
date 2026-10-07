@@ -1,0 +1,82 @@
+chapter: EMAG6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - EMAG5
+  - AMECH4
+
+forward_references:
+  - vector-calculus.maxwell-faraday
+
+concepts:
+  - id: electromagnetism.lorentz-force
+    name: Lorentz 力
+    kind: principle
+    aliases: [Lorentz force]
+    introduction: formal
+    introduction_aliases: [原理（Lorentz 力）]
+    requires:
+      - electromagnetism.electric-charge
+      - electromagnetism.electric-field
+      - electromagnetism.biot-savart-law
+      - mechanics.mass-force-resultant
+
+  - id: electromagnetism.magnetic-force-no-work
+    name: 磁気力は仕事をしない
+    kind: proposition
+    aliases: [magnetic force does no work]
+    introduction: formal
+    introduction_aliases: [命題（磁気力は仕事をしない）]
+    requires:
+      - electromagnetism.lorentz-force
+
+  - id: electromagnetism.uniform-magnetic-particle-motion
+    name: 一様磁場中の荷電粒子運動
+    kind: proposition
+    aliases: [charged-particle motion in a uniform magnetic field]
+    introduction: formal
+    introduction_aliases: [命題（一様磁場中の荷電粒子運動）]
+    requires:
+      - electromagnetism.lorentz-force
+      - electromagnetism.magnetic-force-no-work
+
+  - id: electromagnetism.exb-drift
+    name: E×B ドリフト
+    kind: proposition
+    aliases: [E cross B drift]
+    introduction: formal
+    introduction_aliases: [命題（交差電場・磁場の E×B ドリフト）]
+    requires:
+      - electromagnetism.lorentz-force
+      - electromagnetism.uniform-magnetic-particle-motion
+
+  - id: electromagnetism.charged-particle-lagrangian
+    name: 電磁場中の荷電粒子の Lagrangian
+    kind: definition
+    aliases: [electromagnetic charged-particle Lagrangian]
+    introduction: formal
+    introduction_aliases: [定義（電磁場中の荷電粒子の Lagrangian）]
+    requires:
+      - electromagnetism.electric-potential
+      - electromagnetism.lorentz-force
+      - analytical-mechanics.lagrange-equations
+
+  - id: electromagnetism.lagrangian-lorentz-equivalence
+    name: 電磁場中の Lagrangian と Lorentz 力
+    kind: theorem
+    aliases: [Lorentz force from the electromagnetic Lagrangian]
+    introduction: formal
+    introduction_aliases: [定理（電磁場中の Lagrangian と Lorentz 力）]
+    requires:
+      - electromagnetism.charged-particle-lagrangian
+      - analytical-mechanics.lagrange-equations
+
+  - id: electromagnetism.electromagnetic-canonical-momentum
+    name: 電磁場中の正準運動量
+    kind: proposition
+    aliases: [canonical momentum in an electromagnetic field]
+    introduction: formal
+    introduction_aliases: [命題（電磁場中の正準運動量）]
+    requires:
+      - electromagnetism.charged-particle-lagrangian
+      - analytical-mechanics.generalized-momentum
