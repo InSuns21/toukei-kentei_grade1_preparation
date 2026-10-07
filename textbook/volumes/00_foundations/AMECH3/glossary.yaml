@@ -2,7 +2,7 @@ chapter: "AMECH3"
 terms:
   - term: 作用
     english: action
-    meaning: 軌道 q(t) に対して Lagrangian を時間積分した S[q]=integral L dt で定まる汎関数。
+    meaning: 軌道 q(t) に対して関数 L(q,dot q,t) を時間積分した S[q]=integral L dt で定まる汎関数。
   - term: 汎関数
     english: functional
     meaning: 本章では軌道のような関数を入力し、実数を返す写像。
