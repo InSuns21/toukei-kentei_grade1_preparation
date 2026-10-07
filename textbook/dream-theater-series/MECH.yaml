@@ -11,7 +11,7 @@ chapters:
     title: 運動を測る：位置・速度・加速度
   - id: MECH2
     path: textbook/volumes/00_foundations/MECH2
-    status: planned
+    status: completed
     title: Newton の運動法則と運動方程式
   - id: MECH3
     path: textbook/volumes/00_foundations/MECH3
