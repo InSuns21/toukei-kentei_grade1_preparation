@@ -1,0 +1,49 @@
+id: "MECH4"
+title: "運動量・角運動量・保存則"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MECH3
+official_scope: []
+learning_objectives:
+  - 運動量 p=mv を定義し、一定質量で dp/dt=F_net と書けることを説明できる
+  - 力積を時間積分として定義し、力積―運動量定理 Δp=J を導ける
+  - 合力が 0 のとき運動量が保存し、力が 0 の成分では対応する運動量成分が保存することを判定できる
+  - 固定基準点まわりのトルク τ=r×F と角運動量 L=r×p を定義し、外積の向きと単位を説明できる
+  - 一定質量・固定基準点の下で dL/dt=τ を導ける
+  - トルクが 0 のとき角運動量が保存することを示せる
+  - 力が位置ベクトルに平行なら角運動量が保存し、L≠0 なら軌道が固定平面内にあることを証明できる
+  - 平面運動で L_z=mρ^2θdot を導き、保存則が二階方程式を一階関係へ下げる意味を説明できる
+  - 並進・回転の一様性と運動量・角運動量保存の対応を Noether の定理の予告として区別して説明できる
+definitions:
+  - { id: MECH4-DEF-01, name: "運動量" }
+  - { id: MECH4-DEF-02, name: "力積" }
+  - { id: MECH4-DEF-03, name: "トルク" }
+  - { id: MECH4-DEF-04, name: "角運動量" }
+theorems:
+  - { id: MECH4-THM-01, name: "力積―運動量定理" }
+  - { id: MECH4-THM-02, name: "合力が 0 のときの運動量保存" }
+  - { id: MECH4-THM-03, name: "角運動量の時間変化とトルク" }
+  - { id: MECH4-THM-04, name: "トルクが 0 のときの角運動量保存" }
+  - { id: MECH4-PROP-01, name: "位置ベクトルに平行な力と角運動量保存" }
+canonical_examples:
+  - "同じ速さで逆向きに動く質点の運動量と運動エネルギーの比較"
+  - "一定力の力積から運動量変化を求める例"
+  - "位置ベクトルと力からトルクを外積で計算する例"
+  - "位置ベクトル・運動量・力・トルク・角運動量の幾何関係を同じ図で読む例"
+  - "中心方向の力でトルクが 0 となり角運動量が保存する例"
+  - "平面中心力で L_z=mρ^2θdot から角度方向を一階化する例"
+  - "斜方投射で水平運動量保存と非保存の角運動量を同時に確認する例"
+problem_patterns:
+  - MECH4-IMPULSE-MOMENTUM-1
+  - MECH4-COMPONENT-MOMENTUM-1
+  - MECH4-TORQUE-CROSS-PRODUCT-1
+  - MECH4-ANGULAR-MOMENTUM-1
+  - MECH4-TIME-DEPENDENT-IMPULSE-1
+  - MECH4-RADIAL-FORCE-ANGULAR-MOMENTUM-1
+  - MECH4-ORIGIN-DEPENDENCE-1
+  - MECH4-PROJECTILE-MOMENTUM-ANGULAR-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 4.5, review: 1.0 }

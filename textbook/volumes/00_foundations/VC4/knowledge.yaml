@@ -46,7 +46,7 @@ concepts:
   - id: vector-calculus.local-conservation-law
     name: 局所保存則
     kind: definition
-    aliases: [local conservation law, continuity equation, 保存則]
+    aliases: [local conservation law, continuity equation]
     introduction: inline
     requires:
       - vector-calculus.divergence

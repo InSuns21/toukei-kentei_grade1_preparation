@@ -1,0 +1,106 @@
+chapter: MECH4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MECH3
+
+forward_references: []
+
+concepts:
+  - id: mechanics.linear-momentum
+    name: 運動量
+    kind: definition
+    aliases: ["linear momentum", "momentum"]
+    introduction: formal
+    introduction_aliases: ["定義（運動量）"]
+    requires:
+      - mechanics.velocity-acceleration
+      - mechanics.mass-force-resultant
+
+  - id: mechanics.impulse
+    name: 力積
+    kind: definition
+    aliases: ["impulse", "mechanical impulse"]
+    introduction: formal
+    introduction_aliases: ["定義（力積）"]
+    requires:
+      - mechanics.mass-force-resultant
+
+  - id: mechanics.impulse-momentum-theorem
+    name: 力積―運動量定理
+    kind: theorem
+    aliases: ["impulse-momentum theorem", "impulse momentum theorem"]
+    introduction: formal
+    introduction_aliases: ["定理（力積―運動量定理）"]
+    requires:
+      - mechanics.linear-momentum
+      - mechanics.impulse
+      - mechanics.newton-second-law
+
+  - id: mechanics.linear-momentum-conservation
+    name: 合力が 0 のときの運動量保存
+    kind: theorem
+    aliases: ["conservation of linear momentum under zero net force"]
+    introduction: formal
+    introduction_aliases: ["定理（合力が 0 のときの運動量保存）"]
+    requires:
+      - mechanics.impulse-momentum-theorem
+
+  - id: mechanics.torque
+    name: トルク
+    kind: definition
+    aliases: ["torque", "moment of force"]
+    introduction: formal
+    introduction_aliases: ["定義（トルク）"]
+    requires:
+      - mechanics.point-particle-trajectory
+      - mechanics.mass-force-resultant
+
+  - id: mechanics.angular-momentum
+    name: 角運動量
+    kind: definition
+    aliases: ["angular momentum"]
+    introduction: formal
+    introduction_aliases: ["定義（角運動量）"]
+    requires:
+      - mechanics.point-particle-trajectory
+      - mechanics.linear-momentum
+
+  - id: mechanics.angular-momentum-balance
+    name: 角運動量の時間変化とトルク
+    kind: theorem
+    aliases: ["angular momentum balance", "time derivative of angular momentum equals torque"]
+    introduction: formal
+    introduction_aliases: ["定理（角運動量の時間変化とトルク）"]
+    requires:
+      - mechanics.torque
+      - mechanics.angular-momentum
+      - mechanics.newton-second-law
+
+  - id: mechanics.angular-momentum-conservation
+    name: トルクが 0 のときの角運動量保存
+    kind: theorem
+    aliases: ["conservation of angular momentum under zero torque"]
+    introduction: formal
+    introduction_aliases: ["定理（トルクが 0 のときの角運動量保存）"]
+    requires:
+      - mechanics.angular-momentum-balance
+
+  - id: mechanics.radial-force-angular-momentum
+    name: 位置ベクトルに平行な力と角運動量保存
+    kind: proposition
+    aliases: ["radial force angular momentum conservation"]
+    introduction: formal
+    introduction_aliases: ["命題（位置ベクトルに平行な力と角運動量保存）"]
+    requires:
+      - mechanics.angular-momentum-conservation
+
+  - id: mechanics.conservation-order-reduction
+    name: 保存則による運動方程式の階数低下
+    kind: method
+    aliases: ["order reduction by conservation laws"]
+    introduction: inline
+    introduction_aliases: ["保存則は運動方程式の階数を下げる"]
+    requires:
+      - mechanics.linear-momentum-conservation
+      - mechanics.angular-momentum-conservation
