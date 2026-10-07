@@ -19,10 +19,10 @@
   <circle cx="410" cy="310" r="5" fill="#8E5FB2"/>
   <circle cx="735" cy="115" r="8" fill="#1F2937"/>
 
-  <line x1="140" y1="310" x2="735" y2="115" stroke="#009E73" stroke-width="4" marker-end="url(#arrow-green)"/>
-  <line x1="410" y1="310" x2="735" y2="115" stroke="#0072B2" stroke-width="4" marker-end="url(#arrow-blue)"/>
+  <line data-series-group="position-vectors" data-series-label="r" x1="140" y1="310" x2="735" y2="115" stroke="#009E73" stroke-width="4" marker-end="url(#arrow-green)"/>
+  <line data-series-group="position-vectors" data-series-label="r-prime" x1="410" y1="310" x2="735" y2="115" stroke="#0072B2" stroke-width="4" stroke-dasharray="12 7" marker-end="url(#arrow-blue)"/>
 
-  <line x1="300" y1="365" x2="420" y2="365" stroke="#D55E00" stroke-width="4" marker-end="url(#arrow-orange)"/>
+  <line data-series-group="frame-speed" data-series-label="U" x1="300" y1="365" x2="420" y2="365" stroke="#D55E00" stroke-width="4" stroke-dasharray="12 5 3 5" marker-end="url(#arrow-orange)"/>
 
   <g font-family="Noto Sans CJK JP, sans-serif" font-size="22" fill="#1F2937">
     <text x="855" y="318">x, x'</text>
@@ -34,7 +34,7 @@
     <text x="435" y="120" fill="#8E5FB2">S'</text>
     <text x="755" y="110">P</text>
     <text x="500" y="52" fill="#009E73" font-weight="700">r(t)：O → P</text>
-    <text x="655" y="52" fill="#0072B2" font-weight="700">r'(t)：O' → P</text>
+    <text x="655" y="52" fill="#0072B2" font-weight="700">r'(t)：O' → P（破線）</text>
     <text x="455" y="374" font-size="19">O' は S に対して右向き速度 U で移動</text>
   </g>
 </svg>
