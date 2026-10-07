@@ -27,7 +27,7 @@ chapters:
     title: 振動
   - id: MECH6
     path: textbook/volumes/00_foundations/MECH6
-    status: planned
+    status: completed
     title: 中心力・万有引力・Kepler 問題
   - id: MECH7
     path: textbook/volumes/00_foundations/MECH7

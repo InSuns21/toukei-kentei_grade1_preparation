@@ -1,0 +1,129 @@
+chapter: MECH6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MECH4
+  - ODE2
+
+forward_references: []
+
+concepts:
+  - id: mechanics.central-force
+    name: 中心力
+    kind: definition
+    aliases: [central force]
+    introduction: formal
+    introduction_aliases: [定義（中心力）]
+    requires:
+      - mechanics.radial-force-angular-momentum
+      - mechanics.mass-force-resultant
+
+  - id: mechanics.central-force-planar-reduction
+    name: 中心力運動の平面縮約
+    kind: proposition
+    aliases: [planar reduction of central-force motion]
+    introduction: formal
+    introduction_aliases: [命題（中心力運動の平面縮約）]
+    requires:
+      - mechanics.central-force
+      - mechanics.radial-force-angular-momentum
+
+  - id: mechanics.polar-kinematics
+    name: 平面極座標での速度・加速度
+    kind: proposition
+    aliases: [velocity and acceleration in plane polar coordinates]
+    introduction: formal
+    introduction_aliases: [命題（平面極座標での速度・加速度）]
+    requires:
+      - mechanics.velocity-acceleration
+      - mechanics.central-force-planar-reduction
+
+  - id: mechanics.effective-potential
+    name: 有効ポテンシャル
+    kind: definition
+    aliases: [effective potential]
+    introduction: formal
+    introduction_aliases: [定義（有効ポテンシャル）]
+    requires:
+      - mechanics.mechanical-energy-conservation
+      - mechanics.angular-momentum-conservation
+      - mechanics.polar-kinematics
+
+  - id: mechanics.central-force-effective-reduction
+    name: 中心力運動の有効一次元化
+    kind: proposition
+    aliases: [effective one-dimensional reduction of central-force motion]
+    introduction: formal
+    introduction_aliases: [命題（中心力運動の有効一次元化）]
+    requires:
+      - mechanics.effective-potential
+
+  - id: mechanics.newtonian-gravitation
+    name: Newton の万有引力
+    kind: principle
+    aliases: [Newtonian gravitation, Newton's law of universal gravitation]
+    introduction: formal
+    introduction_aliases: [原理（Newton の万有引力）]
+    requires:
+      - mechanics.central-force
+      - mechanics.potential-energy
+
+  - id: mechanics.binet-orbit-equation
+    name: Binet 型の軌道方程式
+    kind: proposition
+    aliases: [Binet orbit equation, Binet equation]
+    introduction: formal
+    introduction_aliases: [命題（Binet 型の軌道方程式）]
+    requires:
+      - mechanics.central-force
+      - mechanics.polar-kinematics
+      - mechanics.angular-momentum-conservation
+
+  - id: mechanics.inverse-square-conic-orbit
+    name: 逆二乗力の円錐曲線軌道
+    kind: theorem
+    aliases: [conic orbit under inverse-square force]
+    introduction: formal
+    introduction_aliases: [定理（逆二乗力の円錐曲線軌道）]
+    requires:
+      - mechanics.newtonian-gravitation
+      - mechanics.binet-orbit-equation
+      - ode.ode2-nonhomogeneous-affine
+
+  - id: mechanics.kepler-first-law
+    name: Kepler 第1法則
+    kind: theorem
+    aliases: [Kepler's first law, law of ellipses]
+    introduction: formal
+    introduction_aliases: [定理（Kepler 第1法則）]
+    requires:
+      - mechanics.inverse-square-conic-orbit
+
+  - id: mechanics.kepler-second-law
+    name: Kepler 第2法則
+    kind: theorem
+    aliases: [Kepler's second law, law of equal areas]
+    introduction: formal
+    introduction_aliases: [定理（Kepler 第2法則）]
+    requires:
+      - mechanics.angular-momentum-conservation
+      - mechanics.central-force-planar-reduction
+
+  - id: mechanics.kepler-third-law
+    name: Kepler 第3法則
+    kind: theorem
+    aliases: [Kepler's third law, harmonic law]
+    introduction: formal
+    introduction_aliases: [定理（Kepler 第3法則）]
+    requires:
+      - mechanics.inverse-square-conic-orbit
+      - mechanics.kepler-second-law
+
+  - id: mechanics.hyperbolic-scattering-angle
+    name: 双曲線軌道の散乱角
+    kind: result
+    aliases: [hyperbolic scattering angle]
+    introduction: inline
+    introduction_aliases: [双曲線散乱への入口]
+    requires:
+      - mechanics.inverse-square-conic-orbit

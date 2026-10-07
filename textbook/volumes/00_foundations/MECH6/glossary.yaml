@@ -1,0 +1,32 @@
+chapter: "MECH6"
+terms:
+  - term: 中心力
+    english: central force
+    meaning: 固定中心から質点への位置ベクトルと常に平行で、大きさが中心からの距離だけで決まる力。
+  - term: 動径方向
+    english: radial direction
+    meaning: 中心から質点へ向かう単位ベクトル e_r の方向。
+  - term: 方位方向
+    english: azimuthal direction
+    meaning: 平面極座標で e_r に直交し、theta が増える向きの単位ベクトル e_theta の方向。
+  - term: 有効ポテンシャル
+    english: effective potential
+    meaning: 中心力運動の動径成分を一次元問題として読むための V_eff(ρ)=U(ρ)+ell^2/(2mρ^2)。
+  - term: 万有引力
+    english: universal gravitation
+    meaning: 二質点間に働く、距離の二乗に反比例する引力。固定中心近似では F=-(GMm/ρ^2)e_r。
+  - term: 軌道方程式
+    english: orbit equation
+    meaning: 時刻 t を消去し、距離 ρ を角度 theta の関数として表す方程式。
+  - term: 離心率
+    english: eccentricity
+    meaning: 円錐曲線の形を表す無次元量 e。逆二乗引力では e<1 が楕円、e=1 が放物線、e>1 が双曲線に対応する。
+  - term: 半通径
+    english: semi-latus rectum
+    meaning: 軌道式 ρ=p/(1+e cos theta) に現れる長さ p。逆二乗引力では p=ell^2/(GM m^2)。
+  - term: 面積速度
+    english: areal velocity
+    meaning: 中心と質点を結ぶ線分が単位時間に掃く面積。中心力では ell/(2m) で一定。
+  - term: 散乱角
+    english: scattering angle
+    meaning: 遠方での入射方向と出射方向のずれを表す角。双曲線軌道では漸近線から読める。

@@ -1,0 +1,53 @@
+id: "MECH6"
+title: "中心力・万有引力・Kepler 問題"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MECH4
+  - ODE2
+official_scope: []
+learning_objectives:
+  - 中心力を F=f(ρ)e_r と表し、MECH4 の角運動量保存から L≠0 の運動が固定平面へ縮約されることを説明できる
+  - 平面極座標で速度・加速度を基底ベクトルの時間微分から導き、動径方向と角度方向の運動方程式を書ける
+  - 保存角運動量 ell=m ρ^2 thetadot を使って力学的エネルギーを E=(1/2)m ρdot^2+V_eff(ρ) に縮約し、有効ポテンシャルを解釈できる
+  - 万有引力 F=-(GMm/ρ^2)e_r とポテンシャル U=-GMm/ρ の対応を確認し、円軌道速度・脱出速度を導ける
+  - u=1/ρ の変数変換から Binet 型の軌道方程式を導き、逆二乗力で ρ=p/(1+e cos(theta-theta0)) を得られる
+  - 軌道の離心率 e とエネルギーの関係を導き、楕円・放物線・双曲線を分類できる
+  - Kepler 第1・第2・第3法則を万有引力と保存則から導き、各法則で使った仮定を説明できる
+  - 双曲線軌道の漸近線から散乱角の入口となる chi=2 arcsin(1/e) を導ける
+  - 1/r ポテンシャルが古典重力と Coulomb 型中心力で共通する数学構造であることを区別して説明できる
+definitions:
+  - { id: MECH6-DEF-01, name: "中心力" }
+  - { id: MECH6-DEF-02, name: "有効ポテンシャル" }
+theorems:
+  - { id: MECH6-PROP-01, name: "中心力運動の平面縮約" }
+  - { id: MECH6-PROP-02, name: "平面極座標での速度・加速度" }
+  - { id: MECH6-PROP-03, name: "中心力運動の有効一次元化" }
+  - { id: MECH6-PROP-04, name: "Binet 型の軌道方程式" }
+  - { id: MECH6-PRINCIPLE-01, name: "Newton の万有引力" }
+  - { id: MECH6-THM-01, name: "逆二乗力の円錐曲線軌道" }
+  - { id: MECH6-THM-01A, name: "Kepler 第1法則" }
+  - { id: MECH6-THM-02, name: "Kepler 第2法則" }
+  - { id: MECH6-THM-03, name: "Kepler 第3法則" }
+canonical_examples:
+  - "中心向きの力でトルクが消え、軌道面が固定される例"
+  - "極座標基底 e_r, e_theta の時間微分から向心加速度を回収する例"
+  - "万有引力の有効ポテンシャルで円軌道と転回点を読む例"
+  - "逆二乗力の軌道方程式を u=1/r で定係数方程式へ変換する例"
+  - "楕円の近日点・遠日点と離心率を ρ=p/(1+e cos theta) から読む例"
+  - "面積速度一定から Kepler 第2法則を確認する例"
+  - "楕円面積と角運動量から Kepler 第3法則を導く例"
+  - "双曲線軌道の漸近線から散乱角を読む例"
+problem_patterns:
+  - MECH6-POLAR-KINEMATICS-1
+  - MECH6-EFFECTIVE-POTENTIAL-CIRCULAR-1
+  - MECH6-ESCAPE-SPEED-1
+  - MECH6-CONIC-CLASSIFICATION-1
+  - MECH6-BINET-ORBIT-1
+  - MECH6-KEPLER-SECOND-1
+  - MECH6-KEPLER-THIRD-1
+  - MECH6-HYPERBOLIC-SCATTERING-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.5, review: 1.0 }

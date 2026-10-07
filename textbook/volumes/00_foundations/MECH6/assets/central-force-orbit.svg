@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" role="img" aria-labelledby="title desc" data-layout-lint="strict">
+  <title id="title">中心力軌道と位置・速度・力</title>
+  <desc id="desc">固定中心 O の周囲を通る一般の曲線軌道上の点 P で、O から P への位置ベクトル r、軌道接線方向の速度 v、P から O 側へ向く中心力 F を示す。</desc>
+  <rect width="760" height="430" fill="white"/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="currentColor"/></marker>
+  </defs>
+  <path d="M120,330 C205,120 395,82 655,166 C690,178 708,206 700,245" fill="none" stroke="#666" stroke-width="3"/>
+  <circle cx="235" cy="245" r="7" fill="#111"/>
+  <text x="208" y="278" font-size="20">O</text>
+  <circle cx="540" cy="128" r="7" fill="#111"/>
+  <text x="548" y="94" font-size="20">P</text>
+  <line x1="235" y1="245" x2="540" y2="128" stroke="#1f5f99" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="374" y="165" font-size="20">r</text>
+  <line x1="540" y1="128" x2="632" y2="151" stroke="#8a3d2f" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow)"/>
+  <text x="642" y="120" font-size="20">v</text>
+  <line x1="540" y1="128" x2="496" y2="145" stroke="#222" stroke-width="5" marker-end="url(#arrow)" data-layout-ignore="text-overlap: force must lie on the radial line toward O"/>
+  <text x="486" y="96" font-size="20">F</text>
+</svg>
