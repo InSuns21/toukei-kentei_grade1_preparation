@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - AMECH5
+  - ODE4
 
 forward_references: []
 
@@ -34,6 +35,15 @@ concepts:
     requires:
       - analytical-mechanics.poisson-bracket
 
+  - id: analytical-mechanics.poisson-jacobi-identity
+    name: Poisson 括弧の Jacobi 恒等式
+    kind: theorem
+    aliases: [Poisson bracket Jacobi identity]
+    introduction: formal
+    introduction_aliases: [定理（Poisson 括弧の代数的性質）]
+    requires:
+      - analytical-mechanics.poisson-bracket
+
   - id: analytical-mechanics.poisson-time-evolution
     name: Poisson 括弧による時間発展
     kind: theorem
@@ -60,7 +70,7 @@ concepts:
     introduction: formal
     introduction_aliases: [命題（保存量の Poisson 括弧）]
     requires:
-      - analytical-mechanics.poisson-identities
+      - analytical-mechanics.poisson-jacobi-identity
       - analytical-mechanics.poisson-conservation-criterion
 
   - id: analytical-mechanics.angular-momentum-poisson-relations
