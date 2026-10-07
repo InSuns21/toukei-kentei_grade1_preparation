@@ -17,8 +17,9 @@ learning_objectives:
 definitions:
   - { id: MECH1-DEF-01, name: "物理量の次元と単位" }
   - { id: MECH1-DEF-02, name: "質点・位置ベクトル・軌道" }
-  - { id: MECH1-DEF-03, name: "質点の速度・速さ・加速度" }
-  - { id: MECH1-DEF-04, name: "等速移動する座標系間の Galilei 変換" }
+  - { id: MECH1-DEF-03, name: "基準系" }
+  - { id: MECH1-DEF-04, name: "質点の速度・速さ・加速度" }
+  - { id: MECH1-DEF-05, name: "等速移動する座標系間の Galilei 変換" }
 theorems:
   - { id: MECH1-PROP-01, name: "一定加速度の位置と速度" }
   - { id: MECH1-PROP-02, name: "等速円運動の速度と加速度" }
