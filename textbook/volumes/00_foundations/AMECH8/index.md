@@ -146,7 +146,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-AMECH7 の時間依存第2種母関数の公式から
+AMECH7 の[第2種母関数による正準変換と Hamiltonian の変換](../AMECH7/index.md#thm-amech7-generating-function)から
 
 $$
 K
@@ -1173,7 +1173,7 @@ $$
 
 は Hamilton--Jacobi 方程式を満たします。
 
-次に完全積分の再構成公式から
+次に[完全積分からの運動再構成](#thm-amech8-complete-reconstruction)から
 
 $$
 \beta
