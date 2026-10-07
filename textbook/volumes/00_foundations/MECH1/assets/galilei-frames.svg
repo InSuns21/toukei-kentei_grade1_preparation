@@ -35,7 +35,6 @@
     <text x="755" y="110">P</text>
     <text x="500" y="52" fill="#009E73" font-weight="700">r(t)：O → P</text>
     <text x="655" y="52" fill="#0072B2" font-weight="700">r'(t)：O' → P</text>
-    <text x="342" y="330" fill="#D55E00" font-weight="700">U</text>
     <text x="455" y="374" font-size="19">O' は S に対して右向き速度 U で移動</text>
   </g>
 </svg>
