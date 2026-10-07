@@ -70,10 +70,11 @@ function stableLinksOnLine(line) {
 }
 
 function loadDreamTheaterKnowledge(contents) {
-  if (!fs.existsSync(DREAM_INDEX) || !fs.existsSync(DREAM_POLICY)) return { pagesByFile: new Map(), aliases: [], concepts: [] };
+  if (!fs.existsSync(DREAM_INDEX) || !fs.existsSync(DREAM_POLICY)) return { pagesByFile: new Map(), aliases: [], concepts: [], formalReferenceLinkExemptConcepts: new Set() };
   const index = JSON.parse(fs.readFileSync(DREAM_INDEX, 'utf8'));
   const policy = YAML.parse(fs.readFileSync(DREAM_POLICY, 'utf8')) ?? {};
   const metadataFile = policy.metadata_file || 'knowledge.yaml';
+  const formalReferenceLinkExemptConcepts = new Set(policy.dependency_tracking?.formal_reference_link_exempt_concepts ?? []);
   const pagesByFile = new Map();
   const concepts = [];
   for (const relPath of (index.sections ?? []).flatMap((section) => section.paths ?? [])) {
@@ -94,7 +95,7 @@ function loadDreamTheaterKnowledge(contents) {
   const aliasPrefixIndex = buildAliasPrefixIndex(aliases);
   const anchorCandidateCache = new Map();
   for (const concept of concepts) concept.reference = deriveCanonicalReference(concept, contents, anchorCandidateCache);
-  return { pagesByFile, aliases, aliasPrefixIndex, concepts };
+  return { pagesByFile, aliases, aliasPrefixIndex, concepts, formalReferenceLinkExemptConcepts };
 }
 
 function normalizeConcept(raw, page, order) {
@@ -458,7 +459,12 @@ function escapeRegExp(value) { return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&
 const files = walk(ROOT);
 const contents = new Map(files.map((file) => [file, fs.readFileSync(file, 'utf8')]));
 const anchors = new Map([...contents].map(([file, text]) => [file, explicitAnchors(text)]));
-const { pagesByFile: dreamPages, aliases: dreamAliases, aliasPrefixIndex: dreamAliasPrefixIndex } = loadDreamTheaterKnowledge(contents);
+const {
+  pagesByFile: dreamPages,
+  aliases: dreamAliases,
+  aliasPrefixIndex: dreamAliasPrefixIndex,
+  formalReferenceLinkExemptConcepts: dreamFormalReferenceLinkExemptConcepts,
+} = loadDreamTheaterKnowledge(contents);
 const errors = [];
 let checkedPreciseLinks = 0;
 let checkedAnchors = 0;
@@ -512,6 +518,7 @@ for (const [file, markdown] of contents) {
       const readerLine = readerLines[i] ?? '';
       if (readerLine.trim() && !isNavigationOrChecklistLine(readerLine)) {
         for (const use of collectDreamDependencyUses(readerLine, line, i + 1, dreamAliases, dreamAliasPrefixIndex)) {
+          if (dreamFormalReferenceLinkExemptConcepts.has(use.concept.id)) continue;
           checkedKnowledgeUses += 1;
           const result = validateOrFixKnowledgeDependencyLink(file, rel, use, line, errors, dreamAliases);
           if (result.fixed) { line = result.line; lines[i] = line; fileChanged = true; fixedKnowledgeLinks += 1; }
