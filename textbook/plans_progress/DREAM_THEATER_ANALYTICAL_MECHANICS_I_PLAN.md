@@ -232,4 +232,5 @@ $$
 - 2026-10-07: AMECH3「作用積分と Hamilton の原理」を実装・査読し、系列 manifest / routing / public index を更新。
 - 2026-10-07: AMECH4「対称性・循環座標・Noether の定理」を実装・査読し、有限自由度の Noether の定理と三つの基本保存則を接続。
 - 2026-10-07: AMECH5「Legendre 変換と Hamilton 形式」を実装・査読し、正則性から Legendre 写像の局所可逆性、Hamilton の正準方程式、相空間、自然なラグランジアンと中心力の具体計算まで接続。
-- 次作業: AMECH6「Poisson 括弧と Hamiltonian flow」。
+- 2026-10-07: AMECH6「Poisson 括弧と Hamiltonian flow」を実装・査読し、Poisson 括弧による時間発展・保存量、角運動量の括弧関係、Hamiltonian flow、Liouville の位相体積保存まで接続。
+- 次作業: AMECH7「正準変換」。
