@@ -18,9 +18,6 @@ dependency_tracking:
   # 高校数学〜大学初年級の復習事項に限定し、専門的な主要定理の依存隠しには使わない。
   reachability_exempt_concepts:
     - analysis.chain-rule
-  # 高校数学〜大学初年級の基礎結果は、本文中で自然に使ってよく、毎回 canonical anchor へのリンクを強制しない。
-  formal_reference_link_exempt_concepts:
-    - analysis.chain-rule
 
 alias_matching:
   # 真の別称ではあるが、分野横断では多義的で自由文の部分一致だけでは意味を確定できない語。
