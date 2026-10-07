@@ -1,6 +1,6 @@
 # AMECH5 Legendre 変換と Hamilton 形式
 
-AMECH4 まで、運動は一般化座標 $q=(q_1,\ldots,q_n)$ と一般化速度 $\dot q$ を使い、Lagrangian
+AMECH4 まで、運動は一般化座標 $q=(q_1,\ldots,q_n)$ と一般化速度 $\dot q$ を使い、ラグランジアン
 
 $$
 L(q,\dot q,t)
@@ -20,7 +20,7 @@ $$
 
 > **速度 $\dot q$ の代わりに共役運動量 $p$ を独立変数として使い、運動を $(q,p)$ の一階連立方程式として書けないか。**
 
-この変換が可能なら、二階方程式である Lagrange 方程式を
+この変換が可能なら、二階方程式である [AMECH2 の Lagrange 方程式](../AMECH2/index.md#thm-amech2-lagrange-equations)を
 
 $$
 \dot q_j
@@ -43,7 +43,7 @@ p_j
 \frac{\partial L}{\partial \dot q_j}
 $$
 
-と置くだけでは不十分です。$p$ を与えたときに $\dot q$ を戻せなければ、$(q,p)$ を新しい状態変数として使えません。
+と置くだけでは不十分です。$p$ を与えたときに $\dot q$ を戻せなければ、$(q,p)$ を新しい独立変数として使えません。
 
 本章の流れは
 
@@ -54,11 +54,11 @@ $$
 \longrightarrow
 \text{Legendre 変換}
 \longrightarrow
-\text{Hamiltonian}
+\text{新しい関数 }H
 \longrightarrow
-\text{Hamilton の正準方程式}
+\text{二つの一階方程式}
 \longrightarrow
-\text{位相空間}
+\text{相空間}
 $$
 
 です。
@@ -143,7 +143,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（Legendre 写像）**  
-> $L(q,\dot q,t)$ を速度変数について微分可能な $n$ 自由度の Lagrangian とする。時刻 $t$ を固定し、
+> $L(q,\dot q,t)$ を速度変数について微分可能な $n$ 自由度の ラグランジアン とする。時刻 $t$ を固定し、
 
 $$
 p_j
@@ -215,7 +215,7 @@ $$
 <a id="def-amech5-regular-lagrangian"></a>
 
 <!-- formal-statement-start -->
-> **定義（正則 Lagrangian）**  
+> **定義（正則 ラグランジアン）**  
 > $L(q,\dot q,t)$ を速度変数について $C^2$ 級とする。速度 Hessian
 
 $$
@@ -249,7 +249,7 @@ $$
 \det W=m\neq0.
 $$
 
-したがって調和振動子の Lagrangian は正則です。
+したがって調和振動子の ラグランジアン は正則です。
 
 一方、
 
@@ -288,7 +288,7 @@ $$
 W(q_0,\dot q_0,t)
 $$
 
-> が可逆であるとする。このとき Legendre 写像 $\mathcal{F}L_t$ は $(q_0,\dot q_0)$ の十分小さい近傍で $C^1$ 級逆写像を持つ。したがって、その近傍では速度を
+> が可逆であるとする。このとき Legendre 写像 $\mathcal{F}L_t$ は $(q_0,\dot q_0)$ を含む十分小さい領域で $C^1$ 級逆写像を持つ。したがって、その局所領域では速度を
 
 $$
 \boxed{
@@ -389,7 +389,7 @@ $$
 
 よって $D\Phi_t(q_0,\dot q_0)$ は可逆です。
 
-[逆関数定理](../RA6A/index.md#thm-ra6a-inverse-function)を $\Phi_t$ に適用すると、$(q_0,\dot q_0)$ の十分小さい近傍で $\Phi_t$ は $C^1$ 級逆写像を持ちます。
+[逆関数定理](../RA6A/index.md#thm-ra6a-inverse-function)を $\Phi_t$ に適用すると、$(q_0,\dot q_0)$ を含む十分小さい領域で $\Phi_t$ は $C^1$ 級逆写像を持ちます。
 
 Legendre 写像の第1成分は常に $q$ 自身なので、その逆写像も第1成分を $q$ に保ちます。従って第2成分をある $C^1$ 級関数 $v$ で
 
@@ -402,11 +402,11 @@ $$
 
 ここで重要なのは **局所的** という語です。
 
-速度 Hessian が各点で可逆でも、Legendre 写像が全領域で一対一とは限りません。本章で Hamiltonian を構成するときは、必要な局所逆写像が選べる領域に制限して議論します。
+速度 Hessian が各点で可逆でも、Legendre 写像が全領域で一対一とは限りません。本章で $(q,p,t)$ を独立変数とする新しい関数を構成するときは、必要な局所逆写像が選べる領域に制限して議論します。
 
 ---
 
-## 3. Hamiltonian は何を Legendre 変換しているのか
+## 3. Legendre 変換で新しい関数を作る
 
 正則性によって
 
@@ -427,7 +427,7 @@ $$
 
 と定義しました。
 
-Hamiltonian は、この同じ式から $\dot q$ を消し、独立変数を $(q,p,t)$ に取り替えたものです。
+そこで、この同じ式から $\dot q$ を消し、独立変数を $(q,p,t)$ に取り替えた新しい関数を作ります。
 
 <a id="def-amech5-hamiltonian"></a>
 
@@ -536,7 +536,7 @@ Hamilton 方程式を導く核心は、$H$ を微分したときに $d\dot q$ �
 
 <!-- formal-statement-start -->
 > **命題（Hamiltonian の微分公式）**  
-> 正則 Lagrangian $L(q,\dot q,t)$ と、その Legendre 変換で得られる Hamiltonian $H(q,p,t)$ を考える。対応する点で
+> 正則 ラグランジアン $L(q,\dot q,t)$ と、その Legendre 変換で得られる Hamiltonian $H(q,p,t)$ を考える。対応する点で
 
 $$
 p_j
@@ -761,11 +761,11 @@ $L$ では速度 $\dot q$ が独立変数でしたが、$H$ では運動量 $p$ 
 
 ---
 
-## 5. Hamilton の正準方程式
+## 5. 二つの一階方程式へ
 
-Lagrange 方程式は
+[AMECH2 の Lagrange 方程式](../AMECH2/index.md#thm-amech2-lagrange-equations)は
 
-$$
+$
 \frac{d}{dt}
 \frac{\partial L}{\partial\dot q_j}
 =
@@ -782,7 +782,7 @@ $$
 
 です。
 
-前節の微分公式から
+[Hamiltonian の微分公式](#prop-amech5-hamiltonian-differential)から
 
 $$
 \frac{\partial L}{\partial q_j}
@@ -801,13 +801,13 @@ $$
 
 でした。
 
-これをまとめると Hamilton の正準方程式になります。
+これをまとめると、次の二つの一階方程式を得ます。
 
 <a id="thm-amech5-hamilton-equations"></a>
 
 <!-- formal-statement-start -->
 > **定理（Hamilton の正準方程式と Lagrange 方程式の同値性）**  
-> $L(q,\dot q,t)$ を正則な $C^2$ 級 Lagrangian とし、Legendre 写像を局所反転できる領域で Hamiltonian $H(q,p,t)$ を構成する。
+> $L(q,\dot q,t)$ を正則な $C^2$ 級 ラグランジアン とし、Legendre 写像を局所反転できる領域で Hamiltonian $H(q,p,t)$ を構成する。
 >
 > $C^2$ 級曲線 $q(t)$ が Lagrange 方程式を満たし、
 
@@ -850,8 +850,8 @@ $$
 
 順方向では、
 
-1. Hamiltonian の微分公式から $\dot q_j=H_{p_j}$。
-2. Lagrange 方程式から $\dot p_j=L_{q_j}$。
+1. [Hamiltonian の微分公式](#prop-amech5-hamiltonian-differential)から $\dot q_j=H_{p_j}$。
+2. [AMECH2 の Lagrange 方程式](../AMECH2/index.md#thm-amech2-lagrange-equations)から $\dot p_j=L_{q_j}$。
 3. 再び微分公式から $L_{q_j}=-H_{q_j}$。
 
 逆方向では同じ式を逆順に使います。
@@ -859,7 +859,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $q(t)$ が Lagrange 方程式を満たすとします。
+まず $q(t)$ が [AMECH2 の Lagrange 方程式](../AMECH2/index.md#thm-amech2-lagrange-equations)を満たすとします。
 
 Legendre 写像で
 
@@ -871,9 +871,9 @@ $$
 
 と定めます。
 
-Hamiltonian の微分公式から
+[Hamiltonian の微分公式](#prop-amech5-hamiltonian-differential)から
 
-$$
+$
 \frac{\partial H}{\partial p_j}
 =
 \dot q_j.
@@ -889,9 +889,9 @@ $$
 }.
 $$
 
-次に Lagrange 方程式から
+次に [AMECH2 の Lagrange 方程式](../AMECH2/index.md#thm-amech2-lagrange-equations)から
 
-$$
+$
 \dot p_j
 =
 \frac{d}{dt}
@@ -900,9 +900,9 @@ $$
 \frac{\partial L}{\partial q_j}.
 $$
 
-Hamiltonian の微分公式は
+[Hamiltonian の微分公式](#prop-amech5-hamiltonian-differential)は
 
-$$
+$
 \frac{\partial H}{\partial q_j}
 =
 -
@@ -951,9 +951,9 @@ p_j
 \frac{\partial L}{\partial\dot q_j}.
 $$
 
-また Hamiltonian の微分公式から
+また [Hamiltonian の微分公式](#prop-amech5-hamiltonian-differential)から
 
-$$
+$
 -
 \frac{\partial H}{\partial q_j}
 =
@@ -1001,9 +1001,9 @@ $$
 
 ---
 
-## 6. 位相空間では「状態」が一点になる
+## 6. 相空間では一時刻の運動が一点になる
 
-Lagrange 形式では、ある時刻の状態を
+Lagrange 形式では、ある時刻の運動を
 
 $$
 (q,\dot q)
@@ -1022,7 +1022,7 @@ $$
 <a id="def-amech5-phase-space"></a>
 
 <!-- formal-statement-start -->
-> **定義（位相空間）**  
+> **定義（相空間）**  
 > Hamilton 形式で、一般化座標
 
 $$
@@ -1035,7 +1035,7 @@ $$
 p=(p_1,\ldots,p_n)
 $$
 
-> を独立な局所座標として状態を表す空間を位相空間という。本章の局所座標表示では、$n$ 自由度の位相空間は $2n$ 個の座標
+> を独立な局所座標として一時刻の運動を表す空間を相空間という。本章の局所座標表示では、$n$ 自由度の相空間は $2n$ 個の座標
 
 $$
 (q_1,\ldots,q_n,p_1,\ldots,p_n)
@@ -1045,11 +1045,11 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-amech5-phase-space -->
-### 例：調和振動子の状態は $(q,p)$ の一点である
+### 例：調和振動子の一時刻の運動は $(q,p)$ の一点である
 
 **定義の確認**
 
-一次元調和振動子では位相空間は $(q,p)$ 平面です。
+一次元調和振動子では相空間は $(q,p)$ 平面です。
 
 Hamiltonian は
 
@@ -1069,7 +1069,7 @@ q=q_0,
 p=p_0
 $$
 
-なら、状態は位相平面上の一点
+なら、その時刻の運動は $(q,p)$ 平面上の一点
 
 $$
 (q_0,p_0)
@@ -1096,7 +1096,7 @@ $$
 -kq.
 $$
 
-従って位相平面上の各点には
+従って$(q,p)$ 平面上の各点には
 
 $$
 \left(
@@ -1132,11 +1132,11 @@ $$
 
 次の図では、横軸が $q$、縦軸が $p$ です。上側では $p>0$ なので $\dot q>0$、右側では $q>0$ なので $\dot p<0$ です。従って運動は時計回りに進みます。
 
-![横軸 q、縦軸 p の位相空間で、調和振動子の一定エネルギー軌道が楕円となり時計回りに進む図](assets/harmonic-phase-portrait.svg)
+![横軸 q、縦軸 p の相空間で、調和振動子の一定エネルギー軌道が楕円となり時計回りに進む図](assets/harmonic-phase-portrait.svg)
 
 この図は「実空間で質点が楕円運動する」という意味ではありません。
 
-位相空間の楕円は、**一つの時刻における位置 $q$ と運動量 $p$ の組がどう変化するか**を表しています。
+相空間の楕円は、**一つの時刻における位置 $q$ と運動量 $p$ の組がどう変化するか**を表しています。
 
 ---
 
@@ -1150,14 +1150,14 @@ H(q,p)
 \frac{p^2}{2m}+V(q)
 $$
 
-は重要ですが、すべての Lagrangian に対して自動的に成立する式ではありません。
+は重要ですが、すべての ラグランジアン に対して自動的に成立する式ではありません。
 
-まず、多自由度の自然な Lagrangian で成立条件を確認します。
+まず、多自由度の自然な ラグランジアン で成立条件を確認します。
 
 <a id="prop-amech5-natural-hamiltonian"></a>
 
 <!-- formal-statement-start -->
-> **命題（自然な Lagrangian の Hamiltonian）**  
+> **命題（自然な ラグランジアン の Hamiltonian）**  
 > $M(q)$ を各 $q$ で実対称正定値な $n\times n$ 行列とし、
 
 $$
@@ -1378,7 +1378,7 @@ $$
 
 これが数理量子力学で使う古典 Hamiltonian の基本形です。
 
-ただし、一般化座標では $M(q)$ が $q$ に依存します。また速度に一次の項がある Lagrangian では、共役運動量 $p$ が単純な $m\dot q$ ではないため、Hamiltonian を機械的に $p^2/(2m)+V$ と書くことはできません。
+ただし、一般化座標では $M(q)$ が $q$ に依存します。また速度に一次の項がある ラグランジアン では、共役運動量 $p$ が単純な $m\dot q$ ではないため、Hamiltonian を機械的に $p^2/(2m)+V$ と書くことはできません。
 
 ---
 
@@ -1415,7 +1415,7 @@ $$
 
 > である。
 >
-> さらに $H$ が正則 Lagrangian $L$ の Legendre 変換であるなら
+> さらに $H$ が正則 ラグランジアン $L$ の Legendre 変換であるなら
 
 $$
 \boxed{
@@ -1537,7 +1537,7 @@ $$
 
 平面極座標 $(r,\theta)$ で、中心ポテンシャル $V(r)$ のもとを動く質点を考えます。
 
-Lagrangian は
+ラグランジアン は
 
 $$
 L
@@ -1812,7 +1812,7 @@ V(q)
 }.
 $$
 
-同じ運動方程式を記述していても、Lagrangian へ全微分を加えると canonical momentum の式は変わります。
+同じ運動方程式を記述していても、ラグランジアン へ全微分を加えると 共役運動量 の式は変わります。
 
 Hamilton 形式では「何を $p$ と呼んでいるか」を、必ず
 
@@ -1826,7 +1826,7 @@ $$
 
 ## 11. 本章で何ができるようになったか
 
-Lagrange 形式では状態を $(q,\dot q)$ で表し、二階の Euler--Lagrange 方程式を使いました。
+Lagrange 形式では運動の瞬間データを $(q,\dot q)$ で表し、二階の [Euler--Lagrange 方程式](../AMECH2/index.md#thm-amech2-lagrange-equations)を使いました。
 
 本章では正則性を確認した上で
 
@@ -1867,8 +1867,8 @@ $$
 - 正則性は速度 Hessian の可逆性で判定する。
 - Hamiltonian の微分では $d\dot q$ の項が Legendre 関係によって消える。
 - 正則な範囲では Hamilton 方程式と Lagrange 方程式は同じ運動を記述する。
-- 位相空間では状態を $(q,p)$ の一点として見る。
-- $H=T+V$ は自然な Lagrangian など、成立条件を確認して使う。
+- 相空間では運動の瞬間データを $(q,p)$ の一点として見る。
+- $H=T+V$ は自然な ラグランジアン など、成立条件を確認して使う。
 - $H$ が保存するのは $\partial H/\partial t=0$ のときであり、Hamiltonian であること自体は保存を意味しない。
 
 次章 AMECH6 では、任意の観測量 $f(q,p,t)$ の時間変化を一つの二項演算で書きます。そこで
@@ -1879,7 +1879,7 @@ $$
 \delta_{ij}
 $$
 
-を基本関係とする Poisson 括弧が現れ、Hamiltonian が位相空間上の時間発展を生成するという見方へ進みます。
+を基本関係とする Poisson 括弧が現れ、Hamiltonian が相空間上の時間発展を生成するという見方へ進みます。
 
 ---
 
@@ -2029,9 +2029,9 @@ $$
 
 ---
 
-### A2. 正則な Lagrangian と特異な Lagrangian
+### A2. 正則な ラグランジアン と特異な ラグランジアン
 
-次の一次元 Lagrangian を考える。
+次の一次元 ラグランジアン を考える。
 
 $$
 L_1(q,\dot q)
@@ -2126,7 +2126,7 @@ $$
 
 ---
 
-### A3. 位相空間での進行方向
+### A3. 相空間での進行方向
 
 調和振動子
 
@@ -2141,9 +2141,9 @@ $$
 を考える。
 
 1. 位相点 $(q,p)=(0,p_0)$ での $(\dot q,\dot p)$ を求めよ。
-2. $p_0>0$ のとき、位相平面ではどちら向きへ進み始めるか。
+2. $p_0>0$ のとき、$(q,p)$ 平面ではどちら向きへ進み始めるか。
 3. 位相点 $(q,p)=(q_0,0)$ での $(\dot q,\dot p)$ を求めよ。
-4. $q_0>0$ のとき、位相平面ではどちら向きへ進み始めるか。
+4. $q_0>0$ のとき、$(q,p)$ 平面ではどちら向きへ進み始めるか。
 
 - Level: A
 
@@ -2186,7 +2186,7 @@ $$
 }.
 $$
 
-$p_0>0$ なら $\dot q>0$ なので、位相平面では右向きに進み始めます。
+$p_0>0$ なら $\dot q>0$ なので、$(q,p)$ 平面では右向きに進み始めます。
 
 次に $(q,p)=(q_0,0)$ では
 
@@ -2208,14 +2208,14 @@ $$
 }.
 $$
 
-$q_0>0$ なら $\dot p<0$ なので、位相平面では下向きに進み始めます。
+$q_0>0$ なら $\dot p<0$ なので、$(q,p)$ 平面では下向きに進み始めます。
 
 上側で右向き、右側で下向きなので、等エネルギー楕円を時計回りに進むことと一致します。
 <!-- solution-end -->
 
 ---
 
-### A4. 対角質量行列の自然な Lagrangian
+### A4. 対角質量行列の自然な ラグランジアン
 
 $$
 L(q_1,q_2,\dot q_1,\dot q_2)
@@ -2337,7 +2337,7 @@ $$
 
 ### B1. Hamiltonian の微分公式を自分で導く
 
-正則 Lagrangian $L(q,\dot q,t)$ と
+正則 ラグランジアン $L(q,\dot q,t)$ と
 
 $$
 H
@@ -2774,7 +2774,7 @@ $$
 
 です。
 
-Lagrangian の陽な時間微分は
+ラグランジアン の陽な時間微分は
 
 $$
 \frac{\partial L}{\partial t}
@@ -3066,7 +3066,7 @@ $$
 
 なので、共役運動量 $p$ は力学的運動量 $m\dot q$ と一致しません。
 
-したがって Hamilton 形式で現れる $p$ を見て、座標系や Lagrangian の形を確認せずに「質量×速度」と解釈するのは誤りです。
+したがって Hamilton 形式で現れる $p$ を見て、座標系や ラグランジアン の形を確認せずに「質量×速度」と解釈するのは誤りです。
 
 共役運動量の正本はあくまで
 
