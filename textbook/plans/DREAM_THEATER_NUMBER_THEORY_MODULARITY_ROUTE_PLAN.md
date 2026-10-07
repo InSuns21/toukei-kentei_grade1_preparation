@@ -188,6 +188,16 @@ DREAM THEATER では Modularity Theorem への接続のため、複素一様化�
 
 ---
 
+## 2.7 Diophantine近似
+
+NDA1--NDA8 の範囲校正では、次の標準書を参照する。
+
+- J. W. S. Cassels, *An Introduction to Diophantine Approximation*
+- Wolfgang M. Schmidt, *Diophantine Approximation*
+- Ivan Niven, *Irrational Numbers*
+
+連分数だけの講義にも、EOM017 の irrationality exponent だけの補講にもせず、有理近似・同時近似・超越性・metric theory まで一学期として自然に閉じる範囲を採る。
+
 # 3. 整数論基礎 NT1--NT8
 
 ## 3.0 科目の位置付け
