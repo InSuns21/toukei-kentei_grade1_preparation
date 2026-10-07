@@ -83,7 +83,7 @@ chapters:
     title: 正規汎関数・正規状態・トレース
   - id: VN6
     path: textbook/volumes/00_foundations/VN6
-    status: planned
+    status: completed
     title: 可換 von Neumann 環と L^infinity
   - id: VN7
     path: textbook/volumes/00_foundations/VN7
