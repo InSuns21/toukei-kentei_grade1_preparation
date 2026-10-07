@@ -229,4 +229,5 @@ $$
 
 - 2026-10-07: AMECH1「拘束と一般化座標」を実装・査読し、系列 manifest / routing / public index を更新。
 - 2026-10-07: AMECH2「d'Alembert 原理と Lagrange 方程式」を実装・査読し、系列 manifest / routing / public index を更新。
-- 次作業: AMECH3「作用積分と Hamilton の原理」。
+- 2026-10-07: AMECH3「作用積分と Hamilton の原理」を実装・査読し、系列 manifest / routing / public index を更新。
+- 次作業: AMECH4「対称性・循環座標・Noether の定理」。

@@ -1,0 +1,26 @@
+chapter: "AMECH3"
+terms:
+  - term: 作用
+    english: action
+    meaning: 軌道 q(t) に対して関数 L(q,dot q,t) を時間積分した S[q]=integral L dt で定まる汎関数。
+  - term: 汎関数
+    english: functional
+    meaning: 本章では軌道のような関数を入力し、実数を返す写像。
+  - term: 固定端変分
+    english: fixed-end variation
+    meaning: q_epsilon=q+epsilon eta と軌道を変えつつ eta(t1)=eta(t2)=0 により両端の配置を固定する変分。
+  - term: 第一変分
+    english: first variation
+    meaning: 変分パラメータ epsilon に関する作用の epsilon=0 での一次変化率。
+  - term: 停留軌道
+    english: stationary path
+    meaning: 任意の許容固定端変分方向に対して作用の第一変分が 0 となる軌道。
+  - term: Euler--Lagrange 方程式
+    english: Euler--Lagrange equation
+    meaning: 固定端変分に対する作用の停留条件と同値な d/dt(partial L/partial dot q_j)-partial L/partial q_j=0 という方程式。
+  - term: Hamilton の原理
+    english: Hamilton's principle
+    meaning: 保存力系の実際の運動軌道が固定端変分に対して作用を停留させるという力学原理。
+  - term: 全時間微分
+    english: total time derivative
+    meaning: F(q,t) を軌道 q(t) に沿って微分した dF/dt=sum_j(partial F/partial q_j)dot q_j+partial F/partial t。
