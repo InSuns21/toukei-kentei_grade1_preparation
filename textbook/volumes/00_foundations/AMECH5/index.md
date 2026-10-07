@@ -765,7 +765,7 @@ $L$ では速度 $\dot q$ が独立変数でしたが、$H$ では運動量 $p$ 
 
 [AMECH2 の Lagrange 方程式](../AMECH2/index.md#thm-amech2-lagrange-equations)は
 
-$
+$$
 \frac{d}{dt}
 \frac{\partial L}{\partial\dot q_j}
 =
@@ -873,7 +873,7 @@ $$
 
 [Hamiltonian の微分公式](#prop-amech5-hamiltonian-differential)から
 
-$
+$$
 \frac{\partial H}{\partial p_j}
 =
 \dot q_j.
@@ -891,7 +891,7 @@ $$
 
 次に [AMECH2 の Lagrange 方程式](../AMECH2/index.md#thm-amech2-lagrange-equations)から
 
-$
+$$
 \dot p_j
 =
 \frac{d}{dt}
@@ -902,7 +902,7 @@ $$
 
 [Hamiltonian の微分公式](#prop-amech5-hamiltonian-differential)は
 
-$
+$$
 \frac{\partial H}{\partial q_j}
 =
 -
@@ -953,7 +953,7 @@ $$
 
 また [Hamiltonian の微分公式](#prop-amech5-hamiltonian-differential)から
 
-$
+$$
 -
 \frac{\partial H}{\partial q_j}
 =
