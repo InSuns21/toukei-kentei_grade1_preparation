@@ -12,7 +12,7 @@ $$
 \boxed{
 \text{形を保つ物体}
 \longrightarrow
-\text{固定軸の慣性モーメント}
+\text{固定軸の回転しにくさを表す係数}
 \longrightarrow
 \text{回転慣性の行列}
 \longrightarrow
