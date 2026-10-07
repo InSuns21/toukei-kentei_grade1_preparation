@@ -24,7 +24,7 @@
 
   <line x1="430" y1="254" x2="575" y2="291"
         stroke="#0072B2" stroke-width="5" marker-end="url(#arrow-blue)"/>
-  <text x="588" y="322" font-family="Noto Sans CJK JP, sans-serif" font-size="24" fill="#0072B2">δr</text>
+  <text x="625" y="350" font-family="Noto Sans CJK JP, sans-serif" font-size="24" fill="#0072B2">δr</text>
 
   <line x1="430" y1="254" x2="473" y2="84"
         stroke="#D55E00" stroke-width="5" stroke-dasharray="12 8" marker-end="url(#arrow-orange)"/>
