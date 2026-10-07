@@ -651,4 +651,5 @@
 
 1. [AMECH1 拘束と一般化座標](textbook/volumes/00_foundations/AMECH1/index.md)
 2. [AMECH2 d'Alembert 原理と Lagrange 方程式](textbook/volumes/00_foundations/AMECH2/index.md)
+3. [AMECH3 作用積分と Hamilton の原理](textbook/volumes/00_foundations/AMECH3/index.md)
 
