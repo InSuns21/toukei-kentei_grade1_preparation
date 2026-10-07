@@ -424,7 +424,7 @@ $$
 \frac{dL}{dt}.
 $$
 
-多変数の連鎖律より
+[RA6 の多変数の連鎖律](../RA6/index.md#thm-ra6-chain-rule)より
 
 $$
 \frac{dL}{dt}
@@ -728,7 +728,7 @@ $$
 
 ここまでに二つの式を得ています。
 
-Lagrange 方程式から
+[AMECH2 の Lagrange 方程式](../AMECH2/index.md#thm-amech2-lagrange-equations)から
 
 $$
 \dot p_j
@@ -833,7 +833,7 @@ $$
 \frac{\partial\xi_j}{\partial q_k}\dot q_k.
 $$
 
-Lagrange 方程式から
+[AMECH2 の Lagrange 方程式](../AMECH2/index.md#thm-amech2-lagrange-equations)から
 
 $$
 \dot p_j
@@ -1025,7 +1025,7 @@ p
 mv.
 $$
 
-Noether の定理より
+[Noether の定理](#thm-amech4-noether)より
 
 $$
 J=p\cdot a
@@ -1283,7 +1283,7 @@ J
 \end{aligned}
 $$
 
-Noether の定理から
+[Noether の定理](#thm-amech4-noether)から
 
 $$
 \frac{dJ}{dt}=0
@@ -1433,7 +1433,7 @@ $$
 1. $p_r$ を求めよ。
 2. $p_\theta$ を求めよ。
 3. $\theta$ が循環座標であることを確認せよ。
-4. $p_\theta$ が保存することを Lagrange 方程式から示せ。
+4. $p_\theta$ が保存することを [AMECH2 の Lagrange 方程式](../AMECH2/index.md#thm-amech2-lagrange-equations)から示せ。
 
 - Level: A
 
@@ -1574,7 +1574,7 @@ m\dot x.
 \end{aligned}
 $$
 
-Lagrange 方程式から
+[AMECH2 の Lagrange 方程式](../AMECH2/index.md#thm-amech2-lagrange-equations)から
 
 $$
 \frac{dp_x}{dt}
@@ -1755,7 +1755,7 @@ p
 m\dot x.
 $$
 
-Lagrange 方程式から
+[AMECH2 の Lagrange 方程式](../AMECH2/index.md#thm-amech2-lagrange-equations)から
 
 $$
 \dot p
@@ -2078,7 +2078,7 @@ $$
 \tau\dot E_L.
 $$
 
-Lagrange 方程式から
+[AMECH2 の Lagrange 方程式](../AMECH2/index.md#thm-amech2-lagrange-equations)から
 
 $$
 \dot p_j
