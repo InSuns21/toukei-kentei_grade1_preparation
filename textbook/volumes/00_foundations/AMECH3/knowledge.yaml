@@ -1,0 +1,78 @@
+chapter: AMECH3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AMECH2
+
+forward_references: []
+
+concepts:
+  - id: analytical-mechanics.action-functional
+    name: 作用汎関数
+    kind: definition
+    aliases: [作用, action, action functional]
+    introduction: formal
+    introduction_aliases: [定義（作用汎関数）]
+    requires:
+      - analytical-mechanics.mechanical-lagrangian
+
+  - id: analytical-mechanics.fixed-end-variation
+    name: 固定端変分
+    kind: definition
+    aliases: [固定端変分, fixed-end variation]
+    introduction: formal
+    introduction_aliases: [定義（固定端変分）]
+    requires:
+      - analytical-mechanics.generalized-coordinates
+      - analytical-mechanics.action-functional
+
+  - id: analytical-mechanics.first-variation
+    name: 第一変分
+    kind: definition
+    aliases: [第一変分, first variation]
+    introduction: formal
+    introduction_aliases: [定義（第一変分）]
+    requires:
+      - analytical-mechanics.action-functional
+      - analytical-mechanics.fixed-end-variation
+
+  - id: analytical-mechanics.variational-fundamental-lemma
+    name: 変分法の基本補題
+    kind: lemma
+    aliases: [変分法の基本補題, fundamental lemma of the calculus of variations]
+    introduction: formal
+    introduction_aliases: [補題（変分法の基本補題・本章で使う形）]
+    requires:
+      - analytical-mechanics.fixed-end-variation
+
+  - id: analytical-mechanics.euler-lagrange-from-action
+    name: 固定端変分の Euler--Lagrange 方程式
+    kind: theorem
+    aliases: [Euler--Lagrange equation for fixed-end variations]
+    introduction: formal
+    introduction_aliases: [定理（固定端変分の Euler--Lagrange 方程式）]
+    requires:
+      - analytical-mechanics.first-variation
+      - analytical-mechanics.variational-fundamental-lemma
+      - analytical-mechanics.lagrange-equations
+
+  - id: analytical-mechanics.hamilton-principle
+    name: Hamilton の原理
+    kind: principle
+    aliases: [Hamilton principle, Hamilton's principle]
+    introduction: formal
+    introduction_aliases: [原理（Hamilton の原理）]
+    requires:
+      - analytical-mechanics.action-functional
+      - analytical-mechanics.euler-lagrange-from-action
+      - analytical-mechanics.mechanical-lagrangian
+
+  - id: analytical-mechanics.total-derivative-lagrangian-equivalence
+    name: 全時間微分を加えた Lagrangian の同値性
+    kind: proposition
+    aliases: [equivalent Lagrangians differing by a total time derivative]
+    introduction: formal
+    introduction_aliases: [命題（全時間微分を加えた Lagrangian の同値性）]
+    requires:
+      - analytical-mechanics.action-functional
+      - analytical-mechanics.first-variation
