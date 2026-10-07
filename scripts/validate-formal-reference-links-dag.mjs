@@ -74,7 +74,7 @@ function loadDreamTheaterKnowledge(contents) {
   const index = JSON.parse(fs.readFileSync(DREAM_INDEX, 'utf8'));
   const policy = YAML.parse(fs.readFileSync(DREAM_POLICY, 'utf8')) ?? {};
   const metadataFile = policy.metadata_file || 'knowledge.yaml';
-  const formalReferenceLinkExemptConcepts = new Set(policy.dependency_tracking?.formal_reference_link_exempt_concepts ?? []);
+  const formalReferenceLinkExemptConcepts = new Set(policy.dependency_tracking?.reachability_exempt_concepts ?? []);
   const pagesByFile = new Map();
   const concepts = [];
   for (const relPath of (index.sections ?? []).flatMap((section) => section.paths ?? [])) {
