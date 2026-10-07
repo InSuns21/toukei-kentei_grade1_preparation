@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - AMECH5
+  - ODE4
 official_scope: []
 learning_objectives:
   - 正準座標上の Poisson 括弧を定義し、基本関係 {q_i,q_j}=0, {p_i,p_j}=0, {q_i,p_j}=delta_ij を直接計算できる
