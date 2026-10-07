@@ -1,0 +1,44 @@
+id: "EMAG1"
+title: "電荷・Coulomb 力・電場"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MECH2
+  - VC1
+  - RA7
+official_scope: []
+learning_objectives:
+  - 電荷の符号・SI単位・保存則を説明し、電荷保存を経験則として位置付けられる
+  - 2点電荷に対する Coulomb の法則をベクトルで書き、引力・斥力の向きを符号から判定できる
+  - 重ね合わせ原理から複数点電荷の合力を成分ごとに計算できる
+  - 電場を単位試験電荷あたりの力として定義し、点電荷系の電場を Coulomb 力から導ける
+  - 電荷密度から線・面・体積分布の総電荷を積分で回収できる
+  - 連続電荷分布の電場を Coulomb 核の積分として組み立てられる
+  - 一様帯電リングの軸上電場を対称性と積分から導ける
+  - 電気力線を電場の方向を可視化する補助表現として読み、実体的な流れと混同しない
+  - Coulomb 模型の静電的な適用範囲と後続の Gauss 則・Maxwell 方程式との役割分担を説明できる
+definitions:
+  - { id: EMAG1-DEF-01, name: "電場" }
+  - { id: EMAG1-DEF-02, name: "連続電荷分布の密度" }
+theorems:
+  - { id: EMAG1-PROP-01, name: "点電荷系が作る電場" }
+  - { id: EMAG1-PROP-02, name: "連続電荷分布が作る電場" }
+canonical_examples:
+  - "2点電荷の Coulomb 力で符号と向きをベクトルから判定する例"
+  - "点電荷が作る電場を試験電荷に依存しない形へ分離する例"
+  - "一様な線・面・体積電荷密度から総電荷を積分で回収する例"
+  - "一様帯電リングの軸上電場を横成分の相殺と軸成分の積分から導く例"
+  - "同符号2点電荷の中点で電場が打ち消し合う例"
+problem_patterns:
+  - EMAG1-COULOMB-VECTOR-1
+  - EMAG1-POINT-FIELD-1
+  - EMAG1-SUPERPOSITION-1
+  - EMAG1-CHARGE-DENSITY-1
+  - EMAG1-RING-AXIS-1
+  - EMAG1-DIPOLE-FAR-FIELD-1
+  - EMAG1-FINITE-ROD-1
+  - EMAG1-SEMICIRCLE-INTEGRATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.5, exercises: 5.0, review: 1.0 }
