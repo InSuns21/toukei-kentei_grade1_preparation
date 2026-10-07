@@ -187,7 +187,7 @@ $$
 
 ### 2.1 物理法則と数学定理を混同しない
 
-[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence) は、十分滑らかなベクトル場 $F$ に対して
+[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence) は、VC4 の仮定を満たす $C^1$ 級ベクトル場 $F$ に対して
 
 $$
 \int_{\partial\Omega}F\cdot n\,dS
@@ -197,7 +197,7 @@ $$
 
 と述べます。
 
-これは VC4 の定理の仮定を満たす $C^1$ 級ベクトル場に対する数学定理です。
+これは電荷や電場に限らない数学定理です。
 
 一方、Gauss の法則は
 
