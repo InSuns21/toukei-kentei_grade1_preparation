@@ -7,23 +7,23 @@ prerequisites:
   - RA6A
 official_scope: []
 learning_objectives:
-  - holonomic constraint を位置座標に対する等式として記述し、独立な拘束の個数と自由度を区別できる
+  - ホロノミック拘束 を位置座標に対する等式として記述し、独立な拘束の個数と自由度を区別できる
   - 配置空間を拘束を満たす配置の集合として説明し、局所的な一般化座標でパラメータ化できる
   - 一般化座標 q から粒子位置 r_i(q,t) を与えたとき、連鎖律から速度を導ける
   - 仮想変位を時刻を固定した許容変位として定義し、実際の微小時間発展との違いを説明できる
-  - holonomic constraint の下で仮想変位が拘束面の接方向にあることを連鎖律で確認できる
+  - ホロノミック拘束 の下で仮想変位が拘束面の接方向にあることを連鎖律で確認できる
   - 一般化力 Q_j=sum_i F_i dot partial r_i/partial q_j を導き、仮想仕事を一般化座標で表せる
   - 極座標の速度・加速度を基底の時間変化まで含めて導き、直交座標での Newton 方程式との違いを説明できる
   - 振り子・球面・時間依存拘束の具体例で自由度・一般化座標・仮想変位を判定できる
 definitions:
-  - { id: AMECH1-DEF-01, name: "holonomic constraint" }
+  - { id: AMECH1-DEF-01, name: "ホロノミック拘束" }
   - { id: AMECH1-DEF-02, name: "配置空間・自由度" }
   - { id: AMECH1-DEF-03, name: "一般化座標" }
   - { id: AMECH1-DEF-04, name: "仮想変位" }
   - { id: AMECH1-DEF-05, name: "一般化力" }
 theorems:
   - { id: AMECH1-PROP-01, name: "一般化座標による速度公式" }
-  - { id: AMECH1-PROP-02, name: "holonomic constraint と仮想変位の接方向性" }
+  - { id: AMECH1-PROP-02, name: "ホロノミック拘束 と仮想変位の接方向性" }
   - { id: AMECH1-PROP-03, name: "一般化力と仮想仕事" }
   - { id: AMECH1-PROP-04, name: "平面極座標の速度・加速度" }
 canonical_examples:
