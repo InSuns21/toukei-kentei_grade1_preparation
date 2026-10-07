@@ -1,0 +1,80 @@
+chapter: MECH1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RA3
+  - F0-00E1
+
+forward_references: []
+
+concepts:
+  - id: mechanics.dimension-and-unit
+    name: 物理量の次元と単位
+    kind: definition
+    aliases: ["physical dimension and unit"]
+    introduction: formal
+    introduction_aliases: ["定義（物理量の次元と単位）"]
+    requires: []
+
+  - id: mechanics.point-particle-trajectory
+    name: 質点・位置ベクトル・軌道
+    kind: definition
+    aliases: ["point particle trajectory and position vector"]
+    introduction: formal
+    introduction_aliases: ["定義（質点・位置ベクトル・軌道）"]
+    requires:
+      - mechanics.dimension-and-unit
+
+  - id: mechanics.reference-frame
+    name: 基準系
+    kind: definition
+    aliases: ["reference frame"]
+    introduction: formal
+    introduction_aliases: ["定義（基準系）"]
+    requires:
+      - mechanics.dimension-and-unit
+
+  - id: mechanics.velocity-acceleration
+    name: 質点の速度・速さ・加速度
+    kind: definition
+    aliases: ["particle velocity speed and acceleration"]
+    introduction: formal
+    introduction_aliases: ["定義（質点の速度・速さ・加速度）"]
+    requires:
+      - mechanics.point-particle-trajectory
+      - mechanics.reference-frame
+
+  - id: mechanics.constant-acceleration-kinematics
+    name: 一定加速度の位置と速度
+    kind: proposition
+    aliases: ["constant acceleration kinematics"]
+    introduction_aliases: ["命題（一定加速度の位置と速度）"]
+    requires:
+      - mechanics.velocity-acceleration
+
+  - id: mechanics.uniform-circular-motion-kinematics
+    name: 等速円運動の速度と加速度
+    kind: proposition
+    aliases: ["uniform circular motion kinematics"]
+    introduction_aliases: ["命題（等速円運動の速度と加速度）"]
+    requires:
+      - mechanics.velocity-acceleration
+
+  - id: mechanics.galilei-transformation
+    name: 等速移動する座標系間の Galilei 変換
+    kind: definition
+    aliases: ["Galilei 変換", "Galilei transformation", "Galilei transformation between uniformly moving frames"]
+    introduction: formal
+    introduction_aliases: ["定義（等速移動する座標系間の Galilei 変換）"]
+    requires:
+      - mechanics.point-particle-trajectory
+      - mechanics.reference-frame
+
+  - id: mechanics.galilei-kinematics
+    name: Galilei 変換における速度・加速度
+    kind: proposition
+    aliases: ["velocity and acceleration under Galilei transformation"]
+    introduction_aliases: ["命題（Galilei 変換における速度・加速度）"]
+    requires:
+      - mechanics.galilei-transformation
+      - mechanics.velocity-acceleration

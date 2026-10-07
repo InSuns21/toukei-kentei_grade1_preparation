@@ -1,0 +1,29 @@
+chapter: "MECH1"
+terms:
+  - term: 次元
+    english: physical dimension
+    meaning: 物理量が長さ L、時間 T などの基本次元をどの組合せで持つかを表すもの。速度は LT^-1、加速度は LT^-2。
+  - term: 単位
+    english: unit
+    meaning: 同じ次元の物理量を数値で表すために選ぶ尺度。本章では長さに metre、時間に second を主に用いる。
+  - term: 質点
+    english: point particle
+    meaning: 物体の大きさ・形・回転を無視し、位置だけを一点で代表させる理想化。
+  - term: 基準系
+    english: reference frame
+    meaning: 運動を記述するために選ぶ原点、座標軸、時計の組。位置や速度の座標値は基準系に依存する。
+  - term: 軌道
+    english: trajectory
+    meaning: 時刻 t に対して質点の位置ベクトル r(t) を対応させる関数。
+  - term: 速度
+    english: velocity
+    meaning: 軌道 r(t) の時間微分 v(t)=dr/dt。向きを持つベクトル量。
+  - term: 速さ
+    english: speed
+    meaning: 速度ベクトルの大きさ |v(t)|。非負のスカラー量。
+  - term: 加速度
+    english: acceleration
+    meaning: 速度の時間微分 a(t)=dv/dt=d^2r/dt^2。
+  - term: Galilei 変換
+    english: Galilei transformation
+    meaning: 一方の基準系の原点が他方に対して一定速度 U で動くときの位置座標変換 r'=r-b-Ut。本章の設定では速度は v'=v-U、加速度は a'=a と変換される。

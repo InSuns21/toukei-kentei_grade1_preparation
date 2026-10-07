@@ -7,7 +7,7 @@ chapter_root: textbook/volumes/00_foundations
 chapters:
   - id: MECH1
     path: textbook/volumes/00_foundations/MECH1
-    status: planned
+    status: completed
     title: 運動を測る：位置・速度・加速度
   - id: MECH2
     path: textbook/volumes/00_foundations/MECH2

@@ -448,6 +448,12 @@
         "textbook/volumes/00_foundations/GAME-D3/index.md",
         "textbook/volumes/00_foundations/GAME-D4/index.md"
       ]
+    },
+    {
+      "name": "物理系",
+      "paths": [
+        "textbook/volumes/00_foundations/MECH1/index.md"
+      ]
     }
   ]
 }
