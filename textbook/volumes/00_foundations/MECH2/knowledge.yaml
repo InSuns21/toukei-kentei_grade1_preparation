@@ -32,7 +32,7 @@ concepts:
     name: Newton の運動法則
     kind: principle
     aliases: ["Newton's laws of motion", "Newton の三法則"]
-    introduction: formal
+    introduction: inline
     introduction_aliases: ["Newton の第1法則", "Newton の第2法則", "Newton の第3法則"]
     requires:
       - mechanics.mass-force-resultant
@@ -44,6 +44,7 @@ concepts:
     kind: method
     aliases: ["Newton equation as an initial value problem"]
     introduction: inline
+    introduction_aliases: ["運動方程式は初期値問題である"]
     requires:
       - mechanics.newton-laws
       - ode.ode1-initial-boundary-value-problem
@@ -53,6 +54,7 @@ concepts:
     kind: model
     aliases: ["uniform gravity near Earth"]
     introduction: inline
+    introduction_aliases: ["地表近くの重力"]
     requires:
       - mechanics.newton-laws
 
@@ -61,6 +63,7 @@ concepts:
     kind: model
     aliases: ["Hooke spring force", "Hooke's law"]
     introduction: inline
+    introduction_aliases: ["Hooke の法則"]
     requires:
       - mechanics.newton-laws
 
@@ -79,6 +82,7 @@ concepts:
     kind: proposition
     aliases: ["free fall near Earth"]
     introduction: inline
+    introduction_aliases: ["自由落下"]
     requires:
       - mechanics.near-earth-gravity-model
       - mechanics.newton-equation-ivp
@@ -88,6 +92,7 @@ concepts:
     kind: proposition
     aliases: ["projectile motion without drag"]
     introduction: inline
+    introduction_aliases: ["斜方投射"]
     requires:
       - mechanics.near-earth-gravity-model
       - mechanics.newton-equation-ivp
@@ -107,6 +112,7 @@ concepts:
     kind: proposition
     aliases: ["accelerating frame and inertial force", "fictitious force"]
     introduction: inline
+    introduction_aliases: ["加速する基準系では慣性力が現れる"]
     requires:
       - mechanics.inertial-frame
       - mechanics.newton-laws
