@@ -3,18 +3,18 @@ terms:
   - term: Legendre 写像
     english: Legendre map
     meaning: 配置 q と速度 dot q から、q を保ったまま共役運動量 p=partial L/partial dot q へ移す写像。Hamilton 形式へ移るための変数変換を担う。
-  - term: 正則 Lagrangian
+  - term: 正則ラグランジアン
     english: regular Lagrangian
-    meaning: 速度変数に関する Hessian が可逆で、Legendre 写像を局所的に反転して速度を q,p,t の関数として回収できる Lagrangian。
+    meaning: 速度変数に関する Hessian が可逆で、Legendre 写像を局所的に反転して速度を q,p,t の関数として回収できるラグランジアン。
   - term: Hamiltonian
     english: Hamiltonian
     meaning: Legendre 写像を局所反転した領域で H=sum_j p_j dot q_j-L と定める q,p,t の関数。時間発展を正準方程式で記述する。
   - term: Hamilton の正準方程式
     english: Hamilton equations
     meaning: dot q_j=partial H/partial p_j と dot p_j=-partial H/partial q_j からなる一階連立微分方程式。
-  - term: 位相空間
+  - term: 相空間
     english: phase space
-    meaning: 一般化座標 q と共役運動量 p を独立な座標として状態を表す空間。n自由度では局所的に2n個の座標を持つ。
+    meaning: 一般化座標 q と共役運動量 p を独立な座標として一時刻の運動を表す空間。n自由度では局所的に2n個の座標を持つ。
   - term: 共役運動量
     english: conjugate momentum
     meaning: 一般化運動量 p_j=partial L/partial dot q_j の別名。一般には Cartesian 座標の力学的運動量 m dot q_j と一致するとは限らない。
