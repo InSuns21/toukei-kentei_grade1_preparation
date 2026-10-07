@@ -44,7 +44,7 @@ $$
 \longrightarrow
 \text{Hamiltonian flow}
 \longrightarrow
-\text{位相体積保存}
+\text{相空間体積保存}
 $$
 
 です。
@@ -182,11 +182,11 @@ $$
 
 > が成り立つ。ここで $\delta_{ij}$ は $i=j$ のとき 1、$i\ne j$ のとき 0 とする。また反対称性から
 
-$
+$$
 \{p_i,q_j\}
 =
 -\delta_{ij}.
-$
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1111,7 +1111,7 @@ $$
 
 ---
 
-## 9. Hamiltonian flow は位相体積を押し潰さない
+## 9. Hamiltonian flow は相空間体積を押し潰さない
 
 Hamiltonian vector field には、一般の一階微分方程式の右辺にはない重要な性質があります。
 
@@ -1188,7 +1188,7 @@ $$
 $$
 <!-- proof-end -->
 
-発散 0 は、微小な位相体積が局所的に膨張も収縮もしないことを示唆します。それを flow の Jacobian で確定します。
+発散 0 は、微小な相空間体積が局所的に膨張も収縮もしないことを示唆します。それを flow の Jacobian で確定します。
 
 <a id="thm-amech6-liouville"></a>
 
@@ -1204,7 +1204,7 @@ $$
 >
 > が成り立つ。
 >
-> 従って $\Phi_t$ は局所的に $2n$ 次元の位相体積を保存する。
+> 従って $\Phi_t$ は局所的に $2n$ 次元の相空間体積を保存する。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1254,7 +1254,7 @@ $$
 
 $A(0)=I$ であり $A(t)$ は連続なので、十分小さい $|t|$ では $A(t)$ は可逆です。まず
 
-$
+$$
 B(t)
 =
 DX_H(\Phi_t(z_0)),
@@ -1262,46 +1262,46 @@ DX_H(\Phi_t(z_0)),
 C(t)
 =
 A(t)^{-1}\dot A(t)
-$
+$$
 
 と置きます。変分方程式 $\dot A=BA$ から
 
-$
+$$
 C=A^{-1}BA.
-$
+$$
 
 $A$ の第 $j$ 列を $a_j$、$C$ の成分を $c_{kj}$ と書きます。$\dot A=AC$ なので
 
-$
+$$
 \dot a_j
 =
 \sum_k c_{kj}a_k.
-$
+$$
 
 行列式を各列について時間微分すると
 
-$
+$$
 \frac{d}{dt}\det A
 =
 \sum_j
 \det
 (a_1,\ldots,\dot a_j,\ldots,a_{2n}).
-$
+$$
 
 ここへ $\dot a_j=\sum_kc_{kj}a_k$ を代入します。$k\ne j$ の項では第 $j$ 列が既存の第 $k$ 列と同じ方向になり、同じ列を二本持つ行列式は 0 です。したがって $k=j$ の項だけが残り、
 
-$
+$$
 \frac{d}{dt}\det A
 =
 \left(
 \sum_jc_{jj}
 \right)
 \det A.
-$
+$$
 
 次に $C=A^{-1}BA$ の対角成分の和を添字で計算します。
 
-$
+$$
 \begin{aligned}
 \sum_i c_{ii}
 &=
@@ -1320,22 +1320,22 @@ B_{jk}\delta_{kj}\\
 &=
 \sum_jB_{jj}.
 \end{aligned}
-$
+$$
 
 3行目では $AA^{-1}=I$ を使いました。$B=DX_H(\Phi_t(z_0))$ なので、その対角成分の和は $X_H$ の発散です。従って
 
-$
+$$
 \frac{d}{dt}\det A
 =
 \det A\,
 \operatorname{div}X_H(\Phi_t(z_0)).
-$
+$$
 
 Hamiltonian vector field では
 
-$
+$$
 \operatorname{div}X_H=0
-$
+$$
 
 だから
 
@@ -1357,15 +1357,15 @@ $$
 }.
 $$
 
-局所変数変換公式から、これは $\Phi_t$ が位相体積を保存することを意味します。
+Jacobian 行列式は局所的な $2n$ 次元体積の倍率を表します。したがって値が 1 であることは、$\Phi_t$ が相空間体積を保存することを意味します。
 <!-- proof-end -->
 
 Liouville の定理は「各軌道で $H$ が一定」という保存則とは別の主張です。
 
 - $H$ 保存は一つの軌道に沿うスカラー量の保存。
-- Liouville の定理は近くに集めた多数の初期点が作る位相体積の保存。
+- Liouville の定理は近くに集めた多数の初期点が作る相空間体積の保存。
 
-Hamiltonian flow は領域を伸ばしたり折り曲げたりできますが、正準座標で測る位相体積を一方的に縮めて一点へ押し込むことはできません。
+Hamiltonian flow は領域を伸ばしたり折り曲げたりできますが、正準座標で測る相空間体積を一方的に縮めて一点へ押し込むことはできません。
 
 ---
 
@@ -1452,7 +1452,7 @@ $$
 \det D\Phi_t=1
 $$
 
-を導き、Hamiltonian flow が位相体積を保存することを示しました。
+を導き、Hamiltonian flow が相空間体積を保存することを示しました。
 
 次章 AMECH7 では、$(q,p)$ を別の変数 $(Q,P)$ に取り替えてもこの Hamilton 構造を保つ変換を考えます。そこで Poisson 括弧を保つことが、正準変換を見分ける中心条件になります。
 
@@ -2213,7 +2213,7 @@ $$
 
 $(2,1)$ 成分は
 
-$
+$$
 -m\omega
 \left(
 \sin\omega t\cos\omega s
@@ -2222,25 +2222,25 @@ $
 \right)
 =
 -m\omega\sin\omega(t+s).
-$
+$$
 
 $(2,2)$ 成分は
 
-$
+$$
 -\sin\omega t\sin\omega s
 +
 \cos\omega t\cos\omega s
 =
 \cos\omega(t+s).
-$
+$$
 
 したがって四成分すべてが一致し、
 
-$
+$$
 \boxed{
 M(t+s)=M(t)M(s)
 }
-$
+$$
 
 を得ます。
 
