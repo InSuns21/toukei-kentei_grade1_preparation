@@ -39,7 +39,7 @@ $$
 ここで最初から区別しておくべき二つがあります。
 
 - **Gauss の法則**：電荷と電場を結ぶ電磁気学の物理法則
-- **[Gauss--Ostrogradsky の[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)](../VC4/index.md#thm-vc4-gauss-divergence)**：ベクトル場の発散の体積積分と境界流束を結ぶ数学定理
+- **[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)**：ベクトル場の発散の体積積分と境界流束を結ぶ数学定理
 
 名前は似ていますが、役割は別です。この区別を保ったまま、両者がどう接続するかを見ます。
 
@@ -1365,7 +1365,7 @@ $$
 本章では次を組み立てました。
 
 1. 電束を向き付き曲面積分として定義できる。
-2. Gauss の法則と [Gauss--Ostrogradsky の[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)](../VC4/index.md#thm-vc4-gauss-divergence)を、物理法則と数学定理として区別できる。
+2. Gauss の法則と [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)を、物理法則と数学定理として区別できる。
 3. 点電荷の Coulomb 場について、原点をくり抜いた領域に[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)を使い、閉曲面流束を再現できる。
 4. Gauss 面は対称性を作るものではなく、既存の対称性を計算へ利用する補助曲面だと説明できる。
 5. 球対称分布について包有電荷 $Q(r)$ から電場を求められる。
