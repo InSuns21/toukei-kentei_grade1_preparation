@@ -94,9 +94,9 @@ $$
 > **定義（Poisson 括弧）**  
 > 正準座標
 >
-> $$
-> (q_1,\ldots,q_n,p_1,\ldots,p_n)
-> $$
+$$
+(q_1,\ldots,q_n,p_1,\ldots,p_n)
+$$
 >
 > を持つ位相空間の開領域で、$C^1$ 級関数 $f,g$ に対し
 
@@ -275,49 +275,49 @@ Poisson 括弧を保存量の計算へ使うには、展開法則を確認して
 >
 > 1. 双線形性
 >
-> $$
-> \{af+bg,h\}
-> =
-> a\{f,h\}+b\{g,h\},
-> $$
+$$
+\{af+bg,h\}
+=
+a\{f,h\}+b\{g,h\},
+$$
 >
 > および第2変数についても同様である。
 >
 > 2. 反対称性
 >
-> $$
-> \boxed{
-> \{f,g\}
-> =
-> -\{g,f\}
-> }.
-> $$
+$$
+\boxed{
+\{f,g\}
+=
+-\{g,f\}
+}.
+$$
 >
 > 3. Leibniz 則
 >
-> $$
-> \boxed{
-> \{fg,h\}
-> =
-> f\{g,h\}
-> +
-> g\{f,h\}
-> }.
-> $$
+$$
+\boxed{
+\{fg,h\}
+=
+f\{g,h\}
++
+g\{f,h\}
+}.
+$$
 >
 > 4. Jacobi 恒等式
 >
-> $$
-> \boxed{
-> \{\{f,g\},h\}
-> +
-> \{\{g,h\},f\}
-> +
-> \{\{h,f\},g\}
-> =
-> 0
-> }.
-> $$
+$$
+\boxed{
+\{\{f,g\},h\}
++
+\{\{g,h\},f\}
++
+\{\{h,f\},g\}
+=
+0
+}.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -635,17 +635,17 @@ AMECH5 の正準方程式が、Poisson 括弧一つで再現されました。
 >
 > ある Hamilton 軌道に沿って
 >
-> $$
-> \{f,H\}=0
-> $$
+$$
+\{f,H\}=0
+$$
 >
 > が成り立てば、その軌道上で $f$ は一定である。特に領域全体で
 >
-> $$
-> \boxed{
-> \{f,H\}=0
-> }
-> $$
+$$
+\boxed{
+\{f,H\}=0
+}
+$$
 >
 > なら、その領域を通るすべての Hamilton 軌道で $f$ は保存する。
 <!-- formal-statement-end -->
@@ -698,19 +698,19 @@ $$
 > **命題（保存量の Poisson 括弧）**  
 > 自律 Hamiltonian $H$ に対し、陽な時間依存を持たない $C^2$ 級関数 $f,g$ が
 >
-> $$
-> \{f,H\}=0,
-> \qquad
-> \{g,H\}=0
-> $$
+$$
+\{f,H\}=0,
+\qquad
+\{g,H\}=0
+$$
 >
 > を満たすとする。このとき
 >
-> $$
-> \boxed{
-> \{\{f,g\},H\}=0
-> }
-> $$
+$$
+\boxed{
+\{\{f,g\},H\}=0
+}
+$$
 >
 > であり、$\{f,g\}$ も保存量である。
 <!-- formal-statement-end -->
@@ -797,31 +797,31 @@ $$
 > **命題（角運動量の Poisson 括弧）**  
 > 三次元正準座標 $(x,y,z,p_x,p_y,p_z)$ 上で
 >
-> $$
-> \ell=r\times p
-> $$
+$$
+\ell=r\times p
+$$
 >
 > とする。このとき
 >
-> $$
-> \boxed{
-> \{\ell_x,\ell_y\}=\ell_z,
-> \qquad
-> \{\ell_y,\ell_z\}=\ell_x,
-> \qquad
-> \{\ell_z,\ell_x\}=\ell_y
-> }
-> $$
+$$
+\boxed{
+\{\ell_x,\ell_y\}=\ell_z,
+\qquad
+\{\ell_y,\ell_z\}=\ell_x,
+\qquad
+\{\ell_z,\ell_x\}=\ell_y
+}
+$$
 >
 > が成り立つ。Levi-Civita 記号を使えば
 >
-> $$
-> \boxed{
-> \{\ell_i,\ell_j\}
-> =
-> \sum_k\varepsilon_{ijk}\ell_k
-> }.
-> $$
+$$
+\boxed{
+\{\ell_i,\ell_j\}
+=
+\sum_k\varepsilon_{ijk}\ell_k
+}.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -941,19 +941,19 @@ $$
 >
 > 行列
 >
-> $$
-> J=
-> \begin{pmatrix}
-> 0&I\\
-> -I&0
-> \end{pmatrix}
-> $$
+$$
+J=
+\begin{pmatrix}
+0&I\\
+-I&0
+\end{pmatrix}
+$$
 >
 > と $z=(q,p)$ を使えば
 >
-> $$
-> X_H(z)=J\nabla H(z)
-> $$
+$$
+X_H(z)=J\nabla H(z)
+$$
 >
 > と書ける。
 <!-- formal-statement-end -->
@@ -1023,13 +1023,13 @@ ODE の局所存在・一意性が成り立つ範囲では、初期点ごとに�
 >
 > 定義できる時刻 $t$ について
 >
-> $$
-> \boxed{
-> \Phi_t(z_0)
-> =
-> z(t;z_0)
-> }
-> $$
+$$
+\boxed{
+\Phi_t(z_0)
+=
+z(t;z_0)
+}
+$$
 >
 > と置く。この写像族 $\Phi_t$ を Hamiltonian flow という。
 <!-- formal-statement-end -->
@@ -1123,19 +1123,19 @@ Hamiltonian vector field には、一般のベクトル場にはない重要な�
 > **命題（Hamiltonian vector field の発散）**  
 > $H(q,p)$ を正準座標上の $C^2$ 級 Hamiltonian とする。このとき
 >
-> $$
-> X_H
-> =
-> (H_{p_1},\ldots,H_{p_n},-H_{q_1},\ldots,-H_{q_n})
-> $$
+$$
+X_H
+=
+(H_{p_1},\ldots,H_{p_n},-H_{q_1},\ldots,-H_{q_n})
+$$
 >
 > の $2n$ 次元発散は
 >
-> $$
-> \boxed{
-> \operatorname{div}X_H=0
-> }
-> $$
+$$
+\boxed{
+\operatorname{div}X_H=0
+}
+$$
 >
 > である。
 <!-- formal-statement-end -->
@@ -1198,11 +1198,11 @@ $$
 > **定理（Liouville の定理・正準座標版）**  
 > $H$ を $C^2$ 級の自律 Hamiltonian とし、$\Phi_t$ をその $C^1$ 級局所 Hamiltonian flow とする。flow が定義される範囲で
 >
-> $$
-> \boxed{
-> \det D\Phi_t(z_0)=1
-> }
-> $$
+$$
+\boxed{
+\det D\Phi_t(z_0)=1
+}
+$$
 >
 > が成り立つ。
 >
