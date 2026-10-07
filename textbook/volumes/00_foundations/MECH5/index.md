@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念**：[MECH4 運動量・角運動量・保存則](../MECH4/index.md)までと、[RA3 Taylor の定理](../RA3/index.md#thm-ra3-taylor)、[ODE2 定係数線形微分方程式](../ODE2/index.md#thm-ode2-constant-coefficient)を使います。高校物理は前提にしません。
+> **既出概念**：[MECH4 運動量・角運動量・保存則](../MECH4/index.md)までと、[RA3 Taylor の定理](../RA3/index.md#thm-ra3-taylor)、[ODE2 定係数線形微分方程式](../ODE2/index.md#thm-ode2-constant-coefficient)を使います。
 
 MECH3 では、保存力がポテンシャルエネルギー $V(x)$ から $F(x)=-V'(x)$ と書けることを学びました。しかし、物体が力のつり合う位置の近くを往復するとき、**どの速さで往復し、抵抗や周期外力で何が変わるか**は、エネルギーなどの一定量だけでは時間方向まで分かりません。
 
