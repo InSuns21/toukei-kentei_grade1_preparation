@@ -125,7 +125,7 @@ concepts:
     kind: method
     aliases: ["energy curve in phase plane", "energy level curve"]
     introduction: inline
-    introduction_aliases: ["エネルギー曲線を位相平面で読む"]
+    introduction_aliases: ["エネルギー曲線を位置―速度平面で読む"]
     requires:
       - mechanics.mechanical-energy-conservation
       - mechanics.allowed-region-turning
@@ -135,6 +135,6 @@ concepts:
     kind: result
     aliases: ["classical p squared over 2m plus V"]
     introduction: inline
-    introduction_aliases: ["p^2/(2m)+V への最初の橋"]
+    introduction_aliases: ["運動量表示の古典的なエネルギー"]
     requires:
       - mechanics.mechanical-energy
