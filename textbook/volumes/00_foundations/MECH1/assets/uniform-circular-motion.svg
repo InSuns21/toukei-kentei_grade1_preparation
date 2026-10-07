@@ -1,20 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" role="img" aria-labelledby="title desc">
-  <title id="title">等速円運動の速度と向心加速度</title>
-  <desc id="desc">円周上の点 P で位置ベクトル r は中心 O から P へ、速度 v は接線方向へ、加速度 a は中心 O 方向へ向く。</desc>
-  <rect width="760" height="430" fill="white"/>
-  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#111"/></marker></defs>
-  <circle cx="300" cy="225" r="145" fill="none" stroke="#111" stroke-width="3"/>
-  <circle cx="300" cy="225" r="7" fill="#111"/>
-  <circle cx="412" cy="133" r="8" fill="#111"/>
-  <g stroke="#111" stroke-width="3" fill="none" marker-end="url(#arrow)">
-    <line x1="305" y1="221" x2="404" y2="140"/>
-    <line x1="417" y1="128" x2="528" y2="260"/>
-    <line x1="407" y1="140" x2="323" y2="209"/>
-  </g>
-  <g font-family="sans-serif" font-size="24" fill="#111">
-    <text x="277" y="260">O</text><text x="430" y="127">P</text>
-    <text x="350" y="165">r</text><text x="520" y="246">v</text><text x="354" y="202">a</text>
-    <text x="84" y="405">v は接線方向、a は中心 O 方向</text>
+<svg xmlns="http://www.w3.org/2000/svg" data-layout-lint="strict" viewBox="0 0 920 360" role="img" aria-labelledby="title desc">
+  <title id="title">等速円運動の位置・速度・向心加速度</title>
+  <desc id="desc">同じ円周上の点 P を二つの図で示す。左では位置ベクトル r が中心 O から P へ、速度 v が P から接線方向へ向く。右では半径方向を破線で示し、加速度 a が P から中心 O へ向く。</desc>
+  <rect width="920" height="360" fill="white"/>
+  <defs>
+    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#009E73"/></marker>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#0072B2"/></marker>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#D55E00"/></marker>
+  </defs>
+
+  <circle cx="245" cy="185" r="125" fill="none" stroke="#4B5563" stroke-width="3"/>
+  <circle cx="245" cy="185" r="6" fill="#1F2937"/>
+  <circle cx="343" cy="107" r="7" fill="#1F2937"/>
+  <line data-series-group="left-vectors" data-series-label="r" x1="245" y1="185" x2="343" y2="107" stroke="#009E73" stroke-width="4" marker-end="url(#arrow-green)"/>
+  <line data-series-group="left-vectors" data-series-label="v" x1="343" y1="107" x2="438" y2="215" stroke="#0072B2" stroke-width="4" stroke-dasharray="12 7" marker-end="url(#arrow-blue)"/>
+
+  <circle cx="665" cy="185" r="125" fill="none" stroke="#4B5563" stroke-width="3"/>
+  <circle cx="665" cy="185" r="6" fill="#1F2937"/>
+  <circle cx="763" cy="107" r="7" fill="#1F2937"/>
+  <line x1="665" y1="185" x2="763" y2="107" stroke="#9CA3AF" stroke-width="3" stroke-dasharray="9 7"/>
+  <line data-series-group="right-vector" data-series-label="a" x1="763" y1="107" x2="687" y2="168" stroke="#D55E00" stroke-width="5" marker-end="url(#arrow-orange)"/>
+
+  <g font-family="Noto Sans CJK JP, sans-serif" font-size="23" fill="#1F2937">
+    <text x="225" y="219">O</text>
+    <text x="370" y="78">P</text>
+    <text x="295" y="225" fill="#009E73" font-weight="700">r</text>
+    <text x="405" y="142" fill="#0072B2" font-weight="700">v</text>
+    <text x="645" y="219">O</text>
+    <text x="790" y="78">P</text>
+    <text x="735" y="205" fill="#D55E00" font-weight="700">a</text>
   </g>
 </svg>

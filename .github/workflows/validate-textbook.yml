@@ -80,6 +80,7 @@ jobs:
           TEXTBOOK_KNOWLEDGE_BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: |
           npm run validate:textbook:changed -- --base "$TEXTBOOK_BASE_SHA"
+          npm run validate:svg-layout:changed -- --base "$TEXTBOOK_BASE_SHA"
           npm run validate:textbook-knowledge:changed
 
       - name: Explain fast-path selection
@@ -97,6 +98,12 @@ jobs:
       - name: Validate textbook structure
         if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
         run: npm run validate:structure
+
+      - name: Validate SVG label geometry
+        if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
+        run: |
+          npm run validate:svg-layout -- --self-test
+          npm run validate:svg-layout
 
       - name: Validate textbook knowledge DAG
         if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
