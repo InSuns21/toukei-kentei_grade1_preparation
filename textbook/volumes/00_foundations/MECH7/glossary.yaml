@@ -1,0 +1,29 @@
+chapter: "MECH7"
+terms:
+  - term: 内力
+    english: internal force
+    meaning: 質点系を構成する質点どうしが及ぼし合う力。本章では Newton の第3法則 F_ij=-F_ji を満たす相互作用を扱う。
+  - term: 外力
+    english: external force
+    meaning: 注目している質点系の外部から系内の質点へ働く力。全運動量の時間変化は外力の総和で決まる。
+  - term: 重心
+    english: center of mass
+    meaning: 各質点の位置を質量で重み付けした平均位置 R=(1/M) sum_i m_i r_i。質量中心ともいう。
+  - term: 相対位置
+    english: relative position
+    meaning: 二体問題で一方から他方への位置差を表すベクトル。本章では r=r_1-r_2 とする。
+  - term: 換算質量
+    english: reduced mass
+    meaning: 二体の相対運動を一体問題として書くための質量 mu=m_1 m_2/(m_1+m_2)。
+  - term: 重心系
+    english: center-of-mass frame
+    meaning: 重心が静止する基準系。二体の全運動量が0となり、運動エネルギーは相対運動だけで表せる。
+  - term: 弾性衝突
+    english: elastic collision
+    meaning: 外力の総力積を無視でき、衝突前後で全運動量に加えて全運動エネルギーも保存する衝突。
+  - term: 非弾性衝突
+    english: inelastic collision
+    meaning: 外力の総力積を無視できて全運動量は保存するが、衝突前後で全運動エネルギーは保存しない衝突。
+  - term: 完全非弾性衝突
+    english: perfectly inelastic collision
+    meaning: 衝突後に二物体が一体となり、同じ速度で運動する非弾性衝突。
