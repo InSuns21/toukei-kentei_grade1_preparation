@@ -88,7 +88,7 @@ $$
 
 ---
 
-## 2. 電位：単位電荷あたりの仕事をスカラーで記録する
+## 2. 単位電荷あたりの仕事をスカラーで記録する
 
 静電場の線積分が経路独立なら、基準点を一つ固定して、各点までの線積分をスカラー値として記録できます。
 
@@ -127,7 +127,7 @@ $$
 > である。
 <!-- formal-statement-end -->
 
-電位の SI 単位は volt で、
+ここで定義した量を以下では電位と呼びます。電位の SI 単位は volt で、
 
 $$
 1\ \mathrm V
@@ -146,7 +146,7 @@ $$
 としても電位差は変わりません。
 
 <!-- definition-example-start: def-emag3-electric-potential -->
-**定義の確認：一様電場**
+**定義の確認**\n\n一様電場で確認します。
 
 $x$ 方向の一様電場
 
@@ -344,7 +344,7 @@ $$
 ![正の点電荷のまわりの同心な等電位面を、外向き電場が直交して横切り、外側ほど電位が低くなる模式図](assets/point-charge-equipotential.svg)
 
 <!-- definition-example-start: def-emag3-equipotential-surface -->
-**定義の確認：一様電場の等電位面**
+**定義の確認**\n\n一様電場の等電位面で確認します。
 
 先ほどの
 
@@ -471,7 +471,7 @@ $$
 \int_R^r s^{-2}\,ds.
 $$
 
-原始関数は $-s^{-1}$ なので
+$d(-s^{-1})/ds=s^{-2}$ なので
 
 $$
 \int_R^r s^{-2}\,ds
@@ -955,7 +955,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-emag3-electrostatic-potential-energy -->
-**定義の確認：符号の違う試験電荷**
+**定義の確認**\n\n符号の違う試験電荷で確認します。
 
 ある点で
 
@@ -1032,7 +1032,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（二点電荷の Coulomb ポテンシャルエネルギー）**  
-> 真空中で距離 $r>0$ だけ離れた二点電荷 $Q,q$ の相互作用について、無限遠で位置エネルギーを 0 と選ぶと
+> 真空中で距離 $r>0$ だけ離れた二点電荷 $Q,q$ の組について、無限遠で位置エネルギーを 0 と選ぶと
 >
 $$
 \boxed{
@@ -1335,11 +1335,11 @@ $$
 
 点
 
-$
+$$
 A=(0,0,0)\ \mathrm m,
 \qquad
 B=(2,1,0)\ \mathrm m
-$
+$$
 
 について
 
@@ -1432,11 +1432,11 @@ $$
 
 原点に点電荷 $Q$ を置き、
 
-$
+$$
 \frac{Q}{4\pi\varepsilon_0}
 =
 6\ \mathrm{V\,m}
-$
+$$
 
 とする。$\phi(\infty)=0$ とする。
 
@@ -1451,43 +1451,43 @@ $
 
 点電荷の電位は
 
-$
+$$
 \phi(r)
 =
 \frac{Q}{4\pi\varepsilon_0r}.
-$
+$$
 
 与えられた係数を代入すると
 
-$
+$$
 \boxed{
 \phi(r)
 =
 \frac{6\ \mathrm{V\,m}}{r}
 }.
-$
+$$
 
 したがって $r=2\ \mathrm m$ では
 
-$
+$$
 \phi(2\ \mathrm m)
 =
 \frac{6\ \mathrm{V\,m}}{2\ \mathrm m}
 =
 \boxed{3\ \mathrm V}.
-$
+$$
 
 $r=|x|$ に対して
 
-$
+$$
 \nabla\left(\frac1r\right)
 =
 -\frac{e_r}{r^2}
-$
+$$
 
 なので
 
-$
+$$
 E
 =
 -\nabla\phi
@@ -1498,27 +1498,26 @@ E
 \boxed{
 \frac{6\ \mathrm{V\,m}}{r^2}e_r
 }.
-$
+$$
 
 単位は
 
-$
+$$
 \frac{\mathrm{V\,m}}{\mathrm m^2}
 =
 \mathrm{V/m}
 =
 \mathrm{N/C}
-$
+$$
 
 で、電場の単位と一致します。
-$$
 <!-- solution-end -->
 
 ### A3. 与えられた電位から電場と等電位面を読む
 
 $x,y,z$ を metre で測る SI 座標とする。電位
 
-$
+$$
 \phi(x,y,z)
 =
 5\ \mathrm V
@@ -1526,12 +1525,12 @@ $
 (2\ \mathrm{V/m})x
 +
 (3\ \mathrm{V/m})z
-$
+$$
 
 が与えられている。
 
 1. 電場 $E$ を求めよ。
-2. $\phi=5$ の等電位面を求めよ。
+2. $\phi=5\ \mathrm V$ の等電位面を求めよ。
 3. 求めた電場がその面に垂直であることを確認せよ。
 
 - Level: A
@@ -1551,23 +1550,39 @@ $$
 \right)
 =
 (-2,0,3)\ \mathrm{V/m}.
-$
+$$
 
 したがって
 
-$
+$$
 \boxed{
 E=-\nabla\phi=(2,0,-3)\ \mathrm{V/m}
 }.
 $$
 
-$\phi=5$ は
+$\phi=5\ \mathrm V$ は
 
 $$
-5-2x+3z=5
+5\ \mathrm V
+-
+(2\ \mathrm{V/m})x
++
+(3\ \mathrm{V/m})z
+=
+5\ \mathrm V
 $$
 
-なので
+なので、両辺から $5\ \mathrm V$ を引き、
+
+$$
+-(2\ \mathrm{V/m})x
++
+(3\ \mathrm{V/m})z
+=
+0.
+$$
+
+共通単位 $\mathrm{V/m}$ を除けば
 
 $$
 -2x+3z=0.
@@ -1591,13 +1606,13 @@ $$
 
 と取れます。
 
-これは
+一方、電場は
 
 $$
-E=(2,0,-3)
+E=(2,0,-3)\ \mathrm{V/m}
 $$
 
-と平行です。
+なので $n$ と平行です。
 
 したがって電場は等電位面に垂直です。
 <!-- solution-end -->
