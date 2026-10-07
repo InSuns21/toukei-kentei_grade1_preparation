@@ -1291,7 +1291,7 @@ $$
 
 <!-- definition-example-start: def-vn7-factor-type-classification -->
 
-### I$_n$ 型：$M_n(\mathbb C)$
+### **定義の確認**：$M_n(\mathbb C)$ は I$_n$ 型
 
 すでに示したように
 
