@@ -8,16 +8,14 @@
   </defs>
 
   <circle cx="330" cy="210" r="120" fill="none" stroke="#666" stroke-width="3" stroke-dasharray="10 8"/>
-  <path d="M 433 148 A 120 120 0 0 0 450 210" fill="none" stroke="#666" stroke-width="3" marker-end="url(#arrow)"/>
-
   <circle cx="330" cy="210" r="22" fill="#eeeeee" stroke="#222" stroke-width="3"/>
   <circle cx="330" cy="210" r="6" fill="#222"/>
 
   <line x1="330" y1="210" x2="450" y2="210" stroke="#777" stroke-width="2"/>
-  <line x1="474" y1="262" x2="474" y2="166" stroke="#2f6f9f" stroke-width="5" marker-end="url(#arrow)"/>
+  <line x1="486" y1="264" x2="486" y2="156" stroke="#2f6f9f" stroke-width="5" marker-end="url(#arrow)"/>
 
   <text x="356" y="244" font-size="24" font-family="sans-serif">I</text>
   <text x="386" y="190" font-size="24" font-family="sans-serif">s</text>
   <text x="192" y="104" font-size="24" font-family="sans-serif">C</text>
-  <text x="500" y="220" font-size="26" font-family="sans-serif">B</text>
+  <text x="520" y="220" font-size="26" font-family="sans-serif">B</text>
 </svg>
