@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 470" role="img" aria-labelledby="title desc">
+  <title id="title">机上の本の自由物体図</title>
+  <desc id="desc">本には上向きの垂直抗力 N と下向きの重力 mg が働く。両者は同じ本に働くので Newton 第3法則の作用反作用の組ではない。</desc>
+  <rect width="860" height="470" fill="white"/>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#111"/></marker></defs>
+  <line x1="100" y1="330" x2="760" y2="330" stroke="#111" stroke-width="5"/>
+  <rect x="315" y="230" width="230" height="100" fill="none" stroke="#111" stroke-width="3"/>
+  <text x="398" y="290" font-family="sans-serif" font-size="26" fill="#111">本</text>
+  <g stroke="#111" stroke-width="4" fill="none" marker-end="url(#arrow)">
+    <line x1="430" y1="230" x2="430" y2="105"/>
+    <line x1="430" y1="280" x2="430" y2="425"/>
+  </g>
+  <g font-family="sans-serif" font-size="25" fill="#111">
+    <text x="452" y="125">N（机 → 本）</text>
+    <text x="452" y="408">mg（地球 → 本）</text>
+    <text x="150" y="455">N と mg はどちらも「本」に働くため、作用反作用の組ではない。</text>
+  </g>
+</svg>
