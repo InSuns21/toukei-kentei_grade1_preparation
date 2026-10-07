@@ -889,7 +889,7 @@ $$
 
 下図で $S'$ の原点 $O'$ は $S$ に対して一定速度 $U$ で移動します。同じ質点 $P$ でも、$S$ からの位置 $r(t)$ と $S'$ からの位置 $r'(t)$ は異なります。
 
-![Galilei 変換で結ばれた基準系 S と S'、同じ質点 P の位置ベクトル r と r' の模式図](assets/galilei-frames.svg)
+![一定速度で相対運動する基準系 S と S'、同じ質点 P の位置ベクトル r と r' の模式図](assets/galilei-frames.svg)
 
 <a id="def-mech1-galilei-transform"></a>
 
