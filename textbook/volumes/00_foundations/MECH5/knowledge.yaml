@@ -1,0 +1,129 @@
+chapter: MECH5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MECH4
+  - RA3
+  - ODE2
+
+forward_references: []
+
+concepts:
+  - id: mechanics.equilibrium-point
+    name: 平衡点
+    kind: definition
+    aliases: [equilibrium point]
+    introduction: formal
+    introduction_aliases: [定義（平衡点）]
+    requires:
+      - mechanics.mass-force-resultant
+      - mechanics.potential-energy
+
+  - id: mechanics.nondegenerate-stable-equilibrium
+    name: 非退化安定平衡点
+    kind: definition
+    aliases: [nondegenerate stable equilibrium]
+    introduction: formal
+    introduction_aliases: [定義（非退化安定平衡点）]
+    requires:
+      - mechanics.equilibrium-point
+      - mechanics.potential-energy
+
+  - id: mechanics.harmonic-approximation
+    name: 非退化極小の調和近似
+    kind: proposition
+    aliases: [harmonic approximation near a nondegenerate minimum]
+    introduction: formal
+    introduction_aliases: [命題（非退化極小の調和近似）]
+    requires:
+      - mechanics.nondegenerate-stable-equilibrium
+      - mechanics.newton-second-law
+      - analysis.taylor-theorem
+
+  - id: mechanics.simple-harmonic-motion
+    name: 単振動
+    kind: definition
+    aliases: [simple harmonic motion, harmonic motion]
+    introduction: formal
+    introduction_aliases: [定義（単振動）]
+    requires:
+      - mechanics.harmonic-approximation
+
+  - id: mechanics.natural-angular-frequency
+    name: 固有角振動数
+    kind: definition
+    aliases: [natural angular frequency]
+    introduction: formal
+    introduction_aliases: [定義（単振動）]
+    requires:
+      - mechanics.simple-harmonic-motion
+
+  - id: mechanics.harmonic-energy-conservation
+    name: 単振動のエネルギー保存
+    kind: theorem
+    aliases: [harmonic oscillator energy conservation]
+    introduction: formal
+    introduction_aliases: [定理（単振動のエネルギー保存）]
+    requires:
+      - mechanics.simple-harmonic-motion
+      - mechanics.mechanical-energy-conservation
+
+  - id: mechanics.damped-oscillator
+    name: 線形減衰振動子
+    kind: definition
+    aliases: [linearly damped oscillator, damped harmonic oscillator]
+    introduction: formal
+    introduction_aliases: [定義（線形減衰振動子）]
+    requires:
+      - mechanics.simple-harmonic-motion
+      - mechanics.linear-drag
+
+  - id: mechanics.damping-regimes
+    name: 減衰振動の三領域
+    kind: proposition
+    aliases: [damping regimes]
+    introduction: formal
+    introduction_aliases: [命題（減衰振動の三領域）]
+    requires:
+      - mechanics.damped-oscillator
+      - ode.ode2-constant-coefficient-basis
+
+  - id: mechanics.sinusoidally-forced-oscillator
+    name: 正弦駆動される減衰振動子
+    kind: definition
+    aliases: [sinusoidally forced damped oscillator]
+    introduction: formal
+    introduction_aliases: [定義（正弦駆動される減衰振動子）]
+    requires:
+      - mechanics.damped-oscillator
+
+  - id: mechanics.forced-steady-response
+    name: 減衰強制振動の定常応答
+    kind: proposition
+    aliases: [steady-state response of a damped forced oscillator]
+    introduction: formal
+    introduction_aliases: [命題（減衰強制振動の定常応答）]
+    requires:
+      - mechanics.sinusoidally-forced-oscillator
+      - mechanics.damping-regimes
+      - ode.ode2-nonhomogeneous-affine
+
+  - id: mechanics.resonance
+    name: 共振
+    kind: definition
+    aliases: [resonance]
+    introduction: formal
+    introduction_aliases: [定義（共振）]
+    requires:
+      - mechanics.forced-steady-response
+      - mechanics.natural-angular-frequency
+
+  - id: mechanics.undamped-exact-resonance
+    name: 無減衰線形振動子の厳密共振
+    kind: proposition
+    aliases: [exact resonance of an undamped harmonic oscillator]
+    introduction: formal
+    introduction_aliases: [命題（無減衰線形振動子の厳密共振）]
+    requires:
+      - mechanics.resonance
+      - ode.ode2-undetermined-coefficients
