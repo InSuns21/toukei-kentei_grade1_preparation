@@ -19,7 +19,7 @@ chapters:
     title: 仕事・エネルギー・ポテンシャル
   - id: MECH4
     path: textbook/volumes/00_foundations/MECH4
-    status: planned
+    status: completed
     title: 運動量・角運動量・保存則
   - id: MECH5
     path: textbook/volumes/00_foundations/MECH5
