@@ -1,0 +1,98 @@
+chapter: EMAG1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MECH2
+  - VC1
+  - RA7
+
+forward_references: []
+
+concepts:
+  - id: electromagnetism.electric-charge
+    name: 電荷
+    kind: physical-quantity
+    aliases: [electric charge]
+    introduction: inline
+    introduction_aliases: [電荷]
+    requires: []
+
+  - id: electromagnetism.charge-conservation
+    name: 電荷保存則
+    kind: principle
+    aliases: [conservation of electric charge]
+    introduction: formal
+    introduction_aliases: [原理（電荷保存）]
+    requires:
+      - electromagnetism.electric-charge
+
+  - id: electromagnetism.coulomb-law
+    name: Coulomb の法則
+    kind: principle
+    aliases: [Coulomb law, Coulomb's law]
+    introduction: formal
+    introduction_aliases: [原理（Coulomb の法則）]
+    requires:
+      - electromagnetism.electric-charge
+      - mechanics.mass-force-resultant
+
+  - id: electromagnetism.electrostatic-superposition
+    name: 静電気力の重ね合わせ原理
+    kind: principle
+    aliases: [electrostatic superposition principle]
+    introduction: formal
+    introduction_aliases: [原理（重ね合わせ）]
+    requires:
+      - electromagnetism.coulomb-law
+
+  - id: electromagnetism.electric-field
+    name: 電場
+    kind: definition
+    aliases: [electric field]
+    introduction: formal
+    introduction_aliases: [定義（電場）]
+    requires:
+      - electromagnetism.coulomb-law
+      - electromagnetism.electrostatic-superposition
+      - vector-calculus.scalar-vector-field
+
+  - id: electromagnetism.point-charge-electric-field
+    name: 点電荷系が作る電場
+    kind: proposition
+    aliases: [electric field of point charges]
+    introduction: formal
+    introduction_aliases: [命題（点電荷系が作る電場）]
+    requires:
+      - electromagnetism.electric-field
+      - electromagnetism.electrostatic-superposition
+
+  - id: electromagnetism.charge-density
+    name: 連続電荷分布の密度
+    kind: definition
+    aliases: [electric charge density]
+    introduction: formal
+    introduction_aliases: [定義（連続電荷分布の密度）]
+    requires:
+      - electromagnetism.electric-charge
+      - analysis.multiple-riemann-integral
+
+  - id: electromagnetism.continuous-charge-electric-field
+    name: 連続電荷分布が作る電場
+    kind: proposition
+    aliases: [electric field of a continuous charge distribution]
+    introduction: formal
+    introduction_aliases: [命題（連続電荷分布が作る電場）]
+    requires:
+      - electromagnetism.charge-density
+      - electromagnetism.electric-field
+      - electromagnetism.electrostatic-superposition
+      - analysis.continuous-multiple-riemann-integrable
+
+  - id: electromagnetism.electric-field-line
+    name: 電気力線
+    kind: representation
+    aliases: [electric field line]
+    introduction: inline
+    introduction_aliases: [電気力線]
+    requires:
+      - electromagnetism.electric-field
