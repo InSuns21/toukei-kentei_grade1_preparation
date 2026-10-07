@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" data-layout-lint="strict" viewBox="0 0 840 480" role="img" aria-labelledby="title desc">
+  <title id="title">固定端変分で二つの軌道が同じ端点を共有する模式図</title>
+  <desc id="desc">横軸を時刻 t、縦軸を一般化座標 q とし、基準軌道 q(t) と変形後の軌道 q epsilon(t) が時刻 t1 と t2 で同じ端点を持ち、区間内部だけ異なることを示す。</desc>
+  <rect width="840" height="480" fill="white"/>
+  <defs>
+    <marker id="axis-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#374151"/>
+    </marker>
+  </defs>
+
+  <line x1="90" y1="390" x2="770" y2="390"
+        stroke="#374151" stroke-width="3" marker-end="url(#axis-arrow)"/>
+  <line x1="90" y1="390" x2="90" y2="70"
+        stroke="#374151" stroke-width="3" marker-end="url(#axis-arrow)"/>
+
+  <line x1="140" y1="382" x2="140" y2="398" stroke="#374151" stroke-width="3"/>
+  <line x1="700" y1="382" x2="700" y2="398" stroke="#374151" stroke-width="3"/>
+
+  <path d="M140 330 C300 300, 470 300, 700 150"
+        fill="none" stroke="#0072B2" stroke-width="5"
+        data-series-group="fixed-end-paths" data-series-label="q(t)"/>
+  <path d="M140 330 C300 185, 505 190, 700 150"
+        fill="none" stroke="#D55E00" stroke-width="5" stroke-dasharray="13 9"
+        data-series-group="fixed-end-paths" data-series-label="q_epsilon(t)"/>
+
+  <circle cx="140" cy="330" r="9" fill="#111827"/>
+  <circle cx="700" cy="150" r="9" fill="#111827"/>
+
+  <text x="785" y="410" font-family="Noto Sans CJK JP, sans-serif" font-size="24" fill="#111827">t</text>
+  <text x="58" y="58" font-family="Noto Sans CJK JP, sans-serif" font-size="24" fill="#111827">q</text>
+
+  <text x="126" y="430" font-family="Noto Sans CJK JP, sans-serif" font-size="22" fill="#111827">t₁</text>
+  <text x="686" y="430" font-family="Noto Sans CJK JP, sans-serif" font-size="22" fill="#111827">t₂</text>
+
+  <text x="455" y="342" font-family="Noto Sans CJK JP, sans-serif" font-size="23" fill="#0072B2">q(t)</text>
+  <text x="345" y="135" font-family="Noto Sans CJK JP, sans-serif" font-size="23" fill="#D55E00">qε(t)</text>
+</svg>
