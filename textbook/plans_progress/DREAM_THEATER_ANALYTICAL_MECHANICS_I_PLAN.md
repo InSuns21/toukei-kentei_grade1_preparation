@@ -233,4 +233,4 @@ $$
 - 2026-10-07: AMECH4「対称性・循環座標・Noether の定理」を実装・査読し、有限自由度の Noether の定理と三つの基本保存則を接続。
 - 2026-10-07: AMECH5「Legendre 変換と Hamilton 形式」を実装・査読し、正則性から Legendre 写像の局所可逆性、Hamilton の正準方程式、相空間、自然なラグランジアンと中心力の具体計算まで接続。
 - 2026-10-07: AMECH6「Poisson 括弧と Hamiltonian flow」を実装・査読し、Poisson 括弧による時間発展・保存量、角運動量の括弧関係、Hamiltonian flow、Liouville の位相体積保存まで接続。
-- 次作業: AMECH7「正準変換」。
+- 2026-10-07: AMECH7「正準変換」を実装・査読し、Poisson 括弧保存、Jacobian 行列条件、Hamiltonian flow の正準性、第2種母関数、時間依存正準変換から Hamilton--Jacobi 方程式への入口まで接続。\n- 次作業: AMECH8「Hamilton--Jacobi 理論」。

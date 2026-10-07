@@ -1,0 +1,14 @@
+chapter: "AMECH7"
+terms:
+  - term: 正準変換
+    english: canonical transformation
+    meaning: "相空間の局所座標変換 (q,p) から (Q,P) で、{Q_i,Q_j}=0, {P_i,P_j}=0, {Q_i,P_j}=delta_ij を保つもの。Hamilton 形式と Poisson 括弧の構造を保つ。"
+  - term: 第2種母関数
+    english: type-2 generating function
+    meaning: "q,P,t を独立変数とする関数 F_2 から p=partial F_2/partial q, Q=partial F_2/partial P を定めて正準変換を構成する母関数。時間依存なら K=H+partial F_2/partial t が新しい Hamiltonian になる。"
+  - term: 正準 shear
+    english: canonical shear
+    meaning: "例えば一自由度で Q=q, P=p+alpha q とする正準変換。位相平面の面積を保ちながら格子を平行四辺形へ傾ける。"
+  - term: 正準行列条件
+    english: symplectic matrix condition
+    meaning: "標準行列 J=[[0,I],[-I,0]] と変換の Jacobian M に対する M J M^T=J（同値に M^T J M=J）という条件。正準変換を微分レベルで判定する。"

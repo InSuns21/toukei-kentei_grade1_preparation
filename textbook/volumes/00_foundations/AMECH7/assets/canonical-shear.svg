@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" role="img" aria-labelledby="title desc" data-layout-lint="strict">
+  <title id="title">正準 shear が位相平面の面積を保つ</title>
+  <desc id="desc">q-p 位相平面の長方形が Q=q, P=p+alpha q により同じ面積の平行四辺形へ写る。元の図形は実線、写像後は破線で示す。</desc>
+  <defs>
+    <marker id="axis-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="currentColor"/>
+    </marker>
+    <marker id="map-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2f6f9f"/>
+    </marker>
+  </defs>
+
+  <line x1="70" y1="350" x2="690" y2="350" stroke="currentColor" stroke-width="2" marker-end="url(#axis-arrow)"/>
+  <line x1="120" y1="390" x2="120" y2="55" stroke="currentColor" stroke-width="2" marker-end="url(#axis-arrow)"/>
+  <text x="704" y="358" font-size="24">q, Q</text>
+  <text x="137" y="54" font-size="24">p, P</text>
+
+  <rect x="210" y="190" width="170" height="120" fill="none" stroke="currentColor" stroke-width="3"
+        data-series-group="shape" data-series-label="original"/>
+  <polygon points="210,160 380,105 380,225 210,280" fill="none" stroke="#2f6f9f" stroke-width="4" stroke-dasharray="12 8"
+        data-series-group="shape" data-series-label="image"/>
+
+  <line x1="380" y1="187" x2="380" y2="114" stroke="#2f6f9f" stroke-width="3" marker-end="url(#map-arrow)"/>
+  <text x="402" y="158" font-size="22">Φ</text>
+  <text x="410" y="305" font-size="21">元</text>
+  <text x="410" y="121" font-size="21">像</text>
+</svg>
