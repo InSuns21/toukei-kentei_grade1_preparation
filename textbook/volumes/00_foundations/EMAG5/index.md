@@ -1649,7 +1649,7 @@ $$
 
 [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)から
 
-$
+$$
 \int_{\partial V}
 J\cdot n\,dS
 =
