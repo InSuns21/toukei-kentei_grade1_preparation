@@ -20,9 +20,9 @@
   <g font-family="Noto Sans CJK JP, sans-serif" font-size="21" fill="#111">
     <text x="105" y="82">衝突前</text>
     <text x="105" y="272">衝突後</text>
-    <text x="220" y="195">m1</text>
+    <text x="190" y="164">m1</text>
     <text x="635" y="164">m2</text>
-    <text x="265" y="375">m1</text>
+    <text x="240" y="344">m1</text>
     <text x="595" y="344">m2</text>
     <text x="316" y="88" fill="#1f5f99" font-weight="700">u1</text>
     <text x="520" y="250" fill="#8a3d2f" font-weight="700">u2</text>
