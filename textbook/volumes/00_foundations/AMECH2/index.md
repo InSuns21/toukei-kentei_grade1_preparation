@@ -155,7 +155,7 @@ $$
 
 この式を仮想変位と内積し、粒子について足し合わせます。理想拘束の条件を使うと、拘束反力を含まない次の関係が得られます。
 
-<a id="thm-amech2-dalembert"></a>
+<a id="principle-amech2-dalembert"></a>
 
 <!-- formal-statement-start -->
 > **原理（ダランベールの原理）**  
@@ -334,7 +334,7 @@ $$
 <a id="prop-amech2-generalized-dalembert"></a>
 
 <!-- formal-statement-start -->
-> **命題（ダランベールの原理の一般化座標表示）**  
+> **命題（一般化座標への射影式）**  
 > 一般化座標 $q_1,\ldots,q_n$ が独立で、拘束が理想拘束であるとする。既知の力 $F_i$ に対応する一般化力を
 $$
 Q_j
@@ -610,7 +610,7 @@ $$
 
 ## 6. Lagrange 方程式
 
-ダランベールの原理の一般化座標表示は
+一般化座標への射影式は
 
 $$
 \sum_i
@@ -662,7 +662,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[ダランベールの原理の一般化座標表示](#prop-amech2-generalized-dalembert)より
+[一般化座標への射影式](#prop-amech2-generalized-dalembert)より
 
 $$
 \sum_i
@@ -891,7 +891,7 @@ $$
 これで示されました。
 <!-- proof-end -->
 
-ここでは $L=T-V$ を[ダランベールの原理](#thm-amech2-dalembert)から導いた運動方程式の便利なまとめ方として導入しました。
+ここでは $L=T-V$ を[ダランベールの原理](#principle-amech2-dalembert)から導いた運動方程式の便利なまとめ方として導入しました。
 
 次章 AMECH3 では、同じ方程式が作用積分の停留条件からも現れることを学びます。そこで初めて、ラグランジアンが変分原理の中心に立つ意味を扱います。
 
@@ -1232,7 +1232,7 @@ $$
 -(k+\kappa)x_1+\kappa x_2.
 $$
 
-Lagrange 方程式より
+[Lagrange 方程式](#thm-amech2-lagrange-equations)より
 
 $$
 \boxed{
@@ -1390,7 +1390,7 @@ $$
 \sum_iR_i\cdot\delta r_i=0
 $$
 
-により、拘束反力が[ダランベールの原理](#thm-amech2-dalembert)から消えました。
+により、拘束反力が[ダランベールの原理](#principle-amech2-dalembert)から消えました。
 
 ### 12.3 独立な一般化座標
 
@@ -1571,7 +1571,7 @@ $$
 1. $\partial L/\partial\dot q$ を求めよ。
 2. その時間微分を求めよ。
 3. $\partial L/\partial q$ を求めよ。
-4. Lagrange 方程式から運動方程式を求めよ。
+4. [Lagrange 方程式](#thm-amech2-lagrange-equations)から運動方程式を求めよ。
 
 - Level: A
 
@@ -1729,7 +1729,7 @@ $$
 
 1. 保存力部分に対する $L$ を書け。
 2. 非保存一般化力 $Q^{(\mathrm{nc})}$ を書け。
-3. 非保存力を含む Lagrange 方程式から運動方程式を導け。
+3. 非保存力を含む[Lagrange 方程式](#thm-amech2-lagrange-equations)から運動方程式を導け。
 
 - Level: A
 
@@ -2525,7 +2525,7 @@ mgR\sin\theta.
 \end{aligned}
 $$
 
-Lagrange 方程式より
+[Lagrange 方程式](#thm-amech2-lagrange-equations)より
 
 $$
 mR^2\ddot\theta
