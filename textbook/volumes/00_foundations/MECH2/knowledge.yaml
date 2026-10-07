@@ -1,0 +1,113 @@
+chapter: MECH2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MECH1
+  - ODE1
+
+forward_references: []
+
+concepts:
+  - id: mechanics.mass-force-resultant
+    name: 質量・力・合力
+    kind: definition
+    aliases: ["mass force and resultant", "net force"]
+    introduction: formal
+    introduction_aliases: ["定義（質量・力・合力）"]
+    requires:
+      - mechanics.dimension-and-unit
+
+  - id: mechanics.inertial-frame
+    name: 慣性系
+    kind: definition
+    aliases: ["inertial frame"]
+    introduction: formal
+    introduction_aliases: ["定義（慣性系）"]
+    requires:
+      - mechanics.reference-frame
+      - mechanics.galilei-kinematics
+      - mechanics.mass-force-resultant
+
+  - id: mechanics.newton-laws
+    name: Newton の運動法則
+    kind: principle
+    aliases: ["Newton's laws of motion", "Newton の三法則"]
+    introduction: formal
+    introduction_aliases: ["Newton の第1法則", "Newton の第2法則", "Newton の第3法則"]
+    requires:
+      - mechanics.mass-force-resultant
+      - mechanics.inertial-frame
+      - mechanics.velocity-acceleration
+
+  - id: mechanics.newton-equation-ivp
+    name: Newton 方程式を初期値問題として読む
+    kind: method
+    aliases: ["Newton equation as an initial value problem"]
+    introduction: inline
+    requires:
+      - mechanics.newton-laws
+      - ode.ode1-initial-boundary-value-problem
+
+  - id: mechanics.near-earth-gravity-model
+    name: 地表近くの一様重力モデル
+    kind: model
+    aliases: ["uniform gravity near Earth"]
+    introduction: inline
+    requires:
+      - mechanics.newton-laws
+
+  - id: mechanics.hooke-spring-force
+    name: Hooke のばね力
+    kind: model
+    aliases: ["Hooke spring force", "Hooke's law"]
+    introduction: inline
+    requires:
+      - mechanics.newton-laws
+
+  - id: mechanics.linear-drag
+    name: 線形抵抗力
+    kind: definition
+    aliases: ["linear drag", "linear resistance"]
+    introduction: formal
+    introduction_aliases: ["定義（線形抵抗力）"]
+    requires:
+      - mechanics.velocity-acceleration
+      - mechanics.mass-force-resultant
+
+  - id: mechanics.free-fall-near-earth
+    name: 地表近くの自由落下
+    kind: proposition
+    aliases: ["free fall near Earth"]
+    introduction: inline
+    requires:
+      - mechanics.near-earth-gravity-model
+      - mechanics.newton-equation-ivp
+
+  - id: mechanics.projectile-motion
+    name: 空気抵抗を無視した斜方投射
+    kind: proposition
+    aliases: ["projectile motion without drag"]
+    introduction: inline
+    requires:
+      - mechanics.near-earth-gravity-model
+      - mechanics.newton-equation-ivp
+
+  - id: mechanics.linear-drag-fall
+    name: 線形抵抗下の落下と終端速度
+    kind: proposition
+    aliases: ["fall with linear drag", "terminal velocity under linear drag"]
+    introduction: inline
+    requires:
+      - mechanics.linear-drag
+      - mechanics.near-earth-gravity-model
+      - ode.ode1-linear-ivp-solution
+
+  - id: mechanics.accelerating-frame-inertial-force
+    name: 加速座標系と慣性力
+    kind: proposition
+    aliases: ["accelerating frame and inertial force", "fictitious force"]
+    introduction: inline
+    requires:
+      - mechanics.inertial-frame
+      - mechanics.newton-laws
+      - mechanics.galilei-kinematics
