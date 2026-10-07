@@ -8,7 +8,7 @@ $$
 u_t+H(x,\nabla u)=0
 $$
 
-という一階非線形 PDE を、特性曲線と [Hamilton の正準方程式](../AMECH5/index.md#thm-amech5-hamilton-equations)から調べました。
+という一階非線形 PDE を、特性曲線と Hamilton の正準方程式から調べました。
 
 そこで Hamiltonian $H$ は最初から与えられていました。本章では逆向きの問いを考えます。
 
