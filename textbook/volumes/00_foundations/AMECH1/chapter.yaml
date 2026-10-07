@@ -7,7 +7,7 @@ prerequisites:
   - RA6A
 official_scope: []
 learning_objectives:
-  - ホロノミック拘束 を位置座標に対する等式として記述し、独立な拘束の個数と自由度を区別できる
+  - ホロノミック拘束を位置座標に対する等式として記述し、独立な拘束の個数と自由度を区別できる
   - 配置空間を拘束を満たす配置の集合として説明し、局所的な一般化座標でパラメータ化できる
   - 一般化座標 q から粒子位置 r_i(q,t) を与えたとき、連鎖律から速度を導ける
   - 仮想変位を時刻を固定した許容変位として定義し、実際の微小時間発展との違いを説明できる
@@ -23,7 +23,7 @@ definitions:
   - { id: AMECH1-DEF-05, name: "一般化力" }
 theorems:
   - { id: AMECH1-PROP-01, name: "一般化座標による速度公式" }
-  - { id: AMECH1-PROP-02, name: "ホロノミック拘束 と仮想変位の接方向性" }
+  - { id: AMECH1-PROP-02, name: "ホロノミック拘束と仮想変位の接方向性" }
   - { id: AMECH1-PROP-03, name: "一般化力と仮想仕事" }
   - { id: AMECH1-PROP-04, name: "平面極座標の速度・加速度" }
 canonical_examples:
