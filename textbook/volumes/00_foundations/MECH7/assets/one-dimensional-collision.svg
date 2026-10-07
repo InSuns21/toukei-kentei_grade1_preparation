@@ -7,26 +7,23 @@
     <marker id="arrow-b" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#8a3d2f"/></marker>
   </defs>
 
-  <line x1="90" y1="155" x2="790" y2="155" stroke="#aaa" stroke-width="2"/>
-  <line x1="90" y1="335" x2="790" y2="335" stroke="#aaa" stroke-width="2"/>
-
   <circle cx="255" cy="155" r="30" fill="#eef4fa" stroke="#222" stroke-width="3"/>
   <circle cx="600" cy="155" r="22" fill="#f5ece9" stroke="#222" stroke-width="3"/>
-  <line x1="255" y1="105" x2="390" y2="105" stroke="#1f5f99" stroke-width="5" marker-end="url(#arrow-a)"/>
-  <line x1="600" y1="205" x2="505" y2="205" stroke="#8a3d2f" stroke-width="5" stroke-dasharray="10 7" marker-end="url(#arrow-b)"/>
+  <line x1="255" y1="105" x2="390" y2="105" stroke="#1f5f99" stroke-width="5" marker-end="url(#arrow-a)" data-series-group="before-velocity" data-series-label="particle-1"/>
+  <line x1="600" y1="205" x2="505" y2="205" stroke="#8a3d2f" stroke-width="5" stroke-dasharray="10 7" marker-end="url(#arrow-b)" data-series-group="before-velocity" data-series-label="particle-2"/>
 
   <circle cx="305" cy="335" r="30" fill="#eef4fa" stroke="#222" stroke-width="3"/>
   <circle cx="560" cy="335" r="22" fill="#f5ece9" stroke="#222" stroke-width="3"/>
-  <line x1="305" y1="285" x2="420" y2="285" stroke="#1f5f99" stroke-width="5" marker-end="url(#arrow-a)"/>
-  <line x1="560" y1="385" x2="650" y2="385" stroke="#8a3d2f" stroke-width="5" stroke-dasharray="10 7" marker-end="url(#arrow-b)"/>
+  <line x1="305" y1="285" x2="420" y2="285" stroke="#1f5f99" stroke-width="5" marker-end="url(#arrow-a)" data-series-group="after-velocity" data-series-label="particle-1"/>
+  <line x1="560" y1="385" x2="650" y2="385" stroke="#8a3d2f" stroke-width="5" stroke-dasharray="10 7" marker-end="url(#arrow-b)" data-series-group="after-velocity" data-series-label="particle-2"/>
 
   <g font-family="Noto Sans CJK JP, sans-serif" font-size="21" fill="#111">
-    <text x="105" y="82">before</text>
-    <text x="105" y="272">after</text>
-    <text x="225" y="164">m1</text>
-    <text x="576" y="163">m2</text>
-    <text x="275" y="344">m1</text>
-    <text x="536" y="343">m2</text>
+    <text x="105" y="82">衝突前</text>
+    <text x="105" y="272">衝突後</text>
+    <text x="243" y="164">m1</text>
+    <text x="588" y="163">m2</text>
+    <text x="293" y="344">m1</text>
+    <text x="548" y="343">m2</text>
     <text x="316" y="88" fill="#1f5f99" font-weight="700">u1</text>
     <text x="531" y="230" fill="#8a3d2f" font-weight="700">u2</text>
     <text x="360" y="268" fill="#1f5f99" font-weight="700">v1</text>
