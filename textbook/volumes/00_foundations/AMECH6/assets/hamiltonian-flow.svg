@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 460" role="img" aria-labelledby="title desc" data-layout-lint="strict">
+  <title id="title">調和振動子の Hamiltonian flow</title>
+  <desc id="desc">q-p 位相平面の楕円軌道上で、Hamiltonian vector field が接線方向を向き、初期点 z0 が時間発展で Phi_t(z0) へ移る様子。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="currentColor"/>
+    </marker>
+  </defs>
+
+  <line x1="90" y1="230" x2="690" y2="230" stroke="currentColor" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="380" y1="390" x2="380" y2="60" stroke="currentColor" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="704" y="238" font-size="24">q</text>
+  <text x="390" y="58" font-size="24">p</text>
+
+  <ellipse cx="380" cy="230" rx="235" ry="120" fill="none" stroke="#2f6f9f" stroke-width="4" data-series-group="phase" data-series-label="energy-orbit"/>
+  <path d="M 201 152 C 250 116, 318 104, 380 110" fill="none" stroke="#2f6f9f" stroke-width="4" marker-end="url(#arrow)" data-series-group="phase" data-series-label="flow-direction"/>
+
+  <circle cx="201" cy="152" r="7" fill="currentColor"/>
+  <circle cx="380" cy="110" r="7" fill="currentColor"/>
+  <text x="132" y="130" font-size="22">z₀</text>
+  <text x="400" y="104" font-size="22">Φₜ(z₀)</text>
+
+  <line x1="201" y1="152" x2="255" y2="120" stroke="currentColor" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="120" y="194" font-size="22">X_H(z₀)</text>
+</svg>
