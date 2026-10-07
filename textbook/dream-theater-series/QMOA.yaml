@@ -1,7 +1,7 @@
 version: 1
 id: QMOA
 title: 量子力学基礎・作用素環論
-plan: textbook/plans_progress/DREAM_THEATER_FUNCTIONAL_ANALYSIS_OPERATOR_ALGEBRA_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_FUNCTIONAL_ANALYSIS_OPERATOR_ALGEBRA_PLAN.md
 chapter_root: textbook/volumes/00_foundations
 
 chapters:
