@@ -8,9 +8,7 @@ prerequisites:
   - VN2
   - VN5
 
-forward_references:
-  - operator-algebra.factor
-  - operator-algebra.center
+forward_references: []
 
 concepts:
   - id: operator-algebra.multiplication-operator
