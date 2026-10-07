@@ -121,6 +121,8 @@ $$
 <!-- definition-example-start: def-amech6-poisson-bracket -->
 ### 例：一次元で定義をそのまま計算する
 
+**定義の確認**
+
 一次元では
 
 $$
@@ -959,6 +961,8 @@ $$
 <!-- definition-example-start: def-amech6-hamiltonian-vector-field -->
 ### 例：調和振動子では等エネルギー楕円へ接する
 
+**定義の確認**
+
 $$
 H(q,p)
 =
@@ -1034,6 +1038,8 @@ $$
 
 <!-- definition-example-start: def-amech6-hamiltonian-flow -->
 ### 例：一次元調和振動子の flow
+
+**定義の確認**
 
 $\omega=\sqrt{k/m}$ とすると
 
