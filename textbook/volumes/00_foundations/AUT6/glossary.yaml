@@ -1,0 +1,32 @@
+chapter: "AUT6"
+terms:
+  - term: プッシュダウン・オートマトン
+    english: pushdown automaton
+    meaning: "有限状態と一つのスタックを備え、入力文字または空文字に応じてスタック頂上を書き換えるオートマトン。"
+  - term: スタック
+    english: stack
+    meaning: "最後に積んだ記号を最初に取り出す記憶領域。本章では文字列の左端を頂上とする。"
+  - term: 計算状況
+    english: configuration
+    meaning: "現在状態、未読入力、頂上から並べたスタック全体からなる三つ組。"
+  - term: 最終状態受理
+    english: acceptance by final state
+    meaning: "入力をすべて読んで受理状態へ到達すれば、残存スタックを問わず受理とする方式。"
+  - term: 空スタック受理
+    english: acceptance by empty stack
+    meaning: "入力をすべて読んでスタックを空にすれば、最終状態を問わず受理とする方式。"
+  - term: 非決定性
+    english: nondeterminism
+    meaning: "同じ計算状況から複数の遷移を候補にでき、受理に至る有限経路が少なくとも一つあれば受理とする性質。"
+  - term: CFGとPDAの等価性
+    english: equivalence of CFG and PDA
+    meaning: "文脈自由文法で生成できる言語と非決定性プッシュダウン・オートマトンで認識できる言語の族が一致すること。"
+  - term: ポンピング補題
+    english: pumping lemma for context-free languages
+    meaning: "十分長い文脈自由言語の語をuvxyzと分け、vとyを同じ回数反復しても所属が変わらないという必要条件。"
+  - term: 正規言語との共通部分
+    english: intersection with a regular language
+    meaning: "PDAとDFAの状態を積にして、文脈自由言語と正規言語の共通部分をPDAで認識する構成。"
+  - term: 非閉性
+    english: non-closure
+    meaning: "同じ言語族に属する言語を演算で組み合わせても、結果がその言語族に属するとは限らないこと。"

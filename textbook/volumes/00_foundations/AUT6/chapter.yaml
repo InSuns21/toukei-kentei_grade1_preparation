@@ -1,0 +1,50 @@
+id: "AUT6"
+title: "プッシュダウン・オートマトン"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AUT5
+official_scope: []
+learning_objectives:
+  - PDAの七つ組・計算状況・一歩遷移・受理条件をスタックの向きも含めて定義し、具体的な計算を追える
+  - 等個数ブロックと偶数長回文のPDAを構成し、受理言語の両包含を証明できる
+  - 最終状態受理と空スタック受理の間の変換を構成し言語保存を証明できる
+  - 任意のCFGから等価なPDAを構成し、シミュレーションの不変条件を示せる
+  - 任意のPDAから非終端記号[pAq]によるCFGを構成し、両方向の正しさを証明できる
+  - CFLの和・連結・Kleene閉包・正規言語との共通部分の閉性を構成的に証明できる
+  - CFLポンピング補題を証明し、三種類の個数一致による共通部分・補集合の非閉性を証明できる
+definitions:
+  - { id: AUT6-DEF-01, name: "非決定性プッシュダウン・オートマトン" }
+  - { id: AUT6-DEF-02, name: "計算状況・一歩遷移・受理" }
+propositions:
+  - { id: AUT6-PROP-01, name: "スタックによる等個数ブロックの認識" }
+  - { id: AUT6-PROP-02, name: "偶数長回文のPDA" }
+  - { id: AUT6-PROP-03, name: "文脈自由言語の閉性" }
+  - { id: AUT6-PROP-04, name: "文脈自由言語の共通部分・補集合に関する非閉性" }
+theorems:
+  - { id: AUT6-THM-01, name: "CFGからPDAへの構成" }
+  - { id: AUT6-THM-02, name: "PDAからCFGへの構成" }
+lemmas:
+  - { id: AUT6-LEM-01, name: "最終状態受理と空スタック受理の等価性" }
+  - { id: AUT6-LEM-02, name: "文脈自由言語のポンピング補題" }
+canonical_examples:
+  - "初期記号Zと頂上左の約束による0^n1^nの計算状況"
+  - "中央を非決定的に選ぶ偶数長回文のPDA"
+  - "CFG S→0S1|εからの空スタックPDAと0011の計算"
+  - "非終端記号[pAq]によるPDAからCFGへの逆変換"
+  - "a^n b^n c^nのポンピング補題反例"
+problem_patterns:
+  - AUT6-PDA-DEFINITION-1
+  - AUT6-STACK-TRACE-1
+  - AUT6-ACCEPTANCE-MODES-1
+  - AUT6-PALINDROME-NONDETERMINISM-1
+  - AUT6-CFG-TO-PDA-1
+  - AUT6-EQUAL-BLOCKS-PDA-PROOF-1
+  - AUT6-PDA-TO-CFG-1
+  - AUT6-REGULAR-INTERSECTION-1
+  - AUT6-CFL-PUMPING-1
+  - AUT6-CFG-PDA-CLOSURE-INTEGRATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 4.5, review: 2.0 }

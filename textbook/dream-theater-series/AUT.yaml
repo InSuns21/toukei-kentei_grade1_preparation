@@ -27,8 +27,8 @@ chapters:
     title: 文脈自由文法
   - id: AUT6
     path: textbook/volumes/00_foundations/AUT6
-    status: planned
-    title: Pushdown automaton
+    status: completed
+    title: プッシュダウン・オートマトン
   - id: AUT7
     path: textbook/volumes/00_foundations/AUT7
     status: planned
