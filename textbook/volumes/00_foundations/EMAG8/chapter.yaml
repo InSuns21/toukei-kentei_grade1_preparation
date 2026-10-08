@@ -1,0 +1,44 @@
+id: "EMAG8"
+title: "電磁波とエネルギー"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - EMAG7
+  - VC9
+official_scope: []
+learning_objectives:
+  - 真空の無源 Maxwell 方程式から電場・磁場の波動方程式を導ける
+  - 真空波速 c と光速の対応、および波動方程式と Maxwell 方程式の違いを説明できる
+  - 同位相平面波の直交関係・分散関係・位相関係を導ける
+  - 平面波の波長・振動数と直線偏光・円偏光を具体的に計算できる
+  - 電磁エネルギー密度と Poynting ベクトルを定義し局所・積分形のエネルギー収支を証明できる
+  - 調和平面波の平均強度、定在波の平均流束を計算できる
+  - 電磁場の運動量密度と古典モデルの限界を区別できる
+definitions:
+  - { id: EMAG8-DEF-01, name: "真空中の電磁波の速度" }
+  - { id: EMAG8-DEF-02, name: "同位相の平面電磁波" }
+  - { id: EMAG8-DEF-03, name: "電磁エネルギー密度と Poynting ベクトル" }
+propositions:
+  - { id: EMAG8-PROP-01, name: "真空平面波の横波性" }
+theorems:
+  - { id: EMAG8-THM-01, name: "Poynting の定理" }
+canonical_examples:
+  - "波動方程式を満たす形の直接代入"
+  - "真空中の直線偏光平面波の四つの Maxwell 方程式の検算"
+  - "同じ地点の E、B、k の方向関係を示す SVG"
+  - "Poynting ベクトルと平均強度"
+  - "対向波による定在波と円偏光する波の比較"
+problem_patterns:
+  - EMAG8-WAVE-EQUATION-1
+  - EMAG8-TRANSVERSE-1
+  - EMAG8-STATIC-ENERGY-1
+  - EMAG8-INTENSITY-1
+  - EMAG8-MAXWELL-CHECK-1
+  - EMAG8-ENERGY-CONSERVATION-1
+  - EMAG8-STANDING-WAVE-1
+  - EMAG8-RADIATION-PRESSURE-1
+  - EMAG8-CIRCULAR-POLARIZATION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 6.0, review: 1.5 }

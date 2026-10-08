@@ -1,0 +1,32 @@
+chapter: "EMAG8"
+terms:
+  - term: 真空中の電磁波の速度
+    english: electromagnetic wave speed in vacuum
+    meaning: "真空無源 Maxwell 方程式に従う場の波動方程式で定まる速度 c=1/sqrt(mu0 epsilon0)。SI の真空光速と一致する。"
+  - term: 平面電磁波
+    english: electromagnetic plane wave
+    meaning: "波数ベクトル k と時刻 t に対する k dot x-omega t を引数とする波形で電場と磁場を表す理想的な波。"
+  - term: 波数ベクトル
+    english: wave vector
+    meaning: "平面波の伝播方向を向くベクトル k。大きさは 2pi/lambda であり、真空では omega=c|k|。"
+  - term: 偏光
+    english: polarization
+    meaning: "進行方向と直交する電場ベクトルの振動方向やその時間変化の状態。直線偏光・円偏光などがある。"
+  - term: 電磁エネルギー密度
+    english: electromagnetic energy density
+    meaning: "真空中の場が単位体積に持つエネルギー u=epsilon0 |E|^2/2+|B|^2/(2mu0)。"
+  - term: Poynting ベクトル
+    english: Poynting vector
+    meaning: "電磁場の単位面積・単位時間当たりのエネルギー流束密度 S=(E cross B)/mu0。単位 W/m^2。"
+  - term: Poynting の定理
+    english: Poynting theorem
+    meaning: "局所エネルギー収支 partial_t u+div S=-J dot E。場の減少が境界への流出と電流への仕事に対応する。"
+  - term: 強度
+    english: intensity
+    meaning: "単一方向へ進む調和平面波で Poynting ベクトルの大きさを周期平均した量 I=c epsilon0 E_*^2/2。"
+  - term: 定在波
+    english: standing wave
+    meaning: "反対方向に伝わる同振幅の波の重ね合わせで、節と腹が固定され、時間平均エネルギー流束が零となる例。"
+  - term: 放射圧
+    english: radiation pressure
+    meaning: "電磁波が物体に運動量を渡すことで働く圧力。垂直入射する真空平面波では完全吸収 I/c、完全反射 2I/c が理想化した値。"
