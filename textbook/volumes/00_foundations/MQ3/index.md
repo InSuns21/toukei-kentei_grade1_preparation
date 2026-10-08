@@ -412,26 +412,26 @@ $$
 
 $F$ が全ての複素数で零になることを、指数級数と積分を使って確認します。任意の固定した $z\in\mathbb C$ に対し
 
-$
+$$
 e^{-izy}=\sum_{k=0}^\infty\frac{(-izy)^k}{k!}
-$
+$$
 
 です。この級数を $g(y)$ 倍したとき、項の絶対値の積分の和は
 
-$
+$$
 \begin{aligned}
 \sum_{k=0}^\infty\frac{|z|^k}{k!}\int_{\mathbb R}|y|^k|g(y)|\,dy
 &=\int_{\mathbb R}\sum_{k=0}^\infty\frac{(|z||y|)^k}{k!}|g(y)|\,dy\\
 &=\int_{\mathbb R}e^{|z||y|}|g(y)|\,dy<\infty.
 \end{aligned}
-$
+$$
 
 右辺の有限性は上の Gaussian 重みの評価で $R=|z|$ としたものです。従って絶対収束によって積分と級数を交換でき、
 
-$
+$$
 F(z)=\sum_{k=0}^\infty\frac{(-iz)^k}{k!}\int_{\mathbb R}y^kg(y)\,dy
 =\sum_{k=0}^\infty\frac{(-iz)^k}{k!}\cdot0=0.
-$
+$$
 
 特に実数周波数上で $F=0$ です。$g\in L^1(\mathbb R)$ に対する Fourier 変換の一意性（[FOU4 の Fourier 理論](../FOU4/index.md)）から $g=0$ がほとんど至る所で成立します。$e^{-y^2/2}>0$ は全ての実数 $y$ で零でないため $f=0$ です。
 
