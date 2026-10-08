@@ -1,7 +1,7 @@
 # DREAM THEATER 電磁気学 I コース計画
 
 作成日: 2026-10-07  
-状態: in_progress
+状態: completed
 
 ## 0. 目的
 
@@ -234,4 +234,4 @@ VC の定理と Maxwell の物理法則を混同しない。たとえば Gauss--
 - 2026-10-08: EMAG6「Lorentz 力と荷電粒子」を実装・査読し、Lorentz 力、磁気力の仕事、一様磁場中の円運動・螺旋運動、交差場の E×B ドリフト、電磁場中の Lagrangian、正準運動量と gauge 変換まで閉じた。
 - 2026-10-08: EMAG7「電磁誘導と Maxwell 方程式」を実装・査読し、磁束の向き、固定回路の Faraday 則、Lenz の法則、運動起電力、充電コンデンサーと変位電流、電荷保存との整合、ポテンシャルとゲージ変換まで閉じた。
 - 2026-10-08: EMAG8「電磁波とエネルギー」を実装し、無源波動方程式・真空平面波・偏光・Poynting の定理・エネルギー流を閉じた。
-- 残作業: MQ4 はまだ存在しないため、MQ4 への Coulomb ポテンシャル参照接続は当該章の作成時に行う。PLAN は plans_progress に維持する。
+- 2026-10-08: MQ4 本文に EMAG3 の Coulomb ポテンシャルへのリンク、chapter.yaml の prerequisites に EMAG3 があることを確認した。EMAG1--8・MQ4 接続・series manifest・公開索引の完了条件を再確認し、PLAN を plan_done へ移した。
