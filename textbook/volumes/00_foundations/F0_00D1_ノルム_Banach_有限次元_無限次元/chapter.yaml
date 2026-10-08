@@ -6,6 +6,7 @@ prerequisites:
   - F0-00D
   - F0-00C2
   - F0-00E
+  - F0-00F2
 official_scope: []
 learning_objectives:
   - ノルムとBanach空間を定義できる
