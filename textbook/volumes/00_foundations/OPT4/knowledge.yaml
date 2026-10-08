@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - OPT3
+  - F0-00D2D
 
 forward_references:
   - optimization.lagrangian
