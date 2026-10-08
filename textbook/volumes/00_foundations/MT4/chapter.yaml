@@ -6,6 +6,7 @@ prerequisites:
   - MT0
   - MT3
   - F0-00D2B
+  - RA3
 official_scope: []
 learning_objectives:
   - 局所可積分を開集合上で定義し、制限・コンパクト台との積・Lpからの包含を説明できる

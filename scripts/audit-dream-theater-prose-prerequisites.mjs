@@ -19,6 +19,20 @@ if(changedOnly){
 }
 const paths=JSON.parse(fs.readFileSync('textbook/dream-theater-index.json','utf8')).sections.flatMap(s=>s.paths);
 const indexed=new Set(paths);
+const reviewFile='textbook/dream-theater-prerequisite-audit-exceptions.yaml';
+const review=YAML.parse(fs.readFileSync(reviewFile,'utf8'))??{};
+if(review.version!==1||!Array.isArray(review.approved_citations)||!Array.isArray(review.approved_metadata_drift))
+  throw Error(reviewFile+': unsupported schema');
+for(const e of review.approved_citations){
+ if(!e.source||!e.target||!e.reason||!Array.isArray(e.contexts)||e.contexts.some(x=>typeof x!=='string'||x.length<9))
+  throw Error(reviewFile+': incomplete citation exception '+JSON.stringify(e));
+}
+for(const e of review.approved_metadata_drift){
+ if(!e.chapter||!e.reason||!Array.isArray(e.chapter_prerequisites)||!Array.isArray(e.knowledge_extra))
+  throw Error(reviewFile+': incomplete metadata exception '+JSON.stringify(e));
+}
+const reviewCitations=new Map(review.approved_citations.map(e=>[e.source+'->'+e.target,e]));
+const reviewDrifts=new Map(review.approved_metadata_drift.map(e=>[e.chapter,e]));
 const records=new Map(), byPath=new Map();
 const file=(p)=>fs.readFileSync(path.join(root,p),'utf8');
 const norm=(p)=>p.split(path.sep).join('/');
@@ -76,7 +90,7 @@ function selfTest(){
  console.log('Narrative prerequisite audit self-test passed');
 }
 if(process.argv.includes('--self-test')){selfTest();process.exit(0);}
-const found=[];let metadataDrift=0,missingKnowledge=0,visited=0;
+const found=[];let metadataDrift=0,missingKnowledge=0,visited=0,reviewedCitations=0,reviewedDrifts=0;
 for(const md of paths){
  const page=byPath.get(md);
  if(!page)throw Error('no chapter metadata '+md);
@@ -87,7 +101,14 @@ for(const md of paths){
  if(fs.existsSync(page.knowledge)){
   const known=deps((YAML.parse(file(page.knowledge))??{}).prerequisites??[],page.knowledge);
   if(known.slice().sort().join('|')!==page.prereqs.slice().sort().join('|')){
-   found.push({kind:'metadata-drift',source:page.id,target:'',line:1,md:page.yaml,excerpt:'chapter.yaml='+page.prereqs.join(',')+' / knowledge.yaml='+known.join(',')});metadataDrift++;
+   const allowed=reviewDrifts.get(page.id);
+   const extra=known.filter(id=>!page.prereqs.includes(id));
+   const missing=page.prereqs.filter(id=>!known.includes(id));
+   if(allowed
+       &&page.prereqs.slice().sort().join('|')===allowed.chapter_prerequisites.slice().sort().join('|')
+       &&extra.slice().sort().join('|')===allowed.knowledge_extra.slice().sort().join('|')
+       &&missing.length===0){reviewedDrifts++;}
+   else{found.push({kind:'metadata-drift',source:page.id,target:'',line:1,md:page.yaml,excerpt:'chapter.yaml='+page.prereqs.join(',')+' / knowledge.yaml='+known.join(',')});metadataDrift++;}
   }
  }else missingKnowledge++;
  if(!fs.existsSync(md))continue;
@@ -110,6 +131,13 @@ for(const md of paths){
    const context=left+' '+match[1]+' '+right;
    if(!reasoning(context)||forward(context))continue;
    if(page.prereqs.includes(to.id))continue;
+   if(!reach.has(to.id)){
+     const accepted=reviewCitations.get(page.id+'->'+to.id);
+     if(accepted && accepted.contexts.some(fragment=>ln.includes(fragment))){
+       reviewedCitations++;
+       continue;
+     }
+   }
    found.push({kind:reach.has(to.id)?'transitive':'unreachable',source:page.id,target:to.id,line:i+1,md,excerpt:ln.trim().replace(/\s+/gu,' ').slice(0,200)});
   }
  }
@@ -118,6 +146,7 @@ const count={unreachable:0,transitive:0,'metadata-drift':0};
 for(const item of found)count[item.kind]++;
 found.sort((a,b)=>({unreachable:0,'metadata-drift':1,transitive:2}[a.kind]-{unreachable:0,'metadata-drift':1,transitive:2}[b.kind])||a.source.localeCompare(b.source)||a.line-b.line);
 console.log('DREAM THEATER prose prerequisite audit: '+visited+'/'+paths.length+' indexed chapters, '+JSON.stringify(count)+', missing knowledge.yaml='+missingKnowledge);
+console.log('Reviewed documented exceptions: '+reviewedCitations+' citation(s), '+reviewedDrifts+' metadata difference(s).');
 for(const item of (full?found:found.filter(x=>x.kind!=='transitive')).slice(0,full?found.length:100))console.log('['+item.kind+'] '+item.source+' -> '+item.target+' '+item.md+':'+item.line+' '+item.excerpt);
 if(!full)console.log('Transitive uses are counted but intentionally omitted from default review queue; run with --all to inspect.');
 if(strict&&(count.unreachable||count['metadata-drift']))process.exitCode=1;

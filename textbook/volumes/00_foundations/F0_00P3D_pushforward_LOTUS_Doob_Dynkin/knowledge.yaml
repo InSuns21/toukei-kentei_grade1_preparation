@@ -2,6 +2,7 @@ chapter: F0-00P3D
 scope: dream-theater
 coverage: complete
 prerequisites:
+  - F0-00P1
   - F0-00P3A
   - F0-00P2A
   - F0-00D2A
