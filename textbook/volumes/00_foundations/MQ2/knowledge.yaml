@@ -17,9 +17,9 @@ concepts:
       - quantum.unbounded-self-adjoint-spectral-theorem
 
   - id: mathematical-quantum.rayleigh-quotient
-    name: Rayleigh 商
+    name: 自己共役作用素の Rayleigh 商
     kind: definition
-    aliases: ["Rayleigh quotient"]
+    aliases: ["Rayleigh quotient of a self-adjoint operator"]
     introduction: formal
     introduction_aliases: ["定義（Rayleigh 商）"]
     requires:
