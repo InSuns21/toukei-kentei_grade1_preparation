@@ -1,0 +1,50 @@
+id: "MQ2"
+title: "変分原理・二次形式・基底状態"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MQ1
+  - QM6
+  - FOU4
+official_scope: []
+learning_objectives:
+  - 下に有界な自己共役作用素の Rayleigh 商を定義し、スペクトル測度からスペクトル下端の変分原理を定義域込みで証明できる
+  - 非負平方根作用素を用いて閉二次形式と形式定義域を構成し、作用素定義域との違いと閉性を検証できる
+  - 有界実ポテンシャルの Schrödinger 形式を H¹ 上に同定し、H² と区別して扱える
+  - 変分下限の達成が基底固有ベクトルと同値であることを証明し、本質スペクトルの下の離散固有値の十分条件を使える
+  - 有限次元 Rayleigh–Ritz の単調上界・形式稠密性のもとでの収束と有限次元 min–max 原理を証明・計算できる
+  - Gaussian trial function の規格化・運動項・ポテンシャル項を実際に積分し、下端の上界と基底状態の存在を混同しない
+definitions:
+  - { id: MQ2-DEF-01, name: "下に有界な自己共役作用素" }
+  - { id: MQ2-DEF-02, name: "Rayleigh 商" }
+  - { id: MQ2-DEF-03, name: "下に有界な自己共役作用素の閉二次形式" }
+  - { id: MQ2-DEF-04, name: "基底状態" }
+propositions:
+  - { id: MQ2-PROP-01, name: "有界実ポテンシャルの形式" }
+  - { id: MQ2-PROP-02, name: "本質スペクトルより下の基底固有値" }
+  - { id: MQ2-PROP-03, name: "Rayleigh–Ritz の上界と単調性" }
+theorems:
+  - { id: MQ2-THM-01, name: "スペクトル下端の変分原理" }
+  - { id: MQ2-THM-02, name: "閉形式による変分原理" }
+  - { id: MQ2-THM-03, name: "最小化状態と固有状態" }
+  - { id: MQ2-THM-04, name: "有限次元の min–max 原理" }
+canonical_examples:
+  - "対角 Hamiltonian の Rayleigh 商と下界"
+  - "自由 Hamiltonian の形式定義域 H¹ と作用素定義域 H²"
+  - "掛け算作用素でスペクトル下端が達成されない例"
+  - "一般化固有値問題と Gram 行列"
+  - "Gaussian 井戸の trial function 積分と負の変分上界"
+problem_patterns:
+  - MQ2-RAYLEIGH-AVERAGE-1
+  - MQ2-NO-GROUND-1
+  - MQ2-FORM-DOMAIN-1
+  - MQ2-RITZ-MONOTONE-1
+  - MQ2-DIAGONAL-NO-MIN-1
+  - MQ2-GENERALIZED-EIGENVALUE-1
+  - MQ2-MINMAX-SECOND-1
+  - MQ2-GAUSSIAN-BOUNDS-1
+  - MQ2-INTEGRATED-VARIATIONAL-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11.0, exercises: 8.0, review: 2.5 }
