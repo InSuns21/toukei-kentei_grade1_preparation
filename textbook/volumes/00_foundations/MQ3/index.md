@@ -849,7 +849,7 @@ $L^2(\mathbb R,dx)$ 上の $\mathcal S$ に $H_{\mathrm{diff}}=-\hbar^2d^2/(2m\,
 <!-- solution-start -->
 #### 詳細解答
 
-(1) $(Uf)(y)=\sqrt\ell f(\ell y)$ とし、逆変換に二階微分を施すと
+(1) $(Uf)(y)=\sqrt\ell f(\ell y)$ とし、$(U^{-1}f)(x)=\ell^{-1/2}f(x/\ell)$ を二回微分すると
 
 $$
 UH_{\mathrm{diff}}U^{-1}
