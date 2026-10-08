@@ -27,7 +27,7 @@ concepts:
     introduction_aliases: ["定理（Coulomb Hamiltonian の自己共役性と下界）"]
     requires:
       - mathematical-quantum.coulomb-hamiltonian
-      - mathematical-quantum.relative-perturbation
+      - mathematical-quantum.relative-perturbation-self-adjoint
   - id: mathematical-quantum.angular-momentum-quantum-numbers
     name: 角運動量と量子数
     kind: definition
