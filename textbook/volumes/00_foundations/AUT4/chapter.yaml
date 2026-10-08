@@ -1,0 +1,42 @@
+id: "AUT4"
+title: "正規言語の限界"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AUT3
+official_scope: []
+learning_objectives:
+  - DFAの有限状態からポンピング補題の分解と全反復回数に対する結論を証明できる
+  - ポンピング補題の量化順序を守り0^n1^nの非正規性を証明できる
+  - Myhill–Nerode同値関係を定義し右合同性と識別接尾部を検証できる
+  - Myhill–Nerodeの定理の両方向と最小状態数の主張を構成的に証明できる
+  - 識別可能な接頭部を用いて無限状態の必要性や有限DFAの状態数下界を示せる
+  - 与えられた言語のDFAを構成し下界と照合して最小性を判定できる
+definitions:
+  - { id: AUT4-DEF-01, name: "Myhill–Nerode同値関係と識別接尾部" }
+propositions:
+  - { id: AUT4-PROP-01, name: "等個数ブロックの言語は正規でない" }
+  - { id: AUT4-LEM-01, name: "同値関係と右合同性" }
+theorems:
+  - { id: AUT4-THM-01, name: "正規言語のポンピング補題" }
+  - { id: AUT4-THM-02, name: "Myhill–Nerodeの定理" }
+  - { id: AUT4-COR-01, name: "識別可能な接頭部による状態数下界" }
+canonical_examples:
+  - "2状態の偶奇DFAのループと鳩の巣原理"
+  - "0^n1^nのポンピング補題と無限同値類による二証明"
+  - "末尾01の3状態最小DFAと識別接尾部"
+problem_patterns:
+  - AUT4-PUMP-PIGEONHOLE-1
+  - AUT4-PUMP-QUANTIFIERS-1
+  - AUT4-DISTINGUISH-SUFFIX-1
+  - AUT4-RIGHT-CONGRUENCE-1
+  - AUT4-EXACT-WORD-STATE-COMPLEXITY-1
+  - AUT4-UNORDERED-EQUAL-COUNTS-1
+  - AUT4-MYHILL-INFINITE-CLASSES-1
+  - AUT4-REMAINDER-MINIMAL-DFA-1
+  - AUT4-AVOID-SUBSTRING-1
+  - AUT4-UNION-INTEGRATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.0, review: 1.5 }

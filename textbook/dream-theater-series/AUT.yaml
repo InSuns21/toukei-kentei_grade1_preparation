@@ -19,7 +19,7 @@ chapters:
     title: 非決定性有限オートマトン・正規表現
   - id: AUT4
     path: textbook/volumes/00_foundations/AUT4
-    status: planned
+    status: completed
     title: 正規言語の限界
   - id: AUT5
     path: textbook/volumes/00_foundations/AUT5
