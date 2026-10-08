@@ -35,5 +35,5 @@ chapters:
     title: 電磁誘導と Maxwell 方程式
   - id: EMAG8
     path: textbook/volumes/00_foundations/EMAG8
-    status: planned
+    status: completed
     title: 電磁波とエネルギー

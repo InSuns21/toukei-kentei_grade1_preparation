@@ -10,7 +10,7 @@ EMAG7 で Maxwell 方程式は、電荷・電流から生じる場だけでな�
 
 ## 1. 源がなくても電磁場が伝わる
 
-電荷密度 $\rho=0$、電流密度 $J=0$ の真空中では、[EMAG7 の Maxwell 方程式](../EMAG7/index.md#ref-emag7-maxwell) は
+電荷密度 $\rho=0$、電流密度 $J=0$ の真空中では、[EMAG7 の Maxwell 方程式](../EMAG7/index.md) は
 
 $$
 \begin{aligned}
@@ -78,7 +78,7 @@ $$
 <!-- definition-example-start: def-emag8-wave-speed -->
 ### 例：進行する形を代入する
 
-**定義の確認**として、実数 $k>0$ と滑らかな関数 $f$ について $F(t,x)=f(x_1-ct)$ を考えます。$s=x_1-ct$ と置くと連鎖律より
+**定義の確認**として、滑らかな関数 $f$ について $F(t,x)=f(x_1-ct)$ を考えます。$s=x_1-ct$ と置くと連鎖律より
 
 $$
 \partial_tF=-cf'(s),\quad

@@ -669,4 +669,5 @@
 5. [EMAG5 電流・磁場・Ampère の法則](textbook/volumes/00_foundations/EMAG5/index.md)
 6. [EMAG6 Lorentz 力と荷電粒子](textbook/volumes/00_foundations/EMAG6/index.md)
 7. [EMAG7 電磁誘導と Maxwell 方程式](textbook/volumes/00_foundations/EMAG7/index.md)
+8. [EMAG8 電磁波とエネルギー](textbook/volumes/00_foundations/EMAG8/index.md)
 

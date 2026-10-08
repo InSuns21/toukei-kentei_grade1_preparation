@@ -1,0 +1,58 @@
+chapter: EMAG8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - EMAG7
+  - VC9
+
+concepts:
+  - id: electromagnetism.vacuum-wave-speed
+    name: 真空中の電磁波の速度
+    kind: definition
+    aliases: [vacuum electromagnetic wave speed]
+    introduction: formal
+    introduction_aliases: [定義（真空中の電磁波の速度）]
+    requires:
+      - vector-calculus.maxwell-faraday
+      - vector-calculus.maxwell-ampere-maxwell
+
+  - id: electromagnetism.in-phase-plane-wave
+    name: 同位相の平面電磁波
+    kind: definition
+    aliases: [in-phase electromagnetic plane wave]
+    introduction: formal
+    introduction_aliases: [定義（同位相の平面電磁波）]
+    requires:
+      - electromagnetism.vacuum-wave-speed
+      - electromagnetism.electric-field
+
+  - id: electromagnetism.plane-wave-transversality
+    name: 真空平面波の横波性
+    kind: proposition
+    aliases: [transversality of vacuum plane waves]
+    introduction: formal
+    introduction_aliases: [命題（真空平面波の横波性）]
+    requires:
+      - electromagnetism.in-phase-plane-wave
+      - electromagnetism.vacuum-wave-speed
+
+  - id: electromagnetism.energy-density-poynting
+    name: 電磁エネルギー密度と Poynting ベクトル
+    kind: definition
+    aliases: [electromagnetic energy density and Poynting vector]
+    introduction: formal
+    introduction_aliases: [定義（電磁エネルギー密度と Poynting ベクトル）]
+    requires:
+      - electromagnetism.electric-field
+      - electromagnetism.in-phase-plane-wave
+
+  - id: electromagnetism.poynting-theorem
+    name: Poynting の定理
+    kind: theorem
+    aliases: [Poynting theorem]
+    introduction: formal
+    introduction_aliases: [定理（Poynting の定理）]
+    requires:
+      - electromagnetism.energy-density-poynting
+      - vector-calculus.maxwell-ampere-maxwell
+      - vector-calculus.maxwell-faraday
