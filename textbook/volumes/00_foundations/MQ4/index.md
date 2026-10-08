@@ -344,7 +344,9 @@ $$
 $\int_0^\infty r^j e^{-cr}dr=j!/c^{j+1}$（$c>0$）を $j=2\ell+2$ に適用すれば有限です。微分して作用させると
 $k_\ell u_\ell^{(0)}=-\beta^2u_\ell^{(0)}/(\ell+1)^2$ であり、三次元の正則性は $r^\ell Y_\ell^m$ が [PDE11](../PDE11/index.md#prop-pde11-solid-harmonic) の滑らかな同次多項式に延長されることから確認できます。その $H^2$ 条件を積の微分で確かめます。$c=\beta/(\ell+1)>0$ とすると、$r>0$ で
 
-$ \partial_i e^{-cr}=-ce^{-cr}\frac{x_i}{r}, \quad \partial_i\partial_j e^{-cr} =e^{-cr}\left[c^2\frac{x_ix_j}{r^2} -c\left(\frac{\delta_{ij}}r-\frac{x_ix_j}{r^3}\right)\right]. $
+$$
+\partial_i e^{-cr}=-ce^{-cr}\frac{x_i}{r}, \quad \partial_i\partial_j e^{-cr} =e^{-cr}\left[c^2\frac{x_ix_j}{r^2} -c\left(\frac{\delta_{ij}}r-\frac{x_ix_j}{r^3}\right)\right].
+$$
 
 二階偏導関数は原点付近で $O(1+r^{-1})$ なので、
 $\int_{r<\delta}(1+r^{-1})^2dx =4\pi\int_0^\delta(r^2+2r+1)dr<\infty$ です。原点を除いて積分した式の境界項も表面積が $O(\delta^2)$ なので消えます。$r^\ell Y_\ell^m$ は滑らかな同次多項式であり、積の二階導関数は局所的に二乗可積分、無限遠では指数減衰します。従って得られた三次元固有状態は $H^2=D(H)$ に属します。
@@ -384,7 +386,9 @@ $$
 
 遠方では $\|1_{\{r>R\}}f/r\|_2\le R^{-1}\|f\|_2$ です。中間の環状領域 $\delta\le r\le R$ で必要な局所的なコンパクト性も確かめます。環状領域を含む固定した立方体を一辺 $h$ の小立方体 $Q$ に有限分割し、各 $Q$ で $f$ を平均値 $f_Q$ に置き換えます。線分上で $f(x)-f(y)=\int_0^1\nabla f(y+t(x-y))\cdot(x-y)dt$ と書き、Cauchy–Schwarz と積分を用いると
 
-$ \sum_Q\int_Q|f-f_Q|^2dx\le Ch^2\int|\nabla f|^2dx $
+$$
+\sum_Q\int_Q|f-f_Q|^2dx\le Ch^2\int|\nabla f|^2dx
+$$
 
 を得ます（最初は滑らかな $f$ で示し、$H^1$ へ密度で延長）。$H^2$ 有界列に対して右辺は $h\downarrow0$ で一様に零です。一方、固定した $h$ の平均値近似は有限次元空間に属し、有界列から収束部分列を取れます。$h=1,1/2,\ldots$ の対角部分列を選べば、元の列も環状領域上の $L^2$ で収束部分列を持ちます。さらに $1/r\le1/\delta$ はそこで有界なので、$f\mapsto1_{\{\delta\le r\le R\}}f/r$ は $H^2\to L^2$ コンパクトです。$\delta\downarrow0$、$R\uparrow\infty$ として $V:H^2\to L^2$ はコンパクト作用素の作用素ノルム極限です。従って $V(H_0+1)^{-1}$ はコンパクトです。
 
@@ -397,7 +401,9 @@ $(H-\lambda)f_j=(H_0-\lambda)f_j+Vf_j\to0$。
 
 逆方向では、$V(H+ i)^{-1}$ もコンパクトです。実際、$H_0+1$ の逆作用素に替えて非実数 $i$ を取っても上の局所・遠方評価は変わらず、レゾルベント恒等式により
 
-$ V(H-i)^{-1} =V(H_0-i)^{-1}\bigl[I-V(H-i)^{-1}\bigr] $
+$$
+V(H-i)^{-1} =V(H_0-i)^{-1}\bigl[I-V(H-i)^{-1}\bigr]
+$$
 
 です。右側の角括弧は有界です（$V$ は $H$ のグラフノルムから $L^2$ へ有界）。左側第一因子がコンパクトだから積はコンパクトです。$H$ の Weyl 列 $g_j$ に対して $(H-i)g_j=(\lambda-i)g_j+o(1)\rightharpoonup0$ なので $Vg_j\to0$、従って $(H_0-\lambda)g_j\to0$ です。これで逆包含も示され、
 $\sigma_{\rm ess}(H)=\sigma_{\rm ess}(H_0)=[0,\infty)$ が確定します。従って $(-\infty,0)$ のスペクトル点は有限重複度の孤立固有値のみで、(3) がそれらを全列挙しています。
@@ -481,17 +487,23 @@ $$
 
 積分公式の係数も検算しておきます。$\alpha_0=2\ell+1$、$j=n-\ell-1$ とし、
 
-$ L_j^{\alpha_0}(\rho)=\frac{e^\rho\rho^{-\alpha_0}}{j!} \frac{d^j}{d\rho^j}\bigl(e^{-\rho}\rho^{j+\alpha_0}\bigr) $
+$$
+L_j^{\alpha_0}(\rho)=\frac{e^\rho\rho^{-\alpha_0}}{j!} \frac{d^j}{d\rho^j}\bigl(e^{-\rho}\rho^{j+\alpha_0}\bigr)
+$$
 
 を用います。これを $\int_0^\infty e^{-\rho}\rho^{\alpha_0}(L_j^{\alpha_0})^2d\rho$ に代入し、$j$ 回部分積分します。境界項は $e^{-\rho}$ の減衰と $\alpha_0>0$ から零で、$L_j^{\alpha_0}$ の最高次係数は $(-1)^j/j!$ だから $d^jL_j^{\alpha_0}/d\rho^j=(-1)^j$ です。従って
 
-$ \int_0^\infty e^{-\rho}\rho^{\alpha_0}(L_j^{\alpha_0})^2d\rho =\frac1{j!}\int_0^\infty e^{-\rho}\rho^{j+\alpha_0}d\rho =\frac{\Gamma(j+\alpha_0+1)}{j!}. $
+$$
+\int_0^\infty e^{-\rho}\rho^{\alpha_0}(L_j^{\alpha_0})^2d\rho =\frac1{j!}\int_0^\infty e^{-\rho}\rho^{j+\alpha_0}d\rho =\frac{\Gamma(j+\alpha_0+1)}{j!}.
+$$
 
 同じ積分操作で $j$ の異なる多項式が直交することを確かめ、係数漸化式から得られる三項漸化式
 $\rho L_j^{\alpha_0}=-(j+1)L_{j+1}^{\alpha_0} +(2j+\alpha_0+1)L_j^{\alpha_0}-(j+\alpha_0)L_{j-1}^{\alpha_0}$
 を掛け合わせて積分すると、交差項は零なので
 
-$ \int_0^\infty e^{-\rho}\rho^{\alpha_0+1}(L_j^{\alpha_0})^2d\rho =(2j+\alpha_0+1)\frac{\Gamma(j+\alpha_0+1)}{j!} =\frac{2n(n+\ell)!}{(n-\ell-1)!}. $
+$$
+\int_0^\infty e^{-\rho}\rho^{\alpha_0+1}(L_j^{\alpha_0})^2d\rho =(2j+\alpha_0+1)\frac{\Gamma(j+\alpha_0+1)}{j!} =\frac{2n(n+\ell)!}{(n-\ell-1)!}.
+$$
 
 重要なのは、**多項式の打ち切りだけから全スペクトルを宣言していない**ことです。負のスペクトルの完全な列挙は前節の因数分解と本質スペクトルの議論で先に証明しました。
 
