@@ -148,7 +148,13 @@ $$
 <!-- formal-statement-start -->
 ### 定義（状態遷移図）
 
-DFA $M=(Q,\Sigma,\delta,q_0,F)$ の状態遷移図では各状態 $q\in Q$ を頂点とし、各組 $(q,a)\in Q\times\Sigma$ に対して、$q$ から $\delta(q,a)$ へ向かう、記号 $a$ を付した矢印を描く。$q_0$ に外部から開始矢印を付し、$F$ に属する状態は二重丸で示す。
+DFA $M=(Q,\Sigma,\delta,q_0,F)$ の各状態を頂点にする。状態 $q\in Q$ で文字 $a\in\Sigma$ を読む遷移は、次の向き付き矢印で表す。
+
+$$
+q\xrightarrow{a}\delta(q,a).
+$$
+
+初期状態 $q_0$ には外部から開始矢印を付し、受理集合 $F$ に属する状態は二重丸で示す。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-aut2-transition-diagram -->
@@ -268,7 +274,13 @@ $$
 <!-- formal-statement-start -->
 ### 定理（正規言語の共通部分に関する閉性）
 
-同じ有限アルファベット $\Sigma$ 上の正規言語 $L_1,L_2\subseteq\Sigma^*$ に対し、共通部分 $L_1\cap L_2$ も正規言語である。$L_i=L(M_i)$ を認識する DFA $M_i=(Q_i,\Sigma,\delta_i,s_i,F_i)$ があるとき、積オートマトンの受理集合を $F_1\times F_2$ と選べばよい。
+同じ有限アルファベット $\Sigma$ 上の正規言語 $L_1,L_2\subseteq\Sigma^*$ に対し、共通部分 $L_1\cap L_2$ も正規言語である。各言語を認識する DFA を
+
+$$
+M_i=(Q_i,\Sigma,\delta_i,s_i,F_i)\qquad(i=1,2)
+$$
+
+としたとき、積オートマトンの受理集合を $F_1\times F_2$ とすればよい。
 <!-- formal-statement-end -->
 
 **証明の見取り図**　「両方とも受理した」を、最終状態の組が $F_1\times F_2$ に属することへ翻訳します。状態数は $|Q_1||Q_2|$ 以内です。
