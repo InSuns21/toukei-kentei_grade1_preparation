@@ -1,0 +1,49 @@
+id: "AUT3"
+title: "非決定性有限オートマトン・正規表現"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AUT2
+official_scope: []
+learning_objectives:
+  - NFAの集合値遷移とε-遷移を定義し、ε-閉包と入力後の到達可能状態集合を計算できる
+  - 到達可能状態の再帰式と有限受理経路の一致を帰納法で証明できる
+  - ε-閉包を含む部分集合構成を実行し、NFAとDFAの認識言語の一致と状態数上界を証明できる
+  - 正規表現の和・連結・Kleene反復を集合演算として定義し、空集合と空文字列を区別できる
+  - 正規表現を構造帰納法でε-NFAへ変換し、言語が一致することを両向きに証明できる
+  - 中間状態を制限する再帰式からNFAを正規表現へ変換し、Kleeneの定理を証明できる
+definitions:
+  - { id: AUT3-DEF-01, name: "ε-遷移を許す非決定性有限オートマトン" }
+  - { id: AUT3-DEF-02, name: "ε-閉包" }
+  - { id: AUT3-DEF-03, name: "NFAの到達状態集合と認識言語" }
+  - { id: AUT3-DEF-04, name: "ε-閉包を含む部分集合構成" }
+  - { id: AUT3-DEF-05, name: "正規表現とその表す言語" }
+propositions:
+  - { id: AUT3-LEM-01, name: "再帰式と受理経路" }
+  - { id: AUT3-PROP-01, name: "DFAはNFAの特別な場合" }
+  - { id: AUT3-LEM-02, name: "正規表現からε-NFAへの構成" }
+  - { id: AUT3-LEM-03, name: "中間状態を一つずつ許す正規表現" }
+theorems:
+  - { id: AUT3-THM-01, name: "NFAのDFAへの変換" }
+  - { id: AUT3-THM-02, name: "Kleeneの定理" }
+canonical_examples:
+  - "末尾01を認識する3状態NFAとその候補状態列"
+  - "ε-遷移の巡回を含む閉包の列挙"
+  - "3状態NFAの到達可能な部分集合DFA遷移表"
+  - "正規表現(0+1)*01の言語と構造帰納法"
+  - "2状態NFAの中間状態を制限する正規表現の再帰"
+problem_patterns:
+  - AUT3-EPSILON-CLOSURE-1
+  - AUT3-NFA-TRACE-1
+  - AUT3-EPSILON-TRACE-1
+  - AUT3-REGEX-SEMANTICS-1
+  - AUT3-EMPTY-SUBSET-1
+  - AUT3-SUBSET-TABLE-1
+  - AUT3-REGEX-TO-NFA-1
+  - AUT3-ELIMINATION-1
+  - AUT3-EPSILON-STAR-1
+  - AUT3-KLEENE-INTEGRATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.0, review: 1.5 }

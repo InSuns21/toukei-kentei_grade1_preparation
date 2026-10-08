@@ -15,7 +15,7 @@ chapters:
     title: 決定性有限オートマトン
   - id: AUT3
     path: textbook/volumes/00_foundations/AUT3
-    status: planned
+    status: completed
     title: 非決定性有限オートマトン・正規表現
   - id: AUT4
     path: textbook/volumes/00_foundations/AUT4
