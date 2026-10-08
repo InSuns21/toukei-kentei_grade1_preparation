@@ -19,7 +19,7 @@ learning_objectives:
   - 自由粒子・調和振動子・Coulomb 系について古典 Hamiltonian と量子 Hamiltonian の候補を比較し、MQ1–MQ4 に残る解析責務を説明できる
 definitions:
   - { id: MQ0-DEF-01, name: "一次元 Schrödinger 表現での正準量子化の基本対応" }
-  - { id: MQ0-DEF-02, name: "混合積 qp の対称順序" }
+  - { id: MQ0-DEF-02, name: "対称順序量子化" }
   - { id: MQ0-DEF-03, name: "Heisenberg 描像の観測量" }
 propositions:
   - { id: MQ0-PROP-01, name: "二つの描像の測定予測は一致する" }
