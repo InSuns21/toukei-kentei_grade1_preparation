@@ -24,6 +24,8 @@ $$
 <!-- definition-example-start: def-mq2-semibounded -->
 ### 例：対角 Hamiltonian の下界を確認する
 
+**定義の確認**
+
 $\mathcal H=\mathbb C^3$、$H=\operatorname{diag}(-2,1,4)$ とします。$H^*=H$、$D(H)=\mathbb C^3$ です。任意の $z=(z_1,z_2,z_3)$ に対して
 
 $$
@@ -55,6 +57,8 @@ $$
 
 <!-- definition-example-start: def-mq2-rayleigh-quotient -->
 ### 例：対角行列で実際に割る
+
+**定義の確認**
 
 上の $H$ に $\psi=(1,1,0)$ を代入すると、$\langle\psi,H\psi\rangle=-2+1=-1$、$\|\psi\|^2=2$ なので $R_H(\psi)=-1/2$ です。$2\psi$ の分子は $4(-1)$、分母は $4\cdot2$ となり同じ値です。任意の非零 $z$ では各 $|z_j|^2/\|z\|^2$ が非負で総和 $1$ なので、商は固有値 $-2,1,4$ の加重平均になります。
 <!-- definition-example-end -->
@@ -140,6 +144,8 @@ $$
 
 <!-- definition-example-start: def-mq2-closed-form -->
 ### 例：Fourier 側の微分次数の差
+
+**定義の確認**
 
 $\mathcal H=L^2(\mathbb R)$、$H_0=\mathcal F^{-1}M_{c\xi^2}\mathcal F$、$c=\hbar^2/(2m)>0$ では $a=0$ と取れます。平方根は $\mathcal F^{-1}M_{\sqrt c|\xi|}\mathcal F$ なので
 
@@ -269,6 +275,8 @@ $$
 <!-- definition-example-start: def-mq2-ground-state -->
 ### 例：存在する場合としない場合
 
+**定義の確認**
+
 $H=\operatorname{diag}(-2,1,4)$ では $He_1=-2e_1$、$\|e_1\|=1$、$-2=\inf\sigma(H)$ なので $e_1$ は基底状態です。一方、$L^2((0,1))$ 上の $(M_xf)(x)=xf(x)$ は有界自己共役で、スペクトルは $[0,1]$ です。$M_xf=0$ なら $xf(x)=0$ がほとんど至る所で成り立ち、$x>0$ がほとんど至る所なので $f=0$ です。よってスペクトル下端 $0$ は固有値でありません。
 <!-- definition-example-end -->
 
@@ -313,7 +321,7 @@ $$
 となります。逆に $H\psi=E_0\psi$ なら $q_H[\psi]=\langle\psi,H\psi\rangle=E_0\|\psi\|^2$ です。$\square$
 <!-- proof-end -->
 
-### 離散固有値の存在条件
+### 基底固有値が孤立する十分条件
 
 [MQ1 の本質スペクトルの定義](../MQ1/index.md#def-mq1-essential-spectrum) を使うと、十分条件を一つ記述できます。
 
@@ -333,7 +341,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$E_0$ は閉集合 $\sigma(H)$ の点です。仮定によって $E_0\notin\sigma_{\mathrm{ess}}(H)$ です。[MQ1 の定義](../MQ1/index.md#def-mq1-essential-spectrum) より $\sigma(H)\setminus\sigma_{\mathrm{ess}}(H)$ は孤立した有限重複度の固有値の集合です。よって $E_0$ はその一つです。$\sigma_{\mathrm{ess}}(H)=\varnothing$ でも全てのスペクトル点が離散固有値という同じ定義を適用できます。$\square$
+$E_0$ は閉集合 $\sigma(H)$ の点です。仮定によって $E_0\notin\sigma_{\mathrm{ess}}(H)$ です。[離散スペクトルと本質スペクトルの定義](../MQ1/index.md#def-mq1-essential-spectrum) より $\sigma(H)\setminus\sigma_{\mathrm{ess}}(H)$ は孤立した有限重複度の固有値の集合です。よって $E_0$ はその一つです。$\sigma_{\mathrm{ess}}(H)=\varnothing$ でも全てのスペクトル点が離散固有値という同じ定義を適用できます。$\square$
 <!-- proof-end -->
 
 この条件は十分条件であり必要条件ではありません。例えば零作用素を無限次元 Hilbert 空間で考えると、下端 $0$ は無限重複度の固有値ですが、本質スペクトルに属します。逆に自由粒子は [MQ1 の結果](../MQ1/index.md#thm-mq1-free-spectrum) により $E_0=0$ でも固有状態を持ちません。
@@ -418,7 +426,7 @@ $$
 二番目も次元交差を逆に使います。任意の $(N-k+1)$ 次元 $L$ は $\operatorname{span}\{e_1,\ldots,e_k\}$ と非自明に交わります。そこから単位 $x$ を取ると期待値は $\lambda_k$ 以下です。他方 $L_0=\operatorname{span}\{e_k,\ldots,e_N\}$ では全単位元の期待値が $\lambda_k$ 以上、$e_k$ で等号となります。$\square$
 <!-- proof-end -->
 
-**無限次元への注意**：いま完全に証明したのは有限次元版です。一般の無限次元作用素で第 $k$ 固有値に同じ式を使うには、本質スペクトルの下にある離散固有値を数える条件などが必要です。次の具体的計算では、まず最も確実な $k=1$ の変分原理を使います。
+**無限次元への注意**：いま完全に証明したのは有限次元版です。一般の無限次元作用素で第 $k$ 固有値に同じ式を使うには、本質スペクトルの下にある離散固有値を数える条件などが必要です。次の具体的計算では、まずスペクトル下端の変分原理（$k=1$ に相当する評価）を使います。
 
 ## 6. 実際に試行関数を積分する
 
@@ -512,7 +520,7 @@ $L^2((0,1))$ 上の $H=M_x$ について、$\sigma(H)=[0,1]$、$E_0=0$ だが固
 <!-- solution-start -->
 #### 詳細解答
 
-$M_x$ は実有界関数の最大乗算作用素なので全 $L^2$ で自己共役です。$\lambda\notin[0,1]$ では $|x-\lambda|^{-1}$ が本質有界なので逆作用素 $M_{1/(x-\lambda)}$ が存在します。$\lambda\in[0,1]$ では $|x-\lambda|$ が正測度集合で任意に小さくなり、有界な逆作用素は存在しないのでスペクトルは $[0,1]$ です。
+$M_x$ は実有界関数 $x$ を掛ける有界自己共役作用素なので全 $L^2$ で定義されます。$\lambda\notin[0,1]$ では $|x-\lambda|^{-1}$ が本質有界なので逆作用素 $M_{1/(x-\lambda)}$ が存在します。$\lambda\in[0,1]$ では $|x-\lambda|$ が正測度集合で任意に小さくなり、有界な逆作用素は存在しないのでスペクトルは $[0,1]$ です。
 
 $\|f_n\|^2=n(1/n)=1$。期待値は
 
@@ -523,7 +531,7 @@ $$
 =\frac1{2n}\to0.
 $$
 
-一方 $Hf=0$ なら $xf(x)=0$ a.e. で、$x>0$ a.e. より $f=0$ です。従って下限は近づけますが達成できません。
+一方 $Hf=0$ なら $xf(x)=0$ ほとんど至る所 で、$x>0$ ほとんど至る所 より $f=0$ です。従って下限は近づけますが達成できません。
 <!-- solution-end -->
 
 ### A3. 形式定義域と作用素定義域
