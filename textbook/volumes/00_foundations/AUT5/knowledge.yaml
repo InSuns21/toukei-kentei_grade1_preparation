@@ -49,7 +49,6 @@ concepts:
     introduction_aliases: ["命題（等個数ブロックの文脈自由文法）"]
     requires:
       - theoretical-computer-science.tree-derivation-equivalence
-      - theoretical-computer-science.nonregular-equal-blocks
 
   - id: theoretical-computer-science.grammar-ambiguity
     name: 文脈自由文法の曖昧性
