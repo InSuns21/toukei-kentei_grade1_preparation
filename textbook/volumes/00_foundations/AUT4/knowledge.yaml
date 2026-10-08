@@ -1,0 +1,58 @@
+chapter: AUT4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AUT3
+  - SET-U1
+
+concepts:
+  - id: theoretical-computer-science.pumping-lemma
+    name: 正規言語のポンピング補題
+    kind: theorem
+    aliases: ["pumping lemma for regular languages"]
+    introduction_aliases: ["定理（正規言語のポンピング補題）"]
+    requires:
+      - theoretical-computer-science.regular-language
+      - theoretical-computer-science.extended-transition
+
+  - id: theoretical-computer-science.nonregular-equal-blocks
+    name: 等個数ブロックの言語は正規でない
+    kind: proposition
+    introduction_aliases: ["命題（等個数ブロックの言語は正規でない）"]
+    requires:
+      - theoretical-computer-science.pumping-lemma
+
+  - id: theoretical-computer-science.nerode-equivalence
+    name: Myhill–Nerode同値関係
+    kind: definition
+    aliases: ["Myhill–Nerode equivalence"]
+    introduction: formal
+    introduction_aliases: ["定義（Myhill–Nerode同値関係と識別接尾部）"]
+    requires:
+      - theoretical-computer-science.formal-language
+      - theoretical-computer-science.concatenation
+      - set.equivalence-relation-class
+
+  - id: theoretical-computer-science.nerode-right-congruence
+    name: Myhill–Nerode同値関係の右合同性
+    kind: lemma
+    introduction_aliases: ["補題（同値関係と右合同性）"]
+    requires:
+      - theoretical-computer-science.nerode-equivalence
+
+  - id: theoretical-computer-science.myhill-nerode
+    name: Myhill–Nerodeの定理
+    kind: theorem
+    aliases: ["Myhill–Nerode theorem"]
+    introduction_aliases: ["定理（Myhill–Nerodeの定理）"]
+    requires:
+      - theoretical-computer-science.nerode-right-congruence
+      - theoretical-computer-science.regular-language
+      - theoretical-computer-science.dfa
+
+  - id: theoretical-computer-science.distinguishable-prefix-lower-bound
+    name: 識別可能な接頭部と必要状態数
+    kind: corollary
+    introduction_aliases: ["系（識別可能な接頭部と必要状態数）"]
+    requires:
+      - theoretical-computer-science.myhill-nerode

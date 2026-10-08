@@ -1,0 +1,26 @@
+chapter: "AUT4"
+terms:
+  - term: 正規言語のポンピング補題
+    english: pumping lemma for regular languages
+    meaning: "十分に長い正規言語の語には、初期部分にある空でない部分語を何回反復しても所属が変わらない分解が存在するという必要条件。"
+  - term: ポンピング長
+    english: pumping length
+    meaning: "正規言語のポンピング補題で、反復できる分解を保証するための正の整数。"
+  - term: 識別接尾部
+    english: distinguishing suffix
+    meaning: "二つの接頭部の後ろへ同じ語を連結すると、一方だけが言語に属するようになる接尾部。"
+  - term: Myhill–Nerode同値関係
+    english: Myhill–Nerode equivalence
+    meaning: "任意の共通接尾部を追加したとき言語の所属結果が一致する二つの接頭部を同値とする関係。"
+  - term: 右合同性
+    english: right congruence
+    meaning: "同値な二つの語の右側へ同じ語を連結しても同値性が保たれる性質。"
+  - term: Myhill–Nerodeの定理
+    english: Myhill–Nerode theorem
+    meaning: "言語が正規であることとその区別可能な接頭部の同値類が有限個であることの同値性を述べ、最小DFAの状態数を確定する定理。"
+  - term: 最小DFA
+    english: minimal deterministic finite automaton
+    meaning: "同じ言語を認識するすべてのDFAの中で状態数が最小のDFA。"
+  - term: 状態数の評価
+    english: state complexity bound
+    meaning: "相異なる接頭部を識別して必要状態数を示し、実際のDFA構成でその数の状態で足りることを確認する方法。"
