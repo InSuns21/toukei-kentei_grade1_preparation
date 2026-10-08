@@ -15,7 +15,7 @@
 <!-- formal-statement-start -->
 ### 定義（非決定性プッシュダウン・オートマトン）
 
-非決定性プッシュダウン・オートマトン（PDA）とは七つ組 $M=(Q,\Sigma,\Gamma,\delta,q_0,Z_0,F)$ である。$Q$ は有限個の状態からなる空でない集合、$\Sigma$ は有限入力アルファベット、$\Gamma$ は有限スタックアルファベット、$q_0\in Q$ は初期状態、$Z_0\in\Gamma$ は初期スタック記号、$F\subseteq Q$ は受理状態集合とする。遷移は有限集合値の写像
+非決定性プッシュダウン・オートマトン（PDA）とは七つ組 $M=(Q,\Sigma,\Gamma,\delta,q_0,Z_0,F)$ である。$Q$ は空でない状態の集合で、その要素数は有限とする。$\Sigma$ は有限入力アルファベット、$\Gamma$ は有限スタックアルファベット、$q_0\in Q$ は初期状態、$Z_0\in\Gamma$ は初期スタック記号、$F\subseteq Q$ は受理状態集合とする。遷移は有限集合値の写像
 
 $$
 \delta:Q\times(\Sigma\cup\{\varepsilon\})\times\Gamma
