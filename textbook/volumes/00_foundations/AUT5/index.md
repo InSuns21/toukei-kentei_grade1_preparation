@@ -489,7 +489,7 @@ $$
 S\to AC\mid AB,\quad C\to SB,\quad A\to a,\quad B\to b
 $$
 
-とします。右辺はすべて非終端記号二個または終端記号一個なのでChomsky標準形です。$S\to AB\Rightarrow ab$ は元の終了規則 $S\to ab$ に対応します。$S\to AC\Rightarrow aC\Rightarrow aSB$ と $B\to b$ の組は元の $S\to aSb$ に対応します。従って標準形の構文木の各 $AC,C\to SB,A\to a,B\to b$ の節点を元の $aSb$ の一節点へ戻し、$AB$ の節点を元の $ab$ の一節点へ戻せます。逆に元の $aSb$、$ab$ の節点を上記規則の部分木へ展開できます。どちらも左右の葉の順序は変わりません。導出と構文木の対応から両文法は同じ $\{a^nb^n:n\ge1\}$ を生成します。
+とします。右辺はすべて非終端記号二個または終端記号一個なのでChomsky標準形です。$S\to AB\Rightarrow ab$ は元の終了規則 $S\to ab$ に対応します。$S\to AC\Rightarrow aC\Rightarrow aSB$ と $B\to b$ の組は元の $S\to aSb$ に対応します。従って標準形の構文木の各 $AC,C\to SB,A\to a,B\to b$ の節点を元の $aSb$ の一節点へ戻し、$AB$ の節点を元の $ab$ の一節点へ戻せます。逆に元の $aSb$、$ab$ の節点を上記規則の部分木へ展開できます。どちらも左右の葉の順序は変わりません。[導出と構文木の対応](#thm-aut5-tree-derivation)から両文法は同じ $\{a^nb^n:n\ge1\}$ を生成します。
 <!-- solution-end -->
 
 ### Level C
