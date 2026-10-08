@@ -1,5 +1,8 @@
 chapter: "AUT2"
 terms:
+  - term: 全域関数
+    english: total function
+    meaning: "定義域のすべての元に対して値を持つ写像。DFAの遷移では全ての状態・記号の組の行き先が決まる。"
   - term: 決定性有限オートマトン
     english: deterministic finite automaton
     meaning: "有限状態集合、有限アルファベット、全域遷移関数、初期状態、受理状態集合からなる判定の計算模型。"

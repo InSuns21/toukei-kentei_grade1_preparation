@@ -5,6 +5,22 @@ prerequisites:
   - AUT1
 
 concepts:
+  - id: theoretical-computer-science.automaton-state
+    name: 状態
+    kind: term
+    aliases: ["automaton state"]
+    introduction: inline
+    requires:
+      - set.set
+
+  - id: theoretical-computer-science.total-function
+    name: 全域関数
+    kind: term
+    aliases: ["total function"]
+    introduction: inline
+    requires:
+      - set.function
+
   - id: theoretical-computer-science.dfa
     name: 決定性有限オートマトン
     kind: definition
@@ -12,6 +28,8 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（決定性有限オートマトン）"]
     requires:
+      - theoretical-computer-science.automaton-state
+      - theoretical-computer-science.total-function
       - theoretical-computer-science.finite-alphabet
       - theoretical-computer-science.word
 
