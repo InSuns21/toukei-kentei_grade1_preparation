@@ -1,0 +1,35 @@
+chapter: "MQ4"
+terms:
+  - term: 換算質量
+    english: reduced mass
+    meaning: "二体の相対運動を一体の問題へ移すときに現れる質量 μ=m₁m₂/(m₁+m₂)。"
+  - term: Coulomb Hamiltonian
+    english: Coulomb Hamiltonian
+    meaning: "自由 Schrödinger 作用素に原点で特異な引力ポテンシャル −κ/r を加えた自己共役作用素。"
+  - term: Hardy 不等式
+    english: Hardy inequality
+    meaning: "三次元で ||ψ/r||₂≤2||∇ψ||₂ と評価し原点特異ポテンシャルを制御する不等式。"
+  - term: 球面調和関数
+    english: spherical harmonic
+    meaning: "球面 Laplacian の固有関数で、中心力問題の角度依存を分解するために使う。"
+  - term: 部分波分解
+    english: partial-wave decomposition
+    meaning: "球面調和関数と u=rR の変換により三次元 Hamiltonian を角量子数ごとの一次元動径作用素へ分解すること。"
+  - term: 動径作用素
+    english: radial operator
+    meaning: "中心力 Schrödinger 作用素の各角運動量モードで現れる半直線上の二階微分作用素。"
+  - term: 軌道量子数
+    english: orbital quantum number
+    meaning: "角運動量の二乗の固有値 ℏ²ℓ(ℓ+1) を指定する非負整数 ℓ。"
+  - term: 磁気量子数
+    english: magnetic quantum number
+    meaning: "角運動量 z 成分の固有値 ℏm を指定する整数 m。"
+  - term: 主量子数
+    english: principal quantum number
+    meaning: "Coulomb の束縛準位 Eₙ∝−1/n² を区別する正整数 n。"
+  - term: Laguerre 多項式
+    english: generalized Laguerre polynomial
+    meaning: "Coulomb の束縛状態の動径波動関数に現れる、重み付き微分方程式の多項式解。"
+  - term: 本質スペクトル
+    english: essential spectrum
+    meaning: "スペクトルから有限重複度の孤立固有値を除いた部分。Coulomb 作用素では [0,∞)。"
