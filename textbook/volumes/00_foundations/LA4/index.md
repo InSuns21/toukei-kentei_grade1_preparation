@@ -1084,6 +1084,15 @@ $$
 $$
 e_i(T)v_j=e_i(\lambda_j)v_j=\delta_{ij}v_j.
 $$
+
+ここで $\delta_{ij}$ は [LA3A で導入した Kronecker のデルタ](../LA3A/index.md#def-la3a-dual-basis) で、$i=j$ なら $1$、$i\ne j$ なら $0$ です。実際、上で定義した補間多項式
+
+$$
+e_i(t)=\prod_{k\ne i}\frac{t-\lambda_k}{\lambda_i-\lambda_k}
+$$
+
+に $t=\lambda_j$ を代入します。$j=i$ なら全ての分子と分母が一致して $e_i(\lambda_i)=1$。$j\ne i$ なら積の $k=j$ の因子の分子が $\lambda_j-\lambda_j=0$ なので $e_i(\lambda_j)=0$ です。分母はいずれも相異なる固有値の差だから $0$ ではありません。
+
 元の等式へ $e_i(T)$ を作用させると $v_i=0$。全ての $i$ について成り立つので和は直和です。各固有空間の基底を合わせれば固有基底になり、$T$ は対角化可能です。$\square$
 <!-- proof-end -->
 
