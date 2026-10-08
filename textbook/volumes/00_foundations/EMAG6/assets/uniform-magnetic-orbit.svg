@@ -1,30 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title desc" data-layout-lint="strict">
   <title id="title">一様磁場中の正電荷の円運動</title>
-  <desc id="desc">磁場が紙面手前向きのとき、円軌道右端にある正電荷の速度は下向き、磁気力 q v cross B は円の中心へ向く。</desc>
+  <desc id="desc">青い点記号は紙面手前向きの磁場 B、灰色の円は軌道を示す。円軌道右端にある正電荷の速度 v は青い実線矢印で下向き、磁気力 F_B は橙色の破線矢印で中心向き。色に頼らず矢印の向きと線種でも識別できる。</desc>
   <defs>
-    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
-      <path d="M 0 0 L 10 5 L 0 10 z"/>
+    <marker id="velocity-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0072B2"/>
+    </marker>
+    <marker id="force-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#D55E00"/>
     </marker>
   </defs>
 
-  <circle cx="300" cy="180" r="105" fill="none" stroke="currentColor" stroke-width="3"/>
-  <circle cx="405" cy="180" r="7" fill="currentColor"/>
+  <circle cx="300" cy="180" r="105" fill="none" stroke="#6B7280" stroke-width="3"/>
+  <circle cx="405" cy="180" r="7" fill="#1F2937"/>
 
-  <line x1="405" y1="180" x2="405" y2="285" stroke="currentColor" stroke-width="4" marker-end="url(#arrow)"/>
-  <text x="424" y="258" font-size="24">v</text>
+  <line x1="405" y1="180" x2="405" y2="282" stroke="#0072B2" stroke-width="4" marker-end="url(#velocity-arrow)" data-series-group="motion-vectors" data-series-label="velocity"/>
+  <text x="424" y="258" font-size="24" font-family="sans-serif" fill="#0072B2">v</text>
 
-  <line x1="405" y1="180" x2="320" y2="180" stroke="currentColor" stroke-width="4" marker-end="url(#arrow)"/>
-  <text x="315" y="145" font-size="22">F_B</text>
+  <line x1="405" y1="180" x2="320" y2="180" stroke="#D55E00" stroke-width="4" stroke-dasharray="10 6" marker-end="url(#force-arrow)" data-series-group="motion-vectors" data-series-label="magnetic-force"/>
+  <text x="315" y="145" font-size="22" font-family="sans-serif" fill="#D55E00">F_B</text>
 
-  <circle cx="92" cy="105" r="16" fill="none" stroke="currentColor" stroke-width="2"/>
-  <circle cx="92" cy="105" r="4" fill="currentColor"/>
-  <circle cx="92" cy="180" r="16" fill="none" stroke="currentColor" stroke-width="2"/>
-  <circle cx="92" cy="180" r="4" fill="currentColor"/>
-  <circle cx="92" cy="255" r="16" fill="none" stroke="currentColor" stroke-width="2"/>
-  <circle cx="92" cy="255" r="4" fill="currentColor"/>
-  <text x="48" y="322" font-size="22">B: +z</text>
+  <circle cx="92" cy="105" r="16" fill="none" stroke="#0072B2" stroke-width="2"/>
+  <circle cx="92" cy="105" r="4" fill="#0072B2"/>
+  <circle cx="92" cy="180" r="16" fill="none" stroke="#0072B2" stroke-width="2"/>
+  <circle cx="92" cy="180" r="4" fill="#0072B2"/>
+  <circle cx="92" cy="255" r="16" fill="none" stroke="#0072B2" stroke-width="2"/>
+  <circle cx="92" cy="255" r="4" fill="#0072B2"/>
+  <text x="48" y="322" font-size="22" font-family="sans-serif" fill="#0072B2">B: +z</text>
 
-  <text x="420" y="172" font-size="20">q&gt;0</text>
-  <circle cx="300" cy="180" r="4" fill="currentColor"/>
-  <text x="275" y="215" font-size="20">center</text>
+  <text x="420" y="172" font-size="20" font-family="sans-serif" fill="#1F2937">q&gt;0</text>
+  <circle cx="300" cy="180" r="4" fill="#1F2937"/>
+  <text x="282" y="215" font-size="20" font-family="sans-serif" fill="#1F2937">O</text>
 </svg>
