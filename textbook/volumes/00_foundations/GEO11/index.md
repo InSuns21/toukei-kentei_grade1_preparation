@@ -3101,13 +3101,23 @@ $$
 (\partial_j\lambda)g_{ik}.
 $$
 
-両辺に $g^{jk}$ を掛けて $j,k$ について和を取ると
+両辺に $g^{jk}$ を掛けて $j,k$ について和を取ります。逆計量の関係 $\sum_k g_{ik}g^{jk}=\delta_i^j$ を使い、左辺は
 
 $$
-n\,\partial_i\lambda
-=
-\partial_i\lambda.
+(\partial_i\lambda)\sum_{j,k=1}^n g_{jk}g^{jk}
+=(\partial_i\lambda)\sum_{j=1}^n\delta_j^j
+=n\,\partial_i\lambda,
 $$
+
+右辺は
+
+$$
+\sum_{j,k=1}^n(\partial_j\lambda)g_{ik}g^{jk}
+=\sum_{j=1}^n(\partial_j\lambda)\delta_i^j
+=\partial_i\lambda
+$$
+
+となります。
 
 従って
 
