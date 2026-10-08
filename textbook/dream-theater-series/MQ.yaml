@@ -1,0 +1,27 @@
+version: 1
+id: MQ
+title: 数理量子力学
+plan: textbook/plans_progress/DREAM_THEATER_MATHEMATICAL_QUANTUM_MECHANICS_PLAN.md
+chapter_root: textbook/volumes/00_foundations
+
+chapters:
+  - id: MQ0
+    path: textbook/volumes/00_foundations/MQ0
+    status: planned
+    title: 古典力学から数理量子力学への橋
+  - id: MQ1
+    path: textbook/volumes/00_foundations/MQ1
+    status: planned
+    title: 微分作用素・Schrödinger 作用素と本質的自己共役性
+  - id: MQ2
+    path: textbook/volumes/00_foundations/MQ2
+    status: planned
+    title: 変分原理・二次形式・基底状態
+  - id: MQ3
+    path: textbook/volumes/00_foundations/MQ3
+    status: planned
+    title: 量子調和振動子
+  - id: MQ4
+    path: textbook/volumes/00_foundations/MQ4
+    status: planned
+    title: 中心力ポテンシャルと水素原子
