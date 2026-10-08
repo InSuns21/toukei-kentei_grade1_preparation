@@ -423,7 +423,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（量子調和振動子の自己共役性と全スペクトル）**  
-> $m,\omega,\hbar>0$ とし、$H_{\mathrm{diff}}= -\hbar^2 d^2/(2m\,dx^2)+m\omega^2x^2/2$ を $\mathcal S(\mathbb R)$ 上に定める。この対称作用素は本質的自己共役であり、その閉包 $H$ の定義域は、$\psi_n=U^{-1}\phi_n$ として
+> $m,\omega,\hbar>0$ とし、$\mathcal S(\mathbb R)$ 上に対称作用素
+
+$$
+H_{\mathrm{diff}}=-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}+\frac12m\omega^2x^2
+$$
+
+> を定める。この作用素は本質的自己共役であり、その閉包 $H$ の定義域は、$\psi_n=U^{-1}\phi_n$ として
 
 $$
 D(H)=\left\{\psi=\sum_{n=0}^\infty c_n\psi_n:
@@ -431,7 +437,13 @@ D(H)=\left\{\psi=\sum_{n=0}^\infty c_n\psi_n:
 $$
 
 
-> である。この定義域上で $H\psi=\sum_{n=0}^\infty \hbar\omega(n+\frac12)c_n\psi_n$ となり、
+> である。この定義域上で作用は
+
+$$
+H\psi=\sum_{n=0}^\infty \hbar\omega\left(n+\frac12\right)c_n\psi_n
+$$
+
+> となり、
 
 $$
 \sigma(H)=\sigma_{\mathrm p}(H)
