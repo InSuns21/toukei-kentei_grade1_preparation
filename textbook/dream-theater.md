@@ -405,6 +405,7 @@
 
 1. [AUT1 文字列・形式言語・判定問題](textbook/volumes/00_foundations/AUT1/index.md)
 2. [AUT2 決定性有限オートマトン](textbook/volumes/00_foundations/AUT2/index.md)
+3. [AUT3 非決定性有限オートマトン・正規表現](textbook/volumes/00_foundations/AUT3/index.md)
 
 <a id="dt-subject-numerical-analysis"></a>
 ### 数値解析
