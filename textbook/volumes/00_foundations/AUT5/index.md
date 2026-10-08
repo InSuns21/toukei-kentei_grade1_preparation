@@ -29,6 +29,8 @@
 <!-- definition-example-start: def-aut5-cfg -->
 ### 例：括弧列の文法の条件を確認する
 
+**定義の確認**
+
 $$
 V=\{S\},\quad \Sigma=\{(,)\},\quad R=\{S\to(S)S,\ S\to\varepsilon\}
 $$
@@ -65,6 +67,8 @@ $$
 <!-- definition-example-start: def-aut5-derivation -->
 ### 例：二組の括弧を導出する
 
+**定義の確認**
+
 前節の文法について次の各矢印では、左辺のどの $S$ を置き換えたかを明示できます。
 
 $$
@@ -87,6 +91,8 @@ $$
 
 <!-- definition-example-start: def-aut5-parse-tree -->
 ### 例：入れ子の構文木
+
+**定義の確認**
 
 括弧の文法 $S\to(S)S\mid\varepsilon$ で $(())$ を生成します。根の規則は $S\to(S)S$、最初の子の $S$ を再び $S\to(S)S$ で展開し、残る三つの $S$ は $S\to\varepsilon$ で終えます。葉の列は左から $(,(,\varepsilon,),\varepsilon,),\varepsilon$ なので、空文字を消した結果は $(())$ です。根・内部節点の子はそれぞれ規則の右辺と一致し、全非終端節点は展開されているため、定義の条件を満たします。
 <!-- definition-example-end -->
@@ -172,6 +178,8 @@ $$
 <!-- definition-example-start: def-aut5-ambiguity -->
 ### 例：異なる根の規則で曖昧性を確認する
 
+**定義の確認**
+
 上の算術式文法で同じ $w=a+a*a$ に対し、次の二つの左端導出ができます。
 
 $$
@@ -254,6 +262,8 @@ $$
 
 <!-- definition-example-start: def-aut5-cnf -->
 ### 例：二分木になる規則
+
+**定義の確認**
 
 $V=\{S_0,A,B\}$、$\Sigma=\{a,b\}$、規則を $S_0\to AB$、$A\to a$、$B\to b$ とします。どの規則も非終端記号二個または終端記号一個の形で、空文字規則もありません。開始記号 $S_0$ は右辺に現れず、すべての条件を満たします。構文木の根 $S_0$ の子は $A,B$、その各子は $a,b$ で、葉の列は $ab$ です。
 <!-- definition-example-end -->
