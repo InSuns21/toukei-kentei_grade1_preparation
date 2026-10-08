@@ -668,4 +668,5 @@
 4. [EMAG4 導体・境界値問題・静電エネルギー](textbook/volumes/00_foundations/EMAG4/index.md)
 5. [EMAG5 電流・磁場・Ampère の法則](textbook/volumes/00_foundations/EMAG5/index.md)
 6. [EMAG6 Lorentz 力と荷電粒子](textbook/volumes/00_foundations/EMAG6/index.md)
+7. [EMAG7 電磁誘導と Maxwell 方程式](textbook/volumes/00_foundations/EMAG7/index.md)
 
