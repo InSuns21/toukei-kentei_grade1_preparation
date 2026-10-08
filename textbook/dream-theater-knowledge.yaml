@@ -66,6 +66,10 @@ alias_matching:
     - commutator
     - 対応
     - correspondence
+    # C*-環の状態と量子系の純粋状態、および時系列と作用素のスペクトル測度は別概念。
+    # 自由文内の部分一致だけでは特定の canonical owner への依存とはしない。
+    - 状態
+    - スペクトル測度
     - 跡
     - 中心
     - 錐
