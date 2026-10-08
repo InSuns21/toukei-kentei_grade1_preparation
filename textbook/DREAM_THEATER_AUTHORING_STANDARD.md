@@ -317,6 +317,16 @@ DREAM THEATER では各演習に **詳細解答**を必須とする。
 
 ---
 
+### 公開ページの直接前提講座リンク
+
+DREAM THEATER の各章の公開ページでは、H1の直下に **「前提講座（直接）」** を表示する。対象は公開索引 `textbook/dream-theater-index.json` に掲載された全章とし、先頭講だけに限定しない。
+
+- **直接1階層**だけを表示し、前提先の前提へ再帰的にたどらない。
+- 各章の `chapter.yaml` の `prerequisites` を唯一の正本とし、参照先の `chapter.yaml` の章IDと題名を使ってリンク名を付ける。
+- `prerequisites: []` の場合は「なし」と表示する。未解決の章ID・リンク先の欠落は自動検証で検出し、機械的な依存の追加や勝手な代替講座への置き換えは行わない。
+- 本文の `index.md` に同じ一覧を重複転記しない。Pages の生成処理が公開MarkdownのH1直下へ差し込む。これにより、章本文の改稿なしに依存関係の更新が反映される。
+- `npm run validate:dream-theater-prerequisites` で正本の参照解決とスクリプトの自己テストを行い、`npm run validate:pages` で公開生成後のリンク・配置を再検証する。既存の本文内の個別定理参照や既出概念の説明は引き続き有効である。
+
 ## 9. 依存関係と重複回避
 
 編集前に対象章の `chapter.yaml` / `knowledge.yaml` の `prerequisites`、概念依存、`dream-theater-standard-math-core.md` の通読順を確認する。通読順は依存関係から導く案内であり、独立した依存DAGの正本として扱わない。
