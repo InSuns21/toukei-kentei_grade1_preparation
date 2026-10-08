@@ -23,5 +23,5 @@ chapters:
     title: 量子調和振動子
   - id: MQ4
     path: textbook/volumes/00_foundations/MQ4
-    status: planned
+    status: completed
     title: 中心力ポテンシャルと水素原子
