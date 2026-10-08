@@ -1,0 +1,26 @@
+chapter: "EMAG7"
+terms:
+  - term: 磁束
+    english: magnetic flux
+    meaning: "向き付けられた面 S を貫く磁場 B の法線成分の積分 Phi_B=int_S B dot n dS。SI 単位は Wb。"
+  - term: 誘導起電力
+    english: induced electromotive force
+    meaning: "静止した回路 C に沿う電場の循環 int_C E dot dl。磁束が変化すると Faraday の法則で値が決まる。"
+  - term: Faraday の法則
+    english: Faraday's law
+    meaning: "固定された面を貫く磁束の時間変化が、境界上の電場の循環に負号付きで一致するという経験法則。"
+  - term: Lenz の法則
+    english: Lenz's law
+    meaning: "閉じた導体に誘導電流が流れる場合、その電流の磁場が磁束の変化を妨げる向きに生じるという方向の規則。"
+  - term: 運動起電力
+    english: motional electromotive force
+    meaning: "磁場中を動く導体内の電荷へ働く磁気力 u cross B によって生じる起電力。静止回路の電場による起電力と区別する。"
+  - term: 変位電流
+    english: displacement current
+    meaning: "真空中の時間変化する電場から J_D=epsilon_0 partial_t E と定義する電流密度の面積分。電荷の実際の通過とは異なる。"
+  - term: Ampère--Maxwell の法則
+    english: Ampere-Maxwell law
+    meaning: "磁場の回転が伝導電流密度と変位電流密度の和に比例する Maxwell 方程式の一つ。電荷保存と整合する。"
+  - term: 電磁ポテンシャル
+    english: electromagnetic potentials
+    meaning: "磁場 B=curl A と電場 E=-grad phi-partial_t A を表すベクトルポテンシャル A とスカラーポテンシャル phi の組。ゲージ変換で場は変わらない。"
