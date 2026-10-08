@@ -2,7 +2,7 @@
 
 [MQ1](../MQ1/index.md) で自由 Hamiltonian の自己共役な実現と、その二次形式を得ました。ここから知りたいのは「どのエネルギーが許されるか」、特に最も低いエネルギーです。微分方程式 $H\psi=E\psi$ を直接解く前に、規格化した状態のエネルギー期待値を比較できれば、固有関数を知らなくてもエネルギーに上界を与えられます。
 
-ただし、三つの問いは異なります。**期待値の下限はいくらか**、**その下限を実現する状態はあるか**、**実現するならそれは孤立固有値か**。この順番で、スペクトル定理から変分原理を導きます。
+ただし、三つの問いは異なります。**期待値の下限はいくらか**、**その下限を実現する状態はあるか**、**実現するならそれは孤立固有値か**。この順番で、[非有界自己共役作用素のスペクトル表示](../QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral) を使って変分原理を導きます。
 
 ## 1. 下に有界な Hamiltonian と Rayleigh 商
 
@@ -88,7 +88,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[QM6 の非有界自己共役スペクトル定理](../QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral) で得られるスペクトル射影値測度を $P$ とし、$\mu_\psi(B)=\langle\psi,P(B)\psi\rangle$ と置きます。$\mu_\psi(\mathbb R)=\|\psi\|^2$ であり、$\psi\in D(H)$ なら $\int\lambda^2\,d\mu_\psi<\infty$ です。Cauchy–Schwarz の不等式から一次モーメントも有限となり、
+[QM6 の非有界自己共役スペクトル定理](../QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral) で得られるスペクトル射影値測度を $P$ とし、$\mu_\psi(B)=\langle\psi,P(B)\psi\rangle$ と置きます。$\mu_\psi(\mathbb R)=\|\psi\|^2$ であり、$\psi\in D(H)$ なら $\int\lambda^2\,d\mu_\psi<\infty$ です。[Cauchy–Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz) を有限測度 $\mu_\psi$ 上で $|\lambda|$ と定数関数 $1$ に適用すると、
+
+$$
+\int|\lambda|\,d\mu_\psi
+\le\left(\int\lambda^2\,d\mu_\psi\right)^{1/2}
+\left(\int1\,d\mu_\psi\right)^{1/2}<\infty
+$$
+
+なので一次モーメントも有限となり、
 
 $$
 \langle\psi,H\psi\rangle
@@ -97,7 +105,7 @@ $$
 =E_0\|\psi\|^2.
 $$
 
-ここで $E_0$ が有限であることを確認します。定義の下界 $a$ に対して $\langle\psi,(H-aI)\psi\rangle\ge0$ です。自己共役スペクトル定理により $H-aI$ のスペクトルは $[0,\infty)$ に含まれ、$\sigma(H)\subset[a,\infty)$ です。非零 Hilbert 空間上の自己共役作用素のスペクトルは空でないので $E_0\in\mathbb R$ です。
+ここで $E_0$ が有限であることを確認します。定義の下界 $a$ に対して $\langle\psi,(H-aI)\psi\rangle\ge0$ です。[非有界自己共役作用素のスペクトル表示](../QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral) を非負な $H-aI$ に適用すると、そのスペクトルは $[0,\infty)$ に含まれ、$\sigma(H)\subset[a,\infty)$ です。非零 Hilbert 空間上の自己共役作用素のスペクトルは空でないので $E_0\in\mathbb R$ です。
 
 逆側の不等式を証明します。任意の $\varepsilon>0$ を取ります。$E_0$ は閉集合 $\sigma(H)$ の下端なので $E_0\in\sigma(H)$ です。もし $P([E_0,E_0+\varepsilon))=0$ なら、この区間の内側にスペクトルは存在せず、$E_0$ 自身もスペクトルから外れて矛盾します。従って $P([E_0,E_0+\varepsilon))\ne0$ です。
 
@@ -174,7 +182,7 @@ $$
 > が成り立つ。
 <!-- formal-statement-end -->
 
-証明の要点は、形式ノルムが平方根作用素のグラフノルムそのものであり、閉性をスペクトル定理から得られることです。
+証明の要点は、形式ノルムが平方根作用素のグラフノルムそのものであり、閉性を非負平方根作用素のグラフの閉性から得られることです。
 
 <!-- proof-start -->
 ### 証明
