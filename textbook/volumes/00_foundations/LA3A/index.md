@@ -130,6 +130,27 @@ $$
 
 $x=av_1+bv_2$ と書いたとき、係数 $a$ だけを返す関数、$b$ だけを返す関数が欲しくなります。これが双対基底です。
 
+<a id="notation-la3a-kronecker-delta"></a>
+
+その条件を短く書くため、**Kronecker のデルタ**という記号を使います。$i,j\in\{1,\dots,n\}$ に対し、
+
+$$
+\delta_{ij}=
+\begin{cases}
+1,&i=j,\\
+0,&i\ne j
+\end{cases}
+$$
+
+です。例えば $\delta_{11}=1$、$\delta_{12}=0$、$\delta_{22}=1$。これは $n$ 次単位行列の $(i,j)$ 成分でもあります。したがって、基底 $e_1,e_2$ の座標を読む線形形式は
+
+$$
+e^1(e_1)=1,\quad e^1(e_2)=0,\qquad
+e^2(e_1)=0,\quad e^2(e_2)=1
+$$
+
+となります。$\delta_{ij}$ はこの4条件を一つの式へまとめるための記号であり、ここでは添字が一致するかどうかを表すだけです。
+
 <a id="def-la3a-dual-basis"></a>
 <!-- formal-statement-start -->
 > **定義（双対基底）**  
@@ -669,7 +690,18 @@ $$
 v^1(x)=\frac{x_1+x_2}{3},\qquad
 v^2(x)=\frac{2x_1-x_2}{3}.
 $$
-実際に $v^i(v_j)=\delta_{ij}$ を確認できます。
+4つの値を実際に代入すると
+
+$$
+\begin{aligned}
+v^1(v_1)&=\frac{1+2}{3}=1,&
+v^1(v_2)&=\frac{1-1}{3}=0,\\
+v^2(v_1)&=\frac{2\cdot1-2}{3}=0,&
+v^2(v_2)&=\frac{2\cdot1-(-1)}{3}=1
+\end{aligned}
+$$
+
+となり、$v^i(v_j)=\delta_{ij}$ がすべての $i,j\in\{1,2\}$ で確認できました。
 <!-- solution-end -->
 
 ### LA3A-A02 零化空間

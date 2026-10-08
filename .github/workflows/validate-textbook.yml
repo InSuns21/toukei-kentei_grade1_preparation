@@ -48,7 +48,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
         with:
-          fetch-depth: 2
+          fetch-depth: 0
+
+      - name: Resolve PR merge-base parent for diff validation
+        if: github.event_name == 'pull_request'
+        run: echo "PR_COMPARISON_SHA=$(git rev-parse HEAD^1)" >> "$GITHUB_ENV"
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
@@ -70,7 +74,7 @@ jobs:
         if: github.event_name == 'pull_request'
         id: scope
         env:
-          TEXTBOOK_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          TEXTBOOK_BASE_SHA: ${{ env.PR_COMPARISON_SHA }}
         run: node scripts/detect-textbook-validation-scope.mjs --github-output
 
       - name: Self-test DREAM THEATER review evidence coverage
@@ -80,21 +84,21 @@ jobs:
       - name: Validate DREAM THEATER chapter review evidence
         if: github.event_name == 'pull_request'
         env:
-          TEXTBOOK_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          TEXTBOOK_BASE_SHA: ${{ env.PR_COMPARISON_SHA }}
           DREAM_THEATER_PR_BODY: ${{ github.event.pull_request.body }}
         run: node scripts/validate-dream-theater-review-evidence.mjs --base "$TEXTBOOK_BASE_SHA"
 
       - name: Validate changed textbook guardrails
         if: github.event_name == 'pull_request'
         env:
-          TEXTBOOK_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          TEXTBOOK_BASE_SHA: ${{ env.PR_COMPARISON_SHA }}
         run: npm run validate:textbook:changed -- --base "$TEXTBOOK_BASE_SHA"
 
       - name: Fast validate changed textbook dependencies and SVG
         if: github.event_name == 'pull_request' && steps.scope.outputs.full != 'true'
         env:
-          TEXTBOOK_BASE_SHA: ${{ github.event.pull_request.base.sha }}
-          TEXTBOOK_KNOWLEDGE_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          TEXTBOOK_BASE_SHA: ${{ env.PR_COMPARISON_SHA }}
+          TEXTBOOK_KNOWLEDGE_BASE_SHA: ${{ env.PR_COMPARISON_SHA }}
         run: |
           npm run validate:svg-layout:changed -- --base "$TEXTBOOK_BASE_SHA"
           npm run validate:textbook-knowledge:changed

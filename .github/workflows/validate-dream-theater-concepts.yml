@@ -58,7 +58,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
         with:
-          fetch-depth: 2
+          fetch-depth: 0
+
+      - name: Resolve PR merge-base parent for diff validation
+        if: github.event_name == 'pull_request'
+        run: echo "PR_COMPARISON_SHA=$(git rev-parse HEAD^1)" >> "$GITHUB_ENV"
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
@@ -79,13 +83,13 @@ jobs:
         id: audit-scope
         if: github.event_name == 'pull_request'
         env:
-          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          BASE_SHA: ${{ env.PR_COMPARISON_SHA }}
         run: node scripts/detect-dream-theater-concept-audit-scope.mjs --base "$BASE_SHA"
 
       - name: Validate changed DREAM THEATER pages
         if: github.event_name == 'pull_request'
         env:
-          DREAM_THEATER_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          DREAM_THEATER_BASE_SHA: ${{ env.PR_COMPARISON_SHA }}
         run: npm run validate:dream-theater-concepts:changed
 
       - name: Audit full DREAM THEATER concept coverage

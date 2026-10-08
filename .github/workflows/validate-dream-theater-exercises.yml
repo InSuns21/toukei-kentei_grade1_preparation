@@ -30,7 +30,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
         with:
-          fetch-depth: ${{ github.event_name == 'pull_request' && 2 || 0 }}
+          fetch-depth: 0
+
+      - name: Resolve PR merge-base parent for diff validation
+        if: github.event_name == 'pull_request'
+        run: echo "PR_COMPARISON_SHA=$(git rev-parse HEAD^1)" >> "$GITHUB_ENV"
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
@@ -43,5 +47,5 @@ jobs:
 
       - name: Validate changed DREAM THEATER exercise counts
         env:
-          DREAM_THEATER_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+          DREAM_THEATER_BASE_SHA: ${{ env.PR_COMPARISON_SHA || github.event.before }}
         run: npm run validate:dream-theater-exercise-counts

@@ -1966,6 +1966,8 @@ $$
 
 ## 7. 全方向が同じだけ曲がる超曲面
 
+球面では、どの接方向へ曲がるかを選んでも同じ曲がり方になります。一方、円柱には軸に沿って曲がらない方向と、円周に沿って曲がる方向があります。この違いを形作用素で表すと、球面型の状況では接ベクトルの向きを変えず同じ倍率を掛けることになります。以下では、その倍率が点ごとに変わる可能性も許し、全臍的という条件を定めます。
+
 <a id="def-geo11-totally-umbilic"></a>
 <!-- formal-statement-start -->
 > **定義（全臍的超曲面）**  
@@ -2124,12 +2126,26 @@ $$
 (\partial_j\lambda)g_{ik}.
 $$
 
-両辺に $g^{jk}$ を掛け、$j,k$ について和を取ります。
+両辺に $g^{jk}$ を掛け、$j,k$ について和を取ります。ここで $(g^{jk})$ は計量行列 $(g_{jk})$ の逆行列で、両者は対称です。逆行列の成分表示から
+
+$$
+\sum_{k=1}^n g_{ik}g^{kj}=\delta_i^j,
+\qquad
+\delta_i^j=
+\begin{cases}
+1,&i=j,\\
+0,&i\ne j
+\end{cases}
+$$
+
+が成り立ちます。$\delta_i^j$ は Kronecker のデルタで、上付きの $j$ はべき指数ではなく添字です。
 
 左辺は
 
 $$
-(\partial_i\lambda)g_{jk}g^{jk}
+(\partial_i\lambda)\sum_{j,k=1}^n g_{jk}g^{jk}
+=
+(\partial_i\lambda)\sum_{j=1}^n\delta_j^j
 =
 n\,\partial_i\lambda.
 $$
@@ -2137,9 +2153,9 @@ $$
 右辺は
 
 $$
-(\partial_j\lambda)g_{ik}g^{jk}
+\sum_{j,k=1}^n(\partial_j\lambda)g_{ik}g^{jk}
 =
-(\partial_j\lambda)\delta_i^j
+\sum_{j=1}^n(\partial_j\lambda)\delta_i^j
 =
 \partial_i\lambda.
 $$
@@ -3087,13 +3103,23 @@ $$
 (\partial_j\lambda)g_{ik}.
 $$
 
-両辺に $g^{jk}$ を掛けて $j,k$ について和を取ると
+両辺に $g^{jk}$ を掛けて $j,k$ について和を取ります。逆計量の関係 $\sum_k g_{ik}g^{jk}=\delta_i^j$ を使い、左辺は
 
 $$
-n\,\partial_i\lambda
-=
-\partial_i\lambda.
+(\partial_i\lambda)\sum_{j,k=1}^n g_{jk}g^{jk}
+=(\partial_i\lambda)\sum_{j=1}^n\delta_j^j
+=n\,\partial_i\lambda,
 $$
+
+右辺は
+
+$$
+\sum_{j,k=1}^n(\partial_j\lambda)g_{ik}g^{jk}
+=\sum_{j=1}^n(\partial_j\lambda)\delta_i^j
+=\partial_i\lambda
+$$
+
+となります。
 
 従って
 

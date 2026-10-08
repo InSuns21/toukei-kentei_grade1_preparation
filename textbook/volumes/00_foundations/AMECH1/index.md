@@ -136,6 +136,37 @@ $$
 > であり、この $n$ を自由度という。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-amech1-holonomic-constraint, def-amech1-configuration-space-dof -->
+**定義の確認**：三次元に置いた平面振り子
+
+質点を一つ取り、位置を $r=(x,y,z)\in\mathbb R^3$ とします。糸の長さ $\ell>0$ が一定で、質点は $z=0$ の平面内で動くとします。拘束は
+
+$$
+f_1(x,y,z)=z=0,\qquad
+f_2(x,y,z)=x^2+y^2-\ell^2=0
+$$
+
+と位置だけの等式で書けるため、二つともホロノミック拘束であり、時刻に陽に依存しません。拘束の位置微分を行に並べると
+
+$$
+Df(r)=
+\begin{pmatrix}
+0&0&1\\
+2x&2y&0
+\end{pmatrix}.
+$$
+
+$f_2=0$ と $\ell>0$ より $(x,y)\neq(0,0)$ です。したがって二つの行は一次独立であり、階数は $k=2$ です。配置空間と自由度は
+
+$$
+M=\{(x,y,0)\in\mathbb R^3:x^2+y^2=\ell^2\},
+\qquad
+n=3N-k=3-2=1
+$$
+
+となります。実際、$r(\theta)=(\ell\sin\theta,\ell\cos\theta,0)$ と置けば $f_1=f_2=0$ で、円周上の配置を角度一つで局所的に指定できます。**三次元の成分数を単純に数えるのではなく、独立な二つの拘束を引く**ことが定義の確認になっています。
+<!-- definition-example-end -->
+
 ### 2.1 例：平面振り子
 
 平面内の一質点なら、拘束がなければ位置は $(x,y)$ の二変数です。振り子では
@@ -196,6 +227,36 @@ $$
 
 > と表す。この表示が拘束条件を満たし、考えている範囲で $q$ に関する微分の階数が $n$ で、配置を局所的に一意に指定するとき、$q_1,\ldots,q_n$ を一般化座標という。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-amech1-generalized-coordinates -->
+**定義の確認**：振り子の角度
+
+$\ell>0$、$q=\theta\in(-\pi,\pi)$ とし、三次元の平面振り子を
+
+$$
+r(\theta)=
+\begin{pmatrix}
+\ell\sin\theta\\
+\ell\cos\theta\\
+0
+\end{pmatrix}
+$$
+
+と表します。まず $z=0$ および $x^2+y^2=\ell^2$ がすべての $\theta$ で成立するので、拘束を満たします。次に
+
+$$
+\frac{\partial r}{\partial\theta}=
+\begin{pmatrix}
+\ell\cos\theta\\
+-\ell\sin\theta\\
+0
+\end{pmatrix},
+\qquad
+\left\|\frac{\partial r}{\partial\theta}\right\|=\ell>0
+$$
+
+なので微分の階数は $n=1$ です。さらに、範囲 $(-\pi,\pi)$ では異なる角度が同じ配置を表さず、角度を局所的に一意に決定できます。したがって $\theta$ は一般化座標の三条件を満たします。円周全体では $\theta$ と $\theta+2\pi$ が同じ位置なので、一枚の大域座標とは区別します。
+<!-- definition-example-end -->
 
 「座標」という名前ですが、$q_j$ は長さである必要はありません。角度でもよく、複数粒子の相対位置でもかまいません。
 
@@ -470,6 +531,51 @@ $$
 > である。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-amech1-virtual-displacement -->
+**定義の確認**：膨張する円の接線方向
+
+$R(t)>0$ を微分可能な関数とし、固定した時刻 $t$ で
+
+$$
+r(\theta,t)=R(t)
+\begin{pmatrix}
+\cos\theta\\
+\sin\theta\\
+0
+\end{pmatrix}
+$$
+
+とします。$q=\theta$、$\delta q=\delta\theta$ を定義へ代入すると
+
+$$
+\begin{aligned}
+\delta r
+&=\left.\frac{d}{d\varepsilon}
+R(t)\begin{pmatrix}
+\cos(\theta+\varepsilon\delta\theta)\\
+\sin(\theta+\varepsilon\delta\theta)\\
+0
+\end{pmatrix}\right|_{\varepsilon=0}\\
+&=R(t)\begin{pmatrix}
+-\sin\theta\\
+\cos\theta\\
+0
+\end{pmatrix}\delta\theta.
+\end{aligned}
+$$
+
+実際に $r\cdot\delta r=R(t)^2(-\cos\theta\sin\theta+\sin\theta\cos\theta)\delta\theta=0$ で、仮想変位は円の接線方向です。一方、時間発展の速度は
+
+$$
+\dot r=R'(t)
+\begin{pmatrix}\cos\theta\\\sin\theta\\0\end{pmatrix}
++R(t)\dot\theta
+\begin{pmatrix}-\sin\theta\\\cos\theta\\0\end{pmatrix}
+$$
+
+です。半径方向の $R'(t)$ の項は、**時刻を固定する仮想変位には存在しない**ことまで確認できます。
+<!-- definition-example-end -->
+
 重要なのは
 
 $$
@@ -697,6 +803,34 @@ $$
 
 > と定義する。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-amech1-generalized-force -->
+**定義の確認**：重力が振り子の角度へ及ぼす力
+
+鉛直下向きを $y$ 軸の正方向とし、質量 $m>0$、重力加速度 $g>0$、糸の長さ $\ell>0$ とします。振り子を
+
+$$
+r(\theta)=
+\begin{pmatrix}\ell\sin\theta\\\ell\cos\theta\end{pmatrix},
+\qquad
+F_g=\begin{pmatrix}0\\mg\end{pmatrix}
+$$
+
+で表すと、定義中の粒子数は $N=1$ で、一般化座標は $q_1=\theta$ です。位置を微分し、力との内積を計算すると
+
+$$
+\begin{aligned}
+\frac{\partial r}{\partial\theta}
+&=\begin{pmatrix}\ell\cos\theta\\-\ell\sin\theta\end{pmatrix},\\
+Q_\theta^{(g)}
+&=F_g\cdot\frac{\partial r}{\partial\theta}\\
+&=0\cdot\ell\cos\theta+mg(-\ell\sin\theta)\\
+&=-mg\ell\sin\theta.
+\end{aligned}
+$$
+
+従って、角度 $\delta\theta$ に対応する仮想仕事は $F_g\cdot\delta r=Q_\theta^{(g)}\delta\theta$ です。力の向きと座標の取り方を明示すれば、一般化力の**符号と次元**を検算できます。
+<!-- definition-example-end -->
 
 一般化力 $Q_j$ の単位は、必ずしも通常の力と同じではありません。
 

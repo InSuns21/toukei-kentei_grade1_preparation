@@ -18,6 +18,9 @@ dependency_tracking:
   # 高校数学〜大学初年級の復習事項に限定し、専門的な主要定理の依存隠しには使わない。
   reachability_exempt_concepts:
     - analysis.chain-rule
+    # 共通記号として notation-guide.md と LA3A 等の初出で独立に意味を説明する。
+    # VC7 の3次元・Einstein縮約の formal owner を他系列の prerequisite にはしない。
+    - vector-calculus.kronecker-delta
 
 alias_matching:
   # 真の別称ではあるが、分野横断では多義的で自由文の部分一致だけでは意味を確定できない語。
