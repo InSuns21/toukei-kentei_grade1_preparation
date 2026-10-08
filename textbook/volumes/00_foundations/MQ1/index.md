@@ -69,7 +69,7 @@ D(H_0)=\left\{\psi\in L^2:\int_{\mathbb R^d}|\xi|^4|\widehat\psi(\xi)|^2\,d\xi<\
 $$
 <!-- formal-statement-end -->
 
-**証明の見取り図。** 最大乗算作用素 $M_{h_0}$ の自己共役性は [QM5](../QM5/index.md#prop-qm5-unitary-conjugation) のユニタリ共役で移せます。難所は、任意の $D(H_0)$ の元を Schwartz 関数で**関数と作用結果の両方**に関して近似することです。Fourier 側で周波数を切り、滑らかに近似すれば、この二つを同時に達成できます。
+**証明の見取り図。** 実数値関数を掛ける $M_{h_0}$ の自己共役性は [QM5](../QM5/index.md#prop-qm5-unitary-conjugation) のユニタリ共役で移せます。難所は、任意の $D(H_0)$ の元を Schwartz 関数で**関数と作用結果の両方**に関して近似することです。Fourier 側で周波数を切り、滑らかに近似すれば、この二つを同時に達成できます。
 
 <!-- proof-start -->
 ### 証明
@@ -80,7 +80,7 @@ $$
 \int f(\xi)\overline{h_0(\xi)g(\xi)-k(\xi)}\,d\xi=0.
 $$
 
-$h_0g$ は局所可積分であるため、試験関数による判定から $h_0g=k$ がほとんど至る所で成り立ちます。$k\in L^2$ より $g\in D(M_{h_0})$ となり、逆包含も得て $M_{h_0}^*=M_{h_0}$ です。Fourier 変換はユニタリなので
+$h_0g$ は各有界集合上で $L^1$ に属します（その集合上で $h_0$ は有界で、$g\in L^2$ に Cauchy–Schwarz の不等式を適用できるため）。よって試験関数による判定から $h_0g=k$ がほとんど至る所で成り立ちます。$k\in L^2$ より $g\in D(M_{h_0})$ となり、逆包含も得て $M_{h_0}^*=M_{h_0}$ です。Fourier 変換はユニタリなので
 
 $$
 H_0=\mathcal F^{-1}M_{h_0}\mathcal F
@@ -137,7 +137,7 @@ $$
 
 が必要で、無限遠での収束条件は $4s>5$ です。例えば $s=1$ なら $\psi\in L^2$ ですが、$H_0\psi$ は $L^2$ に入らず、作用素としては適用できません。
 
-ここで $D(H_0)$ は Fourier 表現で定義した $H^2(\mathbb R^d)$（二階までの弱微分が $L^2$ に属する Sobolev 空間）と一致します。単に記号 $-\Delta$ を書くより、Fourier 側の重み付き条件の方が定義域を判定しやすくなります。
+この定義域を Fourier 側の重みで表した空間は $H^2(\mathbb R^d)$ と書かれます。ここで必要なのは $∫(1+|\xi|^4)|\widehat\psi|^2<\infty$ という具体的な収束条件です。単に記号 $-\Delta$ を書くより、Fourier 側の重み付き条件の方が定義域を判定しやすくなります。
 
 ## 3. ポテンシャルを加えるときの安全な出発点
 
@@ -160,7 +160,7 @@ $$
 
 <!-- definition-example-start: def-mq1-bounded-schrodinger -->
 
-**定義の確認。** $V(x)=V_0\mathbf1_{\{|x|\le1\}}$（$V_0\in\mathbb R$）なら $V$ は実数値可測で $\|V\|_\infty=|V_0|$、任意の $\psi\in L^2$ について $\|V\psi\|_2\le |V_0|\|\psi\|_2$ です。したがって $\psi\in D(H_0)$ なら両項が $L^2$ に属し、定義は意味を持ちます。境界 $|x|=1$ で $V$ が不連続でも、作用素の定義は妨げられません。
+**定義の確認** $V(x)=V_0\mathbf1_{\{|x|\le1\}}$（$V_0\in\mathbb R$）なら $V$ は実数値可測で $\|V\|_\infty=|V_0|$、任意の $\psi\in L^2$ について $\|V\psi\|_2\le |V_0|\|\psi\|_2$ です。したがって $\psi\in D(H_0)$ なら両項が $L^2$ に属し、定義は意味を持ちます。境界 $|x|=1$ で $V$ が不連続でも、作用素の定義は妨げられません。
 <!-- definition-example-end -->
 
 <a id="thm-mq1-bounded-potential"></a>
@@ -236,7 +236,7 @@ $$
 
 <!-- definition-example-start: def-mq1-relative-bound -->
 
-**定義の確認。** $A=H_0$、$B=M_V$ として実数値の $V\in L^\infty$ を取れば、$D(H_0)\subset D(B)=L^2$ で
+**定義の確認** $A=H_0$、$B=M_V$ として実数値の $V\in L^\infty$ を取れば、$D(H_0)\subset D(B)=L^2$ で
 
 $$
 \|B\psi\|_2\le\|V\|_\infty\|\psi\|_2
@@ -334,7 +334,7 @@ $$
 
 <!-- definition-example-start: def-mq1-strong-commutativity -->
 
-**定義の確認。** $L^2(\mathbb R)$ 上で $A=M_\xi$、$B=M_{\xi^2}$ とします。両者は実乗算作用素なので自己共役で、任意の Borel 集合 $S,T$ に対して
+**定義の確認** $L^2(\mathbb R)$ 上で $A=M_\xi$、$B=M_{\xi^2}$ とします。両者は実乗算作用素なので自己共役で、任意の Borel 集合 $S,T$ に対して
 
 $$
 E_A(S)f=\mathbf1_S(\xi)f,\qquad
@@ -405,7 +405,7 @@ $$
 
 <!-- definition-example-start: def-mq1-essential-spectrum -->
 
-**定義の確認。** $\ell^2(\mathbb N)$ 上の $A(x_n)=(nx_n)$ を、$D(A)=\{x:(nx_n)\in\ell^2\}$ に定めます。[EVOL1 のスペクトル計算](../EVOL1/index.md#prop-evol1-diagonal-spectrum) から $\sigma(A)=\{1,2,3,\ldots\}$ です。各 $n$ はほかのスペクトル点から正の距離だけ離れ、固有空間は $\operatorname{span}\{e_n\}$ の一次元です。したがって $\sigma_{\mathrm{disc}}(A)=\{1,2,3,\ldots\}$、$\sigma_{\mathrm{ess}}(A)=\varnothing$ です。スペクトルが非有界でも、本質スペクトルは空になり得ます。
+**定義の確認** $\ell^2(\mathbb N)$ 上の $A(x_n)=(nx_n)$ を、$D(A)=\{x:(nx_n)\in\ell^2\}$ に定めます。[EVOL1 のスペクトル計算](../EVOL1/index.md#prop-evol1-diagonal-spectrum) から $\sigma(A)=\{1,2,3,\ldots\}$ です。各 $n$ はほかのスペクトル点から正の距離だけ離れ、固有空間は $\operatorname{span}\{e_n\}$ の一次元です。したがって $\sigma_{\mathrm{disc}}(A)=\{1,2,3,\ldots\}$、$\sigma_{\mathrm{ess}}(A)=\varnothing$ です。スペクトルが非有界でも、本質スペクトルは空になり得ます。
 <!-- definition-example-end -->
 
 <a id="thm-mq1-free-spectrum"></a>
