@@ -17,7 +17,7 @@ concepts:
   - id: prob.indicator-function
     name: 指示関数
     kind: term
-    aliases: [indicator function]
+    # 凸解析の0/+∞型 indicator function と同義ではないため、英語 alias は共有しない。
     requires:
       - measure.measurable-function
 
