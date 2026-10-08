@@ -408,6 +408,7 @@
 3. [AUT3 非決定性有限オートマトン・正規表現](textbook/volumes/00_foundations/AUT3/index.md)
 4. [AUT4 正規言語の限界](textbook/volumes/00_foundations/AUT4/index.md)
 5. [AUT5 文脈自由文法](textbook/volumes/00_foundations/AUT5/index.md)
+6. [AUT6 プッシュダウン・オートマトン](textbook/volumes/00_foundations/AUT6/index.md)
 
 <a id="dt-subject-numerical-analysis"></a>
 ### 数値解析
