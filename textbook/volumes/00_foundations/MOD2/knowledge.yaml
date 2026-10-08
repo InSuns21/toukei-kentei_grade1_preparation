@@ -5,6 +5,7 @@ prerequisites:
   - MOD1
   - RNG4
   - LA3B
+  - LA4
 forward_references: []
 
 concepts:
