@@ -39,9 +39,9 @@ $H_{\rm cl}=|P|^2/(2M)+|p|^2/(2\mu)-\kappa/|r|$ です。重心は自由運動�
 > **定義（Coulomb Hamiltonian の微分表示）**  
 > $a=\hbar^2/(2\mu)>0$、$\kappa=Ze^2/(4\pi\varepsilon_0)>0$ とし、$\mathcal S(\mathbb R^3)$ 上で
 >
-> $$
-> H_{\rm diff}\psi=-a\Delta\psi-\frac{\kappa}{|x|}\psi
-> $$
+$$
+H_{\rm diff}\psi=-a\Delta\psi-\frac{\kappa}{|x|}\psi
+$$
 >
 > と定める。$|x|=r$ と書き、長さの逆数 $\beta=\mu\kappa/\hbar^2=\kappa/(2a)$ と $a_Z=\beta^{-1}$ を導入する。
 <!-- formal-statement-end -->
@@ -61,10 +61,10 @@ $-\kappa/r$ は有界ポテンシャルではありません。しかし、$3$ �
 > **定理（Coulomb Hamiltonian の自己共役性と下界）**  
 > $a,\kappa>0$ とする。$H_{\rm diff}=-a\Delta-\kappa/|x|$ は $\mathcal S(\mathbb R^3)$ 上で本質的自己共役である。閉包 $H$ は
 >
-> $$
-> D(H)=H^2(\mathbb R^3),\qquad
-> H\psi=-a\Delta\psi-\frac{\kappa}{r}\psi
-> $$
+$$
+D(H)=H^2(\mathbb R^3),\qquad
+H\psi=-a\Delta\psi-\frac{\kappa}{r}\psi
+$$
 >
 > で定まる自己共役作用素で、下に有界である。
 <!-- formal-statement-end -->
@@ -140,10 +140,10 @@ $H$ は $r=|x|$ にのみ依存します。回転 $Q\in SO(3)$ に対する $(U_
 > **定義（角運動量と量子数）**  
 > $L^2(S^2,d\Omega)$ において、正規化した球面調和関数 $Y_\ell^m$（$\ell\in\mathbb N_0$、$-\ell\le m\le\ell$）を基底とする対角作用素
 >
-> $$
-> \boldsymbol L^2Y_\ell^m=\hbar^2\ell(\ell+1)Y_\ell^m,
-> \qquad L_zY_\ell^m=\hbar mY_\ell^m
-> $$
+$$
+\boldsymbol L^2Y_\ell^m=\hbar^2\ell(\ell+1)Y_\ell^m,
+\qquad L_zY_\ell^m=\hbar mY_\ell^m
+$$
 >
 > を考える。それぞれの自然な最大対角定義域上で自己共役であり、同じ基底を持つため強可換である。$\ell$ を軌道量子数、$m$ を磁気量子数という。
 <!-- formal-statement-end -->
@@ -165,11 +165,11 @@ $\Delta_{S^2}\cos\theta=(\sin\theta)^{-1}\partial_\theta(-\sin^2\theta)=-2\cos\t
 > **定義（部分波変換）**  
 > $\psi\in L^2(\mathbb R^3)$ に対し、
 >
-> $$
-> (U\psi)_{\ell m}(r)=u_{\ell m}(r)
-> :=r\int_{S^2}\overline{Y_\ell^m(\omega)}\psi(r\omega)\,d\Omega,
-> \quad r>0
-> $$
+$$
+(U\psi)_{\ell m}(r)=u_{\ell m}(r)
+:=r\int_{S^2}\overline{Y_\ell^m(\omega)}\psi(r\omega)\,d\Omega,
+\quad r>0
+$$
 >
 > とする。$U$ の値域を
 > $\bigoplus_{\ell=0}^\infty\bigoplus_{m=-\ell}^{\ell}L^2((0,\infty),dr)$ とする。
@@ -177,8 +177,7 @@ $\Delta_{S^2}\cos\theta=(\sin\theta)^{-1}\partial_\theta(-\sin^2\theta)=-2\cos\t
 
 <!-- definition-example-start: def-mq4-partial-wave -->
 **定義の確認**：$\psi(r,\omega)=e^{-r}Y_0^0(\omega)$ と置くと、球面の正規直交性から $u_{00}(r)=re^{-r}$、他の全係数は零です。従って
-$\|\psi\|_{L^2(\mathbb R^3)}^2=\int_0^\infty r^2e^{-2r}dr
-=\|u_{00}\|_{L^2(dr)}^2$ です。部分積分で $\int_0^\infty r^2e^{-2r}dr=2!/2^3=1/4$ と検算できます。
+$\|\psi\|_{L^2(\mathbb R^3)}^2=\int_0^\infty r^2e^{-2r}dr =\|u_{00}\|_{L^2(dr)}^2$ です。部分積分で $\int_0^\infty r^2e^{-2r}dr=2!/2^3=1/4$ と検算できます。
 <!-- definition-example-end -->
 
 <a id="thm-mq4-partial-wave"></a>
@@ -186,9 +185,9 @@ $\|\psi\|_{L^2(\mathbb R^3)}^2=\int_0^\infty r^2e^{-2r}dr
 > **定理（部分波分解と動径 Schrödinger 作用素）**  
 > 上の $U$ はユニタリである。$H=-a\Delta-\kappa/r$ は角運動量と強可換で、$UHU^{-1}$ は $(\ell,m)$ 成分ごとの自己共役な直和となる。各成分の微分表示は
 >
-> $$
-> h_\ell u=-a u''+\frac{a\ell(\ell+1)}{r^2}u-\frac{\kappa}{r}u,\qquad r>0.
-> $$
+$$
+h_\ell u=-a u''+\frac{a\ell(\ell+1)}{r^2}u-\frac{\kappa}{r}u,\qquad r>0.
+$$
 >
 > 各 $h_\ell$ の実現は三次元 $H^2$ 上の $H$ から誘導されるものであり、任意の境界条件を別途選んだ作用素を意味しない。特に $\ell=0$ の動径関数は $u(0)=0$ の正則な枝に属する。
 <!-- formal-statement-end -->
@@ -255,19 +254,19 @@ $$
 > **命題（Coulomb 動径作用素の因数分解）**  
 > $\ell\in\mathbb N_0$、$\beta>0$ とし、滑らかな原点正則・無限遠減衰関数の共通領域で
 >
-> $$
-> A_\ell=\frac d{dr}-\frac{\ell+1}{r}+\frac{\beta}{\ell+1},\quad
-> A_\ell^\dagger=-\frac d{dr}-\frac{\ell+1}{r}+\frac{\beta}{\ell+1}
-> $$
+$$
+A_\ell=\frac d{dr}-\frac{\ell+1}{r}+\frac{\beta}{\ell+1},\quad
+A_\ell^\dagger=-\frac d{dr}-\frac{\ell+1}{r}+\frac{\beta}{\ell+1}
+$$
 >
 > と置く。このとき
 >
-> $$
-> k_\ell=A_\ell^\dagger A_\ell-\frac{\beta^2}{(\ell+1)^2},
-> \quad
-> k_{\ell+1}=A_\ell A_\ell^\dagger-\frac{\beta^2}{(\ell+1)^2},
-> \quad A_\ell k_\ell=k_{\ell+1}A_\ell.
-> $$
+$$
+k_\ell=A_\ell^\dagger A_\ell-\frac{\beta^2}{(\ell+1)^2},
+\quad
+k_{\ell+1}=A_\ell A_\ell^\dagger-\frac{\beta^2}{(\ell+1)^2},
+\quad A_\ell k_\ell=k_{\ell+1}A_\ell.
+$$
 >
 > 特に $h_\ell\ge-a\beta^2/(\ell+1)^2$ である。
 <!-- formal-statement-end -->
@@ -310,18 +309,18 @@ $\langle f,k_\ell f\rangle=\|A_\ell f\|^2-\beta^2\|f\|^2/(\ell+1)^2$ で、下�
 > **定理（水素様原子の全スペクトルと量子数）**  
 > $H=-\hbar^2\Delta/(2\mu)-\kappa/r$（$\mu,\kappa,\hbar>0$）を $D(H)=H^2(\mathbb R^3)$ 上で考える。$E_n=-\mu\kappa^2/(2\hbar^2n^2)$（$n=1,2,\ldots$）と置くと
 >
-> $$
-> \sigma(H)=\{E_n:n\in\mathbb N\}\cup[0,\infty),
-> \qquad \sigma_{\rm ess}(H)=[0,\infty).
-> $$
+$$
+\sigma(H)=\{E_n:n\in\mathbb N\}\cup[0,\infty),
+\qquad \sigma_{\rm ess}(H)=[0,\infty).
+$$
 >
 > 負の固有値 $E_n$ に対し
 > $0\le\ell\le n-1$、$-\ell\le m\le\ell$ の三つの量子数 $(n,\ell,m)$ を持つ正規直交固有状態が存在する。$E_n$ の重複度は $\sum_{\ell=0}^{n-1}(2\ell+1)=n^2$ である。$\kappa=Ze^2/(4\pi\varepsilon_0)$ を代入すると
 >
-> $$
-> E_n=-\frac{\mu Z^2e^4}
-> {2(4\pi\varepsilon_0)^2\hbar^2 n^2}.
-> $$
+$$
+E_n=-\frac{\mu Z^2e^4}
+{2(4\pi\varepsilon_0)^2\hbar^2 n^2}.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -345,17 +344,10 @@ $$
 $\int_0^\infty r^j e^{-cr}dr=j!/c^{j+1}$（$c>0$）を $j=2\ell+2$ に適用すれば有限です。微分して作用させると
 $k_\ell u_\ell^{(0)}=-\beta^2u_\ell^{(0)}/(\ell+1)^2$ であり、三次元の正則性は $r^\ell Y_\ell^m$ が [PDE11](../PDE11/index.md#prop-pde11-solid-harmonic) の滑らかな同次多項式に延長されることから確認できます。その $H^2$ 条件を積の微分で確かめます。$c=\beta/(\ell+1)>0$ とすると、$r>0$ で
 
-$
-\partial_i e^{-cr}=-ce^{-cr}\frac{x_i}{r},
-\quad
-\partial_i\partial_j e^{-cr}
-=e^{-cr}\left[c^2\frac{x_ix_j}{r^2}
--c\left(\frac{\delta_{ij}}r-\frac{x_ix_j}{r^3}\right)\right].
-$
+$ \partial_i e^{-cr}=-ce^{-cr}\frac{x_i}{r}, \quad \partial_i\partial_j e^{-cr} =e^{-cr}\left[c^2\frac{x_ix_j}{r^2} -c\left(\frac{\delta_{ij}}r-\frac{x_ix_j}{r^3}\right)\right]. $
 
 二階偏導関数は原点付近で $O(1+r^{-1})$ なので、
-$\int_{r<\delta}(1+r^{-1})^2dx
-=4\pi\int_0^\delta(r^2+2r+1)dr<\infty$ です。原点を除いて積分した式の境界項も表面積が $O(\delta^2)$ なので消えます。$r^\ell Y_\ell^m$ は滑らかな同次多項式であり、積の二階導関数は局所的に二乗可積分、無限遠では指数減衰します。従って得られた三次元固有状態は $H^2=D(H)$ に属します。
+$\int_{r<\delta}(1+r^{-1})^2dx =4\pi\int_0^\delta(r^2+2r+1)dr<\infty$ です。原点を除いて積分した式の境界項も表面積が $O(\delta^2)$ なので消えます。$r^\ell Y_\ell^m$ は滑らかな同次多項式であり、積の二階導関数は局所的に二乗可積分、無限遠では指数減衰します。従って得られた三次元固有状態は $H^2=D(H)$ に属します。
 
 **(2) 全負固有値の構成。** $n>\ell+1$ では、$k_{\ell+1}$ の固有値
 $\lambda=-\beta^2/n^2$ を持つ正則関数 $v$ に
@@ -392,9 +384,7 @@ $$
 
 遠方では $\|1_{\{r>R\}}f/r\|_2\le R^{-1}\|f\|_2$ です。中間の環状領域 $\delta\le r\le R$ で必要な局所的なコンパクト性も確かめます。環状領域を含む固定した立方体を一辺 $h$ の小立方体 $Q$ に有限分割し、各 $Q$ で $f$ を平均値 $f_Q$ に置き換えます。線分上で $f(x)-f(y)=\int_0^1\nabla f(y+t(x-y))\cdot(x-y)dt$ と書き、Cauchy–Schwarz と積分を用いると
 
-$
-\sum_Q\int_Q|f-f_Q|^2dx\le Ch^2\int|\nabla f|^2dx
-$
+$ \sum_Q\int_Q|f-f_Q|^2dx\le Ch^2\int|\nabla f|^2dx $
 
 を得ます（最初は滑らかな $f$ で示し、$H^1$ へ密度で延長）。$H^2$ 有界列に対して右辺は $h\downarrow0$ で一様に零です。一方、固定した $h$ の平均値近似は有限次元空間に属し、有界列から収束部分列を取れます。$h=1,1/2,\ldots$ の対角部分列を選べば、元の列も環状領域上の $L^2$ で収束部分列を持ちます。さらに $1/r\le1/\delta$ はそこで有界なので、$f\mapsto1_{\{\delta\le r\le R\}}f/r$ は $H^2\to L^2$ コンパクトです。$\delta\downarrow0$、$R\uparrow\infty$ として $V:H^2\to L^2$ はコンパクト作用素の作用素ノルム極限です。従って $V(H_0+1)^{-1}$ はコンパクトです。
 
@@ -407,10 +397,7 @@ $(H-\lambda)f_j=(H_0-\lambda)f_j+Vf_j\to0$。
 
 逆方向では、$V(H+ i)^{-1}$ もコンパクトです。実際、$H_0+1$ の逆作用素に替えて非実数 $i$ を取っても上の局所・遠方評価は変わらず、レゾルベント恒等式により
 
-$
-V(H-i)^{-1}
-=V(H_0-i)^{-1}\bigl[I-V(H-i)^{-1}\bigr]
-$
+$ V(H-i)^{-1} =V(H_0-i)^{-1}\bigl[I-V(H-i)^{-1}\bigr] $
 
 です。右側の角括弧は有界です（$V$ は $H$ のグラフノルムから $L^2$ へ有界）。左側第一因子がコンパクトだから積はコンパクトです。$H$ の Weyl 列 $g_j$ に対して $(H-i)g_j=(\lambda-i)g_j+o(1)\rightharpoonup0$ なので $Vg_j\to0$、従って $(H_0-\lambda)g_j\to0$ です。これで逆包含も示され、
 $\sigma_{\rm ess}(H)=\sigma_{\rm ess}(H_0)=[0,\infty)$ が確定します。従って $(-\infty,0)$ のスペクトル点は有限重複度の孤立固有値のみで、(3) がそれらを全列挙しています。
@@ -483,8 +470,7 @@ R_{n\ell}(r)=N_{n\ell}\rho^\ell e^{-\rho/2}L_{n-\ell-1}^{2\ell+1}(\rho),
 $$
 
 球面上で $\|Y_\ell^m\|_2=1$ とし、動径積分に
-$\int_0^\infty e^{-\rho}\rho^{2\ell+2}[L_j^{2\ell+1}(\rho)]^2d\rho
-=2n(n+\ell)!/(n-\ell-1)!$
+$\int_0^\infty e^{-\rho}\rho^{2\ell+2}[L_j^{2\ell+1}(\rho)]^2d\rho =2n(n+\ell)!/(n-\ell-1)!$
 を使えば
 
 $$
@@ -495,29 +481,17 @@ $$
 
 積分公式の係数も検算しておきます。$\alpha_0=2\ell+1$、$j=n-\ell-1$ とし、
 
-$
-L_j^{\alpha_0}(\rho)=\frac{e^\rho\rho^{-\alpha_0}}{j!}
-\frac{d^j}{d\rho^j}\bigl(e^{-\rho}\rho^{j+\alpha_0}\bigr)
-$
+$ L_j^{\alpha_0}(\rho)=\frac{e^\rho\rho^{-\alpha_0}}{j!} \frac{d^j}{d\rho^j}\bigl(e^{-\rho}\rho^{j+\alpha_0}\bigr) $
 
 を用います。これを $\int_0^\infty e^{-\rho}\rho^{\alpha_0}(L_j^{\alpha_0})^2d\rho$ に代入し、$j$ 回部分積分します。境界項は $e^{-\rho}$ の減衰と $\alpha_0>0$ から零で、$L_j^{\alpha_0}$ の最高次係数は $(-1)^j/j!$ だから $d^jL_j^{\alpha_0}/d\rho^j=(-1)^j$ です。従って
 
-$
-\int_0^\infty e^{-\rho}\rho^{\alpha_0}(L_j^{\alpha_0})^2d\rho
-=\frac1{j!}\int_0^\infty e^{-\rho}\rho^{j+\alpha_0}d\rho
-=\frac{\Gamma(j+\alpha_0+1)}{j!}.
-$
+$ \int_0^\infty e^{-\rho}\rho^{\alpha_0}(L_j^{\alpha_0})^2d\rho =\frac1{j!}\int_0^\infty e^{-\rho}\rho^{j+\alpha_0}d\rho =\frac{\Gamma(j+\alpha_0+1)}{j!}. $
 
 同じ積分操作で $j$ の異なる多項式が直交することを確かめ、係数漸化式から得られる三項漸化式
-$\rho L_j^{\alpha_0}=-(j+1)L_{j+1}^{\alpha_0}
-+(2j+\alpha_0+1)L_j^{\alpha_0}-(j+\alpha_0)L_{j-1}^{\alpha_0}$
+$\rho L_j^{\alpha_0}=-(j+1)L_{j+1}^{\alpha_0} +(2j+\alpha_0+1)L_j^{\alpha_0}-(j+\alpha_0)L_{j-1}^{\alpha_0}$
 を掛け合わせて積分すると、交差項は零なので
 
-$
-\int_0^\infty e^{-\rho}\rho^{\alpha_0+1}(L_j^{\alpha_0})^2d\rho
-=(2j+\alpha_0+1)\frac{\Gamma(j+\alpha_0+1)}{j!}
-=\frac{2n(n+\ell)!}{(n-\ell-1)!}.
-$
+$ \int_0^\infty e^{-\rho}\rho^{\alpha_0+1}(L_j^{\alpha_0})^2d\rho =(2j+\alpha_0+1)\frac{\Gamma(j+\alpha_0+1)}{j!} =\frac{2n(n+\ell)!}{(n-\ell-1)!}. $
 
 重要なのは、**多項式の打ち切りだけから全スペクトルを宣言していない**ことです。負のスペクトルの完全な列挙は前節の因数分解と本質スペクトルの議論で先に証明しました。
 
@@ -628,8 +602,7 @@ $\psi(r,\omega)=R(r)Y_\ell^m(\omega)$ とし $u=rR$ と置け。$\|\psi\|_2=\|u\
 <!-- solution-start -->
 #### 詳細解答
 
-球座標で $\|\psi\|_2^2=\int_0^\infty|R|^2r^2dr\int|Y_\ell^m|^2d\Omega
-=\int_0^\infty|rR|^2dr$。$R=u/r$ の導関数は
+球座標で $\|\psi\|_2^2=\int_0^\infty|R|^2r^2dr\int|Y_\ell^m|^2d\Omega =\int_0^\infty|rR|^2dr$。$R=u/r$ の導関数は
 
 $$
 R'=\frac{u'}r-\frac u{r^2},\quad
@@ -649,8 +622,7 @@ $$
 ### A4. Hardy 不等式の係数
 
 滑らかでコンパクト台の $\psi$ に対し
-$\operatorname{Re}\int\overline\psi(x/r^2)\cdot\nabla\psi\,dx
-=-\frac12\|\psi/r\|_2^2$ を用い、
+$\operatorname{Re}\int\overline\psi(x/r^2)\cdot\nabla\psi\,dx =-\frac12\|\psi/r\|_2^2$ を用い、
 $\|\psi/r\|_2\le2\|\nabla\psi\|_2$ を証明せよ。また $H=-a\Delta-\kappa/r$ の形式が下に有界であることを示せ。
 
 - Level: A
@@ -797,8 +769,7 @@ $$
 $$
 
 直交性からノルムは1、エネルギーを測る確率は各 $1/2$ です。期待値は
-$\langle H\rangle=(E_1+E_2)/2
-=-a\beta^2(1+1/4)/2=-5a\beta^2/8$。
+$\langle H\rangle=(E_1+E_2)/2 =-a\beta^2(1+1/4)/2=-5a\beta^2/8$。
 各位相の絶対値は1なので、確率と期待値は時間に依存しません。
 <!-- solution-end -->
 
