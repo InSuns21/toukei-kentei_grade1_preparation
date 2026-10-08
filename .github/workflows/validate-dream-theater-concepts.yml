@@ -5,6 +5,7 @@ on:
     paths:
       - 'textbook/dream-theater-index.json'
       - 'textbook/dream-theater-knowledge.yaml'
+      - 'textbook/dream-theater-prerequisite-audit-exceptions.yaml'
       - 'textbook/dream-theater-inference-rules.yaml'
       - 'textbook/volumes/00_foundations/**'
       - 'scripts/audit-dream-theater-concepts.mjs'
@@ -27,6 +28,7 @@ on:
     paths:
       - 'textbook/dream-theater-index.json'
       - 'textbook/dream-theater-knowledge.yaml'
+      - 'textbook/dream-theater-prerequisite-audit-exceptions.yaml'
       - 'textbook/dream-theater-inference-rules.yaml'
       - 'textbook/volumes/00_foundations/**'
       - 'scripts/audit-dream-theater-concepts.mjs'
