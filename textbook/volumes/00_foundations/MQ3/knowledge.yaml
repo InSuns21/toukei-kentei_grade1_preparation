@@ -1,0 +1,89 @@
+chapter: MQ3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MQ2
+  - MQ0
+  - MECH5
+  - FOU4
+
+concepts:
+  - id: mathematical-quantum.harmonic-unitary-scaling
+    name: 調和振動子のユニタリ無次元化
+    kind: definition
+    aliases: ["unitary scaling of harmonic oscillator"]
+    introduction: formal
+    introduction_aliases: ["定義（調和振動子のユニタリ無次元化）"]
+    requires:
+      - mathematical-quantum.canonical-quantization-basic
+
+  - id: mathematical-quantum.ladder-operators
+    name: 消滅演算子と生成演算子
+    kind: definition
+    aliases: ["annihilation and creation operators"]
+    introduction: formal
+    introduction_aliases: ["定義（消滅演算子と生成演算子）"]
+    requires:
+      - mathematical-quantum.harmonic-unitary-scaling
+      - quantum.canonical-commutation-relation
+
+  - id: mathematical-quantum.harmonic-ccr-factorization
+    name: 交換関係と Hamiltonian の因数分解
+    kind: proposition
+    aliases: ["harmonic oscillator ladder factorization"]
+    introduction_aliases: ["命題（交換関係と Hamiltonian の因数分解）"]
+    requires:
+      - mathematical-quantum.ladder-operators
+
+  - id: mathematical-quantum.harmonic-ground-gaussian
+    name: 規格化された最低状態
+    kind: proposition
+    aliases: ["harmonic oscillator Gaussian vacuum"]
+    introduction_aliases: ["命題（規格化された最低状態）"]
+    requires:
+      - mathematical-quantum.harmonic-ccr-factorization
+      - mathematical-quantum.ground-state
+
+  - id: mathematical-quantum.harmonic-ladder-construction
+    name: ladder 構成
+    kind: theorem
+    aliases: ["harmonic oscillator ladder construction"]
+    introduction_aliases: ["定理（ladder 構成）"]
+    requires:
+      - mathematical-quantum.harmonic-ground-gaussian
+      - mathematical-quantum.ladder-operators
+
+  - id: mathematical-quantum.hermite-functions
+    name: Hermite 多項式と Hermite 関数
+    kind: definition
+    aliases: ["Hermite polynomials and Hermite functions"]
+    introduction: formal
+    introduction_aliases: ["定義（Hermite 多項式と Hermite 関数）"]
+    requires:
+      - mathematical-quantum.harmonic-ladder-construction
+
+  - id: mathematical-quantum.hermite-rodrigues
+    name: ladder 構成と Rodrigues 公式の一致
+    kind: proposition
+    aliases: ["Hermite Rodrigues formula from ladder operators"]
+    introduction_aliases: ["命題（ladder 構成と Rodrigues 公式の一致）"]
+    requires:
+      - mathematical-quantum.hermite-functions
+
+  - id: mathematical-quantum.hermite-completeness
+    name: Hermite 関数の完全性
+    kind: theorem
+    aliases: ["completeness of Hermite functions"]
+    introduction_aliases: ["定理（Hermite 関数の完全性）"]
+    requires:
+      - mathematical-quantum.hermite-rodrigues
+
+  - id: mathematical-quantum.harmonic-spectrum
+    name: 量子調和振動子の自己共役性と全スペクトル
+    kind: theorem
+    aliases: ["self-adjoint harmonic oscillator and complete spectrum"]
+    introduction_aliases: ["定理（量子調和振動子の自己共役性と全スペクトル）"]
+    requires:
+      - mathematical-quantum.hermite-completeness
+      - mathematical-quantum.free-hamiltonian-core
+      - mathematical-quantum.essential-spectrum
