@@ -1,0 +1,46 @@
+id: "MQ0"
+title: "古典力学から数理量子力学への橋"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - QM8
+  - AMECH6
+  - MECH3
+  - MECH7
+  - EMAG3
+official_scope: []
+learning_objectives:
+  - 古典的状態と純粋量子状態、古典物理量と自己共役観測量の役割を、測定確率を含めて比較できる
+  - 正準量子化の基本対応 q→Q、p→P を Schwartz 空間上で検算し、作用素の定義域と自己共役性が別問題であると説明できる
+  - 混合積 qp および q²p の順序依存を具体的に計算し、Poisson 括弧と交換子の対応の限界を説明できる
+  - Schrödinger 描像と Heisenberg 描像の観測量・状態を定義し、ユニタリ共役から測定確率と期待値の一致を証明できる
+  - 有限次元系で Heisenberg の運動方程式を導き、非有界系へ移す際の追加の定義域条件を説明できる
+  - ħ を使って調和振動子を無次元化し、波動関数の L² ノルムと物理単位を追跡できる
+  - 自由粒子・調和振動子・Coulomb 系について古典 Hamiltonian と量子 Hamiltonian の候補を比較し、MQ1–MQ4 に残る解析責務を説明できる
+definitions:
+  - { id: MQ0-DEF-01, name: "一次元 Schrödinger 表現での正準量子化の基本対応" }
+  - { id: MQ0-DEF-02, name: "対称順序量子化" }
+  - { id: MQ0-DEF-03, name: "Heisenberg 描像の観測量" }
+propositions:
+  - { id: MQ0-PROP-01, name: "二つの描像の測定予測は一致する" }
+theorems:
+  - { id: MQ0-THM-01, name: "有限次元における Heisenberg の運動方程式" }
+canonical_examples:
+  - "Schwartz 関数での P² および CCR の検算"
+  - "qp および q²p の順序の違い"
+  - "二準位模型での描像変換"
+  - "量子調和振動子の無次元化と規格化"
+  - "自由粒子・調和振動子・Coulomb 系の比較表"
+problem_patterns:
+  - MQ0-CANONICAL-CCR-1
+  - MQ0-FREE-SIGN-1
+  - MQ0-ORDERING-1
+  - MQ0-SCALING-1
+  - MQ0-PICTURE-INVARIANCE-1
+  - MQ0-HEISENBERG-EQUATION-1
+  - MQ0-HARMONIC-DOMAIN-1
+  - MQ0-INTEGRATED-MODEL-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 6.0, review: 1.5 }
