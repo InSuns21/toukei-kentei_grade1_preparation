@@ -22,6 +22,10 @@ const tasks = [
     label: 'implicit dependencies',
     args: ['scripts/audit-dream-theater-implicit-dependencies.mjs', '--strict', '--changed-only'],
   },
+  {
+    label: 'reader prose chapter prerequisites (review queue)',
+    args: ['scripts/audit-dream-theater-prose-prerequisites.mjs', '--changed-only'],
+  },
 ];
 
 const startedAt = performance.now();
