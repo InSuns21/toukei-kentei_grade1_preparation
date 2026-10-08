@@ -444,15 +444,67 @@ $$
 0.
 $$
 
-$v_y$ についても同じ角周波数の調和振動方程式を得ます。よって速度ベクトルは $xy$ 平面内で一定の大きさを保ちながら角速度
+第2式も時間微分し、第1式を代入すると
 
 $$
-\omega_c
-=
-\frac{|q|B_0}{m}
+\begin{aligned}
+m\ddot v_y&=-qB_0\dot v_x
+=-qB_0\frac{qB_0}{m}v_y,\\
+\ddot v_y+\left(\frac{qB_0}{m}\right)^2v_y&=0.
+\end{aligned}
 $$
 
-で回転します。
+ただし二つの調和振動方程式を別々に解くだけでは位相の関係が決まりません。元の**連立一階方程式**も満たすように解きます。符号付きの $\alpha=qB_0/m\ne0$ と初速度 $v_x(0)=a,\ v_y(0)=b$ を置くと、
+
+$$
+\begin{aligned}
+v_x(t)&=a\cos(\alpha t)+b\sin(\alpha t),\\
+v_y(t)&=-a\sin(\alpha t)+b\cos(\alpha t)
+\end{aligned}
+$$
+
+です。例えば第1式を微分すれば
+
+$$
+\dot v_x=-\alpha a\sin(\alpha t)+\alpha b\cos(\alpha t)
+=\alpha v_y
+$$
+
+となり、第2式の微分も $\dot v_y=-\alpha v_x$ となるので、初期条件と元の二式の両方を検証できます。
+
+$\dot x=v_x,\ \dot y=v_y$ を積分すると
+
+$$
+\begin{aligned}
+x(t)&=x(0)+\frac{a}{\alpha}\sin(\alpha t)
++\frac{b}{\alpha}\bigl(1-\cos(\alpha t)\bigr),\\
+y(t)&=y(0)+\frac{a}{\alpha}\bigl(\cos(\alpha t)-1\bigr)
++\frac{b}{\alpha}\sin(\alpha t).
+\end{aligned}
+$$
+
+中心を $x_c=x(0)+b/\alpha,\ y_c=y(0)-a/\alpha$ と定めれば
+
+$$
+x(t)-x_c=\frac{a\sin(\alpha t)-b\cos(\alpha t)}{\alpha},
+\qquad
+y(t)-y_c=\frac{a\cos(\alpha t)+b\sin(\alpha t)}{\alpha}.
+$$
+
+二乗して加えると
+
+$$
+(x(t)-x_c)^2+(y(t)-y_c)^2
+=\frac{a^2+b^2}{\alpha^2}.
+$$
+
+よって軌道は円であり、角周波数の**大きさ**は
+
+$$
+\omega_c=\frac{|q|B_0}{m}
+$$
+
+です。回転の向きは $\alpha$ の符号で決まり、$q>0$ なら $+z$ から見て時計回り、$q<0$ なら反時計回りです。
 
 円運動では向心加速度の大きさは
 
@@ -1089,17 +1141,48 @@ E_i
 -\partial_i\phi-\partial_tA_i.
 $$
 
-また $B=\nabla\times A$ だから、ベクトル積の成分表示から
+また $B=\nabla\times A$ を成分で書けば
 
 $$
-(v\times B)_i
-=
-\sum_j
-v_j
-\left(
-\partial_iA_j-\partial_jA_i
-\right).
+B_1=\partial_2A_3-\partial_3A_2,\quad
+B_2=\partial_3A_1-\partial_1A_3,\quad
+B_3=\partial_1A_2-\partial_2A_1.
 $$
+
+例えば $i=1$ では $v\times B$ の第1成分は
+
+$$
+\begin{aligned}
+(v\times B)_1
+&=v_2B_3-v_3B_2\\
+&=v_2(\partial_1A_2-\partial_2A_1)
++v_3(\partial_1A_3-\partial_3A_1)\\
+&=\sum_{j=1}^3v_j(\partial_1A_j-\partial_jA_1)
+\end{aligned}
+$$
+
+となります（$j=1$ の項は $0$）。残る二成分についても積を実際に展開すると
+
+$$
+\begin{aligned}
+(v\times B)_2
+&=v_3B_1-v_1B_3
+=v_3(\partial_2A_3-\partial_3A_2)
++v_1(\partial_2A_1-\partial_1A_2),\\
+(v\times B)_3
+&=v_1B_2-v_2B_1
+=v_1(\partial_3A_1-\partial_1A_3)
++v_2(\partial_3A_2-\partial_2A_3).
+\end{aligned}
+$$
+
+したがって $i=1,2,3$ のそれぞれについて
+
+$$
+(v\times B)_i=\sum_{j=1}^3v_j(\partial_iA_j-\partial_jA_i)
+$$
+
+が確かめられます。
 
 したがって
 

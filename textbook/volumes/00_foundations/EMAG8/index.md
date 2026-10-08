@@ -272,34 +272,7 @@ $\mu_0^{-1}c^{-2}=\varepsilon_0$ を使いました。$u\ge0$ で、$S$ は常�
 
 ### 3.1 Maxwell 方程式から局所保存式へ
 
-Poynting ベクトルを流れと読む根拠を、電流 $J$ がある場合も含めて導きます。真空中の Maxwell 方程式の回転に関する二式は
-
-$$
-\nabla\times E=-\partial_tB,\qquad
-\nabla\times B=\mu_0J+\mu_0\varepsilon_0\partial_tE
-$$
-
-です。ベクトル解析の恒等式
-
-$$
-\nabla\cdot(E\times B)
-=B\cdot(\nabla\times E)-E\cdot(\nabla\times B)
-$$
-
-へこの二式を代入すると、
-
-$$
-\begin{aligned}
-\nabla\cdot(E\times B)
-&=-B\cdot\partial_tB
--\mu_0E\cdot J-\mu_0\varepsilon_0E\cdot\partial_tE\\
-&=-\frac12\partial_t|B|^2
--\mu_0E\cdot J
--\frac{\mu_0\varepsilon_0}{2}\partial_t|E|^2.
-\end{aligned}
-$$
-
-ここでは $\partial_t|B|^2=2B\cdot\partial_tB$ と $\partial_t|E|^2=2E\cdot\partial_tE$ を各成分の積の微分から使っています。全体を $\mu_0$ で割り、項を左へ移すと
+Poynting ベクトルを流れと読む根拠を、電流 $J$ がある場合も含めて導きます。真空中で必要な時間・空間の偏微分が連続で、$E,B$ が Maxwell 方程式の回転に関する二式を満たす場合を扱います。これらの式に $E$ と $B$ を内積し、エネルギー密度の時間微分と空間流束の発散を一つにまとめるのが証明の核心です。
 
 <a id="thm-emag8-poynting"></a>
 
@@ -314,7 +287,72 @@ $$
 > が各点で成り立つ。
 <!-- formal-statement-end -->
 
-上の恒等式計算がこの定理の証明です。右辺の $J\cdot E$ は EMAG6 の単位電荷あたりの仕事率 $E\cdot v$ と対応します。電流密度を荷電粒子の速度で $J=\rho v$ と表せる場合、電荷へなされる仕事率密度は $\rho E\cdot v=J\cdot E$ です。磁気力 $qv\times B$ は $v$ と直交するため仕事をしません。したがって $J\cdot E>0$ の場所では、場のエネルギーが物質側へ移ります。
+**証明の見取り図。** ベクトル積の発散公式に二つの Maxwell 方程式を代入します。$E\cdot\partial_tE$ と $B\cdot\partial_tB$ はそれぞれ二乗の時間微分へ書き換えます。特に、$-J\cdot E$ の符号は右辺への移項で決まります。
+
+<!-- proof-start -->
+### 証明
+
+Faraday 則と Ampère--Maxwell 則を、まず係数を含めて並べます。
+
+$$
+\nabla\times E=-\partial_tB,\qquad
+\nabla\times B=\mu_0J+\mu_0\varepsilon_0\partial_tE.
+$$
+
+[VC3 のベクトル積の発散恒等式](../VC3/index.md) の成分等式
+
+$$
+\nabla\cdot(E\times B)
+=B\cdot(\nabla\times E)-E\cdot(\nabla\times B)
+$$
+
+の右辺へ両式を代入すると、
+
+$$
+\begin{aligned}
+\nabla\cdot(E\times B)
+&=B\cdot(-\partial_tB)
+-E\cdot(\mu_0J+\mu_0\varepsilon_0\partial_tE)\\
+&=-B\cdot\partial_tB-\mu_0E\cdot J
+-\mu_0\varepsilon_0E\cdot\partial_tE.
+\end{aligned}
+$$
+
+成分積の微分法から
+
+$$
+\partial_t|B|^2
+=\partial_t\sum_{j=1}^3B_j^2
+=2\sum_{j=1}^3B_j\partial_tB_j
+=2B\cdot\partial_tB
+$$
+
+であり、$E$ についても同じ形で $\partial_t|E|^2=2E\cdot\partial_tE$ です。よって
+
+$$
+\nabla\cdot(E\times B)
+=-\frac12\partial_t|B|^2-\mu_0E\cdot J
+-\frac{\mu_0\varepsilon_0}{2}\partial_t|E|^2.
+$$
+
+$\mu_0>0$ で両辺を割って $S=(E\times B)/\mu_0$ を代入すると
+
+$$
+\begin{aligned}
+\nabla\cdot S
+&=-\frac1{2\mu_0}\partial_t|B|^2
+-E\cdot J-\frac{\varepsilon_0}{2}\partial_t|E|^2\\
+&=-\partial_t\left(
+\frac{|B|^2}{2\mu_0}+\frac{\varepsilon_0|E|^2}{2}
+\right)-J\cdot E\\
+&=-\partial_tu-J\cdot E.
+\end{aligned}
+$$
+
+時間に依存しない正定数 $\varepsilon_0,\mu_0$ を用いたので、係数を時間微分の外へ出せます。最後の式を移項して $\partial_tu+\nabla\cdot S=-J\cdot E$ が得られます。$\square$
+<!-- proof-end -->
+
+右辺の $J\cdot E$ は EMAG6 の電気力の仕事率と対応します。電流密度を $J=\rho v$ と書ける単一の電荷流に対して、単位体積あたりの仕事率は $\rho E\cdot v=J\cdot E$ です。一方、$v\cdot(v\times B)=0$ なので磁気力は仕事をしません。したがって $J\cdot E>0$ の場所では、電磁場から物質へエネルギーが渡ります。
 
 体積 $V$ を固定し、境界 $\partial V$ に外向き法線 $n$ を与えます。場と境界が十分滑らかで積分交換が可能なら、[VC4 の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)により
 
@@ -586,7 +624,13 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-強度は単位面積・単位時間当たりのエネルギーなので、入射エネルギー率は $P=IA$（W）です。真空平面波の運動量流束はエネルギー流束の $1/c$ 倍、すなわち圧力 $I/c$ です。完全吸収では入射運動量だけが表面へ移り、
+強度は単位面積・単位時間当たりのエネルギーなので、入射エネルギー率は $P=IA$（W）です。真空平面波については $S=I\,\widehat k$（ここでは周期平均）です。第4節で述べた場の運動量密度 $g=S/c^2$ を用いると、進行方向に長さ $c\,\Delta t$ の波の層が時間 $\Delta t$ に面積 $A$ を横切ります。したがって単位時間・単位面積あたりの入射運動量は
+
+$$
+\frac{(I/c^2)(Ac\,\Delta t)}{A\,\Delta t}=\frac Ic
+$$
+
+です。ここでは進行波の運動量密度の関係 $g=S/c^2$ と、波が速度 $c$ で伝わることを使っています。これは Poynting のエネルギー保存式**だけ**から導かれる関係ではありません。完全吸収では入射運動量だけが表面へ移り、
 
 $$
 F_{\mathrm{abs}}=\frac{IA}{c}.

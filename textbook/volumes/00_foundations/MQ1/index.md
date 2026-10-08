@@ -10,7 +10,20 @@ $$
 \widehat\psi(\xi)=(2\pi)^{-d/2}\int_{\mathbb R^d}e^{-ix\cdot\xi}\psi(x)\,dx.
 $$
 
-$\mathcal S$ 上で微分を Fourier 変換すると、$\widehat{\partial_j\psi}(\xi)=i\xi_j\widehat\psi(\xi)$ です。$L^2$ ではこれらを [FOU4 のユニタリ Fourier 変換](../FOU4/index.md#thm-fou4-l2-inversion) で延長します。
+$\mathcal S$ 上で微分を Fourier 変換すると、$\widehat{\partial_j\psi}(\xi)=i\xi_j\widehat\psi(\xi)$ です。$L^2$ への拡張には [FOU4 の一次元 $L^2$ Fourier 反転](../FOU4/index.md#thm-fou4-l2-inversion) を使います。ただし FOU4 の式は正規化前の一次元変換なので、**ここで使う $d$ 次元ユニタリ変換への橋渡し**も確認します。
+
+一次元で $\mathcal F_1f=(2\pi)^{-1/2}\int e^{-ix\xi}f(x)\,dx$ と正規化すると、FOU4 の Plancherel 等式より $\|\mathcal F_1f\|_2=\|f\|_2$ であり、反転公式により全射です。$d$ 個の一次元 Schwartz 関数の積 $f(x)=\prod_{j=1}^df_j(x_j)$ なら、絶対可積分性と Fubini の定理で
+
+$$
+\mathcal F_df(\xi)=\prod_{j=1}^d(\mathcal F_1f_j)(\xi_j),
+\quad
+\|\mathcal F_df\|_2^2
+=\prod_{j=1}^d\|\mathcal F_1f_j\|_2^2
+=\prod_{j=1}^d\|f_j\|_2^2
+=\|f\|_2^2.
+$$
+
+有限個の積の線形結合についても、内積を展開して一次元の内積保存を各変数に適用すれば同じ等式が成立します。こうした積の線形結合は $L^2(\mathbb R^d)$ に稠密です（各座標方向の単純関数の積で長方形の指示関数を近似できるため）。従って等長写像として $L^2$ 全体へ一意に延長できます。一次元変換が全射なので、その像は積の線形結合の稠密な集合を含み、等長写像の像は閉じているため、拡張も全射です。この意味で $\mathcal F_d$ はユニタリです。
 
 ## 1. 微分式と作用素は同じではない
 
@@ -111,13 +124,42 @@ $$
 \|h_0(g_{R,n}-f_R)\|_2\le M_R\|g_{R,n}-f_R\|_2\to0.
 $$
 
-まず $R$ を選んで二つの尾部ノルムを小さくし、次に $n$ を選んで二つの近似誤差を小さくします。これにより $g_k\in C_c^\infty$ で
+ここで**二つの近似を一つの収束列にする操作**を省略しません。三角不等式と直前の有界性から
 
 $$
-\|g_k-f\|_2+\|h_0(g_k-f)\|_2\to0
+\begin{aligned}
+\|g_{R,n}-f\|_2
+&\le\|g_{R,n}-f_R\|_2+\|f_R-f\|_2,\\
+\|h_0(g_{R,n}-f)\|_2
+&\le M_R\|g_{R,n}-f_R\|_2+\|h_0(f_R-f)\|_2.
+\end{aligned}
 $$
 
-となる列を作れます。$\psi_k=\mathcal F^{-1}g_k$ は Schwartz 関数であり、Plancherel 等式より
+任意の整数 $k\ge1$ に対し、まず $R_k$ を十分大きく選び、
+
+$$
+\|f-f_{R_k}\|_2+\|h_0(f-f_{R_k})\|_2<\frac1{2k}
+$$
+
+とします。次に、**固定した $R_k$ に対して** $n_k$ を選び、
+
+$$
+\|g_{R_k,n_k}-f_{R_k}\|_2
+<\frac1{2k(1+M_{R_k})}
+$$
+
+とします。この順で選ぶのは、$M_R$ が $R$ とともに大きくなるためです。$g_k:=g_{R_k,n_k}$ と書けば上の二つの評価を足し、
+
+$$
+\begin{aligned}
+&\|g_k-f\|_2+\|h_0(g_k-f)\|_2\\
+&\quad\le(1+M_{R_k})\|g_k-f_{R_k}\|_2
++\|f_{R_k}-f\|_2+\|h_0(f_{R_k}-f)\|_2\\
+&\quad<\frac1k\longrightarrow0.
+\end{aligned}
+$$
+
+こうして $g_k\in C_c^\infty$ を明示的な誤差条件で選びました。$\psi_k=\mathcal F^{-1}g_k$ は Schwartz 関数であり、Plancherel 等式より
 
 $$
 \|\psi_k-\psi\|_2=\|g_k-f\|_2,\qquad
@@ -256,7 +298,29 @@ $$
 =0\cdot\|H_0\psi\|_2+\|V\|_\infty\|\psi\|_2.
 $$
 
-したがって $a=0$、$b=\|V\|_\infty$ と選べます。一方、$V(x)=|x|^2$ はこの評価を満たしません。$\phi\in C_c^\infty(\mathbb R^d)$ を非零とし、$\phi_R(x)=\phi(x-Re_1)$ と平行移動すると、$\|\phi_R\|_2$ と $\|H_0\phi_R\|_2$ は $R$ に依存しませんが、$\||x|^2\phi_R\|_2$ は $R^2$ 程度で発散します。従ってどんな定数 $a,b$ でもこの不等式を全ての $\phi_R$ に適用することはできません。
+したがって $a=0$、$b=\|V\|_\infty$ と選べます。一方、$V(x)=|x|^2$ はこの評価を満たしません。非零の $\phi\in C_c^\infty(\mathbb R^d)$ を取り、その台が半径 $r>0$ の球に含まれるとします。$\phi_R(x)=\phi(x-Re_1)$ と平行移動した関数を考えると、変数変換 $y=x-Re_1$ から
+
+$$
+\|\phi_R\|_2^2=\int|\phi(y)|^2dy=\|\phi\|_2^2.
+$$
+
+また $H_0=-\hbar^2\Delta/(2m)$ は定数係数の微分作用素なので $H_0\phi_R(x)=(H_0\phi)(x-Re_1)$ となり、$\|H_0\phi_R\|_2=\|H_0\phi\|_2$ です。しかし $R>r$ とすれば $\phi(y)\ne0$ の点では $|y+Re_1|\ge R-r$ であるため、
+
+$$
+\begin{aligned}
+\||x|^2\phi_R\|_2^2
+&=\int_{\mathbb R^d}|y+Re_1|^4|\phi(y)|^2\,dy\\
+&\ge(R-r)^4\|\phi\|_2^2.
+\end{aligned}
+$$
+
+従って
+
+$$
+\||x|^2\phi_R\|_2\ge(R-r)^2\|\phi\|_2\to\infty.
+$$
+
+もし相対有界性が成立すれば、左辺は全ての $R$ に対し $a\|H_0\phi\|_2+b\|\phi\|_2$ 以下になるはずですが、右辺は $R$ に依存しません。矛盾するため、相対有界性は成立しません。
 <!-- definition-example-end -->
 
 <a id="thm-mq1-relative-perturbation"></a>
@@ -520,7 +584,34 @@ $$
 q_V[\psi]+(\|V\|_\infty+1)\|\psi\|_2^2
 $$
 
-は $H^1$ の Fourier 重み付きノルムの二乗と同値であり、$H^1$ の完備性により閉形式になります。
+は $H^1$ の Fourier 重み付きノルムの二乗と同値になります。**この評価と閉性の間の計算**を確認します。$c=\hbar^2/(2m)>0$、$K=\|V\|_\infty\ge0$ とし、
+
+$$
+\|\psi\|_{H^1}^2
+:=\int_{\mathbb R^d}(1+|\xi|^2)|\widehat\psi(\xi)|^2\,d\xi
+$$
+
+と置きます。ポテンシャルの評価 $-K\|\psi\|_2^2\le\int V|\psi|^2\le K\|\psi\|_2^2$ と Plancherel より、
+
+$$
+\begin{aligned}
+q_V[\psi]+(K+1)\|\psi\|_2^2
+&\ge c\int|\xi|^2|\widehat\psi|^2+\|\psi\|_2^2\\
+&\ge\min\{c,1\}\|\psi\|_{H^1}^2,\\
+q_V[\psi]+(K+1)\|\psi\|_2^2
+&\le c\int|\xi|^2|\widehat\psi|^2+(2K+1)\|\psi\|_2^2\\
+&\le\max\{c,2K+1\}\|\psi\|_{H^1}^2.
+\end{aligned}
+$$
+
+従って形式ノルム $\|\psi\|_q=[q_V[\psi]+(K+1)\|\psi\|_2^2]^{1/2}$ と $\|\psi\|_{H^1}$ は同値です。$H^1$ の完備性も Fourier 側で確認できます。$\|\cdot\|_{H^1}$ に関して Cauchy な $\psi_n$ に対し、$(1+|\xi|^2)^{1/2}\widehat\psi_n$ は $L^2$ で Cauchy なので、ある $g\in L^2$ へ収束します。$f=g/(1+|\xi|^2)^{1/2}\in L^2$ と置いて $\psi=\mathcal F^{-1}f$ を取れば、
+
+$$
+\|\psi_n-\psi\|_{H^1}^2
+=\|(1+|\xi|^2)^{1/2}\widehat\psi_n-g\|_2^2\to0.
+$$
+
+従って $H^1$ はこのノルムで完備です。ノルム同値性から $\|\cdot\|_q$ でも完備となり、下に有界な二次形式 $q_V$ は**閉形式**です。
 
 この段階では、「$H^1$ の全ての状態へ微分作用素 $H_V$ を適用した」と言ってはいけません。**二次形式が定義できることと、作用素値が $L^2$ に存在することは別**です。この違いを MQ2 の変分原理 で活用します。
 
@@ -657,7 +748,28 @@ $$
 =c^2\int_{|\xi|>R}\xi^4(1+\xi^2)^{-4}\,d\xi\to0.
 $$
 
-二つの極限は可積分関数の尾部積分が零へ行くことによります。$f_R$ には $\pm R$ で跳びがあるため滑らかとは限りません。そこで $[-R,R]$ に台を持つ $L^2$ 関数を、台が $[-R-1,R+1]$ に入る滑らかな関数 $g_{R,n}$ で近似します。この固定区間では $\xi^2$ が有界なので、$\|g_{R,n}-f_R\|_2\to0$ と $\|\xi^2(g_{R,n}-f_R)\|_2\to0$ が同時に従います。最後に対角的に $R,n$ を選べば、$\mathcal F^{-1}g_{R,n}\in\mathcal S$ によるグラフ近似が得られます。
+二つの極限は可積分関数の尾部積分が零へ行くことによります。$f_R$ には $\pm R$ で跳びがあるため滑らかとは限りません。そこで $[-R,R]$ に台を持つ $L^2$ 関数を、台が $[-R-1,R+1]$ に入る滑らかな関数 $g_{R,n}$ で近似します。例えば滑らかな近似恒等族による畳み込みの幅を $1/n<1$ と選べば、この台の条件を保ちつつ $L^2$ 収束させられます。
+
+固定区間上で $|\xi|^2\le(R+1)^2$ なので、
+
+$$
+\begin{aligned}
+\|g_{R,n}-\widehat\psi\|_2
+&\le\|g_{R,n}-f_R\|_2+\|f_R-\widehat\psi\|_2,\\
+\|c\xi^2(g_{R,n}-\widehat\psi)\|_2
+&\le c(R+1)^2\|g_{R,n}-f_R\|_2
++\|c\xi^2(f_R-\widehat\psi)\|_2.
+\end{aligned}
+$$
+
+具体的に $\varepsilon>0$ を固定し、二つの尾部誤差の和が $\varepsilon/2$ 未満になる $R$ を最初に選びます。その後、同じ $R$ に対して
+
+$$
+\|g_{R,n}-f_R\|_2
+<\frac{\varepsilon}{2\{1+c(R+1)^2\}}
+$$
+
+となる $n$ を選べば、二つのグラフ誤差の和が $\varepsilon$ 未満になります。$\varepsilon=1/k$ と選び直すと Schwartz 関数 $\mathcal F^{-1}g_{R,n}$ のグラフ近似列を作れます。
 <!-- solution-end -->
 
 ### B2. 摂動後にも core が残る理由
@@ -776,7 +888,33 @@ D(H_0)=\{\psi\in L^2:\xi^2\widehat\psi\in L^2\},\qquad
 H_0\psi=\mathcal F^{-1}(h_0\widehat\psi).
 $$
 
-$M_{h_0}$ は実数値関数 $h_0$ を掛ける最大定義域で自己共役、Fourier 共役も自己共役です。$\psi\in D(H_0)$ に対し、まず $f_R=\mathbf1_{\{|\xi|\le R\}}\widehat\psi$ で二つの尾部 $\|\widehat\psi-f_R\|_2$ と $\|h_0(\widehat\psi-f_R)\|_2$ を小さくします。次に固定した $R$ 上で $f_R$ を $C_c^\infty$ に $L^2$ 近似します。近似の台を $[-R-1,R+1]$ に固定すれば $h_0$ はそこで有界なので重み付き誤差も小さくできます。逆 Fourier 像は Schwartz 関数で、関数と作用結果が同時に収束するため $\mathcal S$ は core です。
+$M_{h_0}$ は最大定義域 $D(M_{h_0})=\{f\in L^2:h_0f\in L^2\}$ 上の実乗算作用素なので自己共役であり、ユニタリ Fourier 共役も自己共役です。
+
+$\psi\in D(H_0)$ に対し $f=\widehat\psi$ と置き、まず $f_R=\mathbf1_{\{|\xi|\le R\}}f$ で切ります。$f,h_0f\in L^2$ より
+
+$$
+\|f_R-f\|_2^2=\int_{|\xi|>R}|f|^2\to0,\qquad
+\|h_0(f_R-f)\|_2^2=\int_{|\xi|>R}|h_0f|^2\to0.
+$$
+
+次に $f_R$ を台が $[-R-1,R+1]$ に含まれる $g_{R,n}\in C_c^\infty$ で $L^2$ 近似します。$c=\hbar^2/(2m)$ と書けば、この区間で $|h_0(\xi)|=c\xi^2\le c(R+1)^2$ です。よって
+
+$$
+\begin{aligned}
+\|g_{R,n}-f\|_2+\|h_0(g_{R,n}-f)\|_2
+&\le\bigl(1+c(R+1)^2\bigr)\|g_{R,n}-f_R\|_2\\
+&\quad+\|f_R-f\|_2+\|h_0(f_R-f)\|_2.
+\end{aligned}
+$$
+
+各 $k\ge1$ に対して先に $R_k$ を選び、右辺の後ろ二つの和を $1/(2k)$ 未満にします。次に $n_k$ を選んで $\|g_{R_k,n_k}-f_{R_k}\|_2<1/\{2k[1+c(R_k+1)^2]\}$ とします。すると右辺は $1/k$ 未満です。$\psi_k=\mathcal F^{-1}g_{R_k,n_k}\in\mathcal S$ について Plancherel により
+
+$$
+\|\psi_k-\psi\|_2+\|H_0\psi_k-H_0\psi\|_2
+=\|g_{R_k,n_k}-f\|_2+\|h_0(g_{R_k,n_k}-f)\|_2\to0.
+$$
+
+従って $\mathcal S$ は $H_0$ の core です。
 
 (2) $V$ は実数値で $\|V\|_\infty=V_0$ です。任意の $\psi\in D(H_0)$ に
 

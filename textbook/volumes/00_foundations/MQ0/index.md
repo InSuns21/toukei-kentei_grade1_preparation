@@ -115,12 +115,44 @@ $$
 =\frac12\{-i\hbar x\psi'-i\hbar(\psi+x\psi')\}
 =-i\hbar(x\psi'+\psi/2).
 $$
-$QP$ だけを選んだ候補との差は $-i\hbar\psi/2$ です。また $\varphi,\psi\in\mathcal S$ として部分積分すれば境界項 $x\overline\varphi(x)\psi(x)$ は消え、
+$QP$ だけを選んだ候補との差は $-i\hbar\psi/2$ です。また $\varphi,\psi\in\mathcal S$ とし、第1変数に線形な内積 $\langle\varphi,\psi\rangle=\int\varphi\overline\psi\,dx$ で対称性を確かめます。$T=\operatorname{Op}_{\mathrm{sym}}(qp)$ と書くと、
+
 $$
-\langle\varphi,\operatorname{Op}_{\mathrm{sym}}(qp)\psi\rangle
-=\langle\operatorname{Op}_{\mathrm{sym}}(qp)\varphi,\psi\rangle
+\begin{aligned}
+\langle\varphi,T\psi\rangle
+&=\int_{\mathbb R}\varphi(x)
+\overline{-i\hbar\bigl(x\psi'(x)+\tfrac12\psi(x)\bigr)}\,dx\\
+&=i\hbar\int_{\mathbb R}
+\left(x\varphi\overline{\psi'}+\tfrac12\varphi\overline\psi\right)\,dx.
+\end{aligned}
 $$
-が直接確かめられます。実際に対称性の条件を満たす例です。
+
+Schwartz 関数なので $x\varphi(x)\overline{\psi(x)}\to0$（$x\to\pm\infty$）です。積の微分
+
+$$
+(x\varphi\overline\psi)'=
+\varphi\overline\psi+x\varphi'\overline\psi+x\varphi\overline{\psi'}
+$$
+
+を全実線で積分し、境界項が零であることを使うと
+
+$$
+\int x\varphi\overline{\psi'}\,dx
+=-\int(\varphi+x\varphi')\overline\psi\,dx.
+$$
+
+これを戻せば
+
+$$
+\begin{aligned}
+\langle\varphi,T\psi\rangle
+&=-i\hbar\int_{\mathbb R}
+\bigl(x\varphi'+\tfrac12\varphi\bigr)\overline\psi\,dx\\
+&=\langle T\varphi,\psi\rangle.
+\end{aligned}
+$$
+
+この対称性の検算は $\mathcal S$ 上で成立しますが、最大定義域上の自己共役性まで証明したわけではありません。
 <!-- definition-example-end -->
 
 混合積の違いは $q^2p$ ではより明確です。
@@ -326,13 +358,41 @@ $$
 =-i\frac{\hbar}{\ell p_0}\frac{d}{d\xi}
 =-i\frac{d}{d\xi},\qquad \ell p_0=\hbar.
 $$
-同じ変数変換によって
+運動エネルギーとポテンシャルエネルギーの係数も別々に追います。$\psi(x)=\ell^{-1/2}\phi(\xi)$ と書くと、連鎖律を二度使って
+
+$$
+\psi'(x)=\ell^{-3/2}\phi'(\xi),\qquad
+\psi''(x)=\ell^{-5/2}\phi''(\xi).
+$$
+
+従って $\sqrt\ell(H\psi)(\ell\xi)$ は
+
+$$
+-\frac{\hbar^2}{2m\ell^2}\phi''(\xi)
++\frac{m\omega^2\ell^2}{2}\xi^2\phi(\xi)
+$$
+
+になります。$\ell^2=\hbar/(m\omega)$ を代入すると
+
+$$
+\frac{\hbar^2}{2m\ell^2}
+=\frac{\hbar^2}{2m}\frac{m\omega}{\hbar}
+=\frac{\hbar\omega}{2},
+\qquad
+\frac{m\omega^2\ell^2}{2}
+=\frac{m\omega^2}{2}\frac{\hbar}{m\omega}
+=\frac{\hbar\omega}{2}.
+$$
+
+ゆえに、$\xi$ 表示での形式 Hamiltonian は
+
 $$
 \frac{H}{\hbar\omega}
 =\frac12\left(-\frac{d^2}{d\xi^2}+\xi^2\right),\qquad
 [\xi,\Pi]=i
 $$
-となります。規格化も保つため、波動関数は $\phi(\xi)=\sqrt\ell\,\psi(\ell\xi)$ と変換します。実際
+
+となります。最後の交換関係は、$\Pi=-i\partial_\xi$ を用いて $[\xi,\Pi]\phi=\xi(-i\phi')+i(\xi\phi)'=i\phi$ と直接確かめられます。規格化も保つため、波動関数は $\phi(\xi)=\sqrt\ell\,\psi(\ell\xi)$ と変換します。実際
 $$
 \int_{\mathbb R}|\phi(\xi)|^2d\xi
 =\int_{\mathbb R}\ell|\psi(\ell\xi)|^2d\xi
@@ -488,7 +548,21 @@ $U(t)=\operatorname{diag}(e^{-iE_1t/\hbar},e^{-iE_2t/\hbar})$ だから
 $$
 \psi_S(t)=\begin{pmatrix}\alpha e^{-iE_1t/\hbar}\\\beta e^{-iE_2t/\hbar}\end{pmatrix}.
 $$
-$A$ は $H$ と可換なので $A_H(t)=U^*AU=A$ です。$a_1\ne a_2$ のとき、それぞれのスペクトル射影は $E_A(\{a_1\})=\operatorname{diag}(1,0)$、$E_A(\{a_2\})=\operatorname{diag}(0,1)$ です。Schrödinger 描像では
+$A$ は $H$ と可換です。実際に行列の積を書くと、
+
+$$
+\begin{aligned}
+A_H(t)
+&=\begin{pmatrix}e^{iE_1t/\hbar}&0\\0&e^{iE_2t/\hbar}\end{pmatrix}
+\begin{pmatrix}a_1&0\\0&a_2\end{pmatrix}
+\begin{pmatrix}e^{-iE_1t/\hbar}&0\\0&e^{-iE_2t/\hbar}\end{pmatrix}\\
+&=\begin{pmatrix}a_1e^{iE_1t/\hbar}e^{-iE_1t/\hbar}&0\\
+0&a_2e^{iE_2t/\hbar}e^{-iE_2t/\hbar}\end{pmatrix}
+=A.
+\end{aligned}
+$$
+
+$a_1\ne a_2$ のとき、それぞれのスペクトル射影は $E_A(\{a_1\})=\operatorname{diag}(1,0)$、$E_A(\{a_2\})=\operatorname{diag}(0,1)$ です。Schrödinger 描像では
 $$
 \langle\psi_S,E_A(\{a_1\})\psi_S\rangle
 =|\alpha e^{-iE_1t/\hbar}|^2=|\alpha|^2
