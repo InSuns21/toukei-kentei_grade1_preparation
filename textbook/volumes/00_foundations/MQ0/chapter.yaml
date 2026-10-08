@@ -6,6 +6,7 @@ prerequisites:
   - QM8
   - AMECH6
   - MECH3
+  - MECH7
   - EMAG3
 official_scope: []
 learning_objectives:
