@@ -1,0 +1,35 @@
+chapter: "AUT2"
+terms:
+  - term: 全域関数
+    english: total function
+    meaning: "定義域のすべての元に対して値を持つ写像。DFAの遷移では全ての状態・記号の組の行き先が決まる。"
+  - term: 決定性有限オートマトン
+    english: deterministic finite automaton
+    meaning: "有限状態集合、有限アルファベット、全域遷移関数、初期状態、受理状態集合からなる判定の計算模型。"
+  - term: 状態
+    english: state
+    meaning: "入力の先頭から読んだ部分について、判定に必要な有限個の記憶情報。"
+  - term: 遷移関数
+    english: transition function
+    meaning: "状態と次の一文字から行き先状態を一意に返す全域関数。"
+  - term: 拡張遷移関数
+    english: extended transition function
+    meaning: "一文字遷移を空文字列と末尾一文字の再帰によって文字列全体へ延長した写像。"
+  - term: 受理状態
+    english: accepting state
+    meaning: "入力をすべて読み終えた時点でそこにいたら受理する状態。"
+  - term: 状態遷移図
+    english: state transition diagram
+    meaning: "状態を頂点、入力記号付きの有向矢印を遷移として表示する図。"
+  - term: 認識言語
+    english: recognized language
+    meaning: "DFAが最終的に受理状態へ到達させる文字列全体。"
+  - term: 正規言語
+    english: regular language
+    meaning: "ある決定性有限オートマトンによって認識される言語。"
+  - term: 積オートマトン
+    english: product automaton
+    meaning: "二台の有限オートマトンの状態を組にして、同じ入力を各成分へ同時に読ませる構成。"
+  - term: 行き止まり状態
+    english: sink state
+    meaning: "入力記号のどれを読んでも自身へ遷移する状態。欠けた遷移の全域化に使える。"

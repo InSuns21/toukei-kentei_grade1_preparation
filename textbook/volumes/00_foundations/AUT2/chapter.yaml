@@ -1,0 +1,48 @@
+id: "AUT2"
+title: "決定性有限オートマトン"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AUT1
+official_scope: []
+learning_objectives:
+  - DFAの五つ組と遷移の全域性を定義し、二状態・三状態の遷移表を組み立てられる
+  - 拡張遷移関数を再帰的に計算し、連結公式を文字列長による帰納法で証明できる
+  - 状態遷移図、初期状態、受理状態から認識言語を読み取り、不変条件を証明できる
+  - 積オートマトンの遷移と受理集合を構成し、共通部分と和集合の閉性を証明できる
+  - 全域遷移の仮定を使って補集合閉性を証明し、部分遷移表での誤りを説明できる
+  - 複数の状態情報を組み合わせるDFAを設計し、全入力に対する正しさを示せる
+definitions:
+  - { id: AUT2-DEF-01, name: "決定性有限オートマトン" }
+  - { id: AUT2-DEF-02, name: "拡張遷移関数" }
+  - { id: AUT2-DEF-03, name: "DFA が認識する言語・正規言語" }
+  - { id: AUT2-DEF-04, name: "状態遷移図" }
+  - { id: AUT2-DEF-05, name: "積オートマトン" }
+propositions:
+  - { id: AUT2-LEM-01, name: "拡張遷移と連結" }
+  - { id: AUT2-PROP-01, name: "二状態 DFA の認識言語" }
+  - { id: AUT2-LEM-02, name: "積の拡張遷移は成分ごとに計算できる" }
+theorems:
+  - { id: AUT2-THM-01, name: "正規言語の共通部分に関する閉性" }
+  - { id: AUT2-THM-02, name: "正規言語の和集合に関する閉性" }
+  - { id: AUT2-THM-03, name: "正規言語の補集合に関する閉性" }
+canonical_examples:
+  - "二状態の偶奇機械と図・表の対応"
+  - "末尾1機械との積で偶数かつ末尾1の言語を認識"
+  - "三状態の剰余判定と6状態の積"
+  - "行き止まり状態による全域化"
+problem_patterns:
+  - AUT2-TRACE-1
+  - AUT2-TOTALITY-1
+  - AUT2-LAST-SYMBOL-1
+  - AUT2-COMPLEMENT-1
+  - AUT2-MOD3-1
+  - AUT2-CONCAT-1
+  - AUT2-PRODUCT-TABLE-1
+  - AUT2-RESIDUE-PRODUCT-1
+  - AUT2-SINK-1
+  - AUT2-INTEGRATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 3.5, review: 1.0 }

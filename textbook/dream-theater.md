@@ -404,6 +404,7 @@
 ### 計算理論 I：形式言語・オートマトン
 
 1. [AUT1 文字列・形式言語・判定問題](textbook/volumes/00_foundations/AUT1/index.md)
+2. [AUT2 決定性有限オートマトン](textbook/volumes/00_foundations/AUT2/index.md)
 
 <a id="dt-subject-numerical-analysis"></a>
 ### 数値解析
