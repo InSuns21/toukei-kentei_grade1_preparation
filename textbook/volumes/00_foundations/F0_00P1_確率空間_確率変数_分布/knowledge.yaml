@@ -28,19 +28,19 @@ concepts:
     requires:
       - measure.measure-space
 
-  - id: prob.probability-measure
-    name: 確率測度
-    kind: term
-    aliases: [probability measure]
-    requires:
-      - prob.probability-space
-
   - id: prob.probability-space
     name: 確率空間
     kind: definition
     aliases: [確率空間]
     requires:
       - measure.measure-space
+
+  - id: prob.probability-measure
+    name: 確率測度
+    kind: term
+    aliases: [probability measure]
+    requires:
+      - prob.probability-space
 
   - id: prob.random-variable
     name: 実数値確率変数
