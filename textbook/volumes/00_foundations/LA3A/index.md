@@ -690,7 +690,18 @@ $$
 v^1(x)=\frac{x_1+x_2}{3},\qquad
 v^2(x)=\frac{2x_1-x_2}{3}.
 $$
-実際に $v^i(v_j)=\delta_{ij}$ を確認できます。
+4つの値を実際に代入すると
+
+$$
+\begin{aligned}
+v^1(v_1)&=\frac{1+2}{3}=1,&
+v^1(v_2)&=\frac{1-1}{3}=0,\\
+v^2(v_1)&=\frac{2\cdot1-2}{3}=0,&
+v^2(v_2)&=\frac{2\cdot1-(-1)}{3}=1
+\end{aligned}
+$$
+
+となり、$v^i(v_j)=\delta_{ij}$ がすべての $i,j\in\{1,2\}$ で確認できました。
 <!-- solution-end -->
 
 ### LA3A-A02 零化空間
