@@ -24,7 +24,7 @@ const tasks = [
   },
   {
     label: 'reader prose chapter prerequisites (review queue)',
-    args: ['scripts/audit-dream-theater-prose-prerequisites.mjs', '--changed-only'],
+    args: ['scripts/audit-dream-theater-prose-prerequisites.mjs', '--changed-only', '--strict'],
   },
 ];
 
