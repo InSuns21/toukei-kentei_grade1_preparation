@@ -1,0 +1,98 @@
+chapter: MQ1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MQ0
+  - QM6
+  - EVOL1
+  - FOU4
+
+concepts:
+  - id: mathematical-quantum.bounded-schrodinger-operator
+    name: 有界ポテンシャルの Schrödinger 作用素
+    kind: definition
+    aliases: ["Schrodinger operator with bounded potential"]
+    introduction: formal
+    introduction_aliases: ["定義（有界ポテンシャルの Schrödinger 作用素）"]
+    requires:
+      - quantum.free-particle-hamiltonian-spectral
+      - mathematical-quantum.canonical-quantization-basic
+
+  - id: mathematical-quantum.relative-operator-bound
+    name: 作用素に関する相対有界性
+    kind: definition
+    aliases: ["relative boundedness of operators"]
+    introduction: formal
+    introduction_aliases: ["定義（作用素に関する相対有界性）"]
+    requires:
+      - quantum.self-adjoint-unbounded-operator
+
+  - id: mathematical-quantum.strong-commutativity
+    name: 自己共役作用素の強可換性
+    kind: definition
+    aliases: ["strong commutativity of self-adjoint operators"]
+    introduction: formal
+    introduction_aliases: ["定義（自己共役作用素の強可換性）"]
+    requires:
+      - quantum.unbounded-self-adjoint-spectral-theorem
+      - quantum.projection-valued-measure
+
+  - id: mathematical-quantum.essential-spectrum
+    name: 離散スペクトルと本質スペクトル
+    kind: definition
+    aliases: ["discrete and essential spectrum of self-adjoint operators"]
+    introduction: formal
+    introduction_aliases: ["定義（離散スペクトルと本質スペクトル）"]
+    requires:
+      - quantum.unbounded-self-adjoint-spectral-theorem
+      - evolution.closed-operator-resolvent
+
+  - id: mathematical-quantum.free-hamiltonian-core
+    name: 自由 Hamiltonian の自己共役実現と Schwartz core
+    kind: theorem
+    aliases: ["essential self-adjointness and Schwartz core of free Hamiltonian"]
+    introduction_aliases: ["定理（自由 Hamiltonian の自己共役実現と Schwartz core）"]
+    requires:
+      - quantum.free-particle-hamiltonian-spectral
+      - quantum.essential-self-adjointness
+      - evolution.operator-core
+      - fourier.fou4-l2-inversion
+
+  - id: mathematical-quantum.bounded-potential-self-adjoint
+    name: 有界実ポテンシャルの自己共役性と core 保存
+    kind: theorem
+    aliases: ["self-adjointness and core preservation under bounded real potentials"]
+    introduction_aliases: ["定理（有界実ポテンシャルは自己共役性と core を保つ）"]
+    requires:
+      - mathematical-quantum.bounded-schrodinger-operator
+      - mathematical-quantum.free-hamiltonian-core
+      - quantum.self-adjoint-range-criterion
+
+  - id: mathematical-quantum.relative-perturbation-self-adjoint
+    name: 相対界1未満の対称摂動定理
+    kind: theorem
+    aliases: ["Kato Rellich theorem for relatively bounded symmetric perturbations"]
+    introduction_aliases: ["定理（相対界1未満の対称摂動）"]
+    requires:
+      - mathematical-quantum.relative-operator-bound
+      - quantum.self-adjoint-range-criterion
+      - evolution.operator-core
+
+  - id: mathematical-quantum.free-strong-commutativity
+    name: 自由 Hamiltonian と運動量の強可換性
+    kind: proposition
+    aliases: ["strong commutativity of free Hamiltonian and momenta"]
+    introduction_aliases: ["命題（自由 Hamiltonian と運動量の強可換性）"]
+    requires:
+      - mathematical-quantum.strong-commutativity
+      - quantum.self-adjoint-borel-functional-calculus
+      - quantum.momentum-operator-fourier
+
+  - id: mathematical-quantum.free-continuous-spectrum
+    name: 自由 Hamiltonian の本質スペクトルと点スペクトル
+    kind: theorem
+    aliases: ["continuous essential spectrum of free Hamiltonian"]
+    introduction_aliases: ["定理（自由 Hamiltonian は連続的なエネルギーを持つ）"]
+    requires:
+      - mathematical-quantum.essential-spectrum
+      - mathematical-quantum.free-hamiltonian-core

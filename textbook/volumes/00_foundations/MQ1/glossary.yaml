@@ -1,0 +1,29 @@
+chapter: "MQ1"
+terms:
+  - term: Schrödinger 作用素
+    english: Schrodinger operator
+    meaning: "自由運動の Laplacian 項に位置依存の実ポテンシャルを加えた量子 Hamiltonian。具体的な作用素には定義域と自己共役性の指定が不可欠。"
+  - term: 本質的自己共役性
+    english: essential self-adjointness
+    meaning: "稠密定義対称作用素の閉包が自己共役であること。対称性だけでは足りない。"
+  - term: core
+    english: operator core
+    meaning: "閉作用素の定義域にグラフノルムで稠密な部分空間。制限作用素を閉包により元の作用素へ戻せる。"
+  - term: 相対有界性
+    english: relative boundedness
+    meaning: "B の大きさを A と恒等作用素のノルムで抑える評価。相対界1未満は自己共役摂動定理の十分条件。"
+  - term: Kato–Rellich の定理
+    english: Kato-Rellich theorem
+    meaning: "自己共役作用素に相対界1未満の対称摂動を加えても、同じ定義域で自己共役性が保たれるという定理。"
+  - term: 強可換性
+    english: strong commutativity
+    meaning: "二つの自己共役作用素の全てのスペクトル射影が互いに可換となる性質。小さな共通領域での形式交換子が零というだけでは一般に不足する。"
+  - term: 離散スペクトル
+    english: discrete spectrum
+    meaning: "自己共役作用素のスペクトルのうち、孤立していて固有空間が有限次元の固有値全体。"
+  - term: 本質スペクトル
+    english: essential spectrum
+    meaning: "自己共役作用素の全スペクトルから離散スペクトルを除いたもの。自由 Hamiltonian では全非負実数が属する。"
+  - term: 二次形式
+    english: quadratic form
+    meaning: "作用素の期待値をより広い形式定義域へ拡張したエネルギー表現。作用素値が存在することとは区別する。"

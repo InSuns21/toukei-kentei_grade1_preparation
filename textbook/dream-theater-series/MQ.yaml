@@ -11,7 +11,7 @@ chapters:
     title: 古典力学から数理量子力学への橋
   - id: MQ1
     path: textbook/volumes/00_foundations/MQ1
-    status: planned
+    status: completed
     title: 微分作用素・Schrödinger 作用素と本質的自己共役性
   - id: MQ2
     path: textbook/volumes/00_foundations/MQ2

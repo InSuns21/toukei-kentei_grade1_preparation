@@ -283,3 +283,4 @@ $$
 - 2026-10-08: 依存境界の着手時監査として、QM3 の PVM・有界自己共役スペクトル定理、QM5 の位置/運動量作用素と自己共役性、QM6 の非有界スペクトル定理、QM7 の Stone 理論、QM8 の CCR/Weyl、MECH5 の古典調和振動子、MECH7 の換算質量、AMECH5--AMECH6 の Hamilton 形式/Poisson 括弧、EMAG3 の Coulomb ポテンシャルの既存章設計を照合。MQ0 はこれらの再証明ではなく、量子化の選択・対応と描像の橋渡しを中心にする。
 - 2026-10-08: MQ0 の本文・演習 A4/B4/C1・詳細解答・chapter.yaml / knowledge.yaml を実装。MQ0 の公開索引を追加し、MQ1 を次の作業として series / work-state に反映。
 - EMAG 計画には MQ4 への Coulomb ポテンシャル cross-link が残るため、MQ4 実装時まで EMAG の PLAN は進行中のまま保つ。
+- 2026-10-08: MQ1 の自由 Hamiltonian の Schwartz core・本質的自己共役性、実有界ポテンシャルと相対界1未満の摂動、強可換性、自由粒子の本質スペクトル、二次形式入口を実装。詳細証明・演習 A4/B4/C1・全問詳細解答と chapter / knowledge / glossary を追加し、MQ2 を次作業に更新。
