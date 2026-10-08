@@ -107,7 +107,7 @@ $$
 
 ここで $E_0$ が有限であることを確認します。定義の下界 $a$ に対して $\langle\psi,(H-aI)\psi\rangle\ge0$ です。[非有界自己共役作用素のスペクトル表示](../QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral) を非負な $H-aI$ に適用すると、そのスペクトルは $[0,\infty)$ に含まれ、$\sigma(H)\subset[a,\infty)$ です。非零 Hilbert 空間上の自己共役作用素のスペクトルは空でないので $E_0\in\mathbb R$ です。
 
-逆側の不等式を証明します。任意の $\varepsilon>0$ を取ります。$E_0$ は閉集合 $\sigma(H)$ の下端なので $E_0\in\sigma(H)$ です。もし $P([E_0,E_0+\varepsilon))=0$ なら、この区間の内側にスペクトルは存在せず、$E_0$ 自身もスペクトルから外れて矛盾します。従って $P([E_0,E_0+\varepsilon))\ne0$ です。
+逆側の不等式を証明します。任意の $\varepsilon>0$ を取ります。$E_0$ は閉集合 $\sigma(H)$ の下端なので $E_0\in\sigma(H)$ です。もし $P([E_0,E_0+\varepsilon))=0$ なら、$\mu_\psi$ は全ての状態について $[E_0+\varepsilon,\infty)$ に集中します。この台の上で $|\lambda-E_0|\ge\varepsilon$ なので、Borel 関数 $g(\lambda)=(\lambda-E_0)^{-1}$ を台の上で定義し、他では $0$ と置くと $\|g\|_\infty\le1/\varepsilon$ です。関数計算から $g(H)(H-E_0)=I$ が $D(H)$ 上で、$(H-E_0)g(H)=I$ が全空間上で成り立ちます（後者では $(\lambda-E_0)g(\lambda)=1$ が射影の台で成立し、$g(H)$ は $D(H)$ に写します）。従って $H-E_0$ は有界な逆作用素を持ち、$E_0\in\sigma(H)$ と矛盾します。よって $P([E_0,E_0+\varepsilon))\ne0$ です。
 
 その射影の像にある非零元を一つ取り、ノルムで割って $\psi_\varepsilon$ とします。この元のスペクトル測度は有界区間 $[E_0,E_0+\varepsilon]$ に台を持つため
 
@@ -264,7 +264,7 @@ $$
 \int_{(n,\infty)}(\lambda+K+1)\,d\mu_\psi(\lambda)\longrightarrow0
 $$
 
-です（単調収束で定義された有限積分の尾部）。各切断状態は $D(H)$ に属します。従って $D(H)$ は $q_H$ の形式 core です。また $C_c^\infty\subset H^2$ は Fourier 側での切断・平滑化により $H^1$ で稠密です。両方の閉形式は $H^2$ 上で同じ値を持ち、それぞれの形式ノルムでの完備化で一意に一致します。このため $Q(H)=H^1$ かつ $q_H=r$ です。$\square$
+です（単調収束で定義された有限積分の尾部）。各切断状態は $D(H)$ に属します。従って $D(H)$ は $q_H$ の形式 core です。また Fourier 側で $\widehat\psi$ を大きな球に切断し、その球より少し大きな球の内部で $C_c^\infty$ 関数に平滑化すると、$\int(1+|\xi|^2)|\widehat\psi_n-\widehat\psi|^2\,d\xi\to0$ となります。逆 Fourier 変換した $\psi_n$ は Schwartz 関数なので $H^2$ に属し、従って $H^2$ は $H^1$ で稠密です。両方の閉形式は $H^2$ 上で同じ値を持ち、それぞれの形式ノルムでの完備化で一意に一致します。このため $Q(H)=H^1$ かつ $q_H=r$ です。$\square$
 <!-- proof-end -->
 
 この議論で新しく可能になったのは、$H\psi$ を定義できない $H^1$ 関数も試行状態に使うことです。演習では折れ線のような、二階微分が $L^2$ にない状態にも注目します。
