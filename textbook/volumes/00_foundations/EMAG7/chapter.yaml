@@ -15,7 +15,7 @@ learning_objectives:
   - Ampère--Maxwell の法則と電場の Gauss の法則から電荷保存の連続の式を導ける
   - 真空中の四つの Maxwell 方程式について、積分形・微分形と経験則・数学定理の役割を区別できる
   - Faraday の法則から E=-grad phi-partial_t A を導き、gauge 変換で E と B が不変なことを確認できる
-  - 単連結性がない領域では curl E=0 でも循環が非零になりうることを説明できる
+  - 穴のある領域では curl E=0 でも循環が非零になりうることを説明できる
 definitions:
   - { id: EMAG7-DEF-01, name: "磁束" }
   - { id: EMAG7-DEF-02, name: "静止回路の誘導起電力" }
