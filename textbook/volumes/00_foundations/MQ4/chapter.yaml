@@ -1,0 +1,52 @@
+id: "MQ4"
+title: "中心力ポテンシャルと水素原子"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MQ3
+  - MQ1
+  - MQ2
+  - MECH7
+  - EMAG3
+  - PDE11
+  - VC6
+  - QM7
+official_scope: []
+learning_objectives:
+  - 2体Coulomb系を重心・相対運動に分離し換算質量とHamiltonianを導ける
+  - 三次元Hardy不等式からCoulombポテンシャルの相対作用素界0と自己共役性を証明できる
+  - 回転対称性・角運動量作用素と球面調和関数の量子数を対応させられる
+  - 部分波変換のユニタリ性・動径作用素・原点の正則条件を証明できる
+  - 動径因数分解と絡み合い関係で負固有値を完全列挙できる
+  - 相対コンパクト性によって本質スペクトルを決め負の連続スペクトルを排除できる
+  - Laguerre多項式から規格化された波動関数と量子数ごとの重複度を計算できる
+  - 束縛状態・連続スペクトル・測定確率・時間発展を区別できる
+definitions:
+  - { id: MQ4-DEF-01, name: "Coulomb Hamiltonian の微分表示" }
+  - { id: MQ4-DEF-02, name: "角運動量と量子数" }
+  - { id: MQ4-DEF-03, name: "部分波変換" }
+propositions:
+  - { id: MQ4-PROP-01, name: "Coulomb 動径作用素の因数分解" }
+theorems:
+  - { id: MQ4-THM-01, name: "Coulomb Hamiltonian の自己共役性と下界" }
+  - { id: MQ4-THM-02, name: "部分波分解と動径 Schrödinger 作用素" }
+  - { id: MQ4-THM-03, name: "水素様原子の全スペクトルと量子数" }
+canonical_examples:
+  - "Schwartz Gaussian に対する原点特異ポテンシャルのL2性"
+  - "球面調和関数 Y_0^0 と Y_1^0 の固有値を直接検算"
+  - "部分波 u=rR と原点境界 u(0)=0"
+  - "Psi_100 の規格化と Schrödinger 方程式の直接検算"
+problem_patterns:
+  - MQ4-REDUCED-MASS-1
+  - MQ4-SPHERICAL-HARMONICS-1
+  - MQ4-RADIAL-UNITARY-1
+  - MQ4-HARDY-BOUND-1
+  - MQ4-RADIAL-FACTORIZATION-1
+  - MQ4-HYDROGEN-GROUND-1
+  - MQ4-LAGUERRE-RECURRENCE-1
+  - MQ4-DEGENERACY-EVOLUTION-1
+  - MQ4-INTEGRATED-SPECTRUM-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 15.0, exercises: 9.0, review: 4.0 }
