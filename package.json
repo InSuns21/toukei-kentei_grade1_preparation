@@ -69,7 +69,7 @@
     "validate:svg-layout": "node scripts/validate-svg-layout.mjs",
     "validate:svg-layout:changed": "node scripts/validate-svg-layout.mjs --changed-only",
     "validate:dream-theater-prerequisites": "node scripts/prepare-pages-dream-theater-prerequisites.mjs --self-test && node scripts/prepare-pages-dream-theater-prerequisites.mjs --validate-source",
-    "audit:dream-theater-prose-prerequisites": "node scripts/audit-dream-theater-prose-prerequisites.mjs",
+    "audit:dream-theater-prose-prerequisites": "node scripts/audit-dream-theater-prose-prerequisites.mjs --strict",
     "test:dream-theater-prose-prerequisites": "node scripts/audit-dream-theater-prose-prerequisites.mjs --self-test"
   },
   "dependencies": {
