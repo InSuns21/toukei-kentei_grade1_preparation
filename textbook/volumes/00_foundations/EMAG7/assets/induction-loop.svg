@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 340" role="img" aria-labelledby="title desc" data-layout-lint="strict">
+  <title id="title">増える磁束と時計回りの誘導電場</title>
+  <desc id="desc">円形の固定回路を正面から見る。紙面手前向きの磁場 B が強まると、回路右端における誘導電場 E の矢印は下向きで、円周に沿う循環は時計回りになる。</desc>
+  <defs>
+    <marker id="inducedArrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+    </marker>
+  </defs>
+  <circle cx="300" cy="174" r="112" fill="none" stroke="currentColor" stroke-width="3"/>
+  <circle cx="300" cy="174" r="17" fill="none" stroke="currentColor" stroke-width="2.5"/>
+  <circle cx="300" cy="174" r="4.5" fill="currentColor"/>
+  <text x="273" y="215" font-size="23" fill="currentColor">B</text>
+  <text x="287" y="39" font-size="22" fill="currentColor">C</text>
+  <line x1="412" y1="134" x2="412" y2="216" stroke="currentColor" stroke-width="4" marker-end="url(#inducedArrow)"/>
+  <text x="437" y="202" font-size="24" fill="currentColor">E</text>
+  <circle cx="100" cy="116" r="13" fill="none" stroke="currentColor" stroke-width="2"/>
+  <circle cx="100" cy="116" r="3.5" fill="currentColor"/>
+  <circle cx="100" cy="174" r="13" fill="none" stroke="currentColor" stroke-width="2"/>
+  <circle cx="100" cy="174" r="3.5" fill="currentColor"/>
+  <circle cx="100" cy="232" r="13" fill="none" stroke="currentColor" stroke-width="2"/>
+  <circle cx="100" cy="232" r="3.5" fill="currentColor"/>
+</svg>
