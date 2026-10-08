@@ -1,0 +1,26 @@
+chapter: "MQ0"
+terms:
+  - term: 正準量子化
+    english: canonical quantization
+    meaning: "古典的な位置 q・運動量 p を、量子 Hilbert 空間上の位置作用素 Q・運動量作用素 P に対応させるモデル化の手続き。一般の古典物理量に対して一意な量子化を保証する定理ではない。"
+  - term: 正準交換関係
+    english: canonical commutation relation
+    meaning: "位置・運動量作用素について、適切な共通不変領域上で [Q,P]=iħI を満たすという関係。非有界作用素の定義域の指定が必要。"
+  - term: 演算子順序
+    english: operator ordering
+    meaning: "古典的には積の順序が同じ qp と pq が、量子力学の非可換作用素 QP・PQ では異なるため、量子化の際に積の並べ方を選ぶ必要があること。"
+  - term: 対称順序量子化
+    english: symmetric operator ordering
+    meaning: "混合積 qp に対して (QP+PQ)/2 のように積の順序を平均する規約。形式的な対称性と自己共役性は異なる。"
+  - term: Schrödinger 描像
+    english: Schrodinger picture
+    meaning: "自己共役 Hamiltonian H によるユニタリ群 U(t)=exp(-itH/ħ) を状態ベクトルに作用させ、観測量を固定する時間発展の表現。"
+  - term: Heisenberg 描像
+    english: Heisenberg picture
+    meaning: "状態ベクトルを固定し、観測量 A を U(t)* A U(t) で変化させる表現。非有界 A の場合は定義域もユニタリ共役で移す。"
+  - term: Heisenberg の運動方程式
+    english: Heisenberg equation of motion
+    meaning: "適切な微分可能性と作用素の定義域条件の下で、時間発展する観測量が dA_H/dt=(i/ħ)[H,A_H] + U(t)* (partial_t A_S) U(t) を満たす関係。"
+  - term: 無次元化
+    english: nondimensionalization
+    meaning: "長さ・時間・エネルギーなどの基準尺度で変数と作用素を測り直し、物理定数の数値を式から減らす変数変換。物理定数が消滅するわけではない。"
