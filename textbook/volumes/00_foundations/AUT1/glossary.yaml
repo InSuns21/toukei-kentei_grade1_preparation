@@ -1,0 +1,29 @@
+chapter: "AUT1"
+terms:
+  - term: 有限アルファベット
+    english: finite alphabet
+    meaning: "文字列を構成する記号の有限で空でない集合。"
+  - term: 文字列
+    english: string
+    meaning: "アルファベットの記号を順番に有限個並べた列。位置と順序を区別する。"
+  - term: 空文字列
+    english: empty string
+    meaning: "長さ0の唯一の文字列。空言語とは異なる。"
+  - term: 連結
+    english: concatenation
+    meaning: "二つの文字列を順序を保って前後につなぐ演算。結合的だが一般に交換的ではない。"
+  - term: 形式言語
+    english: formal language
+    meaning: "有限アルファベット上の有限文字列全体の集合の部分集合。"
+  - term: 判定問題
+    english: decision problem
+    meaning: "与えられた入力に対して条件が成立するかを「はい／いいえ」で答える問題。"
+  - term: 特性関数
+    english: characteristic function
+    meaning: "集合への所属を1、非所属を0で表す写像。存在と計算可能性は区別する。"
+  - term: 入力の符号化
+    english: input encoding
+    meaning: "入力対象を区別可能な有限文字列へ写す単射。複数対象の列の復号には追加の符号設計が要る場合がある。"
+  - term: 符号長
+    english: encoding length
+    meaning: "入力を文字列として表したときの記号の個数。表記方式に依存する。"
