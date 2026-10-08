@@ -48,7 +48,9 @@ $$
 <!-- formal-statement-start -->
 ### 定義（ε-閉包）
 
-NFA $N=(Q,\Sigma,\Delta,q_0,F)$ と $S\subseteq Q$ に対し、集合 $E(S)$ は、ある $s\in S$ からラベル $\varepsilon$ の遷移を有限回（0回も可）たどって到達できる状態全体とする。
+NFA $N=(Q,\Sigma,\Delta,q_0,F)$ と状態集合の部分集合 $S\subseteq Q$ をとる。
+
+集合 $E(S)$ を、$S$ のある状態から入力を読まない遷移を有限回（0回も可）たどって到達できる全状態の集合とする。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-aut3-epsilon-closure -->
