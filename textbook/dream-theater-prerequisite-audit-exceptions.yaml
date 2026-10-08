@@ -1,0 +1,55 @@
+# Reviewed exceptions to the prose-to-prerequisite TRIAGE heuristic.
+# These are not prerequisite declarations; only chapter.yaml and knowledge.yaml
+# define prerequisite edges. Each exception matches a specific quoted sentence.
+# Do not add broad suppressions, and do not hide use in proofs/exercises.
+version: 1
+approved_citations:
+  - source: EVOL3
+    target: NS1
+    contexts: ["の責務であり、本章では逆輸入しません"]
+    reason: NS1の構成は後続章の責務と明言。EVOL3の論証には借用しない。
+  - source: F0-00P3B
+    target: F0-00P3C
+    contexts: ["情報が段階的に増えるときの条件付き期待値の極限を"]
+    reason: 章末の「次に進む」案内であってP3Bの証明入力ではない。
+  - source: LA1
+    target: RNG1
+    contexts: ["一般の体そのものは抽象代数の"]
+    reason: 実数・複素数上の線形代数に対象を限定し、一般体は後続で定義すると紹介している。
+  - source: NPDE7
+    target: NPDE6
+    contexts: ["で扱った $u_t=\\Delta u+u^p$ では"]
+    reason: blow-upの後方スケーリングとの比較。NPDE7の長時間漸近の証明は使わない。
+  - source: RA6A
+    target: RA7
+    contexts: ["この章で得た局所可逆性は"]
+    reason: 逆関数定理を後続RA7の変数変換に適用する予告であり逆向きの依存ではない。
+  - source: RA7
+    target: F0-00C1
+    contexts:
+      - "この定理の証明は、後段の"
+      - "有界性・一様連続性の証明は後段の"
+    reason: 結果先行の正式な証明後送先。RA7で証明を既習として援用したという意味ではない。
+  - source: SET10
+    target: F0-02C6
+    contexts: ["では、部分空間 $M$ 上の線形汎関数を"]
+    reason: 選択原理の比較にHahn–Banachの用途を紹介する節で、同定理をSET10の証明に適用しない。
+  - source: SET10
+    target: FA4
+    contexts: ["コンパクト Hausdorff 空間に限る版は、既存の"]
+    reason: 選択公理との強さの違いを説明するための既知結果の紹介。SET10の主要結果を導く前提ではない。
+  - source: SET7
+    target: F0-00A3
+    contexts:
+      - "F0-00A3 [Zorn の補題]"
+      - "F0-00A3A 選択公理と"
+    reason: 後段のZorn系列への接続を示す章末リストで、SET7本文の証明は使わない。
+approved_metadata_drift:
+  - chapter: MT3
+    chapter_prerequisites: [F0-00D2A, F0-00D2B, MT2]
+    knowledge_extra: [F0-00P2]
+    reason: >
+      MT3はHahn分解を用いてRadon–Nikodym定理を独立証明する。
+      knowledge上はcanonicalなRadon–Nikodym微分のconceptをF0-00P2から再掲するために
+      参照経路を保持するが、読者がP2の関数解析による証明を既習である必要はない。
+      そのため公開ページのchapter.yamlにはP2を前提として要求しない。
