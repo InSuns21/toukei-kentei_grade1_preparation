@@ -392,13 +392,13 @@ $$
 
 ここで $F:=E+\partial_tA$ と置き、回転が 0 の場から局所的なポテンシャルを実際に構成します。球の中心を $x_0$、$u=x-x_0$ として、
 
-$
+$$
 g(x)=\int_0^1F(x_0+su)\cdot u\,ds
-$
+$$
 
 と定めます。球は凸なので、積分路 $x_0+su$ は $0\le s\le1$ で常に球内にあります。$\nabla\times F=0$ から $\partial_iF_j=\partial_jF_i$ です。よって積分内を $x_i$ で偏微分すると、
 
-$
+$$
 \begin{aligned}
 \partial_i g(x)
 &=\int_0^1\left[F_i(x_0+su)+s\sum_j u_j\partial_iF_j(x_0+su)\right]ds\\
@@ -406,13 +406,13 @@ $
 &=\int_0^1\frac{d}{ds}\left[sF_i(x_0+su)\right]ds\\
 &=F_i(x).
 \end{aligned}
-$
+$$
 
 したがって $F=\nabla g$ です。$\phi:=-g$ とすれば、この球内で
 
-$
+$$
 E+\partial_tA=-\nabla\phi
-$
+$$
 
 と書けます。すなわち
 
