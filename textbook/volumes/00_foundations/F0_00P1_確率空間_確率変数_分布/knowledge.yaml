@@ -12,6 +12,29 @@ forward_references:
   - measure.radon-nikodym-theorem
 
 concepts:
+  # D2 の指示関数・Dirac測度の具体例を、確率論の記法として再確認する。
+  # 独立概念としての名前だけを登録し、既存の可測性命題を再定理化しない。
+  - id: prob.indicator-function
+    name: 指示関数
+    kind: term
+    aliases: [indicator function]
+    requires:
+      - measure.measurable-function
+
+  - id: prob.dirac-measure
+    name: Dirac 測度
+    kind: term
+    aliases: [Dirac測度, Dirac measure]
+    requires:
+      - measure.measure-space
+
+  - id: prob.probability-measure
+    name: 確率測度
+    kind: term
+    aliases: [probability measure]
+    requires:
+      - prob.probability-space
+
   - id: prob.probability-space
     name: 確率空間
     kind: definition
