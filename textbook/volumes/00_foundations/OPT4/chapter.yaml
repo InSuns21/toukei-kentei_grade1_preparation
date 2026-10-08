@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - OPT3
+  - F0-00D2D
 official_scope: []
 learning_objectives:
   - Fenchel 共役を定義し基本例を計算でき、共役関数が凸かつ下半連続になる理由を説明できる
