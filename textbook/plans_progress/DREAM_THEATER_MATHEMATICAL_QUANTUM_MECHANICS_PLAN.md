@@ -285,3 +285,5 @@ $$
 - EMAG 計画には MQ4 への Coulomb ポテンシャル cross-link が残るため、MQ4 実装時まで EMAG の PLAN は進行中のまま保つ。
 - 2026-10-08: MQ1 の自由 Hamiltonian の Schwartz core・本質的自己共役性、実有界ポテンシャルと相対界1未満の摂動、強可換性、自由粒子の本質スペクトル、二次形式入口を実装。詳細証明・演習 A4/B4/C1・全問詳細解答と chapter / knowledge / glossary を追加し、MQ2 を次作業に更新。
 - 2026-10-08: MQ2 のスペクトル下端の変分原理、閉二次形式・形式定義域、基底状態と下端非達成例、有限次元 min–max、Rayleigh–Ritz、Gaussian 試行関数を実装。演習 A4/B4/C1 と詳細解答を追加し、MQ3 を次作業に更新。
+
+- 2026-10-08: MQ3 のユニタリ無次元化、ladder 構成と Hermite 多項式、Fourier 一意性による完全性、Schwartz core からの本質的自己共役性、全スペクトル・レゾルベント、直接解との比較を実装。演習 A4/B4/C1 と詳細解答を追加し、MQ4 を次作業に更新。

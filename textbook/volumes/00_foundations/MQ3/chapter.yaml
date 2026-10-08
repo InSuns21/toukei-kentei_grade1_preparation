@@ -1,0 +1,50 @@
+id: "MQ3"
+title: "量子調和振動子"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MQ2
+  - MQ0
+  - MECH5
+  - FOU4
+official_scope: []
+learning_objectives:
+  - 古典的調和振動子の Hamiltonian を Schrödinger 作用素として書き、ユニタリ変換と長さ尺度で無次元化できる
+  - Schwartz 共通不変領域上で生成・消滅演算子の形式的随伴、交換関係、Hamiltonian の因数分解を計算できる
+  - 最低状態の Gaussian を一次微分方程式と規格化積分から導き、零点エネルギーの下界が達成されることを示せる
+  - ladder 構成の交換子帰納法、正規化、直交性を証明し Hermite 多項式と明示的に対応付けられる
+  - Hermite 関数の完全性を多項式直交性と整関数の Fourier 変換の一意性から証明できる
+  - Hermite 基底上の最大対角作用素から自己共役な閉包と作用素定義域を構成し、全スペクトルと本質スペクトルを証明できる
+  - 直接 Schrödinger 方程式の係数漸化式、閉形式の定義域、励起状態の時間発展を解析できる
+definitions:
+  - { id: MQ3-DEF-01, name: "調和振動子のユニタリ無次元化" }
+  - { id: MQ3-DEF-02, name: "消滅演算子と生成演算子" }
+  - { id: MQ3-DEF-03, name: "Hermite 多項式と Hermite 関数" }
+propositions:
+  - { id: MQ3-PROP-01, name: "交換関係と Hamiltonian の因数分解" }
+  - { id: MQ3-PROP-02, name: "規格化された最低状態" }
+  - { id: MQ3-PROP-03, name: "ladder 構成と Rodrigues 公式の一致" }
+theorems:
+  - { id: MQ3-THM-01, name: "ladder 構成" }
+  - { id: MQ3-THM-02, name: "Hermite 関数の完全性" }
+  - { id: MQ3-THM-03, name: "量子調和振動子の自己共役性と全スペクトル" }
+canonical_examples:
+  - "長さ尺度と波動関数の Jacobian 係数の確認"
+  - "Gaussian 最低状態の規格化と零点エネルギー"
+  - "Hermite 関数 n=0,1,2 の具体形とノルム"
+  - "Schwartz core と最大対角作用素の一致"
+  - "二準位重ね合わせの相対位相とエネルギー測定"
+problem_patterns:
+  - MQ3-UNITARY-SCALING-1
+  - MQ3-CCR-FACTOR-1
+  - MQ3-GROUND-GAUSSIAN-1
+  - MQ3-FIRST-HERMITE-1
+  - MQ3-GROUND-VARIANCE-1
+  - MQ3-TWO-LEVEL-EVOLUTION-1
+  - MQ3-ODE-POLYNOMIAL-1
+  - MQ3-FORM-DOMAIN-CONTRAST-1
+  - MQ3-INTEGRATED-SPECTRUM-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12.0, exercises: 8.0, review: 3.0 }

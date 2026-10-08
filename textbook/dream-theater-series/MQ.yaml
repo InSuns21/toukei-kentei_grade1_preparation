@@ -19,7 +19,7 @@ chapters:
     title: 変分原理・二次形式・基底状態
   - id: MQ3
     path: textbook/volumes/00_foundations/MQ3
-    status: planned
+    status: completed
     title: 量子調和振動子
   - id: MQ4
     path: textbook/volumes/00_foundations/MQ4
