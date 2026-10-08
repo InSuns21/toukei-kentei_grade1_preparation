@@ -124,6 +124,8 @@ $$
 <!-- definition-example-start: def-emag8-plane-wave -->
 ### 例：$x_1$ 方向に進む波
 
+**定義の確認**として、四つの Maxwell 方程式を直接調べます。
+
 $E_*>0$、$k_*>0$ として $k=k_*e_1$、$\omega=ck_*$ とし、
 
 $$
@@ -182,13 +184,13 @@ $$
 \qquad \widehat{k}=\frac{k}{|k|}.
 $$
 
-これは**分散関係**（$\omega$ と波数の関係）です。$k$ と $E_0$ は直交し、$B_0$ はその両方に直交します。さらに直交するベクトルの外積の長さは積に等しいので、$|B_0|=|E_0|/c$ です。
+これは角振動数と波数の関係式です。$k$ と $E_0$ は直交し、$B_0$ はその両方に直交します。直交性から $|k\times E_0|=|k||E_0|$ であり、$k\times E_0=\omega B_0$ と $\omega=c|k|$ を組み合わせると $|B_0|=|E_0|/c$ です。
 
 <a id="prop-emag8-transverse"></a>
 
 <!-- formal-statement-start -->
 > **命題（真空平面波の横波性）**  
-> 真空中の無源 Maxwell 方程式を満たす非自明な同位相平面電磁波 $E=E_0f(k\cdot x-\omega t)$、$B=B_0f(k\cdot x-\omega t)$ を考える。$k\ne0,\omega>0$、$E_0\ne0$、$f\in C^2$ は定数でないとする。このとき $\omega=c|k|$、$k\perp E_0$、$k\perp B_0$、$E_0\perp B_0$ が成り立ち、$(E_0,B_0,\widehat k)$ は右手系をなす。また $|E_0|=c|B_0|$ が成り立つ。
+> 真空中の無源 Maxwell 方程式を満たす非自明な平面電磁波 $E=E_0f(k\cdot x-\omega t)$、$B=B_0f(k\cdot x-\omega t)$ を考える。$k\ne0,\omega>0$、$E_0\ne0$、$f\in C^2$ は定数でないとする。このとき $\omega=c|k|$、$k\perp E_0$、$k\perp B_0$、$E_0\perp B_0$ が成り立ち、$(E_0,B_0,\widehat k)$ は右手系をなす。また $|E_0|=c|B_0|$ が成り立つ。
 <!-- formal-statement-end -->
 
 直前の代入計算は命題の証明にもなっています。最後の右手系についても、$B_0=c^{-1}\widehat k\times E_0$ から
@@ -199,7 +201,7 @@ E_0\times B_0
 =\frac{|E_0|^2}{c}\widehat k
 $$
 
-です。$\widehat k\cdot E_0=0$ を使いました。外積が進行方向を向くので、向きが確定します。
+です。$\widehat k\cdot E_0=0$ を使いました。ベクトル $E_0\times B_0$ が進行方向を向くので、向きが確定します。
 
 図は紙面右を $k$、上を $E$ とした一地点での方向関係です。磁場 $B$ の丸と点の記号は紙面の手前向きを表し、各ベクトルは同じ位置を始点とする方向表示です。時間による大きさ・符号の変化は波形 $f$ が担います。
 
@@ -234,6 +236,8 @@ $$
 
 <!-- definition-example-start: def-emag8-energy-flux -->
 ### 例：前節の平面波に適用する
+
+**定義の確認**として、二つの項とベクトル積を計算します。
 
 $E=E_*\cos\theta\,e_2$、$B=(E_*/c)\cos\theta\,e_3$ に対し、
 
