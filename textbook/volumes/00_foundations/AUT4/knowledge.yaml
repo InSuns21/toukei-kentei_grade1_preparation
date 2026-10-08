@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - AUT3
+  - SET-U1
 
 concepts:
   - id: theoretical-computer-science.pumping-lemma
@@ -30,6 +31,7 @@ concepts:
     requires:
       - theoretical-computer-science.formal-language
       - theoretical-computer-science.concatenation
+      - set.equivalence-relation-class
 
   - id: theoretical-computer-science.nerode-right-congruence
     name: Myhill–Nerode同値関係の右合同性
@@ -49,8 +51,8 @@ concepts:
       - theoretical-computer-science.dfa
 
   - id: theoretical-computer-science.distinguishable-prefix-lower-bound
-    name: 識別可能な接頭部による状態数下界
+    name: 識別可能な接頭部と必要状態数
     kind: corollary
-    introduction_aliases: ["系（識別可能な接頭部による状態数下界）"]
+    introduction_aliases: ["系（識別可能な接頭部と必要状態数）"]
     requires:
       - theoretical-computer-science.myhill-nerode

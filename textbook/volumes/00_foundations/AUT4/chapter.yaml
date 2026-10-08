@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - AUT3
+  - SET-U1
 official_scope: []
 learning_objectives:
   - DFAの有限状態からポンピング補題の分解と全反復回数に対する結論を証明できる
@@ -20,7 +21,7 @@ propositions:
 theorems:
   - { id: AUT4-THM-01, name: "正規言語のポンピング補題" }
   - { id: AUT4-THM-02, name: "Myhill–Nerodeの定理" }
-  - { id: AUT4-COR-01, name: "識別可能な接頭部による状態数下界" }
+  - { id: AUT4-COR-01, name: "識別可能な接頭部と必要状態数" }
 canonical_examples:
   - "2状態の偶奇DFAのループと鳩の巣原理"
   - "0^n1^nのポンピング補題と無限同値類による二証明"
