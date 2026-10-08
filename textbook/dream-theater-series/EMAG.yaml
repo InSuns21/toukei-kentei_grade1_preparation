@@ -31,7 +31,7 @@ chapters:
     title: Lorentz 力と荷電粒子
   - id: EMAG7
     path: textbook/volumes/00_foundations/EMAG7
-    status: planned
+    status: completed
     title: 電磁誘導と Maxwell 方程式
   - id: EMAG8
     path: textbook/volumes/00_foundations/EMAG8
