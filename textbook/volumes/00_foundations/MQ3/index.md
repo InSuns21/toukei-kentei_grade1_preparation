@@ -33,17 +33,19 @@ $$
 <!-- formal-statement-start -->
 > **定義（調和振動子のユニタリ無次元化）**  
 > $m,\omega,\hbar>0$、$\ell=\sqrt{\hbar/(m\omega)}$ に対し、
->
-> $$
-> (U\psi)(y)=\sqrt{\ell}\,\psi(\ell y)
-> $$
->
+
+$$
+(U\psi)(y)=\sqrt{\ell}\,\psi(\ell y)
+$$
+
+
 > を $U:L^2(\mathbb R,dx)\to L^2(\mathbb R,dy)$ と定める。$U$ はユニタリであり、$\mathcal S$ 上で
->
-> $$
-> UH_{\mathrm{diff}}U^{-1}=\hbar\omega\,h_{\mathrm{diff}},
-> \qquad h_{\mathrm{diff}}=\frac12\left(-\frac{d^2}{dy^2}+y^2\right).
-> $$
+
+$$
+UH_{\mathrm{diff}}U^{-1}=\hbar\omega\,h_{\mathrm{diff}},
+\qquad h_{\mathrm{diff}}=\frac12\left(-\frac{d^2}{dy^2}+y^2\right).
+$$
+
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mq3-unitary-scaling -->
@@ -80,12 +82,13 @@ $-d^2/dy^2+y^2$ を直接解く代わりに、一階微分作用素の積とし�
 <!-- formal-statement-start -->
 > **定義（消滅演算子と生成演算子）**  
 > $\mathcal S(\mathbb R)$ 上に
->
-> $$
-> af=\frac1{\sqrt2}(yf+f'),\qquad
-> a^\dagger f=\frac1{\sqrt2}(yf-f')
-> $$
->
+
+$$
+af=\frac1{\sqrt2}(yf+f'),\qquad
+a^\dagger f=\frac1{\sqrt2}(yf-f')
+$$
+
+
 > を定める。ここで $a^\dagger$ は $\mathcal S$ 上の形式的随伴を表し、最大閉作用素としての随伴を無条件に同一視する記号ではない。
 <!-- formal-statement-end -->
 
@@ -105,12 +108,13 @@ $$
 <!-- formal-statement-start -->
 > **命題（交換関係と Hamiltonian の因数分解）**  
 > $\mathcal S(\mathbb R)$ 上で
->
-> $$
-> [a,a^\dagger]=aa^\dagger-a^\dagger a=I,\qquad
-> h_{\mathrm{diff}}=a^\dagger a+\frac12I
-> $$
->
+
+$$
+[a,a^\dagger]=aa^\dagger-a^\dagger a=I,\qquad
+h_{\mathrm{diff}}=a^\dagger a+\frac12I
+$$
+
+
 > が成立する。また $[h_{\mathrm{diff}},a]=-a$、$[h_{\mathrm{diff}},a^\dagger]=a^\dagger$ が同じ領域上で成立する。
 <!-- formal-statement-end -->
 
@@ -208,19 +212,21 @@ $\phi_0$ に $a^\dagger$ を作用させると新たな固有関数が得られ�
 <!-- formal-statement-start -->
 > **定理（ladder 構成）**  
 > $\phi_0=\pi^{-1/4}e^{-y^2/2}$ とし、整数 $n\ge0$ に対して
->
-> $$
-> \phi_n=\frac{(a^\dagger)^n}{\sqrt{n!}}\phi_0
-> $$
->
+
+$$
+\phi_n=\frac{(a^\dagger)^n}{\sqrt{n!}}\phi_0
+$$
+
+
 > と定める。各 $\phi_n\in\mathcal S$ であり、
->
-> $$
-> a\phi_n=\sqrt n\,\phi_{n-1}\ (n\ge1),\quad
-> a^\dagger\phi_n=\sqrt{n+1}\,\phi_{n+1},\quad
-> h_{\mathrm{diff}}\phi_n=\left(n+\frac12\right)\phi_n
-> $$
->
+
+$$
+a\phi_n=\sqrt n\,\phi_{n-1}\ (n\ge1),\quad
+a^\dagger\phi_n=\sqrt{n+1}\,\phi_{n+1},\quad
+h_{\mathrm{diff}}\phi_n=\left(n+\frac12\right)\phi_n
+$$
+
+
 > を満たす。$\|\phi_n\|=1$ かつ $n\ne k$ なら $\langle\phi_n,\phi_k\rangle=0$ である。
 <!-- formal-statement-end -->
 
@@ -290,13 +296,14 @@ $\phi_n$ は Gaussian と多項式の積です。多項式部分を抜き出す�
 <!-- formal-statement-start -->
 > **定義（Hermite 多項式と Hermite 関数）**  
 > 整数 $n\ge0$ について
->
-> $$
-> \mathsf H_n(y)=(-1)^n e^{y^2}\frac{d^n}{dy^n}e^{-y^2},
-> \qquad
-> \phi_n(y)=\frac{\mathsf H_n(y)e^{-y^2/2}}{\pi^{1/4}\sqrt{2^nn!}}
-> $$
->
+
+$$
+\mathsf H_n(y)=(-1)^n e^{y^2}\frac{d^n}{dy^n}e^{-y^2},
+\qquad
+\phi_n(y)=\frac{\mathsf H_n(y)e^{-y^2/2}}{\pi^{1/4}\sqrt{2^nn!}}
+$$
+
+
 > と書く。ここで $\mathsf H_n$ は物理学者の Hermite 多項式であり、$\phi_n$ は規格化 Hermite 関数である。
 <!-- formal-statement-end -->
 
@@ -323,13 +330,14 @@ $$
 <!-- formal-statement-start -->
 > **命題（ladder 構成と Rodrigues 公式の一致）**  
 > 上の $\mathsf H_n$ は次数 $n$、最高次係数 $2^n$ の多項式であり、
->
-> $$
-> \mathsf H_{n+1}=2y\mathsf H_n-\mathsf H_n',
-> \qquad
-> (a^\dagger)^n\phi_0=2^{-n/2}\mathsf H_n\phi_0
-> $$
->
+
+$$
+\mathsf H_{n+1}=2y\mathsf H_n-\mathsf H_n',
+\qquad
+(a^\dagger)^n\phi_0=2^{-n/2}\mathsf H_n\phi_0
+$$
+
+
 > が成立する。従って二つの $\phi_n$ の表示は一致する。
 <!-- formal-statement-end -->
 
@@ -416,20 +424,22 @@ $$
 <!-- formal-statement-start -->
 > **定理（量子調和振動子の自己共役性と全スペクトル）**  
 > $m,\omega,\hbar>0$ とし、$H_{\mathrm{diff}}= -\hbar^2 d^2/(2m\,dx^2)+m\omega^2x^2/2$ を $\mathcal S(\mathbb R)$ 上に定める。この対称作用素は本質的自己共役であり、その閉包 $H$ の定義域は、$\psi_n=U^{-1}\phi_n$ として
->
-> $$
-> D(H)=\left\{\psi=\sum_{n=0}^\infty c_n\psi_n:
-> \sum_{n=0}^\infty\left[\hbar\omega\left(n+\frac12\right)\right]^2|c_n|^2<\infty\right\}
-> $$
->
+
+$$
+D(H)=\left\{\psi=\sum_{n=0}^\infty c_n\psi_n:
+\sum_{n=0}^\infty\left[\hbar\omega\left(n+\frac12\right)\right]^2|c_n|^2<\infty\right\}
+$$
+
+
 > である。この定義域上で $H\psi=\sum_{n=0}^\infty \hbar\omega(n+\frac12)c_n\psi_n$ となり、
->
-> $$
-> \sigma(H)=\sigma_{\mathrm p}(H)
-> =\left\{\hbar\omega\left(n+\frac12\right):n=0,1,2,\ldots\right\},
-> \qquad \sigma_{\mathrm{ess}}(H)=\varnothing.
-> $$
->
+
+$$
+\sigma(H)=\sigma_{\mathrm p}(H)
+=\left\{\hbar\omega\left(n+\frac12\right):n=0,1,2,\ldots\right\},
+\qquad \sigma_{\mathrm{ess}}(H)=\varnothing.
+$$
+
+
 > 各固有値は重複度 $1$ であり、$(H-iI)^{-1}$ はコンパクトである。
 <!-- formal-statement-end -->
 
