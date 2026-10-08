@@ -5,8 +5,8 @@ active_series: MQ
 active_plan: textbook/plans_progress/DREAM_THEATER_MATHEMATICAL_QUANTUM_MECHANICS_PLAN.md
 series_manifest: textbook/dream-theater-series/MQ.yaml
 
-completed_through: MQ3
-next_work: MQ4
+completed_through: MQ4
+next_work: null
 after_next: null
 
 routing:
