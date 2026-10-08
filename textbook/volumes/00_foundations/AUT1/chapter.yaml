@@ -1,0 +1,47 @@
+id: "AUT1"
+title: "文字列・形式言語・判定問題"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00A
+official_scope: []
+learning_objectives:
+  - 有限アルファベット、文字列、空文字列、長さ、Sigma star を定義し具体的に列挙できる
+  - 連結の結合法則と単位元を位置ごとの記号から証明し、非可換性と区別できる
+  - 形式言語を文字列全体の部分集合として記述し、空言語と空文字列だけの言語を区別できる
+  - 判定問題と特性関数の一対一対応を構成し、写像の存在と計算可能性の違いを説明できる
+  - 自然数や論理式の入力符号化と符号長を検討し、単射と一意に復号可能な列符号化を区別できる
+  - 偶数個の1を含む言語の連結に関する閉性を証明し、他の言語の反例を構成できる
+definitions:
+  - { id: AUT1-DEF-01, name: "有限アルファベット" }
+  - { id: AUT1-DEF-02, name: "文字列・空文字列・長さ" }
+  - { id: AUT1-DEF-03, name: "文字列の連結" }
+  - { id: AUT1-DEF-04, name: "形式言語" }
+  - { id: AUT1-DEF-05, name: "判定問題と言語による表現" }
+  - { id: AUT1-DEF-06, name: "入力の符号化" }
+propositions:
+  - { id: AUT1-PROP-01, name: "連結の結合法則と単位元" }
+  - { id: AUT1-PROP-02, name: "言語と0–1値写像の一対一対応" }
+  - { id: AUT1-PROP-03, name: "正の整数の二進符号長" }
+  - { id: AUT1-LEM-01, name: "連結による1の個数の加法性" }
+theorems: []
+canonical_examples:
+  - "二進アルファベットの長さ0・1・2の文字列"
+  - "偶数個の1を含む言語と空言語の区別"
+  - "13の二進・単項符号長の比較"
+  - "回文集合と連結による閉性の失敗"
+problem_patterns:
+  - AUT1-WORDS-1
+  - AUT1-CONCAT-1
+  - AUT1-PARITY-1
+  - AUT1-CHARACTERISTIC-1
+  - AUT1-BINARY-CODING-1
+  - AUT1-ASSOCIATIVITY-1
+  - AUT1-LANGUAGE-CLOSURE-1
+  - AUT1-UNIQUE-DECODING-1
+  - AUT1-BOOLEAN-OPERATIONS-1
+  - AUT1-INTEGRATED-DECISION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 3.0, review: 1.0 }

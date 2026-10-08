@@ -1,0 +1,91 @@
+chapter: AUT1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00A
+
+concepts:
+  - id: theoretical-computer-science.finite-alphabet
+    name: 有限アルファベット
+    kind: definition
+    aliases: ["finite alphabet"]
+    introduction: formal
+    introduction_aliases: ["定義（有限アルファベット）"]
+    requires:
+      - set.set
+
+  - id: theoretical-computer-science.word
+    name: 文字列・空文字列・長さ
+    kind: definition
+    aliases: ["word over a finite alphabet"]
+    introduction: formal
+    introduction_aliases: ["定義（文字列・空文字列・長さ）"]
+    requires:
+      - theoretical-computer-science.finite-alphabet
+
+  - id: theoretical-computer-science.concatenation
+    name: 文字列の連結
+    kind: definition
+    aliases: ["word concatenation"]
+    introduction: formal
+    introduction_aliases: ["定義（文字列の連結）"]
+    requires:
+      - theoretical-computer-science.word
+
+  - id: theoretical-computer-science.concat-assoc
+    name: 連結の結合法則と単位元
+    kind: proposition
+    introduction_aliases: ["命題（連結の結合法則と単位元）"]
+    requires:
+      - theoretical-computer-science.concatenation
+
+  - id: theoretical-computer-science.formal-language
+    name: 形式言語
+    kind: definition
+    aliases: ["formal language"]
+    introduction: formal
+    introduction_aliases: ["定義（形式言語）"]
+    requires:
+      - theoretical-computer-science.word
+      - set.subset
+
+  - id: theoretical-computer-science.decision-language
+    name: 判定問題と言語による表現
+    kind: definition
+    aliases: ["decision problem as language membership"]
+    introduction: formal
+    introduction_aliases: ["定義（判定問題と言語による表現）"]
+    requires:
+      - theoretical-computer-science.formal-language
+
+  - id: theoretical-computer-science.language-characteristic
+    name: 言語と0–1値写像の一対一対応
+    kind: proposition
+    introduction_aliases: ["命題（言語と0–1値写像の一対一対応）"]
+    requires:
+      - theoretical-computer-science.decision-language
+      - set.function
+
+  - id: theoretical-computer-science.instance-encoding
+    name: 入力の符号化
+    kind: definition
+    aliases: ["encoding of decision problem instances"]
+    introduction: formal
+    introduction_aliases: ["定義（入力の符号化）"]
+    requires:
+      - theoretical-computer-science.word
+      - set.injection
+
+  - id: theoretical-computer-science.binary-length
+    name: 正の整数の二進符号長
+    kind: proposition
+    introduction_aliases: ["命題（正の整数の二進符号長）"]
+    requires:
+      - theoretical-computer-science.instance-encoding
+
+  - id: theoretical-computer-science.parity-additivity
+    name: 連結による1の個数の加法性
+    kind: lemma
+    introduction_aliases: ["補題（連結による1の個数の加法性）"]
+    requires:
+      - theoretical-computer-science.concatenation

@@ -400,6 +400,11 @@
 
 ## 計算系
 
+<a id="dt-subject-computation-theory-i"></a>
+### 計算理論 I：形式言語・オートマトン
+
+1. [AUT1 文字列・形式言語・判定問題](textbook/volumes/00_foundations/AUT1/index.md)
+
 <a id="dt-subject-numerical-analysis"></a>
 ### 数値解析
 
