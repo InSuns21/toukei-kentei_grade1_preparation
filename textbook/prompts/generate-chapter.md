@@ -71,6 +71,8 @@ DREAM THEATER の本文品質・証明粒度・定義例・演習量・詳細解
 
 生成後、数値例は独立計算で検算する。
 
+DREAM THEATER ではこの段階で終了せず、`DREAM_THEATER_AUTHORING_STANDARD.md` 第10・10.1節の順序で、(1) 主要証明と全演習・解答の棚卸し、(2) 完成本文を通した全件自己再計算、(3) 完成後の別観点での再査読、(4) 指摘修正と再検算、(5) 最終PR差分との一致確認を実施する。PRでは `textbook/prompts/dream-theater-review-evidence.md` に沿って章ごとの実際の確認対象・再計算の根拠・未確認事項を残す。人手査読をCIの成否や「確認済み」の一言で置き換えない。
+
 通常章では少なくとも `npm run validate`、`npm run audit:textbook-granularity`、`npm run validate:pages` を実行する。
 
 DREAM THEATER の変更章ではさらに、変更内容に応じて次を実行し、機械検証後に `DREAM_THEATER_AUTHORING_STANDARD.md` の査読チェックリストを人手確認する。
