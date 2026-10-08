@@ -1,0 +1,35 @@
+chapter: "AUT5"
+terms:
+  - term: 文脈自由文法
+    english: context-free grammar
+    meaning: "有限の非終端記号と終端記号、開始記号、左辺が非終端記号一個の生成規則から成る文法。"
+  - term: 終端記号
+    english: terminal symbol
+    meaning: "導出を終えた文字列に実際に残る文字。"
+  - term: 非終端記号
+    english: nonterminal symbol
+    meaning: "生成規則で置き換えられる、構造を表す記号。"
+  - term: 導出
+    english: derivation
+    meaning: "文字列中の非終端記号を生成規則の右辺で一歩ずつ置き換える操作の有限列。"
+  - term: 左端導出
+    english: leftmost derivation
+    meaning: "各一歩で、その時点の最も左の非終端記号を置き換える導出。"
+  - term: 構文木
+    english: parse tree
+    meaning: "規則の適用による非終端記号と子の関係を記録した有限の順序付き木。"
+  - term: 葉の列
+    english: yield
+    meaning: "構文木の葉を左から読み、空文字を除いて連結した文字列。"
+  - term: 文脈自由言語
+    english: context-free language
+    meaning: "文脈自由文法の開始記号から生成できる終端語全体として表される言語。"
+  - term: 曖昧な文法
+    english: ambiguous grammar
+    meaning: "同じ終端語が異なる二つ以上の構文木を持つ文法。"
+  - term: Chomsky標準形
+    english: Chomsky normal form
+    meaning: "原則としてA→BCまたはA→aの形の規則だけからなる文脈自由文法。空語には開始記号からの特別規則を許す。"
+  - term: 単位規則
+    english: unit production
+    meaning: "一個の非終端記号を別の一個の非終端記号へ置き換える規則。"

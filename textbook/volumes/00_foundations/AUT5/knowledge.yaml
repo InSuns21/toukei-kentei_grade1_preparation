@@ -1,0 +1,84 @@
+chapter: AUT5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AUT4
+
+concepts:
+  - id: theoretical-computer-science.context-free-grammar
+    name: 文脈自由文法
+    kind: definition
+    aliases: ["context-free grammar", "CFG"]
+    introduction: formal
+    introduction_aliases: ["定義（文脈自由文法と言語）"]
+    requires:
+      - theoretical-computer-science.finite-alphabet
+      - theoretical-computer-science.formal-language
+      - theoretical-computer-science.concatenation
+
+  - id: theoretical-computer-science.context-free-derivation
+    name: 文脈自由文法の導出
+    kind: definition
+    aliases: ["derivation in a context-free grammar"]
+    introduction: formal
+    introduction_aliases: ["定義（導出と生成言語）"]
+    requires:
+      - theoretical-computer-science.context-free-grammar
+
+  - id: theoretical-computer-science.parse-tree
+    name: 構文木
+    kind: definition
+    aliases: ["parse tree"]
+    introduction: formal
+    introduction_aliases: ["定義（構文木と葉の列）"]
+    requires:
+      - theoretical-computer-science.context-free-grammar
+      - theoretical-computer-science.context-free-derivation
+
+  - id: theoretical-computer-science.tree-derivation-equivalence
+    name: 導出と構文木の対応
+    kind: theorem
+    introduction_aliases: ["定理（導出と構文木の対応）"]
+    requires:
+      - theoretical-computer-science.parse-tree
+      - theoretical-computer-science.context-free-derivation
+
+  - id: theoretical-computer-science.equal-blocks-cfg
+    name: 等個数ブロックの文脈自由文法
+    kind: proposition
+    introduction_aliases: ["命題（等個数ブロックの文脈自由文法）"]
+    requires:
+      - theoretical-computer-science.tree-derivation-equivalence
+
+  - id: theoretical-computer-science.grammar-ambiguity
+    name: 文脈自由文法の曖昧性
+    kind: definition
+    aliases: ["ambiguous grammar"]
+    introduction: formal
+    introduction_aliases: ["定義（曖昧な文法）"]
+    requires:
+      - theoretical-computer-science.parse-tree
+
+  - id: theoretical-computer-science.precedence-grammar-unique
+    name: 優先順位付き算術式文法の一意性
+    kind: proposition
+    introduction_aliases: ["命題（優先順位付き算術式文法の一意性）"]
+    requires:
+      - theoretical-computer-science.grammar-ambiguity
+
+  - id: theoretical-computer-science.chomsky-normal-form
+    name: Chomsky標準形
+    kind: definition
+    aliases: ["Chomsky normal form", "CNF"]
+    introduction: formal
+    introduction_aliases: ["定義（Chomsky標準形）"]
+    requires:
+      - theoretical-computer-science.context-free-grammar
+
+  - id: theoretical-computer-science.grammar-binarization
+    name: 終端記号の分離と二分化
+    kind: lemma
+    introduction_aliases: ["補題（終端記号の分離と二分化）"]
+    requires:
+      - theoretical-computer-science.chomsky-normal-form
+      - theoretical-computer-science.tree-derivation-equivalence

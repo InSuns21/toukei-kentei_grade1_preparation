@@ -23,7 +23,7 @@ chapters:
     title: 正規言語の限界
   - id: AUT5
     path: textbook/volumes/00_foundations/AUT5
-    status: planned
+    status: completed
     title: 文脈自由文法
   - id: AUT6
     path: textbook/volumes/00_foundations/AUT6

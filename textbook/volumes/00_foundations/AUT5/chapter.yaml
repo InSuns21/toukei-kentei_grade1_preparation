@@ -1,0 +1,46 @@
+id: "AUT5"
+title: "文脈自由文法"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AUT4
+official_scope: []
+learning_objectives:
+  - 終端記号・非終端記号・生成規則・開始記号の条件を確かめてCFGを定義できる
+  - 一歩の導出・左端導出・生成言語を計算し、構文木の葉の列と照合できる
+  - 導出と構文木が同じ文字列を与えることを両方向に構成的に証明できる
+  - 0^n1^nや対応の取れた括弧列を生成する文法を作り、言語の両包含を証明できる
+  - 曖昧性を異なる構文木で検出し、演算子の優先順位を反映した文法の一意性を説明できる
+  - Chomsky標準形の規則を検査し、終端記号の分離と二分化の同値性を証明できる
+definitions:
+  - { id: AUT5-DEF-01, name: "文脈自由文法と言語" }
+  - { id: AUT5-DEF-02, name: "導出と生成言語" }
+  - { id: AUT5-DEF-03, name: "構文木と葉の列" }
+  - { id: AUT5-DEF-04, name: "曖昧な文法" }
+  - { id: AUT5-DEF-05, name: "Chomsky標準形" }
+propositions:
+  - { id: AUT5-PROP-01, name: "等個数ブロックの文脈自由文法" }
+  - { id: AUT5-PROP-02, name: "優先順位付き算術式文法の一意性" }
+  - { id: AUT5-LEM-01, name: "終端記号の分離と二分化" }
+theorems:
+  - { id: AUT5-THM-01, name: "導出と構文木の対応" }
+canonical_examples:
+  - "括弧文法S→(S)S|εの定義確認、導出と構文木"
+  - "S→0S1|εがちょうど0^n1^nを生成する両包含証明"
+  - "a+a*aの二つの構文木と優先順位付き文法"
+  - "0^n1^nをChomsky標準形に変換する全規則"
+problem_patterns:
+  - AUT5-CFG-WELLFORMED-1
+  - AUT5-DERIVATION-ORDER-1
+  - AUT5-PARSE-TREE-YIELD-1
+  - AUT5-EPSILON-BASE-1
+  - AUT5-AMBIGUOUS-ARITHMETIC-1
+  - AUT5-BALANCED-BRACKETS-1
+  - AUT5-EVEN-PALINDROMES-1
+  - AUT5-PRECEDENCE-1
+  - AUT5-CNF-CONVERSION-1
+  - AUT5-BRACKETS-AMBIGUITY-INTEGRATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.0, review: 1.5 }
