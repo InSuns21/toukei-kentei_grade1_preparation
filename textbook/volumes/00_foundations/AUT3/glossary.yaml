@@ -1,0 +1,32 @@
+chapter: "AUT3"
+terms:
+  - term: 非決定性有限オートマトン
+    english: nondeterministic finite automaton
+    meaning: "一つの状態・入力記号から複数の行き先を許す有限状態機械。一つでも受理経路が存在すれば受理する。"
+  - term: ε-遷移
+    english: epsilon transition
+    meaning: "入力文字を消費せずに状態を移る遷移。"
+  - term: ε-閉包
+    english: epsilon closure
+    meaning: "状態集合からε-遷移を0回以上たどって到達できる状態の集合。"
+  - term: 到達状態集合
+    english: reachable state set
+    meaning: "入力文字列を読んだ後、ε-遷移も含めた有限経路で到達可能な状態の集合。"
+  - term: 受理経路
+    english: accepting path
+    meaning: "初期状態から出発し、入力文字列をすべて消費して受理状態へ至る有限経路。"
+  - term: 部分集合構成
+    english: subset construction
+    meaning: "NFAの状態集合をDFAの一状態とし、すべての候補を一括更新して決定化する構成。"
+  - term: 正規表現
+    english: regular expression
+    meaning: "空言語、空文字、文字から和・連結・反復で帰納的に作る言語の式。"
+  - term: Kleene閉包
+    english: Kleene star
+    meaning: "言語に属する語の有限回の連結を集める操作。0回連結の空文字列も含む。"
+  - term: 状態消去
+    english: state elimination
+    meaning: "経路の中間状態を順に許すことで機械の受理語を正規表現へ変換する方法。"
+  - term: Kleeneの定理
+    english: Kleene theorem
+    meaning: "DFA・NFA・正規表現で表される言語のクラスが一致するという定理。"
