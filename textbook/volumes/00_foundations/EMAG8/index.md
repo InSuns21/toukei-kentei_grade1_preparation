@@ -190,7 +190,23 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（真空平面波の横波性）**  
-> 全時空 $(t,x)\in\mathbb R\times\mathbb R^3$ で真空中の無源 Maxwell 方程式を満たす非自明な平面電磁波 $E=E_0f(k\cdot x-\omega t)$、$B=B_0f(k\cdot x-\omega t)$ を考える。$k\ne0,\omega>0$、$E_0\ne0$、$f\in C^2$ は定数でないとする。このとき $\omega=c|k|$、$k\perp E_0$、$k\perp B_0$、$E_0\perp B_0$ が成り立ち、$(E_0,B_0,\widehat k)$ は右手系をなす。また $|E_0|=c|B_0|$ が成り立つ。
+> $k\in\mathbb R^3\setminus\{0\}$、$\omega>0$、$E_0,B_0\in\mathbb R^3$ で $E_0\ne0$ とし、$f\in C^2(\mathbb R)$ は定数でないとする。全時空で真空の無源 Maxwell 方程式を満たす電磁場が、次の形で与えられると仮定する。
+
+$$
+E(t,x)=E_0f(k\cdot x-\omega t),
+\qquad
+B(t,x)=B_0f(k\cdot x-\omega t).
+$$
+
+> このとき角振動数・波数と三つのベクトルに関して、
+
+$$
+\omega=c|k|,\qquad
+k\cdot E_0=k\cdot B_0=E_0\cdot B_0=0,\qquad
+|E_0|=c|B_0|
+$$
+
+> が成り立つ。さらに $(E_0,B_0,\widehat{k})$ は右手系をなす。ただし $\widehat{k}=k/|k|$ である。
 <!-- formal-statement-end -->
 
 直前の代入計算は命題の証明にもなっています。最後の右手系についても、$B_0=c^{-1}\widehat k\times E_0$ から
