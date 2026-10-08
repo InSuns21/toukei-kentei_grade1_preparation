@@ -1,0 +1,26 @@
+chapter: "MQ3"
+terms:
+  - term: 量子調和振動子
+    english: quantum harmonic oscillator
+    meaning: "二次の閉じ込めポテンシャルを持つ Schrödinger 作用素で記述する量子系。"
+  - term: 無次元化
+    english: nondimensionalization
+    meaning: "長さ尺度とユニタリ変換を用いて、Hamiltonian を物理定数のない標準形へ移すこと。"
+  - term: 消滅演算子
+    english: annihilation operator
+    meaning: "共通不変領域上で調和振動子の固有状態の準位を一段下げる一階微分作用素。"
+  - term: 生成演算子
+    english: creation operator
+    meaning: "共通不変領域上で調和振動子の固有状態の準位を一段上げる一階微分作用素。"
+  - term: Hermite 多項式
+    english: Hermite polynomial
+    meaning: "Gaussian の微分から Rodrigues 公式で定義され、調和振動子の固有関数を作る多項式。"
+  - term: Hermite 関数
+    english: Hermite function
+    meaning: "規格化した Hermite 多項式と Gaussian の積。L² 全体の完全正規直交系になる。"
+  - term: 本質的自己共役性
+    english: essential self-adjointness
+    meaning: "稠密定義対称作用素の閉包が自己共役になる性質。"
+  - term: 零点エネルギー
+    english: zero-point energy
+    meaning: "調和振動子の基底状態に残る正の最低エネルギー ħω/2。"
