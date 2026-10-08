@@ -273,20 +273,31 @@ $$
 (1+u)^n.
 $$
 
+二項定理を使います。ここで二項係数は $0\le k\le n$ に対して
+
+$$
+\binom nk=\frac{n!}{k!(n-k)!},
+\qquad 0!=1
+$$
+
+と定義する数で、特に $\binom n2=n(n-1)/2$ です。したがって
+
 $$
 (1+u)^n
 =
 1+nu+\binom n2u^2+\cdots+u^n.
 $$
 
-各 $k\ge1$ について
+さらに $1\le k\le n$ なら
 
 $$
 \binom nk
-\le n^k
+=\frac{n(n-1)\cdots(n-k+1)}{k!}
+\le \frac{n^k}{k!}
+\le n^k.
 $$
 
-だから
+$u\ge0$、$nu<1$ なので、有限和を非負項の無限等比級数で上から押さえると
 
 $$
 (1+u)^n
