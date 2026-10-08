@@ -1,0 +1,69 @@
+chapter: MQ4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MQ3
+  - MQ1
+  - MQ2
+  - MECH7
+  - EMAG3
+  - PDE11
+  - VC6
+  - QM7
+
+concepts:
+  - id: mathematical-quantum.coulomb-hamiltonian
+    name: Coulomb Hamiltonian の微分表示
+    kind: definition
+    aliases: ["Coulomb Hamiltonian differential expression"]
+    introduction: formal
+    introduction_aliases: ["定義（Coulomb Hamiltonian の微分表示）"]
+    requires:
+      - mathematical-quantum.canonical-quantization-basic
+  - id: mathematical-quantum.coulomb-selfadjoint
+    name: Coulomb Hamiltonian の自己共役性と下界
+    kind: theorem
+    aliases: ["self-adjoint Coulomb Hamiltonian"]
+    introduction_aliases: ["定理（Coulomb Hamiltonian の自己共役性と下界）"]
+    requires:
+      - mathematical-quantum.coulomb-hamiltonian
+      - mathematical-quantum.relative-perturbation-self-adjoint
+  - id: mathematical-quantum.angular-momentum-quantum-numbers
+    name: 角運動量と量子数
+    kind: definition
+    aliases: ["angular momentum quantum numbers"]
+    introduction: formal
+    introduction_aliases: ["定義（角運動量と量子数）"]
+    requires:
+      - mathematical-quantum.coulomb-hamiltonian
+  - id: mathematical-quantum.partial-wave-transform
+    name: 部分波変換
+    kind: definition
+    aliases: ["partial wave transform"]
+    introduction: formal
+    introduction_aliases: ["定義（部分波変換）"]
+    requires:
+      - mathematical-quantum.angular-momentum-quantum-numbers
+  - id: mathematical-quantum.partial-wave-decomposition
+    name: 部分波分解と動径 Schrödinger 作用素
+    kind: theorem
+    aliases: ["partial-wave decomposition of Coulomb Hamiltonian"]
+    introduction_aliases: ["定理（部分波分解と動径 Schrödinger 作用素）"]
+    requires:
+      - mathematical-quantum.partial-wave-transform
+      - mathematical-quantum.coulomb-selfadjoint
+  - id: mathematical-quantum.coulomb-radial-factorization
+    name: Coulomb 動径作用素の因数分解
+    kind: proposition
+    aliases: ["radial Coulomb operator factorization"]
+    introduction_aliases: ["命題（Coulomb 動径作用素の因数分解）"]
+    requires:
+      - mathematical-quantum.partial-wave-decomposition
+  - id: mathematical-quantum.hydrogen-spectrum
+    name: 水素様原子の全スペクトルと量子数
+    kind: theorem
+    aliases: ["hydrogen-like atom complete spectrum"]
+    introduction_aliases: ["定理（水素様原子の全スペクトルと量子数）"]
+    requires:
+      - mathematical-quantum.coulomb-radial-factorization
+      - mathematical-quantum.coulomb-selfadjoint
