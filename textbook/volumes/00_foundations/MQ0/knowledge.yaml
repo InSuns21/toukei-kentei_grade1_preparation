@@ -22,11 +22,11 @@ concepts:
       - analytical-mechanics.hamiltonian
 
   - id: mathematical-quantum.symmetric-ordering-qp
-    name: 混合積 qp の対称順序
+    name: 対称順序量子化
     kind: definition
     aliases: ["symmetric ordering of qp"]
     introduction: formal
-    introduction_aliases: ["定義（混合積 qp の対称順序）"]
+    introduction_aliases: ["定義（対称順序量子化）"]
     requires:
       - mathematical-quantum.canonical-quantization-basic
       - quantum.canonical-commutation-relation
