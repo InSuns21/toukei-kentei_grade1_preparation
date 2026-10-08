@@ -18,7 +18,7 @@ $$
 \langle\psi,H\psi\rangle\ge a\|\psi\|^2
 $$
 
-> が成立することをいう。内積は第2変数に線形とする。
+> が成立することをいう。内積は既習の QM 系列と同じく第1変数に線形とする。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mq2-semibounded -->
@@ -394,11 +394,19 @@ $$
 一般の基底 $\varphi_1,\ldots,\varphi_N\in Q(H)$ では行列
 
 $$
-A_{ij}=q_H(\varphi_i,\varphi_j),\qquad
-G_{ij}=\langle\varphi_i,\varphi_j\rangle
+A_{ij}=q_H(\varphi_j,\varphi_i),\qquad
+G_{ij}=\langle\varphi_j,\varphi_i\rangle
 $$
 
-を作ります。ここで $q_H(\cdot,\cdot)$ は複素偏極で定めた第2変数線形の双線形でなく**半双線形形式**です。$\varphi_i$ が一次独立なら $G$ は正定値で、$\psi=\sum_j c_j\varphi_j$ に対し $R(\psi)=(c^*Ac)/(c^*Gc)$ です。最小値は一般化固有値問題 $Ac=\lambda Gc$ の最小固有値となります。直交規格化基底なら $G=I$ です。
+を作ります。ここで $q_H(\cdot,\cdot)$ は複素偏極で定めた**第1変数線形の半双線形形式**です。添字を上の順序で置く理由は、$\psi=\sum_j c_j\varphi_j$ に対して
+
+$
+q_H[\psi]=\sum_{i,j}\overline{c_i}\,q_H(\varphi_j,\varphi_i)c_j=c^*Ac,
+\qquad
+\|\psi\|^2=\sum_{i,j}\overline{c_i}\langle\varphi_j,\varphi_i\rangle c_j=c^*Gc
+$
+
+となるためです。$\varphi_i$ が一次独立なら $G$ は正定値で、Rayleigh 商は $R(\psi)=(c^*Ac)/(c^*Gc)$ です。最小値は一般化固有値問題 $Ac=\lambda Gc$ の最小固有値となります。直交規格化基底なら $G=I$ です。
 
 ### min–max 原理への入口：有限次元の第 $k$ 固有値
 
@@ -509,7 +517,7 @@ $$
 
 ## 7. 演習
 
-前提を特記しなければ複素 Hilbert 空間で内積は第2変数に線形です。変分原理の適用では、まず自己共役性・下界・試行ベクトルの形式定義域を確認してください。
+前提を特記しなければ複素 Hilbert 空間で内積は第1変数に線形です。変分原理の適用では、まず自己共役性・下界・試行ベクトルの形式定義域を確認してください。
 
 ### Level A
 
