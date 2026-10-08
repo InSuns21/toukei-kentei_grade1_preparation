@@ -1,0 +1,59 @@
+chapter: EMAG7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - EMAG6
+  - VC9
+
+concepts:
+  - id: electromagnetism.magnetic-flux
+    name: 磁束
+    kind: definition
+    aliases: [magnetic flux]
+    introduction: formal
+    introduction_aliases: [定義（磁束）]
+    requires:
+      - vector-calculus.flux-integral
+      - vector-calculus.maxwell-gauss-magnetic
+
+  - id: electromagnetism.fixed-circuit-emf
+    name: 静止回路の誘導起電力
+    kind: definition
+    aliases: [fixed-circuit induced electromotive force]
+    introduction: formal
+    introduction_aliases: [定義（静止回路の誘導起電力）]
+    requires:
+      - electromagnetism.magnetic-flux
+      - electromagnetism.electric-field
+
+  - id: electromagnetism.fixed-loop-faraday
+    name: 固定回路に対する Faraday の電磁誘導則
+    kind: principle
+    aliases: [Faraday induction law for a fixed loop]
+    introduction: formal
+    introduction_aliases: [原理（固定回路に対する Faraday の電磁誘導則）]
+    requires:
+      - electromagnetism.fixed-circuit-emf
+      - electromagnetism.magnetic-flux
+      - vector-calculus.maxwell-faraday
+
+  - id: electromagnetism.displacement-current-density
+    name: 変位電流密度と変位電流
+    kind: definition
+    aliases: [displacement current density and displacement current]
+    introduction: formal
+    introduction_aliases: [定義（変位電流密度と変位電流）]
+    requires:
+      - electromagnetism.current-density
+      - electromagnetism.electric-field
+
+  - id: electromagnetism.ampere-maxwell-physical
+    name: Ampère--Maxwell の法則の電流解釈
+    kind: principle
+    aliases: [physical current interpretation of the Ampere-Maxwell law]
+    introduction: formal
+    introduction_aliases: [原理（Ampère--Maxwell の法則）]
+    requires:
+      - electromagnetism.displacement-current-density
+      - vector-calculus.maxwell-ampere-maxwell
+      - electromagnetism.charge-continuity

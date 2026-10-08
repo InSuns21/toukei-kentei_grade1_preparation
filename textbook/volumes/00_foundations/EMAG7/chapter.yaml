@@ -1,0 +1,45 @@
+id: "EMAG7"
+title: "電磁誘導と Maxwell 方程式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - EMAG6
+  - VC9
+official_scope: []
+learning_objectives:
+  - 面の向きと境界の向きを一致させて磁束と誘導起電力の符号を計算できる
+  - 固定回路の Faraday の法則を物理原理として説明し、Stokes の定理から微分形を導ける
+  - Lenz の法則を磁束の変化方向に適用し、誘導電流の向きを説明できる
+  - 運動する導体の起電力を Lorentz 力から計算し、機械的仕事と抵抗損失を照合できる
+  - 充電コンデンサーを例に、磁静場 Ampère 則の問題と変位電流が必要な理由を説明できる
+  - Ampère--Maxwell の法則と電場の Gauss の法則から電荷保存の連続の式を導ける
+  - 真空中の四つの Maxwell 方程式について、積分形・微分形と経験則・数学定理の役割を区別できる
+  - Faraday の法則から E=-grad phi-partial_t A を導き、gauge 変換で E と B が不変なことを確認できる
+  - 穴のある領域では curl E=0 でも循環が非零になりうることを説明できる
+definitions:
+  - { id: EMAG7-DEF-01, name: "磁束" }
+  - { id: EMAG7-DEF-02, name: "静止回路の誘導起電力" }
+  - { id: EMAG7-DEF-03, name: "変位電流密度と変位電流" }
+principles:
+  - { id: EMAG7-PRIN-01, name: "固定回路に対する Faraday の電磁誘導則" }
+  - { id: EMAG7-PRIN-02, name: "Ampère--Maxwell の法則" }
+canonical_examples:
+  - "傾いた円板の符号付き磁束と法線反転"
+  - "時間変化する一様磁束に対する円周の起電力と誘導電場の方向"
+  - "滑る導体棒での磁気力・起電力・機械的仕事と Joule 損失"
+  - "コンデンサーの二つの張り方で伝導電流と変位電流を照合"
+  - "単連結でないソレノイド外部領域の局所的な回転と大域的循環"
+problem_patterns:
+  - EMAG7-FLUX-ORIENTATION-1
+  - EMAG7-FARADAY-LOOP-1
+  - EMAG7-DISPLACEMENT-CURRENT-1
+  - EMAG7-GAUGE-CHECK-1
+  - EMAG7-MOTIONAL-EMF-1
+  - EMAG7-CAPACITOR-SURFACES-1
+  - EMAG7-CHARGE-CONTINUITY-1
+  - EMAG7-NONCONSERVATIVE-EFIELD-1
+  - EMAG7-SOLENOID-TOPOLOGY-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 6.0, review: 1.5 }
