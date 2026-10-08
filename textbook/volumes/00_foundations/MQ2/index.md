@@ -400,11 +400,11 @@ $$
 
 を作ります。ここで $q_H(\cdot,\cdot)$ は複素偏極で定めた**第1変数線形の半双線形形式**です。添字を上の順序で置く理由は、$\psi=\sum_j c_j\varphi_j$ に対して
 
-$
+$$
 q_H[\psi]=\sum_{i,j}\overline{c_i}\,q_H(\varphi_j,\varphi_i)c_j=c^*Ac,
 \qquad
 \|\psi\|^2=\sum_{i,j}\overline{c_i}\langle\varphi_j,\varphi_i\rangle c_j=c^*Gc
-$
+$$
 
 となるためです。$\varphi_i$ が一次独立なら $G$ は正定値で、Rayleigh 商は $R(\psi)=(c^*Ac)/(c^*Gc)$ です。最小値は一般化固有値問題 $Ac=\lambda Gc$ の最小固有値となります。直交規格化基底なら $G=I$ です。
 
