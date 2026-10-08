@@ -5,6 +5,7 @@ prerequisites:
   - QM8
   - AMECH6
   - MECH3
+  - MECH7
   - EMAG3
 
 concepts:
@@ -47,7 +48,7 @@ concepts:
     introduction_aliases: ["命題（二つの描像の測定予測は一致する）"]
     requires:
       - mathematical-quantum.heisenberg-picture-observable
-      - quantum.finite-born-rule
+      - quantum.pvm-born-rule
       - quantum.stone-theorem
 
   - id: mathematical-quantum.heisenberg-equation-finite
