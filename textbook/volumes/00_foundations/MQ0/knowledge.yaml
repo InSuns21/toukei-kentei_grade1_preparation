@@ -1,0 +1,60 @@
+chapter: MQ0
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - QM8
+  - AMECH6
+  - MECH3
+  - EMAG3
+
+concepts:
+  - id: mathematical-quantum.canonical-quantization-basic
+    name: 一次元 Schrödinger 表現での正準量子化の基本対応
+    kind: definition
+    aliases: ["basic canonical quantization correspondence in Schrodinger representation"]
+    introduction: formal
+    introduction_aliases: ["定義（一次元 Schrödinger 表現での正準量子化の基本対応）"]
+    requires:
+      - quantum.position-operator-self-adjoint
+      - quantum.momentum-operator-fourier
+      - quantum.canonical-commutation-relation
+      - analytical-mechanics.hamiltonian
+
+  - id: mathematical-quantum.symmetric-ordering-qp
+    name: 混合積 qp の対称順序
+    kind: definition
+    aliases: ["symmetric ordering of qp"]
+    introduction: formal
+    introduction_aliases: ["定義（混合積 qp の対称順序）"]
+    requires:
+      - mathematical-quantum.canonical-quantization-basic
+      - quantum.canonical-commutation-relation
+
+  - id: mathematical-quantum.heisenberg-picture-observable
+    name: Heisenberg 描像の観測量
+    kind: definition
+    aliases: ["Heisenberg picture observable"]
+    introduction: formal
+    introduction_aliases: ["定義（Heisenberg 描像の観測量）"]
+    requires:
+      - quantum.stone-theorem
+      - quantum.unitary-conjugation-self-adjoint
+
+  - id: mathematical-quantum.picture-equivalence
+    name: 二つの描像の測定予測の一致
+    kind: proposition
+    aliases: ["equivalence of Schrodinger and Heisenberg pictures for measurement probabilities"]
+    introduction_aliases: ["命題（二つの描像の測定予測は一致する）"]
+    requires:
+      - mathematical-quantum.heisenberg-picture-observable
+      - quantum.finite-born-rule
+      - quantum.stone-theorem
+
+  - id: mathematical-quantum.heisenberg-equation-finite
+    name: 有限次元における Heisenberg の運動方程式
+    kind: theorem
+    aliases: ["finite-dimensional Heisenberg equation of motion"]
+    introduction_aliases: ["定理（有限次元における Heisenberg の運動方程式）"]
+    requires:
+      - mathematical-quantum.heisenberg-picture-observable
+      - analytical-mechanics.poisson-time-evolution
