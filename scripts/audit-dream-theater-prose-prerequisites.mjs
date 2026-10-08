@@ -24,7 +24,7 @@ for(const vol of fs.readdirSync('textbook/volumes',{withFileTypes:true}).filter(
   if(!fs.existsSync(cp))continue;
   const obj=YAML.parse(file(cp))??{};
   if(!obj.id)continue;
-  const rec={id:String(obj.id),prereqs:deps(obj.prerequisites??[],cp),yaml:cp,md:dir+'/'+item.name+'/index.md',knowledge:dir+'/'+item.name+'/knowledge.yaml'};
+  const rec={id:String(obj.id),title:String(obj.title??''),prereqs:deps(obj.prerequisites??[],cp),yaml:cp,md:dir+'/'+item.name+'/index.md',knowledge:dir+'/'+item.name+'/knowledge.yaml'};
   byPath.set(rec.md,rec);
   const arr=records.get(rec.id)??[];arr.push(rec);records.set(rec.id,arr);
  }
@@ -72,6 +72,7 @@ for(const md of paths){
  const page=byPath.get(md);
  if(!page)throw Error('no chapter metadata '+md);
  const reach=closure(page.id);
+ const overview=/ロードマップ|学習案内|シリーズ概観|科目案内/u.test(page.title)||/^F0-00R[0-9]/u.test(page.id);
  if(fs.existsSync(page.knowledge)){
   const known=deps((YAML.parse(file(page.knowledge))??{}).prerequisites??[],page.knowledge);
   if(known.slice().sort().join('|')!==page.prereqs.slice().sort().join('|')){
@@ -90,6 +91,9 @@ for(const md of paths){
   for(const match of ln.matchAll(/\[([^\]]+)\]\(([^)\s]+)(?:\s+[^)]*)?\)/gu)){
    const to=byPath.get(resolve(md,match[2]));
    if(!to||to.id===page.id)continue;
+   // If the cited later chapter already depends on this chapter, it is a
+   // forward application, never a prerequisite of its own ancestor.
+   if(closure(to.id).has(page.id)||overview)continue;
    const left=ln.slice(Math.max(0,match.index-90),match.index).split(/[。！？]/u).at(-1);
    const right=ln.slice(match.index+match[0].length,match.index+match[0].length+110).split(/[。！？]/u)[0];
    const context=left+' '+match[1]+' '+right;
@@ -103,6 +107,6 @@ const count={unreachable:0,transitive:0,'metadata-drift':0};
 for(const item of found)count[item.kind]++;
 found.sort((a,b)=>({unreachable:0,'metadata-drift':1,transitive:2}[a.kind]-{unreachable:0,'metadata-drift':1,transitive:2}[b.kind])||a.source.localeCompare(b.source)||a.line-b.line);
 console.log('DREAM THEATER prose prerequisite audit: '+paths.length+' indexed chapters, '+JSON.stringify(count)+', missing knowledge.yaml='+missingKnowledge);
-for(const item of found.slice(0,full?found.length:160))console.log('['+item.kind+'] '+item.source+' -> '+item.target+' '+item.md+':'+item.line+' '+item.excerpt);
-if(!full&&found.length>160)console.log('... omitted '+(found.length-160)+' candidates; use --all');
+for(const item of (full?found:found.filter(x=>x.kind!=='transitive')).slice(0,full?found.length:100))console.log('['+item.kind+'] '+item.source+' -> '+item.target+' '+item.md+':'+item.line+' '+item.excerpt);
+if(!full)console.log('Transitive uses are counted but intentionally omitted from default review queue; run with --all to inspect.');
 if(strict&&(count.unreachable||count['metadata-drift']))process.exitCode=1;
