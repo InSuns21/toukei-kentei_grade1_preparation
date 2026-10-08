@@ -160,7 +160,7 @@ $$
 \boxed{\nabla\times E=-\partial_tB}
 $$
 
-を得ます。逆向きには、微分形を面で積分して Stokes の定理を使えば積分形が戻ります。数学的な一般証明は [VC9 の積分形と微分形の対応](../VC9/index.md#thm-vc9-maxwell-differential)にあります。
+を得ます。逆向きには、微分形を面で積分して [Kelvin--Stokes の定理](../VC5/index.md#thm-vc5-stokes)を使えば積分形が戻ります。数学的な一般証明は [VC9 の積分形と微分形の対応](../VC9/index.md#thm-vc9-maxwell-differential)にあります。
 
 特に $\partial_t B\ne0$ なら、$\nabla\times E\ne0$ です。静電場の $E=-\nabla\phi$ だけでは $\nabla\times E=0$ となってしまい、誘導を記述できません。
 
@@ -296,7 +296,7 @@ $$
 > が成り立つ。$J$ は電荷の実際の移動に伴う伝導電流密度であり、最後の項が変位電流による寄与である。
 <!-- formal-statement-end -->
 
-固定面と Stokes の定理を使えば、Faraday の法則と同じ手順で
+固定面と [Kelvin--Stokes の定理](../VC5/index.md#thm-vc5-stokes)を使えば、Faraday の法則と同じ手順で
 
 $$
 \boxed{\nabla\times B=\mu_0J+\mu_0\varepsilon_0\partial_tE}
