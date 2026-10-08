@@ -299,14 +299,34 @@ $$
 \nabla\times B=\mu_0J+\mu_0\varepsilon_0\partial_tE.
 $$
 
-[VC3 のベクトル積の発散恒等式](../VC3/index.md) の成分等式
+使うベクトル積の発散恒等式も、成分の積の微分から確認します。$E=(E_1,E_2,E_3)$、$B=(B_1,B_2,B_3)$ に対して
+
+$$
+\begin{aligned}
+\nabla\cdot(E\times B)
+&=\partial_1(E_2B_3-E_3B_2)
++\partial_2(E_3B_1-E_1B_3)
++\partial_3(E_1B_2-E_2B_1).
+\end{aligned}
+$$
+
+積の微分で計12項に展開した後、$B$ を微分しない6項は
+
+$$
+B_1(\partial_2E_3-\partial_3E_2)
++B_2(\partial_3E_1-\partial_1E_3)
++B_3(\partial_1E_2-\partial_2E_1)
+=B\cdot(\nabla\times E)
+$$
+
+となり、$E$ を微分しない残り6項は $-E\cdot(\nabla\times B)$ となります。従って
 
 $$
 \nabla\cdot(E\times B)
-=B\cdot(\nabla\times E)-E\cdot(\nabla\times B)
+=B\cdot(\nabla\times E)-E\cdot(\nabla\times B).
 $$
 
-の右辺へ両式を代入すると、
+この右辺へ両方の Maxwell 方程式を代入すると、
 
 $$
 \begin{aligned}

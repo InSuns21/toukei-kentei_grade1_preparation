@@ -358,7 +358,9 @@ $$
 =-i\frac{\hbar}{\ell p_0}\frac{d}{d\xi}
 =-i\frac{d}{d\xi},\qquad \ell p_0=\hbar.
 $$
-運動エネルギーとポテンシャルエネルギーの係数も別々に追います。$\psi(x)=\ell^{-1/2}\phi(\xi)$ と書くと、連鎖律を二度使って
+波動関数の $L^2$ ノルムも保つように、$\phi(\xi)=\sqrt\ell\,\psi(\ell\xi)$ と定めます。逆に $\psi(x)=\ell^{-1/2}\phi(x/\ell)$ です。
+
+運動エネルギーとポテンシャルエネルギーの係数も別々に追います。この $\psi$ の表示を微分すると、連鎖律を二度使って
 
 $$
 \psi'(x)=\ell^{-3/2}\phi'(\xi),\qquad
@@ -392,7 +394,7 @@ $$
 [\xi,\Pi]=i
 $$
 
-となります。最後の交換関係は、$\Pi=-i\partial_\xi$ を用いて $[\xi,\Pi]\phi=\xi(-i\phi')+i(\xi\phi)'=i\phi$ と直接確かめられます。規格化も保つため、波動関数は $\phi(\xi)=\sqrt\ell\,\psi(\ell\xi)$ と変換します。実際
+となります。最後の交換関係は、$\Pi=-i\partial_\xi$ を用いて $[\xi,\Pi]\phi=\xi(-i\phi')+i(\xi\phi)'=i\phi$ と直接確かめられます。先に定めた波動関数の変換が規格化を保つことも確認します。実際
 $$
 \int_{\mathbb R}|\phi(\xi)|^2d\xi
 =\int_{\mathbb R}\ell|\psi(\ell\xi)|^2d\xi

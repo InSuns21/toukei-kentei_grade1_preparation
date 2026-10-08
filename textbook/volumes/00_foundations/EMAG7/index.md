@@ -335,7 +335,7 @@ $$
 \end{aligned}
 $$
 
-同じ境界を持つ $S_1,S_2$ が一つの体積 $V$ の境界を $S_1\cup(-S_2)$ として作る場合、発散定理から
+同じ境界を持つ $S_1,S_2$ が一つの体積 $V$ の境界を $S_1\cup(-S_2)$ として作る場合、[VC4 の Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)から
 
 $$
 \int_{S_1}J_{\mathrm{tot}}\cdot n_1\,dS

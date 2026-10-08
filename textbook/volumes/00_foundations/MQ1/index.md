@@ -888,7 +888,7 @@ D(H_0)=\{\psi\in L^2:\xi^2\widehat\psi\in L^2\},\qquad
 H_0\psi=\mathcal F^{-1}(h_0\widehat\psi).
 $$
 
-$M_{h_0}$ は最大定義域 $D(M_{h_0})=\{f\in L^2:h_0f\in L^2\}$ 上の実乗算作用素なので自己共役であり、ユニタリ Fourier 共役も自己共役です。
+$M_{h_0}$ は最大定義域 $D(M_{h_0})=\{f\in L^2:h_0f\in L^2\}$ 上で実数値関数 $h_0$ を掛ける作用素なので自己共役であり、ユニタリ Fourier 共役も自己共役です。
 
 $\psi\in D(H_0)$ に対し $f=\widehat\psi$ と置き、まず $f_R=\mathbf1_{\{|\xi|\le R\}}f$ で切ります。$f,h_0f\in L^2$ より
 
