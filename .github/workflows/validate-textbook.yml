@@ -73,6 +73,17 @@ jobs:
           TEXTBOOK_BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: node scripts/detect-textbook-validation-scope.mjs --github-output
 
+      - name: Self-test DREAM THEATER review evidence coverage
+        if: github.event_name == 'pull_request'
+        run: node scripts/validate-dream-theater-review-evidence.mjs --self-test
+
+      - name: Validate DREAM THEATER chapter review evidence
+        if: github.event_name == 'pull_request'
+        env:
+          TEXTBOOK_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          DREAM_THEATER_PR_BODY: ${{ github.event.pull_request.body }}
+        run: node scripts/validate-dream-theater-review-evidence.mjs --base "$TEXTBOOK_BASE_SHA"
+
       - name: Validate changed textbook guardrails
         if: github.event_name == 'pull_request'
         env:

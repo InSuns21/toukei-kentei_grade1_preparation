@@ -98,3 +98,5 @@ A4/B3/C1 は**下限であって目標値・上限ではない**。最低数に�
 leaf chapter の通常PRでは changed-only validation を原則とする。global index、knowledge DAG、規約、validator、workflow等の全体波及変更では full audit を行う。
 
 少なくとも変更内容に応じて、DREAM THEATER exercise / concept / knowledge、KaTeX、proof/formal、Pages link を検証する。自動検証 green だけを完成条件にせず、人手で数学的完全性と読者粒度も確認する。
+
+**作業完了前の必須ゲート**：`textbook/DREAM_THEATER_AUTHORING_STANDARD.md` 第10・10.1節に従い、変更章ごとに主要証明・全演習解答を棚卸しして全件再計算する自己査読と、完了本文を改めて読む別観点の再査読を分離する。実施範囲、代表的な中間式、欠陥と修正、未確認箇所、査読の実施主体をPR本文に記録する。実際に別担当者が査読していないなら独立第三者査読を称しない。変更章 `index.md` を含むPRではGitHub Actionsが章別記録と主要結果・全演習IDの対応を確認するが、証明の正誤は人手で判定する。自動検証の成功、marker、題数の充足や「チェック済み」の宣言では代用できない。
