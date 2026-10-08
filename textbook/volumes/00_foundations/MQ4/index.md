@@ -4,7 +4,7 @@
 
 ただし、$-\Delta-\text{定数}/r$ を球座標へ書き換えるだけでは終わりません。原点の特異性、角方向と動径方向の Hilbert 空間分解、負の固有値以外に負のスペクトルがないことを順番に確かめます。最後に連続スペクトルとの違いを確認します。
 
-以下では $\hbar,\varepsilon_0,e,m_e,m_N>0$、核電荷 $+Ze$（$Z\in\mathbb N$）、電子電荷 $-e$、核質量 $m_N$、電子質量 $m_e$ とします。内積は第2変数に線形とし、$\mathcal H=L^2(\mathbb R^3,dx)$ は複素 Hilbert 空間です。
+以下では $\hbar,\varepsilon_0,e,m_e,m_N>0$、核電荷 $+Ze$（$Z\in\mathbb N$）、電子電荷 $-e$、核質量 $m_N$、電子質量 $m_e$ とします。内積は既習の QM 系列と同じく第1変数に線形とし、$\mathcal H=L^2(\mathbb R^3,dx)$ は複素 Hilbert 空間です。
 
 ## 1. 二体問題から一つの Schrödinger 作用素へ
 
