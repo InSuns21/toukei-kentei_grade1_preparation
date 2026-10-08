@@ -7,12 +7,10 @@ prerequisites:
   - F0-00P3A
 
 # 章末で別ルートとして特性関数・分布収束のP6を案内する。
-# C級演習では、既習本線の必須依存にはせずP3Aの条件付き期待値を横断利用する。
+# C級演習で使用するP3Aの条件付き期待値は直接の前提として扱う。
 forward_references:
   - prob.characteristic-function
   - prob.distribution-convergence
-  - prob.conditional-expectation
-  - prob.conditional-expectation-properties
 
 concepts:
   - id: prob.uniform-integrability
