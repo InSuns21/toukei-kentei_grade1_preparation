@@ -676,3 +676,4 @@
 
 1. [MQ0 古典力学から数理量子力学への橋](textbook/volumes/00_foundations/MQ0/index.md)
 2. [MQ1 微分作用素・Schrödinger 作用素と本質的自己共役性](textbook/volumes/00_foundations/MQ1/index.md)
+3. [MQ2 変分原理・二次形式・基底状態](textbook/volumes/00_foundations/MQ2/index.md)
