@@ -1,7 +1,7 @@
 version: 1
 id: MQ
 title: 数理量子力学
-plan: textbook/plans_progress/DREAM_THEATER_MATHEMATICAL_QUANTUM_MECHANICS_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_MATHEMATICAL_QUANTUM_MECHANICS_PLAN.md
 chapter_root: textbook/volumes/00_foundations
 
 chapters:
