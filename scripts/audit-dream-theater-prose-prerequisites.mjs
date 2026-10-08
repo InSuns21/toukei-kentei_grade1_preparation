@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import YAML from 'yaml';
 
@@ -8,6 +9,14 @@ import YAML from 'yaml';
 const root=process.cwd();
 const full=process.argv.includes('--all');
 const strict=process.argv.includes('--strict');
+const changedOnly=process.argv.includes('--changed-only');
+const baseline=process.env.DREAM_THEATER_BASE_SHA||process.env.TEXTBOOK_BASE_SHA;
+const changed=new Set();
+if(changedOnly){
+ if(!baseline)throw Error('--changed-only needs DREAM_THEATER_BASE_SHA or TEXTBOOK_BASE_SHA');
+ const diff=execFileSync('git',['diff','--name-only',baseline+'...HEAD'],{encoding:'utf8'});
+ for(const item of diff.split(/\r?\n/u).filter(Boolean))changed.add(item.trim());
+}
 const paths=JSON.parse(fs.readFileSync('textbook/dream-theater-index.json','utf8')).sections.flatMap(s=>s.paths);
 const indexed=new Set(paths);
 const records=new Map(), byPath=new Map();
@@ -67,10 +76,12 @@ function selfTest(){
  console.log('Narrative prerequisite audit self-test passed');
 }
 if(process.argv.includes('--self-test')){selfTest();process.exit(0);}
-const found=[];let metadataDrift=0,missingKnowledge=0;
+const found=[];let metadataDrift=0,missingKnowledge=0,visited=0;
 for(const md of paths){
  const page=byPath.get(md);
  if(!page)throw Error('no chapter metadata '+md);
+ if(changedOnly&&!changed.has(md)&&!changed.has(page.yaml)&&!changed.has(page.knowledge))continue;
+ visited++;
  const reach=closure(page.id);
  const overview=/ロードマップ|学習案内|シリーズ概観|科目案内/u.test(page.title)||/^F0-00R[0-9]/u.test(page.id);
  if(fs.existsSync(page.knowledge)){
@@ -106,7 +117,7 @@ for(const md of paths){
 const count={unreachable:0,transitive:0,'metadata-drift':0};
 for(const item of found)count[item.kind]++;
 found.sort((a,b)=>({unreachable:0,'metadata-drift':1,transitive:2}[a.kind]-{unreachable:0,'metadata-drift':1,transitive:2}[b.kind])||a.source.localeCompare(b.source)||a.line-b.line);
-console.log('DREAM THEATER prose prerequisite audit: '+paths.length+' indexed chapters, '+JSON.stringify(count)+', missing knowledge.yaml='+missingKnowledge);
+console.log('DREAM THEATER prose prerequisite audit: '+visited+'/'+paths.length+' indexed chapters, '+JSON.stringify(count)+', missing knowledge.yaml='+missingKnowledge);
 for(const item of (full?found:found.filter(x=>x.kind!=='transitive')).slice(0,full?found.length:100))console.log('['+item.kind+'] '+item.source+' -> '+item.target+' '+item.md+':'+item.line+' '+item.excerpt);
 if(!full)console.log('Transitive uses are counted but intentionally omitted from default review queue; run with --all to inspect.');
 if(strict&&(count.unreachable||count['metadata-drift']))process.exitCode=1;
