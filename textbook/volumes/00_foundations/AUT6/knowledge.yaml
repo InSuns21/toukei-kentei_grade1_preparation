@@ -1,0 +1,75 @@
+chapter: AUT6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AUT5
+concepts:
+  - id: theoretical-computer-science.pushdown-automaton
+    name: プッシュダウン・オートマトン
+    kind: definition
+    aliases: ["pushdown automaton", "PDA"]
+    introduction: formal
+    introduction_aliases: ["定義（非決定性プッシュダウン・オートマトン）"]
+    requires:
+      - theoretical-computer-science.context-free-grammar
+      - theoretical-computer-science.nfa
+  - id: theoretical-computer-science.pda-configuration
+    name: PDAの計算状況・一歩遷移・受理
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（計算状況・一歩遷移・受理）"]
+    requires:
+      - theoretical-computer-science.pushdown-automaton
+  - id: theoretical-computer-science.equal-blocks-pda
+    name: スタックによる等個数ブロックの認識
+    kind: proposition
+    introduction_aliases: ["命題（スタックによる等個数ブロックの認識）"]
+    requires:
+      - theoretical-computer-science.pda-configuration
+  - id: theoretical-computer-science.even-palindrome-pda
+    name: 偶数長回文のPDA
+    kind: proposition
+    introduction_aliases: ["命題（偶数長回文のPDA）"]
+    requires:
+      - theoretical-computer-science.pda-configuration
+  - id: theoretical-computer-science.pda-acceptance-equivalence
+    name: 最終状態受理と空スタック受理の等価性
+    kind: lemma
+    introduction_aliases: ["補題（最終状態受理と空スタック受理の等価性）"]
+    requires:
+      - theoretical-computer-science.pda-configuration
+  - id: theoretical-computer-science.cfg-to-pda
+    name: CFGからPDAへの構成
+    kind: theorem
+    introduction_aliases: ["定理（CFGからPDAへの構成）"]
+    requires:
+      - theoretical-computer-science.context-free-derivation
+      - theoretical-computer-science.pda-configuration
+      - theoretical-computer-science.tree-derivation-equivalence
+  - id: theoretical-computer-science.pda-to-cfg
+    name: PDAからCFGへの構成
+    kind: theorem
+    introduction_aliases: ["定理（PDAからCFGへの構成）"]
+    requires:
+      - theoretical-computer-science.pda-acceptance-equivalence
+      - theoretical-computer-science.cfg-to-pda
+  - id: theoretical-computer-science.cfl-closure
+    name: 文脈自由言語の閉性
+    kind: proposition
+    introduction_aliases: ["命題（文脈自由言語の閉性）"]
+    requires:
+      - theoretical-computer-science.pda-to-cfg
+      - theoretical-computer-science.dfa
+  - id: theoretical-computer-science.cfl-pumping
+    name: 文脈自由言語のポンピング補題
+    kind: lemma
+    introduction_aliases: ["補題（文脈自由言語のポンピング補題）"]
+    requires:
+      - theoretical-computer-science.parse-tree
+  - id: theoretical-computer-science.cfl-nonclosure
+    name: 文脈自由言語の共通部分・補集合に関する非閉性
+    kind: proposition
+    introduction_aliases: ["命題（文脈自由言語の共通部分・補集合に関する非閉性）"]
+    requires:
+      - theoretical-computer-science.cfl-closure
+      - theoretical-computer-science.cfl-pumping
