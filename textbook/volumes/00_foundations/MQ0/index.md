@@ -49,6 +49,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mq0-canonical-model -->
+
+**定義の確認**
+
 ### 直接例：一次元自由粒子
 
 古典的な $H_{\mathrm{cl}}=p^2/(2m)$ に対応する候補は
@@ -101,6 +104,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mq0-symmetric-ordering -->
+
+**定義の確認**
+
 ### 直接例：積 $qp$ の順序を交換する
 
 $\psi\in\mathcal S(\mathbb R)$ に対して
@@ -161,6 +167,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mq0-heisenberg-observable -->
+
+**定義の確認**
+
 ### 直接例：Hamiltonian 自身
 
 $A=H$ と取ると、[QM6 の関数計算](../QM6/index.md) で $U(t)$ と $H$ は可換であり、$U(t)D(H)=D(H)$ です。したがって定義域を含め
