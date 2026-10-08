@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - F0-00D
   - F0-00C2
+  - F0-00E
   - F0-00F2
 
 forward_references:
