@@ -1,0 +1,23 @@
+chapter: "MQ2"
+terms:
+  - term: 下に有界な自己共役作用素
+    english: semibounded self-adjoint operator
+    meaning: "期待値が一定の実数倍のノルム二乗以上となる自己共役作用素。"
+  - term: Rayleigh 商
+    english: Rayleigh quotient
+    meaning: "非零状態のエネルギー期待値をノルム二乗で割った値。スペクトル下端の上界を作る。"
+  - term: 閉二次形式
+    english: closed quadratic form
+    meaning: "適切に定数倍ノルムを加えた形式ノルムで定義域が完備になる二次形式。"
+  - term: 形式定義域
+    english: form domain
+    meaning: "下に有界な自己共役作用素の非負平方根が定義される空間。一般に作用素定義域より広い。"
+  - term: 基底状態
+    english: ground state
+    meaning: "スペクトル下端を固有値として達成する非零固有ベクトル。下端があっても存在しない場合がある。"
+  - term: Rayleigh–Ritz 法
+    english: Rayleigh-Ritz method
+    meaning: "形式定義域の有限次元試行空間で二次形式を最小化し、真のエネルギー下端の上界を求める方法。"
+  - term: min–max 原理
+    english: min-max principle
+    meaning: "低い固有値を、部分空間上での Rayleigh 商の最大値の最小化などで記述する原理。本文では有限次元版を証明。"

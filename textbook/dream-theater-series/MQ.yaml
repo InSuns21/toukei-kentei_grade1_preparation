@@ -15,7 +15,7 @@ chapters:
     title: 微分作用素・Schrödinger 作用素と本質的自己共役性
   - id: MQ2
     path: textbook/volumes/00_foundations/MQ2
-    status: planned
+    status: completed
     title: 変分原理・二次形式・基底状態
   - id: MQ3
     path: textbook/volumes/00_foundations/MQ3

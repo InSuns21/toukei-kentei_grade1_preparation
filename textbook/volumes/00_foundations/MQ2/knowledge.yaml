@@ -1,0 +1,107 @@
+chapter: MQ2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MQ1
+  - QM6
+  - FOU4
+
+concepts:
+  - id: mathematical-quantum.semibounded-self-adjoint
+    name: 下に有界な自己共役作用素
+    kind: definition
+    aliases: ["semibounded self-adjoint operator"]
+    introduction: formal
+    introduction_aliases: ["定義（下に有界な自己共役作用素）"]
+    requires:
+      - quantum.unbounded-self-adjoint-spectral-theorem
+
+  - id: mathematical-quantum.rayleigh-quotient
+    name: 自己共役作用素の Rayleigh 商
+    kind: definition
+    aliases: ["Rayleigh quotient of a self-adjoint operator"]
+    introduction: formal
+    introduction_aliases: ["定義（Rayleigh 商）"]
+    requires:
+      - mathematical-quantum.semibounded-self-adjoint
+
+  - id: mathematical-quantum.closed-quadratic-form
+    name: 下に有界な自己共役作用素の閉二次形式
+    kind: definition
+    aliases: ["closed quadratic form of a semibounded self-adjoint operator"]
+    introduction: formal
+    introduction_aliases: ["定義（下に有界な自己共役作用素の閉二次形式）"]
+    requires:
+      - quantum.self-adjoint-borel-functional-calculus
+      - mathematical-quantum.semibounded-self-adjoint
+
+  - id: mathematical-quantum.ground-state
+    name: 基底状態
+    kind: definition
+    aliases: ["ground state"]
+    introduction: formal
+    introduction_aliases: ["定義（基底状態）"]
+    requires:
+      - mathematical-quantum.semibounded-self-adjoint
+      - mathematical-quantum.rayleigh-quotient
+
+  - id: mathematical-quantum.bottom-variational-principle
+    name: スペクトル下端の変分原理
+    kind: theorem
+    aliases: ["variational principle for spectral bottom"]
+    introduction_aliases: ["定理（スペクトル下端の変分原理）"]
+    requires:
+      - mathematical-quantum.rayleigh-quotient
+      - quantum.unbounded-self-adjoint-spectral-theorem
+
+  - id: mathematical-quantum.form-variational-principle
+    name: 閉形式による変分原理
+    kind: theorem
+    aliases: ["variational principle on a closed form domain"]
+    introduction_aliases: ["定理（閉形式による変分原理）"]
+    requires:
+      - mathematical-quantum.closed-quadratic-form
+      - mathematical-quantum.bottom-variational-principle
+
+  - id: mathematical-quantum.bounded-potential-form
+    name: 有界実ポテンシャルの形式
+    kind: proposition
+    aliases: ["quadratic form of a bounded real Schrodinger potential"]
+    introduction_aliases: ["命題（有界実ポテンシャルの形式）"]
+    requires:
+      - mathematical-quantum.form-variational-principle
+      - mathematical-quantum.bounded-potential-self-adjoint
+
+  - id: mathematical-quantum.ground-minimizer
+    name: 最小化状態と固有状態
+    kind: theorem
+    aliases: ["minimizing state is a ground eigenstate"]
+    introduction_aliases: ["定理（最小化状態と固有状態）"]
+    requires:
+      - mathematical-quantum.ground-state
+      - mathematical-quantum.form-variational-principle
+
+  - id: mathematical-quantum.ground-gap-criterion
+    name: 本質スペクトルより下の基底固有値
+    kind: proposition
+    aliases: ["ground eigenvalue below essential spectrum"]
+    introduction_aliases: ["命題（本質スペクトルより下の基底固有値）"]
+    requires:
+      - mathematical-quantum.ground-state
+      - mathematical-quantum.essential-spectrum
+
+  - id: mathematical-quantum.rayleigh-ritz
+    name: Rayleigh–Ritz の上界と単調性
+    kind: proposition
+    aliases: ["Rayleigh Ritz monotone variational upper bounds"]
+    introduction_aliases: ["命題（Rayleigh–Ritz の上界と単調性）"]
+    requires:
+      - mathematical-quantum.form-variational-principle
+
+  - id: mathematical-quantum.finite-minmax
+    name: 有限次元の min–max 原理
+    kind: theorem
+    aliases: ["finite-dimensional min-max principle"]
+    introduction_aliases: ["定理（有限次元の min–max 原理）"]
+    requires:
+      - mathematical-quantum.rayleigh-quotient
