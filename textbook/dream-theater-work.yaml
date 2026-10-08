@@ -5,9 +5,9 @@ active_series: EMAG
 active_plan: textbook/plans_progress/DREAM_THEATER_ELECTROMAGNETISM_I_PLAN.md
 series_manifest: textbook/dream-theater-series/EMAG.yaml
 
-completed_through: EMAG5
-next_work: EMAG6
-after_next: EMAG7
+completed_through: EMAG6
+next_work: EMAG7
+after_next: EMAG8
 
 routing:
   chapter_root: textbook/volumes/00_foundations

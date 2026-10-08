@@ -1,0 +1,26 @@
+chapter: "EMAG6"
+terms:
+  - term: Lorentz 力
+    english: Lorentz force
+    meaning: "電荷 q、速度 v の粒子に電場 E と磁場 B が及ぼす電磁力 F=q(E+v×B)。電気力は速度に依存せず、磁気力は速度と磁場の両方に垂直な向きを持つ。"
+  - term: cyclotron 角周波数
+    english: cyclotron angular frequency
+    meaning: "一様磁場 B の中で荷電粒子の磁場に垂直な速度成分が回転するときの角周波数。大きさは omega_c=|q|B/m である。"
+  - term: Larmor 半径
+    english: Larmor radius
+    meaning: "一様磁場中で荷電粒子が磁場に垂直な面内を旋回するときの半径。r_L=m|v_perp|/(|q|B) である。"
+  - term: E×B ドリフト
+    english: E cross B drift
+    meaning: "互いに垂直な一様電場 E と磁場 B のもとで、旋回中心が v_D=(E×B)/|B|^2 で移動する運動。ドリフト速度は粒子の質量と電荷符号に依らない。"
+  - term: 電磁場中の荷電粒子のラグランジアン
+    english: electromagnetic charged-particle Lagrangian
+    meaning: "スカラーポテンシャル phi とベクトルポテンシャル A を用いて L=m|v|^2/2+qA·v-q phi と書くラグランジアン。Euler--Lagrange 方程式から Lorentz 力を再現する。"
+  - term: 正準運動量
+    english: canonical momentum
+    meaning: "一般化座標に共役する運動量。直交座標で電磁場中の荷電粒子を扱うと p=partial L/partial v=mv+qA となり、力学的運動量 mv とは一般に一致しない。"
+  - term: 力学的運動量
+    english: mechanical momentum
+    meaning: "質量 m と速度 v の積 mv。電磁場中では正準運動量 p とベクトルポテンシャル A を用いて mv=p-qA と表される。"
+  - term: ゲージ変換
+    english: gauge transformation
+    meaning: "滑らかな関数 chi により A'=A+grad chi、phi'=phi-partial_t chi と変換すること。電場 E と磁場 B は変わらず、粒子のラグランジアンは全時間微分 q dchi/dt だけ変化する。"
