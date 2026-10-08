@@ -2,6 +2,8 @@ chapter: F0-02C3B
 scope: dream-theater
 coverage: complete
 prerequisites:
+  - F0-02C2
+  - F0-02C3
   - F0-02C3A
 
 concepts:

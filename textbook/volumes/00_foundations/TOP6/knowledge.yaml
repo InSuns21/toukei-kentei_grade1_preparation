@@ -5,7 +5,6 @@ prerequisites:
   - TOP5
   - F0-00D
   - F0-00A1D
-  - F0-00A1C
   - SET-U2
 
 forward_references: []
