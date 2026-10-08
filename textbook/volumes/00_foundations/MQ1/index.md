@@ -182,7 +182,7 @@ $$
 \|(H_0\pm it)^{-1}\|\le t^{-1}
 $$
 
-です（[QM6 の値域判定](../QM6/index.md#thm-qm6-self-adjoint-range)）。$t>b$ を取ると
+です（[QM6 の値域判定](../QM6/index.md#thm-qm6-self-adjoint-range-criterion)）。$t>b$ を取ると
 
 $$
 \|B(H_0\pm it)^{-1}\|\le b/t<1.
@@ -288,7 +288,7 @@ A+B\pm it=
 \bigl(I+B(A\pm it)^{-1}\bigr)(A\pm it)
 $$
 
-から両方の値域が全空間となり、対称性と [自己共役性の値域判定](../QM6/index.md#thm-qm6-self-adjoint-range) により $A+B$ は自己共役です。
+から両方の値域が全空間となり、対称性と [自己共役性の値域判定](../QM6/index.md#thm-qm6-self-adjoint-range-criterion) により $A+B$ は自己共役です。
 
 次に core を示します。$D(A)$ で
 
