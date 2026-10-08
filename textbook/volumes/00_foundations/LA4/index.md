@@ -1085,7 +1085,7 @@ $$
 e_i(T)v_j=e_i(\lambda_j)v_j=\delta_{ij}v_j.
 $$
 
-ここで $\delta_{ij}$ は [LA3A で導入した Kronecker のデルタ](../LA3A/index.md#def-la3a-dual-basis) で、$i=j$ なら $1$、$i\ne j$ なら $0$ です。実際、上で定義した補間多項式
+ここで $\delta_{ij}$ は [LA3A で導入した Kronecker のデルタ](../LA3A/index.md#notation-la3a-kronecker-delta) で、$i=j$ なら $1$、$i\ne j$ なら $0$ です。実際、上で定義した補間多項式
 
 $$
 e_i(t)=\prod_{k\ne i}\frac{t-\lambda_k}{\lambda_i-\lambda_k}
