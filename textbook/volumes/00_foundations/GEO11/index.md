@@ -2124,12 +2124,26 @@ $$
 (\partial_j\lambda)g_{ik}.
 $$
 
-両辺に $g^{jk}$ を掛け、$j,k$ について和を取ります。
+両辺に $g^{jk}$ を掛け、$j,k$ について和を取ります。ここで $(g^{jk})$ は計量行列 $(g_{jk})$ の逆行列で、両者は対称です。逆行列の成分表示から
+
+$$
+\sum_{k=1}^n g_{ik}g^{kj}=\delta_i^j,
+\qquad
+\delta_i^j=
+\begin{cases}
+1,&i=j,\\
+0,&i\ne j
+\end{cases}
+$$
+
+が成り立ちます。$\delta_i^j$ は Kronecker のデルタで、上付きの $j$ はべき指数ではなく添字です。
 
 左辺は
 
 $$
-(\partial_i\lambda)g_{jk}g^{jk}
+(\partial_i\lambda)\sum_{j,k=1}^n g_{jk}g^{jk}
+=
+(\partial_i\lambda)\sum_{j=1}^n\delta_j^j
 =
 n\,\partial_i\lambda.
 $$
@@ -2137,9 +2151,9 @@ $$
 右辺は
 
 $$
-(\partial_j\lambda)g_{ik}g^{jk}
+\sum_{j,k=1}^n(\partial_j\lambda)g_{ik}g^{jk}
 =
-(\partial_j\lambda)\delta_i^j
+\sum_{j=1}^n(\partial_j\lambda)\delta_i^j
 =
 \partial_i\lambda.
 $$
