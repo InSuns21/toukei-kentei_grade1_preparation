@@ -1,7 +1,7 @@
 # DREAM THEATER 数理量子力学コース計画
 
 作成日: 2026-10-07  
-状態: planned
+状態: in_progress
 
 ## 0. 目的
 
@@ -276,3 +276,10 @@ $$
 7. 新井『ヒルベルト空間と量子力学』第5--8章との到達監査
 8. knowledge DAG / public index / series manifest
 9. 数学的完全性・物理的意味・読者粒度の三系統レビュー
+
+## 10. 実装・検証進捗
+
+- 2026-10-08: MQ 系列の PLAN 固有の着手作業を開始。対象を MQ0--MQ4 と確認し、work-state の active series を MQ、next_work を MQ0 に切り替え、MQ series manifest を作成。
+- 2026-10-08: 依存境界の着手時監査として、QM3 の PVM・有界自己共役スペクトル定理、QM5 の位置/運動量作用素と自己共役性、QM6 の非有界スペクトル定理、QM7 の Stone 理論、QM8 の CCR/Weyl、MECH5 の古典調和振動子、MECH7 の換算質量、AMECH5--AMECH6 の Hamilton 形式/Poisson 括弧、EMAG3 の Coulomb ポテンシャルの既存章設計を照合。MQ0 はこれらの再証明ではなく、量子化の選択・対応と描像の橋渡しを中心にする。
+- MQ0 の index.md / chapter.yaml / knowledge.yaml 等は未着手。MQ0 の章本文を完成させた時点で、必要な公開索引と系列進捗を更新する。
+- EMAG 計画には MQ4 への Coulomb ポテンシャル cross-link が残るため、MQ4 実装時まで EMAG の PLAN は進行中のまま保つ。
