@@ -410,7 +410,30 @@ F^{(k)}(0)=\int_{\mathbb R}(-iy)^kg(y)\,dy=0
 \qquad(k=0,1,2,\ldots).
 $$
 
-正則関数の Taylor 展開から $F(z)=0$ が全 $z\in\mathbb C$ で成立します。特に実数周波数上で $F=0$ です。$g\in L^1(\mathbb R)$ に対する Fourier 変換の一意性（[FOU4 の Fourier 理論](../FOU4/index.md)）から $g=0$ がほとんど至る所で成立します。$e^{-y^2/2}>0$ は全ての実数 $y$ で零でないため $f=0$ です。
+$F$ が全ての複素数で零になることを、指数級数と積分を使って確認します。任意の固定した $z\in\mathbb C$ に対し
+
+$
+e^{-izy}=\sum_{k=0}^\infty\frac{(-izy)^k}{k!}
+$
+
+です。この級数を $g(y)$ 倍したとき、項の絶対値の積分の和は
+
+$
+\begin{aligned}
+\sum_{k=0}^\infty\frac{|z|^k}{k!}\int_{\mathbb R}|y|^k|g(y)|\,dy
+&=\int_{\mathbb R}\sum_{k=0}^\infty\frac{(|z||y|)^k}{k!}|g(y)|\,dy\\
+&=\int_{\mathbb R}e^{|z||y|}|g(y)|\,dy<\infty.
+\end{aligned}
+$
+
+右辺の有限性は上の Gaussian 重みの評価で $R=|z|$ としたものです。従って絶対収束によって積分と級数を交換でき、
+
+$
+F(z)=\sum_{k=0}^\infty\frac{(-iz)^k}{k!}\int_{\mathbb R}y^kg(y)\,dy
+=\sum_{k=0}^\infty\frac{(-iz)^k}{k!}\cdot0=0.
+$
+
+特に実数周波数上で $F=0$ です。$g\in L^1(\mathbb R)$ に対する Fourier 変換の一意性（[FOU4 の Fourier 理論](../FOU4/index.md)）から $g=0$ がほとんど至る所で成立します。$e^{-y^2/2}>0$ は全ての実数 $y$ で零でないため $f=0$ です。
 
 先ほど証明した正規直交性と合わせ、$\{\phi_n\}$ は完全正規直交系です。$\square$
 <!-- proof-end -->
@@ -488,7 +511,7 @@ $$
 =\lambda_n\langle\phi_n,f\rangle.
 $$
 
-Parseval の等式により
+[Parseval の等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-parseval-identity)により
 
 $$
 \sum_{n=0}^\infty \lambda_n^2|\langle\phi_n,f\rangle|^2
@@ -940,6 +963,6 @@ $$
 
 ## 8. 何が分かったか
 
-調和振動子の量子化では、古典 Hamiltonian を形式的に演算子へ置き換えるだけでは不十分です。Schwartz 空間上での因数分解と ladder 構成から $\phi_n$ と $E_n$ を求め、Hermite 関数の完全性、対角作用素の自己共役性、core の稠密性、レゾルベントの構成を順に確認して初めて**全スペクトル**が確定しました。
+調和振動子の量子化では、古典 Hamiltonian を形式的に演算子へ置き換えるだけでは不十分です。Schwartz 空間上での因数分解と [ladder 構成](#thm-mq3-ladder)から $\phi_n$ と $E_n$ を求め、Hermite 関数の完全性、対角作用素の自己共役性、core の稠密性、レゾルベントの構成を順に確認して初めて**全スペクトル**が確定しました。
 
 調和振動子は純離散スペクトルを持つ一方、[MQ1 の自由粒子](../MQ1/index.md#thm-mq1-free-spectrum)は連続スペクトルだけを持ちます。次の MQ4 では、中心力と Coulomb ポテンシャルによって、束縛準位と連続スペクトルが共存する模型を調べます。
