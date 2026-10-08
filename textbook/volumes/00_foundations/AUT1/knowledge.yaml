@@ -4,6 +4,9 @@ coverage: complete
 prerequisites:
   - F0-00A
 
+forward_references:
+  - logic.satisfaction
+
 concepts:
   - id: theoretical-computer-science.finite-alphabet
     name: 有限アルファベット
