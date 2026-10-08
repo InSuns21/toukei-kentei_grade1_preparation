@@ -30,10 +30,14 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Resolve PR merge-base parent for diff validation
+        if: github.event_name == 'pull_request'
+        run: echo "PR_COMPARISON_SHA=$(git rev-parse HEAD^1)" >> "$GITHUB_ENV"
+
       - name: Detect Pages validation scope
         id: scope
         env:
-          TEXTBOOK_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          TEXTBOOK_BASE_SHA: ${{ env.PR_COMPARISON_SHA }}
         run: |
           if [ "${{ github.event_name }}" = "pull_request" ]; then
             node scripts/detect-textbook-validation-scope.mjs --github-output
