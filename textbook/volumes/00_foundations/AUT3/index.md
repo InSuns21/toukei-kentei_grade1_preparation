@@ -434,7 +434,7 @@ $Q=\{s,u,f\}$、$\Sigma=\{0,1\}$、$q_0=s$、$F=\{f\}$、$\Delta(s,\varepsilon)=
 <!-- solution-start -->
 #### 詳細解答
 
-$R(\{s\},\varepsilon)=E(\{s\})=\{s,u\}$ で、$f$ を含まないので空文字列は非受理です。$0$ では $T_0(\{s,u\})=\Delta(s,0)\cup\Delta(u,0)=\varnothing\cup\{f\}=\{f\}$、さらに $\\varepsilon$ 辺をたどっても $\{f\}$ なので受理。$00$ では $T_0(\{f\})=\varnothing$、$E(\varnothing)=\varnothing$ となり非受理です。$\varepsilon$ 辺は入力文字数を増やしていません。
+$R(\{s\},\varepsilon)=E(\{s\})=\{s,u\}$ で、$f$ を含まないので空文字列は非受理です。$0$ では $T_0(\{s,u\})=\Delta(s,0)\cup\Delta(u,0)=\varnothing\cup\{f\}=\{f\}$、さらに $\varepsilon$ 辺をたどっても $\{f\}$ なので受理。$00$ では $T_0(\{f\})=\varnothing$、$E(\varnothing)=\varnothing$ となり非受理です。$\varepsilon$ 辺は入力文字数を増やしていません。
 <!-- solution-end -->
 
 ### A4. 正規表現の空集合と空文字
@@ -458,7 +458,7 @@ $Q=\{s,f\}$、$q_0=s$、$F=\{f\}$、$\Delta(s,1)=\{f\}$、それ以外（$\varep
 <!-- solution-start -->
 #### 詳細解答
 
-$\varepsilon$-遷移がないので閉包は集合自身です。$\{s\}$ からは0で $\varnothing$、1で $\{f\}$。$\{f\}$ からは0、1ともに $\varnothing$。$\varnothing$ からはどちらでも $\varnothing$ です。これで到達可能な3状態の遷移がすべて指定され、DFAの全域性を満たします。入力1は $\{s\}\xrightarrow{1}\{f\}$ で受理、入力11は $\{s\}\xrightarrow{1}\{f\}\xrightarrow{1}\varnothing$ で非受理です。
+$\varepsilon$-遷移がないので $E(S)=S$ です。$\{s\}$ からは0で $\varnothing$、1で $\{f\}$。$\{f\}$ からは0、1ともに $\varnothing$。$\varnothing$ からはどちらでも $\varnothing$ です。これで到達可能な3状態の遷移がすべて指定され、DFAの全域性を満たします。入力1は $\{s\}\xrightarrow{1}\{f\}$ で受理、入力11は $\{s\}\xrightarrow{1}\{f\}\xrightarrow{1}\varnothing$ で非受理です。
 <!-- solution-end -->
 
 ### Level B
