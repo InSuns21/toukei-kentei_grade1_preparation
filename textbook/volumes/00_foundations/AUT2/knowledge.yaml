@@ -1,0 +1,100 @@
+chapter: AUT2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AUT1
+
+concepts:
+  - id: theoretical-computer-science.dfa
+    name: 決定性有限オートマトン
+    kind: definition
+    aliases: ["deterministic finite automaton", "DFA"]
+    introduction: formal
+    introduction_aliases: ["定義（決定性有限オートマトン）"]
+    requires:
+      - theoretical-computer-science.finite-alphabet
+      - theoretical-computer-science.word
+
+  - id: theoretical-computer-science.extended-transition
+    name: 拡張遷移関数
+    kind: definition
+    aliases: ["extended transition function"]
+    introduction: formal
+    introduction_aliases: ["定義（拡張遷移関数）"]
+    requires:
+      - theoretical-computer-science.dfa
+      - theoretical-computer-science.concatenation
+
+  - id: theoretical-computer-science.extended-concat
+    name: 拡張遷移と連結
+    kind: lemma
+    introduction_aliases: ["補題（拡張遷移と連結）"]
+    requires:
+      - theoretical-computer-science.extended-transition
+
+  - id: theoretical-computer-science.regular-language
+    name: DFA が認識する言語・正規言語
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（DFA が認識する言語・正規言語）"]
+    requires:
+      - theoretical-computer-science.extended-transition
+      - theoretical-computer-science.formal-language
+
+  - id: theoretical-computer-science.transition-diagram
+    name: 状態遷移図
+    kind: definition
+    aliases: ["state transition diagram"]
+    introduction: formal
+    introduction_aliases: ["定義（状態遷移図）"]
+    requires:
+      - theoretical-computer-science.dfa
+
+  - id: theoretical-computer-science.parity-dfa
+    name: 二状態 DFA の認識言語
+    kind: proposition
+    introduction_aliases: ["命題（二状態 DFA の認識言語）"]
+    requires:
+      - theoretical-computer-science.regular-language
+      - theoretical-computer-science.parity-additivity
+
+  - id: theoretical-computer-science.product-dfa
+    name: 積オートマトン
+    kind: definition
+    aliases: ["product automaton"]
+    introduction: formal
+    introduction_aliases: ["定義（積オートマトン）"]
+    requires:
+      - theoretical-computer-science.dfa
+
+  - id: theoretical-computer-science.product-extended
+    name: 積の拡張遷移は成分ごとに計算できる
+    kind: lemma
+    introduction_aliases: ["補題（積の拡張遷移は成分ごとに計算できる）"]
+    requires:
+      - theoretical-computer-science.product-dfa
+      - theoretical-computer-science.extended-transition
+
+  - id: theoretical-computer-science.regular-intersection
+    name: 正規言語の共通部分に関する閉性
+    kind: theorem
+    introduction_aliases: ["定理（正規言語の共通部分に関する閉性）"]
+    requires:
+      - theoretical-computer-science.product-extended
+      - theoretical-computer-science.regular-language
+
+  - id: theoretical-computer-science.regular-union
+    name: 正規言語の和集合に関する閉性
+    kind: theorem
+    introduction_aliases: ["定理（正規言語の和集合に関する閉性）"]
+    requires:
+      - theoretical-computer-science.product-extended
+      - theoretical-computer-science.regular-language
+
+  - id: theoretical-computer-science.regular-complement
+    name: 正規言語の補集合に関する閉性
+    kind: theorem
+    introduction_aliases: ["定理（正規言語の補集合に関する閉性）"]
+    requires:
+      - theoretical-computer-science.dfa
+      - theoretical-computer-science.regular-language

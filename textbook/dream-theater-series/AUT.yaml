@@ -11,7 +11,7 @@ chapters:
     title: 文字列・形式言語・判定問題
   - id: AUT2
     path: textbook/volumes/00_foundations/AUT2
-    status: planned
+    status: completed
     title: 決定性有限オートマトン
   - id: AUT3
     path: textbook/volumes/00_foundations/AUT3
