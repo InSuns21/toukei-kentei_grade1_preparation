@@ -137,7 +137,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-amech1-holonomic-constraint, def-amech1-configuration-space-dof -->
-**定義の確認：三次元に置いた平面振り子**
+**定義の確認**：三次元に置いた平面振り子
 
 質点を一つ取り、位置を $r=(x,y,z)\in\mathbb R^3$ とします。糸の長さ $\ell>0$ が一定で、質点は $z=0$ の平面内で動くとします。拘束は
 
@@ -229,7 +229,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-amech1-generalized-coordinates -->
-**定義の確認：振り子の角度**
+**定義の確認**：振り子の角度
 
 $\ell>0$、$q=\theta\in(-\pi,\pi)$ とし、三次元の平面振り子を
 
@@ -532,7 +532,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-amech1-virtual-displacement -->
-**定義の確認：膨張する円の接線方向**
+**定義の確認**：膨張する円の接線方向
 
 $R(t)>0$ を微分可能な関数とし、固定した時刻 $t$ で
 
@@ -805,7 +805,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-amech1-generalized-force -->
-**定義の確認：重力が振り子の角度へ及ぼす力**
+**定義の確認**：重力が振り子の角度へ及ぼす力
 
 鉛直下向きを $y$ 軸の正方向とし、質量 $m>0$、重力加速度 $g>0$、糸の長さ $\ell>0$ とします。振り子を
 
