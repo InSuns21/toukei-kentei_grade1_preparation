@@ -316,7 +316,34 @@ $$
 \int_{S_2}(J+J_D)\cdot n\,dS=I.
 $$
 
-両者が同じ循環 $\oint_CB\cdot d\ell=\mu_0 I$ を与えます。等式は近似の範囲での具体確認ですが、一般には次の連続の式が面の取り替え可能性を保証します。
+両者が同じ循環 $\oint_CB\cdot d\ell=\mu_0 I$ を与えます。この具体例では、導線側の変位電流を無視し、極板間の電場を一様とする準静的近似を用いました。
+
+**一般の曲面で一致する理由も式で確かめます。** 全電流密度を
+
+$$
+J_{\mathrm{tot}}=J+\varepsilon_0\partial_tE
+$$
+
+と置きます。電荷保存 $\partial_t\rho+\nabla\cdot J=0$ と電場の Gauss 則 $\nabla\cdot E=\rho/\varepsilon_0$ を満たす滑らかな場なら、
+
+$$
+\begin{aligned}
+\nabla\cdot J_{\mathrm{tot}}
+&=\nabla\cdot J+\varepsilon_0\nabla\cdot(\partial_tE)\\
+&=\nabla\cdot J+\varepsilon_0\partial_t(\nabla\cdot E)\\
+&=\nabla\cdot J+\partial_t\rho=0.
+\end{aligned}
+$$
+
+同じ境界を持つ $S_1,S_2$ が一つの体積 $V$ の境界を $S_1\cup(-S_2)$ として作る場合、[VC4 の Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)から
+
+$$
+\int_{S_1}J_{\mathrm{tot}}\cdot n_1\,dS
+-\int_{S_2}J_{\mathrm{tot}}\cdot n_2\,dS
+=\int_V\nabla\cdot J_{\mathrm{tot}}\,dV=0.
+$$
+
+つまり二つの面を通る**伝導電流と変位電流の和**は等しいのです。曲面が複雑な場合も、それらの差を閉曲面として扱える領域では同じ議論が使えます。
 
 ---
 
@@ -769,7 +796,20 @@ $$
 \boxed{E_\varphi=-\frac r2\dot B_0}\quad(r<a).
 $$
 
-$r>a$ の円板で磁場が通るのは内側の半径 $a$ の部分だけです。したがって磁束は $\pi a^2B_0(t)$ であり、
+$r>a$ の円板を内側 $0\le s<a$ と外側 $a<s<r$ に分けると、外側の磁場は $0$ です。面素が $s\,ds\,d\varphi$ であることから
+
+$$
+\begin{aligned}
+\Phi_B
+&=\int_0^{2\pi}\left(
+\int_0^a B_0(t)s\,ds+\int_a^r 0\cdot s\,ds
+\right)d\varphi\\
+&=2\pi B_0(t)\left[\frac{s^2}{2}\right]_0^a
+=\pi a^2B_0(t).
+\end{aligned}
+$$
+
+円板自体の半径は $r$ でも、磁束に寄与する部分の半径は $a$ である点が重要です。したがって、
 
 $$
 2\pi rE_\varphi=-\pi a^2\dot B_0,
