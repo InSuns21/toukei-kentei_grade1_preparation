@@ -1,0 +1,105 @@
+chapter: AUT3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AUT2
+
+concepts:
+  - id: theoretical-computer-science.nfa
+    name: 非決定性有限オートマトン
+    kind: definition
+    aliases: ["nondeterministic finite automaton", "NFA"]
+    introduction: formal
+    introduction_aliases: ["定義（ε-遷移を許す非決定性有限オートマトン）"]
+    requires:
+      - theoretical-computer-science.dfa
+      - theoretical-computer-science.finite-alphabet
+      - set.subset
+
+  - id: theoretical-computer-science.epsilon-closure
+    name: ε-閉包
+    kind: definition
+    aliases: ["epsilon closure"]
+    introduction: formal
+    introduction_aliases: ["定義（ε-閉包）"]
+    requires:
+      - theoretical-computer-science.nfa
+
+  - id: theoretical-computer-science.nfa-reachable
+    name: NFAの到達状態集合と認識言語
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（NFAの到達状態集合と認識言語）"]
+    requires:
+      - theoretical-computer-science.epsilon-closure
+      - theoretical-computer-science.regular-language
+
+  - id: theoretical-computer-science.nfa-paths
+    name: 再帰式と受理経路
+    kind: lemma
+    introduction_aliases: ["補題（再帰式と受理経路）"]
+    requires:
+      - theoretical-computer-science.nfa-reachable
+
+  - id: theoretical-computer-science.subset-construction
+    name: 部分集合構成
+    kind: definition
+    aliases: ["subset construction"]
+    introduction: formal
+    introduction_aliases: ["定義（ε-閉包を含む部分集合構成）"]
+    requires:
+      - theoretical-computer-science.nfa-reachable
+      - theoretical-computer-science.dfa
+
+  - id: theoretical-computer-science.nfa-dfa-equivalence
+    name: NFAのDFAへの変換
+    kind: theorem
+    introduction_aliases: ["定理（NFAのDFAへの変換）"]
+    requires:
+      - theoretical-computer-science.subset-construction
+      - theoretical-computer-science.extended-transition
+
+  - id: theoretical-computer-science.dfa-as-nfa
+    name: DFAはNFAの特別な場合
+    kind: proposition
+    introduction_aliases: ["命題（DFAはNFAの特別な場合）"]
+    requires:
+      - theoretical-computer-science.dfa
+      - theoretical-computer-science.nfa
+
+  - id: theoretical-computer-science.regular-expression
+    name: 正規表現
+    kind: definition
+    aliases: ["regular expression"]
+    introduction: formal
+    introduction_aliases: ["定義（正規表現とその表す言語）"]
+    requires:
+      - theoretical-computer-science.formal-language
+      - theoretical-computer-science.concatenation
+
+  - id: theoretical-computer-science.regex-to-nfa
+    name: 正規表現からε-NFAへの構成
+    kind: lemma
+    introduction_aliases: ["補題（正規表現からε-NFAへの構成）"]
+    requires:
+      - theoretical-computer-science.regular-expression
+      - theoretical-computer-science.nfa
+
+  - id: theoretical-computer-science.state-elimination
+    name: 中間状態を一つずつ許す正規表現
+    kind: lemma
+    introduction_aliases: ["補題（中間状態を一つずつ許す正規表現）"]
+    requires:
+      - theoretical-computer-science.regular-expression
+      - theoretical-computer-science.nfa-paths
+
+  - id: theoretical-computer-science.kleene-theorem
+    name: Kleeneの定理
+    kind: theorem
+    aliases: ["Kleene theorem"]
+    introduction_aliases: ["定理（Kleeneの定理）"]
+    requires:
+      - theoretical-computer-science.nfa-dfa-equivalence
+      - theoretical-computer-science.dfa-as-nfa
+      - theoretical-computer-science.regex-to-nfa
+      - theoretical-computer-science.state-elimination
