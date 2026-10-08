@@ -343,7 +343,19 @@ $$
 
 これは原点で正則で、$\int_0^\infty|u_\ell^{(0)}|^2dr<\infty$ です。例えば整数 $j\ge0$ の積分公式
 $\int_0^\infty r^j e^{-cr}dr=j!/c^{j+1}$（$c>0$）を $j=2\ell+2$ に適用すれば有限です。微分して作用させると
-$k_\ell u_\ell^{(0)}=-\beta^2u_\ell^{(0)}/(\ell+1)^2$ であり、三次元の正則性は $r^\ell Y_\ell^m$ が [PDE11](../PDE11/index.md#prop-pde11-solid-harmonic) の滑らかな同次多項式に延長されることから確認できます。特に $e^{-\beta r/(\ell+1)}$ の原点での弱微分は $H^2$ に入り、固有状態は $D(H)$ に属します。
+$k_\ell u_\ell^{(0)}=-\beta^2u_\ell^{(0)}/(\ell+1)^2$ であり、三次元の正則性は $r^\ell Y_\ell^m$ が [PDE11](../PDE11/index.md#prop-pde11-solid-harmonic) の滑らかな同次多項式に延長されることから確認できます。その $H^2$ 条件を積の微分で確かめます。$c=\beta/(\ell+1)>0$ とすると、$r>0$ で
+
+$
+\partial_i e^{-cr}=-ce^{-cr}\frac{x_i}{r},
+\quad
+\partial_i\partial_j e^{-cr}
+=e^{-cr}\left[c^2\frac{x_ix_j}{r^2}
+-c\left(\frac{\delta_{ij}}r-\frac{x_ix_j}{r^3}\right)\right].
+$
+
+二階偏導関数は原点付近で $O(1+r^{-1})$ なので、
+$\int_{r<\delta}(1+r^{-1})^2dx
+=4\pi\int_0^\delta(r^2+2r+1)dr<\infty$ です。原点を除いて積分した式の境界項も表面積が $O(\delta^2)$ なので消えます。$r^\ell Y_\ell^m$ は滑らかな同次多項式であり、積の二階導関数は局所的に二乗可積分、無限遠では指数減衰します。従って得られた三次元固有状態は $H^2=D(H)$ に属します。
 
 **(2) 全負固有値の構成。** $n>\ell+1$ では、$k_{\ell+1}$ の固有値
 $\lambda=-\beta^2/n^2$ を持つ正則関数 $v$ に
@@ -378,7 +390,13 @@ $$
 \le C\sqrt{4\pi\delta}\,\|f\|_{H^2}.
 $$
 
-遠方では $\|1_{\{r>R\}}f/r\|_2\le R^{-1}\|f\|_2$ です。中間の環状領域 $\delta\le r\le R$ では $H^2$ から $L^2$ への局所コンパクト埋め込み（Rellich の定理）と、有界な乗数 $1/r$ によりコンパクトです。$\delta\downarrow0$、$R\uparrow\infty$ として $V:H^2\to L^2$ はコンパクト作用素の作用素ノルム極限です。従って $V(H_0+1)^{-1}$ はコンパクトです。
+遠方では $\|1_{\{r>R\}}f/r\|_2\le R^{-1}\|f\|_2$ です。中間の環状領域 $\delta\le r\le R$ で必要な局所的なコンパクト性も確かめます。環状領域を含む固定した立方体を一辺 $h$ の小立方体 $Q$ に有限分割し、各 $Q$ で $f$ を平均値 $f_Q$ に置き換えます。線分上で $f(x)-f(y)=\int_0^1\nabla f(y+t(x-y))\cdot(x-y)dt$ と書き、Cauchy–Schwarz と積分を用いると
+
+$
+\sum_Q\int_Q|f-f_Q|^2dx\le Ch^2\int|\nabla f|^2dx
+$
+
+を得ます（最初は滑らかな $f$ で示し、$H^1$ へ密度で延長）。$H^2$ 有界列に対して右辺は $h\downarrow0$ で一様に零です。一方、固定した $h$ の平均値近似は有限次元空間に属し、有界列から収束部分列を取れます。$h=1,1/2,\ldots$ の対角部分列を選べば、元の列も環状領域上の $L^2$ で収束部分列を持ちます。さらに $1/r\le1/\delta$ はそこで有界なので、$f\mapsto1_{\{\delta\le r\le R\}}f/r$ は $H^2\to L^2$ コンパクトです。$\delta\downarrow0$、$R\uparrow\infty$ として $V:H^2\to L^2$ はコンパクト作用素の作用素ノルム極限です。従って $V(H_0+1)^{-1}$ はコンパクトです。
 
 この相対コンパクト性が本質スペクトルを変えないことも、ここで確認します。自己共役作用素 $T$ の実数 $\lambda$ が本質スペクトルに属する必要十分条件は、$\|f_j\|=1$、$f_j\rightharpoonup0$、$\|(T-\lambda)f_j\|\to0$ を満たす $f_j\in D(T)$ が存在することです（**Weyl 列の判定**）。必要性は $\lambda$ の幅 $1/j$ のスペクトル射影の像が無限次元であることから、互いに直交する単位元を選べば従います。十分性は、$\lambda$ が孤立した有限重複固有値ならその固有空間の直交補上で $\|(T-\lambda)f\|\ge c\|f\|$ となり、弱収束零の単位列に矛盾することから従います。
 
@@ -840,11 +858,14 @@ $H^2(\mathbb R^3)\hookrightarrow L^\infty$ により、
 原点球 $r<\delta$ で
 $\|\psi/r\|_2\le C\sqrt{4\pi\delta}\|\psi\|_{H^2}$。
 $r>R$ で $\|\psi/r\|_2\le R^{-1}\|\psi\|_2$。
-環状領域 $\delta\le r\le R$ では Rellich の局所コンパクト性から
-$\psi\mapsto\psi/r$ は $H^2\to L^2$ コンパクトです。
+環状領域 $\delta\le r\le R$ では、本文の有限小立方体への平均値近似を使います。各立方体 $Q$ で
+$\int_Q|f-f_Q|^2\le Ch^2\int_Q|\nabla f|^2$
+となるため、$H^2$ 有界列は有限次元の平均値近似へ一様に近づき、収束部分列を持ちます。$1/r$ はこの領域で有界なので $\psi\mapsto\psi/r$ は $H^2\to L^2$ コンパクトです。
 $\delta\downarrow0,R\uparrow\infty$ で
 $V(-a\Delta+1)^{-1}$ はコンパクト作用素のノルム極限です。
-相対コンパクト摂動の Weyl 定理から
+次に本文の Weyl 列の判定を両方向へ適用します。自由作用素 $H_0=-a\Delta$ の Weyl 列 $f_j$ は
+$(H_0-i)f_j=(\lambda-i)f_j+o(1)$ と弱収束零を満たすので、コンパクトな $V(H_0-i)^{-1}$ により $Vf_j\to0$、従って $H$ の Weyl 列でもあります。逆に、レゾルベント恒等式
+$V(H-i)^{-1}=V(H_0-i)^{-1}[I-V(H-i)^{-1}]$ の右辺はコンパクトで、$H$ の Weyl 列に対して $Vf_j\to0$ が得られます。よって逆向きの包含も成立し
 $\sigma_{\rm ess}(H)=\sigma_{\rm ess}(-a\Delta)=[0,\infty)$。
 負スペクトルは孤立固有値しかなく、(3) の列挙が全てです。
 
