@@ -100,7 +100,7 @@ ag=\frac{yg-yg}{\sqrt2}=0,\qquad
 a^\dagger g=\frac{yg+yg}{\sqrt2}=\sqrt2\,yg.
 $$
 
-両出力は多項式と Gaussian の積なので $\mathcal S$ に属します。積分の境界項が消えるため、$f,g\in\mathcal S$ なら部分積分により $\langle af,g\rangle=\langle f,a^\dagger g\rangle$ です（内積は第2変数に線形）。この恒等式は共通領域上のものです。
+両出力は多項式と Gaussian の積なので $\mathcal S$ に属します。積分の境界項が消えるため、$f,g\in\mathcal S$ なら部分積分により $\langle af,g\rangle=\langle f,a^\dagger g\rangle$ です（内積は既習の QM 系列と同じく第1変数に線形）。この恒等式は共通領域上のものです。
 <!-- definition-example-end -->
 
 <a id="prop-mq3-ccr-factorization"></a>
@@ -485,10 +485,10 @@ $$
 
 $$
 W:L^2(\mathbb R,dy)\longrightarrow\ell^2(\mathbb N_0),
-\qquad (Wf)_n=\langle\phi_n,f\rangle
+\qquad (Wf)_n=\langle f,\phi_n\rangle
 $$
 
-はユニタリです（内積は第2変数線形）。$\lambda_n=n+1/2$ と置き、$\ell^2$ 上に
+はユニタリです（内積は第1変数線形）。$\lambda_n=n+1/2$ と置き、$\ell^2$ 上に
 
 $$
 D(M_\lambda)=\{c\in\ell^2:(\lambda_nc_n)_n\in\ell^2\},
@@ -506,24 +506,24 @@ $c=e_n$ を代入すると $b_n=\lambda_nd_n$ となります。$b\in\ell^2$ な
 次に元の微分作用素との一致を示します。任意の $f\in\mathcal S$ について $h_{\mathrm{diff}}f\in\mathcal S\subset L^2$ です。部分積分の境界項は Schwartz 性で消えるので、
 
 $$
-\langle\phi_n,h_{\mathrm{diff}}f\rangle
-=\langle h_{\mathrm{diff}}\phi_n,f\rangle
-=\lambda_n\langle\phi_n,f\rangle.
+\langle h_{\mathrm{diff}}f,\phi_n\rangle
+=\langle f,h_{\mathrm{diff}}\phi_n\rangle
+=\lambda_n\langle f,\phi_n\rangle.
 $$
 
 [Parseval の等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-parseval-identity)により
 
 $$
-\sum_{n=0}^\infty \lambda_n^2|\langle\phi_n,f\rangle|^2
-=\sum_{n=0}^\infty|\langle\phi_n,h_{\mathrm{diff}}f\rangle|^2
+\sum_{n=0}^\infty \lambda_n^2|\langle f,\phi_n\rangle|^2
+=\sum_{n=0}^\infty|\langle h_{\mathrm{diff}}f,\phi_n\rangle|^2
 =\|h_{\mathrm{diff}}f\|_2^2<\infty.
 $$
 
-よって $f\in D(h)$、$hf=h_{\mathrm{diff}}f$ です。逆に、任意の $f\in D(h)$ の部分和 $f_N=\sum_{n=0}^N\langle\phi_n,f\rangle\phi_n$ は $\mathcal S$ に属し、
+よって $f\in D(h)$、$hf=h_{\mathrm{diff}}f$ です。逆に、任意の $f\in D(h)$ の部分和 $f_N=\sum_{n=0}^N\langle f,\phi_n\rangle\phi_n$ は $\mathcal S$ に属し、
 
 $$
 \|f-f_N\|_2^2+\|h(f-f_N)\|_2^2
-=\sum_{n>N}(1+\lambda_n^2)|\langle\phi_n,f\rangle|^2
+=\sum_{n>N}(1+\lambda_n^2)|\langle f,\phi_n\rangle|^2
 \longrightarrow0
 $$
 
