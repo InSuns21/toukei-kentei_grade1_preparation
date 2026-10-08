@@ -64,7 +64,7 @@ $$
 T_a(S)=\bigcup_{q\in S}\Delta(q,a)
 $$
 
-と書きます。先に $\varepsilon$ で移動できるだけ動き、次に $a$ を一回読み、その後も $\varepsilon$ で移動できるだけ動きます。最初に閉包を取った状態集合から始めれば、次の再帰式でこれを繰り返せます。
+と書きます。先に $\varepsilon$ で移動できるだけ動き、次に $a$ を一回読み、その後も $\varepsilon$ で移動できるだけ動きます。最初に $E$ を適用した状態集合から始めれば、次の再帰式でこれを繰り返せます。
 
 <a id="def-aut3-reachable-set"></a>
 
@@ -403,7 +403,7 @@ $$
 
 ### A1. ε-閉包と巡回
 
-$Q=\{s,p,r,t\}$、$\Delta(s,\varepsilon)=\{p\}$、$\Delta(p,\varepsilon)=\{r\}$、$\Delta(r,\varepsilon)=\{p\}$ とし、ほかの $\varepsilon$-遷移は空とする。$E(\{s\})$、$E(\{r\})$、$E(\{t\})$、$E(\varnothing)$ を求め、巡回が閉包を無限集合にしない理由を述べよ。
+$Q=\{s,p,r,t\}$、$\Delta(s,\varepsilon)=\{p\}$、$\Delta(p,\varepsilon)=\{r\}$、$\Delta(r,\varepsilon)=\{p\}$ とし、ほかの $\varepsilon$-遷移は空とする。$E(\{s\})$、$E(\{r\})$、$E(\{t\})$、$E(\varnothing)$ を求め、巡回しても到達状態集合が無限集合にならない理由を述べよ。
 
 - Level: A
 
@@ -434,7 +434,7 @@ $Q=\{s,u,f\}$、$\Sigma=\{0,1\}$、$q_0=s$、$F=\{f\}$、$\Delta(s,\varepsilon)=
 <!-- solution-start -->
 #### 詳細解答
 
-$R(\{s\},\varepsilon)=E(\{s\})=\{s,u\}$ で、$f$ を含まないので空文字列は非受理です。$0$ では $T_0(\{s,u\})=\Delta(s,0)\cup\Delta(u,0)=\varnothing\cup\{f\}=\{f\}$、その閉包も $\{f\}$ なので受理。$00$ では $T_0(\{f\})=\varnothing$、$E(\varnothing)=\varnothing$ となり非受理です。$\varepsilon$ 辺は入力文字数を増やしていません。
+$R(\{s\},\varepsilon)=E(\{s\})=\{s,u\}$ で、$f$ を含まないので空文字列は非受理です。$0$ では $T_0(\{s,u\})=\Delta(s,0)\cup\Delta(u,0)=\varnothing\cup\{f\}=\{f\}$、さらに $\\varepsilon$ 辺をたどっても $\{f\}$ なので受理。$00$ では $T_0(\{f\})=\varnothing$、$E(\varnothing)=\varnothing$ となり非受理です。$\varepsilon$ 辺は入力文字数を増やしていません。
 <!-- solution-end -->
 
 ### A4. 正規表現の空集合と空文字
