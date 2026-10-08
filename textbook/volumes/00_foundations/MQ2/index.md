@@ -84,7 +84,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[QM6 の非有界自己共役スペクトル定理](../QM6/index.md#thm-qm6-unbounded-spectral-theorem) で得られるスペクトル射影値測度を $P$ とし、$\mu_\psi(B)=\langle\psi,P(B)\psi\rangle$ と置きます。$\mu_\psi(\mathbb R)=\|\psi\|^2$ であり、$\psi\in D(H)$ なら $\int\lambda^2\,d\mu_\psi<\infty$ です。Cauchy–Schwarz の不等式から一次モーメントも有限となり、
+[QM6 の非有界自己共役スペクトル定理](../QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral) で得られるスペクトル射影値測度を $P$ とし、$\mu_\psi(B)=\langle\psi,P(B)\psi\rangle$ と置きます。$\mu_\psi(\mathbb R)=\|\psi\|^2$ であり、$\psi\in D(H)$ なら $\int\lambda^2\,d\mu_\psi<\infty$ です。Cauchy–Schwarz の不等式から一次モーメントも有限となり、
 
 $$
 \langle\psi,H\psi\rangle
@@ -733,4 +733,4 @@ $$
 
 スペクトル下端は、定義域を明示した自己共役作用素について、単位状態のエネルギー期待値の下限と一致します。閉二次形式を用いると作用素定義域より広い状態も試せます。有限次元 Rayleigh–Ritz は真の下端に対する上界を与え、試行空間を増やすと上界が改善します。
 
-一方、**下端の存在・下限の達成・離散固有値の存在は別**です。次の [MQ3](../MQ3/index.md) では、調和振動子の Hamiltonian を具体的に解析し、最低エネルギーを実際に達成する固有関数とその上の準位を構成します。
+一方、**下端の存在・下限の達成・離散固有値の存在は別**です。次の MQ3 では、調和振動子の Hamiltonian を具体的に解析し、最低エネルギーを実際に達成する固有関数とその上の準位を構成します。
