@@ -1,21 +1,21 @@
 # MQ0 古典力学から数理量子力学への橋
 
-古典力学で得た Hamiltonian をそのまま微分方程式へ代入すれば、量子力学になるのでしょうか。答えは否です。古典力学の状態は位置・運動量の点であり、量子力学の状態は Hilbert 空間の単位ベクトル（より一般には密度作用素）です。しかも古典的な積 $qp$ を、量子作用素の積 $QP$ としてよいかには選択の余地があります。
+古典力学で得た Hamiltonian をそのまま微分方程式へ代入すれば、量子力学になるのでしょうか。答えは否です。古典力学では粒子を位相空間の点 $(q,p)$ で指定し、量子力学では Hilbert 空間の単位ベクトルで純粋状態を記述します。しかも古典的な積 $qp$ を、量子作用素の積 $QP$ としてよいかには選択の余地があります。
 
-この章では [AMECH5 の Hamiltonian](../AMECH5/index.md#def-amech5-hamiltonian) と [AMECH6 の Poisson 括弧](../AMECH6/index.md#def-amech6-poisson-bracket) を出発点とし、[QM5 の位置・運動量作用素](../QM5/index.md#thm-qm5-position-self-adjoint)、[QM7 の時間発展](../QM7/index.md#thm-qm7-schrodinger-evolution)、[QM8 の CCR](../QM8/index.md#def-qm8-ccr-common-domain) を具体的な古典モデルへつなぎます。ここで新たに与える量子化の「対応」は**実験に照らして選ぶモデル化の原理**であって、古典方程式から論理必然に導かれる定理ではありません。
+この章では [AMECH5 の Hamiltonian](../AMECH5/index.md#def-amech5-hamiltonian) と [AMECH6 の Poisson 括弧](../AMECH6/index.md#def-amech6-poisson-bracket) を出発点とし、[QM5 の位置・運動量作用素](../QM5/index.md#thm-qm5-position-self-adjoint)、[QM7 の時間発展](../QM7/index.md#thm-qm7-schrodinger-evolution)、[QM8 の CCR](../QM8/index.md#def-qm8-ccr-common-domain) を具体的な古典モデルへつなぎます。ここで用いる量子化の構成規則は**実験に照らして選ぶモデル化の原理**であって、古典方程式から論理必然に導かれる定理ではありません。
 
-本章の問いは三つです。何を状態とし何を測るのか。古典的な $H(q,p)$ からどの作用素を作るのか。Schrödinger 描像と Heisenberg 描像がなぜ同じ測定予測を与えるのか。
+本章の問いは三つです。物理系をどの数学的対象で記述し、何を測るのか。古典的な $H(q,p)$ からどの作用素を作るのか。Schrödinger 描像と Heisenberg 描像がなぜ同じ測定予測を与えるのか。
 
-## 1. 位相空間の点と Hilbert 空間の状態
+## 1. 位相空間の点と Hilbert 空間のベクトル
 
-質量 $m>0$ の一次元粒子では、古典的状態は位相空間 $\mathbb R^2$ の点 $(q,p)$ です。時刻を固定すれば、物理量 $f(q,p)$ はその点で一つの実数を取ります。例えば
+質量 $m>0$ の一次元粒子では、古典系を指定するデータは位相空間 $\mathbb R^2$ の点 $(q,p)$ です。時刻を固定すれば、物理量 $f(q,p)$ はその点で一つの実数を取ります。例えば
 $$
 H_{\mathrm{cl}}(q,p)=\frac{p^2}{2m}+V(q),\qquad
 \{f,g\}=\partial_qf\,\partial_pg-\partial_pf\,\partial_qg.
 $$
 時間に明示的に依存しない物理量は [AMECH6 の時間発展式](../AMECH6/index.md#thm-amech6-time-evolution) に従い、軌道に沿って $df/dt=\{f,H_{\mathrm{cl}}\}$ となります。
 
-一方、位置を連続量として扱う量子模型では $\mathcal H=L^2(\mathbb R,dx)$ を取り、非零ベクトル $\psi$ のうち $\|\psi\|_2=1$ を規格化した純粋状態の代表として用います。$\psi$ と $e^{i\theta}\psi$ は同じ純粋状態を表します。$|\psi(x)|^2dx$ は位置の測定確率を与えます（[QM2 の Born 則](../QM2/index.md)）。これに対し、自己共役作用素 $A$ とそのスペクトル測度 $E_A$ は、Borel 集合 $B$ に測定値が入る確率
+一方、位置を連続量として扱う量子模型では $\mathcal H=L^2(\mathbb R,dx)$ を取り、非零ベクトル $\psi$ のうち $\|\psi\|_2=1$ を規格化した純粋状態の代表として用います。$\psi$ と $e^{i\theta}\psi$ は同じ純粋状態を表します。$|\psi(x)|^2dx$ は位置の測定確率を与えます（[QM2 の Born 則](../QM2/index.md)）。これに対し、自己共役作用素 $A$ と [QM3 の射影値測度](../QM3/index.md#def-qm3-pvm) $E_A$ は、Borel 集合 $B$ に測定値が入る確率
 $$
 \mathbb P_\psi(A\in B)=\langle\psi,E_A(B)\psi\rangle
 $$
@@ -93,7 +93,7 @@ $$
 <a id="def-mq0-symmetric-ordering"></a>
 
 <!-- formal-statement-start -->
-### 定義（混合積 $qp$ の対称順序）
+### 定義（対称順序量子化）
 
 $\mathcal H=L^2(\mathbb R)$ 上の $Q,P$ を前節の Schrödinger 表現とし、共通不変領域 $\mathcal S(\mathbb R)$ 上で古典物理量 $qp$ の**対称順序の候補**を
 $$
@@ -528,7 +528,7 @@ $$
 
 ### B4. 調和振動子の形式交換子
 
-$H=P^2/(2m)+m\omega^2Q^2/2$ を共通不変領域 $\mathcal S(\mathbb R)$ 上の微分式とみなす。$[H,Q]$ と $[H,P]$ を積の交換子公式から導け。これだけで $Q_H(t)$ が全 $L^2$ 上で強微分可能と結論してよいかも述べよ。
+$H=P^2/(2m)+m\omega^2Q^2/2$ を共通不変領域 $\mathcal S(\mathbb R)$ 上の微分式とみなす。$[H,Q]$ と $[H,P]$ を恒等式 $[AB,C]=A[B,C]+[A,C]B$ から導け。これだけで $Q_H(t)$ が全 $L^2$ 上で強微分可能と結論してよいかも述べよ。
 
 - Level: B
 
