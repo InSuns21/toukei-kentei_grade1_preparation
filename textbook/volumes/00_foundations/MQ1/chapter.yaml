@@ -1,0 +1,49 @@
+id: "MQ1"
+title: "微分作用素・Schrödinger 作用素と本質的自己共役性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MQ0
+  - QM6
+  - EVOL1
+  - FOU4
+official_scope: []
+learning_objectives:
+  - Schwartz 空間上の微分式と最大乗算作用素の定義域を区別し、自由 Hamiltonian の本質的自己共役性をグラフノルム近似で証明できる
+  - Fourier 空間の重み付き L² 条件から H0 の定義域とスペクトルを計算し、形式固有関数と L² 固有ベクトルを区別できる
+  - 実有界ポテンシャルおよび相対界1未満の対称摂動について自己共役性と core の保存を証明できる
+  - 強可換性をスペクトル射影で検証し、微分式の交換子の計算だけで判断しない
+  - 離散スペクトルと本質スペクトルを区別し、自由粒子のスペクトルが全て本質スペクトルである理由を説明できる
+  - Schrödinger 二次形式と作用素定義域の違いを理解し、次章の変分原理へ接続できる
+definitions:
+  - { id: MQ1-DEF-01, name: "有界ポテンシャルの Schrödinger 作用素" }
+  - { id: MQ1-DEF-02, name: "作用素に関する相対有界性" }
+  - { id: MQ1-DEF-03, name: "自己共役作用素の強可換性" }
+  - { id: MQ1-DEF-04, name: "離散スペクトルと本質スペクトル" }
+propositions:
+  - { id: MQ1-PROP-01, name: "自由 Hamiltonian と運動量の強可換性" }
+theorems:
+  - { id: MQ1-THM-01, name: "自由 Hamiltonian の自己共役実現と Schwartz core" }
+  - { id: MQ1-THM-02, name: "有界実ポテンシャルは自己共役性と core を保つ" }
+  - { id: MQ1-THM-03, name: "相対界1未満の対称摂動" }
+  - { id: MQ1-THM-04, name: "自由 Hamiltonian は連続的なエネルギーを持つ" }
+canonical_examples:
+  - "Fourier 側の H² 定義域と Schwartz core の直接証明"
+  - "有界な矩形井戸ポテンシャル"
+  - "平行移動 bump による二次ポテンシャルの相対界失敗"
+  - "運動量・自由 Hamiltonian のスペクトル射影の積"
+  - "自由粒子の近似固有状態と平面波"
+problem_patterns:
+  - MQ1-FOURIER-SIGN-1
+  - MQ1-DOMAIN-1
+  - MQ1-BOUNDED-PERTURBATION-1
+  - MQ1-ESSENTIAL-SPECTRUM-1
+  - MQ1-GRAPH-CORE-1
+  - MQ1-RELATIVE-CORE-1
+  - MQ1-STRONG-COMMUTATIVITY-1
+  - MQ1-GENERALIZED-EIGENFUNCTION-1
+  - MQ1-INTEGRATED-WELL-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10.0, exercises: 7.0, review: 2.0 }
