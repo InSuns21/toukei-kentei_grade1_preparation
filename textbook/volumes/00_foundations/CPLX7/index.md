@@ -321,7 +321,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[SAT・CLIQUE・有向Hamilton閉路のNP所属定理](../CPLX3/index.md#thm-cplx3-examples-in-np)により $\mathrm{SAT}\in NP$ です。残るNP-hard性を示します。
+[SAT・CLIQUE・有向Hamilton閉路はNPに属する](../CPLX3/index.md#thm-cplx3-examples-in-np)により $\mathrm{SAT}\in NP$ です。残るNP-hard性を示します。
 
 任意の $A\in NP$ を一つ固定します。[検証器によるNPと非決定性多項式時間の同値性](../CPLX4/index.md#thm-cplx4-np-equivalence)により、$A$ を受理する有限分岐・一テープ非決定性機械 $M_A$ と、**全入力・全枝に共通**の整数値多項式時間上界 $p_A(n)\ge1$ を取れます。$M_A$、その有限アルファベットと遷移表、$p_A$ は言語 $A$ ごとに固定され、入力 $x$ に依存して探索する必要はありません。
 
