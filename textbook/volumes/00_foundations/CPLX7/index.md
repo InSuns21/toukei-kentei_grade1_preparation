@@ -144,7 +144,7 @@ $$
 $$
 (H_{t,i,q}\land X_{t,i,a})
 \Rightarrow\bigvee_{r\in R(q,a)}Z_{t,r}.
-\tag{1}
+\qquad\text{(1)}
 $$
 
 です。$R(q,a)$ は非空です。ここで $Z$ の「ちょうど一つ」と併せれば、別の状態・文字に対応する規則を選ぶことはできません。
@@ -154,20 +154,20 @@ $$
 $$
 (H_{t,i,q}\land X_{t,i,a}\land Z_{t,r})
 \Rightarrow X_{t+1,i,b},
-\tag{2}
+\qquad\text{(2)}
 $$
 
 $$
 (H_{t,i,q}\land X_{t,i,a}\land Z_{t,r})
 \Rightarrow H_{t+1,j,q'}
-\tag{3}
+\qquad\text{(3)}
 $$
 
 と課します。範囲外の $j$ になる場合は、左辺自体が偽であること、すなわち
 
 $$
 \neg H_{t,i,q}\lor\neg X_{t,i,a}\lor\neg Z_{t,r}
-\tag{4}
+\qquad\text{(4)}
 $$
 
 を課します。これは表の端から不正に出る計算を排除します。実際の $T$ 歩以内の枝では幅の評価と左端規則から(4)が問題になることはありません。
@@ -178,7 +178,7 @@ $$
 \left(X_{t,i,a}\land
 \neg\bigvee_{q\in Q}H_{t,i,q}\right)
 \Rightarrow X_{t+1,i,a}.
-\tag{5}
+\qquad\text{(5)}
 $$
 
 とします。これは「時刻 $t$ に文字 $a$ があり、そこにヘッドがいないなら、次の行でも文字 $a$」という局所保存則です。(5) の選言節への展開は
