@@ -1,0 +1,23 @@
+chapter: "CPLX4"
+terms:
+  - term: 非決定性多項式時間
+    english: nondeterministic polynomial time
+    meaning: "全ての入力について、全計算枝が入力長の共通多項式時間以内に停止する非決定性Turing機械の計算時間条件。"
+  - term: 計算木
+    english: computation tree
+    meaning: "非決定性機械の初期状況を根とし、各合法な遷移選択を辺として表した有限分岐の木。"
+  - term: 計算枝
+    english: computation branch
+    meaning: "計算木で初期状況から各時刻に一つずつ合法な遷移を選んだ経路。"
+  - term: 分岐履歴
+    english: branch history
+    meaning: "非決定性計算で選んだ遷移候補の番号を順に符号化した文字列。"
+  - term: クラスcoNP
+    english: complexity class coNP
+    meaning: "全二進文字列を母集合とする補言語がNPに属する言語全体。"
+  - term: 恒真式
+    english: tautology
+    meaning: "出現する命題変数へのあらゆる真偽値割当てで真になる命題論理式。"
+  - term: TAUT
+    english: tautology decision problem
+    meaning: "与えられた命題論理式が恒真式かを判定する言語。不正な符号化はno入力とする。"

@@ -1,0 +1,44 @@
+chapter: CPLX4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CPLX3
+concepts:
+  - id: theoretical-computer-science.nondeterministic-polynomial-time
+    name: 非決定性多項式時間とクラスNPTIME
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（非決定性多項式時間とクラス NPTIME）"]
+    requires: [theoretical-computer-science.nondeterministic-tm, theoretical-computer-science.polynomial-time-machine]
+  - id: theoretical-computer-science.np-ntm-equivalence
+    name: 検証器によるNPと非決定性多項式時間の同値性
+    kind: theorem
+    introduction_aliases: ["定理（検証器によるNPと非決定性多項式時間の同値性）"]
+    requires: [theoretical-computer-science.nondeterministic-polynomial-time, theoretical-computer-science.class-np, theoretical-computer-science.multitape-polynomial-simulation]
+  - id: theoretical-computer-science.p-in-np
+    name: PはNPに含まれる
+    kind: proposition
+    introduction_aliases: ["命題（PはNPに含まれる）"]
+    requires: [theoretical-computer-science.class-p, theoretical-computer-science.class-np]
+  - id: theoretical-computer-science.class-conp
+    name: クラスcoNP
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（クラスcoNP）"]
+    requires: [theoretical-computer-science.class-np]
+  - id: theoretical-computer-science.taut-language
+    name: 恒真式判定言語TAUT
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（恒真式判定言語TAUT）"]
+    requires: [theoretical-computer-science.sat-language]
+  - id: theoretical-computer-science.taut-in-conp
+    name: TAUTはcoNPに属する
+    kind: theorem
+    introduction_aliases: ["定理（TAUTはcoNPに属する）"]
+    requires: [theoretical-computer-science.class-conp, theoretical-computer-science.taut-language, theoretical-computer-science.class-np]
+  - id: theoretical-computer-science.p-in-np-intersect-conp
+    name: PはNPとcoNPの共通部分に含まれる
+    kind: proposition
+    introduction_aliases: ["命題（PはNPとcoNPの共通部分に含まれる）"]
+    requires: [theoretical-computer-science.class-p, theoretical-computer-science.class-conp, theoretical-computer-science.p-in-np]
