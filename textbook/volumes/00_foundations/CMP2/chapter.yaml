@@ -1,0 +1,52 @@
+id: "CMP2"
+title: "計算モデルの頑健性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CMP1
+official_scope: []
+learning_objectives:
+  - 多テープTuring機械の全域遷移・停止移動を定義し、局所更新を追跡できる
+  - 有限区間符号化を構成し、各一歩の模擬の正しさと二次時間上界を証明できる
+  - 多テープと一テープの認識可能性・決定可能性の同値を説明できる
+  - 非決定性計算木の受理条件を区別し、幅優先シミュレーションの正しさを証明できる
+  - 全枝停止と有限分岐から決定可能性を導ける
+  - 分岐探索の指数的上界と多テープシミュレーションの多項式上界を比較できる
+  - 整数RAMのTuringシミュレーションを構成し、単位費用とビット費用を区別できる
+  - Church–Turingテーゼと形式的なモデル間同値定理の論理的地位を区別できる
+definitions:
+  - { id: CMP2-DEF-01, name: "多テープTuring機械" }
+  - { id: CMP2-DEF-02, name: "多テープ計算状況の符号化" }
+  - { id: CMP2-DEF-03, name: "非決定性Turing機械" }
+  - { id: CMP2-DEF-04, name: "整数RAMの一例" }
+theorems:
+  - { id: CMP2-THM-01, name: "多テープの一テープシミュレーション" }
+  - { id: CMP2-THM-02, name: "非決定性認識の決定性シミュレーション" }
+propositions:
+  - { id: CMP2-PROP-01, name: "停止移動の除去" }
+  - { id: CMP2-PROP-02, name: "決定性モデルの受理言語の一致" }
+  - { id: CMP2-PROP-03, name: "全枝停止なら決定可能" }
+  - { id: CMP2-PROP-04, name: "有限深さの計算木の探索上界" }
+  - { id: CMP2-PROP-05, name: "整数RAMとTuring計算可能性" }
+  - { id: CMP2-PROP-06, name: "単位費用とビット費用の差" }
+canonical_examples:
+  - "二テープ同時更新と有限区間のヘッドマーク"
+  - "テープ数固定の多テープ模擬と手数の和"
+  - "二枝の受理木と深さ優先・幅優先探索の差"
+  - "整数RAMでの繰返し二乗と二進桁数"
+  - "w#w の二テープ線形時間判定器"
+problem_patterns:
+  - CMP2-MULTITAPE-STEP-1
+  - CMP2-ENCODING-1
+  - CMP2-BRANCH-ACCEPTANCE-1
+  - CMP2-BFS-1
+  - CMP2-RAM-BITLENGTH-1
+  - CMP2-ENCODING-LENGTH-1
+  - CMP2-NDTM-DETERMINIZATION-1
+  - CMP2-TIME-SUM-1
+  - CMP2-FINITE-BRANCHING-1
+  - CMP2-TWO-TAPE-DECIDER-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 5.0, review: 2.5 }

@@ -415,6 +415,7 @@
 ### 計算理論 II：計算可能性
 
 1. [CMP1 Turing機械](textbook/volumes/00_foundations/CMP1/index.md)
+2. [CMP2 計算モデルの頑健性](textbook/volumes/00_foundations/CMP2/index.md)
 
 <a id="dt-subject-numerical-analysis"></a>
 ### 数値解析

@@ -1,0 +1,26 @@
+chapter: "CMP2"
+terms:
+  - term: 多テープTuring機械
+    english: multitape Turing machine
+    meaning: "固定本数のテープとそれぞれのヘッドを持ち、一歩で同時に読み書きする計算モデル。"
+  - term: 有限区間符号化
+    english: finite-segment encoding
+    meaning: "各テープの有限な使用範囲とヘッド位置を区切り付き文字列として一本のテープへ記録する方法。"
+  - term: 非決定性Turing機械
+    english: nondeterministic Turing machine
+    meaning: "一つの状態・読取り文字から有限個の次操作を許し、少なくとも一つの受理枝があると受理する計算モデル。"
+  - term: 計算木
+    english: computation tree
+    meaning: "非決定性計算で、各選択の履歴を根からの枝として表す有限分岐の木。"
+  - term: 幅優先探索
+    english: breadth-first search
+    meaning: "計算木を深さの浅い順に探索し、有限深さの全枝をいつか必ず調べる方式。"
+  - term: 整数RAM
+    english: random-access machine
+    meaning: "番号付き整数レジスタと有限命令からなる計算モデル。"
+  - term: 単位費用
+    english: unit-cost measure
+    meaning: "整数の桁数によらず一命令に同じ時間費用を割り当てる約束。"
+  - term: Church–Turingテーゼ
+    english: Church–Turing thesis
+    meaning: "直観的に有効と考えられる計算手続はTuring計算で表せるという、形式体系内部の定理とは区別される主張。"
