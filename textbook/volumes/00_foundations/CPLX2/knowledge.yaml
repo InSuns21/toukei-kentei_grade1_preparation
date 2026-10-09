@@ -25,7 +25,7 @@ concepts:
     name: 隣接行列で符号化した有向到達可能性はPに属する
     kind: theorem
     introduction_aliases: ["定理（隣接行列で符号化した有向到達可能性は P に属する）"]
-    requires: [theoretical-computer-science.class-p, theoretical-computer-science.reachable-sets-iteration, theoretical-computer-science.polynomial-time-machine ]
+    requires: [theoretical-computer-science.class-p, theoretical-computer-science.reachable-sets-iteration, theoretical-computer-science.polynomial-time-machine]
   - id: theoretical-computer-science.multitape-polynomial-simulation
     name: 固定本数の作業テープの多項式時間シミュレーション
     kind: theorem
