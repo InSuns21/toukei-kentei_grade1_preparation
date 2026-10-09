@@ -27,7 +27,7 @@ chapters:
     title: 停止問題と対角線論法
   - id: CMP6
     path: textbook/volumes/00_foundations/CMP6
-    status: planned
+    status: completed
     title: 計算可能性の帰着
   - id: CMP7
     path: textbook/volumes/00_foundations/CMP7
