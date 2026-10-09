@@ -1,0 +1,49 @@
+chapter: CMP5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CMP4
+concepts:
+  - id: theoretical-computer-science.acceptance-problem
+    name: Turing機械の受理問題
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Turing機械の受理問題）"]
+    requires: [theoretical-computer-science.machine-description, theoretical-computer-science.program-input-pair, theoretical-computer-science.tm-acceptance]
+  - id: theoretical-computer-science.acceptance-recognizable
+    name: 受理問題の認識可能性
+    kind: proposition
+    introduction_aliases: ["命題（受理問題の認識可能性）"]
+    requires: [theoretical-computer-science.acceptance-problem, theoretical-computer-science.universal-simulation, theoretical-computer-science.tm-decider-recognizer]
+  - id: theoretical-computer-science.acceptance-undecidable
+    name: 受理問題の決定不能性
+    kind: theorem
+    introduction_aliases: ["定理（受理問題の決定不能性）"]
+    requires: [theoretical-computer-science.acceptance-problem, theoretical-computer-science.diagonal-map-computability, theoretical-computer-science.tm-decider-recognizer]
+  - id: theoretical-computer-science.self-acceptance-language
+    name: 自己入力受理言語
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（自己入力受理言語）"]
+    requires: [theoretical-computer-science.diagonal-input, theoretical-computer-science.acceptance-problem]
+  - id: theoretical-computer-science.diagonal-complement-unrecognizable
+    name: 自己入力受理言語の補集合は認識不能
+    kind: theorem
+    introduction_aliases: ["定理（自己入力受理言語の補集合は認識不能）"]
+    requires: [theoretical-computer-science.self-acceptance-language, theoretical-computer-science.acceptance-recognizable, theoretical-computer-science.tm-decider-recognizer]
+  - id: theoretical-computer-science.halting-problem
+    name: Turing機械の停止問題
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Turing機械の停止問題）"]
+    requires: [theoretical-computer-science.machine-description, theoretical-computer-science.program-input-pair, theoretical-computer-science.tm-acceptance]
+  - id: theoretical-computer-science.halting-undecidable
+    name: 停止問題の認識可能性と決定不能性
+    kind: theorem
+    introduction_aliases: ["定理（停止問題の認識可能性と決定不能性）"]
+    requires: [theoretical-computer-science.halting-problem, theoretical-computer-science.universal-simulation, theoretical-computer-science.acceptance-undecidable]
+  - id: theoretical-computer-science.no-computable-uniform-bound
+    name: すべての停止計算に有効な計算可能期限はない
+    kind: proposition
+    introduction_aliases: ["命題（すべての停止計算に有効な計算可能期限はない）"]
+    requires: [theoretical-computer-science.bounded-halting-status, theoretical-computer-science.halting-undecidable]
