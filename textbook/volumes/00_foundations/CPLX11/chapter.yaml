@@ -1,0 +1,48 @@
+id: "CPLX11"
+title: "P vs NP"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CPLX10
+official_scope: []
+learning_objectives:
+  - PとNPの定義と量化順序を用い未解決な包含を説明できる
+  - NP完全性を用いてP=NPとSAT・3-SATの多項式時間可解性の同値を証明できる
+  - SATが指数時間で解けるという上界と全多項式時間アルゴリズムの下界を区別できる
+  - CNFの変数制限を計算しSATの自己還元で充足割当てを復元できる
+  - SATの判定と探索の多項式時間同値性を正しさと問い合わせ数から証明できる
+  - 一般のNP検証器の接頭辞延長言語を定義しNP所属と証明書抽出を証明できる
+  - P=NPからcoNPの崩壊が従う論理とその逆向きの限界を説明できる
+  - NP-hardとNP所属を区別し暗号と実用的計算時間への条件付き含意を説明できる
+definitions:
+  - { id: CPLX11-DEF-01, name: "P vs NPの問い" }
+  - { id: CPLX11-DEF-02, name: "CNFの変数制限" }
+  - { id: CPLX11-DEF-03, name: "証明書の接頭辞延長言語" }
+  - { id: CPLX11-DEF-04, name: "一方向関数" }
+theorems:
+  - { id: CPLX11-THM-01, name: "SATの判定と充足割当て探索" }
+propositions:
+  - { id: CPLX11-PROP-01, name: "P vs NPとSAT・3-SATの同値な問い" }
+  - { id: CPLX11-PROP-02, name: "SATによる分離条件" }
+  - { id: CPLX11-PROP-03, name: "P=NPならNP証明書を多項式時間で構成できる" }
+canonical_examples:
+  - "3-SATの二節を証明書で検証し全入力の決定との違いを確認"
+  - "三節のCNFをx=0とx=1に制限しx=1,y=1へ復元"
+  - "接頭辞101の延長判定と接頭辞そのものの検証を区別"
+  - "NP-hardでも決定不能な言語を挙げP=NPの射程を区別"
+  - "恒等写像の逆算確率1を計算して一方向関数でないことを確認"
+problem_patterns:
+  - CPLX11-PNP-QUANTIFIERS
+  - CPLX11-SAT-EQUIVALENCE
+  - CPLX11-LOWER-BOUND
+  - CPLX11-CNF-RESTRICTION
+  - CPLX11-SEARCH-TO-DECISION
+  - CPLX11-SELF-REDUCIBILITY
+  - CPLX11-PREFIX-EXTENSION
+  - CPLX11-NP-WITNESS-EXTRACTION
+  - CPLX11-CONP-IMPLICATION
+  - CPLX11-CRYPTO-LIMITS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 4.5, review: 3.0 }
