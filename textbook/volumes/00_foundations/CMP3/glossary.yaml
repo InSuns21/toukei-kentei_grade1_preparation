@@ -1,0 +1,23 @@
+chapter: "CMP3"
+terms:
+  - term: 自己区切り符号
+    english: self-delimiting code
+    meaning: "区切りに必要な長さを文字列自体に含め、先頭から符号語の境界を一意に判定できる符号。"
+  - term: 機械記述
+    english: machine description
+    meaning: "有限状態・テープ記号・遷移表を一定の規則で有限二進文字列にしたもの。"
+  - term: 対符号
+    english: pairing encoding
+    meaning: "機械記述と入力文字列など二つの文字列を、境界を復元できる一つの文字列にまとめた符号。"
+  - term: 万能Turing機械
+    english: universal Turing machine
+    meaning: "機械の記述と入力を受け取り、記述された機械の計算を模擬する一台の固定された機械。"
+  - term: 自己入力
+    english: self-application
+    meaning: "ある機械に、その機械自身の記述文字列を入力として与えること。"
+  - term: 対角入力写像
+    english: diagonal input map
+    meaning: "任意の記述文字列mを、その文字列と自身との対符号へ写す全域計算可能写像。"
+  - term: 有限歩停止状況
+    english: bounded halting status
+    meaning: "指定された有限歩以内に受理・拒否で停止するか、まだ走行中かを区別する結果。"
