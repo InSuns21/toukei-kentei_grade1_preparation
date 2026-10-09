@@ -423,6 +423,11 @@
 7. [CMP7 Riceの定理](textbook/volumes/00_foundations/CMP7/index.md)
 8. [CMP8 λ計算・再帰関数・計算可能性の同値像](textbook/volumes/00_foundations/CMP8/index.md)
 
+<a id="dt-subject-complexity-theory-i"></a>
+### 計算量理論 I：P・NP・NP完全性
+
+1. [CPLX1 入力サイズ・時間計算量・空間計算量](textbook/volumes/00_foundations/CPLX1/index.md)
+
 <a id="dt-subject-numerical-analysis"></a>
 ### 数値解析
 

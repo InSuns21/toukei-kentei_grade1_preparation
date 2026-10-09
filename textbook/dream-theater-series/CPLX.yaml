@@ -1,0 +1,19 @@
+version: 1
+id: CPLX
+title: "計算量理論 I：P・NP・NP完全性"
+plan: textbook/plans_progress/DREAM_THEATER_THEORETICAL_COMPUTER_SCIENCE_P_VS_NP_PLAN.md
+chapter_root: textbook/volumes/00_foundations
+
+chapters:
+  - id: CPLX1
+    path: textbook/volumes/00_foundations/CPLX1
+    status: completed
+    title: 入力サイズ・時間計算量・空間計算量
+  - id: CPLX2
+    path: textbook/volumes/00_foundations/CPLX2
+    status: planned
+    title: クラスP
+  - id: CPLX3
+    path: textbook/volumes/00_foundations/CPLX3
+    status: planned
+    title: クラスNP：証明書と検証
