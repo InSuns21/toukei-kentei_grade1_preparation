@@ -1,0 +1,20 @@
+chapter: "CPLX3"
+terms:
+  - term: 証明書
+    english: certificate, witness
+    meaning: "判定問題のyes入力に対して存在を示す候補データ。入力長の多項式長で符号化する。"
+  - term: 検証器
+    english: verifier
+    meaning: "入力と証明書の組を決定的に検査し、全ての組について停止する機械。"
+  - term: クラスNP
+    english: nondeterministic polynomial time
+    meaning: "多項式長の受理証明書を持つ入力を、多項式時間検証器でちょうど特徴付けられる判定言語全体。"
+  - term: SAT
+    english: Boolean satisfiability problem
+    meaning: "与えられた命題論理式を真にする変数割当てが存在するかを判定する問題。"
+  - term: クリーク
+    english: clique
+    meaning: "無向グラフ内で、相異なる任意の二頂点の間に辺がある頂点集合。"
+  - term: Hamilton閉路
+    english: Hamiltonian cycle
+    meaning: "全頂点を一度ずつ通過して始点へ戻る閉路。向き付きの問題では全ての辺の向きも確認する。"

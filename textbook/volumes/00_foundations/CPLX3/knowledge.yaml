@@ -1,0 +1,52 @@
+chapter: CPLX3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CPLX2
+concepts:
+  - id: theoretical-computer-science.polynomial-certificate
+    name: 多項式長の証明書
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多項式長の証明書）"]
+    requires: [theoretical-computer-science.input-length]
+  - id: theoretical-computer-science.polynomial-verifier
+    name: 多項式時間検証器
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多項式時間検証器）"]
+    requires: [theoretical-computer-science.polynomial-time-machine]
+  - id: theoretical-computer-science.class-np
+    name: クラスNP
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（クラス NP）"]
+    requires: [theoretical-computer-science.polynomial-certificate, theoretical-computer-science.polynomial-verifier]
+  - id: theoretical-computer-science.np-certificate-cutoff
+    name: 証明書長の切断
+    kind: proposition
+    introduction_aliases: ["命題（証明書長の切断）"]
+    requires: [theoretical-computer-science.class-np]
+  - id: theoretical-computer-science.sat-language
+    name: SATの判定言語
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（SAT の判定言語）"]
+    requires: [theoretical-computer-science.input-length]
+  - id: theoretical-computer-science.clique-language
+    name: CLIQUEの判定言語
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（CLIQUE の判定言語）"]
+    requires: [theoretical-computer-science.input-length]
+  - id: theoretical-computer-science.directed-hamiltonian-cycle-language
+    name: 有向Hamilton閉路の判定言語
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有向Hamilton閉路の判定言語）"]
+    requires: [theoretical-computer-science.input-length]
+  - id: theoretical-computer-science.sat-clique-dhc-in-np
+    name: SAT・CLIQUE・有向Hamilton閉路はNPに属する
+    kind: theorem
+    introduction_aliases: ["定理（SAT・CLIQUE・有向Hamilton閉路は NP に属する）"]
+    requires: [theoretical-computer-science.class-np, theoretical-computer-science.sat-language, theoretical-computer-science.clique-language, theoretical-computer-science.directed-hamiltonian-cycle-language]

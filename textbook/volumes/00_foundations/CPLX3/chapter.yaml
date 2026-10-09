@@ -1,0 +1,49 @@
+id: "CPLX3"
+title: "クラスNP：証明書と検証"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CPLX2
+official_scope: []
+learning_objectives:
+  - 入力と証明書の一意な組符号化・入力長・不正な候補の扱いを説明できる
+  - 多項式長証明書と全入力停止する多項式時間検証器を区別しそれぞれの上界を確認できる
+  - クラスNPの存在量化とyes/noの非対称性を明示できる
+  - 長すぎる証明書を切断してもNPの定義が不変であることを証明できる
+  - SATの真偽値割当てと構文木評価から正確な検証器を構成できる
+  - CLIQUEの頂点集合と有向Hamilton閉路の巡回順序を証明書にし全検査条件を示せる
+  - SAT・CLIQUE・DHCのNP所属を両方向の正しさと多項式時間で証明できる
+  - NP所属とNP完全性・P非所属・候補の高速探索とを区別できる
+definitions:
+  - { id: CPLX3-DEF-01, name: "多項式長の証明書" }
+  - { id: CPLX3-DEF-02, name: "多項式時間検証器" }
+  - { id: CPLX3-DEF-03, name: "クラスNP" }
+  - { id: CPLX3-DEF-04, name: "SATの判定言語" }
+  - { id: CPLX3-DEF-05, name: "CLIQUEの判定言語" }
+  - { id: CPLX3-DEF-06, name: "有向Hamilton閉路の判定言語" }
+theorems:
+  - { id: CPLX3-THM-01, name: "SAT・CLIQUE・有向Hamilton閉路はNPに属する" }
+propositions:
+  - { id: CPLX3-PROP-01, name: "証明書長の切断" }
+canonical_examples:
+  - "長さ接頭辞を使った二文字列の組符号化"
+  - "末尾ビットの一致を判定する検証器"
+  - "空証明書で確認するP言語のNP所属"
+  - "命題論理式の真偽値代入"
+  - "三頂点クリークと四頂点Hamilton閉路"
+  - "行と列の偶奇を満たす表の証明書"
+problem_patterns:
+  - CPLX3-SAT-EVAL
+  - CPLX3-CLIQUE-CHECK
+  - CPLX3-CYCLE-CLOSING-EDGE
+  - CPLX3-CERTIFICATE-LENGTH
+  - CPLX3-NP-QUANTIFIERS
+  - CPLX3-CUTOFF
+  - CPLX3-REPEATED-VARIABLE
+  - CPLX3-CLIQUE-VS-HAMILTON
+  - CPLX3-VARIABLE-NAMING
+  - CPLX3-PARITY-TABLE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 4.5, review: 2.0 }
