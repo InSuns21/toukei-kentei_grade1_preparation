@@ -411,6 +411,11 @@
 6. [AUT6 プッシュダウン・オートマトン](textbook/volumes/00_foundations/AUT6/index.md)
 7. [AUT7 Chomsky階層と計算モデルへの橋](textbook/volumes/00_foundations/AUT7/index.md)
 
+<a id="dt-subject-computation-theory-ii"></a>
+### 計算理論 II：計算可能性
+
+1. [CMP1 Turing機械](textbook/volumes/00_foundations/CMP1/index.md)
+
 <a id="dt-subject-numerical-analysis"></a>
 ### 数値解析
 

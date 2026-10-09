@@ -1,0 +1,26 @@
+chapter: "CMP1"
+terms:
+  - term: Turing機械
+    english: Turing machine
+    meaning: "有限個の状態と読み書きできるテープ、ヘッド移動の遷移規則で計算を定めるモデル。"
+  - term: テープアルファベット
+    english: tape alphabet
+    meaning: "入力記号だけでなく空白や作業用の印も含む有限集合。"
+  - term: 計算状況
+    english: configuration
+    meaning: "現在の状態、ヘッド位置、テープ内容を合わせた実行の瞬間の記録。"
+  - term: 計算履歴
+    english: computation history
+    meaning: "初期状況から一歩遷移で接続された状況の列。"
+  - term: 認識器
+    english: recognizer
+    meaning: "言語の語では受理するが、非所属の語では非停止も許されるTuring機械。"
+  - term: 決定器
+    english: decider
+    meaning: "全入力で停止し、所属なら受理、非所属なら拒否するTuring機械。"
+  - term: 決定可能性
+    english: decidability
+    meaning: "ある言語について全入力で正しいyes/noを返す決定器が存在する性質。"
+  - term: 非停止
+    english: nontermination
+    meaning: "どの有限時刻にも受理・拒否状態へ入らず計算が無限に続くこと。"
