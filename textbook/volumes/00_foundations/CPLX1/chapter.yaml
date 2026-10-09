@@ -1,0 +1,48 @@
+id: "CPLX1"
+title: "入力サイズ・時間計算量・空間計算量"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CMP8
+official_scope: []
+learning_objectives:
+  - 入力長と整数値を区別し単項・二進符号化のサイズを導出できる
+  - 決定性Turing機械の最悪時間・訪問作業領域を入力長ごとに計算できる
+  - 時間と空間の基本上界を訪問セル数の帰納法から証明できる
+  - 漸近記法O・Omega・Thetaの定数量化を具体的な上下界で確認できる
+  - 指数関数が任意の固定次数の多項式を上回る証明を再現できる
+  - Turing遷移数と単位コストのループ回数を区別できる
+  - 二進符号化と擬多項式時間の関係を説明できる
+  - 単項出力の長さ由来の時間・空間下界と判定問題の下界を区別できる
+definitions:
+  - { id: CPLX1-DEF-01, name: "入力長" }
+  - { id: CPLX1-DEF-02, name: "最悪時間計算量と使用領域" }
+  - { id: CPLX1-DEF-03, name: "漸近記法" }
+  - { id: CPLX1-DEF-04, name: "多項式時間の機械" }
+  - { id: CPLX1-DEF-05, name: "擬多項式時間" }
+theorems:
+  - { id: CPLX1-THM-01, name: "指数関数は固定次数多項式より速く増える" }
+propositions:
+  - { id: CPLX1-PROP-01, name: "使用領域の時間による上界" }
+canonical_examples:
+  - "13の単項表現と二進表現"
+  - "1の個数を数える機械の時間と作業領域"
+  - "二次式の上下界と定数の選択"
+  - "二重ループの抽象反復回数とTuring遷移数の比較"
+  - "数値N回のカウントダウンの符号化依存性"
+  - "二進から単項への出力長下界"
+problem_patterns:
+  - CPLX1-ENCODING-LENGTH-1
+  - CPLX1-WORST-CASE-1
+  - CPLX1-THETA-CONSTANTS-1
+  - CPLX1-BIG-O-NEGATION-1
+  - CPLX1-SPACE-BOUND-1
+  - CPLX1-EXP-POLYNOMIAL-1
+  - CPLX1-LOOP-IMPLEMENTATION-1
+  - CPLX1-BINARY-COUNTDOWN-1
+  - CPLX1-OUTPUT-SPACE-1
+  - CPLX1-BINARY-UNARY-INTEGRATION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.0, review: 2.0 }

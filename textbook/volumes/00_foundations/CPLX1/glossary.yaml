@@ -1,0 +1,20 @@
+chapter: "CPLX1"
+terms:
+  - term: 入力長
+    english: input length
+    meaning: "計算機へ渡す固定符号化後の文字列に含まれる記号数。"
+  - term: 最悪時間計算量
+    english: worst-case time complexity
+    meaning: "入力長を固定したときの全入力に対する最大遷移回数。"
+  - term: 使用領域
+    english: space usage
+    meaning: "計算中に訪れた作業テープセルの個数として測る資源量。"
+  - term: 漸近記法
+    english: asymptotic notation
+    meaning: "入力長を無限に増やしたときの関数の上下界を定数倍まで比較する記法。"
+  - term: 多項式時間
+    english: polynomial time
+    meaning: "入力長について固定次数の多項式で最悪時間が抑えられること。"
+  - term: 擬多項式時間
+    english: pseudo-polynomial time
+    meaning: "数値入力の値について多項式だが、その二進符号化長については多項式とは限らない計算時間。"

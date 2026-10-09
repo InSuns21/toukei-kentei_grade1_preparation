@@ -1,0 +1,46 @@
+chapter: CPLX1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CMP8
+concepts:
+  - id: theoretical-computer-science.input-length
+    name: 入力長
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（入力長）"]
+    requires: [theoretical-computer-science.tm-configuration]
+  - id: theoretical-computer-science.worst-case-time-space
+    name: 最悪時間計算量と使用領域
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（最悪時間計算量と使用領域）"]
+    requires: [theoretical-computer-science.input-length]
+  - id: theoretical-computer-science.time-space-basic-bound
+    name: 使用領域の時間による上界
+    kind: proposition
+    introduction_aliases: ["命題（使用領域の時間による上界）"]
+    requires: [theoretical-computer-science.worst-case-time-space]
+  - id: theoretical-computer-science.asymptotic-notation
+    name: 漸近記法
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（漸近記法 O, Ω, Θ）"]
+    requires: []
+  - id: theoretical-computer-science.polynomial-time-machine
+    name: 多項式時間の機械
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多項式時間の機械）"]
+    requires: [theoretical-computer-science.worst-case-time-space, theoretical-computer-science.asymptotic-notation]
+  - id: theoretical-computer-science.exponential-dominance
+    name: 指数関数は任意の固定次数の多項式より速く増える
+    kind: theorem
+    introduction_aliases: ["定理（指数関数は任意の固定次数の多項式より速く増える）"]
+    requires: [theoretical-computer-science.asymptotic-notation]
+  - id: theoretical-computer-science.pseudopolynomial-time
+    name: 擬多項式時間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（擬多項式時間）"]
+    requires: [theoretical-computer-science.input-length, theoretical-computer-science.polynomial-time-machine]
