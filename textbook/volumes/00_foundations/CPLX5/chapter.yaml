@@ -1,12 +1,12 @@
 id: "CPLX5"
-title: "多項式時間many-one帰着"
+title: "多項式時間 many-one 帰着"
 volume: "foundations"
 status: supplementary
 prerequisites:
   - CPLX4
 official_scope: []
 learning_objectives:
-  - 二進言語の多項式時間many-one帰着を全域性・多項式時間・yes/no同値の量化条件つきで定義できる
+  - 二進言語の多項式時間 many-one 帰着を全域性・多項式時間・yes/no同値の量化条件つきで定義できる
   - 偶奇・接尾文字・局所パターンの言語に対して帰着関数を構成し正例と反例で検算できる
   - 多項式時間変換から出力長の多項式上界を導ける
   - 帰着先のP所属から帰着元のP所属を計算時間の多項式合成を含めて証明できる
@@ -16,7 +16,7 @@ learning_objectives:
   - 帰着の向きに関する誤推論を空言語と停止問題による具体例で退けられる
   - 二段帰着の計算例を一から設計しyes/no保存と時間を全件検証できる
 definitions:
-  - { id: CPLX5-DEF-01, name: "多項式時間many-one帰着" }
+  - { id: CPLX5-DEF-01, name: "多項式時間 many-one 帰着" }
 theorems:
   - { id: CPLX5-THM-01, name: "多項式時間決定可能性の帰着元への移送" }
   - { id: CPLX5-THM-02, name: "NP所属の帰着元への移送" }
