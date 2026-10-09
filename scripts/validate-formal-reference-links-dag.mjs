@@ -45,6 +45,58 @@ function resolveTarget(sourceFile, href) {
   return { target, fragment };
 }
 
+
+function inspectFormalReference(file, line, match, contents, anchors) {
+  const label = match[1].trim();
+  const href = match[2].trim();
+  if (/^(?:https?:|mailto:|tel:|javascript:)/i.test(href)) return null;
+
+  // A stable formal fragment must resolve even if the link label is not
+  // recognizable as a theorem/definition dependency.
+  const precise = preciseDependency(line, label, match.index ?? 0, match[0]);
+  const stable = stableFragmentInHrefRe.test(href);
+  if (!precise && !stable) return null;
+
+  const { target, fragment } = resolveTarget(file, href);
+  if (!fragment) {
+    return { precise, stable, error: `formal dependency link must jump to the exact definition/theorem/derivation, not only the chapter: [${label}](${href})` };
+  }
+  if (!stableFragmentRe.test(fragment)) {
+    return { precise, stable, error: `formal dependency fragment must use a stable def-/thm-/prop-/lem-/cor-/axiom-/principle-/ref- anchor: #${fragment}` };
+  }
+  if (!contents.has(target)) {
+    return { precise, stable, error: `formal reference target is not a user-facing textbook index.md: ${href}` };
+  }
+  if (!anchors.get(target)?.has(fragment)) {
+    const targetRel = path.relative(REPO, target).replaceAll(path.sep, '/');
+    return { precise, stable, error: `fragment #${fragment} does not exist as an explicit anchor in ${targetRel}` };
+  }
+  return { precise, stable, error: null };
+}
+
+function testFormalReferenceGate() {
+  const source = path.resolve('textbook/volumes/00_foundations/CMP5/index.md');
+  const target = path.resolve('textbook/volumes/00_foundations/CMP3/index.md');
+  const contents = new Map([[source, ''], [target, '']]);
+  const anchors = new Map([[source, new Set()], [target, new Set(['prop-cmp3-pair-injective'])]]);
+  const check = (href) => {
+    const line = `入力は[CMP3の対符号の復号](${href})から得ます。`;
+    const match = [...line.matchAll(linkRe)][0];
+    return inspectFormalReference(source, line, match, contents, anchors);
+  };
+  const broken = check('../CMP3/index.md#prop-cmp3-pair-injection');
+  if (!broken || broken.precise || !broken.stable || !broken.error?.includes('does not exist')) {
+    throw new Error('Non-theorem-label broken stable reference was not rejected');
+  }
+  const valid = check('../CMP3/index.md#prop-cmp3-pair-injective');
+  if (!valid || valid.error !== null) throw new Error('Valid stable reference was rejected');
+  const missing = check('../CMP99/index.md#prop-cmp3-pair-injective');
+  if (!missing?.error?.includes('not a user-facing')) throw new Error('Missing target was not rejected');
+  const ordinary = check('../CMP3/index.md');
+  if (ordinary !== null) throw new Error('Ordinary chapter link should not be treated as a formal reference');
+  console.log('Formal reference gate self-test passed: typo, valid anchor, missing target, ordinary link.');
+}
+
 function explicitAnchors(markdown) {
   return new Set([...markdown.matchAll(anchorRe)].map((m) => m[1]));
 }
@@ -488,6 +540,11 @@ function preserveLines(value) { return '\n'.repeat((value.match(/\n/g) ?? []).le
 function preserveWidth(value) { return ' '.repeat(value.length); }
 function escapeRegExp(value) { return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
 
+if (process.argv.includes('--self-test')) {
+  testFormalReferenceGate();
+  process.exit(0);
+}
+
 const files = walk(ROOT);
 const contents = new Map(files.map((file) => [file, fs.readFileSync(file, 'utf8')]));
 const anchors = new Map([...contents].map(([file, text]) => [file, explicitAnchors(text)]));
@@ -499,6 +556,7 @@ const {
 } = loadDreamTheaterKnowledge(contents);
 const errors = [];
 let checkedPreciseLinks = 0;
+let checkedStableLinks = 0;
 let checkedAnchors = 0;
 let checkedKnowledgeUses = 0;
 let checkedKnowledgeLinks = 0;
@@ -531,19 +589,11 @@ for (const [file, markdown] of contents) {
     if (inFence || /^\s*#/.test(line) || /^\s*<!--/.test(line)) continue;
 
     for (const m of line.matchAll(linkRe)) {
-      const label = m[1].trim();
-      const href = m[2].trim();
-      if (/^(?:https?:|mailto:|tel:|javascript:)/i.test(href)) continue;
-      if (!preciseDependency(line, label, m.index ?? 0, m[0])) continue;
-      checkedPreciseLinks += 1;
-      const { target, fragment } = resolveTarget(file, href);
-      if (!fragment) { errors.push(`${rel}:${i + 1}: formal dependency link must jump to the exact definition/theorem/derivation, not only the chapter: [${label}](${href})`); continue; }
-      if (!stableFragmentRe.test(fragment)) { errors.push(`${rel}:${i + 1}: formal dependency fragment must use a stable def-/thm-/prop-/lem-/cor-/axiom-/principle-/ref- anchor: #${fragment}`); continue; }
-      if (!contents.has(target)) { errors.push(`${rel}:${i + 1}: formal dependency target is not a user-facing textbook index.md: ${href}`); continue; }
-      if (!anchors.get(target).has(fragment)) {
-        const targetRel = path.relative(REPO, target).replaceAll(path.sep, '/');
-        errors.push(`${rel}:${i + 1}: fragment #${fragment} does not exist as an explicit anchor in ${targetRel}`);
-      }
+      const check = inspectFormalReference(file, line, m, contents, anchors);
+      if (!check) continue;
+      if (check.precise) checkedPreciseLinks += 1;
+      if (check.stable) checkedStableLinks += 1;
+      if (check.error) errors.push(`${rel}:${i + 1}: ${check.error}`);
     }
 
     if (readerLines) {
@@ -578,4 +628,4 @@ if (errors.length) {
 }
 
 if (FIX) console.log(`Formal reference migration complete: ${fixedKnowledgeLinks} link fix(es) across ${changedFiles} file(s).`);
-else console.log(`Formal reference validation passed: ${checkedPreciseLinks} precise dependency link(s), ${checkedAnchors} stable formal anchor(s), ${checkedKnowledgeLinks}/${checkedKnowledgeUses} knowledge-DAG proof dependency link(s), ${files.length} user-facing textbook page(s).`);
+else console.log(`Formal reference validation passed: ${checkedPreciseLinks} precise dependency link(s), ${checkedStableLinks} stable-anchor link(s), ${checkedAnchors} stable formal anchor(s), ${checkedKnowledgeLinks}/${checkedKnowledgeUses} knowledge-DAG proof dependency link(s), ${files.length} user-facing textbook page(s).`);

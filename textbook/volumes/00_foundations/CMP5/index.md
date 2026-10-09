@@ -48,7 +48,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-入力文字列 $z$ に対して、まず[CMP3の対符号の復号](../CMP3/index.md#prop-cmp3-pair-injection)を実行します。復号に失敗したら拒否します。成功して $(m,x)$ を得たら、$m\in\mathcal V$ を有限時間で判定し、偽なら拒否します。真なら[CMP3の万能Turing機械](../CMP3/index.md#thm-cmp3-universal-exists)で $M_m(x)$ を模擬します。模擬対象が受理すれば全体を受理し、拒否すれば全体を拒否し、無限に走れば模擬を続けます。
+入力文字列 $z$ に対して、まず[CMP3の対符号の復号](../CMP3/index.md#prop-cmp3-pair-injective)を実行します。復号に失敗したら拒否します。成功して $(m,x)$ を得たら、$m\in\mathcal V$ を有限時間で判定し、偽なら拒否します。真なら[CMP3の万能Turing機械](../CMP3/index.md#thm-cmp3-universal-exists)で $M_m(x)$ を模擬します。模擬対象が受理すれば全体を受理し、拒否すれば全体を拒否し、無限に走れば模擬を続けます。
 
 $z\in A_{\mathrm{TM}}$ なら正しい対符号であり、$M_m(x)$ は有限歩で受理するので模擬も有限歩で受理します。$z\notin A_{\mathrm{TM}}$ なら、不正な符号として拒否されるか、正しい記述でも元の計算が受理しないので、全体は受理しません。よって受理言語はちょうど $A_{\mathrm{TM}}$ です。否定例で模擬が停止する保証はしていません。
 <!-- proof-end -->
