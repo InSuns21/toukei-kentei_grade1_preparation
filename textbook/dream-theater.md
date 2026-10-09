@@ -409,6 +409,7 @@
 4. [AUT4 正規言語の限界](textbook/volumes/00_foundations/AUT4/index.md)
 5. [AUT5 文脈自由文法](textbook/volumes/00_foundations/AUT5/index.md)
 6. [AUT6 プッシュダウン・オートマトン](textbook/volumes/00_foundations/AUT6/index.md)
+7. [AUT7 Chomsky階層と計算モデルへの橋](textbook/volumes/00_foundations/AUT7/index.md)
 
 <a id="dt-subject-numerical-analysis"></a>
 ### 数値解析
