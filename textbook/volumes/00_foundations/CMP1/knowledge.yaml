@@ -1,0 +1,62 @@
+chapter: CMP1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AUT7
+concepts:
+  - id: theoretical-computer-science.turing-machine
+    name: 決定性Turing機械
+    kind: definition
+    aliases: ["deterministic Turing machine"]
+    introduction: formal
+    introduction_aliases: ["定義（決定性Turing機械）"]
+    requires: [theoretical-computer-science.finite-alphabet, theoretical-computer-science.linear-workspace]
+  - id: theoretical-computer-science.tm-configuration
+    name: Turing機械の計算状況・初期状況・一歩遷移
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（計算状況・初期状況・一歩遷移）"]
+    requires: [theoretical-computer-science.turing-machine]
+  - id: theoretical-computer-science.tm-successor
+    name: 一歩遷移の一意性と有限性
+    kind: proposition
+    introduction_aliases: ["命題（一歩遷移の一意性と有限性）"]
+    requires: [theoretical-computer-science.tm-configuration]
+  - id: theoretical-computer-science.tm-last-one
+    name: 末尾判定機械の正しさと停止性
+    kind: proposition
+    introduction_aliases: ["命題（末尾判定機械の正しさと停止性）"]
+    requires: [theoretical-computer-science.tm-configuration]
+  - id: theoretical-computer-science.tm-acceptance
+    name: Turing機械の受理・拒否・非停止・認識言語
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（受理・拒否・非停止・認識言語）"]
+    requires: [theoretical-computer-science.tm-configuration]
+  - id: theoretical-computer-science.tm-outcomes
+    name: 三つの振る舞いの排他性
+    kind: proposition
+    introduction_aliases: ["命題（三つの振る舞いの排他性）"]
+    requires: [theoretical-computer-science.tm-successor, theoretical-computer-science.tm-acceptance]
+  - id: theoretical-computer-science.tm-decider-recognizer
+    name: 決定器・認識器・決定可能性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（決定器・認識器・決定可能性）"]
+    requires: [theoretical-computer-science.tm-acceptance, theoretical-computer-science.decision-language]
+  - id: theoretical-computer-science.tm-decidable-recognizable
+    name: 決定可能なら認識可能
+    kind: proposition
+    introduction_aliases: ["命題（決定可能なら認識可能）"]
+    requires: [theoretical-computer-science.tm-decider-recognizer]
+  - id: theoretical-computer-science.tm-history
+    name: 計算履歴
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（計算履歴）"]
+    requires: [theoretical-computer-science.tm-configuration]
+  - id: theoretical-computer-science.tm-finite-prefix
+    name: 有限歩の履歴の局所性
+    kind: proposition
+    introduction_aliases: ["命題（有限歩の履歴の局所性）"]
+    requires: [theoretical-computer-science.tm-history]
