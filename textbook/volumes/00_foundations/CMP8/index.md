@@ -46,6 +46,7 @@ FV(\lambda x.(x\,y))
 $$
 
 一方、$(\lambda x.x)\,y$ は抽象全体を $y$ に適用した項であり、$\lambda x.(x\,y)$ とは別の構造です。
+**定義の確認**：$x,y$ の各変数から適用を作り、外側に抽象を作った構成です。抽象に現れる $x$ だけを除くと自由な変数は $y$ だけになります。
 <!-- definition-example-end -->
 
 関数の引数を代入するとき、**同じ名前の変数が偶然束縛されないこと**が必要です。例えば $(\lambda x.\lambda y.x)\,y$ の内側へ機械的に $x:=y$ を書き込んで $\lambda y.y$ とすると、右側の自由な $y$ を誤って束縛します。
@@ -79,6 +80,7 @@ $$
 $$
 
 結果の自由変数は $\{y\}$ です。誤った $\lambda y.y$ なら自由変数は空集合となるので、捕獲が起きたことを検出できます。
+**定義の確認**：α変換で新しい $z$ を用意したため、代入する項に自由に現れた $y$ を束縛せずにβ簡約できています。
 <!-- definition-example-end -->
 
 ### 書換えの順序は停止性に影響する
@@ -130,6 +132,7 @@ $$
 $$
 
 従って $\overline2$ は特定の数値演算でなく、受け取った操作を2回適用する働きをします。
+**定義の確認**：定義式の $f^2(x)$ が2回の適用 $f(f(x))$ へ一致することを、β簡約二歩で直接確かめました。
 <!-- definition-example-end -->
 
 次の項を定めます。
@@ -232,6 +235,7 @@ $$
 まず $\operatorname{add}(x,0)=x$、$\operatorname{add}(x,n+1)=S(\operatorname{add}(x,n))$ と置きます。基底は $g(x)=x=P_1^1(x)$、更新は $h(x,n,z)=S(z)$ なので、原始再帰の条件に**直接**当てはまります。
 
 次に $\operatorname{mul}(x,0)=0$、$\operatorname{mul}(x,n+1)=\operatorname{add}(\operatorname{mul}(x,n),x)$ とします。基底は $g(x)=Z(x)$、更新は $h(x,n,z)=\operatorname{add}(z,x)$ です。すでに構成した加算と射影の合成なので、これも原始再帰関数です。
+**定義の確認**：どちらも基底関数と更新関数が先に作られた関数から合成でき、原始再帰の二つの式を満たしています。
 <!-- definition-example-end -->
 
 <a id="prop-cmp8-arithmetic"></a>
@@ -280,7 +284,7 @@ $$
 
 ## 4. 停止しない可能性を関数として表す
 
-Turing機械では、ある入力で永遠に計算を続ける場合がありました。再帰関数側でこれに対応するのが、答えが見つかるまで自然数を順番に調べる**最小化**です。
+Turing機械では、ある入力で永遠に計算を続ける場合がありました。再帰関数側でこれに対応するのが、答えが見つかるまで自然数を順番に調べる候補探索です。
 
 <a id="def-cmp8-minimization"></a>
 
@@ -295,9 +299,10 @@ Turing機械では、ある入力で永遠に計算を続ける場合があり�
 <!-- definition-example-start: def-cmp8-minimization -->
 ### 例：探索が成功する場合・しない場合
 
-$g(n,y)=|n-y|$ とすると、$g(n,0),\ldots,g(n,n-1)$ は全て正、$g(n,n)=0$ です。したがって $\mu y[g(n,y)=0]=n$ です。$|n-y|$ は切断減算 $a\dotminus b=\max(a-b,0)$ の二方向の和として構成できます。切断減算は $\operatorname{pred}(0)=0,\operatorname{pred}(t+1)=t$ を原始再帰で作り、$a\dotminus0=a$、$a\dotminus(b+1)=\operatorname{pred}(a\dotminus b)$ として作れるので、$g$ は原始再帰関数です。
+$g(n,y)=|n-y|$ とすると、$g(n,0),\ldots,g(n,n-1)$ は全て正、$g(n,n)=0$ です。したがって $\mu y[g(n,y)=0]=n$ です。$|n-y|$ は切断減算 $a\ominus b=\max(a-b,0)$ の二方向の和として構成できます。切断減算は $\operatorname{pred}(0)=0,\operatorname{pred}(t+1)=t$ を原始再帰で作り、$a\ominus0=a$、$a\ominus(b+1)=\operatorname{pred}(a\ominus b)$ として作れるので、$g$ は原始再帰関数です。
 
 一方、$g(n,y)=n+1$ と置けばすべての $y$ で正の値になり、最小化はどの入力でも停止しません。**答えが存在しないことを有限時間で見つけて停止する**という意味ではない点に注意します。
+**定義の確認**：最初の零が現れる $y=n$ より前の評価はすべて定義され非零です。一方、零がない場合はどの有限段階でも終了しません。
 <!-- definition-example-end -->
 
 ### 途中の未定義値を飛ばしてよいか
@@ -518,12 +523,12 @@ $M=\lambda x.(x\,y)$ と $N=(\lambda x.x)\,y$ について、束縛されずに�
 <!-- solution-start -->
 #### 詳細解答
 
-$FV(x\,y)=FV(x)\cup FV(y)=\{x,y\}$ なので $FV(M)=\{x,y\}\setminus\{x\}=\{y\}$。$FV(\lambda x.x)=\{x\}\setminus\{x\}=\varnothing$ なので $FV(N)=\varnothing\cup\{y\}=\{y\}$。自由変数集合は一致しますが、$M$ の最外構成子は抽象で、$N$ の最外構成子は適用です。構文木が異なるため同じ項ではありません。さらに $N\to_\beta y$ ですが $M$ はこの形でβ簡約箇所を持ちません。
+$FV(x\,y)=FV(x)\cup FV(y)=\{x,y\}$ なので $FV(M)=\{x,y\}\setminus\{x\}=\{y\}$。$FV(\lambda x.x)=\{x\}\setminus\{x\}=\varnothing$ なので $FV(N)=\varnothing\cup\{y\}=\{y\}$。$FV(M)=FV(N)$ ですが、$M$ の最外構成子は抽象で、$N$ の最外構成子は適用です。構文木が異なるため同じ項ではありません。さらに $N\to_\beta y$ ですが $M$ はこの形でβ簡約箇所を持ちません。
 <!-- solution-end -->
 
 ### A2. 変数捕獲を避ける
 
-$(\lambda x.\lambda y.x\,y)\,y$ をβ簡約し、誤って改名しないと何が変化するか、自由変数集合で確かめよ。
+$(\lambda x.\lambda y.x\,y)\,y$ をβ簡約し、誤って改名しないと何が変化するか、$FV$ の値で確かめよ。
 
 - Level: A
 
@@ -540,7 +545,7 @@ $$
 \end{aligned}
 $$
 
-結果の自由変数集合は $FV(y\,z)\setminus\{z\}=\{y\}$ です。改名を忘れると $\lambda y.y\,y$ となり、自由変数集合が空になります。引数として渡した自由な $y$ が内側のλに束縛されてしまうことが誤りです。
+結果の $FV$ は $FV(y\,z)\setminus\{z\}=\{y\}$ です。改名を忘れると $\lambda y.y\,y$ となり、$FV$ が空集合になります。引数として渡した自由な $y$ が内側のλに束縛されてしまうことが誤りです。
 <!-- solution-end -->
 
 ### A3. 正規順序と発散
@@ -557,7 +562,7 @@ $\Omega=(\lambda x.x\,x)\,\Delta\to_\beta\Delta\,\Delta=\Omega$ です。外側�
 
 ### A4. Church数の演算
 
-$\mathsf{SUCC}\,\overline2$ と $\mathsf{ADD}\,\overline2\,\overline1$ を、それぞれ任意の $f,x$ への作用として展開して結果を求めよ。
+$\mathsf{SUCC}\,\overline2$ と $\mathsf{ADD}\,\overline2\,\overline1$ を、それぞれ任意の $f,x$ に適用して展開して結果を求めよ。
 
 - Level: A
 
