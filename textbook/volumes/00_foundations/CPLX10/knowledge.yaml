@@ -21,12 +21,6 @@ concepts:
     kind: theorem
     introduction_aliases: ["定理（部分和問題のNP完全性）"]
     requires: [theoretical-computer-science.subset-sum-digit-construction, theoretical-computer-science.three-sat-np-complete, theoretical-computer-science.np-hardness-transfer]
-  - id: theoretical-computer-science.pseudopolynomial-time
-    name: 擬多項式時間
-    kind: definition
-    introduction: formal
-    introduction_aliases: ["定義（擬多項式時間）"]
-    requires: [theoretical-computer-science.subset-sum]
   - id: theoretical-computer-science.subset-sum-dp
     name: 部分和問題の動的計画法
     kind: proposition
