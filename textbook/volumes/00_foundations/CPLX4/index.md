@@ -63,7 +63,7 @@ $$
 <!-- proof-start -->
 ### 証明：証明書によるNPから非決定性機械へ
 
-$L\in NP$ と仮定します。前章の[クラスNPの定義](../CPLX3/index.md#def-cplx3-np)で示した条件から、決定性検証器 $V$ と $p(n)=C(n+1)^d$ があって、
+$L\in NP$ と仮定します。前章で定めた[クラスNP](../CPLX3/index.md#def-cplx3-np)の判定条件を用いると、決定性検証器 $V$ と $p(n)=C(n+1)^d$ があって、
 
 $$
 x\in L\ \Longleftrightarrow\
