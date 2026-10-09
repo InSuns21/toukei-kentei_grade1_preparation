@@ -1,0 +1,50 @@
+id: "CMP3"
+title: "万能計算と自己参照"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CMP2
+official_scope: []
+learning_objectives:
+  - 自己区切り整数符号を構成・復号し、単射性と有限歩の構文検査を証明できる
+  - 二進入力Turing機械の正規化された遷移表を二進文字列へ符号化し、記述の判定と列挙を説明できる
+  - 機械記述と入力の対符号を構成して一意復号できる
+  - 固定した万能Turing機械を構成し、模擬状況の帰納的不変条件から受理・拒否・非停止の保存を証明できる
+  - 指定された有限歩での停止状況を全入力停止の機械で判定できる
+  - 自己入力の対角写像を計算し、正しい記述の場合だけ万能計算の対象になることを区別できる
+  - 有界な停止判定と上限を指定しない停止判定の量化の違いを説明できる
+definitions:
+  - { id: CMP3-DEF-01, name: "非負整数の自己区切り符号" }
+  - { id: CMP3-DEF-02, name: "Turing機械の記述と符号" }
+  - { id: CMP3-DEF-03, name: "記述と入力の対符号" }
+  - { id: CMP3-DEF-04, name: "万能Turing機械" }
+  - { id: CMP3-DEF-05, name: "自己入力と対角入力写像" }
+theorems:
+  - { id: CMP3-THM-01, name: "万能Turing機械の存在と計算の保存" }
+propositions:
+  - { id: CMP3-PROP-01, name: "自己区切り符号の一意復号" }
+  - { id: CMP3-PROP-02, name: "機械記述の判定と列挙" }
+  - { id: CMP3-PROP-03, name: "対符号の単射性と復号" }
+  - { id: CMP3-PROP-04, name: "有限歩停止状況の決定可能性" }
+  - { id: CMP3-PROP-05, name: "対角入力写像の計算可能性" }
+canonical_examples:
+  - "e(0),e(2),e(3) の自己区切り復号"
+  - "状態3個・記号4個の遷移表の妥当性検査と計算履歴"
+  - "m=101,x=11 の対符号と復号"
+  - "U が入力01で受理し000で拒否する模擬"
+  - "d(10) と空文字列の対角入力"
+problem_patterns:
+  - CMP3-PREFIX-CODE-1
+  - CMP3-MACHINE-VALIDITY-1
+  - CMP3-PAIR-CODE-1
+  - CMP3-BOUNDED-TRACE-1
+  - CMP3-SELF-INPUT-TYPE-1
+  - CMP3-PAIR-INJECTION-1
+  - CMP3-UNIVERSAL-INVARIANT-1
+  - CMP3-BOUNDED-VS-UNBOUNDED-1
+  - CMP3-DESCRIPTION-ENUMERATION-1
+  - CMP3-DIAGONAL-INTEGRATION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 4.5, review: 2.0 }
