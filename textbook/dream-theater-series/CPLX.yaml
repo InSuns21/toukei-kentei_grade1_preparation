@@ -43,7 +43,7 @@ chapters:
     title: グラフ問題への帰着
   - id: CPLX10
     path: textbook/volumes/00_foundations/CPLX10
-    status: planned
+    status: completed
     title: 数値問題と弱NP完全性
   - id: CPLX11
     path: textbook/volumes/00_foundations/CPLX11
