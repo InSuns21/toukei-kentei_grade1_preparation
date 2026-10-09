@@ -49,3 +49,15 @@ chapters:
     path: textbook/volumes/00_foundations/CPLX11
     status: completed
     title: P vs NP
+  - id: CPLX12
+    path: textbook/volumes/00_foundations/CPLX12
+    status: completed
+    title: 空間計算量
+  - id: CPLX13
+    path: textbook/volumes/00_foundations/CPLX13
+    status: planned
+    title: Savitch の定理
+  - id: CPLX14
+    path: textbook/volumes/00_foundations/CPLX14
+    status: planned
+    title: PSPACE完全性とTQBF

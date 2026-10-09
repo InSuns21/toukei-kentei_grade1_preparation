@@ -1,0 +1,68 @@
+chapter: CPLX12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CPLX11
+concepts:
+  - id: theoretical-computer-science.work-space-usage
+    name: 空間使用量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（空間使用量）"]
+    requires: [theoretical-computer-science.worst-case-time-space, theoretical-computer-science.turing-machine]
+  - id: theoretical-computer-science.dspace-nspace
+    name: 決定性・非決定性空間クラス
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（決定性・非決定性空間クラス）"]
+    requires: [theoretical-computer-science.work-space-usage, theoretical-computer-science.tm-acceptance]
+  - id: theoretical-computer-science.class-l
+    name: 対数空間クラスL
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（対数空間クラスL）"]
+    requires: [theoretical-computer-science.dspace-nspace]
+  - id: theoretical-computer-science.class-nl
+    name: 非決定性対数空間クラスNL
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（非決定性対数空間クラスNL）"]
+    requires: [theoretical-computer-science.dspace-nspace]
+  - id: theoretical-computer-science.class-pspace
+    name: 多項式空間クラスPSPACE
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多項式空間クラスPSPACE）"]
+    requires: [theoretical-computer-science.dspace-nspace]
+  - id: theoretical-computer-science.configuration-graph
+    name: 計算配置グラフ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（計算配置グラフ）"]
+    requires: [theoretical-computer-science.tm-configuration, theoretical-computer-science.dspace-nspace]
+  - id: theoretical-computer-science.configuration-count
+    name: 計算配置の個数
+    kind: proposition
+    introduction_aliases: ["命題（計算配置の個数）"]
+    requires: [theoretical-computer-science.configuration-graph, theoretical-computer-science.work-space-usage]
+  - id: theoretical-computer-science.dspace-time-bound
+    name: 決定性空間から得られる時間上界
+    kind: proposition
+    introduction_aliases: ["命題（決定性空間から得られる時間上界）"]
+    requires: [theoretical-computer-science.configuration-count, theoretical-computer-science.time-space-basic-bound]
+  - id: theoretical-computer-science.stcon
+    name: 有向到達可能性STCON
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有向到達可能性 STCON）"]
+    requires: [theoretical-computer-science.adjacency-matrix-reachability]
+  - id: theoretical-computer-science.stcon-in-nl
+    name: 有向到達可能性はNLに属する
+    kind: theorem
+    introduction_aliases: ["定理（有向到達可能性はNLに属する）"]
+    requires: [theoretical-computer-science.stcon, theoretical-computer-science.class-nl]
+  - id: theoretical-computer-science.space-time-class-inclusions
+    name: 空間・時間クラスの基本的な包含
+    kind: theorem
+    introduction_aliases: ["定理（空間・時間クラスの基本的な包含）"]
+    requires: [theoretical-computer-science.class-l, theoretical-computer-science.class-nl, theoretical-computer-science.class-pspace, theoretical-computer-science.configuration-count, theoretical-computer-science.class-p, theoretical-computer-science.class-np, theoretical-computer-science.p-in-np, theoretical-computer-science.polynomial-verifier]

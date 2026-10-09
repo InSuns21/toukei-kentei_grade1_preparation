@@ -1,0 +1,26 @@
+chapter: "CPLX12"
+terms:
+  - term: 空間使用量
+    english: space usage
+    meaning: "読み取り専用入力テープを除き、計算中に訪問する書き換え可能な作業テープのセル数。非決定性機械では全枝を上から抑える。"
+  - term: 決定性空間クラス
+    english: deterministic space complexity class
+    meaning: "全入力で停止する決定性Turing機械に対して、作業領域の上界で分類した判定言語のクラス。"
+  - term: 非決定性空間クラス
+    english: nondeterministic space complexity class
+    meaning: "非決定性Turing機械の全枝に作業空間の上界を課し、受理枝の存在で認識する判定言語のクラス。"
+  - term: L
+    english: deterministic logarithmic space
+    meaning: "決定性Turing機械で作業領域が入力長の対数オーダーに収まる判定言語のクラス。"
+  - term: NL
+    english: nondeterministic logarithmic space
+    meaning: "全ての計算枝が入力長の対数オーダーの作業領域を使う非決定性Turing機械で認識できる判定言語のクラス。"
+  - term: PSPACE
+    english: polynomial space
+    meaning: "ある固定次数の多項式で作業領域を抑えられる全域決定性Turing機械で判定できる言語のクラス。"
+  - term: 計算配置グラフ
+    english: configuration graph
+    meaning: "機械・入力・空間上界を固定して取り得る計算配置を頂点に、合法な一歩遷移を有向辺にしたグラフ。"
+  - term: STCON
+    english: directed s-t connectivity
+    meaning: "明示的な有限有向グラフと二頂点s,tを入力とし、sからtへ有向道があるかを判定する言語。"
