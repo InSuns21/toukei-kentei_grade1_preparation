@@ -47,5 +47,5 @@ chapters:
     title: 数値問題と弱NP完全性
   - id: CPLX11
     path: textbook/volumes/00_foundations/CPLX11
-    status: planned
+    status: completed
     title: P vs NP
