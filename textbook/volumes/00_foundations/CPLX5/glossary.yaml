@@ -1,0 +1,20 @@
+chapter: "CPLX5"
+terms:
+  - term: 多項式時間many-one帰着
+    english: polynomial-time many-one reduction
+    meaning: "全域・決定性多項式時間の写像fで二進言語Aの全入力xについて、xがAに属することとf(x)がBに属することが同値となる変換。"
+  - term: 帰着関数
+    english: reduction function
+    meaning: "元の判定問題の入力を、帰着先の判定問題への入力文字列へ変換する全域写像。"
+  - term: yes/no保存
+    english: preservation of yes and no instances
+    meaning: "帰着元のyes入力が帰着先のyes入力へ、no入力がno入力へ写る両方向の条件。"
+  - term: 帰着の推移性
+    english: transitivity of reductions
+    meaning: "AからBへの帰着fとBからCへの帰着gから、合成g∘fでAからCへの帰着を得る性質。"
+  - term: 出力長上界
+    english: output length bound
+    meaning: "帰着計算が多項式時間で停止するとき、生成した文字列の長さも元の入力長の多項式で抑えられること。"
+  - term: 帰着元への移送
+    english: downward closure under reductions
+    meaning: "AがBへ多項式時間帰着でき、BがPまたはNPに属するとき、Aも同じクラスに属すると導くこと。"
