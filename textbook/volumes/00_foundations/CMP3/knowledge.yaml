@@ -1,0 +1,66 @@
+chapter: CMP3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CMP2
+concepts:
+  - id: theoretical-computer-science.self-delimiting-number-code
+    name: 非負整数の自己区切り符号
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（非負整数の自己区切り符号）"]
+    requires: [theoretical-computer-science.finite-alphabet]
+  - id: theoretical-computer-science.prefix-unique-decode
+    name: 自己区切り符号の一意復号
+    kind: proposition
+    introduction_aliases: ["命題（自己区切り符号の一意復号）"]
+    requires: [theoretical-computer-science.self-delimiting-number-code]
+  - id: theoretical-computer-science.machine-description
+    name: Turing機械の記述と符号
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Turing機械の記述と符号）"]
+    requires: [theoretical-computer-science.turing-machine, theoretical-computer-science.self-delimiting-number-code]
+  - id: theoretical-computer-science.machine-description-enumeration
+    name: 機械記述の判定と列挙
+    kind: proposition
+    introduction_aliases: ["命題（機械記述の判定と列挙）"]
+    requires: [theoretical-computer-science.machine-description, theoretical-computer-science.prefix-unique-decode]
+  - id: theoretical-computer-science.program-input-pair
+    name: 記述と入力の対符号
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（記述と入力の対符号）"]
+    requires: [theoretical-computer-science.self-delimiting-number-code]
+  - id: theoretical-computer-science.pair-unique-decode
+    name: 対符号の単射性と復号
+    kind: proposition
+    introduction_aliases: ["命題（対符号の単射性と復号）"]
+    requires: [theoretical-computer-science.program-input-pair, theoretical-computer-science.prefix-unique-decode]
+  - id: theoretical-computer-science.universal-turing-machine
+    name: 万能Turing機械
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（万能Turing機械）"]
+    requires: [theoretical-computer-science.machine-description, theoretical-computer-science.program-input-pair, theoretical-computer-science.multitape-tm]
+  - id: theoretical-computer-science.universal-simulation
+    name: 万能Turing機械の存在と計算の保存
+    kind: theorem
+    introduction_aliases: ["定理（万能Turing機械の存在と計算の保存）"]
+    requires: [theoretical-computer-science.universal-turing-machine, theoretical-computer-science.multitape-simulation, theoretical-computer-science.tm-configuration]
+  - id: theoretical-computer-science.bounded-halting-status
+    name: 有限歩停止状況の決定可能性
+    kind: proposition
+    introduction_aliases: ["命題（有限歩停止状況の決定可能性）"]
+    requires: [theoretical-computer-science.universal-simulation]
+  - id: theoretical-computer-science.diagonal-input
+    name: 自己入力と対角入力写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（自己入力と対角入力写像）"]
+    requires: [theoretical-computer-science.machine-description, theoretical-computer-science.program-input-pair]
+  - id: theoretical-computer-science.diagonal-map-computability
+    name: 対角入力写像の計算可能性
+    kind: proposition
+    introduction_aliases: ["命題（対角入力写像の計算可能性）"]
+    requires: [theoretical-computer-science.diagonal-input, theoretical-computer-science.universal-simulation, theoretical-computer-science.pair-unique-decode]

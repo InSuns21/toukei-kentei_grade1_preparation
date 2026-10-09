@@ -15,7 +15,7 @@ chapters:
     title: 計算モデルの頑健性
   - id: CMP3
     path: textbook/volumes/00_foundations/CMP3
-    status: planned
+    status: completed
     title: 万能計算と自己参照
   - id: CMP4
     path: textbook/volumes/00_foundations/CMP4
