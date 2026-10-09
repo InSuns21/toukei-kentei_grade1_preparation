@@ -1,0 +1,44 @@
+chapter: CMP6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CMP5
+concepts:
+  - id: theoretical-computer-science.computable-many-one-reduction
+    name: 計算可能な多対一帰着
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（計算可能な多対一帰着）"]
+    requires: [theoretical-computer-science.tm-decider-recognizer, theoretical-computer-science.machine-description]
+  - id: theoretical-computer-science.reduction-transfer
+    name: 帰着による決定可能性・認識可能性の移送
+    kind: theorem
+    introduction_aliases: ["定理（帰着による決定可能性・認識可能性の移送）"]
+    requires: [theoretical-computer-science.computable-many-one-reduction, theoretical-computer-science.co-recognizable]
+  - id: theoretical-computer-science.reduction-calculus
+    name: 帰着の反射性・推移性・補集合保存
+    kind: proposition
+    introduction_aliases: ["命題（帰着の反射性・推移性・補集合保存）"]
+    requires: [theoretical-computer-science.computable-many-one-reduction]
+  - id: theoretical-computer-science.accept-halt-mutual-reduction
+    name: 受理問題と停止問題の相互帰着
+    kind: theorem
+    introduction_aliases: ["定理（受理問題と停止問題の相互帰着）"]
+    requires: [theoretical-computer-science.computable-many-one-reduction, theoretical-computer-science.acceptance-problem, theoretical-computer-science.halting-problem, theoretical-computer-science.universal-simulation]
+  - id: theoretical-computer-science.nonempty-language-problem
+    name: 受理言語の非空性問題
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（受理言語の非空性・空性問題）"]
+    requires: [theoretical-computer-science.machine-description, theoretical-computer-science.tm-acceptance]
+  - id: theoretical-computer-science.empty-language-problem
+    name: 受理言語の空性問題
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（受理言語の非空性・空性問題）"]
+    requires: [theoretical-computer-science.machine-description, theoretical-computer-science.tm-acceptance]
+  - id: theoretical-computer-science.nonempty-empty-computability
+    name: 受理言語の非空性・空性の計算可能性
+    kind: theorem
+    introduction_aliases: ["定理（受理言語の非空性・空性の計算可能性）"]
+    requires: [theoretical-computer-science.nonempty-language-problem, theoretical-computer-science.empty-language-problem, theoretical-computer-science.acceptance-undecidable, theoretical-computer-science.reduction-transfer, theoretical-computer-science.universal-simulation]

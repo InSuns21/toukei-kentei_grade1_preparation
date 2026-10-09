@@ -1,0 +1,20 @@
+chapter: "CMP6"
+terms:
+  - term: 計算可能な多対一帰着
+    english: computable many-one reduction
+    meaning: "全域計算可能な文字列変換 f により、任意の入力 x について x が A に属することと f(x) が B に属することが同値となる関係。A ≤m B と書く。"
+  - term: 帰着写像
+    english: reduction mapping
+    meaning: "肯定・否定の所属関係を保存し、すべての入力で停止して出力する計算可能な変換。"
+  - term: 決定不能性の移送
+    english: transfer of undecidability
+    meaning: "A ≤m B かつ A が決定不能なら、B が決定可能と仮定すると A の決定器ができるため B も決定不能となること。"
+  - term: 非空性問題
+    english: nonemptiness problem
+    meaning: "機械記述 m に対して、その機械が有限時間で受理する入力が少なくとも一つ存在するかを問う問題。"
+  - term: 空性問題
+    english: emptiness problem
+    meaning: "機械記述 m に対して、その機械の受理言語が空集合であるかを問う問題。"
+  - term: 機械記述の有効生成
+    english: effective machine construction
+    meaning: "与えられた有限符号や入力データを新しい有限遷移表の雛形へ埋め込み、元の機械の実行結果を待たずに正しい機械記述を出力する手続。"
