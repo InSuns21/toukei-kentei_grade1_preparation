@@ -1,0 +1,47 @@
+id: "CMP1"
+title: "Turing機械"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AUT7
+official_scope: []
+learning_objectives:
+  - 左端記号を持つ決定性Turing機械の七つ組・テープ・ヘッド・遷移関数の全域性を定義できる
+  - 計算状況の三つ組・初期状況・一歩遷移・計算履歴を具体的に書き、有限性と一意性を証明できる
+  - 末尾が1の言語を決定する機械の全規則と履歴を追い、受理の必要十分性と停止回数を証明できる
+  - 受理・拒否・非停止を区別し、決定器と認識器の定義に即して具体例を判定できる
+  - 認識言語だけでは停止性が決まらないことを具体的な機械で示せる
+  - 印付けによる等個数言語の決定器を構成し、状態遷移・不変条件・全入力での停止を証明できる
+definitions:
+  - { id: CMP1-DEF-01, name: "決定性Turing機械" }
+  - { id: CMP1-DEF-02, name: "計算状況・初期状況・一歩遷移" }
+  - { id: CMP1-DEF-03, name: "受理・拒否・非停止・認識言語" }
+  - { id: CMP1-DEF-04, name: "決定器・認識器・決定可能性" }
+  - { id: CMP1-DEF-05, name: "計算履歴" }
+propositions:
+  - { id: CMP1-PROP-01, name: "一歩遷移の一意性と有限性" }
+  - { id: CMP1-PROP-02, name: "末尾判定機械の正しさと停止性" }
+  - { id: CMP1-PROP-03, name: "三つの振る舞いの排他性" }
+  - { id: CMP1-PROP-04, name: "決定可能なら認識可能" }
+  - { id: CMP1-PROP-05, name: "有限歩の履歴の局所性" }
+theorems: []
+canonical_examples:
+  - "左端記号と空白を含む入力101の初期配置と一歩更新"
+  - "入力101と空語の末尾判定機械の全履歴"
+  - "非停止認識器と停止決定器の同一認識言語"
+  - "0^n1^n のマーク付け判定器と入力0011・001"
+problem_patterns:
+  - CMP1-TRANSITION-1
+  - CMP1-INITIAL-CONFIGURATION-1
+  - CMP1-LAST-ONE-TRACE-1
+  - CMP1-NONHALTING-TRACE-1
+  - CMP1-DECIDER-CONTRAST-1
+  - CMP1-FINITE-TAPE-PROOF-1
+  - CMP1-LAST-ONE-CORRECTNESS-1
+  - CMP1-RECOGNIZER-TO-DECIDER-1
+  - CMP1-SAME-LANGUAGE-1
+  - CMP1-MARKING-DECIDER-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.5, review: 2.0 }
