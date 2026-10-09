@@ -35,5 +35,5 @@ chapters:
     title: Riceの定理
   - id: CMP8
     path: textbook/volumes/00_foundations/CMP8
-    status: planned
+    status: completed
     title: λ計算・再帰関数・計算可能性の同値像
