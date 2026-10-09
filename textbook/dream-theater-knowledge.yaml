@@ -122,6 +122,8 @@ alias_matching:
     - 積分方程式
     # semigroup / Markov theory で分野横断に用いるため、自由文の部分一致だけでは所有概念を確定しない。
     - 生成作用素
+    # SATの真偽値割当てで使う「充足可能」と、モデル理論の「充足」は文脈依存。
+    - 充足
     - generator
     - infinitesimal generator
 
@@ -147,5 +149,3 @@ formal_kinds:
 # stable ID / anchor は後方互換性を担うが、alias は担わない。意味的に誤った alias を互換目的で残さない。
 # 数学的意味を持つ記号（例: 弱*位相の *）は alias 正規化で失わない。
 # 既存違反は audit/WARN に残し、新しく持ち込む違反だけを merge blocker にする。
-    # SATの真偽値割当てで使う「充足可能」と、モデル理論の「充足」は文脈依存。
-    - 充足
