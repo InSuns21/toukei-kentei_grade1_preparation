@@ -9,7 +9,7 @@ concepts:
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（部分和問題 SUBSET SUM）"]
-    requires: [theoretical-computer-science.np-complete]
+    requires: []
   - id: theoretical-computer-science.subset-sum-digit-construction
     name: 3-CNFの桁構成
     kind: definition
