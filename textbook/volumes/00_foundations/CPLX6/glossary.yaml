@@ -1,0 +1,23 @@
+chapter: "CPLX6"
+terms:
+  - term: NP-hard
+    english: NP-hard
+    meaning: "全てのNP言語Aから多項式時間many-one帰着A≤pHを受ける言語H。H自身のNP所属は要求しない。"
+  - term: NP-complete
+    english: NP-complete
+    meaning: "NP-hardであり、同時にNPに属する判定言語。"
+  - term: 有界非決定性受理言語
+    english: bounded nondeterministic acceptance
+    meaning: "非決定性Turing機械M、入力x、単項の時間制限1^tからなり、t歩以内に受理枝があるか判定する言語BNA。"
+  - term: 分岐証明書
+    english: accepting computation certificate
+    meaning: "非決定性計算の各歩でどの合法な遷移を選んだかを表す有限列。"
+  - term: 単項時間制限
+    english: unary time bound
+    meaning: "時間制限tをt個の記号1で表す方式。tが入力長以下になり証明書長とシミュレーション歩数を抑えられる。"
+  - term: NP-hardnessの移送
+    english: NP-hardness transfer
+    meaning: "NP-hardなHからBへの多項式時間帰着H≤pBがあれば、全てのNP言語からBへ帰着できるという性質。"
+  - term: NP完全問題とP=NPの同値
+    english: NP-complete problem in P iff P equals NP
+    meaning: "NP完全な言語CについてC∈PとP=NPが同値であるという定理。左から右はhardness、右から左はCのNP所属を使う。"

@@ -1,0 +1,50 @@
+id: "CPLX6"
+title: "NP-hard・NP-complete"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CPLX5
+official_scope: []
+learning_objectives:
+  - NP-hardを任意のNP言語からの多項式時間帰着で定義し量化順序とNP所属の不要求を説明できる
+  - 有界非決定性受理言語BNAを正しい二進符号と単項時間制限で定義し具体例を検査できる
+  - BNAのNP所属を分岐証明書の長さ上界と多項式時間検証器で証明できる
+  - 任意のNP言語からBNAへの全域多項式時間帰着を機械の記述と共通時間上界を使って構成できる
+  - NP-completeをNP所属とNP-hardの二条件で定義し具体的な完全言語で検証できる
+  - NP-hard問題からの帰着によってNP-hard性を伝播しNP所属条件を追加してNP完全性を証明できる
+  - NP完全言語CについてCがPに属することとPとNPの一致が同値であることを両方向に証明できる
+  - 停止問題をタグで併合してNP-hardかつNP外の言語を構成できる
+  - NP-hardとNP-completeと決定不能性を混同せずSATの完全性の未証明部分を識別できる
+  - 補集合とNP所属移送を用いてNP-hard言語がcoNPに属する場合の帰結を証明できる
+definitions:
+  - { id: CPLX6-DEF-01, name: "NP-hard" }
+  - { id: CPLX6-DEF-02, name: "有界非決定性受理言語" }
+  - { id: CPLX6-DEF-03, name: "NP-complete" }
+theorems:
+  - { id: CPLX6-THM-01, name: "有界非決定性受理言語の完全性" }
+  - { id: CPLX6-THM-02, name: "NP完全問題の多項式時間決定とP=NP" }
+propositions:
+  - { id: CPLX6-PROP-01, name: "NP-hardnessの移送" }
+  - { id: CPLX6-PROP-02, name: "NPに属さないNP-hard言語の存在" }
+  - { id: CPLX6-COR-01, name: "NP-hard問題がPに入るなら" }
+canonical_examples:
+  - "一歩二択の機械M0を時間上界0と1で検証"
+  - "任意のNP言語の非決定性機械を単項時間上界でBNAへ符号化"
+  - "BNAの分岐証明書長と検証器の時間評価"
+  - "タグ併合でNP-hardだがNPには属さない言語を構成"
+  - "NP完全言語のP所属とP=NPの同値"
+problem_patterns:
+  - CPLX6-HARDNESS-QUANTIFIERS
+  - CPLX6-COMPLETE-TWO-CONDITIONS
+  - CPLX6-BNA-CERTIFICATE
+  - CPLX6-BNA-HARDNESS-ENCODING
+  - CPLX6-HARDNESS-TRANSFER
+  - CPLX6-REDUCTION-DIRECTION
+  - CPLX6-P-EQUIVALENCE
+  - CPLX6-UNDECIDABLE-HARD
+  - CPLX6-CONP-COLLAPSE
+  - CPLX6-TAGGED-UNION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 4.5, review: 2.5 }

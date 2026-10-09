@@ -27,7 +27,7 @@ chapters:
     title: 多項式時間 many-one 帰着
   - id: CPLX6
     path: textbook/volumes/00_foundations/CPLX6
-    status: planned
+    status: completed
     title: NP-hard・NP-complete
   - id: CPLX7
     path: textbook/volumes/00_foundations/CPLX7

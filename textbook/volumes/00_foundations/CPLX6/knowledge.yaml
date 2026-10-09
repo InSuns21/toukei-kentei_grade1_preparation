@@ -1,0 +1,49 @@
+chapter: CPLX6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CPLX5
+concepts:
+  - id: theoretical-computer-science.np-hard
+    name: NP-hard
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（NP-hard）"]
+    requires: [theoretical-computer-science.polynomial-many-one-reduction, theoretical-computer-science.class-np]
+  - id: theoretical-computer-science.bounded-nondeterministic-acceptance
+    name: 有界非決定性受理言語
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有界非決定性受理言語）"]
+    requires: [theoretical-computer-science.nondeterministic-polynomial-time, theoretical-computer-science.machine-description]
+  - id: theoretical-computer-science.bna-np-hardness
+    name: 有界非決定性受理言語の完全性
+    kind: theorem
+    introduction_aliases: ["定理（有界非決定性受理言語の完全性）"]
+    requires: [theoretical-computer-science.bounded-nondeterministic-acceptance, theoretical-computer-science.np-hard, theoretical-computer-science.np-ntm-equivalence]
+  - id: theoretical-computer-science.np-complete
+    name: NP-complete
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（NP-complete）"]
+    requires: [theoretical-computer-science.np-hard, theoretical-computer-science.class-np]
+  - id: theoretical-computer-science.np-hardness-transfer
+    name: NP-hardnessの移送
+    kind: proposition
+    introduction_aliases: ["命題（NP-hardness の移送）"]
+    requires: [theoretical-computer-science.np-hard, theoretical-computer-science.poly-reduction-reflexivity-transitivity]
+  - id: theoretical-computer-science.npcomplete-pnp-equivalence
+    name: NP完全問題の多項式時間決定とP=NP
+    kind: theorem
+    introduction_aliases: ["定理（NP完全問題の多項式時間決定と P=NP）"]
+    requires: [theoretical-computer-science.np-complete, theoretical-computer-science.p-reduction-transfer, theoretical-computer-science.p-in-np]
+  - id: theoretical-computer-science.nphard-in-p-implication
+    name: NP-hard問題がPに入るなら
+    kind: corollary
+    introduction_aliases: ["系（NP-hard 問題が P に入るなら）"]
+    requires: [theoretical-computer-science.np-hard, theoretical-computer-science.p-reduction-transfer, theoretical-computer-science.p-in-np]
+  - id: theoretical-computer-science.nphard-outside-np
+    name: NPに属さないNP-hard言語の存在
+    kind: proposition
+    introduction_aliases: ["命題（NPに属さないNP-hard言語の存在）"]
+    requires: [theoretical-computer-science.bna-np-hardness, theoretical-computer-science.halting-undecidable, theoretical-computer-science.np-hardness-transfer]

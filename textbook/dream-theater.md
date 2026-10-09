@@ -431,6 +431,7 @@
 3. [CPLX3 クラスNP：証明書と検証](textbook/volumes/00_foundations/CPLX3/index.md)
 4. [CPLX4 非決定性Turing機械とNP](textbook/volumes/00_foundations/CPLX4/index.md)
 5. [CPLX5 多項式時間 many-one 帰着](textbook/volumes/00_foundations/CPLX5/index.md)
+6. [CPLX6 NP-hard・NP-complete](textbook/volumes/00_foundations/CPLX6/index.md)
 
 <a id="dt-subject-numerical-analysis"></a>
 ### 数値解析
