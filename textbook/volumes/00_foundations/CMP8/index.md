@@ -412,10 +412,10 @@ $$
 任意のλ項 $F$ に対し、束縛変数の捕獲を避けて
 
 $$
-Y\,F\longrightarrow_\beta^* F\,(Y\,F)
+Y\,F\equiv_\beta F\,(Y\,F)
 $$
 
-が成り立つ。ここで右辺の $Y\,F$ は左辺と同じ項を表す略記である。
+が成り立つ。$\equiv_\beta$ はβ変換による同値であり、一方向の簡約 $\longrightarrow_\beta^*$ と区別する。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -434,7 +434,7 @@ Y\,F
 \end{aligned}
 $$
 
-$D\,D$ は $Y\,F$ の最初の一歩で現れた項であり、$F(D\,D)$ を $F(Y\,F)$ と略記するのはβ変換を許した記法です。厳密な等号ではなくβ変換可能である、という主張です。$\square$
+$Y\,F\longrightarrow_\beta D\,D$ なので $D\,D\equiv_\beta Y\,F$ です。従って $F(D\,D)\equiv_\beta F(Y\,F)$ が成り立ちます。ここで示したのはβ同値であり、$F(D\,D)$ から $F(Y\,F)$ へ一方向に簡約できるという主張ではありません。$\square$
 <!-- proof-end -->
 
 この機構で、$n=0$ のとき基底 $G$ を使い、そうでなければ $n-1$ へ再帰し更新 $H$ を適用する関数を組み立てられます。$\mathsf{IF}$ は未選択枝を評価しないため、再帰部分が存在しても基底で停止できます。最小化も、$y=0$ から検査し、零でなければ $\mathsf{SUCC}\,y$ で再帰する探索として表せます。
@@ -467,7 +467,7 @@ F_R=\lambda r.\lambda\boldsymbol x.\lambda n.\
 \end{aligned}
 $$
 
-$R=Y\,F_R$ とすると、$R\,\overline{\boldsymbol x}\,\overline0$ は固定点の一回展開後、$\mathsf{ISZERO}\,\overline0$ が真となり $G\,\overline{\boldsymbol x}$ へ進みます。$n+1$ では偽となり、
+$R=Y\,F_R$ とすると、$R\,\overline{\boldsymbol x}\,\overline0$ は固定点の展開（$R\equiv_\beta F_R\,R$）を経て、$\mathsf{ISZERO}\,\overline0$ が真となり $G\,\overline{\boldsymbol x}$ へ進みます。$n+1$ では偽となり、
 
 $$
 R\,\overline{\boldsymbol x}\,\overline{n+1}
@@ -637,7 +637,7 @@ $F=\lambda r.\lambda n.\mathsf{IF}\,(\mathsf{ISZERO}\,n)\,\overline0\,(\mathsf{S
 <!-- solution-start -->
 #### 詳細解答
 
-固定点の展開により $R\,n\to_\beta^* F\,R\,n$ として評価できます。$n=\overline0$ では $\mathsf{ISZERO}\,\overline0\to^*\mathsf{TRUE}$、さらに $\mathsf{IF}\,\mathsf{TRUE}\,\overline0\,B\to^*\overline0$ なので、未選択の再帰枝 $B$ は評価しません。$n=\overline1$ では零判定が偽で、$\mathsf{PRED}\,\overline1\to^*\overline0$ だから
+固定点の展開により $R\equiv_\beta F\,R$ という固定点関係に沿って、$Y\,F$ の最初の二歩で現れる自己適用項を再帰呼出しとして評価できます。$n=\overline0$ では $\mathsf{ISZERO}\,\overline0\to^*\mathsf{TRUE}$、さらに $\mathsf{IF}\,\mathsf{TRUE}\,\overline0\,B\to^*\overline0$ なので、未選択の再帰枝 $B$ は評価しません。$n=\overline1$ では零判定が偽で、$\mathsf{PRED}\,\overline1\to^*\overline0$ だから
 
 $$
 R\,\overline1\to_\beta^*\mathsf{SUCC}\,(R\,\overline0)
