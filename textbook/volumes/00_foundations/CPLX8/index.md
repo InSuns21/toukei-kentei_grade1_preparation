@@ -255,7 +255,7 @@ $$
 
 次に3-SATのNP所属を示します。正規な3-CNFの二進符号を入力とし、各相異なる変数へ一ビットずつ割り当てた列を証明書とします。相異なる変数の個数は入力符号長 $N$ 以下なので証明書長は高々 $N$ です。検証器は構文の正しさ、証明書長、各節の高々三リテラルの真偽を順に調べ、全節が真なら受理します。構文不正なら必ず拒否します。節数は高々入力長であり、変数の対応付けや節の値の計算を逐次走査で行っても多項式時間です。充足割当てがあれば対応する証明書が受理され、検証器が受理すれば全節を真にする割当てが実在するので $\mathrm{3SAT}\in NP$ です。
 
-最後に[Cook–Levinの定理](../CPLX7/index.md#thm-cplx7-cook-levin)よりSATはNP-hardです。[帰着の推移性](../CPLX5/index.md#prop-cplx5-poly-reduction-transitive)と上の $\mathrm{SAT}\le_p\mathrm{3SAT}$ から3-SATはNP-hardです。NP所属と合わせてNP完全です。$\square$
+最後に[Cook–Levinの定理](../CPLX7/index.md#thm-cplx7-cook-levin)よりSATはNP-hardです。[帰着の推移性](../CPLX5/index.md#prop-cplx5-reflexive-transitive)と上の $\mathrm{SAT}\le_p\mathrm{3SAT}$ から3-SATはNP-hardです。NP所属と合わせてNP完全です。$\square$
 <!-- proof-end -->
 
 ### ちょうど三つのリテラルへ揃えたいとき
