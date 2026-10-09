@@ -1,0 +1,39 @@
+version: 1
+id: CMP
+title: "計算理論 II：計算可能性"
+plan: textbook/plans_progress/DREAM_THEATER_THEORETICAL_COMPUTER_SCIENCE_P_VS_NP_PLAN.md
+chapter_root: textbook/volumes/00_foundations
+
+chapters:
+  - id: CMP1
+    path: textbook/volumes/00_foundations/CMP1
+    status: completed
+    title: Turing機械
+  - id: CMP2
+    path: textbook/volumes/00_foundations/CMP2
+    status: planned
+    title: 計算モデルの頑健性
+  - id: CMP3
+    path: textbook/volumes/00_foundations/CMP3
+    status: planned
+    title: 万能計算と自己参照
+  - id: CMP4
+    path: textbook/volumes/00_foundations/CMP4
+    status: planned
+    title: 決定可能・認識可能・列挙可能
+  - id: CMP5
+    path: textbook/volumes/00_foundations/CMP5
+    status: planned
+    title: 停止問題と対角線論法
+  - id: CMP6
+    path: textbook/volumes/00_foundations/CMP6
+    status: planned
+    title: 計算可能性の帰着
+  - id: CMP7
+    path: textbook/volumes/00_foundations/CMP7
+    status: planned
+    title: Riceの定理
+  - id: CMP8
+    path: textbook/volumes/00_foundations/CMP8
+    status: planned
+    title: λ計算・再帰関数・計算可能性の同値像
