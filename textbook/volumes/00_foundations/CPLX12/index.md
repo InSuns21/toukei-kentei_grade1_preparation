@@ -199,6 +199,8 @@ $$
 
 <!-- definition-example-start: def-cplx12-stcon -->
 **定義の確認**　頂点集合 $\{a,b,c,d\}$、辺集合 $\{(a,b),(b,c),(c,b)\}$ では、$a\to b\to c$ によって $\langle G,a,c\rangle\in STCON$ です。一方、$d$ に入る辺がないため $\langle G,a,d\rangle\notin STCON$ です。閉路 $b\to c\to b$ を何周しても $d$ へ到達できません。
+
+**必要なビットの確認**　4頂点へ番号 $1,2,3,4$ を付けると、現在頂点と次の候補頂点には各 $\lceil\log_2(5)\rceil=3$ ビット、歩数 $0,1,2,3$ には2ビットあれば足ります。この三変数は合計8ビットです。辺の有無は入力を読み直して調べるため、全辺の記憶は不要です。頂点数 $m$ が増えても各番号・歩数は $O(\log(m+1))$ ビットで足り、固定個の変数を保存するだけで済みます。
 <!-- definition-example-end -->
 
 <a id="thm-cplx12-stcon-nl"></a>
