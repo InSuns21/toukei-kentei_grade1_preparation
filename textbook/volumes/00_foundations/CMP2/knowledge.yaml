@@ -1,0 +1,70 @@
+chapter: CMP2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CMP1
+concepts:
+  - id: theoretical-computer-science.multitape-tm
+    name: 多テープTuring機械
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多テープTuring機械）"]
+    requires: [theoretical-computer-science.turing-machine]
+  - id: theoretical-computer-science.stay-elimination
+    name: 停止移動の除去
+    kind: proposition
+    introduction_aliases: ["命題（停止移動の除去）"]
+    requires: [theoretical-computer-science.multitape-tm]
+  - id: theoretical-computer-science.multitape-snapshot
+    name: 多テープ計算状況の符号化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多テープ計算状況の符号化）"]
+    requires: [theoretical-computer-science.multitape-tm, theoretical-computer-science.tm-configuration]
+  - id: theoretical-computer-science.multitape-simulation
+    name: 多テープの一テープシミュレーション
+    kind: theorem
+    introduction_aliases: ["定理（多テープの一テープシミュレーション）"]
+    requires: [theoretical-computer-science.multitape-snapshot, theoretical-computer-science.stay-elimination, theoretical-computer-science.tm-finite-prefix]
+  - id: theoretical-computer-science.deterministic-model-equivalence
+    name: 決定性モデルの受理言語の一致
+    kind: proposition
+    introduction_aliases: ["命題（決定性モデルの受理言語の一致）"]
+    requires: [theoretical-computer-science.multitape-simulation, theoretical-computer-science.tm-decider-recognizer]
+  - id: theoretical-computer-science.nondeterministic-tm
+    name: 非決定性Turing機械
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（非決定性Turing機械）"]
+    requires: [theoretical-computer-science.turing-machine]
+  - id: theoretical-computer-science.nondeterministic-recognition
+    name: 非決定性認識の決定性シミュレーション
+    kind: theorem
+    introduction_aliases: ["定理（非決定性認識の決定性シミュレーション）"]
+    requires: [theoretical-computer-science.nondeterministic-tm, theoretical-computer-science.tm-decider-recognizer]
+  - id: theoretical-computer-science.nondeterministic-total-decider
+    name: 全枝停止なら決定可能
+    kind: proposition
+    introduction_aliases: ["命題（全枝停止なら決定可能）"]
+    requires: [theoretical-computer-science.nondeterministic-tm, theoretical-computer-science.nondeterministic-recognition]
+  - id: theoretical-computer-science.branching-bound
+    name: 有限深さの計算木の探索上界
+    kind: proposition
+    introduction_aliases: ["命題（有限深さの計算木の探索上界）"]
+    requires: [theoretical-computer-science.nondeterministic-tm, theoretical-computer-science.tm-finite-prefix]
+  - id: theoretical-computer-science.integer-ram
+    name: 整数RAM
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（整数RAMの一例）"]
+    requires: [theoretical-computer-science.turing-machine]
+  - id: theoretical-computer-science.ram-turing-equivalence
+    name: 整数RAMとTuring計算可能性
+    kind: proposition
+    introduction_aliases: ["命題（整数RAMとTuring計算可能性）"]
+    requires: [theoretical-computer-science.integer-ram, theoretical-computer-science.turing-machine]
+  - id: theoretical-computer-science.unit-cost-bit-cost
+    name: 単位費用とビット費用の差
+    kind: proposition
+    introduction_aliases: ["命題（単位費用とビット費用の差）"]
+    requires: [theoretical-computer-science.integer-ram]
