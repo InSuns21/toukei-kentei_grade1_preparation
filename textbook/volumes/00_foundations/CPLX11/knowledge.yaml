@@ -42,3 +42,9 @@ concepts:
     kind: proposition
     introduction_aliases: ["命題（P=NPならNP証明書を多項式時間で構成できる）"]
     requires: [theoretical-computer-science.np-prefix-extension, theoretical-computer-science.p-vs-np-question]
+  - id: theoretical-computer-science.one-way-function
+    name: 一方向関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（一方向関数）"]
+    requires: [theoretical-computer-science.polynomial-time-machine, theoretical-computer-science.np-witness-extraction]
