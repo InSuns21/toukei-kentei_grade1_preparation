@@ -417,6 +417,7 @@
 1. [CMP1 Turing機械](textbook/volumes/00_foundations/CMP1/index.md)
 2. [CMP2 計算モデルの頑健性](textbook/volumes/00_foundations/CMP2/index.md)
 3. [CMP3 万能計算と自己参照](textbook/volumes/00_foundations/CMP3/index.md)
+4. [CMP4 決定可能・認識可能・列挙可能](textbook/volumes/00_foundations/CMP4/index.md)
 
 <a id="dt-subject-numerical-analysis"></a>
 ### 数値解析

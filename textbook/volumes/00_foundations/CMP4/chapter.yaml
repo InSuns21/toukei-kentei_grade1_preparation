@@ -1,0 +1,47 @@
+id: "CMP4"
+title: "決定可能・認識可能・列挙可能"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CMP3
+official_scope: []
+learning_objectives:
+  - 受理・拒否・非停止を区別し、機械が認識器であることと言語が決定可能であることの違いを説明できる
+  - 補認識可能性を補集合の受理条件から確認できる
+  - 有界受理述語を構成し、認識言語を決定可能集合の増大和として証明できる
+  - 認識器と補集合の認識器を交互模擬して全入力停止の決定器を構成できる
+  - 列挙器を定義し、有限言語と空集合も含めて列挙語の所属条件を検証できる
+  - 認識器と列挙器を双方向に構成し、公平な有限段階探索の完全性を証明できる
+  - 認識可能言語の和集合・共通部分と決定可能言語の補集合に対する閉性を証明できる
+  - 決定可能な述語の存在量化から認識器と列挙器を構成し、決定可能性までは一般に結論しないと説明できる
+definitions:
+  - { id: CMP4-DEF-01, name: "補認識可能性" }
+  - { id: CMP4-DEF-02, name: "列挙器と列挙可能言語" }
+theorems:
+  - { id: CMP4-THM-01, name: "両側認識による決定可能性" }
+  - { id: CMP4-THM-02, name: "認識器と列挙器の同値" }
+propositions:
+  - { id: CMP4-PROP-01, name: "認識可能言語の有界受理表示" }
+  - { id: CMP4-PROP-02, name: "認識可能言語の有限和・有限共通部分" }
+  - { id: CMP4-PROP-03, name: "決定可能な述語の存在量化" }
+canonical_examples:
+  - "最初の文字が1である言語の非停止認識器と全域決定器"
+  - "偶数長言語と奇数長言語の決定器"
+  - "有限歩受理の期限6と7の違い"
+  - "空集合・有限言語の出力器と段階kの斜め探索"
+  - "万能受理言語に対する有界受理の探索"
+problem_patterns:
+  - CMP4-RECOGNIZER-VS-DECIDER-1
+  - CMP4-CO-RECOGNITION-1
+  - CMP4-BOUNDED-ACCEPTANCE-1
+  - CMP4-FINITE-ENUMERATION-1
+  - CMP4-ENUMERATION-STAGES-1
+  - CMP4-FAIR-UNION-1
+  - CMP4-TWO-SIDED-DECIDER-1
+  - CMP4-ENUMERATOR-TIMEOUT-1
+  - CMP4-EFFECTIVE-EXISTS-1
+  - CMP4-EXISTENTIAL-INTEGRATION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 4.5, review: 2.0 }
