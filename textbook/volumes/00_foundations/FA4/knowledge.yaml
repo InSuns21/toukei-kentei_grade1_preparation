@@ -58,7 +58,7 @@ concepts:
   - id: functional.reflexive-banach-space
     name: 反射的Banach空間
     kind: definition
-    aliases: [反射的Banach空間, 反射性, reflexive Banach space, reflexivity]
+    aliases: [反射的Banach空間, reflexive Banach space, reflexivity]
     introduction_aliases: ["### 定義（反射的Banach空間）"]
     requires:
       - functional.canonical-bidual-embedding

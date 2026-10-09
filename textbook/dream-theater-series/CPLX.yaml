@@ -23,5 +23,13 @@ chapters:
     title: 非決定性Turing機械とNP
   - id: CPLX5
     path: textbook/volumes/00_foundations/CPLX5
+    status: completed
+    title: 多項式時間 many-one 帰着
+  - id: CPLX6
+    path: textbook/volumes/00_foundations/CPLX6
     status: planned
-    title: 多項式時間many-one帰着
+    title: NP-hard・NP-complete
+  - id: CPLX7
+    path: textbook/volumes/00_foundations/CPLX7
+    status: planned
+    title: Cook--Levinの定理

@@ -1,0 +1,46 @@
+id: "CPLX5"
+title: "多項式時間 many-one 帰着"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CPLX4
+official_scope: []
+learning_objectives:
+  - 二進言語の多項式時間 many-one 帰着を全域性・多項式時間・yes/no同値の量化条件つきで定義できる
+  - 偶奇・接尾文字・局所パターンの言語に対して帰着関数を構成し正例と反例で検算できる
+  - 多項式時間変換から出力長の多項式上界を導ける
+  - 帰着先のP所属から帰着元のP所属を計算時間の多項式合成を含めて証明できる
+  - 帰着の反射性・推移性を変換の合成から証明できる
+  - 両側の補集合を取った帰着を証明し片側だけの補集合とは区別できる
+  - 帰着先のNP所属から帰着元のNP所属を証明書長と検証器時間を明示して証明できる
+  - 帰着の向きに関する誤推論を空言語と停止問題による具体例で退けられる
+  - 二段帰着の計算例を一から設計しyes/no保存と時間を全件検証できる
+definitions:
+  - { id: CPLX5-DEF-01, name: "多項式時間 many-one 帰着" }
+theorems:
+  - { id: CPLX5-THM-01, name: "多項式時間決定可能性の帰着元への移送" }
+  - { id: CPLX5-THM-02, name: "NP所属の帰着元への移送" }
+propositions:
+  - { id: CPLX5-PROP-01, name: "多項式時間帰着の反射性と推移性" }
+  - { id: CPLX5-PROP-02, name: "多項式時間帰着における補集合の保存" }
+canonical_examples:
+  - "偶数個の1から偶数長への全域帰着"
+  - "出力長の多項式上界から決定器の時間を合成"
+  - "短い証明書の長さ上界を帰着元へ移送"
+  - "空言語から停止問題への定数帰着による向きの反例"
+  - "部分文字列11の検出から二段帰着を作る"
+problem_patterns:
+  - CPLX5-YES-NO-SAVE
+  - CPLX5-REDUCTION-DIRECTION
+  - CPLX5-OUTPUT-LENGTH
+  - CPLX5-COMPOSITION
+  - CPLX5-COMPLEMENT
+  - CPLX5-P-TRANSFER
+  - CPLX5-NP-TRANSFER
+  - CPLX5-COUNTEREXAMPLE
+  - CPLX5-FALSE-ONE-WAY
+  - CPLX5-INTEGRATED-TWO-STAGE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.5, review: 2.0 }
