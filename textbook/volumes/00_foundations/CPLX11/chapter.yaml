@@ -18,6 +18,7 @@ definitions:
   - { id: CPLX11-DEF-01, name: "P vs NPの問い" }
   - { id: CPLX11-DEF-02, name: "CNFの変数制限" }
   - { id: CPLX11-DEF-03, name: "証明書の接頭辞延長言語" }
+  - { id: CPLX11-DEF-04, name: "一方向関数" }
 theorems:
   - { id: CPLX11-THM-01, name: "SATの判定と充足割当て探索" }
 propositions:
@@ -29,6 +30,7 @@ canonical_examples:
   - "三節のCNFをx=0とx=1に制限しx=1,y=1へ復元"
   - "接頭辞101の延長判定と接頭辞そのものの検証を区別"
   - "NP-hardでも決定不能な言語を挙げP=NPの射程を区別"
+  - "恒等写像の逆算確率1を計算して一方向関数でないことを確認"
 problem_patterns:
   - CPLX11-PNP-QUANTIFIERS
   - CPLX11-SAT-EQUIVALENCE
