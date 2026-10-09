@@ -19,5 +19,9 @@ chapters:
     title: クラスNP：証明書と検証
   - id: CPLX4
     path: textbook/volumes/00_foundations/CPLX4
-    status: planned
+    status: completed
     title: 非決定性Turing機械とNP
+  - id: CPLX5
+    path: textbook/volumes/00_foundations/CPLX5
+    status: planned
+    title: 多項式時間many-one帰着
