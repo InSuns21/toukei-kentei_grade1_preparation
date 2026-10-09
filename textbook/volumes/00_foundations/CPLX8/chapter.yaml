@@ -1,0 +1,46 @@
+id: "CPLX8"
+title: "SATから3-SATへの帰着"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CPLX7
+official_scope: []
+learning_objectives:
+  - リテラル・節・CNF・3-CNFを定義して具体的割当てで検査できる
+  - 論理的同値と充足可能性同値を区別し補助変数の存在量化を説明できる
+  - 論理積・論理和・否定の部分式変数を三文字以下の節で表し真偽値表で確認できる
+  - 一般SAT式を構文木からCNFへ変換する両方向の正しさを証明できる
+  - 長い節の連鎖分割を構成し元の節と分割後の式の両方向を証明できる
+  - 別々の節に補助変数を使い回す失敗を反例で示せる
+  - 変数数・節数・符号長・出力時間の多項式上界を評価できる
+  - 不正な入力も処理する全域のSATから3-SATへのmany-one帰着を構成できる
+  - 3-SATのNP所属とSATのNP完全性を合わせて3-SATのNP完全性を証明できる
+  - 高々三文字とちょうど三文字の定義の間の変換を説明できる
+definitions:
+  - { id: CPLX8-DEF-01, name: "リテラル・節・連言標準形" }
+  - { id: CPLX8-DEF-02, name: "3-CNFと3-SAT" }
+  - { id: CPLX8-DEF-03, name: "論理的同値と充足可能性同値" }
+theorems:
+  - { id: CPLX8-THM-01, name: "3-SATのNP完全性" }
+propositions:
+  - { id: CPLX8-PROP-01, name: "部分式変数によるCNF変換" }
+  - { id: CPLX8-PROP-02, name: "長い節の三文字節分割" }
+canonical_examples:
+  - "2,3,1文字の節からなる3-CNFの充足割当て"
+  - "命題論理式の論理和・論理積・否定を三文字節で表す真偽値検算"
+  - "五文字節の補助変数連鎖と充足不能の追跡"
+  - "節間で補助変数を共有すると偽の充足不能を作る反例"
+  - "XOR型式の部分式変数による12節の3-CNF"
+problem_patterns:
+  - CPLX8-CNF-CLAUSE
+  - CPLX8-EQUISAT-VS-EQUIVALENT
+  - CPLX8-GATE-ENCODING
+  - CPLX8-CLAUSE-CHAIN
+  - CPLX8-INVALID-ENCODING
+  - CPLX8-AUX-VARIABLE-SCOPE
+  - CPLX8-POLYNOMIAL-SIZE
+  - CPLX8-NP-COMPLETENESS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 4.5, review: 2.5 }
