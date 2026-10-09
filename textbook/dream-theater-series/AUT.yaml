@@ -31,5 +31,5 @@ chapters:
     title: プッシュダウン・オートマトン
   - id: AUT7
     path: textbook/volumes/00_foundations/AUT7
-    status: planned
+    status: completed
     title: Chomsky 階層と計算モデルへの橋

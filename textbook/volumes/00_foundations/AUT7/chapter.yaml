@@ -1,0 +1,50 @@
+id: "AUT7"
+title: "Chomsky階層と計算モデルへの橋"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AUT6
+official_scope: []
+learning_objectives:
+  - 0型・1型・2型・3型の規則と空語特例を検査できる
+  - 右線形文法と有限オートマトンの等価性を両方向の構成で証明できる
+  - 空語規則を整理しChomsky階層の包含を証明できる
+  - a^n b^n c^nの1型文法を構成しPDAの限界を示せる
+  - 1型文法の所属判定の停止を有限探索に帰着して証明できる
+  - 0型文法の導出列挙と判定可能性の違いを説明できる
+  - 線形作業領域の印付け手順を不変条件で証明できる
+definitions:
+  - { id: AUT7-DEF-01, name: "0型文法" }
+  - { id: AUT7-DEF-02, name: "1型文法" }
+  - { id: AUT7-DEF-03, name: "2型文法と3型文法" }
+  - { id: AUT7-DEF-04, name: "線形作業領域" }
+theorems:
+  - { id: AUT7-THM-01, name: "3型文法と有限オートマトンの等価性" }
+  - { id: AUT7-THM-02, name: "1型文法の所属判定可能性" }
+lemmas:
+  - { id: AUT7-LEM-01, name: "文脈自由文法の空語規則を整理する" }
+propositions:
+  - { id: AUT7-PROP-01, name: "Chomsky階層の包含" }
+  - { id: AUT7-PROP-02, name: "三群の等個数言語を生成する1型文法" }
+  - { id: AUT7-PROP-03, name: "0型文法の導出列挙による認識" }
+  - { id: AUT7-PROP-04, name: "三群の印付けによる線形領域判定" }
+canonical_examples:
+  - "S→0S|1からの右線形文法・オートマトンの対応"
+  - "三群の個数一致を生成する非短縮文法とaabbccの全導出"
+  - "長さn以下の記号列の有限探索による所属判定"
+  - "三群を各一個ずつ印付けるテープ上の判定"
+problem_patterns:
+  - AUT7-GRAMMAR-TYPES-1
+  - AUT7-RIGHT-LINEAR-1
+  - AUT7-TRIPLE-DERIVATION-1
+  - AUT7-FINITE-SEARCH-1
+  - AUT7-MARKING-TRACE-1
+  - AUT7-GRAMMAR-DFA-1
+  - AUT7-EPSILON-TRANSFORM-1
+  - AUT7-TYPE0-BOUND-FAILURE-1
+  - AUT7-MARKING-REJECTION-1
+  - AUT7-INTEGRATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 4.0, review: 2.0 }

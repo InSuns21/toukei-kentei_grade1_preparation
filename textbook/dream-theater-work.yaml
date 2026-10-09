@@ -5,8 +5,8 @@ active_series: AUT
 active_plan: textbook/plans_progress/DREAM_THEATER_THEORETICAL_COMPUTER_SCIENCE_P_VS_NP_PLAN.md
 series_manifest: textbook/dream-theater-series/AUT.yaml
 
-completed_through: AUT6
-next_work: AUT7
+completed_through: AUT7
+next_work: null
 after_next: null
 
 routing:
