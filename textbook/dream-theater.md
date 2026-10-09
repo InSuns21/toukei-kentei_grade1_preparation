@@ -427,6 +427,7 @@
 ### 計算量理論 I：P・NP・NP完全性
 
 1. [CPLX1 入力サイズ・時間計算量・空間計算量](textbook/volumes/00_foundations/CPLX1/index.md)
+2. [CPLX2 クラスP](textbook/volumes/00_foundations/CPLX2/index.md)
 
 <a id="dt-subject-numerical-analysis"></a>
 ### 数値解析

@@ -1,0 +1,20 @@
+chapter: "CPLX2"
+terms:
+  - term: クラスP
+    english: complexity class P
+    meaning: "入力長について固定次数の多項式時間で決定できる二進言語全体。"
+  - term: 有向到達可能性
+    english: directed reachability
+    meaning: "有向グラフ内で指定した始点から終点への有向道があるかを問う判定問題。"
+  - term: 隣接行列
+    english: adjacency matrix
+    meaning: "頂点の順序を固定し、矢印の有無を0と1で表す正方行列。"
+  - term: 反復到達可能集合
+    english: iterative reachable set
+    meaning: "始点から高々指定本数の矢印をたどって届く頂点の集合。"
+  - term: 多項式時間シミュレーション
+    english: polynomial-time simulation
+    meaning: "元の計算時間と入力長の多項式時間内で別モデルが元の計算を模倣すること。"
+  - term: 閉性
+    english: closure
+    meaning: "クラスの要素に指定した演算を施しても結果が同じクラスに属する性質。"

@@ -1,0 +1,38 @@
+chapter: CPLX2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CPLX1
+concepts:
+  - id: theoretical-computer-science.class-p
+    name: クラスP
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（クラス P）"]
+    requires: [theoretical-computer-science.polynomial-time-machine]
+  - id: theoretical-computer-science.adjacency-matrix-reachability
+    name: 隣接行列で符号化した有向到達可能性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（隣接行列で符号化した有向到達可能性）"]
+    requires: [theoretical-computer-science.input-length]
+  - id: theoretical-computer-science.reachable-sets-iteration
+    name: 反復で求める到達可能集合
+    kind: proposition
+    introduction_aliases: ["命題（反復で求める到達可能集合）"]
+    requires: [theoretical-computer-science.adjacency-matrix-reachability]
+  - id: theoretical-computer-science.reachability-in-p
+    name: 隣接行列で符号化した有向到達可能性はPに属する
+    kind: theorem
+    introduction_aliases: ["定理（隣接行列で符号化した有向到達可能性は P に属する）"]
+    requires: [theoretical-computer-science.class-p, theoretical-computer-science.reachable-sets-iteration, theoretical-computer-science.polynomial-time-machine]
+  - id: theoretical-computer-science.multitape-polynomial-simulation
+    name: 固定本数の作業テープの多項式時間シミュレーション
+    kind: theorem
+    introduction_aliases: ["定理（固定本数の作業テープの多項式時間シミュレーション）"]
+    requires: [theoretical-computer-science.worst-case-time-space, theoretical-computer-science.time-space-basic-bound, theoretical-computer-science.polynomial-time-machine]
+  - id: theoretical-computer-science.p-boolean-closure
+    name: Pの補集合・和集合・共通部分についての閉性
+    kind: proposition
+    introduction_aliases: ["命題（P の補集合・和集合・共通部分についての閉性）"]
+    requires: [theoretical-computer-science.class-p, theoretical-computer-science.multitape-polynomial-simulation]

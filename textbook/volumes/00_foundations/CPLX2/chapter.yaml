@@ -1,0 +1,45 @@
+id: "CPLX2"
+title: "クラスP"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CPLX1
+official_scope: []
+learning_objectives:
+  - クラスPの量化条件を明示し全入力停止する決定機械を使って所属を証明できる
+  - 行優先の隣接行列による有向到達可能性言語の入力符号化と不正入力を説明できる
+  - 反復到達可能集合の不変条件を道の長さについて帰納法で証明できる
+  - 単純な道の長さ上界と明示的なTuring機械の歩数評価から有向到達可能性がPに属することを示せる
+  - 固定本数の作業テープを一本で模倣する符号化と多項式上界を再現できる
+  - クラスPの補集合・和集合・共通部分について決定機械を構成して閉性を証明できる
+  - 多項式時間の定義上の性質と実用的高速性・特定算法の遅さを区別できる
+definitions:
+  - { id: CPLX2-DEF-01, name: "クラスP" }
+  - { id: CPLX2-DEF-02, name: "隣接行列で符号化した有向到達可能性" }
+theorems:
+  - { id: CPLX2-THM-01, name: "隣接行列で符号化した有向到達可能性はPに属する" }
+  - { id: CPLX2-THM-02, name: "固定本数の作業テープの多項式時間シミュレーション" }
+propositions:
+  - { id: CPLX2-PROP-01, name: "反復で求める到達可能集合" }
+  - { id: CPLX2-PROP-02, name: "Pの補集合・和集合・共通部分についての閉性" }
+canonical_examples:
+  - "末尾ビット0を判定する決定機械"
+  - "4頂点の隣接行列と到達集合の反復"
+  - "複数作業テープの記録区画とヘッド印"
+  - "補集合と二つの言語のAND・OR"
+  - "固定次数100の多項式時間と実用上の速度の区別"
+problem_patterns:
+  - CPLX2-P-DEFINITION
+  - CPLX2-REACH-SETS
+  - CPLX2-INVALID-ENCODING
+  - CPLX2-BOOLEAN-COMBINATIONS
+  - CPLX2-POLYNOMIAL-PRACTICAL
+  - CPLX2-REACH-CYCLE
+  - CPLX2-PATH-SHORTENING
+  - CPLX2-MULTITAPE-SIMULATION
+  - CPLX2-COMPLEMENT-EMPTY
+  - CPLX2-ARBITRARY-ENDPOINTS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.0, review: 2.0 }
