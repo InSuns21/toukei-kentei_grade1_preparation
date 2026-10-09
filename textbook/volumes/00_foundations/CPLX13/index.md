@@ -28,14 +28,14 @@
 <!-- formal-statement-start -->
 > **命題（中間点による再帰分割）**  
 > 任意の有限有向グラフ $G=(V,E)$、頂点 $u,v\in V$、整数 $k\ge1$ について
->
-$
+
+$$
 R_G(u,v,k)
 \iff
 \exists w\in V:\;
 R_G(u,w,k-1)\land R_G(w,v,k-1).
-$
->
+$$
+
 > また、$k=0$ では $R_G(u,v,0)$ が真であることは、$u=v$ または $(u,v)\in E$ と同値である。
 <!-- formal-statement-end -->
 
@@ -158,13 +158,13 @@ $$
 <!-- formal-statement-start -->
 > **定理（Savitch の定理）**  
 > $s:\mathbb N\to\mathbb N$ が空間構成可能で、すべての $n\ge0$ について $s(n)\ge\lceil\log_2(n+2)\rceil$ を満たすとする。このとき、読み取り専用入力・固定本数の作業テープを持つ標準的なTuring機械による言語クラスについて
->
-$
+
+$$
 \operatorname{NSPACE}(s(n))
 \subseteq
 \operatorname{DSPACE}(s(n)^2)
-$
->
+$$
+
 > が成り立つ。左辺の非決定性機械の全計算枝には空間上界を課し、受理枝が存在すればその言語の要素とする。非受理枝が停止しない場合も許す。
 <!-- formal-statement-end -->
 
@@ -219,11 +219,11 @@ $$
 <!-- formal-statement-start -->
 > **定理（Savitch の定理の帰結）**  
 > $NL\subseteq\operatorname{DSPACE}(\log^2(n+2))$ であり、
->
-$
+
+$$
 \operatorname{NPSPACE}=\operatorname{PSPACE},
-$
->
+$$
+
 > が成り立つ。ここで $\operatorname{NPSPACE}=\bigcup_{d\ge1}\operatorname{NSPACE}(n^d)$ とする。$NL=L$ はこの結論からは従わない。
 <!-- formal-statement-end -->
 
