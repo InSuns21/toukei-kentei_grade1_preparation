@@ -196,7 +196,7 @@ $$
 
 次にISのNP所属です。正規な $(G,k)$ に対し、$k$ 個の相異なる頂点番号を証明書とします。$m$ 頂点なら各番号は $\lceil\log_2(m+1)\rceil$ ビットで、全体の長さは高々 $m\lceil\log_2(m+1)\rceil$、入力長の多項式です。検証器はまず構文を確認し、各番号が $1,\ldots,m$ にあり互いに異なるか調べ、全ての $i<j$ について対応する隣接行列成分が0かを検査します。候補が独立集合なら全て通過し、通過した候補はまさに独立集合です。不正な入力・証明書でも有限回の検査で拒否するので $IS\in NP$ です。
 
-[3-SATのNP完全性](../CPLX8/index.md#thm-cplx8-3sat-complete)、[前節の帰着](#thm-cplx9-3sat-clique)、[CLIQUEのNP所属](../CPLX3/index.md#thm-cplx3-examples-in-np)によりCLIQUEはNP完全です。さらに[CPLX6のNP-hardnessの移送](../CPLX6/index.md#prop-cplx6-nphard-transfer)と $\mathrm{CLIQUE}\le_p\mathrm{IS}$ からISはNP-hardです。NP所属と合わせてNP完全です。$\square$
+[3-SATのNP完全性](../CPLX8/index.md#thm-cplx8-3sat-complete)、[前節の帰着](#thm-cplx9-3sat-clique)、[CLIQUEのNP所属](../CPLX3/index.md#thm-cplx3-examples-in-np)によりCLIQUEはNP完全です。さらに[CPLX6のNP-hardnessの移送](../CPLX6/index.md#prop-cplx6-hardness-transfer)と $\mathrm{CLIQUE}\le_p\mathrm{IS}$ からISはNP-hardです。NP所属と合わせてNP完全です。$\square$
 <!-- proof-end -->
 
 ## 4. 独立集合の裏返しは頂点被覆
@@ -281,7 +281,7 @@ $$
 
 VCのNP所属について、正規な入力 $(G,t)$ に対し、$T$ の頂点番号の列を証明書として渡します。長さは高々 $m\lceil\log_2(m+1)\rceil$ ビットです。検証器は番号の範囲と重複、大きさ $|T|\le t$ を検査し、全ての辺 $\{u,v\}$ について $u$ または $v$ が $T$ に入るかを検査します。全ての辺が被覆されている候補のみ受理し、不正な入力や候補は拒否して必ず停止します。行列を走査するだけで辺を列挙できるので検証は多項式時間です。
 
-[独立集合のNP完全性](#thm-cplx9-is-complete)と今回の帰着、および[CPLX6のNP-hardnessの移送](../CPLX6/index.md#prop-cplx6-nphard-transfer)からVCはNP-hardです。VCはNPにも属するのでNP完全です。$\square$
+[独立集合のNP完全性](#thm-cplx9-is-complete)と今回の帰着、および[CPLX6のNP-hardnessの移送](../CPLX6/index.md#prop-cplx6-hardness-transfer)からVCはNP-hardです。VCはNPにも属するのでNP完全です。$\square$
 <!-- proof-end -->
 
 ## 5. 三問題の意味を整理する
@@ -475,6 +475,6 @@ $$
 
 ## 7. ここまでで得られたもの
 
-[CPLX5の帰着の推移性](../CPLX5/index.md#prop-cplx5-reflexive-transitive)と[CPLX6のNP-hardnessの移送](../CPLX6/index.md#prop-cplx6-nphard-transfer)を、具体的なグラフ構成へ適用できました。選択に関する条件の「同じ節からは二つ選ばない」「矛盾する正負は同時に選ばない」を辺の不存在で表すことが、最初のガジェットの核心です。これに補グラフと頂点集合の補集合という二つの操作を重ねると、難しさを新たなグラフ判定問題へ渡せます。
+[CPLX5の帰着の推移性](../CPLX5/index.md#prop-cplx5-reflexive-transitive)と[CPLX6のNP-hardnessの移送](../CPLX6/index.md#prop-cplx6-hardness-transfer)を、具体的なグラフ構成へ適用できました。選択に関する条件の「同じ節からは二つ選ばない」「矛盾する正負は同時に選ばない」を辺の不存在で表すことが、最初のガジェットの核心です。これに補グラフと頂点集合の補集合という二つの操作を重ねると、難しさを新たなグラフ判定問題へ渡せます。
 
 次章では、数値の大きさが**二進入力の長さ**とどう関係するかを調べ、数値問題のNP完全性へ進みます。
