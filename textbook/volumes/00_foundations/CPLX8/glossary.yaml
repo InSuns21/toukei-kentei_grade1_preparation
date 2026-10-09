@@ -1,0 +1,29 @@
+chapter: "CPLX8"
+terms:
+  - term: リテラル
+    english: literal
+    meaning: "命題変数そのもの、またはその否定。節を構成する基本要素。"
+  - term: 節
+    english: clause
+    meaning: "有限個のリテラルの論理和。充足するには少なくとも一つのリテラルが真でなければならない。"
+  - term: 連言標準形
+    english: conjunctive normal form
+    meaning: "複数の節の論理積で記述した式。略称CNF。"
+  - term: 3-CNF
+    english: 3-conjunctive normal form
+    meaning: "各節が高々三つのリテラルからなる連言標準形。"
+  - term: 3-SAT
+    english: 3-satisfiability
+    meaning: "入力が充足可能な3-CNFであるかどうかを判定する言語。"
+  - term: 充足可能性同値
+    english: equisatisfiability
+    meaning: "二つの式について充足割当てが存在するかどうかが一致する性質。全ての割当てで値が一致する論理的同値とは区別する。"
+  - term: 補助変数
+    english: auxiliary variable
+    meaning: "部分式の値や長い節の分割位置を表し、充足可能性を保存しつつ式の形を制限するために導入する新しい真偽値変数。"
+  - term: 部分式変数によるCNF変換
+    english: Tseitin transformation
+    meaning: "構文木の各節点の真偽値を新変数に割り当て、ゲートの論理関係を定数個の短い節で表す多項式サイズの変換。"
+  - term: 長い節の三文字節分割
+    english: long-clause to 3-clause reduction
+    meaning: "長さが四以上の節を新しい補助変数による連鎖で複数の三文字節に置き換え、充足可能性を保存する構成。"
