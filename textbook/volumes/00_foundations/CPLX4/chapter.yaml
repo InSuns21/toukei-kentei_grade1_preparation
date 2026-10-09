@@ -1,0 +1,48 @@
+id: "CPLX4"
+title: "非決定性Turing機械とNP"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CPLX3
+official_scope: []
+learning_objectives:
+  - 非決定性多項式時間の全入力・全枝停止と共通多項式上界を量化順序を含めて説明できる
+  - 計算木の深さと幅を分離し有限分岐木の葉数上界を計算できる
+  - 多項式長証明書を非決定的に生成して全枝停止する機械を構成できる
+  - 計算枝の選択番号を証明書に符号化して決定性検証器を構成できる
+  - 検証器によるNPと非決定性多項式時間の同値性を両方向とも多項式上界付きで証明できる
+  - PがNPに含まれることを空証明書を用いて証明できる
+  - coNPの補集合の母集合とyes/noの証明書の非対称性を正しく説明できる
+  - TAUTがcoNPに属することを不正入力と反例割当ての双方を処理して証明できる
+  - PがNPとcoNPの共通部分に含まれることを補言語の決定機械から証明できる
+definitions:
+  - { id: CPLX4-DEF-01, name: "非決定性多項式時間とクラスNPTIME" }
+  - { id: CPLX4-DEF-02, name: "クラスcoNP" }
+  - { id: CPLX4-DEF-03, name: "恒真式判定言語TAUT" }
+theorems:
+  - { id: CPLX4-THM-01, name: "検証器によるNPと非決定性多項式時間の同値性" }
+  - { id: CPLX4-THM-02, name: "TAUTはcoNPに属する" }
+propositions:
+  - { id: CPLX4-PROP-01, name: "PはNPに含まれる" }
+  - { id: CPLX4-PROP-02, name: "PはNPとcoNPの共通部分に含まれる" }
+canonical_examples:
+  - "全枝停止する一歩二択と無限枝の反例"
+  - "SATの真偽値割当てを選ぶ計算枝"
+  - "有限分岐の選択番号を固定幅ブロックとして符号化する証明書"
+  - "pまたは否定pとpまたはqによる恒真式の検査"
+  - "有向三辺路の候補と全四つ組の列挙"
+problem_patterns:
+  - CPLX4-BRANCHING-TREE
+  - CPLX4-CERTIFICATE-GUESS
+  - CPLX4-ALL-BRANCH-TIME
+  - CPLX4-SAT-TAUT-DISTINCTION
+  - CPLX4-CO-NP-EXAMPLE
+  - CPLX4-INFINITE-BRANCH
+  - CPLX4-BRANCH-HISTORY-ENCODING
+  - CPLX4-POLYNOMIAL-COMPOSITION
+  - CPLX4-TAUT-COUNTEREXAMPLE
+  - CPLX4-PATH-DECISION-VERIFICATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 4.5, review: 2.0 }
