@@ -1,0 +1,23 @@
+chapter: "CPLX11"
+terms:
+  - term: P vs NP
+    english: P versus NP
+    meaning: "全域決定性多項式時間で判定できる言語クラスPと、多項式長証明書を多項式時間で検証できる言語クラスNPが等しいかという未解決問題。"
+  - term: SATの自己還元
+    english: SAT self-reducibility
+    meaning: "SAT判定器に変数を固定した式を問い合わせ、充足可能性を保ちながら充足割当てを一変数ずつ復元する方法。"
+  - term: 変数制限
+    english: variable restriction
+    meaning: "命題論理式の変数に真偽値を代入し、真の節や偽のリテラルを整理して残る式を作ること。"
+  - term: 接頭辞延長言語
+    english: prefix-extension language
+    meaning: "与えた接頭辞を、検証器が受理する多項式長証明書へ延長できるかを判定する言語。"
+  - term: 証明書の復元
+    english: witness extraction
+    meaning: "証明書が存在するかの判定を繰り返し、受理する証明書そのものを多項式回の選択で構成すること。"
+  - term: 計算量下界
+    english: complexity lower bound
+    meaning: "すべての対象アルゴリズムについて、ある量以上の計算資源が必要だと示す評価。"
+  - term: 一方向関数
+    english: one-way function
+    meaning: "計算は多項式時間でできるが、無作為な入力の像から原像を平均的に効率よく見つけられない関数。"
