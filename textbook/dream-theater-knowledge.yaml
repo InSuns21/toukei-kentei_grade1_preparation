@@ -122,6 +122,8 @@ alias_matching:
     - 積分方程式
     # semigroup / Markov theory で分野横断に用いるため、自由文の部分一致だけでは所有概念を確定しない。
     - 生成作用素
+    # SATの真偽値割当てで使う「充足可能」と、モデル理論の「充足」は文脈依存。
+    - 充足
     - generator
     - infinitesimal generator
 
