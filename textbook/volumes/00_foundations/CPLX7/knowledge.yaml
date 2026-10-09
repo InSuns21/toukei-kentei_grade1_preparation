@@ -1,0 +1,45 @@
+chapter: CPLX7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CPLX6
+concepts:
+  - id: theoretical-computer-science.computation-tableau
+    name: 計算表 tableau
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（計算表 tableau）"]
+    requires: [theoretical-computer-science.tm-configuration, theoretical-computer-science.nondeterministic-tm]
+  - id: theoretical-computer-science.tableau-boolean-variables
+    name: 計算表のBoolean変数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（計算表のBoolean変数）"]
+    requires: [theoretical-computer-science.computation-tableau]
+  - id: theoretical-computer-science.exactly-one-formula
+    name: ちょうど一つを選ぶ式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ちょうど一つを選ぶ式）"]
+    requires: [theoretical-computer-science.sat-language]
+  - id: theoretical-computer-science.tableau-sat-formula
+    name: 計算表の論理式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（計算表の論理式）"]
+    requires: [theoretical-computer-science.tableau-boolean-variables, theoretical-computer-science.exactly-one-formula]
+  - id: theoretical-computer-science.tableau-correctness
+    name: 計算表符号化の双方向対応
+    kind: lemma
+    introduction_aliases: ["補題（計算表符号化の双方向対応）"]
+    requires: [theoretical-computer-science.tableau-sat-formula, theoretical-computer-science.nondeterministic-tm]
+  - id: theoretical-computer-science.tableau-polynomial-size
+    name: Cook–Levin符号化の多項式サイズ
+    kind: proposition
+    introduction_aliases: ["命題（Cook–Levin符号化の多項式サイズ）"]
+    requires: [theoretical-computer-science.tableau-sat-formula]
+  - id: theoretical-computer-science.cook-levin
+    name: Cook–Levinの定理
+    kind: theorem
+    introduction_aliases: ["定理（Cook–Levinの定理）"]
+    requires: [theoretical-computer-science.tableau-correctness, theoretical-computer-science.tableau-polynomial-size, theoretical-computer-science.np-ntm-equivalence, theoretical-computer-science.sat-clique-dhc-in-np, theoretical-computer-science.np-complete]
