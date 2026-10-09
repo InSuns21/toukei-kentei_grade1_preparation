@@ -435,6 +435,7 @@
 7. [CPLX7 Cook–Levinの定理](textbook/volumes/00_foundations/CPLX7/index.md)
 8. [CPLX8 SATから3-SATへの帰着](textbook/volumes/00_foundations/CPLX8/index.md)
 9. [CPLX9 グラフ問題への帰着](textbook/volumes/00_foundations/CPLX9/index.md)
+10. [CPLX10 数値問題と弱NP完全性](textbook/volumes/00_foundations/CPLX10/index.md)
 
 <a id="dt-subject-numerical-analysis"></a>
 ### 数値解析
