@@ -1,0 +1,67 @@
+chapter: CMP8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CMP7
+concepts:
+  - id: theoretical-computer-science.lambda-term
+    name: λ項と自由変数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（λ項と自由変数）"]
+    requires: [theoretical-computer-science.tm-configuration]
+  - id: theoretical-computer-science.beta-reduction
+    name: 捕獲を避けた代入とβ簡約
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（捕獲を避けた代入とβ簡約）"]
+    requires: [theoretical-computer-science.lambda-term]
+  - id: theoretical-computer-science.church-numeral
+    name: Church数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Church数）"]
+    requires: [theoretical-computer-science.beta-reduction]
+  - id: theoretical-computer-science.church-arithmetic
+    name: Church数の後者・加算
+    kind: proposition
+    introduction_aliases: ["命題（Church数の後者・加算）"]
+    requires: [theoretical-computer-science.church-numeral]
+  - id: theoretical-computer-science.primitive-recursive-function
+    name: 原始再帰関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（原始再帰関数）"]
+    requires: []
+  - id: theoretical-computer-science.primitive-arithmetic
+    name: 原始再帰で構成した加算・乗算
+    kind: proposition
+    introduction_aliases: ["命題（原始再帰で構成した加算・乗算）"]
+    requires: [theoretical-computer-science.primitive-recursive-function]
+  - id: theoretical-computer-science.mu-minimization
+    name: 最小化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（最小化と部分再帰関数）"]
+    requires: [theoretical-computer-science.primitive-recursive-function]
+  - id: theoretical-computer-science.mu-partial-recursion
+    name: 部分再帰関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（最小化と部分再帰関数）"]
+    requires: [theoretical-computer-science.mu-minimization, theoretical-computer-science.primitive-recursive-function]
+  - id: theoretical-computer-science.partial-recursive-turing-equivalence
+    name: 部分再帰関数とTuring計算可能な部分関数の一致
+    kind: theorem
+    introduction_aliases: ["定理（部分再帰関数とTuring計算可能な部分関数の一致）"]
+    requires: [theoretical-computer-science.mu-partial-recursion, theoretical-computer-science.tm-configuration]
+  - id: theoretical-computer-science.lambda-fixed-point
+    name: 固定点項の展開
+    kind: proposition
+    introduction_aliases: ["命題（固定点項の展開）"]
+    requires: [theoretical-computer-science.beta-reduction]
+  - id: theoretical-computer-science.lambda-recursion-equivalence
+    name: λ計算と部分再帰関数の自然数関数としての一致
+    kind: theorem
+    introduction_aliases: ["定理（λ計算と部分再帰関数の自然数関数としての一致）"]
+    requires: [theoretical-computer-science.church-arithmetic, theoretical-computer-science.lambda-fixed-point, theoretical-computer-science.partial-recursive-turing-equivalence]

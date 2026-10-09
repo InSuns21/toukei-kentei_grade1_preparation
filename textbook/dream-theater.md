@@ -421,6 +421,7 @@
 5. [CMP5 停止問題と対角線論法](textbook/volumes/00_foundations/CMP5/index.md)
 6. [CMP6 計算可能性の帰着](textbook/volumes/00_foundations/CMP6/index.md)
 7. [CMP7 Riceの定理](textbook/volumes/00_foundations/CMP7/index.md)
+8. [CMP8 λ計算・再帰関数・計算可能性の同値像](textbook/volumes/00_foundations/CMP8/index.md)
 
 <a id="dt-subject-numerical-analysis"></a>
 ### 数値解析

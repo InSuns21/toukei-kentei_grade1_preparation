@@ -1,0 +1,53 @@
+id: "CMP8"
+title: "λ計算・再帰関数・計算可能性の同値像"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CMP7
+official_scope: []
+learning_objectives:
+  - λ項の構文・自由変数・α変換と捕獲回避代入を具体例から再現できる
+  - β簡約の順序で停止の振る舞いが変わることをΩの例で検証できる
+  - Church数と後者・加算のλ項を展開し自然数の演算を再構成できる
+  - 零・後者・射影・合成・原始再帰から加算・乗算・べき乗を構成できる
+  - 最小化による部分関数の定義域と先行未定義値の扱いを区別できる
+  - 原始再帰とTuring計算の両方向の対応を有限計算履歴の符号化を含め説明できる
+  - λ計算の自然数計算と部分再帰の対応を固定点・分岐・最小化の項から追える
+  - 計算モデルの数学的同値定理とChurch–Turingの提唱を区別できる
+  - 三モデルの同値性が決定不能性を消さないことを停止と非停止で確かめられる
+definitions:
+  - { id: CMP8-DEF-01, name: "λ項と自由変数" }
+  - { id: CMP8-DEF-02, name: "捕獲を避けた代入とβ簡約" }
+  - { id: CMP8-DEF-03, name: "Church数" }
+  - { id: CMP8-DEF-04, name: "原始再帰関数" }
+  - { id: CMP8-DEF-05, name: "最小化と部分再帰関数" }
+theorems:
+  - { id: CMP8-THM-01, name: "部分再帰関数とTuring計算可能な部分関数の一致" }
+  - { id: CMP8-THM-02, name: "λ計算と部分再帰関数の自然数関数としての一致" }
+propositions:
+  - { id: CMP8-PROP-01, name: "Church数の後者・加算" }
+  - { id: CMP8-PROP-02, name: "原始再帰で構成した加算・乗算" }
+  - { id: CMP8-PROP-03, name: "固定点項の展開" }
+canonical_examples:
+  - "自由変数を束縛しない捕獲回避代入"
+  - "Ωの無限簡約と最外簡約で停止する項"
+  - "Church数の1+2と後者演算"
+  - "原始再帰による加算・乗算"
+  - "最小化で先行値が未定義なら後続候補を飛ばせない例"
+  - "テープの左右を底bで符号化して一歩遷移を計算する例"
+  - "固定点項・零判定・前者から再帰と探索を組み立てる例"
+problem_patterns:
+  - CMP8-FREE-VARIABLES-1
+  - CMP8-CAPTURE-AVOIDING-1
+  - CMP8-NORMAL-ORDER-1
+  - CMP8-CHURCH-ARITHMETIC-1
+  - CMP8-PRIMITIVE-RECURSION-TABLE-1
+  - CMP8-EXPONENTIATION-1
+  - CMP8-MU-PARTIAL-1
+  - CMP8-BOUNDED-TM-SIMULATION-1
+  - CMP8-FIXPOINT-RECURSION-1
+  - CMP8-THREE-MODEL-INTEGRATION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 6.0, review: 3.0 }

@@ -1,0 +1,29 @@
+chapter: "CMP8"
+terms:
+  - term: λ項
+    english: lambda term
+    meaning: "変数・適用・λ抽象から有限回の構成で得られる式。"
+  - term: 自由変数
+    english: free variable
+    meaning: "あるλ抽象の束縛の内側に入っていない変数の出現。"
+  - term: 捕獲回避代入
+    english: capture-avoiding substitution
+    meaning: "置換する項の自由変数が偶然束縛されないよう束縛変数を改名する代入。"
+  - term: β簡約
+    english: beta reduction
+    meaning: "関数を引数へ適用する式を、捕獲回避代入で一歩書き換える規則。"
+  - term: Church数
+    english: Church numeral
+    meaning: "操作をn回繰り返すλ項によって自然数nを表したもの。"
+  - term: 原始再帰関数
+    english: primitive recursive function
+    meaning: "零・後者・射影から合成と原始再帰を有限回用いて得られる全域数値関数。"
+  - term: 最小化
+    english: minimization
+    meaning: "引数yを0から探索し最初に関数値0を得た添字を返す部分関数構成。"
+  - term: 部分再帰関数
+    english: partial recursive function
+    meaning: "初期関数から合成・原始再帰・最小化を有限回適用して作る数値部分関数。"
+  - term: Church–Turingの提唱
+    english: Church–Turing thesis
+    meaning: "非形式的な有効計算の概念をTuring計算可能性が正しく捉えるとする提唱。"
