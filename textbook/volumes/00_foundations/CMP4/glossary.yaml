@@ -1,0 +1,23 @@
+chapter: "CMP4"
+terms:
+  - term: 決定可能
+    english: decidable
+    meaning: "すべての入力について停止して所属・非所属を正しく判定するTuring機械が存在する性質。CMP1の定義を再利用する。"
+  - term: 認識可能
+    english: recognizable
+    meaning: "所属する入力を有限時間で受理し、非所属入力では受理しないTuring機械が存在する性質。非所属入力で非停止を許す。"
+  - term: 補認識可能
+    english: co-recognizable
+    meaning: "言語の補集合を認識するTuring機械が存在する性質。"
+  - term: 有界受理述語
+    english: bounded acceptance predicate
+    meaning: "入力を指定歩数以内に受理するかを必ず有限時間で検査する述語。"
+  - term: 列挙器
+    english: enumerator
+    meaning: "有限文字列を境界付きで順に印字するTuring機械。出力の重複と有限個での打切りを許す。"
+  - term: 列挙可能言語
+    english: enumerable language
+    meaning: "ある列挙器が有限時刻までに出力する語全体として表せる言語。"
+  - term: 公平な模擬
+    english: fair dovetailing
+    meaning: "複数の計算へ有限歩ずつ計算時間を配分し、ある計算の非停止がほかの計算を止めない実行方法。"

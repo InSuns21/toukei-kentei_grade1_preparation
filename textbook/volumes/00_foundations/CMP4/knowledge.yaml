@@ -1,0 +1,43 @@
+chapter: CMP4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CMP3
+concepts:
+  - id: theoretical-computer-science.co-recognizable
+    name: 補認識可能性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（補認識可能性）"]
+    requires: [theoretical-computer-science.tm-decider-recognizer]
+  - id: theoretical-computer-science.bounded-acceptance-union
+    name: 認識可能言語の有界受理表示
+    kind: proposition
+    introduction_aliases: ["命題（認識可能言語の有界受理表示）"]
+    requires: [theoretical-computer-science.tm-decider-recognizer, theoretical-computer-science.bounded-halting-status]
+  - id: theoretical-computer-science.two-sided-recognition
+    name: 両側認識による決定可能性
+    kind: theorem
+    introduction_aliases: ["定理（両側認識による決定可能性）"]
+    requires: [theoretical-computer-science.co-recognizable, theoretical-computer-science.universal-simulation]
+  - id: theoretical-computer-science.enumerator
+    name: 列挙器と列挙可能言語
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（列挙器と列挙可能言語）"]
+    requires: [theoretical-computer-science.tm-acceptance]
+  - id: theoretical-computer-science.enumerator-recognizer-equivalence
+    name: 認識器と列挙器の同値
+    kind: theorem
+    introduction_aliases: ["定理（認識器と列挙器の同値）"]
+    requires: [theoretical-computer-science.enumerator, theoretical-computer-science.tm-decider-recognizer, theoretical-computer-science.bounded-acceptance-union]
+  - id: theoretical-computer-science.recognizable-closure
+    name: 認識可能言語の有限和・有限共通部分
+    kind: proposition
+    introduction_aliases: ["命題（認識可能言語の有限和・有限共通部分）"]
+    requires: [theoretical-computer-science.tm-decider-recognizer, theoretical-computer-science.universal-simulation]
+  - id: theoretical-computer-science.effective-existential
+    name: 決定可能な述語の存在量化
+    kind: proposition
+    introduction_aliases: ["命題（決定可能な述語の存在量化）"]
+    requires: [theoretical-computer-science.tm-decider-recognizer, theoretical-computer-science.enumerator-recognizer-equivalence]

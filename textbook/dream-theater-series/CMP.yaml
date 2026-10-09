@@ -19,7 +19,7 @@ chapters:
     title: 万能計算と自己参照
   - id: CMP4
     path: textbook/volumes/00_foundations/CMP4
-    status: planned
+    status: completed
     title: 決定可能・認識可能・列挙可能
   - id: CMP5
     path: textbook/volumes/00_foundations/CMP5
