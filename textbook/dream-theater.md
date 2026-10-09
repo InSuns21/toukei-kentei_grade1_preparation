@@ -438,6 +438,11 @@
 10. [CPLX10 数値問題と弱NP完全性](textbook/volumes/00_foundations/CPLX10/index.md)
 11. [CPLX11 P vs NP](textbook/volumes/00_foundations/CPLX11/index.md)
 
+<a id="dt-subject-complexity-theory-ii"></a>
+### 計算量理論 II：空間・階層・回路・証明障壁
+
+1. [CPLX12 空間計算量](textbook/volumes/00_foundations/CPLX12/index.md)
+
 <a id="dt-subject-numerical-analysis"></a>
 ### 数値解析
 
