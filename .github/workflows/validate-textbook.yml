@@ -88,6 +88,10 @@ jobs:
           DREAM_THEATER_PR_BODY: ${{ github.event.pull_request.body }}
         run: node scripts/validate-dream-theater-review-evidence.mjs --base "$TEXTBOOK_BASE_SHA"
 
+      - name: Self-test stable formal reference validation
+        if: github.event_name == 'pull_request'
+        run: node scripts/validate-formal-reference-links-dag.mjs --self-test
+
       - name: Validate changed textbook guardrails
         if: github.event_name == 'pull_request'
         env:
