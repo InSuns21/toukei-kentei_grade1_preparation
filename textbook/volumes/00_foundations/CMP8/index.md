@@ -293,9 +293,9 @@ Turing機械では、ある入力で永遠に計算を続ける場合があり�
 
 部分関数 $g:\mathbb N^{k+1}\rightharpoonup\mathbb N$ と入力 $\boldsymbol x\in\mathbb N^k$ に対し、$y=0,1,2,\ldots$ の順で $g(\boldsymbol x,y)$ を評価する。最初に値 $0$ が得られた添字 $y$ を返す部分関数を
 
-$
+$$
 \mu y[g(\boldsymbol x,y)=0]
-$
+$$
 
 と書く。途中の評価が未定義となった場合、または $0$ が現れない場合、結果は未定義とする。
 
