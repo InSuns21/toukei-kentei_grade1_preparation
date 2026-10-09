@@ -26,7 +26,7 @@ $$
 <!-- definition-example-start: def-cplx5-poly-many-one -->
 ### 例：偶数個の1から偶数長への帰着
 
-$E_1=\{x:\text{$x$ 中の1の個数が偶数}\}$、$E_\ell=\{y:|y|\text{ が偶数}\}$ とします。空文字 $\varepsilon$ に含まれる $1$ は0個なので $\varepsilon\in E_1$ です。次の関数を考えます。
+$E_1=\{x:x\text{ 中の1の個数が偶数}\}$、$E_\ell=\{y:|y|\text{ が偶数}\}$ とします。空文字 $\varepsilon$ に含まれる $1$ は0個なので $\varepsilon\in E_1$ です。次の関数を考えます。
 
 $$
 f(x)=
@@ -98,7 +98,7 @@ $$
 <a id="prop-cplx5-reflexive-transitive"></a>
 
 <!-- formal-statement-start -->
-> **命題（反射性と推移性）**  
+> **命題（多項式時間帰着の反射性と推移性）**  
 > 任意の二進言語 $A,B,C$ について、$A\le_p A$ が成立する。また、$A\le_p B$ かつ $B\le_p C$ ならば $A\le_p C$ である。
 <!-- formal-statement-end -->
 
@@ -127,7 +127,7 @@ $$
 <a id="prop-cplx5-complement"></a>
 
 <!-- formal-statement-start -->
-> **命題（補集合の保存）**  
+> **命題（多項式時間帰着における補集合の保存）**  
 > 任意の二進言語 $A,B$ が $A\le_p B$ を満たすなら、同じ帰着関数によって $\overline A\le_p\overline B$ も成立する。補集合はともに $\{0,1\}^*$ 内で取る。
 <!-- formal-statement-end -->
 
