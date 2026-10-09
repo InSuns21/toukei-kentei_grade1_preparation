@@ -39,7 +39,13 @@ $$
 <!-- formal-statement-start -->
 ### 定義（1型文法）
 
-有限文法 $G=(N,\Sigma,P,S)$ の各規則 $\alpha\to\beta$ が $|\alpha|\le|\beta|$ を満たすとき、**1型文法（非短縮文法）** という。唯一の例外として $S\to\varepsilon$ を許してよいが、そのとき開始記号 $S$ はいずれの規則の右辺にも現れないものとする。1型文法が生成する言語を **文脈依存言語** という。
+有限文法 $G=(N,\Sigma,P,S)$ の各規則 $\alpha\to\beta$ が、長さの条件
+
+$
+|\alpha|\le|\beta|
+$
+
+を満たすとき、**1型文法（非短縮文法）** という。唯一の例外として $S\to\varepsilon$ を許してよいが、そのとき開始記号 $S$ はいずれの規則の右辺にも現れないものとする。1型文法が生成する言語を **文脈依存言語** という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-aut7-type1 -->
