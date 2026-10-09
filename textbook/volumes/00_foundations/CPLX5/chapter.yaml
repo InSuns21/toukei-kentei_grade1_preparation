@@ -21,8 +21,8 @@ theorems:
   - { id: CPLX5-THM-01, name: "多項式時間決定可能性の帰着元への移送" }
   - { id: CPLX5-THM-02, name: "NP所属の帰着元への移送" }
 propositions:
-  - { id: CPLX5-PROP-01, name: "反射性と推移性" }
-  - { id: CPLX5-PROP-02, name: "補集合の保存" }
+  - { id: CPLX5-PROP-01, name: "多項式時間帰着の反射性と推移性" }
+  - { id: CPLX5-PROP-02, name: "多項式時間帰着における補集合の保存" }
 canonical_examples:
   - "偶数個の1から偶数長への全域帰着"
   - "出力長の多項式上界から決定器の時間を合成"
