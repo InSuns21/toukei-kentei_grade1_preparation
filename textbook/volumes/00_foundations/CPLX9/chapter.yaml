@@ -1,0 +1,50 @@
+id: "CPLX9"
+title: "グラフ問題への帰着"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CPLX8
+official_scope: []
+learning_objectives:
+  - 3-CNFの節・リテラル出現から節選択グラフを構成し辺の二条件を具体的に確認できる
+  - 3-SATからCLIQUEへの帰着の両方向と不正入力・空節・空連言の処理を証明できる
+  - 頂点数・隣接行列・比較時間の多項式上界を示せる
+  - 補グラフと独立集合を定義しクリークとの同値を証明できる
+  - 独立集合のNP完全性を帰着の向きとNP所属から証明できる
+  - 頂点被覆を定義し独立集合の補集合との同値と閾値m-kを証明できる
+  - 頂点被覆のNP完全性を帰着の向きとNP所属から証明できる
+  - 三段階の帰着を同一具体例で計算し失敗するガジェットの機構を反例で説明できる
+  - 判定版と最適化版およびHamilton閉路の未証明部分を区別できる
+definitions:
+  - { id: CPLX9-DEF-01, name: "3-CNFの節選択グラフ" }
+  - { id: CPLX9-DEF-02, name: "独立集合とINDEPENDENT SETの判定言語" }
+  - { id: CPLX9-DEF-03, name: "補グラフ" }
+  - { id: CPLX9-DEF-04, name: "頂点被覆とVERTEX COVERの判定言語" }
+theorems:
+  - { id: CPLX9-THM-01, name: "3-SATからCLIQUEへの多項式時間帰着" }
+  - { id: CPLX9-THM-02, name: "独立集合問題のNP完全性" }
+  - { id: CPLX9-THM-03, name: "頂点被覆問題のNP完全性" }
+propositions:
+  - { id: CPLX9-PROP-01, name: "クリークと独立集合の補グラフ対応" }
+  - { id: CPLX9-PROP-02, name: "独立集合と頂点被覆の補集合対応" }
+canonical_examples:
+  - "二節四頂点の節選択グラフで矛盾対と同節辺の消去を検算"
+  - "三節六頂点の節選択グラフと三角形の構成"
+  - "矛盾する二単位節の辺なしグラフ"
+  - "道グラフの補グラフで独立集合とクリークの対応を確認"
+  - "道グラフの独立集合と頂点被覆のサイズ対応"
+problem_patterns:
+  - CPLX9-CLAUSE-GRAPH
+  - CPLX9-GADGET-CONSISTENCY
+  - CPLX9-EDGE-COUNT
+  - CPLX9-INVALID-INPUTS
+  - CPLX9-GRAPH-COMPLEMENT
+  - CPLX9-INDEPENDENT-SET
+  - CPLX9-VERTEX-COVER
+  - CPLX9-THRESHOLD-TRANSFORM
+  - CPLX9-NP-COMPLETENESS
+  - CPLX9-COMPOSED-REDUCTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.5, exercises: 5.0, review: 3.0 }

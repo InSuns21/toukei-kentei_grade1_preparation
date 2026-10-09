@@ -39,5 +39,5 @@ chapters:
     title: SATから3-SATへの帰着
   - id: CPLX9
     path: textbook/volumes/00_foundations/CPLX9
-    status: planned
+    status: completed
     title: グラフ問題への帰着

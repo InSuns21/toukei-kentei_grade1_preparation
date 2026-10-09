@@ -1,0 +1,23 @@
+chapter: "CPLX9"
+terms:
+  - term: 節選択グラフ
+    english: clause-selection graph
+    meaning: "節内のリテラル出現を頂点にし、異なる節に属し矛盾しない二出現の間だけ辺を置くグラフ。"
+  - term: ガジェット
+    english: gadget
+    meaning: "帰着において論理・数値などの局所制約を別の問題の構造的な条件へ置き換える構成部品。"
+  - term: クリーク
+    english: clique
+    meaning: "相異なる任意の二頂点が辺で結ばれた頂点集合。"
+  - term: 独立集合
+    english: independent set
+    meaning: "集合内の相異なる二頂点の間に辺を一つも含まない頂点集合。"
+  - term: 補グラフ
+    english: complement graph
+    meaning: "無向単純グラフと同じ頂点集合で、異なる二頂点について辺と非辺を反転したグラフ。"
+  - term: 頂点被覆
+    english: vertex cover
+    meaning: "グラフのどの辺も、その少なくとも一端が含まれる頂点集合。"
+  - term: 帰着の向き
+    english: direction of reduction
+    meaning: "AからBへの帰着はAをBの入力へ変換することを意味し、Bの解法からAの解法を得る向き。"
