@@ -230,7 +230,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$NL=\operatorname{NSPACE}(\log(n+2))$ の空間上界には、整数に切り上げた空間構成可能な関数 $s(n)=\lceil\log_2(n+2)\rceil$ を採用できます。固定定数倍や切上げは $O$ の定義に吸収されるので、Savitch の定理から
+$NL=\operatorname{NSPACE}(\log(n+2))$ の空間上界には、整数に切り上げた空間構成可能な関数 $s(n)=\lceil\log_2(n+2)\rceil$ を採用できます。固定定数倍や切上げは $O$ の定義に吸収されるので、[Savitch の定理](index.md#thm-cplx13-savitch)から
 
 $$
 NL\subseteq\operatorname{DSPACE}(s(n)^2)
@@ -239,7 +239,7 @@ $$
 
 を得ます。右辺は対数の**二乗**空間です。これを対数空間 $L=\operatorname{DSPACE}(\log(n+2))$ に置き換える根拠はありません。
 
-次に $A\in\operatorname{NPSPACE}$ を任意に取ります。ある固定整数 $d\ge1$ について $A\in\operatorname{NSPACE}(n^d)$ です。小さい入力長を含めて $s(n)=(n+2)^d$ と置けば、$s(n)\ge\log_2(n+2)$ かつ空間構成可能です。また $n^d$ の $O$ 空間上界は $(n+2)^d$ の $O$ 空間上界に含まれます。Savitch の定理より
+次に $A\in\operatorname{NPSPACE}$ を任意に取ります。ある固定整数 $d\ge1$ について $A\in\operatorname{NSPACE}(n^d)$ です。小さい入力長を含めて $s(n)=(n+2)^d$ と置けば、$s(n)\ge\log_2(n+2)$ かつ空間構成可能です。また $n^d$ の $O$ 空間上界は $(n+2)^d$ の $O$ 空間上界に含まれます。[Savitch の定理](index.md#thm-cplx13-savitch)より
 
 $$
 A\in\operatorname{DSPACE}((n+2)^{2d})
@@ -307,7 +307,7 @@ $\operatorname{Reach}(u,v,5)$ では、引数 $k$ はどの順に減るか。最
 
 ### A5. 導ける包含・導けない包含
 
-Savitch の定理から次が導けるか、理由を述べよ。(i) $NL\subseteq\operatorname{DSPACE}(\log^2(n+2))$、(ii) $NL=L$、(iii) $\operatorname{NPSPACE}=\operatorname{PSPACE}$。
+[Savitch の定理](index.md#thm-cplx13-savitch)から次が導けるか、理由を述べよ。(i) $NL\subseteq\operatorname{DSPACE}(\log^2(n+2))$、(ii) $NL=L$、(iii) $\operatorname{NPSPACE}=\operatorname{PSPACE}$。
 
 - Level: A
 
