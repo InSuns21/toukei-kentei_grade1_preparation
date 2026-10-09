@@ -1,0 +1,47 @@
+id: "CMP6"
+title: "計算可能性の帰着"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CMP5
+official_scope: []
+learning_objectives:
+  - 多対一帰着の全域計算可能性と肯定例・否定例の同値を定義し、有限言語の具体例で確認できる
+  - 帰着先の決定器・認識器を帰着元の機械へ変換し、決定不能性と認識不能性の対偶の向きを証明できる
+  - 計算可能帰着の反射性・推移性・補集合保存を関数の合成と同値変形から証明できる
+  - 機械と入力を新しい有限機械記述に埋め込む変換が計算可能である理由を説明できる
+  - 受理問題と停止問題を双方向に帰着し、拒否停止・非停止・不正符号を区別できる
+  - 受理言語の非空性問題の認識器と決定不能性をそれぞれ証明できる
+  - 受理言語の空性問題が認識不能で補認識可能な理由を不正機械記述も含めて証明できる
+  - 固定語の受理と受理言語の非空性の間で新しい帰着を設計し、計算量理論での帰着との差を理解できる
+definitions:
+  - { id: CMP6-DEF-01, name: "計算可能な多対一帰着" }
+  - { id: CMP6-DEF-02, name: "受理言語の非空性・空性問題" }
+theorems:
+  - { id: CMP6-THM-01, name: "帰着による決定可能性・認識可能性の移送" }
+  - { id: CMP6-THM-02, name: "受理問題と停止問題の相互帰着" }
+  - { id: CMP6-THM-03, name: "受理言語の非空性・空性の計算可能性" }
+propositions:
+  - { id: CMP6-PROP-01, name: "帰着の反射性・推移性・補集合保存" }
+canonical_examples:
+  - "偶数長の二進文字列を単文字言語へ写す全域帰着"
+  - "空言語から決定不能言語への帰着による向きの反例"
+  - "拒否停止を無限実行へ置き換える受理問題から停止問題への機械変換"
+  - "停止の両方の最終状態を受理へ写す停止問題から受理問題への機械変換"
+  - "受理する入力が一つでもあるかを公平に探索する認識器"
+  - "元の受理有無を空言語と全言語の二択に写す有限表構成"
+problem_patterns:
+  - CMP6-PARITY-REDUCTION-1
+  - CMP6-DIRECTION-1
+  - CMP6-COMPOSITION-1
+  - CMP6-COMPLEMENT-1
+  - CMP6-INVALID-AND-HALT-1
+  - CMP6-ACCEPT-TO-HALT-1
+  - CMP6-HALT-TO-ACCEPT-1
+  - CMP6-NONEMPTY-DOVETAIL-1
+  - CMP6-EMPTY-CO-RECOGNITION-1
+  - CMP6-FIXED-WORD-INTEGRATION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.0, review: 2.5 }
