@@ -31,5 +31,9 @@ chapters:
     title: NP-hard・NP-complete
   - id: CPLX7
     path: textbook/volumes/00_foundations/CPLX7
-    status: planned
+    status: completed
     title: Cook--Levinの定理
+  - id: CPLX8
+    path: textbook/volumes/00_foundations/CPLX8
+    status: planned
+    title: SATから3-SATへの帰着

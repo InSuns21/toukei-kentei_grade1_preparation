@@ -1,0 +1,20 @@
+chapter: "CPLX7"
+terms:
+  - term: 計算表
+    english: computation tableau
+    meaning: "非決定性Turing機械の一つの計算枝について、時刻ごとに文字・ヘッド位置・制御状態を並べた有限の表。"
+  - term: 計算表のBoolean変数
+    english: tableau Boolean variables
+    meaning: "時刻と位置の文字X、ヘッド位置と状態H、選択遷移Zを真偽値で表す変数。"
+  - term: ちょうど一つを選ぶ式
+    english: exactly-one constraint
+    meaning: "少なくとも一つは真という選言節と、二つ同時に真にならないという全ての二文字節を組み合わせた式。"
+  - term: 局所整合性
+    english: local consistency
+    meaning: "隣接時刻のセルが合法な一歩遷移に従い、ヘッドがない位置の文字が保持される条件。"
+  - term: 停止状態の延長
+    english: halting-state padding
+    meaning: "T歩より前に受理・拒否した計算枝について、終端状態を保つ仮想遷移で表の残りを埋める操作。"
+  - term: Cook–Levinの定理
+    english: Cook–Levin theorem
+    meaning: "SATがNPに属し、全てのNP言語からSATへの全域多項式時間many-one帰着が存在するのでSATはNP完全であるという定理。"

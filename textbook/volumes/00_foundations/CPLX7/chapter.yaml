@@ -1,0 +1,45 @@
+id: "CPLX7"
+title: "Cook–Levinの定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CPLX6
+official_scope: []
+learning_objectives:
+  - 一テープ非決定性Turing機械の計算表を入力長と共通時間上界から有限幅に切り取り停止後の延長を説明できる
+  - 計算表の文字・ヘッド状態・遷移選択をBoolean変数で符号化し一意性節を直接検算できる
+  - セル・初期配置・合法遷移・受理の四種類の制約を実際の節へ展開できる
+  - 遷移選択の適合性・書換え・移動・非ヘッド位置の保存が全て必要な理由を反例で説明できる
+  - 受理枝から真の割当てを構成し逆に割当てから合法な受理枝を時刻帰納法で復元できる
+  - 式の変数数・節数・符号長と構成時間が入力長の多項式になることを具体的に評価できる
+  - 任意のNP言語の固定機械からSATへの多項式時間many-one帰着を構成してCook–Levinの定理を証明できる
+  - SATのNP完全性とP=NPの同値に接続し3-SAT完全性は後続で証明することを区別できる
+definitions:
+  - { id: CPLX7-DEF-01, name: "計算表 tableau" }
+  - { id: CPLX7-DEF-02, name: "計算表のBoolean変数" }
+  - { id: CPLX7-DEF-03, name: "ちょうど一つを選ぶ式" }
+  - { id: CPLX7-DEF-04, name: "計算表の論理式" }
+theorems:
+  - { id: CPLX7-THM-01, name: "Cook–Levinの定理" }
+propositions:
+  - { id: CPLX7-LEM-01, name: "計算表符号化の双方向対応" }
+  - { id: CPLX7-PROP-01, name: "Cook–Levin符号化の多項式サイズ" }
+canonical_examples:
+  - "0を1に書き換え右へ受理する一歩の計算表"
+  - "Boolean変数三つのちょうど一つの節と違反割当て"
+  - "ヘッドがいない位置を改変すると保存節に違反する例"
+  - "固定時間2次からの変数数4次・節数6次の評価"
+  - "入力0と1で受理と拒否が分かれる一歩機械の式の充足性"
+problem_patterns:
+  - CPLX7-TABLEAU-WIDTH
+  - CPLX7-EXACTLY-ONE
+  - CPLX7-CLAUSE-EXPANSION
+  - CPLX7-LOCAL-CONSISTENCY
+  - CPLX7-ACCEPT-PADDING
+  - CPLX7-SOUNDNESS-COMPLETENESS
+  - CPLX7-POLYNOMIAL-SIZE
+  - CPLX7-SAT-REDUCTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 5.5, review: 3.0 }
