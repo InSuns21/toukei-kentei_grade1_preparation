@@ -442,6 +442,7 @@
 ### 計算量理論 II：空間・階層・回路・証明障壁
 
 1. [CPLX12 空間計算量](textbook/volumes/00_foundations/CPLX12/index.md)
+2. [CPLX13 Savitch の定理](textbook/volumes/00_foundations/CPLX13/index.md)
 
 <a id="dt-subject-numerical-analysis"></a>
 ### 数値解析

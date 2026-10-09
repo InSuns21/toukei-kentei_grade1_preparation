@@ -1,0 +1,20 @@
+chapter: "CPLX13"
+terms:
+  - term: 長さ制限付き到達可能性
+    english: bounded-length reachability
+    meaning: "二頂点間に2の冪で与えた本数以下の辺からなる有向道が存在するという命題。"
+  - term: 中間点による再帰分割
+    english: midpoint reachability recursion
+    meaning: "長さ高々2^kの道を、ある中間点を介した各2^(k-1)以下の二本の道へ分割する同値変形。"
+  - term: 再帰的到達可能性判定
+    english: recursive reachability algorithm
+    meaning: "中間点を決定的に全列挙し、二つの部分到達可能性を逐次再帰して道の有無を判定する方法。"
+  - term: 空間構成可能
+    english: space-constructible
+    meaning: "長さnの入力に応じた領域上界s(n)をO(s(n))空間で実際に用意できる条件。"
+  - term: Savitch の定理
+    english: Savitch's theorem
+    meaning: "対数空間以上で空間構成可能なsについて、NSPACE(s)をDSPACE(s²)に包含する定理。"
+  - term: NPSPACE
+    english: nondeterministic polynomial space
+    meaning: "ある固定多項式で全計算枝の作業空間を抑えられる非決定性機械の言語クラス。PSPACEと等しい。"
