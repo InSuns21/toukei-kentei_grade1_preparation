@@ -1,0 +1,52 @@
+id: "CPLX10"
+title: "数値問題と弱NP完全性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CPLX9
+official_scope: []
+learning_objectives:
+  - 二進符号長と数値の大きさを区別し擬多項式時間の意味を説明できる
+  - 部分和問題を正の整数の判定言語として定義し証明書を検証できる
+  - 3-CNFの変数桁・節桁・補助数を具体例で構成し桁上がりがないことを示せる
+  - 3-SATからSUBSET SUMへの帰着の両方向と不正入力の処理を証明できる
+  - 出力整数の二進符号長と帰着の計算量に多項式上界を与えられる
+  - 部分和問題の動的計画法を導出し帰納法で正しさを証明できる
+  - SUBSET SUMからPARTITIONへの二数追加帰着と逆方向の補集合を証明できる
+  - SUBSET SUMから0-1 KNAPSACKへの等号帰着を証明できる
+  - 弱NP完全性と強NP困難性の数値制限による違いを条件付きで説明できる
+definitions:
+  - { id: CPLX10-DEF-01, name: "部分和問題 SUBSET SUM" }
+  - { id: CPLX10-DEF-02, name: "3-CNFの桁構成" }
+  - { id: CPLX10-DEF-03, name: "擬多項式時間" }
+  - { id: CPLX10-DEF-04, name: "等分割問題 PARTITION" }
+  - { id: CPLX10-DEF-05, name: "0-1ナップサック判定問題" }
+  - { id: CPLX10-DEF-06, name: "弱NP完全性と強NP困難性" }
+theorems:
+  - { id: CPLX10-THM-01, name: "部分和問題のNP完全性" }
+  - { id: CPLX10-THM-02, name: "等分割問題のNP完全性" }
+  - { id: CPLX10-THM-03, name: "判定版0-1ナップサックのNP完全性" }
+propositions:
+  - { id: CPLX10-PROP-01, name: "部分和問題の動的計画法" }
+canonical_examples:
+  - "部分和のyes/noを部分集合の総和で検査"
+  - "二節二変数の桁構成で101+1010+33=1144を検算"
+  - "充足不能な二単位節から節桁不足を確認"
+  - "動的計画法で0,3,5,8の到達可能和を追跡"
+  - "等分割へ二数を加え片側2Sを構成"
+  - "重さと価値を同じ数にするナップサック帰着"
+problem_patterns:
+  - CPLX10-BINARY-LENGTH
+  - CPLX10-SUBSET-CERTIFICATE
+  - CPLX10-DIGIT-CONSTRUCTION
+  - CPLX10-NO-CARRY
+  - CPLX10-NP-COMPLETENESS
+  - CPLX10-PSEUDOPOLYNOMIAL-DP
+  - CPLX10-PARTITION-REDUCTION
+  - CPLX10-KNAPSACK-REDUCTION
+  - CPLX10-WEAK-STRONG
+  - CPLX10-INTEGRATED-REDUCTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 5.0, review: 3.0 }
