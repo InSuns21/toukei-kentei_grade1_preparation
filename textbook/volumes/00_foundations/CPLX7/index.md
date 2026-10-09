@@ -64,14 +64,14 @@ $$
 <!-- formal-statement-start -->
 > **定義（ちょうど一つを選ぶ式）**  
 > 有限で空でない真偽値変数集合 $S$ に対して、次の命題論理式を定める。
->
-> $$ 
-> E(S)=
-> \left(\bigvee_{u\in S}u\right)
-> \land
-> \left(\bigwedge_{\substack{u,v\in S\\u<v}}(\neg u\lor\neg v)\right).
-> $$
->
+
+$$
+E(S)=
+\left(\bigvee_{u\in S}u\right)
+\land
+\left(\bigwedge_{\substack{u,v\in S\\u<v}}(\neg u\lor\neg v)\right).
+$$
+
 > ここで $u<v$ は $S$ に固定した任意の全順序で重複のない組を列挙する意味である。
 <!-- formal-statement-end -->
 
@@ -209,15 +209,15 @@ $$
 <!-- formal-statement-start -->
 > **定義（計算表の論理式）**  
 > $M,x,T,L$ と上記の有限変数集合に対して、式 $\varphi_{M,x,T}$ を次で定める。
->
-> $$
-> \varphi_{M,x,T}=
-> \varphi_{\mathrm{cell}}\land
-> \varphi_{\mathrm{start}}\land
-> \varphi_{\mathrm{move}}\land
-> \varphi_{\mathrm{accept}}.
-> $$
->
+
+$$
+\varphi_{M,x,T}=
+\varphi_{\mathrm{cell}}\land
+\varphi_{\mathrm{start}}\land
+\varphi_{\mathrm{move}}\land
+\varphi_{\mathrm{accept}}.
+$$
+
 > 全ての含意を連言・選言・否定に置き換え、各有限連言・選言を固定順に展開し、変数を番号付きで符号化したものをSATへの入力とする。
 <!-- formal-statement-end -->
 
@@ -308,11 +308,11 @@ $$
 <!-- formal-statement-start -->
 > **定理（Cook–Levinの定理）**  
 > [CPLX3で定義した二進言語SAT](../CPLX3/index.md#def-cplx3-sat)は $NP$ 完全である。すなわち $\mathrm{SAT}\in NP$ であり、任意の二進言語 $A\in NP$ について、全域・決定性多項式時間計算可能な関数 $f_A$ が存在し、全ての $x\in\{0,1\}^*$ に対し
->
-> $$
-> x\in A\quad\Longleftrightarrow\quad f_A(x)\in\mathrm{SAT}
-> $$
->
+
+$$
+x\in A\quad\Longleftrightarrow\quad f_A(x)\in\mathrm{SAT}
+$$
+
 > が成立する。
 <!-- formal-statement-end -->
 
