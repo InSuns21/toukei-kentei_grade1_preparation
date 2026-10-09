@@ -1,0 +1,68 @@
+chapter: AUT7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AUT6
+concepts:
+  - id: theoretical-computer-science.unrestricted-grammar
+    name: 0型文法
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（0型文法）"]
+    requires: [theoretical-computer-science.context-free-grammar]
+  - id: theoretical-computer-science.noncontracting-grammar
+    name: 1型文法
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（1型文法）"]
+    requires: [theoretical-computer-science.unrestricted-grammar]
+  - id: theoretical-computer-science.grammar-types-two-three
+    name: 2型文法と3型文法
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（2型文法と3型文法）"]
+    requires: [theoretical-computer-science.context-free-grammar, theoretical-computer-science.dfa]
+  - id: theoretical-computer-science.regular-grammar-equivalence
+    name: 3型文法と有限オートマトンの等価性
+    kind: theorem
+    introduction_aliases: ["定理（3型文法と有限オートマトンの等価性）"]
+    requires: [theoretical-computer-science.grammar-types-two-three]
+  - id: theoretical-computer-science.cfg-epsilon-cleanup
+    name: 文脈自由文法の空語規則を整理する
+    kind: lemma
+    introduction_aliases: ["補題（文脈自由文法の空語規則を整理する）"]
+    requires: [theoretical-computer-science.context-free-derivation]
+  - id: theoretical-computer-science.chomsky-hierarchy
+    name: Chomsky階層の包含
+    kind: proposition
+    introduction_aliases: ["命題（Chomsky階層の包含）"]
+    requires:
+      - theoretical-computer-science.noncontracting-grammar
+      - theoretical-computer-science.grammar-types-two-three
+      - theoretical-computer-science.cfg-epsilon-cleanup
+  - id: theoretical-computer-science.triple-count-csg
+    name: 三群の等個数言語を生成する1型文法
+    kind: proposition
+    introduction_aliases: ["命題（三群の等個数言語を生成する1型文法）"]
+    requires: [theoretical-computer-science.noncontracting-grammar, theoretical-computer-science.cfl-pumping]
+  - id: theoretical-computer-science.type1-membership
+    name: 1型文法の所属判定可能性
+    kind: theorem
+    introduction_aliases: ["定理（1型文法の所属判定可能性）"]
+    requires: [theoretical-computer-science.noncontracting-grammar]
+  - id: theoretical-computer-science.type0-search
+    name: 0型文法の導出列挙による認識
+    kind: proposition
+    introduction_aliases: ["命題（0型文法の導出列挙による認識）"]
+    requires: [theoretical-computer-science.unrestricted-grammar]
+  - id: theoretical-computer-science.linear-workspace
+    name: 線形作業領域
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（線形作業領域）"]
+    requires: [theoretical-computer-science.pda-configuration]
+  - id: theoretical-computer-science.triple-marking
+    name: 三群の印付けによる線形領域判定
+    kind: proposition
+    introduction_aliases: ["命題（三群の印付けによる線形領域判定）"]
+    requires: [theoretical-computer-science.linear-workspace]

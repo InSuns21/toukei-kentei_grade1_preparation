@@ -1,0 +1,29 @@
+chapter: "AUT7"
+terms:
+  - term: Chomsky階層
+    english: Chomsky hierarchy
+    meaning: "生成規則の許容範囲から形式言語を0型から3型まで分類する階層。"
+  - term: 0型文法
+    english: unrestricted grammar
+    meaning: "左辺に非終端記号を含む以外は書換えの長さを制限しない文法。"
+  - term: 1型文法
+    english: noncontracting grammar
+    meaning: "原則として書換えで記号数を減らさない文法。空語について開始記号の例外を持つ。"
+  - term: 2型文法
+    english: context-free grammar
+    meaning: "すべての生成規則の左辺が非終端記号一文字である文法。"
+  - term: 3型文法
+    english: right-linear grammar
+    meaning: "A→aB、A→a、A→εの右線形規則だけを持つ文法。"
+  - term: 文脈依存言語
+    english: context-sensitive language
+    meaning: "1型文法で生成できる言語。"
+  - term: 所属判定
+    english: membership decision
+    meaning: "与えられた文法が対象語を生成するかを必ず停止して答えること。"
+  - term: 認識可能性
+    english: recognizability
+    meaning: "所属する入力では受理して停止するが、非所属入力では無限実行を許す性質。"
+  - term: 線形作業領域
+    english: linear workspace
+    meaning: "入力長nに対してcn+d個以下のテープマスを利用する記憶制限。"
