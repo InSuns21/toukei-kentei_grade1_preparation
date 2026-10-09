@@ -1,0 +1,39 @@
+chapter: CPLX8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CPLX7
+concepts:
+  - id: theoretical-computer-science.cnf-clause
+    name: リテラル・節・連言標準形
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（リテラル・節・連言標準形）"]
+    requires: [theoretical-computer-science.sat-language]
+  - id: theoretical-computer-science.three-sat
+    name: 3-CNFと3-SAT
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（3-CNFと3-SAT）"]
+    requires: [theoretical-computer-science.cnf-clause]
+  - id: theoretical-computer-science.equisatisfiable
+    name: 論理的同値と充足可能性同値
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（論理的同値と充足可能性同値）"]
+    requires: [theoretical-computer-science.sat-language]
+  - id: theoretical-computer-science.tseitin-cnf
+    name: 部分式変数によるCNF変換
+    kind: proposition
+    introduction_aliases: ["命題（部分式変数によるCNF変換）"]
+    requires: [theoretical-computer-science.cnf-clause, theoretical-computer-science.equisatisfiable]
+  - id: theoretical-computer-science.three-clause-chain
+    name: 長い節の三文字節分割
+    kind: proposition
+    introduction_aliases: ["命題（長い節の三文字節分割）"]
+    requires: [theoretical-computer-science.cnf-clause, theoretical-computer-science.equisatisfiable, theoretical-computer-science.three-sat]
+  - id: theoretical-computer-science.three-sat-np-complete
+    name: 3-SATのNP完全性
+    kind: theorem
+    introduction_aliases: ["定理（3-SATのNP完全性）"]
+    requires: [theoretical-computer-science.three-sat, theoretical-computer-science.tseitin-cnf, theoretical-computer-science.three-clause-chain, theoretical-computer-science.cook-levin, theoretical-computer-science.poly-reduction-reflexivity-transitivity, theoretical-computer-science.sat-clique-dhc-in-np, theoretical-computer-science.np-complete]
