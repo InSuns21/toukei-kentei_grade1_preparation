@@ -1,13 +1,13 @@
 version: 1
 updated: 2026-10-09
 
-active_series: AUT
+active_series: CMP
 active_plan: textbook/plans_progress/DREAM_THEATER_THEORETICAL_COMPUTER_SCIENCE_P_VS_NP_PLAN.md
-series_manifest: textbook/dream-theater-series/AUT.yaml
+series_manifest: textbook/dream-theater-series/CMP.yaml
 
-completed_through: AUT7
-next_work: null
-after_next: null
+completed_through: CMP1
+next_work: CMP2
+after_next: CMP3
 
 routing:
   chapter_root: textbook/volumes/00_foundations
