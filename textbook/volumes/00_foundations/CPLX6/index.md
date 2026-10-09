@@ -124,7 +124,7 @@ $\mathit{BNA}$ は NP-hard であり、さらに $NP$ に属するという二�
 **定義の確認**：(1) 定理の前半で、証明書を高々 $t\lceil\log_2(d+1)\rceil\le N(N+1)$ ビットに抑えて多項式時間検証器を作ったので $\mathit{BNA}\in NP$。(2) 後半で各 $A\in NP$ に対し $f_A(x)=\langle M_A,x,1^{p_A(|x|)}\rangle$ を作り、全入力で yes/no 同値と多項式時間性を示したので $A\le_p\mathit{BNA}$。従って $\mathit{BNA}$ は NP-complete です。
 <!-- definition-example-end -->
 
-**検証例と完全性の証明を混同しない**ことが重要です。[CPLX3](../CPLX3/index.md#thm-cplx3-examples-in-np)では SAT や CLIQUE が $NP$ に属すると証明しました。しかし、それだけではいずれも NP-complete だとは言えません。SAT へ全 $NP$ の問題を帰着する Cook--Levin の定理は、次章 [CPLX7](../CPLX7/index.md) で扱います。
+**検証例と完全性の証明を混同しない**ことが重要です。[CPLX3](../CPLX3/index.md#thm-cplx3-examples-in-np)では SAT や CLIQUE が $NP$ に属すると証明しました。しかし、それだけではいずれも NP-complete だとは言えません。SAT へ全 $NP$ の問題を帰着する Cook--Levin の定理は、次章 CPLX7 で扱います。
 
 ## 4. 一つの難しい問題から別の問題へ難しさを運ぶ
 
