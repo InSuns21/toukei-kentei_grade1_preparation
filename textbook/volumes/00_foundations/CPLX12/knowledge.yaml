@@ -20,19 +20,19 @@ concepts:
     name: 対数空間クラスL
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（空間計算量クラス $L$・$NL$・$PSPACE$）"]
+    introduction_aliases: ["定義（対数空間クラスL）"]
     requires: [theoretical-computer-science.dspace-nspace]
   - id: theoretical-computer-science.class-nl
     name: 非決定性対数空間クラスNL
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（空間計算量クラス $L$・$NL$・$PSPACE$）"]
+    introduction_aliases: ["定義（非決定性対数空間クラスNL）"]
     requires: [theoretical-computer-science.dspace-nspace]
   - id: theoretical-computer-science.class-pspace
     name: 多項式空間クラスPSPACE
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（空間計算量クラス $L$・$NL$・$PSPACE$）"]
+    introduction_aliases: ["定義（多項式空間クラスPSPACE）"]
     requires: [theoretical-computer-science.dspace-nspace]
   - id: theoretical-computer-science.configuration-graph
     name: 計算配置グラフ
@@ -59,7 +59,7 @@ concepts:
   - id: theoretical-computer-science.stcon-in-nl
     name: 有向到達可能性はNLに属する
     kind: theorem
-    introduction_aliases: ["定理（有向到達可能性は $NL$ に属する）"]
+    introduction_aliases: ["定理（有向到達可能性はNLに属する）"]
     requires: [theoretical-computer-science.stcon, theoretical-computer-science.class-nl]
   - id: theoretical-computer-science.space-time-class-inclusions
     name: 空間・時間クラスの基本的な包含
