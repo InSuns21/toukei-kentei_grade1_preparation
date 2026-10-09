@@ -38,12 +38,18 @@ concepts:
     kind: proposition
     introduction_aliases: ["命題（原始再帰で構成した加算・乗算）"]
     requires: [theoretical-computer-science.primitive-recursive-function]
-  - id: theoretical-computer-science.mu-partial-recursion
-    name: 最小化と部分再帰関数
+  - id: theoretical-computer-science.mu-minimization
+    name: 最小化
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（最小化と部分再帰関数）"]
     requires: [theoretical-computer-science.primitive-recursive-function]
+  - id: theoretical-computer-science.mu-partial-recursion
+    name: 部分再帰関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（最小化と部分再帰関数）"]
+    requires: [theoretical-computer-science.mu-minimization, theoretical-computer-science.primitive-recursive-function]
   - id: theoretical-computer-science.partial-recursive-turing-equivalence
     name: 部分再帰関数とTuring計算可能な部分関数の一致
     kind: theorem
