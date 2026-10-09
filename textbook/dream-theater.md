@@ -433,6 +433,7 @@
 5. [CPLX5 多項式時間 many-one 帰着](textbook/volumes/00_foundations/CPLX5/index.md)
 6. [CPLX6 NP-hard・NP-complete](textbook/volumes/00_foundations/CPLX6/index.md)
 7. [CPLX7 Cook–Levinの定理](textbook/volumes/00_foundations/CPLX7/index.md)
+8. [CPLX8 SATから3-SATへの帰着](textbook/volumes/00_foundations/CPLX8/index.md)
 
 <a id="dt-subject-numerical-analysis"></a>
 ### 数値解析
