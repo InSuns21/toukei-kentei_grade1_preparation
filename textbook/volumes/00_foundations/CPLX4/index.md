@@ -63,7 +63,7 @@ $$
 <!-- proof-start -->
 ### 証明：証明書によるNPから非決定性機械へ
 
-$L\in NP$ と仮定します。[CPLX3の定義](../CPLX3/index.md#def-cplx3-np)により、決定性検証器 $V$ と $p(n)=C(n+1)^d$ があって、
+$L\in NP$ と仮定します。前章の[クラスNPの定義](../CPLX3/index.md#def-cplx3-np)で示した条件から、決定性検証器 $V$ と $p(n)=C(n+1)^d$ があって、
 
 $$
 x\in L\ \Longleftrightarrow\
@@ -315,7 +315,7 @@ $\varphi=p\lor\neg p$ と $\psi=p\land q$ について、各々がSATとTAUTに�
 $\varphi$ は $p=0$ なら $0\lor1=1$、$p=1$ なら $1\lor0=1$ です。全ての割当てで真なのでTAUTに属し、特に真の割当てが存在するのでSATにも属します。$\psi$ は $(p,q)=(1,1)$ なら $1\land1=1$ なのでSATに属します。しかし $(0,1)$ では $0\land1=0$ なのでTAUTに属しません。SATは存在、TAUTは全称の条件です。
 <!-- solution-end -->
 
-### A5. coNPの定義を使う
+### A5. 偶奇言語の補集合を確認する
 
 言語 $E=\{x\in\{0,1\}^*: x\text{ に含まれる1の個数が偶数}\}$ を考える。空文字も含む。$E\in P\cap NP\cap coNP$ を示せ。
 
