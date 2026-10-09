@@ -1,0 +1,55 @@
+chapter: CPLX9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CPLX8
+concepts:
+  - id: theoretical-computer-science.clause-selection-graph
+    name: 3-CNFの節選択グラフ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（3-CNFの節選択グラフ）"]
+    requires: [theoretical-computer-science.three-sat, theoretical-computer-science.clique-language]
+  - id: theoretical-computer-science.three-sat-to-clique
+    name: 3-SATからCLIQUEへの多項式時間帰着
+    kind: theorem
+    introduction_aliases: ["定理（3-SATからCLIQUEへの多項式時間帰着）"]
+    requires: [theoretical-computer-science.clause-selection-graph, theoretical-computer-science.polynomial-many-one-reduction, theoretical-computer-science.three-sat-np-complete]
+  - id: theoretical-computer-science.independent-set
+    name: 独立集合とINDEPENDENT SETの判定言語
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（独立集合とINDEPENDENT SETの判定言語）"]
+    requires: [theoretical-computer-science.clique-language]
+  - id: theoretical-computer-science.graph-complement
+    name: 補グラフ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（補グラフ）"]
+    requires: [theoretical-computer-science.clique-language]
+  - id: theoretical-computer-science.clique-independent-set-duality
+    name: クリークと独立集合の補グラフ対応
+    kind: proposition
+    introduction_aliases: ["命題（クリークと独立集合の補グラフ対応）"]
+    requires: [theoretical-computer-science.independent-set, theoretical-computer-science.graph-complement, theoretical-computer-science.clique-language]
+  - id: theoretical-computer-science.independent-set-completeness
+    name: 独立集合問題のNP完全性
+    kind: theorem
+    introduction_aliases: ["定理（独立集合問題のNP完全性）"]
+    requires: [theoretical-computer-science.clique-independent-set-duality, theoretical-computer-science.three-sat-to-clique, theoretical-computer-science.np-hardness-transfer, theoretical-computer-science.np-complete]
+  - id: theoretical-computer-science.vertex-cover
+    name: 頂点被覆とVERTEX COVERの判定言語
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（頂点被覆とVERTEX COVERの判定言語）"]
+    requires: [theoretical-computer-science.independent-set]
+  - id: theoretical-computer-science.independent-set-vertex-cover-duality
+    name: 独立集合と頂点被覆の補集合対応
+    kind: proposition
+    introduction_aliases: ["命題（独立集合と頂点被覆の補集合対応）"]
+    requires: [theoretical-computer-science.independent-set, theoretical-computer-science.vertex-cover]
+  - id: theoretical-computer-science.vertex-cover-completeness
+    name: 頂点被覆問題のNP完全性
+    kind: theorem
+    introduction_aliases: ["定理（頂点被覆問題のNP完全性）"]
+    requires: [theoretical-computer-science.independent-set-vertex-cover-duality, theoretical-computer-science.independent-set-completeness, theoretical-computer-science.np-hardness-transfer]

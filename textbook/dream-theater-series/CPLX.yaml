@@ -39,5 +39,13 @@ chapters:
     title: SATから3-SATへの帰着
   - id: CPLX9
     path: textbook/volumes/00_foundations/CPLX9
-    status: planned
+    status: completed
     title: グラフ問題への帰着
+  - id: CPLX10
+    path: textbook/volumes/00_foundations/CPLX10
+    status: planned
+    title: 数値問題と弱NP完全性
+  - id: CPLX11
+    path: textbook/volumes/00_foundations/CPLX11
+    status: planned
+    title: P vs NP
