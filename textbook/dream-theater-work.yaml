@@ -5,9 +5,9 @@ active_series: CPLX
 active_plan: textbook/plans_progress/DREAM_THEATER_THEORETICAL_COMPUTER_SCIENCE_P_VS_NP_PLAN.md
 series_manifest: textbook/dream-theater-series/CPLX.yaml
 
-completed_through: CPLX9
-next_work: CPLX10
-after_next: CPLX11
+completed_through: CPLX10
+next_work: CPLX11
+after_next: null
 
 routing:
   chapter_root: textbook/volumes/00_foundations

@@ -1,0 +1,29 @@
+chapter: "CPLX10"
+terms:
+  - term: 部分和問題
+    english: SUBSET SUM
+    meaning: "正の整数列からいくつかを各一度まで選び、その和を指定値と等しくできるかを判定する問題。"
+  - term: 二進符号長
+    english: binary encoding length
+    meaning: "整数を二進で書くために必要なビット数。数値そのものの大きさとは区別する。"
+  - term: 桁構成
+    english: digit construction
+    meaning: "変数の真偽選択と節の充足条件を、桁上がりしない整数の和の各桁へ符号化する帰着。"
+  - term: 擬多項式時間
+    english: pseudo-polynomial time
+    meaning: "二進入力の長さだけでなく数値の大きさも含む多項式で抑えられる実行時間。"
+  - term: 動的計画法
+    english: dynamic programming
+    meaning: "先頭から処理済みの要素と部分和の値を状態とし、前段の結果から次の可否を更新する方法。"
+  - term: 等分割問題
+    english: PARTITION
+    meaning: "正の整数列を二組に分け、各組の総和が等しくなるか判定する問題。"
+  - term: 0-1ナップサック判定問題
+    english: 0-1 KNAPSACK decision problem
+    meaning: "各品物を高々一回選び、総重量は容量以下、総価値は目標以上にできるか判定する問題。"
+  - term: 弱NP完全性
+    english: weak NP-completeness
+    meaning: "二進入力ではNP完全だが単項入力版では多項式時間に判定できる数値問題の性質。"
+  - term: 強NP困難性
+    english: strong NP-hardness
+    meaning: "入力中の数値を入力長の多項式で制限してもNP困難であるという数値問題の性質。"
