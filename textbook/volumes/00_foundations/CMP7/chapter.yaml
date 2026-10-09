@@ -1,0 +1,49 @@
+id: "CMP7"
+title: "Riceの定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CMP6
+official_scope: []
+learning_objectives:
+  - 機械記述の構文的性質と受理言語の意味的性質を、同じ言語を認識する別機械の例で区別できる
+  - Turing認識可能言語の全体に対して非自明な性質を定義し、真偽双方の認識可能言語を証人として挙げられる
+  - 機械と入力から、元の受理を引き金に受理言語が空言語と固定言語の間で切り替わる機械を全域計算可能に構成できる
+  - 空言語が性質を持たない場合のRiceの定理をA_TMからの多対一帰着で証明できる
+  - 空言語が性質を持つ場合のRiceの定理を補集合への帰着で証明し、不正符号を扱える
+  - 非空性・有限性・無限性・固定語包含・全言語性にRiceの定理を適用できる
+  - Riceの定理が適用できない停止性の問いを直接帰着で検証し、構文的性質との違いを説明できる
+  - Riceの定理は決定不能性を与えるが認識不能性を一般には与えないことを具体的な認識器で確かめられる
+  - 一語受理と別語非受理の複合性質について、認識可能性と補認識可能性を別々の帰着で判定できる
+definitions:
+  - { id: CMP7-DEF-01, name: "受理言語の意味的性質" }
+  - { id: CMP7-DEF-02, name: "非自明な意味的性質とその記述言語" }
+theorems:
+  - { id: CMP7-THM-01, name: "Riceの定理" }
+propositions:
+  - { id: CMP7-PROP-01, name: "受理を引き金にする機械の構成" }
+  - { id: CMP7-PROP-02, name: "代表的な受理言語の性質" }
+canonical_examples:
+  - "拒否停止機械と無限実行機械が同じ空言語を認識する例"
+  - "受理言語の非空性と有限性における非自明性の証人"
+  - "入力と機械記述を埋め込む受理言語切替機械"
+  - "空言語が性質に属するかによるRice証明の二場合"
+  - "状態数の偶奇と固定入力での停止性にRiceの定理を適用しない例"
+  - "認識可能だが決定不能な非空性言語"
+  - "一語受理・別語非受理の性質が認識も補認識もできない例"
+problem_patterns:
+  - CMP7-SEMANTIC-VS-OPERATIONAL-1
+  - CMP7-NONTRIVIAL-WITNESSES-1
+  - CMP7-TRIGGER-THREE-CASES-1
+  - CMP7-NONAPPLICABILITY-1
+  - CMP7-RECOGNIZABILITY-1
+  - CMP7-RICE-EMPTY-NO-1
+  - CMP7-RICE-EMPTY-YES-1
+  - CMP7-FIXED-HALT-REDUCTION-1
+  - CMP7-UNIVERSALITY-1
+  - CMP7-SEMANTIC-PROPERTY-BOTH-NONRECOGNIZABLE-1
+  - CMP7-FIXED-INPUT-COMPARISON-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 6.0, review: 3.0 }

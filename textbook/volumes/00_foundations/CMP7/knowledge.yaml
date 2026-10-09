@@ -1,0 +1,33 @@
+chapter: CMP7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CMP6
+concepts:
+  - id: theoretical-computer-science.semantic-language-property
+    name: 受理言語の意味的性質
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（受理言語の意味的性質）"]
+    requires: [theoretical-computer-science.tm-acceptance, theoretical-computer-science.machine-description]
+  - id: theoretical-computer-science.nontrivial-semantic-property
+    name: 非自明な意味的性質とその記述言語
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（非自明な意味的性質とその記述言語）"]
+    requires: [theoretical-computer-science.semantic-language-property]
+  - id: theoretical-computer-science.acceptance-trigger-switch
+    name: 受理を引き金にする機械の構成
+    kind: proposition
+    introduction_aliases: ["命題（受理を引き金にする機械の構成）"]
+    requires: [theoretical-computer-science.acceptance-problem, theoretical-computer-science.universal-simulation, theoretical-computer-science.machine-description]
+  - id: theoretical-computer-science.rice-theorem
+    name: Riceの定理
+    kind: theorem
+    introduction_aliases: ["定理（Riceの定理）"]
+    requires: [theoretical-computer-science.nontrivial-semantic-property, theoretical-computer-science.acceptance-trigger-switch, theoretical-computer-science.computable-many-one-reduction, theoretical-computer-science.acceptance-undecidable]
+  - id: theoretical-computer-science.rice-language-applications
+    name: 代表的な受理言語の性質
+    kind: proposition
+    introduction_aliases: ["命題（代表的な受理言語の性質）"]
+    requires: [theoretical-computer-science.rice-theorem]

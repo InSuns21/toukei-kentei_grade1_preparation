@@ -1,0 +1,17 @@
+chapter: "CMP7"
+terms:
+  - term: 受理言語の意味的性質
+    english: semantic property of recognized languages
+    meaning: "機械の遷移表や停止の仕方でなく、その機械が受理する文字列全体の集合だけで真偽が決まる性質。"
+  - term: 非自明な意味的性質
+    english: nontrivial semantic property
+    meaning: "Turing認識可能言語の中で、性質を持つ言語と持たない言語がいずれも存在する性質。"
+  - term: Riceの定理
+    english: Rice's theorem
+    meaning: "Turing認識可能言語の非自明な意味的性質が与えられると、その性質を持つ機械記述の集合は決定不能になるという定理。"
+  - term: 受理言語の切替機械
+    english: acceptance-triggered language switch
+    meaning: "元の機械が固定入力を受理するか否かで、新機械の受理言語が固定言語または空言語になるよう有限表から構成する機械。"
+  - term: 構文的性質
+    english: syntactic property
+    meaning: "機械記述の状態数や遷移表などの書かれ方で真偽が決まり、受理言語が同一でも異なり得る性質。"

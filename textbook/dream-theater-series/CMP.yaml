@@ -31,7 +31,7 @@ chapters:
     title: 計算可能性の帰着
   - id: CMP7
     path: textbook/volumes/00_foundations/CMP7
-    status: planned
+    status: completed
     title: Riceの定理
   - id: CMP8
     path: textbook/volumes/00_foundations/CMP8

@@ -420,6 +420,7 @@
 4. [CMP4 決定可能・認識可能・列挙可能](textbook/volumes/00_foundations/CMP4/index.md)
 5. [CMP5 停止問題と対角線論法](textbook/volumes/00_foundations/CMP5/index.md)
 6. [CMP6 計算可能性の帰着](textbook/volumes/00_foundations/CMP6/index.md)
+7. [CMP7 Riceの定理](textbook/volumes/00_foundations/CMP7/index.md)
 
 <a id="dt-subject-numerical-analysis"></a>
 ### 数値解析

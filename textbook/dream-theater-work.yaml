@@ -5,9 +5,9 @@ active_series: CMP
 active_plan: textbook/plans_progress/DREAM_THEATER_THEORETICAL_COMPUTER_SCIENCE_P_VS_NP_PLAN.md
 series_manifest: textbook/dream-theater-series/CMP.yaml
 
-completed_through: CMP6
-next_work: CMP7
-after_next: CMP8
+completed_through: CMP7
+next_work: CMP8
+after_next: null
 
 routing:
   chapter_root: textbook/volumes/00_foundations
