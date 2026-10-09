@@ -1,0 +1,20 @@
+chapter: "CMP5"
+terms:
+  - term: 受理問題
+    english: acceptance problem
+    meaning: "機械記述と入力の対に対し、その機械が入力を受理停止するかを問う判定問題。拒否停止と無限実行は否定例となる。"
+  - term: 停止問題
+    english: halting problem
+    meaning: "機械記述と入力の対に対し、その機械が受理または拒否のいずれかで有限時間に停止するかを問う判定問題。"
+  - term: 対角線論法
+    english: diagonal argument
+    meaning: "計算の行と入力の列を対応させ、機械自身の記述を入力した結果を反転させて矛盾を作る証明技法。"
+  - term: 自己入力受理言語
+    english: diagonal acceptance language
+    meaning: "正しい機械記述 m のうち、その機械が文字列 m を受理するものからなる言語。"
+  - term: 認識不能
+    english: not recognizable
+    meaning: "肯定例をすべて有限時間に受理し、否定例では受理しないようなTuring機械が一台も存在しないこと。"
+  - term: 全域計算可能な期限
+    english: total computable time bound
+    meaning: "任意の正しい機械記述と入力から必ず停止して有限の計算期限を返す手続。全停止計算を保証する一律の期限は存在しない。"

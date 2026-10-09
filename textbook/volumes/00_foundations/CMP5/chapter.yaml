@@ -1,0 +1,47 @@
+id: "CMP5"
+title: "停止問題と対角線論法"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CMP4
+official_scope: []
+learning_objectives:
+  - 受理問題と停止問題を機械記述と入力の符号化された言語として定義し、拒否停止と非停止の扱いを区別できる
+  - 万能機械と構文検査から受理問題の認識器を構成し、全入力停止までは得られない理由を説明できる
+  - 架空の受理問題決定器の出力を反転する機械を組み立て、自己記述を入力した二分岐の矛盾から決定不能性を証明できる
+  - 自己入力受理言語の補集合が認識不能であることを認識器自身の記述を用いて示せる
+  - 停止問題の認識器を構成し、停止判定器から受理判定器を組み立てることで決定不能性を証明できる
+  - 全機械入力について正しい計算可能停止期限が存在しないことを有界模擬との関係から証明できる
+  - 決定可能性・認識可能性・補認識可能性の各結論を両側認識定理と整合させて区別できる
+definitions:
+  - { id: CMP5-DEF-01, name: "Turing機械の受理問題" }
+  - { id: CMP5-DEF-02, name: "自己入力受理言語" }
+  - { id: CMP5-DEF-03, name: "Turing機械の停止問題" }
+theorems:
+  - { id: CMP5-THM-01, name: "受理問題の決定不能性" }
+  - { id: CMP5-THM-02, name: "自己入力受理言語の補集合は認識不能" }
+  - { id: CMP5-THM-03, name: "停止問題の認識可能性と決定不能性" }
+propositions:
+  - { id: CMP5-PROP-01, name: "受理問題の認識可能性" }
+  - { id: CMP5-PROP-02, name: "すべての停止計算に有効な計算可能期限はない" }
+canonical_examples:
+  - "全入力受理・全入力拒否・無限実行の三機械による受理問題と停止問題の相違"
+  - "仮の全域受理決定器の二分岐と自身の記述の対角入力"
+  - "自己入力受理言語と補集合に対する直接例"
+  - "拒否停止する機械に対する停止判定器・受理判定器の異なる出力"
+  - "一律の計算可能期限から有限歩の停止判定器を作る"
+problem_patterns:
+  - CMP5-ACCEPT-VS-HALT-1
+  - CMP5-DIAGONAL-TRUTH-TABLE-1
+  - CMP5-BOUNDED-ACCEPTANCE-1
+  - CMP5-HALT-TO-ACCEPT-1
+  - CMP5-SELF-INPUT-1
+  - CMP5-TOTALITY-OF-DIAGONAL-MACHINE-1
+  - CMP5-COMPLEMENT-NONRECOGNITION-1
+  - CMP5-HALTING-CO-RECOGNITION-1
+  - CMP5-UNIFORM-BOUND-1
+  - CMP5-INTEGRATED-UNDECIDABILITY-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 2.0 }
