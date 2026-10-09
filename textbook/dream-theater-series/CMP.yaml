@@ -23,7 +23,7 @@ chapters:
     title: 決定可能・認識可能・列挙可能
   - id: CMP5
     path: textbook/volumes/00_foundations/CMP5
-    status: planned
+    status: completed
     title: 停止問題と対角線論法
   - id: CMP6
     path: textbook/volumes/00_foundations/CMP6
