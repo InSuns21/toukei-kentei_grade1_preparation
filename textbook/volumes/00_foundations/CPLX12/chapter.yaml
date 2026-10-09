@@ -1,0 +1,46 @@
+id: "CPLX12"
+title: "空間計算量"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CPLX11
+official_scope: []
+learning_objectives:
+  - 入力テープと作業テープを分けて空間使用量を測定し対数空間の具体例を構成できる
+  - DSPACE・NSPACEとL・NL・PSPACEを全計算枝の空間上界に注意して定義できる
+  - 計算配置グラフを構成し配置数が2の空間量指数で抑えられることを証明できる
+  - 停止する決定性機械について空間上界から時間上界を導ける
+  - 有向到達可能性STCONがNLに属することを全枝停止・正しさ・空間使用量から証明できる
+  - NLがPに包含される理由を計算配置の列挙と決定的グラフ探索で証明できる
+  - NPがPSPACEに包含されることを証明書列挙と領域再利用から導ける
+  - L・NL・P・NP・PSPACEの包含と未証明の等号を区別できる
+definitions:
+  - { id: CPLX12-DEF-01, name: "空間使用量" }
+  - { id: CPLX12-DEF-02, name: "決定性・非決定性空間クラス" }
+  - { id: CPLX12-DEF-03, name: "空間計算量クラスL・NL・PSPACE" }
+  - { id: CPLX12-DEF-04, name: "計算配置グラフ" }
+  - { id: CPLX12-DEF-05, name: "有向到達可能性STCON" }
+theorems:
+  - { id: CPLX12-THM-01, name: "有向到達可能性はNLに属する" }
+  - { id: CPLX12-THM-02, name: "空間・時間クラスの基本的な包含" }
+propositions:
+  - { id: CPLX12-PROP-01, name: "計算配置の個数" }
+  - { id: CPLX12-PROP-02, name: "決定性空間から得られる時間上界" }
+canonical_examples:
+  - "32文字の入力中の1を数え6ビットの二進カウンタを使う"
+  - "状態3通り・入力ヘッド6位置・作業ヘッド3位置・2^3個の作業内容から432配置を数える"
+  - "4頂点の有向グラフで単純道と閉路を区別する"
+  - "nビットカウンタを2^n回更新する例で線形空間と指数時間を区別する"
+problem_patterns:
+  - CPLX12-WORK-TAPE-SPACE
+  - CPLX12-SPACE-CLASSES
+  - CPLX12-CONFIGURATION-COUNT
+  - CPLX12-SPACE-TIME-BOUND
+  - CPLX12-STCON-NL
+  - CPLX12-NL-IN-P
+  - CPLX12-NP-IN-PSPACE
+  - CPLX12-CLASS-INCLUSIONS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.0, review: 3.0 }
