@@ -29,12 +29,12 @@
 > **命題（中間点による再帰分割）**  
 > 任意の有限有向グラフ $G=(V,E)$、頂点 $u,v\in V$、整数 $k\ge1$ について
 >
-> $$
-> R_G(u,v,k)
-> \iff
-> \exists w\in V:\;
-> R_G(u,w,k-1)\land R_G(w,v,k-1).
-> $$
+$
+R_G(u,v,k)
+\iff
+\exists w\in V:\;
+R_G(u,w,k-1)\land R_G(w,v,k-1).
+$
 >
 > また、$k=0$ では $R_G(u,v,0)$ が真であることは、$u=v$ または $(u,v)\in E$ と同値である。
 <!-- formal-statement-end -->
@@ -159,11 +159,11 @@ $$
 > **定理（Savitch の定理）**  
 > $s:\mathbb N\to\mathbb N$ が空間構成可能で、すべての $n\ge0$ について $s(n)\ge\lceil\log_2(n+2)\rceil$ を満たすとする。このとき、読み取り専用入力・固定本数の作業テープを持つ標準的なTuring機械による言語クラスについて
 >
-> $$
-> \operatorname{NSPACE}(s(n))
-> \subseteq
-> \operatorname{DSPACE}(s(n)^2)
-> $$
+$
+\operatorname{NSPACE}(s(n))
+\subseteq
+\operatorname{DSPACE}(s(n)^2)
+$
 >
 > が成り立つ。左辺の非決定性機械の全計算枝には空間上界を課し、受理枝が存在すればその言語の要素とする。非受理枝が停止しない場合も許す。
 <!-- formal-statement-end -->
@@ -220,9 +220,9 @@ $$
 > **定理（Savitch の定理の帰結）**  
 > $NL\subseteq\operatorname{DSPACE}(\log^2(n+2))$ であり、
 >
-> $$
-> \operatorname{NPSPACE}=\operatorname{PSPACE},
-> $$
+$
+\operatorname{NPSPACE}=\operatorname{PSPACE},
+$
 >
 > が成り立つ。ここで $\operatorname{NPSPACE}=\bigcup_{d\ge1}\operatorname{NSPACE}(n^d)$ とする。$NL=L$ はこの結論からは従わない。
 <!-- formal-statement-end -->
@@ -281,7 +281,7 @@ $2^0=1$ なので、長さ0または1の道だけを調べます。$p=p$ の長�
 $a$ から $d$ へは3辺が必要です。$2^1=2<3$ なので $R_G(a,d,1)$ は偽です。一方 $2^2=4\ge3$ なので $R_G(a,d,2)$ は真です。$w=c$ とすると、$a\to b\to c$ は2辺で $R_G(a,c,1)$ が真、$c\to d$ は1辺で $R_G(c,d,1)$ も真です。二本をつなぐと $a\to b\to c\to d$ が得られます。
 <!-- solution-end -->
 
-### A3. 符号長と到達上限
+### A3. 符号長と道の長さ
 
 ちょうど7頂点を持つ有限有向グラフの頂点を区別して二進符号化するとき、必要な最低ビット数 $b$ を求めよ。異なる二頂点間に道があれば、その道を高々何辺に短縮できるか示し、$\operatorname{Reach}(u,v,b)$ で十分な理由を説明せよ。
 
