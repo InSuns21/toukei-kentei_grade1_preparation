@@ -429,6 +429,7 @@
 1. [CPLX1 入力サイズ・時間計算量・空間計算量](textbook/volumes/00_foundations/CPLX1/index.md)
 2. [CPLX2 クラスP](textbook/volumes/00_foundations/CPLX2/index.md)
 3. [CPLX3 クラスNP：証明書と検証](textbook/volumes/00_foundations/CPLX3/index.md)
+4. [CPLX4 非決定性Turing機械とNP](textbook/volumes/00_foundations/CPLX4/index.md)
 
 <a id="dt-subject-numerical-analysis"></a>
 ### 数値解析
