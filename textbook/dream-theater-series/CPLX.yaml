@@ -9,3 +9,11 @@ chapters:
     path: textbook/volumes/00_foundations/CPLX1
     status: completed
     title: 入力サイズ・時間計算量・空間計算量
+  - id: CPLX2
+    path: textbook/volumes/00_foundations/CPLX2
+    status: planned
+    title: クラスP
+  - id: CPLX3
+    path: textbook/volumes/00_foundations/CPLX3
+    status: planned
+    title: クラスNP：証明書と検証

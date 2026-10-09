@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - CMP8
+  - F0-00A1D
 concepts:
   - id: theoretical-computer-science.input-length
     name: 入力長
@@ -25,7 +26,7 @@ concepts:
     name: 漸近記法
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（漸近記法 O, Ω, Θ）"]
+    introduction_aliases: ["定義（漸近記法）"]
     requires: []
   - id: theoretical-computer-science.polynomial-time-machine
     name: 多項式時間の機械

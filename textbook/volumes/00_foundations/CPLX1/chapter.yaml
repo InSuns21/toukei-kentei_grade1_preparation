@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - CMP8
+  - F0-00A1D
 official_scope: []
 learning_objectives:
   - 入力長と整数値を区別し単項・二進符号化のサイズを導出できる
