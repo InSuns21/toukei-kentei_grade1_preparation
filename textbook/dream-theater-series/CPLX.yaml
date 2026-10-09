@@ -55,7 +55,7 @@ chapters:
     title: 空間計算量
   - id: CPLX13
     path: textbook/volumes/00_foundations/CPLX13
-    status: planned
+    status: completed
     title: Savitch の定理
   - id: CPLX14
     path: textbook/volumes/00_foundations/CPLX14

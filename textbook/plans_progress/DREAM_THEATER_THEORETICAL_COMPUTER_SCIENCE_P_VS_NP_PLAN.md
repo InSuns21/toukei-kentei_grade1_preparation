@@ -1156,3 +1156,4 @@ plan 作成時点では textbook/dream-theater-index.json と textbook/dream-the
 - 2026-10-10: CPLX7「Cook–Levinの定理」を実装。有限幅の計算表、Boolean変数X/H/Z、セル・初期配置・一歩遷移・受理の四制約、受理枝と真の割当ての双方向構成、節数・出力時間の多項式評価、SATのNP完全性の証明を記載。演習A5/B4/C1と詳細解答を執筆し、章・索引・series・work-stateをCPLX8への進行に同期。
 
 - 2026-10-10: Phase 4 に着手。CPLX12「空間計算量」を追加し、読み取り専用入力と作業テープの分離、L・NL・PSPACE、計算配置数と時間上界、STCONのNL所属、NL⊆P・NP⊆PSPACEの完全証明、演習A5/B4/C1の詳細解答を実装。CPLX13「Savitchの定理」へ進行。
+- 2026-10-10: CPLX13「Savitch の定理」を実装。中間点再帰の両方向・停止性・再帰スタック上界・空間構成可能性・NSPACE(s)⊆DSPACE(s²)・NPSPACE=PSPACEを証明し、A5/B4/C1全10題の詳細解答を追加。CPLX14へ進行。

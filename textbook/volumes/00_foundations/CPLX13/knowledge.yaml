@@ -1,0 +1,49 @@
+chapter: CPLX13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CPLX12
+concepts:
+  - id: theoretical-computer-science.bounded-length-reachability
+    name: 長さ制限付き到達可能性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（長さ制限付き到達可能性）"]
+    requires: [theoretical-computer-science.configuration-graph]
+  - id: theoretical-computer-science.midpoint-reachability
+    name: 中間点による再帰分割
+    kind: proposition
+    introduction_aliases: ["命題（中間点による再帰分割）"]
+    requires: [theoretical-computer-science.bounded-length-reachability]
+  - id: theoretical-computer-science.recursive-reachability
+    name: 再帰的到達可能性判定
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（再帰的到達可能性判定）"]
+    requires: [theoretical-computer-science.midpoint-reachability]
+  - id: theoretical-computer-science.recursive-reach-correctness
+    name: 再帰的到達可能性判定の正しさ
+    kind: theorem
+    introduction_aliases: ["定理（再帰的到達可能性判定の正しさ）"]
+    requires: [theoretical-computer-science.recursive-reachability, theoretical-computer-science.midpoint-reachability]
+  - id: theoretical-computer-science.recursive-reach-space
+    name: 再帰探索の空間上界
+    kind: proposition
+    introduction_aliases: ["命題（再帰探索の空間上界）"]
+    requires: [theoretical-computer-science.recursive-reachability, theoretical-computer-science.work-space-usage]
+  - id: theoretical-computer-science.space-constructible
+    name: 空間構成可能な上界
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（空間構成可能な上界）"]
+    requires: [theoretical-computer-science.work-space-usage]
+  - id: theoretical-computer-science.savitch-theorem
+    name: Savitch の定理
+    kind: theorem
+    introduction_aliases: ["定理（Savitch の定理）"]
+    requires: [theoretical-computer-science.space-constructible, theoretical-computer-science.configuration-count, theoretical-computer-science.recursive-reach-correctness, theoretical-computer-science.recursive-reach-space, theoretical-computer-science.dspace-nspace]
+  - id: theoretical-computer-science.savitch-corollaries
+    name: Savitch の定理の帰結
+    kind: theorem
+    introduction_aliases: ["定理（Savitch の定理の帰結）"]
+    requires: [theoretical-computer-science.savitch-theorem, theoretical-computer-science.class-nl, theoretical-computer-science.class-pspace]

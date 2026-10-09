@@ -1,0 +1,43 @@
+id: "CPLX13"
+title: "Savitch の定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CPLX12
+official_scope: []
+learning_objectives:
+  - 道長2の冪の到達可能性を定義し中間点による再帰同値を両方向で証明できる
+  - 決定的な中間点列挙アルゴリズムの停止性と健全性・完全性を帰納法で証明できる
+  - 再帰一段の保存情報と再帰深さを数えO(log² N)の空間上界を導ける
+  - 空間構成可能性と対数空間以上という仮定の働きを説明できる
+  - 配置をO(s)ビットで符号化し非停止枝を許す非決定性機械を決定的に模倣できる
+  - Savitchの定理NSPACE(s)⊆DSPACE(s²)を中間計算つきで証明できる
+  - NLの二乗対数空間包含とNPSPACE=PSPACEを証明しL=NLを主張しない
+definitions:
+  - { id: CPLX13-DEF-01, name: "長さ制限付き到達可能性" }
+  - { id: CPLX13-DEF-02, name: "再帰的到達可能性判定" }
+  - { id: CPLX13-DEF-03, name: "空間構成可能な上界" }
+theorems:
+  - { id: CPLX13-THM-01, name: "再帰的到達可能性判定の正しさ" }
+  - { id: CPLX13-THM-02, name: "Savitchの定理" }
+  - { id: CPLX13-THM-03, name: "Savitchの定理の帰結" }
+propositions:
+  - { id: CPLX13-PROP-01, name: "中間点による再帰分割" }
+  - { id: CPLX13-PROP-02, name: "再帰探索の空間上界" }
+canonical_examples:
+  - "4頂点の道a→b→c→dでk=1は偽、k=2は真を確認"
+  - "7頂点のグラフでb=3と単純道長6を確認"
+  - "5ビット符号の再帰深さ6段と30Cビットの上界"
+  - "非受理無限ループと有限受理枝が共存する配置グラフ"
+problem_patterns:
+  - CPLX13-BOUNDED-REACH
+  - CPLX13-MIDPOINT-INDUCTION
+  - CPLX13-RECURSIVE-ALGORITHM
+  - CPLX13-RECURSION-STACK
+  - CPLX13-SPACE-CONSTRUCTIBILITY
+  - CPLX13-CONFIGURATION-SIMULATION
+  - CPLX13-CLASS-COROLLARIES
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.0, review: 3.0 }
