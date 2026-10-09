@@ -31,5 +31,5 @@ chapters:
     title: NP-hard・NP-complete
   - id: CPLX7
     path: textbook/volumes/00_foundations/CPLX7
-    status: planned
+    status: completed
     title: Cook--Levinの定理
