@@ -236,7 +236,7 @@ $$
 z\in\mathit{BNA}\iff0z\in H.
 $$
 
-$f$ は入力の先頭に一ビット加えるだけなので全域・$O(|z|+1)$ 時間で計算でき、$\mathit{BNA}\le_p H$ です。$\mathit{BNA}$ は NP-hard だから前節の移送命題より $H$ も NP-hard。
+$f$ は入力の先頭に一ビット加えるだけなので全域・$O(|z|+1)$ 時間で計算でき、$\mathit{BNA}\le_p H$ です。$\mathit{BNA}$ は NP-hard だから[前節の移送命題](index.md#prop-cplx6-hardness-transfer)より $H$ も NP-hard。
 
 もし $H$ が決定可能なら、任意の $z$ に対し $1z$ が $H$ に属するかをその決定器で調べられます。$1z$ は先頭が $1$ なので第1の部分集合には入れず、
 
