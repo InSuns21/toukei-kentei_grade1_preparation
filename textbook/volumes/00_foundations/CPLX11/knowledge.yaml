@@ -1,0 +1,44 @@
+chapter: CPLX11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CPLX10
+concepts:
+  - id: theoretical-computer-science.p-vs-np-question
+    name: P vs NPの問い
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（P vs NP の問い）"]
+    requires: [theoretical-computer-science.class-p, theoretical-computer-science.class-np, theoretical-computer-science.p-in-np]
+  - id: theoretical-computer-science.pnp-sat-equivalences
+    name: P vs NPとSAT・3-SATの同値な問い
+    kind: proposition
+    introduction_aliases: ["命題（P vs NPとSAT・3-SATの同値な問い）"]
+    requires: [theoretical-computer-science.p-vs-np-question, theoretical-computer-science.cook-levin, theoretical-computer-science.three-sat-np-complete, theoretical-computer-science.npcomplete-pnp-equivalence]
+  - id: theoretical-computer-science.pnp-separation-criterion
+    name: SATによる分離条件
+    kind: proposition
+    introduction_aliases: ["命題（SATによる分離条件）"]
+    requires: [theoretical-computer-science.pnp-sat-equivalences]
+  - id: theoretical-computer-science.cnf-variable-restriction
+    name: CNFの変数制限
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（CNFの変数制限）"]
+    requires: [theoretical-computer-science.cnf-clause]
+  - id: theoretical-computer-science.sat-search-decision-equivalence
+    name: SATの判定と充足割当て探索
+    kind: theorem
+    introduction_aliases: ["定理（SATの判定と充足割当て探索）"]
+    requires: [theoretical-computer-science.cnf-variable-restriction, theoretical-computer-science.sat-language, theoretical-computer-science.tseitin-cnf]
+  - id: theoretical-computer-science.np-prefix-extension
+    name: 証明書の接頭辞延長言語
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（証明書の接頭辞延長言語）"]
+    requires: [theoretical-computer-science.class-np, theoretical-computer-science.polynomial-verifier, theoretical-computer-science.polynomial-certificate]
+  - id: theoretical-computer-science.np-witness-extraction
+    name: P=NPならNP証明書を多項式時間で構成できる
+    kind: proposition
+    introduction_aliases: ["命題（P=NPならNP証明書を多項式時間で構成できる）"]
+    requires: [theoretical-computer-science.np-prefix-extension, theoretical-computer-science.p-vs-np-question]
