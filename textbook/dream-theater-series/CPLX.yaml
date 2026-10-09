@@ -35,5 +35,9 @@ chapters:
     title: Cook--Levinの定理
   - id: CPLX8
     path: textbook/volumes/00_foundations/CPLX8
-    status: planned
+    status: completed
     title: SATから3-SATへの帰着
+  - id: CPLX9
+    path: textbook/volumes/00_foundations/CPLX9
+    status: planned
+    title: グラフ問題への帰着
