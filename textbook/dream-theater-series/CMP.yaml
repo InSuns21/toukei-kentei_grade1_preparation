@@ -11,7 +11,7 @@ chapters:
     title: Turing機械
   - id: CMP2
     path: textbook/volumes/00_foundations/CMP2
-    status: planned
+    status: completed
     title: 計算モデルの頑健性
   - id: CMP3
     path: textbook/volumes/00_foundations/CMP3
