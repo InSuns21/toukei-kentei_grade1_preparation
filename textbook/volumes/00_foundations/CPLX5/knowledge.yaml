@@ -16,14 +16,14 @@ concepts:
     introduction_aliases: ["定理（多項式時間決定可能性の帰着元への移送）"]
     requires: [theoretical-computer-science.polynomial-many-one-reduction, theoretical-computer-science.class-p]
   - id: theoretical-computer-science.poly-reduction-reflexivity-transitivity
-    name: 反射性と推移性
+    name: 多項式時間帰着の反射性と推移性
     kind: proposition
-    introduction_aliases: ["命題（反射性と推移性）"]
+    introduction_aliases: ["命題（多項式時間帰着の反射性と推移性）"]
     requires: [theoretical-computer-science.polynomial-many-one-reduction]
   - id: theoretical-computer-science.poly-reduction-complement
-    name: 補集合の保存
+    name: 多項式時間帰着における補集合の保存
     kind: proposition
-    introduction_aliases: ["命題（補集合の保存）"]
+    introduction_aliases: ["命題（多項式時間帰着における補集合の保存）"]
     requires: [theoretical-computer-science.polynomial-many-one-reduction]
   - id: theoretical-computer-science.np-reduction-transfer
     name: NP所属の帰着元への移送
