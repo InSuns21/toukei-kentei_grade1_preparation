@@ -12,19 +12,20 @@ concepts:
     introduction_aliases: ["定義（固定点の安定性と吸引性）"]
     requires: [dynamical-systems.interval-map]
 
-  - id: dynamical-systems.discrete-asymptotic-stability
-    name: 離散時間の漸近安定
-    kind: definition
-    introduction: formal
-    introduction_aliases: ["定義（固定点の安定性と吸引性）"]
-    requires: [dynamical-systems.fixed-point-stability, dynamical-systems.local-attraction]
-
   - id: dynamical-systems.local-attraction
     name: 局所吸引的
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（固定点の安定性と吸引性）"]
     requires: [dynamical-systems.interval-map, dynamical-systems.limit-fixed]
+
+
+  - id: dynamical-systems.discrete-asymptotic-stability
+    name: 離散時間の漸近安定
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固定点の安定性と吸引性）"]
+    requires: [dynamical-systems.fixed-point-stability, dynamical-systems.local-attraction]
 
   - id: dynamical-systems.fixed-point-multiplier
     name: 固定点の乗数
