@@ -31,7 +31,7 @@ chapters:
     title: de Bruijnグラフと前像
   - id: CELL7
     path: textbook/volumes/00_foundations/CELL7
-    status: planned
+    status: completed
     title: シフト空間・円筒集合・配置の近さ
   - id: CELL8
     path: textbook/volumes/00_foundations/CELL8

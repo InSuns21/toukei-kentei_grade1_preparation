@@ -5,9 +5,9 @@ active_series: CELL
 active_plan: textbook/plans_progress/DREAM_THEATER_CELLULAR_AUTOMATA_SEMESTER_PLAN.md
 series_manifest: textbook/dream-theater-series/CELL.yaml
 
-completed_through: CELL6
-next_work: CELL7
-after_next: CELL8
+completed_through: CELL7
+next_work: CELL8
+after_next: CELL9
 
 routing:
   chapter_root: textbook/volumes/00_foundations

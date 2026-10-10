@@ -1,0 +1,78 @@
+chapter: CELL7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CELL6
+  - F0-00B0
+
+concepts:
+  - id: cellular-automata.full-shift
+    name: 全シフト空間とシフト写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（全シフト空間とシフト写像）"]
+    requires: [cellular-automata.global-update]
+  - id: cellular-automata.cylinder
+    name: 円筒集合と中央一致窓
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（円筒集合と中央一致窓）"]
+    requires: [cellular-automata.full-shift]
+  - id: cellular-automata.cylinder-neighborhood
+    name: 円筒集合と中央一致窓の対応
+    kind: proposition
+    introduction_aliases: ["命題（円筒集合と中央一致窓の対応）"]
+    requires: [cellular-automata.cylinder]
+  - id: cellular-automata.centered-metric
+    name: 中央一致距離
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（中央一致距離）"]
+    requires: [cellular-automata.cylinder]
+  - id: cellular-automata.ultrametric
+    name: 中央一致距離の強い三角不等式
+    kind: theorem
+    introduction_aliases: ["定理（中央一致距離の強い三角不等式）"]
+    requires: [cellular-automata.centered-metric]
+  - id: cellular-automata.window-balls
+    name: 開球と中央一致窓
+    kind: proposition
+    introduction_aliases: ["命題（開球と中央一致窓）"]
+    requires: [cellular-automata.centered-metric]
+  - id: cellular-automata.configuration-convergence
+    name: 配置列の収束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（配置列の収束）"]
+    requires: [cellular-automata.centered-metric]
+  - id: cellular-automata.window-convergence
+    name: 収束と有限窓の最終的一致
+    kind: theorem
+    introduction_aliases: ["定理（収束と有限窓の最終的一致）"]
+    requires: [cellular-automata.configuration-convergence, cellular-automata.window-balls]
+  - id: cellular-automata.continuity
+    name: 配置空間上の連続写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（配置空間上の連続写像）"]
+    requires: [cellular-automata.centered-metric]
+  - id: cellular-automata.continuity-windows
+    name: 連続性の有限窓判定
+    kind: proposition
+    introduction_aliases: ["命題（連続性の有限窓判定）"]
+    requires: [cellular-automata.continuity, cellular-automata.window-balls]
+  - id: cellular-automata.ca-continuity
+    name: シフトと有限半径CAの連続性
+    kind: proposition
+    introduction_aliases: ["命題（シフトと有限半径CAの連続性）"]
+    requires: [cellular-automata.continuity-windows, cellular-automata.full-shift, cellular-automata.global-update]
+  - id: cellular-automata.sequential-compactness
+    name: 有限状態全シフトの列コンパクト性
+    kind: theorem
+    introduction_aliases: ["定理（有限状態全シフトの列コンパクト性）"]
+    requires: [cellular-automata.window-convergence, cellular-automata.cylinder]
+  - id: cellular-automata.finite-subcover
+    name: 円筒被覆の有限部分被覆
+    kind: theorem
+    introduction_aliases: ["定理（円筒被覆の有限部分被覆）"]
+    requires: [cellular-automata.sequential-compactness, cellular-automata.cylinder-neighborhood]
