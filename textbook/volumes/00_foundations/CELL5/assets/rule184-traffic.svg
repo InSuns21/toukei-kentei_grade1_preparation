@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 436 295" role="img" aria-labelledby="title desc" data-layout-lint="strict">
+<title id="title">Rule 184・5セル周期環の5歩</title>
+<desc id="desc">時刻0の11010、時刻1の10101、時刻2の01011、時刻3の10110、時刻4の01101、時刻5の11010を6行に並べた図。黒塗りの円が車のあるセル、白抜きの円が空所。各行の輪郭が順に強調されるが、アニメが動かなくても全行を読める。</desc>
+<style>
+.time,.pos{font:600 15px system-ui,sans-serif;fill:#27384a}
+.occupied{fill:#245d88;stroke:#122b42;stroke-width:2}
+.vacant{fill:#fff;stroke:#687c8b;stroke-width:2}
+.scan{fill:#dfeefa;fill-opacity:.14;stroke:#678ca8;stroke-width:1;stroke-dasharray:3 5;stroke-opacity:.5}
+@media(prefers-reduced-motion:no-preference){
+.scan{animation:scan 6s ease-in-out infinite}
+}
+@keyframes scan{0%,13%{fill-opacity:.72;stroke-opacity:1}16%,100%{fill-opacity:.07;stroke-opacity:.22}}
+</style>
+<text x="125" y="23" text-anchor="middle" class="pos">0</text>
+<text x="183" y="23" text-anchor="middle" class="pos">1</text>
+<text x="241" y="23" text-anchor="middle" class="pos">2</text>
+<text x="299" y="23" text-anchor="middle" class="pos">3</text>
+<text x="357" y="23" text-anchor="middle" class="pos">4</text>
+<text x="23" y="58" class="time">t=0</text>
+<rect x="94" y="35" width="300" height="36" rx="7" class="scan" style="animation-delay:0s"/>
+<circle cx="125" cy="53" r="13" class="occupied"/>
+<circle cx="183" cy="53" r="13" class="occupied"/>
+<circle cx="241" cy="53" r="13" class="vacant"/>
+<circle cx="299" cy="53" r="13" class="occupied"/>
+<circle cx="357" cy="53" r="13" class="vacant"/>
+<text x="23" y="101" class="time">t=1</text>
+<rect x="94" y="78" width="300" height="36" rx="7" class="scan" style="animation-delay:1s"/>
+<circle cx="125" cy="96" r="13" class="occupied"/>
+<circle cx="183" cy="96" r="13" class="vacant"/>
+<circle cx="241" cy="96" r="13" class="occupied"/>
+<circle cx="299" cy="96" r="13" class="vacant"/>
+<circle cx="357" cy="96" r="13" class="occupied"/>
+<text x="23" y="144" class="time">t=2</text>
+<rect x="94" y="121" width="300" height="36" rx="7" class="scan" style="animation-delay:2s"/>
+<circle cx="125" cy="139" r="13" class="vacant"/>
+<circle cx="183" cy="139" r="13" class="occupied"/>
+<circle cx="241" cy="139" r="13" class="vacant"/>
+<circle cx="299" cy="139" r="13" class="occupied"/>
+<circle cx="357" cy="139" r="13" class="occupied"/>
+<text x="23" y="187" class="time">t=3</text>
+<rect x="94" y="164" width="300" height="36" rx="7" class="scan" style="animation-delay:3s"/>
+<circle cx="125" cy="182" r="13" class="occupied"/>
+<circle cx="183" cy="182" r="13" class="vacant"/>
+<circle cx="241" cy="182" r="13" class="occupied"/>
+<circle cx="299" cy="182" r="13" class="occupied"/>
+<circle cx="357" cy="182" r="13" class="vacant"/>
+<text x="23" y="230" class="time">t=4</text>
+<rect x="94" y="207" width="300" height="36" rx="7" class="scan" style="animation-delay:4s"/>
+<circle cx="125" cy="225" r="13" class="vacant"/>
+<circle cx="183" cy="225" r="13" class="occupied"/>
+<circle cx="241" cy="225" r="13" class="occupied"/>
+<circle cx="299" cy="225" r="13" class="vacant"/>
+<circle cx="357" cy="225" r="13" class="occupied"/>
+<text x="23" y="273" class="time">t=5</text>
+<rect x="94" y="250" width="300" height="36" rx="7" class="scan" style="animation-delay:5s"/>
+<circle cx="125" cy="268" r="13" class="occupied"/>
+<circle cx="183" cy="268" r="13" class="occupied"/>
+<circle cx="241" cy="268" r="13" class="vacant"/>
+<circle cx="299" cy="268" r="13" class="occupied"/>
+<circle cx="357" cy="268" r="13" class="vacant"/>
+</svg>
