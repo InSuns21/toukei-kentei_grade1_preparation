@@ -1,0 +1,29 @@
+chapter: "CELL7"
+terms:
+  - term: 全シフト空間
+    english: full shift
+    meaning: "有限状態集合Qの値をすべての整数位置へ自由に割り当てた配置全体Q^Z。隣接する文字への禁止条件を設けない。"
+  - term: シフト写像
+    english: shift map
+    meaning: "各配置を整数位置で平行移動する写像。本章では(σx)_i=x_{i+1}。"
+  - term: 円筒集合
+    english: cylinder set
+    meaning: "有限個の指定された座標に決められた状態を持つ全配置の集合。"
+  - term: 中央一致窓
+    english: centered agreement window
+    meaning: "与えた配置と区間[-n,n]の各位置で一致する配置の集合W_n(x)。"
+  - term: 中央一致距離
+    english: centered agreement metric
+    meaning: "二配置が異なる場合、原点から最初の相違位置までの距離Rを使い2^{-R}とした距離。"
+  - term: 強い三角不等式
+    english: ultrametric inequality
+    meaning: "三点の距離が d(x,z) ≤ max{d(x,y),d(y,z)} を満たす性質。"
+  - term: 連続写像
+    english: continuous map
+    meaning: "各入力で十分小さい距離の違いが、指定された出力距離より小さくなるよう制御できる写像。"
+  - term: 列コンパクト性
+    english: sequential compactness
+    meaning: "どの無限配置列からも収束する部分列を取り出せる性質。有限状態全シフトでは対角部分列から示せる。"
+  - term: 有限部分被覆
+    english: finite subcover
+    meaning: "集合全体を覆う集合族のうち、有限個だけを選んでも集合全体が覆われること。"
