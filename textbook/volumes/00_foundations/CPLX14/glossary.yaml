@@ -1,0 +1,29 @@
+chapter: "CPLX14"
+terms:
+  - term: 量化Boolean論理式
+    english: quantified Boolean formula
+    meaning: "Boolean変数、論理結合子、存在量化子と全称量化子から作る有限論理式。変数の値域は0と1。"
+  - term: 自由変数
+    english: free variable
+    meaning: "式の中で対応する量化子によって束縛されていない変数。"
+  - term: TQBF
+    english: true quantified Boolean formula
+    meaning: "自由変数を含まない量化Boolean論理式のうち真である式の符号からなる判定言語。"
+  - term: 量化子と選択ゲーム
+    english: quantified Boolean game
+    meaning: "存在量化を一方の選手、全称量化を相手の選手の値選択と解釈するゲーム。"
+  - term: PSPACE完全
+    english: PSPACE-complete
+    meaning: "PSPACEに属し、PSPACEの任意の言語が多項式時間many-one帰着できる判定言語の性質。"
+  - term: PSPACE困難
+    english: PSPACE-hard
+    meaning: "PSPACEの任意の言語から多項式時間many-one帰着を受ける性質。自分自身のPSPACE所属は要求しない。"
+  - term: 共有された部分式による到達可能性式
+    english: succinct reachability QBF
+    meaning: "中間点の存在量化と区間選択の全称量化で、二本の部分道を同一部分式一個で検査する符号化。"
+  - term: 前束形
+    english: prenex normal form
+    meaning: "量化子を先頭に順に並べ、後続の行列部分に量化子を含まない論理式の形。"
+  - term: 交代計算
+    english: alternating computation
+    meaning: "存在枝ではどれか一つ、全称枝ではすべての枝の受理を要求する計算の考え方。"
