@@ -1,0 +1,32 @@
+chapter: "CELL3"
+terms:
+  - term: 周期有限環
+    english: periodic ring
+    meaning: "N個のセルを円環状に配置し、位置の添字をNを法として読む有限の更新系。"
+  - term: 前方軌道
+    english: forward orbit
+    meaning: "一つの初期状態から決定的な写像を0回、1回、2回と反復して得られる状態の列。"
+  - term: 固定点
+    english: fixed point
+    meaning: "一回の更新で状態が変わらない点。"
+  - term: 周期点
+    english: periodic point
+    meaning: "正整数回の更新後に元の状態へ戻る点。"
+  - term: 過渡長
+    english: transient length
+    meaning: "前周期的な軌道で、周期的な振る舞いが始まるまでの最小非負整数時刻。"
+  - term: 最終周期
+    english: eventual period
+    meaning: "過渡が終わった後、軌道が最初に戻るまでの最小正整数ステップ数。"
+  - term: 状態遷移有向グラフ
+    english: state transition digraph
+    meaning: "各状態から一回後の状態へちょうど一本の有向辺を引いたグラフ。"
+  - term: 一歩前像
+    english: one-step preimage
+    meaning: "指定した状態へ一回の更新で写る元の状態の集合。"
+  - term: 入次数
+    english: in-degree
+    meaning: "状態遷移グラフで指定した頂点へ入る有向辺の本数。"
+  - term: 弱連結成分
+    english: weakly connected component
+    meaning: "矢印の向きを無視して有限本の辺で行き来できる頂点の集まり。"

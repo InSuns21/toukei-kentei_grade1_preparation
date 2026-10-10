@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 430" role="img" aria-labelledby="gtitle gdesc" data-layout-lint="strict">
+<title id="gtitle">Rule 60の3セル周期環：8状態の遷移</title>
+<desc id="gdesc">011から110、110から101、101から011への3周期がある。010から011、100から110、001から101へ流入する。右側は111から000、000の自己ループである。</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L10 5 L0 10 z" fill="#364c55"/></marker></defs>
+<style>
+text{font-family:system-ui,sans-serif;font-size:19px;font-weight:650;text-anchor:middle;dominant-baseline:middle;fill:#102f3b}
+.edge{fill:none;stroke:#364c55;stroke-width:2.5;marker-end:url(#arrow)}
+.cycle{stroke:#126d81;stroke-width:3.8}
+.node{stroke:#364c55;stroke-width:2.4;fill:#fff}
+.cyclenode{stroke:#126d81;stroke-width:3.4;fill:#e3f4f7}
+@keyframes pulse{0%,100%{stroke-width:3.8}50%{stroke-width:6}}
+@media (prefers-reduced-motion:no-preference){.cycle{animation:pulse 2.4s ease-in-out infinite}}
+</style>
+<g>
+<path class="edge cycle" d="M220 100 L319 100"/>
+<path class="edge cycle" d="M338 129 L288 221"/>
+<path class="edge cycle" d="M251 221 L201 130"/>
+<path class="edge" d="M97 100 L150 100"/>
+<path class="edge" d="M443 100 L391 100"/>
+<path class="edge" d="M270 326 L270 289"/>
+<path class="edge" d="M580 326 L580 281"/>
+<path class="edge" d="M612 227 C675 175 687 306 614 261"/>
+</g>
+<g>
+<circle class="node" cx="65" cy="100" r="30"/><circle class="cyclenode" cx="185" cy="100" r="31"/>
+<circle class="cyclenode" cx="355" cy="100" r="31"/><circle class="cyclenode" cx="270" cy="253" r="31"/>
+<circle class="node" cx="475" cy="100" r="30"/><circle class="node" cx="270" cy="360" r="30"/>
+<circle class="cyclenode" cx="580" cy="245" r="31"/><circle class="node" cx="580" cy="360" r="30"/>
+</g>
+<g>
+<text x="65" y="101">010</text><text x="185" y="101">011</text><text x="355" y="101">110</text>
+<text x="270" y="254">101</text><text x="475" y="101">100</text><text x="270" y="361">001</text>
+<text x="580" y="246">000</text><text x="580" y="361">111</text>
+</g>
+</svg>

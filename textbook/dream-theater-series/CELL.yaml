@@ -15,7 +15,7 @@ chapters:
     title: Elementary CAと時空間図
   - id: CELL3
     path: textbook/volumes/00_foundations/CELL3
-    status: planned
+    status: completed
     title: 有限環の軌道・周期・状態遷移グラフ
   - id: CELL4
     path: textbook/volumes/00_foundations/CELL4

@@ -1,0 +1,52 @@
+chapter: CELL3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CELL2
+
+concepts:
+  - id: cellular-automata.finite-ring-state-map
+    name: 有限環の配置空間と更新写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限環の配置空間と更新写像）"]
+    requires: [cellular-automata.boundary-convention, cellular-automata.iteration]
+  - id: cellular-automata.orbit-periodic-point
+    name: 前方軌道・固定点・周期点
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（前方軌道・固定点・周期点）"]
+    requires: [cellular-automata.finite-ring-state-map]
+  - id: cellular-automata.eventual-period
+    name: 前周期性・過渡長・最終周期
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（前周期性・過渡長・最終周期）"]
+    requires: [cellular-automata.orbit-periodic-point]
+  - id: cellular-automata.finite-eventual-periodicity
+    name: 有限状態写像の最終周期性
+    kind: theorem
+    introduction_aliases: ["定理（有限状態写像の最終周期性）"]
+    requires: [cellular-automata.eventual-period]
+  - id: cellular-automata.transition-graph-preimage
+    name: 状態遷移有向グラフと一歩前像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（状態遷移有向グラフと一歩前像）"]
+    requires: [cellular-automata.finite-ring-state-map]
+  - id: cellular-automata.weak-transition-component
+    name: 弱連結成分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（弱連結成分）"]
+    requires: [cellular-automata.transition-graph-preimage]
+  - id: cellular-automata.functional-graph-components
+    name: 有限状態遷移グラフの成分構造
+    kind: proposition
+    introduction_aliases: ["命題（有限状態遷移グラフの成分構造）"]
+    requires: [cellular-automata.weak-transition-component, cellular-automata.finite-eventual-periodicity]
+  - id: cellular-automata.indegree-balance
+    name: 入次数の総和と単射性
+    kind: proposition
+    introduction_aliases: ["命題（入次数の総和と単射性）"]
+    requires: [cellular-automata.transition-graph-preimage, cellular-automata.functional-graph-components]
