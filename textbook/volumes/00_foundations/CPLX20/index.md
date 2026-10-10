@@ -12,7 +12,13 @@
 
 <!-- formal-statement-start -->
 > **定義（多項式時間乱択判定機械）**  
-> 言語$L\subseteq\{0,1\}^*$を考える。多項式時間乱択判定機械$M$とは、入力$x$と各呼出しで独立な公平コインのビットを読み、ある固定多項式$p$について、全ての入力$x$・全てのコインの結果で$p(|x|)$ステップ以内に停止して$0$または$1$を出力する機械である。$\Pr_r[M(x;r)=1]$は、入力$x$を固定して乱数$r$だけを一様に選んだ確率とする。
+> 言語$L\subseteq\{0,1\}^*$を考える。多項式時間乱択判定機械$M$は、入力と、各呼出しで独立な公平コインのビットを読む。入力$x$と乱数列$r$を固定したときの停止までのステップ数を$t_M(x;r)$とすると、ある固定多項式$p$があり、すべての入力とコインの結果について次を満たす。
+
+$$
+t_M(x;r)\le p(|x|),\qquad M(x;r)\in\{0,1\}.
+$$
+
+> $\Pr_r[M(x;r)=1]$は、入力$x$を固定して乱数$r$だけを一様に選んだ受理確率である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cplx20-random-machine -->
@@ -29,7 +35,14 @@
 
 <!-- formal-statement-start -->
 > **定義（RP）**  
-> 言語$L\subseteq\{0,1\}^*$が$RP$に属するとは、多項式時間乱択判定機械$M$が存在し、すべての入力$x$について、$x\notin L$なら$\Pr_r[M(x;r)=1]=0$、$x\in L$なら$\Pr_r[M(x;r)=1]\ge1/2$を満たすことをいう。
+> 言語$L\subseteq\{0,1\}^*$が$RP$に属するとは、多項式時間乱択判定機械$M$が存在して、すべての入力$x$について次を満たすことをいう。
+
+$$
+\begin{aligned}
+x\notin L&\ \Longrightarrow\ \Pr_r[M(x;r)=1]=0,\\
+x\in L&\ \Longrightarrow\ \Pr_r[M(x;r)=1]\ge\frac12.
+\end{aligned}
+$$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cplx20-rp -->
@@ -40,7 +53,14 @@
 
 <!-- formal-statement-start -->
 > **定義（coRP）**  
-> 言語$L\subseteq\{0,1\}^*$が$coRP$に属するとは、多項式時間乱択判定機械$N$が存在し、すべての入力$x$について、$x\in L$なら$\Pr_r[N(x;r)=1]=1$、$x\notin L$なら$\Pr_r[N(x;r)=0]\ge1/2$を満たすことをいう。
+> 言語$L\subseteq\{0,1\}^*$が$coRP$に属するとは、多項式時間乱択判定機械$N$が存在して、すべての入力$x$について次を満たすことをいう。
+
+$$
+\begin{aligned}
+x\in L&\ \Longrightarrow\ \Pr_r[N(x;r)=1]=1,\\
+x\notin L&\ \Longrightarrow\ \Pr_r[N(x;r)=0]\ge\frac12.
+\end{aligned}
+$$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cplx20-corp -->
@@ -51,7 +71,14 @@
 
 <!-- formal-statement-start -->
 > **定義（BPP）**  
-> 言語$L\subseteq\{0,1\}^*$が$BPP$に属するとは、多項式時間乱択判定機械$M$が存在し、すべての入力$x$について、$x\in L$なら$\Pr_r[M(x;r)=1]\ge2/3$、$x\notin L$なら$\Pr_r[M(x;r)=0]\ge2/3$を満たすことをいう。
+> 言語$L\subseteq\{0,1\}^*$が$BPP$に属するとは、多項式時間乱択判定機械$M$が存在して、すべての入力$x$について次を満たすことをいう。
+
+$$
+\begin{aligned}
+x\in L&\ \Longrightarrow\ \Pr_r[M(x;r)=1]\ge\frac23,\\
+x\notin L&\ \Longrightarrow\ \Pr_r[M(x;r)=0]\ge\frac23.
+\end{aligned}
+$$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cplx20-bpp -->
@@ -79,7 +106,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（ZPP）**  
-> 言語$L\subseteq\{0,1\}^*$が$ZPP$に属するとは、乱数を使う機械$Z$が存在し、任意の入力$x$について確率1で停止して$L$の正しい所属判定だけを出力し、停止までの実行時間$T_x$の平均に対して固定多項式$p$で$\mathbb E_r[T_x]\le p(|x|)$が成り立つことをいう。$T_x$は非負整数値をとる乱数量であり、実行時間には乱数生成の操作も含める。
+> 言語$L\subseteq\{0,1\}^*$が$ZPP$に属するとは、乱数を使う機械$Z$が存在し、任意の入力$x$について確率1で停止して正しい所属判定だけを出力することに加え、次の条件を満たすことをいう。
+
+$$
+\mathbb E_r[T_x]\le p(|x|)\qquad (x\in\{0,1\}^*)
+$$
+
+> ここで$T_x$は停止までの非負整数値の実行時間、$p$は入力長に対する固定多項式である。実行時間には乱数生成操作も含める。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cplx20-zpp -->
@@ -273,7 +306,13 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（短い種を全探索する脱乱択化）**  
-> 言語$L$を誤答確率高々$1/3$で判定する多項式時間乱択機械$M$に対し、各$n$で長さ$s(n)\le c\log_2(n+2)$の種を持つ$G_n$が存在するとする。$G_n(u)$は$n,u$から多項式時間で計算でき、全ての長さ$n$の入力について直前の定義の誤差が$\delta<1/6$で一様に抑えられるとする。このとき$L\in P$である。
+> 言語$L$を誤答確率高々$1/3$で判定する多項式時間乱択機械$M$を考える。各入力長$n$において、次の長さ条件を満たす種から乱数列を作る写像$G_n$が存在するとする。
+
+$$
+s(n)\le c\log_2(n+2),
+$$
+
+> ここで$c$は定数、$s(n)$は種の長さとする。$G_n(u)$は$n,u$から多項式時間で計算でき、すべての長さ$n$の入力に対する受理確率の近似誤差は、直前の定義の意味で一様に$\delta<1/6$で抑えられるとする。このとき$L\in P$である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
