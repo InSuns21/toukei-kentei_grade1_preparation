@@ -1,0 +1,47 @@
+id: "DYN4"
+title: "二周期の出現と安定性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - DYN3
+official_scope: []
+learning_objectives:
+  - f_r^2(x)=xを直接展開し固定点の因子と真の二周期の因子を区別できる
+  - 判別式と区間への包含を検証し真の二周期の存在と一意性を証明できる
+  - r=3での重根が真の二周期ではないことを固定点の式から確認できる
+  - 二周期点の間隔がr-3の平方根に比例して開くことを導出できる
+  - 二周期の安定性を位相をそろえた偶奇時刻の評価で定義できる
+  - 二点での導関数の積から二歩の乗数4+2r-r^2を連鎖律で導出できる
+  - 二歩の局所安定と反発から元の写像の二周期安定性を証明できる
+  - r=1+sqrt(6)の臨界値で乗数判定が停止する理由を説明できる
+  - 二周期の存在範囲と局所漸近安定範囲を混同せず分類できる
+definitions:
+  - { id: DYN4-DEF-01, name: "真の二周期" }
+  - { id: DYN4-DEF-02, name: "二周期の局所安定性" }
+theorems:
+  - { id: DYN4-THM-01, name: "Logistic写像の真の二周期の存在と一意性" }
+  - { id: DYN4-THM-02, name: "Logistic写像の二周期の安定範囲" }
+propositions:
+  - { id: DYN4-PROP-01, name: "二周期点の平方根スケーリング" }
+  - { id: DYN4-PROP-02, name: "二周期の乗数は二点の導関数の積" }
+canonical_examples:
+  - "g(x)=1-xで二歩後に戻る点と固定点を区別"
+  - "r=3での三重根は固定点であって二周期ではない"
+  - "r=4で二周期点を平方根つきの正確な座標として構成"
+  - "r=16/5で二歩の乗数4/25による漸近安定"
+  - "r=7/2では二周期が存在しても乗数-5/4によって不安定"
+problem_patterns:
+  - DYN4-FACTORIZATION
+  - DYN4-CRITICAL-THREE
+  - DYN4-EXACT-ROOTS
+  - DYN4-STABLE-MULTIPLIER
+  - DYN4-UNSTABLE-EXAMPLE
+  - DYN4-ROOT-INTERIOR
+  - DYN4-CHAIN-RULE-EXAMPLE
+  - DYN4-SQUARE-ROOT-SCALING
+  - DYN4-PARITY-STABILITY
+  - DYN4-FULL-PARAMETER-CLASSIFICATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.0, review: 2.0 }
