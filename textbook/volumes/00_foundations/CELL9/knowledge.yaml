@@ -5,6 +5,12 @@ prerequisites:
   - CELL8
 
 concepts:
+  - id: cellular-automata.injective-surjective-bijective
+    name: 単射・全射・全単射
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（単射・全射・全単射）"]
+    requires: [cellular-automata.full-shift]
   - id: cellular-automata.reversible
     name: 可逆セル・オートマトン
     kind: definition
