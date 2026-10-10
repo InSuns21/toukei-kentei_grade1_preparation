@@ -7,7 +7,7 @@
 
 熱・仕事・確率・情報を測る理論から、曲がった時空の地平線に温度とエントロピーが現れる理由を導き、最後に「蒸発するブラックホールの量子情報はどう扱われるか」を数学的に定式化する。
 
-本PLANは**科目間の依存関係・境界・15週配分・研究論点**を管理する横断ルートである。すでに存在する `DREAM_THEATER_THERMODYNAMICS_STATISTICAL_MECHANICS_SPIN_GLASS_PLAN.md` が **熱力学TH・統計力学SM・スピングラスSGのcanonical owner** であり、ここでTH/SMの理論的定義や証明を重複実装しない。情報幾何も既存の独立PLANが所有する。将来各専門PLANを切り出しても、正本を一つに保つ。
+本PLANは**科目間の依存関係・境界・15週配分・研究論点**を管理する横断ルートである。新たに定義した [時空・量子場の数学基盤4セメスターPLAN](DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md) を数学的補完のcanonical ownerとして参照し、本PLAN内に数学講義を重複執筆しない。すでに存在する `DREAM_THEATER_THERMODYNAMICS_STATISTICAL_MECHANICS_SPIN_GLASS_PLAN.md` が **熱力学TH・統計力学SM・スピングラスSGのcanonical owner** であり、ここでTH/SMの理論的定義や証明を重複実装しない。情報幾何も既存の独立PLANが所有する。将来各専門PLANを切り出しても、正本を一つに保つ。
 
 ### 成功条件
 
@@ -43,6 +43,25 @@
 - 教材の章IDは実装時に衝突監査を行ってから確定する。上の `GRI/GRII`、`QFTI/QFTII`、`BHII/BHIII` は**科目管理キー**であり、公開章IDはそれぞれ GR1–GR30、QFT1–QFT30、BHI1–BHI30 を想定する。
 - TH/SMは既存PLANの **TH1–TH8 / SM1–SM8** を維持する。SG1–SG8はスピングラス独立科目として存続するが、ブラックホールへの必須前提には置かない。
 - この規模は一人が15科目を同時履修する前提ではない。TH→SM→情報、SREL→GR、SREL→QFTの並列経路を合流させるカリキュラムである。
+
+## 1.1 数学科目の補完：独立4セメスター
+
+既存のGEO1–GEO19（Riemann幾何）、PDE I/II・GPDE（Euclid空間上の超関数/弱解）、FOU、OA/VN（作用素環）を調べ、Black hole/QFT系列に共通して不足している数学を別PLANとして設計した。
+
+| 新数学科目（各15週） | 位置付け | 数学的な出口 |
+|---|---|---|
+| LORG1–LORG15：ローレンツ幾何と大域因果構造 | 基幹 | 因果集合・大域双曲性・Cauchy超曲面 |
+| HPDE1–HPDE15：ローレンツ多様体上の双曲型PDE | 基幹 | 初期値問題・Green作用素・有限伝播 |
+| MICA1–MICA15：超局所解析・波面集合・Hadamard条件 | 厳密ルート | 分布の積と引戻し・特異性伝播・量子場のUV構造 |
+| AQFT1–AQFT15：代数的量子場理論・モジュラー理論 | 研究入門 | 局所環・Type III・Tomita–Takesaki・相対エントロピー |
+
+新数学 **4科目・60週** を追加し、総設計規模は**物理・情報15科目＋数学4科目＝計19科目（285週）** とする。既存数学科目の週数はこの合計には含まない。数学側の正式な15週シラバスと証明課題は [専用数学PLAN](DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md) が正本。
+
+数学的に厳密なQCURV・BHT・BHIの発展内容を読む際にはMICA/AQFTを強く推奨する。一方、標準の物理講義の導入部へそれらの60週全部を一律必修化しない。各章の必要箇所でLORG/HPDEの定義・定理やMICA/AQFTの先行結果を参照する。**GR Iの幾何学的前提はLORGに置き、LORGにGR Iを必須前提として設定しない**。
+
+既存のLie理論、Riemann幾何、変分問題・幾何解析、GEO9のde Rham、OA/VNを再利用するため、新しい表現論や代数的位相幾何の独立セメスターを今回の必須セットに重ねない。QFT Iのスピノル、HOLOのhomology constraintは必要な地点で初出定義・直接例を付す。
+
+---
 
 ## 2. 学習依存と前提
 
@@ -476,8 +495,8 @@ S(R) = min ext_I [ S_gen(I;R) ]  （適切な模型・サドルの範囲内）
 - 物理の導出は、座標系、計量符号、単位系、境界条件、真空状態、系/環境の分割、近似次数を宣言する。情報の定理は有限次元/無限次元、UVカットオフ、演算子の定義域を区別する。
 - 各PRの査読は数理・物理整合性と読者粒度を別観点で実施する。独立査読を実施しなければそう明記し、CI成功を論証の完全性と同一視しない。
 - Phase 1：既存TH/SMの15週履修表の確定＋INFO/ITD/QINFを独立PLANへ切り出す。
-- Phase 2：SREL、GR I/II、QFT I/II、QCURVの科目PLAN・章ID衝突監査と実装。
-- Phase 3：BHT、HOLO、BHI I/IIの実装。特に島公式章のモデル条件を監査。
+- Phase 2：数学のLORG/HPDEを先行して数学PLANの設計・実装ゲートを満たし、SREL、GR I/II、QFT I/II、QCURVの科目PLAN・章ID衝突監査と実装を進める。数学的に厳密なQCURVの発展分岐はMICAを参照する。
+- Phase 3：BHT、HOLO、BHI I/IIの実装。量子場の局所環・factorizationを精密に論じる発展部分はAQFTを参照し、特に島公式章のモデル条件を監査。
 - Phase 4：横断して用語、エントロピーの単位と領域、依存逆転、演習詳細解答、図、公開動線を監査して完了。
 
 ## 10. 教材の範囲校正に使う文献
@@ -486,6 +505,8 @@ S(R) = min ext_I [ S_gen(I;R) ]  （適切な模型・サドルの範囲内）
 - MIT OpenCourseWare, 8.333 Statistical Mechanics I: https://ocw.mit.edu/courses/8-333-statistical-mechanics-i-statistical-mechanics-of-particles-fall-2013/pages/syllabus/
 - MIT OpenCourseWare, 8.962 General Relativity: https://www.ocw.mit.edu/courses/8-962-general-relativity-spring-2020/pages/syllabus/
 - MIT OpenCourseWare, 8.323 Relativistic Quantum Field Theory I: https://www.ocw.mit.edu/courses/8-323-relativistic-quantum-field-theory-i-spring-2023/pages/syllabus/
+- Christian Bär, Nicolas Ginoux and Frank Pfäffle, *Wave Equations on Lorentzian Manifolds and Quantization*: https://ems.press/books/esi/34
+- Stefan Hollands and Robert M. Wald, *Quantum fields in curved spacetime*, Physics Reports (2015): https://doi.org/10.1016/j.physrep.2015.02.001
 - Robert M. Wald, *The Thermodynamics of Black Holes*, Living Reviews in Relativity (2001): https://doi.org/10.12942/LRR-2001-6
 - S. W. Hawking, *Particle Creation by Black Holes*, Communications in Mathematical Physics (1975): https://doi.org/10.1007/BF02345020
 - G. Penington, *Entanglement Wedge Reconstruction and the Information Paradox*, JHEP (2020): https://doi.org/10.1007/JHEP09(2020)002
