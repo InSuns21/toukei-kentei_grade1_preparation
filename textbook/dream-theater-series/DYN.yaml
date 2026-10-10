@@ -29,3 +29,7 @@ chapters:
     path: textbook/volumes/00_foundations/DYN6
     status: planned
     title: 位相共役・半共役・不変集合
+  - id: DYN7
+    path: textbook/volumes/00_foundations/DYN7
+    status: planned
+    title: 円周回転・有理/無理回転
