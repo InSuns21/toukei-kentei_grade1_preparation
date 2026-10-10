@@ -1,0 +1,60 @@
+chapter: CPLX16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CPLX15
+concepts:
+  - id: theoretical-computer-science.polynomial-hierarchy-levels
+    name: 多項式階層の量化子による各層
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多項式階層の量化子による各層）"]
+    requires: [theoretical-computer-science.class-np, theoretical-computer-science.quantified-boolean-formula, theoretical-computer-science.class-p]
+  - id: theoretical-computer-science.class-conp
+    name: 補クラスcoNP
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（補クラスcoNP）"]
+    requires: [theoretical-computer-science.class-np]
+  - id: theoretical-computer-science.polynomial-hierarchy-first-level
+    name: 最初の量化層
+    kind: proposition
+    introduction_aliases: ["命題（最初の量化層）"]
+    requires: [theoretical-computer-science.polynomial-hierarchy-levels, theoretical-computer-science.class-conp]
+  - id: theoretical-computer-science.polynomial-hierarchy-duality
+    name: 量化層の双対性と包含
+    kind: proposition
+    introduction_aliases: ["命題（量化層の双対性と包含）"]
+    requires: [theoretical-computer-science.polynomial-hierarchy-levels]
+  - id: theoretical-computer-science.polynomial-hierarchy
+    name: 多項式階層PH
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多項式階層PH）"]
+    requires: [theoretical-computer-science.polynomial-hierarchy-duality]
+  - id: theoretical-computer-science.ph-in-pspace
+    name: 多項式階層は多項式空間に含まれる
+    kind: proposition
+    introduction_aliases: ["命題（多項式階層は多項式空間に含まれる）"]
+    requires: [theoretical-computer-science.polynomial-hierarchy, theoretical-computer-science.class-pspace, theoretical-computer-science.tqbf-in-pspace]
+  - id: theoretical-computer-science.oracle-classes
+    name: oracle付きの計算クラス
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（oracle付きの計算クラス）"]
+    requires: [theoretical-computer-science.turing-machine, theoretical-computer-science.class-np]
+  - id: theoretical-computer-science.ph-oracle-characterization
+    name: 多項式階層のoracleによる特徴付け
+    kind: theorem
+    introduction_aliases: ["定理（多項式階層のoracleによる特徴付け）"]
+    requires: [theoretical-computer-science.oracle-classes, theoretical-computer-science.polynomial-hierarchy-levels, theoretical-computer-science.polynomial-hierarchy-duality]
+  - id: theoretical-computer-science.ph-collapse
+    name: 多項式階層の崩壊
+    kind: theorem
+    introduction_aliases: ["定理（多項式階層の崩壊）"]
+    requires: [theoretical-computer-science.polynomial-hierarchy-duality, theoretical-computer-science.polynomial-hierarchy]
+  - id: theoretical-computer-science.pnp-ph-collapse
+    name: P=NPなら多項式階層はPへ崩壊する
+    kind: corollary
+    introduction_aliases: ["系（P=NPなら多項式階層はPへ崩壊する）"]
+    requires: [theoretical-computer-science.ph-collapse, theoretical-computer-science.p-vs-np-question, theoretical-computer-science.polynomial-hierarchy-first-level]
