@@ -26,7 +26,7 @@
 
 **入り口**：CELL1はAUT1（文字列、有限集合、写像など）を前提とする。F0-00AなどAUT1までの前提を尊重する。線形代数、実解析、位相空間論、測度論、確率論はCELL1の一括前提にはしない。
 
-**途中で増やす前提**：CELL12のTuring機械の模倣にはCMP1を、CELL14の計算量評価にはCPLX1をそれぞれ章レベルで明示する。CPLX7のCook--LevinはCELL14から対比する後続理論であり、CELL1–CELL13の隠れた前提にしない。各章の正式prerequisitesは実装時のchapter.yaml/knowledge.yamlで最小限に確定する。
+**途中で増やす前提**：CELL12のTuring機械の模倣にはCMP1、CELL13で固定された万能機械の存在を利用するときはCMP3、CELL14の計算量評価にはCPLX1をそれぞれ章レベルで明示する。CPLX7のCook--LevinはCELL14から対比する後続理論であり、CELL1–CELL13の隠れた前提にしない。各章の正式prerequisitesは実装時のchapter.yaml/knowledge.yamlで最小限に確定する。
 
 **重複防止**：AUT/CMP/CPLXは文字列、Turing機械、SAT、Cook--Levinを所有する。CELLは「局所更新の離散力学」と「Turing計算の局所実現」を所有し、CPLX7のSATへの完全符号化を二重執筆しない。DYN6など一般力学系計画は一般の記号力学やhorseshoeを所有する。CELLではCA全シフトに必要な円筒集合と連続性を自足的に導入し、一般力学系の成果を暗黙に使わない。流体力学・統計力学・確率過程との接続は数学的モデルの境界を明示する。
 
@@ -132,7 +132,7 @@
 
 原則CELL1→CELL2→…→CELL15を通読するが、数学的な依存関係は章単位で精査する。主な外部接続は以下。
 
-AUT1 → CELL1–CELL11 → CELL12（ここでCMP1） → CELL13 → CELL14（ここでCPLX1） → CELL15
+AUT1 → CELL1–CELL11 → CELL12（ここでCMP1） → CELL13（ここでCMP3） → CELL14（ここでCPLX1） → CELL15
 
 - CPLX7への接続はCELL14からの比較・後読みとする。CPLX7をCELL14の必須prerequisiteへ逆輸入しない。
 - 既存AUT/CMP/CPLXの実装・完了状態をこの設計作業で変更しない。
