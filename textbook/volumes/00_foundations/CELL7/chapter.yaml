@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - CELL6
+  - F0-00B0
 official_scope: []
 learning_objectives:
   - 全シフト空間とシフト写像を定義し逆方向の写像を検算できる

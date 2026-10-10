@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - CELL6
+  - F0-00B0
 
 concepts:
   - id: cellular-automata.full-shift
