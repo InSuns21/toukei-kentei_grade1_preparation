@@ -1,0 +1,26 @@
+chapter: "CPLX19"
+terms:
+  - term: parity関数
+    english: parity function
+    meaning: "入力に含まれる1の数が奇数のときだけ1を返すBoolean関数。"
+  - term: 積和標準形
+    english: disjunctive normal form
+    meaning: "リテラルのANDを項とし、それらをORで結んだ式。略称DNF。"
+  - term: 非uniform AC0
+    english: nonuniform AC-zero
+    meaning: "多入力AND・ORと入力否定だけを使い、入力長によらない定数深さ・多項式サイズを満たす回路族。"
+  - term: 部分割当て
+    english: restriction
+    meaning: "入力の一部を0または1へ固定し、残りを自由にする操作。"
+  - term: switching lemma
+    english: Håstad's switching lemma
+    meaning: "幅を制限した積和形がランダム制限で浅い決定木へ単純化される確率を評価する結果。"
+  - term: 単調回路
+    english: monotone circuit
+    meaning: "AND・ORを使うがNOTを使わないBoolean回路。出力は単調Boolean関数になる。"
+  - term: しきい値関数
+    english: threshold function
+    meaning: "nビット中少なくともk個が1かを判定するBoolean関数。"
+  - term: 回路下界
+    english: circuit lower bound
+    meaning: "指定した回路模型で関数を計算する全回路に必要なサイズ・深さの下限。"
