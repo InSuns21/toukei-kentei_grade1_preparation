@@ -11,7 +11,7 @@ chapters:
     title: 配置・局所規則・大域更新
   - id: CELL2
     path: textbook/volumes/00_foundations/CELL2
-    status: planned
+    status: completed
     title: Elementary CAと時空間図
   - id: CELL3
     path: textbook/volumes/00_foundations/CELL3
