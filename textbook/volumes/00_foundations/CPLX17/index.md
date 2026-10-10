@@ -74,7 +74,7 @@ $PSPACE$の問題はTQBFへの多項式時間帰着を作って一回質問す�
 <!-- proof-start -->
 ### 証明
 
-**(1) $PSPACE\subseteq P^A$。**　$L\in PSPACE$を任意にとります。TQBFのPSPACE完全性から、決定性多項式時間で計算できる関数$f$が存在し、すべての入力$x$で
+**(1) $PSPACE\subseteq P^A$。**　$L\in PSPACE$を任意にとります。[TQBFのPSPACE完全性](../CPLX14/index.md#thm-cplx14-completeness)から、決定性多項式時間で計算できる関数$f$が存在し、すべての入力$x$で
 
 $$
 x\in L\quad\Longleftrightarrow\quad f(x)\in\mathrm{TQBF}
@@ -392,14 +392,14 @@ $A,B$を入れ替えて全く同じ構成を行うと逆包含も成立し、両
 
 ### C1. 一致・分離・相対化の三段論証
 
-以下の設問を一つの論証として解け。(i) $A=\mathrm{TQBF}$に対し、TQBFの$PSPACE$完全性とSavitchの定理を使って$P^A=NP^A$を示せ。(ii) 任意のOracle $B$について$L_B=\{1^n:n\ge1,\exists y\in\{0,1\}^n,\ y\in B\}$が$NP^B$に属することを示し、全ての多項式時間決定性Oracle機械を列挙してある$B$で$L_B\notin P^B$とできる理由を、以前の回答が固定される条件まで含めて説明せよ。(iii) (i)(ii)からどの種類の証明方法が制約されるかを、二つの矛盾の形で示せ。(iv) 通常の$P$と$NP$について何がまだ分からないか述べよ。
+以下の設問を一つの論証として解け。(i) $A=\mathrm{TQBF}$に対し、[TQBFのPSPACE完全性](../CPLX14/index.md#thm-cplx14-completeness)と[Savitchの定理](../CPLX13/index.md#thm-cplx13-savitch)を使って$P^A=NP^A$を示せ。(ii) 任意のOracle $B$について$L_B=\{1^n:n\ge1,\exists y\in\{0,1\}^n,\ y\in B\}$が$NP^B$に属することを示し、全ての多項式時間決定性Oracle機械を列挙してある$B$で$L_B\notin P^B$とできる理由を、以前の回答が固定される条件まで含めて説明せよ。(iii) (i)(ii)からどの種類の証明方法が制約されるかを、二つの矛盾の形で示せ。(iv) 通常の$P$と$NP$について何がまだ分からないか述べよ。
 
 - Level: C
 
 <!-- solution-start -->
 #### 詳細解答
 
-(i) $L\in PSPACE$なら、TQBFへの多項式時間帰着$f$が存在し$x\in L\Longleftrightarrow f(x)\in A$です。$f(x)$を計算して一回問い合わせればよいので$PSPACE\subseteq P^A$です。一方、$L\in NP^A$の非決定性多項式時間機械は多項式回・多項式長の問い合わせしか行いません。$A\in PSPACE$なので各問い合わせを通常の多項式空間計算で代行し、同じ作業領域を再利用すると$L\in NPSPACE$です。Savitchの定理から$NPSPACE\subseteq PSPACE$であり、
+(i) $L\in PSPACE$なら、TQBFへの多項式時間帰着$f$が存在し$x\in L\Longleftrightarrow f(x)\in A$です。$f(x)$を計算して一回問い合わせればよいので$PSPACE\subseteq P^A$です。一方、$L\in NP^A$の非決定性多項式時間機械は多項式回・多項式長の問い合わせしか行いません。$A\in PSPACE$なので各問い合わせを通常の多項式空間計算で代行し、同じ作業領域を再利用すると$L\in NPSPACE$です。[Savitchの定理](../CPLX13/index.md#thm-cplx13-savitch)から$NPSPACE\subseteq PSPACE$であり、
 
 $$
 PSPACE\subseteq P^A\subseteq NP^A\subseteq PSPACE
