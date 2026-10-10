@@ -32,7 +32,7 @@ x\in L\ \Longleftrightarrow\
 :\ R(x,y_1,\ldots,y_k)=1.
 $$
 
-> ここで量化子は存在・全称を交互に並べ、$Q_k$ はその最後の量化子である。$\Pi_k^P$ は同じ条件の先頭を $\forall y_1$ に替え、その後を交互に並べた言語のクラスとする。各層で $k$ は入力長に依存しない**定数**である。
+> ここで量化子は存在・全称を交互に並べ、$Q_k$ はその最後の量化子である。$k=1$ では $\exists y_1$ のみを置き、$\forall y_2$ 以降の項は存在しないものと読む。$\Pi_k^P$ は同じ条件の先頭を $\forall y_1$ に替え、その後を交互に並べた言語のクラスとする。各層で $k$ は入力長に依存しない**定数**である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cplx16-alternating-levels -->
