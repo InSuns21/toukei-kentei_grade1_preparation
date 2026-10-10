@@ -1,0 +1,54 @@
+chapter: DYN7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - DYN6
+concepts:
+  - id: dynamical-systems.circle-quotient
+    name: 整数による同一視と円周
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（整数による同一視と円周）"]
+    requires: [dynamical-systems.topological-semiconjugacy]
+  - id: dynamical-systems.circle-metric
+    name: 円周距離の正当性
+    kind: proposition
+    introduction_aliases: ["命題（円周距離の正当性）"]
+    requires: [dynamical-systems.circle-quotient]
+  - id: dynamical-systems.circle-rotation
+    name: 円周回転
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（円周回転）"]
+    requires: [dynamical-systems.circle-quotient]
+  - id: dynamical-systems.rotation-isometry-semiconjugacy
+    name: 回転の可逆性・等距離性と半共役
+    kind: proposition
+    introduction_aliases: ["命題（回転の可逆性・等距離性と半共役）"]
+    requires: [dynamical-systems.circle-rotation, dynamical-systems.topological-semiconjugacy]
+  - id: dynamical-systems.rotation-periodicity
+    name: 有理回転の最小周期と無理回転の非周期性
+    kind: theorem
+    introduction_aliases: ["定理（有理回転の最小周期と無理回転の非周期性）"]
+    requires: [dynamical-systems.circle-rotation]
+  - id: dynamical-systems.small-return
+    name: 有限分割による小さな回転
+    kind: lemma
+    introduction_aliases: ["補題（有限分割による小さな回転）"]
+    requires: [dynamical-systems.rotation-periodicity]
+  - id: dynamical-systems.dense-forward-orbit
+    name: 前方軌道の稠密性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（前方軌道の稠密性）"]
+    requires: [dynamical-systems.circle-rotation]
+  - id: dynamical-systems.irrational-rotation-density
+    name: 無理回転の全前方軌道の稠密性
+    kind: theorem
+    introduction_aliases: ["定理（無理回転の全前方軌道の稠密性）"]
+    requires: [dynamical-systems.small-return, dynamical-systems.dense-forward-orbit]
+  - id: dynamical-systems.irrational-closed-invariant
+    name: 無理回転の閉じた前方不変集合
+    kind: proposition
+    introduction_aliases: ["命題（無理回転の閉じた前方不変集合）"]
+    requires: [dynamical-systems.irrational-rotation-density, dynamical-systems.exact-invariance]
