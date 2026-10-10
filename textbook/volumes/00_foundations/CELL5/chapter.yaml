@@ -1,0 +1,48 @@
+id: "CELL5"
+title: "保存則・粒子輸送・Rule 184"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CELL4
+official_scope: []
+learning_objectives:
+  - Rule 184の同期移動規則と全8近傍表を導出し規則番号を検算できる
+  - 流束j_i=x_i(1-x_{i+1})を定義し配置から全辺の流束を計算できる
+  - 局所保存式を整数演算から導出し更新値が二状態に収まる理由を説明できる
+  - 周期環の総粒子数保存を流束の望遠鏡和と時刻帰納法で完全証明できる
+  - 開放境界での流入−流出収支を導き保存が破れる実例を計算できる
+  - 無限線上の有限粒子配置について有限伝播と局所保存式から保存を証明できる
+  - 周期環の移動台数の上限と等号条件を証明し交通流の配置依存性を判定できる
+  - 有限時間発展を周期境界と開放境界で比較し境界条件の影響を説明できる
+definitions:
+  - { id: CELL5-DEF-01, name: "Rule 184の局所更新" }
+  - { id: CELL5-DEF-02, name: "粒子流束と粒子数" }
+  - { id: CELL5-DEF-03, name: "開放境界の流入・流出" }
+theorems:
+  - { id: CELL5-THM-01, name: "Rule 184の局所保存式" }
+  - { id: CELL5-THM-02, name: "周期環の総粒子数保存" }
+propositions:
+  - { id: CELL5-PROP-01, name: "開放境界の粒子数収支" }
+  - { id: CELL5-PROP-02, name: "無限線上の有限個の粒子の保存" }
+  - { id: CELL5-PROP-03, name: "周期環での移動台数の上限と等号条件" }
+canonical_examples:
+  - "近傍8通りの整数式と二進規則番号184"
+  - "5セル周期環11010の5歩の更新と流束"
+  - "3セル開放区間の流出と流入"
+  - "有限支持の無限線上での境界流束ゼロ"
+  - "同じ粒子数で異なる移動台数の6セル環"
+problem_patterns:
+  - CELL5-LOCAL-TABLE
+  - CELL5-FLUX-ONE-STEP
+  - CELL5-SMALL-RINGS
+  - CELL5-OPEN-BOUNDARY
+  - CELL5-DENSITY-CONTRAST
+  - CELL5-TELESCOPE
+  - CELL5-INFINITE-FINITE-SUPPORT
+  - CELL5-MAX-FLUX-EQUALITY
+  - CELL5-CLUSTER-COUNT
+  - CELL5-RING-OPEN-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 3.0, review: 1.5 }

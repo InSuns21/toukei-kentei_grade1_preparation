@@ -1,0 +1,26 @@
+chapter: "CELL5"
+terms:
+  - term: Rule 184
+    english: Rule 184
+    meaning: "右隣が空所である粒子だけが同時に右へ一セル動く二状態半径1のセル・オートマトン。"
+  - term: 粒子流束
+    english: particle flux
+    meaning: "一歩で隣のセルへ境界を横切って移動する粒子の個数。Rule 184ではj_i=x_i(1-x_{i+1})。"
+  - term: 粒子数保存
+    english: particle-number conservation
+    meaning: "すべての更新時刻で配置に含まれる1の個数が一定であること。"
+  - term: 局所保存式
+    english: local continuity equation
+    meaning: "一セルの粒子数の増減を左からの流入から右への流出を引いた値で表す恒等式。"
+  - term: 周期境界
+    english: periodic boundary condition
+    meaning: "右端と左端をつないで位置をNを法として読み、外側への流束も環内の流束とみなす境界条件。"
+  - term: 開放境界
+    english: open boundary condition
+    meaning: "有限区間の外側にセル値を指定し、左右端で車が流入・流出できる境界条件。"
+  - term: 移動台数
+    english: number of moving particles
+    meaning: "一歩で実際に移動する粒子の総数J。粒子数Kと異なり、同じ粒子数でも配置によって変わる。"
+  - term: 交通密度
+    english: traffic density
+    meaning: "周期環の粒子数Kをセル数Nで割った値。"
