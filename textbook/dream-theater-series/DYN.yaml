@@ -23,7 +23,7 @@ chapters:
     title: 二周期の出現と安定性
   - id: DYN5
     path: textbook/volumes/00_foundations/DYN5
-    status: planned
+    status: completed
     title: Tent写像・分枝・有限語の逆像計数
   - id: DYN6
     path: textbook/volumes/00_foundations/DYN6
