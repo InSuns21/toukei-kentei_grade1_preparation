@@ -985,7 +985,7 @@ CMP1--CMP8 を実装する。CELL1--CELL15は独立した1セメスターPLANへ
 - 停止問題の対角化
 - 帰着の向き
 - Church--Turing thesis を定理扱いしない
-- C​PLX7の時空間符号化を別科目CELLへ逆流させない
+- CPLX7の時空間符号化を別科目CELLへ逆流させない
 
 ## Phase 3: 計算量理論 I
 
