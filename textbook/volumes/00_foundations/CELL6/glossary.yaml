@@ -1,0 +1,26 @@
+chapter: "CELL6"
+terms:
+  - term: de Bruijnグラフ
+    english: de Bruijn graph
+    meaning: "一定の長さの語を頂点とし、一文字ずらした重なりを有向辺で表すグラフ。半径1の局所規則では長さ2の語を頂点、長さ3の語を辺とする。"
+  - term: 出力ラベル
+    english: output label
+    meaning: "グラフの各辺に対応する入力三つ組を局所規則へ代入して得られる出力値。"
+  - term: 有限語の前像
+    english: finite-word preimage
+    meaning: "入力語の内部の各三つ組から指定された出力語を作る入力語。左右端の境界条件は追加しない。"
+  - term: ラベル付き道
+    english: labeled path
+    meaning: "辺の終点と次の辺の始点が一致する道で、通過した辺の出力ラベルを順に読めるもの。"
+  - term: ラベル別隣接行列
+    english: label adjacency matrix
+    meaning: "指定した出力ラベルを持つ辺の本数を始点・終点ごとに並べた非負整数行列。積でラベル列を持つ道の本数を数える。"
+  - term: 始点付き閉歩道
+    english: based closed walk
+    meaning: "始点と終点が一致する辺の列で、どの位置から数え始めるかを指定したもの。途中で頂点を重複して通ってもよい。"
+  - term: 跡
+    english: trace
+    meaning: "正方行列の対角成分の総和。ラベル別隣接行列の積の跡は、指定したラベル列を持つ始点付き閉歩道の本数となる。"
+  - term: 両側無限の道
+    english: bi-infinite path
+    meaning: "整数全体を添字とする頂点・辺の連なり。無限線上のセル配置と対応する。"

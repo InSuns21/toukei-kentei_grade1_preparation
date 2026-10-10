@@ -27,7 +27,7 @@ chapters:
     title: 保存則・粒子輸送・Rule 184
   - id: CELL6
     path: textbook/volumes/00_foundations/CELL6
-    status: planned
+    status: completed
     title: de Bruijnグラフと前像
   - id: CELL7
     path: textbook/volumes/00_foundations/CELL7
