@@ -1,0 +1,47 @@
+id: "CELL14"
+title: "予測計算量・時空間局所整合性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CELL13
+  - CPLX1
+official_scope: []
+learning_objectives:
+  - 無限線の固定CAに対して有限窓予測問題の入力、初期必要区間、出力を厳密に定義できる
+  - 光円錐の時刻帰納法から出力の一意性と局所評価回数tw+rt(t-1)を証明できる
+  - Rule 90の小さな三角時空間表を手で計算し、初期行・中間行・最終行を区別できる
+  - 円錐時空間表の局所整合性が真の履歴と同値であることを双方向に証明できる
+  - 全表の記号数と局所条件の検査回数をそれぞれ計数できる
+  - 時刻の単項符号化・二進符号化と明示的初期語・短い生成記述による入力長の違いを説明できる
+  - 固定規則と入力として与えられた規則、全体予測と局所検査、Cook–Levinへの接続と証明範囲を区別できる
+definitions:
+  - { id: CELL14-DEF-01, name: "有限窓のCA予測問題" }
+  - { id: CELL14-DEF-02, name: "円錐時空間表の局所整合性" }
+lemmas: []
+theorems:
+  - { id: CELL14-THM-01, name: "有限光円錐の逐次計算上界" }
+  - { id: CELL14-THM-02, name: "局所整合性と真の履歴の同値・一意性" }
+propositions:
+  - { id: CELL14-PROP-01, name: "時空間表の大きさと検証回数" }
+  - { id: CELL14-PROP-02, name: "明示的入力と二進時刻の計算量の区別" }
+canonical_examples:
+  - "半径1時刻2で長さ5・3・1へ縮む必要区間"
+  - "半径1幅2時刻3で行幅8・6・4・2と更新数12"
+  - "Rule 90の10110→011→1と局所違反表"
+  - "1024の単項1024文字・二進11ビット"
+  - "周期環長5で初期円錐に同じセルが繰り返される例"
+problem_patterns:
+  - CELL14-CONE-INITIAL-INTERVAL
+  - CELL14-CONE-EVALUATION-COUNT
+  - CELL14-RULE90-PREDICT
+  - CELL14-TABLEAU-VIOLATION
+  - CELL14-TIME-ENCODING
+  - CELL14-CONE-INDUCTION
+  - CELL14-EXPLICIT-SUCCINCT
+  - CELL14-TABLEAU-UNIQUENESS
+  - CELL14-PERIODIC-OVERLAP
+  - CELL14-INTEGRATED-COMPLEXITY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 4.5, review: 2.0 }

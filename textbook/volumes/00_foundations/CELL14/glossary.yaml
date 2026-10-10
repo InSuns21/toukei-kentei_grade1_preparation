@@ -1,0 +1,32 @@
+chapter: "CELL14"
+terms:
+  - term: 有限窓のCA予測問題
+    english: finite-window cellular automaton prediction problem
+    meaning: "時刻tの有限観測区間の値を、有限光円錐に属する初期文字列から求める問題。固定された局所規則と無限線上の更新を用いる。"
+  - term: 初期必要区間
+    english: necessary initial interval
+    meaning: "時刻tの観測区間[a,b]へ影響し得る時刻0の区間[a-rt,b+rt]。半径rの局所規則について安全な情報範囲。"
+  - term: 有限光円錐の逐次計算
+    english: finite-cone sequential computation
+    meaning: "必要なセルだけを時刻ごとに計算して区間を縮める方法。観測幅w、半径r、時刻tに対する局所規則の評価回数はtw+rt(t-1)。"
+  - term: 円錐時空間表
+    english: cone-shaped spacetime tableau
+    meaning: "最終観測に必要な位置だけを時刻0からtまで並べた三角形状の有限表。時刻sの行幅はw+2r(t-s)。"
+  - term: 局所整合性
+    english: local consistency
+    meaning: "表の初期行が指定された初期文字列に一致し、その後の全てのセルが直前の行の半径rの近傍へ同じ局所規則を適用した値に一致する条件。"
+  - term: 真の履歴
+    english: actual evolution history
+    meaning: "一つの初期配置からセル・オートマトンの大域更新を反復して得た各時刻の配置。固定された初期語と局所整合的な円錐表はこの履歴に一意に一致する。"
+  - term: 明示的初期語
+    english: explicit initial word
+    meaning: "光円錐の全初期セルを長さw+2rtの文字列として列挙した入力。初期語そのものが入力長の下界を与える。"
+  - term: 短い初期記述
+    english: succinct initial description
+    meaning: "全0配置など、必要な初期セルを全列挙せず生成規則で表した入力。必要区間の長さを入力長以下とみなすことはできない。"
+  - term: 二進時刻符号化
+    english: binary encoding of time
+    meaning: "非負整数時刻tを二進数字列として表す方法。値tが大きくても符号長はおおむねlog2(t+1)である。"
+  - term: 局所規則評価回数
+    english: number of local-rule evaluations
+    meaning: "逐次シミュレーションで必要なセルの次状態を局所規則表から求めた回数。同時更新の時刻数とは区別する。"

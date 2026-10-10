@@ -468,6 +468,7 @@
 11. [CELL11 二次元CAとConwayのGame of Life](textbook/volumes/00_foundations/CELL11/index.md)
 12. [CELL12 Turing機械の局所更新による模倣](textbook/volumes/00_foundations/CELL12/index.md)
 13. [CELL13 計算普遍性・Rule 110・Life](textbook/volumes/00_foundations/CELL13/index.md)
+14. [CELL14 予測計算量・時空間局所整合性](textbook/volumes/00_foundations/CELL14/index.md)
 
 <a id="dt-subject-numerical-analysis"></a>
 ### 数値解析

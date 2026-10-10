@@ -1,0 +1,48 @@
+chapter: CELL14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CELL13
+  - CPLX1
+forward_references:
+  - theoretical-computer-science.cook-levin
+  - prob.expectation
+
+concepts:
+  - id: cellular-automata.finite-prediction
+    name: 有限窓のCA予測問題
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限窓のCA予測問題）"]
+    requires: [cellular-automata.finite-propagation, theoretical-computer-science.input-length]
+
+  - id: cellular-automata.cone-computation
+    name: 有限光円錐の逐次計算上界
+    kind: theorem
+    introduction_aliases: ["定理（有限光円錐の逐次計算上界）"]
+    requires: [cellular-automata.finite-prediction, cellular-automata.window-propagation]
+
+  - id: cellular-automata.cone-tableau
+    name: 円錐時空間表の局所整合性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（円錐時空間表の局所整合性）"]
+    requires: [cellular-automata.finite-prediction, cellular-automata.turing-one-step]
+
+  - id: cellular-automata.tableau-equivalence
+    name: 局所整合性と真の履歴の同値・一意性
+    kind: theorem
+    introduction_aliases: ["定理（局所整合性と真の履歴の同値・一意性）"]
+    requires: [cellular-automata.cone-tableau, cellular-automata.cone-computation]
+
+  - id: cellular-automata.tableau-size
+    name: 時空間表の大きさと検証回数
+    kind: proposition
+    introduction_aliases: ["命題（時空間表の大きさと検証回数）"]
+    requires: [cellular-automata.cone-tableau, cellular-automata.tableau-equivalence]
+
+  - id: cellular-automata.explicit-input-complexity
+    name: 明示的入力と二進時刻の計算量の区別
+    kind: proposition
+    introduction_aliases: ["命題（明示的入力と二進時刻の計算量の区別）"]
+    requires: [cellular-automata.cone-computation, theoretical-computer-science.input-length, theoretical-computer-science.polynomial-time-machine]
