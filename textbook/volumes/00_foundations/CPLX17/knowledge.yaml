@@ -1,0 +1,33 @@
+chapter: CPLX17
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CPLX16
+concepts:
+  - id: theoretical-computer-science.oracle-turing-machine
+    name: Oracle付きTuring機械
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Oracle付きTuring機械）"]
+    requires: [theoretical-computer-science.turing-machine, theoretical-computer-science.oracle-classes]
+  - id: theoretical-computer-science.relativized-complexity-classes
+    name: Oracleに相対化した計算量クラス
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Oracleに相対化した計算量クラス）"]
+    requires: [theoretical-computer-science.oracle-turing-machine, theoretical-computer-science.oracle-classes]
+  - id: theoretical-computer-science.equality-oracle
+    name: P^A=NP^AとなるOracleの存在
+    kind: theorem
+    introduction_aliases: ["定理（P^A=NP^AとなるOracleの存在）"]
+    requires: [theoretical-computer-science.relativized-complexity-classes, theoretical-computer-science.tqbf-pspace-complete, theoretical-computer-science.savitch-theorem]
+  - id: theoretical-computer-science.separation-oracle
+    name: P^BとNP^Bを分離するOracleの存在
+    kind: theorem
+    introduction_aliases: ["定理（P^BとNP^Bを分離するOracleの存在）"]
+    requires: [theoretical-computer-science.relativized-complexity-classes, theoretical-computer-science.class-np]
+  - id: theoretical-computer-science.relativization-barrier
+    name: Baker--Gill--Solovay型の相対化障壁
+    kind: theorem
+    introduction_aliases: ["定理（Baker--Gill--Solovay型の相対化障壁）"]
+    requires: [theoretical-computer-science.equality-oracle, theoretical-computer-science.separation-oracle, theoretical-computer-science.p-vs-np-question]
