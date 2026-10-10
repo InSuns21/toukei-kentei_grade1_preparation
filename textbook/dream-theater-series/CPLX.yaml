@@ -67,7 +67,7 @@ chapters:
     title: 階層定理
   - id: CPLX16
     path: textbook/volumes/00_foundations/CPLX16
-    status: planned
+    status: completed
     title: 多項式階層
   - id: CPLX17
     path: textbook/volumes/00_foundations/CPLX17
