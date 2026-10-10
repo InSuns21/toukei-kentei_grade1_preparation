@@ -23,7 +23,7 @@ chapters:
     title: 加法的CAと二進代数
   - id: CELL5
     path: textbook/volumes/00_foundations/CELL5
-    status: planned
+    status: completed
     title: 保存則・粒子輸送・Rule 184
   - id: CELL6
     path: textbook/volumes/00_foundations/CELL6
