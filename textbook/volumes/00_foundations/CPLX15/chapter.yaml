@@ -1,0 +1,47 @@
+id: "CPLX15"
+title: "階層定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CPLX14
+official_scope: []
+learning_objectives:
+  - 資源制限つき決定性時間・空間クラスを定義し、包含と真の包含を区別できる
+  - 時間構成可能性・空間構成可能性を説明し、代表関数について条件を確認できる
+  - 自己区切り符号とパディングから任意に長い自己入力を作れる
+  - 万能模倣の時間損失を数え、時間階層定理の対角矛盾を完全に証明できる
+  - 有限配置数・短い機械記述・時計の役割を用いて空間階層定理を証明できる
+  - 多項式時間・空間の厳密な階層と指数資源クラスへの真の包含を導ける
+  - 階層定理でPとNPを分離できない論理的理由を説明できる
+definitions:
+  - { id: CPLX15-DEF-01, name: "資源で制限した決定性計算クラス" }
+  - { id: CPLX15-DEF-02, name: "時間構成可能・空間構成可能" }
+theorems:
+  - { id: CPLX15-THM-01, name: "決定性時間階層定理" }
+  - { id: CPLX15-THM-02, name: "決定性空間階層定理" }
+propositions:
+  - { id: CPLX15-PROP-01, name: "符号のパディング" }
+  - { id: CPLX15-LEM-01, name: "時間効率のよい万能模倣" }
+  - { id: CPLX15-PROP-02, name: "有限空間の模倣打ち切り" }
+  - { id: CPLX15-COR-01, name: "多項式時間の厳密な階層" }
+  - { id: CPLX15-COR-02, name: "対数空間から多項式空間への厳密な差" }
+  - { id: CPLX15-COR-03, name: "大きなクラスの厳密な分離" }
+canonical_examples:
+  - "n^3とn^4の時間階層を比の極限から検証"
+  - "長さ17の機械符号を長さ2^17以上へパディングして短い復号窓に収める"
+  - "480通り以下の配置で有限カウンタによる停止性を確認"
+  - "一つの2^n時間対角言語が全多項式時間を同時に避ける"
+problem_patterns:
+  - CPLX15-RESOURCE-DEFINITIONS
+  - CPLX15-CONSTRUCTIBILITY
+  - CPLX15-PADDING
+  - CPLX15-UNIVERSAL-SIMULATION
+  - CPLX15-TIME-DIAGONAL
+  - CPLX15-CONFIGURATION-COUNT
+  - CPLX15-SPACE-DIAGONAL
+  - CPLX15-CLASS-SEPARATIONS
+  - CPLX15-PNP-NONSEPARATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 6.0, review: 3.0 }
