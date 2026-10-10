@@ -1,0 +1,53 @@
+id: "CELL7"
+title: "シフト空間・円筒集合・配置の近さ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CELL6
+official_scope: []
+learning_objectives:
+  - 全シフト空間とシフト写像を定義し逆方向の写像を検算できる
+  - 円筒集合の交差と中央一致窓への包含を再現できる
+  - 中央一致距離の強い三角不等式を証明できる
+  - 配置列の収束と有限窓の最終的一致の同値を証明できる
+  - シフトと有限半径CAの連続性を入力窓から導ける
+  - 対角部分列構成による列コンパクト性を証明できる
+  - 円筒被覆の有限部分被覆と一様有限窓の帰結を導ける
+  - 無限状態の反例を使い有限状態仮定の役割を述べられる
+definitions:
+  - { id: CELL7-DEF-01, name: "全シフト空間とシフト写像" }
+  - { id: CELL7-DEF-02, name: "円筒集合と中央一致窓" }
+  - { id: CELL7-DEF-03, name: "中央一致距離" }
+  - { id: CELL7-DEF-04, name: "配置列の収束" }
+  - { id: CELL7-DEF-05, name: "配置空間上の連続写像" }
+theorems:
+  - { id: CELL7-THM-01, name: "中央一致距離の強い三角不等式" }
+  - { id: CELL7-THM-02, name: "収束と有限窓の最終的一致" }
+  - { id: CELL7-THM-03, name: "有限状態全シフトの列コンパクト性" }
+  - { id: CELL7-THM-04, name: "円筒被覆の有限部分被覆" }
+propositions:
+  - { id: CELL7-PROP-01, name: "円筒集合と中央一致窓の対応" }
+  - { id: CELL7-PROP-02, name: "開球と中央一致窓" }
+  - { id: CELL7-PROP-03, name: "連続性の有限窓判定" }
+  - { id: CELL7-PROP-04, name: "シフトと有限半径CAの連続性" }
+canonical_examples:
+  - "位置1から0へのシフトと逆写像"
+  - "離れた二つの指定座標を持つ円筒"
+  - "位置3の単独1と全0配置の距離1/8"
+  - "遠方へ逃げる単独1の収束"
+  - "無限状態の定数配置列の非収束"
+problem_patterns:
+  - CELL7-CYLINDER-INTERSECTION
+  - CELL7-DISTANCE
+  - CELL7-SHIFT-WINDOW
+  - CELL7-SPIKE-CONVERGENCE
+  - CELL7-CYLINDER-COMPLEMENT
+  - CELL7-ULTRAMETRIC
+  - CELL7-CYLINDER-PARTITION
+  - CELL7-VARYING-SHIFT
+  - CELL7-INFINITE-ALPHABET
+  - CELL7-UNIFORM-WINDOW
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 3.0, review: 1.5 }
