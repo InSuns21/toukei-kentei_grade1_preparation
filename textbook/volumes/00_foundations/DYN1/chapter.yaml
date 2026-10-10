@@ -1,0 +1,51 @@
+id: "DYN1"
+title: "閉区間上の反復・固定点・軌道の収束"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RA2
+  - CELL3
+official_scope: []
+learning_objectives:
+  - 連続閉区間自己写像の定義域・値域・反復の閉性と連続性を証明できる
+  - 前方不変集合を定義し具体的区間の各点について不変条件を検証できる
+  - 閉区間の固定点存在定理を中間値定理の端点符号から完全証明できる
+  - 収束する軌道の極限が固定点となることを区間の閉性と連続性から証明できる
+  - 単調非減少写像の全軌道が固定点へ収束し非自明な周期点がないことを証明できる
+  - 縮小条件から固定点の一意性と幾何収束評価を証明し境界c=1の失敗を説明できる
+  - Logistic写像の不変区間と固定点を全パラメータ範囲で分類できる
+  - CELL3の有限状態の最終周期性と連続区間での非周期的収束を仮定の違いから説明できる
+definitions:
+  - { id: DYN1-DEF-01, name: "閉区間上の離散力学系" }
+  - { id: DYN1-DEF-02, name: "前方不変集合" }
+theorems:
+  - { id: DYN1-THM-01, name: "閉区間の連続自己写像の固定点存在" }
+  - { id: DYN1-THM-02, name: "単調非減少な区間写像の軌道収束" }
+  - { id: DYN1-THM-03, name: "閉区間上の縮小写像の固定点一意性と収束" }
+propositions:
+  - { id: DYN1-PROP-01, name: "反復の閉性と連続性" }
+  - { id: DYN1-PROP-02, name: "収束する軌道の極限は固定点" }
+  - { id: DYN1-PROP-03, name: "単調非減少写像には非自明な周期点がない" }
+  - { id: DYN1-PROP-04, name: "Logistic写像の不変区間と固定点" }
+canonical_examples:
+  - "x^2の[0,1]自己写像と不変小区間"
+  - "連続な1-xの二周期と単調仮定の不成立"
+  - "x/2の非周期的な収束とCELL3有限状態条件の境界"
+  - "Logistic写像0<=r<=4の自己写像条件"
+  - "x/2+1/4の共通縮小定数"
+  - "lambda*x+(1-lambda)*x^2のパラメータ境界と軌道評価"
+problem_patterns:
+  - DYN1-ITERATION-INVARIANCE
+  - DYN1-LINEAR-ORBIT
+  - DYN1-NONMONOTONE-TWOCYCLE
+  - DYN1-LOGISTIC-FIXED
+  - DYN1-NEGATIVE-INITIAL
+  - DYN1-IVT-APPLICATION
+  - DYN1-MONOTONE-LIMIT
+  - DYN1-INFINITE-NONPERIODIC
+  - DYN1-CONTRACTION-RATE
+  - DYN1-PARAMETER-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.5, review: 2.0 }
