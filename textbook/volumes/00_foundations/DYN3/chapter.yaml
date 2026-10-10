@@ -1,0 +1,49 @@
+id: "DYN3"
+title: "Logistic写像の固定点と安定枝"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - DYN2
+official_scope: []
+learning_objectives:
+  - DYN1の不変区間と固定点分類を再利用し連続な固定点枝を構成できる
+  - Logistic写像の二固定点での乗数rおよび2-rを微分から導ける
+  - 乗数条件から局所安定性・不安定性をパラメータ領域別に分類できる
+  - 正確な誤差更新式から局所不変近傍と幾何収束評価を構成できる
+  - r=1の原点の吸引域と漸近安定性を単調収束から証明できる
+  - 1<r<=2で正の固定点の全内点からの収束を単調写像で示せる
+  - 不安定固定点の吸引域が有限時刻の逆像であることを証明できる
+  - r=3の固定点の二歩の誤差展開から乗数-1での漸近安定性を証明できる
+  - 固定点不安定と二周期の存在・安定性を混同せず区別できる
+definitions:
+  - { id: DYN3-DEF-01, name: "固定点枝" }
+  - { id: DYN3-DEF-02, name: "固定点の吸引域" }
+theorems:
+  - { id: DYN3-THM-01, name: "Logistic写像の固定点の局所安定領域" }
+  - { id: DYN3-THM-02, name: "原点の吸引域と臨界値r=1" }
+  - { id: DYN3-THM-03, name: "1<r<=2における正の固定点の吸引域" }
+  - { id: DYN3-THM-04, name: "r=3の正の固定点は漸近安定" }
+propositions:
+  - { id: DYN3-PROP-01, name: "正の固定点の明示的な局所吸引域" }
+  - { id: DYN3-PROP-02, name: "反発的な固定点の吸引域は有限時刻の逆像" }
+canonical_examples:
+  - "r=5/2で乗数-1/2と明示的局所縮小"
+  - "r=1で乗数1だが原点への全域収束"
+  - "1<r<=2で正の固定点への全内点収束"
+  - "r=4で0の有限時刻逆像が拡大する端点例"
+  - "r=3で二歩の三次項が収束を生む"
+problem_patterns:
+  - DYN3-ORIGIN-MULTIPLIER
+  - DYN3-POSITIVE-MULTIPLIER
+  - DYN3-CRITICAL-ONE
+  - DYN3-REPELLER-PREIMAGE
+  - DYN3-CRITICAL-THREE-NUMERIC
+  - DYN3-LOCAL-ERROR-BOUND
+  - DYN3-GLOBAL-BASIN
+  - DYN3-TWO-STEP-NEUTRAL
+  - DYN3-REPELLER-BASIN
+  - DYN3-PARAMETER-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.5, review: 2.0 }
