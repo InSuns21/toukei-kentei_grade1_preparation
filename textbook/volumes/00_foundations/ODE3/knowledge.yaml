@@ -76,8 +76,8 @@ concepts:
   - id: ode.ode3-linear-stability
     name: Lyapunov安定・漸近安定・指数安定
     kind: definition
-    aliases: [Lyapunov安定, 漸近安定, 指数安定, 線形安定性]
     introduction: formal
+    introduction_aliases: [Lyapunov安定・漸近安定・指数安定]
     requires:
       - ode.ode3-homogeneous-ivp
 
