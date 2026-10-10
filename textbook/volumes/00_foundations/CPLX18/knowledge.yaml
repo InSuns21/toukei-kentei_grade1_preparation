@@ -1,0 +1,73 @@
+chapter: CPLX18
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CPLX17
+concepts:
+  - id: theoretical-computer-science.boolean-circuit
+    name: Boolean回路
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Boolean回路）"]
+    requires: [theoretical-computer-science.turing-machine]
+  - id: theoretical-computer-science.circuit-size-depth
+    name: 回路のサイズと深さ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（回路のサイズと深さ）"]
+    requires: [theoretical-computer-science.boolean-circuit]
+  - id: theoretical-computer-science.circuit-dependency-depth
+    name: 二入力回路の依存変数数と深さ
+    kind: proposition
+    introduction_aliases: ["命題（二入力回路の依存変数数と深さ）"]
+    requires: [theoretical-computer-science.circuit-size-depth]
+  - id: theoretical-computer-science.boolean-formula-circuit
+    name: Boolean式と回路の共有
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Boolean式と回路の共有）"]
+    requires: [theoretical-computer-science.boolean-circuit]
+  - id: theoretical-computer-science.circuit-family
+    name: 回路族と多項式サイズ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（回路族と多項式サイズ）"]
+    requires: [theoretical-computer-science.circuit-size-depth]
+  - id: theoretical-computer-science.uniform-circuit-family
+    name: 多項式時間uniform回路族
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多項式時間uniform回路族）"]
+    requires: [theoretical-computer-science.circuit-family]
+  - id: theoretical-computer-science.class-p-poly
+    name: P/poly
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（P/poly）"]
+    requires: [theoretical-computer-science.circuit-family, theoretical-computer-science.class-p]
+  - id: theoretical-computer-science.undecidable-p-poly
+    name: P/polyには決定不能な言語が含まれる
+    kind: proposition
+    introduction_aliases: ["命題（P/polyには決定不能な言語が含まれる）"]
+    requires: [theoretical-computer-science.class-p-poly, theoretical-computer-science.halting-problem]
+  - id: theoretical-computer-science.uniform-circuit-p
+    name: 多項式時間と多項式時間uniform回路族
+    kind: theorem
+    introduction_aliases: ["定理（多項式時間と多項式時間uniform回路族）"]
+    requires: [theoretical-computer-science.uniform-circuit-family, theoretical-computer-science.class-p]
+  - id: theoretical-computer-science.polynomial-advice
+    name: 多項式長助言付き多項式時間計算
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多項式長助言付き多項式時間計算）"]
+    requires: [theoretical-computer-science.uniform-circuit-p]
+  - id: theoretical-computer-science.p-poly-advice
+    name: P/polyと多項式長助言
+    kind: theorem
+    introduction_aliases: ["定理（P/polyと多項式長助言）"]
+    requires: [theoretical-computer-science.class-p-poly, theoretical-computer-science.polynomial-advice, theoretical-computer-science.uniform-circuit-p]
+  - id: theoretical-computer-science.circuit-counting-lower-bound
+    name: 計数による回路サイズ下界
+    kind: theorem
+    introduction_aliases: ["定理（計数による回路サイズ下界）"]
+    requires: [theoretical-computer-science.circuit-size-depth, theoretical-computer-science.class-p-poly]
