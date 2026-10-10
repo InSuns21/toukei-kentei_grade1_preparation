@@ -1,0 +1,47 @@
+id: "CELL15"
+title: "確率的CA・モデル化・総合演習"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CELL14
+official_scope: []
+learning_objectives:
+  - 有限環の配置空間、局所確率規則、条件付き独立な更新乱数と共有乱数を区別できる
+  - 条件付き独立性を根拠に全体遷移確率の積公式と正規化を証明できる
+  - 有限確率和から一歩の期待粒子数を計算し、独立性不要の部分を区別できる
+  - 周辺確率が同じでも共有乱数と現在配置の相関で全体分布・未来の平均が変わる反例を構成できる
+  - 有限環の吸収状態への到達確率上界を導き有限・無限系の主張を区別できる
+  - 同一時空間雑音を用いた有限伝播を帰納法で証明できる
+  - 独自の局所模型について周期性、保存、前像、期待値、実験と証明の境界を総合検証できる
+definitions:
+  - { id: CELL15-DEF-01, name: "有限環上の独立乱数型確率的CA" }
+lemmas: []
+theorems:
+  - { id: CELL15-THM-01, name: "独立局所抽選の全体遷移確率" }
+  - { id: CELL15-THM-02, name: "一歩期待粒子数の確率和" }
+  - { id: CELL15-THM-03, name: "有限環における吸収状態への到達上界" }
+  - { id: CELL15-THM-04, name: "同一乱数下の有限伝播" }
+propositions:
+  - { id: CELL15-PROP-01, name: "同一周辺確率でも全体分布は一致しない" }
+  - { id: CELL15-PROP-02, name: "現在の一セル周辺確率だけでは次時刻平均が定まらない" }
+canonical_examples:
+  - "N=3の100配置で3/4・1/2・1/2の抽選"
+  - "公平コインの独立・共有方式で全1確率1/8対1/2"
+  - "000/111混合と独立初期配置で未来の一セル確率1/2対1/4"
+  - "有限環の幾何消滅上界(1-delta)^t"
+  - "N=4右シフトと独立消失の二粒子モデル"
+problem_patterns:
+  - CELL15-LOCAL-NORMALIZATION
+  - CELL15-TRANSITION-PROBABILITY
+  - CELL15-SHARED-NOISE
+  - CELL15-ABSORBING-STATE
+  - CELL15-COUPLED-CONE
+  - CELL15-INITIAL-CORRELATION
+  - CELL15-EXTINCTION-BOUND
+  - CELL15-PRODUCT-VALIDATION
+  - CELL15-MIXTURE-EXPECTATION
+  - CELL15-INTEGRATED-MODEL
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 5.0, review: 2.5 }
