@@ -1,0 +1,32 @@
+chapter: "CELL10"
+terms:
+  - term: 有限差分
+    english: finite difference between configurations
+    meaning: "二つの両側無限配置で値が異なる座標の集合が有限であること。"
+  - term: 差異集合
+    english: difference set
+    meaning: "二つの配置x,yについて、x_iとy_iが異なる整数座標iをすべて集めた集合。"
+  - term: 前単射性
+    english: pre-injectivity
+    meaning: "有限個の座標でしか異ならない相異なる二配置が、同じ出力へ潰れない性質。"
+  - term: Garden of Eden配置
+    english: Garden of Eden configuration
+    meaning: "有限半径CAの出力としてどの入力配置からも生まれない、前像を持たない無限配置。"
+  - term: 禁制出力語
+    english: forbidden output word
+    meaning: "指定した有限区間において、どの入力からの更新でも生成できない有限の出力パターン。"
+  - term: Garden of Eden定理
+    english: Garden of Eden theorem
+    meaning: "有限状態の一次元両側無限全シフト上のCAについて、全射性と前単射性が同値となる定理。"
+  - term: Myhill方向
+    english: Myhill implication
+    meaning: "有限状態の一次元全シフト上のCAについて、前単射性から全射性を導く含意。"
+  - term: Moore方向
+    english: Moore implication
+    meaning: "有限状態の一次元全シフト上のCAについて、全射性から前単射性を導く含意。"
+  - term: 置換可能な二語
+    english: mutually substitutable words
+    meaning: "境界余白を含めた有限ブロックで、一方をもう一方へ交換しても任意の外側配置の下で更新出力が変わらない二語。"
+  - term: 境界余白
+    english: boundary buffer
+    meaning: "有限差分の影響する出力とその参照入力をブロック内へ含めるために確保するセルの幅。"
