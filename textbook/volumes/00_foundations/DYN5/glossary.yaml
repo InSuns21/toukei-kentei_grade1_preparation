@@ -11,7 +11,7 @@ terms:
     meaning: "有限個の左右の枝選択を0と1で記録した語。逆分枝を合成してn歩逆像候補を構成する。"
   - term: 分枝区間
     english: branch cylinder interval
-    meaning: "有限分枝語wの合成逆分枝B_wによる区間[0,1]の像C_w。語長nでは長さ2の-n乗の二進小区間。"
+    meaning: "有限分枝語wの合成逆分枝B_wによる区間[0,1]の像C_w。語長nでは長さ2のマイナスn乗の二進小区間。"
   - term: 深さnの逆像数
     english: depth-n preimage count
     meaning: "方程式T^n(x)=yを満たす相異なる区間内の点の数。語の数とは端点で一致しない。"
