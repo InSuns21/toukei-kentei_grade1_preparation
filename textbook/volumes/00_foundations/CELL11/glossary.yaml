@@ -1,0 +1,38 @@
+chapter: "CELL11"
+terms:
+  - term: 二次元セル・オートマトン
+    english: two-dimensional cellular automaton
+    meaning: "有限状態の平面格子で、有限個の参照位置に同じ局所規則を全点同時に適用する離散力学系。"
+  - term: 参照オフセット集合
+    english: neighborhood offset set
+    meaning: "各格子点の更新に使用する相対座標を有限集合Dとして指定したもの。"
+  - term: Moore近傍
+    english: Moore neighborhood
+    meaning: "上下左右と斜めを含む3×3の参照領域。近隣生存数を数える場合は中心を除く8セル。"
+  - term: von Neumann近傍
+    english: von Neumann neighborhood
+    meaning: "上下左右と中心からなる5位置の参照領域。中心を除くと近隣は4セル。"
+  - term: ConwayのGame of Life
+    english: Conway's Game of Life
+    meaning: "Moore近隣の生存数により死セルがちょうど3で誕生し、生セルが2または3で生存する二次元二状態CA。"
+  - term: B3/S23
+    english: birth 3, survival 2 or 3
+    meaning: "死セルは生存近隣数3で誕生し、生セルは近隣数2または3で生存する局所規則の記法。"
+  - term: 二次元の有限伝播
+    english: finite propagation in two dimensions
+    meaning: "参照半径rのCAの時刻t・位置zの値は初期のz中心の半径rt正方形だけで決まる性質。"
+  - term: 静止物体
+    english: still life
+    meaning: "生セルが有限非空のLife配置で、一歩更新しても配置全体が変わらないもの。"
+  - term: 振動子
+    english: oscillator
+    meaning: "一歩では元へ戻らないが、最小の正整数周期p（2以上）で元の配置に戻る有限非空のLife配置。"
+  - term: 移動物体
+    english: spaceship
+    meaning: "有限回の更新後に、元の非空有限生存配置を非零整数ベクトルだけ平行移動した配置になる模様。"
+  - term: グライダー
+    english: glider
+    meaning: "Lifeで5個の生セルからなり4世代で形を保って右下へ1セル移動する代表的な移動物体。"
+  - term: 周期境界
+    english: periodic boundary condition
+    meaning: "有限格子の参照座標を各方向の盤面サイズで剰余化し、向かい合う端を隣接させる境界設定。"

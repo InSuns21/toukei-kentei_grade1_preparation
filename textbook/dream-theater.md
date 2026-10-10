@@ -465,6 +465,7 @@
 8. [CELL8 Curtis–Hedlund–Lyndon定理](textbook/volumes/00_foundations/CELL8/index.md)
 9. [CELL9 可逆CAと逆写像の局所性](textbook/volumes/00_foundations/CELL9/index.md)
 10. [CELL10 Garden of Eden定理と前単射性](textbook/volumes/00_foundations/CELL10/index.md)
+11. [CELL11 二次元CAとConwayのGame of Life](textbook/volumes/00_foundations/CELL11/index.md)
 
 <a id="dt-subject-numerical-analysis"></a>
 ### 数値解析

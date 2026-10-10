@@ -47,7 +47,7 @@ chapters:
     title: Garden of Eden定理と前単射性
   - id: CELL11
     path: textbook/volumes/00_foundations/CELL11
-    status: planned
+    status: completed
     title: 二次元CAとConwayのGame of Life
   - id: CELL12
     path: textbook/volumes/00_foundations/CELL12
