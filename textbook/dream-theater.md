@@ -444,6 +444,7 @@
 1. [CPLX12 空間計算量](textbook/volumes/00_foundations/CPLX12/index.md)
 2. [CPLX13 Savitch の定理](textbook/volumes/00_foundations/CPLX13/index.md)
 3. [CPLX14 PSPACE完全性とTQBF](textbook/volumes/00_foundations/CPLX14/index.md)
+4. [CPLX15 階層定理](textbook/volumes/00_foundations/CPLX15/index.md)
 
 <a id="dt-subject-numerical-analysis"></a>
 ### 数値解析
