@@ -1,0 +1,29 @@
+chapter: "CPLX20"
+terms:
+  - term: 乱択計算
+    english: randomized computation
+    meaning: "固定した入力に対して独立な乱数ビットを使用し、出力確率または期待実行時間の保証を持つ計算。"
+  - term: RP
+    english: randomized polynomial time with one-sided error
+    meaning: "非所属入力は確実に拒否し、所属入力を少なくとも半分の確率で受理する多項式時間乱択計算のクラス。"
+  - term: coRP
+    english: complement of RP
+    meaning: "所属入力は確実に受理し、非所属入力を少なくとも半分の確率で拒否するクラス。"
+  - term: BPP
+    english: bounded-error probabilistic polynomial time
+    meaning: "各入力について正解確率が少なくとも三分の二の多項式時間乱択計算のクラス。"
+  - term: ZPP
+    english: zero-error probabilistic polynomial time
+    meaning: "誤答せず確率一で停止し、入力ごとの期待実行時間が多項式のクラス。"
+  - term: 誤り確率の増幅
+    english: error probability amplification
+    meaning: "新しい独立な乱数を使って繰り返し、OR・AND・多数決で誤答確率を指数的に減らす操作。"
+  - term: 擬似乱数生成器
+    english: pseudorandom generator
+    meaning: "短い種から長いビット列を計算し、対象とする計算機の受理確率を真の乱数下の値に近づける写像。"
+  - term: 脱乱択化
+    english: derandomization
+    meaning: "乱数を使った判定を、適切な擬似乱数や構造を利用して決定的判定に置き換えること。"
+  - term: 非uniform性
+    english: nonuniformity
+    meaning: "入力長ごとに独立した助言や回路を選ぶことを認め、その効率的な生成手続きを要求しない性質。"
