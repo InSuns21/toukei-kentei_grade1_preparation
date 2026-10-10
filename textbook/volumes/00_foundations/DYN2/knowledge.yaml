@@ -6,7 +6,14 @@ prerequisites:
   - RA3
 concepts:
   - id: dynamical-systems.fixed-point-stability
-    name: 固定点の安定性と吸引性
+    name: Lyapunov安定
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固定点の安定性と吸引性）"]
+    requires: [dynamical-systems.interval-map]
+
+  - id: dynamical-systems.local-attraction
+    name: 局所吸引的
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（固定点の安定性と吸引性）"]
