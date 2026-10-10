@@ -19,8 +19,8 @@ $I=[a,b]$（$a<b$）、$f:I\to I$ を連続自己写像、$p\in I$ を $f(p)=p$ 
 
 1. **離散時間のLyapunov安定**：任意の $\varepsilon>0$ に対してある $\delta>0$ が存在し、$x_0\in I$ かつ $|x_0-p|<\delta$ なら、すべての $n\ge0$ で $|x_n-p|<\varepsilon$ となる。
 2. **局所吸引的**：ある $r>0$ が存在し、$x_0\in I$ かつ $|x_0-p|<r$ なら $x_n\to p$ となる。
-3. **離散時間の漸近安定**：Lyapunov安定かつ局所吸引的である。
-4. **不安定**：Lyapunov安定でない。すなわち、ある $\varepsilon_0>0$ に対し、任意の $\delta>0$ について $|x_0-p|<\delta$ から始めても、少なくとも一つの時刻で $|x_n-p|\ge\varepsilon_0$ となる初期値 $x_0\in I$ がある。
+3. **離散時間の漸近安定**：第1条件の安定性と第2条件の局所吸引性をともに満たす。
+4. **不安定**：第1条件の安定性が成り立たない。すなわち、ある $\varepsilon_0>0$ に対し、任意の $\delta>0$ について $|x_0-p|<\delta$ から始めても、少なくとも一つの時刻で $|x_n-p|\ge\varepsilon_0$ となる初期値 $x_0\in I$ がある。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-dyn2-stability -->
