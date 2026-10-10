@@ -87,5 +87,5 @@ chapters:
     title: 乱択計算
   - id: CPLX21
     path: textbook/volumes/00_foundations/CPLX21
-    status: planned
+    status: completed
     title: P vs NPの証明障壁
