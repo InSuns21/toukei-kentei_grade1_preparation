@@ -19,7 +19,7 @@ chapters:
     title: 有限環の軌道・周期・状態遷移グラフ
   - id: CELL4
     path: textbook/volumes/00_foundations/CELL4
-    status: planned
+    status: completed
     title: 加法的CAと二進代数
   - id: CELL5
     path: textbook/volumes/00_foundations/CELL5
