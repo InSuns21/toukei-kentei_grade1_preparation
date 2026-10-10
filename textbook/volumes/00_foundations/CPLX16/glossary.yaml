@@ -1,0 +1,23 @@
+chapter: "CPLX16"
+terms:
+  - term: 多項式階層
+    english: polynomial hierarchy
+    meaning: "多項式長の存在・全称選択を定数段だけ交代させる判定問題のクラスの和集合PH。"
+  - term: Sigma_k^P
+    english: Sigma level of the polynomial hierarchy
+    meaning: "存在量化から始まるk個の交代量化ブロックと多項式時間述語で定める言語クラス。"
+  - term: Pi_k^P
+    english: Pi level of the polynomial hierarchy
+    meaning: "全称量化から始まるk個の交代量化ブロックと多項式時間述語で定める言語クラス。"
+  - term: coNP
+    english: complement of NP
+    meaning: "補言語がNPに属する判定問題の全体。NPの集合論的な差集合ではない。"
+  - term: oracle
+    english: oracle
+    meaning: "固定言語への所属問い合わせに正しい答えを返す理論的な計算装置。"
+  - term: Delta_k^P
+    english: Delta level of the polynomial hierarchy
+    meaning: "直前のSigma層に所属する言語をoracleとして多項式時間で判定できるクラス。"
+  - term: 階層の崩壊
+    english: collapse of the hierarchy
+    meaning: "ある階層以上の量化段数を増やしても言語クラスが拡大しなくなる現象。"

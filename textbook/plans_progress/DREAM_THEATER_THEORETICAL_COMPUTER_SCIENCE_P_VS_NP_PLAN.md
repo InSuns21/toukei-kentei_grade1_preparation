@@ -1160,3 +1160,4 @@ plan 作成時点では textbook/dream-theater-index.json と textbook/dream-the
 - 2026-10-10: CPLX14「PSPACE完全性とTQBF」を実装。QBFの意味論と選択ゲーム、深さ優先評価によるPSPACE所属、多項式長の一歩関係、存在・全称量化を使った共有到達可能性式、TQBFへの多項式時間帰着を詳細に証明。A5/B5/C1の全11題と詳細解答を追加し、CPLX15へ進行。
 
 - 2026-10-10: CPLX15「階層定理」を実装。時間・空間構成可能性、パディング、万能模倣の償却費用、決定性時間階層定理・空間階層定理の対角化と停止性、P⊊EXPTIME・PSPACE⊊EXPSPACEの導出、A5/B4/C1の詳細解答を追加。CPLX16へ進行。
+- 2026-10-10: CPLX16「多項式階層」を実装。量化子によるSigma/Pi階層、coNPとの双対性、PH⊆PSPACE、適応的oracle問い合わせの実行記録を使ったSigma(k+1)=NP^Sigma(k)の双方向証明、階層崩壊条件とP=NP/NP=coNPの帰結を補強。A5/B4/C1の全10題と詳細解答を追加し、CPLX17へ進行。
