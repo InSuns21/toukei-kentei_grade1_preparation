@@ -4,6 +4,9 @@ coverage: complete
 prerequisites:
   - RA2
   - CELL3
+forward_references:
+  - analysis.differential-coefficient
+  - analysis.mean-value-theorem
 
 concepts:
   - id: dynamical-systems.interval-map
