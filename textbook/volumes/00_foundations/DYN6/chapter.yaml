@@ -1,0 +1,51 @@
+id: "DYN6"
+title: "位相共役・半共役・不変集合"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - DYN5
+  - TOP2
+official_scope: []
+learning_objectives:
+  - 位相的半共役と位相共役の連続性・全射性・単射性・逆写像の条件を具体例で検証できる
+  - 半共役の可換式を帰納して全反復の軌道対応を証明できる
+  - 半共役で像の最小周期が元の最小周期を割り切ることを除法で示せる
+  - 周期軌道上の単射性から最小周期が保存されることを証明できる
+  - 共役による収束の両方向の移送で逆写像の連続性の使用点を説明できる
+  - sin二乗変換を用いてTent写像とパラメータ4のLogistic写像の共役を完全に検証できる
+  - 半共役のファイバーの移動と周期短縮を具体的に計算できる
+  - 前方不変と等号での不変を区別し半共役での像・逆像の保存則を証明できる
+  - 共役では不変集合の往復対応が成立し乗数の値そのものは保存されないと説明できる
+definitions:
+  - { id: DYN6-DEF-01, name: "位相的半共役" }
+  - { id: DYN6-DEF-02, name: "位相共役" }
+  - { id: DYN6-DEF-03, name: "前方不変集合と等号での不変集合" }
+theorems:
+  - { id: DYN6-THM-01, name: "半共役による反復と周期の移送" }
+  - { id: DYN6-THM-02, name: "Tent写像とパラメータ4のLogistic写像の位相共役" }
+  - { id: DYN6-THM-03, name: "半共役と共役による不変集合の移送" }
+propositions:
+  - { id: DYN6-PROP-01, name: "共役による軌道の収束の保存" }
+  - { id: DYN6-PROP-02, name: "半共役のファイバーの移動" }
+canonical_examples:
+  - "f(x)=x/2とh(x)=1-xで固定点0が1へ移る"
+  - "f(x)=1-xとh(x)=(2x-1)^2で二周期が固定点へ潰れる"
+  - "h(x)=sin^2(pi*x/2)でTentとLogistic4が位相共役"
+  - "Tentの2/3がLogistic4の3/4へ、2/5と4/5の周期が保存"
+  - "半共役の一点空間への潰し込みで等号不変性は逆像へ戻らない"
+  - "h(x)=x^3による共役で固定点乗数1/2と1/8は異なる"
+problem_patterns:
+  - DYN6-REFLECTION-CONJUGACY
+  - DYN6-FIXED-POINT-TRANSFER
+  - DYN6-SEMICONJUGACY-PERIOD-COLLAPSE
+  - DYN6-FORWARD-VS-EXACT-INVARIANCE
+  - DYN6-FIBER-PREIMAGE
+  - DYN6-ORBIT-INJECTIVITY
+  - DYN6-TWO-CYCLE-TRANSFER
+  - DYN6-INVERSE-IMAGE-STRICT
+  - DYN6-MULTIPLIER-NOT-INVARIANT
+  - DYN6-SEMICONJUGACY-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.0, review: 2.0 }

@@ -1,0 +1,17 @@
+chapter: "DYN6"
+terms:
+  - term: 位相的半共役
+    english: topological semiconjugacy
+    meaning: "連続な全射hがh∘f=g∘hを満たす関係。像の系へ軌道を移すが元の別々の点を同一視する場合がある。"
+  - term: 位相共役
+    english: topological conjugacy
+    meaning: "同相写像hがh∘f=g∘hを満たす関係。軌道と最小周期を両方向で一対一に移す。"
+  - term: 因子系
+    english: factor system
+    meaning: "半共役の連続全射により、元の系から読み出せる像側の力学系。"
+  - term: ファイバー
+    english: fiber
+    meaning: "hによる一点yの逆像h^{-1}({y})。半共役では複数の元の点が同じファイバーに含まれうる。"
+  - term: 等号での不変集合
+    english: invariant set with equality
+    meaning: "自己写像fに対しf(A)=Aを満たす集合。前方不変条件f(A)⊆Aより強い。"

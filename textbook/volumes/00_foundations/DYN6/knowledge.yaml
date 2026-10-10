@@ -1,0 +1,50 @@
+chapter: DYN6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - DYN5
+  - TOP2
+concepts:
+  - id: dynamical-systems.topological-semiconjugacy
+    name: 位相的半共役
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（位相的半共役）"]
+    requires: [dynamical-systems.interval-map]
+  - id: dynamical-systems.topological-conjugacy
+    name: 位相共役
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（位相共役）"]
+    requires: [dynamical-systems.topological-semiconjugacy]
+  - id: dynamical-systems.semiconjugacy-period-transport
+    name: 半共役による反復と周期の移送
+    kind: theorem
+    introduction_aliases: ["定理（半共役による反復と周期の移送）"]
+    requires: [dynamical-systems.topological-semiconjugacy]
+  - id: dynamical-systems.conjugate-orbit-convergence
+    name: 共役による軌道の収束の保存
+    kind: proposition
+    introduction_aliases: ["命題（共役による軌道の収束の保存）"]
+    requires: [dynamical-systems.topological-conjugacy, dynamical-systems.semiconjugacy-period-transport]
+  - id: dynamical-systems.tent-logistic-conjugacy
+    name: Tent写像とパラメータ4のLogistic写像の位相共役
+    kind: theorem
+    introduction_aliases: ["定理（Tent写像とパラメータ4のLogistic写像の位相共役）"]
+    requires: [dynamical-systems.topological-conjugacy, dynamical-systems.tent-map]
+  - id: dynamical-systems.semiconjugacy-fibers
+    name: 半共役のファイバーの移動
+    kind: proposition
+    introduction_aliases: ["命題（半共役のファイバーの移動）"]
+    requires: [dynamical-systems.topological-semiconjugacy]
+  - id: dynamical-systems.exact-invariance
+    name: 前方不変集合と等号での不変集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（前方不変集合と等号での不変集合）"]
+    requires: [dynamical-systems.interval-map]
+  - id: dynamical-systems.invariant-set-transport
+    name: 半共役と共役による不変集合の移送
+    kind: theorem
+    introduction_aliases: ["定理（半共役と共役による不変集合の移送）"]
+    requires: [dynamical-systems.topological-semiconjugacy, dynamical-systems.topological-conjugacy, dynamical-systems.exact-invariance]
