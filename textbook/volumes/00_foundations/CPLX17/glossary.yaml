@@ -1,0 +1,20 @@
+chapter: "CPLX17"
+terms:
+  - term: Oracle付きTuring機械
+    english: oracle Turing machine
+    meaning: "固定言語への所属を一手で質問できる理論的なTuring機械。質問文字列を生成する時間は計測する。"
+  - term: 相対化
+    english: relativization
+    meaning: "同じOracleを使える計算モデルへ主張・証明を移すこと。全てのOracle世界で成立するかを問う。"
+  - term: P^A
+    english: deterministic polynomial time relative to A
+    meaning: "言語Aへの所属を一手で質問できる決定性多項式時間機械の判定言語クラス。"
+  - term: NP^A
+    english: nondeterministic polynomial time relative to A
+    meaning: "言語Aへの所属を一手で質問できる非決定性多項式時間機械の判定言語クラス。"
+  - term: 相対化障壁
+    english: relativization barrier
+    meaning: "PとNPが一致するOracleと分離するOracleがともに存在するため、任意のOracleへそのまま移せる論証だけでは通常のP対NPを決定できないという制限。"
+  - term: 対角化
+    english: diagonalization
+    meaning: "列挙した各機械のある入力で、その機械の判定と反対の真偽を構成する技法。"

@@ -71,5 +71,9 @@ chapters:
     title: 多項式階層
   - id: CPLX17
     path: textbook/volumes/00_foundations/CPLX17
-    status: planned
+    status: completed
     title: Oracleと相対化
+  - id: CPLX18
+    path: textbook/volumes/00_foundations/CPLX18
+    status: planned
+    title: 回路計算量

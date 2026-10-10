@@ -1,0 +1,42 @@
+id: "CPLX17"
+title: "Oracleと相対化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CPLX16
+official_scope: []
+learning_objectives:
+  - Oracle付きTuring機械の質問・回答・時間計測を定義し、具体的な適応的質問を追跡できる
+  - 固定Oracleに相対化したPとNPの包含および簡単なOracleの置換を証明できる
+  - TQBFのPSPACE完全性とSavitchの定理からP^TQBF=NP^TQBF=PSPACEを全包含で証明できる
+  - 証明書言語L_Bを構成し、任意のBでNP^B所属を確かめられる
+  - 多項式時計付きの全機械に対する対角化でP^BとNP^Bを分離するOracleを構成できる
+  - 対角化で既出のOracle質問の答えを後から変更しない条件を説明できる
+  - Baker--Gill--Solovay型の相対化障壁を条件付きの二方向の矛盾で説明できる
+  - 相対化障壁と通常のP vs NPの未解決性を区別できる
+definitions:
+  - { id: CPLX17-DEF-01, name: "Oracle付きTuring機械" }
+  - { id: CPLX17-DEF-02, name: "Oracleに相対化した計算量クラス" }
+theorems:
+  - { id: CPLX17-THM-01, name: "P^A=NP^AとなるOracleの存在" }
+  - { id: CPLX17-THM-02, name: "P^BとNP^Bを分離するOracleの存在" }
+  - { id: CPLX17-THM-03, name: "Baker--Gill--Solovay型の相対化障壁" }
+propositions: []
+canonical_examples:
+  - "Oracle A={00,11}への一回の所属質問と二回の適応的質問"
+  - "TQBF oracleの回答を多項式空間計算で置換する"
+  - "長さ3の全8候補のうち一部だけ質問した機械を反転する"
+  - "時間上界q_i(n)<2^nを満たす長さを使った多段階対角化"
+problem_patterns:
+  - CPLX17-ORACLE-TRACE
+  - CPLX17-P-NP-RELATIVIZED
+  - CPLX17-PSPACE-ORACLE
+  - CPLX17-QUERY-COUNT
+  - CPLX17-DIAGONALIZATION
+  - CPLX17-ANSWER-PRESERVATION
+  - CPLX17-FINITE-ORACLE-DIFFERENCE
+  - CPLX17-RELATIVIZATION-BARRIER
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.0, review: 3.0 }
