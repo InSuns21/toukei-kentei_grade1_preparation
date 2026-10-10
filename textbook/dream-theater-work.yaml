@@ -7,7 +7,7 @@ series_manifest: textbook/dream-theater-series/CPLX.yaml
 
 completed_through: CPLX16
 next_work: CPLX17
-after_next: CPLX18
+after_next: null
 
 routing:
   chapter_root: textbook/volumes/00_foundations
