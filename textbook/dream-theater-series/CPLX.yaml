@@ -61,3 +61,11 @@ chapters:
     path: textbook/volumes/00_foundations/CPLX14
     status: completed
     title: PSPACE完全性とTQBF
+  - id: CPLX15
+    path: textbook/volumes/00_foundations/CPLX15
+    status: planned
+    title: 階層定理
+  - id: CPLX16
+    path: textbook/volumes/00_foundations/CPLX16
+    status: planned
+    title: 多項式階層
