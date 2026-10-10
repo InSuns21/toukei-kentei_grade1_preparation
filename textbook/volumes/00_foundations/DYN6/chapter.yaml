@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - DYN5
+  - TOP2
 official_scope: []
 learning_objectives:
   - 位相的半共役と位相共役の連続性・全射性・単射性・逆写像の条件を具体例で検証できる

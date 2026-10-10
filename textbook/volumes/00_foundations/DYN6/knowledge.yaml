@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - DYN5
+  - TOP2
 concepts:
   - id: dynamical-systems.topological-semiconjugacy
     name: 位相的半共役
