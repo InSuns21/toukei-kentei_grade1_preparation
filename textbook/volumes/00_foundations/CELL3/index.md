@@ -6,7 +6,7 @@
 
 ## 1. 周期有限環は有限状態の写像
 
-整数 $N\ge1$ と有限非空の状態集合 $Q$（要素数 $q$）を固定します。位置は $0,\ldots,N-1$ で、添字は常に $N$ を法として読みます。したがって位置0の左隣は $N-1$ です。[CELL1で定義した周期境界](../CELL1/index.md#def-cell1-boundary-convention)を使います。
+整数 $N\ge1$ と有限非空の状態集合 $Q$（要素数 $q$）を固定します。位置は $0,\ldots,N-1$ で、添字は常に $N$ を法として読みます。したがって位置0の左隣は $N-1$ です。[CELL1で定義した周期境界](../CELL1/index.md#def-cell1-finite-boundary)を使います。
 
 <a id="def-cell3-ring-map"></a>
 
