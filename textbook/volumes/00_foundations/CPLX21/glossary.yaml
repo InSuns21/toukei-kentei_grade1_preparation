@@ -1,0 +1,26 @@
+chapter: "CPLX21"
+terms:
+  - term: 相対化
+    english: relativization
+    meaning: "任意のOracleを計算機に追加しても同じ証明論法が働くかを問う枠組み。"
+  - term: Natural Proofs
+    english: natural proofs
+    meaning: "真理値表から効率的に判定でき、十分多くの関数に成立し、小回路の関数を排除する性質を用いる下界証明の枠組み。"
+  - term: 構成可能性
+    english: constructivity
+    meaning: "関数の真理値表長を入力サイズとして性質を多項式時間で判定できる条件。"
+  - term: 大きさ
+    english: largeness
+    meaning: "一様に選んだBoolean関数の十分な割合が性質を満たす条件。"
+  - term: 有用性
+    english: usefulness
+    meaning: "対象となる小回路で計算できる関数がその性質を満たさない条件。"
+  - term: 擬似乱数関数
+    english: pseudorandom function
+    meaning: "鍵で選ぶ効率的な関数族で、指定した計算資源の識別器にはランダム関数と区別しにくいもの。"
+  - term: 多重線形拡張
+    english: multilinear extension
+    meaning: "Boolean点で表と一致し、各変数について次数が高々1の多項式。"
+  - term: 代数化
+    english: algebrization
+    meaning: "低次数拡張されたOracleを許しても証明技法が通るかを問う障壁。"
