@@ -1,0 +1,23 @@
+chapter: "DYN2"
+terms:
+  - term: Lyapunov安定
+    english: Lyapunov stability
+    meaning: "任意の許容誤差εに対し、全時刻で固定点からε未満にとどまる初期誤差δを選べること。δは時刻に依存しない。"
+  - term: 局所吸引的
+    english: locally attracting
+    meaning: "固定点のある区間内近傍から出発するすべての軌道が、その固定点へ収束すること。"
+  - term: 漸近安定
+    english: asymptotically stable
+    meaning: "Lyapunov安定かつ局所吸引的であること。近くにとどまり、さらに極限で固定点に近づく。"
+  - term: 不安定
+    english: unstable fixed point
+    meaning: "固定した正の距離ε0に対して、どれほど近くから始めても有限時刻で距離ε0以上となる初期値があること。"
+  - term: 固定点の乗数
+    english: multiplier of a fixed point
+    meaning: "固定点pの微分係数f'(p)。端点では区間の内側からの差商で定め、絶対値1未満なら漸近安定、1超なら不安定の十分条件になる。"
+  - term: 局所的な一様縮小
+    english: uniform local contraction
+    meaning: "固定点の近傍に含まれる任意の二点x,yで、同じ0≤q<1を用いて|f(x)-f(y)|≤q|x-y|となること。"
+  - term: 乗数の臨界値
+    english: critical multiplier magnitude
+    meaning: "乗数の絶対値が1となり、一次微分の判定だけでは安定・不安定を決められない境界。"
