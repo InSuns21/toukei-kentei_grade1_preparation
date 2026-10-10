@@ -1,0 +1,53 @@
+id: "DYN7"
+title: "円周回転・有理回転と無理回転"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - DYN6
+official_scope: []
+learning_objectives:
+  - 整数差で実数を同一視した円周を構成し距離の代表元不変性と三角不等式を証明できる
+  - 同一視写像の連続全射性と端点0、1の同一視を具体例で確認できる
+  - 円周回転が正しく定義された等距離同相写像であり反復が角度の加法になることを証明できる
+  - 実直線の平行移動と円周回転を結ぶ半共役を示し区間での小数部分関数の跳躍と区別できる
+  - 既約分数の分母が円周回転の全点の最小周期であり無理回転には周期点がないと証明できる
+  - 鳩の巣原理と有限分割により無理回転の任意に小さい正時刻の回転を構成できる
+  - 小回転の向きが正負どちらでも非負時刻の有限網目を作り前方軌道の稠密性を証明できる
+  - 無理回転の非空閉前方不変集合は円周全体であることを証明し閉性を失う反例を説明できる
+  - 回転の等距離性と無理回転の非周期性から吸引と軌道収束が起こらない理由を説明できる
+definitions:
+  - { id: DYN7-DEF-01, name: "整数による同一視と円周" }
+  - { id: DYN7-DEF-02, name: "円周回転" }
+  - { id: DYN7-DEF-03, name: "前方軌道の稠密性" }
+theorems:
+  - { id: DYN7-THM-01, name: "有理回転の最小周期と無理回転の非周期性" }
+  - { id: DYN7-THM-02, name: "無理回転の全前方軌道の稠密性" }
+propositions:
+  - { id: DYN7-PROP-01, name: "円周距離の正当性" }
+  - { id: DYN7-PROP-02, name: "回転の可逆性・等距離性と半共役" }
+  - { id: DYN7-PROP-03, name: "無理回転の閉じた前方不変集合" }
+lemmas:
+  - { id: DYN7-LEM-01, name: "有限分割による小さな回転" }
+canonical_examples:
+  - "0.98と0.02が端点同一視後は距離0.04となる"
+  - "1/4回転は0から4歩で戻る"
+  - "2/5回転の5点周期と既約分数の最小周期"
+  - "sqrt2-1回転は周期点がなく全前方軌道が稠密"
+  - "5(sqrt2-1)の正回転の小ささを分数の上下界で挟む"
+  - "小数部分写像は区間上では跳躍し円周上の回転は連続"
+  - "無理回転の前方軌道は真の稠密前方不変集合となる"
+problem_patterns:
+  - DYN7-CIRCLE-DISTANCE
+  - DYN7-RATIONAL-MINIMAL-PERIOD
+  - DYN7-IRRATIONAL-NONPERIODIC
+  - DYN7-LIFT-SEMICONJUGACY
+  - DYN7-ISOMETRY
+  - DYN7-EXPLICIT-SMALL-RETURN
+  - DYN7-QUOTIENT-TOPOLOGY-DISCONTINUITY
+  - DYN7-FORWARD-DENSE-NET
+  - DYN7-CLOSED-INVARIANT-COUNTEREXAMPLE
+  - DYN7-ROTATION-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.0, review: 2.0 }
