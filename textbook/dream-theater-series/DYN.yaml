@@ -27,7 +27,7 @@ chapters:
     title: Tent写像・分枝・有限語の逆像計数
   - id: DYN6
     path: textbook/volumes/00_foundations/DYN6
-    status: planned
+    status: completed
     title: 位相共役・半共役・不変集合
   - id: DYN7
     path: textbook/volumes/00_foundations/DYN7
