@@ -1,0 +1,49 @@
+chapter: CELL15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CELL14
+
+concepts:
+  - id: cellular-automata.stochastic-ca
+    name: 有限環上の独立乱数型確率的CA
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限環上の独立乱数型確率的CA）"]
+    requires: [cellular-automata.finite-prediction]
+
+  - id: cellular-automata.transition-product
+    name: 独立局所抽選の全体遷移確率
+    kind: theorem
+    introduction_aliases: ["定理（独立局所抽選の全体遷移確率）"]
+    requires: [cellular-automata.stochastic-ca]
+
+  - id: cellular-automata.expected-count
+    name: 一歩期待粒子数の確率和
+    kind: theorem
+    introduction_aliases: ["定理（一歩期待粒子数の確率和）"]
+    requires: [cellular-automata.stochastic-ca, cellular-automata.transition-product]
+
+  - id: cellular-automata.shared-noise
+    name: 同一周辺確率でも全体分布は一致しない
+    kind: proposition
+    introduction_aliases: ["命題（同一周辺確率でも全体分布は一致しない）"]
+    requires: [cellular-automata.stochastic-ca, cellular-automata.expected-count]
+
+  - id: cellular-automata.initial-correlation
+    name: 現在の一セル周辺確率だけでは次時刻平均が定まらない
+    kind: proposition
+    introduction_aliases: ["命題（現在の一セル周辺確率だけでは次時刻平均が定まらない）"]
+    requires: [cellular-automata.expected-count]
+
+  - id: cellular-automata.finite-extinction
+    name: 有限環における吸収状態への到達上界
+    kind: theorem
+    introduction_aliases: ["定理（有限環における吸収状態への到達上界）"]
+    requires: [cellular-automata.transition-product, cellular-automata.expected-count]
+
+  - id: cellular-automata.noise-cone
+    name: 同一乱数下の有限伝播
+    kind: theorem
+    introduction_aliases: ["定理（同一乱数下の有限伝播）"]
+    requires: [cellular-automata.stochastic-ca, cellular-automata.finite-propagation]
