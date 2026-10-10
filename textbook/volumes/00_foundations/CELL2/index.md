@@ -15,7 +15,15 @@
 <!-- formal-statement-start -->
 ### 定義（Elementary CA）
 
-$Q=\{0,1\}$ 上で、半径1の局所規則 $f:Q^3\to Q$ をすべての整数位置に同時適用する一次元セル・オートマトンを、**Elementary CA**（初等セル・オートマトン）という。任意の初期配置 $c\in Q^{\mathbb Z}$ の時刻 $t\in\mathbb Z_{\ge0}$ の状態は $c^{(t)}=F^t(c)$ とする。
+状態集合を $Q=\{0,1\}$ とし、半径1の局所規則 $f:Q^3\to Q$ をすべての整数位置へ同期適用する一次元セル・オートマトンを、**Elementary CA**（初等セル・オートマトン）という。
+
+任意の初期配置 $c\in Q^{\mathbb Z}$ と時刻 $t\ge0$ について、時刻 $t$ の配置を
+
+$$
+c^{(t)}=F^t(c)
+$$
+
+と表す。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cell2-elementary-ca -->
@@ -101,7 +109,19 @@ $$
 <!-- formal-statement-start -->
 ### 定義（時空間図と観測窓）
 
-CAの大域写像 $F:Q^{\mathbb Z}\to Q^{\mathbb Z}$ と初期配置 $c\in Q^{\mathbb Z}$ を固定する。各整数時刻 $t\ge0$ と位置 $i\in\mathbb Z$ に値 $c_i^{(t)}=(F^t(c))_i$ を配置した表を**時空間図**という。有限区間 $I\subset\mathbb Z$ と整数 $T\ge0$ を固定して、$0\le t\le T$、$i\in I$ に制限したものを**観測窓**という。
+有限非空状態集合 $Q$、一次元CAの大域写像 $F:Q^{\mathbb Z}\to Q^{\mathbb Z}$ と初期配置 $c$ を固定する。整数時刻 $t\ge0$ と整数位置 $i$ ごとに値
+
+$$
+c_i^{(t)}=(F^t(c))_i
+$$
+
+を配置した表を**時空間図**という。
+
+有限な整数区間 $I\subset\mathbb Z$ と整数 $T\ge0$ を選び、時空間図を次の範囲に制限したものを**観測窓**という。
+
+$$
+0\le t\le T,\qquad i\in I.
+$$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cell2-spacetime-diagram -->
@@ -246,7 +266,19 @@ $$
 <!-- formal-statement-start -->
 ### 命題（有限観測窓を決める初期区間）
 
-上記の半径 $r$ の一次元CAで、$L,U\in\mathbb Z$、$L\le U$、$t\ge0$ とする。初期配置 $c,e$ が区間 $[L-rt,U+rt]\cap\mathbb Z$ 上で一致すれば、時刻 $t$ において $L\le i\le U$ のすべての位置で $(F^t(c))_i=(F^t(e))_i$ が成り立つ。
+有限非空状態集合 $Q$ 上の半径 $r\ge0$ の一次元CAの大域写像 $F$ と、整数 $L\le U$、時刻 $t\ge0$、配置 $c,e\in Q^{\mathbb Z}$ を取る。
+
+初期配置が次の範囲で一致すると仮定する。
+
+$$
+c_j=e_j\qquad(L-rt\le j\le U+rt).
+$$
+
+このとき、時刻 $t$ において次の一致がすべての観測位置で成り立つ。
+
+$$
+(F^t(c))_i=(F^t(e))_i\qquad(L\le i\le U).
+$$
 <!-- formal-statement-end -->
 
 **証明の見取り図**　観測したい位置 $i$ ごとに[有限光円錐の定理](#thm-cell2-finite-propagation)を使い、その初期区間が共通の大きな初期区間に含まれることを確認します。
