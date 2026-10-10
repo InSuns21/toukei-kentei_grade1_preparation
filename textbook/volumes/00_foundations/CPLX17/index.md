@@ -58,11 +58,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（P^A=NP^AとなるOracleの存在）**  
-> 言語$A=\mathrm{TQBF}$をOracleとして選ぶと、
->
-> $P^A=NP^A=PSPACE$
->
-> が成り立つ。ここで$PSPACE$はOracleを持たない決定性多項式空間機械で判定できる言語のクラスである。
+> 言語$A=\mathrm{TQBF}$をOracleとして選ぶと、次が成り立つ。
+
+$
+P^A=NP^A=PSPACE.
+$
+
+> ここで$PSPACE$はOracleを持たない決定性多項式空間機械で判定できる言語のクラスである。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -124,11 +126,13 @@ $L_B$はどんな$B$についても$NP^B$に入ります。非決定性機械は
 
 <!-- formal-statement-start -->
 > **定理（P^BとNP^Bを分離するOracleの存在）**  
-> ある言語$B\subseteq\{0,1\}^*$が存在し、上で定めた$L_B$について
->
-> $L_B\in NP^B$ かつ $L_B\notin P^B$
->
-> が成立する。したがって$P^B\subsetneq NP^B$である。
+> ある言語$B\subseteq\{0,1\}^*$が存在し、上で定めた$L_B$について次が成立する。
+
+$
+L_B\in NP^B,\qquad L_B\notin P^B.
+$
+
+> したがって$P^B\subsetneq NP^B$である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -191,11 +195,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Baker--Gill--Solovay型の相対化障壁）**  
-> 二つの言語$A,B\subseteq\{0,1\}^*$が存在し、
->
-> $P^A=NP^A$ かつ $P^B\ne NP^B$
->
-> が成立する。従って、Oracleを任意の言語$O$へ置き換えてもそのまま妥当する論証だけを使って、通常の$P=NP$または$P\ne NP$のどちらかを確定することはできない。
+> 二つの言語$A,B\subseteq\{0,1\}^*$が存在し、次が成立する。
+
+$
+P^A=NP^A,\qquad P^B\ne NP^B.
+$
+
+> 従って、Oracleを任意の言語$O$へ置き換えてもそのまま妥当する論証だけを使って、通常の$P=NP$または$P\ne NP$のどちらかを確定することはできない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
