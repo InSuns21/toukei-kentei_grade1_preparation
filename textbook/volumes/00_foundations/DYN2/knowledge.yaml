@@ -6,11 +6,18 @@ prerequisites:
   - RA3
 concepts:
   - id: dynamical-systems.fixed-point-stability
-    name: 固定点の安定性と吸引性
+    name: 離散時間のLyapunov安定
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（固定点の安定性と吸引性）", "Lyapunov安定", "漸近安定"]
+    introduction_aliases: ["定義（固定点の安定性と吸引性）"]
     requires: [dynamical-systems.interval-map]
+
+  - id: dynamical-systems.discrete-asymptotic-stability
+    name: 離散時間の漸近安定
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固定点の安定性と吸引性）"]
+    requires: [dynamical-systems.fixed-point-stability, dynamical-systems.local-attraction]
 
   - id: dynamical-systems.local-attraction
     name: 局所吸引的
@@ -45,8 +52,8 @@ concepts:
     requires: [dynamical-systems.fixed-point-stability, dynamical-systems.fixed-point-multiplier]
 
   - id: dynamical-systems.iterate-multiplier
-    name: 固定点での反復写像の導関数
+    name: 反復の乗数の累乗公式
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（固定点での反復写像の導関数）"]
+    introduction_aliases: ["命題（反復の乗数の累乗公式）"]
     requires: [dynamical-systems.fixed-point-multiplier, analysis.chain-rule]
