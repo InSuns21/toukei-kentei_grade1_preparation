@@ -57,4 +57,4 @@ concepts:
     name: Tent写像の周期点は局所反発的
     kind: theorem
     introduction_aliases: ["定理（Tent写像の周期点は局所反発的）"]
-    requires: [dynamical-systems.tent-map, dynamical-systems.repelling-multiplier-criterion, dynamical-systems.prime-period-two]
+    requires: [dynamical-systems.tent-map, dynamical-systems.repelling-multiplier-criterion]
