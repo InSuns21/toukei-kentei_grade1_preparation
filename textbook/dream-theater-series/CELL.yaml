@@ -35,7 +35,7 @@ chapters:
     title: シフト空間・円筒集合・配置の近さ
   - id: CELL8
     path: textbook/volumes/00_foundations/CELL8
-    status: planned
+    status: completed
     title: Curtis–Hedlund–Lyndon定理
   - id: CELL9
     path: textbook/volumes/00_foundations/CELL9

@@ -1,0 +1,50 @@
+id: "CELL8"
+title: "Curtis–Hedlund–Lyndon定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CELL7
+official_scope: []
+learning_objectives:
+  - シフト可換性と全整数回シフトとの可換性を座標で証明できる
+  - 連続性から原点出力の点ごとの有限窓を構成できる
+  - 円筒被覆の有限部分被覆を使い原点出力の一様有限半径を証明できる
+  - Curtis–Hedlund–Lyndon定理の両方向を完全証明できる
+  - 局所規則のwell-defined性と原点から全位置への移動を説明できる
+  - 可換性または連続性を失う反例を確認できる
+  - 無限状態で連続性と可換性だけでは共通半径が存在しない反例を検算できる
+  - CAの合成の半径上界を証明しRule 90の2回更新の最小半径を求められる
+definitions:
+  - { id: CELL8-DEF-01, name: "シフト可換性" }
+  - { id: CELL8-DEF-02, name: "原点出力関数" }
+lemmas:
+  - { id: CELL8-LEM-01, name: "連続性から原点出力の局所一定性" }
+  - { id: CELL8-LEM-02, name: "原点出力の一様有限窓" }
+theorems:
+  - { id: CELL8-THM-01, name: "Curtis–Hedlund–Lyndon定理：一次元全シフト" }
+propositions:
+  - { id: CELL8-PROP-01, name: "整数回シフトとの可換性" }
+  - { id: CELL8-PROP-02, name: "CAの合成と半径の上界" }
+canonical_examples:
+  - "右シフトの原点出力とシフト可換性"
+  - "Rule 90の座標可換性"
+  - "有限円筒被覆から共通半径を選ぶ"
+  - "原点値を全位置へ複製する連続非可換写像"
+  - "右半直線上の無限個の1を判定する不連続可換写像"
+  - "無限状態の可変参照位置を持つ連続可換写像"
+  - "Rule 90の2回更新による半径2規則"
+problem_patterns:
+  - CELL8-RIGHT-SHIFT
+  - CELL8-RULE90-EQUIVARIANCE
+  - CELL8-ASymmetric-RADIUS
+  - CELL8-ORIGIN-LOCAL-RULE
+  - CELL8-WINDOW-LOSS
+  - CELL8-NONCONTINUOUS-EQUIVARIANT
+  - CELL8-CONTINUOUS-NONEQUIVARIANT
+  - CELL8-FINITE-SUBCOVER-RADIUS
+  - CELL8-INFINITE-ALPHABET
+  - CELL8-RULE90-COMPOSITION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 3.0, review: 1.5 }
