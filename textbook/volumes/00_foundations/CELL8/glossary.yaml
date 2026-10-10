@@ -1,0 +1,26 @@
+chapter: "CELL8"
+terms:
+  - term: シフト可換性
+    english: shift equivariance
+    meaning: "入力を1セル平行移動してから更新した結果と、更新してから同じだけ平行移動した結果が一致する性質。"
+  - term: 原点出力関数
+    english: origin coordinate map
+    meaning: "大域写像Fが作る出力配置の位置0だけを取り出す関数g_F(x)=(F(x))_0。"
+  - term: 局所一定性
+    english: local constancy
+    meaning: "各入力配置に対して、その周囲のある有限一致窓では関数の値が変わらない性質。"
+  - term: 一様有限窓
+    english: uniform finite window
+    meaning: "入力配置によらず共通の半径rを持ち、その区間[-r,r]の一致だけで原点出力を確定できる窓。"
+  - term: Curtis–Hedlund–Lyndon定理
+    english: Curtis–Hedlund–Lyndon theorem
+    meaning: "有限状態の全シフト上で、大域写像が有限半径CAであることと連続かつシフト可換であることの同値を表す定理。"
+  - term: 有限半径セル・オートマトン
+    english: finite-radius cellular automaton
+    meaning: "各出力位置iの値が、全位置で共通の有限半径rと局所規則fにより入力区間[i-r,i+r]から決まる大域写像。"
+  - term: 可変参照半径
+    english: input-dependent observation radius
+    meaning: "入力配置の値により、次状態を定めるために参照する位置の範囲が変わること。連続性だけでは共通半径を保証しない。"
+  - term: 合成半径の上界
+    english: composition radius bound
+    meaning: "半径rのCAと半径sのCAを合成すると、半径r+s以下の局所規則で表現できる性質。"
