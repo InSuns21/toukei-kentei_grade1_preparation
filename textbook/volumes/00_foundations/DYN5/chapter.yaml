@@ -1,0 +1,51 @@
+id: "DYN5"
+title: "Tent写像・分枝・有限語の逆像計数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - DYN4
+official_scope: []
+learning_objectives:
+  - Tent写像が閉区間の連続自己写像であることを両枝の式と接続値から証明できる
+  - 左右の逆分枝を導出し折返し値1での解の重複を確認できる
+  - 有限分枝語の合成順序と前向き旅程を対応させ二歩以上の逆像を構成できる
+  - 合成逆分枝の傾きとTの反復との逆写像性を帰納的に示せる
+  - 分枝区間が二進小区間を分割することと端点での値の交替を証明できる
+  - 内点の逆像数2^nと端点の逆像数の違いを重複を除いて数えられる
+  - 逆方向の縮小と前向き周期点の不安定性を区別できる
+  - CELL6の空間的有限語前像と本章の時間的逆像を混同せず説明できる
+definitions:
+  - { id: DYN5-DEF-01, name: "Tent写像" }
+  - { id: DYN5-DEF-02, name: "Tent写像の二つの逆分枝" }
+  - { id: DYN5-DEF-03, name: "有限分枝語と逆分枝の合成" }
+  - { id: DYN5-DEF-04, name: "深さnの逆像数" }
+theorems:
+  - { id: DYN5-THM-01, name: "有限分枝語による区間の分割" }
+  - { id: DYN5-THM-02, name: "Tent写像の全ての有限深さの逆像数" }
+  - { id: DYN5-THM-03, name: "Tent写像の周期点は局所反発的" }
+propositions:
+  - { id: DYN5-PROP-01, name: "一歩逆像の完全な分類" }
+  - { id: DYN5-PROP-02, name: "合成逆分枝の傾きと逆写像性" }
+  - { id: DYN5-PROP-03, name: "有限語に沿った逆像の距離の縮小" }
+canonical_examples:
+  - "折返し点1/2で左右の二式が接続しT(1/2)=1"
+  - "目標値1/2の逆像は1/4と3/4、目標値1の逆像は1/2のみ"
+  - "語01から5/12を構成し二歩後に1/3へ到達"
+  - "長さ2の区間は00,01,11,10の位置順"
+  - "深さ3の端点逆像数はN_3(0)=5とN_3(1)=4"
+  - "固定点2/3と二周期2/5,4/5は存在しても局所反発的"
+problem_patterns:
+  - DYN5-CRITICAL-ORBIT
+  - DYN5-ONE-STEP-COLLISION
+  - DYN5-WORD-ORDER
+  - DYN5-ENDPOINT-DEPTH-TWO
+  - DYN5-FIXED-REPULSION
+  - DYN5-LENGTH-TWO-PARTITION
+  - DYN5-ENDPOINT-DEPTH-THREE
+  - DYN5-INVERSE-CONTRACTION
+  - DYN5-TWO-CYCLE-REPULSION
+  - DYN5-FULL-PREIMAGE-CLASSIFICATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.0, review: 2.0 }
