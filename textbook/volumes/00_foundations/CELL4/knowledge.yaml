@@ -1,0 +1,56 @@
+chapter: CELL4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CELL3
+
+concepts:
+  - id: cellular-automata.binary-field
+    name: 二元体の加算と乗算
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二元体の加算と乗算）"]
+    requires: [cellular-automata.elementary-ca]
+  - id: cellular-automata.additive-rule
+    name: 加法的セル・オートマトン
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（加法的セル・オートマトン）"]
+    requires: [cellular-automata.binary-field, cellular-automata.finite-ring-state-map]
+  - id: cellular-automata.additive-superposition
+    name: 加法的更新の重ね合わせ
+    kind: theorem
+    introduction_aliases: ["定理（加法的更新の重ね合わせ）"]
+    requires: [cellular-automata.additive-rule, cellular-automata.iteration]
+  - id: cellular-automata.binary-shift-operators
+    name: 左右読取写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（左右読取写像）"]
+    requires: [cellular-automata.binary-field, cellular-automata.additive-rule]
+  - id: cellular-automata.rule90-binomial
+    name: Rule 90の任意時刻における二項係数表示
+    kind: theorem
+    introduction_aliases: ["定理（Rule 90の任意時刻における二項係数表示）"]
+    requires: [cellular-automata.binary-shift-operators, cellular-automata.additive-superposition]
+  - id: cellular-automata.binomial-parity-bits
+    name: 二項係数の偶奇と二進桁
+    kind: proposition
+    introduction_aliases: ["命題（二項係数の偶奇と二進桁）"]
+    requires: [cellular-automata.binary-field, cellular-automata.rule90-binomial]
+  - id: cellular-automata.additive-kernel
+    name: 加法的更新の核
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（加法的更新の核）"]
+    requires: [cellular-automata.additive-rule, cellular-automata.transition-graph-preimage]
+  - id: cellular-automata.additive-preimage-fibers
+    name: 加法的写像の前像の個数
+    kind: proposition
+    introduction_aliases: ["命題（加法的写像の前像の個数）"]
+    requires: [cellular-automata.additive-kernel, cellular-automata.additive-superposition]
+  - id: cellular-automata.rule90-ring-kernel
+    name: Rule 90の周期環上の核
+    kind: proposition
+    introduction_aliases: ["命題（Rule 90の周期環上の核）"]
+    requires: [cellular-automata.additive-kernel, cellular-automata.additive-preimage-fibers]

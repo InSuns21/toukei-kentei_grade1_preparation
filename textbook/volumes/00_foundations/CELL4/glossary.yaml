@@ -1,0 +1,26 @@
+chapter: "CELL4"
+terms:
+  - term: 二元体
+    english: binary field
+    meaning: "0と1に、2で割った余りとしての加算と通常の乗算を入れた体。"
+  - term: 排他的論理和
+    english: exclusive OR
+    meaning: "二つのビットが異なるとき1、等しいとき0となる演算。XORとも呼ぶ。"
+  - term: 加法的セル・オートマトン
+    english: additive cellular automaton
+    meaning: "配置ごとのXOR和を先に計算しても更新後に計算しても結果が同じであるセル・オートマトン。"
+  - term: 重ね合わせ
+    english: superposition
+    meaning: "各初期配置を更新した結果をXORで足すと、初期配置のXORを更新した結果に等しい性質。"
+  - term: 左右読取写像
+    english: left and right shift operators
+    meaning: "各位置の出力を元の左隣または右隣から読み取る二つの写像。"
+  - term: 二項係数の偶奇
+    english: parity of binomial coefficients
+    meaning: "二項係数が偶数か奇数かだけを取り出した値。Rule 90の時刻ごとの寄与の有無を決める。"
+  - term: 核
+    english: kernel
+    meaning: "加法的更新によって全位置0の配置へ写る配置の全体。"
+  - term: 像
+    english: image
+    meaning: "配置を更新したとき実際に到達可能な出力配置の集合。"

@@ -1,0 +1,49 @@
+id: "CELL4"
+title: "加法的CAと二進代数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CELL3
+official_scope: []
+learning_objectives:
+  - XORを二元体の加算として定義し演算規則を具体的に検算できる
+  - Rule 90とRule 150の規則表をXORの式から復元できる
+  - 加法的更新の重ね合わせと全時刻への拡張を完全証明できる
+  - 左右読取写像を用いてRule 90の二項係数表示を帰納法で導出できる
+  - 二項係数の偶奇を二進桁から判定し単一1の時空間模様を計算できる
+  - 有限周期環で重複する寄与がXORで消えることを扱える
+  - 加法的写像の核と前像数の関係を証明できる
+  - Rule 90の奇数環・偶数環の核を分類し像の要素数を求められる
+definitions:
+  - { id: CELL4-DEF-01, name: "二元体の加算と乗算" }
+  - { id: CELL4-DEF-02, name: "加法的セル・オートマトン" }
+  - { id: CELL4-DEF-03, name: "左右読取写像" }
+  - { id: CELL4-DEF-04, name: "加法的更新の核" }
+theorems:
+  - { id: CELL4-THM-01, name: "加法的更新の重ね合わせ" }
+  - { id: CELL4-THM-02, name: "Rule 90の任意時刻における二項係数表示" }
+propositions:
+  - { id: CELL4-PROP-01, name: "二項係数の偶奇と二進桁" }
+  - { id: CELL4-PROP-02, name: "加法的写像の前像の個数" }
+  - { id: CELL4-PROP-03, name: "Rule 90の周期環上の核" }
+canonical_examples:
+  - "Rule 90と150の8近傍入力と規則番号"
+  - "孤立した二つの1の干渉によるXOR相殺"
+  - "Rule 90の時刻2・3・4の二項係数の偶奇"
+  - "13の二進表示から奇数係数の位置を復元"
+  - "Rule 90の3セル・4セル・6セル環の核と軌道"
+problem_patterns:
+  - CELL4-XOR-LAWS
+  - CELL4-RULE90-RULE150
+  - CELL4-SUPERPOSITION
+  - CELL4-PASCAL-PARITY
+  - CELL4-RING-KERNEL
+  - CELL4-THREE-STEP
+  - CELL4-BINARY-DIGITS
+  - CELL4-NILPOTENT-RING
+  - CELL4-RULE150-IMAGE
+  - CELL4-FINITE-INFINITE-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 3.0, review: 1.5 }
