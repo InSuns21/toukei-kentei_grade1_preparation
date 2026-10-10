@@ -446,6 +446,7 @@
 3. [CPLX14 PSPACE完全性とTQBF](textbook/volumes/00_foundations/CPLX14/index.md)
 4. [CPLX15 階層定理](textbook/volumes/00_foundations/CPLX15/index.md)
 5. [CPLX16 多項式階層](textbook/volumes/00_foundations/CPLX16/index.md)
+6. [CPLX17 Oracleと相対化](textbook/volumes/00_foundations/CPLX17/index.md)
 
 <a id="dt-subject-numerical-analysis"></a>
 ### 数値解析
