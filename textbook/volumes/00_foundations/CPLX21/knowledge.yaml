@@ -1,0 +1,39 @@
+chapter: CPLX21
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CPLX20
+concepts:
+  - id: theoretical-computer-science.relativizing-proof-technique
+    name: 相対化する証明論法
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（相対化する証明論法）"]
+    requires: [theoretical-computer-science.relativized-complexity-classes]
+  - id: theoretical-computer-science.proof-relativization-obstruction
+    name: 相対化する論法だけでは両側を解決できない
+    kind: proposition
+    introduction_aliases: ["命題（相対化する論法だけでは両側を解決できない）"]
+    requires: [theoretical-computer-science.relativizing-proof-technique, theoretical-computer-science.relativization-barrier]
+  - id: theoretical-computer-science.natural-proof-property
+    name: 自然な回路下界の性質
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（自然な回路下界の性質）"]
+    requires: [theoretical-computer-science.class-p-poly, theoretical-computer-science.randomized-polynomial-machine]
+  - id: theoretical-computer-science.natural-prf-obstruction
+    name: 自然な性質と擬似乱数関数の条件付き衝突
+    kind: proposition
+    introduction_aliases: ["命題（自然な性質と擬似乱数関数の条件付き衝突）"]
+    requires: [theoretical-computer-science.natural-proof-property, theoretical-computer-science.prg-for-randomized-machine]
+  - id: theoretical-computer-science.multilinear-extension
+    name: 多重線形拡張
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多重線形拡張）"]
+    requires: [theoretical-computer-science.oracle-turing-machine]
+  - id: theoretical-computer-science.multilinear-extension-unique
+    name: 多重線形拡張の存在と一意性
+    kind: theorem
+    introduction_aliases: ["定理（多重線形拡張の存在と一意性）"]
+    requires: [theoretical-computer-science.multilinear-extension]
