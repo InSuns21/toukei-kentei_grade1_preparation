@@ -4,9 +4,6 @@ coverage: complete
 prerequisites:
   - DYN1
   - RA3
-forward_references:
-  - dynamical-systems.logistic-fixed
-
 concepts:
   - id: dynamical-systems.fixed-point-stability
     name: 固定点の安定性と吸引性
@@ -32,7 +29,7 @@ concepts:
     name: 平均値定理による局所的な一様縮小
     kind: proposition
     introduction_aliases: ["命題（平均値定理による局所的な一様縮小）"]
-    requires: [dynamical-systems.attracting-multiplier-criterion, analysis.mean-value-theorem]
+    requires: [dynamical-systems.fixed-point-multiplier, analysis.mean-value-theorem]
 
   - id: dynamical-systems.repelling-multiplier-criterion
     name: 乗数による局所不安定判定
