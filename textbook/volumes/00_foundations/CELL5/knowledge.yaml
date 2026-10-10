@@ -1,0 +1,50 @@
+chapter: CELL5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CELL4
+
+concepts:
+  - id: cellular-automata.rule184-local-update
+    name: Rule 184の局所更新
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Rule 184の局所更新）"]
+    requires: [cellular-automata.elementary-ca, cellular-automata.finite-ring-state-map]
+  - id: cellular-automata.particle-flux
+    name: 粒子流束と粒子数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（粒子流束と粒子数）"]
+    requires: [cellular-automata.rule184-local-update]
+  - id: cellular-automata.rule184-continuity
+    name: Rule 184の局所保存式
+    kind: theorem
+    introduction_aliases: ["定理（Rule 184の局所保存式）"]
+    requires: [cellular-automata.rule184-local-update, cellular-automata.particle-flux]
+  - id: cellular-automata.rule184-ring-conservation
+    name: 周期環の総粒子数保存
+    kind: theorem
+    introduction_aliases: ["定理（周期環の総粒子数保存）"]
+    requires: [cellular-automata.rule184-continuity, cellular-automata.finite-ring-state-map]
+  - id: cellular-automata.rule184-open-boundary
+    name: 開放境界の流入・流出
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（開放境界の流入・流出）"]
+    requires: [cellular-automata.particle-flux, cellular-automata.boundary-convention]
+  - id: cellular-automata.rule184-open-balance
+    name: 開放境界の粒子数収支
+    kind: proposition
+    introduction_aliases: ["命題（開放境界の粒子数収支）"]
+    requires: [cellular-automata.rule184-open-boundary, cellular-automata.rule184-continuity]
+  - id: cellular-automata.rule184-finite-support
+    name: 無限線上の有限個の粒子の保存
+    kind: proposition
+    introduction_aliases: ["命題（無限線上の有限個の粒子の保存）"]
+    requires: [cellular-automata.rule184-continuity, cellular-automata.finite-propagation]
+  - id: cellular-automata.rule184-flux-bound
+    name: 周期環での移動台数の上限と等号条件
+    kind: proposition
+    introduction_aliases: ["命題（周期環での移動台数の上限と等号条件）"]
+    requires: [cellular-automata.particle-flux, cellular-automata.rule184-ring-conservation]
