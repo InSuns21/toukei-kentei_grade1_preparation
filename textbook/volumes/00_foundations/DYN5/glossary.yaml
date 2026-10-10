@@ -1,0 +1,17 @@
+chapter: "DYN5"
+terms:
+  - term: Tent写像
+    english: tent map
+    meaning: "区間[0,1]を折返し点1/2で二つに分け、左右で傾き2と-2を持つ連続自己写像。"
+  - term: 逆分枝
+    english: inverse branch
+    meaning: "単調な各枝について方程式T(x)=yを解く写像。Tent写像ではB_0(y)=y/2とB_1(y)=1-y/2。"
+  - term: 分枝語
+    english: inverse-branch word
+    meaning: "有限個の左右の枝選択を0と1で記録した語。逆分枝を合成してn歩逆像候補を構成する。"
+  - term: 分枝区間
+    english: branch cylinder interval
+    meaning: "有限分枝語wの合成逆分枝B_wによる区間[0,1]の像C_w。語長nでは長さ2の-n乗の二進小区間。"
+  - term: 深さnの逆像数
+    english: depth-n preimage count
+    meaning: "方程式T^n(x)=yを満たす相異なる区間内の点の数。語の数とは端点で一致しない。"
