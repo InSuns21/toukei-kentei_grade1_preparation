@@ -39,15 +39,15 @@ concepts:
     introduction_aliases: ["命題（行列積による有限語前像の計数）"]
     requires: [cellular-automata.label-adjacency-matrix, cellular-automata.word-path-bijection]
   - id: cellular-automata.based-closed-walk
-    name: 始点付き閉路
+    name: 始点付き閉歩道
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（始点付き閉路）"]
+    introduction_aliases: ["定義（始点付き閉歩道）"]
     requires: [cellular-automata.labelled-debruijn-graph]
   - id: cellular-automata.ring-preimage-trace
-    name: 周期環の前像と閉路の跡計数
+    name: 周期環の前像と閉歩道の跡計数
     kind: proposition
-    introduction_aliases: ["命題（周期環の前像と閉路の跡計数）"]
+    introduction_aliases: ["命題（周期環の前像と閉歩道の跡計数）"]
     requires: [cellular-automata.based-closed-walk, cellular-automata.label-adjacency-matrix, cellular-automata.boundary-convention]
   - id: cellular-automata.bi-infinite-labelled-path
     name: 無限配置と両側無限のラベル付き道
