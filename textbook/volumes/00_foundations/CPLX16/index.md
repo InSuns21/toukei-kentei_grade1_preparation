@@ -53,16 +53,9 @@ $$
 
 最初の層には、既習のNPがそのまま現れます。また、肯定を短く検証できる言語を裏返した「否定を短く検証できる言語」のクラスを考える必要があります。
 
-<a id="def-cplx16-conp"></a>
+[CPLX4のcoNPの定義](../CPLX4/index.md#def-cplx4-conp)をここでも使います。言語 $L\subseteq\{0,1\}^*$ の補言語は $\overline L=\{0,1\}^*\setminus L$ であり、$coNP$ は $\overline L\in NP$ を満たす言語 $L$ の全体です。「NPの外側」という差集合ではなく、**NP言語の補言語全体**です。
 
-<!-- formal-statement-start -->
-> **定義（補クラスcoNP）**  
-> 言語 $L\subseteq\{0,1\}^*$ の補言語を $\overline L=\{0,1\}^*\setminus L$ とする。$coNP$ は $\overline L\in NP$ を満たす言語 $L$ の全体である。$coNP$ は「NPの外側」という集合差の名称ではなく、NPに属する言語の**補言語全体**を意味する。
-<!-- formal-statement-end -->
-
-<!-- definition-example-start: def-cplx16-conp -->
-**定義の確認**　充足可能な命題論理式の符号を集めたSATは、[CPLX7のCook–Levinの定理](../CPLX7/index.md)の前提にあるようにNPに属します。全く充足割当てが存在しない式の符号全体をUNSATとすれば、不正符号を所定の規則で判定するよう言語を整えた上で、UNSATはSATの補言語として$coNP$に属します。UNSATがNPにも属するかはここからは分かりません。
-<!-- definition-example-end -->
+**具体例での確認**　SATを、適切に符号化された充足可能な論理式の符号からなる言語とします。$\overline{\mathrm{SAT}}$ は充足不能な論理式の符号だけでなく、二進文字列全体を台とするため不正な符号も含みます。SATはNPに属するので、その補言語はcoNPに属します。有効な式の中で充足不能なものだけをUNSATと呼ぶ場合も、不正符号を多項式時間で排除することでcoNPへの所属が従います。UNSATがNPにも属するかは、この観察からは分かりません。
 
 <a id="prop-cplx16-first-level"></a>
 
@@ -82,7 +75,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\Sigma_1^P$ の言語は、$x\in L\Longleftrightarrow\exists y\,R(x,y)$ の形を持ち、$|y|=p(|x|)$、$R$ は決定性多項式時間です。これは[CPLX3の証明書・検証器によるNPの定義](../CPLX3/index.md)そのものです。逆にNPの「長さが高々 $p(n)$ の証明書」をパディングすれば、等長の存在ブロックになるため等号です。
+$\Sigma_1^P$ の言語は、$x\in L\Longleftrightarrow\exists y\,R(x,y)$ の形を持ち、$|y|=p(|x|)$、$R$ は決定性多項式時間です。これは[CPLX3のクラスNPの定義](../CPLX3/index.md#def-cplx3-np)そのものです。逆にNPの「長さが高々 $p(n)$ の証明書」をパディングすれば、等長の存在ブロックになるため等号です。
 
 $\Pi_1^P$ の言語は $x\in L\Longleftrightarrow\forall y\,R(x,y)$ と書けます。否定すると
 
@@ -390,7 +383,7 @@ $$
 
 ### A1. 選択順序の違い
 
-命題$F=\exists u\,\forall v\,(u\lor v)$と$G=\forall u\,\exists v\,(u\land v)$の真偽を、具体的な選択または反例で示せ。
+論理式$F=\exists u\,\forall v\,(u\lor v)$と$G=\forall u\,\exists v\,(u\land v)$の真偽を、具体的な選択または反例で示せ。
 
 - Level: A
 
@@ -480,7 +473,7 @@ $H=\exists u\,\forall v\,\exists w\,((u\lor v)\land(w\leftrightarrow v))$の真�
 
 ### B1. NPとcoNPの定義を量化で復元
 
-証明書・検証器によるNPの定義から$\Sigma_1^P=NP$を導き、補集合の定義と否定規則から$\Pi_1^P=coNP$を導け。証明書の長さが入力長の多項式で抑えられる条件を明記せよ。
+[CPLX3のクラスNPの定義](../CPLX3/index.md#def-cplx3-np)から$\Sigma_1^P=NP$を導き、補集合の定義と否定規則から$\Pi_1^P=coNP$を導け。証明書の長さが入力長の多項式で抑えられる条件を明記せよ。
 
 - Level: B
 
