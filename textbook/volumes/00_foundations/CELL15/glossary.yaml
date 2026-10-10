@@ -1,0 +1,38 @@
+chapter: "CELL15"
+terms:
+  - term: 確率的セル・オートマトン
+    english: stochastic cellular automaton
+    meaning: "有限状態の各セルを近傍配置と乱数に従って同時更新する模型。局所的な1の確率だけでなく、位置間の乱数の独立性・共有方法も指定する必要がある。"
+  - term: 局所確率規則
+    english: local transition probability rule
+    meaning: "現在の有限近傍語に対し、次時刻に特定状態が選ばれる確率を与える関数。二状態の場合は1の確率pを指定すれば0の確率は1-pとなる。"
+  - term: 条件付き独立な更新
+    english: conditionally independent updates
+    meaning: "現在の全配置を固定した条件の下で、次時刻の各位置の抽選が互いに独立となる更新方式。全体遷移確率を各位置の確率の積に分けられる。"
+  - term: 全体遷移確率
+    english: configuration transition probability
+    meaning: "現在配置xを固定したとき、次時刻に指定配置yへ移る確率T(x,y)。独立局所抽選では各位置の次状態確率の積で表される。"
+  - term: 期待粒子数
+    english: expected occupied-site count
+    meaning: "未来の配置に含まれる1の個数Sの確率平均。各セルが1となる周辺確率の和に等しく、この和の等式自体はセル間の独立性を必要としない。"
+  - term: 共有乱数
+    english: shared randomness
+    meaning: "複数のセルが同じ乱数の結果を使う更新方式。各セルの周辺確率が独立抽選と一致しても、同時に現れる全体配置の確率は変わり得る。"
+  - term: 周辺確率
+    english: marginal probability
+    meaning: "複数セルの同時分布から、一つのセルや一部のセルだけに注目して得る確率。個々の周辺確率だけでは全配置の同時分布は一般に決まらない。"
+  - term: 初期配置の相関
+    english: spatial dependence in initial configurations
+    meaning: "現在の異なる位置の値が互いに依存していること。左右二セルの積で更新する規則では、各位置の平均が同じでも相関の違いによって未来の平均が変わる。"
+  - term: 吸収状態
+    english: absorbing state
+    meaning: "一度到達すれば確率1で同じ状態に留まり続ける配置。出生に活動中の近傍セルを必要とする模型の全0配置は吸収状態となる。"
+  - term: 消滅時刻
+    english: extinction time
+    meaning: "粒子が初めて全て0になる時刻。有限環で一歩消滅確率に配置によらない正の下界があれば、まだ消滅しない確率を幾何的に上から評価できる。"
+  - term: 同一雑音による結合
+    english: common-noise coupling
+    meaning: "異なる初期配置の二つの実行を、対応する時刻と位置で同じ乱数を用いて比較する方法。近傍と乱数の両方が一致すれば更新後の状態も一致する。"
+  - term: 確率的CAの有限伝播
+    english: finite propagation under shared noise
+    meaning: "同じ時空間乱数で更新する二実行について、有限時間後の観測区間の一致が有限な初期光円錐の一致から従う性質。確率分布の一致と標本経路の一致を区別する。"
