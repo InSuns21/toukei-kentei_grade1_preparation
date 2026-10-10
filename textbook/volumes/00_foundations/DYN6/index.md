@@ -320,11 +320,29 @@ $$
 <!-- formal-statement-start -->
 ### 定理（半共役と共役による不変集合の移送）
 
-連続自己写像 $f:X\to X$, $g:Y\to Y$ と半共役 $h:X\to Y$ を取る。
+距離空間 $X,Y$ 上の連続自己写像 $f:X\to X$, $g:Y\to Y$ と半共役 $h:X\to Y$ を取る。
 
-1. $A\subseteq X$ が $f$ について前方不変なら、$h(A)$ は $g$ について前方不変である。$f(A)=A$ なら $g(h(A))=h(A)$ である。
-2. $B\subseteq Y$ が $g$ について前方不変なら、$h^{-1}(B)$ は $f$ について前方不変である。ただし $g(B)=B$ でも、半共役だけから $f(h^{-1}(B))=h^{-1}(B)$ は従わない。
-3. $h$ が位相共役なら、すべての $A\subseteq X$ について $f(A)\subseteq A$ と $g(h(A))\subseteq h(A)$ は同値であり、$f(A)=A$ と $g(h(A))=h(A)$ も同値である。これらの場合、$h|_A:A\to h(A)$ は制限系の位相共役である。
+1. $A\subseteq X$ が $f$ について前方不変なら、$h(A)$ も $g$ について前方不変である。さらに
+
+$
+f(A)=A\quad\Longrightarrow\quad g(h(A))=h(A)
+$
+
+が成立する。
+
+2. $B\subseteq Y$ が $g$ について前方不変なら、$h^{-1}(B)$ も $f$ について前方不変である。ただし $g(B)=B$ から逆像側の等号での不変性は一般には従わない。
+
+3. $h$ が位相共役なら、任意の $A\subseteq X$ に対して次の二つの同値関係が成立する。
+
+$
+f(A)\subseteq A\quad\Longleftrightarrow\quad g(h(A))\subseteq h(A),
+$
+
+$
+f(A)=A\quad\Longleftrightarrow\quad g(h(A))=h(A).
+$
+
+前方不変な $A$ では、$h|_A:A\to h(A)$ は制限系の位相共役である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
