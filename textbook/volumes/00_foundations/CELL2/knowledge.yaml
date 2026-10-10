@@ -1,0 +1,59 @@
+chapter: CELL2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CELL1
+
+concepts:
+  - id: cellular-automata.elementary-ca
+    name: Elementary CA
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Elementary CA）"]
+    requires: [cellular-automata.local-rule, cellular-automata.iteration]
+
+  - id: cellular-automata.rule-number
+    name: 規則番号
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（規則番号）"]
+    requires: [cellular-automata.elementary-ca]
+
+  - id: cellular-automata.rule-number-bijection
+    name: 規則番号と局所規則の一対一対応
+    kind: proposition
+    introduction_aliases: ["命題（規則番号と局所規則の一対一対応）"]
+    requires: [cellular-automata.rule-number]
+
+  - id: cellular-automata.spacetime-diagram
+    name: 時空間図と観測窓
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（時空間図と観測窓）"]
+    requires: [cellular-automata.iteration]
+
+  - id: cellular-automata.finite-light-cone
+    name: 有限光円錐
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限光円錐）"]
+    requires: [cellular-automata.local-rule, cellular-automata.spacetime-diagram]
+
+  - id: cellular-automata.finite-propagation
+    name: 有限伝播・有限光円錐
+    aliases: ["有限光円錐の定理"]
+    kind: theorem
+    introduction_aliases: ["定理（有限伝播・有限光円錐）"]
+    requires: [cellular-automata.finite-light-cone, cellular-automata.iteration]
+
+  - id: cellular-automata.window-propagation
+    name: 有限観測窓を決める初期区間
+    kind: proposition
+    introduction_aliases: ["命題（有限観測窓を決める初期区間）"]
+    requires: [cellular-automata.finite-propagation, cellular-automata.spacetime-diagram]
+
+  - id: cellular-automata.perturbation-support
+    name: 有限差分の伝播範囲
+    kind: proposition
+    introduction_aliases: ["命題（有限差分の伝播範囲）"]
+    requires: [cellular-automata.finite-propagation]

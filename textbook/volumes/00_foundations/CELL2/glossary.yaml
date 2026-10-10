@@ -1,0 +1,26 @@
+chapter: "CELL2"
+terms:
+  - term: Elementary CA
+    english: elementary cellular automaton
+    meaning: "二状態・半径1の同期更新を行う一次元セル・オートマトン。"
+  - term: 規則番号
+    english: rule number
+    meaning: "111から000までの8入力の出力を二進数の8桁へ順に割り当てた0から255の整数。"
+  - term: 時空間図
+    english: space-time diagram
+    meaning: "横に位置、縦に非負整数時刻をとり、セルの状態を各格子点に置いた図。"
+  - term: 観測窓
+    english: observation window
+    meaning: "時空間図のうち有限個の位置と有限個の時刻だけを表示した領域。"
+  - term: 有限光円錐
+    english: finite light cone
+    meaning: "時刻tの対象位置iに影響し得る初期位置を、半径rから求める整数区間。"
+  - term: 有限伝播
+    english: finite propagation
+    meaning: "時刻tの一セルの値が初期位置i-rtからi+rtにしか依存しない性質。"
+  - term: 差異集合
+    english: discrepancy set
+    meaning: "二つの配置について同じ整数位置で状態値が異なる箇所の集合。"
+  - term: 後方光円錐
+    english: backward light cone
+    meaning: "一つの時刻・位置へ影響し得る以前の時刻・位置の範囲。"

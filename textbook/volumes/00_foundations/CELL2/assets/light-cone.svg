@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" width="640" height="380" role="img" aria-labelledby="title desc" data-layout-lint="strict">
+<title id="title">半径1・時刻5・位置0の後方光円錐</title>
+<desc id="desc">時刻0の初期位置マイナス5から5の範囲が、時刻5の位置0へ影響できる。時間は下向き。塗りつぶした三角形は可能な因果範囲の上界であり、必ず影響することを意味しない。</desc>
+<style>
+.cone{opacity:0;animation:show 2.5s ease-out .2s forwards}
+@keyframes show{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.cone{opacity:1;animation:none}}
+</style>
+<rect width="640" height="380" rx="12" fill="#fbfdff"/>
+<text x="32" y="63" font-size="17" fill="#24384b">t=0</text>
+<text x="32" y="331" font-size="17" fill="#24384b">t=5</text>
+<text x="108" y="29" font-size="14" fill="#24384b">i=-5</text>
+<text x="314" y="29" font-size="14" fill="#24384b">i=0</text>
+<text x="521" y="29" font-size="14" fill="#24384b">i=5</text>
+<path d="M115 72 H525 M115 312 H525" fill="none" stroke="#9aabb8" stroke-width="1.5"/>
+<g class="cone">
+<polygon points="115,72 525,72 320,312" fill="#bbd9ed" opacity=".55"/>
+<path d="M115 72L320 312L525 72" fill="none" stroke="#185c89" stroke-width="3" stroke-dasharray="9 6"/>
+</g>
+<circle cx="320" cy="312" r="9" fill="#164c72"/>
+</svg>

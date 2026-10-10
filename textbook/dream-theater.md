@@ -456,6 +456,7 @@
 ### セル・オートマトン I：離散力学と計算
 
 1. [CELL1 配置・局所規則・大域更新](textbook/volumes/00_foundations/CELL1/index.md)
+2. [CELL2 Elementary CAと時空間図](textbook/volumes/00_foundations/CELL2/index.md)
 
 <a id="dt-subject-numerical-analysis"></a>
 ### 数値解析

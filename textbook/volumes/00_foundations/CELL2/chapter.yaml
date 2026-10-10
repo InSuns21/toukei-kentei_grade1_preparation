@@ -1,0 +1,47 @@
+id: "CELL2"
+title: "Elementary CAと時空間図"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CELL1
+official_scope: []
+learning_objectives:
+  - 二状態半径1の256個の局所規則とWolfram規則番号の一対一対応を証明し規則表を復号できる
+  - Rule 30・90・110の8入力表を復元して無限線上の短い時空間図を手計算できる
+  - 時空間図と有限観測窓を定義し有限表示と周期境界・無限配置を区別できる
+  - 半径rの時刻tの有限伝播定理を全位置についての帰納法で完全証明できる
+  - 有限の観測窓と初期差異集合への有限光円錐の帰結を証明できる
+  - 上界と実際の影響が異なる例を構成し規則の有限観測からの誤った一般化を反証できる
+  - 目的セルに必要な初期区間と縮小する計算窓を自力設計できる
+definitions:
+  - { id: CELL2-DEF-01, name: "Elementary CA" }
+  - { id: CELL2-DEF-02, name: "規則番号" }
+  - { id: CELL2-DEF-03, name: "時空間図と観測窓" }
+  - { id: CELL2-DEF-04, name: "有限光円錐" }
+propositions:
+  - { id: CELL2-PROP-01, name: "規則番号と局所規則の一対一対応" }
+  - { id: CELL2-PROP-02, name: "有限観測窓を決める初期区間" }
+  - { id: CELL2-PROP-03, name: "有限差分の伝播範囲" }
+theorems:
+  - { id: CELL2-THM-01, name: "有限伝播・有限光円錐" }
+canonical_examples:
+  - "Rule 30・90・110の二進規則番号と8入力の規則表"
+  - "単一1初期配置から時刻12までの時空間図"
+  - "Rule 30の時刻0から3までの1位置集合"
+  - "半径1の時刻5の後方光円錐"
+  - "左シフト・右シフトと定数規則による伝播の鋭さ・非鋭さ"
+problem_patterns:
+  - CELL2-WOLFRAM-RULE-DECODE
+  - CELL2-RULE-TABLE-XOR
+  - CELL2-RULE-110-TRACE
+  - CELL2-SPACETIME-TRACE
+  - CELL2-LIGHT-CONE-RADIUS
+  - CELL2-SHIFT-SHARP-LIGHT-CONE
+  - CELL2-FINITE-DIFFERENCE-PROPAGATION
+  - CELL2-OBSERVATION-NONIDENTIFIABILITY
+  - CELL2-RULE-COMPARISON
+  - CELL2-FINITE-WINDOW-COMPUTATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 3.0, review: 1.5 }
