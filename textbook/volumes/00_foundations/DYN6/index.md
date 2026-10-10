@@ -324,9 +324,9 @@ $$
 
 1. $A\subseteq X$ が $f$ について前方不変なら、$h(A)$ も $g$ について前方不変である。さらに
 
-$
+$$
 f(A)=A\quad\Longrightarrow\quad g(h(A))=h(A)
-$
+$$
 
 が成立する。
 
@@ -334,13 +334,13 @@ $
 
 3. $h$ が位相共役なら、任意の $A\subseteq X$ に対して次の二つの同値関係が成立する。
 
-$
+$$
 f(A)\subseteq A\quad\Longleftrightarrow\quad g(h(A))\subseteq h(A),
-$
+$$
 
-$
+$$
 f(A)=A\quad\Longleftrightarrow\quad g(h(A))=h(A).
-$
+$$
 
 前方不変な $A$ では、$h|_A:A\to h(A)$ は制限系の位相共役である。
 <!-- formal-statement-end -->
