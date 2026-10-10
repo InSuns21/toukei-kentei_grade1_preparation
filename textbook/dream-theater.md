@@ -450,6 +450,7 @@
 7. [CPLX18 回路計算量](textbook/volumes/00_foundations/CPLX18/index.md)
 8. [CPLX19 回路下界への入口](textbook/volumes/00_foundations/CPLX19/index.md)
 9. [CPLX20 乱択計算](textbook/volumes/00_foundations/CPLX20/index.md)
+10. [CPLX21 P vs NPの証明障壁](textbook/volumes/00_foundations/CPLX21/index.md)
 
 <a id="dt-subject-numerical-analysis"></a>
 ### 数値解析
