@@ -5,8 +5,8 @@ active_series: CELL
 active_plan: textbook/plans_progress/DREAM_THEATER_CELLULAR_AUTOMATA_SEMESTER_PLAN.md
 series_manifest: textbook/dream-theater-series/CELL.yaml
 
-completed_through: CELL14
-next_work: CELL15
+completed_through: CELL15
+next_work: null
 after_next: null
 
 routing:
