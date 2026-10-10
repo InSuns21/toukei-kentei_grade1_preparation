@@ -246,7 +246,7 @@ $$
 
 です。差商を $u=(f(x)-f(p))/(x-p)$ と置けば、$|\mu|=|u+(\mu-u)|\le |u|+|\mu-u|$ です。これを移項して
 
-$
+$$
 \begin{aligned}
 \frac{|f(x)-p|}{|x-p|}
 &\ge|\mu|-\left|\frac{f(x)-f(p)}{x-p}-\mu\right|\\
