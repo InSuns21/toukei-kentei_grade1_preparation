@@ -647,13 +647,13 @@ $r=7/2$、$p=5/7$ とする。(a) $p$ の乗数を求めよ。(b) $x_n\to p$ な
 
 (a) $\mu=2-r=2-7/2=-3/2$ です。(b) $1<q<3/2$ を一つ選ぶと、[乗数による局所不安定判定](../DYN2/index.md#thm-dyn2-repelling-multiplier)により固定点の近傍で $0<|x-p|<\rho$ なら $|f_r(x)-p|\ge q|x-p|$ となる $\rho>0$ があります。$x_n\to p$ なら十分大きい $N$ から $|x_n-p|<\rho$ です。もし $x_n\ne p$ が全 $n\ge N$ で続けば、帰納的に $|x_{N+k}-p|\ge q^k|x_N-p|\to\infty$ となり、$\rho$ 未満の有界性と矛盾します。従って有限時刻に $p$ に着地します。(c) $x_0=p$ 自体は全時刻 $p$ なので吸引域に入ります。さらに $f_r(x)=p$ は
 
-$
+$$
 \frac72x(1-x)=\frac57
 \quad\Longleftrightarrow\quad
 49x^2-49x+10=0
 \quad\Longleftrightarrow\quad
 (7x-5)(7x-2)=0
-$
+$$
 
 なので $x=2/7$ は一歩後に $p=5/7$ に入り、その後は固定点にとどまります。従って $2/7$ も吸引域に含まれます。「不安定」と「吸引域が空」は同義ではありません。
 <!-- solution-end -->
