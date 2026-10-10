@@ -1,0 +1,17 @@
+chapter: "DYN4"
+terms:
+  - term: 真の二周期
+    english: prime period-two orbit
+    meaning: "互いに異なる二点a,bがf(a)=b、f(b)=aを満たし、最小周期が2である軌道。固定点を含まない。"
+  - term: 二周期の乗数
+    english: period-two multiplier
+    meaning: "二周期点a,bでの二歩の写像f^2の導関数f'(a)f'(b)。単なる一歩の導関数とは区別する。"
+  - term: 二周期の漸近安定性
+    english: asymptotic stability of a two-cycle
+    meaning: "十分近くの初期値からの偶数時刻・奇数時刻の軌道が、位相をそろえた二周期の二点へ収束し、全時刻の距離も小さく保たれる性質。"
+  - term: 二周期点の平方根スケーリング
+    english: square-root scaling of a period-two orbit
+    meaning: "Logistic写像のrが3を上回った直後、二周期点の間隔が(r-3)の平方根に比例する現象。"
+  - term: 周期倍化
+    english: period doubling
+    meaning: "固定点などの周期軌道から、その2倍の最小周期を持つ新たな軌道が生じる分岐。DYN4ではLogistic写像の固定点から真の二周期への変化を厳密に計算する。"

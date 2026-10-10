@@ -1,0 +1,38 @@
+chapter: DYN4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - DYN3
+concepts:
+  - id: dynamical-systems.prime-period-two
+    name: 真の二周期
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（真の二周期）"]
+    requires: [dynamical-systems.interval-map, cellular-automata.orbit-periodic-point]
+  - id: dynamical-systems.logistic-two-cycle-existence
+    name: Logistic写像の真の二周期の存在と一意性
+    kind: theorem
+    introduction_aliases: ["定理（Logistic写像の真の二周期の存在と一意性）"]
+    requires: [dynamical-systems.prime-period-two, dynamical-systems.logistic-fixed]
+  - id: dynamical-systems.logistic-two-cycle-scaling
+    name: 二周期点の平方根スケーリング
+    kind: proposition
+    introduction_aliases: ["命題（二周期点の平方根スケーリング）"]
+    requires: [dynamical-systems.logistic-two-cycle-existence]
+  - id: dynamical-systems.period-two-stability
+    name: 二周期の局所安定性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二周期の局所安定性）"]
+    requires: [dynamical-systems.prime-period-two, dynamical-systems.fixed-point-stability, dynamical-systems.local-attraction]
+  - id: dynamical-systems.period-two-multiplier
+    name: 二周期の乗数は二点の導関数の積
+    kind: proposition
+    introduction_aliases: ["命題（二周期の乗数は二点の導関数の積）"]
+    requires: [dynamical-systems.prime-period-two, analysis.chain-rule, dynamical-systems.fixed-point-multiplier]
+  - id: dynamical-systems.logistic-two-cycle-stability
+    name: Logistic写像の二周期の安定範囲
+    kind: theorem
+    introduction_aliases: ["定理（Logistic写像の二周期の安定範囲）"]
+    requires: [dynamical-systems.logistic-two-cycle-existence, dynamical-systems.period-two-stability, dynamical-systems.period-two-multiplier, dynamical-systems.attracting-multiplier-criterion, dynamical-systems.repelling-multiplier-criterion]

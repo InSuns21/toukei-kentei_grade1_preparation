@@ -19,9 +19,13 @@ chapters:
     title: Logistic写像の固定点と安定枝
   - id: DYN4
     path: textbook/volumes/00_foundations/DYN4
-    status: planned
+    status: completed
     title: 二周期の出現と安定性
   - id: DYN5
     path: textbook/volumes/00_foundations/DYN5
     status: planned
     title: Tent写像・分枝・有限語の逆像計数
+  - id: DYN6
+    path: textbook/volumes/00_foundations/DYN6
+    status: planned
+    title: 位相共役・半共役・不変集合
