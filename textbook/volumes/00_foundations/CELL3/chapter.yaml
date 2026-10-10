@@ -1,0 +1,47 @@
+id: "CELL3"
+title: "有限環の軌道・周期・状態遷移グラフ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CELL2
+official_scope: []
+learning_objectives:
+  - 周期有限環の配置空間と同期更新を定義し全配置数を数えられる
+  - 前方軌道・固定点・周期点・最小周期を検証できる
+  - 前周期性・過渡長・最終周期を区別して計算できる
+  - 鳩の巣原理による有限写像の最終周期性・最小性と上界を完全証明できる
+  - Rule 60の3セル環の全8状態遷移と前像数を再計算できる
+  - 有限状態遷移グラフの弱連結成分に閉路が一つあることを証明できる
+  - 入次数の総和と有限集合での単射・全射の同値を証明できる
+  - 無限線で前周期性が失われる具体例を構成できる
+definitions:
+  - { id: CELL3-DEF-01, name: "有限環の配置空間と更新写像" }
+  - { id: CELL3-DEF-02, name: "前方軌道・固定点・周期点" }
+  - { id: CELL3-DEF-03, name: "前周期性・過渡長・最終周期" }
+  - { id: CELL3-DEF-04, name: "状態遷移有向グラフと一歩前像" }
+theorems:
+  - { id: CELL3-THM-01, name: "有限状態写像の最終周期性" }
+propositions:
+  - { id: CELL3-PROP-01, name: "有限状態遷移グラフの成分構造" }
+  - { id: CELL3-PROP-02, name: "入次数の総和と単射性" }
+canonical_examples:
+  - "左近傍シフトの3セル環での3周期"
+  - "定数0規則の過渡1"
+  - "Rule 60の3セル環の全8状態と3周期"
+  - "Rule 30の3セル環の過渡3"
+  - "無限線の単一1の右シフトが周期を持たない例"
+problem_patterns:
+  - CELL3-RULE60-UPDATE
+  - CELL3-TRANSIENT-PERIOD
+  - CELL3-PREIMAGE-COUNT
+  - CELL3-SHIFT-CYCLE
+  - CELL3-STATE-BOUND
+  - CELL3-RULE30-ENUMERATION
+  - CELL3-INJECTIVITY-PERIODICITY
+  - CELL3-INDEGREE-BALANCE
+  - CELL3-INFINITE-COUNTEREXAMPLE
+  - CELL3-MAJORITY-CA-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 3.0, review: 1.5 }
