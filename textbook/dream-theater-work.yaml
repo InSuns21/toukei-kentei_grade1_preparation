@@ -5,9 +5,9 @@ active_series: DYN
 active_plan: textbook/plans_progress/DREAM_THEATER_DYNAMICAL_SYSTEMS_COURSE_PLAN.md
 series_manifest: textbook/dream-theater-series/DYN.yaml
 
-completed_through: DYN2
-next_work: DYN3
-after_next: DYN4
+completed_through: DYN3
+next_work: DYN4
+after_next: DYN5
 
 routing:
   chapter_root: textbook/volumes/00_foundations

@@ -1,0 +1,17 @@
+chapter: "DYN3"
+terms:
+  - term: 固定点枝
+    english: fixed-point branch
+    meaning: "パラメータrごとにf_r(p(r))=p(r)を満たす連続な固定点の曲線。固定点枝が存在することと安定であることは別。"
+  - term: 正の固定点
+    english: positive fixed point
+    meaning: "Logistic写像でr>1に存在するp=1-1/r。原点の固定点枝とは区別する。"
+  - term: 固定点の吸引域
+    english: basin of attraction of a fixed point
+    meaning: "初期値x0から反復した列が指定した固定点pに収束するような全てのx0の集合。"
+  - term: 臨界パラメータ
+    english: critical parameter
+    meaning: "固定点の乗数の絶対値が1となるパラメータ。Logistic写像の0ではr=1、正の固定点ではr=3。"
+  - term: 二歩の誤差更新
+    english: two-step error recurrence
+    meaning: "固定点からの誤差を二回続けて更新した式。r=3では一次の乗数-1が二歩で1となるため高次項による縮小を調べる。"
