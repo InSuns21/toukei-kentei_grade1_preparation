@@ -37,6 +37,8 @@
 | 多様体上の確率解析 | `DREAM_THEATER_STOCHASTIC_ANALYSIS_II_GEOMETRIC_PLAN.md` |
 | Navier--Stokes millennium problem への専門ルート | `DREAM_THEATER_NAVIER_STOKES_MILLENNIUM_PLAN.md` |
 | 初等整数論・Diophantine近似・Hilbert第10問題への発展章・解析的整数論・楕円曲線・モジュラー形式 | `DREAM_THEATER_NUMBER_THEORY_MODULARITY_ROUTE_PLAN.md`（楕円関数は既存 `CA8` / `CA9` を再利用） |
+| 円積問題・定規とコンパスの作図不可能性・有限等分解・Tarskiの円積問題 | `DREAM_THEATER_CIRCLE_SQUARING_COURSE_PLAN.md`（SQC1–SQC12、独立科目。指数値の超越性の完全証明はTRN） |
+| 超越数論Ⅰ・Hermiteの $e$ の超越性・Hermite–Lindemann・Lindemann–Weierstrass | `DREAM_THEATER_TRANSCENDENTAL_NUMBER_THEORY_I_PLAN.md`（TRN1–TRN14、独立科目。Liouville定理・Liouville数は整数論ルート `NDA6` が正本） |
 | 熱力学・統計力学・スピングラス | `DREAM_THEATER_THERMODYNAMICS_STATISTICAL_MECHANICS_SPIN_GLASS_PLAN.md` |
 | ブラックホール熱力学・ブラックホール情報・量子情報への横断ルート（情報熱力学・特殊/一般相対論・量子場・ホログラフィー含む） | `DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md`（15セメスター横断、TH/SMは既存正本） |
 | ローレンツ幾何・大域因果構造、双曲型PDE、超局所解析・Hadamard、代数的QFT・モジュラー理論 | `DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md`（独立4セメスター、基幹2・発展2。物理15科目とは別の数学正本） |
