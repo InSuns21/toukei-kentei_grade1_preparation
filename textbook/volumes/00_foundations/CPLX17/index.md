@@ -52,7 +52,7 @@ $$
 
 ## 3. 一致する世界：$A=\mathrm{TQBF}$
 
-[CPLX14のTQBFのPSPACE完全性](../CPLX14/index.md#thm-cplx14-tqbf-pspace-complete)によると、$A=\mathrm{TQBF}$は多項式空間で判定でき、任意の$PSPACE$言語から多項式時間で帰着できます。この強力な問題を一手で解いてくれるOracleにすると、決定性と非決定性の差が消えます。
+[CPLX14のTQBFのPSPACE完全性](../CPLX14/index.md#thm-cplx14-completeness)によると、$A=\mathrm{TQBF}$は多項式空間で判定でき、任意の$PSPACE$言語から多項式時間で帰着できます。この強力な問題を一手で解いてくれるOracleにすると、決定性と非決定性の差が消えます。
 
 <a id="thm-cplx17-equality-oracle"></a>
 
