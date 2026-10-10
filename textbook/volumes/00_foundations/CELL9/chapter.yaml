@@ -1,0 +1,48 @@
+id: "CELL9"
+title: "可逆CAと逆写像の局所性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CELL8
+official_scope: []
+learning_objectives:
+  - 単射・全射・全単射と可逆性の違いを具体的なCAで確認できる
+  - シフトと可換な全単射の逆写像もシフト可換であることを証明できる
+  - 連続写像が配置列の収束を保つことを有限窓で証明できる
+  - 列コンパクト性から全単射な連続写像の逆の連続性を完全証明できる
+  - 逆のシフト可換性と連続性からCELL8を適用し逆CA定理を証明できる
+  - シフト・反転・その合成の逆局所規則を構成できる
+  - 無限線の隣接XORが全射・非単射であることを全前像構成で検証できる
+  - 有限周期環と固定境界区間で可逆性が変わる理由を厳密に説明できる
+definitions:
+  - { id: CELL9-DEF-01, name: "単射・全射・全単射" }
+  - { id: CELL9-DEF-02, name: "可逆セル・オートマトン" }
+lemmas:
+  - { id: CELL9-LEM-01, name: "連続写像と配置列の収束" }
+  - { id: CELL9-LEM-02, name: "全単射な連続写像の逆写像は連続" }
+theorems:
+  - { id: CELL9-THM-01, name: "可逆CAの逆写像もCA" }
+propositions:
+  - { id: CELL9-PROP-01, name: "逆写像のシフト可換性" }
+  - { id: CELL9-PROP-02, name: "有限集合の自己写像における単射と全射" }
+canonical_examples:
+  - "左シフトと右シフトの両側逆"
+  - "ビット反転とその合成"
+  - "隣接XORの無限線での2個の前像"
+  - "周期環で全出力ビットのXORが0となる制約"
+  - "固定境界区間での情報流出"
+problem_patterns:
+  - CELL9-SHIFT-INVERSE
+  - CELL9-NEGATION-INVERSE
+  - CELL9-CONSTANT-FAILURE
+  - CELL9-FINITE-ROTATION
+  - CELL9-EQUIVARIANT-INVERSE
+  - CELL9-XOR-TWO-PREIMAGES
+  - CELL9-XOR-FINITE-RING
+  - CELL9-COMPOSITION-INVERSE
+  - CELL9-INVERSE-CONTINUITY
+  - CELL9-INTEGRATED-BOUNDARY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 3.0, review: 1.5 }
