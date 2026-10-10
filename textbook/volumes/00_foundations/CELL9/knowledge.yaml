@@ -1,0 +1,44 @@
+chapter: CELL9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CELL8
+
+concepts:
+  - id: cellular-automata.injective-surjective-bijective
+    name: 単射・全射・全単射
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（単射・全射・全単射）"]
+    requires: [cellular-automata.full-shift]
+  - id: cellular-automata.reversible
+    name: 可逆セル・オートマトン
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（可逆セル・オートマトン）"]
+    requires: [cellular-automata.chl]
+  - id: cellular-automata.inverse-equivariance
+    name: 逆写像のシフト可換性
+    kind: proposition
+    introduction_aliases: ["命題（逆写像のシフト可換性）"]
+    requires: [cellular-automata.reversible, cellular-automata.shift-equivariance]
+  - id: cellular-automata.continuity-sequence
+    name: 連続写像と配置列の収束
+    kind: lemma
+    introduction_aliases: ["補題（連続写像と配置列の収束）"]
+    requires: [cellular-automata.continuity-windows, cellular-automata.window-convergence]
+  - id: cellular-automata.inverse-continuity
+    name: 全単射な連続写像の逆写像は連続
+    kind: lemma
+    introduction_aliases: ["補題（全単射な連続写像の逆写像は連続）"]
+    requires: [cellular-automata.continuity-sequence, cellular-automata.sequential-compactness]
+  - id: cellular-automata.inverse-ca
+    name: 可逆CAの逆写像もCA
+    kind: theorem
+    introduction_aliases: ["定理（可逆CAの逆写像もCA）"]
+    requires: [cellular-automata.inverse-equivariance, cellular-automata.inverse-continuity, cellular-automata.chl]
+  - id: cellular-automata.finite-injective-surjective
+    name: 有限集合の自己写像における単射と全射
+    kind: proposition
+    introduction_aliases: ["命題（有限集合の自己写像における単射と全射）"]
+    requires: [cellular-automata.reversible]

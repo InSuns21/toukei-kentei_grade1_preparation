@@ -39,7 +39,7 @@ chapters:
     title: Curtis–Hedlund–Lyndon定理
   - id: CELL9
     path: textbook/volumes/00_foundations/CELL9
-    status: planned
+    status: completed
     title: 可逆CAと逆写像の局所性
   - id: CELL10
     path: textbook/volumes/00_foundations/CELL10

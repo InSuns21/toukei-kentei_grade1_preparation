@@ -463,6 +463,7 @@
 6. [CELL6 de Bruijnグラフと前像](textbook/volumes/00_foundations/CELL6/index.md)
 7. [CELL7 シフト空間・円筒集合・配置の近さ](textbook/volumes/00_foundations/CELL7/index.md)
 8. [CELL8 Curtis–Hedlund–Lyndon定理](textbook/volumes/00_foundations/CELL8/index.md)
+9. [CELL9 可逆CAと逆写像の局所性](textbook/volumes/00_foundations/CELL9/index.md)
 
 <a id="dt-subject-numerical-analysis"></a>
 ### 数値解析

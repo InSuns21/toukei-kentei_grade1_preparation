@@ -1,0 +1,35 @@
+chapter: "CELL9"
+terms:
+  - term: 単射
+    english: injective map
+    meaning: "異なる入力が同じ出力へ写らない写像。F(x)=F(y)ならx=yを満たす。"
+  - term: 全射
+    english: surjective map
+    meaning: "終域の任意の出力に少なくとも一つの前像が存在する写像。"
+  - term: 全単射
+    english: bijective map
+    meaning: "単射かつ全射であり、終域の各元にちょうど一つの前像を持つ写像。"
+  - term: 可逆セル・オートマトン
+    english: reversible cellular automaton
+    meaning: "有限状態の両側無限全シフト上で全単射となる有限半径CA。逆写像も有限半径CAとなる。"
+  - term: 逆写像
+    english: inverse map
+    meaning: "全単射Fに対し、各出力から唯一の入力を返す写像G。FG=GF=idを満たす。"
+  - term: 逆写像のシフト可換性
+    english: shift equivariance of inverse map
+    meaning: "全単射Fがシフトと可換なら、逆G=F^{-1}もGσ=σGを満たす性質。"
+  - term: 逆写像の連続性
+    english: continuity of the inverse map
+    meaning: "出力配置が有限窓で十分一致すれば、その前像も任意の指定された有限窓で一致する性質。有限状態全シフト上の連続全単射の逆で成立する。"
+  - term: 列コンパクト性
+    english: sequential compactness
+    meaning: "任意の配置列が収束部分列を持つ性質。有限アルファベットの全シフトでは中央一致距離について成立し、逆写像の連続性の証明に用いる。"
+  - term: 隣接XOR規則
+    english: adjacent XOR cellular automaton
+    meaning: "二状態の局所更新D(x)_i=x_i⊕x_{i+1}。両側無限線では各出力に2個の前像が存在する。"
+  - term: 周期境界条件
+    english: periodic boundary condition
+    meaning: "有限環上の最終セルと先頭セルを隣接させ、添字をNで割った剰余として扱う条件。"
+  - term: 固定境界条件
+    english: fixed boundary condition
+    meaning: "有限区間の外側からの流入を指定値で扱う条件。情報が区間外へ流出すると可逆性が失われる場合がある。"
