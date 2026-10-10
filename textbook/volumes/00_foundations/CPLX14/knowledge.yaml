@@ -1,0 +1,55 @@
+chapter: CPLX14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CPLX13
+concepts:
+  - id: theoretical-computer-science.quantified-boolean-formula
+    name: 量化Boolean論理式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（量化Boolean論理式）"]
+    requires: [theoretical-computer-science.sat-language]
+  - id: theoretical-computer-science.tqbf-language
+    name: TQBFの判定言語
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（TQBFの判定言語）"]
+    requires: [theoretical-computer-science.quantified-boolean-formula]
+  - id: theoretical-computer-science.qbf-game
+    name: 量化子と選択ゲーム
+    kind: proposition
+    introduction_aliases: ["命題（量化子と選択ゲーム）"]
+    requires: [theoretical-computer-science.quantified-boolean-formula]
+  - id: theoretical-computer-science.tqbf-in-pspace
+    name: TQBFはPSPACEに属する
+    kind: theorem
+    introduction_aliases: ["定理（TQBFはPSPACEに属する）"]
+    requires: [theoretical-computer-science.tqbf-language, theoretical-computer-science.class-pspace]
+  - id: theoretical-computer-science.local-step-formula
+    name: 配置の一歩関係の多項式長符号化
+    kind: proposition
+    introduction_aliases: ["命題（配置の一歩関係の多項式長符号化）"]
+    requires: [theoretical-computer-science.configuration-graph, theoretical-computer-science.configuration-count, theoretical-computer-science.quantified-boolean-formula]
+  - id: theoretical-computer-science.shared-reach-qbf
+    name: 共有された部分式による到達可能性式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（共有された部分式による到達可能性式）"]
+    requires: [theoretical-computer-science.midpoint-reachability, theoretical-computer-science.quantified-boolean-formula]
+  - id: theoretical-computer-science.qbf-reach-correctness
+    name: 量化論理式による長さ制限付き到達可能性
+    kind: theorem
+    introduction_aliases: ["定理（量化論理式による長さ制限付き到達可能性）"]
+    requires: [theoretical-computer-science.shared-reach-qbf, theoretical-computer-science.bounded-length-reachability]
+  - id: theoretical-computer-science.pspace-completeness
+    name: PSPACE完全
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（PSPACE完全）"]
+    requires: [theoretical-computer-science.class-pspace, theoretical-computer-science.polynomial-many-one-reduction]
+  - id: theoretical-computer-science.tqbf-pspace-complete
+    name: TQBFのPSPACE完全性
+    kind: theorem
+    introduction_aliases: ["定理（TQBFのPSPACE完全性）"]
+    requires: [theoretical-computer-science.pspace-completeness, theoretical-computer-science.tqbf-in-pspace, theoretical-computer-science.local-step-formula, theoretical-computer-science.qbf-reach-correctness]

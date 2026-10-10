@@ -1,0 +1,47 @@
+id: "CPLX14"
+title: "PSPACE完全性とTQBF"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CPLX13
+official_scope: []
+learning_objectives:
+  - 量化Boolean論理式とTQBFを自由変数・束縛変数・量化順序を含めて定義し真偽を計算できる
+  - 存在手番・全称手番のゲーム意味論を帰納法で証明し勝ち戦略を構成できる
+  - 深さ優先評価に必要なスタックと割当て領域を数えTQBFのPSPACE所属を証明できる
+  - 多項式空間機械の配置符号から一歩関係を量化子なしの多項式長論理式へ構成できる
+  - 道の二本の再帰式を直接複製すると指数長になる失敗機構を説明できる
+  - 共有された部分式と存在・全称量化による到達可能性式の同値を両方向で証明できる
+  - 任意のPSPACE言語からTQBFへ多項式時間帰着してPSPACE完全性を証明できる
+  - 量化子の前束形化に必要な変数捕獲回避条件と交代計算の意味を説明できる
+definitions:
+  - { id: CPLX14-DEF-01, name: "量化Boolean論理式" }
+  - { id: CPLX14-DEF-02, name: "TQBFの判定言語" }
+  - { id: CPLX14-DEF-03, name: "共有された部分式による到達可能性式" }
+  - { id: CPLX14-DEF-04, name: "PSPACE完全" }
+theorems:
+  - { id: CPLX14-THM-01, name: "TQBFはPSPACEに属する" }
+  - { id: CPLX14-THM-02, name: "量化論理式による長さ制限付き到達可能性" }
+  - { id: CPLX14-THM-03, name: "TQBFのPSPACE完全性" }
+propositions:
+  - { id: CPLX14-PROP-01, name: "量化子と選択ゲーム" }
+  - { id: CPLX14-PROP-02, name: "配置の一歩関係の多項式長符号化" }
+canonical_examples:
+  - "exists p forall q (p or q)をp=1の選択で検証"
+  - "forall p exists q (p and q)のp=0による反例"
+  - "4頂点の道00→01→10→11でΦ1(00,11)が偽・Φ2が真"
+  - "共有再帰はΦ(i-1)を一回しか書かず長さが多項式"
+problem_patterns:
+  - CPLX14-QUANTIFIER-ORDER
+  - CPLX14-FREE-BOUND-VARIABLES
+  - CPLX14-GAME-STRATEGY
+  - CPLX14-DEPTH-FIRST-SPACE
+  - CPLX14-STEP-RELATION-ENCODING
+  - CPLX14-REACHABILITY-QBF
+  - CPLX14-FORMULA-SIZE
+  - CPLX14-PRENEX-CONVERSION
+  - CPLX14-PSPACE-HARDNESS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 5, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 5.0, review: 3.0 }
