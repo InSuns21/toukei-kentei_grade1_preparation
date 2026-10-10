@@ -138,7 +138,7 @@ $$
 <a id="def-cplx18-p-poly"></a>
 
 <!-- formal-statement-start -->
-> **定義（$P/poly$）**  
+> **定義（P/poly）**  
 > 言語$L$が$P/poly$に属するとは、$L$を判定する多項式サイズのBoolean回路族$(C_n)_{n\ge1}$が存在することをいう。回路族のuniform性、すなわち$n$から$C_n$を計算するアルゴリズムの存在は要求しない。
 <!-- formal-statement-end -->
 
@@ -151,7 +151,7 @@ $$
 <a id="prop-cplx18-undecidable-p-poly"></a>
 
 <!-- formal-statement-start -->
-> **命題（$P/poly$には決定不能な言語が含まれる）**  
+> **命題（P/polyには決定不能な言語が含まれる）**  
 > 決定不能な集合$A\subseteq\{1,2,\ldots\}$に対して
 
 $$
@@ -252,7 +252,7 @@ $$
 <a id="thm-cplx18-advice-equivalence"></a>
 
 <!-- formal-statement-start -->
-> **定理（$P/poly$と多項式長助言）**  
+> **定理（P/polyと多項式長助言）**  
 > 言語$L\subseteq\{0,1\}^*$について、$L\in P/poly$であることと、$L$が多項式長助言付き多項式時間で判定できることは同値である。
 <!-- formal-statement-end -->
 
