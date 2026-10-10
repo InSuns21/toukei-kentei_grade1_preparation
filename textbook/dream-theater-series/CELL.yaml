@@ -51,7 +51,7 @@ chapters:
     title: 二次元CAとConwayのGame of Life
   - id: CELL12
     path: textbook/volumes/00_foundations/CELL12
-    status: planned
+    status: completed
     title: Turing機械の局所更新による模倣
   - id: CELL13
     path: textbook/volumes/00_foundations/CELL13

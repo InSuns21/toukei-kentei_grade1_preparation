@@ -1,0 +1,48 @@
+id: "CELL12"
+title: "Turing機械の局所更新による模倣"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CELL11
+  - CMP1
+official_scope: []
+learning_objectives:
+  - CMP1の左端付きTuring機械の計算状況を壁記号・通常文字・状態付き文字からなるCA配置へ符号化し、逆復元できる
+  - 半径1の局所規則を非法窓を含む全入力に定義し、左右移動・書換え・停止の各ケースを検算できる
+  - 一歩模倣定理を全位置の場合分けで証明し、左端記号とヘッド一意性を保証できる
+  - 二歩以上の計算履歴の対応と停止後の固定点性を数学的帰納法で証明できる
+  - 模倣に要するCA時刻・有限領域・逐次実装の費用を区別して上界を証明できる
+  - 合法配置と非法配置、固定機械用CAと万能な固定CAの主張を区別できる
+  - 同じ一セル符号化について半径0で移動ヘッドを模倣できない反例を構成できる
+definitions:
+  - { id: CELL12-DEF-01, name: "模倣用アルファベットと合法符号化" }
+  - { id: CELL12-DEF-02, name: "Turing模倣CAの局所規則" }
+lemmas: []
+theorems:
+  - { id: CELL12-THM-01, name: "合法配置上での一歩模倣" }
+  - { id: CELL12-THM-02, name: "計算履歴の模倣と停止の保存" }
+propositions:
+  - { id: CELL12-PROP-01, name: "計算状況は符号化から一意に復元できる" }
+  - { id: CELL12-PROP-02, name: "模倣の時刻・領域・素朴な逐次計算費用" }
+canonical_examples:
+  - "左端壁と入力01の合法符号化"
+  - "右向きヘッドの書換え・受取りを分離した局所表"
+  - "位置1から0への左移動で左端記号を保存"
+  - "入力01を2歩で受理し以後固定する4時刻表"
+  - "非法配置の二重信号と合法配置の区別"
+  - "半径0では右移動するヘッドを模倣できない反例"
+problem_patterns:
+  - CELL12-ALPHABET-COUNT
+  - CELL12-ENCODE-DECODE
+  - CELL12-MOVE-RIGHT
+  - CELL12-MOVE-LEFT-BOUNDARY
+  - CELL12-HALT-FIXED
+  - CELL12-TWO-STEPS
+  - CELL12-ILLEGAL-COLLISION
+  - CELL12-LEGAL-INVARIANT
+  - CELL12-COST
+  - CELL12-RADIUS-ZERO-LOWER-BOUND
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.5, review: 2.0 }

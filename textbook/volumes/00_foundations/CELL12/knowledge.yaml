@@ -1,0 +1,45 @@
+chapter: CELL12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CELL11
+  - CMP1
+
+concepts:
+  - id: cellular-automata.turing-encoding
+    name: 模倣用アルファベットと合法符号化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（模倣用アルファベットと合法符号化）"]
+    requires: [theoretical-computer-science.tm-configuration, cellular-automata.global-update]
+
+  - id: cellular-automata.turing-encoding-injective
+    name: 計算状況は符号化から一意に復元できる
+    kind: proposition
+    introduction_aliases: ["命題（計算状況は符号化から一意に復元できる）"]
+    requires: [cellular-automata.turing-encoding]
+
+  - id: cellular-automata.turing-local-rule
+    name: Turing模倣CAの局所規則
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Turing模倣CAの局所規則）"]
+    requires: [cellular-automata.turing-encoding, cellular-automata.local-rule]
+
+  - id: cellular-automata.turing-one-step
+    name: 合法配置上での一歩模倣
+    kind: theorem
+    introduction_aliases: ["定理（合法配置上での一歩模倣）"]
+    requires: [cellular-automata.turing-local-rule, theoretical-computer-science.tm-successor]
+
+  - id: cellular-automata.turing-trajectory
+    name: 計算履歴の模倣と停止の保存
+    kind: theorem
+    introduction_aliases: ["定理（計算履歴の模倣と停止の保存）"]
+    requires: [cellular-automata.turing-one-step, theoretical-computer-science.tm-history]
+
+  - id: cellular-automata.turing-cost
+    name: 模倣の時刻・領域・素朴な逐次計算費用
+    kind: proposition
+    introduction_aliases: ["命題（模倣の時刻・領域・素朴な逐次計算費用）"]
+    requires: [cellular-automata.turing-trajectory, cellular-automata.finite-propagation]
