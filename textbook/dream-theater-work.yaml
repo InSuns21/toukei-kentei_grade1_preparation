@@ -1,13 +1,13 @@
 version: 1
 updated: 2026-10-11
 
-active_series: CELL
-active_plan: textbook/plan_done/DREAM_THEATER_CELLULAR_AUTOMATA_SEMESTER_PLAN.md
-series_manifest: textbook/dream-theater-series/CELL.yaml
+active_series: DYN
+active_plan: textbook/plans_progress/DREAM_THEATER_DYNAMICAL_SYSTEMS_COURSE_PLAN.md
+series_manifest: textbook/dream-theater-series/DYN.yaml
 
-completed_through: CELL15
-next_work: null
-after_next: null
+completed_through: DYN1
+next_work: DYN2
+after_next: DYN3
 
 routing:
   chapter_root: textbook/volumes/00_foundations
