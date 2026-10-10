@@ -1,0 +1,47 @@
+id: "CELL13"
+title: "計算普遍性・Rule 110・Life"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CELL12
+  - CMP3
+official_scope: []
+learning_objectives:
+  - 固定機械ごとのCAと、任意の機械記述を初期配置に符号化する固定の普遍CAの量化順序を区別できる
+  - CMP3の万能Turing機械とCELL12の局所規則を合成して、受理・拒否・非停止の保存を証明できる
+  - 対符号と合法配置から初期入力を作り、停止印の読み方と有限窓の時間・領域上界を導出できる
+  - 指数的な遅延を挿入する構成により計算普遍性が多項式時間模倣を保証しないことを証明できる
+  - Rule 110の8近傍表と短い時間発展を手で検算できる
+  - Rule 110とLifeの普遍性について研究原典の内容と本章の自力証明範囲を分離できる
+  - 固定有限環では全入力を単射符号化できない理由を状態数と有限軌道から証明できる
+definitions:
+  - { id: CELL13-DEF-01, name: "受理・拒否を保存する普遍CA" }
+  - { id: CELL13-DEF-02, name: "Rule 110の局所更新" }
+lemmas: []
+theorems:
+  - { id: CELL13-THM-01, name: "固定した一次元CAによる万能計算" }
+propositions:
+  - { id: CELL13-PROP-01, name: "万能CAの停止判定と有限窓での費用" }
+  - { id: CELL13-PROP-02, name: "指数的に遅い普遍CAを構成できる" }
+canonical_examples:
+  - "プログラムごとの規則と固定の規則の量化順序"
+  - "同じ普遍CAで01は受理、000は拒否"
+  - "Rule 110の単一1から二時刻の手計算"
+  - "有限環の16配置と周期軌道"
+  - "指数的に遅い万能計算のカウンタ"
+  - "Rule 110の周期背景とLifeの伸長可能な記憶を区別"
+problem_patterns:
+  - CELL13-QUANTIFIER
+  - CELL13-RULE110-TABLE
+  - CELL13-RULE110-TWO-STEPS
+  - CELL13-ACCEPTANCE-DECODE
+  - CELL13-FINITE-RING
+  - CELL13-CONSTRUCTION
+  - CELL13-SIMULATION-COST
+  - CELL13-SLOWDOWN
+  - CELL13-LIFE-PROOF-BOUNDARY
+  - CELL13-UNIVERSALITY-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 4.5, review: 2.0 }

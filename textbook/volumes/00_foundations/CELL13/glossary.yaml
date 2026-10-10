@@ -1,0 +1,32 @@
+chapter: "CELL13"
+terms:
+  - term: 計算普遍性
+    english: computational universality
+    meaning: "一つに固定したCAの局所規則の下で、任意の正しく記述されたTuring機械と入力について、受理・拒否・非停止を初期配置の符号化により保存できる性質。"
+  - term: 普遍CA
+    english: universal cellular automaton
+    meaning: "機械の遷移表は固定し、プログラムの記述と入力を初期配置へ載せて汎用計算を行えるCA。"
+  - term: 対符号
+    english: paired encoding
+    meaning: "機械記述mと入力xの長さ情報を伴って一意に復元できる二進文字列の符号化。"
+  - term: 受理印・拒否印
+    english: acceptance and rejection markers
+    meaning: "固定CAが万能機械の停止状態を保持していることを、唯一の状態付き記号として読み取るための印。"
+  - term: 模倣費用
+    english: simulation overhead
+    meaning: "被模倣機械と万能機械の実行歩数、およびCA時刻・逐次実装時の評価回数との差。"
+  - term: Rule 110
+    english: Rule 110
+    meaning: "二状態・半径1の一次元CAで、近傍111から000への出力列01101110を持つ規則。"
+  - term: 周期背景
+    english: periodic background
+    meaning: "空間的に反復する初期模様で、Rule 110の粒子衝突による計算構成の背景として使われる配置。"
+  - term: 循環タグ系
+    english: cyclic tag system
+    meaning: "有限の巡回する規則列で文字列を更新する計算モデルで、Rule 110の普遍性構成における媒介モデル。"
+  - term: 伸長可能な記憶
+    english: extensible memory
+    meaning: "計算が進むに従って必要な記憶領域を増やせる装置。有限状態回路だけでは保証されない。"
+  - term: 計算時間の上界
+    english: computational time upper bound
+    meaning: "定めた入力サイズや元の実行時間の関数として、模擬に必要な歩数がどこまで増えるかを評価した限界。"
