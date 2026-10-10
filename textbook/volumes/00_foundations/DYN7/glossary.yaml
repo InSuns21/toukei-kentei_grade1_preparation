@@ -1,0 +1,23 @@
+chapter: "DYN7"
+terms:
+  - term: 円周
+    english: circle as the quotient of real numbers by integers
+    meaning: "整数だけ差がある実数を同じ点とみなした集合R/Z。代表元0と1は同一点。"
+  - term: 円周距離
+    english: circle distance
+    meaning: "代表元の差から最も近い整数までの距離。端点をまたいだ近さも測る。"
+  - term: 円周回転
+    english: circle rotation
+    meaning: "R_alpha([x])=[x+alpha]で表す等距離な自己同相写像。全反復は角度の加法。"
+  - term: 有理回転
+    english: rational rotation
+    meaning: "回転幅a/bが有理数で既約なら全点の最小周期がbとなる回転。"
+  - term: 無理回転
+    english: irrational rotation
+    meaning: "回転幅が無理数で周期点がなく、それでも各前方軌道が円周に稠密な回転。"
+  - term: 前方軌道の稠密性
+    english: density of a forward orbit
+    meaning: "どの目標点のどれだけ小さな近傍にも非負整数時刻の反復点があること。"
+  - term: 閉じた前方不変集合
+    english: closed forward-invariant set
+    meaning: "閉集合で、点を一歩進めても集合から出ない集合。無理回転では非空なら円周全体。"
