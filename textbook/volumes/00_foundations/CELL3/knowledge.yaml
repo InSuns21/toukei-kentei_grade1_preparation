@@ -34,11 +34,17 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（状態遷移有向グラフと一歩前像）"]
     requires: [cellular-automata.finite-ring-state-map]
+  - id: cellular-automata.weak-transition-component
+    name: 弱連結成分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（弱連結成分）"]
+    requires: [cellular-automata.transition-graph-preimage]
   - id: cellular-automata.functional-graph-components
     name: 有限状態遷移グラフの成分構造
     kind: proposition
     introduction_aliases: ["命題（有限状態遷移グラフの成分構造）"]
-    requires: [cellular-automata.transition-graph-preimage, cellular-automata.finite-eventual-periodicity]
+    requires: [cellular-automata.weak-transition-component, cellular-automata.finite-eventual-periodicity]
   - id: cellular-automata.indegree-balance
     name: 入次数の総和と単射性
     kind: proposition
