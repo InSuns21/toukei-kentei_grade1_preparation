@@ -14,10 +14,10 @@ $n\ge1$個のBoolean変数$x_1,\ldots,x_n$の1の個数が奇数なら1、偶数
 > **定義（parity関数）**  
 > $n\ge1$に対し、$n$入力のparity関数$\operatorname{PARITY}_n:\{0,1\}^n\to\{0,1\}$を、入力の1の個数が奇数なら1、偶数なら0である関数とする。等価に
 >
-$
+$$
 \operatorname{PARITY}_n(x_1,\ldots,x_n)
 =x_1\oplus\cdots\oplus x_n.
-$
+$$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cplx19-parity -->
