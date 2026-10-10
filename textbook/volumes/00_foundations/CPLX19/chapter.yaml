@@ -1,0 +1,52 @@
+id: "CPLX19"
+title: "回路下界への入口"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CPLX18
+official_scope: []
+learning_objectives:
+  - parity関数・DNF・項数を定義し、真入力と項の対応から指数項数下界を完全証明できる
+  - DNFを否定したCNF下界の導出と、積和形以外の回路への一般化が誤りとなる理由を説明できる
+  - 非uniform AC0の深さ・サイズ・入力本数を定義し、parityの線形サイズ対数深さ回路を構成できる
+  - 部分割当てと制限後のparityの性質、決定木下界を証明し、switching lemmaが必要な箇所を特定できる
+  - 単調関数・単調回路・しきい値関数を定義し、単調DNFの下界と共有可能な単調回路の上界を証明できる
+  - 一般二入力回路の線形下界を配線グラフから証明し、SAT回路下界とP対NPの論理関係を区別できる
+definitions:
+  - { id: CPLX19-DEF-01, name: "parity関数" }
+  - { id: CPLX19-DEF-02, name: "DNFと項数" }
+  - { id: CPLX19-DEF-03, name: "非uniform AC0" }
+  - { id: CPLX19-DEF-04, name: "部分割当てと制限" }
+  - { id: CPLX19-DEF-05, name: "単調Boolean関数と単調回路" }
+  - { id: CPLX19-DEF-06, name: "しきい値関数" }
+lemmas:
+  - { id: CPLX19-LEM-01, name: "parityを受理する項は全変数を固定する" }
+  - { id: CPLX19-LEM-02, name: "制限後もparityは全自由変数に依存する" }
+theorems:
+  - { id: CPLX19-THM-01, name: "parityの深さ2 DNF下界" }
+  - { id: CPLX19-THM-02, name: "しきい値関数のDNFと単調回路の差" }
+propositions:
+  - { id: CPLX19-PROP-01, name: "parityは線形サイズ・対数深さで計算できる" }
+  - { id: CPLX19-PROP-02, name: "全n変数へ依存する二入力回路のサイズ下界" }
+canonical_examples:
+  - "3ビットparityの完全指定項を四つ並べたDNF"
+  - "DNF項の自由変数を一つ反転してparityと矛盾させる"
+  - "正負二信号による二入力XORと釣り合った二分木"
+  - "制限したparityの自由変数数と決定木深さ"
+  - "THR4,2の単調性とTijの動的更新"
+  - "入力次数2の配線グラフから得るゲート数下界"
+problem_patterns:
+  - CPLX19-PARITY-DNF
+  - CPLX19-FREE-LITERAL
+  - CPLX19-AC0-MODEL
+  - CPLX19-MONOTONICITY
+  - CPLX19-RANDOM-RESTRICTION
+  - CPLX19-PARITY-CNF
+  - CPLX19-THRESHOLD-DP
+  - CPLX19-DUAL-RAIL-XOR
+  - CPLX19-GRAPH-LOWER-BOUND
+  - CPLX19-LOWER-BOUND-SCOPE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.5, exercises: 5.0, review: 3.0 }
