@@ -28,6 +28,11 @@
 | 幾何解析・Laplace--Beltrami・manifold Sobolev・harmonic map | `DREAM_THEATER_GEOMETRIC_ANALYSIS_PLAN.md` |
 | 逆問題・ill-posedness・正則化・tomography・Bayes/PDE 逆問題 | `DREAM_THEATER_INVERSE_PROBLEMS_PLAN.md` |
 | 情報幾何・Fisher--Rao 計量・双対接続・双対平坦性・情報射影 | `DREAM_THEATER_INFORMATION_GEOMETRY_PLAN.md` |
+| 機械学習・統計的学習理論・多様体仮説・物理学への横断8セメスター（基幹6＋発展2） | `DREAM_THEATER_MACHINE_LEARNING_STATISTICAL_LEARNING_MANIFOLD_PHYSICS_ROUTE_PLAN.md`（未実装科目は本編に公開しない） |
+| 高次元確率・集中不等式・非漸近ランダム行列評価 | `DREAM_THEATER_HIGH_DIMENSIONAL_PROBABILITY_PLAN.md`（HDP：独立15週、SLTの数理基盤） |
+| スペクトルグラフ理論・Cheeger不等式・random walk・graph Laplacian | `DREAM_THEATER_SPECTRAL_GRAPH_THEORY_PLAN.md`（SGT：独立15週、MFLの数理基盤） |
+| ランダム行列・Wigner半円則・Marčenko–Pastur法則 | `DREAM_THEATER_RANDOM_MATRIX_THEORY_PLAN.md`（RMT：独立15週、発展分岐） |
+| 最適輸送・Wasserstein幾何・測度上の勾配流 | `DREAM_THEATER_OPTIMAL_TRANSPORT_WASSERSTEIN_PLAN.md`（OTR：独立15週、発展分岐） |
 | SDE / Markov generator / Feynman--Kac | 完了済み Encore IV（`STO9` / `STO11`） |
 | 多様体上の確率解析 | `DREAM_THEATER_STOCHASTIC_ANALYSIS_II_GEOMETRIC_PLAN.md` |
 | Navier--Stokes millennium problem への専門ルート | `DREAM_THEATER_NAVIER_STOKES_MILLENNIUM_PLAN.md` |
