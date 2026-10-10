@@ -1,0 +1,52 @@
+id: "CELL11"
+title: "二次元CAとConwayのGame of Life"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CELL10
+official_scope: []
+learning_objectives:
+  - Moore近傍とvon Neumann近傍を座標で定義し、斜めの扱いを説明できる
+  - 二次元の局所規則と全平面の同期更新を定義できる
+  - LifeのB3/S23を近隣生存数の規則式で判定できる
+  - 二次元CAの有限伝播を正方形の包含関係から帰納証明できる
+  - 生セルの包囲長方形の時間発展上界を証明できる
+  - 静止物体と振動子を配置の等式で区別し、ブロックとブリンカーを全近傍で検証できる
+  - グライダーの4世代移動を全近傍の数え上げで証明できる
+  - 無限平面・固定境界・周期境界を区別して数値例を計算できる
+  - 局所的な運動模様の観測と計算普遍性の証明を区別できる
+definitions:
+  - { id: CELL11-DEF-01, name: "二次元の近傍" }
+  - { id: CELL11-DEF-02, name: "二次元セル・オートマトン" }
+  - { id: CELL11-DEF-03, name: "ConwayのGame of Life：B3/S23" }
+  - { id: CELL11-DEF-04, name: "静止物体・振動子・移動物体" }
+lemmas: []
+theorems:
+  - { id: CELL11-THM-01, name: "二次元CAの有限伝播" }
+propositions:
+  - { id: CELL11-PROP-01, name: "有限な生存領域の包囲長方形" }
+  - { id: CELL11-PROP-02, name: "ブロックは静止物体" }
+  - { id: CELL11-PROP-03, name: "ブリンカーは最小周期2" }
+  - { id: CELL11-PROP-04, name: "グライダーの4世代移動" }
+canonical_examples:
+  - "Moore近傍とvon Neumann近傍の斜め位置の差"
+  - "LifeのB3/S23状態判定"
+  - "2×2ブロックの外側の誕生数"
+  - "ブリンカーの2ステップ"
+  - "グライダーの5時刻の生セル座標と近隣数"
+  - "3×3盤面の固定境界と周期境界の相違"
+problem_patterns:
+  - CELL11-NEIGHBORHOOD
+  - CELL11-LIFE-CASES
+  - CELL11-BLOCK
+  - CELL11-BLINKER
+  - CELL11-LOCAL-RULE-COUNT
+  - CELL11-FINITE-PROPAGATION
+  - CELL11-BOUNDARIES
+  - CELL11-GLIDER
+  - CELL11-SUPPORT-GROWTH
+  - CELL11-MODIFIED-SURVIVAL
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 3.5, review: 1.5 }
