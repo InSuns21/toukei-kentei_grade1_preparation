@@ -27,14 +27,14 @@ concepts:
     introduction_aliases: ["定義（固定点の吸引域）"]
     requires: [dynamical-systems.interval-map, dynamical-systems.limit-fixed]
   - id: dynamical-systems.logistic-origin-basin
-    name: 原点の吸引域と臨界値r=1
+    name: 原点の全域吸引とr=1の境界例
     kind: theorem
-    introduction_aliases: ["定理（原点の吸引域と臨界値 $r=1$）"]
+    introduction_aliases: ["定理（原点の全域吸引とr=1の境界例）"]
     requires: [dynamical-systems.fixed-point-basin, dynamical-systems.logistic-fixed]
   - id: dynamical-systems.logistic-low-r-basin
-    name: 1<r<=2における正の固定点の吸引域
+    name: パラメータ2以下での正の固定点の吸引域
     kind: theorem
-    introduction_aliases: ["定理（$1<r\\le2$ における正の固定点の吸引域）"]
+    introduction_aliases: ["定理（パラメータ2以下での正の固定点の吸引域）"]
     requires: [dynamical-systems.fixed-point-basin, dynamical-systems.monotone-orbit]
   - id: dynamical-systems.logistic-repeller-basin
     name: 反発的な固定点の吸引域は有限時刻の逆像
@@ -42,7 +42,7 @@ concepts:
     introduction_aliases: ["命題（反発的な固定点の吸引域は有限時刻の逆像）"]
     requires: [dynamical-systems.fixed-point-basin, dynamical-systems.repelling-multiplier-criterion]
   - id: dynamical-systems.logistic-critical-three
-    name: r=3の正の固定点は漸近安定
+    name: r=3における正の固定点の漸近安定性
     kind: theorem
-    introduction_aliases: ["定理（$r=3$ の正の固定点は漸近安定）"]
+    introduction_aliases: ["定理（r=3における正の固定点の漸近安定性）"]
     requires: [dynamical-systems.fixed-point-stability, dynamical-systems.local-attraction, dynamical-systems.logistic-stability-regimes]
