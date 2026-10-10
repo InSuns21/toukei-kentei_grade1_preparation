@@ -1,0 +1,72 @@
+chapter: CPLX20
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CPLX19
+concepts:
+  - id: theoretical-computer-science.randomized-polynomial-machine
+    name: 多項式時間乱択判定機械
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多項式時間乱択判定機械）"]
+    requires: [theoretical-computer-science.turing-machine]
+  - id: theoretical-computer-science.class-rp
+    name: RP
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（RP）"]
+    requires: [theoretical-computer-science.randomized-polynomial-machine]
+  - id: theoretical-computer-science.class-corp
+    name: coRP
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（coRP）"]
+    requires: [theoretical-computer-science.randomized-polynomial-machine]
+  - id: theoretical-computer-science.class-bpp
+    name: BPP
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（BPP）"]
+    requires: [theoretical-computer-science.randomized-polynomial-machine]
+  - id: theoretical-computer-science.class-zpp
+    name: ZPP
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ZPP）"]
+    requires: [theoretical-computer-science.randomized-polynomial-machine]
+  - id: theoretical-computer-science.one-sided-error-amplification
+    name: 片側誤りの増幅
+    kind: proposition
+    introduction_aliases: ["命題（片側誤りの増幅）"]
+    requires: [theoretical-computer-science.class-rp, theoretical-computer-science.class-corp]
+  - id: theoretical-computer-science.bpp-error-amplification
+    name: BPPの誤り確率増幅
+    kind: theorem
+    introduction_aliases: ["定理（BPPの誤り確率増幅）"]
+    requires: [theoretical-computer-science.class-bpp]
+  - id: theoretical-computer-science.zpp-rp-corp-intersection
+    name: ZPPと片側誤りの共通部分
+    kind: theorem
+    introduction_aliases: ["定理（ZPPと片側誤りの共通部分）"]
+    requires: [theoretical-computer-science.class-zpp, theoretical-computer-science.class-rp, theoretical-computer-science.class-corp]
+  - id: theoretical-computer-science.randomized-class-inclusions
+    name: 乱択クラスの基本包含
+    kind: proposition
+    introduction_aliases: ["命題（乱択クラスの基本包含）"]
+    requires: [theoretical-computer-science.zpp-rp-corp-intersection, theoretical-computer-science.class-bpp, theoretical-computer-science.class-p, theoretical-computer-science.class-np, theoretical-computer-science.class-conp]
+  - id: theoretical-computer-science.bpp-p-poly-inclusion
+    name: BPPはP/polyに含まれる
+    kind: theorem
+    introduction_aliases: ["定理（BPPはP/polyに含まれる）"]
+    requires: [theoretical-computer-science.bpp-error-amplification, theoretical-computer-science.class-p-poly, theoretical-computer-science.p-poly-advice]
+  - id: theoretical-computer-science.prg-for-randomized-machine
+    name: 乱択機械に対する擬似乱数生成器
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（乱択機械に対する擬似乱数生成器）"]
+    requires: [theoretical-computer-science.randomized-polynomial-machine]
+  - id: theoretical-computer-science.seed-enumeration-derandomization
+    name: 短い種を全探索する脱乱択化
+    kind: proposition
+    introduction_aliases: ["命題（短い種を全探索する脱乱択化）"]
+    requires: [theoretical-computer-science.prg-for-randomized-machine, theoretical-computer-science.class-bpp, theoretical-computer-science.class-p]

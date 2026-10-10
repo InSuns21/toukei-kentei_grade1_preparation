@@ -83,7 +83,7 @@ chapters:
     title: 回路下界への入口
   - id: CPLX20
     path: textbook/volumes/00_foundations/CPLX20
-    status: planned
+    status: completed
     title: 乱択計算
   - id: CPLX21
     path: textbook/volumes/00_foundations/CPLX21
