@@ -17,7 +17,8 @@
 
 | 理論・領域 | canonical PLAN / 資産 |
 |---|---|
-| セル・オートマトン（局所更新・離散力学・可逆性・Garden of Eden・普遍計算） | `DREAM_THEATER_CELLULAR_AUTOMATA_SEMESTER_PLAN.md`（独立15週・15章、CELL1完了・計画は `textbook/plans_progress/` で進行中） |
+| セル・オートマトン（局所更新・離散力学・可逆性・Garden of Eden・普遍計算） | `DREAM_THEATER_CELLULAR_AUTOMATA_SEMESTER_PLAN.md`（独立15週・15章、CELL1〜CELL15・横断監査まで完了。計画は `textbook/plan_done/` に移動済み） |
+| 力学系（連続区間の反復・固定点・記号力学・カオス） | `DREAM_THEATER_DYNAMICAL_SYSTEMS_COURSE_PLAN.md`（DYN1–DYN15、`textbook/plans_progress/`でDYN1から実装。CELL3/7とODE4/8–11を重複執筆しない） |
 | Hamilton--Jacobi / HJB / 粘性解 / 微分ゲーム / HJI / 確率制御 | `DREAM_THEATER_OPTIMAL_CONTROL_DIFFERENTIAL_GAMES_PLAN.md` |
 | 保存則・entropy solution・単調作用素・非線形拡散・blow-up・漸近 | `DREAM_THEATER_NONLINEAR_PDE_PLAN.md` |
 | 強連続半群・mild 解の基本導入 | 完了済み `GPDE10` |
