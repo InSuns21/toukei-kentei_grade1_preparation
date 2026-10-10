@@ -1,0 +1,54 @@
+id: "CPLX18"
+title: "回路計算量"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CPLX17
+official_scope: []
+learning_objectives:
+  - Boolean回路のゲート・閉路なし配線と入力ごとの評価を説明し、具体例を検算できる
+  - 回路のサイズと深さを計算し、二入力回路の依存数による深さ下界を証明できる
+  - Boolean式と配線を共有できる回路を区別し、単純展開と最小式サイズを混同しない
+  - 回路族とP-uniformの量化条件を定義し、入力長ごとの構成手続きを確認できる
+  - P/polyの非uniform性を定義し、決定不能言語がP/polyに属する例を証明できる
+  - 決定性多項式時間計算を位置・時刻ごとの更新ゲートへ変換しPとP-uniformの同値を両方向で証明できる
+  - 多項式サイズ回路族と多項式長助言の同値を両方向の構成で証明できる
+  - 回路の計数下界を再計算し、明示的回路下界とP対NPとの論理関係を区別できる
+definitions:
+  - { id: CPLX18-DEF-01, name: "Boolean回路" }
+  - { id: CPLX18-DEF-02, name: "回路のサイズと深さ" }
+  - { id: CPLX18-DEF-03, name: "Boolean式と回路の共有" }
+  - { id: CPLX18-DEF-04, name: "回路族と多項式サイズ" }
+  - { id: CPLX18-DEF-05, name: "多項式時間uniform回路族" }
+  - { id: CPLX18-DEF-06, name: "P/poly" }
+  - { id: CPLX18-DEF-07, name: "多項式長助言付き多項式時間計算" }
+theorems:
+  - { id: CPLX18-THM-01, name: "多項式時間と多項式時間uniform回路族" }
+  - { id: CPLX18-THM-02, name: "P/polyと多項式長助言" }
+  - { id: CPLX18-THM-03, name: "計数による回路サイズ下界" }
+propositions:
+  - { id: CPLX18-PROP-01, name: "二入力回路の依存変数数と深さ" }
+  - { id: CPLX18-PROP-02, name: "P/polyには決定不能な言語が含まれる" }
+canonical_examples:
+  - "x1 AND x2 OR x3の真理値とゲート数・深さ"
+  - "8入力ANDを釣り合った木で計算する"
+  - "共通部分式を共有する回路と木への展開"
+  - "n入力ORのuniform回路族"
+  - "単項長による決定不能言語を一ビットの非uniformな定数で符号化"
+  - "決定性Turing機械の各時刻・テープ位置の局所更新回路"
+  - "2^(2^n)個のBoolean関数に対する回路候補の計数"
+problem_patterns:
+  - CPLX18-GATE-EVALUATION
+  - CPLX18-BALANCED-TREE
+  - CPLX18-FORMULA-SHARING
+  - CPLX18-UNIFORM-CIRCUIT-FAMILY
+  - CPLX18-ADVICE-ONE-BIT
+  - CPLX18-DEPENDENCY-LOWER-BOUND
+  - CPLX18-ENCODING-ADVICE
+  - CPLX18-TM-TO-CIRCUIT
+  - CPLX18-SHANNON-COUNTING
+  - CPLX18-P-POLY-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.5, exercises: 5.5, review: 3.0 }

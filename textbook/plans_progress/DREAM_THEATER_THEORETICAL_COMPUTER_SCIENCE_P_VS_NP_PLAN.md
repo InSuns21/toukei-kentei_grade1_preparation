@@ -1161,3 +1161,5 @@ plan 作成時点では textbook/dream-theater-index.json と textbook/dream-the
 
 - 2026-10-10: CPLX15「階層定理」を実装。時間・空間構成可能性、パディング、万能模倣の償却費用、決定性時間階層定理・空間階層定理の対角化と停止性、P⊊EXPTIME・PSPACE⊊EXPSPACEの導出、A5/B4/C1の詳細解答を追加。CPLX16へ進行。
 - 2026-10-10: CPLX16「多項式階層」を実装。量化子によるSigma/Pi階層、coNPとの双対性、PH⊆PSPACE、適応的oracle問い合わせの実行記録を使ったSigma(k+1)=NP^Sigma(k)の双方向証明、階層崩壊条件とP=NP/NP=coNPの帰結を補強。A5/B4/C1の全10題と詳細解答を追加し、CPLX17へ進行。
+
+- 2026-10-10: CPLX18「回路計算量」を実装。Boolean回路のサイズ・深さ、依存変数下界、式と共有の区別、回路族とuniform生成、P/polyに決定不能言語が含まれる証明、PとP-uniformの同値、助言との同値、Shannon型計数下界を詳細に構成。A5/B4/C1全10題と詳細解答を追加し、公開facade・索引・系列・work-stateをCPLX19への進行に同期。
