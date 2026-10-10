@@ -1,0 +1,60 @@
+chapter: DYN5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - DYN4
+concepts:
+  - id: dynamical-systems.tent-map
+    name: Tent写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Tent写像）"]
+    requires: [dynamical-systems.interval-map]
+  - id: dynamical-systems.tent-inverse-branches
+    name: Tent写像の二つの逆分枝
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Tent写像の二つの逆分枝）"]
+    requires: [dynamical-systems.tent-map]
+  - id: dynamical-systems.tent-one-step-fibres
+    name: 一歩逆像の完全な分類
+    kind: proposition
+    introduction_aliases: ["命題（一歩逆像の完全な分類）"]
+    requires: [dynamical-systems.tent-inverse-branches]
+  - id: dynamical-systems.tent-branch-words
+    name: 有限分枝語と逆分枝の合成
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限分枝語と逆分枝の合成）"]
+    requires: [dynamical-systems.tent-inverse-branches]
+  - id: dynamical-systems.tent-branch-affine
+    name: 合成逆分枝の傾きと逆写像性
+    kind: proposition
+    introduction_aliases: ["命題（合成逆分枝の傾きと逆写像性）"]
+    requires: [dynamical-systems.tent-branch-words]
+  - id: dynamical-systems.tent-dyadic-partition
+    name: 有限分枝語による区間の分割
+    kind: theorem
+    introduction_aliases: ["定理（有限分枝語による区間の分割）"]
+    requires: [dynamical-systems.tent-branch-affine]
+  - id: dynamical-systems.tent-preimage-count-definition
+    name: 深さnの逆像数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（深さnの逆像数）"]
+    requires: [dynamical-systems.tent-map]
+  - id: dynamical-systems.tent-preimage-count-theorem
+    name: Tent写像の全ての有限深さの逆像数
+    kind: theorem
+    introduction_aliases: ["定理（Tent写像の全ての有限深さの逆像数）"]
+    requires: [dynamical-systems.tent-dyadic-partition, dynamical-systems.tent-preimage-count-definition]
+  - id: dynamical-systems.tent-inverse-contraction
+    name: 有限語に沿った逆像の距離の縮小
+    kind: proposition
+    introduction_aliases: ["命題（有限語に沿った逆像の距離の縮小）"]
+    requires: [dynamical-systems.tent-branch-affine]
+  - id: dynamical-systems.tent-periodic-repelling
+    name: Tent写像の周期点は局所反発的
+    kind: theorem
+    introduction_aliases: ["定理（Tent写像の周期点は局所反発的）"]
+    requires: [dynamical-systems.tent-map, dynamical-systems.repelling-multiplier-criterion, dynamical-systems.prime-period-two]
