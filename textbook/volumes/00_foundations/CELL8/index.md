@@ -338,7 +338,7 @@ $$
 
 ## 6. 局所規則を合成すると半径はどう増えるか
 
-原点出力の表を作った後に、その更新を2回行うとどこまでの入力が必要でしょうか。[CELL2の有限光円錐](../CELL2/index.md#thm-cell2-light-cone)の一般形を、定理の言葉で確かめます。
+原点出力の表を作った後に、その更新を2回行うとどこまでの入力が必要でしょうか。[CELL2の有限光円錐](../CELL2/index.md#thm-cell2-finite-propagation)の一般形を、定理の言葉で確かめます。
 
 <a id="prop-cell8-composition"></a>
 
