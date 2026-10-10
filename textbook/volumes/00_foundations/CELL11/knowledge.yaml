@@ -1,0 +1,64 @@
+chapter: CELL11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CELL10
+
+concepts:
+  - id: cellular-automata.two-dimensional-neighborhood
+    name: 二次元の近傍
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二次元の近傍）"]
+    requires: [cellular-automata.local-rule]
+
+  - id: cellular-automata.two-dimensional-ca
+    name: 二次元セル・オートマトン
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二次元セル・オートマトン）"]
+    requires: [cellular-automata.two-dimensional-neighborhood, cellular-automata.global-update]
+
+  - id: cellular-automata.life
+    name: ConwayのGame of Life
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ConwayのGame of Life：B3/S23）"]
+    requires: [cellular-automata.two-dimensional-ca, cellular-automata.two-dimensional-neighborhood]
+
+  - id: cellular-automata.two-dimensional-finite-propagation
+    name: 二次元CAの有限伝播
+    kind: theorem
+    introduction_aliases: ["定理（二次元CAの有限伝播）"]
+    requires: [cellular-automata.two-dimensional-ca, cellular-automata.finite-propagation]
+
+  - id: cellular-automata.life-support-bound
+    name: 有限な生存領域の包囲長方形
+    kind: proposition
+    introduction_aliases: ["命題（有限な生存領域の包囲長方形）"]
+    requires: [cellular-automata.life, cellular-automata.two-dimensional-finite-propagation]
+
+  - id: cellular-automata.life-pattern-types
+    name: 静止物体・振動子・移動物体
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（静止物体・振動子・移動物体）"]
+    requires: [cellular-automata.life, cellular-automata.iteration]
+
+  - id: cellular-automata.life-block
+    name: ブロックは静止物体
+    kind: proposition
+    introduction_aliases: ["命題（ブロックは静止物体）"]
+    requires: [cellular-automata.life-pattern-types]
+
+  - id: cellular-automata.life-blinker
+    name: ブリンカーは最小周期2
+    kind: proposition
+    introduction_aliases: ["命題（ブリンカーは最小周期2）"]
+    requires: [cellular-automata.life-pattern-types]
+
+  - id: cellular-automata.life-glider
+    name: グライダーの4世代移動
+    kind: proposition
+    introduction_aliases: ["命題（グライダーの4世代移動）"]
+    requires: [cellular-automata.life-pattern-types, cellular-automata.life]
