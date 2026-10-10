@@ -164,6 +164,7 @@
 2. [DYN2 固定点の安定性と乗数](textbook/volumes/00_foundations/DYN2/index.md)
 3. [DYN3 Logistic写像の固定点と安定枝](textbook/volumes/00_foundations/DYN3/index.md)
 4. [DYN4 二周期の出現と安定性](textbook/volumes/00_foundations/DYN4/index.md)
+5. [DYN5 Tent写像・分枝・有限語の逆像計数](textbook/volumes/00_foundations/DYN5/index.md)
 
 <a id="dt-subject-fourier-analysis"></a>
 ### Fourier 解析
