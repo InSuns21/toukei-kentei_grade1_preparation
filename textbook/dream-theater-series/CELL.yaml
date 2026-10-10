@@ -1,0 +1,67 @@
+version: 1
+id: CELL
+title: "セル・オートマトン I：離散力学と計算"
+plan: textbook/plans_progress/DREAM_THEATER_CELLULAR_AUTOMATA_SEMESTER_PLAN.md
+chapter_root: textbook/volumes/00_foundations
+
+chapters:
+  - id: CELL1
+    path: textbook/volumes/00_foundations/CELL1
+    status: completed
+    title: 配置・局所規則・大域更新
+  - id: CELL2
+    path: textbook/volumes/00_foundations/CELL2
+    status: planned
+    title: Elementary CAと時空間図
+  - id: CELL3
+    path: textbook/volumes/00_foundations/CELL3
+    status: planned
+    title: 有限環の軌道・周期・状態遷移グラフ
+  - id: CELL4
+    path: textbook/volumes/00_foundations/CELL4
+    status: planned
+    title: 加法的CAと二進代数
+  - id: CELL5
+    path: textbook/volumes/00_foundations/CELL5
+    status: planned
+    title: 保存則・粒子輸送・Rule 184
+  - id: CELL6
+    path: textbook/volumes/00_foundations/CELL6
+    status: planned
+    title: de Bruijnグラフと前像
+  - id: CELL7
+    path: textbook/volumes/00_foundations/CELL7
+    status: planned
+    title: シフト空間・円筒集合・配置の近さ
+  - id: CELL8
+    path: textbook/volumes/00_foundations/CELL8
+    status: planned
+    title: Curtis–Hedlund–Lyndon定理
+  - id: CELL9
+    path: textbook/volumes/00_foundations/CELL9
+    status: planned
+    title: 可逆CAと逆写像の局所性
+  - id: CELL10
+    path: textbook/volumes/00_foundations/CELL10
+    status: planned
+    title: Garden of Eden定理と前単射性
+  - id: CELL11
+    path: textbook/volumes/00_foundations/CELL11
+    status: planned
+    title: 二次元CAとConwayのGame of Life
+  - id: CELL12
+    path: textbook/volumes/00_foundations/CELL12
+    status: planned
+    title: Turing機械の局所更新による模倣
+  - id: CELL13
+    path: textbook/volumes/00_foundations/CELL13
+    status: planned
+    title: 計算普遍性・Rule 110・Life
+  - id: CELL14
+    path: textbook/volumes/00_foundations/CELL14
+    status: planned
+    title: 予測計算量・時空間局所整合性
+  - id: CELL15
+    path: textbook/volumes/00_foundations/CELL15
+    status: planned
+    title: 確率的CA・モデル化・総合演習
