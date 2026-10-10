@@ -4,6 +4,9 @@ coverage: complete
 prerequisites:
   - CELL13
   - CPLX1
+forward_references:
+  - theoretical-computer-science.cook-levin
+  - prob.expectation
 
 concepts:
   - id: cellular-automata.finite-prediction
