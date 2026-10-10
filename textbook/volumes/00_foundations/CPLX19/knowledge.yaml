@@ -1,0 +1,78 @@
+chapter: CPLX19
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CPLX18
+concepts:
+  - id: theoretical-computer-science.parity-function
+    name: parity関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（parity関数）"]
+    requires: [theoretical-computer-science.boolean-circuit]
+  - id: theoretical-computer-science.dnf-term-count
+    name: DNFと項数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（DNFと項数）"]
+    requires: [theoretical-computer-science.boolean-formula-circuit]
+  - id: theoretical-computer-science.parity-term-all-variables
+    name: parityを受理する項は全変数を固定する
+    kind: lemma
+    introduction_aliases: ["補題（parityを受理する項は全変数を固定する）"]
+    requires: [theoretical-computer-science.parity-function, theoretical-computer-science.dnf-term-count]
+  - id: theoretical-computer-science.parity-depth-two-dnf-lower-bound
+    name: parityの深さ2 DNF下界
+    kind: theorem
+    introduction_aliases: ["定理（parityの深さ2 DNF下界）"]
+    requires: [theoretical-computer-science.parity-term-all-variables]
+  - id: theoretical-computer-science.ac0
+    name: 非uniform AC0
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（非uniform AC0）"]
+    requires: [theoretical-computer-science.boolean-circuit, theoretical-computer-science.circuit-family]
+  - id: theoretical-computer-science.parity-log-depth
+    name: parityは線形サイズ・対数深さで計算できる
+    kind: proposition
+    introduction_aliases: ["命題（parityは線形サイズ・対数深さで計算できる）"]
+    requires: [theoretical-computer-science.parity-function, theoretical-computer-science.boolean-circuit]
+  - id: theoretical-computer-science.partial-assignment-restriction
+    name: 部分割当てと制限
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（部分割当てと制限）"]
+    requires: [theoretical-computer-science.parity-function]
+  - id: theoretical-computer-science.parity-restriction-decision-tree
+    name: 制限後もparityは全自由変数に依存する
+    kind: lemma
+    introduction_aliases: ["補題（制限後もparityは全自由変数に依存する）"]
+    requires: [theoretical-computer-science.partial-assignment-restriction, theoretical-computer-science.parity-function]
+  - id: theoretical-computer-science.monotone-boolean-function
+    name: 単調Boolean関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（単調Boolean関数と単調回路）"]
+    requires: [theoretical-computer-science.boolean-circuit]
+  - id: theoretical-computer-science.monotone-boolean-circuit
+    name: 単調回路
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（単調Boolean関数と単調回路）"]
+    requires: [theoretical-computer-science.monotone-boolean-function]
+  - id: theoretical-computer-science.threshold-function
+    name: しきい値関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（しきい値関数）"]
+    requires: [theoretical-computer-science.monotone-boolean-function]
+  - id: theoretical-computer-science.threshold-monotone-dnf-circuit-gap
+    name: しきい値関数のDNFと単調回路の差
+    kind: theorem
+    introduction_aliases: ["定理（しきい値関数のDNFと単調回路の差）"]
+    requires: [theoretical-computer-science.threshold-function, theoretical-computer-science.dnf-term-count, theoretical-computer-science.monotone-boolean-circuit]
+  - id: theoretical-computer-science.fan-in-two-circuit-size-bound
+    name: 全n変数へ依存する二入力回路のサイズ下界
+    kind: proposition
+    introduction_aliases: ["命題（全n変数へ依存する二入力回路のサイズ下界）"]
+    requires: [theoretical-computer-science.boolean-circuit, theoretical-computer-science.circuit-size-depth]
