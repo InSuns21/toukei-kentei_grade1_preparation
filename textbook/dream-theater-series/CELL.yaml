@@ -55,7 +55,7 @@ chapters:
     title: Turing機械の局所更新による模倣
   - id: CELL13
     path: textbook/volumes/00_foundations/CELL13
-    status: planned
+    status: completed
     title: 計算普遍性・Rule 110・Life
   - id: CELL14
     path: textbook/volumes/00_foundations/CELL14

@@ -1,0 +1,39 @@
+chapter: CELL13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CELL12
+  - CMP3
+
+concepts:
+  - id: cellular-automata.universal-ca
+    name: 受理・拒否を保存する普遍CA
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（受理・拒否を保存する普遍CA）"]
+    requires: [cellular-automata.turing-trajectory, theoretical-computer-science.universal-turing-machine]
+
+  - id: cellular-automata.universal-construction
+    name: 固定した一次元CAによる万能計算
+    kind: theorem
+    introduction_aliases: ["定理（固定した一次元CAによる万能計算）"]
+    requires: [cellular-automata.universal-ca, cellular-automata.turing-trajectory, theoretical-computer-science.universal-simulation]
+
+  - id: cellular-automata.universal-cost
+    name: 万能CAの停止判定と有限窓での費用
+    kind: proposition
+    introduction_aliases: ["命題（万能CAの停止判定と有限窓での費用）"]
+    requires: [cellular-automata.universal-construction, cellular-automata.turing-cost]
+
+  - id: cellular-automata.slow-universal
+    name: 指数的に遅い普遍CAを構成できる
+    kind: proposition
+    introduction_aliases: ["命題（指数的に遅い普遍CAを構成できる）"]
+    requires: [cellular-automata.universal-construction, theoretical-computer-science.universal-simulation]
+
+  - id: cellular-automata.rule110-local-update
+    name: Rule 110の局所更新
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Rule 110の局所更新）"]
+    requires: [cellular-automata.rule-number, cellular-automata.elementary-ca]
