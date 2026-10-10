@@ -166,6 +166,19 @@ CPLX1 入力サイズと計算量 ───────────────�
 
 CELL7では数列と部分列について [F0-00B0](textbook/volumes/00_foundations/F0_00B0_点列_部分列_十分大きい添字/index.md) も前提とします。各章の正式な直接前提は、その章の `chapter.yaml` を正本としてください。とくにCELL14から触れるCook–LevinのSAT符号化は、[**計算量理論 I**](textbook/dream-theater.md#dt-subject-complexity-theory-i) のCPLX7で別途証明します。CELL15の確率計算の初歩は章内で導入するので、測度論や確率解析をこの分岐の一律の必須科目にはしません。
 
+### 力学系 I：CELLから連続状態の反復へ
+
+[**力学系 I：離散力学・記号力学・カオス**](textbook/dream-theater.md#dt-subject-dynamical-systems-i) は、CELL3で有限状態の軌道を、RA2で閉区間上の連続性・中間値を学んだ後に進む独立した15週科目です。最初の [DYN1](textbook/volumes/00_foundations/DYN1/index.md) では「有限集合の反復は最終的に周期的」という結論が連続状態では使えないことを証明します。
+
+~~~text
+CELL3 有限集合の軌道 ─┐
+RA2 閉区間・連続性 ────┴→ DYN1 閉区間の反復・固定点・軌道収束 → DYN2以降（実装順に公開）
+CELL7 円筒集合・シフト ────────────────────────────────→ 後半の記号力学・カオス
+ODE4 / ODE8–11 ────────────────────────────────────→ 連続時間の比較・発展分岐（既存正本）
+~~~
+
+DYN1–15は実装済みの章だけ科目目次へ表示し、予定だけのDYN2以降を未公開ページへのリンクとして追加しません。ODEの流れ・Lyapunov・分岐と、CELL7の全シフトの定義・証明を新しい章へ重複移植しません。
+
 ## 応用系
 
 32. [**ミクロ経済学**](textbook/dream-theater.md#dt-subject-microeconomics)：消費者・生産者理論、厚生定理、一般均衡、顕示選好、Afriat の定理、期待効用、リスク回避、確率優越、異時点間選択、時間整合性を扱う。

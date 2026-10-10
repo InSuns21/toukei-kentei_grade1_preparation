@@ -1,0 +1,26 @@
+chapter: "DYN1"
+terms:
+  - term: 閉区間上の離散力学系
+    english: discrete dynamical system on a compact interval
+    meaning: "実数の閉区間から同じ区間への連続自己写像を非負整数回反復する模型。連続時間の微分方程式とは区別する。"
+  - term: 前方軌道
+    english: forward orbit
+    meaning: "初期値x0からx0,f(x0),f^2(x0),...と同じ写像を繰り返して得られる列。"
+  - term: 前方不変集合
+    english: forward-invariant set
+    meaning: "全てのx∈Aについてf(x)∈Aを満たす集合A。出発した点が一歩目以後も集合内にとどまる。"
+  - term: 固定点
+    english: fixed point
+    meaning: "f(p)=pを満たす状態。固定点の存在と一意性、軌道のその点への収束は別の主張。"
+  - term: 軌道の収束
+    english: convergence of an orbit
+    meaning: "反復列x_nが実数列としてある極限に近づくこと。有限時刻で同じ状態に戻る周期性とは異なる。"
+  - term: 単調非減少写像
+    english: nondecreasing map
+    meaning: "x≤yならf(x)≤f(y)となる写像。閉区間で連続なら軌道の増減方向が一定となって固定点に収束する。"
+  - term: 縮小写像
+    english: contraction mapping
+    meaning: "全ての二点x,yに共通する0≤c<1で|f(x)-f(y)|≤c|x-y|を満たす写像。閉区間上では固定点が一意で反復が幾何的に収束する。"
+  - term: Logistic写像
+    english: logistic map
+    meaning: "f_r(x)=r x(1-x)で定める非線形離散写像。0≤r≤4なら[0,1]を自身に写し、固定点はrに依存する。"
