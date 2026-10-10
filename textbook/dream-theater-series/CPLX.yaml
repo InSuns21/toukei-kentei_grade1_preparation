@@ -79,7 +79,7 @@ chapters:
     title: 回路計算量
   - id: CPLX19
     path: textbook/volumes/00_foundations/CPLX19
-    status: planned
+    status: completed
     title: 回路下界への入口
   - id: CPLX20
     path: textbook/volumes/00_foundations/CPLX20

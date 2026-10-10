@@ -1163,3 +1163,4 @@ plan 作成時点では textbook/dream-theater-index.json と textbook/dream-the
 - 2026-10-10: CPLX16「多項式階層」を実装。量化子によるSigma/Pi階層、coNPとの双対性、PH⊆PSPACE、適応的oracle問い合わせの実行記録を使ったSigma(k+1)=NP^Sigma(k)の双方向証明、階層崩壊条件とP=NP/NP=coNPの帰結を補強。A5/B4/C1の全10題と詳細解答を追加し、CPLX17へ進行。
 
 - 2026-10-10: CPLX18「回路計算量」を実装。Boolean回路のサイズ・深さ、依存変数下界、式と共有の区別、回路族とuniform生成、P/polyに決定不能言語が含まれる証明、PとP-uniformの同値、助言との同値、Shannon型計数下界を詳細に構成。A5/B4/C1全10題と詳細解答を追加し、公開facade・索引・系列・work-stateをCPLX19への進行に同期。
+- 2026-10-10: CPLX19「回路下界への入口」を追加。parityの深さ2 DNF/CNF指数下界、二本信号XORの対数深さ構成、制限後parityと決定木、単調しきい値関数のDNF下界と動的回路上界、二入力一般回路の線形下界を証明。一般AC0下界と単調マッチング下界は適用範囲を区別して参考文献へ案内。A5/B4/C1全10題の詳細解答を追加し、CPLX20へ進行。
