@@ -29,7 +29,20 @@ $$
 <!-- formal-statement-start -->
 ### 定義（有限窓のCA予測問題）
 
-有限状態集合 $Q\ne\varnothing$、半径 $r\ge0$、局所規則 $f:Q^{2r+1}\to Q$ を固定する。非負整数 $t$ と整数 $a\le b$ に対し、$I_s=[a-r(t-s),\,b+r(t-s)]\cap\mathbb Z$（$0\le s\le t$）と置く。入力は $a,b,t$ および $u\in Q^{I_0}$ である。出力は、$c|_{I_0}=u$ を満たす任意の $c\in Q^{\mathbb Z}$ に対する $F^t(c)|_{I_t}$ とする。特に $a=b$ の場合を一セル予測という。
+有限状態集合 $Q\ne\varnothing$ と半径 $r\ge0$ の局所規則 $f:Q^{2r+1}\to Q$ を固定する。非負整数 $t$ と整数 $a\le b$ に対し、時刻 $s$ の必要区間を次で定める。
+
+$$
+I_s=[a-r(t-s),\,b+r(t-s)]\cap\mathbb Z
+\qquad(0\le s\le t).
+$$
+
+入力は $a,b,t$ および初期語 $u\in Q^{I_0}$ である。出力は、$u$ と一致する全配置 $c\in Q^{\mathbb Z}$ を更新したときの次の語である。
+
+$$
+F^t(c)|_{I_t}\qquad(c|_{I_0}=u).
+$$
+
+特に $a=b$ の場合を一セル予測という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cell14-finite-prediction -->
