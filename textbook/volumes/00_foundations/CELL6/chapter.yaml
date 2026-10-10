@@ -1,0 +1,48 @@
+id: "CELL6"
+title: "de Bruijnグラフと前像"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CELL5
+official_scope: []
+learning_objectives:
+  - 長さ2の頂点と長さ3の辺から半径1の出力ラベル付きde Bruijnグラフを構成できる
+  - 有限入力語とラベル付き道の対応を双方向に構成し一対一を完全証明できる
+  - 指定された有限出力語の前像を列挙しRule 90の前像数4を再帰で証明できる
+  - ラベル別隣接行列の積が道の本数を数える理由を帰納法で示せる
+  - 周期環の前像が始点付き閉路に一致することと跡公式を証明できる
+  - 無限配置の前像を両側無限の道へ対応させ有限語・周期環との差を説明できる
+  - 半径rへ道の構成を一般化し出力窓と入力長の差を正確に数えられる
+definitions:
+  - { id: CELL6-DEF-01, name: "出力ラベル付きde Bruijnグラフ" }
+  - { id: CELL6-DEF-02, name: "有限語の内部出力と前像" }
+  - { id: CELL6-DEF-03, name: "ラベル別隣接行列" }
+  - { id: CELL6-DEF-04, name: "始点付き閉路" }
+theorems:
+  - { id: CELL6-THM-01, name: "有限入力語とラベル付き道の一対一対応" }
+propositions:
+  - { id: CELL6-PROP-01, name: "Rule 90の有限語前像数" }
+  - { id: CELL6-PROP-02, name: "行列積による有限語前像の計数" }
+  - { id: CELL6-PROP-03, name: "周期環の前像と閉路の跡計数" }
+  - { id: CELL6-PROP-04, name: "無限配置と両側無限のラベル付き道" }
+canonical_examples:
+  - "Rule 90の全8辺と入力0100から出力01への道"
+  - "有限出力010のRule 90前像四個"
+  - "全0規則で前像0個と16個"
+  - "Rule 90の3セル環出力100は前像なし"
+  - "3周期の出力を持つ両側無限配置の非周期前像"
+problem_patterns:
+  - CELL6-RULE184-LABELS
+  - CELL6-WORD-PATH
+  - CELL6-SEED-RECOVERY
+  - CELL6-CONSTANT-RULE
+  - CELL6-RING-ONE-STEP
+  - CELL6-RADIUS-R-GENERALIZATION
+  - CELL6-FIXED-START
+  - CELL6-FOUR-RING
+  - CELL6-DYNAMIC-PATH-COUNT
+  - CELL6-FINITE-RING-INFINITE-COMPARISON
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 3.0, review: 1.5 }
