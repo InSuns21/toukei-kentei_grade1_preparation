@@ -1,0 +1,32 @@
+chapter: "CELL12"
+terms:
+  - term: 模倣用アルファベット
+    english: simulation alphabet
+    meaning: "左端付きTuring機械の通常テープ文字、内部状態付きのテープ文字、負座標の壁記号を互いに異なるCA状態としてまとめた有限集合。"
+  - term: 壁記号
+    english: wall symbol
+    meaning: "片側無限テープを全整数座標上のCAで表すために、負座標へ置いて更新後も変化させない専用状態。"
+  - term: 状態付き記号
+    english: head-marked symbol
+    meaning: "Turing機械の内部状態qと現在のテープ文字aの組(q,a)で、ヘッドの位置と読取り文字を同時に表すCA状態。"
+  - term: 合法配置
+    english: legal encoded configuration
+    meaning: "負位置がすべて壁で、非負位置の文字が左端付きテープ条件を満たし、状態付き記号がちょうど一つだけある符号化配置。"
+  - term: 符号化写像
+    english: configuration encoding
+    meaning: "Turing機械の計算状況(q,h,t)を、位置hだけ状態付き記号として表す全整数CA配置への一対一の写像。"
+  - term: 模倣の局所規則
+    english: local simulation rule
+    meaning: "元のヘッド位置ではテープ文字を書き換え、進行方向の隣接セルでは新しい内部状態を受け取り、全セルを同時に更新する半径1の規則。"
+  - term: 一歩模倣
+    english: one-step simulation
+    meaning: "合法符号化の下でTuring機械の一歩遷移とCAの一歩更新が、全整数位置の配置として一致する性質。"
+  - term: 停止符号化
+    english: halting configuration encoding
+    meaning: "受理または拒否停止の状態付き記号を保ち、その後のCA更新を固定点にする符号化。"
+  - term: 模倣費用
+    english: simulation cost
+    meaning: "Turing機械T歩に対応するCA時刻T、および有限観測窓を逐次評価する場合の規則評価回数とセル記憶量。"
+  - term: 非法配置
+    english: illegal encoded configuration
+    meaning: "ヘッドが二つ以上あるなど、定義されたTuring機械の一つの計算状況には対応しないCA配置。"
