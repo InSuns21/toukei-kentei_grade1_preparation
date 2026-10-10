@@ -1,0 +1,56 @@
+chapter: CELL6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CELL5
+
+concepts:
+  - id: cellular-automata.labelled-debruijn-graph
+    name: 出力ラベル付きde Bruijnグラフ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（出力ラベル付きde Bruijnグラフ）"]
+    requires: [cellular-automata.elementary-ca, cellular-automata.local-rule]
+  - id: cellular-automata.finite-word-preimage
+    name: 有限語の内部出力と前像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限語の内部出力と前像）"]
+    requires: [cellular-automata.labelled-debruijn-graph]
+  - id: cellular-automata.word-path-bijection
+    name: 有限入力語とラベル付き道の一対一対応
+    kind: theorem
+    introduction_aliases: ["定理（有限入力語とラベル付き道の一対一対応）"]
+    requires: [cellular-automata.finite-word-preimage, cellular-automata.labelled-debruijn-graph]
+  - id: cellular-automata.rule90-finite-preimages
+    name: Rule 90の有限語前像数
+    kind: proposition
+    introduction_aliases: ["命題（Rule 90の有限語前像数）"]
+    requires: [cellular-automata.word-path-bijection, cellular-automata.binary-field]
+  - id: cellular-automata.label-adjacency-matrix
+    name: ラベル別隣接行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ラベル別隣接行列）"]
+    requires: [cellular-automata.labelled-debruijn-graph]
+  - id: cellular-automata.word-path-count
+    name: 行列積による有限語前像の計数
+    kind: proposition
+    introduction_aliases: ["命題（行列積による有限語前像の計数）"]
+    requires: [cellular-automata.label-adjacency-matrix, cellular-automata.word-path-bijection]
+  - id: cellular-automata.based-closed-walk
+    name: 始点付き閉路
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（始点付き閉路）"]
+    requires: [cellular-automata.labelled-debruijn-graph]
+  - id: cellular-automata.ring-preimage-trace
+    name: 周期環の前像と閉路の跡計数
+    kind: proposition
+    introduction_aliases: ["命題（周期環の前像と閉路の跡計数）"]
+    requires: [cellular-automata.based-closed-walk, cellular-automata.label-adjacency-matrix, cellular-automata.boundary-convention]
+  - id: cellular-automata.bi-infinite-labelled-path
+    name: 無限配置と両側無限のラベル付き道
+    kind: proposition
+    introduction_aliases: ["命題（無限配置と両側無限のラベル付き道）"]
+    requires: [cellular-automata.labelled-debruijn-graph, cellular-automata.global-update]
