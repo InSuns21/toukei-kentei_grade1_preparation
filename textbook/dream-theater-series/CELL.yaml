@@ -1,7 +1,7 @@
 version: 1
 id: CELL
 title: "セル・オートマトン I：離散力学と計算"
-plan: textbook/plans_progress/DREAM_THEATER_CELLULAR_AUTOMATA_SEMESTER_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_CELLULAR_AUTOMATA_SEMESTER_PLAN.md
 chapter_root: textbook/volumes/00_foundations
 
 chapters:

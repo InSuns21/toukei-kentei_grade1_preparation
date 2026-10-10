@@ -1,7 +1,7 @@
 # DREAM THEATER セル・オートマトン I：離散力学と計算 — 1セメスター科目PLAN
 
 作成日: 2026-10-10  
-状態: in_progress（CELL1–CELL15の各章実装は完了、科目全体の横断監査・公開整合性確認は未完了）
+状態: completed（2026-10-11、CELL1–CELL15章別実装およびPhase D横断監査・公開整合性確認を完了）
 
 ## 0. 位置付けと学修量
 
@@ -154,7 +154,7 @@ AUT1 → CELL1–CELL11 → CELL12（ここでCMP1） → CELL13（ここでCMP3
 - **Phase C（CELL11–CELL15）**：Life、Turing模倣、普遍性の定理と黒箱境界、予測計算量、確率的CA・総合演習。
 - **Phase D（公開・横断監査）**：完了済み教材を「計算系」の独立科目として公開し、章H1と科目索引、standard math core、chapter/knowledge、series manifest、work-state、必要なknowledge DAGを整合させる。影響範囲に応じたchanged-only/full validationを実施。
 
-**PLAN状態の原則**：今回の変更は設計のみであり、CELL教材の実装開始ではない。新PLANはtextbook/plans/に置き、未実装のCELL1–CELL15を公開index・global knowledge DAG・series manifestへ登録しない。実装の最初にCELL1章を新設して初めてplans_progressへ移し、実際の成果物と同時にseries/work-stateを更新する。CPLX21の完了記録や現行routingを設計だけで上書きしない。
+**設計当初のPLAN状態の原則（2026-10-10の履歴）**：最初の変更は設計のみであり、CELL教材の実装開始ではない。新PLANはtextbook/plans/に置き、未実装のCELL1–CELL15を公開index・global knowledge DAG・series manifestへ登録しない。実装の最初にCELL1章を新設して初めてplans_progressへ移し、実際の成果物と同時にseries/work-stateを更新する。CPLX21の完了記録や現行routingを設計だけで上書きしない。
 
 ## 7. 参考となる学術資料
 
@@ -202,3 +202,5 @@ CELL1–CELL15全体について、概念理解・模様の推移・因果関係
 2026-10-10：CELL14「予測計算量・時空間局所整合性」を追加。有限窓予測の光円錐の一意性と更新数・二配列容量の上界、時空間表の局所整合性の必要十分性・一意性と検査数、明示的入力と短い初期記述での符号長の違いを完全証明。Rule 90の手計算、周期環との境界、詳細解答10題を収録。次はCELL15「確率的CA・モデル化・総合演習」。科目横断監査は未完了。
 
 2026-10-10：CELL15「確率的CA・モデル化・総合演習」を追加。有限環の条件付き独立抽選、遷移確率と正規化、期待粒子数、共有雑音・初期相関の反例、有限系の消滅上界、同一雑音下の光円錐を完全証明し、A5/B4/C1の詳細解答10題で総合演習を実装。これで各週の教材執筆は完了。Phase DのCELL1–CELL15横断査読（概念・用語・前提・描画・相互リンク・公開動線）と最終公開確認は未完了であり、このPLANをplan_doneへ移動しない。
+
+2026-10-11：**Phase D（科目横断監査・公開整合性）を完了**。15章の直接前提と概念前提の照合、119形式的主張・71証明ブロック・150演習/150解答の実ファイル棚卸し、章間・外部前提の相対リンク124件、図版SVG8件の存在・アクセシビリティ・静止表示条件、Rule30/90/110の3規則×13時刻の矩形と局所計算の照合、CELL10のGarden of Edenの両方向を含む章間主要論証とLevel Cの代表的再計算を実施。セル系列の目次とグローバル索引は15章を正しく掲載し、mainのPages deployと公開差分Smokeテストは成功。標準通読順にはAUT1/CMP1/CMP3/CPLX1とCELLをつなぐ独立の分岐を追加した。監査記録は [CELL Phase D 科目横断監査](../audits/2026-10-11-CELL-phase-D-cross-course-audit.md)。対象15章は今回改稿せず、章別PRの自己査読証拠を引き継いだうえで横断矛盾を点検。全150題の新規独立第三者査読・公開サイトでの実ブラウザアニメーション操作は今回未実施であり、監査記録の限界として明示。PLANを `textbook/plan_done/` へ**移動**し、work-state/series manifestの参照を同じPRで同期した。
