@@ -161,6 +161,7 @@
 ### 力学系 I：離散力学・記号力学・カオス
 
 1. [DYN1 閉区間上の反復・固定点・軌道の収束](textbook/volumes/00_foundations/DYN1/index.md)
+2. [DYN2 固定点の安定性と乗数](textbook/volumes/00_foundations/DYN2/index.md)
 
 <a id="dt-subject-fourier-analysis"></a>
 ### Fourier 解析

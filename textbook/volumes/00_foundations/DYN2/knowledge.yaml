@@ -1,0 +1,60 @@
+chapter: DYN2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - DYN1
+  - RA3
+concepts:
+  - id: dynamical-systems.fixed-point-stability
+    name: 離散時間のLyapunov安定
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固定点の安定性と吸引性）"]
+    requires: [dynamical-systems.interval-map]
+
+  - id: dynamical-systems.local-attraction
+    name: 局所吸引的
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固定点の安定性と吸引性）"]
+    requires: [dynamical-systems.interval-map, dynamical-systems.limit-fixed]
+
+
+  - id: dynamical-systems.discrete-asymptotic-stability
+    name: 離散時間の漸近安定
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固定点の安定性と吸引性）"]
+    requires: [dynamical-systems.fixed-point-stability, dynamical-systems.local-attraction]
+
+  - id: dynamical-systems.fixed-point-multiplier
+    name: 固定点の乗数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固定点の乗数）"]
+    requires: [dynamical-systems.interval-map, analysis.differential-coefficient]
+
+  - id: dynamical-systems.attracting-multiplier-criterion
+    name: 乗数による局所漸近安定判定
+    kind: theorem
+    introduction_aliases: ["定理（乗数による局所漸近安定判定）"]
+    requires: [dynamical-systems.fixed-point-stability, dynamical-systems.fixed-point-multiplier]
+
+  - id: dynamical-systems.local-contraction-mvt
+    name: 平均値定理による局所的な一様縮小
+    kind: proposition
+    introduction_aliases: ["命題（平均値定理による局所的な一様縮小）"]
+    requires: [dynamical-systems.fixed-point-multiplier, analysis.mean-value-theorem]
+
+  - id: dynamical-systems.repelling-multiplier-criterion
+    name: 乗数による局所不安定判定
+    kind: theorem
+    introduction_aliases: ["定理（乗数による局所不安定判定）"]
+    requires: [dynamical-systems.fixed-point-stability, dynamical-systems.fixed-point-multiplier]
+
+  - id: dynamical-systems.iterate-multiplier
+    name: 反復の乗数の累乗公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（反復の乗数の累乗公式）"]
+    requires: [dynamical-systems.fixed-point-multiplier, analysis.chain-rule]

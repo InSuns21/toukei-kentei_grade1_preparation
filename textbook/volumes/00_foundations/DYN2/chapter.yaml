@@ -1,0 +1,49 @@
+id: "DYN2"
+title: "固定点の安定性と乗数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - DYN1
+  - RA3
+official_scope: []
+learning_objectives:
+  - Lyapunov安定性・局所吸引性・漸近安定性・不安定性をε–δの量化順序から判定できる
+  - 固定点の乗数を差商の極限から求め端点の片側微分も正しく扱える
+  - 絶対値1未満の乗数から局所誤差の幾何収束と漸近安定性を証明できる
+  - 平均値定理の適用区間と導関数の一様上界を確認して局所縮小を証明できる
+  - 絶対値1を超える乗数から任意に近い初期値が有限時刻で近傍を出ることを証明できる
+  - 反復の導関数が固定点で乗数のn乗になることを連鎖律から導ける
+  - 乗数の絶対値が1となる場合に安定・吸引・不安定の異なる例を定義へ戻って分類できる
+  - 非線形・非C1の具体写像について局所判定と大域的な軌道収束を区別できる
+definitions:
+  - { id: DYN2-DEF-01, name: "固定点の安定性と吸引性" }
+  - { id: DYN2-DEF-02, name: "固定点の乗数" }
+theorems:
+  - { id: DYN2-THM-01, name: "乗数による局所漸近安定判定" }
+  - { id: DYN2-THM-02, name: "乗数による局所不安定判定" }
+propositions:
+  - { id: DYN2-PROP-01, name: "平均値定理による局所的な一様縮小" }
+  - { id: DYN2-PROP-02, name: "固定点での反復写像の導関数" }
+canonical_examples:
+  - "恒等写像の安定だが非吸引な固定点"
+  - "1-x/2の負の乗数と交互収束"
+  - "x²の二固定点で異なる安定性"
+  - "2x/(1+x)の端点の吸引と反発"
+  - "x-x²とx+x²(1-x)の乗数1で異なる挙動"
+  - "微分係数0だが導関数が近傍で非有界な振動写像"
+  - "a*x/(1+(a-1)*x)の軌道の明示公式"
+problem_patterns:
+  - DYN2-AFFINE-ATTRACTOR
+  - DYN2-NEGATIVE-MULTIPLIER
+  - DYN2-ENDPOINT-MULTIPLIERS
+  - DYN2-NEUTRAL-ATTRACTOR
+  - DYN2-STABLE-NONATTRACTOR
+  - DYN2-COEXISTING-STABILITIES
+  - DYN2-NEGATIVE-REPELLER
+  - DYN2-POINT-DERIVATIVE-NONC1
+  - DYN2-BOUNDARY-PARAMETER
+  - DYN2-MOBIUS-ITERATE-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.5, review: 2.0 }

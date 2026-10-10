@@ -11,9 +11,13 @@ chapters:
     title: 閉区間上の反復・固定点・軌道の収束
   - id: DYN2
     path: textbook/volumes/00_foundations/DYN2
-    status: planned
+    status: completed
     title: 固定点の安定性と乗数
   - id: DYN3
     path: textbook/volumes/00_foundations/DYN3
     status: planned
     title: Logistic写像の固定点と安定枝
+  - id: DYN4
+    path: textbook/volumes/00_foundations/DYN4
+    status: planned
+    title: 二周期の出現と安定性
