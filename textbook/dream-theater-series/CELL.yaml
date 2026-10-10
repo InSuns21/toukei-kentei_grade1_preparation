@@ -43,7 +43,7 @@ chapters:
     title: 可逆CAと逆写像の局所性
   - id: CELL10
     path: textbook/volumes/00_foundations/CELL10
-    status: planned
+    status: completed
     title: Garden of Eden定理と前単射性
   - id: CELL11
     path: textbook/volumes/00_foundations/CELL11

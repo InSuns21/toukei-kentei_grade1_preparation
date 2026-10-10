@@ -1,0 +1,51 @@
+id: "CELL10"
+title: "Garden of Eden定理と前単射性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CELL9
+official_scope: []
+learning_objectives:
+  - 有限差分と前単射性を正確に定義し、普通の単射と区別できる
+  - 隣接XORで前単射かつ全射だが非単射となることを証明できる
+  - 非全射なら禁制出力語が存在することを列コンパクト性で証明できる
+  - 前単射から長さNの入力に対する出力語数q^Nの下界を導ける
+  - 禁制語の反復による計数からMyhill方向を完全証明できる
+  - 有限差分の衝突を境界余白付き置換タイルへ変換できる
+  - タイル正規化の計数からMoore方向を完全証明できる
+  - Garden of Eden定理を有限環の単射全射同値と混同せず説明できる
+  - 禁制出力語と有限差分の衝突を具体的な隣接積CAで検証できる
+definitions:
+  - { id: CELL10-DEF-01, name: "有限差分の配置" }
+  - { id: CELL10-DEF-02, name: "前単射性" }
+  - { id: CELL10-DEF-03, name: "Garden of Eden配置と禁制出力語" }
+lemmas:
+  - { id: CELL10-LEM-01, name: "非全射なら有限の禁制出力語がある" }
+  - { id: CELL10-LEM-02, name: "前単射性から得る出力語の個数" }
+  - { id: CELL10-LEM-03, name: "有限差分の衝突から置換可能な二語を作る" }
+theorems:
+  - { id: CELL10-THM-01, name: "Myhill方向：前単射なら全射" }
+  - { id: CELL10-THM-02, name: "Moore方向：全射なら前単射" }
+  - { id: CELL10-THM-03, name: "Garden of Eden定理：一次元の有限状態全シフト" }
+propositions: []
+canonical_examples:
+  - "隣接XORの全射・前単射・非単射"
+  - "定数CAの禁制出力語"
+  - "隣接積CAの禁制語101と孤立した1の消失"
+  - "長さ5の置換タイル00000と00100"
+  - "周期環3セルの隣接XORとの比較"
+problem_patterns:
+  - CELL10-FINITE-DIFFERENCE
+  - CELL10-CONSTANT-GOE
+  - CELL10-XOR-PREINJECTIVE
+  - CELL10-SHIFT
+  - CELL10-FORBIDDEN-AND
+  - CELL10-FORBIDDEN-COUNT
+  - CELL10-DIAMOND-TILE
+  - CELL10-XOR-FINITE-RING
+  - CELL10-WINDOW-COUNT
+  - CELL10-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 3.5, review: 1.5 }

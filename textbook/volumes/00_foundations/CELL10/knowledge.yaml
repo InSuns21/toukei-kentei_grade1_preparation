@@ -1,0 +1,55 @@
+chapter: CELL10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CELL9
+
+concepts:
+  - id: cellular-automata.finite-difference
+    name: 有限差分の配置
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限差分の配置）"]
+    requires: [cellular-automata.full-shift]
+  - id: cellular-automata.preinjective
+    name: 前単射性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（前単射性）"]
+    requires: [cellular-automata.finite-difference, cellular-automata.injective-surjective-bijective]
+  - id: cellular-automata.garden-of-eden
+    name: Garden of Eden配置と禁制出力語
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Garden of Eden配置と禁制出力語）"]
+    requires: [cellular-automata.full-shift, cellular-automata.injective-surjective-bijective]
+  - id: cellular-automata.forbidden-output-block
+    name: 非全射なら有限の禁制出力語がある
+    kind: lemma
+    introduction_aliases: ["補題（非全射なら有限の禁制出力語がある）"]
+    requires: [cellular-automata.garden-of-eden, cellular-automata.sequential-compactness, cellular-automata.continuity-sequence]
+  - id: cellular-automata.preinjective-count
+    name: 前単射性から得る出力語の個数
+    kind: lemma
+    introduction_aliases: ["補題（前単射性から得る出力語の個数）"]
+    requires: [cellular-automata.preinjective, cellular-automata.finite-propagation]
+  - id: cellular-automata.diamond-tiles
+    name: 有限差分の衝突から置換可能な二語を作る
+    kind: lemma
+    introduction_aliases: ["補題（有限差分の衝突から置換可能な二語を作る）"]
+    requires: [cellular-automata.finite-difference, cellular-automata.local-rule]
+  - id: cellular-automata.myhill-direction
+    name: Myhill方向：前単射なら全射
+    kind: theorem
+    introduction_aliases: ["定理（Myhill方向：前単射なら全射）"]
+    requires: [cellular-automata.forbidden-output-block, cellular-automata.preinjective-count]
+  - id: cellular-automata.moore-direction
+    name: Moore方向：全射なら前単射
+    kind: theorem
+    introduction_aliases: ["定理（Moore方向：全射なら前単射）"]
+    requires: [cellular-automata.diamond-tiles, cellular-automata.preinjective]
+  - id: cellular-automata.garden-of-eden-theorem
+    name: Garden of Eden定理
+    kind: theorem
+    introduction_aliases: ["定理（Garden of Eden定理：一次元の有限状態全シフト）"]
+    requires: [cellular-automata.myhill-direction, cellular-automata.moore-direction]
