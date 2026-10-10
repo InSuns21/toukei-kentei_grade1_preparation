@@ -150,6 +150,22 @@ F0-00A1B Archimedes 性 ──┘
 30. [**準 Monte Carlo 法**](textbook/dream-theater.md#dt-subject-qmc)：低 discrepancy 点列、格子則、デジタルネット、RKHS による誤差評価、高次法を扱う。
 31. [**離散最適化**](textbook/dream-theater.md#dt-subject-discrete-optimization)：整数計画、ネットワーク最適化、マッチング、整数多面体を扱う。
 
+### 計算理論・セル・オートマトンへの発展分岐
+
+[**セル・オートマトン I：離散力学と計算**](textbook/dream-theater.md#dt-subject-cellular-automata-i) は、[**計算理論 I**](textbook/dream-theater.md#dt-subject-computation-theory-i) のAUT1で文字列・有限状態・写像を学んだ後に、独立した15週科目として始められます。全15章の入口で計算量理論や高度な確率論までを既習とはしません。必要な時点で次の講義を先に読み、元の科目へ戻る経路です。
+
+```text
+AUT1 文字列・有限状態・写像 ───→ CELL1 → CELL2 → … → CELL11
+                                            ↓
+CMP1 Turing機械 ─────────────────────────→ CELL12
+                                            ↓
+CMP3 万能計算 ──────────────────────────→ CELL13
+                                            ↓
+CPLX1 入力サイズと計算量 ───────────────→ CELL14 → CELL15
+```
+
+CELL7では数列と部分列について [F0-00B0](textbook/volumes/00_foundations/F0_00B0_点列_部分列_十分大きい添字/index.md) も前提とします。各章の正式な直接前提は、その章の `chapter.yaml` を正本としてください。とくにCELL14から触れるCook–LevinのSAT符号化は、[**計算量理論 I**](textbook/dream-theater.md#dt-subject-complexity-theory-i) のCPLX7で別途証明します。CELL15の確率計算の初歩は章内で導入するので、測度論や確率解析をこの分岐の一律の必須科目にはしません。
+
 ## 応用系
 
 32. [**ミクロ経済学**](textbook/dream-theater.md#dt-subject-microeconomics)：消費者・生産者理論、厚生定理、一般均衡、顕示選好、Afriat の定理、期待効用、リスク回避、確率優越、異時点間選択、時間整合性を扱う。
