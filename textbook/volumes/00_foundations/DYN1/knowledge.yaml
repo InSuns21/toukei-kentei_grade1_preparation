@@ -1,0 +1,63 @@
+chapter: DYN1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RA2
+  - CELL3
+
+concepts:
+  - id: dynamical-systems.interval-map
+    name: 閉区間上の離散力学系
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（閉区間上の離散力学系）"]
+    requires: [analysis.real-function-continuity, cellular-automata.orbit-periodic-point]
+
+  - id: dynamical-systems.iterate-continuity
+    name: 反復の閉性と連続性
+    kind: proposition
+    introduction_aliases: ["命題（反復の閉性と連続性）"]
+    requires: [dynamical-systems.interval-map]
+
+  - id: dynamical-systems.forward-invariant
+    name: 前方不変集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（前方不変集合）"]
+    requires: [dynamical-systems.interval-map]
+
+  - id: dynamical-systems.interval-fixed-point
+    name: 閉区間の連続自己写像の固定点存在
+    kind: theorem
+    introduction_aliases: ["定理（閉区間の連続自己写像の固定点存在）"]
+    requires: [dynamical-systems.interval-map, analysis.intermediate-value-theorem]
+
+  - id: dynamical-systems.limit-fixed
+    name: 収束する軌道の極限は固定点
+    kind: proposition
+    introduction_aliases: ["命題（収束する軌道の極限は固定点）"]
+    requires: [dynamical-systems.interval-map]
+
+  - id: dynamical-systems.monotone-orbit
+    name: 単調非減少な区間写像の軌道収束
+    kind: theorem
+    introduction_aliases: ["定理（単調非減少な区間写像の軌道収束）"]
+    requires: [dynamical-systems.limit-fixed]
+
+  - id: dynamical-systems.monotone-no-cycles
+    name: 単調非減少写像には非自明な周期点がない
+    kind: proposition
+    introduction_aliases: ["命題（単調非減少写像には非自明な周期点がない）"]
+    requires: [dynamical-systems.interval-map]
+
+  - id: dynamical-systems.contraction
+    name: 閉区間上の縮小写像の固定点一意性と収束
+    kind: theorem
+    introduction_aliases: ["定理（閉区間上の縮小写像の固定点一意性と収束）"]
+    requires: [dynamical-systems.interval-fixed-point]
+
+  - id: dynamical-systems.logistic-fixed
+    name: Logistic写像の不変区間と固定点
+    kind: proposition
+    introduction_aliases: ["命題（Logistic写像の不変区間と固定点）"]
+    requires: [dynamical-systems.interval-map]
