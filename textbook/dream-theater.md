@@ -166,6 +166,7 @@
 4. [DYN4 二周期の出現と安定性](textbook/volumes/00_foundations/DYN4/index.md)
 5. [DYN5 Tent写像・分枝・有限語の逆像計数](textbook/volumes/00_foundations/DYN5/index.md)
 6. [DYN6 位相共役・半共役・不変集合](textbook/volumes/00_foundations/DYN6/index.md)
+7. [DYN7 円周回転・有理回転と無理回転](textbook/volumes/00_foundations/DYN7/index.md)
 
 <a id="dt-subject-fourier-analysis"></a>
 ### Fourier 解析
