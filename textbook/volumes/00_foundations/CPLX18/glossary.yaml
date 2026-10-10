@@ -1,0 +1,29 @@
+chapter: "CPLX18"
+terms:
+  - term: Boolean回路
+    english: Boolean circuit
+    meaning: "有限個のAND・OR・NOTなどのゲートを閉路なしの配線で接続し、各入力長に対するBoolean関数を計算する装置。"
+  - term: 回路サイズ
+    english: circuit size
+    meaning: "入力節点を除くゲート個数。本文では定数ゲートを含め、配線本数は数えない。"
+  - term: 回路深さ
+    english: circuit depth
+    meaning: "入力から出力までの依存経路で重なるゲート段数の最大値。"
+  - term: Boolean式
+    english: Boolean formula
+    meaning: "共有する内部節点を持たない木構造の論理式。回路と違い、一つの計算結果の複数箇所への配線がない。"
+  - term: 回路族
+    english: circuit family
+    meaning: "入力長nごとにn入力回路C_nを一つずつ指定した列。"
+  - term: uniform回路族
+    english: uniform circuit family
+    meaning: "本文では入力1^nからC_nの完全な設計図をnの多項式時間で生成できる回路族を指す。"
+  - term: P/poly
+    english: nonuniform polynomial-size circuits
+    meaning: "入力長ごとに必ずしも計算可能でない回路を選んでよい、多項式サイズ回路族が判定する言語クラス。"
+  - term: 助言
+    english: advice
+    meaning: "同じ入力長の全ての入力に共通して渡す補助文字列。入力長ごとに変えてよいが個別入力ごとには変えない。"
+  - term: 回路下界
+    english: circuit lower bound
+    meaning: "あるBoolean関数を計算する全ての許された回路に対するサイズや深さの必要量の下限。"
