@@ -16,7 +16,6 @@ learning_objectives:
   - PHの包含の真偽について未解決事項と確定定理を区別できる
 definitions:
   - { id: CPLX16-DEF-01, name: "多項式階層の量化子による各層" }
-  - { id: CPLX16-DEF-02, name: "補クラスcoNP" }
   - { id: CPLX16-DEF-03, name: "多項式階層PH" }
   - { id: CPLX16-DEF-04, name: "oracle付きの計算クラス" }
 theorems:
