@@ -137,19 +137,19 @@ Rule 30は左右が非対称になります。時刻2で1が立つ位置が $-2,
 
 ![Rule 30の位置0のみ1から時刻12まで。濃色が1、白色が0。左側へ偏る非対称の時空間模様が行ごとに現れる。](assets/rule-30-spacetime.svg)
 
-[Rule 30のSVGを拡大表示する](assets/rule-30-spacetime.svg)
+<a href="https://insuns21.github.io/toukei-kentei_grade1_preparation/textbook/volumes/00_foundations/CELL2/assets/rule-30-spacetime.svg" target="_blank" rel="noopener noreferrer" data-no-router>Rule 30のSVGを拡大表示する（別タブ）</a>
 
 Rule 90は左右対称の三角形の繰返しに見えます。時刻2には位置 $-2,2$ のみ1で中央は0に戻ることを、局所式 $a\oplus d$ から確認できます。
 
 ![Rule 90の位置0のみ1から時刻12まで。濃色が1、白色が0。左右対称の三角模様が行ごとに現れる。](assets/rule-90-spacetime.svg)
 
-[Rule 90のSVGを拡大表示する](assets/rule-90-spacetime.svg)
+<a href="https://insuns21.github.io/toukei-kentei_grade1_preparation/textbook/volumes/00_foundations/CELL2/assets/rule-90-spacetime.svg" target="_blank" rel="noopener noreferrer" data-no-router>Rule 90のSVGを拡大表示する（別タブ）</a>
 
 Rule 110はRule 30ともRule 90とも違う筋を作ります。この模様を眺めただけで普遍計算などの性質が証明されたわけではありません。その話はCELL13で、計算の符号化と証明の境界を区別して扱います。
 
 ![Rule 110の位置0のみ1から時刻12まで。濃色が1、白色が0。片側へ伸びる複雑な筋が行ごとに現れる。](assets/rule-110-spacetime.svg)
 
-[Rule 110のSVGを拡大表示する](assets/rule-110-spacetime.svg)
+<a href="https://insuns21.github.io/toukei-kentei_grade1_preparation/textbook/volumes/00_foundations/CELL2/assets/rule-110-spacetime.svg" target="_blank" rel="noopener noreferrer" data-no-router>Rule 110のSVGを拡大表示する（別タブ）</a>
 
 ### 2.2 Rule 30の最初の4行を紙上で確かめる
 
