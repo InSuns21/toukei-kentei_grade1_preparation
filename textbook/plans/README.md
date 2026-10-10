@@ -34,6 +34,7 @@
 | 初等整数論・Diophantine近似・Hilbert第10問題への発展章・解析的整数論・楕円曲線・モジュラー形式 | `DREAM_THEATER_NUMBER_THEORY_MODULARITY_ROUTE_PLAN.md`（楕円関数は既存 `CA8` / `CA9` を再利用） |
 | 熱力学・統計力学・スピングラス | `DREAM_THEATER_THERMODYNAMICS_STATISTICAL_MECHANICS_SPIN_GLASS_PLAN.md` |
 | ブラックホール熱力学・ブラックホール情報・量子情報への横断ルート（情報熱力学・特殊/一般相対論・量子場・ホログラフィー含む） | `DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md`（15セメスター横断、TH/SMは既存正本） |
+| ローレンツ幾何・大域因果構造、双曲型PDE、超局所解析・Hadamard、代数的QFT・モジュラー理論 | `DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md`（独立4セメスター、基幹2・発展2。物理15科目とは別の数学正本） |
 | THE END OF MATHEMATICS? 5テーマの横断接続 | `DREAM_THEATER_END_OF_MATHEMATICS_PLAN.md` |
 | 金融の最適執行・HJB 応用 | `DREAM_THEATER_UNDERGROUND_EMPIRE_PLAN.md` U3（理論は最適制御・HJB・微分ゲーム計画を参照） |
 | Newton 力学・保存則・振動・中心力・2体問題・剛体 | `DREAM_THEATER_CLASSICAL_MECHANICS_I_PLAN.md` |
