@@ -17,6 +17,7 @@
 
 | 理論・領域 | canonical PLAN / 資産 |
 |---|---|
+| セル・オートマトン（局所更新・離散力学・可逆性・Garden of Eden・普遍計算） | `DREAM_THEATER_CELLULAR_AUTOMATA_SEMESTER_PLAN.md`（独立15週・15章、未着手） |
 | Hamilton--Jacobi / HJB / 粘性解 / 微分ゲーム / HJI / 確率制御 | `DREAM_THEATER_OPTIMAL_CONTROL_DIFFERENTIAL_GAMES_PLAN.md` |
 | 保存則・entropy solution・単調作用素・非線形拡散・blow-up・漸近 | `DREAM_THEATER_NONLINEAR_PDE_PLAN.md` |
 | 強連続半群・mild 解の基本導入 | 完了済み `GPDE10` |

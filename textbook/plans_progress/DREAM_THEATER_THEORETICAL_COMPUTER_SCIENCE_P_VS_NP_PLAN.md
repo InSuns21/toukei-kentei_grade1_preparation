@@ -47,7 +47,7 @@ P vs NP
 高度な計算量理論・証明障壁
 ~~~
 
-セル・オートマトンは主線の途中に「局所規則で普遍計算ができること」と「時空間図の局所整合性」を可視化する補講として置き、Cook--Levin の tableau 構成へ接続する。
+セル・オートマトンは補講ではなく、別の独立した1セメスター科目「セル・オートマトン I：離散力学と計算」として設計する。本PLANが所有するのはTuring機械とCook--Levinの符号化であり、CELL側は局所更新の大域力学・可逆性・普遍計算を所有する。詳細は新設した独立PLANを参照する。
 
 ---
 
@@ -121,7 +121,7 @@ P vs NP
 
 - AUT1--AUT7: 形式言語・オートマトン
 - CMP1--CMP8: 計算可能性
-- CELL1--CELL3: セル・オートマトン補講
+- CELL1--CELL15: セル・オートマトン独立科目（別PLANが正本。本PLANの完了条件には含めない）
 - CPLX1--CPLX21: 計算量理論
 
 既存 ID と衝突した場合は実装前に再設計する。plan 段階では public index や knowledge DAG へ未実装 ID を登録しない。
@@ -379,61 +379,17 @@ P vs NP
 
 ---
 
-## 6. 補講：セル・オートマトン
+## 6. 独立科目：セル・オートマトン I への接続
 
-セル・オートマトンは独立の主 prerequisite ではなく、CMP2 後から CPLX7 までの間に読む補講系列とする。
+旧設計の「CELL1局所規則」「CELL2普遍計算」「CELL3局所整合性」は**実装前の暫定的な3章案**だった。現在は独立15週/15章の科目へ改訂し、本PLANはCELLの定義・主要定理・完成条件のcanonical ownerを持たない。
 
-### CELL1 局所規則と時空間図
+- 新正本：[セル・オートマトン I：離散力学と計算 — 1セメスターPLAN](../plans/DREAM_THEATER_CELLULAR_AUTOMATA_SEMESTER_PLAN.md)
+- CELL1–CELL5：局所規則、時空間図、有限力学、加法性、保存量。
+- CELL6–CELL10：de Bruijn、シフト空間、Curtis–Hedlund–Lyndon、可逆性、Garden of Eden。
+- CELL11–CELL15：二次元CA、Turing機械の局所符号化、普遍計算、予測計算量、確率的CA。
+- CMP1とCELL12、CPLX1とCELL14、CPLX7とCELL14は必要な地点で接続するが、CPLX7の証明をCELLの完成待ちにしない。
 
-扱う内容:
-
-- 一次元セル・オートマトン
-- 有限状態集合
-- 近傍
-- 局所更新則
-- 時空間図
-- 有限伝播速度
-- elementary cellular automata の小例
-
-中心的な見方:
-
-$$
-x_i(t+1)
-=
-F(x_{i-r}(t),\ldots,x_{i+r}(t)).
-$$
-
-「次の状態は局所的に決まるが、長時間後の全体像は複雑になり得る」ことを具体例で見る。
-
-### CELL2 普遍計算と計算モデル
-
-扱う内容:
-
-- セル・オートマトンによる計算
-- Turing 機械を時空間発展として見る
-- 普遍計算
-- Rule 110 等の位置付け
-- Turing complete と「高速に計算できる」の違い
-
-個別の巨大な普遍性証明を本講義の必須完成条件にはしない。必要なら定理として参照し、計算量理論へ必要な「局所更新で一般計算を表現できる」という構造を重点的に扱う。
-
-### CELL3 局所整合性から Cook--Levin へ
-
-中心問い:
-
-> 計算全体の正しさを、なぜ多数の小さな局所条件に分解できるのか。
-
-扱う内容:
-
-- Turing 計算履歴の時空間 tableau
-- 各時刻・テープ位置のセル
-- 合法な局所遷移
-- 初期条件
-- 受理条件
-- 局所窓の整合性
-
-ここでは SAT への完全符号化をまだ終えず、CPLX7 の Cook--Levin で Boolean 式へ落とすための視覚的・構造的橋を作る。
-
+この別科目の公開・実装・監査はCELLのPLANで進める。CELL1–CELL15が未実装の段階では、既存のAUT/CMP/CPLXの依存・公開状態を変更しない。
 ---
 
 ## 7. 計算量理論 I：P・NP・NP 完全性
@@ -874,7 +830,7 @@ AUT5--AUT7 文脈自由言語・PDA・Chomsky 階層
 CMP1--CMP4 Turing 機械・計算モデル・認識可能性
   ↓
 CMP5--CMP8 決定不能性・帰着・Rice・計算可能性の同値像
-  ├──────────────→ CELL1--CELL3 セル・オートマトン補講
+  ├──────────────→ CELL1--CELL15 独立科目（別PLAN、通読はAUT1からも開始可）
   ↓
 CPLX1--CPLX6 P / NP / 帰着 / NP 完全性
   ↓
@@ -939,7 +895,7 @@ CPLX11 / CPLX21
 
 ## 11.3 Cook--Levin を最大の証明教材の一つにする
 
-Cook--Levin では、Turing 機械、セル・オートマトンの時空間図、局所整合性、Boolean 式の四者を接続する。
+Cook--Levin では、Turing機械の計算表、隣接時刻の局所整合性、Boolean式の三者を接続する。別科目CELLでは同じ局所更新の考え方をセル・オートマトン固有の離散力学として学ぶが、本章の核心証明はCELLの実装に依存させない。
 
 DREAM THEATER の「2--4 手の非自明な省略を読者へ押し付けない」規約を特に厳格に適用する。
 
@@ -1019,9 +975,9 @@ AUT1--AUT7 を実装する。
 - Myhill--Nerode
 - CFG / PDA の対応
 
-## Phase 2: 計算理論 II + セル・オートマトン補講
+## Phase 2: 計算理論 II
 
-CMP1--CMP8、CELL1--CELL3 を実装する。
+CMP1--CMP8 を実装する。CELL1--CELL15は独立した1セメスターPLANへ切り出し、本Phaseの実装・監査対象に含めない。
 
 重点監査:
 
@@ -1029,7 +985,7 @@ CMP1--CMP8、CELL1--CELL3 を実装する。
 - 停止問題の対角化
 - 帰着の向き
 - Church--Turing thesis を定理扱いしない
-- CELL3 と Cook--Levin の責務重複を避ける
+- CPLX7の時空間符号化を別科目CELLへ逆流させない
 
 ## Phase 3: 計算量理論 I
 
@@ -1136,7 +1092,7 @@ plan 作成時点では textbook/dream-theater-index.json と textbook/dream-the
 10. $P$ vs $NP$ が暗号・最適化等に関係する一方、それだけで全てを決める問題ではない理由。
 11. PSPACE、PH、乱択、回路などが $P/NP$ の外側にどのような地図を作るか。
 12. relativization、Natural Proofs、algebrization がどの証明戦略を制限するか。
-13. セル・オートマトンの時空間図と Cook--Levin の局所整合性が同じ構造を共有する理由。
+13. Turing計算表の隣接時刻の局所整合性がCook--LevinのSAT符号化に必要な理由（別科目CELL14と接続可能）。
 14. 通信計算量、証明計算量、記述計算量、暗号、量子計算、PCP 等がどの地点から分岐するか。
 
 最終的な目標は「$P$ vs $NP$ の答えを知る」ことではなく、
@@ -1167,3 +1123,4 @@ plan 作成時点では textbook/dream-theater-index.json と textbook/dream-the
 - 2026-10-10: CPLX20「乱択計算」を新設。乱択Turing機械、RP・coRP・BPP・ZPP、片側誤りと多数決の指数的増幅、ZPP=RP∩coRP、BPP⊆P/poly、短い種による条件付き脱乱択化を証明。A5/B4/C1全10題の詳細解答を追加し、CPLX21へ進行。
 
 - 2026-10-10: Phase 4の最終章CPLX21「P vs NPの証明障壁」を実装。相対化の論理的限界、Natural Proofsの具体的三条件と擬似乱数識別器の条件付き衝突、多重線形拡張の存在一意性、A5/B4/C1の演習と詳細解答を追加。CPLX系列はCPLX21まで完了。Phase 2のセル・オートマトン補講やPhase 5の発展分岐採否は本章とは別の残タスクであり、PLAN全体は進行中に留める。
+- 2026-10-10: CELL1–CELL3の補講構想を廃止し、独立した15週・15章の科目CELL1–CELL15を新PLANへ切り出した。CELLの教材実装は未着手、本PLANのPhase 2には含めず、CPLX21までの完了を保持する。Phase 5等の未完了事項があるため本PLANはplans_progressに維持する。
