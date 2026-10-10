@@ -1,0 +1,29 @@
+chapter: "CELL1"
+terms:
+  - term: 状態集合
+    english: state set
+    meaning: "各セルに許す状態を有限個集めた非空集合。"
+  - term: 配置
+    english: configuration
+    meaning: "整数位置ごとに状態を割り当てる写像。無限線では各整数に値がある。"
+  - term: 半径
+    english: radius
+    meaning: "局所規則が注目セルの左右それぞれ何個まで参照するかを表す非負整数。"
+  - term: 局所規則
+    english: local rule
+    meaning: "指定した有限幅の参照窓内の状態列から次の一セルの状態を返す写像。"
+  - term: 大域更新写像
+    english: global map
+    meaning: "全位置で同じ局所規則を更新前の状態へ同時に適用して次配置を作る写像。"
+  - term: 同期更新
+    english: synchronous update
+    meaning: "全セルが同じ旧時刻の配置を読み、次時刻の値を一括して定める更新方式。"
+  - term: 周期有限環
+    english: periodic finite ring
+    meaning: "有限個の位置を巡回的につないだ格子。位置添字をセル数で割った余りで読む。"
+  - term: 固定境界更新
+    english: fixed-boundary update
+    meaning: "有限区間外の状態をあらかじめ選んだ値に固定して区間内だけを更新する方式。"
+  - term: 反復写像
+    english: iterate
+    meaning: "同じ大域更新写像を時刻の回数だけ合成した写像。時刻0は恒等写像。"
