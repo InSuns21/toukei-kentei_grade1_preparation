@@ -1,0 +1,47 @@
+id: "CPLX16"
+title: "多項式階層"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CPLX15
+official_scope: []
+learning_objectives:
+  - 多項式長の存在・全称量化ブロックでSigma_kとPi_kを定義し、ブロック併合と順序を検算できる
+  - Sigma_1=NP、Pi_1=coNPを証明書・補集合の定義から証明できる
+  - 量化の否定による双対性と隣接層への包含、PHの定義を説明できる
+  - 深さ優先の量化評価によってPHがPSPACEに含まれることを証明できる
+  - 適応的なoracle質問の実行記録からNPのoracle特徴付けを双方向に証明できる
+  - Delta階層とSigma・Pi階層の包含を区別できる
+  - Sigma_k=Pi_kによる階層崩壊とP=NP、NP=coNPの条件付き帰結を証明できる
+  - PHの包含の真偽について未解決事項と確定定理を区別できる
+definitions:
+  - { id: CPLX16-DEF-01, name: "多項式階層の量化子による各層" }
+  - { id: CPLX16-DEF-02, name: "補クラスcoNP" }
+  - { id: CPLX16-DEF-03, name: "多項式階層PH" }
+  - { id: CPLX16-DEF-04, name: "oracle付きの計算クラス" }
+theorems:
+  - { id: CPLX16-THM-01, name: "多項式階層のoracleによる特徴付け" }
+  - { id: CPLX16-THM-02, name: "多項式階層の崩壊" }
+propositions:
+  - { id: CPLX16-PROP-01, name: "最初の量化層" }
+  - { id: CPLX16-PROP-02, name: "量化層の双対性と包含" }
+  - { id: CPLX16-PROP-03, name: "多項式階層は多項式空間に含まれる" }
+  - { id: CPLX16-COR-01, name: "P=NPなら多項式階層はPへ崩壊する" }
+canonical_examples:
+  - "exists u forall v (u or v)の存在側u=1の勝ち戦略"
+  - "同種の量化を連結して5変数を3ブロックへ変換"
+  - "SATとUNSATのoracle問いに対するyes/no正当化"
+  - "Sigma_2のoracle適応的問い合わせ記録をexists-forallへ検証"
+problem_patterns:
+  - CPLX16-QUANTIFIER-BLOCKS
+  - CPLX16-COMPLEMENT-DUALITY
+  - CPLX16-NP-CONP
+  - CPLX16-PH-PSPACE
+  - CPLX16-ORACLE-TRACE
+  - CPLX16-ADAPTIVE-QUERIES
+  - CPLX16-HIERARCHY-COLLAPSE
+  - CPLX16-KNOWN-UNKNOWN
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.0, review: 3.0 }
