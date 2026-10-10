@@ -461,6 +461,7 @@
 4. [CELL4 加法的CAと二進代数](textbook/volumes/00_foundations/CELL4/index.md)
 5. [CELL5 保存則・粒子輸送・Rule 184](textbook/volumes/00_foundations/CELL5/index.md)
 6. [CELL6 de Bruijnグラフと前像](textbook/volumes/00_foundations/CELL6/index.md)
+7. [CELL7 シフト空間・円筒集合・配置の近さ](textbook/volumes/00_foundations/CELL7/index.md)
 
 <a id="dt-subject-numerical-analysis"></a>
 ### 数値解析
