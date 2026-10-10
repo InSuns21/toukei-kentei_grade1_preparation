@@ -10,12 +10,6 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（多項式階層の量化子による各層）"]
     requires: [theoretical-computer-science.class-np, theoretical-computer-science.quantified-boolean-formula, theoretical-computer-science.class-p]
-  - id: theoretical-computer-science.class-conp
-    name: 補クラスcoNP
-    kind: definition
-    introduction: formal
-    introduction_aliases: ["定義（補クラスcoNP）"]
-    requires: [theoretical-computer-science.class-np]
   - id: theoretical-computer-science.polynomial-hierarchy-first-level
     name: 最初の量化層
     kind: proposition
