@@ -168,17 +168,17 @@ CELL7では数列と部分列について [F0-00B0](textbook/volumes/00_foundati
 
 ### 力学系 I：CELLから連続状態の反復へ
 
-[**力学系 I：離散力学・記号力学・カオス**](textbook/dream-theater.md#dt-subject-dynamical-systems-i) は、CELL3で有限状態の軌道を、RA2で閉区間上の連続性・中間値を学んだ後に進む独立した15週科目です。最初の [DYN1](textbook/volumes/00_foundations/DYN1/index.md) では「有限集合の反復は最終的に周期的」という結論が連続状態では使えないことを証明します。続く [DYN2](textbook/volumes/00_foundations/DYN2/index.md) では、RA3の微分・平均値定理を加えて固定点の乗数による局所安定性と不安定性を証明します。[DYN3](textbook/volumes/00_foundations/DYN3/index.md) ではLogistic写像の二枝・吸引域と臨界値r=1,3の振る舞いを調べます。
+[**力学系 I：離散力学・記号力学・カオス**](textbook/dream-theater.md#dt-subject-dynamical-systems-i) は、CELL3で有限状態の軌道を、RA2で閉区間上の連続性・中間値を学んだ後に進む独立した15週科目です。最初の [DYN1](textbook/volumes/00_foundations/DYN1/index.md) では「有限集合の反復は最終的に周期的」という結論が連続状態では使えないことを証明します。続く [DYN2](textbook/volumes/00_foundations/DYN2/index.md) では、RA3の微分・平均値定理を加えて固定点の乗数による局所安定性と不安定性を証明します。[DYN3](textbook/volumes/00_foundations/DYN3/index.md) ではLogistic写像の二枝・吸引域と臨界値r=1,3の振る舞いを調べます。[DYN4](textbook/volumes/00_foundations/DYN4/index.md) で二歩の方程式を解き、真の二周期の存在と安定範囲を分離して証明します。
 
 ~~~text
 CELL3 有限集合の軌道 ─┐
 RA2 閉区間・連続性 ────┴→ DYN1 閉区間の反復・固定点・軌道収束 ─┐
-RA3 微分・平均値定理 ─────────────────────────────────┴→ DYN2 固定点の安定性・乗数 → DYN3 Logistic写像の安定枝 → DYN4以降（順次公開）
+RA3 微分・平均値定理 ─────────────────────────────────┴→ DYN2 固定点の安定性・乗数 → DYN3 Logistic写像の安定枝 → DYN4 二周期の出現・安定性 → DYN5以降（順次公開）
 CELL7 円筒集合・シフト ────────────────────────────────→ 後半の記号力学・カオス
 ODE4 / ODE8–11 ────────────────────────────────────→ 連続時間の比較・発展分岐（既存正本）
 ~~~
 
-DYN1–15は実装済みの章だけ科目目次へ表示し、予定だけのDYN4以降を未公開ページへのリンクとして追加しません。ODEの流れ・Lyapunov・分岐と、CELL7の全シフトの定義・証明を新しい章へ重複移植しません。
+DYN1–15は実装済みの章だけ科目目次へ表示し、予定だけのDYN5以降を未公開ページへのリンクとして追加しません。ODEの流れ・Lyapunov・分岐と、CELL7の全シフトの定義・証明を新しい章へ重複移植しません。
 
 ## 応用系
 
