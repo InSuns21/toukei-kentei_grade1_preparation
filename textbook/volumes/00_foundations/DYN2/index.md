@@ -17,9 +17,9 @@
 
 $I=[a,b]$（$a<b$）、$f:I\to I$ を連続自己写像、$p\in I$ を $f(p)=p$ を満たす固定点とする。軌道を $x_n=f^n(x_0)$ と記す。
 
-1. **Lyapunov安定**：任意の $\varepsilon>0$ に対してある $\delta>0$ が存在し、$x_0\in I$ かつ $|x_0-p|<\delta$ なら、すべての $n\ge0$ で $|x_n-p|<\varepsilon$ となる。
+1. **離散時間のLyapunov安定**：任意の $\varepsilon>0$ に対してある $\delta>0$ が存在し、$x_0\in I$ かつ $|x_0-p|<\delta$ なら、すべての $n\ge0$ で $|x_n-p|<\varepsilon$ となる。
 2. **局所吸引的**：ある $r>0$ が存在し、$x_0\in I$ かつ $|x_0-p|<r$ なら $x_n\to p$ となる。
-3. **漸近安定**：Lyapunov安定かつ局所吸引的である。
+3. **離散時間の漸近安定**：Lyapunov安定かつ局所吸引的である。
 4. **不安定**：Lyapunov安定でない。すなわち、ある $\varepsilon_0>0$ に対し、任意の $\delta>0$ について $|x_0-p|<\delta$ から始めても、少なくとも一つの時刻で $|x_n-p|\ge\varepsilon_0$ となる初期値 $x_0\in I$ がある。
 <!-- formal-statement-end -->
 
@@ -290,7 +290,7 @@ $$
 <a id="prop-dyn2-iterate-multiplier"></a>
 
 <!-- formal-statement-start -->
-### 命題（固定点での反復写像の導関数）
+### 命題（反復の乗数の累乗公式）
 
 $I=[a,b]$、$f:I\to I$ を連続自己写像、$p\in I$ を固定点とし、$f$ が $p$ で区間内から微分可能とする。このとき任意の整数 $n\ge0$ について $f^n$ は $p$ で同じ意味で微分可能であり、
 
