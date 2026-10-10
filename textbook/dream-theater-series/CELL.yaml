@@ -63,5 +63,5 @@ chapters:
     title: 予測計算量・時空間局所整合性
   - id: CELL15
     path: textbook/volumes/00_foundations/CELL15
-    status: planned
+    status: completed
     title: 確率的CA・モデル化・総合演習
