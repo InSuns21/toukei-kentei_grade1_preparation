@@ -159,8 +159,8 @@ jobs:
         if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
         run: npm run validate:prose-math
 
+      # Fast and full PRs must both check this inexpensive, site-blocking invariant.
       - name: Validate collapsible proof sections
-        if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
         run: npm run validate:proof-folding
 
       - name: Validate formal statement panels and anchors
