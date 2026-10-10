@@ -3,6 +3,8 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - CPLX18
+forward_references:
+  - optimization.perfect-matching
 concepts:
   - id: theoretical-computer-science.parity-function
     name: parity関数
