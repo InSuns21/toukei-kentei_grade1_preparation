@@ -1,7 +1,7 @@
 version: 1
 id: AUT
 title: "計算理論 I：形式言語・オートマトン"
-plan: textbook/plans_progress/DREAM_THEATER_THEORETICAL_COMPUTER_SCIENCE_P_VS_NP_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_THEORETICAL_COMPUTER_SCIENCE_P_VS_NP_PLAN.md
 chapter_root: textbook/volumes/00_foundations
 
 chapters:
