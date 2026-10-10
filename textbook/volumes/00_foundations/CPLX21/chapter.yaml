@@ -1,0 +1,45 @@
+id: "CPLX21"
+title: "P vs NPの証明障壁"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CPLX20
+official_scope: []
+learning_objectives:
+  - 相対化する論法を定義し、等号Oracleと分離Oracleから一般的な相対化証明の障壁を導出できる
+  - Boolean真理値表の長さと元の入力長を区別し、Natural Proofsの構成可能性・大きさ・有用性を具体例で確認できる
+  - 多くのランダム関数が全変数に依存するという計数を計算し、一般小回路には有用でない反例を示せる
+  - 強い擬似乱数関数の仮定の下で自然な性質が識別器となる条件付き障壁を証明できる
+  - 回路下界・擬似乱数・脱乱択化の条件の違いとuniform/nonuniformの違いを説明できる
+  - 多重線形拡張を構成し、Boolean点での補間と一意性を完全証明できる
+  - 代数化の着眼点と相対化との差、三障壁がP対NPの証明不可能性を意味しない理由を説明できる
+definitions:
+  - { id: CPLX21-DEF-01, name: "相対化する証明論法" }
+  - { id: CPLX21-DEF-02, name: "自然な回路下界の性質" }
+  - { id: CPLX21-DEF-03, name: "多重線形拡張" }
+theorems:
+  - { id: CPLX21-THM-01, name: "多重線形拡張の存在と一意性" }
+propositions:
+  - { id: CPLX21-PROP-01, name: "相対化する論法だけでは両側を解決できない" }
+  - { id: CPLX21-PROP-02, name: "自然な性質と擬似乱数関数の条件付き衝突" }
+canonical_examples:
+  - "P^A=NP^AとP^B≠NP^Bで相対化した結論が衝突する"
+  - "全変数に依存する関数の構成可能性と大きさ"
+  - "AND木は全変数へ依存しても小回路で表せる反例"
+  - "自然な性質の検査器を擬似乱数識別器にする"
+  - "F5上の2変数Boolean表の多重線形補間と非Boolean点評価"
+problem_patterns:
+  - CPLX21-ORACLE-CONTAINMENT
+  - CPLX21-ORACLE-QUANTIFIERS
+  - CPLX21-TRUTH-TABLE-COMPLEXITY
+  - CPLX21-NATURAL-USEFULNESS-COUNTEREXAMPLE
+  - CPLX21-LOW-DEGREE-EXTENSION
+  - CPLX21-NATURAL-DENSITY
+  - CPLX21-PRF-DISTINGUISHER
+  - CPLX21-MULTILINEAR-UNIQUENESS
+  - CPLX21-COUNTING-VS-EXPLICIT
+  - CPLX21-THREE-BARRIER-AUDIT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.5, review: 3.0 }

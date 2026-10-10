@@ -1165,3 +1165,5 @@ plan 作成時点では textbook/dream-theater-index.json と textbook/dream-the
 - 2026-10-10: CPLX18「回路計算量」を実装。Boolean回路のサイズ・深さ、依存変数下界、式と共有の区別、回路族とuniform生成、P/polyに決定不能言語が含まれる証明、PとP-uniformの同値、助言との同値、Shannon型計数下界を詳細に構成。A5/B4/C1全10題と詳細解答を追加し、公開facade・索引・系列・work-stateをCPLX19への進行に同期。
 - 2026-10-10: CPLX19「回路下界への入口」を追加。parityの深さ2 DNF/CNF指数下界、二本信号XORの対数深さ構成、制限後parityと決定木、単調しきい値関数のDNF下界と動的回路上界、二入力一般回路の線形下界を証明。一般AC0下界と単調マッチング下界は適用範囲を区別して参考文献へ案内。A5/B4/C1全10題の詳細解答を追加し、CPLX20へ進行。
 - 2026-10-10: CPLX20「乱択計算」を新設。乱択Turing機械、RP・coRP・BPP・ZPP、片側誤りと多数決の指数的増幅、ZPP=RP∩coRP、BPP⊆P/poly、短い種による条件付き脱乱択化を証明。A5/B4/C1全10題の詳細解答を追加し、CPLX21へ進行。
+
+- 2026-10-10: Phase 4の最終章CPLX21「P vs NPの証明障壁」を実装。相対化の論理的限界、Natural Proofsの具体的三条件と擬似乱数識別器の条件付き衝突、多重線形拡張の存在一意性、A5/B4/C1の演習と詳細解答を追加。CPLX系列はCPLX21まで完了。Phase 2のセル・オートマトン補講やPhase 5の発展分岐採否は本章とは別の残タスクであり、PLAN全体は進行中に留める。
