@@ -3,6 +3,11 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - CELL14
+forward_references:
+  - prob.random-variable
+  - prob.expectation
+  - prob.joint-distribution
+  - stochastic.stochastic-process
 
 concepts:
   - id: cellular-automata.stochastic-ca
