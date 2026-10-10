@@ -63,9 +63,13 @@ chapters:
     title: PSPACE完全性とTQBF
   - id: CPLX15
     path: textbook/volumes/00_foundations/CPLX15
-    status: planned
+    status: completed
     title: 階層定理
   - id: CPLX16
     path: textbook/volumes/00_foundations/CPLX16
     status: planned
     title: 多項式階層
+  - id: CPLX17
+    path: textbook/volumes/00_foundations/CPLX17
+    status: planned
+    title: Oracleと相対化

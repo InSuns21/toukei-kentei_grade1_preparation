@@ -1,0 +1,58 @@
+chapter: CPLX15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CPLX14
+concepts:
+  - id: theoretical-computer-science.deterministic-resource-classes
+    name: 資源で制限した決定性計算クラス
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（資源で制限した決定性計算クラス）"]
+    requires: [theoretical-computer-science.worst-case-time-space, theoretical-computer-science.dspace-nspace]
+  - id: theoretical-computer-science.resource-constructibility
+    name: 時間構成可能・空間構成可能
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（時間構成可能・空間構成可能）"]
+    requires: [theoretical-computer-science.deterministic-resource-classes, theoretical-computer-science.space-constructible]
+  - id: theoretical-computer-science.padding
+    name: 符号のパディング
+    kind: proposition
+    introduction_aliases: ["命題（符号のパディング）"]
+    requires: [theoretical-computer-science.tm-configuration]
+  - id: theoretical-computer-science.efficient-universal-simulation
+    name: 時間効率のよい万能模倣
+    kind: lemma
+    introduction_aliases: ["補題（時間効率のよい万能模倣）"]
+    requires: [theoretical-computer-science.padding, theoretical-computer-science.polynomial-time-machine]
+  - id: theoretical-computer-science.time-hierarchy
+    name: 決定性時間階層定理
+    kind: theorem
+    introduction_aliases: ["定理（決定性時間階層定理）"]
+    requires: [theoretical-computer-science.deterministic-resource-classes, theoretical-computer-science.resource-constructibility, theoretical-computer-science.padding, theoretical-computer-science.efficient-universal-simulation]
+  - id: theoretical-computer-science.polynomial-time-strict-hierarchy
+    name: 多項式時間の厳密な階層
+    kind: corollary
+    introduction_aliases: ["系（多項式時間の厳密な階層）"]
+    requires: [theoretical-computer-science.time-hierarchy]
+  - id: theoretical-computer-science.bounded-configuration-count
+    name: 有限空間の模倣打ち切り
+    kind: proposition
+    introduction_aliases: ["命題（有限空間の模倣打ち切り）"]
+    requires: [theoretical-computer-science.configuration-count, theoretical-computer-science.padding]
+  - id: theoretical-computer-science.space-hierarchy
+    name: 決定性空間階層定理
+    kind: theorem
+    introduction_aliases: ["定理（決定性空間階層定理）"]
+    requires: [theoretical-computer-science.resource-constructibility, theoretical-computer-science.bounded-configuration-count, theoretical-computer-science.padding]
+  - id: theoretical-computer-science.space-strict-hierarchy
+    name: 対数空間から多項式空間への厳密な差
+    kind: corollary
+    introduction_aliases: ["系（対数空間から多項式空間への厳密な差）"]
+    requires: [theoretical-computer-science.space-hierarchy]
+  - id: theoretical-computer-science.time-space-strict-separations
+    name: 大きなクラスの厳密な分離
+    kind: corollary
+    introduction_aliases: ["系（大きなクラスの厳密な分離）"]
+    requires: [theoretical-computer-science.time-hierarchy, theoretical-computer-science.space-hierarchy, theoretical-computer-science.class-p, theoretical-computer-science.class-pspace]

@@ -1158,3 +1158,5 @@ plan 作成時点では textbook/dream-theater-index.json と textbook/dream-the
 - 2026-10-10: Phase 4 に着手。CPLX12「空間計算量」を追加し、読み取り専用入力と作業テープの分離、L・NL・PSPACE、計算配置数と時間上界、STCONのNL所属、NL⊆P・NP⊆PSPACEの完全証明、演習A5/B4/C1の詳細解答を実装。CPLX13「Savitchの定理」へ進行。
 - 2026-10-10: CPLX13「Savitch の定理」を実装。中間点再帰の両方向・停止性・再帰スタック上界・空間構成可能性・NSPACE(s)⊆DSPACE(s²)・NPSPACE=PSPACEを証明し、A5/B4/C1全10題の詳細解答を追加。CPLX14へ進行。
 - 2026-10-10: CPLX14「PSPACE完全性とTQBF」を実装。QBFの意味論と選択ゲーム、深さ優先評価によるPSPACE所属、多項式長の一歩関係、存在・全称量化を使った共有到達可能性式、TQBFへの多項式時間帰着を詳細に証明。A5/B5/C1の全11題と詳細解答を追加し、CPLX15へ進行。
+
+- 2026-10-10: CPLX15「階層定理」を実装。時間・空間構成可能性、パディング、万能模倣の償却費用、決定性時間階層定理・空間階層定理の対角化と停止性、P⊊EXPTIME・PSPACE⊊EXPSPACEの導出、A5/B4/C1の詳細解答を追加。CPLX16へ進行。

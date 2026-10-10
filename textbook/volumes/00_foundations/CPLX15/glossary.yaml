@@ -1,0 +1,26 @@
+chapter: "CPLX15"
+terms:
+  - term: 決定性時間階層定理
+    english: deterministic time hierarchy theorem
+    meaning: "模倣に必要な対数因子を考慮して十分離れた時間上限の間には厳密な計算能力の差があることを述べる定理。"
+  - term: 決定性空間階層定理
+    english: deterministic space hierarchy theorem
+    meaning: "空間構成可能な上位境界gに対しf=o(g)なら決定性空間クラスは真に大きくなることを述べる定理。"
+  - term: 時間構成可能
+    english: time-constructible
+    meaning: "入力長nから指定された時間上限g(n)に対応する時計をO(g(n))時間で用意できる性質。"
+  - term: 空間構成可能
+    english: space-constructible
+    meaning: "入力長nから指定された作業領域g(n)の境界をO(g(n))空間で用意できる性質。"
+  - term: 対角化
+    english: diagonalization
+    meaning: "機械を符号化して列挙し、自分自身を入力する場合の答えを反転して一つのクラスから逃れる構成。"
+  - term: パディング
+    english: padding
+    meaning: "機械の解釈を変えない余剰ビットを付け、自己入力の長さを任意に大きくする操作。"
+  - term: EXPTIME
+    english: exponential time
+    meaning: "固定多項式pに対して2のp(n)乗の時間内に判定できる言語の合併クラス。"
+  - term: EXPSPACE
+    english: exponential space
+    meaning: "固定多項式pに対して2のp(n)乗の作業空間内に判定できる言語の合併クラス。"
