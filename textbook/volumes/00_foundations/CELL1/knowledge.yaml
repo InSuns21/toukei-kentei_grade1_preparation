@@ -1,0 +1,59 @@
+chapter: CELL1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AUT1
+
+concepts:
+  - id: cellular-automata.state-configuration
+    name: 状態集合と配置
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（状態集合と配置）"]
+    requires: [theoretical-computer-science.finite-alphabet, set.function]
+
+  - id: cellular-automata.local-rule
+    name: 半径と局所規則
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（半径と局所規則）"]
+    requires: [cellular-automata.state-configuration]
+
+  - id: cellular-automata.global-update
+    name: 大域更新とセル・オートマトン
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（大域更新とセル・オートマトン）"]
+    requires: [cellular-automata.local-rule]
+
+  - id: cellular-automata.global-well-defined
+    name: 局所規則からの大域写像の存在と一意性
+    kind: proposition
+    introduction_aliases: ["命題（局所規則からの大域写像の存在と一意性）"]
+    requires: [cellular-automata.global-update]
+
+  - id: cellular-automata.iteration
+    name: 時刻発展と反復写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（時刻発展と反復写像）"]
+    requires: [cellular-automata.global-well-defined]
+
+  - id: cellular-automata.iteration-composition
+    name: 非負整数時刻の存在と反復の結合法則
+    kind: proposition
+    introduction_aliases: ["命題（非負整数時刻の存在と反復の結合法則）"]
+    requires: [cellular-automata.iteration]
+
+  - id: cellular-automata.boundary-convention
+    name: 周期有限環と固定境界区間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（周期有限環と固定境界区間）"]
+    requires: [cellular-automata.local-rule]
+
+  - id: cellular-automata.rule-recovery
+    name: 固定半径での局所規則の識別
+    kind: proposition
+    introduction_aliases: ["命題（固定半径での局所規則の識別）"]
+    requires: [cellular-automata.global-update]

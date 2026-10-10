@@ -1,0 +1,48 @@
+id: "CELL1"
+title: "配置・局所規則・大域更新"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AUT1
+official_scope: []
+learning_objectives:
+  - 有限状態集合と無限線上の配置を写像として定義し、直接例で条件を検証できる
+  - 半径と局所規則を指定して規則表を復元し、全配置の同期更新式を記述できる
+  - 局所規則から大域写像が存在し一意となることを全整数位置について証明できる
+  - 非負整数時刻の反復を帰納的に構成し、反復の結合法則を証明できる
+  - 周期有限環・固定境界・無限線の区別と同時更新・逐次更新の違いを具体計算できる
+  - 恒等規則・左右シフト・定数規則の性質および固定半径での局所規則の識別を証明できる
+  - 有限環と無限線における局所規則の同一性と長期挙動の差を論証できる
+definitions:
+  - { id: CELL1-DEF-01, name: "状態集合と配置" }
+  - { id: CELL1-DEF-02, name: "半径と局所規則" }
+  - { id: CELL1-DEF-03, name: "大域更新とセル・オートマトン" }
+  - { id: CELL1-DEF-04, name: "時刻発展と反復写像" }
+  - { id: CELL1-DEF-05, name: "周期有限環と固定境界区間" }
+propositions:
+  - { id: CELL1-PROP-01, name: "局所規則からの大域写像の存在と一意性" }
+  - { id: CELL1-PROP-02, name: "非負整数時刻の存在と反復の結合法則" }
+  - { id: CELL1-PROP-03, name: "固定半径での局所規則の識別" }
+theorems: []
+canonical_examples:
+  - "位置0だけ1の無限配置の右シフトと左シフト"
+  - "恒等・右移動・定数0の8入力規則表"
+  - "4セル周期環の3時刻の右シフト"
+  - "3セル周期環の同時更新と逐次更新の相違"
+  - "3セル列の周期境界と固定境界の相違"
+  - "有限環の充満と無限線の有限時刻での非充満"
+problem_patterns:
+  - CELL1-CONFIGURATION
+  - CELL1-RULE-TABLE
+  - CELL1-PARALLEL-VS-SEQUENTIAL
+  - CELL1-BOUNDARY-CONDITIONS
+  - CELL1-RADIUS-ZERO-ITERATION
+  - CELL1-LOCAL-RULE-RECOVERY
+  - CELL1-ITERATE-COMPOSITION
+  - CELL1-SHIFT-INVERSE
+  - CELL1-XOR-TWO-STEPS
+  - CELL1-FINITE-INFINITE-GROWTH
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 3.0, review: 1.5 }
