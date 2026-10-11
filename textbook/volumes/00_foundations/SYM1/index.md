@@ -130,7 +130,23 @@ $$
 \dim V^*=\dim V
 $$
 
-が成立します。有限次元で始域と終域の次元が等しい線形写像は、単射なら全射です。ゆえに非退化なら $b_\omega$ は線形同型です。
+が成立します。非退化性を仮定すると、$\ker b_\omega=\{0\}$ です。[双対基底定理](../LA3A/index.md#thm-la3a-dual-basis)より
+
+$$
+\dim V^*=\dim V=m
+$$
+
+と置けます。$V$ の基底を $v_1,\ldots,v_m$ とし、その像を考えます。これらは次の理由で一次独立です。
+
+$$
+\sum_{i=1}^m c_i b_\omega(v_i)=0
+\quad\Longrightarrow\quad
+b_\omega\left(\sum_{i=1}^m c_i v_i\right)=0
+\quad\Longrightarrow\quad
+c_1=\cdots=c_m=0.
+$$
+
+像には $m=\dim V^*$ 個の一次独立なベクトルがあるため、有限次元ベクトル空間の基底の性質から $V^*$ 全体を張ります。従って $b_\omega$ は全単射、つまり線形同型です。
 
 ## 2. 非退化なら次元が偶数になる
 
@@ -142,7 +158,17 @@ $$
 \omega(u,v)=[u]^{\mathsf T}\Omega[v].
 $$
 
-交代性から $\Omega^{\mathsf T}=-\Omega$ です。さらに非退化であることは $\Omega$ が可逆であることと同値です。実際、$\omega(v,w)=0$ が全ての $w$ で成立する条件は $[v]^{\mathsf T}\Omega=0$、すなわち $\Omega^{\mathsf T}[v]=0$ です。
+交代性から $\Omega^{\mathsf T}=-\Omega$ です。非退化性の定義をこの行列表示に代入すると、全ての $w$ に対する零条件は
+
+$$
+[v]^{\mathsf T}\Omega[w]=0\quad(\forall w\in V)
+\quad\Longleftrightarrow\quad
+[v]^{\mathsf T}\Omega=0
+\quad\Longleftrightarrow\quad
+\Omega^{\mathsf T}[v]=0
+$$
+
+となります。よって非退化性は $\ker\Omega^{\mathsf T}=\{0\}$ と同値です。$\Omega$ は正方行列なので、これは $\Omega$ が可逆であることと同値です。
 
 <a id="thm-sym1-even-dimension"></a>
 
@@ -158,7 +184,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$m=\dim V$ とし、$m$ 次正方行列 $\Omega$ を上記のように取ります。[行列式の転置・スカラー倍の性質](../LA3C/index.md#thm-la3c-det-elementary-operations)を使えば
+$m=\dim V$ とし、上記の $m$ 次正方行列 $\Omega$ を取ります。
+
+[転置で行列式が変わらない定理](../LA3B/index.md#thm-la3b-det-transpose)を、まず $\Omega$ に適用します。続いて [行列式の基本変形の定理](../LA3C/index.md#thm-la3c-det-elementary-operations)を $-\Omega$ の全 $m$ 行へのスカラー倍に適用すると
 
 $$
 \det\Omega
@@ -264,11 +292,19 @@ $$
 \end{aligned}
 $$
 
-従って $r\in W^\omega$ であり
+$r$ は $e,f$ と組にして零なので、これらが張る $W$ の任意のベクトルとも組にして零です。従って $r\in W^\omega$ であり、
 
 $$
-v=(ae+bf)+r\in W+W^\omega.
+v=(ae+bf)+r\in W+W^\omega
 $$
+
+という分解が得られます。さらに $v$ の $W$ 成分を
+
+$$
+P_W(v)=\omega(v,f)e-\omega(v,e)f
+$$
+
+と書けば、残差は $v-P_W(v)\in W^\omega$ です。この具体式が、後の演習A3で検証する射影です。
 
 一方、$ae+bf\in W^\omega$ なら
 
@@ -361,7 +397,19 @@ W_1=\operatorname{span}\{e_1,f_1\},\quad
 V_1=W_1^\omega
 $$
 
-を得ます。直和なので $\dim V_1=2n-2$ であり、制限形式は非退化です。
+を得ます。$e_1,f_1$ は一次独立なので $\dim W_1=2$ です。$V_1$ の基底を $g_1,\ldots,g_k$ とします。直和であることから、$e_1,f_1,g_1,\ldots,g_k$ は $V$ を張り、線形独立でもあります。実際、
+
+$$
+ae_1+bf_1+\sum_{j=1}^k c_jg_j=0
+$$
+
+なら、左辺前半は $W_1$、後半は $V_1$ にあり、$W_1\cap V_1=\{0\}$ なので両方とも零です。$W_1$ と $V_1$ の基底の一次独立性から全係数が零となります。従って基底の本数を数えると
+
+$$
+2n=\dim V=2+k=2+\dim V_1.
+$$
+
+ゆえに $\dim V_1=2n-2$ であり、[一対の切り出し補題](#lem-sym1-pair-decomposition)により制限形式は非退化です。
 
 $n-1$ に対する帰納法の仮定により、$V_1$ には
 
@@ -378,9 +426,38 @@ $$
 
 が成立し、$V_1$ 内には帰納法の三条件が成立します。従って全ての添字 $i,j$ に対して基底の三条件が成立します。
 
-基底で係数を展開すれば、$\omega$ の行列の $(e_i,f_j)$ ブロックは $I_n$、$(f_i,e_j)$ は $-I_n$、同種の二つのブロックは零になります。これが $J$ です。
+任意の $u,v\in V$ を構成した基底で
 
-最後に、同じ次元の二つの空間でそれぞれ構成した基底を同じ添字どうしに送る線形写像 $T$ を取ります。基底間の対応は線形同型であり、二つの形式は基底上の任意の組で同じ値を持ちます。双線形性で任意の $u,v$ に拡張すると $\omega_2(Tu,Tv)=\omega_1(u,v)$ です。
+$$
+u=\sum_i(q_i e_i+p_i f_i),\qquad
+v=\sum_j(q'_j e_j+p'_j f_j)
+$$
+
+と展開します。双線形性と三つの基底条件を順に使うと、
+
+$$
+\begin{aligned}
+\omega(u,v)
+&=\sum_{i,j}\bigl(q_iq'_j\omega(e_i,e_j)
++q_ip'_j\omega(e_i,f_j)\\
+&\hspace{35mm}+p_iq'_j\omega(f_i,e_j)
++p_ip'_j\omega(f_i,f_j)\bigr)\\
+&=\sum_{i,j}\bigl(q_ip'_j\delta_{ij}
+-p_iq'_j\delta_{ij}\bigr)\\
+&=\sum_i(q_ip'_i-p_iq'_i).
+\end{aligned}
+$$
+
+従って基底を $(e_1,\ldots,e_n,f_1,\ldots,f_n)$ の順に並べた係数行列が $J$ です。
+
+最後に、同じ次元の二つの空間 $(V,\omega_1)$、$(V',\omega_2)$ でそれぞれ構成した基底を $e_i\mapsto e'_i$、$f_i\mapsto f'_i$ と送る線形写像 $T:V\to V'$ を取ります。基底間の対応なので $T$ は線形同型です。上の展開式は両方の形式で同じ係数 $q_i,p_i,q'_i,p'_i$ を用いるため、
+
+$$
+\omega_2(Tu,Tv)
+=\sum_i(q_ip'_i-p_iq'_i)=\omega_1(u,v)
+$$
+
+となり、形式も保存されます。
 <!-- proof-end -->
 
 **注意：これは有限次元の線形定理です。** 多様体上で局所的に同じ形へする Darboux の定理は、閉性と局所微分同相の構成が必要な別の定理であり、後続で証明します。
@@ -583,7 +660,11 @@ Q^{\mathsf T}S-S^{\mathsf T}Q
 \end{pmatrix}.
 $$
 
-よって条件は
+<a id="ref-sym1-block-criterion"></a>
+
+### ブロック行列による判定条件
+
+[線形シンプレクティック写像の行列条件](#thm-sym1-matrix-criterion)と、$J$ の四つのブロックを比較すると、次の三条件が必要十分です。
 
 $$
 P^{\mathsf T}R=R^{\mathsf T}P,\qquad
@@ -591,10 +672,16 @@ Q^{\mathsf T}S=S^{\mathsf T}Q,
 $$
 
 $$
-P^{\mathsf T}S-R^{\mathsf T}Q=I_n
+P^{\mathsf T}S-R^{\mathsf T}Q=I_n.
 $$
 
-です。左下の条件は最後の式の転置から自動的に成立します。
+残る左下のブロックは、最後の式を転置して
+
+$$
+S^{\mathsf T}P-Q^{\mathsf T}R=I_n
+$$
+
+としたうえで両辺に $-1$ を掛ければ $-I_n$ と一致します。したがって左下について独立した第四条件は要りません。
 
 ### 例：二種類の shear
 
@@ -606,7 +693,29 @@ A_B=\begin{pmatrix}I&B\\0&I\end{pmatrix},
 A_C=\begin{pmatrix}I&0\\C&I\end{pmatrix}
 $$
 
-はシンプレクティックです。前者は $P=S=I,Q=B,R=0$ なので上記の三条件は、$0=0$、$B=B^{\mathsf T}$、$I=I$ となります。後者でも同じように $C=C^{\mathsf T}$ が必要です。
+はシンプレクティックです。[ブロック判定条件](#ref-sym1-block-criterion)を前者に適用すると $P=S=I,Q=B,R=0$ なので、
+
+$$
+P^{\mathsf T}R=R^{\mathsf T}P=0,\qquad
+Q^{\mathsf T}S=B^{\mathsf T},\quad S^{\mathsf T}Q=B,
+$$
+
+$$
+P^{\mathsf T}S-R^{\mathsf T}Q=I.
+$$
+
+つまり $B=B^{\mathsf T}$ がちょうど必要十分条件です。後者は $P=S=I,Q=0,R=C$ なので、
+
+$$
+P^{\mathsf T}R=C,\quad R^{\mathsf T}P=C^{\mathsf T},\qquad
+Q^{\mathsf T}S=S^{\mathsf T}Q=0,
+$$
+
+$$
+P^{\mathsf T}S-R^{\mathsf T}Q=I.
+$$
+
+従ってこちらは $C=C^{\mathsf T}$ がちょうど必要十分条件です。
 
 また任意の可逆 $D$ に対し
 
@@ -614,7 +723,20 @@ $$
 A_D=\begin{pmatrix}D&0\\0&D^{-\mathsf T}\end{pmatrix}
 $$
 
-も、$D^{\mathsf T}D^{-\mathsf T}=I$ なのでシンプレクティックです。多自由度では、位置の線形変換に合わせる運動量の変換が逆転置になることが分かります。
+もシンプレクティックです。実際、
+
+$$
+P=D,\quad Q=R=0,\quad S=D^{-\mathsf T}=(D^{\mathsf T})^{-1}
+$$
+
+を[ブロック条件](#ref-sym1-block-criterion)に代入すると、二つの対称条件は $0=0$ となり、残る条件は
+
+$$
+P^{\mathsf T}S-R^{\mathsf T}Q
+=D^{\mathsf T}(D^{\mathsf T})^{-1}=I
+$$
+
+です。$D$ の可逆性は逆転置を定義するためにも必要です。多自由度では、位置の線形変換に合わせる運動量の変換が逆転置になることが分かります。
 
 ## 7. 体積を保つことと形式を保つことは違う
 
@@ -661,7 +783,9 @@ $$
 dq_1\wedge\cdots\wedge dq_n\wedge dp_1\wedge\cdots\wedge dp_n.
 $$
 
-この最高次形式は零でありません。$A$ がシンプレクティックなら $A^*\omega_0=\omega_0$ なので、[引き戻しと外積](../GEO7/index.md#prop-geo7-pullback-wedge)から
+右辺の基底の外積を標準基底 $(e_{q_1},\ldots,e_{q_n},e_{p_1},\ldots,e_{p_n})$ に評価すると、係数は $(-1)^{n(n-1)/2}n!$ です。$n!$ は実数として零でないため、最高次形式 $\omega_0^{\wedge n}$ は零形式ではありません。
+
+[線形シンプレクティック写像の定義](#def-sym1-symplectic-map)に従えば、$A$ がシンプレクティックであることは $A^*\omega_0=\omega_0$ と同値です。[引き戻しと外積](../GEO7/index.md#prop-geo7-pullback-wedge)から
 
 $$
 A^*(\omega_0^{\wedge n})
@@ -669,16 +793,38 @@ A^*(\omega_0^{\wedge n})
 =\omega_0^{\wedge n}.
 $$
 
-一方、[最高次外積の基底変換](../LA3E/index.md#thm-la3e-top-form-change-of-basis)により左辺は $(\det A)\,\omega_0^{\wedge n}$ です。非零の最高次形式を比較し $\det A=1$ を得ます。
+一方、[最高次外積の基底変換](../LA3E/index.md#thm-la3e-top-form-change-of-basis)を $A$ が標準基底に作用する場合に適用します。標準基底を $b_1,\ldots,b_{2n}$ とすると、
+
+$$
+\begin{aligned}
+(A^*\omega_0^{\wedge n})(b_1,\ldots,b_{2n})
+&=\omega_0^{\wedge n}(Ab_1,\ldots,Ab_{2n})\\
+&=(\det A)\,\omega_0^{\wedge n}(b_1,\ldots,b_{2n}).
+\end{aligned}
+$$
+
+最高次形式は一次元空間の元なので、これは $A^*(\omega_0^{\wedge n})=(\det A)\,\omega_0^{\wedge n}$ を意味します。先ほど示した $A^*(\omega_0^{\wedge n})=\omega_0^{\wedge n}$ と比べ、右辺の非零性から $\det A=1$ を得ます。
 <!-- proof-end -->
 
-$n=1$ とします。任意の $2$ 次正方行列 $A$ について、行列を直接掛ければ
+$n=1$ とします。任意の $2$ 次正方行列
 
 $$
-A^{\mathsf T}JA=(\det A)J
+A=\begin{pmatrix}a&b\\c&d\end{pmatrix}
 $$
 
-です。従って一自由度では $\det A=1$ とシンプレクティック性が同値です。これは[AMECH7の一自由度の条件](../AMECH7/index.md#prop-amech7-one-dof)と一致します。
+に対し $J=\begin{pmatrix}0&1\\-1&0\end{pmatrix}$ と置き、積を順に計算します。
+
+$$
+\begin{aligned}
+A^{\mathsf T}JA
+&=\begin{pmatrix}a&c\\b&d\end{pmatrix}
+  \begin{pmatrix}c&d\\-a&-b\end{pmatrix}\\
+&=\begin{pmatrix}0&ad-bc\\bc-ad&0\end{pmatrix}\\
+&=(\det A)J.
+\end{aligned}
+$$
+
+[行列条件](#thm-sym1-matrix-criterion)は $A^{\mathsf T}JA=J$ なので、一自由度では $\det A=1$ とシンプレクティック性が同値です。これは[AMECH7の一自由度の条件](../AMECH7/index.md#prop-amech7-one-dof)と一致します。
 
 $n=2$ では、座標順を $(q_1,q_2,p_1,p_2)$ として
 
@@ -732,19 +878,35 @@ $\mathbb R^3$ 上の形式 $\omega(u,v)=u_1v_2-u_2v_1$ の核 $\{u:\omega(u,v)=0
 
 #### A3. 一対を取り出す射影
 
-非退化形式付き空間で $\omega(e,f)=1$ とする。$v$ の $W=\operatorname{span}\{e,f\}$ 成分を $P(v)=\omega(v,f)e-\omega(v,e)f$ と定める。$P^2=P$ と $\ker P=W^\omega$ を示せ。
+非退化形式付き空間で $\omega(e,f)=1$ とする。$v$ の $W=\operatorname{span}\{e,f\}$ 成分を $P(v)=\omega(v,f)e-\omega(v,e)f$ と定める。$P$ が線形写像であり、$P^2=P$ と $\ker P=W^\omega$ を満たすことを示せ。
 
 - Level: A
 - ID: SYM1-A3
 
 <!-- solution-start -->
-**詳細解答**　$P(e)=\omega(e,f)e-\omega(e,e)f=e$ です。また
+**詳細解答**　$\omega$ は各引数について線形です。任意の $v,w\in V$、$c,d\in\mathbb R$ について
+
+$$
+\begin{aligned}
+P(cv+dw)
+&=\omega(cv+dw,f)e-\omega(cv+dw,e)f\\
+&=cP(v)+dP(w)
+\end{aligned}
+$$
+
+なので $P$ は線形です。$P(e)=\omega(e,f)e-\omega(e,e)f=e$、また
 
 $$
 P(f)=\omega(f,f)e-\omega(f,e)f=f.
 $$
 
-従って $P(v)\in W$ に対して再び $P$ を作用させると変わらず、$P^2=P$ です。$P(v)=0$ は $e,f$ の一次独立性から
+任意の $v$ に対して $P(v)=ae+bf\in W$ と書けるため、線形性と $P(e)=e,P(f)=f$ から
+
+$$
+P(P(v))=aP(e)+bP(f)=ae+bf=P(v).
+$$
+
+よって $P^2=P$ です。さらに $P(v)=0$ は、$e,f$ の一次独立性から
 
 $$
 \omega(v,f)=0,\qquad \omega(v,e)=0
@@ -767,7 +929,7 @@ $$
 A=\operatorname{diag}(D,D^{-\mathsf T})
 $$
 
-です。§6のブロック条件に代入すると
+です。[ブロック判定条件](#ref-sym1-block-criterion)に $P=D,Q=R=0,S=D^{-\mathsf T}$ を代入すると
 
 $$
 P^{\mathsf T}S=D^{\mathsf T}D^{-\mathsf T}=I,
@@ -843,16 +1005,35 @@ $$
 \omega(e_2,f_2)=3\left(1\cdot\frac13\right)=1
 $$
 
-です。二つの対は使う座標が異なるので、異なる対どうしの値は零です。また交代性から同種の組も零になります。従って
+です。ただし、交代性だけでは異なるベクトルの組が零とは言えません。実際の座標で残りの組を確かめます。$\omega$ の式に代入すると
+
+$$
+\begin{aligned}
+\omega(e_1,e_2)&=2(1\cdot0-0\cdot0)+3(0\cdot0-0\cdot1)=0,\\
+\omega(f_1,f_2)&=2(0\cdot0-\tfrac12\cdot0)+3(0\cdot\tfrac13-0\cdot0)=0,\\
+\omega(e_1,f_2)&=2(1\cdot0-0\cdot0)+3(0\cdot\tfrac13-0\cdot0)=0,\\
+\omega(e_2,f_1)&=2(0\cdot\tfrac12-0\cdot0)+3(1\cdot0-0\cdot0)=0.
+\end{aligned}
+$$
+
+交代性により逆順の組も零です。また $\omega(e_i,e_i)=\omega(f_i,f_i)=0$ です。従って、全ての $i,j\in\{1,2\}$ で
+
+$$
+\omega(e_i,e_j)=0,\qquad
+\omega(f_i,f_j)=0,\qquad
+\omega(e_i,f_j)=\delta_{ij}
+$$
+
+を確認できました。四つのベクトルの非零成分は互いに異なる座標位置にあるため一次独立で、$\mathbb R^4$ の基底です。よって
 
 $$
 (e_1,e_2,f_1,f_2)
 $$
 
-はシンプレクティック基底であり、対応する行列の四つのブロックは順に $0,I_2,-I_2,0$ です。
+は[シンプレクティック基底](#def-sym1-symplectic-basis)であり、対応する係数行列の四ブロックは $0,I_2,-I_2,0$ です。
 <!-- solution-end -->
 
-#### B2. 逆行列と積の保存
+#### B2. 逆行列公式の直接検算
 
 $B=B^{\mathsf T}$ とする。$A=\begin{pmatrix}I&B\\0&I\end{pmatrix}$ に対して $A^{-1}$ を直接求め、$-JA^{\mathsf T}J$ に一致することを確かめよ。
 
@@ -927,13 +1108,25 @@ $$
 \end{aligned}
 $$
 
-$JX=\begin{pmatrix}C&D\\-K&-B\end{pmatrix}$、$X^{\mathsf T}J=\begin{pmatrix}-C^{\mathsf T}&K^{\mathsf T}\\-D^{\mathsf T}&B^{\mathsf T}\end{pmatrix}$ より
+[行列条件](#thm-sym1-matrix-criterion)を微分した式をブロックで調べます。$X=\begin{pmatrix}K&B\\C&D\end{pmatrix}$ を代入し、積を順に計算すると
 
 $$
-C=C^{\mathsf T},\qquad
-B=B^{\mathsf T},\qquad
-D=-K^{\mathsf T}.
+JX=\begin{pmatrix}C&D\\-K&-B\end{pmatrix},
+\qquad
+X^{\mathsf T}J=\begin{pmatrix}-C^{\mathsf T}&K^{\mathsf T}\\-D^{\mathsf T}&B^{\mathsf T}\end{pmatrix}.
 $$
+
+これらを足して零行列に等しいと置けば、
+
+$$
+X^{\mathsf T}J+JX
+=\begin{pmatrix}
+C-C^{\mathsf T}&D+K^{\mathsf T}\\
+-D^{\mathsf T}-K&B^{\mathsf T}-B
+\end{pmatrix}=0.
+$$
+
+左上から $C=C^{\mathsf T}$、右下から $B=B^{\mathsf T}$、右上から $D=-K^{\mathsf T}$ です。左下は右上の転置に負号を付けた条件なので独立ではありません。
 
 従って $X$ は $K$ が任意、$B,C$ が対称という形です。これは必要な一次条件であり、この計算だけで任意の曲線 $A(t)$ の存在を主張したわけではありません。
 <!-- solution-end -->
@@ -952,7 +1145,7 @@ $$
 
 1. この形式は非退化である。
 2. シンプレクティック基底を作り、旧座標から標準座標への変換を一つ与えよ。
-3. 標準座標で $Q_1=q_1+\alpha p_1,\ Q_2=q_2,\ P_1=p_1,\ P_2=p_2$ となる写像を取り、もとの $u$ 座標での線形写像を求めよ。
+3. $\alpha\in\mathbb R$ とする。標準座標で $Q_1=q_1+\alpha p_1,\ Q_2=q_2,\ P_1=p_1,\ P_2=p_2$ となる写像を取り、もとの $u$ 座標での線形写像を求めよ。
 4. その写像が $\omega$ を保存することを、元の変数で直接確認せよ。
 
 - Level: C
@@ -972,26 +1165,63 @@ $$
 
 $\lambda,\mu>0$ だから $u=0$ で、非退化です。
 
-**(2)**　$e_1,e_2$ を標準座標ベクトルと同じに選び、$f_1=e_3/\lambda$、$f_2=e_4/\mu$ とします。すると
+**(2)**　元の $\mathbb R^4$ の標準基底を $\varepsilon_1,\varepsilon_2,\varepsilon_3,\varepsilon_4$ と書き、構成したいシンプレクティック基底とは記号を区別します。次の四本を選びます。
 
 $$
-\omega(e_i,f_j)=\delta_{ij},\qquad
-\omega(e_i,e_j)=\omega(f_i,f_j)=0
+e_1=\varepsilon_1,\quad e_2=\varepsilon_2,\qquad
+f_1=\frac{\varepsilon_3}{\lambda},\quad
+f_2=\frac{\varepsilon_4}{\mu}.
 $$
 
-となります。$u=q_1e_1+q_2e_2+p_1f_1+p_2f_2$ と展開した係数は
+$\lambda,\mu>0$ なので分母は零ではなく、四本は一次独立です。定義式に代入すると
+
+$$
+\begin{aligned}
+\omega(e_1,f_1)&=\lambda(1\cdot\lambda^{-1})=1,\\
+\omega(e_2,f_2)&=\mu(1\cdot\mu^{-1})=1,\\
+\omega(e_1,f_2)&=0,\quad \omega(e_2,f_1)=0,\\
+\omega(e_1,e_2)&=0,\quad \omega(f_1,f_2)=0.
+\end{aligned}
+$$
+
+交代性により逆順も決まるので、[シンプレクティック基底の定義](#def-sym1-symplectic-basis)の三条件が成立します。$u=q_1e_1+q_2e_2+p_1f_1+p_2f_2$ と展開すると
+
+$$
+u=q_1\varepsilon_1+q_2\varepsilon_2
++\frac{p_1}{\lambda}\varepsilon_3+\frac{p_2}{\mu}\varepsilon_4.
+$$
+
+従って旧座標から新座標への変換は
 
 $$
 (q_1,q_2,p_1,p_2)
 =(u_1,u_2,\lambda u_3,\mu u_4).
 $$
 
-**(3)**　標準座標の shear は $(q_1,q_2,p_1,p_2)\mapsto(q_1+\alpha p_1,q_2,p_1,p_2)$ です。$p_1=\lambda u_3$、$p_2=\mu u_4$ を代入し、出力側も同じ変換で戻すと
+**(3)**　標準座標への変換を $C$、そこでの shear を $S_\alpha$ と記します。
+
+$$
+\begin{aligned}
+C(u_1,u_2,u_3,u_4)&=(u_1,u_2,\lambda u_3,\mu u_4),\\
+S_\alpha(q_1,q_2,p_1,p_2)&=(q_1+\alpha p_1,q_2,p_1,p_2).
+\end{aligned}
+$$
+
+まず $C$ を作用させ、次に $S_\alpha$ を作用させると、
+
+$$
+S_\alpha(Cu)
+=(u_1+\alpha\lambda u_3,u_2,\lambda u_3,\mu u_4).
+$$
+
+最後に $C^{-1}(q_1,q_2,p_1,p_2)=(q_1,q_2,p_1/\lambda,p_2/\mu)$ で元の座標へ戻します。よって $T=C^{-1}S_\alpha C$ は
 
 $$
 T(u_1,u_2,u_3,u_4)
 =(u_1+\alpha\lambda u_3,\ u_2,\ u_3,\ u_4).
 $$
+
+ここで使った $C^{-1}$ は $\lambda,\mu\ne0$ のため確かに定義されています。
 
 **(4)**　$T(u)$ と $T(v)$ を $\omega$ へ代入し、第一の組を展開します。
 
