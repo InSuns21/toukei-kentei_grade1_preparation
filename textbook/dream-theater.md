@@ -190,6 +190,7 @@
 9. [CDYN9 位相応答と等時相面の入口](textbook/volumes/00_foundations/CDYN9/index.md)
 10. [CDYN10 弱結合振動子から位相差方程式へ](textbook/volumes/00_foundations/CDYN10/index.md)
 11. [CDYN11 二振動子の位相同期と引込み域](textbook/volumes/00_foundations/CDYN11/index.md)
+12. [CDYN12 有限Kuramoto系の秩序変数とLyapunov構造](textbook/volumes/00_foundations/CDYN12/index.md)
 
 <a id="dt-subject-fourier-analysis"></a>
 ### Fourier 解析

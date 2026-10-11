@@ -51,7 +51,7 @@ chapters:
     title: 二振動子の位相同期と引込み域
   - id: CDYN12
     path: textbook/volumes/00_foundations/CDYN12
-    status: planned
+    status: completed
     title: 有限Kuramoto系の秩序変数とLyapunov構造
   - id: CDYN13
     path: textbook/volumes/00_foundations/CDYN13

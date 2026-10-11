@@ -1,0 +1,29 @@
+chapter: "CDYN12"
+terms:
+  - term: 有限Kuramoto系
+    english: finite Kuramoto system
+    meaning: "有限個の位相振動子が正弦関数を通じて相互結合する常微分方程式。本章の散逸・同期定理は同一固有周波数と一様対称結合を仮定する。"
+  - term: 複素秩序変数
+    english: complex order parameter
+    meaning: "N個の単位複素ベクトルの平均 Z=(1/N)Σexp(iφ_j)。絶対値が位相のまとまり具合を表す。"
+  - term: 秩序度
+    english: coherence magnitude
+    meaning: "複素秩序変数の絶対値r。0以上1以下で、1は全位相の一致に対応する。"
+  - term: 平均位相方向
+    english: mean phase direction
+    meaning: "複素秩序変数Zの偏角ψ。r>0のときだけ定義され、r=0では存在しない。"
+  - term: 有限対称Kuramotoポテンシャル
+    english: symmetric Kuramoto potential
+    meaning: "位相差の余弦で定義する非負の関数V。共通回転を除いた対称結合系の負の勾配流を生成する。"
+  - term: 勾配系
+    english: gradient system
+    meaning: "ある実関数Vの負の勾配に従う系。軌道に沿ってVの時間微分は勾配の二乗ノルムの負となる。"
+  - term: 散逸恒等式
+    english: dissipation identity
+    meaning: "本章ではV'=−Σ(φ_i')²という等式。非増加性と速度の二乗積分可能性を与えるが、全初期値の完全同期を意味しない。"
+  - term: 平衡配置
+    english: stationary phase configuration
+    meaning: "回転座標で全ての位相速度が0となる位相の組。完全同期以外に秩序度0の配置や反位相群も含む。"
+  - term: 開いた半円内からの同期
+    english: synchronization in an open semicircle
+    meaning: "初期位相を長さπ未満の実数区間に持ち上げられると、位相幅が収縮し全位相が保存された平均へ収束する十分条件。"
