@@ -1,0 +1,44 @@
+id: "CDYN8"
+title: "van der Pol振動子と振幅方程式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CDYN7
+official_scope: []
+learning_objectives:
+  - van der Pol方程式を一階系へ直し非線形減衰の符号とエネルギー収支を厳密に導ける
+  - 回転座標の逆変換とその正確な二成分弱摂動方程式を導出できる
+  - 三角関数の周期平均から二成分平均ベクトル場と半径の振幅方程式を計算できる
+  - 平均振幅の明示解と零・正の平衡点の安定性を判定できる
+  - コンパクト球における周期原始関数とGrönwallにより有限遅い時間のO(μ)誤差を証明できる
+  - 極座標で位相補正を計算し平均系の安定振幅と元の系の周期軌道を区別できる
+definitions:
+  - { id: CDYN8-DEF-01, name: 回転座標と瞬時振幅 }
+  - { id: CDYN8-DEF-02, name: van der Polの平均ベクトル場 }
+theorems:
+  - { id: CDYN8-PROP-01, name: van der Pol振動子のエネルギー収支と大域存在 }
+  - { id: CDYN8-LEM-01, name: 回転座標における正確な弱非線形系 }
+  - { id: CDYN8-PROP-02, name: van der Pol平均場の明示式 }
+  - { id: CDYN8-THM-01, name: 平均振幅方程式とその明示解 }
+  - { id: CDYN8-THM-02, name: van der Pol回転座標の有限遅い時間平均化 }
+canonical_examples:
+  - 無摂動単振動の回転座標が定数になる直接例
+  - 小振幅と大振幅で非線形エネルギー変化の符号が異なる瞬間
+  - 初期振幅1と4から平均平衡振幅2へ近づく解
+  - 平均半径2でも元の半径は瞬時に変化する例
+  - 非有界な三次摂動場を球内の定数で評価する例
+problem_patterns:
+  - CDYN8-ENERGY-BALANCE
+  - CDYN8-ROTATING-COORDINATES
+  - CDYN8-TRIGONOMETRIC-AVERAGES
+  - CDYN8-AVERAGED-FIELD
+  - CDYN8-LOGISTIC-AMPLITUDE
+  - CDYN8-LOCAL-COMPACT-BOUNDS
+  - CDYN8-PERIODIC-PRIMITIVE
+  - CDYN8-PHASE-ANGLE
+  - CDYN8-AVERAGED-VS-ORIGINAL
+  - CDYN8-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 2.0 }

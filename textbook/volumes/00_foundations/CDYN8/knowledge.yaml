@@ -1,0 +1,43 @@
+chapter: CDYN8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CDYN7
+concepts:
+  - id: continuous-dynamical-systems.vdp-energy-balance
+    name: van der Pol振動子のエネルギー収支と大域存在
+    kind: proposition
+    introduction_aliases: ["命題（van der Pol振動子のエネルギー収支と大域存在）"]
+    requires: [ode.ode8-continuation]
+  - id: continuous-dynamical-systems.vdp-rotating-amplitude
+    name: 回転座標と瞬時振幅
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（回転座標と瞬時振幅）"]
+    requires: [continuous-dynamical-systems.damped-averaged-amplitude]
+  - id: continuous-dynamical-systems.vdp-rotating-equations
+    name: 回転座標における正確な弱非線形系
+    kind: lemma
+    introduction_aliases: ["補題（回転座標における正確な弱非線形系）"]
+    requires: [continuous-dynamical-systems.vdp-rotating-amplitude]
+  - id: continuous-dynamical-systems.vdp-averaged-field
+    name: van der Polの平均ベクトル場
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（van der Polの平均ベクトル場）"]
+    requires: [continuous-dynamical-systems.vdp-rotating-equations, continuous-dynamical-systems.periodic-mean-zero]
+  - id: continuous-dynamical-systems.vdp-mean-formula
+    name: van der Pol平均場の明示式
+    kind: proposition
+    introduction_aliases: ["命題（van der Pol平均場の明示式）"]
+    requires: [continuous-dynamical-systems.vdp-averaged-field]
+  - id: continuous-dynamical-systems.vdp-amplitude-equation
+    name: 平均振幅方程式とその明示解
+    kind: theorem
+    introduction_aliases: ["定理（平均振幅方程式とその明示解）"]
+    requires: [continuous-dynamical-systems.vdp-mean-formula]
+  - id: continuous-dynamical-systems.vdp-finite-time-error
+    name: van der Pol回転座標の有限遅い時間平均化
+    kind: theorem
+    introduction_aliases: ["定理（van der Pol回転座標の有限遅い時間平均化）"]
+    requires: [continuous-dynamical-systems.vdp-amplitude-equation, continuous-dynamical-systems.oscillatory-integral, ode.ode8-gronwall, ode.ode8-continuation]
