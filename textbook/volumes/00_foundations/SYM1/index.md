@@ -130,7 +130,13 @@ $$
 \dim V^*=\dim V
 $$
 
-が成立します。ここで $\omega$ が非退化なら $\ker b_\omega=\{0\}$ です。[双対基底定理](../LA3A/index.md#thm-la3a-dual-basis)により $\dim V^*=m=\dim V$ です。そこで $V$ の基底 $v_1,\ldots,v_m$ の像 $b_\omega(v_1),\ldots,b_\omega(v_m)$ は一次独立になります。実際、
+が成立します。非退化性を仮定すると、$\ker b_\omega=\{0\}$ です。[双対基底定理](../LA3A/index.md#thm-la3a-dual-basis)より
+
+$$
+\dim V^*=\dim V=m
+$$
+
+と置けます。$V$ の基底を $v_1,\ldots,v_m$ とし、その像を考えます。これらは次の理由で一次独立です。
 
 $$
 \sum_{i=1}^m c_i b_\omega(v_i)=0
@@ -178,7 +184,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$m=\dim V$ とし、$m$ 次正方行列 $\Omega$ を上記のように取ります。[転置で行列式が変わらない定理](../LA3B/index.md#thm-la3b-det-transpose)と、[一行のスカラー倍による行列式の変化](../LA3C/index.md#thm-la3c-det-elementary-operations)を全 $m$ 行に適用すると
+$m=\dim V$ とし、上記の $m$ 次正方行列 $\Omega$ を取ります。
+
+[転置で行列式が変わらない定理](../LA3B/index.md#thm-la3b-det-transpose)を、まず $\Omega$ に適用します。続いて [行列式の基本変形の定理](../LA3C/index.md#thm-la3c-det-elementary-operations)を $-\Omega$ の全 $m$ 行へのスカラー倍に適用すると
 
 $$
 \det\Omega
