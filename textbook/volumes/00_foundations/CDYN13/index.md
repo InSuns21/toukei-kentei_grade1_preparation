@@ -559,7 +559,7 @@ $$
 \end{aligned}
 $$
 
-これを区間 $[\delta,T]$ で上限に取ります。$a\delta>0$ を固定すれば、任意の整数 $m\ge1$ について $e^{-a\delta/\varepsilon}=o(\varepsilon^m)$ です。例えば $z=a\delta/\varepsilon$ とし、$e^z\ge z^m/m!$ を使えば指数項は任意の多項式の逆数より速く消えることが分かります。従って全体は $O(\varepsilon^2)$ です。
+これを区間 $[\delta,T]$ で上限に取ります。$a\delta>0$ を固定すれば、任意の整数 $m\ge1$ について $e^{-a\delta/\varepsilon}=o(\varepsilon^m)$ です。例えば $z=a\delta/\varepsilon$ とし、$e^z\ge z^{m+1}/(m+1)!$ を使うと、$e^{-a\delta/\varepsilon}/\varepsilon^m$ は定数倍の $\varepsilon$ 以下となって0へ収束します。従って全体は $O(\varepsilon^2)$ です。
 
 $b=0$ では遅れと剰余が0となり、初期層だけが残ることも式に含まれます。$\square$
 <!-- proof-end -->
@@ -813,7 +813,7 @@ $t>0$ なら $q(t)<0$ なので、$q=0$ の臨界曲線に留まりません。�
 
 ### A5. 速い時間の変換
 
-$\varepsilon x'=-2(x-h(y)),\ y'=3$ とする。$\tau=t/\varepsilon$、$X(\tau)=x(\varepsilon\tau)$、$Y(\tau)=y(\varepsilon\tau)$ と置いて方程式を導き、$\varepsilon\to0$ の凍結系を書け。
+$h\in C^1(\mathbb R)$、$0<\varepsilon\le1$ に対して $\varepsilon x'=-2(x-h(y)),\ y'=3$ とする。初期値 $(x_0,y_0)$ は $\varepsilon$ に依存しない。$\tau=t/\varepsilon$、$X(\tau)=x(\varepsilon\tau)$、$Y(\tau)=y(\varepsilon\tau)$ と置いて方程式を導き、$\varepsilon\to0$ の凍結系を有限な速い時間区間で示せ。
 
 - Level: A
 - ID: CDYN13-A5
@@ -834,7 +834,33 @@ $$
 =\varepsilon y'(\varepsilon\tau)=3\varepsilon.
 $$
 
-$\varepsilon\to0$ で $Y'=0$、従って $Y=y_0$ とした層方程式 $X'=-2(X-h(y_0))$ が現れます。凍結するのは速い時間で見た $Y$ であり、元の時刻で常に $y'=0$ という意味ではありません。
+$Y(0)=y_0$ なので、正確に積分すれば
+
+$$
+Y(\tau)=y_0+3\varepsilon\tau.
+$$
+
+従って任意の $S>0$ で $0\le\tau\le S$ とすると
+
+$$
+\sup_{0\le\tau\le S}|Y(\tau)-y_0|
+\le3\varepsilon S\longrightarrow0.
+$$
+
+$X$ の方程式に対しても、[速い時間の初期層極限定理](#thm-cdyn13-fast-time-limit)の $a=2,b=3$ を適用できます。$h\in C^1$ と初期値固定の仮定を満たすため、有限な $S$ 上で
+
+$$
+X(\tau)\longrightarrow
+h(y_0)+(x_0-h(y_0))e^{-2\tau}
+$$
+
+が一様に成立し、この極限解を微分すれば凍結した層方程式
+
+$$
+\frac{dX}{d\tau}=-2(X-h(y_0))
+$$
+
+を満たします。凍結するのは速い時刻での $Y$ であり、元の時刻で常に $y'=0$ という意味ではありません。
 <!-- solution-end -->
 
 ### B1. 初期層の長さを決める
@@ -921,7 +947,7 @@ $$
 
 ### B3. 初期値を $\varepsilon$ とともに動かす
 
-$a>0$、$b\in\mathbb R$、$h\in C^1$ と固定した $y_0,T>0$ を考える。初期値を $x_0(\varepsilon)=h(y_0)+\sqrt{\varepsilon}$ とした場合と、$x_0=h(y_0)+1$ とした場合で、$[0,T]$ 上の一様収束をそれぞれ判定せよ。
+$a>0$、$b\in\mathbb R$、$h\in C^1(\mathbb R)$、$y_0\in\mathbb R$、$T>0$ を固定する。初期値を $x_0(\varepsilon)=h(y_0)+\sqrt{\varepsilon}$ とした場合と、$x_0=h(y_0)+1$ とした場合で、$[0,T]$ 上の $x_\varepsilon(t)\to h(y_0+bt)$ の一様収束をそれぞれ判定せよ。
 
 - Level: B
 - ID: CDYN13-B3
@@ -935,7 +961,14 @@ $$
 +\frac{\varepsilon|b|H_1}{a}\longrightarrow0.
 $$
 
-従って一様収束します。ただし一般に評価は $O(\sqrt\varepsilon)$ であり $O(\varepsilon)$ とは限りません。
+従って一様収束します。ただし $t=0$ の差は正確に
+
+$$
+|x_\varepsilon(0)-h(y_0)|
+=\sqrt{\varepsilon}
+$$
+
+なので、区間全体の一様誤差は少なくとも $\sqrt{\varepsilon}$ です。従ってこの例の収束率を $O(\varepsilon)$ と改善することはできません。
 
 第二の場合は $q_0=1$ なので、初期時刻だけで
 
@@ -988,7 +1021,7 @@ $$
 
 1. $y(t)$ と $q(t)=x(t)-y(t)^2$ の正確な解を求めよ。
 2. $t>0$ を固定した極限と $t=\varepsilon\tau$（$\tau\ge0$ 固定）の極限をそれぞれ求めよ。
-3. $[0,T]$ で $x(t)\to y(t)^2$ が一様でないことを示し、任意の $\delta>0$ では $[\delta,T]$ で一様となることを証明せよ。
+3. 任意の固定 $T>0$ について、$[0,T]$ で $x(t)\to y(t)^2$ が一様でないことを示し、$0<\delta\le T$ では $[\delta,T]$ で一様となることを証明せよ。
 4. 一次の遅れ $-\varepsilon t$ と二次剰余の上界を導出せよ。
 5. この系が非定常周期解を持たない理由を述べよ。
 
