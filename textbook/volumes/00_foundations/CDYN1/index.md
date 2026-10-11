@@ -180,9 +180,9 @@ $$
 
 開区間 $U\subset\mathbb R$ と局所Lipschitz連続な $f:U\to\mathbb R$ を考える。全時刻で定義された $u:\mathbb R\to U$ とある $P>0$ が、全ての $t\in\mathbb R$ について次を満たすならば、$u$ は定数解である。
 
-$
+$$
 u'(t)=f(u(t)),\qquad u(t+P)=u(t).
-$
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
