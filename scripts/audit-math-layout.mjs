@@ -29,6 +29,17 @@ function scan(source) {
     if(fence)continue;
     if(s==='$$'){flush();display=!display;continue;}
     if(display||!s||/^#{1,6}\s|^<!--|^<a\s|^\$\$/u.test(s)){flush();continue;}
+    // A Markdown table consists of separate cells, not one prose paragraph.
+    if(s.startsWith('|')){flush();continue;}
+    // Markdown list items and blockquotes are independent units: do not
+    // combine unrelated bullets into a fake giant paragraph.
+    if(/^(?:\d+[.)]\s|[-*+]\s|>)/u.test(s)){
+      flush();
+      start=i+1;
+      body=[s];
+      flush();
+      continue;
+    }
     if(!body.length)start=i+1;
     body.push(s);
   }
