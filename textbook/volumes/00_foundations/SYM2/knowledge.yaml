@@ -1,0 +1,58 @@
+chapter: SYM2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEO2
+  - GEO7
+  - SYM1
+forward_references: []
+
+concepts:
+  - id: symplectic.symplectic-manifold
+    name: シンプレクティック多様体
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（シンプレクティック多様体）]
+    requires: [geometry.differential-form, geometry.exterior-derivative, symplectic.non-degenerate-form, geometry.tangent-space]
+
+  - id: symplectic.coordinate-criterion
+    name: 局所座標での判定条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（局所座標での判定条件）]
+    requires: [symplectic.symplectic-manifold, geometry.exterior-derivative]
+
+  - id: symplectic.product-and-sign
+    name: 積と符号反転
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（積と符号反転）]
+    requires: [symplectic.symplectic-manifold, geometry.product-tangent-space, geometry.pullback-commutes-exterior-derivative]
+
+  - id: symplectic.sphere-area-form
+    name: 球面の面積形式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（球面の面積形式）]
+    requires: [symplectic.symplectic-manifold, geometry.tangent-space]
+
+  - id: symplectic.symplectomorphism
+    name: シンプレクティック微分同相
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（シンプレクティック微分同相）]
+    requires: [symplectic.symplectic-manifold, geometry.differential-form-pullback]
+
+  - id: symplectic.differential-criterion
+    name: 保存性の接空間判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（保存性の接空間判定）]
+    requires: [symplectic.symplectomorphism, geometry.differential-form-pullback, geometry.differential]
+
+  - id: symplectic.symplectic-orientation
+    name: シンプレクティック形式が定める向き
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（シンプレクティック形式が定める向き）]
+    requires: [symplectic.symplectic-manifold, symplectic.linear-normal-form, geometry.pullback-wedge-functoriality]
