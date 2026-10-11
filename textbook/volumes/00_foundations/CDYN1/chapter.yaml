@@ -1,0 +1,46 @@
+id: "CDYN1"
+title: "連続流から時刻写像へ：一次元でできないこと"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ODE8
+  - DYN7
+official_scope: []
+learning_objectives:
+  - 大域流と時刻写像の定義域・時間パラメータを区別し線形方程式で具体計算できる
+  - ODE8の流れの合成則から時刻写像の全単射性と逆写像を証明できる
+  - 実直線上のスカラー自律流が全時刻で左右の順序を保存することを証明できる
+  - 一次元変分方程式の積分因子から時刻写像の導関数の正値性を導出できる
+  - 平衡点の時刻写像の乗数を指数関数で計算しDYN2の離散安定判定と比較できる
+  - 一次元自律ODEで非定常周期解が存在しないことを最大値と解の一意性で証明できる
+  - 反射・Logistic写像が時刻写像になれない理由を別の障害から説明できる
+  - 円周回転の非定常周期軌道と実直線の非周期定理の前提差を説明できる
+  - 有限時間blow-up例で局所流と大域流を混同せず定義域を判断できる
+definitions:
+  - { id: CDYN1-DEF-01, name: "大域流の時刻写像" }
+theorems:
+  - { id: CDYN1-THM-01, name: "一次元の大域流は順序を保存する" }
+  - { id: CDYN1-THM-02, name: "一次元時刻写像の導関数の正値性" }
+  - { id: CDYN1-THM-03, name: "実直線の一次元自律ODEに非定常周期解はない" }
+propositions:
+  - { id: CDYN1-PROP-01, name: "時刻写像の可逆性" }
+canonical_examples:
+  - "x'=-ax の時刻写像と乗数"
+  - "x'=x² の有限時間blow-upと定義域"
+  - "反射1-xと非単射Logistic写像の時刻写像障害"
+  - "円周定速回転の最小正周期"
+problem_patterns:
+  - CDYN1-LINEAR-TIME-MAP
+  - CDYN1-TRANSLATION-NONPERIODIC
+  - CDYN1-EQUILIBRIUM-MULTIPLIER
+  - CDYN1-ORDER-OBSTRUCTION
+  - CDYN1-BLOWUP-DOMAIN
+  - CDYN1-NONPERIODIC-SCALAR-FLOW
+  - CDYN1-VARIATION-INTEGRATING-FACTOR
+  - CDYN1-LOCAL-VS-GLOBAL-INVERSION
+  - CDYN1-CIRCLE-ROTATION
+  - CDYN1-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.5, review: 2.0 }
