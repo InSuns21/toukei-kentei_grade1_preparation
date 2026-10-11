@@ -93,7 +93,7 @@ b_\omega:V\longrightarrow V^*,
 b_\omega(v)(w)=\omega(v,w)
 $$
 
-を考えます。$b_\omega(v)=0$ は「全ての $w$ に対して $\omega(v,w)=0$」と同値です。従って $\omega$ が非退化であることは $\ker b_\omega=\{0\}$ と同値です。$V$ と $V^*$ はともに同じ有限次元なので、[階数・退化次数の関係](../LA3A/index.md#thm-la3a-dual-basis)を直接使う代わりに基底の像を数えても、単射なら全射と分かります。つまり非退化なら $b_\omega$ は線形同型です。
+を考えます。$b_\omega(v)=0$ は「全ての $w$ に対して $\omega(v,w)=0$」と同値です。従って $\omega$ が非退化であることは $\ker b_\omega=\{0\}$ と同値です。$V$ と $V^*$ はともに同じ有限次元なので、[双対基底定理](../LA3A/index.md#thm-la3a-dual-basis)から $\dim V^*=\dim V$ です。従って単射な線形写像 $b_\omega:V\to V^*$ は全射でもあります。つまり非退化なら $b_\omega$ は線形同型です。
 
 ## 2. 非退化なら次元が偶数になる
 
@@ -121,7 +121,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$m=\dim V$ とし、$m$ 次正方行列 $\Omega$ を上記のように取ります。[行列式の転置・スカラー倍の性質](../LA3C/index.md#thm-la3c-det-basic-laws)を使えば
+$m=\dim V$ とし、$m$ 次正方行列 $\Omega$ を上記のように取ります。[行列式の転置・スカラー倍の性質](../LA3C/index.md#thm-la3c-det-elementary-operations)を使えば
 
 $$
 \det\Omega
@@ -609,7 +609,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\omega_0=\sum_{i=1}^n dq_i\wedge dp_i$ と置きます。[外積の次数付き交換則](../LA3E/index.md#thm-la3e-wedge-laws)を使い、次数2の項の外積は互いに可換で、同じ項を二回選んだ外積は零です。従って
+$\omega_0=\sum_{i=1}^n dq_i\wedge dp_i$ と置きます。[外積の次数付き交換則](../LA3E/index.md#thm-la3e-wedge-algebra-laws)を使い、次数2の項の外積は互いに可換で、同じ項を二回選んだ外積は零です。従って
 
 $$
 \omega_0^{\wedge n}
@@ -638,7 +638,7 @@ A^*(\omega_0^{\wedge n})
 =\omega_0^{\wedge n}.
 $$
 
-一方、[最高次外積の基底変換](../LA3E/index.md#thm-la3e-top-form-change)により左辺は $(\det A)\,\omega_0^{\wedge n}$ です。非零の最高次形式を比較し $\det A=1$ を得ます。
+一方、[最高次外積の基底変換](../LA3E/index.md#thm-la3e-top-form-change-of-basis)により左辺は $(\det A)\,\omega_0^{\wedge n}$ です。非零の最高次形式を比較し $\det A=1$ を得ます。
 <!-- proof-end -->
 
 $n=1$ なら、任意の $2$ 次正方行列 $A$ について $A^{\mathsf T}JA=(\det A)J$ が直接計算できます。従って一自由度では $\det A=1$ とシンプレクティック性が同値です。これは[AMECH7の一自由度の条件](../AMECH7/index.md#prop-amech7-one-dof)と一致します。
