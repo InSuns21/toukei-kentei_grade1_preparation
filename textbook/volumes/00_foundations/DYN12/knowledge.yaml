@@ -1,0 +1,62 @@
+chapter: DYN12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - DYN11
+  - DYN10
+  - CELL7
+concepts:
+  - id: dynamical-systems.word-language
+    name: 長さnの生成語と言語
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（長さnの生成語と言語）"]
+    requires: [dynamical-systems.one-sided-shift]
+  - id: dynamical-systems.full-shift-word-count
+    name: 全二進シフトの生成語数
+    kind: proposition
+    introduction_aliases: ["命題（全二進シフトの生成語数）"]
+    requires: [dynamical-systems.word-language]
+  - id: dynamical-systems.bowen-metric
+    name: 観測距離と分離集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（観測距離と分離集合）"]
+    requires: [dynamical-systems.prefix-metric, dynamical-systems.one-sided-shift]
+  - id: dynamical-systems.first-mismatch-observation
+    name: 最初の相違位置による観測距離
+    kind: lemma
+    introduction_aliases: ["補題（最初の相違位置による観測距離）"]
+    requires: [dynamical-systems.bowen-metric]
+  - id: dynamical-systems.exact-separated-count
+    name: 全二進シフトの分離数の厳密計数
+    kind: theorem
+    introduction_aliases: ["定理（全二進シフトの分離数の厳密計数）"]
+    requires: [dynamical-systems.first-mismatch-observation, dynamical-systems.full-shift-word-count]
+  - id: dynamical-systems.topological-entropy
+    name: 分離集合による位相エントロピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（分離集合による位相エントロピー）"]
+    requires: [dynamical-systems.bowen-metric]
+  - id: dynamical-systems.full-shift-entropy
+    name: 片側全二進シフトの位相エントロピー
+    kind: theorem
+    introduction_aliases: ["定理（片側全二進シフトの位相エントロピー）"]
+    requires: [dynamical-systems.topological-entropy, dynamical-systems.exact-separated-count, dynamical-systems.shift-continuity]
+  - id: dynamical-systems.qshift-entropy
+    name: q文字全シフトのエントロピー
+    kind: proposition
+    introduction_aliases: ["命題（q文字全シフトのエントロピー）"]
+    requires: [dynamical-systems.full-shift-entropy]
+  - id: dynamical-systems.no11-subshift
+    name: 11を含まない二進部分シフト
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（11を含まない二進部分シフト）"]
+    requires: [dynamical-systems.one-sided-shift, dynamical-systems.cylinder-basis]
+  - id: dynamical-systems.no11-entropy
+    name: 禁止語11の部分シフトの生成語数とエントロピー
+    kind: theorem
+    introduction_aliases: ["定理（禁止語11の部分シフトの生成語数とエントロピー）"]
+    requires: [dynamical-systems.no11-subshift, dynamical-systems.topological-entropy, dynamical-systems.word-language]
