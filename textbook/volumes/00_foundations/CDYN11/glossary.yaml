@@ -1,0 +1,23 @@
+chapter: "CDYN11"
+terms:
+  - term: 平均位相同期
+    english: averaged phase locking
+    meaning: "平均位相差方程式の解が円周上の一定の平衡位相差へ収束すること。元の結合振動子の無限時間同期とは区別する。"
+  - term: 同期位相差
+    english: locked phase difference
+    meaning: "平均位相差方程式の右辺が0になる円周上の位相差。存在することと安定であることは別。"
+  - term: 同期閾値
+    english: locking threshold
+    meaning: "平均位相差模型D'=Δ−κsinDで平衡点が存在する条件 |Δ|≤κ を定める境界。"
+  - term: 引込み域
+    english: basin of attraction
+    meaning: "指定した安定平衡位相差へ収束する解の初期位相差の集合。狭義閾値内では不安定平衡点以外の円周。"
+  - term: 片側安定性
+    english: semistability
+    meaning: "閾値等号で、持ち上げた位相差が一方の側から平衡点へ近づき他方では離れる性質。"
+  - term: 位相すべり
+    english: phase slipping
+    meaning: "同期閾値を超えた平均位相差が平衡にとどまらず、円周を繰り返し回転すること。"
+  - term: 一周時間
+    english: phase-slip period
+    meaning: "平均位相差の実数持上げが2π進むために要する遅い時間。閾値外では2π/√(Δ²−κ²)。"
