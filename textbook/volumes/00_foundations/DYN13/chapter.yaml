@@ -1,0 +1,52 @@
+id: "DYN13"
+title: "区間のhorseshoe・全シフトへの符号化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - DYN12
+  - DYN10
+  - DYN6
+  - DYN5
+  - RA2
+  - CELL7
+official_scope: []
+learning_objectives:
+  - 離れた二つの閉分枝と共通の縮小逆写像という強いhorseshoe条件を具体模型で検証できる
+  - 有限語の枝区間と前向き旅程が一致することを両包含で証明できる
+  - 入れ子区間の直径が共通縮小率のn乗で減ることを導き無限交叉の存在と一意性を証明できる
+  - 接頭語一致から符号化の連続性を量的に証明できる
+  - 生存集合の等号・全単射性・逆連続性・共役の可換式を確かめられる
+  - 固定周期nの点の個数2のn乗と最小周期を区別し周期点稠密性を構成できる
+  - 区間の観測距離で分離数を上下評価し生存集合の位相エントロピーlog2を証明できる
+  - 区間全体ではlog2は下界でしかないこととTentの接触境界での非単射性を説明できる
+definitions:
+  - { id: DYN13-DEF-01, name: "縮小逆分枝を持つ二枝horseshoe" }
+  - { id: DYN13-DEF-02, name: "逆分枝による符号化と生存集合" }
+theorems:
+  - { id: DYN13-THM-01, name: "無限語の点の存在・一意性と連続性" }
+  - { id: DYN13-THM-02, name: "生存集合と片側全シフトの位相共役" }
+  - { id: DYN13-THM-03, name: "生存集合のエントロピーと区間全体の下界" }
+propositions:
+  - { id: DYN13-PROP-01, name: "有限語の枝区間と直径評価" }
+  - { id: DYN13-PROP-02, name: "周期点の個数と稠密性" }
+canonical_examples:
+  - "三倍傾きの二枝と中央の一定部分からなる連続区間写像"
+  - "長さ2の枝区間の端点と左右順の反転"
+  - "0無限列・10無限列・1無限列の実現点"
+  - "01の二周期に対応する3/10と9/10"
+  - "Tentの01000...と11000...が同じ境界点になる"
+problem_patterns:
+  - DYN13-VERIFY-BRANCHES
+  - DYN13-CYLINDER-INTERVALS
+  - DYN13-CODING-POINTS
+  - DYN13-PREFIX-DIAMETER
+  - DYN13-TWO-PERIOD
+  - DYN13-SURVIVOR-RECOVERY
+  - DYN13-TOUCHING-BOUNDARY
+  - DYN13-SEPARATED-BOUNDS
+  - DYN13-PRIMITIVE-PERIOD
+  - DYN13-HORSESHOE-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.0, review: 2.0 }
