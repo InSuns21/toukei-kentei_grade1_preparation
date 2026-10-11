@@ -176,7 +176,7 @@ $$
 
 <!-- definition-example-start: def-dyn12-entropy -->
 
-**定義の確認**　固定点一つだけの空間 $Y=\{0^\infty\}$ に恒等写像を入れると、分離集合には1点しか選べないので $s_Y(n,\varepsilon)=1$。従って $\log1/n=0$ で $h_{\mathrm{top}}=0$ です。固定点があることと複雑さが正になることは別です。
+**定義の確認**　固定点一つだけの空間 $Y=\{0^\infty\}$ に恒等写像を入れると、分離集合には1点しか選べないので $s_Y(n,\varepsilon)=1$。従って $\frac1n\log s_Y(n,\varepsilon)=\frac1n\log1=0$ で $h_{\mathrm{top}}=0$ です。固定点があることと複雑さが正になることは別です。
 
 <!-- definition-example-end -->
 
