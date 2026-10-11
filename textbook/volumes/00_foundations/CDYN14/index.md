@@ -1015,6 +1015,72 @@ $$
 $\Delta tD>0$ のもとでこれは $0<\Delta tD<1/2$ です。$\Delta tD=3/4$ なら倍率は $1-4(3/4)=-2$ で、振幅は毎回2倍になります。連続時間の同じモードでは $e^{-4Dt}$ と減ることと対照的です。
 <!-- solution-end -->
 
+### B5. 固定波数と増大する波数で極限はどう違うか
+
+$\kappa>0$、$N$ 点周期格子の拡散係数を $D_N=\kappa N^2$ とする。第 $k$ Fourierモードの固有値は
+
+$$
+\lambda_{k,N}=-4\kappa N^2\sin^2(\pi k/N)
+$$
+
+である。
+
+1. $k=2$ を固定したときの $\lambda_{2,N}$ の極限を求めよ。
+2. $k_N=\lfloor\sqrt N\rfloor$（$N\ge4$）としたとき、$\lambda_{k_N,N}/(-4\pi^2\kappa k_N^2)$ の極限を求めよ。$\lambda_{k_N,N}$ 自体は有限の値へ収束するか。
+3. 偶数 $N$ で $k_N=N/2$ としたとき、同じ比を求めよ。
+4. (1)–(3) の固有値計算だけから、任意の初期値に対するPDE解への収束を言えるか。
+
+- Level: B
+- ID: CDYN14-B5
+
+<!-- solution-start -->
+**詳細解答**
+
+**(1)**　$k=2$ は $N$ とともに動かないので、[固定モード極限の命題](#prop-cdyn14-fixed-mode-limit)の $N>2$ という条件を満たします。
+
+$$
+\begin{aligned}
+\lambda_{2,N}
+&=-4\kappa N^2\sin^2(2\pi/N)\\
+&=-16\pi^2\kappa
+\left(\frac{\sin(2\pi/N)}{2\pi/N}\right)^2.
+\end{aligned}
+$$
+
+$2\pi/N\to0$ より、この固有値は $-16\pi^2\kappa$ へ収束します。
+
+**(2)**　$k_N=\lfloor\sqrt N\rfloor$ は $N$ とともに増大しますが、
+
+$$
+0<\frac{k_N}{N}\le\frac1{\sqrt N}\longrightarrow0.
+$$
+
+従って $z_N=\pi k_N/N\to0$ なので、
+
+$$
+\frac{\lambda_{k_N,N}}{-4\pi^2\kappa k_N^2}
+=\left(\frac{\sin z_N}{z_N}\right)^2
+\longrightarrow1.
+$$
+
+ただし $k_N\to\infty$ であり、右辺の比較対象 $-4\pi^2\kappa k_N^2$ は $-\infty$ へ進みます。上の比が1へ近づくことから、$\lambda_{k_N,N}$ 自身も $-\infty$ へ進み、有限の固有値極限はありません。
+
+**(3)**　$k_N=N/2$ を代入すると $z_N=\pi/2$ です。
+
+$$
+\begin{aligned}
+\lambda_{N/2,N}&=-4\kappa N^2,\\
+-4\pi^2\kappa k_N^2&=-\pi^2\kappa N^2,\\
+\frac{\lambda_{N/2,N}}{-4\pi^2\kappa k_N^2}
+&=\frac4{\pi^2}\ne1.
+\end{aligned}
+$$
+
+この高周波モードは $k_N/N\to0$ の条件を満たさないので、相対誤差が0になるという前段の議論を適用できません。
+
+**(4)**　固有値の極限だけでは、格子点上の初期値と連続空間の初期関数をどう対応させるかを決められません。低周波・高周波の全成分の一様な評価、補間した解の収束、および極限が目的のPDEを満たすことも別途必要です。したがって(1)–(3)だけから任意初期値のPDE解への収束は結論できません。
+<!-- solution-end -->
+
 ### C1. 六点格子の反応・拡散・モード・離散化
 
 $N=6$、$D=2$、$\rho=1$ とし、
