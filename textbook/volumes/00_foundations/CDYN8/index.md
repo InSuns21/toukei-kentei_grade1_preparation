@@ -594,7 +594,7 @@ $$
 - ID: CDYN8-B4
 
 <!-- solution-start -->
-**詳細解答**　(1) $\cos(\pi/2)=0$、$\sin^2(\pi/2)=1$ を[正確な半径微分式](#prop-cdyn8-energy-balance)から第5節で導いた式へ代入すると $r'=\mu\cdot2\cdot1\cdot1=2\mu$。(2) $u_0=1$ なので[平均振幅の明示解](#thm-cdyn8-amplitude-equation)から $\rho(\tau)=2/\sqrt{1+3e^{-\tau}}$。(3) 平均系は $\rho\to2$ でも、元の系では $r=2$ の点で外向きの速度が生じ得ます。第4節の誤差評価も固定した $0\le\mu t\le T$ に限られます。したがって平均平衡半径を元の系の不変円や周期軌道そのものと同一視できません。
+**詳細解答**　(1) $\cos(\pi/2)=0$、$\sin^2(\pi/2)=1$ を[エネルギー収支](#prop-cdyn8-energy-balance)から第5節で導いた半径の式へ代入すると $r'=\mu\cdot2\cdot1\cdot1=2\mu$。(2) $u_0=1$ なので[平均振幅の明示解](#thm-cdyn8-amplitude-equation)から $\rho(\tau)=2/\sqrt{1+3e^{-\tau}}$。(3) 平均系は $\rho\to2$ でも、元の系では $r=2$ の点で外向きの速度が生じ得ます。第4節の誤差評価も固定した $0\le\mu t\le T$ に限られます。したがって平均平衡半径を元の系の不変円や周期軌道そのものと同一視できません。
 <!-- solution-end -->
 
 ### C1. 導出・安定性・定量誤差を一つにつなぐ
