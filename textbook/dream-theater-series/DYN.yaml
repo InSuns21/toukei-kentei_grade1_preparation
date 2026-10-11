@@ -35,7 +35,7 @@ chapters:
     title: 円周回転・有理回転と無理回転
   - id: DYN8
     path: textbook/volumes/00_foundations/DYN8
-    status: planned
+    status: completed
     title: 正の極限集合・再帰・軌道閉包
   - id: DYN9
     path: textbook/volumes/00_foundations/DYN9
