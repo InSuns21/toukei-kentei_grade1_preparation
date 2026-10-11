@@ -1,0 +1,28 @@
+chapter: CDYN2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CDYN1
+  - ODE4
+concepts:
+  - id: continuous-dynamical-systems.regular-turning-point
+    name: 正則転回点
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正則転回点）"]
+    requires: [ode.ode4-first-integral]
+  - id: continuous-dynamical-systems.closed-energy-orbit
+    name: 正則な二転回点からの非定常周期解
+    kind: theorem
+    introduction_aliases: ["定理（正則な二転回点からの非定常周期解）"]
+    requires: [continuous-dynamical-systems.regular-turning-point, ode.ode4-first-integral-criterion]
+  - id: continuous-dynamical-systems.harmonic-period
+    name: 調和振動子の周期は振幅によらない
+    kind: theorem
+    introduction_aliases: ["定理（調和振動子の周期は振幅によらない）"]
+    requires: [continuous-dynamical-systems.closed-energy-orbit]
+  - id: continuous-dynamical-systems.pendulum-period
+    name: 振り子の周期はエネルギーとともに増大する
+    kind: proposition
+    introduction_aliases: ["命題（振り子の周期はエネルギーとともに増大する）"]
+    requires: [continuous-dynamical-systems.closed-energy-orbit]

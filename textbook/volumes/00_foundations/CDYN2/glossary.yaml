@@ -1,0 +1,17 @@
+chapter: "CDYN2"
+terms:
+  - term: エネルギー曲線
+    english: energy level curve
+    meaning: "保存系の位置速度平面でH(q,v)=Eを満たす点の集合。全ての成分が周期軌道とは限らない。"
+  - term: 正則転回点
+    english: regular turning point
+    meaning: "U(a)=EかつU'(a)が零でなく、保存運動が有限時間で向きを変える端点。"
+  - term: 周期積分
+    english: period integral
+    meaning: "二つの正則転回点の間を往復する運動の最小周期T(E)=2∫_a^b[2(E-U(q))]^{-1/2}dq。"
+  - term: セパラトリクス
+    english: separatrix
+    meaning: "異なる軌道型の領域を分ける軌道。退化した転回点へ無限時間で近づく場合がある。"
+  - term: 等時性
+    english: isochrony
+    meaning: "調和振動子などで、振動振幅を変えても周期が一定に保たれる性質。"

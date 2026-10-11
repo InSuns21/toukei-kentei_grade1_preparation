@@ -184,7 +184,7 @@ DYN1–15の実装とCELL・ODEとの科目横断監査は完了しています�
 
 ### 力学系 II：ODEから振動と同期へ
 
-[**力学系 II：連続流・非線形振動・同期**](textbook/dream-theater.md#dt-subject-dynamical-systems-ii) は、ODE4・ODE8–11の流れ・変分方程式・Lyapunov・Poincaré写像・Hopf正規形を再利用する発展15講です。[CDYN1](textbook/volumes/00_foundations/CDYN1/index.md)で一次元時刻写像の可逆性・順序保存・正の乗数と非定常周期軌道の不可能性を証明し、次の章で平面の保存系・周期軌道から非線形振動、平均化、弱結合同期、速遅系と空間結合へ進みます。初講はODE8とDYN7を直接前提とし、未公開の章は科目目次には載せません。
+[**力学系 II：連続流・非線形振動・同期**](textbook/dream-theater.md#dt-subject-dynamical-systems-ii) は、ODE4・ODE8–11の流れ・変分方程式・Lyapunov・Poincaré写像・Hopf正規形を再利用する発展15講です。[CDYN1](textbook/volumes/00_foundations/CDYN1/index.md)で一次元時刻写像の可逆性・順序保存・正の乗数と非定常周期軌道の不可能性を証明し、[CDYN2](textbook/volumes/00_foundations/CDYN2/index.md)で二転回点の正則性から周期解の存在と周期積分を導きます。その先では非線形振動、平均化、弱結合同期、速遅系と空間結合へ進みます。未公開の章は科目目次には載せません。
 
 ## 応用系
 
