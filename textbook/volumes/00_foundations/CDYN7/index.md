@@ -669,7 +669,36 @@ A'=\varepsilon\gamma
 \end{pmatrix}A.
 $$
 
-一周期で $\sin^2,\cos^2$ は各 $1/2$、$\sin\cos$ は0なので $\overline M=-(\gamma/2)I$。(3) 平均系は $Y(t)=e^{-\varepsilon\gamma t/2}A(0)$。[弱減衰振動子の誤差定理](#thm-cdyn7-damped-amplitude)は $\|A(t)-Y(t)\|\le (\varepsilon\gamma/2)(1+\gamma T)e^{\gamma T/2}R(0)$ と示しています。$\|A\|=R$、$\|Y\|=R(0)e^{-\varepsilon\gamma t/2}$、[逆三角不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-reverse-triangle-inequality)により求める振幅の差も同じ上界です。零初期値でも両辺は0です。
+一周期の平均は、$\sin^2t$ と $\cos^2t$ が各 $1/2$、$\sin t\cos t$ が0です。従って平均行列は
+
+$
+\overline M=-\frac{\gamma}{2}I
+$
+
+となります。
+
+**(3)**　平均方程式を初期値 $Y(0)=A(0)$ で解くと
+
+$
+Y(t)=e^{-\varepsilon\gamma t/2}A(0)
+$
+
+です。[弱減衰振動子の誤差定理](#thm-cdyn7-damped-amplitude)へこの初期値と観測時間 $0\le t\le T/\varepsilon$ を代入すると
+
+$
+\|A(t)-Y(t)\|
+\le \frac{\varepsilon\gamma}{2}(1+\gamma T)e^{\gamma T/2}R(0)
+$
+
+を得ます。ここで $\|A(t)\|=R(t)$ および $\|Y(t)\|=R(0)e^{-\varepsilon\gamma t/2}$ です。[逆三角不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-reverse-triangle-inequality)を二つのベクトル $A(t)$、$Y(t)$ に適用すると
+
+$
+|R(t)-R(0)e^{-\varepsilon\gamma t/2}|
+=|\|A(t)\|-\|Y(t)\||
+\le\|A(t)-Y(t)\|.
+$
+
+従って振幅差も同じ上界を持ちます。零初期値でも両辺は0です。
 <!-- solution-end -->
 
 ### B4. 平均零でない外力を分離する
