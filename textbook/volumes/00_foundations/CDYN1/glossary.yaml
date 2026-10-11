@@ -1,0 +1,17 @@
+chapter: "CDYN1"
+terms:
+  - term: 時刻写像
+    english: time-h map
+    meaning: "大域流を一定の時間h進め、初期状態に到達状態を対応させる自己写像。"
+  - term: 大域流
+    english: global flow
+    meaning: "全ての初期値と正負の全時間に一意な解が存在し、時間の合成則を満たす発展。"
+  - term: 順序保存
+    english: order preservation
+    meaning: "一次元実直線の時刻写像が初期値の厳密な大小関係を保つこと。"
+  - term: 変分方程式
+    english: variational equation
+    meaning: "解の初期値依存の微分J(t)が従う線形微分方程式。一次元では指数積分によりJ>0。"
+  - term: 非定常周期解
+    english: nonconstant periodic solution
+    meaning: "正の周期Pで全時刻に元の値へ戻るが、時間によらない定数解ではない解。実直線のスカラー自律ODEにはない。"
