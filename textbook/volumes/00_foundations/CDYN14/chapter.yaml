@@ -1,0 +1,48 @@
+id: "CDYN14"
+title: "結合振動子格子と空間モード"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CDYN12
+  - CDYN13
+  - CELL5
+official_scope: []
+learning_objectives:
+  - 周期添字と最近接離散Laplace作用素を定義しエネルギー恒等式と平均の保存を導ける
+  - 有限Fourier直交和と逆変換を直接証明し離散Laplaceの固有値を計算できる
+  - 反応拡散格子のモードごとの明示解と零モード・非零モードの安定条件を導ける
+  - 最近接正弦結合の同期解を線形化し位相幅の仮定の下で非線形同期を証明できる
+  - 方向付き結合の複素固有値を計算し非対称性と反拡散の問題を説明できる
+  - 有限格子のODEと離散時間更新・セルオートマトン・PDE極限の証明境界を区別できる
+definitions:
+  - { id: CDYN14-DEF-01, name: 有限周期格子の離散Laplace作用素 }
+theorems:
+  - { id: CDYN14-PROP-01, name: 平均と離散エネルギー恒等式 }
+  - { id: CDYN14-THM-01, name: 有限Fourier直交性と格子モードの固有値 }
+  - { id: CDYN14-THM-02, name: 線形格子の明示解・減衰率・安定性 }
+  - { id: CDYN14-PROP-02, name: 最近接正弦結合の同期解と線形化 }
+  - { id: CDYN14-THM-03, name: 狭い位相幅からの格子同期 }
+  - { id: CDYN14-PROP-03, name: 方向付き最近接結合の固有値 }
+  - { id: CDYN14-PROP-04, name: 固定モードの形式的連続極限 }
+canonical_examples:
+  - 四点格子の離散Laplace作用素の直接代入
+  - 四点格子のFourier固有モードと減衰率
+  - 六点格子の反応係数と平均零部分空間の安定性
+  - 狭い位相幅の正弦結合に対する直接エネルギー減少
+  - 方向付き結合の複素固有値と負係数による増幅
+  - 前進Euler離散化の交互モードにおける発散
+problem_patterns:
+  - CDYN14-RING-LAPLACIAN
+  - CDYN14-ALTERNATING-MODE
+  - CDYN14-ROOT-ORTHOGONALITY
+  - CDYN14-MEAN-MODE
+  - CDYN14-PHASE-LINEARIZATION
+  - CDYN14-DISCRETE-ENERGY
+  - CDYN14-REACTION-STABILITY
+  - CDYN14-DIRECTED-MODE
+  - CDYN14-EULER-AMPLIFICATION
+  - CDYN14-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 2.0 }
