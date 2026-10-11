@@ -1,0 +1,46 @@
+id: "CDYN3"
+title: "周期軌道を位相で記述する"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CDYN2
+official_scope: []
+learning_objectives:
+  - 最小正周期と軌道上の状態の一意対応から円周時間位相のwell-defined性を証明できる
+  - 時間位相の等速進行と角振動数を導出し位相原点を変更できる
+  - 同一周期軌道上の二解に対して原点と時刻に依存しない位相差を計算できる
+  - 正の非一様角速度から積分で周期と時間位相を構成し連鎖律で検算できる
+  - 角速度1+εcosαの周期積分を半角置換で計算し偏角と位相の差を定量化できる
+  - 正則な二転回点のエネルギー曲線について往路と復路の経過時間の相違を使って位相を貼り合わせられる
+  - 調和振動子の位置速度楕円の生の偏角と正規化後の等速位相を計算できる
+  - 正の角速度の条件が破れると一周できなくなる理由を説明できる
+  - 位相差が別軌道や軌道外へ自動で定義できないことを区別できる
+definitions:
+  - { id: CDYN3-DEF-01, name: 周期軌道上の時間位相 }
+  - { id: CDYN3-DEF-02, name: 同一周期軌道上の位相差 }
+theorems:
+  - { id: CDYN3-THM-01, name: 時間位相の整合性と等速進行 }
+  - { id: CDYN3-THM-02, name: 正の非一様角速度から時間位相を構成する }
+propositions:
+  - { id: CDYN3-PROP-01, name: 位相差の時間不変性と原点不変性 }
+  - { id: CDYN3-PROP-02, name: 二つの転回点を持つ閉軌道の時間位相 }
+canonical_examples:
+  - 調和振動子の楕円座標正規化と偏角速度の非一様性
+  - 円周角速度1+εcosαの一周期積分と時間位相
+  - 二転回点を持つエネルギー曲線の往路と復路の時間積分
+  - 同じ周期軌道上の二解の位相差
+problem_patterns:
+  - CDYN3-HARMONIC-PHASE
+  - CDYN3-TIME-SHIFT
+  - CDYN3-CONSTANT-CIRCLE
+  - CDYN3-LOCAL-ANGULAR-SPEED
+  - CDYN3-ENERGY-ENDPOINT
+  - CDYN3-RAW-ELLIPSE-ANGLE
+  - CDYN3-NONUNIFORM-INTEGRAL
+  - CDYN3-ORIGIN-INVARIANCE
+  - CDYN3-RETURN-BRANCH
+  - CDYN3-PLANAR-CIRCLE-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 4.5, review: 2.0 }

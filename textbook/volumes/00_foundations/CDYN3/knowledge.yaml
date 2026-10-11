@@ -1,0 +1,39 @@
+chapter: CDYN3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CDYN2
+concepts:
+  - id: continuous-dynamical-systems.orbit-time-phase
+    name: 周期軌道上の時間位相
+    aliases: [時間位相]
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（周期軌道上の時間位相）"]
+    requires: [continuous-dynamical-systems.closed-energy-orbit]
+  - id: continuous-dynamical-systems.orbit-phase-consistency
+    name: 時間位相の整合性と等速進行
+    kind: theorem
+    introduction_aliases: ["定理（時間位相の整合性と等速進行）"]
+    requires: [continuous-dynamical-systems.orbit-time-phase]
+  - id: continuous-dynamical-systems.same-orbit-phase-difference
+    name: 同一周期軌道上の位相差
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（同一周期軌道上の位相差）"]
+    requires: [continuous-dynamical-systems.orbit-time-phase]
+  - id: continuous-dynamical-systems.phase-difference-invariance
+    name: 位相差の時間不変性と原点不変性
+    kind: proposition
+    introduction_aliases: ["命題（位相差の時間不変性と原点不変性）"]
+    requires: [continuous-dynamical-systems.same-orbit-phase-difference]
+  - id: continuous-dynamical-systems.nonuniform-circle-phase
+    name: 正の非一様角速度から時間位相を構成する
+    kind: theorem
+    introduction_aliases: ["定理（正の非一様角速度から時間位相を構成する）"]
+    requires: [continuous-dynamical-systems.orbit-time-phase]
+  - id: continuous-dynamical-systems.energy-orbit-phase
+    name: 二つの転回点を持つ閉軌道の時間位相
+    kind: proposition
+    introduction_aliases: ["命題（二つの転回点を持つ閉軌道の時間位相）"]
+    requires: [continuous-dynamical-systems.closed-energy-orbit, continuous-dynamical-systems.orbit-time-phase]
