@@ -548,7 +548,7 @@ $\sigma=dh$ のときは[外微分の二乗零](../GEO7/index.md#thm-geo7-d-squa
 
 ## 7. 円周にも大域的な正準形式がある
 
-$Q=S^1$ 上には一般に全域で一つの角度座標を置けません。しかし [SYM2で使った円周上の1形式](../SYM2/index.md#prop-sym2-product-and-sign) の具体式 $\alpha=x\,dy-y\,dx$ は、接ベクトル $e=(-y,x)$ に対して $\alpha(e)=1$ を満たす滑らかな1形式です。各 $\beta_x\in T_x^*S^1$ を一意に $\beta_x=p\alpha_x$ と書けば、$(x,p)\in S^1\times\mathbb R$ を $T^*S^1$ の大域表示として使えます。
+$Q=S^1$ 上には一般に全域で一つの角度座標を置けません。しかし [SYM2で使った円周上の1形式](../SYM2/index.md#example-sym2-torus-circle-form) の具体式 $\alpha=x\,dy-y\,dx$ は、接ベクトル $e=(-y,x)$ に対して $\alpha(e)=1$ を満たす滑らかな1形式です。各 $\beta_x\in T_x^*S^1$ を一意に $\beta_x=p\alpha_x$ と書けば、$(x,p)\in S^1\times\mathbb R$ を $T^*S^1$ の大域表示として使えます。
 
 この表示で射影は $(x,p)\mapsto x$ なので、[正準1形式の定義](#def-sym3-tautological-form)から
 
