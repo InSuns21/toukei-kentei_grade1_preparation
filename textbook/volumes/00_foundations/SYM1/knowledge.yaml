@@ -21,14 +21,14 @@ concepts:
     name: 非退化交代形式
     kind: definition
     introduction: formal
-    introduction_aliases: [非退化交代形式・シンプレクティックベクトル空間, 定義（非退化交代形式・シンプレクティックベクトル空間）]
+    introduction_aliases: [定義（非退化交代形式）]
     requires: [symplectic.alternating-bilinear-form, linear.algebraic-dual-space]
 
   - id: symplectic.symplectic-vector-space
     name: シンプレクティックベクトル空間
     kind: definition
     introduction: formal
-    introduction_aliases: [非退化交代形式・シンプレクティックベクトル空間, 定義（非退化交代形式・シンプレクティックベクトル空間）]
+    introduction_aliases: [定義（シンプレクティックベクトル空間）]
     requires: [symplectic.non-degenerate-form]
 
   - id: symplectic.even-dimensional
