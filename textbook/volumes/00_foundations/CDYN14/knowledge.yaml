@@ -8,6 +8,7 @@ prerequisites:
 concepts:
   - id: continuous-dynamical-systems.ring-laplacian
     name: 有限周期格子の離散Laplace作用素
+    aliases: ["離散Laplace作用素"]
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（有限周期格子の離散Laplace作用素）"]
