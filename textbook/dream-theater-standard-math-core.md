@@ -184,7 +184,11 @@ DYN1–15の実装とCELL・ODEとの科目横断監査は完了しています�
 
 ### 力学系 II：ODEから振動と同期へ
 
-[**力学系 II：連続流・非線形振動・同期**](textbook/dream-theater.md#dt-subject-dynamical-systems-ii) は、ODE4・ODE8–11の流れ・変分方程式・Lyapunov・Poincaré写像・Hopf正規形を再利用する発展15講です。[CDYN1](textbook/volumes/00_foundations/CDYN1/index.md)で一次元時刻写像の可逆性・順序保存・正の乗数と非定常周期軌道の不可能性を証明し、[CDYN2](textbook/volumes/00_foundations/CDYN2/index.md)で二転回点の正則性から周期解の存在と周期積分を導きます。その先では非線形振動、平均化、弱結合同期、速遅系と空間結合へ進みます。未公開の章は科目目次には載せません。
+[**力学系 II：連続流・非線形振動・同期**](textbook/dream-theater.md#dt-subject-dynamical-systems-ii) は、ODE4・ODE8–11の流れ・変分・Poincaré写像の既習結果を必要な場面で参照し、15講で連続時間の振動・同期・結合を具体的に計算する発展科目です。公開された15講は上の科目目次から順に読めます。
+
+[CDYN1](textbook/volumes/00_foundations/CDYN1/index.md)–[CDYN4](textbook/volumes/00_foundations/CDYN4/index.md) は一次元流の順序保存、保存系の閉軌道、時間位相、Floquet乗数を扱います。[CDYN5](textbook/volumes/00_foundations/CDYN5/index.md)–[CDYN8](textbook/volumes/00_foundations/CDYN8/index.md) は強制振動、Duffing、有限時間平均化、van der Polの振幅方程式へ進みます。[CDYN9](textbook/volumes/00_foundations/CDYN9/index.md)–[CDYN12](textbook/volumes/00_foundations/CDYN12/index.md) は等時相面、弱結合の位相差、平均系での同期、有限Kuramoto系の散逸構造を調べます。[CDYN13](textbook/volumes/00_foundations/CDYN13/index.md)–[CDYN15](textbook/volumes/00_foundations/CDYN15/index.md) では速遅の初期層、有限格子のFourierモード、各種極限と数値離散化の成立条件を総合します。
+
+[力学系 I（離散力学）](textbook/dream-theater.md#dt-subject-dynamical-systems-i) の反復写像や [セル・オートマトン I](textbook/dream-theater.md#dt-subject-cellular-automata-i) の有限状態の局所更新とは状態空間・時間発展が異なります。平均方程式の有限時間精度を元の系の永続同期へ、有限格子の固有値を任意のPDE極限へ無条件に移さないことを、最終講で確認します。
 
 ## 応用系
 

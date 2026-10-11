@@ -1,7 +1,7 @@
 version: 1
 id: CDYN
 title: "力学系 II：連続流・非線形振動・同期"
-plan: textbook/plans_progress/DREAM_THEATER_CONTINUOUS_DYNAMICAL_SYSTEMS_COURSE_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_CONTINUOUS_DYNAMICAL_SYSTEMS_COURSE_PLAN.md
 chapter_root: textbook/volumes/00_foundations
 
 chapters:
