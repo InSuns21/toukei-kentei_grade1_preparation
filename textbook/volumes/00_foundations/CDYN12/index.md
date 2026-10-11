@@ -974,6 +974,99 @@ $$
 元の配置は平衡ですが、この摂動は反位相から遠ざかる方向に動きます。
 <!-- solution-end -->
 
+### B5. 散逸積分から位相差速度の消失を再構成する
+
+$N=2$、$K>0$、$\omega\in\mathbb R$ の同一周波数Kuramoto系を考え、回転座標の位相差を $D=\phi_2-\phi_1$ とする。初期値は $0<D(0)<\pi$ とする。
+
+1. $D'=-K\sin D$ を導き、$V=K(1-\cos D)/2$ の時間微分を求めよ。
+2. $\int_0^\infty\sin^2D(t)\,dt$ が有限であることを示せ。
+3. $h(t)=\sin^2 D(t)$ の導関数を計算し、2. の積分有限性から $h(t)\to0$ を直接証明せよ。
+4. $D(t)\to0$ を示せ。初期値が $D(0)=\pi$ だった場合との違いも述べよ。
+
+- Level: B
+- ID: CDYN12-B5
+
+<!-- solution-start -->
+**詳細解答**
+
+**(1)**　自己結合の正弦は0なので、
+
+$$
+\phi_1'=\frac K2\sin D,\qquad
+\phi_2'=-\frac K2\sin D.
+$$
+
+差を取って
+
+$$
+D'=\phi_2'-\phi_1'=-K\sin D
+$$
+
+となります。$V=K(1-\cos D)/2$ を連鎖律で微分すれば、
+
+$$
+\begin{aligned}
+V'&=\frac K2\sin D\,D'\\
+&=\frac K2\sin D(-K\sin D)\\
+&=-\frac{K^2}{2}\sin^2D.
+\end{aligned}
+$$
+
+他方、二つの速度の二乗和は
+
+$$
+(\phi_1')^2+(\phi_2')^2
+=2\frac{K^2}{4}\sin^2D
+=\frac{K^2}{2}\sin^2D
+$$
+
+なので、[勾配散逸恒等式](#thm-cdyn12-gradient-dissipation)とも一致します。
+
+**(2)**　(1) の式を $0$ から $T$ まで積分すると、
+
+$$
+\frac{K^2}{2}\int_0^T\sin^2D(t)\,dt
+=V(0)-V(T)\le V(0).
+$$
+
+ここで $V(T)\ge0$ であり、$V(0)=K(1-\cos D(0))/2$ を代入して、
+
+$$
+0\le\int_0^T\sin^2D(t)\,dt
+\le\frac{1-\cos D(0)}{K}.
+$$
+
+左辺は $T$ の非減少関数です。従って $T\to\infty$ の極限が存在し、積分は有限です。
+
+**(3)**　$h(t)=\sin^2D(t)$ を微分すると、
+
+$$
+\begin{aligned}
+h'(t)&=2\sin D\cos D\,D'\\
+&=-2K\sin^2D\cos D.
+\end{aligned}
+$$
+
+$|\sin D|,|\cos D|\le1$ より $|h'|\le2K$ であり、$h$ は一様に Lipschitz です。もし $h(t)\to0$ でなければ、ある $\eta>0$ と $t_n\to\infty$ が存在して $h(t_n)\ge\eta$ となります。
+
+$\delta=\eta/(4K)>0$ を選ぶと、$|t-t_n|\le\delta$ で
+
+$$
+h(t)\ge h(t_n)-2K\delta\ge\frac\eta2.
+$$
+
+部分列を取って $t_{n+1}-t_n>2\delta$ とすれば、十分大きい $n$ の区間 $[t_n-\delta,t_n+\delta]$ は互いに重ならず、各区間の積分は少なくとも $\eta\delta$ です。その区間が無限個あることは、(2) で示した積分有限性に反します。よって $h(t)\to0$ です。
+
+**(4)**　$0<D(0)<\pi$ では $D'=-K\sin D<0$ です。[CDYN11の引込み域の定理](../CDYN11/index.md#thm-cdyn11-capture-basin)から、解はこの区間内に留まり、単調減少して下界0を持ちます。その極限を $L\in[0,D(0)]$ とすると、(3) から $\sin^2L=0$ です。
+
+$$
+0\le L\le D(0)<\pi
+\quad\Longrightarrow\quad L=0
+$$
+
+となります。一方 $D(0)=\pi$ なら $\sin\pi=0$ で最初から $D'=0$ です。従って反位相に留まり、完全同期しません。これは散逸率が0になることと完全同期を混同してはいけない具体例です。
+<!-- solution-end -->
+
 ### C1. 秩序、散逸、非同期平衡、同期十分条件
 
 同一周波数 $\omega\in\mathbb R$、正の結合強度 $K$、$N=3$ の有限Kuramoto系を考える。
