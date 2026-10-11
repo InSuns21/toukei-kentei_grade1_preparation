@@ -59,6 +59,17 @@ function selfTest() {
   console.log('DREAM THEATER review evidence self-test passed');
 }
 
+function readReviewBody() {
+  // Large multi-chapter PRs can exceed the kernel's per-argument/env-string
+  // limit when GitHub expands pull_request.body into a step environment var.
+  // The runner's event JSON is already on disk and has no such limit.
+  if (process.env.GITHUB_EVENT_PATH) {
+    const event = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8'));
+    if (typeof event.pull_request?.body === 'string') return event.pull_request.body;
+  }
+  return process.env.DREAM_THEATER_PR_BODY || '';
+}
+
 const args = process.argv.slice(2);
 if (args.includes('--self-test')) {
   selfTest();
@@ -76,7 +87,7 @@ if (args.includes('--self-test')) {
     console.log('No changed DREAM THEATER chapter index.md: review evidence not required');
     process.exit(0);
   }
-  const sections = sectionsFrom(process.env.DREAM_THEATER_PR_BODY || '');
+  const sections = sectionsFrom(readReviewBody());
   const problems = [];
   for (const name of names) {
     const id = name.split('/')[3];
