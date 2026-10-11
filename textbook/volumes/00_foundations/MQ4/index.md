@@ -954,15 +954,15 @@ $\eta\downarrow0$ で相対界が0となり、$H$ は $H^2(\mathbb R^3)$ 上で�
 $\|\psi\|_2^2=\sum_{\ell,m}\int_0^\infty|u_{\ell m}|^2dr$。
 $R=u/r$ を二回微分して動径の微分項を合わせると
 
-$
+$$
 R''+\frac{2}{r}R'=\frac{u''}{r}
-$
+$$
 
 となります。従って、各角運動量に対応する動径作用素は
 
-$
+$$
 h_\ell=-aD^2+\frac{a\ell(\ell+1)}{r^2}-\frac{\kappa}{r}
-$
+$$
 
 です。
 $\ell=0$ で $u(0)\ne0$ とすると $R\sim u(0)/r$、その勾配の二乗積分は

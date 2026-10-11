@@ -647,12 +647,12 @@ $$
 
 (a) $x\in[0,1]$ なら $x,x^2\in[0,1]$ です。非負の係数 $\lambda,1-\lambda$ の和は1なので、次の上下界が成り立ちます。
 
-$
+$$
 0\le f_\lambda(x)
 =\lambda x+(1-\lambda)x^2
 \le \lambda\cdot1+(1-\lambda)\cdot1
 =1.
-$
+$$
 
 多項式なので連続です。
 
