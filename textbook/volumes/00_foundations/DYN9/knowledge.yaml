@@ -40,4 +40,4 @@ concepts:
     name: 任意に近い異なる初期値の有限時刻での合流
     kind: proposition
     introduction_aliases: ["命題（任意に近い異なる初期値の有限時刻での合流）"]
-    requires: [dynamical-systems.circle-expansion-formula, dynamical-systems.circle-positive-expansivity]
+    requires: [dynamical-systems.circle-expansion-formula]
