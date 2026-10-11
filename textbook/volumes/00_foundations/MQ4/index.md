@@ -394,9 +394,31 @@ v'=\left(r^{-(\ell+1)}u\right)'
 \quad u_\ell^{(0)}=Cr^{\ell+1}e^{-\beta r/(\ell+1)}.
 $$
 
-これは原点で正則で、$\int_0^\infty|u_\ell^{(0)}|^2dr<\infty$ です。例えば整数 $j\ge0$ の積分公式
-$\int_0^\infty r^j e^{-cr}dr=j!/c^{j+1}$（$c>0$）を $j=2\ell+2$ に適用すれば有限です。微分して作用させると
-$k_\ell u_\ell^{(0)}=-\beta^2u_\ell^{(0)}/(\ell+1)^2$ であり、三次元の正則性は $r^\ell Y_\ell^m$ が [PDE11](../PDE11/index.md#prop-pde11-solid-harmonic) の滑らかな同次多項式に延長されることから確認できます。
+これは原点で正則です。整数 $j\ge0$、実数 $c>0$ に対する積分公式
+
+$$
+\int_0^\infty r^je^{-cr}\,dr=\frac{j!}{c^{j+1}}
+$$
+
+に $j=2\ell+2$、$c=2\beta/(\ell+1)$ を代入すると、
+
+$$
+\begin{aligned}
+\int_0^\infty|u_\ell^{(0)}(r)|^2\,dr
+&=|C|^2\int_0^\infty r^{2\ell+2}e^{-2\beta r/(\ell+1)}\,dr\\
+&=|C|^2\frac{(2\ell+2)!}{\bigl(2\beta/(\ell+1)\bigr)^{2\ell+3}}
+<\infty.
+\end{aligned}
+$$
+
+微分して作用させると固有値方程式は
+
+$$
+k_\ell u_\ell^{(0)}
+=-\frac{\beta^2}{(\ell+1)^2}u_\ell^{(0)}
+$$
+
+です。三次元の正則性は $r^\ell Y_\ell^m$ が [PDE11](../PDE11/index.md#prop-pde11-solid-harmonic) の滑らかな同次多項式に延長されることから確認できます。
 
 その $H^2$ 条件を積の微分で確かめます。
 
@@ -435,9 +457,21 @@ $$
 $\lambda_n=-\beta^2/n^2$ を実現します。各段階での原点正則性と無限遠減衰は上記微分表示から保たれます。
 
 **(3) ほかの負固有値がない。** $k_\ell u=\lambda u$、$\lambda<0$、$u\ne0$ とします。因数分解から
-$\|A_\ell u\|^2=(\lambda+\beta^2/(\ell+1)^2)\|u\|^2$ です。
-$\lambda=-\beta^2/(\ell+1)^2$ なら $A_\ell u=0$ となり、(1) の解の一意性から最低モードだけです。そうでなければ $A_\ell u\ne0$ は $k_{\ell+1}$ の同じ固有値を持ちます。繰り返せる場合、任意に大きい $j$ で
-$\lambda\ge-\beta^2/(j+1)^2$ が必要ですが、右辺は $0$ へ近づくので、固定した $\lambda<0$ と矛盾します。
+
+$$
+\|A_\ell u\|^2
+=\left(\lambda+\frac{\beta^2}{(\ell+1)^2}\right)\|u\|^2
+$$
+
+です。$\lambda=-\beta^2/(\ell+1)^2$ なら $A_\ell u=0$ となり、(1) の解の一意性から最低モードだけです。
+
+そうでなければ $A_\ell u\ne0$ は $k_{\ell+1}$ の同じ固有値を持ちます。この操作を核に達することなく繰り返せるなら、各 $j\ge\ell$ に対する因数分解の非負性から
+
+$$
+\lambda\ge-\frac{\beta^2}{(j+1)^2}
+$$
+
+が必要です。しかし右辺は $j\to\infty$ で $0$ に近づき、固定した $\lambda<0$ と矛盾します。
 
 従ってある $j\ge\ell$ で $A_j$ の核に達し、$\lambda=-\beta^2/(j+1)^2$ です。
 
@@ -969,18 +1003,45 @@ $\ell=0$ で $u(0)\ne0$ とすると $R\sim u(0)/r$、その勾配の二乗積�
 $\int_0^\delta r^{-2}dr=\infty$ で $H^1$ に入れません。
 必要なのは $u(0)=0$ であり、$\psi(0)=0$ ではありません。
 
-(3) $W_\ell=-(\ell+1)/r+\beta/(\ell+1)$ と置くと
-$A_\ell^\dagger A_\ell=-D^2+\ell(\ell+1)/r^2-2\beta/r+\beta^2/(\ell+1)^2$、
-$A_\ell A_\ell^\dagger=k_{\ell+1}+\beta^2/(\ell+1)^2$ です。
-$A_\ell u=0$ から $u=r^{\ell+1}e^{-\beta r/(\ell+1)}$ と
-$\lambda=-\beta^2/(\ell+1)^2$ を作れます。
-$A_\ell^\dagger$ で $\ell+1$ の負固有状態を $\ell$ へ写すと、
-ノルム二乗は $(\lambda+\beta^2/(\ell+1)^2)\|v\|^2$ で正なので、
-$n\ge\ell+1$ に $\lambda_n=-\beta^2/n^2$ を得ます。
-逆に $\lambda<0$ の任意の固有状態に $A_\ell$ を繰り返せば、
-核に達しない限り $j\to\infty$ で
-$\lambda\ge-\beta^2/(j+1)^2\to0$ となって矛盾します。
-従って必ずどこかの核に達し、他の負固有値はありません。
+(3) $W_\ell=-(\ell+1)/r+\beta/(\ell+1)$ と置くと、因数分解は
+
+$$
+\begin{aligned}
+A_\ell^\dagger A_\ell
+&=-D^2+\frac{\ell(\ell+1)}{r^2}-\frac{2\beta}{r}
+ +\frac{\beta^2}{(\ell+1)^2},\\
+A_\ell A_\ell^\dagger
+&=k_{\ell+1}+\frac{\beta^2}{(\ell+1)^2}.
+\end{aligned}
+$$
+
+$A_\ell u=0$ を解くと、
+
+$$
+u=r^{\ell+1}e^{-\beta r/(\ell+1)},
+\qquad \lambda=-\frac{\beta^2}{(\ell+1)^2}
+$$
+
+を得ます。$A_\ell^\dagger$ で $\ell+1$ の負固有状態 $v$ を $\ell$ へ写すと、ノルムは
+
+$$
+\|A_\ell^\dagger v\|^2
+=\left(\lambda+\frac{\beta^2}{(\ell+1)^2}\right)\|v\|^2
+$$
+
+で正です。従って $n\ge\ell+1$ に対して
+
+$$
+\lambda_n=-\frac{\beta^2}{n^2}
+$$
+
+を得ます。逆に $\lambda<0$ の任意の固有状態へ $A_\ell$ を繰り返し適用すれば、核に達しない限り任意に大きな $j$ で
+
+$$
+\lambda\ge-\frac{\beta^2}{(j+1)^2}\longrightarrow0
+$$
+
+となって矛盾します。従って必ずどこかの核に達し、他の負固有値はありません。
 
 (4) 自由作用素のレゾルベント $(-a\Delta+1)^{-1}$ は $L^2$ から $H^2$ へ有界です。三次元では $H^2(\mathbb R^3)$ が $L^\infty$ に埋め込まれるので、原点に近い半径 $\delta$ の球では
 
