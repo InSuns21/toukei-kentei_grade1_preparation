@@ -59,7 +59,7 @@ chapters:
     title: 速遅系：臨界多様体と緩和振動の入口
   - id: CDYN14
     path: textbook/volumes/00_foundations/CDYN14
-    status: planned
+    status: completed
     title: 結合振動子格子と空間モード
   - id: CDYN15
     path: textbook/volumes/00_foundations/CDYN15
