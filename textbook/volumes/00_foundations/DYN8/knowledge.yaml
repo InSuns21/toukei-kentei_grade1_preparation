@@ -8,7 +8,6 @@ concepts:
     name: 軌道閉包
     kind: definition
     introduction: inline
-    introduction_aliases: ["定義（軌道閉包）"]
     requires: [dynamical-systems.dense-forward-orbit]
   - id: dynamical-systems.omega-limit
     name: 離散時間の正の極限集合
