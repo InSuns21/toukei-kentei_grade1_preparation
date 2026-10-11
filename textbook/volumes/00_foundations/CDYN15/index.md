@@ -28,7 +28,7 @@
 <!-- formal-statement-start -->
 ### 定義（有限時間追従と漸近位相固定）
 
-実数値の連続な位相差 $D(t)$ と比較対象 $\bar D(t)$ が $t\ge0$ で与えられるとする。各 $L>0$ に対して
+各 $\varepsilon>0$ に対する実数値の連続な位相差 $D_\varepsilon(t)$ と、連続な比較対象 $\bar D(t)$ が $t\ge0$ で与えられるとする。各 $L>0$ に対して
 
 $$
 \sup_{0\le t\le L}|D_\varepsilon(t)-\bar D(t)|
