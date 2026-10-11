@@ -172,7 +172,7 @@ $$
 
 ### 証明の見取り図
 
-二本の固有ベクトルを列に持つ行列 $P$ を作り、$A=P\operatorname{diag}(\lambda_u,\lambda_s)P^{-1}$ を直接導きます。混合点が収束しないことは、成分の打ち消しの可能性を逆三角不等式で排除します。
+二本の固有ベクトルを列に持つ行列 $P$ を作り、$A=P\operatorname{diag}(\lambda_u,\lambda_s)P^{-1}$ を直接導きます。混合点が収束しないことは、成分の打ち消しの可能性を[逆三角不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-reverse-triangle-inequality)で排除します。
 
 <!-- proof-start -->
 ### 証明
@@ -305,7 +305,7 @@ $D$ の $W^s_D(1,2)$ は縦線 $x=1$、$W^u_D(3,4)$ は横線 $y=4$、両者の�
 <!-- proof-start -->
 ### 証明
 
-$z=av_u+bv_s$ と一意に書きます。$a\ne0$ なら前方反復の逆三角不等式から $\|A^nz\|\to\infty$、$b\ne0$ なら後方反復から $\|A^{-n}z\|\to\infty$ です。よって両側有界には $a=b=0$ が必要で、原点の軌道は常に原点なので十分でもあります。
+$z=av_u+bv_s$ と一意に書きます。$a\ne0$ なら前方反復に[逆三角不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-reverse-triangle-inequality)を適用して $\|A^nz\|\to\infty$、$b\ne0$ なら後方反復から $\|A^{-n}z\|\to\infty$ です。よって両側有界には $a=b=0$ が必要で、原点の軌道は常に原点なので十分でもあります。
 
 次に $A(K)=K$ かつ $A$ は可逆なので、両辺に逆写像を適用して $A^{-1}(K)=K$ です。繰り返せば全整数 $n$ について $A^n(K)=K$。各 $z\in K$ の両側軌道はコンパクト集合 $K$ に入るので有界です。従って前半から $z=0$、つまり $K\subset\{0\}$。$K$ は空でないため $K=\{0\}$ です。$\square$
 <!-- proof-end -->
@@ -393,7 +393,7 @@ $$
 \|A^nz\|\ge|a||\lambda_u|^n\|v_u\|-|b||\lambda_s|^n\|v_s\|.
 $$
 
-$a\ne0$ では第一項が発散、第二項が0へ向かうのでノルムは無限大です。二固有方向が直交するという仮定はないため、逆三角不等式を使う必要があります。
+$a\ne0$ では第一項が発散、第二項が0へ向かうのでノルムは無限大です。二固有方向が直交するという仮定はないため、[逆三角不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-reverse-triangle-inequality)を使う必要があります。
 <!-- solution-end -->
 
 ### B2. 遠ざかりながら近づく
