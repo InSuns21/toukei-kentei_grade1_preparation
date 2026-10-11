@@ -22,7 +22,35 @@ rr'=(\lambda-r^2)(x^2+y^2)
 =(\lambda-r^2)r^2.
 $$
 
-また $xy'-yx'=r^2\theta'$ なので
+角度についても、積の微分を一度書いておきます。
+
+$$
+\begin{aligned}
+x'&=r'\cos\theta-r\theta'\sin\theta,\\
+y'&=r'\sin\theta+r\theta'\cos\theta.
+\end{aligned}
+$$
+
+ここから $x y'-y x'$ を計算すると、$rr'$ を含む項が互いに消えて
+
+$$
+\begin{aligned}
+xy'-yx'
+&=r\cos\theta(r'\sin\theta+r\theta'\cos\theta)\\
+&\quad-r\sin\theta(r'\cos\theta-r\theta'\sin\theta)\\
+&=r^2(\cos^2\theta+\sin^2\theta)\theta'
+=r^2\theta'.
+\end{aligned}
+$$
+
+一方、直交座標の方程式を代入しても
+
+$$
+xy'-yx'=(\omega-cr^2)(x^2+y^2)
+=(\omega-cr^2)r^2.
+$$
+
+したがって $r>0$ のとき $r^2$ で割れます。半径の計算と合わせれば
 
 $$
 r'=r(\lambda-r^2),\qquad
@@ -255,9 +283,64 @@ $$
 \begin{pmatrix}\delta r_0\\\delta\phi_0\end{pmatrix}.
 $$
 
-直交座標への変換のJacobian行列式を確認します。$\theta=\phi+c\log(r/R)$ で極座標への変換を合成したとき、二つのJacobian行列式はそれぞれ $r$ と $1$ です。従って合成の行列式は $r>0$。
+この行列の固有値が直交座標でも同じであることを、座標変換を明示して確かめます。局所的な座標変換を
 
-円上では $r=R>0$ なので局所的に可逆です。一周期後の基点は同じ円上の点だから、直交座標での変分行列は上の対角行列と相似であり、固有値は変わりません。$\square$
+$$
+\Psi(r,\phi)=
+\begin{pmatrix}
+r\cos A\\r\sin A
+\end{pmatrix},
+\qquad
+A=\phi+c\log(r/R)
+$$
+
+と置くと、そのJacobianは $A$ の $r$ 微分が $c/r$ であることから
+
+$$
+D\Psi(r,\phi)=
+\begin{pmatrix}
+\cos A-c\sin A&-r\sin A\\
+\sin A+c\cos A&r\cos A
+\end{pmatrix}.
+$$
+
+行列式を列に沿って展開すれば
+
+$$
+\begin{aligned}
+\det D\Psi
+&=r(\cos A-c\sin A)\cos A\\
+&\quad+r\sin A(\sin A+c\cos A)\\
+&=r(\cos^2 A+\sin^2 A)=r>0.
+\end{aligned}
+$$
+
+よって円の近くでは $\Psi$ が局所的に可逆です。円上の初期点を $(R,\phi_0)$ とし、一周期の $(r,\phi)$ 座標での変分行列を
+
+$$
+M_{r,\phi}=
+\begin{pmatrix}
+e^{-2\lambda T_*}&0\\
+0&1
+\end{pmatrix}
+$$
+
+とします。一周期で基点は $(R,\phi_0+\Omega T_*)=(R,\phi_0+2\pi)$ に移ります。$\Psi$ と $D\Psi$ は $\phi$ に関して $2\pi$ 周期なので、初期点と終点のJacobianは同じ行列
+
+$$
+J_0=D\Psi(R,\phi_0)
+=D\Psi(R,\phi_0+2\pi)
+$$
+
+です。直交座標での初期微小変位は $J_0(\delta r_0,\delta\phi_0)^{\mathsf T}$ ですから、一周期後の直交座標の変分行列 $M_{x,y}$ は
+
+$$
+M_{x,y}J_0=J_0M_{r,\phi},
+\qquad
+M_{x,y}=J_0M_{r,\phi}J_0^{-1}.
+$$
+
+これで両行列の相似性が確かめられ、固有値は $e^{-2\lambda T_*}$ と $1$ です。$\square$
 <!-- proof-end -->
 
 第二の乗数が1より小さいことは、位相方向まで収縮する意味ではありません。二つの初期値の位相が異なれば、そのずれは時間が経っても消えず、円上の別の点を追い続けます。
@@ -415,10 +498,19 @@ $$
 d(t)\le L\int_0^t d(s)\,ds+\varepsilon Pt
 $$
 
-を満たします。[ODE8のGrönwallの不等式](../ODE8/index.md#lem-ode8-gronwall)に固定した $T$ と非減少な強制項 $\varepsilon Pt$ を代入するか、その積分形式を一度積分して評価すると
+を満たします。ここでは区間 $0\le t\le T$ を固定しているため、$\varepsilon Pt\le\varepsilon PT$ を右辺へ代入し、
 
 $$
-d(t)\le\varepsilon PT e^{LT}
+d(t)\le\varepsilon PT+
+L\int_0^t d(s)\,ds
+$$
+
+と上から評価できます。[ODE8のGrönwallの不等式](../ODE8/index.md#lem-ode8-gronwall)で、非負関数 $d$ に対する定数項を $a=\varepsilon PT$、積分項の係数を $b=L$ と選びます。初期半径は $r(0)=R$ なので $d(0)=0$ であり、この評価を適用すると
+
+$$
+d(t)\le a e^{bt}
+=\varepsilon PT e^{Lt}
+\le\varepsilon PT e^{LT}
 \qquad(0\le t\le T)
 $$
 
@@ -488,13 +580,47 @@ $\lambda=1,\omega=3,c=1$ の模型で、$(x(0),y(0))=(2,0)$ とする。$r^2=x^2
 - ID: CDYN9-A1
 
 <!-- solution-start -->
-**詳細解答**　$xx'+yy'=r^2(1-r^2)$、$xy'-yx'=r^2(3-r^2)$ と交差項を消すと、$r'=r(1-r^2)$、$\theta'=3-r^2$。$u=r^2$ なら $u'=2u(1-u)$。初期値 $u_0=4$ を[半径の明示解](#prop-cdyn9-radial-attraction)へ入れると、$1/u_0-1=-3/4$ なので
+**詳細解答**　$r^2=x^2+y^2$ を微分すると $rr'=xx'+yy'$ です。この模型の直交座標方程式を代入すれば
 
 $$
-r(t)^2=\frac1{1-\frac34 e^{-2t}}.
+\begin{aligned}
+xx'+yy'
+&=(1-r^2)(x^2+y^2)\\
+&\quad- (3-r^2)xy+(3-r^2)xy\\
+&=r^2(1-r^2).
+\end{aligned}
 $$
 
-分母は $t\ge0$ で $1/4$ 以上、従って半径は常に正で $r(t)\to1$ です。
+同じく $xy'-yx'$ では半径方向の項が消えて
+
+$$
+xy'-yx'=(3-r^2)(x^2+y^2)=r^2(3-r^2).
+$$
+
+$r(0)=2>0$ であり、[吸引円と半径の明示解](#prop-cdyn9-radial-attraction)により $t\ge0$ で $r>0$ です。したがって $rr'$ と $r^2\theta'$ の式をそれぞれ $r$ と $r^2$ で割って
+
+$$
+r'=r(1-r^2),\qquad \theta'=3-r^2
+$$
+
+を得ます。$u=r^2$ を置くと $u'=2rr'=2u(1-u)$、$u(0)=4$。この方程式を実際に解くため、$w=1/u-1$ と置けば
+
+$$
+\begin{aligned}
+w'&=-\frac{u'}{u^2}
+=-2\frac{1-u}{u}
+=-2w,\\
+w(0)&=\frac14-1=-\frac34.
+\end{aligned}
+$$
+
+よって $w(t)=-\frac34 e^{-2t}$、$u=1/(1+w)$ から
+
+$$
+r(t)^2=u(t)=\frac1{1-\frac34 e^{-2t}}.
+$$
+
+分母は $t\ge0$ で $1-\frac34e^{-2t}\ge1/4>0$ なので、半径は常に正で $r(t)\to1$ です。
 <!-- solution-end -->
 
 ### A2. 幾何学的な角と漸近位相
