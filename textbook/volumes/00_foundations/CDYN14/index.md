@@ -239,7 +239,20 @@ $$
 \end{aligned}
 $$
 
-ここで $j,\ell$ は $0,\ldots,N-1$ にあるので、$j-\ell$ が $N$ の倍数となるのは $j=\ell$ の場合だけです。逆変換があるため展開は一意です。
+ここで $j,\ell$ は $0,\ldots,N-1$ にあるので、$j-\ell$ が $N$ の倍数となるのは $j=\ell$ の場合だけです。
+
+一意性も直交和から検算します。もし別の係数 $c_\ell$ で $u_j=\sum_\ell c_\ell v^{(\ell)}_j$ と表せたなら、両辺に $\overline{v^{(k)}_j}/N$ を掛けて和を取ると、
+
+$$
+\begin{aligned}
+\frac1N\sum_j u_j\overline{v^{(k)}_j}
+&=\sum_\ell c_\ell\frac1N
+\sum_jv^{(\ell)}_j\overline{v^{(k)}_j}\\
+&=\sum_\ell c_\ell\,\mathbf 1_{\{\ell=k\}}=c_k.
+\end{aligned}
+$$
+
+左辺は定義した $\widehat u_k$ なので $c_k=\widehat u_k$ です。これで係数の一意性も示しました。
 
 最後に展開を二回代入して、
 
@@ -336,7 +349,21 @@ $$
 \end{aligned}
 $$
 
-従って $\widehat u_k'=(\rho+D\mu_k)\widehat u_k=\lambda_k\widehat u_k$ となり、積分して明示解を得ます。
+従って各係数は一次線形方程式
+
+$$
+\widehat u_k'=\lambda_k\widehat u_k,\qquad
+\lambda_k=\rho+D\mu_k
+=\rho-4D\sin^2(\pi k/N)
+$$
+
+を満たします。積分因子を掛けると
+
+$$
+\frac d{dt}\left(e^{-\lambda_k t}\widehat u_k(t)\right)=0
+$$
+
+なので、初期値から $\widehat u_k(t)=e^{\lambda_k t}\widehat u_k(0)$ です。[逆Fourier変換](#thm-cdyn14-fourier-modes)で各成分を復元できます。実初期値については、$\lambda_k=\lambda_{N-k}$ が実数であり $\widehat u_{N-k}(0)=\overline{\widehat u_k(0)}$ なので、復元後の成分は実数です。
 
 $\mu_0=0$ なので零モードは $\widehat u_0=\bar u$、$\lambda_0=\rho$ です。また $1\le k\le N-1$ では $\sin^2(\pi k/N)>0$ であり、$k$ と $N-k$ が同じ値を持ちます。$k$ を $1$ から $\lfloor N/2\rfloor$ に限ると $\sin(\pi k/N)$ は増加するため、
 
@@ -359,7 +386,20 @@ N\sum_{k=1}^{N-1}|\widehat u_k(0)|^2\\
 \end{aligned}
 $$
 
-$\rho<0$ ではすべての $\lambda_k\le\rho<0$ です。$\rho>0$ では定数ベクトル $u(0)=c(1,\ldots,1)$、$c\ne0$ を入れると $u(t)=ce^{\rho t}(1,\ldots,1)$ で増大し、原点は不安定です。
+$\rho<0$ ではすべての $\lambda_k\le\rho<0$ です。[二乗和の恒等式](#thm-cdyn14-fourier-modes)より
+
+$$
+\begin{aligned}
+\sum_j|u_j(t)|^2
+&=N\sum_k e^{2\lambda_k t}|\widehat u_k(0)|^2\\
+&\le e^{2\rho t}N\sum_k|\widehat u_k(0)|^2\\
+&=e^{2\rho t}\sum_j|u_j(0)|^2.
+\end{aligned}
+$$
+
+$\rho=0$ でも $\lambda_k\le0$ より $\|u(t)\|_2\le\|u(0)\|_2$ なので原点は安定ですが、平均が0でない限り原点への漸近収束はありません。
+
+$\rho>0$ では定数ベクトル $u(0)=c(1,\ldots,1)$、$c\ne0$ を入れると $u(t)=ce^{\rho t}(1,\ldots,1)$ で増大し、原点は不安定です。
 
 平均零部分空間では $k=0$ の係数がなく、最大の固有値は
 
@@ -500,7 +540,18 @@ $$
 
 です。最小成分 $m=\psi_b$ については、隣との差が $[0,W]$ に入るので $\psi_b'\ge0$ です。
 
-最大・最小を与える添字が切り替わっても、有限個の滑らかな成分の最大・最小は局所Lipschitzであり、ほとんど至る所で上記の符号を満たします。従って $W'\le0$ がほとんど至る所で成り立ち、連続性により $W(t)\le W_0<\pi/2$ が全時刻で維持されます。
+最大・最小を与える添字が切り替わる時刻も確かめます。有限時間区間で各 $\psi_j$ の導関数は有界なので、有限個の成分の最大 $M(t)=\max_j\psi_j(t)$ と最小 $m(t)=\min_j\psi_j(t)$ はLipschitz連続です。そのため、両者はほとんど至る所で微分可能です。
+
+$M$ が微分可能な時刻には、最大を与える添字 $a$ に対し $\psi_a(t)=M(t)$ かつ $\psi_a(s)\le M(s)$ です。左右の差商を比較すると $\psi_a'(t)=M'(t)$ となります。最大成分の右辺は非正なので $M'(t)\le0$ です。最小関数にも同じ比較をすると $m'(t)\ge0$ です。よって $W=M-m$ は $W<\pi/2$ の各区間で非増加です。
+
+この局所的な結論を全時刻へ延ばすには、最初の脱出時刻を考えます。もし有限の $T>0$ で初めて $W(T)=\pi/2$ となったなら、$0\le t<T$ での非増加性から $W(t)\le W_0$ です。連続性により $W(T)\le W_0<\pi/2$ となり矛盾します。従って
+
+$$
+W(t)\le W_0<\frac\pi2
+\qquad(t\ge0)
+$$
+
+が成り立ちます。
 
 $z_j=\psi_{j+1}-\psi_j$ と置くと、平均が一定なことを用いたエネルギーの微分は
 
@@ -524,7 +575,7 @@ E'
 \end{aligned}
 $$
 
-$|z|\le W_0<\pi/2$ の範囲では、$\sin x$ の $[0,\pi/2]$ 上の凹性から $\sin x\ge2x/\pi$、負の $x$ には奇関数性を使うので、
+$0\le x\le\pi/2$ では $\sin''x=-\sin x\le0$ なので、$\sin x$ は $(0,0)$ と $(\pi/2,1)$ を結ぶ弦以上です。従って $\sin x\ge2x/\pi$ です。負の $z=-x$ に対しても $z\sin z=x\sin x$ と計算できるので、
 
 $$
 z\sin z\ge\frac2\pi z^2
@@ -543,6 +594,8 @@ $$
 \begin{aligned}
 \sum_j(w_{j+1}-w_j)^2
 &=-\sum_jw_j(Lw)_j\\
+&=-\sum_{k,\ell}\widehat w_k\overline{\widehat w_\ell}\,
+\mu_k\sum_jv^{(k)}_j\overline{v^{(\ell)}_j}\\
 &=N\sum_{k=1}^{N-1}
 4\sin^2(\pi k/N)|\widehat w_k|^2\\
 &\ge4\sin^2(\pi/N)\sum_jw_j^2\\
