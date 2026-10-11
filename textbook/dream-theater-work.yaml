@@ -20,15 +20,6 @@ review_handoff:
   authoring_standard_section: "10.3"
   evidence_template: textbook/prompts/dream-theater-review-evidence.md
 
-review_handoff:
-  enabled: true
-  mode: paired_previous_chapter_audit
-  with_work_source: next_work
-  target_source: completed_through
-  target_series_source: series_manifest
-  authoring_standard_section: "10.3"
-  evidence_template: textbook/prompts/dream-theater-review-evidence.md
-
 routing:
   chapter_root: textbook/volumes/00_foundations
   authoring_standard: textbook/DREAM_THEATER_AUTHORING_STANDARD.md
