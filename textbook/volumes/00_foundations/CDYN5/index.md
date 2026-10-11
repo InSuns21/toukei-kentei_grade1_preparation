@@ -48,6 +48,8 @@ $$
 
 ## 2. 正弦・余弦の係数を連立して解く
 
+[MECH5の定常応答命題](../MECH5/index.md#prop-mech5-forced-steady-response)の $m=1,\ c=2\beta,\ k=\omega_0^2$ に当たる場合です。既出の正の減衰の式を自分で再計算するとともに、減衰を0にした場合の可解条件を新しく確かめます。
+
 まず $q_{\mathrm p}(t)=a\cos(\Omega t)+b\sin(\Omega t)$ と置きます。微分を省略せずに書くと、
 
 $$
@@ -80,7 +82,7 @@ $$
 <a id="thm-cdyn5-forced-response"></a>
 
 <!-- formal-statement-start -->
-### 定理（強制振動の周期特解）
+### 定理（無減衰の場合まで含む周期特解の可解条件）
 
 $\omega_0>0$、$\beta\ge0$、$\Omega>0$、$F_0>0$ とする。$\Delta=(\omega_0^2-\Omega^2)^2+4\beta^2\Omega^2>0$ なら、方程式
 
@@ -315,7 +317,7 @@ $$
 \end{aligned}
 $$
 
-$\Omega>0$ なので $\Delta'$ の符号は第二因子の符号です。$\omega_0^2-2\beta^2>0$ なら、$0<\Omega<\Omega_{\mathrm r}$ で $\Delta'<0$、$\Omega>\Omega_{\mathrm r}$ で $\Delta'>0$。従って $\Omega_{\mathrm r}$ は一意の大域最小点です。その点では
+$\Omega>0$ なので $\Delta'$ の符号は第二因子の符号です。$\omega_0^2-2\beta^2>0$ なら、$0<\Omega<\Omega_{\mathrm r}$ で $\Delta'<0$、$\Omega>\Omega_{\mathrm r}$ で $\Delta'>0$。従って $\Omega_{\mathrm r}$ で分母の $\Delta$ は正の周波数全範囲にわたり最も小さくなります。その点では
 
 $$
 D=\omega_0^2-\Omega_{\mathrm r}^2=2\beta^2,\quad
@@ -340,6 +342,8 @@ $\omega_0^2-2\beta^2\le0$ なら $\Omega^2-\omega_0^2+2\beta^2>0$ が $\Omega>0$
 例えば $\omega_0=3$、$\beta=1$ では最大振幅の周波数は $\sqrt7$ であり、固有角振動数3より小さくなります。$\Omega=\omega_0$ は「外力と減衰なしの固有振動が一致する周波数」で、減衰下のピークを必ずしも指しません。
 
 ## 5. 減衰をなくした瞬間、何が壊れるか
+
+[MECH5の無減衰線形振動子の厳密共振](../MECH5/index.md#prop-mech5-undamped-resonance)では、同じ周波数を外力として与えると時間係数 $t$ が現れることを学びました。ここでは初期値を0に固定し、非共振解から共振解への周波数極限を計算します。
 
 $\beta=0$、$\Omega\ne\omega_0$ なら $\Delta=(\omega_0^2-\Omega^2)^2>0$ なので、第二節の係数公式から
 
@@ -433,7 +437,7 @@ $$
 
 ## 6. エネルギーで外力と減衰を読み分ける
 
-自由振動ではエネルギーを保存しましたが、外力と摩擦が加わると、エネルギーの時間微分には増加項と減少項が現れます。$q'=v$ を使い、
+[MECH3の非保存力を含むエネルギー収支](../MECH3/index.md#prop-mech3-energy-balance)を今回の線形振動子へ代入すると、外力と摩擦を切り分けられます。自由振動ではエネルギーを保存しましたが、外力と摩擦が加わると、エネルギーの時間微分には増加項と減少項が現れます。$q'=v$ を使い、
 
 $$
 E(t)=\frac12v(t)^2+\frac12\omega_0^2q(t)^2
@@ -594,7 +598,7 @@ $\omega_0=3,\ \beta=1,\ F_0=8$ に対し、$R(\Omega)$ が $\Omega>0$ で最大�
 - ID: CDYN5-B1
 
 <!-- solution-start -->
-**詳細解答**　$\omega_0^2-2\beta^2=9-2=7>0$ なので、[振幅ピークの命題](#prop-cdyn5-resonance-peak)を適用できます。
+**詳細解答**　$\omega_0^2-2\beta^2=9-2=7>0$ なので、[減衰振動子の振幅ピーク](#prop-cdyn5-resonance-peak)を適用できます。
 
 $$
 \Omega_{\mathrm r}=\sqrt7,\qquad
@@ -738,7 +742,7 @@ $$
 
 $t=0$ では $q(0)=0$。微分した初期速度は $q'(0)=4-\sqrt2(2\sqrt2)=0$。また $\left|\sqrt2e^{-t}\sin(2\sqrt2t)\right|\le\sqrt2e^{-t}\to0$ なので定常波形へ近づきます。
 
-**(3)**　$\omega_0^2-2\beta^2=9-2=7>0$ だから、[振幅ピークの命題](#prop-cdyn5-resonance-peak)により $\Omega_{\mathrm r}=\sqrt7$。その周波数の分母は
+**(3)**　$\omega_0^2-2\beta^2=9-2=7>0$ だから、[減衰振動子の振幅ピーク](#prop-cdyn5-resonance-peak)により $\Omega_{\mathrm r}=\sqrt7$。その周波数の分母は
 
 $$
 \Delta(\sqrt7)=(9-7)^2+4\cdot1^2\cdot7=32
