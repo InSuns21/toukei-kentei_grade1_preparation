@@ -461,7 +461,7 @@ $$
 
 となり矛盾します。有限区間で有界な解は[ODE8の最大解の延長判定](../ODE8/index.md#thm-ode8-continuation)により延長可能なので、実解は $[0,T/\mu]$ 全体で球内に留まります。
 
-最後に逆三角不等式
+最後に[逆三角不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-reverse-triangle-inequality)
 
 $$
 \left|\|A_\mu(t)\|-\|Y_\mu(t)\|\right|
@@ -798,7 +798,7 @@ $$
 
 球の境界半径3へ到達したという仮定に矛盾します。球内の部分積分には、周期原始関数の上界 $4\pi U$ とその導関数の上界 $4\pi L$、さらに $\|A'\|\le\mu U$ を用いました。これによる積分誤差は $4\pi\mu U(1+LT)$ で、[Grönwallの不等式](../ODE8/index.md#lem-ode8-gronwall)の指数因子は $e^{LT}$ です。
 
-最後に逆三角不等式を適用すると次の結論を得ます。
+最後に[逆三角不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-reverse-triangle-inequality)を適用すると次の結論を得ます。
 
 $$
 |r(t)-\rho(\mu t)|\le\|A(t)-Y(t)\|\le C\mu
