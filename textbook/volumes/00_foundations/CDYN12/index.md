@@ -836,7 +836,21 @@ $$
 \partial_iV=\frac K3\sum_j\sin(\phi_i-\phi_j).
 $$
 
-代入すると順に $-K/3,0,K/3$ で、$\phi_i'=-\partial_iV$ と一致します。したがって
+各成分で和を明示すると、
+
+$$
+\begin{aligned}
+\partial_1V
+&=\frac K3(\sin0+\sin(-\pi/2)+\sin(-\pi))
+=-\frac K3,\\
+\partial_2V
+&=\frac K3(\sin(\pi/2)+\sin0+\sin(-\pi/2))=0,\\
+\partial_3V
+&=\frac K3(\sin\pi+\sin(\pi/2)+\sin0)=\frac K3.
+\end{aligned}
+$$
+
+従って $(\partial_1V,\partial_2V,\partial_3V)=(-K/3,0,K/3)$ です。上で独立に求めた位相速度と各成分で $\phi_i'=-\partial_iV$ が一致します。したがって
 
 $$
 \frac{dV}{dt}
@@ -853,14 +867,25 @@ $N=3$、$K>0$、$\phi=(0,\pi/2,\pi)$ の時刻における $(r^2)'$ と $V'$ を
 - ID: CDYN12-B2
 
 <!-- solution-start -->
-**詳細解答**　正弦差を各成分に入れると、前問と独立に
+**詳細解答**　前問の結論を前提にせず、元の結合式から各速度を計算します。
 
 $$
-(\phi_1',\phi_2',\phi_3')
-=(K/3,0,-K/3).
+\begin{aligned}
+\phi_1'&=\frac K3\{\sin(\pi/2)+\sin\pi\}=\frac K3,\\
+\phi_2'&=\frac K3\{\sin(-\pi/2)+\sin(\pi/2)\}=0,\\
+\phi_3'&=\frac K3\{\sin(-\pi)+\sin(-\pi/2)\}=-\frac K3.
+\end{aligned}
 $$
 
-二乗和は $2K^2/9$ です。[散逸恒等式](#thm-cdyn12-gradient-dissipation)を $N=3$ に適用して
+従って平方和は
+
+$$
+\sum_{i=1}^3(\phi_i')^2
+=\frac{K^2}{9}+0+\frac{K^2}{9}
+=\frac{2K^2}{9}.
+$$
+
+[散逸恒等式](#thm-cdyn12-gradient-dissipation)を $N=3$ に適用して
 
 $$
 V'=-\frac{2K^2}{9},\qquad
@@ -927,10 +952,17 @@ V=\frac{3K}{2}\left(1-\frac19\right)
 =\frac{3K}{2}\,\frac89=\frac{4K}3.
 $$
 
-角度差は0または $\pm\pi$ なので各速度は0です。摂動後は第一、第二位相が等しいまま動くため、第三位相との差 $D$ は
+角度差は0または $\pm\pi$ なので各速度は0です。摂動後は第一、第二位相が等しく、右辺も同一なので、解の一意性から $\phi_1(t)=\phi_2(t)$ が続きます。第三位相との差を $D=\phi_3-\phi_1$ とおくと、
 
 $$
-D'=-K\sin D.
+\begin{aligned}
+\phi_1'=\phi_2'&=\frac K3\sin D,\\
+\phi_3'&=\frac K3\{\sin(-D)+\sin(-D)\}
+=-\frac{2K}{3}\sin D,\\
+D'&=\phi_3'-\phi_1'
+=-\frac{2K}{3}\sin D-\frac K3\sin D\\
+&=-K\sin D.
+\end{aligned}
 $$
 
 時刻0では $D(0)=\pi-\delta$ なので
@@ -1022,7 +1054,19 @@ $$
 \tan\frac{W(t)}2\le e^{-Kt}\tan\frac\pi4=e^{-Kt}.
 $$
 
-従って $W(t)\le2\arctan(e^{-Kt})\to0$ であり、各 $\phi_i(t)\to0$ です。元の座標では全て $\omega t$ と同じ速度で回ります。
+$0\le W(t)<\pi$ で $\arctan$ は単調増加するため、
+
+$$
+0\le W(t)\le2\arctan(e^{-Kt})\longrightarrow0.
+$$
+
+[半円内同期の定理](#thm-cdyn12-semicircle-sync)にある平均保存より $\bar\phi(t)=\bar\phi_0=0$ です。平均は最小位相と最大位相の間にあるので
+
+$$
+|\phi_i(t)-0|\le W(t)\longrightarrow0
+$$
+
+です。元の座標では各位相が $\omega t$ と同じ速度で回ります。
 
 **(5)**　(3) の初期値では $V'=0$ が永久に続き、しかも完全同期ではありません。従って $V'\le0$ だけでは停留する位相配置を一つに限定できません。(4) には幅が $\pi$ 未満という追加条件があり、幅に対して $W'\le-K\sin W$ を証明できるから完全同期まで結論できます。
 <!-- solution-end -->
