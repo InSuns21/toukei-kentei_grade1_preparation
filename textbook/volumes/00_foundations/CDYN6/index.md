@@ -72,7 +72,19 @@ $$
 <!-- formal-statement-start -->
 ### 定義（二重井戸ポテンシャル）
 
-$\mu,\lambda>0$ とし、$U:\mathbb R\to\mathbb R$ を $U(q)=-\mu q^2/2+\lambda q^4/4$ とする。この $U$ の二つの極小点 $q=\pm\sqrt{\mu/\lambda}$ と、その間の極大点 $q=0$ が作る配置を、本章の**二重井戸ポテンシャル**と呼ぶ。井戸の底のエネルギーは $-D=-\mu^2/(4\lambda)$ である。
+$\mu,\lambda>0$ とし、ポテンシャル $U:\mathbb R\to\mathbb R$ を
+
+$$
+U(q)=-\frac{\mu}{2}q^2+\frac{\lambda}{4}q^4
+$$
+
+とする。この $U$ が持つ二つの極小点と、それらの間にある極大点の配置を本章の**二重井戸ポテンシャル**と呼ぶ。具体的には極小点は $q=\pm\sqrt{\mu/\lambda}$、極大点は $q=0$ である。井戸の底のエネルギーは
+
+$$
+U\bigl(\pm\sqrt{\mu/\lambda}\bigr)=-D=-\frac{\mu^2}{4\lambda}
+$$
+
+である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cdyn6-double-well -->
