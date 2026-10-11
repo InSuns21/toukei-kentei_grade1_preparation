@@ -9,7 +9,6 @@ concepts:
     name: 吸引円と半径の明示解
     kind: proposition
     introduction_aliases: ["命題（吸引円と半径の明示解）"]
-    requires: [continuous-dynamical-systems.vdp-amplitude-equation]
   - id: continuous-dynamical-systems.explicit-asymptotic-phase
     name: 明示模型の漸近位相
     kind: definition
