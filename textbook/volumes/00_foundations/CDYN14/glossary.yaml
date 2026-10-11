@@ -1,0 +1,32 @@
+chapter: "CDYN14"
+terms:
+  - term: 有限周期格子
+    english: finite periodic lattice
+    meaning: "N個の点を輪状に並べ、添字をNで割った余りとして扱う格子。"
+  - term: 離散Laplace作用素
+    english: discrete Laplacian
+    meaning: "左右の最近接値と中心値の差Lu_j=u_{j+1}−2u_j+u_{j−1}を取る線形作用素。"
+  - term: 空間モード
+    english: spatial mode
+    meaning: "格子添字に沿う波の形。有限周期格子ではexp(2πikj/N)が離散Laplaceの固有ベクトルになる。"
+  - term: 零モード
+    english: zero mode
+    meaning: "全成分が等しいk=0のFourierモード。純粋な拡散結合では保存される。"
+  - term: 離散Fourier変換
+    english: discrete Fourier transform
+    meaning: "N点列をN個の複素指数波の係数へ分解する有限次元の変換。逆変換と直交性は有限等比和で証明できる。"
+  - term: 格子のスペクトルギャップ
+    english: lattice spectral gap
+    meaning: "零モードと最も遅い非零モードの減衰率の隔たり。本模型では4Dsin²(π/N)。"
+  - term: 最近接正弦結合
+    english: nearest-neighbor sinusoidal coupling
+    meaning: "各位相が左右隣との正弦位相差で駆動される連続時間の常微分方程式。"
+  - term: 方向付き結合
+    english: directed coupling
+    meaning: "左右隣への結合係数を別々に与える結合。非対称の場合には固有値が複素数になり得る。"
+  - term: 前進Euler法
+    english: forward Euler method
+    meaning: "連続時間の微分方程式を刻みΔtで1次近似して離散更新する方法。安定性は元のODEと別に検証する。"
+  - term: 固定モード極限
+    english: fixed-mode limit
+    meaning: "格子点Nを増やすとき波数kを固定して固有値の極限を取る操作。高周波全体のPDE収束までは保証しない。"

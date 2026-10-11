@@ -15,9 +15,9 @@ terms:
   - term: 追従誤差
     english: tracking error
     meaning: "速い変数とその時刻の目標曲線の差q=x−h(y)。指数初期層と遅い変化によるO(ε)のずれから成る。"
-  - term: 法線方向の引込み
-    english: normal attraction
-    meaning: "固定した遅い変数で、臨界多様体からの速い方向への変位が減衰する性質。本模型ではa>0で指数減衰する。"
+  - term: 速い方向の引込み
+    english: attraction along fast fibers
+    meaning: "遅い変数yを固定したとき、x方向への変位が減衰する性質。本模型ではa>0で指数減衰する。曲線のEuclid幾何の法線とx方向は一般に異なる。"
   - term: 特異極限
     english: singular limit
     meaning: "小係数εを0へ近づけることで微分方程式の次数や解の初期値への依存が変わる極限。正時刻の収束と初期時刻の一様収束を区別する。"
