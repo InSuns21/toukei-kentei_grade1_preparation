@@ -43,7 +43,39 @@ $$
 a_i=\kappa_i\{r_j\cos(\theta_j+\alpha_i)-r_i\cos\theta_i\}
 $$
 
-とします。直交座標で $x_ix_i'+y_iy_i'=r_ir_i'$、$x_iy_i'-y_ix_i'=r_i^2\theta_i'$ を計算すると、
+とします。まず、$x_i=r_i\cos\theta_i$、$y_i=r_i\sin\theta_i$ を微分して
+
+$$
+\begin{aligned}
+x_ix_i'+y_iy_i'&=r_ir_i',\\
+x_iy_i'-y_ix_i'&=r_i^2\theta_i'
+\end{aligned}
+$$
+
+を得ます。元の直交座標方程式を代入すると、回転項は半径の計算で相殺され、
+
+$$
+\begin{aligned}
+x_ix_i'+y_iy_i'
+&=(1-r_i^2)(x_i^2+y_i^2)
++\varepsilon a_ix_i\\
+&=r_i^2(1-r_i^2)+\varepsilon a_ir_i\cos\theta_i.
+\end{aligned}
+$$
+
+一方、半径方向の項は角速度の計算で相殺され、
+
+$$
+\begin{aligned}
+x_iy_i'-y_ix_i'
+&=(\Omega+\varepsilon\nu_i)(x_i^2+y_i^2)
+-\varepsilon a_iy_i\\
+&=(\Omega+\varepsilon\nu_i)r_i^2
+-\varepsilon a_ir_i\sin\theta_i.
+\end{aligned}
+$$
+
+$r_i>0$ なので前者を $r_i$、後者を $r_i^2$ で割ると、
 
 $$
 \begin{aligned}
@@ -163,7 +195,7 @@ $$
 \psi_i(t)=\theta_i(t)-\Omega t
 $$
 
-を考えます。先ほどの半径評価から
+を考えます。[結合下の半径の一様評価](#prop-cdyn10-radial-bound)から
 
 $$
 \left|\frac{r_j}{r_i}-1\right|
@@ -191,7 +223,36 @@ F_i(s,u)&=\nu_i+\kappa_i\{
 \end{aligned}
 $$
 
-$R_i$ は半径比を1へ置換した際の誤差を $\varepsilon^2$ で割ったものです。$F_i$ は速い角度 $s$ について $2\pi$ 周期で、$u=(u_1,u_2)$ には滑らかに依存します。
+残差を実際に取り出します。角度方程式の相手入力の項だけに半径比が残るので、
+
+$$
+\begin{aligned}
+&-\varepsilon\kappa_i\frac{r_j}{r_i}
+\sin\theta_i\cos(\theta_j+\alpha_i)\\
+&\quad=-\varepsilon\kappa_i
+\sin\theta_i\cos(\theta_j+\alpha_i)\\
+&\qquad-\varepsilon\kappa_i
+\left(\frac{r_j}{r_i}-1\right)
+\sin\theta_i\cos(\theta_j+\alpha_i).
+\end{aligned}
+$$
+
+したがって、最終行を $\varepsilon^2R_i$ と置けば、
+
+$$
+R_i(t)=-\frac{\kappa_i}{\varepsilon}
+\left(\frac{r_j(t)}{r_i(t)}-1\right)
+\sin\theta_i(t)\cos(\theta_j(t)+\alpha_i)
+$$
+
+です。$\kappa_i\le K$、半径比の誤差が $16\varepsilon K$ 以下、三角関数の絶対値が1以下であることを順に使うと、
+
+$$
+|R_i(t)|\le\frac K\varepsilon\cdot16\varepsilon K
+=16K^2.
+$$
+
+これは $\varepsilon>0$ で定義された残差であり、もとの位相速度に戻すと $\varepsilon^2R_i=O(\varepsilon^2)$ です。$F_i$ は速い角度 $s$ について $2\pi$ 周期で、$u=(u_1,u_2)$ には滑らかに依存します。
 
 位相差へ戻る前に、一周期で何が残るかを定義します。
 
@@ -368,14 +429,25 @@ $$
 \le16\sqrt2 K^2L\varepsilon.
 $$
 
-一方 $\overline F$ は正弦関数から成り、全空間で有界かつ Lipschitz です。定数 $B$ を
+一方 $\overline F$ の各成分は定数と正弦関数の和なので、全空間で Lipschitz です。例えば正弦関数の差について $|\sin a-\sin b|\le|a-b|$ を使うと、
 
 $$
-\|\overline F(v)-\overline F(w)\|
-\le B\|v-w\|
+\begin{aligned}
+|\overline F_i(v)-\overline F_i(w)|
+&\le\frac{\kappa_i}{2}
+|(v_j-v_i)-(w_j-w_i)|\\
+&\le\frac K2\sqrt2\,\|v-w\|.
+\end{aligned}
 $$
 
-となるように取ります。平均系の右辺は大域 Lipschitz かつ有界なので、初期値から一意な大域解 $u(\tau)$ が存在します。$\widehat u(t)=u(\varepsilon t)$ は $\widehat u'=\varepsilon\overline F(\widehat u)$ を満たします。
+二成分をまとめれば $\|\overline F(v)-\overline F(w)\|\le B\|v-w\|$ として $B=K$ を選べます。また、
+
+$$
+\|\overline F(u)\|
+\le\sqrt2\left(\max_i|\nu_i|+\frac K2\right)=:A
+$$
+
+なので、[ODE8の線形成長条件による大域存在](../ODE8/index.md#cor-ode8-global-linear-growth)において、次元 $d=2$、右辺 $F=\overline F$、定数 $A$ を上式、$B_{\mathrm{growth}}=0$ とすれば、平均系は全時刻で解を持ちます。大域 Lipschitz 性による一意性と合わせ、初期値から一意な大域解 $u(\tau)$ が存在します。$\widehat u(t)=u(\varepsilon t)$ は $\widehat u'=\varepsilon\overline F(\widehat u)$ を満たします。
 
 $\psi(0)=\widehat u(0)$ ですから積分方程式を引くと、$E(t)=\|\psi(t)-\widehat u(t)\|$ に対して
 
@@ -531,9 +603,28 @@ $c=0,\lambda=1$ の単一振動子で $\Phi=\theta$ とする。$\nabla\Phi(x,y)
 - ID: CDYN10-A1
 
 <!-- solution-start -->
-**詳細解答**　$r^2=x^2+y^2>0$ で偏角を局所的に微分すると
+**詳細解答**　原点を除いた近傍で偏角 $\Phi=\theta$ を連続に持ち上げます。$x=r\cos\theta$、$y=r\sin\theta$ の微分は
 
 $$
+\begin{aligned}
+dx&=\cos\theta\,dr-r\sin\theta\,d\theta,\\
+dy&=\sin\theta\,dr+r\cos\theta\,d\theta
+\end{aligned}
+$$
+
+です。第一式に $-y=-r\sin\theta$、第二式に $x=r\cos\theta$ を掛けて足すと、$dr$ の係数が相殺され、
+
+$$
+x\,dy-y\,dx
+=r^2(\cos^2\theta+\sin^2\theta)\,d\theta
+=r^2\,d\theta.
+$$
+
+$r^2=x^2+y^2>0$ で割り、$dx$、$dy$ の係数を比較すれば、
+
+$$
+d\Phi=-\frac y{r^2}\,dx+\frac x{r^2}\,dy,
+\qquad
 \nabla\Phi(x,y)=(-y/r^2,x/r^2).
 $$
 
@@ -558,7 +649,7 @@ $u,v,\alpha$ を固定し、$s$ の $2\pi$ 平均で $\sin(s+u)\cos(s+u)$ と $\
 - ID: CDYN10-A2
 
 <!-- solution-start -->
-**詳細解答**　三角関数の積を和へ展開すると
+**詳細解答**　[水平結合の一周期平均](#prop-cdyn10-period-average)で使う積和公式を、ここでは直接計算します。三角関数の積を和へ展開すると
 
 $$
 \sin(s+u)\cos(s+u)=\tfrac12\sin(2s+2u),
@@ -581,7 +672,7 @@ $0<\varepsilon K\le1/16$ とし、両半径が $[1/2,3/2]$ にあるとき、$r_
 - ID: CDYN10-A3
 
 <!-- solution-start -->
-**詳細解答**　水平入力について $|a_i\cos\theta_i|\le3K$。$f(r)=r(1-r^2)$ は $f(1/2)=3/8$、$f(3/2)=-15/8$ です。従って
+**詳細解答**　[結合下の半径の一様評価](#prop-cdyn10-radial-bound)と同じ帯の境界判定を行います。両半径が $[1/2,3/2]$ にあるので、$|a_i\cos\theta_i|\le\kappa_i(r_i+r_j)\le3K$。$f(r)=r(1-r^2)$ は $f(1/2)=3/8$、$f(3/2)=-15/8$ です。従って
 
 $$
 r_i'|_{r_i=1/2}\ge3/8-3/16=3/16>0,
@@ -619,13 +710,33 @@ $z_\varepsilon(t)=\varepsilon\sin(2t)$ を $0\le t\le L/\varepsilon$ で考え�
 - ID: CDYN10-A5
 
 <!-- solution-start -->
-**詳細解答**　$|z_\varepsilon(t)|\le\varepsilon$ なので解の差は一様に $O(\varepsilon)$ です。微分すると
+**詳細解答**　$\varepsilon>0$、$L>0$ とし、区間の右端を $T=L/\varepsilon$ と置きます。$|z_\varepsilon(t)|\le\varepsilon$ ですが、上界 $\varepsilon$ を実際に取るのは $2t=\pi/2$、すなわち $t=\pi/4$ が区間内にあるときです。$0\le t\le\pi/4$ では $\sin(2t)$ が単調増加するので、
+
+$$
+\sup_{0\le t\le L/\varepsilon}|z_\varepsilon(t)|
+=\begin{cases}
+\varepsilon\sin(2L/\varepsilon)
+& (L/\varepsilon<\pi/4),\\
+\varepsilon & (L/\varepsilon\ge\pi/4).
+\end{cases}
+$$
+
+特に固定した $L>0$ に対し十分小さい $\varepsilon$ では第二の場合になり、いずれにせよ $\sup_t|z_\varepsilon(t)|\le\varepsilon$ なので $O(\varepsilon)$ です。
+
+微分すると
 
 $$
 z_\varepsilon'(t)=2\varepsilon\cos(2t).
 $$
 
-区間は $t=0$ を含み、その時の絶対値は $2\varepsilon$ です。従って $\sup_t|z_\varepsilon'(t)|=2\varepsilon$。これは一般に $O(\varepsilon^2)$ ではありません。平均化で消えるのは速い変動の**積分効果**であり、各時刻の速い変動ではありません。
+区間は $t=0$ を含み、その時の絶対値は $2\varepsilon$ です。したがってすべての $\varepsilon>0$ で
+
+$$
+\sup_{0\le t\le L/\varepsilon}|z_\varepsilon'(t)|
+=2\varepsilon.
+$$
+
+これは $O(\varepsilon^2)$ ではありません。平均化で消えるのは速い変動の**積分効果**であり、各時刻の速い変動ではありません。
 <!-- solution-end -->
 
 ### B1. 回転した水平入力の極座標表示
@@ -701,11 +812,16 @@ $\nu_1=\nu_2$、$\kappa_1=\kappa_2=\kappa>0$、$\alpha_1=\alpha_2=\alpha$ とす
 - ID: CDYN10-B3
 
 <!-- solution-start -->
-**詳細解答**　[平均位相差方程式](#thm-cdyn10-phase-difference)より
+**詳細解答**　[平均位相差方程式](#thm-cdyn10-phase-difference)に $\nu_2-\nu_1=0$、$\kappa_1=\kappa_2=\kappa$、$\alpha_1=\alpha_2=\alpha$ を代入すると、
 
 $$
-D'=\frac\kappa2\{\sin(\alpha-D)-\sin(\alpha+D)\}
-=-\kappa\cos\alpha\sin D.
+D'=\frac\kappa2\{\sin(\alpha-D)-\sin(\alpha+D)\}.
+$$
+
+積和公式から $\sin(\alpha-D)-\sin(\alpha+D)=-2\cos\alpha\sin D$ となるため、
+
+$$
+D'=-\kappa\cos\alpha\sin D.
 $$
 
 $D$ を $-D$ に置けば右辺の符号が反転するので奇関数です。結合方向による違いは
@@ -728,10 +844,21 @@ $\nu_1=\nu_2$、$\kappa_1=\kappa_2=\kappa>0$、$\alpha_1=0$、$\alpha_2=\pi/2$ �
 - ID: CDYN10-B4
 
 <!-- solution-start -->
-**詳細解答**　相互作用は第一へ $(\kappa/2)\sin D$、第二へ $(\kappa/2)\sin(-D+\pi/2)=(\kappa/2)\cos D$ です。その差を取ると
+**詳細解答**　[水平結合の一周期平均](#prop-cdyn10-period-average)で $u_2-u_1=D$、$u_1-u_2=-D$ を用い、第一のパラメータ $\alpha_1=0$ と第二のパラメータ $\alpha_2=\pi/2$ をそれぞれ代入すると、
 
 $$
-D'=\frac\kappa2(\cos D-\sin D).
+\begin{aligned}
+\overline F_1(u)&=\nu_1+\frac\kappa2\sin(D+0),\\
+\overline F_2(u)&=\nu_2+\frac\kappa2\sin(-D+\pi/2)
+=\nu_2+\frac\kappa2\cos D.
+\end{aligned}
+$$
+
+$D'=u_2'-u_1'$ であり、$\nu_2-\nu_1=0$ なので、
+
+$$
+D'=\frac\kappa2\cos D-\frac\kappa2\sin D
+=\frac\kappa2(\cos D-\sin D).
 $$
 
 $D=0$ を代入すると $D'=\kappa/2>0$ なので平衡ではありません。
