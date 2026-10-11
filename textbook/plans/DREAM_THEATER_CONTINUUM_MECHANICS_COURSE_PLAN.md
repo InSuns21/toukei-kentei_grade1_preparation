@@ -1,7 +1,9 @@
-# DREAM THEATER 連続体力学コース計画
+# DREAM THEATER 連続体力学コース計画（CTM1〜8：CMとのID衝突を回避）
 
 作成日: 2026-09-29  
 状態: planned
+
+**章ID競合の解消（2026-10-11）**：従前の仮ID `CM1〜CM8` は複素多様体論 `CM1〜CM2` と重複したため、未実装の連続体力学のみ `CTM1〜CTM8` に変更した。既存の公開URL・章・概念アンカーは変更しない。
 
 ## 0. 目的
 
@@ -24,7 +26,7 @@ PDE の大学院理論、Sobolev 空間、Navier--Stokes の弱解は前提に�
 
 ## 2. 章構成候補
 
-### CM1 連続体と運動学
+### CTM1 連続体と運動学
 - material point
 - reference / current configuration
 - motion
@@ -33,21 +35,21 @@ PDE の大学院理論、Sobolev 空間、Navier--Stokes の弱解は前提に�
 - Jacobian
 - local volume change
 
-### CM2 strain と変形
+### CTM2 strain と変形
 - infinitesimal strain
 - finite deformation の入口
 - rigid motion
 - principal strain
 - objectivity の入口
 
-### CM3 stress と Cauchy の定理
+### CTM3 stress と Cauchy の定理
 - traction
 - Cauchy stress tensor
 - normal / shear stress
 - stress transformation
 - principal stress
 
-### CM4 balance laws
+### CTM4 balance laws
 - mass conservation
 - linear momentum
 - angular momentum
@@ -55,7 +57,7 @@ PDE の大学院理論、Sobolev 空間、Navier--Stokes の弱解は前提に�
 - material / spatial description
 - Reynolds transport theorem の位置付け
 
-### CM5 構成則
+### CTM5 構成則
 - constitutive relation
 - linear elasticity
 - Newtonian viscosity
@@ -63,7 +65,7 @@ PDE の大学院理論、Sobolev 空間、Navier--Stokes の弱解は前提に�
 - dimensional analysis
 - material parameter
 
-### CM6 線形弾性
+### CTM6 線形弾性
 - Hooke law
 - isotropic elasticity
 - equilibrium equation
@@ -71,7 +73,7 @@ PDE の大学院理論、Sobolev 空間、Navier--Stokes の弱解は前提に�
 - simple extension / bending の例
 - tissue elasticity への橋
 
-### CM7 粘性流体と Stokes flow
+### CTM7 粘性流体と Stokes flow
 - Newtonian fluid
 - incompressibility
 - Navier--Stokes の導出
@@ -80,7 +82,7 @@ PDE の大学院理論、Sobolev 空間、Navier--Stokes の弱解は前提に�
 - Stokes flow
 - 細胞スケール流体への橋
 
-### CM8 粘弾性・active continuum
+### CTM8 粘弾性・active continuum
 - Maxwell / Kelvin--Voigt
 - relaxation / creep
 - active stress
@@ -110,8 +112,8 @@ PDE の大学院理論、Sobolev 空間、Navier--Stokes の弱解は前提に�
 
 1. VC / PDE / FEM との重複監査
 2. tensor notation の canonical source 確認
-3. CM1--CM4 で kinematics / balance を確立
-4. CM5--CM7 で elastic / viscous の標準例
-5. CM8 で生体材料への橋
+3. CTM1--CTM4 で kinematics / balance を確立
+4. CTM5--CTM7 で elastic / viscous の標準例
+5. CTM8 で生体材料への橋
 6. FEM / fluid / developmental biology への cross-link
 7. knowledge DAG / validation

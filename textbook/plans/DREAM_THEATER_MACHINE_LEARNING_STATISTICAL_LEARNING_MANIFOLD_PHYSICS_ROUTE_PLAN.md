@@ -1,7 +1,29 @@
-# DREAM THEATER 機械学習・統計的学習理論・多様体仮説・物理学 横断講義PLAN
+# DREAM THEATER 機械学習・統計的学習理論・多様体学習・物理学 横断ルート
 
-作成日: 2026-10-10  
-状態: planned（PLAN 設計のみ。講義本文・章メタデータ・公開ルーティングは未実装）
+分冊: 2026-10-11  
+状態: planned（ルート台帳のみ）
+
+## 科目別PLAN（それぞれI→IIを同一PLANに保持）
+
+- [機械学習I・II（ML1/2）](DREAM_THEATER_MACHINE_LEARNING_I_II_PLAN.md)
+- [統計的学習理論I・II（SLT1/2）](DREAM_THEATER_STATISTICAL_LEARNING_THEORY_I_II_PLAN.md)
+- [多様体学習I・II（MFL1/2）](DREAM_THEATER_MANIFOLD_LEARNING_I_II_PLAN.md)
+- [機械学習と物理学I・II（PML1/2）](DREAM_THEATER_PHYSICS_INFORMED_MACHINE_LEARNING_I_II_PLAN.md)
+
+## 直接依存の見取り図
+
+~~~text
+LA/RA/最適化・確率論 → ML1 → ML2
+HDP・確率論＋ML1 → SLT1 → SLT2（RMTは発展の必要部分）
+SGT＋GEO → MFL1 → MFL2（群作用・表現を追加）
+ML1/2＋TH/SMの該当講 → PML1 → PML2（GPDE/INV/FEM）
+~~~
+
+SGTは有限グラフのスペクトル定理の正本、MFLは標本グラフから連続作用素への近似を正本とする。HDP・RMT・OTR・情報幾何など未実装PLANを無条件必修・既証明扱いにしない。
+
+---
+
+## 元の横断PLANから保持した共通規則・資料（個別シラバスは各科目PLANが正本）
 
 ## 0. 目的・中心問い
 
@@ -93,146 +115,6 @@ OTR1（発展分岐） ──→ ML2の高度な生成模型 / PML2の拡散・�
 - **RMT1/OTR1 は発展分岐**。SLT2 の NTK 入門や ML2 の基本拡散モデルを読むために無条件の必修にしない。
 - PML1 の SM/SG が必要なのは統計力学との対応部分であり、一般対称性・構造保存モデルの先行学習を禁止しない。
 - 幾何解析/情報幾何/熱・情報の「計画済み」結果を実装済みとしてリンクしない。公開講義時は依存元完成まで局所定義または intentional black box を明示。
-
-## 4. 15週シラバス：基幹科目
-
-### ML1（15週）
-
-| 週 | 主題 |
-|---|---|
-| 1 | 教師あり/なし学習、標本・母集団・条件付き分布 |
-| 2 | 損失、Bayes risk、経験リスク最小化 |
-| 3 | 最小二乗、正規方程式、ridge |
-| 4 | logistic 回帰、交差エントロピー、尤度 |
-| 5 | 凸性・Lipschitz 勾配・勾配法の収束 |
-| 6 | 確率的勾配、minibatch と誤差 |
-| 7 | データ分割、交差検証、過適合 |
-| 8 | 分類性能、ROC、校正と適切なスコア |
-| 9 | 決定木・アンサンブル・非線形予測 |
-| 10 | SVM と RKHS 系列への接続 |
-| 11 | カーネル回帰・正則化 |
-| 12 | 主成分分析、低ランク近似 |
-| 13 | クラスタリングと混合モデルへの入口 |
-| 14 | 分布シフト・欠測・検証データ漏洩 |
-| 15 | モデル比較・証明・再現可能な総合実験 |
-
-### ML2（15週）
-
-| 週 | 主題 |
-|---|---|
-| 1 | 確率的予測、log loss と KL |
-| 2 | 事前・事後分布、posterior predictive |
-| 3 | 指数型分布族と統計的潜在変数 |
-| 4 | 混合モデル、EM の単調改善 |
-| 5 | 変分分布、ELBO の導出 |
-| 6 | 変分 Bayes と mean-field 近似 |
-| 7 | MCMC・重要度サンプリング・診断 |
-| 8 | Gaussian process・不確実性 |
-| 9 | feedforward network と普遍近似の適用条件 |
-| 10 | 連鎖律・逆伝播・自動微分 |
-| 11 | 表現学習・正則化・深層最適化 |
-| 12 | attention・Transformer の演算構造 |
-| 13 | VAE の学習目的 |
-| 14 | score matching・離散/連続拡散の入口 |
-| 15 | 確率校正・生成評価・総合演習 |
-
-### SLT1（15週）
-
-| 週 | 主題 |
-|---|---|
-| 1 | risk・Bayes risk・excess risk |
-| 2 | 学習可能性と PAC 定式化 |
-| 3 | HDP の Hoeffding 型集中を有限仮説に適用 |
-| 4 | 一様大数則、union bound と必要標本数 |
-| 5 | shattering と VC 次元 |
-| 6 | Sauer–Shelah 補題 |
-| 7 | VC 型汎化誤差界 |
-| 8 | covering number・epsilon-net の導入 |
-| 9 | symmetrization・Rademacher 複雑度 |
-| 10 | contraction・関数クラスの評価 |
-| 11 | 正則化 ERM・oracle inequality |
-| 12 | algorithmic stability・一様安定性 |
-| 13 | PAC-Bayes の典型形と証明 |
-| 14 | minimax 下界・Fano/Le Cam との接続 |
-| 15 | lower/upper bound の仮定比較、総合証明 |
-
-### SLT2（15週）
-
-| 週 | 主題 |
-|---|---|
-| 1 | 高次元回帰とランク欠損 |
-| 2 | 最小ノルム補間解・implicit bias |
-| 3 | bias/variance と double descent の線形模型 |
-| 4 | 非漸近ランダム行列評価への導線 |
-| 5 | gradient flow とカーネル回帰 |
-| 6 | 有限幅ネットワークの線形化 |
-| 7 | NTK 極限の仮定・モデル |
-| 8 | 無限幅ガウス過程と関数空間 |
-| 9 | mean-field parameter distribution |
-| 10 | Wasserstein/確率測度上の形式的勾配流の成立条件 |
-| 11 | SGD の雑音モデルと SDE 近似の限界 |
-| 12 | sharpness / flatness と再パラメータ化 |
-| 13 | 情報論的・圧縮型汎化評価 |
-| 14 | 分布外一般化と何が保証されないか |
-| 15 | 既知の定理・模型依存の主張・未解決問題の分類 |
-
-### MFL1（15週）
-
-| 週 | 主題 |
-|---|---|
-| 1 | 高次元観測と内在次元：多様体仮説の定式化 |
-| 2 | 埋め込み、局所座標、接空間 |
-| 3 | reach・曲率・標本ノイズ・仮説の破綻例 |
-| 4 | 局所 PCA と tangent estimation |
-| 5 | 近傍グラフ・距離の歪み |
-| 6 | Isomap と測地距離 |
-| 7 | 局所線形埋め込み・識別不能性 |
-| 8 | SGT の graph Laplacian・random walk を適用 |
-| 9 | Laplace–Beltrami と熱半群 |
-| 10 | diffusion maps と密度補正 |
-| 11 | 離散 Laplacian の整合性の仮定 |
-| 12 | スペクトル収束の証明模型 |
-| 13 | 内在次元・曲率・ノイズの推定 |
-| 14 | t-SNE・UMAP を幾何学的同型と取り違えない |
-| 15 | manifold / near-manifold / stratified data のモデル比較 |
-
-### PML1（15週）
-
-| 週 | 主題 |
-|---|---|
-| 1 | エネルギー・損失・Gibbs 分布の区別 |
-| 2 | KL と自由エネルギーの変分恒等式 |
-| 3 | 統計力学の分配関数と計算可能模型 |
-| 4 | 最適化の勾配流と散逸 |
-| 5 | Langevin dynamics と不変測度 |
-| 6 | Fokker–Planck と連続時間近似 |
-| 7 | SGD ≠ 自動的に熱平衡：仮定と反例 |
-| 8 | スピングラス・無秩序模型・学習との接点 |
-| 9 | 容量・相転移の模型依存性 |
-| 10 | 群作用・不変/同変写像 |
-| 11 | 対称性と Noether 定理への接続 |
-| 12 | Hamiltonian / Lagrangian neural networks |
-| 13 | 保存則・幾何数値積分との比較 |
-| 14 | PINN・Neural Operator・物理制約の概要 |
-| 15 | 物理模型の検証と機械学習ベースライン比較 |
-
-## 5. 発展2科目の15週独立構成
-
-### MFL2 — 幾何的深層学習
-
-1–3週: 群作用、表現、軌道・安定化群、等変性。  
-4–6週: 畳み込みの対称性、群畳み込み、Fourier / Peter–Weyl の有限例。  
-7–9週: グラフ message passing、表現力、Graph Laplacian、oversmoothing。  
-10–12週: 多様体上の場、座標変換、接束と gauge-equivariant モデル。  
-13–15週: E(n)/SE(3) 同変モデル、物理データ、対称性違反の数値実験。
-
-### PML2 — 科学機械学習
-
-1–3週: forward / inverse PDE、弱形式・数値解、誤差の種類。  
-4–6週: PINN、残差損失、境界・初期条件、学習不良の例。  
-7–9週: Neural Operator、Fourier Neural Operator、関数空間の視点。  
-10–12週: 作用素近似、離散化依存、安定性・保存則・残差と実誤差の差。  
-13–15週: データ同化・Bayes 逆問題・FEM/差分法との統制比較。
 
 ## 6. 必ず監査する数学的飛躍
 

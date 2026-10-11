@@ -1,7 +1,20 @@
-# DREAM THEATER 時空・量子場の数学基盤 — 独立4セメスターPLAN
+# DREAM THEATER 時空・量子場の数学基盤：4科目の履修ルート
 
-作成日: 2026-10-10  
-状態: planned（数学講義の設計のみ、章本文・公開ルーティング・実装は未着手）
+分冊: 2026-10-11  
+状態: planned（横断案内のみ）
+
+1. [ローレンツ幾何と大域因果構造 I（LORG1〜15）](DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md)
+2. [ローレンツ多様体上の双曲型PDE I（HPDE1〜15）](DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md)
+3. [超局所解析・Hadamard条件 I（MICA1〜15）](DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md)
+4. [代数的量子場理論・モジュラー理論 I（AQFT1〜15）](DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md)
+
+GEO / SREL → LORG → HPDE → MICA（厳密Hadamard条件）。OA / VN + QM / QINF + HPDE → AQFT、曲がった時空のAQFTで必要ならMICAを追加。GR・QCURV・HOLO・BHIの物理科目は[熱・時空・情報横断ルート](DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md)の各個別PLANへ。
+
+本ファイルは学修ゲートと直接依存を案内するだけであり、各科目のシラバスは上記ファイルを唯一の正本とする。
+
+---
+
+## 元の横断PLANから保持した共通規則・資料（個別シラバスは各科目PLANが正本）
 
 ## 0. 目的
 
@@ -66,120 +79,6 @@ GEO12–GEO19 + SRELの入口
 ~~~
 
 学習順の矢印は科目全体の推奨接続であり、正式な直接依存は各章を実装した時点の `chapter.yaml` / `knowledge.yaml` で最小集合に絞る。GR IはLorentz計量の物理的入口から始めるが、LORGの幾何学的結果を前提にする際は章リンクを付す。LORGにGR Iを前提とする循環依存を入れない。
-
-## 4. 15週シラバス
-
-### 1. ローレンツ幾何と大域因果構造 I（LORG1–LORG15）
-
-- **位置付け:** 必須の数学基盤
-- **前提:** GEO1–GEO19（多様体・接続・曲率）、線形代数、SRELのMinkowski時空概念（初回に必要部分を再定義）
-- **canonical ownership:** Lorentz計量、因果集合、Cauchy超曲面、大域双曲性を数学として所有。Einstein方程式・物理的地平線・崩壊模型・時空解の解釈はGR I/II。
-
-- **第01週 LORG1**：非退化対称双線形形式、符号数、ローレンツ計量
-- **第02週 LORG2**：時間的・光的・空間的ベクトルと錐、時間向き
-- **第03週 LORG3**：因果曲線、固有時、Lorentz長さの極値
-- **第04週 LORG4**：Levi-Civita接続とLorentz測地線
-- **第05週 LORG5**：法線座標と測地線方程式、局所的な因果錐
-- **第06週 LORG6**：時系列集合I⁺/I⁻と因果集合J⁺/J⁻の定義
-- **第07週 LORG7**：因果階層（chronology・causality・strong causality）
-- **第08週 LORG8**：achronal集合・acausal集合・edgeの実例
-- **第09週 LORG9**：領域依存 D(S) とCauchy horizonの基礎
-- **第10週 LORG10**：Cauchy超曲面の定義・Minkowskiの具体例
-- **第11週 LORG11**：大域双曲性・因果ダイヤモンドのコンパクト性
-- **第12週 LORG12**：大域双曲時空の分割と時間関数（正確な定理の範囲）
-- **第13週 LORG13**：光的測地線束・共役点・集束の幾何
-- **第14週 LORG14**：準局所地平線と大域事象地平線の区別
-- **第15週 LORG15**：因果図・反例・依存条件の総合演習
-
-**必須の計算・証明ゲート**
-
-1. 平坦Minkowski時空でI⁺(p), J⁺(p), D(S)を座標から計算する
-2. 時間向きと因果曲線の接ベクトルの定義からLorentz長さを検算する
-3. 大域双曲性を必要とする存在定理と、単なる局所計量の存在からは導けない主張を反例で分離する
-
-### 2. ローレンツ多様体上の双曲型偏微分方程式 I（HPDE1–HPDE15）
-
-- **位置付け:** 必須の数学基盤
-- **前提:** LORG、GPDE1–GPDE10（超関数・Sobolev・弱解）、PDE I、EVOL（必要な節のみ）
-- **canonical ownership:** ローレンツ多様体上の初期値問題、有限伝播、基本解、遅延/先進Green作用素を所有。粒子数・Bogoliubov係数・量子真空・Hawking放射はQCURV。
-
-- **第01週 HPDE1**：試験関数と分布の多様体上の扱い
-- **第02週 HPDE2**：ベクトル束・場の切断と微分作用素
-- **第03週 HPDE3**：主シンボルと双曲性、normally hyperbolic作用素
-- **第04週 HPDE4**：Minkowski波動方程式の基本解と支持
-- **第05週 HPDE5**：初期データとCauchy問題、エネルギー積分
-- **第06週 HPDE6**：エネルギー評価・解の一意性
-- **第07週 HPDE7**：有限伝播速度と因果円錐
-- **第08週 HPDE8**：局所Cauchy解の存在の枠組み
-- **第09週 HPDE9**：大域双曲背景上の大域Cauchy問題
-- **第10週 HPDE10**：遅延Green作用素G_retと支持制約
-- **第11週 HPDE11**：先進Green作用素G_advと因果伝播子E
-- **第12週 HPDE12**：Green作用素の一意性・恒等式・exact sequence
-- **第13週 HPDE13**：Klein–Gordon方程式と保存電流
-- **第14週 HPDE14**：解空間のシンプレクティック形式・CCRの前提
-- **第15週 HPDE15**：Green作用素と物理的因果性の総合演習
-
-**必須の計算・証明ゲート**
-
-1. 平坦時空の波動方程式についてエネルギー恒等式から一意性と有限伝播を示す
-2. Green作用素の定義域・値域と支持条件を明示して因果伝播子の基本恒等式を証明する
-3. 大域双曲性を外した場合に先進/遅延問題がどう破綻し得るか反例を検討する
-
-### 3. 超局所解析・波面集合・Hadamard条件 I（MICA1–MICA15）
-
-- **位置付け:** 厳密な曲がった時空QFTの発展基盤
-- **前提:** HPDE、Fourier解析、GPDE、調和解析の必要部分（既存独立PLAN）
-- **canonical ownership:** 波面集合、分布の積と引戻しの可否、特異性伝播、Hadamard条件の超局所的定式化を所有。実際の曲がった時空の物理状態・粒子観測はQCURV、CFTレプリカはQFT II。
-
-- **第01週 MICA1**：分布の局所Fourier変換と滑らかさ
-- **第02週 MICA2**：滑らかなcutoffと周波数方向への減衰
-- **第03週 MICA3**：波面集合WF(u)の定義
-- **第04週 MICA4**：δ分布・Heaviside関数・振動積分のWF計算
-- **第05週 MICA5**：波面集合の座標変換と共変性
-- **第06週 MICA6**：分布積が存在するためのHörmander条件
-- **第07週 MICA7**：分布の部分多様体への引戻しと対角制限
-- **第08週 MICA8**：擬微分作用素と主シンボルの入口
-- **第09週 MICA9**：特性集合と双曲作用素
-- **第10週 MICA10**：特異性伝播の定理：モデル証明と一般定理の仮定
-- **第11週 MICA11**：Hadamard parametrixの局所特異構造
-- **第12週 MICA12**：二点関数のHadamard条件と波面集合
-- **第13週 MICA13**：点分離(point-splitting)と応力テンソル
-- **第14週 MICA14**：局所共変な繰り込みと許容される有限項
-- **第15週 MICA15**：局所模型の計算・証明範囲・正則化依存の総合演習
-
-**必須の計算・証明ゲート**
-
-1. δ分布の波面集合、分布積の成功例/失敗例をFourier解析から具体的に計算する
-2. 二点関数を対角線に制限するとき必要になるWF条件を示す
-3. Hadamard条件と有限な物理量の関係について「適切な状態の選択」と「繰り込み規約」を区別する
-
-### 4. 代数的量子場理論・モジュラー理論 I（AQFT1–AQFT15）
-
-- **位置付け:** ブラックホール情報の研究入門を支える発展基盤
-- **前提:** OA1–OA6、VN1–VN7、QM1–QM8、QINF、HPDE。MICAは曲がった時空へ拡張する章で参照
-- **canonical ownership:** 観測量の局所環、Weyl代数、GNS、Type III/テンソル分解の問題、モジュラー作用素と相対エントロピーを数学として所有。重力双対・island・Page曲線はHOLO/BHI。
-
-- **第01週 AQFT1**：局所可観測量と領域に添えた代数net
-- **第02週 AQFT2**：isotony・Einstein局所性・共変性
-- **第03週 AQFT3**：線形場のシンプレクティック空間とWeyl代数
-- **第04週 AQFT4**：CCRと代数上の状態
-- **第05週 AQFT5**：GNS表現と表現の非一意性
-- **第06週 AQFT6**：局所von Neumann環の構成
-- **第07週 AQFT7**：Reeh–Schlieder性：正しい条件と典型モデル
-- **第08週 AQFT8**：Type I・II・III因子と有限次元モデルの限界
-- **第09週 AQFT9**：局所環のType III性を示すために必要な仮定
-- **第10週 AQFT10**：標準形の巡回分離ベクトルとTomita作用素
-- **第11週 AQFT11**：極分解S=JΔ^{1/2}とモジュラー流
-- **第12週 AQFT12**：Tomita–Takesaki定理の主要結論・有限次元例
-- **第13週 AQFT13**：Araki相対エントロピーの定義と有限次元への帰着
-- **第14週 AQFT14**：Bisognano–WichmannとRindler wedgeの特別な幾何学的流れ
-- **第15週 AQFT15**：split property、領域のテンソル分解、情報問題への総合接続
-
-**必須の計算・証明ゲート**
-
-1. 有限次元行列環でGNS・モジュラー流・相対エントロピーを直接計算する
-2. 局所性の公理とType IIIの性質を区別し「すべてのQFT局所環は自動的にType III」と断言しない
-3. 無限次元Tomita–TakesakiやReeh–Schliederを主張する場合、適用条件と証明済部分/参照定理を明記する
 
 ## 5. 教材規模・定義と定理の扱い
 

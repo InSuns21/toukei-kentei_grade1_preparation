@@ -1,237 +1,39 @@
-# DREAM THEATER カラビ・ヤウ幾何・カラビ予想・ミラー対称性 講義群 PLAN
+# DREAM THEATER カラビ・ヤウ幾何・ミラー対称性 依存ルート
 
-作成日: 2026-10-11  
-状態: planned（PLAN の策定のみ。本文実装・公開・既存講義の移籍は未実施）  
-対象: 数学講義群。15回固定ではなく、証明と演習が閉じる自然なセメスター／講単位を採る。
+分冊: 2026-10-11  
+状態: planned（ルート台帳のみ、未実装）
 
-## 0. 目的・今回の設計判断
+## 科目別PLAN
 
-目標を **カラビ予想の問題設定 → ヤウの定理の解析的証明 → ミラー対称性のHodge・周期・曲線計数** とする。入門紹介にとどめず、必要な前提を既存講義に接続し、定理の仮定・証明・具体計算を追える通読路を設計する。
+- [代数幾何I〜III](DREAM_THEATER_ALGEBRAIC_GEOMETRY_I_III_PLAN.md)
+- [複素多様体I・II](DREAM_THEATER_COMPLEX_MANIFOLDS_I_II_PLAN.md)
+- [Kähler幾何](DREAM_THEATER_KAHLER_GEOMETRY_PLAN.md)
+- [Kähler–Hodge](DREAM_THEATER_KAHLER_HODGE_THEORY_PLAN.md)
+- [複素代数幾何](DREAM_THEATER_COMPLEX_ALGEBRAIC_GEOMETRY_PLAN.md)
+- [Calabi–Yau幾何](DREAM_THEATER_CALABI_YAU_GEOMETRY_PLAN.md)
+- [ヤウの定理](DREAM_THEATER_YAU_CALABI_CONJECTURE_PLAN.md)
+- [複素変形理論](DREAM_THEATER_COMPLEX_DEFORMATION_MODULI_PLAN.md)
+- [ミラー対称性I・II](DREAM_THEATER_MIRROR_SYMMETRY_I_II_PLAN.md)
+- [Gromov–Witten](DREAM_THEATER_GROMOV_WITTEN_GEOMETRY_PLAN.md)
+- [ホモロジカルミラー](DREAM_THEATER_HOMOLOGICAL_MIRROR_SYMMETRY_PLAN.md)
+- [SYZ](DREAM_THEATER_SYZ_SPECIAL_LAGRANGIAN_PLAN.md)
 
-**重要な変更点:**
-1. 独立した代数幾何学講義が前提として未整備の状態で「複素代数幾何学」から始めない。環論・加群論・体論に続く **AG1（アフィン）→ AG2（射影）→ AG3（スキーム・層・コホモロジー）** を追加し、その後 CAG1 に進む。
-2. CA8 の Riemann 面だけを「一般の複素多様体論修了」とみなさない。CM1・CM2 を設けて複素次元 n の幾何を正式に扱う。
-3. **幾何解析の既存 GA1〜GA5 を再利用**する。新しい「GANA1 幾何解析と非線形楕円型PDE」は作らない。カラビ予想に固有の複素 Monge–Ampère 方程式の評価は YAU1 が担当する。
-4. **解析力学 II（AMECH9〜16）のシンプレクティック幾何の計画と重複する SYM1 は今は新設しない**。幾何と力学への正式な科目分離／canonical owner 移管は、原本・各章の精査後に別途判定する。GW1 / SYZ1 は確定した既存 owner に依存する。
-5. YAU1 の全証明と MIR1 の周期積分は **直列の必須依存にしない**。CYG1 まで共有し、幾何解析側と変形・代数幾何側へ分岐する。
-6. この PLAN には新講義群の仮 ID・責務・証明停止線・実装順を記す。本文・索引・既存URL・公開導線は未変更とする。
+## 直接依存DAG
 
-## 1. 確認済み既存の入口と canonical owner
+~~~text
+RNG/MOD/FLD → AG1→AG2→AG3 ───────────→ CAG1 → CYG1 ─┬→ YAU1
+CA8/GEO → CM1→CM2 ─→ KAH1→HOD1 ────────┘              └→ DEF1 → MIR1
+GEO/GPDE → GA2/3 ────────────────────────────────→ YAU1
+SYM＋AG3＋CM1＋GPDE → GW1 → MIR2 ← MIR1
+MIR2＋Floer/圏論補講 → HM1
+CYG1＋SYM6＋YAU1必要結果 → SYZ1
+~~~
 
-| 分野 | 既存系列／PLAN | 本講義群で再利用するもの |
-| --- | --- | --- |
-| 線形代数・抽象代数 | LA / RNG1〜4 / MOD1〜2 / FLD 系列 | 双対・外積、素/極大イデアル、多項式環、有限生成加群、代数閉体・体拡大の基礎 |
-| 複素解析 | CA1〜CA12、特に CA8〜9 | 一変数正則解析、Riemann 面、複素トーラス |
-| 微分幾何 | GEO1〜GEO19 | 実多様体・微分形式・接続・Riemann 曲率・Ricci 曲率 |
-| 弱解・楕円型PDE | GPDE1〜GPDE10 | Sobolev 空間、弱形式、楕円型正則性 |
-| 幾何解析 | 既存 PLAN の GA1〜GA5 | GA1 Laplace–Beltrami / GA2 manifold Sobolev / GA3 楕円型・熱核 / GA4 実 de Rham-Hodge / GA5 調和写像 |
-| 解析力学・シンプレクティック幾何 | AMECH1〜8、AMECH9〜16 の既存計画 | Hamilton 構造、シンプレクティック形式、Darboux、群作用・簡約等の該当内容（章ごとに範囲再監査） |
+AG1〜III、CM1〜II、MIR1〜IIはそれぞれ連続しているので単一PLANに保持。他の中心問いは分冊した。YAU1はMIR1の直列必須ではなく、GW1はMIR1の必須ではない。シンプレクティック幾何の基本定理は新SYMの正本を参照し、独立SYM1を無条件再設置しないとした旧判断を、本分冊設計により正式な独立SYMへ更新する。
 
-確認参照:
-- [既存依存関係の正本](../dependency-graph.md)（各章の機械可読な直接依存は各 `chapter.yaml` が最優先）
-- [幾何解析 PLAN](DREAM_THEATER_GEOMETRIC_ANALYSIS_PLAN.md)
+---
 
-**現時点の未確認事項:** 全 PLAN / 全章の最新版を網羅した一覧照合、AMECH9〜16 の正式な章別所有範囲、非線形PDE系列の証明範囲、および各既存章の実装・公開状態。着手前の Phase 0 でこれを確認し、存在する講義を無条件で新設扱いしない。
-
-## 2. 科目構成（仮 ID と主要な必須前提）
-
-| ID | 講義／セメスター | 講数目安 | 直接前提（科目レベル、章別には再分解） |
-| --- | --- | ---: | --- |
-| AG1 | **代数幾何学 I：アフィン代数多様体** | 12 | RNG2, RNG4, FLD1, MOD1 |
-| AG2 | **代数幾何学 II：射影多様体と直線束** | 12 | AG1, GEO3, LA3E |
-| AG3 | **代数幾何学 III：スキーム・層・コホモロジー** | 14 | AG2, MOD1 |
-| CM1 | **複素多様体論 I：複素構造と正則写像** | 10 | CA8, GEO2, GEO7 |
-| CM2 | **複素多様体論 II：正則ベクトル束と Dolbeault** | 11 | CM1, GEO9 |
-| KAH1 | **ケーラー幾何学** | 12 | CM2, GEO13, GEO16 |
-| HOD1 | **ケーラー・Hodge 理論** | 12 | KAH1, CM2, GA4 |
-| CAG1 | **複素代数幾何学：代数と解析の接続** | 12 | AG3, CM2, KAH1 |
-| CYG1 | **カラビ・ヤウ幾何学** | 10 | CAG1, KAH1, HOD1 |
-| YAU1 | **カラビ予想とヤウの定理** | 14 | CYG1, KAH1, HOD1, GA2, GA3 |
-| DEF1 | **複素構造の変形理論・モジュライ** | 11 | CYG1, AG3, HOD1 |
-| MIR1 | **ミラー対称性 I：周期・Picard–Fuchs** | 12 | DEF1, HOD1, CAG1 |
-| GW1 | **擬正則曲線と Gromov–Witten 理論** | 13 | AMECH の該当シンプレクティック講、AG3, CM1, GPDE の必要結果 |
-| MIR2 | **ミラー対称性 II：量子コホモロジー・曲線計数** | 12 | MIR1, GW1 |
-| HM1 | **発展：ホモロジカル・ミラー対称性** | 12 | MIR2, AG3、圏論・ホモロジー代数・Floer 理論（別監査） |
-| SYZ1 | **発展：特殊ラグランジュ幾何と SYZ** | 10 | CYG1, AMECH の該当シンプレクティック講、YAU1 の存在結果 |
-
-AG1〜AG3 は「複素代数幾何」の先取りとしてではなく、基礎代数幾何の独立科目とする。既存の GA・AMECH は新設科目数に算入しない。表の講数は目安であり、証明粒度の都合で増減・分冊してよい。
-
-### 2.1 必須 DAG と読み順の区別
-
-```text
-RNG / MOD / FLD ─→ AG1 アフィン ─→ AG2 射影 ─→ AG3 スキーム・層
-                                            │
-CA8 + GEO ─────→ CM1 複素多様体 ─→ CM2 正則束・Dolbeault
-                                      │
-                                      ├────→ KAH1 ケーラー幾何 ─→ HOD1 ケーラーHodge
-                                      │                 │               │
-AG3 + CM2 + KAH1 ────────────────────┴────→ CAG1 複素代数幾何 ─→ CYG1
-                                                                   │
-GEO / GPDE ─→ 既存GA1〜GA4 ────────────────────────────────────────┼──→ YAU1
-                                                                   │
-                                                                   └──→ DEF1 ─→ MIR1
-既存AMECH該当範囲 + AG3 + CM1 ─→ GW1 ─────────────────────────────────────────→ MIR2
-                                                                         ↑
-                                                                        MIR1
-YAU1 + CYG1 + 既存AMECH ─→ SYZ1        MIR2 + 追加の圏論/Floer 基盤 ─→ HM1
-```
-
-上図は通読の地図であり、厳密な prerequisite は chapter.yaml で確定する。例えば、AG1 全講を CM1 の前提にはしない。AG 系と CM 系は並行可能。YAU1 の解析的証明完了を MIR1 の直接必須条件にしない。
-
-## 3. 代数幾何を基礎から構築する3セメスター
-
-### AG1：代数幾何学 I（12講）
-
-問い：多項式の零点集合とその代数的情報はどう対応するか。
-
-1. 多項式環・イデアル・代数的集合・具体例
-2. Zariski 位相、既約性、素イデアルと既約成分
-3. 座標環、アフィン代数多様体、正則写像
-4. 局所化・局所環・点の近傍での関数
-5. Noether 環と Hilbert の基底定理
-6. 整拡大・Noether 正規化の構成
-7. 弱・強 Hilbert 零点定理（Nullstellensatz）と証明
-8. 代数集合と根基イデアルの対応
-9. 次元・超越次数・鎖の具体計算
-10. Zariski 接空間・Jacobian 判定の準備
-11. 特異点、接錐と平面曲線の例
-12. 総合演習：アフィン曲線、楕円曲線のアフィン方程式
-
-**証明停止線:** 多項式イデアルと零点集合の対応は「Nullstellensatz より」で飛ばさず核心を示す。環論の既存定理は owner にリンクし、局所化・Noether 正規化・幾何学的次元は本講で初出定義・証明する。基礎体は主に $\mathbb C$。一般体上の記述へ移る際は成立条件を明記する。
-
-### AG2：代数幾何学 II（12講）
-
-問い：無限遠点を含む射影幾何と線束・因子をどう扱うか。
-
-1. 射影空間、斉次座標とアフィンチャート
-2. 斉次イデアル、射影代数集合
-3. 射影射・Veronese / Segre 写像
-4. 射影曲線・曲面、次数と Bézout の具体例
-5. 構造層の直観・正則関数の貼り合わせ
-6. 可逆層・直線束・$\mathcal O_{\mathbb P^n}(d)$
-7. 因子（Weil / Cartier）と可逆層の対応の条件
-8. 局所パラメータ・微分形式と標準束
-9. 射影空間の標準束と Euler 列
-10. 正規束・随伴公式
-11. 滑らかな超曲面と正則性判定
-12. 総合演習：射影平面三次曲線と $\mathbb P^4$ の quintic
-
-**証明停止線:** $\mathcal O(d)$、標準束、随伴公式を結果だけ先行する場合は、証明 owner と後送先を明示する。一般的な交叉理論や高度な層コホモロジーをこの講へ無理に詰め込まない。
-
-### AG3：代数幾何学 III（14講）
-
-問い：局所環と層から多様体より広い幾何を作り、コホモロジーをどう扱うか。
-
-1. 関手的な視点と $\operatorname{Spec} A$
-2. 素スペクトルの位相・構造層
-3. 局所環付き空間・アフィンスキーム
-4. スキームの貼り合わせ・射
-5. fiber product と基底変換の基本例
-6. 準連接層・連接層・加群からの構成
-7. 層の射・完全列・Čech コホモロジー
-8. 層コホモロジーの導入と基本計算
-9. 射影スキームと $\operatorname{Proj}$ の基礎
-10. 射影空間の $\mathcal O(d)$ のコホモロジー
-11. 曲線の種数、正則微分形式と Riemann–Roch の入口
-12. 平坦性・滑らかさ・特異ファイバーの基本
-13. 交叉理論・変形障害への橋（必要な命題を切り分け）
-14. 総合演習：射影曲線と超曲面の層計算
-
-**証明停止線:** 一般の Grothendieck 双対・導来代数幾何・仮想基本類の完全構成は AG3 に押し込まない。GW1 等で必要となったら先行結果の位置・必要な代数幾何補講の有無を監査する。AG3 がすべての高度な基礎を証明済みであるかのように書かない。
-
-## 4. 複素幾何・カラビ予想側のセメスター
-
-### CM1（10講）
-複素アトラス、正則遷移写像、実接束上の $J^2=-1$、$(1,0)$/$(0,1)$ 分解、正則写像、概複素構造と Nijenhuis テンソル、積分可能性、Newlander–Nirenberg、複素トーラス、複素射影空間。**Newlander–Nirenberg の一般的証明には難度の高い解析が必要**なので、証明を完遂する場合の別補講と、「定理を結果先行して使う」章を明示的に分離する。
-
-### CM2（11講）
-$(p,q)$ 形式、$\partial,\bar\partial$ と Dolbeault 複体、Poincaré 補題の正則版、Dolbeault コホモロジー、正則線束・ベクトル束、局所自明化と遷移関数、標準束、Hermite 計量、Chern 接続、曲率、具体計算。実 de Rham と複素 Dolbeault を混同しない。
-
-### KAH1（12講）
-Hermite / ケーラー計量、基本 2 形式 $\omega$、$d\omega=0$、ケーラー・ポテンシャル、$\mathbb P^n$ と Fubini–Study 計量、ケーラー接続、Ricci 形式 $\rho=-i\partial\bar\partial\log\det(g_{i\bar j})$、第一 Chern 類、Kähler class、ホロノミーと $SU(n)$ への入口。
-
-### HOD1（12講）
-GA4 の実 Hodge–de Rham 分解を再証明せず参照する。複素 Hodge 分解、ケーラー恒等式、$\Delta_d=2\Delta_{\bar\partial}$、$\partial\bar\partial$-補題、Hodge 数と対称性、Hard Lefschetz、原始コホモロジー、Hodge ダイヤモンド、周期への入口を正本化する。
-
-### CAG1（12講）
-滑らかな複素射影多様体と解析化、代数的線束と正則線束、射影空間の解析的構造、GAGA の使いどころと適用範囲、標準束・随伴公式の複素幾何的解釈、曲線の種数、quintic threefold の構成、Hodge 数計算の準備。GAGA の一般形や Kodaira 埋め込み等は定理・必要仮定・証明の掲載先を記載し、無条件に同一視しない。
-
-### CYG1（10講）
-カラビ・ヤウの複数の定義（$K_X\simeq\mathcal O_X$、$c_1(X)=0$ 実係数、$\operatorname{Hol}=SU(n)$）を区別する。楕円曲線、K3、滑らかな quintic、随伴公式による標準束自明性、Hodge 数、Ricci 平坦計量の存在命題の意味、複素構造／ケーラー構造のモジュライへの入口。**定義間の逆向き同値を無条件に主張しない。**
-
-### YAU1（14講）
-カラビ予想の設定、指定 Ricci 形式からケーラー・ポテンシャルへ、複素 Monge–Ampère 方程式
-$$
-(\omega+i\partial\bar\partial\varphi)^n=e^F\omega^n
-$$
-への帰着（体積積分の整合条件を必ず記載）、解の一意性、連続性の方法、開性、$C^0$ 評価、二階評価、必要な Hölder / 三階または Evans–Krylov 型正則性、高階 Schauder 評価、閉性、存在、Ricci-flat Kähler 計量への応用。
-
-**非線形楕円型解析の owner:** manifold Sobolev・線形楕円型 PDE・Hodge は GA / GPDE / HOD1 に戻し、Monge–Ampère に固有の a priori estimates と補題を YAU1 に置く。途中に独立した解析補講が必要なら具体的な証明欠損を特定して追加するが、「GANA1」の再新設はしない。
-
-## 5. ミラー対称性側・発展
-
-### DEF1（11講）
-Kodaira–Spencer 変形、接束値 $(0,1)$ 形式、Maurer–Cartan 方程式、障害類、Kuranishi の構成、Bogomolov–Tian–Todorov（適用条件と証明補講を明示）、複素構造モジュライ、Hodge 構造の変動と Gauss–Manin 接続。
-
-### MIR1（12講）
-A/B-model の数学的入口、Hodge 数の交換、quintic と Greene–Plesser 型ミラーの関係、周期積分、Gauss–Manin 接続、Picard–Fuchs 微分方程式、冪級数解、モノドロミー、大複素構造極限、ミラー写像、具体計算・検算。
-
-### GW1（13講）
-シンプレクティック構造・適合する概複素構造（既存 AMECH での owner を監査）、J 正則曲線、エネルギー・コンパクト性の入口、安定写像、モジュライ、評価写像、Gromov–Witten 不変量、仮想基本類が必要になる理由と採用する厳密な枠組み。**仮想基本類の構成を証明するか、別途代数幾何／解析補講に分離するかは実装前に必ず判定する。**
-
-### MIR2（12講）
-小量子コホモロジー、三点不変量、Yukawa 結合、ミラー定理の成立条件、quintic の genus 0 計数、通常の GW 不変量と整数型不変量の多重被覆変換、$n_1=2875$ の意味、曲線計数への周期積分の応用。**quintic のミラー計数の導出と検証を単なる公式紹介で終わらせない。**
-
-### HM1 / SYZ1（発展、各12/10講）
-- HM1：導来圏、$A_\infty$ 構造、Fukaya 圏、Floer 理論、Kontsevich のホモロジカル・ミラー対称性。**圏論・ホモロジー代数の既存 owner が未確認なら、実装前に独立前提を整備する。**
-- SYZ1：較正幾何、特殊ラグランジュ部分多様体、トーラス・ファイブレーション、双対化、特異ファイバー、インスタントン補正。SYZ 全体を既証明定理と誤記しない。
-
-## 6. 定理・概念の owner と重複防止表
-
-| 概念／証明 | canonical owner | 後続での利用 |
-| --- | --- | --- |
-| 素イデアル・多項式環・加群 | RNG / MOD | AG1〜AG3 は直接参照 |
-| Nullstellensatz・Zariski・アフィン | AG1 | AG2 / CAG1 |
-| 射影空間・$\mathcal O(d)$・随伴公式の代数的定式化 | AG2 | CAG1 / CYG1 |
-| スキーム・連接層・層コホモロジーの基礎 | AG3 | CAG1 / DEF1 / GW1 |
-| 複素多様体・Dolbeault・正則束 | CM1 / CM2 | KAH1 / CAG1 |
-| リーマン接続・Ricci 曲率 | GEO13 / GEO16 | KAH1 |
-| manifold Sobolev・楕円型正則性 | 既存 GA2〜GA3 / GPDE | YAU1 / GW1 |
-| 実 Hodge–de Rham | 既存 GA4 | HOD1 は重複しない |
-| ケーラー恒等式・$\partial\bar\partial$-補題 | HOD1 | YAU1 / CYG1 |
-| リッチ形式・Kähler potential | KAH1 | YAU1 |
-| 複素 Monge–Ampère 方程式の事前評価 | YAU1 | カラビ予想の存在証明 |
-| シンプレクティック形式・Darboux・Hamilton作用 | 既存 AMECH 該当章（所有範囲監査待ち） | GW1 / SYZ1 |
-| 変形の障害・周期変動 | DEF1 | MIR1 |
-| GW 不変量・仮想基本類の扱い | GW1（必要な基礎の補講判定あり） | MIR2 |
-
-「解析力学 II」から「シンプレクティック幾何学」への科目名・URL移管はこの PLAN では実行しない。再編する場合も旧 stable ID・URL の維持と cross-link 移行を必須とする。
-
-## 7. 段階的な実装順・公開ゲート
-
-**Phase 0：在庫・依存監査（着手前ゲート）**
-- 全既存 PLAN / 講義本文 / `chapter.yaml` / `knowledge.yaml` の検索。既存 owner と planned / published を分離して確定。
-- RNG / MOD / FLD、CA8、GEO、GA1〜GA5、AMECH9〜16、非線形PDE PLAN の内容と必要定理を章別照合。
-- 概念 owner 表、未証明の定理、実装時に必要な前提補講を洗い出す。仮 ID の衝突チェック。
-- この Phase が済むまでは本 PLAN を公開科目索引に先行登録しない。
-
-**Phase 1：代数幾何の新規基礎**
-- AG1 → AG2 → AG3 を計画・実装。AG1の Nullstellensatz、AG2の随伴公式、AG3の層コホモロジーを証明ゲートとする。
-- 既存の抽象代数の基礎が足りなければ、該当する未完了講のみ先に解消する。
-
-**Phase 2：複素幾何（Phase 1と並行可）**
-- CM1 → CM2 → KAH1 → HOD1 を実装。GA4との用語・Hodge operator の差、Hodge decomposition の対象を検証。
-- AG3 と CM2 / KAH1 がそろった時点で CAG1。
-
-**Phase 3：カラビ・ヤウと二本の発展路**
-- CAG1 + KAH1 + HOD1 → CYG1。
-- 解析路: GA / HOD1 / CYG1 → YAU1。
-- 代数・周期路: AG3 / CYG1 → DEF1 → MIR1。
-- 解析路 YAU1 の完了は MIR1 の公開ブロッカーにしない。
-
-**Phase 4：曲線計数・発展**
-- AMECH のシンプレクティック owner を確認 → GW1 → MIR2。
-- MIR2 と補助基盤がそろえば HM1、幾何基盤がそろえば SYZ1 を独立発展分岐として扱う。
+## 元PLANの共通設計・文献・依存監査資料（各科目のシラバスは分冊先が正本）
 
 ## 8. DREAM THEATER 本文・CI・公開の規約
 

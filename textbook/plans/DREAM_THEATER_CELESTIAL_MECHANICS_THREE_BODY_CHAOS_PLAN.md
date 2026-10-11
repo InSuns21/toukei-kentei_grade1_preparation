@@ -46,7 +46,7 @@
 
 推奨:
 
-- AMECH II の symmetry / reduction
+- [GMECH](DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md)のsymmetry / reduction（使うCELE講だけ直接前提にする）
 - INT6--INT8 の Birkhoff / KAM
 - 数値解析の ODE integration の基礎
 
@@ -97,7 +97,7 @@ CELE 後半は INT8 と相互参照可能だが、循環依存を避けるため
 - rotating frame
 - stability question
 
-AMECH II の symmetry / relative equilibrium と接続する。
+[GMECH](DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md)のsymmetry / relative equilibrium と接続する。
 
 ### CELE4 円制限三体問題
 
@@ -184,7 +184,7 @@ stable manifold theorem や horseshoe の一般証明は DYN 系列を参照し�
 他系列を参照:
 
 - Kepler / 2-body の初等力学: 古典力学 I
-- symplectic geometry / momentum map / reduction: 解析力学 II
+- symplectic geometry：[SYM](DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md)。momentum map / reduction：[GMECH](DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md)。
 - Liouville--Arnold / Birkhoff / KAM: INT 系列
 - stable manifold / horseshoe / symbolic dynamics / chaos の一般定理: DYN / ODE 系列
 - high-precision symplectic integrator: 数値解析の将来拡張

@@ -37,14 +37,14 @@
 必須:
 
 - 解析力学 I（AMECH1--AMECH8）
-- 解析力学 II の symplectic form / Hamiltonian flow / Poisson bracket の主要内容
+- [シンプレクティック幾何学I](DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md)のSYM1〜4（シンプレクティック形式、Hamilton流、Poisson構造）。全SYM8講を機械的に必須としない
 - ODE の流れ・Poincare 写像
 - Fourier 級数の基本
 - 多変数解析
 
 推奨:
 
-- Lie 群作用と運動量写像
+- [幾何学的力学I](DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md)のGMECH1〜3（Lie群作用と運動量写像）。INTの章ごとに実際の援用を確認する
 - Diophantine approximation の初歩
 - 複素解析の Cauchy estimate の基本
 
@@ -174,7 +174,7 @@ KAM の証明で使う解析的評価は必要な範囲を本文で補う。読�
 
 他系列を参照:
 
-- symplectic manifold / momentum map / reduction: 解析力学 II
+- シンプレクティック多様体：[SYM](DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md)。運動量写像と簡約：[GMECH](DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md)。該当定理だけを直接前提にする
 - generic invariant manifold / chaos / symbolic dynamics: 力学系
 - restricted three-body / solar system applications: CELE 系列
 - KdV / Toda / inverse scattering / Lax pair / soliton / discrete integrable systems: 将来の可積分 PDE・離散可積分系列
@@ -225,7 +225,7 @@ KAM により一部トーラスが存続
 
 ## 7. 実装順
 
-1. AMECH II / ODE / DYN / CELE との重複監査
+1. SYM / GMECH / ODE / DYN / CELE との重複・証明owner監査
 2. INT1--INT3
 3. INT4--INT5
 4. INT6--INT7
