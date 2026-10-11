@@ -1,0 +1,17 @@
+chapter: "DYN9"
+terms:
+  - term: 円周拡大写像
+    english: expanding circle map
+    meaning: "円周S1=R/Zの点[x]を[mx]へ送る整数m>=2の連続自己写像。"
+  - term: 初期値鋭敏性
+    english: sensitive dependence on initial conditions
+    meaning: "全初期点の任意に小さな近傍から、未来に一様な正の距離より大きく離れる別の初期点を選べる性質。"
+  - term: 局所拡大
+    english: local expansion
+    meaning: "二点間距離が折り返し閾値より小さいとき円周距離が整数m倍になること。"
+  - term: 正の拡大性
+    english: positive expansivity
+    meaning: "任意の相異なる二点に、ある有限時刻で一定の離隔幅を超える性質。"
+  - term: 有限時刻の合流
+    english: eventual coalescence
+    meaning: "相異なる初期点が有限回の反復後に同じ円周点へ写り、それ以後の軌道が一致すること。"

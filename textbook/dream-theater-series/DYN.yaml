@@ -39,9 +39,13 @@ chapters:
     title: 正の極限集合・再帰・軌道閉包
   - id: DYN9
     path: textbook/volumes/00_foundations/DYN9
-    status: planned
+    status: completed
     title: 拡大写像・初期値鋭敏性
   - id: DYN10
     path: textbook/volumes/00_foundations/DYN10
     status: planned
     title: 区間分割・旅程（itinerary）・記号への読み出し
+  - id: DYN11
+    path: textbook/volumes/00_foundations/DYN11
+    status: planned
+    title: 全シフトの位相的推移性・周期点稠密性

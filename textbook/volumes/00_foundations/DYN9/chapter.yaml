@@ -1,0 +1,48 @@
+id: "DYN9"
+title: "拡大写像・初期値鋭敏性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - DYN8
+official_scope: []
+learning_objectives:
+  - 円周の整数倍写像を代表元に依存せず構成し反復公式と連続性を証明できる
+  - 円周距離の局所拡大と折り返しの条件を区別し反例を計算できる
+  - 初期値鋭敏性の量化順序を理解し全点に共通の鋭敏性定数を構成できる
+  - 相異なる二点が有限時刻で一定の距離以上離れることを証明できる
+  - 任意に近い異なる初期値が有限時刻で再合流する現象と鋭敏性の両立を説明できる
+  - 円周回転や縮小写像が鋭敏でないことを定義の否定から示せる
+  - 正の極限集合と初期値鋭敏性を区別して具体例を説明できる
+  - 二進有限小数の有限精度観察が実数の全初期点の性質を証明しない理由を説明できる
+definitions:
+  - { id: DYN9-DEF-01, name: "整数倍の円周拡大写像" }
+  - { id: DYN9-DEF-02, name: "初期値鋭敏性" }
+lemmas:
+  - { id: DYN9-LEM-01, name: "折り返し以前の距離の拡大" }
+theorems:
+  - { id: DYN9-THM-01, name: "円周の拡大写像は初期値鋭敏性を持つ" }
+propositions:
+  - { id: DYN9-PROP-01, name: "代表元によらない定義と反復公式" }
+  - { id: DYN9-PROP-02, name: "相異なる二点の有限時刻での分離" }
+  - { id: DYN9-PROP-03, name: "任意に近い異なる初期値の有限時刻での合流" }
+canonical_examples:
+  - "T2で初期差1/16を反復した距離の折り返し"
+  - "任意の円周点の近傍で時刻nに半周離す明示的構成"
+  - "m進有理差による有限時刻の合流"
+  - "無理円周回転と縮小写像の非鋭敏性"
+  - "二進有限小数の有限時刻での零到達"
+problem_patterns:
+  - DYN9-TRIPLING-COALESCENCE
+  - DYN9-DOUBLING-TABLE
+  - DYN9-TARGETED-SEPARATION
+  - DYN9-ROTATION-NONSENSITIVE
+  - DYN9-OMEGA-PERIODIC
+  - DYN9-POSITIVE-EXPANSIVITY
+  - DYN9-ARBITRARILY-CLOSE-COALESCENCE
+  - DYN9-NO-UNIFORM-LIPSCHITZ
+  - DYN9-DYADIC-ORBIT
+  - DYN9-SENSITIVITY-COMPARISON
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.0, review: 2.0 }
