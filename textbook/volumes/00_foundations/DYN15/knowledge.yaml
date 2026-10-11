@@ -1,0 +1,33 @@
+chapter: DYN15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - DYN14
+  - DYN13
+  - DYN12
+  - DYN6
+  - CELL3
+  - CELL7
+  - CELL8
+concepts:
+  - id: dynamical-systems.finite-ring-shift-fixed-count
+    name: 有限環シフトの固定反復点の個数
+    kind: theorem
+    introduction_aliases: ["定理（有限環シフトの固定反復点の個数）"]
+    requires: []
+  - id: dynamical-systems.nonnegative-projection
+    name: 非負座標への射影
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（非負座標への射影）"]
+    requires: []
+  - id: dynamical-systems.ca-horseshoe-factor-chain
+    name: CAシフトから区間horseshoeへの半共役の連鎖
+    kind: theorem
+    introduction_aliases: ["定理（CAシフトから区間horseshoeへの半共役の連鎖）"]
+    requires: [dynamical-systems.nonnegative-projection, dynamical-systems.horseshoe-conjugacy]
+  - id: dynamical-systems.periodic-count-conjugacy-obstruction
+    name: 周期点計数と共役の障害
+    kind: proposition
+    introduction_aliases: ["命題（周期点計数と共役の障害）"]
+    requires: [dynamical-systems.finite-ring-shift-fixed-count, dynamical-systems.ca-horseshoe-factor-chain, dynamical-systems.hyperbolic-linear-compact-obstruction]

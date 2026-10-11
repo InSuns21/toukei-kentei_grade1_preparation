@@ -174,6 +174,7 @@
 12. [DYN12 生成語の個数・位相エントロピー](textbook/volumes/00_foundations/DYN12/index.md)
 13. [DYN13 区間のhorseshoe・全シフトへの符号化](textbook/volumes/00_foundations/DYN13/index.md)
 14. [DYN14 二次元の双曲線形模型・安定方向と不安定方向](textbook/volumes/00_foundations/DYN14/index.md)
+15. [DYN15 離散力学・記号力学・CA比較の総合論証](textbook/volumes/00_foundations/DYN15/index.md)
 
 <a id="dt-subject-fourier-analysis"></a>
 ### Fourier 解析

@@ -1,0 +1,17 @@
+chapter: "DYN15"
+terms:
+  - term: 有限環シフト
+    english: finite cyclic shift
+    meaning: "m個の位置を周期同一視し、各位置の二値を一つ左へ移す写像。全配置数は2のm乗。"
+  - term: 固定反復点
+    english: fixed point of an iterate
+    meaning: "Tのn回反復で自分へ戻る点。最小周期nの点だけを意味しない。"
+  - term: 非負座標への射影
+    english: projection to nonnegative coordinates
+    meaning: "両側列から添字0以上の座標だけを取り出す連続全射。負側の履歴は失う。"
+  - term: 半共役
+    english: semiconjugacy
+    meaning: "二系の時間発展を可換にする連続全射。一般には逆写像を持たない。"
+  - term: 共役の障害
+    english: obstruction to conjugacy
+    meaning: "可逆性や反復固定点数など、位相共役なら一致すべき性質の不一致。"
