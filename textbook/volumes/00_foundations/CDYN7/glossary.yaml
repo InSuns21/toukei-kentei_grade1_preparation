@@ -1,0 +1,23 @@
+chapter: "CDYN7"
+terms:
+  - term: 周期平均
+    english: periodic average
+    meaning: "周期Pの連続関数を一周期積分し、Pで割って得る平均。周期の選択を整数倍に変えても値は同じ。"
+  - term: 平均零の振動項
+    english: zero-mean periodic forcing
+    meaning: "一周期の積分が零となる周期関数。速い周期が固定されるなら有界な周期原始関数を持つ。"
+  - term: 周期原始関数
+    english: periodic antiderivative
+    meaning: "平均零の周期関数を時刻0から積分して作る原始関数。一定の周期で元の値に戻るため有界となる。"
+  - term: 平均系
+    english: averaged system
+    meaning: "速い周期変数の平均零項を除き、遅い変数の主たる変化を近似する微分方程式。適用する時間尺度と誤差評価を伴う。"
+  - term: 遅い時刻
+    english: slow time
+    meaning: "小さな摂動係数εに対しτ=εtで定義する時間。有限なτの区間は元の時刻tでは1/ε程度に長い。"
+  - term: 回転座標
+    english: rotating coordinates
+    meaning: "無摂動の単振動による速い回転を取り除く座標。振幅の緩やかな変化を計算しやすくする。"
+  - term: 平均振幅
+    english: averaged amplitude
+    meaning: "回転座標の変化を周期平均した方程式から得る振幅の近似。本章の弱減衰振動では指数減衰する。"
