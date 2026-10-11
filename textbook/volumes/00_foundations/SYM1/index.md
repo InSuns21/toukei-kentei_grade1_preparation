@@ -458,19 +458,7 @@ $$
 AJA^{\mathsf T}=J.
 $$
 
-逆に条件3の式 $AJA^{\mathsf T}=J$ に、$A$ が可逆であることを用いれば
-
-$$
-\begin{aligned}
-JA^{\mathsf T}
-&=A^{-1}J,\\
-A^{\mathsf T}JA
-&=A^{\mathsf T}(J A)\\
-&=J
-\end{aligned}
-$$
-
-とするには第一式だけでは足りないので、順序を丁寧に確認します。まず $AJA^{\mathsf T}=J$ の逆行列を取り、
+逆に条件3では $A$ が可逆です。ここでは左右の掛ける順序を保つため、まず $AJA^{\mathsf T}=J$ の逆行列を取り、
 
 $$
 (A^{\mathsf T})^{-1}J^{-1}A^{-1}=J^{-1}.
