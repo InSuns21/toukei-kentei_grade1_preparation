@@ -45,7 +45,7 @@ $2^{-n}\to0$ なので $0$ は閉包に入ります。他に軌道外の点が�
 <!-- formal-statement-start -->
 ### 定義（離散時間の正の極限集合）
 
-距離空間 $(X,d)$ の自己写像 $f:X\to X$、$x\in X$ に対して、**正の極限集合**（$\omega$ 極限集合）を
+距離空間 $(X,d)$ の自己写像 $f:X\to X$、$x\in X$ に対して、**離散時間の正の極限集合**（$\omega$ 極限集合）を
 
 $$
 \omega_f(x)=\bigcap_{N=0}^{\infty}\overline{\{f^n(x):n\ge N\}}
