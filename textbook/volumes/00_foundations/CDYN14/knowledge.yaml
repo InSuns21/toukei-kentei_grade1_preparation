@@ -5,6 +5,8 @@ prerequisites:
   - CDYN12
   - CDYN13
   - CELL5
+forward_references:
+  - pde.pde1-partial-differential-equation
 concepts:
   - id: continuous-dynamical-systems.ring-laplacian
     name: 有限周期格子の離散Laplace作用素
