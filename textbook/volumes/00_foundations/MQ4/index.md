@@ -934,9 +934,19 @@ $\eta\downarrow0$ で相対界が0となり、$H$ は $H^2(\mathbb R^3)$ 上で�
 
 (2) $u_{\ell m}(r)=r\int\overline{Y_\ell^m(\omega)}\psi(r\omega)d\Omega$ と置くと、球面 Parseval と $dx=r^2drd\Omega$ から
 $\|\psi\|_2^2=\sum_{\ell,m}\int_0^\infty|u_{\ell m}|^2dr$。
-$R=u/r$ の二回微分は
-$R''+2R'/r=u''/r$ です。従って
-$h_\ell=-aD^2+a\ell(\ell+1)/r^2-\kappa/r$。
+$R=u/r$ を二回微分して動径の微分項を合わせると
+
+$
+R''+\frac{2}{r}R'=\frac{u''}{r}
+$
+
+となります。従って、各角運動量に対応する動径作用素は
+
+$
+h_\ell=-aD^2+\frac{a\ell(\ell+1)}{r^2}-\frac{\kappa}{r}
+$
+
+です。
 $\ell=0$ で $u(0)\ne0$ とすると $R\sim u(0)/r$、その勾配の二乗積分は
 $\int_0^\delta r^{-2}dr=\infty$ で $H^1$ に入れません。
 必要なのは $u(0)=0$ であり、$\psi(0)=0$ ではありません。
