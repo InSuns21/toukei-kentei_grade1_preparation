@@ -172,6 +172,7 @@
 10. [DYN10 区間分割・旅程（itinerary）・記号への読み出し](textbook/volumes/00_foundations/DYN10/index.md)
 11. [DYN11 全シフトの位相的推移性・周期点稠密性](textbook/volumes/00_foundations/DYN11/index.md)
 12. [DYN12 生成語の個数・位相エントロピー](textbook/volumes/00_foundations/DYN12/index.md)
+13. [DYN13 区間のhorseshoe・全シフトへの符号化](textbook/volumes/00_foundations/DYN13/index.md)
 
 <a id="dt-subject-fourier-analysis"></a>
 ### Fourier 解析

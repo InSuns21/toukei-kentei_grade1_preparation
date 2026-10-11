@@ -55,7 +55,7 @@ chapters:
     title: 生成語の個数・位相エントロピー
   - id: DYN13
     path: textbook/volumes/00_foundations/DYN13
-    status: planned
+    status: completed
     title: 区間のhorseshoe・全シフトへの符号化
   - id: DYN14
     path: textbook/volumes/00_foundations/DYN14
