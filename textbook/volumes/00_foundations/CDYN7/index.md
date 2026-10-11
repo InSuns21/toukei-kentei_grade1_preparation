@@ -173,7 +173,7 @@ $$
 
 この結果だけでも、$t$ が $T/\varepsilon$ 程度なら右辺は $K(G+MVT)$ で抑えられると分かります。元の微分方程式にはさらに係数 $\varepsilon$ があるので、振動項がもたらす変位の誤差は $O(\varepsilon)$ になる見込みです。
 
-## 4. 長い時間で使える平均化の誤差定理
+## 4. 長い時間で使える平均化の誤差評価
 
 今度は状態依存を含む実際の模型を扱います。解 $x$ と近似解 $y$ は同じ初期値から出発し、速い周期 $P$ と遅い時刻 $\tau=\varepsilon t$ を区別します。
 
@@ -745,7 +745,7 @@ A'=\varepsilon M(t)A,\qquad
 \langle M\rangle=-\frac\gamma2I.
 $$
 
-平均解は $Y(t)=e^{-\varepsilon\gamma t/2}A(0)$。初期値 $(q(0),v(0))=(a_0,b_0)\in\mathbb R^2$ は任意で、$\gamma>0$ 固定、$0\le t\le T/\varepsilon$ です。$R(0)=\sqrt{a_0^2+b_0^2}$ とおけば[振幅誤差の定理](#thm-cdyn7-damped-amplitude)から
+平均解は $Y(t)=e^{-\varepsilon\gamma t/2}A(0)$。初期値 $(q(0),v(0))=(a_0,b_0)\in\mathbb R^2$ は任意で、$\gamma>0$ 固定、$0\le t\le T/\varepsilon$ です。$R(0)=\sqrt{a_0^2+b_0^2}$ とおけば[弱減衰振動子の平均振幅と誤差](#thm-cdyn7-damped-amplitude)から
 
 $$
 |R(t)-R(0)e^{-\varepsilon\gamma t/2}|
