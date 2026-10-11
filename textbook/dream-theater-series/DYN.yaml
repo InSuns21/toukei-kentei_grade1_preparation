@@ -43,7 +43,7 @@ chapters:
     title: 拡大写像・初期値鋭敏性
   - id: DYN10
     path: textbook/volumes/00_foundations/DYN10
-    status: planned
+    status: completed
     title: 区間分割・旅程（itinerary）・記号への読み出し
   - id: DYN11
     path: textbook/volumes/00_foundations/DYN11
