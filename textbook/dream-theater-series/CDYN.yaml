@@ -43,7 +43,7 @@ chapters:
     title: 位相応答と等時相面の入口
   - id: CDYN10
     path: textbook/volumes/00_foundations/CDYN10
-    status: planned
+    status: completed
     title: 弱結合振動子から位相差方程式へ
   - id: CDYN11
     path: textbook/volumes/00_foundations/CDYN11

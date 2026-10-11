@@ -1,0 +1,42 @@
+id: "CDYN10"
+title: "弱結合振動子から位相差方程式へ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CDYN9
+  - CDYN7
+official_scope: []
+learning_objectives:
+  - 水平成分で結合した二つの吸引円振動子の厳密な極座標方程式と位相差を導ける
+  - 半径の不変帯と収縮評価から結合中の一様なO(ε)半径誤差を証明できる
+  - 三角関数の一周期平均と位相相互作用関数を導ける
+  - 周期原始関数とGrönwall評価から有限遅い時間の位相近似誤差を証明できる
+  - 平均位相差方程式を導き瞬間の導関数の近似と解の近似を区別できる
+  - 交換対称結合と非対称結合の位相差ドリフトを比較できる
+definitions:
+  - { id: CDYN10-DEF-01, name: 結合模型の正確な位相と位相差 }
+  - { id: CDYN10-DEF-02, name: 平均相互作用関数 }
+theorems:
+  - { id: CDYN10-PROP-01, name: 結合下の半径の一様評価 }
+  - { id: CDYN10-PROP-02, name: 水平結合の一周期平均 }
+  - { id: CDYN10-THM-01, name: 二振動子の有限遅い時間平均化 }
+  - { id: CDYN10-THM-02, name: 平均位相差方程式と正確な位相差との比較 }
+  - { id: CDYN10-PROP-03, name: 交換対称模型の奇な位相差ドリフト }
+canonical_examples:
+  - 水平成分のみの二振動子結合と偏角の正確な方程式
+  - 一様半径帯と収縮の積分評価
+  - 三角積和公式の平均で現れる正弦相互作用
+  - 異なる結合方向でD=0から離れる平均位相差
+  - 解のO(ε)近似と瞬間位相速度の相違
+problem_patterns:
+  - CDYN10-EXACT-POLAR
+  - CDYN10-RADIAL-TRAPPING
+  - CDYN10-TRIG-AVERAGING
+  - CDYN10-PRIMITIVE-ERROR
+  - CDYN10-PHASE-DIFFERENCE
+  - CDYN10-SYMMETRY
+  - CDYN10-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 2.0 }
