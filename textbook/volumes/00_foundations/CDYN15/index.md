@@ -144,7 +144,41 @@ $$
 \eta(t)=e^{-2\mu t}\eta(0).
 $$
 
-したがって一周後には $\eta(2\pi)=e^{-4\pi\mu}\eta(0)$ です。接線方向の変分は $\delta\theta'=0$ であり、[CDYN4の接線方向乗数1の定理](../CDYN4/index.md#thm-cdyn4-tangent-unit)とも一致します。
+半径方向について一周後には $\eta(2\pi)=e^{-4\pi\mu}\eta(0)$ です。角度方向の微小変化を $\xi=\delta\theta$ と書けば、$\theta'=1$ は初期角度に依存しないので $\xi'=0$、従って $\xi(2\pi)=\xi(0)$ です。
+
+極座標の倍率が元の $(x,y)$ 座標でもFloquet乗数となることを確認します。周期軌道上での座標変換のJacobianは
+
+$$
+J(t)=
+\begin{pmatrix}
+\cos(t+\theta_0)&-r_*\sin(t+\theta_0)\\
+\sin(t+\theta_0)&r_*\cos(t+\theta_0)
+\end{pmatrix},
+\qquad \det J(t)=r_*>0.
+$$
+
+微小変位の連鎖律により、直交座標の変分 $\delta z(t)=(\delta x(t),\delta y(t))^{\mathsf T}$ は
+
+$$
+\delta z(t)=J(t)
+\begin{pmatrix}\eta(t)\\\xi(t)\end{pmatrix}
+$$
+
+を満たします。$T=2\pi$ では $J(T)=J(0)$ なので、初期変分から一周後の変分への写像は
+
+$$
+\begin{aligned}
+\delta z(T)
+&=J(T)
+\begin{pmatrix}e^{-2\mu T}&0\\0&1\end{pmatrix}
+J(0)^{-1}\delta z(0)\\
+&=J(0)
+\begin{pmatrix}e^{-4\pi\mu}&0\\0&1\end{pmatrix}
+J(0)^{-1}\delta z(0).
+\end{aligned}
+$$
+
+$J(0)$ は可逆ですから、[CDYN4のモノドロミー行列とFloquet乗数の定義](../CDYN4/index.md#def-cdyn4-monodromy)により、元の直交座標での乗数も $e^{-4\pi\mu}$ と $1$ です。後者は[CDYN4の接線方向乗数1の定理](../CDYN4/index.md#thm-cdyn4-tangent-unit)とも一致します。
 
 $\mu<0$ では全ての $r>0$ について $r'=r(\mu-r^2)<0$ です。$r(t)\le r(0)e^{\mu t}$ となることは
 
@@ -153,7 +187,7 @@ $$
 =-e^{-\mu t}r(t)^3\le0
 $$
 
-から従うので、原点へ吸引されます。$\mu=0$ なら $r'=-r^3$ であり、
+から従うので、原点へ吸引されます。$\mu=0$ なら $r'=-r^3$ です。$r(0)>0$ の解に対しては、
 
 $$
 \frac d{dt}(r^{-2})=-2r^{-3}r'=2,
@@ -161,7 +195,7 @@ $$
 r(t)=\frac{r(0)}{\sqrt{1+2r(0)^2t}}.
 $$
 
-これは $t^{-1/2}$ の減衰です。$\mu=0$ では $r>0$ の全域で $r'<0$ なので周期軌道はありません。$\mu<0$ についても同様です。$\square$
+解の表示式の分母はどの有限時刻 $t\ge0$ でも正なので、$r(0)>0$ の解は有限時間に原点へ到達せず、この式は全ての $t\ge0$ で有効です。特に $t\to\infty$ で $t^{-1/2}$ の減衰です。$\mu=0$ では $r>0$ の全域で $r'<0$ なので周期軌道はありません。$\mu<0$ についても同様です。$\square$
 <!-- proof-end -->
 
 パラメータを0に近づけると、半径 $\sqrt\mu$ は0へ、横方向の乗数 $e^{-4\pi\mu}$ は1へ近づきます。しかし $\mu=0$ では周期軌道自体が消え、原点の角度は定義されません。**周期軌道上で使った乗数を、そのまま消失後の周期軌道の乗数とは呼べません。**
@@ -197,7 +231,7 @@ f'(D_u)&=-\kappa\cos(5\pi/6)
 \end{aligned}
 $$
 
-したがって安定点の引込み域については[CDYN11の引込み域定理](../CDYN11/index.md#thm-cdyn11-capture-basin)を使用できます。$\Delta=\kappa$ では平衡点が退化し、$|\Delta|>\kappa$ では位相差が回転します。
+したがって安定点の引込み域については[CDYN11の引込み域定理](../CDYN11/index.md#thm-cdyn11-capture-basin)を使用できます。$|\Delta|=\kappa$ では[CDYN11の閾値等号での片側安定性](../CDYN11/index.md#prop-cdyn11-threshold-semistability)が現れ、$|\Delta|>\kappa$ では位相差が回転します。
 
 ところが元の弱結合模型から平均系への[CDYN10の有限遅い時間の誤差評価](../CDYN10/index.md#thm-cdyn10-averaging)は、その仮定で明示された時間範囲についての近似です。安定点の存在だけで元の模型に厳密な永続同期が存在すると結論するには、元の模型の安定性・持続性に関する追加論証が要ります。
 
@@ -321,7 +355,20 @@ x(t)
 \end{aligned}
 $$
 
-これから $y=e^{-\lambda t}$ を引くと命題の誤差式になります。$a/\varepsilon=\lambda$ では上の積分の被積分関数は1なので、
+$y=e^{-\lambda t}$ を引く際には、分子を通分して
+
+$$
+\begin{aligned}
+x(t)-y(t)
+&=\frac{a e^{-\lambda t}-\varepsilon\lambda e^{-at/\varepsilon}
+-(a-\varepsilon\lambda)e^{-\lambda t}}
+{a-\varepsilon\lambda}\\
+&=\frac{\varepsilon\lambda}{a-\varepsilon\lambda}
+\left(e^{-\lambda t}-e^{-at/\varepsilon}\right)
+\end{aligned}
+$$
+
+となります。$a/\varepsilon=\lambda$ では上の積分の被積分関数は1なので、
 
 $$
 e^{at/\varepsilon}x(t)
@@ -443,7 +490,7 @@ $\kappa,N,\Delta t>0$ と合わせると必要十分条件です。$\square$
 
 零モードはどの刻みでも倍率1なので、ここでいう「厳密な減衰」は平均零部分についてです。$N$ に対して $\Delta t$ を十分細かくしなければなりません。固定された $k$ についての固有値極限は、全モードの一様数値安定性を保証していません。
 
-セル・オートマトンとの違いも同様です。[CELL5の局所更新定理](../CELL5/index.md#thm-cell5-ring-conservation)は有限状態と離散時間の規則を仮定します。本節の更新は実数状態をとるEuler近似です。整数添字と最近接結合が共通するだけでは、同一の定理を使えません。また連続空間PDEの解への収束には、空間補間・初期値の整合性・高周波の一様制御・極限方程式の検証が別途必要です。
+セル・オートマトンとの違いも同様です。[CELL5のRule 184の局所更新](../CELL5/index.md#def-cell5-rule184)は二値状態に対する離散時間の規則であり、[同章の粒子数保存定理](../CELL5/index.md#thm-cell5-ring-conservation)もその規則と有限周期環を仮定します。本節の更新は実数状態をとるEuler近似です。整数添字と最近接結合が共通するだけでは、同一の定理を使えません。また連続空間PDEの解への収束には、空間補間・初期値の整合性・高周波の一様制御・極限方程式の検証が別途必要です。
 
 ## 6. 結論を移す前の判定順序
 
@@ -508,7 +555,7 @@ $$
 
 ### A3. 一次関数を追う初期層
 
-$\varepsilon x'=-(x-(2+t))$、$x(0)=0$ に対して、追従誤差 $e(t)=x(t)-(2+t)$ を求めよ。
+$\varepsilon>0$ とし、$\varepsilon x'=-(x-(2+t))$、$x(0)=0$ に対して、追従誤差 $e(t)=x(t)-(2+t)$ を求めよ。
 
 - Level: A
 - ID: CDYN15-A3
@@ -520,10 +567,13 @@ $$
 \varepsilon e'=-e-\varepsilon,\qquad e(0)=-2.
 $$
 
-$e+\varepsilon$ に対して $(e+\varepsilon)'=-(e+\varepsilon)/\varepsilon$ ですから
+$q(t)=e(t)+\varepsilon$ と置くと $q'=-q/\varepsilon$、$q(0)=e(0)+\varepsilon=\varepsilon-2$ です。これを解いて
 
 $$
-e(t)=-\varepsilon+(\varepsilon-2)e^{-t/\varepsilon}.
+q(t)=(\varepsilon-2)e^{-t/\varepsilon},
+\qquad
+e(t)=q(t)-\varepsilon
+=-\varepsilon+(\varepsilon-2)e^{-t/\varepsilon}.
 $$
 
 $t=0$ に代入すると $e(0)=-\varepsilon+\varepsilon-2=-2$ で一致します。指数項が初期層、$-\varepsilon$ が定常的な追従の遅れです。
@@ -603,7 +653,14 @@ w(t)&=\frac1\mu+
 \end{aligned}
 $$
 
-$w(t)>0$ は元の正の解で保証され、$w(t)\to1/\mu$ です。ゆえに $v(t)=1/w(t)\to\mu$、$r(t)\to\sqrt\mu$ となります。原点 $r(0)=0$ は別の平衡解なので、この結論に含めていません。
+得られた式を
+
+$$
+w(t)=\frac{1-e^{-2\mu t}}{\mu}
++\frac{e^{-2\mu t}}{v(0)}
+$$
+
+と書き直すと、$\mu>0$、$v(0)>0$、$t\ge0$ から各項が非負で第二項は正なので、全時刻で $w(t)>0$ です。このため $v(t)=1/w(t)$ は正に保たれ、$w(t)\to1/\mu$ から $v(t)\to\mu$、$r(t)\to\sqrt\mu$ となります。原点 $r(0)=0$ は別の平衡解なので、この結論に含めていません。
 <!-- solution-end -->
 
 ### B2. 有限時間近似から無限時間を主張できるか
