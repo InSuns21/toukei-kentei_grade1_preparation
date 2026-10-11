@@ -1,0 +1,50 @@
+id: "CDYN5"
+title: "強制振動・共振・減衰"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CDYN4
+  - ODE3
+official_scope: []
+learning_objectives:
+  - 自由振動・強制振動・定常周期応答・過渡項の違いと非自律系の境界を説明できる
+  - cosとsinの係数の連立方程式を導出して周期特解を一意に計算できる
+  - 振幅と位相遅れを象限まで正しく求め正の減衰の下で周波数応答を表せる
+  - 弱減衰・臨界減衰・過減衰の三場合について初期値解と長時間の過渡項を計算できる
+  - 正の減衰の下で外力周期の解がただ一つであることを減衰性から証明できる
+  - 周波数応答の極大を微分で求め固有角振動数との違いと強減衰の上限を説明できる
+  - 無減衰の非共振解と共振解を初期値から構成し周波数極限を示せる
+  - 共振時の長時間増大と減衰の定常振幅の特異な極限を区別できる
+  - 外力仕事と減衰散逸の瞬間収支を導き定常応答の周期平均を検算できる
+definitions:
+  - { id: CDYN5-DEF-01, name: 定常周期応答 }
+  - { id: CDYN5-DEF-02, name: 周波数応答の振幅と位相遅れ }
+theorems:
+  - { id: CDYN5-THM-01, name: 強制振動の周期特解 }
+  - { id: CDYN5-THM-02, name: 減衰時の過渡項の消滅と定常周期解の一意性 }
+  - { id: CDYN5-THM-03, name: 無減衰共振の線形増大と周波数極限 }
+propositions:
+  - { id: CDYN5-PROP-01, name: 減衰振動子の振幅ピーク }
+  - { id: CDYN5-PROP-02, name: 強制減衰振動のエネルギー収支 }
+canonical_examples:
+  - 外力と位置の位相が四分の一周期ずれる定常解
+  - 立ち上がりの初期値から過渡項が消える弱減衰解
+  - 減衰付き振動の振幅最大周波数と固有角振動数のずれ
+  - 無減衰共振で時間に比例して増大する初期値解
+  - 一周期で入力仕事と散逸が釣り合う定常解
+problem_patterns:
+  - CDYN5-UNDAMPED-NONRESONANT
+  - CDYN5-QUARTER-PHASE
+  - CDYN5-CRITICAL-DAMPING
+  - CDYN5-ENERGY-INCREASE
+  - CDYN5-PHASE-QUADRANT
+  - CDYN5-RESONANCE-PEAK
+  - CDYN5-TRANSIENT-INITIAL-VALUE
+  - CDYN5-RESONANCE-LIMIT
+  - CDYN5-OVERDAMPED
+  - CDYN5-AVERAGE-ENERGY-BALANCE
+  - CDYN5-FORCED-OSCILLATOR-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 5, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 2.0 }
