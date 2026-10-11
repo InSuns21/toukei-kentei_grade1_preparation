@@ -6,6 +6,8 @@ prerequisites:
   - CDYN11
   - CDYN4
   - DYN15
+forward_references:
+  - pde.pde1-partial-differential-equation
 concepts:
   - id: continuous-dynamical-systems.finite-time-tracking
     name: 有限時間追従
