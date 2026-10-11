@@ -234,23 +234,23 @@ $$
 
 初期層がいつ $O(\varepsilon)$ へ縮むかも、指数項から読み取れます。$0<\varepsilon<1$ とし、
 
-$
+$$
 t_\varepsilon=\frac{\varepsilon}{a}\log\frac1\varepsilon
-$
+$$
 
 と置けば、
 
-$
+$$
 e^{-at_\varepsilon/\varepsilon}
 =e^{-\log(1/\varepsilon)}=\varepsilon.
-$
+$$
 
 従って $t_\varepsilon\le t\le T$ では最初の評価から
 
-$
+$$
 |q(t)|\le\varepsilon|q_0|
 +\frac{\varepsilon|b|H_1}{a}.
-$
+$$
 
 しかも $t_\varepsilon\to0$ です。つまり固定した正時刻まで待たなくても、長さがおよそ $\varepsilon\log(1/\varepsilon)$ の初期層を過ぎれば、ずれはこの評価で $O(\varepsilon)$ になります。
 
