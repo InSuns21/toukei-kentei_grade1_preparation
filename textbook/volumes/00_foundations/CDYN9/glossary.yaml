@@ -1,0 +1,17 @@
+chapter: "CDYN9"
+terms:
+  - term: 漸近位相
+    english: asymptotic phase
+    meaning: "周期軌道の周囲の初期値に割り当て、時間をそろえたときに同じ円上解へ漸近することを表す円周値の位相。"
+  - term: 等時相線
+    english: isochron
+    meaning: "平面で同じ漸近位相を持つ点の集合。半径依存の角速度を持つ模型では対数らせんになる。"
+  - term: 位相応答ベクトル
+    english: phase response vector
+    meaning: "周期軌道上での漸近位相の勾配。状態への微小衝撃が与える位相の一次変化を測る。"
+  - term: 位相縮約
+    english: phase reduction
+    meaning: "吸引周期軌道近くで状態方程式を位相の方程式へ近似する操作。適用時間と誤差評価が必要。"
+  - term: 位相せん断
+    english: phase shear
+    meaning: "半径の差が角速度の差を生み、振幅方向の刺激でも長く残る位相差が生じる作用。"
