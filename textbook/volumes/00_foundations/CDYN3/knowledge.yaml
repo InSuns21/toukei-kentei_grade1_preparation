@@ -6,6 +6,7 @@ prerequisites:
 concepts:
   - id: continuous-dynamical-systems.orbit-time-phase
     name: 周期軌道上の時間位相
+    aliases: [時間位相]
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（周期軌道上の時間位相）"]
