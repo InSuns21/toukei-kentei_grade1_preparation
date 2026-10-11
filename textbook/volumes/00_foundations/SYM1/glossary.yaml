@@ -1,0 +1,23 @@
+chapter: "SYM1"
+terms:
+  - term: 交代双線形形式
+    english: alternating bilinear form
+    meaning: "各引数に線形で、同じベクトルを二つの引数へ代入すると必ず零になる形式。"
+  - term: 非退化交代形式
+    english: nondegenerate alternating bilinear form
+    meaning: "全ての相手ベクトルと組にして零となるベクトルが零ベクトルに限られる交代形式。"
+  - term: シンプレクティックベクトル空間
+    english: symplectic vector space
+    meaning: "有限次元実ベクトル空間と、その上の非退化交代双線形形式を合わせた組。"
+  - term: シンプレクティック直交補
+    english: symplectic orthogonal complement
+    meaning: "部分空間Wの全ベクトルに対して交代形式が零となるベクトルの集合W^omega。内積の直交補とは異なる。"
+  - term: シンプレクティック基底
+    english: symplectic basis
+    meaning: "ω(e_i,f_j)=δ_ij で同種の組は零となる、2n次元空間の対になった基底。"
+  - term: 線形シンプレクティック写像
+    english: linear symplectic map
+    meaning: "ω(Au,Av)=ω(u,v) を全てのベクトルu,vについて満たす線形同型。標準基底ではA^T J A=J。"
+  - term: シンプレクティック群
+    english: symplectic group
+    meaning: "線形シンプレクティック写像の全体で、合成と逆写像によって群となる。"

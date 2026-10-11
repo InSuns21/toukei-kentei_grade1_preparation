@@ -1,15 +1,15 @@
 version: 1
-updated: 2026-10-11
+updated: 2026-10-12
 
-active_series: CDYN
-active_plan: textbook/plan_done/DREAM_THEATER_CONTINUOUS_DYNAMICAL_SYSTEMS_COURSE_PLAN.md
-series_manifest: textbook/dream-theater-series/CDYN.yaml
+active_series: SYM
+active_plan: textbook/plans_progress/DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md
+series_manifest: textbook/dream-theater-series/SYM.yaml
 
-completed_through: CDYN15
-next_work: null
-after_next: null
+completed_through: SYM1
+next_work: SYM2
+after_next: SYM3
 
-# CDYN1〜15とPhase Dの科目横断監査を完了。PLANはplan_doneに保管。
+# SYM1実装・査読・公開済。SYM2以降と科目横断監査は進行中。
 
 # 次章の執筆と直前完了章の追跡監査を同じ作業単位で実施する。
 # target_source は固定の章IDではなく、着手時の routing と series manifest から解決する。
