@@ -61,7 +61,7 @@ $U\in C^2(I)$、$E\in\mathbb R$ とする。$a\in I$ が $U(a)=E$ かつ $U'(a)\
 <a id="thm-cdyn2-closed-orbit"></a>
 
 <!-- formal-statement-start -->
-### 定理（正則な二つの正則転回点からの非定常周期解）
+### 定理（正則な二転回点からの非定常周期解）
 
 $I\subset\mathbb R$ を開区間、$U\in C^2(I)$ とする。$a,b\in I$、$a<b$、$E\in\mathbb R$ が
 
