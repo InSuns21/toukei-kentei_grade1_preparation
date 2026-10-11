@@ -1,0 +1,44 @@
+id: "CDYN7"
+title: "ゆっくり変わる振幅の平均化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CDYN6
+  - ODE8
+official_scope: []
+learning_objectives:
+  - 速い周期と遅い時刻を区別し線形模型の平均解と実解の差を積分因子で評価できる
+  - 周期平均を定義し平均零関数の有界な周期原始関数を証明できる
+  - 状態依存の振動項を部分積分して変数係数に伴う残差を定量化できる
+  - 有界なC1係数の弱摂動系について有限遅い時間のO(ε)誤差をGrönwallで証明できる
+  - 回転座標で弱減衰振動子の平均行列を計算し振幅の指数減衰と誤差を証明できる
+  - 非零平均や速い周期が失われる反例によって平均化の適用範囲を判定できる
+definitions:
+  - { id: CDYN7-DEF-01, name: 周期平均と平均零の振動項 }
+  - { id: CDYN7-DEF-02, name: 弱摂動方程式の平均系 }
+theorems:
+  - { id: CDYN7-LEM-01, name: 平均零と有界な周期原始関数 }
+  - { id: CDYN7-LEM-02, name: 変化する係数を持つ振動積分の評価 }
+  - { id: CDYN7-THM-01, name: 有限の遅い時間区間における平均系の誤差 }
+  - { id: CDYN7-THM-02, name: 弱減衰振動子の平均振幅と誤差 }
+canonical_examples:
+  - 積分因子による弱い周期外力の明示誤差
+  - cosの周期平均と有界原始関数
+  - tanhと有理関数の状態依存平均化
+  - 二次元回転座標による弱減衰振動の振幅評価
+  - 周期がεに依存すると平均近似が失敗する例
+problem_patterns:
+  - CDYN7-PERIODIC-PRIMITIVE
+  - CDYN7-EXACT-FORCED-SCALAR
+  - CDYN7-BOUNDED-DERIVATIVES
+  - CDYN7-ROTATING-COORDINATES
+  - CDYN7-SLOW-FREQUENCY-COUNTEREXAMPLE
+  - CDYN7-OSCILLATORY-INTEGRATION-BY-PARTS
+  - CDYN7-GENERAL-LINEAR-DRIFT
+  - CDYN7-WEAK-DAMPING-ENERGY
+  - CDYN7-NONZERO-MEAN
+  - CDYN7-AVERAGING-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 2.0 }

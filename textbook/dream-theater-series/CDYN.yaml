@@ -31,7 +31,7 @@ chapters:
     title: Duffing振動子のポテンシャルとセパラトリクス
   - id: CDYN7
     path: textbook/volumes/00_foundations/CDYN7
-    status: planned
+    status: completed
     title: ゆっくり変わる振幅の平均化
   - id: CDYN8
     path: textbook/volumes/00_foundations/CDYN8
