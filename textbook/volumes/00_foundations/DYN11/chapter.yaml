@@ -1,0 +1,52 @@
+id: "DYN11"
+title: "全シフトの位相的推移性・周期点稠密性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - DYN10
+  - CELL7
+official_scope: []
+learning_objectives:
+  - CELL7の両側全シフトと片側全シフトを区別し片側シフトの逆像と非単射性を確認できる
+  - 接頭一致距離と接頭円筒の開閉性および開集合の基底性を証明できる
+  - シフトの連続性を添字と有限接頭語の一致から証明できる
+  - 位相的推移性と位相的混合性の量化順序を定義から区別できる
+  - 任意の二つの非空円筒を有限語の連結で結び全シフトの位相的混合性を証明できる
+  - 有限語を周期反復し任意の接頭円筒内に周期点を構成できる
+  - 周期点稠密性と全点周期性および周期と最小周期を区別できる
+  - 全有限語の連結から稠密軌道を構成し全軌道稠密とは違うことを示せる
+  - DYN10のTent旅程像の非全射性により全シフトの結果を無条件に移送できないと説明できる
+definitions:
+  - { id: DYN11-DEF-01, name: "片側全二進シフトと接頭円筒" }
+  - { id: DYN11-DEF-02, name: "接頭一致距離と円筒位相" }
+  - { id: DYN11-DEF-03, name: "位相的推移性と位相的混合性" }
+  - { id: DYN11-DEF-04, name: "周期点の稠密性" }
+theorems:
+  - { id: DYN11-THM-01, name: "片側全二進シフトの位相的混合性" }
+  - { id: DYN11-THM-02, name: "片側全二進シフトの周期点稠密性" }
+  - { id: DYN11-THM-03, name: "全有限語の連結から作る稠密前方軌道" }
+propositions:
+  - { id: DYN11-PROP-01, name: "接頭円筒は開閉かつ開集合の基底" }
+  - { id: DYN11-PROP-02, name: "片側シフトの連続性と円筒の逆像" }
+canonical_examples:
+  - "先頭に0か1を加えた二列がシフト後に一致する"
+  - "010と11の間に任意長の0語を挿入する"
+  - "011の周期反復の最小周期3と00の周期反復の最小周期1"
+  - "0の連続長を増やした非周期列にも周期点が任意に近い"
+  - "全有限語の辞書順連結による稠密軌道と全0固定点の非稠密軌道"
+  - "Tent半開旅程では01000...が実現できない"
+problem_patterns:
+  - DYN11-SHIFT-PREIMAGE
+  - DYN11-PREFIX-METRIC
+  - DYN11-CYLINDER-BRIDGE
+  - DYN11-MINIMAL-PERIOD
+  - DYN11-OPEN-BALL
+  - DYN11-ARBITRARY-LAG
+  - DYN11-PERIODIC-EXTENSION
+  - DYN11-NONPERIODIC-DENSITY
+  - DYN11-DENSE-ORBIT
+  - DYN11-MIXING-PERIODIC-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.0, review: 2.0 }
