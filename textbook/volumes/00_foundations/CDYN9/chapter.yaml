@@ -1,0 +1,44 @@
+id: "CDYN9"
+title: "位相応答と等時相面の入口"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CDYN4
+  - CDYN8
+official_scope: []
+learning_objectives:
+  - 明示的な平面振動子を極座標へ直し吸引周期軌道と半径の収束を証明できる
+  - 円の外側まで定義した漸近位相の一定速度進行と同時刻の漸近追跡を証明できる
+  - 等時相線を求め偏角との違いと原点での定義不能性を説明できる
+  - 横方向Floquet乗数と接線方向の中立乗数を計算できる
+  - 位相応答ベクトルと衝撃による一次位相変化を導ける
+  - 有限時間の弱外力位相縮約でO(ε²)誤差と適用範囲を説明できる
+definitions:
+  - { id: CDYN9-DEF-01, name: 明示模型の漸近位相 }
+  - { id: CDYN9-DEF-02, name: 明示模型の等時相線 }
+  - { id: CDYN9-DEF-03, name: 位相応答ベクトル }
+theorems:
+  - { id: CDYN9-PROP-01, name: 吸引円と半径の明示解 }
+  - { id: CDYN9-THM-01, name: 位相の一定速度進行と漸近的な追跡 }
+  - { id: CDYN9-PROP-02, name: 吸引円の二つのFloquet乗数 }
+  - { id: CDYN9-THM-02, name: 位相応答公式と外力下の正確な位相方程式 }
+  - { id: CDYN9-THM-03, name: 周期軌道上から出発する弱外力の有限時間位相縮約 }
+canonical_examples:
+  - 同じ漸近位相で異なる半径の二初期値
+  - 半径一定時と半径依存角速度時の等時相線
+  - 半径と接線への衝撃で異なる一次位相応答
+  - 有限時間近似の帯からの脱出を防ぐ明示評価
+problem_patterns:
+  - CDYN9-RADIAL-LOGISTIC
+  - CDYN9-ASYMPTOTIC-PHASE
+  - CDYN9-ISOCHRON
+  - CDYN9-PRC-DIRECTIONAL
+  - CDYN9-FLOQUET-MULTIPLIERS
+  - CDYN9-KICK
+  - CDYN9-PHASE-NORMALIZATION
+  - CDYN9-FINITE-TIME-REDUCTION
+  - CDYN9-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 4.5, review: 2.0 }

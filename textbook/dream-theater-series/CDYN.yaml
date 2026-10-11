@@ -39,7 +39,7 @@ chapters:
     title: van der Pol振動子と振幅方程式
   - id: CDYN9
     path: textbook/volumes/00_foundations/CDYN9
-    status: planned
+    status: completed
     title: 位相応答と等時相面の入口
   - id: CDYN10
     path: textbook/volumes/00_foundations/CDYN10

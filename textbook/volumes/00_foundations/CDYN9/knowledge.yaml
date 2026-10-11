@@ -1,0 +1,50 @@
+chapter: CDYN9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CDYN4
+  - CDYN8
+concepts:
+  - id: continuous-dynamical-systems.phase-attracting-circle
+    name: 吸引円と半径の明示解
+    kind: proposition
+    introduction_aliases: ["命題（吸引円と半径の明示解）"]
+  - id: continuous-dynamical-systems.explicit-asymptotic-phase
+    name: 明示模型の漸近位相
+    kind: definition
+    aliases: ["漸近位相"]
+    introduction: formal
+    introduction_aliases: ["定義（明示模型の漸近位相）"]
+    requires: [continuous-dynamical-systems.phase-attracting-circle]
+  - id: continuous-dynamical-systems.phase-tracking
+    name: 位相の一定速度進行と漸近的な追跡
+    kind: theorem
+    introduction_aliases: ["定理（位相の一定速度進行と漸近的な追跡）"]
+    requires: [continuous-dynamical-systems.explicit-asymptotic-phase]
+  - id: continuous-dynamical-systems.explicit-isochron
+    name: 明示模型の等時相線
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（明示模型の等時相線）"]
+    requires: [continuous-dynamical-systems.phase-tracking]
+  - id: continuous-dynamical-systems.attracting-circle-multipliers
+    name: 吸引円の二つのFloquet乗数
+    kind: proposition
+    introduction_aliases: ["命題（吸引円の二つのFloquet乗数）"]
+    requires: [continuous-dynamical-systems.phase-tracking, continuous-dynamical-systems.tangent-unit-multiplier]
+  - id: continuous-dynamical-systems.explicit-phase-response
+    name: 位相応答ベクトル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（位相応答ベクトル）"]
+    requires: [continuous-dynamical-systems.explicit-asymptotic-phase]
+  - id: continuous-dynamical-systems.phase-response-formula
+    name: 位相応答公式と外力下の正確な位相方程式
+    kind: theorem
+    introduction_aliases: ["定理（位相応答公式と外力下の正確な位相方程式）"]
+    requires: [continuous-dynamical-systems.explicit-phase-response]
+  - id: continuous-dynamical-systems.finite-phase-reduction
+    name: 周期軌道上から出発する弱外力の有限時間位相縮約
+    kind: theorem
+    introduction_aliases: ["定理（周期軌道上から出発する弱外力の有限時間位相縮約）"]
+    requires: [continuous-dynamical-systems.phase-response-formula, ode.ode8-gronwall, ode.ode8-continuation]
