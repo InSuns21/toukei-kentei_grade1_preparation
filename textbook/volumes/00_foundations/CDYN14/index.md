@@ -606,7 +606,7 @@ $$
 w_j=\psi_j-\bar\psi_0,\qquad \widehat w_0=0
 $$
 
-です。まず[離散エネルギー恒等式](#prop-cdyn14-energy-identity)を使い、次に[有限Fourier直交性と格子モードの固有値](#thm-cdyn14-fourier-modes)を適用します。
+です。最初の等号は、[離散エネルギー恒等式](#prop-cdyn14-energy-identity)によります。続く等号には、[有限Fourier直交性と格子モードの固有値](#thm-cdyn14-fourier-modes)を適用します。
 
 $w$ と $Lw$ はともに実ベクトルです。従って内積の第二因子に複素共役を付けられ、また格子のFourier展開は
 
