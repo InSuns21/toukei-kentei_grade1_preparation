@@ -1,0 +1,68 @@
+chapter: DYN11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - DYN10
+  - CELL7
+concepts:
+  - id: dynamical-systems.one-sided-shift
+    name: 片側全二進シフトと接頭円筒
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（片側全二進シフトと接頭円筒）"]
+    requires: [cellular-automata.full-shift, cellular-automata.cylinder, dynamical-systems.half-open-itinerary]
+  - id: dynamical-systems.prefix-metric
+    name: 接頭一致距離
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（接頭一致距離と円筒位相）"]
+    requires: [dynamical-systems.one-sided-shift, cellular-automata.centered-metric]
+  - id: dynamical-systems.cylinder-topology
+    name: 円筒位相
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（接頭一致距離と円筒位相）"]
+    requires: [dynamical-systems.prefix-metric]
+  - id: dynamical-systems.cylinder-basis
+    name: 接頭円筒は開閉かつ開集合の基底
+    kind: proposition
+    introduction_aliases: ["命題（接頭円筒は開閉かつ開集合の基底）"]
+    requires: [dynamical-systems.prefix-metric]
+  - id: dynamical-systems.shift-continuity
+    name: 片側シフトの連続性と円筒の逆像
+    kind: proposition
+    introduction_aliases: ["命題（片側シフトの連続性と円筒の逆像）"]
+    requires: [dynamical-systems.cylinder-basis, dynamical-systems.one-sided-shift]
+  - id: dynamical-systems.topological-transitivity
+    name: 位相的推移性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（位相的推移性と位相的混合性）"]
+    requires: [dynamical-systems.shift-continuity]
+  - id: dynamical-systems.topological-mixing
+    name: 位相的混合性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（位相的推移性と位相的混合性）"]
+    requires: [dynamical-systems.topological-transitivity]
+  - id: dynamical-systems.full-shift-mixing
+    name: 片側全二進シフトの位相的混合性
+    kind: theorem
+    introduction_aliases: ["定理（片側全二進シフトの位相的混合性）"]
+    requires: [dynamical-systems.topological-mixing, dynamical-systems.cylinder-basis]
+  - id: dynamical-systems.dense-periodic-definition
+    name: 周期点の稠密性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（周期点の稠密性）"]
+    requires: [dynamical-systems.one-sided-shift]
+  - id: dynamical-systems.full-shift-dense-periodic
+    name: 片側全二進シフトの周期点稠密性
+    kind: theorem
+    introduction_aliases: ["定理（片側全二進シフトの周期点稠密性）"]
+    requires: [dynamical-systems.dense-periodic-definition, dynamical-systems.cylinder-basis]
+  - id: dynamical-systems.full-shift-dense-orbit
+    name: 全有限語の連結から作る稠密前方軌道
+    kind: theorem
+    introduction_aliases: ["定理（全有限語の連結から作る稠密前方軌道）"]
+    requires: [dynamical-systems.cylinder-basis, dynamical-systems.one-sided-shift]

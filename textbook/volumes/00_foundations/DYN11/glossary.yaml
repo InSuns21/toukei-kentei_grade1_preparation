@@ -1,0 +1,23 @@
+chapter: "DYN11"
+terms:
+  - term: 片側全シフト
+    english: one-sided full shift
+    meaning: "非負整数の全座標に任意の有限アルファベット文字を配置した空間と左シフト。両側シフトと異なり左シフトは一般に非単射。"
+  - term: 接頭円筒
+    english: prefix cylinder
+    meaning: "無限列の先頭有限語を指定する集合。片側全シフトの位相の基底。"
+  - term: 接頭一致距離
+    english: prefix metric
+    meaning: "二列の最初の相違添字rを用いた距離2^{-r}。列が等しい場合は0。"
+  - term: 位相的推移性
+    english: topological transitivity
+    meaning: "任意の二つの非空開集合U,Vに対し、ある反復回数nでF^n(U)とVが交わること。"
+  - term: 位相的混合性
+    english: topological mixing
+    meaning: "任意の二非空開集合について十分大きい全ての反復回数で像がもう一方と交わること。"
+  - term: 周期点稠密性
+    english: density of periodic points
+    meaning: "すべての非空開集合に周期点が少なくとも一つあること。"
+  - term: 稠密前方軌道
+    english: dense forward orbit
+    meaning: "一つの点の非負反復による軌道があらゆる非空開集合に入ること。"
