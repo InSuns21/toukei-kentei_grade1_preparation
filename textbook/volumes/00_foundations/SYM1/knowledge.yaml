@@ -1,0 +1,88 @@
+chapter: SYM1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LA3A
+  - LA3C
+  - LA3E
+  - GEO7
+  - AMECH7
+forward_references: []
+
+concepts:
+  - id: symplectic.alternating-bilinear-form
+    name: 交代双線形形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（交代双線形形式）]
+    requires: [linear.exterior-power]
+
+  - id: symplectic.non-degenerate-form
+    name: 非退化交代形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（非退化交代形式・シンプレクティックベクトル空間）]
+    requires: [symplectic.alternating-bilinear-form, linear.algebraic-dual-space]
+
+  - id: symplectic.even-dimensional
+    name: シンプレクティック空間の偶数次元性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（シンプレクティック空間の偶数次元性）]
+    requires: [symplectic.non-degenerate-form]
+
+  - id: symplectic.orthogonal-complement
+    name: シンプレクティック直交補
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（シンプレクティック直交補）]
+    requires: [symplectic.alternating-bilinear-form]
+
+  - id: symplectic.pair-splitting
+    name: 一対の切り出し
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（一対の切り出し）]
+    requires: [symplectic.non-degenerate-form, symplectic.orthogonal-complement]
+
+  - id: symplectic.symplectic-basis
+    name: シンプレクティック基底
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（シンプレクティック基底）]
+    requires: [symplectic.non-degenerate-form]
+
+  - id: symplectic.linear-normal-form
+    name: 非退化交代形式の線形標準形
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（非退化交代形式の線形標準形）]
+    requires: [symplectic.pair-splitting, symplectic.symplectic-basis]
+
+  - id: symplectic.linear-symplectic-map
+    name: 線形シンプレクティック写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（線形シンプレクティック写像・シンプレクティック群）]
+    requires: [symplectic.non-degenerate-form, symplectic.linear-normal-form]
+
+  - id: symplectic.matrix-criterion
+    name: 線形シンプレクティック写像の行列条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（線形シンプレクティック写像の行列条件）]
+    requires: [symplectic.linear-symplectic-map, analytical-mechanics.canonical-jacobian-condition]
+
+  - id: symplectic.group-products-inverse
+    name: シンプレクティック群の積と逆
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（シンプレクティック群の積と逆）]
+    requires: [symplectic.matrix-criterion]
+
+  - id: symplectic.determinant-one
+    name: シンプレクティック行列の行列式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（シンプレクティック行列の行列式）]
+    requires: [symplectic.matrix-criterion, linear.top-form-change-of-basis]
