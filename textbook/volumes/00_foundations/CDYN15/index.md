@@ -46,7 +46,21 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cdyn15-tracking-locking -->
-**定義を確かめる例**　$D_\varepsilon(t)=\varepsilon t$、$\bar D(t)=0$ とすると、各固定 $L$ では上限が $\varepsilon L$ なので有限時間追従します。しかし $t=\pi/\varepsilon$ で円周距離は $\pi$ となり、全時刻で追従するわけではありません。$D_\varepsilon$ は円周上を回転し続け、定数への漸近位相固定もありません。
+**定義の確認**　次の二つの位相差の持上げを考えます。
+
+$
+D_\varepsilon(t)=\varepsilon t,\qquad \bar D(t)=0.
+$
+
+各固定 $L>0$ では、区間 $0\le t\le L$ の差の上限が $\varepsilon L\to0$ となるため、有限時間追従の定義を満たします。
+
+しかし、動く時刻 $t_\varepsilon=\pi/\varepsilon$ を代入すると、円周距離は
+
+$
+d_{\mathbb S^1}\bigl(D_\varepsilon(t_\varepsilon),\bar D(t_\varepsilon)\bigr)=\pi
+$
+
+です。円周上で $D_\varepsilon$ は回転し続けるため、全時刻の一様追従も定数への漸近位相固定も満たしません。
 <!-- definition-example-end -->
 
 この例は近似の精度が低いという反例ではありません。誤差を評価した**時間区間を延長すると、評価も変える必要がある**という例です。
@@ -327,14 +341,29 @@ $$
 これは $\varepsilon\to0$ でも0に近づきません。$\square$
 <!-- proof-end -->
 
-**格子との結び付き**　[CDYN14の交互モードの固有値](../CDYN14/index.md#thm-cdyn14-fourier-modes)は偶数 $N$ で $-4$ です。格子幅 $h=1/N$ と拡散係数 $D_N=\kappa N^2$ を入れると、最も高周波なモードは
+**格子との結び付き**　[CDYN14の交互モードの固有値](../CDYN14/index.md#thm-cdyn14-fourier-modes)は、偶数 $N$ の場合に $-4$ です。
+
+格子幅を $h=1/N$ とし、拡散係数を $D_N=\kappa N^2$ と置きます。最も高周波なモードは
 
 $$
 y'=-4\kappa N^2 y,\qquad
 \lambda_N=4\kappa N^2.
 $$
 
-このモードを追う速い変数で、$a=1$、$\varepsilon_N=1/\lambda_N$ とすると、各 $N$ の解は存在するのに、時刻 $t_N=\varepsilon_N$ で誤差は $e^{-1}$ です。[CDYN13の固定された入力導関数の上界を使う評価](../CDYN13/index.md#thm-cdyn13-initial-layer-tracking)を、$N$ に一様な評価へ読み替えられない理由が明示されました。
+このモードを追う速い変数について、$a=1$ とし、
+
+$
+\varepsilon_N=\frac1{\lambda_N}=\frac1{4\kappa N^2},
+\qquad t_N=\varepsilon_N
+$
+
+と置きます。各 $N$ で解は存在しますが、[速遅モードの明示解](#thm-cdyn15-fast-mode)により、この時刻の誤差は
+
+$
+x_N(t_N)-y_N(t_N)=e^{-1}
+$
+
+です。[CDYN13の初期層評価](../CDYN13/index.md#thm-cdyn13-initial-layer-tracking)で入力の導関数に課した上界は、この族では $N$ に依存して増大します。したがって、その評価を $N$ に一様な評価へ読み替えることはできません。
 
 この反例は、固定 $t>0$ での二つの反復極限が必ず不一致になると主張していません。**初期時刻へ近づく時間列と、高周波化する空間列について一様性を失う**、という精密な結論です。
 
@@ -460,7 +489,15 @@ $\kappa=2$、$\Delta=1$ の平均方程式 $D'=\Delta-\kappa\sin D$ の平衡点
 - ID: CDYN15-A2
 
 <!-- solution-start -->
-**詳細解答**　$1-2\sin D=0$ から $\sin D=1/2$ なので、平衡点は $\pi/6$ と $5\pi/6$ です。[同期閾値の命題](../CDYN11/index.md#prop-cdyn11-locking-threshold)の条件は $|\Delta|=1<2=\kappa$ を満たします。
+**詳細解答**　[同期閾値の命題](../CDYN11/index.md#prop-cdyn11-locking-threshold)の条件を先に確認すると、周波数差と結合強度は $|\Delta|=1<2=\kappa$ を満たします。平衡点では
+
+$
+1-2\sin D=0
+\quad\Longleftrightarrow\quad
+\sin D=\frac12.
+$
+
+したがって $[0,2\pi)$ の平衡点は $D=\pi/6$ と $D=5\pi/6$ です。
 
 $$
 f'(D)=-2\cos D.
@@ -694,7 +731,16 @@ D_s=\frac\pi6,\qquad D_u=\frac{5\pi}6
 \pmod{2\pi}.
 $$
 
-$g'(D)=-2\cos D$ を用いると $g'(D_s)=-\sqrt3$、$g'(D_u)=\sqrt3$ です。したがって平均模型では前者が安定、後者が不安定です。[CDYN11の引込み域定理](../CDYN11/index.md#thm-cdyn11-capture-basin)の条件 $|1|<2$ も満たします。これは元の弱結合系の永続同期を証明したものではありません。
+平均位相差の右辺を $g(D)=1-2\sin D$ と書いて微分すると、
+
+$
+\begin{aligned}
+g'(D_s)&=-2\cos(\pi/6)=-\sqrt3<0,\\
+g'(D_u)&=-2\cos(5\pi/6)=\sqrt3>0.
+\end{aligned}
+$
+
+よって平均模型では前者が安定、後者が不安定です。[CDYN11の引込み域定理](../CDYN11/index.md#thm-cdyn11-capture-basin)の条件 $|1|<2$ も満たします。元の弱結合系の永続同期は、これとは別途の証明を要します。
 
 **(3)**　速い方向では $a=1$、追従先は $\lambda=1$、$\varepsilon=1/4$ です。[速遅モードの明示解](#thm-cdyn15-fast-mode)の分母は
 
