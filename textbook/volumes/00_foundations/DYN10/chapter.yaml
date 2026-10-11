@@ -1,0 +1,48 @@
+id: "DYN10"
+title: "区間分割・旅程（itinerary）・記号への読み出し"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - DYN9
+official_scope: []
+learning_objectives:
+  - Tent写像の軌道を閉じた左右区間への所属によって長さnの許容旅程として記録できる
+  - 有限旅程の初期値集合が合成逆分枝の閉区間C_wと一致することを両包含から証明できる
+  - 分割境界への訪問回数から閉許容旅程の個数を計算できる
+  - 半開区間の割当で各初期点の一意な旅程を定め端点の所属を判定できる
+  - 半開旅程の点集合が互いに素な被覆をなしその閉包が分枝区間に一致することを証明できる
+  - 共通接頭語が距離2^{-n}以下を保証する一方近い点の第一記号は一致しない例を示せる
+  - 無限旅程の時間シフト関係と単射性を示し非全射となる具体語を証明できる
+  - 円周倍写像の端点同一視と区間Tent写像の有限時刻合流を区別できる
+definitions:
+  - { id: DYN10-DEF-01, name: "閉区間分割の有限旅程" }
+  - { id: DYN10-DEF-02, name: "半開規約の有限・無限旅程" }
+theorems:
+  - { id: DYN10-THM-01, name: "有限旅程と分枝区間の一致" }
+  - { id: DYN10-THM-02, name: "半開規約の有限語と閉分枝区間の関係" }
+  - { id: DYN10-THM-03, name: "Tent写像の無限旅程は単射、しかし全射ではない" }
+propositions:
+  - { id: DYN10-PROP-01, name: "境界訪問数と許容語の個数" }
+  - { id: DYN10-PROP-02, name: "共通接頭語による初期値の距離評価" }
+  - { id: DYN10-PROP-03, name: "旅程の時間シフト" }
+canonical_examples:
+  - "1/4の閉許容語001と011及び一意語011"
+  - "二歩分枝区間00、01、11、10と端点の半開割当"
+  - "1/2の一意旅程1100と閉許容語010、110"
+  - "無限語01000...を実現するTent写像の初期点は存在しない"
+  - "円周の[0]=[1]とTent写像の0と1の一歩合流"
+problem_patterns:
+  - DYN10-TENT-ORBIT-CODE
+  - DYN10-CRITICAL-MULTIPLICITY
+  - DYN10-RIGHT-CRITICAL-ITINERARY
+  - DYN10-CYLINDER-ORDER
+  - DYN10-CIRCLE-ENDPOINT
+  - DYN10-BOUNDARY-COUNT
+  - DYN10-HALFOPEN-CLOSURE
+  - DYN10-PREFIX-DISTANCE
+  - DYN10-NONSURJECTIVE-CODE
+  - DYN10-CODING-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.0, review: 2.0 }
