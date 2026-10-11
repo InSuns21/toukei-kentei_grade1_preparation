@@ -17,9 +17,11 @@
 - RMT: 経験スペクトル測度、moment method、Stieltjes transform / resolvent、Wigner 半円則、sample covariance と Marčenko–Pastur 則。
 - SLT2: 上記の法則を具体的な学習模型の汎化・予測誤差に適用する。
 
-## 2. 15週シラバス
+**講数方針（2026-10-12）**：1セメスター・15項目は仮の射程であり、15講・15週・90分×15回を強制しない。以下の番号は**テーマ整理用**であって正式な講・週番号ではない。主要定理の証明、反例、詳細演習が独習者に再現可能な単位へ、内容を統合・分割・増補する。完了基準は講数ではなく学習目標と証明・監査の充足である。
 
-| 週 | 内容 |
+## 2. 学習内容案（15項目は整理用・講数は可変）
+
+| テーマ番号 | 内容 |
 |---|---|
 | 1 | ランダム行列の代表模型、Wigner / Wishart 型行列 |
 | 2 | empirical spectral distribution、確率測度の弱収束 |
@@ -42,7 +44,7 @@
 - 規格化 Wigner 行列の偶数 trace moment に対する leading pairing の数え上げを途中省略なく行う。
 - 収束の種類（almost sure / in probability / expectation）、独立性、分散、有限高次 moment、次元比の極限を明記する。
 - Marčenko–Pastur の atom at zero は `p/n` の採用規約と rank 欠損の有無で正確に書く。
-- edge convergence や BBP の高度な完全証明を15週へ無理に詰めない。証明未掲載なら外部の named theorem の形で仮定・適用範囲と証明後送先を明記する。
+- edge convergence や BBP の高度な完全証明をあらかじめ決めた講数へ無理に詰めない。必要なら講を増やして前提補題から証明する。証明未掲載なら外部の named theorem の形で仮定・適用範囲と証明後送先を明記する。
 - 「double descent は MP 法則によりあらゆる深層学習で証明された」と主張しない。可解模型と一般ネットワークの間に停止線を引く。
 
 ## 4. 演習・実装条件
