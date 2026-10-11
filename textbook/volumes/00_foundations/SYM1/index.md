@@ -618,7 +618,7 @@ $$
 dq_1\wedge\cdots\wedge dq_n\wedge dp_1\wedge\cdots\wedge dp_n.
 $$
 
-この最高次形式は零でありません。$A$ がシンプレクティックなら $A^*\omega_0=\omega_0$ なので、[外積と引き戻しの積法則](../GEO7/index.md#prop-geo7-pullback-wedge)から
+この最高次形式は零でありません。$A$ がシンプレクティックなら $A^*\omega_0=\omega_0$ なので、[引き戻しと外積](../GEO7/index.md#prop-geo7-pullback-wedge)から
 
 $$
 A^*(\omega_0^{\wedge n})
