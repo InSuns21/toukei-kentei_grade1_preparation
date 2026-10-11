@@ -1,0 +1,23 @@
+chapter: "CDYN5"
+terms:
+  - term: 定常周期応答
+    english: steady periodic response
+    meaning: "正の減衰を持つ周期強制線形振動子で、外力と同じ周期を持ち、過渡項が消えた後に残る一意の周期解。"
+  - term: 過渡振動
+    english: transient oscillation
+    meaning: "外力付き線形振動の一般解から周期特解を引いた斉次解。減衰が正なら時間とともに0へ収束する。"
+  - term: 周波数応答
+    english: frequency response
+    meaning: "外力角振動数を動かしたときの定常解の振幅R(Ω)と位相遅れδの変化。"
+  - term: 位相遅れ
+    english: phase lag
+    meaning: "余弦外力に対し定常位置q(t)=R cos(Ωt−δ)が遅れて応答する角度δ。余弦・正弦係数の両方で象限まで決める。"
+  - term: 振幅ピーク
+    english: resonance amplitude peak
+    meaning: "正の外力周波数に関して定常応答の振幅が最大となる点。減衰が大きいと内部ピークは存在しない。"
+  - term: 無減衰共振
+    english: undamped resonance
+    meaning: "減衰がなく外力周波数と固有角振動数が一致し、時間tに比例する振動項が現れる現象。"
+  - term: エネルギー収支
+    english: energy balance
+    meaning: "強制減衰振動におけるエネルギーの変化率を外力の仕事率と速度比例抵抗による散逸率の差で表す恒等式。"

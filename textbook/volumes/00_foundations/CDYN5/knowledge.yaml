@@ -1,0 +1,45 @@
+chapter: CDYN5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CDYN4
+  - ODE3
+  - MECH5
+concepts:
+  - id: continuous-dynamical-systems.steady-periodic-response
+    name: 定常周期応答
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（定常周期応答）"]
+    requires: [ode.ode3-variation-of-constants, mechanics.forced-steady-response]
+  - id: continuous-dynamical-systems.forced-harmonic-response
+    name: 無減衰の場合まで含む周期特解の可解条件
+    kind: theorem
+    introduction_aliases: ["定理（無減衰の場合まで含む周期特解の可解条件）"]
+    requires: [continuous-dynamical-systems.steady-periodic-response, mechanics.forced-steady-response]
+  - id: continuous-dynamical-systems.response-amplitude-phase
+    name: 周波数応答の振幅と位相遅れ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（周波数応答の振幅と位相遅れ）"]
+    requires: [continuous-dynamical-systems.forced-harmonic-response]
+  - id: continuous-dynamical-systems.transient-decay-forced
+    name: 減衰時の過渡項の消滅と定常周期解の一意性
+    kind: theorem
+    introduction_aliases: ["定理（減衰時の過渡項の消滅と定常周期解の一意性）"]
+    requires: [continuous-dynamical-systems.steady-periodic-response, ode.ode3-homogeneous-ivp]
+  - id: continuous-dynamical-systems.damped-resonance-peak
+    name: 減衰振動子の振幅ピーク
+    kind: proposition
+    introduction_aliases: ["命題（減衰振動子の振幅ピーク）"]
+    requires: [continuous-dynamical-systems.response-amplitude-phase, mechanics.resonance]
+  - id: continuous-dynamical-systems.undamped-resonance-growth
+    name: 無減衰共振の線形増大と周波数極限
+    kind: theorem
+    introduction_aliases: ["定理（無減衰共振の線形増大と周波数極限）"]
+    requires: [continuous-dynamical-systems.forced-harmonic-response, ode.ode3-homogeneous-ivp, mechanics.undamped-exact-resonance]
+  - id: continuous-dynamical-systems.forced-energy-balance
+    name: 強制減衰振動のエネルギー収支
+    kind: proposition
+    introduction_aliases: ["命題（強制減衰振動のエネルギー収支）"]
+    requires: [continuous-dynamical-systems.steady-periodic-response, continuous-dynamical-systems.forced-harmonic-response, mechanics.nonconservative-energy-balance]
