@@ -1,0 +1,43 @@
+chapter: CDYN11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CDYN10
+concepts:
+  - id: continuous-dynamical-systems.averaged-phase-locking
+    name: 平均位相同期
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平均位相同期と引込み域）"]
+    requires: [continuous-dynamical-systems.phase-difference-reduction]
+  - id: continuous-dynamical-systems.capture-basin
+    name: 引込み域
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平均位相同期と引込み域）"]
+    requires: [continuous-dynamical-systems.averaged-phase-locking]
+  - id: continuous-dynamical-systems.locking-threshold
+    name: 同期閾値と平衡位相差の分類
+    kind: proposition
+    introduction_aliases: ["命題（同期閾値と平衡位相差の分類）"]
+    requires: [continuous-dynamical-systems.averaged-phase-locking]
+  - id: continuous-dynamical-systems.capture-basin-theorem
+    name: 狭義閾値内の安定性と引込み域
+    kind: theorem
+    introduction_aliases: ["定理（狭義閾値内の安定性と引込み域）"]
+    requires: [continuous-dynamical-systems.capture-basin, continuous-dynamical-systems.locking-threshold]
+  - id: continuous-dynamical-systems.threshold-semistability
+    name: 閾値等号の片側安定性
+    kind: proposition
+    introduction_aliases: ["命題（閾値等号の片側安定性）"]
+    requires: [continuous-dynamical-systems.locking-threshold]
+  - id: continuous-dynamical-systems.phase-slipping
+    name: 位相すべりの周期と平均速度
+    kind: theorem
+    introduction_aliases: ["定理（位相すべりの周期と平均速度）"]
+    requires: [continuous-dynamical-systems.locking-threshold]
+  - id: continuous-dynamical-systems.finite-time-locking-scope
+    name: 有限遅い時間の比較が保証すること
+    kind: proposition
+    introduction_aliases: ["命題（有限遅い時間の比較が保証すること）"]
+    requires: [continuous-dynamical-systems.phase-difference-reduction, continuous-dynamical-systems.capture-basin-theorem]

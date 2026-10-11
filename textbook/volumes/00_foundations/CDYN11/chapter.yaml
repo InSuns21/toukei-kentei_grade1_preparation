@@ -1,0 +1,39 @@
+id: "CDYN11"
+title: "二振動子の位相同期と引込み域"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CDYN10
+official_scope: []
+learning_objectives:
+  - 同一方向・同一強度の平均結合から位相差方程式を導き同期の定義を説明できる
+  - 周波数差と結合強度から同期閾値と平衡位相差を求め線形化の符号を判定できる
+  - 円周上の位相差の符号表と解の一意性から引込み域を証明できる
+  - 閾値等号の退化平衡点で片側引込みと代数的減衰を証明できる
+  - 閾値を超えた位相すべりの一周時間と平均速度を積分で導出できる
+  - 有限遅い時間の平均化誤差と元の系の無限時間同期の論理的差を説明できる
+definitions:
+  - { id: CDYN11-DEF-01, name: 平均位相同期と引込み域 }
+theorems:
+  - { id: CDYN11-PROP-01, name: 同期閾値と平衡位相差の分類 }
+  - { id: CDYN11-THM-01, name: 狭義閾値内の安定性と引込み域 }
+  - { id: CDYN11-PROP-02, name: 閾値等号の片側安定性 }
+  - { id: CDYN11-THM-02, name: 位相すべりの周期と平均速度 }
+  - { id: CDYN11-PROP-03, name: 有限遅い時間の比較が保証すること }
+canonical_examples:
+  - 正弦位相差模型の平衡点を逆正弦で求める
+  - 不安定点の間で流れの符号が反転する引込み域
+  - 閾値等号の二次的な速度減少と代数的減衰
+  - 半角置換による位相すべりの周期積分
+  - 平均した初期速度と正確な初期速度の不一致
+problem_patterns:
+  - CDYN11-LOCKING-THRESHOLD
+  - CDYN11-SIGN-CHART
+  - CDYN11-CAPTURE-BASIN
+  - CDYN11-THRESHOLD-SEMISTABLE
+  - CDYN11-SLIP-INTEGRAL
+  - CDYN11-FINITE-AVERAGING-SCOPE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 2.0 }

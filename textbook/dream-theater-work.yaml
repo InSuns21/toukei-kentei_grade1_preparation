@@ -5,9 +5,9 @@ active_series: CDYN
 active_plan: textbook/plans_progress/DREAM_THEATER_CONTINUOUS_DYNAMICAL_SYSTEMS_COURSE_PLAN.md
 series_manifest: textbook/dream-theater-series/CDYN.yaml
 
-completed_through: CDYN10
-next_work: CDYN11
-after_next: CDYN12
+completed_through: CDYN11
+next_work: CDYN12
+after_next: CDYN13
 
 # 次章の執筆と直前完了章の追跡監査を同じ作業単位で実施する。
 # target_source は固定の章IDではなく、着手時の routing と series manifest から解決する。
