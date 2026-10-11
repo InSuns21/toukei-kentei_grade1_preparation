@@ -11,7 +11,7 @@ learning_objectives:
   - 複素秩序変数の範囲・完全同期の等号条件と結合項の虚部表示を導ける
   - 対称結合のポテンシャルを二重和から構成し勾配構造と散逸恒等式を証明できる
   - 非完全同期の平衡配置を分類しエネルギー減少だけで全初期値の完全同期を主張できない理由を示せる
-  - 散逸積分と速度の一様連続性から速度消失と集積点の平衡性を証明できる
+  - 散逸積分と速度の一様連続性から速度消失・集積点の平衡性・平衡集合への距離の消失を証明できる
   - 位相の初期幅がπ未満なら幅の収縮不等式と算術平均の保存から完全同期を証明できる
 definitions:
   - { id: CDYN12-DEF-01, name: 有限系の複素秩序変数 }
@@ -35,9 +35,10 @@ problem_patterns:
   - CDYN12-GRADIENT-IDENTITY
   - CDYN12-STATIONARY-CONFIGURATION
   - CDYN12-DISSIPATION
+  - CDYN12-VELOCITY-DECAY-RECONSTRUCTION
   - CDYN12-CONTRACTION-BOUND
   - CDYN12-SYNTHESIS
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+exercise_counts: { level_a: 5, level_b: 5, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 6.0, exercises: 5.0, review: 2.0 }
