@@ -220,7 +220,7 @@ $$
 
 $P_0\cap P_1=\varnothing$、$P_0\cup P_1=I$ なので、各 $j$ で $s_j(x)$ は一意です。従ってどの $x$ も長さ $n$ のちょうど一つの $H_w$ に属し、互いに素な被覆が得られます。
 
-$P_i\subset J_i$ です。$x\in H_w$ なら全ての $j<n$ で $T^j(x)\in J_{w_j}$ が成立し、前節の定理から $x\in C_w$。よって $H_w\subset C_w$ です。
+$P_i\subset J_i$ です。$x\in H_w$ なら全ての $j<n$ で $T^j(x)\in J_{w_j}$ が成立し、[有限旅程と分枝区間の一致](#thm-dyn10-closed-cylinders)から $x\in C_w$。よって $H_w\subset C_w$ です。
 
 次に $C_w=[a_w,b_w]$ と書き、$a_w<x<b_w$ とします。$B_w:I\to C_w$ は傾きが零でないアフィン全単射なので、ある $0<y<1$ に対し $x=B_w(y)$ と書けます。このとき、任意の $j<n$ について
 
