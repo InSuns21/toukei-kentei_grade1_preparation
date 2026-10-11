@@ -1,0 +1,20 @@
+chapter: "DYN13"
+terms:
+  - term: horseshoe
+    english: horseshoe
+    meaning: "異なる複数の枝が共通の領域を覆い、反復で記号的な軌道を実現する仕組み。本章は逆分枝が共通に縮小し枝が離れた強い型。"
+  - term: 逆分枝
+    english: inverse branch
+    meaning: "各枝上で単射な区間写像の制限を逆にたどる写像。"
+  - term: 生存集合
+    english: survivor set
+    meaning: "すべての前方時刻で指定した枝の和集合から出ない初期点の集合。"
+  - term: 逆分枝符号化
+    english: inverse-branch coding
+    meaning: "無限の記号列に沿った入れ子の逆分枝区間の共通点を対応させる写像。"
+  - term: 位相共役
+    english: topological conjugacy
+    meaning: "同相写像によって二つの系の時間発展が可換になる対応。"
+  - term: 分離数
+    english: separated-set cardinality
+    meaning: "指定した観測時間内に少なくとも一度指定精度以上離れる点集合の最大濃度。"
