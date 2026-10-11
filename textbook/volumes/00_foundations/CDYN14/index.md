@@ -363,7 +363,7 @@ $$
 \frac d{dt}\left(e^{-\lambda_k t}\widehat u_k(t)\right)=0
 $$
 
-なので、初期値から $\widehat u_k(t)=e^{\lambda_k t}\widehat u_k(0)$ です。[逆Fourier変換](#thm-cdyn14-fourier-modes)で各成分を復元できます。実初期値については、$\lambda_k=\lambda_{N-k}$ が実数であり $\widehat u_{N-k}(0)=\overline{\widehat u_k(0)}$ なので、復元後の成分は実数です。
+なので、初期値から $\widehat u_k(t)=e^{\lambda_k t}\widehat u_k(0)$ です。直前に証明した逆変換で各成分を復元できます。実初期値については、$\lambda_k=\lambda_{N-k}$ が実数であり $\widehat u_{N-k}(0)=\overline{\widehat u_k(0)}$ なので、復元後の成分は実数です。
 
 $\mu_0=0$ なので零モードは $\widehat u_0=\bar u$、$\lambda_0=\rho$ です。また $1\le k\le N-1$ では $\sin^2(\pi k/N)>0$ であり、$k$ と $N-k$ が同じ値を持ちます。$k$ を $1$ から $\lfloor N/2\rfloor$ に限ると $\sin(\pi k/N)$ は増加するため、
 
@@ -588,14 +588,14 @@ $$
 E'\le-\frac{2K}{\pi}\sum_j(\psi_{j+1}-\psi_j)^2.
 $$
 
-平均を引いたベクトル $w_j=\psi_j-\bar\psi_0$ は $\widehat w_0=0$ です。[格子モード固有値と直交性](#thm-cdyn14-fourier-modes)および[離散エネルギー恒等式](#prop-cdyn14-energy-identity)を順に使い、
+平均を引いた実ベクトル $w_j=\psi_j-\bar\psi_0$ は $\widehat w_0=0$ です。[格子モード固有値と直交性](#thm-cdyn14-fourier-modes)および[離散エネルギー恒等式](#prop-cdyn14-energy-identity)を使います。$w$ と $Lw$ は実数なので $w_j(Lw)_j=w_j\overline{(Lw)_j}$ と書けます。ここに $Lw=\sum_\ell\mu_\ell\widehat w_\ell v^{(\ell)}$ を代入すると、
 
 $$
 \begin{aligned}
 \sum_j(w_{j+1}-w_j)^2
 &=-\sum_jw_j(Lw)_j\\
 &=-\sum_{k,\ell}\widehat w_k\overline{\widehat w_\ell}\,
-\mu_k\sum_jv^{(k)}_j\overline{v^{(\ell)}_j}\\
+\mu_\ell\sum_jv^{(k)}_j\overline{v^{(\ell)}_j}\\
 &=N\sum_{k=1}^{N-1}
 4\sin^2(\pi k/N)|\widehat w_k|^2\\
 &\ge4\sin^2(\pi/N)\sum_jw_j^2\\
