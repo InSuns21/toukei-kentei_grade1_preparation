@@ -7,14 +7,14 @@ concepts:
   - id: dynamical-systems.orbit-closure
     name: 軌道閉包
     kind: definition
-    introduction: formal
+    introduction: inline
     introduction_aliases: ["定義（軌道閉包）"]
     requires: [dynamical-systems.dense-forward-orbit]
   - id: dynamical-systems.omega-limit
-    name: 正の極限集合
+    name: 離散時間の正の極限集合
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（正の極限集合）"]
+    introduction_aliases: ["定義（離散時間の正の極限集合）"]
     requires: [dynamical-systems.orbit-closure]
   - id: dynamical-systems.omega-sequence-criterion
     name: 正の極限集合の列による判定
@@ -34,7 +34,7 @@ concepts:
   - id: dynamical-systems.recurrent-point
     name: 再帰点
     kind: definition
-    introduction: formal
+    introduction: inline
     introduction_aliases: ["定義（再帰点）"]
     requires: [dynamical-systems.omega-limit]
   - id: dynamical-systems.convergent-omega
