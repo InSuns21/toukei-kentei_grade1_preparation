@@ -191,6 +191,7 @@
 10. [CDYN10 弱結合振動子から位相差方程式へ](textbook/volumes/00_foundations/CDYN10/index.md)
 11. [CDYN11 二振動子の位相同期と引込み域](textbook/volumes/00_foundations/CDYN11/index.md)
 12. [CDYN12 有限Kuramoto系の秩序変数とLyapunov構造](textbook/volumes/00_foundations/CDYN12/index.md)
+13. [CDYN13 速遅系：臨界多様体と緩和振動の入口](textbook/volumes/00_foundations/CDYN13/index.md)
 
 <a id="dt-subject-fourier-analysis"></a>
 ### Fourier 解析

@@ -1,0 +1,47 @@
+id: "CDYN13"
+title: "速遅系：臨界多様体と緩和振動の入口"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CDYN8
+  - ODE8
+official_scope: []
+learning_objectives:
+  - 線形速遅模型で遅い変数を解き臨界多様体と凍結した層方程式を直接構成できる
+  - 積分因子から追従誤差の正確な表示を導き指数初期層と有限時間のO(ε)評価を証明できる
+  - 固定正時刻の極限と速い時間t=ετの極限を区別し初期値不整合による非一様性を説明できる
+  - hがC2の場合に部分積分から一次の遅れと二次剰余を計算できる
+  - 一次目標曲線のε依存不変曲線を求め臨界多様体自体との違いを検証できる
+  - 緩和振動には追加の非線形性と戻り機構が必要であることを具体模型と周期性の障害から示せる
+definitions:
+  - { id: CDYN13-DEF-01, name: 本模型の臨界多様体 }
+  - { id: CDYN13-DEF-02, name: 凍結した速い層方程式 }
+theorems:
+  - { id: CDYN13-LEM-01, name: 追従誤差の正確な積分表示 }
+  - { id: CDYN13-THM-01, name: 初期層と有限時間の追従誤差 }
+  - { id: CDYN13-THM-02, name: 速い時間で見た初期層の極限 }
+  - { id: CDYN13-PROP-01, name: 初期値の不整合と一様極限の失敗 }
+  - { id: CDYN13-THM-03, name: 遅れの一次補正と二次誤差 }
+  - { id: CDYN13-PROP-02, name: 一次関数の場合の正確な追従曲線 }
+  - { id: CDYN13-PROP-03, name: 本模型に非定常周期解はない }
+canonical_examples:
+  - 放物線の臨界多様体と非不変性の直接検算
+  - 凍結した層方程式の指数緩和の検算
+  - 一次関数目標のε依存不変曲線と正確な収縮
+  - 二次目標の一次遅れと二次剰余
+  - 三次の臨界曲線で吸引側・反発側・折返し点を判定
+problem_patterns:
+  - CDYN13-LAYER-SOLUTION
+  - CDYN13-ERROR-EQUATION
+  - CDYN13-EXPONENTIAL-KERNEL
+  - CDYN13-CRITICAL-VS-INVARIANT
+  - CDYN13-FAST-TIME-SCALING
+  - CDYN13-INITIAL-LAYER-LENGTH
+  - CDYN13-FIRST-ORDER-LAG
+  - CDYN13-NONUNIFORM-LIMIT
+  - CDYN13-FOLD-AND-NONPERIODIC
+  - CDYN13-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 2.0 }
