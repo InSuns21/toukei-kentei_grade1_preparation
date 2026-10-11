@@ -1,0 +1,54 @@
+chapter: DYN13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - DYN12
+  - DYN10
+  - DYN6
+  - DYN5
+  - RA2
+  - CELL7
+concepts:
+  - id: dynamical-systems.expanding-horseshoe
+    name: 縮小逆分枝を持つ二枝horseshoe
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（縮小逆分枝を持つ二枝horseshoe）"]
+    requires: [dynamical-systems.tent-inverse-branches]
+  - id: dynamical-systems.horseshoe-cylinder
+    name: 有限語の枝区間と直径評価
+    kind: proposition
+    introduction_aliases: ["命題（有限語の枝区間と直径評価）"]
+    requires: [dynamical-systems.expanding-horseshoe]
+  - id: dynamical-systems.horseshoe-coding
+    name: 逆分枝による符号化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（逆分枝による符号化と生存集合）"]
+    requires: [dynamical-systems.horseshoe-cylinder, dynamical-systems.one-sided-shift]
+  - id: dynamical-systems.horseshoe-survivor
+    name: 生存集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（逆分枝による符号化と生存集合）"]
+    requires: [dynamical-systems.expanding-horseshoe]
+  - id: dynamical-systems.horseshoe-infinite-coding
+    name: 無限語の点の存在・一意性と連続性
+    kind: theorem
+    introduction_aliases: ["定理（無限語の点の存在・一意性と連続性）"]
+    requires: [dynamical-systems.horseshoe-coding, dynamical-systems.horseshoe-cylinder, dynamical-systems.prefix-metric]
+  - id: dynamical-systems.horseshoe-conjugacy
+    name: 生存集合と片側全シフトの位相共役
+    kind: theorem
+    introduction_aliases: ["定理（生存集合と片側全シフトの位相共役）"]
+    requires: [dynamical-systems.horseshoe-infinite-coding, dynamical-systems.horseshoe-survivor]
+  - id: dynamical-systems.horseshoe-periodic-points
+    name: 周期点の個数と稠密性
+    kind: proposition
+    introduction_aliases: ["命題（周期点の個数と稠密性）"]
+    requires: [dynamical-systems.horseshoe-conjugacy]
+  - id: dynamical-systems.horseshoe-entropy
+    name: 生存集合のエントロピーと区間全体の下界
+    kind: theorem
+    introduction_aliases: ["定理（生存集合のエントロピーと区間全体の下界）"]
+    requires: [dynamical-systems.horseshoe-conjugacy, dynamical-systems.topological-entropy, dynamical-systems.horseshoe-cylinder]
