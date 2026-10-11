@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - CDYN4
   - ODE3
+  - MECH5
 official_scope: []
 learning_objectives:
   - 自由振動・強制振動・定常周期応答・過渡項の違いと非自律系の境界を説明できる
@@ -20,7 +21,7 @@ definitions:
   - { id: CDYN5-DEF-01, name: 定常周期応答 }
   - { id: CDYN5-DEF-02, name: 周波数応答の振幅と位相遅れ }
 theorems:
-  - { id: CDYN5-THM-01, name: 強制振動の周期特解 }
+  - { id: CDYN5-THM-01, name: 無減衰の場合まで含む周期特解の可解条件 }
   - { id: CDYN5-THM-02, name: 減衰時の過渡項の消滅と定常周期解の一意性 }
   - { id: CDYN5-THM-03, name: 無減衰共振の線形増大と周波数極限 }
 propositions:
