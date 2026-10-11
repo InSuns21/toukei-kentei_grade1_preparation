@@ -614,7 +614,7 @@ $$
 \theta_i(t)=\alpha+\omega t\quad(i=1,2,3).
 $$
 
-したがって $\phi_i=\theta_i-\omega t=\alpha$ で全成分一定です。円周上では $\omega t$ の回転があっても、相対位相は変化しません。
+したがって $\phi_i=\theta_i-\omega t=\alpha$ で全成分一定です。円周上では $\omega t$ の回転があっても、位相差は変化しません。
 <!-- solution-end -->
 
 ### A5. 位相の算術平均
