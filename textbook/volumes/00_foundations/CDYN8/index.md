@@ -158,7 +158,7 @@ $$
 
 ## 3. 三角関数を平均して振幅方程式を作る
 
-[CDYN7の周期平均](../CDYN7/index.md#def-cdyn7-periodic-average)を成分ごとに適用します。計算に必要な値は、$\sin^2t=(1-\cos2t)/2$ と $\cos^2t=(1+\cos2t)/2$、さらに二乗の倍角公式から
+[CDYN7の周期平均](../CDYN7/index.md#def-cdyn7-periodic-average)を成分ごとに適用します。$\sin^2t=(1-\cos2t)/2$ と $\cos^2t=(1+\cos2t)/2$ を掛けたり、それぞれ二乗したりすると、次の周期平均が得られます。
 
 $$
 \langle s^2\rangle=\langle c^2\rangle=\frac12,
