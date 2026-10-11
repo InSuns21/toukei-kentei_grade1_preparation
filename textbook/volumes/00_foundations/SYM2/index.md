@@ -8,7 +8,13 @@
 
 ## 1. 各接空間の面積を滑らかにつなぐ
 
-$M$ を空でない滑らかな実多様体とします。[接空間](../GEO2/index.md#def-geo2-tangent-derivation) $T_xM$ は各点 $x$ に付随する実ベクトル空間です。滑らかな2形式 $\omega$ は各点で交代双線形形式 $\omega_x:T_xM\times T_xM\to\mathbb R$ を与えます。
+$M$ を空でない滑らかな実多様体とします。[接空間](../GEO2/index.md#def-geo2-tangent-derivation) $T_xM$ は各点 $x$ に付随する実ベクトル空間です。滑らかな2形式 $\omega$ を各点 $x$ で評価すると、交代双線形形式
+
+$$
+\omega_x:T_xM\times T_xM\longrightarrow\mathbb R
+$$
+
+が得られます。
 
 点ごとに[SYM1の非退化性](../SYM1/index.md#def-sym1-nondegenerate-form)を要求するだけなら線形代数で判定できます。しかし多様体として利用するには、形式の係数を微分したときにも整合性が必要です。ここで[外微分](../GEO7/index.md#def-geo7-exterior-derivative)が役立ちます。
 
@@ -39,7 +45,9 @@ $$
 \omega_0(u,v)=u_qv_p-u_pv_q.
 $$
 
-$u$ が全ての $v$ と組にして零なら、$v=\partial_p,\partial_q$ を順に代入して $u_q=0$、$-u_p=0$ を得るので非退化です。一方、[外微分の局所計算](../GEO7/index.md#def-geo7-exterior-derivative)では
+$u$ が全ての $v$ と組にして零と仮定します。まず $v=\partial_p$ を代入すると $u_q=0$、次に $v=\partial_q$ を代入すると $-u_p=0$ を得ます。したがって $u=0$ であり、非退化です。
+
+一方、[外微分の局所計算](../GEO7/index.md#def-geo7-exterior-derivative)では
 
 $$
 d(dq\wedge dp)=d(1)\wedge dq\wedge dp=0.
@@ -138,7 +146,13 @@ $$
 
 有限次元の正方行列の核が零であることは可逆性と同値なので、第一条件は点ごとの非退化性に一致します。
 
-第二条件は上で求めた $d\omega$ の各 $dx^i\wedge dx^j\wedge dx^k$ の係数が零であることです。$i<j<k$ の基底3形式は互いに一次独立ですから、全係数が零であることと $d\omega=0$ は同値です。添字を並べ替えた式は交代性から同じ条件を与えます。したがって二条件を同時に満たすことが[定義](#def-sym2-symplectic-manifold)と同値です。
+第二条件は、上で求めた $d\omega$ の基底3形式の係数が零であることです。$i<j<k$ のとき、
+
+$$
+dx^i\wedge dx^j\wedge dx^k
+$$
+
+は互いに一次独立です。よってそれらの係数が全て零であることと $d\omega=0$ は同値です。添字を並べ替えた式は交代性から同じ条件を与えます。したがって二条件を同時に満たすことが[定義](#def-sym2-symplectic-manifold)と同値です。
 <!-- proof-end -->
 
 ### 二次元では閉性は自動、非退化性は自動ではない
@@ -252,7 +266,31 @@ $$
 S^2=\{x\in\mathbb R^3:\|x\|=1\}
 $$
 
-とします。球面の[接ベクトルの曲線表示](../GEO2/index.md#def-geo2-curve-tangent)から $x\cdot x=1$ を微分すると、$2x\cdot u=0$ です。逆に $x\cdot u=0$ なら曲線 $\gamma(t)=(x+tu)/\|x+tu\|$ は球面上にあり、$\gamma'(0)=u$ です。したがって
+とします。球面の[接ベクトルの曲線表示](../GEO2/index.md#def-geo2-curve-tangent)から、球面上の曲線 $x(t)$ に沿って $x(t)\cdot x(t)=1$ を微分すると、
+
+$$
+2x(0)\cdot x'(0)=0
+$$
+
+を得ます。逆に $x\cdot u=0$ なら、曲線
+
+$$
+\gamma(t)=\frac{x+tu}{\|x+tu\|}
+$$
+
+は球面上にあります。ここで $N(t)=\|x+tu\|$ と置くと、$N(0)=1$ であり、
+
+$$
+N'(0)=\frac{x\cdot u}{\|x\|}=0.
+$$
+
+商の微分から
+
+$$
+\gamma'(0)=\frac{uN(0)-xN'(0)}{N(0)^2}=u.
+$$
+
+したがって
 
 $$
 T_xS^2=\{u\in\mathbb R^3:x\cdot u=0\}
@@ -437,7 +475,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$x\in M$ を固定します。[線形標準形](../SYM1/index.md#thm-sym1-linear-normal-form)を $T_xM$ 上の非退化交代形式 $\omega_x$ に適用し、双対基底 $(e^1,\ldots,e^n,f^1,\ldots,f^n)$ を取ります。この基底では
+$x\in M$ を固定します。[線形標準形](../SYM1/index.md#thm-sym1-linear-normal-form)を $T_xM$ 上の非退化交代形式 $\omega_x$ に適用して、シンプレクティック基底を選びます。その双対基底を
+
+$$
+(e^1,\ldots,e^n,f^1,\ldots,f^n)
+$$
+
+と書くと、
 
 $$
 \omega_x=\sum_{i=1}^n e^i\wedge f^i.
@@ -641,7 +685,14 @@ $$
 d\omega_a=a'(q_2)\,dq_2\wedge dq_1\wedge dp_1.
 $$
 
-三つの座標方向 $(\partial_{q_2},\partial_{q_1},\partial_{p_1})$ に評価すると $a'(q_2)$ が得られるため、$d\omega_a=0$ と $a'(q_2)=0$ が全ての $q_2$ で成り立つことは同値です。実直線上で微分が恒等的に零の滑らかな関数は定数です。よって答えは正の定数関数 $a\equiv c$（$c>0$）に限られます。
+三つの座標方向に外微分を評価すると
+
+$$
+d\omega_a(\partial_{q_2},\partial_{q_1},\partial_{p_1})
+=a'(q_2)
+$$
+
+が得られます。よって $d\omega_a=0$ と、全ての $q_2$ で $a'(q_2)=0$ となることは同値です。実直線上で導関数が零の滑らかな関数は定数なので、答えは正の定数関数 $a\equiv c$（$c>0$）に限られます。
 <!-- solution-end -->
 
 #### B3. 球面の面積形式を検算する
@@ -660,7 +711,13 @@ $$
 =a^2+b^2.
 $$
 
-$(a,b)\ne(0,0)$ なら値は正です。一般の点では、任意の非零 $u\in T_xS^2$ に $v=x\times u$ を選ぶと[球面の面積形式の命題](#prop-sym2-sphere-area)の証明と同じ計算により $\sigma_x(u,v)=\|u\|^2>0$ となります。従って全点で非退化であり、二次元多様体上の3形式が零であることから $d\sigma=0$ です。
+$(a,b)\ne(0,0)$ なら値は正です。一般の点では、任意の非零 $u\in T_xS^2$ に対して $v=x\times u$ を選びます。[球面の面積形式の命題](#prop-sym2-sphere-area)の証明によると
+
+$$
+\sigma_x(u,v)=\|u\|^2>0
+$$
+
+です。従って全点で非退化であり、二次元多様体上の3形式が零であることから $d\sigma=0$ です。
 <!-- solution-end -->
 
 #### B4. 逆写像と引き戻しを両方求める
@@ -727,7 +784,31 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-**(1)**　$T_{(x,q,p)}M=T_xS^2\oplus T_{(q,p)}\mathbb R^2$ です。接ベクトル $(u,a)$ が全ての $(v,b)$ に対して $\Omega_h((u,a),(v,b))=0$ とします。まず $b=0$ と取ると $\sigma_x(u,v)=0$ が全ての $v$ で成り立つので、[球面の非退化性](#prop-sym2-sphere-area)から $u=0$。次に $v=0$ とすると $h(x)(dq\wedge dp)(a,b)=0$ が全ての $b$ で成り立ちます。$h(x)>0$ なので平面の非退化性から $a=0$ です。
+**(1)**　[積多様体の接空間の直和](../GEO2/index.md#prop-geo2-product-tangent)を使うと、
+
+$$
+T_{(x,q,p)}M=T_xS^2\oplus T_{(q,p)}\mathbb R^2
+$$
+
+です。接ベクトル $(u,a)$ が、全ての相手 $(v,b)$ に対して次を満たすと仮定します。
+
+$$
+\Omega_h((u,a),(v,b))=0.
+$$
+
+まず $b=0$ と選べば、任意の $v$ に対して
+
+$$
+\sigma_x(u,v)=0
+$$
+
+が成り立ち、[球面の非退化性](#prop-sym2-sphere-area)から $u=0$ を得ます。次に $v=0$ と選べば、
+
+$$
+h(x)(dq\wedge dp)(a,b)=0
+$$
+
+が全ての $b$ に対して成り立ちます。$h(x)>0$ なので平面の非退化性から $a=0$ です。
 
 **(2)**　$\sigma$ は閉じており、$dq\wedge dp$ も閉じています。[次数付きLeibniz則](../GEO7/index.md#thm-geo7-graded-leibniz)で $h$ を0形式として扱うと
 
