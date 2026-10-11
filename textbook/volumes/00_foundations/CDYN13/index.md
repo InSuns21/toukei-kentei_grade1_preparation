@@ -347,7 +347,7 @@ $$
 \le\frac{\varepsilon|b|H_1}{a}.
 $$
 
-また平均値の定理より
+また[平均値の定理](../RA3/index.md#thm-ra3-mvt)を $h$ と二点 $y_0,y_0+\varepsilon b\tau$ に適用し、$|h'|\le H_1$ を使うと
 
 $$
 |h(y_0+\varepsilon b\tau)-h(y_0)|
