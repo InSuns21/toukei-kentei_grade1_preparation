@@ -28,7 +28,7 @@
 | 解析力学・シンプレクティック幾何 | AMECH1〜8、AMECH9〜16 の既存計画 | Hamilton 構造、シンプレクティック形式、Darboux、群作用・簡約等の該当内容（章ごとに範囲再監査） |
 
 確認参照:
-- [既存依存関係の正本](../dependency-graph.md)（各章の機械可読な直接依存は各 \`chapter.yaml\` が最優先）
+- [既存依存関係の正本](../dependency-graph.md)（各章の機械可読な直接依存は各 `chapter.yaml` が最優先）
 - [幾何解析 PLAN](DREAM_THEATER_GEOMETRIC_ANALYSIS_PLAN.md)
 
 **現時点の未確認事項:** 全 PLAN / 全章の最新版を網羅した一覧照合、AMECH9〜16 の正式な章別所有範囲、非線形PDE系列の証明範囲、および各既存章の実装・公開状態。着手前の Phase 0 でこれを確認し、存在する講義を無条件で新設扱いしない。
@@ -58,7 +58,7 @@ AG1〜AG3 は「複素代数幾何」の先取りとしてではなく、基礎�
 
 ### 2.1 必須 DAG と読み順の区別
 
-\`\`\`text
+```text
 RNG / MOD / FLD ─→ AG1 アフィン ─→ AG2 射影 ─→ AG3 スキーム・層
                                             │
 CA8 + GEO ─────→ CM1 複素多様体 ─→ CM2 正則束・Dolbeault
@@ -74,7 +74,7 @@ GEO / GPDE ─→ 既存GA1〜GA4 ───────────────�
                                                                          ↑
                                                                         MIR1
 YAU1 + CYG1 + 既存AMECH ─→ SYZ1        MIR2 + 追加の圏論/Floer 基盤 ─→ HM1
-\`\`\`
+```
 
 上図は通読の地図であり、厳密な prerequisite は chapter.yaml で確定する。例えば、AG1 全講を CM1 の前提にはしない。AG 系と CM 系は並行可能。YAU1 の解析的証明完了を MIR1 の直接必須条件にしない。
 
@@ -210,7 +210,7 @@ A/B-model の数学的入口、Hodge 数の交換、quintic と Greene–Plesser
 ## 7. 段階的な実装順・公開ゲート
 
 **Phase 0：在庫・依存監査（着手前ゲート）**
-- 全既存 PLAN / 講義本文 / \`chapter.yaml\` / \`knowledge.yaml\` の検索。既存 owner と planned / published を分離して確定。
+- 全既存 PLAN / 講義本文 / `chapter.yaml` / `knowledge.yaml` の検索。既存 owner と planned / published を分離して確定。
 - RNG / MOD / FLD、CA8、GEO、GA1〜GA5、AMECH9〜16、非線形PDE PLAN の内容と必要定理を章別照合。
 - 概念 owner 表、未証明の定理、実装時に必要な前提補講を洗い出す。仮 ID の衝突チェック。
 - この Phase が済むまでは本 PLAN を公開科目索引に先行登録しない。
@@ -236,11 +236,11 @@ A/B-model の数学的入口、Hodge 数の交換、quintic と Greene–Plesser
 ## 8. DREAM THEATER 本文・CI・公開の規約
 
 - 章ごとに学習者に必要な導入、定義、命題・証明・例、Level A/B/C などの演習・全問詳細解答を用意する。2〜4手の飛躍は残さず、初出定義・図式・公式の仮定を明示。
-- 各章の \`chapter.yaml.prerequisites\` を **直接必要な既存章と完成済み新章だけ**で固定し、\`knowledge.yaml\` の概念 owner と矛盾させない。科目名だけの曖昧な全依存や循環は不可。
+- 各章の `chapter.yaml.prerequisites` を **直接必要な既存章と完成済み新章だけ**で固定し、`knowledge.yaml` の概念 owner と矛盾させない。科目名だけの曖昧な全依存や循環は不可。
 - AG1 の Zariski、AG2 の \(\mathcal O(d)\)、CM1 の複素構造、CM2 の \(\bar\partial\)、KAH1 のケーラー形式はそれぞれ初出 canonical owner を一つに固定。
 - 結果先行が必要な大定理（Newlander–Nirenberg、GAGA、BTT、仮想基本類など）は **主張・仮定・結果先行の理由・証明の所属・証明完遂の判定**を明記し、未証明を証明済み扱いしない。
 - 参照する前提講義は実在する公開URLを検査し、公開済み章のみ reader-facing index に載せる。内部 PLAN と記事URLを混同しない。
-- 既存の依存監査・用語監査・数式・リンク・公開ページ検証を変更時に通す。各新章の公開前には \`npm run validate:dream-theater-work\`、\`npm run validate:dream-theater-prerequisites\`、\`npm run validate:pages\` 等の現行コマンドの適用を確認する。
+- 既存の依存監査・用語監査・数式・リンク・公開ページ検証を変更時に通す。各新章の公開前には `npm run validate:dream-theater-work`、`npm run validate:dream-theater-prerequisites`、`npm run validate:pages` 等の現行コマンドの適用を確認する。
 - 教材の具体例は **アフィン三次曲線 → 射影楕円曲線 → 複素トーラス / K3 → quintic threefold とそのミラー**を縦断させる。
 - 対象範囲の静的可視化は複素次元／実次元と断面表示を区別する。模式図を実際の全体形状だと表現しない。
 
