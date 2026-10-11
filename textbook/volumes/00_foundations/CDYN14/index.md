@@ -239,7 +239,20 @@ $$
 \end{aligned}
 $$
 
-ここで $j,\ell$ は $0,\ldots,N-1$ にあるので、$j-\ell$ が $N$ の倍数となるのは $j=\ell$ の場合だけです。逆変換があるため展開は一意です。
+ここで $j,\ell$ は $0,\ldots,N-1$ にあるので、$j-\ell$ が $N$ の倍数となるのは $j=\ell$ の場合だけです。
+
+一意性も直交和から検算します。もし別の係数 $c_\ell$ で $u_j=\sum_\ell c_\ell v^{(\ell)}_j$ と表せたなら、両辺に $\overline{v^{(k)}_j}/N$ を掛けて和を取ると、
+
+$$
+\begin{aligned}
+\frac1N\sum_j u_j\overline{v^{(k)}_j}
+&=\sum_\ell c_\ell\frac1N
+\sum_jv^{(\ell)}_j\overline{v^{(k)}_j}\\
+&=\sum_\ell c_\ell\,\mathbf 1_{\{\ell=k\}}=c_k.
+\end{aligned}
+$$
+
+左辺は定義した $\widehat u_k$ なので $c_k=\widehat u_k$ です。これで係数の一意性も示しました。
 
 最後に展開を二回代入して、
 
@@ -336,7 +349,21 @@ $$
 \end{aligned}
 $$
 
-従って $\widehat u_k'=(\rho+D\mu_k)\widehat u_k=\lambda_k\widehat u_k$ となり、積分して明示解を得ます。
+従って各係数は一次線形方程式
+
+$$
+\widehat u_k'=\lambda_k\widehat u_k,\qquad
+\lambda_k=\rho+D\mu_k
+=\rho-4D\sin^2(\pi k/N)
+$$
+
+を満たします。積分因子を掛けると
+
+$$
+\frac d{dt}\left(e^{-\lambda_k t}\widehat u_k(t)\right)=0
+$$
+
+なので、初期値から $\widehat u_k(t)=e^{\lambda_k t}\widehat u_k(0)$ です。直前に証明した逆変換で各成分を復元できます。実初期値については、$\lambda_k=\lambda_{N-k}$ が実数であり $\widehat u_{N-k}(0)=\overline{\widehat u_k(0)}$ なので、復元後の成分は実数です。
 
 $\mu_0=0$ なので零モードは $\widehat u_0=\bar u$、$\lambda_0=\rho$ です。また $1\le k\le N-1$ では $\sin^2(\pi k/N)>0$ であり、$k$ と $N-k$ が同じ値を持ちます。$k$ を $1$ から $\lfloor N/2\rfloor$ に限ると $\sin(\pi k/N)$ は増加するため、
 
@@ -359,7 +386,20 @@ N\sum_{k=1}^{N-1}|\widehat u_k(0)|^2\\
 \end{aligned}
 $$
 
-$\rho<0$ ではすべての $\lambda_k\le\rho<0$ です。$\rho>0$ では定数ベクトル $u(0)=c(1,\ldots,1)$、$c\ne0$ を入れると $u(t)=ce^{\rho t}(1,\ldots,1)$ で増大し、原点は不安定です。
+$\rho<0$ ではすべての $\lambda_k\le\rho<0$ です。[二乗和の恒等式](#thm-cdyn14-fourier-modes)より
+
+$$
+\begin{aligned}
+\sum_j|u_j(t)|^2
+&=N\sum_k e^{2\lambda_k t}|\widehat u_k(0)|^2\\
+&\le e^{2\rho t}N\sum_k|\widehat u_k(0)|^2\\
+&=e^{2\rho t}\sum_j|u_j(0)|^2.
+\end{aligned}
+$$
+
+$\rho=0$ でも $\lambda_k\le0$ より $\|u(t)\|_2\le\|u(0)\|_2$ なので原点は安定ですが、平均が0でない限り原点への漸近収束はありません。
+
+$\rho>0$ では定数ベクトル $u(0)=c(1,\ldots,1)$、$c\ne0$ を入れると $u(t)=ce^{\rho t}(1,\ldots,1)$ で増大し、原点は不安定です。
 
 平均零部分空間では $k=0$ の係数がなく、最大の固有値は
 
@@ -500,7 +540,30 @@ $$
 
 です。最小成分 $m=\psi_b$ については、隣との差が $[0,W]$ に入るので $\psi_b'\ge0$ です。
 
-最大・最小を与える添字が切り替わっても、有限個の滑らかな成分の最大・最小は局所Lipschitzであり、ほとんど至る所で上記の符号を満たします。従って $W'\le0$ がほとんど至る所で成り立ち、連続性により $W(t)\le W_0<\pi/2$ が全時刻で維持されます。
+最大・最小を与える添字が切り替わる時刻も確かめます。有限時間区間で各 $\psi_j$ の導関数は有界なので、有限個の成分の最大 $M(t)=\max_j\psi_j(t)$ と最小 $m(t)=\min_j\psi_j(t)$ はLipschitz連続です。そのため、両者はほとんど至る所で微分可能です。
+
+$M$ が微分可能な時刻 $t$ に、最大を与える添字 $a$ を選びます。このとき
+
+$$
+\psi_a(t)=M(t),\qquad \psi_a(s)\le M(s)
+$$
+
+です。$s$ を $t$ の左右から近づけて差商を比較すると、$\psi_a'(t)=M'(t)$ となります。最大成分の右辺は非正であり、最小成分にも同じ比較ができるので、
+
+$$
+M'(t)\le0,\qquad m'(t)\ge0,\qquad W'(t)\le0
+$$
+
+がほとんど至る所で成立します。従って $W<\pi/2$ の時間区間では、幅は非増加です。
+
+この局所的な結論を全時刻へ延ばすには、最初の脱出時刻を考えます。もし有限の $T>0$ で初めて $W(T)=\pi/2$ となったなら、$0\le t<T$ での非増加性から $W(t)\le W_0$ です。連続性により $W(T)\le W_0<\pi/2$ となり矛盾します。従って
+
+$$
+W(t)\le W_0<\frac\pi2
+\qquad(t\ge0)
+$$
+
+が成り立ちます。
 
 $z_j=\psi_{j+1}-\psi_j$ と置くと、平均が一定なことを用いたエネルギーの微分は
 
@@ -524,7 +587,7 @@ E'
 \end{aligned}
 $$
 
-$|z|\le W_0<\pi/2$ の範囲では、$\sin x$ の $[0,\pi/2]$ 上の凹性から $\sin x\ge2x/\pi$、負の $x$ には奇関数性を使うので、
+$0\le x\le\pi/2$ では $\sin''x=-\sin x\le0$ なので、$\sin x$ は $(0,0)$ と $(\pi/2,1)$ を結ぶ弦以上です。従って $\sin x\ge2x/\pi$ です。負の $z=-x$ に対しても $z\sin z=x\sin x$ と計算できるので、
 
 $$
 z\sin z\ge\frac2\pi z^2
@@ -537,12 +600,30 @@ $$
 E'\le-\frac{2K}{\pi}\sum_j(\psi_{j+1}-\psi_j)^2.
 $$
 
-平均を引いたベクトル $w_j=\psi_j-\bar\psi_0$ は $\widehat w_0=0$ です。[格子モード固有値と直交性](#thm-cdyn14-fourier-modes)および[離散エネルギー恒等式](#prop-cdyn14-energy-identity)を順に使い、
+平均を引いた実ベクトルは
+
+$$
+w_j=\psi_j-\bar\psi_0,\qquad \widehat w_0=0
+$$
+
+です。最初の等号は、[平均と離散エネルギー恒等式](#prop-cdyn14-energy-identity)によります。続く等号には、[有限Fourier直交性と格子モードの固有値](#thm-cdyn14-fourier-modes)を適用します。
+
+$w$ と $Lw$ はともに実ベクトルです。従って内積の第二因子に複素共役を付けられ、また格子のFourier展開は
+
+$$
+w_j(Lw)_j=w_j\overline{(Lw)_j},
+\qquad
+Lw=\sum_\ell\mu_\ell\widehat w_\ell v^{(\ell)}
+$$
+
+です。この二つを代入すると、
 
 $$
 \begin{aligned}
 \sum_j(w_{j+1}-w_j)^2
 &=-\sum_jw_j(Lw)_j\\
+&=-\sum_{k,\ell}\widehat w_k\overline{\widehat w_\ell}\,
+\mu_\ell\sum_jv^{(k)}_j\overline{v^{(\ell)}_j}\\
 &=N\sum_{k=1}^{N-1}
 4\sin^2(\pi k/N)|\widehat w_k|^2\\
 &\ge4\sin^2(\pi/N)\sum_jw_j^2\\
@@ -566,7 +647,22 @@ $$
 よって $E(t)\le E(0)e^{-ct}$ です。各二乗差は $2E(t)$ 以下なので、各 $\psi_j(t)-\bar\psi_0$ は0へ収束します。$\square$
 <!-- proof-end -->
 
-**条件を外すと何が壊れるか**　隣の位相差が $\pi$ を超えると、$z\sin z$ は負になり得ます。このときエネルギー微分の符号を上の方法では確定できません。したがって小さな位相幅という仮定を省き、任意の初期位相からの完全同期と読み替えてはいけません。
+**条件を外すと何が壊れるか**　隣の位相差が $\pi$ を超えると、$z\sin z$ は負になり得ます。このときエネルギー微分の符号を上の方法では確定できません。さらに、狭い位相幅の仮定を外した**全初期値の完全同期**という主張そのものも誤りです。
+
+具体例として $N=4$ とし、回転座標の初期位相を次のように置きます。
+
+$$
+\psi_j(0)=\frac{\pi j}{2}
+\qquad(j=0,1,2,3).
+$$
+
+$j=1,2$ では左右との差がそれぞれ $\pi/2$、$-\pi/2$ なので正弦が打ち消し合います。$j=0$ では差が $\pi/2$、$3\pi/2$、$j=3$ では差が $-3\pi/2$、$-\pi/2$ となり、いずれも正弦の和は0です。従って
+
+$$
+\psi_j'=0\quad(j=0,1,2,3).
+$$
+
+これは各位相が互いに異なるまま保たれる非同期の平衡配置です。位相幅は $3\pi/2$ で本定理の条件を満たしません。元の位相では全点が角速度 $\omega$ で回転し続けますが、位相差は消えません。この反例は、単に証明の技法が使えないだけでなく、仮定なしの結論自体が成立しないことを示します。
 
 ## 6. 左右の結合を変えたら何が変わるか
 
@@ -615,7 +711,24 @@ $$
 \quad (k\ne0).
 $$
 
-この場合、任意の非零波から作った実部・虚部の実解の包絡線は成長し、安定性が壊れます。$\square$
+固有値を $\nu_k=\alpha_k+\mathrm i\beta_k$ と書き、複素モード解 $e^{\nu_k t}v^{(k)}$ の実部を取ると、係数が実数なので実数値の解
+
+$$
+u_j(t)=e^{\alpha_k t}\cos(q_kj+\beta_kt)
+$$
+
+ができます。$k\ne0$ かつ $2k$ が $N$ の倍数でなければ、[Fourier直交和](#thm-cdyn14-fourier-modes)により
+
+$$
+\begin{aligned}
+\sum_j u_j(t)^2
+&=\frac{e^{2\alpha_k t}}2
+\sum_j\{1+\cos(2q_kj+2\beta_kt)\}\\
+&=\frac N2 e^{2\alpha_k t}.
+\end{aligned}
+$$
+
+偶数 $N$ の $k=N/2$ では $\beta_k=0$ なので、$u_j(t)=e^{\alpha_k t}(-1)^j$ と二乗和 $Ne^{2\alpha_k t}$ を得ます。従って $\alpha_k>0$ なら実初期値からでも指数増大する解があり、不安定性が成立します。$\square$
 <!-- proof-end -->
 
 非対称だから必ず不安定、というわけではありません。非負の一方向結合では減衰とともに波が格子上を移動する効果が現れます。左右対称のときと同じ実固有値だけを使う議論ができない、というのが障害です。
@@ -631,19 +744,30 @@ u_j^{n+1}
 =u_j^n+\Delta tD(u_{j+1}^n-2u_j^n+u_{j-1}^n).
 $$
 
-[有限Fourierモードの固有値](#thm-cdyn14-fourier-modes)をこの更新式へ代入すると、各波を
+[有限Fourierモードの固有値](#thm-cdyn14-fourier-modes)を、今の時間更新へ適用します。$L$ は実行列なので、同じ式で複素ベクトルにも作用させられます。一つの複素波 $u^n=a_nv^{(k)}$ を計算し、実初期値の場合は共役な波を組み合わせて戻します。代入すると、
 
 $$
+\begin{aligned}
+u^{n+1}
+&=(I+\Delta tDL)a_nv^{(k)}\\
+&=a_n(1+\Delta tD\mu_k)v^{(k)}.
+\end{aligned}
+$$
+
+従ってモード係数は
+
+$$
+a_{n+1}=g_ka_n,\qquad
 g_k=1-4\Delta tD\sin^2(\pi k/N)
 $$
 
-倍にします。一方、[線形格子の明示解](#thm-cdyn14-modal-decay)から、元の連続時間の倍率は
+を満たします。一方、[線形格子の明示解](#thm-cdyn14-modal-decay)による連続時間の倍率は
 
 $$
 e^{-4Dt\sin^2(\pi k/N)}
 $$
 
-であり、各時刻で正の減衰です。しかし偶数 $N$ の交互モードでは
+です。$t>0$ では非零モードの倍率は0と1の間ですが、零モード $k=0$ は常に1です。前進Eulerの非零モードの倍率は負にもなり、絶対値が1を超えることもあります。しかし偶数 $N$ の交互モードでは
 
 $$
 g_{N/2}=1-4\Delta tD.
@@ -688,10 +812,35 @@ $$
 \end{aligned}
 $$
 
-$\lim_{z\to0}\sin z/z=1$ を代入すると結論です。$k$ 自体が $N$ とともに増大する場合には $z_N\to0$ を使用できません。$\square$
+$\lim_{z\to0}\sin z/z=1$ を代入すると、固定整数 $k$ に対する固有値の極限が示されます。
+
+ただし $k$ を固定することと $z_N\to0$ となることは同値ではありません。波数を $N$ に依存させて $1\le k_N<N$ としても、$k_N/N\to0$ なら $z_N=\pi k_N/N\to0$ です。そのとき
+
+$$
+\frac{\lambda_{k_N,N}}{-4\pi^2\kappa k_N^2}
+=\left(\frac{\sin(\pi k_N/N)}{\pi k_N/N}\right)^2
+\longrightarrow1
+$$
+
+という**固有値の比の極限**が成立します。例えば、次の波数は増大しますが、波数と格子点数の比は0へ近づきます。
+
+$$
+k_N=\lfloor\sqrt N\rfloor,\qquad
+\frac{k_N}{N}\longrightarrow0.
+$$
+
+一方、偶数 $N$ で交互モードを選ぶと、
+
+$$
+k_N=\frac N2,\qquad
+\frac{\lambda_{k_N,N}}{-4\pi^2\kappa k_N^2}
+=\frac4{\pi^2}\ne1.
+$$
+
+また、波数が増大すれば比較対象の固有値も変化します。**固有値の比が1へ近づくこと**と、**固有値の差が0へ近づくこと**は同じ主張ではありません。$\square$
 <!-- proof-end -->
 
-例えば偶数 $N$ で $k=N/2$ とすると $z_N=\pi/2$ は0へ近づかず、上の固定モード近似は適用できません。任意の初期値のPDE極限には、初期データの対応、時間・空間で一様な評価、高周波成分の制御、収束する解がPDEを満たすことの確認が必要です。本章は**有限次元の常微分方程式としての計算**までを証明しています。
+このように、低周波比 $k_N/N\to0$ の近似と、全波数で一様に成り立つ近似とは別の主張です。任意の初期値のPDE極限には、初期データの対応、時間・空間で一様な評価、高周波成分の制御、収束する解がPDEを満たすことの確認が必要です。本章は**有限次元の常微分方程式としての計算**までを証明しています。
 
 ## 8. 演習と詳細解答
 
@@ -909,6 +1058,72 @@ $$
 $\Delta tD>0$ のもとでこれは $0<\Delta tD<1/2$ です。$\Delta tD=3/4$ なら倍率は $1-4(3/4)=-2$ で、振幅は毎回2倍になります。連続時間の同じモードでは $e^{-4Dt}$ と減ることと対照的です。
 <!-- solution-end -->
 
+### B5. 固定波数と増大する波数で極限はどう違うか
+
+$\kappa>0$、$N$ 点周期格子の拡散係数を $D_N=\kappa N^2$ とする。第 $k$ Fourierモードの固有値は
+
+$$
+\lambda_{k,N}=-4\kappa N^2\sin^2(\pi k/N)
+$$
+
+である。
+
+1. $k=2$ を固定したときの $\lambda_{2,N}$ の極限を求めよ。
+2. $k_N=\lfloor\sqrt N\rfloor$（$N\ge4$）としたとき、$\lambda_{k_N,N}/(-4\pi^2\kappa k_N^2)$ の極限を求めよ。$\lambda_{k_N,N}$ 自体は有限の値へ収束するか。
+3. 偶数 $N$ で $k_N=N/2$ としたとき、同じ比を求めよ。
+4. (1)–(3) の固有値計算だけから、任意の初期値に対するPDE解への収束を言えるか。
+
+- Level: B
+- ID: CDYN14-B5
+
+<!-- solution-start -->
+**詳細解答**
+
+**(1)**　$k=2$ は $N$ とともに動かないので、[固定モード極限の命題](#prop-cdyn14-fixed-mode-limit)の $N>2$ という条件を満たします。
+
+$$
+\begin{aligned}
+\lambda_{2,N}
+&=-4\kappa N^2\sin^2(2\pi/N)\\
+&=-16\pi^2\kappa
+\left(\frac{\sin(2\pi/N)}{2\pi/N}\right)^2.
+\end{aligned}
+$$
+
+$2\pi/N\to0$ より、この固有値は $-16\pi^2\kappa$ へ収束します。
+
+**(2)**　$k_N=\lfloor\sqrt N\rfloor$ は $N$ とともに増大しますが、
+
+$$
+0<\frac{k_N}{N}\le\frac1{\sqrt N}\longrightarrow0.
+$$
+
+従って $z_N=\pi k_N/N\to0$ なので、
+
+$$
+\frac{\lambda_{k_N,N}}{-4\pi^2\kappa k_N^2}
+=\left(\frac{\sin z_N}{z_N}\right)^2
+\longrightarrow1.
+$$
+
+ただし $k_N\to\infty$ であり、右辺の比較対象 $-4\pi^2\kappa k_N^2$ は $-\infty$ へ進みます。上の比が1へ近づくことから、$\lambda_{k_N,N}$ 自身も $-\infty$ へ進み、有限の固有値極限はありません。
+
+**(3)**　$k_N=N/2$ を代入すると $z_N=\pi/2$ です。
+
+$$
+\begin{aligned}
+\lambda_{N/2,N}&=-4\kappa N^2,\\
+-4\pi^2\kappa k_N^2&=-\pi^2\kappa N^2,\\
+\frac{\lambda_{N/2,N}}{-4\pi^2\kappa k_N^2}
+&=\frac4{\pi^2}\ne1.
+\end{aligned}
+$$
+
+この高周波モードは $k_N/N\to0$ の条件を満たさないので、前段の比が1に近づくという議論を適用できません。
+
+**(4)**　固有値の極限だけでは、格子点上の初期値と連続空間の初期関数をどう対応させるかを決められません。低周波・高周波の全成分の一様な評価、補間した解の収束、および極限が目的のPDEを満たすことも別途必要です。したがって(1)–(3)だけから任意初期値のPDE解への収束は結論できません。
+<!-- solution-end -->
+
 ### C1. 六点格子の反応・拡散・モード・離散化
 
 $N=6$、$D=2$、$\rho=1$ とし、
@@ -975,7 +1190,17 @@ w_j(t)=u_j(t)-\bar u(t)
 =2e^{-t}\cos(2\pi j/6)-e^{-7t}(-1)^j.
 $$
 
-[有限Fourier直交性](#thm-cdyn14-fourier-modes)により、異なるモード間の二乗和の交差項は0です。$j=0,\ldots,5$ について余弦の二乗和が3、$(-1)^{2j}=1$ の和が6であることから、
+[有限Fourier直交性](#thm-cdyn14-fourier-modes)により、余弦に含まれる波数 $k=1,5$ と交互モードの $k=3$ の二乗和の交差項は0です。さらに、二倍角の公式と有限等比和を用いると、
+
+$$
+\begin{aligned}
+\sum_{j=0}^5\cos^2(2\pi j/6)
+&=\frac12\sum_{j=0}^5\{1+\cos(4\pi j/6)\}\\
+&=\frac12(6+0)=3.
+\end{aligned}
+$$
+
+交互モードの二乗和は $\sum_{j=0}^5(-1)^{2j}=6$ です。従って、
 
 $$
 \begin{aligned}
