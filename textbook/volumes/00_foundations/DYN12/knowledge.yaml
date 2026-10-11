@@ -10,7 +10,7 @@ concepts:
     name: 長さnの生成語と言語
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（長さ $n$ の生成語と言語）"]
+    introduction_aliases: ["定義（長さnの生成語と言語）"]
     requires: [dynamical-systems.one-sided-shift]
   - id: dynamical-systems.full-shift-word-count
     name: 全二進シフトの生成語数
@@ -21,7 +21,7 @@ concepts:
     name: 観測距離と分離集合
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（観測距離と $(n,\\varepsilon)$-分離集合）"]
+    introduction_aliases: ["定義（観測距離と分離集合）"]
     requires: [dynamical-systems.prefix-metric, dynamical-systems.one-sided-shift]
   - id: dynamical-systems.first-mismatch-observation
     name: 最初の相違位置による観測距離
@@ -47,7 +47,7 @@ concepts:
   - id: dynamical-systems.qshift-entropy
     name: q文字全シフトのエントロピー
     kind: proposition
-    introduction_aliases: ["命題（$q$ 文字全シフトのエントロピー）"]
+    introduction_aliases: ["命題（q文字全シフトのエントロピー）"]
     requires: [dynamical-systems.full-shift-entropy]
   - id: dynamical-systems.no11-subshift
     name: 11を含まない二進部分シフト
