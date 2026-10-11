@@ -57,32 +57,47 @@ $$
 
 とすると、$z$ 方向の非零ベクトル $(0,0,1)$ は、どのベクトルと組にしても零です。その方向は形式から検出できません。
 
-<a id="def-sym1-symplectic-vector-space"></a>
+<a id="def-sym1-nondegenerate-form"></a>
 
 <!-- formal-statement-start -->
-> **定義（非退化交代形式・シンプレクティックベクトル空間）**  
-> 有限次元実ベクトル空間 $V$ の交代双線形形式 $\omega$ が
+> **定義（非退化交代形式）**  
+> 有限次元実ベクトル空間 $V$ 上の交代双線形形式 $\omega$ が、任意の $v\in V$ について
 >
-$$
+$
 \bigl[\omega(v,w)=0\ \text{が全ての }w\in V\text{ で成立}\bigr]
 \ \Longrightarrow\ v=0
-$$
+$
 >
-> を満たすとき、$\omega$ を非退化という。このような $\omega$ を備えた組 $(V,\omega)$ をシンプレクティックベクトル空間という。
+> を満たすとき、$\omega$ を非退化という。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-sym1-symplectic-vector-space -->
-### 例：面積形式は非退化である
+<!-- definition-example-start: def-sym1-nondegenerate-form -->
+### 例：面積形式の非退化性を調べる
 
-先ほどの $\mathbb R^2$ の形式を使います。$v=(x,y)$ が全ての $w$ に対して $\omega_0(v,w)=0$ を満たすと仮定します。$w=(1,0)$ と $w=(0,1)$ をそれぞれ入れると
+先ほどの $\mathbb R^2$ 上の面積形式 $\omega_0$ を使います。$v=(x,y)$ が全ての $w$ に対して $\omega_0(v,w)=0$ を満たすとき、$w=(1,0)$ と $w=(0,1)$ を代入すると
 
-$$
+$
 \omega_0(v,(1,0))=-y=0,
 \qquad
 \omega_0(v,(0,1))=x=0.
-$$
+$
 
-従って $v=0$ です。これは非退化性の定義そのものを検証しています。一方、上記の三次元の例は $(0,0,1)$ を持つため退化しています。
+従って $v=0$ であり、$\omega_0$ は非退化です。対照的に上記の三次元の形式では非零ベクトル $(0,0,1)$ が全ての相手と組にして零になるため、非退化ではありません。
+<!-- definition-example-end -->
+
+非退化であれば「検出不能な方向」がありません。このような形式と空間をまとめた組を、以下では主役として扱います。
+
+<a id="def-sym1-symplectic-vector-space"></a>
+
+<!-- formal-statement-start -->
+> **定義（シンプレクティックベクトル空間）**  
+> 有限次元実ベクトル空間 $V$ に非退化交代双線形形式 $\omega$ を備えた組 $(V,\omega)$ をシンプレクティックベクトル空間という。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-sym1-symplectic-vector-space -->
+### 例：平面がシンプレクティック空間になる
+
+$(\mathbb R^2,\omega_0)$ では、最初の例で $\omega_0$ の双線形性と交代性を確認し、直前の例で非退化性も確認しました。よってこの組は定義を満たします。一方、三次元の退化形式を備えた組は定義を満たしません。
 <!-- definition-example-end -->
 
 各 $v$ に線形形式を対応させる写像
