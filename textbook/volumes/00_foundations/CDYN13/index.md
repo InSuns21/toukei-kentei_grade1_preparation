@@ -29,13 +29,13 @@ x'+\frac a\varepsilon x
 =\frac a\varepsilon h(y_0+bt).
 $$
 
-従って各 $\varepsilon>0$ について、連続な既知の外力を受ける一次線形方程式です。連続な外力が有限区間で有界なため、積分因子を使った次節の公式で解を構成でき、同じ初期値の解の差は定数倍の $e^{-at/\varepsilon}$ になります。従って任意の初期値から全ての有限時刻まで解が一意に存在します。これは[ODE8の最大解の延長判定](../ODE8/index.md#thm-ode8-continuation)とも整合します。ここでの議論に一般の幾何学的特異摂動定理は必要ありません。
+従って各 $\varepsilon>0$ について、連続な既知の外力を受ける一次線形方程式です。連続な外力が有限区間で有界なため、積分因子を使った第3節の公式で解を構成でき、同じ初期値の解の差は定数倍の $e^{-at/\varepsilon}$ になります。従って任意の初期値から全ての有限時刻まで解が一意に存在します。これは[ODE8の最大解の延長判定](../ODE8/index.md#thm-ode8-continuation)とも整合します。ここでの議論に一般の幾何学的特異摂動定理は必要ありません。
 
 初期値が何であっても、$\varepsilon$ を形式的に0と置けば $x=h(y)$ が現れます。しかし初期値がその曲線に乗っていない場合、$t=0$ では式が成立しません。この差を直接追います。
 
 ## 2. 臨界多様体と速い時間
 
-小さな $\varepsilon$ によって、$x$ は $y$ に比べておよそ $1/\varepsilon$ 倍の速さで応答します。$x$ の右辺が消える点の集合を、まず幾何学的な目印として定義します。
+速い方程式を時間微分について解くと、右辺には係数 $a/\varepsilon$ が現れます。一方、$y'=b$ の速度は $\varepsilon$ を含みません。したがって $a>0$ が固定され、ずれ $x-h(y)$ が大きい間は短い時間尺度 $\varepsilon/a$ で応答します。ただし $x=h(y)$ 上では速い右辺は0となり、全時刻で $x'$ が常に $y'$ の $1/\varepsilon$ 倍という意味ではありません。速い右辺が消える点の集合を、まず幾何学的な目印として定義します。
 
 <a id="def-cdyn13-critical-manifold"></a>
 
@@ -294,7 +294,13 @@ $$
 <!-- formal-statement-start -->
 ### 定理（速い時間で見た初期層の極限）
 
-[初期層と追従誤差の定理](#thm-cdyn13-initial-layer-tracking)と同じ仮定のもとで、任意の固定した $S>0$ に対して
+$a>0$、$b\in\mathbb R$、$h\in C^1(\mathbb R)$、$T>0$ とし、$0<\varepsilon\le1$ に対する速遅系
+
+$$
+\varepsilon x'=-a(x-h(y)),\qquad y'=b
+$$
+
+の解を考える。初期値 $(x_0,y_0)$ は $\varepsilon$ に依存しないものとし、$q_0=x_0-h(y_0)$ と置く。任意の固定した $S>0$ に対して
 
 $$
 X_\varepsilon(\tau)=x(\varepsilon\tau),\qquad
@@ -311,7 +317,7 @@ Y_\varepsilon(\tau)&\longrightarrow y_0
 \end{aligned}
 $$
 
-となる。特に $q_0\ne0$ なら $t>0$ 固定の極限と、$t=\varepsilon\tau$ として見た極限は一致しない。
+となる。$q_0\ne0$ のとき、$t>0$ を固定した極限 $h(y_0+bt)$ と、$\tau\ge0$ を固定して $t=\varepsilon\tau$ とした初期層の極限 $h(y_0)+q_0e^{-a\tau}$ は、異なる時刻尺度に対応する。後者には初期値からのずれが残る。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -356,7 +362,19 @@ $$
 \le\varepsilon|b|H_1(S+1/a),
 $$
 
-となります。右辺が0へ収束するため、一様収束が従います。$q_0\ne0$ なら $\tau=0$ で初期値のずれが消えず、$t>0$ 固定の極限 $x(t)\to h(y_0+bt)$ と異なります。$\square$
+となります。右辺が0へ収束するため、一様収束が従います。ここで二つの極限を同じ式で区別します。
+
+$$
+\begin{aligned}
+\lim_{\varepsilon\to0}x_\varepsilon(t)
+&=h(y_0+bt) &&(t>0\text{ を固定}),\\
+\lim_{\varepsilon\to0}x_\varepsilon(\varepsilon\tau)
+&=h(y_0)+q_0e^{-a\tau}
+&&(\tau\ge0\text{ を固定}).
+\end{aligned}
+$$
+
+$q_0\ne0$ では任意の有限な $\tau$ で $q_0e^{-a\tau}\ne0$ です。初期層では異なる速さで時刻を0へ近づけているので、固定正時刻での追従と矛盾しません。$\square$
 <!-- proof-end -->
 
 <a id="prop-cdyn13-nonuniform-limit"></a>
@@ -372,7 +390,9 @@ $$
 x_\varepsilon(t)\longrightarrow h(y_0+bt)
 $$
 
-だが、$[0,T]$ 上の一様収束は成立しない。初期値を $\varepsilon$ に依存させる場合、$q_0(\varepsilon)\to0$ なら同区間で一様収束する。
+だが、$[0,T]$ 上の一様収束は成立しない。
+
+別の場合として、**$y_0$ は固定したまま** $x_0=x_0(\varepsilon)$ のみを変化させ、$q_0(\varepsilon)=x_0(\varepsilon)-h(y_0)$ と置く。このとき $q_0(\varepsilon)\to0$ なら $x_\varepsilon(t)\to h(y_0+bt)$ が $[0,T]$ 上で一様に成り立つ。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -385,13 +405,21 @@ $$
 \ge |x_\varepsilon(0)-h(y_0)|=|q_0|>0.
 $$
 
-よって一様収束はありません。$q_0(\varepsilon)\to0$ なら同じ定理の右辺を $t\in[0,T]$ で上から
+よって一様収束はありません。最後の主張では $y_0$ を固定しているため、
 
 $$
-|q_0(\varepsilon)|+\frac{\varepsilon|b|H_1}{a}
+H_1=\max_{0\le s\le T}|h'(y_0+bs)|
 $$
 
-と抑えられ、これが0へ収束します。$\square$
+は $\varepsilon$ に依存せず有限です。[初期層と追従誤差の定理](#thm-cdyn13-initial-layer-tracking)の証明と同じ評価を $q_0(\varepsilon)$ に適用すると、
+
+$$
+\sup_{0\le t\le T}|x_\varepsilon(t)-h(y_0+bt)|
+\le |q_0(\varepsilon)|+\frac{\varepsilon|b|H_1}{a}
+\longrightarrow0.
+$$
+
+仮に $y_0$ 自身も $\varepsilon$ に依存させるなら、比較する目標曲線も変化します。固定した目標曲線への収束をいうには、その初期値の収束など別の条件が必要です。$\square$
 <!-- proof-end -->
 
 ## 5. 追従先は少しだけずれる
