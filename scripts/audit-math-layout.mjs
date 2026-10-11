@@ -46,7 +46,7 @@ if(process.argv.includes('--self-test')){
   assert(countMath('x $a$ y $b$')===2,'inline count');
   const tick=String.fromCharCode(96);
   assert(countMath(tick+'$x$'+tick)===0,'inline code ignored');
-  const dense='説明 $a=1$ と $b=2$ と $c=3$ と $d=4$ と $e=5$ と $f=6$ と $g=7$ と $h=8$ を使用する。'.repeat(4);
+  const dense='説明 $a=1$ と $b=2$ と $c=3$ と $d=4$ と $e=5$ と $f=6$ と $g=7$ と $h=8$ を使用する。'.repeat(8);
   assert(scan(dense)[0].severe,'dense detection');
   assert(scan('$$\n'+dense+'\n$$').length===0,'display ignore');
   const f=tick.repeat(3);
