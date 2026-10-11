@@ -294,7 +294,7 @@ $$
 <!-- formal-statement-start -->
 ### 命題（二つの転回点を持つ閉軌道の時間位相）
 
-$U\in C^2(I)$ と $a<b,E$ が [CDYN2の二転回点定理](../CDYN2/index.md#thm-cdyn2-closed-orbit) の条件を満たすとする。$H(q,v)=v^2/2+U(q)=E$ の閉軌道 $\Gamma_E$ 上で、$\tau,I,\omega$ を上記で定め、
+$J\subset\mathbb R$ を開区間、$U\in C^2(J)$ とし、$a,b\in J$、$a<b$、$E\in\mathbb R$ が [CDYN2の二転回点定理](../CDYN2/index.md#thm-cdyn2-closed-orbit) の条件を満たすとする。$H(q,v)=v^2/2+U(q)=E$ の閉軌道 $\Gamma_E$ 上で、$\tau,I,\omega$ を上記で定め、
 
 $$
 \Theta(q,v)=
