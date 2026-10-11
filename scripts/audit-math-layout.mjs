@@ -19,7 +19,7 @@ function scan(source) {
     const s=body.join(' ');
     const count=countMath(s);
     const prose=s.replace(/(?<!\\)\$(?!\$)(?:\\.|[^$\\\n])+(?<!\\)\$(?!\$)/gu,'').replace(/<[^>]*>/gu,'').length;
-    if(count>=4&&prose>=95)findings.push({line:start,count,prose,severe:count>=8&&prose>=185});
+    if(count>=4&&prose>=95)findings.push({line:start,count,prose,severe:count>=8&&prose>=185,paragraph:s});
     body=[];
   };
   for(const [i,raw] of source.split(/\r?\n/u).entries()){
@@ -66,6 +66,11 @@ if(process.argv.includes('--self-test')){
 }else{
   const target=files(),all=[];
   for(const file of target){for(const v of scan(readFileSync(file,'utf8')))all.push({file,...v});}
+  if(process.argv.includes('--review-all')){
+    // Full diagnostic inventory for classifying every candidate, not just the first 120.
+    // Keep output structured so reviewers can distinguish references from derivations.
+    for(const x of all)console.log('REVIEW_JSON '+JSON.stringify(x));
+  }
   let severe=all.filter(x=>x.severe);
   console.log('Math layout: '+target.length+' chapters, '+all.length+' review candidates, '+severe.length+' severe.');
   for(const x of [...all.filter(x=>x.severe),...all.filter(x=>!x.severe).slice(0,120)])console.log((x.severe?'ERROR':'WARN')+': '+x.file+':'+x.line+' ('+x.count+' inline spans, '+x.prose+' prose characters)');
