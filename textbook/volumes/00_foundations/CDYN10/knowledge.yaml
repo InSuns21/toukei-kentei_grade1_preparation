@@ -1,0 +1,50 @@
+chapter: CDYN10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CDYN9
+  - CDYN7
+concepts:
+  - id: continuous-dynamical-systems.exact-coupled-phase
+    name: 正確な位相
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（結合模型の正確な位相と位相差）"]
+    requires: [continuous-dynamical-systems.explicit-asymptotic-phase]
+  - id: continuous-dynamical-systems.exact-phase-difference
+    name: 正確な位相差
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（結合模型の正確な位相と位相差）"]
+    requires: [continuous-dynamical-systems.exact-coupled-phase]
+  - id: continuous-dynamical-systems.uniform-coupled-radius
+    name: 結合下の半径の一様評価
+    kind: proposition
+    introduction_aliases: ["命題（結合下の半径の一様評価）"]
+    requires: [continuous-dynamical-systems.phase-attracting-circle, ode.ode8-continuation]
+  - id: continuous-dynamical-systems.averaged-interaction
+    name: 平均相互作用関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平均相互作用関数）"]
+    requires: [continuous-dynamical-systems.exact-phase-difference]
+  - id: continuous-dynamical-systems.horizontal-coupling-average
+    name: 水平結合の一周期平均
+    kind: proposition
+    introduction_aliases: ["命題（水平結合の一周期平均）"]
+    requires: [continuous-dynamical-systems.averaged-interaction]
+  - id: continuous-dynamical-systems.paired-finite-averaging
+    name: 二振動子の有限遅い時間平均化
+    kind: theorem
+    introduction_aliases: ["定理（二振動子の有限遅い時間平均化）"]
+    requires: [continuous-dynamical-systems.uniform-coupled-radius, continuous-dynamical-systems.horizontal-coupling-average, continuous-dynamical-systems.finite-slow-time-averaging, ode.ode8-gronwall]
+  - id: continuous-dynamical-systems.phase-difference-reduction
+    name: 平均位相差方程式と正確な位相差との比較
+    kind: theorem
+    introduction_aliases: ["定理（平均位相差方程式と正確な位相差との比較）"]
+    requires: [continuous-dynamical-systems.paired-finite-averaging]
+  - id: continuous-dynamical-systems.exchange-odd-drift
+    name: 交換対称模型の奇な位相差ドリフト
+    kind: proposition
+    introduction_aliases: ["命題（交換対称模型の奇な位相差ドリフト）"]
+    requires: [continuous-dynamical-systems.phase-difference-reduction]
