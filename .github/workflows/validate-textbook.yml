@@ -92,6 +92,19 @@ jobs:
         if: github.event_name == 'pull_request'
         run: node scripts/validate-formal-reference-links-dag.mjs --self-test
 
+      - name: Self-test DREAM THEATER math layout lint
+        run: npm run audit:math-layout -- --self-test
+
+      - name: Check math layout regressions in changed DREAM THEATER chapters
+        if: github.event_name == 'pull_request'
+        env:
+          TEXTBOOK_BASE_SHA: ${{ env.PR_COMPARISON_SHA }}
+        run: npm run audit:math-layout -- --changed-only --strict --base "$TEXTBOOK_BASE_SHA"
+
+      - name: Report math layout density on main and nightly
+        if: github.event_name != 'pull_request'
+        run: npm run audit:math-layout
+
       - name: Validate changed textbook guardrails
         if: github.event_name == 'pull_request'
         env:
