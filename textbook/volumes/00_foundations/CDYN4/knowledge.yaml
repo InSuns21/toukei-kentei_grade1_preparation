@@ -1,0 +1,35 @@
+chapter: CDYN4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CDYN3
+  - ODE8
+  - ODE11
+concepts:
+  - id: continuous-dynamical-systems.normalized-fundamental-matrix
+    name: 正規化基本行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正規化基本行列）"]
+    requires: [ode.ode8-flow-variational]
+  - id: continuous-dynamical-systems.monodromy-floquet-multiplier
+    name: モノドロミー行列とFloquet乗数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（モノドロミー行列とFloquet乗数）"]
+    requires: [continuous-dynamical-systems.normalized-fundamental-matrix]
+  - id: continuous-dynamical-systems.fundamental-period-shift
+    name: 基本行列の周期シフトと周回の累積
+    kind: theorem
+    introduction_aliases: ["定理（基本行列の周期シフトと周回の累積）"]
+    requires: [continuous-dynamical-systems.monodromy-floquet-multiplier]
+  - id: continuous-dynamical-systems.tangent-unit-multiplier
+    name: 自律系の接線方向の乗数は1
+    kind: theorem
+    introduction_aliases: ["定理（自律系の接線方向の乗数は1）"]
+    requires: [continuous-dynamical-systems.monodromy-floquet-multiplier, continuous-dynamical-systems.orbit-time-phase, ode.ode8-flow-variational]
+  - id: continuous-dynamical-systems.radial-tangent-multipliers
+    name: 半径方向と接線方向の二つの乗数
+    kind: proposition
+    introduction_aliases: ["命題（半径方向と接線方向の二つの乗数）"]
+    requires: [continuous-dynamical-systems.tangent-unit-multiplier, ode.ode11-planar-multiplier]
