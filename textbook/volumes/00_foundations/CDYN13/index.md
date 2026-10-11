@@ -392,7 +392,7 @@ $$
 
 だが、$[0,T]$ 上の一様収束は成立しない。
 
-別の場合として、**$y_0$ は固定したまま** $x_0=x_0(\varepsilon)$ のみを変化させ、$q_0(\varepsilon)=x_0(\varepsilon)-h(y_0)$ と置く。このとき $q_0(\varepsilon)\to0$ なら $x_\varepsilon(t)\to h(y_0+bt)$ が $[0,T]$ 上で一様に成り立つ。
+別の場合として、**$y_0$ は固定したまま** $x_0=x_0(\varepsilon)$ のみを変化させ、$q_0(\varepsilon)=x_0(\varepsilon)-h(y_0)$ と置く。このとき $x_\varepsilon(t)\to h(y_0+bt)$ が $[0,T]$ 上で一様に成り立つための必要十分条件は $q_0(\varepsilon)\to0$ である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -418,6 +418,16 @@ $$
 \le |q_0(\varepsilon)|+\frac{\varepsilon|b|H_1}{a}
 \longrightarrow0.
 $$
+
+逆向きには、一様収束が成立すれば特に $t=0$ で
+
+$$
+|q_0(\varepsilon)|
+=|x_\varepsilon(0)-h(y_0)|
+\longrightarrow0
+$$
+
+が必要です。よって必要十分性を示しました。
 
 仮に $y_0$ 自身も $\varepsilon$ に依存させるなら、比較する目標曲線も変化します。固定した目標曲線への収束をいうには、その初期値の収束など別の条件が必要です。$\square$
 <!-- proof-end -->
@@ -485,7 +495,7 @@ $$
 である。したがって各固定 $\delta>0$ に対し、$[\delta,T]$ 上の一次補正後の誤差は $O(\varepsilon^2)$ となる。
 <!-- formal-statement-end -->
 
-**証明の見取り図**　[追従誤差の積分表示](#lem-cdyn13-error-formula)を一度部分積分して、終点 $h'(y(t))$ と始点 $h'(y_0)$ を取り出します。残りは $h''$ を含む指数積分なので一段小さい誤差として評価できます。
+**証明の見取り図**　[追従誤差の積分表示](#lem-cdyn13-error-formula)を一度部分積分して、終点 $h'(y(t))$ と始点 $h'(y_0)$ を取り出します。残りは $h''$ を含む指数積分なので一段小さい誤差として評価できます。さらに $t\ge\delta>0$ では指数初期層を一様に抑え、一次補正後の $O(\varepsilon^2)$ 評価へ結びつけます。
 
 <!-- proof-start -->
 ### 証明
