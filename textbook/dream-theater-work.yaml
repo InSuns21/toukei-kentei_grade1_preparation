@@ -7,7 +7,7 @@ series_manifest: textbook/dream-theater-series/DYN.yaml
 
 completed_through: DYN14
 next_work: DYN15
-after_next: phase_D_crosscutting_audit
+after_next: null
 
 routing:
   chapter_root: textbook/volumes/00_foundations
