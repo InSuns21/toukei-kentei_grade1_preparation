@@ -1,0 +1,43 @@
+id: "CDYN12"
+title: "有限Kuramoto系の秩序変数とLyapunov構造"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CDYN11
+  - ODE9
+official_scope: []
+learning_objectives:
+  - 有限Nの同一周波数・一様対称正弦結合模型から回転座標の方程式を導き二体系へ還元できる
+  - 複素秩序変数の範囲・完全同期の等号条件と結合項の虚部表示を導ける
+  - 対称結合のポテンシャルを二重和から構成し勾配構造と散逸恒等式を証明できる
+  - 非完全同期の平衡配置を分類しエネルギー減少だけで全初期値の完全同期を主張できない理由を示せる
+  - 散逸積分と速度の一様連続性から速度消失と集積点の平衡性を証明できる
+  - 位相の初期幅がπ未満なら幅の収縮不等式と算術平均の保存から完全同期を証明できる
+definitions:
+  - { id: CDYN12-DEF-01, name: 有限系の複素秩序変数 }
+  - { id: CDYN12-DEF-02, name: 有限対称Kuramotoポテンシャル }
+theorems:
+  - { id: CDYN12-PROP-01, name: 秩序度の範囲と結合項の表示 }
+  - { id: CDYN12-THM-01, name: 勾配系表示と散逸恒等式 }
+  - { id: CDYN12-PROP-02, name: 平衡配置の分類と完全同期の反例 }
+  - { id: CDYN12-THM-02, name: 速度の消失と平衡集合への接近 }
+  - { id: CDYN12-THM-03, name: 開いた半円内からの完全同期 }
+canonical_examples:
+  - 三個の位相が一致する場合と正三角形配置の秩序変数
+  - 二振動子のポテンシャルと位相差方程式の一致
+  - 三体反位相平衡とずらしたときの位相差速度
+  - 散逸率と秩序度の増加率の相互検算
+  - 半円内の位相幅に対する明示的指数評価
+problem_patterns:
+  - CDYN12-ORDER-COMPLEX
+  - CDYN12-TWO-OSCILLATOR-REDUCTION
+  - CDYN12-POTENTIAL-SUM
+  - CDYN12-GRADIENT-IDENTITY
+  - CDYN12-STATIONARY-CONFIGURATION
+  - CDYN12-DISSIPATION
+  - CDYN12-CONTRACTION-BOUND
+  - CDYN12-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 2.0 }
