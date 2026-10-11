@@ -459,7 +459,7 @@ $$
 \le ce^{\gamma T/2}.
 $$
 
-最後に逆三角不等式 $|\|A\|-\|Y\||\le\|A-Y\|$ と $\|Y(t)\|=R(0)e^{-\varepsilon\gamma t/2}$ を使えば振幅の評価も得られます。$\square$
+最後に[逆三角不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-reverse-triangle-inequality) $|\|A\|-\|Y\||\le\|A-Y\|$ と $\|Y(t)\|=R(0)e^{-\varepsilon\gamma t/2}$ を使えば振幅の評価も得られます。$\square$
 <!-- proof-end -->
 
 ここでの $R$ は位置 $q$ の山の高さそのものではありません。$q$ と速度 $v$ の回転不変な大きさであり、$\varepsilon\gamma$ が小さいとき山の高さを追うための自然な量です。次章では非線形減衰が振幅の大小で符号を変える模型を扱うため、「平均減衰が常に負」という今の単純な結果から先へ進みます。
@@ -669,7 +669,7 @@ A'=\varepsilon\gamma
 \end{pmatrix}A.
 $$
 
-一周期で $\sin^2,\cos^2$ は各 $1/2$、$\sin\cos$ は0なので $\overline M=-(\gamma/2)I$。(3) 平均系は $Y(t)=e^{-\varepsilon\gamma t/2}A(0)$。[弱減衰振動子の誤差定理](#thm-cdyn7-damped-amplitude)は $\|A(t)-Y(t)\|\le (\varepsilon\gamma/2)(1+\gamma T)e^{\gamma T/2}R(0)$ と示しています。$\|A\|=R$、$\|Y\|=R(0)e^{-\varepsilon\gamma t/2}$、逆三角不等式により求める振幅の差も同じ上界です。零初期値でも両辺は0です。
+一周期で $\sin^2,\cos^2$ は各 $1/2$、$\sin\cos$ は0なので $\overline M=-(\gamma/2)I$。(3) 平均系は $Y(t)=e^{-\varepsilon\gamma t/2}A(0)$。[弱減衰振動子の誤差定理](#thm-cdyn7-damped-amplitude)は $\|A(t)-Y(t)\|\le (\varepsilon\gamma/2)(1+\gamma T)e^{\gamma T/2}R(0)$ と示しています。$\|A\|=R$、$\|Y\|=R(0)e^{-\varepsilon\gamma t/2}$、[逆三角不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-reverse-triangle-inequality)により求める振幅の差も同じ上界です。零初期値でも両辺は0です。
 <!-- solution-end -->
 
 ### B4. 平均零でない外力を分離する
