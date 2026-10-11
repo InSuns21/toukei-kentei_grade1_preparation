@@ -8,7 +8,7 @@
 
 ## 1. 各接空間の面積を滑らかにつなぐ
 
-$M$ を空でない滑らかな実多様体とします。[接空間](../GEO2/index.md#def-geo2-tangent-derivation) $T_xM$ は各点 $x$ に付随する実ベクトル空間です。滑らかな2形式 $\omega$ を各点 $x$ で評価すると、交代双線形形式
+$M$ を空でない滑らかな実多様体とします。[接空間](../GEO2/index.md#def-geo2-tangent-derivation)は多様体の各点に付随する実ベクトル空間です。その点で滑らかな2形式を評価すると、交代双線形形式
 
 $$
 \omega_x:T_xM\times T_xM\longrightarrow\mathbb R
@@ -197,18 +197,18 @@ $$
 
 を考えます。$h=e^{q_2}>0$ と書くと、成分行列は
 
-$
+$$
 \Omega=\begin{pmatrix}
 0&0&h&0\\0&0&0&1\\
 -h&0&0&0\\0&-1&0&0
 \end{pmatrix}.
-$
+$$
 
 座標を $(q_1,p_1,q_2,p_2)$ の順に同時に並べ替えると、対角上に $\begin{pmatrix}0&h\\-h&0\end{pmatrix}$ と $\begin{pmatrix}0&1\\-1&0\end{pmatrix}$ が並ぶブロック行列になります。同じ置換を行と列に施すため行列式は変わらず、
 
-$
+$$
 \det\Omega=h^2\cdot1=e^{2q_2}>0
-$
+$$
 
 です。従って全点で非退化です。しかし外微分を取ると
 
@@ -640,14 +640,14 @@ $$
 
 各因子で $t=1$ の接ベクトルを $e_1,e_2$ とすると、[引き戻しの定義](../GEO7/index.md#def-geo7-pullback-form)で各因子の射影を評価して
 
-$
+$$
 \begin{aligned}
 \tau(e_1,e_2)
 &=(\pi_1^*\alpha)(e_1)(\pi_2^*\alpha)(e_2)
  -(\pi_1^*\alpha)(e_2)(\pi_2^*\alpha)(e_1)\\
 &=1\cdot1-0\cdot0=1.
 \end{aligned}
-$
+$$
 
 交代性より接空間での行列は $\begin{pmatrix}0&1\\-1&0\end{pmatrix}$、行列式が1で非退化です。円上では $d\alpha=0$ であり、積上でも[Leibniz則](../GEO7/index.md#thm-geo7-graded-leibniz)から $d\tau=0$ です。
 <!-- solution-end -->
