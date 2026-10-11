@@ -431,13 +431,26 @@ $$
 <!-- formal-statement-start -->
 ### 定理（遅れの一次補正と二次誤差）
 
-$a>0$、$b\in\mathbb R$、$h\in C^2(\mathbb R)$、$T>0$ とし、
+$a>0$、$b\in\mathbb R$、$h\in C^2(\mathbb R)$、$T>0$ とし、$0<\varepsilon\le1$ に対する系
 
 $$
-H_2=\max_{0\le s\le T}|h''(y_0+bs)|
+\varepsilon x'=-a(x-h(y)),\qquad y'=b
 $$
 
-を置く。初期値 $(x_0,y_0)$ と $0<\varepsilon\le1$ の解について、$0\le t\le T$ で
+の解で、初期値 $(x(0),y(0))=(x_0,y_0)$ が $\varepsilon$ に依存しない場合を考える。追従誤差とその初期値を
+
+$$
+q(t)=x(t)-h(y(t)),\qquad q_0=x_0-h(y_0)
+$$
+
+と置き、次の有限な定数を定める。
+
+$$
+H_m=\max_{0\le s\le T}|h^{(m)}(y_0+bs)|
+\qquad(m=1,2).
+$$
+
+このとき $0\le t\le T$ で
 
 $$
 \begin{aligned}
@@ -457,7 +470,19 @@ $$
 (1-e^{-at/\varepsilon})
 $$
 
-が成立する。従って初期層が消えた固定時刻では、主な遅れは $-\varepsilon b h'(y(t))/a$ である。
+が成立する。さらに $0<\delta\le T$ について、遅れの一次補正を除いた誤差は
+
+$$
+\begin{aligned}
+&\sup_{\delta\le t\le T}
+\left|q(t)+\frac{\varepsilon b}{a}h'(y(t))\right|\\
+&\qquad\le e^{-a\delta/\varepsilon}
+\left(|q_0|+\frac{\varepsilon|b|H_1}{a}\right)
++\frac{\varepsilon^2b^2H_2}{a^2}
+\end{aligned}
+$$
+
+である。したがって各固定 $\delta>0$ に対し、$[\delta,T]$ 上の一次補正後の誤差は $O(\varepsilon^2)$ となる。
 <!-- formal-statement-end -->
 
 **証明の見取り図**　[追従誤差の積分表示](#lem-cdyn13-error-formula)を一度部分積分して、終点 $h'(y(t))$ と始点 $h'(y_0)$ を取り出します。残りは $h''$ を含む指数積分なので一段小さい誤差として評価できます。
@@ -502,7 +527,7 @@ q(t)
 \end{aligned}
 $$
 
-最後の積分が $R_\varepsilon$ です。定理3節と同じ指数核の積分評価を使い、
+最後の積分が $R_\varepsilon$ です。[初期層の誤差評価](#thm-cdyn13-initial-layer-tracking)で使った指数核の積分を、ここでも $u=t-s$ と置いて計算します。
 
 $$
 \begin{aligned}
@@ -514,7 +539,29 @@ $$
 \end{aligned}
 $$
 
-これで示されました。$b=0$ では遅れ項と剰余は0で、初期層だけが残ることも式に含まれます。$\square$
+最後に正時刻での一様な二次評価を導きます。表示式を移項すると、
+
+$$
+q(t)+\frac{\varepsilon b}{a}h'(y(t))
+=e^{-at/\varepsilon}
+\left(q_0+\frac{\varepsilon b}{a}h'(y_0)\right)
++R_\varepsilon(t).
+$$
+
+ここで $t\ge\delta$ なら $e^{-at/\varepsilon}\le e^{-a\delta/\varepsilon}$、また $|h'(y_0)|\le H_1$ です。三角不等式とすでに求めた剰余の評価から、
+
+$$
+\begin{aligned}
+\left|q(t)+\frac{\varepsilon b}{a}h'(y(t))\right|
+&\le e^{-a\delta/\varepsilon}
+\left(|q_0|+\frac{\varepsilon|b|H_1}{a}\right)\\
+&\quad+\frac{\varepsilon^2b^2H_2}{a^2}.
+\end{aligned}
+$$
+
+これを区間 $[\delta,T]$ で上限に取ります。$a\delta>0$ を固定すれば、任意の整数 $m\ge1$ について $e^{-a\delta/\varepsilon}=o(\varepsilon^m)$ です。例えば $z=a\delta/\varepsilon$ とし、$e^z\ge z^m/m!$ を使えば指数項は任意の多項式の逆数より速く消えることが分かります。従って全体は $O(\varepsilon^2)$ です。
+
+$b=0$ では遅れと剰余が0となり、初期層だけが残ることも式に含まれます。$\square$
 <!-- proof-end -->
 
 <a id="prop-cdyn13-affine-slow-graph"></a>
@@ -642,13 +689,33 @@ $$
 \frac{du}{d\tau}=(1-3x_*^2)u-3x_*u^2-u^3
 $$
 
-です。一次係数を $c=1-3x_*^2$ と置き、$c\ne0$ とします。$u$ を十分小さく取れば
+です。一次係数を $c=1-3x_*^2$ と置き、$c\ne0$ とします。連続な式 $-3x_*u-u^2$ は $u=0$ で0なので、ある $r>0$ が存在して $|u|\le r$ なら
 
 $$
-|-3x_*u-u^2|<\frac{|c|}{2}
+|-3x_*u-u^2|\le\frac{|c|}{2}
 $$
 
-を満たせます。そのとき $u\,du/d\tau=u^2(c-3x_*u-u^2)$ の符号は $c$ と同じです。折返し点では $c=0$ なので、一定の正の収縮率を前提とした線形模型の指数評価は使えません。
+となります。この範囲で二乗距離 $v(\tau)=u(\tau)^2$ を微分すると、
+
+$$
+v'=2u^2(c-3x_*u-u^2).
+$$
+
+$c<0$ のとき括弧内は高々 $c+|c|/2=c/2$ なので
+
+$$
+v'\le cv,\qquad
+v(\tau)\le v(0)e^{c\tau}.
+$$
+
+初期変位が $|u(0)|<r$ ならこの評価によって $|u(\tau)|$ は小さくなり続けるため、近傍から出ることなく収束します。一方 $c>0$ のとき、近傍に留まる間は括弧内が少なくとも $c-|c|/2=c/2$ で、
+
+$$
+v'\ge cv,\qquad
+v(\tau)\ge v(0)e^{c\tau}.
+$$
+
+従って $u(0)\ne0$ なら初期変位は増幅されます。これで外側二枝の局所的な吸引と中央枝の反発を一次係数と剰余評価から導きました。折返し点では $c=0$ なので、この指数評価は使えません。
 
 しかもこの例も $b\ne0$ のままなら $y$ が単調なので周期解を持ちません。実際の緩和振動を証明するには、遅い変数を戻す機構と、折返し点を通る軌道の制御が必要です。一般のFenichel理論や非線形系の周期軌道存在定理を、ここでは証明抜きに使いません。
 
