@@ -20,15 +20,17 @@ $$
 > **定義（Liouville 1形式・正準1形式）**  
 > $Q$ を滑らかな多様体、$\pi:T^*Q\to Q$ を射影とする。$T^*Q$ 上の1形式 $\theta$ を、全ての $\alpha_q\in T^*Q$ と $V\in T_{\alpha_q}(T^*Q)$ に対して
 >
-> $$
-> \theta_{\alpha_q}(V)=\alpha_q\bigl(d\pi_{\alpha_q}V\bigr)
-> $$
+$$
+\theta_{\alpha_q}(V)=\alpha_q\bigl(d\pi_{\alpha_q}V\bigr)
+$$
 >
 > で定める。これを **Liouville 1形式** または **正準1形式** という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sym3-tautological-form -->
 ### 直接例：位置を動かす方向だけを読む
+
+**定義の確認**：基点への射影を介して評価すると、余接束の接ベクトルのどの成分が読まれるかを確かめられます。
 
 $Q=\mathbb R$ の座標を $q$、余接束の座標を $(q,p)$ とすると、点 $(q,p)$ は余ベクトル $p\,dq|_q$ を表します。接ベクトル
 
@@ -64,9 +66,9 @@ $$
 > **命題（正準1形式の局所表示と座標不変性）**  
 > $Q$ を $n$ 次元滑らかな多様体とする。[定義](#def-sym3-tautological-form)の $\theta$ は $T^*Q$ 上の滑らかな1形式であり、余接束の任意の自然な局所座標では
 >
-> $$
-> \theta=\sum_{i=1}^n p_i\,dq^i
-> $$
+$$
+\theta=\sum_{i=1}^n p_i\,dq^i
+$$
 >
 > と表される。基点の局所座標を取り替えても、異なる表示は重なり上で同じ1形式を定める。
 <!-- formal-statement-end -->
@@ -120,7 +122,7 @@ $$
 $DF_q$ が可逆なのは、重なりの座標変換が微分同相だからです。よって表示は重なり上で一致し、最初に与えた座標を忘れても同じ1形式です。
 <!-- proof-end -->
 
-**何が解決したか。** $q$ の新しい座標を選ぶと $p$ も変換されます。$p$ だけ、または $q$ だけを変換していたら正準1形式の式は一般に保たれません。余ベクトルの変換則そのものが、両者の積を不変にしています。
+**何が解決したか。** 基点の座標を取り替えると、余ベクトルの成分も対応して変わります。片方の成分だけを変換していたら正準1形式は一般に保たれません。余ベクトルの変換則そのものが、両者の組み合わせを不変にしています。
 
 ### 二次元の非線形な座標交換を検算する
 
@@ -162,15 +164,17 @@ Liouville 1形式を外微分すると自然に2形式が得られます。た�
 > **定義（余接束の正準2形式）**  
 > $Q$ を滑らかな多様体、$\theta$ を[正準1形式](#def-sym3-tautological-form)とする。この章では
 >
-> $$
-> \omega_{\mathrm{can}}=-d\theta
-> $$
+$$
+\omega_{\mathrm{can}}=-d\theta
+$$
 >
 > を $T^*Q$ 上の **正準2形式** と定める。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sym3-canonical-form -->
 ### 直接例：一自由度の位置と運動量
+
+**定義の確認**：正準1形式を外微分して符号を反転し、2形式の評価を直接確かめます。
 
 $Q=\mathbb R$ なら $\theta=p\,dq$ です。[外微分の次数付きLeibniz則](../GEO7/index.md#thm-geo7-graded-leibniz)と $d(dq)=0$ を使うと
 
@@ -187,9 +191,9 @@ $$
 > **定理（余接束の正準シンプレクティック形式）**  
 > $Q$ を $n\ge1$ 次元滑らかな実多様体とする。$\omega_{\mathrm{can}}=-d\theta$ は $T^*Q$ 上のシンプレクティック形式である。余接束の局所座標 $(q^1,\ldots,q^n,p_1,\ldots,p_n)$ では
 >
-> $$
-> \omega_{\mathrm{can}}=\sum_{i=1}^n dq^i\wedge dp_i.
-> $$
+$$
+\omega_{\mathrm{can}}=\sum_{i=1}^n dq^i\wedge dp_i.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -267,9 +271,9 @@ $$
 > **命題（零切断とファイバーでの消失）**  
 > $Q$ を滑らかな多様体とし、$s_0$ を零切断とする。このとき
 >
-> $$
-> s_0^*\theta=0,\qquad s_0^*\omega_{\mathrm{can}}=0.
-> $$
+$$
+s_0^*\theta=0,\qquad s_0^*\omega_{\mathrm{can}}=0.
+$$
 >
 > また各 $q\in Q$ における包含 $i_q:T_q^*Q\hookrightarrow T^*Q$ について $i_q^*\theta=0$、$i_q^*\omega_{\mathrm{can}}=0$ が成り立つ。
 <!-- formal-statement-end -->
@@ -298,7 +302,7 @@ s_0^*\omega_{\mathrm{can}}
 =0.
 $$
 
-次にファイバーに制限した $\pi\circ i_q$ は定数写像です。$w\in T_{\alpha_q}(T_q^*Q)$ に対し、合成の微分公式から
+次にファイバーに制限した $\pi\circ i_q$ は定数写像です。$w\in T_{\alpha_q}(T_q^*Q)$ に対し、[多様体上の連鎖律](../GEO2/index.md#thm-geo2-composition-differential)から
 
 $$
 d\pi_{\alpha_q}(di_q(w))
@@ -320,16 +324,18 @@ $$
 > **定義（余接持ち上げ）**  
 > $f:Q\to R$ を滑らかな微分同相とする。$f$ の **余接持ち上げ** $\widehat f:T^*Q\to T^*R$ を
 >
-> $$
-> \widehat f(\alpha_q)
-> =\alpha_q\circ (df_q)^{-1}\in T_{f(q)}^*R
-> $$
+$$
+\widehat f(\alpha_q)
+=\alpha_q\circ (df_q)^{-1}\in T_{f(q)}^*R
+$$
 >
 > で定める。従って $\pi_R\circ\widehat f=f\circ\pi_Q$ である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sym3-cotangent-lift -->
 ### 直接例：拡大する位置と縮小する運動量
+
+**定義の確認**：基点の拡大に対して逆微分を余ベクトルへ作用させ、正準1形式を照合します。
 
 $Q=R=\mathbb R$、$f(q)=2q$ とします。$df_q$ は接ベクトルを2倍するので、$\widehat f(q,p)=(2q,p/2)$ です。従って出力座標 $(Q,P)$ で
 
@@ -346,10 +352,10 @@ $$
 > **定理（余接持ち上げは正準1形式を保存する）**  
 > $f:Q\to R$ が滑らかな微分同相なら、$\widehat f:T^*Q\to T^*R$ は滑らかな微分同相であり、
 >
-> $$
-> \widehat f^{\,*}\theta_R=\theta_Q,\qquad
-> \widehat f^{\,*}\omega_R=\omega_Q
-> $$
+$$
+\widehat f^{\,*}\theta_R=\theta_Q,\qquad
+\widehat f^{\,*}\omega_R=\omega_Q
+$$
 >
 > を満たす。ここで $\theta_Q,\theta_R$ および $\omega_Q=-d\theta_Q,\omega_R=-d\theta_R$ はそれぞれの余接束上の正準形式である。
 <!-- formal-statement-end -->
@@ -421,10 +427,10 @@ $$
 > **命題（余接持ち上げの合成則）**  
 > 微分同相 $f:Q\to R$、$g:R\to S$ に対し、
 >
-> $$
-> \widehat{g\circ f}=\widehat g\circ\widehat f,\qquad
-> \widehat{\mathrm{id}_Q}=\mathrm{id}_{T^*Q}.
-> $$
+$$
+\widehat{g\circ f}=\widehat g\circ\widehat f,\qquad
+\widehat{\mathrm{id}_Q}=\mathrm{id}_{T^*Q}.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -472,16 +478,18 @@ $$
 > **定義（1形式によるファイバー平行移動）**  
 > $Q$ 上の滑らかな1形式 $\sigma$ に対し、
 >
-> $$
-> T_\sigma:T^*Q\to T^*Q,\qquad
-> T_\sigma(\alpha_q)=\alpha_q+\sigma_q
-> $$
+$$
+T_\sigma:T^*Q\to T^*Q,\qquad
+T_\sigma(\alpha_q)=\alpha_q+\sigma_q
+$$
 >
 > と定める。$T_{-\sigma}$ がその滑らかな逆写像である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sym3-fiber-translation -->
 ### 直接例：運動量を位置でずらす
+
+**定義の確認**：滑らかな1形式を各ファイバーの余ベクトルへ加えた座標式を求めます。
 
 $Q=\mathbb R$、$\sigma=2q\,dq$ なら $T_\sigma(q,p)=(q,p+2q)$ です。点 $(1,3)$ は $(1,5)$ へ移り、基点 $q=1$ は変わりません。
 <!-- definition-example-end -->
@@ -492,11 +500,11 @@ $Q=\mathbb R$、$\sigma=2q\,dq$ なら $T_\sigma(q,p)=(q,p+2q)$ です。点 $(1
 > **定理（平行移動が正準形式を保存する条件）**  
 > $Q$ を滑らかな多様体、$\sigma\in\Omega^1(Q)$ とする。このとき
 >
-> $$
-> T_\sigma^*\theta=\theta+\pi^*\sigma,\qquad
-> T_\sigma^*\omega_{\mathrm{can}}
-> =\omega_{\mathrm{can}}-\pi^*(d\sigma).
-> $$
+$$
+T_\sigma^*\theta=\theta+\pi^*\sigma,\qquad
+T_\sigma^*\omega_{\mathrm{can}}
+=\omega_{\mathrm{can}}-\pi^*(d\sigma).
+$$
 >
 > 従って $T_\sigma$ がシンプレクティック微分同相となる必要十分条件は $d\sigma=0$ である。
 <!-- formal-statement-end -->
@@ -548,7 +556,19 @@ $\sigma=dh$ のときは[外微分の二乗零](../GEO7/index.md#thm-geo7-d-squa
 
 ## 7. 円周にも大域的な正準形式がある
 
-$Q=S^1$ 上には一般に全域で一つの角度座標を置けません。しかし [SYM2で使った円周上の1形式](../SYM2/index.md#example-sym2-torus-circle-form) の具体式 $\alpha=x\,dy-y\,dx$ は、接ベクトル $e=(-y,x)$ に対して $\alpha(e)=1$ を満たす滑らかな1形式です。各 $\beta_x\in T_x^*S^1$ を一意に $\beta_x=p\alpha_x$ と書けば、$(x,p)\in S^1\times\mathbb R$ を $T^*S^1$ の大域表示として使えます。
+円周上には一般に全域で一つの角度座標を置けません。しかし[SYM2で使った円周上の1形式](../SYM2/index.md#example-sym2-torus-circle-form)は、大域的に定義できます。
+
+$$
+\alpha=x\,dy-y\,dx,\qquad e=(-y,x),\qquad \alpha(e)=1.
+$$
+
+ここで $e$ は各点の単位接方向です。したがって任意の余ベクトルは一意に次の形で表せます。
+
+$$
+\beta_x=p\alpha_x.
+$$
+
+この係数 $p$ を使えば、余接束全体を $S^1\times\mathbb R$ と大域的に同一視できます。
 
 この表示で射影は $(x,p)\mapsto x$ なので、[正準1形式の定義](#def-sym3-tautological-form)から
 
@@ -806,7 +826,13 @@ $$
 \alpha_x(e)=x\cdot x-y\cdot(-y)=x^2+y^2=1.
 $$
 
-よって $\alpha_x$ は一次元の余接空間の基底で、全ての余ベクトルを一意に $p\alpha_x$ と書けます。[正準1形式の定義](#def-sym3-tautological-form)から $\theta=p\,\pi^*\alpha$。円周は一次元だから $d\alpha=0$、よって
+よって $\alpha_x$ は一次元の余接空間の基底で、余ベクトルは一意にその定数倍で表されます。[正準1形式の定義](#def-sym3-tautological-form)から
+
+$$
+\theta=p\,\pi^*\alpha
+$$
+
+です。円周上の2形式は次元の理由で零なので $d\alpha=0$。従って
 
 $$
 \begin{aligned}
@@ -893,7 +919,9 @@ $$
 
 二式を比較して $F^*\theta_R=\theta_Q+\pi_Q^*d((Q^1Q^2)\circ f)$ を確認しました。$\pi_Q^*$ は基点の形式を余接束に引き上げる記号です。
 
-**(3)**　$f$ は微分同相、$\widehat f$ は[余接持ち上げは正準1形式を保存する](#thm-sym3-cotangent-lift-preserves)により微分同相です。$T_\sigma$ も滑らかな逆写像 $T_{-\sigma}$ を持ちます。外微分と引き戻しを交換し、$d^2=0$ を使うと
+**(3)**　基点の写像は滑らかな逆写像を持つため、[余接持ち上げは正準1形式を保存する定理](#thm-sym3-cotangent-lift-preserves)の仮定が成立します。さらに平行移動の逆は反対符号の平行移動です。従って合成写像も微分同相です。
+
+次に[外微分と引き戻しの可換性](../GEO7/index.md#thm-geo7-pullback-commutes-d)を合成写像に適用し、[外微分の二乗零](../GEO7/index.md#thm-geo7-d-square-zero)を用いると
 
 $$
 \begin{aligned}
