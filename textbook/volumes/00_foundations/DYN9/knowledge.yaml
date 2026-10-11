@@ -1,0 +1,43 @@
+chapter: DYN9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - DYN8
+concepts:
+  - id: dynamical-systems.circle-expanding-map
+    name: 整数倍の円周拡大写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（整数倍の円周拡大写像）"]
+    requires: [dynamical-systems.circle-quotient, dynamical-systems.circle-metric]
+  - id: dynamical-systems.circle-expansion-formula
+    name: 代表元によらない定義と反復公式
+    kind: proposition
+    introduction_aliases: ["命題（代表元によらない定義と反復公式）"]
+    requires: [dynamical-systems.circle-expanding-map]
+  - id: dynamical-systems.local-circle-expansion
+    name: 折り返し以前の距離の拡大
+    kind: lemma
+    introduction_aliases: ["補題（折り返し以前の距離の拡大）"]
+    requires: [dynamical-systems.circle-expansion-formula]
+  - id: dynamical-systems.initial-condition-sensitivity
+    name: 初期値鋭敏性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（初期値鋭敏性）"]
+    requires: [dynamical-systems.circle-expanding-map]
+  - id: dynamical-systems.circle-expansion-sensitivity
+    name: 円周の拡大写像は初期値鋭敏性を持つ
+    kind: theorem
+    introduction_aliases: ["定理（円周の拡大写像は初期値鋭敏性を持つ）"]
+    requires: [dynamical-systems.initial-condition-sensitivity, dynamical-systems.circle-expansion-formula]
+  - id: dynamical-systems.circle-positive-expansivity
+    name: 相異なる二点の有限時刻での分離
+    kind: proposition
+    introduction_aliases: ["命題（相異なる二点の有限時刻での分離）"]
+    requires: [dynamical-systems.local-circle-expansion]
+  - id: dynamical-systems.circle-eventual-coalescence
+    name: 任意に近い異なる初期値の有限時刻での合流
+    kind: proposition
+    introduction_aliases: ["命題（任意に近い異なる初期値の有限時刻での合流）"]
+    requires: [dynamical-systems.circle-expansion-formula, dynamical-systems.circle-positive-expansivity]
