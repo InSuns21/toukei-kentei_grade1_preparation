@@ -62,7 +62,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cdyn11-phase-locking -->
-**定義の確認**　$\Delta=0$ なら $D_*=0$ と $D_*=\pi$ はいずれも同期位相差です。ただし $D(0)=0$ の解が前者にとどまることと、$D(0)=\pi/2$ の解が前者へ収束することは区別します。後者は[第3節の引込み域の定理](#thm-cdyn11-capture-basin)で証明し、演習B2では解を明示して再確認します。
+**定義の確認**　$\Delta=0$ なら $D_*=0$ と $D_*=\pi$ はいずれも同期位相差です。ただし $D(0)=0$ の解が前者にとどまることと、$D(0)=\pi/2$ の解が前者へ収束することは区別します。後者は[狭義閾値内の安定性と引込み域](#thm-cdyn11-capture-basin)で証明し、演習B2では解を明示して再確認します。
 <!-- definition-example-end -->
 
 ## 2. 同期閾値と二つの平衡位相差
@@ -530,7 +530,7 @@ $$
 \le2C_L\varepsilon
 $$
 
-が成り立ちます。この $D$ が本章で分析した平均方程式の解です。例えば $|\Delta|<\kappa$ で $D(0)$ が不安定平衡点と異なれば、[本章の引込み域の定理](#thm-cdyn11-capture-basin)から平均系の $D(\tau)$ は同期位相差へ収束します。任意の有限 $L$ で正確な差 $\delta(t)$ は平均解に近いですが、**$C_L$ が $L\to\infty$ で一様に有界とは証明していません**。
+が成り立ちます。この $D$ が本章で分析した平均方程式の解です。例えば $|\Delta|<\kappa$ で $D(0)$ が不安定平衡点と異なれば、[狭義閾値内の安定性と引込み域](#thm-cdyn11-capture-basin)から平均系の $D(\tau)$ は同期位相差へ収束します。任意の有限 $L$ で正確な差 $\delta(t)$ は平均解に近いですが、**$C_L$ が $L\to\infty$ で一様に有界とは証明していません**。
 
 <a id="prop-cdyn11-finite-time-scope"></a>
 
@@ -591,7 +591,7 @@ $\kappa>0$、$\Delta=\kappa/2$ とする。円周上の平衡位相差と各線�
 - ID: CDYN11-A1
 
 <!-- solution-start -->
-**詳細解答**　[同期閾値の命題](#prop-cdyn11-locking-threshold)の条件 $|\Delta|<\kappa$ を確認します。$\sin D=\Delta/\kappa=1/2$ なので、円周上の解は $D=\pi/6$ と $D=5\pi/6$ です。$f'(D)=-\kappa\cos D$ に代入すると、
+**詳細解答**　[同期閾値と平衡位相差の分類](#prop-cdyn11-locking-threshold)の条件 $|\Delta|<\kappa$ を確認します。$\sin D=\Delta/\kappa=1/2$ なので、円周上の解は $D=\pi/6$ と $D=5\pi/6$ です。$f'(D)=-\kappa\cos D$ に代入すると、
 
 $$
 \begin{aligned}
@@ -621,7 +621,7 @@ D'=-\kappa\sin D&>0&<0
 \end{array}
 $$
 
-です。[引込み域の定理](#thm-cdyn11-capture-basin)を $a=0$、$u_{-1}=-\pi$、$u_0=\pi$ に適用すると、どちらの区間からも0へ収束します。[ODE1の局所存在・一意性](../ODE1/index.md#thm-ode1-picard-lindelof)により0を有限時間に通過することはありません。端点 $D(0)=\pm\pi$ は円周上で同じ不安定平衡点にとどまります。
+です。[狭義閾値内の安定性と引込み域](#thm-cdyn11-capture-basin)を $a=0$、$u_{-1}=-\pi$、$u_0=\pi$ に適用すると、どちらの区間からも0へ収束します。[ODE1の局所存在・一意性](../ODE1/index.md#thm-ode1-picard-lindelof)により0を有限時間に通過することはありません。端点 $D(0)=\pm\pi$ は円周上で同じ不安定平衡点にとどまります。
 <!-- solution-end -->
 
 ### A3. 閾値ちょうどの速度
@@ -686,7 +686,7 @@ $$
 =(-5\pi/6,7\pi/6).
 $$
 
-[引込み域の定理](#thm-cdyn11-capture-basin)により、この区間内の全ての初期値は $-\pi/6$ へ収束します。線形化の減衰率は $\sqrt{\kappa^2-\Delta^2}=\sqrt3$ です。
+[狭義閾値内の安定性と引込み域](#thm-cdyn11-capture-basin)により、この区間内の全ての初期値は $-\pi/6$ へ収束します。線形化の減衰率は $\sqrt{\kappa^2-\Delta^2}=\sqrt3$ です。
 <!-- solution-end -->
 
 ### B1. 全域の符号表を作る
@@ -697,7 +697,7 @@ $\kappa>0$、$-\kappa<\Delta<\kappa$ とし、$a=\arcsin(\Delta/\kappa)$ とす�
 - ID: CDYN11-B1
 
 <!-- solution-start -->
-**詳細解答**　[同期閾値の命題](#prop-cdyn11-locking-threshold)から平衡点は
+**詳細解答**　[同期閾値と平衡位相差の分類](#prop-cdyn11-locking-threshold)から平衡点は
 
 $$
 -\pi-a<a<\pi-a
@@ -861,7 +861,7 @@ s_0=\pi/6,\qquad u_0=5\pi/6,
 \qquad u_{-1}=5\pi/6-2\pi=-7\pi/6.
 $$
 
-[引込み域の定理](#thm-cdyn11-capture-basin)により、$s_0$ への引込み区間は
+[狭義閾値内の安定性と引込み域](#thm-cdyn11-capture-basin)により、$s_0$ への引込み区間は
 
 $$
 (-7\pi/6,5\pi/6)
