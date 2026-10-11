@@ -47,7 +47,7 @@ chapters:
     title: 弱結合振動子から位相差方程式へ
   - id: CDYN11
     path: textbook/volumes/00_foundations/CDYN11
-    status: planned
+    status: completed
     title: 二振動子の位相同期と引込み域
   - id: CDYN12
     path: textbook/volumes/00_foundations/CDYN12
