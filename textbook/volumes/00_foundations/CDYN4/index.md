@@ -561,29 +561,79 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-(a) $r^2=x^2+y^2$ とすると $(r^2)'=2xx'+2yy'=2ar^2(1-r^2)$。
+(a) $r^2=x^2+y^2$ を時間微分し、運動方程式を代入すると
 
-$r>0$ で $2rr'=2ar^2(1-r^2)$ を $2r$ で割り、$r'=ar(1-r^2)$。
+$
+\frac{d}{dt}(r^2)
+=2xx'+2yy'
+=2ar^2(1-r^2)
+$
+
+です。
+
+$r>0$ なので $2r$ で割ることができ、
+
+$
+2rr'=2ar^2(1-r^2)
+\quad\Longrightarrow\quad
+r'=ar(1-r^2)
+$
+
+を得ます。
 
 偏角の微分は $(xy'-yx')/r^2=\omega$。
 
 従って $r=1$ は不変、$\gamma(t)=(\cos\omega t,\sin\omega t)$ が周期解で、$\omega>0$ により最小正周期は $T=2\pi/\omega$ です。
 
-(b) $g'(r)=a(1-3r^2)$ なので $g'(1)=-2a$。
+(b) 半径方程式の右辺 $g(r)=ar(1-r^2)$ を微分すると
 
-角度方程式は $r$ に依存せず、$\eta=\delta r,\zeta=\delta\theta$ に対し $\eta'=-2a\eta,\ \zeta'=0$。
+$
+g'(r)=a(1-3r^2),\qquad g'(1)=-2a
+$
+
+です。
+
+角度方程式は $r$ に依存しません。半径・角度の変分を $\eta=\delta r$、$\zeta=\delta\theta$ とおけば
+
+$
+\eta'=-2a\eta,\qquad \zeta'=0
+$
+
+となります。
 
 解は $\eta(t)=e^{-2at}\eta_0$、$\zeta(t)=\zeta_0$。
 
 初期点と一周後では $e_r,e_\theta$ が一致します。
 
-従って $M=\operatorname{diag}(e^{-2aT},1)$、乗数は $e^{-4\pi a/\omega},1$ です。
+初期点と一周後で同じ基底を用いると、モノドロミー行列とその乗数は
+
+$
+M=\operatorname{diag}(e^{-2aT},1),\qquad
+\mu_1=e^{-4\pi a/\omega},\quad \mu_2=1
+$
+
+です。
 
 (c) 第一成分を $x$ で微分すると $a(1-r^2)-2ax^2$、第二成分を $y$ で微分すると $a(1-r^2)-2ay^2$。
 
-和は $2a(1-r^2)-2ar^2=2a-4ar^2$。
+二つを足すと発散は
 
-周期軌道は $r=1$ なので一周の積分は $\int_0^T(-2a)dt=-2aT$。
+$
+\operatorname{div}F
+=2a(1-r^2)-2ar^2
+=2a-4ar^2
+$
+
+となります。
+
+周期軌道上では $r=1$ だから、一周期にわたる発散の積分は
+
+$
+\int_0^T \operatorname{div}F(\gamma(t))\,dt
+=\int_0^T(-2a)\,dt=-2aT
+$
+
+です。
 
 指数を取れば $\exp(-2aT)$ となり、(b) の非自明乗数と一致します。
 
