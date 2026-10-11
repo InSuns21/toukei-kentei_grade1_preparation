@@ -631,13 +631,13 @@ u_j^{n+1}
 =u_j^n+\Delta tD(u_{j+1}^n-2u_j^n+u_{j-1}^n).
 $$
 
-この離散時間の更新は、各波を
+[有限Fourierモードの固有値](#thm-cdyn14-fourier-modes)をこの更新式へ代入すると、各波を
 
 $$
 g_k=1-4\Delta tD\sin^2(\pi k/N)
 $$
 
-倍にします。元の連続時間の倍率は
+倍にします。一方、[線形格子の明示解](#thm-cdyn14-modal-decay)から、元の連続時間の倍率は
 
 $$
 e^{-4Dt\sin^2(\pi k/N)}
@@ -892,7 +892,7 @@ $$
 - ID: CDYN14-B4
 
 <!-- solution-start -->
-**詳細解答**　更新式は $u^{n+1}=(I+\Delta tDL)u^n$ です。交互モードでは $Lu=-4u$ だから、
+**詳細解答**　更新式は $u^{n+1}=(I+\Delta tDL)u^n$ です。[有限Fourier直交性と格子モードの固有値](#thm-cdyn14-fourier-modes)により交互モードでは $Lu=-4u$ だから、
 
 $$
 u^{n+1}=(1-4\Delta tD)u^n.
@@ -945,7 +945,7 @@ $$
 \sin^2(\pi/2)=1.
 $$
 
-よって $\lambda_k=\rho-4D\sin^2(\pi k/6)$ に $D=2,\rho=1$ を入れ、
+よって[格子の増減率公式](#thm-cdyn14-modal-decay)で $\lambda_k=\rho-4D\sin^2(\pi k/6)$ に $D=2,\rho=1$ を入れ、
 
 $$
 \lambda_0=1,\qquad
@@ -953,7 +953,7 @@ $$
 \lambda_3=1-8=-7.
 $$
 
-**(2)**　各波に対応する指数因子を掛けて足し戻すと、
+**(2)**　[格子モードの明示解](#thm-cdyn14-modal-decay)に従い、各波へ指数因子を掛けて足し戻すと、
 
 $$
 \boxed{\;
@@ -975,7 +975,7 @@ w_j(t)=u_j(t)-\bar u(t)
 =2e^{-t}\cos(2\pi j/6)-e^{-7t}(-1)^j.
 $$
 
-異なるFourierモードは直交するため交差項は0です。$j=0,\ldots,5$ について余弦の二乗和が3、$(-1)^{2j}=1$ の和が6であることから、
+[有限Fourier直交性](#thm-cdyn14-fourier-modes)により、異なるモード間の二乗和の交差項は0です。$j=0,\ldots,5$ について余弦の二乗和が3、$(-1)^{2j}=1$ の和が6であることから、
 
 $$
 \begin{aligned}

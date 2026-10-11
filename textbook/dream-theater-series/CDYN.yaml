@@ -63,5 +63,5 @@ chapters:
     title: 結合振動子格子と空間モード
   - id: CDYN15
     path: textbook/volumes/00_foundations/CDYN15
-    status: planned
+    status: completed
     title: 周期・分岐・同期・速遅・結合の総合

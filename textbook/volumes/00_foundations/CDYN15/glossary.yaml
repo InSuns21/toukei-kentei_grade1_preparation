@@ -1,0 +1,17 @@
+chapter: "CDYN15"
+terms:
+  - term: 有限時間追従
+    english: finite-time tracking
+    meaning: "固定した有限時間区間における位相の近似とその誤差収束。"
+  - term: 漸近位相固定
+    english: asymptotic phase locking
+    meaning: "位相差が時間とともに一定の位相差へ近づく現象。"
+  - term: 横方向のFloquet乗数
+    english: transverse Floquet multiplier
+    meaning: "周期運動に垂直な微小ずれが一周期で受ける倍率。"
+  - term: 高周波モード
+    english: high-frequency mode
+    meaning: "離散格子上で隣り合う成分が素早く変化する空間波。"
+  - term: 前進Euler法
+    english: forward Euler method
+    meaning: "常微分方程式の時間を離散化する一段の数値更新法。"

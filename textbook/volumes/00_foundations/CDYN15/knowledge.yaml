@@ -1,0 +1,43 @@
+chapter: CDYN15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CDYN14
+  - CDYN11
+  - CDYN4
+  - DYN15
+forward_references:
+  - pde.pde1-partial-differential-equation
+concepts:
+  - id: continuous-dynamical-systems.finite-time-tracking
+    name: 有限時間追従
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限時間追従と漸近位相固定）"]
+    requires: [continuous-dynamical-systems.finite-time-locking-scope]
+  - id: continuous-dynamical-systems.asymptotic-phase-locking
+    name: 漸近位相固定
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限時間追従と漸近位相固定）"]
+    requires: [continuous-dynamical-systems.finite-time-tracking]
+  - id: continuous-dynamical-systems.radial-branch-multiplier
+    name: 平面振動子の周期軌道発生と横方向乗数
+    kind: theorem
+    introduction_aliases: ["定理（平面振動子の周期軌道発生と横方向乗数）"]
+    requires: [continuous-dynamical-systems.tangent-unit-multiplier]
+  - id: continuous-dynamical-systems.finite-not-uniform
+    name: 有限時間の追従は全時刻の位相固定を含意しない
+    kind: proposition
+    introduction_aliases: ["命題（有限時間の追従は全時刻の位相固定を含意しない）"]
+    requires: [continuous-dynamical-systems.finite-time-tracking]
+  - id: continuous-dynamical-systems.fast-mode-nonuniform
+    name: 速遅追従の非一様性を示すモード模型
+    kind: theorem
+    introduction_aliases: ["定理（速遅追従の非一様性を示すモード模型）"]
+    requires: [continuous-dynamical-systems.ring-fourier, continuous-dynamical-systems.fast-slow-tracking]
+  - id: continuous-dynamical-systems.euler-grid-obstruction
+    name: 格子細分化と固定時間刻みの安定性障害
+    kind: theorem
+    introduction_aliases: ["定理（格子細分化と固定時間刻みの安定性障害）"]
+    requires: [continuous-dynamical-systems.ring-modal-decay, continuous-dynamical-systems.ring-fixed-mode-limit]
