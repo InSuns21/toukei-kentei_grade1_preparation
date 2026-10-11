@@ -102,6 +102,14 @@ A4/B3/C1 は**下限であって目標値・上限ではない**。最低数に�
 
 監査対象がない初回などは理由を明記する。重大な未解消指摘や監査漏れがあるなら次章も完了扱いにしない。具体的な手順と証拠は `textbook/DREAM_THEATER_AUTHORING_STANDARD.md` 第10.3節を正本とする。
 
+## 次章執筆と直前章の追跡監査
+
+継続して新章を執筆する際は、その章の必須自己査読・別観点再査読と併せて、**直前完了章の追跡監査**をデフォルトで実施する。`textbook/dream-theater-work.yaml` の `review_handoff`・`completed_through` と系列 manifest から監査対象を確定し、章番号だけで推定しない。
+
+直前章の主要証明・全演習解答を再計算し、2〜4手の行間飛躍、仮定・定義域・符号・添字、数式の別行配置とインライン過密、既出結果の**使用箇所から実在 stable anchor へのリンク**を人手で点検する。欠陥は原則として新章と同じPRで修正し、前章を変更した場合も変更章の全件査読ゲートを通す。新章のPRには直前章の確認箇所・計算根拠・リンク調査・指摘修正・未確認事項を別枠で記録する。重大な未解消指摘や監査漏れがあれば次章も完了扱いにしない。対象が存在しない場合は理由を記す。
+
+具体的な査読手順は `textbook/DREAM_THEATER_AUTHORING_STANDARD.md` 第10.3節を正本とする。
+
 ## 検証
 
 leaf chapter の通常PRでは changed-only validation を原則とする。global index、knowledge DAG、規約、validator、workflow等の全体波及変更では full audit を行う。
