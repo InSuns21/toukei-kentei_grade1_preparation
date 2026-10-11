@@ -11,7 +11,7 @@
 <a id="def-dyn12-language"></a>
 
 <!-- formal-statement-start -->
-### 定義（長さ $n$ の生成語と言語）
+### 定義（長さnの生成語と言語）
 
 $X=\{0,1\}^{\mathbb N_0}$、$Y\subset X$ とする。$n\ge1$ に対して $Y$ から生成される長さ $n$ の接頭語集合とその個数を
 
@@ -61,7 +61,7 @@ $$
 <a id="def-dyn12-bowen"></a>
 
 <!-- formal-statement-start -->
-### 定義（観測距離と $(n,\varepsilon)$-分離集合）
+### 定義（観測距離と分離集合）
 
 $X$ にDYN11の接頭一致距離 $d$ を入れ、左シフト $\sigma$ を考える。整数 $n\ge1$ に対して
 
@@ -233,7 +233,7 @@ $$
 <a id="prop-dyn12-qshift"></a>
 
 <!-- formal-statement-start -->
-### 命題（$q$ 文字全シフトのエントロピー）
+### 命題（q文字全シフトのエントロピー）
 
 $|A|=q\ge2$ とし、$X_q=A^{\mathbb N_0}$ に最初の相違添字 $r$ に基づく距離 $2^{-r}$ を入れる。左シフト $\sigma_q$ について、すべての $n\ge1,k\ge0$ で
 
