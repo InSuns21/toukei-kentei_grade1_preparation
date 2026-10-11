@@ -59,7 +59,7 @@ chapters:
     title: 区間のhorseshoe・全シフトへの符号化
   - id: DYN14
     path: textbook/volumes/00_foundations/DYN14
-    status: planned
+    status: completed
     title: 二次元の双曲線形模型・安定方向と不安定方向
   - id: DYN15
     path: textbook/volumes/00_foundations/DYN15
