@@ -378,7 +378,7 @@ $$
 
 逆向きも同様に合成が恒等写像になります。
 
-次に $\alpha_q\in T^*Q$ と $V\in T_{\alpha_q}(T^*Q)$ を固定し、$\beta_{f(q)}=\widehat f(\alpha_q)$ と置きます。[合成写像の微分公式](../GEO2/index.md#thm-geo2-composition-differential)を $\pi_R\circ\widehat f=f\circ\pi_Q$ に適用すると
+次に $\alpha_q\in T^*Q$ と $V\in T_{\alpha_q}(T^*Q)$ を固定し、$\beta_{f(q)}=\widehat f(\alpha_q)$ と置きます。[多様体上の連鎖律](../GEO2/index.md#thm-geo2-composition-differential)を $\pi_R\circ\widehat f=f\circ\pi_Q$ に適用すると
 
 $$
 d\pi_R|_{\beta}\circ d\widehat f|_{\alpha}
@@ -434,7 +434,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$q\in Q$、$\alpha_q\in T_q^*Q$ を取ります。[合成写像の微分公式](../GEO2/index.md#thm-geo2-composition-differential)から
+$q\in Q$、$\alpha_q\in T_q^*Q$ を取ります。[多様体上の連鎖律](../GEO2/index.md#thm-geo2-composition-differential)から
 
 $$
 d(g\circ f)_q=dg_{f(q)}\circ df_q
@@ -587,7 +587,7 @@ $$
 \theta(V)=3\,dq(2\partial_q+5\partial_p)=3\cdot2=6.
 $$
 
-[正準2形式の定理](#thm-sym3-cotangent-symplectic)から $\omega_{\mathrm{can}}=dq\wedge dp$ であり、
+[余接束の正準シンプレクティック形式](#thm-sym3-cotangent-symplectic)から $\omega_{\mathrm{can}}=dq\wedge dp$ であり、
 
 $$
 \begin{aligned}
@@ -893,7 +893,7 @@ $$
 
 二式を比較して $F^*\theta_R=\theta_Q+\pi_Q^*d((Q^1Q^2)\circ f)$ を確認しました。$\pi_Q^*$ は基点の形式を余接束に引き上げる記号です。
 
-**(3)**　$f$ は微分同相、$\widehat f$ は[余接持ち上げの保存定理](#thm-sym3-cotangent-lift-preserves)により微分同相です。$T_\sigma$ も滑らかな逆写像 $T_{-\sigma}$ を持ちます。外微分と引き戻しを交換し、$d^2=0$ を使うと
+**(3)**　$f$ は微分同相、$\widehat f$ は[余接持ち上げは正準1形式を保存する](#thm-sym3-cotangent-lift-preserves)により微分同相です。$T_\sigma$ も滑らかな逆写像 $T_{-\sigma}$ を持ちます。外微分と引き戻しを交換し、$d^2=0$ を使うと
 
 $$
 \begin{aligned}
@@ -912,7 +912,7 @@ $$
 d\tau=dQ^1\wedge dQ^2\ne0.
 $$
 
-[平行移動の保存判定](#thm-sym3-translation-criterion)と[余接持ち上げの保存定理](#thm-sym3-cotangent-lift-preserves)から
+[平行移動が正準形式を保存する条件](#thm-sym3-translation-criterion)を $T_\tau$ に適用します。さらに、[余接持ち上げは正準1形式を保存する](#thm-sym3-cotangent-lift-preserves)ことを $\widehat f$ に用いると
 
 $$
 \begin{aligned}
