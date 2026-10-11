@@ -1,0 +1,47 @@
+id: "CDYN15"
+title: "周期・分岐・同期・速遅・結合の総合"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CDYN14
+  - CDYN11
+  - CDYN4
+  - DYN15
+official_scope: []
+learning_objectives:
+  - 連続時間の周期軌道と離散時刻写像の固定点を区別し、定理適用の対象・時間範囲を明記できる
+  - 平面振動子の極座標から周期軌道の発生と横方向Floquet乗数を完全に導ける
+  - 平均位相差の同期閾値と有限時間の近似から得られない無限時間結論を区別できる
+  - 明示速遅系の積分因子から追従誤差を導き高周波入力への非一様性を証明できる
+  - 有限周期格子の高周波モードと前進Euler法の安定条件を導きPDE極限との証明境界を説明できる
+  - 周期・位相・速遅・格子の独立モデルを一問で総合し仮定と結論の適用範囲を検査できる
+definitions:
+  - { id: CDYN15-DEF-01, name: 有限時間追従と漸近位相固定 }
+theorems:
+  - { id: CDYN15-THM-01, name: 平面振動子の周期軌道発生と横方向乗数 }
+  - { id: CDYN15-PROP-01, name: 有限時間の追従は全時刻の位相固定を含意しない }
+  - { id: CDYN15-THM-02, name: 速遅追従の非一様性を示すモード模型 }
+  - { id: CDYN15-THM-03, name: 格子細分化と固定時間刻みの安定性障害 }
+canonical_examples:
+  - 半径三次・角速度一定の平面系と周期軌道の消失
+  - 正弦位相差模型の安定点と不安定点
+  - 有限時間に小さい位相ドリフトが長時間で蓄積する例
+  - 共鳴する速遅追従と高周波入力の初期層
+  - 交互格子モードでのEuler倍率の発散
+  - 六点格子の平均不安定と平均零減衰
+problem_patterns:
+  - CDYN15-RADIAL-MULTIPLIER
+  - CDYN15-LOCKING-THRESHOLD
+  - CDYN15-INITIAL-LAYER
+  - CDYN15-HIGH-MODE-EULER
+  - CDYN15-FIXED-SPATIAL-MODE
+  - CDYN15-RADIAL-GLOBAL
+  - CDYN15-FINITE-TIME-QUANTIFIERS
+  - CDYN15-FAST-MODE-RESONANCE
+  - CDYN15-GRID-STABILITY
+  - CDYN15-TIME-MAP-FIXED-POINT
+  - CDYN15-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 5, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 6.0, review: 2.0 }
