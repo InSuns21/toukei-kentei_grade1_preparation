@@ -1,0 +1,33 @@
+chapter: CDYN1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ODE8
+  - DYN7
+concepts:
+  - id: continuous-dynamical-systems.time-map
+    name: 大域流の時刻写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（大域流の時刻写像）"]
+    requires: [ode.ode8-flow, ode.ode8-flow-law]
+  - id: continuous-dynamical-systems.time-map-inverse
+    name: 時刻写像の可逆性
+    kind: proposition
+    introduction_aliases: ["命題（時刻写像の可逆性）"]
+    requires: [continuous-dynamical-systems.time-map, ode.ode8-flow-law]
+  - id: continuous-dynamical-systems.order-preservation
+    name: 一次元の大域流は順序を保存する
+    kind: theorem
+    introduction_aliases: ["定理（一次元の大域流は順序を保存する）"]
+    requires: [continuous-dynamical-systems.time-map-inverse]
+  - id: continuous-dynamical-systems.positive-time-derivative
+    name: 一次元時刻写像の導関数の正値性
+    kind: theorem
+    introduction_aliases: ["定理（一次元時刻写像の導関数の正値性）"]
+    requires: [ode.ode8-flow-variational, continuous-dynamical-systems.time-map]
+  - id: continuous-dynamical-systems.scalar-no-periodic-orbit
+    name: 実直線の一次元自律ODEに非定常周期解はない
+    kind: theorem
+    introduction_aliases: ["定理（実直線の一次元自律ODEに非定常周期解はない）"]
+    requires: [ode.ode8-maximal-solution]
