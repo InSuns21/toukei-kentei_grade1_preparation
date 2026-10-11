@@ -77,7 +77,7 @@ $$
 
 ## 3. 半径が長時間にわたって円を離れない
 
-[CDYN9の有限固定時間の位相縮約](../CDYN9/index.md#thm-cdyn9-finite-phase-reduction)は、区間長を固定して半径を抑えました。ここで必要な $L/\varepsilon$ 区間にその誤差定数を流用することはできません。代わりに半径方向の一様な収縮を使います。
+[CDYN9の有限固定時間の位相近似](../CDYN9/index.md#thm-cdyn9-finite-phase-reduction)は、区間長を固定して半径を抑えました。ここで必要な $L/\varepsilon$ 区間にその誤差定数を流用することはできません。代わりに半径方向の一様な収縮を使います。
 
 <a id="prop-cdyn10-radial-bound"></a>
 
@@ -288,7 +288,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$F=(F_1,F_2)$、$\overline F=(\overline F_1,\overline F_2)$ とし、$g(s,u)=F(s,u)-\overline F(u)$ と置きます。[一周期平均の命題](#prop-cdyn10-period-average)により、すべての $u\in\mathbb R^2$ について
+$F=(F_1,F_2)$、$\overline F=(\overline F_1,\overline F_2)$ とし、$g(s,u)=F(s,u)-\overline F(u)$ と置きます。[水平結合の一周期平均](#prop-cdyn10-period-average)により、すべての $u\in\mathbb R^2$ について
 
 $$
 \int_0^{2\pi}g(s,u)\,ds=0.
@@ -546,7 +546,7 @@ $u,v,\alpha$ を固定し、$s$ の $2\pi$ 平均で $\sin(s+u)\cos(s+u)$ と $\
 - ID: CDYN10-A2
 
 <!-- solution-start -->
-**詳細解答**　積和公式により
+**詳細解答**　三角関数の積を和へ展開すると
 
 $$
 \sin(s+u)\cos(s+u)=\tfrac12\sin(2s+2u),
@@ -744,7 +744,7 @@ $$
 \le2(8\varepsilon+8\varepsilon)=32\varepsilon.
 $$
 
-**(2)**　[一周期平均の命題](#prop-cdyn10-period-average)へ代入すると
+**(2)**　[水平結合の一周期平均](#prop-cdyn10-period-average)へ代入すると
 
 $$
 \frac{du_1}{d\tau}=\sin(u_2-u_1),
