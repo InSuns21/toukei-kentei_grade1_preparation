@@ -1,0 +1,44 @@
+chapter: CDYN12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CDYN11
+  - ODE9
+concepts:
+  - id: continuous-dynamical-systems.kuramoto-complex-order
+    name: 複素秩序変数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限系の複素秩序変数）"]
+    requires: [continuous-dynamical-systems.averaged-phase-locking]
+  - id: continuous-dynamical-systems.kuramoto-order-identities
+    name: 秩序度の範囲と結合項の表示
+    kind: proposition
+    introduction_aliases: ["命題（秩序度の範囲と結合項の表示）"]
+    requires: [continuous-dynamical-systems.kuramoto-complex-order]
+  - id: continuous-dynamical-systems.kuramoto-potential
+    name: 有限対称Kuramotoポテンシャル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限対称Kuramotoポテンシャル）"]
+    requires: [ode.ode9-lyapunov-function, continuous-dynamical-systems.kuramoto-order-identities]
+  - id: continuous-dynamical-systems.kuramoto-gradient-dissipation
+    name: 勾配系表示と散逸恒等式
+    kind: theorem
+    introduction_aliases: ["定理（勾配系表示と散逸恒等式）"]
+    requires: [continuous-dynamical-systems.kuramoto-potential, continuous-dynamical-systems.kuramoto-order-identities]
+  - id: continuous-dynamical-systems.kuramoto-stationary-configurations
+    name: 平衡配置の分類と完全同期の反例
+    kind: proposition
+    introduction_aliases: ["命題（平衡配置の分類と完全同期の反例）"]
+    requires: [continuous-dynamical-systems.kuramoto-order-identities, continuous-dynamical-systems.kuramoto-gradient-dissipation]
+  - id: continuous-dynamical-systems.kuramoto-stationary-limit
+    name: 速度の消失と平衡集合への接近
+    kind: theorem
+    introduction_aliases: ["定理（速度の消失と平衡集合への接近）"]
+    requires: [continuous-dynamical-systems.kuramoto-gradient-dissipation, continuous-dynamical-systems.kuramoto-stationary-configurations]
+  - id: continuous-dynamical-systems.kuramoto-semicircle-synchronization
+    name: 開いた半円内からの完全同期
+    kind: theorem
+    introduction_aliases: ["定理（開いた半円内からの完全同期）"]
+    requires: [continuous-dynamical-systems.kuramoto-gradient-dissipation, continuous-dynamical-systems.kuramoto-order-identities]
