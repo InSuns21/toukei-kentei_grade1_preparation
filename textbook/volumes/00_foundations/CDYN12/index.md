@@ -16,12 +16,30 @@ $$
 
 と定めます。$j=i$ の項は $\sin0=0$ なので、自己結合は実質ありません。$1/N$ は振動子数が変わっても結合項の大きさを揃える規格化です。
 
-全位相から同じ $\omega t$ を差し引けば、共通回転が消えます。
+全位相から同じ $\omega t$ を差し引けば、共通回転が消えます。実数へ連続的に持ち上げた位相について
 
 $$
-\phi_i(t)=\theta_i(t)-\omega t,\qquad
-\phi_i'=\frac K N\sum_{j=1}^{N}\sin(\phi_j-\phi_i).
+\phi_i(t)=\theta_i(t)-\omega t
 $$
+
+と置くと、角度差と微分はそれぞれ
+
+$$
+\theta_j-\theta_i=\phi_j-\phi_i,\qquad
+\phi_i'=\theta_i'-\omega
+$$
+
+です。したがって、もとの方程式へ代入して
+
+$$
+\begin{aligned}
+\phi_i'
+&=\omega+\frac K N\sum_{j=1}^{N}\sin(\theta_j-\theta_i)-\omega\\
+&=\frac K N\sum_{j=1}^{N}\sin(\phi_j-\phi_i).
+\end{aligned}
+$$
+
+を得ます。別の持ち上げを選んでも各位相の差は $2\pi$ の整数倍しか変わらず、正弦は同じ値を取ります。
 
 以後、証明ではこの **回転座標の系** を用い、プライムは元の時間 $t$ による微分を表します。正弦は滑らかで、右辺の絶対値は $K$ 以下です。したがって実数への持ち上げで局所解は一意に存在し、有限時間で無限遠へ逃げられません。[ODE8の最大解の延長判定](../ODE8/index.md#thm-ode8-continuation)より、任意の初期位相から全時刻 $t\ge0$ で解が存在します。
 
@@ -92,28 +110,57 @@ $$
 \le\frac1N\sum_j|e^{\mathrm i\phi_j}|=1.
 $$
 
-さらに、$Z$ の絶対値を二乗すると
+上界の等号条件を確認するため、$Z$ とその複素共役の積を計算します。
 
 $$
 \begin{aligned}
-r^2
+r^2=Z\overline Z
 &=\frac1{N^2}\sum_{i,j}
 e^{\mathrm i(\phi_i-\phi_j)}\\
-&=\frac1{N^2}\sum_{i,j}\cos(\phi_i-\phi_j),\\
-1-r^2
-&=\frac1{2N^2}\sum_{i,j}
-|e^{\mathrm i\phi_i}-e^{\mathrm i\phi_j}|^2.
+&=\frac1{N^2}\sum_{i,j}
+\bigl(\cos(\phi_i-\phi_j)
++\mathrm i\sin(\phi_i-\phi_j)\bigr).
 \end{aligned}
 $$
 
-最後の等式では
+ここで添字 $i,j$ を交換すると正弦項は符号が反転するので、
 
 $$
-|e^{\mathrm i a}-e^{\mathrm i b}|^2
-=2-2\cos(a-b)
+\sum_{i,j}\sin(\phi_i-\phi_j)
+=\frac12\sum_{i,j}
+\bigl(\sin(\phi_i-\phi_j)+\sin(\phi_j-\phi_i)\bigr)
+=0.
 $$
 
-を各組に適用しました。各項は非負なので、$r=1$ ならすべての単位ベクトルが一致し、逆も成り立ちます。
+従って
+
+$$
+r^2=\frac1{N^2}\sum_{i,j}\cos(\phi_i-\phi_j).
+$$
+
+さらに単位複素数の差を二乗すると
+
+$$
+\begin{aligned}
+|e^{\mathrm i\phi_i}-e^{\mathrm i\phi_j}|^2
+&=(e^{\mathrm i\phi_i}-e^{\mathrm i\phi_j})
+(e^{-\mathrm i\phi_i}-e^{-\mathrm i\phi_j})\\
+&=2-2\cos(\phi_i-\phi_j).
+\end{aligned}
+$$
+
+この恒等式を二重和で足すと
+
+$$
+\begin{aligned}
+\frac1{2N^2}\sum_{i,j}
+|e^{\mathrm i\phi_i}-e^{\mathrm i\phi_j}|^2
+&=\frac1{N^2}\sum_{i,j}(1-\cos(\phi_i-\phi_j))\\
+&=1-r^2.
+\end{aligned}
+$$
+
+各項は非負です。$r=1$ なら全ての差の絶対値が0で、全位相の単位ベクトルが一致します。逆に全位相が一致すれば $Z$ は絶対値1の単位複素数なので $r=1$ です。
 
 運動方程式の和を一つ取り出すと、
 
@@ -266,10 +313,17 @@ $$
 =-\frac{KN}2\frac d{dt}r^2.
 $$
 
-二つを等置すれば秩序度の式を得ます。平方和が0となるのはすべての $\phi_i'=0$ のときだけであり、自律方程式の右辺が0、すなわち平衡点である条件と一致します。$\square$
+二つの表示を等置すると
+
+$$
+-\frac{KN}{2}\frac d{dt}r^2
+=-\sum_i(\phi_i')^2.
+$$
+
+$KN>0$ で割れば定理の秩序度の式です。$r\ge0$ かつ $r^2$ が非減少なので、$r$ 自身も非減少です。いずれの微分式でも等号が成立するのは平方和が0、すなわち全成分で $\phi_i'=0$ のときだけです。これは自律方程式の右辺がその配置で0になることに等しく、一意性よりその配置からの解は一定、つまり平衡解です。$\square$
 <!-- proof-end -->
 
-**何を意味するか**　同じ周波数と対称結合の条件のもとで、秩序度 $r$ は減りません。ただし $r^2$ が増加しない時刻に全位相が等しいとは限りません。次節で、減少が止まる配置を列挙します。固有周波数が異なる一般系に、この勾配表示を無条件には使用できません。
+**何を意味するか**　同じ周波数と対称結合の条件のもとで、秩序度 $r$ は減りません。ただし $r^2$ の増加が止まる配置でも、全位相が等しいとは限りません。次節では散逸が止まる配置を分類します。固有周波数が異なる一般系に、この勾配表示を無条件には使用できません。
 
 ## 4. 平衡点は完全同期以外にも存在する
 
@@ -358,11 +412,20 @@ $$
 \int_0^\infty\sum_i|\phi_i'(t)|^2\,dt<\infty.
 $$
 
-ここで速度 $g_i(t)=\phi_i'(t)$ を微分します。元の式に連鎖律を用いて
+ここで速度 $g_i(t)=\phi_i'(t)$ を微分します。正弦の引数とその時間微分は
 
 $$
-g_i'=\frac K N\sum_j
-\cos(\phi_j-\phi_i)(g_j-g_i).
+\frac d{dt}(\phi_j-\phi_i)=g_j-g_i
+$$
+
+なので、各結合項に連鎖律を適用すると
+
+$$
+\begin{aligned}
+g_i'
+&=\frac K N\sum_j\frac d{dt}\sin(\phi_j-\phi_i)\\
+&=\frac K N\sum_j\cos(\phi_j-\phi_i)(g_j-g_i).
+\end{aligned}
 $$
 
 $|g_i|\le K$ なので $|g_j-g_i|\le2K$ です。よって
@@ -387,7 +450,29 @@ $$
 h(t)\ge h(t_n)-M\delta\ge\eta/2.
 $$
 
-十分遠い時刻の部分列を選び、区間 $[t_n-\delta,t_n+\delta]$ を互いに交わらないようにできます。各区間での積分は少なくとも $\eta\delta$ ですから、無限個足すと $\int_0^\infty h(t)\,dt=\infty$ となり矛盾します。従って $h(t)\to0$ です。
+$t_n\to\infty$ なので、必要なら部分列を取り直し、$t_1>\delta$ かつ
+
+$$
+t_{n+1}-t_n>2\delta
+$$
+
+となるようにできます。すると $I_n=[t_n-\delta,t_n+\delta]$ は $[0,\infty)$ 内で互いに交わらず、各区間で
+
+$$
+\int_{I_n}h(t)\,dt
+\ge\frac{\eta}{2}|I_n|
+=\eta\delta.
+$$
+
+従って任意の整数 $m\ge1$ について
+
+$$
+\int_0^\infty h(t)\,dt
+\ge\sum_{n=1}^{m}\int_{I_n}h(t)\,dt
+\ge m\eta\delta.
+$$
+
+$m\to\infty$ は積分有限性に矛盾します。従って $h(t)\to0$ です。
 
 円周位相の $N$ 個の積空間はコンパクトです。軌道の部分列が $\phi(t_n)\to\phi_*$（各成分を $2\pi$ を法として）となれば、右辺の連続性と $g_i(t_n)\to0$ から
 
@@ -396,7 +481,37 @@ $$
 \quad(i=1,\ldots,N)
 $$
 
-です。よって $\phi_*$ は平衡配置です。$\square$
+です。よって $\phi_*$ は平衡配置です。
+
+さらに「平衡集合へ接近する」という結論も確かめます。右辺を $F(\phi)$ と書き、
+
+$$
+E=\{\xi\in\mathbb T^N:F(\xi)=0\}
+$$
+
+を平衡集合とします。$F$ は連続なので $E$ は閉集合です。また、全位相が等しい配置は平衡なので $E$ は空ではありません。$\mathbb T^N$ はコンパクトですから $E$ もコンパクトです。
+
+仮に平衡集合までの距離が0へ近づかないなら、ある $\rho>0$ と $s_n\to\infty$ が存在して
+
+$$
+\operatorname{dist}(\phi(s_n),E)\ge\rho
+$$
+
+となります。コンパクト性から部分列を選べば $\phi(s_{n_k})\to\xi_*$ です。すでに示した集積点の議論で $\xi_*\in E$ だから、
+
+$$
+0\le\operatorname{dist}(\phi(s_{n_k}),E)
+\le d(\phi(s_{n_k}),\xi_*)\longrightarrow0
+$$
+
+です。ここで $d$ は円周の積空間の通常の距離です。これは $\rho$ の下界に矛盾し、
+
+$$
+\operatorname{dist}(\phi(t),E)\longrightarrow0
+\qquad(t\to\infty)
+$$
+
+が従います。この結論は単一の平衡点への収束より弱い主張です。$\square$
 <!-- proof-end -->
 
 この結論は[ODE9のLaSalleの原理](../ODE9/index.md#thm-ode9-lasalle)とも整合しますが、本章では速度の一様連続性を具体的に評価して証明しました。平衡集合には前節の非完全同期配置も入るため、この定理だけでは完全同期へ届きません。
