@@ -1,0 +1,47 @@
+id: "CDYN4"
+title: "周期変分方程式とFloquet乗数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CDYN3
+  - ODE8
+  - ODE11
+official_scope: []
+learning_objectives:
+  - 連続な線形系から正規化基本行列を構成し可逆性を一意性で証明できる
+  - 周期係数系のモノドロミー行列とFloquet乗数を定義し具体的に計算できる
+  - X(t+T)=X(t)Mおよび時刻原点の相似変換を解の一意性から証明できる
+  - C1自律系の非定常周期解について接線方向の乗数1を連鎖律から証明できる
+  - 自律系と単なる非自律周期係数系の仮定を区別できる
+  - 半径と角度の変分を計算し周期円の横方向の乗数と接線方向の乗数を特定できる
+  - ODE11の発散による平面乗数公式を具体的なベクトル場で検算できる
+  - 半径摂動が角度に流れ込む結合系のモノドロミー行列を積分で求められる
+  - 横方向の引込みと位相原点の差を区別し乗数が1の場合の判定限界を説明できる
+definitions:
+  - { id: CDYN4-DEF-01, name: 正規化基本行列 }
+  - { id: CDYN4-DEF-02, name: モノドロミー行列とFloquet乗数 }
+theorems:
+  - { id: CDYN4-THM-01, name: 基本行列の周期シフトと周回の累積 }
+  - { id: CDYN4-THM-02, name: 自律系の接線方向の乗数は1 }
+propositions:
+  - { id: CDYN4-PROP-01, name: 半径方向と接線方向の二つの乗数 }
+canonical_examples:
+  - 対角係数系の一周行列と乗数
+  - 半径と角度が分離した単位円振動子
+  - 半径変位から角度のずれが生じる環状領域の系
+  - 非自律周期係数で乗数1が存在しない例
+problem_patterns:
+  - CDYN4-CONSTANT-MONODROMY
+  - CDYN4-DIAGONAL-PERIODIC
+  - CDYN4-ROTATION
+  - CDYN4-TANGENT
+  - CDYN4-ITERATED-MULTIPLIER
+  - CDYN4-PERIOD-SHIFT-PROOF
+  - CDYN4-RADIAL-STABILITY
+  - CDYN4-NONAUTONOMOUS-COUNTEREXAMPLE
+  - CDYN4-RADIAL-PHASE-SHEAR
+  - CDYN4-PLANAR-OSCILLATOR-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 4.5, review: 2.0 }

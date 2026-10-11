@@ -1,0 +1,20 @@
+chapter: "CDYN4"
+terms:
+  - term: 正規化基本行列
+    english: normalized fundamental matrix
+    meaning: "線形系y'=A(t)yで初期値Iを持ち、各初期ベクトルの時刻tへの移動を表す行列X(t)。"
+  - term: モノドロミー行列
+    english: monodromy matrix
+    meaning: "周期Tを持つ線形係数系の正規化基本行列XについてX(T)で定義される一周期の線形移動。"
+  - term: Floquet乗数
+    english: Floquet multiplier
+    meaning: "モノドロミー行列の複素固有値。変分方程式の一周あたりの増幅・減衰を表す。"
+  - term: 接線方向の乗数
+    english: tangential multiplier
+    meaning: "自律系の非定常周期軌道でγ'(t)に対応する乗数1。時間位相をずらす摂動を表す。"
+  - term: 横方向の乗数
+    english: transverse multiplier
+    meaning: "周期軌道の進行方向とは別の線形変位に対応する乗数。平面では非自明なPoincaré乗数に対応する。"
+  - term: 周期変分方程式
+    english: periodic variational equation
+    meaning: "自律系の周期解γ(t)に沿って微分したy'=DF(γ(t))yのような周期係数線形方程式。"
