@@ -48,17 +48,17 @@ $$
 <!-- definition-example-start: def-cdyn15-tracking-locking -->
 **定義の確認**　次の二つの位相差の持上げを考えます。
 
-$
+$$
 D_\varepsilon(t)=\varepsilon t,\qquad \bar D(t)=0.
-$
+$$
 
 各固定 $L>0$ では、区間 $0\le t\le L$ の差の上限が $\varepsilon L\to0$ となるため、有限時間追従の定義を満たします。
 
 しかし、動く時刻 $t_\varepsilon=\pi/\varepsilon$ を代入すると、円周距離は
 
-$
+$$
 d_{\mathbb S^1}\bigl(D_\varepsilon(t_\varepsilon),\bar D(t_\varepsilon)\bigr)=\pi
-$
+$$
 
 です。円周上で $D_\varepsilon$ は回転し続けるため、全時刻の一様追従も定数への漸近位相固定も満たしません。
 <!-- definition-example-end -->
@@ -352,16 +352,16 @@ $$
 
 このモードを追う速い変数について、$a=1$ とし、
 
-$
+$$
 \varepsilon_N=\frac1{\lambda_N}=\frac1{4\kappa N^2},
 \qquad t_N=\varepsilon_N
-$
+$$
 
 と置きます。各 $N$ で解は存在しますが、[速遅モードの明示解](#thm-cdyn15-fast-mode)により、この時刻の誤差は
 
-$
+$$
 x_N(t_N)-y_N(t_N)=e^{-1}
-$
+$$
 
 です。[CDYN13の初期層評価](../CDYN13/index.md#thm-cdyn13-initial-layer-tracking)で入力の導関数に課した上界は、この族では $N$ に依存して増大します。したがって、その評価を $N$ に一様な評価へ読み替えることはできません。
 
@@ -491,11 +491,11 @@ $\kappa=2$、$\Delta=1$ の平均方程式 $D'=\Delta-\kappa\sin D$ の平衡点
 <!-- solution-start -->
 **詳細解答**　[同期閾値の命題](../CDYN11/index.md#prop-cdyn11-locking-threshold)の条件を先に確認すると、周波数差と結合強度は $|\Delta|=1<2=\kappa$ を満たします。平衡点では
 
-$
+$$
 1-2\sin D=0
 \quad\Longleftrightarrow\quad
 \sin D=\frac12.
-$
+$$
 
 したがって $[0,2\pi)$ の平衡点は $D=\pi/6$ と $D=5\pi/6$ です。
 
@@ -733,12 +733,12 @@ $$
 
 平均位相差の右辺を $g(D)=1-2\sin D$ と書いて微分すると、
 
-$
+$$
 \begin{aligned}
 g'(D_s)&=-2\cos(\pi/6)=-\sqrt3<0,\\
 g'(D_u)&=-2\cos(5\pi/6)=\sqrt3>0.
 \end{aligned}
-$
+$$
 
 よって平均模型では前者が安定、後者が不安定です。[CDYN11の引込み域定理](../CDYN11/index.md#thm-cdyn11-capture-basin)の条件 $|1|<2$ も満たします。元の弱結合系の永続同期は、これとは別途の証明を要します。
 
