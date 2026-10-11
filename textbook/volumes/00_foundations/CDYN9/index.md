@@ -617,10 +617,10 @@ $$
 \end{aligned}
 $$
 
-この不等式に $\varepsilon\|p\|\le\varepsilon P$ と $d=O(\varepsilon)$ を掛けることが、位相縮約誤差が二次になる理由です。
+この不等式に $\varepsilon\|p\|\le\varepsilon P$ と $d=O(\varepsilon)$ を掛けることが、位相方程式の近似誤差が二次になる理由です。
 <!-- solution-end -->
 
-### C1. 明示模型の漸近位相・衝撃応答・縮約
+### C1. 明示模型の漸近位相・衝撃応答・位相方程式
 
 $\lambda=1,c=1/2,\omega=5/2$ とし、初期値 $X(0)=(1,0)$ とする。
 
