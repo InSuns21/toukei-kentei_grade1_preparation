@@ -1,0 +1,14 @@
+chapter: "DYN8"
+terms:
+  - term: 軌道閉包
+    english: orbit closure
+    meaning: "前方軌道と、その軌道点列から近づける全極限点を合わせた閉集合。"
+  - term: 正の極限集合
+    english: omega-limit set
+    meaning: "全ての時刻N以後の軌道閉包の共通部分。無限大へ進む反復時刻列の極限全体。"
+  - term: 再帰点
+    english: recurrent point
+    meaning: "初期点自身が正の極限集合に属し、任意に遅い時刻で自身に近づける点。"
+  - term: 等号不変性
+    english: invariance with equality
+    meaning: "集合Aについてf(A)=Aが成り立つ性質。連続コンパクト系の正の極限集合で成立する。"

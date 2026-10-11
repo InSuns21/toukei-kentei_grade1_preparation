@@ -1,0 +1,49 @@
+chapter: DYN8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - DYN7
+concepts:
+  - id: dynamical-systems.orbit-closure
+    name: 軌道閉包
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（軌道閉包）"]
+    requires: [dynamical-systems.dense-forward-orbit]
+  - id: dynamical-systems.omega-limit
+    name: 正の極限集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正の極限集合）"]
+    requires: [dynamical-systems.orbit-closure]
+  - id: dynamical-systems.omega-sequence-criterion
+    name: 正の極限集合の列による判定
+    kind: lemma
+    introduction_aliases: ["補題（正の極限集合の列による判定）"]
+    requires: [dynamical-systems.omega-limit]
+  - id: dynamical-systems.omega-compactness
+    name: コンパクト空間における正の極限集合
+    kind: theorem
+    introduction_aliases: ["定理（コンパクト空間における正の極限集合）"]
+    requires: [dynamical-systems.omega-sequence-criterion]
+  - id: dynamical-systems.omega-invariance
+    name: 正の極限集合の等号不変性
+    kind: theorem
+    introduction_aliases: ["定理（正の極限集合の等号不変性）"]
+    requires: [dynamical-systems.omega-compactness, dynamical-systems.exact-invariance]
+  - id: dynamical-systems.recurrent-point
+    name: 再帰点
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（再帰点）"]
+    requires: [dynamical-systems.omega-limit]
+  - id: dynamical-systems.convergent-omega
+    name: 収束軌道の正の極限集合と再帰性
+    kind: proposition
+    introduction_aliases: ["命題（収束軌道の正の極限集合と再帰性）"]
+    requires: [dynamical-systems.recurrent-point, dynamical-systems.omega-sequence-criterion]
+  - id: dynamical-systems.rotation-omega
+    name: 周期軌道と無理回転の正の極限集合
+    kind: proposition
+    introduction_aliases: ["命題（周期軌道と無理回転の正の極限集合）"]
+    requires: [dynamical-systems.irrational-rotation-density, dynamical-systems.recurrent-point]
