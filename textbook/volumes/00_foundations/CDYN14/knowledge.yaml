@@ -1,0 +1,49 @@
+chapter: CDYN14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CDYN12
+  - CDYN13
+  - CELL5
+concepts:
+  - id: continuous-dynamical-systems.ring-laplacian
+    name: 有限周期格子の離散Laplace作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限周期格子の離散Laplace作用素）"]
+    requires: []
+  - id: continuous-dynamical-systems.ring-energy
+    name: 平均と離散エネルギー恒等式
+    kind: proposition
+    introduction_aliases: ["命題（平均と離散エネルギー恒等式）"]
+    requires: [continuous-dynamical-systems.ring-laplacian]
+  - id: continuous-dynamical-systems.ring-fourier
+    name: 有限Fourier直交性と格子モードの固有値
+    kind: theorem
+    introduction_aliases: ["定理（有限Fourier直交性と格子モードの固有値）"]
+    requires: [continuous-dynamical-systems.ring-laplacian]
+  - id: continuous-dynamical-systems.ring-modal-decay
+    name: 線形格子の明示解・減衰率・安定性
+    kind: theorem
+    introduction_aliases: ["定理（線形格子の明示解・減衰率・安定性）"]
+    requires: [continuous-dynamical-systems.ring-energy, continuous-dynamical-systems.ring-fourier]
+  - id: continuous-dynamical-systems.ring-phase-linearization
+    name: 最近接正弦結合の同期解と線形化
+    kind: proposition
+    introduction_aliases: ["命題（最近接正弦結合の同期解と線形化）"]
+    requires: [continuous-dynamical-systems.ring-laplacian, continuous-dynamical-systems.kuramoto-gradient-dissipation]
+  - id: continuous-dynamical-systems.ring-local-sync
+    name: 狭い位相幅からの格子同期
+    kind: theorem
+    introduction_aliases: ["定理（狭い位相幅からの格子同期）"]
+    requires: [continuous-dynamical-systems.ring-phase-linearization, continuous-dynamical-systems.ring-fourier, continuous-dynamical-systems.ring-energy]
+  - id: continuous-dynamical-systems.ring-directed-coupling
+    name: 方向付き最近接結合の固有値
+    kind: proposition
+    introduction_aliases: ["命題（方向付き最近接結合の固有値）"]
+    requires: [continuous-dynamical-systems.ring-fourier]
+  - id: continuous-dynamical-systems.ring-fixed-mode-limit
+    name: 固定モードの形式的連続極限
+    kind: proposition
+    introduction_aliases: ["命題（固定モードの形式的連続極限）"]
+    requires: [continuous-dynamical-systems.ring-modal-decay]
