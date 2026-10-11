@@ -34,6 +34,8 @@ $$
 <!-- definition-example-start: def-sym1-alternating-form -->
 ### 例：平面の向き付き面積
 
+**定義の確認**：以下で定義の条件を具体的に検証します。
+
 $V=\mathbb R^2$、$u=(x,y)^{\mathsf T}$、$v=(x',y')^{\mathsf T}$ として
 
 $$
@@ -63,10 +65,10 @@ $$
 > **定義（非退化交代形式）**  
 > 有限次元実ベクトル空間 $V$ 上の交代双線形形式 $\omega$ が、任意の $v\in V$ について
 >
-$
+$$
 \bigl[\omega(v,w)=0\ \text{が全ての }w\in V\text{ で成立}\bigr]
 \ \Longrightarrow\ v=0
-$
+$$
 >
 > を満たすとき、$\omega$ を非退化という。
 <!-- formal-statement-end -->
@@ -74,13 +76,15 @@ $
 <!-- definition-example-start: def-sym1-nondegenerate-form -->
 ### 例：面積形式の非退化性を調べる
 
+**定義の確認**：以下で定義の条件を具体的に検証します。
+
 先ほどの $\mathbb R^2$ 上の面積形式 $\omega_0$ を使います。$v=(x,y)$ が全ての $w$ に対して $\omega_0(v,w)=0$ を満たすとき、$w=(1,0)$ と $w=(0,1)$ を代入すると
 
-$
+$$
 \omega_0(v,(1,0))=-y=0,
 \qquad
 \omega_0(v,(0,1))=x=0.
-$
+$$
 
 従って $v=0$ であり、$\omega_0$ は非退化です。対照的に上記の三次元の形式では非零ベクトル $(0,0,1)$ が全ての相手と組にして零になるため、非退化ではありません。
 <!-- definition-example-end -->
@@ -96,6 +100,8 @@ $
 
 <!-- definition-example-start: def-sym1-symplectic-vector-space -->
 ### 例：平面がシンプレクティック空間になる
+
+**定義の確認**：以下で定義の条件を具体的に検証します。
 
 $(\mathbb R^2,\omega_0)$ では、最初の例で $\omega_0$ の双線形性と交代性を確認し、直前の例で非退化性も確認しました。よってこの組は定義を満たします。一方、三次元の退化形式を備えた組は定義を満たしません。
 <!-- definition-example-end -->
@@ -178,6 +184,8 @@ $$
 
 <!-- definition-example-start: def-sym1-symplectic-orthogonal -->
 ### 例：四次元で一対だけ残す
+
+**定義の確認**：以下で定義の条件を具体的に検証します。
 
 $\mathbb R^4$ の座標を $(q_1,q_2,p_1,p_2)$ とし、
 
@@ -294,6 +302,8 @@ $$
 <!-- definition-example-start: def-sym1-symplectic-basis -->
 ### 例：正準座標の基底
 
+**定義の確認**：以下で定義の条件を具体的に検証します。
+
 $\mathbb R^{2n}$ の標準基底を、最初の $n$ 個が $q$ 方向、後半の $n$ 個が $p$ 方向となるよう並べます。$\omega_0(u,v)=\sum_i(u_{q_i}v_{p_i}-u_{p_i}v_{q_i})$ では、同種の方向どうしでは零、$e_{q_i}$ と $e_{p_j}$ の組では $\delta_{ij}$ です。従って定義の三条件を全て満たします。
 <!-- definition-example-end -->
 
@@ -378,6 +388,8 @@ $$
 
 <!-- definition-example-start: def-sym1-symplectic-map -->
 ### 例：位置を伸ばし運動量を縮める
+
+**定義の確認**：以下で定義の条件を具体的に検証します。
 
 $a\in\mathbb R\setminus\{0\}$ とし、一対の座標で
 
