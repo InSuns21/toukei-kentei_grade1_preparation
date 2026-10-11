@@ -182,6 +182,10 @@ DYN13では離れた二枝の縮小逆写像から生存集合と片側全シフ
 
 DYN1–15の実装とCELL・ODEとの科目横断監査は完了しています。各科目の定理はそれぞれの正本を参照し、力学系 I の本文へ重複移植しません。
 
+### 力学系 II：ODEから振動と同期へ
+
+[**力学系 II：連続流・非線形振動・同期**](textbook/dream-theater.md#dt-subject-dynamical-systems-ii) は、ODE4・ODE8–11の流れ・変分方程式・Lyapunov・Poincaré写像・Hopf正規形を再利用する発展15講です。[CDYN1](textbook/volumes/00_foundations/CDYN1/index.md)で一次元時刻写像の可逆性・順序保存・正の乗数と非定常周期軌道の不可能性を証明し、次の章で平面の保存系・周期軌道から非線形振動、平均化、弱結合同期、速遅系と空間結合へ進みます。初講はODE8とDYN7を直接前提とし、未公開の章は科目目次には載せません。
+
 ## 応用系
 
 32. [**ミクロ経済学**](textbook/dream-theater.md#dt-subject-microeconomics)：消費者・生産者理論、厚生定理、一般均衡、顕示選好、Afriat の定理、期待効用、リスク回避、確率優越、異時点間選択、時間整合性を扱う。
