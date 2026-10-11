@@ -1,7 +1,7 @@
 version: 1
 id: DYN
 title: "力学系 I：離散力学・記号力学・カオス"
-plan: textbook/plans_progress/DREAM_THEATER_DYNAMICAL_SYSTEMS_COURSE_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_DYNAMICAL_SYSTEMS_COURSE_PLAN.md
 chapter_root: textbook/volumes/00_foundations
 
 chapters:
