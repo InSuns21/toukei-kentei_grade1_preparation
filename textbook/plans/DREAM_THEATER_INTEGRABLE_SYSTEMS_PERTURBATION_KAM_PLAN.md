@@ -37,7 +37,7 @@
 必須:
 
 - 解析力学 I（AMECH1--AMECH8）
-- [シンプレクティック幾何学I](DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md)のSYM1〜4（シンプレクティック形式、Hamilton流、Poisson構造）。全SYM8講を機械的に必須としない
+- [シンプレクティック幾何学I](../plans_progress/DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md)のSYM1〜4（シンプレクティック形式、Hamilton流、Poisson構造）。全SYM8講を機械的に必須としない
 - ODE の流れ・Poincare 写像
 - Fourier 級数の基本
 - 多変数解析
@@ -174,7 +174,7 @@ KAM の証明で使う解析的評価は必要な範囲を本文で補う。読�
 
 他系列を参照:
 
-- シンプレクティック多様体：[SYM](DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md)。運動量写像と簡約：[GMECH](DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md)。該当定理だけを直接前提にする
+- シンプレクティック多様体：[SYM](../plans_progress/DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md)。運動量写像と簡約：[GMECH](DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md)。該当定理だけを直接前提にする
 - generic invariant manifold / chaos / symbolic dynamics: 力学系
 - restricted three-body / solar system applications: CELE 系列
 - KdV / Toda / inverse scattering / Lax pair / soliton / discrete integrable systems: 将来の可積分 PDE・離散可積分系列
