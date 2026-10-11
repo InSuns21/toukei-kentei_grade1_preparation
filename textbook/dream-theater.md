@@ -186,6 +186,7 @@
 5. [CDYN5 強制振動・共振・減衰](textbook/volumes/00_foundations/CDYN5/index.md)
 6. [CDYN6 Duffing振動子のポテンシャルとセパラトリクス](textbook/volumes/00_foundations/CDYN6/index.md)
 7. [CDYN7 ゆっくり変わる振幅の平均化](textbook/volumes/00_foundations/CDYN7/index.md)
+8. [CDYN8 van der Pol振動子と振幅方程式](textbook/volumes/00_foundations/CDYN8/index.md)
 
 <a id="dt-subject-fourier-analysis"></a>
 ### Fourier 解析
