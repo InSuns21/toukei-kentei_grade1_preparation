@@ -1,0 +1,81 @@
+chapter: SYM3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GEO2
+  - GEO7
+  - SYM1
+  - SYM2
+forward_references: []
+
+concepts:
+  - id: symplectic.liouville-one-form
+    name: Liouville 1形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Liouville 1形式・正準1形式）]
+    aliases: [正準1形式]
+    requires: [geometry.cotangent-bundle, geometry.differential-form, geometry.differential]
+
+  - id: symplectic.liouville-coordinate
+    name: 正準1形式の局所表示と座標不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（正準1形式の局所表示と座標不変性）]
+    requires: [symplectic.liouville-one-form, geometry.cotangent-bundle]
+
+  - id: symplectic.cotangent-canonical-two-form
+    name: 余接束の正準2形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（余接束の正準2形式）]
+    requires: [symplectic.liouville-one-form, geometry.exterior-derivative]
+
+  - id: symplectic.cotangent-symplectic
+    name: 余接束の正準シンプレクティック形式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（余接束の正準シンプレクティック形式）]
+    requires: [symplectic.cotangent-canonical-two-form, symplectic.symplectic-manifold, geometry.exterior-derivative]
+
+  - id: symplectic.zero-section-fibers
+    name: 零切断とファイバーでの消失
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（零切断とファイバーでの消失）]
+    requires: [symplectic.liouville-one-form, symplectic.cotangent-canonical-two-form, geometry.pullback-commutes-exterior-derivative]
+
+  - id: symplectic.cotangent-lift
+    name: 余接持ち上げ
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（余接持ち上げ）]
+    requires: [geometry.cotangent-bundle, geometry.differential]
+
+  - id: symplectic.cotangent-lift-preservation
+    name: 余接持ち上げは正準1形式を保存する
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（余接持ち上げは正準1形式を保存する）]
+    requires: [symplectic.cotangent-lift, symplectic.liouville-one-form, geometry.pullback-commutes-exterior-derivative]
+
+  - id: symplectic.cotangent-lift-composition
+    name: 余接持ち上げの合成則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（余接持ち上げの合成則）]
+    requires: [symplectic.cotangent-lift, geometry.differential]
+
+  - id: symplectic.fiber-translation
+    name: 1形式によるファイバー平行移動
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（1形式によるファイバー平行移動）]
+    requires: [geometry.cotangent-bundle, geometry.differential-form]
+
+  - id: symplectic.fiber-translation-criterion
+    name: 平行移動が正準形式を保存する条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（平行移動が正準形式を保存する条件）]
+    requires: [symplectic.fiber-translation, symplectic.cotangent-symplectic, geometry.pullback-commutes-exterior-derivative]

@@ -1,0 +1,54 @@
+id: "SYM3"
+title: "余接束の正準シンプレクティック形式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEO2
+  - GEO7
+  - SYM1
+  - SYM2
+official_scope: []
+learning_objectives:
+  - 余接束の点の評価と射影の微分からLiouville 1形式を座標に依存せず定義できる
+  - 余ベクトルの逆転置Jacobian変換を計算して正準1形式の座標不変性を証明できる
+  - 正準2形式の符号を固定し、閉性と非退化性を局所座標で証明できる
+  - 零切断と各ファイバーで正準形式が消失する機構を引き戻しで説明できる
+  - 微分同相の余接持ち上げを構成し、正準1形式と正準2形式の保存・合成則を証明できる
+  - ファイバー平行移動がシンプレクティックであることと閉1形式との同値性を示せる
+  - 円周の余接束の大域例と非線形変換・平行移動の合成を検算できる
+definitions:
+  - { id: SYM3-DEF-01, name: Liouville 1形式・正準1形式 }
+  - { id: SYM3-DEF-02, name: 余接束の正準2形式 }
+  - { id: SYM3-DEF-03, name: 余接持ち上げ }
+  - { id: SYM3-DEF-04, name: 1形式によるファイバー平行移動 }
+theorems:
+  - { id: SYM3-PROP-01, name: 正準1形式の局所表示と座標不変性 }
+  - { id: SYM3-THM-01, name: 余接束の正準シンプレクティック形式 }
+  - { id: SYM3-PROP-02, name: 零切断とファイバーでの消失 }
+  - { id: SYM3-THM-02, name: 余接持ち上げは正準1形式を保存する }
+  - { id: SYM3-PROP-03, name: 余接持ち上げの合成則 }
+  - { id: SYM3-THM-03, name: 平行移動が正準形式を保存する条件 }
+canonical_examples:
+  - R上の評価と垂直方向の消失
+  - 余接座標の逆転置Jacobianと二次元の非線形座標変換
+  - ω=-dθと標準行列J、閉性と非退化性
+  - 零切断と各余接ファイバーの引き戻し
+  - 位置スケーリングの余接持ち上げ
+  - 閉1形式と閉じない1形式の平行移動
+  - S1の余接束の大域Liouville形式
+  - 非線形持ち上げとファイバー平行移動の合成
+problem_patterns:
+  - SYM3-EVALUATION
+  - SYM3-COORDINATE-INVARIANCE
+  - SYM3-NONDEGENERACY
+  - SYM3-ZERO-SECTION
+  - SYM3-LINEAR-LIFT
+  - SYM3-NONLINEAR-LIFT
+  - SYM3-TRANSLATION-CRITERION
+  - SYM3-LIFT-COMPOSITION
+  - SYM3-CIRCLE-COTANGENT
+  - SYM3-COMPOSITE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 2 }

@@ -631,6 +631,7 @@
 
 1. [SYM1 シンプレクティック線形代数](textbook/volumes/00_foundations/SYM1/index.md)
 2. [SYM2 シンプレクティック多様体と基本例](textbook/volumes/00_foundations/SYM2/index.md)
+3. [SYM3 余接束の正準シンプレクティック形式](textbook/volumes/00_foundations/SYM3/index.md)
 
 ## 代数系
 
