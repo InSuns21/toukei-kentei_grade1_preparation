@@ -31,7 +31,7 @@ concepts:
     name: 吸引円の二つのFloquet乗数
     kind: proposition
     introduction_aliases: ["命題（吸引円の二つのFloquet乗数）"]
-    requires: [continuous-dynamical-systems.phase-tracking, continuous-dynamical-systems.tangent-unit]
+    requires: [continuous-dynamical-systems.phase-tracking, continuous-dynamical-systems.tangent-unit-multiplier]
   - id: continuous-dynamical-systems.explicit-phase-response
     name: 位相応答ベクトル
     kind: definition
