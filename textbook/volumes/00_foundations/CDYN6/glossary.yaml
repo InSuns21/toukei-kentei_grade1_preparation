@@ -1,0 +1,23 @@
+chapter: "CDYN6"
+terms:
+  - term: Duffing振動子
+    english: Duffing oscillator
+    meaning: "線形項と三次非線形項を持つ復元力で運動する振動模型。ここでは外力と減衰を除いた保存系を扱う。"
+  - term: 二重井戸ポテンシャル
+    english: double-well potential
+    meaning: "二つの極小点と、それらを隔てる局所極大点を持つポテンシャル。本章では四次式で具体化する。"
+  - term: 転回点
+    english: turning point
+    meaning: "保存運動の速度が零になる位置。正則転回点ではエネルギー曲線を有限時間で折り返す。"
+  - term: 鞍点
+    english: saddle point
+    meaning: "線形化の固有値が正負に分かれ、近傍に接近する方向と離れる方向がある平衡点。"
+  - term: ホモクリニック軌道
+    english: homoclinic orbit
+    meaning: "非定常解が過去・未来の両方で同じ平衡点に近づく軌道。"
+  - term: セパラトリクス
+    english: separatrix
+    meaning: "質的に異なる運動領域を分ける軌道。保存Duffing振動子ではエネルギー零の二本の軌道が境界をなす。"
+  - term: 周期積分
+    english: period integral
+    meaning: "保存則から速度を位置の関数に直し、二転回点の往復時間を積分して求める周期の表示。"
