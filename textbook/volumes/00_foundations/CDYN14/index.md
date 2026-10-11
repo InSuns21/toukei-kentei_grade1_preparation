@@ -892,7 +892,7 @@ $$
 - ID: CDYN14-B4
 
 <!-- solution-start -->
-**詳細解答**　更新式は $u^{n+1}=(I+\Delta tDL)u^n$ です。[モード固有値公式](#thm-cdyn14-fourier-modes)により交互モードでは $Lu=-4u$ だから、
+**詳細解答**　更新式は $u^{n+1}=(I+\Delta tDL)u^n$ です。[有限Fourier直交性と格子モードの固有値](#thm-cdyn14-fourier-modes)により交互モードでは $Lu=-4u$ だから、
 
 $$
 u^{n+1}=(1-4\Delta tD)u^n.
