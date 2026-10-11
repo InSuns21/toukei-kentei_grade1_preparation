@@ -1,0 +1,54 @@
+chapter: CDYN13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CDYN8
+  - ODE8
+concepts:
+  - id: continuous-dynamical-systems.fast-slow-critical-manifold
+    name: 本模型の臨界多様体
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（本模型の臨界多様体）"]
+    requires: [continuous-dynamical-systems.vdp-amplitude-equation]
+  - id: continuous-dynamical-systems.fast-slow-layer
+    name: 凍結した速い層方程式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（凍結した速い層方程式）"]
+    requires: [continuous-dynamical-systems.fast-slow-critical-manifold]
+  - id: continuous-dynamical-systems.fast-slow-error-formula
+    name: 追従誤差の正確な積分表示
+    kind: lemma
+    introduction_aliases: ["補題（追従誤差の正確な積分表示）"]
+    requires: [continuous-dynamical-systems.fast-slow-layer]
+  - id: continuous-dynamical-systems.fast-slow-tracking
+    name: 初期層と有限時間の追従誤差
+    kind: theorem
+    introduction_aliases: ["定理（初期層と有限時間の追従誤差）"]
+    requires: [continuous-dynamical-systems.fast-slow-error-formula]
+  - id: continuous-dynamical-systems.fast-slow-fast-limit
+    name: 速い時間で見た初期層の極限
+    kind: theorem
+    introduction_aliases: ["定理（速い時間で見た初期層の極限）"]
+    requires: [continuous-dynamical-systems.fast-slow-tracking]
+  - id: continuous-dynamical-systems.fast-slow-nonuniform
+    name: 初期値の不整合と一様極限の失敗
+    kind: proposition
+    introduction_aliases: ["命題（初期値の不整合と一様極限の失敗）"]
+    requires: [continuous-dynamical-systems.fast-slow-fast-limit]
+  - id: continuous-dynamical-systems.fast-slow-first-order-lag
+    name: 遅れの一次補正と二次誤差
+    kind: theorem
+    introduction_aliases: ["定理（遅れの一次補正と二次誤差）"]
+    requires: [continuous-dynamical-systems.fast-slow-error-formula]
+  - id: continuous-dynamical-systems.fast-slow-affine-manifold
+    name: 一次関数の場合の正確な追従曲線
+    kind: proposition
+    introduction_aliases: ["命題（一次関数の場合の正確な追従曲線）"]
+    requires: [continuous-dynamical-systems.fast-slow-first-order-lag]
+  - id: continuous-dynamical-systems.fast-slow-no-periodic
+    name: 本模型に非定常周期解はない
+    kind: proposition
+    introduction_aliases: ["命題（本模型に非定常周期解はない）"]
+    requires: [continuous-dynamical-systems.fast-slow-layer]
