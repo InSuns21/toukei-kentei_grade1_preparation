@@ -716,7 +716,7 @@ u_j^{n+1}
 =u_j^n+\Delta tD(u_{j+1}^n-2u_j^n+u_{j-1}^n).
 $$
 
-[有限Fourierモードの固有値](#thm-cdyn14-fourier-modes)を、今の時間更新へ適用します。$u^n=a_nv^{(k)}$ とおくと、
+[有限Fourierモードの固有値](#thm-cdyn14-fourier-modes)を、今の時間更新へ適用します。$L$ は実行列なので、同じ式で複素ベクトルにも作用させられます。一つの複素波 $u^n=a_nv^{(k)}$ を計算し、実初期値の場合は共役な波を組み合わせて戻します。代入すると、
 
 $$
 \begin{aligned}
