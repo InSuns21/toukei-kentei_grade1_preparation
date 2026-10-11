@@ -8,7 +8,7 @@
 
 ## 1. 各接空間の面積を滑らかにつなぐ
 
-$M$ を空でない滑らかな実多様体とします。[接空間](../GEO2/index.md#def-geo2-tangent-space) $T_xM$ は各点 $x$ に付随する実ベクトル空間です。滑らかな2形式 $\omega$ は各点で交代双線形形式 $\omega_x:T_xM\times T_xM\to\mathbb R$ を与えます。
+$M$ を空でない滑らかな実多様体とします。[接空間](../GEO2/index.md#def-geo2-tangent-derivation) $T_xM$ は各点 $x$ に付随する実ベクトル空間です。滑らかな2形式 $\omega$ は各点で交代双線形形式 $\omega_x:T_xM\times T_xM\to\mathbb R$ を与えます。
 
 点ごとに[SYM1の非退化性](../SYM1/index.md#def-sym1-nondegenerate-form)を要求するだけなら線形代数で判定できます。しかし多様体として利用するには、形式の係数を微分したときにも整合性が必要です。ここで[外微分](../GEO7/index.md#def-geo7-exterior-derivative)が役立ちます。
 
@@ -232,13 +232,13 @@ $$
 S^2=\{x\in\mathbb R^3:\|x\|=1\}
 $$
 
-とします。[球面の接空間](../GEO2/index.md#prop-geo2-sphere-tangent)は
+とします。球面の[接ベクトルの曲線表示](../GEO2/index.md#def-geo2-curve-tangent)から $x\cdot x=1$ を微分すると、$2x\cdot u=0$ です。逆に $x\cdot u=0$ なら曲線 $\gamma(t)=(x+tu)/\|x+tu\|$ は球面上にあり、$\gamma'(0)=u$ です。したがって
 
-$$
+$
 T_xS^2=\{u\in\mathbb R^3:x\cdot u=0\}
-$$
+$
 
-です。各点で、三つのベクトルを列に並べた行列式を用い
+が成立します。各点で、三つのベクトルを列に並べた行列式を用い
 
 $$
 \sigma_x(u,v)=\det(x,u,v)
