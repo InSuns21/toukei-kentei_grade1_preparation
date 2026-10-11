@@ -29,13 +29,13 @@ x'+\frac a\varepsilon x
 =\frac a\varepsilon h(y_0+bt).
 $$
 
-従って各 $\varepsilon>0$ について、連続な既知の外力を受ける一次線形方程式です。連続な外力が有限区間で有界なため、積分因子を使った次節の公式で解を構成でき、同じ初期値の解の差は定数倍の $e^{-at/\varepsilon}$ になります。従って任意の初期値から全ての有限時刻まで解が一意に存在します。これは[ODE8の最大解の延長判定](../ODE8/index.md#thm-ode8-continuation)とも整合します。ここでの議論に一般の幾何学的特異摂動定理は必要ありません。
+従って各 $\varepsilon>0$ について、連続な既知の外力を受ける一次線形方程式です。連続な外力が有限区間で有界なため、積分因子を使った第3節の公式で解を構成でき、同じ初期値の解の差は定数倍の $e^{-at/\varepsilon}$ になります。従って任意の初期値から全ての有限時刻まで解が一意に存在します。これは[ODE8の最大解の延長判定](../ODE8/index.md#thm-ode8-continuation)とも整合します。ここでの議論に一般の幾何学的特異摂動定理は必要ありません。
 
 初期値が何であっても、$\varepsilon$ を形式的に0と置けば $x=h(y)$ が現れます。しかし初期値がその曲線に乗っていない場合、$t=0$ では式が成立しません。この差を直接追います。
 
 ## 2. 臨界多様体と速い時間
 
-小さな $\varepsilon$ によって、$x$ は $y$ に比べておよそ $1/\varepsilon$ 倍の速さで応答します。$x$ の右辺が消える点の集合を、まず幾何学的な目印として定義します。
+速い方程式を時間微分について解くと、右辺には係数 $a/\varepsilon$ が現れます。一方、$y'=b$ の速度は $\varepsilon$ を含みません。したがって $a>0$ が固定され、ずれ $x-h(y)$ が大きい間は短い時間尺度 $\varepsilon/a$ で応答します。ただし $x=h(y)$ 上では速い右辺は0となり、全時刻で $x'$ が常に $y'$ の $1/\varepsilon$ 倍という意味ではありません。速い右辺が消える点の集合を、まず幾何学的な目印として定義します。
 
 <a id="def-cdyn13-critical-manifold"></a>
 
@@ -294,7 +294,13 @@ $$
 <!-- formal-statement-start -->
 ### 定理（速い時間で見た初期層の極限）
 
-[初期層と追従誤差の定理](#thm-cdyn13-initial-layer-tracking)と同じ仮定のもとで、任意の固定した $S>0$ に対して
+$a>0$、$b\in\mathbb R$、$h\in C^1(\mathbb R)$、$T>0$ とし、$0<\varepsilon\le1$ に対する速遅系
+
+$$
+\varepsilon x'=-a(x-h(y)),\qquad y'=b
+$$
+
+の解を考える。初期値 $(x_0,y_0)$ は $\varepsilon$ に依存しないものとし、$q_0=x_0-h(y_0)$ と置く。任意の固定した $S>0$ に対して
 
 $$
 X_\varepsilon(\tau)=x(\varepsilon\tau),\qquad
@@ -311,7 +317,7 @@ Y_\varepsilon(\tau)&\longrightarrow y_0
 \end{aligned}
 $$
 
-となる。特に $q_0\ne0$ なら $t>0$ 固定の極限と、$t=\varepsilon\tau$ として見た極限は一致しない。
+となる。$q_0\ne0$ のとき、$t>0$ を固定した極限 $h(y_0+bt)$ と、$\tau\ge0$ を固定して $t=\varepsilon\tau$ とした初期層の極限 $h(y_0)+q_0e^{-a\tau}$ は、異なる時刻尺度に対応する。後者には初期値からのずれが残る。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -356,7 +362,19 @@ $$
 \le\varepsilon|b|H_1(S+1/a),
 $$
 
-となります。右辺が0へ収束するため、一様収束が従います。$q_0\ne0$ なら $\tau=0$ で初期値のずれが消えず、$t>0$ 固定の極限 $x(t)\to h(y_0+bt)$ と異なります。$\square$
+となります。右辺が0へ収束するため、一様収束が従います。ここで二つの極限を同じ式で区別します。
+
+$$
+\begin{aligned}
+\lim_{\varepsilon\to0}x_\varepsilon(t)
+&=h(y_0+bt) &&(t>0\text{ を固定}),\\
+\lim_{\varepsilon\to0}x_\varepsilon(\varepsilon\tau)
+&=h(y_0)+q_0e^{-a\tau}
+&&(\tau\ge0\text{ を固定}).
+\end{aligned}
+$$
+
+$q_0\ne0$ では任意の有限な $\tau$ で $q_0e^{-a\tau}\ne0$ です。初期層では異なる速さで時刻を0へ近づけているので、固定正時刻での追従と矛盾しません。$\square$
 <!-- proof-end -->
 
 <a id="prop-cdyn13-nonuniform-limit"></a>
@@ -372,7 +390,9 @@ $$
 x_\varepsilon(t)\longrightarrow h(y_0+bt)
 $$
 
-だが、$[0,T]$ 上の一様収束は成立しない。初期値を $\varepsilon$ に依存させる場合、$q_0(\varepsilon)\to0$ なら同区間で一様収束する。
+だが、$[0,T]$ 上の一様収束は成立しない。
+
+別の場合として、**$y_0$ は固定したまま** $x_0=x_0(\varepsilon)$ のみを変化させ、$q_0(\varepsilon)=x_0(\varepsilon)-h(y_0)$ と置く。このとき $x_\varepsilon(t)\to h(y_0+bt)$ が $[0,T]$ 上で一様に成り立つための必要十分条件は $q_0(\varepsilon)\to0$ である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -385,13 +405,31 @@ $$
 \ge |x_\varepsilon(0)-h(y_0)|=|q_0|>0.
 $$
 
-よって一様収束はありません。$q_0(\varepsilon)\to0$ なら同じ定理の右辺を $t\in[0,T]$ で上から
+よって一様収束はありません。最後の主張では $y_0$ を固定しているため、
 
 $$
-|q_0(\varepsilon)|+\frac{\varepsilon|b|H_1}{a}
+H_1=\max_{0\le s\le T}|h'(y_0+bs)|
 $$
 
-と抑えられ、これが0へ収束します。$\square$
+は $\varepsilon$ に依存せず有限です。[初期層と追従誤差の定理](#thm-cdyn13-initial-layer-tracking)の証明と同じ評価を $q_0(\varepsilon)$ に適用すると、
+
+$$
+\sup_{0\le t\le T}|x_\varepsilon(t)-h(y_0+bt)|
+\le |q_0(\varepsilon)|+\frac{\varepsilon|b|H_1}{a}
+\longrightarrow0.
+$$
+
+逆向きには、一様収束が成立すれば特に $t=0$ で
+
+$$
+|q_0(\varepsilon)|
+=|x_\varepsilon(0)-h(y_0)|
+\longrightarrow0
+$$
+
+が必要です。よって必要十分性を示しました。
+
+仮に $y_0$ 自身も $\varepsilon$ に依存させるなら、比較する目標曲線も変化します。固定した目標曲線への収束をいうには、その初期値の収束など別の条件が必要です。$\square$
 <!-- proof-end -->
 
 ## 5. 追従先は少しだけずれる
@@ -403,13 +441,26 @@ $$
 <!-- formal-statement-start -->
 ### 定理（遅れの一次補正と二次誤差）
 
-$a>0$、$b\in\mathbb R$、$h\in C^2(\mathbb R)$、$T>0$ とし、
+$a>0$、$b\in\mathbb R$、$h\in C^2(\mathbb R)$、$T>0$ とし、$0<\varepsilon\le1$ に対する系
 
 $$
-H_2=\max_{0\le s\le T}|h''(y_0+bs)|
+\varepsilon x'=-a(x-h(y)),\qquad y'=b
 $$
 
-を置く。初期値 $(x_0,y_0)$ と $0<\varepsilon\le1$ の解について、$0\le t\le T$ で
+の解で、初期値 $(x(0),y(0))=(x_0,y_0)$ が $\varepsilon$ に依存しない場合を考える。追従誤差とその初期値を
+
+$$
+q(t)=x(t)-h(y(t)),\qquad q_0=x_0-h(y_0)
+$$
+
+と置き、次の有限な定数を定める。
+
+$$
+H_m=\max_{0\le s\le T}|h^{(m)}(y_0+bs)|
+\qquad(m=1,2).
+$$
+
+このとき $0\le t\le T$ で
 
 $$
 \begin{aligned}
@@ -429,10 +480,22 @@ $$
 (1-e^{-at/\varepsilon})
 $$
 
-が成立する。従って初期層が消えた固定時刻では、主な遅れは $-\varepsilon b h'(y(t))/a$ である。
+が成立する。さらに $0<\delta\le T$ について、遅れの一次補正を除いた誤差は
+
+$$
+\begin{aligned}
+&\sup_{\delta\le t\le T}
+\left|q(t)+\frac{\varepsilon b}{a}h'(y(t))\right|\\
+&\qquad\le e^{-a\delta/\varepsilon}
+\left(|q_0|+\frac{\varepsilon|b|H_1}{a}\right)
++\frac{\varepsilon^2b^2H_2}{a^2}
+\end{aligned}
+$$
+
+である。したがって各固定 $\delta>0$ に対し、$[\delta,T]$ 上の一次補正後の誤差は $O(\varepsilon^2)$ となる。
 <!-- formal-statement-end -->
 
-**証明の見取り図**　[追従誤差の積分表示](#lem-cdyn13-error-formula)を一度部分積分して、終点 $h'(y(t))$ と始点 $h'(y_0)$ を取り出します。残りは $h''$ を含む指数積分なので一段小さい誤差として評価できます。
+**証明の見取り図**　[追従誤差の積分表示](#lem-cdyn13-error-formula)を一度部分積分して、終点 $h'(y(t))$ と始点 $h'(y_0)$ を取り出します。残りは $h''$ を含む指数積分なので一段小さい誤差として評価できます。さらに $t\ge\delta>0$ では指数初期層を一様に抑え、一次補正後の $O(\varepsilon^2)$ 評価へ結びつけます。
 
 <!-- proof-start -->
 ### 証明
@@ -474,7 +537,7 @@ q(t)
 \end{aligned}
 $$
 
-最後の積分が $R_\varepsilon$ です。定理3節と同じ指数核の積分評価を使い、
+最後の積分が $R_\varepsilon$ です。[初期層の誤差評価](#thm-cdyn13-initial-layer-tracking)で使った指数核の積分を、ここでも $u=t-s$ と置いて計算します。
 
 $$
 \begin{aligned}
@@ -486,7 +549,29 @@ $$
 \end{aligned}
 $$
 
-これで示されました。$b=0$ では遅れ項と剰余は0で、初期層だけが残ることも式に含まれます。$\square$
+最後に正時刻での一様な二次評価を導きます。表示式を移項すると、
+
+$$
+q(t)+\frac{\varepsilon b}{a}h'(y(t))
+=e^{-at/\varepsilon}
+\left(q_0+\frac{\varepsilon b}{a}h'(y_0)\right)
++R_\varepsilon(t).
+$$
+
+ここで $t\ge\delta$ なら $e^{-at/\varepsilon}\le e^{-a\delta/\varepsilon}$、また $|h'(y_0)|\le H_1$ です。三角不等式とすでに求めた剰余の評価から、
+
+$$
+\begin{aligned}
+\left|q(t)+\frac{\varepsilon b}{a}h'(y(t))\right|
+&\le e^{-a\delta/\varepsilon}
+\left(|q_0|+\frac{\varepsilon|b|H_1}{a}\right)\\
+&\quad+\frac{\varepsilon^2b^2H_2}{a^2}.
+\end{aligned}
+$$
+
+これを区間 $[\delta,T]$ で上限に取ります。$a\delta>0$ を固定すれば、任意の整数 $m\ge1$ について $e^{-a\delta/\varepsilon}=o(\varepsilon^m)$ です。例えば $z=a\delta/\varepsilon$ とし、$e^z\ge z^{m+1}/(m+1)!$ を使うと、$e^{-a\delta/\varepsilon}/\varepsilon^m$ は定数倍の $\varepsilon$ 以下となって0へ収束します。従って全体は $O(\varepsilon^2)$ です。
+
+$b=0$ では遅れと剰余が0となり、初期層だけが残ることも式に含まれます。$\square$
 <!-- proof-end -->
 
 <a id="prop-cdyn13-affine-slow-graph"></a>
@@ -614,13 +699,33 @@ $$
 \frac{du}{d\tau}=(1-3x_*^2)u-3x_*u^2-u^3
 $$
 
-です。一次係数を $c=1-3x_*^2$ と置き、$c\ne0$ とします。$u$ を十分小さく取れば
+です。一次係数を $c=1-3x_*^2$ と置き、$c\ne0$ とします。連続な式 $-3x_*u-u^2$ は $u=0$ で0なので、ある $r>0$ が存在して $|u|\le r$ なら
 
 $$
-|-3x_*u-u^2|<\frac{|c|}{2}
+|-3x_*u-u^2|\le\frac{|c|}{2}
 $$
 
-を満たせます。そのとき $u\,du/d\tau=u^2(c-3x_*u-u^2)$ の符号は $c$ と同じです。折返し点では $c=0$ なので、一定の正の収縮率を前提とした線形模型の指数評価は使えません。
+となります。この範囲で二乗距離 $v(\tau)=u(\tau)^2$ を微分すると、
+
+$$
+v'=2u^2(c-3x_*u-u^2).
+$$
+
+$c<0$ のとき括弧内は高々 $c+|c|/2=c/2$ なので
+
+$$
+v'\le cv,\qquad
+v(\tau)\le v(0)e^{c\tau}.
+$$
+
+初期変位が $|u(0)|<r$ ならこの評価によって $|u(\tau)|$ は小さくなり続けるため、近傍から出ることなく収束します。一方 $c>0$ のとき、近傍に留まる間は括弧内が少なくとも $c-|c|/2=c/2$ で、
+
+$$
+v'\ge cv,\qquad
+v(\tau)\ge v(0)e^{c\tau}.
+$$
+
+従って $u(0)\ne0$ なら初期変位は増幅されます。これで外側二枝の局所的な吸引と中央枝の反発を一次係数と剰余評価から導きました。折返し点では $c=0$ なので、この指数評価は使えません。
 
 しかもこの例も $b\ne0$ のままなら $y$ が単調なので周期解を持ちません。実際の緩和振動を証明するには、遅い変数を戻す機構と、折返し点を通る軌道の制御が必要です。一般のFenichel理論や非線形系の周期軌道存在定理を、ここでは証明抜きに使いません。
 
@@ -718,7 +823,7 @@ $t>0$ なら $q(t)<0$ なので、$q=0$ の臨界曲線に留まりません。�
 
 ### A5. 速い時間の変換
 
-$\varepsilon x'=-2(x-h(y)),\ y'=3$ とする。$\tau=t/\varepsilon$、$X(\tau)=x(\varepsilon\tau)$、$Y(\tau)=y(\varepsilon\tau)$ と置いて方程式を導き、$\varepsilon\to0$ の凍結系を書け。
+$h\in C^1(\mathbb R)$、$0<\varepsilon\le1$ に対して $\varepsilon x'=-2(x-h(y)),\ y'=3$ とする。初期値 $(x_0,y_0)$ は $\varepsilon$ に依存しない。$\tau=t/\varepsilon$、$X(\tau)=x(\varepsilon\tau)$、$Y(\tau)=y(\varepsilon\tau)$ と置いて方程式を導き、$\varepsilon\to0$ の凍結系を有限な速い時間区間で示せ。
 
 - Level: A
 - ID: CDYN13-A5
@@ -739,7 +844,33 @@ $$
 =\varepsilon y'(\varepsilon\tau)=3\varepsilon.
 $$
 
-$\varepsilon\to0$ で $Y'=0$、従って $Y=y_0$ とした層方程式 $X'=-2(X-h(y_0))$ が現れます。凍結するのは速い時間で見た $Y$ であり、元の時刻で常に $y'=0$ という意味ではありません。
+$Y(0)=y_0$ なので、正確に積分すれば
+
+$$
+Y(\tau)=y_0+3\varepsilon\tau.
+$$
+
+従って任意の $S>0$ で $0\le\tau\le S$ とすると
+
+$$
+\sup_{0\le\tau\le S}|Y(\tau)-y_0|
+\le3\varepsilon S\longrightarrow0.
+$$
+
+$X$ の方程式に対しても、[速い時間の初期層極限定理](#thm-cdyn13-fast-time-limit)の $a=2,b=3$ を適用できます。$h\in C^1$ と初期値固定の仮定を満たすため、有限な $S$ 上で
+
+$$
+X(\tau)\longrightarrow
+h(y_0)+(x_0-h(y_0))e^{-2\tau}
+$$
+
+が一様に成立し、この極限解を微分すれば凍結した層方程式
+
+$$
+\frac{dX}{d\tau}=-2(X-h(y_0))
+$$
+
+を満たします。凍結するのは速い時刻での $Y$ であり、元の時刻で常に $y'=0$ という意味ではありません。
 <!-- solution-end -->
 
 ### B1. 初期層の長さを決める
@@ -826,7 +957,7 @@ $$
 
 ### B3. 初期値を $\varepsilon$ とともに動かす
 
-$a>0$、$b\in\mathbb R$、$h\in C^1$ と固定した $y_0,T>0$ を考える。初期値を $x_0(\varepsilon)=h(y_0)+\sqrt{\varepsilon}$ とした場合と、$x_0=h(y_0)+1$ とした場合で、$[0,T]$ 上の一様収束をそれぞれ判定せよ。
+$a>0$、$b\in\mathbb R$、$h\in C^1(\mathbb R)$、$y_0\in\mathbb R$、$T>0$ を固定する。初期値を $x_0(\varepsilon)=h(y_0)+\sqrt{\varepsilon}$ とした場合と、$x_0=h(y_0)+1$ とした場合で、$[0,T]$ 上の $x_\varepsilon(t)\to h(y_0+bt)$ の一様収束をそれぞれ判定せよ。
 
 - Level: B
 - ID: CDYN13-B3
@@ -840,7 +971,14 @@ $$
 +\frac{\varepsilon|b|H_1}{a}\longrightarrow0.
 $$
 
-従って一様収束します。ただし一般に評価は $O(\sqrt\varepsilon)$ であり $O(\varepsilon)$ とは限りません。
+従って一様収束します。ただし $t=0$ の差は正確に
+
+$$
+|x_\varepsilon(0)-h(y_0)|
+=\sqrt{\varepsilon}
+$$
+
+なので、区間全体の一様誤差は少なくとも $\sqrt{\varepsilon}$ です。従ってこの例の収束率を $O(\varepsilon)$ と改善することはできません。
 
 第二の場合は $q_0=1$ なので、初期時刻だけで
 
@@ -893,7 +1031,7 @@ $$
 
 1. $y(t)$ と $q(t)=x(t)-y(t)^2$ の正確な解を求めよ。
 2. $t>0$ を固定した極限と $t=\varepsilon\tau$（$\tau\ge0$ 固定）の極限をそれぞれ求めよ。
-3. $[0,T]$ で $x(t)\to y(t)^2$ が一様でないことを示し、任意の $\delta>0$ では $[\delta,T]$ で一様となることを証明せよ。
+3. 任意の固定 $T>0$ について、$[0,T]$ で $x(t)\to y(t)^2$ が一様でないことを示し、$0<\delta\le T$ では $[\delta,T]$ で一様となることを証明せよ。
 4. 一次の遅れ $-\varepsilon t$ と二次剰余の上界を導出せよ。
 5. この系が非定常周期解を持たない理由を述べよ。
 
