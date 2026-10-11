@@ -39,7 +39,7 @@ chapters:
     title: 正の極限集合・再帰・軌道閉包
   - id: DYN9
     path: textbook/volumes/00_foundations/DYN9
-    status: planned
+    status: completed
     title: 拡大写像・初期値鋭敏性
   - id: DYN10
     path: textbook/volumes/00_foundations/DYN10
