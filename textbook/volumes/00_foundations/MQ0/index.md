@@ -15,7 +15,13 @@ H_{\mathrm{cl}}(q,p)=\frac{p^2}{2m}+V(q),\qquad
 $$
 時間に明示的に依存しない物理量は [AMECH6 の時間発展式](../AMECH6/index.md#thm-amech6-time-evolution) に従い、軌道に沿って $df/dt=\{f,H_{\mathrm{cl}}\}$ となります。
 
-一方、位置を連続量として扱う量子模型では $\mathcal H=L^2(\mathbb R,dx)$ を取り、非零ベクトル $\psi$ のうち $\|\psi\|_2=1$ を規格化した純粋状態の代表として用います。$\psi$ と $e^{i\theta}\psi$ は同じ純粋状態を表します。$|\psi(x)|^2dx$ は位置の測定確率を与えます（[QM2 の Born 則](../QM2/index.md)）。これに対し、自己共役作用素 $A$ と [QM3 の射影値測度](../QM3/index.md#def-qm3-pvm) $E_A$ は、Borel 集合 $B$ に測定値が入る確率
+一方、位置を連続量として扱う量子模型では $\mathcal H=L^2(\mathbb R,dx)$ を取り、非零ベクトル $\psi$ のうち $\|\psi\|_2=1$ を規格化した純粋状態の代表として用います。
+
+$\psi$ と $e^{i\theta}\psi$ は同じ純粋状態を表します。
+
+$|\psi(x)|^2dx$ は位置の測定確率を与えます（[QM2 の Born 則](../QM2/index.md)）。
+
+これに対し、自己共役作用素 $A$ と [QM3 の射影値測度](../QM3/index.md#def-qm3-pvm) $E_A$ は、Borel 集合 $B$ に測定値が入る確率
 $$
 \mathbb P_\psi(A\in B)=\langle\psi,E_A(B)\psi\rangle
 $$
@@ -33,7 +39,13 @@ $$
 $$
 (Q\psi)(x)=x\psi(x),\qquad (P\psi)(x)=-i\hbar\psi'(x),\qquad \hbar>0.
 $$
-ここで $x$ の単位は長さ、$\hbar$ は作用の単位（エネルギー $\times$ 時間）を持ちます。したがって $P$ の単位は運動量です。$Q,P$ は一般に非有界で、**上式を全 $L^2$ ベクトルへ作用させてはいけません**。自己共役な最大定義域は QM5 に譲り、この章の具体的な積・微分は共通不変な Schwartz 空間 $\mathcal S(\mathbb R)$ でまず検算します。
+ここで $x$ の単位は長さ、$\hbar$ は作用の単位（エネルギー $\times$ 時間）を持ちます。
+
+したがって $P$ の単位は運動量です。
+
+$Q,P$ は一般に非有界で、**上式を全 $L^2$ ベクトルへ作用させてはいけません**。
+
+自己共役な最大定義域は QM5 に譲り、この章の具体的な積・微分は共通不変な Schwartz 空間 $\mathcal S(\mathbb R)$ でまず検算します。
 
 <a id="def-mq0-canonical-model"></a>
 
@@ -115,7 +127,11 @@ $$
 =\frac12\{-i\hbar x\psi'-i\hbar(\psi+x\psi')\}
 =-i\hbar(x\psi'+\psi/2).
 $$
-$QP$ だけを選んだ候補との差は $-i\hbar\psi/2$ です。また $\varphi,\psi\in\mathcal S$ とし、第1変数に線形な内積 $\langle\varphi,\psi\rangle=\int\varphi\overline\psi\,dx$ で対称性を確かめます。$T=\operatorname{Op}_{\mathrm{sym}}(qp)$ と書くと、
+$QP$ だけを選んだ候補との差は $-i\hbar\psi/2$ です。
+
+また $\varphi,\psi\in\mathcal S$ とし、第1変数に線形な内積 $\langle\varphi,\psi\rangle=\int\varphi\overline\psi\,dx$ で対称性を確かめます。
+
+$T=\operatorname{Op}_{\mathrm{sym}}(qp)$ と書くと、
 
 $$
 \begin{aligned}
@@ -216,7 +232,9 @@ $$
 <!-- formal-statement-start -->
 ### 命題（二つの描像の測定予測は一致する）
 
-$\mathcal H$ 上の自己共役 $H,A$、$U(t)=e^{-itH/\hbar}$、単位ベクトル $\psi_0\in\mathcal H$ を取る。Schrödinger 描像の $\psi_S(t)=U(t)\psi_0$ と Heisenberg 描像の $A_H(t)=U(t)^*AU(t)$ について、任意の Borel 集合 $B\subset\mathbb R$ に対し
+$\mathcal H$ 上の自己共役 $H,A$、$U(t)=e^{-itH/\hbar}$、単位ベクトル $\psi_0\in\mathcal H$ を取る。
+
+Schrödinger 描像の $\psi_S(t)=U(t)\psi_0$ と Heisenberg 描像の $A_H(t)=U(t)^*AU(t)$ について、任意の Borel 集合 $B\subset\mathbb R$ に対し
 $$
 \langle\psi_S(t),E_A(B)\psi_S(t)\rangle
 =\langle\psi_0,E_{A_H(t)}(B)\psi_0\rangle
@@ -426,7 +444,9 @@ $$
 
 ### A1. Poisson 括弧と正準交換関係
 
-$\{f,g\}=\partial_qf\,\partial_pg-\partial_pf\,\partial_qg$、$Q\psi=x\psi$、$P\psi=-i\hbar\psi'$ とする。$\{q,p\}$ および $\mathcal S(\mathbb R)$ 上の $[Q,P]\psi$ をそれぞれ計算せよ。
+$\{f,g\}=\partial_qf\,\partial_pg-\partial_pf\,\partial_qg$、$Q\psi=x\psi$、$P\psi=-i\hbar\psi'$ とする。
+
+$\{q,p\}$ および $\mathcal S(\mathbb R)$ 上の $[Q,P]\psi$ をそれぞれ計算せよ。
 
 - Level: A
 
@@ -539,7 +559,9 @@ $$
 
 ### B2. 測定確率の描像不変性
 
-$\mathcal H=\mathbb C^2$、$H=\operatorname{diag}(E_1,E_2)$、$A=\operatorname{diag}(a_1,a_2)$ とし、$\psi_0=(\alpha,\beta)^T$、$|\alpha|^2+|\beta|^2=1$ とする。$\psi_S(t),A_H(t)$ を求め、$A$ が $a_1$ と $a_2$ を異なる値として持つ場合のそれぞれの確率が両描像で一致することを直接示せ。
+$\mathcal H=\mathbb C^2$、$H=\operatorname{diag}(E_1,E_2)$、$A=\operatorname{diag}(a_1,a_2)$ とし、$\psi_0=(\alpha,\beta)^T$、$|\alpha|^2+|\beta|^2=1$ とする。
+
+$\psi_S(t),A_H(t)$ を求め、$A$ が $a_1$ と $a_2$ を異なる値として持つ場合のそれぞれの確率が両描像で一致することを直接示せ。
 
 - Level: B
 
@@ -604,7 +626,11 @@ $$
 
 ### B4. 調和振動子の形式交換子
 
-$H=P^2/(2m)+m\omega^2Q^2/2$ を共通不変領域 $\mathcal S(\mathbb R)$ 上の微分式とみなす。$[H,Q]$ と $[H,P]$ を恒等式 $[AB,C]=A[B,C]+[A,C]B$ から導け。これだけで $Q_H(t)$ が全 $L^2$ 上で強微分可能と結論してよいかも述べよ。
+$H=P^2/(2m)+m\omega^2Q^2/2$ を共通不変領域 $\mathcal S(\mathbb R)$ 上の微分式とみなす。
+
+$[H,Q]$ と $[H,P]$ を恒等式 $[AB,C]=A[B,C]+[A,C]B$ から導け。
+
+これだけで $Q_H(t)$ が全 $L^2$ 上で強微分可能と結論してよいかも述べよ。
 
 - Level: B
 
@@ -633,7 +659,11 @@ $m,\omega,\hbar>0$ とし、古典 Hamiltonian $H_{\mathrm{cl}}=p^2/(2m)+m\omega
 1. 古典 Hamilton 方程式を Poisson 括弧から導け。
 2. Schrödinger 表現で量子 Hamiltonian の候補を $\mathcal S(\mathbb R)$ 上に書き、その自己共役性がまだ確定していない理由を説明せよ。
 3. $\ell=\sqrt{\hbar/(m\omega)}$、$\xi=x/\ell$ として波動関数を $\phi(\xi)=\sqrt\ell\,\psi(\ell\xi)$ へ移すと、候補が $\hbar\omega(-d^2/d\xi^2+\xi^2)/2$ の形になることを導け。
-4. 別途、$\mathcal H$ 上に自己共役な実現 $H$ を得たとする。自己共役観測量 $A$ と任意の Borel 集合 $B$ に対し、$U(t)=e^{-itH/\hbar}$ を用いて Schrödinger 描像と Heisenberg 描像の測定確率が一致することを示せ。期待値については必要な定義域条件も述べよ。
+4. 別途、$\mathcal H$ 上に自己共役な実現 $H$ を得たとする。
+
+自己共役観測量 $A$ と任意の Borel 集合 $B$ に対し、$U(t)=e^{-itH/\hbar}$ を用いて Schrödinger 描像と Heisenberg 描像の測定確率が一致することを示せ。
+
+期待値については必要な定義域条件も述べよ。
 
 - Level: C
 
@@ -687,5 +717,7 @@ $$
 &=\langle\psi_S(t),E_A(B)\psi_S(t)\rangle.
 \end{aligned}
 $$
-これは $E_A(B)$ が有界な射影であるため、すべての単位ベクトル $\psi_0$ に成立します。非有界 $A$ について期待値を作用素内積で書くには $U(t)\psi_0\in D(A)$ が必要で、そのときだけ $\psi_0\in D(A_H(t))$ として同様に $\langle\psi_S(t),A\psi_S(t)\rangle=\langle\psi_0,A_H(t)\psi_0\rangle$ を得ます。
+これは $E_A(B)$ が有界な射影であるため、すべての単位ベクトル $\psi_0$ に成立します。
+
+非有界 $A$ について期待値を作用素内積で書くには $U(t)\psi_0\in D(A)$ が必要で、そのときだけ $\psi_0\in D(A_H(t))$ として同様に $\langle\psi_S(t),A\psi_S(t)\rangle=\langle\psi_0,A_H(t)\psi_0\rangle$ を得ます。
 <!-- solution-end -->

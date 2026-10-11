@@ -60,7 +60,11 @@ $$
 
 **定義の確認**
 
-上の $H$ に $\psi=(1,1,0)$ を代入すると、$\langle\psi,H\psi\rangle=-2+1=-1$、$\|\psi\|^2=2$ なので $R_H(\psi)=-1/2$ です。$2\psi$ の分子は $4(-1)$、分母は $4\cdot2$ となり同じ値です。任意の非零 $z$ では各 $|z_j|^2/\|z\|^2$ が非負で総和 $1$ なので、商は固有値 $-2,1,4$ の加重平均になります。
+上の $H$ に $\psi=(1,1,0)$ を代入すると、$\langle\psi,H\psi\rangle=-2+1=-1$、$\|\psi\|^2=2$ なので $R_H(\psi)=-1/2$ です。
+
+$2\psi$ の分子は $4(-1)$、分母は $4\cdot2$ となり同じ値です。
+
+任意の非零 $z$ では各 $|z_j|^2/\|z\|^2$ が非負で総和 $1$ なので、商は固有値 $-2,1,4$ の加重平均になります。
 <!-- definition-example-end -->
 
 ## 2. スペクトル下端は期待値の下限
@@ -88,7 +92,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[QM6 の非有界自己共役スペクトル定理](../QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral) で得られるスペクトル射影値測度を $P$ とし、$\mu_\psi(B)=\langle\psi,P(B)\psi\rangle$ と置きます。$\mu_\psi(\mathbb R)=\|\psi\|^2$ であり、$\psi\in D(H)$ なら $\int\lambda^2\,d\mu_\psi<\infty$ です。[Cauchy–Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz) を有限測度 $\mu_\psi$ 上で $|\lambda|$ と定数関数 $1$ に適用すると、
+[QM6 の非有界自己共役スペクトル定理](../QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral) で得られるスペクトル射影値測度を $P$ とし、$\mu_\psi(B)=\langle\psi,P(B)\psi\rangle$ と置きます。
+
+$\mu_\psi(\mathbb R)=\|\psi\|^2$ であり、$\psi\in D(H)$ なら $\int\lambda^2\,d\mu_\psi<\infty$ です。
+
+[Cauchy–Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz) を有限測度 $\mu_\psi$ 上で $|\lambda|$ と定数関数 $1$ に適用すると、
 
 $$
 \int|\lambda|\,d\mu_\psi
@@ -105,9 +113,29 @@ $$
 =E_0\|\psi\|^2.
 $$
 
-ここで $E_0$ が有限であることを確認します。定義の下界 $a$ に対して $\langle\psi,(H-aI)\psi\rangle\ge0$ です。[非有界自己共役作用素のスペクトル表示](../QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral) を非負な $H-aI$ に適用すると、そのスペクトルは $[0,\infty)$ に含まれ、$\sigma(H)\subset[a,\infty)$ です。非零 Hilbert 空間上の自己共役作用素のスペクトルは空でないので $E_0\in\mathbb R$ です。
+ここで $E_0$ が有限であることを確認します。
 
-逆側の不等式を証明します。任意の $\varepsilon>0$ を取ります。$E_0$ は閉集合 $\sigma(H)$ の下端なので $E_0\in\sigma(H)$ です。もし $P([E_0,E_0+\varepsilon))=0$ なら、$\mu_\psi$ は全ての状態について $[E_0+\varepsilon,\infty)$ に集中します。この台の上で $|\lambda-E_0|\ge\varepsilon$ なので、Borel 関数 $g(\lambda)=(\lambda-E_0)^{-1}$ を台の上で定義し、他では $0$ と置くと $\|g\|_\infty\le1/\varepsilon$ です。関数計算から $g(H)(H-E_0)=I$ が $D(H)$ 上で、$(H-E_0)g(H)=I$ が全空間上で成り立ちます（後者では $(\lambda-E_0)g(\lambda)=1$ が射影の台で成立し、$g(H)$ は $D(H)$ に写します）。従って $H-E_0$ は有界な逆作用素を持ち、$E_0\in\sigma(H)$ と矛盾します。よって $P([E_0,E_0+\varepsilon))\ne0$ です。
+定義の下界 $a$ に対して $\langle\psi,(H-aI)\psi\rangle\ge0$ です。
+
+[非有界自己共役作用素のスペクトル表示](../QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral) を非負な $H-aI$ に適用すると、そのスペクトルは $[0,\infty)$ に含まれ、$\sigma(H)\subset[a,\infty)$ です。
+
+非零 Hilbert 空間上の自己共役作用素のスペクトルは空でないので $E_0\in\mathbb R$ です。
+
+逆側の不等式を証明します。
+
+任意の $\varepsilon>0$ を取ります。
+
+$E_0$ は閉集合 $\sigma(H)$ の下端なので $E_0\in\sigma(H)$ です。
+
+もし $P([E_0,E_0+\varepsilon))=0$ なら、$\mu_\psi$ は全ての状態について $[E_0+\varepsilon,\infty)$ に集中します。
+
+この台の上で $|\lambda-E_0|\ge\varepsilon$ なので、Borel 関数 $g(\lambda)=(\lambda-E_0)^{-1}$ を台の上で定義し、他では $0$ と置くと $\|g\|_\infty\le1/\varepsilon$ です。
+
+関数計算から $g(H)(H-E_0)=I$ が $D(H)$ 上で、$(H-E_0)g(H)=I$ が全空間上で成り立ちます（後者では $(\lambda-E_0)g(\lambda)=1$ が射影の台で成立し、$g(H)$ は $D(H)$ に写します）。
+
+従って $H-E_0$ は有界な逆作用素を持ち、$E_0\in\sigma(H)$ と矛盾します。
+
+よって $P([E_0,E_0+\varepsilon))\ne0$ です。
 
 その射影の像にある非零元を一つ取り、ノルムで割って $\psi_\varepsilon$ とします。この元のスペクトル測度は有界区間 $[E_0,E_0+\varepsilon]$ に台を持つため
 
@@ -155,7 +183,9 @@ $$
 
 **定義の確認**
 
-$\mathcal H=L^2(\mathbb R)$、$H_0=\mathcal F^{-1}M_{c\xi^2}\mathcal F$、$c=\hbar^2/(2m)>0$ では $a=0$ と取れます。平方根は $\mathcal F^{-1}M_{\sqrt c|\xi|}\mathcal F$ なので
+$\mathcal H=L^2(\mathbb R)$、$H_0=\mathcal F^{-1}M_{c\xi^2}\mathcal F$、$c=\hbar^2/(2m)>0$ では $a=0$ と取れます。
+
+平方根は $\mathcal F^{-1}M_{\sqrt c|\xi|}\mathcal F$ なので
 
 $$
 \begin{aligned}
@@ -165,7 +195,13 @@ q_{H_0}[\psi]&=c\int_{\mathbb R}\xi^2|\widehat\psi(\xi)|^2\,d\xi.
 \end{aligned}
 $$
 
-例えば $\widehat\psi(\xi)=(1+\xi^2)^{-1}$ は $|\widehat\psi|^2\asymp|\xi|^{-4}$ です。$|\xi|^2|\widehat\psi|^2\asymp|\xi|^{-2}$ は積分できますが、$|\xi|^4|\widehat\psi|^2\asymp1$ は積分できません。従って $\psi\in Q(H_0)\setminus D(H_0)$ です。$b=1$ とすると、$\|\psi\|_{q,1}^2=\int(1+c\xi^2)|\widehat\psi|^2$ は $H^1$ ノルムと同値で完備です。
+例えば $\widehat\psi(\xi)=(1+\xi^2)^{-1}$ は $|\widehat\psi|^2\asymp|\xi|^{-4}$ です。
+
+$|\xi|^2|\widehat\psi|^2\asymp|\xi|^{-2}$ は積分できますが、$|\xi|^4|\widehat\psi|^2\asymp1$ は積分できません。
+
+従って $\psi\in Q(H_0)\setminus D(H_0)$ です。
+
+$b=1$ とすると、$\|\psi\|_{q,1}^2=\int(1+c\xi^2)|\widehat\psi|^2$ は $H^1$ ノルムと同値で完備です。
 <!-- definition-example-end -->
 
 <a id="thm-mq2-form-extension"></a>
@@ -214,9 +250,21 @@ $$
 =\|\psi\|^2+\|T^{1/2}\psi\|^2.
 $$
 
-$T^{1/2}$ はスペクトル関数計算から自己共役、従って閉作用素です。このノルムについて Cauchy な列 $(\psi_n)$ では、$\psi_n\to\psi$ と $T^{1/2}\psi_n\to g$ が $\mathcal H$ で成立します。閉作用素のグラフの閉性より $\psi\in D(T^{1/2})$、$T^{1/2}\psi=g$ です。従って $Q(H)$ は形式ノルムについて完備です。
+$T^{1/2}$ はスペクトル関数計算から自己共役、従って閉作用素です。
 
-下端を $E_0$ と置くと $q_H[\psi]=\int\lambda\,d\mu_\psi\ge E_0\|\psi\|^2$ が全ての $\psi\in Q(H)$ に成立します。一方 $D(H)\subset Q(H)$ であり、前定理の $D(H)$ 上の正規化列 $\psi_\varepsilon$ は $q_H[\psi_\varepsilon]\le E_0+\varepsilon$ を満たします。従って $Q(H)$ 上の下限も $E_0$ です。$\square$
+このノルムについて Cauchy な列 $(\psi_n)$ では、$\psi_n\to\psi$ と $T^{1/2}\psi_n\to g$ が $\mathcal H$ で成立します。
+
+閉作用素のグラフの閉性より $\psi\in D(T^{1/2})$、$T^{1/2}\psi=g$ です。
+
+従って $Q(H)$ は形式ノルムについて完備です。
+
+下端を $E_0$ と置くと $q_H[\psi]=\int\lambda\,d\mu_\psi\ge E_0\|\psi\|^2$ が全ての $\psi\in Q(H)$ に成立します。
+
+一方 $D(H)\subset Q(H)$ であり、前定理の $D(H)$ 上の正規化列 $\psi_\varepsilon$ は $q_H[\psi_\varepsilon]\le E_0+\varepsilon$ を満たします。
+
+従って $Q(H)$ 上の下限も $E_0$ です。
+
+$\square$
 <!-- proof-end -->
 
 <a id="prop-mq2-bounded-potential-form"></a>
@@ -264,7 +312,21 @@ $$
 \int_{(n,\infty)}(\lambda+K+1)\,d\mu_\psi(\lambda)\longrightarrow0
 $$
 
-です（単調収束で定義された有限積分の尾部）。各切断状態は $D(H)$ に属します。従って $D(H)$ は $q_H$ の形式 core です。また Fourier 側で $\widehat\psi$ を大きな球に切断し、その球より少し大きな球の内部で $C_c^\infty$ 関数に平滑化すると、$\int(1+|\xi|^2)|\widehat\psi_n-\widehat\psi|^2\,d\xi\to0$ となります。逆 Fourier 変換した $\psi_n$ は Schwartz 関数なので $H^2$ に属し、従って $H^2$ は $H^1$ で稠密です。両方の閉形式は $H^2$ 上で同じ値を持ち、それぞれの形式ノルムでの完備化で一意に一致します。このため $Q(H)=H^1$ かつ $q_H=r$ です。$\square$
+です（単調収束で定義された有限積分の尾部）。
+
+各切断状態は $D(H)$ に属します。
+
+従って $D(H)$ は $q_H$ の形式 core です。
+
+また Fourier 側で $\widehat\psi$ を大きな球に切断し、その球より少し大きな球の内部で $C_c^\infty$ 関数に平滑化すると、$\int(1+|\xi|^2)|\widehat\psi_n-\widehat\psi|^2\,d\xi\to0$ となります。
+
+逆 Fourier 変換した $\psi_n$ は Schwartz 関数なので $H^2$ に属し、従って $H^2$ は $H^1$ で稠密です。
+
+両方の閉形式は $H^2$ 上で同じ値を持ち、それぞれの形式ノルムでの完備化で一意に一致します。
+
+このため $Q(H)=H^1$ かつ $q_H=r$ です。
+
+$\square$
 <!-- proof-end -->
 
 この議論で新しく可能になったのは、$H\psi$ を定義できない $H^1$ 関数も試行状態に使うことです。演習では折れ線のような、二階微分が $L^2$ にない状態にも注目します。
@@ -291,7 +353,13 @@ $$
 
 **定義の確認**
 
-$H=\operatorname{diag}(-2,1,4)$ では $He_1=-2e_1$、$\|e_1\|=1$、$-2=\inf\sigma(H)$ なので $e_1$ は基底状態です。一方、$L^2((0,1))$ 上の $(M_xf)(x)=xf(x)$ は有界自己共役で、スペクトルは $[0,1]$ です。$M_xf=0$ なら $xf(x)=0$ がほとんど至る所で成り立ち、$x>0$ がほとんど至る所なので $f=0$ です。よってスペクトル下端 $0$ は固有値でありません。
+$H=\operatorname{diag}(-2,1,4)$ では $He_1=-2e_1$、$\|e_1\|=1$、$-2=\inf\sigma(H)$ なので $e_1$ は基底状態です。
+
+一方、$L^2((0,1))$ 上の $(M_xf)(x)=xf(x)$ は有界自己共役で、スペクトルは $[0,1]$ です。
+
+$M_xf=0$ なら $xf(x)=0$ がほとんど至る所で成り立ち、$x>0$ がほとんど至る所なので $f=0$ です。
+
+よってスペクトル下端 $0$ は固有値でありません。
 <!-- definition-example-end -->
 
 <a id="thm-mq2-ground-minimizer"></a>
@@ -325,7 +393,13 @@ $$
 \ge\frac1n\mu_\psi([E_0+1/n,\infty))
 $$
 
-です。よって各区間の測度が零で、可算和 $(E_0,\infty)=\bigcup_{n\ge1}[E_0+1/n,\infty)$ の測度も零になります。スペクトル測度は $\{E_0\}$ に集中します。すると $\int\lambda^2\,d\mu_\psi=E_0^2\|\psi\|^2<\infty$ なので $\psi\in D(H)$、さらに
+です。
+
+よって各区間の測度が零で、可算和 $(E_0,\infty)=\bigcup_{n\ge1}[E_0+1/n,\infty)$ の測度も零になります。
+
+スペクトル測度は $\{E_0\}$ に集中します。
+
+すると $\int\lambda^2\,d\mu_\psi=E_0^2\|\psi\|^2<\infty$ なので $\psi\in D(H)$、さらに
 
 $$
 \|(H-E_0)\psi\|^2
@@ -355,7 +429,17 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$E_0$ は閉集合 $\sigma(H)$ の点です。仮定によって $E_0\notin\sigma_{\mathrm{ess}}(H)$ です。[離散スペクトルと本質スペクトルの定義](../MQ1/index.md#def-mq1-essential-spectrum) より $\sigma(H)\setminus\sigma_{\mathrm{ess}}(H)$ は孤立した有限重複度の固有値の集合です。よって $E_0$ はその一つです。$\sigma_{\mathrm{ess}}(H)=\varnothing$ でも全てのスペクトル点が離散固有値という同じ定義を適用できます。$\square$
+$E_0$ は閉集合 $\sigma(H)$ の点です。
+
+仮定によって $E_0\notin\sigma_{\mathrm{ess}}(H)$ です。
+
+[離散スペクトルと本質スペクトルの定義](../MQ1/index.md#def-mq1-essential-spectrum) より $\sigma(H)\setminus\sigma_{\mathrm{ess}}(H)$ は孤立した有限重複度の固有値の集合です。
+
+よって $E_0$ はその一つです。
+
+$\sigma_{\mathrm{ess}}(H)=\varnothing$ でも全てのスペクトル点が離散固有値という同じ定義を適用できます。
+
+$\square$
 <!-- proof-end -->
 
 この条件は十分条件であり必要条件ではありません。例えば零作用素を無限次元 Hilbert 空間で考えると、下端 $0$ は無限重複度の固有値ですが、本質スペクトルに属します。逆に自由粒子は [MQ1 の結果](../MQ1/index.md#thm-mq1-free-spectrum) により $E_0=0$ でも固有状態を持ちません。
@@ -380,9 +464,19 @@ $$
 <!-- proof-start -->
 ### 証明
 
-有限次元の単位球面はコンパクトで、$q_H$ はそこで連続なので最小値があります。$S\subset Q(H)$ に対する最小化は $Q(H)$ 全体より候補が少ないため、$E_0\le E(S)$ です。包含 $S_1\subset S_2$ では後者の候補が増えるので $E(S_2)\le E(S_1)$ です。
+有限次元の単位球面はコンパクトで、$q_H$ はそこで連続なので最小値があります。
 
-収束には任意の $\varepsilon>0$ に対し $\psi\in Q(H)$、$\|\psi\|=1$ で $q_H[\psi]<E_0+\varepsilon/2$ を選びます。形式稠密性により $u_n\in S_n$ で $\|u_n-\psi\|_{q,b}\to0$ とできます。$b>-a$ なら形式ノルムは Hilbert ノルムを支配するので $\|u_n\|\to1$ です。また、形式を生成する $T^{1/2}$ について $\|T^{1/2}u_n-T^{1/2}\psi\|\to0$ ですから
+$S\subset Q(H)$ に対する最小化は $Q(H)$ 全体より候補が少ないため、$E_0\le E(S)$ です。
+
+包含 $S_1\subset S_2$ では後者の候補が増えるので $E(S_2)\le E(S_1)$ です。
+
+収束には任意の $\varepsilon>0$ に対し $\psi\in Q(H)$、$\|\psi\|=1$ で $q_H[\psi]<E_0+\varepsilon/2$ を選びます。
+
+形式稠密性により $u_n\in S_n$ で $\|u_n-\psi\|_{q,b}\to0$ とできます。
+
+$b>-a$ なら形式ノルムは Hilbert ノルムを支配するので $\|u_n\|\to1$ です。
+
+また、形式を生成する $T^{1/2}$ について $\|T^{1/2}u_n-T^{1/2}\psi\|\to0$ ですから
 
 $$
 q_H[u_n]=a\|u_n\|^2+\|T^{1/2}u_n\|^2\longrightarrow q_H[\psi].
@@ -436,7 +530,9 @@ $$
 \|x\|^2=\sum_{j=1}^N|c_j|^2.
 $$
 
-任意の $k$ 次元 $S$ と $W=\operatorname{span}\{e_k,\ldots,e_N\}$ は、$\dim S+\dim W=k+(N-k+1)=N+1$ より $S\cap W$ に非零元を持ちます。そこから単位元 $x$ を取ると $c_1=\cdots=c_{k-1}=0$ なので
+任意の $k$ 次元 $S$ と $W=\operatorname{span}\{e_k,\ldots,e_N\}$ は、$\dim S+\dim W=k+(N-k+1)=N+1$ より $S\cap W$ に非零元を持ちます。
+
+そこから単位元 $x$ を取ると $c_1=\cdots=c_{k-1}=0$ なので
 
 $$
 \langle x,Ax\rangle=\sum_{j=k}^N\lambda_j|c_j|^2
@@ -445,7 +541,15 @@ $$
 
 従ってどの $S$ についても最大値は $\lambda_k$ 以上です。一方 $S_0=\operatorname{span}\{e_1,\ldots,e_k\}$ なら、全ての単位 $x\in S_0$ で期待値は $\lambda_k$ 以下、$x=e_k$ で等号です。よって最初の等式が出ます。
 
-二番目も次元交差を逆に使います。任意の $(N-k+1)$ 次元 $L$ は $\operatorname{span}\{e_1,\ldots,e_k\}$ と非自明に交わります。そこから単位 $x$ を取ると期待値は $\lambda_k$ 以下です。他方 $L_0=\operatorname{span}\{e_k,\ldots,e_N\}$ では全単位元の期待値が $\lambda_k$ 以上、$e_k$ で等号となります。$\square$
+二番目も次元交差を逆に使います。
+
+任意の $(N-k+1)$ 次元 $L$ は $\operatorname{span}\{e_1,\ldots,e_k\}$ と非自明に交わります。
+
+そこから単位 $x$ を取ると期待値は $\lambda_k$ 以下です。
+
+他方 $L_0=\operatorname{span}\{e_k,\ldots,e_N\}$ では全単位元の期待値が $\lambda_k$ 以上、$e_k$ で等号となります。
+
+$\square$
 <!-- proof-end -->
 
 **無限次元への注意**：いま完全に証明したのは有限次元版です。一般の無限次元作用素で第 $k$ 固有値に同じ式を使うには、本質スペクトルの下にある離散固有値を数える条件などが必要です。次の具体的計算では、まずスペクトル下端の変分原理（$k=1$ に相当する評価）を使います。
@@ -474,7 +578,11 @@ $$
 =\frac1{\sqrt\pi}\int_{\mathbb R}e^{-y^2}\,dy=1
 $$
 
-です。導関数は $\psi_b'(x)=-x\psi_b(x)/b^2$ です。Gaussian の二次モーメント $\int y^2e^{-y^2}dy=\sqrt\pi/2$ を、$I(t)=\int e^{-ty^2}dy=\sqrt{\pi/t}$ を微分して $-I'(1)=\sqrt\pi/2$ と確かめると、
+です。
+
+導関数は $\psi_b'(x)=-x\psi_b(x)/b^2$ です。
+
+Gaussian の二次モーメント $\int y^2e^{-y^2}dy=\sqrt\pi/2$ を、$I(t)=\int e^{-ty^2}dy=\sqrt{\pi/t}$ を微分して $-I'(1)=\sqrt\pi/2$ と確かめると、
 
 $$
 \begin{aligned}
@@ -530,7 +638,15 @@ $H=\operatorname{diag}(-3,2,5)$、$z=(1,2,0)$ とする。$R_H(z)$ と $\inf\sig
 <!-- solution-start -->
 #### 詳細解答
 
-$H^*=H$、$D(H)=\mathbb C^3$ なので変分原理が使えます。$Hz=(-3,4,0)$、$\langle z,Hz\rangle=-3+8=5$、$\|z\|^2=1+4=5$ より $R_H(z)=1$ です。スペクトルは対角成分全体 $\{-3,2,5\}$ なので $E_0=-3$。実際 $1\ge-3$ です。$R_H(z)=(-3)(1/5)+2(4/5)$ も確認できます。
+$H^*=H$、$D(H)=\mathbb C^3$ なので変分原理が使えます。
+
+$Hz=(-3,4,0)$、$\langle z,Hz\rangle=-3+8=5$、$\|z\|^2=1+4=5$ より $R_H(z)=1$ です。
+
+スペクトルは対角成分全体 $\{-3,2,5\}$ なので $E_0=-3$。
+
+実際 $1\ge-3$ です。
+
+$R_H(z)=(-3)(1/5)+2(4/5)$ も確認できます。
 <!-- solution-end -->
 
 ### A2. 基底状態のないスペクトル下端
@@ -542,7 +658,11 @@ $L^2((0,1))$ 上の $H=M_x$ について、$\sigma(H)=[0,1]$、$E_0=0$ だが固
 <!-- solution-start -->
 #### 詳細解答
 
-$M_x$ は実有界関数 $x$ を掛ける有界自己共役作用素なので全 $L^2$ で定義されます。$\lambda\notin[0,1]$ では $|x-\lambda|^{-1}$ が本質有界なので逆作用素 $M_{1/(x-\lambda)}$ が存在します。$\lambda\in[0,1]$ では $|x-\lambda|$ が正測度集合で任意に小さくなり、有界な逆作用素は存在しないのでスペクトルは $[0,1]$ です。
+$M_x$ は実有界関数 $x$ を掛ける有界自己共役作用素なので全 $L^2$ で定義されます。
+
+$\lambda\notin[0,1]$ では $|x-\lambda|^{-1}$ が本質有界なので逆作用素 $M_{1/(x-\lambda)}$ が存在します。
+
+$\lambda\in[0,1]$ では $|x-\lambda|$ が正測度集合で任意に小さくなり、有界な逆作用素は存在しないのでスペクトルは $[0,1]$ です。
 
 $\|f_n\|^2=n(1/n)=1$。期待値は
 
@@ -584,7 +704,13 @@ $H=\operatorname{diag}(0,2,7)$ とし、$S_1=\operatorname{span}\{e_2\}$、$S_2=
 <!-- solution-start -->
 #### 詳細解答
 
-$S_1$ の単位元は $ce_2$、$|c|=1$ なので $R_H(ce_2)=2$ で $E(S_1)=2$ です。$S_2$ の単位元 $x=c_1e_1+c_2e_2$ は $|c_1|^2+|c_2|^2=1$ を満たし、期待値は $0|c_1|^2+2|c_2|^2\ge0$ です。$x=e_1$ で等号なので $E(S_2)=0$。$S_1\subset S_2$ により $E(S_2)=0\le2=E(S_1)$ が確かめられます。
+$S_1$ の単位元は $ce_2$、$|c|=1$ なので $R_H(ce_2)=2$ で $E(S_1)=2$ です。
+
+$S_2$ の単位元 $x=c_1e_1+c_2e_2$ は $|c_1|^2+|c_2|^2=1$ を満たし、期待値は $0|c_1|^2+2|c_2|^2\ge0$ です。
+
+$x=e_1$ で等号なので $E(S_2)=0$。
+
+$S_1\subset S_2$ により $E(S_2)=0\le2=E(S_1)$ が確かめられます。
 <!-- solution-end -->
 
 ### Level B
@@ -604,12 +730,20 @@ $$
 R_H(x)=\sum_{n=1}^\infty\frac{|x_n|^2}{n}\ge0.
 $$
 
-標準基底 $e_N$ を選ぶと $R_H(e_N)=1/N\to0$ なので、変分原理より $E_0=0$ です。一方 $Hx=0$ は成分ごとに $x_n/n=0$、すなわち全ての $x_n=0$ を強制します。よって $0$ は固有値でなく基底状態は存在しません。下限へ近づく列 $e_N$ は $N$ を大きくするほど高い添字へ逃げます。
+標準基底 $e_N$ を選ぶと $R_H(e_N)=1/N\to0$ なので、変分原理より $E_0=0$ です。
+
+一方 $Hx=0$ は成分ごとに $x_n/n=0$、すなわち全ての $x_n=0$ を強制します。
+
+よって $0$ は固有値でなく基底状態は存在しません。
+
+下限へ近づく列 $e_N$ は $N$ を大きくするほど高い添字へ逃げます。
 <!-- solution-end -->
 
 ### B2. 一般化 Rayleigh–Ritz
 
-独立な試行ベクトル $\varphi_1,\varphi_2$ の Gram 行列が $G=\operatorname{diag}(1,4)$、形式行列が $A=\operatorname{diag}(3,8)$ であるとする。$\psi=c_1\varphi_1+c_2\varphi_2$ の Rayleigh 商を求め、最小値とそれを実現する係数方向を示せ。
+独立な試行ベクトル $\varphi_1,\varphi_2$ の Gram 行列が $G=\operatorname{diag}(1,4)$、形式行列が $A=\operatorname{diag}(3,8)$ であるとする。
+
+$\psi=c_1\varphi_1+c_2\varphi_2$ の Rayleigh 商を求め、最小値とそれを実現する係数方向を示せ。
 
 - Level: B
 
@@ -653,7 +787,9 @@ $$
 
 ### B4. 運動エネルギーの下界と試行関数
 
-$H=-c\,d^2/dx^2-V_0e^{-x^2/a^2}$、$c,V_0,a>0$ を $D(H)=H^2(\mathbb R)$ で考える。規格化 Gaussian $\psi_b(x)=(\pi b^2)^{-1/4}e^{-x^2/(2b^2)}$ を用い、$E_0\ge -V_0$ と $E_0\le c/(2b^2)-V_0a/\sqrt{a^2+b^2}$ を同時に示せ。
+$H=-c\,d^2/dx^2-V_0e^{-x^2/a^2}$、$c,V_0,a>0$ を $D(H)=H^2(\mathbb R)$ で考える。
+
+規格化 Gaussian $\psi_b(x)=(\pi b^2)^{-1/4}e^{-x^2/(2b^2)}$ を用い、$E_0\ge -V_0$ と $E_0\le c/(2b^2)-V_0a/\sqrt{a^2+b^2}$ を同時に示せ。
 
 - Level: B
 
@@ -709,7 +845,11 @@ $L^2(\mathbb R)$ 上で $H=-c\,d^2/dx^2-V_0e^{-x^2/a^2}$、$c,V_0,a>0$ を $D(H)
 <!-- solution-start -->
 #### 詳細解答
 
-(1) $V(x)=-V_0e^{-x^2/a^2}$ は実数値で $-V_0\le V(x)\le0$、$\|V\|_\infty=V_0$ です。[MQ1 の有界ポテンシャルの定理](../MQ1/index.md#thm-mq1-bounded-potential) を $H_0=-c\,d^2/dx^2$ と $M_V$ に適用すると、$D(H)=D(H_0)=H^2$ で自己共役です。$q_H$ は
+(1) $V(x)=-V_0e^{-x^2/a^2}$ は実数値で $-V_0\le V(x)\le0$、$\|V\|_\infty=V_0$ です。
+
+[MQ1 の有界ポテンシャルの定理](../MQ1/index.md#thm-mq1-bounded-potential) を $H_0=-c\,d^2/dx^2$ と $M_V$ に適用すると、$D(H)=D(H_0)=H^2$ で自己共役です。
+
+$q_H$ は
 
 $$
 q_H[\psi]=c\int_{\mathbb R}|\psi'(x)|^2dx
@@ -718,7 +858,11 @@ $$
 
 運動項が非負、$e^{-x^2/a^2}\le1$ なので $q_H[\psi]\ge-V_0\|\psi\|^2$ です。閉形式の命題から $Q(H)=H^1$ が従います。
 
-(2) $\psi_b(x)=(\pi b^2)^{-1/4}e^{-x^2/(2b^2)}$ とします。$|\psi_b|^2=(\sqrt\pi b)^{-1}e^{-x^2/b^2}$ なので Gaussian 積分により $\|\psi_b\|=1$ です。微分は $\psi_b'(x)=-x\psi_b/b^2$、従って
+(2) $\psi_b(x)=(\pi b^2)^{-1/4}e^{-x^2/(2b^2)}$ とします。
+
+$|\psi_b|^2=(\sqrt\pi b)^{-1}e^{-x^2/b^2}$ なので Gaussian 積分により $\|\psi_b\|=1$ です。
+
+微分は $\psi_b'(x)=-x\psi_b/b^2$、従って
 
 $$
 \begin{aligned}
@@ -754,7 +898,11 @@ $$
 
 は $x$ に依存し、定数の固有値にはなりません。
 
-(4) 追加仮定 $\inf\sigma_{\mathrm{ess}}(H)\ge0$ と (2) の $E_0<0$ を合わせると $E_0<\inf\sigma_{\mathrm{ess}}(H)$ です（本質スペクトルが空の場合も含む）。[本質スペクトル下の基底固有値](#prop-mq2-gap-ground) を適用し、$E_0$ は孤立・有限重複度の固有値であり、非零の基底固有ベクトルが存在すると分かります。**本問では本質スペクトルの下界は追加仮定であり、試行積分から証明したことにはしません**。
+(4) 追加仮定 $\inf\sigma_{\mathrm{ess}}(H)\ge0$ と (2) の $E_0<0$ を合わせると $E_0<\inf\sigma_{\mathrm{ess}}(H)$ です（本質スペクトルが空の場合も含む）。
+
+[本質スペクトル下の基底固有値](#prop-mq2-gap-ground) を適用し、$E_0$ は孤立・有限重複度の固有値であり、非零の基底固有ベクトルが存在すると分かります。
+
+**本問では本質スペクトルの下界は追加仮定であり、試行積分から証明したことにはしません**。
 
 (5) 追加仮定なしでも、自己共役性、$-V_0\le E_0<0$、$Q(H)=H^1$、Rayleigh 商による上界はすべて残ります。一方、この論証だけでは $E_0$ が固有値か、本質スペクトルかを区別できません。下端への近似列は作れても、基底状態が存在するとはまだ結論できません。
 <!-- solution-end -->

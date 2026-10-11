@@ -4,15 +4,27 @@
 
 この章の中心問いは、最初は滑らかな急減少関数上でしか計算していない微分式から、どうやって自己共役 Hamiltonian を一意に得るか、そしてポテンシャル $V$ を加えたとき何が保たれるか、です。[QM5 の自己共役性](../QM5/index.md#def-qm5-self-adjoint)、[QM6 の自由粒子のスペクトル表示](../QM6/index.md#prop-qm6-free-hamiltonian)、[EVOL1 の core](../EVOL1/index.md#def-evol1-core) を使います。一般理論をただ再掲するのでなく、自由粒子で閉包を**実際に構成**し、定義域の検証まで行います。
 
-記号を固定します。$d\ge1$、質量 $m>0$、Planck 定数 $\hbar>0$ とし、複素 Hilbert 空間 $\mathcal H=L^2(\mathbb R^d,dx)$ の内積は第1変数について線形とします。$\mathcal S(\mathbb R^d)$ は Schwartz 空間、$\mathcal F$ はユニタリな Fourier 変換で、$\widehat\psi=\mathcal F\psi$ と書きます。$d$ 次元では
+記号を固定します。
+
+$d\ge1$、質量 $m>0$、Planck 定数 $\hbar>0$ とし、複素 Hilbert 空間 $\mathcal H=L^2(\mathbb R^d,dx)$ の内積は第1変数について線形とします。
+
+$\mathcal S(\mathbb R^d)$ は Schwartz 空間、$\mathcal F$ はユニタリな Fourier 変換で、$\widehat\psi=\mathcal F\psi$ と書きます。
+
+$d$ 次元では
 
 $$
 \widehat\psi(\xi)=(2\pi)^{-d/2}\int_{\mathbb R^d}e^{-ix\cdot\xi}\psi(x)\,dx.
 $$
 
-$\mathcal S$ 上で微分を Fourier 変換すると、$\widehat{\partial_j\psi}(\xi)=i\xi_j\widehat\psi(\xi)$ です。$L^2$ への拡張には [FOU4 の一次元 $L^2$ Fourier 反転](../FOU4/index.md#thm-fou4-l2-inversion) を使います。ただし FOU4 の式は正規化前の一次元変換なので、**ここで使う $d$ 次元ユニタリ変換への橋渡し**も確認します。
+$\mathcal S$ 上で微分を Fourier 変換すると、$\widehat{\partial_j\psi}(\xi)=i\xi_j\widehat\psi(\xi)$ です。
 
-一次元で $\mathcal F_1f=(2\pi)^{-1/2}\int e^{-ix\xi}f(x)\,dx$ と正規化すると、FOU4 の Plancherel 等式より $\|\mathcal F_1f\|_2=\|f\|_2$ であり、反転公式により全射です。$d$ 個の一次元 Schwartz 関数の積 $f(x)=\prod_{j=1}^df_j(x_j)$ なら、絶対可積分性と Fubini の定理で
+$L^2$ への拡張には [FOU4 の一次元 $L^2$ Fourier 反転](../FOU4/index.md#thm-fou4-l2-inversion) を使います。
+
+ただし FOU4 の式は正規化前の一次元変換なので、**ここで使う $d$ 次元ユニタリ変換への橋渡し**も確認します。
+
+一次元で $\mathcal F_1f=(2\pi)^{-1/2}\int e^{-ix\xi}f(x)\,dx$ と正規化すると、FOU4 の Plancherel 等式より $\|\mathcal F_1f\|_2=\|f\|_2$ であり、反転公式により全射です。
+
+$d$ 個の一次元 Schwartz 関数の積 $f(x)=\prod_{j=1}^df_j(x_j)$ なら、絶対可積分性と Fubini の定理で
 
 $$
 \mathcal F_df(\xi)=\prod_{j=1}^d(\mathcal F_1f_j)(\xi_j),
@@ -87,13 +99,23 @@ $$
 <!-- proof-start -->
 ### 証明
 
-(1) **最大定義域での掛け算は自己共役。** $h_0$ は実数値なので $M_{h_0}f=h_0f$、$D(M_{h_0})=\{f\in L^2:h_0f\in L^2\}$ は対称です。逆に $g\in D(M_{h_0}^*)$、$M_{h_0}^*g=k$ とすると、全ての $f\in C_c^\infty(\mathbb R^d)\subset D(M_{h_0})$ について
+(1) **最大定義域での掛け算は自己共役。
+
+** $h_0$ は実数値なので $M_{h_0}f=h_0f$、$D(M_{h_0})=\{f\in L^2:h_0f\in L^2\}$ は対称です。
+
+逆に $g\in D(M_{h_0}^*)$、$M_{h_0}^*g=k$ とすると、全ての $f\in C_c^\infty(\mathbb R^d)\subset D(M_{h_0})$ について
 
 $$
 \int f(\xi)\overline{h_0(\xi)g(\xi)-k(\xi)}\,d\xi=0.
 $$
 
-$h_0g$ は各有界集合上で $L^1$ に属します（その集合上で $h_0$ は有界で、$g\in L^2$ に Cauchy–Schwarz の不等式を適用できるため）。よって試験関数による判定から $h_0g=k$ がほとんど至る所で成り立ちます。$k\in L^2$ より $g\in D(M_{h_0})$ となり、逆包含も得て $M_{h_0}^*=M_{h_0}$ です。Fourier 変換はユニタリなので
+$h_0g$ は各有界集合上で $L^1$ に属します（その集合上で $h_0$ は有界で、$g\in L^2$ に Cauchy–Schwarz の不等式を適用できるため）。
+
+よって試験関数による判定から $h_0g=k$ がほとんど至る所で成り立ちます。
+
+$k\in L^2$ より $g\in D(M_{h_0})$ となり、逆包含も得て $M_{h_0}^*=M_{h_0}$ です。
+
+Fourier 変換はユニタリなので
 
 $$
 H_0=\mathcal F^{-1}M_{h_0}\mathcal F
@@ -118,7 +140,11 @@ $$
 \|h_0(f-f_R)\|_2^2=\int_{|\xi|>R}h_0^2|f|^2\to0.
 $$
 
-固定した $R$ に対し、$f_R$ は有界集合に台を持つ $L^2$ 関数です。$C_c^\infty$ の $L^2$ 稠密性を使い、台が半径 $R+1$ の球に含まれる $g_{R,n}\in C_c^\infty$ を $f_R$ へ $L^2$ 近似します。この球上では $h_0\le\hbar^2(R+1)^2/(2m)=M_R$ なので
+固定した $R$ に対し、$f_R$ は有界集合に台を持つ $L^2$ 関数です。
+
+$C_c^\infty$ の $L^2$ 稠密性を使い、台が半径 $R+1$ の球に含まれる $g_{R,n}\in C_c^\infty$ を $f_R$ へ $L^2$ 近似します。
+
+この球上では $h_0\le\hbar^2(R+1)^2/(2m)=M_R$ なので
 
 $$
 \|h_0(g_{R,n}-f_R)\|_2\le M_R\|g_{R,n}-f_R\|_2\to0.
@@ -171,7 +197,11 @@ $$
 
 ### 具体例：定義域の違いを目で確かめる
 
-一次元で Fourier 変換が $\widehat\psi(\xi)=(1+\xi^2)^{-s}$ に比例する関数を考えます（正規化定数はここでは省略）。$|\xi|\to\infty$ では $|\widehat\psi|^2$ が $|\xi|^{-4s}$ 程度なので、$\psi\in L^2$ の条件は $4s>1$ です。一方、$\psi\in D(H_0)$ には
+一次元で Fourier 変換が $\widehat\psi(\xi)=(1+\xi^2)^{-s}$ に比例する関数を考えます（正規化定数はここでは省略）。
+
+$|\xi|\to\infty$ では $|\widehat\psi|^2$ が $|\xi|^{-4s}$ 程度なので、$\psi\in L^2$ の条件は $4s>1$ です。
+
+一方、$\psi\in D(H_0)$ には
 
 $$
 \int |\xi|^4|\widehat\psi|^2\,d\xi<\infty
@@ -190,7 +220,9 @@ $$
 <!-- formal-statement-start -->
 ### 定義（有界ポテンシャルの Schrödinger 作用素）
 
-$d\ge1$、$m,\hbar>0$ とする。実数値 $V\in L^\infty(\mathbb R^d)$ について、$L^2(\mathbb R^d)$ 上の自由 Hamiltonian $H_0=\mathcal F^{-1}M_{\hbar^2|\xi|^2/(2m)}\mathcal F$ を用い、
+$d\ge1$、$m,\hbar>0$ とする。
+
+実数値 $V\in L^\infty(\mathbb R^d)$ について、$L^2(\mathbb R^d)$ 上の自由 Hamiltonian $H_0=\mathcal F^{-1}M_{\hbar^2|\xi|^2/(2m)}\mathcal F$ を用い、
 
 $$
 D(H_V)=D(H_0),\qquad
@@ -202,7 +234,11 @@ $$
 
 <!-- definition-example-start: def-mq1-bounded-schrodinger -->
 
-**定義の確認** $V(x)=V_0\mathbf1_{\{|x|\le1\}}$（$V_0\in\mathbb R$）なら $V$ は実数値可測で $\|V\|_\infty=|V_0|$、任意の $\psi\in L^2$ について $\|V\psi\|_2\le |V_0|\|\psi\|_2$ です。したがって $\psi\in D(H_0)$ なら両項が $L^2$ に属し、定義は意味を持ちます。境界 $|x|=1$ で $V$ が不連続でも、作用素の定義は妨げられません。
+**定義の確認** $V(x)=V_0\mathbf1_{\{|x|\le1\}}$（$V_0\in\mathbb R$）なら $V$ は実数値可測で $\|V\|_\infty=|V_0|$、任意の $\psi\in L^2$ について $\|V\psi\|_2\le |V_0|\|\psi\|_2$ です。
+
+したがって $\psi\in D(H_0)$ なら両項が $L^2$ に属し、定義は意味を持ちます。
+
+境界 $|x|=1$ で $V$ が不連続でも、作用素の定義は妨げられません。
 <!-- definition-example-end -->
 
 <a id="thm-mq1-bounded-potential"></a>
@@ -268,7 +304,13 @@ $$
 
 ### 例：定数ポテンシャルはエネルギー原点をずらすだけ
 
-$V(x)=c\in\mathbb R$ なら $H_V=H_0+cI$ であり、Fourier 側では $h_0(\xi)+c$ の乗算になります。この場合は $\sigma(H_V)=[c,\infty)$ と直接計算できます。これに対し、有限の井戸型ポテンシャルでは、自由作用素のスペクトル表示をそのまま流用できません。自己共役性が判明しても、固有値と固有関数を求める問題は別に残ります。
+$V(x)=c\in\mathbb R$ なら $H_V=H_0+cI$ であり、Fourier 側では $h_0(\xi)+c$ の乗算になります。
+
+この場合は $\sigma(H_V)=[c,\infty)$ と直接計算できます。
+
+これに対し、有限の井戸型ポテンシャルでは、自由作用素のスペクトル表示をそのまま流用できません。
+
+自己共役性が判明しても、固有値と固有関数を求める問題は別に残ります。
 
 ## 4. 相対作用素有界性と Kato–Rellich 型の議論
 
@@ -298,13 +340,21 @@ $$
 =0\cdot\|H_0\psi\|_2+\|V\|_\infty\|\psi\|_2.
 $$
 
-したがって $a=0$、$b=\|V\|_\infty$ と選べます。一方、$V(x)=|x|^2$ はこの評価を満たしません。非零の $\phi\in C_c^\infty(\mathbb R^d)$ を取り、その台が半径 $r>0$ の球に含まれるとします。$\phi_R(x)=\phi(x-Re_1)$ と平行移動した関数を考えると、変数変換 $y=x-Re_1$ から
+したがって $a=0$、$b=\|V\|_\infty$ と選べます。
+
+一方、$V(x)=|x|^2$ はこの評価を満たしません。
+
+非零の $\phi\in C_c^\infty(\mathbb R^d)$ を取り、その台が半径 $r>0$ の球に含まれるとします。
+
+$\phi_R(x)=\phi(x-Re_1)$ と平行移動した関数を考えると、変数変換 $y=x-Re_1$ から
 
 $$
 \|\phi_R\|_2^2=\int|\phi(y)|^2dy=\|\phi\|_2^2.
 $$
 
-また $H_0=-\hbar^2\Delta/(2m)$ は定数係数の微分作用素なので $H_0\phi_R(x)=(H_0\phi)(x-Re_1)$ となり、$\|H_0\phi_R\|_2=\|H_0\phi\|_2$ です。しかし $R>r$ とすれば $\phi(y)\ne0$ の点では $|y+Re_1|\ge R-r$ であるため、
+また $H_0=-\hbar^2\Delta/(2m)$ は定数係数の微分作用素なので $H_0\phi_R(x)=(H_0\phi)(x-Re_1)$ となり、$\|H_0\phi_R\|_2=\|H_0\phi\|_2$ です。
+
+しかし $R>r$ とすれば $\phi(y)\ne0$ の点では $|y+Re_1|\ge R-r$ であるため、
 
 $$
 \begin{aligned}
@@ -482,7 +532,15 @@ $$
 
 <!-- definition-example-start: def-mq1-essential-spectrum -->
 
-**定義の確認** $\ell^2(\mathbb N)$ 上の $A(x_n)=(nx_n)$ を、$D(A)=\{x:(nx_n)\in\ell^2\}$ に定めます。[EVOL1 のスペクトル計算](../EVOL1/index.md#prop-evol1-diagonal-spectrum) から $\sigma(A)=\{1,2,3,\ldots\}$ です。各 $n$ はほかのスペクトル点から正の距離だけ離れ、固有空間は $\operatorname{span}\{e_n\}$ の一次元です。したがって $\sigma_{\mathrm{disc}}(A)=\{1,2,3,\ldots\}$、$\sigma_{\mathrm{ess}}(A)=\varnothing$ です。スペクトルが非有界でも、本質スペクトルは空になり得ます。
+**定義の確認** $\ell^2(\mathbb N)$ 上の $A(x_n)=(nx_n)$ を、$D(A)=\{x:(nx_n)\in\ell^2\}$ に定めます。
+
+[EVOL1 のスペクトル計算](../EVOL1/index.md#prop-evol1-diagonal-spectrum) から $\sigma(A)=\{1,2,3,\ldots\}$ です。
+
+各 $n$ はほかのスペクトル点から正の距離だけ離れ、固有空間は $\operatorname{span}\{e_n\}$ の一次元です。
+
+したがって $\sigma_{\mathrm{disc}}(A)=\{1,2,3,\ldots\}$、$\sigma_{\mathrm{ess}}(A)=\varnothing$ です。
+
+スペクトルが非有界でも、本質スペクトルは空になり得ます。
 <!-- definition-example-end -->
 
 <a id="thm-mq1-free-spectrum"></a>
@@ -507,12 +565,22 @@ $$
 ここで $\sigma_{\mathrm p}$ は固有値全体を表す。
 <!-- formal-statement-end -->
 
-**証明の見取り図。** $z\notin[0,\infty)$ には Fourier 側で $(h_0-z)^{-1}$ を掛ける有界逆作用素があります。$\lambda\ge0$ には $h_0$ が $\lambda$ に近い周波数だけを使う正規化関数列を作り、$(H_0-\lambda)\psi$ を小さくします。一方、$h_0=\lambda$ の水準集合は Lebesgue 零集合なので、真の $L^2$ 固有ベクトルはありません。
+**証明の見取り図。
+
+** $z\notin[0,\infty)$ には Fourier 側で $(h_0-z)^{-1}$ を掛ける有界逆作用素があります。
+
+$\lambda\ge0$ には $h_0$ が $\lambda$ に近い周波数だけを使う正規化関数列を作り、$(H_0-\lambda)\psi$ を小さくします。
+
+一方、$h_0=\lambda$ の水準集合は Lebesgue 零集合なので、真の $L^2$ 固有ベクトルはありません。
 
 <!-- proof-start -->
 ### 証明
 
-$z\in\mathbb C\setminus[0,\infty)$ なら $\delta=\operatorname{dist}(z,[0,\infty))>0$ であり、$r_z(\xi)=1/(h_0(\xi)-z)$ は $\|r_z\|_\infty\le1/\delta$ を満たします。また $h_0r_z=1+zr_z$ も有界です。従って
+$z\in\mathbb C\setminus[0,\infty)$ なら $\delta=\operatorname{dist}(z,[0,\infty))>0$ であり、$r_z(\xi)=1/(h_0(\xi)-z)$ は $\|r_z\|_\infty\le1/\delta$ を満たします。
+
+また $h_0r_z=1+zr_z$ も有界です。
+
+従って
 
 $$
 R_z=\mathcal F^{-1}M_{r_z}\mathcal F
@@ -527,7 +595,15 @@ $$
 
 よって $z$ はレゾルベント集合に属します。
 
-次に $\lambda\ge0$ を固定します。$h_0$ は連続で値域が $[0,\infty)$ なので、$\lambda$ に対応する $\xi_0$ を一つ取れます。各 $n$ について正測度を持つ小球 $B_n$ を $\xi_0$ の周囲に取り、そこで $|h_0(\xi)-\lambda|<1/n$ かつ $h_0$ が有界になるようにします。$f_n=|B_n|^{-1/2}\mathbf1_{B_n}$ とおけば $\|f_n\|_2=1$ で $f_n\in D(M_{h_0})$ です。$\psi_n=\mathcal F^{-1}f_n$ に対し
+次に $\lambda\ge0$ を固定します。
+
+$h_0$ は連続で値域が $[0,\infty)$ なので、$\lambda$ に対応する $\xi_0$ を一つ取れます。
+
+各 $n$ について正測度を持つ小球 $B_n$ を $\xi_0$ の周囲に取り、そこで $|h_0(\xi)-\lambda|<1/n$ かつ $h_0$ が有界になるようにします。
+
+$f_n=|B_n|^{-1/2}\mathbf1_{B_n}$ とおけば $\|f_n\|_2=1$ で $f_n\in D(M_{h_0})$ です。
+
+$\psi_n=\mathcal F^{-1}f_n$ に対し
 
 $$
 \|(H_0-\lambda)\psi_n\|_2^2
@@ -544,14 +620,28 @@ $$
 
 となり矛盾します。従って $\lambda\in\sigma(H_0)$ です。
 
-最後に $H_0\psi=\lambda\psi$ なら $(h_0(\xi)-\lambda)\widehat\psi(\xi)=0$ がほとんど至る所で成立します。$\lambda<0$ では水準集合は空、$\lambda=0$ では $\{\xi=0\}$、$\lambda>0$ では半径 $\sqrt{2m\lambda}/\hbar$ の球面です。いずれも $d$ 次元 Lebesgue 測度は零です（$d=1$ では有限点集合）。ゆえに $\widehat\psi=0$ がほとんど至る所で、固有ベクトルは存在しません。離散スペクトルは固有値から成るので空、本質スペクトルは全スペクトルとなります。$\square$
+最後に $H_0\psi=\lambda\psi$ なら $(h_0(\xi)-\lambda)\widehat\psi(\xi)=0$ がほとんど至る所で成立します。
+
+$\lambda<0$ では水準集合は空、$\lambda=0$ では $\{\xi=0\}$、$\lambda>0$ では半径 $\sqrt{2m\lambda}/\hbar$ の球面です。
+
+いずれも $d$ 次元 Lebesgue 測度は零です（$d=1$ では有限点集合）。
+
+ゆえに $\widehat\psi=0$ がほとんど至る所で、固有ベクトルは存在しません。
+
+離散スペクトルは固有値から成るので空、本質スペクトルは全スペクトルとなります。
+
+$\square$
 <!-- proof-end -->
 
 $\lambda>0$ で単色の平面波 $e^{ik\cdot x}$ は微分式の「形式固有関数」ですが、$\mathbb R^d$ 全域では $L^2$ に属しません。**形式固有関数と Hilbert 空間の固有ベクトルを混同しない**ことが、連続スペクトルを理解する最初の要点です。
 
 ## 7. 二次形式が必要になる場所
 
-自己共役 $H_V$ が定まると、$\psi\in D(H_V)$ に対しては $\langle\psi,H_V\psi\rangle$ を計算できます。しかし、エネルギーを比較するには、$H_V\psi$ そのものが $L^2$ にない状態も試したくなります。そこで $H_0$ の「一階微分だけで評価できる」式を取り出します。
+自己共役 $H_V$ が定まると、$\psi\in D(H_V)$ に対しては $\langle\psi,H_V\psi\rangle$ を計算できます。
+
+しかし、エネルギーを比較するには、$H_V\psi$ そのものが $L^2$ にない状態も試したくなります。
+
+そこで $H_0$ の「一階微分だけで評価できる」式を取り出します。
 
 $\psi\in\mathcal S(\mathbb R^d)$ なら Plancherel と Fourier 微分則から
 
@@ -604,7 +694,13 @@ q_V[\psi]+(K+1)\|\psi\|_2^2
 \end{aligned}
 $$
 
-従って形式ノルム $\|\psi\|_q=[q_V[\psi]+(K+1)\|\psi\|_2^2]^{1/2}$ と $\|\psi\|_{H^1}$ は同値です。$H^1$ の完備性も Fourier 側で確認できます。$\|\cdot\|_{H^1}$ に関して Cauchy な $\psi_n$ に対し、$(1+|\xi|^2)^{1/2}\widehat\psi_n$ は $L^2$ で Cauchy なので、ある $g\in L^2$ へ収束します。$f=g/(1+|\xi|^2)^{1/2}\in L^2$ と置いて $\psi=\mathcal F^{-1}f$ を取れば、
+従って形式ノルム $\|\psi\|_q=[q_V[\psi]+(K+1)\|\psi\|_2^2]^{1/2}$ と $\|\psi\|_{H^1}$ は同値です。
+
+$H^1$ の完備性も Fourier 側で確認できます。
+
+$\|\cdot\|_{H^1}$ に関して Cauchy な $\psi_n$ に対し、$(1+|\xi|^2)^{1/2}\widehat\psi_n$ は $L^2$ で Cauchy なので、ある $g\in L^2$ へ収束します。
+
+$f=g/(1+|\xi|^2)^{1/2}\in L^2$ と置いて $\psi=\mathcal F^{-1}f$ を取れば、
 
 $$
 \|\psi_n-\psi\|_{H^1}^2
@@ -623,7 +719,9 @@ $$
 
 ### A1. Fourier 記号と符号
 
-$d=1$、$\psi\in\mathcal S(\mathbb R)$、$m,\hbar>0$ とする。$\mathcal F(\partial_x^2\psi)$ と $\mathcal F(-\hbar^2\partial_x^2\psi/(2m))$ を求め、後者の Fourier 記号が非負である理由を示せ。
+$d=1$、$\psi\in\mathcal S(\mathbb R)$、$m,\hbar>0$ とする。
+
+$\mathcal F(\partial_x^2\psi)$ と $\mathcal F(-\hbar^2\partial_x^2\psi/(2m))$ を求め、後者の Fourier 記号が非負である理由を示せ。
 
 - Level: A
 
@@ -727,7 +825,11 @@ $$
 
 ### B1. Schwartz core をグラフで確認する
 
-$d=1$ とし、$H_0=\mathcal F^{-1}M_{c\xi^2}\mathcal F$、$c>0$ を最大乗算定義域で取る。$\widehat\psi(\xi)=(1+\xi^2)^{-2}$ の $\psi$ について、$f_R=\mathbf1_{[-R,R]}\widehat\psi$ が $H_0$ の Fourier 側グラフノルムで $\widehat\psi$ に収束することを式で示せ。$f_R$ 自身が $C_c^\infty$ ではないことにも注意せよ。
+$d=1$ とし、$H_0=\mathcal F^{-1}M_{c\xi^2}\mathcal F$、$c>0$ を最大乗算定義域で取る。
+
+$\widehat\psi(\xi)=(1+\xi^2)^{-2}$ の $\psi$ について、$f_R=\mathbf1_{[-R,R]}\widehat\psi$ が $H_0$ の Fourier 側グラフノルムで $\widehat\psi$ に収束することを式で示せ。
+
+$f_R$ 自身が $C_c^\infty$ ではないことにも注意せよ。
 
 - Level: B
 
@@ -748,7 +850,13 @@ $$
 =c^2\int_{|\xi|>R}\xi^4(1+\xi^2)^{-4}\,d\xi\to0.
 $$
 
-二つの極限は可積分関数の尾部積分が零へ行くことによります。$f_R$ には $\pm R$ で跳びがあるため滑らかとは限りません。そこで $[-R,R]$ に台を持つ $L^2$ 関数を、台が $[-R-1,R+1]$ に入る滑らかな関数 $g_{R,n}$ で近似します。例えば滑らかな近似恒等族による畳み込みの幅を $1/n<1$ と選べば、この台の条件を保ちつつ $L^2$ 収束させられます。
+二つの極限は可積分関数の尾部積分が零へ行くことによります。
+
+$f_R$ には $\pm R$ で跳びがあるため滑らかとは限りません。
+
+そこで $[-R,R]$ に台を持つ $L^2$ 関数を、台が $[-R-1,R+1]$ に入る滑らかな関数 $g_{R,n}$ で近似します。
+
+例えば滑らかな近似恒等族による畳み込みの幅を $1/n<1$ と選べば、この台の条件を保ちつつ $L^2$ 収束させられます。
 
 固定区間上で $|\xi|^2\le(R+1)^2$ なので、
 
@@ -774,7 +882,9 @@ $$
 
 ### B2. 摂動後にも core が残る理由
 
-自己共役 $A$、対称 $B$、$D(A)\subset D(B)$ に対し $\|B\psi\|\le\frac12\|A\psi\|+4\|\psi\|$ が全ての $\psi\in D(A)$ で成り立つとする。$D_0$ が $A$ の core なら $A+B$ の core であることをグラフノルム評価から示せ。
+自己共役 $A$、対称 $B$、$D(A)\subset D(B)$ に対し $\|B\psi\|\le\frac12\|A\psi\|+4\|\psi\|$ が全ての $\psi\in D(A)$ で成り立つとする。
+
+$D_0$ が $A$ の core なら $A+B$ の core であることをグラフノルム評価から示せ。
 
 - Level: B
 
@@ -801,7 +911,11 @@ $$
 \|A\psi\|\le2\|(A+B)\psi\|+8\|\psi\|.
 $$
 
-したがって二つのグラフノルムは同値です。$D_0$ が $A$ の core なので、任意の $\psi\in D(A)$ に $\psi_n\in D_0$ で $\|\psi_n-\psi\|+\|A(\psi_n-\psi)\|\to0$ となるものを取れます。上の第一評価を $\psi_n-\psi$ へ適用すれば
+したがって二つのグラフノルムは同値です。
+
+$D_0$ が $A$ の core なので、任意の $\psi\in D(A)$ に $\psi_n\in D_0$ で $\|\psi_n-\psi\|+\|A(\psi_n-\psi)\|\to0$ となるものを取れます。
+
+上の第一評価を $\psi_n-\psi$ へ適用すれば
 
 $$
 \|\psi_n-\psi\|+\|(A+B)(\psi_n-\psi)\|\to0.
@@ -838,7 +952,11 @@ $$
 
 ### B4. 形式的固有関数が固有状態ではない理由
 
-$d=1$ の自由 Hamiltonian $H_0=-\hbar^2d^2/dx^2/(2m)$ に対し、$k\in\mathbb R$ と $\phi_k(x)=e^{ikx}$ を取る。微分方程式の意味でのエネルギーを求め、なぜ $\phi_k$ は $L^2(\mathbb R)$ 上の固有ベクトルにはならないか説明せよ。さらに Fourier 側でエネルギー $\hbar^2k^2/(2m)$ 近くへ集中する正規化関数列を構成せよ。
+$d=1$ の自由 Hamiltonian $H_0=-\hbar^2d^2/dx^2/(2m)$ に対し、$k\in\mathbb R$ と $\phi_k(x)=e^{ikx}$ を取る。
+
+微分方程式の意味でのエネルギーを求め、なぜ $\phi_k$ は $L^2(\mathbb R)$ 上の固有ベクトルにはならないか説明せよ。
+
+さらに Fourier 側でエネルギー $\hbar^2k^2/(2m)$ 近くへ集中する正規化関数列を構成せよ。
 
 - Level: B
 
@@ -854,7 +972,11 @@ $$
 
 一方、$|\phi_k(x)|^2=1$ で $\int_{\mathbb R}1\,dx=\infty$ だから $\phi_k\notin L^2(\mathbb R)$ です。固有ベクトルは Hilbert 空間の非零元でなければならず、形式式の解であるだけでは不足します。
 
-$h_0(\xi)=\hbar^2\xi^2/(2m)$、$\lambda=h_0(k)$ とし、$I_n=(k-1/n,k+1/n)$、$f_n=(n/2)^{1/2}\mathbf1_{I_n}$ と取ると $\|f_n\|_2=1$ です。$f_n$ は有界区間に台を持つため最大定義域の掛け算の作用素に属します。$\psi_n=\mathcal F^{-1}f_n$ とすると
+$h_0(\xi)=\hbar^2\xi^2/(2m)$、$\lambda=h_0(k)$ とし、$I_n=(k-1/n,k+1/n)$、$f_n=(n/2)^{1/2}\mathbf1_{I_n}$ と取ると $\|f_n\|_2=1$ です。
+
+$f_n$ は有界区間に台を持つため最大定義域の掛け算の作用素に属します。
+
+$\psi_n=\mathcal F^{-1}f_n$ とすると
 
 $$
 \|(H_0-\lambda)\psi_n\|_2^2
@@ -907,7 +1029,13 @@ $$
 \end{aligned}
 $$
 
-各 $k\ge1$ に対して先に $R_k$ を選び、右辺の後ろ二つの和を $1/(2k)$ 未満にします。次に $n_k$ を選んで $\|g_{R_k,n_k}-f_{R_k}\|_2<1/\{2k[1+c(R_k+1)^2]\}$ とします。すると右辺は $1/k$ 未満です。$\psi_k=\mathcal F^{-1}g_{R_k,n_k}\in\mathcal S$ について Plancherel により
+各 $k\ge1$ に対して先に $R_k$ を選び、右辺の後ろ二つの和を $1/(2k)$ 未満にします。
+
+次に $n_k$ を選んで $\|g_{R_k,n_k}-f_{R_k}\|_2<1/\{2k[1+c(R_k+1)^2]\}$ とします。
+
+すると右辺は $1/k$ 未満です。
+
+$\psi_k=\mathcal F^{-1}g_{R_k,n_k}\in\mathcal S$ について Plancherel により
 
 $$
 \|\psi_k-\psi\|_2+\|H_0\psi_k-H_0\psi\|_2
@@ -923,7 +1051,13 @@ $$
 =0\|H_0\psi\|_2+V_0\|\psi\|_2
 $$
 
-が成立します。相対界 $a=0<1$ の対称摂動定理を $A=H_0$、$B=M_V$ へ適用して、$D(H)=D(H_0)$ で自己共役性が成立します。さらに両方のグラフノルムの同値性から $\mathcal S$ は $H$ の core です。従って $\overline{H|_{\mathcal S}}=H$、すなわち微分式の最小実現は本質的自己共役です。
+が成立します。
+
+相対界 $a=0<1$ の対称摂動定理を $A=H_0$、$B=M_V$ へ適用して、$D(H)=D(H_0)$ で自己共役性が成立します。
+
+さらに両方のグラフノルムの同値性から $\mathcal S$ は $H$ の core です。
+
+従って $\overline{H|_{\mathcal S}}=H$、すなわち微分式の最小実現は本質的自己共役です。
 
 (3) $\psi\in D(H)$ なら Fourier 表現と $V(x)\ge -V_0$ から
 
@@ -945,7 +1079,11 @@ q_V[\psi]=\frac{\hbar^2}{2m}\int\xi^2|\widehat\psi(\xi)|^2\,d\xi
 -V_0\int_{-L}^{L}|\psi(x)|^2\,dx
 $$
 
-で、$H^1$ の定義から第1項が有限、第二項は $V_0\|\psi\|_2^2$ 以下です。しかし $D(H)=H^2$ には Fourier 側で $\int\xi^4|\widehat\psi|^2<\infty$ が必要であり、$H^1$ の $\int\xi^2|\widehat\psi|^2<\infty$ だけでは保証されません。例えば $\widehat\psi=(1+\xi^2)^{-1}$ は $H^1$ に属しますが、$H^2$ には属しません。
+で、$H^1$ の定義から第1項が有限、第二項は $V_0\|\psi\|_2^2$ 以下です。
+
+しかし $D(H)=H^2$ には Fourier 側で $\int\xi^4|\widehat\psi|^2<\infty$ が必要であり、$H^1$ の $\int\xi^2|\widehat\psi|^2<\infty$ だけでは保証されません。
+
+例えば $\widehat\psi=(1+\xi^2)^{-1}$ は $H^1$ に属しますが、$H^2$ には属しません。
 
 (5) 自己共役性と下界は、定義域が適切でエネルギー測定・ユニタリ時間発展が定まることを保証します。しかし負の固有値の存在、個数、対応する波動関数は、この証明では求めていません。固有値の存在には変分法など追加のスペクトル解析が必要です。
 <!-- solution-end -->

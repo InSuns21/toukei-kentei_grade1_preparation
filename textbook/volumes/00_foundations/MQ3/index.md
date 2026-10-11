@@ -1,6 +1,10 @@
 # MQ3 量子調和振動子
 
-[古典的な振動](../MECH5/index.md)では、質量 $m$ の粒子をばね定数 $k$ の復元力で閉じ込めると、角振動数 $\omega=\sqrt{k/m}$ の単振動が生じました。[Hamiltonian 形式](../AMECH5/index.md)ではそのエネルギーを運動量 $p$ と位置 $q$ から書けます。量子化の候補を立てる段階と、**その作用素の定義域・自己共役性・全スペクトルを証明する段階**は区別しなければなりません。
+[古典的な振動](../MECH5/index.md)では、質量 $m$ の粒子をばね定数 $k$ の復元力で閉じ込めると、角振動数 $\omega=\sqrt{k/m}$ の単振動が生じました。
+
+[Hamiltonian 形式](../AMECH5/index.md)ではそのエネルギーを運動量 $p$ と位置 $q$ から書けます。
+
+量子化の候補を立てる段階と、**その作用素の定義域・自己共役性・全スペクトルを証明する段階**は区別しなければなりません。
 
 [MQ1](../MQ1/index.md)の有界ポテンシャル摂動定理は、$x^2$ のように無限遠で増大するポテンシャルにはそのまま適用できません。また [MQ2](../MQ2/index.md)の変分原理は最低エネルギーの下限・上界を与えますが、励起準位がすべて求まるわけではありません。この章では、Gaussian から状態を一つずつ作り、さらに**それ以外のスペクトルが存在しないこと**まで示します。
 
@@ -12,7 +16,13 @@ $$
 H_{\mathrm{cl}}(q,p)=\frac{p^2}{2m}+\frac12m\omega^2q^2
 $$
 
-です。一次元 Hilbert 空間 $\mathcal H=L^2(\mathbb R,dx)$ 上で、位置 $Q\psi=x\psi$ と運動量 $P\psi=-i\hbar\psi'$ を考えます。これらの自己共役な最大実現は [QM5](../QM5/index.md)で構成しました。$\mathcal S(\mathbb R)$ は滑らかで各導関数が多項式の逆冪より速く減少する Schwartz 空間です。
+です。
+
+一次元 Hilbert 空間 $\mathcal H=L^2(\mathbb R,dx)$ 上で、位置 $Q\psi=x\psi$ と運動量 $P\psi=-i\hbar\psi'$ を考えます。
+
+これらの自己共役な最大実現は [QM5](../QM5/index.md)で構成しました。
+
+$\mathcal S(\mathbb R)$ は滑らかで各導関数が多項式の逆冪より速く減少する Schwartz 空間です。
 
 形式的な候補は
 
@@ -176,7 +186,9 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（規格化された最低状態）**  
-> $\phi_0(y)=\pi^{-1/4}e^{-y^2/2}\in\mathcal S$ は $\|\phi_0\|=1$、$a\phi_0=0$、$h_{\mathrm{diff}}\phi_0=\frac12\phi_0$ を満たす。さらに $\mathcal S$ 上で $af=0$ の解は $\phi_0$ の定数倍に限られる。
+> $\phi_0(y)=\pi^{-1/4}e^{-y^2/2}\in\mathcal S$ は $\|\phi_0\|=1$、$a\phi_0=0$、$h_{\mathrm{diff}}\phi_0=\frac12\phi_0$ を満たす。
+
+さらに $\mathcal S$ 上で $af=0$ の解は $\phi_0$ の定数倍に限られる。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -433,7 +445,11 @@ F(z)=\sum_{k=0}^\infty\frac{(-iz)^k}{k!}\int_{\mathbb R}y^kg(y)\,dy
 =\sum_{k=0}^\infty\frac{(-iz)^k}{k!}\cdot0=0.
 $$
 
-特に実数周波数上で $F=0$ です。$g\in L^1(\mathbb R)$ に対する Fourier 変換の一意性（[FOU4 の Fourier 理論](../FOU4/index.md)）から $g=0$ がほとんど至る所で成立します。$e^{-y^2/2}>0$ は全ての実数 $y$ で零でないため $f=0$ です。
+特に実数周波数上で $F=0$ です。
+
+$g\in L^1(\mathbb R)$ に対する Fourier 変換の一意性（[FOU4 の Fourier 理論](../FOU4/index.md)）から $g=0$ がほとんど至る所で成立します。
+
+$e^{-y^2/2}>0$ は全ての実数 $y$ で零でないため $f=0$ です。
 
 先ほど証明した正規直交性と合わせ、$\{\phi_n\}$ は完全正規直交系です。$\square$
 <!-- proof-end -->
@@ -501,7 +517,13 @@ $$
 \langle M_\lambda c,d\rangle=\langle c,b\rangle.
 $$
 
-$c=e_n$ を代入すると $b_n=\lambda_nd_n$ となります。$b\in\ell^2$ なので $(\lambda_nd_n)\in\ell^2$、すなわち $d\in D(M_\lambda)$ です。逆包含は対称性から従うため $M_\lambda^*=M_\lambda$ です。ここで $h=W^{-1}M_\lambda W$ は自己共役です。
+$c=e_n$ を代入すると $b_n=\lambda_nd_n$ となります。
+
+$b\in\ell^2$ なので $(\lambda_nd_n)\in\ell^2$、すなわち $d\in D(M_\lambda)$ です。
+
+逆包含は対称性から従うため $M_\lambda^*=M_\lambda$ です。
+
+ここで $h=W^{-1}M_\lambda W$ は自己共役です。
 
 次に元の微分作用素との一致を示します。任意の $f\in\mathcal S$ について $h_{\mathrm{diff}}f\in\mathcal S\subset L^2$ です。部分積分の境界項は Schwartz 性で消えるので、
 
@@ -527,7 +549,13 @@ $$
 \longrightarrow0
 $$
 
-となります。従って $\mathcal S$ は $h$ の core です。$h_{\mathrm{diff}}\subset h$ と core 性から $\overline{h_{\mathrm{diff}}}=h$ が従い、本質的自己共役性を得ます。物理単位へ戻すと $H=\hbar\omega U^{-1}hU$ で、定理の作用素定義域と作用式になります。
+となります。
+
+従って $\mathcal S$ は $h$ の core です。
+
+$h_{\mathrm{diff}}\subset h$ と core 性から $\overline{h_{\mathrm{diff}}}=h$ が従い、本質的自己共役性を得ます。
+
+物理単位へ戻すと $H=\hbar\omega U^{-1}hU$ で、定理の作用素定義域と作用式になります。
 
 スペクトルを調べます。$z\notin\{\lambda_n\}$ なら、この集合は離散的で無限遠へ逃げるため $d=\inf_n|\lambda_n-z|>0$ です。$\ell^2$ 上で $(R_zb)_n=b_n/(\lambda_n-z)$ と定めると $\|R_z\|\le1/d$、さらに
 
@@ -535,7 +563,15 @@ $$
 \frac{\lambda_n}{\lambda_n-z}=1+\frac{z}{\lambda_n-z}
 $$
 
-は $n$ に関して有界なので $R_zb\in D(M_\lambda)$ です。$(M_\lambda-z)R_zb=b$ と $R_z(M_\lambda-z)c=c$ が成立し、$z$ はレゾルベントに属します。一方、各 $\lambda_n$ は $\phi_n$ の固有値でスペクトルに入ります。他にスペクトルはありません。異なる $\lambda_n$ は異なるため、固有空間は $\phi_n$ の一次元です。
+は $n$ に関して有界なので $R_zb\in D(M_\lambda)$ です。
+
+$(M_\lambda-z)R_zb=b$ と $R_z(M_\lambda-z)c=c$ が成立し、$z$ はレゾルベントに属します。
+
+一方、各 $\lambda_n$ は $\phi_n$ の固有値でスペクトルに入ります。
+
+他にスペクトルはありません。
+
+異なる $\lambda_n$ は異なるため、固有空間は $\phi_n$ の一次元です。
 
 最後に $(M_\lambda-i)^{-1}$ は対角成分 $(\lambda_n-i)^{-1}$ を持ち、$n\to\infty$ で零に収束します。$n\le N$ の成分のみ残した有限ランク作用素 $R_N$ に対し
 
@@ -600,7 +636,13 @@ $$
 c_{k+2}=\frac{2k+1-2\varepsilon}{(k+2)(k+1)}c_k.
 $$
 
-特に次数 $n$ の非零多項式解を望むなら、その最高次 $c_n\ne0$ に対して $2\varepsilon-1-2n=0$、すなわち $\varepsilon=n+1/2$ が必要です。このとき Rodrigues 公式の $\mathsf H_n$ が実際に解を与えます。**級数が打ち切れないだけで $L^2$ 解が存在しない、とここで飛躍してはいけません**。その排除を確実にするのが、上で証明した完全性・自己共役性・レゾルベントの構成です。
+特に次数 $n$ の非零多項式解を望むなら、その最高次 $c_n\ne0$ に対して $2\varepsilon-1-2n=0$、すなわち $\varepsilon=n+1/2$ が必要です。
+
+このとき Rodrigues 公式の $\mathsf H_n$ が実際に解を与えます。
+
+**級数が打ち切れないだけで $L^2$ 解が存在しない、とここで飛躍してはいけません**。
+
+その排除を確実にするのが、上で証明した完全性・自己共役性・レゾルベントの構成です。
 
 ### 物理単位と時間発展
 
@@ -626,14 +668,20 @@ $$
 
 ### A1. 無次元化の係数を追う
 
-$m,\omega,\hbar>0$ とし、$\ell=\sqrt{\hbar/(m\omega)}$、$(U\psi)(y)=\sqrt\ell\,\psi(\ell y)$ とする。$U^{-1}$ を求め、$U(-\hbar^2d^2/(2m\,dx^2)+m\omega^2x^2/2)U^{-1}$ を $\mathcal S$ 上で計算せよ。
+$m,\omega,\hbar>0$ とし、$\ell=\sqrt{\hbar/(m\omega)}$、$(U\psi)(y)=\sqrt\ell\,\psi(\ell y)$ とする。
+
+$U^{-1}$ を求め、$U(-\hbar^2d^2/(2m\,dx^2)+m\omega^2x^2/2)U^{-1}$ を $\mathcal S$ 上で計算せよ。
 
 - Level: A
 
 <!-- solution-start -->
 #### 詳細解答
 
-$y=x/\ell$ を逆代入すると $(U^{-1}f)(x)=\ell^{-1/2}f(x/\ell)$ です。$\int\ell|\psi(\ell y)|^2dy=\int|\psi(x)|^2dx$ なので $U$ は等長で、逆作用も全空間上に定義されるからユニタリです。$f\in\mathcal S$ に対し
+$y=x/\ell$ を逆代入すると $(U^{-1}f)(x)=\ell^{-1/2}f(x/\ell)$ です。
+
+$\int\ell|\psi(\ell y)|^2dy=\int|\psi(x)|^2dx$ なので $U$ は等長で、逆作用も全空間上に定義されるからユニタリです。
+
+$f\in\mathcal S$ に対し
 
 $$
 \frac{d}{dx}U^{-1}f=\ell^{-3/2}f'(x/\ell),\qquad
@@ -683,7 +731,15 @@ $a=(y+\partial_y)/\sqrt2$ とする。$af=0$ の滑らかな $L^2(\mathbb R)$ �
 <!-- solution-start -->
 #### 詳細解答
 
-$af=0$ は $f'+yf=0$ です。積の微分から $(e^{y^2/2}f)'=e^{y^2/2}(f'+yf)=0$ なので $f=Ce^{-y^2/2}$。ノルムは $\|f\|^2=|C|^2\int e^{-y^2}dy=|C|^2\sqrt\pi$ です。$C=\pi^{-1/4}$ と選ぶと $\|f\|=1$。そして
+$af=0$ は $f'+yf=0$ です。
+
+積の微分から $(e^{y^2/2}f)'=e^{y^2/2}(f'+yf)=0$ なので $f=Ce^{-y^2/2}$。
+
+ノルムは $\|f\|^2=|C|^2\int e^{-y^2}dy=|C|^2\sqrt\pi$ です。
+
+$C=\pi^{-1/4}$ と選ぶと $\|f\|=1$。
+
+そして
 
 $$
 h_{\mathrm{diff}}f
@@ -696,7 +752,9 @@ $$
 
 ### A4. 最初の三つの波動関数
 
-規格化した $\phi_0=\pi^{-1/4}e^{-y^2/2}$ に $a^\dagger=(y-\partial_y)/\sqrt2$ を作用させ、$\phi_1=a^\dagger\phi_0$ と $\phi_2=(a^\dagger)^2\phi_0/\sqrt2$ を求めよ。$\phi_2$ のノルムを Gaussian 積分で検算せよ。
+規格化した $\phi_0=\pi^{-1/4}e^{-y^2/2}$ に $a^\dagger=(y-\partial_y)/\sqrt2$ を作用させ、$\phi_1=a^\dagger\phi_0$ と $\phi_2=(a^\dagger)^2\phi_0/\sqrt2$ を求めよ。
+
+$\phi_2$ のノルムを Gaussian 積分で検算せよ。
 
 - Level: A
 
@@ -737,14 +795,20 @@ $$
 
 ### B1. 基底状態の位置・運動量分散
 
-$m,\omega,\hbar>0$、$\ell^2=\hbar/(m\omega)$、$\psi_0(x)=\pi^{-1/4}\ell^{-1/2}e^{-x^2/(2\ell^2)}$ とする。$Q\psi=x\psi$、$P\psi=-i\hbar\psi'$ に対して $\langle Q\rangle,\langle P\rangle,\langle Q^2\rangle,\langle P^2\rangle$ を計算し、運動・位置エネルギーの期待値を比較せよ。
+$m,\omega,\hbar>0$、$\ell^2=\hbar/(m\omega)$、$\psi_0(x)=\pi^{-1/4}\ell^{-1/2}e^{-x^2/(2\ell^2)}$ とする。
+
+$Q\psi=x\psi$、$P\psi=-i\hbar\psi'$ に対して $\langle Q\rangle,\langle P\rangle,\langle Q^2\rangle,\langle P^2\rangle$ を計算し、運動・位置エネルギーの期待値を比較せよ。
 
 - Level: B
 
 <!-- solution-start -->
 #### 詳細解答
 
-$|\psi_0|^2=(\sqrt\pi\ell)^{-1}e^{-x^2/\ell^2}$ は偶関数なので $\langle Q\rangle=0$。$\psi_0'=-x\psi_0/\ell^2$ は奇関数で $\langle P\rangle=-i\hbar\int\psi_0\psi_0'dx=0$ です。$y=x/\ell$ と置換し、$\int y^2e^{-y^2}dy=\sqrt\pi/2$ から
+$|\psi_0|^2=(\sqrt\pi\ell)^{-1}e^{-x^2/\ell^2}$ は偶関数なので $\langle Q\rangle=0$。
+
+$\psi_0'=-x\psi_0/\ell^2$ は奇関数で $\langle P\rangle=-i\hbar\int\psi_0\psi_0'dx=0$ です。
+
+$y=x/\ell$ と置換し、$\int y^2e^{-y^2}dy=\sqrt\pi/2$ から
 
 $$
 \langle Q^2\rangle
@@ -765,12 +829,18 @@ $$
 \end{aligned}
 $$
 
-従って運動項は $\langle P^2/(2m)\rangle=\hbar^2/(4m\ell^2)=\hbar\omega/4$、位置項は $m\omega^2\langle Q^2\rangle/2=m\omega^2\ell^2/4=\hbar\omega/4$。両者の和は $\hbar\omega/2$ です。また $\Delta Q\,\Delta P=(\ell/\sqrt2)(\hbar/(\sqrt2\ell))=\hbar/2$ で、不確定性関係の等号例です。
+従って運動項は $\langle P^2/(2m)\rangle=\hbar^2/(4m\ell^2)=\hbar\omega/4$、位置項は $m\omega^2\langle Q^2\rangle/2=m\omega^2\ell^2/4=\hbar\omega/4$。
+
+両者の和は $\hbar\omega/2$ です。
+
+また $\Delta Q\,\Delta P=(\ell/\sqrt2)(\hbar/(\sqrt2\ell))=\hbar/2$ で、不確定性関係の等号例です。
 <!-- solution-end -->
 
 ### B2. 二準位の重ね合わせと時間発展
 
-$H\psi_n=E_n\psi_n$、$E_n=\hbar\omega(n+1/2)$、$\{\psi_n\}$ は正規直交とする。初期状態 $\Psi(0)=(\psi_0+\psi_2)/\sqrt2$ について、$\Psi(t)$、エネルギー期待値と分散を求め、$\Psi(t)$ が一般には単一の定常固有状態でないことを説明せよ。
+$H\psi_n=E_n\psi_n$、$E_n=\hbar\omega(n+1/2)$、$\{\psi_n\}$ は正規直交とする。
+
+初期状態 $\Psi(0)=(\psi_0+\psi_2)/\sqrt2$ について、$\Psi(t)$、エネルギー期待値と分散を求め、$\Psi(t)$ が一般には単一の定常固有状態でないことを説明せよ。
 
 - Level: B
 
@@ -919,7 +989,11 @@ $$
 
 $\langle f,h_{\mathrm{diff}}f\rangle=\|af\|^2+\frac12\|f\|^2\ge\frac12\|f\|^2$ で $\phi_0$ が等号を達成し、自己共役な閉包にもこの下界が引き継がれます。従って $E_0=\hbar\omega/2$ です。
 
-(3) $[a,a^\dagger]=I$ を反復すると $a(a^\dagger)^n=(a^\dagger)^na+n(a^\dagger)^{n-1}$。$a\phi_0=0$ を代入して $a\phi_n=\sqrt n\phi_{n-1}$、$a^\dagger\phi_n=\sqrt{n+1}\phi_{n+1}$ です。よって $a^\dagger a\phi_n=n\phi_n$ と
+(3) $[a,a^\dagger]=I$ を反復すると $a(a^\dagger)^n=(a^\dagger)^na+n(a^\dagger)^{n-1}$。
+
+$a\phi_0=0$ を代入して $a\phi_n=\sqrt n\phi_{n-1}$、$a^\dagger\phi_n=\sqrt{n+1}\phi_{n+1}$ です。
+
+よって $a^\dagger a\phi_n=n\phi_n$ と
 
 $$
 H\psi_n=\hbar\omega\left(n+\tfrac12\right)\psi_n.
@@ -927,14 +1001,22 @@ $$
 
 随伴関係を使い $\|\phi_{n+1}\|^2=(n+1)^{-1}\langle\phi_n,aa^\dagger\phi_n\rangle=\|\phi_n\|^2$ であり、初項は $1$ なので全て規格化されています。ただし、構成した系の**完全性**がなければ、直交補空間に別のスペクトルが残る可能性があります。
 
-(4) 本文の Hermite 完全性定理では、全 $\phi_n$ に直交する $f$ について $g=e^{-y^2/2}f$ の Fourier 変換 $F(z)=\int e^{-izy}g(y)dy$ の全ての導関数が $F^{(k)}(0)=(-i)^k\int y^kg(y)dy=0$ となるため、整関数 $F$ は恒等的に零となり、Fourier 一意性で $f=0$ と証明しました。この完全性から $H$ は $\psi_n$ 基底で実対角乗算へユニタリ同値です。従って
+(4) 本文の Hermite 完全性定理では、全 $\phi_n$ に直交する $f$ について $g=e^{-y^2/2}f$ の Fourier 変換 $F(z)=\int e^{-izy}g(y)dy$ の全ての導関数が $F^{(k)}(0)=(-i)^k\int y^kg(y)dy=0$ となるため、整関数 $F$ は恒等的に零となり、Fourier 一意性で $f=0$ と証明しました。
+
+この完全性から $H$ は $\psi_n$ 基底で実対角乗算へユニタリ同値です。
+
+従って
 
 $$
 D(H)=\left\{\sum c_n\psi_n:
 \sum [\hbar\omega(n+1/2)]^2|c_n|^2<\infty\right\}.
 $$
 
-有限部分和は Schwartz に属し $\sum_{n>N}(1+E_n^2)|c_n|^2\to0$ なので $\mathcal S$ は core、閉包は自己共役です。また $z$ が固有値列の外なら $(E_n-z)^{-1}$ は有界で $\frac{E_n}{E_n-z}$ も有界、対角逆作用素が存在します。従って
+有限部分和は Schwartz に属し $\sum_{n>N}(1+E_n^2)|c_n|^2\to0$ なので $\mathcal S$ は core、閉包は自己共役です。
+
+また $z$ が固有値列の外なら $(E_n-z)^{-1}$ は有界で $\frac{E_n}{E_n-z}$ も有界、対角逆作用素が存在します。
+
+従って
 
 $$
 \sigma(H)=\{\,\hbar\omega(n+\tfrac12):n\ge0\,\},\qquad
