@@ -97,7 +97,7 @@ YAU1 + CYG1 + 既存AMECH ─→ SYZ1        MIR2 + 追加の圏論/Floer 基盤
 11. 特異点、接錐と平面曲線の例
 12. 総合演習：アフィン曲線、楕円曲線のアフィン方程式
 
-**証明停止線:** 多項式イデアルと零点集合の対応は「Nullstellensatz より」で飛ばさず核心を示す。環論の既存定理は owner にリンクし、局所化・Noether 正規化・幾何学的次元は本講で初出定義・証明する。基礎体は主に \(\mathbb C\)。一般体上の記述へ移る際は成立条件を明記する。
+**証明停止線:** 多項式イデアルと零点集合の対応は「Nullstellensatz より」で飛ばさず核心を示す。環論の既存定理は owner にリンクし、局所化・Noether 正規化・幾何学的次元は本講で初出定義・証明する。基礎体は主に $\mathbb C$。一般体上の記述へ移る際は成立条件を明記する。
 
 ### AG2：代数幾何学 II（12講）
 
@@ -108,21 +108,21 @@ YAU1 + CYG1 + 既存AMECH ─→ SYZ1        MIR2 + 追加の圏論/Floer 基盤
 3. 射影射・Veronese / Segre 写像
 4. 射影曲線・曲面、次数と Bézout の具体例
 5. 構造層の直観・正則関数の貼り合わせ
-6. 可逆層・直線束・\(\mathcal O_{\mathbb P^n}(d)\)
+6. 可逆層・直線束・$\mathcal O_{\mathbb P^n}(d)$
 7. 因子（Weil / Cartier）と可逆層の対応の条件
 8. 局所パラメータ・微分形式と標準束
 9. 射影空間の標準束と Euler 列
 10. 正規束・随伴公式
 11. 滑らかな超曲面と正則性判定
-12. 総合演習：射影平面三次曲線と \(\mathbb P^4\) の quintic
+12. 総合演習：射影平面三次曲線と $\mathbb P^4$ の quintic
 
-**証明停止線:** \(\mathcal O(d)\)、標準束、随伴公式を結果だけ先行する場合は、証明 owner と後送先を明示する。一般的な交叉理論や高度な層コホモロジーをこの講へ無理に詰め込まない。
+**証明停止線:** $\mathcal O(d)$、標準束、随伴公式を結果だけ先行する場合は、証明 owner と後送先を明示する。一般的な交叉理論や高度な層コホモロジーをこの講へ無理に詰め込まない。
 
 ### AG3：代数幾何学 III（14講）
 
 問い：局所環と層から多様体より広い幾何を作り、コホモロジーをどう扱うか。
 
-1. 関手的な視点と \(\operatorname{Spec} A\)
+1. 関手的な視点と $\operatorname{Spec} A$
 2. 素スペクトルの位相・構造層
 3. 局所環付き空間・アフィンスキーム
 4. スキームの貼り合わせ・射
@@ -130,8 +130,8 @@ YAU1 + CYG1 + 既存AMECH ─→ SYZ1        MIR2 + 追加の圏論/Floer 基盤
 6. 準連接層・連接層・加群からの構成
 7. 層の射・完全列・Čech コホモロジー
 8. 層コホモロジーの導入と基本計算
-9. 射影スキームと \(\operatorname{Proj}\) の基礎
-10. 射影空間の \(\mathcal O(d)\) のコホモロジー
+9. 射影スキームと $\operatorname{Proj}$ の基礎
+10. 射影空間の $\mathcal O(d)$ のコホモロジー
 11. 曲線の種数、正則微分形式と Riemann–Roch の入口
 12. 平坦性・滑らかさ・特異ファイバーの基本
 13. 交叉理論・変形障害への橋（必要な命題を切り分け）
@@ -142,36 +142,36 @@ YAU1 + CYG1 + 既存AMECH ─→ SYZ1        MIR2 + 追加の圏論/Floer 基盤
 ## 4. 複素幾何・カラビ予想側のセメスター
 
 ### CM1（10講）
-複素アトラス、正則遷移写像、実接束上の \(J^2=-1\)、\((1,0)\)/\((0,1)\) 分解、正則写像、概複素構造と Nijenhuis テンソル、積分可能性、Newlander–Nirenberg、複素トーラス、複素射影空間。**Newlander–Nirenberg の一般的証明には難度の高い解析が必要**なので、証明を完遂する場合の別補講と、「定理を結果先行して使う」章を明示的に分離する。
+複素アトラス、正則遷移写像、実接束上の $J^2=-1$、$(1,0)$/$(0,1)$ 分解、正則写像、概複素構造と Nijenhuis テンソル、積分可能性、Newlander–Nirenberg、複素トーラス、複素射影空間。**Newlander–Nirenberg の一般的証明には難度の高い解析が必要**なので、証明を完遂する場合の別補講と、「定理を結果先行して使う」章を明示的に分離する。
 
 ### CM2（11講）
-\((p,q)\) 形式、\(\partial,\bar\partial\) と Dolbeault 複体、Poincaré 補題の正則版、Dolbeault コホモロジー、正則線束・ベクトル束、局所自明化と遷移関数、標準束、Hermite 計量、Chern 接続、曲率、具体計算。実 de Rham と複素 Dolbeault を混同しない。
+$(p,q)$ 形式、$\partial,\bar\partial$ と Dolbeault 複体、Poincaré 補題の正則版、Dolbeault コホモロジー、正則線束・ベクトル束、局所自明化と遷移関数、標準束、Hermite 計量、Chern 接続、曲率、具体計算。実 de Rham と複素 Dolbeault を混同しない。
 
 ### KAH1（12講）
-Hermite / ケーラー計量、基本 2 形式 \(\omega\)、\(d\omega=0\)、ケーラー・ポテンシャル、\(\mathbb P^n\) と Fubini–Study 計量、ケーラー接続、Ricci 形式 \(\rho=-i\partial\bar\partial\log\det(g_{i\bar j})\)、第一 Chern 類、Kähler class、ホロノミーと \(SU(n)\) への入口。
+Hermite / ケーラー計量、基本 2 形式 $\omega$、$d\omega=0$、ケーラー・ポテンシャル、$\mathbb P^n$ と Fubini–Study 計量、ケーラー接続、Ricci 形式 $\rho=-i\partial\bar\partial\log\det(g_{i\bar j})$、第一 Chern 類、Kähler class、ホロノミーと $SU(n)$ への入口。
 
 ### HOD1（12講）
-GA4 の実 Hodge–de Rham 分解を再証明せず参照する。複素 Hodge 分解、ケーラー恒等式、\(\Delta_d=2\Delta_{\bar\partial}\)、\(\partial\bar\partial\)-補題、Hodge 数と対称性、Hard Lefschetz、原始コホモロジー、Hodge ダイヤモンド、周期への入口を正本化する。
+GA4 の実 Hodge–de Rham 分解を再証明せず参照する。複素 Hodge 分解、ケーラー恒等式、$\Delta_d=2\Delta_{\bar\partial}$、$\partial\bar\partial$-補題、Hodge 数と対称性、Hard Lefschetz、原始コホモロジー、Hodge ダイヤモンド、周期への入口を正本化する。
 
 ### CAG1（12講）
 滑らかな複素射影多様体と解析化、代数的線束と正則線束、射影空間の解析的構造、GAGA の使いどころと適用範囲、標準束・随伴公式の複素幾何的解釈、曲線の種数、quintic threefold の構成、Hodge 数計算の準備。GAGA の一般形や Kodaira 埋め込み等は定理・必要仮定・証明の掲載先を記載し、無条件に同一視しない。
 
 ### CYG1（10講）
-カラビ・ヤウの複数の定義（\(K_X\simeq\mathcal O_X\)、\(c_1(X)=0\) 実係数、\(\operatorname{Hol}=SU(n)\)）を区別する。楕円曲線、K3、滑らかな quintic、随伴公式による標準束自明性、Hodge 数、Ricci 平坦計量の存在命題の意味、複素構造／ケーラー構造のモジュライへの入口。**定義間の逆向き同値を無条件に主張しない。**
+カラビ・ヤウの複数の定義（$K_X\simeq\mathcal O_X$、$c_1(X)=0$ 実係数、$\operatorname{Hol}=SU(n)$）を区別する。楕円曲線、K3、滑らかな quintic、随伴公式による標準束自明性、Hodge 数、Ricci 平坦計量の存在命題の意味、複素構造／ケーラー構造のモジュライへの入口。**定義間の逆向き同値を無条件に主張しない。**
 
 ### YAU1（14講）
 カラビ予想の設定、指定 Ricci 形式からケーラー・ポテンシャルへ、複素 Monge–Ampère 方程式
-\[
+$$
 (\omega+i\partial\bar\partial\varphi)^n=e^F\omega^n
-\]
-への帰着（体積積分の整合条件を必ず記載）、解の一意性、連続性の方法、開性、\(C^0\) 評価、二階評価、必要な Hölder / 三階または Evans–Krylov 型正則性、高階 Schauder 評価、閉性、存在、Ricci-flat Kähler 計量への応用。
+$$
+への帰着（体積積分の整合条件を必ず記載）、解の一意性、連続性の方法、開性、$C^0$ 評価、二階評価、必要な Hölder / 三階または Evans–Krylov 型正則性、高階 Schauder 評価、閉性、存在、Ricci-flat Kähler 計量への応用。
 
 **非線形楕円型解析の owner:** manifold Sobolev・線形楕円型 PDE・Hodge は GA / GPDE / HOD1 に戻し、Monge–Ampère に固有の a priori estimates と補題を YAU1 に置く。途中に独立した解析補講が必要なら具体的な証明欠損を特定して追加するが、「GANA1」の再新設はしない。
 
 ## 5. ミラー対称性側・発展
 
 ### DEF1（11講）
-Kodaira–Spencer 変形、接束値 \((0,1)\) 形式、Maurer–Cartan 方程式、障害類、Kuranishi の構成、Bogomolov–Tian–Todorov（適用条件と証明補講を明示）、複素構造モジュライ、Hodge 構造の変動と Gauss–Manin 接続。
+Kodaira–Spencer 変形、接束値 $(0,1)$ 形式、Maurer–Cartan 方程式、障害類、Kuranishi の構成、Bogomolov–Tian–Todorov（適用条件と証明補講を明示）、複素構造モジュライ、Hodge 構造の変動と Gauss–Manin 接続。
 
 ### MIR1（12講）
 A/B-model の数学的入口、Hodge 数の交換、quintic と Greene–Plesser 型ミラーの関係、周期積分、Gauss–Manin 接続、Picard–Fuchs 微分方程式、冪級数解、モノドロミー、大複素構造極限、ミラー写像、具体計算・検算。
@@ -180,10 +180,10 @@ A/B-model の数学的入口、Hodge 数の交換、quintic と Greene–Plesser
 シンプレクティック構造・適合する概複素構造（既存 AMECH での owner を監査）、J 正則曲線、エネルギー・コンパクト性の入口、安定写像、モジュライ、評価写像、Gromov–Witten 不変量、仮想基本類が必要になる理由と採用する厳密な枠組み。**仮想基本類の構成を証明するか、別途代数幾何／解析補講に分離するかは実装前に必ず判定する。**
 
 ### MIR2（12講）
-小量子コホモロジー、三点不変量、Yukawa 結合、ミラー定理の成立条件、quintic の genus 0 計数、通常の GW 不変量と整数型不変量の多重被覆変換、\(n_1=2875\) の意味、曲線計数への周期積分の応用。**quintic のミラー計数の導出と検証を単なる公式紹介で終わらせない。**
+小量子コホモロジー、三点不変量、Yukawa 結合、ミラー定理の成立条件、quintic の genus 0 計数、通常の GW 不変量と整数型不変量の多重被覆変換、$n_1=2875$ の意味、曲線計数への周期積分の応用。**quintic のミラー計数の導出と検証を単なる公式紹介で終わらせない。**
 
 ### HM1 / SYZ1（発展、各12/10講）
-- HM1：導来圏、\(A_\infty\) 構造、Fukaya 圏、Floer 理論、Kontsevich のホモロジカル・ミラー対称性。**圏論・ホモロジー代数の既存 owner が未確認なら、実装前に独立前提を整備する。**
+- HM1：導来圏、$A_\infty$ 構造、Fukaya 圏、Floer 理論、Kontsevich のホモロジカル・ミラー対称性。**圏論・ホモロジー代数の既存 owner が未確認なら、実装前に独立前提を整備する。**
 - SYZ1：較正幾何、特殊ラグランジュ部分多様体、トーラス・ファイブレーション、双対化、特異ファイバー、インスタントン補正。SYZ 全体を既証明定理と誤記しない。
 
 ## 6. 定理・概念の owner と重複防止表
@@ -192,13 +192,13 @@ A/B-model の数学的入口、Hodge 数の交換、quintic と Greene–Plesser
 | --- | --- | --- |
 | 素イデアル・多項式環・加群 | RNG / MOD | AG1〜AG3 は直接参照 |
 | Nullstellensatz・Zariski・アフィン | AG1 | AG2 / CAG1 |
-| 射影空間・\(\mathcal O(d)\)・随伴公式の代数的定式化 | AG2 | CAG1 / CYG1 |
+| 射影空間・$\mathcal O(d)$・随伴公式の代数的定式化 | AG2 | CAG1 / CYG1 |
 | スキーム・連接層・層コホモロジーの基礎 | AG3 | CAG1 / DEF1 / GW1 |
 | 複素多様体・Dolbeault・正則束 | CM1 / CM2 | KAH1 / CAG1 |
 | リーマン接続・Ricci 曲率 | GEO13 / GEO16 | KAH1 |
 | manifold Sobolev・楕円型正則性 | 既存 GA2〜GA3 / GPDE | YAU1 / GW1 |
 | 実 Hodge–de Rham | 既存 GA4 | HOD1 は重複しない |
-| ケーラー恒等式・\(\partial\bar\partial\)-補題 | HOD1 | YAU1 / CYG1 |
+| ケーラー恒等式・$\partial\bar\partial$-補題 | HOD1 | YAU1 / CYG1 |
 | リッチ形式・Kähler potential | KAH1 | YAU1 |
 | 複素 Monge–Ampère 方程式の事前評価 | YAU1 | カラビ予想の存在証明 |
 | シンプレクティック形式・Darboux・Hamilton作用 | 既存 AMECH 該当章（所有範囲監査待ち） | GW1 / SYZ1 |
@@ -237,7 +237,7 @@ A/B-model の数学的入口、Hodge 数の交換、quintic と Greene–Plesser
 
 - 章ごとに学習者に必要な導入、定義、命題・証明・例、Level A/B/C などの演習・全問詳細解答を用意する。2〜4手の飛躍は残さず、初出定義・図式・公式の仮定を明示。
 - 各章の `chapter.yaml.prerequisites` を **直接必要な既存章と完成済み新章だけ**で固定し、`knowledge.yaml` の概念 owner と矛盾させない。科目名だけの曖昧な全依存や循環は不可。
-- AG1 の Zariski、AG2 の \(\mathcal O(d)\)、CM1 の複素構造、CM2 の \(\bar\partial\)、KAH1 のケーラー形式はそれぞれ初出 canonical owner を一つに固定。
+- AG1 の Zariski、AG2 の $\mathcal O(d)$、CM1 の複素構造、CM2 の $\bar\partial$、KAH1 のケーラー形式はそれぞれ初出 canonical owner を一つに固定。
 - 結果先行が必要な大定理（Newlander–Nirenberg、GAGA、BTT、仮想基本類など）は **主張・仮定・結果先行の理由・証明の所属・証明完遂の判定**を明記し、未証明を証明済み扱いしない。
 - 参照する前提講義は実在する公開URLを検査し、公開済み章のみ reader-facing index に載せる。内部 PLAN と記事URLを混同しない。
 - 既存の依存監査・用語監査・数式・リンク・公開ページ検証を変更時に通す。各新章の公開前には `npm run validate:dream-theater-work`、`npm run validate:dream-theater-prerequisites`、`npm run validate:pages` 等の現行コマンドの適用を確認する。
