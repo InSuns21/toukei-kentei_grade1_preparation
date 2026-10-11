@@ -15,7 +15,7 @@ chapters:
     title: シンプレクティック多様体と基本例
   - id: SYM3
     path: textbook/volumes/00_foundations/SYM3
-    status: planned
+    status: completed
     title: 余接束の正準シンプレクティック形式
   - id: SYM4
     path: textbook/volumes/00_foundations/SYM4

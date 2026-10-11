@@ -1,0 +1,23 @@
+chapter: "SYM3"
+terms:
+  - term: Liouville 1形式
+    english: Liouville one-form
+    meaning: "余接束の点α_qが基点へ射影された接ベクトルを評価することで定まる自然な1形式。"
+  - term: 正準1形式
+    english: canonical one-form
+    meaning: "Liouville 1形式の別名。余接束座標ではΣp_i dq^iで表される。"
+  - term: 正準シンプレクティック形式
+    english: canonical symplectic form
+    meaning: "余接束上で正準1形式θの外微分に負号を付けた閉じた非退化2形式。"
+  - term: 余接持ち上げ
+    english: cotangent lift
+    meaning: "基点の微分同相から逆微分を介して余ベクトルを行き先の余接空間へ移す写像。"
+  - term: 零切断
+    english: zero section
+    meaning: "各基点で零余ベクトルを選ぶ余接束への滑らかな写像。"
+  - term: ファイバー
+    english: fiber
+    meaning: "余接束の射影の逆像であり、基点を固定した余接空間。"
+  - term: ファイバー平行移動
+    english: fiber translation
+    meaning: "滑らかな1形式を各点の余ベクトルへ加える余接束の微分同相。"
