@@ -8,7 +8,9 @@ const opt = (name) => {const i=process.argv.indexOf(name);return i<0?'':process.
 const base = opt('--base') || process.env.TEXTBOOK_BASE_SHA || '';
 
 function countMath(s) {
-  return (s.match(/(?<!\\)\$(?!\$)(?:\\.|[^$\\\n])+(?<!\\)\$(?!\$)/gu)||[]).length;
+  // Inline code is literal Markdown, not reader-facing mathematical notation.
+  const prose = s.replace(/\x60[^\x60\n]*\x60/gu, '');
+  return (prose.match(/(?<!\\)\$(?!\$)(?:\\.|[^$\\\n])+(?<!\\)\$(?!\$)/gu)||[]).length;
 }
 function scan(source) {
   const findings=[];let body=[], start=0, display=false, fence='';
@@ -41,7 +43,40 @@ function files() {
 }
 if(process.argv.includes('--self-test')){
   const assert=(ok,m)=>{if(!ok)throw Error(m);};
-  assert(countMath('x $a$ y $b$')===2,'inline count');
+  assert(countMath('x $a$ y $b
+  const dense='説明 $a=1$ と $b=2$ と $c=3$ と $d=4$ と $e=5$ と $f=6$ と $g=7$ と $h=8$ を使用する。'.repeat(4);
+  assert(scan(dense)[0].severe,'dense detection');
+  assert(scan('$$\n'+dense+'\n$$').length===0,'display ignore');
+  const f=String.fromCharCode(96).repeat(3);
+  assert(scan(f+'\n'+dense+'\n'+f).length===0,'fence ignore');
+  console.log('Math-layout self-test OK');
+}else{
+  const target=files(),all=[];
+  for(const file of target){for(const v of scan(readFileSync(file,'utf8')))all.push({file,...v});}
+  let severe=all.filter(x=>x.severe);
+  console.log('Math layout: '+target.length+' chapters, '+all.length+' review candidates, '+severe.length+' severe.');
+  for(const x of all.slice(0,120))console.log((x.severe?'ERROR':'WARN')+': '+x.file+':'+x.line+' ('+x.count+' inline spans, '+x.prose+' prose characters)');
+  if(all.length>120)console.log('... '+(all.length-120)+' additional candidates');
+  if(strict&&severe.length)process.exitCode=1;
+}
+)===2,'inline count');
+  assert(countMath(String.fromCharCode(96)+'$x
+  const dense='説明 $a=1$ と $b=2$ と $c=3$ と $d=4$ と $e=5$ と $f=6$ と $g=7$ と $h=8$ を使用する。'.repeat(4);
+  assert(scan(dense)[0].severe,'dense detection');
+  assert(scan('$$\n'+dense+'\n$$').length===0,'display ignore');
+  const f=String.fromCharCode(96).repeat(3);
+  assert(scan(f+'\n'+dense+'\n'+f).length===0,'fence ignore');
+  console.log('Math-layout self-test OK');
+}else{
+  const target=files(),all=[];
+  for(const file of target){for(const v of scan(readFileSync(file,'utf8')))all.push({file,...v});}
+  let severe=all.filter(x=>x.severe);
+  console.log('Math layout: '+target.length+' chapters, '+all.length+' review candidates, '+severe.length+' severe.');
+  for(const x of all.slice(0,120))console.log((x.severe?'ERROR':'WARN')+': '+x.file+':'+x.line+' ('+x.count+' inline spans, '+x.prose+' prose characters)');
+  if(all.length>120)console.log('... '+(all.length-120)+' additional candidates');
+  if(strict&&severe.length)process.exitCode=1;
+}
++String.fromCharCode(96))===0,'inline code ignored');
   const dense='説明 $a=1$ と $b=2$ と $c=3$ と $d=4$ と $e=5$ と $f=6$ と $g=7$ と $h=8$ を使用する。'.repeat(4);
   assert(scan(dense)[0].severe,'dense detection');
   assert(scan('$$\n'+dense+'\n$$').length===0,'display ignore');
