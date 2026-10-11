@@ -1,4 +1,4 @@
-# DREAM THEATER ローレンツ幾何と大域因果構造 I（LORG1〜15）
+# DREAM THEATER ローレンツ幾何と大域因果構造 I（LORG系列・講数可変）
 
 作成・分冊: 2026-10-11  
 状態: planned（設計のみ。本文実装・公開は未着手）
@@ -12,31 +12,33 @@ Riemann幾何や平坦な波動方程式では不足する、この科目固有�
 - GEO1〜19、線形代数、特殊相対論SRELの必要部分。
 - 経路：[LORG](DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md) → [HPDE](DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md) → [MICA](DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md)。[AQFT](DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md)はHPDE・OA/VN/QINFからの発展分岐でありMICA全講の一律必修ではない。
 
+**講数・ID方針（2026-10-12）**：本PLANの旧15週案は**15個の学習テーマを列挙した草案**であり、15講・15週を完成条件としない。下記の番号は候補IDで、1テーマを複数講に分ける／関連テーマを統合する／必要な補題・演習講を追加してよい。正式なchapter IDと全体講数は着手時に確定し、下流の参照も同時に更新する。証明の閉包と独習者の理解を優先する。
+
 ## 所有範囲
 
 Lorentz計量・因果曲線・大域双曲性・Cauchy超曲面。
 
-### 1. ローレンツ幾何と大域因果構造 I（LORG1–LORG15）
+### 1. ローレンツ幾何と大域因果構造 I（LORG1–LORG15：仮構成）
 
 - **位置付け:** 必須の数学基盤
 - **前提:** GEO1–GEO19（多様体・接続・曲率）、線形代数、SRELのMinkowski時空概念（初回に必要部分を再定義）
 - **canonical ownership:** Lorentz計量、因果集合、Cauchy超曲面、大域双曲性を数学として所有。Einstein方程式・物理的地平線・崩壊模型・時空解の解釈はGR I/II。
 
-- **第01週 LORG1**：非退化対称双線形形式、符号数、ローレンツ計量
-- **第02週 LORG2**：時間的・光的・空間的ベクトルと錐、時間向き
-- **第03週 LORG3**：因果曲線、固有時、Lorentz長さの極値
-- **第04週 LORG4**：Levi-Civita接続とLorentz測地線
-- **第05週 LORG5**：法線座標と測地線方程式、局所的な因果錐
-- **第06週 LORG6**：時系列集合I⁺/I⁻と因果集合J⁺/J⁻の定義
-- **第07週 LORG7**：因果階層（chronology・causality・strong causality）
-- **第08週 LORG8**：achronal集合・acausal集合・edgeの実例
-- **第09週 LORG9**：領域依存 D(S) とCauchy horizonの基礎
-- **第10週 LORG10**：Cauchy超曲面の定義・Minkowskiの具体例
-- **第11週 LORG11**：大域双曲性・因果ダイヤモンドのコンパクト性
-- **第12週 LORG12**：大域双曲時空の分割と時間関数（正確な定理の範囲）
-- **第13週 LORG13**：光的測地線束・共役点・集束の幾何
-- **第14週 LORG14**：準局所地平線と大域事象地平線の区別
-- **第15週 LORG15**：因果図・反例・依存条件の総合演習
+- **候補LORG1**：非退化対称双線形形式、符号数、ローレンツ計量
+- **候補LORG2**：時間的・光的・空間的ベクトルと錐、時間向き
+- **候補LORG3**：因果曲線、固有時、Lorentz長さの極値
+- **候補LORG4**：Levi-Civita接続とLorentz測地線
+- **候補LORG5**：法線座標と測地線方程式、局所的な因果錐
+- **候補LORG6**：時系列集合I⁺/I⁻と因果集合J⁺/J⁻の定義
+- **候補LORG7**：因果階層（chronology・causality・strong causality）
+- **候補LORG8**：achronal集合・acausal集合・edgeの実例
+- **候補LORG9**：領域依存 D(S) とCauchy horizonの基礎
+- **候補LORG10**：Cauchy超曲面の定義・Minkowskiの具体例
+- **候補LORG11**：大域双曲性・因果ダイヤモンドのコンパクト性
+- **候補LORG12**：大域双曲時空の分割と時間関数（正確な定理の範囲）
+- **候補LORG13**：光的測地線束・共役点・集束の幾何
+- **候補LORG14**：準局所地平線と大域事象地平線の区別
+- **候補LORG15**：因果図・反例・依存条件の総合演習
 
 **必須の計算・証明ゲート**
 

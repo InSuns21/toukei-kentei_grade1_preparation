@@ -1,4 +1,4 @@
-# DREAM THEATER ローレンツ多様体上の双曲型PDE I（HPDE1〜15）
+# DREAM THEATER ローレンツ多様体上の双曲型PDE I（HPDE系列・講数可変）
 
 作成・分冊: 2026-10-11  
 状態: planned（設計のみ。本文実装・公開は未着手）
@@ -12,31 +12,33 @@ Riemann幾何や平坦な波動方程式では不足する、この科目固有�
 - LORGの因果構造、GPDE1〜10・FOU・EVOLの必要部分。
 - 経路：[LORG](DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md) → [HPDE](DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md) → [MICA](DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md)。[AQFT](DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md)はHPDE・OA/VN/QINFからの発展分岐でありMICA全講の一律必修ではない。
 
+**講数・ID方針（2026-10-12）**：本PLANの旧15週案は**15個の学習テーマを列挙した草案**であり、15講・15週を完成条件としない。下記の番号は候補IDで、1テーマを複数講に分ける／関連テーマを統合する／必要な補題・演習講を追加してよい。正式なchapter IDと全体講数は着手時に確定し、下流の参照も同時に更新する。証明の閉包と独習者の理解を優先する。
+
 ## 所有範囲
 
 Cauchy問題、エネルギー評価、有限伝播、retarded/advanced Green作用素。
 
-### 2. ローレンツ多様体上の双曲型偏微分方程式 I（HPDE1–HPDE15）
+### 2. ローレンツ多様体上の双曲型偏微分方程式 I（HPDE1–HPDE15：仮構成）
 
 - **位置付け:** 必須の数学基盤
 - **前提:** LORG、GPDE1–GPDE10（超関数・Sobolev・弱解）、PDE I、EVOL（必要な節のみ）
 - **canonical ownership:** ローレンツ多様体上の初期値問題、有限伝播、基本解、遅延/先進Green作用素を所有。粒子数・Bogoliubov係数・量子真空・Hawking放射はQCURV。
 
-- **第01週 HPDE1**：試験関数と分布の多様体上の扱い
-- **第02週 HPDE2**：ベクトル束・場の切断と微分作用素
-- **第03週 HPDE3**：主シンボルと双曲性、normally hyperbolic作用素
-- **第04週 HPDE4**：Minkowski波動方程式の基本解と支持
-- **第05週 HPDE5**：初期データとCauchy問題、エネルギー積分
-- **第06週 HPDE6**：エネルギー評価・解の一意性
-- **第07週 HPDE7**：有限伝播速度と因果円錐
-- **第08週 HPDE8**：局所Cauchy解の存在の枠組み
-- **第09週 HPDE9**：大域双曲背景上の大域Cauchy問題
-- **第10週 HPDE10**：遅延Green作用素G_retと支持制約
-- **第11週 HPDE11**：先進Green作用素G_advと因果伝播子E
-- **第12週 HPDE12**：Green作用素の一意性・恒等式・exact sequence
-- **第13週 HPDE13**：Klein–Gordon方程式と保存電流
-- **第14週 HPDE14**：解空間のシンプレクティック形式・CCRの前提
-- **第15週 HPDE15**：Green作用素と物理的因果性の総合演習
+- **候補HPDE1**：試験関数と分布の多様体上の扱い
+- **候補HPDE2**：ベクトル束・場の切断と微分作用素
+- **候補HPDE3**：主シンボルと双曲性、normally hyperbolic作用素
+- **候補HPDE4**：Minkowski波動方程式の基本解と支持
+- **候補HPDE5**：初期データとCauchy問題、エネルギー積分
+- **候補HPDE6**：エネルギー評価・解の一意性
+- **候補HPDE7**：有限伝播速度と因果円錐
+- **候補HPDE8**：局所Cauchy解の存在の枠組み
+- **候補HPDE9**：大域双曲背景上の大域Cauchy問題
+- **候補HPDE10**：遅延Green作用素G_retと支持制約
+- **候補HPDE11**：先進Green作用素G_advと因果伝播子E
+- **候補HPDE12**：Green作用素の一意性・恒等式・exact sequence
+- **候補HPDE13**：Klein–Gordon方程式と保存電流
+- **候補HPDE14**：解空間のシンプレクティック形式・CCRの前提
+- **候補HPDE15**：Green作用素と物理的因果性の総合演習
 
 **必須の計算・証明ゲート**
 
