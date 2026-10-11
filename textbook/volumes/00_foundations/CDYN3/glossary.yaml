@@ -1,0 +1,20 @@
+chapter: "CDYN3"
+terms:
+  - term: 時間位相
+    english: temporal phase
+    meaning: "非定常周期軌道の最小正周期Tに対し、軌道上の状態を基準点からの経過時間tによって[2πt/T]として表す円周座標。"
+  - term: 位相原点
+    english: phase origin
+    meaning: "周期軌道のうち位相0と定める基準状態。共通の原点変更は同一軌道上の位相差を変えない。"
+  - term: 位相差
+    english: phase difference
+    meaning: "共通の時間位相で比較する同一周期軌道上の二解の位相の差。時間とともに一定である。"
+  - term: 幾何学的偏角
+    english: geometric polar angle
+    meaning: "平面の座標に対し原点から測る角度。振動子の時間位相と一致するとは限らない。"
+  - term: 角振動数
+    english: angular frequency
+    meaning: "最小正周期Tを持つ周期運動が時間位相を進める一定の速さω=2π/T。"
+  - term: 位相の再パラメータ化
+    english: phase reparametrization
+    meaning: "正の非一様角速度α'=f(α)を、周期積分の累積時間によって等速位相へ変換する構成。"
