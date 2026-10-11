@@ -1,0 +1,23 @@
+chapter: "CDYN8"
+terms:
+  - term: van der Pol振動子
+    english: van der Pol oscillator
+    meaning: "位置によって速度項の符号が変わる非線形二階微分方程式。弱非線形の振幅変化を平均化して調べる模型。"
+  - term: 非線形減衰
+    english: nonlinear damping
+    meaning: "状態に依存する速度比例項。van der Pol系では位置の絶対値が1より小さいときエネルギーを増やすことがある。"
+  - term: 瞬時振幅
+    english: instantaneous amplitude
+    meaning: "回転座標AのEuclidノルム。位置と速度の二乗和の平方根に等しい。"
+  - term: 振幅方程式
+    english: amplitude equation
+    meaning: "速い位相を平均した後の遅い時刻における振幅の近似方程式。"
+  - term: 平均ベクトル場
+    english: averaged vector field
+    meaning: "速い時刻を一周期積分し、状態変数を固定して平均したベクトル場。"
+  - term: 平均平衡振幅
+    english: equilibrium amplitude of averaged system
+    meaning: "平均振幅方程式の正の平衡値。本章では2であり元の系の不変円を意味しない。"
+  - term: 有限遅い時間の誤差
+    english: finite slow-time error
+    meaning: "遅い時刻τ=μtを固定長区間で観測したときの平均系と実解の距離の評価。"
