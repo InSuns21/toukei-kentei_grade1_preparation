@@ -49,3 +49,19 @@ chapters:
     path: textbook/volumes/00_foundations/DYN11
     status: planned
     title: 全シフトの位相的推移性・周期点稠密性
+  - id: DYN12
+    path: textbook/volumes/00_foundations/DYN12
+    status: planned
+    title: 生成語の個数・位相エントロピー
+  - id: DYN13
+    path: textbook/volumes/00_foundations/DYN13
+    status: planned
+    title: 区間のhorseshoe・全シフトへの符号化
+  - id: DYN14
+    path: textbook/volumes/00_foundations/DYN14
+    status: planned
+    title: 二次元の双曲線形模型・安定方向と不安定方向
+  - id: DYN15
+    path: textbook/volumes/00_foundations/DYN15
+    status: planned
+    title: 離散力学・記号力学・CA比較の総合論証
