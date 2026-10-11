@@ -1,0 +1,49 @@
+id: "DYN8"
+title: "正の極限集合・再帰・軌道閉包"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - DYN7
+official_scope: []
+learning_objectives:
+  - 軌道閉包と正の極限集合を定義し収縮軌道で違いを計算できる
+  - 正の極限集合の列による判定を証明できる
+  - コンパクト性から正の極限集合の非空性を証明できる
+  - 連続性とコンパクト性から正の極限集合の等号不変性を証明できる
+  - 軌道閉包の前方不変性と真包含の反例を説明できる
+  - 再帰性を定義し収束軌道・周期軌道・無理回転で判定できる
+  - コンパクト性と連続性を落とした反例で証明の破綻箇所を指摘できる
+  - 円周回転と収縮の積系の極限集合を求められる
+definitions:
+  - { id: DYN8-DEF-01, name: "軌道閉包" }
+  - { id: DYN8-DEF-02, name: "正の極限集合" }
+  - { id: DYN8-DEF-03, name: "再帰点" }
+lemmas:
+  - { id: DYN8-LEM-01, name: "正の極限集合の列による判定" }
+theorems:
+  - { id: DYN8-THM-01, name: "コンパクト空間における正の極限集合" }
+  - { id: DYN8-THM-02, name: "正の極限集合の等号不変性" }
+propositions:
+  - { id: DYN8-PROP-01, name: "収束軌道の正の極限集合と再帰性" }
+  - { id: DYN8-PROP-02, name: "周期軌道と無理回転の正の極限集合" }
+canonical_examples:
+  - "収縮写像t/2の軌道閉包と正の極限集合"
+  - "有限状態の過渡状態と二周期"
+  - "軌道閉包の前方不変性が真包含になる例"
+  - "不連続な写像で正の極限集合の不変性が壊れる例"
+  - "無理回転と円周回転・収縮の積写像"
+problem_patterns:
+  - DYN8-CONTRACTION
+  - DYN8-TRANSIENT-PERIOD
+  - DYN8-TAIL-SEQUENCE
+  - DYN8-FIXED-POINT
+  - DYN8-CONSTANT-MAP
+  - DYN8-OMEGA-INVARIANCE
+  - DYN8-IRRATIONAL-RETURN
+  - DYN8-HYPOTHESES-FAILURE
+  - DYN8-SQUARING
+  - DYN8-CIRCLE-CONTRACTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.0, review: 2.0 }
