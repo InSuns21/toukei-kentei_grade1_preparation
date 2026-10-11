@@ -1,0 +1,17 @@
+chapter: "DYN12"
+terms:
+  - term: 生成語
+    english: admissible word
+    meaning: "指定された状態集合の列の接頭語として実際に現れる有限語。"
+  - term: 観測距離
+    english: Bowen metric
+    meaning: "最初のn回の軌道上での距離の最大値。d_n(x,y)=max_{0<=j<n}d(F^jx,F^jy)。"
+  - term: 分離集合
+    english: separated set
+    meaning: "任意の相異なる二点が観測距離でepsilon以上離れる点集合。本章では等号を含める。"
+  - term: 位相エントロピー
+    english: topological entropy
+    meaning: "精度を固定して時間あたりの最大分離集合の対数増加率をとり、その後精度を0へ送る量。"
+  - term: 部分シフト
+    english: subshift
+    meaning: "全シフトの閉かつシフト不変な非空部分集合とそのシフト制限。"

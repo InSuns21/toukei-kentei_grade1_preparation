@@ -51,7 +51,7 @@ chapters:
     title: 全シフトの位相的推移性・周期点稠密性
   - id: DYN12
     path: textbook/volumes/00_foundations/DYN12
-    status: planned
+    status: completed
     title: 生成語の個数・位相エントロピー
   - id: DYN13
     path: textbook/volumes/00_foundations/DYN13

@@ -1,0 +1,53 @@
+id: "DYN12"
+title: "生成語の個数・位相エントロピー"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - DYN11
+  - DYN10
+  - CELL7
+official_scope: []
+learning_objectives:
+  - 長さnの許容生成語を定義し全二進シフトの語数2のn乗を両側から確認できる
+  - 接頭一致距離から観測距離と分離集合を定義し等号境界を正しく扱える
+  - 最初の相違添字と観測時間nによる距離の二場合分けを証明できる
+  - s(n,2のマイナスk乗)が2のn+k乗に等しいことを上下界から証明できる
+  - 精度固定後の時間極限と精度を0へ送る順序を区別して位相エントロピーlog2を求められる
+  - q文字全シフトのエントロピーlogqを導ける
+  - 禁止語11の許容語漸化式と黄金比によるエントロピーを再計算できる
+  - 有限Tent旅程が全種類実現しても無限旅程の全射性や区間の位相エントロピーとは別であると説明できる
+definitions:
+  - { id: DYN12-DEF-01, name: "長さnの生成語と言語" }
+  - { id: DYN12-DEF-02, name: "観測距離と分離集合" }
+  - { id: DYN12-DEF-03, name: "分離集合による位相エントロピー" }
+  - { id: DYN12-DEF-04, name: "11を含まない二進部分シフト" }
+theorems:
+  - { id: DYN12-THM-01, name: "全二進シフトの分離数の厳密計数" }
+  - { id: DYN12-THM-02, name: "片側全二進シフトの位相エントロピー" }
+  - { id: DYN12-THM-03, name: "禁止語11の部分シフトの生成語数とエントロピー" }
+propositions:
+  - { id: DYN12-PROP-01, name: "全二進シフトの生成語数" }
+  - { id: DYN12-PROP-02, name: "q文字全シフトのエントロピー" }
+lemmas:
+  - { id: DYN12-LEM-01, name: "最初の相違位置による観測距離" }
+canonical_examples:
+  - "長さ2で4語・二固定点の2語を比較"
+  - "最初の相違位置1と4の観測距離"
+  - "精度1と1/2で4点・8点の分離集合"
+  - "11禁止列の語数2・3・5・8"
+  - "Tentの有限語2のn乗と無限語01000...の非実現"
+problem_patterns:
+  - DYN12-LANGUAGE
+  - DYN12-FIRST-MISMATCH
+  - DYN12-EXACT-SEPARATION
+  - DYN12-LOG-UNITS
+  - DYN12-ONE-STEP-RESOLUTION
+  - DYN12-INTERMEDIATE-EPSILON
+  - DYN12-Q-ALPHABET
+  - DYN12-FORBIDDEN-RECURSION
+  - DYN12-ZERO-ENTROPY
+  - DYN12-ENTROPY-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.0, review: 2.0 }
