@@ -173,7 +173,13 @@ $$
 <!-- formal-statement-start -->
 ### 定理（狭義閾値内の安定性と引込み域）
 
-$\kappa>0$、$|\Delta|<\kappa$ とし、前節の $a,D_{\mathrm s},D_{\mathrm u}$ を用いる。任意の整数 $n$ に対して、持ち上げた平衡点
+$\kappa>0$、$|\Delta|<\kappa$ とする。平均位相差方程式 $D'=\Delta-\kappa\sin D$ の平衡点を記述するため、
+
+$$
+a=\arcsin(\Delta/\kappa)\in(-\pi/2,\pi/2)
+$$
+
+とおく。任意の整数 $n$ に対して、持ち上げた平衡点
 
 $$
 s_n=a+2\pi n,\qquad
@@ -248,7 +254,15 @@ D(\tau)-D(\tau_0)
 \ge\frac{f(\ell)}2(\tau-\tau_0)
 $$
 
-が無限に増えます。これは $D(\tau)\le s_n$ と矛盾します。したがって $\ell=s_n$ です。右の区間 $(s_n,u_n)$ では、解は単調減少かつ $D(\tau)\ge s_n$ です。極限を $\ell\ge s_n$ とすると、もし $\ell>s_n$ なら $\ell\in(s_n,u_n)$ なので $f(\ell)<0$ です。十分大きい $\tau_0$ 以後、
+が無限に増えます。これは $D(\tau)\le s_n$ と矛盾します。したがって $\ell=s_n$ です。
+
+右の区間 $(s_n,u_n)$ では、解は単調減少かつ $D(\tau)\ge s_n$ です。極限を $\ell\ge s_n$ とすると、もし $\ell>s_n$ なら
+
+$$
+s_n<\ell<D(0)<u_n,\qquad f(\ell)<0
+$$
+
+です。連続性によって十分大きい $\tau_0$ 以後、
 
 $$
 D'(\tau)\le\frac{f(\ell)}2<0,\qquad
@@ -310,7 +324,7 @@ $|\Delta|=\kappa$ では二平衡点が合流します。ここで前節の減�
 <!-- formal-statement-start -->
 ### 命題（閾値等号の片側安定性）
 
-$\kappa>0$ とする。$\Delta=\kappa$ なら持ち上げた平衡点は
+$\kappa>0$、$D'=\Delta-\kappa\sin D$ とする。$\Delta=\kappa$ なら持ち上げた平衡点は
 
 $$
 q_n=\pi/2+2\pi n
@@ -332,7 +346,15 @@ $$
 f(D)=\kappa(1-\sin D)\ge0.
 $$
 
-等号は $q_n$ のみで生じ、各区間 $(q_{n-1},q_n)$ で $f>0$ です。[ODE1の局所存在・一意性](../ODE1/index.md#thm-ode1-picard-lindelof)により、区間内の解は上端の平衡点を有限時間で通過しません。従って $D(0)\in(q_{n-1},q_n)$ の解は単調増加で上に有界です。その極限を $\ell\le q_n$ とすると、もし $\ell<q_n$ なら $f(\ell)>0$ です。連続性から十分大きい時刻 $t_0$ 以後に $D'(t)\ge f(\ell)/2>0$ となり、
+等号は $q_n$ のみで生じ、各区間 $(q_{n-1},q_n)$ で $f>0$ です。[ODE1の局所存在・一意性](../ODE1/index.md#thm-ode1-picard-lindelof)により、区間内の解は上端の平衡点を有限時間で通過しません。従って
+
+$$
+D(0)\in(q_{n-1},q_n)
+\quad\Longrightarrow\quad
+D'(t)>0,\qquad D(t)<q_n
+$$
+
+です。この解は単調増加で上に有界です。その極限を $\ell\le q_n$ とすると、もし $\ell<q_n$ なら $f(\ell)>0$ です。連続性から十分大きい時刻 $t_0$ 以後に $D'(t)\ge f(\ell)/2>0$ となり、
 
 $$
 D(t)\ge D(t_0)+\frac{f(\ell)}2(t-t_0)\longrightarrow+\infty
@@ -416,7 +438,7 @@ $$
 <!-- formal-statement-start -->
 ### 定理（位相すべりの周期と平均速度）
 
-$\kappa>0$、$|\Delta|>\kappa$ の平均位相差方程式について、任意の解は実数上で符号 $\operatorname{sgn}(\Delta)$ の方向へ単調に進み、円周上の平衡点を持たない。位相差が一周分 $2\pi$ だけ変化するのに要する遅い時間は
+$\kappa>0$、$|\Delta|>\kappa$ の平均位相差方程式 $D'=\Delta-\kappa\sin D$ について、任意の解は実数上で符号 $\operatorname{sgn}(\Delta)$ の方向へ単調に進み、円周上の平衡点を持たない。位相差が一周分 $2\pi$ だけ変化するのに要する遅い時間は
 
 $$
 T_{\mathrm{slip}}
@@ -515,7 +537,16 @@ $$
 <!-- formal-statement-start -->
 ### 命題（有限遅い時間の比較が保証すること）
 
-上の結合模型と初期半径の仮定で、$D(0)=\delta(0)$ とする。任意の固定 $L>0$、$\eta>0$ に対し、十分小さな $\varepsilon$ を選べば、$0\le t\le L/\varepsilon$ で、正確な位相差と平均位相差との円周距離は $\eta$ 未満となる。一方、この有限時間の評価だけから、$\delta(t)$ の $t\to\infty$ における極限、元の四次元系の周期解の存在・安定性、または無限時間の位相固定を結論することはできない。
+[CDYN10の水平結合模型](../CDYN10/index.md#def-cdyn10-exact-coupled-phase)において、基本角速度 $\Omega>0$、同じ結合強度 $\kappa_1=\kappa_2=\kappa>0$、方向ずれ $\alpha_1=\alpha_2=0$、初期半径 $r_1(0)=r_2(0)=1$、周波数ずれ $\nu_1,\nu_2\in\mathbb R$ とする。正確な位相差を $\delta(t)$、遅い時間の平均位相差方程式
+
+$$
+D'=\nu_2-\nu_1-\kappa\sin D,
+\qquad D(0)=\delta(0)
+$$
+
+の解を $D(\tau)$ とする。任意の固定 $L>0$、$\eta>0$ に対し、十分小さな $\varepsilon>0$ を選べば、$0\le t\le L/\varepsilon$ で、正確な位相差と平均位相差との円周距離は $\eta$ 未満となる。
+
+一方、この有限時間の評価だけから、$\delta(t)$ の $t\to\infty$ における極限、元の四次元系の周期解の存在・安定性、または無限時間の位相固定を結論することはできない。
 <!-- formal-statement-end -->
 
 **証明の見取り図**　距離の上界は平均化定理へ $\varepsilon$ の制約を入れれば得られます。「得られない」とする後半は、量化順序の相違を具体的な関数で確認します。
@@ -580,7 +611,17 @@ $\Delta=0$、$\kappa>0$ とする。$D\in(-\pi,0)$ と $D\in(0,\pi)$ におけ�
 - ID: CDYN11-A2
 
 <!-- solution-start -->
-**詳細解答**　$D'=-\kappa\sin D$ です。$-\pi<D<0$ なら $\sin D<0$ なので $D'>0$、$0<D<\pi$ なら $\sin D>0$ なので $D'<0$ です。[引込み域の定理](#thm-cdyn11-capture-basin)を $a=0$、$u_{-1}=-\pi$、$u_0=\pi$ に適用すると、どちらも0へ収束します。また[ODE1の局所存在・一意性](../ODE1/index.md#thm-ode1-picard-lindelof)により0を有限時間に通過しません。$D(0)=\pi$ と $D(0)=-\pi$ は円周上で同じ不安定平衡点にとどまります。
+**詳細解答**　$D'=-\kappa\sin D$ です。正弦の符号から
+
+$$
+\begin{array}{c|cc}
+D\text{ の範囲}&(-\pi,0)&(0,\pi)\\ \hline
+\sin D&<0&>0\\
+D'=-\kappa\sin D&>0&<0
+\end{array}
+$$
+
+です。[引込み域の定理](#thm-cdyn11-capture-basin)を $a=0$、$u_{-1}=-\pi$、$u_0=\pi$ に適用すると、どちらの区間からも0へ収束します。[ODE1の局所存在・一意性](../ODE1/index.md#thm-ode1-picard-lindelof)により0を有限時間に通過することはありません。端点 $D(0)=\pm\pi$ は円周上で同じ不安定平衡点にとどまります。
 <!-- solution-end -->
 
 ### A3. 閾値ちょうどの速度
@@ -656,7 +697,15 @@ $\kappa>0$、$-\kappa<\Delta<\kappa$ とし、$a=\arcsin(\Delta/\kappa)$ とす�
 - ID: CDYN11-B1
 
 <!-- solution-start -->
-**詳細解答**　[同期閾値の命題](#prop-cdyn11-locking-threshold)から平衡点は $-\pi-a$、$a$、$\pi-a$ の順で並びます。$f'(a)=-\kappa\cos a<0$ なので $a$ のすぐ左では $f>0$、すぐ右では $f<0$ です。平衡方程式 $\sin D=\sin a$ の実数解は $a+2\pi n$ と $\pi-a+2\pi n$ だけで、対象の二区間には他の零点がありません。連続な $f$ の符号は零点を通らない限り変わらないため、
+**詳細解答**　[同期閾値の命題](#prop-cdyn11-locking-threshold)から平衡点は
+
+$$
+-\pi-a<a<\pi-a
+$$
+
+の順で並びます。$f'(a)=-\kappa\cos a<0$ なので $a$ のすぐ左では $f>0$、すぐ右では $f<0$ です。
+
+平衡方程式 $\sin D=\sin a$ の実数解は $a+2\pi n$ と $\pi-a+2\pi n$ だけで、対象の二区間には他の零点がありません。連続な $f$ の符号は零点を通らない限り変わらないため、
 
 $$
 f(D)>0\quad(-\pi-a<D<a),
