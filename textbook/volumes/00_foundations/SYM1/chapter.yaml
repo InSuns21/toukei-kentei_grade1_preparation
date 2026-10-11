@@ -1,0 +1,53 @@
+id: "SYM1"
+title: "シンプレクティック線形代数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LA3A
+  - LA3C
+  - LA3E
+  - GEO7
+  - AMECH7
+official_scope: []
+learning_objectives:
+  - 交代双線形形式と非退化性を定義から判定し、線形同型 V→V* と行列の可逆性の関係を示せる
+  - 非退化交代形式の偶数次元性を交代行列の行列式から証明できる
+  - 一対 e,f の構成と射影公式からシンプレクティック直交分解を証明できる
+  - 帰納法によって非退化交代形式の標準基底を構成し、標準行列 J を導ける
+  - 線形シンプレクティック写像を行列条件 A^T J A=J で判定し、逆行列と群の閉性を証明できる
+  - ブロック行列条件を使って shear と逆転置 scaling を判定できる
+  - 最高次外積を用いて det A=1 を証明し、多自由度で体積保存が不十分な反例を挙げられる
+definitions:
+  - { id: SYM1-DEF-01, name: 交代双線形形式 }
+  - { id: SYM1-DEF-02, name: 非退化交代形式・シンプレクティックベクトル空間 }
+  - { id: SYM1-DEF-03, name: シンプレクティック直交補 }
+  - { id: SYM1-DEF-04, name: シンプレクティック基底 }
+  - { id: SYM1-DEF-05, name: 線形シンプレクティック写像・シンプレクティック群 }
+theorems:
+  - { id: SYM1-THM-01, name: シンプレクティック空間の偶数次元性 }
+  - { id: SYM1-LEM-01, name: 一対の切り出し }
+  - { id: SYM1-THM-02, name: 非退化交代形式の線形標準形 }
+  - { id: SYM1-THM-03, name: 線形シンプレクティック写像の行列条件 }
+  - { id: SYM1-PROP-01, name: シンプレクティック群の積と逆 }
+  - { id: SYM1-PROP-02, name: シンプレクティック行列の行列式 }
+canonical_examples:
+  - 二次元面積形式の交代性・非退化性を評価ベクトル二つで確認
+  - 四次元の一対とシンプレクティック直交補を座標で計算
+  - 対の反復によるシンプレクティック基底構成
+  - 対称行列の shear と位置・運動量の逆転置 scaling
+  - det A=1 だがシンプレクティックでない四次元対角行列
+problem_patterns:
+  - SYM1-ALTERNATING-NONDEGENERATE
+  - SYM1-DEGENERATE-KERNEL
+  - SYM1-PAIR-PROJECTION
+  - SYM1-SYMPLECTIC-SCALING
+  - SYM1-ONE-PAIR-DETERMINANT
+  - SYM1-FOUR-DIMENSION-NORMAL-FORM
+  - SYM1-SYMPLECTIC-INVERSE
+  - SYM1-VOLUME-COUNTEREXAMPLE
+  - SYM1-INFINITESIMAL-LINEARIZATION
+  - SYM1-TRANSPORT-COMPOSITE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 2 }
