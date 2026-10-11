@@ -850,19 +850,35 @@ $\mathbb R^3$ 上の形式 $\omega(u,v)=u_1v_2-u_2v_1$ の核 $\{u:\omega(u,v)=0
 
 #### A3. 一対を取り出す射影
 
-非退化形式付き空間で $\omega(e,f)=1$ とする。$v$ の $W=\operatorname{span}\{e,f\}$ 成分を $P(v)=\omega(v,f)e-\omega(v,e)f$ と定める。$P^2=P$ と $\ker P=W^\omega$ を示せ。
+非退化形式付き空間で $\omega(e,f)=1$ とする。$v$ の $W=\operatorname{span}\{e,f\}$ 成分を $P(v)=\omega(v,f)e-\omega(v,e)f$ と定める。$P$ が線形写像であり、$P^2=P$ と $\ker P=W^\omega$ を満たすことを示せ。
 
 - Level: A
 - ID: SYM1-A3
 
 <!-- solution-start -->
-**詳細解答**　$P(e)=\omega(e,f)e-\omega(e,e)f=e$ です。また
+**詳細解答**　$\omega$ は各引数について線形です。任意の $v,w\in V$、$c,d\in\mathbb R$ について
+
+$$
+\begin{aligned}
+P(cv+dw)
+&=\omega(cv+dw,f)e-\omega(cv+dw,e)f\\
+&=cP(v)+dP(w)
+\end{aligned}
+$$
+
+なので $P$ は線形です。$P(e)=\omega(e,f)e-\omega(e,e)f=e$、また
 
 $$
 P(f)=\omega(f,f)e-\omega(f,e)f=f.
 $$
 
-従って $P(v)\in W$ に対して再び $P$ を作用させると変わらず、$P^2=P$ です。$P(v)=0$ は $e,f$ の一次独立性から
+任意の $v$ に対して $P(v)=ae+bf\in W$ と書けるため、線形性と $P(e)=e,P(f)=f$ から
+
+$$
+P(P(v))=aP(e)+bP(f)=ae+bf=P(v).
+$$
+
+よって $P^2=P$ です。さらに $P(v)=0$ は、$e,f$ の一次独立性から
 
 $$
 \omega(v,f)=0,\qquad \omega(v,e)=0
@@ -885,7 +901,7 @@ $$
 A=\operatorname{diag}(D,D^{-\mathsf T})
 $$
 
-です。§6のブロック条件に代入すると
+です。[ブロック判定条件](#ref-sym1-block-criterion)に $P=D,Q=R=0,S=D^{-\mathsf T}$ を代入すると
 
 $$
 P^{\mathsf T}S=D^{\mathsf T}D^{-\mathsf T}=I,
@@ -961,16 +977,35 @@ $$
 \omega(e_2,f_2)=3\left(1\cdot\frac13\right)=1
 $$
 
-です。二つの対は使う座標が異なるので、異なる対どうしの値は零です。また交代性から同種の組も零になります。従って
+です。ただし、交代性だけでは異なるベクトルの組が零とは言えません。実際の座標で残りの組を確かめます。$\omega$ の式に代入すると
+
+$$
+\begin{aligned}
+\omega(e_1,e_2)&=2(1\cdot0-0\cdot0)+3(0\cdot0-0\cdot1)=0,\\
+\omega(f_1,f_2)&=2(0\cdot0-\tfrac12\cdot0)+3(0\cdot\tfrac13-0\cdot0)=0,\\
+\omega(e_1,f_2)&=2(1\cdot0-0\cdot0)+3(0\cdot\tfrac13-0\cdot0)=0,\\
+\omega(e_2,f_1)&=2(0\cdot\tfrac12-0\cdot0)+3(1\cdot0-0\cdot0)=0.
+\end{aligned}
+$$
+
+交代性により逆順の組も零です。また $\omega(e_i,e_i)=\omega(f_i,f_i)=0$ です。従って、全ての $i,j\in\{1,2\}$ で
+
+$$
+\omega(e_i,e_j)=0,\qquad
+\omega(f_i,f_j)=0,\qquad
+\omega(e_i,f_j)=\delta_{ij}
+$$
+
+を確認できました。四つのベクトルの非零成分は互いに異なる座標位置にあるため一次独立で、$\mathbb R^4$ の基底です。よって
 
 $$
 (e_1,e_2,f_1,f_2)
 $$
 
-はシンプレクティック基底であり、対応する行列の四つのブロックは順に $0,I_2,-I_2,0$ です。
+は[シンプレクティック基底](#def-sym1-symplectic-basis)であり、対応する係数行列の四ブロックは $0,I_2,-I_2,0$ です。
 <!-- solution-end -->
 
-#### B2. 逆行列と積の保存
+#### B2. 逆行列公式の直接検算
 
 $B=B^{\mathsf T}$ とする。$A=\begin{pmatrix}I&B\\0&I\end{pmatrix}$ に対して $A^{-1}$ を直接求め、$-JA^{\mathsf T}J$ に一致することを確かめよ。
 
@@ -1045,13 +1080,25 @@ $$
 \end{aligned}
 $$
 
-$JX=\begin{pmatrix}C&D\\-K&-B\end{pmatrix}$、$X^{\mathsf T}J=\begin{pmatrix}-C^{\mathsf T}&K^{\mathsf T}\\-D^{\mathsf T}&B^{\mathsf T}\end{pmatrix}$ より
+[行列条件](#thm-sym1-matrix-criterion)を微分した式をブロックで調べます。$X=\begin{pmatrix}K&B\\C&D\end{pmatrix}$ を代入し、積を順に計算すると
 
 $$
-C=C^{\mathsf T},\qquad
-B=B^{\mathsf T},\qquad
-D=-K^{\mathsf T}.
+JX=\begin{pmatrix}C&D\\-K&-B\end{pmatrix},
+\qquad
+X^{\mathsf T}J=\begin{pmatrix}-C^{\mathsf T}&K^{\mathsf T}\\-D^{\mathsf T}&B^{\mathsf T}\end{pmatrix}.
 $$
+
+これらを足して零行列に等しいと置けば、
+
+$$
+X^{\mathsf T}J+JX
+=\begin{pmatrix}
+C-C^{\mathsf T}&D+K^{\mathsf T}\\
+-D^{\mathsf T}-K&B^{\mathsf T}-B
+\end{pmatrix}=0.
+$$
+
+左上から $C=C^{\mathsf T}$、右下から $B=B^{\mathsf T}$、右上から $D=-K^{\mathsf T}$ です。左下は右上の転置に負号を付けた条件なので独立ではありません。
 
 従って $X$ は $K$ が任意、$B,C$ が対称という形です。これは必要な一次条件であり、この計算だけで任意の曲線 $A(t)$ の存在を主張したわけではありません。
 <!-- solution-end -->
@@ -1070,7 +1117,7 @@ $$
 
 1. この形式は非退化である。
 2. シンプレクティック基底を作り、旧座標から標準座標への変換を一つ与えよ。
-3. 標準座標で $Q_1=q_1+\alpha p_1,\ Q_2=q_2,\ P_1=p_1,\ P_2=p_2$ となる写像を取り、もとの $u$ 座標での線形写像を求めよ。
+3. $\alpha\in\mathbb R$ とする。標準座標で $Q_1=q_1+\alpha p_1,\ Q_2=q_2,\ P_1=p_1,\ P_2=p_2$ となる写像を取り、もとの $u$ 座標での線形写像を求めよ。
 4. その写像が $\omega$ を保存することを、元の変数で直接確認せよ。
 
 - Level: C
@@ -1090,26 +1137,63 @@ $$
 
 $\lambda,\mu>0$ だから $u=0$ で、非退化です。
 
-**(2)**　$e_1,e_2$ を標準座標ベクトルと同じに選び、$f_1=e_3/\lambda$、$f_2=e_4/\mu$ とします。すると
+**(2)**　元の $\mathbb R^4$ の標準基底を $\varepsilon_1,\varepsilon_2,\varepsilon_3,\varepsilon_4$ と書き、構成したいシンプレクティック基底とは記号を区別します。次の四本を選びます。
 
 $$
-\omega(e_i,f_j)=\delta_{ij},\qquad
-\omega(e_i,e_j)=\omega(f_i,f_j)=0
+e_1=\varepsilon_1,\quad e_2=\varepsilon_2,\qquad
+f_1=\frac{\varepsilon_3}{\lambda},\quad
+f_2=\frac{\varepsilon_4}{\mu}.
 $$
 
-となります。$u=q_1e_1+q_2e_2+p_1f_1+p_2f_2$ と展開した係数は
+$\lambda,\mu>0$ なので分母は零ではなく、四本は一次独立です。定義式に代入すると
+
+$$
+\begin{aligned}
+\omega(e_1,f_1)&=\lambda(1\cdot\lambda^{-1})=1,\\
+\omega(e_2,f_2)&=\mu(1\cdot\mu^{-1})=1,\\
+\omega(e_1,f_2)&=0,\quad \omega(e_2,f_1)=0,\\
+\omega(e_1,e_2)&=0,\quad \omega(f_1,f_2)=0.
+\end{aligned}
+$$
+
+交代性により逆順も決まるので、[シンプレクティック基底の定義](#def-sym1-symplectic-basis)の三条件が成立します。$u=q_1e_1+q_2e_2+p_1f_1+p_2f_2$ と展開すると
+
+$$
+u=q_1\varepsilon_1+q_2\varepsilon_2
++\frac{p_1}{\lambda}\varepsilon_3+\frac{p_2}{\mu}\varepsilon_4.
+$$
+
+従って旧座標から新座標への変換は
 
 $$
 (q_1,q_2,p_1,p_2)
 =(u_1,u_2,\lambda u_3,\mu u_4).
 $$
 
-**(3)**　標準座標の shear は $(q_1,q_2,p_1,p_2)\mapsto(q_1+\alpha p_1,q_2,p_1,p_2)$ です。$p_1=\lambda u_3$、$p_2=\mu u_4$ を代入し、出力側も同じ変換で戻すと
+**(3)**　標準座標への変換を $C$、そこでの shear を $S_\alpha$ と記します。
+
+$$
+\begin{aligned}
+C(u_1,u_2,u_3,u_4)&=(u_1,u_2,\lambda u_3,\mu u_4),\\
+S_\alpha(q_1,q_2,p_1,p_2)&=(q_1+\alpha p_1,q_2,p_1,p_2).
+\end{aligned}
+$$
+
+まず $C$ を作用させ、次に $S_\alpha$ を作用させると、
+
+$$
+S_\alpha(Cu)
+=(u_1+\alpha\lambda u_3,u_2,\lambda u_3,\mu u_4).
+$$
+
+最後に $C^{-1}(q_1,q_2,p_1,p_2)=(q_1,q_2,p_1/\lambda,p_2/\mu)$ で元の座標へ戻します。よって $T=C^{-1}S_\alpha C$ は
 
 $$
 T(u_1,u_2,u_3,u_4)
 =(u_1+\alpha\lambda u_3,\ u_2,\ u_3,\ u_4).
 $$
+
+ここで使った $C^{-1}$ は $\lambda,\mu\ne0$ のため確かに定義されています。
 
 **(4)**　$T(u)$ と $T(v)$ を $\omega$ へ代入し、第一の組を展開します。
 
