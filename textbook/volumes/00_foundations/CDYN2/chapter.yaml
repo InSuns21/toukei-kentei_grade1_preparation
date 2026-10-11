@@ -1,0 +1,44 @@
+id: "CDYN2"
+title: "保存量とエネルギー曲線の閉軌道"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CDYN1
+  - ODE4
+official_scope: []
+learning_objectives:
+  - 位置速度平面の保存系でH(q,v)=v²/2+U(q)の時間微分が零となることを連鎖律で検算できる
+  - エネルギー曲線の許容領域と正則転回点を定義から判定できる
+  - 二つの正則転回点の条件から周期解の存在と周期積分を証明できる
+  - 端点近傍でE-U(q)を一次下界で評価し周期積分の有限性を証明できる
+  - 調和振動子の周期がエネルギーによらないことを三角置換で計算できる
+  - 振り子の周期を積分表示し振幅増大に伴う増大と頂上での発散を証明できる
+  - 退化転回点と平衡点の違いを理解し無限到達時間・セパラトリクスを積分で区別できる
+  - 四次振動子の周期のエネルギー依存をスケーリングで求められる
+definitions:
+  - { id: CDYN2-DEF-01, name: 正則転回点 }
+theorems:
+  - { id: CDYN2-THM-01, name: 正則な二転回点からの非定常周期解 }
+  - { id: CDYN2-THM-02, name: 調和振動子の周期は振幅によらない }
+propositions:
+  - { id: CDYN2-PROP-01, name: 振り子の周期はエネルギーとともに増大する }
+canonical_examples:
+  - 調和振動子のエネルギー円と等時性
+  - 振り子の周期積分と頂上近くの周期発散
+  - 四次ポテンシャルのスケーリング
+  - 退化転回点での無限到達時間とセパラトリクス
+problem_patterns:
+  - CDYN2-CONSERVATION
+  - CDYN2-REGULAR-TURNING
+  - CDYN2-HARMONIC-PERIOD
+  - CDYN2-EQUILIBRIUM-DEGENERACY
+  - CDYN2-QUARTIC-TURNING
+  - CDYN2-QUARTIC-SCALING
+  - CDYN2-SEPARATRIX-INFINITE-TIME
+  - CDYN2-PENDULUM-INTEGRAL
+  - CDYN2-PENDULUM-MONOTONICITY
+  - CDYN2-WELL-SEPARATRIX-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 5.0, review: 2.0 }

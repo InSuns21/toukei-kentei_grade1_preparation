@@ -11,7 +11,7 @@ chapters:
     title: 連続流から時刻写像へ：一次元でできないこと
   - id: CDYN2
     path: textbook/volumes/00_foundations/CDYN2
-    status: planned
+    status: completed
     title: 保存量とエネルギー曲線の閉軌道
   - id: CDYN3
     path: textbook/volumes/00_foundations/CDYN3
