@@ -19,7 +19,8 @@ learning_objectives:
   - 最高次外積を用いて det A=1 を証明し、多自由度で体積保存が不十分な反例を挙げられる
 definitions:
   - { id: SYM1-DEF-01, name: 交代双線形形式 }
-  - { id: SYM1-DEF-02, name: 非退化交代形式・シンプレクティックベクトル空間 }
+  - { id: SYM1-DEF-02, name: 非退化交代形式 }
+  - { id: SYM1-DEF-02B, name: シンプレクティックベクトル空間 }
   - { id: SYM1-DEF-03, name: シンプレクティック直交補 }
   - { id: SYM1-DEF-04, name: シンプレクティック基底 }
   - { id: SYM1-DEF-05, name: 線形シンプレクティック写像・シンプレクティック群 }
