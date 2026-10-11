@@ -351,7 +351,7 @@ $\omega>0$ とし、$y_1'=-\omega y_2$、$y_2'=\omega y_1$ の $T=2\pi/\omega$ �
 **詳細解答**　初期値 $e_1$ に対する解は $(\cos\omega t,\sin\omega t)^\mathsf T$、$e_2$ に対する解は $(-\sin\omega t,\cos\omega t)^\mathsf T$。二列を並べると $X(t)=\begin{pmatrix}\cos\omega t&-\sin\omega t\\\sin\omega t&\cos\omega t\end{pmatrix}$。$X(0)=I_2$ で微分も指定の方程式を満たします。$\omega T=2\pi$ より $M=X(T)=I_2$、乗数は1が二つです。
 <!-- solution-end -->
 
-### A4. 接ベクトルが非零である理由
+### A4. 軌道の速度ベクトルが一周で戻る
 
 $F(x,y)=(y,-x)$、$\gamma(t)=(\cos t,-\sin t)$ とする。$\gamma'$ が変分方程式を解き、$M\gamma'(0)=\gamma'(0)$ を確かめよ。
 
