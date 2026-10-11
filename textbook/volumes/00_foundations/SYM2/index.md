@@ -69,7 +69,7 @@ $$
 
 外微分は係数だけを微分します。まず $\omega_{ji}=-\omega_{ij}$ と外積の交代性を使って、$(i,j)$ と $(j,i)$ の同じ項をまとめると、
 
-$
+$$
 \begin{aligned}
 d\omega
 &=\frac12\sum_{i,j,k}
@@ -79,11 +79,11 @@ dx^k\wedge dx^i\wedge dx^j\\
 \partial_k\omega_{ij}\,
 dx^k\wedge dx^i\wedge dx^j.
 \end{aligned}
-$
+$$
 
 異なる三添字 $i<j<k$ の基底 $dx^i\wedge dx^j\wedge dx^k$ に寄与するのは、偏微分する添字をそれぞれ $i,j,k$ とする三つの項です。順番を並べ替え、
 
-$
+$$
 \begin{aligned}
 &\partial_i\omega_{jk}\,dx^i\wedge dx^j\wedge dx^k\\
 &\quad+\partial_j\omega_{ik}\,dx^j\wedge dx^i\wedge dx^k\\
@@ -95,17 +95,17 @@ dx^i\wedge dx^j\wedge dx^k\\
 +\partial_k\omega_{ij}\bigr)\,
 dx^i\wedge dx^j\wedge dx^k.
 \end{aligned}
-$
+$$
 
 と求められます。第二項の負号は $dx^j$ と $dx^i$ の交換から生じ、$\omega_{ki}=-\omega_{ik}$ で最後の等号に移ります。第三項の巡回並べ替えは二回の交換なので正符号です。したがって全体として
 
-$
+$$
 d\omega=\sum_{i<j<k}
 \bigl(\partial_i\omega_{jk}+
 \partial_j\omega_{ki}+
 \partial_k\omega_{ij}\bigr)
 dx^i\wedge dx^j\wedge dx^k.
-$
+$$
 
 <a id="prop-sym2-coordinate-criterion"></a>
 
@@ -254,9 +254,9 @@ $$
 
 とします。球面の[接ベクトルの曲線表示](../GEO2/index.md#def-geo2-curve-tangent)から $x\cdot x=1$ を微分すると、$2x\cdot u=0$ です。逆に $x\cdot u=0$ なら曲線 $\gamma(t)=(x+tu)/\|x+tu\|$ は球面上にあり、$\gamma'(0)=u$ です。したがって
 
-$
+$$
 T_xS^2=\{u\in\mathbb R^3:x\cdot u=0\}
-$
+$$
 
 が成立します。各点で、三つのベクトルを列に並べた行列式を用い
 
@@ -285,13 +285,13 @@ $\det(x,u,v)$ は $x,u,v$ の成分に関する多項式で、$x$ の変化に�
 
 非零の $u\in T_xS^2$ を取り、$v=x\times u$ と置きます。$x\cdot(x\times u)=0$ なので $v$ も接ベクトルです。ここで $r=\|u\|>0$ とし、
 
-$
+$$
 e_1=x,\qquad e_2=u/r,\qquad e_3=x\times e_2
-$
+$$
 
 と置きます。$x$ と $u$ は直交し、$\|x\|=1$ なので $(e_1,e_2,e_3)$ は右手系の正規直交基底です。行列式の多重線形性と、この基底の行列式が1であることから
 
-$
+$$
 \begin{aligned}
 \sigma_x(u,v)
 &=\det(x,u,x\times u)\\
@@ -299,7 +299,7 @@ $
 &=r^2\det(e_1,e_2,e_3)\\
 &=r^2=\|u\|^2>0.
 \end{aligned}
-$
+$$
 
 従って任意の非零 $u$ に対して $\sigma_x(u,v)\ne0$ となる相手 $v$ が存在し、非退化です。最後に $S^2$ 上の3形式は次元の理由で零なので $d\sigma=0$ です。
 <!-- proof-end -->
