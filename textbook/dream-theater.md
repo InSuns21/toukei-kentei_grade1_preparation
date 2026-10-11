@@ -168,6 +168,7 @@
 6. [DYN6 位相共役・半共役・不変集合](textbook/volumes/00_foundations/DYN6/index.md)
 7. [DYN7 円周回転・有理回転と無理回転](textbook/volumes/00_foundations/DYN7/index.md)
 8. [DYN8 正の極限集合・再帰・軌道閉包](textbook/volumes/00_foundations/DYN8/index.md)
+9. [DYN9 拡大写像・初期値鋭敏性](textbook/volumes/00_foundations/DYN9/index.md)
 
 <a id="dt-subject-fourier-analysis"></a>
 ### Fourier 解析
