@@ -626,6 +626,11 @@
 9. [GEO18 比較幾何入門](textbook/volumes/00_foundations/GEO18/index.md)
 10. [GEO19 Gauss--Bonnet と二次元大域幾何](textbook/volumes/00_foundations/GEO19/index.md)
 
+<a id="dt-subject-symplectic-geometry-i"></a>
+### シンプレクティック幾何学 I
+
+1. [SYM1 シンプレクティック線形代数](textbook/volumes/00_foundations/SYM1/index.md)
+
 ## 代数系
 
 <a id="dt-subject-abstract-algebra"></a>
