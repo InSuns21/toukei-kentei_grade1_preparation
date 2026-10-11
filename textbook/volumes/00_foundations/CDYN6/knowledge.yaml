@@ -1,0 +1,40 @@
+chapter: CDYN6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CDYN5
+  - CDYN2
+  - ODE4
+concepts:
+  - id: continuous-dynamical-systems.duffing-double-well
+    name: 二重井戸ポテンシャル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二重井戸ポテンシャル）"]
+    requires: [continuous-dynamical-systems.closed-energy-orbit]
+  - id: continuous-dynamical-systems.duffing-energy-regimes
+    name: Duffing振動子のエネルギー水準と軌道の分類
+    kind: theorem
+    introduction_aliases: ["定理（Duffing振動子のエネルギー水準と軌道の分類）"]
+    requires: [continuous-dynamical-systems.duffing-double-well, continuous-dynamical-systems.closed-energy-orbit]
+  - id: continuous-dynamical-systems.homoclinic-orbit
+    name: ホモクリニック軌道とセパラトリクス
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ホモクリニック軌道とセパラトリクス）"]
+    requires: [continuous-dynamical-systems.duffing-energy-regimes]
+  - id: continuous-dynamical-systems.duffing-homoclinic
+    name: Duffing分離軌道の明示解と無限到達時間
+    kind: theorem
+    introduction_aliases: ["定理（Duffing分離軌道の明示解と無限到達時間）"]
+    requires: [continuous-dynamical-systems.homoclinic-orbit, continuous-dynamical-systems.duffing-energy-regimes]
+  - id: continuous-dynamical-systems.duffing-period-formulas
+    name: 井戸内振動と両井戸横断振動の周期積分
+    kind: proposition
+    introduction_aliases: ["命題（井戸内振動と両井戸横断振動の周期積分）"]
+    requires: [continuous-dynamical-systems.closed-energy-orbit, continuous-dynamical-systems.duffing-energy-regimes]
+  - id: continuous-dynamical-systems.duffing-period-divergence
+    name: 分離軌道への接近による井戸内周期の発散
+    kind: theorem
+    introduction_aliases: ["定理（分離軌道への接近による井戸内周期の発散）"]
+    requires: [continuous-dynamical-systems.duffing-period-formulas, continuous-dynamical-systems.duffing-homoclinic]

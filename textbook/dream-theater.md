@@ -184,6 +184,7 @@
 3. [CDYN3 周期軌道を位相で記述する](textbook/volumes/00_foundations/CDYN3/index.md)
 4. [CDYN4 周期変分方程式とFloquet乗数](textbook/volumes/00_foundations/CDYN4/index.md)
 5. [CDYN5 強制振動・共振・減衰](textbook/volumes/00_foundations/CDYN5/index.md)
+6. [CDYN6 Duffing振動子のポテンシャルとセパラトリクス](textbook/volumes/00_foundations/CDYN6/index.md)
 
 <a id="dt-subject-fourier-analysis"></a>
 ### Fourier 解析

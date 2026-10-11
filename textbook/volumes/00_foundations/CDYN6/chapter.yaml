@@ -1,0 +1,47 @@
+id: "CDYN6"
+title: "Duffing振動子のポテンシャルとセパラトリクス"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CDYN5
+  - CDYN2
+  - ODE4
+official_scope: []
+learning_objectives:
+  - Duffing方程式から二重井戸ポテンシャルと保存エネルギーを導き大域存在を説明できる
+  - 平衡点の位置、井戸の深さ、線形化の型を計算できる
+  - エネルギーごとの実水準集合と周期軌道の本数を転回点の条件から証明できる
+  - ホモクリニック軌道の定義を検証し分離軌道の明示解を微分で確かめられる
+  - 分離軌道の原点への無限到達時間と周期軌道の有限折返しを区別できる
+  - 井戸内周期・横断周期の積分を導きセパラトリクス近傍の発散を評価できる
+  - 保存非線形系と外力減衰付き線形系の結論の適用範囲を説明できる
+definitions:
+  - { id: CDYN6-DEF-01, name: 二重井戸ポテンシャル }
+  - { id: CDYN6-DEF-02, name: ホモクリニック軌道とセパラトリクス }
+theorems:
+  - { id: CDYN6-THM-01, name: Duffing振動子のエネルギー水準と軌道の分類 }
+  - { id: CDYN6-THM-02, name: Duffing分離軌道の明示解と無限到達時間 }
+  - { id: CDYN6-THM-03, name: 分離軌道への接近による井戸内周期の発散 }
+propositions:
+  - { id: CDYN6-PROP-01, name: 井戸内振動と両井戸横断振動の周期積分 }
+canonical_examples:
+  - 二つの極小点と中央の鞍点
+  - 負のエネルギーで左右に分かれる周期軌道
+  - sechで表されるホモクリニック分離軌道
+  - 正のエネルギーで両井戸を横断する周期軌道
+  - 内側の転回点が原点へ近づくときの対数発散
+problem_patterns:
+  - CDYN6-POTENTIAL-ENERGY
+  - CDYN6-EQUILIBRIA
+  - CDYN6-FOUR-TURNING-POINTS
+  - CDYN6-SEPARATRIX-VERIFY
+  - CDYN6-SADDLE-CROSSING
+  - CDYN6-REGIME-COMPARISON
+  - CDYN6-TURNING-INTEGRABILITY
+  - CDYN6-LOG-DIVERGENCE
+  - CDYN6-HOMOCLINIC-UNIQUENESS
+  - CDYN6-DUFFING-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 2.0 }
