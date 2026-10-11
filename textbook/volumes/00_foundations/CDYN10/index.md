@@ -43,7 +43,16 @@ $$
 a_i=\kappa_i\{r_j\cos(\theta_j+\alpha_i)-r_i\cos\theta_i\}
 $$
 
-とします。まず、$x_i=r_i\cos\theta_i$、$y_i=r_i\sin\theta_i$ を微分して
+とします。まず、$x_i=r_i\cos\theta_i$、$y_i=r_i\sin\theta_i$ を時間微分すると、
+
+$$
+\begin{aligned}
+x_i'&=r_i'\cos\theta_i-r_i\theta_i'\sin\theta_i,\\
+y_i'&=r_i'\sin\theta_i+r_i\theta_i'\cos\theta_i
+\end{aligned}
+$$
+
+です。これを $x_ix_i'+y_iy_i'$ と $x_iy_i'-y_ix_i'$ にそれぞれ代入し、$\sin^2\theta_i+\cos^2\theta_i=1$ と交差項の相殺を使うと、
 
 $$
 \begin{aligned}
@@ -818,7 +827,7 @@ $$
 D'=\frac\kappa2\{\sin(\alpha-D)-\sin(\alpha+D)\}.
 $$
 
-積和公式から $\sin(\alpha-D)-\sin(\alpha+D)=-2\cos\alpha\sin D$ となるため、
+正弦の加法公式から $\sin(\alpha-D)-\sin(\alpha+D)=-2\cos\alpha\sin D$ となるため、
 
 $$
 D'=-\kappa\cos\alpha\sin D.
