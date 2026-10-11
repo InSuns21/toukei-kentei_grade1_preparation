@@ -23,7 +23,7 @@ chapters:
     title: 周期変分方程式とFloquet乗数
   - id: CDYN5
     path: textbook/volumes/00_foundations/CDYN5
-    status: planned
+    status: completed
     title: 強制振動・共振・減衰
   - id: CDYN6
     path: textbook/volumes/00_foundations/CDYN6
