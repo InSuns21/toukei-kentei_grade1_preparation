@@ -178,7 +178,11 @@ $$
 <!-- formal-statement-start -->
 ### 定理（実直線の一次元自律ODEに非定常周期解はない）
 
-開区間 $U\subset\mathbb R$ で $f:U\to\mathbb R$ が局所Lipschitz連続とする。$u:\mathbb R\to U$ が $u'(t)=f(u(t))$ を満たし、ある $P>0$ で $u(t+P)=u(t)$ が全ての $t$ について成立するならば、$u$ は定数解である。
+開区間 $U\subset\mathbb R$ と局所Lipschitz連続な $f:U\to\mathbb R$ を考える。全時刻で定義された $u:\mathbb R\to U$ とある $P>0$ が、全ての $t\in\mathbb R$ について次を満たすならば、$u$ は定数解である。
+
+$
+u'(t)=f(u(t)),\qquad u(t+P)=u(t).
+$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
