@@ -812,7 +812,9 @@ $$
 $$
 |E|^2=E_*^2(\cos^2\theta+\sin^2\theta)=E_*^2,
 \qquad |B|^2=\frac{E_*^2}{c^2}.
-$従って
+$
+
+従って
 
 $$
 u=\frac{\varepsilon_0 E_*^2}{2}+\frac{E_*^2}{2\mu_0c^2}
