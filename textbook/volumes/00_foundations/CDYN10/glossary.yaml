@@ -1,0 +1,23 @@
+chapter: "CDYN10"
+terms:
+  - term: 正確な位相
+    english: exact phase
+    meaning: "結合した明示模型で、原点を避ける間の偏角を連続に持ち上げて得る実数値の角度。平均を取る前の値。"
+  - term: 正確な位相差
+    english: exact phase difference
+    meaning: "二振動子の正確な位相の差。半径と速い絶対角度を含む元の方程式に従う。"
+  - term: 平均相互作用関数
+    english: averaged interaction function
+    meaning: "速い共通回転を一周期積分して得た位相差依存の相互作用。本章では方向ずれ付き正弦関数。"
+  - term: 遅い位相
+    english: slow phase
+    meaning: "元の偏角から共通の速い回転Ωtを除いた変数。結合強度εに比例する速度で変化する。"
+  - term: 平均位相差方程式
+    english: averaged phase-difference equation
+    meaning: "二つの平均位相方程式の差として導かれる一次元自律微分方程式。元の位相差とは有限の遅い時間区間で近い。"
+  - term: 交換対称性
+    english: exchange symmetry
+    meaning: "二振動子の添字交換で方程式の形が保たれる性質。共通の周波数ずれ・結合係数・結合方向を仮定する。"
+  - term: 有限遅い時間の平均化
+    english: finite slow-time averaging
+    meaning: "固定した遅い時刻の範囲で元の位相と平均系の位相の差を小さく制御すること。無限時間同期とは異なる。"
