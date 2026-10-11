@@ -34,7 +34,7 @@ $$
 
 <!-- definition-example-start: def-dyn10-closed-itinerary -->
 
-**条件を直接確認する。** $x=1/4$ では
+**定義の確認** $x=1/4$ では
 
 $$
 \frac14\ \xrightarrow{T}\ \frac12\
@@ -203,10 +203,10 @@ $$
 
 とする。このとき $H_w$ は互いに素で、全ての長さ $n$ の語についての和集合は $I$ となる。さらに閉区間 $C_w=[a_w,b_w]$ の両端点を除いた部分について
 
-$
+$$
 (a_w,b_w)\subset H_w\subset C_w,
 \qquad \overline{H_w}=C_w
-$
+$$
 
 が成り立つ。閉包は $I$ 内で取る。
 <!-- formal-statement-end -->
@@ -232,10 +232,10 @@ $$
 
 ここまでで $(a_w,b_w)\subset H_w$ です。非退化閉区間 $[a_w,b_w]$ は開区間 $(a_w,b_w)$ の閉包ですから
 
-$
+$$
 C_w=\overline{(a_w,b_w)}
 \subset\overline{H_w}\subset C_w
-$
+$$
 
 を得ます。$\square$
 <!-- proof-end -->
