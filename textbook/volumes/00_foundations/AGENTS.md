@@ -94,6 +94,14 @@ A4/B3/C1 は**下限であって目標値・上限ではない**。最低数に�
 
 自動監査の誤検出を避けるために自然な標準用語を不自然に改名しない。誤検出なら resolver、alias、contextual alias、監査ロジック側を修正する。
 
+## 次章執筆に併走する直前章の追跡監査
+
+継続的な新章執筆では、新章の必須自己査読・別観点再査読に加え、**直前に完成した章の追跡監査**をデフォルトで実施する。`textbook/dream-theater-work.yaml` の `review_handoff` と `completed_through`、対象系列 manifest から前章を確定する（数字だけで決めない）。
+
+直前章の実本文・主要証明・全演習解答を再読・検算し、途中2〜4手の省略、仮定・境界・添字・符号、式の別行配置・インライン過密、引用した既出結果への**使用箇所からの実在 stable anchor リンク**を点検する。警告抽出は補助に限り、実質的欠陥を修正してから再検証する。新章のPR本文には別枠で前章の査読証拠を残す。前章も修正する場合は変更章として第10・10.1節の全ゲートに従う。
+
+監査対象がない初回などは理由を明記する。重大な未解消指摘や監査漏れがあるなら次章も完了扱いにしない。具体的な手順と証拠は `textbook/DREAM_THEATER_AUTHORING_STANDARD.md` 第10.3節を正本とする。
+
 ## 検証
 
 leaf chapter の通常PRでは changed-only validation を原則とする。global index、knowledge DAG、規約、validator、workflow等の全体波及変更では full audit を行う。

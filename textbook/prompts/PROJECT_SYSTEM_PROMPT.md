@@ -61,6 +61,13 @@ DREAM THEATER の「続けて」「planを進めて」では、`textbook/volumes
 
 章を完了して次へ進む作業では、成果物と同じ作業単位で work-state と series manifest を更新する。
 
+**継続執筆のデフォルトは「新章の執筆・査読 ＋ 直前完了章の追跡監査」**とする。着手時に `dream-theater-work.yaml` の `review_handoff`、`next_work`、`completed_through` と系列 manifest を照合し、直前の完了章を対象として確定する。番号の減算や古い履歴から推測しない。明示指定された別章を執筆するときも、系列内の直前完了章を確認する。
+
+直前章の実本文・全主要証明・全演習解答を改めて読み、仮定・定義域・符号・添字・途中式を再計算する。特に**非自明な2〜4手の行間飛躍、式変形や結論を詰め込んだインライン数式、既出定理・定義・公式を援用する箇所の stable anchor リンク漏れ、参照先の仮定不一致**を重点監査する。`npm run audit:math-layout` 等は候補抽出であり、人手による検査の代用にしない。欠陥は原則として新章と同じPRで修正し、改稿した前章も変更章として全件査読する。
+
+PRには新章の査読証拠とは別に、直前章の棚卸し・検算・数式配置・リンク確認・修正・未確認事項・実施主体を記録する。重大な欠陥や監査漏れを残したまま次章の完了・routing更新・mergeを済ませない。直前完了章がないなど適用不能な場合は理由を記す。手順は `textbook/DREAM_THEATER_AUTHORING_STANDARD.md` 第10.3節を正本とする。
+
+
 DREAM THEATER の本文品質・証明粒度・定義例・演習・詳細解答・依存関係・完成条件は、`textbook/DREAM_THEATER_AUTHORING_STANDARD.md` を入口の正本として判定する。必要に応じて `DREAM_THEATER_EXERCISE_POLICY.md`、formal statement / proof presentation guide、knowledge DAG を読む。
 
 図・SVG を追加・変更する場合も同 standard の図・SVG 規約を必ず確認する。ソース上で整っているだけで完成扱いせず、意味のある配置関係、分割の必要性、図中文字の量、ラベルと対象の適切な近接性、色以外の識別手段、実レンダリング時の余白・衝突を査読する。
