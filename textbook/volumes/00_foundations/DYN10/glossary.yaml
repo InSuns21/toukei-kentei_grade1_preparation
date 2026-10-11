@@ -1,0 +1,20 @@
+chapter: "DYN10"
+terms:
+  - term: 旅程
+    english: itinerary
+    meaning: "軌道が各時刻に分割のどの部分に入るかを時間順に記録した記号列。"
+  - term: 許容旅程
+    english: admissible itinerary
+    meaning: "閉区間分割の所属条件を各時刻で満たす有限語。境界点では複数の語が許される。"
+  - term: 分枝区間
+    english: branch cylinder interval
+    meaning: "Tent写像の合成逆分枝B_wが区間Iを送る閉区間C_w。長さは2^{-n}。"
+  - term: 半開区間分割
+    english: half-open partition
+    meaning: "Tent写像の状態空間[0,1]を[0,1/2)と[1/2,1]に重複なく割り当てる規約。"
+  - term: 接頭語
+    english: prefix
+    meaning: "記号列の時刻0から長さnまでの部分語。同一ならTent写像の初期距離を2^{-n}以下に抑える。"
+  - term: 記号への読み出し
+    english: symbolic coding
+    meaning: "連続空間の点を分割への所属を通じて記号列へ対応させる操作。境界では連続でない場合がある。"
