@@ -67,25 +67,45 @@ $$
 
 ここで $v$ を全て動かしても値が零となる $u$ は $\Omega(x)^{\mathsf T}u=0$ を満たします。よって非退化性は各点で $\det\Omega(x)\ne0$ であることと同値です。
 
-外微分は係数だけを微分するため、
+外微分は係数だけを微分します。まず $\omega_{ji}=-\omega_{ij}$ と外積の交代性を使って、$(i,j)$ と $(j,i)$ の同じ項をまとめると、
 
-$$
-d\omega=\frac12\sum_{i,j,k}
+$
+\begin{aligned}
+d\omega
+&=\frac12\sum_{i,j,k}
+\partial_k\omega_{ij}\,
+dx^k\wedge dx^i\wedge dx^j\\
+&=\sum_{i<j}\sum_k
 \partial_k\omega_{ij}\,
 dx^k\wedge dx^i\wedge dx^j.
-$$
+\end{aligned}
+$
 
-$i<j<k$ に対応する係数を集めると、三つの巡回項が残り、
+異なる三添字 $i<j<k$ の基底 $dx^i\wedge dx^j\wedge dx^k$ に寄与するのは、偏微分する添字をそれぞれ $i,j,k$ とする三つの項です。順番を並べ替え、
 
-$$
+$
+\begin{aligned}
+&\partial_i\omega_{jk}\,dx^i\wedge dx^j\wedge dx^k\\
+&\quad+\partial_j\omega_{ik}\,dx^j\wedge dx^i\wedge dx^k\\
+&\quad+\partial_k\omega_{ij}\,dx^k\wedge dx^i\wedge dx^j\\
+&=\bigl(\partial_i\omega_{jk}-\partial_j\omega_{ik}
++\partial_k\omega_{ij}\bigr)\,
+dx^i\wedge dx^j\wedge dx^k\\
+&=\bigl(\partial_i\omega_{jk}+\partial_j\omega_{ki}
++\partial_k\omega_{ij}\bigr)\,
+dx^i\wedge dx^j\wedge dx^k.
+\end{aligned}
+$
+
+と求められます。第二項の負号は $dx^j$ と $dx^i$ の交換から生じ、$\omega_{ki}=-\omega_{ik}$ で最後の等号に移ります。第三項の巡回並べ替えは二回の交換なので正符号です。したがって全体として
+
+$
 d\omega=\sum_{i<j<k}
 \bigl(\partial_i\omega_{jk}+
 \partial_j\omega_{ki}+
 \partial_k\omega_{ij}\bigr)
 dx^i\wedge dx^j\wedge dx^k.
-$$
-
-例えば第一項は $dx^i\wedge dx^j\wedge dx^k$、第二項は $dx^j\wedge dx^k\wedge dx^i$、第三項は $dx^k\wedge dx^i\wedge dx^j$ という同符号の巡回配置から生じます。
+$
 
 <a id="prop-sym2-coordinate-criterion"></a>
 
