@@ -9,6 +9,17 @@ completed_through: CDYN8
 next_work: CDYN9
 after_next: CDYN10
 
+# 次章の執筆と直前完了章の追跡監査を同じ作業単位で実施する。
+# target_source は固定の章IDではなく、着手時の routing と series manifest から解決する。
+review_handoff:
+  enabled: true
+  mode: paired_previous_chapter_audit
+  with_work_source: next_work
+  target_source: completed_through
+  target_series_source: series_manifest
+  authoring_standard_section: "10.3"
+  evidence_template: textbook/prompts/dream-theater-review-evidence.md
+
 routing:
   chapter_root: textbook/volumes/00_foundations
   authoring_standard: textbook/DREAM_THEATER_AUTHORING_STANDARD.md
