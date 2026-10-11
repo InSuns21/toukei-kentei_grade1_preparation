@@ -124,7 +124,7 @@ $$
 
 ### 証明の見取り図
 
-数列 $f^n(x)$ にコンパクト距離空間の部分列抽出を適用すれば、極限点が得られます。これが $\omega_f(x)$ に入ることは前節の補題によります。また $\omega_f(x)$ は閉集合の共通部分なので閉じています。
+数列 $f^n(x)$ にコンパクト距離空間の部分列抽出を適用すれば、極限点が得られます。これが $\omega_f(x)$ に入ることは[列による判定](#lem-dyn8-sequential)の (2) から従います。また $\omega_f(x)$ は閉集合の共通部分なので閉じています。
 
 <!-- proof-start -->
 ### 証明
@@ -243,7 +243,7 @@ $X$ を距離空間、$f:X\to X$ を連続写像とし、ある $x,p\in X$ に�
 <!-- proof-start -->
 ### 証明
 
-$n_j=j$ とすれば $f^{n_j}(x)\to p$ なので、[列による判定](#lem-dyn8-sequential) から $p\in\omega_f(x)$。逆に $y\in\omega_f(x)$ なら、$n_j\to\infty$ に沿って $f^{n_j}(x)\to y$ です。しかし収束列 $f^n(x)\to p$ の部分列でもあるので $f^{n_j}(x)\to p$。距離空間での極限の一意性から $y=p$ で、$\omega_f(x)=\{p\}$。
+$n_j=j$ とすれば $f^{n_j}(x)\to p$ なので、[列による判定](#lem-dyn8-sequential) から $p\in\omega_f(x)$。逆に $y\in\omega_f(x)$ なら、$n_j\to\infty$ に沿って $f^{n_j}(x)\to y$ です。しかし収束列 $f^n(x)\to p$ の部分列でもあるので $f^{n_j}(x)\to p$。[距離空間における極限の一意性](../F0_00B_距離空間_開集合_閉集合_収束/index.md#prop-f0-00b-01)から $y=p$ で、$\omega_f(x)=\{p\}$。
 
 連続性から $f^{n+1}(x)=f(f^n(x))\to f(p)$。一方、時刻を一つずらした列も $p$ に収束するので $f(p)=p$ です。再帰の定義により $x\in\omega_f(x)$ は $x=p$ と同値です。$\square$
 <!-- proof-end -->
