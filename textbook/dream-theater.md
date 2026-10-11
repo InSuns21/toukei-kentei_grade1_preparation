@@ -188,6 +188,7 @@
 7. [CDYN7 ゆっくり変わる振幅の平均化](textbook/volumes/00_foundations/CDYN7/index.md)
 8. [CDYN8 van der Pol振動子と振幅方程式](textbook/volumes/00_foundations/CDYN8/index.md)
 9. [CDYN9 位相応答と等時相面の入口](textbook/volumes/00_foundations/CDYN9/index.md)
+10. [CDYN10 弱結合振動子から位相差方程式へ](textbook/volumes/00_foundations/CDYN10/index.md)
 
 <a id="dt-subject-fourier-analysis"></a>
 ### Fourier 解析

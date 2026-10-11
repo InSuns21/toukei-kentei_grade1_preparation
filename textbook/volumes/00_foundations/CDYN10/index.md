@@ -633,7 +633,7 @@ $$
 入力ベクトルは $(\varepsilon a_1,0)$ です。半径成分は $e_r\cdot(\varepsilon a_1,0)=\varepsilon a_1\cos\theta_1$。角速度の摂動は
 
 $$
-\frac{x_1(0)-y_1(\varepsilon a_1)}{r_1^2}
+\frac{x_1\cdot0-y_1\cdot(\varepsilon a_1)}{r_1^2}
 =-\varepsilon\frac{a_1}{r_1}\sin\theta_1.
 $$
 
