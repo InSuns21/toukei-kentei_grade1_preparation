@@ -81,6 +81,7 @@ A4/B3/C1 は**下限であって目標値・上限ではない**。最低数に�
 - prerequisite 外の概念を暗黙使用しない。
 - 後続章の理論を現在章の証明へ逆輸入しない。
 - 既存 canonical result があるなら重複定理を作らず stable anchor を参照する。
+- 本文・見取り図・証明・詳細解答で既出の定理・補題・定義・公式を根拠として使う箇所では、その結果名から実在する stable anchor へ Markdown リンクする。章頭の前提講座リンクだけで代用せず、詳細は `textbook/DREAM_THEATER_AUTHORING_STANDARD.md` の「本文中の既習結果への参照リンク」に従う。
 - `knowledge.yaml` の `aliases` は真の同義語だけに使う。
 - 複数概念を同時導入する見出しは `introduction_aliases` を使い、global alias にしない。
 - 再掲 concept は canonical concept を `requires` で参照する。
