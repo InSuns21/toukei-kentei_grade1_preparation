@@ -41,8 +41,9 @@ problem_patterns:
   - CDYN14-REACTION-STABILITY
   - CDYN14-DIRECTED-MODE
   - CDYN14-EULER-AMPLIFICATION
+  - CDYN14-VARYING-WAVENUMBER-LIMIT
   - CDYN14-SYNTHESIS
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+exercise_counts: { level_a: 5, level_b: 5, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 6.0, exercises: 5.0, review: 2.0 }
