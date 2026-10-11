@@ -1,7 +1,7 @@
 # DREAM THEATER 力学系 II：連続流・非線形振動・同期 — 15講PLAN
 
 作成・着手: 2026-10-11
-状態: in_progress（CDYN1–12実装済み、CDYN13–15と全体監査は未完了）
+状態: in_progress（CDYN1–13実装済み、CDYN14–15と全体監査は未完了）
 
 ## 0. 新設の理由と中心問い
 
