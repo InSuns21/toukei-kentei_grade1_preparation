@@ -68,7 +68,7 @@ if(process.argv.includes('--self-test')){
   for(const file of target){for(const v of scan(readFileSync(file,'utf8')))all.push({file,...v});}
   let severe=all.filter(x=>x.severe);
   console.log('Math layout: '+target.length+' chapters, '+all.length+' review candidates, '+severe.length+' severe.');
-  for(const x of all.slice(0,120))console.log((x.severe?'ERROR':'WARN')+': '+x.file+':'+x.line+' ('+x.count+' inline spans, '+x.prose+' prose characters)');
+  for(const x of [...all.filter(x=>x.severe),...all.filter(x=>!x.severe).slice(0,120)])console.log((x.severe?'ERROR':'WARN')+': '+x.file+':'+x.line+' ('+x.count+' inline spans, '+x.prose+' prose characters)');
   if(all.length>120)console.log('... '+(all.length-120)+' additional candidates');
   if(strict&&severe.length)process.exitCode=1;
 }
