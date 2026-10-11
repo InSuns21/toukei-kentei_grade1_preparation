@@ -118,17 +118,17 @@ $$
 
 したがって、非退化性の定義を写像の核に書き換えると
 
-$
+$$
 \omega\text{ が非退化}
 \quad\Longleftrightarrow\quad
 \ker b_\omega=\{0\}
-$
+$$
 
 です。[双対基底定理](../LA3A/index.md#thm-la3a-dual-basis)から
 
-$
+$$
 \dim V^*=\dim V
-$
+$$
 
 が成立します。有限次元で始域と終域の次元が等しい線形写像は、単射なら全射です。ゆえに非退化なら $b_\omega$ は線形同型です。
 
@@ -674,9 +674,9 @@ $$
 
 $n=1$ とします。任意の $2$ 次正方行列 $A$ について、行列を直接掛ければ
 
-$
+$$
 A^{\mathsf T}JA=(\det A)J
-$
+$$
 
 です。従って一自由度では $\det A=1$ とシンプレクティック性が同値です。これは[AMECH7の一自由度の条件](../AMECH7/index.md#prop-amech7-one-dof)と一致します。
 
@@ -763,23 +763,23 @@ $n=2$ とし $A=\operatorname{diag}(2,3,1/2,1/3)$、座標順は $(q_1,q_2,p_1,p
 <!-- solution-start -->
 **詳細解答**　$D=\operatorname{diag}(2,3)$ と置くと、変換は
 
-$
+$$
 A=\operatorname{diag}(D,D^{-\mathsf T})
-$
+$$
 
 です。§6のブロック条件に代入すると
 
-$
+$$
 P^{\mathsf T}S=D^{\mathsf T}D^{-\mathsf T}=I,
 \qquad
 P^{\mathsf T}R=Q^{\mathsf T}S=0
-$
+$$
 
 となり、[行列条件](#thm-sym1-matrix-criterion)を満たします。従ってシンプレクティックであり、行列式も
 
-$
+$$
 \det A=2\cdot3\cdot\frac12\cdot\frac13=1
-$
+$$
 
 です。
 <!-- solution-end -->
@@ -831,23 +831,23 @@ $$
 
 残る二方向は
 
-$
+$$
 e_2=(0,1,0,0),
 \qquad
 f_2=(0,0,0,1/3)
-$
+$$
 
 と取ります。すると
 
-$
+$$
 \omega(e_2,f_2)=3\left(1\cdot\frac13\right)=1
-$
+$$
 
 です。二つの対は使う座標が異なるので、異なる対どうしの値は零です。また交代性から同種の組も零になります。従って
 
-$
+$$
 (e_1,e_2,f_1,f_2)
-$
+$$
 
 はシンプレクティック基底であり、対応する行列の四つのブロックは順に $0,I_2,-I_2,0$ です。
 <!-- solution-end -->
