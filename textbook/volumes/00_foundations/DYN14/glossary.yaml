@@ -1,0 +1,20 @@
+chapter: "DYN14"
+terms:
+  - term: 双曲線形模型
+    english: hyperbolic linear model
+    meaning: "この章では実固有方向が二つあり、固有値の絶対値が一方は1未満、もう一方は1より大きい可逆線形写像。"
+  - term: 安定集合
+    english: stable set
+    meaning: "前方軌道が基準軌道へ近づく初期点の集合。"
+  - term: 不安定集合
+    english: unstable set
+    meaning: "後方軌道が基準軌道へ近づく初期点の集合。"
+  - term: 安定方向
+    english: stable direction
+    meaning: "前方で指数収縮する固有ベクトルの張る直線。"
+  - term: 不安定方向
+    english: unstable direction
+    meaning: "後方で指数収縮し前方では拡大する固有ベクトルの張る直線。"
+  - term: 全不変集合
+    english: invariant set
+    meaning: "A(K)=Kを満たす集合。前方不変A(K)⊂Kと区別する。"

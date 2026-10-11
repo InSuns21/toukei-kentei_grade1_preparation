@@ -1,0 +1,49 @@
+id: "DYN14"
+title: "二次元の双曲線形模型・安定方向と不安定方向"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - DYN13
+  - F0-00F
+official_scope: []
+learning_objectives:
+  - 対角行列の全整数時刻の軌道と前後の指数率を正確に計算できる
+  - 原点への安定集合と不安定集合を定義から両包含で導ける
+  - 実固有ベクトルを用いた斜めの座標変換を計算できる
+  - 逆三角不等式で混合ベクトルの発散と二方向を特徴付けられる
+  - 基準軌道の差を用いて安定・不安定集合が平行直線になると示せる
+  - 面積保存と軌道有界性を区別できる
+  - 両側有界軌道とコンパクト全不変集合の唯一性を証明できる
+  - 線形の双曲方向と区間のhorseshoe符号化を区別できる
+definitions:
+  - { id: DYN14-DEF-01, name: "原点に関する安定集合・不安定集合" }
+  - { id: DYN14-DEF-02, name: "二方向を持つ実双曲線形模型" }
+  - { id: DYN14-DEF-03, name: "基準軌道に関する安定・不安定集合" }
+theorems:
+  - { id: DYN14-THM-01, name: "対角模型の安定方向と不安定方向" }
+  - { id: DYN14-THM-02, name: "固有方向分解と全整数反復" }
+  - { id: DYN14-THM-03, name: "基準軌道の安定・不安定集合は平行直線" }
+  - { id: DYN14-THM-04, name: "両側有界な軌道とコンパクト全不変集合" }
+propositions:
+  - { id: DYN14-PROP-01, name: "対角模型の全整数時刻の軌道" }
+canonical_examples:
+  - "diag(2,1/2)の全整数軌道と面積保存"
+  - "近くても原点へ収束しない混合点"
+  - "上三角行列の斜めの安定固有方向"
+  - "二つの基準軌道の距離"
+  - "前方不変線分と全不変集合"
+problem_patterns:
+  - DYN14-ITERATES
+  - DYN14-NEGATIVE-EIGENVALUE
+  - DYN14-MIXED-POINT
+  - DYN14-EIGENVECTOR
+  - DYN14-AREA
+  - DYN14-REVERSE-TRIANGLE
+  - DYN14-RELATIVE-SETS
+  - DYN14-NONHYPERBOLIC-COUNTEREXAMPLE
+  - DYN14-CHANGE-BASIS
+  - DYN14-COMPACT-INVARIANT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.0, review: 2.0 }
