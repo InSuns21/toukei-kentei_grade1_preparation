@@ -33,7 +33,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cdyn14-ring-laplacian -->
-**定義の直接例**　$N=4$、$u=(1,0,-1,0)$ とします。添字を周期的に読んで各成分を調べると、
+**定義の確認**　$N=4$、$u=(1,0,-1,0)$ とします。添字を周期的に読んで各成分を調べると、
 
 $$
 \begin{aligned}
