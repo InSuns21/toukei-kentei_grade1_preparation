@@ -167,6 +167,7 @@
 5. [DYN5 Tent写像・分枝・有限語の逆像計数](textbook/volumes/00_foundations/DYN5/index.md)
 6. [DYN6 位相共役・半共役・不変集合](textbook/volumes/00_foundations/DYN6/index.md)
 7. [DYN7 円周回転・有理回転と無理回転](textbook/volumes/00_foundations/DYN7/index.md)
+8. [DYN8 正の極限集合・再帰・軌道閉包](textbook/volumes/00_foundations/DYN8/index.md)
 
 <a id="dt-subject-fourier-analysis"></a>
 ### Fourier 解析
