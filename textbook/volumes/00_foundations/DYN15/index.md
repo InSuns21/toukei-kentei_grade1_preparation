@@ -180,7 +180,7 @@ $G$ と $\sigma$ の非共役性は前定理の可逆性で確定しました。
 
 | 離散側の問い | 続きで使う正本 | そのまま転用できない理由 |
 | --- | --- | --- |
-| 固定点・安定性 | [ODE4の非線形ODE](../ODE4/index.md)、[ODE9のLyapunovとLaSalle](../ODE9/index.md) | $T^n$ の差分と軌道の時間微分は異なる |
+| 固定点・安定性 | [ODE4の解曲線の解析](../ODE4/index.md)、[ODE9のLyapunovとLaSalle](../ODE9/index.md) | $T^n$ の差分と軌道の時間微分は異なる |
 | 軌道の時間発展・連続依存 | [ODE8の流れ](../ODE8/index.md) | 一意解の合成則・最大存在区間が必要 |
 | 平面での周期軌道 | [ODE10のPoincaré--Bendixson](../ODE10/index.md) | 平面流の帰結は一般の離散写像の帰結ではない |
 | 周期運動を写像で見る | [ODE11のPoincaré写像](../ODE11/index.md) | 横断面・帰還の存在・乗数の条件が必要 |
