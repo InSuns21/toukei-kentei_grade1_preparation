@@ -130,7 +130,7 @@ $$
 \dim V^*=\dim V
 $$
 
-が成立します。ここで $\omega$ が非退化なら $\ker b_\omega=\{0\}$ です。[次元定理](../LA3A/index.md#thm-la3a-dual-basis)で用いた基底表示に従って、$V$ の基底 $v_1,\ldots,v_m$ の像 $b_\omega(v_1),\ldots,b_\omega(v_m)$ は一次独立になります。実際、
+が成立します。ここで $\omega$ が非退化なら $\ker b_\omega=\{0\}$ です。[双対基底定理](../LA3A/index.md#thm-la3a-dual-basis)により $\dim V^*=m=\dim V$ です。そこで $V$ の基底 $v_1,\ldots,v_m$ の像 $b_\omega(v_1),\ldots,b_\omega(v_m)$ は一次独立になります。実際、
 
 $$
 \sum_{i=1}^m c_i b_\omega(v_i)=0
@@ -140,7 +140,7 @@ b_\omega\left(\sum_{i=1}^m c_i v_i\right)=0
 c_1=\cdots=c_m=0.
 $$
 
-像には $m=\dim V^*$ 個の一次独立なベクトルがあるため $V^*$ 全体を張ります。従って $b_\omega$ は全単射、つまり線形同型です。
+像には $m=\dim V^*$ 個の一次独立なベクトルがあるため、有限次元ベクトル空間の基底の性質から $V^*$ 全体を張ります。従って $b_\omega$ は全単射、つまり線形同型です。
 
 ## 2. 非退化なら次元が偶数になる
 
@@ -767,7 +767,9 @@ $$
 dq_1\wedge\cdots\wedge dq_n\wedge dp_1\wedge\cdots\wedge dp_n.
 $$
 
-この最高次形式は零でありません。$A$ がシンプレクティックなら $A^*\omega_0=\omega_0$ なので、[引き戻しと外積](../GEO7/index.md#prop-geo7-pullback-wedge)から
+右辺の基底の外積を標準基底 $(e_{q_1},\ldots,e_{q_n},e_{p_1},\ldots,e_{p_n})$ に評価すると、係数は $(-1)^{n(n-1)/2}n!$ です。$n!$ は実数として零でないため、最高次形式 $\omega_0^{\wedge n}$ は零形式ではありません。
+
+[線形シンプレクティック写像の定義](#def-sym1-symplectic-map)に従えば、$A$ がシンプレクティックであることは $A^*\omega_0=\omega_0$ と同値です。[引き戻しと外積](../GEO7/index.md#prop-geo7-pullback-wedge)から
 
 $$
 A^*(\omega_0^{\wedge n})
@@ -775,7 +777,17 @@ A^*(\omega_0^{\wedge n})
 =\omega_0^{\wedge n}.
 $$
 
-一方、[最高次外積の基底変換](../LA3E/index.md#thm-la3e-top-form-change-of-basis)により左辺は $(\det A)\,\omega_0^{\wedge n}$ です。非零の最高次形式を比較し $\det A=1$ を得ます。
+一方、[最高次外積の基底変換](../LA3E/index.md#thm-la3e-top-form-change-of-basis)を $A$ が標準基底に作用する場合に適用します。標準基底を $b_1,\ldots,b_{2n}$ とすると、
+
+$$
+\begin{aligned}
+(A^*\omega_0^{\wedge n})(b_1,\ldots,b_{2n})
+&=\omega_0^{\wedge n}(Ab_1,\ldots,Ab_{2n})\\
+&=(\det A)\,\omega_0^{\wedge n}(b_1,\ldots,b_{2n}).
+\end{aligned}
+$$
+
+最高次形式は一次元空間の元なので、これは $A^*(\omega_0^{\wedge n})=(\det A)\,\omega_0^{\wedge n}$ を意味します。先ほど示した $A^*(\omega_0^{\wedge n})=\omega_0^{\wedge n}$ と比べ、右辺の非零性から $\det A=1$ を得ます。
 <!-- proof-end -->
 
 $n=1$ とします。任意の $2$ 次正方行列
