@@ -1,0 +1,23 @@
+chapter: "SYM2"
+terms:
+  - term: シンプレクティック多様体
+    english: symplectic manifold
+    meaning: "閉じた非退化の滑らかな2形式を備えた偶数次元の実多様体。"
+  - term: シンプレクティック形式
+    english: symplectic form
+    meaning: "各点の接空間で非退化かつ外微分が零の滑らかな2形式。"
+  - term: 閉性
+    english: closedness
+    meaning: "微分形式ωに対して外微分dωが零となる性質。"
+  - term: 非退化性
+    english: nondegeneracy
+    meaning: "任意の非零接ベクトルに対して、その接ベクトルと形式の値が零でない別の接ベクトルがある性質。"
+  - term: 球面の面積形式
+    english: area form on the sphere
+    meaning: "S²上でσ_x(u,v)=det(x,u,v)によって定まる滑らかな2形式。"
+  - term: シンプレクティック微分同相
+    english: symplectomorphism
+    meaning: "微分同相Fが2形式の引き戻しF*η=ωを満たすときの形式保存写像。"
+  - term: シンプレクティック向き
+    english: symplectic orientation
+    meaning: "2n次元シンプレクティック多様体上の非零最高次形式ωのn回外積で定まる向き。"

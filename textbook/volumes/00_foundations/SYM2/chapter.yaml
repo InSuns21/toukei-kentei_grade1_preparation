@@ -1,0 +1,50 @@
+id: "SYM2"
+title: "シンプレクティック多様体と基本例"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEO2
+  - GEO7
+  - SYM1
+official_scope: []
+learning_objectives:
+  - シンプレクティック多様体を閉じた非退化2形式で定義し、偶数次元性を接空間で説明できる
+  - 局所座標の非退化性を係数行列で、閉性を外微分の巡回偏微分条件で判定できる
+  - 二次元の重み付き面積形式と四次元の閉性・非退化性を区別する反例を構成できる
+  - 積と符号反転でシンプレクティック形式が保たれることを引き戻しと直和から証明できる
+  - 球面の面積形式とトーラスの積形式の非退化性・閉性を大域的に検証できる
+  - シンプレクティック微分同相を引き戻しで判定し、非線形shearの逆写像と保存性を確かめられる
+  - 最高次外積による向きと体積保存を証明し、逆が成り立たない理由を説明できる
+definitions:
+  - { id: SYM2-DEF-01, name: シンプレクティック多様体 }
+  - { id: SYM2-DEF-02, name: シンプレクティック微分同相 }
+theorems:
+  - { id: SYM2-PROP-01, name: 局所座標での判定条件 }
+  - { id: SYM2-PROP-02, name: 積と符号反転 }
+  - { id: SYM2-PROP-03, name: 球面の面積形式 }
+  - { id: SYM2-PROP-04, name: 保存性の接空間判定 }
+  - { id: SYM2-PROP-05, name: シンプレクティック形式が定める向き }
+canonical_examples:
+  - R2上のdq∧dpの交代性・閉性・非退化性の直接確認
+  - 正の重み付き平面面積形式と係数が零になる退化形式
+  - R4上の非退化だが閉じない形式・閉じているが退化する形式
+  - 積の形式と符号反転、同一多様体上の形式の単純和との違い
+  - S2上のdet(x,u,v)による大域面積形式
+  - S1×S1上の角1形式の外積
+  - 非線形shearの微分同相・引き戻し計算
+  - S2×R2上の非定数係数による閉性の破れ
+problem_patterns:
+  - SYM2-WEIGHTED-AREA
+  - SYM2-CLOSED-DEGENERATE
+  - SYM2-PRODUCT-SIGN
+  - SYM2-NONLINEAR-SHEAR
+  - SYM2-CIRCLE-ONE-FORM
+  - SYM2-NONCLOSED-BLOCK-FORM
+  - SYM2-CLOSURE-RIGIDITY
+  - SYM2-SPHERE-AREA
+  - SYM2-SMOOTH-INVERSE-PULLBACK
+  - SYM2-SPHERE-PLANE-COMPOSITE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 2 }

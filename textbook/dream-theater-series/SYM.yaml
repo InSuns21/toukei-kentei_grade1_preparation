@@ -11,7 +11,7 @@ chapters:
     title: シンプレクティック線形代数
   - id: SYM2
     path: textbook/volumes/00_foundations/SYM2
-    status: planned
+    status: completed
     title: シンプレクティック多様体と基本例
   - id: SYM3
     path: textbook/volumes/00_foundations/SYM3

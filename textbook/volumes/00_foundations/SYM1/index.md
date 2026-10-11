@@ -860,7 +860,7 @@ $B=B^{\mathsf T}$ とする。$A=\begin{pmatrix}I&B\\0&I\end{pmatrix}$ に対し
 - ID: SYM1-B2
 
 <!-- solution-start -->
-**詳細解答**　ブロックの積から
+**詳細解答**　[線形シンプレクティック写像の逆行列公式](#thm-sym1-matrix-criterion)との一致を、ブロックの積から直接検算します。
 
 $$
 \begin{pmatrix}I&B\\0&I\end{pmatrix}
