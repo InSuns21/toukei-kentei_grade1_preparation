@@ -1,0 +1,48 @@
+chapter: DYN10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - DYN9
+concepts:
+  - id: dynamical-systems.closed-itinerary
+    name: 閉区間分割の有限旅程
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（閉区間分割の有限旅程）"]
+    requires: [dynamical-systems.tent-map, dynamical-systems.tent-branch-words]
+  - id: dynamical-systems.closed-itinerary-cylinders
+    name: 有限旅程と分枝区間の一致
+    kind: theorem
+    introduction_aliases: ["定理（有限旅程と分枝区間の一致）"]
+    requires: [dynamical-systems.closed-itinerary, dynamical-systems.tent-dyadic-partition]
+  - id: dynamical-systems.itinerary-boundary-multiplicity
+    name: 境界訪問数と許容語の個数
+    kind: proposition
+    introduction_aliases: ["命題（境界訪問数と許容語の個数）"]
+    requires: [dynamical-systems.closed-itinerary]
+  - id: dynamical-systems.half-open-itinerary
+    name: 半開規約の有限・無限旅程
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（半開規約の有限・無限旅程）"]
+    requires: [dynamical-systems.closed-itinerary]
+  - id: dynamical-systems.half-open-cylinders
+    name: 半開規約の有限語と閉分枝区間の関係
+    kind: theorem
+    introduction_aliases: ["定理（半開規約の有限語と閉分枝区間の関係）"]
+    requires: [dynamical-systems.half-open-itinerary, dynamical-systems.closed-itinerary-cylinders]
+  - id: dynamical-systems.itinerary-prefix-bound
+    name: 共通接頭語による初期値の距離評価
+    kind: proposition
+    introduction_aliases: ["命題（共通接頭語による初期値の距離評価）"]
+    requires: [dynamical-systems.half-open-cylinders]
+  - id: dynamical-systems.itinerary-time-shift
+    name: 旅程の時間シフト
+    kind: proposition
+    introduction_aliases: ["命題（旅程の時間シフト）"]
+    requires: [dynamical-systems.half-open-itinerary]
+  - id: dynamical-systems.itinerary-injective-not-surjective
+    name: Tent写像の無限旅程は単射、しかし全射ではない
+    kind: theorem
+    introduction_aliases: ["定理（Tent写像の無限旅程は単射、しかし全射ではない）"]
+    requires: [dynamical-systems.itinerary-prefix-bound, dynamical-systems.itinerary-time-shift]
