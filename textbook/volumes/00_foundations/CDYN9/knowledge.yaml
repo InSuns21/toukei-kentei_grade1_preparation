@@ -12,6 +12,7 @@ concepts:
   - id: continuous-dynamical-systems.explicit-asymptotic-phase
     name: 明示模型の漸近位相
     kind: definition
+    aliases: ["漸近位相"]
     introduction: formal
     introduction_aliases: ["定義（明示模型の漸近位相）"]
     requires: [continuous-dynamical-systems.phase-attracting-circle]
