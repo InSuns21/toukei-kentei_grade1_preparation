@@ -169,6 +169,7 @@
 7. [DYN7 円周回転・有理回転と無理回転](textbook/volumes/00_foundations/DYN7/index.md)
 8. [DYN8 正の極限集合・再帰・軌道閉包](textbook/volumes/00_foundations/DYN8/index.md)
 9. [DYN9 拡大写像・初期値鋭敏性](textbook/volumes/00_foundations/DYN9/index.md)
+10. [DYN10 区間分割・旅程（itinerary）・記号への読み出し](textbook/volumes/00_foundations/DYN10/index.md)
 
 <a id="dt-subject-fourier-analysis"></a>
 ### Fourier 解析
