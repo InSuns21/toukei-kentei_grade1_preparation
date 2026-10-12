@@ -21,7 +21,7 @@ $$
 
 **量化の順序**：$\alpha$を固定し、次に任意の$\varepsilon>0$を指定します。例外となる有理数の個数は$\alpha,\varepsilon$に依存して構いません。これは「ある$\varepsilon>0$で有限」と比べてはるかに強い主張です。なお指数2そのものでは[Dirichlet近似](../NDA5/index.md#thm-nda5-dirichlet-lower-bound)により無限個あり、正の$\varepsilon$を完全に取り除くことはできません。
 
-主定理の完全証明は[第9節](#lem-nda7-roth-index)までの補助理論を用いて後ほど与えます。先に定理の帰結を証明し、なぜ補助理論が必要かを確認します。
+主定理の完全証明は、第6〜8節の補助理論を用いて第9節で与えます。先に定理の帰結を証明し、なぜ補助理論が必要かを確認します。
 
 ## 2. 有限例外から定数付き下界へ
 
@@ -187,10 +187,15 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（多項式の高さ）**  
-> 零でない$P(X,Y)=\sum_{i,j}c_{ij}X^iY^j\in\mathbb Z[X,Y]$に対して次を定める。
+> 整数$m\ge1$と零でない多項式
+>
+> $$P(\boldsymbol X)=\sum_{\boldsymbol j}c_{\boldsymbol j}\prod_{i=1}^mX_i^{j_i}
+> \in\mathbb Z[X_1,\ldots,X_m]$$
+>
+> に対し、次を定める。
 
 $$
-H(P)=\max_{i,j}|c_{ij}|.
+H(P)=\max_{\boldsymbol j}|c_{\boldsymbol j}|.
 $$
 <!-- formal-statement-end -->
 
@@ -577,7 +582,25 @@ $$
 H(P_{[\boldsymbol\mu]})\le2^{\sum_i d_i}H(P).
 $$
 
-**（2）$m=1$。** 有理点$p/q$で$P$が$k$次の零点を持つなら$(X-p/q)^k$が$\mathbb Q[X]$で$P$を割ります。$p,q$は互いに素なので、Gaussの補題から原始多項式$(qX-p)^k$が$\mathbb Z[X]$で$P$を割ります。従って$P$の首係数は$q^k$の倍数となり$H(P)\ge q^k$です。（R2）から
+**（2）$m=1$。** 有理点$p/q$で$P$が$k$次の零点を持つなら$(X-p/q)^k$が$\mathbb Q[X]$で$P$を割ります。整数係数で割り切れることを確認します。整数係数多項式$A(X)=a_nX^n+\cdots+a_0$が$p/q$を根に持つなら
+
+$$
+a_np^n+qa_{n-1}p^{n-1}+\cdots+q^na_0=0.
+$$
+
+右辺の後ろの項はすべて$q$の倍数なので$q\mid a_np^n$です。$\gcd(p,q)=1$より$q\mid a_n$となります。$a_n/q$は整数ですから、
+
+$$
+A(X)-\frac{a_n}{q}X^{n-1}(qX-p)
+$$
+
+は最高次項が消えた整数係数多項式で、依然$p/q$を根に持ちます。次数に関する帰納法で$(qX-p)\mid A(X)$が$\mathbb Z[X]$で成り立つことが示されます。根の重複度が$k$なら、この除算を$k$回繰り返して
+
+$$
+P(X)=(qX-p)^kB(X),\qquad B(X)\in\mathbb Z[X]
+$$
+
+を得ます。$P$の首係数は$q^k$の倍数ですから$H(P)\ge q^k$です。（R2）から
 
 $$
 q^{d_1}\ge H(P)^{1/\sigma}\ge q^{k/\sigma}.
@@ -1288,7 +1311,7 @@ $$
 \frac{\delta}{12(2+\delta)}\right\}
 $$
 
-と取れば、$\eta>0$、$\eta<1/12$であり、最後の上界も厳密に満たします。これが[主定理の完全証明](#lem-nda7-roth-index)で使ったパラメータ選択の意味です。
+と取れば、$\eta>0$、$\eta<1/12$であり、最後の上界も厳密に満たします。これが第9節の主定理の完全証明で使ったパラメータ選択の意味です。
 <!-- solution-end -->
 
 ## 12. 到達点と次の学修
