@@ -1,0 +1,87 @@
+chapter: INFO10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - INFO1
+  - INFO2
+  - INFO3
+  - INFO9
+forward_references: []
+
+concepts:
+  - id: information.log-loss
+    name: 対数損失と期待対数損失
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（対数損失と期待対数損失）]
+    requires: [information.shannon-entropy, information.relative-entropy]
+
+  - id: information.log-loss-optimality
+    name: 対数損失の最適予測と相対エントロピー
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（対数損失の最適予測と相対エントロピー）]
+    requires: [information.log-loss, information.gibbs-inequality]
+
+  - id: information.conditional-forecast
+    name: 条件付き確率予測の損失
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（条件付き確率予測の損失）]
+    requires: [information.log-loss, information.conditional-entropy]
+
+  - id: information.conditional-log-optimality
+    name: 条件付き対数損失と事後分布
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（条件付き対数損失と事後分布）]
+    requires: [information.conditional-forecast, information.log-loss-optimality]
+
+  - id: information.finite-posterior
+    name: 有限パラメータの事前・尤度・事後分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限パラメータの事前・尤度・事後分布）]
+    requires: [information.conditional-forecast]
+
+  - id: information.evidence-variational-identity
+    name: 対数周辺尤度の変分恒等式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（対数周辺尤度の変分恒等式）]
+    requires: [information.finite-posterior, information.gibbs-inequality]
+
+  - id: information.empirical-log-likelihood
+    name: 経験分布・標本対数尤度
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（経験分布・標本対数尤度）]
+    requires: [information.log-loss]
+
+  - id: information.mle-kl-projection
+    name: 経験対数尤度と相対エントロピー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（経験対数尤度と相対エントロピー）]
+    requires: [information.empirical-log-likelihood, information.log-loss-optimality]
+
+  - id: information.finite-mle-consistency
+    name: 有限候補でのKL射影への収束
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（有限候補でのKL射影への収束）]
+    requires: [information.mle-kl-projection, information.aep, information.gibbs-inequality]
+
+  - id: information.finite-free-energy
+    name: 有限状態の自由エネルギー汎関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限状態の自由エネルギー汎関数）]
+    requires: [information.shannon-entropy]
+
+  - id: information.gibbs-free-energy-variational
+    name: 有限状態のGibbs分布と自由エネルギーの最小性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（有限状態のGibbs分布と自由エネルギーの最小性）]
+    requires: [information.finite-free-energy, information.gibbs-inequality]
