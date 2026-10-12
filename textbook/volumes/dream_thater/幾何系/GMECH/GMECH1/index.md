@@ -78,7 +78,7 @@ $$
 =\widetilde\Phi_{gh}.
 $$
 
-同じ合成則の恒等写像の場合から $\widetilde\Phi_e=\operatorname{id}$ です。さらに[余接持ち上げ作用の定義](#def-gmech1-cotangent-action)から $\widetilde\Phi_g(\alpha_q)$ は基点 $\phi_g(q)$ の余ベクトルです。従って各 $\alpha_q\in T_q^*Q$ について
+同じ合成則の恒等写像の場合から $\widetilde\Phi_e=\operatorname{id}$ です。さらに[余接持ち上げられたLie群作用](#def-gmech1-cotangent-action)から $\widetilde\Phi_g(\alpha_q)$ は基点 $\phi_g(q)$ の余ベクトルです。従って各 $\alpha_q\in T_q^*Q$ について
 
 $$
 \begin{aligned}
