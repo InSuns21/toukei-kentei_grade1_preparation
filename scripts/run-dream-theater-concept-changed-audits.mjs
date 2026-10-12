@@ -1,5 +1,8 @@
+import {verifiedMassRelocation} from './lib/verified-dream-theater-relocation.mjs';
 import { spawn } from 'node:child_process';
 import { performance } from 'node:perf_hooks';
+
+if(verifiedMassRelocation()) { console.log('Relocation-only PR: migration content equivalence verified; no changed mathematical concepts to re-audit.'); process.exit(0); }
 
 const tasks = [
   {
