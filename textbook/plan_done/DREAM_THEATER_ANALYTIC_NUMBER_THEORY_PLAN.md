@@ -1,7 +1,7 @@
 # DREAM THEATER 解析的整数論（ANT1〜ANT8）
 
 分冊: 2026-10-11  
-状態: in progress（2026-10-12 科目固有の依存・ID・入口監査に着手。ANT1〜ANT8の本文は未執筆）
+状態: completed（2026-10-13 ANT1〜ANT8実装・公開経路・横断監査・ANT8追跡監査完了）
 
 ## 中心問いと直接依存
 
@@ -116,10 +116,10 @@ Wiener--Ikehara を採用する場合は必要な形を証明するか、将来 
 
 ## 章別執筆・数理査読・完了判定
 
-本PLANは科目固有の着手準備・依存監査に着手済みだが、ANT1〜ANT8の教材本文は未執筆である。未証明定理を既習としない。実装前に章ID・実在する直接prerequisite・concept ownerを確認し、独習者が追える証明粒度と演習A4/B3/C1以上の全詳細解答を整える。完成本文の全証明・全演習を再計算し、別観点で再査読して記録する。別章の追跡監査は対象IDの明示依頼がある場合だけ実施する。科目ごとの公開・依存・リンクの横断監査を通して初めて完了扱いにする。
+以下は2026-10-12着手時点の執筆方針の履歴である。現在はANT1〜ANT8の本文が実装済みである。未証明定理を既習としない。実装前に章ID・実在する直接prerequisite・concept ownerを確認し、独習者が追える証明粒度と演習A4/B3/C1以上の全詳細解答を整える。完成本文の全証明・全演習を再計算し、別観点で再査読して記録する。別章の追跡監査は対象IDの明示依頼がある場合だけ実施する。科目ごとの公開・依存・リンクの横断監査を通して初めて完了扱いにする。
 
 
-## 2026-10-12 ANT1 着手入口・依存監査
+## 2026-10-12 ANT1 着手入口・依存監査（当時の記録）
 
 - **着手判定**：NT4・NT5・NT8、CA7・CA12は現行公開索引に存在し、本文・chapter metadata・knowledge metadataの正本を確認済み。NT系列manifestは全10章 `completed`、PLANは `textbook/plan_done/` にある。ANT1を妨げる直接依存の未実装はない。
 - **ID・公開状態**：`ANT1`〜`ANT8` は現在の公開索引に未掲載で、既存 `代数系/ANT/` ディレクトリおよび `ANT.yaml` はない。今回系列manifestを用意するが、すべて `planned` で、章本文とその公開索引・knowledge DAGには先行登録しない。
@@ -128,3 +128,12 @@ Wiener--Ikehara を採用する場合は必要な形を証明するか、将来 
 - **後続の解析依存**：ANT2以降は[CA12のζのEuler積](../volumes/dream_thater/解析系/CA/CA12/index.md#thm-ca12-euler-product)・[有理型解析接続](../volumes/dream_thater/解析系/CA/CA12/index.md#thm-ca12-meromorphic-continuation)・[関数等式](../volumes/dream_thater/解析系/CA/CA12/index.md#thm-ca12-functional-equation)を既存の正本とする。
 - **将来の証明責務**：ANT4の `L(1,χ)≠0`、ANT6の `Re(s)=1` 零点不存在とWiener–Ikehara（または代替の完全なTauber型経路）、ANT7の零点計数は各章の執筆前に証明経路を定める。**未完成の経路を既証明として先行使用しない**。これらはANT1執筆のブロッカーではない。
 - **次アクション**：ANT1の `chapter.yaml` / `knowledge.yaml` / `index.md` を実装し、学習目標・証明・直接例・有意味な演習A4/B3/C1以上と全詳細解答をそろえる。変更章について規約第10節の区分C全件再査読とchanged-only CIを実施した後、公開索引と目次にANT1だけを追加して `ANT.yaml` のANT1を `completed` に更新する。
+
+## 2026-10-13 系列完了確認
+
+- **実装範囲**：`textbook/dream-theater-series/ANT.yaml` の ANT1〜ANT8 は全件 `completed`。8章の `index.md` と `chapter.yaml`、`knowledge.yaml` が存在することを確認した。
+- **公開経路**：`textbook/dream-theater-index.json` にANT1〜ANT8の8エントリ、`textbook/dream-theater.md` に8章の各リンクを確認した。ルーティングの正本は系列manifestを使い、共有 `dream-theater-work.yaml` は変更しない。
+- **演習・解答の在庫**：ANT1 (A4/B3/C1)、ANT2 (A4/B4/C1)、ANT3 (A4/B4/C1)、ANT4 (A4/B3/C1)、ANT5 (A4/B3/C1)、ANT6 (A4/B4/C2)、ANT7 (A4/B4/C2)、ANT8 (A4/B4/C1)。全71題について `solution-start` の対応を確認した。
+- **系列内部のstable anchor**：ANT1〜ANT8の本文中で他のANT章を指す結果リンク94件を抽出し、各リンク先の明示的なanchor存在を照合、欠落0件。ANT8の直接援用先（ANT3・ANT5・ANT6・ANT7・CA・NT）も参照先の実在を確認した。
+- **ANT8の明示依頼追跡監査**：現行本文を全文再読し、主要結果8件・全演習9題の証明・解答、平滑化、零点和の分割、3-4-1正値性、文字付きEuler積を再計算した。局所対数微分の証明ではJensenの円周上に零点がない仮定を明示するため、外半径を適切に選ぶ局所修正を実施。査読根拠・中間式・未確認事項・CI結果は対応PRを参照する。
+- **完了判定**：この監査で確認した範囲に未着手の章・明示PLANタスクは残らない。PLANを `textbook/plan_done/` へ移し、系列manifestの `plan` を同時更新する。GitHubのrequired checksが成功した統合状態でmergeして確定する。
