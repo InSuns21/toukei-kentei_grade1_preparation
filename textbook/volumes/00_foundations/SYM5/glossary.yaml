@@ -1,0 +1,23 @@
+chapter: "SYM5"
+terms:
+  - term: Darboux座標
+    english: Darboux coordinates
+    meaning: "シンプレクティック形式が局所的に位置座標と運動量座標の外積の和で表される座標。"
+  - term: Darbouxの定理
+    english: Darboux theorem
+    meaning: "任意のシンプレクティック多様体の各点の近傍にDarboux座標が存在するという局所標準形定理。"
+  - term: 局所原始形式
+    english: local primitive form
+    meaning: "局所的に閉形式の外微分としての原像を与える微分形式。"
+  - term: 動径原始形式
+    english: radial primitive
+    meaning: "原点からの放射方向の積分によって閉形式の原始形式を構成したもの。"
+  - term: 非退化な形式の経路
+    english: path of nondegenerate forms
+    meaning: "パラメータの全値で各点の非退化性が保たれる2形式の族。"
+  - term: Moserの経路法
+    english: Moser path method
+    meaning: "時間依存ベクトル場の流れにより微分形式の経路を引き戻しで一定にする構成法。"
+  - term: 時間依存ベクトル場
+    english: time-dependent vector field
+    meaning: "時刻をパラメータに持ち、時刻ごとに変化する滑らかなベクトル場。"
