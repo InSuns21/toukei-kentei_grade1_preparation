@@ -2,6 +2,7 @@ chapter: INT8
 scope: dream-theater
 coverage: complete
 prerequisites:
+  - CA3
   - INT2
   - INT3
   - INT4
