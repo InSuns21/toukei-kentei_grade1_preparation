@@ -369,3 +369,117 @@ $$
 $k\ge2$ では $x^{1/k}\le\sqrt x$ です。$\sqrt x$ 以下の素数は高々 $\sqrt x$ 個で、一つの重みは $\log p\le\log x$ なので、各項は $\sqrt x\log x$ 以下です。項数は高々 $K$ です。$K<2$ なら和は空で差は零です。
 <!-- proof-end -->
 
+<a id="thm-nt8-chebyshev-two-sided"></a>
+
+<!-- formal-statement-start -->
+> **定理（素数計数関数の両側 Chebyshev 型評価）**  
+> 正定数 $c,C$ と $x_0\ge2$ が存在し、$x\ge x_0$ に対して
+>
+$$
+c\frac{x}{\log x}\le\pi(x)\le C\frac{x}{\log x}
+$$
+>
+> が成り立つ。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+二項係数で $\psi(2m)$ を下から押さえ、素数冪の余剰分を引いて $\theta(2m)$ を求めます。次に $\theta(x)\le\pi(x)\log x$ へ代入します。
+
+<!-- proof-start -->
+### 証明
+
+[二項係数の下界](#lem-nt8-binomial-psi)と[素数冪の補正](#lem-nt8-prime-powers-error)を組み合わせると
+$$
+\theta(2m)\ge2m\log2-\log(2m+1)
+-\sqrt{2m}\log(2m)\lfloor\log_2(2m)\rfloor.
+$$
+誤差を $2m$ で割ると、第一項は $\log(2m+1)/(2m)\to0$、第二項は
+$$
+\frac{\sqrt{2m}\log(2m)\lfloor\log_2(2m)\rfloor}{2m}
+\le\frac{(\log(2m))^2}{\sqrt{2m}\log2}\longrightarrow0.
+$$
+最後の極限は $u=\log(2m)$ と置き $u^2e^{-u/2}\to0$ と確認できます。従って十分大きい $m$ で $\theta(2m)\ge m\log2$ です。
+
+十分大きい $x$ で $m=\lfloor x/2\rfloor$ とすれば $2m\le x$ です。$\theta$ は非減少なので
+$$
+\theta(x)\ge\theta(2m)\ge m\log2
+\ge(x/2-1)\log2\ge x\log2/3
+$$
+です（最後は $x\ge6$）。一方、各 $p\le x$ に対して $\log p\le\log x$ だから
+$$
+\theta(x)=\sum_{p\le x}\log p\le\pi(x)\log x.
+$$
+よって $\pi(x)\ge(\log2/3)x/\log x$ です。[上界の定理](#thm-nt8-chebyshev-upper)を併用して、$c=\log2/3$、$C=1+10\log2$ と適当な $x_0$ を取れば結論が得られます。
+<!-- proof-end -->
+
+**何が分かったか**：$x/\log x$ の正定数倍の間に $\pi(x)$ が収まります。しかし $\pi(x)\log x/x$ の極限が存在するか、その値が何かは、まだ分かりません。
+
+## 6. 素数定理が新たに答える問い
+
+$ f(x)\sim g(x)$ は $f(x)/g(x)\to1$ を意味し、単に上下の定数倍で挟まれることより強い主張です。次の定理は解析的整数論で証明するため、本章では**証明なしの到達目標**として掲げます。
+
+<a id="thm-nt8-prime-number-theorem"></a>
+
+<!-- formal-statement-start -->
+> **定理（素数定理：本章では主張のみ）**  
+> $x\to\infty$ のとき
+>
+$$
+\pi(x)\sim\frac{x}{\log x},
+\qquad
+\lim_{x\to\infty}\frac{\pi(x)\log x}{x}=1
+$$
+>
+> が成立する。
+<!-- formal-statement-end -->
+
+両側 Chebyshev 型評価は比を $c$ と $C$ の間へ閉じ込めます。素数定理はその比を正確に $1$ に収束させる結果です。無限個あるというだけの事実から、定数倍の評価、さらに正確な漸近式へと問題の精度が上がっています。
+
+<a id="prop-nt8-pnt-theta-equivalence"></a>
+
+<!-- formal-statement-start -->
+> **命題（素数定理と $\theta$ の漸近式の同値性）**  
+> $x\to\infty$ で次の二条件は同値である。
+>
+$$
+\pi(x)\sim\frac{x}{\log x},
+\qquad
+\theta(x)\sim x.
+$$
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+$0<\varepsilon<1$ を固定し、$x^{1-\varepsilon}$ 以下の素数と、それより大きい素数を分けます。小さい素数は個数で押さえ、大きい素数は $\log x$ に近い重みで押さえます。
+
+<!-- proof-start -->
+### 証明
+
+$y=x^{1-\varepsilon}$ とします。各 $\log p\le\log x$ なので $\theta(x)\le\pi(x)\log x$ です。一方 $y<p\le x$ なら $\log p>(1-\varepsilon)\log x$ なので
+$$
+\theta(x)\ge(1-\varepsilon)\log x\,(\pi(x)-\pi(y)).
+$$
+$\pi(x)\sim x/\log x$ と仮定します。$\pi(y)\le y$ だから
+$$
+\frac{\pi(y)\log x}{x}
+\le\frac{\log x}{x^\varepsilon}\longrightarrow0.
+$$
+二つの評価を $x$ で割り、$\pi(x)\log x/x\to1$ を入れると、$\theta(x)/x$ の下極限は $1-\varepsilon$ 以上、上極限は $1$ 以下です。$\varepsilon$ は任意なので $\theta(x)/x\to1$ です。
+
+逆に $\theta(x)/x\to1$ と仮定します。先ほどの上界から
+$$
+\frac{\pi(x)\log x}{x}\ge\frac{\theta(x)}x.
+$$
+また $p\le y$ は高々 $y$ 個で、$p>y$ の重みは $(1-\varepsilon)\log x$ より大きいので
+$$
+\pi(x)\le y+\frac{\theta(x)}{(1-\varepsilon)\log x},
+$$
+すなわち
+$$
+\frac{\pi(x)\log x}{x}
+\le\frac{\log x}{x^\varepsilon}+\frac{\theta(x)/x}{1-\varepsilon}.
+$$
+下極限は $1$ 以上、上極限は $1/(1-\varepsilon)$ 以下です。$\varepsilon\downarrow0$ により上極限も $1$ 以下となるので、比は $1$ に収束します。
+<!-- proof-end -->
+
