@@ -78,7 +78,7 @@ $$
 \frac{\partial I}{\partial J}=
 \operatorname{Id}_n+\varepsilon\partial^2_{J\theta}W.
 $$
-$B\times\mathbb T^n$ 上でこの行列は一様に単位行列へ近づきます。例えばその摂動項の作用素ノルムが $1/2$ 未満なら逆行列が存在します。逆関数定理により $J=J(I,\theta,\varepsilon)$ が局所的に求まり、続いて $\varphi$ を計算できます。局所的な持ち上げを $2\pi m$ だけ変えても $S$ の勾配が規定する $\varphi$ は $2\pi m$ だけ変わるだけで、トーラス上の写像は一意です。
+$B\times\mathbb T^n$ 上でこの行列は一様に単位行列へ近づきます。例えばその摂動項の作用素ノルムが $1/2$ 未満なら逆行列が存在します。[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)により $J=J(I,\theta,\varepsilon)$ が局所的に求まり、続いて $\varphi$ を計算できます。局所的な持ち上げを $2\pi m$ だけ変えても $S$ の勾配が規定する $\varphi$ は $2\pi m$ だけ変わるだけで、トーラス上の写像は一意です。
 <!-- proof-end -->
 
 この命題は小さな $\varepsilon$ についての**局所**結果です。全ての作用領域で大域的な変換が存在すると主張してはいません。
@@ -466,7 +466,7 @@ $$
 - Level: B
 
 <!-- solution-start -->
-**詳細解答。** $3p^2+\delta p=3(p+\delta/6)^2-\delta^2/12$ なので、中心は $p_c=-\delta/6$ です。$A/2=3$、すなわち $A=6$ と比較すると[振り子共鳴帯の命題](#prop-int5-pendulum-width)により半幅は
+**詳細解答。** $3p^2+\delta p=3(p+\delta/6)^2-\delta^2/12$ なので、中心は $p_c=-\delta/6$ です。$A/2=3$、すなわち $A=6$ です。[振り子共鳴帯と分離曲線](#prop-int5-pendulum-width)をこの $A$ に適用すると、半幅は
 $$
 2\sqrt{\frac{\varepsilon v}{6}}=\sqrt{\frac{2\varepsilon v}{3}}.
 $$
