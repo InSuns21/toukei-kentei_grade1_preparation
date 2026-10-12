@@ -670,6 +670,7 @@
 4. [GMECH4 運動量レベル集合・群作用・正則性](textbook/volumes/dream_thater/幾何系/GMECH/GMECH4/index.md)
 5. [GMECH5 Marsden–Weinstein簡約](textbook/volumes/dream_thater/幾何系/GMECH/GMECH5/index.md)
 6. [GMECH6 Lie–Poisson構造と余随伴軌道](textbook/volumes/dream_thater/幾何系/GMECH/GMECH6/index.md)
+7. [GMECH7 Euler剛体の幾何学的力学](textbook/volumes/dream_thater/幾何系/GMECH/GMECH7/index.md)
 
 ## 代数系
 

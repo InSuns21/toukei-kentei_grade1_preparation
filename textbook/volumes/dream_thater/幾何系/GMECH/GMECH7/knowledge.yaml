@@ -1,0 +1,48 @@
+chapter: GMECH7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GMECH6
+  - MECH8
+  - VC7
+  - MECH5
+forward_references: []
+
+concepts:
+  - id: mechanics.euler-body-momentum
+    name: Euler剛体の物体角運動量とエネルギー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Euler剛体の物体角運動量とエネルギー）"]
+    aliases: []
+    requires: [mechanics.coadjoint-symplectic-leaves, mechanics.rigid-body-inertia-tensor]
+  - id: mechanics.euler-equations
+    name: 自由剛体のEuler変分原理
+    kind: theorem
+    introduction: formal
+    aliases: []
+    requires: [mechanics.euler-body-momentum, mechanics.euler-rigid-body-equations]
+  - id: mechanics.euler-lie-poisson
+    name: Euler方程式のLie–Poisson表示
+    kind: theorem
+    introduction: formal
+    aliases: []
+    requires: [mechanics.euler-equations, mechanics.positive-lie-poisson]
+  - id: mechanics.euler-integrals
+    name: 角運動量球面とエネルギーの保存
+    kind: theorem
+    introduction: formal
+    aliases: []
+    requires: [mechanics.euler-equations, mechanics.euler-lie-poisson, mechanics.lie-poisson-casimir]
+  - id: mechanics.euler-axis-equilibria
+    name: 主軸回転とエネルギーの臨界値
+    kind: theorem
+    introduction: formal
+    aliases: []
+    requires: [mechanics.euler-integrals]
+  - id: mechanics.euler-reduced-phase-curves
+    name: Euler剛体の縮約位相図
+    kind: theorem
+    introduction: formal
+    aliases: []
+    requires: [mechanics.euler-axis-equilibria, mechanics.coadjoint-symplectic-leaves]
