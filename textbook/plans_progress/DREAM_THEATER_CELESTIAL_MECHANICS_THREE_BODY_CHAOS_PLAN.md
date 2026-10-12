@@ -1,7 +1,7 @@
 # DREAM THEATER 天体力学・三体問題・Hamiltonian chaos コース計画
 
 作成日: 2026-10-07  
-状態: in_progress（2026-10-13。直接前提の照合とCELE系列manifestの登録を開始。本文未着手、次章CELE1）
+状態: in_progress（2026-10-13。直接前提の照合とCELE系列manifestの登録を開始。CELE1本文・検証を進め、次章CELE2）
 
 ## 0. 目的
 
@@ -244,8 +244,8 @@ Hamiltonian chaos
 
 ## 8. 実装順
 
-1. MECH / AMECH / INT / DYN との重複監査
-2. CELE1--CELE2
+1. MECH / AMECH / INT / DYN との重複監査（完了）
+2. CELE1（完了）--CELE2（未着手）
 3. CELE3--CELE4
 4. CELE5--CELE6
 5. CELE7--CELE8
@@ -257,5 +257,5 @@ Hamiltonian chaos
 
 - `textbook/dream-theater-series/MECH.yaml` でMECH1〜8、`AMECH.yaml` でAMECH1〜8、`INT.yaml` でINT1〜8、`GMECH.yaml` でGMECH1〜8、`DYN.yaml` でDYN1〜15の `completed` を確認した。MECH6にはKepler・中心力、INT1〜INT5には可積分性・共鳴、INT8には解析的KAM定理が既にある。CELE側でこれらを重複証明しない。
 - **前提の境界**：DYN14は双曲線形模型の安定・不安定方向を証明する章であり、一般の非線形安定多様体定理や横断ホモクリニック定理の完全証明まで所有するとみなさない。CELE6着手時には、直接必要なDYN/ODEのcanonical resultを再確認し、不足する定理の証明先を確保する。後続章の未確認結果をCELE1の暗黙前提にしない。
-- **系列開始**：`textbook/dream-theater-series/CELE.yaml` にCELE1〜CELE8を `planned` として登録する。初めの着手対象はCELE1で、対応する章本文・knowledge metadata・公開索引はまだ作らない。CELE1はMECH6/MECH7、AMECH5/AMECH6、INT1〜INT3の既出結果を確認して執筆する。
+- **系列開始**：`textbook/dream-theater-series/CELE.yaml` にCELE1〜CELE8を `planned` として登録する。CELE1の章本文・knowledge metadata・公開索引を追加済み。CELE1はMECH6/MECH7、AMECH5/AMECH6、INT1〜INT3の既出結果を確認して執筆する。
 - **INTとの接続**：可積分系の完了PLANは[INT1〜INT8](../plan_done/DREAM_THEATER_INTEGRABLE_SYSTEMS_PERTURBATION_KAM_PLAN.md)。力学系の一般論は[DYN](../plan_done/DREAM_THEATER_DYNAMICAL_SYSTEMS_COURSE_PLAN.md)を再利用する。天体力学の非可積分性・具体的な三体モデルは本計画を正本とする。

@@ -1,0 +1,69 @@
+chapter: CELE1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MECH6
+  - MECH7
+  - AMECH5
+  - AMECH6
+  - INT1
+  - INT2
+  - INT3
+forward_references: []
+
+concepts:
+  - id: celestial.kepler-canonical-reduction
+    name: 二体Hamiltonianの重心分離
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二体 Hamiltonian の重心分離）"]
+    aliases: []
+    requires:
+      - mechanics.two-body-reduction
+      - mechanics.two-body-kinetic-energy-decomposition
+      - analytical-mechanics.hamiltonian
+
+  - id: celestial.kepler-planar-integrability
+    name: 非衝突平面Kepler系のLiouville可積分性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（非衝突平面 Kepler 系の Liouville 可積分性）"]
+    aliases: []
+    requires:
+      - celestial.kepler-canonical-reduction
+      - mechanics.central-force-planar-reduction
+      - integrable.liouville-integrability
+      - integrable.functional-independence
+
+  - id: celestial.runge-lenz-vector
+    name: Runge--Lenz ベクトル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Runge--Lenz ベクトル）"]
+    aliases: ["Laplace--Runge--Lenz ベクトル"]
+    requires:
+      - celestial.kepler-canonical-reduction
+      - mechanics.angular-momentum-conservation
+
+  - id: celestial.runge-lenz-conservation
+    name: Runge--Lenzベクトルの保存と離心率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Runge--Lenz ベクトルの保存と離心率）"]
+    aliases: []
+    requires:
+      - celestial.runge-lenz-vector
+      - mechanics.inverse-square-conic-orbit
+
+  - id: celestial.kepler-actions
+    name: 束縛Kepler軌道の作用と振動数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（束縛 Kepler 軌道の作用と振動数）"]
+    aliases: []
+    requires:
+      - celestial.kepler-planar-integrability
+      - integrable.action-integral
+      - integrable.local-action-angle
+      - mechanics.kepler-second-law
+      - mechanics.kepler-third-law
