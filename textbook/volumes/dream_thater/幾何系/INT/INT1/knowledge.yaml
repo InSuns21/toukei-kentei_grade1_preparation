@@ -1,0 +1,66 @@
+chapter: INT1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SYM4
+  - GMECH8
+  - RA8
+forward_references: []
+
+concepts:
+  - id: integrable.first-integral
+    name: 第一積分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（第一積分）"]
+    aliases: []
+    requires: [symplectic.observables-evolution]
+  - id: integrable.conservation-criterion
+    name: 第一積分の軌道判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（第一積分の軌道判定）"]
+    aliases: []
+    requires: [integrable.first-integral, symplectic.observables-evolution]
+  - id: integrable.poisson-involution
+    name: Poisson可換な関数族
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Poisson可換な関数族）"]
+    aliases: ["Poisson可換"]
+    requires: [symplectic.manifold-poisson-bracket]
+  - id: integrable.functional-independence
+    name: 関数的独立性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（関数的独立性）"]
+    aliases: []
+    requires: [symplectic.hamiltonian-vector-field-existence]
+  - id: integrable.isotropic-bound
+    name: 独立なPoisson可換関数の個数の上限
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（独立なPoisson可換関数の個数の上限）"]
+    aliases: []
+    requires: [integrable.poisson-involution, integrable.functional-independence]
+  - id: integrable.liouville-integrability
+    name: Liouville可積分性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Liouville可積分性）"]
+    aliases: ["完全積分可能"]
+    requires: [integrable.first-integral, integrable.poisson-involution, integrable.functional-independence, integrable.isotropic-bound]
+  - id: integrable.regular-common-level
+    name: 正則共通レベル集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正則共通レベル集合）"]
+    aliases: []
+    requires: [integrable.functional-independence]
+  - id: integrable.regular-fiber-lagrangian
+    name: 正則共通レベルの不変性とLagrange性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正則共通レベルの不変性とLagrange性）"]
+    aliases: []
+    requires: [integrable.regular-common-level, integrable.liouville-integrability, integrable.poisson-involution]
