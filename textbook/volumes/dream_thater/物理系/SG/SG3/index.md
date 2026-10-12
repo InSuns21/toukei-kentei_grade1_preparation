@@ -263,7 +263,17 @@ $$
 
 [SG2のGaussian集中](../SG2/index.md#cor-sg2-pressure-concentration)は、ランダムな $F_N$ が平均 $p_N$ の近くにいることを保証します。しかし $p_N$ 自身が収束する保証にはなりません。そこで $N=N_1+N_2$ と分割し、**大きな一系の平均対数分配関数は、独立な二系の和より小さくない**ことを証明します。
 
-$a_N=Np_N=\mathbb E\log Z_N$ を比較の対象にします。各ブロックにも元の模型と同じ $\beta,h$ を使用します。第1ブロックの配置を $\sigma^{(1)}$、第2ブロックを $\sigma^{(2)}$ とし、分割したGaussian場を $Y(\sigma)=\beta X_{N_1}^{(1)}(\sigma^{(1)})+\beta X_{N_2}^{(2)}(\sigma^{(2)})$、全系の場を $V(\sigma)=\beta X_N(\sigma)$ とします。両場は独立に作り、外場 $h\sum_i\sigma_i$ は共通に足します。
+$a_N=Np_N=\mathbb E\log Z_N$ を比較の対象にします。各ブロックにも元の模型と同じ $\beta,h$ を使用します。第1ブロックの配置を $\sigma^{(1)}$、第2ブロックを $\sigma^{(2)}$ とします。分割したGaussian場 $Y$ と全系の場 $V$ を
+
+$
+\begin{aligned}
+Y(\sigma)&=\beta X_{N_1}^{(1)}(\sigma^{(1)})
+          +\beta X_{N_2}^{(2)}(\sigma^{(2)}),\\
+V(\sigma)&=\beta X_N(\sigma)
+\end{aligned}
+$
+
+と置きます。両場は独立に作り、外場 $h\sum_i\sigma_i$ は共通に足します。
 
 <a id="thm-sg3-superadditivity"></a>
 
@@ -539,7 +549,14 @@ Z_N(0,h)=\prod_{i=1}^N\sum_{s_i=\pm1}e^{hs_i}
 =(e^h+e^{-h})^N=(2\cosh h)^N.
 $$
 
-従って $p_N(0,h)=\log(2\cosh h)$ です。[微分の上下界](#prop-sg3-pressure-derivative)を積分すると $\int_0^2 0\,d\gamma=0$、$\int_0^2\gamma/2\,d\gamma=1$ なので
+従って $p_N(0,h)=\log(2\cosh h)$ です。[微分の上下界](#prop-sg3-pressure-derivative)を積分すると
+
+$
+\int_0^2 0\,d\gamma=0,\qquad
+\int_0^2\frac{\gamma}{2}\,d\gamma=1
+$
+
+なので
 
 $$
 \log(2\cosh h)\le p_N(2,h)\le\log(2\cosh h)+1.
@@ -559,9 +576,12 @@ full表示 $X_N$ の共分散が $C_{\sigma\tau}=Nq_N^2/2$ であるとする。
 $w(\sigma)=e^{\beta X_N(\sigma)+h\sum_i\sigma_i}/Z_N$ と置くと
 
 $$
-\partial_\beta p_N=\frac1N\sum_\sigma\mathbb E[X_N(\sigma)w(\sigma)],\quad
+\begin{aligned}
+\partial_\beta p_N
+&=\frac1N\sum_\sigma\mathbb E[X_N(\sigma)w(\sigma)],\\
 \partial_{X_N(\tau)}w(\sigma)
-=\beta w(\sigma)(\mathbf1_{\{\sigma=\tau\}}-w(\tau)).
+&=\beta w(\sigma)(\mathbf1_{\{\sigma=\tau\}}-w(\tau)).
+\end{aligned}
 $$
 
 [共分散付き部分積分](../SG2/index.md#prop-sg2-correlated-ibp)で
@@ -650,12 +670,24 @@ $N\ge M$ のうち一度でもずれる確率は和事象の上界で $\sum_{N\g
 **SG3-C1（標準表示から熱力学極限へ）**
 - Level: C
 
-標準SK模型 $Z_N^{\mathrm{SK}}$ と、独立な $G_{ij}$ 全てを使った $X_N=(2N)^{-1/2}\sum_{i,j}G_{ij}\sigma_i\sigma_j$ を考え、$\beta\ge0$、$h\in\mathbb R$ とする。(a)両表示の関係を導け。(b)full表示の共分散をoverlapで示せ。(c)二ブロック補間を使って $a_N=\mathbb E\log Z_N$ の超加法性を導け。(d)圧力極限と試料圧力の確率収束を示し、(e) $\beta,h$ を固定した極限値の明示式を本章だけから計算したといえるか述べよ。
+標準SK模型 $Z_N^{\mathrm{SK}}$ と、独立な $G_{ij}$ 全てを使ったGaussian場
+
+$
+X_N(\sigma)=\frac1{\sqrt{2N}}\sum_{i,j}G_{ij}\sigma_i\sigma_j
+$
+
+を考え、$\beta\ge0$、$h\in\mathbb R$ とする。次の各問に答えよ。
+
+1. 両表示の関係を導け。
+2. full表示の共分散をoverlapで示せ。
+3. 二ブロック補間を使って $a_N=\mathbb E\log Z_N$ の超加法性を導け。
+4. 圧力極限と試料圧力の確率収束を示せ。
+5. $\beta,h$ を固定した極限値の明示式を本章だけから計算したといえるか述べよ。
 
 <!-- solution-start -->
 **詳細解答**
 
-(a) 対角と非対角を分けて
+**(1) 表示の関係**：対角と非対角を分けて
 
 $$
 X_N(\sigma)=\underbrace{\frac1{\sqrt{2N}}\sum_iG_{ii}}_{D_N}
@@ -664,7 +696,7 @@ $$
 
 $D_N\sim N(0,1/2)$ は $J'_{ij}\sim N(0,1)$ と独立です。従って $Z_N^{\mathrm{full}}=e^{\beta D_N}Z_N^{\mathrm{SK}}(J')$、$\mathbb E\log Z_N^{\mathrm{full}}=\mathbb E\log Z_N^{\mathrm{SK}}$ です。
 
-(b) 各 $G_{ij}$ の独立性から
+**(2) 共分散**：各 $G_{ij}$ の独立性から
 
 $$
 \mathbb E[X_N(\sigma)X_N(\tau)]
@@ -672,7 +704,7 @@ $$
 =\frac1{2N}(Nq_N)^2=\frac N2q_N^2.
 $$
 
-(c) $N=N_1+N_2$ とし、全系の $V=\beta X_N$ と、独立ブロックの和 $Y=\beta(X_{N_1}^{(1)}+X_{N_2}^{(2)})$ を補間します。$u=q_{12}^{(1)}$、$v=q_{12}^{(2)}$ とすると
+**(3) 超加法性**：$N=N_1+N_2$ とし、全系の $V=\beta X_N$ と、独立ブロックの和 $Y=\beta(X_{N_1}^{(1)}+X_{N_2}^{(2)})$ を補間します。$u=q_{12}^{(1)}$、$v=q_{12}^{(2)}$ とすると
 
 $$
 C^V_{\sigma\tau}-C^Y_{\sigma\tau}
@@ -682,9 +714,34 @@ C^V_{\sigma\tau}-C^Y_{\sigma\tau}
 =-\frac{\beta^2N_1N_2}{2N}(u-v)^2.
 $$
 
-対角では0なので、[Gaussian補間の微分公式](../SG2/index.md#thm-sg2-interpolation)から $\Psi'(t)=\beta^2N_1N_2(4N)^{-1}\mathbb E\langle(u-v)^2\rangle_t\ge0$。$t=1$ と $t=0$ の期待対数分配関数はそれぞれ $a_N$ と $a_{N_1}+a_{N_2}$ ですから、積分して $a_N\ge a_{N_1}+a_{N_2}$ です。
+対角では0なので、[Gaussian補間の微分公式](../SG2/index.md#thm-sg2-interpolation)から
 
-(d) [圧力の一様評価](#prop-sg3-pressure-derivative)によって $a_N/N$ は上から抑えられます。固定した $m$ について $n=km+r$（$0\le r<m$）とすると超加法性から $a_n\ge k a_m+a_r$。$a_r\ge r\log(2\cosh h)$ を使い $\liminf_n a_n/n\ge a_m/m$、$m$ で上限を取れば $\lim_n p_n=\sup_m p_m=:p$ です。さらに $F_N$ の結合に関する勾配の二乗は
+$
+\Psi'(t)=\frac{\beta^2N_1N_2}{4N}
+\mathbb E\langle(u-v)^2\rangle_t\ge0
+$
+
+となります。$t=1$ と $t=0$ の期待対数分配関数はそれぞれ $a_N$ と $a_{N_1}+a_{N_2}$ なので、積分すると
+
+$
+a_N\ge a_{N_1}+a_{N_2}
+$
+
+を得ます。
+
+**(4) 極限と確率収束**：[圧力の一様評価](#prop-sg3-pressure-derivative)によって $a_N/N$ は上から抑えられます。固定した $m$ について $n=km+r$（$0\le r<m$）とすると、超加法性から $a_n\ge k a_m+a_r$（$r=0$ では $a_0=0$）です。さらに $a_r\ge r\log(2\cosh h)$ なので
+
+$
+\liminf_{n\to\infty}\frac{a_n}{n}\ge\frac{a_m}{m}
+$
+
+となります。$m$ は任意であり、各 $p_n$ は $\sup_m p_m$ 以下なので
+
+$
+\lim_{n\to\infty}p_n=\sup_{m\ge1}p_m=:p
+$
+
+を得ます。さらに $F_N$ の結合に関する勾配の二乗は
 
 $$
 \sum_{i<j}\left(\frac\beta{N\sqrt N}
@@ -692,7 +749,14 @@ $$
 \le\frac{\beta^2}{2N}.
 $$
 
-$\beta>0$ なら[Gaussian集中](../SG2/index.md#cor-sg2-pressure-concentration)により $\mathbb P(|F_N-p_N|\ge\varepsilon)\le2e^{-N\varepsilon^2/\beta^2}\to0$。$p_N\to p$ と三角不等式を組み合わせて $F_N\to p$ が確率収束します。$\beta=0$ は確定値です。
+$\beta>0$ なら[Gaussian集中](../SG2/index.md#cor-sg2-pressure-concentration)により
 
-(e) **いえません**。極限の存在と $\log(2\cosh h)\le p\le\log(2\cosh h)+\beta^2/4$ は証明しましたが、一般の $\beta,h$ での値を決める等式はまだありません。[有限系の微分公式](#prop-sg3-pressure-derivative)の極限交換も未証明です。SG4以降ではoverlap分布の構造と変分原理を調べます。
+$
+\mathbb P(|F_N-p_N|\ge\varepsilon)
+\le2e^{-N\varepsilon^2/\beta^2}\longrightarrow0.
+$
+
+$p_N\to p$ と三角不等式を組み合わせて $F_N\to p$ が確率収束します。$\beta=0$ は確定値です。
+
+**(5) 明示式の可否**：**いえません**。極限の存在と $\log(2\cosh h)\le p\le\log(2\cosh h)+\beta^2/4$ は証明しましたが、一般の $\beta,h$ での値を決める等式はまだありません。[有限系の微分公式](#prop-sg3-pressure-derivative)の極限交換も未証明です。SG4以降ではoverlap分布の構造と変分原理を調べます。
 <!-- solution-end -->
