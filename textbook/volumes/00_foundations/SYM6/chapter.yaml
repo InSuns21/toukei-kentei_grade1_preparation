@@ -19,9 +19,11 @@ learning_objectives:
   - 局所的な原始関数と大域的な完全性を区別し余法束の局所方程式とLagrange性を証明できる
   - シンプレクティック微分同相によるLagrange性の保存を示し平行移動の例で確認できる
 definitions:
-  - { id: SYM6-DEF-01, name: 等方・余等方・Lagrange部分空間 }
-  - { id: SYM6-DEF-02, name: Lagrange部分多様体 }
-  - { id: SYM6-DEF-03, name: 余法束 }
+  - { id: SYM6-DEF-01, name: 等方部分空間 }
+  - { id: SYM6-DEF-02, name: 余等方部分空間 }
+  - { id: SYM6-DEF-03, name: Lagrange部分空間 }
+  - { id: SYM6-DEF-04, name: Lagrange部分多様体 }
+  - { id: SYM6-DEF-05, name: 余法束 }
 theorems:
   - { id: SYM6-LEM-01, name: シンプレクティック直交補の次元 }
   - { id: SYM6-THM-01, name: 等方・余等方の次元とLagrange判定 }
