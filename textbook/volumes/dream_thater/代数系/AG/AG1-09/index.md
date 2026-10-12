@@ -40,7 +40,17 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ag1-09-transcendence-degree -->
-**定義の確認**： $K=k(t,u)$ に $u^2=t^3$ を課し、$t$ は超越的とします。$u$ は $T^2-t^3=0$ を満たすので $K/k(t)$ は代数拡大です。$\{t\}$ は代数的独立かつ $K$ を代数的に生成するため超越基底で、超越次数は1です。逆に $k(x,y)$ では二変数間に非零多項式関係がないので $\{x,y\}$ は超越基底で、超越次数は2です。
+**定義の確認**：不定元 $s$ に対し、$K=k(s^2,s^3)\subseteq k(s)$、$t=s^2$、$u=s^3$ と置きます。$P(s^2)=0$ となる多項式 $P$ は零多項式だけなので、$t$ は $k$ 上超越的です。
+
+一方、$u$ は次のモニック方程式を満たします。
+
+$$
+u^2-t^3=0.
+$$
+
+従って $K/k(t)$ は代数拡大で、$\{t\}$ は超越基底、超越次数は1です。
+
+対照的に、不定元 $x,y$ の有理関数体 $k(x,y)$ では、非零の二変数多項式 $P$ が $P(x,y)=0$ を満たすことはありません。従って $\{x,y\}$ は超越基底で、超越次数は2です。
 <!-- definition-example-end -->
 
 超越基底の個数が選び方に依存しないこと、代数拡大で超越次数が変化しないことを、次の補題で明確にします。ここで「代数的独立」は[AG1-06の定義](../AG1-06/index.md#def-ag1-06-algebraic-independence)です。
@@ -74,7 +84,7 @@ $$
 個数の一意性に必要な**交換操作**を確認します。$u$ が $k(t_1,\ldots,t_d)$ 上代数的で、$k$ 上超越的とします。$T=\{t_1,\ldots,t_d\}$ の部分集合から、$u$ がその元の生成する体の上で代数的となるものを選び、その中で要素数最小のものを $S$ とします。$u$ は $k$ 上超越的だから $S$ は空でありません。$t_i\in S$ を一つ選び、$E=k(S\setminus\{t_i\})$ とします。$S$ の最小性から $u$ は $E$ 上超越的ですが、$u$ は $E(t_i)$ 上代数的です。従って分母を払って
 
 $$
-F(t_i,u)=0,\qquad 0\ne F(T,U)\in E[T,U]
+H(t_i,u)=0,\qquad 0\ne H(Z,W)\in E[Z,W]
 $$
 
 という関係式を得ます。$u$ は $E$ 上超越的なので $F$ は $T$ に関して定数ではありえず、$F(T,u)$ は $E(u)[T]$ の**非零**多項式です。よって $t_i$ は $E(u)$ 上代数的です。
@@ -87,9 +97,21 @@ $$
 
 は代数的独立で、$t_i$ は $k(T')$ 上代数的、従って元の $K$ も $k(T')$ 上代数的です。これが一つの旧変数を新変数へ交換する操作です。
 
-今、別の超越基底 $U=\{u_1,\ldots,u_s\}$ を取ります。$K$ は $k(T)$ 上代数的なので、各 $u_i$ を順次取り込むとき上の交換操作を使えます。$U$ の元は互いに代数的独立なので、既に取り込んだ $u$ だけの上で次の $u$ が代数的になって操作が止まることはありません。よって一回につき旧変数を一個減らし $s\le d$ を得ます。$T,U$ の役割を逆にすると $d\le s$ であり $d=s$ です。
+今、別の超越基底 $U=\{u_1,\ldots,u_s\}$ を取ります。交換操作を繰り返せることを、取り込んだ元の個数について確かめます。$j$ 個を取り込んだ段階で、
 
-最後に $L/K$ が代数拡大なら、$K/k(T)$ と $L/K$ の代数性の推移律により $L/k(T)$ は代数拡大です。$T$ の独立性は体を拡張しても変わらないので、同じ $T$ が $L$ の超越基底です。代数的に従属な $d$ 個の生成元には大きさ $d$ の独立部分集合がないので、上の最大部分集合の構成から超越次数は高々 $d-1$ となります。
+$$
+T_j=\{u_1,\ldots,u_j\}\cup\{t_{i_1},\ldots,t_{i_{d-j}}\}
+$$
+
+が代数的独立で、$K/k(T_j)$ が代数拡大となっているとします。初期段階 $j=0$ では $T_0=T$ です。
+
+次の $u_{j+1}\in K$ は $k(T_j)$ 上代数的ですが、$U$ の代数的独立性により $k(u_1,\ldots,u_j)$ 上超越的です。従って交換操作の最小部分集合 $S\subseteq T_j$ は、既に取り込んだ $u_1,\ldots,u_j$ だけから成ることはできず、未交換の $t_{i_\ell}$ を少なくとも一つ含みます。
+
+その $t_{i_\ell}$ と $u_{j+1}$ を交換すれば、取り込み済みの元を残したまま、独立性と代数性を保つ $T_{j+1}$ を得ます。$j<s$ でこの操作が続くには未交換の旧変数が必要なので、$s\le d$ です。$T,U$ の役割を逆にすると $d\le s$、従って $d=s$ です。
+
+最後に $L/K$ が代数拡大なら、$K/k(T)$ と $L/K$ の代数性の推移律により $L/k(T)$ は代数拡大です。$T$ の独立性は元の体で成立した多項式関係の有無だけで決まるので、拡大先でも失われません。従って同じ $T$ が $L$ の超越基底です。
+
+特に、$u_1,\ldots,u_d$ が代数的に従属なら、その中から包含最大の代数的独立部分集合 $T'$ を選ぶと $|T'|\le d-1$ です。各 $u_i$ は $k(T')$ 上代数的であり、$L/k(u_1,\ldots,u_d)$ も代数的だから $L/k(T')$ は代数拡大です。超越基底の個数の一意性から $\operatorname{trdeg}_k L=|T'|\le d-1$ となります。
 <!-- proof-end -->
 
 この補題は有限生成体の「独立な座標を何個選んでも同じ個数になる」ことを保証します。特に、整域 $A$ が [Noether正規化](../AG1-06/index.md#thm-ag1-06-noether-normalization)によって $k[t_1,\ldots,t_d]$ 上有限なら、$A$ の商体は $k(t_1,\ldots,t_d)$ の代数拡大なので
@@ -124,9 +146,15 @@ $B=k[t]$ に $z^2=t$ を満たす元 $z$ を追加した $C=k[t,z]/(z^2-t)\simeq
 <!-- proof-start -->
 ### 証明
 
-**(1) 持ち上げ。** $S=B\setminus\mathfrak q$ とおきます。$S$ に零は含まれず、$B\hookrightarrow C$ は単射なので $S^{-1}C$ は零環ではありません。[局所化の構成](../AG1-04/index.md#def-ag1-04-localization)から $B_{\mathfrak q}=S^{-1}B$ は局所環で、その極大イデアルは $\mathfrak qB_{\mathfrak q}$ です。$S^{-1}C$ は $B_{\mathfrak q}$ 上整です。実際 $c/s$ の $c$ の整方程式を $s$ の冪で割ると、$c/s$ に対するモニック方程式を得ます。
+**(1) 持ち上げ。** $S=B\setminus\mathfrak q$ とおきます。$S$ に零は含まれず、$B\hookrightarrow C$ は単射なので $S^{-1}C$ は零環ではありません。[局所化の構成](../AG1-04/index.md#def-ag1-04-localization)から $B_{\mathfrak q}=S^{-1}B$ を作ります。$S^{-1}C$ は $B_{\mathfrak q}$ 上整です。実際 $c/s$ の $c$ の整方程式を $s$ の冪で割ると、$c/s$ に対するモニック方程式を得ます。
 
-零でない単位的環 $S^{-1}C$ の極大イデアル $M$ を一つ取り、$\mathfrak r=M\cap B_{\mathfrak q}$ とします。$S^{-1}C/M$ は体で、$B_{\mathfrak q}/\mathfrak r$ の整拡大です。この後者が体であることを示します。任意の非零元 $a$ を取ると、逆元 $a^{-1}$ は上の体に存在して整方程式
+ここで $B_{\mathfrak q}$ が局所環であることを明示します。分数 $b/s$ の分子が $\mathfrak q$ に入らなければ、$b\in S$ なので $s/b$ が逆元です。分子が $\mathfrak q$ に入る分数全体は $\mathfrak q B_{\mathfrak q}$ であり、$B_{\mathfrak q}/\mathfrak qB_{\mathfrak q}$ は体 $\operatorname{Frac}(B/\mathfrak q)$ です。従ってこれが唯一の極大イデアルです（一般の素イデアルでも同じ議論が必要で、点に対応する極大イデアルだけに限りません）。
+
+$S^{-1}C$ は零でない単位的環なので、極大イデアル $M$ を取れます。存在を確認するには、真のイデアル全体を包含順に並べます。真のイデアルの鎖の合併も真であるため、[Zorn の補題](../../../基礎科目/F0/F0-00A3/index.md#thm-zorn)から極大元が得られます。
+
+この $M$ について $\mathfrak r=M\cap B_{\mathfrak q}$ とします。上の商環 $S^{-1}C/M$ は体で、下の商環 $B_{\mathfrak q}/\mathfrak r$ からの整拡大です。
+
+下の環が体であることを示します。その非零元 $a$ の逆元 $a^{-1}$ は上の体にあり、整方程式
 
 $$
 (a^{-1})^m+b_{m-1}(a^{-1})^{m-1}+\cdots+b_0=0
@@ -184,11 +212,23 @@ $$
 \subsetneq\cdots\subsetneq(t_1,\ldots,t_d).
 $$
 
-各段の商は残りの変数の多項式環なので整域、真の包含は次の変数が前段のイデアルに属さないことで確認できます。$d=0$ のときは体 $B=k$ の素イデアル $(0)$ だけを用います。[整拡大の素イデアルの持ち上げ](#lem-ag1-09-integral-prime-lifting)の (1) で最初の素イデアルの上に $\mathfrak p_0$ を取り、(2) を各段へ順次適用します。収縮が真に増えるので持ち上げた素イデアルも真に増え、長さ $d$ の鎖が $A$ にできます。従って $\dim A\ge d$ です。
+各段の商は残りの変数の多項式環なので整域であり、次の変数は前段のイデアルに属さないため包含は真です。$d=0$ では $B=k$ の素イデアル $(0)$ だけを取ります。
+
+[整拡大の素イデアルの持ち上げと非比較性](#lem-ag1-09-integral-prime-lifting)の持ち上げ部分で最初の $\mathfrak p_0$ を選び、鎖の延長部分を各段に順次適用します。下の収縮が真に増えるので、上の素イデアルも真に増えます。こうして $A$ に長さ $d$ の鎖ができ、$\dim A\ge d$ です。
 
 **上界。** 任意の素イデアル鎖 $\mathfrak p_0\subsetneq\cdots\subsetneq\mathfrak p_r$ を取ります。$A_i=A/\mathfrak p_i$ は有限生成 $k$ 代数の整域なので、$d_i=\operatorname{trdeg}_k\operatorname{Frac}(A_i)$ と書けます。$i<r$ について $D=A_i$、$\mathfrak q=\mathfrak p_{i+1}/\mathfrak p_i\ne(0)$ とし、$D$ に [Noether正規化](../AG1-06/index.md#thm-ag1-06-noether-normalization)を適用して $k[u_1,\ldots,u_{d_i}]\subset D$ を有限整拡大として取ります。
 
-このとき $\mathfrak q\cap k[u_1,\ldots,u_{d_i}]\ne(0)$ です。もし共通部分が零なら、非零多項式全体 $S=k[u_1,\ldots,u_{d_i}]\setminus\{0\}$ で局所化すると $S^{-1}D$ は体 $k(u_1,\ldots,u_{d_i})$ 上有限次元の整域になります。有限次元の体上代数で非零元 $a$ の乗法写像は、整域性により単射、有限次元性により全射です。従って $ab=1$ となる $b$ が存在して $S^{-1}D$ は体です。しかし $\mathfrak q\cap S=\varnothing$ なので $S^{-1}\mathfrak q$ は真のイデアルであり、$\mathfrak q\ne0$ だから零でもありません。体のイデアルは $(0)$ と全体しかないことに矛盾します。
+このとき、次の共通部分は零ではありません。
+
+$$
+\mathfrak q\cap k[u_1,\ldots,u_{d_i}]\ne(0).
+$$
+
+反対に共通部分が零だと仮定します。非零多項式全体 $S=k[u_1,\ldots,u_{d_i}]\setminus\{0\}$ で局所化すると、$S^{-1}D$ は体 $k(u_1,\ldots,u_{d_i})$ 上有限次元の整域です。
+
+その非零元 $a$ による乗法写像は整域性から単射、有限次元性から全射です。従って $ab=1$ となる $b$ が存在し、$S^{-1}D$ は体になります。
+
+しかし $\mathfrak q\cap S=\varnothing$ なので $S^{-1}\mathfrak q$ は真のイデアルです。さらに $0\ne a\in\mathfrak q$ を取ると、整域の局所化では $a/1\ne0$ です。よって $S^{-1}\mathfrak q$ は非零でもあり、体には存在し得ない真の非零イデアルとなります。これは矛盾です。
 
 よって非零多項式 $h(u_1,\ldots,u_{d_i})$ が $\mathfrak q$ に属し、$D/\mathfrak q$ の中では $h(\bar u_1,\ldots,\bar u_{d_i})=0$ です。この $d_i$ 個の像は代数的に従属しています。一方 $D/\mathfrak q$ は $k[\bar u_1,\ldots,\bar u_{d_i}]$ 上整であるため、商体はそれらの生成する体の代数拡大です。[超越次数補題](#lem-ag1-09-transcendence-exchange)より
 
@@ -225,7 +265,17 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $J$ を含む素イデアル $\mathfrak p$ は、$f^m\in J\subseteq\mathfrak p$ なら素性を繰り返すことで $f\in\mathfrak p$ となるため $\sqrt J\subseteq\mathfrak p$ を満たします。逆向きは $J\subseteq\sqrt J$ から従います。商環の素イデアルは元の環の $J$ を含む素イデアルに対応するので、$J$ で割った場合と $\sqrt J$ で割った場合で**すべての素イデアル鎖が同じ長さ**となります。
+まず $J$ を含む素イデアル $\mathfrak p$ を取ります。$f^m\in J\subseteq\mathfrak p$ なら素性から $f\in\mathfrak p$ なので、$\sqrt J\subseteq\mathfrak p$ です。逆方向は $J\subseteq\sqrt J$ から従い、$J$ を含む素イデアルと $\sqrt J$ を含む素イデアルは一致します。
+
+次に商写像を考えます。
+
+$$
+\pi:R=k[x_1,\ldots,x_n]\longrightarrow R/J.
+$$
+
+$R/J$ の素イデアル $P$ の逆像 $\pi^{-1}(P)$ は、$J$ を含む $R$ の素イデアルです。逆に $J\subseteq Q$ を満たす素イデアル $Q$ は、$Q/J$ という $R/J$ の素イデアルを与えます。
+
+両操作は互いに逆で、包含関係も保ちます。したがって $J$ で割った環と $\sqrt J$ で割った環の**すべての素イデアル鎖が同じ長さ**になります。
 
 次に $A=k[X]$ は根基的イデアルで割った環です。[既約成分と極小素イデアル](../AG1-08/index.md#prop-ag1-08-components-minimal-primes)から、$A$ の極小素イデアルを $\mathfrak p_1,\ldots,\mathfrak p_s$ とすると
 
@@ -234,7 +284,16 @@ $$
 k[X_j]\simeq A/\mathfrak p_j.
 $$
 
-これらの積 $\mathfrak p_1\cdots\mathfrak p_s$ は共通部分に含まれて零です。任意の素イデアル $\mathfrak q\subset A$ はこの積を含むので、素性を各因子へ繰り返し適用すれば、ある $j$ で $\mathfrak p_j\subseteq\mathfrak q$ です。従って任意の鎖の先頭 $\mathfrak q_0$ の下に $\mathfrak p_j$ を置けます。鎖全体が $\mathfrak p_j$ を含む素イデアルからなり、それらは $A/\mathfrak p_j$ の素イデアル鎖に一対一に対応します。よって各鎖の長さはある $\dim(A/\mathfrak p_j)$ 以下です。逆に任意の $A/\mathfrak p_j$ の鎖は $A$ の鎖になるので、両方向を合わせて最大値の式を得ます。
+これらの極小素イデアルの積は共通部分に含まれ、零になります。
+
+$$
+\mathfrak p_1\cdots\mathfrak p_s
+\subseteq\bigcap_{j=1}^{s}\mathfrak p_j=(0).
+$$
+
+任意の素イデアル $\mathfrak q\subset A$ はこの積を含みます。素性を各因子へ繰り返し適用すれば、ある $j$ について $\mathfrak p_j\subseteq\mathfrak q$ です。特に任意の素イデアル鎖の先頭の下に、この $\mathfrak p_j$ を置けます。
+
+以降の鎖はすべて $\mathfrak p_j$ を含む素イデアルからなり、$A/\mathfrak p_j$ の素イデアル鎖に対応します。従って各鎖の長さはある $\dim(A/\mathfrak p_j)$ 以下です。逆に商環の任意の鎖は $A$ の鎖に戻せるので、成分次元の最大値と一致します。
 <!-- proof-end -->
 
 **具体計算。** $k[x,y]/(y-x^2)\simeq k[x]$ は次元1です。$k[x,y,z]/(xy)$ は二つの極小素イデアル $(x)/(xy)$、$(y)/(xy)$ を持ち、商はそれぞれ $k[y,z]$、$k[x,z]$ なので次元2です。これに対し $k[x,y]/(x^2,y^3)$ は冪零元を含みますが根基が $(x,y)$ なので次元0です。**次元は重なりの冪の厚みを数えません**。その厚みは後の局所的な一次近似と特異点の議論で重要になります。
@@ -253,7 +312,7 @@ $A=k[x,y]/(y-x^2)$ を $k[x]$ と同型にし、超越次数と長さ1の素イ�
 - ID: AG1-09-A1
 
 <!-- solution-start -->
-**詳細解答**　$y$ の像を $x^2$ に置き換える写像 $k[x,y]\to k[x]$ は全射です。任意の $f(x,y)$ を $y-x^2$ で割ると $f=(y-x^2)q+r(x)$ なので核は $(y-x^2)$、従って $A\simeq k[x]$ です。商体は $k(x)$ で、$x$ は代数的独立ですから超越次数は1です。$k[x]$ の $(0)$ は整域性、$(x)$ は商体 $k$ を与えることから素イデアルで、$(0)\subsetneq(x)$ は長さ1です。[次元定理](#thm-ag1-09-dimension-trdeg)の上界によりそれ以上はなく、$\dim A=1$ です。
+**詳細解答**　$y$ の像を $x^2$ に置き換える写像 $k[x,y]\to k[x]$ は全射です。任意の $f(x,y)$ を $y-x^2$ で割ると $f=(y-x^2)q+r(x)$ なので核は $(y-x^2)$、従って $A\simeq k[x]$ です。商体は $k(x)$ で、$x$ は代数的独立ですから超越次数は1です。$k[x]$ の $(0)$ は整域性、$(x)$ は商環 $k[x]/(x)\simeq k$ が体となることから素イデアルで、$(0)\subsetneq(x)$ は長さ1です。[次元定理](#thm-ag1-09-dimension-trdeg)の上界によりそれ以上はなく、$\dim A=1$ です。
 <!-- solution-end -->
 
 ### A2. アフィン直線の点
@@ -299,7 +358,17 @@ $A=k[x,y]/(y^2-x^3)$ において $k[x]\subset A$ が単射で、$A=k[x]\cdot1+k
 - ID: AG1-09-B1
 
 <!-- solution-start -->
-**詳細解答**　関係式 $y^2=x^3$ によりすべての $y^m$ は、偶数なら $x^{3m/2}$、奇数なら $x^{3(m-1)/2}y$ になります。よって $1,y$ が $k[x]$ 加群を生成し、$y$ は $T^2-x^3=0$ を満たす整元です。$y$ についてのモニック多項式で割ると商環の任意の元は一意的に $a(x)+b(x)y$ と表されます。実際代入 $x=t^2,y=t^3$ により $a(t^2)+t^3b(t^2)$ を得、前者の冪は偶数、後者は3以上の奇数なので和が零なら両方零です。この代入は $A\hookrightarrow k[t]$ の単射を与えるため $A$ は整域です。同じ一意性から $k[x]\hookrightarrow A$ も単射です。$k(x)\subset\operatorname{Frac}(A)$ は $y$ を加えた代数拡大なので超越次数は1、[次元定理](#thm-ag1-09-dimension-trdeg)から $\dim A=1$ です。
+**詳細解答**　関係式 $y^2=x^3$ を使うと、$y$ の偶数冪は $x$ の冪に、奇数冪は $x$ の冪と $y$ の積に書き直せます。従って $A$ は $1,y$ を用いて $k[x]$ 加群として生成されます。また $y$ は $T^2-x^3=0$ を満たす整元です。
+
+$y$ に関するモニック多項式 $y^2-x^3$ で除算すると、各剰余類を $a(x)+b(x)y$ の形に書けます。この表示の一意性を確認します。代入 $x=t^2,y=t^3$ で零になると仮定すれば、
+
+$$
+a(t^2)+t^3b(t^2)=0.
+$$
+
+前半は偶数次数、後半は3以上の奇数次数の項だけからなるので、両方とも零多項式です。よって $a=b=0$ となり、表示は一意です。
+
+同時にこの代入は $A\hookrightarrow k[t]$ という単射を与え、$A$ は整域です。$k[x]\hookrightarrow A$ も単射で、$\operatorname{Frac}(A)$ は $k(x)$ に $y$ を加えた代数拡大です。従って超越次数は1で、[次元定理](#thm-ag1-09-dimension-trdeg)により $\dim A=1$ です。
 <!-- solution-end -->
 
 ### B2. 二本の軸
@@ -310,7 +379,18 @@ $A=k[x,y]/(xy)$ の極小素イデアルと次元を求め、$(0)$ が素イデ�
 - ID: AG1-09-B2
 
 <!-- solution-start -->
-**詳細解答**　$xy=0$ の商環で $x,y$ はそれぞれ非零です。もし $x=(xy)q$ と多項式環で書ければ $y=0$ の代入から $x=0$ となる矛盾を生じるので、$x$ の像は非零であり、$y$ も対称です。従って $(0)$ は素でありません。$A$ の二つの素イデアル $(x)/(xy)$ と $(y)/(xy)$ は、商がそれぞれ $k[y],k[x]$ で整域だから素です。[既約成分と極小素イデアル](../AG1-08/index.md#prop-ag1-08-components-minimal-primes)によってこれらが極小素イデアルです。それぞれの商は次元1なので[成分次元の命題](#prop-ag1-09-components-dimension)から $\dim A=1$ です。例えば $(x)/(xy)\subsetneq(x,y)/(xy)$ は長さ1の鎖です。
+**詳細解答**　$A=k[x,y]/(xy)$ で $x$ と $y$ の像はともに非零です。実際 $x=(xy)q$ が成り立てば $y=0$ を代入して非零多項式 $x$ が零となり矛盾します。$y$ についても $x=0$ の代入で同じ結論です。$xy=0$ なので、$A$ の零イデアルは素ではありません。
+
+次の二つのイデアルを考えます。
+
+$$
+\mathfrak p_x=(x)/(xy),\qquad
+\mathfrak p_y=(y)/(xy).
+$$
+
+商環は $A/\mathfrak p_x\simeq k[y]$ と $A/\mathfrak p_y\simeq k[x]$ で、それぞれ整域です。[既約成分と極小素イデアル](../AG1-08/index.md#prop-ag1-08-components-minimal-primes)により、これらはちょうど極小素イデアルです。
+
+両商環の次元は1なので、[成分次元の命題](#prop-ag1-09-components-dimension)より $\dim A=1$ です。具体的な長さ1の鎖は $\mathfrak p_x\subsetneq(x,y)/(xy)$ です。
 <!-- solution-end -->
 
 ### B3. 整拡大による鎖の持ち上げ
@@ -321,7 +401,19 @@ $B=k[t]\subset C=k[z]$ を $t=z^2$ で定める。$C$ が整拡大であるこ�
 - ID: AG1-09-B3
 
 <!-- solution-start -->
-**詳細解答**　$k[t]\to k[z]$、$t\mapsto z^2$ は非零多項式 $p(t)$ を $p(z^2)$ という非零多項式へ送るので単射です。$z^2-t=0$ はモニック方程式で、$C=B\cdot1+B\cdot z$ です。$C$ の $(0)\subsetneq(z)$ は素イデアル鎖であり、前者の収縮は $(0)$、後者は $p(z^2)\in(z)$ と $p(0)=0$ が同値なので $(t)$ です。一般の $(z-a)$ については $p(z^2)\in(z-a)$ と $p(a^2)=0$ が同値なので、収縮は $(t-a^2)$ です。これは[整拡大の持ち上げ](#lem-ag1-09-integral-prime-lifting)を実際に計算した例です。
+**詳細解答**　写像 $k[t]\to k[z]$ を $t\mapsto z^2$ で定めます。非零多項式 $p(t)$ は $p(z^2)$ という非零多項式へ移るので、この写像は単射です。
+
+$z$ はモニック方程式 $z^2-t=0$ を満たし、$C=B\cdot1+B\cdot z$ なので $C/B$ は有限整拡大です。$C$ には素イデアル鎖 $(0)\subsetneq(z)$ があり、各商は $k[z]$ と $k$ で整域です。
+
+$(0)$ の収縮は $(0)$ であり、$(z)$ の収縮は $p(z^2)\in(z)$ と $p(0)=0$ の同値性から $(t)$ です。より一般に、
+
+$$
+p(z^2)\in(z-a)
+\quad\Longleftrightarrow\quad
+p(a^2)=0
+$$
+
+なので、$(z-a)$ の収縮は $(t-a^2)$ です。これは[整拡大の持ち上げ](#lem-ag1-09-integral-prime-lifting)を具体計算したものです。
 <!-- solution-end -->
 
 ### B4. 冪零元は次元を増やすか
@@ -332,7 +424,13 @@ $A=k[x,y]/(x^2,y^3)$ は整域か。$\sqrt{(x^2,y^3)}$ と $\dim A$ を求め、
 - ID: AG1-09-B4
 
 <!-- solution-start -->
-**詳細解答**　商環の $x$ の像は零でありませんが $x^2=0$ なので零因子があり、整域ではありません。同じく $y^3=0$ です。$x,y$ はともに根基へ入り $(x,y)\subseteq\sqrt{(x^2,y^3)}$ です。逆向きは、$(x^2,y^3)\subseteq(x,y)$ で $(x,y)$ が極大かつ根基的であることから従います。従って根基は $(x,y)$。[冪を除いても次元が同じ命題](#prop-ag1-09-components-dimension)から
+**詳細解答**　$y\mapsto0$ による商写像
+
+$$
+k[x,y]/(x^2,y^3)\longrightarrow k[x]/(x^2)
+$$
+
+は $x$ の像を非零の剰余類へ送るので、もとの環でも $x\ne0$ です。一方 $x^2=0$ だから非零零因子が存在し、整域ではありません。同じく $y^3=0$ です。$x,y$ はともに根基へ入り $(x,y)\subseteq\sqrt{(x^2,y^3)}$ です。逆向きは、$(x^2,y^3)\subseteq(x,y)$ で $(x,y)$ が極大かつ根基的であることから従います。従って根基は $(x,y)$。[冪を除いても次元が同じ命題](#prop-ag1-09-components-dimension)から
 $$
 \dim A=\dim k[x,y]/(x,y)=\dim k=0.
 $$
@@ -349,7 +447,16 @@ $A=k[x,y,z]/(xy)$ のすべての既約成分とKrull次元を求め、長さ2�
 - ID: AG1-09-C1
 
 <!-- solution-start -->
-**詳細解答**　$V(xy)=V(x)\cup V(y)$ は二枚の座標平面の和です。$A$ の $(x)/(xy)$、$(y)/(xy)$ は商がそれぞれ $k[y,z]$、$k[x,z]$ で整域となるので素イデアルです。両平面は互いに包含されず、[既約成分対応](../AG1-08/index.md#prop-ag1-08-components-minimal-primes)からこれらが極小素イデアルであり、$V(x)$ と $V(y)$ が全既約成分です。[次元定理](#thm-ag1-09-dimension-trdeg)でそれぞれの商環の次元は2、[成分次元](#prop-ag1-09-components-dimension)から $\dim A=2$ です。具体的には
+**詳細解答**　$V(xy)=V(x)\cup V(y)$ は二枚の座標平面の和です。$A$ の次のイデアルを調べます。
+
+$$
+\mathfrak p_x=(x)/(xy),\qquad
+\mathfrak p_y=(y)/(xy).
+$$
+
+商環はそれぞれ $k[y,z]$ と $k[x,z]$ で整域です。さらに二つの平面は互いに包含されないので、[既約成分対応](../AG1-08/index.md#prop-ag1-08-components-minimal-primes)によりこれらが全極小素イデアルとなり、両平面が全既約成分です。
+
+各商環の次元は[次元定理](#thm-ag1-09-dimension-trdeg)から2であり、[成分次元の命題](#prop-ag1-09-components-dimension)により $\dim A=2$ です。具体的な長さ2の鎖は次のとおりです。
 $$
 (x)/(xy)\subsetneq(x,z)/(xy)\subsetneq(x,y,z)/(xy)
 $$
@@ -366,7 +473,23 @@ $$
 <!-- solution-start -->
 **詳細解答**　まず $X$ が有限個の点 $\{a^{(1)},\ldots,a^{(s)}\}$ からなるとします。各一点集合の消滅イデアルは $\mathfrak m_i=(x_1-a^{(i)}_1,\ldots,x_n-a^{(i)}_n)$ で、商環は $k$ です。[既約成分と極小素イデアル](../AG1-08/index.md#prop-ag1-08-components-minimal-primes)から相異なる一点が既約成分を尽くし、[成分次元](#prop-ag1-09-components-dimension)より $\dim X=\max_i\dim k=0$ です。
 
-逆に $\dim X=0$ とします。[Noether空間での有限既約分解](../AG1-02/index.md#thm-ag1-02-noether-components)と[アフィン空間のNoether性](../AG1-05/index.md#thm-ag1-05-zariski-noether)から、$X$ は有限個の非空既約成分 $X_i$ に分解されます。[成分次元](#prop-ag1-09-components-dimension)より各 $\dim X_i=0$ です。各 $B_i=k[X_i]$ は有限生成 $k$ 代数の整域であり、[次元定理](#thm-ag1-09-dimension-trdeg)から $\operatorname{Frac}(B_i)$ の超越次数は0、すなわちこの体の全元は $k$ 上代数的です。$k$ は代数閉体なので $k$ 上代数的な体の元はすべて $k$ に属します。従って $k\subseteq B_i\subseteq\operatorname{Frac}(B_i)=k$ から $B_i=k$ です。座標関数 $x_j$ の $B_i$ での像がある $a_j\in k$ に等しいので、$x_j-a_j\in I(X_i)$ です。従って $X_i\subseteq\{(a_1,\ldots,a_n)\}$ となり、$X_i$ は非空だからちょうどその一点です。有限個の成分の和 $X$ も有限集合となります。
+逆に $\dim X=0$ とします。[Noether空間での有限既約分解](../AG1-02/index.md#thm-ag1-02-noether-components)と[アフィン空間のNoether性](../AG1-05/index.md#thm-ag1-05-zariski-noether)から、$X$ は有限個の非空既約成分 $X_i$ に分解されます。
+
+[成分次元](#prop-ag1-09-components-dimension)により各 $\dim X_i=0$ です。$B_i=k[X_i]$ は有限生成 $k$ 代数の整域なので、[次元定理](#thm-ag1-09-dimension-trdeg)から
+
+$$
+\operatorname{trdeg}_k\operatorname{Frac}(B_i)=0
+$$
+
+となります。よって商体のすべての元が $k$ 上代数的です。$k$ は代数閉体なので、これらの元は $k$ に属し、
+
+$$
+k\subseteq B_i\subseteq\operatorname{Frac}(B_i)=k
+$$
+
+から $B_i=k$ です。
+
+各座標関数 $x_j$ の $B_i$ における像は定数 $a_j\in k$ なので $x_j-a_j\in I(X_i)$ です。従って $X_i$ は点 $(a_1,\ldots,a_n)$ に含まれ、非空性からちょうどその一点です。有限個の成分の和 $X$ も有限集合になります。
 <!-- solution-end -->
 
 ここまでで、既約な図形の「独立パラメータ数」、素イデアル鎖の段数、可約図形の各成分の次元を同じ枠組みで計算できました。次章では一点に近づいたときに一次の方程式がどの方向を許すかを調べ、全体の次元と局所的な一次近似から得られる次元が異なる場合を見ていきます。
