@@ -8,12 +8,19 @@ prerequisites:
 forward_references: []
 
 concepts:
+  - id: algebraic-geometry.ideal-acc
+    name: 昇鎖条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（イデアルの昇鎖条件）"]
+    requires: [algebra.ring-ideal]
+
   - id: algebraic-geometry.noetherian-ring
     name: Noether環
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（Noether環）"]
-    requires: [algebra.ring-ideal]
+    requires: [algebraic-geometry.ideal-acc]
 
   - id: algebraic-geometry.noether-acc-fg
     name: 昇鎖条件と有限生成の同値性
