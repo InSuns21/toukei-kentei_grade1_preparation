@@ -21,10 +21,10 @@ concepts:
     introduction_aliases: [定義（二次形式と行列の二つのノルム）]
     requires: []
   - id: high-dimensional-probability.square-mgf
-    name: sub-Gaussian平方の中心化指数モーメント
+    name: モーメント母関数代理量からの平方評価
     kind: lemma
     introduction: formal
-    introduction_aliases: [補題（sub-Gaussian平方の中心化指数モーメント）]
+    introduction_aliases: [補題（モーメント母関数代理量からの平方評価）]
     requires: [high-dimensional-probability.hanson-wright-mgf-proxy]
   - id: high-dimensional-probability.diagonal-mgf
     name: 独立な対角項の指数モーメント
