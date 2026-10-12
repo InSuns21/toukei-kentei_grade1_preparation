@@ -78,7 +78,17 @@ $$
 =\widetilde\Phi_{gh}.
 $$
 
-同じ合成則の恒等写像の場合から $\widetilde\Phi_e=\operatorname{id}$ です。さらに余ベクトルの基点は $\phi_g(q)$ なので、射影についての等式も定義から成り立ちます。
+同じ合成則の恒等写像の場合から $\widetilde\Phi_e=\operatorname{id}$ です。さらに[余接持ち上げ作用の定義](#def-gmech1-cotangent-action)から $\widetilde\Phi_g(\alpha_q)$ は基点 $\phi_g(q)$ の余ベクトルです。従って各 $\alpha_q\in T_q^*Q$ について
+
+$$
+\begin{aligned}
+\pi\bigl(\widetilde\Phi_g(\alpha_q)\bigr)
+&=\phi_g(q)\\
+&=\phi_g\bigl(\pi(\alpha_q)\bigr).
+\end{aligned}
+$$
+
+これは任意の $\alpha_q$ で成立するため、射影の等式も従います。
 
 次に $(g_0,\alpha_{q_0})$ の周りで滑らかさを示します。作用 $(g,q)\mapsto\phi_g(q)$ は滑らかです。$q_0$ と $\phi_{g_0}(q_0)$ の座標近傍を取り、$(g_0,q_0)$ の十分小さい積近傍では $q$ と $\phi_g(q)$ がそれぞれその座標内にあるようにできます。その座標で
 
@@ -424,7 +434,7 @@ $$
 =(e^{2t}x,e^{-t}y,e^{-2t}p_x,e^tp_y).
 $$
 
-$X=e^{2t}x$、$Y=e^{-t}y$、$P_X=e^{-2t}p_x$、$P_Y=e^tp_y$ と置くと固定した $t$ について
+$X=e^{2t}x$、$Y=e^{-t}y$、$P_X=e^{-2t}p_x$、$P_Y=e^tp_y$ と置きます。[Liouville 1形式の局所表示](../../SYM/SYM3/index.md#prop-sym3-liouville-coordinate) $\theta=\sum_i p_i\,dq^i$ を用い、$t$ を固定して微分すると
 
 $$
 \begin{aligned}
@@ -466,7 +476,7 @@ $$
 ### Level B
 
 <a id="ex-gmech1-b01"></a>
-**B1. 非線形な一パラメータ作用。** $G=(\mathbb R,+)$ が $Q=\mathbb R^2$ に $\phi_t(x,y)=(x,y+tx)$ で作用する。群則、余接持ち上げ、無限小生成子を求めよ。
+**B1. せん断の一パラメータ作用。** $G=(\mathbb R,+)$ が $Q=\mathbb R^2$ に $\phi_t(x,y)=(x,y+tx)$ で作用する。群則、余接持ち上げ、無限小生成子を求めよ。
 
 - Level: B
 
@@ -510,7 +520,7 @@ X=-y\partial_x+x\partial_y
 -p_y\partial_{p_x}+p_x\partial_{p_y}.
 $$
 
-$\omega_{\mathrm{can}}=dx\wedge dp_x+dy\wedge dp_y$ であり、各項の縮約は
+[SYM3の正準2形式の座標式](../../SYM/SYM3/index.md#thm-sym3-cotangent-symplectic)から $\omega_{\mathrm{can}}=dx\wedge dp_x+dy\wedge dp_y$ です。各項の縮約は
 
 $$
 \begin{aligned}
@@ -544,7 +554,7 @@ $$
 - Level: B
 
 <!-- solution-start -->
-**詳細解答。** $\theta=p\,dq$、$\omega_{\mathrm{can}}=dq\wedge dp$ です。$Q=q$、$P=p+c$ と置くと
+**詳細解答。** [SYM3の正準形式の座標式](../../SYM/SYM3/index.md#prop-sym3-liouville-coordinate)によって $\theta=p\,dq$ であり、[正準2形式](../../SYM/SYM3/index.md#thm-sym3-cotangent-symplectic)は $\omega_{\mathrm{can}}=dq\wedge dp$ です。$Q=q$、$P=p+c$ と置くと
 
 $$
 S^*\theta=(p+c)dq=\theta+c\,dq\neq\theta,
@@ -574,7 +584,7 @@ $$
 <!-- solution-start -->
 **詳細解答。**
 
-(1) まず $(a,b)\cdot((c,d)\cdot q)=a(cq+d)+b=acq+(b+ad)$ です。これは積 $(ac,b+ad)$ の作用に一致し、$(1,0)$ は恒等作用です。$q\mapsto aq+b$ の微分は $a$、逆微分は $1/a$ なので
+(1) まず $(a,b)\cdot((c,d)\cdot q)=a(cq+d)+b=acq+(b+ad)$ です。これは積 $(ac,b+ad)$ の作用に一致し、$(1,0)$ は恒等作用です。また $a>0$ なので $(a,b)^{-1}=(a^{-1},-b/a)$ が $G$ 内にあり、両方向に掛けると $(1,0)$ になります。従って各群元の作用は逆写像を持ちます。$q\mapsto aq+b$ の微分は $a$、逆微分は $1/a$ なので
 
 $$
 \widetilde\Phi_{(a,b)}(q,p)
@@ -615,7 +625,7 @@ $$
 
 の交換子 $dt-td=t$ から確認できます。従って [余接持ち上げの括弧の命題](#prop-gmech1-flow-bracket)は $[D,T]=-[d,t]_{T^*Q}=-T$ を予言し、直接計算と一致します。
 
-(4) $Q=aq+b$、$P=p/a$ は $a,b$ を固定すれば $dQ=a\,dq$ なので
+(4) [Liouville 1形式の局所表示](../../SYM/SYM3/index.md#prop-sym3-liouville-coordinate)を使います。$Q=aq+b$、$P=p/a$ と置き、$a,b$ を固定すると $dQ=a\,dq$ なので
 
 $$
 P\,dQ=(p/a)(a\,dq)=p\,dq=\theta.
