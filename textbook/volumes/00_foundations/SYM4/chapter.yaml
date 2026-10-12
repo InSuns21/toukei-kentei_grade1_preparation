@@ -1,0 +1,55 @@
+id: "SYM4"
+title: "Hamiltonベクトル場・Poisson括弧・シンプレクティック流"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GEO2
+  - GEO7
+  - ODE8
+  - AMECH6
+  - SYM2
+  - SYM3
+official_scope: []
+learning_objectives:
+  - 非退化な2形式によってHamiltonベクトル場が存在・一意となることを証明し正準座標の符号を計算できる
+  - Poisson括弧を2形式とHamiltonベクトル場から定義し正準座標式・基本括弧を導ける
+  - Cartanの公式と局所流を用いてHamilton流の2形式保存を証明し完備性と区別できる
+  - Poisson括弧の時間発展・保存量・Leibniz則を導出できる
+  - Hamiltonベクトル場の交換子とJacobi恒等式を符号を含めて証明できる
+  - シンプレクティック微分同相の下でHamiltonベクトル場とPoisson括弧が自然に変換することを証明できる
+  - 非線形な有限時刻発散・調和振動子・角運動量と正準変換の具体計算を検算できる
+definitions:
+  - { id: SYM4-DEF-01, name: Hamiltonベクトル場 }
+  - { id: SYM4-DEF-02, name: シンプレクティック多様体上のPoisson括弧 }
+theorems:
+  - { id: SYM4-THM-01, name: Hamiltonベクトル場の存在・一意性と正準座標式 }
+  - { id: SYM4-PROP-01, name: 正準座標のPoisson括弧 }
+  - { id: SYM4-THM-02, name: Hamilton流のシンプレクティック形式保存 }
+  - { id: SYM4-PROP-02, name: 観測量の時間発展と保存量 }
+  - { id: SYM4-PROP-03, name: Poisson括弧の基本性質 }
+  - { id: SYM4-PROP-04, name: Hamiltonベクトル場の交換子 }
+  - { id: SYM4-THM-03, name: Poisson括弧のJacobi恒等式 }
+  - { id: SYM4-THM-04, name: シンプレクティック微分同相の下での自然性 }
+canonical_examples:
+  - 調和振動子のHamiltonベクトル場と解の大域流
+  - 基本Poisson括弧の符号
+  - 非退化性を失った零形式
+  - 局所流の時間方向有限発散
+  - 線形余接持ち上げのPoisson括弧の自然性
+  - 角運動量の保存
+  - 調和振動子のHamilton関数の座標変換
+problem_patterns:
+  - SYM4-HAMILTONIAN-SIGN
+  - SYM4-CANONICAL-BRACKET
+  - SYM4-ENERGY
+  - SYM4-LINEARITY
+  - SYM4-LEIBNIZ
+  - SYM4-INCOMPLETE-FLOW
+  - SYM4-COMMUTATOR
+  - SYM4-ANGULAR-MOMENTUM
+  - SYM4-JACOBI
+  - SYM4-SYMPLECTIC-COVARIANCE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 2 }
