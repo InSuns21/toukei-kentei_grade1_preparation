@@ -1,0 +1,45 @@
+id: "SG1"
+title: "quenched disorder・Random Energy Model・凍結転移"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SM7
+  - F0-00P3
+official_scope: []
+learning_objectives:
+  - 無秩序の固定後に熱平衡を取る quenched と disorder 平均を先に取る annealed を区別できる
+  - 有限無秩序系の分配関数に対して Jensen の不等式を等号条件まで証明できる
+  - REM のエネルギーの独立性と N に比例する分散を定義し、annealed 圧力を計算できる
+  - 正規分布の尾とエネルギー帯内の状態数について指数評価を再現できる
+  - REM の圧力極限をエネルギー帯の上界・下界から導き、収束の意味を区別できる
+  - 臨界逆温度と凍結領域の圧力・内部エネルギー・エントロピー密度を導出できる
+  - REM の独立エネルギー構造と SK 模型の相関エネルギー構造を混同しない
+definitions:
+  - { id: SG1-DEF-01, name: "quenched圧力とannealed圧力" }
+  - { id: SG1-DEF-02, name: "Random Energy Model" }
+  - { id: SG1-DEF-03, name: "凍結転移と臨界逆温度" }
+propositions:
+  - { id: SG1-PROP-01, name: "annealed圧力とquenched圧力の比較" }
+  - { id: SG1-PROP-02, name: "REMのannealed圧力" }
+  - { id: SG1-LEM-01, name: "正規尾とエネルギー帯の状態数" }
+theorems:
+  - { id: SG1-THM-01, name: "REMのquenched圧力極限" }
+  - { id: SG1-COR-01, name: "凍結転移とannealed近似の破れ" }
+canonical_examples:
+  - 二配置・二通りの外部無秩序で平均と対数の順序を比較する
+  - 正規無秩序で指数モーメントと大偏差の指数を求める
+  - REMの帯内期待状態数と臨界エネルギーを比較する
+  - 臨界点の両側で圧力を微分し二階導関数の不連続を読む
+problem_patterns:
+  - SG1-TWO-DISORDER
+  - SG1-GAUSSIAN-MGF
+  - SG1-ANNEALED-PRESSURE
+  - SG1-CRITICAL-DERIVATIVES
+  - SG1-EXTREME-ENERGY
+  - SG1-FINITE-JENSEN
+  - SG1-BIN-COUNT-CONCENTRATION
+  - SG1-GENERALIZED-REM
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 5 }

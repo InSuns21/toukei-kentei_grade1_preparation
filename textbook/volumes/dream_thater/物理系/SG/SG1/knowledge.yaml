@@ -1,0 +1,56 @@
+chapter: SG1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SM7
+  - F0-00P3
+forward_references: []
+concepts:
+  - id: spin-glass.quenched-annealed
+    name: quenched圧力とannealed圧力
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（quenched圧力とannealed圧力）"]
+    requires: [statistical-mechanics.partition-function]
+  - id: spin-glass.jensen-comparison
+    name: annealed圧力とquenched圧力の比較
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（annealed圧力とquenched圧力の比較）"]
+    requires: [spin-glass.quenched-annealed]
+  - id: spin-glass.random-energy-model
+    name: Random Energy Model
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Random Energy Model）"]
+    requires: [spin-glass.quenched-annealed]
+  - id: spin-glass.rem-annealed
+    name: REMのannealed圧力
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（REMのannealed圧力）"]
+    requires: [spin-glass.random-energy-model]
+  - id: spin-glass.rem-energy-bands
+    name: 正規尾とエネルギー帯の状態数
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（正規尾とエネルギー帯の状態数）"]
+    requires: [spin-glass.random-energy-model]
+  - id: spin-glass.rem-pressure
+    name: REMのquenched圧力極限
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（REMのquenched圧力極限）"]
+    requires: [spin-glass.rem-energy-bands, spin-glass.rem-annealed]
+  - id: spin-glass.freezing-definition
+    name: 凍結転移と臨界逆温度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（凍結転移と臨界逆温度）"]
+    requires: [spin-glass.rem-pressure]
+  - id: spin-glass.freezing-formulas
+    name: 凍結転移とannealed近似の破れ
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（凍結転移とannealed近似の破れ）"]
+    requires: [spin-glass.freezing-definition, spin-glass.rem-pressure, spin-glass.jensen-comparison]
