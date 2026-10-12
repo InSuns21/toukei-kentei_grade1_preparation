@@ -474,7 +474,7 @@ $$
 
 ## 6. 何が座標不変で、何が局所的か
 
-Darbouxの定理により、局所ではシンプレクティック形式の係数に依存する追加の「曲率型の不変量」は現れません。例えば[SYM4のHamiltonベクトル場とPoisson括弧の座標式](../SYM4/index.md#prop-sym4-coordinate-bracket)が、いまや**どの点でも適切な近傍を選べば**利用できます。
+[Darbouxの定理](#thm-sym5-darboux)により、局所ではシンプレクティック形式の係数に依存する追加の「曲率型の不変量」は現れません。例えば[SYM4のHamiltonベクトル場とPoisson括弧の座標式](../SYM4/index.md#prop-sym4-coordinate-bracket)が、いまや**どの点でも適切な近傍を選べば**利用できます。
 
 <a id="cor-sym5-local-poisson"></a>
 
@@ -724,7 +724,7 @@ $Y_t(0)=0$、$|Y_t(x)|\le3|x|$ が $[0,1]\times B_2\subset\mathbb R\times\mathbb
 - ID: SYM5-B3
 
 <!-- solution-start -->
-**詳細解答**　解が $B_2$ にある間、積分方程式から
+**詳細解答**　解が $B_2$ にある間、[初期値問題と積分方程式の同値性](../ODE1/index.md#prop-ode1-integral-equation)から
 
 $$
 |\varphi_t(x)|
