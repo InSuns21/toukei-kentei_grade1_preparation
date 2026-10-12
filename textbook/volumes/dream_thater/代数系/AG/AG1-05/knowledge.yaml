@@ -9,7 +9,8 @@ forward_references: []
 
 concepts:
   - id: algebraic-geometry.ideal-acc
-    name: 昇鎖条件
+    name: イデアルの昇鎖条件
+    aliases: ["昇鎖条件"]
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（イデアルの昇鎖条件）"]
