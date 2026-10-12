@@ -5,6 +5,8 @@ status: supplementary
 prerequisites:
   - INFO1
   - INFO2
+  - RA5
+  - LA3B
 official_scope: []
 learning_objectives:
   - 確率密度の絶対可積分条件を確認して微分エントロピーを定義・計算し負値と離散版との差を説明できる
