@@ -1,0 +1,80 @@
+chapter: SGT7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SGT1
+  - SGT2
+  - F0-00F1
+  - LA3B
+forward_references: []
+
+concepts:
+  - id: spectral-graph.incidence-current
+    name: 接続行列と向き付き電流
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（接続行列と向き付き電流）]
+    requires: [spectral-graph.weighted-graph]
+
+  - id: spectral-graph.effective-resistance
+    name: 電位・電流・有効抵抗
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（電位・電流・有効抵抗）]
+    requires: [spectral-graph.incidence-current, spectral-graph.combinatorial-laplacian]
+
+  - id: spectral-graph.potential-solvability
+    name: 電位方程式の解と一意性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（電位方程式の解と一意性）]
+    requires: [spectral-graph.effective-resistance, spectral-graph.kernel-components, linear.spectral-theorem]
+
+  - id: spectral-graph.thomson
+    name: Thomsonの最小エネルギー原理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Thomsonの最小エネルギー原理）]
+    requires: [spectral-graph.potential-solvability, spectral-graph.dirichlet-energy]
+
+  - id: spectral-graph.dirichlet-boundary
+    name: Dirichletの境界電位原理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Dirichletの境界電位原理）]
+    requires: [spectral-graph.thomson, spectral-graph.dirichlet-energy]
+
+  - id: spectral-graph.laplacian-pseudoinverse
+    name: Laplacianの擬似逆
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Laplacianの擬似逆）]
+    requires: [spectral-graph.kernel-components, linear.spectral-theorem]
+
+  - id: spectral-graph.resistance-pseudoinverse
+    name: 擬似逆による有効抵抗公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（擬似逆による有効抵抗公式）]
+    requires: [spectral-graph.laplacian-pseudoinverse, spectral-graph.potential-solvability]
+
+  - id: spectral-graph.rayleigh-monotonicity
+    name: Rayleighの単調性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Rayleighの単調性）]
+    requires: [spectral-graph.thomson]
+
+  - id: spectral-graph.weighted-spanning-tree
+    name: 重み付き全域木分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（重み付き全域木分布）]
+    requires: [spectral-graph.weighted-graph]
+
+  - id: spectral-graph.tree-resistance
+    name: 重み付き全域木と有効抵抗
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（重み付き全域木と有効抵抗）]
+    requires: [spectral-graph.weighted-spanning-tree, spectral-graph.resistance-pseudoinverse, spectral-graph.incidence-current]

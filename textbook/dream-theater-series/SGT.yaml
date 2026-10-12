@@ -31,7 +31,7 @@ chapters:
     title: ランダムウォークの混合とスペクトル
   - id: SGT7
     path: textbook/volumes/dream_thater/計算系/SGT/SGT7
-    status: planned
+    status: completed
     title: 電気ネットワークと有効抵抗
   - id: SGT8
     path: textbook/volumes/dream_thater/計算系/SGT/SGT8
