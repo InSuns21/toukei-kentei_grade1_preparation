@@ -228,11 +228,42 @@ $
 $
 [最大値原理](../../../解析系/CA/CA3/index.md#thm-ca3-maximum-modulus)により同じ上界が内側の円板にも成り立ちます。また $g(s_0)=\zeta(s_0)$ なので $\log|g(s_0)|\ge\log(2-\zeta(2))$ です。
 
-半径 $5$ の円板で零でない $g$ には正則な対数 $H=\log g$ が存在します。$\operatorname{Re}H=\log|g|\le M=C_1\log(|t|+3)$ として、$K(s)=H(s)-H(s_0)$、$A=M-\operatorname{Re}H(s_0)\ge0$ を考えます。$\operatorname{Re}K\le A$ なので
+半径 $5$ の円板で零でない $g$ には正則な対数 $H=\log g$ が存在します。上の最大値評価から、定数 $C_1$ を適切に大きく取って
+
+$
+\operatorname{Re}H(s)=\log|g(s)|
+\le M,\qquad M=C_1\log(|t|+3)
+$
+
+とします。中心との差、および実部の上界との差をそれぞれ
+
+$
+K(s)=H(s)-H(s_0),\qquad
+A=M-\operatorname{Re}H(s_0)\ge0
+$
+
+と置きます。すると $\operatorname{Re}K(s)\le A$ なので
 $
 w(s)=\frac{K(s)}{2A-K(s)}
 $
-は $|w(s)|\le1$、$w(s_0)=0$ を満たします（$|2A-K|^2-|K|^2=4A(A-\operatorname{Re}K)\ge0$）。$A=0$ の退化時は[最大値原理](../../../解析系/CA/CA3/index.md#thm-ca3-maximum-modulus)で $H$ は定数として扱えます。半径 $4$ の円板に[Schwarzの補題](../../../解析系/CA/CA6/index.md#thm-ca6-schwarz-lemma)を適用して、$|s-s_0|\le3$ では $|w(s)|\le3/4$、従って
+を考えます。まず分母と分子の差は
+
+$
+|2A-K|^2-|K|^2
+=4A(A-\operatorname{Re}K)\ge0
+$
+
+です。従って $|w(s)|\le1$ です。また $K(s_0)=0$ だから $w(s_0)=0$ となります。
+
+$A=0$ なら実部が最大値に達するため、[最大値原理](../../../解析系/CA/CA3/index.md#thm-ca3-maximum-modulus)により $H$ は定数です。以下 $A>0$ とします。
+
+半径 $4$ の円板に[Schwarzの補題](../../../解析系/CA/CA6/index.md#thm-ca6-schwarz-lemma)を適用します。中心 $s_0$ で $w(s_0)=0$ であり $|w|\le1$ だから、$|s-s_0|\le3$ では
+
+$
+|w(s)|\le\frac34.
+$
+
+これを $K=2Aw/(1+w)$ へ代入すると
 $
 |H(s)-H(s_0)|
 =\left|\frac{2Aw(s)}{1+w(s)}\right|
@@ -443,7 +474,23 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[誘導文字の定義](../ANT3/index.md#def-ant3-primitive)より $p\nmid q$ では $\chi(p)=\chi^\ast(p)$ です。$p\mid q$ では $\chi(p)=0$ なので左辺のEuler因子は $1$ です。右辺の $L(s,\chi^\ast)$ に含まれる $p\mid f$ の因子は既に $1$ であり、$p\mid q$ かつ $p\nmid f$ の因子 $(1-\chi^\ast(p)p^{-s})^{-1}$ だけを有限積で打ち消します。[Euler積の一意性](../ANT3/index.md#thm-ant3-l-euler)から $\sigma>1$ で等式を得ます。解析接続後は[恒等定理](../../../解析系/CA/CA3/index.md#thm-ca3-isolated-zeros-identity)により同一の有理型関数です。
+[誘導文字の定義](../ANT3/index.md#def-ant3-primitive)から、素数 $p\nmid q$ では
+
+$
+\chi(p)=\chi^\ast(p)
+$
+
+が成り立ちます。一方、$p\mid q$ なら $\chi(p)=0$ なので、$L(s,\chi)$ のEuler因子は $1$ です。
+
+右辺の $L(s,\chi^\ast)$ でも $p\mid f$ の素数に対応するEuler因子は $1$ です。残る $p\mid q$、$p\nmid f$ の素数については、余分な因子
+
+$
+(1-\chi^\ast(p)p^{-s})^{-1}
+$
+
+が存在します。命題の有限積は、まさにこの余分な因子を打ち消します。
+
+[Dirichlet L関数のEuler積](../ANT3/index.md#thm-ant3-l-euler)により、$\sigma>1$ では両辺が一致します。その後は[恒等定理](../../../解析系/CA/CA3/index.md#thm-ca3-isolated-zeros-identity)で有理型接続上の等式が従います。
 <!-- proof-end -->
 
 **例**：法 $4$ の主文字は法 $1$ の文字から誘導されるため
