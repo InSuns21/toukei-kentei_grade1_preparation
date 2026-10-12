@@ -1,0 +1,49 @@
+id: "INT5"
+title: "正準摂動論と共鳴"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - INT1
+  - INT2
+  - INT3
+  - INT4
+  - SYM4
+  - FOU1
+official_scope: []
+learning_objectives:
+  - 第二種生成関数から近恒等正準変換の正準性と局所可逆性を証明できる
+  - 一次の変換Hamilton関数を展開し生成関数の符号を検算できる
+  - 非共鳴の有限Fourier和を平均化し二次剰余を評価できる
+  - 共鳴射影を定義し固定振動数での共鳴標準形を導ける
+  - 遅い共鳴角と速い角を正準座標で区別できる
+  - 振り子共鳴帯の楕円点と鞍点および分離曲線と幅を計算できる
+  - 一次正規化と局所振り子模型と無限反復の有効範囲を区別できる
+definitions:
+  - { id: INT5-DEF-01, name: 第二種生成関数による近恒等正準変換 }
+  - { id: INT5-DEF-02, name: 共鳴射影と一次共鳴標準形 }
+  - { id: INT5-DEF-03, name: 二自由度の差角共鳴座標 }
+theorems:
+  - { id: INT5-PROP-01, name: 生成写像の正準性と局所可逆性 }
+  - { id: INT5-PROP-02, name: 有限Fourier摂動の一次平均化 }
+  - { id: INT5-PROP-03, name: 固定振動数での共鳴標準形 }
+  - { id: INT5-PROP-04, name: 振り子共鳴帯と分離曲線 }
+canonical_examples:
+  - 作用依存の生成関数と正準性
+  - 単一非共鳴波の厳密除去
+  - 共鳴射影と非共鳴波の除去
+  - 二振動子の差角共鳴と厳密な振り子縮約
+  - 分離曲線の平方根スケール
+problem_patterns:
+  - INT5-GENERATING-FUNCTION
+  - INT5-SIGN-CHECK
+  - INT5-RESONANCE-PROJECTION
+  - INT5-CANONICAL-RESONANT-COORDINATES
+  - INT5-PARTIAL-AVERAGING
+  - INT5-SEPARATRIX
+  - INT5-RESONANCE-OBSTRUCTION
+  - INT5-DETUNING-SHIFT
+  - INT5-RESONANT-PENDULUM-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 10, review: 3 }

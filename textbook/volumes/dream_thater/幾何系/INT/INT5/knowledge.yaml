@@ -1,0 +1,62 @@
+chapter: INT5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - INT1
+  - INT2
+  - INT3
+  - INT4
+  - SYM4
+  - FOU1
+forward_references: []
+
+concepts:
+  - id: integrable.near-identity-generating-function
+    name: 第二種生成関数による近恒等正準変換
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（第二種生成関数による近恒等正準変換）"]
+    aliases: []
+    requires: [integrable.near-integrable-hamiltonian, integrable.action-angle]
+  - id: integrable.generator-canonical-map
+    name: 生成写像の正準性と局所可逆性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（生成写像の正準性と局所可逆性）"]
+    aliases: []
+    requires: [integrable.near-identity-generating-function]
+  - id: integrable.first-order-canonical-average
+    name: 有限Fourier摂動の一次平均化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限Fourier摂動の一次平均化）"]
+    aliases: []
+    requires: [integrable.generator-canonical-map, integrable.first-homological-equation]
+  - id: integrable.resonant-projection-normal-form
+    name: 共鳴射影と一次共鳴標準形
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（共鳴射影と一次共鳴標準形）"]
+    aliases: []
+    requires: [integrable.integer-resonance, integrable.angle-fourier-mean]
+  - id: integrable.fixed-frequency-resonant-form
+    name: 固定振動数での共鳴標準形
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（固定振動数での共鳴標準形）"]
+    aliases: []
+    requires: [integrable.resonant-projection-normal-form, integrable.generator-canonical-map]
+  - id: integrable.difference-angle-resonance
+    name: 二自由度の差角共鳴座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二自由度の差角共鳴座標）"]
+    aliases: []
+    requires: [integrable.action-angle, integrable.integer-resonance]
+  - id: integrable.pendulum-resonance-width
+    name: 振り子共鳴帯と分離曲線
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（振り子共鳴帯と分離曲線）"]
+    aliases: []
+    requires: [integrable.difference-angle-resonance, integrable.pendulum-separatrix]
