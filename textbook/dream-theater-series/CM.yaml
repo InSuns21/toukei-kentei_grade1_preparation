@@ -17,7 +17,7 @@ chapters:
     title: "複素多様体間の正則写像と座標不変性"
   - id: CM1-03
     path: textbook/volumes/dream_thater/幾何系/CM/CM1-03
-    status: planned
+    status: completed
     title: "基礎となる実多様体と概複素構造J"
   - id: CM1-04
     path: textbook/volumes/dream_thater/幾何系/CM/CM1-04
