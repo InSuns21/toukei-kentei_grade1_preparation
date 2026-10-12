@@ -137,6 +137,8 @@ $$
 $$
 A=\begin{pmatrix}1&0\\2q^1&1\end{pmatrix},
 \qquad
+A^{-1}=\begin{pmatrix}1&0\\-2q^1&1\end{pmatrix},
+\qquad
 A^{-\mathsf T}
 =\begin{pmatrix}1&-2q^1\\0&1\end{pmatrix}.
 $$
