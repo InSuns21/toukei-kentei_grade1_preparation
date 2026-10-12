@@ -685,6 +685,7 @@
 ### 情報理論 I
 
 1. [INFO1 自己情報量・Shannonエントロピー・条件付け](textbook/volumes/00_foundations/INFO1/index.md)
+2. [INFO2 相対エントロピー・Gibbs不等式・データ処理不等式](textbook/volumes/00_foundations/INFO2/index.md)
 
 <a id="dt-subject-convex-optimization"></a>
 ### 凸解析・最適化
