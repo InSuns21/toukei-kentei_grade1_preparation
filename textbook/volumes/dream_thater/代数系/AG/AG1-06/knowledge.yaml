@@ -1,0 +1,53 @@
+chapter: AG1-06
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG1-05
+  - AG1-03
+  - RNG4
+  - MOD1
+  - LA3C
+forward_references: []
+
+concepts:
+  - id: algebraic-geometry.integral-element
+    name: 整元
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（整元）"]
+    requires: [algebra.ring-homomorphism, algebra.polynomial-ring]
+
+  - id: algebraic-geometry.module-finite-algebra
+    name: 有限A代数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限A代数）"]
+    requires: [algebra.finitely-generated-module]
+
+  - id: algebraic-geometry.integral-finite-criterion
+    name: 整元の有限加群判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（整元の有限加群判定）"]
+    requires: [algebraic-geometry.integral-element, algebraic-geometry.module-finite-algebra]
+
+  - id: algebraic-geometry.integral-tower
+    name: 整元の有限個の添加と推移性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（整元の有限個の添加と推移性）"]
+    requires: [algebraic-geometry.integral-finite-criterion]
+
+  - id: algebraic-geometry.algebraic-independence
+    name: 代数的独立
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（代数的独立）"]
+    requires: [algebra.polynomial-ring, algebra.ring-homomorphism]
+
+  - id: algebraic-geometry.noether-normalization
+    name: Noether正規化
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Noether正規化）"]
+    requires: [algebraic-geometry.integral-finite-criterion, algebraic-geometry.algebraic-independence, algebraic-geometry.integral-tower]

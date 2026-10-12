@@ -698,6 +698,7 @@
 3. [AG1-03 座標環とアフィン代数多様体の正則写像](textbook/volumes/dream_thater/代数系/AG/AG1-03/index.md)
 4. [AG1-04 局所化・局所環・点の近傍での関数](textbook/volumes/dream_thater/代数系/AG/AG1-04/index.md)
 5. [AG1-05 Noether環とHilbertの基底定理](textbook/volumes/dream_thater/代数系/AG/AG1-05/index.md)
+6. [AG1-06 整拡大とNoether正規化](textbook/volumes/dream_thater/代数系/AG/AG1-06/index.md)
 
 <a id="dt-subject-lie-theory"></a>
 ### Lie 理論
