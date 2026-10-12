@@ -212,7 +212,7 @@ $m=\prod_{i=1}^r q_i^{e_i}$ と異なる素数 $q_i$ で分解します。最小
 <!-- proof-start -->
 ### 証明
 
-体の乗法は可換なので有限部分群 $G$ も可換です。全元の位数の最小公倍数を $m$ とすると、[有限可換群の位数の最小公倍数](#lem-nt2-abelian-exponent)を扱う補題によって位数 $m$ の元 $g\in G$ が存在します。$g$ の $m$ 個のべきは異なるため $|G|\ge m$ です。一方、任意の $x\in G$ の位数は $m$ を割るので $x^m=1$ です。したがって $G$ の全元は体 $K$ 上の零でない多項式 $X^m-1$ の根であり、前述の根の個数の上界から $|G|\le m$ です。よって $|G|=m$ となり、$g$ のべきが $G$ を尽くします。
+体の乗法は可換なので有限部分群 $G$ も可換です。全元の位数の最小公倍数を $m$ とすると、[位数の最小公倍数に関する補題](#lem-nt2-abelian-exponent)によって位数 $m$ の元 $g\in G$ が存在します。$g$ の $m$ 個のべきは異なるため $|G|\ge m$ です。一方、任意の $x\in G$ の位数は $m$ を割るので $x^m=1$ です。したがって $G$ の全元は体 $K$ 上の零でない多項式 $X^m-1$ の根であり、前述の根の個数の上界から $|G|\le m$ です。よって $|G|=m$ となり、$g$ のべきが $G$ を尽くします。
 
 $p$ が素数なら $\mathbb Z/p\mathbb Z$ は体で、その非零元全体は乗法群を成します。その元は $p-1$ 個なので、この群は位数 $p-1$ の巡回群です。したがってその生成元は[原始根の定義](#def-nt2-primitive-root)を満たします。
 <!-- proof-end -->
@@ -272,7 +272,7 @@ $$
 (g+pt)^{p-1}
 \equiv g^{p-1}+(p-1)g^{p-2}pt\pmod{p^2}.
 $$
-$p\nmid g$ かつ $p\nmid(p-1)$ なので、$t=0$ と $t=1$ での右辺の差 $(p-1)g^{p-2}p$ は $p^2$ の倍数ではありません。従って少なくとも片方を選べば、$h=g+pt$ は $h^{p-1}\not\equiv1\pmod{p^2}$ を満たします。Fermat の小定理より $h^{p-1}\equiv1\pmod p$ なので
+$p\nmid g$ かつ $p\nmid(p-1)$ なので、$t=0$ と $t=1$ での右辺の差 $(p-1)g^{p-2}p$ は $p^2$ の倍数ではありません。従って少なくとも片方を選べば、$h=g+pt$ は $h^{p-1}\not\equiv1\pmod{p^2}$ を満たします。[Fermat の小定理](#cor-nt2-fermat)より $h^{p-1}\equiv1\pmod p$ なので
 $$
 h^{p-1}=1+pc,\qquad p\nmid c
 $$
@@ -311,7 +311,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$n=2$ の単数群は一元群で、$[1]_2$ が生成元です。$n=4$ では $[3]_4$ の位数は $2=\varphi(4)$ です。$p^k$ については[奇素数冪の定理](#thm-nt2-odd-prime-power)が存在を与えます。$n=2p^k$ では[中国剰余定理](../NT1/index.md#thm-nt1-crt-constructive)によって
+$n=2$ の単数群は一元群で、$[1]_2$ が生成元です。$n=4$ では $[3]_4$ の位数は $2=\varphi(4)$ です。$p^k$ については[奇素数冪の原始根の定理](#thm-nt2-odd-prime-power)が存在を与えます。$n=2p^k$ では[中国剰余定理](../NT1/index.md#thm-nt1-crt-constructive)によって
 $$
 (\mathbb Z/2p^k\mathbb Z)^\times
 \cong(\mathbb Z/2\mathbb Z)^\times\times(\mathbb Z/p^k\mathbb Z)^\times
