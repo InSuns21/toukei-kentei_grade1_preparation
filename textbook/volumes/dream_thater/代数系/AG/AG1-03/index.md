@@ -24,7 +24,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ag1-03-coordinate-ring -->
-**定義の確認：放物線上で同じ関数となる式。** $Y=V_{\mathbb C}(y-x^2)$ とすると、任意の点 $(t,t^2)\in Y$ で $y-x^2=0$ です。従って $y-x^2\in I(Y)$ であり、座標環では $\overline y=\overline{x^2}$ が成り立ちます。逆に $\overline y=\overline{x^2}$ と書けるのは、差が消滅イデアルに属するからです。加法・乗法は[商環の定義と演算](../../RNG/RNG1/index.md#def-rng1-quotient-ring)に従い、$\overline f+\overline g=\overline{f+g}$、$\overline f\,\overline g=\overline{fg}$ とします。
+**定義の確認**：放物線上で同じ関数となる式。 $Y=V_{\mathbb C}(y-x^2)$ とすると、任意の点 $(t,t^2)\in Y$ で $y-x^2=0$ です。従って $y-x^2\in I(Y)$ であり、座標環では $\overline y=\overline{x^2}$ が成り立ちます。逆に $\overline y=\overline{x^2}$ と書けるのは、差が消滅イデアルに属するからです。加法・乗法は[商環の定義と演算](../../RNG/RNG1/index.md#def-rng1-quotient-ring)に従い、$\overline f+\overline g=\overline{f+g}$、$\overline f\,\overline g=\overline{fg}$ とします。
 <!-- definition-example-end -->
 
 この商が**実際の関数の環**と一致することを確かめます。$k^X$ を $X\to k$ の関数全体とし、点ごとの演算で環にします。$k$ を定数関数として含むことも確認できます。
@@ -84,7 +84,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ag1-03-affine-variety -->
-**定義の確認：直線と二軸。** $X=V_{\mathbb C}(x)\subset\mathbb C^2$ は無限体上のアフィン直線と同じ閉集合構造を持ち、[既約集合の定義・確認](../AG1-02/index.md#def-ag1-02-irreducible)により空でない既約集合ですからアフィン代数多様体です。一方 $V_{\mathbb C}(xy)=V(x)\cup V(y)$ は、$(0,1)$ と $(1,0)$ が各直線の外側にあるため二つとも真の閉部分集合であり、アフィン代数多様体ではありません。
+**定義の確認**：直線と二軸。 $X=V_{\mathbb C}(x)\subset\mathbb C^2$ は無限体上のアフィン直線と同じ閉集合構造を持ち、[既約集合の定義・確認](../AG1-02/index.md#def-ag1-02-irreducible)により空でない既約集合ですからアフィン代数多様体です。一方 $V_{\mathbb C}(xy)=V(x)\cup V(y)$ は、$(0,1)$ と $(1,0)$ が各直線の外側にあるため二つとも真の閉部分集合であり、アフィン代数多様体ではありません。
 <!-- definition-example-end -->
 
 <a id="prop-ag1-03-domain"></a>
@@ -129,7 +129,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ag1-03-regular-map -->
-**定義の確認：放物線へのパラメータ表示。** $X=\mathbb C$、$Y=V_{\mathbb C}(y-x^2)$ として $F(t)=(t,t^2)$ と置きます。成分 $t,t^2$ は多項式であり、$t^2-t^2=0$ なので像は確かに $Y$ に入ります。従って $F$ は正則です。逆向きの $G:Y\to\mathbb C$、$G(a,b)=a$ も一つの座標多項式 $x$ の制限なので正則です。
+**定義の確認**：放物線へのパラメータ表示。 $X=\mathbb C$、$Y=V_{\mathbb C}(y-x^2)$ として $F(t)=(t,t^2)$ と置きます。成分 $t,t^2$ は多項式であり、$t^2-t^2=0$ なので像は確かに $Y$ に入ります。従って $F$ は正則です。逆向きの $G:Y\to\mathbb C$、$G(a,b)=a$ も一つの座標多項式 $x$ の制限なので正則です。
 <!-- definition-example-end -->
 
 <a id="prop-ag1-03-continuity"></a>
