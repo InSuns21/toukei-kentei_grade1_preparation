@@ -6,6 +6,7 @@ prerequisites:
   - HDP3
   - HDP1
   - F0-00F2
+  - F0-00P4
 forward_references: []
 concepts:
   - id: high-dimensional-probability.subgaussian-vector
