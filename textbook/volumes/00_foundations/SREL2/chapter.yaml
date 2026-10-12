@@ -1,0 +1,44 @@
+id: "SREL2"
+title: "Minkowski時空・光円錐・固有時"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SREL1
+official_scope: []
+learning_objectives:
+  - 時間座標をctとしてMinkowski計量の符号規約を定め、時空間隔を具体的に計算できる
+  - 三次元へのLorentz boostの拡張を用い、Minkowski時空間隔とその因果分類の不変性を計算で証明できる
+  - 光円錐の内部・境界・外部を区別し、因果的時間順序の保存と空間的分離の同時系を導出できる
+  - 未来向き時間的な世界線の固有時を積分で計算し、Lorentz不変性を説明・証明できる
+  - 同じ二事象を結ぶ慣性世界線の固有時最大性を証明し、折り返す時計の比較で検算できる
+definitions:
+  - { id: SREL2-DEF-01, name: Minkowski計量 }
+  - { id: SREL2-DEF-02, name: 時空間隔 }
+  - { id: SREL2-DEF-03, name: 時間的・光的・空間的分離 }
+  - { id: SREL2-DEF-04, name: 光円錐と因果円錐 }
+  - { id: SREL2-DEF-05, name: 時間的世界線の固有時 }
+theorems:
+  - { id: SREL2-THM-01, name: Minkowski時空間隔のLorentz不変性 }
+  - { id: SREL2-PROP-01, name: 因果的時間順序の保存と空間的同時系 }
+  - { id: SREL2-THM-02, name: 固有時の慣性系不変性 }
+  - { id: SREL2-PROP-02, name: 同じ二事象を結ぶ慣性世界線の固有時最大性 }
+canonical_examples:
+  - 光的な非零ベクトルでMinkowski計量が正定値でないことを直接確認
+  - 三次元空間の二事象を時間的・光的・空間的に分類
+  - 光円錐に到達する信号と到達できない信号
+  - 定速時計の固有時を積分で求める
+  - 両端の位置が一致する慣性系と折り返す時計の固有時比較
+problem_patterns:
+  - SREL2-INTERVAL-CLASSIFICATION
+  - SREL2-BOOST-INTERVAL-INVARIANCE
+  - SREL2-LIGHT-CONE-REACHABILITY
+  - SREL2-CONSTANT-SPEED-PROPER-TIME
+  - SREL2-SPACELIKE-SIMULTANEITY
+  - SREL2-THREE-DIMENSIONAL-BOOST
+  - SREL2-ENDPOINT-REST-FRAME
+  - SREL2-TURNAROUND-CLOCK
+  - SREL2-INTEGRATED-TWIN-PROPER-TIME
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 6, review: 3 }

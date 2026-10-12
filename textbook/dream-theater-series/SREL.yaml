@@ -11,7 +11,7 @@ chapters:
     title: 慣性系・光速度不変・Lorentz変換
   - id: SREL2
     path: textbook/volumes/00_foundations/SREL2
-    status: planned
+    status: completed
     title: Minkowski時空・光円錐・固有時
   - id: SREL3
     path: textbook/volumes/00_foundations/SREL3

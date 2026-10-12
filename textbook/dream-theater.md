@@ -813,6 +813,7 @@
 ### 特殊相対論 I
 
 1. [SREL1 慣性系・光速度不変・Lorentz変換](textbook/volumes/00_foundations/SREL1/index.md)
+2. [SREL2 Minkowski時空・光円錐・固有時](textbook/volumes/00_foundations/SREL2/index.md)
 
 <a id="dt-subject-thermodynamics"></a>
 ### 熱力学

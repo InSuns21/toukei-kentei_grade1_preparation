@@ -1,0 +1,70 @@
+chapter: SREL2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SREL1
+forward_references: []
+
+concepts:
+  - id: relativity.minkowski-metric
+    name: Minkowski計量
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Minkowski計量）]
+    requires: [relativity.event-worldline, relativity.lorentz-boost-1d]
+
+  - id: relativity.spacetime-interval
+    name: 時空間隔
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（時空間隔）]
+    requires: [relativity.minkowski-metric]
+
+  - id: relativity.interval-invariance
+    name: Minkowski時空間隔のLorentz不変性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Minkowski時空間隔のLorentz不変性）]
+    requires: [relativity.spacetime-interval, relativity.lorentz-boost-1d]
+
+  - id: relativity.causal-types
+    name: 時間的・光的・空間的分離
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（時間的・光的・空間的分離）]
+    requires: [relativity.spacetime-interval]
+
+  - id: relativity.light-cone
+    name: 光円錐と因果円錐
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（光円錐と因果円錐）]
+    requires: [relativity.causal-types]
+
+  - id: relativity.causal-order
+    name: 因果的時間順序の保存と空間的同時系
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（因果的時間順序の保存と空間的同時系）]
+    requires: [relativity.light-cone, relativity.interval-invariance]
+
+  - id: relativity.proper-time
+    name: 時間的世界線の固有時
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（時間的世界線の固有時）]
+    requires: [relativity.minkowski-metric, relativity.event-worldline]
+
+  - id: relativity.proper-time-invariance
+    name: 固有時の慣性系不変性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（固有時の慣性系不変性）]
+    requires: [relativity.proper-time, relativity.interval-invariance, relativity.causal-order]
+
+  - id: relativity.inertial-max-proper-time
+    name: 同じ二事象を結ぶ慣性世界線の固有時最大性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（同じ二事象を結ぶ慣性世界線の固有時最大性）]
+    requires: [relativity.proper-time-invariance, relativity.causal-order]
