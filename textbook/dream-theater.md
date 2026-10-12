@@ -898,6 +898,7 @@
 ### 統計力学
 
 1. [SM1 微視的状態・巨視的状態・アンサンブル・熱力学極限](textbook/volumes/dream_thater/物理系/SM/SM1/index.md)
+2. [SM2 微正準アンサンブルとBoltzmannエントロピー](textbook/volumes/dream_thater/物理系/SM/SM2/index.md)
 
 <a id="dt-subject-mathematical-quantum-mechanics"></a>
 ### 数理量子力学

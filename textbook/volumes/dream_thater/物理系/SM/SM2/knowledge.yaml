@@ -1,0 +1,62 @@
+chapter: SM2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SM1
+  - TH4
+forward_references: []
+concepts:
+  - id: statistical-mechanics.microcanonical-ensemble
+    name: 有限微正準アンサンブル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限微正準アンサンブル）]
+    requires: [statistical-mechanics.finite-ensemble, statistical-mechanics.discrete-density-of-states]
+  - id: statistical-mechanics.microcanonical-expectation
+    name: 微正準分布の規格化と観測量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（微正準分布の規格化と観測量）]
+    requires: [statistical-mechanics.microcanonical-ensemble, statistical-mechanics.macro-pushforward]
+  - id: statistical-mechanics.boltzmann-entropy
+    name: Boltzmannエントロピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Boltzmannエントロピー）]
+    requires: [statistical-mechanics.discrete-density-of-states]
+  - id: statistical-mechanics.additive-composite
+    name: 加法的な複合有限系
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（加法的な複合有限系）]
+    requires: [statistical-mechanics.microcanonical-ensemble]
+  - id: statistical-mechanics.composite-energy-convolution
+    name: 固定分割の積と総エネルギーの畳み込み
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（固定分割の積と総エネルギーの畳み込み）]
+    requires: [statistical-mechanics.additive-composite, statistical-mechanics.boltzmann-entropy]
+  - id: statistical-mechanics.energy-split-probability
+    name: エネルギー分割の確率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（エネルギー分割の確率）]
+    requires: [statistical-mechanics.composite-energy-convolution, statistical-mechanics.microcanonical-expectation]
+  - id: statistical-mechanics.statistical-temperature
+    name: エントロピー微分による統計的温度
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（エントロピー微分による統計的温度）]
+    requires: [statistical-mechanics.boltzmann-entropy, thermodynamics.fundamental-relation-fixed-n]
+  - id: statistical-mechanics.energy-balance-temperature
+    name: 固定総エネルギー下の内部極値と温度の一致
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（固定総エネルギー下の内部極値と温度の一致）]
+    requires: [statistical-mechanics.composite-energy-convolution, statistical-mechanics.statistical-temperature]
+  - id: statistical-mechanics.binary-entropy-rate
+    name: 二値スピンの多重度のエントロピー率
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（二値スピンの多重度のエントロピー率）]
+    requires: [statistical-mechanics.central-spin-growth, statistical-mechanics.boltzmann-entropy]
