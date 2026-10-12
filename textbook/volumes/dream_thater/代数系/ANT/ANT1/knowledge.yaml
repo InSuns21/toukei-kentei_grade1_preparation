@@ -1,0 +1,64 @@
+chapter: ANT1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NT5
+  - NT8
+forward_references: []
+
+concepts:
+  - id: analytic-number-theory.mean-order
+    name: 算術関数の平均次数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（算術関数の平均次数）]
+    requires: [number-theory.summatory-function]
+
+  - id: analytic-number-theory.main-error
+    name: 主項と誤差項
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（主項と誤差項）]
+    requires: [analytic-number-theory.mean-order]
+
+  - id: analytic-number-theory.euler-constant
+    name: Euler定数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Euler定数）]
+    requires: []
+
+  - id: analytic-number-theory.abel-summation
+    name: Abelの部分和公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Abelの部分和公式）]
+    requires: [number-theory.summatory-function]
+
+  - id: analytic-number-theory.harmonic-estimate
+    name: 調和和の評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（調和和の評価）]
+    requires: [analytic-number-theory.euler-constant]
+
+  - id: analytic-number-theory.divisor-mean
+    name: 約数個数関数の平均
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（約数個数関数の平均）]
+    requires: [number-theory.dirichlet-hyperbola-method, analytic-number-theory.harmonic-estimate, analytic-number-theory.mean-order]
+
+  - id: analytic-number-theory.totient-mean
+    name: Euler関数の平均
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Euler関数の平均）]
+    requires: [number-theory.totient-divisor-sum, number-theory.mobius-convolution-inverse, analytic-number-theory.mean-order]
+
+  - id: analytic-number-theory.weighted-divisor-mean
+    name: 約数個数関数の重み付き総和
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（約数個数関数の重み付き総和）]
+    requires: [analytic-number-theory.divisor-mean, analytic-number-theory.abel-summation]
