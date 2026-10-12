@@ -322,32 +322,32 @@ $$
 
 そこで半径 $r$ を
 
-$
+$$
 0<r<Re^{-L}
-$
+$$
 
 と選びます。初期点 $x\in B_r$ から出る解について、上の評価が成立する限り
 
-$
+$$
 |\varphi_t(x)|\le re^L<R
 \qquad (0\le t\le1)
-$
+$$
 
 です。従って時刻1以前に球の境界へ初めて到達することはありません。
 
 それでも時刻1以前に解が延長不能となる可能性を排除する必要があります。ここで解は、球の内部にあるコンパクト集合
 
-$
+$$
 \overline{B_{re^L}}\subset B_R
-$
+$$
 
 に留まります。係数行列の行列式が零から一様に離れているため、時間区間も少し広げてベクトル場を滑らかに定義できます。[解の延長定理](../ODE8/index.md#thm-ode8-continuation)を時間変数を含む拡大系に適用すると、有限時刻にコンパクト集合内で解が停止することはありません。
 
 ゆえに全ての $x\in B_r$ について
 
-$
+$$
 \varphi_1(x)\ \text{が定義される}
-$
+$$
 
 と結論できます。
 
@@ -375,14 +375,14 @@ $$
 
 一行目がなぜ成立するかも成分で確認します。$\omega_t=\frac12\omega_{t,ij}\,dx^i\wedge dx^j$、$\varphi_t=(\varphi_t^1,\ldots,\varphi_t^{2n})$ と書き、$\partial_t\varphi_t^i=Y_t^i(\varphi_t)$ を座標で微分すると
 
-$
+$$
 \partial_t(\partial_a\varphi_t^i)
 =\sum_k(\partial_kY_t^i)(\varphi_t)\,\partial_a\varphi_t^k.
-$
+$$
 
 従って $\varphi_t^*\omega_t$ の $(a,b)$ 成分を積の微分で展開すると、$\omega_{t,ij}$ の時間微分・移流項・二つのJacobianの微分から
 
-$
+$$
 \begin{aligned}
 \partial_t(\varphi_t^*\omega_t)_{ab}
 &=\sum_{i,j}\Bigl[
@@ -396,7 +396,7 @@ $
 &=\bigl(\varphi_t^*(\partial_t\omega_t+
 \mathcal L_{Y_t}\omega_t)\bigr)_{ab}.
 \end{aligned}
-$
+$$
 
 これは各成分についての等式なので、引き戻し公式が従います。上の相殺計算の二行目では $d\omega_t=0$、三行目では $d\sigma=\beta$ と $\iota_{Y_t}\omega_t=-\sigma$ を使いました。
 
