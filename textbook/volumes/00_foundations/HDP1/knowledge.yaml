@@ -1,0 +1,39 @@
+chapter: HDP1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00P2A
+  - F0-00P3
+  - RA3
+forward_references: []
+concepts:
+  - id: high-dimensional-probability.exponential-markov
+    name: 指数Markov法
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（指数Markov法）]
+    requires: [prob.markov-inequality, prob.expectation]
+  - id: high-dimensional-probability.centered-log-mgf
+    name: 中心化対数指数モーメント
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（中心化対数指数モーメント）]
+    requires: [prob.expectation]
+  - id: high-dimensional-probability.hoeffding-lemma
+    name: Hoeffding補題
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（Hoeffding補題）]
+    requires: [high-dimensional-probability.centered-log-mgf]
+  - id: high-dimensional-probability.hoeffding-inequality
+    name: Hoeffdingの不等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Hoeffdingの不等式：独立・非同分布版）]
+    requires: [high-dimensional-probability.exponential-markov, high-dimensional-probability.hoeffding-lemma, prob.expectation-factorization]
+  - id: high-dimensional-probability.hoeffding-two-sided
+    name: Hoeffdingの両側不等式
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（Hoeffdingの両側不等式）]
+    requires: [high-dimensional-probability.hoeffding-inequality, prob.union-bound]

@@ -2,7 +2,7 @@
 
 作成日: 2026-10-10  
 再設計: 2026-10-12  
-状態: planned（PLAN 設計のみ）
+状態: in_progress（HDP1 実装・変更章査読済、HDP2 以降と横断監査は未完了）
 
 ## 0. 中心問い
 
@@ -86,3 +86,11 @@ sub-Gaussian の特性は平均中心化・全方向の線形射影に対する�
 - 完成は主要な学習目標・定理証明・演習詳細解答の充足、数学・読者粒度監査、必要なCI合格を条件とする。講数・週数は完了条件にしない。変更章の主要証明と全演習解答を再計算し、別観点で査読する。別の完了章の追跡監査は章ID指定の明示依頼がある場合のみ行う。
 
 参考範囲: Roman Vershynin, *High-Dimensional Probability*; Martin Wainwright, *High-Dimensional Statistics*; Stéphane Boucheron, Gábor Lugosi, Pascal Massart, *Concentration Inequalities*.
+
+
+## 6. 実装系列と現在地（2026-10-12）
+
+- 系列manifest: `textbook/dream-theater-series/HDP.yaml`
+- HDP1: 指数Markov法、Hoeffding補題、独立非同分布Hoeffding不等式、両側偏差と多座標union bound。本文・全演習解答を実装し、自己検算と同一担当の別観点再査読を実施。
+- HDP2〜HDP10: 上記 A〜F を実装する暫定まとまり。証明の長さや前提によって実装時に追加・分割・統合でき、講数は固定しない。
+- PLAN全体の科目横断監査、下流SLT/RMTへの参照更新は、該当成果物が揃った段階で行う。HDP1の完成は PLAN全体の完了を意味しない。
