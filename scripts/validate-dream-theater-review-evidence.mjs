@@ -29,12 +29,12 @@ function inventory(source) {
 }
 function stableInventory(source) {
   return {
-    anchors: [...source.matchAll(/<a\\s+id=["']([^"']+)["']/g)].map(x => x[1]),
-    headings: [...source.matchAll(/^#{1,6}\\s+.+$/gm)].map(x => x[0].trim()),
-    links: [...source.matchAll(/\\[[^\\]]+\\]\\([^\\n)]+\\)/g)].map(x => x[0]),
-    codeBlocks: [...source.matchAll(/(```|~~~)[^\\n]*\\n[\\s\\S]*?\\n\\1/g)].map(x => x[0]),
-    inlineCode: [...source.matchAll(/(?<!`)`[^`\\n]+`(?!`)/g)].map(x => x[0]),
-    mathematics: [...source.matchAll(/\\$\\$[\\s\\S]*?\\$\\$|(?<!\)\\$(?:\.|[^\\$\\\n])+\\$/g)].map(x => x[0]),
+    anchors: [...source.matchAll(/<a\s+id=["']([^"']+)["']/g)].map(x => x[1]),
+    headings: [...source.matchAll(/^#{1,6}\s+.+$/gm)].map(x => x[0].trim()),
+    links: [...source.matchAll(/\[[^\]]+\]\([^\n)]+\)/g)].map(x => x[0]),
+    codeBlocks: [...source.matchAll(/(```|~~~)[^\n]*\n[\s\S]*?\n\1/g)].map(x => x[0]),
+    inlineCode: [...source.matchAll(/(?<!`)`[^`\n]+`(?!`)/g)].map(x => x[0]),
+    mathematics: [...source.matchAll(/\$\$[\s\S]*?\$\$|(?<!\)\$(?:\.|[^\$\\n])+\$/g)].map(x => x[0]),
     exercises: inventory(source).exercises
   };
 }
@@ -44,16 +44,16 @@ function stableInventory(source) {
 // Collapse only Markdown quotation/list/emphasis and insignificant blank lines.
 function presentationSignature(source) {
   let fenced = false;
-  return source.replace(/\\r\\n/g, '\\n').split('\\n').map(line => {
-    let s = line.replace(/^\\s*(?:>\\s*)+/, '').trim();
+  return source.replace(/\r\n/g, '\n').split('\n').map(line => {
+    let s = line.replace(/^\s*(?:>\s*)+/, '').trim();
     if (/^(```|~~~)/.test(s)) { fenced = !fenced; return 'FENCE:' + s; }
     if (fenced) return 'CODE:' + line;
-    if (/^\\d+[.)]\\s+/.test(s)) s = s.replace(/^\\d+[.)]\\s+/, 'ITEM:');
-    else if (/^[-*+]\\s+/.test(s)) s = s.replace(/^[-*+]\\s+/, 'ITEM:');
-    else if (/^\\*\\*[（(][A-Za-z]{0,2}\\d+[）)]/.test(s))
-      s = s.replace(/^\\*\\*[（(][A-Za-z]{0,2}\\d+[）)]\\s*/, 'ITEM:**');
-    return s.replace(/\\*\\*/g, '').replace(/__/g, '').replace(/[ \\t]+/g, ' ').trim();
-  }).filter(Boolean).join('\\n');
+    if (/^\d+[.)]\s+/.test(s)) s = s.replace(/^\d+[.)]\s+/, 'ITEM:');
+    else if (/^[-*+]\s+/.test(s)) s = s.replace(/^[-*+]\s+/, 'ITEM:');
+    else if (/^\*\*[（(][A-Za-z]{0,2}\d+[）)]/.test(s))
+      s = s.replace(/^\*\*[（(][A-Za-z]{0,2}\d+[）)]\s*/, 'ITEM:**');
+    return s.replace(/\*\*/g, '').replace(/__/g, '').replace(/[ \t]+/g, ' ').trim();
+  }).filter(Boolean).join('\n');
 }
 function isVerifiedFormatOnly(before, after) {
   if (before === null || before === after) return before !== null;
@@ -103,18 +103,18 @@ function selfTest() {
   assert.deepEqual(inventory(src), expected);
   assert.equal(sectionsFrom('<!-- DT-REVIEW: T1 -->\nabc').get('T1').text.trim(), 'abc');
   assert.equal(sectionsFrom('<!-- DT-REVIEW: T1 local-math -->\nabc').get('T1').mode, 'local-math');
-  const from = '> 1. **結合則**\\n>\\n$\\na=b\\n$\\n>\\n> 2. **単位元**';
-  const to = '> **（G1）結合則**\\n>\\n$\\na=b\\n$\\n>\\n> **（G2）単位元**';
+  const from = '> 1. **結合則**\n>\n$$\na=b\n$$\n>\n> 2. **単位元**';
+  const to = '> **（G1）結合則**\n>\n$$\na=b\n$$\n>\n> **（G2）単位元**';
   assert(isVerifiedFormatOnly(from, to), 'presentational list number fix should qualify');
   assert(!isVerifiedFormatOnly(from, to.replace('a=b', 'a=c')), 'math change must not qualify');
   assert(!isVerifiedFormatOnly(from, to.replace('結合則', '交換則')), 'prose change must not qualify');
-  assert(!isVerifiedFormatOnly('<a id="x"></a>\\n' + from, '<a id="y"></a>\\n' + to), 'anchor change must not qualify');
-  assert(!isVerifiedFormatOnly('## 同じ見出し\\n' + from, '## 別の見出し\\n' + to), 'heading change must not qualify');
-  assert(!isVerifiedFormatOnly('[参照](a.md)\\n' + from, '[参照](b.md)\\n' + to), 'link change must not qualify');
-  assert(!isVerifiedFormatOnly('### A1. 問題\\n' + from, '### A2. 問題\\n' + to), 'exercise ID change must not qualify');
-  assert(!isVerifiedFormatOnly('```js\\na**b\\n```', '```js\\nab\\n```'), 'code change must not qualify');
+  assert(!isVerifiedFormatOnly('<a id="x"></a>\n' + from, '<a id="y"></a>\n' + to), 'anchor change must not qualify');
+  assert(!isVerifiedFormatOnly('## 同じ見出し\n' + from, '## 別の見出し\n' + to), 'heading change must not qualify');
+  assert(!isVerifiedFormatOnly('[参照](a.md)\n' + from, '[参照](b.md)\n' + to), 'link change must not qualify');
+  assert(!isVerifiedFormatOnly('### A1. 問題\n' + from, '### A2. 問題\n' + to), 'exercise ID change must not qualify');
+  assert(!isVerifiedFormatOnly('```js\na**b\n```', '```js\nab\n```'), 'code change must not qualify');
   assert(!isVerifiedFormatOnly(null, to), 'new chapter must not qualify');
-  assert(isVerifiedFormatOnly('  元の本文  \\n\\n定義', '元の本文\\n定義'), 'spaces and blank lines should qualify');
+  assert(isVerifiedFormatOnly('  元の本文  \n\n定義', '元の本文\n定義'), 'spaces and blank lines should qualify');
   const tick = String.fromCharCode(96);
   const body = fields.map(f => '- **' + f + '**：十分な実査読情報をここに記録した。').join('\n')
     .replace('- **主要結果アンカー**：十分な実査読情報をここに記録した。',
