@@ -6,12 +6,18 @@ prerequisites:
   - TH1
 forward_references: []
 concepts:
+  - id: thermodynamics.heat-reservoir
+    name: 熱浴
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（熱浴）]
+    requires: [thermodynamics.thermal-equilibrium]
   - id: thermodynamics.heat-engine
     name: 熱機関と熱効率
     kind: definition
     introduction: formal
     introduction_aliases: [定義（熱機関と熱効率）]
-    requires: [thermodynamics.cycle-balance, thermodynamics.heat-work]
+    requires: [thermodynamics.heat-reservoir, thermodynamics.cycle-balance, thermodynamics.heat-work]
   - id: thermodynamics.engine-balance
     name: 二熱浴熱機関の収支
     kind: proposition
