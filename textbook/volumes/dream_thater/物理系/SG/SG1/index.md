@@ -4,7 +4,7 @@
 
 ところが磁性体の不純物や結合のばらつきは、試料を作るたびに変わり得ます。試料を一つ選んだ後は、その無秩序は熱的なスピン変動とは別に固定されています。そこで「**先に熱平衡を計算して試料間で平均する**」ことと、「**先に試料間で Boltzmann 重みを平均する**」ことを分けます。この順序が、低温で劇的な差を生みます。
 
-本章ではエネルギー同士を独立な正規確率変数とする Random Energy Model（REM）を使い、圧力の極限をエネルギー帯ごとの状態数から証明します。結合からエネルギーの相関が生まれる Sherrington–Kirkpatrick（SK）模型は後続で扱います。
+本章では配置ごとに独立な正規エネルギーを与える最も単純な無秩序模型を使い、圧力の極限をエネルギー帯ごとの状態数から証明します。結合からエネルギーの相関が生まれる Sherrington–Kirkpatrick（SK）模型は後続で扱います。
 
 ## 1. 熱揺らぎと試料ごとの無秩序
 
@@ -204,7 +204,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-前節で導いた $\mathbb Ee^{sH}=e^{Ns^2/2}$ と、非負変数の Markov 不等式を使うと、任意の $s,t>0$ に対して
+前節で導いた $\mathbb Ee^{sH}=e^{Ns^2/2}$ と、非負変数の [Markov 不等式](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-markov)を使うと、任意の $s,t>0$ に対して
 
 $$
 \mathbb P(H_N(\sigma)\ge Nt)
@@ -230,7 +230,7 @@ $$
 
 $2^N$ 個の同分布な指示変数を足したものが $C_N(I)$ なので、期待値の二つの境界が得られます。さらに、配置間のエネルギーの[独立性](../../../解析系/F0/F0-00P3/index.md#def-f0-00p3-independent-random-variables)から、各指示変数も独立になり、共分散の交差項が消えます。したがって
 
-$
+$$
 \operatorname{Var}C_N(I)
 =2^Np_I(1-p_I)\le2^Np_I
 =\mathbb EC_N(I)
@@ -275,7 +275,7 @@ $$
 
 ### 証明の見取り図
 
-上からは有限個のエネルギー帯に分け、帯ごとの配置数に Markov 不等式を適用します。下からは候補のエネルギー密度 $x$ を $|x|<a$ に固定し、[帯内状態数の補題](#lem-sg1-bins)による集中を使います。最適点が境界 $a$ のときも、内側の $x<a$ を近付けて扱えます。最後に一様二乗可積分性を確認して期待値の極限へ進みます。
+上からは有限個のエネルギー帯に分け、帯ごとの配置数に [Markov 不等式](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-markov)を適用します。下からは候補のエネルギー密度 $x$ を $|x|<a$ に固定し、[帯内状態数の補題](#lem-sg1-bins)による集中を使います。最適点が境界 $a$ のときも、内側の $x<a$ を近付けて扱えます。最後に一様二乗可積分性を確認して期待値の極限へ進みます。
 
 <!-- proof-start -->
 ### 証明
@@ -305,7 +305,7 @@ $$
 \exp[N(\log2-b_j+\varepsilon/2)].
 $$
 
-Markov 不等式を $C_N(I_j)$ に適用すると
+[Markov 不等式](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-markov)を $C_N(I_j)$ に適用すると
 
 $$
 \mathbb P\left(C_N(I_j)>
@@ -666,54 +666,54 @@ $$
 
 一つの試料に典型的に存在できる帯の境界は、その指数が0になる $|x|=a_v$、$a_v=\sqrt{2vs}$ です。これは本章の [REM圧力定理の証明](#thm-sg1-pressure)の $2^N$ を $M_N$ に、分散 $N$ を $Nv$ に置き換えた計算です。実際、尾確率は $\mathbb P(|Y_i|>t)\le2e^{-Nt^2/(2v)}$ なので、和集合評価は $2M_N e^{-Nt^2/(2v)}$ となり $t>a_v$ で消えます。固定帯の期待値は $\sqrt{N/(2\pi v)}|I|\,M_N$ に密度指数を掛けた上下界で挟めます。$|x|<a_v$ の帯は独立性による分散評価と Chebyshev 不等式で集中します。ここで上下界の各操作を確かめます。$t>a_v$ を固定すると、配置数 $M_N\le 2e^{Ns}$ なので
 
-$
+$$
 \mathbb P\!\left(\max_i|Y_i|>t\right)
 \le 2M_Ne^{-Nt^2/(2v)}
 \le 4e^{-N(t^2/(2v)-s)}\longrightarrow0.
-$
+$$
 
 上界では $[-t,t]$ を幅 $\delta$ 以下の有限個の区間 $I_j$ に分けます。各区間の期待配置数は
 
-$
+$$
 \mathbb EC_N(I_j)\le
 M_N\sqrt{\frac{N}{2\pi v}}|I_j|
 \exp\!\left[-N\inf_{x\in I_j}\frac{x^2}{2v}\right]
-$
+$$
 
-と評価できるので、任意の $\varepsilon>0$ に対し Markov 不等式と有限個の区間への和集合評価から、高確率で
+と評価できるので、任意の $\varepsilon>0$ に対し [Markov 不等式](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-markov)と有限個の区間への和集合評価から、高確率で
 
-$
+$$
 C_N(I_j)\le
 \exp\!\left[N\left(s-\inf_{x\in I_j}\frac{x^2}{2v}+\varepsilon\right)\right]
-$
+$$
 
 がすべての $j$ に成り立ちます。各区間での $e^{N\beta Y_i}$ の最大値を掛けて足すと、$N^{-1}\log Z_N$ の上界が得られます。$x^2/(2v)$ は $[-t,t]$ 上で Lipschitz 連続なので、先に $N\to\infty$、次に $\varepsilon,\delta\downarrow0$、$t\downarrow a_v$ と取れば、上極限は $|x|\le a_v$ での候補関数の最大値以下です。
 
 下界では $|x|<a_v$ を固定し、その点を含む十分小さい区間 $I$ を選びます。$r_I=s-\sup_{y\in I}y^2/(2v)>0$ です。独立性より $\operatorname{Var}C_N(I)\le\mathbb EC_N(I)$ で、期待値は $e^{Nr_I}$ に正の多項式因子を掛けたもの以上です。Chebyshev 不等式から高確率で $C_N(I)\ge \mathbb EC_N(I)/2$ となります。ゆえに
 
-$
+$$
 \frac1N\log Z_N\ge
 \frac1N\log C_N(I)+\beta\inf I
 \ge r_I+\beta\inf I+o(1).
-$
+$$
 
 $I$ を点 $x$ に縮め、その後 $x$ を $(-a_v,a_v)$ 全体で動かせば、閉区間 $[-a_v,a_v]$ での最大値を下から得ます。これで確率収束が成立します。さらに $L_N=\max_i|Y_i|$ とおくと
 
-$
+$$
 \left|\frac1N\log Z_N\right|
 \le\frac{\log M_N}{N}+\beta L_N.
-$
+$$
 
 上の尾評価を $t_0>a_v$ から積分すると
 
-$
+$$
 \mathbb E L_N^2\le t_0^2+
 \frac{8v}{N}e^{-N(t_0^2/(2v)-s)},
-$
+$$
 
 よって一スピン圧力は一様に二乗可積分であり、確率収束から期待値の収束も従います。したがって quenched 極限圧力は
 
-$
+$$
 p_{s,v}(\beta)=\max_{|x|\le a_v}
 \left(s-\frac{x^2}{2v}+\beta x\right)
 $$
