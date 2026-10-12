@@ -285,7 +285,7 @@ $$
 \pi(x)\le\sqrt x+\frac{2\theta(x)}{\log x}
 \le\sqrt x+10\log2\,\frac{x}{\log x}.
 $$
-$x\ge2$ では $\log x\le\sqrt x$ です。実際 $u=\sqrt x$ とすれば $u-2\log u$ の最小値は $u=2$ における $2-2\log2>0$ です。よって $\sqrt x\le x/\log x$ を代入して結論を得ます。
+$x\ge2$ では $\log x\le\sqrt x$ です。これを確かめるため $u=\sqrt x\ge\sqrt2$ とし、$g(u)=u-2\log u$ と置きます。微分すると $g'(u)=1-2/u$ なので、$g$ は $u\le2$ で減少し、$u\ge2$ で増加します。従って $u\ge\sqrt2$ における最小値は $g(2)=2-2\log2>0$ です。すなわち $\sqrt x-\log x>0$ であり、上の式へ $\sqrt x\le x/\log x$ を代入して結論を得ます。
 <!-- proof-end -->
 
 この定理は $\pi(x)$ が $x/\log x$ の定数倍より大きくならないことを示します。しかし下側の評価も必要です。
@@ -399,7 +399,23 @@ $$
 \frac{\sqrt{2m}\log(2m)\lfloor\log_2(2m)\rfloor}{2m}
 \le\frac{(\log(2m))^2}{\sqrt{2m}\log2}\longrightarrow0.
 $$
-最後の極限は $u=\log(2m)$ と置き $u^2e^{-u/2}\to0$ と確認できます。従って十分大きい $m$ で $\theta(2m)\ge m\log2$ です。
+この極限で多項式より指数関数が速く増えることを、具体的な上界から確認します。$z=2m$ に対し $n=\lfloor\log_2z\rfloor$ とすると $2^n\le z<2^{n+1}$ なので
+
+$$
+\frac{(\log z)^2}{\sqrt z}
+\le\frac{(n+1)^2(\log2)^2}{2^{n/2}}.
+$$
+
+右辺の $a_n=(n+1)^2 2^{-n/2}$ は
+
+$$
+\frac{a_{n+1}}{a_n}
+=\frac{(n+2)^2}{(n+1)^2\sqrt2}
+\le\frac{(10/9)^2}{\sqrt2}<1
+\qquad(n\ge8)
+$$
+
+を満たします。従って $a_n$ は十分大きな $n$ から一定比未満の幾何級数で上から押さえられ、$a_n\to0$ です。先ほどの誤差を $2m$ で割った値は $0$ へ収束するので、十分大きい $m$ で $\theta(2m)\ge m\log2$ です。
 
 十分大きい $x$ で $m=\lfloor x/2\rfloor$ とすれば $2m\le x$ です。$\theta$ は非減少なので
 $$
@@ -417,7 +433,7 @@ $$
 
 ## 6. 定数倍から正確な漸近比へ
 
-$ f(x)\sim g(x)$ は $f(x)/g(x)\to1$ を意味し、単に上下の定数倍で挟まれることより強い主張です。次の定理の完全証明は ANT 系列で扱うため、本章では**証明なしの到達目標**として掲げます。
+$f(x)\sim g(x)$ は $f(x)/g(x)\to1$ を意味し、単に上下の定数倍で挟まれることより強い主張です。次の定理の完全証明は ANT 系列で扱うため、本章では**証明なしの到達目標**として掲げます。
 
 <a id="thm-nt8-prime-number-theorem"></a>
 
@@ -461,11 +477,20 @@ $$
 \theta(x)\ge(1-\varepsilon)\log x\,(\pi(x)-\pi(y)).
 $$
 $\pi(x)\sim x/\log x$ と仮定します。$\pi(y)\le y$ だから
+
 $$
 \frac{\pi(y)\log x}{x}
 \le\frac{\log x}{x^\varepsilon}\longrightarrow0.
 $$
-二つの評価を $x$ で割り、$\pi(x)\log x/x\to1$ を入れると、[下極限](../../../基礎科目/RA/RA1/index.md#def-ra1-limsup)の値は $1-\varepsilon$ 以上、上極限は $1$ 以下です。$\varepsilon$ は任意なので $\theta(x)/x\to1$ です。
+
+最後の極限は、$2^n\le x<2^{n+1}$ と置くと
+
+$$
+0\le\frac{\log x}{x^\varepsilon}
+\le\frac{(n+1)\log2}{2^{n\varepsilon}}
+$$
+
+となることから確かめられます。右辺は隣接項の比が $2^{-\varepsilon}(n+2)/(n+1)\to2^{-\varepsilon}<1$ なので零へ収束します。二つの評価を $x$ で割り、$\pi(x)\log x/x\to1$ を入れると、[下極限](../../../基礎科目/RA/RA1/index.md#def-ra1-limsup)の値は $1-\varepsilon$ 以上、上極限は $1$ 以下です。$\varepsilon$ は任意なので $\theta(x)/x\to1$ です。
 
 逆に $\theta(x)/x\to1$ と仮定します。先ほどの上界から
 $$
@@ -534,13 +559,23 @@ $$
 \zeta(s)\le1+\int_1^\infty t^{-s}\,dt
 =1+\frac1{s-1}<\infty.
 $$
-各素数 $p$ に対して $0<p^{-s}<1$ なので幾何級数の和を使えます。素数 $P$ 以下の有限積を展開すると
+各素数 $p$ に対して $0<p^{-s}<1$ なので幾何級数の和を使えます。素数 $P$ 以下の素数を $p_1,\ldots,p_r$ とします。まず指数の上限 $B$ を固定すると、有限和の分配法則で
+
+$$
+\prod_{i=1}^r\left(\sum_{a=0}^{B}p_i^{-as}\right)
+=\sum_{0\le a_1,\ldots,a_r\le B}
+(p_1^{a_1}\cdots p_r^{a_r})^{-s}
+$$
+
+が成り立ちます。$B$ を増やすと両辺とも非減少であり、左辺は有限個の収束する幾何級数の積へ収束します。右辺では任意の非負整数組 $(a_1,\ldots,a_r)$ が十分大きい $B$ で含まれるため、次の表示が得られます。
+
 $$
 \prod_{p\le P}(1-p^{-s})^{-1}
 =\prod_{p\le P}\sum_{a=0}^\infty p^{-as}
 =\sum_{\substack{n\ge1\\n\text{ の素因数はすべて }P\text{ 以下}}}n^{-s}.
 $$
-有限個の素数に対応する正項級数の積は和の順序を変更でき、素因数分解の一意性により各整数が一度だけ現れます。この有限積は $\zeta(s)$ 以下で、$P$ を増やすと非減少です。極限を $L\le\zeta(s)$ とします。
+
+素因数分解の一意性により、各整数は一度だけ現れます。この有限積は $\zeta(s)$ 以下で、$P$ を増やすと非減少です。[有界単調数列の収束定理](../../../基礎科目/RA/RA1/index.md#thm-ra1-monotone)を、素数を小さい順に走らせた部分積列へ適用して、その極限を $L\le\zeta(s)$ とします。
 
 任意の $N$ について $P\ge N$ なら $1,\ldots,N$ の素因数はすべて $P$ 以下なので
 $$
@@ -752,7 +787,7 @@ $$
 \le\frac{\log x}{x^\varepsilon}
 +\frac{\theta(x)/x}{1-\varepsilon}.
 $$
-$\log x/x^\varepsilon\to0$、$\theta(x)/x\to1$ より、左辺の上極限は $1/(1-\varepsilon)$ 以下です。$\varepsilon$ は任意なので上極限は $1$ 以下、下極限は先ほどの評価で $1$ 以上です。従って $\pi(x)\log x/x\to1$ となり結論を得ます。
+[漸近式の同値性の証明](#prop-nt8-pnt-theta-equivalence)で示した $\log x/x^\varepsilon\to0$ と、仮定 $\theta(x)/x\to1$ より、左辺の上極限は $1/(1-\varepsilon)$ 以下です。$\varepsilon$ は任意なので上極限は $1$ 以下、下極限は先ほどの評価で $1$ 以上です。従って $\pi(x)\log x/x\to1$ となり結論を得ます。
 <!-- solution-end -->
 
 ## 9. 次の問い
