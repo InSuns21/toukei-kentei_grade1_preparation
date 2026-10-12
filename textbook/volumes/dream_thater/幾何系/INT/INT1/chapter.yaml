@@ -6,6 +6,7 @@ prerequisites:
   - SYM4
   - GMECH8
   - RA6A
+  - SYM6
 official_scope: []
 learning_objectives:
   - 第一積分とHamilton流沿いの保存性の同値を局所流だけで証明できる
