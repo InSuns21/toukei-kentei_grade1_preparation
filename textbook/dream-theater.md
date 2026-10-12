@@ -719,6 +719,11 @@
 9. [NT9 Diophantine集合・Hilbert第10問題 over Z](textbook/volumes/dream_thater/代数系/NT/NT9/index.md)
 10. [NT10 Hilbert第10問題 over Q](textbook/volumes/dream_thater/代数系/NT/NT10/index.md)
 
+<a id="dt-subject-diophantine-approximation"></a>
+### Diophantine近似
+
+1. [NDA1 連分数と最良有理近似の精密化](textbook/volumes/dream_thater/代数系/NDA/NDA1/index.md)
+
 <a id="dt-subject-analytic-number-theory"></a>
 ### 解析的整数論
 
