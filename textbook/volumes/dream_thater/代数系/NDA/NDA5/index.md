@@ -137,7 +137,7 @@ $p^2-2q^2$ は零でない整数なので絶対値が1以上です。近い分�
 <!-- proof-start -->
 ### 証明
 
-$\delta=|\sqrt2-p/q|$ と置きます。まず誤差 $\delta$ が $1$ 以下である場合を考えます。このとき三角不等式から
+$\delta=|\sqrt2-p/q|$ と置きます。まず誤差 $\delta$ が $1$ 以下である場合を考えます。$p/q+\sqrt2=(p/q-\sqrt2)+2\sqrt2$ の絶対値は二項の絶対値の和以下なので
 $$
 \left|\frac pq+\sqrt2\right|
 \le\left|\frac pq-\sqrt2\right|+2\sqrt2
