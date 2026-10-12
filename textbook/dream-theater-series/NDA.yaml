@@ -1,11 +1,11 @@
 version: 1
 id: NDA
 title: "Diophantine近似"
-plan: textbook/plans_progress/DREAM_THEATER_DIOPHANTINE_APPROXIMATION_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_DIOPHANTINE_APPROXIMATION_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # 2026-10-12 科目固有の直接依存・章ID・入口監査を完了。NDA1の執筆から開始する。
-# NDA1〜NDA8 本文・証明・演習を完了。PLAN横断監査は別途実施。
+# NDA1〜NDA8 の本文・証明・演習・横断監査を完了し、PLANを閉じた。
 chapters:
   - id: NDA1
     path: textbook/volumes/dream_thater/代数系/NDA/NDA1
