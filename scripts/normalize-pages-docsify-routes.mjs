@@ -36,7 +36,7 @@ function normalizeExplicitDocsifyRoutes(markdown) {
 function normalizeVolumeRelativeLinks(markdown, relative) {
   if (!relative.startsWith('textbook/volumes/')) return markdown;
   const sourceDir = path.posix.dirname(relative);
-  return markdown.replace(/(\[[^\]]*\]\()(\.\.\/[^)\s]+)(\))/g, (match, open, href, close) => {
+  return markdown.replace(/(\]\()(\.\.\/[^)\s]+)(\))/g, (match, open, href, close) => {
     const suffixAt = href.search(/[?#]/);
     const targetPath = suffixAt < 0 ? href : href.slice(0, suffixAt);
     const suffix = suffixAt < 0 ? '' : href.slice(suffixAt);
@@ -47,9 +47,9 @@ function normalizeVolumeRelativeLinks(markdown, relative) {
 }
 
 function selfTestVolumeRelativeLinks() {
-  const source = '[result](../LIE2/index.md#anchor) and [external](https://example.org)';
+  const source = '[result $[X,Y]$](../LIE2/index.md#anchor) and [external](https://example.org)';
   const actual = normalizeVolumeRelativeLinks(source, 'textbook/volumes/00_foundations/LIE4/index.md');
-  const expected = '[result](textbook/volumes/00_foundations/LIE2/index.md#anchor) and [external](https://example.org)';
+  const expected = '[result $[X,Y]$](textbook/volumes/00_foundations/LIE2/index.md#anchor) and [external](https://example.org)';
   if (actual !== expected) throw new Error('Docsify volume-relative link normalization regression');
 }
 selfTestVolumeRelativeLinks();
@@ -64,7 +64,7 @@ for (const relative of files) {
   const before = await readFile(filePath, 'utf8');
   const matches = [...before.matchAll(/\[[^\]]*\]\(#\/[^\s)]+\)/g)].length;
   const relativeMatches = relative.startsWith('textbook/volumes/')
-    ? [...before.matchAll(/\[[^\]]*\]\(\.\.\/[^)\s]+\)/g)].length : 0;
+    ? [...before.matchAll(/\]\(\.\.\/[^)\s]+\)/g)].length : 0;
   if (matches === 0 && relativeMatches === 0) continue;
 
   const after = normalizeVolumeRelativeLinks(normalizeExplicitDocsifyRoutes(before), relative);
