@@ -1,0 +1,45 @@
+chapter: HDP10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HDP9
+  - HDP6
+  - HDP1
+forward_references: []
+concepts:
+  - id: high-dimensional-probability.subgaussian-increments
+    name: 距離に従うsub-Gaussian増分
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（距離に従うsub-Gaussian増分）]
+    requires: []
+  - id: high-dimensional-probability.metric-covering-number
+    name: 有限距離空間の被覆数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限距離空間の被覆数）]
+    requires: []
+  - id: high-dimensional-probability.increment-tail
+    name: 増分の両側尾部
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（増分の両側尾部）]
+    requires: [high-dimensional-probability.subgaussian-increments, high-dimensional-probability.exponential-markov]
+  - id: high-dimensional-probability.finite-chaining
+    name: 有限過程の多段階chaining評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（有限過程の多段階chaining評価）]
+    requires: [high-dimensional-probability.increment-tail, high-dimensional-probability.metric-covering-number]
+  - id: high-dimensional-probability.entropy-integral-finite
+    name: 有限距離空間のエントロピー積分上界
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（有限距離空間のエントロピー積分上界）]
+    requires: [high-dimensional-probability.finite-chaining]
+  - id: high-dimensional-probability.empirical-finite-class
+    name: 有限関数族の一様標本平均偏差
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（有限関数族の一様標本平均偏差）]
+    requires: [high-dimensional-probability.entropy-integral-finite, high-dimensional-probability.hoeffding-lemma]
