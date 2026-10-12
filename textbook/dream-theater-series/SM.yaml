@@ -35,5 +35,5 @@ chapters:
     title: Ising模型とCurie–Weiss平均場
   - id: SM8
     path: textbook/volumes/dream_thater/物理系/SM/SM8
-    status: planned
+    status: completed
     title: 相転移と臨界現象
