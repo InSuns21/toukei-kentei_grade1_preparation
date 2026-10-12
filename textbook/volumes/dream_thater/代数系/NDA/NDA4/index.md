@@ -593,7 +593,7 @@ $\boldsymbol\alpha=(\sqrt2,2\sqrt2)$ とする。$\boldsymbol\beta=(1/5,2/5)$ �
 <!-- solution-start -->
 **詳細解答**
 
-[A3](#def-nda4-integer-relation)と同様に整数関係は $\boldsymbol k=m(-2,1)$ に限られます。$\boldsymbol\beta$ に対して
+[整数関係の定義](#def-nda4-integer-relation)から整数関係は $\boldsymbol k=m(-2,1)$ に限られます。$\boldsymbol\beta$ に対して
 $$
 \boldsymbol k\cdot\boldsymbol\beta
 =m\left(-2\cdot\frac15+\frac25\right)=0\in\mathbb Z
