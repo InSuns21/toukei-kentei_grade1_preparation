@@ -344,7 +344,32 @@ $$
 \end{aligned}
 $$
 
-一行目は、固定した2方向を流れの微分で運んだ積の微分から得られる、時間依存の引き戻し公式です。二行目では $d\omega_t=0$、三行目では $d\sigma=\beta$ と $\iota_{Y_t}\omega_t=-\sigma$ を使いました。
+一行目がなぜ成立するかも成分で確認します。$\omega_t=\frac12\omega_{t,ij}\,dx^i\wedge dx^j$、$\varphi_t=(\varphi_t^1,\ldots,\varphi_t^{2n})$ と書き、$\partial_t\varphi_t^i=Y_t^i(\varphi_t)$ を座標で微分すると
+
+$
+\partial_t(\partial_a\varphi_t^i)
+=\sum_k(\partial_kY_t^i)(\varphi_t)\,\partial_a\varphi_t^k.
+$
+
+従って $\varphi_t^*\omega_t$ の $(a,b)$ 成分を積の微分で展開すると、$\omega_{t,ij}$ の時間微分・移流項・二つのJacobianの微分から
+
+$
+\begin{aligned}
+\partial_t(\varphi_t^*\omega_t)_{ab}
+&=\sum_{i,j}\Bigl[
+\partial_t\omega_{t,ij}
++Y_t^k\partial_k\omega_{t,ij}\\
+&\qquad
++(\partial_iY_t^k)\omega_{t,kj}
++(\partial_jY_t^k)\omega_{t,ik}
+\Bigr](\varphi_t)
+\,\partial_a\varphi_t^i\partial_b\varphi_t^j\\
+&=\bigl(\varphi_t^*(\partial_t\omega_t+
+\mathcal L_{Y_t}\omega_t)\bigr)_{ab}.
+\end{aligned}
+$
+
+これは各成分についての等式なので、引き戻し公式が従います。上の相殺計算の二行目では $d\omega_t=0$、三行目では $d\sigma=\beta$ と $\iota_{Y_t}\omega_t=-\sigma$ を使いました。
 
 よって $t=0$ と $t=1$ を比較して
 
