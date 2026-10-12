@@ -64,3 +64,9 @@ EOM221 は SG8 の後に置く。
 - `SG1/index.md` として初稿を正式公開。正規尾・区間計数・圧力極限の上下界・期待値収束、Jensenの等号条件、凍結公式を点検した。
 - Level A 4題、Level B 3題、Level C 1題と各詳細解答を点検し、特に一般化REMの帯評価からの上下界・期待値移行を加筆した。
 - `textbook/dream-theater-index.json` と `textbook/dream-theater.md` へ公開導線を追加し、SG manifest のSG1を completed に更新。SG2以降と系列横断査読を本PLANの残課題とする。
+
+## SG2 執筆・査読記録（2026-10-12）
+
+- SG1とHDP5を直接前提として、有限Gaussian場、共分散付き部分積分、二レプリカGibbs平均、正規圧力集中、平方根補間、等分散比較を実装。
+- 既存HDP5のGaussian部分積分・集中定理を重複所有せず参照し、共分散付きへの拡張、圧力のLipschitz評価、補間法と共通ノイズの具体計算を全件再査読。
+- Level A4題・B3題・C1題を全問詳細解答付きで実装。SG3〜SG8と横断監査は残作業。

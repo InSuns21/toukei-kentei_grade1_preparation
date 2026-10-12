@@ -1,0 +1,62 @@
+chapter: SG2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SG1
+  - HDP5
+forward_references: []
+concepts:
+  - id: spin-glass.gaussian-field
+    name: 有限Gaussian場と共分散
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限Gaussian場と共分散）"]
+    requires: [spin-glass.quenched-annealed]
+  - id: spin-glass.correlated-gaussian-ibp
+    name: 共分散付きGaussian部分積分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（共分散付きGaussian部分積分）"]
+    requires: [spin-glass.gaussian-field, high-dimensional-probability.gaussian-integration-by-parts]
+  - id: spin-glass.gibbs-derivatives
+    name: Gibbs重みの微分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Gibbs重みの微分）"]
+    requires: [spin-glass.gaussian-field]
+  - id: spin-glass.two-replica-average
+    name: 二レプリカGibbs平均
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二レプリカGibbs平均）"]
+    requires: [spin-glass.gibbs-derivatives]
+  - id: spin-glass.pressure-concentration
+    name: 正規無秩序圧力の集中
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（正規無秩序圧力の集中）"]
+    requires: [high-dimensional-probability.gaussian-concentration, spin-glass.gibbs-derivatives]
+  - id: spin-glass.sqrt-interpolation
+    name: Gaussian平方根補間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Gaussian平方根補間）"]
+    requires: [spin-glass.gaussian-field]
+  - id: spin-glass.interpolation-derivative
+    name: Gaussian補間の微分公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Gaussian補間の微分公式）"]
+    requires: [spin-glass.sqrt-interpolation, spin-glass.correlated-gaussian-ibp, spin-glass.gibbs-derivatives, spin-glass.two-replica-average]
+  - id: spin-glass.gaussian-comparison
+    name: 等分散Gaussian場の圧力比較
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（等分散Gaussian場の圧力比較）"]
+    requires: [spin-glass.interpolation-derivative]
+  - id: spin-glass.common-noise-pressure
+    name: 共通Gaussian無秩序による圧力低下
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（共通Gaussian無秩序による圧力低下）"]
+    requires: [spin-glass.interpolation-derivative, spin-glass.rem-pressure]

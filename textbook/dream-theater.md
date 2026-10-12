@@ -956,6 +956,7 @@
 ### スピングラス
 
 1. [SG1 quenched disorder・Random Energy Model・凍結転移](textbook/volumes/dream_thater/物理系/SG/SG1/index.md)
+2. [SG2 Gaussian concentration・Gaussian部分積分・補間法](textbook/volumes/dream_thater/物理系/SG/SG2/index.md)
 
 
 <a id="dt-subject-mathematical-quantum-mechanics"></a>

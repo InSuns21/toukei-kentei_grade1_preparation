@@ -11,7 +11,7 @@ chapters:
     title: quenched disorder・Random Energy Model・凍結転移
   - id: SG2
     path: textbook/volumes/dream_thater/物理系/SG/SG2
-    status: planned
+    status: completed
     title: Gaussian concentration・Gaussian部分積分・補間法
   - id: SG3
     path: textbook/volumes/dream_thater/物理系/SG/SG3
