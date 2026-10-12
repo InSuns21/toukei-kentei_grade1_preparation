@@ -348,10 +348,10 @@ $t>0$ なら $P(S\ge t)=0$ です。この場合に $V$ で割る最適化は行
 > $n\ge1$ とし、相互に独立な実数値確率変数 $X_1,\ldots,X_n$ が、各 $i$ でほとんど確実に $a_i\le X_i\le b_i$ を満たすとする。ただし $a_i,b_i\in\mathbb R$、$a_i\le b_i$ とし、
 
 $$
-V=\sum_{i=1}^n(b_i-a_i)^2>0
+V=\sum_{i=1}^n(b_i-a_i)^2
 $$
 
-> と置く。このとき、すべての $t>0$ について
+> と置く。$V>0$ のとき、すべての $t>0$ について
 
 $$
 P\left(\left|\sum_{i=1}^n(X_i-E[X_i])\right|\ge t\right)
