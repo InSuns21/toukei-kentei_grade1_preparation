@@ -33,7 +33,7 @@ $$
 $D=\operatorname{diag}(2,3,1,0)$ に逆行列はありません。一方、$D_+=\operatorname{diag}(2,3,1)$ には逆行列があります。以下の正規化はこの三頂点上で行い、孤立頂点の扱いを暗黙の $0/0$ に任せません。
 <!-- definition-example-end -->
 
-$V_+=\varnothing$ なら全ての重みは零で、辺に沿う一歩の遷移確率を定義できません。その場合も元の組合せLaplacianは零行列ですが、本章の確率行列と正規化Laplacianは定義しません。以降は **$V_+\ne\varnothing$** を仮定し、行列の添字は $V_+$ 上で取ります。この集合には必ず二つ以上の頂点があります。実際、$d_i>0$ なら、$w_{ii}=0$ より $w_{ij}>0$ となる別の頂点 $j$ が存在し、その $d_j$ も正です。
+$V_+=\varnothing$ なら全ての重みは零で、辺に沿う一歩の遷移確率を定義できません。その場合も元の組合せLaplacianは零行列ですが、本章で扱う確率行列と次数補正後の行列は定義しません。以降は **$V_+\ne\varnothing$** を仮定し、行列の添字は $V_+$ 上で取ります。この集合には必ず二つ以上の頂点があります。実際、$d_i>0$ なら、$w_{ii}=0$ より $w_{ij}>0$ となる別の頂点 $j$ が存在し、その $d_j$ も正です。
 
 ## 2. 二通りの正規化とエネルギー
 
@@ -369,7 +369,7 @@ $$
 0=H-h_j=\sum_iP_{ji}(H-h_i).
 $$
 
-右辺は非負項の和です。従って $P_{ji}>0$ の全ての $i$ で $h_i=H$ です。$P_{ji}>0$ と $w_{ji}>0$ は同値だから、正重みの道をたどって、連結成分の全ての点で $h=H$ となります。連結なら $h_i=c$ が全点で成り立ち、
+右辺は非負項の和です。従って $P_{ji}>0$ の全ての $i$ で $h_i=H$ です。$P_{ji}>0$ と $w_{ji}>0$ は同値だから、正重みの道をたどって、その道で結ばれる全ての点で $h=H$ となります。連結なら $h_i=c$ が全点で成り立ち、
 $$
 \nu_i=cd_i,\qquad 1=\sum_i\nu_i=cM,\qquad c=1/M.
 $$
@@ -473,7 +473,7 @@ u^{\mathsf T}\sqrt d
 =\sum_i(\sqrt{d_i}f_i)\sqrt{d_i}
 =\sum_i d_if_i=0
 $$
-です。また[正規化エネルギー公式](#thm-sgt2-energy)の $g=f$ により
+です。また[正規化Dirichletエネルギー](#thm-sgt2-energy)の $g=f$ により
 $$
 u^{\mathsf T}\mathcal Lu=f^{\mathsf T}L_+f
 =\sum_{i<j}w_{ij}(f_i-f_j)^2,
@@ -533,7 +533,7 @@ A1の道に孤立頂点4を追加する。全次数行列 $D$ が可逆でない
 <!-- solution-start -->
 **詳細解答**　次数は $(2,3,1,0)$ なので $\det D=2\cdot3\cdot1\cdot0=0$ です。$D^{-1}$ は存在しません。一方 $V_+=\{1,2,3\}$ では $\det D_+=6>0$ なので $D_+^{-1}=\operatorname{diag}(1/2,1/3,1)$ です。
 
-元のグラフには道の成分 $\{1,2,3\}$ と孤立成分 $\{4\}$ の二成分があります。[SGT1の核と連結成分の定理](../SGT1/index.md#thm-sgt1-kernel-components)より組合せLaplacianの零固有値は二重です。一方、本章で定義した $\mathcal L$ は三頂点上だけの行列であり、その核は一次元です。別の行列の零固有値重複度を混同してはいけません。
+元のグラフには道の成分 $\{1,2,3\}$ と孤立成分 $\{4\}$ の二成分があります。[SGT1の核とグラフの連結成分の定理](../SGT1/index.md#thm-sgt1-kernel-components)より組合せLaplacianの零固有値は二重です。一方、本章で定義した $\mathcal L$ は三頂点上だけの行列であり、その核は一次元です。別の行列の零固有値重複度を混同してはいけません。
 <!-- solution-end -->
 
 #### A3. 一歩後の分布
@@ -600,7 +600,7 @@ f^{\mathsf T}L_+f
 =2(1-0)^2+1(0-(-2))^2=2+4=6.
 $$
 
-正規化では $u_i/\sqrt{d_i}=f_i$ なので、[正規化エネルギー公式](#thm-sgt2-energy)から
+正規化では $u_i/\sqrt{d_i}=f_i$ なので、[正規化Dirichletエネルギー](#thm-sgt2-energy)から
 $$
 u^{\mathsf T}\mathcal Lu
 =2\left(\frac{\sqrt2}{\sqrt2}-0\right)^2
@@ -738,7 +738,7 @@ P=\begin{pmatrix}0&1&0\\2/3&0&1/3\\0&1&0\end{pmatrix},
 \end{pmatrix}.
 $$
 
-元のグラフは道と孤立頂点の二成分なので[SGT1の核と連結成分の定理](../SGT1/index.md#thm-sgt1-kernel-components)から元の $4\times4$ の組合せLaplacianの零固有値は二重です。一方、正次数頂点上の道は連結なので[正規化スペクトルの定理](#thm-sgt2-spectrum-kernel)から $\mathcal L$ の零固有値は単純です。
+元のグラフは道と孤立頂点の二成分なので[SGT1の核とグラフの連結成分の定理](../SGT1/index.md#thm-sgt1-kernel-components)から元の $4\times4$ の組合せLaplacianの零固有値は二重です。一方、正次数頂点上の道は連結なので[正規化スペクトルの定理](#thm-sgt2-spectrum-kernel)から $\mathcal L$ の零固有値は単純です。
 
 **(2)**　体積は6です。[次数分布の定常性](#thm-sgt2-stationary)から
 $$
