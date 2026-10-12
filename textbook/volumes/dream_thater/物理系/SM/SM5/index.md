@@ -249,7 +249,19 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（古典理想気体の正準熱力学）**  
-> [古典理想気体の相空間模型](#def-sm5-phase-gas)で $N\ge1$、$V,T>0$ を取り、$m,h,k_{\mathrm B}$ を固定する。$F=-k_{\mathrm B}T\log Z_N$、$U=-\partial_\beta\log Z_N$、$P=-\partial_VF|_{T,N}$、$S=-\partial_TF|_{V,N}$ とすれば、
+> [古典理想気体の相空間模型](#def-sm5-phase-gas)で $N\ge1$、$V,T>0$ を取り、$m,h,k_{\mathrm B}$ を固定する。自由エネルギー、内部エネルギー、圧力、エントロピーをそれぞれ
+
+$$
+F=-k_{\mathrm B}T\log Z_N,\qquad
+U=-\partial_\beta\log Z_N,
+$$
+
+$$
+P=-\left.\partial_VF\right|_{T,N},\qquad
+S=-\left.\partial_TF\right|_{V,N}
+$$
+
+> と定めると、次が成り立つ。
 
 $$
 U=\frac32Nk_{\mathrm B}T,\qquad PV=Nk_{\mathrm B}T,\qquad
