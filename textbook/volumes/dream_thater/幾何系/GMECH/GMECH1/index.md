@@ -190,7 +190,7 @@ $$
 <!-- definition-example-start: def-gmech1-infinitesimal-lift -->
 ### 直接例：一自由度のスケーリング
 
-§1の作用では $\xi=1\in T_0\mathbb R$ に対し
+**定義の確認**：§1の作用では $\xi=1\in T_0\mathbb R$ に対し
 
 $$
 \widetilde\Phi_t(q,p)=(e^tq,e^{-t}p).
