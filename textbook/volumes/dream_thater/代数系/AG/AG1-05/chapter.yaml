@@ -1,0 +1,50 @@
+id: "AG1-05"
+title: "Noether環とHilbertの基底定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG1-04
+  - AG1-02
+  - RNG4
+official_scope: []
+learning_objectives:
+  - Noether環の昇鎖条件を定義し、イデアルの有限生成性・極大元条件との同値性を証明できる
+  - 無限変数多項式環の真の昇鎖を構成し、有限変数の場合との差を説明できる
+  - 次数別最高次係数イデアルが増大し停止することを示し、次数降下でHilbertの基底定理を完全証明できる
+  - 多変数多項式環・商環・局所化のNoether性を正しい写像の向きで証明できる
+  - 消滅イデアルへの包含反転からZariski位相のNoether性を証明できる
+  - 多項式の無限方程式系から有限個を選んで同じ零点集合を表すことを証明できる
+  - 零因子を持つ二軸の座標環でもNoether性が成立することを具体的に検証できる
+definitions:
+  - { id: AG1-05-DEF-01, name: イデアルの昇鎖条件 }
+  - { id: AG1-05-DEF-02, name: Noether環 }
+  - { id: AG1-05-DEF-03, name: 次数別最高次係数イデアル }
+theorems:
+  - { id: AG1-05-PROP-01, name: 昇鎖条件と有限生成の同値性 }
+  - { id: AG1-05-THM-01, name: Hilbertの基底定理 }
+  - { id: AG1-05-COR-01, name: 有限変数多項式環のNoether性 }
+  - { id: AG1-05-PROP-02, name: 商環と局所化でのNoether性の保存 }
+  - { id: AG1-05-THM-02, name: アフィン代数的集合のNoether位相 }
+  - { id: AG1-05-COR-02, name: 多項式方程式は有限個へ縮約できる }
+canonical_examples:
+  - 体のイデアル0と全体のみから昇鎖条件を直接確認
+  - 可算無限変数環のイデアル(x1,...,xn)による無限昇鎖
+  - k[x][t]のJ=(xt,t^2)から最高次係数イデアルを次数ごとに計算
+  - k[x,y]/(xy)の零因子とNoether性の両立
+  - 商環と一点での局所化でのNoether性の保存
+  - 閉集合の降鎖と消滅イデアルの昇鎖の対応
+  - 無限方程式系(x^m y,y^2)の有限化
+problem_patterns:
+  - AG1-05-ASCENDING-CHAIN-TEST
+  - AG1-05-INFINITE-VARIABLE-COUNTEREXAMPLE
+  - AG1-05-LEADING-COEFFICIENT-IDEALS
+  - AG1-05-QUOTIENT-NOETHERIAN
+  - AG1-05-POLYNOMIAL-CONVERSE
+  - AG1-05-LOCALIZATION-WITH-ZERO-DIVISORS
+  - AG1-05-ZARISKI-CLOSED-DCC
+  - AG1-05-FINITE-EQUATIONS
+  - AG1-05-INTEGRATED-REDUCTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 6, review: 2 }

@@ -1,0 +1,73 @@
+chapter: AG1-05
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG1-04
+  - AG1-02
+  - RNG4
+forward_references: []
+
+concepts:
+  - id: algebraic-geometry.ideal-acc
+    name: イデアルの昇鎖条件
+    aliases: ["昇鎖条件"]
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（イデアルの昇鎖条件）"]
+    requires: [algebra.ring-ideal]
+
+  - id: algebraic-geometry.noetherian-ring
+    name: Noether環
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Noether環）"]
+    requires: [algebraic-geometry.ideal-acc]
+
+  - id: algebraic-geometry.noether-acc-fg
+    name: 昇鎖条件と有限生成の同値性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（昇鎖条件と有限生成の同値性）"]
+    requires: [algebraic-geometry.noetherian-ring, algebraic-geometry.generated-ideal]
+
+  - id: algebraic-geometry.leading-coefficient-ideals
+    name: 次数別最高次係数イデアル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（次数別最高次係数イデアル）"]
+    requires: [algebra.polynomial-ring, algebra.ring-ideal]
+
+  - id: algebraic-geometry.hilbert-basis
+    name: Hilbertの基底定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Hilbertの基底定理）"]
+    requires: [algebraic-geometry.noether-acc-fg, algebraic-geometry.leading-coefficient-ideals]
+
+  - id: algebraic-geometry.polynomial-noether
+    name: 有限変数多項式環のNoether性
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（有限変数多項式環のNoether性）"]
+    requires: [algebraic-geometry.hilbert-basis]
+
+  - id: algebraic-geometry.quotient-localization-noether
+    name: 商環と局所化でのNoether性の保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（商環と局所化でのNoether性の保存）"]
+    requires: [algebraic-geometry.noether-acc-fg, algebraic-geometry.localization]
+
+  - id: algebraic-geometry.zariski-noether
+    name: アフィン代数的集合のNoether位相
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（アフィン代数的集合のNoether位相）"]
+    requires: [algebraic-geometry.polynomial-noether, algebraic-geometry.vanishing-ideal, algebraic-geometry.noetherian-topological-space]
+
+  - id: algebraic-geometry.finite-equations
+    name: 多項式方程式は有限個へ縮約できる
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（多項式方程式は有限個へ縮約できる）"]
+    requires: [algebraic-geometry.polynomial-noether, algebraic-geometry.generated-ideal]
