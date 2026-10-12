@@ -236,7 +236,7 @@ $$
 =\mathbb EC_N(I)
 $$
 
-です。ここで $p_I=\mathbb P(Y_\sigma\in I)$ です。$r_I>0$ のとき下界より $\mathbb EC_N(I)\ge c_I\sqrt N e^{Nr_I}\to\infty$。Chebyshev 不等式で任意の $\varepsilon>0$ について
+です。ここで $p_I=\mathbb P(Y_\sigma\in I)$ です。$r_I>0$ のとき下界より $\mathbb EC_N(I)\ge c_I\sqrt N e^{Nr_I}\to\infty$。[Chebyshev 不等式](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-chebyshev)で任意の $\varepsilon>0$ について
 
 $$
 \mathbb P\left(
@@ -432,7 +432,7 @@ s(\beta)=
 \end{cases}
 $$
 
-> $p'(\beta)$ は臨界点で連続だが $p''$ は不連続である。また annealed 極限との差は
+> $p'(\beta)$ は臨界逆温度で連続だが $p''$ は不連続である。また annealed 極限との差は
 
 $$
 \lim_{N\to\infty}p_N^{\mathrm a}(\beta)-p(\beta)
@@ -465,7 +465,7 @@ $$
 u=-a,\qquad s=a\beta-\beta a=0.
 $$
 
-臨界点 $\beta=a$ の左右からの一階微分はともに $a$、一方で二階微分の左右極限は $1$ と $0$ です。最後に [annealed圧力の公式](#prop-sg1-annealed-rem) と [極限圧力の定理](#thm-sg1-pressure)を比較します。$\beta>a$ で
+臨界逆温度 $\beta=a$ の左右からの一階微分はともに $a$、一方で二階微分の左右極限は $1$ と $0$ です。最後に [annealed圧力の公式](#prop-sg1-annealed-rem) と [極限圧力の定理](#thm-sg1-pressure)を比較します。$\beta>a$ で
 
 $$
 \log2+\frac{\beta^2}{2}-a\beta
@@ -548,7 +548,7 @@ p_2^{\mathrm a}=\frac12\log(4e^{\beta^2})
 $$
 <!-- solution-end -->
 
-**SG1-A4（臨界点での導関数）**
+**SG1-A4（臨界逆温度での導関数）**
 - Level: A
 
 $a=\sqrt{2\log2}$ とし、$p(\beta)=\log2+\beta^2/2$（$\beta\le a$）、$p(\beta)=a\beta$（$\beta\ge a$）とする。$p,p'$ の連続性と $p''$ の片側値を調べよ。
@@ -556,7 +556,7 @@ $a=\sqrt{2\log2}$ とし、$p(\beta)=\log2+\beta^2/2$（$\beta\le a$）、$p(\be
 <!-- solution-start -->
 **詳細解答**
 
-$\beta=a$ の左の関数値は $\log2+a^2/2=2\log2=a^2$、右の関数値は $a\cdot a=a^2$ で一致します。左微分は $\beta$ の極限から $a$、右微分は定数 $a$ です。一階微分まで連続です。$\beta<a$ で $p''=1$、$\beta>a$ で $p''=0$ なので、臨界点で二階微分は存在しません。
+$\beta=a$ の左の関数値は $\log2+a^2/2=2\log2=a^2$、右の関数値は $a\cdot a=a^2$ で一致します。左微分は $\beta$ の極限から $a$、右微分は定数 $a$ です。一階微分まで連続です。$\beta<a$ で $p''=1$、$\beta>a$ で $p''=0$ なので、臨界逆温度で二階微分は存在しません。
 <!-- solution-end -->
 
 ### Level B：状態数の評価と仮定の役割
@@ -637,7 +637,7 @@ $$
 =\sum_\sigma p_I(1-p_I)\le\mathbb EC_N(I).
 $$
 
-Chebyshev 不等式を比へ適用すると
+[Chebyshev 不等式](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-chebyshev)を比へ適用すると
 
 $$
 \mathbb P\left(
@@ -664,7 +664,7 @@ $$
 s-\frac{x^2}{2v}.
 $$
 
-一つの試料に典型的に存在できる帯の境界は、その指数が0になる $|x|=a_v$、$a_v=\sqrt{2vs}$ です。これは本章の [REM圧力定理の証明](#thm-sg1-pressure)の $2^N$ を $M_N$ に、分散 $N$ を $Nv$ に置き換えた計算です。実際、尾確率は $\mathbb P(|Y_i|>t)\le2e^{-Nt^2/(2v)}$ なので、和集合評価は $2M_N e^{-Nt^2/(2v)}$ となり $t>a_v$ で消えます。固定帯の期待値は $\sqrt{N/(2\pi v)}|I|\,M_N$ に密度指数を掛けた上下界で挟めます。$|x|<a_v$ の帯は独立性による分散評価と Chebyshev 不等式で集中します。ここで上下界の各操作を確かめます。$t>a_v$ を固定すると、配置数 $M_N\le 2e^{Ns}$ なので
+一つの試料に典型的に存在できる帯の境界は、その指数が0になる $|x|=a_v$、$a_v=\sqrt{2vs}$ です。これは本章の [REM圧力定理の証明](#thm-sg1-pressure)の $2^N$ を $M_N$ に、分散 $N$ を $Nv$ に置き換えた計算です。実際、尾確率は $\mathbb P(|Y_i|>t)\le2e^{-Nt^2/(2v)}$ なので、和集合評価は $2M_N e^{-Nt^2/(2v)}$ となり $t>a_v$ で消えます。固定帯の期待値は $\sqrt{N/(2\pi v)}|I|\,M_N$ に密度指数を掛けた上下界で挟めます。$|x|<a_v$ の帯は独立性による分散評価と [Chebyshev 不等式](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-chebyshev)で集中します。ここで上下界の各操作を確かめます。$t>a_v$ を固定すると、配置数 $M_N\le 2e^{Ns}$ なので
 
 $$
 \mathbb P\!\left(\max_i|Y_i|>t\right)
@@ -689,7 +689,7 @@ $$
 
 がすべての $j$ に成り立ちます。各区間での $e^{N\beta Y_i}$ の最大値を掛けて足すと、$N^{-1}\log Z_N$ の上界が得られます。$x^2/(2v)$ は $[-t,t]$ 上で Lipschitz 連続なので、先に $N\to\infty$、次に $\varepsilon,\delta\downarrow0$、$t\downarrow a_v$ と取れば、上極限は $|x|\le a_v$ での候補関数の最大値以下です。
 
-下界では $|x|<a_v$ を固定し、その点を含む十分小さい区間 $I$ を選びます。$r_I=s-\sup_{y\in I}y^2/(2v)>0$ です。独立性より $\operatorname{Var}C_N(I)\le\mathbb EC_N(I)$ で、期待値は $e^{Nr_I}$ に正の多項式因子を掛けたもの以上です。Chebyshev 不等式から高確率で $C_N(I)\ge \mathbb EC_N(I)/2$ となります。ゆえに
+下界では $|x|<a_v$ を固定し、その点を含む十分小さい区間 $I$ を選びます。$r_I=s-\sup_{y\in I}y^2/(2v)>0$ です。独立性より $\operatorname{Var}C_N(I)\le\mathbb EC_N(I)$ で、期待値は $e^{Nr_I}$ に正の多項式因子を掛けたもの以上です。[Chebyshev 不等式](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-chebyshev)から高確率で $C_N(I)\ge \mathbb EC_N(I)/2$ となります。ゆえに
 
 $$
 \frac1N\log Z_N\ge
