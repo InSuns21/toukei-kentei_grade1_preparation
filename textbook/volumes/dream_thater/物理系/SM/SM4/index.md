@@ -16,6 +16,8 @@ $$
 
 と置き、$N(n,\omega)=n$、$H(n,\omega)=H_n(\omega)$ と書きます。共通のエネルギー単位を使い、$k_{\mathrm B}>0$ と $T>0$ を固定します。
 
+ここでは整数 $n$ を**粒子の個数**として数え、化学ポテンシャル $\mu$ は一粒子当たりのエネルギー（J/粒子）で表します。[TH7の多成分化学ポテンシャル](../../TH/TH7/index.md#def-th7-component-mu)を物質量（mol）で扱い、$\mu_{\mathrm{mol}}$ を J/mol で表す場合、Avogadro定数 $N_{\mathrm A}$ を使って $\mu=\mu_{\mathrm{mol}}/N_{\mathrm A}$ と換算します。$R=N_{\mathrm A}k_{\mathrm B}$ なので、$\mu/(k_{\mathrm B}T)=\mu_{\mathrm{mol}}/(RT)$ です。二種類の単位で定義された化学ポテンシャルを、そのまま同じ数値として代入してはいけません。
+
 粒子を一個入れることが常に許されるとは限りません。たとえば一サイト占有模型なら $J=\{0,1\}$ です。有限 $J$ を採用することで、以下の微分や確率の規格化をすべて有限和から厳密に示せます。
 
 <a id="def-sm4-grand-ensemble"></a>
