@@ -1,0 +1,48 @@
+id: "INT8"
+title: "KAM定理と可積分性の破れ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - INT2
+  - INT3
+  - INT4
+  - INT5
+  - SYM4
+official_scope: []
+learning_objectives:
+  - Kolmogorov非退化性とDiophantine振動数を具体的Hessian・Fourier分母で判定できる
+  - 解析的KAM定理の対象・仮定・不変トーラスの流れ共役の結論を区別できる
+  - 解析的ホモロジー方程式のFourier解と解析幅損失を格子点計数から導ける
+  - 作用移動と生成関数からKAM正準正規化の一次jet相殺を検算できる
+  - 二次反復による解析幅損失の克服と不変トーラス構成を説明できる
+  - Diophantine振動数のCantor状存続集合の共鳴帯測度を評価できる
+  - 共鳴Hamilton系の振り子への還元と旧共鳴トーラスの非不変性を検証できる
+  - 三体問題・Arnold拡散への適用範囲と非退化性の障害を区別できる
+definitions:
+  - { id: INT8-DEF-01, name: Kolmogorov非退化性 }
+  - { id: INT8-DEF-02, name: Diophantine振動数の確認 }
+theorems:
+  - { id: INT8-THM-01, name: 解析的Kolmogorov型KAM定理（固定振動数版） }
+  - { id: INT8-LEM-01, name: 解析的ホモロジー方程式の損失評価 }
+  - { id: INT8-LEM-02, name: 解析的KAM正規化の一段 }
+  - { id: INT8-PROP-01, name: 損失を伴う二次反復の収束 }
+  - { id: INT8-PROP-02, name: 有界振動数領域の共鳴帯評価 }
+canonical_examples:
+  - 対角HessianとDiophantine振動数を持つ二振動子
+  - Fourierモードの解析幅損失評価
+  - 生成関数によるjet消去と二次反復
+  - 1対1共鳴の振り子還元と双曲型・楕円型平衡点
+  - 惑星問題のKepler退化とArnold拡散の境界
+problem_patterns:
+  - INT8-KOLMOGOROV-NONDEGENERACY
+  - INT8-DIOPHANTINE-HOMOLOGICAL
+  - INT8-INVARIANT-EMBEDDING
+  - INT8-LATTICE-COUNT
+  - INT8-KAM-NEWTON-STEP
+  - INT8-QUADRATIC-DECAY
+  - INT8-RESONANT-PENDULUM
+  - INT8-PERSISTENCE-VS-RESONANCE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 15, exercises: 11, review: 5 }
