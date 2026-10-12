@@ -162,9 +162,11 @@ $V(xy)$ の二本の座標軸は既約です。一方、原点も既約な閉集
 > **定義（既約成分）**  
 > 位相空間 $X$ の既約閉集合 $C\subseteq X$ が、任意の既約閉集合 $D\subseteq X$ に対して
 >
+
 $$
 C\subseteq D\quad\Longrightarrow\quad C=D
 $$
+
 >
 > を満たすとき、$C$ を $X$ の**既約成分**という。
 <!-- formal-statement-end -->
@@ -175,9 +177,11 @@ $$
 $X=V_{\mathbb C}(xy)$、$L_x=V(x)$、$L_y=V(y)$ とします。$L_x=\{(0,t):t\in\mathbb C\}$ と $L_y=\{(t,0):t\in\mathbb C\}$ の相対閉集合は、それぞれ多項式 $f(0,t)$、$f(t,0)$ の共通零点で記述されます。[無限体上のアフィン直線の閉集合の命題](../AG1-01/index.md#prop-ag1-01-affine-line-closed)と同じ根の個数の議論で有限集合または直線全体に限られるため、両直線は既約です。両者は $X$ で閉集合ですが、$(0,1)\in L_x\setminus L_y$ と $(1,0)\in L_y\setminus L_x$ なので互いに包含されません。
 
 $L_x\subseteq D\subseteq X$ となる既約閉集合 $D$ を取ります。[既約性の定義](#def-ag1-02-irreducible)と
-$
+
+$$
 D=(D\cap L_x)\cup(D\cap L_y)
-$
+$$
+
 から $D\subseteq L_x$ または $D\subseteq L_y$ です。後者では $L_x\subseteq L_y$ となって矛盾します。前者と $L_x\subseteq D$ を合わせると $D=L_x$ です。$L_y\subseteq D\subseteq X$ の場合も、今度は $D\subseteq L_x$ が包含関係に矛盾し、$D=L_y$ です。従って両者は包含最大な既約閉集合、すなわち既約成分です。
 <!-- definition-example-end -->
 
@@ -187,9 +191,11 @@ $
 > **補題（既約集合は有限閉被覆の一つに入る）**  
 > $Y$ を位相空間 $X$ の空でない既約部分空間とし、$F_1,\ldots,F_r$ を $X$ の閉集合とする。$r\ge1$ で
 >
+
 $$
 Y\subseteq F_1\cup\cdots\cup F_r
 $$
+
 >
 > なら、ある $i$ について $Y\subseteq F_i$ が成り立つ。
 <!-- formal-statement-end -->
@@ -242,9 +248,11 @@ $V_{\mathbb C}(xy)$ の場合、二直線は互いに包含されないので、
 > **定義（Noether位相空間）**  
 > 位相空間 $X$ が**Noether的**であるとは、$X$ の閉集合の任意の下降列
 >
+
 $$
 F_1\supseteq F_2\supseteq F_3\supseteq\cdots
 $$
+
 >
 > がある $N$ 以降は定常、すなわち $F_N=F_{N+1}=\cdots$ となることをいう。
 <!-- formal-statement-end -->
@@ -349,16 +357,19 @@ $f\in\mathbb C[x,y]$ がすべての $(0,t)$ で零であることと、$f\in(x)
 
 <!-- solution-start -->
 **詳細解答**　任意の $f\in\mathbb C[x,y]$ は、$x$ の定数項とそれ以外の項に分けて
-$
+
+$$
 f(x,y)=a_0(y)+xg(x,y),\qquad
 a_0\in\mathbb C[y],\quad g\in\mathbb C[x,y]
-$
+$$
+
 と書けます。例えば $f=\sum_{i=0}^{m}x^ia_i(y)$ のとき $g=\sum_{i=1}^{m}x^{i-1}a_i(y)$ と取れます。$m=0$ ならこの和は空和 $g=0$ とするので、定数多項式や零多項式にも使える表示です。
 
 すべての $(0,t)$ で零なら、$a_0(t)=f(0,t)=0$ が全 $t\in\mathbb C$ で成立します。もし $a_0\ne0$ なら非零の一変数多項式に無限個の根ができ矛盾します。よって $a_0=0$ となり
-$
+
+$$
 f=xg\in(x).
-$
+$$
 
 逆に $f=xh$ なら $f(0,t)=0\cdot h(0,t)=0$ です。よって同値であり、$I(V(x))=(x)$ です。
 <!-- solution-end -->
@@ -456,21 +467,23 @@ $X=V_{\mathbb C}(x(y-x)(y+x))\subset\mathbb C^2$ とする。
 
 **(1)** 複素数は体で零因子がないため、$a(b-a)(b+a)=0$ であることは $a=0$、$b=a$、$b=-a$ のいずれかと同値です。従って
 
-$
+$$
 \begin{aligned}
 X&=L_0\cup L_+\cup L_-,\\
 L_0&=V(x),\qquad L_+=V(y-x),\qquad L_-=V(y+x).
 \end{aligned}
-$
+$$
 
 **(2)** 三直線の点を、次のように一変数で表せます。
-$
+
+$$
 \begin{aligned}
 L_0&=\{(0,t):t\in\mathbb C\},\\
 L_+&=\{(t,t):t\in\mathbb C\},\\
 L_-&=\{(t,-t):t\in\mathbb C\}.
 \end{aligned}
-$
+$$
+
 いずれも $t$ の異なる値は異なる点に対応します。例えば $L_+$ と閉集合 $V(S)$ の共通部分は、各 $f\in S$ に対する一変数多項式 $f(t,t)$ の共通零点に対応します。これらがすべて零多項式なら直線全体、そうでなければ非零な一つの $f(t,t)$ の有限個の根に含まれます。$L_0$ でも $f(0,t)$、$L_-$ でも $f(t,-t)$ を使えば同じ二分ができます。従って三直線の相対閉集合はいずれも有限集合か全体であり、[無限体上のアフィン直線の閉集合の命題](../AG1-01/index.md#prop-ag1-01-affine-line-closed)と同じ理由で、無限集合である各直線を二つの真の閉集合で覆うことはできません。三直線はすべて既約です。
 
 $(0,1)\in L_0\setminus(L_+\cup L_-)$、$(1,1)\in L_+\setminus(L_0\cup L_-)$、$(1,-1)\in L_-\setminus(L_0\cup L_+)$ です。後二者が他の線上にないのは $1\ne-1$（標数 $0$）を使います。よって三本は互いに包含されず、[有限既約分解があれば成分は一意](#prop-ag1-02-finite-decomposition)からちょうどこの三本が既約成分です。
@@ -478,9 +491,11 @@ $(0,1)\in L_0\setminus(L_+\cup L_-)$、$(1,1)\in L_+\setminus(L_0\cup L_-)$、$(
 **(3)** $L_0\cap L_+$ は $a=0$ と $b=a$ を同時に満たすので $(a,b)=(0,0)$ のみです。$L_0\cap L_-$ も $a=0,b=-a$ から同じ一点です。$L_+\cap L_-$ では $b=a=-a$ なので $2a=0$ となり、複素数体では $2\ne0$ より $a=b=0$ です。従って三通りの二本の交わりも三本全部の交わりも $\{(0,0)\}$ です。
 
 **(4)** まず $f\in I_{\mathbb C}(X)$ とします。$x$ の定数項を取り出して
-$
+
+$$
 f(x,y)=a_0(y)+xg(x,y)
-$
+$$
+
 と書きます。$L_0$ 上で零なので、任意の $t\in\mathbb C$ について $0=f(0,t)=a_0(t)$ です。無限個の根を持つ一変数多項式 $a_0$ は零多項式ですから $a_0=0$、従って $f=xg$ です。続いて $L_+$ 上でも零なので、各 $t\ne0$ で
 
 $$
@@ -519,11 +534,13 @@ $$
 逆に $f=x(y-x)(y+x)h$ は $X$ のどの点でも三因子の一つが零なので $f$ も零となり、$f\in I_{\mathbb C}(X)$ です。両包含から求める等式が成立します。
 
 最後に任意の正整数 $a,b,c\ge1$ について、複素数体に零因子がないため
-$
+
+$$
 x^a(y-x)^b(y+x)^c=0
 \quad\Longleftrightarrow\quad
 x=0\ \text{または}\ y-x=0\ \text{または}\ y+x=0
-$
+$$
+
 です。よって $V(x^a(y-x)^b(y+x)^c)=X$ です。指数 $0$ を許して一つの因子を消すと一般に零点集合は変わるので、**正の指数**という条件が重要です。ただし生成イデアル自体は、例えば $(x^2(y-x)(y+x))$ と $(x(y-x)(y+x))$ のように異なり得ます。
 <!-- solution-end -->
 
