@@ -133,7 +133,7 @@ Wiener--Ikehara を採用する場合は必要な形を証明するか、将来 
 
 - **実装範囲**：`textbook/dream-theater-series/ANT.yaml` の ANT1〜ANT8 は全件 `completed`。8章の `index.md` と `chapter.yaml`、`knowledge.yaml` が存在することを確認した。
 - **公開経路**：`textbook/dream-theater-index.json` にANT1〜ANT8の8エントリ、`textbook/dream-theater.md` に8章の各リンクを確認した。ルーティングの正本は系列manifestを使い、共有 `dream-theater-work.yaml` は変更しない。
-- **演習・解答の在庫**：ANT1 (A4/B3/C1)、ANT2 (A4/B4/C1)、ANT3 (A4/B4/C1)、ANT4 (A4/B3/C1)、ANT5 (A4/B3/C1)、ANT6 (A4/B4/C2)、ANT7 (A4/B4/C2)、ANT8 (A4/B4/C1)。全63題について `solution-start` の対応を確認した。
+- **演習・解答の在庫**：ANT1 (A4/B3/C1)、ANT2 (A4/B4/C1)、ANT3 (A4/B4/C1)、ANT4 (A4/B3/C1)、ANT5 (A4/B3/C1)、ANT6 (A4/B4/C2)、ANT7 (A4/B4/C2)、ANT8 (A4/B4/C1)。全71題について `solution-start` の対応を確認した。
 - **系列内部のstable anchor**：ANT1〜ANT8の本文中で他のANT章を指す結果リンク94件を抽出し、各リンク先の明示的なanchor存在を照合、欠落0件。ANT8の直接援用先（ANT3・ANT5・ANT6・ANT7・CA・NT）も参照先の実在を確認した。
 - **ANT8の明示依頼追跡監査**：現行本文を全文再読し、主要結果8件・全演習9題の証明・解答、平滑化、零点和の分割、3-4-1正値性、文字付きEuler積を再計算した。局所対数微分の証明ではJensenの円周上に零点がない仮定を明示するため、外半径を適切に選ぶ局所修正を実施。査読根拠・中間式・未確認事項・CI結果は対応PRを参照する。
 - **完了判定**：この監査で確認した範囲に未着手の章・明示PLANタスクは残らない。PLANを `textbook/plan_done/` へ移し、系列manifestの `plan` を同時更新する。GitHubのrequired checksが成功した統合状態でmergeして確定する。
