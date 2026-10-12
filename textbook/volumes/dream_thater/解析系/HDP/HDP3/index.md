@@ -272,7 +272,7 @@ $$
 [前節の三条件の同値定理](#thm-hdp3-subgaussian-equivalence)の (II) $\Rightarrow$ (I) に $K=\sqrt2\,\sigma$ を代入すると $\|X\|_{\psi_2}\le\sqrt3\sqrt2\,\sigma$ です。
 <!-- proof-end -->
 
-正規分布は名前のとおりsub-Gaussianの典型例です。$X\sim N(0,\sigma^2)$ なら平方完成を使う通常の正規積分から $E e^{\lambda X}=e^{\sigma^2\lambda^2/2}$ です。この計算と[中心化sub-Gaussianの指数モーメントの定理](#thm-hdp3-subgaussian-mgf)により、値域を有界と仮定せずとも $\psi_2$ ノルムが有限と分かります。
+正規分布は名前のとおりsub-Gaussianの典型例です。$X\sim N(0,\sigma^2)$ なら平方完成を使う通常の正規積分から $E e^{\lambda X}=e^{\sigma^2\lambda^2/2}$ です。この式は[中心化sub-Gaussianと全実数の指数モーメント](#thm-hdp3-subgaussian-mgf) の (b) に、同じ $\sigma$ を代入できる条件を与えます。従って、値域を有界と仮定せずとも $\psi_2$ ノルムが有限と分かります。
 
 ## 4. 独立なsub-Gaussian和
 
