@@ -3,6 +3,8 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - SM4
+  - AMECH5
+  - F0-00P4
 forward_references: []
 concepts:
   - id: statistical-mechanics.classical-ideal-gas-phase-space
@@ -10,7 +12,7 @@ concepts:
     kind: definition
     introduction: formal
     introduction_aliases: [定義（古典理想気体の相空間模型）]
-    requires: [statistical-mechanics.canonical-ensemble, statistical-mechanics.grand-canonical-ensemble]
+    requires: [statistical-mechanics.canonical-ensemble, statistical-mechanics.grand-canonical-ensemble, analytical-mechanics.phase-space, mechanics.linear-momentum]
   - id: statistical-mechanics.classical-ideal-gas-partition
     name: 古典理想気体の正準分配関数
     kind: proposition
@@ -52,7 +54,7 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: [定理（正準エネルギーの分布と集中）]
-    requires: [statistical-mechanics.classical-ideal-gas-partition, statistical-mechanics.classical-microcanonical-equation, statistical-mechanics.canonical-energy-fluctuation]
+    requires: [statistical-mechanics.classical-ideal-gas-partition, statistical-mechanics.classical-microcanonical-equation, statistical-mechanics.canonical-energy-fluctuation, prob.probability-convergence]
   - id: statistical-mechanics.ideal-gas-ensemble-equivalence
     name: 古典理想気体の熱力学量の同値性
     kind: theorem
