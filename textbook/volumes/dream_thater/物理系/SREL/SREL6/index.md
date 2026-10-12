@@ -70,14 +70,14 @@ $F^{13}=B_y$ と $F^{03}=-E_z/c$ を使いました。最後に $F'^{01}=\gamma^
 
 ### 直接例：電場だけの系から磁場が現れる
 
-$\boldsymbol E=(0,E_0,0)$、$\boldsymbol B=\boldsymbol0$（$E_0>0$）なら
+$\boldsymbol E=(0,E_0,0)$、$\boldsymbol B=\boldsymbol0$（$E_0>0$）とし、$0<v<c$ のboostを行うと
 
 $$
 \boldsymbol E'=(0,\gamma E_0,0),\qquad
 \boldsymbol B'=(0,0,-\gamma vE_0/c^2).
 $$
 
-$E'_y B'_z<0$ なので、変換後のエネルギー流は負の $x$ 向きです。観測者が場に対して正方向へ動くため、場の流れが逆に見えるのです。この符号は後でテンソルの非対角成分から再確認します。
+$E'_y B'_z=-\gamma^2vE_0^2/c^2<0$ なので、変換後のエネルギー流は負の $x$ 向きです。$v>0$ がこの符号の判断に必要であり、$v<0$ なら向きは逆、$v=0$ なら流れは零です。観測者が場に対して正方向へ動くと、場の流れが逆に見えるのです。この符号は後でテンソルの非対角成分から再確認します。
 
 ## 2. 変換しても変わらない二つの場の量
 
@@ -141,14 +141,35 @@ E'_yB'_y+E'_zB'_z
 \end{aligned}
 $$
 
-右辺の $vE_yE_z/c^2$ は正負で打ち消し、$vB_yB_z$ も打ち消すので、$\gamma^2(1-\beta^2)(E_yB_y+E_zB_z)=E_yB_y+E_zB_z$ です。$E'_xB'_x=E_xB_x$ を加えて $K'=K$ となります。空間回転は内積と長さを保存し、時間向きを保つ固有Lorentz変換は回転とboostの合成で表せるため主張が従います。
+括弧を開くと
+
+$$
+\begin{aligned}
+E'_yB'_y+E'_zB'_z
+=\gamma^2\big[&
+E_yB_y+E_zB_z
++\frac{v}{c^2}(E_yE_z-E_zE_y)\\
+&+v(B_yB_z-B_zB_y)
+-\frac{v^2}{c^2}(E_yB_y+E_zB_z)\big].
+\end{aligned}
+$$
+
+中央の電場同士と磁場同士の交差項は、それぞれ符号が反対なので消えます。したがって $\gamma^2(1-\beta^2)(E_yB_y+E_zB_z)=E_yB_y+E_zB_z$ です。$E'_xB'_x=E_xB_x$ を加えて $K'=K$ となります。空間回転は内積と長さを保存し、時間向きを保つ固有Lorentz変換は回転とboostの合成で表せるため主張が従います。
 <!-- proof-end -->
 
 **不変量の使い方**：$I=K=0$ は平面電磁波が満たす関係です。ただし、この二条件だけから場がMaxwell方程式の解だとは結論できません。微分方程式と点ごとの代数条件は別の要請です。
 
 ## 3. エネルギー密度とエネルギー流を一つにする
 
-三次元の電磁気学では、場のエネルギー密度が $u=(\varepsilon_0|\boldsymbol E|^2+|\boldsymbol B|^2/\mu_0)/2$、エネルギー流密度が $\boldsymbol S=\boldsymbol E\times\boldsymbol B/\mu_0$ でした。これらは別々に変換するのではなく、四元のエネルギーと運動量を運ぶテンソルの成分として扱うと整理できます。
+三次元の電磁気学では、場のエネルギー密度 $u$ とエネルギー流密度 $\boldsymbol S$ を
+
+$$
+u=\frac12\left(\varepsilon_0|\boldsymbol E|^2+\frac{|\boldsymbol B|^2}{\mu_0}\right),
+\qquad
+\boldsymbol S=\frac{\boldsymbol E\times\boldsymbol B}{\mu_0}
+$$
+
+と表しました。これらは別々に変換するのではなく、四元のエネルギーと運動量を運ぶテンソルの成分として扱うと整理できます。
 
 <a id="def-srel6-em-energy-momentum"></a>
 
@@ -187,7 +208,15 @@ E_0^2/c^2-E_0^2/(2c^2)\right)
 =\frac{\varepsilon_0E_0^2}{2}>0.
 $$
 
-$T^{01}=0$ ですが $T^{11}=\varepsilon_0E_0^2/2$ は零ではありません。流れがなくても空間方向の応力が存在することが分かります。
+混合成分は、$F^{1\alpha}=0$ と $\eta^{01}=0$ から $T^{01}=0$ です。一方、同じ $F^{1\alpha}=0$ と $\eta^{11}=-1$ を定義へ代入すると
+
+$$
+T^{11}=\frac1{\mu_0}\left[
+0+\frac14(-1)\left(-\frac{2E_0^2}{c^2}\right)\right]
+=\frac{\varepsilon_0E_0^2}{2}.
+$$
+
+よって流れがなくても空間方向の応力が存在します。
 <!-- definition-example-end -->
 
 <a id="thm-srel6-components"></a>
@@ -219,7 +248,14 @@ $$
 
 ### 証明の見取り図
 
-$F$ の時間成分を掛ければエネルギー、時間と空間の混合成分を掛ければPoynting流が得られます。空間成分では $\sum_k\epsilon_{ik\ell}\epsilon_{jkm}=\delta_{ij}\delta_{\ell m}-\delta_{im}\delta_{j\ell}$ を使って成分を崩します。
+$F$ の時間成分を掛ければエネルギー、時間と空間の混合成分を掛ければPoynting流が得られます。空間成分では、Levi-Civita記号の縮約
+
+$$
+\sum_k\epsilon_{ik\ell}\epsilon_{jkm}
+=\delta_{ij}\delta_{\ell m}-\delta_{im}\delta_{j\ell}
+$$
+
+を使い、電場・磁場の成分へ崩します。
 
 <!-- proof-start -->
 ### 証明
@@ -278,7 +314,7 @@ $\varepsilon_0=1/(\mu_0c^2)$ で主張を得ます。$\sigma_{ij}$ の式を展�
 
 ## 4. テンソルとしての性質と観測者依存
 
-$T$ は二階テンソルなので、[Lorentz変換の計量保存](../SREL2/index.md#thm-srel2-interval-invariance)により $T'^{\mu\nu}=\Lambda^\mu{}_\alpha\Lambda^\nu{}_\beta T^{\alpha\beta}$ と変わります。エネルギー密度だけを一つ取り出し、不変なスカラーと思ってはいけません。
+[定義したエネルギー運動量テンソル](#def-srel6-em-energy-momentum)は、[Lorentz変換の計量保存](../SREL2/index.md#thm-srel2-interval-invariance)を使えば二階反変テンソルとして変換することを以下で証明できます。エネルギー密度だけを取り出し、不変なスカラーと思ってはいけません。
 
 <a id="thm-srel6-tensor-properties"></a>
 
@@ -294,7 +330,42 @@ $T$ は二階テンソルなので、[Lorentz変換の計量保存](../SREL2/ind
 <!-- proof-start -->
 ### 証明
 
-[電磁場テンソルの変換規則](../SREL5/index.md#prop-srel5-field-boost)と $\Lambda^T\eta\Lambda=\eta$ により、$F'^{\mu\alpha}F'^\nu{}_\alpha$ の内部の $\alpha$ に付いた二つの行列が縮約し、外側の $\mu,\nu$ にだけ $\Lambda$ が残ります。$F_{\alpha\beta}F^{\alpha\beta}$ は[前節の不変量](#prop-srel6-field-invariants)で証明したスカラー、$\eta'^{\mu\nu}=\Lambda^\mu{}_\alpha\Lambda^\nu{}_\beta\eta^{\alpha\beta}$ です。ゆえに $T'$ は主張の二階変換法則に従います。
+[電磁場テンソルの変換規則](../SREL5/index.md#prop-srel5-field-boost)を二つの $F$ へ適用します。縮約添字も展開し、$\Lambda^T\eta\Lambda=\eta$ による打消しを式で確かめます。
+
+$$
+\begin{aligned}
+F'^{\mu\alpha}F'^\nu{}_\alpha
+&=\eta_{\alpha\beta}F'^{\mu\alpha}F'^{\nu\beta}\\
+&=\eta_{\alpha\beta}
+\Lambda^\mu{}_\rho\Lambda^\alpha{}_\lambda F^{\rho\lambda}
+\Lambda^\nu{}_\sigma\Lambda^\beta{}_\kappa F^{\sigma\kappa}\\
+&=\Lambda^\mu{}_\rho\Lambda^\nu{}_\sigma
+\underbrace{\bigl(\Lambda^\alpha{}_\lambda\eta_{\alpha\beta}
+\Lambda^\beta{}_\kappa\bigr)}_{=\eta_{\lambda\kappa}}
+F^{\rho\lambda}F^{\sigma\kappa}\\
+&=\Lambda^\mu{}_\rho\Lambda^\nu{}_\sigma
+F^{\rho\lambda}F^\sigma{}_\lambda.
+\end{aligned}
+$$
+
+ここで変換行列は定数であり、すべての添字が $0,\dots,3$ を動きます。[前節で証明した縮約不変量](#prop-srel6-field-invariants)は $Q'=F'_{\alpha\beta}F'^{\alpha\beta}=Q$ を満たします。また計量保存から
+
+$$
+\eta^{\mu\nu}
+=\Lambda^\mu{}_\rho\Lambda^\nu{}_\sigma\eta^{\rho\sigma}
+$$
+
+が成り立ちます。これらを[テンソルの定義](#def-srel6-em-energy-momentum)へ戻せば
+
+$$
+T'^{\mu\nu}
+=\Lambda^\mu{}_\rho\Lambda^\nu{}_\sigma
+\frac1{\mu_0}\left(-F^{\rho\lambda}F^\sigma{}_\lambda
++\frac14\eta^{\rho\sigma}Q\right)
+=\Lambda^\mu{}_\rho\Lambda^\nu{}_\sigma T^{\rho\sigma}.
+$$
+
+これで共変性の主張を、各添字の収縮を含めて確かめられました。
 
 対称性について、$F^{\mu\alpha}F^\nu{}_\alpha=\eta_{\alpha\beta}F^{\mu\alpha}F^{\nu\beta}$ と書くと $\eta_{\alpha\beta}=\eta_{\beta\alpha}$ の下で二つの因子を入れ替えられます。トレースは
 
@@ -353,7 +424,7 @@ $$
 f^\nu=F^{\nu\alpha}J_\alpha}
 $$
 
-> が成立する。$f^0=\boldsymbol j\cdot\boldsymbol E/c$、$\boldsymbol f=\rho\boldsymbol E+\boldsymbol j\times\boldsymbol B$ は場が物質へ渡すエネルギー率とLorentz力密度を四元にまとめたものである。
+> が成立する。$f^0=\boldsymbol j\cdot\boldsymbol E/c$ は単位体積あたりのエネルギー授受率を $c$ で割った量、$\boldsymbol f=\rho\boldsymbol E+\boldsymbol j\times\boldsymbol B$ はLorentz力密度である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -382,7 +453,25 @@ $$
 +\partial_\lambda F_{\mu\alpha}=0.
 $$
 
-この式へ $F^{\mu\alpha}$ を掛けて $\mu,\alpha$ を縮約します。第二項は、$\mu$ と $\alpha$ を交換すると第一項と一致します。また積の微分で $F^{\mu\alpha}\partial_\lambda F_{\mu\alpha}=\tfrac12\partial_\lambda Q$ です。従って
+この式へ $F^{\mu\alpha}$ を掛けて $\mu,\alpha$ を縮約します。反対称性とダミー添字交換から第二項は
+
+$$
+\begin{aligned}
+F^{\mu\alpha}\partial_\alpha F_{\lambda\mu}
+&=F^{\alpha\mu}\partial_\mu F_{\lambda\alpha}\\
+&=-F^{\mu\alpha}\partial_\mu F_{\lambda\alpha}
+=F^{\mu\alpha}\partial_\mu F_{\alpha\lambda}
+\end{aligned}
+$$
+
+となり、第一項と一致します。さらに計量は一定で $F_{\mu\alpha}$ は反対称だから
+
+$$
+\partial_\lambda Q
+=2F^{\mu\alpha}\partial_\lambda F_{\mu\alpha}.
+$$
+
+従って
 
 $$
 2F^{\mu\alpha}\partial_\mu F_{\alpha\lambda}
@@ -482,7 +571,14 @@ E'_y=\gamma(E_0-v\cdot0)=\gamma E_0,\qquad
 B'_z=\gamma(0-vE_0/c^2)=-\gamma vE_0/c^2.
 $$
 
-他はすべて零です。したがって磁場は負の $z$ 向きであり、$B'_z/E'_y=-v/c^2$ です。
+他はすべて零です。$0<v<c$ かつ $\gamma>0$ なので、$E_0>0$ なら磁場は負の $z$ 向き、$E_0<0$ なら正の $z$ 向きです。$E_0\ne0$ の条件により $E'_y=\gamma E_0\ne0$ であり、符号に関係なく
+
+$$
+\frac{B'_z}{E'_y}
+=\frac{-\gamma vE_0/c^2}{\gamma E_0}=-\frac{v}{c^2}
+$$
+
+となります。
 <!-- solution-end -->
 
 ### A2. 不変量の直接計算
@@ -544,7 +640,7 @@ u=\tfrac12\varepsilon_0E_0^2\cos^2\xi
 =\varepsilon_0E_0^2\cos^2\xi.
 $$
 
-$\boldsymbol E\times\boldsymbol B$ は正の $x$ 向きなので
+$\boldsymbol E\times\boldsymbol B$ は場が零でない点で正の $x$ 向きなので
 
 $$
 \boldsymbol S=(cu,0,0),\qquad
