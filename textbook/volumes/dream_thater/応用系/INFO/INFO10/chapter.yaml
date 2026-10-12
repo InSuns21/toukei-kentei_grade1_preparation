@@ -1,0 +1,53 @@
+id: "INFO10"
+title: "対数損失・統計的推測と相対エントロピー"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - INFO1
+  - INFO2
+  - INFO3
+  - INFO9
+official_scope: []
+learning_objectives:
+  - 有限分布の対数損失を台と確率0の規約を含めて定義し期待損失を計算できる
+  - 交差エントロピーをShannonエントロピーと相対エントロピーに分解し最適予測の一意性を証明できる
+  - 条件付き対数損失の最小値と事後分布の最適性を導き情報利得を相互情報量で表せる
+  - 有限Bayes模型で周辺尤度と事後分布を計算し変分恒等式を証明できる
+  - 経験分布と対数尤度のKL表示から最尤推定の意味を導ける
+  - 有限候補・正確率・独立同分布・一意性の下で最尤推定のKL最小候補への確率収束を証明できる
+  - 有限状態でBoltzmann重み・分配関数・自由エネルギーの変分恒等式と単位を導ける
+  - 離散・連続密度、統計的推定・物理模型、KLの向きと適用条件の違いを説明できる
+definitions:
+  - { id: INFO10-DEF-01, name: 対数損失と期待対数損失 }
+  - { id: INFO10-DEF-02, name: 条件付き確率予測の損失 }
+  - { id: INFO10-DEF-03, name: 有限パラメータの事前・尤度・事後分布 }
+  - { id: INFO10-DEF-04, name: 経験分布・標本対数尤度 }
+  - { id: INFO10-DEF-05, name: 有限状態の自由エネルギー汎関数 }
+theorems:
+  - { id: INFO10-THM-01, name: 対数損失の最適予測と相対エントロピー }
+  - { id: INFO10-THM-02, name: 条件付き対数損失と事後分布 }
+  - { id: INFO10-PROP-01, name: 対数周辺尤度の変分恒等式 }
+  - { id: INFO10-PROP-02, name: 経験対数尤度と相対エントロピー }
+  - { id: INFO10-THM-03, name: 有限候補でのKL射影への収束 }
+  - { id: INFO10-THM-04, name: 有限状態のGibbs分布と自由エネルギーの最小性 }
+canonical_examples:
+  - 二値確率予測の余分な損失と予測確率0の無限罰
+  - 観測で完全に分かるビットの条件付き予測
+  - 検査陽性後のBayes事後確率
+  - 四回のBernoulli標本と最尤推定
+  - 有限候補のモデル誤指定とKL射影
+  - 二状態Gibbs分布と温度による重みの変化
+problem_patterns:
+  - INFO10-LOGLOSS-SUPPORT
+  - INFO10-CONDITIONAL-INFORMATION-GAIN
+  - INFO10-POSTERIOR
+  - INFO10-ENTROPY-PHYSICAL-UNITS
+  - INFO10-CONDITIONAL-PREDICTION
+  - INFO10-BERNOULLI-MLE
+  - INFO10-ELBO-GAP
+  - INFO10-LOGLOSS-ZERO-SUPPORT
+  - INFO10-FINITE-MLE-FREE-ENERGY-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 6, review: 5 }
