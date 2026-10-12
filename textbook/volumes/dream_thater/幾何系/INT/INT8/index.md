@@ -313,19 +313,19 @@ Taylorの積分余剰を $h=q+\partial_\theta u$ に適用すると、$G(\theta,
 
 解析関数の積・合成・逆写像・Taylor余剰には、角度方向と作用方向の両方で余白が必要です。[Cauchy評価](../../../解析系/CA/CA3/index.md#thm-ca3-cauchy-estimate)を各変数に適用すると、
 
-$
+$$
 \|\partial_{\theta_j}F\|_{s-\sigma,r-\rho}
 \le \sigma^{-1}\|F\|_{s,r},\qquad
 \|\partial_{I_j}F\|_{s-\sigma,r-\rho}
 \le \rho^{-1}\|F\|_{s,r}
-$
+$$
 
 となります。正準変換を縮小領域に収めるには、角度変位と作用変位について、それぞれ
 
-$
+$$
 \|v\|<\sigma,\qquad
 |q|+\|\partial_\theta u\|+r\|Dv\|<\rho
-$
+$$
 
 を十分小さい誤差で確保します。このとき $\|Dv\|<1/2$ も満たすよう選べば、角度の逆写像も存在します。これらの条件は補題に掲げた小ささの仮定から、指数を十分大きくして従います。
 
@@ -373,28 +373,28 @@ $$
 
 [一段の正規化](#lem-int8-newton-step)を、各段の角度損失と作用損失を次のように選んで反復します。
 
-$
+$$
 \sigma_j=s2^{-j-4},\qquad
 \rho_j=r2^{-j-3}=\frac{2r}{s}\sigma_j,
 \qquad
 r_j=r-\sum_{\ell<j}\rho_\ell
 =r\left(\frac34+2^{-j-2}\right).
-$
+$$
 
 このとき、作用方向のCauchy損失は
 
-$
+$$
 (\sigma_j\rho_j)^{-M_0}
 =\left(\frac{s}{2r}\right)^{M_0}\sigma_j^{-2M_0}
-$
+$$
 
 と書けます。そこで[二次反復命題](#prop-int8-quadratic-convergence)の指数を $M\ge2M_0$ に選び直せば、同じ形式の漸化式が使えます。
 
 初期Hamilton関数を $I=I_*+J$ の周りに展開します。定数項を $e=K(I_*)$、一次項を $\omega=\nabla K(I_*)$ とし、作用二次以上を $G$ に入れ、残りを $a,b$ とします。初期の誤差は $O(|\varepsilon|)$ であり、平均Hessianは
 
-$
+$$
 \bar A=D^2K(I_*)+O(\varepsilon).
-$
+$$
 
 従って十分小さい摂動では逆Hessianが有界のままです。ここがKolmogorov非退化性を用いる箇所です。
 
