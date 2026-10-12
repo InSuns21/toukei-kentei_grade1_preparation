@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - TH8
+  - F0-00P2A
 official_scope: []
 learning_objectives:
   - 有限状態空間と巨視的写像を区別し、逆像の多重度と分割による数え上げを証明できる
