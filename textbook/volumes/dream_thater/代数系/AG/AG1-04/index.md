@@ -115,20 +115,20 @@ $$
 
 に $uv$ を掛けると零です。従って両演算は同値類に降ります。結合律も分母をそろえて確かめます。たとえば加法について
 
-$
+$$
 \left(\frac as+\frac bt\right)+\frac cr
 =\frac{atr+bsr+cst}{str}
 =\frac as+\left(\frac bt+\frac cr\right)
-$
+$$
 
 です。また分配法則の両辺を直接計算すると
 
-$
+$$
 \frac as\left(\frac bt+\frac cr\right)
 =\frac{a(br+ct)}{str}
 =\frac{abr+act}{str}
 =\frac as\frac bt+\frac as\frac cr
-$
+$$
 
 となります。乗法の結合律と両演算の可換性も分子・分母の積の順序交換で従います。零元は $0/1$、単位元は $1/1$、加法逆元は $(-a)/s$ です。実際 $(a/s)+((-a)/s)=0/s^2=0/1$ です。
 
@@ -282,10 +282,10 @@ $D(f)$ の分母は $f$ の冪でした。今度は特定の点 $p$ で消えな
 > **定義（点の極大イデアルと点の局所環）**  
 > 体 $k$、空でないアフィン代数的集合 $X$、$A=A_k(X)$ と点 $p\in X$ に対し、
 
-$
+$$
 \mathfrak m_p=\{a\in A:a(p)=0\},
 \qquad S_p=A\setminus\mathfrak m_p
-$
+$$
 
 > と置く。$S_p^{-1}A$ を $p$ における点の局所環といい、$A_{\mathfrak m_p}$ と記す。
 <!-- formal-statement-end -->
