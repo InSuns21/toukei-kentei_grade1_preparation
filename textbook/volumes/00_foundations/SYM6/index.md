@@ -681,7 +681,7 @@ $$
 =0.
 $$
 
-グラフは一次元で $\frac12\dim T^*\mathbb R=1$ なのでLagrangeです。別の検算として、$\alpha=d(q^3)$ だから $d\alpha=d^2(q^3)=0$ となり、[グラフ判定](#thm-sym6-graph-criterion)にも一致します。
+グラフは一次元で $\frac12\dim T^*\mathbb R=1$ なのでLagrangeです。別の検算として、$\alpha=d(q^3)$ だから[外微分の二乗零](../GEO7/index.md#thm-geo7-d-square-zero)により $d\alpha=d^2(q^3)=0$ となり、[グラフ判定](#thm-sym6-graph-criterion)にも一致します。
 <!-- solution-end -->
 
 #### A4. 非閉1形式のグラフ
