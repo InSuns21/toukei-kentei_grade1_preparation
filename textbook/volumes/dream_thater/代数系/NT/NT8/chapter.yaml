@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - NT5
+  - RA1
 official_scope: []
 learning_objectives:
   - Euclid の素数無限性を矛盾の構成から証明し、素数の数え上げ問題との違いを説明できる
