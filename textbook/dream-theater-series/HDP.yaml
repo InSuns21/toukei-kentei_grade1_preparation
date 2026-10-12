@@ -32,7 +32,7 @@ chapters:
     title: epsilon-netとJohnson–Lindenstrauss射影
   - id: HDP7
     path: textbook/volumes/dream_thater/解析系/HDP/HDP7
-    status: planned
+    status: completed
     title: sub-Gaussianベクトルと標本共分散
   - id: HDP8
     path: textbook/volumes/dream_thater/解析系/HDP/HDP8
