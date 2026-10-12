@@ -791,6 +791,11 @@
 7. [EMAG7 電磁誘導と Maxwell 方程式](textbook/volumes/00_foundations/EMAG7/index.md)
 8. [EMAG8 電磁波とエネルギー](textbook/volumes/00_foundations/EMAG8/index.md)
 
+<a id="dt-subject-special-relativity-i"></a>
+### 特殊相対論 I
+
+1. [SREL1 慣性系・光速度不変・Lorentz変換](textbook/volumes/00_foundations/SREL1/index.md)
+
 <a id="dt-subject-mathematical-quantum-mechanics"></a>
 ### 数理量子力学
 
