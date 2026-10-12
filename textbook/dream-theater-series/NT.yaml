@@ -20,8 +20,8 @@ chapters:
     title: 平方剰余・平方剰余の相互法則
   - id: NT4
     path: textbook/volumes/dream_thater/代数系/NT/NT4
-    status: planned
-    title: 算術関数とDirichlet畳み込み
+    status: completed
+    title: 算術関数と Dirichlet 畳み込み
   - id: NT5
     path: textbook/volumes/dream_thater/代数系/NT/NT5
     status: planned

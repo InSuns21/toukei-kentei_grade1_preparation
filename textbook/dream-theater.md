@@ -691,6 +691,7 @@
 1. [NT1 整数環・合同式・剰余類](textbook/volumes/dream_thater/代数系/NT/NT1/index.md)
 2. [NT2 乗法群・Fermat–Euler・原始根](textbook/volumes/dream_thater/代数系/NT/NT2/index.md)
 3. [NT3 平方剰余・平方剰余の相互法則](textbook/volumes/dream_thater/代数系/NT/NT3/index.md)
+4. [NT4 算術関数と Dirichlet 畳み込み](textbook/volumes/dream_thater/代数系/NT/NT4/index.md)
 
 ### 代数幾何学 I〜III
 

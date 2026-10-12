@@ -1,0 +1,100 @@
+chapter: NT4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NT1
+  - NT2
+  - RNG3
+forward_references: []
+
+concepts:
+  - id: number-theory.arithmetic-function
+    name: 算術関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（算術関数）]
+    requires: []
+
+  - id: number-theory.constant-one-function
+    name: 定数1関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（定数1関数）]
+    requires: [number-theory.arithmetic-function]
+
+  - id: number-theory.multiplicative-arithmetic-function
+    name: 乗法的算術関数と完全乗法的算術関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（乗法的関数と完全乗法的関数）]
+    requires: [number-theory.arithmetic-function]
+
+  - id: number-theory.divisor-count-and-sum
+    name: 約数個数関数と約数和関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（約数個数関数と約数和関数）]
+    requires: [number-theory.arithmetic-function]
+
+  - id: number-theory.mobius-function
+    name: Möbius 関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Möbius 関数）]
+    requires: [number-theory.arithmetic-function]
+
+  - id: number-theory.basic-arithmetic-multiplicativity
+    name: 基本算術関数の乗法性と素数冪表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（基本算術関数の乗法性と素数冪表示）]
+    requires: [number-theory.multiplicative-arithmetic-function, number-theory.divisor-count-and-sum, number-theory.mobius-function, number-theory.totient-product]
+
+  - id: number-theory.dirichlet-convolution
+    name: Dirichlet 畳み込み
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Dirichlet 畳み込み）]
+    requires: [number-theory.arithmetic-function]
+
+  - id: number-theory.dirichlet-unit
+    name: Dirichlet 畳み込みの単位元
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（畳み込みの単位元）]
+    requires: [number-theory.dirichlet-convolution]
+
+  - id: number-theory.dirichlet-algebra-laws
+    name: Dirichlet 畳み込みの代数法則
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Dirichlet 畳み込みの代数法則）]
+    requires: [number-theory.dirichlet-convolution, number-theory.dirichlet-unit]
+
+  - id: number-theory.dirichlet-multiplicativity-closure
+    name: 乗法的関数の Dirichlet 畳み込み閉性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（乗法的関数の畳み込み閉性）]
+    requires: [number-theory.dirichlet-convolution, number-theory.multiplicative-arithmetic-function]
+
+  - id: number-theory.dirichlet-prime-power-formula
+    name: Dirichlet 畳み込みの素数冪公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（素数冪での畳み込み）]
+    requires: [number-theory.dirichlet-convolution]
+
+  - id: number-theory.tau-sigma-convolution
+    name: 約数関数の Dirichlet 畳み込み表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（約数関数の畳み込み表示）]
+    requires: [number-theory.dirichlet-convolution, number-theory.divisor-count-and-sum]
+
+  - id: number-theory.dirichlet-inverse
+    name: Dirichlet 逆元の存在条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Dirichlet 逆元の存在条件）]
+    requires: [number-theory.dirichlet-algebra-laws, number-theory.dirichlet-unit]
