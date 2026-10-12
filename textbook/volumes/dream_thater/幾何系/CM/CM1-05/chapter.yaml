@@ -1,0 +1,40 @@
+id: "CM1-05"
+title: "複素接束の座標変換と正則性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CM1-04
+official_scope: []
+learning_objectives:
+  - 正則座標内でT^{1,0}Xの局所基底と係数表示を説明できる
+  - 複素偏導関数の正則性を一変数Cauchy公式とパラメータ微分から証明できる
+  - 接枠の遷移行列と成分列の変換方向を連鎖律から導出できる
+  - 逆座標の微分を使って遷移行列の正則可逆性を示せる
+  - 三重重なりでの遷移行列の合成条件を評価点付きで示せる
+  - 正則な(1,0)接ベクトル場の定義を使い座標不変性を証明できる
+  - 型別の滑らかさと接ベクトル場の正則性を具体例で区別できる
+  - 正則でない実座標変換での(1,0)・(0,1)混合を計算できる
+definitions:
+  - { id: CM1-05-DEF-01, name: 複素接枠の遷移行列 }
+  - { id: CM1-05-DEF-02, name: 正則な(1,0)接ベクトル場 }
+theorems:
+  - { id: CM1-05-LEM-01, name: 多変数正則写像の複素偏導関数の正則性 }
+  - { id: CM1-05-THM-01, name: "(1,0)接枠と成分列の座標変換則" }
+  - { id: CM1-05-THM-02, name: 複素接枠の遷移行列の合成条件 }
+  - { id: CM1-05-THM-03, name: 接ベクトル場の正則性の座標不変性 }
+canonical_examples:
+  - 二次剪断座標と複素Jacobi遷移行列
+  - 正則な接ベクトル場と共役係数による非例
+  - 非正則な実線形座標変換と型の混合
+  - 反転座標によるRiemann球面の接ベクトル場
+problem_patterns:
+  - CM1-05-HOLOMORPHIC-DERIVATIVES
+  - CM1-05-FRAME-TRANSITIONS
+  - CM1-05-COCYCLE
+  - CM1-05-HOLOMORPHIC-SECTIONS
+  - CM1-05-NONHOLOMORPHIC-CHARTS
+  - CM1-05-TRIPLE-COORDINATE-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 2 }
