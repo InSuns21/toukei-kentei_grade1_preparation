@@ -1,0 +1,50 @@
+id: "AG1-04"
+title: "局所化・局所環・点の近傍での関数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG1-03
+  - RNG2
+  - RNG4
+official_scope: []
+learning_objectives:
+  - 乗法的集合・局所化の分数の同値関係を定義し、零因子を含む場合も演算のwell-defined性を証明できる
+  - 局所化の普遍性を分数の像から構成し、存在・一意性を証明できる
+  - 主開集合の基底性と一元局所化の分数関数への単射を、消滅イデアルを使って証明できる
+  - 点の極大イデアルと局所環を作り、単元・剰余体・唯一の極大イデアルを具体的に判定できる
+  - 分数関数の芽の定義から局所環との同型を両方向に証明できる
+  - 可約な二軸で局所化によって消える元と局所環に残る零因子を区別できる
+definitions:
+  - { id: AG1-04-DEF-01, name: 乗法的集合 }
+  - { id: AG1-04-DEF-02, name: 局所化 }
+  - { id: AG1-04-DEF-03, name: 主開集合と一元局所化 }
+  - { id: AG1-04-DEF-04, name: 局所環 }
+  - { id: AG1-04-DEF-05, name: 点の極大イデアルと点の局所環 }
+  - { id: AG1-04-DEF-06, name: 点における分数関数の芽 }
+theorems:
+  - { id: AG1-04-PROP-01, name: 局所化の演算と零判定 }
+  - { id: AG1-04-THM-01, name: 局所化の普遍性 }
+  - { id: AG1-04-PROP-02, name: 主開集合は開集合の基底 }
+  - { id: AG1-04-PROP-03, name: 主開集合上の分数関数 }
+  - { id: AG1-04-THM-02, name: 点の局所環の単元と唯一の極大イデアル }
+  - { id: AG1-04-THM-03, name: 点の局所環と分数関数の芽の一致 }
+canonical_examples:
+  - C[t]でtの冪を分母にしたときの分数
+  - 二軸の座標環でxを可逆にするとyが零になる
+  - D(x)とD(y)の交わりはD(xy)
+  - C[t]の原点で1/(1+t)は許されるが1/tは許されない
+  - 分数の異なる式が同じ局所的な芽を表す
+  - 二軸の交点で非零零因子が局所環に残る
+problem_patterns:
+  - AG1-04-FRACTION-EQUIVALENCE
+  - AG1-04-BASIC-OPEN-INTERSECTION
+  - AG1-04-POINT-MAXIMAL-IDEAL
+  - AG1-04-RESIDUE-EVALUATION
+  - AG1-04-ZERO-DIVISOR-LOCALIZATION
+  - AG1-04-UNIVERSAL-MAP
+  - AG1-04-NONEXTENDABLE-POLE
+  - AG1-04-NODE-COMPLETE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 6, review: 2 }
