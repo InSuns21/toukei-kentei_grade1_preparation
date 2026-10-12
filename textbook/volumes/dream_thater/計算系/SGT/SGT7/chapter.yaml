@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - SGT1
+  - SGT2
   - F0-00F1
   - LA3B
 official_scope: []
