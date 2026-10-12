@@ -61,7 +61,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sym6-coisotropic-subspace -->
-### 直接例：超平面は直交方向を含む
+### 直接例：三次元部分空間は直交方向を含む
 
 **定義の確認**：$H=\operatorname{span}\{e_1,e_2,f_1\}$ に直交する $v$ について
 
