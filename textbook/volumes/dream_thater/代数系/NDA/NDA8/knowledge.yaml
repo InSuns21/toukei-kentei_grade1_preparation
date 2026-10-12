@@ -1,0 +1,80 @@
+chapter: NDA8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NDA5
+  - NDA6
+  - MT1
+  - MT8
+forward_references: []
+
+concepts:
+  - id: diophantine.metric-approximation-set
+    name: 近似関数と無限回近似集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（近似関数と無限回近似集合）]
+    requires: []
+
+  - id: diophantine.borel-cantelli-first
+    name: Borel–Cantelliの第一補題
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（Borel–Cantelliの第一補題）]
+    requires: []
+
+  - id: diophantine.khintchine-convergence
+    name: Khintchineの収束方向
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Khintchineの収束方向）]
+    requires: [diophantine.metric-approximation-set, diophantine.borel-cantelli-first]
+
+  - id: diophantine.almost-everywhere-exponent
+    name: ほとんどすべての実数の無理性指数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（ほとんどすべての実数の無理性指数）]
+    requires: [diophantine.khintchine-convergence, diophantine.irrationality-exponent]
+
+  - id: diophantine.reduced-rational-count
+    name: 分母を倍幅に制限した既約分数の個数
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（分母を倍幅に制限した既約分数の個数）]
+    requires: []
+
+  - id: diophantine.second-moment-limsup
+    name: 二乗平均による無限回集合の下界
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（二乗平均による無限回集合の下界）]
+    requires: []
+
+  - id: diophantine.dyadic-overlap
+    name: 分母の二進ブロックの交わり評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（分母の二進ブロックの交わり評価）]
+    requires: [diophantine.reduced-rational-count]
+
+  - id: diophantine.local-full-measure
+    name: 全区間で正の割合なら全測度
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（全区間で正の割合なら全測度）]
+    requires: []
+
+  - id: diophantine.khintchine-theorem
+    name: Khintchineの定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Khintchineの定理：一次元・斉次近似）]
+    requires: [diophantine.khintchine-convergence, diophantine.second-moment-limsup, diophantine.dyadic-overlap, diophantine.local-full-measure]
+
+  - id: diophantine.very-well-approximated-dimension-bound
+    name: よい有理近似を受ける集合のHausdorff次元の上界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（よい有理近似を受ける集合のHausdorff次元の上界）]
+    requires: [measure.hausdorff-dimension, measure.hausdorff-measure, diophantine.irrationality-exponent]
