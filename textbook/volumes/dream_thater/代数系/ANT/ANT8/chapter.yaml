@@ -22,6 +22,7 @@ theorems:
   - { id: ANT8-LEM-01, name: 非減少和の差分による平滑化の解除 }
   - { id: ANT8-PROP-01, name: RHから得られる平滑化誤差と点ごとの誤差 }
   - { id: ANT8-COR-01, name: 十分鋭い誤差評価はRHを導く }
+  - { id: ANT8-LEM-02, name: ζの局所対数微分の零点表示 }
   - { id: ANT8-THM-01, name: ζの古典的な対数型零点不存在領域 }
   - { id: ANT8-THM-02, name: 対数型零点不存在からの素数定理の誤差 }
   - { id: ANT8-PROP-02, name: 文字付きvon Mangoldt級数 }
