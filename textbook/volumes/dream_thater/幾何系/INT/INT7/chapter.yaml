@@ -1,0 +1,47 @@
+id: "INT7"
+title: "twist mapとPoincaré–Birkhoff"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - INT3
+  - INT4
+  - INT5
+  - SYM4
+official_scope: []
+learning_objectives:
+  - 2自由度Hamilton系の正則エネルギー面で第一帰還写像を定義し面積保存を証明できる
+  - 円環写像の面積保存・境界保存・単調twistを別個に確認できる
+  - 可積分Hamilton系の固定エネルギー帰還回転数とtwist係数を導出できる
+  - 面積保存twist写像の生成関数を構成し周期性と微分関係を証明できる
+  - Poincaré–Birkhoff固定点定理の単調twist版を生成関数の極値から証明できる
+  - 一般形との仮定の違いと境界保存の必要性を反例で説明できる
+  - q回反復の条件を確認して共鳴周期点と周期軌道を区別できる
+definitions:
+  - { id: INT7-DEF-01, name: Poincaré第一帰還写像 }
+  - { id: INT7-DEF-02, name: 正の単調twistと境界twist }
+theorems:
+  - { id: INT7-PROP-01, name: 第一帰還写像の面積保存 }
+  - { id: INT7-PROP-02, name: 可積分帰還写像のtwist係数 }
+  - { id: INT7-LEM-01, name: 円環のtwist生成関数 }
+  - { id: INT7-THM-01, name: Poincaré–Birkhoff固定点定理（単調twist版） }
+  - { id: INT7-PROP-03, name: 反復twistから得る共鳴周期点 }
+canonical_examples:
+  - 二作用Hamilton系の帰還断面
+  - 可積分せん断の単調twistと固定円
+  - 標準写像生成関数と有限境界の非保存
+  - 境界で消えるHamilton摂動による閉円環twist
+  - 剛体回転における境界twistの欠落
+problem_patterns:
+  - INT7-RETURN-AREA
+  - INT7-MONOTONE-TWIST
+  - INT7-FREQUENCY-DERIVATIVE
+  - INT7-GENERATING-FUNCTION
+  - INT7-TWO-FIXED-POINTS
+  - INT7-BOUNDARY-COUNTEREXAMPLE
+  - INT7-RATIONAL-ITERATE
+  - INT7-ITERATE-TWIST-FAILURE
+  - INT7-HAMILTONIAN-ANNULUS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 10, review: 4 }

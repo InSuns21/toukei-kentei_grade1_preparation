@@ -692,6 +692,7 @@
 4. [INT4 近可積分Hamilton系と小分母](textbook/volumes/dream_thater/幾何系/INT/INT4/index.md)
 5. [INT5 正準摂動論と共鳴](textbook/volumes/dream_thater/幾何系/INT/INT5/index.md)
 6. [INT6 Birkhoff標準形](textbook/volumes/dream_thater/幾何系/INT/INT6/index.md)
+7. [INT7 twist mapとPoincaré–Birkhoff](textbook/volumes/dream_thater/幾何系/INT/INT7/index.md)
 
 ## 代数系
 
