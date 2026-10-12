@@ -24,7 +24,19 @@ Sherrington–Kirkpatrick（SK）模型では、二配置が各サイトでど�
 > Z_N^{\mathrm{SK}}=\sum_{\sigma\in\Sigma_N}e^{B_N^{\mathrm{SK}}(\sigma)}
 > $$
 >
-> と定める。無秩序 $J$ を固定したGibbs平均を $\langle f\rangle_J= (Z_N^{\mathrm{SK}})^{-1}\sum_\sigma f(\sigma)e^{B_N^{\mathrm{SK}}(\sigma)}$ とする。ランダム圧力を $F_N=N^{-1}\log Z_N^{\mathrm{SK}}$、quenched圧力を $p_N(\beta,h)=\mathbb EF_N$ とする。$\mathbb E$ は結合に関する期待値である。
+> と定める。無秩序 $J$ を固定したGibbs平均、ランダム圧力、quenched圧力をそれぞれ
+
+$
+\langle f\rangle_J
+=\frac{\sum_{\sigma\in\Sigma_N}f(\sigma)e^{B_N^{\mathrm{SK}}(\sigma)}}{Z_N^{\mathrm{SK}}},
+$
+
+$
+F_N=\frac1N\log Z_N^{\mathrm{SK}},\qquad
+p_N(\beta,h)=\mathbb EF_N
+$
+
+> とする。$\mathbb E$ は結合に関する期待値である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sg3-sk -->
@@ -275,7 +287,7 @@ $a_N=Np_N=\mathbb E\log Z_N$ を比較の対象にします。各ブロックに
 
 ### 証明の見取り図
 
-二つの共分散は全配置で分散が等しく、差はブロックoverlapの凸結合の二乗と、二乗の凸結合との差です。この差を平方完成すると符号が確定します。補間の端点では、一方が全系、一方が二系の独立積になります。
+二つの共分散は全配置で分散が等しく、差はブロックoverlapの重み付き平均の二乗と、各ブロックで先に二乗してから重み付き平均した値との差です。この差を平方完成すると符号が確定します。補間の端点では、一方が全系、一方が二系の独立積になります。
 
 <!-- proof-start -->
 ### 証明
@@ -397,7 +409,7 @@ $$
 \le\frac{\beta^2}{2N}.
 $$
 
-$\beta>0$ では $F_N$ は $L=\beta/\sqrt{2N}$-Lipschitz なので、[Gaussian集中定理](../SG2/index.md#cor-sg2-pressure-concentration)から、任意の $\varepsilon>0$ について
+$\beta>0$ では $F_N$ は $L=\beta/\sqrt{2N}$-Lipschitz なので、[正規無秩序圧力の集中](../SG2/index.md#cor-sg2-pressure-concentration)から、任意の $\varepsilon>0$ について
 
 $$
 \mathbb P(|F_N-p_N|\ge\varepsilon)
@@ -419,7 +431,7 @@ $$
 
 ## 5. 何がREMと違い、何を次に調べるか
 
-REMは異なる配置間の共分散が0でした。SKでは[共分散公式](#prop-sg3-covariance)により $q_N(\sigma,\tau)^2$ で相関が決まります。これにより、独立エネルギーの帯計数をそのまま流用できません。しかし、二レプリカのoverlapを追えば、相関構造をGaussian補間の式へ直接入れられます。
+REMは異なる配置間の共分散が0でした。SKでは[SK Gaussian場の共分散とoverlap](#prop-sg3-covariance)により $q_N(\sigma,\tau)^2$ で相関が決まります。これにより、独立エネルギーの帯計数をそのまま流用できません。しかし、二レプリカのoverlapを追えば、相関構造をGaussian補間の式へ直接入れられます。
 
 $h=0$ では全スピン反転でGibbs重みが変わらず、有限 $N$ の $\langle\sigma_i\rangle_J=0$ です。二レプリカは条件付き独立なので
 
@@ -670,7 +682,7 @@ C^V_{\sigma\tau}-C^Y_{\sigma\tau}
 =-\frac{\beta^2N_1N_2}{2N}(u-v)^2.
 $$
 
-対角では0なので、[SG2の補間公式](../SG2/index.md#thm-sg2-interpolation)から $\Psi'(t)=\beta^2N_1N_2(4N)^{-1}\mathbb E\langle(u-v)^2\rangle_t\ge0$。$t=1$ と $t=0$ の期待対数分配関数はそれぞれ $a_N$ と $a_{N_1}+a_{N_2}$ ですから、積分して $a_N\ge a_{N_1}+a_{N_2}$ です。
+対角では0なので、[Gaussian補間の微分公式](../SG2/index.md#thm-sg2-interpolation)から $\Psi'(t)=\beta^2N_1N_2(4N)^{-1}\mathbb E\langle(u-v)^2\rangle_t\ge0$。$t=1$ と $t=0$ の期待対数分配関数はそれぞれ $a_N$ と $a_{N_1}+a_{N_2}$ ですから、積分して $a_N\ge a_{N_1}+a_{N_2}$ です。
 
 (d) [圧力の一様評価](#prop-sg3-pressure-derivative)によって $a_N/N$ は上から抑えられます。固定した $m$ について $n=km+r$（$0\le r<m$）とすると超加法性から $a_n\ge k a_m+a_r$。$a_r\ge r\log(2\cosh h)$ を使い $\liminf_n a_n/n\ge a_m/m$、$m$ で上限を取れば $\lim_n p_n=\sup_m p_m=:p$ です。さらに $F_N$ の結合に関する勾配の二乗は
 
