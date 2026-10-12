@@ -1,0 +1,67 @@
+chapter: TH8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TH7
+forward_references: []
+concepts:
+  - id: thermodynamics.order-parameter
+    name: 秩序変数と対称性
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（秩序変数と対称性）]
+    requires: [thermodynamics.phase-transfer-equilibrium]
+  - id: thermodynamics.magnetic-conjugate-field
+    name: 共役外場と磁化
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（共役外場と磁化）]
+    requires: [thermodynamics.thermodynamic-response]
+  - id: thermodynamics.envelope-branch
+    name: 極小枝の包絡微分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（極小枝の包絡微分）]
+    requires: [thermodynamics.magnetic-conjugate-field, thermodynamics.free-energy-minimum]
+  - id: thermodynamics.landau-quartic
+    name: 対称な四次Landau自由エネルギー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（対称な四次Landau自由エネルギー）]
+    requires: [thermodynamics.order-parameter, thermodynamics.magnetic-conjugate-field]
+  - id: thermodynamics.landau-quartic-minimum
+    name: 四次Landau模型の平衡極小
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（四次Landau模型の平衡極小）]
+    requires: [thermodynamics.landau-quartic, thermodynamics.free-energy-minimum]
+  - id: thermodynamics.landau-continuous-heat-capacity
+    name: 連続転移の自由エネルギーと比熱
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（連続転移の自由エネルギーと比熱）]
+    requires: [thermodynamics.landau-quartic-minimum, thermodynamics.envelope-branch]
+  - id: thermodynamics.mean-field-critical-exponents
+    name: 平均場感受率と臨界指数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（平均場感受率と臨界指数）]
+    requires: [thermodynamics.landau-quartic-minimum, thermodynamics.magnetic-conjugate-field]
+  - id: thermodynamics.landau-sextic
+    name: 六次Landau自由エネルギー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（六次Landau自由エネルギー）]
+    requires: [thermodynamics.landau-quartic]
+  - id: thermodynamics.landau-first-order
+    name: 六次模型の一次転移と潜熱
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（六次模型の一次転移と潜熱）]
+    requires: [thermodynamics.landau-sextic, thermodynamics.envelope-branch]
+  - id: thermodynamics.field-temperature-coexistence-slope
+    name: 共存線の外場・温度勾配
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（共存線の外場・温度勾配）]
+    requires: [thermodynamics.landau-first-order, thermodynamics.clapeyron]
