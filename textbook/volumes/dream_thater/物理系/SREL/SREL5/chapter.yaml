@@ -1,0 +1,43 @@
+id: "SREL5"
+title: "電磁場テンソル・Maxwell方程式の共変形式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SREL4
+  - EMAG7
+official_scope: []
+learning_objectives:
+  - SI単位とMinkowski計量の符号を固定し四元電流・電磁場テンソルの上下添字を具体計算できる
+  - 非斉次Maxwell方程式の四元表示からGauss則とAmpère–Maxwell則を各成分で回収できる
+  - 斉次Maxwell方程式の巡回微分条件から磁束Gauss則とFaraday則を再導出できる
+  - Lorentz変換による電場磁場の混合とMaxwell方程式の共変性を証明できる
+  - 反対称性と二階偏微分の交換から局所電荷保存を証明しその必要条件としての意味を説明できる
+definitions:
+  - { id: SREL5-DEF-01, name: 四元電流 }
+  - { id: SREL5-DEF-02, name: 電磁場テンソル }
+theorems:
+  - { id: SREL5-PRINCIPLE-01, name: 真空中のMaxwell方程式・SI単位系 }
+  - { id: SREL5-THM-01, name: 非斉次Maxwell方程式の発散表示 }
+  - { id: SREL5-THM-02, name: 斉次Maxwell方程式の巡回微分表示 }
+  - { id: SREL5-PROP-01, name: 電磁場のLorentz変換 }
+  - { id: SREL5-THM-03, name: Maxwell方程式のLorentz共変性 }
+  - { id: SREL5-THM-04, name: Maxwell方程式からの局所電荷保存 }
+canonical_examples:
+  - 静止電荷の四元電流をboostし密度と電流が混合することを確かめる
+  - x方向電場とz方向磁場の反対称テンソルと添字上下の符号を検算する
+  - 定常なz方向磁場のy方向Ampère–Maxwell成分を検算する
+  - 保存しない源がMaxwell方程式に整合しないことを示す
+problem_patterns:
+  - SREL5-FIELD-MATRIX
+  - SREL5-GAUSS-COMPONENT
+  - SREL5-AMPERE-COMPONENT
+  - SREL5-FARADAY-COMPONENT
+  - SREL5-CONTINUITY-NO-GO
+  - SREL5-MAGNETIC-GAUSS
+  - SREL5-ELECTRIC-BOOST
+  - SREL5-PLANE-WAVE
+  - SREL5-BOOSTED-WAVE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 4 }
