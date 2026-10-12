@@ -1,7 +1,7 @@
 # DREAM THEATER カテゴリー別ディレクトリ移行 PLAN
 
 - 作成日: 2026-10-12
-- 状態: R0–R3 実施済み。R4 は移行PRの最終CI確認と merge 待ち。
+- 状態: **完了**（2026-10-12、[PR #996](https://github.com/InSuns21/toukei-kentei_grade1_preparation/pull/996) をmainへmerge、merge SHA `9313af759065063d15a283ab53e9ea0abbba6ece`）
 - 種別: ディレクトリ構造・公開導線・CIを対象とする横断移行。数学講義の執筆PLANとは独立。
 - 対象の正本: textbook/dream-theater-index.json と textbook/dream-theater.md
 - ユーザー決定: **旧URLの互換維持は不要**。旧パスのリダイレクト、複製ファイル、エイリアスページは作成しない。
@@ -86,9 +86,9 @@ textbook/volumes/dream_thater/<カテゴリー>/<chapter.yaml の id>/index.md
 
 ### R4 完了
 
-- [ ] 検証完了後PRをmerge
-- [ ] 新規講義が新パスで作成されることを確認
-- [ ] 本計画の状態を完了にし、記録を残す
+- [x] 検証完了後PRをmerge（PR #996、全6 CI workflow成功）
+- [x] 今後の新規講義用の系列manifest planned pathが新パスを指し、共通chapter ID resolverおよび検証器がカテゴリー/IDを要求することを確認（実際の新規教材執筆は本移行の対象外）
+- [x] 本計画の状態を完了にし、PR・検査結果・移動件数を記録する
 
 ## 4. 分割条件
 
@@ -106,4 +106,4 @@ textbook/volumes/dream_thater/<カテゴリー>/<chapter.yaml の id>/index.md
 - 既存の内容変更専用査読ゲートは、移動前後の数学本文不変を機械証明できるPRでのみ例外化。別PRでの新規・改稿章には従来の全件査読ゲートを適用する。
 - リンク不具合: 数式の括弧を含むラベルのURL置換を補正（F0-00P3D→F0-00P3A）。
 - 旧URL向けのredirect / alias / 複製ファイルは作成していない。
-- 完了時には main にある lecture directory を再確認し、今後の新規講義の動線を確認する。
+- PR #996 のmainへのmergeを確認し、公開索引・系列manifest・共通ID解決器を新構造へ統一。今後の新規講義執筆は各系列 manifest の新パスを正本とする。
