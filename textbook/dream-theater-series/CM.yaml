@@ -9,7 +9,7 @@ chapter_root: textbook/volumes/dream_thater
 chapters:
   - id: CM1-01
     path: textbook/volumes/dream_thater/幾何系/CM/CM1-01
-    status: planned
+    status: completed
     title: "複素座標と高次元正則アトラス"
   - id: CM1-02
     path: textbook/volumes/dream_thater/幾何系/CM/CM1-02
