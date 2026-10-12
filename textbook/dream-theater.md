@@ -922,6 +922,11 @@
 8. [AMECH8 Hamilton--Jacobi 理論](textbook/volumes/dream_thater/物理系/AMECH/AMECH8/index.md)
 
 
+<a id="dt-subject-celestial-mechanics"></a>
+### 天体力学・三体問題・Hamiltonian chaos
+
+1. [CELE1 二体問題を可積分系として読み直す](textbook/volumes/dream_thater/物理系/CELE/CELE1/index.md)
+
 <a id="dt-subject-electromagnetism-i"></a>
 ### 電磁気学 I
 
@@ -980,6 +985,7 @@
 4. [SG4 replica対称性・対称性の破れ](textbook/volumes/dream_thater/物理系/SG/SG4/index.md)
 5. [SG5 Ghirlanda–Guerra恒等式とultrametricity](textbook/volumes/dream_thater/物理系/SG/SG5/index.md)
 6. [SG6 Ruelle確率カスケードとParisi変分原理](textbook/volumes/dream_thater/物理系/SG/SG6/index.md)
+7. [SG7 dilutedスピングラスとランダム因子グラフ](textbook/volumes/dream_thater/物理系/SG/SG7/index.md)
 
 
 <a id="dt-subject-mathematical-quantum-mechanics"></a>

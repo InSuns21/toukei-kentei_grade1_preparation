@@ -31,8 +31,8 @@ chapters:
     title: Ruelle確率カスケードとParisi変分原理
   - id: SG7
     path: textbook/volumes/dream_thater/物理系/SG/SG7
-    status: planned
-    title: dilutedスピングラスとランダムfactor graph
+    status: completed
+    title: dilutedスピングラスとランダム因子グラフ
   - id: SG8
     path: textbook/volumes/dream_thater/物理系/SG/SG8
     status: planned
