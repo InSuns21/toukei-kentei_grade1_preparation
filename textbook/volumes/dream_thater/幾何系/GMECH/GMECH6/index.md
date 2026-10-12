@@ -44,6 +44,8 @@ $$
 <!-- definition-example-start: def-gmech6-coadjoint-tangent -->
 ### 直接例：回転群
 
+**定義の確認**：余随伴作用の速度を双対評価から求め、その像が軌道の接平面を張ることを検算します。
+
 $\mathfrak{so}(3)$ を $\mathbb R^3$ と同一視し、Lie括弧を $[\xi,\eta]=\xi\times\eta$、双対評価を内積とします。三重積の順序を確認すると
 
 $$
@@ -75,6 +77,8 @@ $$
 
 <!-- definition-example-start: def-gmech6-lie-poisson -->
 ### 直接例：構造定数と角運動量
+
+**定義の確認**：座標関数の微分をLie括弧へ入力し、正のLie–Poisson括弧を具体的に計算します。
 
 基底 $e_i$ が $[e_i,e_j]=\sum_k c_{ij}^k e_k$ を満たし、座標が $x_i(\mu)=\langle\mu,e_i\rangle$ なら $dx_i=e_i$ なので
 
@@ -221,6 +225,8 @@ $$
 <!-- definition-example-start: def-gmech6-kks -->
 ### 直接例：球面の接平面
 
+**定義の確認**：余随伴軌道の接方向を二つ選び、KKS形式の評価式へ代入します。
+
 $SO(3)$ で $\nu=r e_3$、$r>0$ と置きます。$\rho_{e_1}(\nu)=-r e_2$、$\rho_{e_2}(\nu)=r e_1$ は接平面の基底です。評価式へ代入すれば
 
 $$
@@ -310,6 +316,8 @@ $$
 
 <!-- definition-example-start: def-gmech6-casimir -->
 ### 直接例：角運動量の長さ
+
+**定義の確認**：全ての滑らかな関数との括弧が零になることを外積の直交性で確認します。
 
 $SO(3)$ で $C(\mu)=|\mu|^2/2$ とすると $\nabla C=\mu$ なので
 
