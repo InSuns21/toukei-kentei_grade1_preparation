@@ -1,0 +1,52 @@
+id: "SM6"
+title: "量子統計と量子理想気体"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SM5
+  - QM2
+official_scope: []
+learning_objectives:
+  - 同種粒子の対称化規則を物理的入力として区別し、Bose型・Fermi型のモード占有模型と許容粒子数を説明できる
+  - Bose型・Fermi型の有限モード大分配関数を収束条件から因数分解し、各占有数の独立性を証明できる
+  - 一モードの幾何分布とBernoulli分布からBose–Einstein・Fermi–Dirac占有数、平均、分散を導出できる
+  - 周期境界条件の自由粒子波数格子から三次元の状態密度を証明できる
+  - Bose積分・Fermi積分の収束領域を確認し、圧力・密度・エネルギー密度を熱力学極限で導出できる
+  - 希薄極限の量子統計展開を粒子密度で再展開し、古典理想気体と最初の量子補正を比較できる
+  - 三次元Bose理想気体で固定密度の基底占有と臨界密度を極限の順序まで説明できる
+  - 零温度自由Fermi気体のFermi波数・エネルギー密度・圧力を球積分から導出できる
+  - 粒子数揺らぎ・有限容積・熱力学極限・低温極限を混同せず、各模型の成立範囲を説明できる
+definitions:
+  - { id: SM6-DEF-01, name: "Bose型・Fermi型の有限モード占有模型" }
+  - { id: SM6-DEF-02, name: "三次元周期境界量子理想気体" }
+  - { id: SM6-DEF-03, name: "Bose積分とFermi積分" }
+propositions:
+  - { id: SM6-PROP-01, name: "量子理想気体の大分配関数" }
+  - { id: SM6-PROP-02, name: "モード和と熱力学微分" }
+  - { id: SM6-PROP-03, name: "三次元自由粒子の状態密度" }
+  - { id: SM6-PROP-04, name: "希薄極限と最初の量子補正" }
+  - { id: SM6-PROP-05, name: "三次元自由Fermi気体の零温度極限" }
+theorems:
+  - { id: SM6-THM-01, name: "Bose–Einstein・Fermi–Dirac占有数と分散" }
+  - { id: SM6-THM-02, name: "三次元量子理想気体の状態方程式" }
+  - { id: SM6-THM-03, name: "固定密度の三次元Bose気体の基底占有" }
+canonical_examples:
+  - Bose一モードとFermi一モードの重み・規格化・占有数を比較する
+  - 同エネルギー二モードで固定粒子数2の占有配置を列挙する
+  - 周期境界の零波数と第一励起殻を直接数える
+  - Bose積分の原点近傍で収束と発散の境界を確かめる
+  - Fermi波数球の球殻積分を行う
+problem_patterns:
+  - SM6-BOSE-GEOMETRIC-MOMENTS
+  - SM6-FERMI-BERNOULLI-MOMENTS
+  - SM6-TWO-MODE-COUNTING
+  - SM6-THERMAL-WAVELENGTH-DEGENERACY
+  - SM6-BOSE-TWO-MODE-FLUCTUATION
+  - SM6-QUANTUM-VIRIAL-COEFFICIENT
+  - SM6-DENSITY-OF-STATES-DIMENSION
+  - SM6-ZERO-T-FERMI-SPHERE
+  - SM6-QUANTUM-LIMITS-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 10, review: 5 }
