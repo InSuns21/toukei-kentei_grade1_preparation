@@ -1,0 +1,110 @@
+chapter: NT3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NT1
+  - NT2
+  - GRP2
+  - FLD1
+forward_references: []
+
+concepts:
+  - id: number-theory.quadratic-residue
+    name: 平方剰余と平方非剰余
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（平方剰余と平方非剰余）]
+    requires: [number-theory.congruence, number-theory.finite-field-subgroup-cyclic]
+
+  - id: number-theory.legendre-symbol
+    name: Legendre 記号
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Legendre 記号）]
+    requires: [number-theory.quadratic-residue]
+
+  - id: number-theory.euler-criterion
+    name: Euler の規準
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Euler の規準）]
+    requires: [number-theory.legendre-symbol, number-theory.finite-field-subgroup-cyclic]
+
+  - id: number-theory.legendre-multiplicativity
+    name: Legendre 記号の乗法性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Legendre 記号の乗法性）]
+    requires: [number-theory.euler-criterion]
+
+  - id: number-theory.gauss-lemma-quadratic
+    name: 平方剰余に関する Gauss の補題
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（平方剰余に関する Gauss の補題）]
+    requires: [number-theory.euler-criterion, number-theory.modular-inverse-criterion]
+
+  - id: number-theory.quadratic-minus-one-supplement
+    name: 平方剰余の第一補充法則
+    aliases: [第一補充法則]
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（第一補充法則）]
+    requires: [number-theory.euler-criterion]
+
+  - id: number-theory.quadratic-two-supplement
+    name: 平方剰余の第二補充法則
+    aliases: [第二補充法則]
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（第二補充法則）]
+    requires: [number-theory.gauss-lemma-quadratic]
+
+  - id: number-theory.gauss-lemma-floor
+    name: Gauss の補題の床関数表示
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（Gauss の補題の床関数表示）]
+    requires: [number-theory.gauss-lemma-quadratic]
+
+  - id: number-theory.quadratic-reciprocity
+    name: 平方剰余の相互法則
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（平方剰余の相互法則）]
+    requires: [number-theory.gauss-lemma-floor]
+
+  - id: number-theory.jacobi-symbol
+    name: Jacobi 記号
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Jacobi 記号）]
+    requires: [number-theory.legendre-symbol]
+
+  - id: number-theory.jacobi-reciprocity
+    name: Jacobi 記号の乗法性・相互法則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Jacobi 記号の乗法性・相互法則）]
+    requires: [number-theory.jacobi-symbol, number-theory.quadratic-reciprocity, number-theory.legendre-multiplicativity]
+
+  - id: number-theory.odd-prime-square-lifting
+    name: 奇素数冪における単数の平方根
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（奇素数冪における単数の平方根）]
+    requires: [number-theory.quadratic-residue, number-theory.modular-inverse-criterion]
+
+  - id: number-theory.two-power-square-lifting
+    name: 2 の冪における奇数の平方根
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（2 の冪における奇数の平方根）]
+    requires: [number-theory.congruence]
+
+  - id: number-theory.quadratic-congruence-crt
+    name: 単数の二次合同方程式の可解条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（単数の二次合同方程式の可解条件）]
+    requires: [number-theory.odd-prime-square-lifting, number-theory.two-power-square-lifting, number-theory.constructive-crt]

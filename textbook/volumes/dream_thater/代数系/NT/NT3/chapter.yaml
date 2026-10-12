@@ -1,0 +1,53 @@
+id: "NT3"
+title: "平方剰余・平方剰余の相互法則"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NT1
+  - NT2
+  - GRP2
+  - FLD1
+official_scope: []
+learning_objectives:
+  - 平方剰余・平方非剰余・Legendre記号を定義し、奇素数法の平方剰余を列挙して検証できる
+  - 原始根の巡回性からEulerの規準とLegendre記号の乗法性を証明できる
+  - Gaussの補題を積の並べ替えと約分によって証明し、補充法則を導出できる
+  - Gaussの補題の床関数表示を導き、格子点計数で平方剰余の相互法則を完全に証明できる
+  - Jacobi記号の乗法性と相互法則を導き、値1が合成数法の平方可解性を保証しないことを説明できる
+  - 奇素数冪および2の冪への平方根の持ち上げを証明し、中国剰余定理で合成数法の二次合同式を解ける
+definitions:
+  - { id: NT3-DEF-01, name: 平方剰余と平方非剰余 }
+  - { id: NT3-DEF-02, name: Legendre記号 }
+  - { id: NT3-DEF-03, name: Jacobi記号 }
+theorems:
+  - { id: NT3-THM-01, name: Eulerの規準 }
+  - { id: NT3-PROP-01, name: Legendre記号の乗法性 }
+  - { id: NT3-LEM-01, name: Gaussの補題 }
+  - { id: NT3-THM-02, name: 第一補充法則 }
+  - { id: NT3-THM-03, name: 第二補充法則 }
+  - { id: NT3-LEM-02, name: Gaussの補題の床関数表示 }
+  - { id: NT3-THM-04, name: 平方剰余の相互法則 }
+  - { id: NT3-PROP-02, name: Jacobi記号の乗法性と相互法則 }
+  - { id: NT3-THM-05, name: 奇素数冪における単数の平方根 }
+  - { id: NT3-PROP-03, name: 2の冪における奇数の平方根 }
+  - { id: NT3-THM-06, name: 単数の二次合同方程式の可解条件 }
+canonical_examples:
+  - 法7の平方剰余と平方非剰余
+  - 法11で2のGaussの補題
+  - 法7と11の相互法則の符号
+  - Jacobi記号が1だが2は法15で平方にならない例
+  - 法169で10の平方根を持ち上げる計算
+  - 法65における-1の四つの平方根
+problem_patterns:
+  - NT3-QUADRATIC-RESIDUES
+  - NT3-EULER-CRITERION
+  - NT3-GAUSS-LEMMA
+  - NT3-SUPPLEMENTARY-LAWS
+  - NT3-LATTICE-COUNT-RECIPROCITY
+  - NT3-JACOBI-NONSUFFICIENCY
+  - NT3-PRIME-POWER-LIFTING
+  - NT3-CRT-QUADRATIC-CONGRUENCE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 5, review: 3 }

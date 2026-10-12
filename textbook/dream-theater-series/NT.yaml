@@ -16,7 +16,7 @@ chapters:
     title: 乗法群・Fermat–Euler・原始根
   - id: NT3
     path: textbook/volumes/dream_thater/代数系/NT/NT3
-    status: planned
+    status: completed
     title: 平方剰余・平方剰余の相互法則
   - id: NT4
     path: textbook/volumes/dream_thater/代数系/NT/NT4
