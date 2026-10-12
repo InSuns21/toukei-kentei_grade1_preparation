@@ -3,6 +3,7 @@ title: "次元・超越次数・イデアルの鎖"
 volume: "foundations"
 status: supplementary
 prerequisites:
+  - F0-00A3
   - AG1-08
   - AG1-06
   - AG1-05
