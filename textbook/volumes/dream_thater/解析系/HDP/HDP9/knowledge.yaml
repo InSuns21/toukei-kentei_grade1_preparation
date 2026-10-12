@@ -1,0 +1,64 @@
+chapter: HDP9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HDP8
+  - HDP3
+  - HDP1
+  - LA6
+forward_references: []
+concepts:
+  - id: high-dimensional-probability.hanson-wright-mgf-proxy
+    name: 中心化sub-Gaussian座標の共通代理量
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（中心化sub-Gaussian座標の共通代理量）]
+    requires: []
+  - id: high-dimensional-probability.hanson-wright-quadratic-norms
+    name: 二次形式と行列の二つのノルム
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（二次形式と行列の二つのノルム）]
+    requires: []
+  - id: high-dimensional-probability.square-mgf
+    name: sub-Gaussian平方の中心化指数モーメント
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（sub-Gaussian平方の中心化指数モーメント）]
+    requires: [high-dimensional-probability.hanson-wright-mgf-proxy]
+  - id: high-dimensional-probability.diagonal-mgf
+    name: 独立な対角項の指数モーメント
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（独立な対角項の指数モーメント）]
+    requires: [high-dimensional-probability.square-mgf]
+  - id: high-dimensional-probability.gaussian-comparison
+    name: 独立sub-Gaussian線形像のGaussian比較
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（独立sub-Gaussian線形像のGaussian比較）]
+    requires: [high-dimensional-probability.hanson-wright-mgf-proxy]
+  - id: high-dimensional-probability.offdiagonal-mgf
+    name: 非対角二次形式の指数モーメント
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（非対角二次形式の指数モーメント）]
+    requires: [high-dimensional-probability.gaussian-comparison]
+  - id: high-dimensional-probability.quadratic-mgf
+    name: 中心化二次形式の局所指数モーメント
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（中心化二次形式の局所指数モーメント）]
+    requires: [high-dimensional-probability.diagonal-mgf, high-dimensional-probability.offdiagonal-mgf]
+  - id: high-dimensional-probability.hanson-wright
+    name: Hanson–Wrightの二次形式集中不等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Hanson–Wrightの二次形式集中不等式）]
+    requires: [high-dimensional-probability.quadratic-mgf]
+  - id: high-dimensional-probability.positive-quadratic
+    name: 確定行列で変換した独立座標の二乗ノルム
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（確定行列で変換した独立座標の二乗ノルム）]
+    requires: [high-dimensional-probability.hanson-wright]
