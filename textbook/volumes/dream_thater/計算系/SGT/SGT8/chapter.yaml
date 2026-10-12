@@ -1,0 +1,49 @@
+id: "SGT8"
+title: "点群グラフ・連続極限との境界・総合演習"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SGT1
+  - SGT2
+  - SGT3
+  - SGT5
+  - SGT6
+  - SGT7
+official_scope: []
+learning_objectives:
+  - 半径グラフと対称化k近傍グラフを構成し距離の同点処理・孤立頂点を確認できる
+  - 有限点群の重み行列・Laplacian・Dirichletエネルギーを直接計算できる
+  - 半径閾値の余裕から辺集合不変と重み・固有値の摂動上界を証明できる
+  - 一本橋でつないだ二つの完全グラフのconductanceを全cutで証明できる
+  - 正規化Rayleigh商とCheeger不等式から第二固有値の両側評価を導ける
+  - lazy walkの混合下界と有効抵抗を同じグラフで証明し相違点を説明できる
+  - 有限グラフの厳密な主張と標本数増大に伴う連続Laplace–Beltramiの極限問題を区別できる
+definitions:
+  - { id: SGT8-DEF-01, name: 半径グラフと対称化k近傍グラフ }
+  - { id: SGT8-DEF-02, name: 幾何重みと有限グラフのエネルギー }
+  - { id: SGT8-DEF-03, name: 一本橋で結んだ二つの完全グラフ }
+theorems:
+  - { id: SGT8-THM-01, name: 半径閾値の余裕と有限スペクトルの安定性 }
+  - { id: SGT8-THM-02, name: 一本橋グラフのconductanceと第二固有値 }
+  - { id: SGT8-PROP-01, name: 一本橋グラフの混合の下界 }
+  - { id: SGT8-PROP-02, name: 橋の両端間の有効抵抗 }
+canonical_examples:
+  - 四点の半径グラフにおける連結成分の切替
+  - 二点のGaussian幾何重みとDirichletエネルギー
+  - 閾値上の二点グラフで生じる固有値の跳躍
+  - 三角形二つを橋でつないだグラフの体積とconductance
+  - 一本橋のlazy walkとThomson原理の横断検算
+problem_patterns:
+  - SGT8-RADIUS-COMPONENTS
+  - SGT8-TWO-POINT-ENERGY
+  - SGT8-TIE-BREAK
+  - SGT8-BARBELL-VOLUME
+  - SGT8-MARGIN
+  - SGT8-BARBELL-RAYLEIGH
+  - SGT8-BRIDGE-WEIGHTED
+  - SGT8-THRESHOLD-JUMP
+  - SGT8-BARBELL-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 9, review: 5 }
