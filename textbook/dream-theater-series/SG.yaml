@@ -23,7 +23,7 @@ chapters:
     title: replica対称性・対称性の破れ
   - id: SG5
     path: textbook/volumes/dream_thater/物理系/SG/SG5
-    status: planned
+    status: completed
     title: Ghirlanda–Guerra恒等式とultrametricity
   - id: SG6
     path: textbook/volumes/dream_thater/物理系/SG/SG6
