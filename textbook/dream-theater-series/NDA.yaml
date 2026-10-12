@@ -1,0 +1,41 @@
+version: 1
+id: NDA
+title: "Diophantine近似"
+plan: textbook/plans_progress/DREAM_THEATER_DIOPHANTINE_APPROXIMATION_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# 2026-10-12 科目固有の直接依存・章ID・入口監査を完了。NDA1の執筆から開始する。
+# まだ章本文は未実装。完成章だけを公開索引・knowledge DAGへ追加する。
+chapters:
+  - id: NDA1
+    path: textbook/volumes/dream_thater/代数系/NDA/NDA1
+    status: planned
+    title: 連分数と最良有理近似の精密化
+  - id: NDA2
+    path: textbook/volumes/dream_thater/代数系/NDA/NDA2
+    status: planned
+    title: Dirichlet・Hurwitz・悪近似数
+  - id: NDA3
+    path: textbook/volumes/dream_thater/代数系/NDA/NDA3
+    status: planned
+    title: 数の幾何と同時Diophantine近似
+  - id: NDA4
+    path: textbook/volumes/dream_thater/代数系/NDA/NDA4
+    status: planned
+    title: 一様分布・Weyl判定・Kronecker近似
+  - id: NDA5
+    path: textbook/volumes/dream_thater/代数系/NDA/NDA5
+    status: planned
+    title: 無理性指数と近似指数
+  - id: NDA6
+    path: textbook/volumes/dream_thater/代数系/NDA/NDA6
+    status: planned
+    title: Liouvilleの定理・Liouville数・超越性
+  - id: NDA7
+    path: textbook/volumes/dream_thater/代数系/NDA/NDA7
+    status: planned
+    title: Thue–Siegel–Rothの定理
+  - id: NDA8
+    path: textbook/volumes/dream_thater/代数系/NDA/NDA8
+    status: planned
+    title: 計量的Diophantine近似

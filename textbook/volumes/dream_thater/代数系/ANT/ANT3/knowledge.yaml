@@ -1,0 +1,86 @@
+chapter: ANT3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ANT2
+  - NT2
+  - NT3
+forward_references: []
+
+concepts:
+  - id: analytic-number-theory.dirichlet-character
+    name: Dirichlet文字
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Dirichlet文字）]
+    requires: [number-theory.unit-group]
+
+  - id: analytic-number-theory.principal-character
+    name: 主Dirichlet文字
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（主Dirichlet文字）]
+    requires: [analytic-number-theory.dirichlet-character]
+
+  - id: analytic-number-theory.character-orthogonality
+    name: Dirichlet文字の直交関係
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Dirichlet文字の直交関係）]
+    requires: [analytic-number-theory.dirichlet-character, algebra.abelian-group]
+
+  - id: analytic-number-theory.residue-projector
+    name: 既約剰余類の指示関数
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（既約剰余類の指示関数）]
+    requires: [analytic-number-theory.character-orthogonality]
+
+  - id: analytic-number-theory.primitive-character
+    name: 原始Dirichlet文字
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（誘導文字と原始Dirichlet文字）]
+    requires: [analytic-number-theory.dirichlet-character]
+
+  - id: analytic-number-theory.gauss-sum
+    name: Gauss和
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Gauss和）]
+    requires: [analytic-number-theory.dirichlet-character]
+
+  - id: analytic-number-theory.gauss-transform
+    name: 原始文字のGauss変換
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（原始文字のGauss変換）]
+    requires: [analytic-number-theory.primitive-character, analytic-number-theory.gauss-sum]
+
+  - id: analytic-number-theory.gauss-magnitude
+    name: 原始文字のGauss和の絶対値
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（原始文字のGauss和の絶対値）]
+    requires: [analytic-number-theory.gauss-transform]
+
+  - id: analytic-number-theory.dirichlet-l-function
+    name: Dirichlet L関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Dirichlet L関数）]
+    requires: [analytic-number-theory.dirichlet-character, analytic-number-theory.complex-dirichlet-series]
+
+  - id: analytic-number-theory.l-euler
+    name: Dirichlet L関数のEuler積と非零性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Dirichlet L関数のEuler積と非零性）]
+    requires: [analytic-number-theory.dirichlet-l-function, analytic-number-theory.euler-product]
+
+  - id: analytic-number-theory.l-continuation
+    name: 非主L関数の正則延長と主L関数の極
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（非主L関数の正則延長と主L関数の極）]
+    requires: [analytic-number-theory.character-orthogonality, analytic-number-theory.l-euler, analytic-number-theory.abel-summation, complex-analysis.zeta-meromorphic-continuation]
