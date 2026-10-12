@@ -1,0 +1,55 @@
+chapter: SM1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TH8
+forward_references: []
+concepts:
+  - id: statistical-mechanics.micro-macro
+    name: 微視的状態・巨視的状態
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（微視的状態・巨視的状態）]
+    requires: [thermodynamics.state-variables]
+  - id: statistical-mechanics.macro-counting
+    name: 巨視的状態による分割と数え上げ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（巨視的状態による分割と数え上げ）]
+    requires: [statistical-mechanics.micro-macro]
+  - id: statistical-mechanics.finite-ensemble
+    name: 有限系のアンサンブル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限系のアンサンブル）]
+    requires: [statistical-mechanics.micro-macro]
+  - id: statistical-mechanics.macro-pushforward
+    name: 巨視的確率と期待値の集約
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（巨視的確率と期待値の集約）]
+    requires: [statistical-mechanics.macro-counting, statistical-mechanics.finite-ensemble]
+  - id: statistical-mechanics.discrete-density-of-states
+    name: 離散準位の状態数とエネルギー窓
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（離散準位の状態数とエネルギー窓）]
+    requires: [statistical-mechanics.micro-macro]
+  - id: statistical-mechanics.energy-shell-counting
+    name: 状態数の窓への分解
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（状態数の窓への分解）]
+    requires: [statistical-mechanics.discrete-density-of-states]
+  - id: statistical-mechanics.thermodynamic-limit-setting
+    name: 熱力学極限の設定
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（熱力学極限の設定）]
+    requires: [thermodynamics.extensive-intensive]
+  - id: statistical-mechanics.central-spin-growth
+    name: 二値スピンの中央多重度の指数成長
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（二値スピンの中央多重度の指数成長）]
+    requires: [statistical-mechanics.macro-counting, statistical-mechanics.thermodynamic-limit-setting]
