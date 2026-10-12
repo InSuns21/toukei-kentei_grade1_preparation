@@ -31,7 +31,7 @@ chapters:
     title: 電磁場のLorentz変換・エネルギー運動量テンソル
   - id: SREL7
     path: textbook/volumes/dream_thater/物理系/SREL/SREL7
-    status: planned
+    status: completed
     title: 保存則・相対論的連続体・完全流体
   - id: SREL8
     path: textbook/volumes/dream_thater/物理系/SREL/SREL8
