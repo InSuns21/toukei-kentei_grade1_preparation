@@ -1,0 +1,60 @@
+chapter: AG1-08
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG1-07
+  - AG1-02
+  - AG1-01
+  - AG1-05
+  - RNG2
+forward_references: []
+
+concepts:
+  - id: algebraic-geometry.zero-vanishing-adjunction
+    name: 零点・消滅操作の包含反転と往復
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（零点・消滅操作の包含反転と往復）"]
+    requires: [algebraic-geometry.affine-algebraic-set, algebraic-geometry.vanishing-ideal]
+
+  - id: algebraic-geometry.radical-closed-correspondence
+    name: アフィン代数的集合と根基イデアルの包含反転全単射
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（アフィン代数的集合と根基イデアルの包含反転全単射）"]
+    requires: [algebraic-geometry.strong-nullstellensatz, algebraic-geometry.zero-vanishing-adjunction, algebraic-geometry.radical-ideal]
+
+  - id: algebraic-geometry.zariski-closure-from-vanishing
+    name: 任意の集合のZariski閉包
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（任意の集合の Zariski 閉包）"]
+    requires: [algebraic-geometry.zero-vanishing-adjunction, algebraic-geometry.radical-closed-correspondence]
+
+  - id: algebraic-geometry.vanishing-ideal-operations
+    name: 消滅イデアルの演算法則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（消滅イデアルの演算法則）"]
+    requires: [algebraic-geometry.zero-set-operations, algebraic-geometry.radical-closed-correspondence]
+
+  - id: algebraic-geometry.radical-ideal-operations
+    name: 根基を取った和・積・共通部分
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（根基を取った和・積・共通部分）"]
+    requires: [algebraic-geometry.vanishing-ideal-operations, algebraic-geometry.strong-nullstellensatz]
+
+  - id: algebraic-geometry.prime-irreducible-bijection
+    name: 既約閉集合と素イデアル
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（既約閉集合と素イデアル）"]
+    requires: [algebraic-geometry.irreducible-vanishing-prime, algebraic-geometry.radical-closed-correspondence]
+
+  - id: algebraic-geometry.minimal-primes-components
+    name: 既約成分と極小素イデアル
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（既約成分と極小素イデアル）"]
+    requires: [algebraic-geometry.prime-irreducible-bijection, algebraic-geometry.irreducible-component]
