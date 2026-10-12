@@ -715,6 +715,7 @@
 7. [AG1-07 弱・強Hilbertの零点定理](textbook/volumes/dream_thater/代数系/AG/AG1-07/index.md)
 8. [AG1-08 代数集合と根基イデアルの対応](textbook/volumes/dream_thater/代数系/AG/AG1-08/index.md)
 9. [AG1-09 次元・超越次数・イデアルの鎖](textbook/volumes/dream_thater/代数系/AG/AG1-09/index.md)
+10. [AG1-10 Zariski接空間とJacobian判定の準備](textbook/volumes/dream_thater/代数系/AG/AG1-10/index.md)
 
 <a id="dt-subject-algebraic-geometry-ii"></a>
 ### 代数幾何学 II
