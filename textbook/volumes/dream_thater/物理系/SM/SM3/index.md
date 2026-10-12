@@ -44,7 +44,7 @@ $$
 |\Gamma_U|=\sum_{\eta\in\Omega}W_B(U-H(\eta))>0.
 $$
 
-[微正準等確率の命題](../SM2/index.md#prop-sm2-uniform-observables)により各複合配置の確率は $1/|\Gamma_U|$ です。$\omega$ を固定した上で可能な $b$ にわたってこの確率を足せば、提示した式となります。
+[微正準分布の規格化と観測量](../SM2/index.md#prop-sm2-uniform-observables)により各複合配置の確率は $1/|\Gamma_U|$ です。$\omega$ を固定した上で可能な $b$ にわたってこの確率を足せば、提示した式となります。
 <!-- proof-end -->
 
 ### 例：有限熱浴では指数重みにならないことがある
@@ -491,7 +491,7 @@ $U$ の逆温度微分は分散の負、逆温度の温度微分も負なので�
 <!-- proof-start -->
 ### 証明
 
-[エネルギー揺らぎの定理](#thm-sm3-energy-variance)により $dU/d\beta=-\operatorname{Var}_\beta(H)$。$\beta=1/(k_{\mathrm B}T)$ を直接微分すると
+[分配関数の微分とエネルギー揺らぎ](#thm-sm3-energy-variance)により $dU/d\beta=-\operatorname{Var}_\beta(H)$。$\beta=1/(k_{\mathrm B}T)$ を直接微分すると
 
 $$
 \frac{d\beta}{dT}=-\frac1{k_{\mathrm B}T^2}.
@@ -550,7 +550,7 @@ Z_{AB}
  \left(\sum_b e^{-\beta H_B(b)}\right)=Z_AZ_B.
 $$
 
-[正準分布](#def-sm3-canonical)へ代入すると $p_{AB}=p_Ap_B$。[自由エネルギーの定義](#def-sm3-free-energy)より
+[正準分布](#def-sm3-canonical)へ代入すると $p_{AB}=p_Ap_B$。[正準Helmholtz自由エネルギー](#def-sm3-free-energy)より
 
 $$
 F_{AB}=-k_{\mathrm B}T\log(Z_AZ_B)
@@ -568,7 +568,7 @@ $$
 \end{aligned}
 $$
 
-従って共分散 $\mathbb E[H_AH_B]-U_AU_B=0$ となり、$(H_A+H_B-U_A-U_B)^2$ の展開により分散が加算されます。
+従って二つのエネルギーの積の平均から平均の積を引いた差は $\mathbb E[H_AH_B]-U_AU_B=0$ となり、$(H_A+H_B-U_A-U_B)^2$ の展開により分散が加算されます。
 <!-- proof-end -->
 
 相互作用エネルギーが無視できない場合、最初の指数の積への分解が崩れます。「二系を合わせれば必ず分配関数が掛け算になる」と覚えず、加法的エネルギーと直積状態空間を確認しましょう。
@@ -732,7 +732,7 @@ Aのエネルギーが $0,\varepsilon$、Bのエネルギーが $0,2\varepsilon$
 - ID: SM3-B2
 
 <!-- solution-start -->
-**詳細解答**　$r=e^{-\beta\varepsilon}$ と置くと $Z_A=1+r$、$Z_B=1+r^2$ です。[独立な二系の命題](#prop-sm3-independent-systems)から
+**詳細解答**　$r=e^{-\beta\varepsilon}$ と置くと $Z_A=1+r$、$Z_B=1+r^2$ です。[独立な二系の分配関数と自由エネルギー](#prop-sm3-independent-systems)から
 
 $$
 Z_{AB}=(1+r)(1+r^2)=1+r+r^2+r^3,
@@ -768,7 +768,7 @@ $$
 - ID: SM3-B3
 
 <!-- solution-start -->
-**詳細解答**　[自由エネルギー汎関数](#thm-sm3-variational)の定義から、$0<x<1$ に対して
+**詳細解答**　[有限正準分布の自由エネルギー変分原理](#thm-sm3-variational)で定めた $\mathcal F_T(q)$ の式から、$0<x<1$ に対して
 
 $$
 \mathcal F_T(x)=\varepsilon x
@@ -895,7 +895,7 @@ $$
 
 [エネルギー微分の定理](#thm-sm3-energy-variance)と一致します。
 
-**(3)**　[自由エネルギーの定義](#def-sm3-free-energy)から
+**(3)**　[正準Helmholtz自由エネルギー](#def-sm3-free-energy)から
 
 $$
 F=-2k_{\mathrm B}T\log(1+r).
@@ -955,7 +955,7 @@ Z_J=1+2e^{-\beta\varepsilon}
 =1+2r+r^2e^{-\beta J}.
 $$
 
-$J\ne0$、$\beta>0$ なら $e^{-\beta J}\ne1$ なので、$Z_J\ne(1+r)^2$ です。[独立な二系の命題](#prop-sm3-independent-systems)の証明における $e^{-\beta(H_A+H_B)}=e^{-\beta H_A}e^{-\beta H_B}$ は、相互作用項 $J$ により二励起配置で成り立ちません。
+$J\ne0$、$\beta>0$ なら $e^{-\beta J}\ne1$ なので、$Z_J\ne(1+r)^2$ です。[独立な二系の分配関数と自由エネルギー](#prop-sm3-independent-systems)の証明における $e^{-\beta(H_A+H_B)}=e^{-\beta H_A}e^{-\beta H_B}$ は、相互作用項 $J$ により二励起配置で成り立ちません。
 <!-- solution-end -->
 
 ## 8. 何が得られ、次に何を調べるか
