@@ -16,5 +16,9 @@ chapters:
     title: 相対エントロピー・Gibbs不等式・データ処理不等式
   - id: INFO3
     path: textbook/volumes/dream_thater/応用系/INFO/INFO3
-    status: planned
+    status: completed
     title: 典型列と大数の法則による情報源の特徴付け
+  - id: INFO4
+    path: textbook/volumes/dream_thater/応用系/INFO/INFO4
+    status: planned
+    title: 接頭語符号・Kraft不等式・符号木
