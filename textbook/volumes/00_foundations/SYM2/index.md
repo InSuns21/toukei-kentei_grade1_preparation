@@ -8,7 +8,7 @@
 
 ## 1. 各接空間の面積を滑らかにつなぐ
 
-$M$ を空でない滑らかな実多様体とします。[接空間](../GEO2/index.md#def-geo2-tangent-derivation)は多様体の各点に付随する実ベクトル空間です。その点で滑らかな2形式を評価すると、交代双線形形式
+$M$ を空でない滑らかな実多様体とし、その上の滑らかな2形式を $\omega$ とします。[接空間](../GEO2/index.md#def-geo2-tangent-derivation)は各点に付随する実ベクトル空間です。点 $x\in M$ で $\omega$ を評価すると、交代双線形形式
 
 $$
 \omega_x:T_xM\times T_xM\longrightarrow\mathbb R
@@ -378,14 +378,41 @@ $$
 \tau=\pi_1^*\alpha\wedge\pi_2^*\alpha
 $$
 
-と置きます。角方向の接ベクトル $e_1,e_2$ をそれぞれの円で $t=1$ として選ぶと
+と置きます。各点を $z=((x_1,y_1),(x_2,y_2))$ と書き、接ベクトルを因子ごとに
 
 $$
-\tau(e_1,e_2)=1,\qquad
-\tau(e_1,e_1)=\tau(e_2,e_2)=0.
+e_1=((-y_1,x_1),0),\qquad
+e_2=(0,(-y_2,x_2))
 $$
 
-よって接空間の行列は $J=\begin{pmatrix}0&1\\-1&0\end{pmatrix}$ で非退化です。[外微分の次数付きLeibniz則](../GEO7/index.md#thm-geo7-graded-leibniz)と[引き戻しの自然性](../GEO7/index.md#thm-geo7-pullback-commutes-d)を、1形式 $\pi_1^*\alpha,\pi_2^*\alpha$ に適用すると
+と選びます。[積多様体の接空間の直和](../GEO2/index.md#prop-geo2-product-tangent)により、この2方向は $T_zT^2$ の基底です。[1形式の引き戻し](../GEO7/index.md#def-geo7-pullback-form)から
+
+$$
+\begin{aligned}
+(\pi_1^*\alpha)(e_1)&=1,&(\pi_1^*\alpha)(e_2)&=0,\\
+(\pi_2^*\alpha)(e_1)&=0,&(\pi_2^*\alpha)(e_2)&=1.
+\end{aligned}
+$$
+
+従って外積をこの基底で評価すると
+
+$$
+\begin{aligned}
+\tau(e_1,e_2)
+&=(\pi_1^*\alpha)(e_1)(\pi_2^*\alpha)(e_2)
+-(\pi_1^*\alpha)(e_2)(\pi_2^*\alpha)(e_1)\\
+&=1\cdot1-0\cdot0=1.
+\end{aligned}
+$$
+
+交代性より $\tau(e_1,e_1)=\tau(e_2,e_2)=0$ です。従ってこの基底での行列は
+
+$$
+\begin{pmatrix}0&1\\-1&0\end{pmatrix},
+\qquad \det=1,
+$$
+
+となり、任意の点で非退化です。[外微分の次数付きLeibniz則](../GEO7/index.md#thm-geo7-graded-leibniz)と[引き戻しの自然性](../GEO7/index.md#thm-geo7-pullback-commutes-d)を、1形式 $\pi_1^*\alpha,\pi_2^*\alpha$ に適用すると
 
 $$
 \begin{aligned}
@@ -504,14 +531,32 @@ $$
 \omega_x=\sum_{i=1}^n e^i\wedge f^i.
 $$
 
-外積を分配して展開すると、一つの添字を二回選ぶ項は $e^i\wedge e^i=0$ によって零です。残るのは $1,\ldots,n$ の並べ替え $n!$ 個で、次数2の項同士は交換しても符号が変わりません。したがって
+$\beta_i=e^i\wedge f^i$ と置きます。各 $\beta_i$ は2形式なので、同じ項を二回選ぶと
 
 $$
+\beta_i\wedge\beta_i
+=e^i\wedge f^i\wedge e^i\wedge f^i=0
+$$
+
+です。一方、異なる添字では[外積の次数付き交換則](../LA3E/index.md#thm-la3e-wedge-algebra-laws)により
+
+$$
+\beta_i\wedge\beta_j=(-1)^{2\cdot2}\beta_j\wedge\beta_i
+=\beta_j\wedge\beta_i.
+$$
+
+従って $\bigl(\sum_i\beta_i\bigr)^{\wedge n}$ を展開して残るのは、異なる $n$ 個の添字を一度ずつ使う $n!$ 項だけです。添字集合 $\{1,\ldots,n\}$ の置換全体を $S_n$ と書けば、それらの符号は全て正なので、
+
+$$
+\begin{aligned}
 (\omega_x)^{\wedge n}
-=n!\,e^1\wedge f^1\wedge\cdots\wedge e^n\wedge f^n.
+&=\sum_{\rho\in S_n}
+\beta_{\rho(1)}\wedge\cdots\wedge\beta_{\rho(n)}\\
+&=n!\,e^1\wedge f^1\wedge\cdots\wedge e^n\wedge f^n.
+\end{aligned}
 $$
 
-右辺を $(e_1,f_1,\ldots,e_n,f_n)$ に評価すると $n!\ne0$ です。各点で非零の滑らかな最高次形式は向きを定めます。
+最後の形式を $(e_1,f_1,\ldots,e_n,f_n)$ に評価すると $n!\ne0$ です。各点で非零の滑らかな最高次形式は向きを定めます。
 
 最後に $F^*\eta=\omega$ と[引き戻しと外積の可換性](../GEO7/index.md#prop-geo7-pullback-wedge)を用いると
 
@@ -521,7 +566,18 @@ F^*(\eta^{\wedge n})
 =\omega^{\wedge n}.
 $$
 
-両辺は選んだ向きに関する非零最高次形式なので、$F$ は向きを保ちます。
+具体的には、$M$ の正向き基底 $(v_1,\ldots,v_{2n})$ を取ると
+
+$$
+\begin{aligned}
+\eta_{F(x)}^{\wedge n}
+(dF_xv_1,\ldots,dF_xv_{2n})
+&=(F^*\eta^{\wedge n})_x(v_1,\ldots,v_{2n})\\
+&=\omega_x^{\wedge n}(v_1,\ldots,v_{2n})>0.
+\end{aligned}
+$$
+
+従って微分 $dF_x$ は正向き基底を $N$ の正向き基底へ写し、$F$ は向きを保ちます。
 <!-- proof-end -->
 
 反対に「向き付き体積だけを保つ」ことから $\omega$ の保存は導けません。四次元では[SYM1の体積保存反例](../SYM1/index.md#prop-sym1-determinant-one)とその直後の対角行列が既にこれを示しています。
@@ -677,7 +733,31 @@ $$
 \end{pmatrix}.
 $$
 
-$q_1,p_1$ の対と $q_2,p_2$ の対へ同時に基底を並べ直すと二つの2次交代ブロックに分かれ、行列式は $h^2>0$ です。ゆえに非退化です。一方
+行と列をともに $(q_1,p_1,q_2,p_2)$ の順へ並べ替えると
+
+$$
+\Omega'=
+\begin{pmatrix}
+0&h&0&0\\
+-h&0&0&0\\
+0&0&0&1\\
+0&0&-1&0
+\end{pmatrix}
+$$
+
+です。この並べ替えは、第2行と第3行を交換した後、第2列と第3列を交換する操作です。行・列それぞれの交換で行列式の符号が一回ずつ反転するため、
+
+$$
+\begin{aligned}
+\det\Omega
+&=(-1)^2\det\Omega'\\
+&=\det\begin{pmatrix}0&h\\-h&0\end{pmatrix}
+\det\begin{pmatrix}0&1\\-1&0\end{pmatrix}\\
+&=h^2\cdot1=h^2>0
+\end{aligned}
+$$
+
+従って全点で非退化です。一方
 
 $$
 d\eta=dh\wedge dq_1\wedge dp_1
@@ -701,7 +781,25 @@ $$
 - ID: SYM2-B2
 
 <!-- solution-start -->
-**詳細解答**　$a(q_2)>0$ なので、B1と同じブロック計算から係数行列の行列式は $a(q_2)^2>0$、従って全点で非退化です。閉性を調べると
+**詳細解答**　各点で $c=a(q_2)>0$ と置きます。座標を $(q_1,p_1,q_2,p_2)$ と並べると係数行列は
+
+$$
+\Omega'=
+\begin{pmatrix}
+0&c&0&0\\
+-c&0&0&0\\
+0&0&0&1\\
+0&0&-1&0
+\end{pmatrix}.
+$$
+
+従って行列式は
+
+$$
+\det\Omega'=(c^2)\cdot1=a(q_2)^2>0
+$$
+
+です。元の座標順へ戻しても行・列に同じ置換を施すので行列式は変わらず、全点で非退化です。閉性を調べると
 
 $$
 d\omega_a=a'(q_2)\,dq_2\wedge dq_1\wedge dp_1.
@@ -714,7 +812,13 @@ d\omega_a(\partial_{q_2},\partial_{q_1},\partial_{p_1})
 =a'(q_2)
 $$
 
-が得られます。よって $d\omega_a=0$ と、全ての $q_2$ で $a'(q_2)=0$ となることは同値です。実直線上で導関数が零の滑らかな関数は定数なので、答えは正の定数関数 $a\equiv c$（$c>0$）に限られます。
+が得られます。よって $d\omega_a=0$ と、全ての $q_2$ で $a'(q_2)=0$ となることは同値です。任意の二点 $s<t$ に[平均値定理](../RA3/index.md#thm-ra3-mvt)を $a$ の区間 $[s,t]$ 上で適用すると、ある $\xi\in(s,t)$ に対して
+
+$$
+a(t)-a(s)=a'(\xi)(t-s)=0
+$$
+
+です。従って $a$ は定数であり、答えは正の定数関数 $a\equiv c$（$c>0$）に限られます。
 <!-- solution-end -->
 
 #### B3. 球面の面積形式を検算する
@@ -844,7 +948,47 @@ d\Omega_h
 \end{aligned}
 $$
 
-接ベクトル $(u,0)$、$(0,\partial_q)$、$(0,\partial_p)$ に評価すると、その値は $dh_x(u)$ です。ゆえに $d\Omega_h=0$ なら全ての $x,u$ で $dh_x(u)=0$ です。球面は連結なので、滑らかな $h$ は定数になります。逆に $h$ が定数なら $dh=0$ で閉じています。
+接ベクトルを
+
+$$
+U=(u,0),\quad V=(0,\partial_q),\quad W=(0,\partial_p)
+$$
+
+と選びます。$dh$ は球面因子だけを読み、$dq\wedge dp$ は平面因子だけを読むため、3形式を展開して非零となる項は
+
+$$
+\begin{aligned}
+(dh\wedge dq\wedge dp)(U,V,W)
+&=dh(U)\bigl(dq(V)dp(W)-dp(V)dq(W)\bigr)\\
+&=dh_x(u)(1\cdot1-0\cdot0)
+=dh_x(u)
+\end{aligned}
+$$
+
+だけです。従って $d\Omega_h=0$ なら全ての $x,u$ で $dh_x(u)=0$ です。
+
+この条件が球面上での定数性を導くことも確かめます。$x,y\in S^2$ が対蹠点でなければ
+
+$$
+\gamma(t)=\frac{(1-t)x+ty}{\|(1-t)x+ty\|},
+\qquad 0\le t\le1
+$$
+
+は分母が零にならない滑らかな球面上の道です。対蹠点の場合は $x$ に直交する単位ベクトル $z$ を選び、$x$ から $z$、$z$ から $y=-x$ へこの形の道を二本つなげます。いずれの滑らかな区間でも[多様体上の連鎖律](../GEO2/index.md#thm-geo2-composition-differential)から
+
+$$
+\frac{d}{dt}h(\gamma(t))
+=dh_{\gamma(t)}(\gamma'(t))=0
+$$
+
+です。各区間の連続関数 $h\circ\gamma$ は内部で微分可能なので、[平均値定理](../RA3/index.md#thm-ra3-mvt)を両端 $0,1$ に適用すると、ある $c\in(0,1)$ に対して
+
+$$
+h(\gamma(1))-h(\gamma(0))
+=(h\circ\gamma)'(c)(1-0)=0
+$$
+
+です。二本つなげた道でもそれぞれの端点の値が一致するため、任意の $x,y$ で $h(x)=h(y)$、すなわち $h$ は定数です。逆に $h$ が定数なら $dh=0$ で閉じています。
 
 **(3)**　$h(x)=2+x_3$ は球面上で $1\le h\le3$ だから非退化です。$x=(1,0,0)$ と $u=(0,0,1)\in T_xS^2$ を取ると
 
@@ -871,7 +1015,18 @@ $$
 \end{aligned}
 $$
 
-各因子で非零の2形式だから、この4形式は全点で零でありません。$r$ は直交行列で $\det r=-1$ を持ち、$u,v\in T_xS^2$ に対し
+実際、$x\in S^2$ で非零の $u\in T_xS^2$ と $v=x\times u$ を取ります。[球面の面積形式](#prop-sym2-sphere-area)により
+
+$$
+\begin{aligned}
+(\Omega_1^{\wedge2})_{(x,q,p)}
+\bigl((u,0),(v,0),(0,\partial_q),(0,\partial_p)\bigr)
+&=2\,\sigma_x(u,v)(dq\wedge dp)(\partial_q,\partial_p)\\
+&=2\|u\|^2>0.
+\end{aligned}
+$$
+
+従ってこの4形式は全点で零でありません。$r$ は直交行列で $\det r=-1$ を持ち、$u,v\in T_xS^2$ に対し
 
 $$
 \begin{aligned}
