@@ -1,0 +1,50 @@
+chapter: ANT2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ANT1
+  - CA12
+forward_references: []
+
+concepts:
+  - id: analytic-number-theory.dirichlet-series
+    name: Dirichlet級数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Dirichlet級数）]
+    requires: [number-theory.arithmetic-function]
+
+  - id: analytic-number-theory.absolute-abscissa
+    name: 絶対収束横座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（絶対収束横座標）]
+    requires: [analytic-number-theory.dirichlet-series]
+
+  - id: analytic-number-theory.dirichlet-holomorphic
+    name: Dirichlet級数の絶対収束半平面での正則性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Dirichlet級数の絶対収束半平面での正則性）]
+    requires: [analytic-number-theory.absolute-abscissa, complex-analysis.holomorphic-locally-uniform-limit]
+
+  - id: analytic-number-theory.convolution-product
+    name: Dirichlet級数の積と畳み込み
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Dirichlet級数の積と畳み込み）]
+    requires: [analytic-number-theory.dirichlet-series, number-theory.dirichlet-convolution]
+
+  - id: analytic-number-theory.euler-product
+    name: 乗法的係数のEuler積
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（乗法的係数のEuler積）]
+    requires: [analytic-number-theory.convolution-product, number-theory.multiplicative-arithmetic-function]
+
+  - id: analytic-number-theory.inverse-series
+    name: 逆Dirichlet級数の絶対収束
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（逆Dirichlet級数の絶対収束）]
+    requires: [number-theory.dirichlet-inverse, analytic-number-theory.convolution-product]
