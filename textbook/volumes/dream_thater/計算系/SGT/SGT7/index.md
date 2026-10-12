@@ -14,7 +14,13 @@
 
 <!-- formal-statement-start -->
 > **定義（接続行列と向き付き電流）**  
-> 有限連結無向重み付きグラフの各辺 $e$ を $u\to v$ と仮に向け、$n\times m$ 行列 $B$ の列 $e$ を $b_e=e_u-e_v$ とする。$C=\operatorname{diag}(c_e)$ とし、$f\in\mathbb R^m$ を向き付き辺電流、$Bf\in\mathbb R^n$ を各頂点からの正味流出量とする。
+> 有限連結無向重み付きグラフの各辺 $e:u\to v$ に向きを仮に選ぶ。$n=|V|$、$m=|E|$ として、$n\times m$ の接続行列 $B$ の辺 $e$ の列を
+
+$
+B_{:,e}=b_e=e_u-e_v
+$
+
+> と定める。辺の重み行列は $C=\operatorname{diag}(c_e)$ とする。$f\in\mathbb R^m$ を向き付き辺電流とし、$Bf$ の頂点 $i$ の成分を、その頂点からの正味流出量とする。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sgt7-incidence -->
@@ -359,7 +365,14 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（重み付き全域木分布）**  
-> 有限連結無向グラフの辺のコンダクタンスを $c_e>0$ とする。すべての頂点を結ぶ閉路のない辺集合 $T$ を全域木とし、$\omega(T)=\prod_{e\in T}c_e$、$\tau(G)=\sum_{T\text{ 全域木}}\omega(T)$ と定める。全域木 $T$ を確率 $\mathbb P(T)=\omega(T)/\tau(G)$ で選ぶ。
+> 有限連結無向グラフで全辺のコンダクタンスを $c_e>0$ とする。すべての頂点を結ぶ閉路のない辺集合 $T$ を全域木とする。その重みと全域木の総重みを
+
+$
+\omega(T)=\prod_{e\in T}c_e,\qquad
+\tau(G)=\sum_{T\text{ 全域木}}\omega(T)
+$
+
+> と定める。$\tau(G)>0$ とし、全域木 $T$ を確率 $\mathbb P(T)=\omega(T)/\tau(G)$ で選ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sgt7-spanning-tree -->
