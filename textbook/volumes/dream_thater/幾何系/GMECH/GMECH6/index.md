@@ -286,7 +286,7 @@ $$
 
 無限小余随伴作用の定義へ戻すと $\rho_\xi(\nu)=0$、すなわち $v=0$ です。
 
-**滑らかさ。** [LIE4の軌道写像の階数と接空間の定理](../../../代数系/LIE/LIE4/index.md#thm-lie4-stabilizer-kernel-orbit-rank)から、軌道写像の階数は一定で、軌道は局所的に滑らかな座標を持ちます。接空間への写像
+**滑らかさ。** [LIE4の軌道写像・安定化Lie代数の定理](../../../代数系/LIE/LIE4/index.md#thm-lie4-stabilizer-kernel-orbit-rank)から、軌道写像の階数は一定で、軌道は局所的に滑らかな座標を持ちます。接空間への写像
 
 $$
 \mathfrak g\longrightarrow T_\nu\mathcal O_\mu,
