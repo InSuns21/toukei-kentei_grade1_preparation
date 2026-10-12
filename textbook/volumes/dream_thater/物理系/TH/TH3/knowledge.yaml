@@ -1,0 +1,80 @@
+chapter: TH3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TH2
+  - TH1
+forward_references: []
+concepts:
+  - id: thermodynamics.heat-engine
+    name: 熱機関と熱効率
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（熱機関と熱効率）]
+    requires: [thermodynamics.cycle-balance, thermodynamics.heat-work]
+  - id: thermodynamics.engine-balance
+    name: 二熱浴熱機関の収支
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（二熱浴熱機関の収支）]
+    requires: [thermodynamics.heat-engine, thermodynamics.first-law]
+  - id: thermodynamics.kelvin-planck
+    name: 第二法則：Kelvin–Planckの表現
+    kind: principle
+    introduction: formal
+    introduction_aliases: [原理（第二法則：Kelvin–Planckの表現）]
+    requires: [thermodynamics.heat-engine]
+  - id: thermodynamics.clausius-law
+    name: 第二法則：Clausiusの表現
+    kind: principle
+    introduction: formal
+    introduction_aliases: [原理（第二法則：Clausiusの表現）]
+    requires: [thermodynamics.heat-engine]
+  - id: thermodynamics.second-law-equivalence
+    name: 第二法則の二表現の同値性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（第二法則の二表現の同値性）]
+    requires: [thermodynamics.kelvin-planck, thermodynamics.clausius-law]
+  - id: thermodynamics.reversible-process
+    name: 熱力学的可逆過程
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（熱力学的可逆過程）]
+    requires: [thermodynamics.quasistatic]
+  - id: thermodynamics.carnot
+    name: Carnotの定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Carnotの定理）]
+    requires: [thermodynamics.reversible-process, thermodynamics.kelvin-planck, thermodynamics.engine-balance]
+  - id: thermodynamics.cold-rejection
+    name: 二熱浴での完全変換の禁止
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（二熱浴での完全変換の禁止）]
+    requires: [thermodynamics.kelvin-planck, thermodynamics.engine-balance]
+  - id: thermodynamics.carnot-composition
+    name: 可逆熱量比の合成則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（可逆熱量比の合成則）]
+    requires: [thermodynamics.carnot]
+  - id: thermodynamics.absolute-temperature
+    name: 熱力学的絶対温度
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（熱力学的絶対温度）]
+    requires: [thermodynamics.carnot-composition, thermodynamics.empirical-temperature]
+  - id: thermodynamics.thermodynamic-temperature-ratio
+    name: 可逆熱量比と絶対温度の関係
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（可逆熱量比と絶対温度の関係）]
+    requires: [thermodynamics.absolute-temperature, thermodynamics.carnot-composition, thermodynamics.engine-balance]
+  - id: thermodynamics.ideal-carnot-cycle
+    name: 理想気体Carnot循環
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（理想気体Carnot循環）]
+    requires: [thermodynamics.adiabatic-curve, thermodynamics.isothermal-work, thermodynamics.engine-balance]

@@ -1,0 +1,50 @@
+id: "TH3"
+title: "第二法則・Carnotの定理・絶対温度"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TH2
+  - TH1
+official_scope: []
+learning_objectives:
+  - 第一法則の収支と第二法則の禁止を区別し、循環機関と冷凍機の熱・仕事を符号付きで計算できる
+  - Kelvin–PlanckとClausiusの二表現の同値性を装置の正味の熱・仕事を追って証明できる
+  - 可逆性の環境まで含めた定義を説明し、準静的と可逆を区別できる
+  - Carnotの定理を可逆冷凍機との合成によって証明し、効率上限を評価できる
+  - 可逆熱量比の合成則から絶対温度を構成し、効率の温度比公式を導ける
+  - 理想気体の二本の断熱曲線から体積比を導き、四行程の熱・仕事・効率を検算できる
+definitions:
+  - { id: TH3-DEF-01, name: "熱機関と熱効率" }
+  - { id: TH3-DEF-02, name: "熱力学的可逆過程" }
+  - { id: TH3-DEF-03, name: "熱力学的絶対温度" }
+theorems:
+  - { id: TH3-PROP-01, name: "二熱浴熱機関の収支" }
+  - { id: TH3-AXIOM-01, name: "第二法則：Kelvin–Planckの表現" }
+  - { id: TH3-AXIOM-02, name: "第二法則：Clausiusの表現" }
+  - { id: TH3-PROP-02, name: "第二法則の二表現の同値性" }
+  - { id: TH3-THM-01, name: "Carnotの定理" }
+  - { id: TH3-PROP-03, name: "二熱浴での完全変換の禁止" }
+  - { id: TH3-PROP-04, name: "可逆熱量比の合成則" }
+  - { id: TH3-THM-02, name: "可逆熱量比と絶対温度の関係" }
+  - { id: TH3-PROP-05, name: "理想気体Carnot循環" }
+canonical_examples:
+  - 二熱浴熱機関の100 J収支と符号
+  - 摩擦がある準静的ピストンと可逆性の区別
+  - 冷凍機と一浴機関を組み合わせたClausius違反
+  - 可逆機関と実機の高温交換を相殺する効率比較
+  - 中間熱浴を介した可逆熱量比の合成
+  - 理想気体の等温・断熱四行程の効率
+problem_patterns:
+  - TH3-HEAT-ENGINE-ACCOUNTING
+  - TH3-SECOND-LAW-VIOLATION
+  - TH3-REFRIGERATOR-ENERGY
+  - TH3-REVERSIBILITY-TEST
+  - TH3-STATEMENT-EQUIVALENCE
+  - TH3-CARNOT-BOUND
+  - TH3-ABSOLUTE-TEMPERATURE-COMPOSITION
+  - TH3-IDEAL-CARNOT-CYCLE
+  - TH3-COUPLED-ENGINE-CONTRADICTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 6, review: 4 }
