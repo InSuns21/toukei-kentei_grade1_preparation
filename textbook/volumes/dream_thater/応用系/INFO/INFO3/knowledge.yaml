@@ -1,0 +1,51 @@
+chapter: INFO3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - INFO1
+  - INFO2
+  - F0-00P4
+forward_references: []
+
+concepts:
+  - id: information.iid-block-source
+    name: 有限独立同分布情報源とブロック確率
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限独立同分布情報源とブロック確率）]
+    requires: [information.shannon-entropy]
+
+  - id: information.weak-typical-set
+    name: 弱典型集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（弱典型集合）]
+    requires: [information.iid-block-source, information.self-information]
+
+  - id: information.information-moments
+    name: 対数確率の平均と分散
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（対数確率の平均と分散）]
+    requires: [information.iid-block-source, information.shannon-entropy]
+
+  - id: information.aep
+    name: 有限独立同分布情報源の漸近等分割性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（有限独立同分布情報源の漸近等分割性）]
+    requires: [information.information-moments, information.weak-typical-set]
+
+  - id: information.typical-cardinality
+    name: 典型集合の要素数の上下界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（典型集合の要素数の上下界）]
+    requires: [information.aep]
+
+  - id: information.high-mass-count-lower-bound
+    name: 高確率集合の要素数下界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（高確率集合の要素数下界）]
+    requires: [information.typical-cardinality]
