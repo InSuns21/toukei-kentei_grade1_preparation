@@ -16,9 +16,9 @@
 > **定義（合同）**  
 > 正整数 $n$ と整数 $a,b$ に対し、$n\mid(a-b)$ のとき、$a$ と $b$ は法 $n$ で合同といい、
 >
-> $$
-> a\equiv b\pmod n
-> $$
+$$
+a\equiv b\pmod n
+$$
 >
 > と記す。$a$ と合同な整数全体を剰余類 $[a]_n=a+n\mathbb Z$ といい、剰余類全体を $\mathbb Z/n\mathbb Z$ と書く。
 <!-- formal-statement-end -->
@@ -103,11 +103,11 @@ $a x\equiv a y\pmod n$ から常に $x\equiv y\pmod n$ と結論するのは誤�
 > **命題（合同式の約分）**  
 > $n$ を正整数、$a,x,y$ を整数、$d=\gcd(a,n)$ とする。このとき
 >
-> $$
-> ax\equiv ay\pmod n
-> \quad\Longleftrightarrow\quad
-> x\equiv y\pmod{n/d}.
-> $$
+$$
+ax\equiv ay\pmod n
+\quad\Longleftrightarrow\quad
+x\equiv y\pmod{n/d}.
+$$
 >
 > 特に $\gcd(a,n)=1$ なら、$ax\equiv ay\pmod n$ から $x\equiv y\pmod n$ を導ける。
 <!-- formal-statement-end -->
@@ -202,15 +202,15 @@ $$
 > **定理（整数の中国剰余定理の構成公式）**  
 > $r\ge1$ とし、正整数 $n_1,\ldots,n_r$ が二つずつ互いに素、すなわち $i\ne j$ なら $\gcd(n_i,n_j)=1$ とする。任意の整数 $a_1,\ldots,a_r$ に対し
 >
-> $$
-> x\equiv a_i\pmod{n_i}\quad(i=1,\ldots,r)
-> $$
+$$
+x\equiv a_i\pmod{n_i}\quad(i=1,\ldots,r)
+$$
 >
 > を満たす整数が存在し、$M=n_1\cdots n_r$ を法としてただ一つの剰余類を定める。$M_i=M/n_i$ とし、$M_it_i\equiv1\pmod{n_i}$ となる整数 $t_i$ を取れば、一つの解は
 >
-> $$
-> x=\sum_{i=1}^r a_iM_it_i
-> $$
+$$
+x=\sum_{i=1}^r a_iM_it_i
+$$
 >
 > で与えられる。
 <!-- formal-statement-end -->
@@ -270,9 +270,9 @@ $23=3\cdot7+2=5\cdot4+3=7\cdot3+2$ なので、三条件を直接検算できま
 > **命題（二つの法の連立合同式と整合条件）**  
 > 正整数 $m,n$、整数 $a,b$ に対し、
 >
-> $$
-> x\equiv a\pmod m,\qquad x\equiv b\pmod n
-> $$
+$$
+x\equiv a\pmod m,\qquad x\equiv b\pmod n
+$$
 >
 > が可解であるための必要十分条件は $\gcd(m,n)\mid(b-a)$ である。可解なら、解は $\operatorname{lcm}(m,n)=mn/\gcd(m,n)$ を法としてただ一つの剰余類となる。
 <!-- formal-statement-end -->
