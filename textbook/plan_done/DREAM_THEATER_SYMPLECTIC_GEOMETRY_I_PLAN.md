@@ -1,7 +1,7 @@
 # DREAM THEATER シンプレクティック幾何学 I（SYM1〜SYM8）
 
 作成・分冊: 2026-10-11  
-状態: in_progress（SYM1〜SYM8実装・公開済、科目横断監査・PLAN完了判定は残件）
+状態: completed（2026-10-12。全8章・科目横断監査・公開導線・依存参照を確認）
 
 ## 中心問い
 
@@ -11,7 +11,7 @@ Hamilton方程式の座標に依存しない幾何は何か。閉じた非退化
 
 - 既存完成章：GEO2（余接束）、GEO7（微分形式・外微分・Cartanの公式）、AMECH6（Poisson括弧と流れ）、AMECH7（正準変換）、LAの双対・交代形式。
 - **本PLANに必須の未着手PLANはない**。SYM5はSYM3・SYM4、SYM7はSYM5を基礎にする。
-- 後続：[幾何学的力学 I](DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md)、可積分系INT、ミラー対称性関連のGW1・SYZ1。
+- 後続：[幾何学的力学 I](../plans/DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md)、可積分系INT、ミラー対称性関連のGW1・SYZ1。
 
 ## 所有範囲
 
@@ -29,7 +29,7 @@ Hamilton方程式の座標に依存しない幾何は何か。閉じた非退化
 - [x] SYM6 Lagrange部分空間・Lagrange部分多様体：本文・全演習解答・査読・公開導線
 - [x] SYM7 Moserの方法とシンプレクティック変形：本文・全演習解答・査読・公開導線
 - [x] SYM8：本文・全演習解答・査読・公開導線
-- [ ] 科目横断監査・PLAN完了判定
+- [x] 科目横断監査・PLAN完了判定（2026-10-12）
 
 
 ### SYM1 シンプレクティック線形代数
@@ -63,6 +63,16 @@ Liouville 1形式と正準2形式を余接束の点・射影・引き戻しか�
 ### SYM8 適合概複素構造と発展境界
 
 ω-compatible J、g(v,w)=ω(v,Jw)、正定値性の検証、線形構成例。擬正則曲線/Gromov–Witten/Floerの一般理論は後続独立分野へ。
+
+
+## 科目横断監査・完了記録（2026-10-12）
+
+- 対象：SYM1〜SYM8 の現行 `chapter.yaml`・全公開 `index.md`、系列manifest、全8章の主要結果anchorと演習ID。各章の演習ブロックと詳細解答数が一致し、すべてA4/B3/C1の下限を満たすことを確認（SYM1〜5・7・8は各10題、SYM6は11題）。
+- 前提と章間の流れ：SYM1の線形標準形→SYM2の多様体→SYM3の余接束→SYM4のHamilton流→SYM5のDarboux→SYM6のLagrange、SYM5→SYM7のMoser、SYM1/2/6→SYM8の適合構造を確認。SYM8で実際に用いるRA6A陰関数定理はprerequisiteとknowledge requiresへ追加した。
+- anchor：8章の本文にある `../SYM*/index.md#...` をリンク先の実在anchorと突き合わせ、欠落0件。SYM8のLA6平方根とRA6A陰関数定理も実在anchorを直接確認。
+- 公開導線：`textbook/dream-theater-index.json` にSYM1〜SYM8の全8パス、`textbook/dream-theater.md` のシンプレクティック幾何学I節に全8リンクが存在する。
+- 追跡査読：SYM8全953行の7証明・10演習解答を再計算し、極分解の随伴計算に現れた変数取り違えを修正。C1の端点における滑らかさの根拠を明記。自己検算後、数式配置、定義例、依存、証明順序、行間の別観点再読を実施。第三者による独立査読は実施していない。検算詳細は完了時PR本文を参照。
+- 後続PLAN：GMECHとINTの参照先を本PLANの完了パスへ更新し、所有境界（運動量写像はGMECH、可積分系はINT、擬正則曲線・Floerは後続）を維持。共通routingは変更しない。
 
 ## 執筆・査読・完了条件
 

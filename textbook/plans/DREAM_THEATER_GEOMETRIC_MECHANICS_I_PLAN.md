@@ -9,7 +9,7 @@ Hamilton力学の対称性を保存量と商空間による自由度削減へど
 
 ## 直接必要な前提・PLAN間依存
 
-- **直接前提の独立PLAN：** [シンプレクティック幾何学 I](../plans_progress/DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md)。GMECH1にはSYM3、GMECH2〜3にはSYM4、GMECH4〜5にはSYM3・SYM4、GMECH6〜8には先行GMECH講が必要。全SYM8講の一括履修は不要。
+- **直接前提の独立PLAN：** [シンプレクティック幾何学 I](../plan_done/DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md)。GMECH1にはSYM3、GMECH2〜3にはSYM4、GMECH4〜5にはSYM3・SYM4、GMECH6〜8には先行GMECH講が必要。全SYM8講の一括履修は不要。
 - 既存完成章：AMECH4（Noether）、AMECH6（Poisson）、GEO2/7、LIE1〜LIE4、MECH剛体・保存則。
 - 後続：[可積分系・KAM](DREAM_THEATER_INTEGRABLE_SYSTEMS_PERTURBATION_KAM_PLAN.md)、[三体問題](DREAM_THEATER_CELESTIAL_MECHANICS_THREE_BODY_CHAOS_PLAN.md)。
 
