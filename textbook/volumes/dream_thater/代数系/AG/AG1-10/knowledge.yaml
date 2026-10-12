@@ -1,0 +1,61 @@
+chapter: AG1-10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG1-09
+  - AG1-08
+  - AG1-07
+  - AG1-04
+  - AG1-03
+  - RNG2
+forward_references: []
+
+concepts:
+  - id: algebraic-geometry.zariski-tangent
+    name: Zariski接空間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Zariski接空間）"]
+    requires: [algebraic-geometry.coordinate-ring, algebraic-geometry.vanishing-ideal]
+
+  - id: algebraic-geometry.jacobian-kernel
+    name: 生成方程式とJacobian行列
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（生成方程式とJacobian行列）"]
+    requires: [algebraic-geometry.zariski-tangent]
+
+  - id: algebraic-geometry.cotangent-space
+    name: 余接空間と内在的接空間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（余接空間と内在的接空間）"]
+    requires: [algebraic-geometry.point-local-ring]
+
+  - id: algebraic-geometry.intrinsic-tangent
+    name: Jacobianの核と局所環の双対の一致
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Jacobianの核と局所環の双対の一致）"]
+    requires: [algebraic-geometry.zariski-tangent, algebraic-geometry.cotangent-space, algebraic-geometry.localization]
+
+  - id: algebraic-geometry.tangent-map
+    name: 正則写像による接写像
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正則写像による接写像）"]
+    requires: [algebraic-geometry.zariski-tangent, algebraic-geometry.regular-map-affine]
+
+  - id: algebraic-geometry.hypersurface-jacobian
+    name: 既約超曲面の次元と一次接条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（既約超曲面の次元と一次接条件）"]
+    requires: [algebraic-geometry.jacobian-kernel, algebraic-geometry.dimension-transcendence, algebraic-geometry.ideal-radical]
+
+  - id: algebraic-geometry.nilpotent-first-order
+    name: 根基化と一次情報の違い
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（根基化と一次情報の違い）"]
+    requires: [algebraic-geometry.jacobian-kernel, algebraic-geometry.cotangent-space, algebraic-geometry.ideal-radical]
