@@ -1,0 +1,41 @@
+version: 1
+id: ANT
+title: "解析的整数論"
+plan: textbook/plans_progress/DREAM_THEATER_ANALYTIC_NUMBER_THEORY_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# 全章未執筆。次章は先頭の planned (ANT1)。
+# 公開索引・目次・knowledge DAGには、各章の本文と検証が完了した時点で追加する。
+chapters:
+  - id: ANT1
+    path: textbook/volumes/dream_thater/代数系/ANT/ANT1
+    status: planned
+    title: 算術関数の平均と部分和
+  - id: ANT2
+    path: textbook/volumes/dream_thater/代数系/ANT/ANT2
+    status: planned
+    title: Dirichlet級数・Euler積の一般論
+  - id: ANT3
+    path: textbook/volumes/dream_thater/代数系/ANT/ANT3
+    status: planned
+    title: Dirichlet文字・Gauss和・Dirichlet L関数
+  - id: ANT4
+    path: textbook/volumes/dream_thater/代数系/ANT/ANT4
+    status: planned
+    title: 算術級数中の素数に関するDirichletの定理
+  - id: ANT5
+    path: textbook/volumes/dream_thater/代数系/ANT/ANT5
+    status: planned
+    title: ζ'/ζとvon Mangoldt関数
+  - id: ANT6
+    path: textbook/volumes/dream_thater/代数系/ANT/ANT6
+    status: planned
+    title: Re s=1の零点不存在と素数定理
+  - id: ANT7
+    path: textbook/volumes/dream_thater/代数系/ANT/ANT7
+    status: planned
+    title: 非自明零点・明示公式・零点計数
+  - id: ANT8
+    path: textbook/volumes/dream_thater/代数系/ANT/ANT8
+    status: planned
+    title: Riemann予想と誤差項・一般L関数への橋
