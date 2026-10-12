@@ -80,7 +80,7 @@ chapters:
     title: "可逆層とO(d)"
   - id: AG2-07
     path: textbook/volumes/dream_thater/代数系/AG/AG2-07
-    status: planned
+    status: completed
     title: "Weil因子・Cartier因子と可逆層"
   - id: AG2-08
     path: textbook/volumes/dream_thater/代数系/AG/AG2-08

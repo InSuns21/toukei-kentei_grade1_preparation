@@ -1,0 +1,55 @@
+id: "AG2-07"
+title: "Weil因子・Cartier因子と可逆層"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG2-06
+  - AG2-05
+  - AG2-01
+  - AG1-04
+  - AG1-05
+  - AG1-07
+  - AG1-11
+  - CA3
+official_scope: []
+learning_objectives:
+  - Weil因子・有効因子・主因子・線形同値・次数を定義し射影直線で位数を計算できる
+  - 滑らかな平面曲線の局所パラメータをJacobianから構成し位数の一意性を証明できる
+  - Cartier因子の単元条件を検証し滑らかな曲線上でWeil因子との同型を証明できる
+  - 局所方程式の逆数を基底にして可逆層を構成し切断条件を導出できる
+  - Cartier因子類とPicard群の同型を局所係数で証明できる
+  - 射影直線のPicard群を次数で分類しO(d)との対応を計算できる
+  - 特異点で局所主性が壊れる具体例を計算し一般化の限界を説明できる
+definitions:
+  - { id: AG2-07-DEF-00, name: 局所パラメータ }
+  - { id: AG2-07-DEF-01, name: Weil因子・有効因子・次数 }
+  - { id: AG2-07-DEF-02, name: 位数・主因子 }
+  - { id: AG2-07-DEF-03, name: Cartier因子 }
+  - { id: AG2-07-DEF-04, name: 因子に付随する可逆層 }
+theorems:
+  - { id: AG2-07-LEM-01, name: 滑らかな平面曲線の局所パラメータと位数 }
+  - { id: AG2-07-PROP-01, name: Cartier因子からWeil因子へ }
+  - { id: AG2-07-THM-01, name: 滑らかな平面曲線のWeil因子とCartier因子 }
+  - { id: AG2-07-PROP-02, name: 因子からの貼り合わせと切断条件 }
+  - { id: AG2-07-THM-02, name: Cartier因子類と可逆層の同型類 }
+  - { id: AG2-07-THM-03, name: 射影直線の因子類とPicard群 }
+canonical_examples:
+  - 放物線y=x^2の原点における局所パラメータと零点位数
+  - P1の無限遠点のCartier局所方程式とO(1)の遷移関数
+  - 二次円錐の原点における非主な被約直線イデアル
+  - 射影円錐曲線上の接線の二重零点因子
+problem_patterns:
+  - AG2-07-A1
+  - AG2-07-A2
+  - AG2-07-A3
+  - AG2-07-A4
+  - AG2-07-B1
+  - AG2-07-B2
+  - AG2-07-B3
+  - AG2-07-B4
+  - AG2-07-C1
+  - AG2-07-C2
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 9, review: 5 }
