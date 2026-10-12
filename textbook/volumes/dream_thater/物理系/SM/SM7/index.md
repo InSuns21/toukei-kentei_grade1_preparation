@@ -40,7 +40,17 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（有限零外場の反転対称性）**  
-> [Ising模型](#def-sm7-ising)で $h=0$ なら、全反転 $R\sigma=(-\sigma_i)$ は正準確率を保ち、$\mathbb E_{\beta,0}M=0$ となる。任意の $h$ に対して $Z_G(\beta,h)=Z_G(\beta,-h)$ も成り立つ。
+> [有限強磁性Ising模型](#def-sm7-ising)で $h=0$ とする。全反転 $R\sigma=(-\sigma_i)$ は正準確率を保つ。従って
+
+$
+\mathbb E_{\beta,0}M=0.
+$
+
+> また任意の $h\in\mathbb R$ に対し、
+
+$
+Z_G(\beta,h)=Z_G(\beta,-h).
+$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -349,7 +359,7 @@ $\Phi'_{\beta,0}(m)=am-\operatorname{arctanh}m=m(a-r(m))$ です。$a\le1$ で�
 
 ## 6. 自発磁化と極限の順序
 
-[有限系の反転対称性](#prop-sm7-spin-flip)は $h=0$ で $\mathbb Em_N=0$ を保証します。しかし[圧力の変分定理](#thm-sm7-pressure)と[臨界点定理](#thm-sm7-critical)によれば低温では正負二つの磁化の近傍に確率が集まります。正の秩序状態を指定するには微小な正の外場を使います。
+[有限系の反転対称性](#prop-sm7-spin-flip)は $h=0$ で $\mathbb Em_N=0$ を保証します。一方、[変分表示と磁化集中](#thm-sm7-pressure)に、[零外場での最大点の分類](#thm-sm7-critical)を合わせると、低温では正負二つの磁化の近傍に確率が集まります。正の秩序状態を指定するには微小な正の外場を使います。
 
 <a id="thm-sm7-spontaneous"></a>
 
@@ -390,7 +400,7 @@ $$
 
 $g'$ は正の半区間で狭義増加します。$a\le1$ なら $g$ 自身が0から無限大へ増加し、$a>1$ なら初め負へ減少してから一度だけ増加へ転じ、無限大に発散します。いずれも正の値 $\beta h$ と交わるのはただ一度で、最大点 $m(h)$ が一意です。
 
-[確率集中定理](#thm-sm7-pressure)で $m_N\to m(h)$ が確率収束します。$|m_N|\le1$ より任意の $\varepsilon>0$ に対し
+[磁化集中の定理](#thm-sm7-pressure)で $U=(m(h)-\varepsilon,m(h)+\varepsilon)$ を取ると、任意の $\varepsilon>0$ で $\mathbb P(|m_N-m(h)|>\varepsilon)\to0$ です。$|m_N|\le1$ より任意の $\varepsilon>0$ に対し
 
 $$
 \mathbb E|m_N-m(h)|
@@ -481,7 +491,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-[Ising模型の定義](#def-sm7-ising)から $(+,+),(-,-)$ の重みはそれぞれ $e^{\beta J}$、$(+,-),(-,+)$ はそれぞれ $e^{-\beta J}$ です。各確率は $Z=2(e^{\beta J}+e^{-\beta J})$ で割って得ます。$M=+2,-2,0,0$ なので
+[有限強磁性Ising模型](#def-sm7-ising)のHamiltonianから $(+,+),(-,-)$ の重みはそれぞれ $e^{\beta J}$、$(+,-),(-,+)$ はそれぞれ $e^{-\beta J}$ です。各確率は $Z=2(e^{\beta J}+e^{-\beta J})$ で割って得ます。$M=+2,-2,0,0$ なので
 
 $$
 \mathbb EM=\frac{2e^{\beta J}-2e^{\beta J}}Z=0,
@@ -581,7 +591,7 @@ $$
 \Phi''(m)=2-\frac1{1-m^2},\qquad \Phi''(0)=1>0
 $$
 
-ですから0は局所最小点です。[臨界点定理](#thm-sm7-critical)で示した $r(m)=\operatorname{arctanh}m/m$ は正の領域で1から無限大へ狭義増加するので、$r(m)=2$ の正解はただ一つ。偶関数性で負解も一つ存在します。最大点はその二つであり、停留点が合計三つ存在しても最大点は二つです。
+ですから十分小さな $m\ne0$ で $\Phi(m)>\Phi(0)$ となり、0は最大点ではありません。[零外場の最大点定理](#thm-sm7-critical)で示した $r(m)=\operatorname{arctanh}m/m$ は正の領域で1から無限大へ狭義増加するので、$r(m)=2$ の正解はただ一つ。偶関数性で負解も一つ存在します。最大点はその二つであり、停留点が合計三つ存在しても最大点は二つです。
 <!-- solution-end -->
 
 #### B2. 最大点集合への指数集中
