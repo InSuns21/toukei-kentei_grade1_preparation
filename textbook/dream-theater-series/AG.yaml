@@ -52,7 +52,7 @@ chapters:
     title: "特異点・接錐と平面曲線"
   - id: AG1-12
     path: textbook/volumes/dream_thater/代数系/AG/AG1-12
-    status: planned
+    status: completed
     title: "アフィン曲線の総合演習"
   - id: AG2-01
     path: textbook/volumes/dream_thater/代数系/AG/AG2-01

@@ -1,0 +1,40 @@
+chapter: AG1-12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AG1-11
+  - AG1-10
+  - AG1-09
+  - AG1-08
+  - AG1-07
+  - AG1-03
+forward_references: []
+
+concepts:
+  - id: algebraic-geometry.weierstrass-affine-curve
+    name: Weierstrass型アフィン三次曲線
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Weierstrass型アフィン三次曲線）"]
+    requires: []
+
+  - id: algebraic-geometry.weierstrass-irreducible-dimension
+    name: Weierstrass型三次曲線の既約性と次元
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Weierstrass型三次曲線の既約性と次元）"]
+    requires:
+      - algebraic-geometry.weierstrass-affine-curve
+      - algebraic-geometry.coordinate-ring
+      - algebraic-geometry.component-dimension
+
+  - id: algebraic-geometry.weierstrass-singular-criterion
+    name: Weierstrass型アフィン三次曲線の特異点判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Weierstrass型アフィン三次曲線の特異点判定）"]
+    requires:
+      - algebraic-geometry.weierstrass-affine-curve
+      - algebraic-geometry.weierstrass-irreducible-dimension
+      - algebraic-geometry.plane-curve-singular-criterion
+      - algebraic-geometry.ordinary-double-point
