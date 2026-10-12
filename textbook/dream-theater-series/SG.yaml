@@ -19,7 +19,7 @@ chapters:
     title: Sherrington–Kirkpatrick模型・overlap・自由エネルギー
   - id: SG4
     path: textbook/volumes/dream_thater/物理系/SG/SG4
-    status: planned
+    status: completed
     title: replica対称性・対称性の破れ
   - id: SG5
     path: textbook/volumes/dream_thater/物理系/SG/SG5

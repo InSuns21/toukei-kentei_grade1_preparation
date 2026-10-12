@@ -1,0 +1,50 @@
+chapter: SG4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SG3
+  - RA2
+forward_references: []
+concepts:
+  - id: spin-glass.overlap-law
+    name: レプリカoverlap分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（レプリカoverlap分布）"]
+    requires: [spin-glass.sk-overlap, spin-glass.two-replica-average]
+  - id: spin-glass.rs-functional
+    name: RS試行圧力
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（RS試行圧力）"]
+    requires: [spin-glass.sk-pressure-limit, spin-glass.overlap-law]
+  - id: spin-glass.rs-bound
+    name: 有限サイズRS補間恒等式と上界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限サイズRS補間恒等式と上界）"]
+    requires: [spin-glass.rs-functional, spin-glass.sk-covariance, spin-glass.interpolation-derivative]
+  - id: spin-glass.rs-self-consistency
+    name: RS試行式の停留条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（RS試行式の停留条件）"]
+    requires: [spin-glass.rs-functional, spin-glass.correlated-gaussian-ibp]
+  - id: spin-glass.high-temperature-pressure
+    name: 外場ゼロのSK高温圧力
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（外場ゼロのSK高温圧力）"]
+    requires: [spin-glass.rs-bound, spin-glass.sk-pressure-derivative, spin-glass.pressure-concentration]
+  - id: spin-glass.at-parameter
+    name: RS線形応答のATパラメータ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（RS線形応答のATパラメータ）"]
+    requires: [spin-glass.rs-self-consistency]
+  - id: spin-glass.two-level-rsb
+    name: 二水準のoverlap混合模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二水準のoverlap混合模型）"]
+    requires: [spin-glass.overlap-law]

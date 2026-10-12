@@ -657,6 +657,7 @@
 3. [CM1-03 基礎となる実多様体と概複素構造J](textbook/volumes/dream_thater/幾何系/CM/CM1-03/index.md)
 4. [CM1-04 (1,0)・(0,1)接空間への複素化分解](textbook/volumes/dream_thater/幾何系/CM/CM1-04/index.md)
 5. [CM1-05 複素接束の座標変換と正則性](textbook/volumes/dream_thater/幾何系/CM/CM1-05/index.md)
+6. [CM1-06 Nijenhuisテンソルと局所座標での必要条件](textbook/volumes/dream_thater/幾何系/CM/CM1-06/index.md)
 
 <a id="dt-subject-symplectic-geometry-i"></a>
 ### シンプレクティック幾何学 I
@@ -968,6 +969,7 @@
 1. [SG1 quenched disorder・Random Energy Model・凍結転移](textbook/volumes/dream_thater/物理系/SG/SG1/index.md)
 2. [SG2 Gaussian concentration・Gaussian部分積分・補間法](textbook/volumes/dream_thater/物理系/SG/SG2/index.md)
 3. [SG3 Sherrington–Kirkpatrick模型・overlap・自由エネルギー](textbook/volumes/dream_thater/物理系/SG/SG3/index.md)
+4. [SG4 replica対称性・対称性の破れ](textbook/volumes/dream_thater/物理系/SG/SG4/index.md)
 
 
 <a id="dt-subject-mathematical-quantum-mechanics"></a>

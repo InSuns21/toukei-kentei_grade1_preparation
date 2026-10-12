@@ -1,0 +1,45 @@
+chapter: CM1-06
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CM1-05
+  - GEO5
+  - VC1
+
+concepts:
+  - id: complex-manifolds.nijenhuis-tensor
+    name: Nijenhuisテンソル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Nijenhuisテンソル）"]
+    requires: [complex-manifolds.almost-complex-structure, geometry.lie-bracket]
+  - id: complex-manifolds.nijenhuis-tensoriality
+    name: Nijenhuisテンソルのテンソル性と反対称性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Nijenhuisテンソルのテンソル性と反対称性）"]
+    requires: [complex-manifolds.nijenhuis-tensor]
+  - id: complex-manifolds.nijenhuis-local-components
+    name: Nijenhuisテンソルの局所成分公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Nijenhuisテンソルの局所成分公式）"]
+    requires: [complex-manifolds.nijenhuis-tensoriality]
+  - id: complex-manifolds.type-bracket-closure
+    name: 型別分布の交換子閉性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（型別分布の交換子閉性）"]
+    requires: [complex-manifolds.type-tangent-bundles, geometry.lie-bracket]
+  - id: complex-manifolds.nijenhuis-bracket-equivalence
+    name: Nijenhuis消滅と型別交換子閉性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Nijenhuis消滅と型別交換子閉性）"]
+    requires: [complex-manifolds.nijenhuis-tensor, complex-manifolds.type-bracket-closure, complex-manifolds.tangent-type-projections]
+  - id: complex-manifolds.nijenhuis-necessary-condition
+    name: 正則アトラスによる概複素構造の必要条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正則アトラスによる概複素構造の必要条件）"]
+    requires: [complex-manifolds.nijenhuis-bracket-equivalence, complex-manifolds.tangent-type-eigenspaces, complex-manifolds.higher-holomorphic-atlas]
