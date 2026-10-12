@@ -20,7 +20,7 @@ chapters:
     title: sub-Gaussianとsub-exponentialの同値評価
   - id: HDP4
     path: textbook/volumes/dream_thater/解析系/HDP/HDP4
-    status: planned
+    status: completed
     title: Doob差分と有界差分不等式
   - id: HDP5
     path: textbook/volumes/dream_thater/解析系/HDP/HDP5
