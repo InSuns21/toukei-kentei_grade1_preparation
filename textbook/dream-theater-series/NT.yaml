@@ -40,7 +40,7 @@ chapters:
     title: 素数分布への入口
   - id: NT9
     path: textbook/volumes/dream_thater/代数系/NT/NT9
-    status: planned
+    status: completed
     title: Diophantine集合・Hilbert第10問題 over Z
   - id: NT10
     path: textbook/volumes/dream_thater/代数系/NT/NT10

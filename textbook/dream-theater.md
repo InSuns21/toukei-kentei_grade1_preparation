@@ -702,6 +702,7 @@
 6. [NT6 不定方程式と平方和](textbook/volumes/dream_thater/代数系/NT/NT6/index.md)
 7. [NT7 連分数・Pell 方程式・Diophantine 近似](textbook/volumes/dream_thater/代数系/NT/NT7/index.md)
 8. [NT8 素数分布への入口](textbook/volumes/dream_thater/代数系/NT/NT8/index.md)
+9. [NT9 Diophantine集合・Hilbert第10問題 over Z](textbook/volumes/dream_thater/代数系/NT/NT9/index.md)
 
 <a id="dt-subject-algebraic-geometry"></a>
 <a id="dt-subject-algebraic-geometry-i"></a>

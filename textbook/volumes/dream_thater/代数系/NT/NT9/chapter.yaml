@@ -1,0 +1,52 @@
+id: "NT9"
+title: "Diophantine集合・Hilbert第10問題 over Z"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NT1
+  - NT6
+  - CMP1
+  - CMP3
+  - CMP4
+  - CMP5
+  - CMP6
+official_scope: []
+learning_objectives:
+  - 整数上のDiophantine集合と存在的定義を両方向の含意で検証できる
+  - 和・積・射影・多項式逆像によるDiophantine集合の閉性を証明できる
+  - Diophantine集合の認識器を整数組の公平な全探索から構成できる
+  - DPRM定理の量化・前提・定理の外部証明範囲を正確に説明できる
+  - 四平方定理を使って非負整数のDiophantine定義を整数上の定義へ変換できる
+  - 停止問題からHilbert第10問題の決定不能性を計算可能な入力変換で導出できる
+  - 整数可解性と有理数可解性の問題を区別できる
+definitions:
+  - { id: NT9-DEF-01, name: 整数上のDiophantine集合 }
+  - { id: NT9-DEF-02, name: 存在的Diophantine定義 }
+  - { id: NT9-DEF-03, name: Hilbert第10問題 over Z }
+theorems:
+  - { id: NT9-PROP-01, name: Diophantine集合の閉性 }
+  - { id: NT9-PROP-02, name: 整数係数多項式による逆像 }
+  - { id: NT9-PROP-03, name: Diophantine集合は認識可能 }
+  - { id: NT9-THM-01, name: Davis–Putnam–Robinson–Matiyasevich定理（外部の深い定理） }
+  - { id: NT9-PROP-04, name: 非負整数のDiophantine定義の整数化 }
+  - { id: NT9-THM-02, name: 整数上のHilbert第10問題の決定不能性 }
+  - { id: NT9-COR-01, name: 整数可解性は認識可能だが決定不能 }
+canonical_examples:
+  - 偶数の存在的定義
+  - 6の倍数の平方和表示
+  - 二値条件の多項式化
+  - 整数組の公平な全探索
+  - 四平方定理による非負性の符号化
+  - 停止集合から方程式可解性への帰着
+problem_patterns:
+  - NT9-DIOPHANTINE-EVIDENCE
+  - NT9-CLOSURE-OPERATIONS
+  - NT9-RECOGNIZER-SEARCH
+  - NT9-DPRM-SCOPE
+  - NT9-FOUR-SQUARES
+  - NT9-H10-REDUCTION
+  - NT9-INTEGER-RATIONAL-DISTINCTION
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 4 }
+past_exam_alignment: []
+integrated_exam_problems: []
