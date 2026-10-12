@@ -521,7 +521,19 @@ $$
 <!-- proof-start -->
 ### 証明
 
-上の第2節で構成した座標を $z$ と書きます。$z(m)=0$ で、$z$ 表示の元の形式を $\omega$、原点値から作る定係数形式を $\omega_0$ とします。[$\beta$ の動径原始形式の補題](#lem-sym5-radial-primitive)を差 $\beta=\omega-\omega_0$ に適用し、$d\sigma=\beta$ を得ます。
+上の第2節で構成した座標写像を $z$ と書きます。$z(m)=0$ です。元の多様体上の形式を $\omega$、座標球上へ移した形式を
+
+$
+\widehat\omega=(z^{-1})^*\omega
+$
+
+と区別します。第2〜4節では $\widehat\omega$ を簡単に $\omega$ と記して計算していました。原点値から作る定係数形式を $\omega_0$ とし、[閉2形式の動径原始形式の補題](#lem-sym5-radial-primitive)を
+
+$
+\beta=\widehat\omega-\omega_0
+$
+
+に適用します。$\beta(0)=0$ と $d\beta=0$ を第2節で確認しているので、$d\sigma=\beta$ を満たす滑らかな1形式 $\sigma$ を得ます。
 
 [非退化近傍の補題](#lem-sym5-uniform-nondegeneracy)で全ての $t\in[0,1]$ に共通の球を取り、第4節の時間依存ベクトル場
 
@@ -530,11 +542,11 @@ $$
 \omega_t=\omega_0+t\beta
 $$
 
-を作ります。ここで $Y_t(0)=0$ なので、その局所流 $\varphi_t$ は小球 $B_r$ で時刻1まで存在し、微分同相 $\varphi_1:B_r\to\varphi_1(B_r)$ を与えます。前節の直接計算から
+を作ります。ここで $Y_t(0)=0$ なので、その局所流 $\varphi_t$ は小球 $B_r$ で時刻1まで存在し、微分同相 $\varphi_1:B_r\to\varphi_1(B_r)$ を与えます。前節の直接計算を座標球の形式 $\widehat\omega$ に読み替えると
 
-$$
-\varphi_1^*\omega=\omega_0.
-$$
+$
+\varphi_1^*\widehat\omega=\omega_0.
+$
 
 $V=\varphi_1(B_r)$ は原点を含む開集合です。元の多様体での近傍を $U=z^{-1}(V)$ とし、新しい座標写像を
 
@@ -542,11 +554,24 @@ $$
 \chi=\varphi_1^{-1}\circ z:U\longrightarrow B_r
 $$
 
-とします。これは滑らかな座標写像です。標準2形式を $\omega_{\mathrm{std}}=\sum_i dq^i\wedge dp_i$ と書けば、$\varphi_1^*(z^{-1})^*\omega=\omega_{\mathrm{std}}$ という上の等式から
+とします。これは滑らかな座標写像です。標準2形式を $\omega_{\mathrm{std}}=\sum_i dq^i\wedge dp_i=\omega_0$ と書きます。先ほどの $\varphi_1^*\widehat\omega=\omega_{\mathrm{std}}$ を、微分同相 $\varphi_1:B_r\to V$ の逆写像で引き戻せば
 
-$$
-\omega|_U=\chi^*\omega_{\mathrm{std}}.
-$$
+$
+\widehat\omega|_V
+=(\varphi_1^{-1})^*\omega_{\mathrm{std}}.
+$
+
+さらに $z:U\to V$ によって元の多様体へ戻すと、[引き戻しの合成則](../GEO7/index.md#prop-geo7-pullback-wedge)から
+
+$
+\begin{aligned}
+\omega|_U
+&=z^*(\widehat\omega|_V)\\
+&=z^*(\varphi_1^{-1})^*\omega_{\mathrm{std}}\\
+&=(\varphi_1^{-1}\circ z)^*\omega_{\mathrm{std}}\\
+&=\chi^*\omega_{\mathrm{std}}.
+\end{aligned}
+$
 
 従って $\chi$ の成分 $(q^1,\ldots,q^n,p_1,\ldots,p_n)$ が求めるDarboux座標です。原点が $\varphi_t$ の固定点なので $\chi(m)=0$ も成立します。
 <!-- proof-end -->
@@ -555,7 +580,7 @@ $$
 
 ## 6. 何が座標不変で、何が局所的か
 
-[Darbouxの定理](#thm-sym5-darboux)により、局所ではシンプレクティック形式の係数に依存する追加の「曲率型の不変量」は現れません。例えば[SYM4のHamiltonベクトル場とPoisson括弧の座標式](../SYM4/index.md#prop-sym4-coordinate-bracket)が、いまや**どの点でも適切な近傍を選べば**利用できます。
+[Darbouxの定理](#thm-sym5-darboux)により、局所ではシンプレクティック形式の係数に依存する追加の「曲率型の不変量」は現れません。例えば[SYM4のHamiltonベクトル場の座標式](../SYM4/index.md#thm-sym4-existence-coordinate)と[Poisson括弧の正準座標式](../SYM4/index.md#prop-sym4-coordinate-bracket)が、いまや**どの点でも適切な近傍を選べば**利用できます。
 
 <a id="cor-sym5-local-poisson"></a>
 
