@@ -3,6 +3,11 @@ on:
   push:
     branches:
       - refactor/dream-theater-category-layout-r1-r2-20261012
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/dream-theater-category-relocation-run.yml'
+      - 'scripts/migrate-dream-theater-categories.mjs'
 
 permissions:
   contents: write
@@ -14,12 +19,13 @@ concurrency:
 jobs:
   relocate:
     runs-on: ubuntu-latest
-    if: github.actor != 'github-actions[bot]'
+    if: github.actor != 'github-actions[bot]' && (github.event_name == 'push' || github.head_ref == 'refactor/dream-theater-category-layout-r1-r2-20261012')
     steps:
       - uses: actions/checkout@v6
         with:
           fetch-depth: 0
           persist-credentials: true
+          ref: refactor/dream-theater-category-layout-r1-r2-20261012
       - uses: actions/setup-node@v6
         with:
           node-version: '24'
