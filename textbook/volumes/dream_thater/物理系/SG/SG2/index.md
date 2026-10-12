@@ -768,7 +768,15 @@ a\gamma,&\gamma\ge a.
 \end{cases}
 $$
 
-(b)の補間微分式は、(c)の有限 $N$ の恒等式からも独立に検算できます。$\gamma=\beta\sqrt{1-s}$ と置き、独立な $U_\sigma$ だけを使う圧力を $q_N(\gamma)=p_N(0;\gamma)$、対応するGibbs重みを $v_\gamma(\sigma)$ と書きます。[共分散付きGaussian部分積分](#prop-sg2-correlated-ibp)と[Gibbs重みの微分](#prop-sg2-gibbs-derivatives)から
+(b)の補間微分式は、(c)の有限 $N$ の恒等式からも独立に検算できます。$\gamma=\beta\sqrt{1-s}$ と置き、独立な $U_\sigma$ だけを使う圧力を $q_N(\gamma)=p_N(0;\gamma)$、対応するGibbs重みを $v_\gamma(\sigma)$ と書きます。このとき
+
+$
+\left|\partial_\gamma\log\sum_\sigma e^{\gamma U_\sigma}\right|
+=\left|\sum_\sigma v_\gamma(\sigma)U_\sigma\right|
+\le\max_\sigma|U_\sigma|
+$
+
+であり、右辺は有限個のGaussian変数の最大値として可積分です。従って期待値と $\gamma$ による微分を交換できます。[共分散付きGaussian部分積分](#prop-sg2-correlated-ibp)と[Gibbs重みの微分](#prop-sg2-gibbs-derivatives)から
 
 $
 \begin{aligned}
