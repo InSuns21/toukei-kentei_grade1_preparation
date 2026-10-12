@@ -269,6 +269,7 @@
 19. [P7B QMD・LAN](textbook/volumes/dream_thater/解析系/F0/F0-00P7B/index.md)
 20. [HDP1 指数Markov法・Hoeffding補題・Hoeffding不等式](textbook/volumes/dream_thater/解析系/HDP/HDP1/index.md)
 21. [HDP2 Bennett・Bernstein不等式と分散依存の集中](textbook/volumes/dream_thater/解析系/HDP/HDP2/index.md)
+22. [HDP3 sub-Gaussianとsub-exponentialの同値評価](textbook/volumes/dream_thater/解析系/HDP/HDP3/index.md)
 
 <a id="dt-subject-functional-analysis"></a>
 ### 関数解析 I
@@ -645,6 +646,7 @@
 5. [SYM5 Darbouxの定理](textbook/volumes/dream_thater/幾何系/SYM/SYM5/index.md)
 6. [SYM6 Lagrange部分空間・Lagrange部分多様体](textbook/volumes/dream_thater/幾何系/SYM/SYM6/index.md)
 7. [SYM7 Moserの方法とシンプレクティック変形](textbook/volumes/dream_thater/幾何系/SYM/SYM7/index.md)
+8. [SYM8 適合概複素構造と発展境界](textbook/volumes/dream_thater/幾何系/SYM/SYM8/index.md)
 
 ## 代数系
 
@@ -669,6 +671,10 @@
 16. [FLD5 Galois 理論の応用：作図可能性・根号による可解性](textbook/volumes/dream_thater/代数系/FLD/FLD5/index.md)
 
 <a id="dt-subject-algebraic-geometry"></a>
+### 整数論 I〜発展
+
+1. [NT1 整数環・合同式・剰余類](textbook/volumes/dream_thater/代数系/NT/NT1/index.md)
+
 ### 代数幾何学 I〜III
 
 1. [AG1-01 多変数多項式とアフィン代数的集合](textbook/volumes/dream_thater/代数系/AG/AG1-01/index.md)

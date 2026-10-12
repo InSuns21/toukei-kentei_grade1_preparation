@@ -1,0 +1,49 @@
+chapter: NT1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RNG3
+forward_references: []
+
+concepts:
+  - id: number-theory.congruence
+    name: 整数の合同
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（合同）]
+    requires: [algebra.divisibility, algebra.quotient-ring]
+
+  - id: number-theory.modular-inverse-criterion
+    name: 整数剰余類の逆元の存在条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（逆元の存在条件）]
+    requires: [number-theory.congruence, algebra.euclidean-algorithm-bezout]
+
+  - id: number-theory.modular-cancellation
+    name: 合同式の約分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（合同式の約分）]
+    requires: [number-theory.congruence, algebra.euclidean-algorithm-bezout]
+
+  - id: number-theory.linear-congruence
+    name: 線形合同式の可解条件と解の個数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（線形合同式の可解条件と解の個数）]
+    requires: [number-theory.modular-cancellation, algebra.euclidean-algorithm-bezout]
+
+  - id: number-theory.constructive-crt
+    name: 整数の中国剰余定理の構成公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（整数の中国剰余定理の構成公式）]
+    requires: [algebra.chinese-remainder-theorem-finite-ideals, number-theory.modular-inverse-criterion]
+
+  - id: number-theory.non-coprime-crt
+    name: 二つの法の連立合同式と整合条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（二つの法の連立合同式と整合条件）]
+    requires: [number-theory.linear-congruence, number-theory.congruence]

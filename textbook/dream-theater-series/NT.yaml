@@ -1,0 +1,48 @@
+version: 1
+id: NT
+title: "整数論 I〜発展"
+plan: textbook/plans_progress/DREAM_THEATER_ELEMENTARY_NUMBER_THEORY_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# NT9/10 は計算可能性などの別系列も直接前提にする。個別の完了状態は章ごとに管理する。
+chapters:
+  - id: NT1
+    path: textbook/volumes/dream_thater/代数系/NT/NT1
+    status: completed
+    title: 整数環・合同式・剰余類
+  - id: NT2
+    path: textbook/volumes/dream_thater/代数系/NT/NT2
+    status: planned
+    title: 乗法群・Fermat–Euler・原始根
+  - id: NT3
+    path: textbook/volumes/dream_thater/代数系/NT/NT3
+    status: planned
+    title: 平方剰余・平方剰余の相互法則
+  - id: NT4
+    path: textbook/volumes/dream_thater/代数系/NT/NT4
+    status: planned
+    title: 算術関数とDirichlet畳み込み
+  - id: NT5
+    path: textbook/volumes/dream_thater/代数系/NT/NT5
+    status: planned
+    title: Möbius反転・約数和・総和関数
+  - id: NT6
+    path: textbook/volumes/dream_thater/代数系/NT/NT6
+    status: planned
+    title: 不定方程式と平方和
+  - id: NT7
+    path: textbook/volumes/dream_thater/代数系/NT/NT7
+    status: planned
+    title: 連分数・Pell方程式・Diophantine近似
+  - id: NT8
+    path: textbook/volumes/dream_thater/代数系/NT/NT8
+    status: planned
+    title: 素数分布への入口
+  - id: NT9
+    path: textbook/volumes/dream_thater/代数系/NT/NT9
+    status: planned
+    title: Diophantine集合・Hilbert第10問題 over Z
+  - id: NT10
+    path: textbook/volumes/dream_thater/代数系/NT/NT10
+    status: planned
+    title: Hilbert第10問題 over Q

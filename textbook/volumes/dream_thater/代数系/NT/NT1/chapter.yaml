@@ -1,0 +1,42 @@
+id: "NT1"
+title: "整数環・合同式・剰余類"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RNG3
+official_scope: []
+learning_objectives:
+  - 整除と合同の定義を使い、負の数の代表元を一意に決め、剰余類で加法と乗法が定義できる理由を説明できる
+  - 整数のEuclid互除法とBézout等式を具体的に実行し、逆元が存在する条件を証明できる
+  - 最大公約数を使って合同式の約分の正しい法を導き、誤った約分の反例を挙げられる
+  - 一次合同式の可解条件と法nでの解の個数を証明し、すべての解を列挙できる
+  - 中国剰余定理の構成公式を導いて互いに素な法の連立を解き、非互いに素な場合の整合条件を証明できる
+  - 線形合同式と複数法の整合条件を結び付けた問題を自力で解ける
+definitions:
+  - { id: NT1-DEF-01, name: 合同 }
+theorems:
+  - { id: NT1-PROP-01, name: 逆元の存在条件 }
+  - { id: NT1-PROP-02, name: 合同式の約分 }
+  - { id: NT1-THM-01, name: 線形合同式の可解条件と解の個数 }
+  - { id: NT1-THM-02, name: 整数の中国剰余定理の構成公式 }
+  - { id: NT1-PROP-03, name: 二つの法の連立合同式と整合条件 }
+canonical_examples:
+  - 負の整数-29の法12での代表元
+  - 252と198のEuclid互除法とBézout係数
+  - 法15の7の逆元と法15の6の非可逆性
+  - 14x≡8(mod30)の相異なる二つの解
+  - 法3・5・7で余り2・3・2となる整数
+  - 法12・18の非互いに素な合同式の整合判定
+problem_patterns:
+  - NT1-EUCLID-BEZOUT
+  - NT1-NEGATIVE-RESIDUE
+  - NT1-LINEAR-ALL-SOLUTIONS
+  - NT1-CRT-PAIRWISE-COPRIME
+  - NT1-LINEAR-COUNT
+  - NT1-CRT-NONCOPRIME
+  - NT1-CRT-CONSTRUCTIVE
+  - NT1-CRT-MIXED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }
