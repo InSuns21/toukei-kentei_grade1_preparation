@@ -110,4 +110,4 @@ leaf chapter の通常PRでは changed-only validation を原則とする。glob
 
 ## 教材の配置
 
-DREAM THEATER 講義は `textbook/volumes/dream_thater/<カテゴリー>/<講義系列ID>/<章ID>/` に置く。カテゴリーは公開索引の8区分、講義系列IDはシリーズmanifestの `id`、章IDは `chapter.yaml.id` を正本とする。シリーズmanifestのない既存F0補講は `F0`、LAX1/CAX1は独立の演習系列 `LAX` / `CAX` を使用する。新しい章を直下に作らない。
+DREAM THEATER 講義は `textbook/volumes/dream_thater/<カテゴリー>/<講義系列ID>/<章ID>/` に置く。カテゴリーは公開索引の8区分、講義系列IDは章IDの主系列（例: `QMOA` manifestに属する `QM`・`OA`・`VN` はそれぞれ別フォルダ）、章IDは `chapter.yaml.id` を正本とする。シリーズmanifestのない既存F0補講は `F0`、LAX1/CAX1は独立の演習系列 `LAX` / `CAX` を使用する。新しい章を直下に作らない。
