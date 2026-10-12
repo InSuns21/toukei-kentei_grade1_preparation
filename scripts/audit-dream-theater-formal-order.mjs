@@ -193,7 +193,7 @@ function collectChangedFiles() {
     const output = execFileSync('git', [
       '-c', 'core.quotepath=false',
       'diff', '--name-only', '--diff-filter=ACMR', base, 'HEAD', '--',
-      'textbook/volumes/00_foundations',
+      'textbook/volumes/dream_thater',
       'textbook/dream-theater-index.json',
       'textbook/dream-theater-knowledge.yaml',
       'scripts/audit-dream-theater-formal-order.mjs',
