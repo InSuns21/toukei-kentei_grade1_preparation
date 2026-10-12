@@ -222,7 +222,15 @@ $$
 \end{aligned}
 $$
 
-$q=0$ でも右微分として同じ式が成立する。$\beta=0$ では試行式が一定であり、以下の停留条件による選択はできない。
+$q=0$ でも右微分として同じ式が成立する。実際、$0\le\operatorname{sech}^2u\le1$ なので優収束定理により
+
+$
+\lim_{q\downarrow0}\mathcal P_{\mathrm{RS}}'(q)
+=\frac{\beta^2}{2}\bigl(\operatorname{sech}^2h-1\bigr)
+=-\frac{\beta^2}{2}\tanh^2h.
+$
+
+右側の差分商は平均値の定理を使ってこの右極限へ収束するため、上式が $q=0$ の右微分となる。$\beta=0$ では試行式が一定であり、以下の停留条件による選択はできない。
 
 <a id="prop-sg4-self-consistency"></a>
 
