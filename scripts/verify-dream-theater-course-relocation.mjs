@@ -50,7 +50,7 @@ if(newMap.size<2150)throw Error('Too few files compared: '+newMap.size);
 
 const urlPattern=/\]\(([^)\s]+)\)/g;
 function normalize(src){
- let c=src.replace(urlPattern,'](<URL>)')
+ let c=src.replace(urlPattern,'](<URL>)').replace(/\[([^\]\n]+)\]\(<URL>\)/g,'$1')
    .replace(/(\b(?:href|src)=["'])([^"'<>]+)(["'])/g,'$1<URL>$3');
  for(const [old,modern] of mappings){
   c=c.split(modern).join('<MOVED:'+old+'>');
