@@ -78,7 +78,11 @@ $$
 \frac{\partial I}{\partial J}=
 \operatorname{Id}_n+\varepsilon\partial^2_{J\theta}W.
 $$
-$B\times\mathbb T^n$ 上でこの行列は一様に単位行列へ近づきます。例えばその摂動項の作用素ノルムが $1/2$ 未満なら逆行列が存在します。[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)により $J=J(I,\theta,\varepsilon)$ が局所的に求まり、続いて $\varphi$ を計算できます。局所的な持ち上げを $2\pi m$ だけ変えても $S$ の勾配が規定する $\varphi$ は $2\pi m$ だけ変わるだけで、トーラス上の写像は一意です。
+$B\times\mathbb T^n$ 上でこの行列は一様に単位行列へ近づきます。例えばその摂動項の作用素ノルムが $1/2$ 未満なら逆行列が存在します。
+
+[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)により $J=J(I,\theta,\varepsilon)$ が局所的に求まり、続いて $\varphi$ を計算できます。
+
+局所的な持ち上げを $2\pi m$ だけ変えても、$S$ の勾配が規定する $\varphi$ は $2\pi m$ だけ変わります。そのため、トーラス上の写像は一意です。
 <!-- proof-end -->
 
 この命題は小さな $\varepsilon$ についての**局所**結果です。全ての作用領域で大域的な変換が存在すると主張してはいません。
