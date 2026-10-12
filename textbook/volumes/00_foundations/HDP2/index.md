@@ -341,7 +341,7 @@ $$
 $$
 P(S\ge t)\le\exp\left\{-\lambda t+
 \frac{\lambda^2v}{2(1-\lambda b/3)}\right\}
-$
+$$
 
 です。確率が零の場合もこの式はそのまま成立します。ここで
 
