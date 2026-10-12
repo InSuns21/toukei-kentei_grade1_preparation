@@ -12,7 +12,7 @@ chapters:
     title: 整数環・合同式・剰余類
   - id: NT2
     path: textbook/volumes/dream_thater/代数系/NT/NT2
-    status: planned
+    status: completed
     title: 乗法群・Fermat–Euler・原始根
   - id: NT3
     path: textbook/volumes/dream_thater/代数系/NT/NT3
