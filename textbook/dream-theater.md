@@ -736,6 +736,7 @@
 
 1. [AG2-01 射影空間と斉次座標](textbook/volumes/dream_thater/代数系/AG/AG2-01/index.md)
 2. [AG2-02 斉次イデアルと射影代数的集合](textbook/volumes/dream_thater/代数系/AG/AG2-02/index.md)
+3. [AG2-03 射影射・Veronese写像・Segre写像](textbook/volumes/dream_thater/代数系/AG/AG2-03/index.md)
 
 <a id="dt-subject-algebraic-geometry-iii"></a>
 ### 代数幾何学 III
