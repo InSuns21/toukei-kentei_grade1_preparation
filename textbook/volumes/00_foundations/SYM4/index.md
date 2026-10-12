@@ -70,10 +70,10 @@ $$
 
 任意の座標近傍で $\omega$ の係数行列を $\Omega(x)$ と書きます。滑らかで非退化だから $\det\Omega(x)\ne0$ です。[余因子行列の恒等式](../LA4/index.md#lem-la4-adjugate-identity)を適用すると
 
-$
+$$
 \Omega(x)^{-1}
 =\frac{\operatorname{adj}(\Omega(x))}{\det\Omega(x)}
-$
+$$
 
 となります。分子の各成分は $\Omega(x)$ の成分の多項式で、分母は零にならない滑らかな関数なので、逆行列の各成分も滑らかです。写像
 
