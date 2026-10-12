@@ -17,7 +17,7 @@ concepts:
   - id: geometry.smooth-function-germ
     name: 滑らかな関数の芽
     kind: definition
-    aliases: [滑らかな関数の芽, smooth function germ]
+    aliases: [滑らかな関数の芽, 関数の芽, smooth function germ]
     requires: [geometry.smooth-manifold]
 
   - id: geometry.tangent-vector
