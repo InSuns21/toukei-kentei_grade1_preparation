@@ -1,7 +1,7 @@
 # DREAM THEATER 幾何学的力学 I（GMECH1〜GMECH8）
 
 作成・分冊: 2026-10-11  
-状態: in_progress（2026-10-12 着手。GMECH1〜3本文・詳細解答・章別metadataを実装。GMECH4〜8と系列横断査読が残る）
+状態: in_progress（2026-10-12 更新。GMECH1〜7の本文・詳細解答・章別metadataを実装。GMECH8と系列横断査読が残る）
 
 ## 中心問い
 
