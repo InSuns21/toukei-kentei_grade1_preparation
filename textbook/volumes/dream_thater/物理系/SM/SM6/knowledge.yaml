@@ -1,0 +1,74 @@
+chapter: SM6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SM5
+  - QM2
+forward_references: []
+concepts:
+  - id: statistical-mechanics.quantum-occupation-model
+    name: Bose型・Fermi型の有限モード占有模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Bose型・Fermi型の有限モード占有模型）"]
+    requires: [statistical-mechanics.grand-canonical-ensemble, quantum.finite-born-rule]
+  - id: statistical-mechanics.quantum-grand-factorization
+    name: 量子理想気体の大分配関数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（量子理想気体の大分配関数）"]
+    requires: [statistical-mechanics.quantum-occupation-model]
+  - id: statistical-mechanics.bose-einstein-fermi-dirac-occupation
+    name: Bose–Einstein・Fermi–Dirac占有数と分散
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Bose–Einstein・Fermi–Dirac占有数と分散）"]
+    requires: [statistical-mechanics.quantum-grand-factorization]
+  - id: statistical-mechanics.quantum-thermodynamic-derivatives
+    name: モード和と熱力学微分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（モード和と熱力学微分）"]
+    requires: [statistical-mechanics.quantum-grand-factorization, statistical-mechanics.number-fluctuation]
+  - id: statistical-mechanics.periodic-quantum-ideal-gas
+    name: 三次元周期境界量子理想気体
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（三次元周期境界量子理想気体）"]
+    requires: [statistical-mechanics.quantum-occupation-model, statistical-mechanics.classical-ideal-gas-phase-space]
+  - id: statistical-mechanics.quantum-free-density-of-states
+    name: 三次元自由粒子の状態密度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（三次元自由粒子の状態密度）"]
+    requires: [statistical-mechanics.periodic-quantum-ideal-gas]
+  - id: statistical-mechanics.bose-fermi-integrals
+    name: Bose積分とFermi積分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Bose積分とFermi積分）"]
+    requires: [statistical-mechanics.bose-einstein-fermi-dirac-occupation]
+  - id: statistical-mechanics.quantum-ideal-gas-equation
+    name: 三次元量子理想気体の状態方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（三次元量子理想気体の状態方程式）"]
+    requires: [statistical-mechanics.quantum-free-density-of-states, statistical-mechanics.bose-fermi-integrals, statistical-mechanics.quantum-grand-factorization]
+  - id: statistical-mechanics.quantum-dilute-limit
+    name: 希薄極限と最初の量子補正
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（希薄極限と最初の量子補正）"]
+    requires: [statistical-mechanics.quantum-ideal-gas-equation, statistical-mechanics.ideal-gas-canonical-thermodynamics]
+  - id: statistical-mechanics.bose-condensate-ground-occupation
+    name: 固定密度の三次元Bose気体の基底占有
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（固定密度の三次元Bose気体の基底占有）"]
+    requires: [statistical-mechanics.quantum-ideal-gas-equation]
+  - id: statistical-mechanics.fermi-zero-temperature-gas
+    name: 三次元自由Fermi気体の零温度極限
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（三次元自由Fermi気体の零温度極限）"]
+    requires: [statistical-mechanics.quantum-free-density-of-states, statistical-mechanics.quantum-ideal-gas-equation]
