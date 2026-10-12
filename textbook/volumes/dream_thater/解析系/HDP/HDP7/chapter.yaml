@@ -1,0 +1,54 @@
+id: HDP7
+title: sub-Gaussianベクトルと標本共分散
+volume: foundations
+status: supplementary
+prerequisites:
+  - HDP6
+  - HDP3
+  - HDP1
+  - F0-00F2
+official_scope: []
+learning_objectives:
+  - 全方向のpsi2条件を定義し等方性・座標別条件・次元一様性を区別できる
+  - 等方的ベクトルと退化した共分散の具体例を計算できる
+  - sub-Gaussian射影の二乗を中心化し局所指数モーメントを級数から導ける
+  - 独立な二乗変数のBernstein型二領域集中を証明できる
+  - 有限netと二次形式から標本共分散の非漸近作用素ノルム界を証明できる
+  - 母平均未知の中心化恒等式と標本平均のnet評価を接続できる
+  - 共分散尺度のsub-Gaussian条件を定義し特異なSigmaを像の次元へ白色化できる
+  - 独立性・全方向条件・標本数の仮定を反例と階数で説明できる
+definitions:
+  - { id: HDP7-DEF-01, name: sub-Gaussian確率ベクトル }
+  - { id: HDP7-DEF-02, name: 等方的確率ベクトル }
+  - { id: HDP7-DEF-03, name: 共分散尺度に適合するsub-Gaussian条件 }
+theorems:
+  - { id: HDP7-LEM-01, name: sub-Gaussian平方の中心化指数モーメント }
+  - { id: HDP7-LEM-02, name: 固定方向の経験二次モーメント集中 }
+  - { id: HDP7-THM-01, name: 等方的sub-Gaussian標本の共分散作用素ノルム評価 }
+  - { id: HDP7-LEM-03, name: 等方的sub-Gaussian標本平均のノルム評価 }
+  - { id: HDP7-COR-01, name: 標本平均で中心化した共分散の評価 }
+  - { id: HDP7-THM-02, name: 退化を許す一般共分散の評価 }
+canonical_examples:
+  - 独立Rademacher成分の等方性と全方向のpsi2評価
+  - 共分散diag(4,0)の特異Gaussian例と相対尺度
+  - psi2平方のモーメント展開と固定方向のChernoff最適化
+  - 四分の一netでの作用素ノルムと標本数条件
+  - 中心化による階数一補正
+  - 正の固有値部分空間だけでの白色化
+  - 完全従属標本と低標本数の反例
+problem_patterns:
+  - HDP7-ISOTROPIC-SIGNS
+  - HDP7-DEGENERATE-SCALE
+  - HDP7-RANK-BARRIER
+  - HDP7-SQUARE-MOMENTS
+  - HDP7-QUADRATIC-NET
+  - HDP7-SAMPLE-SIZE
+  - HDP7-CENTERED-IDENTITY
+  - HDP7-LINEAR-TRANSFORM
+  - HDP7-DEPENDENCE-COUNTEREXAMPLE
+  - HDP7-CENTERED-BOUND
+  - HDP7-SINGULAR-WHITENING
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 8, review: 4 }
