@@ -195,3 +195,223 @@ $t=1$ では $Y_1=\beta X_N+h\sum_i\sigma_i$ なので $\phi_N(1)=p_N(\beta,h)$�
 
 **重要な区別**：この定理はRS試行式が上界であることを証明したのであって、一般の $(\beta,h)$ で等号を証明していない。等号なら補間全体にわたりoverlapの二乗誤差が消える必要がある。反対に、補正項が残る領域ではRS試行圧力をそのまま自由エネルギーと同一視できない。
 
+## 3. 停留条件と自己整合方程式はどう生まれるか
+
+試行式を最小化するには $q$ で微分する。ここで熱力学極限の微分ではなく、**定義済みの一変数関数**を微分しているだけである。$q>0$ として、$u=\beta\sqrt q\,Z+h$ なら
+
+$$
+\frac{d}{dq}\mathbb E_Z\log\cosh u
+=\frac{\beta}{2\sqrt q}\mathbb E_Z[Z\tanh u].
+$$
+
+標準正規変数に対する[Gaussian部分積分](../SG2/index.md#prop-sg2-correlated-ibp)を $f(z)=\tanh(\beta\sqrt q\,z+h)$ へ適用する。導関数は $f'(z)=\beta\sqrt q\,\operatorname{sech}^2(\beta\sqrt q\,z+h)$ なので
+
+$$
+\mathbb E_Z[Z\tanh u]
+=\beta\sqrt q\,\mathbb E_Z\operatorname{sech}^2u.
+$$
+
+したがって、$\operatorname{sech}^2u=1-\tanh^2u$ を使い
+
+$$
+\begin{aligned}
+\mathcal P_{\mathrm{RS}}'(q)
+&=\frac{\beta^2}{2}\mathbb E_Z\operatorname{sech}^2u
+-\frac{\beta^2}{2}(1-q)\\
+&=\frac{\beta^2}{2}\left(q-\mathbb E_Z\tanh^2(\beta\sqrt q\,Z+h)\right).
+\end{aligned}
+$$
+
+$q=0$ でも右微分として同じ式が成立する。$\beta=0$ では試行式が一定であり、以下の停留条件による選択はできない。
+
+<a id="prop-sg4-self-consistency"></a>
+
+<!-- formal-statement-start -->
+> **命題（RS試行式の停留条件）**  
+> $\beta>0$、$h\in\mathbb R$ とし、$q\in(0,1)$ が $\mathcal P_{\mathrm{RS}}(\,\cdot\,;\beta,h)$ の内部停留点ならば
+>
+$$
+q=\mathbb E_Z\tanh^2(\beta\sqrt q\,Z+h).
+$$
+>
+> また右辺を $T_{\beta,h}(q)$ と書くと、$T_{\beta,h}$ は $[0,1]$ 上連続で、$h\ne0$ の場合には少なくとも一つの固定点が $(0,1)$ に存在する。$h=0$ の場合、$q=0$ は常に固定点である。$\beta>1,h=0$ なら正の固定点も存在する。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+前半は微分公式で直ちに従う。後半は固定点写像の両端での符号を調べ、中間値の定理を用いる。**固定点の存在は、その点で真のSK圧力とRS試行圧力が一致することを意味しない。**
+
+<!-- proof-start -->
+### 証明
+
+$T_{\beta,h}$ の連続性は $\tanh^2$ の連続性と上界1による優収束から従う。$h\ne0$ なら
+
+$$
+T_{\beta,h}(0)=\tanh^2h>0.
+$$
+
+一方、有限の $\beta,h$ では全ての実数 $u$ に対し $\tanh^2u<1$ なので $T_{\beta,h}(1)<1$。従って連続関数 $T(q)-q$ は $q=0$ で正、$q=1$ で負となり、内部に零点を持つ。
+
+$h=0$ なら $T_{\beta,0}(0)=0$ である。$\beta>1$ のとき正規変数 $Z$ について
+
+$$
+\frac{T_{\beta,0}(q)}q
+=\mathbb E_Z\left[
+\beta^2Z^2
+\left\{\frac{\tanh(\beta\sqrt q\,Z)}
+{\beta\sqrt q\,Z}\right\}^{\!2}\right]
+\longrightarrow\beta^2>1
+\quad(q\downarrow0).
+$$
+
+$Z=0$ では波括弧を1と定める。$\lvert\tanh x\rvert\le\lvert x\rvert$ のため積分関数は $\beta^2Z^2$ で抑えられる。よって十分小さい正の $q$ では $T(q)>q$。一方 $T(1)<1$ なので、再び中間値の定理から $(0,1)$ に固定点がある。内部停留点については直前に導いた $\mathcal P_{\mathrm{RS}}'$ の式へ0を代入すればよい。
+<!-- proof-end -->
+
+### $q=0$ の近くで何が起きるか
+
+$h=0$、$q\downarrow0$ において $\tanh x=x+O(x^3)$ を正規平均へ入れると
+
+$$
+T_{\beta,0}(q)=\beta^2q+O(q^2),
+\qquad
+\mathcal P_{\mathrm{RS}}'(q)
+=\frac{\beta^2}{2}(1-\beta^2)q+O(q^2).
+$$
+
+従って $\beta>1$ では $q=0$ はRS試行式の片側局所最大であり、正の固定点へ向かう動機が現れる。$\beta<1$ なら $q=0$ は片側局所最小である。$\beta=1$ はこの一次判定の境界である。ここでの「安定」は試行式の局所的な形の話であり、真のGibbs状態の安定性とは分ける。
+
+## 4. RS上界が実際に等号になる高温領域
+
+上界が得られただけでは試行式の正しさは保証されない。だが外場ゼロ、$\beta\le1$ なら、二次モーメントと集中を組み合わせて一致を証明できる。これは近似ではない。
+
+<a id="thm-sg4-high-temperature"></a>
+
+<!-- formal-statement-start -->
+> **定理（外場ゼロのSK高温圧力）**  
+> 標準SK模型またはその対角項付きfull表示について、$h=0$、$0\le\beta\le1$ なら
+>
+$$
+\lim_{N\to\infty}\frac1N\mathbb E\log Z_N
+=\log2+\frac{\beta^2}{4}
+=\mathcal P_{\mathrm{RS}}(0;\beta,0).
+$$
+>
+> さらに $0<\beta<1$ では
+>
+$$
+\lim_{N\to\infty}\mathbb E\langle R_{12}^2\rangle_{\beta,0}=0.
+$$
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+まず $\mathbb EZ_N$ はGaussian指数の期待値として厳密に計算できる。$\mathbb EZ_N^2/(\mathbb EZ_N)^2$ を一様に抑えると、$Z_N$ が平均の一定割合以上になる確率が $N$ によらず正に抑えられる。[Gaussian集中](../SG2/index.md#cor-sg2-pressure-concentration)で $N^{-1}\log Z_N$ は期待値の近くへ集まるので、その期待値はannealed値に近づく。最後に圧力の微分公式を使ってoverlapの二乗平均を消す。
+
+<!-- proof-start -->
+### 証明
+
+計算のしやすいfull表示を使う。各配置で $\operatorname{Var}(X_N(\sigma))=N/2$ なので、標準正規の指数モーメントから
+
+$$
+\mathbb EZ_N
+=\sum_{\sigma}\exp\left(\frac{\beta^2}{2}\frac N2\right)
+=2^Ne^{\beta^2N/4}.
+$$
+
+二配置の共分散は[SG3の公式](../SG3/index.md#prop-sg3-covariance)により $N R(\sigma,\tau)^2/2$。したがって
+
+$$
+\begin{aligned}
+\mathbb EZ_N^2
+&=\sum_{\sigma,\tau}
+\exp\left(\frac{\beta^2}{2}
+\operatorname{Var}(X_N(\sigma)+X_N(\tau))\right)\\
+&=e^{\beta^2N/2}\sum_{\sigma,\tau}
+\exp\left(\frac{\beta^2N}{2}R(\sigma,\tau)^2\right).
+\end{aligned}
+$$
+
+$\sigma,\tau$ を一様独立に取ると $S_N=NR(\sigma,\tau)$ は独立なRademacher変数 $U_i$ の和 $\sum_iU_i$ と同分布になる。従って
+
+$$
+\frac{\mathbb EZ_N^2}{(\mathbb EZ_N)^2}
+=\mathbb E_U\exp\left(\frac{\beta^2S_N^2}{2N}\right).
+$$
+
+新しい標準正規 $z$ を独立に取って指数モーメントを使うと
+
+$$
+\begin{aligned}
+\mathbb E_U e^{\beta^2S_N^2/(2N)}
+&=\mathbb E_{U,z}e^{(\beta/\sqrt N)zS_N}\\
+&=\mathbb E_z\left[\cosh\left(\frac{\beta z}{\sqrt N}\right)\right]^N\\
+&\le\mathbb E_ze^{\beta^2z^2/2}
+=\frac1{\sqrt{1-\beta^2}},
+\end{aligned}
+$$
+
+ここでは $\cosh x\le e^{x^2/2}$ を使い、最後のGaussian積分は $0\le\beta<1$ に限り有限となる。$W_N=Z_N/\mathbb EZ_N$ は非負で $\mathbb EW_N=1$。Cauchy–Schwarz不等式を事象 $A_N=\{W_N\ge1/2\}$ に適用すると
+
+$$
+1=\mathbb E[W_N\mathbf1_{A_N}]
++\mathbb E[W_N\mathbf1_{A_N^c}]
+\le\sqrt{\mathbb EW_N^2\,\mathbb P(A_N)}+\frac12.
+$$
+
+したがって
+
+$$
+\mathbb P(A_N)\ge\frac1{4\mathbb EW_N^2}
+\ge\frac{\sqrt{1-\beta^2}}4=:c_\beta>0.
+$$
+
+一方、$F_N=N^{-1}\log Z_N$ はfull表示の $N^2$ 個の $G_{ij}$ に対して
+
+$$
+\frac{\partial F_N}{\partial G_{ij}}
+=\frac{\beta}{N\sqrt{2N}}\langle\sigma_i\sigma_j\rangle,
+\qquad
+\sum_{i,j}\left(\frac{\partial F_N}{\partial G_{ij}}\right)^2
+\le\frac{\beta^2}{2N}.
+$$
+
+よって[Gaussian集中の評価](../SG2/index.md#cor-sg2-pressure-concentration)を代入すると、$\beta>0$ で
+
+$$
+\mathbb P(|F_N-p_N|\ge\varepsilon)
+\le2\exp\left(-\frac{N\varepsilon^2}{\beta^2}\right).
+$$
+
+ここで $a_\beta=\log2+\beta^2/4$ と置けば、事象 $A_N$ 上で
+
+$$
+F_N=\frac1N\log Z_N\ge
+\frac1N\log\mathbb EZ_N-\frac{\log2}N
+=a_\beta-\frac{\log2}N.
+$$
+
+Jensen不等式から $p_N\le a_\beta$。もしある $\varepsilon>0$ と部分列で $p_N\le a_\beta-2\varepsilon$ なら、十分大きい $N$ に対し $A_N$ 上で $F_N-p_N\ge\varepsilon$ となる。したがって確率は $c_\beta$ 以上だが、上の集中評価では0へ収束する。矛盾するので $p_N\to a_\beta$。$\beta=0$ は $Z_N=2^N$ で直接成立する。
+
+端点 $\beta=1$ は二次モーメント評価を直接使えない。[有限サイズ圧力の微分公式](../SG3/index.md#prop-sg3-pressure-derivative)から、$h=0$ において
+
+$$
+p_N'(\beta,0)
+=\frac{\beta}{2}\left(1-\mathbb E\langle R_{12}^2\rangle\right)
+\ge0.
+$$
+
+従って $0<\beta_0<1$ なら $p_N(1,0)\ge p_N(\beta_0,0)$ であり、$N\to\infty$ の後 $\beta_0\uparrow1$ とすると下界 $\log2+1/4$ が得られる。上界は[RS補間上界](#thm-sg4-rs-bound)を $q=0$ として適用すれば同じ値なので一致する。
+
+最後に $0<\beta<1$ を固定する。各 $p_N(\,\cdot\,,0)$ は対数和の正値重み付き指数関数から作った凸関数である。任意の小さい $\delta>0$ について凸性は
+
+$$
+\frac{p_N(\beta,0)-p_N(\beta-\delta,0)}{\delta}
+\le p_N'(\beta,0)
+\le\frac{p_N(\beta+\delta,0)-p_N(\beta,0)}{\delta}
+$$
+
+を与える。$\beta\pm\delta\in(0,1)$ に取り、$N\to\infty$ で既に証明した $p_N\to\log2+\beta^2/4$ を代入し、その後 $\delta\downarrow0$ とすれば $p_N'(\beta,0)\to\beta/2$。微分公式の両辺を比較して $\mathbb E\langle R_{12}^2\rangle\to0$ を得る。
+<!-- proof-end -->
+
+**ここでの結論**は、外場ゼロ・$0<\beta<1$ において二レプリカのoverlapが二乗平均で0へ収束すること、したがって $R_{12}$ が確率でも0へ近づくことである。$\beta>1$ や外場ありの場合には、この証明の二次モーメント評価はそのまま使えない。評価が発散するというだけで、RSBの成立まで証明されたわけではない。
+
