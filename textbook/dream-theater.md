@@ -671,6 +671,7 @@
 5. [GMECH5 Marsden–Weinstein簡約](textbook/volumes/dream_thater/幾何系/GMECH/GMECH5/index.md)
 6. [GMECH6 Lie–Poisson構造と余随伴軌道](textbook/volumes/dream_thater/幾何系/GMECH/GMECH6/index.md)
 7. [GMECH7 Euler剛体の幾何学的力学](textbook/volumes/dream_thater/幾何系/GMECH/GMECH7/index.md)
+8. [GMECH8 相対平衡・安定性・可積分系への橋](textbook/volumes/dream_thater/幾何系/GMECH/GMECH8/index.md)
 
 ## 代数系
 
