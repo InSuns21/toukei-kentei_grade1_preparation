@@ -135,13 +135,20 @@ $$
 と変えると、Jacobianと逆転置は
 
 $$
-A=\begin{pmatrix}1&0\\2q^1&1\end{pmatrix},
-\qquad
-A^{-\mathsf T}
-=\begin{pmatrix}1&-2q^1\\0&1\end{pmatrix}.
+\begin{aligned}
+A&=\begin{pmatrix}1&0\\2q^1&1\end{pmatrix},\\
+A^{-1}&=\begin{pmatrix}1&0\\-2q^1&1\end{pmatrix},\\
+A^{-\mathsf T}&=\begin{pmatrix}1&-2q^1\\0&1\end{pmatrix}.
+\end{aligned}
 $$
 
-従って $P_1=p_1-2q^1p_2$、$P_2=p_2$ です。このとき
+実際、$A$ と上の $A^{-1}$ を掛けると左下成分は $2q^1-2q^1=0$、対角成分はともに1なので積は $I_2$ です。これを転置して余接座標の変換に代入すると
+
+$$
+P_1=p_1-2q^1p_2,\qquad P_2=p_2.
+$$
+
+このとき
 
 $$
 \begin{aligned}
@@ -316,7 +323,7 @@ $$
 
 ## 5. 座標変換を余接束全体へ持ち上げる
 
-座標の交換に限らず、二つの多様体の間の微分同相を考えます。基点の写像 $f:Q\to R$ に沿って余ベクトルを運ぶには、行き先 $r=f(q)$ の接ベクトルを $df_q^{-1}$ で元の接空間へ戻してから、元の余ベクトルに評価させればよいわけです。
+座標の交換に限らず、二つの多様体の間の微分同相を考えます。基点の写像 $f:Q\to R$ に沿って余ベクトルを運ぶには、行き先 $r=f(q)$ の接ベクトルを $(df_q)^{-1}$ で元の接空間へ戻してから、元の余ベクトルに評価させればよいわけです。
 
 <a id="def-sym3-cotangent-lift"></a>
 
@@ -374,7 +381,19 @@ $$
 \left(f(q),(Df_q)^{-\mathsf T}p\right)
 $$
 
-であり、[余接束の局所自明化](../GEO2/index.md#prop-geo2-cotangent-bundle-smooth)と同じ構成なので滑らかです。$f^{-1}$ の余接持ち上げが逆写像です。実際、$r=f(q)$ で $(df^{-1}_r)^{-1}=df_q$ だから
+です。ここで $A(q)=Df_q$ とおきます。$f$ が微分同相だから
+
+$$
+\det A(q)\ne0
+$$
+
+が座標近傍の各点で成立します。行列 $A(q)$ の各成分は位置 $q$ に関して滑らかです。
+
+逆行列の各成分は、元の行列の小行列式に符号を付け、非零の行列式で割った形になります。小行列式は元の成分の多項式なので滑らかであり、分母は零になりません。このため逆行列と逆転置の各成分も滑らかです。
+
+従って[余接束の局所自明化](../GEO2/index.md#prop-geo2-cotangent-bundle-smooth)に関して $\widehat f$ は滑らかです。
+
+$f^{-1}$ の余接持ち上げが逆写像です。実際、$r=f(q)$ で $(df^{-1}_r)^{-1}=df_q$ だから
 
 $$
 \widehat{f^{-1}}\bigl(\widehat f(\alpha_q)\bigr)
@@ -526,7 +545,23 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$T_\sigma$ は局所座標で $(q,p)\mapsto(q,p+\sigma(q))$ なので滑らかで逆写像 $T_{-\sigma}$ を持ちます。$\alpha_q$ と $V$ に対して $\pi\circ T_\sigma=\pi$ の微分を使うと
+局所座標で $T_\sigma$ とその逆写像を表示すると
+
+$$
+T_\sigma(q,p)=(q,p+\sigma(q)),\qquad
+T_{-\sigma}(q,P)=(q,P-\sigma(q))
+$$
+
+です。どちらも滑らかで、互いに合成すると恒等写像となります。
+
+$\alpha_q\in T^*Q$ と $V\in T_{\alpha_q}(T^*Q)$ を取ります。基点は変わらないので $\pi\circ T_\sigma=\pi$ です。これに[多様体上の連鎖律](../GEO2/index.md#thm-geo2-composition-differential)を適用すると
+
+$$
+d\pi_{\alpha_q+\sigma_q}\circ d(T_\sigma)_{\alpha_q}
+=d\pi_{\alpha_q}
+$$
+
+を得ます。この等式を[正準1形式の定義](#def-sym3-tautological-form)に代入すると
 
 $$
 \begin{aligned}
@@ -566,21 +601,22 @@ $\sigma=dh$ のときは[外微分の二乗零](../GEO7/index.md#thm-geo7-d-squa
 
 ## 7. 円周にも大域的な正準形式がある
 
-円周上には一般に全域で一つの角度座標を置けません。しかし[SYM2で使った円周上の1形式](../SYM2/index.md#example-sym2-torus-circle-form)は、大域的に定義できます。
+円周上には一般に全域で一つの角度座標を置けません。しかし[SYM2で使った円周上の1形式](../SYM2/index.md#example-sym2-torus-circle-form)は、大域的に定義できます。点を $z=(x,y)\in S^1$ と書き、$x,y$ を平面の座標関数とすると
 
 $$
-\alpha=x\,dy-y\,dx,\qquad e=(-y,x),\qquad \alpha(e)=1.
+\alpha=(x\,dy-y\,dx)|_{S^1},
+\qquad e_z=(-y,x),\qquad \alpha_z(e_z)=1.
 $$
 
-ここで $e$ は各点の単位接方向です。したがって任意の余ベクトルは一意に次の形で表せます。
+ここで $e_z$ は点 $z$ の接ベクトルです。接空間の条件は $x(-y)+yx=0$、長さは $(-y)^2+x^2=1$ と直接確認できます。一次元の余接空間では $\alpha_z(e_z)=1$ なので $\alpha_z$ が基底となり、任意の余ベクトルは一意に
 
 $$
-\beta_x=p\alpha_x.
+\beta_z=p\alpha_z
 $$
 
-この係数 $p$ を使えば、余接束全体を $S^1\times\mathbb R$ と大域的に同一視できます。
+と表せます。この係数 $p$ を使えば、余接束全体を $S^1\times\mathbb R$ と大域的に同一視できます。
 
-この表示で射影は $(x,p)\mapsto x$ なので、[正準1形式の定義](#def-sym3-tautological-form)から
+この表示で射影は $(z,p)\mapsto z$ なので、[正準1形式の定義](#def-sym3-tautological-form)から
 
 $$
 \theta=p\,\pi^*\alpha
@@ -597,7 +633,15 @@ $$
 \end{aligned}
 $$
 
-接方向 $(e,0)$ とファイバー方向 $\partial_p$ に評価すると $\omega_{\mathrm{can}}((e,0),\partial_p)=1$ です。これは大域的に非退化な形式で、局所角 $\varphi$ を選んだ場所では $\alpha=d\varphi$ から $\omega_{\mathrm{can}}=d\varphi\wedge dp$ に戻ります。大域座標がなくても正準形式は失われません。
+この大域的な積表示で、基点方向 $(e_z,0)$ は $\pi$ の微分で $e_z$ に写され、$dp$ では零になります。従って
+
+$$
+\omega_{\mathrm{can}}\bigl((e_z,0),\partial_p\bigr)
+=\pi^*\alpha(e_z,0)\,dp(\partial_p)
+-dp(e_z,0)\,\pi^*\alpha(\partial_p)
+=1\cdot1-0\cdot0=1.
+$$
+これは大域的に非退化な形式で、局所角 $\varphi$ を選んだ場所では $\alpha=d\varphi$ から $\omega_{\mathrm{can}}=d\varphi\wedge dp$ に戻ります。大域座標がなくても正準形式は失われません。
 
 ## 8. 演習：評価、符号、座標変換、保存性を自力で再現する
 
@@ -627,7 +671,7 @@ $$
 \end{aligned}
 $$
 
-二つの形式の次数が違うため、同じ接ベクトルから異なる値を返します。
+正準1形式は接ベクトル1本を、正準2形式は接ベクトル2本を受け取ります。ここで計算したのは $\theta(V)=6$ と $\omega_{\mathrm{can}}(V,\partial_p)=2$ であり、入力するベクトルの本数も異なることに注意してください。
 <!-- solution-end -->
 
 #### A2. 線形座標変換の相殺
@@ -824,19 +868,21 @@ $$
 
 #### B4. 円周の正準形式
 
-$S^1=\{(x,y):x^2+y^2=1\}$ で $\alpha=x\,dy-y\,dx$ とし、$T^*S^1$ を $(x,p)$、余ベクトル $p\alpha_x$ で表す。$\theta$、$\omega_{\mathrm{can}}$ を求め、非退化性を接方向とファイバー方向で判定せよ。
+$S^1=\{(x,y):x^2+y^2=1\}$ の点を $z=(x,y)$ とし、$\alpha=(x\,dy-y\,dx)|_{S^1}$ とする。余接束の点を $(z,p)$（余ベクトル $p\alpha_z$）で表す。$\theta$、$\omega_{\mathrm{can}}$ を求め、非退化性を接方向とファイバー方向で判定せよ。
 
 - Level: B
 - ID: SYM3-B4
 
 <!-- solution-start -->
-**詳細解答**　$x=(x,y)$ の接ベクトル $e=(-y,x)$ に対し
+**詳細解答**　点 $z=(x,y)$ で $e_z=(-y,x)$ とすると、$x(-y)+yx=0$ なので $e_z$ は円周の接ベクトルです。さらに
 
 $$
-\alpha_x(e)=x\cdot x-y\cdot(-y)=x^2+y^2=1.
+\alpha_z(e_z)
+=x\cdot x-y\cdot(-y)
+=x^2+y^2=1.
 $$
 
-よって $\alpha_x$ は一次元の余接空間の基底で、余ベクトルは一意にその定数倍で表されます。[正準1形式の定義](#def-sym3-tautological-form)から
+よって $\alpha_z$ は一次元の余接空間の基底で、余ベクトルは一意にその定数倍で表されます。[正準1形式の定義](#def-sym3-tautological-form)から
 
 $$
 \theta=p\,\pi^*\alpha
@@ -853,14 +899,25 @@ $$
 \end{aligned}
 $$
 
-ここで $(e,0)$ は基点方向、$\partial_p$ はファイバー方向なので
+この積表示の基点方向を $(e_z,0)$、ファイバー方向を $\partial_p$ とすると、$d\pi(e_z,0)=e_z$、$dp(e_z,0)=0$、$d\pi(\partial_p)=0$、$dp(\partial_p)=1$ です。従って
 
 $$
-\omega_{\mathrm{can}}((e,0),\partial_p)
-=\alpha(e)\,dp(\partial_p)=1.
+\begin{aligned}
+\omega_{\mathrm{can}}\bigl((e_z,0),\partial_p\bigr)
+&=\pi^*\alpha(e_z,0)\,dp(\partial_p)\\
+&\quad-dp(e_z,0)\,\pi^*\alpha(\partial_p)\\
+&=1\cdot1-0\cdot0=1.
+\end{aligned}
 $$
 
-この二方向は各点の接空間の基底ですから、交代形式の係数行列は $\begin{pmatrix}0&1\\-1&0\end{pmatrix}$、行列式1で非退化です。
+この二方向は各点の接空間の基底ですから、交代形式の係数行列は
+
+$$
+\begin{pmatrix}0&1\\-1&0\end{pmatrix},
+\qquad \det\begin{pmatrix}0&1\\-1&0\end{pmatrix}=1
+$$
+
+となり、非退化です。
 <!-- solution-end -->
 
 ### Level C：二種類の保存変換を接続する
@@ -951,7 +1008,30 @@ $$
 d\tau=dQ^1\wedge dQ^2\ne0.
 $$
 
-[平行移動が正準形式を保存する条件](#thm-sym3-translation-criterion)を $T_\tau$ に適用します。さらに、[余接持ち上げは正準1形式を保存する](#thm-sym3-cotangent-lift-preserves)ことを $\widehat f$ に用いると
+[平行移動が正準形式を保存する条件](#thm-sym3-translation-criterion)を $T_\tau$ に適用します。[引き戻しの合成則](../GEO7/index.md#prop-geo7-pullback-wedge)を合成写像 $G=T_\tau\circ\widehat f$ に用いると
+
+$$
+G^*=\widehat f^{\,*}\circ T_\tau^*
+$$
+
+となります。また[余接持ち上げの定義](#def-sym3-cotangent-lift)にある関係
+
+$$
+\pi_R\circ\widehat f=f\circ\pi_Q
+$$
+
+から
+
+$$
+\begin{aligned}
+\widehat f^{\,*}(\pi_R^*d\tau)
+&=(\pi_R\circ\widehat f)^*d\tau\\
+&=(f\circ\pi_Q)^*d\tau\\
+&=\pi_Q^*(f^*d\tau)
+\end{aligned}
+$$
+
+となります。これと[余接持ち上げによる正準形式の保存](#thm-sym3-cotangent-lift-preserves)を合わせると
 
 $$
 \begin{aligned}
@@ -962,13 +1042,24 @@ G^*\omega_R
 \end{aligned}
 $$
 
-ここで $f^*(dQ^1\wedge dQ^2)=dq^1\wedge(dq^2+2q^1\,dq^1)=dq^1\wedge dq^2$ なので
+ここで $dQ^1=dq^1$、$dQ^2=dq^2+2q^1\,dq^1$ を代入して
 
 $$
-G^*\omega_R=\omega_Q-dq^1\wedge dq^2\ne\omega_Q.
+\begin{aligned}
+f^*(d\tau)
+&=f^*(dQ^1\wedge dQ^2)\\
+&=dq^1\wedge(dq^2+2q^1\,dq^1)\\
+&=dq^1\wedge dq^2
+\end{aligned}
 $$
 
-例えば二つの位置方向 $(\partial_{q^1},\partial_{q^2})$ に評価すると、右辺の補正は $-1$ です。破れた仮定は $d\tau=0$ であり、2形式の保存に余計な基点方向の項が残ります。
+です。従って $T^*Q$ 上の2形式として
+
+$$
+G^*\omega_R=\omega_Q-\pi_Q^*(dq^1\wedge dq^2)\ne\omega_Q.
+$$
+
+実際、二つの位置方向 $(\partial_{q^1},\partial_{q^2})$ に評価すると、$\omega_Q$ は零、$\pi_Q^*(dq^1\wedge dq^2)$ は1であり、差は $-1$ です。破れた仮定は $d\tau=0$ であり、2形式の保存に余計な基点方向の項が残ります。
 <!-- solution-end -->
 
 ## 9. 次章への橋
