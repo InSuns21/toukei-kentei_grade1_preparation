@@ -1,0 +1,49 @@
+id: "GMECH8"
+title: "相対平衡・安定性・可積分系への橋"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GMECH7
+  - GMECH5
+  - GMECH3
+  - SYM4
+official_scope: []
+learning_objectives:
+  - 相対平衡を群速度とHamiltonベクトル場の一致として定義し直接例で確かめられる
+  - 拡張Hamiltonianの臨界条件と相対平衡の同値性を証明できる
+  - 正則・自由・固有作用の下で相対平衡と簡約平衡の対応を説明できる
+  - 固定運動量レベルのenergy–momentum安定判定をHessianと保存エネルギーから証明できる
+  - 回転対称振動子とKepler円軌道の半径・角速度・Hessianを再計算できる
+  - Euler剛体の角運動量球面上で主軸平衡の安定性を分類できる
+  - 保存性・Poisson可換性・微分の独立性を区別し正準座標で検査できる
+definitions:
+  - { id: GMECH8-DEF-01, name: 相対平衡 }
+  - { id: GMECH8-DEF-02, name: 拡張Hamiltonian }
+theorems:
+  - { id: GMECH8-THM-01, name: 相対平衡の臨界点判定 }
+  - { id: GMECH8-THM-02, name: 相対平衡と簡約平衡の対応 }
+  - { id: GMECH8-THM-03, name: 固定運動量面のenergy–momentum安定判定 }
+  - { id: GMECH8-PROP-01, name: 可換な保存量の直接検査 }
+canonical_examples:
+  - SO2の回転対称振動子と円軌道の相対平衡
+  - 拡張Hamiltonianの全変数微分と生成元
+  - 正定値Hessianによる固定運動量安定性
+  - Kepler円軌道のenergy–momentum計算
+  - SO3剛体の主軸平衡と角運動量球面
+  - 二振動子のPoisson可換性と独立性
+problem_patterns:
+  - GMECH8-RELATIVE-EQUILIBRIUM
+  - GMECH8-AUGMENTED-HAMILTONIAN
+  - GMECH8-CIRCULAR-ORBIT
+  - GMECH8-ENERGY-MOMENTUM
+  - GMECH8-POISSON-INVOLUTION
+  - GMECH8-CASIMIR-LEAF
+  - GMECH8-KEPLER-STABILITY
+  - GMECH8-HESSIAN-SIGN
+  - GMECH8-RIGID-AXIS
+  - GMECH8-INDEPENDENT-INTEGRALS
+  - GMECH8-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 8, review: 2 }
