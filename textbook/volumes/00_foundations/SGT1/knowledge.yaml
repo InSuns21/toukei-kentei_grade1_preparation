@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - F0-00F1
+  - LA3B
 forward_references: []
 
 concepts:
@@ -41,12 +42,20 @@ concepts:
     introduction_aliases: [定理（組合せLaplacianの半正定値性）]
     requires: [spectral-graph.dirichlet-energy, linear.spectral-theorem, linear.positive-semidefinite-matrix]
 
-  - id: spectral-graph.components
-    name: 道・連結成分
+  - id: spectral-graph.path
+    name: グラフの道
     kind: definition
     introduction: formal
-    introduction_aliases: [定義（道・連結成分）]
+    introduction_aliases: [定義（グラフの道）]
     requires: [spectral-graph.weighted-graph]
+
+  - id: spectral-graph.components
+    name: グラフの連結成分
+    kind: definition
+    introduction: formal
+    aliases: [連結成分]
+    introduction_aliases: [定義（グラフの連結成分）]
+    requires: [spectral-graph.path]
 
   - id: spectral-graph.kernel-components
     name: 核と連結成分
