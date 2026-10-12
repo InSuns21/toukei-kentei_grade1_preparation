@@ -12,7 +12,7 @@
 
 まず圧力のない粒子群を想像します。流体と一緒に動く小体積で単位体積当たり $n$ 個の粒子があるなら、別の慣性系では体積のLorentz収縮によって同時刻の密度が $\gamma n$ になります。ただ密度だけを変換するより、密度と流れを**四元ベクトル**にまとめる方が自然です。
 
-流体の四元速度を $u^\mu=\gamma(c,\boldsymbol v)$、$\gamma=(1-|\boldsymbol v|^2/c^2)^{-1/2}$ とし、[四元速度の規格化](../SREL3/index.md#thm-srel3-four-velocity-norm)により $u_\mu u^\mu=c^2$ を満たします。
+流体の四元速度を $u^\mu=\gamma(c,\boldsymbol v)$、$\gamma=(1-|\boldsymbol v|^2/c^2)^{-1/2}$ とし、[四元速度の規格化](../SREL3/index.md#thm-srel3-four-velocity)により $u_\mu u^\mu=c^2$ を満たします。
 
 <a id="def-srel7-particle-current"></a>
 
@@ -75,7 +75,7 @@ $$
 
 ### 有限領域での粒子数収支
 
-滑らかな有界領域 $\Omega\subset\mathbb R^3$ と外向き法線 $\boldsymbol\nu$ について、[発散定理](../../../../00_foundations/index.md)をここで仮定するのでなく、微積分で既習の三次元発散定理を適用する場合、$\gamma n\boldsymbol v$ が境界まで $C^1$ なら
+滑らかな有界領域 $\Omega\subset\mathbb R^3$ と外向き法線 $\boldsymbol\nu$ について、$\gamma n\boldsymbol v$ が境界まで $C^1$ なら三次元の発散定理により
 
 $$
 \frac{d}{dt}\int_\Omega \gamma n\,d^3x
