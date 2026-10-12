@@ -187,7 +187,7 @@ $$
 
 [運動量レベル上の制限形式の基本性](#prop-gmech5-basic-restriction)と[基本2形式の一意な降下](#prop-gmech5-descent)により滑らかな2形式 $\omega_\mu$ が唯一存在し、$\pi^*\omega_\mu=i^*\omega$ です。
 
-まず閉性を調べます。外微分は引き戻しと可換であり、もとの $\omega$ が閉じているので、
+まず閉性を調べます。[GEO7の外微分の自然性定理](../../GEO/GEO7/index.md#thm-geo7-pullback-commutes-d)を、滑らかな射影 $\pi$ と包含 $i$ にそれぞれ適用します。もとの $\omega$ は閉じているので、
 
 $$
 \begin{aligned}
@@ -229,7 +229,7 @@ dJ_m(\xi_M(m))
 \operatorname{Ad}_{\exp(t\xi)}^*\mu.
 $$
 
-右辺が零であることは $\xi$ が余随伴安定化群のLie代数 $\mathfrak g_\mu$ に属することと同値です。ここではLie群の安定化Lie代数は軌道写像の微分の核として得られるという[LIE4の結果](../../../代数系/LIE/LIE4/index.md#thm-lie4-stabilizer-kernel-orbit-rank)を余随伴作用に適用しています。従って
+右辺が零であることは $\xi$ が余随伴安定化群のLie代数 $\mathfrak g_\mu$ に属することと同値です。ここではLie群の安定化Lie代数は軌道写像の微分の核として得られるという[LIE4の安定化Lie代数と軌道写像の階数定理](../../../代数系/LIE/LIE4/index.md#thm-lie4-stabilizer-kernel-orbit-rank)を余随伴作用に適用しています。従って
 
 $$
 \begin{aligned}
@@ -332,7 +332,7 @@ $$
 J(x,y,p_x,p_y)=xp_y-yp_x=\ell.
 $$
 
-$\mu\ne0$ を固定します。$J=\mu$ の点では位置ベクトル $q=(x,y)$ が零ではなく、非零の平面ベクトルを固定する回転は恒等元だけです。[GMECH4の正則性判定](../GMECH4/index.md#prop-gmech4-kernel-stabilizer)から $\mu$ は正則値で、作用は自由です。$SO(2)$ はコンパクトなので固有です。また可換群ゆえ $G_\mu=G$ です。
+$\mu\ne0$ を固定します。$J=\mu$ の点では位置ベクトル $q=(x,y)$ が零ではなく、非零の平面ベクトルを固定する回転は恒等元だけです。[GMECH4の正則性判定](../GMECH4/index.md#prop-gmech4-kernel-stabilizer)から $\mu$ は正則値で、作用は自由です。$SO(2)$ はコンパクトなので、[レベル集合への制限作用の固有性](../GMECH4/index.md#prop-gmech4-free-proper-restriction)により $G_\mu$ の作用は固有です。また可換群ゆえ $G_\mu=G$ です。
 
 半径 $r>0$ と角度 $\theta$ を使い、単位ベクトル $e_r=(\cos\theta,\sin\theta)$ と $e_\theta=(-\sin\theta,\cos\theta)$ を置きます。位置と運動量を次のように分解します。
 
@@ -349,7 +349,19 @@ dq=e_r\,dr+r e_\theta\,d\theta,
 p\cdot dq=p_r\,dr+\ell\,d\theta.
 $$
 
-右辺は正準1形式です。$\omega=-d(p\cdot dq)$ の符号を計算すると、
+右辺は正準1形式です。[SYM3の余接束の正準2形式](../../SYM/SYM3/index.md#thm-sym3-cotangent-symplectic)の符号規約に従って $\omega=-d(p\cdot dq)$ と置き、外微分を項別に取ります。
+
+$$
+\begin{aligned}
+d(p\cdot dq)
+&=d(p_r\,dr)+d(\ell\,d\theta)\\
+&=dp_r\wedge dr+d\ell\wedge d\theta,\\
+-d(p\cdot dq)
+&=dr\wedge dp_r+d\theta\wedge d\ell.
+\end{aligned}
+$$
+
+従って、
 
 $$
 \omega=dr\wedge dp_r+d\theta\wedge d\ell.
@@ -556,7 +568,7 @@ $$
 r_0=\left(\frac{\mu^2}{\kappa}\right)^{1/4},\qquad p_r=0.
 $$
 
-さらに $U_\mu''(r)=3\mu^2/r^4+\kappa$ で、$r_0^4=\mu^2/\kappa$ を代入すると $U_\mu''(r_0)=4\kappa$ です。$r=r_0+\rho$、$p_r=\eta$ として線形化すると
+さらに $U_\mu''(r)=3\mu^2/r^4+\kappa$ です。$r_0^4=\mu^2/\kappa$ を代入すると $3\mu^2/r_0^4=3\kappa$ であり、$U_\mu''(r_0)=3\kappa+\kappa=4\kappa$ となります。$r=r_0+\rho$、$p_r=\eta$ として線形化すると
 
 $$
 \dot\rho=\eta,\qquad
@@ -615,7 +627,7 @@ $$
 
 と選べば、$J(q,p)=\mu$ です。
 
-$SO(2)$ はコンパクトなので作用は固有です。また可換群だから余随伴作用は自明であり、$G_\mu=G$ です。
+$SO(2)$ はコンパクトなので、[レベル集合に制限した作用の自由性・固有性の命題](../GMECH4/index.md#prop-gmech4-free-proper-restriction)から作用は固有です。また可換群だから余随伴作用は自明であり、$G_\mu=G$ です。
 
 2. $q=re_r$、$p=p_re_r+(\ell/r)e_\theta$ と置きます。$dq=e_r\,dr+r e_\theta\,d\theta$ から $p\cdot dq=p_r\,dr+\ell\,d\theta$ です。従って
 
@@ -668,10 +680,26 @@ $$
 $$
 U_\mu''(r)=\frac{3\mu^2}{r^4}-\frac{2k}{r^3},
 \qquad
-U_\mu''(r_0)=\frac{\mu^2}{r_0^4}>0.
+U_\mu''(r_0)=\frac{3\mu^2}{r_0^4}-\frac{2k}{r_0^3}
+=\frac{3\mu^2-2kr_0}{r_0^4}
+=\frac{\mu^2}{r_0^4}>0.
 $$
 
-従って変位 $\rho=r-r_0$ は一次近似で $\ddot\rho+(\mu^2/r_0^4)\rho=0$ を満たします。固有値は $\pm i|\mu|/r_0^2$ なので半径方向に線形安定です。元の運動では $\dot\theta=\partial H/\partial\ell=\mu/r^2$ であり、半径一定 $r_0$ の円運動です。商ではその回転方向を同一視したため、円運動が時間変化しない点として表されます。
+従って変位 $\rho=r-r_0$ は一次近似で $\ddot\rho+(\mu^2/r_0^4)\rho=0$ を満たします。固有値は $\pm i|\mu|/r_0^2$ なので半径方向に線形安定です。元の運動も確認します。角運動量を固定する前の正準座標 $(r,\theta,p_r,\ell)$ では、元のHamiltonianは
+
+$$
+H(r,\theta,p_r,\ell)
+=\frac12p_r^2+\frac{\ell^2}{2r^2}-\frac{k}{r}.
+$$
+
+[SYM4の正準座標Hamilton方程式](../../SYM/SYM4/index.md#thm-sym4-existence-coordinate)を座標対 $(\theta,\ell)$ に適用すると、
+
+$$
+\dot\theta=\frac{\partial H}{\partial\ell}
+=\frac{\ell}{r^2}.
+$$
+
+レベル値 $\ell=\mu$ と一定半径 $r=r_0$ を代入して $\dot\theta=\mu/r_0^2$ です。従って元の運動は一定角速度の円運動となります。商では回転角 $\theta$ を同一視したため、円運動が時間変化しない点として表されます。
 <!-- solution-end -->
 
 本章では、運動量レベルの制限形式が基本的であること、商の上で非退化性が戻ること、Hamiltonianとその流れが商で再びHamilton力学を定めることを証明しました。次のGMECH6では、対称性を取り除いた運動を別の方法で表現するため、Lie代数の双対空間上のPoisson構造と余随伴軌道を調べます。

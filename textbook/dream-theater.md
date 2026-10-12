@@ -728,7 +728,7 @@
 <a id="dt-subject-algebraic-geometry-ii"></a>
 ### 代数幾何学 II
 
-公開準備中（AG2-01〜AG2-12）。
+1. [AG2-01 射影空間と斉次座標](textbook/volumes/dream_thater/代数系/AG/AG2-01/index.md)
 
 <a id="dt-subject-algebraic-geometry-iii"></a>
 ### 代数幾何学 III
@@ -915,6 +915,7 @@
 4. [SM4 大正準アンサンブルと粒子数揺らぎ](textbook/volumes/dream_thater/物理系/SM/SM4/index.md)
 5. [SM5 古典理想気体とアンサンブルの同値性](textbook/volumes/dream_thater/物理系/SM/SM5/index.md)
 6. [SM6 量子統計と量子理想気体](textbook/volumes/dream_thater/物理系/SM/SM6/index.md)
+7. [SM7 Ising模型とCurie–Weiss平均場](textbook/volumes/dream_thater/物理系/SM/SM7/index.md)
 
 <a id="dt-subject-mathematical-quantum-mechanics"></a>
 ### 数理量子力学
