@@ -19,7 +19,7 @@ chapters:
     title: 第二法則・Carnotの定理・絶対温度
   - id: TH4
     path: textbook/volumes/dream_thater/物理系/TH/TH4
-    status: planned
+    status: completed
     title: エントロピーと基本関係式
   - id: TH5
     path: textbook/volumes/dream_thater/物理系/TH/TH5
