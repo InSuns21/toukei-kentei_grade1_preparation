@@ -2,7 +2,7 @@
 
 [ANT6の素数定理](../ANT6/index.md#thm-ant6-psi-asymptotic)では $\psi(x)\sim x$ を得ました。[ANT7の明示公式](../ANT7/index.md#thm-ant7-smoothed-explicit-formula)では、主項からのずれに零点 $\rho=\beta+i\gamma$ が $x^\beta$ の大きさで現れることを見ました。しかし **零点が「ない範囲」をどれほど広く取れるか** と **素数の誤差をどれほど小さくできるか** は、なお別の問いです。
 
-本章はその二つの問いを接続します。まずRiemann予想を厳密に記述し、平滑化した素数和から点ごとの誤差を取り出す際に失われる冪指数まで計算します。次に定量的な零点不存在領域から、無条件で得られる素数定理の誤差を導きます。最後にDirichlet L関数・一般L関数へ何が移り、何が未証明のまま残るかを整理します。
+本章はその二つの問いを接続します。まず零点がすべて臨界線上にあるという仮説を厳密に記述し、平滑化した素数和から点ごとの誤差を取り出す際に失われる冪指数まで計算します。次に定量的な零点不存在領域から、無条件で得られる素数定理の誤差を導きます。最後にDirichlet L関数・一般L関数へ何が移り、何が未証明のまま残るかを整理します。
 
 以下 $x\ge2$、$s=\sigma+it$、$\rho=\beta+i\gamma$ とし、零点は重複度込みで数えます。$\Lambda(n)$ と $\psi(x)=\sum_{n\le x}\Lambda(n)$ は[NT8の定義](../../NT/NT8/index.md#def-nt8-von-mangoldt)および[NT8の総和関数](../../NT/NT8/index.md#def-nt8-chebyshev-psi)を使います。
 
@@ -280,7 +280,7 @@ $$
 $$
 零点の項はすべて非負なので、右側で一部を残し他を捨てると上界が得られます。
 
-いま $\rho_0=\beta+i\gamma$ を零点、$|\gamma|\ge3$ とし、$v=1-\beta>0$、$\delta>0$、$\sigma=1+\delta\le2$ とします。[ANT5のEuler積対数微分](../ANT5/index.md#thm-ant5-logarithmic-derivative)に非負恒等式 $3+4\cos u+\cos2u=2(1+\cos u)^2$ を適用すると
+いま $\rho_0=\beta+i\gamma$ を零点、$|\gamma|\ge3$ とし、$v=1-\beta>0$、$\delta>0$、$\sigma=1+\delta\le2$ とします。[ζの対数微分とvon Mangoldt級数](../ANT5/index.md#thm-ant5-logarithmic-derivative)のEuler積による証明に非負恒等式 $3+4\cos u+\cos2u=2(1+\cos u)^2$ を適用すると
 $$
 0\le3A(\sigma)+4\operatorname{Re}A(\sigma+i\gamma)
 +\operatorname{Re}A(\sigma+2i\gamma),\quad
@@ -342,7 +342,7 @@ $$
 \ll\sum_{j\ge0}\frac{N(2^{j+1}T)}{(2^jT)^2}
 \ll\frac{\log T+1}{T}. \tag{5.1}
 $$
-[対数型零点不存在定理](#thm-ant8-classical-zero-free)より $|\gamma|\le T$ では
+[ζの古典的な対数型零点不存在領域](#thm-ant8-classical-zero-free)より $|\gamma|\le T$ では
 $$
 \beta\le1-\frac{c}{\log(T+3)},
 \qquad
@@ -580,7 +580,7 @@ $$
 - ID: ANT8-B3
 
 <!-- solution-start -->
-**詳細解答**：[零点不存在定理](#thm-ant8-classical-zero-free)から
+**詳細解答**：[ζの古典的な対数型零点不存在領域](#thm-ant8-classical-zero-free)から
 $$
 \beta\le1-\frac c{\log(T+3)},\quad
 |x^\rho|=x^\beta\le
@@ -606,7 +606,7 @@ $$
 ### Level C：一つの論証へつなぐ
 
 #### C1. RHから一次平滑化を経て素数誤差まで
-RHを仮定し、[ANT7の明示公式](../ANT7/index.md#thm-ant7-smoothed-explicit-formula)から $\psi(x)=x+O(x^{3/4})$ を、中間の積分表示・差分幅を明示して導け。また同じ手段で $O(x^{1/2})$ と断定できない理由を述べよ。
+RHを仮定し、[一次平滑化したvon Mangoldt型明示公式](../ANT7/index.md#thm-ant7-smoothed-explicit-formula)から $\psi(x)=x+O(x^{3/4})$ を、中間の積分表示・差分幅を明示して導け。また同じ手段で $O(x^{1/2})$ と断定できない理由を述べよ。
 
 - Level: C
 - ID: ANT8-C1
