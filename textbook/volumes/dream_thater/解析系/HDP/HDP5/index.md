@@ -294,7 +294,13 @@ $$
 
 特に $u=1$ とすれば $\nabla u=0$ なので $E[\mathcal Av(G)]=0$ です。
 
-$u_t=P_th$ とおきます。$h$ の正の下限と上限は平均後も保たれ、$\log u_t$ とその微分が定義できます。また $\partial_t u_t=\Delta u_t-x\cdot\nabla u_t$ の絶対値は、$\Delta u_t$ と $\nabla u_t$ の有界性から $C(1+\|x\|_2)$ で抑えられます。標準Gaussianでは $E\|G\|_2<\infty$ なので、$H(t)$ の期待値と時間微分を交換できます。[Gaussian平均の半群性・不変性・微分交換](#lem-hdp5-ou-identities)の生成作用素に関する等式を使うと
+$u_t=P_th$ とおきます。$h$ の正の下限と上限は平均後も保たれるので、$\log u_t$ とその微分が定義できます。さらに $t>0$ について、[Gaussian平均の生成作用素公式](#lem-hdp5-ou-identities)を代入すると
+
+$$
+\partial_t u_t(x)=\Delta u_t(x)-x\cdot\nabla u_t(x).
+$$
+
+$h$ の一階・二階偏導関数が有界なので、$\nabla u_t$ と $\Delta u_t$ も $t$ によらず有界です。従って右辺は、$t$ の有界区間で $C(1+\|x\|_2)$ によって抑えられます。標準Gaussianの $E\|G\|_2$ は有限なので、$H(t)$ の期待値と時間微分を交換できます。これを使うと
 
 $$
 \begin{aligned}
@@ -478,7 +484,19 @@ $$
 \end{aligned}
 $$
 
-です。$f_{M,\varepsilon}$ は有界かつ滑らかで、各階の導関数も有界なので第1段階が適用できます。$\varepsilon\downarrow0$ で $f_{M,\varepsilon}(x)\to f_M(x)$、その後 $M\to\infty$ で $f_M(x)\to f(x)$ です。各段階で $|f_{M,\varepsilon}|\le M$、さらに $|f_M(x)|\le|f(x)|$ が成立します。前述のGaussian指数可積分性により、指数モーメントと平均の極限を順に取れ、一般の $f$ でも
+です。$f_{M,\varepsilon}$ は有界かつ滑らかで、各階の導関数も有界なので第1段階が適用できます。
+
+まず $M$ を固定して $\varepsilon\downarrow0$ とすると、Lipschitz性と核の台から
+
+$$
+|f_{M,\varepsilon}(x)-f_M(x)|
+\le L\int\|u\|_2\rho_\varepsilon(u)\,du
+\le L\varepsilon\longrightarrow0
+$$
+
+です。また $|f_{M,\varepsilon}|\le M$ だから、平均と指数モーメントに有界収束を適用できます。これで $f_M$ に同じ指数不等式が成立します。
+
+次に $M\to\infty$ とすると $f_M(x)\to f(x)$ かつ $|f_M(x)|\le|f(x)|$ です。先に確認した $Ee^{a|f(G)|}<\infty$（任意の $a\ge0$）によって、平均には $|f(G)|$、指数モーメントには $e^{|\lambda||f(G)|}$ を可積分な優関数として使えます。各極限をこの順序で取れば、一般の $f$ でも
 
 $$
 Ee^{\lambda(f(G)-Ef(G))}\le e^{\lambda^2L^2/2}
@@ -810,7 +828,20 @@ $$
 
 ### B1. 対数Sobolev評価から指数モーメントへ
 
-有界で滑らかな $L$-Lipschitz関数 $f$ に対し、$\operatorname{Ent}_\gamma(e^{\lambda f})\le(\lambda^2L^2/2)Ee^{\lambda f}$ が既に示されたとする。$K(\lambda)=\log Ee^{\lambda f(G)}$ を用い、$\lambda>0$ で $K(\lambda)-\lambda Ef(G)\le\lambda^2L^2/2$ を改めて導け。
+有界で滑らかな $L$-Lipschitz関数 $f$ に対し、次の評価が既に示されたとする。
+
+$$
+\operatorname{Ent}_\gamma(e^{\lambda f})
+\le\frac{\lambda^2L^2}{2}Ee^{\lambda f}.
+$$
+
+$K(\lambda)=\log Ee^{\lambda f(G)}$ を用い、$\lambda>0$ について
+
+$$
+K(\lambda)-\lambda Ef(G)\le\frac{\lambda^2L^2}{2}
+$$
+
+を改めて導け。
 
 - Level: B
 - ID: HDP5-B1
@@ -877,7 +908,24 @@ $$
 \Sigma=\begin{pmatrix}1&\rho\\\rho&1\end{pmatrix}.
 $$
 
-固有ベクトル $(1,1)$、$(1,-1)$ に対応する固有値は $1+\rho$、$1-\rho$ なので $\|\Sigma\|_{\mathrm{op}}=1+|\rho|$ です。最大値関数は $1$-Lipschitzです。共分散行列を平方根分解して $X=AG$ と書いたとき、[アフィンGaussian像の集中](#cor-hdp5-affine-gaussian)の証明により対応する標準Gaussian上の関数は $\sqrt{1+|\rho|}$-Lipschitzです。[Gaussian集中とLipschitz関数](#thm-hdp5-gaussian-concentration)の片側評価を適用すると
+固有ベクトル $(1,1)$、$(1,-1)$ に対応する固有値は $1+\rho$、$1-\rho$ です。$|\rho|<1$ より両固有値は正です。正規直交固有ベクトルを列に並べた行列を
+
+$$
+Q=\frac1{\sqrt2}
+\begin{pmatrix}1&1\\1&-1\end{pmatrix}
+$$
+
+とすれば、$A=Q\operatorname{diag}(\sqrt{1+\rho},\sqrt{1-\rho})Q^\mathsf T$ と取れます。実際、
+
+$$
+AA^\mathsf T
+=Q\operatorname{diag}(1+\rho,1-\rho)Q^\mathsf T
+=\Sigma,
+\qquad
+\|A\|_{\mathrm{op}}=\sqrt{1+|\rho|}.
+$$
+
+独立な標準正規ベクトル $G\in\mathbb R^2$ に対し $AG$ は共分散 $\Sigma$ の共同Gaussianベクトルです。最大値関数は $1$-Lipschitzなので、[アフィンGaussian像の集中](#cor-hdp5-affine-gaussian)の証明どおり、$G\mapsto\max_j(AG)_j$ は $\sqrt{1+|\rho|}$-Lipschitzです。[Gaussian集中とLipschitz関数](#thm-hdp5-gaussian-concentration)の片側評価を適用すると
 
 $$
 P(Z-EZ\ge t)
