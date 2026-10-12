@@ -135,12 +135,11 @@ $$
 と変えると、Jacobianと逆転置は
 
 $$
-A=\begin{pmatrix}1&0\\2q^1&1\end{pmatrix},
-\qquad
-A^{-1}=\begin{pmatrix}1&0\\-2q^1&1\end{pmatrix},
-\qquad
-A^{-\mathsf T}
-=\begin{pmatrix}1&-2q^1\\0&1\end{pmatrix}.
+\begin{aligned}
+A&=\begin{pmatrix}1&0\\2q^1&1\end{pmatrix},\\
+A^{-1}&=\begin{pmatrix}1&0\\-2q^1&1\end{pmatrix},\\
+A^{-\mathsf T}&=\begin{pmatrix}1&-2q^1\\0&1\end{pmatrix}.
+\end{aligned}
 $$
 
 従って $P_1=p_1-2q^1p_2$、$P_2=p_2$ です。このとき
