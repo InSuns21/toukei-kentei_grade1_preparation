@@ -368,18 +368,18 @@ $$
 
 $u=\xi\times\mu$、$v=\eta\times\mu$ と置き、$|\mu|^2=r^2$ を使います。ベクトル三重積の公式を順に適用すると
 
-$
+$$
 (\xi\times\mu)\times(\eta\times\mu)
 =\bigl(\mu\cdot(\xi\times\eta)\bigr)\mu
-$
+$$
 
 が成り立ちます。両辺と $\mu$ の内積を取って $r^2$ で割れば
 
-$
+$$
 \frac{\mu\cdot(u\times v)}{r^2}
 =\frac{\bigl(\mu\cdot(\xi\times\eta)\bigr)|\mu|^2}{r^2}
 =\mu\cdot(\xi\times\eta)
-$
+$$
 
 となり、KKS形式の定義式と一致します。球面の極座標 $\mu=r(\sin\theta\cos\phi,\sin\theta\sin\phi,\cos\theta)$ では
 
@@ -460,9 +460,9 @@ $$
 
 全関数 $F$ に対する括弧は
 
-$
+$$
 \{z,F\}_+=0
-$
+$$
 
 なので $z$ はCasimirです。$z\ne0$ ではPoisson行列の階数が2であり、$x,y$ の両接方向がHamiltonian速度で張られます。線形Hamiltonianの流れは平面内の平行移動を与えるため、この場合の一枚の葉は固定した $z\ne0$ の平面全体です。
 
@@ -532,9 +532,9 @@ $$
 <a id="ex-gmech6-c01"></a>
 **C1. 球面上の二次Hamiltonian。** $SO(3)$ に正のLie–Poisson括弧を入れ、係数 $0<\alpha<\beta<\gamma$ に対してHamiltonianを次のように与える。
 
-$
+$$
 H=\frac12(\alpha\mu_1^2+\beta\mu_2^2+\gamma\mu_3^2).
-$
+$$
 
 次の問いに答えよ。
 
