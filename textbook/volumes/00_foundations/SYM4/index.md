@@ -241,7 +241,7 @@ $$
 
 二行目では[Hamiltonベクトル場の定義](#def-sym4-hamiltonian-vector-field)と、[外微分の二乗零](../GEO7/index.md#thm-geo7-d-square-zero)、[シンプレクティック形式の閉性](../SYM2/index.md#def-sym2-symplectic-manifold)をそれぞれ使いました。
 
-次に、[微分形式のLie微分](../GEO7/index.md#def-geo7-lie-derivative)の流れによる定義を使います。各時刻の流れを共通して定義できる小さな開集合を選び、点 $x$ と接ベクトル $v,w\in T_xM$ に対して
+次に、[微分形式のLie微分](../GEO7/index.md#def-geo7-lie-derivative)を用い、流れによる形式の変化率を計算します。各時刻の流れを共通して定義できる小さな開集合を選び、点 $x$ と接ベクトル $v,w\in T_xM$ に対して
 
 $$
 (\Phi_t^*\omega)_x(v,w)
