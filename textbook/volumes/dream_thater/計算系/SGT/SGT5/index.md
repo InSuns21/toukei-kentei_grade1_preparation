@@ -212,7 +212,7 @@ $A=\operatorname{diag}(0,0,3)$ を考えます。$k=1$ では $\lambda_1=\lambda
 
 <!-- formal-statement-start -->
 > **定理（単純固有ベクトルの方向の安定性）**  
-> $A,\widetilde A=A+E$ は実対称 $n$ 次行列、$\|E\|_2=\varepsilon$ とする。$\lambda_j$ が単純で、他の固有値との最小距離
+> $A,\widetilde A=A+E$ は実対称 $n$ 次行列（$n\geq2$）、$\|E\|_2=\varepsilon$ とする。$\lambda_j$ が単純で、他の固有値との最小距離
 
 $$
 \gamma=\min_{i\ne j}|\lambda_i-\lambda_j|>0
@@ -566,7 +566,7 @@ $$
 
 #### A3. 辺重みの変更
 
-三頂点道の辺 $\{2,3\}$ の重みを $s$ だけ変える。$\Delta L$ を書き、その固有値と作用素ノルムを求めよ。
+三頂点道の辺 $\{2,3\}$ の元の重みを $a>0$ とし、更新後の重み $a+s$ が非負となるように変える。他の辺重みは変えない。$\Delta L$ を書き、その固有値と作用素ノルムを求めよ。
 
 - Level: A
 - ID: SGT5-A3
