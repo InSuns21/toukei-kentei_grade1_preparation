@@ -1,0 +1,50 @@
+id: "AG2-05"
+title: "構造層と貼り合わせ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG2-04
+  - AG2-02
+  - AG2-01
+  - AG1-04
+  - AG1-03
+official_scope: []
+learning_objectives:
+  - 射影直線の二つのチャートと座標変換から局所的な正則関数を説明できる
+  - 被約な射影代数的集合上の構造層を局所分数表示で定義しチャート不変性を証明できる
+  - 正則関数環の制限写像と環の層の二つの公理を証明できる
+  - 射影直線上の実際の二つの分数表示を一致させて貼り合わせられる
+  - 点の茎とアフィンチャートの局所環の同型を確認し単元を判定できる
+  - 射影空間上の大域正則関数が定数であることを射影直線から証明できる
+  - 開集合上での貼り合わせと除いた点への延長の違いを反例で説明できる
+definitions:
+  - { id: AG2-05-DEF-01, name: 正則関数の構造層 }
+  - { id: AG2-05-DEF-02, name: 環の層 }
+  - { id: AG2-05-DEF-03, name: 構造層の茎 }
+theorems:
+  - { id: AG2-05-PROP-01, name: チャートによらない局所表示 }
+  - { id: AG2-05-PROP-02, name: 正則関数の環と制限写像 }
+  - { id: AG2-05-THM-01, name: 構造層の貼り合わせ }
+  - { id: AG2-05-THM-02, name: 茎と点の局所環の同型 }
+  - { id: AG2-05-THM-03, name: 射影空間上の大域正則関数 }
+canonical_examples:
+  - 射影直線の二チャートでのxと1/y
+  - x/(x-1)と1/(1-y)の貼り合わせ
+  - x=0での局所環k[x]_(x)と単元
+  - 射影直線全体には非定数正則関数がないこと
+  - 可約なアフィン二軸上で点を除いた開集合への貼り合わせと非延長
+problem_patterns:
+  - AG2-05-A1
+  - AG2-05-A2
+  - AG2-05-A3
+  - AG2-05-A4
+  - AG2-05-B1
+  - AG2-05-B2
+  - AG2-05-B3
+  - AG2-05-B4
+  - AG2-05-C1
+  - AG2-05-C2
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 4 }
