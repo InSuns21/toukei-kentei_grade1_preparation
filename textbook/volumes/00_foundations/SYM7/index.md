@@ -486,7 +486,7 @@ $\mathbb R^2$ 上の $\omega_t=(1+t)\,dx\wedge dy$ について、$\dot\omega_t=
 - ID: SYM7-A1
 
 <!-- solution-start -->
-**詳細解答**　$\dot\omega_t=dx\wedge dy$ であり、[外微分の次数付きLeibniz則](../GEO7/index.md#thm-geo7-graded-leibniz)から
+**詳細解答**　$\dot\omega_t=dx\wedge dy$ であり、[外微分の次数付き Leibniz 則](../GEO7/index.md#thm-geo7-graded-leibniz)から
 
 $$
 d(x\,dy)=dx\wedge dy+x\,d(dy)=dx\wedge dy
