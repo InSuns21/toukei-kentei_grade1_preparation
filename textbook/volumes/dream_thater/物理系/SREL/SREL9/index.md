@@ -38,7 +38,14 @@
 
 <!-- formal-statement-start -->
 > **定理（総四元運動量と不変質量の慣性系不変性）**  
-> 四次元Minkowski時空で、有限個の構成物の四元運動量 $p_i^\mu$ が、同じ慣性系で $P^\mu=\sum_i p_i^\mu$ を与えるとする。すべての構成物に同じLorentz変換 $\Lambda$ を作用させると $P'^\mu=\Lambda^\mu{}_\nu P^\nu$ となり、$P'_\mu P'^\mu=P_\mu P^\mu$ が成り立つ。さらに衝突前後で総四元運動量が保存し、放出物を漏れなく含むなら、この等式はどの慣性系でも保存する。
+> 四次元Minkowski時空で、有限個の構成物の四元運動量 $p_i^\mu$ を、同じ慣性系で加えた総量 $P^\mu=\sum_i p_i^\mu$ を考える。すべての構成物に同じLorentz変換 $\Lambda$ を作用させると、
+
+$
+P'^\mu=\Lambda^\mu{}_{\nu}P^\nu,\qquad
+P'_\mu P'^\mu=P_\mu P^\mu
+$
+
+> が成り立つ。衝突前後で総四元運動量が保存し、放出物を漏れなく含むなら、その保存はどの慣性系でも成り立つ。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -57,7 +64,7 @@ P'^\mu=\sum_i p_i'{}^\mu
 =\Lambda^\mu{}_\nu P^\nu.
 $$
 
-Lorentz行列の定義 $\Lambda^\rho{}_\mu g_{\rho\sigma}\Lambda^\sigma{}_\nu=g_{\mu\nu}$ から
+[Minkowski計量のLorentz不変性](../SREL2/index.md#thm-srel2-interval-invariance)を行列表現に直した関係 $\Lambda^\rho{}_{\mu}g_{\rho\sigma}\Lambda^\sigma{}_{\nu}=g_{\mu\nu}$ から
 
 $$
 \begin{aligned}
@@ -315,7 +322,7 @@ $P_\mu P^\mu=(2K/c)^2$、$M^2c^2=4K^2/c^2$ なので $M=2K/c^2$ です。各光�
 <!-- solution-start -->
 #### 詳細解答
 
-[Lorentz変換](../SREL1/index.md#thm-srel1-lorentz)で $P'^0=\Gamma(P^0-\beta P^1)=\Gamma Mc$、$P'^1=\Gamma(P^1-\beta P^0)=-\Gamma Mw$。四元運動量の成分定義から $v'=cP'^1/P'^0=-w$ です。不変量は $(P'^0)^2-(P'^1)^2=\Gamma^2M^2(c^2-w^2)=M^2c^2$ と確かめられます。
+[Lorentz変換](../SREL1/index.md#thm-srel1-lorentz)で $P'^0=\Gamma(P^0-\beta P^1)=\Gamma Mc$、$P'^1=\Gamma(P^1-\beta P^0)=-\Gamma Mw$。[四元運動量の定義](../SREL3/index.md#def-srel3-four-momentum)から $v'=cP'^1/P'^0=-w$ です。不変量は $(P'^0)^2-(P'^1)^2=\Gamma^2M^2(c^2-w^2)=M^2c^2$ と確かめられます。
 <!-- solution-end -->
 
 ### A3. 進行波の磁場とエネルギー流
