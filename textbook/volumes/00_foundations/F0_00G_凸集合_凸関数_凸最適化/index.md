@@ -2,7 +2,7 @@
 
 > **アーカイブ**
 >
-> このページの canonical な内容は [OPT1](../../dream_thater/応用系/OPT1/index.md) へ移管済みです。stable anchor と過去リンクの後方互換性のためファイル自体は保持しますが、読者向け索引・標準通読には掲載しません。
+> このページの canonical な内容は [OPT1](../../dream_thater/応用系/OPT/OPT1/index.md) へ移管済みです。stable anchor と過去リンクの後方互換性のためファイル自体は保持しますが、読者向け索引・標準通読には掲載しません。
 
 
 <!-- definition-example-audit: strict -->

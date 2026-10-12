@@ -111,8 +111,8 @@ for (const section of manifest.sections) {
     // After the category relocation, no canonical index may point to the
     // former flat foundations directory or the wrong category.
     const categoryPrefix = 'textbook/volumes/dream_thater/' + section.name + '/';
-    if (!p.startsWith(categoryPrefix) || !/^textbook\/volumes\/dream_thater\/[^/]+\/[^/]+\/index\.md$/.test(p)) {
-      errors.push('canonical DREAM THEATER chapter must use category/ID layout: ' + p);
+    if (!p.startsWith(categoryPrefix) || !/^textbook\/volumes\/dream_thater\/[^/]+\/[^/]+\/[^/]+\/index\.md$/.test(p)) {
+      errors.push('canonical DREAM THEATER chapter must use category/course ID/chapter ID layout: ' + p);
     }
     if (seenManifest.has(p)) errors.push(`duplicate manifest entry: ${p}`);
     seenManifest.add(p);
@@ -146,7 +146,9 @@ const categorizedDiscovered = fs.existsSync(categorizedRoot)
     .filter((entry) => entry.isDirectory())
     .flatMap((category) => fs.readdirSync(path.join(categorizedRoot, category.name), { withFileTypes: true })
       .filter((entry) => entry.isDirectory())
-      .map((entry) => path.join(categorizedRoot, category.name, entry.name, 'index.md')))
+      .flatMap((entry) => fs.readdirSync(path.join(categorizedRoot, category.name, entry.name), { withFileTypes: true })
+        .filter((ch) => ch.isDirectory())
+        .map((ch) => path.join(categorizedRoot, category.name, entry.name, ch.name, 'index.md'))))
     .filter((p) => fs.existsSync(p))
     .map((p) => toPosix(path.relative(repoRoot, p)))
   : [];

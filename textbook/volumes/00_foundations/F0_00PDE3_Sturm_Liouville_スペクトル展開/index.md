@@ -4,7 +4,7 @@
 
 新しく学ぶ場合は、このページを本文として読まず、次の正本へ進んでください。
 
-- [ODE7 境界値問題・Sturm--Liouville](../../dream_thater/解析系/ODE7/index.md)
+- [ODE7 境界値問題・Sturm--Liouville](../../dream_thater/解析系/ODE/ODE7/index.md)
   - 二点境界値問題
   - 正則 Sturm--Liouville 問題
   - Lagrange 恒等式と分離型自己共役境界条件
@@ -16,7 +16,7 @@
   - 共鳴時の可解条件
   - 固有関数展開と一般完全性の証明境界
 
-- [PDE7 固有関数展開・Green表現・三類型の統合](../../dream_thater/解析系/PDE7/index.md)
+- [PDE7 固有関数展開・Green表現・三類型の統合](../../dream_thater/解析系/PDE/PDE7/index.md)
   - 固有関数展開による空間作用素の対角化
   - 熱・波動・Poisson のモード方程式
   - 有界区間の離散固有モードと全空間 Fourier 周波数の対応
@@ -27,13 +27,13 @@
 
 | 旧 F0-00PDE3 の話題 | 現在の扱い |
 |---|---|
-| Sturm--Liouville 問題の定義 | [ODE7](../../dream_thater/解析系/ODE7/index.md#def-ode7-regular-sl) |
-| 重み付き内積 | [ODE7](../../dream_thater/解析系/ODE7/index.md#def-ode7-weighted-inner-product) |
-| Green 型の1次元境界恒等式 | [ODE7 の Lagrange 恒等式](../../dream_thater/解析系/ODE7/index.md#thm-ode7-lagrange-identity) |
-| 境界条件込みの自己共役性 | [ODE7](../../dream_thater/解析系/ODE7/index.md#thm-ode7-boundary-form) |
-| 固有値の実数性・直交性 | [ODE7](../../dream_thater/解析系/ODE7/index.md#thm-ode7-real-eigenvalue) |
-| Dirichlet / Neumann と正弦・余弦系 | [ODE7 §10–11](../../dream_thater/解析系/ODE7/index.md) |
-| 固有関数展開 | ODE7 で Sturm--Liouville の意味と証明境界を整理し、[PDE7](../../dream_thater/解析系/PDE7/index.md#prop-pde7-modal-diagonalization) で PDE の有限モード対角化へ接続 |
-| PDE の変数分離・時間発展 | [PDE7](../../dream_thater/解析系/PDE7/index.md#prop-pde7-three-type-mode-laws) で熱・波動・Poisson のモード方程式として統合 |
+| Sturm--Liouville 問題の定義 | [ODE7](../../dream_thater/解析系/ODE/ODE7/index.md#def-ode7-regular-sl) |
+| 重み付き内積 | [ODE7](../../dream_thater/解析系/ODE/ODE7/index.md#def-ode7-weighted-inner-product) |
+| Green 型の1次元境界恒等式 | [ODE7 の Lagrange 恒等式](../../dream_thater/解析系/ODE/ODE7/index.md#thm-ode7-lagrange-identity) |
+| 境界条件込みの自己共役性 | [ODE7](../../dream_thater/解析系/ODE/ODE7/index.md#thm-ode7-boundary-form) |
+| 固有値の実数性・直交性 | [ODE7](../../dream_thater/解析系/ODE/ODE7/index.md#thm-ode7-real-eigenvalue) |
+| Dirichlet / Neumann と正弦・余弦系 | [ODE7 §10–11](../../dream_thater/解析系/ODE/ODE7/index.md) |
+| 固有関数展開 | ODE7 で Sturm--Liouville の意味と証明境界を整理し、[PDE7](../../dream_thater/解析系/PDE/PDE7/index.md#prop-pde7-modal-diagonalization) で PDE の有限モード対角化へ接続 |
+| PDE の変数分離・時間発展 | [PDE7](../../dream_thater/解析系/PDE/PDE7/index.md#prop-pde7-three-type-mode-laws) で熱・波動・Poisson のモード方程式として統合 |
 
 旧 F0-00PDE3 自体は数学概念の正本を持ちません。Sturm--Liouville 理論の修正・参照は以後 ODE7 を正本として行います。

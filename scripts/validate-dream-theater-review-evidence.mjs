@@ -86,7 +86,7 @@ if (args.includes('--self-test')) {
   }
   const names = execFileSync('git', ['diff', '--name-only', '--diff-filter=ACMR', base, 'HEAD', '--', 'textbook/volumes/dream_thater'], { encoding: 'utf8' })
     .split('\n')
-    .filter(s => /^textbook\/volumes\/dream_thater\/[^/]+\/[^/]+\/index\.md$/.test(s));
+    .filter(s => /^textbook\/volumes\/dream_thater\/[^/]+\/[^/]+\/[^/]+\/index\.md$/.test(s));
   if (names.length === 0) {
     console.log('No changed DREAM THEATER chapter index.md: review evidence not required');
     process.exit(0);

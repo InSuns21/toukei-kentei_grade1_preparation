@@ -7,42 +7,42 @@ chapter_root: textbook/volumes/dream_thater
 # 学習ブロック単位を尊重し、講数・週数に固定しない。後続章の分割は実装時に見直す。
 chapters:
   - id: HDP1
-    path: textbook/volumes/dream_thater/解析系/HDP1
+    path: textbook/volumes/dream_thater/解析系/HDP/HDP1
     status: completed
     title: 指数Markov法・Hoeffding補題・Hoeffding不等式
   - id: HDP2
-    path: textbook/volumes/dream_thater/解析系/HDP2
+    path: textbook/volumes/dream_thater/解析系/HDP/HDP2
     status: completed
     title: Bennett・Bernstein不等式と分散依存の集中
   - id: HDP3
-    path: textbook/volumes/dream_thater/解析系/HDP3
+    path: textbook/volumes/dream_thater/解析系/HDP/HDP3
     status: planned
     title: sub-Gaussianとsub-exponentialの同値評価
   - id: HDP4
-    path: textbook/volumes/dream_thater/解析系/HDP4
+    path: textbook/volumes/dream_thater/解析系/HDP/HDP4
     status: planned
     title: Doob差分と有界差分不等式
   - id: HDP5
-    path: textbook/volumes/dream_thater/解析系/HDP5
+    path: textbook/volumes/dream_thater/解析系/HDP/HDP5
     status: planned
     title: Gaussian集中とLipschitz関数
   - id: HDP6
-    path: textbook/volumes/dream_thater/解析系/HDP6
+    path: textbook/volumes/dream_thater/解析系/HDP/HDP6
     status: planned
     title: epsilon-netとJohnson–Lindenstrauss射影
   - id: HDP7
-    path: textbook/volumes/dream_thater/解析系/HDP7
+    path: textbook/volumes/dream_thater/解析系/HDP/HDP7
     status: planned
     title: sub-Gaussianベクトルと標本共分散
   - id: HDP8
-    path: textbook/volumes/dream_thater/解析系/HDP8
+    path: textbook/volumes/dream_thater/解析系/HDP/HDP8
     status: planned
     title: 非可換モーメント母関数と行列Bernstein
   - id: HDP9
-    path: textbook/volumes/dream_thater/解析系/HDP9
+    path: textbook/volumes/dream_thater/解析系/HDP/HDP9
     status: planned
     title: Hanson–Wrightの二次形式集中
   - id: HDP10
-    path: textbook/volumes/dream_thater/解析系/HDP10
+    path: textbook/volumes/dream_thater/解析系/HDP/HDP10
     status: planned
     title: 被覆数からchainingへの入口と応用総合

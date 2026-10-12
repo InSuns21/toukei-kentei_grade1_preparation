@@ -7,7 +7,7 @@ const root = process.cwd();
 // 既存の地下世界を一括置換せず、監査済みの章をここへ追加して再発を防ぐ。
 const migratedFiles = [
   'textbook/dream-theater.md',
-  'textbook/volumes/dream_thater/基礎科目/F0-00D/index.md',
+  'textbook/volumes/dream_thater/基礎科目/F0/F0-00D/index.md',
 ];
 
 const rules = [

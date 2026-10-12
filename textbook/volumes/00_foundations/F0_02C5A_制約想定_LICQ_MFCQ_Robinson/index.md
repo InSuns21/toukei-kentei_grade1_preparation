@@ -1,6 +1,6 @@
 # F0-02C5A 関数解析V-A：制約想定・LICQ・MFCQ・Robinson CQ
 
-> **アーカイブ**：この内容の canonical owner は [canonical 章 OPT6](../../dream_thater/応用系/OPT6/index.md) です。本ページは過去URLと stable anchor の後方互換性のため保持しています。
+> **アーカイブ**：この内容の canonical owner は [canonical 章 OPT6](../../dream_thater/応用系/OPT/OPT6/index.md) です。本ページは過去URLと stable anchor の後方互換性のため保持しています。
 
 <!-- definition-example-audit: loose -->
 
@@ -300,13 +300,13 @@ $$
 
 ## 6.5 RA6Aから利用する局所グラフ表示
 
-以下では [RA6A の陰関数定理](../../dream_thater/基礎科目/RA6A/index.md#thm-ra6a-implicit-function) を使います。$h(u,z)=0$ で $D_zh(u^*,z^*)$ が可逆なら、$(u^*,z^*)$ の近くで等式集合は一意な $C^1$ 級グラフ $z=\varphi(u)$ として表せます。必要な微分公式は
+以下では [RA6A の陰関数定理](../../dream_thater/基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function) を使います。$h(u,z)=0$ で $D_zh(u^*,z^*)$ が可逆なら、$(u^*,z^*)$ の近くで等式集合は一意な $C^1$ 級グラフ $z=\varphi(u)$ として表せます。必要な微分公式は
 
 $$
 D\varphi(u^*)=-D_zh(u^*,z^*)^{-1}D_uh(u^*,z^*)
 $$
 
-です。証明は [RA6A の逆関数定理](../../dream_thater/基礎科目/RA6A/index.md#thm-ra6a-inverse-function) から導出済みなので、ここでは等式制約を壊さない接方向を実際の曲線へ持ち上げるために利用します。
+です。証明は [RA6A の逆関数定理](../../dream_thater/基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function) から導出済みなので、ここでは等式制約を壊さない接方向を実際の曲線へ持ち上げるために利用します。
 
 ---
 
@@ -327,7 +327,7 @@ $$
 
 ### 証明の見取り図
 
-$d\in L_C(x^*)$ に MFCQ 方向 $v$ を少量足して $d_\varepsilon=d+\varepsilon v$ とすると、active不等式の方向微分がすべて厳密に負になります。等式制約は[陰関数定理](../../dream_thater/基礎科目/RA6A/index.md#thm-ra6a-implicit-function)で作る等式多様体上の曲線に沿わせます。
+$d\in L_C(x^*)$ に MFCQ 方向 $v$ を少量足して $d_\varepsilon=d+\varepsilon v$ とすると、active不等式の方向微分がすべて厳密に負になります。等式制約は[陰関数定理](../../dream_thater/基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)で作る等式多様体上の曲線に沿わせます。
 
 <!-- proof-start -->
 ### 証明
@@ -352,7 +352,7 @@ $$
 \nabla g_i(x^*)^{\mathsf T}d_\varepsilon<0.
 $$
 
-MFCQ の第1条件から $Dh(x^*)$ は行フルランクです。座標を並べ替えれば、$x=(u,z)$ と分けたとき $D_zh(x^*)$ を正則にできます。[陰関数定理](../../dream_thater/基礎科目/RA6A/index.md#thm-ra6a-implicit-function)により、$x^*$ の近くで等式集合 $h(x)=0$ は
+MFCQ の第1条件から $Dh(x^*)$ は行フルランクです。座標を並べ替えれば、$x=(u,z)$ と分けたとき $D_zh(x^*)$ を正則にできます。[陰関数定理](../../dream_thater/基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)により、$x^*$ の近くで等式集合 $h(x)=0$ は
 
 $$
 z=\varphi(u)
@@ -360,7 +360,7 @@ $$
 
 と表せます。
 
-$d_\varepsilon=(d_u,d_z)$ と分けます。$Dh(x^*)d_\varepsilon=0$ と[陰関数定理の微分公式](../../dream_thater/基礎科目/RA6A/index.md#thm-ra6a-implicit-function)から
+$d_\varepsilon=(d_u,d_z)$ と分けます。$Dh(x^*)d_\varepsilon=0$ と[陰関数定理の微分公式](../../dream_thater/基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)から
 
 $$
 D\varphi(u^*)d_u=d_z.
@@ -867,4 +867,4 @@ $x^*=0$。$1-\lambda=0$ より $\lambda=1$。$g(0)=0$, $\lambda\ge0$, $\lambda g
 
 ## 次に進む
 
-**次：[F0-02C6 Hahn--Banach・汎関数拡張](../../dream_thater/解析系/F0-02C6/index.md)**
+**次：[F0-02C6 Hahn--Banach・汎関数拡張](../../dream_thater/解析系/F0/F0-02C6/index.md)**

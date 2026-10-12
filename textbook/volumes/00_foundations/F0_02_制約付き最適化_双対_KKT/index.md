@@ -1,6 +1,6 @@
 # F0-02 制約付き最適化・双対問題・KKT条件
 
-> **アーカイブ**：この内容の canonical owner は [OPT5 Lagrange 双対・Slater 条件・KKT](../../dream_thater/応用系/OPT5/index.md) です。本ページは過去URLと stable anchor の後方互換性のため保持しています。
+> **アーカイブ**：この内容の canonical owner は [OPT5 Lagrange 双対・Slater 条件・KKT](../../dream_thater/応用系/OPT/OPT5/index.md) です。本ページは過去URLと stable anchor の後方互換性のため保持しています。
 
 <!-- definition-example-audit: loose -->
 

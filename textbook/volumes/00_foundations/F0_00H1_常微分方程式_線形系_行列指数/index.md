@@ -4,15 +4,15 @@
 
 新しく学ぶ場合は、このページを本文として読まず、次の順で進んでください。
 
-1. [ODE1 一階常微分方程式・初期値問題](../../dream_thater/解析系/ODE1/index.md)
+1. [ODE1 一階常微分方程式・初期値問題](../../dream_thater/解析系/ODE/ODE1/index.md)
    - 常微分方程式と初期値問題
    - 一階方程式を積の形へ分けて積分する解法、一階線形方程式、積分因子
    - 存在一意性の入口
-2. [ODE2 高階線形微分方程式](../../dream_thater/解析系/ODE2/index.md)
+2. [ODE2 高階線形微分方程式](../../dream_thater/解析系/ODE/ODE2/index.md)
    - 二階・高階の定係数線形方程式
    - 特性方程式、重根、複素根
    - Wronskian、非斉次方程式、定数変化
-3. [ODE3 線形連立系・行列指数・安定性](../../dream_thater/解析系/ODE3/index.md)
+3. [ODE3 線形連立系・行列指数・安定性](../../dream_thater/解析系/ODE/ODE3/index.md)
    - 線形連立系 $x'=Ax+f(t)$
    - 行列指数 $e^{tA}$ と基本行列
    - Jordan block、複素固有値、定数変化公式
@@ -22,8 +22,8 @@
 
 | 旧 F0-00H1 の話題 | 現在の正本 |
 |---|---|
-| ODE・初期値問題・一階方程式 | [ODE1](../../dream_thater/解析系/ODE1/index.md) |
-| 二階定係数線形方程式・特性方程式 | [ODE2](../../dream_thater/解析系/ODE2/index.md) |
-| 線形連立系・行列指数・固有値による安定性 | [ODE3](../../dream_thater/解析系/ODE3/index.md) |
+| ODE・初期値問題・一階方程式 | [ODE1](../../dream_thater/解析系/ODE/ODE1/index.md) |
+| 二階定係数線形方程式・特性方程式 | [ODE2](../../dream_thater/解析系/ODE/ODE2/index.md) |
+| 線形連立系・行列指数・固有値による安定性 | [ODE3](../../dream_thater/解析系/ODE/ODE3/index.md) |
 
 旧 F0-00H1 自体は数学概念の正本を持ちません。以後の修正・参照は ODE1–ODE3 の該当ページを正本として行います。

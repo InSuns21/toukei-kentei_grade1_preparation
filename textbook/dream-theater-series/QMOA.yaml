@@ -6,86 +6,86 @@ chapter_root: textbook/volumes/dream_thater
 
 chapters:
   - id: QM1
-    path: textbook/volumes/dream_thater/解析系/QM1
+    path: textbook/volumes/dream_thater/解析系/QM/QM1
     status: completed
     title: 実験事実から Hilbert 空間形式へ
   - id: QM2
-    path: textbook/volumes/dream_thater/解析系/QM2
+    path: textbook/volumes/dream_thater/解析系/QM/QM2
     status: completed
     title: 状態・観測量・Born 則
   - id: QM3
-    path: textbook/volumes/dream_thater/解析系/QM3
+    path: textbook/volumes/dream_thater/解析系/QM/QM3
     status: completed
     title: 射影・PVM・スペクトル定理
   - id: QM4
-    path: textbook/volumes/dream_thater/解析系/QM4
+    path: textbook/volumes/dream_thater/解析系/QM/QM4
     status: completed
     title: 非可換観測量と不確定性関係
   - id: QM5
-    path: textbook/volumes/dream_thater/解析系/QM5
+    path: textbook/volumes/dream_thater/解析系/QM/QM5
     status: completed
     title: 非有界作用素と自己共役性
   - id: QM6
-    path: textbook/volumes/dream_thater/解析系/QM6
+    path: textbook/volumes/dream_thater/解析系/QM/QM6
     status: completed
     title: 非有界自己共役作用素のスペクトル定理
   - id: QM7
-    path: textbook/volumes/dream_thater/解析系/QM7
+    path: textbook/volumes/dream_thater/解析系/QM/QM7
     status: completed
     title: Stone の定理と Schrödinger 発展
   - id: QM8
-    path: textbook/volumes/dream_thater/解析系/QM8
+    path: textbook/volumes/dream_thater/解析系/QM/QM8
     status: completed
     title: CCR・Weyl 関係と作用素環への入口
   - id: OA1
-    path: textbook/volumes/dream_thater/解析系/OA1
+    path: textbook/volumes/dream_thater/解析系/OA/OA1
     status: completed
     title: Banach 環とスペクトル
   - id: OA2
-    path: textbook/volumes/dream_thater/解析系/OA2
+    path: textbook/volumes/dream_thater/解析系/OA/OA2
     status: completed
     title: 可換 Banach 環と Gelfand 変換
   - id: OA3
-    path: textbook/volumes/dream_thater/解析系/OA3
+    path: textbook/volumes/dream_thater/解析系/OA/OA3
     status: completed
     title: C*-環の基本構造
   - id: OA4
-    path: textbook/volumes/dream_thater/解析系/OA4
+    path: textbook/volumes/dream_thater/解析系/OA/OA4
     status: completed
     title: 連続関数計算と可換 Gelfand--Naimark
   - id: OA5
-    path: textbook/volumes/dream_thater/解析系/OA5
+    path: textbook/volumes/dream_thater/解析系/OA/OA5
     status: completed
     title: 正汎関数・状態・GNS 構成
   - id: OA6
-    path: textbook/volumes/dream_thater/解析系/OA6
+    path: textbook/volumes/dream_thater/解析系/OA/OA6
     status: completed
     title: 正規作用素・関数計算とスペクトル定理の再解釈
   - id: VN1
-    path: textbook/volumes/dream_thater/解析系/VN1
+    path: textbook/volumes/dream_thater/解析系/VN/VN1
     status: completed
     title: B(H) の作用素位相
   - id: VN2
-    path: textbook/volumes/dream_thater/解析系/VN2
+    path: textbook/volumes/dream_thater/解析系/VN/VN2
     status: completed
     title: 可換子・二重可換子・von Neumann 環
   - id: VN3
-    path: textbook/volumes/dream_thater/解析系/VN3
+    path: textbook/volumes/dream_thater/解析系/VN/VN3
     status: completed
     title: 射影・部分等長作用素・極分解
   - id: VN4
-    path: textbook/volumes/dream_thater/解析系/VN4
+    path: textbook/volumes/dream_thater/解析系/VN/VN4
     status: completed
     title: trace class・predual・ultraweak 位相
   - id: VN5
-    path: textbook/volumes/dream_thater/解析系/VN5
+    path: textbook/volumes/dream_thater/解析系/VN/VN5
     status: completed
     title: 正規汎関数・正規状態・トレース
   - id: VN6
-    path: textbook/volumes/dream_thater/解析系/VN6
+    path: textbook/volumes/dream_thater/解析系/VN/VN6
     status: completed
     title: 可換 von Neumann 環と L^infinity
   - id: VN7
-    path: textbook/volumes/dream_thater/解析系/VN7
+    path: textbook/volumes/dream_thater/解析系/VN/VN7
     status: completed
     title: factor と型分類への入口

@@ -13,7 +13,7 @@
 3. [**実解析**](textbook/dream-theater.md#dt-subject-real-analysis)：実数の上限性質から数列・級数、極限、微分、Riemann 積分、多変数解析までを、一般位相空間を前提にせず具体的に組み立てる。
 4. [**位相空間論**](textbook/dream-theater.md#dt-subject-topology)：実解析で学んだ収束・連続性・コンパクト性・Cauchy 条件・完備性を、距離空間・位相空間へ一般化する。
 
-> **RA8 は位相空間論後の実解析発展です。** RA5 までの一様収束に加えて TOP5 の一般コンパクト性を使うため、共通基礎の実解析本体には置かず、位相空間論を終えた後に [RA8 関数族のコンパクト性・近似](textbook/volumes/dream_thater/基礎科目/RA8/index.md) へ戻ります。順序数・超限再帰・Hartogs 補題を使う選択公理の完全同値証明は、共通基礎ではなく独立した [**集合論・数学基礎論**](textbook/dream-theater.md#dt-subject-axiomatic-set-theory) の発展分岐で扱います。
+> **RA8 は位相空間論後の実解析発展です。** RA5 までの一様収束に加えて TOP5 の一般コンパクト性を使うため、共通基礎の実解析本体には置かず、位相空間論を終えた後に [RA8 関数族のコンパクト性・近似](textbook/volumes/dream_thater/基礎科目/RA/RA8/index.md) へ戻ります。順序数・超限再帰・Hartogs 補題を使う選択公理の完全同値証明は、共通基礎ではなく独立した [**集合論・数学基礎論**](textbook/dream-theater.md#dt-subject-axiomatic-set-theory) の発展分岐で扱います。
 
 ## 共通基礎からの発展分岐
 
@@ -164,11 +164,11 @@ CMP3 万能計算 ────────────────────�
 CPLX1 入力サイズと計算量 ───────────────→ CELL14 → CELL15
 ```
 
-CELL7では数列と部分列について [F0-00B0](textbook/volumes/dream_thater/基礎科目/F0-00B0/index.md) も前提とします。各章の正式な直接前提は、その章の `chapter.yaml` を正本としてください。とくにCELL14から触れるCook–LevinのSAT符号化は、[**計算量理論 I**](textbook/dream-theater.md#dt-subject-complexity-theory-i) のCPLX7で別途証明します。CELL15の確率計算の初歩は章内で導入するので、測度論や確率解析をこの分岐の一律の必須科目にはしません。
+CELL7では数列と部分列について [F0-00B0](textbook/volumes/dream_thater/基礎科目/F0/F0-00B0/index.md) も前提とします。各章の正式な直接前提は、その章の `chapter.yaml` を正本としてください。とくにCELL14から触れるCook–LevinのSAT符号化は、[**計算量理論 I**](textbook/dream-theater.md#dt-subject-complexity-theory-i) のCPLX7で別途証明します。CELL15の確率計算の初歩は章内で導入するので、測度論や確率解析をこの分岐の一律の必須科目にはしません。
 
 ### 力学系 I：CELLから連続状態の反復へ
 
-[**力学系 I：離散力学・記号力学・カオス**](textbook/dream-theater.md#dt-subject-dynamical-systems-i) は、CELL3で有限状態の軌道を、RA2で閉区間上の連続性・中間値を学んだ後に進む独立した15週科目です。最初の [DYN1](textbook/volumes/dream_thater/解析系/DYN1/index.md) では「有限集合の反復は最終的に周期的」という結論が連続状態では使えないことを証明します。続く [DYN2](textbook/volumes/dream_thater/解析系/DYN2/index.md) では、RA3の微分・平均値定理を加えて固定点の乗数による局所安定性と不安定性を証明します。[DYN3](textbook/volumes/dream_thater/解析系/DYN3/index.md) ではLogistic写像の二枝・吸引域と臨界値r=1,3の振る舞いを調べます。[DYN4](textbook/volumes/dream_thater/解析系/DYN4/index.md) で二歩の方程式を解き、真の二周期の存在と安定範囲を分離して証明します。[DYN5](textbook/volumes/dream_thater/解析系/DYN5/index.md) でTent写像の逆像を数え、[DYN6](textbook/volumes/dream_thater/解析系/DYN6/index.md) で共役・半共役を用いた周期と不変集合の移送を証明します。[DYN7](textbook/volumes/dream_thater/解析系/DYN7/index.md) では有理回転の最小周期と無理回転の軌道稠密性を鳩の巣原理で証明します。[DYN8](textbook/volumes/dream_thater/解析系/DYN8/index.md) では軌道閉包と正の極限集合を区別し、コンパクト性と連続性から不変性を証明します。[DYN9](textbook/volumes/dream_thater/解析系/DYN9/index.md) では円周拡大写像の局所距離評価、初期値鋭敏性の量化、有限時刻での合流を証明します。[DYN10](textbook/volumes/dream_thater/解析系/DYN10/index.md) ではTent写像の閉区間許容旅程と半開規約の一意読み出しを分け、分枝区間の精度・境界の多重性・無限語の非全射性を証明します。[DYN11](textbook/volumes/dream_thater/解析系/DYN11/index.md) ではCELL7の円筒論を前提に片側全二進シフトの有限語を連結・反復し、位相的混合性・周期点稠密性・稠密軌道を証明します。[DYN12](textbook/volumes/dream_thater/解析系/DYN12/index.md) では観測距離による分離集合を計数し、全二進シフトの位相エントロピーが自然対数でlog2となることを上下界から証明します。禁止語11の部分シフトとも比較します。
+[**力学系 I：離散力学・記号力学・カオス**](textbook/dream-theater.md#dt-subject-dynamical-systems-i) は、CELL3で有限状態の軌道を、RA2で閉区間上の連続性・中間値を学んだ後に進む独立した15週科目です。最初の [DYN1](textbook/volumes/dream_thater/解析系/DYN/DYN1/index.md) では「有限集合の反復は最終的に周期的」という結論が連続状態では使えないことを証明します。続く [DYN2](textbook/volumes/dream_thater/解析系/DYN/DYN2/index.md) では、RA3の微分・平均値定理を加えて固定点の乗数による局所安定性と不安定性を証明します。[DYN3](textbook/volumes/dream_thater/解析系/DYN/DYN3/index.md) ではLogistic写像の二枝・吸引域と臨界値r=1,3の振る舞いを調べます。[DYN4](textbook/volumes/dream_thater/解析系/DYN/DYN4/index.md) で二歩の方程式を解き、真の二周期の存在と安定範囲を分離して証明します。[DYN5](textbook/volumes/dream_thater/解析系/DYN/DYN5/index.md) でTent写像の逆像を数え、[DYN6](textbook/volumes/dream_thater/解析系/DYN/DYN6/index.md) で共役・半共役を用いた周期と不変集合の移送を証明します。[DYN7](textbook/volumes/dream_thater/解析系/DYN/DYN7/index.md) では有理回転の最小周期と無理回転の軌道稠密性を鳩の巣原理で証明します。[DYN8](textbook/volumes/dream_thater/解析系/DYN/DYN8/index.md) では軌道閉包と正の極限集合を区別し、コンパクト性と連続性から不変性を証明します。[DYN9](textbook/volumes/dream_thater/解析系/DYN/DYN9/index.md) では円周拡大写像の局所距離評価、初期値鋭敏性の量化、有限時刻での合流を証明します。[DYN10](textbook/volumes/dream_thater/解析系/DYN/DYN10/index.md) ではTent写像の閉区間許容旅程と半開規約の一意読み出しを分け、分枝区間の精度・境界の多重性・無限語の非全射性を証明します。[DYN11](textbook/volumes/dream_thater/解析系/DYN/DYN11/index.md) ではCELL7の円筒論を前提に片側全二進シフトの有限語を連結・反復し、位相的混合性・周期点稠密性・稠密軌道を証明します。[DYN12](textbook/volumes/dream_thater/解析系/DYN/DYN12/index.md) では観測距離による分離集合を計数し、全二進シフトの位相エントロピーが自然対数でlog2となることを上下界から証明します。禁止語11の部分シフトとも比較します。
 
 ~~~text
 CELL3 有限集合の軌道 ─┐
@@ -186,7 +186,7 @@ DYN1–15の実装とCELL・ODEとの科目横断監査は完了しています�
 
 [**力学系 II：連続流・非線形振動・同期**](textbook/dream-theater.md#dt-subject-dynamical-systems-ii) は、ODE4・ODE8–11の流れ・変分・Poincaré写像の既習結果を必要な場面で参照し、15講で連続時間の振動・同期・結合を具体的に計算する発展科目です。公開された15講は上の科目目次から順に読めます。
 
-[CDYN1](textbook/volumes/dream_thater/解析系/CDYN1/index.md)–[CDYN4](textbook/volumes/dream_thater/解析系/CDYN4/index.md) は一次元流の順序保存、保存系の閉軌道、時間位相、Floquet乗数を扱います。[CDYN5](textbook/volumes/dream_thater/解析系/CDYN5/index.md)–[CDYN8](textbook/volumes/dream_thater/解析系/CDYN8/index.md) は強制振動、Duffing、有限時間平均化、van der Polの振幅方程式へ進みます。[CDYN9](textbook/volumes/dream_thater/解析系/CDYN9/index.md)–[CDYN12](textbook/volumes/dream_thater/解析系/CDYN12/index.md) は等時相面、弱結合の位相差、平均系での同期、有限Kuramoto系の散逸構造を調べます。[CDYN13](textbook/volumes/dream_thater/解析系/CDYN13/index.md)–[CDYN15](textbook/volumes/dream_thater/解析系/CDYN15/index.md) では速遅の初期層、有限格子のFourierモード、各種極限と数値離散化の成立条件を総合します。
+[CDYN1](textbook/volumes/dream_thater/解析系/CDYN/CDYN1/index.md)–[CDYN4](textbook/volumes/dream_thater/解析系/CDYN/CDYN4/index.md) は一次元流の順序保存、保存系の閉軌道、時間位相、Floquet乗数を扱います。[CDYN5](textbook/volumes/dream_thater/解析系/CDYN/CDYN5/index.md)–[CDYN8](textbook/volumes/dream_thater/解析系/CDYN/CDYN8/index.md) は強制振動、Duffing、有限時間平均化、van der Polの振幅方程式へ進みます。[CDYN9](textbook/volumes/dream_thater/解析系/CDYN/CDYN9/index.md)–[CDYN12](textbook/volumes/dream_thater/解析系/CDYN/CDYN12/index.md) は等時相面、弱結合の位相差、平均系での同期、有限Kuramoto系の散逸構造を調べます。[CDYN13](textbook/volumes/dream_thater/解析系/CDYN/CDYN13/index.md)–[CDYN15](textbook/volumes/dream_thater/解析系/CDYN/CDYN15/index.md) では速遅の初期層、有限格子のFourierモード、各種極限と数値離散化の成立条件を総合します。
 
 [力学系 I（離散力学）](textbook/dream-theater.md#dt-subject-dynamical-systems-i) の反復写像や [セル・オートマトン I](textbook/dream-theater.md#dt-subject-cellular-automata-i) の有限状態の局所更新とは状態空間・時間発展が異なります。平均方程式の有限時間精度を元の系の永続同期へ、有限格子の固有値を任意のPDE極限へ無条件に移さないことを、最終講で確認します。
 

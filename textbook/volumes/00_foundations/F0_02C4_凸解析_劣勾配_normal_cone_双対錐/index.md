@@ -1,7 +1,7 @@
 # F0-02C4 凸解析：劣勾配・劣微分・normal cone
 
 > **Archive notice**  
-> このページは archive です。劣勾配・劣微分・法錐・制約付き Fermat 条件の canonical owner は [OPT3](../../dream_thater/応用系/OPT3/index.md) へ移管しました。stable anchor と過去URLの後方互換性のため本文を保持しています。
+> このページは archive です。劣勾配・劣微分・法錐・制約付き Fermat 条件の canonical owner は [OPT3](../../dream_thater/応用系/OPT/OPT3/index.md) へ移管しました。stable anchor と過去URLの後方互換性のため本文を保持しています。
 
 <!-- definition-example-audit: strict -->
 
@@ -597,7 +597,7 @@ $$
 -\nabla f(x^*)\in N_C(x^*).
 $$
 
-逆にこの normal cone 条件を仮定します。[OPT1 の一次支持不等式](../../dream_thater/応用系/OPT1/index.md#thm-opt1-first-order-convexity)から
+逆にこの normal cone 条件を仮定します。[OPT1 の一次支持不等式](../../dream_thater/応用系/OPT/OPT1/index.md#thm-opt1-first-order-convexity)から
 
 $$
 f(y)

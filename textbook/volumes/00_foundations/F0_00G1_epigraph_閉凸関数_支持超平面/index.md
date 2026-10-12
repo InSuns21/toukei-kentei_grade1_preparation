@@ -1,7 +1,7 @@
 # F0-00G1 epigraph・閉凸関数・支持超平面
 
 > **Archive notice**  
-> このページは archive です。支持超平面の canonical owner は [OPT2](../../dream_thater/応用系/OPT2/index.md)、エピグラフ・閉真凸関数・劣微分側の canonical owner は [OPT3](../../dream_thater/応用系/OPT3/index.md) へ移管しました。stable anchor と過去URLの後方互換性のため本文を保持しています。
+> このページは archive です。支持超平面の canonical owner は [OPT2](../../dream_thater/応用系/OPT/OPT2/index.md)、エピグラフ・閉真凸関数・劣微分側の canonical owner は [OPT3](../../dream_thater/応用系/OPT/OPT3/index.md) へ移管しました。stable anchor と過去URLの後方互換性のため本文を保持しています。
 
 <!-- definition-example-audit: strict -->
 
@@ -385,7 +385,7 @@ a_k
 \frac{z_k-p_k}{\|z_k-p_k\|}
 $$
 
-と置きます。[C1A の射影の特徴付け](../../dream_thater/解析系/F0-02C1A/index.md)から、任意の $x\in C$ に対して
+と置きます。[C1A の射影の特徴付け](../../dream_thater/解析系/F0/F0-02C1A/index.md)から、任意の $x\in C$ に対して
 
 $$
 a_k^{\mathsf T}(x-p_k)\le0.
@@ -462,7 +462,7 @@ $$
 
 まず $\operatorname{aff}(\operatorname{dom}f)$ を座標空間とみなしてよいので、$x$ が $\operatorname{dom}f$ の通常の内部点である場合へ還元します。
 
-$(x,f(x))$ は凸集合 $\operatorname{epi}f$ の境界点です。[支持超平面定理](../../dream_thater/応用系/OPT2/index.md#thm-opt2-supporting-hyperplane)により、ある $(p,\beta)\neq0$ が存在して
+$(x,f(x))$ は凸集合 $\operatorname{epi}f$ の境界点です。[支持超平面定理](../../dream_thater/応用系/OPT/OPT2/index.md#thm-opt2-supporting-hyperplane)により、ある $(p,\beta)\neq0$ が存在して
 
 $$
 p^{\mathsf T}y+\beta t

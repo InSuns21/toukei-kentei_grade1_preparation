@@ -6,30 +6,30 @@ chapter_root: textbook/volumes/dream_thater
 
 chapters:
   - id: AUT1
-    path: textbook/volumes/dream_thater/計算系/AUT1
+    path: textbook/volumes/dream_thater/計算系/AUT/AUT1
     status: completed
     title: 文字列・形式言語・判定問題
   - id: AUT2
-    path: textbook/volumes/dream_thater/計算系/AUT2
+    path: textbook/volumes/dream_thater/計算系/AUT/AUT2
     status: completed
     title: 決定性有限オートマトン
   - id: AUT3
-    path: textbook/volumes/dream_thater/計算系/AUT3
+    path: textbook/volumes/dream_thater/計算系/AUT/AUT3
     status: completed
     title: 非決定性有限オートマトン・正規表現
   - id: AUT4
-    path: textbook/volumes/dream_thater/計算系/AUT4
+    path: textbook/volumes/dream_thater/計算系/AUT/AUT4
     status: completed
     title: 正規言語の限界
   - id: AUT5
-    path: textbook/volumes/dream_thater/計算系/AUT5
+    path: textbook/volumes/dream_thater/計算系/AUT/AUT5
     status: completed
     title: 文脈自由文法
   - id: AUT6
-    path: textbook/volumes/dream_thater/計算系/AUT6
+    path: textbook/volumes/dream_thater/計算系/AUT/AUT6
     status: completed
     title: プッシュダウン・オートマトン
   - id: AUT7
-    path: textbook/volumes/dream_thater/計算系/AUT7
+    path: textbook/volumes/dream_thater/計算系/AUT/AUT7
     status: completed
     title: Chomsky 階層と計算モデルへの橋

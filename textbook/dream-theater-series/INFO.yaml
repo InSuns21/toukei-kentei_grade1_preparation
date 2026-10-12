@@ -7,14 +7,14 @@ chapter_root: textbook/volumes/dream_thater
 # 章数は学修目標と証明上のまとまりで増減する。未着手ブロックはPLAN本文を参照。
 chapters:
   - id: INFO1
-    path: textbook/volumes/dream_thater/応用系/INFO1
+    path: textbook/volumes/dream_thater/応用系/INFO/INFO1
     status: completed
     title: 自己情報量・Shannonエントロピー・条件付け
   - id: INFO2
-    path: textbook/volumes/dream_thater/応用系/INFO2
+    path: textbook/volumes/dream_thater/応用系/INFO/INFO2
     status: completed
     title: 相対エントロピー・Gibbs不等式・データ処理不等式
   - id: INFO3
-    path: textbook/volumes/dream_thater/応用系/INFO3
+    path: textbook/volumes/dream_thater/応用系/INFO/INFO3
     status: planned
     title: 典型列と大数の法則による情報源の特徴付け

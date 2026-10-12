@@ -5,7 +5,7 @@ const root = process.cwd();
 const sourceRoot = path.join(root, 'textbook', 'volumes');
 const siteIndexPath = path.join(root, '_site', 'textbook', 'index.md');
 const sidebarPath = path.join(root, '_site', '_sidebar.md');
-const linearAlgebraCalcChapter = 'F0_00CALC_線形代数_院試編入計算演習';
+const linearAlgebraCalcChapter = 'LAX1';
 
 if (!fs.existsSync(sourceRoot) || !fs.existsSync(siteIndexPath) || !fs.existsSync(sidebarPath)) {
   throw new Error('textbook Pages tree is not ready; run build-pages and single-page preparation first.');
@@ -15,14 +15,16 @@ if (!fs.existsSync(sourceRoot) || !fs.existsSync(siteIndexPath) || !fs.existsSyn
 // published textbook contract is one canonical index.md per chapter. The
 // single-page pass has already restored the basic set as index.md and removed
 // auxiliary Markdown, so append the advanced B/C set to that canonical page.
-const linearCalcSource = path.join(sourceRoot, '00_foundations', linearAlgebraCalcChapter);
+const linearCalcSource = path.join(sourceRoot, 'dream_thater', '基礎科目', 'LAX', linearAlgebraCalcChapter);
 const linearCalcAdvanced = path.join(linearCalcSource, 'advanced.md');
 const linearCalcSiteIndex = path.join(
   root,
   '_site',
   'textbook',
   'volumes',
-  '00_foundations',
+  'dream_thater',
+  '基礎科目',
+  'LAX',
   linearAlgebraCalcChapter,
   'index.md',
 );
