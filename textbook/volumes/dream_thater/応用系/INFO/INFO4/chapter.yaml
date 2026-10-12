@@ -1,0 +1,48 @@
+id: "INFO4"
+title: "接頭語符号・Kraft不等式・符号木"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - INFO1
+  - INFO2
+  - INFO3
+official_scope: []
+learning_objectives:
+  - 有限二進接頭語符号と符号木を定義し逐次復号の条件と空符号語の例外を判定できる
+  - 符号木の深さを揃えた占有頂点の計算からKraft不等式の必要性を証明できる
+  - Kraft不等式の十分性を短い符号語から葉を選ぶ構成法で証明できる
+  - Kraft和が1と1未満の場合の未使用枝と拡張可能性を判定できる
+  - 相対エントロピーとGibbs不等式を用いて平均符号長のエントロピー下界と等号条件を証明できる
+  - Shannon符号長の切り上げ構成によりエントロピーから1ビット未満の平均長上界を証明できる
+  - 零確率記号と最大符号語長の制約が符号化の議論へ及ぼす影響を説明できる
+definitions:
+  - { id: INFO4-DEF-01, name: 接頭語符号 }
+  - { id: INFO4-DEF-02, name: 符号木における符号語の配置 }
+theorems:
+  - { id: INFO4-PROP-01, name: 接頭語符号の逐次復号 }
+  - { id: INFO4-THM-01, name: Kraft不等式：必要性 }
+  - { id: INFO4-THM-02, name: Kraft不等式：十分性 }
+  - { id: INFO4-PROP-02, name: Kraft和と未使用の枝 }
+  - { id: INFO4-THM-03, name: 接頭語符号の平均長下界 }
+  - { id: INFO4-THM-04, name: Shannon符号長による上界 }
+canonical_examples:
+  - 接頭語符号0・10・110・111の逐次復号
+  - 非接頭語符号0・01・1の曖昧な復号
+  - 長さ1・3・3の符号木と未使用の枝
+  - 長さ1・1・2のKraft違反
+  - 二進確率の平均長とエントロピーの一致
+  - 非二進確率1/2・1/3・1/6の切り上げ符号
+problem_patterns:
+  - INFO4-PREFIX-DECODE
+  - INFO4-KRAFT-IMPOSSIBLE
+  - INFO4-TREE-FREE-LEAVES
+  - INFO4-ENTROPY-EQUALITY
+  - INFO4-KRAFT-CONSTRUCT
+  - INFO4-TREE-COMPLETENESS
+  - INFO4-SHANNON-ROUNDING
+  - INFO4-ENTROPY-STRICT
+  - INFO4-LENGTH-CAPPED-OPTIMALITY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }

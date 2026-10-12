@@ -20,5 +20,5 @@ chapters:
     title: 典型列と大数の法則による情報源の特徴付け
   - id: INFO4
     path: textbook/volumes/dream_thater/応用系/INFO/INFO4
-    status: planned
+    status: completed
     title: 接頭語符号・Kraft不等式・符号木

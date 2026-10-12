@@ -1,0 +1,64 @@
+chapter: INFO4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - INFO1
+  - INFO2
+  - INFO3
+forward_references: []
+
+concepts:
+  - id: information.prefix-code
+    name: 接頭語符号
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（接頭語符号）]
+
+  - id: information.instantaneous-decoding
+    name: 接頭語符号の逐次復号
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（接頭語符号の逐次復号）]
+    requires: [information.prefix-code]
+
+  - id: information.prefix-code-tree
+    name: 符号木における符号語の配置
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（符号木における符号語の配置）]
+    requires: [information.prefix-code]
+
+  - id: information.kraft-necessary
+    name: Kraft不等式：必要性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Kraft不等式：必要性）]
+    requires: [information.prefix-code-tree]
+
+  - id: information.kraft-sufficient
+    name: Kraft不等式：十分性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Kraft不等式：十分性）]
+    requires: [information.kraft-necessary]
+
+  - id: information.prefix-tree-unused
+    name: Kraft和と未使用の枝
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Kraft和と未使用の枝）]
+    requires: [information.kraft-necessary]
+
+  - id: information.prefix-mean-length-bound
+    name: 接頭語符号の平均長下界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（接頭語符号の平均長下界）]
+    requires: [information.kraft-necessary, information.gibbs-inequality, information.shannon-entropy]
+
+  - id: information.shannon-code-length
+    name: Shannon符号長による上界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Shannon符号長による上界）]
+    requires: [information.kraft-sufficient, information.shannon-entropy]

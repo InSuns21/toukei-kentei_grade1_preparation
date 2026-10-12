@@ -697,6 +697,7 @@
 1. [INFO1 自己情報量・Shannonエントロピー・条件付け](textbook/volumes/dream_thater/応用系/INFO/INFO1/index.md)
 2. [INFO2 相対エントロピー・Gibbs不等式・データ処理不等式](textbook/volumes/dream_thater/応用系/INFO/INFO2/index.md)
 3. [INFO3 典型列と大数の法則による情報源の特徴付け](textbook/volumes/dream_thater/応用系/INFO/INFO3/index.md)
+4. [INFO4 接頭語符号・Kraft不等式・符号木](textbook/volumes/dream_thater/応用系/INFO/INFO4/index.md)
 
 <a id="dt-subject-convex-optimization"></a>
 ### 凸解析・最適化
