@@ -1,0 +1,49 @@
+id: "SG7"
+title: "dilutedスピングラスとランダムfactor graph"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SG6
+  - SG3
+  - SG1
+official_scope: []
+learning_objectives:
+  - Poisson化Viana–Bray模型を定義し有限Nの分配関数と自己ループの効果を計算できる
+  - Poisson薄化から次数の分布を証明し局所木収束と全体の木性を区別できる
+  - 因子グラフへIsing相互作用とCSP制約を埋め込み具体例で検証できる
+  - 外場ゼロの木上Ising分配関数を葉の消去で証明できる
+  - annealed圧力をPoisson母関数から厳密計算してquenched上界を導ける
+  - Poisson一辺追加公式から圧力微分と多レプリカoverlap展開を導出できる
+  - Poisson化ランダムk-SATの第一モーメント上界とその限界を証明できる
+definitions:
+  - { id: SG7-DEF-01, name: "Poisson化Viana–Bray模型" }
+  - { id: SG7-DEF-02, name: "因子グラフと分配関数" }
+  - { id: SG7-DEF-03, name: "多レプリカoverlap" }
+  - { id: SG7-DEF-04, name: "Poisson化ランダムk-SAT" }
+propositions:
+  - { id: SG7-PROP-01, name: "Poisson次数と局所木性" }
+  - { id: SG7-PROP-02, name: "木上のIsing分配関数" }
+  - { id: SG7-PROP-03, name: "Poisson化模型のannealed圧力とquenched上界" }
+theorems:
+  - { id: SG7-THM-01, name: "Poissonの一辺追加公式と多レプリカ展開" }
+  - { id: SG7-THM-02, name: "Poisson化ランダムk-SATの第一モーメント上界" }
+canonical_examples:
+  - 二スピン一本辺の4cosh分配関数
+  - 自己ループと端点の重複の区別
+  - 因子グラフでの二変数論理節と3充足配置
+  - 三頂点道のIsing分配関数
+  - 四レプリカoverlapと二レプリカの非同一
+  - Poisson化と固定節数の第一モーメントの違い
+problem_patterns:
+  - SG7-POISSON-THINNING
+  - SG7-FACTOR-CSP
+  - SG7-TREE-PARTITION
+  - SG7-MULTIOVERLAP
+  - SG7-ANNEALED
+  - SG7-ADD-EDGE
+  - SG7-KSAT-FIRST-MOMENT
+  - SG7-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 10, review: 8 }
