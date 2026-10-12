@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - SREL6
+  - TH1
 forward_references: []
 
 concepts:
