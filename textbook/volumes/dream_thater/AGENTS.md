@@ -4,7 +4,7 @@
 
 ## 最初に現在地だけを読む
 
-継続執筆では全 `00_foundations` を列挙しない。
+継続執筆では全 `dream_thater` を列挙しない。
 
 1. `textbook/dream-theater-work.yaml`（共通 routing）
 2. 指定された章ID・系列IDに対応する `textbook/dream-theater-series/<系列ID>.yaml`
@@ -107,3 +107,7 @@ leaf chapter の通常PRでは changed-only validation を原則とする。glob
 少なくとも変更内容に応じて、DREAM THEATER exercise / concept / knowledge、KaTeX、proof/formal、Pages link を検証する。自動検証 green だけを完成条件にせず、人手で数学的完全性と読者粒度も確認する。
 
 **作業完了前の必須ゲート**：`textbook/DREAM_THEATER_AUTHORING_STANDARD.md` 第10・10.1節に従い、変更章ごとに主要証明・全演習解答を棚卸しして全件再計算する自己査読と、完了本文を改めて読む別観点の再査読を分離する。実施範囲、代表的な中間式、欠陥と修正、未確認箇所、査読の実施主体をPR本文に記録する。実際に別担当者が査読していないなら独立第三者査読を称しない。変更章 `index.md` を含むPRではGitHub Actionsが章別記録と主要結果・全演習IDの対応を確認するが、証明の正誤は人手で判定する。自動検証の成功、marker、題数の充足や「チェック済み」の宣言では代用できない。
+
+## 教材の配置
+
+DREAM THEATER 講義は `textbook/volumes/dream_thater/<カテゴリー>/<講義系列ID>/<章ID>/` に置く。カテゴリーは公開索引の8区分、講義系列IDはシリーズmanifestの `id`、章IDは `chapter.yaml.id` を正本とする。シリーズmanifestのない既存F0補講は `F0`、LAX1/CAX1は独立の演習系列 `LAX` / `CAX` を使用する。新しい章を直下に作らない。
