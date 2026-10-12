@@ -7,7 +7,9 @@ prerequisites:
   - LIE2
   - LIE4
   - SYM3
-forward_references: []
+forward_references:
+  - mechanics.hamiltonian-lie-action
+  - mechanics.momentum-map
 
 concepts:
   - id: mechanics.cotangent-lifted-lie-action
