@@ -1,0 +1,45 @@
+id: "SREL4"
+title: "相対論的質点の作用と運動方程式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SREL3
+official_scope: []
+learning_objectives:
+  - 固有時作用のLorentz不変性と再パラメータ不変性を具体計算で説明・証明できる
+  - 端点固定の変分から自由粒子の四元運動方程式を中間式を省かず導出できる
+  - 自由Lagrange関数から正準運動量と全エネルギーを求め四元運動量と照合できる
+  - 質量一定の外力モデルで仕事率と四元力の直交性・質量殻保存を導出できる
+  - 一次元一定力の運動を解き自由作用が扱える場合と扱えない場合を区別できる
+definitions:
+  - { id: SREL4-DEF-01, name: 自由質点の固有時作用 }
+  - { id: SREL4-DEF-02, name: 正準運動量と正準エネルギー }
+  - { id: SREL4-DEF-03, name: 三次元力と仕事率 }
+  - { id: SREL4-DEF-04, name: 四元力 }
+theorems:
+  - { id: SREL4-PROP-01, name: 自由作用のLorentz不変性と再パラメータ不変性 }
+  - { id: SREL4-THM-01, name: 自由質点の変分方程式 }
+  - { id: SREL4-THM-02, name: 正準量と四元運動量の一致 }
+  - { id: SREL4-PROP-02, name: 相対論的な仕事とエネルギー }
+  - { id: SREL4-THM-03, name: 四元力の成分・直交性・質量殻保存 }
+  - { id: SREL4-PROP-03, name: 一次元の一定力と固有加速度 }
+canonical_examples:
+  - 静止と速さ3c/5の固有時作用を比較し端点の違いを注意する
+  - 瞬間静止系における正準量と四元力の直接検算
+  - 一次元の座標加速度から三次元力を計算する
+  - 一定力の世界線と有限時刻での光速未到達を確認する
+  - 一定の時間成分ゼロの四元力が質量殻を壊す反例
+problem_patterns:
+  - SREL4-PROPER-TIME-ACTION
+  - SREL4-CANONICAL-ENERGY
+  - SREL4-FREE-INITIAL-VALUE
+  - SREL4-FOUR-FORCE-ORTHOGONALITY
+  - SREL4-TRANSVERSE-WORK
+  - SREL4-REPARAMETERIZATION
+  - SREL4-CONSTANT-FORCE
+  - SREL4-MASS-SHELL-FAILURE
+  - SREL4-PIECEWISE-FORCE-ENERGY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 4 }

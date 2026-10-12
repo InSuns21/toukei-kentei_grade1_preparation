@@ -19,7 +19,7 @@ chapters:
     title: 四元速度・四元運動量と質量殻
   - id: SREL4
     path: textbook/volumes/dream_thater/物理系/SREL/SREL4
-    status: planned
+    status: completed
     title: 相対論的質点の作用と運動方程式
   - id: SREL5
     path: textbook/volumes/dream_thater/物理系/SREL/SREL5
