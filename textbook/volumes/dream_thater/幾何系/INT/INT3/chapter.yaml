@@ -7,7 +7,9 @@ prerequisites:
   - INT2
   - SYM4
   - SYM6
+  - GEO7
   - GEO8
+  - GEO9
   - RA6A
 official_scope: []
 learning_objectives:

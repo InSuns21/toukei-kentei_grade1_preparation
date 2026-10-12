@@ -12,7 +12,7 @@
 $$
 I(E)=\frac{1}{2\pi}\oint_{\gamma_E}p\,dq
 $$
-を考えます。閉じた軌道の囲む面積が $\oint p\,dq$ になるのは、平面の向きに注意した[Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-stokes)による説明もできますが、以下では積分を軌道の上下の枝に分けて直接求めます。$I$ は角度一周を $2\pi$ と規格化した量です。
+を考えます。閉じた軌道の囲む面積が $\oint p\,dq$ になるのは、平面の向きに注意した[Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)による説明もできますが、以下では積分を軌道の上下の枝に分けて直接求めます。$I$ は角度一周を $2\pi$ と規格化した量です。
 
 <a id="def-int3-action"></a>
 
@@ -121,7 +121,7 @@ $$
 
 ### 証明の見取り図
 
-[INT2の周期格子](../INT2/index.md#lem-int2-period-lattice)を近接するレベルに連続的に運び、各方向に周期 $2\pi$ のベクトル場 $Y_j$ を作ります。このとき $\iota_{Y_j}\omega$ はトーラスに垂直な閉1形式なので作用 $I_j$ の微分になります。最後に角度の原点を $I$ の関数だけずらし、横断方向の余分な2形式を消します。
+[INT2の周期格子](../INT2/index.md#lem-int2-lattice)を近接するレベルに連続的に運び、各方向に周期 $2\pi$ のベクトル場 $Y_j$ を作ります。このとき $\iota_{Y_j}\omega$ はトーラスに垂直な閉1形式なので作用 $I_j$ の微分になります。最後に角度の原点を $I$ の関数だけずらし、横断方向の余分な2形式を消します。
 
 <!-- proof-start -->
 ### 証明
@@ -144,7 +144,7 @@ $$
 Y_j=\sum_i a_{ij}(c)X_{F_i},\qquad
 \iota_{Y_j}\omega=\sum_i a_{ij}(c)\,dc_i=:\sigma_j .
 $$
-$Y_j$ の流れ $\psi_j^t$ は $2\pi$ 後に恒等写像です。さらに $\sigma_j$ は $c$ のみの形式なので流れに沿って不変です。[Cartanの公式](../../GEO/GEO8/index.md#prop-geo8-cartan-formula)と $d\omega=0$ から
+$Y_j$ の流れ $\psi_j^t$ は $2\pi$ 後に恒等写像です。さらに $\sigma_j$ は $c$ のみの形式なので流れに沿って不変です。[Cartanの公式](../../GEO/GEO7/index.md#thm-geo7-cartan-formula)と $d\omega=0$ から
 $$
 \mathcal L_{Y_j}\omega=d(\iota_{Y_j}\omega)=d\sigma_j .
 $$
@@ -152,7 +152,7 @@ $\sigma_j$ は流れに沿って不変であるため、$\frac{d}{dt}(\psi_j^t)^
 $$
 0=(\psi_j^{2\pi})^*\omega-\omega=2\pi\,d\sigma_j
 $$
-となります。したがって $\sigma_j$ は閉1形式です。$c$ 空間を小さな開球に取ったので、[Poincaréの補題](../../GEO/GEO8/index.md#thm-geo8-poincare-lemma)から $\sigma_j=dI_j(c)$ と書けます。ヤコビ行列 $(\partial I_j/\partial c_i)_{ji}=(a_{ij})_{ji}$ は可逆です。ゆえに $I$ が横断方向の座標になります。
+となります。したがって $\sigma_j$ は閉1形式です。$c$ 空間を小さな開球に取ったので、[Poincaréの補題](../../GEO/GEO9/index.md#thm-geo9-poincare-lemma)から $\sigma_j=dI_j(c)$ と書けます。ヤコビ行列 $(\partial I_j/\partial c_i)_{ji}=(a_{ij})_{ji}$ は可逆です。ゆえに $I$ が横断方向の座標になります。
 
 **第3段階：シンプレクティック形式を標準化する。** いま $\iota_{Y_j}\omega=dI_j$ なので
 $$
@@ -170,7 +170,7 @@ $$
 $$
 角度変更は各トーラス上で平行移動にすぎないため、周期性は保たれます。
 
-**第4段階：作用積分との一致。** トーラスへの制限では $\omega|_N=0$ です。上の管状近傍は $N$ に変形収縮するので、閉2形式 $\omega$ の制限が零であることから、局所的に $d\alpha=-\omega$ の1形式が取れます（収縮に沿う微分形式のホモトピー公式を使えば、$\omega$ と零形式との差を外微分で表せます）。$Y_j$ が一周する閉曲線を $\gamma_j(c)$ とし、$J_j=(2\pi)^{-1}\oint_{\gamma_j}\alpha$ と置きます。$c_i$ を変えた微分は、閉曲線のパラメータ表示 $\gamma_j(c,u)$ に対する連鎖律と積分の部分積分により
+**第4段階：作用積分との一致。** トーラスへの制限では $\omega|_N=0$ です。上の管状近傍は $N$ に変形収縮するので、閉2形式 $\omega$ の制限が零であることから、局所的に $d\alpha=-\omega$ の1形式が取れます（[ホモトピー公式](../../GEO/GEO9/index.md#thm-geo9-homotopy-invariance)を使えば、$\omega$ と零形式との差を外微分で表せます）。$Y_j$ が一周する閉曲線を $\gamma_j(c)$ とし、$J_j=(2\pi)^{-1}\oint_{\gamma_j}\alpha$ と置きます。$c_i$ を変えた微分は、閉曲線のパラメータ表示 $\gamma_j(c,u)$ に対する連鎖律と積分の部分積分により
 $$
 \begin{aligned}
 \partial_{c_i}J_j
