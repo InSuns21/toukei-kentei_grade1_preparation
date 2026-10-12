@@ -12,5 +12,9 @@ chapters:
     title: 自己情報量・Shannonエントロピー・条件付け
   - id: INFO2
     path: textbook/volumes/00_foundations/INFO2
-    status: planned
+    status: completed
     title: 相対エントロピー・Gibbs不等式・データ処理不等式
+  - id: INFO3
+    path: textbook/volumes/00_foundations/INFO3
+    status: planned
+    title: 典型列と大数の法則による情報源の特徴付け
