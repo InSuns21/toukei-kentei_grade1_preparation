@@ -20,7 +20,7 @@ $$
 :U\longrightarrow\mathbb R^{2n}
 $$
 
-とする。座標の順序は各複素座標について実部・虚部を隣り合わせに固定する。[GEO2の接空間](../GEO/GEO2/index.md#def-geo2-tangent-derivation)や[接束](../GEO/GEO2/index.md#def-geo2-tangent-bundle)の構成をこの実座標に適用したいが、まず実座標の遷移が滑らかであることを保証する必要がある。
+とする。座標の順序は各複素座標について実部・虚部を隣り合わせに固定する。[GEO2の接空間](../../GEO/GEO2/index.md#def-geo2-tangent-derivation)や[接束](../../GEO/GEO2/index.md#def-geo2-tangent-bundle)の構成をこの実座標に適用したいが、まず実座標の遷移が滑らかであることを保証する必要がある。
 
 <a id="prop-cm1-03-real-atlas"></a>
 <!-- formal-statement-start -->
@@ -135,7 +135,7 @@ D_{\mathbb R}F_z(J_0v)
 =J_0(D_{\mathbb R}F_zv).
 $$
 
-従って線形写像としての等式が成り立つ。双正則の場合は $F^{-1}\circ F=\operatorname{id}$ を微分し、[連鎖律](../GEO/GEO2/index.md#thm-geo2-composition-differential)を用いると
+従って線形写像としての等式が成り立つ。双正則の場合は $F^{-1}\circ F=\operatorname{id}$ を微分し、[連鎖律](../../GEO/GEO2/index.md#thm-geo2-composition-differential)を用いると
 
 $$
 D_{\mathbb R}F^{-1}_{F(z)}D_{\mathbb R}F_z=I_{2n}
@@ -163,7 +163,7 @@ $$
 
 ## 5. 複素多様体が持つ標準のJを貼り合わせる
 
-実座標 $\varphi_{\mathbb R}$ を使うと、[GEO2の微分の座標表示](../GEO/GEO2/index.md#thm-geo2-differential-coordinate)によって $d\varphi_{\mathbb R}|_p$ は $T_pX_{\mathbb R}$ と $\mathbb R^{2n}$ の線形同型を与える。そこで
+実座標 $\varphi_{\mathbb R}$ を使うと、[GEO2の微分の座標表示](../../GEO/GEO2/index.md#thm-geo2-differential-coordinate)によって $d\varphi_{\mathbb R}|_p$ は $T_pX_{\mathbb R}$ と $\mathbb R^{2n}$ の線形同型を与える。そこで
 
 $$
 J^{(\varphi)}_p
@@ -186,7 +186,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$p\in U\cap V$ を取り、複素座標 $\varphi,\psi$ の遷移を $F=\psi\circ\varphi^{-1}$ とする。実座標での微分を $A=d\varphi_{\mathbb R}|_p$、$B=d\psi_{\mathbb R}|_p$ と書く。[多様体上の連鎖律](../GEO/GEO2/index.md#thm-geo2-composition-differential)から
+$p\in U\cap V$ を取り、複素座標 $\varphi,\psi$ の遷移を $F=\psi\circ\varphi^{-1}$ とする。実座標での微分を $A=d\varphi_{\mathbb R}|_p$、$B=d\psi_{\mathbb R}|_p$ と書く。[多様体上の連鎖律](../../GEO/GEO2/index.md#thm-geo2-composition-differential)から
 
 $$
 B=D_{\mathbb R}F_{\varphi(p)}A
@@ -236,7 +236,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$p\in X$ を取り、始点・終点の複素座標 $(U,\varphi)$、$(V,\psi)$ を選ぶ。$f$ は $C^1$ だから連続であり、必要なら $U\cap f^{-1}(V)$ に始点を縮める。[微分の座標表示](../GEO/GEO2/index.md#thm-geo2-differential-coordinate)を用い、$A=d\varphi_{\mathbb R}|_p$、$B=d\psi_{\mathbb R}|_{f(p)}$ とすると、
+$p\in X$ を取り、始点・終点の複素座標 $(U,\varphi)$、$(V,\psi)$ を選ぶ。$f$ は $C^1$ だから連続であり、必要なら $U\cap f^{-1}(V)$ に始点を縮める。[微分の座標表示](../../GEO/GEO2/index.md#thm-geo2-differential-coordinate)を用い、$A=d\varphi_{\mathbb R}|_p$、$B=d\psi_{\mathbb R}|_{f(p)}$ とすると、
 
 $$
 D_{\mathbb R}F_{\varphi(p)}
@@ -435,7 +435,7 @@ $$
 CR=RC=\begin{pmatrix}-2y&-2x\\2x&-2y\end{pmatrix}.
 $$
 
-$C$ は可逆なので $CR=RC$ の左から $C^{-1}$ を掛け、さらに右から $C^{-1}$ を掛けると $C^{-1}RC=R$。これは[誘導構造の座標不変性](#thm-cm1-03-induced-j)の具体例である。
+$C$ は可逆なので $CR=RC$ の左から $C^{-1}$ を掛けると $R=C^{-1}RC$。これは[誘導構造の座標不変性](#thm-cm1-03-induced-j)の具体例である。
 <!-- solution-end -->
 
 <a id="ex-cm1-03-b02"></a>
