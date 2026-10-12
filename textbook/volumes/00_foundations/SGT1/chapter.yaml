@@ -1,0 +1,47 @@
+id: "SGT1"
+title: "重み付きグラフと組合せLaplacian"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00F1
+official_scope: []
+learning_objectives:
+  - 有限無向非負重み付きグラフ、次数、体積、孤立頂点と組合せLaplacianを定義して具体的に計算できる
+  - Dirichletエネルギーの辺表示を二重和から導き、半正定値性と非負固有値を証明できる
+  - 正重みの道を用いてLaplacianの核と連結成分との一対一対応を証明できる
+  - path、cycle、complete graphの固有値と重複度を固有ベクトルから計算できる
+  - cutの重みと指示ベクトルの二次形式の一致を証明できる
+  - 変分表示をスペクトル分解から導き、細い橋の第二固有値を上から評価できる
+definitions:
+  - { id: SGT1-DEF-01, name: 有限無向重み付きグラフ }
+  - { id: SGT1-DEF-02, name: 重み付き次数・体積 }
+  - { id: SGT1-DEF-03, name: 組合せLaplacian }
+  - { id: SGT1-DEF-04, name: 道・連結成分 }
+  - { id: SGT1-DEF-05, name: Cutの重み }
+theorems:
+  - { id: SGT1-THM-01, name: Dirichletエネルギーの辺表示 }
+  - { id: SGT1-THM-02, name: 組合せLaplacianの半正定値性 }
+  - { id: SGT1-THM-03, name: 核と連結成分 }
+  - { id: SGT1-PROP-01, name: Cutと指示ベクトルのエネルギー }
+  - { id: SGT1-PROP-02, name: 非正規化Laplacianの変分表示 }
+canonical_examples:
+  - 重み2と1の三頂点道の隣接行列・次数行列・Laplacian・Dirichletエネルギー
+  - 孤立頂点を含むグラフの核の次元
+  - 三頂点道と四頂点サイクルの直交固有ベクトル
+  - 完全グラフの固有値と重複度
+  - 二つの三角形を橋で結んだグラフのcutと第二固有値の変分上界
+problem_patterns:
+  - SGT1-WEIGHTED-PATH
+  - SGT1-ISOLATED-KERNEL
+  - SGT1-PATH-EIGENVECTORS
+  - SGT1-CUT-VOLUME
+  - SGT1-TRACE-EDGE-WEIGHTS
+  - SGT1-PATH-CONNECTEDNESS-PROOF
+  - SGT1-COMPLETE-SPECTRUM
+  - SGT1-WEIGHTED-PATH-CHARPOLY
+  - SGT1-CYCLE-MULTIPLICITY
+  - SGT1-BRIDGE-VARIATIONAL
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 6, review: 2 }
