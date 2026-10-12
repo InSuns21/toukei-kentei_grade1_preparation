@@ -1,0 +1,87 @@
+chapter: NDA3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NDA2
+  - LA3C
+  - RA7
+  - F0-00B
+forward_references: []
+
+concepts:
+  - id: diophantine.full-rank-lattice
+    name: 全階数格子
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（格子と基本領域）]
+    requires: [linear.determinant-invertibility-criterion]
+
+  - id: diophantine.lattice-fundamental-domain
+    name: 格子の基本領域
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（格子と基本領域）]
+    requires: [diophantine.full-rank-lattice]
+
+  - id: diophantine.lattice-covolume
+    name: 格子の共体積
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（格子と基本領域）]
+    requires: [diophantine.lattice-fundamental-domain, analysis.linear-volume-scaling]
+
+  - id: diophantine.covolume-basis-independence
+    name: 共体積の基底不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（共体積の基底不変性）]
+    requires: [diophantine.lattice-covolume, linear.determinant-multiplicativity]
+
+  - id: diophantine.blichfeldt-lemma
+    name: Blichfeldt補題
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（Blichfeldt補題）]
+    requires: [diophantine.lattice-fundamental-domain, diophantine.lattice-covolume, analysis.jordan-measurable-set]
+
+  - id: diophantine.symmetric-convex-body
+    name: 原点対称な凸体
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（原点対称な凸体）]
+    requires: []
+
+  - id: diophantine.minkowski-convex-body-theorem
+    name: Minkowskiの凸体定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Minkowskiの凸体定理）]
+    requires: [diophantine.blichfeldt-lemma, diophantine.symmetric-convex-body, diophantine.covolume-basis-independence, topology.closed-set-sequential-characterization]
+
+  - id: diophantine.simultaneous-dirichlet-approximation
+    name: 同時Dirichlet近似
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（同時Dirichlet近似）]
+    requires: [diophantine.minkowski-convex-body-theorem]
+
+  - id: diophantine.infinitely-many-simultaneous-approximations
+    name: 分母無限個の同時近似
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（少なくとも一座標が無理数なら分母は無限個）]
+    requires: [diophantine.simultaneous-dirichlet-approximation]
+
+  - id: diophantine.minkowski-linear-forms-theorem
+    name: Minkowskiの線形形式定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Minkowskiの線形形式定理）]
+    requires: [diophantine.minkowski-convex-body-theorem, diophantine.lattice-covolume]
+
+  - id: diophantine.dual-linear-approximation
+    name: 整数係数線形結合の近似
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（整数係数線形結合の近似）]
+    requires: [diophantine.minkowski-linear-forms-theorem]
