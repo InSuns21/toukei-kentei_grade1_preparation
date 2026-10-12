@@ -646,7 +646,11 @@ $\omega$ が0へ近づくにつれこの上界が悪化することも、速い�
 
 ### B3. 弱減衰振動子の散逸と振幅
 
-$q''+q=-\varepsilon\gamma q'$、$\gamma>0$ に対し、(1) $E=(q^2+v^2)/2$ の時間微分、(2) 回転座標 $A$ の平均行列、(3) $0\le t\le T/\varepsilon$ で $R(t)$ の平均振幅からの誤差上界を求めよ。
+$q''+q=-\varepsilon\gamma q'$、$\gamma>0$ に対して次を求めよ。
+
+1. $E=(q^2+v^2)/2$ の時間微分
+2. 回転座標 $A$ の平均行列
+3. $0\le t\le T/\varepsilon$ での $R(t)$ の平均振幅からの誤差上界
 
 - Level: B
 - ID: CDYN7-B3

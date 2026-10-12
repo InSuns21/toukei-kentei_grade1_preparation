@@ -764,7 +764,13 @@ $$
 
 ### C1. 電磁波・不変量・応力・boostの総合計算
 
-$g\in C^2(\mathbb R)$、$\xi=x-ct$ とし、真空で $\boldsymbol E=(0,g(\xi),0)$、$\boldsymbol B=(0,0,g(\xi)/c)$、$J=0$ を考える。(1) Maxwell方程式を成分で確かめ、(2) 不変量 $I,K$ を計算し、(3) 非零の $T^{\mu\nu}$ 成分を求め、(4) $0<v<c$ の $x$ boost後に $u'/u$ を $g(\xi)\ne0$ の点で求め、(5) $\partial_\mu T^{\mu\nu}=0$ を成分で確認せよ。
+$g\in C^2(\mathbb R)$、$\xi=x-ct$ とし、真空で $\boldsymbol E=(0,g(\xi),0)$、$\boldsymbol B=(0,0,g(\xi)/c)$、$J=0$ を考える。
+
+1. Maxwell方程式を成分で確かめよ。
+2. 不変量 $I,K$ を計算せよ。
+3. 非零の $T^{\mu\nu}$ 成分を求めよ。
+4. $0<v<c$ の $x$ boost後に $u'/u$ を $g(\xi)\ne0$ の点で求めよ。
+5. $\partial_\mu T^{\mu\nu}=0$ を成分で確認せよ。
 
 - Level: C
 

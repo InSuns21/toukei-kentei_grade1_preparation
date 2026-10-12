@@ -386,12 +386,19 @@ $$
 ### Level A
 
 <a id="ex-gmech3-a01"></a>
-**A1. 一次元自由粒子。** $T^*\mathbb R$ に $\omega=dq\wedge dp$、平行移動 $a\cdot(q,p)=(q+a,p)$、$H=p^2/(2m_0)$（$m_0>0$）を与える。(1) 一般の $\xi\in\mathbb R$ に対する $J_\xi$、(2) $dH(\xi_M)$、(3) $\{J_\xi,H\}$ を求めよ。
+**A1. 一次元自由粒子。** $T^*\mathbb R$ に $\omega=dq\wedge dp$、平行移動 $a\cdot(q,p)=(q+a,p)$、$H=p^2/(2m_0)$（$m_0>0$）を与える。
+
+1. 一般の $\xi\in\mathbb R$ に対する $J_\xi$ を求めよ。
+2. $dH(\xi_M)$ を求めよ。
+3. $\{J_\xi,H\}$ を求めよ。
 
 - Level: A
 
 <!-- solution-start -->
-**詳細解答。** (1) 生成子は $\xi_M=\xi\partial_q$ です。[GMECH2の標準運動量写像](../GMECH2/index.md#thm-gmech2-cotangent-momentum)から $J_\xi=\xi p$ となります。(2) $dH=(p/m_0)\,dp$ だから
+**詳細解答。**
+
+1. 生成子は $\xi_M=\xi\partial_q$ です。[GMECH2の標準運動量写像](../GMECH2/index.md#thm-gmech2-cotangent-momentum)から $J_\xi=\xi p$ となります。
+2. $dH=(p/m_0)\,dp$ だから
 
 $$
 dH(\xi_M)=\frac{p}{m_0}\,dp(\xi\partial_q)=0.
@@ -407,12 +414,18 @@ $$
 <!-- solution-end -->
 
 <a id="ex-gmech3-a02"></a>
-**A2. 部分対称性。** $m_0>0$ とし、$T^*\mathbb R^2$ に $H=(p_x^2+p_y^2)/(2m_0)+y^2/2$ を入れる。(1) $x$ 方向の平行移動による $J$ を求めよ。(2) $\{p_x,H\}$ と $\{p_y,H\}$ を求め、何が保存されるか述べよ。
+**A2. 部分対称性。** $m_0>0$ とし、 $T^*\mathbb R^2$ に $H=(p_x^2+p_y^2)/(2m_0)+y^2/2$ を入れる。
+
+1. $x$ 方向の平行移動による $J$ を求めよ。
+2. $\{p_x,H\}$ と $\{p_y,H\}$ を求め、何が保存されるか述べよ。
 
 - Level: A
 
 <!-- solution-start -->
-**詳細解答。** (1) $x\mapsto x+a$ の位置生成子は $\partial_x$ なので、[余接持ち上げの標準運動量写像](../GMECH2/index.md#thm-gmech2-cotangent-momentum)は $J=p_x$ です。(2) [正準括弧](../../SYM/SYM4/index.md#prop-sym4-coordinate-bracket)を使えば
+**詳細解答。**
+
+1. $x\mapsto x+a$ の位置生成子は $\partial_x$ なので、[余接持ち上げの標準運動量写像](../GMECH2/index.md#thm-gmech2-cotangent-momentum)は $J=p_x$ です。
+2. [正準括弧](../../SYM/SYM4/index.md#prop-sym4-coordinate-bracket)を使えば
 
 $$
 \{p_x,H\}=-H_x=0,\qquad
@@ -500,7 +513,10 @@ $$
 <!-- solution-end -->
 
 <a id="ex-gmech3-b02"></a>
-**B2. 非等方振動子の角運動量。** $m_0>0$、$\alpha,\beta\in\mathbb R$ とし、$T^*\mathbb R^2$ に $H=(p_x^2+p_y^2)/(2m_0)+(\alpha x^2+\beta y^2)/2$ と $L=xp_y-yp_x$ を与える。(1) $\{L,H\}$ を導け。(2) $\alpha=\beta$ の場合と $\alpha\ne\beta$ の場合を区別し、後者で $L$ が全軌道に沿って保存されないことを示せ。
+**B2. 非等方振動子の角運動量。** $m_0>0$、$\alpha,\beta\in\mathbb R$ とし、 $T^*\mathbb R^2$ に $H=(p_x^2+p_y^2)/(2m_0)+(\alpha x^2+\beta y^2)/2$ と $L=xp_y-yp_x$ を与える。
+
+1. $\{L,H\}$ を導け。
+2. $\alpha=\beta$ の場合と $\alpha\ne\beta$ の場合を区別し、後者で $L$ が全軌道に沿って保存されないことを示せ。
 
 - Level: B
 
@@ -568,7 +584,11 @@ $$
 <!-- solution-end -->
 
 <a id="ex-gmech3-b04"></a>
-**B4. 非同変性と保存の論理。** $M=\mathbb R^2$、$\omega=dq\wedge dp$ に $G=\mathbb R^2$ が $(u,v)\cdot(q,p)=(q+u,p+v)$ と作用する。(1) $J=(p,-q)$ が運動量写像で非同変なことを確かめよ。(2) $G$ 不変な滑らかな $H$ が定数しかないことを示せ。(3) それでもNoetherの定理が適用できる理由を述べよ。
+**B4. 非同変性と保存の論理。** $M=\mathbb R^2$、$\omega=dq\wedge dp$ に $G=\mathbb R^2$ が $(u,v)\cdot(q,p)=(q+u,p+v)$ と作用する。
+
+1. $J=(p,-q)$ が運動量写像で非同変なことを確かめよ。
+2. $G$ 不変な滑らかな $H$ が定数しかないことを示せ。
+3. それでもNoetherの定理が適用できる理由を述べよ。
 
 - Level: B
 
@@ -586,7 +606,10 @@ $$
 J(q+u,p+v)-J(q,p)=(v,-u)
 $$
 
-であり非同変です。(2) 任意の二点 $(q,p),(q',p')$ は $(u,v)=(q'-q,p'-p)$ で結ばれます。不変性をこの群元へ適用すると $H(q',p')=H(q,p)$ だから $H$ は定数です。(3) $H=E_0$ なら $dH=0$、[SYM4のベクトル場の一意性](../../SYM/SYM4/index.md#thm-sym4-existence-coordinate)から $X_H=0$ です。[幾何学的Noetherの定理](#thm-gmech3-geometric-noether)は $J$ の同変性を要請しないので適用でき、$J$ はどの定数軌道でも保存されます。
+であり非同変です。
+
+2. 任意の二点 $(q,p),(q',p')$ は $(u,v)=(q'-q,p'-p)$ で結ばれます。不変性をこの群元へ適用すると $H(q',p')=H(q,p)$ だから $H$ は定数です。
+3. $H=E_0$ なら $dH=0$、[SYM4のベクトル場の一意性](../../SYM/SYM4/index.md#thm-sym4-existence-coordinate)から $X_H=0$ です。[幾何学的Noetherの定理](#thm-gmech3-geometric-noether)は $J$ の同変性を要請しないので適用でき、$J$ はどの定数軌道でも保存されます。
 <!-- solution-end -->
 
 ### Level C
@@ -600,7 +623,13 @@ H_{\alpha,\beta,\gamma}
 +\frac{\alpha x^2+\beta y^2}{2}+\gamma xp_x+\gamma yp_y
 $$
 
-とする。(1) 運動量写像 $J=L$ を生成子から求めよ。(2) $\{L,H_{\alpha,\beta,\gamma}\}$ を偏微分で計算せよ。(3) $H$ が全回転に不変であるための必要十分条件を示せ。(4) $\alpha\ne\beta$ では $L$ が保存されない初期値を一つ選び、時間微分を評価せよ。(5) $G$ を反射も含む $O(2)$ に拡大したとき、$\alpha=\beta$ なら保存量と群不変性の結論がどうなるか説明せよ。
+とする。
+
+1. 運動量写像 $J=L$ を生成子から求めよ。
+2. $\{L,H_{\alpha,\beta,\gamma}\}$ を偏微分で計算せよ。
+3. $H$ が全回転に不変であるための必要十分条件を示せ。
+4. $\alpha\ne\beta$ では $L$ が保存されない初期値を一つ選び、時間微分を評価せよ。
+5. $G$ を反射も含む $O(2)$ に拡大したとき、$\alpha=\beta$ なら保存量と群不変性の結論がどうなるか説明せよ。
 
 - Level: C
 

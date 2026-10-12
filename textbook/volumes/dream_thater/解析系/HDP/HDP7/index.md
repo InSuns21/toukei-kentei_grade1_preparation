@@ -828,7 +828,10 @@ $$
 
 ### C1. 母平均未知の行列誤差
 
-$d,n\ge1$、$0<\delta<1$ とし、$X_1,\ldots,X_n$ は独立同分布の等方的sub-Gaussianベクトル、全方向の $\psi_2$ ノルムは $K$ 以下とする。(1) $\widehat\Sigma_c=\widehat\Sigma_0-\bar X\bar X^{\mathsf T}$ を示せ。(2) 母平均既知の場合と標本平均の誤差に失敗確率をそれぞれ $\delta/2$ ずつ割り当て、$\|\widehat\Sigma_c-I_d\|_{\mathrm{op}}$ の同時確率評価を導け。
+$d,n\ge1$、$0<\delta<1$ とし、$X_1,\ldots,X_n$ は独立同分布の等方的sub-Gaussianベクトル、全方向の $\psi_2$ ノルムは $K$ 以下とする。
+
+1. $\widehat\Sigma_c=\widehat\Sigma_0-\bar X\bar X^{\mathsf T}$ を示せ。
+2. 母平均既知の場合と標本平均の誤差に失敗確率をそれぞれ $\delta/2$ ずつ割り当て、$\|\widehat\Sigma_c-I_d\|_{\mathrm{op}}$ の同時確率評価を導け。
 
 - Level: C
 - ID: HDP7-C1
@@ -872,7 +875,11 @@ $$
 
 ### C2. 特異な母集団共分散からの帰着
 
-$d=3$、$X=(2G,0,G)$ とする。ただし $G\sim N(0,1)$。(1) $\Sigma$ の階数・非零固有値・作用素ノルムを求めよ。(2) このベクトルが共分散尺度 $K=\sqrt{8/3}$ のsub-Gaussian条件を満たすことを示せ。(3) 独立標本 $X_1,\ldots,X_n$ の $\widehat\Sigma_0$ について、本章の一般共分散定理による確率評価を明記せよ。
+$d=3$、$X=(2G,0,G)$ とする。ただし $G\sim N(0,1)$。
+
+1. $\Sigma$ の階数・非零固有値・作用素ノルムを求めよ。
+2. このベクトルが共分散尺度 $K=\sqrt{8/3}$ のsub-Gaussian条件を満たすことを示せ。
+3. 独立標本 $X_1,\ldots,X_n$ の $\widehat\Sigma_0$ について、本章の一般共分散定理による確率評価を明記せよ。
 
 - Level: C
 - ID: HDP7-C2

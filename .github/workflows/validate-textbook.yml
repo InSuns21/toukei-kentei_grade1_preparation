@@ -102,6 +102,10 @@ jobs:
       - name: Self-test DREAM THEATER math layout lint
         run: npm run audit:math-layout -- --self-test
 
+      - name: Inventory all DREAM THEATER numbering and math layouts
+        if: github.event_name == 'pull_request'
+        run: npm run audit:math-layout
+
       - name: Check math layout regressions in changed DREAM THEATER chapters
         if: github.event_name == 'pull_request'
         env:

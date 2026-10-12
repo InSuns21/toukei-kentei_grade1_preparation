@@ -84,7 +84,7 @@ if (args.includes('--self-test')) {
     console.error('Specify base commit SHA using --base or TEXTBOOK_BASE_SHA');
     process.exit(2);
   }
-  const names = execFileSync('git', ['diff', '--name-only', '--diff-filter=ACMR', base, 'HEAD', '--', 'textbook/volumes/dream_thater'], { encoding: 'utf8' })
+  const names = execFileSync('git', ['-c', 'core.quotePath=false', 'diff', '--name-only', '--diff-filter=ACMR', base, 'HEAD', '--', 'textbook/volumes/dream_thater'], { encoding: 'utf8' })
     .split('\n')
     .filter(s => /^textbook\/volumes\/dream_thater\/[^/]+\/[^/]+\/[^/]+\/index\.md$/.test(s));
   if (names.length === 0) {
