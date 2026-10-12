@@ -745,16 +745,15 @@ $$
 \end{pmatrix}
 $$
 
-です。$P$ をこの置換行列とすれば $\Omega'=P^{\mathsf T}\Omega P$ であり、
+です。この並べ替えは、第2行と第3行を交換した後、第2列と第3列を交換する操作です。行・列それぞれの交換で行列式の符号が一回ずつ反転するため、
 
 $$
 \begin{aligned}
-\det\Omega'
-&=(\det P)^2\det\Omega=\det\Omega,\\
-\det\Omega'
+\det\Omega
+&=(-1)^2\det\Omega'\\
 &=\det\begin{pmatrix}0&h\\-h&0\end{pmatrix}
-\det\begin{pmatrix}0&1\\-1&0\end{pmatrix}
-=h^2>0.
+\det\begin{pmatrix}0&1\\-1&0\end{pmatrix}\\
+&=h^2\cdot1=h^2>0
 \end{aligned}
 $$
 
