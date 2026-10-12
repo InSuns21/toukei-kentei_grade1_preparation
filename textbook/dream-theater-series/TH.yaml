@@ -1,0 +1,39 @@
+version: 1
+id: TH
+title: "熱力学"
+plan: textbook/plans_progress/DREAM_THEATER_THERMODYNAMICS_PLAN.md
+chapter_root: textbook/volumes/00_foundations
+
+chapters:
+  - id: TH1
+    path: textbook/volumes/00_foundations/TH1
+    status: completed
+    title: 平衡状態・状態量・温度
+  - id: TH2
+    path: textbook/volumes/00_foundations/TH2
+    status: planned
+    title: 第一法則・内部エネルギー・熱・仕事
+  - id: TH3
+    path: textbook/volumes/00_foundations/TH3
+    status: planned
+    title: 第二法則・Carnotの定理・絶対温度
+  - id: TH4
+    path: textbook/volumes/00_foundations/TH4
+    status: planned
+    title: エントロピーと基本関係式
+  - id: TH5
+    path: textbook/volumes/00_foundations/TH5
+    status: planned
+    title: 熱力学ポテンシャルとLegendre変換
+  - id: TH6
+    path: textbook/volumes/00_foundations/TH6
+    status: planned
+    title: 熱力学的安定性・応答・凸性
+  - id: TH7
+    path: textbook/volumes/00_foundations/TH7
+    status: planned
+    title: 化学ポテンシャル・多成分系・相平衡
+  - id: TH8
+    path: textbook/volumes/00_foundations/TH8
+    status: planned
+    title: 相転移・磁性・Landau理論への入口
