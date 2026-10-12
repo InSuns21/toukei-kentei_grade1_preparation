@@ -55,9 +55,9 @@ $$
 >
 > 特に $d\ge1$ 個の代数的に従属な元 $u_1,\ldots,u_d$ を取り、$L/k(u_1,\ldots,u_d)$ が代数拡大なら、
 >
-$
+$$
 \operatorname{trdeg}_k L\le d-1
-$
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -73,17 +73,17 @@ $
 
 個数の一意性に必要な**交換操作**を確認します。$u$ が $k(t_1,\ldots,t_d)$ 上代数的で、$k$ 上超越的とします。$T=\{t_1,\ldots,t_d\}$ の部分集合から、$u$ がその元の生成する体の上で代数的となるものを選び、その中で要素数最小のものを $S$ とします。$u$ は $k$ 上超越的だから $S$ は空でありません。$t_i\in S$ を一つ選び、$E=k(S\setminus\{t_i\})$ とします。$S$ の最小性から $u$ は $E$ 上超越的ですが、$u$ は $E(t_i)$ 上代数的です。従って分母を払って
 
-$
+$$
 F(t_i,u)=0,\qquad 0\ne F(T,U)\in E[T,U]
-$
+$$
 
 という関係式を得ます。$u$ は $E$ 上超越的なので $F$ は $T$ に関して定数ではありえず、$F(T,u)$ は $E(u)[T]$ の**非零**多項式です。よって $t_i$ は $E(u)$ 上代数的です。
 
-さらに $T\setminus S$ の元は $k(S)$ 上代数的独立です。$u$ が $E(T\setminus S)$ 上代数的だと仮定すると、$u$ の多項式関係式の分母を払い、$T\setminus S$ の各単項式の係数を比較すれば、$u$ はすでに $E$ 上代数的となって矛盾します。従って $u$ は $k(T\setminus\{t_i\})$ 上超越的です。これにより
+さらに $T\setminus S$ の元は $k(S)$ 上代数的独立です。$u$ は $k(S)$ 上代数的なので、$T\setminus S$ は $E(t_i,u)$ 上も代数的独立です。$u$ が $E(T\setminus S)$ 上代数的だと仮定すると、$u$ の多項式関係式の分母を払い、$T\setminus S$ の各単項式の係数を比較すれば、$u$ はすでに $E$ 上代数的となって矛盾します。従って $u$ は $k(T\setminus\{t_i\})$ 上超越的です。これにより
 
-$
+$$
 T'=(T\setminus\{t_i\})\cup\{u\}
-$
+$$
 
 は代数的独立で、$t_i$ は $k(T')$ 上代数的、従って元の $K$ も $k(T')$ 上代数的です。これが一つの旧変数を新変数へ交換する操作です。
 
@@ -186,7 +186,7 @@ $$
 
 各段の商は残りの変数の多項式環なので整域、真の包含は次の変数が前段のイデアルに属さないことで確認できます。$d=0$ のときは体 $B=k$ の素イデアル $(0)$ だけを用います。[整拡大の素イデアルの持ち上げ](#lem-ag1-09-integral-prime-lifting)の (1) で最初の素イデアルの上に $\mathfrak p_0$ を取り、(2) を各段へ順次適用します。収縮が真に増えるので持ち上げた素イデアルも真に増え、長さ $d$ の鎖が $A$ にできます。従って $\dim A\ge d$ です。
 
-**上界。** 任意の素イデアル鎖 $\mathfrak p_0\subsetneq\cdots\subsetneq\mathfrak p_r$ を取ります。$A_i=A/\mathfrak p_i$ は有限生成 $k$ 代数の整域なので、$d_i=\operatorname{trdeg}_k\operatorname{Frac}(A_i)$ と書けます。$i<r$ について $D=A_i$、$\mathfrak q=\mathfrak p_{i+1}/\mathfrak p_i\ne(0)$ とし、$D$ に Noether正規化を適用して $k[u_1,\ldots,u_{d_i}]\subset D$ を有限整拡大として取ります。
+**上界。** 任意の素イデアル鎖 $\mathfrak p_0\subsetneq\cdots\subsetneq\mathfrak p_r$ を取ります。$A_i=A/\mathfrak p_i$ は有限生成 $k$ 代数の整域なので、$d_i=\operatorname{trdeg}_k\operatorname{Frac}(A_i)$ と書けます。$i<r$ について $D=A_i$、$\mathfrak q=\mathfrak p_{i+1}/\mathfrak p_i\ne(0)$ とし、$D$ に [Noether正規化](../AG1-06/index.md#thm-ag1-06-noether-normalization)を適用して $k[u_1,\ldots,u_{d_i}]\subset D$ を有限整拡大として取ります。
 
 このとき $\mathfrak q\cap k[u_1,\ldots,u_{d_i}]\ne(0)$ です。もし共通部分が零なら、非零多項式全体 $S=k[u_1,\ldots,u_{d_i}]\setminus\{0\}$ で局所化すると $S^{-1}D$ は体 $k(u_1,\ldots,u_{d_i})$ 上有限次元の整域になります。有限次元の体上代数で非零元 $a$ の乗法写像は、整域性により単射、有限次元性により全射です。従って $ab=1$ となる $b$ が存在して $S^{-1}D$ は体です。しかし $\mathfrak q\cap S=\varnothing$ なので $S^{-1}\mathfrak q$ は真のイデアルであり、$\mathfrak q\ne0$ だから零でもありません。体のイデアルは $(0)$ と全体しかないことに矛盾します。
 
@@ -237,7 +237,7 @@ $$
 これらの積 $\mathfrak p_1\cdots\mathfrak p_s$ は共通部分に含まれて零です。任意の素イデアル $\mathfrak q\subset A$ はこの積を含むので、素性を各因子へ繰り返し適用すれば、ある $j$ で $\mathfrak p_j\subseteq\mathfrak q$ です。従って任意の鎖の先頭 $\mathfrak q_0$ の下に $\mathfrak p_j$ を置けます。鎖全体が $\mathfrak p_j$ を含む素イデアルからなり、それらは $A/\mathfrak p_j$ の素イデアル鎖に一対一に対応します。よって各鎖の長さはある $\dim(A/\mathfrak p_j)$ 以下です。逆に任意の $A/\mathfrak p_j$ の鎖は $A$ の鎖になるので、両方向を合わせて最大値の式を得ます。
 <!-- proof-end -->
 
-**具体計算。** $k[x,y]/(y-x^2)\simeq k[x]$ は次元1です。$k[x,y,z]/(xy)$ は二つの極小素イデアル $(x)/(xy)$、$(y)/(xy)$ を持ち、商はそれぞれ $k[y,z]$、$k[x,z]$ なので次元2です。これに対し $k[x,y]/(x^2,y^3)$ は冪零元を含みますが根基が $(x,y)$ なので次元0です。**次元は重なりの冪の厚みを数えません**。その厚みは後の接空間・特異点の議論で重要になります。
+**具体計算。** $k[x,y]/(y-x^2)\simeq k[x]$ は次元1です。$k[x,y,z]/(xy)$ は二つの極小素イデアル $(x)/(xy)$、$(y)/(xy)$ を持ち、商はそれぞれ $k[y,z]$、$k[x,z]$ なので次元2です。これに対し $k[x,y]/(x^2,y^3)$ は冪零元を含みますが根基が $(x,y)$ なので次元0です。**次元は重なりの冪の厚みを数えません**。その厚みは後の局所的な一次近似と特異点の議論で重要になります。
 
 ## 6. 演習：自由変数と素イデアル鎖を往復する
 
