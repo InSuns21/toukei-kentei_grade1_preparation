@@ -689,6 +689,7 @@
 1. [AG1-01 多変数多項式とアフィン代数的集合](textbook/volumes/dream_thater/代数系/AG/AG1-01/index.md)
 2. [AG1-02 既約集合・素イデアルと既約成分](textbook/volumes/dream_thater/代数系/AG/AG1-02/index.md)
 3. [AG1-03 座標環とアフィン代数多様体の正則写像](textbook/volumes/dream_thater/代数系/AG/AG1-03/index.md)
+4. [AG1-04 局所化・局所環・点の近傍での関数](textbook/volumes/dream_thater/代数系/AG/AG1-04/index.md)
 
 <a id="dt-subject-lie-theory"></a>
 ### Lie 理論
