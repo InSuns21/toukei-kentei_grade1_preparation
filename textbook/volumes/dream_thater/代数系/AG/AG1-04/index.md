@@ -262,7 +262,20 @@ $$
 **定義の確認**：$X=\mathbb C$、$p=0$ なら $A=\mathbb C[t]$、$\mathfrak m_0=(t)$ です。実際、$a(0)=0$ と $a=tq$ は[一次式による多項式除法](../../RNG/RNG4/index.md#thm-rng4-division-algorithm)から同値です。従って $S_0$ は定数項が零でない多項式全体であり、$(1+t)^{-1}\in A_{\mathfrak m_0}$ ですが $t^{-1}$ はこの表示の分母として認められません。
 <!-- definition-example-end -->
 
-一般に**局所環**とは極大イデアルをちょうど一つ持つ単位的可換環です。今作った環が本当に局所環であることは、元の可逆性を判定して示します。
+ここで「局所環」という用語を一般の可換環に対して定義します。体は典型的な例ですが、点の近くにある可逆な関数をまとめた環もこの性質を持ちます。
+
+<a id="def-ag1-04-local-ring"></a>
+
+<!-- formal-statement-start -->
+> **定義（局所環）**  
+> 単位元 $1\ne0$ を持つ可換環 $R$ が局所環であるとは、$R$ が極大イデアルをちょうど一つ持つことをいう。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-ag1-04-local-ring -->
+**定義の確認**：体 $k$ のイデアル $J$ が非零元 $a$ を含むと、$a^{-1}a=1\in J$ なので $J=k$ です。従って $k$ の真のイデアルは $(0)$ だけです。商 $k/(0)\simeq k$ は体なので、[極大イデアルと商体の定理](../../RNG/RNG2/index.md#thm-rng2-maximal-quotient-field)から $(0)$ は極大です。唯一の極大イデアルが $(0)$ であるため、体は局所環の直接例です。
+<!-- definition-example-end -->
+
+今作った $A_{\mathfrak m_p}$ が局所環であることは、元の可逆性を判定して示します。
 
 <a id="thm-ag1-04-local-ring"></a>
 
