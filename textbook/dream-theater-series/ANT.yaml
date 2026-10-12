@@ -4,7 +4,7 @@ title: "解析的整数論"
 plan: textbook/plans_progress/DREAM_THEATER_ANALYTIC_NUMBER_THEORY_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
-# ANT1 完了。次章は先頭の planned (ANT2)。
+# ANT1・ANT2 完了。次章は先頭の planned (ANT3)。
 # 公開索引・目次・knowledge DAGには、各章の本文と検証が完了した時点で追加する。
 chapters:
   - id: ANT1
@@ -13,7 +13,7 @@ chapters:
     title: 算術関数の平均と部分和
   - id: ANT2
     path: textbook/volumes/dream_thater/代数系/ANT/ANT2
-    status: planned
+    status: completed
     title: Dirichlet級数・Euler積の一般論
   - id: ANT3
     path: textbook/volumes/dream_thater/代数系/ANT/ANT3
