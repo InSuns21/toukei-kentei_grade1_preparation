@@ -16,7 +16,7 @@ chapters:
     title: "Hamilton作用と運動量写像"
   - id: GMECH3
     path: textbook/volumes/dream_thater/幾何系/GMECH/GMECH3
-    status: planned
+    status: completed
     title: "幾何学的Noetherの定理"
   - id: GMECH4
     path: textbook/volumes/dream_thater/幾何系/GMECH/GMECH4
