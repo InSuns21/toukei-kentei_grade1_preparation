@@ -269,7 +269,7 @@ $$
 
 $$
 \begin{aligned}
-N(r)&=N(\beta)\,N(\alpha/\beta-q)\\
+N(r)&=|r|^2=|\beta|^2|\alpha/\beta-q|^2\\
 &=N(\beta)\bigl((u-h)^2+(v-k)^2\bigr)\\
 &\le\frac12N(\beta)<N(\beta).
 \end{aligned}
