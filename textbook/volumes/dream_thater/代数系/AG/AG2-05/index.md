@@ -500,15 +500,15 @@ $X=V(xy)\subseteq\mathbb A^2_k$（$k=\mathbb C$）と $O=(0,0)$ を考える。$
 
 **（1）** $X$ 上で $xy=0$ なので $x,y$ が同時に非零となる点はなく、
 
-$
+$$
 D(x)\cap D(y)=\varnothing.
-$
+$$
 
 一方、$x=y=0$ を満たす $X$ 上の点は原点のみですから
 
-$
+$$
 D(x)\cup D(y)=X\setminus\{O\}=U
-$
+$$
 
 です。
 
