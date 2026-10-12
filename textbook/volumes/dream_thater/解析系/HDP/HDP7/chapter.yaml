@@ -7,6 +7,7 @@ prerequisites:
   - HDP3
   - HDP1
   - F0-00F2
+  - F0-00P4
 official_scope: []
 learning_objectives:
   - 全方向のpsi2条件を定義し等方性・座標別条件・次元一様性を区別できる
