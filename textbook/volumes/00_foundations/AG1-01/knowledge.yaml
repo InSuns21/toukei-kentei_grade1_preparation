@@ -5,8 +5,7 @@ prerequisites:
   - RNG4
   - FLD0
   - TOP1
-forward_references:
-  - algebra.algebraically-closed-field
+forward_references: []
 
 concepts:
   - id: algebraic-geometry.multivariate-polynomial-ring
