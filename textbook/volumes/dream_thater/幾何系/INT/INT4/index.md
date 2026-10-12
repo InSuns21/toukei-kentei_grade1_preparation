@@ -314,7 +314,7 @@ $$
 S_M(\theta+he_j)-S_M(\theta)
 =\int_0^h\partial_{\theta_j}S_M(\theta+ue_j)\,du
 $$
-で $M\to\infty$ として $\partial_{\theta_j}\chi=T_j$ を得ます。同じ議論を高階微分に繰り返せば、次数 $s$ 以下の形式微分が実際の導関数です。
+で $M\to\infty$ として $\partial_{\theta_j}\chi=T_j$ を得ます。同じ議論を高階微分に繰り返せば、次数 $s$ 以下で項別に作った微分級数が、実際の導関数を表します。
 
 係数ごとには $i(k\cdot\Omega)\chi_k=g_k$ が成り立ちます。さらに $r>s+\tau+n\ge n$ と $|g_k|\le n^rM_r|k|_1^{-r}$ より、$g$ のFourier級数
 $$
