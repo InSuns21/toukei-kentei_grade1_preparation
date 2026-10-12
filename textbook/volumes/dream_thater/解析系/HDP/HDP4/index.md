@@ -1,8 +1,8 @@
 # HDP4 Doob差分と有界差分不等式
 
-[HDP1のHoeffding不等式](../HDP1/index.md#thm-hdp1-hoeffding)では独立な確率変数の**和**を評価しました。[HDP3のsub-Gaussian和の集中](../HDP3/index.md#thm-hdp3-subgaussian-sum)でも、和に分解できることが重要でした。ところが標本の最大値、経験分布関数の上限、ランダムグラフの三角形数のように、観測をまとめた**非線形な関数**は、元の形では独立変数の和ではありません。
+[HDP1のHoeffding不等式](../HDP1/index.md#thm-hdp1-hoeffding)では独立な確率変数の**和**を評価しました。[HDP3のsub-Gaussian和の集中](../HDP3/index.md#thm-hdp3-subgaussian-sum)でも、和に分解できることが重要でした。ところが標本の最大値、経験分布関数の上限、ランダムグラフの三角形数のように、観測をまとめた**独立変数の単純な和ではない関数**は、元の形では独立変数の和ではありません。
 
-ここで必要なのは、出力全体を直接分解する代わりに「第 $i$ 番目の入力を知ったことで予測値がどれだけ動いたか」を足し合わせる考え方です。一つの入力を入れ替えても結果が少ししか変わらないなら、条件付き期待値で作った差分も小さいはずです。この一歩を厳密に確認すると、非線形関数にも指数型の集中評価が得られます。
+ここで必要なのは、出力全体を直接分解する代わりに「第 $i$ 番目の入力を知ったことで予測値がどれだけ動いたか」を足し合わせる考え方です。一つの入力を入れ替えても結果が少ししか変わらないなら、[条件付き期待値](../../F0/F0-00P3A/index.md#def-f0-00p3a-conditional-expectation)で作った差分も小さいはずです。この一歩を厳密に確認すると、非線形関数にも指数型の集中評価が得られます。
 
 ## 1. 入力の入れ替えを測る
 
@@ -35,7 +35,7 @@ $$
 $|x_i-x_i'|\le1$ より $c_i=1/n$ を選べます。すべての $n$ 座標を同時に変える条件ではなく、**一つずつ入れ替える**条件です。
 <!-- definition-example-end -->
 
-$S_i$ 上で $f$ の基準点 $x^*=(x_1^*,\ldots,x_n^*)$ を一つ固定すると、一座標ずつ基準点へ置き換える三角不等式から
+$S_i$ 上で $f$ の基準点 $x^*=(x_1^*,\ldots,x_n^*)$ を一つ固定すると、一座標ずつ基準点へ置き換え、その各差に三角不等式を適用すると
 
 $$
 |f(x)-f(x^*)|\le\sum_{i=1}^n c_i.
@@ -71,7 +71,7 @@ $$
 従って $D_1=X_1-1/2$、$D_2=2(X_2-1/2)$、その和は $Z-3/2$ です。各差分の条件付き平均は零で、値域の幅はそれぞれ $1$ と $2$ です。
 <!-- definition-example-end -->
 
-ここで「マルチンゲール」と言うためには、$M_i$ が $\mathcal F_i$ によって観測可能であることと、条件付きで予測値が変わらないことを確認します。条件付き期待値の塔の性質により
+ここで「マルチンゲール」と言うためには、$M_i$ が $\mathcal F_i$ によって観測可能であることと、条件付きで予測値が変わらないことを確認します。[条件付き期待値の塔の性質](../../F0/F0-00P3A/index.md#thm-f0-00p3a-tower)により
 
 $$
 E[M_i\mid\mathcal F_{i-1}]
@@ -272,12 +272,12 @@ $$
 
 ### 証明の見取り図
 
-[Doob差分](#def-hdp4-doob-differences)を構成すると、[条件付き幅の補題](#lem-hdp4-conditional-range)により各差分の幅は $c_i$ です。差分和は $Z-EZ$ そのものなので、[区間幅によるAzuma–Hoeffding型不等式](#thm-hdp4-azuma-interval)を適用します。
+[Doob差分](#def-hdp4-doob-differences)を構成すると、[Doob差分の条件付き変動幅](#lem-hdp4-conditional-range)により各差分の幅は $c_i$ です。差分和は $Z-EZ$ そのものなので、[区間幅によるAzuma–Hoeffding型不等式](#thm-hdp4-azuma-interval)を適用します。
 
 <!-- proof-start -->
 ### 証明
 
-$V>0$ の場合、$\mathcal F_i=\sigma(X_1,\ldots,X_i)$、$M_i=E[Z\mid\mathcal F_i]$ と置きます。第2節の塔の性質により $(M_i)$ はマルチンゲールで、$M_0=EZ$、$M_n=Z$ です。[条件付き幅の補題](#lem-hdp4-conditional-range)の前提である入力の独立性と $f$ の座標別幅が成立するので、$D_i=M_i-M_{i-1}$ は $\mathcal F_{i-1}$ の下で幅高々 $c_i$ です。
+$V>0$ の場合、$\mathcal F_i=\sigma(X_1,\ldots,X_i)$、$M_i=E[Z\mid\mathcal F_i]$ と置きます。第2節の塔の性質により $(M_i)$ はマルチンゲールで、$M_0=EZ$、$M_n=Z$ です。[Doob差分の条件付き変動幅](#lem-hdp4-conditional-range)の前提である入力の独立性と $f$ の座標別幅が成立するので、$D_i=M_i-M_{i-1}$ は $\mathcal F_{i-1}$ の下で幅高々 $c_i$ です。
 
 従って[区間幅によるAzuma–Hoeffding型不等式](#thm-hdp4-azuma-interval)へ $M_n-M_0=Z-EZ$、幅平方和 $V$ を代入すると
 
@@ -374,7 +374,7 @@ P(|T-ET|\ge t)\le
 2\exp\left(-\frac{2t^2}{\binom m2(m-2)^2}\right).
 $$
 
-分布が同一のBernoulliである必要はなく、**辺同士の独立性**が必要です。
+分布が同一のBernoulliである必要はなく、**各辺の有無を表す確率変数の相互独立性**が必要です。
 
 ## 7. 独立性と中心化を取り違えない
 
@@ -439,7 +439,7 @@ $$
 V=\frac1{n^2}\sum_{i=1}^n(b_i-a_i)^2.
 $$
 
-$V>0$ なら[McDiarmidの不等式](#thm-hdp4-mcdiarmid)により
+$V>0$ なら[McDiarmidの有界差分不等式](#thm-hdp4-mcdiarmid)により
 
 $$
 P(|Z-EZ|\ge t)\le
@@ -463,7 +463,7 @@ $$
 V=\frac14+\frac19+\frac1{36}=\frac{9+4+1}{36}=\frac7{18}.
 $$
 
-[McDiarmidの不等式](#thm-hdp4-mcdiarmid)の両側評価は $2e^{-2t^2/V}$ なので、これを $0.05$ 以下にするには $e^{-2t^2/V}\le1/40$、すなわち $2t^2/V\ge\log40$ で十分です。従って
+[McDiarmidの有界差分不等式](#thm-hdp4-mcdiarmid)の両側評価は $2e^{-2t^2/V}$ なので、これを $0.05$ 以下にするには $e^{-2t^2/V}\le1/40$、すなわち $2t^2/V\ge\log40$ で十分です。従って
 
 $$
 t\ge\sqrt{\frac{7\log40}{36}}
@@ -493,7 +493,7 @@ $f:\prod_{i=1}^n S_i\to\mathbb R$ が全ての第 $i$ 座標について変動�
 - ID: HDP4-B1
 
 <!-- solution-start -->
-**詳細解答**　第 $i$ 座標だけが異なる $x,y$ に対し、$f_j(x)\le f_j(y)+c_i$ は全 $j$ で成立します。最大値を取ると $g(x)\le g(y)+c_i$ です。$x,y$ を交換すると $g(y)\le g(x)+c_i$ であり、両方から $|g(x)-g(y)|\le c_i$ です。$V=\sum_i c_i^2>0$ なら独立性と[McDiarmidの不等式](#thm-hdp4-mcdiarmid)から
+**詳細解答**　第 $i$ 座標だけが異なる $x,y$ に対し、$f_j(x)\le f_j(y)+c_i$ は全 $j$ で成立します。最大値を取ると $g(x)\le g(y)+c_i$ です。$x,y$ を交換すると $g(y)\le g(x)+c_i$ であり、両方から $|g(x)-g(y)|\le c_i$ です。$V=\sum_i c_i^2>0$ なら入力の独立性が成立するので、[McDiarmidの有界差分不等式](#thm-hdp4-mcdiarmid)から
 
 $$
 P(|g(X)-Eg(X)|\ge t)\le 2e^{-2t^2/V}.
@@ -540,7 +540,7 @@ $$
 \bigl||S(x)|-|S(x')|\bigr|\le|S(x)-S(x')|
 $$
 
-より $Z$ の第 $i$ 変動幅は $c_i=|w_i|$ と取れます。$W=\sum_iw_i^2>0$ なら[McDiarmidの不等式](#thm-hdp4-mcdiarmid)により
+より $Z$ の第 $i$ 変動幅は $c_i=|w_i|$ と取れます。$W=\sum_iw_i^2>0$ なら[McDiarmidの有界差分不等式](#thm-hdp4-mcdiarmid)により
 
 $$
 P(|Z-EZ|\ge t)\le2\exp(-2t^2/W).
@@ -564,7 +564,7 @@ $\mathcal F_0$ は自明ですが、$\mathcal F_i=\sigma(R)$（$i\ge1$）です�
 
 **Level C：高次元の最大標本平均**
 
-### C1. 座標数と観測数を分離する
+### C1. 座標の個数と観測数を分離する
 
 $X_1,\ldots,X_n$ は $[0,1]^d$ に値を取る独立同分布な確率ベクトルとし、$d\ge2$ とする。同一ベクトル内の座標間には独立性を仮定しない。$\mu_j=EX_{ij}$、
 
@@ -610,14 +610,14 @@ $$
 EZ\le\mu_*+\sqrt{\frac{\log d}{2n}}.
 $$
 
-(3) (1) と[McDiarmidの不等式](#thm-hdp4-mcdiarmid)から $P(Z-EZ\ge t)\le e^{-2nt^2}$ です。(2) により
+(3) (1) と[McDiarmidの有界差分不等式](#thm-hdp4-mcdiarmid)から $P(Z-EZ\ge t)\le e^{-2nt^2}$ です。(2) により
 
 $$
 \{Z\ge\mu_*+\sqrt{\log d/(2n)}+t\}
 \subseteq\{Z\ge EZ+t\}.
 $$
 
-よって求める確率も $e^{-2nt^2}$ 以下です。ここでは期待値の上界 (2) と期待値周りの集中 (3) を**別の仕事**として導いた点が重要です。座標間の独立性はどの段階でも使っていません。
+よって求める確率も $e^{-2nt^2}$ 以下です。ここでは期待値の上界 (2) と期待値周りの集中 (3) を**別々の役割**として導いた点が重要です。座標間の独立性はどの段階でも使っていません。
 <!-- solution-end -->
 
 ## 9. まとめ：何が変わったか
