@@ -284,7 +284,13 @@ $$
 
 <!-- formal-statement-start -->
 > **系（多項式方程式は有限個へ縮約できる）**  
-> $k$ を体、$n\ge0$、$E\subseteq k[x_1,\dots,x_n]$ を任意の集合とする。このとき有限個の $f_1,\dots,f_r\in E$ が存在し、$E$ 全体の共通零点集合と $f_1=\cdots=f_r=0$ の共通零点集合は一致する。$E=\varnothing$ なら $r=0$ とする。
+> $k$ を体、$n\ge0$、$E\subseteq k[x_1,\dots,x_n]$ を任意の集合とする。このとき $E$ の有限部分集合 $\{f_1,\dots,f_r\}$ が存在し、次が成り立つ。
+
+$
+V_k(E)=V_k(f_1,\dots,f_r).
+$
+
+> $E=\varnothing$ の場合は $r=0$ とし、両辺を $k^n$ と解釈する。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
