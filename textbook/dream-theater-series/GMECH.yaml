@@ -36,5 +36,5 @@ chapters:
     title: "Euler剛体の幾何学的力学"
   - id: GMECH8
     path: textbook/volumes/dream_thater/幾何系/GMECH/GMECH8
-    status: planned
+    status: completed
     title: "相対平衡・安定性・可積分系への橋"
