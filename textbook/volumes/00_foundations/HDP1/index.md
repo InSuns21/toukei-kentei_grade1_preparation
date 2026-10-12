@@ -338,7 +338,7 @@ $$
 
 $X_1,\ldots,X_n$ が相互に独立で、$0\le X_i\le1$ とします。同一分布は必要ありません。$\overline X=n^{-1}\sum_i X_i$ とすると $V=n$ です。
 
-[両側Hoeffding不等式](#cor-hdp1-two-sided) へ $t=n\varepsilon$ を代入すると
+[Hoeffdingの両側不等式](#cor-hdp1-two-sided) へ $t=n\varepsilon$ を代入すると
 
 $$
 \begin{aligned}
@@ -489,7 +489,7 @@ $$
 - ID: HDP1-A4
 
 <!-- solution-start -->
-**詳細解答**　幅の二乗和は $V=100$ です。平均の偏差 $0.1$ は和の偏差 $t=100\cdot0.1=10$ に等しいので、[両側Hoeffding不等式](#cor-hdp1-two-sided) により
+**詳細解答**　幅の二乗和は $V=100$ です。平均の偏差 $0.1$ は和の偏差 $t=100\cdot0.1=10$ に等しいので、[Hoeffdingの両側不等式](#cor-hdp1-two-sided) により
 
 $$
 P(|\overline X-E[\overline X]|\ge0.1)
@@ -594,7 +594,7 @@ $$
 - ID: HDP1-B3
 
 <!-- solution-start -->
-**詳細解答**　各固定 $j$ については列の中で独立なので、[両側Hoeffding不等式](#cor-hdp1-two-sided) を $t=n\varepsilon$、$V=n$ に適用できます。
+**詳細解答**　各固定 $j$ については列の中で独立なので、[Hoeffdingの両側不等式](#cor-hdp1-two-sided) を $t=n\varepsilon$、$V=n$ に適用できます。
 
 $$
 P(|\overline X_j-E[\overline X_j]|\ge\varepsilon)
@@ -640,7 +640,7 @@ P(|\overline X-p|\ge\varepsilon)
 =0.0225.
 $$
 
-一方、[両側Hoeffding不等式](#cor-hdp1-two-sided) は
+一方、[Hoeffdingの両側不等式](#cor-hdp1-two-sided) は
 
 $$
 P(|\overline X-p|\ge0.2)
@@ -667,7 +667,7 @@ $0<\varepsilon<1/2$、$0<\delta<1$、整数 $d,n\ge1$ とする。確率変数 $
 <!-- solution-start -->
 **詳細解答**
 
-**(1)**　$\overline X_j=n^{-1}\sum_iX_{ij}$ とします。固定した各 $j$ の $n$ 個について独立性と有界性があるので、[両側Hoeffding不等式](#cor-hdp1-two-sided) から
+**(1)**　$\overline X_j=n^{-1}\sum_iX_{ij}$ とします。固定した各 $j$ の $n$ 個について独立性と有界性があるので、[Hoeffdingの両側不等式](#cor-hdp1-two-sided) から
 
 $$
 P(|\overline X_j-\mu_j|\ge\varepsilon)
