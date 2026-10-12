@@ -33,6 +33,8 @@ $$
 <!-- definition-example-start: def-gmech5-basic-form -->
 ### 直接例：平行移動で消える座標
 
+**定義の確認**：制限形式が群作用に不変であり、群軌道方向に水平であることを、座標と内部積から個別に検証します。
+
 $M=T^*\mathbb R^2$ の座標を $(q_1,q_2,p_1,p_2)$ とし、$\omega=dq_1\wedge dp_1+dq_2\wedge dp_2$ とします。$G=(\mathbb R,+)$ が $q_1$ だけを $a$ だけ平行移動させると、$J=p_1$ です。[正則値の判定](../GMECH4/index.md#prop-gmech4-tangent-regular)を直接確認すると、$dJ=dp_1$ は全射であり、
 
 $$
