@@ -1,0 +1,91 @@
+chapter: NDA7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NDA6
+  - FLD1
+  - LA3C
+forward_references:
+  - ode.ode2-wronskian # conventional one-variable Wronskian as a contextual comparison, not a proof dependency
+concepts:
+  - id: diophantine.roth-theorem
+    name: Thue–Siegel–Rothの定理
+    aliases: [Rothの定理]
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Thue–Siegel–Rothの定理：実数の場合）]
+    # The formal statement depends only on rational approximation vocabulary;
+    # the later proof cites the auxiliary polynomial and Roth lemma at their uses.
+    requires: []
+  - id: diophantine.roth-finite-to-uniform
+    name: 有限例外から一様下界を作る
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（有限例外から一様下界を作る）]
+    requires: []
+  - id: diophantine.roth-uniform-bound
+    name: Rothの定数付き下界
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（Rothの定数付き下界）]
+    requires: [diophantine.roth-theorem, diophantine.roth-finite-to-uniform]
+  - id: diophantine.algebraic-irrationality-exponent
+    name: 代数的無理数の無理性指数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（代数的無理数の無理性指数）]
+    requires: [diophantine.roth-theorem, diophantine.irrationality-exponent]
+  - id: diophantine.integer-kernel-box
+    name: 整数線形方程式の箱詰め補題
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（整数線形方程式の箱詰め補題）]
+    requires: []
+  - id: diophantine.polynomial-height
+    name: 多項式の高さ
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（多項式の高さ）]
+    requires: []
+  - id: diophantine.taylor-coefficients
+    name: 多変数多項式の展開係数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（多変数多項式の展開係数）]
+    requires: []
+  - id: diophantine.algebraic-vanishing-polynomial
+    name: 代数的な点での高次消滅条件
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（代数的な点での高次消滅条件）]
+    requires: [algebra.minimal-polynomial-theorem, diophantine.taylor-coefficients]
+  - id: diophantine.weighted-index
+    name: 規格化した零点の指数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（規格化した零点の指数）]
+    requires: [diophantine.taylor-coefficients]
+  - id: diophantine.index-rules
+    name: 指数の演算則
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（指数の演算則）]
+    requires: [diophantine.weighted-index]
+  - id: diophantine.auxiliary-polynomial
+    name: 高さ付き補助多項式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（高さ付き補助多項式）]
+    requires: [diophantine.integer-kernel-box, diophantine.weighted-index, diophantine.polynomial-height, algebra.minimal-polynomial-theorem]
+  - id: diophantine.generalized-wronskian
+    name: 多項式の線形独立性と一般化Wronskian
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（多項式の線形独立性と一般化Wronskian）]
+    requires: [diophantine.taylor-coefficients]
+  - id: diophantine.roth-index-lemma
+    name: Rothの補題
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（Rothの補題）]
+    requires: [diophantine.weighted-index, diophantine.index-rules, diophantine.generalized-wronskian, diophantine.polynomial-height]

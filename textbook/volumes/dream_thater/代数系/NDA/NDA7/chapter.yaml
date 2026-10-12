@@ -1,0 +1,51 @@
+id: "NDA7"
+title: "Thue–Siegel–Rothの定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NDA6
+  - FLD1
+  - LA3C
+official_scope: []
+learning_objectives:
+  - Rothの定理を任意のepsilonと有限個の既約近似の量化を含めて正確に述べられる
+  - 有限例外から定数付き一様下界を作り代数的無理数の無理性指数2を証明できる
+  - 整数線形方程式の箱詰め補題を鳩の巣原理から証明できる
+  - 規格化した零点の指数を導入し積・微分の指数則を証明できる
+  - 消滅条件の個数を有限平均で評価し高さ付き補助多項式を構成できる
+  - 多変数一般化Wronskianの非消滅性とRothの補題の帰納法を再構成できる
+  - 分母と変数別次数を選び非零整数の下界とTaylor上界からRothの定理を完全に証明できる
+  - Rothの定理を三次Thue型不定方程式の有限性に適用できる
+definitions:
+  - { id: NDA7-DEF-01, name: 多項式の高さ }
+  - { id: NDA7-DEF-02, name: 多変数多項式の展開係数 }
+  - { id: NDA7-DEF-03, name: 規格化した零点の指数 }
+theorems:
+  - { id: NDA7-THM-01, name: Thue–Siegel–Rothの定理 }
+  - { id: NDA7-LEM-01, name: 有限例外から一様下界を作る }
+  - { id: NDA7-COR-01, name: Rothの定数付き下界 }
+  - { id: NDA7-THM-02, name: 代数的無理数の無理性指数 }
+  - { id: NDA7-LEM-02, name: 整数線形方程式の箱詰め補題 }
+  - { id: NDA7-LEM-03, name: 代数的な点での高次消滅条件 }
+  - { id: NDA7-LEM-04, name: 指数の演算則 }
+  - { id: NDA7-LEM-05, name: 高さ付き補助多項式 }
+  - { id: NDA7-LEM-06, name: 多項式の線形独立性と一般化Wronskian }
+  - { id: NDA7-LEM-07, name: Rothの補題 }
+canonical_examples:
+  - 三乗根2の次数によるLiouville評価とRothの改善
+  - 二行三列整数行列の整数核ベクトル
+  - 高さと規格化零点指数の直接計算
+  - 対角線上で零になる多項式のRoth補題に向けた失敗機構
+  - 三次Thue型方程式の解の有限性
+problem_patterns:
+  - NDA7-ROTH-QUANTIFIERS
+  - NDA7-FINITE-EXCEPTIONS
+  - NDA7-INTEGER-KERNEL
+  - NDA7-WEIGHTED-INDEX
+  - NDA7-AUXILIARY-COEFFICIENT-COUNT
+  - NDA7-ROTH-FINAL-EXPONENT
+  - NDA7-THUE-EQUATION-FINITENESS
+exercise_counts: { level_a: 5, level_b: 6, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 18, exercises: 9, review: 6 }
+past_exam_alignment: []
+integrated_exam_problems: []

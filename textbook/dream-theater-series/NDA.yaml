@@ -5,7 +5,7 @@ plan: textbook/plans_progress/DREAM_THEATER_DIOPHANTINE_APPROXIMATION_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # 2026-10-12 科目固有の直接依存・章ID・入口監査を完了。NDA1の執筆から開始する。
-# NDA1〜NDA6 本文・演習を完了。NDA7は主定理の核心証明未完のため未公開草稿、status plannedを維持。
+# NDA1〜NDA7 本文・証明・演習を完了。次のplannedはNDA8。
 chapters:
   - id: NDA1
     path: textbook/volumes/dream_thater/代数系/NDA/NDA1
@@ -33,7 +33,7 @@ chapters:
     title: Liouvilleの定理・Liouville数・超越性
   - id: NDA7
     path: textbook/volumes/dream_thater/代数系/NDA/NDA7
-    status: planned
+    status: completed
     title: Thue–Siegel–Rothの定理
   - id: NDA8
     path: textbook/volumes/dream_thater/代数系/NDA/NDA8

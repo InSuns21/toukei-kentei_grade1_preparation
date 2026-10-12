@@ -169,10 +169,9 @@ EOM017 は irrationality exponent の初出定義を担当しない。
 - 次はNDA3「数の幾何と同時Diophantine近似」。Blichfeldt補題からMinkowskiの凸体定理を導き、格子の行列式と体積条件を明示して同時Dirichlet近似へ進む。
 
 
-## 2026-10-13 NDA7 草稿・証明責務の棚卸し
+## 2026-10-13 NDA7 本文・証明・演習の完了
 
-- NDA7の未公開草稿は `textbook/plans_progress/drafts/NDA7/` に `index.md`・`chapter.yaml`・`knowledge.yaml` を置く。**通常の章ディレクトリには置かない**。公開導線の検証により未完成章も公開索引登録を要求されるため、草稿は学習者向け公開物から分離した。
-- Thue–Siegel–Rothの正確な量化、有限例外から一様定数を作る補題、Rothを仮定した `mu(alpha)=2` の導出、整数核の箱詰め補題、代数的点の展開係数の消滅を導く線形代数と演習 A5 / B3 / C1 を草稿化した。
-- **NDA7は未完了**：主定理の証明には、高さを制御した補助多項式（整数化後の具体係数上界）、Rothの補題（有理点における零点多重度の上界と非消滅）、変数別次数・急増分母を使った最終矛盾が残る。消滅条件の存在とRothの核心を混同しない。
-- `NDA.yaml` のNDA7は `planned` を維持し、公開索引・本文目次・global knowledge DAGへ登録しない。現状では後続章がNDA7を証明済みの依存とみなしてはならない。
-- 続きの作業では [Milojevic, *An elementary approach to Roth's theorem* (2022)](https://aleksa-milojevic.github.io/expository/roth.pdf) の補助多項式構成・Rothの補題・最終証明を、それぞれ定数、次数、高さ、指数を追って独立に再導出する。完成後に草稿の3ファイルを正規章ディレクトリへ**移動**し、NDA7全主要証明・全演習解答を区分Cとして改めて自己査読・別観点再査読し、系列manifestの完成・公開index更新とCI検証を同時に行う。
+- NDA7「Thue–Siegel–Rothの定理」の公開本文を `textbook/volumes/dream_thater/代数系/NDA/NDA7/` に実装し、前回の `textbook/plans_progress/drafts/NDA7/` 草稿3ファイルは同作業単位で削除した。
+- 主定理の全証明責務を、（1）次数付き零点指数と積・微分則、（2）消滅条件の有限平均と箱詰め補題による高さ付き補助多項式、（3）一般化Wronskianと変数数の帰納法で示すRothの補題、（4）分母増大・変数別次数・非零有理値の下界・Taylor上界の矛盾、（5）代数的整数から一般の代数的無理数への帰着、として閉じた。
+- Rothの定理の量化・有限例外からの一様下界・無理性指数2・三次Thue型整数方程式への応用と、演習A5/B5/C2（全12題の詳細解答）を対応させた。新規主要証明と全解答は区分Cとして出発点・中間式・条件の全件再計算と別観点再読を実施し、PRに記録する。
+- NDA7の章ファイル・NDA系列manifest・公開索引・本編目次・章内knowledgeを同時更新する。NDA8「計量的Diophantine近似」が次のplanned章であり、科目全体PLANは引き続き `plans_progress/` に置く。
