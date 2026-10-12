@@ -1,7 +1,7 @@
 version: 1
 id: SYM
 title: "シンプレクティック幾何学 I"
-plan: textbook/plans_progress/DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 chapters:
