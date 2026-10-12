@@ -1,0 +1,70 @@
+chapter: SREL7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SREL6
+forward_references: []
+
+concepts:
+  - id: relativity.particle-number-current
+    name: 粒子数四元流束
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（粒子数四元流束）]
+    requires: [relativity.four-velocity]
+
+  - id: relativity.particle-number-continuity
+    name: 粒子数保存の四元表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（粒子数保存の四元表示）]
+    requires: [relativity.particle-number-current]
+
+  - id: relativity.perfect-fluid-energy-momentum
+    name: 完全流体のエネルギー運動量テンソル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（完全流体のエネルギー運動量テンソル）]
+    requires: [relativity.four-velocity, relativity.minkowski-metric]
+
+  - id: relativity.perfect-fluid-covariant-form
+    name: 静止系の等方性から共変な形を導く
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（静止系の等方性から共変な形を導く）]
+    requires: [relativity.perfect-fluid-energy-momentum]
+
+  - id: relativity.perfect-fluid-lab-components
+    name: 観測系における完全流体の成分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（観測系における完全流体の成分）]
+    requires: [relativity.perfect-fluid-energy-momentum]
+
+  - id: relativity.fluid-orthogonal-projector
+    name: 流体に直交する射影テンソル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（流体に直交する射影テンソル）]
+    requires: [relativity.four-velocity, relativity.minkowski-metric]
+
+  - id: relativity.perfect-fluid-euler-balance
+    name: 完全流体の局所収支と相対論的Euler方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（完全流体の局所収支と相対論的Euler方程式）]
+    requires: [relativity.perfect-fluid-energy-momentum, relativity.fluid-orthogonal-projector]
+
+  - id: relativity.dust-geodesic-motion
+    name: 圧力のない粒子群の測地的な運動
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（圧力のない粒子群の測地的な運動）]
+    requires: [relativity.perfect-fluid-energy-momentum, relativity.particle-number-continuity]
+
+  - id: relativity.newtonian-fluid-limit
+    name: Newton流体への形式的低速極限
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Newton流体への形式的低速極限）]
+    requires: [relativity.perfect-fluid-euler-balance, relativity.particle-number-continuity]
