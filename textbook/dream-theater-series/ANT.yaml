@@ -4,12 +4,12 @@ title: "解析的整数論"
 plan: textbook/plans_progress/DREAM_THEATER_ANALYTIC_NUMBER_THEORY_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
-# 全章未執筆。次章は先頭の planned (ANT1)。
+# ANT1 完了。次章は先頭の planned (ANT2)。
 # 公開索引・目次・knowledge DAGには、各章の本文と検証が完了した時点で追加する。
 chapters:
   - id: ANT1
     path: textbook/volumes/dream_thater/代数系/ANT/ANT1
-    status: planned
+    status: completed
     title: 算術関数の平均と部分和
   - id: ANT2
     path: textbook/volumes/dream_thater/代数系/ANT/ANT2
