@@ -240,6 +240,8 @@ $$
 
 <a id="ref-info3-typical-probability-bound"></a>
 
+### 典型列ごとの確率上下界
+
 任意の $x^n\in T_{n,\varepsilon}(p)$ について[弱典型集合の定義](#def-info3-weak-typical)を移項すると
 
 $$
