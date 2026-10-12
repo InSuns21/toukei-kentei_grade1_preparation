@@ -1,0 +1,45 @@
+id: "INFO7"
+title: "通信路符号化定理：ランダム符号化による達成可能性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - INFO1
+  - INFO2
+  - INFO6
+official_scope: []
+learning_objectives:
+  - 有限離散通信路で情報密度の定義域・零確率事象を区別し具体例を計算できる
+  - 積通信路で情報密度の加法性・平均・分散と集中評価を導ける
+  - 閾値復号器を全域写像として定め衝突時の動作を説明できる
+  - 独立候補の誤検出確率を有限和から上界評価できる
+  - 独立な符号語を用いるランダム符号化上界を和集合評価から証明できる
+  - 容量未満の任意の伝送率で決定的符号列の平均誤りを零へ近づけられることを証明できる
+  - 達成可能性と弱逆定理を接続し平均誤り・最大誤りと極限を区別できる
+definitions:
+  - { id: INFO7-DEF-01, name: 情報密度とブロック情報密度 }
+  - { id: INFO7-DEF-02, name: 情報密度閾値復号器 }
+theorems:
+  - { id: INFO7-PROP-01, name: 情報密度の加法性と平均 }
+  - { id: INFO7-LEM-01, name: 独立候補の閾値超過確率 }
+  - { id: INFO7-THM-01, name: 情報密度閾値によるランダム符号化上界 }
+  - { id: INFO7-THM-02, name: 有限離散無記憶通信路の符号化・達成可能性 }
+  - { id: INFO7-COR-01, name: 有限離散無記憶通信路の通信路符号化定理 }
+canonical_examples:
+  - 反転確率4分の1の二元対称通信路の正負情報密度
+  - 雑音のない二値通信での閾値復号と符号語の衝突
+  - 二元消失通信路の情報密度分布と分散
+  - 反転・消失通信路の閾値と誤検出評価
+problem_patterns:
+  - INFO7-INFORMATION-DENSITY
+  - INFO7-ERASURE-DENSITY
+  - INFO7-FALSE-ALARM
+  - INFO7-RANDOM-CODING-BOUND
+  - INFO7-CHEBYSHEV-CONCENTRATION
+  - INFO7-SUPPORT-BOUND
+  - INFO7-THRESHOLD-GAP
+  - INFO7-CODEBOOK-COLLISION
+  - INFO7-CHANNEL-CODING-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 6, review: 5 }
