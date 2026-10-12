@@ -678,6 +678,11 @@
 7. [GMECH7 Euler剛体の幾何学的力学](textbook/volumes/dream_thater/幾何系/GMECH/GMECH7/index.md)
 8. [GMECH8 相対平衡・安定性・可積分系への橋](textbook/volumes/dream_thater/幾何系/GMECH/GMECH8/index.md)
 
+<a id="dt-subject-integrable-systems"></a>
+### 可積分系と摂動論・KAM
+
+1. [INT1 第一積分とLiouville可積分性](textbook/volumes/dream_thater/幾何系/INT/INT1/index.md)
+
 ## 代数系
 
 <a id="dt-subject-abstract-algebra"></a>
