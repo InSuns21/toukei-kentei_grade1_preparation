@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - SREL6
   - TH1
+  - VC4
 forward_references: []
 
 concepts:
