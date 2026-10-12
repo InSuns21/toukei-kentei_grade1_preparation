@@ -40,7 +40,7 @@ chapters:
     title: 非可換モーメント母関数と行列Bernstein
   - id: HDP9
     path: textbook/volumes/dream_thater/解析系/HDP/HDP9
-    status: planned
+    status: completed
     title: Hanson–Wrightの二次形式集中
   - id: HDP10
     path: textbook/volumes/dream_thater/解析系/HDP/HDP10

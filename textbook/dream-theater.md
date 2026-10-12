@@ -275,6 +275,7 @@
 25. [HDP6 ε-netとJohnson–Lindenstrauss射影](textbook/volumes/dream_thater/解析系/HDP/HDP6/index.md)
 26. [HDP7 sub-Gaussianベクトルと標本共分散](textbook/volumes/dream_thater/解析系/HDP/HDP7/index.md)
 27. [HDP8 非可換モーメント母関数と行列Bernstein](textbook/volumes/dream_thater/解析系/HDP/HDP8/index.md)
+28. [HDP9 Hanson–Wrightの二次形式集中](textbook/volumes/dream_thater/解析系/HDP/HDP9/index.md)
 
 <a id="dt-subject-functional-analysis"></a>
 ### 関数解析 I

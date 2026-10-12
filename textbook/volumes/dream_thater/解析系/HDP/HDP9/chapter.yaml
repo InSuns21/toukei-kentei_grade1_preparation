@@ -1,0 +1,51 @@
+id: HDP9
+title: Hanson–Wrightの二次形式集中
+volume: foundations
+status: supplementary
+prerequisites:
+  - HDP8
+  - HDP3
+  - HDP1
+  - LA6
+official_scope: []
+learning_objectives:
+  - 非対称行列の対称化・対角項と非対角項の分解・Frobeniusノルムと作用素ノルムを具体例で確認できる
+  - sub-Gaussian代理量から尾部・偶数次モーメント・中心化二乗の局所指数モーメントを証明できる
+  - ランダムな二群分割とJensenの不等式から非対角二次形式の指数モーメント比較を再構成できる
+  - Gaussian比較と特異値分解・正規二乗指数モーメントによる非対角項の評価を証明できる
+  - 依存する対角・非対角項をCauchy–Schwarzで結合しHanson–Wright不等式を定数付きで導ける
+  - 行列二つのノルムの役割を説明し独立なGaussianの二乗ノルムと変換後のエネルギーに適用できる
+  - 座標独立性を落とした反例と非対称化の注意点を説明できる
+definitions:
+  - { id: HDP9-DEF-01, name: 中心化sub-Gaussian座標の共通代理量 }
+  - { id: HDP9-DEF-02, name: 二次形式と行列の二つのノルム }
+theorems:
+  - { id: HDP9-LEM-01, name: モーメント母関数代理量からの平方評価 }
+  - { id: HDP9-LEM-02, name: 独立な対角項の指数モーメント }
+  - { id: HDP9-LEM-03, name: 独立sub-Gaussian線形像のGaussian比較 }
+  - { id: HDP9-LEM-04, name: 非対角二次形式の指数モーメント }
+  - { id: HDP9-LEM-05, name: 中心化二次形式の局所指数モーメント }
+  - { id: HDP9-THM-01, name: Hanson–Wrightの二次形式集中不等式 }
+  - { id: HDP9-COR-01, name: 確定行列で変換した独立座標の二乗ノルム }
+canonical_examples:
+  - Rademacherと標準正規の共通指数モーメント代理量の検算
+  - 対角行列の二種類のノルムと二次形式
+  - ランダム二群分割の係数4とGaussian二乗指数モーメント
+  - 正規座標の長さと変換後の二乗エネルギー
+  - 完全従属なGaussian座標の反例
+problem_patterns:
+  - HDP9-SYMMETRIZE
+  - HDP9-SIGN-DECOMPOSITION
+  - HDP9-TWO-NORMS
+  - HDP9-SPLIT-COEFFICIENT
+  - HDP9-GAUSSIAN-SQUARE-DOMAIN
+  - HDP9-SQUARE-MGF
+  - HDP9-GAUSSIAN-COMPARISON
+  - HDP9-CHERNOFF-TWO-REGIME
+  - HDP9-DEPENDENCE-COUNTEREXAMPLE
+  - HDP9-WEIGHTED-CHI-SQUARE
+  - HDP9-OFFDIAGONAL-NORMAL
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 10, review: 5 }
