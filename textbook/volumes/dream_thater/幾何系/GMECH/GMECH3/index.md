@@ -431,16 +431,16 @@ $$
 
 時間発展式は $\dot p=-\kappa$ です。任意の時刻 $t_0$ から積分すると
 
-$
+$$
 p(t)-p(t_0)=\int_{t_0}^{t}(-\kappa)\,ds=-\kappa(t-t_0),
 \qquad p(t)=p(t_0)-\kappa(t-t_0).
-$
+$$
 
 一方、位置を $a$ だけ平行移動させると
 
-$
+$$
 H(q+a,p)-H(q,p)=\kappa a.
-$
+$$
 
 従って $\kappa\ne0$ ではHamiltonianの並進不変性が欠けています。
 <!-- solution-end -->
@@ -486,9 +486,9 @@ $$
 
 を確かめられます。一方、$q^3$ 方向には並進不変性を仮定していません。[正準座標のHamilton方程式](../../SYM/SYM4/index.md#thm-sym4-existence-coordinate)から
 
-$
+$$
 \dot p_3=-\frac{\partial H}{\partial q^3}=-V'(q^3)
-$
+$$
 
 です。$V'$ が零でない点を通る局所軌道では $p_3$ の時間微分が零にならず、全軌道での保存は保証されません。
 <!-- solution-end -->
@@ -501,13 +501,13 @@ $
 <!-- solution-start -->
 **詳細解答。** 偏微分をそれぞれ計算すると
 
-$
+$$
 \begin{aligned}
 &L_x=p_y,\quad L_y=-p_x,\quad L_{p_x}=-y,\quad L_{p_y}=x,\\
 &H_x=\alpha x,\quad H_y=\beta y,\\
 &H_{p_x}=p_x/m_0,\quad H_{p_y}=p_y/m_0.
 \end{aligned}
-$
+$$
 
 これらを[正準括弧の公式](../../SYM/SYM4/index.md#prop-sym4-coordinate-bracket)に入れると
 
