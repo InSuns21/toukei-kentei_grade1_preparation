@@ -47,7 +47,7 @@ concepts:
       - operator-algebra.commutative-unital-banach-algebra
 
   - id: operator-algebra.maximal-ideal
-    name: 可換 Banach 環の極大イデアル
+    name: 極大イデアル
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（イデアル・極大イデアル）"]
