@@ -77,7 +77,13 @@ $$
 \boldsymbol B'=(0,0,-\gamma vE_0/c^2).
 $$
 
-$E'_y B'_z=-\gamma^2vE_0^2/c^2<0$ なので、変換後のエネルギー流は負の $x$ 向きです。$v>0$ がこの符号の判断に必要であり、$v<0$ なら向きは逆、$v=0$ なら流れは零です。観測者が場に対して正方向へ動くと、場の流れが逆に見えるのです。この符号は後でテンソルの非対角成分から再確認します。
+このときエネルギー流を決める積は
+
+$$
+E'_y B'_z=-\frac{\gamma^2vE_0^2}{c^2}<0
+$$
+
+なので、流れは負の $x$ 向きです。$v>0$ がこの符号の判断に必要であり、$v<0$ なら向きは逆、$v=0$ なら流れは零です。観測者が場に対して正方向へ動くと、場の流れが逆に見えるのです。この符号は後でテンソルの非対角成分から再確認します。
 
 ## 2. 変換しても変わらない二つの場の量
 
@@ -424,7 +430,14 @@ $$
 f^\nu=F^{\nu\alpha}J_\alpha}
 $$
 
-> が成立する。$f^0=\boldsymbol j\cdot\boldsymbol E/c$ は単位体積あたりのエネルギー授受率を $c$ で割った量、$\boldsymbol f=\rho\boldsymbol E+\boldsymbol j\times\boldsymbol B$ はLorentz力密度である。
+> が成立する。四元力密度の時間成分と空間成分は
+
+$$
+f^0=\frac{\boldsymbol j\cdot\boldsymbol E}{c},\qquad
+\boldsymbol f=\rho\boldsymbol E+\boldsymbol j\times\boldsymbol B
+$$
+
+> である。$cf^0$ は単位体積あたりのエネルギー授受率、$\boldsymbol f$ はLorentz力密度を表す。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
