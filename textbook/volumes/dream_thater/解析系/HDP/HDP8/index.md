@@ -522,7 +522,7 @@ Q^{\mathsf T}\mathcal D(Z)Q
 =\begin{pmatrix}0&\Sigma\\\Sigma^{\mathsf T}&0\end{pmatrix}.
 $
 
-正の特異値 $\sigma_j$ に対応する左右の標準基底ベクトルを $e_j^{(p)},e_j^{(q)}$ と書くと、右辺に $(e_j^{(p)},\pm e_j^{(q)})^{\mathsf T}/\sqrt2$ を掛けた結果は、そのベクトルの $\pm\sigma_j$ 倍です。残る零特異値の方向は固有値 $0$ になります。したがって $\mathcal D(Z)$ の固有値は正負の特異値の組と零であり、
+正の特異値 $\sigma_j$ に対応する左右の標準基底ベクトルを $e_j^{(p)},e_j^{(q)}$ と書くと、右辺に $(e_j^{(p)},\pm e_j^{(q)})^{\mathsf T}/\sqrt2$ を掛けた結果は、そのベクトルの $\pm\sigma_j$ 倍です。零特異値に対応する方向と、縦横の次元差によって余る標準基底方向は、いずれも固有値 $0$ に対応します。したがって $\mathcal D(Z)$ の固有値は正負の特異値の組と零であり、
 
 $
 \lambda_{\max}\left(\sum_iY_i\right)
