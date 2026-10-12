@@ -623,3 +623,76 @@ $$
 です。幾何級数の展開では $\sum_{a,b\ge0}2^{-2a}3^{-2b}$ となり、整数 $2^a3^b$ が一度ずつ現れます。$1,2,3,4,6,8,9$ などは現れ、素因数 $5$ を持つ整数は現れません。
 <!-- solution-end -->
 
+### Level B：定理の適用条件と数え直し
+
+#### B1. 二項係数の中の区間素数
+
+$m=4$ に対して $(m,2m]$ 内の素数の積が中央二項係数を割ることを確認し、対応する対数不等式を書け。
+
+- Level: B
+
+<!-- solution-start -->
+**詳細解答**：区間 $(4,8]$ の素数は $5,7$ で積は $35$ です。$\binom84=70=2\cdot35$ だから $35\mid70$ です。従って
+$$
+\theta(8)-\theta(4)=\log35
+\le\log70\le\log256=8\log2.
+$$
+最後の上界は[二項係数の補題](#lem-nt8-binomial-bounds)で $m=4$ としたものです。
+<!-- solution-end -->
+
+#### B2. 大きい素数の個数を評価する
+
+$x\ge2$ で $\theta(x)\le Kx$（$K>0$）と仮定する。$\pi(x)\le\sqrt x+2Kx/\log x$ を示し、$K=5\log2$ を代入せよ。
+
+- Level: B
+
+<!-- solution-start -->
+**詳細解答**：$p\le\sqrt x$ の素数は高々 $\sqrt x$ 個です。$\sqrt x<p\le x$ の素数は $\log p>\frac12\log x$ を満たします。個数を $R$ とすると
+$$
+\frac12R\log x
+<\sum_{\sqrt x<p\le x}\log p
+\le\theta(x)\le Kx.
+$$
+従って $R<2Kx/\log x$ です。二群を足すと $\pi(x)\le\sqrt x+2Kx/\log x$ です。[上界定理](#thm-nt8-chebyshev-upper)により $K=5\log2$ を使うと
+$$
+\pi(x)\le\sqrt x+10\log2\,\frac{x}{\log x}.
+$$
+<!-- solution-end -->
+
+#### B3. 階乗を素数冪へ分配する
+
+$N=10$ に対し $\sum_{d\le10}\Lambda(d)\lfloor10/d\rfloor$ を計算し、$10!$ の素因数分解と照合せよ。
+
+- Level: B
+
+<!-- solution-start -->
+**詳細解答**：[階乗の恒等式](#prop-nt8-von-mangoldt-divisor-sum)に現れる非零の項は $d=2,3,4,5,7,8,9$ です。床関数値は順に $5,3,2,2,1,1,1$ なので
+$$
+\begin{aligned}
+\sum_{d\le10}\Lambda(d)\left\lfloor\frac{10}d\right\rfloor
+&=(5+2+1)\log2+(3+1)\log3+2\log5+\log7\\
+&=8\log2+4\log3+2\log5+\log7.
+\end{aligned}
+$$
+別に、階乗内の素数 $p$ の指数は $v_p(10!)=\sum_{k\ge1}\lfloor10/p^k\rfloor$ だから、$v_2=5+2+1=8$、$v_3=3+1=4$、$v_5=2$、$v_7=1$ です。よって $10!=2^8 3^4 5^2 7$ となり、対数が一致します。
+<!-- solution-end -->
+
+#### B4. 素数と素数冪の差
+
+$x=30$ で $\psi(x)-\theta(x)$ を直接求め、$\sum_{k=2}^{\lfloor\log_2x\rfloor}\theta(x^{1/k})$ と照合せよ。
+
+- Level: B
+
+<!-- solution-start -->
+**詳細解答**：$30$ 以下で指数 $2$ 以上の素数冪は $4,8,16$（重みは各 $\log2$）、$9,27$（各 $\log3$）、$25$（$\log5$）です。従って
+$$
+\psi(30)-\theta(30)=3\log2+2\log3+\log5=\log360.
+$$
+$K=\lfloor\log_2 30\rfloor=4$ です。[素数冪分解](#prop-nt8-psi-prime-powers)に従い、$k=2$ は素数 $2,3,5$、$k=3$ は素数 $2,3$、$k=4$ は素数 $2$ を数えます。従って
+$$
+\theta(\sqrt{30})+\theta(30^{1/3})+\theta(30^{1/4})
+=(\log2+\log3+\log5)+(\log2+\log3)+\log2,
+$$
+これは先ほどの $\log360$ に等しいです。
+<!-- solution-end -->
+
