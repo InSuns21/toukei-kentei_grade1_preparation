@@ -1,0 +1,87 @@
+chapter: SYM8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SYM1
+  - SYM2
+  - SYM6
+  - LA6
+forward_references: []
+
+concepts:
+  - id: symplectic.linear-complex-structure
+    name: 線形複素構造
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（線形複素構造）]
+    requires: [symplectic.symplectic-vector-space]
+
+  - id: symplectic.compatible-complex-structure
+    name: シンプレクティック形式に適合する複素構造
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（シンプレクティック形式に適合する複素構造）]
+    requires: [symplectic.linear-complex-structure, symplectic.symplectic-vector-space]
+
+  - id: symplectic.compatible-metric-criterion
+    name: 適合性と正定値内積の同値
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（適合性と正定値内積の同値）]
+    requires: [symplectic.compatible-complex-structure]
+
+  - id: symplectic.compatible-linear-existence
+    name: 適合する線形複素構造の存在
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（適合する線形複素構造の存在）]
+    requires: [symplectic.linear-normal-form, symplectic.compatible-complex-structure]
+
+  - id: symplectic.compatible-polar-construction
+    name: 内積からの適合複素構造の構成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（内積からの適合複素構造の構成）]
+    requires: [symplectic.compatible-metric-criterion, linear.psd-square-root]
+
+  - id: symplectic.almost-complex-structure
+    name: 概複素構造と適合性
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（概複素構造と適合性）]
+    requires: [symplectic.compatible-complex-structure, symplectic.symplectic-manifold]
+
+  - id: symplectic.smooth-positive-square-root
+    name: 正定値平方根の滑らかな依存
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（正定値平方根の滑らかな依存）]
+    requires: [linear.psd-square-root]
+
+  - id: symplectic.compatible-manifold-existence
+    name: 滑らかな計量からの適合概複素構造
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（滑らかな計量からの適合概複素構造）]
+    requires: [symplectic.almost-complex-structure, symplectic.smooth-positive-square-root, symplectic.compatible-polar-construction]
+
+  - id: symplectic.lagrangian-metric-orthogonality
+    name: Lagrange部分空間と計量直交補
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Lagrange部分空間と計量直交補）]
+    requires: [symplectic.compatible-metric-criterion, symplectic.lagrangian-linear-criterion]
+
+  - id: symplectic.compatible-volume
+    name: 適合計量とシンプレクティック体積
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（適合計量とシンプレクティック体積）]
+    requires: [symplectic.compatible-metric-criterion, symplectic.symplectic-orientation]
+
+  - id: symplectic.tame-almost-complex
+    name: シンプレクティック形式が馴らす概複素構造
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（シンプレクティック形式が馴らす概複素構造）]
+    requires: [symplectic.linear-complex-structure, symplectic.symplectic-manifold]

@@ -35,5 +35,5 @@ chapters:
     title: Moserの方法とシンプレクティック変形
   - id: SYM8
     path: textbook/volumes/dream_thater/幾何系/SYM/SYM8
-    status: planned
+    status: completed
     title: 適合概複素構造と発展境界

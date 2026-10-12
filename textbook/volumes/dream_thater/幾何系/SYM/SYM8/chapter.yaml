@@ -1,0 +1,52 @@
+id: "SYM8"
+title: "適合概複素構造と発展境界"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SYM1
+  - SYM2
+  - SYM6
+  - LA6
+official_scope: []
+learning_objectives:
+  - 線形複素構造と適合性の三条件を区別し、低次元の行列例を直接検算できる
+  - g(u,v)=ω(u,Jv) の対称正定値性と形式保存・正値性の同値を両方向に証明できる
+  - シンプレクティック基底から適合複素構造を構成し、有限次元での存在を証明できる
+  - 正定値補助内積から反対称作用素と正定値平方根を使う構成を再現できる
+  - 正定値行列の平方根の滑らかさを検証し、適合概複素構造の多様体上の存在を示せる
+  - 球面・トーラス上の適合構造を検算し、Lagrange方向・計量直交補・体積の関係を証明できる
+  - ω-tame と ω-compatible の違いを反例で説明し、可積分性と擬正則曲線の後続境界を区別できる
+definitions:
+  - { id: SYM8-DEF-01, name: 線形複素構造 }
+  - { id: SYM8-DEF-02, name: シンプレクティック形式に適合する複素構造 }
+  - { id: SYM8-DEF-03, name: 概複素構造と適合性 }
+  - { id: SYM8-DEF-04, name: シンプレクティック形式が馴らす概複素構造 }
+theorems:
+  - { id: SYM8-THM-01, name: 適合性と正定値内積の同値 }
+  - { id: SYM8-THM-02, name: 適合する線形複素構造の存在 }
+  - { id: SYM8-THM-03, name: 内積からの適合複素構造の構成 }
+  - { id: SYM8-LEM-01, name: 正定値平方根の滑らかな依存 }
+  - { id: SYM8-THM-04, name: 滑らかな計量からの適合概複素構造 }
+  - { id: SYM8-PROP-01, name: Lagrange部分空間と計量直交補 }
+  - { id: SYM8-PROP-02, name: 適合計量とシンプレクティック体積 }
+canonical_examples:
+  - 平面の標準複素構造と正値性を失う逆回転
+  - 正定値対角計量からの平方根構成
+  - トーラスと球面の滑らかな適合概複素構造
+  - 非適合だが馴らされる四次元の上三角ブロック例
+  - 補助計量の凸補間から得る滑らかな適合構造の経路
+problem_patterns:
+  - SYM8-STANDARD-MATRIX
+  - SYM8-REVERSED-COMPLEX-STRUCTURE
+  - SYM8-ANISOTROPIC-METRIC
+  - SYM8-SYMMETRY-SIGN
+  - SYM8-SPHERE-ROTATION
+  - SYM8-VOLUME
+  - SYM8-POLAR-CONSTRUCTION
+  - SYM8-TAMED-NONCOMPATIBLE
+  - SYM8-LAGRANGIAN-ORTHOGONAL
+  - SYM8-METRIC-PATH
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 3 }
