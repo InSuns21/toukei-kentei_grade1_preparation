@@ -733,6 +733,7 @@
 1. [NDA1 連分数と最良有理近似の精密化](textbook/volumes/dream_thater/代数系/NDA/NDA1/index.md)
 2. [NDA2 Dirichlet・Hurwitz・悪近似数](textbook/volumes/dream_thater/代数系/NDA/NDA2/index.md)
 3. [NDA3 数の幾何と同時Diophantine近似](textbook/volumes/dream_thater/代数系/NDA/NDA3/index.md)
+4. [NDA4 一様分布・Weyl判定・Kronecker近似](textbook/volumes/dream_thater/代数系/NDA/NDA4/index.md)
 
 <a id="dt-subject-analytic-number-theory"></a>
 ### 解析的整数論
