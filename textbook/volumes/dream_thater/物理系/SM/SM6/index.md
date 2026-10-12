@@ -232,7 +232,7 @@ $$
 **定義の確認**：$\boldsymbol\ell=(0,0,0)$ のエネルギーは0で、スピン分だけ $g$ 個のモードがあります。$|\boldsymbol\ell|^2=1$ の格子点は $(\pm1,0,0)$ など6個で、それぞれに $g$ 個のモードがあります。この次の殻のエネルギーは $2\pi^2\hbar^2/(mL^2)$。したがって基底モードだけを一つと数えてよいのは $g=1$ のときです。
 <!-- definition-example-end -->
 
-有限 $L$ にモードが無限にありますが、$e^{-\beta\varepsilon_\ell}$ の総和は三次元Gaussian格子和として収束します。Fermi型では $\sum_\ell\log(1+ze^{-\beta\varepsilon_\ell})\le z\sum_\ell e^{-\beta\varepsilon_\ell}<\infty$。Bose型の $0<z<1$ では $-\log(1-x)\le x/(1-z)$（$0\le x\le z$）を使って同じ収束性を確認できます。従って大分配関数の無限積はこの範囲で確かに有限です。
+有限 $L$ にモードが無限にありますが、$e^{-\beta\varepsilon_\ell}$ の総和は三次元Gaussian格子和として収束します。Fermi型では $\sum_\ell\log(1+ze^{-\beta\varepsilon_\ell})\le z\sum_\ell e^{-\beta\varepsilon_\ell}<\infty$。Bose型の $0<z<1$ では $-\log(1-x)\le x/(1-z)$（$0\le x\le z$）を使って同じ収束性を確認できます。従って全モードにわたる大分配関数の積がこの範囲で収束し、有限値を持ちます。
 
 <a id="prop-sm6-density-of-states"></a>
 
@@ -866,7 +866,7 @@ $$
 
 従って $\rho_{\mathrm c}(T)=B_{3/2}(1)/\lambda_T^3$。$\lambda_T\propto T^{-1/2}$ より $\rho_c(T)\propto T^{3/2}$ です。
 
-**(2)**　有限 $L$ の基底平均は $z_L/(1-z_L)$ なので、必ず $z_L<1$ としなければなりません。平均密度を $\rho$ に合わせて $L\to\infty$ とすると、[固定密度の基底占有定理](#thm-sm6-bose-condensation)から
+**(2)**　有限 $L$ の基底平均は $z_L/(1-z_L)$ なので、必ず $z_L<1$ としなければなりません。平均密度を $\rho$ に合わせて $L\to\infty$ とすると、[固定密度の三次元Bose気体の基底占有](#thm-sm6-bose-condensation)から
 
 $$
 \frac{\bar n_{0,L}}{L^3}\longrightarrow
