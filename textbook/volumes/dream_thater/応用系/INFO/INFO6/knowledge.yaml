@@ -1,0 +1,65 @@
+chapter: INFO6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - INFO1
+  - INFO2
+  - INFO5
+forward_references: []
+
+concepts:
+  - id: information.dmc-block
+    name: 離散無記憶通信路のブロック遷移
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（離散無記憶通信路のブロック遷移）]
+    requires: [information.finite-channel]
+
+  - id: information.channel-code
+    name: 通信路符号と平均誤り確率
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（通信路符号と平均誤り確率）]
+    requires: [information.dmc-block]
+
+  - id: information.channel-capacity
+    name: 有限離散通信路の容量
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限離散通信路の容量）]
+    requires: [information.mutual-information, information.finite-channel]
+
+  - id: information.bsc-capacity
+    name: 二元対称通信路の容量
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（二元対称通信路の容量）]
+    requires: [information.channel-capacity, information.discrete-entropy-bounds]
+
+  - id: information.bec-capacity
+    name: 二元消失通信路の容量
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（二元消失通信路の容量）]
+    requires: [information.channel-capacity, information.conditional-entropy]
+
+  - id: information.fano-inequality
+    name: Fano不等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Fano不等式）]
+    requires: [information.conditional-entropy, information.entropy-chain-rule, information.discrete-entropy-bounds]
+
+  - id: information.block-mutual-bound
+    name: 無記憶通信路のブロック相互情報量上界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（無記憶通信路のブロック相互情報量上界）]
+    requires: [information.dmc-block, information.channel-capacity, information.mutual-data-processing]
+
+  - id: information.channel-weak-converse
+    name: 離散無記憶通信路符号化の弱逆定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（離散無記憶通信路符号化の弱逆定理）]
+    requires: [information.channel-code, information.fano-inequality, information.block-mutual-bound]
