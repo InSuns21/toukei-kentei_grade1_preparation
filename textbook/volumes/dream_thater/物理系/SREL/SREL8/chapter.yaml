@@ -1,0 +1,44 @@
+id: "SREL8"
+title: "Rindler座標と因果構造"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SREL3
+official_scope: []
+learning_objectives:
+  - 右Rindler座標を定義し座標領域・逆変換・Minkowski計量のRindler表示を導出できる
+  - Rindler静止観測者の世界線を固有時で再パラメータ化し四元加速度と位置依存する固有加速度を検算できる
+  - 二つの零座標の単調性を使い加速観測者へ信号が届くための必要十分条件と地平線を証明できる
+  - 光線の座標微分方程式を解き有限時刻での地平線到達不能を説明できる
+  - 静止鏡との往復通信からレーダー距離と静止時計間の周波数比を導出し平坦性と区別できる
+definitions:
+  - { id: SREL8-DEF-01, name: 右Rindler座標 }
+  - { id: SREL8-DEF-02, name: Rindler静止観測者 }
+  - { id: SREL8-DEF-03, name: 右Rindler領域の地平線 }
+theorems:
+  - { id: SREL8-THM-01, name: Rindler座標におけるMinkowski計量 }
+  - { id: SREL8-PROP-01, name: Rindler静止観測者の固有加速度 }
+  - { id: SREL8-THM-02, name: 永遠に一様加速する観測者の通信可能領域 }
+  - { id: SREL8-PROP-02, name: Rindler座標における光線 }
+  - { id: SREL8-PROP-03, name: Rindler静止鏡までの往復光距離 }
+  - { id: SREL8-PROP-04, name: Rindler静止時計間の周波数比 }
+canonical_examples:
+  - Rindler変換と逆変換の定義域を数値的に検査する
+  - 位置を変えた静止観測者の固有時と固有加速度を直接比較する
+  - 右加速観測者の因果的過去・未来を零座標の符号で判定する
+  - 左向き光線が無限座標時間にわたり地平線へ漸近することを調べる
+  - Rindler静止鏡との往復光通信と赤方偏移を計算する
+problem_patterns:
+  - SREL8-CHART-INVERSE
+  - SREL8-STATIC-CLOCK
+  - SREL8-HORIZON-BRANCH
+  - SREL8-LIGHT-TRAJECTORY
+  - SREL8-HYPERBOLA
+  - SREL8-FOUR-ACCELERATION
+  - SREL8-CAUSAL-REACHABILITY
+  - SREL8-REDSHIFT
+  - SREL8-ROUND-TRIP-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 5 }
