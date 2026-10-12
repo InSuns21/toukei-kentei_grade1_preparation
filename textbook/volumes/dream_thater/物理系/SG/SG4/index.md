@@ -230,7 +230,7 @@ $$
 =-\frac{\beta^2}{2}\tanh^2h.
 $$
 
-[平均値の定理](../../../基礎科目/RA/RA3/index.md#thm-ra3-mvt)を $[0,q]$ に適用すると、ある $\xi_q\in(0,q)$ に対して $\{\mathcal P_{\mathrm{RS}}(q)-\mathcal P_{\mathrm{RS}}(0)\}/q=\mathcal P_{\mathrm{RS}}'(\xi_q)$。$q\downarrow0$ で $\xi_q\downarrow0$ なので、上式が $q=0$ の右微分となる。$\beta=0$ では試行式が一定であり、以下の停留条件による選択はできない。
+[平均値の定理](../../../基礎科目/RA/RA3/index.md#thm-ra3-mvt)を $[0,q]$ に適用すると、ある $\xi_q\in(0,q)$ に対して $\{\mathcal P_{\mathrm{RS}}(q)-\mathcal P_{\mathrm{RS}}(0)\}/q=\mathcal P_{\mathrm{RS}}'(\xi_q)$。$0<\xi_q<q$ なので $q\downarrow0$ に対して $\xi_q\to0$ となり、上式が $q=0$ の右微分となる。$\beta=0$ では試行式が一定であり、以下の停留条件による選択はできない。
 
 <a id="prop-sg4-self-consistency"></a>
 
