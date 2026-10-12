@@ -281,9 +281,20 @@ E[G_ju\partial_jv]
 =E[(\partial_ju)(\partial_jv)+u\partial_{jj}v].
 $$
 
-右辺第2項が $E[u\Delta v]$ と相殺し、上の式が得られます。特に $u=1$ とすれば $E[\mathcal Av(G)]=0$ です。
+$j$ について和を取ると
 
-$u_t=P_th$ とおきます。$h$ の正の下限と上限は平均後も保たれ、$\log u_t$ とその微分が定義できます。[Gaussian平均の半群性・不変性・微分交換](#lem-hdp5-ou-identities)の生成作用素に関する等式を使うと
+$$
+\begin{aligned}
+E[u(G)\mathcal Av(G)]
+&=\sum_{j=1}^d\left(E[u\,\partial_{jj}v]-E[G_ju\,\partial_jv]\right)\\
+&=-\sum_{j=1}^dE[(\partial_ju)(\partial_jv)]
+=-E[\nabla u(G)\cdot\nabla v(G)].
+\end{aligned}
+$$
+
+特に $u=1$ とすれば $\nabla u=0$ なので $E[\mathcal Av(G)]=0$ です。
+
+$u_t=P_th$ とおきます。$h$ の正の下限と上限は平均後も保たれ、$\log u_t$ とその微分が定義できます。また $\partial_t u_t=\Delta u_t-x\cdot\nabla u_t$ の絶対値は、$\Delta u_t$ と $\nabla u_t$ の有界性から $C(1+\|x\|_2)$ で抑えられます。標準Gaussianでは $E\|G\|_2<\infty$ なので、$H(t)$ の期待値と時間微分を交換できます。[Gaussian平均の半群性・不変性・微分交換](#lem-hdp5-ou-identities)の生成作用素に関する等式を使うと
 
 $$
 \begin{aligned}
@@ -309,7 +320,17 @@ $$
 E\!\left[\frac{\|\nabla P_th(G)\|_2^2}{P_th(G)}\right]dt.
 $$
 
-ここで[微分交換公式](#lem-hdp5-ou-identities)と、$P_t$ の中の確率分布に関する[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を順に使います。各 $x$ について
+ここで[微分交換公式](#lem-hdp5-ou-identities)と、$P_t$ の中の確率分布に関する[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を順に使います。$Y=e^{-t}x+\sqrt{1-e^{-2t}}G'$ と置くと、各座標 $j$ に対して
+
+$$
+\begin{aligned}
+|E[\partial_jh(Y)]|^2
+&=\left|E\left[\sqrt{h(Y)}\,\frac{\partial_jh(Y)}{\sqrt{h(Y)}}\right]\right|^2\\
+&\le E[h(Y)]\,E\left[\frac{|\partial_jh(Y)|^2}{h(Y)}\right].
+\end{aligned}
+$$
+
+両辺を $j=1,\ldots,d$ で足し、右辺の共通因子 $E[h(Y)]=(P_th)(x)$ を括ると、ベクトルに対する評価が得られます。すなわち各 $x$ について
 
 $$
 \begin{aligned}
@@ -321,7 +342,23 @@ P_t\!\left(\frac{\|\nabla h\|_2^2}{h}\right)(x).
 \end{aligned}
 $$
 
-分母 $P_th$ で割り、期待値を取ります。[Gaussian平均の不変性](#lem-hdp5-ou-identities)を被積分関数 $\|\nabla h\|_2^2/h$ に適用すれば
+分母 $P_th$ で割り、期待値を取ります。ここで
+
+$$
+q(x)=\frac{\|\nabla h(x)\|_2^2}{h(x)}
+$$
+
+と置くと、$\inf h>0$ と $\|\nabla h\|_2$ の有界性から $q$ は有界な連続関数です。ただし $h\in C^2$ だけでは $q$ が $C^2$ とは限らないため、[Gaussian平均の不変性](#lem-hdp5-ou-identities)の滑らかな関数に関する主張をそのまま適用することはできません。
+
+そこで不変性をこの $q$ に直接確認します。$G,G'$ が独立な標準Gaussianであるとき、$Y_t=e^{-t}G+\sqrt{1-e^{-2t}}G'$ の平均は零で、共分散は $e^{-2t}I_d+(1-e^{-2t})I_d=I_d$ です。$Y_t$ は正規ベクトルなので $Y_t\sim N(0,I_d)$ であり、有界性によって積分は有限です。従って期待値を順に取ると
+
+$$
+E[(P_tq)(G)]
+=E\left[q\left(e^{-t}G+\sqrt{1-e^{-2t}}G'\right)\right]
+=E[q(G)].
+$$
+
+この恒等式を非負関数 $q$ に適用すれば
 
 $$
 \begin{aligned}
@@ -560,7 +597,7 @@ $$
 **定義の確認** $A=\{0\}$ なら下限を取る候補は零ベクトルだけなので $r_A(x)=\|x\|_2$ です。また $A=(0,\infty)\subset\mathbb R$ のとき、$x<0$ では $a\downarrow0$ として $r_A(x)=-x$、$x\ge0$ では $r_A(x)=0$ となります。端点 $0$ が集合に含まれなくても下限は存在します。
 <!-- definition-example-end -->
 
-三角不等式から、任意の $a\in A$ について
+[三角不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-triangle-inequality)から、任意の $a\in A$ について
 
 $$
 \|x-a\|_2\le\|x-y\|_2+\|y-a\|_2.
@@ -685,7 +722,7 @@ $\mathbb R^d$ 上の $f(x)=\|x\|_2$ と $g(x)=\max_jx_j$ がともに $1$-Lipsch
 - ID: HDP5-A2
 
 <!-- solution-start -->
-**詳細解答**　$f$ については三角不等式を $x=(x-y)+y$ に使い、
+**詳細解答**　$f$ については[三角不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-triangle-inequality)を $x=(x-y)+y$ に使い、
 
 $$
 \|x\|_2-\|y\|_2\le\|x-y\|_2
