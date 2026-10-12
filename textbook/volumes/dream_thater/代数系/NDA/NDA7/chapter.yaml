@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - NDA6
   - FLD1
+  - LA3C
 official_scope: []
 learning_objectives:
   - Rothの定理を任意のepsilonと有限個の既約近似の量化を含めて正確に述べられる
