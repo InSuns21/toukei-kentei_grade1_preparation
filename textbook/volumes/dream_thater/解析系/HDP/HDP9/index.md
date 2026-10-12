@@ -235,7 +235,7 @@ E_Ze^{\sqrt{2\alpha}\langle g,BZ\rangle}
 \end{aligned}
 $$
 
-$B$ の非零特異値を $\sigma_1,\ldots,\sigma_q$ とします。[特異値分解](../../LA/LA6/index.md#thm-la6-svd)と標準正規ベクトルの直交不変性により $\|B^{\mathsf T}G\|_2^2$ は $\sum_{k=1}^q\sigma_k^2G_k^2$ と同分布です。実数 $0\le s<1/2$ では正規密度の積分から
+$B$ の非零特異値を $\sigma_1,\ldots,\sigma_q$ とします。[特異値分解](../../../基礎科目/LA/LA6/index.md#thm-la6-complex-svd)と標準正規ベクトルの直交不変性により $\|B^{\mathsf T}G\|_2^2$ は $\sum_{k=1}^q\sigma_k^2G_k^2$ と同分布です。実数 $0\le s<1/2$ では正規密度の積分から
 
 $$
 Ee^{sG_k^2}=
