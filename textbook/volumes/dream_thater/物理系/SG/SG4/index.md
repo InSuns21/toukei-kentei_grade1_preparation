@@ -1,4 +1,4 @@
-# SG4 レプリカ対称性・対称性の破れ
+# SG4 replica対称性・対称性の破れ
 
 [SG3のSK模型](../SG3/index.md#def-sg3-sk)では、有限サイズの圧力と熱力学極限の存在を証明した。しかし、極限の**値**は分からなかった。圧力の微分は[overlap](../SG3/index.md#def-sg3-overlap)の二乗平均を含むため、エネルギーの平均だけでなく、同じ無秩序を使って取り出した二つの配置の関係を調べる必要がある。
 
@@ -68,7 +68,7 @@ $$
 =\left.\frac{d}{dn}\mathbb E Z_N^n\right|_{n=0}
 $$
 
-である。実際に $n$ を0の近傍の実数として微分でき、期待値と微分を交換できる条件を確認して初めて等式になる。**正の整数 $n$ で $\mathbb E Z_N^n$ を計算しただけでは、$n=0$ への解析接続も極限交換も正当化されない。** 以下ではこの形式操作に依存せず、実数パラメータを持つGaussian補間を直接用いる。
+である。実際に $n$ を0の近傍の実数として微分でき、期待値と微分を交換できる条件を確認して初めて等式になる。**正の整数 $n$ で $\mathbb E Z_N^n$ を計算しただけでは、$n=0$ の周囲の非整数への延長も極限交換も正当化されない。** 以下ではこの形式操作に依存せず、実数パラメータを持つGaussian補間を直接用いる。
 
 ## 2. RS試行式を上界として導く
 
@@ -197,7 +197,7 @@ $t=1$ では $Y_1=\beta X_N+h\sum_i\sigma_i$ なので $\phi_N(1)=p_N(\beta,h)$�
 
 ## 3. 停留条件と自己整合方程式はどう生まれるか
 
-試行式を最小化するには $q$ で微分する。ここで熱力学極限の微分ではなく、**定義済みの一変数関数**を微分しているだけである。$q>0$ として、$u=\beta\sqrt q\,Z+h$ なら
+試行式を最小化するには $q$ で微分する。ここで熱力学極限の微分ではなく、**すでに具体式で与えた $q$ の関数**を微分しているだけである。$q>0$ として、$u=\beta\sqrt q\,Z+h$ なら
 
 $$
 \frac{d}{dq}\mathbb E_Z\log\cosh u
@@ -239,7 +239,7 @@ $$
 
 ### 証明の見取り図
 
-前半は微分公式で直ちに従う。後半は固定点写像の両端での符号を調べ、中間値の定理を用いる。**固定点の存在は、その点で真のSK圧力とRS試行圧力が一致することを意味しない。**
+前半は微分公式で直ちに従う。後半は固定点写像の両端での符号を調べ、[中間値定理](../../../基礎科目/RA/RA2/index.md#thm-ra2-ivt)を用いる。**固定点の存在は、その点で真のSK圧力とRS試行圧力が一致することを意味しない。**
 
 <!-- proof-start -->
 ### 証明
@@ -264,7 +264,7 @@ $$
 \quad(q\downarrow0).
 $$
 
-$Z=0$ では波括弧を1と定める。$\lvert\tanh x\rvert\le\lvert x\rvert$ のため積分関数は $\beta^2Z^2$ で抑えられる。よって十分小さい正の $q$ では $T(q)>q$。一方 $T(1)<1$ なので、再び中間値の定理から $(0,1)$ に固定点がある。内部停留点については直前に導いた $\mathcal P_{\mathrm{RS}}'$ の式へ0を代入すればよい。
+$Z=0$ では波括弧を1と定める。$\lvert\tanh x\rvert\le\lvert x\rvert$ のため積分関数は $\beta^2Z^2$ で抑えられる。よって十分小さい正の $q$ では $T(q)>q$。一方 $T(1)<1$ なので、同じ[中間値定理](../../../基礎科目/RA/RA2/index.md#thm-ra2-ivt)を区間 $[q,1]$ へ適用して、その内部に固定点がある。内部停留点については直前に導いた $\mathcal P_{\mathrm{RS}}'$ の式へ0を代入すればよい。
 <!-- proof-end -->
 
 ### $q=0$ の近くで何が起きるか
@@ -305,7 +305,7 @@ $$
 
 ### 証明の見取り図
 
-まず $\mathbb EZ_N$ はGaussian指数の期待値として厳密に計算できる。$\mathbb EZ_N^2/(\mathbb EZ_N)^2$ を一様に抑えると、$Z_N$ が平均の一定割合以上になる確率が $N$ によらず正に抑えられる。[Gaussian集中](../SG2/index.md#cor-sg2-pressure-concentration)で $N^{-1}\log Z_N$ は期待値の近くへ集まるので、その期待値はannealed値に近づく。最後に圧力の微分公式を使ってoverlapの二乗平均を消す。
+まず $\mathbb EZ_N$ はGaussian指数の期待値として厳密に計算できる。$\mathbb EZ_N^2/(\mathbb EZ_N)^2$ を一様に抑えると、$Z_N$ が平均の一定割合以上になる確率が $N$ によらず正に抑えられる。[Gaussian集中](../SG2/index.md#cor-sg2-pressure-concentration)で $N^{-1}\log Z_N$ は期待値の近くへ集まるので、その期待値はannealed値に近づく。最後に[quenched圧力の微分とoverlap](../SG3/index.md#prop-sg3-pressure-derivative)を適用し、overlapの二乗平均が0へ行くことを導く。
 
 <!-- proof-start -->
 ### 証明
@@ -318,7 +318,7 @@ $$
 =2^Ne^{\beta^2N/4}.
 $$
 
-二配置の共分散は[SG3の公式](../SG3/index.md#prop-sg3-covariance)により $N R(\sigma,\tau)^2/2$。したがって
+二配置の共分散は[SK Gaussian場の共分散とoverlap](../SG3/index.md#prop-sg3-covariance)により $N R(\sigma,\tau)^2/2$。したがって
 
 $$
 \begin{aligned}
@@ -350,7 +350,7 @@ $$
 \end{aligned}
 $$
 
-ここでは $\cosh x\le e^{x^2/2}$ を使い、最後のGaussian積分は $0\le\beta<1$ に限り有限となる。$W_N=Z_N/\mathbb EZ_N$ は非負で $\mathbb EW_N=1$。Cauchy–Schwarz不等式を事象 $A_N=\{W_N\ge1/2\}$ に適用すると
+ここでは $x\ge0$ で $(x^2/2-\log\cosh x)'=x-\tanh x\ge0$、両関数は偶関数であるため $\cosh x\le e^{x^2/2}$ を使った。最後のGaussian積分は標準正規密度へ $e^{\beta^2z^2/2}$ を掛け、$(1-\beta^2)$ 倍の二次係数を持つGaussian積分へ帰着させたもので、$0\le\beta<1$ に限り有限となる。$W_N=Z_N/\mathbb EZ_N$ は非負で $\mathbb EW_N=1$。Cauchy–Schwarz不等式を事象 $A_N=\{W_N\ge1/2\}$ に適用すると
 
 $$
 1=\mathbb E[W_N\mathbf1_{A_N}]
@@ -390,9 +390,9 @@ F_N=\frac1N\log Z_N\ge
 =a_\beta-\frac{\log2}N.
 $$
 
-Jensen不等式から $p_N\le a_\beta$。もしある $\varepsilon>0$ と部分列で $p_N\le a_\beta-2\varepsilon$ なら、十分大きい $N$ に対し $A_N$ 上で $F_N-p_N\ge\varepsilon$ となる。したがって確率は $c_\beta$ 以上だが、上の集中評価では0へ収束する。矛盾するので $p_N\to a_\beta$。$\beta=0$ は $Z_N=2^N$ で直接成立する。
+[annealed圧力とquenched圧力の比較](../SG1/index.md#prop-sg1-jensen)から $p_N\le a_\beta$。もしある $\varepsilon>0$ と部分列で $p_N\le a_\beta-2\varepsilon$ なら、十分大きい $N$ に対し $A_N$ 上で $F_N-p_N\ge\varepsilon$ となる。したがって確率は $c_\beta$ 以上だが、上の集中評価では0へ収束する。矛盾するので $p_N\to a_\beta$。$\beta=0$ は $Z_N=2^N$ で直接成立する。
 
-端点 $\beta=1$ は二次モーメント評価を直接使えない。[有限サイズ圧力の微分公式](../SG3/index.md#prop-sg3-pressure-derivative)から、$h=0$ において
+端点 $\beta=1$ は二次モーメント評価を直接使えない。[quenched圧力の微分とoverlap](../SG3/index.md#prop-sg3-pressure-derivative)から、$h=0$ において
 
 $$
 p_N'(\beta,0)
@@ -402,7 +402,15 @@ $$
 
 従って $0<\beta_0<1$ なら $p_N(1,0)\ge p_N(\beta_0,0)$ であり、$N\to\infty$ の後 $\beta_0\uparrow1$ とすると下界 $\log2+1/4$ が得られる。上界は[RS補間上界](#thm-sg4-rs-bound)を $q=0$ として適用すれば同じ値なので一致する。
 
-最後に $0<\beta<1$ を固定する。各 $p_N(\,\cdot\,,0)$ は対数和の正値重み付き指数関数から作った凸関数である。任意の小さい $\delta>0$ について凸性は
+最後に $0<\beta<1$ を固定する。有限和の対数を二回微分すると、同じ無秩序のGibbs平均で
+
+$
+p_N''(\beta,0)=\frac1N\mathbb E\left[
+\langle X_N^2\rangle_\beta-\langle X_N\rangle_\beta^2
+\right]\ge0
+$
+
+となる（括弧内は確率重み付き分散）。従って $p_N'$ は非減少である。任意の小さい $\delta>0$ に対し導関数の単調性は
 
 $$
 \frac{p_N(\beta,0)-p_N(\beta-\delta,0)}{\delta}
@@ -590,7 +598,7 @@ $h=0$ で $T_{\beta,0}(0)$、$\lim_{q\downarrow0}T_{\beta,0}(q)/q$ を計算せ�
 <!-- solution-start -->
 **詳細解答**
 
-$\tanh0=0$ から $T_{\beta,0}(0)=0$。$q>0$ では $T(q)/q=\mathbb E_Z[\beta^2Z^2(\tanh(\beta\sqrt q Z)/(\beta\sqrt q Z))^2]$。$\lvert\tanh x\rvert\le\lvert x\rvert$ で抑え、$q\downarrow0$ の極限を取ると $\beta^2\mathbb EZ^2=\beta^2$。$\beta>1$ なら小さい $q>0$ で $T(q)>q$、$T(1)<1$ なので中間値の定理で正の固定点がある。
+$\tanh0=0$ から $T_{\beta,0}(0)=0$。$q>0$ では $T(q)/q=\mathbb E_Z[\beta^2Z^2(\tanh(\beta\sqrt q Z)/(\beta\sqrt q Z))^2]$。$\lvert\tanh x\rvert\le\lvert x\rvert$ で抑え、$q\downarrow0$ の極限を取ると $\beta^2\mathbb EZ^2=\beta^2$。$\beta>1$ なら小さい $q>0$ で $T(q)>q$、$T(1)<1$ なので[中間値定理](../../../基礎科目/RA/RA2/index.md#thm-ra2-ivt)で正の固定点がある。
 
 $\beta=0$ では $\mathcal P_{\mathrm{RS}}(q;0,h)=\log(2\cosh h)$ が全ての $q$ で一定である。微分公式は恒等的に0で、$\beta^2$ で割って固定点条件を導いてはならない。
 <!-- solution-end -->
@@ -636,7 +644,7 @@ $$
 1\le\sqrt{\mathbb EW_N^2\,\mathbb P(A_N)}+\frac12
 $$
 
-なので $\mathbb P(A_N)\ge1/(4C_\beta)$。$A_N$ 上で $F_N\ge a_\beta-(\log2)/N$ である。Jensenにより $p_N\le a_\beta$。もし部分列で $p_N\le a_\beta-2\varepsilon$ なら、大きな $N$ で $A_N\subset\{F_N-p_N\ge\varepsilon\}$ となり、右辺の確率が0へ行くという集中の仮定と矛盾する。従って $\liminf p_N\ge a_\beta$、上界と合わせて収束が従う。
+なので $\mathbb P(A_N)\ge1/(4C_\beta)$。$A_N$ 上で $F_N\ge a_\beta-(\log2)/N$ である。[quenchedとannealed圧力の比較](../SG1/index.md#prop-sg1-jensen)により $p_N\le a_\beta$。もし部分列で $p_N\le a_\beta-2\varepsilon$ なら、大きな $N$ で $A_N\subset\{F_N-p_N\ge\varepsilon\}$ となり、右辺の確率が0へ行くという集中の仮定と矛盾する。従って $\liminf p_N\ge a_\beta$、上界と合わせて収束が従う。
 
 二次モーメント上界が直接保証するのは「平均と同程度の $Z_N$ が固定の正確率で現れる」ことであり、「典型的な $\log Z_N$ が平均に近い」ことではない。後者を繋ぐ集中の条件が必要である。
 <!-- solution-end -->

@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - SG3
+  - RA2
 official_scope: []
 learning_objectives:
   - 無秩序共有のレプリカとoverlap分布の意味を説明できる

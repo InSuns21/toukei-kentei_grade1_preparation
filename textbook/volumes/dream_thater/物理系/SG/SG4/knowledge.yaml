@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - SG3
+  - RA2
 forward_references: []
 concepts:
   - id: spin-glass.overlap-law
