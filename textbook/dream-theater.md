@@ -734,6 +734,7 @@
 2. [ANT2 Dirichlet級数・Euler積の一般論](textbook/volumes/dream_thater/代数系/ANT/ANT2/index.md)
 3. [ANT3 Dirichlet文字・Gauss和・Dirichlet L関数](textbook/volumes/dream_thater/代数系/ANT/ANT3/index.md)
 4. [ANT4 算術級数中の素数に関するDirichletの定理](textbook/volumes/dream_thater/代数系/ANT/ANT4/index.md)
+5. [ANT5 ζ'/ζとvon Mangoldt関数](textbook/volumes/dream_thater/代数系/ANT/ANT5/index.md)
 
 <a id="dt-subject-algebraic-geometry"></a>
 <a id="dt-subject-algebraic-geometry-i"></a>
@@ -947,6 +948,12 @@
 6. [SM6 量子統計と量子理想気体](textbook/volumes/dream_thater/物理系/SM/SM6/index.md)
 7. [SM7 Ising模型とCurie–Weiss平均場](textbook/volumes/dream_thater/物理系/SM/SM7/index.md)
 8. [SM8 相転移と臨界現象](textbook/volumes/dream_thater/物理系/SM/SM8/index.md)
+
+<a id="dt-subject-spin-glass"></a>
+### スピングラス
+
+1. [SG1 quenched disorder・Random Energy Model・凍結転移](textbook/volumes/dream_thater/物理系/SG/SG1/index.md)
+
 
 <a id="dt-subject-mathematical-quantum-mechanics"></a>
 ### 数理量子力学
