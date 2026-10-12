@@ -151,7 +151,22 @@ $$
 
 と書けば、先ほどの差分評価から $b_i(x_{<i})-a_i(x_{<i})\le c_i$ です。$g_i$ は全入力上で有界な $f$ の平均なので、この上下端は有限です。ただし一般の可測空間では、全ての $u$ に関する上限・下限が過去の可測関数になるとは限りません。そこで、実際の条件付き区間には次の可測な端点を使います。
 
-$U_i=g_i(X_{<i},X_i)=M_i$ の、$\mathcal F_{i-1}$ を与えた条件付き**実数値分布**を取り、その本質的下限と上限を $A'_i,B'_i$ とします。実数値の条件付き分布は分布関数の有理点での値から構成でき、これらの端点は $\mathcal F_{i-1}$ 可測です。過去を固定すると $U_i$ は上記の幅 $c_i$ 以下の区間に入るので、
+$U_i=g_i(X_{<i},X_i)=M_i$ と置きます。上限・下限を可測に選ぶため、各有理数 $q$ について
+
+$$
+p_i^-(q)=E[\mathbf1_{\{U_i<q\}}\mid\mathcal F_{i-1}],
+\qquad
+p_i^+(q)=E[\mathbf1_{\{U_i>q\}}\mid\mathcal F_{i-1}]
+$$
+
+を作ります。両者は[条件付き期待値](../../F0/F0-00P3A/index.md#def-f0-00p3a-conditional-expectation)なので $\mathcal F_{i-1}$ 可測です。条件付き分布で実際に取り得る値の両端を
+
+$$
+A'_i=\sup\{q\in\mathbb Q:p_i^-(q)=0\},\qquad
+B'_i=\inf\{q\in\mathbb Q:p_i^+(q)=0\}
+$$
+
+で定めます。集合は有理数の可算集合なので、両端も過去に関して可測です（零確率の条件付け先での値は任意に変更します）。$U_i$ は有界であるため両端は有限です。各固定した過去で $U_i$ の値域は先の $[a_i,b_i]$ に含まれるので、
 
 $$
 A'_i\le U_i\le B'_i,\qquad B'_i-A'_i\le c_i
@@ -197,17 +212,31 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\mathcal G$ が与えられたときの実数値変数 $Y$ の条件付き分布を考えます。仮定により、ほとんどすべての条件付け先で分布は $[A,B]$ に集中し、その区間幅は $B-A\le c$ です。この分布の平均は $E[Y\mid\mathcal G]=0$ なので、[Hoeffding補題](../HDP1/index.md#lem-hdp1-hoeffding)の上下端をその条件付き値 $A,B$、指数係数を $\lambda$ として適用できます。
-
-[Hoeffding補題](../HDP1/index.md#lem-hdp1-hoeffding)の入力 $Y$、下端 $a$、上端 $b$、指数係数 $\lambda$ に対して
+$A=B$ となる条件付け先では、$A\le Y\le B$ と零平均から $Y=0$ なので結論は等号で成立します。以下は $A<B$ の条件付け先で考えます。指数関数の凸性を区間 $[A,B]$ に適用すると、$A\le Y\le B$ から
 
 $$
-E[e^{\lambda(Y-E[Y\mid\mathcal G])}\mid\mathcal G]
+e^{\lambda Y}
+\le \frac{B-Y}{B-A}e^{\lambda A}
++\frac{Y-A}{B-A}e^{\lambda B}.
+$$
+
+$A,B$ は $\mathcal G$ 可測なので、[条件付き期待値の線形性と既知量の取り出し](../../F0/F0-00P3A/index.md#thm-f0-00p3a-basic-properties)を用い、$E[Y\mid\mathcal G]=0$ を代入すると
+
+$$
+E[e^{\lambda Y}\mid\mathcal G]
+\le \frac{B}{B-A}e^{\lambda A}
++\frac{-A}{B-A}e^{\lambda B}.
+$$
+
+ここで $A\le0\le B$ は零平均と条件付きの単調性から従います。右辺は $A$ と $B$ をそれぞれ確率 $B/(B-A)$ と $-A/(B-A)$ で取る**平均零の二点分布**の指数モーメントです。この二点分布は幅が $B-A\le c$ なので、[Hoeffding補題](../HDP1/index.md#lem-hdp1-hoeffding)に端点 $A,B$、指数係数 $\lambda\in\mathbb R$ を代入して
+
+$$
+E[e^{\lambda Y}\mid\mathcal G]
 \le e^{\lambda^2(B-A)^2/8}
 \le e^{\lambda^2c^2/8}
 $$
 
-となります。左辺では条件付き平均が零です。$\lambda<0$ にも[Hoeffding補題](../HDP1/index.md#lem-hdp1-hoeffding)の両符号版を使います。$c=0$ なら区間端が一致し、零平均と合わせて $Y=0$ がほとんど確実に成立するため両辺は $1$ です。
+を得ます。この方法は差分同士の独立性や、一般の条件付き分布の存在定理に頼りません。$c=0$ なら必ず $A=B$ なので先の退化場合に含まれます。
 <!-- proof-end -->
 
 この補題を $Y=D_i$、$\mathcal G=\mathcal F_{i-1}$ に当てると、前節の条件付き幅によって
