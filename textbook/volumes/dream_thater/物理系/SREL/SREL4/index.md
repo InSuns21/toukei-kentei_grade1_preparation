@@ -77,7 +77,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-一定のLorentz変換 $\Lambda$ と並進 $a$ に対し、$X'=\Lambda X+a$ です。$\dot X'=\Lambda\dot X$ なので、計量の保存性により
+一定のLorentz変換 $\Lambda$ と並進 $a$ に対し、$X'=\Lambda X+a$ です。$\dot X'=\Lambda\dot X$ なので、[Minkowski時空間隔のLorentz不変性](../SREL2/index.md#thm-srel2-interval-invariance)を微分ベクトルに適用すると
 
 $$
 g(\dot X',\dot X')
@@ -162,13 +162,26 @@ $$
 \end{aligned}
 $$
 
-最後の等号は $H$ の端点値が零だからです。各成分の $H^\mu$ を独立に選べるので、変分積分が任意の $H$ について零である条件は
+最後の等号は $H$ の端点値が零だからです。積分に現れる各係数を
+
+$$
+q_\mu(\lambda)=\frac d{d\lambda}
+\left(\frac{\dot X_\mu}{\sqrt G}\right)
+$$
+
+と置くと、$X$ が $C^2$ 級かつ $G>0$ なので $q_\mu$ は連続です。もしある内点で $q_\mu$ が零でなければ、連続性により小さな区間では一定の符号を持ちます。その区間だけに台を持ち、$q_\mu$ と同じ符号の滑らかな $H^\mu$ を選び、他の三成分を零にすれば、
+
+$$
+\int_{\lambda_0}^{\lambda_1}q_\mu H^\mu\,d\lambda\ne0
+$$
+
+となります。十分小さい変分は時間的条件を保つので、この選び方も許されます。したがって、任意の端点固定変分に対する停留条件は各成分について
 
 $$
 \frac d{d\lambda}\left(\frac{\dot X_\mu}{\sqrt G}\right)=0
 $$
 
-です。ここで [固有時](../SREL2/index.md#def-srel2-proper-time)をこの世界線へ適用すると
+です。ここで [固有時](../SREL2/index.md#def-srel2-proper-time)をこの世界線へ適用し、[四元速度](../SREL3/index.md#def-srel3-four-velocity)の定義を用いると
 
 $$
 \frac{d\tau}{d\lambda}=\frac{\sqrt G}{c}>0,
@@ -302,7 +315,20 @@ $$
 =m\frac d{dt}(\gamma v)=m\gamma^3a=\frac{125}{64}ma.
 $$
 
-従って、相対論的な三次元力は通常 $ma$ とは一致しません。なお $\boldsymbol f$ の大きさが有限でも $|\boldsymbol v|<c$ は保たれます。
+従って、相対論的な三次元力は通常 $ma$ とは一致しません。ただし、力の有限性だけから速度制限を曖昧に結論してはいけません。一定質量 $m>0$ で、初期運動量が有限かつ $\boldsymbol f$ が各有限時間区間で積分可能なら、
+
+$$
+\boldsymbol p(t)=\boldsymbol p(t_0)+\int_{t_0}^{t}\boldsymbol f(s)\,ds
+$$
+
+は有限です。このとき [質量殻の速度復元式](../SREL3/index.md#thm-srel3-mass-shell)により
+
+$$
+\frac{|\boldsymbol v(t)|^2}{c^2}
+=\frac{|\boldsymbol p(t)|^2}{m^2c^2+|\boldsymbol p(t)|^2}<1.
+$$
+
+従って有限時刻では光速に達しません。上の「瞬間の力」の計算自体には、全時刻での有界性を仮定していません。
 <!-- definition-example-end -->
 
 <a id="prop-srel4-work-energy"></a>
@@ -392,7 +418,7 @@ $d/d\tau=\gamma\,d/dt$ を四元運動量の各成分に作用させます。時
 <!-- proof-start -->
 ### 証明
 
-[四元運動量](../SREL3/index.md#def-srel3-four-momentum)は $P=(E/c,\boldsymbol p)$ です。[固有時の定義](../SREL2/index.md#def-srel2-proper-time)から $dt/d\tau=\gamma$ なので
+[四元運動量](../SREL3/index.md#def-srel3-four-momentum)は $P=(E/c,\boldsymbol p)$ です。[固有時の定義](../SREL2/index.md#def-srel2-proper-time)から $dt/d\tau=\gamma$ であり、[相対論的な仕事とエネルギー](#prop-srel4-work-energy)から $dE/dt=\boldsymbol f\cdot\boldsymbol v$ なので
 
 $$
 \begin{aligned}
@@ -490,7 +516,16 @@ $$
 
 から全有限時刻で従います。
 
-最後に $\boldsymbol p=\gamma m\boldsymbol v$ の一次元微分を展開します。$a=dv/dt$ と置き、$\dot\gamma=\gamma^3va/c^2$ より
+最後に [正準量と四元運動量の一致](#thm-srel4-canonical-momentum)で得た $p_x=\gamma mv$ を一次元で微分します。$a=dv/dt$ と置き、$\gamma=(1-v^2/c^2)^{-1/2}$ に連鎖律を使うと
+
+$$
+\dot\gamma
+=-\frac12\left(1-\frac{v^2}{c^2}\right)^{-3/2}
+\left(-\frac{2va}{c^2}\right)
+=\gamma^3\frac{va}{c^2}.
+$$
+
+この式を積の微分に代入して
 
 $$
 \begin{aligned}
@@ -675,7 +710,14 @@ S_\lambda
 \end{aligned}
 $$
 
-速度成分は半分になりましたが、積分区間が倍になるため同じ値です。
+$\lambda$ で微分した世界線の各成分を $\lambda$ で微分した $dX/d\lambda$ は元の $dX/dt$ の半分ですが、パラメータの積分区間が倍になり、作用は同じ値です。**物理的な座標速度は半分になりません**。実際、
+
+$$
+\frac{dx/d\lambda}{dt/d\lambda}
+=\frac{v/2}{1/2}=v.
+$$
+
+従って再パラメータ化は世界線の進み方を表す変数を変えるだけで、同じ慣性系で測る速度そのものは変えません。
 <!-- solution-end -->
 
 ### B2. 一定の三次元力から世界線を作る
@@ -756,12 +798,12 @@ $$
 
 ### C1. 力を加え、その後に逆向きの力を加える
 
-質量 $m>0$ の粒子が一次元で、$x(0)=0$、$p_x(0)=0$ から出発する。ある慣性系の時刻 $0\le t\le T$（$T>0$）で三次元力 $+F$、$T\le t\le2T$ で三次元力 $-F$（$F>0$）を受ける。力の切替時刻では位置と運動量が連続するとする。
+質量 $m>0$ の粒子が一次元で、$x(0)=0$、$p_x(0)=0$ から出発する。ある慣性系の時刻 $0\le t<T$（$T>0$）で三次元力 $+F$、$T<t\le2T$ で三次元力 $-F$（$F>0$）を受ける。切替点 $t=T$ での力の値は指定せず、位置と運動量は連続するとする。
 
 1. 両区間の $p_x(t)$、$E(t)$ と $v(t)$ を求め、$t=2T$ に粒子が静止することを示せ。
 2. 終点位置 $x(2T)$ を求め、なぜ出発点に戻らないか説明せよ。
 3. 各区間の仕事量を求め、全体のエネルギー増分と比較せよ。
-4. この折れ曲がった動力学的世界線に**自由作用の停留方程式**をそのまま適用できるか。理由を述べよ。
+4. この**力が途中で切り替わる**世界線に**自由作用の停留方程式**をそのまま適用できるか。理由を述べよ。
 
 - Level: C
 
@@ -826,5 +868,5 @@ $$
 
 従って $W_1+W_2=0=E(2T)-E(0)$ であり、力が途中で符号を変えても仕事とエネルギーの関係が成立します。
 
-(4) [自由作用の変分方程式](#thm-srel4-free-euler-lagrange)は $dU/d\tau=0$ を要求し、これは $d\boldsymbol p/dt=0$ に対応します。しかし問題の各開区間では $d p_x/dt=\pm F\ne0$ です。したがってこの世界線は**自由作用の停留世界線ではありません**。与えた力を表す相互作用の作用を追加していない以上、自由作用だけからこの運動を導くことはできません。
+(4) [自由作用の変分方程式](#thm-srel4-free-euler-lagrange)は $dU/d\tau=0$ を要求し、これは $d\boldsymbol p/dt=0$ に対応します。しかし問題の各開区間では $dp_x/dt=\pm F\ne0$ です。力の切替点で運動量と速度は連続でも、加速度は跳ぶため世界線は区分的にしか $C^2$ ではありません。自由方程式はその各滑らかな開区間でも満たされません。したがってこの世界線は**自由作用の停留世界線ではありません**。与えた力を表す相互作用の作用を追加していない以上、自由作用だけからこの運動を導くことはできません。
 <!-- solution-end -->
