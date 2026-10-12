@@ -1,7 +1,7 @@
 version: 1
 id: SGT
 title: "スペクトルグラフ理論"
-plan: textbook/plans_progress/DREAM_THEATER_SPECTRAL_GRAPH_THEORY_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_SPECTRAL_GRAPH_THEORY_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 chapters:
