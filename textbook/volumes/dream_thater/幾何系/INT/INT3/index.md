@@ -152,7 +152,7 @@ $\sigma_j$ は流れに沿って不変であるため、$\frac{d}{dt}(\psi_j^t)^
 $$
 0=(\psi_j^{2\pi})^*\omega-\omega=2\pi\,d\sigma_j
 $$
-となります。したがって $\sigma_j$ は閉1形式です。$c$ 空間を小さな開球に取ったので、[Poincaréの補題](../../GEO/GEO9/index.md#thm-geo9-poincare-lemma)から $\sigma_j=dI_j(c)$ と書けます。ヤコビ行列 $(\partial I_j/\partial c_i)_{ji}=(a_{ij})_{ji}$ は可逆です。ゆえに $I$ が横断方向の座標になります。
+となります。したがって $\sigma_j$ は閉1形式です。$c$ 空間を小さな開球に取ったので、[閉形式の局所的な原始形式の存在](../../GEO/GEO9/index.md#thm-geo9-poincare-lemma)から $\sigma_j=dI_j(c)$ と書けます。ヤコビ行列 $(\partial I_j/\partial c_i)_{ji}=(a_{ij})_{ji}$ は可逆です。ゆえに $I$ が横断方向の座標になります。
 
 **第3段階：シンプレクティック形式を標準化する。** いま $\iota_{Y_j}\omega=dI_j$ なので
 $$
@@ -241,7 +241,7 @@ $$
 
 ## 5. 振り子：往復と回転を分けて積分する
 
-$\kappa>0$ とし、円筒位相空間 $(q\bmod2\pi,p)$ 上で
+$\kappa>0$ とし、円周位置 $q\bmod2\pi$ と実数運動量 $p$ からなる相空間で
 $$
 H(q,p)=\frac{p^2}{2}+\kappa(1-\cos q)
 $$
@@ -546,7 +546,7 @@ I_1(E_1)=\frac2\pi\int_0^{a(E_1)}
 \sqrt{2(E_1-\kappa(1-\cos q))}\,dq,\qquad
 I_2=\frac{E_2}{\nu}.
 $$
-[周期と作用の微分公式](#prop-int3-period-derivative)から $dI_1/dE_1>0$ なので、任意の $E_1\in(0,2\kappa)$ の近傍で逆関数 $E_1=K_1(I_1)$ を定義できます。ゆえに $H=K_1(I_1)+\nu I_2$ です。振動子の $q_2,p_2$ は第2節の式で正準に表せ、振り子側は[局所作用角座標定理](#thm-int3-local-action-angle)により同じ局所正準形式を持ちます。
+[作用のエネルギー微分と周期](#prop-int3-period-derivative)から $dI_1/dE_1>0$ なので、任意の $E_1\in(0,2\kappa)$ の近傍で逆関数 $E_1=K_1(I_1)$ を定義できます。ゆえに $H=K_1(I_1)+\nu I_2$ です。振動子の $q_2,p_2$ は第2節の式で正準に表せ、振り子側は[局所作用角座標定理](#thm-int3-local-action-angle)により同じ局所正準形式を持ちます。
 
 (iii) $T_1(E_1)=4\int_0^{a(E_1)}dq/\sqrt{2(E_1-\kappa(1-\cos q))}$ です。従って逆関数の微分を使い
 $$
