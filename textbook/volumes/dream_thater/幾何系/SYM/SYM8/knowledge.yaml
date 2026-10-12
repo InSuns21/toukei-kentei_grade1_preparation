@@ -57,7 +57,7 @@ concepts:
     kind: lemma
     introduction: formal
     introduction_aliases: [補題（正定値平方根の滑らかな依存）]
-    requires: [linear.psd-square-root]
+    requires: [linear.psd-square-root, analysis.implicit-function-theorem]
 
   - id: symplectic.compatible-manifold-existence
     name: 滑らかな計量からの適合概複素構造
