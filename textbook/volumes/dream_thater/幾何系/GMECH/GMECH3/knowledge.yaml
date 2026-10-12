@@ -1,0 +1,50 @@
+chapter: GMECH3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GMECH2
+  - SYM4
+  - LIE2
+  - GEO2
+forward_references: []
+
+concepts:
+  - id: mechanics.hamiltonian-symmetry
+    name: Hamiltonianの群不変性と無限小不変性
+    kind: definition
+    introduction: formal
+    aliases: []
+    introduction_aliases: ["定義（Hamiltonianの群不変性と無限小不変性）"]
+    requires:
+      - mechanics.hamiltonian-lie-action
+      - lie.smooth-action
+
+  - id: mechanics.infinitesimal-symmetry-identity-component
+    name: 無限小不変性と単位連結成分
+    kind: proposition
+    introduction: formal
+    aliases: []
+    requires:
+      - mechanics.hamiltonian-symmetry
+      - lie.exponential-local-diffeomorphism
+
+  - id: mechanics.geometric-noether-theorem
+    name: 幾何学的Noetherの定理
+    kind: theorem
+    introduction: formal
+    aliases: []
+    requires:
+      - mechanics.momentum-map
+      - mechanics.infinitesimal-symmetry-identity-component
+      - symplectic.observables-evolution
+      - symplectic.manifold-poisson-bracket
+
+  - id: mechanics.noether-converse
+    name: 運動量関数の保存と無限小対称性の同値
+    kind: proposition
+    introduction: formal
+    aliases: []
+    requires:
+      - mechanics.geometric-noether-theorem
+      - mechanics.infinitesimal-symmetry-identity-component
+      - symplectic.observables-evolution
