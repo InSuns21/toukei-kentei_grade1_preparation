@@ -1,0 +1,43 @@
+id: "CM1-02"
+title: "複素多様体間の正則写像と座標不変性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CM1-01
+official_scope: []
+learning_objectives:
+  - 複素多様体間の正則写像の座標表示を正しい開定義域に書き、局所的に判定できる
+  - 始点・終点の正則な座標変換を挟み、正則性の座標不変性を証明できる
+  - 正則写像の合成と恒等写像の正則性を座標表示から証明できる
+  - 双正則写像と実微分同相である正則写像の逆の正則性を説明できる
+  - 複素Jacobi行列の座標変換則から局所複素階数の不変性を証明できる
+  - 直積写像とRiemann球面上のべき写像を局所座標で計算できる
+  - 非零Jacobi行列式と大域的全単射を区別し、反例を構成できる
+definitions:
+  - { id: CM1-02-DEF-01, name: 複素多様体間の正則写像 }
+  - { id: CM1-02-DEF-02, name: 複素多様体の双正則同値 }
+  - { id: CM1-02-DEF-03, name: 正則写像の局所複素階数 }
+theorems:
+  - { id: CM1-02-THM-01, name: 正則写像の座標不変性 }
+  - { id: CM1-02-PROP-01, name: 多様体間の正則写像の合成と恒等写像 }
+  - { id: CM1-02-PROP-02, name: 実微分同相である正則写像の逆 }
+  - { id: CM1-02-THM-02, name: 正則写像の複素Jacobi階数の座標不変性 }
+  - { id: CM1-02-PROP-03, name: 正則写像の直積 }
+canonical_examples:
+  - 非線形剪断座標による座標表示の変換
+  - 複素多様体間の多項式写像
+  - 双正則多項式写像と指数写像の非単射性
+  - Riemann球面のべき写像の無限遠座標
+  - Jacobi階数が一点で落ちる写像
+problem_patterns:
+  - CM1-02-LOCAL-COORDINATES
+  - CM1-02-COORDINATE-INVARIANCE
+  - CM1-02-HOLOMORPHIC-COMPOSITION
+  - CM1-02-BIHOLOMORPHISM
+  - CM1-02-RANK-INVARIANCE
+  - CM1-02-PRODUCT-MAP
+  - CM1-02-RIEMANN-SPHERE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 7, review: 2 }

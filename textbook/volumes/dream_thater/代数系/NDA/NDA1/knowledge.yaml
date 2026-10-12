@@ -1,0 +1,63 @@
+chapter: NDA1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NT7
+forward_references: []
+
+concepts:
+  - id: diophantine.normalized-approximation-error
+    name: 正規化近似誤差
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（正規化近似誤差）]
+    requires: [number-theory.convergent-error]
+
+  - id: diophantine.exact-approximation-constant
+    name: 正規化誤差の完全商表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（正規化誤差の完全商表示）]
+    requires: [diophantine.normalized-approximation-error, number-theory.convergent-determinant]
+
+  - id: diophantine.intermediate-convergent
+    name: 中間収束分数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（中間収束分数）]
+    requires: [number-theory.convergent-fraction]
+
+  - id: diophantine.intermediate-error-identity
+    name: 中間収束分数の誤差公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（中間収束分数の誤差公式）]
+    requires: [diophantine.intermediate-convergent, number-theory.convergent-determinant]
+
+  - id: diophantine.best-first-kind
+    name: 第一種最良近似
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（第一種最良近似）]
+    requires: [number-theory.convergent-fraction]
+
+  - id: diophantine.intermediate-kind-comparison
+    name: 中間収束分数による第一種・第二種比較
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（中間収束分数による第一種・第二種比較）]
+    requires: [diophantine.best-first-kind, diophantine.intermediate-error-identity, number-theory.second-kind-best-approximation]
+
+  - id: diophantine.eventually-periodic-fraction
+    name: 最終周期連分数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（最終周期連分数）]
+    requires: [number-theory.simple-continued-fraction]
+
+  - id: diophantine.lagrange-periodicity
+    name: Lagrangeの最終周期性定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Lagrangeの最終周期性と逆向き）]
+    requires: [diophantine.eventually-periodic-fraction, number-theory.convergent-determinant]

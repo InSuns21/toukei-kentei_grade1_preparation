@@ -1,0 +1,42 @@
+chapter: ANT4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ANT3
+forward_references: []
+
+concepts:
+  - id: analytic-number-theory.prime-log-euler
+    name: Euler積の対数と素数の一次項
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（Euler積の対数と素数の一次項）]
+    requires: [analytic-number-theory.l-euler]
+
+  - id: analytic-number-theory.real-character-nonnegative-coefficients
+    name: 実文字と非負の畳み込み係数
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（実文字と非負の畳み込み係数）]
+    requires: [analytic-number-theory.dirichlet-character, analytic-number-theory.convolution-product]
+
+  - id: analytic-number-theory.l-one-nonzero
+    name: 非主Dirichlet L関数の境界非零性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（非主Dirichlet L関数の境界非零性）]
+    requires: [analytic-number-theory.real-character-nonnegative-coefficients, analytic-number-theory.prime-log-euler, analytic-number-theory.l-continuation]
+
+  - id: analytic-number-theory.dirichlet-primes
+    name: 算術級数中の素数に関するDirichletの定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（算術級数中の素数に関するDirichletの定理）]
+    requires: [analytic-number-theory.l-one-nonzero, analytic-number-theory.residue-projector, analytic-number-theory.prime-log-euler]
+
+  - id: analytic-number-theory.residue-prime-reciprocals
+    name: 既約剰余類に属する素数の逆数和の発散
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（既約剰余類に属する素数の逆数和の発散）]
+    requires: [analytic-number-theory.dirichlet-primes]

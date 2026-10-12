@@ -194,7 +194,14 @@ $$
 <a id="prop-cm1-01-shear-atlas"></a>
 <!-- formal-statement-start -->
 > **命題（非線形剪断座標による正則アトラス）**  
-> $X=\mathbb C^2$ に上の二つの全域座標を置くと正則アトラスになる。座標遷移は非線形だが双正則であり、複素 Jacobi 行列の行列式は全点で $1$ である。
+> $X=\mathbb C^2$ に次の二つの全域座標を置く。
+
+$$
+\varphi(z_1,z_2)=(z_1,z_2),\qquad
+\psi(z_1,z_2)=(z_1+z_2^2,z_2).
+$$
+
+> この二座標は正則アトラスをなし、その遷移は非線形だが双正則である。$\psi\circ\varphi^{-1}$ の複素 Jacobi 行列の行列式は全点で $1$ となる。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -286,7 +293,15 @@ $\mathbb C^2$ は Hausdorff かつ第二可算であり、二座標は全域を�
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cm1-01-maximal -->
-**定義の確認**。$\mathbb C^n$ の恒等座標から始め、それと双正則な座標変換を持つ全ての局所座標を集めた族は極大になる。なぜ「全て」を加えても二つの新しい座標が衝突しないかは、次の定理で実際に示す。
+**定義の確認**。$X=\mathbb C^n$ 上で恒等座標 $\operatorname{id}$ と両立する局所座標を全て集めた族を $\mathcal M_0$ とする。この族は恒等座標を含むので $X$ を覆う。二座標 $(U,\varphi),(W,\chi)\in\mathcal M_0$ の重なりの各点で
+
+$$
+\chi\circ\varphi^{-1}
+=(\chi\circ\operatorname{id}^{-1})
+\circ(\operatorname{id}\circ\varphi^{-1})
+$$
+
+と分解でき、両因子は恒等座標との両立性により正則である。[正則写像の合成と双正則座標変換](#prop-cm1-01-composition)から両方向の遷移が正則になり、$\mathcal M_0$ は正則アトラスをなす。さらに $\mathcal M_0$ と両立する別の局所座標は、その中の恒等座標とも両立するので、最初から $\mathcal M_0$ に含まれる。したがってこれは極大正則アトラスの具体例である。次の定理では、この恒等座標による中継を任意のアトラスに一般化する。
 <!-- definition-example-end -->
 
 <a id="thm-cm1-01-maximal-extension"></a>
@@ -316,9 +331,27 @@ $$
 
 $\mathcal M$ と両立する座標は、$\mathcal A\subset\mathcal M$ なので $\mathcal A$ とも両立する。従って定義から $\mathcal M$ に属し、極大性が示された。
 
-$\mathcal N$ が $\mathcal A$ を含む別の極大アトラスなら、$\mathcal N$ の各座標は $\mathcal A$ と両立し、$\mathcal N\subset\mathcal M$。逆に $\mathcal M$ の座標は $\mathcal N$ と両立するかを確認する。同じ中継論法を、$p$ を含む $\mathcal A$ の座標を介して適用すれば、$\mathcal M$ と $\mathcal N$ の任意の座標が両立する。$\mathcal N$ の極大性から $\mathcal M\subset\mathcal N$。両者は一致する。
+$\mathcal N$ が $\mathcal A$ を含む別の極大アトラスだとする。$\mathcal N$ の各座標は、$\mathcal A\subset\mathcal N$ なので $\mathcal A$ と両立し、$\mathcal N\subset\mathcal M$ である。逆向きの包含には、$(U,\varphi)\in\mathcal M$ と $(W,\chi)\in\mathcal N$ を取り、$p\in U\cap W$ で $(V,\psi)\in\mathcal A$ を選ぶ。三重共通部分上で
 
-最後に、$\mathcal A,\mathcal B$ が両立すれば、上と同じ中継論法によって $\mathcal M(\mathcal A)$ と $\mathcal M(\mathcal B)$ の各座標が両立し、双方の極大性から一致する。逆に極大延長が一致すれば、$\mathcal A$ と $\mathcal B$ は同じ正則アトラスの部分族だから両立する。$\square$
+$$
+\chi\circ\varphi^{-1}
+=(\chi\circ\psi^{-1})\circ(\psi\circ\varphi^{-1}).
+$$
+
+左側の因子 $\chi\circ\psi^{-1}$ は $\psi,\chi\in\mathcal N$ から正則、右側の因子 $\psi\circ\varphi^{-1}$ は $\varphi\in\mathcal M$ が $\mathcal A$ と両立することから正則である。合成則で $\chi\circ\varphi^{-1}$ は $\varphi(p)$ 付近で正則となり、$\varphi,\chi$ を交換した逆遷移も同様に二因子の正則な合成となる。従って $\mathcal M$ と $\mathcal N$ は両立し、$\mathcal N$ の極大性から $\mathcal M\subset\mathcal N$。先の包含と合わせ $\mathcal M=\mathcal N$ が従う。
+
+さらに $\mathcal A,\mathcal B$ が両立すると仮定する。$(U,\varphi)\in\mathcal M(\mathcal A)$、$(W,\chi)\in\mathcal M(\mathcal B)$ と、重なりの任意の点 $p$ を取る。$\mathcal A$ と $\mathcal B$ の被覆性から、$p$ を含む $(V,\psi)\in\mathcal A$、$(T,\theta)\in\mathcal B$ が選べる。四つの定義域の共通部分で
+
+$$
+\begin{aligned}
+\chi\circ\varphi^{-1}
+&=(\chi\circ\theta^{-1})
+\circ(\theta\circ\psi^{-1})\\
+&\qquad\circ(\psi\circ\varphi^{-1})
+\end{aligned}
+$$
+
+と分解する。右から順に、$\varphi$ と $\mathcal A$ の両立性、$\mathcal A$ と $\mathcal B$ の両立性、$\chi$ と $\mathcal B$ の両立性により、三因子は全て正則である。逆遷移も座標を交換して同じ形に分解できるから、両極大アトラスは両立する。極大性により互いを含み、$\mathcal M(\mathcal A)=\mathcal M(\mathcal B)$ となる。反対に極大延長が一致するなら $\mathcal A,\mathcal B$ はその同一アトラスの部分族なので両立する。$\square$
 <!-- proof-end -->
 
 ここでの「極大」は**元のアトラスを最大限に拡張した**という意味であり、座標近傍の数を有限にすることではない。複素多様体を定義する実用上は、少数の座標で構成し、必要なときにその極大延長を同じ複素構造として扱えばよい。
@@ -375,7 +408,7 @@ f=\widetilde\varphi\circ\varphi^{-1},
 g=\widetilde\psi\circ\psi^{-1}.
 $$
 
-$f$、$g$ は因子の正則アトラスの条件から正則である。その実微分を複素線形写像として並べると
+$f$、$g$ は因子ごとの[正則アトラスの定義](#def-cm1-01-atlas)から、各重なりの開集合で正則である。その実微分を複素線形写像として並べると
 
 $$
 D_{\mathbb C}(\widetilde\Phi\circ\Phi^{-1})_{(z,w)}
@@ -386,7 +419,9 @@ D_{\mathbb C}f_z&0\\
 \end{pmatrix}.
 $$
 
-このブロック対角行列も複素線形である。逆遷移についても因子を交換した同じ議論が成り立つ。従って積座標は正則アトラスである。$\square$
+このブロック対角行列も複素線形である。逆遷移についても各因子の逆遷移が正則なので、同じブロック対角の議論が成り立つ。従って二因子の積座標は正則アトラスである。
+
+有限個 $X_1,\ldots,X_k$（$k\ge2$）については、この二因子の結果から帰納法を用いる。最初の二因子の積は複素次元 $n_1+n_2$ の多様体であり、最初の $k$ 因子の積が複素次元 $\sum_{j=1}^{k}n_j$ の多様体なら、その積と $X_{k+1}$ に今証明した二因子の構成を適用することで、次元は $\sum_{j=1}^{k+1}n_j$ になる。積位相と積座標は自然な括弧の付け替えに対応するので、これで任意の非空な有限個の直積が得られる。$\square$
 <!-- proof-end -->
 
 **具体例**。$X=Y=\widehat{\mathbb C}$ を Riemann 球面とする。[CA8 の球面二座標](../../../解析系/CA/CA8/index.md#prop-ca8-riemann-sphere-atlas)は、有限点座標 $z$ と無限遠点側の座標 $\zeta=1/z$ を持つ。$X\times Y$ では各因子を二通りに選ぶから、四つの積座標で全体を覆える。両方の座標を交換する重なりでは
@@ -548,7 +583,7 @@ DG_{F(z)}DF_z
 \begin{pmatrix}1&2z_2\\1&1+2z_2\end{pmatrix}.
 $$
 
-両方一致する。行列の各成分は複素数係数なので、合成の微分は複素線形で正則である。
+二通りの微分は一致する。$G\circ F$ は複素多項式写像なので実 $C^1$ 級であり、得られた複素行列は各点で複素線形写像を定める。従って [複素線形微分による多変数正則写像](#def-cm1-01-holomorphic-map)から $G\circ F$ は正則である。
 <!-- solution-end -->
 
 <a id="ex-cm1-01-b02"></a>
@@ -565,7 +600,14 @@ $$
 =(\chi\circ\psi^{-1})\circ(\psi\circ\varphi^{-1}).
 $$
 
-前の写像は $\mathcal B$ と $\mathcal C$ の両立性により正則、後ろは $\mathcal A$ と $\mathcal B$ の両立性により正則。[合成命題](#prop-cm1-01-composition)より $\chi\circ\varphi^{-1}$ は $\varphi(p)$ 付近で正則である。$p$ が任意なので全重なりで正則。逆向きは座標を交換して同じ計算を行える。従って $\mathcal A\cup\mathcal C$ も正則アトラスである。
+前の写像は $\mathcal B$ と $\mathcal C$ の両立性により正則、後ろは $\mathcal A$ と $\mathcal B$ の両立性により正則。[合成命題](#prop-cm1-01-composition)より $\chi\circ\varphi^{-1}$ は $\varphi(p)$ 付近で正則である。$p$ が任意なので全重なりで正則。逆遷移についても三重共通部分で
+
+$$
+\varphi\circ\chi^{-1}
+=(\varphi\circ\psi^{-1})\circ(\psi\circ\chi^{-1})
+$$
+
+と分解できる。右の因子は $\mathcal B,\mathcal C$ の両立性、左の因子は $\mathcal A,\mathcal B$ の両立性から正則であり、合成命題が適用できる。$p$ は任意であるから両方向の遷移が重なり全体で正則となり、$\mathcal A\cup\mathcal C$ は正則アトラスである。
 <!-- solution-end -->
 
 <a id="ex-cm1-01-b03"></a>
@@ -606,7 +648,7 @@ $(z_1+2\pi i,z_2)\ne(z_1,z_2)$ なので単射ではない。局所の非退化�
 $\widehat{\mathbb C}\times\widehat{\mathbb C}$ の積アトラスで、一方の因子だけを $z$ 座標から $\zeta=1/z$ 座標に取り替えるとき、遷移とその複素 Jacobi 行列を求めよ。定義域も明記せよ。
 
 <!-- solution-start -->
-**詳細解答**。第一因子が重なるのは $z\in\mathbb C^\times$、第二因子は有限点座標 $w\in\mathbb C$ を変えない。従って
+**詳細解答**。[Riemann 球面の二座標](../../../解析系/CA/CA8/index.md#prop-ca8-riemann-sphere-atlas)を第一因子に用いる。第一因子が重なるのは $z\in\mathbb C^\times$、第二因子は有限点座標 $w\in\mathbb C$ を変えない。従って
 
 $$
 T:\mathbb C^\times\times\mathbb C\longrightarrow
@@ -661,7 +703,18 @@ $$
 \chi^{-1}(v_1,v_2)=(v_1,v_2-v_1).
 $$
 
-両写像とその逆は複素多項式で、増分に関する一次項は複素線形、二次以上の残差は $o(\|h\|)$。従って四つとも正則であり、相互逆を上式から直接確認できる。
+両方向の合成は、例えば
+
+$$
+\begin{aligned}
+\psi^{-1}(\psi(z_1,z_2))
+&=(z_1+z_2^2-z_2^2,z_2)=(z_1,z_2),\\
+\chi^{-1}(\chi(z_1,z_2))
+&=(z_1,z_2+z_1-z_1)=(z_1,z_2).
+\end{aligned}
+$$
+
+逆順も $\psi(\psi^{-1}(w))=w$、$\chi(\chi^{-1}(v))=v$ と代入で確かめられる。四つの写像は複素多項式で、増分の一次項は複素線形、二次以上の残差は $o(\|h\|)$ だから、実 $C^1$ 級かつ複素線形な微分を持つ正則写像となる。
 
 **2. 合成の微分**。まず $\psi^{-1}$ を代入すると
 
@@ -681,7 +734,24 @@ D_{\mathbb C}(\chi\circ\psi^{-1})_w
 \end{pmatrix}.
 $$
 
-この複素行列は各点で複素線形写像を定め、成分は連続に依存するので、合成は正則である。逆方向も $(\psi\circ\chi^{-1})(v_1,v_2)=(v_1+(v_2-v_1)^2,v_2-v_1)$ と書けるから同様に複素多項式で正則である。
+この複素行列は各点で複素線形写像を定め、成分は連続に依存するので、合成は正則である。逆方向ではまず $\chi^{-1}(v_1,v_2)=(v_1,v_2-v_1)$ を $\psi$ に代入し、
+
+$$
+(\psi\circ\chi^{-1})(v_1,v_2)
+=\bigl(v_1+(v_2-v_1)^2,v_2-v_1\bigr).
+$$
+
+第一成分を $v_1$ で微分すると $1-2(v_2-v_1)$、$v_2$ で微分すると $2(v_2-v_1)$ であり、第二成分の微分はそれぞれ $-1,1$。従って
+
+$$
+D_{\mathbb C}(\psi\circ\chi^{-1})_v
+=\begin{pmatrix}
+1-2(v_2-v_1)&2(v_2-v_1)\\
+-1&1
+\end{pmatrix}.
+$$
+
+各成分は連続でこの微分は複素線形なので、逆遷移も正則である。さらに二つの行列式はともに $1$ であり、これは両向きの遷移が局所的に可逆であることと整合する。
 
 **3. アトラスと極大化**。$\varphi,\psi,\chi$ はそれぞれ $\mathbb C^2$ から $\mathbb C^2$ への同相であり、全域を覆う。遷移は $\psi\circ\varphi^{-1}=\psi$、$\chi\circ\varphi^{-1}=\chi$、$\chi\circ\psi^{-1}$ とそれぞれの逆で、1・2の検算により全て正則である。$\mathbb C^2$ は Hausdorff・第二可算だから[高次元正則アトラスの定義](#def-cm1-01-atlas)を満たす。[極大延長定理](#thm-cm1-01-maximal-extension)により、このアトラスと両立する全座標を集めた極大正則アトラスが一意に得られる。
 
