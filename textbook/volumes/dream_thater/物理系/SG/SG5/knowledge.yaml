@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - SG4
   - SG2
+  - STO3
 forward_references: []
 concepts:
   - id: spin-glass.gg-identities
