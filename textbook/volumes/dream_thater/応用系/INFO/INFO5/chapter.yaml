@@ -1,0 +1,44 @@
+id: "INFO5"
+title: "情報源符号化定理：固定長ブロック符号の限界と達成"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - INFO1
+  - INFO3
+  - INFO4
+official_scope: []
+learning_objectives:
+  - 有限独立同分布情報源の固定長ブロック符号・誤り確率・符号率を定義して計算できる
+  - 正復号集合の個数上界と有限ブロックの最適な成功確率を証明できる
+  - 典型集合から固定長情報源符号化定理の達成可能性を構成できる
+  - 典型集合の確率上界と正復号集合を用いて強逆定理を証明できる
+  - 符号率がエントロピーより大きい場合と小さい場合の極限を区別できる
+  - 可変長接頭語ブロック符号の平均符号長と固定長符号の誤り基準を区別できる
+  - 独立性と正の台に関する仮定が破れる例を説明できる
+definitions:
+  - { id: INFO5-DEF-01, name: 固定長ブロック符号とブロック誤り確率 }
+theorems:
+  - { id: INFO5-LEM-01, name: 正しく復号できるブロックの個数 }
+  - { id: INFO5-PROP-01, name: 固定長符号の最適な正復号集合 }
+  - { id: INFO5-THM-01, name: 有限独立同分布情報源の固定長符号化・達成可能性 }
+  - { id: INFO5-THM-02, name: 有限独立同分布情報源の固定長符号化・強逆定理 }
+  - { id: INFO5-THM-03, name: 可変長接頭語ブロック符号の平均長 }
+canonical_examples:
+  - 二値偏り情報源での2記号1ビット最適符号
+  - 誤り零の長さ4三値ブロックのビット数
+  - 典型集合の個数上界からの符号器構成
+  - 強逆定理における指数型成功確率評価
+  - 完全相関した過程での独立同分布仮定の失敗
+problem_patterns:
+  - INFO5-FIXED-BLOCK-ERROR
+  - INFO5-ZERO-ERROR-CARDINALITY
+  - INFO5-TOP-M-OPTIMAL
+  - INFO5-TYPICAL-ACHIEVABILITY
+  - INFO5-STRONG-CONVERSE
+  - INFO5-VARIABLE-LENGTH-AVERAGE
+  - INFO5-DEPENDENCE-COUNTEREXAMPLE
+  - INFO5-SOURCE-CODING-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 3 }

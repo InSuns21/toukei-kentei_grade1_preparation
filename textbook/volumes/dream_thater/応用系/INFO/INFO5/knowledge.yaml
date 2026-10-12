@@ -1,0 +1,51 @@
+chapter: INFO5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - INFO1
+  - INFO3
+  - INFO4
+forward_references: []
+
+concepts:
+  - id: information.fixed-block-code
+    name: 固定長ブロック符号とブロック誤り確率
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（固定長ブロック符号とブロック誤り確率）]
+    requires: [information.iid-block-source]
+
+  - id: information.correct-set-bound
+    name: 正しく復号できるブロックの個数
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（正しく復号できるブロックの個数）]
+    requires: [information.fixed-block-code]
+
+  - id: information.best-m-codewords
+    name: 固定長符号の最適な正復号集合
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（固定長符号の最適な正復号集合）]
+    requires: [information.correct-set-bound]
+
+  - id: information.source-coding-achievability
+    name: 有限独立同分布情報源の固定長符号化・達成可能性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（有限独立同分布情報源の固定長符号化・達成可能性）]
+    requires: [information.fixed-block-code, information.weak-typical-set, information.aep, information.typical-cardinality]
+
+  - id: information.source-coding-strong-converse
+    name: 有限独立同分布情報源の固定長符号化・強逆定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（有限独立同分布情報源の固定長符号化・強逆定理）]
+    requires: [information.correct-set-bound, information.aep]
+
+  - id: information.variable-block-mean-length
+    name: 可変長接頭語ブロック符号の平均長
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（可変長接頭語ブロック符号の平均長）]
+    requires: [information.prefix-mean-length-bound, information.shannon-code-length]
