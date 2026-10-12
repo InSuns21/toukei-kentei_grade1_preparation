@@ -1,0 +1,94 @@
+chapter: INFO9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - INFO1
+  - INFO2
+  - RA5
+  - LA3B
+forward_references: []
+
+concepts:
+  - id: information.differential-entropy
+    name: 微分エントロピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（微分エントロピー）]
+    requires: [information.shannon-entropy]
+
+  - id: information.affine-differential-entropy
+    name: 微分エントロピーの可逆アフィン変換則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（微分エントロピーの可逆アフィン変換則）]
+    requires: [information.differential-entropy]
+
+  - id: information.quantization-entropy-limit
+    name: 区間上の連続密度と等幅量子化
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（区間上の連続密度と等幅量子化）]
+    requires: [information.differential-entropy, information.shannon-entropy]
+
+  - id: information.continuous-relative-entropy
+    name: 連続分布の相対エントロピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（連続分布の相対エントロピー）]
+    requires: [information.relative-entropy]
+
+  - id: information.continuous-gibbs
+    name: 連続分布のGibbs不等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（連続分布のGibbs不等式）]
+    requires: [information.continuous-relative-entropy, information.gibbs-inequality]
+
+  - id: information.continuous-mutual
+    name: 連続変数の相互情報量
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（連続変数の相互情報量）]
+    requires: [information.continuous-relative-entropy, information.mutual-as-divergence]
+
+  - id: information.continuous-mutual-entropy
+    name: 連続相互情報量の非負性とエントロピー表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（連続相互情報量の非負性とエントロピー表示）]
+    requires: [information.continuous-mutual, information.continuous-gibbs, information.differential-entropy]
+
+  - id: information.continuous-conditional-entropy
+    name: 連続条件付き微分エントロピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（連続条件付き微分エントロピー）]
+    requires: [information.differential-entropy, information.continuous-mutual]
+
+  - id: information.continuous-chain-rule
+    name: 連続結合エントロピーの連鎖律
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（連続結合エントロピーの連鎖律）]
+    requires: [information.continuous-conditional-entropy, information.continuous-mutual-entropy]
+
+  - id: information.continuous-mutual-affine-invariance
+    name: 可逆アフィン座標変換での相互情報量の不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（可逆アフィン座標変換での相互情報量の不変性）]
+    requires: [information.continuous-mutual, information.affine-differential-entropy]
+
+  - id: information.gaussian-differential-entropy
+    name: 一次元Gaussian分布の微分エントロピー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（一次元Gaussian分布の微分エントロピー）]
+    requires: [information.differential-entropy]
+
+  - id: information.gaussian-max-entropy
+    name: 平均・分散を固定した最大微分エントロピー
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（平均・分散を固定した最大微分エントロピー）]
+    requires: [information.gaussian-differential-entropy, information.continuous-gibbs]
