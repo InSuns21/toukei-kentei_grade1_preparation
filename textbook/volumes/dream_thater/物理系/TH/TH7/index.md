@@ -278,7 +278,7 @@ $$
 
 ### 例：蒸発の傾きを判断する
 
-液相を $\alpha$、気相を $\beta$ とし、$L>0$、$v^\beta>v^\alpha$ なら $dp/dT>0$ です。液相から気相への移行はエントロピーと体積を増やすため、沸騰圧は温度とともに上がります。ただし気体を理想気体と近似して $v^\beta\simeq RT/p$、$v^\alpha\ll v^\beta$ とおく **Clausius–Clapeyron近似** は、厳密なClapeyron式からさらに仮定を加えたものです。そのときに限って
+液相を $\alpha$、気相を $\beta$ とし、$L>0$、$v^\beta>v^\alpha$ なら $dp/dT>0$ です。液相から気相への移行はエントロピーと体積を増やすため、沸騰圧は温度とともに上がります。ただし気体を理想気体と近似して $v^\beta\simeq RT/p$、$v^\alpha\ll v^\beta$ とおく **Clausius–Clapeyron近似** は、厳密な[Clapeyron式](#thm-th7-clapeyron)からさらに仮定を加えたものです。そのときに限って
 
 $$
 \frac{d\ln p}{dT}\simeq\frac{L}{RT^2}.
