@@ -424,7 +424,7 @@ $
 \le\max_\sigma|a_\sigma-b_\sigma|
 $
 
-が成立します。実際、$d=\max_\sigma|a_\sigma-b_\sigma|$ と置けば、各 $\sigma$ で $e^{-d}e^{b_\sigma}\le e^{a_\sigma}\le e^d e^{b_\sigma}$ として和を取ればよいからです。これを $a_\sigma=\beta H_t(\sigma)+h_\sigma$、$b_\sigma=\beta H_{t_0}(\sigma)+h_\sigma$ に適用し、Gaussian場の有限な一次絶対モーメントを用いると、$\Phi(t)$ は端点を含め連続です。よって $[\varepsilon,1-\varepsilon]$ 上で微積分の基本定理を使い、導関数の一様有界性と端点連続性から $\varepsilon\downarrow0$ として $\Phi(1)-\Phi(0)=\int_0^1\Phi'(t)\,dt$ を得ます。
+が成立します。実際、$d=\max_\sigma|a_\sigma-b_\sigma|$ と置けば、各 $\sigma$ で $e^{-d}e^{b_\sigma}\le e^{a_\sigma}\le e^d e^{b_\sigma}$ として和を取ればよいからです。これを $a_\sigma=\beta H_t(\sigma)+h_\sigma$、$b_\sigma=\beta H_{t_0}(\sigma)+h_\sigma$ に適用し、Gaussian場の有限な一次絶対モーメントを用いると、$\Phi(t)$ は端点を含め連続です。また補間微分公式の右辺は、各 $w_t(\sigma)$ が $t$ に関して連続かつ $0\le w_t(\sigma)\le1$ であるため、優収束により $0<t<1$ で連続です。従って $[\varepsilon,1-\varepsilon]$ で [微積分学の基本定理II](../../../基礎科目/RA/RA4/index.md#thm-ra4-ftc2) を適用し、導関数の一様有界性と端点連続性から $\varepsilon\downarrow0$ として $\Phi(1)-\Phi(0)=\int_0^1\Phi'(t)\,dt$ を得ます。
 <!-- proof-end -->
 
 <a id="cor-sg2-comparison"></a>
