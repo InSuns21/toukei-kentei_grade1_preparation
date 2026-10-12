@@ -33,7 +33,7 @@ $$
 Z_G=2e^{\beta J}+2e^{-\beta J}=4\cosh(\beta J).
 $$
 
-同方向の一配置は反対方向の一配置より $e^{2\beta J}$ 倍の重みを持つことを直接確認できます。
+**定義の確認**：配置空間 $\Omega$ は4通りで、各配置のエネルギーを[Hamiltonian](#def-sm7-ising)に代入し、重みを全て足して $Z_G$ を得ました。同方向の一配置は反対方向の一配置より $e^{2\beta J}$ 倍の重みを持ちます。全確率の和は $Z_G/Z_G=1$ です。
 <!-- definition-example-end -->
 
 <a id="prop-sm7-spin-flip"></a>
@@ -158,6 +158,8 @@ $$
 ### 直接例：三スピンの重複度
 
 上向きスピンが $k=0,1,2,3$ 個のとき、$M_3=2k-3$ は $-3,-1,1,3$、配置数は $1,3,3,1$ です。$k=2$ の三配置はすべて $H_3=-J/6-h$ であり、重みを三回数える必要があります。
+
+**定義の確認**：各配置で $M_3=+1$ と $m_3=1/3$ を[Curie–WeissのHamiltonian](#def-sm7-cw)に代入すると $H_3=-J\cdot1^2/(2\cdot3)-h\cdot1$ が得られます。三配置すべてが $e^{\beta J/6+\beta h}$ を分配関数へ寄与し、重複度3と一致します。
 <!-- definition-example-end -->
 
 平方型の自己相互作用を明示します。$\sigma_i^2=1$ より
@@ -682,7 +684,7 @@ a_N-\frac{\log(N+1)}N
 \le a_N+\frac{\log(N+1)}N.
 $$
 
-$\Phi$ の一様連続性と格子幅 $2/N\to0$ により、$a_N$ は連続区間上の最大値へ収束します。従って圧力の極限は $\max\Phi$ です。$h=0$ での停留条件は $\operatorname{arctanh}m=\beta Jm$。[臨界点定理](#thm-sm7-critical)より $\beta J>1$ の最大点は正負の $\pm m_*$ です。
+$\Phi$ の一様連続性と格子幅 $2/N\to0$ により、$a_N$ は連続区間上の最大値へ収束します。従って圧力の極限は $\max\Phi$ です。$h=0$ での停留条件は $\operatorname{arctanh}m=\beta Jm$。[零外場での最大点の分類](#thm-sm7-critical)より $\beta J>1$ の最大点は正負の $\pm m_*$ です。
 
 有限 $N$ では[スピン反転](#prop-sm7-spin-flip)と有限和の連続性により
 
