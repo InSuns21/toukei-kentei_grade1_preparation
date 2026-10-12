@@ -15,9 +15,11 @@
 <!-- formal-statement-start -->
 > **定義（Riemann予想）**  
 > Riemann ζ関数のすべての非自明零点 $\rho$ が
+
 $$
 \operatorname{Re}\rho=\frac12
 $$
+
 > を満たす、という未解決の主張を **Riemann予想（RH）** という。零点の位数について単純であることは主張しない。
 <!-- formal-statement-end -->
 
@@ -50,13 +52,17 @@ $$
 <!-- formal-statement-start -->
 > **補題（非減少和の差分による平滑化の解除）**  
 > $\psi:[1,\infty)\to[0,\infty)$ は非減少、$F(x)=\int_1^x\psi(t)\,dt$ とする。ある $1\le\alpha<2$ に対して
+
 $$
 F(x)=\frac{x^2}{2}+O(x^\alpha)
 $$
+
 > なら
+
 $$
 \psi(x)=x+O\!\left(x^{\alpha/2}\right).
 $$
+
 > さらに、ある $a>0$ について $F(x)=x^2/2+O(x^2e^{-a\sqrt{\log x}})$ なら、ある $b>0$ について $\psi(x)=x+O(xe^{-b\sqrt{\log x}})$ である。
 <!-- formal-statement-end -->
 
@@ -91,11 +97,13 @@ $$
 <!-- formal-statement-start -->
 > **命題（RHから得られる平滑化誤差と点ごとの誤差）**  
 > RHを仮定すると、$x\ge2$ に対して
+
 $$
 \Psi_1(x)=\frac x2+O(x^{1/2}),
 \qquad
 \psi(x)=x+O(x^{3/4})
 $$
+
 > が成り立つ。
 <!-- formal-statement-end -->
 
@@ -133,9 +141,11 @@ $$
 <!-- formal-statement-start -->
 > **系（十分鋭い誤差評価はRHを導く）**  
 > すべての $\varepsilon>0$ について
+
 $$
 \psi(x)=x+O_\varepsilon(x^{1/2+\varepsilon})
 $$
+
 > が成り立つならRHは正しい。特に $\psi(x)=x+O(x^{1/2}(\log x)^K)$ がある固定 $K\ge0$ について成立すればRHは正しい。
 <!-- formal-statement-end -->
 
@@ -158,9 +168,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（対数型零点不存在領域）**  
 > ある定数 $c>0$ について、$\zeta$ が
+
 $$
 \sigma\ge1-\frac{c}{\log(|t|+3)}
 $$
+
 > の中に零点を持たないとき、ζは **対数型零点不存在領域** を持つという。$s=1$ の単純極は零点ではない。
 <!-- formal-statement-end -->
 
@@ -173,9 +185,11 @@ $$
 <!-- formal-statement-start -->
 > **定理（ζの古典的な対数型零点不存在領域）**  
 > ある絶対定数 $c>0$ が存在し、ζのすべての非自明零点 $\rho=\beta+i\gamma$ は
+
 $$
 \beta\le1-\frac{c}{\log(|\gamma|+3)}
 $$
+
 > を満たす。
 <!-- formal-statement-end -->
 
@@ -242,11 +256,13 @@ $|\gamma|<3$ の零点については、[ANT6の零点不存在](../ANT6/index.m
 <!-- formal-statement-start -->
 > **定理（対数型零点不存在からの素数定理の誤差）**  
 > ある定数 $b>0$ が存在し、$x\ge3$ に対して
+
 $$
 \Psi_1(x)=\frac x2+O(xe^{-b\sqrt{\log x}}),
 \qquad
 \psi(x)=x+O(xe^{-b\sqrt{\log x}})
 $$
+
 > が成り立つ。二つの式の $b$ は必要なら小さく取り直してよい。
 <!-- formal-statement-end -->
 
@@ -313,10 +329,12 @@ $$
 <!-- formal-statement-start -->
 > **命題（文字付きvon Mangoldt級数）**  
 > 法 $q\ge2$ の任意のDirichlet文字 $\chi$ と $\operatorname{Re}s>1$ に対して
+
 $$
 -\frac{L'(s,\chi)}{L(s,\chi)}
 =\sum_{n\ge1}\frac{\chi(n)\Lambda(n)}{n^s}
 $$
+
 > が絶対収束の等式として成立する。
 <!-- formal-statement-end -->
 
@@ -350,10 +368,12 @@ $$
 <!-- formal-statement-start -->
 > **命題（誘導文字による有限Euler因子）**  
 > 法 $q$ のDirichlet文字 $\chi$ が導手 $f\mid q$ の原始文字 $\chi^\ast$ から誘導されるなら、$\operatorname{Re}s>1$ で
+
 $$
 L(s,\chi)=L(s,\chi^\ast)
 \prod_{\substack{p\mid q\\p\nmid f}}(1-\chi^\ast(p)p^{-s})
 $$
+
 > が成立する。この等式は双方が有理型に延長された領域で恒等的に成り立つ。
 <!-- formal-statement-end -->
 
