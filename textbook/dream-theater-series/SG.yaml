@@ -32,7 +32,7 @@ chapters:
   - id: SG7
     path: textbook/volumes/dream_thater/物理系/SG/SG7
     status: completed
-    title: dilutedスピングラスとランダムfactor graph
+    title: dilutedスピングラスとランダム因子グラフ
   - id: SG8
     path: textbook/volumes/dream_thater/物理系/SG/SG8
     status: planned
