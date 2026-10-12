@@ -9,52 +9,52 @@ forward_references: []
 
 concepts:
   - id: number-theory.unit-group
-    name: 法nの単数群
+    name: 剰余環の単数群
     kind: definition
     introduction: formal
-    introduction_aliases: [定義（法nの単数群）]
+    introduction_aliases: [定義（剰余環の単数群）]
     requires: [number-theory.modular-inverse-criterion, algebra.quotient-ring]
 
   - id: number-theory.euler-totient
-    name: Eulerのφ関数
+    name: Euler の φ 関数
     kind: definition
     introduction: formal
-    introduction_aliases: [定義（Eulerのφ関数）]
+    introduction_aliases: [定義（Euler の φ 関数）]
     requires: [number-theory.unit-group]
 
   - id: number-theory.totient-product
-    name: φ関数の積公式
+    name: φ 関数の積公式
     kind: proposition
     introduction: formal
-    introduction_aliases: [命題（φ関数の積公式）]
+    introduction_aliases: [命題（φ 関数の積公式）]
     requires: [number-theory.euler-totient, number-theory.constructive-crt]
 
   - id: number-theory.euler-theorem
-    name: Eulerの定理
+    name: Euler の定理
     kind: theorem
     introduction: formal
-    introduction_aliases: [定理（Eulerの定理）]
+    introduction_aliases: [定理（Euler の定理）]
     requires: [number-theory.euler-totient, algebra.lagrange-theorem, algebra.element-order]
 
   - id: number-theory.fermat-little-theorem
-    name: Fermatの小定理
+    name: Fermat の小定理
     kind: corollary
     introduction: formal
-    introduction_aliases: [系（Fermatの小定理）]
+    introduction_aliases: [系（Fermat の小定理）]
     requires: [number-theory.euler-theorem]
 
   - id: number-theory.wilson-theorem
-    name: Wilsonの定理
+    name: Wilson の定理
     kind: theorem
     introduction: formal
-    introduction_aliases: [定理（Wilsonの定理）]
+    introduction_aliases: [定理（Wilson の定理）]
     requires: [number-theory.unit-group]
 
   - id: number-theory.primitive-root
-    name: 法nの原始根
+    name: 整数の原始根
     kind: definition
     introduction: formal
-    introduction_aliases: [定義（法nの原始根）]
+    introduction_aliases: [定義（整数の原始根）]
     requires: [number-theory.euler-totient, algebra.element-order]
 
   - id: number-theory.abelian-group-exponent-lemma
