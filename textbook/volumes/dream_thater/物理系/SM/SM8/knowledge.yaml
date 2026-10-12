@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - SM7
+  - F0-00P3
 forward_references: []
 concepts:
   - id: statistical-mechanics.phase-transition-nonanalyticity
@@ -58,7 +59,7 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（全結合模型の共分散恒等式）"]
-    requires: [statistical-mechanics.curie-weiss-model, statistical-mechanics.curie-weiss-response]
+    requires: [statistical-mechanics.curie-weiss-model, statistical-mechanics.curie-weiss-response, prob.covariance]
   - id: statistical-mechanics.long-range-order
     name: Curie–Weiss模型の長距離秩序と巨大揺らぎ
     kind: theorem
