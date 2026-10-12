@@ -64,3 +64,10 @@ EOM221 は SG8 の後に置く。
 - `SG1/index.md` として初稿を正式公開。正規尾・区間計数・圧力極限の上下界・期待値収束、Jensenの等号条件、凍結公式を点検した。
 - Level A 4題、Level B 3題、Level C 1題と各詳細解答を点検し、特に一般化REMの帯評価からの上下界・期待値移行を加筆した。
 - `textbook/dream-theater-index.json` と `textbook/dream-theater.md` へ公開導線を追加し、SG manifest のSG1を completed に更新。SG2以降と系列横断査読を本PLANの残課題とする。
+
+## SG2 執筆・査読記録（2026-10-12）
+
+- SG1 を直接前提として、SG2 に有限Gaussian場、部分積分、二レプリカGibbs平均、Gaussian集中不等式、正規圧力集中、平方根補間、共分散比較を実装した。
+- Gaussian集中の主要証明は有限次元Ornstein–Uhlenbeck半群のエントロピー計算から閉じ、Gaussian部分積分と補間微分の添字・平方根係数を再計算した。相関するREM型の共通ノイズでも微分公式と直接計算を照合した。
+- 演習はLevel A 4題・B 3題・C 1題。学修目標ごとの計算、仮定を落とした例、複数結果を使う統合問題を含め、全問詳細解答を置いた。
+- SG2 の教材・metadata・系列manifest・公開索引と目次を同一PRで整備。SG3〜SG8と系列横断監査は残るため、PLANは進行中のままとする。
