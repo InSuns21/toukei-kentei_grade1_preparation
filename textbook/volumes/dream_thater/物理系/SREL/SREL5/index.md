@@ -33,7 +33,7 @@ $$
 
 ### 1.1 三次元のMaxwell方程式を出発点とする
 
-次の四本は数学だけから証明する式ではなく、**真空中の電磁場の経験的な物理法則**です。[EMAG7で導入したFaraday則](../../../EMAG/EMAG7/index.md#principle-emag7-faraday)と[Ampère–Maxwell則](../../../EMAG/EMAG7/index.md#principle-emag7-ampere-maxwell)を、静電・静磁のGauss則と合わせて再掲します。四次元化はこれらの法則と同値な記述を導く作業です。
+次の四本は数学だけから証明する式ではなく、**真空中の電磁場の経験的な物理法則**です。[EMAG7で導入したFaraday則](../../EMAG/EMAG7/index.md#principle-emag7-faraday)と[Ampère–Maxwell則](../../EMAG/EMAG7/index.md#principle-emag7-ampere-maxwell)を、静電・静磁のGauss則と合わせて再掲します。四次元化はこれらの法則と同値な記述を導く作業です。
 
 <a id="principle-srel5-maxwell-si"></a>
 
