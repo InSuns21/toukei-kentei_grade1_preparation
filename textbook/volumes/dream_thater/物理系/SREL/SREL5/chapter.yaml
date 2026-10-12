@@ -17,7 +17,7 @@ definitions:
   - { id: SREL5-DEF-02, name: 電磁場テンソル }
 theorems:
   - { id: SREL5-PRINCIPLE-01, name: 真空中のMaxwell方程式・SI単位系 }
-  - { id: SREL5-THM-01, name: 非斉次Maxwell方程式の巡回微分表示 }
+  - { id: SREL5-THM-01, name: 非斉次Maxwell方程式の発散表示 }
   - { id: SREL5-THM-02, name: 斉次Maxwell方程式の巡回微分表示 }
   - { id: SREL5-PROP-01, name: 電磁場のLorentz変換 }
   - { id: SREL5-THM-03, name: Maxwell方程式のLorentz共変性 }
