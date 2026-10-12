@@ -42,7 +42,8 @@ $$
 
 $$
 \begin{aligned}
-T&=\frac{2AS}{N},\qquad p=\frac{BN^2}{V^2},\\
+T&=\frac{2AS}{N},\\
+p&=\frac{BN^2}{V^2},\\
 \mu_1&=-\frac{AS^2}{N^2}+\frac{2BN}{V}+c_1,\\
 \mu_2&=-\frac{AS^2}{N^2}+\frac{2BN}{V}+c_2.
 \end{aligned}
@@ -189,7 +190,7 @@ $$
 \mu_i^\alpha=\mu_i^\beta
 $$
 >
-> が必要である。さらに移動座標に沿う二階微分が正なら、この交換方向で厳密局所最小となる。複数成分が独立に移動できる場合、条件は移動可能な各成分について課される。
+> が必要である。逆に、この等値条件を満たす内部停留点で、移動座標に沿う二階微分が正なら、この交換方向で厳密局所最小となる。複数成分が独立に移動できる場合、条件は移動可能な各成分について課される。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -199,7 +200,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[移動座標](#def-th7-transfer-coordinate)を $\mathcal G(\xi)=G^\alpha(T,p,\boldsymbol N^\alpha(\xi))+G^\beta(T,p,\boldsymbol N^\beta(\xi))$ に代入します。[多成分基本関係](#def-th7-component-mu)と $G=U-TS+pV$ を全微分し、共通 $T,p$ を固定すると、各相で $dG^\gamma=\sum_j\mu_j^\gamma\,dN_j^\gamma$ です。従って連鎖律から
+[移動座標](#def-th7-transfer-coordinate)を $\mathcal G(\xi)=G^\alpha(T,p,\boldsymbol N^\alpha(\xi))+G^\beta(T,p,\boldsymbol N^\beta(\xi))$ に代入します。[多成分基本関係](#def-th7-component-mu)と[TH5のGibbsポテンシャルの定義](../TH5/index.md#def-th5-potentials) $G=U-TS+pV$ を全微分し、共通 $T,p$ を固定すると、各相で $dG^\gamma=\sum_j\mu_j^\gamma\,dN_j^\gamma$ です。従って連鎖律から
 
 $$
 \begin{aligned}
@@ -210,7 +211,7 @@ $$
 \end{aligned}
 $$
 
-内部点 $\xi=0$ が局所最小なら $\mathcal G'(0)=0$ だから $\mu_i^\alpha=\mu_i^\beta$ です。また $C^2$ 級ならTaylor展開で
+内部点 $\xi=0$ が局所最小なら $\mathcal G'(0)=0$ だから $\mu_i^\alpha=\mu_i^\beta$ です。さらに、停留条件 $\mathcal G'(0)=0$ を確かめた点では、$C^2$ 級のTaylor展開から
 
 $$
 \mathcal G(\xi)-\mathcal G(0)
@@ -345,7 +346,7 @@ $$
 
 ### 証明の見取り図
 
-$N_i\ln x_i$ をその項だけで微分すると誤ります。$x_1,x_2$ は両方とも全量 $N$ に依存するので、和を $N_i\ln N_i-N\ln N$ に変形してから微分します。
+$N_i\ln x_i$ をその項だけで微分すると誤ります。$x_1,x_2$ は両方とも全量 $N$ に依存するので、任意の基準物質量 $N_*>0$ を導入し、和を無次元量の対数で書いてから微分します。$N_*$ は最後に相殺されます。
 
 <!-- proof-start -->
 ### 証明
@@ -354,7 +355,7 @@ $N=N_1+N_2$ より
 
 $$
 \sum_iN_i\ln x_i
-=\sum_iN_i\ln N_i-N\ln N.
+=\sum_iN_i\ln\frac{N_i}{N_*}-N\ln\frac{N}{N_*}.
 $$
 
 $N_j$（$j\ne i$）を固定すると $\partial N/\partial N_i=1$ ですから
@@ -362,8 +363,9 @@ $N_j$（$j\ne i$）を固定すると $\partial N/\partial N_i=1$ ですから
 $$
 \begin{aligned}
 \frac{\partial}{\partial N_i}\sum_jN_j\ln x_j
-&=(\ln N_i+1)-(\ln N+1)\\
-&=\ln(N_i/N)=\ln x_i.
+&=\left(\ln\frac{N_i}{N_*}+1\right)
+-\left(\ln\frac{N}{N_*}+1\right)\\
+&=\ln\frac{N_i}{N}=\ln x_i.
 \end{aligned}
 $$
 
@@ -451,7 +453,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$T,p$ 固定で $dG=\sum_i\mu_i\,dN_i$、また $dN_i/d\xi=\nu_i$ なので、連鎖律から
+[Gibbsポテンシャルの自然変数の微分](../TH5/index.md#prop-th5-natural-variables)を[多成分化学ポテンシャル](#def-th7-component-mu)へ拡張すると、$T,p$ 固定で $dG=\sum_i\mu_i\,dN_i$ です。また $dN_i/d\xi=\nu_i$ なので、連鎖律から
 
 $$
 \frac{dG}{d\xi}
@@ -518,14 +520,14 @@ $$
 > と取る。これは対象・極限・最低エネルギー配置の一意性を仮定した第三法則の表示であり、あらゆる物質・準安定状態でエントロピーが零になるという主張ではない。
 <!-- formal-statement-end -->
 
-同じ仮定の下で熱容量から絶対エントロピーを求めるなら、基準圧力の単相経路で $C_p(T)/T$ の積分が収束し、相転移を横切る場合はそのエントロピー跳躍も適切に加えます。たとえば $C_p(T)=aT^3$（$a>0$）の範囲では
+同じ仮定の下で熱容量から絶対エントロピーを求めるには、[定圧熱容量の定義](../TH6/index.md#def-th6-response) $C_p=T(\partial S/\partial T)_{p,\boldsymbol N}$ を可逆な等圧単相経路へ適用します。$C_p(T)/T$ の零温度からの積分が収束する必要があり、途中で相転移を横切る場合はそのエントロピー跳躍も加えます。たとえば $C_p(T)=aT^3$（$a>0$）の範囲では
 
 $$
 S(T)-S(0)=\int_0^T\frac{C_p(t)}t\,dt
 =\int_0^Ta t^2\,dt=\frac{aT^3}{3}.
 $$
 
-一方、凍結した配列に $\Omega>1$ 個の残余的な配置が残る模型では、$S_{\mathrm{res}}=R\ln\Omega$（一 mol 当たりなら配置数の規格化に応じた係数）が零とは限りません。これは「完全結晶・最低エネルギー配置の一意性」という仮定が満たされない例であり、第三法則から矛盾は生じません。また $T=0$ での到達可能性や反応速度まで、この表示だけで証明したことにはなりません。
+一方、1 mol の独立な構成単位がそれぞれ $q>1$ 通りの等価な配向を保持する、と**仮定した配置エントロピー模型**では、残留モルエントロピーを $s_{\mathrm{res}}=R\ln q>0$ と置けます。$q$ は各構成単位の選択肢の数であり、試料全体の配置数をそのまま $R\ln q$ の $q$ に代入するものではありません。この式の微視的導出は統計力学で扱います。ここでは「完全結晶・最低エネルギー配置の一意性」という仮定が失われるため、第三法則の表示と矛盾しないことを確認します。また $T=0$ での到達可能性や反応速度まで、この表示だけで証明したことにはなりません。
 
 ## 8. 演習：物質量の拘束を式に入れる
 
@@ -539,7 +541,7 @@ $N=N_1+N_2$、$U=aS^2/N+bN^2/V+c_1N_1+c_2N_2$、$a,b>0$ とする。$T,p,\mu_1,\
 - ID: TH7-A1
 
 <!-- solution-start -->
-**詳細解答**　[多成分化学ポテンシャルの定義](#def-th7-component-mu)に従います。$S,V,N_2$ を固定して $N_1$ を微分すると $N_{N_1}=1$ です。
+**詳細解答**　[多成分化学ポテンシャルの定義](#def-th7-component-mu)に従います。$S,V,N_2$ を固定して $N_1$ を微分すると $\partial N/\partial N_1=1$ です。
 
 $$
 \begin{aligned}
@@ -663,7 +665,7 @@ $$
 - ID: TH7-B2
 
 <!-- solution-start -->
-**詳細解答**　非負条件 $2+\xi\ge0$、$3-\xi\ge0$ より $-2\le\xi\le3$ です。$\xi=3$ では正の方向に進めず、許される微小変化は $d\xi<0$ のみです。[移動の微分](#thm-th7-phase-equilibrium)は
+**詳細解答**　非負条件 $2+\xi\ge0$、$3-\xi\ge0$ より $-2\le\xi\le3$ です。$\xi=3$ では正の方向に進めず、許される微小変化は $d\xi<0$ のみです。$\mathcal G$ の左微分が有限に存在し、両相の化学ポテンシャルが片側極限として定義できる場合、[移動の微分](#thm-th7-phase-equilibrium)は
 
 $$
 d\mathcal G=(\mu^\alpha-\mu^\beta)\,d\xi.
@@ -694,11 +696,11 @@ $RT>0$ なので $4N_B/N_A=1$、従って $N_A=4N_B$。総量から $N_B=2$ mol�
 
 $$
 \frac{d^2G}{d\xi^2}
-=RT\left(\frac18+\frac12\right)
-=\frac{5RT}{8}>0.
+=RT\left(\frac{1}{8\ {\rm mol}}+\frac{1}{2\ {\rm mol}}\right)
+=\frac{5RT}{8\ {\rm mol}}>0.
 $$
 
-ここで $N_i$ の数値は mol で測った量として用い、曲率の単位は $G$ をJ、$\xi$ をmolとすれば J/mol$^2$ です。
+各 $N_i$ を mol 単位の物質量として代入しました。$RT$ の単位は J/mol、括弧内は mol$^{-1}$ なので、曲率の単位は J/mol$^2$ です。
 <!-- solution-end -->
 
 #### TH7-B4 第三法則と熱容量
@@ -709,7 +711,7 @@ $$
 - ID: TH7-B4
 
 <!-- solution-start -->
-**詳細解答**　可逆等圧加熱では $dS=C_p(T)\,dT/T$。基準 $S(0)=0$ から
+**詳細解答**　[定圧熱容量の定義](../TH6/index.md#def-th6-response)によって、可逆等圧加熱では $dS=C_p(T)\,dT/T$。基準 $S(0)=0$ から
 
 $$
 S(T)=\int_0^T\frac{at^3}{t}\,dt
@@ -730,7 +732,7 @@ $$
 
 ### Level C：相平衡・潜熱・化学反応をつなぐ
 
-#### TH7-C1 二つの反応経路と共存線
+#### TH7-C1 共存線と許容方向の微分
 
 一成分の二相 $\alpha,\beta$ はある $(T_0,p_0)$ で共存し、$s^\alpha=10$、$s^\beta=30$ J/(mol K)、$v^\alpha=0.001$、$v^\beta=0.011$ m$^3$/mol とする。$T_0=400$ K とする。
 
