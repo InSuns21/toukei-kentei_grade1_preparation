@@ -45,3 +45,5 @@ jobs:
           else
             node scripts/migrate-dream-theater-categories.mjs --check
           fi
+      - name: Verify relocation preserves text, proofs and assets
+        run: node scripts/verify-dream-theater-category-relocation.mjs --base "$(git merge-base origin/main HEAD)"
