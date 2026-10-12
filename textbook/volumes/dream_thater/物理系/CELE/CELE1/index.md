@@ -119,7 +119,15 @@ p_r=\mu\dot r,\qquad
 H=\frac{p_r^2}{2\mu}+\frac{\ell^2}{2\mu r^2}-\frac{\kappa}{r}.
 $$
 
-固定平面の相対問題は二自由度、相空間は四次元です。$\ell$ がゼロでない軌道に対して上の極座標は正準座標で、$\{r,p_r\}=\{\varphi,\ell\}=1$ です。
+固定平面の相対問題は二自由度、相空間は四次元です。極座標の正準性も一形式から確認できます。運動面で $e_r=(\cos\varphi,\sin\varphi)$、$e_\varphi=(-\sin\varphi,\cos\varphi)$ と置くと、$q=re_r$ から
+
+$$
+dq=e_r\,dr+r e_\varphi\,d\varphi,\qquad
+p\cdot dq=(p\cdot e_r)\,dr+(r p\cdot e_\varphi)\,d\varphi
+=p_r\,dr+\ell\,d\varphi.
+$$
+
+ここで $p_r=p\cdot e_r=\mu\dot r$、$\ell=r p\cdot e_\varphi=(q\times p)_z$ です。したがって $(r,\varphi,p_r,\ell)$ は $r>0$ で正準座標となり、$\{r,p_r\}=\{\varphi,\ell\}=1$ です。この座標変換自体は $\ell=0$ でも成立しますが、$L\ne0$ の軌道なら運動面を角運動量から一意に固定できます。
 
 <a id="thm-cele1-planar-integrability"></a>
 
@@ -367,7 +375,18 @@ E=-\frac{\kappa}{2a},\qquad
 b=a\sqrt{1-e^2}.
 $$
 
-$b$ は短半径です。離心近点角 $u$ を用いて焦点を原点とした楕円を $x=a(\cos u-e),\ y=b\sin u$ と表すと、原点からの扇形面積 $S$ の微分は
+$b$ は短半径です。離心近点角 $u$ を用いて焦点を原点とした楕円を $x=a(\cos u-e),\ y=b\sin u$ と表します。このとき焦点からの距離は、$0<e<1$ より $1-e\cos u>0$ に注意して
+
+$$
+\begin{aligned}
+r&=\sqrt{x^2+y^2}\\
+&=a\sqrt{(\cos u-e)^2+(1-e^2)\sin^2u}\\
+&=a\sqrt{(1-e\cos u)^2}
+=a(1-e\cos u).
+\end{aligned}
+$$
+
+となります。原点からの扇形面積 $S$ の微分は
 
 $$
 \frac{dS}{du}
@@ -502,8 +521,7 @@ $$
 
 $$
 dH=\left(\frac{\kappa}{r^2}-\frac{\ell^2}{\mu r^3}\right)dr
-+\frac{p_r}{\mu}dp_r+\frac{\ell}{\mu r^2}d\ell,
-\qquad d\ell=d\ell.
++\frac{p_r}{\mu}dp_r+\frac{\ell}{\mu r^2}d\ell.
 $$
 
 $a\,dH+b\,d\ell=0$ と置くと $dp_r$ 係数は $ap_r/\mu=0$。$p_r\ne0$ だから $a=0$、次に $d\ell$ 係数から $b=0$。従って二つは一次独立です。
@@ -652,7 +670,25 @@ $$
 
 よって三つの微分は独立です。
 
-(iii) 上の行列式は $q\ne0$ の連結な相空間上の実解析関数です。指定点で非零なので恒等的に零ではなく、その非零集合は開稠密です。従って三自由度に三つの独立な Poisson 可換第一積分があり、[Liouville 可積分性](../../../幾何系/INT/INT1/index.md#def-int1-liouville-integrability)が成立します。
+(iii) 指定点での独立性を、開稠密集合へ広げる根拠も確かめます。$p=(p_x,p_y,p_z)$ に関する三つの偏微分行は
+
+$$
+\nabla_p H=p,\qquad
+\nabla_p|L|^2=2(L\times q),\qquad
+\nabla_pL_z=(-q_y,q_x,0).
+$$
+
+したがって、この三行を並べた小行列式 $D(q,p)$ は、$q,p$ の成分の**多項式**です。(ii) の指定点とは別に $q=(1,0,0),\ p=(1,1,1)$ を代入すれば、$L=(0,-1,1)$ で
+
+$$
+D(q,p)=\det\begin{pmatrix}
+1&1&1\\
+0&2&2\\
+0&1&0
+\end{pmatrix}=-2\ne0.
+$$
+
+ゆえに $D$ は零多項式ではありません。非零多項式は開直方体全体で零にはなれません。実際、一つの変数を動かして区間上で恒等的に零なら一変数多項式の各係数が零であり、この操作を残りの変数にも繰り返すと元の多項式の全係数が零となって矛盾します。したがって $D\ne0$ である集合は開稠密で、そこで $dH,d|L|^2,dL_z$ は一次独立です。三自由度に三つの独立な Poisson 可換第一積分があるため、[Liouville 可積分性](../../../幾何系/INT/INT1/index.md#def-int1-liouville-integrability)が成立します。
 
 [Runge--Lenz ベクトル](#def-cele1-runge-lenz)はさらに保存されますが、その成分は $A\cdot L=0$ と $|A|^2=1+2H|L|^2$ などの関係を満たします。また全成分が相互に Poisson 可換になるわけでもありません。「保存量が三個より多い」という数だけから、互いに独立かつ可換な第一積分を三個より多く構成できたとは言えません。
 <!-- solution-end -->
