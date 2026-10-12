@@ -1,0 +1,66 @@
+chapter: SGT4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SGT1
+  - SGT2
+  - SGT3
+  - F0-00F1
+forward_references: []
+
+concepts:
+  - id: spectral-graph.balanced-cuts
+    name: Ratio Cut と Normalized Cut
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Ratio Cut と Normalized Cut）]
+    requires: [spectral-graph.cut-weight, spectral-graph.weighted-degree]
+
+  - id: spectral-graph.partition-rayleigh
+    name: 二分割のRayleigh商表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（二分割のRayleigh商表示）]
+    requires: [spectral-graph.balanced-cuts, spectral-graph.dirichlet-energy]
+
+  - id: spectral-graph.partition-relaxation
+    name: 二分割目的関数のスペクトル緩和
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（二分割目的関数のスペクトル緩和）]
+    requires: [spectral-graph.partition-rayleigh, spectral-graph.gap-variational, spectral-graph.normalized-rayleigh]
+
+  - id: spectral-graph.threshold-partition
+    name: 閾値によるスペクトル二分割
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（閾値によるスペクトル二分割）]
+    requires: [spectral-graph.partition-relaxation]
+
+  - id: spectral-graph.threshold-enumeration
+    name: 有限の閾値候補の完全列挙
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（有限の閾値候補の完全列挙）]
+    requires: [spectral-graph.threshold-partition]
+
+  - id: spectral-graph.ncut-conductance
+    name: Normalized Cut と conductance の比較
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Normalized Cut と conductance の比較）]
+    requires: [spectral-graph.balanced-cuts, spectral-graph.conductance, spectral-graph.cheeger-two-sided]
+
+  - id: spectral-graph.kway-partition
+    name: k分割と多群のcut目的関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（k分割と多群のcut目的関数）]
+    requires: [spectral-graph.balanced-cuts]
+
+  - id: spectral-graph.kway-trace
+    name: 多群cutの行列表示とスペクトル緩和
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（多群cutの行列表示とスペクトル緩和）]
+    requires: [spectral-graph.kway-partition, spectral-graph.cut-energy, spectral-graph.normalized-laplacian, linear.spectral-theorem]
