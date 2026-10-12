@@ -1,0 +1,50 @@
+id: "SM4"
+title: "大正準アンサンブルと粒子数揺らぎ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SM3
+  - TH7
+  - F0-00P3
+official_scope: []
+learning_objectives:
+  - 粒子数別の有限状態空間と正準分配関数から大分配関数・大正準確率を定義し、具体模型で規格化を確認できる
+  - 粒子数の周辺分布と粒子数固定の条件付き正準分布を導出し、その意味を区別できる
+  - エネルギーと粒子数の二保存量をもつ浴の厳密な周辺分布から指数重みを導き、近似誤差を評価できる
+  - 化学ポテンシャルが指数に現れる符号をエントロピーの偏微分から説明できる
+  - 大分配関数の対数微分から粒子数の平均・分散・感受率・エネルギーとの共分散を導出できる
+  - 化学ポテンシャル固定の逆温度微分と粒子数重み固定の逆温度微分を区別できる
+  - 大熱力学ポテンシャルとエントロピーの恒等式および温度・化学ポテンシャル微分を証明できる
+  - 大正準変分原理を対数不等式と等号条件まで証明できる
+  - 独立占有サイト模型で二項分布・粒子数揺らぎ・相対揺らぎの極限を証明し、相互作用で崩れる仮定を説明できる
+definitions:
+  - { id: SM4-DEF-01, name: "有限大正準アンサンブルと大分配関数" }
+  - { id: SM4-DEF-02, name: "有限大熱力学ポテンシャル" }
+theorems:
+  - { id: SM4-PROP-01, name: "規格化・粒子数の周辺分布・条件付き正準分布" }
+  - { id: SM4-PROP-02, name: "エネルギー・粒子保存下の厳密な周辺確率" }
+  - { id: SM4-THM-01, name: "大分配関数の対数微分と粒子数揺らぎ" }
+  - { id: SM4-PROP-03, name: "化学ポテンシャル固定でのエネルギー交換量" }
+  - { id: SM4-THM-02, name: "大正準エントロピーと大熱力学ポテンシャル" }
+  - { id: SM4-THM-03, name: "有限大正準分布の変分原理" }
+  - { id: SM4-PROP-04, name: "非相互作用の二値サイト模型" }
+canonical_examples:
+  - 空か一粒子かの二状態模型で分配関数・規格化・ポテンシャルを検算する
+  - 保存量二つを持つ浴の周辺確率と化学ポテンシャルの符号を確かめる
+  - 非相互作用二値サイトの占有指示変数から平均と分散を直接再計算する
+  - 粒子数を固定した反例から分散ゼロの等号条件を確かめる
+problem_patterns:
+  - SM4-ZERO-ONE-NORMALIZATION
+  - SM4-COUNT-DEGENERACY
+  - SM4-ENERGY-SHIFT
+  - SM4-NUMBER-SUSCEPTIBILITY
+  - SM4-RESERVOIR-CHEMICAL-SIGN
+  - SM4-FIXED-N-FLUCTUATIONS
+  - SM4-INDEPENDENT-SITES
+  - SM4-GRAND-POTENTIAL-DERIVATIVE
+  - SM4-PARTICLE-SHIFT
+  - SM4-COMBINED-VARIATIONAL-FLUCTUATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 5 }

@@ -1,0 +1,120 @@
+chapter: NT8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - NT5
+  - RA1
+forward_references: []
+
+concepts:
+  - id: number-theory.prime-infinitude
+    name: Euclid の素数無限性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Euclid の素数無限性）]
+    requires: []
+
+  - id: number-theory.prime-counting-function
+    name: 素数計数関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（素数計数関数）]
+    requires: []
+
+  - id: number-theory.chebyshev-theta
+    name: Chebyshev の θ 関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Chebyshev の θ 関数）]
+    requires: [number-theory.prime-counting-function]
+
+  - id: number-theory.von-mangoldt-function
+    name: von Mangoldt 関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（von Mangoldt 関数）]
+    requires: []
+
+  - id: number-theory.chebyshev-psi
+    name: Chebyshev の ψ 関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Chebyshev の ψ 関数）]
+    requires: [number-theory.von-mangoldt-function]
+
+  - id: number-theory.chebyshev-prime-power-decomposition
+    name: 素数冪ごとの分解
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（素数冪ごとの分解）]
+    requires: [number-theory.chebyshev-theta, number-theory.chebyshev-psi]
+
+  - id: number-theory.von-mangoldt-divisor-identity
+    name: 対数の約数和と階乗恒等式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（対数の約数和と階乗恒等式）]
+    requires: [number-theory.von-mangoldt-function]
+
+  - id: number-theory.binomial-prime-bounds
+    name: 二項係数と区間内素数
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（二項係数と区間内素数）]
+    requires: [number-theory.chebyshev-theta]
+
+  - id: number-theory.chebyshev-upper-bound
+    name: Chebyshev 型の上界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Chebyshev 型の上界）]
+    requires: [number-theory.binomial-prime-bounds, number-theory.prime-counting-function]
+
+  - id: number-theory.binomial-psi-lower-bound
+    name: 二項係数からの ψ の下界
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（二項係数からの ψ の下界）]
+    requires: [number-theory.chebyshev-psi, number-theory.binomial-prime-bounds]
+
+  - id: number-theory.prime-power-error
+    name: 素数冪の余剰寄与
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（素数冪の余剰寄与）]
+    requires: [number-theory.chebyshev-prime-power-decomposition]
+
+  - id: number-theory.chebyshev-two-sided
+    name: 素数計数関数の両側 Chebyshev 型評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（素数計数関数の両側 Chebyshev 型評価）]
+    requires: [number-theory.chebyshev-upper-bound, number-theory.binomial-psi-lower-bound, number-theory.prime-power-error]
+
+  - id: number-theory.prime-number-theorem
+    name: 素数定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（素数定理：本章では主張のみ）]
+    requires: [number-theory.prime-counting-function]
+
+  - id: number-theory.pnt-theta-equivalence
+    name: 素数定理と θ の漸近式の同値性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（素数定理と θ の漸近式の同値性）]
+    requires: [number-theory.prime-number-theorem, number-theory.chebyshev-theta]
+
+  - id: number-theory.dirichlet-series
+    name: Dirichlet 級数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Dirichlet 級数）]
+    requires: []
+
+  - id: number-theory.euler-product
+    name: 絶対収束域における Euler 積
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（絶対収束域における Euler 積）]
+    requires: [number-theory.dirichlet-series]

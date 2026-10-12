@@ -1,6 +1,22 @@
 # HDP9 Hanson–Wrightの二次形式集中
 
-[HDP7の標本共分散評価](../HDP7/index.md#thm-hdp7-isotropic-covariance)では、固定方向に沿った標本の二乗和を集中させ、球面の有限集合へ拡張しました。しかし一般の二次形式には異なる座標の積 $X_iX_j$ が登場します。[HDP3の独立なsub-Gaussian和](../HDP3/index.md#thm-hdp3-subgaussian-sum)を、積 $X_iX_j$ の和へそのまま適用することはできません。例えば $X_1X_2$ は $X_1$ と $X_2$ のどちらとも独立ではないからです。
+[HDP7の標本共分散評価](../HDP7/index.md#thm-hdp7-isotropic-covariance)では、固定方向に沿った標本の二乗和を集中させ、球面の有限集合へ拡張しました。しかし一般の二次形式には異なる座標の積 $X_iX_j$ が登場します。[HDP3の独立なsub-Gaussian和](../HDP3/index.md#thm-hdp3-subgaussian-sum)を積の和にそのまま適用することはできません。座標が独立でも、積同士は共通の座標を含むため従属になり得るからです。
+
+例えば互いに独立で各々が標準正規分布に従う実数値確率変数 $X_1,X_2,X_3$ に対し、$U=X_1X_2$ と $V=X_1X_3$ は独立ではありません。標準正規の二次・四次モーメントから、
+
+$$
+EU^2=EV^2=1,\qquad
+E(U^2V^2)=E(X_1^4)E(X_2^2)E(X_3^2)=3\ne1
+$$
+
+となるためです。反対に、独立なRademacher変数 $R_1,R_2$ では、$a,b\in\{-1,1\}$ に対し
+
+$$
+P(R_1=a,\ R_1R_2=b)=P(R_1=a,\ R_2=ab)=\frac14
+=\frac12\cdot\frac12
+$$
+
+なので、$R_1R_2$ は $R_1$ と独立です。「積なら必ず従属」ではなく、**積の和に必要な独立性を個別に確認できない**ことが問題です。
 
 ここで知りたいのは、独立な中心化座標を持つベクトル $X\in\mathbb R^n$ と確定行列 $A$ に対して、二次形式 $X^{\mathsf T}AX$ が期待値からどの程度離れるかです。結論を支配するのは **Frobeniusノルム（すべての成分の二乗和）**と **作用素ノルム（最大の伸び）**という異なる二つの大きさです。
 
@@ -119,12 +135,29 @@ E|X|^{2p}
 \end{aligned}
 $$
 
-$Y=X^2-EX^2$ に対し、三角不等式とJensenの不等式で
+$Y=X^2-EX^2$ とし、整数 $p\ge1$ を固定します。まず $a=EX^2$ と置きます。$a=0$ なら $X=0$ がほとんど確実に成り立ち、結論は自明です。$a>0$ の場合、任意の $z\ge0$ に対する初等不等式
 
 $$
-(E|Y|^p)^{1/p}
-\le(E|X|^{2p})^{1/p}+EX^2
-\le2(E|X|^{2p})^{1/p}.
+z^p\ge pz-(p-1)
+$$
+
+を $z=X^2/a$ に適用します。この不等式は、左辺から右辺を引いた関数の導関数が $p(z^{p-1}-1)$ で、最小値 $0$ を $z=1$ で取ることから分かります。$E(X^2/a)=1$ を使って期待値を取れば
+
+$$
+\frac{E|X|^{2p}}{a^p}
+\ge pE(X^2/a)-(p-1)=1,
+\qquad
+(EX^2)^p\le E|X|^{2p}.
+$$
+
+次に非負数 $u,v$ について $(u+v)^p\le2^{p-1}(u^p+v^p)$ が成り立ちます。$u=|X|^2$、$v=EX^2$ として $|Y|\le u+v$ を使えば
+
+$$
+\begin{aligned}
+E|Y|^p
+&\le2^{p-1}\{E|X|^{2p}+(EX^2)^p\}\\
+&\le2^p E|X|^{2p}.
+\end{aligned}
 $$
 
 したがって $E|Y|^p\le 2^pE|X|^{2p}\le2(4K^2)^pp!$ です。$EY=0$ を用いて指数級数の一次項を除くと、$r=4K^2|\lambda|\le1/2$ の範囲で
@@ -288,18 +321,27 @@ $$
 
 ### 証明の見取り図
 
-ランダム分割に関するJensen不等式で $S_A$ を $4T_\delta$ へ置き換えます。群 $I$ を固定すれば $J$ の座標の線形和になるので、もう一度指数モーメントを取ってGaussian比較を適用します。部分行列の両ノルムは元の $A$ を超えません。
+分割の有限平均に指数関数の二点平均不等式を繰り返し適用して、$S_A$ を $4T_\delta$ へ置き換えます。群 $I$ を固定すれば $J$ の座標の線形和になるので、もう一度指数モーメントを取ってGaussian比較を適用します。部分行列の両ノルムは元の $A$ を超えません。
 
 <!-- proof-start -->
 ### 証明
 
-$I,J$ を冒頭の独立なランダム分割とすると、固定 $X$ に対して $S_A=4E_\delta T_\delta$ です。指数関数の凸性により、正負どちらの $\lambda$ に対しても
+$I,J$ を冒頭の独立なランダム分割とすると、固定 $X$ に対して $S_A=4E_\delta T_\delta$ です。分割 $\delta$ の $2^n$ 通りは全て等確率です。任意の実数 $a,b$ について、$(e^{a/2}-e^{b/2})^2\ge0$ を展開すると $2e^{(a+b)/2}\le e^a+e^b$ なので
+
+$$
+e^{(a+b)/2}=\sqrt{e^ae^b}\le\frac{e^a+e^b}{2}
+$$
+
+です。これを $2^n$ 個の数に対して二個ずつ組にして $n$ 段繰り返すと、指数関数の有限平均不等式が得られます。各数に $4\lambda T_\delta$ を入れれば、正負どちらの $\lambda$ に対しても
 
 $$
 e^{\lambda S_A}
-=e^{E_\delta(4\lambda T_\delta)}
-\le E_\delta e^{4\lambda T_\delta}.
+=\exp\left(\frac1{2^n}\sum_{\delta\in\{0,1\}^n}4\lambda T_\delta\right)
+\le\frac1{2^n}\sum_{\delta\in\{0,1\}^n}e^{4\lambda T_\delta}
+=E_\delta e^{4\lambda T_\delta}.
 $$
+
+ここでは $X$ を固定したまま分割だけを平均しており、積同士の独立性を仮定していません。
 
 $I,J$ の実現を固定し、部分行列 $B=A_{J,I}$ と $Z=X_I$ を置きます。$T_\delta=(X_J)^{\mathsf T}BZ$ です。$X_I$ と $X_J$ の独立性から、$Z$ を固定して後者で期待値を取ると
 
@@ -378,7 +420,24 @@ Ee^{\lambda(D_A+S_A)}
 (Ee^{2\lambda S_A})^{1/2}.
 $$
 
-実対称 $A$ では $\max_i|a_{ii}|\le\|A\|_{\mathrm{op}}$ であり、$|2\lambda|\le1/(8K^2\|A\|_{\mathrm{op}})$ は[対角項の補題](#lem-hdp9-diagonal-mgf)の範囲内です。また $|2\lambda|\le1/(8K^2\|A\|_{\mathrm{op}})\le1/(\sqrt{32}K^2\|A\|_{\mathrm{op}})$ は[非対角項の補題](#lem-hdp9-offdiagonal-mgf)の範囲内です。よって
+実対称 $A$ では単位ベクトル $e_i$ に対して $|a_{ii}|=|e_i^{\mathsf T}Ae_i|\le\|Ae_i\|_2\le\|A\|_{\mathrm{op}}$ です。仮定 $|\lambda|\le1/(16K^2\|A\|_{\mathrm{op}})$ から
+
+$$
+|2\lambda|\le\frac1{8K^2\|A\|_{\mathrm{op}}}
+$$
+
+となります。最大対角成分の絶対値が正なら右辺は $1/(8K^2\max_i|a_{ii}|)$ 以下なので、[対角項の補題](#lem-hdp9-diagonal-mgf)を使えます。全対角成分が零なら $D_A=0$ です。また $8>\sqrt{32}$ なので
+
+$$
+|2\lambda|
+\le\frac1{8K^2\|A\|_{\mathrm{op}}}
+\le\frac1{\sqrt{32}K^2\|A\|_{\mathrm{op}}}
+$$
+
+となり、[非対角項の補題](#lem-hdp9-offdiagonal-mgf)も使えます。
+
+
+よって
 
 $$
 \begin{aligned}
@@ -532,7 +591,28 @@ $A=\begin{pmatrix}1&3\\-1&2\end{pmatrix}$ に対して $H=(A+A^{\mathsf T})/2$ �
 - ID: HDP9-A1
 
 <!-- solution-start -->
-**詳細解答**　$A+A^{\mathsf T}=\begin{pmatrix}2&2\\2&4\end{pmatrix}$ なので $H=\begin{pmatrix}1&1\\1&2\end{pmatrix}$ です。$Ax=(x_1+3x_2,-x_1+2x_2)^{\mathsf T}$ より $x^{\mathsf T}Ax=x_1^2+2x_1x_2+2x_2^2$。一方 $Hx=(x_1+x_2,x_1+2x_2)^{\mathsf T}$ なので $x^{\mathsf T}Hx$ も同じ式です。
+**詳細解答**　対称部分は
+
+$$
+H=\frac12(A+A^{\mathsf T})
+=\frac12\begin{pmatrix}2&2\\2&4\end{pmatrix}
+=\begin{pmatrix}1&1\\1&2\end{pmatrix}
+$$
+
+です。$x=(x_1,x_2)^{\mathsf T}$ とすると
+
+$$
+\begin{aligned}
+Ax&=(x_1+3x_2,-x_1+2x_2)^{\mathsf T},\\
+x^{\mathsf T}Ax&=x_1(x_1+3x_2)+x_2(-x_1+2x_2)
+=x_1^2+2x_1x_2+2x_2^2,\\
+Hx&=(x_1+x_2,x_1+2x_2)^{\mathsf T},\\
+x^{\mathsf T}Hx&=x_1(x_1+x_2)+x_2(x_1+2x_2)
+=x_1^2+2x_1x_2+2x_2^2.
+\end{aligned}
+$$
+
+二次形式が一致することを確認できました。
 <!-- solution-end -->
 
 ### A2. 独立符号変数と中心化
@@ -565,7 +645,28 @@ $n=2$、$S_A=2a_{12}X_1X_2$（$A$ 対称・対角零）とする。$I,J$ を独�
 - ID: HDP9-A4
 
 <!-- solution-start -->
-**詳細解答**　$(\delta_1,\delta_2)=(0,0),(1,1)$ では片方の群が空なので $T_\delta=0$ です。$(1,0)$ では $a_{12}X_1X_2$、$(0,1)$ では $a_{21}X_2X_1=a_{12}X_1X_2$ です。従って $E_\delta T_\delta=(0+0+a_{12}X_1X_2+a_{12}X_1X_2)/4=a_{12}X_1X_2/2=S_A/4$ です。
+**詳細解答**　片方の群が空なら和を取る組は存在しないので $T_\delta=0$ です。残る二つの分割は一つずつの項を与えます。
+
+$$
+\begin{array}{c|c}
+(\delta_1,\delta_2)&T_\delta\\ \hline
+(0,0)&0\\
+(1,1)&0\\
+(1,0)&a_{12}X_1X_2\\
+(0,1)&a_{21}X_2X_1=a_{12}X_1X_2
+\end{array}
+$$
+
+各分割の確率が $1/4$ であることから、
+
+$$
+E_\delta T_\delta
+=\frac{0+0+a_{12}X_1X_2+a_{12}X_1X_2}{4}
+=\frac{a_{12}X_1X_2}{2}
+=\frac{S_A}{4}.
+$$
+
+対称性 $a_{21}=a_{12}$ を使う場所が重要です。
 <!-- solution-end -->
 
 ### A5. 正規二乗の指数モーメントの定義域
@@ -600,7 +701,32 @@ $G\sim N(0,1)$ とする。$Ee^{sG^2}$ を正規密度から計算し、有限�
 - ID: HDP9-B2
 
 <!-- solution-start -->
-**詳細解答**　独立な $G\sim N(0,1)$ を導入します。正規モーメント母関数で $e^{\alpha(aZ_1+bZ_2)^2}=E_Ge^{\sqrt{2\alpha}G(aZ_1+bZ_2)}$ です。$G$ 固定で座標独立性を使えば期待値は $e^{\alpha K^2(a^2+b^2)G^2}$ 以下です。$s=\alpha K^2(a^2+b^2)\le1/4$ なので $Ee^{sG^2}=(1-2s)^{-1/2}$ です。$-\log(1-2s)\le4s$ を使うと $(1-2s)^{-1/2}\le e^{2s}$ となり、指定の上界を得ます。
+**詳細解答**　$Z_1,Z_2$ と独立な $G\sim N(0,1)$ を導入します。$z=(z_1,z_2)$ を固定して正規モーメント母関数を使うと
+
+$$
+e^{\alpha(az_1+bz_2)^2}
+=E_Ge^{\sqrt{2\alpha}G(az_1+bz_2)}
+$$
+
+です。次に $G=g$ を固定し、$Z_1,Z_2$ の独立性と指数モーメント代理量を使うと
+
+$$
+\begin{aligned}
+E_Ze^{\sqrt{2\alpha}g(aZ_1+bZ_2)}
+&=Ee^{\sqrt{2\alpha}gaZ_1}\,Ee^{\sqrt{2\alpha}gbZ_2}\\
+&\le e^{\alpha K^2a^2g^2}e^{\alpha K^2b^2g^2}
+=e^{\alpha K^2(a^2+b^2)g^2}.
+\end{aligned}
+$$
+
+非負の指数関数について期待値の順序を交換できます。$s=\alpha K^2(a^2+b^2)\le1/4$ と置けば、[本章で求めた正規二乗の指数モーメント](#lem-hdp9-gaussian-comparison)と同じ密度積分から
+
+$$
+Ee^{\alpha(aZ_1+bZ_2)^2}
+\le Ee^{sG^2}=(1-2s)^{-1/2}
+$$
+
+です。$0\le2s\le1/2$ だから $-\log(1-2s)\le4s$ です。右辺の対数は $-\frac12\log(1-2s)\le2s$ となるので、所望の上界 $e^{2\alpha K^2(a^2+b^2)}$ が得られます。
 <!-- solution-end -->
 
 ### B3. パラメータの選択と二領域
@@ -611,7 +737,37 @@ $G\sim N(0,1)$ とする。$Ee^{sG^2}$ を正規密度から計算し、有限�
 - ID: HDP9-B3
 
 <!-- solution-start -->
-**詳細解答**　$t>0$ で[指数Markov法](../HDP1/index.md#prop-hdp1-exponential-markov)より $P(Y\ge t)\le e^{-\lambda t+cv\lambda^2}$ です。$t/(2cv)\le b/2$ なら $\lambda=t/(2cv)$ として指数は $-t^2/(2cv)+t^2/(4cv)=-t^2/(4cv)$。それ以外では $t>cvb$ なので $\lambda=b/2$ として指数は $-bt/2+cvb^2/4\le-bt/4$ です。$-Y$ にも同じ条件が成立するため $P(|Y|\ge t)\le2e^{-\min\{t^2/(4cv),bt/4\}}$ です。
+**詳細解答**　$Y$ の指数モーメントの仮定は正負両方の $\lambda$ で成り立ちます。まず $t>0$ について[指数Markov法](../HDP1/index.md#prop-hdp1-exponential-markov)を $e^{\lambda Y}$ に適用すると、$0<\lambda\le b$ で
+
+$$
+P(Y\ge t)\le e^{-\lambda t+cv\lambda^2}
+$$
+
+です。指定された $\lambda=\min\{t/(2cv),b/2\}$ は必ず $0<\lambda\le b$ に入ります。
+
+$t/(2cv)\le b/2$ の場合、$\lambda=t/(2cv)$ を代入すると
+
+$$
+-\lambda t+cv\lambda^2
+=-\frac{t^2}{2cv}+\frac{t^2}{4cv}
+=-\frac{t^2}{4cv}.
+$$
+
+逆の場合は $t>cvb$ です。$\lambda=b/2$ とすると
+
+$$
+-\lambda t+cv\lambda^2
+=-\frac{bt}{2}+\frac{cvb^2}{4}
+<-\frac{bt}{2}+\frac{bt}{4}
+=-\frac{bt}{4}.
+$$
+
+$-Y$ にも同じ指数モーメント評価を適用し、$P(Y\ge t)+P(-Y\ge t)$ で両側を評価します。従って
+
+$$
+P(|Y|\ge t)\le
+2\exp\left[-\min\left\{\frac{t^2}{4cv},\frac{bt}{4}\right\}\right].
+$$
 <!-- solution-end -->
 
 ### B4. 独立性が失われる反例
@@ -663,14 +819,40 @@ $$
 - ID: HDP9-C2
 
 <!-- solution-start -->
-**詳細解答**　(1) 行列積から $G^{\mathsf T}AG=2G_1G_2+2G_2G_1=4G_1G_2$ です。独立で $EG_i=0$ なので期待値は $0$、ゆえに $Q_A=4G_1G_2$ です。(2) 非零成分は二つの $2$ なので $\|A\|_{\mathrm F}^2=2^2+2^2=8$ です。$A^2=4I_2$ から任意の $x$ で $\|Ax\|_2=2\|x\|_2$、従って $\|A\|_{\mathrm{op}}=2$ です。(3) $K=1$ なので
+**詳細解答**　(1) 二次形式の行列積を展開すると
+
+$$
+G^{\mathsf T}AG=G_1(2G_2)+G_2(2G_1)=4G_1G_2.
+$$
+
+独立性と平均零から $E(G_1G_2)=EG_1EG_2=0$ なので、$Q_A=4G_1G_2$ です。
+
+(2) Frobeniusノルムは全成分の二乗和で、
+
+$$
+\|A\|_{\mathrm F}^2=0^2+2^2+2^2+0^2=8.
+$$
+
+一方 $A^2=4I_2$ かつ $A=A^{\mathsf T}$ なので、任意の $x\in\mathbb R^2$ に対して
+
+$$
+\|Ax\|_2^2=x^{\mathsf T}A^{\mathsf T}Ax
+=x^{\mathsf T}(4I_2)x=4\|x\|_2^2.
+$$
+
+従って $\|A\|_{\mathrm{op}}=2$ です。
+
+(3) 各 $G_i$ は独立な中心化標準正規なので共通代理量 $K=1$ を持ちます。[Hanson–Wrightの二次形式集中不等式](#thm-hdp9-hanson-wright)に $H=A$ と前段のノルムを代入し、
 
 $$
 P(|4G_1G_2|\ge t)\le
-2\exp\left[-\min\left\{\frac{t^2}{5120},\frac{t}{128}\right\}\right].
+2\exp\left[-\min\left\{\frac{t^2}{640\cdot8},\frac{t}{64\cdot2}\right\}\right]
+=2\exp\left[-\min\left\{\frac{t^2}{5120},\frac{t}{128}\right\}\right]
 $$
 
-(4) 同じ $G$ を代入すると二次形式は $4G^2$、その期待値は $4$、中心化は $4(G^2-1)$ です。独立性が失われたので (3) の主定理の適用条件は満たしません。特定の $n=2$ で不等式が偶然成立するかどうかではなく、**証明が必要とする独立性を確認できない**点が問題です。
+を得ます。
+
+(4) $G_1=G_2=G$ と置くと $G^{\mathsf T}AG=4G^2$、その期待値は $4EG^2=4$、中心化は $4(G^2-1)$ です。二つの座標は同じ変数となり独立性を失うので、(3) の定理は使えません。特定の二次元で不等式が偶然成立するかどうかと、**その適用条件を満たすか**は別の問題です。
 <!-- solution-end -->
 
 この章の中心操作は、積の従属性を無視せず、分割した二群を条件付きで独立に扱い、Gaussianのモーメント母関数へ落とすことです。次章では、候補が無限にある場合に、有限集合への和集合評価から一歩進んだ複雑度制御を考えます。

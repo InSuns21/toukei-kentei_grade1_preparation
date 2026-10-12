@@ -74,7 +74,7 @@ concepts:
   - id: complex-analysis.logarithmic-derivative-residue
     name: 対数微分の留数
     kind: lemma
-    aliases: [対数微分の留数, logarithmic derivative residue, 対数微分]
+    aliases: [対数微分の留数, logarithmic derivative residue]
     requires: [complex-analysis.residue, complex-analysis.isolated-zeros-identity-theorem, complex-analysis.isolated-singularity-classification]
 
   - id: complex-analysis.argument-principle-simple-curve

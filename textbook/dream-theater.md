@@ -701,6 +701,7 @@
 5. [NT5 Möbius反転・約数和・総和関数](textbook/volumes/dream_thater/代数系/NT/NT5/index.md)
 6. [NT6 不定方程式と平方和](textbook/volumes/dream_thater/代数系/NT/NT6/index.md)
 7. [NT7 連分数・Pell 方程式・Diophantine 近似](textbook/volumes/dream_thater/代数系/NT/NT7/index.md)
+8. [NT8 素数分布への入口](textbook/volumes/dream_thater/代数系/NT/NT8/index.md)
 
 <a id="dt-subject-algebraic-geometry"></a>
 <a id="dt-subject-algebraic-geometry-i"></a>
@@ -714,6 +715,8 @@
 6. [AG1-06 整拡大とNoether正規化](textbook/volumes/dream_thater/代数系/AG/AG1-06/index.md)
 7. [AG1-07 弱・強Hilbertの零点定理](textbook/volumes/dream_thater/代数系/AG/AG1-07/index.md)
 8. [AG1-08 代数集合と根基イデアルの対応](textbook/volumes/dream_thater/代数系/AG/AG1-08/index.md)
+9. [AG1-09 次元・超越次数・イデアルの鎖](textbook/volumes/dream_thater/代数系/AG/AG1-09/index.md)
+10. [AG1-10 Zariski接空間とJacobian判定の準備](textbook/volumes/dream_thater/代数系/AG/AG1-10/index.md)
 
 <a id="dt-subject-algebraic-geometry-ii"></a>
 ### 代数幾何学 II
@@ -902,6 +905,7 @@
 1. [SM1 微視的状態・巨視的状態・アンサンブル・熱力学極限](textbook/volumes/dream_thater/物理系/SM/SM1/index.md)
 2. [SM2 微正準アンサンブルとBoltzmannエントロピー](textbook/volumes/dream_thater/物理系/SM/SM2/index.md)
 3. [SM3 正準アンサンブルと分配関数](textbook/volumes/dream_thater/物理系/SM/SM3/index.md)
+4. [SM4 大正準アンサンブルと粒子数揺らぎ](textbook/volumes/dream_thater/物理系/SM/SM4/index.md)
 
 <a id="dt-subject-mathematical-quantum-mechanics"></a>
 ### 数理量子力学

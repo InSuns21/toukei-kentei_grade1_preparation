@@ -1,0 +1,52 @@
+id: "AG1-10"
+title: "Zariski接空間とJacobian判定の準備"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AG1-09
+  - AG1-08
+  - AG1-07
+  - AG1-05
+  - AG1-04
+  - AG1-03
+  - RNG2
+official_scope: []
+learning_objectives:
+  - Zariski接空間を消滅イデアルの一次条件で定義し生成方程式のJacobianの核として計算できる
+  - 座標の異なる具体曲線や交差点で接空間の次元を求め幾何学的次元と比較できる
+  - 点の局所環の極大イデアルから余接空間M/M²を定義し具体計算できる
+  - 方向微分の局所化を構成し接空間とM/M²の双対の自然同型を証明できる
+  - 正則写像の接写像と連鎖律を証明しパラメータ表示の微分が零になる例を説明できる
+  - 既約超曲面の次元とJacobian階数の関係を証明し滑らかさ判定の未証明部分を識別できる
+  - 非根基的方程式の一次情報と点集合の接空間を区別し反例を与えられる
+definitions:
+  - { id: AG1-10-DEF-01, name: Zariski接空間 }
+  - { id: AG1-10-DEF-02, name: Zariski余接空間 }
+  - { id: AG1-10-DEF-03, name: 内在的接空間 }
+theorems:
+  - { id: AG1-10-PROP-01, name: 生成方程式とJacobian行列 }
+  - { id: AG1-10-THM-01, name: Jacobianの核と局所環の双対の一致 }
+  - { id: AG1-10-PROP-02, name: 正則写像による接写像 }
+  - { id: AG1-10-PROP-03, name: 既約超曲面の次元と一次接条件 }
+  - { id: AG1-10-PROP-04, name: 根基化と一次情報の違い }
+canonical_examples:
+  - 放物線の接方向とその一次Taylor展開
+  - 二軸の原点と非原点でのJacobian階数
+  - 局所環k[t]_(t)の一次商
+  - 尖点のパラメータ表示と零接写像
+  - 二重零点x²と根基化xの接空間の差
+problem_patterns:
+  - AG1-10-LINEAR-SPACE
+  - AG1-10-PARABOLA-TANGENT
+  - AG1-10-CROSSING-AXES
+  - AG1-10-CUSP-JACOBIAN
+  - AG1-10-REDUNDANT-EQUATION
+  - AG1-10-COTANGENT-AXES
+  - AG1-10-PARAMETRIZATION-DERIVATIVE
+  - AG1-10-HYPERSURFACE-RANK
+  - AG1-10-NILPOTENT-THICKENING
+  - AG1-10-TANGENT-MAP-INVERSE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 7, review: 4 }

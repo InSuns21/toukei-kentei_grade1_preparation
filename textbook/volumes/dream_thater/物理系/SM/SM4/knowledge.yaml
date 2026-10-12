@@ -1,0 +1,69 @@
+chapter: SM4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SM3
+  - TH7
+  - F0-00P3
+forward_references: []
+concepts:
+  - id: statistical-mechanics.grand-canonical-ensemble
+    name: 有限大正準アンサンブルと大分配関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限大正準アンサンブルと大分配関数）]
+    requires: [statistical-mechanics.canonical-ensemble, thermodynamics.multicomponent-chemical-potential]
+  - id: statistical-mechanics.grand-partition-function
+    name: 大分配関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限大正準アンサンブルと大分配関数）]
+    requires: [statistical-mechanics.partition-function]
+  - id: statistical-mechanics.grand-normalization
+    name: 規格化・粒子数の周辺分布・条件付き正準分布
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（規格化・粒子数の周辺分布・条件付き正準分布）]
+    requires: [statistical-mechanics.grand-canonical-ensemble, statistical-mechanics.canonical-ensemble]
+  - id: statistical-mechanics.grand-reservoir-marginal
+    name: エネルギー・粒子保存下の厳密な周辺確率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（エネルギー・粒子保存下の厳密な周辺確率）]
+    requires: [statistical-mechanics.finite-bath-marginal, statistical-mechanics.grand-normalization, thermodynamics.multicomponent-chemical-potential]
+  - id: statistical-mechanics.number-fluctuation
+    name: 大分配関数の対数微分と粒子数揺らぎ
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（大分配関数の対数微分と粒子数揺らぎ）]
+    requires: [statistical-mechanics.grand-normalization, statistical-mechanics.grand-partition-function, prob.covariance]
+  - id: statistical-mechanics.grand-fixed-mu-energy
+    name: 化学ポテンシャル固定でのエネルギー交換量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（化学ポテンシャル固定でのエネルギー交換量）]
+    requires: [statistical-mechanics.grand-partition-function, statistical-mechanics.number-fluctuation]
+  - id: statistical-mechanics.grand-potential
+    name: 有限大熱力学ポテンシャル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限大熱力学ポテンシャル）]
+    requires: [statistical-mechanics.grand-partition-function, statistical-mechanics.canonical-helmholtz-energy]
+  - id: statistical-mechanics.grand-thermodynamic-identity
+    name: 大正準エントロピーと大熱力学ポテンシャル
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（大正準エントロピーと大熱力学ポテンシャル）]
+    requires: [statistical-mechanics.grand-potential, statistical-mechanics.gibbs-entropy, statistical-mechanics.grand-fixed-mu-energy]
+  - id: statistical-mechanics.grand-variational-principle
+    name: 有限大正準分布の変分原理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（有限大正準分布の変分原理）]
+    requires: [statistical-mechanics.grand-thermodynamic-identity, statistical-mechanics.canonical-variational-principle]
+  - id: statistical-mechanics.independent-occupancy-sites
+    name: 非相互作用の二値サイト模型
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（非相互作用の二値サイト模型）]
+    requires: [statistical-mechanics.number-fluctuation, statistical-mechanics.grand-normalization, statistical-mechanics.canonical-independent-systems]
