@@ -192,7 +192,7 @@ $$
 \end{aligned}
 $$
 
-これが全 $\eta$ で成り立つため $\dot\mu=\rho_{dH_\mu}(\mu)$ です。[軌道接空間の式](#def-gmech6-coadjoint-tangent)よりこの速度は常に軌道に接します。軌道上に制限した滑らかなベクトル場の局所解は、双対空間上の同じ初期値問題の解でもあります。[ODEの局所解一意性](../../../解析系/ODE/ODE8/index.md)により両者は一致します。この局所議論を解の存在する区間に沿って反復すれば軌道を出ません。
+これが全 $\eta$ で成り立つため $\dot\mu=\rho_{dH_\mu}(\mu)$ です。[軌道接空間の式](#def-gmech6-coadjoint-tangent)よりこの速度は常に軌道に接します。軌道上に制限した滑らかなベクトル場の局所解は、双対空間上の同じ初期値問題の解でもあります。[Picard–Lindelöfの局所存在・一意性](../../../解析系/ODE/ODE1/index.md#thm-ode1-picard-lindelof)により両者は一致します。この局所議論を解の存在する区間に沿って反復すれば軌道を出ません。
 
 最後に $\rho_\xi(\mu)=\xi\times\mu$ へ $\xi=\nabla H(\mu)$ を入れると $SO(3)$ の式が得られます。
 <!-- proof-end -->
@@ -254,7 +254,7 @@ $$
 
 従って $\xi$ を $\xi+\zeta$ に変えても右辺は変わりません。第二引数についても交代性で同じです。これは定義が接ベクトルだけで決まることを保証します。逆に $v=\rho_\xi(\nu)$ が全ての $w=\rho_\eta(\nu)$ と零の組合せを持てば、全 $\eta$ で $\langle\nu,[\xi,\eta]\rangle=0$ となり、同じ式から $\rho_\xi(\nu)=0$、つまり $v=0$ です。局所的には軌道写像の滑らかな切片で $\xi,\eta$ を選べるため係数も滑らかです。
 
-**閉性。** [LIE4の左作用の基本ベクトル場の交換子](../../../代数系/LIE/LIE4/index.md#thm-lie4-fundamental-bracket)は
+**閉性。** [LIE4の左作用の基本ベクトル場の交換子](../../../代数系/LIE/LIE4/index.md#thm-lie4-fundamental-flow-antihom)は
 
 $$
 [\rho_\xi,\rho_\eta]=-\rho_{[\xi,\eta]}.
