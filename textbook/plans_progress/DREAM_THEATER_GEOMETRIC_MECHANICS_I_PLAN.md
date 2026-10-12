@@ -1,7 +1,7 @@
 # DREAM THEATER 幾何学的力学 I（GMECH1〜GMECH8）
 
 作成・分冊: 2026-10-11  
-状態: in_progress（2026-10-12 着手。系列manifest登録と直接依存の照合を開始。GMECH1〜8の本文は未実装）
+状態: in_progress（2026-10-12 着手。GMECH1本文・詳細解答・章別metadataを実装。GMECH2〜8と系列横断査読が残る）
 
 ## 中心問い
 
@@ -24,8 +24,8 @@ Hamiltonian Lie群作用、運動量写像、幾何学的Noether、Marsden–Wei
 - SYM3 は余接持ち上げの定義、正準1形式の保存、余接持ち上げの合成則をすでに扱う。GMECH1ではそれらを重複して新定理にせず、**Lie群作用を各群元ごとに持ち上げて作用則と無限小生成子を調べる**ことを新しい中心課題とする。
 - SYM4 は $\iota_{X_H}\omega=dH$ と $\omega=\sum_i dq^i\wedge dp_i$ の規約を採用している。GMECH2の運動量写像の符号はこれに合わせて証明する。
 - SYM系列manifestではSYM3・SYM4を含む全8章が `completed` であり、幾何学的力学の直接前提PLANは完了状態にある。
-- 系列manifestを `textbook/dream-theater-series/GMECH.yaml` に新規登録し、GMECH1〜8を `planned` から管理する。章本文、章別metadata、公開索引は実装してから更新する。
-- GMECH1の本文執筆時には、GEO・LIEの実在する結果アンカーと個別前提を再照合する。GMECH1を未完成のまま公開しない。
+- 系列manifestを `textbook/dream-theater-series/GMECH.yaml` に新規登録し、GMECH1を `completed` とし、GMECH2〜8を `planned` から管理する。章本文、章別metadata、公開索引は実装してから更新する。
+- GMECH1の本文はGEO・LIE・SYMの実在する結果アンカーを照合し、変更章自身の査読・検証を通して公開する。
 
 ## 全8講の計画
 
