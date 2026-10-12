@@ -1,0 +1,39 @@
+id: "NDA3"
+title: "数の幾何と同時Diophantine近似"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NDA2
+  - LA3C
+official_scope: []
+learning_objectives:
+  - 全階数格子・基本領域・共体積を定義し、行列式による基底不変性と離散性を検証できる
+  - 基本領域への折り返しの平均重なり数からBlichfeldt補題を証明できる
+  - 原点対称性・凸性・閉性の役割を区別してMinkowskiの凸体定理の厳密不等号・等号の両方を証明できる
+  - d+1次元の格子と凸体の体積を計算して同時Dirichlet近似と分母無限個の結論を導ける
+  - 線形形式定理の行列式条件を確認し、整数係数線形結合・重み付き同時近似を構成できる
+definitions:
+  - { id: NDA3-DEF-01, name: 格子と基本領域 }
+  - { id: NDA3-DEF-02, name: 原点対称な凸体 }
+theorems:
+  - { id: NDA3-PROP-01, name: 共体積の基底不変性と格子の離散性 }
+  - { id: NDA3-LEM-01, name: Blichfeldt補題 }
+  - { id: NDA3-THM-01, name: Minkowskiの凸体定理 }
+  - { id: NDA3-THM-02, name: 同時Dirichlet近似 }
+  - { id: NDA3-COR-01, name: 分母無限個の同時近似 }
+  - { id: NDA3-THM-03, name: Minkowskiの線形形式定理 }
+  - { id: NDA3-COR-02, name: 整数係数線形結合の近似 }
+canonical_examples:
+  - 対角格子と斜め格子の共体積
+  - 閉正方形と開正方形におけるMinkowski等号の境界
+  - 平方根2と平方根3の共通分母と整数係数線形結合
+problem_patterns:
+  - NDA3-LATTICE-COVOLUME
+  - NDA3-BLICHFELDT-FOLDING
+  - NDA3-MINKOWSKI-BOUNDARY
+  - NDA3-SIMULTANEOUS-APPROXIMATION
+  - NDA3-LINEAR-FORMS-WEIGHTED
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 6, review: 3 }
+past_exam_alignment: []
+integrated_exam_problems: []
