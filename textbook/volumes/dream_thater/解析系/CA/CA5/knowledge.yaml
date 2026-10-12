@@ -60,7 +60,7 @@ concepts:
   - id: complex-analysis.holomorphic-germ
     name: 正則関数の芽
     kind: definition
-    aliases: [正則関数の芽, holomorphic germ]
+    aliases: [正則関数の芽, 芽, germ, holomorphic germ]
     requires: [complex-analysis.holomorphic-function]
 
   - id: complex-analysis.analytic-continuation-along-path
