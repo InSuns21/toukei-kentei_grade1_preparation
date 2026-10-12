@@ -1,0 +1,37 @@
+id: "NDA5"
+title: "無理性指数と近似指数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - NDA2
+official_scope: []
+learning_objectives:
+  - 無理性指数を既約分数・無限個・上限で厳密に定義し指数境界の量化を説明できる
+  - 有限個の例外から指数が大きい場合の定数付き一様近似下界を導ける
+  - 連分数によるDirichlet下界と平方根2の整数ノルムによる上界を証明できる
+  - 悪近似数と無理性指数2の含意と逆向きの反例を説明できる
+  - 第二種最良近似から分母成長率を使った無理性指数の公式を両方向に証明できる
+  - 部分商を構成して任意の有限指数と無限指数の具体例を示せる
+definitions:
+  - { id: NDA5-DEF-01, name: 無理性指数 }
+theorems:
+  - { id: NDA5-PROP-01, name: 指数の量化と上下界 }
+  - { id: NDA5-THM-01, name: 無理性指数の普遍下界 }
+  - { id: NDA5-PROP-02, name: 平方根2の無理性指数 }
+  - { id: NDA5-COR-01, name: 悪近似数の無理性指数 }
+  - { id: NDA5-LEM-01, name: 収束分数の誤差と分母区間 }
+  - { id: NDA5-THM-02, name: 無理性指数の連分数表示 }
+canonical_examples:
+  - 平方根2の整数係数二次式による一様下界
+  - 部分商が1,2,3と増大しても無理性指数2の非悪近似数
+  - 部分商を分母の冪に選んで無理性指数3、任意実数値、無限大を構成
+problem_patterns:
+  - NDA5-QUANTIFIER-SUPREMUM
+  - NDA5-QUADRATIC-LOWER-BOUND
+  - NDA5-CONTINUED-FRACTION-GROWTH
+  - NDA5-BADLY-APPROXIMABLE-CONVERSE
+  - NDA5-CONSTRUCT-EXPONENT
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 6, review: 3 }
+past_exam_alignment: []
+integrated_exam_problems: []
