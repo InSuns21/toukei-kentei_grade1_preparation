@@ -1,0 +1,46 @@
+id: "CELE1"
+title: "二体問題を可積分系として読み直す"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MECH6
+  - MECH7
+  - AMECH5
+  - AMECH6
+  - INT1
+  - INT2
+  - INT3
+official_scope: []
+learning_objectives:
+  - 質点二個の正準一形式と運動エネルギーを重心・相対座標へ分離できる
+  - 平面Kepler HamiltonianのHと角運動量のPoisson可換性・一般点の関数的独立性を検証できる
+  - 円軌道における階数低下と有効ポテンシャルの安定性を区別できる
+  - Runge--Lenzベクトルの保存を直接微分から証明し離心率とエネルギーの関係を導ける
+  - 束縛楕円軌道の動径作用積分を評価しKepler振動数の1対1共鳴を確認できる
+  - 三次元でH・角運動量二乗・角運動量成分が独立可換となる一般点を検証できる
+definitions:
+  - { id: CELE1-DEF-01, name: "Runge--Lenz ベクトル" }
+theorems:
+  - { id: CELE1-PROP-01, name: "二体Hamiltonianの重心分離" }
+  - { id: CELE1-THM-01, name: "非衝突平面Kepler系のLiouville可積分性" }
+  - { id: CELE1-PROP-02, name: "Runge--Lenzベクトルの保存と離心率" }
+  - { id: CELE1-PROP-03, name: "束縛Kepler軌道の作用と振動数" }
+canonical_examples:
+  - "質量2と3の二質点の正準重心分離と運動エネルギーの一致"
+  - "円軌道でのdHとdLの階数低下"
+  - "放物線初期値からRunge--Lenzベクトルを直接計算"
+  - "離心率3/5の束縛Kepler軌道で動径作用と周期を計算"
+  - "三次元のH・L二乗・LzのPoisson可換性と小行列式"
+problem_patterns:
+  - CELE1-REDUCED-MASS
+  - CELE1-CIRCULAR-ORBIT
+  - CELE1-POISSON-INDEPENDENCE
+  - CELE1-ORBIT-CLASSIFICATION
+  - CELE1-RUNGE-LENZ
+  - CELE1-CIRCULAR-DEGENERACY
+  - CELE1-ACTION-FREQUENCY
+  - CELE1-SPATIAL-INTEGRABILITY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 6, review: 2 }
