@@ -33,6 +33,8 @@ $$
 <!-- definition-example-start: def-int5-type2-generator -->
 ### 直接例：一つの波で作用と角度を両方動かす
 
+**定義の確認**：生成関数を両変数で微分し、作用と角度の補正が定義通りに現れることを確かめます。
+
 $W(J,\theta)=a(J)\sin\theta_1$ とします。定義により
 $$
 I_1=J_1+\varepsilon a(J)\cos\theta_1,\quad
@@ -194,6 +196,8 @@ $$
 <!-- definition-example-start: def-int5-resonant-projection -->
 ### 直接例：速い和角と遅い差角
 
+**定義の確認**：各波数と固定振動数との内積を計算し、共鳴射影がどの波を残すかを確認します。
+
 $\Omega_*=(1,1)$、$f=2\cos(\theta_1-\theta_2)+3\cos(\theta_1+\theta_2)$ とします。$k=(1,-1)$ では $k\cdot\Omega_*=0$、$k=(1,1)$ では $k\cdot\Omega_*=2$ です。従って $P_*f=2\cos(\theta_1-\theta_2)$ です。差角の波は残り、和角の波は除去できます。
 <!-- definition-example-end -->
 
@@ -262,6 +266,8 @@ $$
 
 <!-- definition-example-start: def-int5-resonant-coordinates -->
 ### 直接例：保存作用と共鳴作用
+
+**定義の確認**：新座標への代入で共鳴角だけがHamilton関数に現れることを検査します。
 
 $\cos(\theta_1-\theta_2)$ だけに依存する摂動なら、新Hamilton関数は $\phi$ に依存しないので $\dot Q=-\partial_\phi H=0$ です。一方 $P$ は $\psi$ によって変化します。元の $I_1+I_2$ の保存と一致します。
 <!-- definition-example-end -->
